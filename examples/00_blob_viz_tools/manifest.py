@@ -30,7 +30,7 @@ thing that shipped. Nothing here re-derives what `data_check` already decides; `
 `protected` and `data_literal` are imported, and a key graded one way by the gate therefore cannot
 be graded another way here.
 
-WHAT IT REFUSES
+WHAT IT ERRORS
 
 A builder whose template is gone. A template read that no builder supplies, being `data_check`'s
 finding raised to the set. And any drift between the record and the tree. That last one is the

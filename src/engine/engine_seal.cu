@@ -21,7 +21,7 @@ int entry_side_pack(EngineSideSection *section, EngineError *error)
     pack.out = section->packed;
     pack.out_capacity = capacity;
     const long long packed = deflate_raw_encode(&pack);
-    // a packed count that is not refused is at least zero, and fits an unsigned long long exactly
+    // a packed count that is not errored is at least zero, and fits an unsigned long long exactly
     section->packed_bytes = (packed >= 0ll) ? (unsigned long long)packed : 0ull;
     return ENGINE_CHECK(packed >= 0ll, section->packed, error, ENGINE_ERROR_RESOURCE);
 }

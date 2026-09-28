@@ -39,9 +39,9 @@ AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
 WANTED_CHARACTERS = 220000
 PER_REQUEST = 20
 MOST_REQUESTS = 40
-# One language at a time with a pause between requests. Six at once with no pacing was refused outright
+# One language at a time with a pause between requests. Six at once with no pacing errored outright
 # for every language, and a public interface that answers 429 is asking to be asked more slowly. The
-# waits are kept short: quadrupling four times means a language whose requests are all refused takes
+# waits are kept short: quadrupling four times means a language whose requests are all errored takes
 # hours to report that it failed. The first attempt spent its time exactly that way.
 WORKERS = 1
 PAUSE = 1.1
@@ -82,13 +82,13 @@ def pull(code, seen, offset):
             with urllib.request.urlopen(request, timeout=120) as response:
                 payload = json.loads(response.read().decode("utf-8"))
             break
-        except urllib.error.HTTPError as refused:
-            if refused.code != 429:
+        except urllib.error.HTTPError as error:
+            if error.code != 429:
                 raise
-            # Backing off further each time, since a refusal means the last pace was still too fast
+            # Backing off further each time, since an error means the last pace was still too fast
             time.sleep(PAUSE * (3 ** (attempt + 1)))
     if payload is None:
-        raise RuntimeError("refused after %d attempts" % RETRIES)
+        raise RuntimeError("errored after %d attempts" % RETRIES)
     time.sleep(PAUSE)
 
     found = []

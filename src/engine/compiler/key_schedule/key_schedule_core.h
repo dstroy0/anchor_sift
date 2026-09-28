@@ -18,7 +18,7 @@
 #define KEY_SCHEDULE_CORE static inline
 #endif
 
-// how a layout ends: every step laid out; a step refused, the one at `at`; the file past ENGINE_RECORD_LIMBS_MAX; or
+// how a layout ends: every step laid out; a step errored, the one at `at`; the file past ENGINE_RECORD_LIMBS_MAX; or
 // the record's bits past a 31-bit count
 enum KeyScheduleCoreEnd
 {
@@ -163,7 +163,7 @@ KEY_SCHEDULE_CORE int key_schedule_core_places(KeyScheduleCoreLayout *layout)
         unsigned long long place = 0ull;
         for (unsigned int step = 0u; step < steps; step += 1u)
         {
-            // a place past ENGINE_RECORD_LIMBS_MAX refuses the layout below, and a place laid out is a 32-bit count
+            // a place past ENGINE_RECORD_LIMBS_MAX errors on the layout below, and a place laid out is a 32-bit count
             layout->steps[step].place = (unsigned int)place;
             place += layout->steps[step].limbs;
         }
@@ -236,7 +236,7 @@ KEY_SCHEDULE_CORE int key_schedule_core_places(KeyScheduleCoreLayout *layout)
 }
 
 // the layout ended at `at` as `end`; 0, which the layout returns
-KEY_SCHEDULE_CORE int key_schedule_core_refuse(KeyScheduleCoreLayout *layout, unsigned int end, unsigned int at)
+KEY_SCHEDULE_CORE int key_schedule_core_error(KeyScheduleCoreLayout *layout, unsigned int end, unsigned int at)
 {
     layout->end = end;
     layout->at = at;
@@ -282,7 +282,7 @@ KEY_SCHEDULE_CORE int key_schedule_core_record_layout(KeyScheduleCoreLayout *lay
                   (((unsigned long long)layout->field_offset[term->left] + term->bits) <=
                    (32ull * (unsigned long long)layout->in_limbs[term->member]))))
             {
-                return key_schedule_core_refuse(layout, KEY_SCHEDULE_CORE_STEP, step);
+                return key_schedule_core_error(layout, KEY_SCHEDULE_CORE_STEP, step);
             }
             device->left = layout->field_offset[term->left];
             device->right = term->bits;
@@ -298,7 +298,7 @@ KEY_SCHEDULE_CORE int key_schedule_core_record_layout(KeyScheduleCoreLayout *lay
             if (!((layout->tables != NULL) && (term->right < layout->table_count) &&
                   (layout->table_offset[term->right] <= 0x7FFFFFFFull)))
             {
-                return key_schedule_core_refuse(layout, KEY_SCHEDULE_CORE_STEP, step);
+                return key_schedule_core_error(layout, KEY_SCHEDULE_CORE_STEP, step);
             }
             device->left = term->left;
             device->index_bits = layout->tables[term->right].index_bits;
@@ -325,7 +325,7 @@ KEY_SCHEDULE_CORE int key_schedule_core_record_layout(KeyScheduleCoreLayout *lay
     }
     if (key_schedule_core_places(layout) == 0)
     {
-        return key_schedule_core_refuse(layout, KEY_SCHEDULE_CORE_FILE, 0u);
+        return key_schedule_core_error(layout, KEY_SCHEDULE_CORE_FILE, 0u);
     }
     layout->out_bits = 0ull;
     for (unsigned int output = 0u; output < layout->output_count; output += 1u)
@@ -338,7 +338,7 @@ KEY_SCHEDULE_CORE int key_schedule_core_record_layout(KeyScheduleCoreLayout *lay
     }
     if (layout->out_bits > 0x7FFFFFFFull)
     {
-        return key_schedule_core_refuse(layout, KEY_SCHEDULE_CORE_OUTPUT, 0u);
+        return key_schedule_core_error(layout, KEY_SCHEDULE_CORE_OUTPUT, 0u);
     }
     return 1;
 }

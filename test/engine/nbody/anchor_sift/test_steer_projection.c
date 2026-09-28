@@ -35,7 +35,7 @@ static int check_projection_closes(void)
 
     if (anchor_field_project(&loose) == 0)
     {
-        printf("  the projection refused the chain: FAILS\n");
+        printf("  the projection errored on the chain: FAILS\n");
         return 1;
     }
 
@@ -63,11 +63,11 @@ static int check_projection_closes(void)
            (differing == 0u) ? "sound" : "UNSOUND");
     failed += (differing == 0u) ? 0 : 1;
 
-    // A FIELD WITH MORE CLASSES THAN A BYTE RANK CAN NAME MUST BE REFUSED AND NOT DEGRADED. The
+    // A FIELD WITH MORE CLASSES THAN A BYTE RANK CAN NAME MUST BE ERROR AND NOT DEGRADED. The
     // degradation it replaces was measured: the overflow was decided at discovery, before
     // the rarity sort. The merged set was chosen by arrival order, and since a rare class arrives
     // late the overflow ate the rarest classes. Two fields with identical histograms merged sets
-    // whose mean occupancies differed by a factor of 8.5. Refusing is checked here because a silent
+    // whose mean occupancies differed by a factor of 8.5. Erroring is checked here because a silent
     // degradation is indistinguishable from a good projection at the call site.
     const size_t wide_len = 400u;
     uint32_t *const wide = (uint32_t *)malloc(wide_len * sizeof(uint32_t));
@@ -129,9 +129,9 @@ static int check_projection_closes(void)
     free(wide_members);
     free(wide_place);
 
-    // A REFUSAL WRITES NOTHING, AND THAT IS CHECKED BY PLANTING A SENTINEL. Fail closed says a
+    // A ERROR WRITES NOTHING, AND THAT IS CHECKED BY PLANTING A SENTINEL. Fail closed says a
     // request that cannot be met changes no state. The undersize path used to zero `distinct` while
-    // the null and zero-length paths left it alone. A caller could not tell a refused zero from a
+    // the null and zero-length paths left it alone. A caller could not tell an errored zero from a
     // measured zero. The realistic caller error is sizing the buffers by an expected class count
     // and not by `length`, which hands over buffers correct for the field they had in mind.
     {
@@ -140,10 +140,10 @@ static int check_projection_closes(void)
         const AnchorFieldProjection undersize = {near_same_in_field, chain,   length, ranks, class_of, members, place,
                                                  length - 1u,        &planted};
 
-        const int refused = anchor_field_project(&undersize);
+        const int error = anchor_field_project(&undersize);
 
-        printf("  %38s %8d %8s %10s\n", "buffers one short, refused", refused, "0", (refused == 0) ? "refused" : "RAN");
-        failed += (refused == 0) ? 0 : 1;
+        printf("  %38s %8d %8s %10s\n", "buffers one short, errored", error, "0", (error == 0) ? "errored" : "RAN");
+        failed += (error == 0) ? 0 : 1;
 
         printf("  %38s %8zu %8zu %10s\n", "and distinct left untouched", planted, sentinel_count,
                (planted == sentinel_count) ? "ok" : "WROTE");
@@ -158,7 +158,7 @@ static int check_projection_closes(void)
 
     if (anchor_field_project(&strict) == 0)
     {
-        printf("  the projection refused the exact predicate: FAILS\n");
+        printf("  the projection errored on the exact predicate: FAILS\n");
         failed += 1;
     }
     else
@@ -349,7 +349,7 @@ static int check_any_type_agrees(void)
 
     if (anchor_field_project(&sample_projection) == 0)
     {
-        printf("  the projection refused the sample field: FAILS\n");
+        printf("  the projection errored on the sample field: FAILS\n");
         failed += 1;
     }
     else

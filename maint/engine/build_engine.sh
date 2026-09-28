@@ -90,7 +90,7 @@ esac
 
 # A cache naming a different compiler makes the configure fail outright, and the build tree is
 # generated output this script's own header says to delete freely. Removing the two files CMake
-# keys the toolchain on is cheaper than making a reader work out why a rerun refuses.
+# keys the toolchain on is cheaper than making a reader work out why a rerun errors.
 if [ -n "$compiler" ] && [ -f "$build/CMakeCache.txt" ]; then
     if ! grep -q "CMAKE_C_COMPILER:.*${compiler#-DCMAKE_C_COMPILER=}" "$build/CMakeCache.txt"; then
         echo "[*] cached toolchain differs, reconfiguring from scratch"

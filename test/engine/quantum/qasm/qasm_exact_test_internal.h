@@ -25,7 +25,7 @@ int qasm_test_function_is(const QasmRationalFunction *value, const char *expecte
 
 int qasm_test_clean(const EngineError *error);
 
-int qasm_test_refused_here(long status, const EngineError *error);
+int qasm_test_error_here(long status, const EngineError *error);
 
 extern QasmNumber qasm_test_hadamard[4];
 

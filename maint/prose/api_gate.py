@@ -40,7 +40,7 @@
 #
 #   {"endpoint": "...", "model": "...", "key_env": "NAME_OF_THE_VARIABLE", "extra_headers": {}}
 #
-# WHAT IT REFUSES TO SEND
+# WHAT IT ERRORS TO SEND
 #
 # Sending text to an outside service publishes that text. The closed corpus and the private
 # repositories beside this one never go, and there is no flag to make them. The hand extractions are
@@ -225,24 +225,24 @@ def main():
         for one in named
     ]
 
-    refused = []
+    error = []
     reading = []
     for path in sorted(docs_check.walk_markdown(roots)):
         if closed(path):
-            refused.append(path)
+            error.append(path)
             continue
         text, offsets = body(path)
         reading.append((path, text, offsets))
 
-    for path in refused:
+    for path in error:
         print(
             "  NOT SENT  %s"
             % os.path.relpath(path, docs_check.REPOSITORY).replace("\\", "/")
         )
-    if refused:
+    if error:
         print(
             "  %d file(s) held back. The closed corpus does not go to an outside service.\n"
-            % len(refused)
+            % len(error)
         )
 
     want = sum(len(text) for _path, text, _offsets in reading if len(text) >= FLOOR)

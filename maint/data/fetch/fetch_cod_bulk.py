@@ -58,7 +58,7 @@
 #
 # FAILING CLOSED
 #
-# A mirror holding no CIF after the sync is refused by name. The same applies to a flatten that finds
+# A mirror holding no CIF after the sync errors in name. The same applies to a flatten that finds
 # two files with one basename in the mirror. COD identifiers are unique. A collision means the
 # layout differs from the one this was written against, and copying either file over the other would
 # destroy one of them.
@@ -122,7 +122,7 @@ def sync(source, mirror, out):
 def flatten(mirror, flat, out):
     """Copy each mirror CIF into the flat cache where it is absent or its bytes differ.
 
-    Returns (copied, unchanged) or None after refusing a basename collision.
+    Returns (copied, unchanged) or None after erroring on a basename collision.
 
     The comparison is on content, and a size mismatch only lets it skip the read. A modification time
     cannot stand in for it. The flat cache already holds entries the HTTP fetch wrote, stamped with
@@ -139,12 +139,12 @@ def flatten(mirror, flat, out):
     if len(passed) > 20:
         out.write("    and %d more\n" % (len(passed) - 20))
     if not entries:
-        out.write("  REFUSED: no entry among the mirror's CIF files. This is not a corpus of zero.\n\n")
+        out.write("  ERROR: no entry among the mirror's CIF files. This is not a corpus of zero.\n\n")
         return None
     seen = {}
     for name, path in entries:
         if name in seen:
-            out.write("  REFUSED: two files named %s in the mirror:\n    %s\n    %s\n"
+            out.write("  ERROR: two files named %s in the mirror:\n    %s\n    %s\n"
                       % (name, seen[name], path))
             out.write("  COD identifiers are unique. The mirror layout is not the expected one.\n"
                       "  Copying one over the other would destroy a file.\n\n")
@@ -180,7 +180,7 @@ def main():
 
     if not args.flatten_only:
         if not args.source:
-            out.write("\n  REFUSED: no source named. Pass --source or set %s.\n" % SOURCE_VARIABLE)
+            out.write("\n  ERROR: no source named. Pass --source or set %s.\n" % SOURCE_VARIABLE)
             out.write("  The archive's module is rsync://www.crystallography.net/cif/ and it is\n")
             out.write("  not assumed.\n\n")
             return 1
@@ -192,13 +192,13 @@ def main():
             return status
 
     if not os.path.isdir(args.mirror):
-        out.write("\n  REFUSED: no mirror directory at that path. This is not a mirror of zero.\n\n")
+        out.write("\n  ERROR: no mirror directory at that path. This is not a mirror of zero.\n\n")
         return 1
 
     held = len(cif_files(args.mirror))
     out.write("\n  %d CIF files in the mirror\n" % held)
     if held == 0:
-        out.write("  REFUSED: the mirror holds no CIF. This is not a corpus of zero.\n\n")
+        out.write("  ERROR: the mirror holds no CIF. This is not a corpus of zero.\n\n")
         return 1
 
     result = flatten(args.mirror, args.flat, out)

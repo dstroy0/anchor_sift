@@ -27,7 +27,7 @@
 # ~/.claude/sapling.key. A key committed once is a key in every clone and in every archive built
 # from one. Nothing here writes it, prints it, logs it, or puts it in a URL.
 #
-# WHAT IT REFUSES TO SEND
+# WHAT IT ERRORS TO SEND
 #
 # Sending text to an outside service publishes that text. Two classes never leave this machine.
 #
@@ -50,7 +50,7 @@
 #
 # The free quota is 50,000 characters a day and 250,000 a month. This tree holds much more prose
 # than that. A run over all of it cannot happen quietly. A run that would exceed
-# the budget refuses to start and prints the overage. It never sends a part of what it was asked for
+# the budget errors rather than start and prints the overage. It never sends a part of what it was asked for
 # and reports that as the answer: a partial scan presented as a scan is the failure mode this file
 # exists to prevent.
 
@@ -82,7 +82,7 @@ BUDGET = 40000
 CHUNK = 20000
 FLOOR = 300
 
-# Seconds. A commit hook that hangs on a request costs more than one that refuses.
+# Seconds. A commit hook that hangs on a request costs more than one that errors.
 TIMEOUT = 60
 
 # Responses, keyed by the hash of the exact text sent and the version that scored it. Under build/
@@ -233,11 +233,11 @@ def main():
     for one in named:
         roots.append(one if os.path.exists(one) else os.path.join(docs_check.REPOSITORY, one))
 
-    refused = []
+    error = []
     reading = []
     for path in sorted(docs_check.walk_markdown(roots)):
         if closed(path):
-            refused.append(path)
+            error.append(path)
             continue
         text, offsets = body(path)
         if len(text) < FLOOR:
@@ -245,11 +245,11 @@ def main():
             continue
         reading.append((path, text, offsets, "score"))
 
-    for path in refused:
+    for path in error:
         print("  NOT SENT  %s" % os.path.relpath(path, docs_check.REPOSITORY).replace("\\", "/"))
-    if refused:
+    if error:
         print("  %d file(s) held back. The closed corpus does not go to an outside service.\n"
-              % len(refused))
+              % len(error))
 
     want = sum(len(text) for _path, text, _offsets, kind in reading if kind == "score")
     short = sum(1 for one in reading if one[3] == "short")

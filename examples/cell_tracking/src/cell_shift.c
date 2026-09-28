@@ -157,7 +157,7 @@ int main(int argc, char **argv)
         const size_t agreed = engine->agreement(positions, values, total, &lag);
         if (agreed == (size_t)-1)
         {
-            (void)fprintf(stderr, "  the engine refused the work at dz %ld\n", dz);
+            (void)fprintf(stderr, "  the engine errored on the work at dz %ld\n", dz);
             break;
         }
         (void)printf("  %-10ld %-14llu %zu\n", dz, step, agreed);

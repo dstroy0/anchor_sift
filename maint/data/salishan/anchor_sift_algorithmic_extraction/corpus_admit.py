@@ -103,7 +103,7 @@ SIFTED = os.path.join(ROOT, "build", "corpora", "sifted")
 # How many candidates to test at once. One line moves a distribution too little to measure.
 BATCH = 40
 
-# How far above the corpus's own D_self a batch may push it before it is refused.
+# How far above the corpus's own D_self a batch may push it before it errors.
 SLACK = 1.25
 
 
@@ -115,7 +115,7 @@ def admit(pure, found):
 
     held = list(pure)
     taken = []
-    refused = []
+    error = []
     for at in range(0, len(ranked), BATCH):
         batch = ranked[at : at + BATCH]
         trial = held + batch
@@ -123,9 +123,9 @@ def admit(pure, found):
             held = trial
             taken.extend(batch)
         else:
-            refused.extend(ranked[at:])
+            error.extend(ranked[at:])
             break
-    return taken, refused, floor, self_distance(held)
+    return taken, error, floor, self_distance(held)
 
 
 def main():
@@ -142,7 +142,7 @@ def main():
     for name in sorted(pure):
         if not found.get(name):
             continue
-        taken, refused, floor, after = admit(pure[name], found[name])
+        taken, error, floor, after = admit(pure[name], found[name])
         profile, _ = squash(pure[name] + taken)
         out.write(
             "  %-16s %-8d %-11d %-9d %-9.4f %-8.4f %d\n"
@@ -172,25 +172,25 @@ def main():
                 % (SLACK, floor, after)
             )
             handle.write(
-                "# %d of %d candidates admitted. The rest are in the .refused file, and\n"
+                "# %d of %d candidates admitted. The rest are in the .errored file, and\n"
                 % (len(taken), len(found[name]))
             )
             handle.write(
-                "# refused means the corpus left its own curve, not that the line is wrong.\n"
+                "# errored means the corpus left its own curve, not that the line is wrong.\n"
             )
             for one in taken:
                 handle.write("%s\n" % one)
 
-        target = os.path.join(SIFTED, "%s.refused.txt" % name.replace(" ", ""))
+        target = os.path.join(SIFTED, "%s.errored.txt" % name.replace(" ", ""))
         with open(target, "w", encoding="utf-8", newline="") as handle:
-            handle.write("# %s candidates the corpus curve refused.\n" % name)
+            handle.write("# %s candidates the corpus curve errored.\n" % name)
             handle.write(
                 "# Sorted by distance to the corpus, nearest first. The boundary is\n"
             )
             handle.write(
                 "# at the top of this file and the least like anything is at the bottom.\n"
             )
-            for one in refused:
+            for one in error:
                 handle.write("%s\n" % one)
 
     out.write(

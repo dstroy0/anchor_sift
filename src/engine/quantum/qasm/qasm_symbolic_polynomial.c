@@ -48,7 +48,7 @@ void qasm_polynomial_release(QasmPolynomial *polynomial)
     polynomial->low = 0;
 }
 
-// the powers low .. low + count - 1, every coefficient zero; the polynomial is empty on a refusal
+// the powers low .. low + count - 1, every coefficient zero; the polynomial is empty on an error
 long qasm_polynomial_alloc(long long low, unsigned long long count, QasmPolynomial *polynomial, EngineError *error)
 {
     polynomial->low = 0;

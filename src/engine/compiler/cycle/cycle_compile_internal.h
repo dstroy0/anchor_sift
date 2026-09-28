@@ -23,7 +23,7 @@
 // launches it again from there until every lane is done: a launch never outlives the display driver's watchdog, and no
 // lane runs twice. The host reads the block only once a launch has ended. Six switches, read at each load or run:
 // CYCLE_RECORD_INTERPRET=1 keeps every program on the interpreter, CYCLE_RECORD_CHECK=1 runs both on every launch and
-// refuses the launch where their records or refusals differ, CYCLE_RECORD_REPORT=1 says on stderr where each program
+// errors on the launch where their records or errors differ, CYCLE_RECORD_REPORT=1 says on stderr where each program
 // came from and how long each kernel ran, CYCLE_RECORD_TTL=<microseconds> sets a launch's time to live,
 // CYCLE_RECORD_LTO=1 builds the programs as LTO-IR and links each with link-time optimization, which writes no PTX,
 // and CYCLE_RECORD_NVRTC=1 writes every lane as C source. A seventh, CODEGEN_DEVICE=1, has the device write each

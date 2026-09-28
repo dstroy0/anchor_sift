@@ -18,7 +18,7 @@
 #
 # IT REPORTS. IT DOES NOT DECIDE, AND IT MUST NOT BE WIRED AS ONE
 #
-# A scanner that refuses a contribution on its own automates away the human that CONTRIBUTING.md:8
+# A scanner that errors on a contribution on its own automates away the human that CONTRIBUTING.md:8
 # requires, in the name of enforcing that rule. Nothing here prints pass, fail, accept or reject,
 # and the exit status reports what was found and never what to do about it. Do not put this in a
 # hook that rejects. Whoever wires it up next will not have read the conversation this came out of.
@@ -30,7 +30,7 @@
 # TWO SURFACES
 #
 # A name. Generated text pasted in whole tends to carry the vendor's own name somewhere, in a
-# preamble, a refusal, or a stray line of chat. That is the cheap surface and it catches the
+# preamble, an error, or a stray line of chat. That is the cheap surface and it catches the
 # careless case only.
 #
 # A register. This surface carries the measurement. maint/prose/docs_check.py holds 285 patterns and,
@@ -123,7 +123,7 @@ ALLOWED = ("claudetite",)
 # as L, e, U+0301, and \w alone stops at the mark and falls through to a lowercase start further
 # along, which reported one bibliography entry as a vendor reference.
 #
-# These do not clear a line. They move it to a count that prints and refuses nothing, and the lines
+# These do not clear a line. They move it to a count that prints and errors nothing, and the lines
 # themselves print under --people. A hit that is quietly dropped is a hit nobody reads.
 LETTER = r"[^\W\d_]"
 MARK = chr(0x0300) + chr(0x002D) + chr(0x036F)
@@ -287,7 +287,7 @@ def walk(roots):
 
 
 def git(root, *arguments):
-    """One git command in one repository, as text, or None where git refused.
+    """One git command in one repository, as text, or None where git errored.
 
     core.quotePath is turned OFF for every call and not at the two sites that list paths.
 
@@ -322,7 +322,7 @@ def git(root, *arguments):
 
 
 def tracked(root):
-    """Every path git tracks under one repository root, or None where git refused.
+    """Every path git tracks under one repository root, or None where git errored.
 
     The tree mode asks a question about a contribution too: whether what a contributor is being
     asked to work inside already carries the thing being screened for.
@@ -533,7 +533,7 @@ def main():
         root = os.path.abspath(given[0])
         paths = tracked(root)
         if paths is None:
-            out.write("  %s is not a git repository, or git refused\n" % given[0])
+            out.write("  %s is not a git repository, or git errored\n" % given[0])
             out.flush()
             return 2
         branch, clones = served(root)

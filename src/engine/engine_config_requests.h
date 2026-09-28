@@ -58,7 +58,7 @@ extern "C"
     // A background order is even on every axis. A smooth order may be odd. An order o's window starts floor((o + 1) /
     // 2) before the voxel: on an axis whose smooth order is odd, both terms and the residual with them sit half a voxel
     // before the voxel of the lane's index. `offset_halves` receives that place per axis in half voxels, -1 on such an
-    // axis and 0 on the others. A request with an odd smooth order and no `offset_halves` refuses, and the offset is
+    // axis and 0 on the others. A request with an odd smooth order and no `offset_halves` errors, and the offset is
     // never lost.
     typedef struct
     {
@@ -160,12 +160,12 @@ extern "C"
         unsigned long long launch_time;
         unsigned long long runtime;
         unsigned long long exectime;
-        // its progress: check-ins in order, the last one's time, the launches the run took, its lanes and the refused
+        // its progress: check-ins in order, the last one's time, the launches the run took, its lanes and the errored
         unsigned long long checkin;
         unsigned long long checkin_time;
         unsigned long long launches;
         unsigned long long lanes;
-        unsigned long long refused;
+        unsigned long long error;
         // how it failed: the engine module and the site, as EngineError holds them
         unsigned long long error_module;
         unsigned long long error_site;

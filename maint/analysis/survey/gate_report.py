@@ -58,7 +58,7 @@ def main():
     out.write("  %-34s %-12s %-9s %s\n" % ("corpus", "should be", "is", "verdict"))
     for share, name, language, letters in checked:
         if share < FLOOR:
-            verdict = "below the floor, would be refused"
+            verdict = "below the floor, would error"
         elif share < 0.90:
             verdict = "carries other writing"
         elif share < 0.98:
@@ -69,10 +69,10 @@ def main():
 
     bad = [row for row in checked if row[0] < FLOOR]
     mixed = [row for row in checked if FLOOR <= row[0] < 0.90]
-    out.write("\n  %d would be refused outright, %d carry noticeable other writing\n"
+    out.write("\n  %d would error outright, %d carry noticeable other writing\n"
               % (len(bad), len(mixed)))
     if bad:
-        out.write("  refused: %s\n" % ", ".join(row[1] for row in bad))
+        out.write("  errored: %s\n" % ", ".join(row[1] for row in bad))
 
     out.flush()
     return 0

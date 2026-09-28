@@ -40,7 +40,7 @@
 
 // A call's width-sized working copies are one block, placed at compile time: on the stack while the width is at most
 // ANCHOR_EXACT_STACK_LIMBS, from the heap beyond it. No width is bounded by a stack. A block from the heap that
-// cannot be held is refused as ANCHOR_EXACT_WILL_NOT_FIT.
+// cannot be held errors as ANCHOR_EXACT_WILL_NOT_FIT.
 #if (ANCHOR_EXACT_LIMBS) <= (ANCHOR_EXACT_STACK_LIMBS)
 #define EXACT_SCRATCH(name_, count_)                                                                                   \
     uint32_t name_##_on_stack[count_];                                                                                 \

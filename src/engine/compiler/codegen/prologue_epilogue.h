@@ -5,7 +5,7 @@
 #include "instruction_selection.h"
 
 // The lane's own forms, decided after every step from what the steps left in the lane: the most of each bank any step
-// took, whether any reads the tables, and which can leave the lane refused. Each is decided in the order the lane was
+// took, whether any reads the tables, and which can leave the lane errored. Each is decided in the order the lane was
 // always written, the note, the lane's opening and its declarations, then its opening, its close, and where the body is
 // split, the schedule, then the body's opening and the lane's end, since a construct's scratch goes on from where each
 // bank stands; they are laid out into the text in another order (code_generator.cu)
@@ -49,11 +49,11 @@ CODEGEN_CORE void codegen_launch(MachineFunction *lane, MachineOperand to, unsig
 }
 
 // the lane's opening: its launch and number, the record's words no put writes stored as 0, and each member's atom found
-// as the interpreter finds it, a lane whose atom lies past its member refused before any step; then the words a
-// refusal would leave unlaid stored as 0, the program's tables where `tables` is 1, and where the language holds the
-// file in shared memory, its `places` there and where its signs begin after them. `refuses` is 1 for each step that can
-// leave the lane refused
-CODEGEN_CORE void codegen_open(MachineFunction *lane, const unsigned int *refuses, unsigned int tables,
+// as the interpreter finds it, a lane whose atom lies past its member errored before any step; then the words a
+// error would leave unlaid stored as 0, the program's tables where `tables` is 1, and where the language holds the
+// file in shared memory, its `places` there and where its signs begin after them. `errors` is 1 for each step that can
+// leave the lane errored
+CODEGEN_CORE void codegen_open(MachineFunction *lane, const unsigned int *errors, unsigned int tables,
                                unsigned int places)
 {
     const IrProgram *const program = lane->program;
@@ -75,7 +75,7 @@ CODEGEN_CORE void codegen_open(MachineFunction *lane, const unsigned int *refuse
     codegen_instr1(lane, OPCODE_TO_GLOBAL, record);
     codegen_instr3(lane, OPCODE_WIDE_MULTIPLY, wide, lane_number, codegen_immediate(4u * program->out_limbs));
     codegen_instr3(lane, OPCODE_WIDE_ADD, record, record, wide);
-    // a word no put writes is 0 on every lane, refused or not, and is stored before anything can refuse
+    // a word no put writes is 0 on every lane, errored or not, and is stored before anything can error
     for (unsigned int word = 0u; word < program->out_limbs; word += 1u)
     {
         if (program->put_last[word] == 0u)
@@ -114,17 +114,17 @@ CODEGEN_CORE void codegen_open(MachineFunction *lane, const unsigned int *refuse
         codegen_instr3(lane, OPCODE_WIDE_MULTIPLY, wide, body, codegen_immediate(4u * program->in_limbs[member]));
         codegen_instr3(lane, OPCODE_WIDE_ADD, address, address, wide);
     }
-    codegen_instr1(lane, OPCODE_OPEN_REFUSED_UNLESS, ok);
-    // a word whose first put comes at or after a step the lane can leave refused is 0 in the record until its last put
-    // stores it, and the refusal stores only the words it holds in flight
-    unsigned int refusal_first = program->step_count;
-    for (unsigned int at = 0u; (at < program->step_count) && (refusal_first == program->step_count); at += 1u)
+    codegen_instr1(lane, OPCODE_OPEN_ERROR_UNLESS, ok);
+    // a word whose first put comes at or after a step the lane can leave errored is 0 in the record until its last put
+    // stores it, and the error stores only the words it holds in flight
+    unsigned int error_first = program->step_count;
+    for (unsigned int at = 0u; (at < program->step_count) && (error_first == program->step_count); at += 1u)
     {
-        refusal_first = (refuses[at] != 0u) ? at : refusal_first;
+        error_first = (errors[at] != 0u) ? at : error_first;
     }
     for (unsigned int word = 0u; word < program->out_limbs; word += 1u)
     {
-        if ((program->put_last[word] != 0u) && (program->put_first[word] >= refusal_first))
+        if ((program->put_last[word] != 0u) && (program->put_first[word] >= error_first))
         {
             codegen_instr2(lane, OPCODE_RECORD_STORE, codegen_number(4u * word), zero);
         }
@@ -146,26 +146,26 @@ CODEGEN_CORE void codegen_open(MachineFunction *lane, const unsigned int *refuse
     }
 }
 
-// a refused lane counted in the launch's refusals
-CODEGEN_CORE void codegen_count_refused(MachineFunction *lane)
+// an errored lane counted in the launch's errors
+CODEGEN_CORE void codegen_count_error(MachineFunction *lane)
 {
     const MachineOperand wide = codegen_register(REGCLASS_WIDE, 0u);
-    codegen_launch(lane, wide, (unsigned int)offsetof(CycleCompiledLaunch, refused));
+    codegen_launch(lane, wide, (unsigned int)offsetof(CycleCompiledLaunch, error));
     codegen_instr1(lane, OPCODE_TO_GLOBAL, wide);
     codegen_instr1(lane, OPCODE_COUNT_ASK, wide);
     codegen_instr1(lane, OPCODE_COUNT_ADD, wide);
 }
 
 // the lane's close. A lane that ran every step has stored each record word as its last put wrote it, and returns. A
-// lane refused leaves its record as its puts wrote it before it ended, as the interpreter does: refused at the open,
-// every word the steps write is 0; refused at a step, it stores the words it holds in flight, their first put before
+// lane errored leaves its record as its puts wrote it before it ended, as the interpreter does: errored at the open,
+// every word the steps write is 0; errored at a step, it stores the words it holds in flight, their first put before
 // that step and their last put that step or a later one. Every other word is already in the record, written or 0
-CODEGEN_CORE void codegen_close(MachineFunction *lane, const unsigned int *refuses)
+CODEGEN_CORE void codegen_close(MachineFunction *lane, const unsigned int *errors)
 {
     const IrProgram *const program = lane->program;
     codegen_instr0(lane, OPCODE_RETURN);
-    codegen_instr0(lane, OPCODE_LABEL_REFUSED_OPEN);
-    codegen_count_refused(lane);
+    codegen_instr0(lane, OPCODE_LABEL_ERROR_OPEN);
+    codegen_count_error(lane);
     for (unsigned int word = 0u; word < program->out_limbs; word += 1u)
     {
         if (program->put_last[word] != 0u)
@@ -176,12 +176,12 @@ CODEGEN_CORE void codegen_close(MachineFunction *lane, const unsigned int *refus
     codegen_instr0(lane, OPCODE_RETURN);
     for (unsigned int at = 0u; at < program->step_count; at += 1u)
     {
-        if (refuses[at] == 0u)
+        if (errors[at] == 0u)
         {
             continue;
         }
-        codegen_instr1(lane, OPCODE_LABEL_REFUSED, codegen_number(at));
-        codegen_count_refused(lane);
+        codegen_instr1(lane, OPCODE_LABEL_ERROR, codegen_number(at));
+        codegen_count_error(lane);
         for (unsigned int word = 0u; word < program->out_limbs; word += 1u)
         {
             // put_last is 1 past the last put's step

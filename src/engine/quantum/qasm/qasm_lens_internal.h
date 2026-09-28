@@ -59,7 +59,7 @@ typedef struct
 typedef struct
 {
     QasmLensRow pivot_row[QASM_LENS_LIFT_BITS];
-    unsigned char byte[QASM_LENS_LIFT_BITS];
+    unsigned char occupied[QASM_LENS_LIFT_BITS];
     unsigned int rank;
 } QasmLensBasis;
 

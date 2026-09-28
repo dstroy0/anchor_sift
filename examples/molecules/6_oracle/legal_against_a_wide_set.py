@@ -17,9 +17,9 @@
 #
 # The three are necessary for a structure to exist, and they are checked by integer equality and
 # comparison, with no tolerance. They are not sufficient: a formula that passes may still be a strained
-# or unstable isomer, and a multivalent atom read at one valence may be refused where a higher valence
+# or unstable isomer, and a multivalent atom read at one valence may error where a higher valence
 # would pass. So this is a sift, a necessary condition, and it is measured as one: run over a wide set
-# of real molecules it should pass nearly all of them, the positive control, and it should refuse the
+# of real molecules it should pass nearly all of them, the positive control, and it should error on the
 # crafted illegal formulae, the negative control.
 #
 # The wide set is the molecular formulae of the first several thousand PubChem compounds, fetched by
@@ -100,7 +100,7 @@ def legal(counts):
     return verdict, REASON.get(reason, reason)
 
 
-# Real molecules, which must pass, and crafted illegal formulae, which must be refused. Cited: the real
+# Real molecules, which must pass, and crafted illegal formulae, which must error. Cited: the real
 # ones are PubChem compounds; the illegal ones are named by what they break.
 LEGAL_CONTROL = ("H2O", "CH4", "NH3", "CO2", "C2H6O", "C6H6", "C8H10N4O2")
 ILLEGAL_CONTROL = (("CH5", "odd valence sum"), ("CH2", "an atom over-connected"),
@@ -108,7 +108,7 @@ ILLEGAL_CONTROL = (("CH5", "odd valence sum"), ("CH2", "an atom over-connected")
 
 
 def controls(out):
-    """Prove the sift: every real formula passes and every crafted illegal one is refused for its reason."""
+    """Prove the sift: every real formula passes and every crafted illegal one errors for its reason."""
     out.write("\n  CONTROLS.\n\n")
     passed = True
     for formula in LEGAL_CONTROL:
@@ -121,7 +121,7 @@ def controls(out):
         verdict, reason = legal(counts)
         caught = (verdict is False) and (reason == want)
         passed = passed and caught
-        out.write("    illegal %-12s refused for %-24s %s\n"
+        out.write("    illegal %-12s errored for %-24s %s\n"
                   % (formula, reason, "as wanted" if caught else "NOT AS WANTED, wanted %s" % want))
     return passed
 
@@ -161,10 +161,10 @@ def wide_set(out):
               % (charged, uncovered))
     out.write("    neutral and covered: %d\n" % neutral_covered)
     if neutral_covered:
-        out.write("    of those, %d pass the valence conditions, %d refused\n"
+        out.write("    of those, %d pass the valence conditions, %d errored\n"
                   % (legal_count, sum(illegal.values())))
     for reason in sorted(illegal, key=lambda one: -illegal[one]):
-        out.write("      refused, %-24s %d\n" % (reason, illegal[reason]))
+        out.write("      errored, %-24s %d\n" % (reason, illegal[reason]))
 
 
 def main(argv):
@@ -173,9 +173,9 @@ def main(argv):
     wide_set(out)
     out.write("\n  the conditions are a necessary condition read in integers: a real molecule meets them,\n")
     out.write("  the crafted illegal formulae do not, and the failures are decomposed, not just counted.\n")
-    out.write("  a refusal for too few bonds is a formula whose atoms cannot form one connected molecule;\n")
+    out.write("  an error for too few bonds is a formula whose atoms cannot form one connected molecule;\n")
     out.write("  inspected, these are net-neutral salts, an organic cation and a separate counter-ion\n")
-    out.write("  written as one formula, not one covalent molecule and right to refuse.\n\n")
+    out.write("  written as one formula, not one covalent molecule and right to error.\n\n")
     out.flush()
     return 0 if control_ok else 1
 

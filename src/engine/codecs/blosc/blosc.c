@@ -190,7 +190,7 @@ long long blosc_decode(const BloscDecodeRequest *request)
     {
         fprintf(
             stderr,
-            "blosc: refused a Blosc2 chunk (format version %u); only Blosc1 chunks, format version 2, are decoded\n",
+            "blosc: errored on a Blosc2 chunk (format version %u); only Blosc1 chunks, format version 2, are decoded\n",
             version);
         return ENGINE_BYTES_ERROR;
     }

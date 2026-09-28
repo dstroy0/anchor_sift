@@ -62,7 +62,7 @@ def main():
         language = name[4:-4]
         text, gate = load(os.path.join(CORPORA, name), cap=SAME_LENGTH * 2, clean=False)
         if text is None:
-            out.write("  %-12s refused: %s\n" % (language, gate))
+            out.write("  %-12s errored: %s\n" % (language, gate))
             continue
         if len(text) < SAME_LENGTH:
             out.write("  %-12s holds %d characters, under the %d wanted, used at its length\n"

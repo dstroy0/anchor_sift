@@ -409,7 +409,7 @@ int main(int count, char **arguments)
         bitwise_narrow(&results);
         bitwise_narrowed(&results);
         bitwise_wide(&results);
-        bitwise_refused(&results);
+        bitwise_error(&results);
         bitwise_stack(&results);
         bitwise_lifting(&results);
     }

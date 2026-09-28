@@ -29,8 +29,8 @@
  * 85 * distinct * sum(count^2) for a census whose total is a 64 bit count. The right side is below
  * 2^7 * 2^8 * 2^128 = 2^143: 85 is below 2^7, at most 256 symbols are distinct, and a sum of squared
  * counts is at most total^2. The narrowest power of two width holding 143 bits is 256, which is
- * 8 limbs. Narrower, the rule refuses on a large enough corpus, and which engine a corpus is given
- * would change with the width. The engine refuses the width here instead. The exact integer on its
+ * 8 limbs. Narrower, the rule errors on a large enough corpus, and which engine a corpus is given
+ * would change with the width. The engine errors on the width here instead. The exact integer on its
  * own builds and grades down to 1 limb. Written in the three forms exact_integer.h uses for its
  * asserts: static_assert for C++, _Static_assert for C11, and a negative array size before C11. */
 #if defined(__cplusplus)

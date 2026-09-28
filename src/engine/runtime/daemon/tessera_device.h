@@ -24,18 +24,18 @@ extern "C"
     } TesseraDevice;
 
     // a ledger laid out on the device with `capacity` jobs, kept peaks and deadlines to start; 0 where the device
-    // refuses it
+    // errors on it
     int tessera_device_open(TesseraDevice *device, unsigned long long capacity);
 
     void tessera_device_close(TesseraDevice *device);
 
-    // `count` calls made in order on the device, each answered in `answers`; 0 where the device refuses the memory or
+    // `count` calls made in order on the device, each answered in `answers`; 0 where the device errors on the memory or
     // a launch, or the arrays do not grow
     int tessera_device_calls(TesseraDevice *device, const TesseraCall *calls, unsigned long long count,
                              TesseraAnswer *answers);
 
     // the device's ledger read back into `copy`, a host ledger whose arrays are its counts, released by
-    // tessera_ledger_close; 0 where a copy is refused
+    // tessera_ledger_close; 0 where a copy errors
     int tessera_device_read(const TesseraDevice *device, TesseraLedger *copy);
 
 #ifdef __cplusplus

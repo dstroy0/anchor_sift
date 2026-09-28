@@ -63,8 +63,8 @@ def main():
         url = "%s/%s" % (BASE, name)
         try:
             size = head(url)
-        except urllib.error.HTTPError as refused:
-            out.write("  %-14s %-14s not offered as text (%s)\n" % (century, "", refused.code))
+        except urllib.error.HTTPError as error:
+            out.write("  %-14s %-14s not offered as text (%s)\n" % (century, "", error.code))
             continue
         except Exception as trouble:
             out.write("  %-14s %-14s %s\n" % (century, "", str(trouble)[:50]))

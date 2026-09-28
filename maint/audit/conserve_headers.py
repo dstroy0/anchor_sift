@@ -13,7 +13,7 @@ this workbook would need re-reading as a property of block 125552.
 Each header is built from the block's own fields and then **verified against that block's published
 hash** before it is used. Bitcoin's serialization reverses the two hashes and stores the integers
 little-endian, and this project has already had a prevhash byte order wrong once. A header that does
-not reproduce its own block id is not used, and that refusal is reported instead of measuring the wrong bytes.
+not reproduce its own block id is not used, and that error is reported instead of measuring the wrong bytes.
 
 Usage: python maint/audit/conserve_headers.py [how many headers] [domain bits]
 """

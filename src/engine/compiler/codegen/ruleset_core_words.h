@@ -10,7 +10,7 @@
 // held is a span of the file or of the texts the reader writes; a list is a span of one list the reader appends to.
 // The device runs it in one thread (codegen_device_reader.cu), since each line is read against every line before it.
 // The memory is the caller's, sized from the file (ruleset_core_capacities), which no read passes; where the host
-// refused, the read ends with why, and the caller writes the host's reason from it
+// errored, the read ends with why, and the caller writes the host's reason from it
 
 #include "machine_ir_types.h"
 

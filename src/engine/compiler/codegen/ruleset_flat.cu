@@ -20,7 +20,7 @@ int ruleset_file(Ruleset *rules, const std::string &path, std::string *text)
     FILE *const file = fopen(path.c_str(), "rb");
     if (file == NULL)
     {
-        rules->refused = "it could not be opened";
+        rules->error = "it could not be opened";
         return 0;
     }
     text->clear();
@@ -34,7 +34,7 @@ int ruleset_file(Ruleset *rules, const std::string &path, std::string *text)
     fclose(file);
     if (text->size() >= RULESET_FILE_MAX)
     {
-        rules->refused = "it is more than the reader holds";
+        rules->error = "it is more than the reader holds";
         return 0;
     }
     return 1;
@@ -235,12 +235,12 @@ void ruleset_keep(const RulesetCoreRead *read, const std::string &text, Ruleset 
     {
         rules->building_parameters.push_back(ruleset_flat_text(text, read->building_parameters[parameter]));
     }
-    rules->refused.clear();
+    rules->error.clear();
     if (read->end != RULESET_CORE_OK)
     {
         char where[32];
         snprintf(where, sizeof(where), "line %u: ", read->line);
-        rules->refused =
+        rules->error =
             ((read->line != 0u) ? std::string(where) : std::string()) + ruleset_flat_why(read, text, schema);
     }
 }

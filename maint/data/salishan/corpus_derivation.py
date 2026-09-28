@@ -134,7 +134,7 @@ FIGURE = os.path.join(CHAPTERS, "corpus-derivation.pdf")
 #
 # ORTHOGRAPHY_ABSENT is read from papers.py and not restated here. It used to be, as the single stem
 # 1975_Hilbert_Hess, and the other four in that tuple were counted into the bound as though their
-# tables disagreed with their papers. oracle_check refuses to count those same five and prints why,
+# tables disagreed with their papers. oracle_check errors rather than count those same five and prints why,
 # so the two tools were reading one fact two ways and the bound published in the chapter carried
 # 1864 and 216 failures that the check next door declines to report at all. That is exactly the
 # drift reported() warns about further down, arriving in the exclusion set instead of in the count.
@@ -522,7 +522,7 @@ def reported(module):
     """
 
     # Every check writes through sys.stdout.buffer so it can put these orthographies on a console
-    # that would otherwise refuse them. The capture has to offer a buffer of its own.
+    # that would otherwise error on them. The capture has to offer a buffer of its own.
     # This one declines to close because the wrapper the check builds around that buffer closes it
     # when it is collected, and a closed BytesIO will not hand its value back.
     class Kept(io.BytesIO):

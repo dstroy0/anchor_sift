@@ -11,18 +11,18 @@
  *       it easier to read.
  */
 /**
- * @brief Case 12. A descent stops, recurses, or refuses, and never revisits a state.
+ * @brief Case 12. A descent stops, recurses, or errors, and never revisits a state.
  *
  * @return Count of failures.
  *
  * THE TRICHOTOMY IS A CLAIM, AND THIS TEST ATTACKS IT. The guide states that a descent takes
  * one of exactly three branches: it stops when the destroy test fires, it recurses when a level
- * prunes, and it refuses to run at all when the question is malformed. The fourth branch it denies
+ * prunes, and it errors rather than run at all when the question is malformed. The fourth branch it denies
  * is cycling, returning to a state already held.
  *
- * Each branch is checked separately and the refusal is checked hardest, because a refusal that
+ * Each branch is checked separately and the error is checked hardest, because an error that
  * returns zero while having already written to the caller's buffer is indistinguishable from a
- * refusal that wrote nothing, unless somebody looks at the buffer. Every malformed call below is
+ * error that wrote nothing, unless somebody looks at the buffer. Every malformed call below is
  * made against a buffer filled with a sentinel, and the sentinel has to survive.
  *
  * No-revisiting is checked by requiring the placed offsets to be pairwise distinct. A descent that
@@ -31,7 +31,7 @@
  */
 int adversarial_case_trichotomy(void)
 {
-    printf("  a descent stops, recurses, or refuses, and never revisits\n");
+    printf("  a descent stops, recurses, or errors, and never revisits\n");
 
     uint8_t *const corpus = (uint8_t *)malloc(ADVERSARIAL_CORPUS);
     uint8_t needle[16];
@@ -56,19 +56,19 @@ int adversarial_case_trichotomy(void)
         return 1;
     }
 
-    // REFUSES. Six malformed questions, each against a sentinel filled buffer. The contract is that
-    // a refused call returns zero AND writes nothing, and only the second half needs looking for.
+    // ERRORS. Six malformed questions, each against a sentinel filled buffer. The contract is that
+    // an errored call returns zero AND writes nothing, and only the second half needs looking for.
     const size_t sentinel = (size_t)0xABCDEF01u;
     struct
     {
         const char *what;
         AnchorSteerDescent args;
-    } refusals[6];
+    } errors[6];
 
     size_t offsets[ANCHOR_STEER_ANCHORS];
 
-    refusals[0].what = "null offsets";
-    refusals[0].args = (AnchorSteerDescent){.offsets = NULL,
+    errors[0].what = "null offsets";
+    errors[0].args = (AnchorSteerDescent){.offsets = NULL,
                                             .count = ANCHOR_STEER_ANCHORS,
                                             .corpus = corpus,
                                             .corpus_len = ADVERSARIAL_CORPUS,
@@ -76,8 +76,8 @@ int adversarial_case_trichotomy(void)
                                             .needle_len = sizeof(needle),
                                             .survivors = survivors,
                                             .survivors_length = alignments};
-    refusals[1].what = "null corpus";
-    refusals[1].args = (AnchorSteerDescent){.offsets = offsets,
+    errors[1].what = "null corpus";
+    errors[1].args = (AnchorSteerDescent){.offsets = offsets,
                                             .count = ANCHOR_STEER_ANCHORS,
                                             .corpus = NULL,
                                             .corpus_len = ADVERSARIAL_CORPUS,
@@ -85,8 +85,8 @@ int adversarial_case_trichotomy(void)
                                             .needle_len = sizeof(needle),
                                             .survivors = survivors,
                                             .survivors_length = alignments};
-    refusals[2].what = "count over the bound";
-    refusals[2].args = (AnchorSteerDescent){.offsets = offsets,
+    errors[2].what = "count over the bound";
+    errors[2].args = (AnchorSteerDescent){.offsets = offsets,
                                             .count = ANCHOR_STEER_ANCHORS + 1u,
                                             .corpus = corpus,
                                             .corpus_len = ADVERSARIAL_CORPUS,
@@ -94,8 +94,8 @@ int adversarial_case_trichotomy(void)
                                             .needle_len = sizeof(needle),
                                             .survivors = survivors,
                                             .survivors_length = alignments};
-    refusals[3].what = "needle length zero";
-    refusals[3].args = (AnchorSteerDescent){.offsets = offsets,
+    errors[3].what = "needle length zero";
+    errors[3].args = (AnchorSteerDescent){.offsets = offsets,
                                             .count = ANCHOR_STEER_ANCHORS,
                                             .corpus = corpus,
                                             .corpus_len = ADVERSARIAL_CORPUS,
@@ -103,8 +103,8 @@ int adversarial_case_trichotomy(void)
                                             .needle_len = 0u,
                                             .survivors = survivors,
                                             .survivors_length = alignments};
-    refusals[4].what = "needle longer than corpus";
-    refusals[4].args = (AnchorSteerDescent){.offsets = offsets,
+    errors[4].what = "needle longer than corpus";
+    errors[4].args = (AnchorSteerDescent){.offsets = offsets,
                                             .count = ANCHOR_STEER_ANCHORS,
                                             .corpus = corpus,
                                             .corpus_len = 8u,
@@ -112,8 +112,8 @@ int adversarial_case_trichotomy(void)
                                             .needle_len = sizeof(needle),
                                             .survivors = survivors,
                                             .survivors_length = alignments};
-    refusals[5].what = "survivor buffer short by one";
-    refusals[5].args = (AnchorSteerDescent){.offsets = offsets,
+    errors[5].what = "survivor buffer short by one";
+    errors[5].args = (AnchorSteerDescent){.offsets = offsets,
                                             .count = ANCHOR_STEER_ANCHORS,
                                             .corpus = corpus,
                                             .corpus_len = ADVERSARIAL_CORPUS,
@@ -129,24 +129,24 @@ int adversarial_case_trichotomy(void)
             offsets[slot] = sentinel;
         }
 
-        const size_t placed = anchor_steer_spawn_coarms(&refusals[which].args);
+        const size_t placed = anchor_steer_spawn_coarms(&errors[which].args);
         if (placed != 0u)
         {
-            printf("    %s ran and placed %zu: FAILS\n", refusals[which].what, placed);
+            printf("    %s ran and placed %zu: FAILS\n", errors[which].what, placed);
             failed += 1;
         }
         for (size_t slot = 0u; slot < ANCHOR_STEER_ANCHORS; slot += 1u)
         {
             if (offsets[slot] != sentinel)
             {
-                printf("    %s wrote to the caller's buffer: FAILS\n", refusals[which].what);
+                printf("    %s wrote to the caller's buffer: FAILS\n", errors[which].what);
                 failed += 1;
                 break;
             }
         }
     }
 
-    // A null argument pointer is the seventh refusal and cannot be expressed in the table above.
+    // A null argument pointer is the seventh error and cannot be expressed in the table above.
     if (anchor_steer_spawn_coarms(NULL) != 0u)
     {
         printf("    a null argument pointer ran: FAILS\n");
@@ -194,7 +194,7 @@ int adversarial_case_trichotomy(void)
         failed += 1;
     }
 
-    printf("    refused 7 malformed questions, recursed to %zu distinct offsets, stopped at %zu,"
+    printf("    errored 7 malformed questions, recursed to %zu distinct offsets, stopped at %zu,"
            " verdict %s\n",
            forced, stopped, (failed == 0) ? "ok" : "FAILS");
 
@@ -270,7 +270,7 @@ size_t adversarial_count_symbols(const uint32_t *corpus, size_t corpus_length, c
 /**
  * @brief Counts through two separate projections, one per side. THE BROKEN CONSTRUCTION.
  *
- * @return 1 where both projections ran and `count` was written, 0 where either refused.
+ * @return 1 where both projections ran and `count` was written, 0 where either errored.
  * @note Kept in the suite as the negative control. A case that cannot show this route
  *       losing an occurrence cannot show the joint route recovering one.
  */
@@ -309,7 +309,7 @@ int adversarial_count_apart(const uint32_t *corpus, size_t corpus_length, const 
 /**
  * @brief Counts through anchor_field_pair_project, which numbers both sides in one population.
  *
- * @return 1 where the projection ran and `count` and `distinct` were written, 0 where it refused.
+ * @return 1 where the projection ran and `count` and `distinct` were written, 0 where it errored.
  */
 int adversarial_count_together(const uint32_t *corpus, size_t corpus_length, const uint32_t *needle,
                                size_t needle_length, uint8_t *corpus_ranks, uint8_t *needle_ranks,

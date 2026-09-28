@@ -22,7 +22,7 @@ That gives a measurement and not a picture:
 
 Two independent periods means a two dimensional lattice at minimum. One means the thing was already
 periodic and nothing was hidden. A boundary reading can therefore report the dimension of a
-structure it never had access to, by counting how many of its periods refuse to be multiples of one another.
+structure it never had access to, by counting how many of its periods are not multiples of one another.
 
 WHAT IS CHECKED
 

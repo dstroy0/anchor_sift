@@ -2,9 +2,9 @@
 --
 -- The bench a record program as VHDL runs under (record_vhdl_test.cpp). It holds no arithmetic and runs no lane: it
 -- reads the memory image the test wrote (memory.txt: a line of the image's words, the lanes, the records' address and
--- words and the refusals' address, then each word in hex), loads it into the emitted cycle_program_unit through its
+-- words and the errors' address, then each word in hex), loads it into the emitted cycle_program_unit through its
 -- ports a word a clock, runs the launch at address 0 by a clock of run, as the host launches the device's resident
--- kernel, waits for the unit's done, and reads back the refusals and the records' words (records.txt), each word in
+-- kernel, waits for the unit's done, and reads back the errors and the records' words (records.txt), each word in
 -- hex, then the clocks the launch ran, from its run to its done. The unit runs the lanes itself, as the kernel does.
 -- The image's size is the generic words, which the test gives GHDL with -gwords.
 library ieee;
@@ -55,7 +55,7 @@ begin
         variable lanes : natural;
         variable records_address : natural;
         variable record_words : natural;
-        variable refused_address : natural;
+        variable error_address : natural;
         variable word : std_ulogic_vector(31 downto 0);
 
         -- the word at `at` as the unit reads it back while done: read_at before a clock, which the unit asks for, and
@@ -77,7 +77,7 @@ begin
         read(line_in, lanes);
         read(line_in, records_address);
         read(line_in, record_words);
-        read(line_in, refused_address);
+        read(line_in, error_address);
         assert image_words = words report "record vhdl bench: the image is not the size -gwords gives" severity failure;
         wait until falling_edge(clock);
         load <= '1';
@@ -99,7 +99,7 @@ begin
             clocks := clocks + 1;
             exit when done = '1';
         end loop;
-        read_back(refused_address / 4, value);
+        read_back(error_address / 4, value);
         write(line_out, to_integer(value));
         writeline(written, line_out);
         for at in 0 to record_words - 1 loop

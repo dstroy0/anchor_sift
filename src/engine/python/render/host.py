@@ -147,7 +147,7 @@ def _is_power_of_two(value):
 def _volume_cell(config, alignment, cells):
     """The voxel an alignment lands on under a volume layout, matching anchor_volume_cell_for.
 
-    Returns `cells` where the layout refuses the configuration, which is Morton on extents that are
+    Returns `cells` where the layout errors on the configuration, which is Morton on extents that are
     not all powers of two and any unknown layout. A caller reads that as "not placed".
     """
     width = config.width
@@ -210,7 +210,7 @@ def _reduce_into(cells_out, cell, value, reduce):
 
 
 def raster(config, corpus, needle, probes):
-    """Renders a sheet, returning width*height bytes, or None where the configuration is refused.
+    """Renders a sheet, returning width*height bytes, or None where the configuration errors.
 
     `corpus` and `needle` are bytes or a sequence of ints in [0, 255]. `probes` is a sequence of
     Probe. The bytes returned are identical to anchor_raster_host on the same arguments.
@@ -234,10 +234,10 @@ def raster(config, corpus, needle, probes):
 
 
 def volume(config, corpus, needle, probes):
-    """Renders a volume, returning width*height*depth bytes, or None where the configuration is refused.
+    """Renders a volume, returning width*height*depth bytes, or None where the configuration errors.
 
     The bytes returned are identical to anchor_volume_render_host on the same arguments. A layout that
-    refuses the configuration returns None, matching the host arm returning 0 without a volume.
+    errors on the configuration returns None, matching the host arm returning 0 without a volume.
     """
     needle_len = len(needle)
     if (config.width == 0) or (config.height == 0) or (config.depth == 0) or (needle_len == 0) \
@@ -252,7 +252,7 @@ def volume(config, corpus, needle, probes):
     for at in range(alignments):
         cell = _volume_cell(config, at, cells)
         if cell >= cells:
-            # The layout refused this configuration, as the host arm does for the whole render.
+            # The layout errored on this configuration, as the host arm does for the whole render.
             return None
         value = _sample(config.channel, config.gain, corpus, needle, needle_len, probes, at,
                         occurrences, total)

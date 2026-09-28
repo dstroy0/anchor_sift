@@ -17,7 +17,7 @@
 # The subtree design this file held until 2026-09-26 is gone. theory_bucket, a private repository,
 # was renamed dstroy0/theory and made public, and it reaches this tree only as the submodule.
 #
-# WHY IT SOMETIMES REFUSES
+# WHY IT SOMETIMES ERRORS
 #
 # `git submodule update` checks theory/ out at a detached commit. Uncommitted work in theory/ would be
 # lost or stop the checkout halfway, and a local commit there that the recorded one does not hold

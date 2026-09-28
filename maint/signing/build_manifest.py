@@ -111,7 +111,7 @@ def label_for(root):
     """What to call a tree in the manifest, TAKEN FROM ITS CONFIG AND NOT FROM ITS DIRECTORY NAME.
 
     This used to be os.path.basename(root), which spelled the directory the tree happens to sit in.
-    One of those directory names is the product name the commit guard refuses, so every rebuild wrote
+    One of those directory names is the product name the commit guard errors, so every rebuild wrote
     it into 372 rows and the next commit was blocked by a file this script had just generated.
 
     A name taken from the filesystem is not the project's name, it is where somebody put it. Reading
@@ -119,7 +119,7 @@ def label_for(root):
     renamed tomorrow changes nothing in the record.
 
     Falls back to the basename when there is no config, because a tree with no repotools.toml is
-    still worth dating and a missing name is not a reason to refuse to build.
+    still worth dating and a missing name is not a reason to error rather than build.
     """
     config = os.path.join(root, "repotools.toml")
     if os.path.isfile(config):

@@ -177,7 +177,7 @@ extern "C"
     /**
      * @brief The scan on a CUDA device. Same contract as the portable one, same count.
      *
-     * @note Falls back to a host count where the device refuses the work. A driver comparing arms
+     * @note Falls back to a host count where the device errors on the work. A driver comparing arms
      *       reads a count and never a sentinel it would misread as a disagreement.
      */
     size_t anchor_steer_truthy_after_cuda(const uint8_t *corpus, size_t alignments, const uint8_t *alive,

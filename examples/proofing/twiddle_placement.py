@@ -50,7 +50,7 @@ WHAT IS CHECKED, AND WHAT EACH CHECK CATCHES
     THE ORDER. Two exponentiations, from `twiddle_proof`. Catches a root that never had the order,
     the fault this tree inflicted on itself with a composite modulus.
 
-WHAT IT REFUSES
+WHAT IT ERRORS
 
 A verdict of clean on a table it has only partly read. Every check below reports which entries it
 touched and the probability it would have missed a single corruption, because a sampled check that
@@ -245,7 +245,7 @@ def _check():
     verdict, witness = tp.proth_prime(MODULUS)
     lines.append("    %d  %s, witness %s" % (MODULUS, verdict, witness))
     if verdict != "prime":
-        lines.append("    REFUSING to build a table on an unproved modulus")
+        lines.append("    ERROR to build a table on an unproved modulus")
         sys.stdout.write("\n".join(lines) + "\n1 check(s) failed\n")
         return 1
     lines.append("")

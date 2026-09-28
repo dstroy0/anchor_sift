@@ -187,7 +187,7 @@ extern const char __ehdr_start;
 #define ENGINE_IMAGE_BASE ((const void *)&__ehdr_start)
 #define ENGINE_RETURN_ADDRESS() ((const void *)__builtin_return_address(0))
 #define ENGINE_NOINLINE __attribute__((noinline))
-// a header helper kept out of line: gcc refuses noinline on an inline function. It is a static marked unused
+// a header helper kept out of line: gcc errors noinline on an inline function. It is a static marked unused
 #define ENGINE_NOINLINE_HELPER __attribute__((noinline, unused)) static
 #else
 #error "the engine needs its image base, a return address and noinline from the compiler"

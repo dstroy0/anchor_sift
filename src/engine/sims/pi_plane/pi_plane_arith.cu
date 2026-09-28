@@ -2,13 +2,13 @@
 // pi_plane_arith.cu: exact arithmetic, shapes and orders
 #include "pi_plane_internal.h"
 
-static int s_plane_refused = 0;
+static int s_plane_error = 0;
 
 static void plane_took(AnchorExactStatus status)
 {
     if (status != ANCHOR_EXACT_OK)
     {
-        s_plane_refused = 1;
+        s_plane_error = 1;
     }
 }
 
@@ -97,7 +97,7 @@ int plane_bits(SimResults *results, unsigned int count, std::vector<unsigned cha
     const AnchorExactInteger guard = plane_power_two(PLANE_GUARD);
     const AnchorExactInteger below = plane_quotient(plane_difference(middle, spread), guard);
     const AnchorExactInteger above = plane_quotient(plane_sum(middle, spread), guard);
-    const int agree = (s_plane_refused == 0) && (anchor_exact_compare(&below, &above) == 0);
+    const int agree = (s_plane_error == 0) && (anchor_exact_compare(&below, &above) == 0);
     const AnchorExactInteger turn =
         plane_difference(below, plane_product(plane_exact_unsigned(3ull), plane_power_two(count)));
     bits->assign(count, 0u);

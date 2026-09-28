@@ -323,11 +323,11 @@ int daemon_socket_handed(void)
 #endif
 }
 
-int daemon_refused(void)
+int daemon_error(void)
 {
 #if !defined(_WIN32)
     // the connections that made systemd start this daemon wait on its socket: each is closed unanswered: its
-    // client is refused and systemd has none left to start the daemon again for
+    // client errors and systemd has none left to start the daemon again for
     if (daemon_socket_handed())
     {
         const int flags = fcntl(3, F_GETFL);

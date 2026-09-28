@@ -72,7 +72,7 @@ def main():
             continue
         text, gate = load(path, cap=SAME_LENGTH * 2, clean=False)
         if text is None:
-            out.write("  %-12s refused by the gate: %s\n" % (label, gate))
+            out.write("  %-12s errored in the gate: %s\n" % (label, gate))
             continue
         if len(text) < (SAME_LENGTH // 3):
             # Said as itself. Printing the gate's note here read as though the gate had rejected a file

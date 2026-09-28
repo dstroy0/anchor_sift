@@ -6,7 +6,7 @@
 Description=tessera daemon for device %i
 Requires=tessera@%i.socket
 After=tessera@%i.socket
-# a daemon that refuses (a history whose seal fails, a device it cannot measure) closes every waiting connection
+# a daemon that errors (a history whose seal fails, a device it cannot measure) closes every waiting connection
 # before it exits, so each start answers a real client; systemd's start limit would only turn clients away
 StartLimitIntervalSec=0
 

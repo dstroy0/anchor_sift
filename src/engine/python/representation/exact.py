@@ -89,7 +89,7 @@ class WillNotFit(ValueError):
 
 # The four whitespace bytes decimal text may be padded with, and the ten digits it may carry. ASCII
 # only, matching exact_integer_*.c. str.strip() and str.isdigit() also take Unicode whitespace and
-# digits, and those made this side accept text the C refused.
+# digits, and those made this side accept text the C errored.
 PADDING = " \t\r\n"
 DIGITS = "0123456789"
 
@@ -103,7 +103,7 @@ def _layout(text):
     side may be empty but not both, an optional (digits), padding, and the end of the text.
 
     The whole text is checked before any number is built. The C arm checks it the same way. Both
-    refuse malformed text as not decimal before either refuses a value as too wide.
+    error malformed text as not decimal before either errors on a value as too wide.
 
     An earlier version cut the bracket out and joined the text on either side of it, which read
     "1.2(3)4" as 1.24 while the C read 1.2, and it accepted "1.23(" with no closing bracket.
@@ -165,7 +165,7 @@ def units(text, digits=SCALE_DIGITS):
     or not. The bracket counts units of the last place printed, and a text printed past the scale
     claims more precision than the reader was asked to hold. decimal_read in exact_integer_decimal.c sizes
     it the same way for anchor_exact_from_decimal, and until 27 September this side read
-    "1.00000000000000000000000000(1)" as 1 at 24 places where the C refused it.
+    "1.00000000000000000000000000(1)" as 1 at 24 places where the C errored on it.
     """
     sign, whole, fraction, uncertainty = _layout(text)
     if uncertainty is not None and len(fraction) > digits:
@@ -174,10 +174,10 @@ def units(text, digits=SCALE_DIGITS):
 
     # Trailing zeros in the fraction are dropped before the places are counted. 1.2300 and 1.23 are
     # the same number, and a scale of two places holds both of them exactly. Counting the zeros as
-    # places made the first refuse at a scale the second passed, which is a refusal to represent a
+    # places made the first error at a scale the second passed, which is an error to represent a
     # value that needed no rounding at all. A cross check against a second implementation is what
     # surfaced it. ".000" is zero at no places. Dropping all three zeros once left no digit behind,
-    # and the text was refused as not decimal. Measured 2026-09-16 over 8885 cached COD deposits,
+    # and the text errored as not decimal. Measured 2026-09-16 over 8885 cached COD deposits,
     # that skipped 149 atom sites in 59 of them.
     fraction = fraction.rstrip("0")
     return sign * int((whole + fraction) or "0"), len(fraction)
@@ -211,7 +211,7 @@ def measured(text, digits=SCALE_DIGITS):
     `uncertainty` is None where the text carries no bracket. The bracketed digits count units of the
     last place PRINTED in the value, trailing zeros included. "1.2300(5)" is 1.23 with an
     uncertainty of 0.0005, and "137(2)" is 137 with an uncertainty of 2. Raises ValueError on text
-    `units` refuses, and WillNotFit where the value or the uncertainty needs more places than
+    `units` errors, and WillNotFit where the value or the uncertainty needs more places than
     `digits`.
 
     A measured constant keeps its uncertainty through here. The CODATA 2022 fine-structure constant

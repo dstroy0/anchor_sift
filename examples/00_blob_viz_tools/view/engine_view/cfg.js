@@ -66,8 +66,8 @@ EV.defaultView = () => {
   return view;
 };
 
-// Checks one value against its rule; returns the reason it is refused, or null.
-EV.refuseValue = (rule, value) => {
+// Checks one value against its rule; returns the reason it errors, or null.
+EV.errorValue = (rule, value) => {
   const integer = (one) => Number.isInteger(one) && one >= rule.low && one <= rule.high;
   if (rule.kind === "integer") {
     return integer(value) ? null : `an integer from ${rule.low} to ${rule.high}`;
@@ -92,28 +92,28 @@ EV.refuseValue = (rule, value) => {
   return Array.isArray(value) && value.every(integer) ? null : "a list of cell numbers";
 };
 
-// Applies a view section over a view. Returns what was applied and what was refused, by name.
+// Applies a view section over a view. Returns what was applied and what errored, by name.
 EV.applyView = (view, section) => {
   const applied = [];
-  const refused = [];
+  const error = [];
   if (!section || typeof section !== "object" || Array.isArray(section)) {
-    return { applied, refused: ["view: an object of name to value"] };
+    return { applied, error: ["view: an object of name to value"] };
   }
   for (const [name, value] of Object.entries(section)) {
     const rule = EV.VIEW_SCHEME[name];
     if (!rule) {
-      refused.push(`${name}: the view has no such setting`);
+      error.push(`${name}: the view has no such setting`);
       continue;
     }
-    const reason = EV.refuseValue(rule, value);
+    const reason = EV.errorValue(rule, value);
     if (reason) {
-      refused.push(`${name}: ${reason}`);
+      error.push(`${name}: ${reason}`);
       continue;
     }
     view[name] = Array.isArray(value) ? value.map((one) => (one && typeof one === "object" ? { ...one } : one)) : value;
     applied.push(name);
   }
-  return { applied, refused };
+  return { applied, error };
 };
 
 // The whole .cfg: the object's own sections as the tracker wrote them, with the page's view in place of its view.
@@ -152,22 +152,22 @@ EV.parseCfg = (text) => {
   try {
     cfg = JSON.parse(text);
   } catch (error) {
-    return { refused: [`that is not JSON: ${error.message}`] };
+    return { error: [`that is not JSON: ${error.message}`] };
   }
   if (!cfg || typeof cfg !== "object" || Array.isArray(cfg)) {
-    return { refused: ["a .cfg is one object"] };
+    return { error: ["a .cfg is one object"] };
   }
-  const refused = [];
+  const error = [];
   if (cfg.scheme !== undefined && cfg.scheme !== "cell_tracking.cfg") {
-    refused.push("scheme: always cell_tracking.cfg");
+    error.push("scheme: always cell_tracking.cfg");
   }
   if (cfg.version !== undefined && cfg.version !== 1) {
-    refused.push("version: this page reads version 1");
+    error.push("version: this page reads version 1");
   }
   for (const name of Object.keys(cfg)) {
     if (!["scheme", "version", "track", "input", "output", "view"].includes(name)) {
-      refused.push(`${name}: a .cfg has scheme, version, track, input, output and view`);
+      error.push(`${name}: a .cfg has scheme, version, track, input, output and view`);
     }
   }
-  return { refused, view: cfg.view };
+  return { error, view: cfg.view };
 };

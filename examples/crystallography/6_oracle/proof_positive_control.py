@@ -172,7 +172,7 @@ WANTED = (
 
 
 def cached(name, url, out):
-    """Fetch a URL once and keep it. Returns the text, or None where the archive refused."""
+    """Fetch a URL once and keep it. Returns the text, or None where the archive errored."""
     path = os.path.join(CACHE, name)
     if os.path.isfile(path):
         with open(path, encoding="utf-8", errors="replace") as handle:
@@ -193,7 +193,7 @@ def cached(name, url, out):
             OSError,
         ) as trouble:
             # This caught bare Exception until now, which retried a NameError or a bad format
-            # string three times and then reported it as the archive refusing. A programming error
+            # string three times and then reported it as the archive erroring. A programming error
             # presented as a network failure, and the run still printed a denominator.
             #
             # HTTPException is named although it is not an OSError subclass: an IncompleteRead

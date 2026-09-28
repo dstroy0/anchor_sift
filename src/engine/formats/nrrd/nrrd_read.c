@@ -30,7 +30,7 @@ static unsigned int nrrd_data_file(NrrdSpan value, NrrdFields *fields)
     const int formatted = (memchr(value.text, '%', (size_t)value.length) != NULL);
     if ((value.length == 0ull) || listed || formatted)
     {
-        fprintf(stderr, "nrrd: a multi-file data file is refused\n");
+        fprintf(stderr, "nrrd: a multi-file data file errors\n");
         return 0u;
     }
     fields->data_file = value;

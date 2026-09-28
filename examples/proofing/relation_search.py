@@ -262,7 +262,7 @@ def main():
         print("    the two returned the SAME vector:      %s" % ("yes" if agree else "NO"))
         print()
         print("    %s" % ("host and card are running the same search"
-                          if agree else "REFUSING: the engines disagree and one of them is wrong"))
+                          if agree else "ERROR: the engines disagree and one of them is wrong"))
         gpu_multiply.shut_down()
         good = host_ok and card_ok and not host_bad and not card_bad and agree
         return 0 if good else 1

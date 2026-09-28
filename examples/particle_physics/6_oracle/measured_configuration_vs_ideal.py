@@ -17,7 +17,7 @@
 # Two routes meet here. The ideal is derived from a rule; the measurement is someone else's number. The
 # noble gases and most other elements agree, the positive control: a comparison where nothing
 # agreed would be a broken reading and not a table of exceptions. The measured configuration is checked
-# to account for exactly Z electrons before it is compared. A parse that lost an electron is refused
+# to account for exactly Z electrons before it is compared. A parse that lost an electron errors
 # and never counted as an exception.
 #
 # NIST measures neutral atoms to element 108, hassium. For 109 to 118 no neutral atom has been measured,
@@ -93,7 +93,7 @@ def occupation(shells, neutral):
     Parenthesized term symbols are stripped, and a bracketed core such as `[Rn]` or `[Cd]` is replaced
     by the shells of that element, read from the same table. NIST abbreviates with whichever element
     closes the core, not only the noble gases. Returns None where a token does not parse. The caller
-    can refuse it and not compare a half-read configuration.
+    can error on it and not compare a half-read configuration.
     """
     counts = {}
     for token in re.sub(r"\(.*?\)", "", shells).split("."):
@@ -187,14 +187,14 @@ def main(argv):
     measured_agree = 0
     predicted_agree = 0
     exceptions = []
-    refused = []
+    error = []
     for atomic_number in range(1, element.ELEMENT_COUNT + 1):
         if atomic_number not in neutral:
-            refused.append(atomic_number)
+            error.append(atomic_number)
             continue
         counts = occupation(neutral[atomic_number], neutral)
         if counts is None or sum(counts.values()) != atomic_number:
-            refused.append(atomic_number)
+            error.append(atomic_number)
             continue
         ideal = ideal_occupation(atomic_number)
         if ideal == counts:
@@ -217,9 +217,9 @@ def main(argv):
     out.write("    measured:  %d agree with the ideal filling, %d differ\n"
               % (measured_agree, measured_differ))
     out.write("    predicted: %d agree, %d differ\n" % (predicted_agree, predicted_differ))
-    if refused:
+    if error:
         out.write("    %d without a configuration accounting for its electrons: %s\n"
-                  % (len(refused), " ".join(element.symbol(one) for one in refused)))
+                  % (len(error), " ".join(element.symbol(one) for one in error)))
 
     out.write("\n  THE EXCEPTIONS, read off the disagreement, not listed by hand.\n\n")
     out.write("    %-4s %-4s %-10s %-18s %s\n" % ("", "Z", "source", "ideal", "ground state"))

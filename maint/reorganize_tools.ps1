@@ -86,7 +86,7 @@ try
             }
 
             # git mv keeps the file's history attached. An ignored file such as blocks.json is not
-            # tracked, so git refuses it and a plain move is correct there.
+            # tracked, so git errors on it and a plain move is correct there.
             git ls-files --error-unmatch $from 2>&1 | Out-Null
             if ($LASTEXITCODE -eq 0)
             {

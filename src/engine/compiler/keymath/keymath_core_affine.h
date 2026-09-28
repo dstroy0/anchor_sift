@@ -33,7 +33,7 @@
 // arena runs again with one twice the size, which decides the same
 #define KEYMATH_ARENA_PER_STEP 8u
 
-// how an encode ends: every step held; a step refused, or a step's table, or an output, the one at `at`; or the arena
+// how an encode ends: every step held; a step errored, or a step's table, or an output, the one at `at`; or the arena
 // too small for the forms
 enum KeymathCoreEnd
 {

@@ -297,7 +297,7 @@ int CodeGenerator::decide(const EngineRecordLayout *layout, const ScheduleModel 
     lane.wides_max = 1u;
     // the steps, each from the loop number the steps before it left
     std::vector<MachineInstr> stepped;
-    std::vector<unsigned int> refuses(steps, 0u);
+    std::vector<unsigned int> errors(steps, 0u);
     std::vector<unsigned int> step_words(steps, 0u);
     for (unsigned int at = 0u; at < steps; at += 1u)
     {
@@ -309,14 +309,14 @@ int CodeGenerator::decide(const EngineRecordLayout *layout, const ScheduleModel 
             return 0;
         }
         stepped.insert(stepped.end(), step.begin(), step.end());
-        refuses[at] = lane.refuses;
+        errors[at] = lane.errors;
         // a 64-bit temporary takes two words
         step_words[at] = lane.temps + (2u * lane.wides);
     }
     // the lane calls nothing; it holds places in shared memory only where its language lays out the file there
     *places = (shared != 0) ? layout->file_limbs : 0u;
     const unsigned int place_count = *places;
-    const unsigned int *const refused = refuses.data();
+    const unsigned int *const error = errors.data();
     const unsigned int tables = lane.tables;
     const std::vector<MachineInstr> noted =
         code_generator_decided(&lane, [](MachineFunction *deciding) { codegen_note(deciding); });
@@ -325,11 +325,11 @@ int CodeGenerator::decide(const EngineRecordLayout *layout, const ScheduleModel 
     const std::vector<MachineInstr> declarations =
         code_generator_decided(&lane, [atoms](MachineFunction *deciding) { codegen_declare(deciding, atoms); });
     const std::vector<MachineInstr> opened =
-        code_generator_decided(&lane, [refused, tables, place_count](MachineFunction *deciding) {
-            codegen_open(deciding, refused, tables, place_count);
+        code_generator_decided(&lane, [error, tables, place_count](MachineFunction *deciding) {
+            codegen_open(deciding, error, tables, place_count);
         });
     const std::vector<MachineInstr> closed =
-        code_generator_decided(&lane, [refused](MachineFunction *deciding) { codegen_close(deciding, refused); });
+        code_generator_decided(&lane, [error](MachineFunction *deciding) { codegen_close(deciding, error); });
     // the body's forms in the text's order, between the forms that open it and those that end the lane
     std::vector<MachineInstr> body_open;
     std::vector<MachineInstr> body;
@@ -345,16 +345,16 @@ int CodeGenerator::decide(const EngineRecordLayout *layout, const ScheduleModel 
     }
     else
     {
-        // each form's cost; a refusal's label for the opening and one for each step at most, and each loop the steps
+        // each form's cost; an error's label for the opening and one for each step at most, and each loop the steps
         // wrote
         const ScheduleCosts costs = schedule_costs(*model);
-        std::vector<MachineOperand> dispatch_refusal((size_t)steps + 1u);
+        std::vector<MachineOperand> dispatch_error((size_t)steps + 1u);
         std::vector<unsigned int> dispatch_state((size_t)steps + 1u, 0u);
         std::vector<unsigned int> loop_state((size_t)lane.loops + 1u, 0u);
         Schedule schedule{};
         schedule.cost = costs.cost.data();
         schedule.budget = costs.budget;
-        schedule.dispatch_refusal = dispatch_refusal.data();
+        schedule.dispatch_error = dispatch_error.data();
         schedule.dispatch_state = dispatch_state.data();
         schedule.dispatch_max = steps + 1u;
         schedule.loop_state = loop_state.data();

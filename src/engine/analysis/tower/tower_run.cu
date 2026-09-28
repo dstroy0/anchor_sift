@@ -19,7 +19,7 @@ static int tower_reserve(size_t lanes, EngineError *error)
     const DevicePoolPlan plan = tower_plan(lanes, error, takes);
     const DevicePoolReserveRequest reserve = {&plan, &resident->pool, error};
     int ok = device_pool_reserve(&reserve) == 0L;
-    // the slices are taken in the plan's order. Each lands where the plan laid it out and none is refused
+    // the slices are taken in the plan's order. Each lands where the plan laid it out and none errors
     for (unsigned int at = 0u; (ok != 0) && (at < TOWER_SLICES); at += 1u)
     {
         ok = device_pool_take(&takes[at]) == 0L;
@@ -30,7 +30,7 @@ static int tower_reserve(size_t lanes, EngineError *error)
 
 extern "C" unsigned long long tower_reserve_bytes(unsigned long long lanes)
 {
-    // past 2^60 lanes the two int slices alone pass the plan's 2^62 bytes, which spoils it; refused here before the
+    // past 2^60 lanes the two int slices alone pass the plan's 2^62 bytes, which spoils it; errored here before the
     // product could wrap
     if ((lanes == 0ull) || (lanes > (1ull << 60u)))
     {

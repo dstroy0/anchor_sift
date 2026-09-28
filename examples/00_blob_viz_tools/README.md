@@ -134,5 +134,5 @@ computed on the host from closed forms that never read a count.
 
 A packing count means something only while the gap stays well under the typical distance between two
 points on the surface. Past that the count stops being what the geometry allows and becomes how many
-unusually distant pairs the draw happened to hold. The tool enforces that limit and refuses to report
+unusually distant pairs the draw happened to hold. The tool enforces that limit and errors rather than report
 a row outside it, which is worth more than the row.

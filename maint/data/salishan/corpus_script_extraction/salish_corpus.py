@@ -88,7 +88,7 @@ def salish_enough(line):
 def section_two(lines):
     """The monolingual section, as each timestamp and the sentence printed under it."""
     held = []
-    refused = []
+    error = []
     building = []
     inside = False
     when = None
@@ -123,12 +123,12 @@ def section_two(lines):
             # are wanted because we, te and e are words of the language. Every rejection is counted
             # and reported. Nothing leaves without being named.
             if len(set(one.lower() for one in ENGLISH.findall(trimmed))) >= 2:
-                refused.append(trimmed)
+                error.append(trimmed)
                 continue
             building.append(trimmed)
     if building and (when is not None):
         held.append((when, tidy(" ".join(building))))
-    return held, refused
+    return held, error
 
 
 def section_four(lines):
@@ -195,18 +195,18 @@ def main():
     with open(source, encoding="utf-8", errors="replace") as handle:
         lines = handle.read().splitlines()
 
-    plain, refused = section_two(lines)
+    plain, error = section_two(lines)
     glossed = section_four(lines)
     out.write(
         "  section 2 gave %d sentences, section 4 gave %d\n"
         % (len(plain), len(glossed))
     )
-    if refused:
+    if error:
         out.write(
-            "  %d line(s) in section 2 refused as English footnote text:\n"
-            % len(refused)
+            "  %d line(s) in section 2 errored as English footnote text:\n"
+            % len(error)
         )
-        for line in refused:
+        for line in error:
             out.write("    %s\n" % line[:96])
 
     by_clock = {}

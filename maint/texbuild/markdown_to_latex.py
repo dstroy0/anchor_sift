@@ -50,7 +50,7 @@ def inline(value):
     value = re.sub(r"\*\*(.+?)\*\*", r"\\textbf{\1}", value)
     value = re.sub(r"\*(.+?)\*", r"\\emph{\1}", value)
     # Matched against the escaped form, because escape_text ran on the line above and every
-    # underscore is \_ by the time this reads it. The old pattern refused exactly those: its
+    # underscore is \_ by the time this reads it. The old pattern errored exactly those: its
     # (?<!\\) was written for raw text and, run here, it never matched once. A _title_ reached the
     # page as \_title\_ and typeset as two literal underscores around the words.
     #

@@ -207,12 +207,12 @@ extern "C"
 
     void noise_line_sums_zero(NoiseLineSums *sums);
 
-    // count points at place whose measurements sum to total; on a refusal the sums are unchanged
+    // count points at place whose measurements sum to total; on an error the sums are unchanged
     long noise_line_sums_add(NoiseLineSums *sums, unsigned long long count, unsigned long long place,
                              const AnchorExactInteger *total, EngineError *error);
 
-    // refuses where the places do not span two levels (D would be 0), a scale is 0, or a product passes the exact
-    // integer's width; on a refusal the line is unchanged
+    // errors where the places do not span two levels (D would be 0), a scale is 0, or a product passes the exact
+    // integer's width; on an error the line is unchanged
     long noise_line_fit(const NoiseLineSums *sums, unsigned long long level_scale, unsigned long long measurement_scale,
                         NoiseLine *line, EngineError *error);
 
@@ -239,7 +239,7 @@ extern "C"
         AnchorExactInteger read_square_denominator;
     } NoiseLadderMeasurement;
 
-    // refuses a volume with fewer than two whole blocks of frames, or whose blocks' levels do not span two values
+    // errors on a volume with fewer than two whole blocks of frames, or whose blocks' levels do not span two values
     long noise_ladder_volume(const unsigned short *volume, const unsigned long long extent[4],
                              NoiseLadderMeasurement *measurement, EngineError *error);
 
@@ -262,7 +262,7 @@ extern "C"
         AnchorExactInteger spread[NOISE_CROSSTALK_AXES];
     } NoiseCrosstalkMeasurement;
 
-    // refuses a volume of fewer than two frames or one whose products could pass 64 bits a sum
+    // errors on a volume of fewer than two frames or one whose products could pass 64 bits a sum
     long noise_crosstalk_volume(const unsigned short *volume, const unsigned long long extent[4],
                                 NoiseCrosstalkMeasurement *measurement, EngineError *error);
 
@@ -288,7 +288,7 @@ extern "C"
         AnchorExactInteger gain_denominator;
     } NoiseChargeMeasurement;
 
-    // refuses series of fewer than two frames, or whose squares could pass 64 bits a sum
+    // errors series of fewer than two frames, or whose squares could pass 64 bits a sum
     long noise_charge_series(const unsigned short *bias, const unsigned short *dark, const unsigned long long extent[4],
                              NoiseChargeMeasurement *measurement, EngineError *error);
 
@@ -314,8 +314,8 @@ extern "C"
         AnchorExactInteger intercept_denominator[NOISE_FLICKER_LAGS];
     } NoiseStructureMeasurement;
 
-    // refuses a volume of fewer than two frames or two columns, of more than 65536 frames, or whose sums could pass 128
-    // bits
+    // errors on a volume of fewer than two frames or two columns, of more than 65536 frames, or whose sums could pass
+    // 128 bits
     long noise_structure_volume(const unsigned short *volume, const unsigned long long extent[4],
                                 NoiseStructureMeasurement *measurement, EngineError *error);
 
@@ -334,7 +334,7 @@ extern "C"
         AnchorExactInteger level_denominator;
     } NoiseHalvesMeasurement;
 
-    // refuses a volume of fewer than two planes, or whose sums could pass 128 bits
+    // errors on a volume of fewer than two planes, or whose sums could pass 128 bits
     long noise_halves_volume(const unsigned short *volume, const unsigned long long extent[4],
                              NoiseHalvesMeasurement *measurement, EngineError *error);
 
@@ -384,7 +384,7 @@ extern "C"
     // at most 2^31 voxels. Where `residual` is set, the root's residual is left in it, the box's voxels as ints, or the
     // box itself where there is no root; where `pattern` is set, the root's pattern is left in it (noise_root_extent
     // sizes it, never more than the box's voxels), and nothing where there is no root. A price the cost gives past 2^61
-    // bits is refused.
+    // bits errors.
     typedef struct
     {
         const unsigned short *volume;

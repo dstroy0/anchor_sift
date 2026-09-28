@@ -106,11 +106,11 @@ static void engine_record_layout_device(const EngineRecordRequest *request, Engi
                                           request->in_limbs,     request->outputs,     request->output_count,
                                           request->tables,       request->table_count, request->reuse};
     EngineRecordLayout device_layout{};
-    std::string refused;
-    if (layout_device(&layout_request, &device_layout, &refused) == 0)
+    std::string error;
+    if (layout_device(&layout_request, &device_layout, &error) == 0)
     {
         fprintf(stderr, "  engine: the device did not lay out a program of %u steps (%s); the host's is loaded\n",
-                layout->steps, refused.c_str());
+                layout->steps, error.c_str());
         return;
     }
     if (layout_same(&device_layout, layout) == 0)

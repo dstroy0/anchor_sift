@@ -29,7 +29,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SCAN_DIR = ROOT / "src" / "engine" / "nbody" / "anchor_sift"
 ARM_DIR = ROOT / "src" / "engine" / "arithmetic" / "no_rounding"
 
-# The reference every other arm is graded against. A family without it has no baseline and is refused.
+# The reference every other arm is graded against. A family without it has no baseline and errors.
 REFERENCE = "portable"
 
 

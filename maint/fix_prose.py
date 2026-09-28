@@ -1,4 +1,4 @@
-"""Applies prose rewrites from a table, one exact site at a time, and refuses a bad one.
+"""Applies prose rewrites from a table, one exact site at a time, and errors on a bad one.
 
 Written after fixing eighty-five findings by hand. The hand work is the right shape and the risk in
 it is mechanical: a rewrite that matches nothing leaves the finding standing while the run looks
@@ -132,7 +132,7 @@ def main():
 
         good, why = clean(now)
         if not good:
-            print("  REFUSED  %s: the replacement is itself a finding, %s" % (name, why))
+            print("  ERROR  %s: the replacement is itself a finding, %s" % (name, why))
             bad += 1
             continue
 
@@ -143,7 +143,7 @@ def main():
         done += 1
 
     print("")
-    print("%d %s, %d already applied, %d refused"
+    print("%d %s, %d already applied, %d errored"
           % (done, "applied" if write else "to apply", already, bad))
     return 1 if bad else 0
 

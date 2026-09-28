@@ -86,7 +86,7 @@ template <unsigned int WIDE, unsigned int DIVIDES> __global__ static void cycle_
         }
         if (ok == 0)
         {
-            atomicAdd(launch.refused, 1u);
+            atomicAdd(launch.error, 1u);
         }
     }
 }

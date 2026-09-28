@@ -105,7 +105,7 @@ extern "C"
         ENGINE_RECORD_TABLE = 10,
         // the exact integer's division as register operations: the quotient rounds toward zero and the remainder
         // carries the numerator's sign (left = quotient . right + remainder); the gcd is never negative; the exact
-        // quotient is the multiply-and-mask division, and a remainder refuses the lane. A zero divisor refuses the
+        // quotient is the multiply-and-mask division, and a remainder errors on the lane. A zero divisor errors on the
         // lane.
         ENGINE_RECORD_QUOTIENT = 11,
         ENGINE_RECORD_REMAINDER = 12,

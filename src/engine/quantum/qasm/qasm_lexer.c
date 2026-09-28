@@ -154,7 +154,7 @@ int qasm_lex(QasmParser *parser)
                 token->kind = QASM_TOKEN_SYMBOL;
                 token->length = 1u;
                 parser->token_count += 1u;
-                qasm_refuse(parser, token, "a string is not closed on its line");
+                qasm_error(parser, token, "a string is not closed on its line");
                 return 0;
             }
             end += 1u;
@@ -179,7 +179,7 @@ int qasm_lex(QasmParser *parser)
             token->kind = QASM_TOKEN_SYMBOL;
             token->length = 1u;
             parser->token_count += 1u;
-            qasm_refuse(parser, token, "'%c' is not part of OpenQASM 2.0", c);
+            qasm_error(parser, token, "'%c' is not part of OpenQASM 2.0", c);
             return 0;
         }
         token->length = (unsigned int)(end - at);
@@ -226,7 +226,7 @@ int qasm_expect(QasmParser *parser, const char *text)
     {
         return 1;
     }
-    qasm_refuse(parser, qasm_peek(parser), "'%s' was expected here", text);
+    qasm_error(parser, qasm_peek(parser), "'%s' was expected here", text);
     return 0;
 }
 
@@ -242,12 +242,12 @@ int qasm_expect_ident(QasmParser *parser, char *name, unsigned int *token_at)
     const QasmToken *const token = qasm_peek(parser);
     if (token->kind != QASM_TOKEN_IDENT)
     {
-        qasm_refuse(parser, token, "a name was expected here");
+        qasm_error(parser, token, "a name was expected here");
         return 0;
     }
     if (token->length >= QASM_NAME_CAPACITY)
     {
-        qasm_refuse(parser, token, "a name past %u characters is not read", QASM_NAME_CAPACITY - 1u);
+        qasm_error(parser, token, "a name past %u characters is not read", QASM_NAME_CAPACITY - 1u);
         return 0;
     }
     if (name != NULL)
@@ -275,7 +275,7 @@ int qasm_expect_count(QasmParser *parser, unsigned int *count)
     }
     if (!digits)
     {
-        qasm_refuse(parser, token, "a whole number was expected here");
+        qasm_error(parser, token, "a whole number was expected here");
         return 0;
     }
     *count = (unsigned int)value;
@@ -309,7 +309,7 @@ int qasm_number(QasmParser *parser, const QasmToken *token, QasmAngle *value)
     }
     if (places > 200u)
     {
-        qasm_refuse(parser, token, "a number past 200 places is not read");
+        qasm_error(parser, token, "a number past 200 places is not read");
         return 0;
     }
     long long exponent = 0;
@@ -318,7 +318,7 @@ int qasm_number(QasmParser *parser, const QasmToken *token, QasmAngle *value)
         exponent = strtoll(text + mantissa_end + 1u, NULL, 10);
         if ((exponent > 300) || (exponent < -300))
         {
-            qasm_refuse(parser, token, "an exponent past 300 is not read");
+            qasm_error(parser, token, "an exponent past 300 is not read");
             return 0;
         }
     }

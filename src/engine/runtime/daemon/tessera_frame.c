@@ -63,7 +63,7 @@ static unsigned long long tessera_get_long(const unsigned char *bytes, unsigned 
 static int tessera_kind_known(unsigned int kind)
 {
     return ((kind >= TESSERA_ASK_SUBMIT) && (kind <= TESSERA_ASK_MEASURED)) ||
-           ((kind >= TESSERA_TELL_ADMITTED) && (kind <= TESSERA_TELL_REFUSED));
+           ((kind >= TESSERA_TELL_ADMITTED) && (kind <= TESSERA_TELL_ERROR));
 }
 
 int tessera_frame_pack(const TesseraFrame *frame, unsigned char bytes[TESSERA_FRAME_BYTES])

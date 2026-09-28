@@ -42,8 +42,8 @@ unsigned int gaussian_word(long long value);
 
 // The inverse floor, (c, d) -> ((c + d) / 2, (d - c) / 2), is z -> z / (1 + i): a SUM, a DIFFERENCE and two
 // EXACT_QUOTIENTs by the constant 2. On the pairs of equal parity, the floor's image, it is exact; a pair of mixed
-// parity leaves a remainder, and the machine refuses its lane. So j inverse floors run on c + d i exactly where (1 +
-// i)^j divides it, its (1 + i)-adic valuation at least j, and the lane is refused otherwise.
+// parity leaves a remainder, and the machine errors on its lane. So j inverse floors run on c + d i exactly where (1 +
+// i)^j divides it, its (1 + i)-adic valuation at least j, and the lane errors otherwise.
 #define GAUSSIAN_TEST_INVERSE_STEPS_PER_FLOOR 4u
 
 // the two fields and the constant 2, then four steps a floor

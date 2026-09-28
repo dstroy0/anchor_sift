@@ -353,7 +353,7 @@ var loopTurns = 0;
 // TWO WAYS THE LOOP CAN STOP, AND THEY ARE NOT THE SAME EVENT. A throw is fatal, because the next
 // turn throws the same way. Slowness is a report and stops nothing.
 //
-// The first version treated them alike and set one flag on either, which the guard then refused to
+// The first version treated them alike and set one flag on either, which the guard then errored rather than
 // run under. `setTimeout` runs in a background tab and `requestAnimationFrame` does not, so a page
 // opened in a tab that is not visible completed one turn, was declared dead on schedule, and never
 // ran again even once brought to the front. The watchdog was the thing that killed the loop.

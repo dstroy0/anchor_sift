@@ -173,7 +173,7 @@ extern "C" int climb_machine_box(ClimbMachine *machine, ClimbMachineBox *box)
     unsigned int *device_cell_raw = NULL;
     unsigned int *device_target = NULL;
     unsigned int *device_count = NULL;
-    unsigned int *device_refused = NULL;
+    unsigned int *device_error = NULL;
     ok = ok && (cudaMalloc((void **)&device_cell_climber, (cell_count + 1u) * sizeof(unsigned int)) == cudaSuccess) &&
          (cudaMalloc((void **)&device_climber_of_box, capacity * sizeof(unsigned int)) == cudaSuccess) &&
          (cudaMalloc((void **)&device_cell_shift, (cell_count + 1u) * 3u * sizeof(int)) == cudaSuccess) &&
@@ -181,8 +181,8 @@ extern "C" int climb_machine_box(ClimbMachine *machine, ClimbMachineBox *box)
          (cudaMalloc((void **)&device_cell_entries, (cell_count + 1u) * sizeof(unsigned int)) == cudaSuccess) &&
          (cudaMalloc((void **)&device_cell_total, (cell_count + 1u) * sizeof(unsigned int)) == cudaSuccess) &&
          (cudaMalloc((void **)&device_cell_raw, (cell_count + 1u) * sizeof(unsigned int)) == cudaSuccess) &&
-         (cudaMalloc((void **)&device_refused, 2u * sizeof(unsigned int)) == cudaSuccess) &&
-         (cudaMemset(device_refused, 0, 2u * sizeof(unsigned int)) == cudaSuccess) &&
+         (cudaMalloc((void **)&device_error, 2u * sizeof(unsigned int)) == cudaSuccess) &&
+         (cudaMemset(device_error, 0, 2u * sizeof(unsigned int)) == cudaSuccess) &&
          (cudaMemcpy(device_cell_climber, cell_climber, cell_count * sizeof(unsigned int), cudaMemcpyHostToDevice) ==
           cudaSuccess) &&
          (cudaMemcpy(device_climber_of_box, climber_of_box, (size_t)boxed * sizeof(unsigned int),
@@ -196,7 +196,7 @@ extern "C" int climb_machine_box(ClimbMachine *machine, ClimbMachineBox *box)
     device.cell_entries = device_cell_entries;
     device.cell_total = device_cell_total;
     device.cell_raw = device_cell_raw;
-    device.refused = device_refused;
+    device.error = device_error;
     const unsigned int cell_blocks = (unsigned int)((cell_count + CLIMB_MACHINE_BLOCK - 1u) / CLIMB_MACHINE_BLOCK);
     if (ok && (cell_count != 0u))
     {
@@ -245,19 +245,19 @@ extern "C" int climb_machine_box(ClimbMachine *machine, ClimbMachineBox *box)
             (unsigned int)machine->run_capacity, machine->positive, machine->geometry);
         ok = machine_launched() && (cudaDeviceSynchronize() == cudaSuccess);
     }
-    unsigned int refused[2] = {0u, 0u};
+    unsigned int error[2] = {0u, 0u};
     ok = ok &&
          ((entry_count == 0u) || ((cudaMemcpy(machine->box_target, device_target, entry_count * sizeof(unsigned int),
                                               cudaMemcpyDeviceToHost) == cudaSuccess) &&
                                   (cudaMemcpy(machine->box_count, device_count, entry_count * sizeof(unsigned int),
                                               cudaMemcpyDeviceToHost) == cudaSuccess)));
-    const int counted = (device_refused != NULL) && (cudaMemcpy(refused, device_refused, 2u * sizeof(unsigned int),
+    const int counted = (device_error != NULL) && (cudaMemcpy(error, device_error, 2u * sizeof(unsigned int),
                                                                 cudaMemcpyDeviceToHost) == cudaSuccess);
     box->climbers = boxed;
     box->cells = (unsigned int)((cells <= 0xFFFFFFFFull) ? cells : 0xFFFFFFFFull);
-    box->crowded = counted ? refused[0] : 0u;
-    box->broken = counted ? refused[1] : 0u;
-    ok = ok && counted && (refused[1] == 0u) && machine_box_merge(machine, cell_raw, cell_count);
+    box->crowded = counted ? error[0] : 0u;
+    box->broken = counted ? error[1] : 0u;
+    ok = ok && counted && (error[1] == 0u) && machine_box_merge(machine, cell_raw, cell_count);
     unsigned int final_score_differ = 0u;
     unsigned int not_highest = 0u;
     for (unsigned int one = 0u; ok && (one < boxed); one += 1u)
@@ -281,7 +281,7 @@ extern "C" int climb_machine_box(ClimbMachine *machine, ClimbMachineBox *box)
     cudaFree(device_cell_raw);
     cudaFree(device_target);
     cudaFree(device_count);
-    cudaFree(device_refused);
+    cudaFree(device_error);
     free(cell_climber);
     free(cell_total);
     free(cell_raw);

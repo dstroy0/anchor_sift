@@ -453,10 +453,10 @@ static void report_cascade(const char *name, const uint8_t *corpus, size_t corpu
     }
 }
 
-static uint32_t refused_occurrences(const uint8_t *corpus, size_t length, const uint8_t *needle, size_t needle_len,
+static uint32_t error_occurrences(const uint8_t *corpus, size_t length, const uint8_t *needle, size_t needle_len,
                                     const size_t *offsets, unsigned count, uint32_t *found)
 {
-    uint32_t refused = 0u;
+    uint32_t error = 0u;
     uint32_t occurrences = 0u;
 
     for (size_t start = 0u; (start + needle_len) <= length; start++)
@@ -471,13 +471,13 @@ static uint32_t refused_occurrences(const uint8_t *corpus, size_t length, const 
         {
             if (corpus[start + offsets[index]] != needle[offsets[index]])
             {
-                refused++;
+                error++;
                 break;
             }
         }
     }
     *found = occurrences;
-    return refused;
+    return error;
 }
 
 static void report_invariant(const char *name, const uint8_t *corpus, size_t corpus_len, size_t needle_len,
@@ -496,7 +496,7 @@ static void report_invariant(const char *name, const uint8_t *corpus, size_t cor
     for (unsigned count = 1u; count <= CASCADE_MAX; count++)
     {
         uint32_t checked = 0u;
-        uint32_t refused = 0u;
+        uint32_t error = 0u;
         unsigned samples = 0u;
 
         for (size_t at = 0u; at < positions; at += step)
@@ -512,14 +512,14 @@ static void report_invariant(const char *name, const uint8_t *corpus, size_t cor
 
             uint32_t found = 0u;
 
-            refused += refused_occurrences(corpus, corpus_len, needle, needle_len, offsets, count, &found);
+            error += error_occurrences(corpus, corpus_len, needle, needle_len, offsets, count, &found);
             checked += found;
             samples++;
         }
 
         printf("ancorae_invariant,%08x,%s,%s,%u,%u,%u,%u,%u,%u,%s\n", stamp, name, policy_name(policy),
-               (unsigned)needle_len, count, (unsigned)corpus_len, samples, checked, refused,
-               (checked == 0u) ? "none" : ((refused == 0u) ? "hold" : "BROKEN"));
+               (unsigned)needle_len, count, (unsigned)corpus_len, samples, checked, error,
+               (checked == 0u) ? "none" : ((error == 0u) ? "hold" : "BROKEN"));
     }
 }
 
@@ -828,7 +828,7 @@ int main(void)
     printf("bench,table,corpus,policy,needle_len,stride,corpus_bytes,samples,one_anchor,two_anchor,predicted,"
            "skip,independence,stderr,z\n");
     printf("bench,table,corpus,policy,needle_len,anchors,corpus_bytes,samples,candidates,predicted,ratio,z\n");
-    printf("bench,table,corpus,policy,needle_len,anchors,corpus_bytes,samples,occurrences,refused,verdict\n");
+    printf("bench,table,corpus,policy,needle_len,anchors,corpus_bytes,samples,occurrences,errored,verdict\n");
     printf("bench,table,corpus,corpus_bytes,needle_len,distinct,shannon,renyi2,collision,effective_alphabet,"
            "predicted_maxent,oracle_rate,ceiling\n");
 

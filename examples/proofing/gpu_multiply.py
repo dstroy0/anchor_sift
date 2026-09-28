@@ -26,10 +26,10 @@ Garner's rule across them. Nothing else. Every verdict below is formed here, aga
 multiply, because a product on a card is a number nobody can eyeball and the only thing worth
 printing is whether two routes that had no way to agree did.
 
-WHAT IT REFUSES
+WHAT IT ERRORS
 
 A product longer than the moduli support. The three primes admit a transform of 2^27, which is
-1.29 billion decimal digits, and a request past that is refused by the device instead of wrapping.
+1.29 billion decimal digits, and a request past that errors in the device instead of wrapping.
 
 A run whose answer was never compared. `--check` walks sizes where Python can still multiply, and
 a size past that is reported as timed and never as verified, since a fast wrong answer is the

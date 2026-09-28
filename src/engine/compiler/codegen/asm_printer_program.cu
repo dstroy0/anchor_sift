@@ -5,7 +5,7 @@
 // `text` taken on as a text of the flattened ruleset, its number returned
 static unsigned int asm_printer_flat_text(AsmPrinterFlat *flat, const std::string &text)
 {
-    // the ruleset's texts and letters are far fewer than 2^32; the build refuses more than its tables hold
+    // the ruleset's texts and letters are far fewer than 2^32; the build errors on more than its tables hold
     const AsmPrinterCoreText taken = {(unsigned int)flat->letters.size(), (unsigned int)text.size()};
     flat->letters.insert(flat->letters.end(), text.begin(), text.end());
     flat->texts.push_back(taken);

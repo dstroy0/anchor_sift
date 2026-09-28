@@ -29,7 +29,7 @@ A directory with no membership rule collects whatever nobody had a better place 
 
 **`citations/`.** `citations.py` is the register of the mathematics this work rests on, and it fails while a name is used and unregistered. `corpus_crossref.py` finds corpus material used without the paper it came from named beside it, and `--speakers` reports who the corpus rests on and who is unnamed.
 
-**`corpus/`.** `corpus_manifest.py` reconciles the private tree against its signed inventory. `speech_gate.py` refuses recorded speech the community has not permitted. `speech_order.py` holds the drawn order nobody chose. `verify_private_sync.py` checks that what `build/` reaches is the corpus the signature covers. Each takes `--bypass`.
+**`corpus/`.** `corpus_manifest.py` reconciles the private tree against its signed inventory. `speech_gate.py` errors recorded speech the community has not permitted. `speech_order.py` holds the drawn order nobody chose. `verify_private_sync.py` checks that what `build/` reaches is the corpus the signature covers. Each takes `--bypass`.
 
 **`source/`.** `codemask.py` says which bytes of a C file are code. `strip_comments.py` and `readclean.py` remove comments so code can be read or rewritten without prose in the way. `dedup.py` finds the same code written twice under different names. `src2png.py` renders source to pages for surveying at image density. `readclean_mmgr.py` is the preserved C only original and `readclean_mmgr_test.py` is its test.
 

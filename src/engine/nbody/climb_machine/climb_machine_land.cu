@@ -229,11 +229,11 @@ __global__ void machine_box_kernel(unsigned int cells, unsigned int writing, Mac
     const unsigned int written = listed + ((outside != 0u) ? 1u : 0u);
     if (total < labeled)
     {
-        atomicAdd(&box.refused[1], 1u);
+        atomicAdd(&box.error[1], 1u);
     }
     if (writing == 0u)
     {
-        atomicAdd(&box.refused[0], overflow);
+        atomicAdd(&box.error[0], overflow);
         box.cell_entries[cell] = written;
         box.cell_total[cell] = total;
         box.cell_raw[cell] = overflow;

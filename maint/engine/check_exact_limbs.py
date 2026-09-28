@@ -33,8 +33,8 @@
 #
 # The C prints a sign, how many limbs the value uses, and those limbs in hex, least significant
 # first. This reassembles that into an integer and compares against the same operation done
-# directly. It also checks the refusals: a value too wide for the fixed width has to come back
-# refused, since a fixed width is the only bound this representation carries and a silent wrap is
+# directly. It also checks the errors: a value too wide for the fixed width has to come back
+# errored, since a fixed width is the only bound this representation carries and a silent wrap is
 # the worst failure available to it.
 #
 # The same rows are read at every width a build selects, 1 limb to 32768. The width comes from the
@@ -47,7 +47,7 @@ import re
 import subprocess
 import sys
 
-# The subject built to overrun the width carries 315654 digits at 32768 limbs, and python refuses to
+# The subject built to overrun the width carries 315654 digits at 32768 limbs, and python errors rather than
 # convert a decimal string longer than 4300 digits unless told otherwise. The limit guards a server
 # parsing untrusted text in quadratic time. The text here is the driver's own.
 sys.set_int_max_str_digits(0)
@@ -137,7 +137,7 @@ REPEATED_POSITIONS = (
 )
 REPEATED_VALUES = (1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4)
 
-# The C statuses a refusal row prints.
+# The C statuses an error row prints.
 WILL_NOT_FIT = 1
 NOT_DECIMAL = 2
 
@@ -192,7 +192,7 @@ def version_lock(out):
         return 0
 
     # The width has to hold the floor, and the python scale has to be the same floor. A python scale
-    # above the C floor would ingest values the C refuses; below it, the two would disagree about
+    # above the C floor would ingest values the C errors; below it, the two would disagree about
     # what fits.
     held = 32 * limbs
     room = ((floor * 3322) // 1000) + 1
@@ -244,7 +244,7 @@ def integer_at(field, at, width_limbs):
 def measured_of(text, places, width):
     """Decimal text as (status, value, uncertainty), done with python integers alone.
 
-    `status` is 0 where the C must accept the text, and otherwise the refusal status the C must
+    `status` is 0 where the C must accept the text, and otherwise the error status the C must
     return: NOT_DECIMAL for text outside the grammar, WILL_NOT_FIT for a value or an uncertainty
     needing more places than `places` or more bits than `width`. `uncertainty` is None where the
     text carries no bracket. Written out here instead of imported, because this file is the second
@@ -257,7 +257,7 @@ def measured_of(text, places, width):
     part = found.group(3) or ""
 
     # Trailing zeros in the fraction are not places. 1.2300 and 1.23 are one number and a scale of
-    # two places holds both exactly. Counting the zeros refuses a value that needs no rounding.
+    # two places holds both exactly. Counting the zeros errors on a value that needs no rounding.
     # ".000" is zero, and trimming it to no digit at all must not make it text that is not decimal.
     trimmed = part.rstrip("0")
     if len(trimmed) > places:
@@ -280,7 +280,7 @@ def measured_of(text, places, width):
 
 
 def exact_of(text, places, width=1 << 20):
-    """Decimal text as an integer at `places`, or None where the C is required to refuse it."""
+    """Decimal text as an integer at `places`, or None where the C is required to error on it."""
     status, value, _uncertainty = measured_of(text, places, width)
     return value if status == 0 else None
 
@@ -355,12 +355,12 @@ def main():
             index = int(field[1])
             text = text_of(field[2])
             status, wanted, _uncertainty = measured_of(text, places, width)
-            if field[3] == "refused":
-                # A refusal has to be the one the python side says is required, of the same kind, or
-                # the C is refusing values it should have read.
+            if field[3] == "errored":
+                # An error has to be the one the python side says is required, of the same kind, or
+                # the C is erroring on values it should have read.
                 if int(field[4]) != status:
                     wrong.append(
-                        "read %d %r: refused with %s, python says %d"
+                        "read %d %r: errored with %s, python says %d"
                         % (index, text, field[4], status)
                     )
                 subjects[index] = None
@@ -370,7 +370,7 @@ def main():
                     wrong.append("read %d %r: malformed limbs" % (index, text))
                 elif status != 0:
                     wrong.append(
-                        "read %d %r: read, which python refuses with %d"
+                        "read %d %r: read, which python errors with %d"
                         % (index, text, status)
                     )
                 elif got != wanted:
@@ -386,10 +386,10 @@ def main():
             index = int(field[1])
             text = text_of(field[2])
             status, wanted, spread = measured_of(text, places, width)
-            if field[3] == "refused":
+            if field[3] == "errored":
                 if int(field[4]) != status:
                     wrong.append(
-                        "meas %d %r: refused with %s, python says %d"
+                        "meas %d %r: errored with %s, python says %d"
                         % (index, text, field[4], status)
                     )
             else:
@@ -400,7 +400,7 @@ def main():
                     wrong.append("meas %d %r: malformed limbs" % (index, text))
                 elif status != 0:
                     wrong.append(
-                        "meas %d %r: read, which python refuses with %d"
+                        "meas %d %r: read, which python errors with %d"
                         % (index, text, status)
                     )
                 elif got != wanted:
@@ -422,9 +422,9 @@ def main():
             continue
 
         if kind == "keep":
-            # A refusal must leave its output as it was. The last field is 1 where it did.
+            # An error must leave its output as it was. The last field is 1 where it did.
             if field[-1] != "1":
-                wrong.append("%s: a refusal changed its output" % row)
+                wrong.append("%s: an error changed its output" % row)
             checked += 1
             continue
 
@@ -448,10 +448,10 @@ def main():
                 else (low - high) if kind == "sub" else (low * high)
             )
             fits = abs(wanted) < (1 << width)
-            if field[3] == "refused":
+            if field[3] == "errored":
                 if fits:
                     wrong.append(
-                        "%s: refused, but %d fits %d bits" % (row, wanted, width)
+                        "%s: errored, but %d fits %d bits" % (row, wanted, width)
                     )
             else:
                 got, _next = integer_at(field, 3, limbs)

@@ -174,7 +174,7 @@ unsigned int plane_number(int count, char **arguments, const char *name, unsigne
     {
         if (strcmp(arguments[argument], name) == 0)
         {
-            // a request past its most is refused by its reader. The conversion's range does not matter here
+            // a request past its most errors in its reader. The conversion's range does not matter here
             return (unsigned int)strtoul(arguments[argument + 1], NULL, 10);
         }
     }

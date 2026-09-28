@@ -9,7 +9,7 @@ THE DEFECT THIS EXISTS FOR
 Every builder here defaulted its output to the directory holding the builder. That is harmless in
 the tree the tool was written in and wrong everywhere else: fetched into another repository, the
 tool writes a generated page into files that repository has locked, inside a directory it has told
-its formatters to leave alone, and the next fetch either overwrites the page or refuses because the
+its formatters to leave alone, and the next fetch either overwrites the page or errors because the
 tree is dirty. A generated file belongs where generated files go, and the tool's own directory is
 never that place.
 

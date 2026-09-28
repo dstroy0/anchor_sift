@@ -47,29 +47,29 @@ struct LayoutRequest
 // the lane of `layout` written by the device in the ruleset `text_rules` was laid out from, `places` the places it
 // holds in shared memory (the file's where the language lays it out there, else 0), split into states by `costs` where
 // it is given (the language's CodeGenerator::program_schedule_costs, where its program() splits the lane): 1 where it
-// was written, its text in `text`; 0, and why in `refused`, where a step is one the lane does not hold, a form breaks
-// the lane, the text is more than the assembly printer holds, the device refused a call, or the build has no device
+// was written, its text in `text`; 0, and why in `error`, where a step is one the lane does not hold, a form breaks
+// the lane, the text is more than the assembly printer holds, the device errored on a call, or the build has no device
 int codegen_device(const EngineRecordLayout *layout, const AsmPrinterRuleset *text_rules, unsigned int places,
-                   const ScheduleCosts *costs, std::string *text, std::string *refused);
+                   const ScheduleCosts *costs, std::string *text, std::string *error);
 
 // the program of `request` laid out by the device and read back into `layout`, as key_schedule_record_layout lays it
-// out and key_schedule_record_release releases it: 1 where it was laid out; 0, and why in `refused`, where keymath or
-// key_schedule refuses it, the device refused a call, or the build has no device
-int layout_device(const LayoutRequest *request, EngineRecordLayout *layout, std::string *refused);
+// out and key_schedule_record_release releases it: 1 where it was laid out; 0, and why in `error`, where keymath or
+// key_schedule errors on it, the device errored on a call, or the build has no device
+int layout_device(const LayoutRequest *request, EngineRecordLayout *layout, std::string *error);
 
 // the lane of the program of `request` written by the device, from the step table the device laid out, none of it read
 // back: laid out as layout_device lays it out and written as codegen_device writes it
 int codegen_device_steps(const LayoutRequest *request, const AsmPrinterRuleset *text_rules, unsigned int places,
-                         const ScheduleCosts *costs, std::string *text, std::string *refused);
+                         const ScheduleCosts *costs, std::string *text, std::string *error);
 
 // the forms of the lane of `layout` as the device decides them, in the text's order, each construct taking its scratch
 // from `scratch` (ruleset_scratch), and read back into `items`: those CodeGenerator::decided gives, where `costs`
 // is NULL, else the lane split by `costs` into states and `report` told how, as the scheduled decided gives them. 1
-// where they were decided; 0, and why in `refused`, where a step is one the lane does not hold, a form breaks the lane,
-// the device refused a call, or the build has no device
+// where they were decided; 0, and why in `error`, where a step is one the lane does not hold, a form breaks the lane,
+// the device errored on a call, or the build has no device
 int codegen_device_instrs(const EngineRecordLayout *layout, const std::vector<unsigned int> &scratch,
                           unsigned int places, const ScheduleCosts *costs, ScheduleReport *report,
-                          std::vector<MachineInstr> *items, std::string *refused);
+                          std::vector<MachineInstr> *items, std::string *error);
 
 // 1 where two layouts are the same word for word: their sizes, step tables and tables' values
 int layout_same(const EngineRecordLayout *left, const EngineRecordLayout *right);
@@ -77,9 +77,9 @@ int layout_same(const EngineRecordLayout *left, const EngineRecordLayout *right)
 // asm_printer_ruleset_build on the device: the schema checked on the host, the scratch taken by the device
 // (ruleset_scratch_device), then the build (asm_printer_core.h) in one device thread and the program laid out by the
 // device (layout_device). The program's key is not kept, and its output is the program's. 1 where it is built, else 0
-// and why in `refused`, as the host's build refuses, or where the device refused a call or the build has no device
+// and why in `error`, as the host's build errors, or where the device errored on a call or the build has no device
 int asm_printer_ruleset_device(const Ruleset *rules, const TargetInfo *target, const std::string &header,
-                               AsmPrinterRuleset *text_rules, std::string *refused);
+                               AsmPrinterRuleset *text_rules, std::string *error);
 
 // 1 where two builds of a ruleset are the same word for word: their scratch and lists, the program's steps, fields,
 // tables and output, and its layout
@@ -87,14 +87,14 @@ int asm_printer_ruleset_same(const AsmPrinterRuleset *left, const AsmPrinterRule
 
 // the ruleset at `path` read into `rules` against rules->schema as the host's reader reads it, the file opened on the
 // host and its lines read in one device thread (ruleset_core.h): 1 where the device read it, `rules` then as the
-// host's reader leaves them, read or refused; 0, and why in `refused`, where the device refused a call or the build has
-// no device
-int ruleset_read_device(Ruleset *rules, const std::string &path, std::string *refused);
+// host's reader leaves them, read or errored; 0, and why in `error`, where the device errored on a call or the build
+// has no device
+int ruleset_read_device(Ruleset *rules, const std::string &path, std::string *error);
 
-// ruleset_scratch laid out in one device thread (ruleset_core_scratch.h): 1 where it was; 0, and why in `refused`,
-// where the device refused a call or the build has no device
+// ruleset_scratch laid out in one device thread (ruleset_core_scratch.h): 1 where it was; 0, and why in `error`,
+// where the device errored on a call or the build has no device
 int ruleset_scratch_device(const Ruleset *rules, const unsigned int *banks, std::vector<unsigned int> *scratch,
-                           std::string *refused);
+                           std::string *error);
 
 // 1 where two rulesets are the same as read: their schema, path, reason, names, banks, registers, forms, constructs,
 // which were given, and the construct being read with its parameters

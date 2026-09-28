@@ -57,7 +57,7 @@ AGENT = {
 # Seconds between requests that reach a host. Longer than any limit these archives publish.
 PAUSE = 3.0
 
-# Attempts per URL. A refusal is a refusal; this is for a dropped connection.
+# Attempts per URL. An error is an error; this is for a dropped connection.
 TRIES = 2
 
 # What is wanted, why, and what a downloaded file has to contain before it counts as that paper.
@@ -114,14 +114,14 @@ def confirms(path, must_hold, out):
     articles and both reported success.
 
     The check reads the file's own text for words the paper must contain. Where the file is a page
-    scan and yields no text, it cannot be confirmed, and cannot-confirm is reported as a refusal
+    scan and yields no text, it cannot be confirmed, and cannot-confirm is reported as an error
     and not a pass: a scan has to be rendered and read by a person, and that is a worklist item.
     """
     try:
         from pypdf import PdfReader
     except ImportError:
         out.write(
-            "      cannot confirm: no pypdf installed. Refusing to keep an unchecked file.\n"
+            "      cannot confirm: no pypdf installed. Erroring rather than keep an unchecked file.\n"
         )
         return False
 
@@ -148,7 +148,7 @@ def confirms(path, must_hold, out):
 
 
 def fetch(url, out):
-    """One URL, or None with the reason printed. Never retries a refusal."""
+    """One URL, or None with the reason printed. Never retries an error."""
     for attempt in range(TRIES):
         try:
             request = urllib.request.Request(url, headers=AGENT)
@@ -158,9 +158,9 @@ def fetch(url, out):
                 out.write("      not a PDF: %s\n" % url[:88])
                 return None
             return held
-        except urllib.error.HTTPError as refused:
+        except urllib.error.HTTPError as error:
             # A status is a decision by the host and is reported as one. 403 and 404 are answers.
-            out.write("      HTTP %d: %s\n" % (refused.code, url[:80]))
+            out.write("      HTTP %d: %s\n" % (error.code, url[:80]))
             return None
         except Exception as trouble:
             if attempt == (TRIES - 1):

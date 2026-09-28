@@ -15,7 +15,7 @@
 // oracle, which itself equals the kernels on the 5/3. For every ruleset, T read through T^-1 as one program returns
 // crystals drawn anywhere in the fields' widths. An operation F read through T^-1 (the block's sum, and its energy
 // along x, the sum of the squared differences of x neighbors) equals F on tower_lower's samples. Every program runs
-// on the device and the host, word for word. The emitter sizes a program before it is held, and it refuses a register
+// on the device and the host, word for word. The emitter sizes a program before it is held, and it errors on a register
 // that is not earlier, a capacity too small, an empty extent and a malformed step, leaving the program as it was.
 // Every sweep gives back the stack its frame grew. The limit after the blocks is the limit before them.
 // The test is one job on the device's tessera daemon, submitted before its first device work.

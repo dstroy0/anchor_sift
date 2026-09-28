@@ -93,7 +93,7 @@ static int probe_build(const std::string &text, int major, int minor, cudaLibrar
     nvJitLinkHandle handle = NULL;
     if (nvJitLinkCreate(&handle, 1u, options) != NVJITLINK_SUCCESS)
     {
-        printf("refused: nvJitLink could not be made\n");
+        printf("errored: nvJitLink could not be made\n");
         return 0;
     }
     size_t size = 0u;
@@ -112,7 +112,7 @@ static int probe_build(const std::string &text, int major, int minor, cudaLibrar
             log.assign(log_size, '\0');
             nvJitLinkGetErrorLog(handle, log.data());
         }
-        printf("refused: nvJitLink did not assemble the kernel\n%s\n", log.data());
+        printf("errored: nvJitLink did not assemble the kernel\n%s\n", log.data());
     }
     nvJitLinkDestroy(&handle);
     return taken && (cudaLibraryLoadData(library, cubin.data(), NULL, NULL, 0u, NULL, NULL, 0u) == cudaSuccess) &&
@@ -141,9 +141,9 @@ static cudaError_t probe_run(cudaKernel_t kernel, const unsigned int *in, unsign
     return status;
 }
 
-// the error a question the device refused gave, then the error the next allocation gives: whether the context
-// survived the refusal
-static int probe_refused(cudaError_t status)
+// the error a question the device errored gave, then the error the next allocation gives: whether the context
+// survived the error
+static int probe_error(cudaError_t status)
 {
     printf("error %d %s\n", (int)status, cudaGetErrorName(status));
     void *after = NULL;
@@ -181,7 +181,7 @@ static int probe_membership(ProbeWriter *writer, const std::string &header, int 
         if (status != cudaSuccess)
         {
             printf("%s: ", question.name.c_str());
-            return probe_refused(status);
+            return probe_error(status);
         }
         unsigned int agree = 0u;
         unsigned int differ = 0u;
@@ -243,7 +243,7 @@ static int probe_membership(ProbeWriter *writer, const std::string &header, int 
 }
 
 // a kernel whose body is `body` alone, run over one case; `address` names the case's input, which the body may
-// replace. Exit 0 where the device answers, 3 where it refuses the run, 4 where the toolchain refuses the kernel
+// replace. Exit 0 where the device answers, 3 where it errors on the run, 4 where the toolchain errors on the kernel
 static int probe_single(ProbeWriter *writer, const std::string &header, const std::string &body, int major, int minor)
 {
     const std::string text = probe_kernel(writer, header, body);
@@ -262,7 +262,7 @@ static int probe_single(ProbeWriter *writer, const std::string &header, const st
     const cudaError_t status = probe_run(kernel, in, out, 1u);
     if (status != cudaSuccess)
     {
-        return probe_refused(status);
+        return probe_error(status);
     }
     printf("answered %08x %08x %08x %08x\n", out[0], out[1], out[2], out[3]);
     cudaLibraryUnload(library);
@@ -285,7 +285,7 @@ int main(int count, char **arguments)
     ProbeWriter writer = {ptx_target().ruleset(1), 0, PROBE_TEMPORARIES, PROBE_WIDES, PROBE_PREDICATES};
     if ((writer.rules == NULL) || header.empty())
     {
-        printf("the ruleset was refused, or NVRTC gave no header\n");
+        printf("the ruleset errored, or NVRTC gave no header\n");
         return 2;
     }
     printf("sm_%d%d, %s", major, minor, header.c_str());

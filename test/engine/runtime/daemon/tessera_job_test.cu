@@ -300,12 +300,12 @@ int main(int count, char **arguments)
         // one byte of the first record's peak
         damaged[ENGINE_SIGNUM_BYTES] ^= 0x01u;
         job_check(job_file_write(history, damaged, length) && (tessera_job_submit(&ask, &client, &ticket) != 0L),
-                  "a history damaged by one byte is refused, and no daemon starts on it");
+                  "a history damaged by one byte errors, and no daemon starts on it");
         job_check(job_file_write(history, sealed, length - 1ull) && (tessera_job_submit(&ask, &client, &ticket) != 0L),
-                  "a history cut short by one byte is refused");
+                  "a history cut short by one byte errors");
         job_check(job_file_write(history, sealed, length - OBSIGNATIO_SIGNUM_BYTES) &&
                       (tessera_job_submit(&ask, &client, &ticket) != 0L),
-                  "a history with no seal is refused");
+                  "a history with no seal errors");
         free(damaged);
         // a signum the history had lost would be admitted on its declaration; only the kept peak asks this
         ask.declared = 4ull * peak;

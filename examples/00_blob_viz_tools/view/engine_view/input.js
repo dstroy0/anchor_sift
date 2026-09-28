@@ -76,8 +76,8 @@ EV.readControl = (app, id, name, kind) => {
       : kind === "palette" ? EV.PALETTE_WORDS[element.value]
         : kind === "power" ? (Number(element.value) ? 2 ** (Number(element.value) - 1) : 0)
           : kind === "word" ? element.value : Math.trunc(Number(element.value));
-  const refused = EV.refuseValue(EV.VIEW_SCHEME[name], value);
-  if (!refused) {
+  const error = EV.errorValue(EV.VIEW_SCHEME[name], value);
+  if (!error) {
     app.view[name] = value;
   }
   if (name === "slice_z" || name === "window_low" || name === "window_high" || name === "slice") {
@@ -231,7 +231,7 @@ EV.remember = (app) => {
   try {
     localStorage.setItem("engine_view", JSON.stringify({ face: app.view.face, theme: app.view.theme, text_size: app.view.text_size, sheer: app.view.sheer, pinned: EV.$("panel").classList.contains("pinned") }));
   } catch (error) {
-    // Storage can be refused; the page works without it.
+    // Storage can error; the page works without it.
   }
 };
 
@@ -388,8 +388,8 @@ EV.bindControls = (app) => {
   EV.$("configRead").addEventListener("click", readPage);
   EV.$("configApply").addEventListener("click", () => {
     const report = EV.apply(app, EV.$("configText").value);
-    said.textContent = `${report.applied.length} applied.` + (report.refused.length ? ` Refused: ${report.refused.join("; ")}` : "");
-    said.className = report.refused.length ? "note bad" : "note";
+    said.textContent = `${report.applied.length} applied.` + (report.error.length ? ` Error: ${report.error.join("; ")}` : "");
+    said.className = report.error.length ? "note bad" : "note";
   });
   EV.$("configCopy").addEventListener("click", async () => {
     try {
@@ -397,7 +397,7 @@ EV.bindControls = (app) => {
       said.textContent = "Copied.";
     } catch (error) {
       EV.$("configText").select();
-      said.textContent = "The clipboard refused; the text is selected.";
+      said.textContent = "The clipboard errored; the text is selected.";
     }
   });
   EV.$("configSave").addEventListener("click", () => EV.download("engine_view.cfg", new Blob([EV.$("configText").value], { type: "application/json" })));
@@ -593,9 +593,9 @@ EV.bindKeys = (app) => {
 
 // Applies a view section, or a whole .cfg's text, and reports by name what took and what did not.
 EV.apply = (app, input) => {
-  const parsed = typeof input === "string" ? EV.parseCfg(input) : { refused: [], view: input };
-  const report = parsed.view ? EV.applyView(app.view, parsed.view) : { applied: [], refused: [] };
-  report.refused = [...parsed.refused, ...report.refused];
+  const parsed = typeof input === "string" ? EV.parseCfg(input) : { error: [], view: input };
+  const report = parsed.view ? EV.applyView(app.view, parsed.view) : { applied: [], error: [] };
+  report.error = [...parsed.error, ...report.error];
   if (report.applied.includes("chosen") && app.object) {
     EV.choose(app, app.view.chosen.filter((cell) => cell < app.object.header.cell_total), "set");
   }

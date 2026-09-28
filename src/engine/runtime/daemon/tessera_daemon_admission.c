@@ -143,7 +143,7 @@ void daemon_handle(TesseraPeer *peer, const TesseraFrame *frame)
         TesseraEvent event;
         if (!acceptable || !tessera_ledger_submit(&g_daemon.ledger, &request, now, &identity, &event))
         {
-            daemon_post(peer, TESSERA_TELL_REFUSED, 0ull, frame->declared, 0ull);
+            daemon_post(peer, TESSERA_TELL_ERROR, 0ull, frame->declared, 0ull);
             return;
         }
         peer->identity = identity;
@@ -202,7 +202,7 @@ void daemon_handle(TesseraPeer *peer, const TesseraFrame *frame)
         peer->lost_identity = 0ull;
         return;
     }
-    daemon_post(peer, TESSERA_TELL_REFUSED, frame->identity, 0ull, 0ull);
+    daemon_post(peer, TESSERA_TELL_ERROR, frame->identity, 0ull, 0ull);
 }
 
 static void daemon_fired(const TesseraEvent *event, unsigned long long now)

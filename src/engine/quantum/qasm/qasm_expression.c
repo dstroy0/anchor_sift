@@ -39,7 +39,7 @@ static int qasm_primary(QasmParser *parser, const QasmScope *scope, QasmAngle *v
         {
             if (qasm_token_is(parser, token, functions[at]))
             {
-                qasm_refuse(parser, token,
+                qasm_error(parser, token,
                             "%s() in a parameter is not read: a parameter is + - * / over numbers and pi",
                             functions[at]);
                 return 0;
@@ -47,10 +47,10 @@ static int qasm_primary(QasmParser *parser, const QasmScope *scope, QasmAngle *v
         }
         char name[QASM_NAME_CAPACITY];
         qasm_token_name(parser, token, name);
-        qasm_refuse(parser, token, "'%s' is not a parameter here", name);
+        qasm_error(parser, token, "'%s' is not a parameter here", name);
         return 0;
     }
-    qasm_refuse(parser, token, "a number, pi, a parameter or '(' was expected here");
+    qasm_error(parser, token, "a number, pi, a parameter or '(' was expected here");
     return 0;
 }
 
@@ -76,7 +76,7 @@ static int qasm_unary(QasmParser *parser, const QasmScope *scope, QasmAngle *val
     }
     if (qasm_token_is(parser, qasm_peek(parser), "^") && (qasm_peek(parser)->kind == QASM_TOKEN_SYMBOL))
     {
-        qasm_refuse(parser, qasm_peek(parser),
+        qasm_error(parser, qasm_peek(parser),
                     "'^' in a parameter is not read: a parameter is + - * / over numbers and pi");
         return 0;
     }
@@ -109,7 +109,7 @@ static int qasm_term(QasmParser *parser, const QasmScope *scope, QasmAngle *valu
         {
             if (right_pi || qasm_exact_is_zero(&right.a.num))
             {
-                qasm_refuse(parser, token,
+                qasm_error(parser, token,
                             right_pi ? "a division by a multiple of pi is not read" : "a parameter divides by zero");
                 return 0;
             }
@@ -122,7 +122,7 @@ static int qasm_term(QasmParser *parser, const QasmScope *scope, QasmAngle *valu
         }
         if (left_pi && right_pi)
         {
-            qasm_refuse(parser, token, "pi times pi is not read: an angle is a + b pi");
+            qasm_error(parser, token, "pi times pi is not read: an angle is a + b pi");
             return 0;
         }
         // (a1 + b1 pi)(a2 + b2 pi) with b1 b2 = 0
@@ -247,7 +247,7 @@ static int qasm_bound_gate(QasmParser *parser, const QasmGate *gate)
     qasm_exact_power_of_two(&half, (2u * QASM_FRACTION_BITS) - 1u);
     if ((anchor_exact_compare(&bound, &half) >= 0) || !qasm_exact_to_wide(&bound, parser->circuit->bound))
     {
-        qasm_refuse(parser, &parser->tokens[parser->at],
+        qasm_error(parser, &parser->tokens[parser->at],
                     "the proved error bound reaches 1/2 at this gate (%u rounded gates at F = %u): no bitstring could "
                     "be proved",
                     parser->circuit->rounded_gates, QASM_FRACTION_BITS);

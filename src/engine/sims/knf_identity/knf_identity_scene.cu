@@ -211,7 +211,7 @@ int knf_project(SimResults *results, const unsigned short *lanes, KnfRecord *rec
         (status == 0L) && (error.kind == ENGINE_ERROR_NONE) && (broken == 0ull) && (history.windows == KNF_WINDOWS);
     if (ok == 0)
     {
-        scriptura_text(&results->line, "    the entropy history refused: module ");
+        scriptura_text(&results->line, "    the entropy history errored: module ");
         // a module is a small non-negative enumerator
         scriptura_decimal(&results->line, (unsigned long long)error.module, 1u);
         scriptura_text(&results->line, " site ");

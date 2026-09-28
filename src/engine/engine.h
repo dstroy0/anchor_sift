@@ -211,8 +211,8 @@ extern "C"
     long engine_iapx_head(const char *set, const char *sample, unsigned long long extent[4], EngineError *error);
 
     // The bits the crystal spends on a lattice of ints laid out as frames, z, y and x: lifted through the tower and
-    // coded, the coder's bits. A value of 2^30 or more in magnitude refuses it, as a coefficient does. It is the noise
-    // detector's price (NoiseCost), which the driver passes so the detector reaches no module but its own.
+    // coded, the coder's bits. A value of 2^30 or more in magnitude errors on it, as a coefficient does. It is the
+    // noise detector's price (NoiseCost), which the driver passes so the detector reaches no module but its own.
     long engine_lattice_bits(const int *values, const unsigned long long extent[4], unsigned long long *bits,
                              EngineError *error);
 

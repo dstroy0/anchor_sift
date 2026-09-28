@@ -78,7 +78,7 @@ void cycle_cache_write(const std::string &folder, const std::string &path, const
 }
 
 // the source compiled by NVRTC as relocatable code for the device's architecture: a relocatable cubin, or LTO-IR where
-// `lto`; empty where it refuses, its log then on stderr when reporting
+// `lto`; empty where it errors, its log then on stderr when reporting
 std::vector<char> cycle_program_compile(const std::string &source, const char *name, int major, int minor, int lto,
                                         int report)
 {
@@ -112,7 +112,7 @@ std::vector<char> cycle_program_compile(const std::string &source, const char *n
         std::vector<char> log(log_size);
         if (compiler->log(program, log.data()) == NVRTC_SUCCESS)
         {
-            fprintf(stderr, "  cycle: NVRTC refused %s (%d):\n%s\n", name, (int)compiled, log.data());
+            fprintf(stderr, "  cycle: NVRTC errored %s (%d):\n%s\n", name, (int)compiled, log.data());
         }
     }
     compiler->destroy(&program);
@@ -121,7 +121,7 @@ std::vector<char> cycle_program_compile(const std::string &source, const char *n
 
 // a program's relocatable image linked alone by nvJitLink into one cubin, its resident and its lane in the one text,
 // with link-time optimization where `lto`; where `ptx` the program is PTX's text, NUL and all, which nvJitLink
-// assembles as it links. Empty where it refuses, its log then on stderr when reporting
+// assembles as it links. Empty where it errors, its log then on stderr when reporting
 std::vector<char> cycle_program_link(const CycleTarget *lane_target, const std::vector<char> &object, int lto, int ptx,
                                      int report)
 {
@@ -156,7 +156,7 @@ std::vector<char> cycle_program_link(const CycleTarget *lane_target, const std::
         std::vector<char> log(log_size);
         if (linker->log(handle, log.data()) == NVJITLINK_SUCCESS)
         {
-            fprintf(stderr, "  cycle: nvJitLink refused a record program:\n%s\n", log.data());
+            fprintf(stderr, "  cycle: nvJitLink errored on a record program:\n%s\n", log.data());
         }
     }
     linker->destroy(&handle);

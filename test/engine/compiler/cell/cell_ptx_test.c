@@ -69,9 +69,9 @@ static void cell_ptx_alive(CellPtxTest *test, const char *after)
                    what);
 }
 
-// an illegal operation the device refuses: the probe exits 3 having printed the CUDA error, which `error` names where
+// an illegal operation the device errors: the probe exits 3 having printed the CUDA error, which `error` names where
 // it is given
-static void cell_ptx_refused(CellPtxTest *test, const char *question, const char *error, const char *what)
+static void cell_ptx_error(CellPtxTest *test, const char *question, const char *error, const char *what)
 {
     CellAnswer answer;
     const int asked = cell_ptx_ask(test, question, &answer);
@@ -98,20 +98,20 @@ int main(int count, char **arguments)
                        (strstr(s_cell_ptx_output, " questions, 0 with a case that differs") != NULL),
                    "membership: every defined answer of every form agrees with the host's integers");
 
-    cell_ptx_refused(&test, "address", "error 700 cudaErrorIllegalAddress",
-                     "a load from address 16 is refused as an illegal address (700)");
+    cell_ptx_error(&test, "address", "error 700 cudaErrorIllegalAddress",
+                   "a load from address 16 errors as an illegal address (700)");
     cell_ptx_alive(&test, "an illegal address");
-    cell_ptx_refused(&test, "misaligned", "error 716 cudaErrorMisalignedAddress",
-                     "a 32-bit load one byte in is refused as a misaligned address (716)");
+    cell_ptx_error(&test, "misaligned", "error 716 cudaErrorMisalignedAddress",
+                   "a 32-bit load one byte in errors as a misaligned address (716)");
     cell_ptx_alive(&test, "a misaligned address");
-    cell_ptx_refused(&test, "trap", NULL, "trap is refused with a CUDA error");
+    cell_ptx_error(&test, "trap", NULL, "trap errors with a CUDA error");
     cell_ptx_alive(&test, "a trap");
 
     asked = cell_ptx_ask(&test, "lacking", &answer);
     cell_ptx_check(&test,
                    asked && (answer.ending == CELL_ENDING_EXITED) && (answer.code == 4ull) &&
-                       (strstr(s_cell_ptx_output, "refused") != NULL),
-                   "elect.sync, which PTX gives sm_90 and later, is refused by the toolchain for this device");
+                       (strstr(s_cell_ptx_output, "errored") != NULL),
+                   "elect.sync, which PTX gives sm_90 and later, errors in the toolchain for this device");
     cell_ptx_alive(&test, "an instruction the part lacks");
 
     printf("  cell ptx test: %u checks, %u failed\n", test.checks, test.failed);

@@ -27,7 +27,7 @@ struct CycleCompiledLaunch
     const u32 *index;
     const u32 *tables;
     u32 *out;
-    u32 *refused;
+    u32 *error;
     u64 bodies[3];
     u64 count;
     CycleHot *hot;

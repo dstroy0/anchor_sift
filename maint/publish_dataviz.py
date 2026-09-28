@@ -136,7 +136,7 @@ def published(text, name, runnable):
         # not a guard.
         if any(line.strip().startswith(one) for one in LEFTOVERS):
             raise SystemExit(
-                "publish refused: %s still says %r after the rewrite.\n"
+                "publish errored: %s still says %r after the rewrite.\n"
                 "  Add the statement to IMPORTS. The published copy would have failed at run time."
                 % (name, line.strip()))
     return text

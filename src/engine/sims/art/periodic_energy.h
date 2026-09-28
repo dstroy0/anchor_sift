@@ -157,7 +157,7 @@ static inline int energy_recover(SimResults *results, const long long *values, u
 {
     measurement->found = 0;
     measurement->period = 0ull;
-    // a range below 2 holds no period to test, and is refused before the device is asked (the slot count at range 0
+    // a range below 2 holds no period to test, and errors before the device is asked (the slot count at range 0
     // would wrap)
     if ((length < 4ull) || (range < 2ull))
     {

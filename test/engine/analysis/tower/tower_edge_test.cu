@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // Proves the reversible lookup edges sandwiched between tower floors: a lift that applies permutation
 // edges between its floors and a lower that replays their inverses in reverse rebuilds the lanes
-// exactly, the edges actually change the crystal, and a table that is not a permutation is refused.
+// exactly, the edges actually change the crystal, and a table that is not a permutation errors.
 
 #include "tower.h"
 
@@ -259,7 +259,7 @@ int main(void)
     check("every floor no mismatches", mismatches == 0ull);
     check("every floor rebuilt matches lanes", rebuilt_ok != 0);
 
-    // a table that repeats a value is not a permutation and is refused, changing no state
+    // a table that repeats a value is not a permutation and errors, changing no state
     unsigned int broken[EDGE_SIZE];
     tower_test_affine(broken, 7u, 0u);
     broken[1] = broken[0];
@@ -268,36 +268,36 @@ int main(void)
     bad.index_bits = EDGE_BITS;
     bad.forward = broken;
     trip = tower_test_trip(&rig, &bad, 1u, &mismatches, &rebuilt_ok, NULL);
-    check("non-permutation refused", trip != 0L);
+    check("non-permutation errored", trip != 0L);
 
-    // index_bits out of range is refused on both ends
+    // index_bits out of range errors on both ends
     TowerEdge zero_bits;
     zero_bits.floor = 1u;
     zero_bits.index_bits = 0u;
     zero_bits.forward = affine_a;
     trip = tower_test_trip(&rig, &zero_bits, 1u, &mismatches, &rebuilt_ok, NULL);
-    check("zero index_bits refused", trip != 0L);
+    check("zero index_bits errored", trip != 0L);
 
     TowerEdge wide_bits;
     wide_bits.floor = 1u;
     wide_bits.index_bits = TOWER_EDGE_INDEX_BITS_MAX + 1u;
     wide_bits.forward = affine_a;
     trip = tower_test_trip(&rig, &wide_bits, 1u, &mismatches, &rebuilt_ok, NULL);
-    check("oversize index_bits refused", trip != 0L);
+    check("oversize index_bits errored", trip != 0L);
 
-    // a floor slot past the collapsed floor is refused
+    // a floor slot past the collapsed floor errors
     TowerEdge far;
     far.floor = 50u;
     far.index_bits = EDGE_BITS;
     far.forward = affine_a;
     trip = tower_test_trip(&rig, &far, 1u, &mismatches, &rebuilt_ok, NULL);
-    check("out-of-range floor refused", trip != 0L);
+    check("out-of-range floor errored", trip != 0L);
 
-    // after all the refusals, a clean edge still round-trips: the refusals left no state behind
+    // after all the errors, a clean edge still round-trips: the errors left no state behind
     trip = tower_test_trip(&rig, &one, 1u, &mismatches, &rebuilt_ok, NULL);
-    check("clean edge after refusals returns", trip == 0L);
-    check("clean edge after refusals no mismatches", mismatches == 0ull);
-    check("clean edge after refusals rebuilt matches lanes", rebuilt_ok != 0);
+    check("clean edge after errors returns", trip == 0L);
+    check("clean edge after errors no mismatches", mismatches == 0ull);
+    check("clean edge after errors rebuilt matches lanes", rebuilt_ok != 0);
 
     // Bennett edges: a lossy function carried as a permutation of the widened pair (x, y) -> (x, y xor f(x))
     unsigned int *const absolute = (unsigned int *)malloc((size_t)BENNETT_SIZE * sizeof(unsigned int));
@@ -343,7 +343,7 @@ int main(void)
     trip = tower_test_trip(&rig, inside, 2u, &mismatches, &rebuilt_ok, NULL);
     check("bennett edges mid-tower round-trip", (trip == 0L) && (mismatches == 0ull) && (rebuilt_ok != 0));
 
-    // |x| applied bare on the 16-bit field, not embedded: x and -x collide. It is no permutation and is refused
+    // |x| applied bare on the 16-bit field, not embedded: x and -x collide. It is no permutation and errors
     for (unsigned int index = 0u; index < BENNETT_SIZE; index += 1u)
     {
         bare[index] = (index < (BENNETT_SIZE / 2u)) ? index : (BENNETT_SIZE - index);
@@ -353,7 +353,7 @@ int main(void)
     lossy.index_bits = BENNETT_BITS;
     lossy.forward = bare;
     trip = tower_test_trip(&rig, &lossy, 1u, &mismatches, &rebuilt_ok, NULL);
-    check("|x| applied bare, not embedded, is refused", trip != 0L);
+    check("|x| applied bare, not embedded, errors", trip != 0L);
     free(absolute);
     free(compare);
     free(bare);

@@ -51,7 +51,7 @@ extern "C"
      * @warning `alignments` is the number of positions that can host a pattern, which for a linear field
      *          of `n` symbols is `n - needle_len + 1`. The engine cannot compute it, because it does not
      *          know the field's shape, and a caller that supplies it wrongly gets a wrong sweep and
-     *          no refusal.
+     *          no error.
      */
     typedef struct
     {
@@ -70,7 +70,7 @@ extern "C"
      * @brief Projects a field of any symbol type onto a field of rarity ranks.
      *
      * @param[in] args What to project and where to put it [BORROWS].
-     * @return         1 where the projection was written, 0 where it was refused.
+     * @return         1 where the projection was written, 0 where it errored.
      *
      * @warning RANKS FROM TWO CALLS ARE NOT COMPARABLE, AND COMPARING THEM LOSES TRUE OCCURRENCES.
      *          A rank is not a property of a symbol. It is a property of a symbol WITHIN THE POPULATION
@@ -253,7 +253,7 @@ extern "C"
      * @brief Projects a corpus and a needle onto one rarity order, writing each side its own ranks.
      *
      * @param[in] args What to project and where to put it [BORROWS].
-     * @return         1 where both rank arrays were written, 0 where the call was refused.
+     * @return         1 where both rank arrays were written, 0 where the call errored.
      *
      * @note WHAT THE CALLER DOES WITH THE RESULT. `corpus_ranks` and `needle_ranks` are byte fields
      *       numbered by one rule. They can go to anchor_steer_count or to any entry here that takes
@@ -273,7 +273,7 @@ extern "C"
      *       check the rank survivors against the symbols through the oracle, or run the descent on the
      *       oracle directly.
      *
-     * @note Refuses, writing nothing, where `args` or any pointer but `distinct` is null, where either
+     * @note Errors, writing nothing, where `args` or any pointer but `distinct` is null, where either
      *       length is zero, where `needle_length` exceeds `corpus_length`, where the joint length
      *       `corpus_length + needle_length` would wrap `size_t`, where that joint length exceeds
      *       `UINT32_MAX` (class labels are stored as 32 bit positions and a wider field would alias two

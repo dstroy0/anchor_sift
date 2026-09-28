@@ -121,11 +121,11 @@ static uint32_t candidates_lattice(SameSymbol same, const void *domain, const si
     return surviving;
 }
 
-static uint32_t refused_lattice(SameSymbol same, const void *domain, const size_t *bases, size_t base_count,
+static uint32_t error_lattice(SameSymbol same, const void *domain, const size_t *bases, size_t base_count,
                                 size_t pattern_base, const ptrdiff_t *displacements, unsigned point_count,
                                 const unsigned *anchors, unsigned anchor_count, uint32_t *found)
 {
-    uint32_t refused = 0u;
+    uint32_t error = 0u;
     uint32_t occurrences = 0u;
 
     for (size_t index = 0u; index < base_count; index++)
@@ -151,13 +151,13 @@ static uint32_t refused_lattice(SameSymbol same, const void *domain, const size_
 
             if (same(domain, (size_t)(base + reach), (size_t)((ptrdiff_t)pattern_base + reach)) == EMBED_FALSE)
             {
-                refused++;
+                error++;
                 break;
             }
         }
     }
     *found = occurrences;
-    return refused;
+    return error;
 }
 
 static unsigned pick_lattice_anchors(LatticeRule rule, unsigned point_count, unsigned want, unsigned *anchors,
@@ -229,7 +229,7 @@ static void report_lattice(const LatticeCase *shape)
         for (unsigned count = 1u; (count <= LATTICE_MAX_ANCHORS) && (count <= shape->point_count); count++)
         {
             uint32_t checked = 0u;
-            uint32_t refused = 0u;
+            uint32_t error = 0u;
             double candidates = 0.0;
             unsigned samples = 0u;
 
@@ -244,7 +244,7 @@ static void report_lattice(const LatticeCase *shape)
                     continue;
                 }
 
-                refused += refused_lattice(shape->same, shape->domain, shape->bases, shape->base_count, pattern_base,
+                error += error_lattice(shape->same, shape->domain, shape->bases, shape->base_count, pattern_base,
                                            shape->displacements, shape->point_count, anchors, count, &found);
                 checked += found;
                 candidates += (double)candidates_lattice(shape->same, shape->domain, shape->bases, shape->base_count,
@@ -260,7 +260,7 @@ static void report_lattice(const LatticeCase *shape)
             printf("ancorae_lattice,%s,%s,%u,%u,%u,%u,%u,%.2f,%s\n", shape->name, rule_name(rule),
                    shape->point_count, count, (unsigned)shape->base_count, samples, checked,
                    candidates / (double)samples,
-                   (checked == 0u) ? "none" : ((refused == 0u) ? "hold" : "BROKEN"));
+                   (checked == 0u) ? "none" : ((error == 0u) ? "hold" : "BROKEN"));
         }
     }
 }
@@ -555,8 +555,8 @@ static void report_swept(const LatticeCase *shape, unsigned levels, unsigned pla
                 continue;
             }
 
-            const uint32_t refused =
-                refused_lattice(shape->same, shape->domain, shape->bases, shape->base_count,
+            const uint32_t error =
+                error_lattice(shape->same, shape->domain, shape->bases, shape->base_count,
                                 pattern_base, shape->displacements, shape->point_count, anchors,
                                 count, &found);
             const uint32_t surviving =
@@ -565,7 +565,7 @@ static void report_swept(const LatticeCase *shape, unsigned levels, unsigned pla
 
             printf("ancorae_sweep,%s,%s,%u,%u,%u,%u,%u,%u,%u,%s\n", shape->name, rule_name(rule),
                    levels, shape->point_count, count, (unsigned)shape->base_count, found, planted,
-                   surviving, (found == 0u) ? "none" : ((refused == 0u) ? "hold" : "BROKEN"));
+                   surviving, (found == 0u) ? "none" : ((error == 0u) ? "hold" : "BROKEN"));
         }
     }
 }
@@ -621,14 +621,14 @@ int main(void)
                 uint32_t ordered_found = 0u;
                 uint32_t shuffled_found = 0u;
 
-                const uint32_t ordered_refused =
-                    refused_lattice(same_byte, s_line, s_line_bases, line_bases, pattern_base,
+                const uint32_t ordered_error =
+                    error_lattice(same_byte, s_line, s_line_bases, line_bases, pattern_base,
                                     s_line_points, PATTERN_POINTS, anchors, count, &ordered_found);
-                const uint32_t shuffled_refused =
-                    refused_lattice(same_byte, s_line, s_shuffled_bases, line_bases, pattern_base,
+                const uint32_t shuffled_error =
+                    error_lattice(same_byte, s_line, s_shuffled_bases, line_bases, pattern_base,
                                     s_line_points, PATTERN_POINTS, anchors, count, &shuffled_found);
 
-                if ((ordered_found != shuffled_found) || (ordered_refused != shuffled_refused))
+                if ((ordered_found != shuffled_found) || (ordered_error != shuffled_error))
                 {
                     disagreed++;
                 }

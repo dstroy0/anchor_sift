@@ -41,7 +41,7 @@
 # verified on C_5 with the triangle (3/2, 20/3, 41/6) an exact area-5 right triangle. Two routes: n = 5
 # certified congruent both by the infinite-order point and by the Tunnell equality; and each theta count
 # taken twice over two different bounding boxes, agreeing. Drawn null: n = 1 and n = 3, where the count
-# is unequal and the criterion correctly refuses congruence, and a torsion point (on y^2 = x^3 + 1) that
+# is unequal and the criterion correctly errors congruence, and a torsion point (on y^2 = x^3 + 1) that
 # is integral and of finite order, the contrast to the infinite-order witness. Floor: the converse of
 # Tunnell's criterion is conditional on BSD, and a bounded search for a triangle or a point bounds
 # nothing about its absence.
@@ -367,7 +367,7 @@ def main():
         report_two_routes(out),
     ]
     if all(results):
-        out.write("  every check lands: Tunnell's count reproduces Fermat's n = 1 and refuses n = 3, the\n")
+        out.write("  every check lands: Tunnell's count reproduces Fermat's n = 1 and errors n = 3, the\n")
         out.write("  n = 5 triangle and the infinite-order point are one exact witness, and both the point\n")
         out.write("  and the count certify n = 5, with the analytic side left as the stated floor.\n")
     else:

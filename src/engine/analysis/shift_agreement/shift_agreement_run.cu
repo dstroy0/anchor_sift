@@ -43,7 +43,7 @@ static int agreement_axis(unsigned int *values, AgreementLayout layout, unsigned
 }
 
 // The layout for `axes` extents, `weights` NULL for none: each axis padded to the power of two at or above 2e - 1, the
-// length a cyclic transform needs to hold every lag without wrap. 0 for extents the run refuses: an extent of 0 or past
+// length a cyclic transform needs to hold every lag without wrap. 0 for extents the run errors: an extent of 0 or past
 // half the longest axis, a voxel count at the prime or past it, or a padded total past 2^31 - 1.
 static int agreement_layout(unsigned int axes, const unsigned int *extents, const unsigned int *weights,
                             AgreementLayout *layout)
@@ -128,14 +128,14 @@ static int reserve_volumes(size_t total, size_t words)
     free(resident->kept_words);
     memset(resident, 0, sizeof(*resident));
     resident->kept = SHIFT_AGREEMENT_NONE_KEPT;
-    // the run refuses without detail, and the pool's error is kept here and dropped
+    // the run errors without detail, and the pool's error is kept here and dropped
     EngineError error;
     memset(&error, 0, sizeof(error));
     DevicePoolTakeRequest takes[SHIFT_AGREEMENT_SLICES];
     const DevicePoolPlan plan = plan_volumes(total, words, &error, takes);
     const DevicePoolReserveRequest reserve = {&plan, &resident->pool, &error};
     int ok = device_pool_reserve(&reserve) == 0L;
-    // the slices are taken in the plan's order, and each lands where the plan laid it out with none refused
+    // the slices are taken in the plan's order, and each lands where the plan laid it out with none errored
     for (unsigned int at = 0u; (ok != 0) && (at < SHIFT_AGREEMENT_SLICES); at += 1u)
     {
         ok = device_pool_take(&takes[at]) == 0L;

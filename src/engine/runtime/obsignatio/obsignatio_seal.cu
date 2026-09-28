@@ -202,7 +202,7 @@ extern "C" long obsignatio_bits(const ObsignatioBitsRequest *request)
 }
 #endif
 #if !(defined(__CUDACC__))
-// a part with no CUDA toolchain has no device memory to seal: a request for it is refused, a resource the part lacks
+// a part with no CUDA toolchain has no device memory to seal: a request for it errors, a resource the part lacks
 extern "C" long obsignatio_many(const ObsignatioManyRequest *request)
 {
     if ((request == NULL) || (request->error == NULL))

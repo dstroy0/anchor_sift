@@ -66,8 +66,8 @@ def main():
         target = os.path.join(WALS, name)
         try:
             size, how = fetch("%s/%s" % (BASE, name), target)
-        except urllib.error.HTTPError as refused:
-            out.write("  %-18s %-12s not there (%s)\n" % (name, "0", refused.code))
+        except urllib.error.HTTPError as error:
+            out.write("  %-18s %-12s not there (%s)\n" % (name, "0", error.code))
             continue
         except Exception as trouble:
             out.write("  %-18s %-12s %s\n" % (name, "0", str(trouble)[:40]))

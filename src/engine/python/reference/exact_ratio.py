@@ -44,7 +44,7 @@ def reduced(numerator, denominator):
     """A ratio in lowest terms with a positive denominator, as an integer pair.
 
     One value then has one representation. Two ratios are equal exactly when their pairs are. A zero
-    denominator raises, the same refusal Fraction made, because a ratio over nothing is not a value.
+    denominator raises, the same error Fraction made, because a ratio over nothing is not a value.
     """
     if denominator == 0:
         raise ZeroDivisionError("exact ratio with a zero denominator")

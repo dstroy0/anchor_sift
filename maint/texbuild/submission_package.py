@@ -45,14 +45,14 @@
 # docs/research/index.md on the day it was created. This walks for main.tex at both depths so the
 # packager cannot go stale the way a hand-written list does.
 #
-# WHAT IT REFUSES TO SHIP
+# WHAT IT ERRORS TO SHIP
 #
 # A submission still holding a climbing path is broken and fails on upload with a LaTeX error nobody
 # can read. Every .tex in the assembled copy is re-read AFTER the rewrite, and a remaining ../ in an
 # \input or \include fails that research paper and names the file and the line. A rule that was supposed to
 # catch a path is not evidence that it did.
 #
-# It also refuses to carry what a LaTeX run leaves behind. See LEAVINGS.
+# It also errors rather than carry what a LaTeX run leaves behind. See LEAVINGS.
 #
 # WHAT --arxiv ADDS, AND WHY EACH STEP IS THERE
 #
@@ -420,11 +420,11 @@ def research_papers():
 def rewrite(text):
     """One file's text with the shared inputs brought in, and what was left climbing.
 
-    Returns (text, rewritten, refused). rewritten names the shared files repointed. refused holds
+    Returns (text, rewritten, errored). rewritten names the shared files repointed. errored holds
     any other climbing path, which is not this function's to decide about.
     """
     rewritten = []
-    refused = []
+    error = []
 
     def one(found):
         opener, climb, name, closer = found.groups()
@@ -432,10 +432,10 @@ def rewrite(text):
         if target in SHARED:
             rewritten.append(target)
             return "%s%s%s" % (opener, target, closer)
-        refused.append("%s%s" % (climb, name))
+        error.append("%s%s" % (climb, name))
         return found.group(0)
 
-    return CLIMBING.sub(one, text), rewritten, refused
+    return CLIMBING.sub(one, text), rewritten, error
 
 
 def assemble(research_paper, out):
@@ -451,7 +451,7 @@ def assemble(research_paper, out):
             shutil.copy2(shared, os.path.join(out, name))
 
     rewritten = []
-    refused = []
+    error = []
     for where, _dirs, names in os.walk(out):
         for name in sorted(names):
             if not name.endswith(TEX):
@@ -464,8 +464,8 @@ def assemble(research_paper, out):
                 with open(path, "w", encoding="utf-8", newline="\n") as handle:
                     handle.write(changed)
             rewritten.extend((os.path.relpath(path, out), one) for one in did)
-            refused.extend((os.path.relpath(path, out), one) for one in would_not)
-    return rewritten, refused
+            error.extend((os.path.relpath(path, out), one) for one in would_not)
+    return rewritten, error
 
 
 def still_climbing(out):
@@ -619,13 +619,13 @@ def main():
 
         flat = research_paper.replace("/", "_")
         target = os.path.join(OUT_ARXIV if arxiv else OUT, flat)
-        rewritten, refused = assemble(research_paper, target)
+        rewritten, error = assemble(research_paper, target)
         left = still_climbing(target)
 
         out.write("  %s\n" % research_paper)
         for path, name in rewritten:
             out.write("    brought in   %-34s in %s\n" % (name, path))
-        for path, name in refused:
+        for path, name in error:
             out.write("    NOT MINE     %-34s in %s\n" % (name, path))
             status = 1
         if left:

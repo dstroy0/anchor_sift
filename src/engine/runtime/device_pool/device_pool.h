@@ -32,7 +32,7 @@ extern "C"
     } DevicePoolPlan;
 
     // The held pool: `bytes` from `base`, of which `used` are taken. Slices are taken in the plan's order, each at the
-    // offset the plan gave it, and a take past the pool is refused.
+    // offset the plan gave it, and a take past the pool errors.
     typedef struct
     {
         unsigned char *base;
@@ -66,7 +66,7 @@ extern "C"
         EngineError *error;
     } DevicePoolTakeRequest;
 
-    // takes the next slice of `bytes` at the next 256-byte offset; a slice past the pool is refused and nothing is
+    // takes the next slice of `bytes` at the next 256-byte offset; a slice past the pool errors and nothing is
     // taken
     long device_pool_take(const DevicePoolTakeRequest *request);
 

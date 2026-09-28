@@ -3,8 +3,8 @@
 #include "asm_printer_internal.h"
 
 // the assembly printer's program, as the build kept it, encoded by keymath and laid out by key_schedule into
-// `program`'s key and layout: 1 where they are, else 0 and why in `refused`
-static int asm_printer_program_layout(AsmPrinterProgram *program, std::string *refused)
+// `program`'s key and layout: 1 where they are, else 0 and why in `error`
+static int asm_printer_program_layout(AsmPrinterProgram *program, std::string *error_message)
 {
     EngineError error{};
     // the steps are a few hundred
@@ -21,7 +21,7 @@ static int asm_printer_program_layout(AsmPrinterProgram *program, std::string *r
                                                  &error};
     if (keymath_record_encode(&encode_request) == KEYMATH_ERROR)
     {
-        *refused = "keymath refused the assembly printer";
+        *error_message = "keymath errored on the assembly printer";
         keymath_record_release(&program->key);
         return 0;
     }
@@ -30,7 +30,7 @@ static int asm_printer_program_layout(AsmPrinterProgram *program, std::string *r
         &program->key, program->field_offset.data(), ASM_PRINTER_FIELDS, in_limbs, 1, &program->layout, &error};
     if (key_schedule_record_layout(&layout_request) == KEY_SCHEDULE_ERROR)
     {
-        *refused = "key_schedule refused the assembly printer";
+        *error_message = "key_schedule errored on the assembly printer";
         key_schedule_record_release(&program->layout);
         keymath_record_release(&program->key);
         return 0;
@@ -43,18 +43,18 @@ static int asm_printer_program_layout(AsmPrinterProgram *program, std::string *r
 // device runs as well, its steps given twice the memory each time they run past it; then the program encoded and laid
 // out
 int asm_printer_ruleset_build(const Ruleset *rules, const TargetInfo *target, const std::string &header,
-                              AsmPrinterRuleset *text_rules, std::string *refused)
+                              AsmPrinterRuleset *text_rules, std::string *error)
 {
     *text_rules = AsmPrinterRuleset{};
     if ((rules->schema->form_count != OPCODE_COUNT) || (rules->schema->bank_count != REGCLASS_COUNT) ||
         (rules->schema->fixed_count != PHYSREG_COUNT))
     {
-        *refused = "the ruleset was read against another code generator's schema than the lane's";
+        *error = "the ruleset was read against another code generator's schema than the lane's";
         return 0;
     }
     if (header.find('\0') != std::string::npos)
     {
-        *refused = "the header holds a byte 0";
+        *error = "the header holds a byte 0";
         return 0;
     }
     const unsigned int scratch_banks[3] = {REGCLASS_TEMPORARY, REGCLASS_WIDE, REGCLASS_PREDICATE};
@@ -75,13 +75,13 @@ int asm_printer_ruleset_build(const Ruleset *rules, const TargetInfo *target, co
         }
         if ((build.end != ASM_PRINTER_CORE_FULL) || (step_capacity >= (1u << 30u)))
         {
-            *refused = asm_printer_ended(build.end);
+            *error = asm_printer_ended(build.end);
             return 0;
         }
         step_capacity *= 2u;
     }
     asm_printer_keep(&build, text_rules);
-    return asm_printer_program_layout(&text_rules->program, refused);
+    return asm_printer_program_layout(&text_rules->program, error);
 }
 
 void asm_printer_ruleset_release(AsmPrinterRuleset *text_rules)
@@ -122,7 +122,7 @@ AsmPrinterLists asm_printer_lists(const AsmPrinterRuleset *text_rules)
 // index laid out from the running sum of the records' lanes, the program run, and the bytes that are not 0 taken in
 // lane order
 int asm_printer_host(const AsmPrinterRuleset *text_rules, const std::vector<MachineInstr> &items, std::string *text,
-                     std::string *refused)
+                     std::string *error_message)
 {
     const AsmPrinterLists forms = asm_printer_lists(text_rules);
     std::vector<unsigned long long> record_first(items.size(), 0ull);
@@ -131,7 +131,7 @@ int asm_printer_host(const AsmPrinterRuleset *text_rules, const std::vector<Mach
     {
         if (!asm_printer_formed(&items[at]))
         {
-            *refused = "a form breaks the lane";
+            *error_message = "a form breaks the lane";
             return 0;
         }
         record_first[at] = record_count;
@@ -139,7 +139,7 @@ int asm_printer_host(const AsmPrinterRuleset *text_rules, const std::vector<Mach
     }
     if (record_count >= ASM_PRINTER_LANES_MAX)
     {
-        *refused = "the text holds more records than the assembly printer holds";
+        *error_message = "the text holds more records than the assembly printer holds";
         return 0;
     }
     std::vector<unsigned int> records((size_t)(record_count * ASM_PRINTER_RECORD_LIMBS), 0u);
@@ -155,7 +155,7 @@ int asm_printer_host(const AsmPrinterRuleset *text_rules, const std::vector<Mach
     }
     if ((lanes >= ASM_PRINTER_LANES_MAX) || (lanes == 0ull))
     {
-        *refused = "the text holds more lanes than the assembly printer holds";
+        *error_message = "the text holds more lanes than the assembly printer holds";
         return 0;
     }
     std::vector<unsigned int> index;
@@ -181,7 +181,7 @@ int asm_printer_host(const AsmPrinterRuleset *text_rules, const std::vector<Mach
     request.error = &error;
     if (cycle_record_run_host(&request) == CYCLE_ERROR)
     {
-        *refused = "the host oracle refused the assembly printer's run";
+        *error_message = "the host oracle errored on the assembly printer's run";
         return 0;
     }
     // the one output, the byte, lies at its step's offset in each lane's record

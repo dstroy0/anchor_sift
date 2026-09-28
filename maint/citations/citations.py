@@ -9,9 +9,9 @@
 #   python maint/citations/citations.py --check   fail while a name is used and unregistered
 #   python maint/citations/citations.py --bypass  answer the gate without satisfying it
 #
-# THE GATE REFUSES, AND --bypass IS THE WAY PAST
+# THE GATE ERRORS, AND --bypass IS THE WAY PAST
 #
-# --check refuses a commit two ways: a name used here with no row, and the closed repository absent
+# --check errors on a commit two ways: a name used here with no row, and the closed repository absent
 # so the question cannot be asked at all. The second one catches everybody outside this work, and
 # the flag is there for them. ANCHOR_SIFT_BYPASS=1 carries it into a commit hook, where nobody is
 # typing arguments. A bypass says so in the output every time and never changes the registry.
@@ -68,7 +68,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # The specific way it goes wrong is quiet: with GIT_DIR set and no work tree named, --show-toplevel
 # comes back as the current directory. This file's own directory became the repository root and
 # every scanned path hung off maint/citations/. It was caught only because the layout guard below
-# refuses a root with no repotools.toml in it; with the old silent fallback it would have scanned
+# errors on a root with no repotools.toml in it; with the old silent fallback it would have scanned
 # almost nothing and exited 0.
 GIT_ENV = ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR")
 
@@ -256,7 +256,7 @@ def layout_table():
 def searched_names():
     """Every place this tree's own writing lives, resolved through repotools.toml.
 
-    Refuses instead of guessing, in all three ways it can be wrong: no table, a missing kind, or a
+    Errors instead of guessing, in all three ways it can be wrong: no table, a missing kind, or a
     named directory that is not on disk. Each of those otherwise reads as a smaller scan that
     reports fewer findings and exits 0, the failure this whole function is about.
     """

@@ -326,7 +326,7 @@ static int run_pair_proof(const FlattenResident *flattened, const unsigned int *
     }
     else
     {
-        fprintf(stderr, "  run fingerprint: the print pairs were refused\n");
+        fprintf(stderr, "  run fingerprint: the print pairs errored\n");
         track_error_report("print pairs", &error);
     }
     free(index);
@@ -384,7 +384,7 @@ static int run_steer_proof(const FlattenResident *flattened, const unsigned int 
     }
     else
     {
-        fprintf(stderr, "  run fingerprint: the body beside its print was refused\n");
+        fprintf(stderr, "  run fingerprint: the body beside its print errored\n");
         track_error_report("body beside its print", &error);
     }
     free(verdict);
@@ -445,7 +445,7 @@ static int run_vocabulary_proof(const FlattenResident *flattened, const unsigned
     }
     else
     {
-        fprintf(stderr, "  run fingerprint: absolute and compare were refused\n");
+        fprintf(stderr, "  run fingerprint: absolute and compare errored\n");
         track_error_report("absolute and compare", &error);
     }
     free(device);
@@ -514,7 +514,7 @@ static int run_fingerprint(const RunInputs *inputs)
     }
     else
     {
-        fprintf(stderr, "  run fingerprint: the sweep was refused\n");
+        fprintf(stderr, "  run fingerprint: the sweep errored\n");
         track_error_report("fingerprint sweep", &error);
     }
     const int indexed = ok && (flattened.bodies <= 0xFFFFFFFFull);
@@ -543,7 +543,7 @@ static int run_fingerprint(const RunInputs *inputs)
     }
     else if (ok)
     {
-        fprintf(stderr, "  run fingerprint: the sweep through the index was refused\n");
+        fprintf(stderr, "  run fingerprint: the sweep through the index errored\n");
         track_error_report("fingerprint through the index", &error);
     }
     free(reversed);
@@ -567,7 +567,7 @@ static int run_fingerprint(const RunInputs *inputs)
     }
     else if (ok)
     {
-        fprintf(stderr, "  run fingerprint: the host port was refused\n");
+        fprintf(stderr, "  run fingerprint: the host port errored\n");
         track_error_report("fingerprint host port", &error);
     }
     const int vocabulary = ok ? run_vocabulary_proof(&flattened, records, &fields) : 1;
@@ -858,7 +858,7 @@ static int run_print_match_prepare(const RunInputs *inputs, const FlattenResiden
     ok = ok && (run_pair_encode(&fields, pair, &error) != ENGINE_ERROR);
     if (ok == 0)
     {
-        fprintf(stderr, "  print match: the prints or the pair program were refused\n");
+        fprintf(stderr, "  print match: the prints or the pair program errored\n");
         track_error_report("print match", &error);
         return 0;
     }

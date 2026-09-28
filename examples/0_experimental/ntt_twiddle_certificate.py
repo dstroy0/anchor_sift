@@ -18,7 +18,7 @@
 # Three things are shown. First, the certificate: every modulus used here, the three device primes and
 # the goldilocks prime from that paper plus the prime the image_transforms translation transform uses,
 # re-derived from scratch. Second, the rejection: a composite of the same Proth shape and a false
-# primitive-root claim are refused by the same checks that pass the real ones. The checks can fail
+# primitive-root claim error in the same checks that pass the real ones. The checks can fail
 # and passing means something. Third, the floor: a root of HALF the required order passes every
 # invariant computable from the table in O(n), and only the order test, two exponentiations, separates
 # it. That is the paper's central result reproduced here (theory/theory/twiddle_constants_article.tex, its section on a root of half the order and the only test that catches it).
@@ -136,8 +136,8 @@ def report_certificate(out):
 
 
 def report_rejection(out):
-    """Section two: the same checks refuse a wrong constant. Two routes able to disagree."""
-    out.write("  rejection: the checks refuse a composite and a false primitive-root claim\n")
+    """Section two: the same checks error on a wrong constant. Two routes able to disagree."""
+    out.write("  rejection: the checks error on a composite and a false primitive-root claim\n")
 
     # A composite of Proth shape: 3 * 2^4 + 1 = 49 = 7^2. The shape is right and the certificate is not.
     composite = 3 * (2 ** 4) + 1
@@ -194,7 +194,7 @@ def report_half_order_floor(out):
 
 def main():
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
-    out.write("  the twiddle certificate: NTT precision constants re-derived, and a wrong one refused\n")
+    out.write("  the twiddle certificate: NTT precision constants re-derived, and a wrong one errored\n")
     out.write("  constants cite theory/theory/twiddle_constants_article.tex (public, on ePrint)\n\n")
 
     certificate = report_certificate(out)
@@ -202,7 +202,7 @@ def main():
     floor = report_half_order_floor(out)
     out.flush()
 
-    # The example agrees only if the real constants pass AND the wrong ones are refused.
+    # The example agrees only if the real constants pass AND the wrong ones error.
     return 0 if (certificate and rejection and floor) else 1
 
 

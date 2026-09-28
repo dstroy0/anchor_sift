@@ -22,7 +22,7 @@ What is preserved:
 
 Every Python and shell result is checked before it is written. A Python file has to parse to the
 same syntax tree it had with its string statements taken out, compared by ast.dump. A shell file has
-to pass bash -n. A file failing its check is refused by name and left as it was. C carries no check
+to pass bash -n. A file failing its check errors in name and left as it was. C carries no check
 here, and the build that follows is the check for it.
 
 Usage:
@@ -122,13 +122,13 @@ def strip_python(text):
     """Remove # comments and string statements from Python source.
 
     Returns the stripped text, or raises ValueError naming why the file cannot be stripped safely.
-    A string statement sharing a line with other code is refused, since cutting it would cut code.
+    A string statement sharing a line with other code errors, since cutting it would cut code.
     A body left holding nothing but string statements keeps one pass in the place of the first.
     """
     # One line ending throughout. ast counts \r\n and a lone \r as line breaks, and str.splitlines
     # also breaks at form feeds and other separators that ast does not count. Neither matches the
     # other without this. A \r that was inside a string literal changes that literal's value, and the
-    # tree comparison at the end refuses the file.
+    # tree comparison at the end errors on the file.
     text = text.replace("\r\n", "\n").replace("\r", "\n")
     lines = [one + "\n" for one in text.split("\n")]
     if text.endswith("\n"):
@@ -148,7 +148,7 @@ def strip_python(text):
             last = lines[statement.end_lineno - 1]
             indent = len(first) - len(first.lstrip(" \t"))
             # Code ahead of the string on its first line, or code after it on its last line other
-            # than a comment, would be dropped with the lines. Refused instead.
+            # than a comment, would be dropped with the lines. Errored instead.
             tail = last[statement.end_col_offset:].strip()
             if (statement.col_offset != indent) or (tail and not tail.startswith("#")):
                 raise ValueError("a string statement at line %d shares its line with code"
@@ -295,13 +295,13 @@ def strip_shell(text):
 
 
 def check_shell(text):
-    """Raise ValueError where bash -n refuses the text. Skipped, and said so, where bash is absent."""
+    """Raise ValueError where bash -n errors on the text. Skipped, and said so, where bash is absent."""
     bash = shutil.which("bash")
     if bash is None:
         raise ValueError("bash is not on PATH. The stripped script cannot be checked")
     run = subprocess.run([bash, "-n"], input=text.encode("utf-8"), capture_output=True)
     if run.returncode != 0:
-        raise ValueError("bash -n refuses the stripped script: %s"
+        raise ValueError("bash -n errors on the stripped script: %s"
                          % run.stderr.decode("utf-8", "replace").strip())
 
 
@@ -338,7 +338,7 @@ def collapse(text):
 
 
 def rewrite(text, keep_header, suffix=".c"):
-    """The file's text with its comments gone. Raises ValueError where a check refuses the result."""
+    """The file's text with its comments gone. Raises ValueError where a check errors on the result."""
     if suffix in PYTHON_SUFFIXES:
         marker, strip_body = "#", strip_python
     elif suffix in SHELL_SUFFIXES:
@@ -396,14 +396,14 @@ def main():
         return 2
 
     files = changed = removed = 0
-    refused = []
+    error = []
     for p in walk(a.paths, exts, a.exclude):
         files += 1
         t = io.open(p, encoding="utf-8", errors="replace", newline="").read()
         try:
             new = rewrite(t, a.keep_header, os.path.splitext(p)[1])
         except (ValueError, SyntaxError) as why:
-            refused.append((p, str(why)))
+            error.append((p, str(why)))
             continue
         if new == t:
             continue
@@ -417,11 +417,11 @@ def main():
         if not a.go
         else "visited %d, changed %d, lines removed %d" % (files, changed, removed)
     )
-    for p, why in refused:
-        print("REFUSED %s: %s" % (p.replace("\\", "/"), why))
+    for p, why in error:
+        print("ERROR %s: %s" % (p.replace("\\", "/"), why))
     if not a.go:
         print("DRY RUN - pass --go to rewrite")
-    return 1 if refused else 0
+    return 1 if error else 0
 
 
 if __name__ == "__main__":

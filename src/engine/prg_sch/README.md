@@ -82,7 +82,7 @@ An and with such a register lies between 0 and it, and an xor of two lies below 
 
 The bitwise operations read each operand as though its two's complement ran on forever. The xor is then negative
 where exactly one operand is, and the and where both are. The extra bit is needed because −1 xor (2^n − 1) is −2^n. A wrap
-narrower than 4 bits is refused at imprint. A register already inside the wrap's signed range passes through
+narrower than 4 bits errors at imprint. A register already inside the wrap's signed range passes through
 unchanged. The unsigned residue modulo 2^w is the and with the constant 2^w − 1. A 32-bit word's add is a sum
 followed by that and with `0xFFFFFFFF`, and its not is the xor with `0xFFFFFFFF`.
 
@@ -99,7 +99,7 @@ bits at a fixed place in its member's record. The program declares its fields by
 - `in_limbs[m]`: member m's record length, in limbs.
 
 The member a field is read from is the `member` of the step that reads it. A field must fit its member's record,
-or the layout refuses.
+or the layout errors.
 
 ## Outputs
 
@@ -188,8 +188,8 @@ A ruleset is a text file whose first line is `krs 1`, and every other line is on
 
 A line that begins with `#` is a comment. The code generator lists every form, bank and register it needs, with the
 parameters each takes. A ruleset that lacks one, holds one the code generator does not name, or gives one other
-parameters is refused whole, and the report says why. A refused `ptx.krs` sends its programs to the C source, and a
-refused `c.krs` leaves a program the PTX does not hold on the interpreter.
+parameters errors on whole, and the report says why. An errored `ptx.krs` sends its programs to the C source, and an
+errored `c.krs` leaves a program the PTX does not hold on the interpreter.
 
 A compiled program runs on as many thread blocks as the device holds at once, or fewer where the lanes need fewer.
 Each launch chooses its own thread count: as many threads as the registers' shared memory holds, or, where the
@@ -201,7 +201,7 @@ Six switches, read at each load or run:
 | switch | effect |
 |---|---|
 | `CYCLE_RECORD_INTERPRET=1` | every program stays on the interpreter |
-| `CYCLE_RECORD_CHECK=1` | every launch runs both, and a launch whose records or refusals differ is refused |
+| `CYCLE_RECORD_CHECK=1` | every launch runs both, and a launch whose records or errors differ errors |
 | `CYCLE_RECORD_REPORT=1` | stderr says how each program was built and how long each kernel ran |
 | `CYCLE_RECORD_TTL=<microseconds>` | a launch's time to live |
 | `CYCLE_RECORD_LTO=1` | the operator block and the programs are built as LTO-IR and linked with link-time optimization; no PTX is written |
@@ -224,11 +224,11 @@ engine_record_host(&request, &sweep);  // the same program on the host, from the
   (`ENGINE_RECORD_LANE`) the lanes enumerate a range from it: x = base + ℓ. With an index, lane i reads record
   `index[i · members + m]` of member m. That is how a lane gathers its inputs from anywhere in a member. An index
   names a record by a 32-bit number, and the lane's number is still i, not the record it reads. With no index, a
-  member holding more than one record and fewer than the lanes refuses the sweep before any lane runs.
+  member holding more than one record and fewer than the lanes errors on the sweep before any lane runs.
 - `out` receives `lanes` output records.
-- A lane is **refused** when a division meets a zero divisor, an exact quotient meets a remainder, a ladder's
+- A lane is **errored** when a division meets a zero divisor, an exact quotient meets a remainder, a ladder's
   `right` is not positive, a value outgrows its register, or an index names a record past its member. One
-  refused lane refuses the whole sweep.
+  errored lane errors on the whole sweep.
 - **The port check.** `engine_record_host` runs the same program with the exact integer library as every step.
   A new program is proved by the device's records equaling the host's word for word, as every test and the
   tracking driver do.
@@ -297,7 +297,7 @@ and sign(x') in bits 34 to 35, a 2-limb record. The index pairs every body with 
 
 `test/record_guide_test` runs this program over 1,000 bodies with dt = 37. The device's records equal the host's
 word for word, and every x' and sign decode to the arithmetic done directly. A version whose step 6 read itself
-is refused at imprint, and an index past its member is refused at the sweep. 12 checks, 0 failed.
+errors at imprint, and an index past its member errors at the sweep. 12 checks, 0 failed.
 
 ## The machine's files
 
@@ -310,7 +310,7 @@ is refused at imprint, and an index past its member is refused at the sweep. 12 
 Until `.imp` is written and read, a program lives as its step list in the source that sweeps it, and is imprinted
 each run.
 
-## What the machine refuses today
+## What the machine errors today
 
 These are the machine's own limits, from `engine_config.h` and the code above:
 

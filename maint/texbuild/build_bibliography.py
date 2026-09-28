@@ -11,7 +11,7 @@ copy of a citation is a second thing to keep true and the two would drift.
 
     python maint/texbuild/build_bibliography.py
 
-Finds the registry through ANCHOR_SIFT_CITATIONS, else beside the checkouts. Refuses to generate
+Finds the registry through ANCHOR_SIFT_CITATIONS, else beside the checkouts. Errors rather than generate
 from a dirty or unpushed registry, because a pin to a commit nobody else can fetch is not a pin.
 """
 

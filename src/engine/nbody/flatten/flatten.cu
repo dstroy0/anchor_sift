@@ -27,7 +27,7 @@ static_assert(cudaSuccess == 0, "the engine reads a CUDA status of 0 as success"
     engine_io_check((condition_), ENGINE_MODULE_FLATTEN, (unsigned int)__LINE__, (const void *)(evacaddr_), (error_))
 
 // The flattened file's format word, first in its head. Format 2 records each sample's orders after its name. The first
-// format held MAX_TREE_FIELDS in that place and recorded no orders, and a file of it refuses.
+// format held MAX_TREE_FIELDS in that place and recorded no orders, and a file of it errors.
 #define FLATTEN_FORMAT 2u
 
 #define FLATTEN_HEAD_LIMBS 5u
@@ -206,7 +206,7 @@ static int flatten_header(const char *set, const char *name, unsigned int header
 }
 
 // each sample's orders, its own where the request gives them and the shared ones where it does not; an odd background
-// order refuses here, before any sample is read
+// order errors here, before any sample is read
 static int flatten_orders(const FlattenSetRequest *request, FlattenOrders *orders, EngineError *error)
 {
     int ok = 1;

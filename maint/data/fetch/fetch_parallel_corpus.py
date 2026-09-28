@@ -16,7 +16,7 @@
 # A translation of one text into many languages removes it. The content is held fixed by construction.
 # What remains between two versions is the language. It also reaches languages a book catalog does not
 # carry, including Vietnamese and Urdu, and it reaches them without hammering an encyclopedia that has
-# been refusing these requests all evening.
+# been erroring on these requests all evening.
 #
 # What is fetched is one side of a parallel corpus per language, which is that language's whole text with
 # no alignment needed, since nothing here compares sentence to sentence. Files are named so their source

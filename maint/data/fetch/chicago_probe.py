@@ -50,8 +50,8 @@ def main():
             with urllib.request.urlopen(request, timeout=90) as response:
                 blob = response.read(600000)
                 final = response.geturl()
-        except urllib.error.HTTPError as refused:
-            out.write("      refused with %s\n\n" % refused.code)
+        except urllib.error.HTTPError as error:
+            out.write("      errored with %s\n\n" % error.code)
             continue
         except Exception as trouble:
             out.write("      failed: %s\n\n" % str(trouble)[:90])

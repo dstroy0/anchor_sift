@@ -5,7 +5,7 @@
 // order (record_image.h), are encoded, laid out and run by cycle_record_run_host; each is written as C by CTarget
 // (codegen/rulesets/c.krs) into one translation unit with a host shim ahead of it, which writes what NVRTC gives a
 // device's C (__device__, __shared__, threadIdx, blockDim, atomicAdd) for one thread, and a bench after it, which
-// reads the memory image, turns its byte offsets into the host's addresses, runs every lane and writes the refusals and
+// reads the memory image, turns its byte offsets into the host's addresses, runs every lane and writes the errors and
 // the records. The host's C++ compiler builds it and it runs in a work folder, and its records are compared with the
 // host's word for word. Its lines give the same input digests as the host test's. Each lane of at most
 // RECORD_C_TEXT_BYTES_MAX bytes is written again as the device writes it, on the host: the core's forms laid out as the
@@ -66,7 +66,7 @@ static const char s_c_shim[] = "#include <stdio.h>\n"
                                "    const u32 *index;\n"
                                "    const u32 *tables;\n"
                                "    u32 *out;\n"
-                               "    u32 *refused;\n"
+                               "    u32 *errored;\n"
                                "    u64 bodies[3];\n"
                                "    u64 count;\n"
                                "    CycleHot *hot;\n"
@@ -111,7 +111,7 @@ static const char s_c_shim[] = "#include <stdio.h>\n"
                                "}\n";
 
 // the bench after the lane: the image read from memory.txt, the launch's addresses moved from byte offsets to the
-// host's, which an address of 0 is not, every lane run, and the refusals, the records and a clock count of 0 written to
+// host's, which an address of 0 is not, every lane run, and the errors, the records and a clock count of 0 written to
 // records.txt. `places` is the lane's in shared memory, a word and a sign byte each
 static std::string c_bench(unsigned int places)
 {
@@ -123,9 +123,9 @@ static std::string c_bench(unsigned int places)
     text += "    unsigned long long lanes = 0ull;\n";
     text += "    unsigned long long records = 0ull;\n";
     text += "    unsigned long long record_words = 0ull;\n";
-    text += "    unsigned long long refused = 0ull;\n";
+    text += "    unsigned long long errored = 0ull;\n";
     text += "    if ((given == NULL) || (fscanf(given, \"%llu %llu %llu %llu %llu\", &image_words, &lanes, &records, "
-            "&record_words, &refused) != 5))\n";
+            "&record_words, &errored) != 5))\n";
     text += "    {\n        return 2;\n    }\n";
     text += "    u32 *const memory = (u32 *)calloc((size_t)image_words + 2u, sizeof(u32));\n";
     text += "    for (unsigned long long at = 0ull; at < image_words; at += 1ull)\n";
@@ -136,7 +136,7 @@ static std::string c_bench(unsigned int places)
     const size_t addresses[] = {offsetof(CycleCompiledLaunch, in),       offsetof(CycleCompiledLaunch, in) + 8u,
                                 offsetof(CycleCompiledLaunch, in) + 16u, offsetof(CycleCompiledLaunch, index),
                                 offsetof(CycleCompiledLaunch, tables),   offsetof(CycleCompiledLaunch, out),
-                                offsetof(CycleCompiledLaunch, refused)};
+                                offsetof(CycleCompiledLaunch, error)};
     for (const size_t address : addresses)
     {
         text += "    if (*(u64 *)((char *)memory + " + std::to_string(address) + "u) != 0ull)\n";
@@ -145,7 +145,7 @@ static std::string c_bench(unsigned int places)
     text += "    for (u64 lane = 0ull; lane < lanes; lane += 1ull)\n";
     text += "    {\n        cycle_lane((const CycleCompiledLaunch *)memory, lane);\n    }\n";
     text += "    FILE *const written = fopen(\"records.txt\", \"wb\");\n";
-    text += "    fprintf(written, \"%u\\n\", memory[refused / 4ull]);\n";
+    text += "    fprintf(written, \"%u\\n\", memory[errored / 4ull]);\n";
     text += "    for (unsigned long long at = 0ull; at < record_words; at += 1ull)\n";
     text += "    {\n        fprintf(written, \"%08X\\n\", memory[(records / 4ull) + at]);\n    }\n";
     text += "    fprintf(written, \"0\\n\");\n";
@@ -165,9 +165,9 @@ static int c_write(const std::string &path, const std::string &text)
 }
 
 // the program laid out, run on the host, written as C, built and run over the same atoms; its line printed and its
-// check made. `refuses` is 1 for a program the host must refuse: the lane as C must then refuse a lane
+// check made. `errors` is 1 for a program the host must error: the lane as C must then error on a lane
 static void c_run(void *context, const HostProgram *program, int reuse, unsigned int *const *atoms,
-                  const unsigned long long *bodies, const unsigned int *index, int refuses)
+                  const unsigned long long *bodies, const unsigned int *index, int errors)
 {
     CResults *const results = (CResults *)context;
     const std::string name = std::string(program->name) + (reuse ? " (registers reused)" : "");
@@ -207,7 +207,7 @@ static void c_run(void *context, const HostProgram *program, int reuse, unsigned
                                  : std::string();
     if (lane.empty())
     {
-        printf("  %s: %u steps, not supported in C (a step the lane does not support, or its ruleset refused)\n",
+        printf("  %s: %u steps, not supported in C (a step the lane does not support, or its ruleset errored)\n",
                name.c_str(), layout->steps);
         results->unsupported += 1u;
         host_free(&loaded);
@@ -220,12 +220,12 @@ static void c_run(void *context, const HostProgram *program, int reuse, unsigned
         std::vector<MachineInstr> items;
         unsigned int item_places = 0u;
         AsmPrinterRuleset text_rules{};
-        std::string refused;
+        std::string error;
         std::string from_items;
         const int decided = generator.decided(layout, &item_places, &items);
         const int built = decided && asm_printer_ruleset_build(generator.ruleset(0), &target, std::string(s_c_shim),
-                                                               &text_rules, &refused);
-        const int ran = built && asm_printer_host(&text_rules, items, &from_items, &refused);
+                                                               &text_rules, &error);
+        const int ran = built && asm_printer_host(&text_rules, items, &from_items, &error);
         if (built)
         {
             asm_printer_ruleset_release(&text_rules);
@@ -233,7 +233,7 @@ static void c_run(void *context, const HostProgram *program, int reuse, unsigned
         if (ran == 0)
         {
             printf("  %s: the assembly printer did not write the lane (%s)\n", name.c_str(),
-                   decided ? refused.c_str() : "the core's forms were not decided");
+                   decided ? error.c_str() : "the core's forms were not decided");
         }
         c_check(results, ran && (from_items == lane) && (item_places == places),
                 name + " written from the core's forms by the assembly printer is the code generator's text");
@@ -248,10 +248,10 @@ static void c_run(void *context, const HostProgram *program, int reuse, unsigned
                                 "-Wno-unused-label -Wno-unused-function program.cpp -o program > build.log 2>&1 && "
                                 "./program > run.log 2>&1";
     const int status = written ? system(command.c_str()) : -1;
-    unsigned int refused = 0u;
+    unsigned int error = 0u;
     unsigned long long clocks = 0ull;
     std::vector<unsigned int> records;
-    const int read = (status == 0) && record_image_read(records_path, &image, &refused, records, &clocks);
+    const int read = (status == 0) && record_image_read(records_path, &image, &error, records, &clocks);
     if (read == 0)
     {
         printf("  %s: the lane as C did not build or run (status %d); its logs begin:\n", name.c_str(), status);
@@ -262,18 +262,18 @@ static void c_run(void *context, const HostProgram *program, int reuse, unsigned
     }
     const int host_ran = ran == (long)HOST_TEST_LANES;
     printf("  %s: %u steps, %u out limbs, %zu lines of C, %u places, inputs %016llx, records %016llx as C, %016llx on "
-           "the host, %u lanes refused as C\n",
+           "the host, %u lanes errored as C\n",
            name.c_str(), layout->steps, layout->out_limbs, (size_t)std::count(lane.begin(), lane.end(), '\n'), places,
            inputs, read ? host_digest(records.data(), record_words) : 0ull,
-           host_ran ? host_digest(host_records.data(), record_words) : 0ull, refused);
-    if (refuses != 0)
+           host_ran ? host_digest(host_records.data(), record_words) : 0ull, error);
+    if (errors != 0)
     {
-        c_check(results, read && !host_ran && (refused != 0u),
-                name + " as C refuses a lane where the host refuses the run");
+        c_check(results, read && !host_ran && (error != 0u),
+                name + " as C errors on a lane where the host errors on the run");
     }
     else
     {
-        c_check(results, read && host_ran && (refused == 0u) && (records == host_records),
+        c_check(results, read && host_ran && (error == 0u) && (records == host_records),
                 name + " as C writes the host's records word for word");
     }
     host_free(&loaded);

@@ -13,7 +13,7 @@
 # particles are put in, and what emerges is how the exact numbers organize themselves.
 #
 # The reading is by equality and by exact sums, never by a bound. No mass enters, because a mass forces
-# a tolerance and a tolerance is the decision this refuses. Two particles carry the same charge or
+# a tolerance and a tolerance is the decision this errors. Two particles carry the same charge or
 # they do not; a generation's charges sum to zero or they do not; a charge divides by three or it does
 # not. Every question is truthy or falsy, and the census ranks by magnitude, total minus a count, the
 # rarest first, the same way the sift kernel probes a field.

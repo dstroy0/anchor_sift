@@ -2,7 +2,7 @@
 // ka_psi_value.cu: exact values
 #include "ka_psi_internal.h"
 
-// beta(L) = 1 + n + ... + n^(L - 1), refused if it would outgrow the word
+// beta(L) = 1 + n + ... + n^(L - 1), errored if it would outgrow the word
 int psi_case_open(PsiCase *psi_case, unsigned long long dimension, unsigned long long base, unsigned int depth)
 {
     psi_case->dimension = dimension;

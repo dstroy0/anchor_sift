@@ -13,7 +13,7 @@
  * @note There is no arbitrary precision integer here and there does not need to be. A fixed width
  *       limb array is a representation of the same value, and a device register file holds one as
  *       readily as a host register does. Fixed width is the only bound, it is declared, and a value
- *       that will not fit is refused on the host before anything is copied.
+ *       that will not fit errors on the host before anything is copied.
  * @note The device arithmetic is the host arithmetic transcribed. It is not shared source, because
  *       __device__ qualification has to sit on every function, and that means the two can drift.
  *       maint/engine/build_gpu_arm.sh builds bench_exact_arms.c with this arm as
@@ -364,8 +364,8 @@ done:
  * @param[in] values    The value standing at each position [BORROWS].
  * @param[in] count     How many positions.
  * @param[in] lag       The offset to test [BORROWS].
- * @return              The count, or the portable count where the device refused the work.
- * @note A refusal falls back to the host instead of returning a sentinel into a table of counts.
+ * @return              The count, or the portable count where the device errored on the work.
+ * @note An error falls back to the host instead of returning a sentinel into a table of counts.
  *       A driver comparing arms would otherwise read the sentinel as a disagreement and blame the
  *       arithmetic for what was an allocation failure.
  */

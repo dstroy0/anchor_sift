@@ -289,7 +289,7 @@ static void host_affine_limit(HostProgram *program)
     memcpy(program->outputs, outputs, sizeof(outputs));
 }
 
-// the divisor taken bare, which refuses once a lane's is zero: the division program's fields, the quotient alone
+// the divisor taken bare, which errors once a lane's is zero: the division program's fields, the quotient alone
 static void host_bare_divisor(HostProgram *program)
 {
     memset(program, 0, sizeof(*program));
@@ -312,7 +312,7 @@ static void host_zero_divisor(unsigned int *atoms)
     atoms[(17u * 8u) + 7u] = 0u;
 }
 
-// the numerator divided exactly by the divisor plus one, which refuses once a lane's does not divide
+// the numerator divided exactly by the divisor plus one, which errors once a lane's does not divide
 static void host_inexact(HostProgram *program, const HostProgram *bare)
 {
     *program = *bare;

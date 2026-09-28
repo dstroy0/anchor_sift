@@ -10,7 +10,7 @@
 #
 # THE QUESTION. Does the side that moves first have an advantage? The move-sequence tree is the
 # wrong place to look: it is unbounded, and a bounded search folds a horizon into the number. This
-# subject refuses exactly that. The question is put as a magnitude instead.
+# subject errors exactly that. The question is put as a magnitude instead.
 #
 # THE WINDICATOR. Each player carries one number, its winning-path mass: the probability that play
 # from this position reaches THAT player's win, an exact rational in native integers, in [0, 1]. It closes to 1 as a win

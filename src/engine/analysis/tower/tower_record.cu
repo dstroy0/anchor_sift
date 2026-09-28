@@ -15,7 +15,7 @@ static unsigned int tower_record_append(TowerRecordBuilder *builder, EngineRecor
         builder->steps[builder->count] = EngineRecordStep{operation, left, right, 0u};
     }
     builder->count += 1ull;
-    // a program is written only once its count is bounded by 2^32 - 1, and a counted name past that is refused unread
+    // a program is written only once its count is bounded by 2^32 - 1, and a counted name past that errors unread
     return (unsigned int)(builder->count - 1ull);
 }
 
@@ -225,7 +225,7 @@ static long tower_record_run(const TowerRecordRequest *request, int inverse)
                  (rule->taps <= TOWER_RULE_TAPS_MAX) && (rule->shift <= TOWER_RULE_SHIFT_MAX);
         for (unsigned int tap = 0u; (ok != 0) && (tap < rule->taps); tap += 1u)
         {
-            // a weight's magnitude is an int. INT_MIN is refused with 0
+            // a weight's magnitude is an int. INT_MIN errors with 0
             ok = (rule->weight[tap] != 0) && (rule->weight[tap] != INT_MIN);
         }
         if (!TOWER_CHECK(ok, rule, error, ENGINE_ERROR_REQUEST))
@@ -246,7 +246,7 @@ static long tower_record_run(const TowerRecordRequest *request, int inverse)
         registers[(size_t)lane] = request->in_registers[lane];
     }
     const std::vector<TowerStep> floors = tower_floors(request->extent);
-    // counted first. A program its step names or the caller's capacity cannot hold is refused before a step is written
+    // counted first. A program its step names or the caller's capacity cannot hold errors before a step is written
     TowerRecordBuilder counted = {NULL, start, {}};
     std::vector<unsigned int> named = registers;
     tower_record_build(&counted, rules, rule_count, floors, named, inverse);

@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// qasm_test <fixture directory>: refusals by line and column, known answers on the device and the host, the
+// qasm_test <fixture directory>: errors by line and column, known answers on the device and the host, the
 // bound's formula, the probabilities within the proved slack of their true values, and the device against the
 // host word for word.
 
@@ -61,9 +61,9 @@ typedef struct
     const char *body;
     const char *prefix;
     const char *fragment;
-} Refusal;
+} Error;
 
-void refusals(void);
+void errors(void);
 
 void ties(void);
 

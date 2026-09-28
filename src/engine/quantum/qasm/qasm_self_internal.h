@@ -66,7 +66,7 @@ typedef struct
     EngineRecordStep *steps;
     unsigned int count;
     unsigned int capacity;
-    // the list could not grow, and every later step is refused with it
+    // the list could not grow, and every later step errors with it
     int spent;
 } QasmSelfSteps;
 

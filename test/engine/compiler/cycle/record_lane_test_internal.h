@@ -15,8 +15,8 @@
 // threshold from every lane hitting to none, and over 2^24 lanes on the device with only the lane brought back. Its
 // edges: lane 0, the last lane, the least of many, a field across two limbs, a field of a whole limb, and bits outside
 // the field that must not trip it. Under an index the lane register is still the lane, not the record it reads. A
-// member of two records still refuses a sweep of three lanes, and the latch refuses a field past its record. The test
-// is one job on the device's tessera daemon, submitted before its first device work.
+// member of two records still errors on a sweep of three lanes, and the latch errors on a field past its record. The
+// test is one job on the device's tessera daemon, submitted before its first device work.
 #include "cycle.h"
 #include "key_schedule.h"
 #include "keymath.h"
@@ -76,7 +76,7 @@
 #define LANE_TEST_THRESHOLDS 6u
 
 // the small allocations beside the records, each on its own page of the device's allocator: a shared record, the
-// latch's word, and each loaded program's steps, refusal count, block and counters. The first run's peak passed the
+// latch's word, and each loaded program's steps, error count, block and counters. The first run's peak passed the
 // records alone by one 2 MiB page
 #define LANE_TEST_SMALL_BYTES (8ull << 20u)
 

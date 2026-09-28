@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// record_bitwise_test_prove.cu: proofs, narrow and wide, known and refused
+// record_bitwise_test_prove.cu: proofs, narrow and wide, known and errored
 #include "record_bitwise_test_internal.h"
 
 // fill `lanes` atoms with edge-shaped fields, run the program on both sides, and hold both records to the oracle
@@ -243,15 +243,15 @@ void bitwise_known(BitwiseResults *results)
     bitwise_free(&loaded);
 }
 
-// a wrap below 4 bits, and an xor, an and or a wrap reading a later step, refuse at encode
-void bitwise_refused(BitwiseResults *results)
+// a wrap below 4 bits, and an xor, an and or a wrap reading a later step, error at encode
+void bitwise_error(BitwiseResults *results)
 {
     const EngineRecordOperation operations[4] = {ENGINE_RECORD_WRAP, ENGINE_RECORD_XOR, ENGINE_RECORD_AND,
                                                  ENGINE_RECORD_WRAP};
     const unsigned int rights[4] = {3u, 2u, 2u, 8u};
     const unsigned int lefts[4] = {0u, 0u, 2u, 2u};
-    const char *const what[4] = {"a wrap to 3 bits is refused at encode", "an xor reading a later step is refused",
-                                 "an and reading a later step is refused", "a wrap reading a later step is refused"};
+    const char *const what[4] = {"a wrap to 3 bits errors at encode", "an xor reading a later step errors",
+                                 "an and reading a later step errors", "a wrap reading a later step errors"};
     for (unsigned int at = 0u; at < 4u; at += 1u)
     {
         BitwiseProgram program;

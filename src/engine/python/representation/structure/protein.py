@@ -438,7 +438,7 @@ def nearest_truthy(truthy, row, col):
     If (row, col) is already true it stands. Otherwise the search grows a square ring, wrapping both
     axes, and returns the first true cell it reaches; ties inside a ring resolve in a fixed scan
     order. The same grid and cell always steer the same way. Returns None only when the grid holds
-    no true cell at all, which a caller reads as a table that forbids everywhere and refuses.
+    no true cell at all, which a caller reads as a table that forbids everywhere and errors.
     """
     rows, cols = truthy.shape
     if truthy[row % rows, col % cols]:

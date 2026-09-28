@@ -7,7 +7,7 @@
 #include "scriptura.h"
 
 // a part with no CUDA toolchain builds the test as C++ and asks the host's questions alone: the vectors, the level
-// keys and the seal, and that a request for device memory is refused
+// keys and the seal, and that a request for device memory errors
 #if defined(__CUDACC__)
 #include <cuda_runtime.h>
 #endif

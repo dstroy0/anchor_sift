@@ -133,7 +133,7 @@ static unsigned long long vhdl_lines(const std::string &path, const char *label)
     return found;
 }
 
-// what one schedule of a lane gave: GHDL's run (read 1 where its records were read whole, the lanes refused, the
+// what one schedule of a lane gave: GHDL's run (read 1 where its records were read whole, the lanes errored, the
 // records' words and the clocks the lanes ran), and where it was synthesized (synthesized 1 where GHDL and Yosys both
 // ran), the memories Yosys inferred, the read ports it registered, its cells and its longest path between registers in
 // cells. Its cost is the clocks times the longest path, the lanes' run in cells of delay, or the clocks where it was
@@ -141,7 +141,7 @@ static unsigned long long vhdl_lines(const std::string &path, const char *label)
 struct VhdlTrial
 {
     int read;
-    unsigned int refused;
+    unsigned int error;
     std::vector<unsigned int> records;
     unsigned long long clocks;
     int synthesized;
@@ -185,7 +185,7 @@ static void vhdl_try(const VhdlPlace *place, const std::string &text, const Reco
                                 std::to_string(image->memory.size()) + " >> ghdl.log 2>&1";
     const int status = written ? system(command.c_str()) : -1;
     trial->read =
-        (status == 0) && record_image_read(records_path, image, &trial->refused, trial->records, &trial->clocks);
+        (status == 0) && record_image_read(records_path, image, &trial->error, trial->records, &trial->clocks);
     if (trial->read == 0)
     {
         printf("  GHDL did not run the lane (status %d); its log begins:\n", status);
@@ -200,16 +200,15 @@ static void vhdl_try(const VhdlPlace *place, const std::string &text, const Reco
     trial->cost = trial->clocks * (trial->synthesized ? trial->path : 1ull);
 }
 
-// the lines and checks of one schedule: its run checked against the host's (a refusal where the host refuses the run),
+// the lines and checks of one schedule: its run checked against the host's (an error where the host errors on the run),
 // and where it was synthesized, what synthesis gave. Returns 1 where its run is the host's
 static int vhdl_report(VhdlResults *results, const VhdlPlace *place, const std::string &what, const VhdlTrial *trial,
-                       int refuses, int host_ran, const std::vector<unsigned int> &host_records)
+                       int errors, int host_ran, const std::vector<unsigned int> &host_records)
 {
-    const int passed = refuses
-                           ? (trial->read && !host_ran && (trial->refused != 0u))
-                           : (trial->read && host_ran && (trial->refused == 0u) && (trial->records == host_records));
+    const int passed = errors ? (trial->read && !host_ran && (trial->error != 0u))
+                              : (trial->read && host_ran && (trial->error == 0u) && (trial->records == host_records));
     vhdl_check(results, passed,
-               what + (refuses ? " as VHDL refuses a lane where the host refuses the run"
+               what + (errors ? " as VHDL errors on a lane where the host errors on the run"
                                : " as VHDL writes the host's records word for word"));
     if (place->synthesis && trial->read)
     {
@@ -230,9 +229,9 @@ struct VhdlRun
 };
 
 // the program laid out, run on the host, written as VHDL and run by GHDL over the same atoms; its line printed and its
-// check made. `refuses` is 1 for a program the host must refuse: the lane as VHDL must then refuse a lane
+// check made. `errors` is 1 for a program the host must error: the lane as VHDL must then error on a lane
 static void vhdl_run(void *context, const HostProgram *program, int reuse, unsigned int *const *atoms,
-                     const unsigned long long *bodies, const unsigned int *index, int refuses)
+                     const unsigned long long *bodies, const unsigned int *index, int errors)
 {
     VhdlResults *const results = ((VhdlRun *)context)->results;
     const VhdlPlace *const place = ((VhdlRun *)context)->place;
@@ -273,7 +272,7 @@ static void vhdl_run(void *context, const HostProgram *program, int reuse, unsig
                                  : std::string();
     if (text.empty())
     {
-        printf("  %s: %u steps, not supported in VHDL (a step the lane does not support, or its ruleset refused)\n",
+        printf("  %s: %u steps, not supported in VHDL (a step the lane does not support, or its ruleset errored)\n",
                name.c_str(), layout->steps);
         results->unsupported += 1u;
         host_free(&loaded);
@@ -301,11 +300,11 @@ static void vhdl_run(void *context, const HostProgram *program, int reuse, unsig
         VhdlTrial trial;
         vhdl_try(place, scheduled_text, &image, &trial);
         printf("  %s: %u steps, %u out limbs, %zu lines of VHDL, %u states, inputs %016llx, records %016llx as VHDL, "
-               "%016llx on the host, %u lanes refused as VHDL\n",
+               "%016llx on the host, %u lanes errored as VHDL\n",
                what.c_str(), layout->steps, layout->out_limbs,
                (size_t)std::count(scheduled_text.begin(), scheduled_text.end(), '\n'), report.states, inputs,
-               trial.read ? host_digest(trial.records.data(), record_words) : 0ull, host_records_digest, trial.refused);
-        end_costs[end] = vhdl_report(results, place, what, &trial, refuses, host_ran, host_records) ? trial.cost : 0ull;
+               trial.read ? host_digest(trial.records.data(), record_words) : 0ull, host_records_digest, trial.error);
+        end_costs[end] = vhdl_report(results, place, what, &trial, errors, host_ran, host_records) ? trial.cost : 0ull;
     }
 
     // the refinement loop (engine_table M23), where a construction set was given: the generator is the schedule, its
@@ -341,7 +340,7 @@ static void vhdl_run(void *context, const HostProgram *program, int reuse, unsig
                "VHDL\n",
                what.c_str(), report.states, report.maximum, report.over,
                trial.read ? host_digest(trial.records.data(), record_words) : 0ull);
-        const int kept = vhdl_report(results, place, what, &trial, refuses, host_ran, host_records);
+        const int kept = vhdl_report(results, place, what, &trial, errors, host_ran, host_records);
         if (kept && ((best_budget == 0u) || (trial.cost < best_cost)))
         {
             best_cost = trial.cost;

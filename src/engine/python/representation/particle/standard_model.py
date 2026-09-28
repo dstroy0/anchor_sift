@@ -17,7 +17,7 @@
 # The point of the integers is what the sift kernel reads a field through: equality. Two particles carry
 # the same charge or they do not, the same generation or not, and a generation's charges either sum to
 # zero or they do not. No mass enters, and no tolerance is chosen, because a mass would force a bound,
-# and a bound is what this reading refuses. The masses are measured, they belong to the particle data,
+# and a bound is what this reading errors. The masses are measured, they belong to the particle data,
 # and they are not here.
 #
 # What the exact numbers hold is the structure: three generations that recur with identical quantum

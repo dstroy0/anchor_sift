@@ -7,7 +7,7 @@
 #   bash maint/engine/build_gpu_arm.sh [--limbs N] [--digits N] [--positions N] [sm_XX ...]
 #
 #   --limbs N       exact width in 32 bit limbs, a power of two from 1 to 32768 (default: the
-#                   header's 128). exact_integer.h refuses any other value at compile time.
+#                   header's 128). exact_integer.h errors on any other value at compile time.
 #   --digits N      decimal digit floor, needed where the width is below 4096 bits
 #   --positions N   positions in the planted run (default: the bench's 4096). At 32768 limbs one
 #                   position is 128 KiB on the host and twice that on the device.

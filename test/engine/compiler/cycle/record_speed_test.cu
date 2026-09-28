@@ -236,7 +236,7 @@ int main(int count, char **arguments)
                 (unsigned long long)std::chrono::duration_cast<std::chrono::microseconds>(ended - began).count();
             best = (elapsed < best) ? elapsed : best;
         }
-        sim_check(&results, ran, "every run takes every lane, none refused");
+        sim_check(&results, ran, "every run takes every lane, none errored");
         const size_t checked_words = (size_t)SPEED_TEST_CHECKED * layout->out_limbs;
         const CycleRecordHostRequest host = {
             layout, {atoms, NULL, NULL}, {SPEED_TEST_LANES, 0ull, 0ull}, NULL, SPEED_TEST_CHECKED, host_out, &error};

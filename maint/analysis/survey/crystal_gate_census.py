@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Count what the exact reading path admits out of the crystal cache, and what it refuses, before
+# Count what the exact reading path admits out of the crystal cache, and what it errors, before
 # anything reports a number over it.
 #
 #   Usage:  python maint/analysis/survey/crystal_gate_census.py [--cache DIR] [--families FILE]
@@ -10,10 +10,10 @@
 # WHY THIS EXISTS
 #
 # representation.structure.crystal.exact_points returns (None, None) where a cell is absent, is not
-# right angled, holds no sites, or is not plain decimal text. Four refusals, one return value, and
+# right angled, holds no sites, or is not plain decimal text. Four errors, one return value, and
 # the readings that consume it treat the whole class as `continue`. That is the shape a silent
 # denominator takes: examples/crystallography/5_sift/lattice_breaks_the_product_rule.py skips a
-# refused entry and its closing line still reports a median over whatever survived, with nothing on
+# errored entry and its closing line still reports a median over whatever survived, with nothing on
 # the page saying how much did not.
 #
 # The cache this runs against makes that worse and not better. maint/data/fetch/fetch_cod_doped.py
@@ -31,7 +31,7 @@
 # Whether the right angle gate should be lifted is a separate question, and this tool supplies the
 # measurement that question needs.
 #
-# THE REFUSALS ARE SEPARATED BECAUSE THEY ARE NOT ONE FAULT
+# THE ERRORS ARE SEPARATED BECAUSE THEY ARE NOT ONE FAULT
 #
 # A cell that is absent is a deposit that did not publish one. A cell that is not right angled is a
 # deposit that published a perfectly good monoclinic cell the reader chose not to take. The first is
@@ -58,7 +58,7 @@ from representation.structure import crystal  # noqa: E402
 CACHE = os.path.join(ROOT, "build", "cod")
 FAMILIES = os.path.join(ROOT, "build", "cod", "families.tsv")
 
-# The refusal names, in the order exact_points applies them. A row is counted under the first test
+# The error names, in the order exact_points applies them. A row is counted under the first test
 # it fails, because that test actually turned it away.
 NO_CELL = "no cell published"
 NOT_RIGHT = "cell not right angled"
@@ -71,7 +71,7 @@ def verdict(text):
     """Which gate an entry meets first, as one of the names above.
 
     This repeats the order in crystal.exact_points instead of calling it, because exact_points
-    collapses four refusals into one return value and tiling every admitted cell to find that out
+    collapses four errors into one return value and tiling every admitted cell to find that out
     would cost the whole corpus a full exact reading. The tests here are the cheap prefix of that
     function and they are in its order.
     """
@@ -120,13 +120,13 @@ def main():
     out.write("  families %s\n\n" % args.families)
 
     if not os.path.isdir(args.cache):
-        out.write("  REFUSED: no directory at that cache path. This is not a census of zero.\n\n")
+        out.write("  ERROR: no directory at that cache path. This is not a census of zero.\n\n")
         out.flush()
         return 1
 
     names = sorted(name for name in os.listdir(args.cache) if name.endswith(".cif"))
     if not names:
-        out.write("  REFUSED: no .cif under that cache. This is not a census of zero.\n\n")
+        out.write("  ERROR: no .cif under that cache. This is not a census of zero.\n\n")
         out.flush()
         return 1
 

@@ -59,7 +59,7 @@ extern "C"
                                   *   whether the probes left that alignment standing. A caller wanting
                                   *   only the depth may discard it; a caller wanting to know WHICH
                                   *   alignments survived has no other way to learn it. */
-        size_t survivors_length; /**< How many. Must reach the alignment count or the call is refused. */
+        size_t survivors_length; /**< How many. Must reach the alignment count or the call errors. */
         size_t sample_stride;    /**< Plan on every Nth alignment. Zero is read as one. */
         int force_full_depth;    /**< Non-zero descends every level, ignoring the destroy rule. */
         const AnchorField *any;  /**< A field of any symbol type [BORROWS]. Null takes the byte path. */
@@ -93,7 +93,7 @@ extern "C"
      *          anchor_steer_spawn_coarms is the entry that chooses the positions itself.
      * @warning `count` ABOVE ANCHOR_STEER_ANCHORS RETURNS ZERO AND SAYS NOTHING. The zero is the
      *          only report: zero is also what a null pointer and a zero needle length return. A caller
-     *          reading the return value alone cannot tell which guard refused. Check the bound before
+     *          reading the return value alone cannot tell which guard errored. Check the bound before
      *          the call, because the call will not tell you.
      *
      * @param[in,out] offsets       Anchor offsets, reordered in place into evaluation order [BORROWS].
@@ -217,7 +217,7 @@ extern "C"
      *
      * @note FAILS CLOSED ON THE SURVIVOR BUFFER. Returns 0 without writing `offsets` where
      *       `survivors_length` does not reach the alignment count. The kernel allocates nothing. The
-     *       buffer is the caller's and a buffer too small is refused and not worked around. Size it
+     *       buffer is the caller's and a buffer too small errors and not worked around. Size it
      *       at `corpus_len - needle_len + 1`.
      * @note A planner is free to be wrong here for the same reason it is free to be wrong anywhere else
      *       in this file: placement and order change which probe rejects first, never which alignments
@@ -259,7 +259,7 @@ extern "C"
      * @note Declared here and not beside AnchorSteerDescent because it holds an AnchorProbe, which is
      *       declared just above. A structure cannot name a type the compiler has not seen.
      * @note An omitted member is zero, as it is for AnchorSteerDescent. `sample_stride` of zero is read
-     *       as one, and `max_length` of zero is refused and not read as one, because a sweep that
+     *       as one, and `max_length` of zero errors and not read as one, because a sweep that
      *       considers no probe shape is a caller error and not a default worth inventing.
      */
     typedef struct
@@ -275,7 +275,7 @@ extern "C"
                                   *   SWEEP'S OUTPUT AND NOT A TEMPORARY, exactly as it is for
                                   *   AnchorSteerDescent: it records which alignments the probes left
                                   *   standing. */
-        size_t survivors_length; /**< How many. Must reach the alignment count or the call is refused. */
+        size_t survivors_length; /**< How many. Must reach the alignment count or the call errors. */
         size_t sample_stride;    /**< Plan on every Nth alignment. Zero is read as one. */
     } AnchorSteerSweep;
 
@@ -286,7 +286,7 @@ extern "C"
      * @param[in] needle_len Length it must fit inside.
      * @return               1 where it fits, 0 otherwise.
      * @note Computed without forming the last position as a sum. A step and length that would
-     *       overflow size_t are refused instead of wrapping into a position that looks valid.
+     *       overflow size_t error instead of wrapping into a position that looks valid.
      */
     int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len);
 
@@ -388,7 +388,7 @@ extern "C"
      *       census instead of the needle and watch the count break, or hand over none at all.
      * @note The empty probe set is the identity. Every alignment reaches the full compare, the answer
      *       is exactly right, and the cost is maximal. That is the cheapest total check of the whole
-     *       guarantee and it is why `count` of zero is accepted and not refused.
+     *       guarantee and it is why `count` of zero is accepted and not errored.
      * @note `anchor_steer_probes` counts the corpus bytes the probes read, as it does for
      *       anchor_steer_count. Reset it before a run and read it after.
      */

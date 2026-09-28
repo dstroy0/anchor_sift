@@ -8460,7 +8460,7 @@
       GRID.span = span;
       GRID.depth = depth;
 
-      // The overlay is read on the same grid. A field of a different size is refused rather than
+      // The overlay is read on the same grid. A field of a different size errors rather than
       // stretched: comparing two fields cell by cell only means something when the cells correspond.
       var tint = null;
       if (overlay && overlay !== view && overlay.rows.length === span) {

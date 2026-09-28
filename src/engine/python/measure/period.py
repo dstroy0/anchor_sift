@@ -55,7 +55,7 @@ Reading = collections.namedtuple("Reading", [
 
 
 def _lattice(shape):
-    """The C's PeriodLattice for a shape, or None where period_lattice_fill refuses it."""
+    """The C's PeriodLattice for a shape, or None where period_lattice_fill errors on it."""
     rank = len(shape)
     if rank < 1 or rank > ARRAY_RANK:
         return None
@@ -213,7 +213,7 @@ def _checked(lanes, content, voxels):
 
 
 def read(lanes, shape, draws, content, null_top=None):
-    """period_read on the host. Returns a Reading, or None where the C refuses the request.
+    """period_read on the host. Returns a Reading, or None where the C errors on the request.
 
     `lanes` is the volume, flat and row major with the last axis fastest, each lane 0 to 65535.
     `content` is the volume's 32 byte content signum, which keys the shuffles. With `null_top`
@@ -283,7 +283,7 @@ def read(lanes, shape, draws, content, null_top=None):
 
 
 def draw(lanes, shape, number, content):
-    """period_draw on the host: one draw's band height for each axis, or None where the C refuses.
+    """period_draw on the host: one draw's band height for each axis, or None where the C errors.
 
     Returns a list of (numerator, denominator) an axis, the numerator 0 where the shuffle reached
     no peak or the volume holds fewer than two voxels.

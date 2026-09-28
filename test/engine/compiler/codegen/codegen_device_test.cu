@@ -63,9 +63,9 @@ static int device_items_same(const std::vector<MachineInstr> &left, const std::v
 }
 
 // what the device gave, or why it did not
-static std::string device_why(int ok, const std::string &refused)
+static std::string device_why(int ok, const std::string &error)
 {
-    return ok ? std::string() : (" (" + refused + ")");
+    return ok ? std::string() : (" (" + error + ")");
 }
 
 static std::string device_text_differ(const std::string &host, const std::string &device);
@@ -88,7 +88,7 @@ static void device_language(DeviceResults *results, const std::string &name, Cod
     std::vector<MachineInstr> host_items;
     std::vector<MachineInstr> device_items;
     unsigned int places = 0u;
-    std::string refused;
+    std::string error;
     if (generator->decided(layout, &places, &host_items) == 0)
     {
         printf("  %s: %u steps, not supported (a step the lane does not support, or a form breaks the lane)\n",
@@ -102,10 +102,10 @@ static void device_language(DeviceResults *results, const std::string &name, Cod
         generator->program_schedule_costs(&program_costs) ? &program_costs : NULL;
     ScheduleReport written_report = {0u, 0u, 0u};
     const int decided =
-        codegen_device_instrs(layout, scratch, places, written_costs, &written_report, &device_items, &refused);
+        codegen_device_instrs(layout, scratch, places, written_costs, &written_report, &device_items, &error);
     device_check(results, decided && device_items_same(host_items, device_items),
                  lane + ": the device decides the host's " + std::to_string(host_items.size()) + " forms" +
-                     device_why(decided, refused));
+                     device_why(decided, error));
     // the lane split into states
     ScheduleModel model;
     model.other = 1u;
@@ -118,13 +118,13 @@ static void device_language(DeviceResults *results, const std::string &name, Cod
     {
         const ScheduleCosts costs = generator->schedule_costs(model);
         const int scheduled_decided =
-            codegen_device_instrs(layout, scratch, scheduled_places, &costs, &device_report, &device_items, &refused);
+            codegen_device_instrs(layout, scratch, scheduled_places, &costs, &device_report, &device_items, &error);
         device_check(results,
                      scheduled_decided && device_items_same(host_items, device_items) &&
                          (device_report.states == host_report.states) &&
                          (device_report.maximum == host_report.maximum) && (device_report.over == host_report.over),
                      lane + " split into " + std::to_string(host_report.states) +
-                         " states: the device splits it as the host does" + device_why(scheduled_decided, refused));
+                         " states: the device splits it as the host does" + device_why(scheduled_decided, error));
     }
     else
     {
@@ -135,39 +135,39 @@ static void device_language(DeviceResults *results, const std::string &name, Cod
     unsigned int live = 0u;
     const std::string text = generator->program(layout, &target, std::string(s_device_header), &places, &live);
     AsmPrinterRuleset text_rules{};
-    if (asm_printer_ruleset_build(rules, &target, std::string(s_device_header), &text_rules, &refused) == 0)
+    if (asm_printer_ruleset_build(rules, &target, std::string(s_device_header), &text_rules, &error) == 0)
     {
-        printf("  %s: the assembly printer does not take the ruleset (%s)\n", lane.c_str(), refused.c_str());
+        printf("  %s: the assembly printer does not take the ruleset (%s)\n", lane.c_str(), error.c_str());
         return;
     }
     Ruleset device_read{};
     device_read.schema = rules->schema;
-    std::string read_refused;
-    const int read_ran = ruleset_read_device(&device_read, rules->path, &read_refused);
+    std::string read_error;
+    const int read_ran = ruleset_read_device(&device_read, rules->path, &read_error);
     device_check(results, read_ran && ruleset_same(&device_read, rules),
-                 lane + ": the device reads the ruleset's file as the host does" + device_why(read_ran, read_refused));
+                 lane + ": the device reads the ruleset's file as the host does" + device_why(read_ran, read_error));
     AsmPrinterRuleset device_rules{};
-    std::string rules_refused;
+    std::string rules_error;
     const int rules_built =
-        asm_printer_ruleset_device(rules, &target, std::string(s_device_header), &device_rules, &rules_refused);
+        asm_printer_ruleset_device(rules, &target, std::string(s_device_header), &device_rules, &rules_error);
     device_check(results, rules_built && asm_printer_ruleset_same(&device_rules, &text_rules),
                  lane + ": the device builds the assembly printer's ruleset word for word the host's" +
-                     device_why(rules_built, rules_refused));
+                     device_why(rules_built, rules_error));
     if (rules_built)
     {
         asm_printer_ruleset_release(&device_rules);
     }
     std::string written;
-    const int wrote = codegen_device(layout, &text_rules, places, written_costs, &written, &refused);
+    const int wrote = codegen_device(layout, &text_rules, places, written_costs, &written, &error);
     device_check(results, wrote && !text.empty() && (written == text),
                  lane + ": the device writes the code generator's " + std::to_string(text.size()) +
                      " bytes from the host's "
                      "layout" +
-                     device_why(wrote, refused) + (wrote ? device_text_differ(text, written) : std::string()));
+                     device_why(wrote, error) + (wrote ? device_text_differ(text, written) : std::string()));
     std::string stepped;
-    const int stepped_wrote = codegen_device_steps(request, &text_rules, places, written_costs, &stepped, &refused);
+    const int stepped_wrote = codegen_device_steps(request, &text_rules, places, written_costs, &stepped, &error);
     device_check(results, stepped_wrote && !text.empty() && (stepped == text),
-                 lane + ": the device writes them from its own layout" + device_why(stepped_wrote, refused) +
+                 lane + ": the device writes them from its own layout" + device_why(stepped_wrote, error) +
                      (stepped_wrote ? device_text_differ(text, stepped) : std::string()));
     asm_printer_ruleset_release(&text_rules);
 }
@@ -193,12 +193,12 @@ static std::string device_text_differ(const std::string &host, const std::string
 
 // the program laid out on the host and on the device, and each language's lane of it
 static void device_run(void *context, const HostProgram *program, int reuse, unsigned int *const *atoms,
-                       const unsigned long long *bodies, const unsigned int *index, int refuses)
+                       const unsigned long long *bodies, const unsigned int *index, int errors)
 {
     (void)atoms;
     (void)bodies;
     (void)index;
-    (void)refuses;
+    (void)errors;
     DeviceResults *const results = (DeviceResults *)context;
     const std::string name = std::string(program->name) + (reuse ? " (registers reused)" : "");
     HostLoaded loaded;
@@ -221,12 +221,12 @@ static void device_run(void *context, const HostProgram *program, int reuse, uns
     request.table_count = program->table_count;
     request.reuse = reuse;
     EngineRecordLayout device_layout{};
-    std::string refused;
-    const int device_built = layout_device(&request, &device_layout, &refused);
+    std::string error;
+    const int device_built = layout_device(&request, &device_layout, &error);
     device_check(results, device_built && layout_same(&device_layout, &loaded.layout),
                  name + ": the device lays out the host's " + std::to_string(loaded.layout.steps) + " steps and " +
                      std::to_string(loaded.layout.file_limbs) + " limbs of file word for word" +
-                     device_why(device_built, refused));
+                     device_why(device_built, error));
     if (device_built)
     {
         key_schedule_record_release(&device_layout);
@@ -249,12 +249,12 @@ static void device_bootstrap(DeviceResults *results, CodeGenerator *generator, c
     const Ruleset *const rules = generator->ruleset(1);
     const TargetInfo target = {0ull, 0, 0, 0, 0, ""};
     AsmPrinterRuleset text_rules{};
-    std::string refused;
+    std::string error;
     if ((rules == NULL) ||
-        (asm_printer_ruleset_build(rules, &target, std::string(s_device_header), &text_rules, &refused) == 0))
+        (asm_printer_ruleset_build(rules, &target, std::string(s_device_header), &text_rules, &error) == 0))
     {
         printf("  %s: the assembly printer does not take the ruleset (%s)\n", lane.c_str(),
-               (rules == NULL) ? "it is not read" : refused.c_str());
+               (rules == NULL) ? "it is not read" : error.c_str());
         return;
     }
     const AsmPrinterProgram &program = text_rules.program;
@@ -280,12 +280,12 @@ static void device_bootstrap(DeviceResults *results, CodeGenerator *generator, c
     ScheduleCosts program_costs;
     const ScheduleCosts *const written_costs =
         generator->program_schedule_costs(&program_costs) ? &program_costs : NULL;
-    const int wrote = codegen_device_steps(&request, &text_rules, places, written_costs, &written, &refused);
+    const int wrote = codegen_device_steps(&request, &text_rules, places, written_costs, &written, &error);
     device_check(results, wrote && !text.empty() && (written == text),
                  lane + ", " + std::to_string(program.layout.steps) +
                      " steps: the device writes it with the text "
                      "program, the code generator's " +
-                     std::to_string(text.size()) + " bytes" + device_why(wrote, refused) +
+                     std::to_string(text.size()) + " bytes" + device_why(wrote, error) +
                      (wrote ? device_text_differ(text, written) : std::string()));
     asm_printer_ruleset_release(&text_rules);
 }

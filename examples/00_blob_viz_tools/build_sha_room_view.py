@@ -279,7 +279,7 @@ def main():
         "every": every, "rounds": carried, "glow": glow, "seed": seed,
     })
 
-    # A body count large enough to stall the page is worth refusing instead of shipping. The room
+    # A body count large enough to stall the page is worth erroring instead of shipping. The room
     # walks every body once a frame and renders the casters again for each face of each source's
     # shadow cube, so the cost is real and it lands on the reader and not here.
     if len(things) > 6000:

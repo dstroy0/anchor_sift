@@ -7,11 +7,11 @@
 #   Usage:  python maint/data/fetch/wiki_probe.py
 #
 # The fetch that should have brought back Vietnamese and Urdu has printed nothing for a long time, and it
-# retries four times with the wait quadrupling each time. A language whose every request is refused
+# retries four times with the wait quadrupling each time. A language whose every request errors
 # takes hours to say so. That is a fault in how it was written and not a fact about the source.
 #
 # One request settles which. If it answers, the pacing was the problem and a slower fetch will work. If it
-# refuses, the earlier run with six at once is still being held against this address and the wait has to
+# errors, the earlier run with six at once is still being held against this address and the wait has to
 # be longer than any of this is worth.
 
 import io
@@ -43,8 +43,8 @@ def main():
             total = sum(len(page.get("extract", "")) for page in pages.values())
             out.write("  %-4s answered in %.1fs with %d pages and %d characters\n"
                       % (code, time.time() - started, len(pages), total))
-        except urllib.error.HTTPError as refused:
-            out.write("  %-4s refused with %s after %.1fs\n" % (code, refused.code,
+        except urllib.error.HTTPError as error:
+            out.write("  %-4s errored with %s after %.1fs\n" % (code, error.code,
                                                                 time.time() - started))
         except Exception as trouble:
             out.write("  %-4s failed: %s\n" % (code, trouble))

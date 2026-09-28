@@ -8,7 +8,7 @@
 // qasm_bitstring [--host] circuit.qasm
 // Reads an OpenQASM 2.0 circuit, runs it exactly in fixed point on the device (or the host), and prints the most
 // likely bitstring, its probability, the runner-up, and whether the proved error bound separates them.
-// Exit 0: the peak is proved. Exit 3: it is not. Exit 1: the circuit or the run was refused.
+// Exit 0: the peak is proved. Exit 3: it is not. Exit 1: the circuit or the run errored.
 
 #define QASM_EXIT_PROVED 0
 #define QASM_EXIT_ERROR 1
@@ -93,8 +93,8 @@ int main(int count, char **arguments)
     }
     if (ran == QASM_ERROR)
     {
-        qasm_print_error((error.kind == ENGINE_ERROR_RESOURCE) ? "the run was refused: the state does not fit"
-                                                               : "the run was refused",
+        qasm_print_error((error.kind == ENGINE_ERROR_RESOURCE) ? "the run errored: the state does not fit"
+                                                               : "the run errored",
                          &error);
         qasm_release(&circuit);
         return QASM_EXIT_ERROR;

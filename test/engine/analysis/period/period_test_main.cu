@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// period_test_main.cu: volumes, refusals and main
+// period_test_main.cu: volumes, errors and main
 #include "period_test_internal.h"
 
 static void test_volume(SimResults *results, const char *name, const unsigned short *volume, unsigned int rank,
@@ -97,7 +97,7 @@ static void test_volume(SimResults *results, const char *name, const unsigned sh
     free(band_again);
 }
 
-static void test_refusal(SimResults *results, const char *name, const unsigned short *device_lanes, unsigned int rank,
+static void test_error(SimResults *results, const char *name, const unsigned short *device_lanes, unsigned int rank,
                          const unsigned long long *extent, unsigned long long draws, unsigned long long *counts,
                          unsigned long long capacity, PeriodMargin *band, unsigned long long band_capacity)
 {
@@ -272,7 +272,7 @@ int main(int count, char **arguments)
 
     unsigned short *device_lanes = NULL;
     const int allocated = cudaMalloc((void **)&device_lanes, 64u * sizeof(unsigned short)) == cudaSuccess;
-    sim_check(&results, allocated, "device allocation for the refusals");
+    sim_check(&results, allocated, "device allocation for the errors");
     if (allocated != 0)
     {
         const unsigned long long small[2] = {8ull, 8ull};
@@ -281,15 +281,15 @@ int main(int count, char **arguments)
         const unsigned long long nine[9] = {1ull, 1ull, 1ull, 1ull, 1ull, 1ull, 1ull, 1ull, 1ull};
         unsigned long long counts[8];
         PeriodMargin band[16];
-        test_refusal(&results, "no lanes", NULL, 2u, small, 8ull, NULL, 0ull, NULL, 0ull);
-        test_refusal(&results, "rank 0", device_lanes, 0u, small, 8ull, NULL, 0ull, NULL, 0ull);
-        test_refusal(&results, "rank 9", device_lanes, 9u, nine, 8ull, NULL, 0ull, NULL, 0ull);
-        test_refusal(&results, "an extent of 0", device_lanes, 2u, empty, 8ull, NULL, 0ull, NULL, 0ull);
-        test_refusal(&results, "2^32 voxels", device_lanes, 2u, huge, 8ull, NULL, 0ull, NULL, 0ull);
-        test_refusal(&results, "agreement capacity short by one", device_lanes, 2u, small, 8ull, counts, 7ull, NULL,
+        test_error(&results, "no lanes", NULL, 2u, small, 8ull, NULL, 0ull, NULL, 0ull);
+        test_error(&results, "rank 0", device_lanes, 0u, small, 8ull, NULL, 0ull, NULL, 0ull);
+        test_error(&results, "rank 9", device_lanes, 9u, nine, 8ull, NULL, 0ull, NULL, 0ull);
+        test_error(&results, "an extent of 0", device_lanes, 2u, empty, 8ull, NULL, 0ull, NULL, 0ull);
+        test_error(&results, "2^32 voxels", device_lanes, 2u, huge, 8ull, NULL, 0ull, NULL, 0ull);
+        test_error(&results, "agreement capacity short by one", device_lanes, 2u, small, 8ull, counts, 7ull, NULL,
                      0ull);
-        test_refusal(&results, "no draws", device_lanes, 2u, small, 0ull, NULL, 0ull, NULL, 0ull);
-        test_refusal(&results, "band capacity short by one", device_lanes, 2u, small, 8ull, NULL, 0ull, band, 15ull);
+        test_error(&results, "no draws", device_lanes, 2u, small, 0ull, NULL, 0ull, NULL, 0ull);
+        test_error(&results, "band capacity short by one", device_lanes, 2u, small, 8ull, NULL, 0ull, band, 15ull);
         PeriodMargin tops[2] = {{1ull, 32ull}, {1ull, 32ull}};
         PeriodMeasurement measurement;
         EngineError error;
@@ -313,7 +313,7 @@ int main(int count, char **arguments)
 
     sim_check(&results, period_reserve_bytes(0ull, 1ull) == 0ull, "a pool for no voxels is 0 bytes");
     sim_check(&results, period_reserve_bytes(0x100000000ull, 1ull) == 0ull,
-              "a pool for 2^32 voxels, which the calls refuse, is 0 bytes");
+              "a pool for 2^32 voxels, which the calls error, is 0 bytes");
     sim_check(&results, period_reserve_bytes(TEST_VOXELS_MAX, TEST_ENTRIES_MAX) == DEVICE_POOL_PAGE_BYTES,
               "the test's largest pool, 528 KiB of slices, is one page");
     return sim_close(&results, "period test");

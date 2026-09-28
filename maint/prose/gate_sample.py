@@ -78,12 +78,12 @@ def main():
     held = []
     manifest = []
     words = 0
-    refused = 0
+    error = 0
     # Not sorted. The order given is the order taken, because the caller put the prose they most
     # want read at the front and a sort would spend the budget alphabetically instead.
     for path in docs_check.walk_markdown(roots):
         if closed(path):
-            refused += 1
+            error += 1
             continue
         if words >= budget:
             break
@@ -107,8 +107,8 @@ def main():
 
     for name, took in manifest:
         print("  %6d words  %s" % (took, name))
-    if refused:
-        print("  %d file(s) held back, closed corpus" % refused)
+    if error:
+        print("  %d file(s) held back, closed corpus" % error)
     print("\n  %d words, %d characters, %d file(s)" % (words, len(body), len(manifest)))
     print("  %s" % os.path.relpath(OUT, docs_check.REPOSITORY).replace("\\", "/"))
     return 0

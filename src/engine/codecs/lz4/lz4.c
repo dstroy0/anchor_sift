@@ -177,7 +177,7 @@ static int lz4_block(Lz4Walk *walk)
     }
 }
 
-static long long lz4_refuse(const EngineBytesRequest *request, unsigned long long touched)
+static long long lz4_error(const EngineBytesRequest *request, unsigned long long touched)
 {
     if (touched != 0ull)
     {
@@ -323,7 +323,7 @@ long long lz4_block_decode(const EngineBytesRequest *request)
     Lz4Walk walk = {request->in, request->in_bytes, request->out, request->out_capacity, 0ull, 0ull};
     if (!lz4_block(&walk))
     {
-        return lz4_refuse(request, walk.written);
+        return lz4_error(request, walk.written);
     }
     return (long long)walk.written;
 }
@@ -338,7 +338,7 @@ long long lz4_frame_decode(const EngineBytesRequest *request)
     }
     if (!ok)
     {
-        return lz4_refuse(request, frames.written);
+        return lz4_error(request, frames.written);
     }
     return (long long)frames.written;
 }
@@ -357,7 +357,7 @@ long long lz4_numcodecs_decode(const EngineBytesRequest *request)
     Lz4Walk walk = {request->in + 4u, request->in_bytes - 4ull, request->out, declared, 0ull, 0ull};
     if (!lz4_block(&walk) || (walk.written != declared))
     {
-        return lz4_refuse(request, walk.written);
+        return lz4_error(request, walk.written);
     }
     return (long long)walk.written;
 }

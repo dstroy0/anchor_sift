@@ -2,7 +2,7 @@
 //
 // The host daemon's ledger: each decision is tessera_ledger_core.h's, the source the device's tessera runs too. Before
 // a decision that can add a job, a kept peak or a deadline, the ledger grows each array to the most the decision can
-// add. An array that does not grow is left to the core, which refuses where it needs the array, as the ledger refused
+// add. An array that does not grow is left to the core, which errors where it needs the array, as the ledger errored
 // before where an array did not grow.
 #include "tessera_ledger.h"
 #include "tessera_ledger_core.h"

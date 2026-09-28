@@ -27,7 +27,7 @@ new names: the quantity reported was not the quantity intended. It is written he
 was being built to catch that class and introduced an instance of it on the way.
 
 So the tree currently has **no** page with an unguarded missing key, and that is a fact about the
-templates worth knowing instead of a reason to skip the gate. What the gate refuses is the next
+templates worth knowing instead of a reason to skip the gate. What the gate errors is the next
 builder, and the next template read written without a default.
 
 WHAT THIS ASKS INSTEAD
@@ -301,7 +301,7 @@ KNOWN_CLEAN = ("sha_clock_view.html", "sha_room_view.html")
 
 # The known positive, and it is written here because the tree does not contain one. Every template
 # read of an absent key is currently guarded, which is a fact about the templates and not a reason
-# to ship a checker nobody has seen fire. The shape below is what the gate exists to refuse: a
+# to ship a checker nobody has seen fire. The shape below is what the gate exists to error: a
 # key the data lacks, read with no question asked about it.
 KNOWN_BROKEN = "\n".join((
     'var DATA = {"shell": "sphere", "clock": {"ticks": 512}};',

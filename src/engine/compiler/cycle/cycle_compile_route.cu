@@ -70,7 +70,7 @@ static int cycle_program_load(const EngineRecordLayout *layout, CycleRecord *rec
         if (report != 0)
         {
             fprintf(stderr, "  cycle: a program of %u steps as %s did not build (%s)\n", layout->steps, kind,
-                    cubin.empty() ? ((ptx != 0) ? "nvJitLink refused it" : "NVRTC or nvJitLink refused it")
+                    cubin.empty() ? ((ptx != 0) ? "nvJitLink errored on it" : "NVRTC or nvJitLink errored on it")
                                   : "its cubin did not load");
         }
         return 0;
@@ -231,17 +231,17 @@ static void cycle_codegen_on_device(const CodeGenerator &generator, const Rulese
         }
     }
     AsmPrinterRuleset text_rules{};
-    std::string refused;
+    std::string error;
     std::string written;
     ScheduleCosts costs;
     const int has_costs = generator.program_schedule_costs(&costs);
     s_cycle_codegen_depth += 1;
-    const int built = asm_printer_ruleset_build(rules, target, header, &text_rules, &refused);
+    const int built = asm_printer_ruleset_build(rules, target, header, &text_rules, &error);
     // the ruleset's file read on the device as well, and the device's built from where it is the host's as read
     Ruleset device_read{};
     device_read.schema = rules->schema;
-    std::string read_refused;
-    const int read_ran = built && ruleset_read_device(&device_read, rules->path, &read_refused);
+    std::string read_error;
+    const int read_ran = built && ruleset_read_device(&device_read, rules->path, &read_error);
     const int read_same = read_ran && ruleset_same(&device_read, rules);
     if (read_same != 0)
     {
@@ -257,13 +257,13 @@ static void cycle_codegen_on_device(const CodeGenerator &generator, const Rulese
     else if (built != 0)
     {
         fprintf(stderr, "  cycle: the device did not read the ruleset %s (%s)\n", rules->name.c_str(),
-                read_refused.c_str());
+                read_error.c_str());
     }
     // the ruleset built on the device as well, and the device's written from where it is the host's word for word
     AsmPrinterRuleset device_rules{};
-    std::string device_refused;
+    std::string device_error;
     const int device_built = built && asm_printer_ruleset_device((read_same != 0) ? &device_read : rules, target,
-                                                                 header, &device_rules, &device_refused);
+                                                                 header, &device_rules, &device_error);
     const int rules_same = device_built && asm_printer_ruleset_same(&device_rules, &text_rules);
     if (rules_same != 0)
     {
@@ -277,10 +277,10 @@ static void cycle_codegen_on_device(const CodeGenerator &generator, const Rulese
     else if (built != 0)
     {
         fprintf(stderr, "  cycle: the device did not build the assembly printer's ruleset (%s)\n",
-                device_refused.c_str());
+                device_error.c_str());
     }
     const int ran = built && codegen_device(layout, (rules_same != 0) ? &device_rules : &text_rules, places,
-                                            has_costs ? &costs : NULL, &written, &refused);
+                                            has_costs ? &costs : NULL, &written, &error);
     if (built)
     {
         asm_printer_ruleset_release(&text_rules);
@@ -312,14 +312,14 @@ static void cycle_codegen_on_device(const CodeGenerator &generator, const Rulese
     else
     {
         fprintf(stderr, "  cycle: the device did not write a program of %u steps (%s); the host's is built\n",
-                layout->steps, refused.c_str());
+                layout->steps, error.c_str());
     }
 }
 
 // the program's lane written as PTX and built, else its C source compiled by NVRTC and built, found in this process or
 // the cache where either was built before, and the places it holds in shared memory set. PTX is not written where the
 // block is LTO-IR or CYCLE_RECORD_NVRTC=1, and a program held as PTX is routed by rule (i). 0 where it stays on the
-// interpreter: no NVRTC or nvJitLink, a step neither holds, a C source whose ruleset c.krs was refused, a compile, link
+// interpreter: no NVRTC or nvJitLink, a step neither holds, a C source whose ruleset c.krs errored, a compile, link
 // or load that failed, or the assembly printer run while it writes its own lane
 int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
 {
@@ -385,7 +385,7 @@ int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
         if (report != 0)
         {
             fprintf(stderr, "  cycle: a program of %u steps goes to NVRTC (%s)\n", layout->steps,
-                    (rules == NULL)  ? "its ruleset, ptx.krs, was refused"
+                    (rules == NULL)  ? "its ruleset, ptx.krs, errored"
                     : header.empty() ? "PTX's header could not be read"
                     : ptx.empty()    ? "a step the lane does not hold, or a form given other arguments than it takes"
                                      : "its PTX did not build");
@@ -410,7 +410,7 @@ int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record)
         if (report != 0)
         {
             fprintf(stderr, "  cycle: a program of %u steps runs on the interpreter (%s)\n", layout->steps,
-                    (source_rules == NULL) ? "its C ruleset, c.krs, was refused"
+                    (source_rules == NULL) ? "its C ruleset, c.krs, errored"
                                            : "a step it does not hold, or a form given other arguments than it takes");
         }
         return 0;

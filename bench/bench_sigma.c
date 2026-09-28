@@ -168,7 +168,7 @@ int main(void)
 
     if ((corpus == NULL) || (survivors == NULL))
     {
-        printf("  allocation refused, nothing measured\n");
+        printf("  allocation errored, nothing measured\n");
         free(corpus);
         free(survivors);
         return 1;

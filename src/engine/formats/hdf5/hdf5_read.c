@@ -102,24 +102,24 @@ static int hdf5_request_check(Hdf5File *file, const Hdf5Object *object, const En
     }
     if (!matches)
     {
-        return hdf5_refuse(file, "a request extent that does not match the dataset");
+        return hdf5_error(file, "a request extent that does not match the dataset");
     }
     if ((request->first > request->end) || (request->end > object->extent[0u]))
     {
-        return hdf5_refuse(file, "a row range outside the dataset");
+        return hdf5_error(file, "a row range outside the dataset");
     }
     unsigned long long row = 0ull;
     const unsigned long long rows = request->end - request->first;
     if (!hdf5_product(&object->extent[1u], object->rank - 1u, object->element_bytes, &row) ||
         ((rows != 0ull) && (row > (~0ull / rows))))
     {
-        return hdf5_refuse(file, "a row range whose byte size overflows");
+        return hdf5_error(file, "a row range whose byte size overflows");
     }
     const unsigned long long total = rows * row;
     if (((unsigned long long)(size_t)total != total) || (total > request->out_capacity) ||
         ((total > 0ull) && (request->out == NULL)))
     {
-        return hdf5_refuse(file, "an output buffer too small for the rows asked");
+        return hdf5_error(file, "an output buffer too small for the rows asked");
     }
     *bytes = total;
     return 1;

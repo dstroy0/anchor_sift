@@ -68,8 +68,8 @@ def main():
                 return
             try:
                 reader = readers.setdefault(sample, zarr_frames.Frames(source, sample))
-            except (OSError, ValueError) as refused:
-                self.reply(415, str(refused).encode("utf-8"), "text/plain")
+            except (OSError, ValueError) as error:
+                self.reply(415, str(error).encode("utf-8"), "text/plain")
                 return
             frames, depth, height, width = reader.shape
             if not (0 <= time < frames and 0 <= slice_z < depth):

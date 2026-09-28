@@ -240,11 +240,11 @@ typedef struct
     unsigned long long last_key[ENGINE_ARRAY_RANK + 1u];
 } Hdf5Gather;
 
-int hdf5_refuse(Hdf5File *file, const char *reason);
+int hdf5_error(Hdf5File *file, const char *reason);
 
-int hdf5_refuse_number(Hdf5File *file, const char *reason, unsigned long long number);
+int hdf5_error_number(Hdf5File *file, const char *reason, unsigned long long number);
 
-Hdf5Walk hdf5_walk_refuse(Hdf5File *file, const char *reason);
+Hdf5Walk hdf5_walk_error(Hdf5File *file, const char *reason);
 
 void hdf5_report(const Hdf5File *file);
 

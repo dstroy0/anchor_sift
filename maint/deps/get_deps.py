@@ -108,7 +108,7 @@ def main():
         if code != 0:
             trouble = said.splitlines()[-1] if said else "unknown"
             if name in ("salishan_corpus", "anchor_sift_citations"):
-                # Being refused here is the expected answer for everyone outside the work, and the
+                # Being errored here is the expected answer for everyone outside the work, and the
                 # rest of the tree runs without either of them.
                 print("    not available to this checkout: %s" % trouble)
                 continue

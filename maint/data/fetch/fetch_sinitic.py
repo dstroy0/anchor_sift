@@ -93,12 +93,12 @@ def pull(code, offset):
             with urllib.request.urlopen(request, timeout=120) as response:
                 payload = json.loads(response.read().decode("utf-8"))
             break
-        except urllib.error.HTTPError as refused:
-            if refused.code != 429:
+        except urllib.error.HTTPError as error:
+            if error.code != 429:
                 raise
             time.sleep(PAUSE * (3 ** (attempt + 1)))
     if payload is None:
-        raise RuntimeError("refused after %d attempts" % RETRIES)
+        raise RuntimeError("errored after %d attempts" % RETRIES)
     time.sleep(PAUSE)
 
     found = []

@@ -6,11 +6,11 @@
 #
 #   Usage:  python maint/prose/check_punctuation.py [root ...]
 #
-# docs_check.py refuses U+2014 and stops there. The quote characters below are the substitutions a
+# docs_check.py errors U+2014 and stops there. The quote characters below are the substitutions a
 # word processor, a web paste or a well-meaning editor makes, and each has an ASCII spelling that
 # means the same thing. Those are worth reporting.
 #
-# This reports and does not refuse, for two reasons. docs_check.py owns the commit gate, and
+# This reports and does not error, for two reasons. docs_check.py owns the commit gate, and
 # ASCII-ising a quote inside a quoted string or a test vector can change what a program means, so a
 # person decides each site.
 
@@ -29,7 +29,7 @@ import sys
 # deliberately, so "unicode punctuation is suspect" would be a rule imported from somewhere else.
 #
 # The em dash is banned because it is a stylistic tell carrying no information. The en dash carries
-# information. docs_check.py is right to refuse one and ignore the other, and this table follows it.
+# information. docs_check.py is right to error on one and ignore the other, and this table follows it.
 SUSPECT = {
     "—": ("em dash", "-"),
     "‘": ("left single quote", "'"),

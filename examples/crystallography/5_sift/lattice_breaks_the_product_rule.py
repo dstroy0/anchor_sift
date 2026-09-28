@@ -88,7 +88,7 @@ def cascade(points, draw):
 
         # Only positions where every displacement still lands inside the tiled extent are asked.
         # A needle running off the edge of a finite tiling cannot survive there whatever the
-        # arrangement is, and counting those refusals reads the boundary as a failure of the
+        # arrangement is, and counting those errors reads the boundary as a failure of the
         # pattern. Measured that way the ratio came to 1.06 and said nothing about the lattice.
         askable = [key for key in keys
                    if all(lows[axis] <= (key[axis] + offset[axis]) <= highs[axis]

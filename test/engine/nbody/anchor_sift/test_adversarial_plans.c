@@ -3,9 +3,9 @@
 #include "test_adversarial_internal.h"
 
 /**
- * @brief Case 6. Shapes outside the necessary-condition family, refused by the guard.
+ * @brief Case 6. Shapes outside the necessary-condition family, errored in the guard.
  *
- * @return 0 where every illegal shape is refused and every legal one admitted, 1 otherwise.
+ * @return 0 where every illegal shape errors and every legal one admitted, 1 otherwise.
  * @note This grades the GUARD instead of the count, because the first two shapes that leave the
  *       family are caught here and never reach a search. The third shape that leaves the family, a
  *       predicate taken from the census instead of the needle, is not reachable from outside and is
@@ -16,7 +16,7 @@ int adversarial_case_family_guard(void)
     static const size_t needle_len = 16u;
     int failed = 0;
 
-    // An origin at the needle length reads past the end and must be refused.
+    // An origin at the needle length reads past the end and must error.
     const AnchorProbe past_end = {needle_len, 1u, 1u};
     if (anchor_steer_probe_fits(&past_end, needle_len) != 0)
     {
@@ -24,7 +24,7 @@ int adversarial_case_family_guard(void)
         failed = 1;
     }
 
-    // A line whose last position falls outside the needle must be refused.
+    // A line whose last position falls outside the needle must error.
     const AnchorProbe overruns = {needle_len - 2u, 4u, 3u};
     if (anchor_steer_probe_fits(&overruns, needle_len) != 0)
     {
@@ -48,11 +48,11 @@ int adversarial_case_family_guard(void)
         failed = 1;
     }
 
-    // The widest line that still lands inside must be admitted, or the guard is refusing the family.
+    // The widest line that still lands inside must be admitted, or the guard is erroring on the family.
     const AnchorProbe widest = {0u, needle_len - 1u, 2u};
     if (anchor_steer_probe_fits(&widest, needle_len) == 0)
     {
-        printf("    FAIL widest fitting line refused\n");
+        printf("    FAIL widest fitting line errored\n");
         failed = 1;
     }
 
@@ -285,14 +285,14 @@ int adversarial_case_growing_plan(void)
     // A probe that reads past the needle. Its last position is (needle_len - 2) + 4*2, which is
     // needle_len + 6. Anchor_steer_probe_fits rejects it and the count is 0. Before the guard,
     // count_with_probes read needle[offset] and corpus[at + offset] off the end of both. The count
-    // it returns is not the reference; a refusal is the point, and 0 is the documented one.
+    // it returns is not the reference; an error is the point, and 0 is the documented one.
     {
         const AnchorProbe overruns = {sizeof(needle) - 2u, 4u, 3u};
-        const size_t refused =
+        const size_t error =
             anchor_steer_count_with_probes(corpus, ADVERSARIAL_CORPUS, needle, sizeof(needle), &overruns, 1u);
-        if (refused != 0u)
+        if (error != 0u)
         {
-            printf("    FAIL a probe past the needle counted %zu, expected the refusal 0\n", refused);
+            printf("    FAIL a probe past the needle counted %zu, expected the error 0\n", error);
             failed = 1;
         }
     }

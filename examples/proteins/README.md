@@ -155,7 +155,7 @@ Three controls hold the grouping, and the generator carries all three:
   falls below what a structure-free reference of the same shape reaches.
 - A positive control gates the write. Before any family is emitted, the same pipeline runs on
   synthetic proteins built from four planted archetypes. If it fails to recover that split,
-  `derive_family_rules.py` refuses to write a ruleset, because a grouping found by a method that
+  `derive_family_rules.py` errors rather than write a ruleset, because a grouping found by a method that
   cannot find a known one means nothing.
 
 With the control passing, the corpus shows a near-continuum: the gap keeps improving as the count

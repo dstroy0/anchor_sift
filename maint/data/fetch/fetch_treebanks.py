@@ -95,9 +95,9 @@ def fetch_train(repository, filename):
         blob = fetch(base + filename)
         time.sleep(PAUSE)
         return blob.decode("utf-8", errors="replace"), "whole"
-    except urllib.error.HTTPError as refused:
-        if refused.code != 404:
-            return None, "refused (%s)" % refused.code
+    except urllib.error.HTTPError as error:
+        if error.code != 404:
+            return None, "errored (%s)" % error.code
 
     stem = filename[:-len(".conllu")]
     pieces = []

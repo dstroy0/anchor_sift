@@ -75,7 +75,7 @@ struct AsmPrinterArgument
 };
 
 // what a ruleset writes, laid out once for a target and a header: the assembly printer and the scratch each form's
-// construct takes (ruleset_scratch; none, since the assembly printer refuses a ruleset of constructs); each word's
+// construct takes (ruleset_scratch; none, since the assembly printer errors on a ruleset of constructs); each word's
 // length; each part's lanes, the lengths of its pieces; each form's parts, in its order, from form_part_first[form] to
 // form_part_first[form + 1] of form_parts, and the parameter each of its slots takes, from form_slot_first[form] to
 // form_slot_first[form + 1] of slot_parameters; the words around each bank's register number, each fixed register's
@@ -259,11 +259,11 @@ CODEGEN_CORE unsigned int asm_printer_byte(const unsigned int *record, unsigned 
 }
 
 // the assembly printer and its tables for any lane the core decides in `rules` for `target` under `header`: 1 where it
-// is laid out, else 0 and why in `refused`. A ruleset that gives a form as a construct is refused, since a construct's
+// is laid out, else 0 and why in `error`. A ruleset that gives a form as a construct errors, since a construct's
 // scratch is the code generator's to take, as is a bank that writes its register with other than one number, a header
 // that holds a byte 0, and more words or letters than the tables hold
 int asm_printer_ruleset_build(const Ruleset *rules, const TargetInfo *target, const std::string &header,
-                              AsmPrinterRuleset *text_rules, std::string *refused);
+                              AsmPrinterRuleset *text_rules, std::string *error);
 
 void asm_printer_ruleset_release(AsmPrinterRuleset *text_rules);
 
@@ -272,8 +272,8 @@ AsmPrinterLists asm_printer_lists(const AsmPrinterRuleset *text_rules);
 
 // the host oracle: the lane's items (CodeGenerator::decided) laid out as records by the functions above and written by
 // the assembly printer on the host (cycle_record_run_host); 1 where it ran, its text in `text`, else 0 and why in
-// `refused`
+// `error_message`
 int asm_printer_host(const AsmPrinterRuleset *text_rules, const std::vector<MachineInstr> &items, std::string *text,
-                     std::string *refused);
+                     std::string *error_message);
 
 #endif

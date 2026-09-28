@@ -119,7 +119,7 @@ def derived_structural(root):
 
 
 class LinkTargetsThatAreNotPaths(unittest.TestCase):
-    """path_candidate() refusing the two shapes that wear markdown link syntax."""
+    """path_candidate() erroring on the two shapes that wear markdown link syntax."""
 
     def test_doxygen_reference_is_not_a_path(self):
         # Every one of these was read off ProtoCore's documents and six were confirmed as live
@@ -136,7 +136,7 @@ class LinkTargetsThatAreNotPaths(unittest.TestCase):
         ):
             self.assertFalse(docs_check.path_candidate(target), target)
 
-    def test_both_doxygen_spellings_are_refused(self):
+    def test_both_doxygen_spellings_are_error(self):
         # Doxygen accepts the backslash form everywhere it accepts the at sign.
         self.assertFalse(docs_check.path_candidate("\\ref MAX_CONNS"))
         self.assertFalse(docs_check.path_candidate("@subpage porting"))
@@ -315,7 +315,7 @@ class ProtoCoreStructuralStage(unittest.TestCase):
         dashes, tables = derived_structural(self.docs)
         self.assertGreater(dashes + tables, 0)
 
-    def test_the_exit_status_still_refuses_a_real_structural_finding(self):
+    def test_the_exit_status_still_errors_a_real_structural_finding(self):
         # Prose never fails a build. Structure does, and it has to keep doing so. ProtoCore/docs
         # holds genuine structural findings today. This run exits 1 for the right reason.
         dashes, tables = derived_structural(self.docs)

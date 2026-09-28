@@ -37,7 +37,7 @@ static int qasm_apply(QasmParser *parser, const char *name, const QasmToken *tok
     {
         if (parser->measured_qubit[qubits[one]] != 0u)
         {
-            qasm_refuse(parser, token, "a gate follows the measure of qubit %u: only a final measure is read",
+            qasm_error(parser, token, "a gate follows the measure of qubit %u: only a final measure is read",
                         qubits[one]);
             return 0;
         }
@@ -45,7 +45,7 @@ static int qasm_apply(QasmParser *parser, const char *name, const QasmToken *tok
         {
             if (qubits[one] == qubits[two])
             {
-                qasm_refuse(parser, token, "the gate '%s' names qubit %u twice", name, qubits[one]);
+                qasm_error(parser, token, "the gate '%s' names qubit %u twice", name, qubits[one]);
                 return 0;
             }
         }
@@ -55,13 +55,13 @@ static int qasm_apply(QasmParser *parser, const char *name, const QasmToken *tok
     {
         if ((angle_count != definition->params) || (qubit_count != definition->args))
         {
-            qasm_refuse(parser, token, "the gate '%s' takes %u parameters and %u qubits", name, definition->params,
+            qasm_error(parser, token, "the gate '%s' takes %u parameters and %u qubits", name, definition->params,
                         definition->args);
             return 0;
         }
         if (parser->depth >= QASM_EXPAND_DEPTH_MAX)
         {
-            qasm_refuse(parser, token, "gate definitions nest past %u", QASM_EXPAND_DEPTH_MAX);
+            qasm_error(parser, token, "gate definitions nest past %u", QASM_EXPAND_DEPTH_MAX);
             return 0;
         }
         const QasmScope inner = {definition, angles, qubits};
@@ -76,12 +76,12 @@ static int qasm_apply(QasmParser *parser, const char *name, const QasmToken *tok
     const QasmBuiltin *const builtin = qasm_builtin(name);
     if (builtin == NULL)
     {
-        qasm_refuse(parser, token, "the gate '%s' is not defined", name);
+        qasm_error(parser, token, "the gate '%s' is not defined", name);
         return 0;
     }
     if ((angle_count != builtin->params) || (qubit_count != builtin->qubits))
     {
-        qasm_refuse(parser, token, "the gate '%s' takes %u parameters and %u qubits", name, builtin->params,
+        qasm_error(parser, token, "the gate '%s' takes %u parameters and %u qubits", name, builtin->params,
                     builtin->qubits);
         return 0;
     }
@@ -99,7 +99,7 @@ static int qasm_argument(QasmParser *parser, const QasmRegister *registers, unsi
     argument->reg = qasm_register(registers, count, name);
     if (argument->reg == NULL)
     {
-        qasm_refuse(parser, token, "'%s' is not a register of this kind", name);
+        qasm_error(parser, token, "'%s' is not a register of this kind", name);
         return 0;
     }
     argument->index = -1;
@@ -113,7 +113,7 @@ static int qasm_argument(QasmParser *parser, const QasmRegister *registers, unsi
         }
         if (index >= argument->reg->size)
         {
-            qasm_refuse(parser, at, "%s[%u] is past the register's %u", name, index, argument->reg->size);
+            qasm_error(parser, at, "%s[%u] is past the register's %u", name, index, argument->reg->size);
             return 0;
         }
         argument->index = (long long)index;
@@ -145,7 +145,7 @@ int qasm_application(QasmParser *parser, const QasmScope *scope)
             {
                 if (angle_count == QASM_GATE_PARAMS_MAX)
                 {
-                    qasm_refuse(parser, qasm_peek(parser), "a gate takes at most %u parameters", QASM_GATE_PARAMS_MAX);
+                    qasm_error(parser, qasm_peek(parser), "a gate takes at most %u parameters", QASM_GATE_PARAMS_MAX);
                     ok = 0;
                     break;
                 }
@@ -179,7 +179,7 @@ int qasm_application(QasmParser *parser, const QasmScope *scope)
             }
             if ((found == QASM_GATE_ARGS_MAX) || (qubit_count == QASM_GATE_ARGS_MAX))
             {
-                qasm_refuse(parser, argument, "not an argument of this gate");
+                qasm_error(parser, argument, "not an argument of this gate");
                 ok = 0;
                 break;
             }
@@ -201,7 +201,7 @@ int qasm_application(QasmParser *parser, const QasmScope *scope)
         {
             if (argument_count == QASM_GATE_ARGS_MAX)
             {
-                qasm_refuse(parser, qasm_peek(parser), "a gate takes at most %u qubits", QASM_GATE_ARGS_MAX);
+                qasm_error(parser, qasm_peek(parser), "a gate takes at most %u qubits", QASM_GATE_ARGS_MAX);
                 ok = 0;
                 break;
             }
@@ -215,7 +215,7 @@ int qasm_application(QasmParser *parser, const QasmScope *scope)
             {
                 if ((broadcast != 0u) && (broadcast != arguments[argument_count].reg->size))
                 {
-                    qasm_refuse(parser, at, "registers of different sizes are applied together");
+                    qasm_error(parser, at, "registers of different sizes are applied together");
                     ok = 0;
                     break;
                 }
@@ -251,12 +251,12 @@ int qasm_measure(QasmParser *parser)
     }
     if ((from.index < 0) != (into.index < 0))
     {
-        qasm_refuse(parser, token, "a measure takes a register into a register, or a bit into a bit");
+        qasm_error(parser, token, "a measure takes a register into a register, or a bit into a bit");
         return 0;
     }
     if ((from.index < 0) && (from.reg->size != into.reg->size))
     {
-        qasm_refuse(parser, token, "a measure takes registers of one size");
+        qasm_error(parser, token, "a measure takes registers of one size");
         return 0;
     }
     const unsigned int times = (from.index < 0) ? from.reg->size : 1u;
@@ -266,12 +266,12 @@ int qasm_measure(QasmParser *parser)
         const unsigned int clbit = into.reg->offset + ((into.index < 0) ? time : (unsigned int)into.index);
         if (parser->measured_qubit[qubit] != 0u)
         {
-            qasm_refuse(parser, token, "qubit %u is measured twice", qubit);
+            qasm_error(parser, token, "qubit %u is measured twice", qubit);
             return 0;
         }
         if (parser->clbit_written[clbit] != 0u)
         {
-            qasm_refuse(parser, token, "clbit %u is written twice", clbit);
+            qasm_error(parser, token, "clbit %u is written twice", clbit);
             return 0;
         }
         parser->measured_qubit[qubit] = 1u;

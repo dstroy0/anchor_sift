@@ -42,7 +42,7 @@ LEAST_LETTERS = 500
 
 def verdict_for(share):
     if share < FLOOR:
-        return "refuse"
+        return "error"
     if share < 0.90:
         return "clean"
     if share < 0.98:
@@ -85,15 +85,15 @@ def main():
         "pass": "its own writing throughout, measure it as it is",
         "watch": "a little foreign writing, usually names and citations",
         "clean": "carries enough foreign writing to cut out first",
-        "refuse": "is not mostly the language it is named for",
+        "error": "is not mostly the language it is named for",
         "unknown": "no writing registered for it, never checked",
         "too short": "not enough letters to judge",
     }
-    for verdict in ("pass", "watch", "clean", "refuse", "unknown", "too short"):
+    for verdict in ("pass", "watch", "clean", "error", "unknown", "too short"):
         if verdict in counts:
             out.write("  %-12s %-7d %s\n" % (verdict, counts[verdict], meanings[verdict]))
 
-    for verdict in ("refuse", "clean"):
+    for verdict in ("error", "clean"):
         named = [row for row in rows if row[3] == verdict]
         if not named:
             continue

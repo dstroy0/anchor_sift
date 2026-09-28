@@ -19,12 +19,12 @@ static int qasm_declare(QasmParser *parser, int quantum)
     if ((qasm_register(parser->qregs, parser->qreg_count, name) != NULL) ||
         (qasm_register(parser->cregs, parser->creg_count, name) != NULL))
     {
-        qasm_refuse(parser, token, "the register '%s' is declared twice", name);
+        qasm_error(parser, token, "the register '%s' is declared twice", name);
         return 0;
     }
     if ((size == 0u) || (*count == QASM_REGISTERS_MAX) || ((*total + size) > maximum))
     {
-        qasm_refuse(parser, token,
+        qasm_error(parser, token,
                     (quantum != 0) ? "past %u qubits: the index names a record by 32 bits"
                                    : "past %u clbits: an outcome is one 64-bit word",
                     maximum);
@@ -62,7 +62,7 @@ static int qasm_define(QasmParser *parser)
     }
     if (qasm_definition(parser, definition->name) != NULL)
     {
-        qasm_refuse(parser, token, "the gate '%s' is defined twice", definition->name);
+        qasm_error(parser, token, "the gate '%s' is defined twice", definition->name);
         return 0;
     }
     if (qasm_accept(parser, "(") && !qasm_accept(parser, ")"))
@@ -71,7 +71,7 @@ static int qasm_define(QasmParser *parser)
         {
             if (definition->params == QASM_GATE_PARAMS_MAX)
             {
-                qasm_refuse(parser, qasm_peek(parser), "a gate takes at most %u parameters", QASM_GATE_PARAMS_MAX);
+                qasm_error(parser, qasm_peek(parser), "a gate takes at most %u parameters", QASM_GATE_PARAMS_MAX);
                 return 0;
             }
             if (!qasm_expect_ident(parser, NULL, &definition->param_token[definition->params]))
@@ -89,7 +89,7 @@ static int qasm_define(QasmParser *parser)
     {
         if (definition->args == QASM_GATE_ARGS_MAX)
         {
-            qasm_refuse(parser, qasm_peek(parser), "a gate takes at most %u qubits", QASM_GATE_ARGS_MAX);
+            qasm_error(parser, qasm_peek(parser), "a gate takes at most %u qubits", QASM_GATE_ARGS_MAX);
             return 0;
         }
         if (!qasm_expect_ident(parser, NULL, &definition->arg_token[definition->args]))
@@ -125,7 +125,7 @@ int qasm_statements(QasmParser *parser, const QasmScope *scope, unsigned int end
         const QasmToken *const token = qasm_peek(parser);
         if (token->kind != QASM_TOKEN_IDENT)
         {
-            qasm_refuse(parser, token, "a statement was expected here");
+            qasm_error(parser, token, "a statement was expected here");
             return 0;
         }
         if (qasm_token_is(parser, token, "barrier"))
@@ -143,7 +143,7 @@ int qasm_statements(QasmParser *parser, const QasmScope *scope, unsigned int end
             const QasmToken *const file = qasm_peek(parser);
             if ((file->kind != QASM_TOKEN_STRING) || !qasm_token_is(parser, file, "\"qelib1.inc\""))
             {
-                qasm_refuse(parser, file, "only \"qelib1.inc\" is included: its gates are built in");
+                qasm_error(parser, file, "only \"qelib1.inc\" is included: its gates are built in");
                 return 0;
             }
             parser->at += 1u;
@@ -188,7 +188,7 @@ int qasm_statements(QasmParser *parser, const QasmScope *scope, unsigned int end
         {
             char name[QASM_NAME_CAPACITY];
             qasm_token_name(parser, token, name);
-            qasm_refuse(parser, token,
+            qasm_error(parser, token,
                         top ? "'%s' is not read: only unitary gates and a final measure are"
                             : "'%s' is not read inside a gate definition",
                         name);
@@ -207,7 +207,7 @@ static int qasm_header(QasmParser *parser)
     const QasmToken *const token = qasm_peek(parser);
     if (!qasm_token_is(parser, token, "OPENQASM"))
     {
-        qasm_refuse(parser, token, "a program opens with OPENQASM 2.0;");
+        qasm_error(parser, token, "a program opens with OPENQASM 2.0;");
         return 0;
     }
     parser->at += 1u;
@@ -215,7 +215,7 @@ static int qasm_header(QasmParser *parser)
     if ((version->kind != QASM_TOKEN_NUMBER) ||
         !(qasm_token_is(parser, version, "2.0") || qasm_token_is(parser, version, "2")))
     {
-        qasm_refuse(parser, version, "only OpenQASM 2.0 is read");
+        qasm_error(parser, version, "only OpenQASM 2.0 is read");
         return 0;
     }
     parser->at += 1u;
@@ -292,7 +292,7 @@ long qasm_read(const QasmReadRequest *request, QasmCircuit *circuit)
              qasm_statements(parser, NULL, 0xFFFFFFFFu);
     if (ok && (circuit->qubits == 0u))
     {
-        qasm_refuse(parser, qasm_peek(parser), "no qreg is declared");
+        qasm_error(parser, qasm_peek(parser), "no qreg is declared");
         ok = 0;
     }
     if (ok && (circuit->measured == 0u))
@@ -300,7 +300,7 @@ long qasm_read(const QasmReadRequest *request, QasmCircuit *circuit)
         // no measure: every qubit is read, qubit i into clbit i
         if (circuit->qubits > QASM_CLBITS_MAX)
         {
-            qasm_refuse(parser, qasm_peek(parser), "no measure, and more qubits than an outcome holds");
+            qasm_error(parser, qasm_peek(parser), "no measure, and more qubits than an outcome holds");
             ok = 0;
         }
         for (unsigned int qubit = 0u; ok && (qubit < circuit->qubits); qubit += 1u)

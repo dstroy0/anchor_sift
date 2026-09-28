@@ -129,7 +129,7 @@ def main():
     wrong = dict(coefficients)
     wrong[4] = Fraction(1, 80)  # the true value is 1/90
     wrong_identity = convolution_identity_holds(wrong)
-    out.write("  with zeta(4) = pi^4/80 in place of /90, the identity holds: %s (refused)\n" % wrong_identity)
+    out.write("  with zeta(4) = pi^4/80 in place of /90, the identity holds: %s (errored)\n" % wrong_identity)
     out.flush()
 
     return 0 if (pi_agrees and identity and not wrong_identity) else 1

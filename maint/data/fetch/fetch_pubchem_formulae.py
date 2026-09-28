@@ -12,7 +12,7 @@
 #
 # PubChem is a public service run by people. The identifiers are asked in chunks with a pause between,
 # and the whole set caches, and a second run does not ask again. A chunk that fails is skipped and named,
-# and the run refuses if it gathered almost nothing, which tells a stale endpoint apart from a real set.
+# and the run errors if it gathered almost nothing, which tells a stale endpoint apart from a real set.
 #
 # Source: the PubChem compound database, PUG REST, MolecularFormula property.
 
@@ -44,7 +44,7 @@ WANTED = 10000
 # Seconds between requests. PubChem allows five a second; this stays well under.
 PAUSE = 0.2
 
-# Below this the response cannot be a wide set, and a short gather refuses instead of caching.
+# Below this the response cannot be a wide set, and a short gather errors instead of caching.
 LEAST_ROWS = 5000
 
 

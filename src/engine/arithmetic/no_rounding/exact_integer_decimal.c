@@ -19,7 +19,7 @@ static const uint32_t TEN_TO[LIMB_DECIMAL_DIGITS + 1u] = {
  *       decimal digit read, which made reading 315000 digits at 32768 limbs cost ten billion limb
  *       steps.
  * @warning On a return of 1 `value` holds the low limbs of the product. Callers run this on a copy
- *          they discard on refusal.
+ *          they discard on error.
  */
 static int magnitude_multiply_small(uint32_t *value, size_t *used, uint32_t factor)
 {
@@ -53,7 +53,7 @@ static int magnitude_multiply_small(uint32_t *value, size_t *used, uint32_t fact
  * @param[in]     added What to add.
  * @return              1 where a carry ran off the top limb, 0 otherwise.
  * @warning On a carry out of the top limb `value` holds the wrapped sum. Callers run this on a copy
- *          they discard on refusal.
+ *          they discard on error.
  */
 static int magnitude_add_small(uint32_t *value, size_t *used, uint32_t added)
 {
@@ -85,7 +85,7 @@ static int magnitude_add_small(uint32_t *value, size_t *used, uint32_t added)
  * @param[in]     power How many powers of ten to apply.
  * @return              1 where the product ran off the top limb, 0 otherwise.
  * @warning On a return of 1 `value` holds a wrapped product. Callers run this on a copy they
- *          discard on refusal.
+ *          discard on error.
  */
 static int magnitude_scale_by_ten(uint32_t *value, size_t *used, uint32_t power)
 {
@@ -104,7 +104,7 @@ static int magnitude_scale_by_ten(uint32_t *value, size_t *used, uint32_t power)
 
 AnchorExactStatus anchor_exact_scale_by_ten(AnchorExactInteger *value, uint32_t power)
 {
-    // Scaled on a copy. A refusal leaves the caller's value as it was.
+    // Scaled on a copy. An error leaves the caller's value as it was.
     EXACT_SCRATCH(scaled, EXACT_LIMBS);
     if (!EXACT_SCRATCH_VALID(scaled))
     {
@@ -238,7 +238,7 @@ static AnchorExactStatus decimal_layout(const char *text, size_t length, Decimal
  *       as one limb. A text overruns the width in nine digit steps exactly where it overruns one
  *       digit at a time, because every partial value is at most the finished one.
  * @warning On a return of 1 `value` holds a wrapped magnitude. Callers run this on a copy they
- *          discard on refusal.
+ *          discard on error.
  */
 static int magnitude_accumulate_digits(uint32_t *value, size_t *used, const char *text, size_t from, size_t to)
 {
@@ -269,7 +269,7 @@ static int magnitude_accumulate_digits(uint32_t *value, size_t *used, const char
 
 /**
  * @brief Reads decimal text into a value and an uncertainty at `digits` places, in staging integers
- *        the caller discards on a refusal.
+ *        the caller discards on an error.
  *
  * @param[in]  text        Decimal text [BORROWS].
  * @param[in]  length      How many bytes of text.
@@ -280,8 +280,8 @@ static int magnitude_accumulate_digits(uint32_t *value, size_t *used, const char
  * @return                 ANCHOR_EXACT_OK, ANCHOR_EXACT_NOT_DECIMAL or ANCHOR_EXACT_WILL_NOT_FIT.
  * @note The shared body of anchor_exact_from_decimal and anchor_exact_from_measured. One reading of
  *       the grammar serves both, and the two entries cannot accept different text.
- * @warning On a refusal `value` and `uncertainty` hold partial limbs. Both entries pass integers of
- *          their own and copy out only on ANCHOR_EXACT_OK. A refusal leaves a caller's untouched.
+ * @warning On an error `value` and `uncertainty` hold partial limbs. Both entries pass integers of
+ *          their own and copy out only on ANCHOR_EXACT_OK. An error leaves a caller's untouched.
  *          An earlier form read into two limb arrays of its own and then copied, which put a third
  *          and fourth width-sized array on the stack beside the entry's two.
  */
@@ -296,8 +296,8 @@ static AnchorExactStatus decimal_read(const char *text, size_t length, uint32_t 
     }
 
     // Trailing zeros after the point are not places. 1.2300 and 1.23 are one number, and ".000" is
-    // zero at no places. Counting the zeros refused 1.2300 at a scale that accepted 1.23, and
-    // dropping every digit of ".000" with no digit left behind refused a zero outright.
+    // zero at no places. Counting the zeros errored 1.2300 at a scale that accepted 1.23, and
+    // dropping every digit of ".000" with no digit left behind errored on a zero outright.
     size_t trimmed_to = layout.fraction_to;
     while ((trimmed_to > layout.fraction_from) && (text[trimmed_to - 1u] == '0'))
     {
@@ -352,7 +352,7 @@ static AnchorExactStatus decimal_read(const char *text, size_t length, uint32_t 
 
 AnchorExactStatus anchor_exact_from_decimal(const char *text, size_t length, uint32_t digits, AnchorExactInteger *value)
 {
-    // Read into a local value. A refusal leaves the caller's value as it was. This entry reads the
+    // Read into a local value. An error leaves the caller's value as it was. This entry reads the
     // uncertainty and drops it, as its declaration documents.
     EXACT_VALUE(read);
     EXACT_VALUE(spread);

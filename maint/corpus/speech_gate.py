@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Refuse recorded speech that the community it came from has not said we may hold.
+# Error recorded speech that the community it came from has not said we may hold.
 #
 #   python maint/corpus/speech_gate.py           what is held, and under whose permission
 #   python maint/corpus/speech_gate.py --check   fail while a file sits under no granted source

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// record_table_test_compose.cu: file limbs, composition, reuse, refusals and main
+// record_table_test_compose.cu: file limbs, composition, reuse, errors and main
 #include "record_table_test_internal.h"
 
 static long table_file_limbs(TableProgram *program)
@@ -206,7 +206,7 @@ static void table_reuse(TableResults *results)
     free(reused);
 }
 
-static void table_refusals(TableResults *results)
+static void table_errors(TableResults *results)
 {
     unsigned int *const values = (unsigned int *)calloc(TABLE_TEST_ALPHABET, sizeof(unsigned int));
     // an index wider than the source register's bits
@@ -220,7 +220,7 @@ static void table_refusals(TableResults *results)
     wide.tables[0].out_bits = 16u;
     wide.tables[0].values = values;
     wide.table_count = 1u;
-    table_check(results, table_file_limbs(&wide) < 0L, "an index wider than its source is refused");
+    table_check(results, table_file_limbs(&wide) < 0L, "an index wider than its source errors");
 
     // a table index with no table behind it
     TableProgram missing;
@@ -233,7 +233,7 @@ static void table_refusals(TableResults *results)
     missing.tables[0].out_bits = 16u;
     missing.tables[0].values = values;
     missing.table_count = 1u;
-    table_check(results, table_file_limbs(&missing) < 0L, "a table index with no table is refused");
+    table_check(results, table_file_limbs(&missing) < 0L, "a table index with no table errors");
     free(values);
 }
 
@@ -279,7 +279,7 @@ int main(int count, char **arguments)
 
         table_compose(&results);
         table_reuse(&results);
-        table_refusals(&results);
+        table_errors(&results);
     }
     sim_job_release(&job);
     sim_flush(&job);

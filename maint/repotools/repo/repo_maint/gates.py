@@ -6,7 +6,7 @@
 
     gates.py                 run the gates this repository names, in order
     gates.py --list          what this repository runs, and where each tool resolved to
-    gates.py --strict        promote every note to a refusal, the setting a cleanup pass wants
+    gates.py --strict        promote every note to an error, the setting a cleanup pass wants
     gates.py <name> ...      run only the named gates
 
 Four repositories on this machine each carried their own `pre-commit`, and between them they ran
@@ -29,12 +29,12 @@ Every one of the four hooks guarded its checker with some form of
 and that shape is a defect wearing its most common costume. When a directory reorganization moved
 one checker, its gate read as "not applicable" and turned itself off. Every commit for the rest of
 that day passed without it, and nothing said so. A gate a repository asked for and this cannot find
-is a refusal here, always, with the path it looked at printed.
+is an error here, always, with the path it looked at printed.
 
-TWO SEVERITIES, AND ONLY ONE REFUSES
+TWO SEVERITIES, AND ONLY ONE ERRORS
 
-A finding a reader meets as a broken page refuses. A finding that reads wrong and works fine is
-printed and lets the commit through, because a gate refusing a commit over a backlog somebody
+A finding a reader meets as a broken page errors. A finding that reads wrong and works fine is
+printed and lets the commit through, because a gate erroring on a commit over a backlog somebody
 inherited gets turned off inside a day, and the breaking findings go through with it.
 """
 
@@ -114,7 +114,7 @@ def _resolve(cfg, name, settings, default_names):
 def _roots_for(cfg, settings, fallback):
     """The roots a gate reads, from its own settings or from the repository layout.
 
-    Absolute, and refused when every one of them is absent. A root that has moved contributes zero
+    Absolute, and errored when every one of them is absent. A root that has moved contributes zero
     files and lets a run exit 0. A prose check once read 188 files instead of 317 that way, and
     reported success on every commit for a week.
     """
@@ -134,7 +134,7 @@ def gate_docs_check(cfg, settings, strict):
 
     The checker itself is not fetched. It lives under the toolkit's `no_replicate_` tree and stays
     there. A repository reaches it by path or by a sibling checkout. That is deliberate and it is
-    still a refusal when it cannot be reached: an unreachable checker is an unchecked commit.
+    still an error when it cannot be reached: an unreachable checker is an unchecked commit.
     """
     tool = _resolve(
         cfg,
@@ -150,7 +150,7 @@ def gate_docs_check(cfg, settings, strict):
 def gate_fetch_check(cfg, _settings, strict):
     """Every tool fetched from the toolkit, checked against the lock.
 
-    A fetched file edited in this repository refuses. The toolkit is upstream. An edit here
+    A fetched file edited in this repository errors. The toolkit is upstream. An edit here
     exists in one tree and is lost by the next fetch. Where the edit is worth keeping it is promoted
     with `repotools adopt` and flows back out to every repository.
     """
@@ -197,7 +197,7 @@ def gate_command(cfg, settings, _strict):
     """An arbitrary command this repository names, for a check the toolkit does not carry.
 
     Present, a repository with one specific gate does not have to fork the driver to run it. The
-    command is refused when it names nothing, because an empty command succeeds and reads as a pass.
+    command errors when it names nothing, because an empty command succeeds and reads as a pass.
     """
     argv = settings.get("argv")
     if not argv:
@@ -216,10 +216,10 @@ GATES = {
 
 
 def run(cfg, names, strict):
-    """Run the named gates in order and return the first refusal.
+    """Run the named gates in order and return the first error.
 
-    Every gate runs even after one refuses. A commit that has to be fixed is fixed once instead
-    of once per gate. The exit code is the first refusal seen.
+    Every gate runs even after one errors. A commit that has to be fixed is fixed once instead
+    of once per gate. The exit code is the first error seen.
     """
     worst = findings.EXIT_OK
     for name in names:

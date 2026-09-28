@@ -20,10 +20,10 @@
 # arithmetic rows refer to. The comparison form drops the index and the word, leaving
 #
 #   <subject> <sign> <limb>...            for a value that was read
-#   <subject> refused <status>            for one that was not
+#   <subject> errored <status>            for one that was not
 #
 # One space between fields, no trailing space, and the subject verbatim. Status is the
-# AnchorExactStatus enum: 1 is WILL_NOT_FIT and 2 is NOT_DECIMAL. A refusal is digested like any
+# AnchorExactStatus enum: 1 is WILL_NOT_FIT and 2 is NOT_DECIMAL. An error is digested like any
 # other row, because what an implementation rejects is as much a claim as what it accepts.
 
 import hashlib

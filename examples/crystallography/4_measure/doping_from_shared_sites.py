@@ -34,7 +34,7 @@
 #
 # This measure does not go through crystal.exact_points, and the first version of it did. That
 # version inherited a dependency it had no use for and paid for it immediately: exact_points
-# refuses any cell that is not right angled, and 498 of 697 entries came back unreadable, because
+# errors on any cell that is not right angled, and 498 of 697 entries came back unreadable, because
 # the minerals that carry doping are overwhelmingly monoclinic and triclinic. The measure looked
 # like it was failing on three quarters of the corpus. It was not; it was being handed three
 # quarters less corpus.

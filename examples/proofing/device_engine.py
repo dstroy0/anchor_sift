@@ -150,6 +150,6 @@ if __name__ == "__main__":
     ok = gate()
     print()
     print("  %s" % ("device and host agree; the split is sound"
-                    if ok else "REFUSING: the device path is wrong and must be fixed, not bypassed"))
+                    if ok else "ERROR: the device path is wrong and must be fixed, not bypassed"))
     gpu_multiply.shut_down()
     raise SystemExit(0 if ok else 1)

@@ -141,6 +141,6 @@ int daemon_arguments(int count, char **arguments, unsigned long long *idle);
 
 int daemon_socket_handed(void);
 
-int daemon_refused(void);
+int daemon_error(void);
 
 #endif

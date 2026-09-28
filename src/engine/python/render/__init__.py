@@ -44,7 +44,7 @@ def _library(lib):
 
 
 def render_raster(config, corpus, needle, probes, lib=None):
-    """Renders a sheet on the fastest arm available. Returns width*height bytes, or None if refused.
+    """Renders a sheet on the fastest arm available. Returns width*height bytes, or None if errored.
 
     Passes through the C dispatch where a library is reachable, which prefers the device, and falls
     back to the pure Python host arm otherwise.
@@ -56,7 +56,7 @@ def render_raster(config, corpus, needle, probes, lib=None):
 
 
 def render_volume(config, corpus, needle, probes, lib=None):
-    """Renders a volume on the fastest arm available. Returns the voxels, or None if refused.
+    """Renders a volume on the fastest arm available. Returns the voxels, or None if errored.
 
     Passes through the C dispatch where a library is reachable, which prefers the device, and falls
     back to the pure Python host arm otherwise.

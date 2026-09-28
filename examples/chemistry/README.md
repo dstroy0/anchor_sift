@@ -10,7 +10,7 @@ condition and the bond length as an oracle, using the primitives already in the 
 | `3_reference` | `two_nulls_two_questions.py`                  | which null the octet departs from, and which it does not                                                         |
 | `4_measure`   | `a_histogram_cannot_see_structure.py`         | what a histogram measure reads of a molecule, and what it cannot                                                 |
 | `4_measure`   | `a_single_period_cannot_see_a_growing_one.py` | why a single-period reader misses a growing recurrence, and why the boundaries must be supplied                  |
-| `5_sift`      | `valence_is_a_necessary_condition.py`         | whether the octet refuses no real molecule and prunes the rest, and whether a shuffle of the same atoms loses it |
+| `5_sift`      | `valence_is_a_necessary_condition.py`         | whether the octet errors on no real molecule and prunes the rest, and whether a shuffle of the same atoms loses it |
 
 Stages two and six are not present yet, and stage four is present only in the readings that need no geometry. The reason is a boundary, not an omission.
 
@@ -55,13 +55,13 @@ data; the real sequence and its boundaries are the ledger's to supply.
 Stage five is the sift. The proposition is domain blind: any subset of a pattern's points is a
 necessary condition. No selection rule loses a true occurrence, and the converse fails. Every
 survivor is confirmed. Valence is that proposition in chemistry. Every atom of a real molecule closes
-its octet. The octet refuses no molecule and prunes arrangements, and the error is one directional.
+its octet. The octet errors on no molecule and prunes arrangements, and the error is one directional.
 That runs today with `reference.shuffles` for a drawn null and needs no new engine part.
 
 The script reads two routes and shows them able to disagree. The per-atom octet is the strong one; the
 handshake sum, that the valences add to twice the bond count, is weaker and passes on a mis-wired
-peroxide the octet refuses. It carries a positive control, eight real molecules that close every
-atom, and a negative control, arrangements the octet must refuse, because a pass proves only that the
+peroxide the octet errors. It carries a positive control, eight real molecules that close every
+atom, and a negative control, arrangements the octet must error, because a pass proves only that the
 check is wired to say yes until something it should decline is declined. The null is drawn by
 permuting which element sits at which atom over the same bond graph: most permutations put an element
 where its valence does not fit the degree. The real assignment sits above the band the shuffles

@@ -319,7 +319,7 @@ int main(int count, char **arguments)
                (int)error.kind, (int)error.module, error.site);
         return 1;
     }
-    refusals();
+    errors();
     bound_formula();
     known_answers();
     ties();

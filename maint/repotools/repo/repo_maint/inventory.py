@@ -230,7 +230,7 @@ def main(argv):
         if not rest:
             raise SystemExit("inventory: name at least one directory to survey")
         # `candidates` drops every shape whose copies sit in one repository. Over a single tree it
-        # answers zero every time and reads as a clean bill of health. Refusing is the only honest
+        # answers zero every time and reads as a clean bill of health. Erroring is the only honest
         # response: the question asked cannot be answered by the command that was used.
         if mode == "candidates" and len(rest) < 2:
             raise SystemExit(

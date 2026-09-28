@@ -32,19 +32,19 @@ int main(int count, char **arguments)
         !tessera_path_endpoint(g_daemon.device, g_daemon.endpoint, ENGINE_PATH_CAPACITY))
     {
         fputs(s_daemon_no_state, stderr);
-        return daemon_refused();
+        return daemon_error();
     }
-    // the history is read before the endpoint exists: no client reaches a daemon that then refuses its history
+    // the history is read before the endpoint exists: no client reaches a daemon that then errors on its history
     if (!tessera_ledger_open(&g_daemon.ledger))
     {
         fprintf(stderr, "  tessera daemon: the ledger could not be opened\n");
-        return daemon_refused();
+        return daemon_error();
     }
     g_daemon.ledger.next_identity = daemon_wall();
     if (!daemon_history_load() || !tessera_ledger_idle(&g_daemon.ledger, daemon_now(), idle))
     {
         fprintf(stderr, "  tessera daemon: the history in %s could not be read\n", g_daemon.state);
-        return daemon_refused();
+        return daemon_error();
     }
 #if defined(_WIN32)
     HANDLE listening =
@@ -108,7 +108,7 @@ int main(int count, char **arguments)
     if (g_daemon.measure == NULL)
     {
         fputs(tessera_device_names_host(g_daemon.device) ? s_daemon_no_cores : s_daemon_unmeasured, stderr);
-        return daemon_refused();
+        return daemon_error();
     }
     daemon_device_read();
     g_daemon.living = 1;

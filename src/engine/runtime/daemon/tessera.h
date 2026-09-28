@@ -39,7 +39,7 @@ extern "C"
         TESSERA_TELL_GREW = 18,
         TESSERA_TELL_LOST = 19,
         TESSERA_TELL_RELEASED = 20,
-        TESSERA_TELL_REFUSED = 21
+        TESSERA_TELL_ERROR = 21
     } TesseraFrameKind;
 
     typedef struct

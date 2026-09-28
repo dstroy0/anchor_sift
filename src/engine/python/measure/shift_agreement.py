@@ -262,7 +262,7 @@ def recover_lattice_period(grid, axis, most=None):
     return lag, (share if above >= below else -share), score
 
 
-# The limits shift_agreement_host refuses past (src/engine/analysis/shift_agreement/shift_agreement.h).
+# The limits shift_agreement_host errors on past (src/engine/analysis/shift_agreement/shift_agreement.h).
 FRAME_AXES = 8
 FRAME_PRIME = 998244353
 FRAME_LONGEST_AXIS = 1 << 23
@@ -293,7 +293,7 @@ def frame_shift(extents, before, after, weights=None):
 
     `weights` defaults to one an axis. Returns (lag, agreement, counts), `lag` a tuple an axis and
     `counts` a dict from lag tuple to count holding every lag with a nonzero count, or None where
-    the C refuses: no axes, more than 8, an extent of 0 or past 2^22, 998244353 voxels or more, or
+    the C errors: no axes, more than 8, an extent of 0 or past 2^22, 998244353 voxels or more, or
     a padded volume past 2^31 - 1 entries.
     """
     axes = len(extents)

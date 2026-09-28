@@ -170,7 +170,7 @@ int anchor_field_project(const AnchorFieldProjection *args)
     }
 
     // Class labels are stored as uint32_t positions. A field wider than that would alias two
-    // positions onto one label and merge classes the oracle never joined. It is refused. The cast
+    // positions onto one label and merge classes the oracle never joined. It errors. The cast
     // widens a 32 bit constant into size_t, which holds it on every target this builds for.
     if (args->length > (size_t)UINT32_MAX)
     {
@@ -182,10 +182,10 @@ int anchor_field_project(const AnchorFieldProjection *args)
     // the arrays, and what that cost is recorded below.
     if (args->classes_length < args->length)
     {
-        // WRITES NOTHING, LIKE EVERY OTHER REFUSAL HERE. This path used to set `distinct` to zero
-        // while the null and zero-length refusals left it alone, which meant a caller could not tell
-        // a refused zero from a measured zero. Fail closed says a request that cannot be met changes
-        // no state. No refusal touches it and the return value is the only thing to read.
+        // WRITES NOTHING, LIKE EVERY OTHER ERROR HERE. This path used to set `distinct` to zero
+        // while the null and zero-length errors left it alone, which meant a caller could not tell
+        // an errored zero from a measured zero. Fail closed says a request that cannot be met changes
+        // no state. No error touches it and the return value is the only thing to read.
         return 0;
     }
 
@@ -234,7 +234,7 @@ int anchor_field_pair_project(const AnchorFieldPairProjection *args)
     const size_t length = args->corpus_length + args->needle_length;
 
     // Class labels are stored as uint32_t positions. A joint field wider than that would alias two
-    // positions onto one label and merge classes the oracle never joined. It is refused. The cast
+    // positions onto one label and merge classes the oracle never joined. It errors. The cast
     // widens a 32 bit constant into size_t, which holds it on every target this builds for.
     if (length > (size_t)UINT32_MAX)
     {

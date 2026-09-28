@@ -16,7 +16,7 @@
 # was between the two words: oh above four spaces and then EP is oh EP.
 #
 # The alphabet tables are where a join would be wrong. Chinuk pipa's letter names wa, wi and waw sit
-# one to a line and joining them invents words nobody wrote. They are refused by length: the line
+# one to a line and joining them invents words nobody wrote. They error in length: the line
 # under a fragment has to carry something before the join is taken.
 #
 # This lives in its own file because coverage_check.py has to apply it too. That check compares the

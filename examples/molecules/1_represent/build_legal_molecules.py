@@ -179,7 +179,7 @@ def main(argv):
     out.write("  build is verified against existing molecules the way the crystal oracle checks a\n")
     out.write("  deposit. Nearly every existing molecule in range is built; the misses are named above,\n")
     out.write("  carbon monoxide, whose triple bond and lone pair one fixed valence cannot hold, and\n")
-    out.write("  net-neutral salts the gate refuses.\n\n")
+    out.write("  net-neutral salts the gate errors.\n\n")
     out.flush()
     return 0 if len(legal) else 1
 

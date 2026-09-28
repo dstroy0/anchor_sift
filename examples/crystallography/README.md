@@ -169,7 +169,7 @@ reading already found. Nearly all. **Three entries hold a shared position that e
 expansion**, and they are worth more than the ratio is. Two are described below; the third appeared
 with the corpus past 3744 and has not been inspected.
 
-6612 of those entries publish symmetry operations, none was refused for a denominator not dividing
+6612 of those entries publish symmetry operations, none errored for a denominator not dividing
 24, and none was held back by the placement bound.
 
 `1001125` puts Ta at (1/2, 1/2, 0.238) and W at (1/2, 1/2, -0.238). An operation taking z to -z
@@ -225,7 +225,7 @@ raised: 24 held every operation the deposits published, eighths included.
 ### What that cost to learn
 
 The first version of the doping measure went through `crystal.exact_points`, and inherited a
-dependency it had no use for. `exact_points` refuses any cell that is not right angled, and the
+dependency it had no use for. `exact_points` errors on any cell that is not right angled, and the
 minerals that carry doping are overwhelmingly monoclinic and triclinic. 498 of 697 entries came
 back unreadable. The measure looked like it was failing on three quarters of the corpus. It was
 being handed three quarters less corpus. Reaching for the smallest reading that answers the
@@ -236,7 +236,7 @@ question fixed it, and the same run then read every entry.
 Stages four and six read `crystal.exact_sites`, which works in fractional space and consults no cell
 and no angle. Stage five still reads `crystal.exact_points`, at
 `examples/crystallography/5_sift/lattice_breaks_the_product_rule.py:142`. It still pays the cost
-the section above describes. A refused entry returns `(None, None)` and the loop does `continue`, and
+the section above describes. An errored entry returns `(None, None)` and the loop does `continue`, and
 the closing line then reports a median over whatever survived with nothing on the page naming the
 denominator.
 
@@ -246,16 +246,16 @@ denominator.
 | verdict                               | entries | share |
 | ------------------------------------- | ------- | ----- |
 | admitted to the exact reading         | 4470    | 50.3% |
-| refused, cell not right angled        | 4411    | 49.6% |
-| refused, no cell published            | 4       | 0.0%  |
-| refused, no atom sites                | 0       | 0.0%  |
-| refused, coordinate not plain decimal | 0       | 0.0%  |
+| errored, cell not right angled        | 4411    | 49.6% |
+| errored, no cell published            | 4       | 0.0%  |
+| errored, no atom sites                | 0       | 0.0%  |
+| errored, coordinate not plain decimal | 0       | 0.0%  |
 
 The same census at 7459 entries, taken while the fetch was still running, gave 3708 admitted against
-3747 refused, which is 49.7% against 50.2%. The gate's tax is a property of the gate and of what the
+3747 errored, which is 49.7% against 50.2%. The gate's tax is a property of the gate and of what the
 fetch searches for, and it does not move as the corpus grows.
 
-Half is the least interesting number here. The refusal is not spread evenly over the corpus, because
+Half is the least interesting number here. The error is not spread evenly over the corpus, because
 a right angle is a property of the crystal system and the crystal system is not independent of the
 mineral family the fetch searched under:
 
@@ -278,7 +278,7 @@ the output. A check that cannot fail closed has to be one whose failure is disti
 answer, and zero findings over a root that vanished counts as a defect. The census exists so the
 denominator can be quoted beside the result.
 
-The two censuses together show the refusal is structural. Amphibole grew
+The two censuses together show the error is structural. Amphibole grew
 from 307 entries to 363 and its admitted count stayed at 13. None of the 56 that arrived were
 admitted. Apatite grew from 286 to 303 and stayed at 7. Mica grew from 361 to 365 and stayed at 52.
 A family's crystal system is a fact about the mineral. A bigger sample of it does not arrive any
@@ -293,7 +293,7 @@ carbonates and only one of them has right angles. A family whose admitted share 
 between two samples is a family whose label is holding more than one crystal system. The header's
 warning arrives here as a number.
 
-Whether the gate should be lifted is a separate question. This section measures what the gate refuses.
+Whether the gate should be lifted is a separate question. This section measures what the gate errors.
 
 ### The product rule fails in both directions, and the default limit only ever showed one
 

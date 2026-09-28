@@ -66,10 +66,10 @@ form shared_open = \tmov.u32 \t%thread, %tid.x;\n\tmov.u32 \t%threads, %ntid.x;\
 form shared_close = \tmad.lo.u32 \t%word_base, %thread, 4, %word_base;\n\tshl.b32 \t%word_stride, %threads, 2;\n
 form guarded_load where to address = \t@{where} ld.global.nc.u32 \t{to}, [{address}];\n
 form guarded_widen where to from = \t@{where} cvt.u64.u32 \t{to}, {from};\n
-form open_refused_unless where = \t@!{where} bra \t$Lrefused_open;\n
-form refuse where at = \t@{where} bra \t$Lrefused{at};\n
-form label_refused_open = $Lrefused_open:\n
-form label_refused at = $Lrefused{at}:\n
+form open_error_unless where = \t@!{where} bra \t$Lerror_open;\n
+form error where at = \t@{where} bra \t$Lerror{at};\n
+form label_error_open = $Lerror_open:\n
+form label_error at = $Lerror{at}:\n
 form count_add address = \tred.global.add.u32 \t[{address}], 1;\n
 form return = \tret;\n
 form step_note at operation = \t// step {at}, operation {operation}\n
@@ -148,9 +148,9 @@ form record_store offset from = \tst.global.u32 \t[%record+{offset}], {from};\n
 form states_declare count =
 form state_start state =
 form state_open state =
-form state_next state refused =
+form state_next state error =
 form state_exit =
-form dispatch_to refusal state =
+form dispatch_to error state =
 
 # a memory read's address named a state ahead of the read, for a target that reads memory a clock after it is asked
 # (vhdl.krs); a PTX load names its address itself

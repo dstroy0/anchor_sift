@@ -27,7 +27,7 @@
 # pipa rows are marked T by position and never by their letters.
 #
 # The extraction breaks words across lines with no hyphen, 42 times. Some of the breaks fall inside
-# a gloss: A above UG-, s above ick, gr above eet. joined() puts those back. It refuses the join
+# a gloss: A above UG-, s above ick, gr above eet. joined() puts those back. It errors on the join
 # where the line under the fragment is itself short, because the alphabet tables set the Chinuk pipa
 # letter names wa, wi and waw one to a line and joining those would invent words.
 #

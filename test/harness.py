@@ -331,7 +331,7 @@ def cmd_env_update(a):
 
 def cmd_env_remove(a):
     """Cut envs out of the matrix. Their tests are not deleted: a test folder no env still names
-    stops running, so that is refused unless --force."""
+    stops running, so that errors unless --force."""
 
     def edit(text, before):
         envs = before["envs"]
@@ -340,7 +340,7 @@ def cmd_env_remove(a):
             print("env not found:", " ".join(missing))
             return 1
         if len(envs) - len(set(a.name)) < 1:
-            print("refusing to empty the table")
+            print("erroring rather than empty the table")
             return 1
         kept = {n: e for n, e in envs.items() if n not in set(a.name)}
         still_run = set()

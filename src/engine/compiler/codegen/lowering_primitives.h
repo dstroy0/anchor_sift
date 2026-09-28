@@ -30,12 +30,12 @@ CODEGEN_CORE CarryChain codegen_borrow_chain(void)
     return chain;
 }
 
-// the lane leaves the step being decided refused where `refused` holds, for the store of the record words it has not
+// the lane leaves the step being decided errored where `error` holds, for the store of the record words it has not
 // stored yet: those whose last put is this step's or a later one's
-CODEGEN_CORE void codegen_refuse(MachineFunction *lane, MachineOperand refused)
+CODEGEN_CORE void codegen_error(MachineFunction *lane, MachineOperand error)
 {
-    lane->refuses = 1u;
-    codegen_instr2(lane, OPCODE_REFUSE, refused, codegen_number(lane->at));
+    lane->errors = 1u;
+    codegen_instr2(lane, OPCODE_ERROR, error, codegen_number(lane->at));
 }
 
 // one chain emitted through `limbs` limbs from the lowest: each limb of `to` is left's and right's by the chain's form
@@ -148,7 +148,7 @@ CODEGEN_CORE void codegen_signed_negative(MachineFunction *lane, const IrStep *a
 }
 
 // word `word` of a member's atom, loaded at its first reader, and the zero register past the atom's limbs. The lane
-// runs its steps in one straight line, which a refused lane leaves for good: every later reader follows the load. A
+// runs its steps in one straight line, which an errored lane leaves for good: every later reader follows the load. A
 // field reads its words in order: a word the step has read already is below the one past the last it read
 CODEGEN_CORE MachineOperand codegen_atom(MachineFunction *lane, unsigned int member, unsigned int word)
 {

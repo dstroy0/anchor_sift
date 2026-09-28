@@ -53,7 +53,7 @@ struct RulesetFlatConstructs
 #define RULESET_FILE_MAX (1u << 30u)
 
 // `rules` begun against its schema, as the host's reader begins it, and the file at `path` read whole into `text`: 1
-// where it was read; 0, and why in rules->refused, where it could not be opened or is more than the reader holds
+// where it was read; 0, and why in rules->errored, where it could not be opened or is more than the reader holds
 int ruleset_file(Ruleset *rules, const std::string &path, std::string *text);
 
 void ruleset_flat_schema(const RulesetSchema *schema, RulesetFlat *flat);

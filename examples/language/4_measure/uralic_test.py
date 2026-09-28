@@ -90,7 +90,7 @@ def main():
 
         text, note = load(os.path.join(CORPORA, name), cap=SAME_LENGTH * 3, clean=True)
         if text is None:
-            notes.append("%s refused by the gate: %s" % (name, note))
+            notes.append("%s errored in the gate: %s" % (name, note))
             continue
         if len(text) < SAME_LENGTH:
             # Said plainly, because printing the gate's note here read as though the gate had rejected a

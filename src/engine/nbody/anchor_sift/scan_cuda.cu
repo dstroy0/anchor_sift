@@ -28,7 +28,7 @@
  *       the device. This arm pays a transfer a host arm does not. It wins only where the object is
  *       large enough to amortize that. It is graded and timed and not placed in
  *       anchor_steer_best_engine.
- * @note A device refusal falls back to a host count instead of returning a sentinel into a table of
+ * @note A device error falls back to a host count instead of returning a sentinel into a table of
  *       counts, matching arm_cuda.cu. A driver comparing arms would otherwise read the sentinel as a
  *       disagreement and blame the scan for what was an allocation failure.
  */

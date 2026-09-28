@@ -87,11 +87,11 @@ if ! git -C "$REPO" diff --quiet -- "$RATCHET"; then
     git -C "$REPO" add -- "$RATCHET"
 fi
 
-# The citation registry, and it refuses. A name used in this tree with no row means the work rests
+# The citation registry, and it errors. A name used in this tree with no row means the work rests
 # on somebody's result and does not say whose, and that is the same class of defect the corpus
 # manifest gate catches one domain over.
 #
-# It refuses two ways. A name with no row exits 1. The closed citations repository being absent
+# It errors on two ways. A name with no row exits 1. The closed citations repository being absent
 # exits 2, because the question cannot be asked at all without it, and a check that reads nothing
 # is never a pass. The second one catches everybody outside this work. ANCHOR_SIFT_BYPASS=1
 # carries the tool's own --bypass in and the commit goes through with the bypass printed.

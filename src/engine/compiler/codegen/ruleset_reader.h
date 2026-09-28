@@ -83,7 +83,7 @@ struct Pseudo
 // writer has none of that bank to give
 typedef std::function<std::string(unsigned int bank)> ScratchRegisters;
 
-// a ruleset read from its file against its code generator's schema: where it was read, and why it was refused where it
+// a ruleset read from its file against its code generator's schema: where it was read, and why it errored where it
 // was; its own name, the toolchain that builds its text and where its header comes from; each bank's written form of a
 // register, each fixed register's written form, and each form, by their places in the schema; and which of them the
 // file gave, to find one given twice or left out
@@ -93,7 +93,7 @@ struct Ruleset
     int tried;
     int ready;
     std::string path;
-    std::string refused;
+    std::string error;
     std::string name;
     std::string toolchain;
     std::string header;

@@ -69,7 +69,7 @@ extern "C" int anchor_volume_device(uint8_t *voxels, const AnchorVolumeConfig *c
     }
 
     unsigned int *device_staging = NULL;
-    int *device_refused = NULL;
+    int *device_error = NULL;
     unsigned char *device_corpus = NULL;
     unsigned char *device_needle = NULL;
     DeviceProbe *device_probes = NULL;
@@ -77,7 +77,7 @@ extern "C" int anchor_volume_device(uint8_t *voxels, const AnchorVolumeConfig *c
     int ok = 1;
 
     ok = ok && (cudaMalloc((void **)&device_staging, cells * sizeof(unsigned int)) == cudaSuccess);
-    ok = ok && (cudaMalloc((void **)&device_refused, sizeof(int)) == cudaSuccess);
+    ok = ok && (cudaMalloc((void **)&device_error, sizeof(int)) == cudaSuccess);
     ok = ok && (cudaMalloc((void **)&device_corpus, corpus_len) == cudaSuccess);
     ok = ok && (cudaMalloc((void **)&device_needle, needle_len) == cudaSuccess);
     ok = ok && (cudaMalloc((void **)&device_occurrences, sizeof(occurrences)) == cudaSuccess);
@@ -111,7 +111,7 @@ extern "C" int anchor_volume_device(uint8_t *voxels, const AnchorVolumeConfig *c
     if (ok != 0)
     {
         const int zero = 0;
-        ok = ok && (cudaMemcpy(device_refused, &zero, sizeof(int), cudaMemcpyHostToDevice) == cudaSuccess);
+        ok = ok && (cudaMemcpy(device_error, &zero, sizeof(int), cudaMemcpyHostToDevice) == cudaSuccess);
     }
     ok = ok && (cudaMemcpy(device_corpus, corpus, corpus_len, cudaMemcpyHostToDevice) == cudaSuccess);
     ok = ok && (cudaMemcpy(device_needle, needle, needle_len, cudaMemcpyHostToDevice) == cudaSuccess);
@@ -123,21 +123,21 @@ extern "C" int anchor_volume_device(uint8_t *voxels, const AnchorVolumeConfig *c
                     cudaSuccess);
     }
 
-    int refused = 0;
+    int error = 0;
     if (ok != 0)
     {
         const unsigned int threads = 256u;
         const unsigned int blocks = (unsigned int)((alignments + threads - 1u) / threads);
         render_volume<<<blocks, threads>>>(
-            device_staging, device_refused, plan, device_corpus, (unsigned long long)corpus_len, device_needle,
+            device_staging, device_error, plan, device_corpus, (unsigned long long)corpus_len, device_needle,
             (unsigned long long)needle_len, device_probes, (unsigned long long)probe_count, device_occurrences,
             (unsigned long long)corpus_len);
         ok = ok && (cudaDeviceSynchronize() == cudaSuccess);
-        ok = ok && (cudaMemcpy(&refused, device_refused, sizeof(int), cudaMemcpyDeviceToHost) == cudaSuccess);
+        ok = ok && (cudaMemcpy(&error, device_error, sizeof(int), cudaMemcpyDeviceToHost) == cudaSuccess);
     }
 
-    // The layout refused this configuration, exactly as the host returns 0 without writing a volume.
-    if ((ok != 0) && (refused != 0))
+    // The layout errored on this configuration, exactly as the host returns 0 without writing a volume.
+    if ((ok != 0) && (error != 0))
     {
         ok = 0;
     }
@@ -166,7 +166,7 @@ extern "C" int anchor_volume_device(uint8_t *voxels, const AnchorVolumeConfig *c
     }
 
     cudaFree(device_staging);
-    cudaFree(device_refused);
+    cudaFree(device_error);
     cudaFree(device_corpus);
     cudaFree(device_needle);
     cudaFree(device_occurrences);

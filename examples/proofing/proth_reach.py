@@ -47,7 +47,7 @@ def certify(multiplier, power, tries=64):
 
     Tries small witnesses in turn, since a Proth witness is a quadratic non-residue and half of all
     candidates are one, so the first few almost always settle it. A composite is caught the moment a
-    witness gives neither 1 nor -1, by Fermat, so this is fast to refuse as well as to prove.
+    witness gives neither 1 nor -1, by Fermat, so this is fast to error as well as to prove.
     """
     start = time.perf_counter()
     for witness in range(2, tries):

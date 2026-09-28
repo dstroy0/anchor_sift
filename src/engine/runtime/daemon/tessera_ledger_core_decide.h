@@ -227,7 +227,7 @@ TESSERA_CORE int tessera_core_fire(TesseraLedger *ledger, unsigned long long now
     return 0;
 }
 
-// one call made of the ledger and answered: refused whole, with nothing changed, where the ledger lacks room for the
+// one call made of the ledger and answered: errored on whole, with nothing changed, where the ledger lacks room for the
 // most the call could add, and otherwise the decision the call names, with the headroom after it
 TESSERA_CORE void tessera_core_call(TesseraLedger *ledger, const TesseraCall *call, TesseraAnswer *answer)
 {

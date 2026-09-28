@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// max_tree_levels_test_agree.c: probes, overlaps, cases, refusals and main
+// max_tree_levels_test_agree.c: probes, overlaps, cases, errors and main
 #include "max_tree_levels_test_internal.h"
 
 // the probe partition at `level` against the flood: absent exactly where the probe's voxel is below the level, and two
@@ -181,8 +181,8 @@ static void levels_case(LevelsResults *results, unsigned int case_number, const 
     max_tree_release(&later_tree);
 }
 
-// requests the module must refuse, each with a request error from max_tree and nothing written
-static void levels_refusals(LevelsResults *results, const LevelsVolume *volume)
+// requests the module must error, each with a request error from max_tree and nothing written
+static void levels_errors(LevelsResults *results, const LevelsVolume *volume)
 {
     MaxTree tree;
     MaxTreeNodes nodes;
@@ -193,15 +193,15 @@ static void levels_refusals(LevelsResults *results, const LevelsVolume *volume)
     memset(&pairs, 0, sizeof(pairs));
     if (max_tree_build(volume->residual, volume->depth, volume->height, volume->width, &tree) < 0L)
     {
-        levels_check(results, 0, "the refusals' tree builds", 0u, 0u);
+        levels_check(results, 0, "the errors' tree builds", 0u, 0u);
         return;
     }
     EngineError error;
     memset(&error, 0, sizeof(error));
     const MaxTreeNodesRequest unerrored = {volume->residual, &tree, &nodes, NULL};
-    levels_check(results, max_tree_nodes(&unerrored) == MAX_TREE_ERROR, "a request with no error refuses", 0u, 0u);
+    levels_check(results, max_tree_nodes(&unerrored) == MAX_TREE_ERROR, "a request with no error errors", 0u, 0u);
     const MaxTreeNodesRequest request = {volume->residual, &tree, &nodes, &error};
-    levels_check(results, max_tree_nodes(&request) >= 0L, "the refusals' nodes are given", 0u, 0u);
+    levels_check(results, max_tree_nodes(&request) >= 0L, "the errors' nodes are given", 0u, 0u);
     unsigned int probe_voxels[2] = {0u, volume->voxels};
     unsigned int sorted[2];
     unsigned int own_level[2];
@@ -210,7 +210,7 @@ static void levels_refusals(LevelsResults *results, const LevelsVolume *volume)
     levels_check(results,
                  (max_tree_probe_levels(&outside) == MAX_TREE_ERROR) && (error.kind == ENGINE_ERROR_REQUEST) &&
                      (error.module == ENGINE_MODULE_MAX_TREE),
-                 "a probe past the volume refuses, a request error from max_tree", 0u, 0u);
+                 "a probe past the volume errors, a request error from max_tree", 0u, 0u);
     memset(&error, 0, sizeof(error));
     other_nodes = nodes;
     other_nodes.width = nodes.width + 1u;
@@ -218,7 +218,7 @@ static void levels_refusals(LevelsResults *results, const LevelsVolume *volume)
     levels_check(results,
                  (max_tree_pairs(&mismatched) == MAX_TREE_ERROR) && (error.kind == ENGINE_ERROR_REQUEST) &&
                      (pairs.count == 0u) && (pairs.earlier == NULL),
-                 "two frames of different extents refuse the pair table", 0u, 0u);
+                 "two frames of different extents error on the pair table", 0u, 0u);
     memset(&error, 0, sizeof(error));
     const MaxTreePairsRequest same = {&nodes, &nodes, {0, 0, 0}, &pairs, &error};
     const long entries = max_tree_pairs(&same);
@@ -229,7 +229,7 @@ static void levels_refusals(LevelsResults *results, const LevelsVolume *volume)
     levels_check(results,
                  (entries >= 0L) && (max_tree_overlap_sums(&beyond) == MAX_TREE_ERROR) &&
                      (error.kind == ENGINE_ERROR_REQUEST),
-                 "a node past the tree refuses the overlap sums", 0u, 0u);
+                 "a node past the tree errors on the overlap sums", 0u, 0u);
     max_tree_pairs_release(&pairs);
     max_tree_nodes_release(&nodes);
     max_tree_release(&tree);
@@ -263,7 +263,7 @@ int main(void)
         }
     }
     levels_fill(&earlier, &state, 3u, 5u, 6u, -2ll, 5ll, 0);
-    levels_refusals(&results, &earlier);
+    levels_errors(&results, &earlier);
     printf("  max_tree levels test: %u volumes, %u checks, %u failed\n", case_number, results.checks, results.failed);
     return (results.failed == 0u) ? 0 : 1;
 }

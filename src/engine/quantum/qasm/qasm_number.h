@@ -12,7 +12,7 @@ extern "C"
 
 // Exact qubits, ported from exact_qubits.py, mps_qubits.py, symbolic_qubits.py and boundary_lens.py, which sit beside
 // this header. An amplitude is an element of Q(sqrt2)[i] held as four exact rationals. H's 1/sqrt2 and T's
-// (1 + i)/sqrt2 are carried exactly and never rounded. A value past the exact integer's width refuses; it never wraps.
+// (1 + i)/sqrt2 are carried exactly and never rounded. A value past the exact integer's width errors; it never wraps.
 
 // The widest dense state: 2^30 amplitudes. The index of an amplitude is an unsigned long long either way.
 #define QASM_DENSE_QUBITS_MAX 30u
@@ -67,10 +67,10 @@ extern "C"
     extern const QasmNumber qasm_number_eighth_turn;
     extern const QasmNumber qasm_number_eighth_turn_back;
 
-    // numerator / denominator, reduced; a zero denominator refuses
+    // numerator / denominator, reduced; a zero denominator errors
     long qasm_rational_set(QasmRational *value, long long numerator, long long denominator, EngineError *error);
 
-    // Each result may alias either operand. On a refusal the result is left unchanged.
+    // Each result may alias either operand. On an error the result is left unchanged.
     long qasm_rational_add(const QasmRational *left, const QasmRational *right, QasmRational *sum, EngineError *error);
 
     long qasm_rational_subtract(const QasmRational *left, const QasmRational *right, QasmRational *difference,
@@ -79,7 +79,7 @@ extern "C"
     long qasm_rational_multiply(const QasmRational *left, const QasmRational *right, QasmRational *product,
                                 EngineError *error);
 
-    // a zero divisor refuses
+    // a zero divisor errors
     long qasm_rational_divide(const QasmRational *numerator, const QasmRational *divisor, QasmRational *quotient,
                               EngineError *error);
 
@@ -99,7 +99,7 @@ extern "C"
 
     long qasm_number_multiply(const QasmNumber *left, const QasmNumber *right, QasmNumber *product, EngineError *error);
 
-    // 1/x = conj(x) / |x|^2, with 1/(r0 + r1 sqrt2) = (r0 - r1 sqrt2)/(r0^2 - 2 r1^2); zero refuses
+    // 1/x = conj(x) / |x|^2, with 1/(r0 + r1 sqrt2) = (r0 - r1 sqrt2)/(r0^2 - 2 r1^2); zero errors
     long qasm_number_invert(const QasmNumber *value, QasmNumber *inverse, EngineError *error);
 
     // x/sqrt2: (a + b sqrt2)/sqrt2 = b + (a/2) sqrt2 on each part, the step H takes

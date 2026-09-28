@@ -20,7 +20,7 @@
 # A second failure was caught later and on a different kind of object, and stable_period at the
 # bottom of this file is what came out of it. Handed a sequence with no period at all, this function
 # returns a number, and that number is not weak: on nine aperiodic words it cleared a shuffle floor
-# by three to twenty nine times, and no margin test refuses it. It is the denominator of a continued
+# by three to twenty nine times, and no margin test errors on it. It is the denominator of a continued
 # fraction convergent of the word's slope, because a rotation by an irrational really does agree with
 # itself at the denominator of a good rational approximation to that irrational. The agreement is
 # real, the lag is real, and only the word "period" on the output is false.
@@ -86,7 +86,7 @@ def stable_period(series, windows=WINDOWS):
     floor by three to twenty nine times, and it is still not a period. A word built from a rotation
     by an irrational agrees with itself at the denominator of any good rational approximation to that
     irrational. The detector finds a real agreement at a real lag and only the name on the output
-    is wrong. No margin test refuses those readings, because nothing is weak about them.
+    is wrong. No margin test errors on those readings, because nothing is weak about them.
 
     A period is a property of a sequence. An approximation is a property of a sequence and a window
     together. So widen the window: 115 of 115 subtraction games with a true period give one answer

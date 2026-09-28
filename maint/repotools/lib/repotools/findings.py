@@ -17,10 +17,10 @@ writes `sys.exit(1 if bad else 0)` and never gets that backwards.
 TWO SEVERITIES, AND ONLY ONE STOPS A COMMIT
 
 `breaking` is something a reader meets as a broken page or a tool meets as a crash: an empty table,
-a link to a file that is gone, a stamp that does not match its file. These refuse.
+a link to a file that is gone, a stamp that does not match its file. These error.
 
 `note` is something that reads wrong and works fine. These print and let the commit through. A gate
-that refused a commit over 169 instances of one banned word gets turned off inside a day, and the
+that errored on a commit over 169 instances of one banned word gets turned off inside a day, and the
 broken tables then go through with it. `--strict` promotes notes to breaking, the setting a
 cleanup pass wants and the setting a hook does not.
 

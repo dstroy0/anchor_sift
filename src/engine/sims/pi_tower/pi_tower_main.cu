@@ -278,5 +278,5 @@ static void pi_tower_fill(SimResults *results, const PiTowerTurn &turn, const st
     scriptura_text(&results->line, " resolutions\n");
     sim_flush(results);
     sim_check(results, touched, "at every resolution the last cell's first touch is the step that fills the boundary");
-    sim_check(results, g_pi_tower_refused == 0, "no exact operation outgrew the width");
+    sim_check(results, g_pi_tower_error == 0, "no exact operation outgrew the width");
 }

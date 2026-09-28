@@ -294,24 +294,24 @@ static void lane_edges(LaneResults *results)
     lane_check(results, passed && (matched == 6u),
                "the latch returns the laid-out lane on the device and the host at every edge, and none where only bits "
                "outside the field are set");
-    // a field past the record, and no lanes, are refused
-    unsigned long long refused_first = 0ull;
+    // a field past the record, and no lanes, error
+    unsigned long long error_first = 0ull;
     const CycleRecordLatchRequest over_limit = {device_records, lanes, LANE_TEST_EDGE_LIMBS, 60u, 5u,
-                                                &refused_first, &error};
+                                                &error_first,   &error};
     CycleRecordLatchRequest over_limit_host = over_limit;
     over_limit_host.records = records;
-    const CycleRecordLatchRequest empty = {device_records, 0ull, LANE_TEST_EDGE_LIMBS, 0u, 1u, &refused_first, &error};
+    const CycleRecordLatchRequest empty = {device_records, 0ull, LANE_TEST_EDGE_LIMBS, 0u, 1u, &error_first, &error};
     lane_check(results,
                passed && (cycle_record_latch(&over_limit) == CYCLE_ERROR) &&
                    (cycle_record_latch_host(&over_limit_host) == CYCLE_ERROR) &&
                    (cycle_record_latch(&empty) == CYCLE_ERROR),
-               "the latch refuses a field past its record and a count of no lanes");
+               "the latch errors on a field past its record and a count of no lanes");
     cudaFree(device_records);
     free(records);
 }
 
 // Under an index the lane register is the lane: lane l reads record 4095 - l, whose base is (4095 - l) 2^20, and
-// writes l and (4095 - l) 2^20 + l. A member of two records, with no index, still refuses three lanes
+// writes l and (4095 - l) 2^20 + l. A member of two records, with no index, still errors on three lanes
 static void lane_indexed(LaneResults *results)
 {
     const unsigned int lanes = LANE_TEST_INDEXED_LANES;
@@ -371,12 +371,12 @@ static void lane_indexed(LaneResults *results)
         right += (lane_fits && value_fits && (read_lane == lane) && (value == ((body << 20u) + lane))) ? 1u : 0u;
     }
     const int words = ran && (memcmp(host_out, device_copy, (size_t)lanes * out_limbs * sizeof(unsigned int)) == 0);
-    // a member of two records and no index: three lanes are refused on the host and on the device
+    // a member of two records and no index: three lanes error on the host and on the device
     const CycleRecordHostRequest short_host = {&loaded.layout, {records, NULL, NULL}, {2ull, 0ull, 0ull}, NULL, 3ull,
                                                host_out,       &loaded.error};
     const CycleRecordRunRequest short_run = {
         loaded.record, {device_records, NULL, NULL}, {2ull, 0ull, 0ull}, NULL, 3ull, device_out, &loaded.error};
-    const int refused =
+    const int error =
         ran && (cycle_record_run_host(&short_host) == CYCLE_ERROR) && (cycle_record_run(&short_run) == CYCLE_ERROR);
     scriptura_text(&results->line, "  indexed: ");
     scriptura_decimal(&results->line, right, 1u);
@@ -385,7 +385,7 @@ static void lane_indexed(LaneResults *results)
     scriptura_text(&results->line, " lanes reading record 4095 - l write l and its record's base + l\n");
     lane_check(results, words, "the indexed program's device records equal the host's word for word");
     lane_check(results, right == lanes, "under an index the lane register is the lane, not the record it reads");
-    lane_check(results, refused, "a member of two records with no index refuses three lanes, host and device");
+    lane_check(results, error, "a member of two records with no index errors on three lanes, host and device");
     cudaFree(device_records);
     cudaFree(device_index);
     cudaFree(device_out);

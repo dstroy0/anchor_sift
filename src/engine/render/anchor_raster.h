@@ -198,7 +198,7 @@ extern "C"
                                     *   preserved on all three axes at once, which is what a linear
                                     *   index set needs to read as a solid and not as stacked sheets.
                                     *   Requires the extents to be powers of two; a caller giving
-                                    *   others gets a refusal and not a silent remap. */
+                                    *   others gets an error and not a silent remap. */
         ANCHOR_VOLUME_HELIX = 3    /**< Slab major with each slab's rows shifted by its depth index.
                                     *   A feature at a fixed corpus offset winds through the block
                                     *   instead of stacking. A shear and not a rotation: a true helix
@@ -216,14 +216,14 @@ extern "C"
      * @note Carries the raster's channel, reduce and gain by reference to the same enums, with no copy.
      *       A channel means one thing in this tree, and a second definition of it would be a future
      *       disagreement.
-     * @warning `depth` of zero renders nothing and is refused. A flat render is the raster's job and
+     * @warning `depth` of zero renders nothing and errors. A flat render is the raster's job and
      *          this entry does not quietly become one.
      */
     typedef struct
     {
         size_t width;                /**< Voxels across. Non-zero. */
         size_t height;               /**< Voxel rows. Non-zero. */
-        size_t depth;                /**< Voxel slabs. Non-zero, and one is refused and not flattened. */
+        size_t depth;                /**< Voxel slabs. Non-zero, and one errors and not flattened. */
         AnchorVolumeLayout layout;   /**< How an alignment index becomes a voxel position. */
         AnchorRasterChannel channel; /**< What quantity a voxel carries. Same set as the raster. */
         AnchorRasterReduce reduce;   /**< How collisions resolve. Same set as the raster. */
@@ -261,7 +261,7 @@ extern "C"
      *                        render succeeds and carries rarity computed from the corpus in front of
      *                        it. An earlier form of this line called it the rarity source, which it is
      *                        not.
-     * @return                1 where the volume was written, 0 where the configuration was refused.
+     * @return                1 where the volume was written, 0 where the configuration errored.
      *
      * @note THE HOST ARM. anchor_volume_render is the entry a caller should use: it prefers the device
      *       and falls back here, the same way anchor_raster_render does for a sheet. This arm and
@@ -284,7 +284,7 @@ extern "C"
      * @param[in]  probes     Probes in evaluation order [BORROWS].
      * @param[in]  probe_count How many probes.
      * @param[in]  census     RESERVED AND NOT READ, as in anchor_volume_render_host [BORROWS].
-     * @return                1 on success, 0 where both arms refused.
+     * @return                1 on success, 0 where both arms errored.
      *
      * THE ENTRY A CALLER SHOULD USE, matching anchor_raster_render for the sheet. Both arms produce the
      * same bytes. Choosing between them is a performance decision and never a correctness one. This
@@ -297,7 +297,7 @@ extern "C"
     /**
      * @brief Renders the object under examination into a volume, on the device.
      *
-     * @return 1 where the volume was written, 0 where an argument was rejected, the layout refused the
+     * @return 1 where the volume was written, 0 where an argument was rejected, the layout errored on the
      *         configuration, no device answered, or the device work failed. Produces the same bytes
      *         anchor_volume_render_host produces for the same arguments, which bench_raster grades voxel
      *         for voxel. A difference is a defect in one of the two and never a tradeoff.
@@ -412,13 +412,13 @@ extern "C"
      * @param[in]  needle_len How many.
      * @param[in]  probes     Probe set in evaluation order [BORROWS].
      * @param[in]  probe_count How many probes.
-     * @return                1 on success, 0 where both arms refused.
+     * @return                1 on success, 0 where both arms errored.
      *
      * THE ENTRY A CALLER SHOULD USE. A machine carrying a device should render on it without the caller
      * asking, and the two arms produce the same bytes. Choosing between them is a performance
      * decision and never a correctness one. This asks the device first and falls back to the host.
      *
-     * @note Falls back instead of failing where the device refuses. A render always happens if
+     * @note Falls back instead of failing where the device errors. A render always happens if
      *       either arm can do it.
      * @note anchor_raster_host and anchor_raster_device stay public because a grader has to be able to
      *       call one specific arm and compare. A caller that does not care should not have to.

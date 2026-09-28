@@ -27,12 +27,12 @@ extern "C"
  *       coefficient is the width 2^ANCHOR_EXACT_BITS. A power of two limb count makes that width a
  *       power of two. The top magnitude bit then lands at a fixed position, and the width scales by
  *       doubling, 4096 to 8192 to 16384 bits, with the position fixed at each. The guard below
- *       refuses a width that is not a power of two.
+ *       errors on a width that is not a power of two.
  * @note A build selects any power of two from 1 limb up, 32 bits up, with no ceiling. Every arm is
  *       graded from 1 limb to 32768 by maint/engine/check_exact_widths.sh, and the portable
  *       reference to 4194304 bits by test/exact_transform_test.
  * @note A width below 4096 bits cannot hold the 1024 digit floor. A build selecting one declares
- *       its own ANCHOR_EXACT_DIGITS, and the floor assert below refuses it by name where it does not.
+ *       its own ANCHOR_EXACT_DIGITS, and the floor assert below errors on it by name where it does not.
  * @note Defined on both arms so #if always has a value and an unset build is never a silent false.
  */
 #if defined(ANCHOR_EXACT_BITS) && !defined(ANCHOR_EXACT_LIMBS)
@@ -57,9 +57,9 @@ extern "C"
  *       decimal digits. 208 of them are headroom this constant does not promise.
  * @note The floor counts every digit of the stored integer, the integer part of the value included.
  *       A value carried at d decimal places is stored as value times 10^d. At d = 1024 the width
- *       holds a magnitude below 2^4096 / 10^1024, about 1e209, and refuses anything larger. The
+ *       holds a magnitude below 2^4096 / 10^1024, about 1e209, and errors on anything larger. The
  *       CODATA 2022 kilogram-hertz relationship, 1.35639248965e50, needs 3569 bits at 1024 places,
- *       which this width holds and the earlier 3456-bit width refused.
+ *       which this width holds and the earlier 3456-bit width errored.
  * @warning Never size a buffer from this. A width computed from digits is short the moment anybody
  *          raises the floor toward the real capacity, and a device allocation sized that way would
  *          be short by exactly the amount nobody was watching. Size from ANCHOR_EXACT_LIMBS or from

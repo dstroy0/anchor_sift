@@ -359,7 +359,7 @@ long cycle_record_run_host(const CycleRecordHostRequest *request)
             const unsigned long long body = (request->index != NULL)
                                                 ? (unsigned long long)request->index[(lane * layout->members) + member]
                                                 : ((request->bodies[member] == 1ull) ? 0ull : lane);
-            // a lane whose index names a record past its member refuses the run, as the device's refused count does
+            // a lane whose index names a record past its member errors on the run, as the device's errored count does
             ok = ok &&
                  CYCLE_CHECK(body < request->bodies[member], &request->bodies[member], error, ENGINE_ERROR_REQUEST);
             atom[member] = &request->in[member][(ok ? body : 0ull) * layout->in_limbs[member]];
@@ -369,7 +369,8 @@ long cycle_record_run_host(const CycleRecordHostRequest *request)
         for (unsigned int at = 0u; ok && (at < layout->steps); at += 1u)
         {
             const DeviceRecordStep *const step = &layout->step_table[at];
-            // a refused lane (a zero divisor, an inexact quotient) refuses the run, as the device's refused count does
+            // an errored lane (a zero divisor, an inexact quotient) errors on the run, as the device's errored count
+            // does
             ok = CYCLE_CHECK(cycle_host_step(step, atom[step->member], layout->in_limbs[step->member], file,
                                              layout->table_values, lane, &file[at]),
                              step, error, ENGINE_ERROR_REQUEST) &&

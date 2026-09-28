@@ -34,7 +34,7 @@ unsigned int codegen_device_blocks(unsigned long long count)
     return (unsigned int)((count + CODEGEN_THREADS - 1u) / CODEGEN_THREADS);
 }
 
-// a kernel's launch taken; the memory unusable where the device refused it
+// a kernel's launch taken; the memory unusable where the device errored on it
 void codegen_device_launched(DeviceArena *memory)
 {
     memory->ok = (memory->ok != 0) && (cudaGetLastError() == cudaSuccess);
@@ -42,7 +42,7 @@ void codegen_device_launched(DeviceArena *memory)
 
 // the assembly printer laid out by the device from what a build kept of it, into `text_layout`, which the caller gives
 // back by key_schedule_record_release: 1 where it is laid out, else 0 and why
-int asm_printer_program_device(const AsmPrinterProgram *program, EngineRecordLayout *text_layout, std::string *refused)
+int asm_printer_program_device(const AsmPrinterProgram *program, EngineRecordLayout *text_layout, std::string *error)
 {
     const AsmPrinterProgram &kept = *program;
     const unsigned int in_limbs[ENGINE_RECORD_MEMBERS_MAX] = {ASM_PRINTER_RECORD_LIMBS, 0u, 0u};
@@ -63,7 +63,7 @@ int asm_printer_program_device(const AsmPrinterProgram *program, EngineRecordLay
     std::string why;
     if (layout_device(&request, text_layout, &why) == 0)
     {
-        *refused = "the device did not lay out the assembly printer (" + why + ")";
+        *error = "the device did not lay out the assembly printer (" + why + ")";
         return 0;
     }
     return 1;
@@ -73,16 +73,16 @@ int asm_printer_program_device(const AsmPrinterProgram *program, EngineRecordLay
 // the caller gives back by key_schedule_record_release: 1 where it is laid out and is the host's word for word, else 0
 // and why
 int asm_printer_program_placed(const AsmPrinterRuleset *text_rules, EngineRecordLayout *text_layout,
-                               std::string *refused)
+                               std::string *error)
 {
-    if (asm_printer_program_device(&text_rules->program, text_layout, refused) == 0)
+    if (asm_printer_program_device(&text_rules->program, text_layout, error) == 0)
     {
         return 0;
     }
     if (layout_same(text_layout, &text_rules->program.layout) == 0)
     {
         key_schedule_record_release(text_layout);
-        *refused = "the device laid out the assembly printer apart from the host's";
+        *error = "the device laid out the assembly printer apart from the host's";
         return 0;
     }
     return 1;
@@ -112,18 +112,18 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
                           const DeviceRecordStep *device_steps, const unsigned int *scratch,
                           unsigned long long scratch_count, unsigned int places, const ScheduleCosts *costs,
                           ScheduleReport *report, MachineInstr **text_items, unsigned long long *item_count,
-                          std::string *refused)
+                          std::string *error)
 {
     DeviceArena &memory = *device_arena;
     const unsigned int steps = layout->steps;
     if (steps >= CODEGEN_COUNT_MAX)
     {
-        *refused = "the program has more steps than a scan counts";
+        *error = "the program has more steps than a scan counts";
         return 0;
     }
     if ((costs != NULL) && (costs->cost.size() != OPCODE_COUNT))
     {
-        *refused = "the schedule does not give each form a cost";
+        *error = "the schedule does not give each form a cost";
         return 0;
     }
     // the program as every step reads it, in device memory
@@ -148,7 +148,7 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
     unsigned int *const loop_first = codegen_device_take<unsigned int>(&memory, steps);
     unsigned long long *const counts = codegen_device_take<unsigned long long>(&memory, steps);
     unsigned long long *const item_first = codegen_device_take<unsigned long long>(&memory, steps);
-    unsigned int *const refuses = codegen_device_take<unsigned int>(&memory, steps);
+    unsigned int *const errors = codegen_device_take<unsigned int>(&memory, steps);
     unsigned int summary[CODEGEN_SUMMARY] = {0u};
     // the lane's opening takes %t0 and %w0 before any step does
     summary[CODEGEN_TEMPS_MAX] = 1u;
@@ -185,7 +185,7 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
     // each step's forms counted, and where each step's begin
     if ((memory.ok != 0) && (steps != 0u))
     {
-        codegen_device_count<<<codegen_device_blocks(steps), CODEGEN_THREADS>>>(program, loop_first, counts, refuses,
+        codegen_device_count<<<codegen_device_blocks(steps), CODEGEN_THREADS>>>(program, loop_first, counts, errors,
                                                                                 device_summary);
         codegen_device_launched(&memory);
     }
@@ -193,7 +193,7 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
     codegen_device_read(&memory, summary, device_summary, CODEGEN_SUMMARY);
     if ((memory.ok != 0) && (summary[CODEGEN_UNHELD] != 0u))
     {
-        *refused = "a step is one the lane does not hold";
+        *error = "a step is one the lane does not hold";
         return 0;
     }
     if (memory.ok != 0)
@@ -206,7 +206,7 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
     // as it runs, its opening, the steps and its close
     if (memory.ok != 0)
     {
-        codegen_prologue_epilogue<<<1u, 1u>>>(program, refuses, device_summary, lane_out, atoms, places, 0u, 5u, 0, 0u,
+        codegen_prologue_epilogue<<<1u, 1u>>>(program, errors, device_summary, lane_out, atoms, places, 0u, 5u, 0, 0u,
                                               device_parts, NULL);
         codegen_device_launched(&memory);
     }
@@ -223,7 +223,7 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
     }
     if ((memory.ok != 0) && (first_count >= CODEGEN_COUNT_MAX))
     {
-        *refused = "the lane holds more forms than a scan counts";
+        *error = "the lane holds more forms than a scan counts";
         return 0;
     }
     memory.ok =
@@ -237,7 +237,7 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
     }
     if (memory.ok != 0)
     {
-        codegen_prologue_epilogue<<<1u, 1u>>>(program, refuses, device_summary, lane_out, atoms, places, 0u, 5u, 0, 0u,
+        codegen_prologue_epilogue<<<1u, 1u>>>(program, errors, device_summary, lane_out, atoms, places, 0u, 5u, 0, 0u,
                                               device_parts, decided);
         codegen_device_launched(&memory);
     }
@@ -245,7 +245,7 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
     const MachineInstr *const body = &decided[parts.at[CODEGEN_OPENED]];
     const unsigned long long body_count =
         parts.count[CODEGEN_OPENED] + parts.count[CODEGEN_STEPPED] + parts.count[CODEGEN_CLOSED];
-    // phase two: the body split into states, counted, then written; a refusal's label for the opening and one for each
+    // phase two: the body split into states, counted, then written; an error's label for the opening and one for each
     // step at most, and each loop the steps wrote
     MachineInstr *scheduled_instrs = NULL;
     unsigned long long scheduled_count = 0ull;
@@ -255,7 +255,7 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
         Schedule device_schedule{};
         device_schedule.cost = codegen_device_copy(&memory, costs->cost.data(), costs->cost.size());
         device_schedule.budget = costs->budget;
-        device_schedule.dispatch_refusal =
+        device_schedule.dispatch_error =
             codegen_device_take<MachineOperand>(&memory, (unsigned long long)steps + 1ull);
         device_schedule.dispatch_state = codegen_device_take<unsigned int>(&memory, (unsigned long long)steps + 1ull);
         device_schedule.dispatch_max = steps + 1u;
@@ -273,7 +273,7 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
         scheduled_count = schedule_end.count;
         if ((memory.ok != 0) && (scheduled_count >= CODEGEN_COUNT_MAX))
         {
-            *refused = "the split lane holds more forms than a scan counts";
+            *error = "the split lane holds more forms than a scan counts";
             return 0;
         }
         scheduled_instrs = codegen_device_take<MachineInstr>(&memory, scheduled_count);
@@ -294,7 +294,7 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
     const int is_scheduled = (costs != NULL) ? 1 : 0;
     if (memory.ok != 0)
     {
-        codegen_prologue_epilogue<<<1u, 1u>>>(program, refuses, device_summary, lane_out, atoms, places, 5u, 7u,
+        codegen_prologue_epilogue<<<1u, 1u>>>(program, errors, device_summary, lane_out, atoms, places, 5u, 7u,
                                               is_scheduled, states, device_parts, NULL);
         codegen_device_launched(&memory);
     }
@@ -307,7 +307,7 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
     MachineInstr *const closing = codegen_device_take<MachineInstr>(&memory, last_count);
     if (memory.ok != 0)
     {
-        codegen_prologue_epilogue<<<1u, 1u>>>(program, refuses, device_summary, lane_out, atoms, places, 5u, 7u,
+        codegen_prologue_epilogue<<<1u, 1u>>>(program, errors, device_summary, lane_out, atoms, places, 5u, 7u,
                                               is_scheduled, states, device_parts, closing);
         codegen_device_launched(&memory);
     }
@@ -319,7 +319,7 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
     const unsigned long long total = head + last_count + body_written;
     if ((memory.ok != 0) && (total >= CODEGEN_COUNT_MAX))
     {
-        *refused = "the lane holds more forms than a scan counts";
+        *error = "the lane holds more forms than a scan counts";
         return 0;
     }
     MachineInstr *const text = codegen_device_take<MachineInstr>(&memory, total);
@@ -332,12 +332,12 @@ int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *l
     codegen_device_read(&memory, summary, device_summary, CODEGEN_SUMMARY);
     if (memory.ok == 0)
     {
-        *refused = "the device refused a call";
+        *error = "the device errored on a call";
         return 0;
     }
     if (summary[CODEGEN_BROKEN] != 0u)
     {
-        *refused = "a form breaks the lane";
+        *error = "a form breaks the lane";
         return 0;
     }
     *text_items = text;

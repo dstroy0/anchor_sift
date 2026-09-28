@@ -38,7 +38,7 @@ int qasm_test_clean(const EngineError *error)
     return error->kind == ENGINE_ERROR_NONE;
 }
 
-int qasm_test_refused_here(long status, const EngineError *error)
+int qasm_test_error_here(long status, const EngineError *error)
 {
     return (status == QASM_ERROR) && (error->kind == ENGINE_ERROR_REQUEST) && (error->module == ENGINE_MODULE_QASM);
 }
@@ -272,18 +272,19 @@ void qasm_test_exact_qubits(QasmResults *results)
         results, sealed && (memcmp(clean, again, sizeof(clean)) == 0) && (memcmp(clean, tampered, sizeof(clean)) != 0),
         "exact: the seal repeats, and one rational moved by 1/10^9 changes it");
 
-    // refusals: a qubit past the state, and a division by zero
-    EngineError refused;
-    memset(&refused, 0, sizeof(refused));
+    // errors: a qubit past the state, and a division by zero
+    EngineError engine_error;
+    memset(&engine_error, 0, sizeof(engine_error));
     const QasmExactGate over_limit = {QASM_EXACT_GATE_H, 2u, 0u, NULL};
-    qasm_test_check(results, qasm_test_refused_here(qasm_dense_apply(&phased, &over_limit, &refused), &refused),
-                    "exact: a gate on a qubit past the state refuses, a request error from qasm");
-    memset(&refused, 0, sizeof(refused));
+    qasm_test_check(results, qasm_test_error_here(qasm_dense_apply(&phased, &over_limit, &engine_error), &engine_error),
+                    "exact: a gate on a qubit past the state errors, a request error from qasm");
+    memset(&engine_error, 0, sizeof(engine_error));
     QasmRational quotient;
     const QasmRational zero_rational = QASM_RATIONAL_ZERO_INITIALIZER;
-    qasm_test_check(results,
-                    qasm_test_refused_here(qasm_rational_divide(&nudge, &zero_rational, &quotient, &refused), &refused),
-                    "exact: a division by zero refuses, a request error from qasm");
+    qasm_test_check(
+        results,
+        qasm_test_error_here(qasm_rational_divide(&nudge, &zero_rational, &quotient, &engine_error), &engine_error),
+        "exact: a division by zero errors, a request error from qasm");
     qasm_test_check(results, qasm_test_clean(&error), "exact: no error was raised on the paths that held");
     qasm_dense_release(&bell);
     qasm_dense_release(&ghz);

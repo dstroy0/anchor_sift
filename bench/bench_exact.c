@@ -69,7 +69,7 @@ static void emit(const char *label, const AnchorExactInteger *value)
 
 static void emit_status(const char *label, AnchorExactStatus status)
 {
-    printf("%s refused %d\n", label, (int)status);
+    printf("%s errored %d\n", label, (int)status);
 }
 
 static void set_sentinel(AnchorExactInteger *value)
@@ -95,7 +95,7 @@ static void read_subject(size_t index, const char *text, AnchorExactInteger *hel
     emit_text(text);
     if (status != ANCHOR_EXACT_OK)
     {
-        printf(" refused %d\n", (int)status);
+        printf(" errored %d\n", (int)status);
         printf("keep read %u %d\n", (unsigned)index,
                (memcmp(&value, &sentinel, sizeof(value)) == 0) ? 1 : 0);
         anchor_exact_zero(held);
@@ -118,7 +118,7 @@ static void read_subject(size_t index, const char *text, AnchorExactInteger *hel
     emit_text(text);
     if (measured_status != ANCHOR_EXACT_OK)
     {
-        printf(" refused %d\n", (int)measured_status);
+        printf(" errored %d\n", (int)measured_status);
         const int unchanged = (memcmp(&measured, &sentinel, sizeof(measured)) == 0)
                               && (memcmp(&uncertainty, &sentinel, sizeof(uncertainty)) == 0)
                               && (carried == 7);
@@ -177,7 +177,7 @@ static void run_arithmetic(void)
     }
 }
 
-static void run_refusals(void)
+static void run_errors(void)
 {
     static AnchorExactInteger seven;
     (void)anchor_exact_from_decimal("7", 1u, 0u, &seven);
@@ -224,7 +224,7 @@ static void run_agreement(void)
             anchor_exact_from_decimal(text, strlen(text), PLACES, &positions[at]);
         if (status != ANCHOR_EXACT_OK)
         {
-            printf("run refused at %u\n", (unsigned)at);
+            printf("run errored at %u\n", (unsigned)at);
             return;
         }
         values[at] = (uint64_t)(at % 4u);
@@ -261,7 +261,7 @@ static void run_repeated_agreement(void)
         if (anchor_exact_from_decimal(REPEATED_POSITIONS[at], strlen(REPEATED_POSITIONS[at]),
                                       PLACES, &positions[at]) != ANCHOR_EXACT_OK)
         {
-            printf("repeated run refused at %u\n", (unsigned)at);
+            printf("repeated run errored at %u\n", (unsigned)at);
             return;
         }
     }
@@ -285,7 +285,7 @@ int main(void)
 {
     printf("limbs %u places %u\n", (unsigned)ANCHOR_EXACT_LIMBS, (unsigned)PLACES);
     run_arithmetic();
-    run_refusals();
+    run_errors();
     run_agreement();
     run_repeated_agreement();
     return 0;

@@ -199,8 +199,8 @@ void test_budget(TestResults *results)
     test_check(results, tessera_ledger_submit(&ledger, &greedy, 4000ull, &late, &event) &&
                             !tessera_ledger_override(&ledger, late, 5001ull));
     const TesseraJobRequest empty = test_request(9ull, 0ull);
-    unsigned long long refused = 0ull;
-    test_check(results, !tessera_ledger_submit(&ledger, &empty, 6000ull, &refused, &event));
+    unsigned long long error = 0ull;
+    test_check(results, !tessera_ledger_submit(&ledger, &empty, 6000ull, &error, &event));
     tessera_ledger_close(&ledger);
 
     // declaring under its kept peak, a job is reserved the peak: with room for its declaration but not its peak it

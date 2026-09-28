@@ -276,7 +276,7 @@ static int compression_reserve_chunks(size_t chunks, EngineError *error)
     const DevicePoolPlan plan = compression_chunk_plan(chunks, scan_bytes, error, takes);
     const DevicePoolReserveRequest reserve = {&plan, &resident->chunk_pool, error};
     ok = ok && (device_pool_reserve(&reserve) == 0L);
-    // the slices are taken in the plan's order. Each lands where the plan laid it out and none is refused
+    // the slices are taken in the plan's order. Each lands where the plan laid it out and none errors
     for (unsigned int at = 0u; (ok != 0) && (at < COMPRESSION_CHUNK_SLICES); at += 1u)
     {
         ok = device_pool_take(&takes[at]) == 0L;

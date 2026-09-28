@@ -15,7 +15,7 @@
 # WHAT THIS CATCHES
 #
 # theory/theory/cryptography/sha256/main.tex includes eleven chapters. Six were published from anchor_sift.
-# Five postdate them and are held. Nothing in the build refuses that combination, so `build_theory.sh`
+# Five postdate them and are held. Nothing in the build errors on that combination, so `build_theory.sh`
 # produces one PDF carrying both halves and looking finished. That is the defect this exists for.
 #
 # HOW IT FAILS
@@ -23,7 +23,7 @@
 # Closed, in three directions. An unlisted artifact is HELD, so a new document is private until
 # somebody classifies it and never public by being forgotten. PENDING is HELD, so an undecided
 # judgment call cannot reach a public build by nobody getting round to the decision. A missing or
-# unreadable manifest refuses the run outright, because a gate that skips itself when its input moves
+# unreadable manifest errors on the run outright, because a gate that skips itself when its input moves
 # is worse than no gate: every build after that passes while still looking gated.
 #
 # Exit status is the count of findings, so it fails a pipeline without needing a flag.
@@ -48,7 +48,7 @@ MANIFEST = os.path.join("theory", "PARTITION.tsv")
 #
 # An unknown class is NOT silently ranked. `strictest` used to reach into this table directly, so a
 # typo in the manifest would have produced a KeyError at best and a wrong rank at worst; classify()
-# now refuses a class this table does not name.
+# now errors on a class this table does not name.
 RANK = {"PUBLIC": 0, "EXTERNAL": 0, "PENDING": 1, "HELD": 2}
 
 # \include{chapters/foo} and \input{../macros.tex}. The argument is a path with the extension
@@ -66,7 +66,7 @@ SKIP = {".git", "build", "__pycache__", "node_modules", "logs", "audit"}
 def read_manifest(root):
     """Reads PARTITION.tsv into {normalized path: (class, reason)}.
 
-    Returns None when the manifest cannot be read, which the caller turns into a refusal. A parse
+    Returns None when the manifest cannot be read, which the caller turns into an error. A parse
     that quietly returns an empty mapping would classify the entire tree as unlisted, and unlisted
     is HELD, so the run would report every file as a finding and bury the real cause.
     """

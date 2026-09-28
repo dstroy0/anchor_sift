@@ -5,7 +5,7 @@
 // The compiled program run resident. Its block is laid out for this run and sent to the device, and the program is
 // launched, then launched again from where its block says it stands, until every lane is done. The host reads the
 // block back only between launches, when it is sealed: a device block whose seal does not hold (written while no launch
-// held it), a launch that failed, or a launch that left the block anywhere but yielded or done refuses the run, and
+// held it), a launch that failed, or a launch that left the block anywhere but yielded or done errors on the run, and
 // the host's copy is left sealed at the fault with the error's module and site. It runs on as many thread blocks as the
 // device holds at once, or fewer where the lanes need fewer. A thread block takes the threads its registers' shared
 // memory holds, or where the lanes are few, their share of the device's processors in whole warps, so that a launch of
@@ -79,17 +79,17 @@ static int cycle_record_resident(const CycleRecord *record, CycleCompiledLaunch 
                                                        arguments, (size_t)register_bytes, 0),
                                       program.out, error);
         ok = ok && CYCLE_STATUS_CHECK(cudaDeviceSynchronize(), program.out, error);
-        unsigned int refused = 0u;
+        unsigned int error_count = 0u;
         ok = ok &&
              CYCLE_STATUS_CHECK(
-                 cudaMemcpy(&refused, record->device_refused, sizeof(unsigned int), cudaMemcpyDeviceToHost),
-                 record->device_refused, error) &&
+                 cudaMemcpy(&error_count, record->device_error, sizeof(unsigned int), cudaMemcpyDeviceToHost),
+                 record->device_error, error) &&
              CYCLE_STATUS_CHECK(cudaMemcpy(block, device_block, sizeof(EngineProgramBlock), cudaMemcpyDeviceToHost),
                                 device_block, error);
         const unsigned long long state = block->state;
         ok = ok && CYCLE_CHECK((state == ENGINE_PROGRAM_YIELDED) || (state == ENGINE_PROGRAM_DONE), block, error,
                                ENGINE_ERROR_LOGIC);
-        block->refused = refused;
+        block->error = error_count;
         block->runtime += block->exectime;
         if (ok == 0)
         {
@@ -131,7 +131,7 @@ static int cycle_record_launch(const CycleRecord *record, const CycleRecordLaunc
         program.index = launch.index;
         program.tables = launch.tables;
         program.out = launch.out;
-        program.refused = launch.refused;
+        program.error = launch.error;
         program.count = launch.count;
         ok = cycle_record_resident(record, program, error);
     }
@@ -170,50 +170,50 @@ static int cycle_record_launch(const CycleRecord *record, const CycleRecordLaunc
 }
 
 // CYCLE_RECORD_CHECK: the compiled program has run into the request's records; the interpreter runs the same lanes
-// into records of its own, and both runs' records and refusals must be the same word for word. The compiled run's
-// refusals are put back for the run to read
+// into records of its own, and both runs' records and errors must be the same word for word. The compiled run's
+// errors are put back for the run to read
 static int cycle_record_check(const CycleRecord *record, CycleRecordLaunch launch, unsigned int blocks,
                               float compiled_milliseconds, int report, EngineError *error)
 {
     const size_t words = (size_t)launch.count * record->out_limbs;
     std::vector<unsigned int> compiled_records(words);
     std::vector<unsigned int> interpreted_records(words);
-    unsigned int compiled_refused = 0u;
-    unsigned int interpreted_refused = 0u;
+    unsigned int compiled_error = 0u;
+    unsigned int interpreted_error = 0u;
     unsigned int *interpreted = NULL;
     float interpreted_milliseconds = 0.0f;
     int ok =
         CYCLE_STATUS_CHECK(
-            cudaMemcpy(&compiled_refused, record->device_refused, sizeof(unsigned int), cudaMemcpyDeviceToHost),
-            record->device_refused, error) &&
+            cudaMemcpy(&compiled_error, record->device_error, sizeof(unsigned int), cudaMemcpyDeviceToHost),
+            record->device_error, error) &&
         CYCLE_STATUS_CHECK(
             cudaMemcpy(compiled_records.data(), launch.out, words * sizeof(unsigned int), cudaMemcpyDeviceToHost),
             launch.out, error) &&
         CYCLE_STATUS_CHECK(cudaMalloc((void **)&interpreted, words * sizeof(unsigned int)), &interpreted, error) &&
-        CYCLE_STATUS_CHECK(cudaMemset(record->device_refused, 0, sizeof(unsigned int)), record->device_refused, error);
+        CYCLE_STATUS_CHECK(cudaMemset(record->device_error, 0, sizeof(unsigned int)), record->device_error, error);
     launch.out = interpreted;
     ok = ok && cycle_record_launch(record, launch, blocks, 0, (report != 0) ? &interpreted_milliseconds : NULL, error);
     ok = ok &&
          CYCLE_STATUS_CHECK(
-             cudaMemcpy(&interpreted_refused, record->device_refused, sizeof(unsigned int), cudaMemcpyDeviceToHost),
-             record->device_refused, error) &&
+             cudaMemcpy(&interpreted_error, record->device_error, sizeof(unsigned int), cudaMemcpyDeviceToHost),
+             record->device_error, error) &&
          CYCLE_STATUS_CHECK(
              cudaMemcpy(interpreted_records.data(), interpreted, words * sizeof(unsigned int), cudaMemcpyDeviceToHost),
              interpreted, error) &&
          CYCLE_STATUS_CHECK(
-             cudaMemcpy(record->device_refused, &compiled_refused, sizeof(unsigned int), cudaMemcpyHostToDevice),
-             record->device_refused, error);
+             cudaMemcpy(record->device_error, &compiled_error, sizeof(unsigned int), cudaMemcpyHostToDevice),
+             record->device_error, error);
     cudaFree(interpreted);
     size_t differs = words;
     for (size_t at = 0u; (ok != 0) && (differs == words) && (at < words); at += 1u)
     {
         differs = (compiled_records[at] != interpreted_records[at]) ? at : words;
     }
-    const int same = (differs == words) && (compiled_refused == interpreted_refused);
+    const int same = (differs == words) && (compiled_error == interpreted_error);
     if ((ok != 0) && (report != 0))
     {
-        fprintf(stderr, "  cycle: %llu lanes, compiled %.3f ms, interpreted %.3f ms, refused %u and %u, %s\n",
-                launch.count, compiled_milliseconds, interpreted_milliseconds, compiled_refused, interpreted_refused,
+        fprintf(stderr, "  cycle: %llu lanes, compiled %.3f ms, interpreted %.3f ms, errored %u and %u, %s\n",
+                launch.count, compiled_milliseconds, interpreted_milliseconds, compiled_error, interpreted_error,
                 (same != 0) ? "the same records" : "records differ");
     }
     if ((ok != 0) && (same == 0) && (differs != words))
@@ -224,7 +224,7 @@ static int cycle_record_check(const CycleRecord *record, CycleRecordLaunch launc
                 differs / record->out_limbs, differs % record->out_limbs, compiled_records[differs],
                 interpreted_records[differs]);
     }
-    return ok && CYCLE_CHECK(same != 0, record->device_refused, error, ENGINE_ERROR_LOGIC);
+    return ok && CYCLE_CHECK(same != 0, record->device_error, error, ENGINE_ERROR_LOGIC);
 }
 
 extern "C" long cycle_record_run(const CycleRecordRunRequest *request)
@@ -260,7 +260,7 @@ extern "C" long cycle_record_run(const CycleRecordRunRequest *request)
     launch.index = request->device_index;
     launch.tables = record->device_tables;
     launch.out = request->device_out;
-    launch.refused = record->device_refused;
+    launch.error = record->device_error;
     launch.count = request->count;
     launch.step_count = record->steps;
     launch.members = record->members;
@@ -270,12 +270,12 @@ extern "C" long cycle_record_run(const CycleRecordRunRequest *request)
     const int compiled = (record->compiled != 0u) ? 1 : 0;
     const int report = cycle_environment_set("CYCLE_RECORD_REPORT");
     const int check = (compiled != 0) && (cycle_environment_set("CYCLE_RECORD_CHECK") != 0);
-    unsigned int refused = 1u;
+    unsigned int error_count = 1u;
     size_t stack = 0u;
     float milliseconds = 0.0f;
     int ok =
         CYCLE_STATUS_CHECK(cudaDeviceGetLimit(&stack, cudaLimitStackSize), &stack, error) &&
-        CYCLE_STATUS_CHECK(cudaMemset(record->device_refused, 0, sizeof(unsigned int)), record->device_refused, error);
+        CYCLE_STATUS_CHECK(cudaMemset(record->device_error, 0, sizeof(unsigned int)), record->device_error, error);
     ok = ok && cycle_record_launch(record, launch, blocks, compiled, (report != 0) ? &milliseconds : NULL, error);
     ok = ok && ((check == 0) || cycle_record_check(record, launch, blocks, milliseconds, report, error));
     if ((ok != 0) && (report != 0) && (check == 0))
@@ -291,10 +291,11 @@ extern "C" long cycle_record_run(const CycleRecordRunRequest *request)
     }
     // the frame's reservation is given back whether or not the sweep held
     const int returned = cycle_stack_return(stack, request->device_out, error);
-    ok = ok && returned &&
-         CYCLE_STATUS_CHECK(cudaMemcpy(&refused, record->device_refused, sizeof(unsigned int), cudaMemcpyDeviceToHost),
-                            record->device_refused, error) &&
-         CYCLE_CHECK(refused == 0u, record->device_refused, error, ENGINE_ERROR_REQUEST);
+    ok =
+        ok && returned &&
+        CYCLE_STATUS_CHECK(cudaMemcpy(&error_count, record->device_error, sizeof(unsigned int), cudaMemcpyDeviceToHost),
+                           record->device_error, error) &&
+        CYCLE_CHECK(error_count == 0u, record->device_error, error, ENGINE_ERROR_REQUEST);
     return (ok != 0) ? (long)request->count : CYCLE_ERROR;
 }
 

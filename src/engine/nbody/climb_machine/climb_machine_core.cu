@@ -87,7 +87,7 @@ __global__ static void machine_core_kernel(unsigned int items, const unsigned in
                                            const unsigned int *item_match, const unsigned int *run_start,
                                            const unsigned int *run_length, const unsigned int *painted,
                                            const unsigned int *range, MachineGeometry geometry, unsigned int widest,
-                                           unsigned long long *fields, unsigned int *refused)
+                                           unsigned long long *fields, unsigned int *error)
 {
     const unsigned int item = (blockIdx.x * blockDim.x) + threadIdx.x;
     if (item >= items)
@@ -131,7 +131,7 @@ __global__ static void machine_core_kernel(unsigned int items, const unsigned in
             const unsigned int core_width = range[lagged_row + lagged_width] - 1u;
             if (core_width >= widest)
             {
-                atomicAdd(refused, 1u);
+                atomicAdd(error, 1u);
                 continue;
             }
             // core_width widens from unsigned int to unsigned long long, matching the 64-bit offset item_bins is
@@ -301,7 +301,7 @@ extern "C" int climb_machine_core(ClimbMachine *machine, ClimbMachineCore *core)
     int *device_center = NULL;
     unsigned int *device_match = NULL;
     unsigned long long *device_bins = NULL;
-    unsigned int *device_refused = NULL;
+    unsigned int *device_error = NULL;
     unsigned int *const item_run_first =
         steps_succeeded ? (unsigned int *)malloc(item_capacity * sizeof(unsigned int)) : NULL;
     unsigned int *const item_run_end =
@@ -321,8 +321,8 @@ extern "C" int climb_machine_core(ClimbMachine *machine, ClimbMachineCore *core)
                       (cudaMalloc((void **)&device_center, item_capacity * 3u * sizeof(int)) == cudaSuccess) &&
                       (cudaMalloc((void **)&device_match, item_capacity * sizeof(unsigned int)) == cudaSuccess) &&
                       (cudaMalloc((void **)&device_bins, (bins + 1u) * sizeof(unsigned long long)) == cudaSuccess) &&
-                      (cudaMalloc((void **)&device_refused, sizeof(unsigned int)) == cudaSuccess) &&
-                      (cudaMemset(device_refused, 0, sizeof(unsigned int)) == cudaSuccess);
+                      (cudaMalloc((void **)&device_error, sizeof(unsigned int)) == cudaSuccess) &&
+                      (cudaMemset(device_error, 0, sizeof(unsigned int)) == cudaSuccess);
     unsigned long long *staged = NULL;
     size_t staged_capacity = 0u;
     size_t staged_count = 0u;
@@ -379,7 +379,7 @@ extern "C" int climb_machine_core(ClimbMachine *machine, ClimbMachineCore *core)
                                           CLIMB_MACHINE_BLOCK>>>(painted, geometry, 0u, range_second, range_first);
             machine_core_kernel<<<(slot_items + CLIMB_MACHINE_BLOCK - 1u) / CLIMB_MACHINE_BLOCK, CLIMB_MACHINE_BLOCK>>>(
                 slot_items, device_run_first, device_run_end, device_center, device_match, machine->run_start,
-                machine->run_length, painted, range_first, geometry, widest, device_bins, device_refused);
+                machine->run_length, painted, range_first, geometry, widest, device_bins, device_error);
             steps_succeeded = machine_launched() && (cudaDeviceSynchronize() == cudaSuccess);
         }
         steps_succeeded = steps_succeeded && (cudaMemcpy(host_bins, device_bins, slot_bins * sizeof(unsigned long long),
@@ -421,11 +421,11 @@ extern "C" int climb_machine_core(ClimbMachine *machine, ClimbMachineCore *core)
             staged_count += steps_succeeded ? top_width : 0u;
         }
     }
-    unsigned int refused = 0u;
+    unsigned int error = 0u;
     steps_succeeded =
         steps_succeeded &&
-        (cudaMemcpy(&refused, device_refused, sizeof(unsigned int), cudaMemcpyDeviceToHost) == cudaSuccess) &&
-        (refused == 0u) && (staged_count <= 0xFFFFFFFFull);
+        (cudaMemcpy(&error, device_error, sizeof(unsigned int), cudaMemcpyDeviceToHost) == cudaSuccess) &&
+        (error == 0u) && (staged_count <= 0xFFFFFFFFull);
     machine->core_fields =
         steps_succeeded
             ? (unsigned long long *)malloc((staged_count + 1u) * CLIMB_MACHINE_CORE_FIELDS * sizeof(unsigned long long))
@@ -456,7 +456,7 @@ extern "C" int climb_machine_core(ClimbMachine *machine, ClimbMachineCore *core)
     cudaFree(device_center);
     cudaFree(device_match);
     cudaFree(device_bins);
-    cudaFree(device_refused);
+    cudaFree(device_error);
     free(item_run_first);
     free(item_run_end);
     free(item_center);

@@ -92,7 +92,7 @@ else {
 # This is the stale device failure one layer up: the announcement describes the intent and the cache
 # decides the build, and agreement between them is never checked. The two decisive variables are
 # passed explicitly on every configure now, and a cache naming a different C compiler is removed
-# and not argued with, because CMake refuses a compiler change outright.
+# and not argued with, because CMake errors on a compiler change outright.
 $cache = Join-Path $build "CMakeCache.txt"
 if (Test-Path $cache) {
     $cachedCompiler = Select-String -Path $cache -Pattern "^CMAKE_C_COMPILER:" -ErrorAction SilentlyContinue

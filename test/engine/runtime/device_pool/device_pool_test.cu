@@ -4,9 +4,9 @@
 // each slice at the running sum rounded up to 256 bytes, and the pool is the sum rounded up to the 2 MiB page once, so
 // a job knows the bytes it declares before any device work. Eight slices of none to 1,000 bytes are laid out at offsets
 // worked by hand; single slices on either side of a page round as worked by hand; a plan that would pass 2^62 bytes
-// is spoiled and names no pool, and its hold is refused. The pool is held as one allocation: each take in the plan's
+// is spoiled and names no pool, and its hold errors. The pool is held as one allocation: each take in the plan's
 // order returns the slice the plan laid out, a kernel writes each slice and another reads it back with nothing landing
-// between slices, a take past the pool is refused and leaves the pool as it was, and a return gives every slice back.
+// between slices, a take past the pool errors and leaves the pool as it was, and a return gives every slice back.
 // The pool's cost is read through the counter tessera's daemon reads, for the tower's four buffers as one pool and as
 // four allocations. The test is one job on the device's tessera daemon, submitted before its first device work.
 #include "device_pool.h"
@@ -88,8 +88,8 @@ __global__ static void device_pool_test_count(const unsigned char *slice, unsign
     }
 }
 
-// a refusal the pool raised as a request it cannot meet
-static int device_pool_test_refused(long result, const EngineError *error)
+// an error the pool raised as a request it cannot meet
+static int device_pool_test_error(long result, const EngineError *error)
 {
     return (result == DEVICE_POOL_ERROR) && (error->kind == ENGINE_ERROR_REQUEST) &&
            (error->module == ENGINE_MODULE_DEVICE_POOL);
@@ -147,16 +147,16 @@ static void device_pool_test_reserve(SimResults *results)
     memset(&error, 0, sizeof(error));
     const DevicePoolReserveRequest from_spoiled = {&spoiled, &pool, &error};
     sim_check(results,
-              device_pool_test_refused(device_pool_reserve(&from_spoiled), &error) && (pool.base == &marker) &&
+              device_pool_test_error(device_pool_reserve(&from_spoiled), &error) && (pool.base == &marker) &&
                   (pool.bytes == 7ull) && (pool.used == 3ull),
-              "a spoiled plan's hold is refused, and the pool is left as it was");
+              "a spoiled plan's hold errors, and the pool is left as it was");
     memset(&error, 0, sizeof(error));
     const DevicePoolReserveRequest planless = {NULL, &pool, &error};
-    sim_check(results, device_pool_test_refused(device_pool_reserve(&planless), &error) && (pool.base == &marker),
-              "a hold with no plan is refused");
+    sim_check(results, device_pool_test_error(device_pool_reserve(&planless), &error) && (pool.base == &marker),
+              "a hold with no plan errors");
     const DevicePoolReserveRequest unanswered = {&spoiled, &pool, NULL};
     sim_check(results, (device_pool_reserve(&unanswered) == DEVICE_POOL_ERROR) && (pool.base == &marker),
-              "a hold with no error to raise is refused");
+              "a hold with no error to raise errors");
     DevicePoolPlan empty = {0ull, 0ull, 0};
     memset(&error, 0, sizeof(error));
     const DevicePoolReserveRequest from_empty = {&empty, &pool, &error};
@@ -258,9 +258,9 @@ static void device_pool_test_slices(SimResults *results)
     memset(&error, 0, sizeof(error));
     const DevicePoolTakeRequest over = {&pool, remaining + 1ull, &untouched, &error};
     sim_check(results,
-              device_pool_test_refused(device_pool_take(&over), &error) && (pool.used == DEVICE_POOL_TEST_SUM) &&
+              device_pool_test_error(device_pool_take(&over), &error) && (pool.used == DEVICE_POOL_TEST_SUM) &&
                   (untouched == (void *)&error),
-              "a take one byte past the pool is refused, nothing taken and the slice not written");
+              "a take one byte past the pool errors, nothing taken and the slice not written");
     void *last = NULL;
     const DevicePoolTakeRequest rest = {&pool, remaining, &last, &error};
     sim_check(results,
@@ -270,9 +270,9 @@ static void device_pool_test_slices(SimResults *results)
     memset(&error, 0, sizeof(error));
     const DevicePoolTakeRequest full = {&pool, 1ull, &untouched, &error};
     sim_check(results,
-              device_pool_test_refused(device_pool_take(&full), &error) && (pool.used == pool.bytes) &&
+              device_pool_test_error(device_pool_take(&full), &error) && (pool.used == pool.bytes) &&
                   (untouched == (void *)&error),
-              "a take from a full pool is refused");
+              "a take from a full pool errors");
     device_pool_return(&pool);
     const int returned = pool.used == 0ull;
     void *first = NULL;
@@ -282,8 +282,8 @@ static void device_pool_test_slices(SimResults *results)
               "a return gives every slice back, and the next take starts the pool again");
     memset(&error, 0, sizeof(error));
     const DevicePoolTakeRequest nowhere = {&pool, 1ull, NULL, &error};
-    sim_check(results, device_pool_test_refused(device_pool_take(&nowhere), &error) && (pool.used == 1ull),
-              "a take with nowhere to write its slice is refused");
+    sim_check(results, device_pool_test_error(device_pool_take(&nowhere), &error) && (pool.used == 1ull),
+              "a take with nowhere to write its slice errors");
     device_pool_release(&pool);
     sim_check(results, (pool.base == NULL) && (pool.bytes == 0ull) && (pool.used == 0ull),
               "a release leaves the pool empty");

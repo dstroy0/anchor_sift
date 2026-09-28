@@ -66,8 +66,8 @@ OCCUPANCY = "_atom_site_occupancy"
 # two elements at one position reports Mo and O sharing a site. That is chemically impossible, a
 # cation and an anion do not occupy one place, and it is how the sentinel announces itself.
 #
-# This is the same case as `?`, which representation.exact already refuses: a deposit declining to
-# give a value. The only difference is that `?` refuses in the coordinate and this refuses in a
+# This is the same case as `?`, which representation.exact already errors: a deposit declining to
+# give a value. The only difference is that `?` errors in the coordinate and this errors in a
 # column beside it.
 #
 # WHICH MEASURES THIS EVER PUT AT RISK, WHICH IS NARROWER THAN IT LOOKS
@@ -218,7 +218,7 @@ def exact_sites(text):
 
     No cell, no edges, no angles and no tiling. This is fractional space, which is all a reading
     about which sites share a position needs, and it is why such a reading works on a cell that
-    exact_points refuses.
+    exact_points errors.
 
     THIS EXISTS BECAUSE IT WAS WRITTEN THREE TIMES
 

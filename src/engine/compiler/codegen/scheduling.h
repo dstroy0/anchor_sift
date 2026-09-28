@@ -5,7 +5,7 @@
 #include "prologue_epilogue.h"
 
 // The schedule: the lane's body, its opening, steps and close in the order they run, split into states, a clock each,
-// then the dispatch state, which sends a refused lane to its refusal's first state
+// then the dispatch state, which sends an errored lane to its error's first state
 
 // 1 where the form names a memory address to read, which a clocked target reads by the next state, and the memory
 // writes the form makes
@@ -31,7 +31,7 @@ CODEGEN_CORE void codegen_state_open(MachineFunction *lane, Schedule *schedule)
     schedule->left = 0u;
 }
 
-// the next state begun, the one before going on to it unless the lane was refused in it
+// the next state begun, the one before going on to it unless the lane errored in it
 CODEGEN_CORE void codegen_state_next(MachineFunction *lane, Schedule *schedule)
 {
     schedule->state += 1u;
@@ -57,23 +57,23 @@ CODEGEN_CORE void codegen_schedule_open(MachineFunction *lane, Schedule *schedul
     codegen_state_open(lane, schedule);
 }
 
-// one of the body's forms laid out into the schedule. A refusal's label begins a state of its own, which the dispatch
+// one of the body's forms laid out into the schedule. An error's label begins a state of its own, which the dispatch
 // state sends the lane to, and a loop's label begins one the loop's branch back goes back to; a form that would take
 // the state past its budget or its writes, or follows one that ends a state, begins the next state, which the state
-// before goes on to unless the lane was refused in it. A refusal's test and a memory read's address end their state, a
+// before goes on to unless the lane errored in it. An error's test and a memory read's address end their state, a
 // loop's branch back ends its state going back or on by its predicate, and a return leaves the lane. A form after a
-// return other than a refusal's label, or a branch back to a loop not begun, is a lane the pass cannot split
+// return other than an error's label, or a branch back to a loop not begun, is a lane the pass cannot split
 CODEGEN_CORE void codegen_schedule_instr(MachineFunction *lane, Schedule *schedule, const MachineInstr *item)
 {
     const unsigned int form = item->form;
-    if ((form == OPCODE_LABEL_REFUSED_OPEN) || (form == OPCODE_LABEL_REFUSED))
+    if ((form == OPCODE_LABEL_ERROR_OPEN) || (form == OPCODE_LABEL_ERROR))
     {
         schedule->state += 1u;
         codegen_state_open(lane, schedule);
         if (schedule->dispatch_count < schedule->dispatch_max)
         {
-            schedule->dispatch_refusal[schedule->dispatch_count] =
-                (form == OPCODE_LABEL_REFUSED_OPEN) ? codegen_minus_one() : item->arguments[0];
+            schedule->dispatch_error[schedule->dispatch_count] =
+                (form == OPCODE_LABEL_ERROR_OPEN) ? codegen_minus_one() : item->arguments[0];
             schedule->dispatch_state[schedule->dispatch_count] = schedule->state;
         }
         lane->broken = lane->broken | ((schedule->dispatch_count < schedule->dispatch_max) ? 0u : 1u);
@@ -118,7 +118,7 @@ CODEGEN_CORE void codegen_schedule_instr(MachineFunction *lane, Schedule *schedu
     schedule->filled = 1u;
     schedule->maximum = (schedule->chained > schedule->maximum) ? schedule->chained : schedule->maximum;
     schedule->ending =
-        ((form == OPCODE_REFUSE) || (form == OPCODE_OPEN_REFUSED_UNLESS) || codegen_asks(form)) ? 1u : 0u;
+        ((form == OPCODE_ERROR) || (form == OPCODE_OPEN_ERROR_UNLESS) || codegen_asks(form)) ? 1u : 0u;
     if (form == OPCODE_LOOP_BACK)
     {
         const unsigned int loop = item->arguments[0].number;
@@ -140,17 +140,17 @@ CODEGEN_CORE void codegen_schedule_instr(MachineFunction *lane, Schedule *schedu
     }
 }
 
-// the schedule ended: the dispatch state, which sends a refused lane to its refusal's first state. The states are
+// the schedule ended: the dispatch state, which sends an errored lane to its error's first state. The states are
 // schedule->state
 CODEGEN_CORE void codegen_schedule_close(MachineFunction *lane, Schedule *schedule)
 {
     codegen_instr1(lane, OPCODE_STATE_OPEN, codegen_number(SCHEDULE_STATE_DISPATCH));
     const unsigned int recorded =
         (schedule->dispatch_count < schedule->dispatch_max) ? schedule->dispatch_count : schedule->dispatch_max;
-    for (unsigned int refusal = 0u; refusal < recorded; refusal += 1u)
+    for (unsigned int error = 0u; error < recorded; error += 1u)
     {
-        codegen_instr2(lane, OPCODE_DISPATCH_TO, schedule->dispatch_refusal[refusal],
-                       codegen_number(schedule->dispatch_state[refusal]));
+        codegen_instr2(lane, OPCODE_DISPATCH_TO, schedule->dispatch_error[error],
+                       codegen_number(schedule->dispatch_state[error]));
     }
 }
 

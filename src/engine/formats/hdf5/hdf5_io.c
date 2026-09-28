@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// hdf5_io.c: refusals, byte order, checksums and file access
+// hdf5_io.c: errors, byte order, checksums and file access
 #include "hdf5_internal.h"
 
-int hdf5_refuse(Hdf5File *file, const char *reason)
+int hdf5_error(Hdf5File *file, const char *reason)
 {
     if (file->reason[0u] == '\0')
     {
@@ -11,7 +11,7 @@ int hdf5_refuse(Hdf5File *file, const char *reason)
     return 0;
 }
 
-int hdf5_refuse_number(Hdf5File *file, const char *reason, unsigned long long number)
+int hdf5_error_number(Hdf5File *file, const char *reason, unsigned long long number)
 {
     if (file->reason[0u] == '\0')
     {
@@ -20,9 +20,9 @@ int hdf5_refuse_number(Hdf5File *file, const char *reason, unsigned long long nu
     return 0;
 }
 
-Hdf5Walk hdf5_walk_refuse(Hdf5File *file, const char *reason)
+Hdf5Walk hdf5_walk_error(Hdf5File *file, const char *reason)
 {
-    (void)hdf5_refuse(file, reason);
+    (void)hdf5_error(file, reason);
     return HDF5_WALK_FAILED;
 }
 
@@ -221,12 +221,12 @@ int hdf5_fetch(Hdf5File *file, unsigned long long address, unsigned long long by
 {
     if ((bytes == 0ull) || (bytes > hdf5_bytes_remaining(file, address)))
     {
-        return hdf5_refuse(file, "a structure that lies past the end of the file");
+        return hdf5_error(file, "a structure that lies past the end of the file");
     }
     const EngineFileRange range = {file->path, file->base + address, bytes, out};
     if (file->tools->read(&range) != (long long)bytes)
     {
-        return hdf5_refuse(file, "a file read that came back short");
+        return hdf5_error(file, "a file read that came back short");
     }
     return 1;
 }
@@ -236,19 +236,19 @@ unsigned char *hdf5_load(Hdf5File *file, unsigned long long address, unsigned lo
     const size_t length = (size_t)bytes;
     if (file->budget == 0ull)
     {
-        (void)hdf5_refuse(file, "more reads than any sane file needs");
+        (void)hdf5_error(file, "more reads than any sane file needs");
         return NULL;
     }
     file->budget -= 1ull;
     if (((unsigned long long)length != bytes) || (bytes == 0ull) || (bytes > hdf5_bytes_remaining(file, address)))
     {
-        (void)hdf5_refuse(file, "a structure that lies past the end of the file");
+        (void)hdf5_error(file, "a structure that lies past the end of the file");
         return NULL;
     }
     unsigned char *const buffer = (unsigned char *)malloc(length);
     if (buffer == NULL)
     {
-        (void)hdf5_refuse(file, "no memory for a structure");
+        (void)hdf5_error(file, "no memory for a structure");
         return NULL;
     }
     if (!hdf5_fetch(file, address, bytes, buffer))

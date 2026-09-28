@@ -7,7 +7,7 @@
 // whose lines match run the record machine word for word alike. The device's record tests hold the device to this
 // same oracle on the x86 host. A part that matches x86 here matches the device too. It also holds that a laid-out
 // program with its registers reused writes the records the unreused one does, and that a zero divisor and an inexact
-// division refuse the run.
+// division error on the run.
 #include "cycle.h"
 #include "exact_integer.h"
 #include "key_schedule.h"
@@ -77,8 +77,8 @@ static int host_run(HostResults *results, const HostProgram *program, int reuse,
     return ran == (long)HOST_TEST_LANES;
 }
 
-// a program the host must refuse on the atoms given: the whole run refuses, a request error of the cycle module
-static void host_refused(HostResults *results, const HostProgram *program, const unsigned int *atoms, const char *what)
+// a program the host must error on the atoms given: the whole run errors, a request error of the cycle module
+static void host_error(HostResults *results, const HostProgram *program, const unsigned int *atoms, const char *what)
 {
     HostLoaded loaded;
     int ok = host_load(program, 0, &loaded);
@@ -127,15 +127,15 @@ int main(void)
     atoms[0] = host_atoms(program.in_limbs[0], HOST_TEST_LANES);
     ran = host_run(&results, &program, 0, atoms, one_body, NULL, &records);
     free(records);
-    // the divisor taken bare refuses once a lane's is zero; the numerator divided exactly by the divisor plus one
-    // refuses once a lane's does not divide
+    // the divisor taken bare errors once a lane's is zero; the numerator divided exactly by the divisor plus one
+    // errors once a lane's does not divide
     HostProgram bare;
     host_bare_divisor(&bare);
     host_zero_divisor(atoms[0]);
-    host_refused(&results, &bare, atoms[0], "a zero divisor refuses the run");
+    host_error(&results, &bare, atoms[0], "a zero divisor errors on the run");
     HostProgram inexact;
     host_inexact(&inexact, &bare);
-    host_refused(&results, &inexact, atoms[0], "an exact quotient that does not divide refuses the run");
+    host_error(&results, &inexact, atoms[0], "an exact quotient that does not divide errors on the run");
     free(atoms[0]);
 
     host_bitwise(&program);

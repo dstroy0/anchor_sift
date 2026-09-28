@@ -189,7 +189,7 @@ _ISE_STEMS = (
 
 # Words ending in -our that American spells the same way. `our`, `your`, `four`, `hour`, `tour`,
 # `pour`, `sour`, `dour`, `flour`, `scour` and `amour` are absent on purpose: the {3,} floor in the
-# arm already refuses them, and listing a short one here would exempt every British word ending in
+# arm already errors on them, and listing a short one here would exempt every British word ending in
 # the same letters. `dour` would take `ardour` and `candour` with it.
 _OUR_WORDS = (
     "devour",
@@ -207,10 +207,10 @@ _OUR_WORDS = (
 _OUR_TAIL = r"(?:s|ed|ing|er|ers|ite|ites|able|ably|ful|fully|less|ly|al|ally)?"
 
 LOCALE = LOCALE_NAMED + (
-    # -ise where American takes -ize. The letter before `is` must be a consonant, which refuses
+    # -ise where American takes -ize. The letter before `is` must be a consonant, which errors
     # `noise`, `raise`, `praise`, `guise`, `cruise`, `tortoise` and `malaise` without naming one of
-    # them. `w` is out of the class, which refuses `otherwise`, `likewise` and every `-wise`
-    # compound. The {2,} floor refuses `wise`, `rise`, `prise`, `arise` and `anise`, which are too
+    # them. `w` is out of the class, which does not match `otherwise`, `likewise` and every
+    # `-wise` compound. The {2,} floor does not match `wise`, `rise`, `prise`, `arise` and `anise`, which are too
     # short to reach it. What is left is the suffix attached to a stem, and _ISE_STEMS names the
     # English words that reach that shape and are not British.
     r"\b(?![A-Za-z]*(?:%s)%s\b)[A-Za-z]{2,}[bcdfghjklmnpqrstvxz]is%s\b"
@@ -679,7 +679,7 @@ BANNED = (
         # toward the sermon, and the sermon is worse than useless here: every line in this
         # repository carries one person's name, and a paragraph telling the reader how to feel about
         # the material reads as that person performing and not stating. The ethics are in the
-        # permission column and in what the gates refuse. They do not need narrating on top.
+        # permission column and in what the gates error. They do not need narrating on top.
         #
         # The rule this tier enforces is that a fact is stated once, flat, and left alone.
         #
@@ -1538,7 +1538,7 @@ QUOTED = (
 # fixed:**", :1576 "**What it uncovered:**". Bold marks a heading in this tree far more often than
 # it marks a citation. The arm was a net loss and is recorded here.
 #
-# The italic arm refuses a span holding a table cell separator. ProtoCore TUNING.md:154 is a table
+# The italic arm errors on a span holding a table cell separator. ProtoCore TUNING.md:154 is a table
 # row where two unrelated asterisks in different cells paired across the row and swallowed a real
 # `so a`. A citation of a form does not straddle a cell boundary.
 #
@@ -1620,7 +1620,7 @@ def checked_file(path):
 
 
 # ====================================================================
-# THE EXCLUSION LAYER. EVERY EXCLUSION REFUSES AND SAYS SO
+# THE EXCLUSION LAYER. EVERY EXCLUSION ERRORS AND SAYS SO
 # ====================================================================
 #
 # THE FOUR STAGES CALL IN HERE AND NONE OF THEM CARRIES A SKIP OF ITS OWN. A skip written four times
@@ -1810,7 +1810,7 @@ def verbatim_root(path):
 # wrong, fails the reconcile that repository runs before every commit, and invalidates a signature
 # whose whole purpose is to attest what a published measurement was taken over.
 #
-# A LISTED PATH IS THEREFORE REFUSED FOR REWRITING AND NEVER QUIETLY PASSED OVER, and a run that
+# A LISTED PATH IS THEREFORE ERROR FOR REWRITING AND NEVER QUIETLY PASSED OVER, and a run that
 # offered to rewrite anything in a tree carrying a manifest prints that manifest's own reconcile
 # instruction under its output. The instruction is lifted from the manifest header and not written
 # out here. It cannot drift from the tool that maintains it.
@@ -1823,7 +1823,7 @@ def verbatim_root(path):
 #
 # READING IS NOT WRITING, and this rule does not stop the scan. A listed file is read, and a finding
 # in one is reported like any other, because reporting changes no bytes. Only the rewrite is
-# refused.
+# errored.
 MANIFEST_NAMES = ("MANIFEST.tsv", "AUDIO_MANIFEST.tsv")
 SIGNATURE_SUFFIX = ".asc"
 
@@ -2090,14 +2090,14 @@ def legal_blank(said, path=None, ledger=None):
 #
 # A FINDING INSIDE A MARKED REGION THEREFORE KEEPS ITS PLACE IN THE COUNT and carries the
 # generator's name with it. The marker already holds the generator. The attribution is read from the
-# document and cannot go stale. What the region buys is a refusal: a rewrite never goes inside one,
+# document and cannot go stale. What the region buys is an error: a rewrite never goes inside one,
 # because writing there is writing to a file CI overwrites.
 #
 # AND A SOURCE FIX IS PAIRED WITH REGENERATION. ProtoCore's docs/features.html is generated from
 # docs/FEATURES.md by tools/ci_tooling/generate/gen_features_page.py, which writes its OUT at that
 # file's :24, and CI gates on `ci gen --check` per tools/harness.py:1330. Fixing the source without
 # rerunning the generator reds the pull request that carried the fix. Skipping the generated copy is
-# necessary and it is not sufficient. The refusal below names the generator and says to run it.
+# necessary and it is not sufficient. The error below names the generator and says to run it.
 #
 # AN UNCLOSED MARKER IS ITSELF REPORTED. A BEGIN with no END would otherwise annotate the rest of
 # the file as generated, the fail-open shape this whole section exists against.
@@ -2195,7 +2195,7 @@ BRITISH_SUBJECT = (
 # that way and the Doxygen brief quotes it with its published default. Rewriting a field name makes
 # a comment cite something that is not in the document it names.
 #
-# THIS IS A REWRITE REFUSAL AND NOT A SCAN EXEMPTION, AND IT WAS WRITTEN AS ONE AND MEASURED OUT.
+# THIS IS A REWRITE ERROR AND NOT A SCAN EXEMPTION, AND IT WAS WRITTEN AS ONE AND MEASURED OUT.
 # The first draft exempted a run naming a standard, the way the clause above exempts a run about
 # convention. Unbounded it silenced 1,733 findings in idemIP alone, because that tree cites an RFC
 # in nearly every comment it has. The register gate would have been off in the one repository it
@@ -2207,7 +2207,7 @@ BRITISH_SUBJECT = (
 # pattern in LOCALE and produced no finding to exempt in the first place.
 #
 # A rule that silences twenty correct findings and buys zero is a net loss, and precision over
-# recall means exactly that when it costs something. So it moved to fix_refusal, where it refuses a
+# recall means exactly that when it costs something. So it moved to fix_error, where it errors on a
 # rewrite on a line quoting a named standard and costs nothing at all.
 NAMED_STANDARD = re.compile(
     r"\b(?:RFC|STD|BCP|IEEE|ISO|IEC|ANSI|FIPS|NIST(?:\s+SP)?)\s*\d", re.IGNORECASE
@@ -2219,7 +2219,7 @@ NAMED_STANDARD = re.compile(
 #
 # NOT A SCAN EXEMPTION. Nothing in BANNED matches a capitalized normative keyword. Exempting a
 # run for carrying one would buy nothing and cost whatever else is in the run. It is a rewrite
-# refusal and only that: a line carrying one is never rewritten, because reflowing a requirement is
+# error and only that: a line carrying one is never rewritten, because reflowing a requirement is
 # how a requirement stops being the one that was agreed.
 RFC_2119 = re.compile(
     r"\b(?:MUST NOT|MUST|SHALL NOT|SHALL|SHOULD NOT|SHOULD|NOT RECOMMENDED|RECOMMENDED"
@@ -2281,15 +2281,15 @@ def context_exempt(text):
 #
 # THE REWRITING HALF IS DELIBERATELY NOT IMPLEMENTED. `--fix` runs this policy over the findings and
 # prints what it would and would not touch, and writes nothing. The gate is here first, and on
-# purpose: whoever adds the writing half has to come through fix_refusal, and cannot add it without
-# meeting the manifest, verbatim, generated and legal refusals that are already tested beside it.
+# purpose: whoever adds the writing half has to come through fix_error, and cannot add it without
+# meeting the manifest, verbatim, generated and legal errors that are already tested beside it.
 FIX_TIERS = frozenset(("alphabet",))
 
 
-def fix_refusal(path, tier, at=None, regions=None, line=""):
+def fix_error(path, tier, at=None, regions=None, line=""):
     """Why a rewrite may not touch this site, or None where it may.
 
-    Every branch is a refusal and the order decides only which reason is printed first. The tier
+    Every branch is an error and the order decides only which reason is printed first. The tier
     test leads because it alone holds everywhere and is never lifted.
     """
     if tier not in FIX_TIERS:
@@ -2551,12 +2551,12 @@ def manifests_covering(roots):
     return found
 
 
-def fix_plan(path, lines, said, regions, refusals, allowed):
-    """Sort one file's findings into what a rewrite could touch and what it is refused.
+def fix_plan(path, lines, said, regions, errors, allowed):
+    """Sort one file's findings into what a rewrite could touch and what it errors.
 
     Appends to the two lists the caller holds. Writes nothing and is never going to: the note above
     FIX_TIERS says why the construction tiers are report-only permanently, with the two sections
-    that say it. What this does is make the refusal visible before anybody writes the other half.
+    that say it. What this does is make the error visible before anybody writes the other half.
     """
     quotations = path.endswith(".md")
     comments = not path.endswith((".md", ".tex"))
@@ -2564,10 +2564,10 @@ def fix_plan(path, lines, said, regions, refusals, allowed):
     for at, pattern, token in banned_hits(said, quotations, comments, path):
         tier = tier_of(pattern)
         line = lines[at - 1] if 0 < at <= len(lines) else ""
-        why = fix_refusal(path, tier, at, regions, line)
+        why = fix_error(path, tier, at, regions, line)
         said_token = " ".join(token.split())
         if why:
-            refusals.append("%s:%d %r: %s" % (shown, at, said_token, why))
+            errors.append("%s:%d %r: %s" % (shown, at, said_token, why))
         else:
             allowed.append("%s:%d %r, token for token" % (shown, at, said_token))
 
@@ -2876,7 +2876,7 @@ def path_candidate(target):
     Measured at ProtoCore f3e96f68, `python maint/prose/docs_check.py <protocore>/docs` reported 251
     breaking findings where 4 were real. 244 were Doxygen references and 3 were C declarators. The
     gate is correct in anchor_sift, a tree of Python and markdown that uses no Doxygen. Pointed at a
-    repository that does use it, the gate would have refused every commit ProtoCore could make. That
+    repository that does use it, the gate would have errored on every commit ProtoCore could make. That
     is why this test sits in front of os.path.exists instead of in an exemption list somewhere.
 
     Doxygen references, 244 of them. [`HTTP_10`](@ref HTTP_10) resolves against documented symbols.
@@ -3064,7 +3064,7 @@ def quieted(lines):
 # before the marker, and a lowercase word after it. Either half alone fires on a table that ends in
 # a bracket, or on a paragraph that happens to open lowercase.
 #
-# Reported and never refused. The evidence is six pairs, four correct against two misused, and the
+# Reported and never errored. The evidence is six pairs, four correct against two misused, and the
 # failure mode is a legitimate quotation of a fragment, which is a real thing to want to write. The
 # one correct pair quoting two words closes cleanly because the sentence around it was written to
 # close cleanly, and that will not hold for every future one. Raising this to breaking wants more
@@ -3360,8 +3360,8 @@ def main():
     counts = {}
     # --fix RUNS THE POLICY AND WRITES NOTHING. The rewriting half is deliberately not implemented;
     # read the note above FIX_TIERS for why the only tier it could ever reach is the alphabet one.
-    # The gate is here first so whoever writes the other half has to come through fix_refusal and
-    # cannot skip the manifest, verbatim, generated and normative-keyword refusals already tested
+    # The gate is here first so whoever writes the other half has to come through fix_error and
+    # cannot skip the manifest, verbatim, generated and normative-keyword errors already tested
     # beside it. Never a pre-commit setting in any repository, in either mode.
     planning = "--fix" in sys.argv
     where_given = [one for one in sys.argv[1:] if not one.startswith("-")]
@@ -3416,7 +3416,7 @@ def main():
     breaking = 0
     prose = 0
     checked = 0
-    refusals = []
+    errors = []
     allowed = []
 
     for path in sorted(walk_markdown(roots, ledger)):
@@ -3468,7 +3468,7 @@ def main():
             print("  prose %s:%d: %s" % (path.replace("\\", "/"), at, what))
 
         if planning:
-            fix_plan(path, lines, said, regions, refusals, allowed)
+            fix_plan(path, lines, said, regions, errors, allowed)
 
         breaking += len(structural)
         prose += len(wording)
@@ -3531,11 +3531,11 @@ def main():
             print("      %s" % where)
         if len(allowed) > 20:
             print("      ... and %d more" % (len(allowed) - 20))
-        print("    REFUSED: %d" % len(refusals))
-        for where in refusals[:20]:
+        print("    ERROR: %d" % len(errors))
+        for where in errors[:20]:
             print("      %s" % where)
-        if len(refusals) > 20:
-            print("      ... and %d more" % (len(refusals) - 20))
+        if len(errors) > 20:
+            print("      ... and %d more" % (len(errors) - 20))
         for one in manifests_covering(roots):
             print(
                 "    this tree carries a signed manifest, %s. After anything writes here: %s"
@@ -3565,7 +3565,7 @@ def main():
             )
         return 2
 
-    # One for a refusal and two for the sentinel, never a count. Returning the number of findings
+    # One for an error and two for the sentinel, never a count. Returning the number of findings
     # made a run with exactly two breaking findings indistinguishable from a run that read nothing,
     # and the commit hook tests for 2 by name and would have printed "the docs check read nothing"
     # over a real pair of em dashes. Pointing this at theory/ for the first time produced exactly

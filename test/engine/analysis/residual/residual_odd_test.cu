@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
-// The residual's odd orders (ruling (a)): an odd smooth order is held and an odd background order refused. The key's
+// The residual's odd orders (ruling (a)): an odd smooth order is held and an odd background order errored. The key's
 // window for an order o on an axis starts floor((o + 1) / 2) before the voxel, over the input reflected at its edges.
 // With the smooth order s odd, the narrow term's window starts (s + 1) / 2 before and the wide term's (s + b + 1) / 2;
 // with b even the two stay centerd on one point, half a voxel before the voxel of the lane's index, and the residual
 // sits there with them. An odd b would center them half a voxel apart. Every lane of the key's residual and of the
 // unit sweeps' is checked against the residual counted here from that definition, on odd, even and mixed orders over
-// extents that include a single voxel and an axis one voxel long, and an odd background order refuses at each of the
+// extents that include a single voxel and an axis one voxel long, and an odd background order errors at each of the
 // three sites as a request error from its own module. The test is one job on the device's tessera daemon, submitted
 // before its first device work.
 #include "cycle.h"
@@ -300,7 +300,7 @@ static void odd_test_report(SimResults *results, unsigned int orders, const OddT
 }
 
 // an odd background order at each of the three sites: residual_program, the key's encoding and the unit sweeps
-static void odd_test_refusals(SimResults *results, const OddTestDevice *device)
+static void odd_test_errors(SimResults *results, const OddTestDevice *device)
 {
     const unsigned int smooth[ENGINE_AXES] = {1u, 2u, 3u};
     const unsigned int background[ENGINE_AXES] = {2u, 3u, 2u};
@@ -315,7 +315,7 @@ static void odd_test_refusals(SimResults *results, const OddTestDevice *device)
     sim_check(results,
               (residual_program(&residual, program) == RESIDUAL_ERROR) && (error.kind == ENGINE_ERROR_REQUEST) &&
                   (error.module == ENGINE_MODULE_RESIDUAL),
-              "an odd background order refuses the residual's program, a request error from residual");
+              "an odd background order errors on the residual's program, a request error from residual");
     memset(program, 0, sizeof(program));
     program[0].operation = ENGINE_SMOOTH;
     memcpy(program[0].orders, smooth, sizeof(program[0].orders));
@@ -331,7 +331,7 @@ static void odd_test_refusals(SimResults *results, const OddTestDevice *device)
     sim_check(results,
               (keymath_encode(&encode_request) == KEYMATH_ERROR) && (error.kind == ENGINE_ERROR_REQUEST) &&
                   (error.module == ENGINE_MODULE_KEYMATH),
-              "a subtraction of terms half a voxel apart refuses the encoding, a request error from keymath");
+              "a subtraction of terms half a voxel apart errors on the encoding, a request error from keymath");
     memset(&error, 0, sizeof(error));
     UnitSweepRequest request;
     memset(&request, 0, sizeof(request));
@@ -347,7 +347,7 @@ static void odd_test_refusals(SimResults *results, const OddTestDevice *device)
     sim_check(results,
               (unit_sweep_residual(&request) == UNIT_SWEEP_ERROR) && (error.kind == ENGINE_ERROR_REQUEST) &&
                   (error.module == ENGINE_MODULE_UNIT_SWEEP),
-              "an odd background order refuses the unit sweeps, a request error from unit_sweep");
+              "an odd background order errors on the unit sweeps, a request error from unit_sweep");
 }
 
 int main(int count, char **arguments)
@@ -383,7 +383,7 @@ int main(int count, char **arguments)
     }
     if (passed)
     {
-        odd_test_refusals(&results, &device);
+        odd_test_errors(&results, &device);
     }
     if (admitted != 0)
     {

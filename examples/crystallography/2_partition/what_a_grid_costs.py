@@ -57,7 +57,7 @@ def grid_arm(text):
         return None
     tiles = crystal.tiles_for(cell)
     if tiles is None:
-        # The cap refused this cell. A refusal is part of what the partition costs. It is
+        # The cap errored on this cell. An error is part of what the partition costs. It is
         # reported and not skipped past.
         return []
     grid, _ = crystal.voxel_grid(cell, sites, crystal.VOXEL, tiles)
@@ -124,13 +124,13 @@ def main():
     landed = 0
     total = 0.0
     worst = 0.0
-    refused = 0
+    error_count = 0
     for text in held:
         arm = grid_arm(text)
         if arm is None:
             continue
         if not arm:
-            refused += 1
+            error_count += 1
             continue
         for published, recovered in arm:
             axes += 1
@@ -145,10 +145,10 @@ def main():
         out.write("    %d axes, %d inside one voxel, mean absolute error %.4f, worst %.4f\n"
                   % (axes, inside, total / axes, worst))
         out.write("    %d of %d land on the published edge exactly\n" % (landed, axes))
-    out.write("    %d entries the 320 voxel cap refused outright\n" % refused)
+    out.write("    %d entries the 320 voxel cap errored outright\n" % error_count)
 
     out.write("\n  THE SCALE. What an exact reading is carried at, swept.\n\n")
-    out.write("    %8s %7s %7s %9s %s\n" % ("digits", "axes", "wrong", "seconds", "refused"))
+    out.write("    %8s %7s %7s %9s %s\n" % ("digits", "axes", "wrong", "seconds", "errored"))
     for digits in SCALES:
         started = time.time()
         axes = 0
@@ -166,7 +166,7 @@ def main():
         out.write("    %8d %7d %7d %9.2f %d\n"
                   % (digits, axes, wrong, time.time() - started, raised))
 
-    out.write("\n  A scale too small raises and is counted under refused. It never rounds. No\n")
+    out.write("\n  A scale too small raises and is counted under errored. It never rounds. No\n")
     out.write("  row above is a quiet loss. The voxel had no such column: it rounded every site.\n\n")
     out.flush()
     return 0

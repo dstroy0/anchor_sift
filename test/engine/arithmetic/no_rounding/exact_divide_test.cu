@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // Proves the exact integer's division: the long division returns numerator = quotient . divisor + remainder with the
 // remainder below the divisor and the signs of truncation, over keyed and edge-shaped limbs at every width; the
-// exact division (a multiply by the divisor's inverse and a mask) returns the quotient of every product and refuses
+// exact division (a multiply by the divisor's inverse and a mask) returns the quotient of every product and errors
 // what leaves a remainder; the gcd divides both values and leaves coprime cofactors.
 
 #include "no_rounding/exact_integer.h"
@@ -168,13 +168,13 @@ int main(void)
         AnchorExactInteger remainder;
         divide_value(&numerator, 4u, 0);
         anchor_exact_zero(&zero);
-        check("a zero divisor is refused",
+        check("a zero divisor errors",
               (anchor_exact_divide(&numerator, &zero, &quotient, &remainder) == ANCHOR_EXACT_BY_ZERO) &&
                   (anchor_exact_divide_exact(&numerator, &zero, &quotient) == ANCHOR_EXACT_BY_ZERO));
     }
 
     passed_trials = 0u;
-    unsigned int refused = 0u;
+    unsigned int error = 0u;
     for (unsigned int trial = 0u; trial < EXACT_TRIALS; trial++)
     {
         AnchorExactInteger quotient;
@@ -216,15 +216,15 @@ int main(void)
         if ((product.sign != 0) && (anchor_exact_compare(&magnitude, &one) > 0) &&
             (anchor_exact_add(&product, &one, &off) == ANCHOR_EXACT_OK))
         {
-            refused += (anchor_exact_divide_exact(&off, &divisor, &found) == ANCHOR_EXACT_NOT_EXACT) ? 1u : 0u;
+            error += (anchor_exact_divide_exact(&off, &divisor, &found) == ANCHOR_EXACT_NOT_EXACT) ? 1u : 0u;
         }
         else
         {
-            refused += 1u;
+            error += 1u;
         }
     }
     check("exact division returns the quotient of every product, odd and even divisors", passed_trials == EXACT_TRIALS);
-    check("exact division refuses a value that leaves a remainder", refused == EXACT_TRIALS);
+    check("exact division errors on a value that leaves a remainder", error == EXACT_TRIALS);
 
     passed_trials = 0u;
     for (unsigned int trial = 0u; trial < GCD_TRIALS; trial++)

@@ -10,7 +10,7 @@
 // the exact integer library's multiply. Each program runs on the device and on the host, the two records must agree
 // word for word, and the host's must equal the oracle on every written bit. The oracle's sign must also already
 // extend for BITWISE_TEST_BEYOND bits past each written width. A bound keymath set too narrow cannot hide in a
-// truncated record. Hand-worked answers, both register files, and the refusals at encode (a wrap below 4 bits, an
+// truncated record. Hand-worked answers, both register files, and the errors at encode (a wrap below 4 bits, an
 // operation reading a later step) are checked too. Last, a stack of floors far past a thousand steps (rounds over four
 // 32-bit words, each floored by a wrap) runs as one program with register reuse, checked against the CPU's own 64-bit
 // two's complement at every tapped floor. And one level of the tower's 5/3 lifting with its inverse, the floor
@@ -123,7 +123,7 @@ void bitwise_narrowed(BitwiseResults *results);
 
 void bitwise_known(BitwiseResults *results);
 
-void bitwise_refused(BitwiseResults *results);
+void bitwise_error(BitwiseResults *results);
 
 long long bitwise_wrap_native(long long value, unsigned int bits);
 

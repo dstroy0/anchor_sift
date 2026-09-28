@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// keymath_core_encode.h: form bits, refusals and the record's encoding (keymath_core.h includes the parts in order)
+// keymath_core_encode.h: form bits, errors and the record's encoding (keymath_core.h includes the parts in order)
 #ifndef KEYMATH_CORE_ENCODE_H
 #define KEYMATH_CORE_ENCODE_H
 
@@ -44,7 +44,7 @@ KEYMATH_CORE unsigned int keymath_core_affine_bits(const KeymathCoreArena *arena
 }
 
 // the encoding ended at `at` as `end`; 0, which the encoding returns
-KEYMATH_CORE int keymath_core_refuse(KeymathCoreEncode *encoding, unsigned int end, unsigned int at)
+KEYMATH_CORE int keymath_core_error(KeymathCoreEncode *encoding, unsigned int end, unsigned int at)
 {
     encoding->end = end;
     encoding->at = at;
@@ -73,14 +73,14 @@ KEYMATH_CORE int keymath_core_record_encode(KeymathCoreEncode *encoding)
         if (keymath_core_record_reads(doing->operation) &&
             !((doing->left < step) && ((doing->operation == ENGINE_RECORD_ABSOLUTE) || (doing->right < step))))
         {
-            return keymath_core_refuse(encoding, KEYMATH_CORE_STEP, step);
+            return keymath_core_error(encoding, KEYMATH_CORE_STEP, step);
         }
         if ((doing->operation == ENGINE_RECORD_FIELD) || (doing->operation == ENGINE_RECORD_FIELD_SIGNED))
         {
             if (!((encoding->field_bits != NULL) && (doing->left < encoding->fields) &&
                   (doing->member < encoding->members)))
             {
-                return keymath_core_refuse(encoding, KEYMATH_CORE_STEP, step);
+                return keymath_core_error(encoding, KEYMATH_CORE_STEP, step);
             }
             term->bits = encoding->field_bits[doing->left];
             term->member = doing->member;
@@ -117,7 +117,7 @@ KEYMATH_CORE int keymath_core_record_encode(KeymathCoreEncode *encoding)
         {
             // a nonzero divisor is at least 1, and the quotient no wider than the numerator. A constant divisor c
             // takes floor(log2 c) bits off: |left| < 2^L and c >= 2^floor(log2 c) put |left| / c below
-            // 2^(L - floor(log2 c)). A zero constant narrows nothing and is refused where it divides.
+            // 2^(L - floor(log2 c)). A zero constant narrows nothing and errors where it divides.
             term->bits = terms[doing->left].bits;
             if (terms[doing->right].operation == ENGINE_RECORD_CONSTANT)
             {
@@ -166,7 +166,7 @@ KEYMATH_CORE int keymath_core_record_encode(KeymathCoreEncode *encoding)
         {
             if (!((doing->left < step) && (doing->right >= ENGINE_RECORD_WRAP_BITS_LEAST)))
             {
-                return keymath_core_refuse(encoding, KEYMATH_CORE_STEP, step);
+                return keymath_core_error(encoding, KEYMATH_CORE_STEP, step);
             }
             // a register of fewer bits than the wrap already lies in its signed range and passes through; a wider one
             // lands in [-2^(right - 1), 2^(right - 1)), whose magnitude takes all `right` bits at -2^(right - 1)
@@ -179,13 +179,13 @@ KEYMATH_CORE int keymath_core_record_encode(KeymathCoreEncode *encoding)
         {
             if (!((encoding->tables != NULL) && (doing->left < step) && (doing->right < encoding->table_count)))
             {
-                return keymath_core_refuse(encoding, KEYMATH_CORE_STEP, step);
+                return keymath_core_error(encoding, KEYMATH_CORE_STEP, step);
             }
             const EngineRecordTable *const table = &encoding->tables[doing->right];
             if (!((table->index_bits >= 1u) && (table->index_bits <= ENGINE_RECORD_TABLE_INDEX_BITS_MAX) &&
                   (table->index_bits <= terms[doing->left].bits) && (table->out_bits != 0u) && (table->values != NULL)))
             {
-                return keymath_core_refuse(encoding, KEYMATH_CORE_TABLE, step);
+                return keymath_core_error(encoding, KEYMATH_CORE_TABLE, step);
             }
             term->bits = table->out_bits;
         }
@@ -199,7 +199,7 @@ KEYMATH_CORE int keymath_core_record_encode(KeymathCoreEncode *encoding)
         }
         else
         {
-            return keymath_core_refuse(encoding, KEYMATH_CORE_STEP, step);
+            return keymath_core_error(encoding, KEYMATH_CORE_STEP, step);
         }
         const int wrap_passes = (doing->operation == ENGINE_RECORD_WRAP) && (terms[doing->left].bits < doing->right);
         // the register's form: a sum or difference adds its operands', a product by a constant scales the other's, a
@@ -242,7 +242,7 @@ KEYMATH_CORE int keymath_core_record_encode(KeymathCoreEncode *encoding)
         }
         if (arena->full != 0)
         {
-            return keymath_core_refuse(encoding, KEYMATH_CORE_FULL, step);
+            return keymath_core_error(encoding, KEYMATH_CORE_FULL, step);
         }
         if (formed != 0)
         {
@@ -258,13 +258,13 @@ KEYMATH_CORE int keymath_core_record_encode(KeymathCoreEncode *encoding)
             form->count = 1ull;
             if (keymath_core_push(arena, step, 1ll) == 0)
             {
-                return keymath_core_refuse(encoding, KEYMATH_CORE_FULL, step);
+                return keymath_core_error(encoding, KEYMATH_CORE_FULL, step);
             }
         }
         term->bits = (term->bits == 0u) ? 1u : term->bits;
         if (term->bits > (32u * ENGINE_RECORD_LIMBS_MAX))
         {
-            return keymath_core_refuse(encoding, KEYMATH_CORE_STEP, step);
+            return keymath_core_error(encoding, KEYMATH_CORE_STEP, step);
         }
         encoding->never_negative[step] = keymath_core_never_negative(doing, encoding->never_negative, wrap_passes);
     }
@@ -272,13 +272,13 @@ KEYMATH_CORE int keymath_core_record_encode(KeymathCoreEncode *encoding)
     {
         if (encoding->outputs[output] >= encoding->count)
         {
-            return keymath_core_refuse(encoding, KEYMATH_CORE_OUTPUT, output);
+            return keymath_core_error(encoding, KEYMATH_CORE_OUTPUT, output);
         }
         for (unsigned int before = 0u; before < output; before += 1u)
         {
             if (encoding->outputs[before] == encoding->outputs[output])
             {
-                return keymath_core_refuse(encoding, KEYMATH_CORE_OUTPUT, output);
+                return keymath_core_error(encoding, KEYMATH_CORE_OUTPUT, output);
             }
         }
     }

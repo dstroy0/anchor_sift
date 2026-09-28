@@ -95,10 +95,10 @@ extern "C"
 
     typedef struct
     {
-        const char *path; // named in every refusal, and read when text is NULL
+        const char *path; // named in every error, and read when text is NULL
         const char *text; // the program itself, or NULL to read path
         size_t length;
-        char *reason; // path:line:column: why, on a refusal
+        char *reason; // path:line:column: why, on an error
         size_t reason_capacity;
         EngineError *error;
     } QasmReadRequest;

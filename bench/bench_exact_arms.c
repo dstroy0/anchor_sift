@@ -234,7 +234,7 @@ int main(int argc, char **argv)
             anchor_exact_agreement_cuda(positions, values, (size_t)places, &lags[3]);
         if (device_answer == (size_t)-1)
         {
-            printf("\n  the device refused the run at %u limbs. The cuda row is the portable arm\n",
+            printf("\n  the device errored on the run at %u limbs. The cuda row is the portable arm\n",
                    (unsigned int)ANCHOR_EXACT_LIMBS);
             wrong = 1;
         }

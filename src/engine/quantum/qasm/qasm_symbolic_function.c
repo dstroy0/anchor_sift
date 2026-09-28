@@ -9,7 +9,7 @@ static const QasmRationalFunction qasm_symbolic_zero = {{0, 0u, NULL}, {0, 1u, &
 
 static const QasmRationalFunction qasm_symbolic_one = {{0, 1u, &qasm_symbolic_unit}, {0, 1u, &qasm_symbolic_unit}};
 
-// the result replaces what the slot held, or is dropped on a refusal
+// the result replaces what the slot held, or is dropped on an error
 static long qasm_function_install(long status, QasmRationalFunction *result, QasmRationalFunction *slot)
 {
     if (status == 0L)

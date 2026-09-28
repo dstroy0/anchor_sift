@@ -341,7 +341,7 @@ def main():
             number_of, title = opened
             # The contents list repeats every heading before the body. A top-level heading opens
             # its section on its second appearance. Subsection entries in that list are padded with
-            # dot leaders and are already refused above. They never register as seen, and
+            # dot leaders and already error above. They never register as seen, and
             # skipping their first appearance discarded every one of them.
             if "." not in number_of:
                 if number_of not in seen_heading:

@@ -150,7 +150,7 @@ __device__ static inline void cycle_record_put(unsigned int *record, unsigned in
 
 // one step that reads registers: the left, and the right, where a table reads the left alone (its right names the
 // table, not a step). Each operand's sign is read beside it, at its place in the file, and the result's sign is left
-// in `sign_out`; `ok` falls to 0 for a lane the step refuses.
+// in `sign_out`; `ok` falls to 0 for a lane the step errors.
 template <unsigned int WIDE, unsigned int DIVIDES>
 __device__ static void cycle_record_operate(const CycleRecordLaunch &launch, const DeviceRecordStep &step,
                                             const unsigned int *file, const signed char *sign, unsigned int *scratch,

@@ -2,7 +2,7 @@
 #
 #   Run elevated:  Start-Process pwsh -Verb RunAs -ArgumentList "-File","tools\maint\link_viz.ps1"
 #
-# Windows refuses symlink creation to an unelevated process unless Developer Mode is on, which is
+# Windows errors symlink creation to an unelevated process unless Developer Mode is on, which is
 # why this is a separate script and not a line in a build. It is the same reason link_shared.ps1
 # stands on its own.
 #

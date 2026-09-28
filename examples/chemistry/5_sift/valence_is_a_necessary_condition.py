@@ -11,7 +11,7 @@
 # molecule reader and the bond-length oracle are design, stated in theory/theory/chemistry; nothing here
 # depends on them. What runs here is the sift proposition read on chemistry: an atom's octet is a
 # condition on every atom of an arrangement, a real molecule satisfies all of them at once, and the
-# error is one directional. A structure the octet refuses cannot be a closed-shell molecule; a
+# error is one directional. A structure the octet errors cannot be a closed-shell molecule; a
 # structure it admits still has to be confirmed, because valence fixes the degree at each atom and
 # does not fix which atoms are joined. Ethanol and dimethyl ether both close every atom.
 #
@@ -21,13 +21,13 @@
 #
 # Two routes are read and they are shown able to disagree. The per-atom octet is the strong one. The
 # handshake sum, that the valences add to twice the bond count, is a weaker necessary condition: it
-# can pass on an arrangement the per-atom check refuses, the mis-wired peroxide below. A
+# can pass on an arrangement the per-atom check errors, the mis-wired peroxide below. A
 # route that could never disagree with the other would be the same route twice.
 #
 # The null is drawn, not assumed. Keep the bond graph and the multiset of elements, and permute which
 # element sits at which atom with reference.shuffles.permuted. That deletes one property, the match
 # between an element and the degree its place carries, and keeps the counts exactly. Most such
-# permutations put an element where its valence does not fit the degree. The octet refuses them.
+# permutations put an element where its valence does not fit the degree. The octet errors on them.
 # The real assignment, the one the elements were dealt, sits above the band the shuffles occupy.
 # No distance here is a value; every one is a departure from that band.
 
@@ -74,7 +74,7 @@ MOLECULES = [
     ("hydrogen peroxide", ["O", "O", "H", "H"], [(0, 1, 1), (0, 2, 1), (1, 3, 1)]),
 ]
 
-# Arrangements the octet must refuse. Carbon cannot carry five bonds and helium cannot carry one.
+# Arrangements the octet must error. Carbon cannot carry five bonds and helium cannot carry one.
 IMPOSSIBLE = [
     (
         "carbon with five hydrogens",
@@ -188,15 +188,15 @@ def main():
     )
 
     out.write(
-        "  negative control: arrangements the octet must refuse, or the pass above proves only\n"
+        "  negative control: arrangements the octet must error, or the pass above proves only\n"
     )
     out.write("  that the check is wired to say yes.\n")
-    refused = 0
+    error = 0
     for name, atoms, bonds in IMPOSSIBLE:
         strong = octet_ok(atoms, bonds)
-        refused += 0 if strong else 1
-        out.write("    %-28s octet %s\n" % (name, "closes" if strong else "refused"))
-    out.write("  %d of %d refused.\n\n" % (refused, len(IMPOSSIBLE)))
+        error += 0 if strong else 1
+        out.write("    %-28s octet %s\n" % (name, "closes" if strong else "errored"))
+    out.write("  %d of %d errored.\n\n" % (error, len(IMPOSSIBLE)))
 
     name, atoms, bonds = MISWIRED
     strong = octet_ok(atoms, bonds)
@@ -204,7 +204,7 @@ def main():
     out.write("  two routes, shown able to disagree:\n")
     out.write(
         "    %-28s octet %s, handshake %s\n"
-        % (name, "closes" if strong else "refused", "holds" if weak else "breaks")
+        % (name, "closes" if strong else "errored", "holds" if weak else "breaks")
     )
     disagree = strong != weak
     out.write(
@@ -212,7 +212,7 @@ def main():
         % ("disagree" if disagree else "agree")
     )
 
-    ok = real_hits == len(MOLECULES) and refused == len(IMPOSSIBLE) and disagree
+    ok = real_hits == len(MOLECULES) and error == len(IMPOSSIBLE) and disagree
     out.write(
         "\n  %s\n"
         % (

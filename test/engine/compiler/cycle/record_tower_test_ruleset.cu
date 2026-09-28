@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// record_tower_test_ruleset.cu: matches, rulesets, the operation stack, blocks, refusals and main
+// record_tower_test_ruleset.cu: matches, rulesets, the operation stack, blocks, errors and main
 #include "record_tower_test_internal.h"
 
 // t, z, y and x: a line of 64, a cube of 4, blocks with odd extents on every axis, a block on all four axes, and one
@@ -361,8 +361,8 @@ static void tower_test_block(SimResults *results, const unsigned long long exten
     sim_flush(results);
 }
 
-// the emitter's refusals: each leaves the count, and any step already in the capacity, as it was
-static void tower_test_refusals(SimResults *results)
+// the emitter's errors: each leaves the count, and any step already in the capacity, as it was
+static void tower_test_errors(SimResults *results)
 {
     const unsigned long long pair[4] = {1ull, 1ull, 1ull, 2ull};
     const unsigned long long empty[4] = {1ull, 0ull, 1ull, 2ull};
@@ -386,7 +386,7 @@ static void tower_test_refusals(SimResults *results)
     // register 1 is not earlier than the count of 1
     const int later =
         (tower_record_lift(&request) == TOWER_ERROR) && (count == 1u) && (error.kind == ENGINE_ERROR_REQUEST);
-    sim_check(results, later, "a register that is not an earlier step is refused, and the count is left as it was");
+    sim_check(results, later, "a register that is not an earlier step errors, and the count is left as it was");
     memset(&error, 0, sizeof(error));
     count = 2u;
     request.steps = steps_out;
@@ -398,28 +398,28 @@ static void tower_test_refusals(SimResults *results)
     {
         kept = kept && (steps_out[at].operation == ENGINE_RECORD_CONSTANT) && (steps_out[at].left == 7u);
     }
-    sim_check(results, small && kept, "a capacity too small is refused before a step is written");
+    sim_check(results, small && kept, "a capacity too small errors before a step is written");
     memset(&error, 0, sizeof(error));
     memcpy(request.extent, empty, sizeof(request.extent));
     request.steps = NULL;
     const int nothing =
         (tower_record_lift(&request) == TOWER_ERROR) && (count == 2u) && (error.kind == ENGINE_ERROR_REQUEST);
-    sim_check(results, nothing, "an extent with no samples is refused");
+    sim_check(results, nothing, "an extent with no samples errors");
     // a step with a zero weight, then one with no taps, then one whose sign is neither 1 nor -1
     TowerLiftingStep malformed[3] = {{TOWER_BAND_HIGH, -1, 1u, {0}, {0}, 0u, 0u},
                                      {TOWER_BAND_HIGH, -1, 0u, {0}, {1}, 0u, 0u},
                                      {TOWER_BAND_LOW, 2, 1u, {0}, {1}, 0u, 0u}};
     memcpy(request.extent, pair, sizeof(request.extent));
-    int refused = 1;
+    int errored = 1;
     for (unsigned int at = 0u; at < 3u; at += 1u)
     {
         memset(&error, 0, sizeof(error));
         request.rules = &malformed[at];
         request.rule_count = 1u;
-        refused = refused && (tower_record_lift(&request) == TOWER_ERROR) && (count == 2u) &&
+        errored = errored && (tower_record_lift(&request) == TOWER_ERROR) && (count == 2u) &&
                   (error.kind == ENGINE_ERROR_REQUEST);
     }
-    sim_check(results, refused, "a step with a zero weight, no taps, or a sign other than 1 or -1 is refused");
+    sim_check(results, errored, "a step with a zero weight, no taps, or a sign other than 1 or -1 errors");
 }
 
 int main(int count, char **arguments)
@@ -461,7 +461,7 @@ int main(int count, char **arguments)
     scriptura_decimal(&results.line, stack_after, 1u);
     scriptura_text(&results.line, " after them\n");
     sim_flush(&results);
-    tower_test_refusals(&results);
+    tower_test_errors(&results);
     cudaFree(device_volume);
     return sim_close(&results, "record tower test");
 }

@@ -35,10 +35,10 @@
                     "shared_open", 0u) form_(SHARED_CLOSE, "shared_close",                                                                     \
                                              0u) form_(GUARDED_LOAD, "guarded_load",                                                           \
                                                        3u) form_(GUARDED_WIDEN, "guarded_widen", 3u)                                           \
-                    form_(OPEN_REFUSED_UNLESS,                                                                                                 \
-                          "open_refused_unless", 1u) form_(REFUSE, "refuse",                                                                   \
-                                                           2u) form_(LABEL_REFUSED_OPEN, "label_refused_open",                                 \
-                                                                     0u) form_(LABEL_REFUSED, "label_refused", 1u)                             \
+                    form_(OPEN_ERROR_UNLESS,                                                                                                 \
+                          "open_error_unless", 1u) form_(ERROR, "error",                                                                   \
+                                                           2u) form_(LABEL_ERROR_OPEN, "label_error_open",                                 \
+                                                                     0u) form_(LABEL_ERROR, "label_error", 1u)                             \
                         form_(COUNT_ADD, "count_add", 1u) form_(RETURN, "return", 0u)                                                          \
                             form_(STEP_NOTE, "step_note", 2u) form_(ADD_ALONE, "add_alone", 3u) form_(                                         \
                                 ADD_FIRST,                                                                                                     \
@@ -190,7 +190,7 @@ CODEGEN_CORE unsigned int codegen_operand_count(unsigned int form)
 // the most limb products a lane unrolls a product into; a wider product is a loop over the left's limbs
 #define CODEGEN_PRODUCT_MAX 1024u
 
-// the state a refused lane goes to, which sends it on to its refusal's states, and the state the lane's opening begins
+// the state an errored lane goes to, which sends it on to its error's states, and the state the lane's opening begins
 // in; state 0 is the language's own, where the lane waits to begin
 #define SCHEDULE_STATE_DISPATCH 1u
 #define SCHEDULE_STATE_FIRST 2u
@@ -265,7 +265,7 @@ struct IrProgram
 };
 
 // a lane being decided: the program; the step being decided; the temporaries, 64-bit temporaries and predicates taken
-// and the most taken; the next loop's number; 1 where the step can leave the lane refused, where it reads the tables,
+// and the most taken; the next loop's number; 1 where the step can leave the lane errored, where it reads the tables,
 // and where a form breaks the lane; one past the atom word the step last read; and the sink the forms go to, the forms
 // it holds, and how many were decided, which a sink too small for them does not stop
 struct MachineFunction
@@ -279,7 +279,7 @@ struct MachineFunction
     unsigned int predicates;
     unsigned int predicates_max;
     unsigned int loops;
-    unsigned int refuses;
+    unsigned int errors;
     unsigned int tables;
     unsigned int broken;
     unsigned int atom_seen;
@@ -310,8 +310,8 @@ struct IrStep
 // the lane's body being split into states, a clock each: each form's cost by its place in the schema, how much a state
 // may chain and how many memory writes it may make; the state being written, the cost it has chained and the writes it
 // has made, 1 where it holds a form, 1 where its last form ends it and 1 where its last form left the lane; the states,
-// the most cost one state chains, and the forms that alone cost more than a state holds; each refusal's label, by the
-// refusal it names (-1 the opening's), and its first state, as many as `dispatch_max`; and each loop's first state, by
+// the most cost one state chains, and the forms that alone cost more than a state holds; each error's label, by the
+// error it names (-1 the opening's), and its first state, as many as `dispatch_max`; and each loop's first state, by
 // the loop's number, as many as `loop_count`
 struct Schedule
 {
@@ -326,7 +326,7 @@ struct Schedule
     unsigned int left;
     unsigned int maximum;
     unsigned int over;
-    MachineOperand *dispatch_refusal;
+    MachineOperand *dispatch_error;
     unsigned int *dispatch_state;
     unsigned int dispatch_count;
     unsigned int dispatch_max;

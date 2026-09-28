@@ -27,10 +27,10 @@ This builds and runs the whole suite, and builds the daemon into the run's build
 | test | what it proves | result |
 |---|---|---|
 | `tessera_ledger_test` | the accounting, the standing beside the declaration, backfill with the head kept, the deadline heap | 0 failed (8 standing cases) |
-| `tessera_frame_test` | the 128-byte frame, round trips and refused corruptions | 0 failed |
+| `tessera_frame_test` | the 128-byte frame, round trips and errored corruptions | 0 failed |
 | `tessera_measure_test` | device bytes by pid (the PDH counter under WDDM) | 0 failed |
 | `tessera_job_test` | the client against the built daemon, every path below | 25 checks, 0 failed |
-| `tessera_run_test.sh` | host jobs through `tessera_run` (below): the exit code handed on, the command on the jobs' processors at below normal priority, its processors measured, a job waiting for one that holds them all, two that fit at once, the refusals, a command watched by a child (confirmed, a parent killed, on Linux a parent stopped, no launch record) | 14 checks, 0 failed on Windows; 15 on Linux (25 September, 23:00) |
+| `tessera_run_test.sh` | host jobs through `tessera_run` (below): the exit code handed on, the command on the jobs' processors at below normal priority, its processors measured, a job waiting for one that holds them all, two that fit at once, the errors, a command watched by a child (confirmed, a parent killed, on Linux a parent stopped, no launch record) | 14 checks, 0 failed on Windows; 15 on Linux (25 September, 23:00) |
 
 The suite's run on 25 September, 22:14, found another tree's daemon (the knee's) answering this device's endpoint.
 The job test's client therefore reached that daemon, which keeps its own state. The three checks that read the test's
@@ -47,7 +47,7 @@ context of its own.
 
 Tessera builds on a part with no CUDA toolchain too, the Raspberry Pi first: a run there is a tessera job as it is
 here. Where `nvcc` is not on the path, `test/engine/runtime/daemon/run.sh` compiles obsignatio_*.cu as C++ (its kernels and the calls that
-launch them are left out, and a request for device memory is refused) and links with `c++`. It builds and tests the
+launch them are left out, and a request for device memory errors) and links with `c++`. It builds and tests the
 ledger, the frame, the daemon and tessera_run, and does not build the measure and job tests, which take device
 memory. On a Raspberry Pi 5 (Linux aarch64, 4 cores, two kept for the desktop and 2 given to jobs), 27 September:
 every test exited 0, and the tessera_run test gave 15 checks, 0 failed.
@@ -59,8 +59,7 @@ the deadlines, the kept peaks) are one source, `tessera_ledger_core.h`, which C1
 both the host and the device. The daemon's ledger (`tessera_ledger.c`) grows its rooms and then runs the core. The
 daemon stays as it is: it builds with no CUDA toolchain and makes no CUDA context. The device's tessera
 (`tessera_device.h`, `tessera_device.cu`) lays a ledger in the device's memory, and one thread makes a list of calls
-(`TesseraCall`) in order, each answered (`TesseraAnswer`). A call that could add more than the ledger's rooms hold is
-refused before it changes anything; the host grows the rooms on the device, and the run goes on from that call.
+(`TesseraCall`) in order, each answered (`TesseraAnswer`). A call that could add more than the ledger's rooms hold errors before it changes anything; the host grows the rooms on the device, and the run goes on from that call.
 The device's tessera builds only where `nvcc` is.
 
 `test/engine/runtime/daemon/tessera_device_test.sh` holds the two to each other. It makes one seeded stream of calls of each
@@ -101,9 +100,9 @@ The state directory holds the history and lost and found.
 
 **The history is sealed.** It is every signum's peak and run time, one 48-byte record each, then a 32-byte seal
 over all of them: obsignatio's keyed BLAKE3 at the file level. The daemon writes it to `history.fresh` and renames
-it over `history`. A save that fails is reported on the daemon's stderr with the path. On start the daemon refuses
+it over `history`. A save that fails is reported on the daemon's stderr with the path. On start the daemon errors on
 a history whose seal doesn't hold, whose length is not whole records plus the seal, or that has no seal at all. It
-says so with the path and exits, and no job is admitted. A missing history is a fresh start. A refused history is
+says so with the path and exits, and no job is admitted. A missing history is a fresh start. An errored history is
 never rewritten: move it aside to start fresh, or put back a good copy.
 
 **Tickets are sealed.** Each ticket in lost and found ends with a line `seal <64 hex digits>`, the same seal over
@@ -190,7 +189,7 @@ and a pid reused by a new process is never taken for the old one.
 4. Declaring four times the peak with no answer is held for its 0.4 s holding time, then lost. The ticket names
    its lost and found directory, and the precalc kept releases it. The ticket's seal holds with the note in it.
 5. Once the daemon has ended, the history it left is whole records and a seal. The test damages one byte of it,
-   then cuts one byte off, then strips the seal. Each time the submit is refused because no daemon starts on it.
+   then cuts one byte off, then strips the seal. Each time the submit errors because no daemon starts on it.
    With the file restored, the daemon starts and the same signum over its peak is asked with the kept peak, and the
    history really was read.
 
@@ -311,7 +310,7 @@ tessera_run --processors <count> [--name <text>] [--child] -- <command> [argumen
 - **Readings.** Each second it reports the command tree's processors: the job object's user and kernel time on
   Windows, or on Linux the ticks of the command and every process descended from it, read from `/proc`, over the wall
   time. The last reading counts when it spans half a sweep.
-- **Exit.** The command's own code. 125 when `tessera_run` refuses (its usage, more processors than the host gives
+- **Exit.** The command's own code. 125 when `tessera_run` errors (its usage, more processors than the host gives
   jobs, no admission), 127 when the command does not start, 124 when a child ended the command for want of its parent
   (below). An interrupt or a hangup reaches the command; `tessera_run` waits for it to end, then releases.
 
@@ -343,7 +342,7 @@ ticket is, under the host's state: `<state>/children/<parent pid>-<signum>` then
 3. **Keepalive.** The parent rewrites its record every sweep with a keepalive one higher. The child writes its
    command's processor time and the wall time it read it at, on its own clock, every sweep.
 4. **No keepalive: the child looks for the parent.** After 10 s with no keepalive (`TESSERA_RUN_SILENT_MS`) it tries to
-   open the parent's record for writing. While the parent lives that is refused: Windows refuses it by the record's
+   open the parent's record for writing. While the parent lives that errors: Windows errors on it by the record's
    sharing, from Windows or from inside WSL, and on Linux the parent holds a lock on it. Once the parent is gone the open
    succeeds, and the child ends the command at once. A parent that still holds its record but keeps no keepalive for
    60 s (`TESSERA_RUN_UNRESPONSIVE_MS`) is not responding, and the child ends the command then.
@@ -442,8 +441,8 @@ systemctl --user enable --now tessera@<uuid>.socket
 - On the first connection systemd starts `tessera@.service`, which hands the socket over as fd 3 (`LISTEN_FDS=1`).
   The daemon takes that socket instead of binding its own. When idle it exits without removing the socket, and the
   next connection starts it again.
-- A daemon that refuses to start (its history's seal fails, or the device can't be measured) accepts and closes
-  every connection waiting on the socket before it exits. The client that started it is refused and systemd has
+- A daemon that errors rather than start (its history's seal fails, or the device can't be measured) accepts and closes
+  every connection waiting on the socket before it exits. The client that started it errors and systemd has
   nothing queued to start it for again. `StartLimitIntervalSec=0` stops systemd's start limit from turning away the
   next real client.
 
@@ -451,7 +450,7 @@ Run on 24 September in WSL 2 (systemd 255), with the socket at
 `/run/user/1000/tessera-70fc945bd257269d3ffdb316ae03ace1.sock`. The whole job test ran with a daemon path that
 doesn't exist, and systemd started every daemon, in a scratch `TESSERA_STATE` set through `systemctl --user
 set-environment`. It passed 24 checks, 0 failed, on three runs in a row, each straight after the suite. Every
-refused history made one failed start and one refused client, and the restored history started a daemon that asked
+errored history made one failed start and one errored client, and the restored history started a daemon that asked
 over the kept peak.
 
 **Docker.** Mount the host's socket into the container and name its folder with `TESSERA_RUNTIME`:

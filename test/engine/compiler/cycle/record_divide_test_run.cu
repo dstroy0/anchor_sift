@@ -76,7 +76,7 @@ void divide_free(DivideLoaded *loaded)
 }
 
 // run a loaded program over `count` atoms on the host into host_out and on the device into device_out; each result
-// is 1 run, 0 refused
+// is 1 run, 0 errored
 void divide_run(DivideLoaded *loaded, const unsigned int *atoms, unsigned int count, unsigned int *host_out,
                 unsigned int *device_out, int *host_ran, int *device_ran)
 {
@@ -362,14 +362,14 @@ void divide_narrow(DivideResults *results)
                  "numerator's sign, and the gcd divides both and equals the library's");
     divide_check(results, factors, "narrow: the exact quotient of divisor . factor by the divisor is the factor");
 
-    // a zero divisor and an inexact division refuse on both sides
+    // a zero divisor and an inexact division error on both sides
     AnchorExactInteger zero;
     anchor_exact_zero(&zero);
     memset(atoms, 0, (size_t)in_limbs * sizeof(unsigned int));
     divide_put(atoms, 0u, 160u, &operand[0]);
     divide_put(atoms, 160u, 128u, &zero);
     divide_run(&loaded, atoms, 1u, host_out, device_out, &host_ran, &device_ran);
-    divide_check(results, (host_ran == 0) && (device_ran == 0), "a zero divisor refuses the lane, host and device");
+    divide_check(results, (host_ran == 0) && (device_ran == 0), "a zero divisor errors on the lane, host and device");
     divide_free(&loaded);
 
     DivideProgram inexact;
@@ -395,7 +395,7 @@ void divide_narrow(DivideResults *results)
         const unsigned int cases[3][4] = {{0x291FE822u, 0xA8B8B452u, 0xCFD41B91u, 0u},
                                           {0x291FE821u, 0xA8B8B452u, 0xCFD41B91u, 0u},
                                           {40u, 0u, 24u, 0u}};
-        int refused = 1;
+        int error = 1;
         int kept = 1;
         for (unsigned int at = 0u; at < 3u; at += 1u)
         {
@@ -407,10 +407,10 @@ void divide_narrow(DivideResults *results)
             }
             else
             {
-                refused = refused && (host_ran == 0) && (device_ran == 0);
+                error = error && (host_ran == 0) && (device_ran == 0);
             }
         }
-        divide_check(results, refused, "an inexact division refuses the lane, host and device");
+        divide_check(results, error, "an inexact division errors on the lane, host and device");
         divide_check(results, kept, "3^40 divides exactly by 3^20 to 3^20, host and device");
         divide_free(&loaded);
     }
@@ -425,7 +425,7 @@ void divide_narrow(DivideResults *results)
     divide_step(&forward, ENGINE_RECORD_FIELD, 0u, 0u);
     forward.outputs[0] = 1u;
     forward.output_count = 1u;
-    divide_check(results, divide_load(&forward, &loaded) == 0, "a quotient reading a later step is refused at encode");
+    divide_check(results, divide_load(&forward, &loaded) == 0, "a quotient reading a later step errors at encode");
     free(atoms);
     free(operand);
     free(host_out);

@@ -51,7 +51,7 @@ int main(int count, char **arguments)
     TesseraClient *client = NULL;
     TesseraTicket ticket;
     const long answer = tessera_job_submit(&ask, &client, &ticket);
-    printf("  submit %s (error kind %d, module %d, site %u, status %d)\n", (answer == 0L) ? "admitted" : "refused",
+    printf("  submit %s (error kind %d, module %d, site %u, status %d)\n", (answer == 0L) ? "admitted" : "errored",
            (int)error.kind, (int)error.module, error.site, error.status);
     if (answer == 0L)
     {

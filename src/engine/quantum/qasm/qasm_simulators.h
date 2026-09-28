@@ -50,7 +50,7 @@ extern "C"
     void qasm_dense_release(QasmDense *state);
 
     // X, Z, S, H, CNOT, CZ and the controlled phase as exact_qubits.py applies them, Y as its Z then X then S, and the
-    // two matrix gates as mps_qubits.py's Dense applies them. On a refusal the state may be part applied.
+    // two matrix gates as mps_qubits.py's Dense applies them. On an error the state may be part applied.
     long qasm_dense_apply(QasmDense *state, const QasmExactGate *gate, EngineError *error);
 
     // <psi|psi>, the sum of every amplitude's |x|^2
@@ -186,7 +186,7 @@ extern "C"
     long qasm_rational_function_multiply(const QasmRationalFunction *left, const QasmRationalFunction *right,
                                          QasmRationalFunction *product, EngineError *error);
 
-    // zero refuses
+    // zero errors
     long qasm_rational_function_invert(const QasmRationalFunction *value, QasmRationalFunction *inverse,
                                        EngineError *error);
 
@@ -198,7 +198,7 @@ extern "C"
 
     int qasm_rational_function_is_zero(const QasmRationalFunction *value);
 
-    // the function at w = omega, a number; a zero denominator there refuses
+    // the function at w = omega, a number; a zero denominator there errors
     long qasm_rational_function_evaluate(const QasmRationalFunction *value, const QasmNumber *omega, QasmNumber *result,
                                          EngineError *error);
 

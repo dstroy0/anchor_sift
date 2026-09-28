@@ -41,7 +41,7 @@ static int ruleset_same_constructs(const std::vector<Pseudo> &left, const std::v
 
 int ruleset_same(const Ruleset *left, const Ruleset *right)
 {
-    return (left->schema == right->schema) && (left->path == right->path) && (left->refused == right->refused) &&
+    return (left->schema == right->schema) && (left->path == right->path) && (left->error == right->error) &&
            (left->name == right->name) && (left->toolchain == right->toolchain) && (left->header == right->header) &&
            ruleset_same_templates(left->banks, right->banks) && (left->fixed == right->fixed) &&
            ruleset_same_templates(left->forms, right->forms) &&
@@ -127,7 +127,7 @@ static void codegen_reader_read_back(DeviceArena *device_arena, const RulesetCor
     codegen_reader_back(device_arena, &memory->building_parameters, ended->building_parameters);
 }
 
-int ruleset_read_device(Ruleset *rules, const std::string &path, std::string *refused)
+int ruleset_read_device(Ruleset *rules, const std::string &path, std::string *error)
 {
     std::string ruleset_text;
     if (ruleset_file(rules, path, &ruleset_text) == 0)
@@ -171,7 +171,7 @@ int ruleset_read_device(Ruleset *rules, const std::string &path, std::string *re
     codegen_device_release(&reader_arena);
     if (ok == 0)
     {
-        *refused = "the device refused a call";
+        *error = "the device errored on a call";
         return 0;
     }
     ruleset_keep(&host, ruleset_text, rules);
@@ -179,7 +179,7 @@ int ruleset_read_device(Ruleset *rules, const std::string &path, std::string *re
 }
 
 int ruleset_scratch_device(const Ruleset *rules, const unsigned int *banks, std::vector<unsigned int> *scratch,
-                           std::string *refused)
+                           std::string *error)
 {
     const unsigned int forms = rules->schema->form_count;
     RulesetFlatConstructs flat;
@@ -212,7 +212,7 @@ int ruleset_scratch_device(const Ruleset *rules, const unsigned int *banks, std:
     scratch->resize(4u * (size_t)forms);
     if (ok == 0)
     {
-        *refused = "the device refused a call";
+        *error = "the device errored on a call";
         return 0;
     }
     return 1;
@@ -220,21 +220,21 @@ int ruleset_scratch_device(const Ruleset *rules, const unsigned int *banks, std:
 
 #else
 
-int ruleset_read_device(Ruleset *rules, const std::string &path, std::string *refused)
+int ruleset_read_device(Ruleset *rules, const std::string &path, std::string *error)
 {
     (void)rules;
     (void)path;
-    *refused = "the build has no device";
+    *error = "the build has no device";
     return 0;
 }
 
 int ruleset_scratch_device(const Ruleset *rules, const unsigned int *banks, std::vector<unsigned int> *scratch,
-                           std::string *refused)
+                           std::string *error)
 {
     (void)rules;
     (void)banks;
     scratch->clear();
-    *refused = "the build has no device";
+    *error = "the build has no device";
     return 0;
 }
 

@@ -651,7 +651,7 @@ def main():
               % (human_floor, session_floor, apart * 100.0))
         print()
 
-        # REFUSE, RATHER THAN PRINT THE WARNING AND CARRY ON.
+        # ERROR, RATHER THAN PRINT THE WARNING AND CARRY ON.
         #
         # An earlier version of this file stated the floor-match requirement and then reported a
         # verdict regardless, which is a gate that advises instead of stopping - the same fail-open
@@ -663,7 +663,7 @@ def main():
         # token counts. Comparing an excess-over-floor across mismatched floors compares two
         # different estimators and reports the difference between THEM.
         # THE SHAPE IS COMPARABLE EVEN WHERE THE LEVEL IS NOT, so it is computed either way and it
-        # is what the verdict rests on when the floors refuse to match.
+        # is what the verdict rests on when the floors do not match.
         human_slope, human_points = decay_shape(matched_rows)
         session_slope, session_points = decay_shape(session_rows)
         print("    decay shape, log-log slope of the excess normalised to its own lag one:")

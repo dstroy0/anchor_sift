@@ -5,7 +5,7 @@
 // The lane as VHDL-2008, a language of the register lane (code_generator.h): its ruleset is vhdl.krs, GHDL analyzes and
 // runs it, and its opening lines are the ruleset's own lane_open; the header it is given is empty. The lane is a
 // clocked process, and its text is always split into states: program() splits it only where the lane itself must be
-// split, at each refusal and each return, and scheduled() splits it by a target's construction set as well
+// split, at each error and each return, and scheduled() splits it by a target's construction set as well
 
 #include "code_generator.h"
 

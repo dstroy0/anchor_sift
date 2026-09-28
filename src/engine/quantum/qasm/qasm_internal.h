@@ -119,7 +119,7 @@ typedef struct
     AnchorExactInteger one_fixed;
 } QasmParser;
 
-void qasm_refuse(QasmParser *parser, const QasmToken *token, const char *format, ...);
+void qasm_error(QasmParser *parser, const QasmToken *token, const char *format, ...);
 
 int qasm_exact_ok(QasmParser *parser, AnchorExactStatus status);
 

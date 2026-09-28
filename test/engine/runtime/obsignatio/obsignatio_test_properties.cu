@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// obsignatio_test_properties.cu: every length, bit flips, determinism, refusals and the seal
+// obsignatio_test_properties.cu: every length, bit flips, determinism, errors and the seal
 #include "obsignatio_test_internal.h"
 
 #if (defined(__CUDACC__))
@@ -126,7 +126,7 @@ void test_determinism(const TestVectors *vectors, const unsigned char *device_pa
     free(first);
 }
 
-static int test_refused_signum(const ObsignatioSignumRequest *request, const unsigned char *out_before,
+static int test_error_signum(const ObsignatioSignumRequest *request, const unsigned char *out_before,
                                const unsigned char *out)
 {
     const long status = obsignatio_signum(request);
@@ -137,7 +137,7 @@ static int test_refused_signum(const ObsignatioSignumRequest *request, const uns
     return (status == OBSIGNATIO_ERROR) && untouched && raised;
 }
 
-static int test_refused_many(const ObsignatioManyRequest *request, const unsigned char *device_signa,
+static int test_error_many(const ObsignatioManyRequest *request, const unsigned char *device_signa,
                              const unsigned char *signa_before)
 {
     const long status = obsignatio_many(request);
@@ -172,13 +172,13 @@ void test_fail_closed(const TestVectors *vectors, const unsigned char *pattern, 
     {
         memset(&error, 0, sizeof(error));
         memcpy(out, before, sizeof(out));
-        test_count(results, test_refused_signum(&signum_cases[index], before, out));
+        test_count(results, test_error_signum(&signum_cases[index], before, out));
     }
     memset(&error, 0, sizeof(error));
     memcpy(out, before, sizeof(out));
     const ObsignatioSignumRequest unfinished = {pattern, 1ull, NULL, OBSIGNATIO_MODE_HASH, out, OBSIGNATIO_SIGNUM_BYTES,
                                                 NULL};
-    test_count(results, test_refused_signum(&unfinished, before, out));
+    test_count(results, test_error_signum(&unfinished, before, out));
     test_count(results, obsignatio_signum(NULL) == OBSIGNATIO_ERROR);
     memset(&error, 0, sizeof(error));
     const ObsignatioSignumRequest empty = {NULL,  0ull, NULL, OBSIGNATIO_MODE_HASH, out, OBSIGNATIO_SIGNUM_BYTES,
@@ -197,7 +197,7 @@ void test_fail_closed(const TestVectors *vectors, const unsigned char *pattern, 
     for (unsigned int index = 0u; index < (unsigned int)(sizeof(many_cases) / sizeof(many_cases[0])); index += 1u)
     {
         memset(&error, 0, sizeof(error));
-        test_count(results, placed && test_refused_many(&many_cases[index], device_signum, before));
+        test_count(results, placed && test_error_many(&many_cases[index], device_signum, before));
     }
     memset(&error, 0, sizeof(error));
     const ObsignatioManyRequest unsigned_out = {device_pattern,       1ull, 1ull,  1ull, NULL,

@@ -87,7 +87,7 @@ void gaussian_inverse_release(GaussianLoaded *loaded)
 }
 
 // One run of a loaded inverse program over `lanes` pairs, on the host and on the device: 1 where both ran and their
-// records agree word for word, 0 where both refused, and -1 where they part.
+// records agree word for word, 0 where both errored, and -1 where they part.
 int gaussian_inverse_run(const GaussianLoaded *loaded, const unsigned int *atoms, unsigned int lanes,
                          unsigned int *host_out, unsigned int *device_out, EngineError *error)
 {

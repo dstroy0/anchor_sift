@@ -118,7 +118,7 @@ static int hdf5_unfilter(Hdf5Gather *gather, unsigned char **data, unsigned char
                                      : -1LL;
         if (made < 0LL)
         {
-            return hdf5_refuse_number(file, "a chunk its filter would not decode, or whose checksum failed; filter",
+            return hdf5_error_number(file, "a chunk its filter would not decode, or whose checksum failed; filter",
                                       identifier);
         }
         if (!skipped)
@@ -179,7 +179,7 @@ int hdf5_chunk_place(Hdf5Gather *gather, const unsigned long long *origin, unsig
         const unsigned long long span = object->chunk[axis];
         if ((origin[axis] % span) != 0ull)
         {
-            return hdf5_refuse(file, "a chunk that does not sit on the chunk grid");
+            return hdf5_error(file, "a chunk that does not sit on the chunk grid");
         }
         const unsigned long long bottom = (axis == 0u) ? gather->first : 0ull;
         const unsigned long long top = (axis == 0u) ? gather->end : object->extent[axis];
@@ -196,20 +196,20 @@ int hdf5_chunk_place(Hdf5Gather *gather, const unsigned long long *origin, unsig
     const int filtered = (object->filter_count > 0u) && !(edge && ((object->chunk_flags & 1u) != 0u));
     if (!filtered && (stored != gather->chunk_bytes))
     {
-        return hdf5_refuse(file, "an unfiltered chunk whose stored size is not the chunk size");
+        return hdf5_error(file, "an unfiltered chunk whose stored size is not the chunk size");
     }
     if ((stored == 0ull) || (stored > hdf5_bytes_remaining(file, address)))
     {
-        return hdf5_refuse(file, "a chunk that lies past the end of the file");
+        return hdf5_error(file, "a chunk that lies past the end of the file");
     }
     const size_t capacity = (((size_t)stored > gather->chunk_bytes) ? (size_t)stored : gather->chunk_bytes) + 64u;
     unsigned char *data = (unsigned char *)malloc(capacity);
     unsigned char *spare = filtered ? (unsigned char *)malloc(capacity) : NULL;
     int ok = (data != NULL) && (!filtered || (spare != NULL));
-    ok = ok ? hdf5_fetch(file, address, stored, data) : hdf5_refuse(file, "no memory for a chunk");
+    ok = ok ? hdf5_fetch(file, address, stored, data) : hdf5_error(file, "no memory for a chunk");
     size_t length = (size_t)stored;
     ok = ok && (!filtered || hdf5_unfilter(gather, &data, &spare, &length, capacity, mask));
-    ok = ok && ((length == gather->chunk_bytes) || hdf5_refuse(file, "a chunk that does not decode to the chunk size"));
+    ok = ok && ((length == gather->chunk_bytes) || hdf5_error(file, "a chunk that does not decode to the chunk size"));
     if (ok)
     {
         hdf5_chunk_copy(gather, data, origin, low, high);
@@ -230,7 +230,7 @@ int hdf5_chunk_tree(Hdf5Gather *gather, unsigned long long address, unsigned int
     unsigned char prefix[24u];
     if (depth > HDF5_TREE_LEVELS)
     {
-        return hdf5_refuse(file, "a chunk B-tree deeper than any real file");
+        return hdf5_error(file, "a chunk B-tree deeper than any real file");
     }
     if (!hdf5_fetch(file, address, head, prefix))
     {
@@ -240,11 +240,11 @@ int hdf5_chunk_tree(Hdf5Gather *gather, unsigned long long address, unsigned int
     const size_t entries = (size_t)hdf5_little(&prefix[6u], 2u);
     if ((memcmp(prefix, "TREE", 4u) != 0) || (prefix[4u] != 1u) || (!root && (node_level != level)))
     {
-        return hdf5_refuse(file, "a chunk B-tree node whose signature, type or level is wrong");
+        return hdf5_error(file, "a chunk B-tree node whose signature, type or level is wrong");
     }
     if (entries == 0u)
     {
-        return root ? 1 : hdf5_refuse(file, "an empty chunk B-tree node below the root");
+        return root ? 1 : hdf5_error(file, "an empty chunk B-tree node below the root");
     }
     unsigned char *const node = hdf5_load(file, address, head + (entries * (key_bytes + pointer_bytes)) + key_bytes);
     if (node == NULL)
@@ -272,7 +272,7 @@ int hdf5_chunk_tree(Hdf5Gather *gather, unsigned long long address, unsigned int
                     after = (origin[axis] > gather->last_key[axis]) ? 1 : -1;
                 }
             }
-            ok = (after > 0) ? 1 : hdf5_refuse(file, "chunk B-tree keys that repeat or run out of order");
+            ok = (after > 0) ? 1 : hdf5_error(file, "chunk B-tree keys that repeat or run out of order");
             memcpy(gather->last_key, origin, dimensions * sizeof(origin[0u]));
             gather->keyed = 1;
             ok = ok && hdf5_chunk_place(gather, origin, child_address, hdf5_little(key, 4u),
@@ -323,7 +323,7 @@ int hdf5_fixed_open(Hdf5File *file, const Hdf5Object *object, const Hdf5Gather *
     free(header);
     if (!sound)
     {
-        return hdf5_refuse(file, "a fixed array header whose signature or checksum does not match");
+        return hdf5_error(file, "a fixed array header whose signature or checksum does not match");
     }
     unsigned long long expected = 0ull;
     fixed->filtered = (client == 1u);
@@ -335,7 +335,7 @@ int hdf5_fixed_open(Hdf5File *file, const Hdf5Object *object, const Hdf5Gather *
                        (fixed->count == expected) && (fixed->count <= file->file_bytes);
     if (!shaped)
     {
-        return hdf5_refuse(file, "a fixed array header that does not fit the dataset");
+        return hdf5_error(file, "a fixed array header that does not fit the dataset");
     }
     fixed->size_bytes = fixed->filtered ? (fixed->entry_bytes - offset_bytes - 4u) : 0u;
     if (hdf5_undefined(file, fixed->block))
@@ -362,7 +362,7 @@ int hdf5_fixed_open(Hdf5File *file, const Hdf5Object *object, const Hdf5Gather *
     if (!block_sound)
     {
         hdf5_fixed_close(fixed);
-        return hdf5_refuse(file, "a fixed array data block whose signature or checksum does not match");
+        return hdf5_error(file, "a fixed array data block whose signature or checksum does not match");
     }
     return 1;
 }
@@ -377,7 +377,7 @@ int hdf5_fixed_entry(Hdf5File *file, Hdf5Fixed *fixed, unsigned long long linear
     }
     if (linear >= fixed->count)
     {
-        return hdf5_refuse(file, "a chunk outside the fixed array");
+        return hdf5_error(file, "a chunk outside the fixed array");
     }
     const unsigned char *entry = NULL;
     if (fixed->page_count == 0ull)
@@ -410,7 +410,7 @@ int hdf5_fixed_entry(Hdf5File *file, Hdf5Fixed *fixed, unsigned long long linear
             {
                 free(fixed->page);
                 fixed->page = NULL;
-                return hdf5_refuse(file, "a fixed array page whose checksum does not match");
+                return hdf5_error(file, "a fixed array page whose checksum does not match");
             }
             fixed->page_loaded = page + 1ull;
         }

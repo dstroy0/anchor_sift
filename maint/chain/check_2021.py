@@ -82,7 +82,7 @@ def main():
     BAN_ENDED = 1627776000      # 2021-08-01
     if not (first["timestamp"] <= BAN_ENDED and last["timestamp"] >= BAN_BEGAN):
         print("=" * 76)
-        print("  REFUSING: THE CORPUS DOES NOT CONTAIN THE EVENT")
+        print("  ERROR: THE CORPUS DOES NOT CONTAIN THE EVENT")
         print("=" * 76)
         print()
         print("    The ban ran 2021-05-01 to 2021-07-31 and this corpus is %s .. %s."

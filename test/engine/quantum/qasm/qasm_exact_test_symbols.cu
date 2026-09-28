@@ -134,11 +134,11 @@ static void qasm_test_mps_qubits(QasmResults *results)
                         (memcmp(six_root, t_root, sizeof(six_root)) != 0),
                     "mps: the chain's seal repeats, and two different states seal differently");
 
-    EngineError refused;
-    memset(&refused, 0, sizeof(refused));
+    EngineError engine_error;
+    memset(&engine_error, 0, sizeof(engine_error));
     qasm_test_check(results,
-                    qasm_test_refused_here(qasm_chain_apply_two(&bell, qasm_test_cnot, 1u, &refused), &refused),
-                    "mps: a two-site gate on the last site refuses, a request error from qasm");
+                    qasm_test_error_here(qasm_chain_apply_two(&bell, qasm_test_cnot, 1u, &engine_error), &engine_error),
+                    "mps: a two-site gate on the last site errors, a request error from qasm");
     // the builder session's review found site + 1 wrapping here and reading past the tensors
     qasm_test_check(results, (qasm_chain_bond(&bell, 1u) == 0u) && (qasm_chain_bond(&bell, 0xFFFFFFFFu) == 0u),
                     "mps: the bond past the last cut is 0, the widest site index included");
@@ -383,8 +383,8 @@ static void qasm_test_symbolic_qubits(QasmResults *results)
                     "symbolic: w^(bits - 1) at w = 2 evaluates to 2^(bits - 1), the widest power the width holds");
     qasm_rational_function_release(&widest);
 
-    EngineError refused;
-    memset(&refused, 0, sizeof(refused));
+    EngineError engine_error;
+    memset(&engine_error, 0, sizeof(engine_error));
     QasmRationalFunction zero_function;
     QasmRationalFunction inverse;
     memset(&zero_function, 0, sizeof(zero_function));
@@ -392,8 +392,9 @@ static void qasm_test_symbolic_qubits(QasmResults *results)
     const int zero_set = (qasm_rational_function_set(&zero_function, &qasm_number_zero, 0, &error) == 0L);
     qasm_test_check(
         results,
-        zero_set && qasm_test_refused_here(qasm_rational_function_invert(&zero_function, &inverse, &refused), &refused),
-        "symbolic: inverting zero refuses, a request error from qasm");
+        zero_set &&
+            qasm_test_error_here(qasm_rational_function_invert(&zero_function, &inverse, &engine_error), &engine_error),
+        "symbolic: inverting zero errors, a request error from qasm");
     qasm_test_check(results, qasm_test_clean(&error), "symbolic: no error was raised on the paths that held");
     qasm_rational_function_release(&value);
     qasm_rational_function_release(&norm);
@@ -449,12 +450,13 @@ static void qasm_test_boundary_lens(QasmResults *results)
                     (qasm_lens_seal_check(&seal_request, clean, flipped, &error) == 0L) &&
                         (memcmp(clean, flipped, sizeof(clean)) != 0),
                     "lens: one flipped generator bit changes the seal");
-    EngineError refused;
-    memset(&refused, 0, sizeof(refused));
+    EngineError engine_error;
+    memset(&engine_error, 0, sizeof(engine_error));
     QasmLensMeasurement measurement;
     const QasmLensRequest too_wide = {13u, 13u, 8u, QASM_LENS_BITS_MAX + 1u, 2024ull, 0ull, 30u};
-    qasm_test_check(results, qasm_test_refused_here(qasm_lens_read(&too_wide, &measurement, &refused), &refused),
-                    "lens: an aperture past the widest refuses, a request error from qasm");
+    qasm_test_check(results,
+                    qasm_test_error_here(qasm_lens_read(&too_wide, &measurement, &engine_error), &engine_error),
+                    "lens: an aperture past the widest errors, a request error from qasm");
     qasm_test_check(results, qasm_test_clean(&error), "lens: no error was raised on the paths that held");
     printf("  boundary lens: %llu us\n", engine_clock_microseconds() - start);
 }

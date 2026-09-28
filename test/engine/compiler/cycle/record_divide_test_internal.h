@@ -9,7 +9,7 @@
 // exact integer library itself), the two records must agree word for word, and the decoded registers must meet
 // numerator = quotient . divisor + remainder with the remainder below the divisor and carrying the numerator's
 // sign, a gcd dividing both, and an exact quotient returning the factor it was built from. A zero divisor and an
-// inexact division refuse, on both sides. Both register files are exercised: the 64-limb kernel on signed
+// inexact division error, on both sides. Both register files are exercised: the 64-limb kernel on signed
 // 160-bit numerators and the 256-limb kernel on 2048-bit numerators. The test is one job on the device's tessera
 // daemon, submitted before its first device work.
 #include "cycle.h"

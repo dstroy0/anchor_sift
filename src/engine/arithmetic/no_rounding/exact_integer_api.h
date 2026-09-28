@@ -72,7 +72,7 @@ extern "C"
      * @param[in]  right  Second addend [BORROWS].
      * @param[out] result Sum [BORROWS]. May alias either input.
      * @return            ANCHOR_EXACT_OK, or ANCHOR_EXACT_WILL_NOT_FIT where the sum needs more limbs.
-     * @note On a refusal `result` is left unchanged.
+     * @note On an error `result` is left unchanged.
      */
     AnchorExactStatus anchor_exact_add(const AnchorExactInteger *left, const AnchorExactInteger *right,
                                        AnchorExactInteger *result);
@@ -86,7 +86,7 @@ extern "C"
      * @return            ANCHOR_EXACT_OK, or ANCHOR_EXACT_WILL_NOT_FIT where the result needs more
      *                    limbs.
      * @note The difference set a period is read from is built entirely out of this call.
-     * @note On a refusal `result` is left unchanged.
+     * @note On an error `result` is left unchanged.
      */
     AnchorExactStatus anchor_exact_subtract(const AnchorExactInteger *left, const AnchorExactInteger *right,
                                             AnchorExactInteger *result);
@@ -103,9 +103,9 @@ extern "C"
      *       lengths and the width adds one pass writing the result. That pass is the cost of a product of
      *       a few limbs at a wide width: 8e-5 s at 131072 limbs. A rung whose workspace cannot be held
      *       steps down to the rung below it, and long multiplication needs none.
-     * @note Factors whose used lengths sum past the width by more than one limb are refused before any
+     * @note Factors whose used lengths sum past the width by more than one limb error before any
      *       arithmetic. Their product is at least 2^(32 * (sum - 2)), which already overruns.
-     * @note On a refusal `result` is left unchanged.
+     * @note On an error `result` is left unchanged.
      * @warning A product overruns the fixed width far sooner than a sum does. Ingesting a coordinate
      *          multiplies a fraction by a cell edge exactly once for that reason.
      */
@@ -122,7 +122,7 @@ extern "C"
      *                    limbs or the transform's workspace cannot be held.
      * @note The transform anchor_exact_multiply takes from ANCHOR_EXACT_TRANSFORM_LIMBS up, exposed so
      *       the rung can be graded and timed below its threshold.
-     * @note On a refusal `result` is left unchanged.
+     * @note On an error `result` is left unchanged.
      */
     AnchorExactStatus anchor_exact_multiply_transform(const AnchorExactInteger *left, const AnchorExactInteger *right,
                                                       AnchorExactInteger *result);
@@ -142,7 +142,7 @@ extern "C"
      *       own division. A caller moving between the two meets no sign rule of a third kind.
      * @note Knuth's Algorithm D, and Newton's reciprocal once the divisor and the quotient both reach
      *       ANCHOR_EXACT_NEWTON_LIMBS.
-     * @note On a refusal `quotient` and `remainder` are left unchanged.
+     * @note On an error `quotient` and `remainder` are left unchanged.
      */
     AnchorExactStatus anchor_exact_divide(const AnchorExactInteger *numerator, const AnchorExactInteger *divisor,
                                           AnchorExactInteger *quotient, AnchorExactInteger *remainder);
@@ -176,8 +176,8 @@ extern "C"
      *       zero bits, the odd divisor's inverse modulo 2^(32 limbs) is grown by Newton's x(2 - dx) from
      *       d itself, which is its own inverse to 3 bits, and the quotient is the low limbs of the
      *       numerator times that inverse. Multiplying the quotient back proves it, and a remainder is
-     *       found there and refused instead of returned as a wrong quotient.
-     * @note On a refusal `quotient` is left unchanged.
+     *       found there and errored instead of returned as a wrong quotient.
+     * @note On an error `quotient` is left unchanged.
      */
     AnchorExactStatus anchor_exact_divide_exact(const AnchorExactInteger *numerator, const AnchorExactInteger *divisor,
                                                 AnchorExactInteger *quotient);
@@ -195,7 +195,7 @@ extern "C"
      *       words while each quotient is certain, and the steps' cofactors then advance the whole pair
      *       in one pass. It replaced a binary gcd, whose bit-at-a-time shifts cost the square of the
      *       bits and stalled the 4194304-bit test.
-     * @note On a refusal `result` is left unchanged.
+     * @note On an error `result` is left unchanged.
      */
     AnchorExactStatus anchor_exact_gcd(const AnchorExactInteger *left, const AnchorExactInteger *right,
                                        AnchorExactInteger *result);
@@ -206,8 +206,8 @@ extern "C"
      * @param[in,out] value Integer to scale [BORROWS].
      * @param[in]     power How many powers of ten to apply.
      * @return              ANCHOR_EXACT_OK, or ANCHOR_EXACT_WILL_NOT_FIT.
-     * @note On a refusal `value` is left unchanged. An earlier version wrote the low limbs of an
-     *       overrun product into `value` before refusing, which left a wrapped magnitude behind.
+     * @note On an error `value` is left unchanged. An earlier version wrote the low limbs of an
+     *       overrun product into `value` before erroring, which left a wrapped magnitude behind.
      */
     AnchorExactStatus anchor_exact_scale_by_ten(AnchorExactInteger *value, uint32_t power);
 
@@ -240,10 +240,10 @@ extern "C"
      *       a longer number, such as a constant printed to 1000 places and read at 1024, the padded
      *       places are zeros and not the digits of that number. Supply text carrying at least `digits`
      *       places for such a number.
-     * @note Refusing a value with too many places is the same refusal representation.exact makes, and
+     * @note Erroring on a value with too many places is the same error representation.exact makes, and
      *       for the same reason: a scale that rounds is a quantum this end imposed, and it has to be an
      *       error and never a quiet loss.
-     * @note On a refusal `value` is left unchanged.
+     * @note On an error `value` is left unchanged.
      */
     AnchorExactStatus anchor_exact_from_decimal(const char *text, size_t length, uint32_t digits,
                                                 AnchorExactInteger *value);
@@ -267,10 +267,10 @@ extern "C"
      * @note The bracketed digits count units of the last place PRINTED in the value, trailing zeros
      *       included. "1.2300(5)" is 1.23 with an uncertainty of 0.0005, and "137(2)" is 137 with an
      *       uncertainty of 2. That place count can exceed the value's own after its trailing zeros are
-     *       dropped. The uncertainty can refuse at a scale the value fits.
+     *       dropped. The uncertainty can error at a scale the value fits.
      * @note A text with no bracket returns a zero uncertainty with `carried` at 0. A text of "(0)"
      *       returns a zero uncertainty with `carried` at 1, a value stated as exact by its source.
-     * @note On a refusal `value`, `uncertainty` and `carried` are left unchanged.
+     * @note On an error `value`, `uncertainty` and `carried` are left unchanged.
      */
     AnchorExactStatus anchor_exact_from_measured(const char *text, size_t length, uint32_t digits,
                                                  AnchorExactInteger *value, AnchorExactInteger *uncertainty,

@@ -111,7 +111,7 @@ def grade(kind, fields, text, places, bits):
     else:
         py = python_side(exact.measured, text, places)
 
-    if fields[0] == "refused":
+    if fields[0] == "errored":
         status = int(fields[1])
         c_shown = "error %d" % status
         if py[0] == "error":

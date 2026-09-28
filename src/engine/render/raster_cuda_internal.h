@@ -89,7 +89,7 @@ struct DeviceVolumeConfig
     unsigned int gain;
 };
 
-__global__ void render_volume(unsigned int *staging, int *refused, DeviceVolumeConfig vconfig,
+__global__ void render_volume(unsigned int *staging, int *error, DeviceVolumeConfig vconfig,
                               const unsigned char *corpus, unsigned long long corpus_len, const unsigned char *needle,
                               unsigned long long needle_len, const DeviceProbe *probes, unsigned long long probe_count,
                               const unsigned long long *occurrences, unsigned long long total);

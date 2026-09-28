@@ -23,7 +23,7 @@
 #   missing    in the index, not on disk
 #   held       the PDF is on disk
 #   text       the PDF is on disk and its text is beside it. The readers need this one
-#   refused    the server answered with something that is not a PDF, and said why
+#   errored on    the server answered with something that is not a PDF, and said why
 #
 # WHERE THE BYTES COME FROM
 #
@@ -232,7 +232,7 @@ def run_adopt(out, rows, where):
         return 2
     os.makedirs(PAPERS, exist_ok=True)
     taken = 0
-    refused = 0
+    error = 0
     unknown = []
     for name in sorted(os.listdir(where)):
         if not name.lower().endswith(".pdf"):
@@ -241,12 +241,12 @@ def run_adopt(out, rows, where):
         source = os.path.join(where, name)
         if looks_verified(source):
             out.write("    %-46s the browser check page, not a paper\n" % stem[:46])
-            refused += 1
+            error += 1
             continue
         with open(source, "rb") as handle:
             if not handle.read(4).startswith(b"%PDF"):
                 out.write("    %-46s does not start with %%PDF\n" % stem[:46])
-                refused += 1
+                error += 1
                 continue
         if stem not in rows:
             unknown.append(stem)
@@ -256,7 +256,7 @@ def run_adopt(out, rows, where):
         out.write("    %-46s %d KB\n" % (stem[:46], os.path.getsize(target) // 1024))
         convert_one(out, stem)
         taken += 1
-    out.write("\n  %d adopted, %d refused\n" % (taken, refused))
+    out.write("\n  %d adopted, %d errored\n" % (taken, error))
     if unknown:
         out.write(
             "  %d not in the archive index by that name, kept anyway:\n" % len(unknown)
@@ -298,7 +298,7 @@ def run_fetch(out, rows, pause):
         if "pdf" not in kind.lower():
             body = answer.content[:4096].lower()
             if any(one.encode("ascii") in body for one in VERIFICATION):
-                rows[stem]["state"] = "refused"
+                rows[stem]["state"] = "errored"
                 rows[stem]["said"] = "browser verification page"
                 out.write(
                     "\n  the archive answered with its browser verification page.\n"
@@ -313,7 +313,7 @@ def run_fetch(out, rows, pause):
                 out.write("    download in a browser, then --adopt that directory\n")
                 out.write("  %d fetched before it stopped.\n" % got)
                 return 2
-            rows[stem]["state"] = "refused"
+            rows[stem]["state"] = "errored"
             rows[stem]["said"] = "answered with %s" % (kind or "nothing")
             out.write("    %-46s answered with %s\n" % (stem[:46], kind or "nothing"))
             time.sleep(pause)

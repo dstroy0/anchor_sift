@@ -111,7 +111,7 @@ static unsigned long long frame_test_layout(unsigned long long *failed)
     return cases;
 }
 
-static unsigned long long frame_test_refused(unsigned long long *failed)
+static unsigned long long frame_test_error(unsigned long long *failed)
 {
     FrameTestStream stream = {2ull};
     unsigned long long cases = 0ull;
@@ -165,8 +165,8 @@ int main(void)
     printf("  little-endian at fixed places   %8llu cases, %llu failed\n", cases, failed);
     failed_total += failed;
     failed = 0ull;
-    cases = frame_test_refused(&failed);
-    printf("  a broken head refused           %8llu cases, %llu failed\n", cases, failed);
+    cases = frame_test_error(&failed);
+    printf("  a broken head errored           %8llu cases, %llu failed\n", cases, failed);
     failed_total += failed;
     printf("  tessera frame: %llu failed\n", failed_total);
     return (failed_total == 0ull) ? 0 : 1;

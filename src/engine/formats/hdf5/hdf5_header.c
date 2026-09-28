@@ -11,12 +11,12 @@ int hdf5_open(Hdf5File *file, const char *path, const EngineIngestTools *tools)
     file->offset_bytes = 8u;
     if ((path == NULL) || (tools == NULL) || (tools->read == NULL) || (tools->size == NULL))
     {
-        return hdf5_refuse(file, "no path or no file reader");
+        return hdf5_error(file, "no path or no file reader");
     }
     const long long size = tools->size(path);
     if (size < 0LL)
     {
-        return hdf5_refuse(file, "the file cannot be sized");
+        return hdf5_error(file, "the file cannot be sized");
     }
     file->file_bytes = (unsigned long long)size;
     static const unsigned char signature[8u] = {0x89u, 0x48u, 0x44u, 0x46u, 0x0Du, 0x0Au, 0x1Au, 0x0Au};
@@ -34,7 +34,7 @@ int hdf5_open(Hdf5File *file, const char *path, const EngineIngestTools *tools)
     }
     if (!found)
     {
-        return hdf5_refuse(file, "no HDF5 signature at byte 0, 512 or any doubling of 512");
+        return hdf5_error(file, "no HDF5 signature at byte 0, 512 or any doubling of 512");
     }
     unsigned char head[16u];
     if (!hdf5_fetch(file, place, sizeof(head), head))
@@ -44,7 +44,7 @@ int hdf5_open(Hdf5File *file, const char *path, const EngineIngestTools *tools)
     const unsigned int version = head[8u];
     if (version > 3u)
     {
-        return hdf5_refuse_number(file, "superblock version", version);
+        return hdf5_error_number(file, "superblock version", version);
     }
     const int old = (version <= 1u);
     file->offset_bytes = old ? head[13u] : head[9u];
@@ -54,7 +54,7 @@ int hdf5_open(Hdf5File *file, const char *path, const EngineIngestTools *tools)
     if (!offsets_known || !lengths_known)
     {
         file->offset_bytes = 8u;
-        return hdf5_refuse(file, "sizes of offsets or lengths other than 2, 4 or 8 bytes");
+        return hdf5_error(file, "sizes of offsets or lengths other than 2, 4 or 8 bytes");
     }
     const size_t fixed = old ? ((version == 0u) ? 24u : 28u) : 12u;
     const unsigned long long total =
@@ -75,11 +75,11 @@ int hdf5_open(Hdf5File *file, const char *path, const EngineIngestTools *tools)
     free(block);
     if (cursor.broken || !sealed)
     {
-        return hdf5_refuse(file, "a superblock whose checksum does not match");
+        return hdf5_error(file, "a superblock whose checksum does not match");
     }
     if (old && !hdf5_undefined(file, fourth))
     {
-        return hdf5_refuse(file, "a file driver information block (family, multi or split driver)");
+        return hdf5_error(file, "a file driver information block (family, multi or split driver)");
     }
     const unsigned long long shift_up = (stored_base <= place) ? (place - stored_base) : 0ull;
     const unsigned long long shift_down = (stored_base > place) ? (stored_base - place) : 0ull;
@@ -87,7 +87,7 @@ int hdf5_open(Hdf5File *file, const char *path, const EngineIngestTools *tools)
     const unsigned long long end = wraps ? ~0ull : ((stored_end + shift_up) - shift_down);
     if (end > file->file_bytes)
     {
-        return hdf5_refuse_number(file, "a truncated file; the superblock says it ends at byte", end);
+        return hdf5_error_number(file, "a truncated file; the superblock says it ends at byte", end);
     }
     file->base = place;
     file->root = root;
@@ -110,7 +110,7 @@ static Hdf5Walk hdf5_header_region(Hdf5File *file, const unsigned char *bytes, s
         const unsigned char *const body = hdf5_span(&cursor, size);
         if (body == NULL)
         {
-            return hdf5_walk_refuse(file, "an object header message that runs past its block");
+            return hdf5_walk_error(file, "an object header message that runs past its block");
         }
         if (type == 0x10u)
         {
@@ -119,7 +119,7 @@ static Hdf5Walk hdf5_header_region(Hdf5File *file, const unsigned char *bytes, s
             const unsigned long long extent = hdf5_take(&link, file->length_bytes);
             if (link.broken || (*chained >= HDF5_CONTINUATIONS))
             {
-                return hdf5_walk_refuse(file, "an object header continuation that is malformed or one of too many");
+                return hdf5_walk_error(file, "an object header continuation that is malformed or one of too many");
             }
             chain[*chained].address = address;
             chain[*chained].length = extent;
@@ -145,7 +145,7 @@ Hdf5Walk hdf5_header_walk(Hdf5File *file, unsigned long long address, Hdf5Messag
     const unsigned long long probe = (capacity < sizeof(prefix)) ? capacity : sizeof(prefix);
     if ((probe < 12ull) || !hdf5_fetch(file, address, probe, prefix))
     {
-        return hdf5_walk_refuse(file, "an object header past the end of the file");
+        return hdf5_walk_error(file, "an object header past the end of the file");
     }
     const int modern = (memcmp(prefix, "OHDR", 4u) == 0);
     const unsigned int flags = prefix[5u];
@@ -157,7 +157,7 @@ Hdf5Walk hdf5_header_walk(Hdf5File *file, unsigned long long address, Hdf5Messag
         modern ? ((prefix[4u] == 2u) && ((flags & 0xC0u) == 0u)) : ((prefix[0u] == 1u) && (probe >= 16ull));
     if (!known || (start > probe))
     {
-        return hdf5_walk_refuse(file, "an object header of an unknown version");
+        return hdf5_walk_error(file, "an object header of an unknown version");
     }
     const unsigned long long chunk =
         modern ? hdf5_little(&prefix[6u + times + phases], width) : hdf5_little(&prefix[8u], 4u);
@@ -166,7 +166,7 @@ Hdf5Walk hdf5_header_walk(Hdf5File *file, unsigned long long address, Hdf5Messag
     const unsigned long long total = start + chunk + (modern ? HDF5_SEAL_BYTES : 0u);
     if (chunk > capacity)
     {
-        return hdf5_walk_refuse(file, "an object header larger than the file");
+        return hdf5_walk_error(file, "an object header larger than the file");
     }
     unsigned char *const first = hdf5_load(file, address, total);
     if (first == NULL)
@@ -176,7 +176,7 @@ Hdf5Walk hdf5_header_walk(Hdf5File *file, unsigned long long address, Hdf5Messag
     if (modern && !hdf5_sealed(first, (size_t)total))
     {
         free(first);
-        return hdf5_walk_refuse(file, "an object header whose checksum does not match");
+        return hdf5_walk_error(file, "an object header whose checksum does not match");
     }
     Hdf5Continuation chain[HDF5_CONTINUATIONS];
     unsigned int chained = 0u;
@@ -191,7 +191,7 @@ Hdf5Walk hdf5_header_walk(Hdf5File *file, unsigned long long address, Hdf5Messag
             (block != NULL) &&
             (!modern || ((length >= 8u) && (memcmp(block, "OCHK", 4u) == 0) && hdf5_sealed(block, length)));
         step = !sound
-                   ? hdf5_walk_refuse(file, "an object header continuation whose signature or checksum does not match")
+                   ? hdf5_walk_error(file, "an object header continuation whose signature or checksum does not match")
                : modern
                    ? hdf5_header_region(file, &block[4u], length - 8u, version, ordered, chain, &chained, visit, state)
                    : hdf5_header_region(file, block, length, version, ordered, chain, &chained, visit, state);
@@ -238,7 +238,7 @@ Hdf5Walk hdf5_object_space(Hdf5File *file, Hdf5Object *object, Hdf5Cursor *curso
     {
         object->maximum[axis] = ((flags & 1u) != 0u) ? hdf5_take(cursor, file->length_bytes) : object->extent[axis];
     }
-    return cursor->broken ? hdf5_walk_refuse(file, "a malformed dataspace message") : HDF5_WALK_ON;
+    return cursor->broken ? hdf5_walk_error(file, "a malformed dataspace message") : HDF5_WALK_ON;
 }
 
 Hdf5Walk hdf5_object_type(Hdf5File *file, Hdf5Object *object, Hdf5Cursor *cursor)
@@ -252,7 +252,7 @@ Hdf5Walk hdf5_object_type(Hdf5File *file, Hdf5Object *object, Hdf5Cursor *cursor
     const unsigned int precision = (kind <= 1u) ? (unsigned int)hdf5_take(cursor, 2u) : 0u;
     if (cursor->broken)
     {
-        return hdf5_walk_refuse(file, "a malformed datatype message");
+        return hdf5_walk_error(file, "a malformed datatype message");
     }
     object->has_type = 1;
     const int sized = (size == 1ull) || (size == 2ull) || (size == 4ull) || (size == 8ull);
@@ -309,7 +309,7 @@ Hdf5Walk hdf5_object_fill(Hdf5File *file, Hdf5Object *object, Hdf5Cursor *cursor
     const unsigned char *const value = hdf5_span(cursor, size);
     if (cursor->broken || (value == NULL))
     {
-        return hdf5_walk_refuse(file, "a malformed fill value message");
+        return hdf5_walk_error(file, "a malformed fill value message");
     }
     unsigned char *const kept = old ? object->old_fill : object->fill;
     memcpy(kept, value, (size_t)((size < 8ull) ? size : 8ull));
@@ -329,7 +329,7 @@ Hdf5Walk hdf5_object_chunking(Hdf5File *file, Hdf5Object *object, Hdf5Cursor *cu
     object->data_address = (version == 3u) ? hdf5_take(cursor, file->offset_bytes) : 0ull;
     if (cursor->broken || (dimensions < 2u) || (dimensions > (ENGINE_ARRAY_RANK + 1u)) || (width < 1u) || (width > 8u))
     {
-        return hdf5_walk_refuse(file, "a chunked layout message of an impossible rank");
+        return hdf5_walk_error(file, "a chunked layout message of an impossible rank");
     }
     object->chunk_flags = flags;
     object->chunk_rank = dimensions;
@@ -367,5 +367,5 @@ Hdf5Walk hdf5_object_chunking(Hdf5File *file, Hdf5Object *object, Hdf5Cursor *cu
         }
         object->data_address = hdf5_take(cursor, file->offset_bytes);
     }
-    return cursor->broken ? hdf5_walk_refuse(file, "a malformed chunked layout message") : HDF5_WALK_ON;
+    return cursor->broken ? hdf5_walk_error(file, "a malformed chunked layout message") : HDF5_WALK_ON;
 }

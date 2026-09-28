@@ -49,7 +49,7 @@ comparing two different quantities.
 
 The threshold itself is measured and lives in `gpu_multiply.NATIVE_LIMBS`.
 
-WHAT IT REFUSES
+WHAT IT ERRORS
 
 A result that has not been put next to an independent one. Every digit count checked below is
 computed twice, once here and once by the module that was already trusted, and agreement is reported
@@ -72,7 +72,7 @@ if HERE not in sys.path:
 import natural_constants as nc
 import series
 
-# CPython refuses to render an integer past 4300 digits as text unless told otherwise, which is a
+# CPython errors rather than render an integer past 4300 digits as text unless told otherwise, which is a
 # guard against a denial of service in a parser and has nothing to say about arithmetic. Every value
 # here is meant to be written out, so the guard is lifted instead of worked around; the arithmetic
 # was never affected by it and only the printing was.

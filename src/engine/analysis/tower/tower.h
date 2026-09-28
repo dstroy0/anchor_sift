@@ -28,7 +28,7 @@ extern "C"
     } TowerEdge;
 
     // The lattice lifted is `device_lanes`, 16-bit samples, or, where `device_values` is set, a lattice of ints read
-    // instead, such as a residual left below zero; its values past ENGINE_COEFFICIENT_LIMIT refuse the lift as the
+    // instead, such as a residual left below zero; its values past ENGINE_COEFFICIENT_LIMIT error on the lift as the
     // coefficients' do.
     typedef struct
     {
@@ -104,7 +104,7 @@ extern "C"
     // EXACT_QUOTIENT(v - AND(v, 2^k - 1), 2^k), toward minus infinity as the kernels' shift; each constant is one step,
     // laid out where it is first read. No edge is laid out. The steps go in at `*count`, which is left past them. With
     // `steps` NULL nothing is written but the count and the out registers, which sizes a program before it is held;
-    // with `steps` set, a program past `step_capacity` is refused and the count left where it was.
+    // with `steps` set, a program past `step_capacity` errors and the count left where it was.
     typedef struct
     {
         unsigned long long extent[4];

@@ -62,7 +62,7 @@ def main():
         writer = name[7:].rsplit("_", 1)[0]
         text, gate = load(os.path.join(CORPORA, name), cap=SAME_LENGTH * 2, clean=False)
         if text is None:
-            out.write("  %-28s refused by the gate: %s\n" % (name[:28], gate))
+            out.write("  %-28s errored in the gate: %s\n" % (name[:28], gate))
             continue
         if len(text) < SAME_LENGTH:
             # The gate's note here read as though the gate had rejected a file it passed

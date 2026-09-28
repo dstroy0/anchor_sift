@@ -94,17 +94,17 @@ static void codegen_rules_read(DeviceArena *device_arena, const AsmPrinterCoreBu
 }
 
 int asm_printer_ruleset_device(const Ruleset *rules, const TargetInfo *target, const std::string &header,
-                               AsmPrinterRuleset *text_rules, std::string *refused)
+                               AsmPrinterRuleset *text_rules, std::string *error)
 {
     *text_rules = AsmPrinterRuleset{};
     if ((rules->schema->form_count != OPCODE_COUNT) || (rules->schema->bank_count != REGCLASS_COUNT) ||
         (rules->schema->fixed_count != PHYSREG_COUNT))
     {
-        *refused = "the ruleset was read against another code generator's schema than the lane's";
+        *error = "the ruleset was read against another code generator's schema than the lane's";
         return 0;
     }
     const unsigned int scratch_banks[3] = {REGCLASS_TEMPORARY, REGCLASS_WIDE, REGCLASS_PREDICATE};
-    if (ruleset_scratch_device(rules, scratch_banks, &text_rules->scratch, refused) == 0)
+    if (ruleset_scratch_device(rules, scratch_banks, &text_rules->scratch, error) == 0)
     {
         return 0;
     }
@@ -149,7 +149,7 @@ int asm_printer_ruleset_device(const Ruleset *rules, const TargetInfo *target, c
         else if ((built == 0) && ((ended.end != ASM_PRINTER_CORE_FULL) || (step_capacity >= (1u << 30u))))
         {
             codegen_device_release(&rules_arena);
-            *refused = asm_printer_ended(ended.end);
+            *error = asm_printer_ended(ended.end);
             return 0;
         }
         step_capacity *= 2u;
@@ -158,24 +158,24 @@ int asm_printer_ruleset_device(const Ruleset *rules, const TargetInfo *target, c
     codegen_device_release(&rules_arena);
     if (ok == 0)
     {
-        *refused = "the device refused a call";
+        *error = "the device errored on a call";
         return 0;
     }
     asm_printer_keep(&host, text_rules);
     // the program laid out by the device as well; the host's key is not kept, and the output it names is the program's
-    return asm_printer_program_device(&text_rules->program, &text_rules->program.layout, refused);
+    return asm_printer_program_device(&text_rules->program, &text_rules->program.layout, error);
 }
 
 #else
 
 int asm_printer_ruleset_device(const Ruleset *rules, const TargetInfo *target, const std::string &header,
-                               AsmPrinterRuleset *text_rules, std::string *refused)
+                               AsmPrinterRuleset *text_rules, std::string *error)
 {
     (void)rules;
     (void)target;
     (void)header;
     *text_rules = AsmPrinterRuleset{};
-    *refused = "the build has no device";
+    *error = "the build has no device";
     return 0;
 }
 

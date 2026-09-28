@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// tiff_io.c: refusals, file access and directory entries
+// tiff_io.c: errors, file access and directory entries
 #include "tiff_internal.h"
 
 int tiff_fail(TiffFile *file, const char *reason)

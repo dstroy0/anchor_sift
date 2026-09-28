@@ -5,8 +5,8 @@
 // residual of its parts shifted and added; each part's residual is the 16-bit volume path's, proved against the key.
 // So every lane of the planes path is checked against those sums, at 16, 34, 64 and 116 bits of input, on extents that
 // include a single voxel and a frame one voxel high, and on the tracker's own orders. Sixteen-bit planes give the
-// volume path's lanes exactly, a constant added to every reading changes no lane, a bit past the declared width refuses
-// and leaves the sweep usable, and a malformed request refuses. The test is one job on the device's tessera daemon,
+// volume path's lanes exactly, a constant added to every reading changes no lane, a bit past the declared width errors
+// and leaves the sweep usable, and a malformed request errors. The test is one job on the device's tessera daemon,
 // submitted before its first device work.
 #include "sim.h"
 #include "unit_sweep.h"
@@ -96,8 +96,8 @@ typedef struct
     unsigned long long nonzero;
     unsigned long long against_parts;
     unsigned long long against_constant;
-    unsigned long long after_refusal;
-    unsigned long long refused;
+    unsigned long long after_error;
+    unsigned long long error;
     unsigned long long over_width_asked;
 } PlanesTestResults;
 
@@ -272,16 +272,16 @@ static void planes_test_case(SimResults *results, const PlanesTestCase *test_cas
         1u << (test_case->input_bits % 32u);
     const long over_limit =
         planes_test_sweep(test_case, device, NULL, host->altered_planes, host->repeat_residual, &error);
-    const int refused = (over_limit == UNIT_SWEEP_ERROR) && (error.kind == ENGINE_ERROR_REQUEST) &&
+    const int errored = (over_limit == UNIT_SWEEP_ERROR) && (error.kind == ENGINE_ERROR_REQUEST) &&
                         (error.module == ENGINE_MODULE_UNIT_SWEEP);
-    sim_check(results, refused, "a bit past the declared width refuses as a request error from the unit sweep");
+    sim_check(results, errored, "a bit past the declared width errors as a request error from the unit sweep");
     counts->over_width_asked += 1ull;
-    counts->refused += refused ? 1ull : 0ull;
+    counts->error += errored ? 1ull : 0ull;
     const int swept = (planes_test_sweep(test_case, device, NULL, host->planes, host->repeat_residual, &error) == 0L);
-    const unsigned long long after_refusal =
+    const unsigned long long after_error =
         swept ? planes_test_differ(host->repeat_residual, host->residual, voxels, limbs) : voxels;
-    sim_check(results, swept && (after_refusal == 0ull), "after the refusal the same planes give the same lanes");
-    counts->after_refusal += after_refusal;
+    sim_check(results, swept && (after_error == 0ull), "after the error the same planes give the same lanes");
+    counts->after_error += after_error;
 }
 
 static int planes_test_reserve(PlanesTestDevice *device, PlanesTestHost *host)
@@ -363,12 +363,12 @@ static void planes_test_report(SimResults *results, const PlanesTestCase *test_c
     scriptura_decimal(&results->line, counts->against_parts, 1u);
     scriptura_text(&results->line, " differ from their parts, ");
     scriptura_decimal(&results->line, counts->against_constant, 1u);
-    scriptura_text(&results->line, " move under a constant; a bit past the width refused ");
-    scriptura_decimal(&results->line, counts->refused, 1u);
+    scriptura_text(&results->line, " move under a constant; a bit past the width errored ");
+    scriptura_decimal(&results->line, counts->error, 1u);
     scriptura_text(&results->line, " of ");
     scriptura_decimal(&results->line, counts->over_width_asked, 1u);
     scriptura_text(&results->line, ", ");
-    scriptura_decimal(&results->line, counts->after_refusal, 1u);
+    scriptura_decimal(&results->line, counts->after_error, 1u);
     scriptura_text(&results->line, " lanes differ after it\n");
     sim_flush(results);
 }
@@ -410,13 +410,13 @@ static void planes_test_widths(SimResults *results, const PlanesTestDevice *devi
     }
 }
 
-static int planes_test_refused(const UnitSweepRequest *request, const EngineError *error)
+static int planes_test_error(const UnitSweepRequest *request, const EngineError *error)
 {
     return (unit_sweep_residual(request) == UNIT_SWEEP_ERROR) && (error->kind == ENGINE_ERROR_REQUEST) &&
            (error->module == ENGINE_MODULE_UNIT_SWEEP);
 }
 
-static void planes_test_refusals(SimResults *results, const PlanesTestDevice *device)
+static void planes_test_errors(SimResults *results, const PlanesTestDevice *device)
 {
     PlanesTestCase test_case;
     memset(&test_case, 0, sizeof(test_case));
@@ -430,43 +430,43 @@ static void planes_test_refusals(SimResults *results, const PlanesTestDevice *de
     const int cleared =
         (cudaMemset(device->volume, 0, (size_t)test_case.voxels * sizeof(unsigned short)) == cudaSuccess) &&
         (cudaMemset(device->planes, 0, (size_t)test_case.voxels * 2u * sizeof(unsigned int)) == cudaSuccess);
-    sim_check(results, cleared, "the refusals' inputs are cleared on the device");
+    sim_check(results, cleared, "the errors' inputs are cleared on the device");
     EngineError error;
     UnitSweepRequest request;
     planes_test_request(&test_case, device, &request, &error);
     request.device_volume = device->volume;
     request.device_planes = device->planes;
     request.input_bits = test_case.input_bits;
-    sim_check(results, planes_test_refused(&request, &error), "a volume and planes both given refuse");
+    sim_check(results, planes_test_error(&request, &error), "a volume and planes both given error");
     planes_test_request(&test_case, device, &request, &error);
-    sim_check(results, planes_test_refused(&request, &error), "no input refuses");
+    sim_check(results, planes_test_error(&request, &error), "no input errors");
     planes_test_request(&test_case, device, &request, &error);
     request.device_planes = device->planes;
-    sim_check(results, planes_test_refused(&request, &error), "planes of no declared width refuse");
+    sim_check(results, planes_test_error(&request, &error), "planes of no declared width error");
     planes_test_request(&test_case, device, &request, &error);
     request.device_planes = device->planes;
     request.input_bits = 32u * test_case.limbs;
-    sim_check(results, planes_test_refused(&request, &error), "planes as wide as the residual's limbs refuse");
+    sim_check(results, planes_test_error(&request, &error), "planes as wide as the residual's limbs error");
     planes_test_request(&test_case, device, &request, &error);
     request.device_planes = device->planes;
     request.input_bits = test_case.input_bits;
     request.limbs = test_case.limbs - 1u;
-    sim_check(results, planes_test_refused(&request, &error), "a residual one limb short of its width refuses");
+    sim_check(results, planes_test_error(&request, &error), "a residual one limb short of its width errors");
     planes_test_request(&test_case, device, &request, &error);
     request.device_planes = device->planes;
     request.input_bits = test_case.input_bits;
     request.background_orders[1] = 3u;
-    sim_check(results, planes_test_refused(&request, &error), "an odd background order refuses");
+    sim_check(results, planes_test_error(&request, &error), "an odd background order errors");
     planes_test_request(&test_case, device, &request, &error);
     request.device_planes = device->planes;
     request.input_bits = test_case.input_bits;
     request.device_out = NULL;
-    sim_check(results, planes_test_refused(&request, &error), "no place for the residual refuses");
+    sim_check(results, planes_test_error(&request, &error), "no place for the residual errors");
     planes_test_request(&test_case, device, &request, &error);
     request.device_planes = device->planes;
     request.input_bits = test_case.input_bits;
     request.depth = 0u;
-    sim_check(results, planes_test_refused(&request, &error), "an empty extent refuses");
+    sim_check(results, planes_test_error(&request, &error), "an empty extent errors");
 }
 
 int main(int count, char **arguments)
@@ -485,7 +485,7 @@ int main(int count, char **arguments)
     if (passed)
     {
         planes_test_widths(&results, &device, &host);
-        planes_test_refusals(&results, &device);
+        planes_test_errors(&results, &device);
     }
     if (admitted != 0)
     {

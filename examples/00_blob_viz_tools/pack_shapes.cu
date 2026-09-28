@@ -295,7 +295,7 @@ int main(int argc, char **argv)
 
     /* Candidates are drawn a batch at a time and thrown away again, never held all at once. A pool
      * big enough to saturate a surface in nineteen dimensions is large and almost all of it is
-     * refused. Holding it costs memory to store points that were only ever going to be rejected.
+     * errored. Holding it costs memory to store points that were only ever going to be rejected.
      * Drawing fresh ones against a kept set that is already growing does the same work, keeps the
      * footprint at one batch, and lets the run stop when it stops finding anything and not when
      * a number chosen in advance runs out. */
@@ -307,7 +307,7 @@ int main(int argc, char **argv)
 
     if (cudaMalloc(&scratch, (size_t)batch * dims * sizeof(float)) != cudaSuccess)
     {
-        fprintf(stderr, "the device refused a batch at %d dimensions\n", dims);
+        fprintf(stderr, "the device errored on a batch at %d dimensions\n", dims);
         return 1;
     }
     cudaMalloc(&flags, (size_t)batch * sizeof(int));
@@ -343,7 +343,7 @@ int main(int argc, char **argv)
     int capacity = 300000;
     if (cudaMalloc(&kept, (size_t)capacity * dims * sizeof(float)) != cudaSuccess)
     {
-        fprintf(stderr, "the device refused memory for the kept set\n");
+        fprintf(stderr, "the device errored memory for the kept set\n");
         return 1;
     }
 

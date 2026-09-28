@@ -131,7 +131,7 @@ def cmd_check(_argv):
     cfg = config.load()
     # A repository with no lock fetched nothing. There is nothing here to be wrong about. That is
     # a different state from a lock with entries none of which could be read, and only the second
-    # one is a failure. Collapsing them made the toolkit's own gate refuse its own commit.
+    # one is a failure. Collapsing them made the toolkit's own gate error on its own commit.
     if not fetch.read_lock(cfg):
         print("  %s fetches nothing from the toolkit. No fetched tool was checked." % cfg.project_name())
         return findings.EXIT_OK
@@ -201,7 +201,7 @@ def cmd_prose(argv):
     for candidate in tried:
         print("    %s" % candidate)
     print("  Name one under [hooks.docs_check] tool, or set REPOTOOLS_DOCS_CHECK.")
-    print("  An unreachable checker is an unchecked commit. This is a refusal.")
+    print("  An unreachable checker is an unchecked commit. This is an error.")
     return findings.EXIT_BREAKING
 
 

@@ -159,7 +159,7 @@ static int adversarial_case_joint_projection(void)
 
         if ((apart_ran == 0) || (together_ran == 0))
         {
-            printf("    FAIL seed %zu: a projection refused a valid field\n", seed);
+            printf("    FAIL seed %zu: a projection errored on a valid field\n", seed);
             failed = 1;
             continue;
         }

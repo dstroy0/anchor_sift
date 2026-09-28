@@ -13,7 +13,7 @@
 #
 # One request for the whole range covers it. The archive is asked once. The NIST database is a
 # public service run by people; a second run costs it nothing, and this caches. No second run is
-# needed. The tool refuses on an empty or truncated response instead of writing a short file that a
+# needed. The tool errors on an empty or truncated response instead of writing a short file that a
 # later reader would take for the whole table.
 #
 # The database carries measured spectra to element 110. Elements 111 to 118 have no measured

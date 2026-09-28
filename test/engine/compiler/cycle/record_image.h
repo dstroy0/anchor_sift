@@ -27,13 +27,13 @@ static_assert(sizeof(CycleCompiledLaunch) <= (4u * RECORD_IMAGE_LAUNCH_WORDS),
 #define RECORD_IMAGE_LAUNCH_NUMBER 1ull
 
 // the image: its words, each address in it a byte offset from its first word; the records' address and words, and the
-// refusals' address
+// errors' address
 struct RecordImage
 {
     std::vector<unsigned int> memory;
     unsigned long long records;
     unsigned long long record_words;
-    unsigned long long refused;
+    unsigned long long error;
 };
 
 // `count` words laid out at the end of the image; their byte address
@@ -53,7 +53,7 @@ static void record_image_wide(std::vector<unsigned int> &memory, size_t offset, 
 }
 
 // the image of a program's HOST_TEST_LANES lanes: the launch at 0, laid out as CycleCompiledLaunch, then the members'
-// atoms, the index, the tables, the records, the refusals, the hot words and the program's block
+// atoms, the index, the tables, the records, the errors, the hot words and the program's block
 static RecordImage record_image(const EngineRecordLayout *layout, unsigned int *const *atoms,
                                 const unsigned long long *bodies, const unsigned int *index)
 {
@@ -79,7 +79,7 @@ static RecordImage record_image(const EngineRecordLayout *layout, unsigned int *
     }
     image.records = 4ull * memory.size();
     memory.resize(memory.size() + (size_t)image.record_words, 0u);
-    image.refused = 4ull * memory.size();
+    image.error = 4ull * memory.size();
     memory.push_back(0u);
     // the hot words and the program's block, each at an address of whole 64-bit words: the next lane 0, and the block
     // owned by the launch's number and told to run, as the host lays them out before the first launch
@@ -91,7 +91,7 @@ static RecordImage record_image(const EngineRecordLayout *layout, unsigned int *
     record_image_wide(memory, (size_t)block + offsetof(EngineProgramBlock, owner), RECORD_IMAGE_LAUNCH_NUMBER);
     record_image_wide(memory, (size_t)block + offsetof(EngineProgramBlock, command), ENGINE_PROGRAM_RUN);
     record_image_wide(memory, offsetof(CycleCompiledLaunch, out), image.records);
-    record_image_wide(memory, offsetof(CycleCompiledLaunch, refused), image.refused);
+    record_image_wide(memory, offsetof(CycleCompiledLaunch, error), image.error);
     record_image_wide(memory, offsetof(CycleCompiledLaunch, count), HOST_TEST_LANES);
     record_image_wide(memory, offsetof(CycleCompiledLaunch, hot), hot);
     record_image_wide(memory, offsetof(CycleCompiledLaunch, block), block);
@@ -100,7 +100,7 @@ static RecordImage record_image(const EngineRecordLayout *layout, unsigned int *
 }
 
 // the image and its line of places as a bench reads them: its words, the lanes, the records' address and words and the
-// refusals' address, then each word in hex
+// errors' address, then each word in hex
 static int record_image_write(const std::string &path, const RecordImage *image)
 {
     FILE *const file = fopen(path.c_str(), "wb");
@@ -109,7 +109,7 @@ static int record_image_write(const std::string &path, const RecordImage *image)
         return 0;
     }
     fprintf(file, "%zu %u %llu %llu %llu\n", image->memory.size(), HOST_TEST_LANES, image->records, image->record_words,
-            image->refused);
+            image->error);
     for (const unsigned int word : image->memory)
     {
         fprintf(file, "%08X\n", word);
@@ -117,9 +117,9 @@ static int record_image_write(const std::string &path, const RecordImage *image)
     return fclose(file) == 0;
 }
 
-// the refusals, the records' words and the clocks a bench wrote, the clocks 0 from a language that is not clocked; 0
+// the errors, the records' words and the clocks a bench wrote, the clocks 0 from a language that is not clocked; 0
 // where they cannot be read whole
-static int record_image_read(const std::string &path, const RecordImage *image, unsigned int *refused,
+static int record_image_read(const std::string &path, const RecordImage *image, unsigned int *error,
                              std::vector<unsigned int> &records, unsigned long long *clocks)
 {
     FILE *const file = fopen(path.c_str(), "rb");
@@ -128,7 +128,7 @@ static int record_image_read(const std::string &path, const RecordImage *image, 
         return 0;
     }
     records.assign((size_t)image->record_words, 0u);
-    int passed = fscanf(file, "%u", refused) == 1;
+    int passed = fscanf(file, "%u", error) == 1;
     for (unsigned long long at = 0ull; passed && (at < image->record_words); at += 1ull)
     {
         passed = fscanf(file, "%x", &records[(size_t)at]) == 1;
@@ -139,9 +139,9 @@ static int record_image_read(const std::string &path, const RecordImage *image, 
 }
 
 // a test's run of one program: the program, 1 where its registers are reused, its members' atoms and bodies, the
-// index or NULL, and 1 where the host must refuse it
+// index or NULL, and 1 where the host must error on it
 typedef void (*RecordImageRun)(void *context, const HostProgram *program, int reuse, unsigned int *const *atoms,
-                               const unsigned long long *bodies, const unsigned int *index, int refuses);
+                               const unsigned long long *bodies, const unsigned int *index, int errors);
 
 // every program record_host_test runs, drawn as it draws them, in its order, each handed to `run`
 static void record_image_programs(void *context, RecordImageRun run)

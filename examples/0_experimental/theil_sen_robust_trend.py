@@ -149,7 +149,7 @@ def main():
     out.write("  median lands on the truth while least-squares chases the far points -- that is the\n")
     out.write("  phase consensus again, over pairwise slopes instead of a phase class. the breakdown is\n")
     out.write("  floor B: a conspiracy whose pairs outnumber the clean ones makes the median follow the\n")
-    out.write("  wrong slope, the one accident a consensus cannot refuse -- the same shape as ROBIN's\n")
+    out.write("  wrong slope, the one accident a consensus cannot error -- the same shape as ROBIN's\n")
     out.write("  conspiring outliers winning the clique.\n")
     out.flush()
     ok = (ts_slope == true_slope) and (ls_slope != true_slope) and (cs == true_slope)

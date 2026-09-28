@@ -247,7 +247,7 @@ static unsigned int nifti_header(const unsigned char *bytes, unsigned long long 
     }
     if ((typed == 0u) || (bitpix != (8ull * built.sizes.element_bytes)))
     {
-        fprintf(stderr, "nifti: datatype %llu with bitpix %llu is refused\n", datatype, bitpix);
+        fprintf(stderr, "nifti: datatype %llu with bitpix %llu errors\n", datatype, bitpix);
         return 0u;
     }
     unsigned long long data_bytes = built.sizes.element_bytes;

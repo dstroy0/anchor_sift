@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # tessera_run against the host's daemon: the command's exit code handed on, the processors and the priority set on it,
 # its processors measured, a job that does not fit waiting for the one before it, two that fit running at once, the
-# refusals, and a command watched by a child tessera_run (as a WSL command always is): its pid confirmed against the
+# errors, and a command watched by a child tessera_run (as a WSL command always is): its pid confirmed against the
 # parent's record, and a parent killed or stopped found so by the child, which ends the command and logs it. Takes
 # tessera_run, tessera_burn and a scratch directory, and reads $TESSERA_STATE, where the records are kept.
 set -u
@@ -119,15 +119,15 @@ WAITED="$(thousandths "admitted after" s "$SCRATCH/second.err")"
 [ "$WAITED" -ge 0 ] && [ "$WAITED" -lt 500 ]
 check "two jobs of $PAIR that fit ran at once (the second waited $WAITED ms)" $?
 
-# 4: refusals
+# 4: errors
 "$RUN" --processors 999 -- "$BURN" 1 10 0 2> "$SCRATCH/many.err"
 STATUS=$?
 [ "$STATUS" -eq 125 ] && grep -q "asks 999 processors" "$SCRATCH/many.err"
-check "999 processors is refused with 125 ($STATUS)" $?
+check "999 processors errors with 125 ($STATUS)" $?
 "$RUN" --processors 1 "$BURN" 1 10 0 2> "$SCRATCH/usage.err"
 STATUS=$?
 [ "$STATUS" -eq 125 ]
-check "a command line with no -- is refused with 125 ($STATUS)" $?
+check "a command line with no -- errors with 125 ($STATUS)" $?
 "$RUN" --processors 1 -- tessera_no_such_command 2> "$SCRATCH/absent.err"
 STATUS=$?
 cat "$SCRATCH/absent.err"

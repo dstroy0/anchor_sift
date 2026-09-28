@@ -21,7 +21,7 @@
 # saying these spellings do.
 #
 # Pages are asked for fifty at a time, since asking one at a time would be twelve hundred requests, and
-# the pace is kept slow because this interface has refused this work several times tonight for asking too
+# the pace is kept slow because this interface has errored on this work several times tonight for asking too
 # quickly.
 
 import io
@@ -127,7 +127,7 @@ def main():
             time.sleep(PAUSE)
             if payload is None:
                 out.write(
-                    "  %-12s refused partway, keeping %d\n" % (language, len(said))
+                    "  %-12s errored partway, keeping %d\n" % (language, len(said))
                 )
                 break
             for page in payload.get("query", {}).get("pages", {}).values():

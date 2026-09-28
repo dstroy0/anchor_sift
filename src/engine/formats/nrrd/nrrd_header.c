@@ -62,7 +62,7 @@ static const NrrdSpace nrrd_spaces[] = {{"right-anterior-superior", 0u},
                                         {"3D-right-handed-time", 1u},
                                         {"3D-left-handed-time", 1u}};
 
-static const char *const nrrd_refused[] = {"bzip2", "bz2", "ascii", "text", "txt", "hex"};
+static const char *const nrrd_error[] = {"bzip2", "bz2", "ascii", "text", "txt", "hex"};
 
 unsigned int nrrd_fits_memory(unsigned long long bytes)
 {
@@ -207,7 +207,7 @@ unsigned int nrrd_type(NrrdSpan value, NrrdFields *fields)
             return 1u;
         }
     }
-    fprintf(stderr, "nrrd: type %.*s is refused\n", (int)value.length, value.text);
+    fprintf(stderr, "nrrd: type %.*s errors\n", (int)value.length, value.text);
     return 0u;
 }
 
@@ -223,8 +223,8 @@ unsigned int nrrd_encoding(NrrdSpan value, NrrdFields *fields)
         fields->encoding = NRRD_ENCODING_GZIP;
         return 1u;
     }
-    const unsigned int named = nrrd_listed(value, nrrd_refused, sizeof nrrd_refused / sizeof nrrd_refused[0u]);
-    fprintf(stderr, "nrrd: encoding %.*s is refused%s\n", (int)value.length, value.text, named ? "" : " as unknown");
+    const unsigned int named = nrrd_listed(value, nrrd_error, sizeof nrrd_error / sizeof nrrd_error[0u]);
+    fprintf(stderr, "nrrd: encoding %.*s errors%s\n", (int)value.length, value.text, named ? "" : " as unknown");
     return 0u;
 }
 

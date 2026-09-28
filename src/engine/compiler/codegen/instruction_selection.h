@@ -94,8 +94,8 @@ CODEGEN_CORE void codegen_put(MachineFunction *lane, const IrStep *at)
 
 // one step of the lane and its put, from the loop number the step begins at, which lane->loops holds; 0 for a step the
 // lane does not hold, which leaves the program to the C source. The step's temporaries, 64-bit temporaries and
-// predicates are its own from 0: what it took is lane->temps and lane->wides after it; lane->refuses is 1 where it
-// can leave the lane refused
+// predicates are its own from 0: what it took is lane->temps and lane->wides after it; lane->errors is 1 where it
+// can leave the lane errored
 CODEGEN_CORE int codegen_step(MachineFunction *lane, unsigned int at)
 {
     const IrProgram *const program = lane->program;
@@ -115,7 +115,7 @@ CODEGEN_CORE int codegen_step(MachineFunction *lane, unsigned int at)
     lane->temps = 0u;
     lane->wides = 0u;
     lane->predicates = 0u;
-    lane->refuses = 0u;
+    lane->errors = 0u;
     lane->atom_seen = 0u;
     codegen_instr2(lane, OPCODE_STEP_NOTE, codegen_number(at), codegen_number(operation));
     const int divides = (operation == ENGINE_RECORD_QUOTIENT) || (operation == ENGINE_RECORD_REMAINDER) ||

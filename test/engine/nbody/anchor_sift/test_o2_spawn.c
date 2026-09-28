@@ -30,7 +30,7 @@
  *
  *   NULL. A flat field matches the needle at every alignment. No probe prunes anything and the
  *   destroy rule ends the composition at depth zero with every alignment still standing. A field with
- *   no cheap condition refuses, it does not answer.
+ *   no cheap condition errors, it does not answer.
  *
  *   ANYTIME. Stopped early, before the target is isolated, the survivor set is still a superset that
  *   contains the target. Containment holds at every level because a probe only ever turns an
@@ -233,11 +233,11 @@ static int o2_case_found_past_cap(void)
 }
 
 /**
- * @brief Case 2. A flat field refuses: no probe prunes, and the composition stops at depth zero.
+ * @brief Case 2. A flat field errors: no probe prunes, and the composition stops at depth zero.
  *
  * @return 0 where nothing is pruned and no single survivor is claimed, 1 otherwise.
  */
-static int o2_case_flat_refuses(void)
+static int o2_case_flat_errors(void)
 {
     uint8_t *const corpus = (uint8_t *)malloc(O2_CORPUS);
     const size_t alignments = (O2_CORPUS - O2_NEEDLE) + 1u;
@@ -273,7 +273,7 @@ static int o2_case_flat_refuses(void)
         failed = 1;
     }
 
-    printf("  flat field refuses: %zu standing at depth %zu, verdict %s\n", left, depth,
+    printf("  flat field errors: %zu standing at depth %zu, verdict %s\n", left, depth,
            (failed == 0) ? "ok" : "FAILS");
     free(corpus);
     free(survivors);
@@ -424,7 +424,7 @@ int main(void)
     printf("\n  O2 COMPOSITION, a descent resuming from another descent's survivors.\n\n");
 
     failed += o2_case_found_past_cap();
-    failed += o2_case_flat_refuses();
+    failed += o2_case_flat_errors();
     failed += o2_case_anytime_superset();
     failed += o2_case_cost_boundary();
 

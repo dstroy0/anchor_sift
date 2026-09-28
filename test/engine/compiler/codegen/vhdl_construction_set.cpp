@@ -97,7 +97,7 @@ enum ConstructionKind
 static ConstructionKind construction_kind(const std::string &parameter)
 {
     static const char *const predicates[] = {"where", "also"};
-    static const char *const integers[] = {"bits", "offset", "at", "count", "state", "refused", "refusal"};
+    static const char *const integers[] = {"bits", "offset", "at", "count", "state", "error"};
     for (const char *const name : predicates)
     {
         if (parameter == name)

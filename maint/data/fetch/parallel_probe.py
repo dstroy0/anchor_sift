@@ -55,8 +55,8 @@ def main():
             else:
                 head = " | ".join(line.strip()[:90] for line in text.splitlines()[:3] if line.strip())
                 out.write("      begins: %s\n" % head[:220])
-        except urllib.error.HTTPError as refused:
-            out.write("  %-20s refused with %s\n" % (label, refused.code))
+        except urllib.error.HTTPError as error:
+            out.write("  %-20s errored with %s\n" % (label, error.code))
         except Exception as trouble:
             out.write("  %-20s failed: %s\n" % (label, trouble))
         out.flush()

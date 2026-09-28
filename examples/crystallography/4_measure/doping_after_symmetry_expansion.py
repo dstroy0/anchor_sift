@@ -140,7 +140,7 @@ def main():
 
     read = 0
     with_ops = 0
-    refused = 0
+    error = 0
     held_back = 0
     skipped_sites = 0
     before_total = 0
@@ -168,8 +168,8 @@ def main():
         try:
             ops = symmetry.operations(text)
         except symmetry.WillNotDivide:
-            # Refused and not rounded. The entry is counted and left out of the totals.
-            refused += 1
+            # Errored and not rounded. The entry is counted and left out of the totals.
+            error += 1
             continue
         if len(ops) > 1:
             with_ops += 1
@@ -213,7 +213,7 @@ def main():
     out.write("\n  %d entries read, %.0fs\n" % (read, time.time() - started))
     out.write("  publishing operations                    %d\n" % with_ops)
     out.write(
-        "  refused, a denominator not dividing %d   %d\n" % (symmetry.UNITS, refused)
+        "  errored, a denominator not dividing %d   %d\n" % (symmetry.UNITS, error)
     )
     out.write(
         "  held back, over %d placements        %d\n" % (MOST_PLACEMENTS, held_back)

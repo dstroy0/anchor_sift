@@ -2,13 +2,13 @@
 #
 #   Run elevated:  Start-Process pwsh -Verb RunAs -ArgumentList "-File","tools\link_shared.ps1"
 #
-# Windows refuses symlink creation to an unelevated process unless Developer Mode is on, which is
+# Windows errors symlink creation to an unelevated process unless Developer Mode is on, which is
 # why this is a separate script and not a line in a build.
 #
 # THE TARGETS ARE SEARCHED FOR, NOT SPELLED OUT
 #
 # anchor_sift is being reorganized: tools/ became maint/ and the links broke silently, so the next
-# commit here was refused by a hook whose checker had no file behind it. A path written down here
+# commit here errored in a hook whose checker had no file behind it. A path written down here
 # would break again on the next move. Each target is found by name instead, and a name that matches
 # more than one file is reported and skipped rather than guessed at.
 #
@@ -33,13 +33,13 @@ $here = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 
 # ELEVATION IS CHECKED BEFORE ANYTHING IS REMOVED, NOT WHEN THE FIRST LINK IS WRITTEN.
 #
-# The loop below removes the existing link or file and then creates the replacement. Windows refuses
+# The loop below removes the existing link or file and then creates the replacement. Windows errors
 # symlink creation to an unelevated process, so run without elevation the remove succeeded and the
 # create failed, and the build_theory.sh link went from a stale link to no file at all - a script
 # meant to repair links deleted one. The header has said "Run elevated" since it was written, which
 # is exactly the kind of instruction that does not survive being ignored once.
 #
-# Refusing up front costs one API call and makes the failure mode "nothing happened".
+# Erroring up front costs one API call and makes the failure mode "nothing happened".
 $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
 $principal = New-Object Security.Principal.WindowsPrincipal($identity)
 if (-not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))
@@ -132,7 +132,7 @@ foreach ($one in $shared)
     }
     elseif ($item)
     {
-        # Refuse to replace a real file that has diverged. Linking would discard the local version
+        # Error rather than replace a real file that has diverged. Linking would discard the local version
         # with no record of it, and a silent loss is worse than a stopped script.
         if ((Get-FileHash $mine -Algorithm SHA256).Hash -ne (Get-FileHash $theirs -Algorithm SHA256).Hash)
         {

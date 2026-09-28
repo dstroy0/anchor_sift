@@ -4,7 +4,7 @@ krs 1
 # thread is word p . threads + thread of cycle_words, and its sign the byte at sign_base + p . threads, past every
 # place's word: a lane's frame holds only its own temporaries. The other banks are the lane's own arrays, each
 # indexed only by numbers the text names; the compiler holds them as registers. A carry chain passes its carry in
-# the variable carry through cycle_c_add and cycle_c_subtract, which the lane's opening defines; a refusal and a loop
+# the variable carry through cycle_c_add and cycle_c_subtract, which the lane's opening defines; an error and a loop
 # are a goto, and a lane that is done returns. A word's value is an unsigned 32-bit literal.
 ruleset c
 toolchain nvrtc
@@ -60,10 +60,10 @@ form shared_open =     thread = threadIdx.x;\n    threads = blockDim.x;\n    sig
 form shared_close =
 form guarded_load where to address =     if ({where})\n    {\n        {to} = *(const u32 *){address};\n    }\n
 form guarded_widen where to from =     if ({where})\n    {\n        {to} = (u64){from};\n    }\n
-form open_refused_unless where =     if (!{where})\n    {\n        goto refused_open;\n    }\n
-form refuse where at =     if ({where})\n    {\n        goto refused{at};\n    }\n
-form label_refused_open = refused_open:\n
-form label_refused at = refused{at}:\n
+form open_error_unless where =     if (!{where})\n    {\n        goto error_open;\n    }\n
+form error where at =     if ({where})\n    {\n        goto error{at};\n    }\n
+form label_error_open = error_open:\n
+form label_error at = error{at}:\n
 form count_add address =     atomicAdd((u32 *){address}, 1u);\n
 form return =     return;\n
 form step_note at operation =     // step {at}, operation {operation}\n
@@ -141,9 +141,9 @@ form record_store offset from =     *(u32 *)(record_address + {offset}ull) = {fr
 form states_declare count =
 form state_start state =
 form state_open state =
-form state_next state refused =
+form state_next state error =
 form state_exit =
-form dispatch_to refusal state =
+form dispatch_to error state =
 
 # a memory read's address named a state ahead of the read (vhdl.krs); a C load names its address itself
 form launch_ask offset =

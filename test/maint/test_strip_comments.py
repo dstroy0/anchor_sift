@@ -8,8 +8,8 @@
 #
 # Every expected output below was written by reading the input, not by running the tool. A
 # defect in the tool cannot also be a defect in its expectation. The negative controls are inputs
-# the tool must refuse. A check that has never refused anything cannot be told apart from one that
-# refuses nothing, and these are what show the refusals fire.
+# the tool must error. A check that has never errored on anything cannot be told apart from one that
+# errors nothing, and these are what show the errors fire.
 
 import os
 import sys
@@ -83,8 +83,8 @@ C_IN = 'int a; // x\n/* y\n z */ int b = "//s";\n'
 C_OUT = 'int a;\n\n int b = "//s";\n'
 
 
-def refusal(text, suffix):
-    """The reason rewrite refuses the text, or an empty string where it accepts it."""
+def error(text, suffix):
+    """The reason rewrite errors on the text, or an empty string where it accepts it."""
     try:
         strip_comments.rewrite(text, False, suffix)
     except (ValueError, SyntaxError) as why:
@@ -110,14 +110,14 @@ def main():
     grade("c: line and block comments, literal kept",
           strip_comments.rewrite(C_IN, False, ".c"), C_OUT)
 
-    # Negative controls. Each must be refused by the check its name gives, and the refusal message
+    # Negative controls. Each must error in the check its name gives, and the error message
     # is matched to confirm that check fired and not some other one.
-    grade("refuses a docstring sharing its line with code (line test)",
-          "shares its line with code" in refusal('x = 1; "doc"\n', ".py"), True)
-    grade("refuses a string the blank collapse would change (tree test)",
-          "different tree" in refusal('TEMPLATE = """a\n\n\nb"""\n', ".py"), True)
-    grade("refuses a script bash -n rejects (bash -n test)",
-          "bash -n refuses" in refusal("#!/usr/bin/env bash\nif true; then\n", ".sh"), True)
+    grade("errors on a docstring sharing its line with code (line test)",
+          "shares its line with code" in error('x = 1; "doc"\n', ".py"), True)
+    grade("errors on a string the blank collapse would change (tree test)",
+          "different tree" in error('TEMPLATE = """a\n\n\nb"""\n', ".py"), True)
+    grade("errors on a script bash -n rejects (bash -n test)",
+          "bash -n errors" in error("#!/usr/bin/env bash\nif true; then\n", ".sh"), True)
 
     # A second pass over a stripped file changes nothing.
     grade("python strip is idempotent",

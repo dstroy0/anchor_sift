@@ -10,7 +10,7 @@
 
 [project]
 # name has no default. A generated header with no project name in it is a header that is wrong in
-# every repository at once. The loader refuses instead of guessing.
+# every repository at once. The loader errors instead of guessing.
 version = ""
 spdx = ""
 copyright = "Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>"
@@ -31,7 +31,7 @@ tests = ["test"]
 # One key carrying both meanings made a guard impossible to write. A directory holding only a .c file
 # and a .toml manifest sat under `tests`. A run of pytest over that list collected nothing, exited
 # 5, and would have reported success forever: nothing was missing and nothing was malformed. The
-# absent-root refusal and the discoverability fix both slid past it. Splitting the key is what makes
+# absent-root error and the discoverability fix both slid past it. Splitting the key is what makes
 # a zero collection unambiguous.
 fixtures = []
 tools = "tools"

@@ -41,7 +41,7 @@ extern "C"
     // The bytes shift_agreement_run keeps on the device after it returns, for `axes` extents: one pool of the before
     // and after words and the four transform volumes, and beside it the negation and root tables, rounded up to the
     // page together. Root tables kept from lengths of earlier runs are the process's standing and are not counted. 0
-    // for extents the run refuses.
+    // for extents the run errors.
     SHIFT_AGREEMENT_EXPORT unsigned long long shift_agreement_reserve_bytes(unsigned int axes,
                                                                             const unsigned int *extents);
 

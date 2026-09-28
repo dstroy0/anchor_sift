@@ -20,7 +20,7 @@ The converse does not hold for any proper subset. The exact compare is irreducib
 
 An anchor is a condition copied out of the pattern. A position genuinely holding the pattern therefore satisfies every anchor, whatever chose it. What the rule moves is how many false candidates survive, which is cost.
 
-`bench/bench_lattice.c` measures exactly that separation: 3,421 rows, 465,546 true occurrences, none refused, across alphabets of 2 to 256 symbols, patterns of 1 to 32 points, 1 to 32 anchors, dimensions 1 through 8, a complex irrational alphabet compared over its storage, a rotated point set, a scatter, and an unordered base list. The refusal column reads `hold` on every row while the candidate column moves with the rule, the count and the geometry. The two columns are graded to different standards: a refusal is a defect, a candidate count is a cost.
+`bench/bench_lattice.c` measures exactly that separation: 3,421 rows, 465,546 true occurrences, none errored, across alphabets of 2 to 256 symbols, patterns of 1 to 32 points, 1 to 32 anchors, dimensions 1 through 8, a complex irrational alphabet compared over its storage, a rotated point set, a scatter, and an unordered base list. The error column reads `hold` on every row while the candidate column moves with the rule, the count and the geometry. The two columns are graded to different standards: an error is a defect, a candidate count is a cost.
 
 ## What the rules trade
 

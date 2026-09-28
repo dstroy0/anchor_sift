@@ -48,16 +48,16 @@ int main(void)
     const unsigned int at_prime[2] = {32768u, 32768u};
     const unsigned int over_limit_total[2] = {40000u, 20000u};
     const unsigned int nine[9] = {1u, 1u, 1u, 1u, 1u, 1u, 1u, 1u, 1u};
-    agreement_test_check(&results, shift_agreement_reserve_bytes(0u, frame) == 0ull, "no axes is refused");
-    agreement_test_check(&results, shift_agreement_reserve_bytes(9u, nine) == 0ull, "nine axes is refused");
-    agreement_test_check(&results, shift_agreement_reserve_bytes(1u, NULL) == 0ull, "no extents is refused");
-    agreement_test_check(&results, shift_agreement_reserve_bytes(1u, empty) == 0ull, "an extent of 0 is refused");
+    agreement_test_check(&results, shift_agreement_reserve_bytes(0u, frame) == 0ull, "no axes errors");
+    agreement_test_check(&results, shift_agreement_reserve_bytes(9u, nine) == 0ull, "nine axes errors");
+    agreement_test_check(&results, shift_agreement_reserve_bytes(1u, NULL) == 0ull, "no extents errors");
+    agreement_test_check(&results, shift_agreement_reserve_bytes(1u, empty) == 0ull, "an extent of 0 errors");
     agreement_test_check(&results, shift_agreement_reserve_bytes(1u, over_limit) == 0ull,
-                         "an extent past 2^22 is refused");
+                         "an extent past 2^22 errors");
     agreement_test_check(&results, shift_agreement_reserve_bytes(2u, at_prime) == 0ull,
-                         "2^30 voxels, past the prime, is refused");
+                         "2^30 voxels, past the prime, errors");
     agreement_test_check(&results, shift_agreement_reserve_bytes(2u, over_limit_total) == 0ull,
-                         "a padded total of 2^17 x 2^16, past 2^31 - 1, is refused");
+                         "a padded total of 2^17 x 2^16, past 2^31 - 1, errors");
 
     printf("  shift_agreement hold test: %u checks, %u failed\n", results.checks, results.failures);
     return (results.failures == 0u) ? 0 : 1;

@@ -55,7 +55,7 @@ int qasm_cos_sin(QasmParser *parser, const QasmAngle *angle, AnchorExactInteger 
     const unsigned long long turns_count = qasm_exact_small(&turns);
     if ((turns_count == ~0ull) || (turns_count > (1ull << 40u)))
     {
-        qasm_refuse(parser, &parser->tokens[parser->at], "an angle past 2^40 turns is not read");
+        qasm_error(parser, &parser->tokens[parser->at], "an angle past 2^40 turns is not read");
         return 0;
     }
     error += 2ull * (turns_count + 1ull);
@@ -217,7 +217,7 @@ int qasm_fixed_round(QasmParser *parser, const AnchorExactInteger *value, long l
     }
     if (magnitude > ((1ull << QASM_FRACTION_BITS) + 1ull))
     {
-        qasm_refuse(parser, &parser->tokens[parser->at], "an entry left the unit disc");
+        qasm_error(parser, &parser->tokens[parser->at], "an entry left the unit disc");
         return 0;
     }
     const int negative = (value->sign < 0);

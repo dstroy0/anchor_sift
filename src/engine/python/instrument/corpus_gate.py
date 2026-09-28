@@ -165,7 +165,7 @@ def load(path, cap=None, clean=True, floor=FLOOR):
         return text, "%s: %.3f its own writing" % (os.path.basename(path), share)
     if share < floor:
         if not clean:
-            return None, ("%s: only %.3f its own writing, below %.2f, refused"
+            return None, ("%s: only %.3f its own writing, below %.2f, errored"
                           % (os.path.basename(path), share, floor))
         kept = strip_foreign(text, wanted)
         return kept, ("%s: only %.3f its own writing, cut to it, %d characters left"

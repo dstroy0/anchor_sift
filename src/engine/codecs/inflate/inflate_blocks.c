@@ -231,7 +231,7 @@ static unsigned long long inflate_skip_string(const unsigned char *bytes, unsign
     return (cursor < available) ? (cursor + 1ull) : 0ull;
 }
 
-static long long inflate_refuse(const EngineBytesRequest *request, unsigned long long touched)
+static long long inflate_error(const EngineBytesRequest *request, unsigned long long touched)
 {
     if (touched != 0ull)
     {
@@ -245,7 +245,7 @@ long long inflate_raw_decode(const EngineBytesRequest *request)
     InflateStream stream = {request->in, request->in_bytes, 0ull, 0ull, 0u, request->out, request->out_capacity, 0ull};
     if (!inflate_blocks(&stream) || (stream.at != stream.in_bytes))
     {
-        return inflate_refuse(request, stream.written);
+        return inflate_error(request, stream.written);
     }
     return (long long)stream.written;
 }
@@ -268,14 +268,14 @@ long long inflate_zlib_decode(const EngineBytesRequest *request)
                             request->out,     request->out_capacity,    0ull};
     if (!inflate_blocks(&stream) || ((stream.in_bytes - stream.at) != 4ull))
     {
-        return inflate_refuse(request, stream.written);
+        return inflate_error(request, stream.written);
     }
     const unsigned char *const trailer = stream.in + stream.at;
     const unsigned int stored = ((unsigned int)trailer[0u] << 24u) | ((unsigned int)trailer[1u] << 16u) |
                                 ((unsigned int)trailer[2u] << 8u) | (unsigned int)trailer[3u];
     if (stored != inflate_adler(stream.out, stream.written))
     {
-        return inflate_refuse(request, stream.written);
+        return inflate_error(request, stream.written);
     }
     return (long long)stream.written;
 }
@@ -370,7 +370,7 @@ long long inflate_gzip_decode(const EngineBytesRequest *request)
     }
     if (!ok)
     {
-        return inflate_refuse(request, total);
+        return inflate_error(request, total);
     }
     return (long long)total;
 }

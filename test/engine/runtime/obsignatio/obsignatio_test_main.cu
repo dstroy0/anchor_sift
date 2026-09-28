@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// obsignatio_test_main.cu: device refusals, staging, the report and main
+// obsignatio_test_main.cu: device errors, staging, the report and main
 #include "obsignatio_test_internal.h"
 
 #if !(defined(__CUDACC__))
-// with no device, a request for device memory is refused as a resource the part lacks, and one with no error is refused
-static void test_device_refused(TestResults *results)
+// with no device, a request for device memory errors as a resource the part lacks, and one with no error errors
+static void test_device_error(TestResults *results)
 {
     unsigned char bytes[OBSIGNATIO_SIGNUM_BYTES] = {0};
     unsigned char signa[OBSIGNATIO_SIGNUM_BYTES];
@@ -160,11 +160,11 @@ int main(int argc, char **argv)
     TestResults tallies[] = {{"host vectors", 0ull, 0ull, 0ull},
                              {"level keys", 0ull, 0ull, 0ull},
                              {"seal", 0ull, 0ull, 0ull},
-                             {"device refused", 0ull, 0ull, 0ull}};
+                             {"device errored", 0ull, 0ull, 0ull}};
     test_host_vectors(&vectors, pattern, context_key, &tallies[0]);
     test_level_keys(&tallies[1]);
     test_seal(pattern, &tallies[2]);
-    test_device_refused(&tallies[3]);
+    test_device_error(&tallies[3]);
 #endif
     const unsigned int count = (unsigned int)(sizeof(tallies) / sizeof(tallies[0]));
     const int reported = test_report(tallies, count, argv[1]);

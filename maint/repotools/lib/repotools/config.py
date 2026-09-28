@@ -181,7 +181,7 @@ class Config:
         )
 
     def existing(self, roots):
-        """The subset of `roots` present on disk, and a refusal when every one of them is absent.
+        """The subset of `roots` present on disk, and an error when every one of them is absent.
 
         A root that no longer exists contributes zero files and lets a run exit 0. A docs check once
         read 188 files instead of 317 that way, and reported success on every commit.

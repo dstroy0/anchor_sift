@@ -12,8 +12,8 @@
 # survive, and that is cost.
 #
 # The C side measures this directly: three rules that share nothing, a sweep of one to eight anchors
-# over fourteen geometries. The refusal column reads hold on every row while the candidate column
-# moves with the rule. The two columns are graded to different standards: a refusal is a defect, a
+# over fourteen geometries. The error column reads hold on every row while the candidate column
+# moves with the rule. The two columns are graded to different standards: an error is a defect, a
 # candidate count is a cost.
 #
 # What the rules trade against each other, measured. Taking the rarest symbols in the needle is the

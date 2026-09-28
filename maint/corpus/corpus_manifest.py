@@ -93,7 +93,7 @@ BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
 # .claude is the same case again and it arrived the way the others did, by something new appearing
 # beside the corpus and not inside it. A linked git worktree is created under .claude/worktrees/
 # and is a full checkout. Every file of the corpus shows up a second time at a path the inventory
-# does not list. The gate then reads an entire second corpus as unrecorded and refuses every commit,
+# does not list. The gate then reads an entire second corpus as unrecorded and errors on every commit,
 # including the commit that would have recorded anything. It is not corpus content: it is a working
 # copy of content already inventoried at its real path.
 IGNORED = (

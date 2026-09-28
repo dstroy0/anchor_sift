@@ -89,7 +89,7 @@ def findings_in(path, regions=None):
 # ============================================================================
 
 
-class EveryExclusionRefusesAndSaysSo(unittest.TestCase):
+class EveryExclusionErrorsAndSaysSo(unittest.TestCase):
     """A skip that says nothing is the failure this whole section exists against.
 
     A skip that prints nothing and a tree with nothing to skip look the same from outside, and a
@@ -265,7 +265,7 @@ class VerbatimThirdPartyIsANamedConcept(unittest.TestCase):
 # ============================================================================
 
 
-class SignedManifestsAreRefusedAndNeverSkipped(unittest.TestCase):
+class SignedManifestsErrorAndAreNeverSkipped(unittest.TestCase):
     """The most dangerous exclusion here, and the only one whose cost is not a question of taste.
 
     Changing one byte of a hashed file makes its hash wrong, fails the reconcile the corpus runs
@@ -317,24 +317,24 @@ class SignedManifestsAreRefusedAndNeverSkipped(unittest.TestCase):
             signature = where + dc.SIGNATURE_SUFFIX
             self.assertTrue(
                 os.path.isfile(signature),
-                "%s is attested by nothing. The refusal has no force" % name,
+                "%s is attested by nothing. The error has no force" % name,
             )
             signed.append(name)
         print("  signed manifests present: %s" % ", ".join(signed))
         self.assertGreater(len(signed), 1)
 
-    def test_a_listed_path_is_refused_for_rewriting_and_the_manifest_is_named(self):
+    def test_a_listed_path_is_error_for_rewriting_and_the_manifest_is_named(self):
         listed = sorted(dc.manifest_index(CORPUS))
         readable = [one for one in listed if dc.checked_file(one)]
         if not readable:
             self.skipTest("nothing attested carries an extension this tool reads")
         where = os.path.join(CORPUS, readable[0].replace("/", os.sep))
-        why = dc.fix_refusal(where, "alphabet")
+        why = dc.fix_error(where, "alphabet")
         self.assertIsNotNone(why, "an attested path is never rewritten")
-        self.assertIn("MANIFEST", why, "and the refusal names the manifest")
+        self.assertIn("MANIFEST", why, "and the error names the manifest")
         self.assertIn(".asc", why, "and the signature that would be invalidated")
 
-    def test_the_refusal_carries_the_reconcile_command_from_the_manifest_itself(self):
+    def test_the_error_carries_the_reconcile_command_from_the_manifest_itself(self):
         """Lifted from the manifest header. It cannot drift from the tool that maintains it."""
         said = dc.reconcile_command(self.manifest)
         print("  reconcile command, as the manifest states it: %s" % said)
@@ -346,7 +346,7 @@ class SignedManifestsAreRefusedAndNeverSkipped(unittest.TestCase):
         )
 
     def test_reading_is_not_writing(self):
-        """A listed file is read and reported like any other. Only the rewrite is refused.
+        """A listed file is read and reported like any other. Only the rewrite errors.
 
         Reporting changes no bytes. There is nothing for the hashes to disagree with, and a
         corpus that goes unread is a corpus nobody can check.
@@ -367,11 +367,11 @@ class SignedManifestsAreRefusedAndNeverSkipped(unittest.TestCase):
         # prose_only answers for an attested file exactly as it answers for any other.
         self.assertEqual(len(dc.prose_only(where, lines)), len(lines))
 
-    def test_an_unlisted_path_in_the_same_tree_is_not_refused_on_that_ground(self):
+    def test_an_unlisted_path_in_the_same_tree_is_not_error_on_that_ground(self):
         where = os.path.join(CORPUS, "README.md")
         if not os.path.isfile(where):
             self.skipTest("the corpus README is not in this checkout")
-        why = dc.fix_refusal(where, "alphabet")
+        why = dc.fix_error(where, "alphabet")
         if why:
             self.assertNotIn("attested", why)
 
@@ -651,8 +651,8 @@ class GeneratedRegionsAreAttributedAndNeverSuppressed(unittest.TestCase):
             len(named), 0, "and at least one of them names its generator"
         )
 
-    def test_a_site_inside_a_region_is_refused_for_rewriting(self):
-        why = dc.fix_refusal("a/page.md", "alphabet", 4, {4: "gen_sections.py"})
+    def test_a_site_inside_a_region_is_error_for_rewriting(self):
+        why = dc.fix_error("a/page.md", "alphabet", 4, {4: "gen_sections.py"})
         self.assertIsNotNone(why)
         self.assertIn("gen_sections.py", why)
         self.assertIn(
@@ -756,7 +756,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
         )
         self.assertEqual(silenced, 0)
 
-    def test_the_standards_rule_is_a_rewrite_refusal_and_not_a_scan_exemption(self):
+    def test_the_standards_rule_is_a_rewrite_error_and_not_a_scan_exemption(self):
         """Measured out and not kept, and the measurement is the reason.
 
         Exempting a run for naming a standard silenced 1,733 findings in one tree unbounded and 20
@@ -772,7 +772,7 @@ class TheSubjectIsTheConvention(unittest.TestCase):
             any(one.startswith("definition") for one in found),
             "naming a standard does not turn the convention stage off",
         )
-        why = dc.fix_refusal("a/file.c", "alphabet", line=said[0])
+        why = dc.fix_error("a/file.c", "alphabet", line=said[0])
         self.assertIsNotNone(why, "but the line is never rewritten")
         self.assertIn("standard", why)
 
@@ -797,9 +797,9 @@ class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
             "read code-documentation:110 and :146 before widening this",
         )
 
-    def test_every_construction_tier_is_refused_with_the_sections_that_say_so(self):
+    def test_every_construction_tier_is_error_with_the_sections_that_say_so(self):
         for tier in ("A", "B"):
-            why = dc.fix_refusal("a/file.md", tier)
+            why = dc.fix_error("a/file.md", tier)
             self.assertIsNotNone(why)
             self.assertIn("code-documentation:110", why)
             self.assertIn(":146", why)
@@ -807,7 +807,7 @@ class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
 
     def test_a_plain_convention_finding_is_allowed(self):
         self.assertIsNone(
-            dc.fix_refusal(os.path.join(HERE, "nothing_special.md"), "alphabet")
+            dc.fix_error(os.path.join(HERE, "nothing_special.md"), "alphabet")
         )
 
     def test_the_two_tier_line_splits(self):
@@ -830,7 +830,7 @@ class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
             if at != 12:
                 continue
             tier = dc.tier_of(pattern)
-            verdicts[token.lower()] = dc.fix_refusal(where, tier, at, {}, lines[at - 1])
+            verdicts[token.lower()] = dc.fix_error(where, tier, at, {}, lines[at - 1])
         print(
             "\n  idemIP strip_comments.py:12 at %s: %s"
             % (ref_of(IDEMIP), sorted(verdicts))
@@ -845,7 +845,7 @@ class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
         )
 
     def test_a_line_carrying_a_normative_keyword_is_never_rewritten(self):
-        why = dc.fix_refusal(
+        why = dc.fix_error(
             "a/file.c",
             "alphabet",
             line="// The sender MUST NOT retransmit the initialised segment.",
@@ -856,12 +856,12 @@ class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
     def test_the_normative_keyword_test_is_case_sensitive(self):
         """ "this may be null" is prose. "the sender MAY retransmit" is a requirement."""
         self.assertIsNone(
-            dc.fix_refusal(
+            dc.fix_error(
                 os.path.join(HERE, "plain.md"), "alphabet", line="the value may be null"
             )
         )
         self.assertIsNotNone(
-            dc.fix_refusal("a/file.c", "alphabet", line="the sender MAY retransmit")
+            dc.fix_error("a/file.c", "alphabet", line="the sender MAY retransmit")
         )
 
     def test_the_source_states_the_limit_where_a_maintainer_will_look_for_it(self):
@@ -945,7 +945,7 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
         said = self.run_on("--fix", where)
         self.assertEqual(open(where, "rb").read(), before, "--fix wrote to the tree")
         self.assertIn("plan only", said)
-        self.assertIn("REFUSED", said)
+        self.assertIn("ERROR", said)
         self.assertIn("would rewrite", said)
 
     def test_the_fix_plan_prints_the_reconcile_command_in_a_tree_carrying_a_manifest(

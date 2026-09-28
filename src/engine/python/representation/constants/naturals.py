@@ -18,7 +18,7 @@
 # far as it wants to wait. A float never appears. A display at some fixed width is the caller's boundary,
 # taken from this integer, and it is not stored here.
 #
-# Each public function computes both of its routes and refuses to return unless they agree at the
+# Each public function computes both of its routes and errors rather than return unless they agree at the
 # requested precision. That is the positive control run on every call: a route with a bug, or a series
 # stopped too early, disagrees with the other and raises instead of returning a wrong digit. The drawn
 # null lives in the posit beside this file (evidence/proofs/posits/proof_constants_two_routes.py), which

@@ -219,7 +219,7 @@ def main():
     out.write("  %d files, %.1f GB, into %s\n" % (len(rows), wanted_mb / 1024.0, OUT))
     out.write("  %.1f GB free on that volume.\n\n" % (free_mb / 1024.0))
     if wanted_mb > free_mb:
-        out.write("  REFUSED: that does not fit, short by %.1f GB.\n"
+        out.write("  ERROR: that does not fit, short by %.1f GB.\n"
                   % ((wanted_mb - free_mb) / 1024.0))
         out.write("  Narrow the selection with --skip, or free space first. Nothing was fetched.\n")
         out.flush()

@@ -62,7 +62,7 @@ def kabsch(mobile, target):
     """Superpose `mobile` onto `target` by the optimal rigid motion, and return the moved points.
 
     Kabsch 1976 (Acta Cryst A32:922), the SVD form with the determinant-sign correction that keeps
-    the motion a rotation and refuses the reflection a raw SVD would take when the two are of
+    the motion a rotation and errors on the reflection a raw SVD would take when the two are of
     opposite hand.
     """
     m_center = mobile.mean(axis=0)

@@ -2035,8 +2035,8 @@ EV.defaultView = () => {
   return view;
 };
 
-// Checks one value against its rule; returns the reason it is refused, or null.
-EV.refuseValue = (rule, value) => {
+// Checks one value against its rule; returns the reason it errors, or null.
+EV.errorValue = (rule, value) => {
   const integer = (one) => Number.isInteger(one) && one >= rule.low && one <= rule.high;
   if (rule.kind === "integer") {
     return integer(value) ? null : `an integer from ${rule.low} to ${rule.high}`;
@@ -2061,28 +2061,28 @@ EV.refuseValue = (rule, value) => {
   return Array.isArray(value) && value.every(integer) ? null : "a list of cell numbers";
 };
 
-// Applies a view section over a view. Returns what was applied and what was refused, by name.
+// Applies a view section over a view. Returns what was applied and what errored, by name.
 EV.applyView = (view, section) => {
   const applied = [];
-  const refused = [];
+  const errored = [];
   if (!section || typeof section !== "object" || Array.isArray(section)) {
-    return { applied, refused: ["view: an object of name to value"] };
+    return { applied, errored: ["view: an object of name to value"] };
   }
   for (const [name, value] of Object.entries(section)) {
     const rule = EV.VIEW_SCHEME[name];
     if (!rule) {
-      refused.push(`${name}: the view has no such setting`);
+      errored.push(`${name}: the view has no such setting`);
       continue;
     }
-    const reason = EV.refuseValue(rule, value);
+    const reason = EV.errorValue(rule, value);
     if (reason) {
-      refused.push(`${name}: ${reason}`);
+      errored.push(`${name}: ${reason}`);
       continue;
     }
     view[name] = Array.isArray(value) ? value.map((one) => (one && typeof one === "object" ? { ...one } : one)) : value;
     applied.push(name);
   }
-  return { applied, refused };
+  return { applied, errored };
 };
 
 // The whole .cfg: the object's own sections as the tracker wrote them, with the page's view in place of its view.
@@ -2121,24 +2121,24 @@ EV.parseCfg = (text) => {
   try {
     cfg = JSON.parse(text);
   } catch (error) {
-    return { refused: [`that is not JSON: ${error.message}`] };
+    return { errored: [`that is not JSON: ${error.message}`] };
   }
   if (!cfg || typeof cfg !== "object" || Array.isArray(cfg)) {
-    return { refused: ["a .cfg is one object"] };
+    return { errored: ["a .cfg is one object"] };
   }
-  const refused = [];
+  const errored = [];
   if (cfg.scheme !== undefined && cfg.scheme !== "cell_tracking.cfg") {
-    refused.push("scheme: always cell_tracking.cfg");
+    errored.push("scheme: always cell_tracking.cfg");
   }
   if (cfg.version !== undefined && cfg.version !== 1) {
-    refused.push("version: this page reads version 1");
+    errored.push("version: this page reads version 1");
   }
   for (const name of Object.keys(cfg)) {
     if (!["scheme", "version", "track", "input", "output", "view"].includes(name)) {
-      refused.push(`${name}: a .cfg has scheme, version, track, input, output and view`);
+      errored.push(`${name}: a .cfg has scheme, version, track, input, output and view`);
     }
   }
-  return { refused, view: cfg.view };
+  return { errored, view: cfg.view };
 };
 
 // ---- app.js ----
@@ -2961,8 +2961,8 @@ EV.readControl = (app, id, name, kind) => {
       : kind === "palette" ? EV.PALETTE_WORDS[element.value]
         : kind === "power" ? (Number(element.value) ? 2 ** (Number(element.value) - 1) : 0)
           : kind === "word" ? element.value : Math.trunc(Number(element.value));
-  const refused = EV.refuseValue(EV.VIEW_SCHEME[name], value);
-  if (!refused) {
+  const errored = EV.errorValue(EV.VIEW_SCHEME[name], value);
+  if (!errored) {
     app.view[name] = value;
   }
   if (name === "slice_z" || name === "window_low" || name === "window_high" || name === "slice") {
@@ -3116,7 +3116,7 @@ EV.remember = (app) => {
   try {
     localStorage.setItem("engine_view", JSON.stringify({ face: app.view.face, theme: app.view.theme, text_size: app.view.text_size, sheer: app.view.sheer, pinned: EV.$("panel").classList.contains("pinned") }));
   } catch (error) {
-    // Storage can be refused; the page works without it.
+    // Storage can error; the page works without it.
   }
 };
 
@@ -3273,8 +3273,8 @@ EV.bindControls = (app) => {
   EV.$("configRead").addEventListener("click", readPage);
   EV.$("configApply").addEventListener("click", () => {
     const report = EV.apply(app, EV.$("configText").value);
-    said.textContent = `${report.applied.length} applied.` + (report.refused.length ? ` Refused: ${report.refused.join("; ")}` : "");
-    said.className = report.refused.length ? "note bad" : "note";
+    said.textContent = `${report.applied.length} applied.` + (report.errored.length ? ` Errored: ${report.errored.join("; ")}` : "");
+    said.className = report.errored.length ? "note bad" : "note";
   });
   EV.$("configCopy").addEventListener("click", async () => {
     try {
@@ -3282,7 +3282,7 @@ EV.bindControls = (app) => {
       said.textContent = "Copied.";
     } catch (error) {
       EV.$("configText").select();
-      said.textContent = "The clipboard refused; the text is selected.";
+      said.textContent = "The clipboard errored; the text is selected.";
     }
   });
   EV.$("configSave").addEventListener("click", () => EV.download("engine_view.cfg", new Blob([EV.$("configText").value], { type: "application/json" })));
@@ -3478,9 +3478,9 @@ EV.bindKeys = (app) => {
 
 // Applies a view section, or a whole .cfg's text, and reports by name what took and what did not.
 EV.apply = (app, input) => {
-  const parsed = typeof input === "string" ? EV.parseCfg(input) : { refused: [], view: input };
-  const report = parsed.view ? EV.applyView(app.view, parsed.view) : { applied: [], refused: [] };
-  report.refused = [...parsed.refused, ...report.refused];
+  const parsed = typeof input === "string" ? EV.parseCfg(input) : { errored: [], view: input };
+  const report = parsed.view ? EV.applyView(app.view, parsed.view) : { applied: [], errored: [] };
+  report.errored = [...parsed.errored, ...report.errored];
   if (report.applied.includes("chosen") && app.object) {
     EV.choose(app, app.view.chosen.filter((cell) => cell < app.object.header.cell_total), "set");
   }

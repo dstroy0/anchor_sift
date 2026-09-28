@@ -299,7 +299,7 @@ int period_reserve(unsigned long long voxels, unsigned long long entries, Engine
     const DevicePoolPlan plan = period_plan(max_voxels, max_entries, error, takes);
     const DevicePoolReserveRequest reserve = {&plan, &resident->pool, error};
     int ok = device_pool_reserve(&reserve) == 0L;
-    // the slices are taken in the plan's order, and each lands where the plan laid it out with none refused
+    // the slices are taken in the plan's order, and each lands where the plan laid it out with none errored
     for (unsigned int at = 0u; (ok != 0) && (at < PERIOD_SLICES); at += 1u)
     {
         ok = device_pool_take(&takes[at]) == 0L;

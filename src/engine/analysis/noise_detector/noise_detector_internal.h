@@ -360,7 +360,7 @@ void noise_exact_words(AnchorExactInteger *value, const unsigned long long *word
 // a box holds at most 2^31 voxels. A pattern value's sum of at most that many lanes fits a word
 #define NOISE_ROOT_VOXELS_MAX (1ull << 31u)
 
-// a price past 2^61 bits is refused. The box's less a residual's and a pattern's is a long long
+// a price past 2^61 bits errors. The box's less a residual's and a pattern's is a long long
 #define NOISE_ROOT_BITS_MAX (1ull << 61u)
 
 extern "C" void noise_root_extent(unsigned int term, const unsigned long long box[4], unsigned long long pattern[4]);

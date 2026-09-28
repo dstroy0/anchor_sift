@@ -11,7 +11,7 @@ file in place. Where a repository has a tool worth sharing, it is promoted here 
     fetch(cfg)        toolkit -> repository. Copies the sets the repository asked for, stamps each
                       file, writes repotools.lock.
     check(cfg)        reports a fetched file edited in the repository, and one the toolkit has moved
-                      past. The first refuses. The second is a note saying a fetch is due.
+                      past. The first errors. The second is a note saying a fetch is due.
     adopt(path)       repository -> toolkit. Brings one file in, records where it came from, and
                       reports what still carries that repository's name.
 
@@ -308,7 +308,7 @@ def check(cfg, report):
     one repository and is lost the next time anything fetches. Where the edit is worth keeping, it
     is promoted with `adopt` and flows back out to every repository.
 
-    A file the toolkit has changed since the fetch is a note. It says a fetch is due, and it refuses
+    A file the toolkit has changed since the fetch is a note. It says a fetch is due, and it errors
     nothing, because a repository is entitled to sit on a known version until it chooses to move.
 
     THE BREAKING HALF DOES NOT NEED THE TOOLKIT
@@ -319,7 +319,7 @@ def check(cfg, report):
     This used to open by resolving the toolkit for both, and the resolver walks up from this file.
     Run as a gate out of a fetched tree that walk finds nothing: a toolkit checkout is a sibling of
     the repository and never an ancestor of it, and a fetch installs neither of the two markers the
-    walk wants. So the whole gate raised, and the check that refuses a locally edited fetched file,
+    walk wants. So the whole gate raised, and the check that errors on a locally edited fetched file,
     the reason the gate exists, could not run in any repository that had fetched it. The
     one place it was needed was the one place it did not work.
     """

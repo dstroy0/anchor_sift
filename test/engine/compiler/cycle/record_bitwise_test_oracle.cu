@@ -86,7 +86,7 @@ void bitwise_free(BitwiseLoaded *loaded)
 }
 
 // run a loaded program over `count` atoms on the host into host_out and on the device into device_out; each result
-// is 1 run, 0 refused
+// is 1 run, 0 errored
 void bitwise_run(BitwiseLoaded *loaded, const unsigned int *atoms, unsigned int count, unsigned int *host_out,
                  unsigned int *device_out, int *host_ran, int *device_ran)
 {

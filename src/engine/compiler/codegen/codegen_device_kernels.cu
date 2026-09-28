@@ -70,7 +70,7 @@ __global__ void codegen_device_unlaid(unsigned int *put_first, const unsigned in
 // forms gathered: the most of each bank, the tables, a broken form or a step the lane does not hold, and the last
 // step's banks
 __global__ void codegen_device_count(IrProgram program, const unsigned int *loop_first, unsigned long long *counts,
-                                     unsigned int *refuses, unsigned int *summary)
+                                     unsigned int *errors, unsigned int *summary)
 {
     const unsigned long long thread = codegen_device_thread();
     if (thread >= program.step_count)
@@ -83,7 +83,7 @@ __global__ void codegen_device_count(IrProgram program, const unsigned int *loop
     lane.loops = loop_first[at];
     const int ok = codegen_step(&lane, at);
     counts[at] = lane.count;
-    refuses[at] = lane.refuses;
+    errors[at] = lane.errors;
     atomicMax(&summary[CODEGEN_TEMPS_MAX], lane.temps_max);
     atomicMax(&summary[CODEGEN_WIDES_MAX], lane.wides_max);
     atomicMax(&summary[CODEGEN_PREDICATES_MAX], lane.predicates_max);
@@ -144,7 +144,7 @@ __global__ void codegen_device_left(const unsigned int *summary, unsigned int lo
 // from `items` where `parts` puts each, with the header's item, which the assembly printer takes whole, where the note
 // is written, and the lane left in `lane_out` for the forms decided after. `states` is the states the body was split
 // into, 0 where it is not split
-__global__ void codegen_prologue_epilogue(IrProgram program, const unsigned int *refuses, unsigned int *summary,
+__global__ void codegen_prologue_epilogue(IrProgram program, const unsigned int *errors, unsigned int *summary,
                                           MachineFunction *lane_out, unsigned int atoms, unsigned int places,
                                           unsigned int first, unsigned int last, int scheduled, unsigned int states,
                                           CodegenParts *parts, MachineInstr *items)
@@ -177,11 +177,11 @@ __global__ void codegen_prologue_epilogue(IrProgram program, const unsigned int 
         }
         else if (part == CODEGEN_OPENED)
         {
-            codegen_open(&lane, refuses, summary[CODEGEN_TABLES], places);
+            codegen_open(&lane, errors, summary[CODEGEN_TABLES], places);
         }
         else if (part == CODEGEN_CLOSED)
         {
-            codegen_close(&lane, refuses);
+            codegen_close(&lane, errors);
         }
         else if (part == CODEGEN_BODY_OPEN)
         {

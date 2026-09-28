@@ -111,8 +111,8 @@ def main():
                 with open(source, "wb") as handle:
                     handle.write(blob)
                 time.sleep(PAUSE)
-            except urllib.error.HTTPError as refused:
-                out.write("  %-40s refused (%s)\n" % (stem[:40], refused.code))
+            except urllib.error.HTTPError as error:
+                out.write("  %-40s errored (%s)\n" % (stem[:40], error.code))
                 continue
             except Exception as trouble:
                 out.write("  %-40s %s\n" % (stem[:40], str(trouble)[:34]))

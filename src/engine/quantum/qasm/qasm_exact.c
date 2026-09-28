@@ -7,7 +7,7 @@ static const char QASM_PI_TEXT[] =
     "3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862"
     "803482534211706798214808651";
 
-void qasm_refuse(QasmParser *parser, const QasmToken *token, const char *format, ...)
+void qasm_error(QasmParser *parser, const QasmToken *token, const char *format, ...)
 {
     if (parser->failed != 0)
     {
@@ -34,7 +34,7 @@ int qasm_exact_ok(QasmParser *parser, AnchorExactStatus status)
 {
     if (status != ANCHOR_EXACT_OK)
     {
-        qasm_refuse(parser, (parser->at < parser->token_count) ? &parser->tokens[parser->at] : NULL,
+        qasm_error(parser, (parser->at < parser->token_count) ? &parser->tokens[parser->at] : NULL,
                     "a value outgrew the exact integer's width");
         return 0;
     }

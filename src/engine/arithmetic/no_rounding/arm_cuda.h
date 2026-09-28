@@ -56,7 +56,7 @@ extern "C"
      * @param[in] count     How many positions.
      * @param[in] lag       The offset to test [BORROWS].
      * @return              How many positions agree with the place one lag above them, or SIZE_MAX
-     *                      where the device refused the work.
+     *                      where the device errored on the work.
      * @note Returns the same count the portable arm returns. Where it does not, one of the two has a
      *       defect and the difference is never a tradeoff.
      */

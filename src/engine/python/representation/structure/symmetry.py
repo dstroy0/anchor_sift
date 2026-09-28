@@ -44,7 +44,7 @@
 #
 # A denominator that does not divide 24 raises instead of rounding. That is the same rule
 # exact.WillNotFit follows one module over and for the same reason: a setting this does not cover is
-# a setting this must refuse, because the alternative is a quiet displacement that nothing
+# a setting this must error, because the alternative is a quiet displacement that nothing
 # downstream can see.
 
 import re

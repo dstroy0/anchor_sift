@@ -5,7 +5,7 @@
 #
 #     powershell -File maint\signing\sign.ps1
 #
-# WHAT THIS DOES AND WHAT IT REFUSES TO DO
+# WHAT THIS DOES AND WHAT IT ERRORS TO DO
 #
 # It signs one small file and anchors the signature. It never touches the passphrase: that goes to
 # the gpg agent's own prompt and never through a file, an argument, an environment variable or a log.
@@ -37,7 +37,7 @@ if (-not (Test-Path $manifest))
     exit 1
 }
 
-# Refuse to sign a manifest that no longer describes the tree. A signature over a stale list is worse
+# Error rather than sign a manifest that no longer describes the tree. A signature over a stale list is worse
 # than no signature: it is a deliberate attestation to bytes that have since moved.
 Write-Output "  checking the manifest still describes this tree"
 $repo = Resolve-Path (Join-Path $here "..\..")
@@ -46,7 +46,7 @@ $integrity = $LASTEXITCODE
 
 # verify.py counts an absent signature and an absent anchor as findings, and on a first run both are
 # absent by definition. Two findings with no CHANGED or MISSING lines above is the expected state
-# here, so this asks rather than refusing outright.
+# here, so this asks rather than erroring outright.
 if ($integrity -gt 2)
 {
     Write-Output ""
@@ -62,7 +62,7 @@ gpg --detach-sign --armor --local-user $key $manifest
 
 if ($LASTEXITCODE -ne 0)
 {
-    Write-Output "  gpg refused. Nothing was signed and nothing was anchored."
+    Write-Output "  gpg errored. Nothing was signed and nothing was anchored."
     exit 1
 }
 
@@ -84,7 +84,7 @@ ots stamp "$manifest.asc"
 
 if ($LASTEXITCODE -ne 0)
 {
-    Write-Output "  ots refused. The signature stands and the anchor does not."
+    Write-Output "  ots errored. The signature stands and the anchor does not."
     exit 1
 }
 

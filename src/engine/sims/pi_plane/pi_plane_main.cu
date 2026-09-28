@@ -25,7 +25,7 @@ int main(int count, char **arguments)
         {
             limbs *= 2ull;
         }
-        scriptura_text(line, "  refused: the draws are at least 1, the bits are 64 to ");
+        scriptura_text(line, "  errored: the draws are at least 1, the bits are 64 to ");
         scriptura_decimal(line, PLANE_BITS_MAX, 1u);
         scriptura_text(line, ", and the bracket needs an exact width of ");
         scriptura_decimal(line, needed, 1u);

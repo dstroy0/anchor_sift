@@ -11,7 +11,7 @@
 #
 # WHAT THIS ASKS THAT citations.py NEXT DOOR DOES NOT
 #
-# citations.py registers the mathematics this work rests on and refuses a commit while a name is
+# citations.py registers the mathematics this work rests on and errors on a commit while a name is
 # used without an author, a year, a title and an identifier. It answers whether a source that IS
 # named has been written down properly.
 #
@@ -43,7 +43,7 @@
 # narrowed-width formula was found in the literature" is a claim this work is making; "Handschuh
 # and Gilbert show" is a claim about theirs, and the second is what a citation looks like. The
 # finding names the line and the reader opens it. Exit status is the count. A pipeline can fail
-# on it without a flag, and nothing here refuses a commit on its own.
+# on it without a flag, and nothing here errors on a commit on its own.
 
 import io
 import os

@@ -302,7 +302,7 @@ void run_record_close(RunChannel *channel)
     CloseHandle(channel->record);
 }
 
-// 1 while the parent lives: its record is refused to an open for writing until its handles close with it
+// 1 while the parent lives: its record errors on an open for writing until its handles close with it
 int run_parent_alive(const char *parent)
 {
     const HANDLE opened = CreateFileA(parent, GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING,

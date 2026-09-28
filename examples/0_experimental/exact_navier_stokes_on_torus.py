@@ -23,7 +23,7 @@
 # Laurent polynomial in pi with Gaussian INTEGER coefficients, and the whole field carrying one positive
 # integer denominator, the way exact.py carries one count of decimal places. The denominator is widened
 # past a power of ten for one reason: the projection onto divergence-free fields divides by |k|^2, and
-# 1/3 has no exact decimal at any scale, and a decimal scale would then have to refuse
+# 1/3 has no exact decimal at any scale, and a decimal scale would then have to error
 # (exact.WillNotFit) where an integer denominator carries the value exactly. Every field is normalized
 # by the greatest common divisor of its denominator and every integer in it. Two fields are equal
 # exactly when their integers are equal, and pi is a symbol: pi is transcendental (Lindemann 1882), and
@@ -776,14 +776,14 @@ def report_scaling(out):
     space_scaling = all(vec_eq(space_scaled[step], vec_scale(stretched_by(velocities[step], lam), lam ** (2 * step)))
                         for step in range(depth + 1))
 
-    # the null: the wrong exponent, mu^m in place of mu^{m+1}, is refused at order 0 already
+    # the null: the wrong exponent, mu^m in place of mu^{m+1}, errors at order 0 already
     wrong_exponent = all(vec_eq(scaled[step], vec_scale(velocities[step], mu ** step)) for step in range(depth + 1))
 
     out.write("    time scaling mu = %d: v_m = mu^(m+1) u_m at viscosity mu nu, orders 0..%d: %s\n"
               % (mu, depth, time_scaling))
     out.write("    space scaling lam = %d: v_m = lam^(1+2m) u_m(lam x) at the same nu, period kept: %s\n"
               % (lam, space_scaling))
-    out.write("    null, exponent mu^m: %s (refused)\n\n" % wrong_exponent)
+    out.write("    null, exponent mu^m: %s (errored)\n\n" % wrong_exponent)
     return time_scaling and space_scaling and not wrong_exponent
 
 

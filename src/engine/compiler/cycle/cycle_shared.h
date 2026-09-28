@@ -83,7 +83,7 @@ struct CycleRecord
     unsigned int compiled;
     cudaKernel_t kernel;
     DeviceRecordStep *device_steps;
-    unsigned int *device_refused;
+    unsigned int *device_error;
     unsigned int *device_tables;
     EngineProgramBlock *block;
     EngineProgramBlock *device_block;

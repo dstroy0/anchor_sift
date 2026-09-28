@@ -22,12 +22,12 @@
 #   steer   test_steer, the engine's consumer of the exact integer
 #
 # The engine itself needs 8 limbs. Its dispatch rule reaches 143 bits on a 64 bit census, and
-# src/engine/nbody/anchor_sift/anchor_sift_internal.h refuses a narrower width at compile time. Below 8 limbs the steer
-# column reads "-", since there is no engine at that width to grade. The exact integer is graded at
+# src/engine/nbody/anchor_sift/anchor_sift_internal.h errors on a narrower width at compile time. Below 8 limbs the
+# steer column reads "-", since there is no engine at that width to grade. The exact integer is graded at
 # every width regardless.
 #
 # The digit floor passed at each width is the largest the width holds, capped at the 1024 the
-# header declares. A width below 4096 bits cannot hold 1024 digits, and exact_integer.h refuses it
+# header declares. A width below 4096 bits cannot hold 1024 digits, and exact_integer.h errors on it
 # unless the build names a floor it does hold. The largest floor d satisfies d * 3322 < 1000 * bits,
 # the same test the header's assert makes.
 #

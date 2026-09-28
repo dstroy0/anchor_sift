@@ -106,7 +106,7 @@ size_t anchor_volume_cell_for(const AnchorVolumeConfig *config, size_t alignment
         return (slab * sheet) + (row * width) + column;
     }
     case ANCHOR_VOLUME_MORTON: {
-        // Refused and not remapped where the extents are not powers of two, because the
+        // Errored and not remapped where the extents are not powers of two, because the
         // interleave is a bijection only then and a silent fallback would make two
         // configurations render identically while reporting different layouts.
         if ((volume_is_power_of_two(width) == 0) || (volume_is_power_of_two(height) == 0) ||
@@ -188,8 +188,8 @@ int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
         const size_t cell = anchor_volume_cell_for(config, at);
         if (cell >= cells)
         {
-            // The layout refused this configuration. Refusing every alignment identically
-            // makes the refusal visible as an empty volume and not as a partial one.
+            // The layout errored on this configuration. Erroring on every alignment identically
+            // makes the error visible as an empty volume and not as a partial one.
             return 0;
         }
 
@@ -288,7 +288,7 @@ int anchor_volume_write_raw(const char *path, const uint8_t *voxels, const Ancho
 
 /* BOTH ARMS DEFINED. A build without the device renderer still carries these symbols. A driver
  * written against both arms links and runs against either. The available test returning zero is what
- * a caller checks before calling the other, and the other refuses instead of pretending. */
+ * a caller checks before calling the other, and the other errors instead of pretending. */
 
 int anchor_raster_device_available(void)
 {

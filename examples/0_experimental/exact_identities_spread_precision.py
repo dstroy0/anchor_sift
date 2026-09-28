@@ -25,7 +25,7 @@
 # derived value that fails its second route is not carried. Two routes or it does not ship.
 #
 # The null is drawn: a FALSE identity (sqrt(6) = sqrt(2) + sqrt(3), or phi^2 = phi + 2) is run through
-# the same second-route check and refused. Agreement under a true identity is a tested result.
+# the same second-route check and errored. Agreement under a true identity is a tested result.
 #
 # The floor is stated and measured: each scaled operation floors and loses less than one unit in the
 # last working place, and a derivation chain of depth d loses under d units, which a guard of a few
@@ -158,7 +158,7 @@ def count_smooth(primes, bound, budget):
     """How many integers in [1, bound] have all prime factors among `primes`, counted exactly.
 
     A depth-first walk with an explicit stack, and a chain like 2^k does not recurse to a depth the
-    interpreter refuses. The stack holds only the unexplored siblings along the current path, at most
+    interpreter errors. The stack holds only the unexplored siblings along the current path, at most
     the path depth times the prime count. `budget` caps the work and the count reports whether it was
     reached. The count is the size of the set the seed roots generate at `bound`.
     """
@@ -246,19 +246,19 @@ def report_zeta_spread(out, pi_value):
 
 
 def report_null(out, root_of, pi_value):
-    """The drawn null: false identities refused by the same second-route check that passes true ones."""
-    out.write("  drawn null: false identities refused by the second-route check\n")
+    """The drawn null: false identities errored in the same second-route check that passes true ones."""
+    out.write("  drawn null: false identities errored in the second-route check\n")
 
     direct_six = sqrt_scaled(6)
     false_sum = root_of[2] + root_of[3]              # sqrt(6) is NOT sqrt(2)+sqrt(3)
     true_product = mul(root_of[2], root_of[3])        # sqrt(6) IS sqrt(2)*sqrt(3)
-    out.write("    sqrt(6) == sqrt(2)+sqrt(3): %s (false, refused)\n" % agrees(direct_six, false_sum))
+    out.write("    sqrt(6) == sqrt(2)+sqrt(3): %s (false, errored)\n" % agrees(direct_six, false_sum))
     out.write("    sqrt(6) == sqrt(2)*sqrt(3): %s (true, carried)\n" % agrees(direct_six, true_product))
 
     root_five = sqrt_scaled(5)
     phi = (SCALE + root_five) // 2                    # golden ratio (1 + sqrt 5)/2
     phi_squared = mul(phi, phi)
-    out.write("    phi^2 == phi + 2: %s (false, refused)\n" % agrees(phi_squared, phi + 2 * SCALE))
+    out.write("    phi^2 == phi + 2: %s (false, errored)\n" % agrees(phi_squared, phi + 2 * SCALE))
     out.write("    phi^2 == phi + 1: %s (true, carried)\n\n" % agrees(phi_squared, phi + SCALE))
     # the null is well drawn when the false ones fail and the true ones pass
     return (not agrees(direct_six, false_sum)) and (not agrees(phi_squared, phi + 2 * SCALE))

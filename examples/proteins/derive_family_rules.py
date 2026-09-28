@@ -23,7 +23,7 @@
 #   dispersion than the null is real grouping and not the data merely being tighter than a blob.
 #
 #   The method is controlled. Before any family is written, the same pipeline is run on synthetic
-#   proteins built from known archetypes. If it does not recover that planted split, this refuses to
+#   proteins built from known archetypes. If it does not recover that planted split, this errors rather than
 #   write a ruleset, because a grouping found by a method that cannot find a known one means nothing.
 #
 # What the corpus actually shows, with the control passing, is a near-continuum: the gap keeps
@@ -207,7 +207,7 @@ def main():
     out.write("\n")
 
     if not positive_control(out):
-        out.write("\n  the positive control did not recover its planted split. Refusing to write a\n")
+        out.write("\n  the positive control did not recover its planted split. Erroring rather than write a\n")
         out.write("  ruleset: a grouping found by a method that cannot find a known one means nothing.\n")
         out.flush()
         return 1

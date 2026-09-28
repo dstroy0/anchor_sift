@@ -141,7 +141,7 @@ You do not have to use zarr. Any of these work, and they all end up as the same 
 | NRRD | `name.nrrd`, `name.nhdr` |
 | NIfTI | `name.nii`, `name.nii.gz`, `name.hdr` + `name.img` |
 
-The pixels must be whole numbers, 8 or 16 bits, not negative. If they are not, the program refuses the movie and tells you why. It never guesses.
+The pixels must be whole numbers, 8 or 16 bits, not negative. If they are not, the program errors on the movie and tells you why. It never guesses.
 
 The program needs to know which direction in the file is time (`t`), depth (`z`), up-down (`y`) and left-right (`x`). Most files say so themselves. If yours does not, the program stops and asks you to name them. Add `--axes` with the letters in the order the file stores them, for example `--axes tzyx`.
 
@@ -219,7 +219,7 @@ The first path after the flags is the set, and every word after it is a movie na
 
 The program does two different jobs, and they never mix.
 
-1. **`--ingest`** makes the set (step 3). It is its own step and runs nothing else. The program refuses `--ingest` together with `--run`; you cannot re-copy movies you already copied by accident.
+1. **`--ingest`** makes the set (step 3). It is its own step and runs nothing else. The program errors on `--ingest` together with `--run`; you cannot re-copy movies you already copied by accident.
 2. **`--run <part>`** works on a set that is already made. Name one part after each `--run`. You can give `--run` as many times as you like, and the parts run in the order you typed them. If one part fails, the parts after it do not run.
 
 | part | what it does |
@@ -292,7 +292,7 @@ way to run without it.
 | `its .kcr in ... did not load and prove` | you have not done step 3 for that movie, or `set` points at the wrong folder |
 | `the source's N axes are not all named t z y x` | add `--axes` (see step 3) |
 | `usage: track_driver ...` | it did not get a set or any movie names; check the `input` part of the `.cfg` |
-| `tessera: ... the daemon (...) did not take the job` | `tessera_daemon.exe` is missing from beside the program (rebuild), or its history was refused (the daemon names the file; see [../../src/engine/runtime/daemon/README.md](../../src/engine/runtime/daemon/README.md)) |
+| `tessera: ... the daemon (...) did not take the job` | `tessera_daemon.exe` is missing from beside the program (rebuild), or its history errored (the daemon names the file; see [../../src/engine/runtime/daemon/README.md](../../src/engine/runtime/daemon/README.md)) |
 | `tessera: ... was held past its holding time and lost` | the job declared more than its kept peak; rerun with `--override` if that is meant |
 
 ## Where the results are written up

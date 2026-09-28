@@ -108,7 +108,7 @@ long qasm_rational_put_text(const QasmRational *value, QasmText *builder, Engine
     return (ok != 0) ? 0L : QASM_ERROR;
 }
 
-// numerator / denominator with no common factor and the denominator positive; a zero denominator refuses
+// numerator / denominator with no common factor and the denominator positive; a zero denominator errors
 static long qasm_rational_reduce(const AnchorExactInteger *numerator, const AnchorExactInteger *denominator,
                                  QasmRational *value, EngineError *error)
 {

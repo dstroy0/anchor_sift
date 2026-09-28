@@ -157,7 +157,7 @@ int main(void)
             if (anchor_raster_host(host_pixels, &config, corpus, RASTER_CORPUS, needle,
                                    RASTER_NEEDLE, steered, coarms) == 0)
             {
-                printf("  %12s %14s   host render refused\n",
+                printf("  %12s %14s   host render errored\n",
                        anchor_raster_layout_name(config.layout),
                        anchor_raster_channel_name(config.channel));
                 failed += 1;
@@ -185,7 +185,7 @@ int main(void)
                 if (anchor_raster_device(device_pixels, &config, corpus, RASTER_CORPUS, needle,
                                          RASTER_NEEDLE, steered, coarms) == 0)
                 {
-                    agreement = "device refused";
+                    agreement = "device errored";
                     verdict = "FAILS";
                     failed += 1;
                 }
@@ -286,7 +286,7 @@ int main(void)
                     printf("  %16s %14s %10s %12s %14s %10s\n",
                            anchor_volume_layout_name((AnchorVolumeLayout)layout),
                            anchor_raster_channel_name((AnchorRasterChannel)channel),
-                           "-", "-", "-", "REFUSED");
+                           "-", "-", "-", "ERROR");
                     failed += 1;
                     continue;
                 }
@@ -329,7 +329,7 @@ int main(void)
                     if (anchor_volume_device(device_voxels, &config, corpus, RASTER_CORPUS, needle,
                                              RASTER_NEEDLE, steered, coarms, NULL) == 0)
                     {
-                        agreement = "device refused";
+                        agreement = "device errored";
                         device_failed = 1;
                     }
                     else if (first_difference(voxels, device_voxels, volume_cells) != volume_cells)

@@ -104,7 +104,7 @@ def language_line(text, floor=1):
     One token is enough, and the test above has to be the sharp one because of it. These stories wrap
     across the page and leave lines as short as sámaP. and t@mxwúlaPxw., and asking for two threw
     forty-nine of them out of one paper's running text. Asking for one, on a test that a capital at
-    the front of an English word cannot satisfy, keeps them and still refuses an acknowledgment
+    the front of an English word cannot satisfy, keeps them and still errors on an acknowledgment
     about the American Philosophical Society.
     """
     return sum(1 for token in text.split() if carries_orthography(token)) >= floor

@@ -29,7 +29,7 @@ void qasm_matrix_release(QasmMatrix *matrix)
     }
 }
 
-// rows x columns zeros; on a refusal the matrix is still one qasm_matrix_release takes
+// rows x columns zeros; on an error the matrix is still one qasm_matrix_release takes
 long qasm_matrix_alloc(const QasmField *field, unsigned int rows, unsigned int columns, QasmMatrix *matrix,
                        EngineError *error)
 {

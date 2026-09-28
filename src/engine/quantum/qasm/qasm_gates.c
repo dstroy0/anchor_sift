@@ -42,7 +42,7 @@ static int qasm_entry(QasmParser *parser, const AnchorExactInteger *radius, cons
     const unsigned long long counted = *slack + phase_slack + 2ull;
     if (counted >= QASM_SLACK_MAX)
     {
-        qasm_refuse(parser, &parser->tokens[parser->at], "an entry's counted error passed its capacity");
+        qasm_error(parser, &parser->tokens[parser->at], "an entry's counted error passed its capacity");
         return 0;
     }
     if (negate != 0)
@@ -392,6 +392,6 @@ int qasm_lower_gate(QasmParser *parser, const char *name, const QasmAngle *angle
     {
         return qasm_lower_u3(parser, &angles[0], &angles[1], &angles[2], &angles[3], &qubits[0], 1u, qubits[1], token);
     }
-    qasm_refuse(parser, token, "the gate '%s' has no built-in form", name);
+    qasm_error(parser, token, "the gate '%s' has no built-in form", name);
     return 0;
 }

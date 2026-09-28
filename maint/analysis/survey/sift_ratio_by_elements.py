@@ -90,7 +90,7 @@ def main():
 
     if not os.path.isfile(args.run):
         out.write(
-            "  REFUSED: no file at that path. This is not a split of zero rows.\n\n"
+            "  ERROR: no file at that path. This is not a split of zero rows.\n\n"
         )
         out.flush()
         return 1
@@ -98,7 +98,7 @@ def main():
     found = rows(args.run)
     if not found:
         out.write(
-            "  REFUSED: no data rows parsed out of that file. This is not a split of zero.\n\n"
+            "  ERROR: no data rows parsed out of that file. This is not a split of zero.\n\n"
         )
         out.flush()
         return 1

@@ -215,7 +215,7 @@ void run_record_close(RunChannel *channel)
 }
 
 // 1 while the parent lives. A Windows parent (this child runs in WSL) shares its record only for reading, and an open
-// for writing is refused while it lives; a Linux parent holds a lock on it. Either is let go when the parent ends
+// for writing errors while it lives; a Linux parent holds a lock on it. Either is let go when the parent ends
 int run_parent_alive(const char *parent)
 {
     const int opened = open(parent, O_WRONLY | O_CLOEXEC);

@@ -14,7 +14,7 @@ struct CycleRecordLaunch
     const unsigned int *index;
     const unsigned int *tables;
     unsigned int *out;
-    unsigned int *refused;
+    unsigned int *error;
     unsigned long long bodies[ENGINE_RECORD_MEMBERS_MAX];
     unsigned long long count;
     unsigned int step_count;

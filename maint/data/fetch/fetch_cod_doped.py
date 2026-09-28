@@ -383,7 +383,7 @@ FAMILIES = (
 
 
 def fetched(url, out):
-    """One request that reaches the archive, with retries. Returns text, or None where refused."""
+    """One request that reaches the archive, with retries. Returns text, or None where errored."""
     for attempt in range(TRIES):
         try:
             request = urllib.request.Request(url, headers=AGENT)
@@ -407,7 +407,7 @@ def fetched(url, out):
             # ValueError was in this list and has been taken out. It was here to catch a decode
             # failure, and it also catches a programming error: a bad format string or a bad int()
             # inside this block would be retried three times and then reported as the archive
-            # refusing. That is the same fault as catching bare Exception, one notch smaller, and
+            # erroring. That is the same fault as catching bare Exception, one notch smaller, and
             # the sibling client in examples/crystallography/6_oracle/proof_positive_control.py:109
             # has the full sized version of it. A network retry should not be able to swallow a bug
             # in the code doing the retrying.
@@ -485,7 +485,7 @@ def main():
         body = fetched(SEARCH % (urllib.request.quote(name), PER_NAME), out)
         time.sleep(PAUSE)
         if body is None:
-            out.write("search refused\n")
+            out.write("search errored\n")
             out.flush()
             continue
         try:

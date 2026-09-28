@@ -37,7 +37,7 @@
 #
 # Positive control: NTT(NTT(x)) equals n times the reversed x, to the digit. Two routes: the double
 # transform against a direct reversal, shown able to disagree. Drawn null: the claim without the
-# reversal, NTT(NTT(x)) = n x, is refused on a sequence that is not a palindrome. No bounding: the
+# reversal, NTT(NTT(x)) = n x, errors on a sequence that is not a palindrome. No bounding: the
 # length, the prime and the root are declared, and every value is an exact residue.
 
 import io
@@ -97,7 +97,7 @@ def main():
     turned = [(LENGTH * value) % PRIME for value in reverse_about_origin(original, PRIME)]
     inverts = twice == turned
 
-    # the null: the same claim without the reversal, which a non-palindrome refuses
+    # the null: the same claim without the reversal, which a non-palindrome errors
     without_reversal = [(LENGTH * value) % PRIME for value in original]
     no_reversal_holds = twice == without_reversal
 
@@ -106,7 +106,7 @@ def main():
     out.write("  NTT(NTT(x))  = %s\n" % twice)
     out.write("  n * reverse  = %s\n" % turned)
     out.write("  NTT(NTT(x)) == n * reverse(x): %s (the wave inversion, exact)\n" % inverts)
-    out.write("  NTT(NTT(x)) == n * x (no reversal): %s (refused, x is not a palindrome)\n\n"
+    out.write("  NTT(NTT(x)) == n * x (no reversal): %s (errored, x is not a palindrome)\n\n"
               % no_reversal_holds)
 
     out.write("  boundary: the length divides p - 1, capped at 2^23 for this prime, moved by a larger\n")

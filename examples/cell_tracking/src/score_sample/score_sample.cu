@@ -170,7 +170,7 @@ static int score_print_match(const char *sample, TreeFrame *frames, unsigned int
     }
     else
     {
-        fprintf(stderr, "  %s: the print match was refused\n", sample);
+        fprintf(stderr, "  %s: the print match errored\n", sample);
     }
     free(frame_first);
     free(pair_start);
@@ -241,7 +241,7 @@ static int score_velocity_sweep(const char *sample, const char *pass, const Tree
     }
     else
     {
-        fprintf(stderr, "  %s: the velocity %s was refused\n", sample, pass);
+        fprintf(stderr, "  %s: the velocity %s errored\n", sample, pass);
     }
     free(device);
     free(host);
@@ -537,7 +537,7 @@ static int score_division(const char *sample, const TreeFrame *frames, unsigned 
     }
     else
     {
-        fprintf(stderr, "  %s: the division sweep was refused\n", sample);
+        fprintf(stderr, "  %s: the division sweep errored\n", sample);
     }
     for (unsigned int frame = 0u; (start != NULL) && (frame < frame_count); frame += 1u)
     {
@@ -750,7 +750,7 @@ static int score_box(const char *sample, const TreeFrame *frames, unsigned int f
     memset(kept, 0, sizeof(*kept));
     if (climb_machine_box(machine, &box) == 0)
     {
-        fprintf(stderr, "  %s: the box was refused: %u climbers, %u cells; %u cells met more than %u bodies, %u cells"
+        fprintf(stderr, "  %s: the box errored: %u climbers, %u cells; %u cells met more than %u bodies, %u cells"
                 " counted fewer positive voxels than labeled ones\n", sample, box.climbers, box.cells, box.crowded,
                 CLIMB_MACHINE_BOX_TARGETS, box.broken);
         return 0;
@@ -1012,7 +1012,7 @@ static int score_box_history(const char *set, const char *sample, const TreeFram
     free(leaf_node_count);
     if (steps_succeeded == 0)
     {
-        fprintf(stderr, "  %s: the box history was refused\n", sample);
+        fprintf(stderr, "  %s: the box history errored\n", sample);
     }
     free(successors);
     free(counts);
@@ -1034,7 +1034,7 @@ static int score_core(const char *sample, ClimbMachine *machine, const ClimbMach
     ClimbMachineCore core;
     if (climb_machine_core(machine, &core) == 0)
     {
-        fprintf(stderr, "  %s: the core was refused\n", sample);
+        fprintf(stderr, "  %s: the core errored\n", sample);
         return 0;
     }
     unsigned int max_widths = 0u;
@@ -1177,7 +1177,7 @@ static int score_marginal(const char *sample, const TreeFrame *frames, unsigned 
     int ok = (set.questions != NULL) && (set.asked_leaf != NULL) && (set.asked_frame != NULL) && (question_of != NULL);
     unsigned int in_context = 0u;
     unsigned int alone = 0u;
-    unsigned int refused = 0u;
+    unsigned int error = 0u;
     for (unsigned int frame = 0u; ok && (frame < frame_count); frame += 1u)
     {
         const TreeFrame *const tree = &frames[frame];
@@ -1235,7 +1235,7 @@ static int score_marginal(const char *sample, const TreeFrame *frames, unsigned 
             {
                 made = score_marginal_ask(&set, tree, &choices, target_start, target_sources, leaf, 1);
                 alone += (made > 0) ? 1u : 0u;
-                refused += (made == 0) ? 1u : 0u;
+                error += (made == 0) ? 1u : 0u;
             }
             ok = (made >= 0);
             if (made > 0)
@@ -1324,7 +1324,7 @@ static int score_marginal(const char *sample, const TreeFrame *frames, unsigned 
     if (ok)
     {
         printf("  %s: marginal, %u bodies asked (%u in their context, %u alone, %u too wide to ask), %u options, in %llu"
-               " us; device %s the host\n", sample, set.question_count, in_context, alone, refused, set.option_count,
+               " us; device %s the host\n", sample, set.question_count, in_context, alone, error, set.option_count,
                swept, same ? "equals" : "DIFFERS FROM");
         printf("  %s: of %u key edges asked, the most probable in context lands on the truth for %u (no link is the"
                " most probable for %u), the heaviest candidate alone for %u, the climb's forward for %u\n", sample,
@@ -1332,7 +1332,7 @@ static int score_marginal(const char *sample, const TreeFrame *frames, unsigned 
     }
     else
     {
-        fprintf(stderr, "  %s: the marginal was refused\n", sample);
+        fprintf(stderr, "  %s: the marginal errored\n", sample);
     }
     for (unsigned int frame = 0u; (question_of != NULL) && (frame < frame_count); frame += 1u)
     {
@@ -1461,7 +1461,7 @@ static int score_contact_side(const char *sample, const TreeFrame *frames, unsig
     }
     else
     {
-        fprintf(stderr, "  %s: the contact side sweeps were refused\n", sample);
+        fprintf(stderr, "  %s: the contact side sweeps errored\n", sample);
     }
     free(frame_first);
     free(pairs);

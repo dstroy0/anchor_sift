@@ -205,9 +205,9 @@ static void ask_frame_run(SimResults *results, AskFrame *frame, const AskState *
         corner[outcome] = ask_fraction((outcome == 0u) ? 1ll : 0ll, 1ll);
     }
     const AskNumber corner_cross = ask_cross(frame, corner, 0u);
-    sim_check(results, !ask_valid(frame, corner), "the distribution (1, 0, 0, 0) is refused: it is no state");
+    sim_check(results, !ask_valid(frame, corner), "the distribution (1, 0, 0, 0) errors: it is no state");
     sim_check(results, !ask_is_probability(corner_cross), "and it crosses onto +x at a value that is no probability");
-    scriptura_text(line, "    outside the valid set: (1, 0, 0, 0) is refused, and crosses onto +x at ");
+    scriptura_text(line, "    outside the valid set: (1, 0, 0, 0) errors, and crosses onto +x at ");
     ask_number_print(line, corner_cross);
     scriptura_character(line, '\n');
 

@@ -55,7 +55,7 @@ lane and not of the mathematics. The arithmetic here is on unbounded integers, s
 at any width, and moduli far past anything tabled can be produced and proved on demand. The floor
 belongs to the format, which is this tree's own finding, and the format is a choice.
 
-WHAT IT REFUSES
+WHAT IT ERRORS
 
 A modulus outside Proth's range, where k is not below 2^n. The theorem's converse is the step that
 makes a witness a proof and it does not hold there. A root whose order is short of the length asked
@@ -138,7 +138,7 @@ def proth_prime(value, tries=1000):
         if lifted == value - 1:
             return "prime", candidate
         if lifted != 1:
-            # a^((N-1)/2) is neither 1 nor -1, leaving a^(N-1) short of 1, and Fermat refuses it.
+            # a^((N-1)/2) is neither 1 nor -1, leaving a^(N-1) short of 1, and Fermat errors on it.
             return "composite", candidate
     return "inconclusive", None
 
@@ -306,8 +306,8 @@ def _check():
         ("a root of order 1024 has order 1024", order_is(good, 1024, prime), True),
         ("that root does not have order 2048", order_is(good, 2048, prime), False),
         ("its square has order 512, not 1024", order_is(good * good % prime, 1024, prime), False),
-        ("a zeroed twiddle is refused", order_is(0, 1024, prime), False),
-        ("the identity is refused", order_is(1, 1024, prime), False),
+        ("a zeroed twiddle errors", order_is(0, 1024, prime), False),
+        ("the identity errors", order_is(1, 1024, prime), False),
     )
     for what, got, wanted in checks:
         agree = got == wanted

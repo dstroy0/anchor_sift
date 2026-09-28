@@ -90,7 +90,7 @@ int main(int count, char **arguments)
         {ENGINE_RECORD_FIELD, 2u, 0u, 1u},        // 2 dt, field 2 of member 1
         {ENGINE_RECORD_PRODUCT, 1u, 2u, 0u},      // 3 v . dt
         {ENGINE_RECORD_SUM, 0u, 3u, 0u},          // 4 x + v . dt
-        {ENGINE_RECORD_COMPARE, 4u, 5u, 0u},      // 5 refused: reads itself
+        {ENGINE_RECORD_COMPARE, 4u, 5u, 0u},      // 5 errored: reads itself
     };
     EngineRecordStep program[6];
     memcpy(program, steps, sizeof(steps));
@@ -101,11 +101,11 @@ int main(int count, char **arguments)
     EngineError error;
     memset(&error, 0, sizeof(error));
 
-    // a step that reads itself or a later step is refused at encode
+    // a step that reads itself or a later step errors at encode
     EngineRecordKey key;
     KeymathRecordRequest encode_request = {program, 6u, field_bits, 3u, 2u, outputs, 2u, NULL, 0u, &key, &error};
     guide_check(&results, keymath_record_encode(&encode_request) == KEYMATH_ERROR,
-                "a step reading itself is refused at encode");
+                "a step reading itself errors at encode");
 
     // the side of the origin: compare x' against the constant 0
     program[5].operation = ENGINE_RECORD_CONSTANT;
@@ -210,8 +210,8 @@ int main(int count, char **arguments)
     }
     guide_check(&results, right, "every body's x + v . dt and its side of the origin decode exactly");
 
-    // a lane whose index names a record past its member refuses the sweep, and the record machine names it a request
-    // error in an error of its own, since `error` already holds the encoding's refusal above
+    // a lane whose index names a record past its member errors on the sweep, and the record machine names it a request
+    // error in an error of its own, since `error` already holds the encoding's error above
     index[0] = GUIDE_TEST_BODIES;
     EngineError over_limit_error;
     memset(&over_limit_error, 0, sizeof(over_limit_error));
@@ -225,7 +225,7 @@ int main(int count, char **arguments)
     guide_check(&results,
                 (cycle_record_run_host(&over_limit) == CYCLE_ERROR) &&
                     (over_limit_error.kind == ENGINE_ERROR_REQUEST) && (over_limit_error.module == ENGINE_MODULE_CYCLE),
-                "an index past its member's records refuses the sweep, a request error from the record machine");
+                "an index past its member's records errors on the sweep, a request error from the record machine");
 
     cudaFree(device_bodies);
     cudaFree(device_step);

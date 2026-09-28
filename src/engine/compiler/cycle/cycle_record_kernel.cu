@@ -24,7 +24,7 @@ extern "C" const EngineProgramBlock *cycle_record_block(const CycleRecord *recor
 // up to CYCLE_BLOCK where a warp fits. A program written as PTX that calls nothing holds its registers itself and takes
 // no places, and runs CYCLE_BLOCK threads a thread block. The kernel is let take that much and prefers shared memory to
 // L1, and the device is asked how many such thread blocks it holds at once. 0 where not one thread's registers fit or
-// the runtime refuses any of it, which leaves the program on the interpreter
+// the runtime errors on any of it, which leaves the program on the interpreter
 static int cycle_record_share(CycleRecord *record, size_t kernel_bytes)
 {
     int device = 0;
@@ -95,8 +95,8 @@ extern "C" long cycle_record_load(const EngineRecordLayout *layout, CycleRecord 
     ok = ok && CYCLE_STATUS_CHECK(
                    cudaMalloc((void **)&record->device_steps, (size_t)layout->steps * sizeof(DeviceRecordStep)),
                    &record->device_steps, error);
-    ok = ok && CYCLE_STATUS_CHECK(cudaMalloc((void **)&record->device_refused, sizeof(unsigned int)),
-                                  &record->device_refused, error);
+    ok = ok && CYCLE_STATUS_CHECK(cudaMalloc((void **)&record->device_error, sizeof(unsigned int)),
+                                  &record->device_error, error);
     ok = ok && CYCLE_STATUS_CHECK(cudaMemcpy(record->device_steps, layout->step_table,
                                              (size_t)layout->steps * sizeof(DeviceRecordStep), cudaMemcpyHostToDevice),
                                   record->device_steps, error);
@@ -213,7 +213,7 @@ extern "C" void cycle_record_release(CycleRecord *record)
         return;
     }
     cudaFree(record->device_steps);
-    cudaFree(record->device_refused);
+    cudaFree(record->device_error);
     cudaFree(record->device_tables);
     cudaFree(record->hot);
     cudaFree(record->device_block);

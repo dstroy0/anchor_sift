@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // The self run against the dense port: every circuit's lanes on the host, from each basis state and from general
 // states, each lane equal to the dense port's run from the same start amplitude for amplitude; then the same programs
-// on the device inside one tessera job, their records equal to the host's word for word; then the refusals.
+// on the device inside one tessera job, their records equal to the host's word for word; then the errors.
 #include "qasm.h"
 
 #include <stdio.h>
@@ -28,7 +28,7 @@ static void qasm_test_check(QasmResults *results, int passed, const char *claim)
     }
 }
 
-static int qasm_test_refused_here(long status, const EngineError *error)
+static int qasm_test_error_here(long status, const EngineError *error)
 {
     return (status == QASM_ERROR) && (error->kind == ENGINE_ERROR_REQUEST) && (error->module == ENGINE_MODULE_QASM);
 }
@@ -214,7 +214,7 @@ static int qasm_test_run(const QasmTestCircuit *circuit, const QasmNumber *input
         capacity,        &error};
     if (qasm_self_run(&request, measurement) == QASM_ERROR)
     {
-        printf("  %s refused on the %s: error kind %d, module %d, site %u, status %d\n", circuit->name,
+        printf("  %s errored on the %s: error kind %d, module %d, site %u, status %d\n", circuit->name,
                (on_host != 0) ? "host" : "device", (int)error.kind, (int)error.module, error.site, error.status);
         return 0;
     }
@@ -334,7 +334,7 @@ static void qasm_test_device(QasmResults *results)
     }
 }
 
-static void qasm_test_refusals(QasmResults *results)
+static void qasm_test_errors(QasmResults *results)
 {
     QasmNumber outputs[4];
     unsigned int records[1];
@@ -348,26 +348,26 @@ static void qasm_test_refusals(QasmResults *results)
         {2u, &over_limit, 1u, NULL, 4ull, 1, outputs, NULL, 0ull, NULL},
         {2u, qasm_test_bell, 2u, NULL, 4ull, 1, outputs, records, 1ull, NULL}};
     static const char *const claims[5] = {
-        "self: no qubits refuses, a request error from qasm",
-        "self: qubits past QASM_SELF_QUBITS_MAX refuse, a request error from qasm",
-        "self: basis lanes other than 2^qubits refuse, a request error from qasm",
-        "self: a gate on a qubit past the state refuses, a request error from qasm",
-        "self: record capacity short of the lanes' records refuses, a request error from qasm"};
+        "self: no qubits errors, a request error from qasm",
+        "self: qubits past QASM_SELF_QUBITS_MAX error, a request error from qasm",
+        "self: basis lanes other than 2^qubits error, a request error from qasm",
+        "self: a gate on a qubit past the state errors, a request error from qasm",
+        "self: record capacity short of the lanes' records errors, a request error from qasm"};
     for (unsigned int at = 0u; at < 5u; at += 1u)
     {
         EngineError error;
         memset(&error, 0, sizeof(error));
         QasmSelfRequest request = cases[at];
         request.error = &error;
-        qasm_test_check(results, qasm_test_refused_here(qasm_self_run(&request, &measurement), &error), claims[at]);
+        qasm_test_check(results, qasm_test_error_here(qasm_self_run(&request, &measurement), &error), claims[at]);
     }
-    qasm_test_check(results, qasm_self_run(&none, &measurement) == QASM_ERROR, "self: a request with no error refuses");
+    qasm_test_check(results, qasm_self_run(&none, &measurement) == QASM_ERROR, "self: a request with no error errors");
     // A state whose fields are 201 bits wide: 128 of them take 7 limbs each, past the register file's 256, and the
-    // layout refuses the program before any lane runs.
+    // layout errors on the program before any lane runs.
     const unsigned int amplitudes = 1u << QASM_SELF_QUBITS_MAX;
     QasmNumber *const wide = (QasmNumber *)calloc(amplitudes, sizeof(QasmNumber));
     QasmNumber *const landed = (QasmNumber *)calloc(amplitudes, sizeof(QasmNumber));
-    int refused = 0;
+    int errored = 0;
     if ((wide != NULL) && (landed != NULL))
     {
         for (unsigned int amplitude = 0u; amplitude < amplitudes; amplitude += 1u)
@@ -389,12 +389,12 @@ static void qasm_test_refusals(QasmResults *results)
                                          NULL,
                                          0ull,
                                          &error};
-        refused = (qasm_self_run(&request, &measurement) == QASM_ERROR) && (error.kind == ENGINE_ERROR_REQUEST) &&
+        errored = (qasm_self_run(&request, &measurement) == QASM_ERROR) && (error.kind == ENGINE_ERROR_REQUEST) &&
                   (error.module == ENGINE_MODULE_KEY_SCHEDULE);
     }
     qasm_test_check(
-        results, refused,
-        "self: 2^200 in a 5-qubit lane is past the register file, and the layout refuses it before any run");
+        results, errored,
+        "self: 2^200 in a 5-qubit lane is past the register file, and the layout errors on it before any run");
     free(wide);
     free(landed);
 }
@@ -406,7 +406,7 @@ int main(void)
     memset(&error, 0, sizeof(error));
     qasm_test_check(&results, qasm_test_gates(&error), "self: the matrix gates build");
     const unsigned long long widest = qasm_test_host(&results);
-    qasm_test_refusals(&results);
+    qasm_test_errors(&results);
     QasmJob *job = NULL;
     static const unsigned char named[] = "qasm_self_test";
     if (qasm_job_submit(named, sizeof(named) - 1u, (widest != 0ull) ? widest : 1ull, &job, &error) == QASM_ERROR)

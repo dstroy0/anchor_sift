@@ -173,11 +173,11 @@ size_t anchor_steer_count_with_probes(const uint8_t *corpus, size_t corpus_len, 
         return 0u;
     }
 
-    // Every probe reads within the needle or the whole call refuses. A probe whose origin plus its
+    // Every probe reads within the needle or the whole call errors. A probe whose origin plus its
     // stepped reach lands at or past needle_len would read needle[offset], and corpus[at + offset],
     // out of bounds. anchor_steer_probe_fits is the same test the sweep applies before it emits a
     // probe, checked here once before the alignment loop because this is a public entry a caller can
-    // hand a probe the sweep never made. A probe that does not fit gets 0, the refusal a null probe
+    // hand a probe the sweep never made. A probe that does not fit gets 0, the error a null probe
     // array with a nonzero count gets above.
     for (size_t slot = 0u; slot < count; slot += 1u)
     {

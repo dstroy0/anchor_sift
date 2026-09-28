@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// qasm_test_answers.cu: text, runs, known answers, refusals, ties and bounds
+// qasm_test_answers.cu: text, runs, known answers, errors, ties and bounds
 #include "qasm_test_internal.h"
 
 unsigned int g_passed = 0u;
@@ -52,7 +52,7 @@ int run(const QasmCircuit *circuit, int on_host, QasmOutcome *outcome, unsigned 
     const QasmRunRequest request = {circuit, on_host, state, &error};
     if (qasm_run(&request, outcome) == QASM_ERROR)
     {
-        printf("  run refused on the %s: error kind %d, module %d, site %u, status %d\n", on_host ? "host" : "device",
+        printf("  run errored on the %s: error kind %d, module %d, site %u, status %d\n", on_host ? "host" : "device",
                (int)error.kind, (int)error.module, error.site, error.status);
         return 0;
     }
@@ -200,9 +200,9 @@ void known_answers(void)
     free(text);
 }
 
-void refusals(void)
+void errors(void)
 {
-    static const Refusal REFUSALS[] = {
+    static const Error ERRORS[] = {
         {"OPENQASM 3.0;\n", "r.qasm:1:10:", "only OpenQASM 2.0"},
         {"OPENQASM 2.0;\ninclude \"other.inc\";\n", "r.qasm:2:9:", "qelib1.inc"},
         {"OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[2];\nreset q[0];\n", "r.qasm:4:1:", "'reset' is not read"},
@@ -230,17 +230,17 @@ void refusals(void)
          "r.qasm:3:12:", "inside a gate definition"},
     };
     char reason[QASM_REASON_CAPACITY];
-    for (size_t at = 0u; at < (sizeof(REFUSALS) / sizeof(REFUSALS[0])); at += 1u)
+    for (size_t at = 0u; at < (sizeof(ERRORS) / sizeof(ERRORS[0])); at += 1u)
     {
         QasmCircuit circuit;
-        const int read = read_text("r.qasm", REFUSALS[at].body, &circuit, reason, sizeof(reason));
+        const int read = read_text("r.qasm", ERRORS[at].body, &circuit, reason, sizeof(reason));
         if (read)
         {
             qasm_release(&circuit);
         }
-        check(!read && (strncmp(reason, REFUSALS[at].prefix, strlen(REFUSALS[at].prefix)) == 0) &&
-                  (strstr(reason, REFUSALS[at].fragment) != NULL),
-              "refused: %s", read ? "(it was read)" : reason);
+        check(!read && (strncmp(reason, ERRORS[at].prefix, strlen(ERRORS[at].prefix)) == 0) &&
+                  (strstr(reason, ERRORS[at].fragment) != NULL),
+              "errored: %s", read ? "(it was read)" : reason);
     }
 }
 

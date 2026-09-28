@@ -141,7 +141,7 @@ void omega_buffer_swap(OmegaBuffer *one, OmegaBuffer *other)
     *other = temporary;
 }
 
-// the exclusive prefix sum of `count` values, and their total; 0 where the device refused
+// the exclusive prefix sum of `count` values, and their total; 0 where the device errored
 int omega_buffer_scan(SimResults *results, OmegaBuffer *scratch, const unsigned long long *values,
                       unsigned long long *sums, unsigned long long count, unsigned long long *total)
 {
@@ -172,7 +172,7 @@ unsigned int omega_pool_grid(unsigned long long count)
 }
 
 // A job's terms unranked on the device after the pool's live terms. 1 where admitted, 2 where the device cannot
-// hold them beside the live terms. The job waits for the pool to drain, and 0 where the device refused.
+// hold them beside the live terms. The job waits for the pool to drain, and 0 where the device errored.
 int omega_pool_insert_job(SimResults *results, OmegaBuffer *buffers, const OmegaEngineJob *job, unsigned int job_at,
                           OmegaPoolExtent *extent)
 {

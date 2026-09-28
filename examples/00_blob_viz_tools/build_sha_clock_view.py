@@ -151,7 +151,7 @@ def rotate(value, by):
 
 
 def padded(message):
-    """The one-block padding, refused and not truncated when the message will not fit.
+    """The one-block padding, errored and not truncated when the message will not fit.
 
     A block is 512 bits and the padding costs a one bit, the length as 64 bits, and the zeroes
     between, so 55 bytes is the most that fits in one block. Longer messages need the chaining of a

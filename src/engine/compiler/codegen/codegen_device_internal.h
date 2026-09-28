@@ -90,7 +90,7 @@ __global__ void codegen_device_facts(IrProgram program, unsigned int *put_first,
 __global__ void codegen_device_unlaid(unsigned int *put_first, const unsigned int *put_last, unsigned int words);
 
 __global__ void codegen_device_count(IrProgram program, const unsigned int *loop_first, unsigned long long *counts,
-                                     unsigned int *refuses, unsigned int *summary);
+                                     unsigned int *errors, unsigned int *summary);
 
 __global__ void codegen_device_write(IrProgram program, const unsigned int *loop_first,
                                      const unsigned long long *counts, const unsigned long long *item_first,
@@ -98,7 +98,7 @@ __global__ void codegen_device_write(IrProgram program, const unsigned int *loop
 
 __global__ void codegen_device_left(const unsigned int *summary, unsigned int loops, MachineFunction *lane_out);
 
-__global__ void codegen_prologue_epilogue(IrProgram program, const unsigned int *refuses, unsigned int *summary,
+__global__ void codegen_prologue_epilogue(IrProgram program, const unsigned int *errors, unsigned int *summary,
                                           MachineFunction *lane_out, unsigned int atoms, unsigned int places,
                                           unsigned int first, unsigned int last, int scheduled, unsigned int states,
                                           CodegenParts *parts, MachineInstr *items);
@@ -148,7 +148,7 @@ __global__ void codegen_device_encode(KeymathCoreEncode encoding, LayoutEnd *end
 
 __global__ void codegen_layout(KeyScheduleCoreLayout layout, LayoutEnd *ended);
 
-// the device memory a lane's writing takes, freed together, and 0 once a call the device refused has left it unusable
+// the device memory a lane's writing takes, freed together, and 0 once a call the device errored has left it unusable
 struct DeviceArena
 {
     std::vector<void *> allocations;
@@ -216,22 +216,22 @@ static unsigned long long codegen_device_scan(DeviceArena *memory, const Counted
     return (unsigned long long)last_count + (unsigned long long)last_sum;
 }
 
-int asm_printer_program_device(const AsmPrinterProgram *program, EngineRecordLayout *text_layout, std::string *refused);
+int asm_printer_program_device(const AsmPrinterProgram *program, EngineRecordLayout *text_layout, std::string *error);
 
 int asm_printer_program_placed(const AsmPrinterRuleset *text_rules, EngineRecordLayout *text_layout,
-                               std::string *refused);
+                               std::string *error);
 
 int codegen_device_decide(DeviceArena *device_arena, const EngineRecordLayout *layout,
                           const DeviceRecordStep *device_steps, const unsigned int *scratch,
                           unsigned long long scratch_count, unsigned int places, const ScheduleCosts *costs,
                           ScheduleReport *report, MachineInstr **text_items, unsigned long long *item_count,
-                          std::string *refused);
+                          std::string *error);
 
-int layout_device(const LayoutRequest *request, EngineRecordLayout *layout, std::string *refused);
+int layout_device(const LayoutRequest *request, EngineRecordLayout *layout, std::string *error);
 #endif
 #if !(defined(__CUDACC__))
 
-int layout_device(const LayoutRequest *request, EngineRecordLayout *layout, std::string *refused);
+int layout_device(const LayoutRequest *request, EngineRecordLayout *layout, std::string *error);
 #endif
 
 #endif

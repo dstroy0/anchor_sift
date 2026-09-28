@@ -24,7 +24,7 @@ THE RULE THIS APPLIES TO ITSELF
 A checker that has never caught its own defect is a checker nobody has tested. So before any floor
 here is offered, the harness is handed a move that is not a null while being told it is one, and it
 has to catch it, and it is handed a genuine null and has to stay quiet. Both run first under
-`--check` and the floors are refused if either misbehaves.
+`--check` and the floors error if either misbehaves.
 
 WHAT EACH NULL RESTS ON
 

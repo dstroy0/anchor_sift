@@ -140,7 +140,7 @@ struct MachineBoxCells
     unsigned int *cell_raw;
     unsigned int *target;
     unsigned int *count;
-    unsigned int *refused;
+    unsigned int *error;
 };
 
 __device__ static inline unsigned long long machine_bits(const unsigned long long *positive,

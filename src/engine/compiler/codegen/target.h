@@ -37,7 +37,7 @@ struct CycleCompiledLaunch
     const unsigned int *index;
     const unsigned int *tables;
     unsigned int *out;
-    unsigned int *refused;
+    unsigned int *error;
     unsigned long long bodies[ENGINE_RECORD_MEMBERS_MAX];
     unsigned long long count;
     CycleHot *hot;
@@ -82,7 +82,7 @@ class Target
     Target &operator=(const Target &) = delete;
     virtual ~Target();
 
-    // the language's ruleset, read once a process; NULL where it is refused, `report` saying which on stderr
+    // the language's ruleset, read once a process; NULL where it errors, `report` saying which on stderr
     const Ruleset *ruleset(int report);
 
     // a program's lane in the language under `header`, the places a thread holds in shared memory and the most words

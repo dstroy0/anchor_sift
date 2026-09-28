@@ -164,10 +164,10 @@ __device__ static int device_is_power_of_two(unsigned long long value)
 /**
  * @brief Voxel an alignment lands on, matching anchor_volume_cell_for on the host.
  *
- * @note Returns `cells` where the layout refuses the configuration, which is MORTON on extents that
+ * @note Returns `cells` where the layout errors on the configuration, which is MORTON on extents that
  *       are not all powers of two and any unknown layout. The host returns the block size in the
  *       same cases and the caller reads it as "not placed". Every supported layout wraps the
- *       alignment with `% cells` first. It is a bijection on the block and never refuses.
+ *       alignment with `% cells` first. It is a bijection on the block and never errors.
  */
 __device__ static unsigned long long device_volume_cell(const DeviceVolumeConfig *config, unsigned long long alignment,
                                                         unsigned long long cells)
@@ -234,11 +234,11 @@ __device__ static unsigned long long device_volume_cell(const DeviceVolumeConfig
  * @brief Renders every alignment into the volume, one thread each.
  *
  * @note The value comes from the same device_sample the sheet kernel uses, since a channel means
- *       one thing across both. Only the cell mapping differs, and `refused` carries the host's
- *       whole-render refusal into the parallel form: a thread whose alignment maps out of range
+ *       one thing across both. Only the cell mapping differs, and `error` carries the host's
+ *       whole-render error into the parallel form: a thread whose alignment maps out of range
  *       sets it, and the host returns 0 without reading the staging buffer.
  */
-__global__ void render_volume(unsigned int *staging, int *refused, DeviceVolumeConfig vconfig,
+__global__ void render_volume(unsigned int *staging, int *error, DeviceVolumeConfig vconfig,
                               const unsigned char *corpus, unsigned long long corpus_len, const unsigned char *needle,
                               unsigned long long needle_len, const DeviceProbe *probes, unsigned long long probe_count,
                               const unsigned long long *occurrences, unsigned long long total)
@@ -266,7 +266,7 @@ __global__ void render_volume(unsigned int *staging, int *refused, DeviceVolumeC
     const unsigned long long cell = device_volume_cell(&vconfig, at, cells);
     if (cell >= cells)
     {
-        atomicExch(refused, 1);
+        atomicExch(error, 1);
         return;
     }
 

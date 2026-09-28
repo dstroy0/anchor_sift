@@ -21,9 +21,9 @@
 #
 # WHAT THE DENOMINATOR IS
 #
-# `measure_entry` goes through `exact_points`, which refuses a cell that is not right angled, and an
-# empty return here covers that refusal, a missing cell, and a readable cell whose axes returned no
-# period. This tool does not tile a cell twice to tell those apart. The refusals are counted by
+# `measure_entry` goes through `exact_points`, which errors on a cell that is not right angled, and an
+# empty return here covers that error, a missing cell, and a readable cell whose axes returned no
+# period. This tool does not tile a cell twice to tell those apart. The errors are counted by
 # maint/analysis/survey/crystal_gate_census.py, which reads the cell text without tiling, and the
 # two reports are meant to be quoted together: census admits A, this reads R, and A minus R is the
 # number of admitted cells that returned no axis.
@@ -37,14 +37,14 @@
 #
 # FAILING CLOSED
 #
-# A cache with no CIF refuses. A shard whose walked count is missing from its output file refuses in
+# A cache with no CIF errors. A shard whose walked count is missing from its output file errors in
 # the summary, and so does a summary whose shards do not cover every index from 0 to N minus 1 exactly
 # once: a missing shard reads as fewer structures, and fewer structures reads as a smaller sweep with
 # nothing wrong in it.
 #
 # A cell too wide for the exact scale raises exact.WillNotFit, and the positive control deliberately
 # lets that stop the run. Over a whole archive one such entry would stop every other entry with it,
-# so the sweep records the entry by name as a refusal of its own and continues. It is reported in
+# so the sweep records the entry by name as an error of its own and continues. It is reported in
 # the summary beside the misses and makes the exit status non-zero.
 
 import argparse
@@ -71,7 +71,7 @@ TOO_WIDE = "too_wide"
 
 
 def parse_shard(text):
-    """(k, n) from 'K/N', refusing anything that does not name one part of a whole."""
+    """(k, n) from 'K/N', erroring on anything that does not name one part of a whole."""
     try:
         part, whole = (int(piece) for piece in text.split("/"))
     except ValueError:
@@ -84,17 +84,17 @@ def parse_shard(text):
 def sweep(args, out):
     shard = parse_shard(args.shard)
     if shard is None:
-        out.write("  REFUSED: --shard must be K/N with 0 <= K < N, not %r.\n\n" % args.shard)
+        out.write("  ERROR: --shard must be K/N with 0 <= K < N, not %r.\n\n" % args.shard)
         return 1
     part, whole = shard
 
     out.write("\n  cache    %s\n  shard    %d/%d\n  out      %s\n\n" % (args.cache, part, whole, args.out))
     if not os.path.isdir(args.cache):
-        out.write("  REFUSED: no directory at that cache path. This is not a sweep of zero.\n\n")
+        out.write("  ERROR: no directory at that cache path. This is not a sweep of zero.\n\n")
         return 1
     names = sorted(name for name in os.listdir(args.cache) if name.endswith(".cif"))
     if not names:
-        out.write("  REFUSED: no .cif under that cache. This is not a sweep of zero.\n\n")
+        out.write("  ERROR: no .cif under that cache. This is not a sweep of zero.\n\n")
         return 1
 
     mine = [name for index, name in enumerate(names) if index % whole == part]
@@ -120,7 +120,7 @@ def sweep(args, out):
             if walked % 500 == 0:
                 out.write("  %d of %d walked, %d read\n" % (walked, len(mine), read))
                 out.flush()
-        # Written last. A shard killed partway has no header, and the summary refuses it.
+        # Written last. A shard killed partway has no header, and the summary errors on it.
         rows.write("%s\t%d\t%d\t%d\t%d\n" % (HEADER, part, whole, walked, len(names)))
 
     out.write("\n  shard %d/%d walked %d of %d entries, %d read\n\n" % (part, whole, walked, len(names), read))
@@ -141,7 +141,7 @@ def summarize(args, out):
     for path in args.files:
         out.write("    %s\n" % path)
         if not os.path.isfile(path):
-            out.write("  REFUSED: no file at that path.\n\n")
+            out.write("  ERROR: no file at that path.\n\n")
             return 1
         header = None
         with io.open(path, encoding="utf-8") as handle:
@@ -159,12 +159,12 @@ def summarize(args, out):
                 elif fields[0] == TOO_WIDE:
                     too_wide.append(fields[1])
         if header is None:
-            out.write("  REFUSED: %s has no shard header. The shard did not finish, and counting\n"
+            out.write("  ERROR: %s has no shard header. The shard did not finish, and counting\n"
                       "  its rows would report a smaller sweep with nothing marked missing.\n\n" % path)
             return 1
         part, whole, shard_walked, total = (int(value) for value in header[1:5])
         if part in parts:
-            out.write("  REFUSED: shard %d/%d appears twice, in %s and %s.\n\n" % (part, whole, parts[part], path))
+            out.write("  ERROR: shard %d/%d appears twice, in %s and %s.\n\n" % (part, whole, parts[part], path))
             return 1
         parts[part] = path
         wholes.add(whole)
@@ -172,17 +172,17 @@ def summarize(args, out):
         walked += shard_walked
 
     if len(wholes) != 1 or len(totals) != 1:
-        out.write("  REFUSED: the shard files disagree on N (%s) or on the cache size (%s). They\n"
+        out.write("  ERROR: the shard files disagree on N (%s) or on the cache size (%s). They\n"
                   "  were not cut from one run.\n\n" % (sorted(wholes), sorted(totals)))
         return 1
     whole = wholes.pop()
     total = totals.pop()
     absent = sorted(set(range(whole)) - set(parts))
     if absent:
-        out.write("  REFUSED: shards %s of %d are missing.\n\n" % (absent, whole))
+        out.write("  ERROR: shards %s of %d are missing.\n\n" % (absent, whole))
         return 1
     if walked != total:
-        out.write("  REFUSED: the shards walked %d entries and the cache held %d.\n\n" % (walked, total))
+        out.write("  ERROR: the shards walked %d entries and the cache held %d.\n\n" % (walked, total))
         return 1
 
     out.write("\n  %d entries in the cache, every one walked\n" % total)

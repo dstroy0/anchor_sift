@@ -175,9 +175,9 @@ CODEGEN_CORE void codegen_wrap(MachineFunction *lane, const IrStep *at)
 // a division by a divisor of one limb, cycle_record_divide's one-limb long division unrolled from the numerator's top
 // limb down: each limb's quotient word by div, and the carried remainder the limb less the quotient word times the
 // divisor, which is exact in 32 bits since it is below the divisor. The numerator's zero limbs above its used ones
-// divide to zero and carry nothing, as the interpreter's skipping them does. A zero divisor refuses the lane; an exact
-// quotient refuses a remainder and a quotient that outgrows its register, as the inverse's multiply back does. The
-// quotient's words are the step's own limbs where the step keeps them, below `kept`, and its own temporaries above
+// divide to zero and carry nothing, as the interpreter's skipping them does. A zero divisor errors on the lane; an
+// exact quotient errors on a remainder and a quotient that outgrows its register, as the inverse's multiply back does.
+// The quotient's words are the step's own limbs where the step keeps them, below `kept`, and its own temporaries above
 CODEGEN_CORE void codegen_short_division(MachineFunction *lane, const IrStep *at)
 {
     const DeviceRecordStep *const step = at->step;
@@ -189,7 +189,7 @@ CODEGEN_CORE void codegen_short_division(MachineFunction *lane, const IrStep *at
     const MachineOperand left_sign = codegen_sign(at->left_place);
     const MachineOperand nothing = codegen_predicate(lane);
     codegen_instr2(lane, OPCODE_TEST_ZERO, nothing, divisor);
-    codegen_refuse(lane, nothing);
+    codegen_error(lane, nothing);
     const MachineOperand carried = codegen_temporary(lane);
     const MachineOperand taken = codegen_temporary(lane);
     const MachineOperand wide_divisor = codegen_wide(lane);
@@ -234,11 +234,11 @@ CODEGEN_CORE void codegen_short_division(MachineFunction *lane, const IrStep *at
     {
         const MachineOperand remains = codegen_predicate(lane);
         codegen_instr2(lane, OPCODE_TEST_NONZERO, remains, carried);
-        codegen_refuse(lane, remains);
+        codegen_error(lane, remains);
         if (left_limbs > limbs)
         {
             // the words past the step's limbs are the temporaries above it, every one
-            codegen_refuse(lane, codegen_nonzero(lane, above, left_limbs - limbs));
+            codegen_error(lane, codegen_nonzero(lane, above, left_limbs - limbs));
         }
     }
     const MachineOperand operand = codegen_temporary(lane);
@@ -267,7 +267,7 @@ CODEGEN_CORE void codegen_copy_out(MachineFunction *lane, const MachineOperandRa
 // hardware does it: the numerator's limbs, which become the quotient, and a rest one limb wider than the divisor are
 // shifted up a bit together; the divisor is taken from the rest where it does not borrow, and the quotient's new low
 // bit is 1 where it was. After 32 passes a numerator limb, the quotient and the rest are cycle_record_divide's. A zero
-// divisor refuses the lane; an exact quotient refuses a rest and a quotient that outgrows its register, as the
+// divisor errors on the lane; an exact quotient errors on a rest and a quotient that outgrows its register, as the
 // inverse's multiply back does
 CODEGEN_CORE void codegen_long_division(MachineFunction *lane, const IrStep *at)
 {
@@ -280,7 +280,7 @@ CODEGEN_CORE void codegen_long_division(MachineFunction *lane, const IrStep *at)
     const MachineOperandRange value = codegen_limbs(at->place, limbs, limbs);
     const MachineOperandRange divisor = codegen_limbs(at->right_place, right_limbs, right_limbs + 1u);
     const MachineOperand left_sign = codegen_sign(at->left_place);
-    codegen_refuse(lane, codegen_zeroed(lane, divisor, right_limbs));
+    codegen_error(lane, codegen_zeroed(lane, divisor, right_limbs));
     const MachineOperandRange quotient = codegen_temporaries(lane, left_limbs);
     const MachineOperandRange rest = codegen_temporaries(lane, right_limbs + 1u);
     const MachineOperandRange taken = codegen_temporaries(lane, right_limbs + 1u);
@@ -310,10 +310,10 @@ CODEGEN_CORE void codegen_long_division(MachineFunction *lane, const IrStep *at)
     codegen_copy_out(lane, value, (left_limbs > limbs) ? codegen_slice(quotient, 0u, limbs) : quotient);
     if (operation == ENGINE_RECORD_EXACT_QUOTIENT)
     {
-        codegen_refuse(lane, codegen_nonzero(lane, rest, right_limbs));
+        codegen_error(lane, codegen_nonzero(lane, rest, right_limbs));
         if (left_limbs > limbs)
         {
-            codegen_refuse(
+            codegen_error(
                 lane, codegen_nonzero(lane, codegen_slice(quotient, limbs, left_limbs - limbs), left_limbs - limbs));
         }
     }
@@ -406,7 +406,7 @@ CODEGEN_CORE void codegen_gcd(MachineFunction *lane, const IrStep *at)
     codegen_signed(lane, at, codegen_number(1u));
 }
 
-// the golden ladder's band, as cycle_record_ladder counts it: a right that is not positive refuses the lane; else
+// the golden ladder's band, as cycle_record_ladder counts it: a right that is not positive errors on the lane; else
 // each pass multiplies the right by the next Fibonacci number and counts the rung where the multiple stays at or below
 // the left's magnitude, until one does not or the rungs run out. The pass is taken only while the ladder climbs. The
 // band is the register's low limb, its sign the left's
@@ -424,7 +424,7 @@ CODEGEN_CORE void codegen_ladder(MachineFunction *lane, const IrStep *at)
     const MachineOperand not_positive = codegen_predicate(lane);
     codegen_instr3(lane, OPCODE_SUBTRACT_ALONE, lessened, codegen_sign(at->right_place), one);
     codegen_instr2(lane, OPCODE_TEST_NEGATIVE, not_positive, lessened);
-    codegen_refuse(lane, not_positive);
+    codegen_error(lane, not_positive);
     const MachineOperandRange fibonacci_lower = codegen_temporaries(lane, 2u);
     const MachineOperandRange fibonacci_upper = codegen_temporaries(lane, 2u);
     const MachineOperandRange fibonacci_next = codegen_temporaries(lane, 2u);

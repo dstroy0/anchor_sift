@@ -35,7 +35,7 @@ static size_t steer_descend(size_t *offsets, size_t count, const uint8_t *corpus
     if (survivors_length < alignments)
     {
         // FAILS CLOSED. The kernel allocates nothing. A buffer that does not reach the alignment
-        // count is refused, and never worked around by planning on part of the field.
+        // count errors, and never worked around by planning on part of the field.
         return 0u;
     }
 
@@ -186,12 +186,12 @@ int anchor_steer_probe_fits(const AnchorProbe *probe, size_t needle_len)
     if (probe->step == 0u)
     {
         // A line of length greater than one with no step reads one position repeatedly. That is an
-        // arm wearing an eye's shape. It is refused here and never silently collapsed.
+        // arm wearing an eye's shape. It errors here and never silently collapsed.
         return 0;
     }
 
     // The last position is origin + step*(length-1). Formed by division against the capacity actually
-    // left, which refuses a step and length whose product would wrap size_t instead of letting it
+    // left, which errors on a step and length whose product would wrap size_t instead of letting it
     // wrap into a position that passes a bounds test.
     const size_t range = needle_len - 1u - probe->origin;
     return ((probe->length - 1u) <= (range / probe->step)) ? 1 : 0;

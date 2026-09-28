@@ -166,7 +166,7 @@ def main():
         cell, sites = crystal.parse_cif(text)
         arm = grid_arm(cell, sites, draw) if cell else None
         if arm is None:
-            shown = "cap refused the cell"
+            shown = "cap errored on the cell"
         else:
             grid_live, grid_scatter, grid_reassign, _ = arm
             grid_scatter_total += grid_scatter

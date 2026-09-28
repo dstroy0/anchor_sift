@@ -27,7 +27,7 @@
 // The resolutions come with the request (Doug, 24 September: "you can go to 2^n arbitrarily in the tower it is one
 // term"): pi_tower [n] reads 2^n alone, pi_tower [from] [to] reads 2^from to 2^to, and no argument reads 2^1 to 2^100.
 // The precision follows the largest, P = 3 n + 64 bits rounded up to a word and at least PI_TOWER_BITS, and a build
-// whose exact width cannot hold 3 (P + PI_TOWER_GUARD) + 64 bits refuses it by name (SIM_EXACT_LIMBS sets the width).
+// whose exact width cannot hold 3 (P + PI_TOWER_GUARD) + 64 bits errors on it by name (SIM_EXACT_LIMBS sets the width).
 // The arc (Doug, 24 September: "if we were on a disk, and pi were on a separate disc balanced by its torsion, that
 // would be its planes offset in degrees to our plane"; "this is the arc it follows"). Roll the boundary into a
 // cylinder whose cross-section is our disk: the turn is the helix of radius 1 / (2 pi) rising 1 / pi a turn, and it
@@ -132,7 +132,7 @@
 // the deepest resolution the exact turn is held at; past it a resolution is read on the engine alone
 #define PI_TOWER_EXACT_MAX (1ull << 20u)
 
-extern int g_pi_tower_refused;
+extern int g_pi_tower_error;
 
 extern int g_pi_tower_records_short;
 

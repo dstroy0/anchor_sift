@@ -230,7 +230,7 @@ int main(int count, char **arguments)
               "eight inverse floors take 16 z back through z (1 + i)^(8 - k) to z on every lane, the host's and the "
               "device's records alike");
 
-    // The chosen pairs, each run alone through j inverse floors for j from 1 to 8: refused exactly where its valuation
+    // The chosen pairs, each run alone through j inverse floors for j from 1 to 8: errored exactly where its valuation
     // is below j, and otherwise its every level is z / (1 + i)^k, taken on the CPU by the Gaussian division.
     long long pair_real[GAUSSIAN_TEST_PAIRS];
     long long pair_imaginary[GAUSSIAN_TEST_PAIRS];
@@ -259,10 +259,10 @@ int main(int count, char **arguments)
     pair_imaginary[GAUSSIAN_TEST_PAIRS - 1u] = 0ll;
     sim_check(&results, valued, "the chosen pairs w (1 + i)^k have valuation k on the CPU, for k from 0 to 9");
     int agreed = returned;
-    int refusals = returned;
+    int errors = returned;
     int quotients = returned;
     unsigned long long ran_count = 0ull;
-    unsigned long long refused_count = 0ull;
+    unsigned long long error_count = 0ull;
     for (unsigned int floors = 1u; (agreed != 0) && (floors <= GAUSSIAN_TEST_FLOORS); floors += 1u)
     {
         for (unsigned int pair = 0u; (agreed != 0) && (pair < GAUSSIAN_TEST_PAIRS); pair += 1u)
@@ -276,9 +276,9 @@ int main(int count, char **arguments)
             agreed = ran >= 0;
             const int divides =
                 gaussian_valuation(pair_real[pair], pair_imaginary[pair], GAUSSIAN_TEST_FLOORS) >= floors;
-            refusals = refusals && ((ran == 1) == (divides != 0));
+            errors = errors && ((ran == 1) == (divides != 0));
             ran_count += (ran == 1) ? 1ull : 0ull;
-            refused_count += (ran == 0) ? 1ull : 0ull;
+            error_count += (ran == 0) ? 1ull : 0ull;
             long long real_part = pair_real[pair];
             long long imaginary_part = pair_imaginary[pair];
             for (unsigned int level = 1u; (ran == 1) && (level <= floors); level += 1u)
@@ -297,16 +297,17 @@ int main(int count, char **arguments)
             }
         }
     }
-    sim_check(&results, agreed, "every run's host and device agree: both refuse the lane, or both run to one record");
-    sim_check(&results, refusals,
-              "j inverse floors refuse a pair exactly where (1 + i)^j does not divide it: a pair of mixed parity is a "
-              "lane the machine refuses");
+    sim_check(&results, agreed, "every run's host and device agree: both error on the lane, or both run to one record");
+    sim_check(
+        &results, errors,
+        "j inverse floors error on a pair exactly where (1 + i)^j does not divide it: a pair of mixed parity is a "
+        "lane the machine errors");
     sim_check(&results, quotients, "where they run, each level is z / (1 + i)^k, the Gaussian division on the CPU");
     scriptura_text(&results.line, "  the chosen pairs through 1 to 8 inverse floors: ");
     scriptura_decimal(&results.line, ran_count, 1u);
     scriptura_text(&results.line, " runs, ");
-    scriptura_decimal(&results.line, refused_count, 1u);
-    scriptura_text(&results.line, " refused\n");
+    scriptura_decimal(&results.line, error_count, 1u);
+    scriptura_text(&results.line, " errored\n");
     free(eight);
     free(inverse_host);
     free(inverse_device);

@@ -26,7 +26,7 @@
 #   3. TOOL. The alphabet stage had no arm for `optimis`, `initialis`, `signall` or the -ce nouns.
 #   4. TOOL. The extension list could not open a CMakeLists.txt.
 # This pass is 3 and 4. Axes 1 and 2 change what every committer in that repository has to satisfy,
-# they are its captain's and Douglas's to decide, and its captain has correctly refused to decide
+# they are its captain's and Douglas's to decide, and its captain has correctly not decided
 # them alone. A gate that is correct, installed nowhere, and scoped to two paths still catches
 # nothing, and these tests passing does not say otherwise.
 
@@ -764,7 +764,7 @@ class PrecisionOverRecall(unittest.TestCase):
         ):
             self.assertFalse(stage_reaches(word), "reported as British: %r" % word)
 
-    def test_the_shapes_the_arm_refuses_without_naming_them(self):
+    def test_the_shapes_the_arm_errors_without_naming_them(self):
         # The consonant class and the two-character floor carry these. None of them has to be
         # written into a list that a later reader has to maintain.
         for word in (
@@ -842,7 +842,7 @@ class PrecisionOverRecall(unittest.TestCase):
         self.assertFalse(stage_reaches("programming"))
         self.assertTrue(stage_reaches("programme"))
 
-    def test_the_our_arm_refuses_the_short_words_and_holds_the_long_ones(self):
+    def test_the_our_arm_errors_the_short_words_and_holds_the_long_ones(self):
         for word in (
             "our",
             "your",
@@ -1092,7 +1092,7 @@ class TheStageAgainstAPushedRef(unittest.TestCase):
 class TheWorkBesideThisOneIsUntouched(unittest.TestCase):
     """Guards for the two passes this one sits between. A rebuild drops them without deciding to."""
 
-    def test_the_structural_gate_still_refuses_a_doxygen_reference(self):
+    def test_the_structural_gate_still_errors_a_doxygen_reference(self):
         self.assertFalse(docs_check.path_candidate("@ref HTTP_10"))
         self.assertFalse(
             docs_check.path_candidate("const char *user, const char *pass")
@@ -1105,7 +1105,7 @@ class TheWorkBesideThisOneIsUntouched(unittest.TestCase):
 
     def test_a_new_extension_added_no_breaking_rule(self):
         # The structural stage fails a commit. A build file becoming readable must not turn a
-        # comment in one into a refused commit by accident. em_dashes is the only structural rule
+        # comment in one into an errored commit by accident. em_dashes is the only structural rule
         # that runs on every extension, and it already ran that way on .py, .c and .h.
         said = docs_check.prose_only("x/build.sh", ["# a plain comment", "echo hi"])
         self.assertEqual(docs_check.em_dashes(said), [])
