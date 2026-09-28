@@ -11,6 +11,16 @@ tessera_run, which admits it on the device's daemon, and the daemon decides what
     harness.py run                        every suite in the matrix
     harness.py run codegen_device cell    those suites alone
     harness.py run --report-out PATH      and write the run's summary as a Markdown table
+    harness.py run --at HASH              the suites of anchor_sift as it was at a commit
+
+--at exports the commit once, with git archive, to build/trees/<commit> beside the repository
+(fetching it from origin where this clone does not hold it) and runs that tree's matrix there; its
+logs go to build/harness/at_<commit>/.
+
+Every suite's nvcc goes through one compile cache, build/compile_cache beside the repository
+(maint/compile_cache.py, set up by maint/build_stamp.sh): each source is compiled once a tree and
+set of flags, by the first suite that needs it, and the rest link its object. A tree is keyed by
+its committed files, uncommitted changes and untracked files, or by its commit where pinned.
 
 Each suite's output goes to build/harness/<env>.log beside the repository. A suite passes when
 its job exits 0, every "test exit N" line it printed is 0, and no check failed ("N checks, M
@@ -35,12 +45,14 @@ splice_remove, then write_verified.
 import argparse
 import concurrent.futures
 import errno
+import io
 import json
 import os
 import re
 import shutil
 import subprocess
 import sys
+import tarfile
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -434,18 +446,48 @@ def wsl_path(path):
     return p
 
 
-def script_command(name, e, tessera):
+def pinned_root(commit):
+    """anchor_sift as it was at a commit, exported once to build/trees/<commit> (fetched from origin where this clone
+    does not hold it), with a .pinned file naming the commit, which is the compile cache's key for it. None where git
+    cannot name the commit."""
+    found = subprocess.run(["git", "-C", ROOT, "rev-parse", "--verify", "--quiet", commit + "^{commit}"],
+                           capture_output=True, text=True)
+    if found.returncode != 0:
+        subprocess.run(["git", "-C", ROOT, "fetch", "--quiet", "origin", commit])
+        found = subprocess.run(["git", "-C", ROOT, "rev-parse", "--verify", "--quiet", commit + "^{commit}"],
+                               capture_output=True, text=True)
+    if found.returncode != 0:
+        return None
+    full = found.stdout.strip()
+    tree = os.path.join(os.path.dirname(ROOT), "build", "trees", full)
+    pinned = os.path.join(tree, ".pinned")
+    if not os.path.isfile(pinned):
+        archive = subprocess.run(["git", "-C", ROOT, "archive", "--format=tar", full], capture_output=True, check=True)
+        partial = tree + ".part"
+        shutil.rmtree(partial, ignore_errors=True)
+        with tarfile.open(fileobj=io.BytesIO(archive.stdout)) as tar:
+            tar.extractall(partial, filter="tar")
+        with open(os.path.join(partial, ".pinned"), "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(full + "\n")
+        shutil.rmtree(tree, ignore_errors=True)
+        os.replace(partial, tree)
+    return tree
+
+
+def script_command(name, e, tessera, root=ROOT, script_build=SCRIPT_BUILD):
     """The command line and the environment one env's suite runs under."""
-    out = os.path.join(SCRIPT_BUILD, name)
+    out = os.path.join(script_build, name)
     os.makedirs(out, exist_ok=True)
     env = dict(os.environ)
     env.update(e.get("env", {}))
     env["BUILD_OUT"] = out
+    # one compile cache for every suite, pinned or not: a tree's objects are compiled by its first suite
+    env["COMPILE_CACHE_DIR"] = os.path.join(os.path.dirname(ROOT), "build", "compile_cache").replace("\\", "/")
     if "CYCLE_RECORD_CHECK" in env or "CYCLE_RECORD_REPORT" in env:
         cache = os.path.join(out, "cycle_cache")
         os.makedirs(cache, exist_ok=True)
         env["CYCLE_CACHE"] = cache.replace("\\", "/")
-    script = os.path.join(ROOT, *e["script"].split("/"))
+    script = os.path.join(root, *e["script"].split("/"))
     if e.get("wsl"):
         # WSL takes no environment from here: the settings ride on the command line
         sets = " ".join(
@@ -466,13 +508,13 @@ def script_command(name, e, tessera):
     return cmd, env
 
 
-def script_run_one(name, e, tessera):
+def script_run_one(name, e, tessera, root=ROOT, script_build=SCRIPT_BUILD):
     """Run one env's suite. Returns (name, status, checks, failed, exit, log path, seconds)."""
-    cmd, env = script_command(name, e, tessera)
-    log = os.path.join(SCRIPT_BUILD, name + ".log")
+    cmd, env = script_command(name, e, tessera, root, script_build)
+    log = os.path.join(script_build, name + ".log")
     t0 = time.time()
     with open(log, "w", encoding="utf-8", errors="replace") as fh:
-        rc = subprocess.run(cmd, cwd=ROOT, env=env, stdout=fh, stderr=subprocess.STDOUT).returncode
+        rc = subprocess.run(cmd, cwd=root, env=env, stdout=fh, stderr=subprocess.STDOUT).returncode
     secs = time.time() - t0
     with open(log, encoding="utf-8", errors="replace") as fh:
         text = fh.read()
@@ -517,7 +559,15 @@ def script_report(path, results, secs):
 
 
 def cmd_run(a):
-    with open(TABLE, encoding="utf-8") as f:
+    root, script_build = ROOT, SCRIPT_BUILD
+    if a.at:
+        root = pinned_root(a.at)
+        if root is None:
+            print("error: no commit %s here or at origin" % a.at)
+            return 1
+        script_build = os.path.join(SCRIPT_BUILD, "at_" + os.path.basename(root)[:12])
+        print("pinned: %s" % root)
+    with open(os.path.join(root, "test", "test_matrix.json"), encoding="utf-8") as f:
         table = json.load(f)["envs"]
     tessera = find_tessera_run()
     if not tessera:
@@ -528,13 +578,13 @@ def cmd_run(a):
     if missing:
         print("not a suite in test/test_matrix.json: " + " ".join(missing))
         return 1
-    os.makedirs(SCRIPT_BUILD, exist_ok=True)
+    os.makedirs(script_build, exist_ok=True)
     total = len(names)
     results = []
     t0 = time.time()
     # the daemon decides what runs beside what. The suites go to it together; -j bounds how many wait at once
     with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, a.jobs)) as pool:
-        futures = [pool.submit(script_run_one, n, table[n], tessera) for n in names]
+        futures = [pool.submit(script_run_one, n, table[n], tessera, root, script_build) for n in names]
         for i, f in enumerate(concurrent.futures.as_completed(futures), 1):
             name, status, checks, failed, rc, log, secs = f.result()
             results.append((name, status, checks, failed, rc, log, secs))
@@ -648,6 +698,7 @@ def build_parser():
     p.add_argument("-j", "--jobs", type=int, default=os.cpu_count() or 4, help="how many suites wait on the daemon at once")
     p.add_argument("-v", "--verbose", action="store_true", help="print every suite's log path, not only the ones that did not pass")
     p.add_argument("--report-out", metavar="PATH", help="write the run's summary here")
+    p.add_argument("--at", metavar="HASH", help="run the suites of anchor_sift as it was at this commit (fetched from origin if need be)")
     p.set_defaults(fn=cmd_run)
     return ap
 
