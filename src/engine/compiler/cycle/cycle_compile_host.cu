@@ -2,14 +2,17 @@
 // cycle_compile_host.cu: a program's C source built by the host's compiler, and run resident on the host
 //
 // CYCLE_RECORD_HOST_C=1 builds each lane written as C source (CTarget::program) with the host's C++ compiler in
-// place of NVRTC: the lane and its resident (program_unit) under a host prelude that reads the CUDA names they use as
-// one thread of one thread block. The text is compiled to a shared library in the cache folder, kept there by its
-// text, and loaded; its resident, cycle_program, runs every lane on the host's processor. The run copies the lane's
+// place of NVRTC: the lane and its resident (program_unit) under a host prelude that reads the CUDA names they use
+// with each host thread a thread block of one thread. The text is compiled to a shared library in the cache folder,
+// kept there by its text, and loaded; its resident, cycle_program, runs the lanes on the host's threads, as many as
+// $CYCLE_HOST_THREADS names, else the host's hardware threads. The run copies the lane's
 // inputs from the device and its records and errors back, so the check (CYCLE_RECORD_CHECK=1) holds it to the
 // interpreter as it holds the device's. On Windows the compiler is nvcc handing the source to the host compiler
 // alone, with -ccbin $CYCLE_HOST_CCBIN where it is set; elsewhere it is $CXX, else c++
 #include "cycle_compile_internal.h"
 #include "cycle_record_internal.h"
+
+#include <thread>
 
 #if !defined(_WIN32)
 #include <fcntl.h>
@@ -18,20 +21,25 @@
 extern char **environ;
 #endif
 
-// The host's reading of the CUDA names a C lane and its resident use: one thread of one thread block, whose atomics
-// are a plain read and write, exact where one thread makes them. The resident is the library's one export
+// The host's reading of the CUDA names a C lane and its resident use: each host thread is a thread block of one
+// thread, whose shared memory is its own (thread_local), and the grid is the host threads the run starts
+// (cycle_host_grid). The resident's atomics are the host's own, sequentially consistent, and its fence a full one:
+// the lanes are taken from the one counter and the last thread block out writes the program's block, as on the
+// device. The resident and the grid's setter are the library's exports
 static const char s_cycle_host_prelude[] = R"CYCLE(// a record program's lane, built by the host's compiler
+#include <atomic>
 #if defined(_WIN32)
+#include <intrin.h>
 #define __global__ __declspec(dllexport)
 #else
 #define __global__ __attribute__((visibility("default")))
 #endif
 #define __device__
-#define __shared__
+#define __shared__ thread_local
 #define __forceinline__ inline
 #define __launch_bounds__(threads_)
 #define __syncthreads()
-#define __threadfence()
+#define __threadfence() std::atomic_thread_fence(std::memory_order_seq_cst)
 
 struct CycleHostDimension
 {
@@ -40,28 +48,42 @@ struct CycleHostDimension
 
 static const CycleHostDimension threadIdx = {0u};
 static const CycleHostDimension blockDim = {1u};
-static const CycleHostDimension gridDim = {1u};
+static CycleHostDimension gridDim = {1u};
 
+extern "C" __global__ void cycle_host_grid(unsigned int blocks)
+{
+    gridDim.x = blocks;
+}
+
+// Windows' interlocked calls take signed words of the same width, and the bits are read back unchanged
 static inline unsigned int atomicAdd(unsigned int *address, unsigned int value)
 {
-    const unsigned int held = *address;
-    *address = held + value;
-    return held;
+#if defined(_WIN32)
+    return (unsigned int)_InterlockedExchangeAdd((volatile long *)address, (long)value);
+#else
+    return __atomic_fetch_add(address, value, __ATOMIC_SEQ_CST);
+#endif
 }
 
 static inline unsigned long long atomicAdd(unsigned long long *address, unsigned long long value)
 {
-    const unsigned long long held = *address;
-    *address = held + value;
-    return held;
+#if defined(_WIN32)
+    return (unsigned long long)_InterlockedExchangeAdd64((volatile long long *)address, (long long)value);
+#else
+    return __atomic_fetch_add(address, value, __ATOMIC_SEQ_CST);
+#endif
 }
 
 static inline unsigned long long atomicCAS(unsigned long long *address, unsigned long long compare,
                                            unsigned long long value)
 {
-    const unsigned long long held = *address;
-    *address = (held == compare) ? value : held;
-    return held;
+#if defined(_WIN32)
+    return (unsigned long long)_InterlockedCompareExchange64((volatile long long *)address, (long long)value,
+                                                             (long long)compare);
+#else
+    __atomic_compare_exchange_n(address, &compare, value, false, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
+    return compare;
+#endif
 }
 )CYCLE";
 
@@ -78,6 +100,7 @@ struct CycleHostProgram
     std::string source;
     void *library;
     CycleHostEntry entry;
+    CycleHostGrid grid;
     unsigned long long holders;
 };
 
@@ -228,13 +251,14 @@ int cycle_host_program_load(const EngineRecordLayout *layout, CycleRecord *recor
 {
     // one thread's places: a word each, then a sign byte each
     std::string text = s_cycle_host_prelude + source;
-    cycle_format(text, "\nu32 cycle_words[%u];\n", places + ((places + 3u) / 4u) + 1u);
+    cycle_format(text, "\nthread_local u32 cycle_words[%u];\n", places + ((places + 3u) / 4u) + 1u);
     for (size_t at = 0u; at < s_cycle_host_programs.size(); at += 1u)
     {
         if (s_cycle_host_programs[at].source == text)
         {
             s_cycle_host_programs[at].holders += 1ull;
             record->host_program = s_cycle_host_programs[at].entry;
+            record->host_grid = s_cycle_host_programs[at].grid;
             record->compiled = 1u;
             if (report != 0)
             {
@@ -294,17 +318,20 @@ int cycle_host_program_load(const EngineRecordLayout *layout, CycleRecord *recor
     CycleHostProgram program;
     program.library = cycle_host_library_open(stem + CYCLE_HOST_LIBRARY);
     program.entry = NULL;
+    program.grid = NULL;
     program.holders = 1ull;
     if (program.library != NULL)
     {
 #if defined(_WIN32)
-        // the resident's address is cast back to the function the host prelude gives it
+        // the resident's and the grid setter's addresses are cast back to the functions the host prelude gives them
         program.entry = (CycleHostEntry)GetProcAddress((HMODULE)program.library, "cycle_program");
+        program.grid = (CycleHostGrid)GetProcAddress((HMODULE)program.library, "cycle_host_grid");
 #else
         program.entry = (CycleHostEntry)dlsym(program.library, "cycle_program");
+        program.grid = (CycleHostGrid)dlsym(program.library, "cycle_host_grid");
 #endif
     }
-    if ((program.entry == NULL) || (cycle_host_file_read(stem + ".cpp") != text))
+    if ((program.entry == NULL) || (program.grid == NULL) || (cycle_host_file_read(stem + ".cpp") != text))
     {
         if (program.library != NULL)
         {
@@ -320,6 +347,7 @@ int cycle_host_program_load(const EngineRecordLayout *layout, CycleRecord *recor
     program.source = text;
     s_cycle_host_programs.push_back(program);
     record->host_program = program.entry;
+    record->host_grid = program.grid;
     record->compiled = 1u;
     if ((report != 0) && found)
     {
@@ -363,11 +391,29 @@ static int cycle_host_words_read(std::vector<unsigned int> &words, const unsigne
                               device, error);
 }
 
+// the host threads a run starts: $CYCLE_HOST_THREADS where it names a whole number above 0, else the host's hardware
+// threads, and never more than the lanes
+static unsigned int cycle_host_threads(unsigned long long lanes)
+{
+    const char *const named = getenv("CYCLE_HOST_THREADS");
+    char *end = NULL;
+    const unsigned long long asked =
+        ((named != NULL) && (named[0] >= '0') && (named[0] <= '9')) ? strtoull(named, &end, 10) : 0ull;
+    const unsigned long long hardware = std::thread::hardware_concurrency();
+    const unsigned long long threads =
+        ((asked != 0ull) && (end != NULL) && (*end == '\0')) ? asked : ((hardware != 0ull) ? hardware : 1ull);
+    const unsigned long long held = (threads < lanes) ? threads : lanes;
+    // at most the lanes and at most what the environment or the hardware names; a run of more than 2^32 - 1 threads
+    // is held to that
+    return (unsigned int)((held == 0ull) ? 1ull : ((held > 0xFFFFFFFFull) ? 0xFFFFFFFFull : held));
+}
+
 // The host program run resident, as the device's is (cycle_record_resident): its block laid out for this run, then
-// the program called again from where its block says it stands until every lane is done. The host's copy of the
-// block is the one the program writes. The lanes' members, index and tables are read from the device first, and the
-// records and the error count are written back to it last. The host has no clock the program reads, so its launch
-// time is taken around each call
+// the program started on the host's threads, each a thread block of one thread (cycle_host_threads), again from
+// where its block says it stands until every lane is done. The threads take lanes from the one counter, and the last
+// one out writes the host's copy of the block. The lanes' members, index and tables are read from the device first,
+// and the records and the error count are written back to it last. The host has no clock the program reads, so its
+// launch time is taken around each start
 int cycle_host_resident(const CycleRecord *record, CycleCompiledLaunch program, EngineError *error)
 {
     std::vector<unsigned int> in[ENGINE_RECORD_MEMBERS_MAX];
@@ -405,7 +451,8 @@ int cycle_host_resident(const CycleRecord *record, CycleCompiledLaunch program, 
     block->signature = signature;
     block->generation = generation;
     block->command = ENGINE_PROGRAM_RUN;
-    block->grant_threads = 1ull;
+    const unsigned int threads = cycle_host_threads(program.count);
+    block->grant_threads = threads;
     block->state = ENGINE_PROGRAM_PLACED;
     block->span = record->file_limbs;
     block->ttl = ttl;
@@ -435,8 +482,18 @@ int cycle_host_resident(const CycleRecord *record, CycleCompiledLaunch program, 
         program.launch_number = block->launches;
         hot.launch_start = 0ull;
         hot.finished = 0ull;
+        record->host_grid(threads);
         const auto began = std::chrono::steady_clock::now();
-        record->host_program(program);
+        std::vector<std::thread> started;
+        started.reserve(threads);
+        for (unsigned int thread = 0u; thread < threads; thread += 1u)
+        {
+            started.emplace_back(record->host_program, program);
+        }
+        for (std::thread &running_thread : started)
+        {
+            running_thread.join();
+        }
         const auto ended = std::chrono::steady_clock::now();
         const unsigned long long state = block->state;
         ok = CYCLE_CHECK((state == ENGINE_PROGRAM_YIELDED) || (state == ENGINE_PROGRAM_DONE), block, error,

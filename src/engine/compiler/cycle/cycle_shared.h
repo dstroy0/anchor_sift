@@ -72,9 +72,11 @@ static_assert(cudaSuccess == 0, "the engine reads a CUDA status of 0 as success"
 // places are a thread's registers in shared memory and threads a thread block's; register_bytes is the shared memory a
 // thread block's registers take, the launch's dynamic shared memory, and shared_bytes all a thread block holds, the
 // kernel's own beside them; resident is the thread blocks the device holds at once. host_program is the resident of a
-// program the host's compiler built (CYCLE_RECORD_HOST_C=1), which runs on the host; NULL where the program is the
-// device's. table_words is the words of the program's tables
+// program the host's compiler built (CYCLE_RECORD_HOST_C=1), which runs on the host's threads, and host_grid sets the
+// threads it runs on; both NULL where the program is the device's. table_words is the words of the program's tables
 typedef void (*CycleHostEntry)(CycleCompiledLaunch launch);
+
+typedef void (*CycleHostGrid)(unsigned int blocks);
 
 struct CycleRecord
 {
@@ -102,6 +104,7 @@ struct CycleRecord
     unsigned long long resident;
     unsigned long long processors;
     CycleHostEntry host_program;
+    CycleHostGrid host_grid;
     unsigned long long table_words;
 };
 

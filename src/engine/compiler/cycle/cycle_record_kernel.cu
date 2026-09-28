@@ -175,7 +175,7 @@ extern "C" long cycle_record_load(const EngineRecordLayout *layout, CycleRecord 
         // its place, and the error is dropped before a run reads the runtime's last error as its own
         cudaGetLastError();
     }
-    // a host program holds no device grant: it runs as one thread of one thread block
+    // a host program holds no device grant: its thread blocks are the host's threads, of one thread each
     const int host = (record->compiled != 0u) && (record->host_program != NULL);
     record->threads = (host != 0) ? 1u : record->threads;
     cudaFuncAttributes attributes;
@@ -192,7 +192,7 @@ extern "C" long cycle_record_load(const EngineRecordLayout *layout, CycleRecord 
         ((host != 0) || ((attributed != 0) && cycle_record_share(record, attributes.sharedSizeBytes))) ? 1u : 0u;
     if ((cycle_environment_set("CYCLE_RECORD_REPORT") != 0) && (host != 0))
     {
-        fprintf(stderr, "  cycle: the program holds %u places a thread, and runs on the host as one thread\n",
+        fprintf(stderr, "  cycle: the program holds %u places a thread, and runs on the host's threads\n",
                 record->places);
     }
     else if ((cycle_environment_set("CYCLE_RECORD_REPORT") != 0) && (record->compiled != 0u))
