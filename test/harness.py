@@ -533,7 +533,7 @@ def script_run_one(name, e, tessera, root=ROOT, script_build=SCRIPT_BUILD, idle=
     """Run one env's suite. Returns (name, status, checks, failed, exit, log path, seconds). Once the daemon admits
     it, a suite whose log does not grow for `idle` seconds (the env's "idle_seconds" where it names one) is hung: its
     job and every process it started are ended, and it fails. The wait to be admitted prints nothing and is not
-    counted."""
+    counted; a WSL suite is counted from its start."""
     cmd, env = script_command(name, e, tessera, root, script_build)
     log = os.path.join(script_build, name + ".log")
     idle = e.get("idle_seconds", idle)
@@ -542,7 +542,8 @@ def script_run_one(name, e, tessera, root=ROOT, script_build=SCRIPT_BUILD, idle=
     with open(log, "w", encoding="utf-8", errors="replace") as fh:
         process = subprocess.Popen(cmd, cwd=root, env=env, stdout=fh, stderr=subprocess.STDOUT,
                                    start_new_session=(os.name != "nt"))
-        admitted = False
+        # a WSL suite is no tessera job: nothing admits it, and its clock starts with it
+        admitted = bool(e.get("wsl"))
         size = 0
         grew = time.time()
         while process.poll() is None:

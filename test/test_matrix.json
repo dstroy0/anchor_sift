@@ -663,7 +663,8 @@
       ],
       "tests": [
         "engine/compiler/cycle"
-      ]
+      ],
+      "wsl": true
     },
     "residual_odd": {
       "desc": "Odd residuals.",
@@ -743,7 +744,8 @@
       ],
       "tests": [
         "engine/compiler/codegen"
-      ]
+      ],
+      "wsl": true
     }
   }
 }
