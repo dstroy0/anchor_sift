@@ -355,6 +355,8 @@ static void vhdl_run(void *context, const HostProgram *program, int reuse, unsig
 
 int main(int argc, char **argv)
 {
+    // each line reaches the log as it is written, where stdout is a file: GHDL and Yosys take minutes a program
+    setvbuf(stdout, NULL, _IOLBF, 0);
     VhdlPlace place = {std::string(), std::string(), 0, 0, {}, 0u};
     int usable = argc >= 3;
     for (int at = 3; usable && (at < argc); at += 1)

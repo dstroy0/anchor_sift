@@ -241,6 +241,8 @@ static int construction_measure(const Ruleset *rules, const std::string &package
 
 int main(int argc, char **argv)
 {
+    // each line reaches the log as it is written, where stdout is a file: each form is synthesized alone
+    setvbuf(stdout, NULL, _IOLBF, 0);
     if (argc != 4)
     {
         fprintf(stderr, "usage: vhdl_construction_set <work folder> <vhdl.krs> <out .kcs>\n");

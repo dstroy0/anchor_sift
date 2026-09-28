@@ -369,10 +369,7 @@ int CodeGenerator::decide(const EngineRecordLayout *layout, const ScheduleModel 
                 {
                     for (const MachineInstr &item : *part)
                     {
-                        for (const MachineInstr &item : *part)
-                        {
-                            codegen_schedule_instr(deciding, &schedule, &item);
-                        }
+                        codegen_schedule_instr(deciding, &schedule, &item);
                     }
                 }
                 codegen_schedule_close(deciding, &schedule);
