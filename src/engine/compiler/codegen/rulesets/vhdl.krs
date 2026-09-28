@@ -116,7 +116,7 @@ form product_high to left right =             product := word_of({left}) * word_
 form sign_set to value =             {to} := word_of({value});\n
 form sign_select to chosen otherwise where =             if {where} then\n                {to} := word_of({chosen});\n            else\n                {to} := word_of({otherwise});\n            end if;\n
 form sign_multiply to left right =             {to} := word_of(signed_of(word_of({left})) * signed_of(word_of({right})));\n
-form sign_absolute to from =             {to} := word_of(abs(signed_of(word_of({from}))));\n
+form sign_absolute to from =             {to} := unsigned(abs(signed(word_of({from}))));\n
 form sign_negate to from =             {to} := word_of(-signed_of(word_of({from})));\n
 
 # tests, each setting a predicate
