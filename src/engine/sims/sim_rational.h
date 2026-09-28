@@ -7,7 +7,7 @@
 
 #include "sim.h"
 
-#define SIM_RATIONAL_SMALL_MOST (1ull << 62)
+#define SIM_RATIONAL_SMALL_MAX (1ull << 62)
 
 // the denominator is always positive
 typedef struct
@@ -18,9 +18,9 @@ typedef struct
 
 static int s_sim_rational_wide = 0;
 
-static inline void sim_rational_took(int held)
+static inline void sim_rational_status_check(int ok)
 {
-    if (held == 0)
+    if (ok == 0)
     {
         s_sim_rational_wide = 1;
     }
@@ -49,8 +49,9 @@ static inline int sim_rational_small(const AnchorExactInteger *value, long long 
             return 0;
         }
     }
-    const unsigned long long magnitude = ((unsigned long long)value->limb[1] << 32u) | (unsigned long long)value->limb[0];
-    if (magnitude >= SIM_RATIONAL_SMALL_MOST)
+    const unsigned long long magnitude =
+        ((unsigned long long)value->limb[1] << 32u) | (unsigned long long)value->limb[0];
+    if (magnitude >= SIM_RATIONAL_SMALL_MAX)
     {
         return 0;
     }
@@ -63,19 +64,20 @@ static inline void sim_rational_settle(SimRational *value)
 {
     long long numerator = 0ll;
     long long denominator = 0ll;
-    if ((sim_rational_small(&value->numerator, &numerator) == 0)
-        || (sim_rational_small(&value->denominator, &denominator) == 0) || (denominator <= 0ll))
+    if ((sim_rational_small(&value->numerator, &numerator) == 0) ||
+        (sim_rational_small(&value->denominator, &denominator) == 0) || (denominator <= 0ll))
     {
         AnchorExactInteger common;
         AnchorExactInteger one;
-        sim_rational_took(anchor_exact_gcd(&value->numerator, &value->denominator, &common) == ANCHOR_EXACT_OK);
-        sim_exact_whole(&one, 1ull);
+        sim_rational_status_check(anchor_exact_gcd(&value->numerator, &value->denominator, &common) == ANCHOR_EXACT_OK);
+        sim_exact_unsigned(&one, 1ull);
         if (anchor_exact_compare(&common, &one) > 0)
         {
             AnchorExactInteger top;
             AnchorExactInteger bottom;
-            sim_rational_took((anchor_exact_divide_exact(&value->numerator, &common, &top) == ANCHOR_EXACT_OK)
-                              && (anchor_exact_divide_exact(&value->denominator, &common, &bottom) == ANCHOR_EXACT_OK));
+            sim_rational_status_check(
+                (anchor_exact_divide_exact(&value->numerator, &common, &top) == ANCHOR_EXACT_OK) &&
+                (anchor_exact_divide_exact(&value->denominator, &common, &bottom) == ANCHOR_EXACT_OK));
             value->numerator = top;
             value->denominator = bottom;
         }
@@ -110,10 +112,10 @@ static inline SimRational sim_rational_sum(SimRational left, SimRational right)
     SimRational value;
     AnchorExactInteger left_scaled;
     AnchorExactInteger right_scaled;
-    sim_rational_took(sim_exact_product(&left.numerator, &right.denominator, &left_scaled)
-                      && sim_exact_product(&right.numerator, &left.denominator, &right_scaled)
-                      && sim_exact_sum(&left_scaled, &right_scaled, &value.numerator)
-                      && sim_exact_product(&left.denominator, &right.denominator, &value.denominator));
+    sim_rational_status_check(sim_exact_product(&left.numerator, &right.denominator, &left_scaled) &&
+                              sim_exact_product(&right.numerator, &left.denominator, &right_scaled) &&
+                              sim_exact_sum(&left_scaled, &right_scaled, &value.numerator) &&
+                              sim_exact_product(&left.denominator, &right.denominator, &value.denominator));
     sim_rational_settle(&value);
     return value;
 }
@@ -132,8 +134,8 @@ static inline SimRational sim_rational_difference(SimRational left, SimRational 
 static inline SimRational sim_rational_product(SimRational left, SimRational right)
 {
     SimRational value;
-    sim_rational_took(sim_exact_product(&left.numerator, &right.numerator, &value.numerator)
-                      && sim_exact_product(&left.denominator, &right.denominator, &value.denominator));
+    sim_rational_status_check(sim_exact_product(&left.numerator, &right.numerator, &value.numerator) &&
+                              sim_exact_product(&left.denominator, &right.denominator, &value.denominator));
     sim_rational_settle(&value);
     return value;
 }
@@ -175,10 +177,10 @@ static inline int sim_rational_equal(SimRational left, SimRational right)
 {
     AnchorExactInteger left_cross;
     AnchorExactInteger right_cross;
-    const int held = sim_exact_product(&left.numerator, &right.denominator, &left_cross)
-                  && sim_exact_product(&right.numerator, &left.denominator, &right_cross);
-    sim_rational_took(held);
-    return held && (anchor_exact_compare(&left_cross, &right_cross) == 0);
+    const int ok = sim_exact_product(&left.numerator, &right.denominator, &left_cross) &&
+                   sim_exact_product(&right.numerator, &left.denominator, &right_cross);
+    sim_rational_status_check(ok);
+    return ok && (anchor_exact_compare(&left_cross, &right_cross) == 0);
 }
 
 // a reduced fraction when it fits a word; wider, the exact value truncated to 12 places
@@ -186,8 +188,8 @@ static inline void sim_rational_print(ScripturaLine *line, SimRational value)
 {
     long long numerator = 0ll;
     long long denominator = 1ll;
-    if ((sim_rational_small(&value.numerator, &numerator) == 0)
-        || (sim_rational_small(&value.denominator, &denominator) == 0))
+    if ((sim_rational_small(&value.numerator, &numerator) == 0) ||
+        (sim_rational_small(&value.denominator, &denominator) == 0))
     {
         sim_ratio_print(line, &value.numerator, &value.denominator, 12u);
         return;
@@ -232,8 +234,8 @@ static inline int sim_exact_power(unsigned long long base, unsigned long long po
 {
     AnchorExactInteger square;
     AnchorExactInteger next;
-    sim_exact_whole(result, 1ull);
-    sim_exact_whole(&square, base);
+    sim_exact_unsigned(result, 1ull);
+    sim_exact_unsigned(&square, base);
     while (power != 0ull)
     {
         if ((power & 1ull) != 0ull)

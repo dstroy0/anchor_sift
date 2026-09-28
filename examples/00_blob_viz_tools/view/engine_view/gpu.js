@@ -70,7 +70,7 @@ EV.startGpu = async (canvas) => {
     draw(linesModule, "link", "paint_fragment", "line-list", { format: "depth24plus", depthWriteEnabled: false, depthCompare: "less" }, quiet),
     draw(linesModule, "edge", "paint_fragment", "line-list", above, quiet),
     draw(softModule, "map_cell", "map_cell_fragment", "triangle-list", solid, [{ format: "r32uint" }]),
-    // The plane's colour: no depth at all, every cell adding into what is already there.
+    // The plane's color: no depth at all, every cell adding into what is already there.
     device.createRenderPipelineAsync({
       layout: "auto",
       vertex: { module: softModule, entryPoint: "map_cell" },
@@ -268,7 +268,7 @@ EV.loadObject = async (gpu, sources) => {
     shape: storage(EV.words(header.cell_total * 6)),
     ids: device.createTexture({ size: [EV.MAP_SIZE, EV.MAP_SIZE], format: "r32uint", usage: GPUTextureUsage.RENDER_ATTACHMENT | GPUTextureUsage.TEXTURE_BINDING }),
     idsDepth: device.createTexture({ size: [EV.MAP_SIZE, EV.MAP_SIZE], format: "depth24plus", usage: GPUTextureUsage.RENDER_ATTACHMENT }),
-    // The plane's own colour: every cell of the volume added into it, with no depth standing between them.
+    // The plane's own color: every cell of the volume added into it, with no depth standing between them.
     painted: device.createTexture({ size: [EV.MAP_SIZE, EV.MAP_SIZE], format: "rgba16float",
                                     usage: GPUTextureUsage.RENDER_ATTACHMENT | GPUTextureUsage.TEXTURE_BINDING }),
   };
@@ -393,7 +393,7 @@ EV.render = (gpu, plan) => {
     ids.setBindGroup(0, held.groups.mapIds);
     ids.draw(6, plan.cellCount, 0, plan.cellFirst);
     ids.end();
-    // The same cells again with no depth between them, adding their colours into the plane, so the plane holds
+    // The same cells again with no depth between them, adding their colors into the plane, so the plane holds
     // the whole volume and not the face of it nearest the camera.
     const painted = encoder.beginRenderPass({
       colorAttachments: [{ view: held.painted.createView(), clearValue: { r: 0, g: 0, b: 0, a: 0 },
@@ -476,7 +476,7 @@ EV.render = (gpu, plan) => {
       gpu.compositeGroup = device.createBindGroup({
         layout: p.sliceComposite.getBindGroupLayout(0),
         entries: [
-          // The plane's colours come from the painted texture now, so the composite reads no cell of the object
+          // The plane's colors come from the painted texture now, so the composite reads no cell of the object
           // and no motion of one: the bindings it takes are the ones its own code still names.
           { binding: 1, resource: { buffer: gpu.layoutBuffer } },
           { binding: 2, resource: { buffer: held.chosen } },

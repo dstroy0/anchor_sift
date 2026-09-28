@@ -26,8 +26,8 @@ typedef struct
 {
     char *bytes;
     size_t length;
-    size_t room;
-    bool good;
+    size_t capacity;
+    bool ok;
 } CfgText;
 
 char *cfg_copy(const char *piece);

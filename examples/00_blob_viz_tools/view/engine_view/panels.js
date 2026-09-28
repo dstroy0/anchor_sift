@@ -17,9 +17,9 @@ EV.screenOf = (app, cell) => {
   const zScale = app.view.z_scale;
   const frame = object.cellFrame[cell];
   const eased = EV.ease(app.progress);
-  let x = object.centre[3 * cell];
-  let y = object.centre[3 * cell + 1];
-  let z = Math.trunc((zScale * (object.centre[3 * cell + 2] - header.depth)) / 2);
+  let x = object.center[3 * cell];
+  let y = object.center[3 * cell + 1];
+  let z = Math.trunc((zScale * (object.center[3 * cell + 2] - header.depth)) / 2);
   const at = 8 * cell;
   if (frame === app.frame) {
     x += Math.trunc((object.motion[at] * eased) / 4096);
@@ -141,7 +141,7 @@ EV.paintDims = (app) => {
       ["n", size],
       ["sum z, y, x", `${object.cells[4 * cell + 1]}, ${object.cells[4 * cell + 2]}, ${object.cells[4 * cell + 3]}`],
       ["centroid", EV.centroidText(object, cell, 3)],
-      ["doubled centre", `${object.centre[3 * cell]}, ${object.centre[3 * cell + 1]}, ${object.centre[3 * cell + 2]}`],
+      ["doubled center", `${object.center[3 * cell]}, ${object.center[3 * cell + 1]}, ${object.center[3 * cell + 2]}`],
       ["step to children", `${object.motion[8 * cell]}, ${object.motion[8 * cell + 1]}, ${object.motion[8 * cell + 2]}`],
       ["parents", parents.join(", ") || "none"],
       ["children", children.join(", ") || "none"],

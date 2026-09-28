@@ -64,7 +64,7 @@ SKIP = {".git", "build", "__pycache__", "node_modules", "logs", "audit"}
 
 
 def read_manifest(root):
-    """Reads PARTITION.tsv into {normalised path: (class, reason)}.
+    """Reads PARTITION.tsv into {normalized path: (class, reason)}.
 
     Returns None when the manifest cannot be read, which the caller turns into a refusal. A parse
     that quietly returns an empty mapping would classify the entire tree as unlisted, and unlisted
@@ -107,7 +107,7 @@ def read_manifest(root):
             # Silent last-write-wins is the wrong failure whichever way it lands. If the later row is
             # right the manifest still carries a contradiction; if the earlier one is right a file is
             # published on a row nobody meant to keep.
-            key = normalise(fields[0])
+            key = normalize(fields[0])
             if key in entries:
                 print("  MANIFEST: %s listed twice, as %s and %s; the later row wins"
                       % (fields[0], entries[key][0], fields[1]))
@@ -115,14 +115,14 @@ def read_manifest(root):
     return entries
 
 
-def normalise(path):
+def normalize(path):
     """One spelling for one file, so a manifest row and a walked path compare equal."""
     return os.path.normpath(path).replace("\\", "/").lstrip("./")
 
 
 def classify(path, manifest):
     """The class of one artifact. Unlisted is HELD, stated here once so the default is visible."""
-    return manifest.get(normalise(path), ("HELD", "not listed in the manifest"))
+    return manifest.get(normalize(path), ("HELD", "not listed in the manifest"))
 
 
 def resolve(argument, build_dir, root):
@@ -187,7 +187,7 @@ def walk_prose(root):
                     found.append(os.path.relpath(os.path.join(dirpath, name), root))
             if base == ".":
                 break
-    return sorted(set(normalise(p) for p in found))
+    return sorted(set(normalize(p) for p in found))
 
 
 MANIFEST_CACHE = {}
@@ -213,7 +213,7 @@ def main(argv):
     print("  partition: %d artifacts classified, %d research papers" % (len(manifest), len(research_papers)))
 
     for research_paper in sorted(research_papers):
-        declared = manifest[normalise(research_paper)][0]
+        declared = manifest[normalize(research_paper)][0]
         if not os.path.isfile(os.path.join(root, research_paper)):
             print("  SKIP  %s: declared in the manifest and not on disk" % research_paper)
             continue
@@ -263,7 +263,7 @@ def main(argv):
 
 def _looks_like_research_paper(path, manifest):
     """A research paper is an artifact the manifest tagged as one in its subject column."""
-    full = manifest.get(normalise(path))
+    full = manifest.get(normalize(path))
     return bool(full) and path.endswith(".tex") and "main" in os.path.basename(path)
 
 

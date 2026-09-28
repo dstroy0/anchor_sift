@@ -21,7 +21,7 @@ So this bench reports both, side by side, and never one without the other:
     the spread    how far the individual |a_lm| move within the degree, which must
 
 A reading where both are flat is not measuring general rotations - it is sweeping the axis and
-calling it a sweep. A reading where P_l moves is a reading that does not realise the Wigner
+calling it a sweep. A reading where P_l moves is a reading that does not realize the Wigner
 structure, at that rank or that placement.
 
     python maint/audit/spectral_bench.py
@@ -177,7 +177,7 @@ def main():
         print("    tell those two apart.")
     else:
         print("    P_l moved by %.3e under general rotation. Either the placement is uneven at" % gen_power)
-        print("    this rank or the reading does not realise the Wigner structure, and both are")
+        print("    this rank or the reading does not realize the Wigner structure, and both are")
         print("    faults in the instrument rather than facts about the state.")
     return 0
 

@@ -31,7 +31,7 @@
 from reference.windowed import _window, window_median
 
 
-def neighbour_median(values, index, radius):
+def neighbor_median(values, index, radius):
     """The median of the window around `index` with the sample at `index` left out.
 
     The value the neighbors agree on, which the sample under test does not get to vote on.
@@ -46,7 +46,7 @@ def band_top(values, index, radius):
     could have produced; a sample beyond it is one they could not. Returns 0 where the neighbors all
     agree, the case that makes a lone impulse unmistakable.
     """
-    middle = neighbour_median(values, index, radius)
+    middle = neighbor_median(values, index, radius)
     neighbors = _window(values, index, radius, include_center=False)
     if not neighbors:
         return 0
@@ -62,7 +62,7 @@ def is_outlier(values, index, radius):
     """
     if (index < radius) or (index + radius >= len(values)):
         return False
-    middle = neighbour_median(values, index, radius)
+    middle = neighbor_median(values, index, radius)
     return abs(values[index] - middle) > band_top(values, index, radius)
 
 

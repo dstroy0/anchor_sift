@@ -10,30 +10,30 @@
 
 int assign_bodies(TreeFrame *frames, unsigned int frame_count, unsigned int by_band)
 {
-    int good = 1;
+    int ok = 1;
     unsigned int widest = 1u;
-    for (unsigned int frame = 0u; good && (frame < frame_count); frame += 1u)
+    for (unsigned int frame = 0u; ok && (frame < frame_count); frame += 1u)
     {
         TreeFrame *const tree = &frames[frame];
-        const size_t room = (size_t)tree->leaf_count + 1u;
-        tree->body_id = (unsigned int *)malloc(room * sizeof(unsigned int));
-        tree->body_parent = (unsigned int *)malloc(room * sizeof(unsigned int));
-        tree->body_state = (unsigned int *)calloc(room, sizeof(unsigned int));
-        good = (tree->body_id != NULL) && (tree->body_parent != NULL) && (tree->body_state != NULL);
+        const size_t capacity = (size_t)tree->leaf_count + 1u;
+        tree->body_id = (unsigned int *)malloc(capacity * sizeof(unsigned int));
+        tree->body_parent = (unsigned int *)malloc(capacity * sizeof(unsigned int));
+        tree->body_state = (unsigned int *)calloc(capacity, sizeof(unsigned int));
+        ok = (tree->body_id != NULL) && (tree->body_parent != NULL) && (tree->body_state != NULL);
         widest = (tree->leaf_count > widest) ? tree->leaf_count : widest;
     }
     int *const heaviest = (int *)malloc((size_t)widest * sizeof(int));
     unsigned int *const arrivals = (unsigned int *)malloc((size_t)widest * sizeof(unsigned int));
-    good = good && (heaviest != NULL) && (arrivals != NULL);
+    ok = ok && (heaviest != NULL) && (arrivals != NULL);
     unsigned int next_id = 0u;
-    for (unsigned int body = 0u; good && (frame_count != 0u) && (body < frames[0].leaf_count); body += 1u)
+    for (unsigned int body = 0u; ok && (frame_count != 0u) && (body < frames[0].leaf_count); body += 1u)
     {
         frames[0].body_id[body] = next_id;
         frames[0].body_parent[body] = BODY_NONE;
         frames[0].body_state[body] = BODY_PRESENT;
         next_id += 1u;
     }
-    for (unsigned int frame = 0u; good && (frame < frame_count); frame += 1u)
+    for (unsigned int frame = 0u; ok && (frame < frame_count); frame += 1u)
     {
         TreeFrame *const tree = &frames[frame];
         const int follows = (tree->step_next != 0u) && ((frame + 1u) < frame_count) && (tree->forward != NULL);
@@ -60,10 +60,11 @@ int assign_bodies(TreeFrame *frames, unsigned int frame_count, unsigned int by_b
             }
             const unsigned int target = (unsigned int)onto;
             arrivals[target] += 1u;
-            const int held = heaviest[target];
-            heaviest[target] = ((held < 0) || (band_or_count(by_band, tree->sizes[body])
-                                               > band_or_count(by_band, tree->sizes[(unsigned int)held])))
-                             ? (int)body : held;
+            const int current = heaviest[target];
+            heaviest[target] = ((current < 0) || (band_or_count(by_band, tree->sizes[body]) >
+                                                  band_or_count(by_band, tree->sizes[(unsigned int)current])))
+                                   ? (int)body
+                                   : current;
         }
         for (unsigned int body = 0u; body < later->leaf_count; body += 1u)
         {
@@ -85,8 +86,8 @@ int assign_bodies(TreeFrame *frames, unsigned int frame_count, unsigned int by_b
         for (unsigned int body = 0u; body < tree->leaf_count; body += 1u)
         {
             const int onto = tree->forward[body];
-            const unsigned int carried = (unsigned int)((onto >= 0) && (heaviest[(unsigned int)(onto * (onto >= 0))]
-                                                                        == (int)body));
+            const unsigned int carried =
+                (unsigned int)((onto >= 0) && (heaviest[(unsigned int)(onto * (onto >= 0))] == (int)body));
             const unsigned int at_face = (tree->touches != NULL) ? (unsigned int)(tree->touches[body] != 0u) : 0u;
             const unsigned int ended = (onto >= 0) ? BODY_ABSORBED : ((at_face != 0u) ? BODY_LEFT : BODY_VANISHED);
             tree->body_state[body] |= (carried != 0u) ? 0u : ended;
@@ -94,5 +95,5 @@ int assign_bodies(TreeFrame *frames, unsigned int frame_count, unsigned int by_b
     }
     free(heaviest);
     free(arrivals);
-    return good;
+    return ok;
 }

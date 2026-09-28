@@ -3,8 +3,8 @@
 **Purpose:** how to write a program the engine's record machine runs, from the steps to the sweep, and which of the
 machine's files carry it today.
 
-**Scope:** the record machine behind `engine_record_imprint`, `engine_record_sweep` and `engine_record_host`
-(`engine/engine.h`), built from `base/keymath` (the imprint), `base/key_schedule` (the layout) and `base/cycle`
+**Scope:** the record machine behind `engine_record_encode`, `engine_record_sweep` and `engine_record_host`
+(`engine/engine.h`), built from `compiler/keymath` (the imprint), `compiler/key_schedule` (the layout) and `compiler/cycle`
 (the run). Every rule below is read from that code, and the worked example is `test/record_guide_test.cu`, which
 builds and runs it as written here.
 
@@ -30,7 +30,7 @@ typedef struct
 ## The operations
 
 `left` and `right` name earlier steps unless the row says otherwise. The width is the register's bits as the
-imprint derives them from the operands (`keymath_record_imprint`), and no width is declared by hand.
+imprint derives them from the operands (`keymath_record_encode`), and no width is declared by hand.
 
 | operation | reads | value | width |
 |---|---|---|---|
@@ -105,7 +105,7 @@ or the layout refuses.
 
 `outputs` lists the steps whose registers are written out. They are packed into the output record in the order
 listed, starting at bit 0, each **one bit wider than its register** so the sign fits, as two's complement.
-`engine_record_imprint` returns each output's place in `output_offset[]` and `output_bits[]`. The record's length
+`engine_record_encode` returns each output's place in `output_offset[]` and `output_bits[]`. The record's length
 in limbs is the total bits rounded up. An output must name a real step, and a step may be named only once.
 
 ## Imprint, layout, load
@@ -117,14 +117,14 @@ const EngineRecordRequest request = {steps, count, field_bits, field_offset, fie
                                      tables, table_count, reuse};
 CycleRecord *record = NULL;
 EngineError error = {0};
-if (engine_record_imprint(&request, &record, &error) == ENGINE_REFUSED) { /* the error says which part */ }
+if (engine_record_encode(&request, &record, &error) == ENGINE_ERROR) { /* the error says which part */ }
 ```
 
-`engine_record_imprint` makes three calls (`engine/engine.cu`):
+`engine_record_encode` makes three calls (`engine/engine_*.cu`):
 
-1. **The imprint** (`keymath_record_imprint`) checks that every step reads only earlier steps, derives every
+1. **The imprint** (`keymath_record_encode`) checks that every step reads only earlier steps, derives every
    register's width, and checks the fields, the tables and the outputs. The result is the program's **key**.
-2. **The layout** (`key_schedule_record_lay`) places every register in the lane's **register file** and every
+2. **The layout** (`key_schedule_record_layout`) places every register in the lane's **register file** and every
    output in the output record. With `reuse` set, a register is freed once its last reader has run. A long
    program then fits a small file.
 3. **The load** (`cycle_record_load`) puts the layout on the device. A program's file of at most 64 limbs runs
@@ -136,7 +136,7 @@ The imprint and the layout are the serial work, done once. The sweep then runs t
 
 ## How the device runs a program
 
-The load also builds the program for the device (`base/cycle/cycle_compile.cu`), trying three ways in order:
+The load also builds the program for the device (`compiler/cycle/cycle_compile_*.cu`), trying three ways in order:
 
 1. **PTX.** The lane is written in PTX, NVIDIA's assembly, and nvJitLink assembles it as it links it against the
    **operator block**, where every operation is compiled once for the device. Each step is unrolled at its widths
@@ -164,12 +164,12 @@ The load also builds the program for the device (`base/cycle/cycle_compile.cu`),
 Each build is kept in a cache: `$CYCLE_CACHE`, else `%LOCALAPPDATA%\cycle` or `~/.cache/cycle`. A build is found
 by its text and used only where that text matches byte for byte.
 
-The lane's text is written from a **ruleset**, one for each of the first two ways: `base/emit/rulesets/ptx.krs` for
-PTX and `base/emit/rulesets/c.krs` for C source, read once a process from that folder, or from the folder
-`$CYCLE_RULESETS` names. The emitter decides what each step does, and the ruleset decides how the target writes it.
-Its base class, `Emitter` (`base/emit/emit.{h,cu}`), reads and writes rulesets and names no language. Each language
-is a class that inherits it, in files of its own: `EmitPtx` (`emit_ptx.{h,cu}`) and `EmitSource`
-(`emit_source.{h,cu}`). The record machine picks the language.
+The lane's text is written from a **ruleset**, one for each of the first two ways: `compiler/codegen/rulesets/ptx.krs` for
+PTX and `compiler/codegen/rulesets/c.krs` for C source, read once a process from that folder, or from the folder
+`$CYCLE_RULESETS` names. The code generator decides what each step does, and the ruleset decides how the target writes it.
+Its base class, `Target` (`compiler/codegen/target.h`, `compiler/codegen/target_*.cu`), reads and writes rulesets and names no language. Each language
+is a class that inherits it, in files of its own: `PtxTarget` (`ptx_target.{h,cu}`) and `CTarget`
+(`c_target.{h,cu}`). The record machine picks the language.
 A ruleset is a text file whose first line is `krs 1`, and every other line is one entry:
 - `ruleset`, `toolchain` and `header` name the target, what builds its text and where the text's opening lines
   come from;
@@ -183,11 +183,11 @@ A ruleset is a text file whose first line is `krs 1`, and every other line is on
   argument, `{bank:n}` for scratch register n of one of the ruleset's banks, and any other word for itself. Each time
   the form is written, its construct's lines are written in its place, and each scratch register is a fresh one: in
   PTX, one of the step's own temporaries, 64-bit temporaries or predicates, declared with them. A ruleset may give a
-  form as a form or as a construct, not both. `test/engine/rulesets/flagless/ptx.krs` gives the carry chains and the
+  form as a form or as a construct, not both. `test/engine/compiler/codegen/rulesets/flagless/ptx.krs` gives the carry chains and the
   product this way, with no instruction that sets or reads the condition code.
 
-A line that begins with `#` is a comment. The emitter lists every form, bank and register it needs, with the
-parameters each takes. A ruleset that lacks one, holds one the emitter does not name, or gives one other
+A line that begins with `#` is a comment. The code generator lists every form, bank and register it needs, with the
+parameters each takes. A ruleset that lacks one, holds one the code generator does not name, or gives one other
 parameters is refused whole, and the report says why. A refused `ptx.krs` sends its programs to the C source, and a
 refused `c.krs` leaves a program the PTX does not hold on the interpreter.
 
@@ -213,7 +213,7 @@ Six switches, read at each load or run:
 unsigned long long microseconds = 0;
 const EngineRecordSweep sweep = {record, {member0, member1, member2}, {bodies0, bodies1, bodies2},
                                  index, lanes, out, &microseconds, &error};
-engine_record_sweep(&sweep);    // on the device; returns the lanes run, or ENGINE_REFUSED
+engine_record_sweep(&sweep);    // on the device; returns the lanes run, or ENGINE_ERROR
 engine_record_host(&request, &sweep);  // the same program on the host, from the exact integer library
 ```
 
@@ -243,7 +243,7 @@ as the next sweep's members.
 ## The latch
 
 The latch is the first lane that meets a condition: min{ℓ : cond(ℓ)}, or none. A program makes its condition an
-output, such as the selector `[a > b]` above, 0 or 1. `cycle_record_latch` (`base/cycle/cycle.h`) reads a sweep's
+output, such as the selector `[a > b]` above, 0 or 1. `cycle_record_latch` (`compiler/cycle/cycle.h`) reads a sweep's
 records where they lie on the device and returns the least lane whose output at `offset`, `bits` wide, is not zero,
 or `CYCLE_LATCH_NONE` where no lane's is:
 - each thread scans its lanes from its lowest and stops at its first hit;
@@ -252,7 +252,7 @@ or `CYCLE_LATCH_NONE` where no lane's is:
 
 Only the lane comes back to the host. The minimum is associative, commutative and idempotent. This grouping
 returns the lane a serial scan from lane 0 returns. `cycle_record_latch_host` is that scan, over records on the host.
-The latch is a call on `base/cycle`. `engine_record_sweep` copies every record back to the host, and a latch through
+The latch is a call on `compiler/cycle`. `engine_record_sweep` copies every record back to the host, and a latch through
 the engine's own entry is not built.
 
 `test/record_lane_test` enumerates x = base + ℓ over 65,536 lanes of one shared record and latches the first lane
@@ -303,9 +303,9 @@ is refused at imprint, and an index past its member is refused at the sweep. 12 
 
 | file | what it holds | state |
 |---|---|---|
-| `.cfg` | a run's configuration, JSON (`cfg/`, read by `run_cfg` through `base/cfg_json`) | built for the tracking runs |
-| `.sch` | the schedule: `schedule_program` (`base/schedule`) measures the tower (the device's memory), plans against two thirds of what is free, and writes the stages, each with the bytes it needs, as JSON (`nbody_program/program.json`) | written for the tracking runs; nothing reads the stages back |
-| `.imp` | a math key: a program imprinted onto the impulse, carrying the program so it can be verified | the container kind is reserved (`APXREP_KIND_KEY`, `base/apxrep`); no writer or reader yet |
+| `.cfg` | a run's configuration, JSON (`cfg/`, read by `run_cfg` through `formats/cfg_json`) | built for the tracking runs |
+| `.sch` | the schedule: `schedule_program` (`runtime/schedule`) measures the tower (the device's memory), plans against two thirds of what is free, and writes the stages, each with the bytes it needs, as JSON (`nbody_program/program.json`) | written for the tracking runs; nothing reads the stages back |
+| `.imp` | a math key: a program imprinted onto the impulse, carrying the program so it can be verified | the container kind is reserved (`APXREP_KIND_KEY`, `formats/apxrep`); no writer or reader yet |
 
 Until `.imp` is written and read, a program lives as its step list in the source that sweeps it, and is imprinted
 each run.
@@ -315,8 +315,8 @@ each run.
 These are the machine's own limits, from `engine_config.h` and the code above:
 
 - 1 to `ENGINE_RECORD_MEMBERS_MAX` (3) members;
-- a register of at most 32 · `ENGINE_RECORD_LIMBS_MOST` bits (8,192);
-- a register file of at most `ENGINE_RECORD_LIMBS_MOST` (256) limbs live at once;
+- a register of at most 32 · `ENGINE_RECORD_LIMBS_MAX` bits (8,192);
+- a register file of at most `ENGINE_RECORD_LIMBS_MAX` (256) limbs live at once;
 - an index of 32 bits;
 - a table index of at most 32 bits;
 - a wrap of fewer than `ENGINE_RECORD_WRAP_BITS_LEAST` (4) bits.

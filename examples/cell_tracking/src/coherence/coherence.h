@@ -8,7 +8,7 @@
 
 void links_of_node(const NodeIndex *index, unsigned int node, const unsigned int **first, unsigned int *count);
 
-int export_room(const EngineBuffers *buffers, const CoherenceInputs *inputs, const char *directory);
+int export_capacity(const EngineBuffers *buffers, const CoherenceInputs *inputs, const char *directory);
 
 int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, const unsigned int *runs,
                          const unsigned int *first_run, const unsigned int *leaf_runs, const TreeRules *rules);

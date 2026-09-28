@@ -76,7 +76,7 @@ typedef struct
 static unsigned long long run_job_declared(const RunInputs *inputs, const char *name)
 {
     // the largest sample's lattice in 16-bit lanes; the daemon measures the rest and keeps the peak under the signum
-    unsigned long long most = 0ull;
+    unsigned long long maximum = 0ull;
     for (unsigned int at = 0u; at < inputs->count; at += 1u)
     {
         EngineError error;
@@ -95,9 +95,9 @@ static unsigned long long run_job_declared(const RunInputs *inputs, const char *
         {
             lanes = extent[0] * extent[1] * extent[2] * extent[3];
         }
-        most = (lanes > most) ? lanes : most;
+        maximum = (lanes > maximum) ? lanes : maximum;
     }
-    return most * sizeof(unsigned short);
+    return maximum * sizeof(unsigned short);
 }
 
 static int run_job_submit(const char *name, const CfgText *effective, const RunInputs *inputs, RunJob *job)
@@ -133,7 +133,7 @@ static int run_job_submit(const char *name, const CfgText *effective, const RunI
     const long hashed = obsignatio_signum(&signum);
     free(request);
     job->declared = run_job_declared(inputs, name);
-    char daemon[ENGINE_PATH_ROOM];
+    char daemon[ENGINE_PATH_CAPACITY];
     const int placed = engine_program_directory(daemon, sizeof(daemon))
                     && (strlen(daemon) + sizeof("/tessera_daemon.exe") <= sizeof(daemon));
     if ((hashed != 0L) || (job->declared == 0ull) || !placed)
@@ -244,81 +244,81 @@ static void run_print_request(const RunInputs *inputs, FingerprintRequest *print
 }
 
 static int run_pair_request(const RunPrintFields *fields, EngineRecordStep program[PRINT_PAIR_STEPS],
-                            unsigned int outputs[PRINT_PAIR_OUTPUTS], EngineRecordRequest *imprint)
+                            unsigned int outputs[PRINT_PAIR_OUTPUTS], EngineRecordRequest *encode_request)
 {
-    memset(imprint, 0, sizeof(*imprint));
-    imprint->steps = program;
-    imprint->count = PRINT_PAIR_STEPS;
-    imprint->field_bits = fields->bits;
-    imprint->field_offset = fields->offset;
-    imprint->fields = PRINT_PAIR_BANDS;
-    imprint->in_limbs[0] = fields->limbs;
-    imprint->in_limbs[1] = fields->limbs;
-    imprint->members = 2u;
-    imprint->outputs = outputs;
-    imprint->output_count = PRINT_PAIR_OUTPUTS;
-    return print_pair_program(program, outputs) != PRINT_PAIR_REFUSED;
+    memset(encode_request, 0, sizeof(*encode_request));
+    encode_request->steps = program;
+    encode_request->count = PRINT_PAIR_STEPS;
+    encode_request->field_bits = fields->bits;
+    encode_request->field_offset = fields->offset;
+    encode_request->fields = PRINT_PAIR_BANDS;
+    encode_request->in_limbs[0] = fields->limbs;
+    encode_request->in_limbs[1] = fields->limbs;
+    encode_request->members = 2u;
+    encode_request->outputs = outputs;
+    encode_request->output_count = PRINT_PAIR_OUTPUTS;
+    return print_pair_program(program, outputs) != PRINT_PAIR_ERROR;
 }
 
-static long run_pair_imprint(const RunPrintFields *fields, CycleRecord **record, EngineError *error)
+static long run_pair_encode(const RunPrintFields *fields, CycleRecord **record, EngineError *error)
 {
     EngineRecordStep program[PRINT_PAIR_STEPS];
     unsigned int outputs[PRINT_PAIR_OUTPUTS];
-    EngineRecordRequest imprint;
+    EngineRecordRequest encode_request;
     *record = NULL;
-    const long out_bits = (run_pair_request(fields, program, outputs, &imprint) == 0)
-                        ? ENGINE_REFUSED : engine_record_imprint(&imprint, record, error);
-    return ((out_bits == ENGINE_REFUSED) || (cycle_record_out_limbs(*record) != 1u)) ? ENGINE_REFUSED : out_bits;
+    const long out_bits = (run_pair_request(fields, program, outputs, &encode_request) == 0)
+                        ? ENGINE_ERROR : engine_record_encode(&encode_request, record, error);
+    return ((out_bits == ENGINE_ERROR) || (cycle_record_out_limbs(*record) != 1u)) ? ENGINE_ERROR : out_bits;
 }
 
-static int run_pair_proof(const FlattenHeld *held, const unsigned int *prints, const RunPrintFields *fields)
+static int run_pair_proof(const FlattenResident *flattened, const unsigned int *prints, const RunPrintFields *fields)
 {
     CycleRecord *record = NULL;
-    const size_t lanes = (size_t)held->bodies;
+    const size_t lanes = (size_t)flattened->bodies;
     unsigned int *const index = (unsigned int *)malloc((2u * lanes + 1u) * sizeof(unsigned int));
     unsigned int *const weight = (unsigned int *)malloc((2u * lanes + 1u) * sizeof(unsigned int));
     EngineError error;
     memset(&error, 0, sizeof(error));
-    int good = (run_pair_imprint(fields, &record, &error) != ENGINE_REFUSED) && (index != NULL) && (weight != NULL)
-            && (held->bodies <= 0xFFFFFFFFull);
-    for (size_t lane = 0u; good && (lane < lanes); lane += 1u)
+    int ok = (run_pair_encode(fields, &record, &error) != ENGINE_ERROR) && (index != NULL) && (weight != NULL)
+            && (flattened->bodies <= 0xFFFFFFFFull);
+    for (size_t lane = 0u; ok && (lane < lanes); lane += 1u)
     {
         index[2u * lane] = (unsigned int)lane;
         index[(2u * lane) + 1u] = (unsigned int)lane;
     }
     unsigned long long sweep = 0ull;
-    const EngineRecordSweep itself = {record,       {prints, prints}, {held->bodies, held->bodies}, index,
-                                      held->bodies, weight,           &sweep,                       &error};
-    good = good && (engine_record_sweep(&itself) == (long)held->bodies);
+    const EngineRecordSweep itself = {record,       {prints, prints}, {flattened->bodies, flattened->bodies}, index,
+                                      flattened->bodies, weight,           &sweep,                       &error};
+    ok = ok && (engine_record_sweep(&itself) == (long)flattened->bodies);
     unsigned long long short_of_ceiling = 0ull;
-    for (size_t lane = 0u; good && (lane < lanes); lane += 1u)
+    for (size_t lane = 0u; ok && (lane < lanes); lane += 1u)
     {
         short_of_ceiling += ((unsigned long long)weight[lane] != PRINT_PAIR_CEILING) ? 1ull : 0ull;
     }
-    for (size_t lane = 0u; good && (lane < lanes); lane += 1u)
+    for (size_t lane = 0u; ok && (lane < lanes); lane += 1u)
     {
         index[(2u * lane) + 1u] = (unsigned int)(lanes - 1u - lane);
     }
-    unsigned int *const host = good ? (unsigned int *)malloc((lanes + 1u) * sizeof(unsigned int)) : NULL;
+    unsigned int *const host = ok ? (unsigned int *)malloc((lanes + 1u) * sizeof(unsigned int)) : NULL;
     EngineRecordStep program[PRINT_PAIR_STEPS];
     unsigned int outputs[PRINT_PAIR_OUTPUTS];
-    EngineRecordRequest imprint;
-    good = good && (run_pair_request(fields, program, outputs, &imprint) != 0);
+    EngineRecordRequest encode_request;
+    ok = ok && (run_pair_request(fields, program, outputs, &encode_request) != 0);
     unsigned long long across_sweep = 0ull;
-    const EngineRecordSweep across = {record,       {prints, prints}, {held->bodies, held->bodies}, index,
-                                      held->bodies, weight,           &across_sweep,                &error};
-    const EngineRecordSweep across_host = {NULL,         {prints, prints}, {held->bodies, held->bodies}, index,
-                                           held->bodies, host,             NULL,                         &error};
-    good = good && (host != NULL) && (engine_record_sweep(&across) == (long)held->bodies)
-        && (engine_record_host(&imprint, &across_host) == (long)held->bodies);
+    const EngineRecordSweep across = {record,       {prints, prints}, {flattened->bodies, flattened->bodies}, index,
+                                      flattened->bodies, weight,           &across_sweep,                &error};
+    const EngineRecordSweep across_host = {NULL,         {prints, prints}, {flattened->bodies, flattened->bodies}, index,
+                                           flattened->bodies, host,             NULL,                         &error};
+    ok = ok && (host != NULL) && (engine_record_sweep(&across) == (long)flattened->bodies)
+        && (engine_record_host(&encode_request, &across_host) == (long)flattened->bodies);
     unsigned long long differ = 0ull;
     unsigned long long lightest = PRINT_PAIR_CEILING;
-    for (size_t lane = 0u; good && (lane < lanes); lane += 1u)
+    for (size_t lane = 0u; ok && (lane < lanes); lane += 1u)
     {
         differ += (weight[lane] != host[lane]) ? 1ull : 0ull;
         lightest = ((unsigned long long)weight[lane] < lightest) ? (unsigned long long)weight[lane] : lightest;
     }
-    if (good)
+    if (ok)
     {
         printf("  print pairs: every body against itself weighs the ceiling %llu, %llu short of it, in %llu us; against"
                " the body across from it %llu us, lightest %llu, %llu differ from the host\n",
@@ -333,17 +333,17 @@ static int run_pair_proof(const FlattenHeld *held, const unsigned int *prints, c
     free(weight);
     free(host);
     cycle_record_release(record);
-    return (good && (short_of_ceiling == 0ull) && (differ == 0ull)) ? 0 : 1;
+    return (ok && (short_of_ceiling == 0ull) && (differ == 0ull)) ? 0 : 1;
 }
 
 #define RUN_STEER_STEPS 7u
 
-static int run_steer_proof(const FlattenHeld *held, const unsigned int *prints, const RunPrintFields *fields)
+static int run_steer_proof(const FlattenResident *flattened, const unsigned int *prints, const RunPrintFields *fields)
 {
     unsigned int bits[MAX_TREE_FIELDS + FINGERPRINT_OUTPUTS];
     unsigned int offset[MAX_TREE_FIELDS + FINGERPRINT_OUTPUTS];
-    memcpy(bits, held->layout.bits, MAX_TREE_FIELDS * sizeof(unsigned int));
-    memcpy(offset, held->layout.offset, MAX_TREE_FIELDS * sizeof(unsigned int));
+    memcpy(bits, flattened->layout.bits, MAX_TREE_FIELDS * sizeof(unsigned int));
+    memcpy(offset, flattened->layout.offset, MAX_TREE_FIELDS * sizeof(unsigned int));
     memcpy(&bits[MAX_TREE_FIELDS], fields->bits, FINGERPRINT_OUTPUTS * sizeof(unsigned int));
     memcpy(&offset[MAX_TREE_FIELDS], fields->offset, FINGERPRINT_OUTPUTS * sizeof(unsigned int));
     const EngineRecordStep program[RUN_STEER_STEPS] = {
@@ -352,34 +352,34 @@ static int run_steer_proof(const FlattenHeld *held, const unsigned int *prints, 
         {ENGINE_RECORD_COMPARE, 2u, 3u, 0u},                {ENGINE_RECORD_ABSOLUTE, 4u, 0u, 0u},
         {ENGINE_RECORD_DIFFERENCE, 1u, 5u, 0u}};
     const unsigned int output = RUN_STEER_STEPS - 1u;
-    const EngineRecordRequest imprint = {program, RUN_STEER_STEPS, bits, offset, MAX_TREE_FIELDS + FINGERPRINT_OUTPUTS,
-                                         {held->layout.limbs, fields->limbs}, 2u, &output, 1u};
+    const EngineRecordRequest encode_request = {program, RUN_STEER_STEPS, bits, offset, MAX_TREE_FIELDS + FINGERPRINT_OUTPUTS,
+                                         {flattened->layout.limbs, fields->limbs}, 2u, &output, 1u};
     CycleRecord *record = NULL;
-    const size_t lanes = (size_t)held->bodies;
+    const size_t lanes = (size_t)flattened->bodies;
     EngineError error;
     memset(&error, 0, sizeof(error));
-    int good = (engine_record_imprint(&imprint, &record, &error) != ENGINE_REFUSED)
+    int ok = (engine_record_encode(&encode_request, &record, &error) != ENGINE_ERROR)
             && (cycle_record_out_limbs(record) == 1u);
-    unsigned int *const verdict = good ? (unsigned int *)malloc((lanes + 1u) * sizeof(unsigned int)) : NULL;
-    unsigned int *const host = good ? (unsigned int *)malloc((lanes + 1u) * sizeof(unsigned int)) : NULL;
+    unsigned int *const verdict = ok ? (unsigned int *)malloc((lanes + 1u) * sizeof(unsigned int)) : NULL;
+    unsigned int *const host = ok ? (unsigned int *)malloc((lanes + 1u) * sizeof(unsigned int)) : NULL;
     unsigned long long sweep = 0ull;
-    const EngineRecordSweep run = {record,       {held->magnitudes, prints}, {held->bodies, held->bodies}, NULL,
-                                   held->bodies, verdict,                    &sweep,                       &error};
-    const EngineRecordSweep host_run = {NULL,         {held->magnitudes, prints}, {held->bodies, held->bodies}, NULL,
-                                        held->bodies, host,                       NULL,                         &error};
-    good = good && (verdict != NULL) && (host != NULL) && (engine_record_sweep(&run) == (long)held->bodies)
-        && (engine_record_host(&imprint, &host_run) == (long)held->bodies);
+    const EngineRecordSweep run = {record,       {flattened->magnitudes, prints}, {flattened->bodies, flattened->bodies}, NULL,
+                                   flattened->bodies, verdict,                    &sweep,                       &error};
+    const EngineRecordSweep host_run = {NULL,         {flattened->magnitudes, prints}, {flattened->bodies, flattened->bodies}, NULL,
+                                        flattened->bodies, host,                       NULL,                         &error};
+    ok = ok && (verdict != NULL) && (host != NULL) && (engine_record_sweep(&run) == (long)flattened->bodies)
+        && (engine_record_host(&encode_request, &host_run) == (long)flattened->bodies);
     unsigned long long truthy = 0ull;
     unsigned long long differ = 0ull;
-    for (size_t lane = 0u; good && (lane < lanes); lane += 1u)
+    for (size_t lane = 0u; ok && (lane < lanes); lane += 1u)
     {
         truthy += (verdict[lane] != 0u) ? 1ull : 0ull;
         differ += (verdict[lane] != host[lane]) ? 1ull : 0ull;
     }
-    if (good)
+    if (ok)
     {
         printf("  the body beside its own print, no index: the mass band read again agrees with the print's on %llu of"
-               " %llu bodies, truthy; the sweep %llu us; %llu differ from the host\n", truthy, held->bodies, sweep,
+               " %llu bodies, truthy; the sweep %llu us; %llu differ from the host\n", truthy, flattened->bodies, sweep,
                differ);
     }
     else
@@ -390,42 +390,42 @@ static int run_steer_proof(const FlattenHeld *held, const unsigned int *prints, 
     free(verdict);
     free(host);
     cycle_record_release(record);
-    return (good && (truthy == held->bodies) && (differ == 0ull)) ? 0 : 1;
+    return (ok && (truthy == flattened->bodies) && (differ == 0ull)) ? 0 : 1;
 }
 
-static int run_vocabulary_proof(const FlattenHeld *held, const unsigned int *prints, const RunPrintFields *fields)
+static int run_vocabulary_proof(const FlattenResident *flattened, const unsigned int *prints, const RunPrintFields *fields)
 {
     const unsigned int print_limbs = fields->limbs;
     CycleRecord *record = NULL;
-    const EngineRecordRequest imprint = {RUN_VOCABULARY_PROGRAM, RUN_VOCABULARY_STEPS, held->layout.bits,
-                                         held->layout.offset,    MAX_TREE_FIELDS,      {held->layout.limbs},
+    const EngineRecordRequest encode_request = {RUN_VOCABULARY_PROGRAM, RUN_VOCABULARY_STEPS, flattened->layout.bits,
+                                         flattened->layout.offset,    MAX_TREE_FIELDS,      {flattened->layout.limbs},
                                          1u,                     RUN_VOCABULARY_OUTPUT, RUN_VOCABULARY_OUTPUTS};
     EngineError error;
     memset(&error, 0, sizeof(error));
-    if (engine_record_imprint(&imprint, &record, &error) == ENGINE_REFUSED)
+    if (engine_record_encode(&encode_request, &record, &error) == ENGINE_ERROR)
     {
         fprintf(stderr, "  run fingerprint: absolute and compare did not imprint\n");
         track_error_report("absolute and compare", &error);
         return 1;
     }
     const unsigned int out_limbs = cycle_record_out_limbs(record);
-    const size_t words = (size_t)held->bodies * out_limbs;
+    const size_t words = (size_t)flattened->bodies * out_limbs;
     unsigned int *const device = (unsigned int *)malloc((words + 1u) * sizeof(unsigned int));
     unsigned int *const host = (unsigned int *)malloc((words + 1u) * sizeof(unsigned int));
     unsigned long long sweep = 0ull;
-    const EngineRecordSweep run = {record, {held->magnitudes}, {held->bodies}, NULL, held->bodies, device, &sweep,
+    const EngineRecordSweep run = {record, {flattened->magnitudes}, {flattened->bodies}, NULL, flattened->bodies, device, &sweep,
                                    &error};
-    const EngineRecordSweep host_run = {NULL, {held->magnitudes}, {held->bodies}, NULL, held->bodies, host, NULL,
+    const EngineRecordSweep host_run = {NULL, {flattened->magnitudes}, {flattened->bodies}, NULL, flattened->bodies, host, NULL,
                                         &error};
-    const int good = (device != NULL) && (host != NULL) && (engine_record_sweep(&run) == (long)held->bodies)
-                  && (engine_record_host(&imprint, &host_run) == (long)held->bodies);
+    const int ok = (device != NULL) && (host != NULL) && (engine_record_sweep(&run) == (long)flattened->bodies)
+                  && (engine_record_host(&encode_request, &host_run) == (long)flattened->bodies);
     const unsigned int band_offset = fields->offset[1u + MAX_TREE_FIELD_MOMENT_ZY];
     const unsigned int band_bits = fields->bits[1u + MAX_TREE_FIELD_MOMENT_ZY];
     unsigned long long order[3] = {0ull, 0ull, 0ull};
     unsigned long long broken = 0ull;
     unsigned long long against_print = 0ull;
     unsigned long long differ = 0ull;
-    for (unsigned long long body = 0ull; good && (body < held->bodies); body += 1ull)
+    for (unsigned long long body = 0ull; ok && (body < flattened->bodies); body += 1ull)
     {
         const unsigned int *const lane = &device[body * out_limbs];
         const int sign = engine_packed_signed(lane, 0u, 2u);
@@ -437,11 +437,11 @@ static int run_vocabulary_proof(const FlattenHeld *held, const unsigned int *pri
         against_print += ((band != 0) && (((band < 0) ? -1 : 1) != sign)) ? 1ull : 0ull;
         differ += (memcmp(lane, &host[body * out_limbs], out_limbs * sizeof(unsigned int)) != 0) ? 1ull : 0ull;
     }
-    if (good)
+    if (ok)
     {
         printf("  absolute and compare on K_zy of %llu bodies: %llu below zero, %llu at zero, %llu above; the sweep %llu"
                " us; %llu break |K| against K, %llu disagree with the print's band, %llu differ from the host\n",
-               held->bodies, order[0], order[1], order[2], sweep, broken, against_print, differ);
+               flattened->bodies, order[0], order[1], order[2], sweep, broken, against_print, differ);
     }
     else
     {
@@ -451,15 +451,15 @@ static int run_vocabulary_proof(const FlattenHeld *held, const unsigned int *pri
     free(device);
     free(host);
     cycle_record_release(record);
-    return (good && (broken == 0ull) && (against_print == 0ull) && (differ == 0ull)) ? 0 : 1;
+    return (ok && (broken == 0ull) && (against_print == 0ull) && (differ == 0ull)) ? 0 : 1;
 }
 
 static int run_fingerprint(const RunInputs *inputs)
 {
-    FlattenHeld held;
+    FlattenResident flattened;
     EngineError error;
     memset(&error, 0, sizeof(error));
-    if (flatten_read(inputs->set, &held, &error) == 0)
+    if (flatten_read(inputs->set, &flattened, &error) == 0)
     {
         track_error_report("run fingerprint: flattened.iapx", &error);
         return 1;
@@ -471,17 +471,17 @@ static int run_fingerprint(const RunInputs *inputs)
     CycleRecord *record = NULL;
     RunPrintFields fields;
     memset(&fields, 0, sizeof(fields));
-    const EngineRecordRequest imprint = {program,            FINGERPRINT_STEPS, held.layout.bits,
-                                         held.layout.offset, MAX_TREE_FIELDS,   {held.layout.limbs},
+    const EngineRecordRequest encode_request = {program,            FINGERPRINT_STEPS, flattened.layout.bits,
+                                         flattened.layout.offset, MAX_TREE_FIELDS,   {flattened.layout.limbs},
                                          1u,                 outputs,           FINGERPRINT_OUTPUTS,
                                          fields.offset,      fields.bits};
-    const long out_bits = (fingerprint_program(&print, program, outputs) == FINGERPRINT_REFUSED)
-                        ? ENGINE_REFUSED : engine_record_imprint(&imprint, &record, &error);
-    if (out_bits == ENGINE_REFUSED)
+    const long out_bits = (fingerprint_program(&print, program, outputs) == FINGERPRINT_ERROR)
+                        ? ENGINE_ERROR : engine_record_encode(&encode_request, &record, &error);
+    if (out_bits == ENGINE_ERROR)
     {
         fprintf(stderr, "  run fingerprint: the program did not imprint; voxel_pm must name all three axes\n");
         track_error_report("fingerprint", &error);
-        flatten_release(&held);
+        flatten_release(&flattened);
         return 1;
     }
     const unsigned int out_limbs = cycle_record_out_limbs(record);
@@ -492,70 +492,70 @@ static int run_fingerprint(const RunInputs *inputs)
         printf(" %u:%u", fields.offset[output], fields.bits[output]);
     }
     printf("\n");
-    unsigned int *const records = (unsigned int *)malloc(((size_t)held.bodies * out_limbs + 1u) * sizeof(unsigned int));
+    unsigned int *const records = (unsigned int *)malloc(((size_t)flattened.bodies * out_limbs + 1u) * sizeof(unsigned int));
     unsigned long long sweep = 0ull;
     const unsigned long long started = engine_clock_microseconds();
-    const EngineRecordSweep run = {record, {held.magnitudes}, {held.bodies}, NULL, held.bodies, records, &sweep, &error};
-    const int good = (records != NULL) && (engine_record_sweep(&run) == (long)held.bodies);
-    const unsigned long long whole = engine_clock_microseconds() - started;
+    const EngineRecordSweep run = {record, {flattened.magnitudes}, {flattened.bodies}, NULL, flattened.bodies, records, &sweep, &error};
+    const int ok = (records != NULL) && (engine_record_sweep(&run) == (long)flattened.bodies);
+    const unsigned long long elapsed = engine_clock_microseconds() - started;
     unsigned long long crc = ~0ull;
-    for (size_t limb = 0u; good && (limb < (size_t)held.bodies * out_limbs); limb += 1u)
+    for (size_t limb = 0u; ok && (limb < (size_t)flattened.bodies * out_limbs); limb += 1u)
     {
         for (unsigned int place = 0u; place < 4u; place += 1u)
         {
             crc = crc_step(CRC_TABLE, crc, (records[limb] >> (8u * place)) & 0xFFu);
         }
     }
-    if (good)
+    if (ok)
     {
         printf("  fingerprint: %llu bodies, %u steps, %ld bits a print in %u limbs; the sweep %llu us, with the "
                "transfers %llu us; CRC-64 of the prints %016llx\n",
-               held.bodies, FINGERPRINT_STEPS, out_bits, out_limbs, sweep, whole, ~crc);
+               flattened.bodies, FINGERPRINT_STEPS, out_bits, out_limbs, sweep, elapsed, ~crc);
     }
     else
     {
         fprintf(stderr, "  run fingerprint: the sweep was refused\n");
         track_error_report("fingerprint sweep", &error);
     }
-    const int indexed = good && (held.bodies <= 0xFFFFFFFFull);
-    unsigned int *const reversed = indexed ? (unsigned int *)malloc(((size_t)held.bodies + 1u) * sizeof(unsigned int))
+    const int indexed = ok && (flattened.bodies <= 0xFFFFFFFFull);
+    unsigned int *const reversed = indexed ? (unsigned int *)malloc(((size_t)flattened.bodies + 1u) * sizeof(unsigned int))
                                            : NULL;
-    unsigned int *const gathered = indexed ? (unsigned int *)malloc(((size_t)held.bodies * out_limbs + 1u)
+    unsigned int *const gathered = indexed ? (unsigned int *)malloc(((size_t)flattened.bodies * out_limbs + 1u)
                                                                     * sizeof(unsigned int)) : NULL;
-    for (unsigned long long lane = 0ull; (reversed != NULL) && (lane < held.bodies); lane += 1ull)
+    for (unsigned long long lane = 0ull; (reversed != NULL) && (lane < flattened.bodies); lane += 1ull)
     {
-        reversed[lane] = (unsigned int)(held.bodies - 1ull - lane);
+        reversed[lane] = (unsigned int)(flattened.bodies - 1ull - lane);
     }
     unsigned long long gather_sweep = 0ull;
-    const EngineRecordSweep through = {record,      {held.magnitudes}, {held.bodies}, reversed,
-                                       held.bodies, gathered,          &gather_sweep, &error};
-    const int gather = (reversed != NULL) && (gathered != NULL) && (engine_record_sweep(&through) == (long)held.bodies);
+    const EngineRecordSweep through = {record,      {flattened.magnitudes}, {flattened.bodies}, reversed,
+                                       flattened.bodies, gathered,          &gather_sweep, &error};
+    const int gather = (reversed != NULL) && (gathered != NULL) && (engine_record_sweep(&through) == (long)flattened.bodies);
     unsigned long long misplaced = 0ull;
-    for (unsigned long long lane = 0ull; gather && (lane < held.bodies); lane += 1ull)
+    for (unsigned long long lane = 0ull; gather && (lane < flattened.bodies); lane += 1ull)
     {
-        misplaced += (memcmp(&gathered[lane * out_limbs], &records[(held.bodies - 1ull - lane) * out_limbs],
+        misplaced += (memcmp(&gathered[lane * out_limbs], &records[(flattened.bodies - 1ull - lane) * out_limbs],
                              out_limbs * sizeof(unsigned int)) != 0) ? 1ull : 0ull;
     }
     if (gather)
     {
         printf("  fingerprint through the index, every body read by the lane across from it: the sweep %llu us; %llu of"
-               " %llu prints land away from their body\n", gather_sweep, misplaced, held.bodies);
+               " %llu prints land away from their body\n", gather_sweep, misplaced, flattened.bodies);
     }
-    else if (good)
+    else if (ok)
     {
         fprintf(stderr, "  run fingerprint: the sweep through the index was refused\n");
         track_error_report("fingerprint through the index", &error);
     }
     free(reversed);
     free(gathered);
-    unsigned int *const host = good ? (unsigned int *)malloc(((size_t)held.bodies * out_limbs + 1u)
+    unsigned int *const host = ok ? (unsigned int *)malloc(((size_t)flattened.bodies * out_limbs + 1u)
                                                              * sizeof(unsigned int)) : NULL;
     const unsigned long long host_started = engine_clock_microseconds();
-    const EngineRecordSweep host_run = {NULL, {held.magnitudes}, {held.bodies}, NULL, held.bodies, host, NULL, &error};
-    const int ported = (host != NULL) && (engine_record_host(&imprint, &host_run) == (long)held.bodies);
-    const unsigned long long host_whole = engine_clock_microseconds() - host_started;
+    const EngineRecordSweep host_run = {NULL, {flattened.magnitudes}, {flattened.bodies}, NULL, flattened.bodies, host, NULL, &error};
+    const int ported = (host != NULL) && (engine_record_host(&encode_request, &host_run) == (long)flattened.bodies);
+    const unsigned long long host_elapsed = engine_clock_microseconds() - host_started;
     unsigned long long differ = 0ull;
-    for (unsigned long long body = 0ull; ported && (body < held.bodies); body += 1ull)
+    for (unsigned long long body = 0ull; ported && (body < flattened.bodies); body += 1ull)
     {
         differ += (memcmp(&host[body * out_limbs], &records[body * out_limbs], out_limbs * sizeof(unsigned int)) != 0)
                 ? 1ull : 0ull;
@@ -563,60 +563,60 @@ static int run_fingerprint(const RunInputs *inputs)
     if (ported)
     {
         printf("  fingerprint on the host, anchor_sift's exact integer: %llu us; %llu of %llu prints differ from the "
-               "device\n", host_whole, differ, held.bodies);
+               "device\n", host_elapsed, differ, flattened.bodies);
     }
-    else if (good)
+    else if (ok)
     {
         fprintf(stderr, "  run fingerprint: the host port was refused\n");
         track_error_report("fingerprint host port", &error);
     }
-    const int vocabulary = good ? run_vocabulary_proof(&held, records, &fields) : 1;
-    const int paired = good ? run_pair_proof(&held, records, &fields) : 1;
-    const int steered = good ? run_steer_proof(&held, records, &fields) : 1;
+    const int vocabulary = ok ? run_vocabulary_proof(&flattened, records, &fields) : 1;
+    const int paired = ok ? run_pair_proof(&flattened, records, &fields) : 1;
+    const int steered = ok ? run_steer_proof(&flattened, records, &fields) : 1;
     free(host);
     free(records);
     cycle_record_release(record);
-    flatten_release(&held);
-    return (good && gather && (misplaced == 0ull) && ported && (differ == 0ull) && (vocabulary == 0) && (paired == 0)
+    flatten_release(&flattened);
+    return (ok && gather && (misplaced == 0ull) && ported && (differ == 0ull) && (vocabulary == 0) && (paired == 0)
             && (steered == 0)) ? 0 : 1;
 }
 
-static int run_flattened_prepare(const RunInputs *inputs, FlattenHeld *held, unsigned long long **starts,
+static int run_flattened_prepare(const RunInputs *inputs, FlattenResident *flattened_set, unsigned long long **starts,
                                  TreeRules *rules)
 {
     EngineError error;
     memset(&error, 0, sizeof(error));
-    if (flatten_read(inputs->set, held, &error) == 0)
+    if (flatten_read(inputs->set, flattened_set, &error) == 0)
     {
         track_error_report("flattened.iapx", &error);
         return 0;
     }
-    const unsigned int sample_bits = held->layout.bits[MAX_TREE_FIELD_SAMPLE];
-    const unsigned int sample_offset = held->layout.offset[MAX_TREE_FIELD_SAMPLE];
-    *starts = (unsigned long long *)calloc((size_t)held->samples + 2u, sizeof(unsigned long long));
-    int good = (*starts != NULL) && (sample_bits <= 32u);
+    const unsigned int sample_bits = flattened_set->layout.bits[MAX_TREE_FIELD_SAMPLE];
+    const unsigned int sample_offset = flattened_set->layout.offset[MAX_TREE_FIELD_SAMPLE];
+    *starts = (unsigned long long *)calloc((size_t)flattened_set->samples + 2u, sizeof(unsigned long long));
+    int ok = (*starts != NULL) && (sample_bits <= 32u);
     unsigned int previous = 0u;
-    for (unsigned long long body = 0ull; good && (body < held->bodies); body += 1ull)
+    for (unsigned long long body = 0ull; ok && (body < flattened_set->bodies); body += 1ull)
     {
-        const unsigned int sample = engine_packed_unsigned(&held->magnitudes[body * held->layout.limbs], sample_offset,
+        const unsigned int sample = engine_packed_unsigned(&flattened_set->magnitudes[body * flattened_set->layout.limbs], sample_offset,
                                                         sample_bits);
-        good = (sample < held->samples) && (sample >= previous);
+        ok = (sample < flattened_set->samples) && (sample >= previous);
         previous = sample;
-        (*starts)[good ? (sample + 1u) : 0u] += good ? 1ull : 0ull;
+        (*starts)[ok ? (sample + 1u) : 0u] += ok ? 1ull : 0ull;
     }
-    for (unsigned int sample = 0u; good && (sample < held->samples); sample += 1u)
+    for (unsigned int sample = 0u; ok && (sample < flattened_set->samples); sample += 1u)
     {
         (*starts)[sample + 1u] += (*starts)[sample];
     }
-    if (good == 0)
+    if (ok == 0)
     {
         fprintf(stderr, "  flattened.iapx in %s does not hold its samples in order\n", inputs->set);
         return 0;
     }
-    rules->flattened = held->magnitudes;
-    rules->flattened_limbs = held->layout.limbs;
-    rules->flattened_samples = held->samples;
-    rules->flattened_names = held->names;
+    rules->flattened = flattened_set->magnitudes;
+    rules->flattened_limbs = flattened_set->layout.limbs;
+    rules->flattened_samples = flattened_set->samples;
+    rules->flattened_names = flattened_set->names;
     rules->flattened_start = *starts;
     return 1;
 }
@@ -629,16 +629,16 @@ typedef struct
     unsigned int offset[MAX_TREE_FIELDS + ENGINE_AXES];
     unsigned int output_offset[VELOCITY_OUTPUTS];
     unsigned int output_bits[VELOCITY_OUTPUTS];
-    EngineRecordRequest imprint;
+    EngineRecordRequest encode_request;
 } RunVelocity;
 
-static int run_velocity_prepare(const FlattenHeld *held, RunVelocity *velocity, CycleRecord **record, TreeRules *rules)
+static int run_velocity_prepare(const FlattenResident *flattened, RunVelocity *velocity, CycleRecord **record, TreeRules *rules)
 {
     VelocityRequest request;
     memset(&request, 0, sizeof(request));
     request.mass_field = MAX_TREE_FIELD_MASS;
-    memcpy(velocity->bits, held->layout.bits, MAX_TREE_FIELDS * sizeof(unsigned int));
-    memcpy(velocity->offset, held->layout.offset, MAX_TREE_FIELDS * sizeof(unsigned int));
+    memcpy(velocity->bits, flattened->layout.bits, MAX_TREE_FIELDS * sizeof(unsigned int));
+    memcpy(velocity->offset, flattened->layout.offset, MAX_TREE_FIELDS * sizeof(unsigned int));
     for (unsigned int axis = 0u; axis < ENGINE_AXES; axis += 1u)
     {
         request.sum_field[axis] = MAX_TREE_FIELD_SUM_Z + axis;
@@ -646,34 +646,34 @@ static int run_velocity_prepare(const FlattenHeld *held, RunVelocity *velocity, 
         velocity->bits[MAX_TREE_FIELDS + axis] = 32u;
         velocity->offset[MAX_TREE_FIELDS + axis] = 32u * axis;
     }
-    EngineRecordRequest *const imprint = &velocity->imprint;
-    memset(imprint, 0, sizeof(*imprint));
-    imprint->steps = velocity->program;
-    imprint->count = VELOCITY_STEPS;
-    imprint->field_bits = velocity->bits;
-    imprint->field_offset = velocity->offset;
-    imprint->fields = MAX_TREE_FIELDS + ENGINE_AXES;
-    imprint->in_limbs[VELOCITY_EARLIER] = held->layout.limbs;
-    imprint->in_limbs[VELOCITY_LATER] = held->layout.limbs;
-    imprint->in_limbs[VELOCITY_LAG] = ENGINE_AXES;
-    imprint->members = VELOCITY_MEMBERS;
-    imprint->outputs = velocity->outputs;
-    imprint->output_count = VELOCITY_OUTPUTS;
-    imprint->output_offset = velocity->output_offset;
-    imprint->output_bits = velocity->output_bits;
+    EngineRecordRequest *const encode_request = &velocity->encode_request;
+    memset(encode_request, 0, sizeof(*encode_request));
+    encode_request->steps = velocity->program;
+    encode_request->count = VELOCITY_STEPS;
+    encode_request->field_bits = velocity->bits;
+    encode_request->field_offset = velocity->offset;
+    encode_request->fields = MAX_TREE_FIELDS + ENGINE_AXES;
+    encode_request->in_limbs[VELOCITY_EARLIER] = flattened->layout.limbs;
+    encode_request->in_limbs[VELOCITY_LATER] = flattened->layout.limbs;
+    encode_request->in_limbs[VELOCITY_LAG] = ENGINE_AXES;
+    encode_request->members = VELOCITY_MEMBERS;
+    encode_request->outputs = velocity->outputs;
+    encode_request->output_count = VELOCITY_OUTPUTS;
+    encode_request->output_offset = velocity->output_offset;
+    encode_request->output_bits = velocity->output_bits;
     *record = NULL;
     EngineError error;
     memset(&error, 0, sizeof(error));
-    const long out_bits = (velocity_program(&request, velocity->program, velocity->outputs) == VELOCITY_REFUSED)
-                        ? ENGINE_REFUSED : engine_record_imprint(imprint, record, &error);
-    if (out_bits == ENGINE_REFUSED)
+    const long out_bits = (velocity_program(&request, velocity->program, velocity->outputs) == VELOCITY_ERROR)
+                        ? ENGINE_ERROR : engine_record_encode(encode_request, record, &error);
+    if (out_bits == ENGINE_ERROR)
     {
         fprintf(stderr, "  velocity: the program did not imprint\n");
         track_error_report("velocity", &error);
         return 0;
     }
     rules->velocity_record = *record;
-    rules->velocity_imprint = imprint;
+    rules->velocity_encode_request = encode_request;
     printf("  velocity: %u steps, a record of %ld bits in %u limbs\n", VELOCITY_STEPS, out_bits,
            cycle_record_out_limbs(*record));
     return 1;
@@ -685,10 +685,10 @@ typedef struct
     unsigned int outputs[DIVISION_OUTPUTS];
     unsigned int output_offset[DIVISION_OUTPUTS];
     unsigned int output_bits[DIVISION_OUTPUTS];
-    EngineRecordRequest imprint;
+    EngineRecordRequest encode_request;
 } RunDivision;
 
-static int run_division_prepare(const RunInputs *inputs, const FlattenHeld *held, RunDivision *division,
+static int run_division_prepare(const RunInputs *inputs, const FlattenResident *flattened, RunDivision *division,
                                 CycleRecord **record, TreeRules *rules)
 {
     DivisionRequest request;
@@ -703,35 +703,35 @@ static int run_division_prepare(const RunInputs *inputs, const FlattenHeld *held
     {
         request.moment_field[moment] = MAX_TREE_FIELD_MOMENT_ZZ + moment;
     }
-    EngineRecordRequest *const imprint = &division->imprint;
-    memset(imprint, 0, sizeof(*imprint));
-    imprint->steps = division->program;
-    imprint->count = DIVISION_STEPS;
-    imprint->field_bits = held->layout.bits;
-    imprint->field_offset = held->layout.offset;
-    imprint->fields = MAX_TREE_FIELDS;
+    EngineRecordRequest *const encode_request = &division->encode_request;
+    memset(encode_request, 0, sizeof(*encode_request));
+    encode_request->steps = division->program;
+    encode_request->count = DIVISION_STEPS;
+    encode_request->field_bits = flattened->layout.bits;
+    encode_request->field_offset = flattened->layout.offset;
+    encode_request->fields = MAX_TREE_FIELDS;
     for (unsigned int member = 0u; member < DIVISION_MEMBERS; member += 1u)
     {
-        imprint->in_limbs[member] = held->layout.limbs;
+        encode_request->in_limbs[member] = flattened->layout.limbs;
     }
-    imprint->members = DIVISION_MEMBERS;
-    imprint->outputs = division->outputs;
-    imprint->output_count = DIVISION_OUTPUTS;
-    imprint->output_offset = division->output_offset;
-    imprint->output_bits = division->output_bits;
+    encode_request->members = DIVISION_MEMBERS;
+    encode_request->outputs = division->outputs;
+    encode_request->output_count = DIVISION_OUTPUTS;
+    encode_request->output_offset = division->output_offset;
+    encode_request->output_bits = division->output_bits;
     *record = NULL;
     EngineError error;
     memset(&error, 0, sizeof(error));
-    const long out_bits = (division_program(&request, division->program, division->outputs) == DIVISION_REFUSED)
-                        ? ENGINE_REFUSED : engine_record_imprint(imprint, record, &error);
-    if (out_bits == ENGINE_REFUSED)
+    const long out_bits = (division_program(&request, division->program, division->outputs) == DIVISION_ERROR)
+                        ? ENGINE_ERROR : engine_record_encode(encode_request, record, &error);
+    if (out_bits == ENGINE_ERROR)
     {
         fprintf(stderr, "  division: the program did not imprint; voxel_pm must name all three axes\n");
         track_error_report("division", &error);
         return 0;
     }
     rules->division_record = *record;
-    rules->division_imprint = imprint;
+    rules->division_encode_request = encode_request;
     printf("  division: %u steps, a record of %ld bits in %u limbs\n", DIVISION_STEPS, out_bits,
            cycle_record_out_limbs(*record));
     return 1;
@@ -743,15 +743,15 @@ typedef struct
     unsigned int difference_outputs[CONTACT_SIDE_DIFFERENCE_OUTPUTS];
     unsigned int difference_offset[CONTACT_SIDE_DIFFERENCE_OUTPUTS];
     unsigned int difference_bits[CONTACT_SIDE_DIFFERENCE_OUTPUTS];
-    EngineRecordRequest difference_imprint;
+    EngineRecordRequest difference_encode_request;
     EngineRecordStep kept_program[CONTACT_SIDE_KEPT_STEPS];
     unsigned int kept_outputs[CONTACT_SIDE_KEPT_OUTPUTS];
     unsigned int kept_offset[CONTACT_SIDE_KEPT_OUTPUTS];
     unsigned int kept_bits[CONTACT_SIDE_KEPT_OUTPUTS];
-    EngineRecordRequest kept_imprint;
+    EngineRecordRequest kept_encode_request;
 } RunContactSide;
 
-static int run_contact_side_prepare(const RunInputs *inputs, const FlattenHeld *held, RunContactSide *side,
+static int run_contact_side_prepare(const RunInputs *inputs, const FlattenResident *flattened, RunContactSide *side,
                                     CycleRecord **difference_record, CycleRecord **kept_record, TreeRules *rules)
 {
     ContactSideDifferenceRequest difference;
@@ -762,15 +762,15 @@ static int run_contact_side_prepare(const RunInputs *inputs, const FlattenHeld *
         difference.sum_field[axis] = MAX_TREE_FIELD_SUM_Z + axis;
         difference.voxel_pm[axis] = inputs->voxel_pm[axis];
     }
-    EngineRecordRequest *const apart = &side->difference_imprint;
+    EngineRecordRequest *const apart = &side->difference_encode_request;
     memset(apart, 0, sizeof(*apart));
     apart->steps = side->difference_program;
     apart->count = CONTACT_SIDE_DIFFERENCE_STEPS;
-    apart->field_bits = held->layout.bits;
-    apart->field_offset = held->layout.offset;
+    apart->field_bits = flattened->layout.bits;
+    apart->field_offset = flattened->layout.offset;
     apart->fields = MAX_TREE_FIELDS;
-    apart->in_limbs[CONTACT_SIDE_ONE] = held->layout.limbs;
-    apart->in_limbs[CONTACT_SIDE_OTHER] = held->layout.limbs;
+    apart->in_limbs[CONTACT_SIDE_ONE] = flattened->layout.limbs;
+    apart->in_limbs[CONTACT_SIDE_OTHER] = flattened->layout.limbs;
     apart->members = CONTACT_SIDE_MEMBERS;
     apart->outputs = side->difference_outputs;
     apart->output_count = CONTACT_SIDE_DIFFERENCE_OUTPUTS;
@@ -781,9 +781,9 @@ static int run_contact_side_prepare(const RunInputs *inputs, const FlattenHeld *
     EngineError error;
     memset(&error, 0, sizeof(error));
     const long apart_bits = (contact_side_difference_program(&difference, side->difference_program,
-                                                             side->difference_outputs) == CONTACT_SIDE_REFUSED)
-                          ? ENGINE_REFUSED : engine_record_imprint(apart, difference_record, &error);
-    if (apart_bits == ENGINE_REFUSED)
+                                                             side->difference_outputs) == CONTACT_SIDE_ERROR)
+                          ? ENGINE_ERROR : engine_record_encode(apart, difference_record, &error);
+    if (apart_bits == ENGINE_ERROR)
     {
         fprintf(stderr, "  contact side: the difference program did not imprint; voxel_pm must name all three axes\n");
         track_error_report("contact side difference", &error);
@@ -796,7 +796,7 @@ static int run_contact_side_prepare(const RunInputs *inputs, const FlattenHeld *
         kept.difference_field[axis] = axis;
     }
     const unsigned int apart_limbs = cycle_record_out_limbs(*difference_record);
-    EngineRecordRequest *const verdict = &side->kept_imprint;
+    EngineRecordRequest *const verdict = &side->kept_encode_request;
     memset(verdict, 0, sizeof(*verdict));
     verdict->steps = side->kept_program;
     verdict->count = CONTACT_SIDE_KEPT_STEPS;
@@ -811,25 +811,25 @@ static int run_contact_side_prepare(const RunInputs *inputs, const FlattenHeld *
     verdict->output_offset = side->kept_offset;
     verdict->output_bits = side->kept_bits;
     const long kept_bits = (contact_side_kept_program(&kept, side->kept_program, side->kept_outputs)
-                            == CONTACT_SIDE_REFUSED)
-                         ? ENGINE_REFUSED : engine_record_imprint(verdict, kept_record, &error);
-    if (kept_bits == ENGINE_REFUSED)
+                            == CONTACT_SIDE_ERROR)
+                         ? ENGINE_ERROR : engine_record_encode(verdict, kept_record, &error);
+    if (kept_bits == ENGINE_ERROR)
     {
         fprintf(stderr, "  contact side: the verdict program did not imprint\n");
         track_error_report("contact side verdict", &error);
         return 0;
     }
     rules->contact_difference_record = *difference_record;
-    rules->contact_difference_imprint = apart;
+    rules->contact_difference_encode_request = apart;
     rules->contact_kept_record = *kept_record;
-    rules->contact_kept_imprint = verdict;
+    rules->contact_kept_encode_request = verdict;
     printf("  contact side: the difference, %u steps, a record of %ld bits in %u limbs; the verdict, %u steps, %ld bits"
            " in %u limbs\n", CONTACT_SIDE_DIFFERENCE_STEPS, apart_bits, apart_limbs, CONTACT_SIDE_KEPT_STEPS, kept_bits,
            cycle_record_out_limbs(*kept_record));
     return 1;
 }
 
-static int run_print_match_prepare(const RunInputs *inputs, const FlattenHeld *held, unsigned int **prints,
+static int run_print_match_prepare(const RunInputs *inputs, const FlattenResident *flattened, unsigned int **prints,
                                    CycleRecord **pair, TreeRules *rules)
 {
     FingerprintRequest print;
@@ -839,24 +839,24 @@ static int run_print_match_prepare(const RunInputs *inputs, const FlattenHeld *h
     CycleRecord *record = NULL;
     RunPrintFields fields;
     memset(&fields, 0, sizeof(fields));
-    const EngineRecordRequest imprint = {program,             FINGERPRINT_STEPS, held->layout.bits,
-                                         held->layout.offset, MAX_TREE_FIELDS,   {held->layout.limbs},
+    const EngineRecordRequest encode_request = {program,             FINGERPRINT_STEPS, flattened->layout.bits,
+                                         flattened->layout.offset, MAX_TREE_FIELDS,   {flattened->layout.limbs},
                                          1u,                  outputs,           FINGERPRINT_OUTPUTS,
                                          fields.offset,       fields.bits};
     EngineError error;
     memset(&error, 0, sizeof(error));
-    int good = (fingerprint_program(&print, program, outputs) != FINGERPRINT_REFUSED)
-            && (engine_record_imprint(&imprint, &record, &error) != ENGINE_REFUSED);
-    const unsigned int limbs = good ? cycle_record_out_limbs(record) : 0u;
+    int ok = (fingerprint_program(&print, program, outputs) != FINGERPRINT_ERROR)
+            && (engine_record_encode(&encode_request, &record, &error) != ENGINE_ERROR);
+    const unsigned int limbs = ok ? cycle_record_out_limbs(record) : 0u;
     fields.limbs = limbs;
-    *prints = good ? (unsigned int *)malloc(((size_t)held->bodies * limbs + 1u) * sizeof(unsigned int)) : NULL;
+    *prints = ok ? (unsigned int *)malloc(((size_t)flattened->bodies * limbs + 1u) * sizeof(unsigned int)) : NULL;
     unsigned long long sweep = 0ull;
-    const EngineRecordSweep run = {record, {held->magnitudes}, {held->bodies}, NULL, held->bodies, *prints, &sweep,
+    const EngineRecordSweep run = {record, {flattened->magnitudes}, {flattened->bodies}, NULL, flattened->bodies, *prints, &sweep,
                                    &error};
-    good = good && (*prints != NULL) && (engine_record_sweep(&run) == (long)held->bodies);
+    ok = ok && (*prints != NULL) && (engine_record_sweep(&run) == (long)flattened->bodies);
     cycle_record_release(record);
-    good = good && (run_pair_imprint(&fields, pair, &error) != ENGINE_REFUSED);
-    if (good == 0)
+    ok = ok && (run_pair_encode(&fields, pair, &error) != ENGINE_ERROR);
+    if (ok == 0)
     {
         fprintf(stderr, "  print match: the prints or the pair program were refused\n");
         track_error_report("print match", &error);
@@ -865,7 +865,7 @@ static int run_print_match_prepare(const RunInputs *inputs, const FlattenHeld *h
     rules->print_pair = *pair;
     rules->prints = *prints;
     rules->print_limbs = limbs;
-    printf("  print match: %llu bodies of %u samples printed in one sweep of %llu us\n", held->bodies, held->samples,
+    printf("  print match: %llu bodies of %u samples printed in one sweep of %llu us\n", flattened->bodies, flattened->samples,
            sweep);
     return 1;
 }
@@ -873,8 +873,8 @@ static int run_print_match_prepare(const RunInputs *inputs, const FlattenHeld *h
 static int run_track(const TreeRules *rules, const RunInputs *inputs)
 {
     TreeRules matched = *rules;
-    FlattenHeld held;
-    memset(&held, 0, sizeof(held));
+    FlattenResident flattened;
+    memset(&flattened, 0, sizeof(flattened));
     unsigned int *prints = NULL;
     unsigned long long *starts = NULL;
     CycleRecord *pair = NULL;
@@ -888,13 +888,13 @@ static int run_track(const TreeRules *rules, const RunInputs *inputs)
     int ready = (velocity != NULL) && (division != NULL) && (side != NULL)
              && (((rules->print_match == 0) && (rules->velocity == 0) && (rules->division == 0)
                   && (rules->contact_side == 0))
-                 || (run_flattened_prepare(inputs, &held, &starts, &matched) != 0));
-    ready = ready && ((rules->print_match == 0) || (run_print_match_prepare(inputs, &held, &prints, &pair, &matched) != 0));
-    ready = ready && ((rules->velocity == 0) || (run_velocity_prepare(&held, velocity, &velocity_record, &matched) != 0));
+                 || (run_flattened_prepare(inputs, &flattened, &starts, &matched) != 0));
+    ready = ready && ((rules->print_match == 0) || (run_print_match_prepare(inputs, &flattened, &prints, &pair, &matched) != 0));
+    ready = ready && ((rules->velocity == 0) || (run_velocity_prepare(&flattened, velocity, &velocity_record, &matched) != 0));
     ready = ready && ((rules->division == 0)
-                      || (run_division_prepare(inputs, &held, division, &division_record, &matched) != 0));
+                      || (run_division_prepare(inputs, &flattened, division, &division_record, &matched) != 0));
     ready = ready && ((rules->contact_side == 0)
-                      || (run_contact_side_prepare(inputs, &held, side, &difference_record, &kept_record, &matched)
+                      || (run_contact_side_prepare(inputs, &flattened, side, &difference_record, &kept_record, &matched)
                           != 0));
     if (ready == 0)
     {
@@ -908,30 +908,30 @@ static int run_track(const TreeRules *rules, const RunInputs *inputs)
         free(velocity);
         free(division);
         free(side);
-        flatten_release(&held);
+        flatten_release(&flattened);
         return 1;
     }
     rules_line(rules, g_rules_line, sizeof(g_rules_line));
     printf("  rules:%s\n", g_rules_line);
     printf("  %-24s %-6s %s\n", "sample", "edges", "correct/branched/wrong/no link/missed");
-    EdgeTally pooled;
+    EdgeResults pooled;
     memset(&pooled, 0, sizeof(pooled));
     const unsigned long long started = engine_clock_microseconds() / 1000ull;
     int failures = 0;
     for (unsigned int sample = 0u; sample < inputs->count; sample += 1u)
     {
-        EdgeTally tally;
-        if (score_sample(inputs->set, inputs->source, inputs->samples[sample], &matched, &tally) == 0)
+        EdgeResults results;
+        if (score_sample(inputs->set, inputs->source, inputs->samples[sample], &matched, &results) == 0)
         {
             fprintf(stderr, "  %s failed\n", inputs->samples[sample]);
             failures += 1;
             continue;
         }
-        pooled.correct += tally.correct;
-        pooled.branched += tally.branched;
-        pooled.wrong += tally.wrong;
-        pooled.unlinked += tally.unlinked;
-        pooled.missed += tally.missed;
+        pooled.correct += results.correct;
+        pooled.branched += results.branched;
+        pooled.wrong += results.wrong;
+        pooled.unlinked += results.unlinked;
+        pooled.missed += results.missed;
     }
     const unsigned long long total = pooled.correct + pooled.branched + pooled.wrong + pooled.unlinked + pooled.missed;
     printf("\n  POOLED over %llu ground truth edges:\n", total);
@@ -943,10 +943,10 @@ static int run_track(const TreeRules *rules, const RunInputs *inputs)
                                               pooled.missed};
         for (unsigned int row = 0u; row < 5u; row += 1u)
         {
-            unsigned long long whole = 0ULL;
+            unsigned long long percent = 0ULL;
             unsigned long long tenth = 0ULL;
-            engine_percent_of(values[row], total, &whole, &tenth);
-            printf("    %-22s %5llu   %llu.%llu%%\n", names[row], values[row], whole, tenth);
+            engine_percent_of(values[row], total, &percent, &tenth);
+            printf("    %-22s %5llu   %llu.%llu%%\n", names[row], values[row], percent, tenth);
         }
     }
     if ((g_web_asked + g_web_capped) > 0ULL)
@@ -961,15 +961,15 @@ static int run_track(const TreeRules *rules, const RunInputs *inputs)
                g_mutual_alone, g_mutual_split, g_mutual_empty, g_mutual_moved);
     }
     survey_report();
-    EngineBodiesTally tally;
-    engine_bodies_tally(&tally);
-    if (tally.frames != 0ull)
+    EngineBodiesResults results;
+    engine_bodies_results(&results);
+    if (results.frames != 0ull)
     {
         printf("    bodies: proved on %llu of %llu frames, %llu bodies, %llu per frame, mean level index %llu\n",
-               tally.held, tally.frames, tally.bodies, tally.bodies / tally.frames, tally.levels / tally.frames);
+               results.proven, results.frames, results.bodies, results.bodies / results.frames, results.levels / results.frames);
     }
-    EngineResidualTally residual;
-    engine_residual_tally(&residual);
+    EngineResidualResults residual;
+    engine_residual_results(&residual);
     if (residual.frames != 0ull)
     {
         printf("    residual: %llu frames, the key %llu us, the unit sweeps %llu us; proved on %llu frames, %llu differ"
@@ -1000,7 +1000,7 @@ static int run_track(const TreeRules *rules, const RunInputs *inputs)
     free(velocity);
     free(division);
     free(side);
-    flatten_release(&held);
+    flatten_release(&flattened);
     return failures;
 }
 
@@ -1106,10 +1106,10 @@ int main(int argc, char **argv)
         else if (((strcmp(flag, "--source") == 0) || (strcmp(flag, "--set") == 0) || (strcmp(flag, "--axes") == 0))
                  && (argument + 1 < argc))
         {
-            char **const held = (flag[2] == 's') ? ((flag[3] == 'o') ? &inputs.source : &inputs.set) : &inputs.axes;
+            char **const path_field = (flag[2] == 's') ? ((flag[3] == 'o') ? &inputs.source : &inputs.set) : &inputs.axes;
             argument += 1;
-            free(*held);
-            *held = cfg_copy(argv[argument]);
+            free(*path_field);
+            *path_field = cfg_copy(argv[argument]);
         }
         else if (strcmp(flag, "--mass") == 0)
         {

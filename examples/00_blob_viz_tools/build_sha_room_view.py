@@ -25,7 +25,7 @@ Every cell of the field becomes a body hanging in the room:
   direction   from the index within the cut, spread over the sphere by the golden angle, and it is
               the placement build_sha_sphere_view.py uses, and a bit sits the same way on both pages.
   radius      from the round. Round one sits near the middle and round sixty-four out at the shell,
-              because a round is how far the input has travelled and radius is how far out it got.
+              because a round is how far the input has traveled and radius is how far out it got.
   stopping    from the size of the deviation, on a log scale, since the field spans eight decades
               between a pinned cell and a noise cell and a linear scale shows one of them.
 
@@ -245,7 +245,7 @@ def main():
     source = option("--source", SOURCE)
 
     # Checked here and never left to the page. An unknown word reaches the page as a word it does
-    # not recognise, the page falls through to its own default, and the caller gets a sphere while
+    # not recognize, the page falls through to its own default, and the caller gets a sphere while
     # having asked for something else with no message anywhere saying so.
     if field not in CUTS:
         sys.stderr.write("--field takes one of: %s\n" % ", ".join(sorted(CUTS)))

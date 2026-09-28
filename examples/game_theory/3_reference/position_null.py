@@ -7,8 +7,8 @@
 #
 #   Usage:  python examples/game_theory/3_reference/position_null.py [games]
 #
-# The null permutation of this work, written for a grid, keeps how many of each colour are on the
-# board and which squares are occupied at all, and draws which colour sits where. It is the maximum
+# The null permutation of this work, written for a grid, keeps how many of each color are on the
+# board and which squares are occupied at all, and draws which color sits where. It is the maximum
 # entropy arrangement under the constraints the position supplies, so it cannot be wrong, and a
 # departure from it is arrangement and cannot be counts.
 #
@@ -18,7 +18,7 @@
 # tell, and a board supplies one for free.
 #
 # The control is a game played on the same board, with the same number of squares filled and the
-# same two colours alternating, where a move places a piece and nothing is turned over. It has rules
+# same two colors alternating, where a move places a piece and nothing is turned over. It has rules
 # and it has play and it has no flip. If the departure survives it, the departure is the board. If it
 # does not, the departure is the flip rule.
 
@@ -45,10 +45,10 @@ DRAWS = 4
 
 
 def clumping(grid):
-    """Share of occupied squares whose neighbour one step away carries the same colour, both axes.
+    """Share of occupied squares whose neighbor one step away carries the same color, both axes.
 
     Chosen over the dispersion measure this work usually quotes because that one needs four symbols
-    clearing an occurrence floor and a board has two colours. This reads the same thing a dispersion
+    clearing an occurrence floor and a board has two colors. This reads the same thing a dispersion
     reads, at the one lag a board is big enough to carry.
     """
     square = numpy.frombuffer(bytes(grid), dtype=numpy.uint8).reshape(SIDE, SIDE)
@@ -66,12 +66,12 @@ def against_the_null(grids, draws=DRAWS):
 def place_only(seed, filled=SIDE * SIDE, from_opening=True):
     """A board filled by alternating placement with nothing turned over.
 
-    Same board, same colours, same count of squares filled, no flip rule.
+    Same board, same colors, same count of squares filled, no flip rule.
 
-    `from_opening` keeps Reversi's four fixed centre pieces. They are worth a control of their own,
+    `from_opening` keeps Reversi's four fixed center pieces. They are worth a control of their own,
     because the first run of this script left them in and read 0.971 where the argument wanted 1.00,
     and the miss is the opening itself: those four squares are laid out BW over WB, so all four of
-    the neighbouring pairs inside them disagree by construction where a draw would have half of them
+    the neighboring pairs inside them disagree by construction where a draw would have half of them
     agree. Four guaranteed disagreements out of 112 pairs is 0.018 of the reading, which is the whole
     of the gap. Starting from an empty board removes them and the control returns 0.997.
 
@@ -83,10 +83,10 @@ def place_only(seed, filled=SIDE * SIDE, from_opening=True):
     already = 4 if from_opening else 0
     empties = [index for index, cell in enumerate(grid) if cell == EMPTY]
     rng.shuffle(empties)
-    colour = BLACK
+    color = BLACK
     for index in empties[:max(0, filled - already)]:
-        grid[index] = colour
-        colour = WHITE if colour == BLACK else BLACK
+        grid[index] = color
+        color = WHITE if color == BLACK else BLACK
     return grid
 
 
@@ -99,7 +99,7 @@ def main():
     out.write("Reversi, %d games, both sides drawing uniformly from the legal moves\n" % games)
     out.write("  live %.4f  null %.4f  ratio %.3f\n" % (live, null, live / null))
 
-    for keep, label in ((True, "keeping Reversi's four centre pieces"),
+    for keep, label in ((True, "keeping Reversi's four center pieces"),
                         (False, "from an empty board")):
         placed = [place_only(seed, from_opening=keep) for seed in range(games * 2)]
         live, null = against_the_null(placed)

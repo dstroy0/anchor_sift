@@ -113,7 +113,7 @@ def rotated_by_rings(live, steps):
     return out
 
 
-def relabelled_within_octants(points, live):
+def relabeled_within_octants(points, live):
     """Each lit point moved to an unlit point in its own octant, so no octant's count changes.
 
     The shares are counts over a weight and both are integers, so this move has to leave all eight
@@ -214,7 +214,7 @@ def null_octant_share_under_relabeling():
     points = boundary_read.golden_place(COUNT)
     live = a_lit_set(COUNT)
     before = boundary_read.octant_share(points, live)
-    after = boundary_read.octant_share(points, relabelled_within_octants(points, live))
+    after = boundary_read.octant_share(points, relabeled_within_octants(points, live))
     return worst_absolute(before, after)
 
 
@@ -305,7 +305,7 @@ def self_test():
     before = boundary_read.octant_share(points, live)
 
     broken = boundary_read.octant_share(points, moved_across_octants(points, live, 12))
-    genuine = boundary_read.octant_share(points, relabelled_within_octants(points, live))
+    genuine = boundary_read.octant_share(points, relabeled_within_octants(points, live))
 
     return worst_absolute(before, broken), worst_absolute(before, genuine)
 

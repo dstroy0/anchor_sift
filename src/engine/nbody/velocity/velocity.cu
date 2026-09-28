@@ -13,8 +13,8 @@
 
 #define VELOCITY_AXIS_FIRST 4u
 
-static void velocity_step(EngineRecordStep *step, EngineRecordOperation operation, unsigned int left, unsigned int right,
-                          unsigned int member)
+static void velocity_step(EngineRecordStep *step, EngineRecordOperation operation, unsigned int left,
+                          unsigned int right, unsigned int member)
 {
     step->operation = operation;
     step->left = left;

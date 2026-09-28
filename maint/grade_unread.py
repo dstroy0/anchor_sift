@@ -5,7 +5,7 @@ invisible reads exactly like clean: pointed at src/ it reports twelve files and 
 never opening the thirty-eight .cpp and ten .cu files beside them, which are most of the tree.
 
 CUDA and C++ carry C comment syntax, so nothing has to be transformed. A file is copied under a
-checked extension, the gate is run on the copy, and the findings are relabelled with the real path.
+checked extension, the gate is run on the copy, and the findings are relabeled with the real path.
 Line numbers are already right because nothing is rewritten.
 
     python maint/grade_unread.py                 # every unread kind under src/

@@ -10,7 +10,7 @@ Drawn rather than assumed: over three hundred draws at 256 positions the ratio P
 degrees. The constant carries the finite-population correction too - weights of 64 and 128 predict a
 ratio of 64/48 = 1.333 between their constants and deliver 1.318.
 
-WHY NORMALISE
+WHY NORMALIZE
 
 Plotted as P_l, the null RISES, and every spectrum drawn in this tree rises with it. That rise is
 entirely the mode count, and eyeballing it as structure is the same error as reading a sorted list's

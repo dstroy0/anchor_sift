@@ -65,9 +65,9 @@ def main():
             values = [runs[bench][seed][place][0] for seed in seeds]
             if max(values) == min(values):
                 continue
-            centre = statistics.fmean(values)
+            center = statistics.fmean(values)
             spread = statistics.pstdev(values)
-            scale = abs(centre) if abs(centre) > 1e-300 else max(abs(value) for value in values)
+            scale = abs(center) if abs(center) > 1e-300 else max(abs(value) for value in values)
             moved.append((spread / scale if scale > 0 else 0.0, place, values,
                           runs[bench][seeds[0]][place][1]))
 

@@ -86,12 +86,12 @@ EV.indexObject = (header, mapped) => {
 
   // Doubled centroids, z in doubled voxel units before the z scale: exact floors of (2 sum + n) / n.
   const cells = object.cells;
-  object.centre = new Int32Array(cellTotal * 3);
+  object.center = new Int32Array(cellTotal * 3);
   for (let cell = 0; cell < cellTotal; cell += 1) {
     const size = Math.max(cells[4 * cell], 1);
-    object.centre[3 * cell] = Math.floor((2 * cells[4 * cell + 3] + size) / size) - header.width;
-    object.centre[3 * cell + 1] = Math.floor((2 * cells[4 * cell + 2] + size) / size) - header.height;
-    object.centre[3 * cell + 2] = Math.floor((2 * cells[4 * cell + 1] + size) / size);
+    object.center[3 * cell] = Math.floor((2 * cells[4 * cell + 3] + size) / size) - header.width;
+    object.center[3 * cell + 1] = Math.floor((2 * cells[4 * cell + 2] + size) / size) - header.height;
+    object.center[3 * cell + 2] = Math.floor((2 * cells[4 * cell + 1] + size) / size);
   }
 
   // The joint centroid of a set of cells, from their summed sums.
@@ -118,7 +118,7 @@ EV.indexObject = (header, mapped) => {
   object.motion = new Int32Array(cellTotal * 8);
   object.root = new Uint32Array(cellTotal);
   for (let cell = 0; cell < cellTotal; cell += 1) {
-    const own = [object.centre[3 * cell], object.centre[3 * cell + 1], object.centre[3 * cell + 2]];
+    const own = [object.center[3 * cell], object.center[3 * cell + 1], object.center[3 * cell + 2]];
     const children = joint(object.forward, cell);
     const parents = joint(object.backward, cell);
     const at = 8 * cell;

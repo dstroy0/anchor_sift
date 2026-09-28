@@ -77,7 +77,7 @@ def flat_harmonics(top, colatitude, longitude):
 def reading_matrix(top, places):
     """The map from a weight per lit point to boundary coefficients, at full depth and no smoothing.
 
-    Full depth and no smoothing is the most favourable case there is: the depth kernel (r/R)^l and
+    Full depth and no smoothing is the most favorable case there is: the depth kernel (r/R)^l and
     the conduction kernel exp(-l(l+1)tau) are both diagonal in degree and both below one, so either
     of them can only shrink a singular value. A rank measured here is therefore an upper bound on
     the rank at any depth or any conduction time, and the nullity is a lower bound.

@@ -38,7 +38,7 @@ int track_frame_bodies(EngineBuffers *buffers, unsigned int slot, TreeFrame *fra
     memcpy(request.residual.smooth_orders, SMOOTH_ORDERS, sizeof(request.residual.smooth_orders));
     memcpy(request.residual.background_orders, BACKGROUND_ORDERS, sizeof(request.residual.background_orders));
     request.residual.unit_sweep = buffers->unit_sweep;
-    request.room = buffers->peak_room;
+    request.capacity = buffers->peak_capacity;
     request.bodies = buffers->bodies;
     request.labels = buffers->labels[slot];
     request.positive_words = buffers->positive[slot];
@@ -46,7 +46,7 @@ int track_frame_bodies(EngineBuffers *buffers, unsigned int slot, TreeFrame *fra
     memset(&error, 0, sizeof(error));
     request.error = &error;
     EngineLeaves leaves;
-    if (engine_frame_bodies(&request, &leaves) == ENGINE_REFUSED)
+    if (engine_frame_bodies(&request, &leaves) == ENGINE_ERROR)
     {
         track_error_report("bodies", &error);
         return 0;

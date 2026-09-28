@@ -87,7 +87,7 @@ def out_root():
 
 
 def resolve(name, explicit=None):
-    """Where to write a page called `name`, honouring an explicit choice above everything else.
+    """Where to write a page called `name`, honoring an explicit choice above everything else.
 
     An explicit path is used as given and never rehomed, because a caller naming a file has already
     decided. Its parent is made when it is absent, and a caller is not asked to create a directory

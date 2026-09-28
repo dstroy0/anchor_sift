@@ -455,7 +455,7 @@ def main():
         handle.write("# 12 more Upper Nicola Okanagan narratives.\n")
         handle.write("# Nsyilxcən, Upper Nicola. Lottie Lindley and John Lyon.\n")
         handle.write(
-            "# Papers for the International Conference on Salish and Neighbouring\n"
+            "# Papers for the International Conference on Salish and Neighboring\n"
         )
         handle.write("# Languages, UBCWPL, 2013.\n")
         handle.write(

@@ -36,9 +36,9 @@ static int shift_read_frame(const char *path, unsigned long long side_y, unsigne
         return 0;
     }
 
-    size_t room = 1024u;
-    frame->positions = malloc(room * sizeof(*frame->positions));
-    frame->values = malloc(room * sizeof(*frame->values));
+    size_t capacity = 1024u;
+    frame->positions = malloc(capacity * sizeof(*frame->positions));
+    frame->values = malloc(capacity * sizeof(*frame->values));
     frame->count = 0u;
     if ((frame->positions == NULL) || (frame->values == NULL))
     {
@@ -52,11 +52,11 @@ static int shift_read_frame(const char *path, unsigned long long side_y, unsigne
     unsigned long long value = 0u;
     while (fscanf(handle, "%llu %llu %llu %llu", &z, &y, &x, &value) == 4)
     {
-        if (frame->count == room)
+        if (frame->count == capacity)
         {
-            room *= 2u;
-            AnchorExactInteger *grown = realloc(frame->positions, room * sizeof(*grown));
-            uint64_t *grown_values = realloc(frame->values, room * sizeof(*grown_values));
+            capacity *= 2u;
+            AnchorExactInteger *grown = realloc(frame->positions, capacity * sizeof(*grown));
+            uint64_t *grown_values = realloc(frame->values, capacity * sizeof(*grown_values));
             if ((grown == NULL) || (grown_values == NULL))
             {
                 fclose(handle);

@@ -8,7 +8,7 @@
 #
 #   Usage:  python examples/language/4_measure/syncretism.py
 #
-# Polish humour turns on using a word correctly to use it incorrectly, and the reason is that
+# Polish humor turns on using a word correctly to use it incorrectly, and the reason is that
 # Polish forms are shared between grammatical slots. That is countable where the grammar of every word is
 # written beside it, and these treebanks write it: each token carries its lemma and the case, number,
 # gender and person it stands in. The readings sharing one surface form can be counted instead of

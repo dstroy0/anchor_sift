@@ -12,7 +12,7 @@ approximation. A claim of exactness needs something more accurate than the thing
 it is only two implementations agreeing with each other.
 
 Every constant the reading uses is a computed number and none of them is a measured one. Pi, the
-square root of two, the square root of five, the golden angle and the harmonic normalisations are
+square root of two, the square root of five, the golden angle and the harmonic normalizations are
 all decidable to as many digits as anyone asks for. So the accuracy floor of the whole engine is a
 choice about how many digits to carry and never a limit of what is known.
 

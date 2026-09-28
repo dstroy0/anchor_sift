@@ -7,7 +7,7 @@
 #
 #   Usage:  python maint/data/salishan/corpus_script_extraction/extract_hilbert.py
 #
-# Written for one paper. Poking Fun in Lushootseed is her essay, in English, about humour her
+# Written for one paper. Poking Fun in Lushootseed is her essay, in English, about humor her
 # students kept missing, with forty numbered examples in Lushootseed set into it. Each example is
 # printed twice under the same number: the Lushootseed first, then her English for it. So the
 # number is the pairing and the order decides which is which. Nothing else has to.
@@ -346,10 +346,10 @@ def main():
             "# Vi taqʷšəblu Hilbert, University of Washington. Papers for the\n"
         )
         handle.write(
-            "# International Conference on Salish and Neighbouring Languages, 1983.\n"
+            "# International Conference on Salish and Neighboring Languages, 1983.\n"
         )
         handle.write(
-            "# Her essay on humour her students kept missing, with forty numbered\n"
+            "# Her essay on humor her students kept missing, with forty numbered\n"
         )
         handle.write("# Lushootseed examples and her own English for each.\n")
         handle.write("#\n")

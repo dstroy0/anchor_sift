@@ -41,11 +41,11 @@
 # WHICH OF THESE THE ENGINE HOLDS IN C
 #
 # One. frame_shift is the Python route to shift_agreement_host in
-# src/engine/base/shift_agreement/shift_agreement.c: the lag carrying one frame's occupied voxels
+# src/engine/analysis/shift_agreement/shift_agreement.c: the lag carrying one frame's occupied voxels
 # onto the next, over up to eight axes, graded against it count for count by
 # test/python/shift_agreement_test.py. The C is a transform over a prime and this counts pairs, and
 # the two share no code. The engine form of recover_lattice_period, a candidate scored with its
-# double against the lags outside its family, is period_read in src/engine/base/period/period.cu.
+# double against the lags outside its family, is period_read in src/engine/analysis/period/period_select.cu.
 # It reads a device volume, holds its margin as an exact ratio, and adds a band drawn from
 # shuffles, and its Python route is measure/period.py, graded against it by test/python/period_test.py.
 # agreement, strongest_lags, recover_period, lattice_agreement, exact_agreement,
@@ -262,7 +262,7 @@ def recover_lattice_period(grid, axis, most=None):
     return lag, (share if above >= below else -share), score
 
 
-# The limits shift_agreement_host refuses past (src/engine/base/shift_agreement/shift_agreement.h).
+# The limits shift_agreement_host refuses past (src/engine/analysis/shift_agreement/shift_agreement.h).
 FRAME_AXES = 8
 FRAME_PRIME = 998244353
 FRAME_LONGEST_AXIS = 1 << 23
@@ -279,7 +279,7 @@ def _frame_padded(extent):
 def frame_shift(extents, before, after, weights=None):
     """The lag carrying the most of one frame's occupied voxels onto the next, counted exactly.
 
-    The Python route to shift_agreement_host (src/engine/base/shift_agreement/shift_agreement.c at
+    The Python route to shift_agreement_host (src/engine/analysis/shift_agreement/shift_agreement.c at
     anchor_sift 1789287). `before` and `after` are occupancy over the same box of `extents`, flat
     and row major with the last axis fastest, one truthy or falsy entry a voxel. The count at a lag
     vector d is how many voxels a occupied in `before` have a + d occupied in `after`, inside the

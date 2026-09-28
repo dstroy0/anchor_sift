@@ -33,7 +33,7 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 TEMPLATE = os.path.join(HERE, "block_view_template.html")
 CORPUS = os.path.join(ROOT, "maint", "chain", "blocks.json")
 
-# Offset and width of every field of the eighty byte header, in the order it is serialised.
+# Offset and width of every field of the eighty byte header, in the order it is serialized.
 FIELDS = [
     ("version", 0, 4),
     ("previousblockhash", 4, 32),
@@ -101,7 +101,7 @@ CONSTANTS = [
      "16.000 exactly, for a uniform 32-bit field", "marginal", "kat_nonces.py, N=1000"),
     ("nonce", "bit 7 share across winners", "0.430, z = -4.43",
      "the null's loudest over 32 cells was 2.28", "marginal", "kat_nonces.py"),
-    ("nonce", "does SHA-256 favour low-popcount nonces", "-0.000333",
+    ("nonce", "does SHA-256 favor low-popcount nonces", "-0.000333",
      "a band of 0.001 at 4 million hashes", "level", "deck_memory.py"),
     ("nonce", "hit rate, popcount 14 and under against 18 and over", "-1.00 sd",
      "0 hits against 1, over 2.4 million tries", "level", "deck_memory.py"),

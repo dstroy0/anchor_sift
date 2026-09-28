@@ -51,7 +51,7 @@ extern "C" long fingerprint_program(const FingerprintRequest *request, EngineRec
         fingerprint_common_unit(request->voxel_pm[0], request->voxel_pm[1]), request->voxel_pm[2]);
     if ((request->voxel_pm[0] == 0ull) || (request->voxel_pm[1] == 0ull) || (request->voxel_pm[2] == 0ull))
     {
-        return FINGERPRINT_REFUSED;
+        return FINGERPRINT_ERROR;
     }
     memset(program, 0, FINGERPRINT_STEPS * sizeof(EngineRecordStep));
     fingerprint_step(&program[FINGERPRINT_MASS], ENGINE_RECORD_FIELD, request->mass_field, 0u);
@@ -64,7 +64,8 @@ extern "C" long fingerprint_program(const FingerprintRequest *request, EngineRec
     }
     for (unsigned int moment = 0u; moment < FINGERPRINT_MOMENTS; moment += 1u)
     {
-        fingerprint_step(&program[FINGERPRINT_SECONDS + moment], ENGINE_RECORD_FIELD, request->moment_field[moment], 0u);
+        fingerprint_step(&program[FINGERPRINT_SECONDS + moment], ENGINE_RECORD_FIELD, request->moment_field[moment],
+                         0u);
     }
     fingerprint_step(&program[FINGERPRINT_ONE], ENGINE_RECORD_CONSTANT, 1u, 0u);
     fingerprint_step(&program[FINGERPRINT_MASS_BAND], ENGINE_RECORD_LADDER, FINGERPRINT_MASS, FINGERPRINT_ONE);

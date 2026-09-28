@@ -12,10 +12,10 @@ STEPS = [
     ("bodies", "Find the cells", "each voxel is smoothed twice and the difference kept exactly, then every voxel"
                                  " steps uphill until it stops: one body per resting place", "frame"),
     ("store", "Keep it as runs", "each body becomes the stretches of voxels it holds along each row, and the"
-                                 " frame is those runs: about 27 times smaller than the labelled volume", "frame"),
+                                 " frame is those runs: about 27 times smaller than the labeled volume", "frame"),
     ("motion", "Find the drift", "the whole view's shift between two frames, the same count taken at every shift"
                                  " at once", "pair"),
-    ("overlap", "Meet the neighbours", "the positive voxels two frames share, body by body, at that shift", "pair"),
+    ("overlap", "Meet the neighbors", "the positive voxels two frames share, body by body, at that shift", "pair"),
     ("climb", "Let each cell find its own shift", "every cell walks from the view's shift to the shift where it"
                                                   " agrees best with the next frame; each walk stops on its own", "pair"),
     ("tree", "Link and score", "the strongest partner each way makes a link, divisions are kept as branches, and"
@@ -152,14 +152,14 @@ def main():
     row = y + 96
     for at in range(len(STEPS)):
         name, title, meaning, group = STEPS[at]
-        colour = FRAME if group == "frame" else PAIR
+        color = FRAME if group == "frame" else PAIR
         length = max(2, (totals[name] * bar_room) // max(totals.values()))
-        parts.append('<circle cx="76" cy="%d" r="13" fill="%s"/>' % (row + 12, colour))
+        parts.append('<circle cx="76" cy="%d" r="13" fill="%s"/>' % (row + 12, color))
         parts.append(text(76, row + 17, "%d" % (at + 1), 14, PAGE, "700", "middle"))
         parts.append(text(100, row + 17, title, 17, INK, "600"))
         lines, _ = wrapped(100, row + 41, meaning, bar_left - 130)
         parts.extend(lines)
-        parts.append('<rect x="%d" y="%d" width="%d" height="22" rx="4" fill="%s"/>' % (bar_left, row + 2, length, colour))
+        parts.append('<rect x="%d" y="%d" width="%d" height="22" rx="4" fill="%s"/>' % (bar_left, row + 2, length, color))
         parts.append(text(bar_left + length + 10, row + 19, "%s ms" % grouped(totals[name]), 14, DIM))
         row += 78
     parts.append('<rect x="64" y="%d" width="16" height="16" rx="3" fill="%s"/>' % (row - 4, FRAME))
@@ -187,10 +187,10 @@ def main():
     stack_left = 560
     stack_room = width - 80 - stack_left - 24
     cursor = stack_left
-    for label, colour in (("correct link", GOOD), ("wrong link", BAD), ("no link made", PINK)):
+    for label, color in (("correct link", GOOD), ("wrong link", BAD), ("no link made", PINK)):
         count = pooled.get(label, 0)
         length = (count * stack_room + edges - 1) // edges if count else 0
-        parts.append('<rect x="%d" y="%d" width="%d" height="34" fill="%s"/>' % (cursor, y + 72, length, colour))
+        parts.append('<rect x="%d" y="%d" width="%d" height="34" fill="%s"/>' % (cursor, y + 72, length, color))
         cursor += length
     parts.append(text(stack_left, y + 140, "wrong %s (%s), no link %s (%s), endpoint not detected %s" % (
         grouped(pooled.get("wrong link", 0)), share(pooled.get("wrong link", 0), edges),
@@ -207,7 +207,7 @@ def main():
     dense_room = width - 80 - 64 - 240
     object_length = max(3, (object_bytes * dense_room) // dense)
     parts.append('<rect x="64" y="%d" width="%d" height="30" rx="4" fill="%s"/>' % (y + 90, dense_room, EDGE))
-    parts.append(text(64 + dense_room + 12, y + 111, "%s bytes as labelled voxels" % grouped(dense), 15, DIM))
+    parts.append(text(64 + dense_room + 12, y + 111, "%s bytes as labeled voxels" % grouped(dense), 15, DIM))
     parts.append('<rect x="64" y="%d" width="%d" height="30" rx="4" fill="%s"/>' % (y + 130, object_length, FRAME))
     parts.append(text(64 + object_length + 12, y + 151, "%s bytes as runs, %d times smaller"
                       % (grouped(object_bytes), dense // object_bytes), 15, DIM))

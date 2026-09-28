@@ -55,7 +55,7 @@
 # A THIRD HAS NO DECIMAL,  THIS NEEDED A NEW SCALE
 #
 # See representation/structure/symmetry.py. A translation of 1/3 is not a decimal at any number of
-# places. Carrying an R centred operation through the decimal scale would displace every copy it
+# places. Carrying an R centered operation through the decimal scale would displace every copy it
 # generates. Coordinates here are integers in units of 1/(24 * 10**SCALE_DIGITS), and an operation
 # whose denominator does not divide 24 raises instead of rounding. Over this corpus nothing raised:
 # 24 held every operation the deposits published.

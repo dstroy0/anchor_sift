@@ -45,12 +45,12 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    size_t room = 1u << 16;
+    size_t capacity = 1u << 16;
     size_t count = 0u;
-    unsigned int *levels = malloc(room * sizeof(*levels));
-    unsigned int *zs = malloc(room * sizeof(*zs));
-    unsigned int *ys = malloc(room * sizeof(*ys));
-    unsigned int *xs = malloc(room * sizeof(*xs));
+    unsigned int *levels = malloc(capacity * sizeof(*levels));
+    unsigned int *zs = malloc(capacity * sizeof(*zs));
+    unsigned int *ys = malloc(capacity * sizeof(*ys));
+    unsigned int *xs = malloc(capacity * sizeof(*xs));
     if ((levels == NULL) || (zs == NULL) || (ys == NULL) || (xs == NULL))
     {
         return 1;
@@ -62,13 +62,13 @@ int main(int argc, char **argv)
     unsigned int value = 0u;
     while (fscanf(handle, "%u %u %u %u", &z, &y, &x, &value) == 4)
     {
-        if (count == room)
+        if (count == capacity)
         {
-            room *= 2u;
-            levels = realloc(levels, room * sizeof(*levels));
-            zs = realloc(zs, room * sizeof(*zs));
-            ys = realloc(ys, room * sizeof(*ys));
-            xs = realloc(xs, room * sizeof(*xs));
+            capacity *= 2u;
+            levels = realloc(levels, capacity * sizeof(*levels));
+            zs = realloc(zs, capacity * sizeof(*zs));
+            ys = realloc(ys, capacity * sizeof(*ys));
+            xs = realloc(xs, capacity * sizeof(*xs));
             if ((levels == NULL) || (zs == NULL) || (ys == NULL) || (xs == NULL))
             {
                 return 1;

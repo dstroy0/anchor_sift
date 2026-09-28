@@ -55,15 +55,14 @@ static long long overlap_moved(const BodyOverlapRequest *args, unsigned int posi
 
 long body_overlap_host(const BodyOverlapRequest *args)
 {
-    if ((args == NULL) || (args->labels_before == NULL) || (args->positive_before == NULL)
-     || (args->labels_after == NULL) || (args->positive_after == NULL) || (args->voxels == 0u)
-     || (args->axes == 0u) || (args->axes > BODY_OVERLAP_AXES)
-     || (args->room > BODY_OVERLAP_ROOM_LIMIT)
-     || ((args->room != 0u) && ((args->peaks_before == NULL) || (args->peaks_after == NULL)
-                                || (args->counts == NULL)))
-     || ((args->lag_count != 0u) && ((args->lag_peaks == NULL) || (args->lag_steps == NULL))))
+    if ((args == NULL) || (args->labels_before == NULL) || (args->positive_before == NULL) ||
+        (args->labels_after == NULL) || (args->positive_after == NULL) || (args->voxels == 0u) || (args->axes == 0u) ||
+        (args->axes > BODY_OVERLAP_AXES) || (args->capacity > BODY_OVERLAP_CAPACITY_LIMIT) ||
+        ((args->capacity != 0u) &&
+         ((args->peaks_before == NULL) || (args->peaks_after == NULL) || (args->counts == NULL))) ||
+        ((args->lag_count != 0u) && ((args->lag_peaks == NULL) || (args->lag_steps == NULL))))
     {
-        return BODY_OVERLAP_REFUSED;
+        return BODY_OVERLAP_ERROR;
     }
     unsigned long long product = 1ull;
     for (unsigned int axis = 0u; axis < args->axes; axis += 1u)
@@ -72,13 +71,13 @@ long body_overlap_host(const BodyOverlapRequest *args)
     }
     if (product != (unsigned long long)args->voxels)
     {
-        return BODY_OVERLAP_REFUSED;
+        return BODY_OVERLAP_ERROR;
     }
     const size_t voxels = (size_t)args->voxels;
     unsigned long long *const pairs = (unsigned long long *)malloc(voxels * sizeof(unsigned long long));
     if (pairs == NULL)
     {
-        return BODY_OVERLAP_REFUSED;
+        return BODY_OVERLAP_ERROR;
     }
 
     size_t total = 0u;
@@ -99,8 +98,8 @@ long body_overlap_host(const BodyOverlapRequest *args)
         {
             continue;
         }
-        pairs[total] = ((unsigned long long)args->labels_before[voxel] << 32u)
-                     | (unsigned long long)args->labels_after[there];
+        pairs[total] =
+            ((unsigned long long)args->labels_before[voxel] << 32u) | (unsigned long long)args->labels_after[there];
         total += 1u;
     }
     if (total != 0u)
@@ -116,11 +115,11 @@ long body_overlap_host(const BodyOverlapRequest *args)
             distinct += 1u;
         }
     }
-    long answer = BODY_OVERLAP_REFUSED;
-    if (distinct <= (size_t)BODY_OVERLAP_ROOM_LIMIT)
+    long answer = BODY_OVERLAP_ERROR;
+    if (distinct <= (size_t)BODY_OVERLAP_CAPACITY_LIMIT)
     {
         answer = (long)distinct;
-        if (distinct <= (size_t)args->room)
+        if (distinct <= (size_t)args->capacity)
         {
             size_t slot = 0u;
             for (size_t pair = 0u; pair < total; pair += 1u)

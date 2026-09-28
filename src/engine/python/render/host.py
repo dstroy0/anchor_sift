@@ -15,7 +15,7 @@
 #
 # Every value is an integer read off the same inputs the C arm reads. Nothing is a float and nothing
 # is normalized against the image. A pixel means the same thing at two sizes. The constants and the
-# arithmetic below are transcribed from src/engine/render/anchor_raster.c and are graded against it
+# arithmetic below are transcribed from src/engine/render/anchor_raster_*.c and are graded against it
 # and not trusted.
 
 import collections

@@ -365,7 +365,7 @@ def main():
         handle.write(
             "# LaFontaine and Jonathan Janzen. Papers for the International Conference\n"
         )
-        handle.write("# on Salish and Neighbouring Languages 59, UBCWPL, 2024.\n")
+        handle.write("# on Salish and Neighboring Languages 59, UBCWPL, 2024.\n")
         handle.write(
             "# These stories were passed to wlwlmelst by his mother nxwelinek and his\n"
         )

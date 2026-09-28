@@ -226,8 +226,8 @@ def null_band(values, reach, draws=8, seed=SEED):
 
 _MASK64 = 0xFFFFFFFFFFFFFFFF
 
-EnergyReading = collections.namedtuple("EnergyReading", ["found", "period", "numerator", "denominator"])
-_NONE = EnergyReading(False, 0, 0, 0)
+EnergyMeasurement = collections.namedtuple("EnergyMeasurement", ["found", "period", "numerator", "denominator"])
+_NONE = EnergyMeasurement(False, 0, 0, 0)
 
 
 def _mix(word):
@@ -266,11 +266,11 @@ def energy_ratio(values, period):
                         if energy_members(length, period, phase) != more)
     more_squares = sum(sums[phase] * sums[phase] for phase in range(period)
                        if energy_members(length, period, phase) == more)
-    whole_sum = sum(sums)
-    whole_squares = sum(value * value for value in values)
+    integer_sum = sum(sums)
+    integer_squares = sum(value * value for value in values)
     counts = fewer * more
-    between = (length * more * fewer_squares) + (length * fewer * more_squares) - (whole_sum * whole_sum * counts)
-    within = ((length * whole_squares) - (whole_sum * whole_sum)) * counts - between
+    between = (length * more * fewer_squares) + (length * fewer * more_squares) - (integer_sum * integer_sum * counts)
+    within = ((length * integer_squares) - (integer_sum * integer_sum)) * counts - between
     if within <= 0:
         return None
     return between * (length - period), within * (period - 1)
@@ -282,7 +282,7 @@ def _above(one, other):
 
 
 def energy_recover(values, reach):
-    """The period of highest ratio from 2 to the reach, as an EnergyReading, or None where the header fails.
+    """The period of highest ratio from 2 to the reach, as an EnergyMeasurement, or None where the header fails.
 
     The reach is held at the length less one. The first period of the highest ratio is kept. The
     reading is not found where no period has a ratio. None where the length is below 4 or the reach
@@ -301,7 +301,7 @@ def energy_recover(values, reach):
         if ratio is None:
             continue
         if not best.found or _above(ratio, (best.numerator, best.denominator)):
-            best = EnergyReading(True, period, ratio[0], ratio[1])
+            best = EnergyMeasurement(True, period, ratio[0], ratio[1])
     return best
 
 
@@ -317,7 +317,7 @@ def energy_shuffle(values, key):
 def energy_band_top(values, reach, draws, key):
     """The highest reading `draws` shuffles reach, and how many reached one, or None where one fails.
 
-    Shuffle d is keyed by sim_draw(key, d). Returns (top, reached), the top an EnergyReading that is
+    Shuffle d is keyed by sim_draw(key, d). Returns (top, reached), the top an EnergyMeasurement that is
     not found where no shuffle reached a period.
     """
     top = _NONE

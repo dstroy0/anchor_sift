@@ -48,11 +48,11 @@ static void lattice_scene(SimScene *scene, SimBody *body)
             *daughter = *parent;
             for (unsigned int axis = 0u; axis < SIM_AXES; axis += 1u)
             {
-                daughter->centre[axis] = sim_body_at(parent, frame, axis);
+                daughter->center[axis] = sim_body_at(parent, frame, axis);
             }
-            daughter->centre[1] += sign * (parent->reach[1] / 2ll);
+            daughter->center[1] += sign * (parent->range[1] / 2ll);
             daughter->velocity[1] = parent->velocity[1] + sign;
-            daughter->reach[1] = (parent->reach[1] + 1ll) / 2ll + 1ll;
+            daughter->range[1] = (parent->range[1] + 1ll) / 2ll + 1ll;
             daughter->born = frame;
             daughter->ended = LATTICE_FRAMES;
             daughter->parent = division;
@@ -67,7 +67,7 @@ static void lattice_camera(SimCamera *camera)
     camera->offset = 100ull;
     camera->gain = 1ull;
     camera->read_square = 3ull;
-    camera->pattern_reach = 8ull;
+    camera->pattern_range = 8ull;
     camera->shot = 1ull;
 }
 
@@ -81,9 +81,9 @@ static void lattice_print_rational(ScripturaLine *line, unsigned long long numer
     sim_fraction_print(line, numerator, denominator, 3u);
 }
 
-static void lattice_print_scene(SimTally *tally, const SimScene *scene, const unsigned long long *truth)
+static void lattice_print_scene(SimResults *results, const SimScene *scene, const unsigned long long *truth)
 {
-    ScripturaLine *const line = &tally->line;
+    ScripturaLine *const line = &results->line;
     scriptura_text(line, "  a synthetic n-body lattice under the camera law\n");
     scriptura_text(line, "  ");
     scriptura_decimal(line, scene->frames, 1u);
@@ -138,7 +138,7 @@ static int lattice_write_npy(const char *path, const SimScene *scene, const unsi
     char head[128];
     ScripturaLine line;
     line.out = head;
-    line.room = sizeof(head);
+    line.capacity = sizeof(head);
     line.at = 0ull;
     scriptura_text(&line, "{'descr': '<u2', 'fortran_order': False, 'shape': (");
     scriptura_decimal(&line, scene->frames, 1u);
@@ -162,11 +162,11 @@ static int lattice_write_npy(const char *path, const SimScene *scene, const unsi
                                      // the header length is below 128, one byte, stored little endian
                                      (unsigned char)(line.at & 0xFFull), (unsigned char)(line.at >> 8u)};
     const unsigned long long lanes_count = scene->frames * sim_scene_voxels(scene);
-    int good = fwrite(magic, 1u, sizeof(magic), file) == sizeof(magic);
-    good = good && (fwrite(head, 1u, (size_t)line.at, file) == (size_t)line.at);
-    good = good && (fwrite(lanes, sizeof(unsigned short), (size_t)lanes_count, file) == (size_t)lanes_count);
-    good = (fclose(file) == 0) && good;
-    return good;
+    int ok = fwrite(magic, 1u, sizeof(magic), file) == sizeof(magic);
+    ok = ok && (fwrite(head, 1u, (size_t)line.at, file) == (size_t)line.at);
+    ok = ok && (fwrite(lanes, sizeof(unsigned short), (size_t)lanes_count, file) == (size_t)lanes_count);
+    ok = (fclose(file) == 0) && ok;
+    return ok;
 }
 
 static int lattice_write_truth(const char *path, const SimScene *scene, const unsigned long long *truth)
@@ -176,16 +176,16 @@ static int lattice_write_truth(const char *path, const SimScene *scene, const un
     {
         return 0;
     }
-    char room[256];
+    char text_buffer[256];
     ScripturaLine line;
-    line.out = room;
-    line.room = sizeof(room);
+    line.out = text_buffer;
+    line.capacity = sizeof(text_buffer);
     line.at = 0ull;
     scriptura_text(&line, "frame\tbody\tparent\tmass\tsum_z\tsum_y\tsum_x\n");
-    int good = scriptura_write(&line, file) != 0;
-    for (unsigned long long frame = 0ull; good && (frame < scene->frames); frame += 1ull)
+    int ok = scriptura_write(&line, file) != 0;
+    for (unsigned long long frame = 0ull; ok && (frame < scene->frames); frame += 1ull)
     {
-        for (unsigned int index = 0u; good && (index < scene->bodies); index += 1u)
+        for (unsigned int index = 0u; ok && (index < scene->bodies); index += 1u)
         {
             const unsigned long long *const field = &truth[((frame * scene->bodies) + index) * SIM_TRUTH_FIELDS];
             if (field[0] == 0ull)
@@ -204,15 +204,15 @@ static int lattice_write_truth(const char *path, const SimScene *scene, const un
                 scriptura_decimal(&line, field[word], 1u);
             }
             scriptura_character(&line, '\n');
-            good = scriptura_write(&line, file) != 0;
+            ok = scriptura_write(&line, file) != 0;
         }
     }
-    good = (fclose(file) == 0) && good;
-    return good;
+    ok = (fclose(file) == 0) && ok;
+    return ok;
 }
 
-static void lattice_moments(SimTally *tally, const SimScene *scene, const SimCamera *camera, const unsigned short *lanes,
-                            const unsigned int *signal)
+static void lattice_moments(SimResults *results, const SimScene *scene, const SimCamera *camera,
+                            const unsigned short *lanes, const unsigned int *signal)
 {
     const unsigned long long voxels = sim_scene_voxels(scene);
     const unsigned long long lanes_count = scene->frames * voxels;
@@ -223,9 +223,9 @@ static void lattice_moments(SimTally *tally, const SimScene *scene, const SimCam
     {
         const unsigned long long voxel = index % voxels;
         // a lane, its pattern, offset and gained signal are each far below 2^31
-        const long long residual = (long long)lanes[index] - (long long)camera->offset
-                                 - (long long)sim_pattern(camera, voxel)
-                                 - ((long long)camera->gain * (long long)signal[index]);
+        const long long residual = (long long)lanes[index] - (long long)camera->offset -
+                                   (long long)sim_pattern(camera, voxel) -
+                                   ((long long)camera->gain * (long long)signal[index]);
         first += residual;
         // a residual's magnitude is far below 2^31, so its square fits 64 bits
         second += (unsigned long long)(residual * residual);
@@ -234,7 +234,7 @@ static void lattice_moments(SimTally *tally, const SimScene *scene, const SimCam
     // the first moment's magnitude is below 2^31 in this scene, so its square fits 64 bits
     const unsigned long long first_square = (unsigned long long)(first * first);
     const unsigned long long apart = (second > expected) ? (second - expected) : (expected - second);
-    ScripturaLine *const line = &tally->line;
+    ScripturaLine *const line = &results->line;
     scriptura_text(line, "  camera law over ");
     scriptura_decimal(line, lanes_count, 1u);
     scriptura_text(line, " lanes: gain ");
@@ -244,7 +244,7 @@ static void lattice_moments(SimTally *tally, const SimScene *scene, const SimCam
     scriptura_text(line, ", offset ");
     scriptura_decimal(line, camera->offset, 1u);
     scriptura_text(line, ", fixed pattern 0 to ");
-    scriptura_decimal(line, camera->pattern_reach, 1u);
+    scriptura_decimal(line, camera->pattern_range, 1u);
     scriptura_character(line, '\n');
     scriptura_text(line, "    sum of residuals ");
     scriptura_signed(line, first);
@@ -257,15 +257,17 @@ static void lattice_moments(SimTally *tally, const SimScene *scene, const SimCam
     scriptura_text(line, " (ratio ");
     sim_fraction_print(line, second, expected, 5u);
     scriptura_text(line, ")\n");
-    sim_check(tally, first_square <= (LATTICE_SIGMAS_SQUARED * expected), "the first moment lies within 5 sigma of 0");
-    sim_check(tally, (LATTICE_SECOND_MOMENT_PARTS * apart) <= expected, "the second moment lies within 1% of the law");
+    sim_check(results, first_square <= (LATTICE_SIGMAS_SQUARED * expected),
+              "the first moment lies within 5 sigma of 0");
+    sim_check(results, (LATTICE_SECOND_MOMENT_PARTS * apart) <= expected,
+              "the second moment lies within 1% of the law");
 }
 
 int main(int count, char **arguments)
 {
-    char room[SIM_LINE_ROOM];
-    SimTally tally;
-    sim_open(&tally, room);
+    char line_buffer[SIM_LINE_CAPACITY];
+    SimResults results;
+    sim_open(&results, line_buffer);
     const char *out = NULL;
     for (int argument = 1; argument + 1 < count; argument += 1)
     {
@@ -292,24 +294,30 @@ int main(int count, char **arguments)
     unsigned long long *reference = (unsigned long long *)malloc((size_t)truth_words * sizeof(unsigned long long));
     unsigned short *device_lanes = NULL;
     unsigned int *device_signal = NULL;
-    int good = (lanes != NULL) && (again != NULL) && (signal != NULL) && (truth != NULL) && (reference != NULL);
-    sim_check(&tally, good, "host buffers");
-    good = good && sim_job_submit(&tally, "nbody_lattice", count, arguments,
-                                  lanes_count * (sizeof(unsigned short) + sizeof(unsigned int)));
-    good = good && sim_took(&tally, cudaMalloc((void **)&device_lanes, lanes_count * sizeof(unsigned short)), "lanes");
-    good = good && sim_took(&tally, cudaMalloc((void **)&device_signal, lanes_count * sizeof(unsigned int)), "signal");
+    int ok = (lanes != NULL) && (again != NULL) && (signal != NULL) && (truth != NULL) && (reference != NULL);
+    sim_check(&results, ok, "host buffers");
+    ok = ok && sim_job_submit(&results, "nbody_lattice", count, arguments,
+                              lanes_count * (sizeof(unsigned short) + sizeof(unsigned int)));
+    ok = ok &&
+         sim_status_check(&results, cudaMalloc((void **)&device_lanes, lanes_count * sizeof(unsigned short)), "lanes");
+    ok = ok &&
+         sim_status_check(&results, cudaMalloc((void **)&device_signal, lanes_count * sizeof(unsigned int)), "signal");
 
     unsigned long long clipped = 0ull;
-    good = good && sim_render(&tally, &scene, &camera, device_lanes, device_signal, truth, &clipped);
-    good = good && sim_took(&tally, cudaMemcpy(lanes, device_lanes, lanes_count * sizeof(unsigned short),
-                                               cudaMemcpyDeviceToHost), "lanes read");
-    good = good && sim_took(&tally, cudaMemcpy(signal, device_signal, lanes_count * sizeof(unsigned int),
-                                               cudaMemcpyDeviceToHost), "signal read");
-    if (good)
+    ok = ok && sim_render(&results, &scene, &camera, device_lanes, device_signal, truth, &clipped);
+    ok = ok &&
+         sim_status_check(&results,
+                          cudaMemcpy(lanes, device_lanes, lanes_count * sizeof(unsigned short), cudaMemcpyDeviceToHost),
+                          "lanes read");
+    ok = ok &&
+         sim_status_check(&results,
+                          cudaMemcpy(signal, device_signal, lanes_count * sizeof(unsigned int), cudaMemcpyDeviceToHost),
+                          "signal read");
+    if (ok)
     {
         sim_truth_host(&scene, reference);
-        lattice_print_scene(&tally, &scene, truth);
-        sim_check(&tally, memcmp(truth, reference, (size_t)truth_words * sizeof(unsigned long long)) == 0,
+        lattice_print_scene(&results, &scene, truth);
+        sim_check(&results, memcmp(truth, reference, (size_t)truth_words * sizeof(unsigned long long)) == 0,
                   "every body's device truth equals the host walk of its box");
         unsigned long long signal_differ = 0ull;
         for (unsigned long long index = 0ull; index < lanes_count; index += 1ull)
@@ -322,62 +330,66 @@ int main(int count, char **arguments)
             place[2] = (long long)(voxel % scene.extent[2]);
             signal_differ += (sim_signal(&scene, index / voxels, place) != signal[index]) ? 1ull : 0ull;
         }
-        scriptura_text(&tally.line, "  the device signal against the host's at every lane: ");
-        scriptura_decimal(&tally.line, signal_differ, 1u);
-        scriptura_text(&tally.line, " differ\n");
-        sim_check(&tally, signal_differ == 0ull, "the device signal equals the host's at every lane");
-        sim_check(&tally, clipped == 0ull, "no lane clipped to the u16 range");
+        scriptura_text(&results.line, "  the device signal against the host's at every lane: ");
+        scriptura_decimal(&results.line, signal_differ, 1u);
+        scriptura_text(&results.line, " differ\n");
+        sim_check(&results, signal_differ == 0ull, "the device signal equals the host's at every lane");
+        sim_check(&results, clipped == 0ull, "no lane clipped to the u16 range");
         unsigned long long born_seen = 0ull;
         for (unsigned int index = LATTICE_FOUNDERS; index < scene.bodies; index += 1u)
         {
             born_seen += (truth[((body[index].born * scene.bodies) + index) * SIM_TRUTH_FIELDS] != 0ull) ? 1ull : 0ull;
         }
-        sim_check(&tally, born_seen == (2ull * LATTICE_DIVISIONS), "every daughter is in view at its birth");
-        lattice_moments(&tally, &scene, &camera, lanes, signal);
+        sim_check(&results, born_seen == (2ull * LATTICE_DIVISIONS), "every daughter is in view at its birth");
+        lattice_moments(&results, &scene, &camera, lanes, signal);
     }
 
     SimCamera quiet;
     memset(&quiet, 0, sizeof(quiet));
     quiet.gain = 1ull;
-    good = good && sim_render(&tally, &scene, &quiet, device_lanes, NULL, NULL, &clipped);
-    good = good && sim_took(&tally, cudaMemcpy(again, device_lanes, lanes_count * sizeof(unsigned short),
-                                               cudaMemcpyDeviceToHost), "quiet lanes read");
-    if (good)
+    ok = ok && sim_render(&results, &scene, &quiet, device_lanes, NULL, NULL, &clipped);
+    ok = ok &&
+         sim_status_check(&results,
+                          cudaMemcpy(again, device_lanes, lanes_count * sizeof(unsigned short), cudaMemcpyDeviceToHost),
+                          "quiet lanes read");
+    if (ok)
     {
         unsigned long long quiet_differ = 0ull;
         for (unsigned long long index = 0ull; index < lanes_count; index += 1ull)
         {
             quiet_differ += (again[index] != signal[index]) ? 1ull : 0ull;
         }
-        sim_check(&tally, quiet_differ == 0ull, "a noiseless camera renders the signal exactly");
+        sim_check(&results, quiet_differ == 0ull, "a noiseless camera renders the signal exactly");
     }
-    good = good && sim_render(&tally, &scene, &camera, device_lanes, NULL, NULL, &clipped);
-    good = good && sim_took(&tally, cudaMemcpy(again, device_lanes, lanes_count * sizeof(unsigned short),
-                                               cudaMemcpyDeviceToHost), "second render read");
-    if (good)
+    ok = ok && sim_render(&results, &scene, &camera, device_lanes, NULL, NULL, &clipped);
+    ok = ok &&
+         sim_status_check(&results,
+                          cudaMemcpy(again, device_lanes, lanes_count * sizeof(unsigned short), cudaMemcpyDeviceToHost),
+                          "second render read");
+    if (ok)
     {
-        sim_check(&tally, memcmp(lanes, again, (size_t)lanes_count * sizeof(unsigned short)) == 0,
+        sim_check(&results, memcmp(lanes, again, (size_t)lanes_count * sizeof(unsigned short)) == 0,
                   "a second render of the same key is identical");
     }
-    if (good && (out != NULL))
+    if (ok && (out != NULL))
     {
         char path[1024];
         ScripturaLine name;
         name.out = path;
-        name.room = sizeof(path);
+        name.capacity = sizeof(path);
         name.at = 0ull;
         scriptura_text(&name, out);
         scriptura_text(&name, "/lattice.npy");
         scriptura_finish(&name);
-        sim_check(&tally, lattice_write_npy(path, &scene, lanes), "lattice.npy written");
+        sim_check(&results, lattice_write_npy(path, &scene, lanes), "lattice.npy written");
         name.at = 0ull;
         scriptura_text(&name, out);
         scriptura_text(&name, "/truth.tsv");
         scriptura_finish(&name);
-        sim_check(&tally, lattice_write_truth(path, &scene, truth), "truth.tsv written");
-        scriptura_text(&tally.line, "  wrote lattice.npy and truth.tsv to ");
-        scriptura_text(&tally.line, out);
-        scriptura_character(&tally.line, '\n');
+        sim_check(&results, lattice_write_truth(path, &scene, truth), "truth.tsv written");
+        scriptura_text(&results.line, "  wrote lattice.npy and truth.tsv to ");
+        scriptura_text(&results.line, out);
+        scriptura_character(&results.line, '\n');
     }
 
     cudaFree(device_signal);
@@ -387,5 +399,5 @@ int main(int count, char **arguments)
     free(signal);
     free(again);
     free(lanes);
-    return sim_close(&tally, "nbody lattice");
+    return sim_close(&results, "nbody lattice");
 }

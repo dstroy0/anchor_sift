@@ -30,7 +30,7 @@ import os
 import random
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT = os.path.join(HERE, "blocks_labelled.json")
+DEFAULT = os.path.join(HERE, "blocks_labeled.json")
 
 
 def chi_square(counts):
@@ -106,7 +106,7 @@ def main():
     if len(passed) < 3:
         print("    Fewer than three pools carry a phase at all, so there is nothing to compare.")
         print("    The geography claim is not supported and is not refuted; this corpus cannot")
-        print("    address it. A deeper labelled corpus is what the question needs.")
+        print("    address it. A deeper labeled corpus is what the question needs.")
         return 0
 
     troughs = [t for _, t, _ in passed]

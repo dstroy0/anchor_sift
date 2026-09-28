@@ -144,28 +144,28 @@ static long matching_component(const HeaviestMatchingRequest *args, const unsign
     }
     const int nodes = befores + afters + 2;
     const int sink = nodes - 1;
-    const int edge_room = 2 * (befores + afters + (int)member_count);
+    const int edge_capacity = 2 * (befores + afters + (int)member_count);
 
     MatchingGraph graph;
     graph.head = (int *)malloc((size_t)nodes * sizeof(int));
-    graph.next = (int *)malloc((size_t)edge_room * sizeof(int));
-    graph.target = (int *)malloc((size_t)edge_room * sizeof(int));
-    graph.capacity = (int *)malloc((size_t)edge_room * sizeof(int));
-    graph.cost = (long long *)malloc((size_t)edge_room * sizeof(long long));
+    graph.next = (int *)malloc((size_t)edge_capacity * sizeof(int));
+    graph.target = (int *)malloc((size_t)edge_capacity * sizeof(int));
+    graph.capacity = (int *)malloc((size_t)edge_capacity * sizeof(int));
+    graph.cost = (long long *)malloc((size_t)edge_capacity * sizeof(long long));
     graph.edges = 0;
     long long *const potential = (long long *)malloc((size_t)nodes * sizeof(long long));
     long long *const distance = (long long *)malloc((size_t)nodes * sizeof(long long));
     int *const arrived = (int *)malloc((size_t)nodes * sizeof(int));
     unsigned char *const settled = (unsigned char *)malloc((size_t)nodes);
     MatchingHeap heap;
-    heap.distance = (long long *)malloc(((size_t)edge_room + 1u) * sizeof(long long));
-    heap.node = (int *)malloc(((size_t)edge_room + 1u) * sizeof(int));
+    heap.distance = (long long *)malloc(((size_t)edge_capacity + 1u) * sizeof(long long));
+    heap.node = (int *)malloc(((size_t)edge_capacity + 1u) * sizeof(int));
     heap.size = 0;
 
     long answer = -1;
-    if ((graph.head != NULL) && (graph.next != NULL) && (graph.target != NULL) && (graph.capacity != NULL)
-     && (graph.cost != NULL) && (potential != NULL) && (distance != NULL) && (arrived != NULL)
-     && (settled != NULL) && (heap.distance != NULL) && (heap.node != NULL))
+    if ((graph.head != NULL) && (graph.next != NULL) && (graph.target != NULL) && (graph.capacity != NULL) &&
+        (graph.cost != NULL) && (potential != NULL) && (distance != NULL) && (arrived != NULL) && (settled != NULL) &&
+        (heap.distance != NULL) && (heap.node != NULL))
     {
         for (int node = 0; node < nodes; node += 1)
         {
@@ -286,18 +286,19 @@ static long matching_component(const HeaviestMatchingRequest *args, const unsign
 
 long heaviest_matching_run(const HeaviestMatchingRequest *args)
 {
-    if ((args == NULL) || ((args->pairs != 0u) && ((args->before == NULL) || (args->after == NULL)
-                                                   || (args->counts == NULL) || (args->chosen == NULL)))
-     || (args->before_count > 0x3FFFFFFFu) || (args->after_count > 0x3FFFFFFFu) || (args->pairs > 0x3FFFFFFFu))
+    if ((args == NULL) ||
+        ((args->pairs != 0u) &&
+         ((args->before == NULL) || (args->after == NULL) || (args->counts == NULL) || (args->chosen == NULL))) ||
+        (args->before_count > 0x3FFFFFFFu) || (args->after_count > 0x3FFFFFFFu) || (args->pairs > 0x3FFFFFFFu))
     {
-        return HEAVIEST_MATCHING_REFUSED;
+        return HEAVIEST_MATCHING_ERROR;
     }
     for (unsigned int pair = 0u; pair < args->pairs; pair += 1u)
     {
-        if ((args->before[pair] >= args->before_count) || (args->after[pair] >= args->after_count)
-         || (args->counts[pair] == 0u))
+        if ((args->before[pair] >= args->before_count) || (args->after[pair] >= args->after_count) ||
+            (args->counts[pair] == 0u))
         {
-            return HEAVIEST_MATCHING_REFUSED;
+            return HEAVIEST_MATCHING_ERROR;
         }
     }
     const size_t objects = (size_t)args->before_count + (size_t)args->after_count;
@@ -307,9 +308,9 @@ long heaviest_matching_run(const HeaviestMatchingRequest *args)
     unsigned int *const members = (unsigned int *)malloc(((size_t)args->pairs + 1u) * sizeof(unsigned int));
     int *const local = (int *)malloc((objects + 1u) * sizeof(int));
     unsigned char *const staged = (unsigned char *)calloc((size_t)args->pairs + 1u, 1u);
-    long answer = HEAVIEST_MATCHING_REFUSED;
-    if ((parent != NULL) && (component_of != NULL) && (starts != NULL) && (members != NULL) && (local != NULL)
-     && (staged != NULL))
+    long answer = HEAVIEST_MATCHING_ERROR;
+    if ((parent != NULL) && (component_of != NULL) && (starts != NULL) && (members != NULL) && (local != NULL) &&
+        (staged != NULL))
     {
         for (size_t object = 0u; object < objects; object += 1u)
         {
@@ -353,7 +354,7 @@ long heaviest_matching_run(const HeaviestMatchingRequest *args)
                     continue;
                 }
                 const long chosen = matching_component(args, &members[starts[object]], count, local, staged);
-                answer = (chosen < 0) ? HEAVIEST_MATCHING_REFUSED : (answer + chosen);
+                answer = (chosen < 0) ? HEAVIEST_MATCHING_ERROR : (answer + chosen);
             }
             if (answer >= 0)
             {

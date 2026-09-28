@@ -5,24 +5,25 @@
 #include "engine_config.h"
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
-#define BOX_HISTORY_REFUSED (-1L)
+#define BOX_HISTORY_ERROR (-1L)
 
 #define BOX_HISTORY_EXTENT_FIELDS 6u
 
-typedef struct
-{
-    const EngineHistory *history;
-    unsigned int bodies;
-    const unsigned int *extents;
-    unsigned int *counts;
-    unsigned long long *disagreements;
-    unsigned long long *microseconds;
-} BoxHistoryRequest;
+    typedef struct
+    {
+        const EngineHistory *history;
+        unsigned int bodies;
+        const unsigned int *extents;
+        unsigned int *counts;
+        unsigned long long *disagreements;
+        unsigned long long *microseconds;
+    } BoxHistoryRequest;
 
-long box_history_gather(const BoxHistoryRequest *request);
+    long box_history_gather(const BoxHistoryRequest *request);
 
 #ifdef __cplusplus
 }

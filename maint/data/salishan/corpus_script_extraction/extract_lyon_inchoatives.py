@@ -215,7 +215,7 @@ def main():
             "# John Lyon, University of British Columbia - Okanagan. Proceedings of the\n"
         )
         handle.write(
-            "# International Conference on Salish and Neighbouring Languages 60,\n"
+            "# International Conference on Salish and Neighboring Languages 60,\n"
         )
         handle.write("# Vancouver, BC: UBCWPL, 2025.\n")
         handle.write("#\n")

@@ -30,7 +30,7 @@
 #
 # WHICH OF THESE THE ENGINE HOLDS IN C
 #
-# The kernel is src/engine/nbody/anchor_sift/anchor_sift.c. Its placement is choose_offsets, one
+# The kernel is src/engine/nbody/anchor_sift/anchor_sift_*.c. Its placement is choose_offsets, one
 # offset in each evenly sized cell at (slot * 7) mod the cell, and its order is
 # anchor_steer_probe_order, a stable sort of the placed offsets by rarity in the corpus. The
 # functions below the rules, under the kernel's names, are its Python route at anchor_sift 1789287:
@@ -130,7 +130,7 @@ def positions_by_symbol(seats):
     return places
 
 
-# The kernel's form, src/engine/nbody/anchor_sift/anchor_sift.c.
+# The kernel's form, src/engine/nbody/anchor_sift/anchor_sift_*.c.
 
 SIFT_ANCHORS = 4
 SYMBOLS = 256

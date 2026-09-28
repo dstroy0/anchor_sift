@@ -29,7 +29,7 @@ Three outcomes, and the difference between the first two is the whole design:
   differs    the words themselves are not the RFC's. Either the quotation is a paraphrase wearing
              quotation marks, or it is quoted accurately from a different RFC than the one named.
 
-Getting the first two apart from the third is most of the work, and every normalisation here was
+Getting the first two apart from the third is most of the work, and every normalization here was
 put in after a correct quotation was reported as an invention:
 
   - Page furniture goes line by line. Taking the line either side of the form feed as well ate the

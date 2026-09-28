@@ -76,16 +76,16 @@ def main():
     print("\nAutocorrelation of the profile in the bit index. A period of 32 is the word")
     print("structure and expected; any other period is not accounted for.\n")
 
-    centred = [v - mean for v in profile]
-    power = sum(v * v for v in centred)
+    centered = [v - mean for v in profile]
+    power = sum(v * v for v in centered)
     print("  %8s %12s" % ("lag", "correlation"))
     print("  %8s %12s" % ("-" * 8, "-" * 12))
     best_lag = 0
     best_value = 0.0
     for lag in range(1, 65):
         total = 0.0
-        for i in range(len(centred)):
-            total += centred[i] * centred[(i + lag) % len(centred)]
+        for i in range(len(centered)):
+            total += centered[i] * centered[(i + lag) % len(centered)]
         value = total / power if power > 0 else 0.0
         if abs(value) > abs(best_value):
             best_value = value

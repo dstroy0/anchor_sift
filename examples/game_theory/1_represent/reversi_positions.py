@@ -52,7 +52,7 @@ def main():
     for left, right in zip(rows(final), rows(drawn)):
         out.write("  %-10s   %-10s\n" % (left, right))
 
-    out.write("\noccupied squares: %d, and the two boards hold the same count of each colour: %s\n"
+    out.write("\noccupied squares: %d, and the two boards hold the same count of each color: %s\n"
               % (len(occupied_seats(final)),
                  sorted(occupied_seats(final)) == sorted(occupied_seats(drawn))))
     out.write("Everything the rules did is in the difference between those two columns, and nothing\n"

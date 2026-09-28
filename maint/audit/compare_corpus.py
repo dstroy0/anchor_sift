@@ -61,7 +61,7 @@ def load_digests():
     be drawn once for the whole corpus.
     """
     seen = {}
-    for name in ("blocks.json", "blocks_deep.json", "blocks_2021.json", "blocks_labelled.json"):
+    for name in ("blocks.json", "blocks_deep.json", "blocks_2021.json", "blocks_labeled.json"):
         path = os.path.join(ROOT, "maint", "chain", name)
         if not os.path.exists(path):
             continue

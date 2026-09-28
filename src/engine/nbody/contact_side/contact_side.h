@@ -5,10 +5,11 @@
 #include "engine_config.h"
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
-#define CONTACT_SIDE_REFUSED (-1L)
+#define CONTACT_SIDE_ERROR (-1L)
 
 #define CONTACT_SIDE_ONE 0u
 
@@ -34,24 +35,25 @@ extern "C" {
 
 #define CONTACT_SIDE_KEPT_OUTPUTS 3u
 
-typedef struct
-{
-    unsigned int mass_field;
-    unsigned int sum_field[ENGINE_AXES];
-    unsigned long long voxel_pm[ENGINE_AXES];
-} ContactSideDifferenceRequest;
+    typedef struct
+    {
+        unsigned int mass_field;
+        unsigned int sum_field[ENGINE_AXES];
+        unsigned long long voxel_pm[ENGINE_AXES];
+    } ContactSideDifferenceRequest;
 
-typedef struct
-{
-    unsigned int difference_field[ENGINE_AXES];
-} ContactSideKeptRequest;
+    typedef struct
+    {
+        unsigned int difference_field[ENGINE_AXES];
+    } ContactSideKeptRequest;
 
-long contact_side_difference_program(const ContactSideDifferenceRequest *request,
-                                     EngineRecordStep program[CONTACT_SIDE_DIFFERENCE_STEPS],
-                                     unsigned int outputs[CONTACT_SIDE_DIFFERENCE_OUTPUTS]);
+    long contact_side_difference_program(const ContactSideDifferenceRequest *request,
+                                         EngineRecordStep program[CONTACT_SIDE_DIFFERENCE_STEPS],
+                                         unsigned int outputs[CONTACT_SIDE_DIFFERENCE_OUTPUTS]);
 
-long contact_side_kept_program(const ContactSideKeptRequest *request, EngineRecordStep program[CONTACT_SIDE_KEPT_STEPS],
-                               unsigned int outputs[CONTACT_SIDE_KEPT_OUTPUTS]);
+    long contact_side_kept_program(const ContactSideKeptRequest *request,
+                                   EngineRecordStep program[CONTACT_SIDE_KEPT_STEPS],
+                                   unsigned int outputs[CONTACT_SIDE_KEPT_OUTPUTS]);
 
 #ifdef __cplusplus
 }

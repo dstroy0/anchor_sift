@@ -4,7 +4,7 @@
 
 #include "track.h"
 
-int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *next,
-                         unsigned int height, unsigned int width, const TreeRules *rules);
+int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *next, unsigned int height,
+                  unsigned int width, const TreeRules *rules);
 
 #endif

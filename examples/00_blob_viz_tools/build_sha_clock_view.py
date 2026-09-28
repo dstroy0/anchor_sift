@@ -45,7 +45,7 @@ position j plus the rotate, and the ring turning is that sentence.
 Once a round, at the last operation, the register shifts: b takes a, c takes b, d takes c, f takes
 e, g takes f, h takes g. Eight rings turning through each other, once per round, sixty-four times.
 
-THE SERIALISATION
+THE SERIALIZATION
 
 The reference round assigns its eight words at once. Watching it that way there is nothing to watch,
 so the round is written out in the order the arithmetic actually forces:
@@ -193,7 +193,7 @@ def as_bits(state):
 def trace(block, rounds):
     """Runs the compression function and records the state after every single operation.
 
-    The round is serialised exactly as STEPS describes it and no value is invented along the way:
+    The round is serialized exactly as STEPS describes it and no value is invented along the way:
     operation six writes d + T1, the new e, and operation seven writes T1 + T2 and moves
     the six carried words using the values they held before that write. Running the whole thing and
     reading the digest off the end is what checks that, and main prints it.
@@ -320,7 +320,7 @@ def main():
     tau = option("--tau", 0.0008, float)
 
     # Checked here and never left to the page. An unknown word reaches the page as a word it does
-    # not recognise, the page falls through to its own default, and the caller gets a sphere while
+    # not recognize, the page falls through to its own default, and the caller gets a sphere while
     # having asked for something else with no message anywhere saying so.
     if glow not in GLOWS:
         sys.stderr.write("--glow takes one of: %s\n" % ", ".join(GLOWS))

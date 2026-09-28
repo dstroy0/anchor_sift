@@ -389,7 +389,7 @@
   // ---------------------------------------------------------------------------------------------
 
   // A soft round fall-off, drawn once and shared. Every light gets one of these over it, because a
-  // small shaded ball at this size reads as a grey speck and a light does not: what says light is the
+  // small shaded ball at this size reads as a gray speck and a light does not: what says light is the
   // halo around it, and the halo costs one texture for the whole cloud.
   function haloTexture() {
     var pad = document.createElement("canvas");
@@ -795,17 +795,17 @@
 
     // A light the beam goes through is still there and still lit. Dimming it says which ones the beam
     // is stopped by; hiding it would say the beam decides what exists.
-    var colour = new THREE.Color();
+    var color = new THREE.Color();
     var k2;
     for (k2 = 0; k2 < stopCount; k2++) {
       var s = stopList[k2];
-      colour.setRGB(tint[s * 3], tint[s * 3 + 1], tint[s * 3 + 2]);
-      stoppers.setColorAt(k2, colour);
+      color.setRGB(tint[s * 3], tint[s * 3 + 1], tint[s * 3 + 2]);
+      stoppers.setColorAt(k2, color);
     }
     for (k2 = 0; k2 < passCount; k2++) {
       var p = passList[k2];
-      colour.setRGB(tint[p * 3] * 0.45, tint[p * 3 + 1] * 0.45, tint[p * 3 + 2] * 0.45);
-      passers.setColorAt(k2, colour);
+      color.setRGB(tint[p * 3] * 0.45, tint[p * 3 + 1] * 0.45, tint[p * 3 + 2] * 0.45);
+      passers.setColorAt(k2, color);
     }
     if (stoppers.instanceColor) {
       stoppers.instanceColor.needsUpdate = true;

@@ -5,10 +5,11 @@
 #include "engine_config.h"
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
-#define FINGERPRINT_REFUSED (-1L)
+#define FINGERPRINT_ERROR (-1L)
 
 #define FINGERPRINT_MOMENTS 6u
 
@@ -16,16 +17,16 @@ extern "C" {
 
 #define FINGERPRINT_OUTPUTS (1u + FINGERPRINT_MOMENTS)
 
-typedef struct
-{
-    unsigned int mass_field;
-    unsigned int sum_field[3];
-    unsigned int moment_field[FINGERPRINT_MOMENTS];
-    unsigned long long voxel_pm[3];
-} FingerprintRequest;
+    typedef struct
+    {
+        unsigned int mass_field;
+        unsigned int sum_field[3];
+        unsigned int moment_field[FINGERPRINT_MOMENTS];
+        unsigned long long voxel_pm[3];
+    } FingerprintRequest;
 
-long fingerprint_program(const FingerprintRequest *request, EngineRecordStep program[FINGERPRINT_STEPS],
-                         unsigned int outputs[FINGERPRINT_OUTPUTS]);
+    long fingerprint_program(const FingerprintRequest *request, EngineRecordStep program[FINGERPRINT_STEPS],
+                             unsigned int outputs[FINGERPRINT_OUTPUTS]);
 
 #ifdef __cplusplus
 }

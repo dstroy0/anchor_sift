@@ -197,7 +197,7 @@ def main():
             "# weakening. Hyung-Soo Kim, Hankuk University of Foreign Studies, Korea.\n"
         )
         handle.write(
-            "# Papers for the International Conference on Salish and Neighbouring\n"
+            "# Papers for the International Conference on Salish and Neighboring\n"
         )
         handle.write("# Languages 52, UBCWPL 45, 2017.\n")
         handle.write("#\n")

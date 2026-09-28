@@ -51,7 +51,7 @@ static const char s_ab_prose[] =
     "far bank and dried their feet in the sun and agreed that it had not been so bad after all. "
     "later that evening the weather turned and a thin rain began to fall, first in single drops "
     "that marked the dust and then steadily. That within a quarter of an hour the whole valley "
-    "was grey and the far side of it invisible. they sheltered under an overhanging rock and "
+    "was gray and the far side of it invisible. they sheltered under an overhanging rock and "
     "watched the water gather in the hollows and run away downhill in a hundred small channels, "
     "each one finding its own way among the stones without any apparent difficulty. it occurred to "
     "him that this was how most problems eventually resolved themselves, given enough time and a "

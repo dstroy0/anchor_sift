@@ -197,8 +197,8 @@
           <button data-v="0" aria-pressed="false">off</button>
         </div>
       </div>
-      <div class="lever"><span>Stick colour</span>
-        <div class="seg" role="group" id="segColour">
+      <div class="lever"><span>Stick color</span>
+        <div class="seg" role="group" id="segColor">
           <button data-v="state" aria-pressed="true">hot</button>
           <button data-v="role" aria-pressed="false">a·e</button>
           <button data-v="word" aria-pressed="false">word</button>
@@ -254,7 +254,7 @@
   <footer>
     <p>Spikes are the real compression state of a real block — drag the ball to turn it; the smear
       trails the preceding rounds so the deformation reads as motion rather than a single frame.
-      Residues come from <code>shadows.csv</code>, standardised against the scatter of the other
+      Residues come from <code>shadows.csv</code>, standardized against the scatter of the other
       classes with the common mode removed. Classes <b>0, 31, 6, 11, 25</b> are the diagonal, the
       carry (−1 mod 32) and Σ1's three rotation amounts — the only ways SHA-256 moves bits across
       positions. The waveform was named from the round function before the spectrum was opened, so
@@ -272,7 +272,7 @@ const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const state = {
   round: 11, show: "both", mark: "wave", ring: -1, showNull: true,
   spin: !reduce, smear: 14, len: 52, wash: 55, range: 5, persp: 55, speed: 320,
-  tracer: "both", tracerAmp: 62, fieldMode: "abs", colour: "state",
+  tracer: "both", tracerAmp: 62, fieldMode: "abs", color: "state",
   yaw: 0.6, pitch: -0.32, playing: false
 };
 
@@ -413,11 +413,11 @@ function drawBall() {
   const markC = css("--mark"), brightC = css("--ink-strong");
 
   function tint(i, hot) {
-    if (state.colour === "role") {
+    if (state.color === "role") {
       return COMPUTED.has(wordOf(i)) ? markC : (hot ? hotC : coldC);
     }
-    if (state.colour === "word") return wordHue(wordOf(i));
-    if (state.colour === "dwell") {
+    if (state.color === "word") return wordHue(wordOf(i));
+    if (state.color === "dwell") {
       const d = Math.min(dwell[i], 16) / 16;
       return "hsl(" + Math.round(34 + d * 158) + ", 62%, " + (d > 0.7 ? "42%" : "58%") + ")";
     }
@@ -666,7 +666,7 @@ seg("segMark", "mark", String, render);
 seg("segRing", "ring", Number, drawBall);
 seg("segNull", "showNull", (v) => v === "1", render);
 seg("segSpin", "spin", (v) => v === "1", () => {});
-seg("segColour", "colour", String, drawBall);
+seg("segColor", "color", String, drawBall);
 seg("segTracer", "tracer", String, drawBall);
 seg("segField", "fieldMode", String, drawField);
 

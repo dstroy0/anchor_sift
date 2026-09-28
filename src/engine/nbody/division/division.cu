@@ -53,16 +53,17 @@ extern "C" long division_program(const DivisionRequest *request, EngineRecordSte
 {
     if ((request->voxel_pm[0] == 0ull) || (request->voxel_pm[1] == 0ull) || (request->voxel_pm[2] == 0ull))
     {
-        return DIVISION_REFUSED;
+        return DIVISION_ERROR;
     }
-    const unsigned long long unit = division_common_unit(
-        division_common_unit(request->voxel_pm[0], request->voxel_pm[1]), request->voxel_pm[2]);
+    const unsigned long long unit =
+        division_common_unit(division_common_unit(request->voxel_pm[0], request->voxel_pm[1]), request->voxel_pm[2]);
     memset(program, 0, DIVISION_STEPS * sizeof(EngineRecordStep));
     DivisionWriter writer = {program, 0u};
-    const unsigned int parent_mass = division_put(&writer, ENGINE_RECORD_FIELD, request->mass_field, 0u, DIVISION_PARENT);
+    const unsigned int parent_mass =
+        division_put(&writer, ENGINE_RECORD_FIELD, request->mass_field, 0u, DIVISION_PARENT);
     const unsigned int child_mass = division_put(&writer, ENGINE_RECORD_FIELD, request->mass_field, 0u, DIVISION_CHILD);
-    const unsigned int sibling_mass = division_put(&writer, ENGINE_RECORD_FIELD, request->mass_field, 0u,
-                                                   DIVISION_SIBLING);
+    const unsigned int sibling_mass =
+        division_put(&writer, ENGINE_RECORD_FIELD, request->mass_field, 0u, DIVISION_SIBLING);
     const unsigned int one = division_constant(&writer, 1ull);
     const unsigned int dimensions = division_constant(&writer, ENGINE_AXES);
     const unsigned int joined = division_put(&writer, ENGINE_RECORD_SUM, child_mass, sibling_mass, 0u);
@@ -70,7 +71,7 @@ extern "C" long division_program(const DivisionRequest *request, EngineRecordSte
     const unsigned int joined_band = division_put(&writer, ENGINE_RECORD_LADDER, joined, one, 0u);
     const unsigned int band_order = division_put(&writer, ENGINE_RECORD_COMPARE, joined_band, parent_band, 0u);
     const unsigned int band_apart = division_put(&writer, ENGINE_RECORD_ABSOLUTE, band_order, 0u, 0u);
-    outputs[DIVISION_MASS_HOLDS] = division_put(&writer, ENGINE_RECORD_DIFFERENCE, one, band_apart, 0u);
+    outputs[DIVISION_BY_MASS] = division_put(&writer, ENGINE_RECORD_DIFFERENCE, one, band_apart, 0u);
     unsigned int scale[ENGINE_AXES];
     unsigned int parent_sum[ENGINE_AXES];
     unsigned int child_sum[ENGINE_AXES];
@@ -86,9 +87,10 @@ extern "C" long division_program(const DivisionRequest *request, EngineRecordSte
     unsigned int square[ENGINE_AXES];
     for (unsigned int axis = 0u; axis < ENGINE_AXES; axis += 1u)
     {
-        const unsigned int child_cross = division_put(&writer, ENGINE_RECORD_PRODUCT, child_sum[axis], sibling_mass, 0u);
-        const unsigned int sibling_cross = division_put(&writer, ENGINE_RECORD_PRODUCT, sibling_sum[axis], child_mass,
-                                                        0u);
+        const unsigned int child_cross =
+            division_put(&writer, ENGINE_RECORD_PRODUCT, child_sum[axis], sibling_mass, 0u);
+        const unsigned int sibling_cross =
+            division_put(&writer, ENGINE_RECORD_PRODUCT, sibling_sum[axis], child_mass, 0u);
         const unsigned int difference = division_put(&writer, ENGINE_RECORD_DIFFERENCE, child_cross, sibling_cross, 0u);
         apart[axis] = division_put(&writer, ENGINE_RECORD_PRODUCT, difference, scale[axis], 0u);
         square[axis] = division_put(&writer, ENGINE_RECORD_PRODUCT, apart[axis], apart[axis], 0u);
@@ -99,11 +101,11 @@ extern "C" long division_program(const DivisionRequest *request, EngineRecordSte
     {
         const unsigned int axis_one = DIVISION_FIRST_AXIS[moment];
         const unsigned int axis_two = DIVISION_SECOND_AXIS[moment];
-        const unsigned int second = division_put(&writer, ENGINE_RECORD_FIELD, request->moment_field[moment], 0u,
-                                                 DIVISION_PARENT);
+        const unsigned int second =
+            division_put(&writer, ENGINE_RECORD_FIELD, request->moment_field[moment], 0u, DIVISION_PARENT);
         const unsigned int weighed = division_put(&writer, ENGINE_RECORD_PRODUCT, parent_mass, second, 0u);
-        const unsigned int crossed = division_put(&writer, ENGINE_RECORD_PRODUCT, parent_sum[axis_one],
-                                                  parent_sum[axis_two], 0u);
+        const unsigned int crossed =
+            division_put(&writer, ENGINE_RECORD_PRODUCT, parent_sum[axis_one], parent_sum[axis_two], 0u);
         const unsigned int central = division_put(&writer, ENGINE_RECORD_DIFFERENCE, weighed, crossed, 0u);
         const unsigned int once = division_put(&writer, ENGINE_RECORD_PRODUCT, central, scale[axis_one], 0u);
         spread[moment] = division_put(&writer, ENGINE_RECORD_PRODUCT, once, scale[axis_two], 0u);
@@ -113,8 +115,8 @@ extern "C" long division_program(const DivisionRequest *request, EngineRecordSte
         }
         else
         {
-            const unsigned int paired = division_put(&writer, ENGINE_RECORD_PRODUCT, apart[axis_one], apart[axis_two],
-                                                     0u);
+            const unsigned int paired =
+                division_put(&writer, ENGINE_RECORD_PRODUCT, apart[axis_one], apart[axis_two], 0u);
             const unsigned int half = division_put(&writer, ENGINE_RECORD_PRODUCT, paired, spread[moment], 0u);
             term[moment] = division_put(&writer, ENGINE_RECORD_SUM, half, half, 0u);
         }
@@ -131,8 +133,8 @@ extern "C" long division_program(const DivisionRequest *request, EngineRecordSte
     const unsigned int along = division_put(&writer, ENGINE_RECORD_PRODUCT, dimensions, form, 0u);
     const unsigned int even = division_put(&writer, ENGINE_RECORD_PRODUCT, trace, length, 0u);
     const unsigned int axis_order = division_put(&writer, ENGINE_RECORD_COMPARE, along, even, 0u);
-    outputs[DIVISION_AXIS_HOLDS] = division_put(&writer, ENGINE_RECORD_SUM, axis_order, one, 0u);
-    outputs[DIVISION_BOTH_HOLD] = division_put(&writer, ENGINE_RECORD_PRODUCT, outputs[DIVISION_MASS_HOLDS],
-                                               outputs[DIVISION_AXIS_HOLDS], 0u);
-    return (writer.written == DIVISION_STEPS) ? (long)DIVISION_STEPS : DIVISION_REFUSED;
+    outputs[DIVISION_BY_AXIS] = division_put(&writer, ENGINE_RECORD_SUM, axis_order, one, 0u);
+    outputs[DIVISION_BY_BOTH] =
+        division_put(&writer, ENGINE_RECORD_PRODUCT, outputs[DIVISION_BY_MASS], outputs[DIVISION_BY_AXIS], 0u);
+    return (writer.written == DIVISION_STEPS) ? (long)DIVISION_STEPS : DIVISION_ERROR;
 }

@@ -22,7 +22,7 @@
 # handful of outliers did not move the trend.
 #
 # TWO ROUTES THAT GENUINELY DISAGREE, AND THE DISAGREEMENT IS THE FINDING. Least-squares fits the same
-# line by minimising squared error, and a single outlier drags it because a square rewards the fit for
+# line by minimizing squared error, and a single outlier drags it because a square rewards the fit for
 # chasing the far point. Theil-Sen and least-squares therefore return DIFFERENT slopes on the same data
 # whenever an outlier is present, and that gap is not a bug to reconcile: it is the measurement of what
 # a square costs. Where the data is clean the two agree; where it is not, the robust route

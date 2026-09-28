@@ -25,7 +25,7 @@ WHAT THE THIRD PANEL SHOWS
 A grid-stride loop in this kernel rounded its trip count up in thirty-two bits, so a survey of the
 full nonce range wrapped to zero iterations and returned every counter empty while the host credited
 the whole count. The run looked, from outside, exactly like one that completed. The panel puts the
-two runs side by side because a silent zero is the failure mode worth being able to recognise.
+two runs side by side because a silent zero is the failure mode worth being able to recognize.
 
     python examples/00_blob_viz_tools/build_survey_view.py
     python examples/00_blob_viz_tools/build_survey_view.py --dump path/to/survey_dump.json

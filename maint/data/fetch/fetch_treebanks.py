@@ -7,7 +7,7 @@
 #
 #   Usage:  python maint/data/fetch/fetch_treebanks.py
 #
-# Polish humour turns on using a word correctly to use it incorrectly, and the structural reason
+# Polish humor turns on using a word correctly to use it incorrectly, and the structural reason
 # is that Polish forms are shared across grammatical slots. Seven cases over three genders collapse into
 # far fewer distinct forms than the paradigm allows. One written word is often correct under two or
 # three different parses at once. English cannot do this from its morphology, having almost none left, and

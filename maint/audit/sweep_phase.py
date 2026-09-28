@@ -1,6 +1,6 @@
 """Compares the deficit ratios across window phases, against the control's own spread.
 
-A phase is a different symbolisation of the same 256 bits, not a different read of the same one.
+A phase is a different symbolization of the same 256 bits, not a different read of the same one.
 If SHA256d's output carries structure at an offset of one to seven bits, the aligned windows every
 run in this tree has used split it across two symbols and see nothing, and one of the other seven
 phases sees it.

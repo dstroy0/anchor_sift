@@ -28,8 +28,7 @@ extern "C" long print_pair_program(EngineRecordStep program[PRINT_PAIR_STEPS], u
         print_pair_step(&program[band], ENGINE_RECORD_FIELD_SIGNED, band, 0u, 0u);
         print_pair_step(&program[PRINT_PAIR_OTHER + band], ENGINE_RECORD_FIELD_SIGNED, band, 0u, 1u);
         print_pair_step(&program[PRINT_PAIR_APART + band], ENGINE_RECORD_DIFFERENCE, band, PRINT_PAIR_OTHER + band, 0u);
-        print_pair_step(&program[PRINT_PAIR_MAGNITUDE + band], ENGINE_RECORD_ABSOLUTE, PRINT_PAIR_APART + band, 0u,
-                        0u);
+        print_pair_step(&program[PRINT_PAIR_MAGNITUDE + band], ENGINE_RECORD_ABSOLUTE, PRINT_PAIR_APART + band, 0u, 0u);
     }
     print_pair_step(&program[PRINT_PAIR_DISTANCE], ENGINE_RECORD_SUM, PRINT_PAIR_MAGNITUDE, PRINT_PAIR_MAGNITUDE + 1u,
                     0u);

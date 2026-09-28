@@ -8,7 +8,7 @@ part is measured, drawn rather than derived, and stated as marginal, which is co
 
 The PHASE is a different claim and it carried no test at all. The document reads the trough at 18:00
 to 23:00 UTC as United States afternoon peak pricing, and then builds a geography argument on it. The
-amplitude's p-value says nothing about the phase: a chi-square is invariant to relabelling the bins,
+amplitude's p-value says nothing about the phase: a chi-square is invariant to relabeling the bins,
 so it fires identically whatever hour the trough lands in.
 
 That matters more than usual here because the nearest retracted claim in this tree is exactly this
@@ -107,7 +107,7 @@ def draw_null(first, second, trials, rng):
     The counts are redrawn multinomially at each half's own total over uniform hours, which is the
     same null the amplitude was tested against. What comes back is the distribution of the
     trough-to-trough distance under no common cycle, and it is emphatically NOT uniform on 0..12 -
-    the smoothing correlates neighbouring bins - so it has to be drawn rather than reasoned about.
+    the smoothing correlates neighboring bins - so it has to be drawn rather than reasoned about.
     """
     totals = (sum(first), sum(second))
     spread = []
@@ -203,7 +203,7 @@ def main():
         print("    So the trough hour is not a stable property of this corpus, and the geography")
         print("    reading built on it is not supported. The AMPLITUDE result stands - it was drawn")
         print("    against a proper null and correctly called marginal - but a chi-square is")
-        print("    invariant to relabelling the bins, so it never spoke to the phase at all.")
+        print("    invariant to relabeling the bins, so it never spoke to the phase at all.")
         print()
         print("    This is the same shape as the retracted per-pool phase claim, caught earlier.")
     else:

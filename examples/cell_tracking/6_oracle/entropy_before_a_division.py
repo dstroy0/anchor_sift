@@ -28,7 +28,7 @@
 #
 # THE BACKGROUND, AND IT IS BUILT BEFORE THE NUMBER IS QUOTED. A change in entropy says nothing on
 # its own. Cells are moving, deforming and changing brightness all the time. The quantity has a
-# distribution under ordinary behaviour and the question is whether division departs from it. The
+# distribution under ordinary behavior and the question is whether division departs from it. The
 # background here is every frame-to-frame entropy change of every cell that did NOT divide, drawn
 # from the same sequence, the same annotation and the same intensity scale. An earlier file in this
 # subtree quoted a raw value with no background and had to withdraw it.

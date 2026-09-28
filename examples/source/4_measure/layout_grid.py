@@ -23,7 +23,7 @@ import re
 import sys
 
 NUMBER = re.compile(r"-?\d+\.\d+")
-# Common design grids expressed in millimetres, plus the imperial hundredth that most tools default to
+# Common design grids expressed in millimeters, plus the imperial hundredth that most tools default to
 GRIDS = ((0.01, "0.01 mm"), (0.05, "0.05 mm"), (0.1, "0.1 mm"), (0.254, "10 mil"), (0.635, "25 mil"))
 
 

@@ -475,7 +475,7 @@
       }
     }
     // The scale is carried between frames, a transit reads as the surface going dark. Rescaling to
-    // the frame's own range every frame renormalises the dip away and the boundary looks unchanged
+    // the frame's own range every frame renormalizes the dip away and the boundary looks unchanged
     // through the very event the page exists to show.
     // A guard, because the failure above cost an hour and left nothing on screen to read. NaN is the
     // one value that survives every arithmetic here and still paints, and what it paints is a clean
@@ -502,7 +502,7 @@
     // along with everything else, which is a darker picture of nothing and not the same picture
     // with the floor taken out from under it.
     // Black is the floor, because the surface is added to the view and never painted over it. A dark
-    // grey floor would add a grey wash everywhere and put an opaque ball back on the screen by a
+    // gray floor would add a gray wash everywhere and put an opaque ball back on the screen by a
     // slower route. Nothing arriving has to contribute nothing.
     var dark = [0.0, 0.0, 0.0];
     var warm = [1.0, 0.63, 0.24];

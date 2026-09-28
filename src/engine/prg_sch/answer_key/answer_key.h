@@ -15,7 +15,7 @@ typedef struct
 
 long node_slot_of(const AnswerKey *key, long long identity);
 
-int hold_answer_key(const AnswerKeyTruth *truth, AnswerKey *key);
+int answer_key_build(const AnswerKeyTruth *truth, AnswerKey *key);
 
 void release_answer_key(AnswerKey *key);
 

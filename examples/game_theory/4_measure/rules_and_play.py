@@ -53,7 +53,7 @@ ORDER = ("random", "greedy", "corner")
 
 
 def clumping(grid):
-    """Share of occupied squares whose neighbour one step away carries the same colour, both axes."""
+    """Share of occupied squares whose neighbor one step away carries the same color, both axes."""
     square = numpy.frombuffer(bytes(grid), dtype=numpy.uint8).reshape(SIDE, SIDE)
     return (lattice_agreement(square, 0, 1) + lattice_agreement(square, 1, 1)) / 2.0
 

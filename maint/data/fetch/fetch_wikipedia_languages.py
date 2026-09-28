@@ -9,7 +9,7 @@
 # Vietnamese and Urdu have no plain text holdings in the book catalog, and neither do Hindi, Bengali,
 # Tamil, Korean or Indonesian. Vietnamese is worth the most here: it is isolating the way
 # Chinese is and it is written in a Latin alphabet. It is the only case on hand that separates what a
-# language does from what it is written in. Every other pairing available has those two travelling
+# language does from what it is written in. Every other pairing available has those two traveling
 # together.
 #
 # An encyclopedia carries all of them. It is ala different kind of writing from a novel, and comparing

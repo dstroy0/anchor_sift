@@ -76,11 +76,11 @@ def field(rng):
     canvas = numpy.zeros((SIDE, SIDE), dtype=numpy.float64)
     for _ in range(BLOBS):
         # Kept off the border by two widths, a shift never wraps a blob through the edge.
-        centre_row = rng.uniform(3.0 * BLOB_WIDTH, SIDE - 3.0 * BLOB_WIDTH)
-        centre_column = rng.uniform(3.0 * BLOB_WIDTH, SIDE - 3.0 * BLOB_WIDTH)
+        center_row = rng.uniform(3.0 * BLOB_WIDTH, SIDE - 3.0 * BLOB_WIDTH)
+        center_column = rng.uniform(3.0 * BLOB_WIDTH, SIDE - 3.0 * BLOB_WIDTH)
         brightness = rng.uniform(0.5, 1.0)
         canvas += brightness * numpy.exp(
-            -(((rows - centre_row) ** 2) + ((columns - centre_column) ** 2))
+            -(((rows - center_row) ** 2) + ((columns - center_column) ** 2))
             / (2.0 * BLOB_WIDTH * BLOB_WIDTH)
         )
     return canvas

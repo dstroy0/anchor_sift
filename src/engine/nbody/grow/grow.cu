@@ -4,31 +4,31 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define GROW_HELD(held_, evacaddr_, error_, kind_) \
-    engine_error_check((held_), (kind_), ENGINE_MODULE_GROW, (unsigned int)__LINE__, (const void *)(evacaddr_), \
+#define GROW_CHECK(condition_, evacaddr_, error_, kind_)                                                               \
+    engine_error_check((condition_), (kind_), ENGINE_MODULE_GROW, (unsigned int)__LINE__, (const void *)(evacaddr_),   \
                        (error_))
 
 extern "C" long grow_leaves(const EngineBody *bodies, unsigned int count, EngineLeaves *leaves, EngineError *error)
 {
     if (error == NULL)
     {
-        return GROW_REFUSED;
+        return GROW_ERROR;
     }
-    if (!GROW_HELD((leaves != NULL) && ((bodies != NULL) || (count == 0u)), bodies, error, ENGINE_ERROR_REQUEST))
+    if (!GROW_CHECK((leaves != NULL) && ((bodies != NULL) || (count == 0u)), bodies, error, ENGINE_ERROR_REQUEST))
     {
-        return GROW_REFUSED;
+        return GROW_ERROR;
     }
     memset(leaves, 0, sizeof(*leaves));
-    const size_t room = (size_t)count + 1u;
-    leaves->peaks = (unsigned int *)malloc(room * sizeof(unsigned int));
-    leaves->sizes = (unsigned int *)malloc(room * sizeof(unsigned int));
-    leaves->sums = (unsigned long long *)malloc(room * 3u * sizeof(unsigned long long));
-    leaves->moments = (unsigned long long *)malloc(room * 6u * sizeof(unsigned long long));
-    leaves->touches = (unsigned int *)malloc(room * sizeof(unsigned int));
+    const size_t capacity = (size_t)count + 1u;
+    leaves->peaks = (unsigned int *)malloc(capacity * sizeof(unsigned int));
+    leaves->sizes = (unsigned int *)malloc(capacity * sizeof(unsigned int));
+    leaves->sums = (unsigned long long *)malloc(capacity * 3u * sizeof(unsigned long long));
+    leaves->moments = (unsigned long long *)malloc(capacity * 6u * sizeof(unsigned long long));
+    leaves->touches = (unsigned int *)malloc(capacity * sizeof(unsigned int));
     leaves->joined = (unsigned int *)malloc(2u * sizeof(unsigned int));
-    if (!GROW_HELD((leaves->peaks != NULL) && (leaves->sizes != NULL) && (leaves->sums != NULL)
-                       && (leaves->moments != NULL) && (leaves->touches != NULL) && (leaves->joined != NULL),
-                   leaves, error, ENGINE_ERROR_RESOURCE))
+    if (!GROW_CHECK((leaves->peaks != NULL) && (leaves->sizes != NULL) && (leaves->sums != NULL) &&
+                        (leaves->moments != NULL) && (leaves->touches != NULL) && (leaves->joined != NULL),
+                    leaves, error, ENGINE_ERROR_RESOURCE))
     {
         free(leaves->peaks);
         free(leaves->sizes);
@@ -37,7 +37,7 @@ extern "C" long grow_leaves(const EngineBody *bodies, unsigned int count, Engine
         free(leaves->touches);
         free(leaves->joined);
         memset(leaves, 0, sizeof(*leaves));
-        return GROW_REFUSED;
+        return GROW_ERROR;
     }
     for (unsigned int leaf = 0u; leaf < count; leaf += 1u)
     {

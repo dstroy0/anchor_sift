@@ -15,7 +15,7 @@ THE LAW SAYS THE RESIDUAL IS ZERO
 Power per degree, `P_l = sum over m of |a_lm|^2`, is invariant under every rotation, because the
 degree-l subspace carries a unitary irreducible representation of the rotation group. On a ring
 placement turned by whole steps the statement is stronger still: each point moves along its own
-ring, so the rotated configuration is the same set of directions relabelled, every coefficient pair
+ring, so the rotated configuration is the same set of directions relabeled, every coefficient pair
 `(a_lm^cos, a_lm^sin)` turns rigidly by `m alpha`, and the sum of their squares is unchanged.
 
 So the exact residual is zero, identically, with no measurement needed. Anything a program reports
@@ -55,7 +55,7 @@ import natural_constants
 RINGS, WIDTH = 8, 32
 TOP = 8
 
-# Rotations to try, in whole ring steps. Each is an exact relabelling of the placement.
+# Rotations to try, in whole ring steps. Each is an exact relabeling of the placement.
 STEPS = (1, 5, 13, 31)
 
 # Working digits above the requested precision. The Taylor sums below are alternating, so their
@@ -136,7 +136,7 @@ def sine_of(angle, pi):
 # -------------------------------------------------------------------------------------------------
 
 def legendre_column(top, order, x, one, four_pi):
-    """Normalised associated Legendre values for one order, every degree, in the caller's arithmetic.
+    """Normalized associated Legendre values for one order, every degree, in the caller's arithmetic.
 
     The same climb-the-diagonal recurrence `sphere_field.legendre_column` uses, with every square
     root taken at the working precision instead of in a double.

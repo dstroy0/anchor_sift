@@ -44,7 +44,7 @@ def agrees_on_overlap(left, right):
     return shared, True
 
 
-def row_neighbours(matrix, target):
+def row_neighbors(matrix, target):
     here = matrix[target]
     found = []
     for other in range(len(matrix)):
@@ -59,7 +59,7 @@ def row_neighbours(matrix, target):
 def predict_user(matrix, row, column):
     values = [
         matrix[other][column]
-        for other in row_neighbours(matrix, row)
+        for other in row_neighbors(matrix, row)
         if matrix[other][column] is not MISSING
     ]
     return Fraction(sum(values), len(values)) if values else None

@@ -176,7 +176,7 @@ function build(room) {
   const frameOfCell = new Uint32Array(C);
   for (let f = 0; f < F; f++) frameOfCell.fill(f, frameFirst[f], frameFirst[f] + frameCells[f]);
 
-  // Shapes: centre and the Cholesky factor of the covariance, in the drawing's axes x, y, 4z.
+  // Shapes: center and the Cholesky factor of the covariance, in the drawing's axes x, y, 4z.
   const shape = new Float32Array(C * 12), size = new Float64Array(C), bodies = new Uint32Array(C), membrane = new Float64Array(C);
   for (let c = 0; c < C; c++) {
     const o = c * CELL, v = k => Number(room.cells[o + k]);
@@ -203,8 +203,8 @@ function build(room) {
   }
 
   // The membrane's contact potential as spherical harmonic coefficients: each contact is a zonal cap of solid angle
-  // 4 pi f toward the neighbour, f its share of the membrane, expanded to degree 3 and rotated by the addition theorem.
-  const potential = new Float32Array(C * 16), crowding = new Float32Array(C), neighbours = new Uint16Array(C);
+  // 4 pi f toward the neighbor, f its share of the membrane, expanded to degree 3 and rotated by the addition theorem.
+  const potential = new Float32Array(C * 16), crowding = new Float32Array(C), neighbors = new Uint16Array(C);
   for (let f = 0; f < F; f++) {
     const first = room.frames[f * FRAME + 9], count = room.frames[f * FRAME + 10];
     for (let k = first; k < first + count; k++) {
@@ -212,7 +212,7 @@ function build(room) {
       for (const [self, other] of [[a, b], [b, a]]) {
         const share = membrane[self] > 0 ? faces / membrane[self] : 0;
         crowding[self] = Math.min(1, crowding[self] + share);
-        neighbours[self]++;
+        neighbors[self]++;
         let dx = shape[other * 12] - shape[self * 12], dy = shape[other * 12 + 1] - shape[self * 12 + 1], dz = shape[other * 12 + 2] - shape[self * 12 + 2];
         const length = Math.hypot(dx, dy, dz) || 1; dx /= length; dy /= length; dz /= length;
         const cosine = Math.max(-1, Math.min(1, 1 - 2 * share)), p = legendre(cosine, 4);
@@ -280,7 +280,7 @@ function build(room) {
 
   // Lines and points, static, one range per frame.
   const lineData = [], pointData = [], linkRange = [], edgeRange = [], pointRange = [];
-  const centre = c => [shape[c * 12], shape[c * 12 + 1], shape[c * 12 + 2]];
+  const center = c => [shape[c * 12], shape[c * 12 + 1], shape[c * 12 + 2]];
   const segment = (a, b, color, alpha) => lineData.push(...a, ...color, alpha, ...b, ...color, alpha);
   const corners = [[0, 0, 0], [width, 0, 0], [width, height, 0], [0, height, 0], [0, 0, 4 * depth], [width, 0, 4 * depth], [width, height, 4 * depth], [0, height, 4 * depth]];
   [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]].forEach(([a, b]) => segment(corners[a], corners[b], [0.35, 0.4, 0.5], 0.35));
@@ -288,7 +288,7 @@ function build(room) {
   for (let f = 0; f < F; f++) {
     let start = lineData.length / 7;
     for (let c = frameFirst[f]; c < frameFirst[f] + frameCells[f]; c++)
-      for (let k = childStart[c]; k < childStart[c + 1]; k++) segment(centre(c), centre(childList[k]), [0.29, 0.42, 0.59], kind[c] ? 0.6 : 0.28);
+      for (let k = childStart[c]; k < childStart[c + 1]; k++) segment(center(c), center(childList[k]), [0.29, 0.42, 0.59], kind[c] ? 0.6 : 0.28);
     linkRange.push([start, lineData.length / 7 - start]);
     start = lineData.length / 7;
     const pointStart = pointData.length / 7;
@@ -301,14 +301,14 @@ function build(room) {
       segment(a, b, [0.25, 0.89, 0.54], status === 0 ? 0.3 : 0.95);
       if (status !== 0 && nodeCell[source] >= 0) {
         const c = nodeCell[source];
-        for (let k = childStart[c]; k < childStart[c + 1]; k++) segment(centre(c), centre(childList[k]), [1, 0.29, 0.24], 0.95);
+        for (let k = childStart[c]; k < childStart[c + 1]; k++) segment(center(c), center(childList[k]), [1, 0.29, 0.24], 0.95);
       }
     }
     edgeRange.push([start, lineData.length / 7 - start]);
     pointRange.push([pointStart, pointData.length / 7 - pointStart]);
   }
 
-  return { room, shape, size, bodies, membrane, crowding, neighbours, kind, times, follows, lags, frameFirst, frameCells, childStart, childList,
+  return { room, shape, size, bodies, membrane, crowding, neighbors, kind, times, follows, lags, frameFirst, frameCells, childStart, childList,
     nodeCell, frameOfTime, failures, tallies, instances, instanceFirst, instanceCount,
     lines: new Float32Array(lineData), boxCount, linkRange, edgeRange, points: new Float32Array(pointData), pointRange };
 }
@@ -340,11 +340,11 @@ function program(vertexSource, fragmentSource) {
 
 // The instance record as attributes 1 to 13; 0 is the mesh.
 const INSTANCE_LAYOUT = `
-layout(location=1) in vec3 fromCentre;
+layout(location=1) in vec3 fromCenter;
 layout(location=2) in vec3 fromColumn0;
 layout(location=3) in vec3 fromColumn1;
 layout(location=4) in vec3 fromColumn2;
-layout(location=5) in vec3 toCentre;
+layout(location=5) in vec3 toCenter;
 layout(location=6) in vec3 toColumn0;
 layout(location=7) in vec3 toColumn1;
 layout(location=8) in vec3 toColumn2;
@@ -369,19 +369,19 @@ const vec3 NAMED = vec3(0.75, 0.9, 1.0);
 const vec3 HOT = vec3(1.0, 0.48, 0.24);
 const vec3 TRUE_TARGET = vec3(0.25, 0.89, 0.54);
 const vec3 RISK = vec3(0.72, 0.45, 1.0);
-struct Body { vec3 centre; mat3 shape; vec3 color; float alpha; bool hidden; };
+struct Body { vec3 center; mat3 shape; vec3 color; float alpha; bool hidden; };
 Body body() {
   float kind = style.x, mode = style.y;
   float s = mode == 0.0 ? step : 0.0;
   Body b;
-  b.centre = mix(fromCentre, toCentre, s);
+  b.center = mix(fromCenter, toCenter, s);
   b.shape = mat3(mix(fromColumn0, toColumn0, s), mix(fromColumn1, toColumn1, s), mix(fromColumn2, toColumn2, s));
   vec3 base = kind == 3.0 ? TRUE_TARGET : (kind == 2.0 ? HOT : (kind == 1.0 ? NAMED : COLD));
   b.color = mix(base, RISK, crowdingGain * style.z);
   float strength = kind == 2.0 ? max(cellAlpha, 0.85) : (kind >= 1.0 ? max(cellAlpha, 0.55) : cellAlpha);
   float presence = mode == 1.0 ? 1.0 - step : (mode == 2.0 ? step : (mode == 3.0 ? 0.3 + 0.6 * step : 1.0));
   b.alpha = strength * presence;
-  b.hidden = (keyOnly > 0.5 && kind == 0.0) || (reach > 0.0 && distance(b.centre, focus) > reach) || b.alpha < 0.003;
+  b.hidden = (keyOnly > 0.5 && kind == 0.0) || (reach > 0.0 && distance(b.center, focus) > reach) || b.alpha < 0.003;
   return b;
 }
 float membranePotential(vec3 n) {
@@ -407,7 +407,7 @@ out vec4 tint;
 void main() {
   Body b = body();
   if (b.hidden) { gl_Position = vec4(2.0, 2.0, 2.0, 1.0); tint = vec4(0.0); return; }
-  vec3 world = b.centre + b.shape * (position * EDGE * (1.0 - coat));
+  vec3 world = b.center + b.shape * (position * EDGE * (1.0 - coat));
   normalWorld = normalize(transpose(inverse(b.shape)) * position);
   toEye = normalize(eye - world);
   tint = vec4(b.color, b.alpha);
@@ -446,7 +446,7 @@ void main() {
   vec3 u = vec3(cos(around) * ring, height, sin(around) * ring);
   vec3 n = normalize(transpose(inverse(b.shape)) * u);
   vec3 outward = b.shape * u;
-  vec3 root = b.centre + outward * EDGE * (1.0 - coat);
+  vec3 root = b.center + outward * EDGE * (1.0 - coat);
   float reachOut = coat * EDGE * length(outward) * (0.55 + 0.45 * hash(strand + style.w * 17.0));
   vec3 helper = abs(n.y) < 0.9 ? vec3(0.0, 1.0, 0.0) : vec3(1.0, 0.0, 0.0);
   vec3 tangent = normalize(cross(n, helper));
@@ -455,7 +455,7 @@ void main() {
   float beta = clamp((grow - 0.6) / 0.4, 0.0, 1.0);
   vec3 direction = normalize(mix(tangent, normalize(mix(normalize(outward), n, 0.6)), alpha));
   float contact = membranePotential(n);
-  vec3 velocity = style.y == 0.0 ? toCentre - fromCentre : vec3(0.0);
+  vec3 velocity = style.y == 0.0 ? toCenter - fromCenter : vec3(0.0);
   vec3 trail = -velocity * 0.35 / (1.0 + 6.0 * contact);
   vec3 jostle = tangent * sin(time * (2.3 + hash(strand) * 2.0) + strand * 1.7 + style.w * 31.0) * (0.12 + 0.9 * contact);
   vec3 end = root + direction * reachOut + beta * (trail + jostle * reachOut);
@@ -720,7 +720,7 @@ function updateReadings(frame) {
       ["peak carried by", [room.edges[o + 3], room.edges[o + 4], room.edges[o + 5]].join(" ")],
       ["cell", cell >= 0 ? `${b.size[cell]} voxels, ${b.bodies[cell]} bodies` : "not held"],
       ["membrane", cell >= 0 ? `${b.membrane[cell]} faces` : ""],
-      ["in contact", cell >= 0 ? `${Math.round(100 * b.crowding[cell])}% with ${b.neighbours[cell]} cells` : ""],
+      ["in contact", cell >= 0 ? `${Math.round(100 * b.crowding[cell])}% with ${b.neighbors[cell]} cells` : ""],
       ["true target", truth >= 0 ? `${b.size[truth]} voxels, ${b.bodies[truth]} bodies` : "not held"],
       ["linked to", children.length ? children.map(c => `${c === truth ? "true " : ""}${b.size[c]}v/${b.bodies[c]}b`).join(", ") : "nothing"]);
   }

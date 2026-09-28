@@ -77,7 +77,7 @@ echo
 echo "  Instruction selection, read off the object file. This grades emission, never behavior."
 echo
 
-ARMS="$ROOT/src/engine/base/no_rounding"
+ARMS="$ROOT/src/engine/arithmetic/no_rounding"
 
 # The two arms that also have hardware here. Checked the same way so the grade is comparable, and
 # separately run against portable by bench_exact_arms.

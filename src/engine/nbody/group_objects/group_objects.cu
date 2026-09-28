@@ -2,8 +2,8 @@
 #include "group_objects.h"
 
 #include "golden_bands.h"
-#include "track.h"
 #include "radix_keys.h"
+#include "track.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,8 +13,8 @@ static unsigned long long s_cohere_joined = 0ull;
 
 static unsigned long long s_cohere_pairs = 0ull;
 
-int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *next,
-                         unsigned int height, unsigned int width, const TreeRules *rules)
+int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *next, unsigned int height,
+                  unsigned int width, const TreeRules *rules)
 {
     const unsigned int count = frame->leaf_count;
     unsigned int *const parent = (unsigned int *)malloc(((size_t)count + 1u) * sizeof(unsigned int));
@@ -46,8 +46,8 @@ int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *
             {
                 if ((rules->merge_split != 0) && (previous != NULL))
                 {
-                    same_origin = (previous->object_of[(unsigned int)left_from]
-                                   == previous->object_of[(unsigned int)right_from]);
+                    same_origin =
+                        (previous->object_of[(unsigned int)left_from] == previous->object_of[(unsigned int)right_from]);
                 }
                 else
                 {
@@ -63,13 +63,13 @@ int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *
             const int left_to = frame->forward[left];
             const int right_to = frame->forward[right];
             const int apart = ((next != NULL) && (next->object_of != NULL))
-                            ? (next->object_of[(unsigned int)((left_to >= 0) ? left_to : 0)]
-                               != next->object_of[(unsigned int)((right_to >= 0) ? right_to : 0)])
-                            : (left_to != right_to);
+                                  ? (next->object_of[(unsigned int)((left_to >= 0) ? left_to : 0)] !=
+                                     next->object_of[(unsigned int)((right_to >= 0) ? right_to : 0)])
+                                  : (left_to != right_to);
             destinations_differ = (left_to >= 0) && (right_to >= 0) && (apart != 0);
         }
-        const int origin_holds = (same_origin != 0) && ((rules->agree == 0) || (destinations_differ == 0));
-        if ((rules->dish == 0) && ((origin_holds != 0) || (same_destination != 0)))
+        const int origin_valid = (same_origin != 0) && ((rules->agree == 0) || (destinations_differ == 0));
+        if ((rules->dish == 0) && ((origin_valid != 0) || (same_destination != 0)))
         {
             const unsigned int first = engine_find_root(parent, left);
             const unsigned int second = engine_find_root(parent, right);
@@ -81,9 +81,9 @@ int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *
     }
     if (rules->dish != 0)
     {
-        const unsigned int measured = (unsigned int)((frame->null_held != NULL) && (frame->null_count != 0u)
-                                                     && (frame->forward_held != NULL));
-        unsigned int centre = 0u;
+        const unsigned int measured = (unsigned int)((frame->null_final_score != NULL) && (frame->null_count != 0u) &&
+                                                     (frame->forward_final_score != NULL));
+        unsigned int center = 0u;
         unsigned long long substance = 0ull;
         for (unsigned int leaf = 0u; leaf < count; leaf += 1u)
         {
@@ -101,7 +101,7 @@ int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *
             running += per_band[band];
             if ((running * 2ull) >= substance)
             {
-                centre = (unsigned int)band_floor(band);
+                center = (unsigned int)band_floor(band);
                 break;
             }
         }
@@ -119,11 +119,10 @@ int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *
             unsigned int reached = 0u;
             for (unsigned int draw = 0u; (measured != 0u) && (draw < frame->null_count); draw += 1u)
             {
-                const unsigned int drawn = frame->null_held[((size_t)draw * ((size_t)count + 1u)) + leaf];
-                reached += (unsigned int)(drawn >= frame->forward_held[leaf]);
+                const unsigned int drawn = frame->null_final_score[((size_t)draw * ((size_t)count + 1u)) + leaf];
+                reached += (unsigned int)(drawn >= frame->forward_final_score[leaf]);
             }
-            stands[leaf] = (unsigned char)((measured != 0u) ? (reached == 0u)
-                                                            : (frame->sizes[leaf] >= centre));
+            stands[leaf] = (unsigned char)((measured != 0u) ? (reached == 0u) : (frame->sizes[leaf] >= center));
             leans_on[leaf] = leaf;
         }
         for (unsigned int pass = 0u; pass < 2u; pass += 1u)
@@ -137,34 +136,32 @@ int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *
                 const unsigned int left_settled = (unsigned int)((pass != 0u) && (leans_on[right] != right));
                 const unsigned int right_settled = (unsigned int)((pass != 0u) && (leans_on[left] != left));
                 const unsigned int by_band = (unsigned int)rules->mass_band;
-                const int left_bigger = (left_eligible != 0u) && (left_settled == 0u)
-                                     && (band_or_count(by_band, frame->sizes[left])
-                                         > band_or_count(by_band, frame->sizes[leans_on[right]]));
-                const int right_bigger = (right_eligible != 0u) && (right_settled == 0u)
-                                      && (band_or_count(by_band, frame->sizes[right])
-                                          > band_or_count(by_band, frame->sizes[leans_on[left]]));
+                const int left_bigger = (left_eligible != 0u) && (left_settled == 0u) &&
+                                        (band_or_count(by_band, frame->sizes[left]) >
+                                         band_or_count(by_band, frame->sizes[leans_on[right]]));
+                const int right_bigger = (right_eligible != 0u) && (right_settled == 0u) &&
+                                         (band_or_count(by_band, frame->sizes[right]) >
+                                          band_or_count(by_band, frame->sizes[leans_on[left]]));
                 leans_on[right] = (left_bigger != 0) ? left : leans_on[right];
                 leans_on[left] = (right_bigger != 0) ? right : leans_on[left];
             }
         }
         for (unsigned int leaf = 0u; leaf < count; leaf += 1u)
         {
-            const unsigned int leans = (unsigned int)((stands[leaf] == 0u) && (leans_on[leaf] != leaf)
-                                                      && (band_or_count((unsigned int)rules->mass_band,
-                                                                        frame->sizes[leans_on[leaf]])
-                                                          > band_or_count((unsigned int)rules->mass_band,
-                                                                          frame->sizes[leaf])));
+            const unsigned int leans =
+                (unsigned int)((stands[leaf] == 0u) && (leans_on[leaf] != leaf) &&
+                               (band_or_count((unsigned int)rules->mass_band, frame->sizes[leans_on[leaf]]) >
+                                band_or_count((unsigned int)rules->mass_band, frame->sizes[leaf])));
             parent[leaf] = (leans != 0u) ? leans_on[leaf] : leaf;
         }
         free(stands);
         free(leans_on);
     }
-    if (((rules->cohere != 0) || (rules->accrue != 0)) && (frame->forward_lag != NULL)
-     && (frame->joined_count != 0u))
+    if (((rules->cohere != 0) || (rules->accrue != 0)) && (frame->forward_lag != NULL) && (frame->joined_count != 0u))
     {
         const unsigned int gathered = (unsigned int)((rules->accrue != 0) && (frame->backward_lag != NULL));
-        unsigned long long *const apart = (unsigned long long *)malloc(((size_t)frame->joined_count + 1u)
-                                                                        * sizeof(unsigned long long));
+        unsigned long long *const apart =
+            (unsigned long long *)malloc(((size_t)frame->joined_count + 1u) * sizeof(unsigned long long));
         if (apart == NULL)
         {
             free(parent);
@@ -187,31 +184,30 @@ int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *
             const unsigned long long there_left = (unsigned long long)next->peaks[(unsigned int)went_left];
             const unsigned long long there_right = (unsigned long long)next->peaks[(unsigned int)went_right];
             const long long step[3] = {
-                ((long long)(there_left / plane) - (long long)(here_left / plane))
-                - ((long long)(there_right / plane) - (long long)(here_right / plane)),
-                ((long long)((there_left % plane) / width) - (long long)((here_left % plane) / width))
-                - ((long long)((there_right % plane) / width) - (long long)((here_right % plane) / width)),
-                ((long long)((there_left % plane) % width) - (long long)((here_left % plane) % width))
-                - ((long long)((there_right % plane) % width) - (long long)((here_right % plane) % width)),
+                ((long long)(there_left / plane) - (long long)(here_left / plane)) -
+                    ((long long)(there_right / plane) - (long long)(here_right / plane)),
+                ((long long)((there_left % plane) / width) - (long long)((here_left % plane) / width)) -
+                    ((long long)((there_right % plane) / width) - (long long)((here_right % plane) / width)),
+                ((long long)((there_left % plane) % width) - (long long)((here_left % plane) % width)) -
+                    ((long long)((there_right % plane) % width) - (long long)((here_right % plane) % width)),
             };
             unsigned long long between = 0ull;
             for (unsigned int axis = 0u; axis < 3u; axis += 1u)
             {
-                between += (unsigned long long)(step[axis] * step[axis])
-                         * (unsigned long long)AXIS_WEIGHTS[axis];
+                between += (unsigned long long)(step[axis] * step[axis]) * (unsigned long long)AXIS_WEIGHTS[axis];
             }
             for (unsigned int axis = 0u; (gathered != 0u) && (axis < 3u); axis += 1u)
             {
-                const long long back = (long long)frame->backward_lag[(3u * left) + axis]
-                                     - (long long)frame->backward_lag[(3u * right) + axis];
+                const long long back = (long long)frame->backward_lag[(3u * left) + axis] -
+                                       (long long)frame->backward_lag[(3u * right) + axis];
                 between += (unsigned long long)(back * back) * (unsigned long long)AXIS_WEIGHTS[axis];
             }
             apart[pair] = between;
         }
-        unsigned long long *const order = (unsigned long long *)malloc(((size_t)frame->joined_count + 1u)
-                                                                        * sizeof(unsigned long long));
-        unsigned long long *const absorbed = (unsigned long long *)calloc((size_t)count + 1u,
-                                                                           sizeof(unsigned long long));
+        unsigned long long *const order =
+            (unsigned long long *)malloc(((size_t)frame->joined_count + 1u) * sizeof(unsigned long long));
+        unsigned long long *const absorbed =
+            (unsigned long long *)calloc((size_t)count + 1u, sizeof(unsigned long long));
         if ((order == NULL) || (absorbed == NULL))
         {
             free(apart);
@@ -222,13 +218,12 @@ int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *
         }
         for (unsigned int pair = 0u; pair < frame->joined_count; pair += 1u)
         {
-            const unsigned long long held = (apart[pair] > 0xFFFFFFFFull) ? 0xFFFFFFFFull : apart[pair];
-            order[pair] = (held << 32u) | (unsigned long long)pair;
+            const unsigned long long distance = (apart[pair] > 0xFFFFFFFFull) ? 0xFFFFFFFFull : apart[pair];
+            order[pair] = (distance << 32u) | (unsigned long long)pair;
         }
         radix_sort_keys(order, frame->joined_count);
         long long *const motion = (long long *)calloc(((size_t)count + 1u) * 3u, sizeof(long long));
-        unsigned long long *const mass = (unsigned long long *)calloc((size_t)count + 1u,
-                                                                       sizeof(unsigned long long));
+        unsigned long long *const mass = (unsigned long long *)calloc((size_t)count + 1u, sizeof(unsigned long long));
         if ((motion == NULL) || (mass == NULL))
         {
             free(apart);
@@ -244,8 +239,8 @@ int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *
             mass[leaf] = (unsigned long long)frame->sizes[leaf];
             for (unsigned int axis = 0u; axis < 3u; axis += 1u)
             {
-                motion[(3u * leaf) + axis] = (long long)frame->forward_lag[(3u * leaf) + axis]
-                                           * (long long)frame->sizes[leaf];
+                motion[(3u * leaf) + axis] =
+                    (long long)frame->forward_lag[(3u * leaf) + axis] * (long long)frame->sizes[leaf];
             }
         }
         for (unsigned int at = 0u; at < frame->joined_count; at += 1u)
@@ -260,19 +255,18 @@ int group_objects(TreeFrame *frame, const TreeFrame *previous, const TreeFrame *
             unsigned long long between = 0ull;
             for (unsigned int axis = 0u; axis < 3u; axis += 1u)
             {
-                const long long step = (motion[(3u * first) + axis] * (long long)mass[second])
-                                     - (motion[(3u * second) + axis] * (long long)mass[first]);
+                const long long step = (motion[(3u * first) + axis] * (long long)mass[second]) -
+                                       (motion[(3u * second) + axis] * (long long)mass[first]);
                 const unsigned long long scale = mass[first] * mass[second];
                 const long long mean = (scale != 0ull) ? (step / (long long)scale) : 0ll;
                 between += (unsigned long long)(mean * mean) * (unsigned long long)AXIS_WEIGHTS[axis];
             }
-            const unsigned long long history = (absorbed[first] > absorbed[second]) ? absorbed[first]
-                                                                                     : absorbed[second];
+            const unsigned long long history =
+                (absorbed[first] > absorbed[second]) ? absorbed[first] : absorbed[second];
             const unsigned int fresh = (unsigned int)(history == 0ull);
             const unsigned int near = (unsigned int)(band_of(between) <= (band_of(history) + 1u));
             const unsigned int joins = (unsigned int)((fresh != 0u) || (near != 0u));
-            absorbed[first] = ((joins != 0u) && (fresh != 0u)) ? ((between != 0ull) ? between : 1ull)
-                                                              : absorbed[first];
+            absorbed[first] = ((joins != 0u) && (fresh != 0u)) ? ((between != 0ull) ? between : 1ull) : absorbed[first];
             for (unsigned int axis = 0u; (joins != 0u) && (axis < 3u); axis += 1u)
             {
                 motion[(3u * first) + axis] += motion[(3u * second) + axis];

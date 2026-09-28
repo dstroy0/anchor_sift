@@ -88,7 +88,7 @@ class WillNotFit(ValueError):
 
 
 # The four whitespace bytes decimal text may be padded with, and the ten digits it may carry. ASCII
-# only, matching exact_integer.c. str.strip() and str.isdigit() also take Unicode whitespace and
+# only, matching exact_integer_*.c. str.strip() and str.isdigit() also take Unicode whitespace and
 # digits, and those made this side accept text the C refused.
 PADDING = " \t\r\n"
 DIGITS = "0123456789"
@@ -163,7 +163,7 @@ def units(text, digits=SCALE_DIGITS):
 
     Raises WillNotFit where the text carries a bracket and prints more places than `digits`, dropped
     or not. The bracket counts units of the last place printed, and a text printed past the scale
-    claims more precision than the reader was asked to hold. decimal_read in exact_integer.c sizes
+    claims more precision than the reader was asked to hold. decimal_read in exact_integer_decimal.c sizes
     it the same way for anchor_exact_from_decimal, and until 27 September this side read
     "1.00000000000000000000000000(1)" as 1 at 24 places where the C refused it.
     """

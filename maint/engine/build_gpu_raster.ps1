@@ -11,7 +11,7 @@
 # compiler nvcc is driving, which is what keeps the ABI consistent inside it.
 #
 # The result is bench_raster with the device arm compiled in. Without this script the CMake build
-# still produces bench_raster, linking the stub arms in anchor_raster.c, and it reports the device as
+# still produces bench_raster, linking the stub arms in anchor_raster_output.c, and it reports the device as
 # absent and grades the host alone. That is a skip and never a pass.
 
 param(
@@ -23,7 +23,7 @@ $ErrorActionPreference = "Stop"
 $root = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
 $src = Join-Path $root "src\engine"
 $render = Join-Path $src "render"
-$exact = Join-Path $src "base\no_rounding"
+$exact = Join-Path $src "arithmetic\no_rounding"
 $sift = Join-Path $src "nbody\anchor_sift"
 $bench = Join-Path $root "bench"
 $out = Join-Path $root "build\engine_gpu"
@@ -69,7 +69,7 @@ foreach ($line in $envDump)
 
 New-Item -ItemType Directory -Force $out | Out-Null
 
-# ANCHOR_RASTER_HAVE_CUDA is what suppresses the stub arms in anchor_raster.c. Defined on this build
+# ANCHOR_RASTER_HAVE_CUDA is what suppresses the stub arms in anchor_raster_output.c. Defined on this build
 # and undefined on the CMake one. Exactly one definition of each device symbol ever exists.
 $defines = "-DANCHOR_RASTER_HAVE_CUDA=1"
 $includes = "-I`"$sift`" -I`"$exact`" -I`"$render`""
@@ -90,12 +90,24 @@ try
 {
     Write-Host "[*] cl /std:c11 -> objects"
     $units = @(
-        (Join-Path $render "anchor_raster.c"),
-        (Join-Path $exact "exact_integer.c"),
-        (Join-Path $sift "anchor_sift.c"),
+        (Join-Path $render "anchor_raster_host.c"),
+        (Join-Path $render "anchor_raster_output.c"),
+        (Join-Path $exact "exact_integer_add.c"),
+        (Join-Path $exact "exact_integer_limbs.c"),
+        (Join-Path $exact "exact_integer_multiply.c"),
+        (Join-Path $exact "exact_integer_divide.c"),
+        (Join-Path $exact "exact_integer_gcd.c"),
+        (Join-Path $exact "exact_integer_decimal.c"),
+        (Join-Path $exact "exact_integer_hash.c"),
+        (Join-Path $sift "anchor_sift_core.c"),
+        (Join-Path $sift "anchor_sift_steer.c"),
+        (Join-Path $sift "anchor_sift_field.c"),
+        (Join-Path $sift "anchor_sift_steer_plan.c"),
+        (Join-Path $sift "anchor_sift_steer_count.c"),
         (Join-Path $sift "scan_portable.c"),
         (Join-Path $bench "bench_raster.c")
     )
+    $objects = $units | ForEach-Object { [IO.Path]::GetFileNameWithoutExtension($_) + ".obj" }
     foreach ($unit in $units)
     {
         & cl /nologo /std:c11 /O2 /DANCHOR_RASTER_HAVE_CUDA=1 $clIncludes /c $unit | Out-Null
@@ -108,9 +120,8 @@ try
 
     Write-Host "[*] nvcc -> bench_raster.exe"
     & nvcc -O3 "-arch=$Arch" -DANCHOR_RASTER_HAVE_CUDA=1 ("-I" + $render) `
-        (Join-Path $render "raster_cuda.cu") `
-        anchor_raster.obj exact_integer.obj anchor_sift.obj scan_portable.obj bench_raster.obj `
-        -o bench_raster.exe
+        (Join-Path $render "raster_cuda_kernels.cu") (Join-Path $render "raster_cuda_entry.cu") `
+        $objects -o bench_raster.exe
     if ($LASTEXITCODE -ne 0)
     {
         Write-Error "nvcc failed linking the renderer"

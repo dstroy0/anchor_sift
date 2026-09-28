@@ -49,9 +49,9 @@ That produces the benches and the tests. `bench_lattice` needs C99 `_Complex` an
 The search kernel builds with no build system at all, if that is all you want. It is four portable sources and two include paths:
 
 ```sh
-gcc -std=c11 -Isrc/engine/nbody/anchor_sift -Isrc/engine/base/no_rounding your_program.c \
-    src/engine/nbody/anchor_sift/anchor_sift.c src/engine/nbody/anchor_sift/scan_portable.c \
-    src/engine/base/no_rounding/exact_integer.c src/engine/base/no_rounding/arm_portable.c
+gcc -std=c11 -Isrc/engine/nbody/anchor_sift -Isrc/engine/arithmetic/no_rounding your_program.c \
+    src/engine/nbody/anchor_sift/anchor_sift_*.c src/engine/nbody/anchor_sift/scan_portable.c \
+    src/engine/arithmetic/no_rounding/exact_integer_*.c src/engine/arithmetic/no_rounding/arm_portable.c
 ```
 
 ## The research papers

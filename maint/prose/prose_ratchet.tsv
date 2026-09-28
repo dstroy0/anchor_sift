@@ -158,7 +158,7 @@ maint/chain/check_pool_phase.py	6
 maint/chain/collision_entropy.py	4
 maint/chain/fetch_blocks.py	3
 maint/chain/fetch_deep.py	6
-maint/chain/fetch_labelled.py	4
+maint/chain/fetch_labeled.py	4
 maint/chain/leak_series.py	7
 maint/chain/phase_replication.py	15
 maint/check/check_monotone.py	2

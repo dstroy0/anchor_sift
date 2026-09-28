@@ -42,12 +42,12 @@ echo "  architectures: $ARCHES"
 
 rm -f "$LIBRARY"
 
-EXACT_ROOT="${ANCHOR_EXACT_ROOT:-$TOP/src/engine/base/no_rounding}"
-RESIDUAL_LIMBS="$(sed -n 's/^#define ENGINE_RESIDUAL_LIMBS \([0-9]*\)u.*/\1/p' "$TOP/src/engine/engine_config.h")"
-[ -n "$RESIDUAL_LIMBS" ] || { echo "  build failed: no ENGINE_RESIDUAL_LIMBS in engine_config.h"; exit 1; }
+EXACT_ROOT="${ANCHOR_EXACT_ROOT:-$TOP/src/engine/arithmetic/no_rounding}"
+RESIDUAL_LIMBS="$(sed -n 's/^#define ENGINE_RESIDUAL_LIMBS \([0-9]*\)u.*/\1/p' "$TOP/src/engine"/engine_config_*.h)"
+[ -n "$RESIDUAL_LIMBS" ] || { echo "  build failed: no ENGINE_RESIDUAL_LIMBS in engine_config_*.h"; exit 1; }
 QUESTION_LIMBS=$((RESIDUAL_LIMBS + 1))
-RECORD_LIMBS="$(sed -n 's/^#define ENGINE_RECORD_LIMBS_MOST \([0-9]*\)u.*/\1/p' "$TOP/src/engine/engine_config.h")"
-[ -n "$RECORD_LIMBS" ] || { echo "  build failed: no ENGINE_RECORD_LIMBS_MOST in engine_config.h"; exit 1; }
+RECORD_LIMBS="$(sed -n 's/^#define ENGINE_RECORD_LIMBS_MAX \([0-9]*\)u.*/\1/p' "$TOP/src/engine"/engine_config_*.h)"
+[ -n "$RECORD_LIMBS" ] || { echo "  build failed: no ENGINE_RECORD_LIMBS_MAX in engine_config_*.h"; exit 1; }
 [ "$RECORD_LIMBS" -gt "$QUESTION_LIMBS" ] && QUESTION_LIMBS="$RECORD_LIMBS"
 FITTED_LIMBS=1
 while [ "$FITTED_LIMBS" -lt "$QUESTION_LIMBS" ]; do
@@ -63,21 +63,22 @@ EXACT_FLAGS=(-I "$EXACT_ROOT" "-DANCHOR_EXACT_LIMBS=${EXACT_LIMBS}u" "-DANCHOR_E
 
 DEFINES=(-DBODY_OVERLAP_BUILD_DLL=1 -DHEAVIEST_MATCHING_BUILD_DLL=1
          -DSHIFT_AGREEMENT_BUILD_DLL=1)
-MODULES=(engine/base/stack engine/base/apxrep engine/base/compression engine/base/tower engine/base/device_pool
-         engine/base/entropy_history engine/base/noise_detector engine/base/schedule engine/base/keymath
-         engine/base/key_schedule engine/base/cycle engine/base/emit engine/base/radix_keys engine/base/unit_sweep
-         engine/base/obsignatio engine/base/residual engine/nbody/max_tree engine/nbody/flatten engine/base/golden_bands
-         engine/base/residual_survey engine/nbody/grow engine/base/shift_agreement engine/nbody/climb_machine
+MODULES=(engine/formats/stack engine/formats/apxrep engine/analysis/compression engine/analysis/tower
+         engine/runtime/device_pool engine/analysis/entropy_history engine/analysis/noise_detector
+         engine/runtime/schedule engine/compiler/keymath engine/compiler/key_schedule engine/compiler/cycle
+         engine/compiler/codegen engine/runtime/radix_keys engine/analysis/unit_sweep engine/runtime/obsignatio
+         engine/analysis/residual engine/nbody/max_tree engine/nbody/flatten engine/analysis/golden_bands
+         engine/analysis/residual_survey engine/nbody/grow engine/analysis/shift_agreement engine/nbody/climb_machine
          engine/nbody/body_overlap engine/nbody/fingerprint engine/nbody/print_pair engine/nbody/velocity
          engine/nbody/division engine/nbody/marginal engine/nbody/contact_side engine/nbody/box_history
-         engine/nbody/heaviest_matching engine/base/double_fields engine/base/decimal_double engine/base/scriptura
-         engine/base/period)
-INGEST=(engine/base/cfg_json engine/base/zarr engine/base/zstd engine/base/inflate engine/base/deflate engine/base/lz4
-        engine/base/snappy engine/base/blosc engine/base/tiff engine/base/hdf5 engine/base/zip engine/base/dicom
-        engine/base/npy engine/base/nrrd engine/base/nifti)
+         engine/nbody/heaviest_matching engine/arithmetic/double_fields engine/arithmetic/decimal_double
+         engine/runtime/scriptura engine/analysis/period)
+INGEST=(engine/formats/cfg_json engine/formats/zarr engine/codecs/zstd engine/codecs/inflate engine/codecs/deflate
+        engine/codecs/lz4 engine/codecs/snappy engine/codecs/blosc engine/formats/tiff engine/formats/hdf5
+        engine/codecs/zip engine/formats/dicom engine/formats/npy engine/formats/nrrd engine/formats/nifti)
 MODULES+=("${INGEST[@]}")
-MODULE_INCLUDES=(-I "$TOP/src/engine" -I "$TOP/src/engine/base")
-MODULE_SOURCES=("$TOP/src/engine/engine.cu")
+MODULE_INCLUDES=(-I "$TOP/src/engine" -I "$TOP/src/engine/codecs/crc")
+MODULE_SOURCES=("$TOP/src/engine"/engine_{record,residual,files,zarr,source,listing,seal,report,history}.cu)
 for module in "${MODULES[@]}"; do
     MODULE_INCLUDES+=(-I "$TOP/src/$module")
     for source in "$TOP/src/$module"/*.cu; do
@@ -85,9 +86,9 @@ for module in "${MODULES[@]}"; do
     done
 done
 PORTABLE_OBJECTS=()
-for portable in engine/nbody/body_overlap engine/nbody/heaviest_matching engine/base/shift_agreement \
-                engine/nbody/max_tree engine/base/cycle engine/nbody/marginal engine/base/double_fields \
-                engine/base/decimal_double engine/base/scriptura "${INGEST[@]}"; do
+for portable in engine/nbody/body_overlap engine/nbody/heaviest_matching engine/analysis/shift_agreement \
+                engine/nbody/max_tree engine/compiler/cycle engine/nbody/marginal engine/arithmetic/double_fields \
+                engine/arithmetic/decimal_double engine/runtime/scriptura "${INGEST[@]}"; do
     for source in "$TOP/src/$portable"/*.c; do
         name="$(basename "$source" .c)"
         OBJECT="$OUT/${name}_portable.o"
@@ -110,19 +111,22 @@ for portable in engine/nbody/body_overlap engine/nbody/heaviest_matching engine/
         PORTABLE_OBJECTS+=("$OBJECT")
     done
 done
-case "$(uname -s)" in
-    MINGW*|MSYS*|CYGWIN*) EXACT_OBJECT="$OUT/exact_integer_portable.obj" ;;
-    *) EXACT_OBJECT="$OUT/exact_integer_portable.o" ;;
-esac
-rm -f "$EXACT_OBJECT"
-case "$(uname -s)" in
-    MINGW*|MSYS*|CYGWIN*)
-        nvcc "${HOST_FLAGS[@]}" -Xcompiler "/std:c11 /O2" "${EXACT_FLAGS[@]}" -c "$EXACT_ROOT/exact_integer.c" -o "$EXACT_OBJECT" ;;
-    *)
-        cc -std=c11 -O2 -g -fPIC "${EXACT_FLAGS[@]}" -c "$EXACT_ROOT/exact_integer.c" -o "$EXACT_OBJECT" ;;
-esac
-[ -f "$EXACT_OBJECT" ] || { echo "  build failed: exact_integer.c did not compile"; exit 1; }
-PORTABLE_OBJECTS+=("$EXACT_OBJECT")
+for name in exact_integer_{add,limbs,multiply,divide,gcd,decimal,hash}; do
+    case "$(uname -s)" in
+        MINGW*|MSYS*|CYGWIN*) EXACT_OBJECT="$OUT/${name}_portable.obj" ;;
+        *) EXACT_OBJECT="$OUT/${name}_portable.o" ;;
+    esac
+    rm -f "$EXACT_OBJECT"
+    case "$(uname -s)" in
+        MINGW*|MSYS*|CYGWIN*)
+            nvcc "${HOST_FLAGS[@]}" -Xcompiler "/std:c11 /O2" "${EXACT_FLAGS[@]}" -c "$EXACT_ROOT/$name.c" \
+                -o "$EXACT_OBJECT" ;;
+        *)
+            cc -std=c11 -O2 -g -fPIC "${EXACT_FLAGS[@]}" -c "$EXACT_ROOT/$name.c" -o "$EXACT_OBJECT" ;;
+    esac
+    [ -f "$EXACT_OBJECT" ] || { echo "  build failed: $name.c did not compile"; exit 1; }
+    PORTABLE_OBJECTS+=("$EXACT_OBJECT")
+done
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 -fmad=false "${GENCODE[@]}" -shared \
     "${LINK_FLAGS[@]}" "${DEFINES[@]}" \

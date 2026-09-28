@@ -65,12 +65,12 @@ Six routes here mirror the engine at anchor_sift 1789287. Each shares no code wi
 
 | Python route                                              | the engine it mirrors                                                                                      | grader                                                                         |
 | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `render/host.py`, and `render_raster`, `render_volume`    | `src/engine/render/anchor_raster.c`, and the dispatch that prefers the device                              | `render_test.py`, byte for byte                                                |
-| `representation/exact.py`, `scaled` and `measured`        | `anchor_exact_from_decimal`, `anchor_exact_from_measured` in `src/engine/base/no_rounding/exact_integer.c` | `exact_test.py`, text for text                                                 |
-| `measure/shift_agreement.py`, `frame_shift`               | `shift_agreement_host` in `src/engine/base/shift_agreement/shift_agreement.c`                              | `shift_agreement_test.py`, count for count                                     |
-| `measure/period.py`                                       | `period_read` and `period_draw` in `src/engine/base/period/period.cu`                                      | `period_test.py` with `period_probe.cu`, line for line                         |
+| `render/host.py`, and `render_raster`, `render_volume`    | `src/engine/render/anchor_raster_*.c`, and the dispatch that prefers the device                              | `render_test.py`, byte for byte                                                |
+| `representation/exact.py`, `scaled` and `measured`        | `anchor_exact_from_decimal`, `anchor_exact_from_measured` in `src/engine/arithmetic/no_rounding/exact_integer_decimal.c` | `exact_test.py`, text for text                                                 |
+| `measure/shift_agreement.py`, `frame_shift`               | `shift_agreement_host` in `src/engine/analysis/shift_agreement/shift_agreement.c`                              | `shift_agreement_test.py`, count for count                                     |
+| `measure/period.py`                                       | `period_read` and `period_draw` in `src/engine/analysis/period/period_select.cu`                                      | `period_test.py` with `period_probe.cu`, line for line                         |
 | `measure/periodic_energy.py`, the `energy_` functions     | `src/engine/sims/art/periodic_energy.h`                                                                    | `periodic_energy_test.py` with `periodic_energy_probe.cu`, line for line       |
-| `sift/anchors.py`, the functions under the kernel's names | `src/engine/nbody/anchor_sift/anchor_sift.c`, with its bench under `bench/`                                | `sift_test.py` with `anchor_sift_probe.def`, count for count and read for read |
+| `sift/anchors.py`, the functions under the kernel's names | `src/engine/nbody/anchor_sift/anchor_sift_*.c`, with its bench under `bench/`                                | `sift_test.py` with `anchor_sift_probe.def`, count for count and read for read |
 
 The rest of this tree is not graded against the engine.
 

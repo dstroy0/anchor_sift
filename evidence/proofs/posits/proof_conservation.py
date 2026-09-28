@@ -11,7 +11,7 @@
 # The posit came from one case, where the same measure over a quarter, a half and the whole of a corpus
 # gave 1.41, 1.25 and 19684 and the discontinuity was a mean over a heavy tail. One case is an anecdote.
 #
-# Proving it means stating what the measure should be invariant to and checking each. Relabelling the
+# Proving it means stating what the measure should be invariant to and checking each. Relabeling the
 # symbols cannot change gaps between occurrences. It has to conserve exactly. Reading the corpus
 # backwards reverses every gap sequence and leaves the gaps themselves. It has to conserve exactly as
 # well. Truncation and duplication should conserve approximately if the corpus is homogeneous. Block

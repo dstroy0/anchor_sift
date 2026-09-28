@@ -4,6 +4,6 @@
 
 #include "track.h"
 
-int score_sample(const char *set, const char *source, const char *sample, const TreeRules *rules, EdgeTally *tally);
+int score_sample(const char *set, const char *source, const char *sample, const TreeRules *rules, EdgeResults *results);
 
 #endif

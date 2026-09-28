@@ -343,7 +343,7 @@ def main():
             "# (ƛ̓q̓əmcín). With Brent Hall, University of British Columbia.\n"
         )
         handle.write(
-            "# Papers for the International Conference on Salish and Neighbouring\n"
+            "# Papers for the International Conference on Salish and Neighboring\n"
         )
         handle.write(
             "# Languages 60, UBCWPL, 2025. Audio published alongside the paper.\n"

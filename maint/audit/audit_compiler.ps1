@@ -8,7 +8,7 @@
 # The test that settles it is differential rather than inspective. Each bench is built three ways
 # and run three times:
 #
-#   O0    no optimisation at all, so nothing is folded, hoisted or contracted
+#   O0    no optimization at all, so nothing is folded, hoisted or contracted
 #   O2    the flags the tree was built with
 #   NOFMA O2 with fused multiply-add contraction disabled, which is on by default in GCC
 #
@@ -49,7 +49,7 @@ New-Item -ItemType Directory -Force -Path $work | Out-Null
 # change here avoids it.
 #
 # sha256_core.c gates its vector arm on __AVX2__ and its else arm defers to the scalar reference, so
-# without -mavx2 the O0 build is the reference arm compiled unoptimised. That is the arm a fold
+# without -mavx2 the O0 build is the reference arm compiled unoptimized. That is the arm a fold
 # audit wants anyway: it is the one whose arithmetic the statistics read.
 #
 # What this costs, stated rather than buried: for the two benches that exercise the vector arm, the

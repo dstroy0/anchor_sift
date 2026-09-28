@@ -21,11 +21,11 @@ var<private> STATUS: array<u32, 5> = array<u32, 5>(0x009E73u, 0xE69F00u, 0xD55E0
 
 struct Out {
   @builtin(position) place: vec4<f32>,
-  @location(0) @interpolate(flat) colour: vec4<f32>,
+  @location(0) @interpolate(flat) color: vec4<f32>,
   @location(1) @interpolate(flat) pick: u32,
 }
 struct Drawn {
-  @location(0) colour: vec4<f32>,
+  @location(0) color: vec4<f32>,
   @location(1) pick: u32,
 }
 
@@ -108,8 +108,8 @@ fn lit(cell: u32, frame: u32, shade: u32) -> vec4<f32> {
   let faded = (base * bright) / 256u;
   let picked = chosen_bit(cell);
   let dim = (lay.chosen_weight * (1u - picked)) / 1u;
-  let grey = vec3<u32>((faded.x + faded.y + faded.z) / 10u);
-  let shown = (faded * (256u - dim) + grey * dim) / 256u;
+  let gray = vec3<u32>((faded.x + faded.y + faded.z) / 10u);
+  let shown = (faded * (256u - dim) + gray * dim) / 256u;
   let lift = 48u * u32(lay.hover_cell == cell + 1u) + 64u * lay.glow * picked;
   let raised = min(shown + vec3<u32>(lift), vec3<u32>(255u));
   return vec4<f32>(vec3<f32>(raised) / 255.0, 1.0);
@@ -154,7 +154,7 @@ fn box(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u3
   let shown = select(select(true, grain < eased, frame == lay.frame_now + 1u), grain >= eased, frame == lay.frame_now);
   var out: Out;
   out.place = select(HIDDEN, project(x, y, z, frame), shown);
-  out.colour = lit(cell, frame, shade);
+  out.color = lit(cell, frame, shade);
   out.pick = cell + 1u;
   return out;
 }
@@ -190,14 +190,14 @@ fn blob(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u
   let in_range = (frame + lay.ghost_frames >= lay.frame_now) && (frame <= lay.frame_now);
   var out: Out;
   out.place = select(HIDDEN, project(x, y, z, frame), kept && in_range);
-  out.colour = lit(cell, frame, 256u - face * 40u);
+  out.color = lit(cell, frame, 256u - face * 40u);
   out.pick = cell + 1u;
   return out;
 }
 
 @fragment
 fn paint_fragment(input: Out) -> Drawn {
-  return Drawn(input.colour, input.pick);
+  return Drawn(input.color, input.pick);
 }`;
 
 EV.LINES = EV.PRELUDE + EV.RENDER_BINDINGS + EV.RENDER_COMMON + `
@@ -213,7 +213,7 @@ fn link(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u
   let tone = (paint(cell) * (96u + 160u * either)) / 256u;
   var out: Out;
   out.place = select(HIDDEN, project(middle.x, middle.y, middle.z, frame), kept);
-  out.colour = vec4<f32>(vec3<f32>(tone) / 255.0, 1.0);
+  out.color = vec4<f32>(vec3<f32>(tone) / 255.0, 1.0);
   out.pick = 0u;
   return out;
 }
@@ -231,12 +231,12 @@ fn edge(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u
   let wanted = ((lay.status_mask >> status) & 1u) == 1u;
   var out: Out;
   out.place = select(HIDDEN, project(middle.x, middle.y, middle.z, from_frame + (vertex & 1u)), whole && near && wanted);
-  out.colour = vec4<f32>(vec3<f32>(unpack(STATUS[status])) / 255.0, 1.0);
+  out.color = vec4<f32>(vec3<f32>(unpack(STATUS[status])) / 255.0, 1.0);
   out.pick = 0u;
   return out;
 }
 
 @fragment
 fn paint_fragment(input: Out) -> Drawn {
-  return Drawn(input.colour, input.pick);
+  return Drawn(input.color, input.pick);
 }`;

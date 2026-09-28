@@ -10,7 +10,7 @@ Follow the steps below in order. Do not skip any. Every command is typed exactly
 2. **The CUDA toolkit**, which gives you a program called `nvcc`. To check you have it, open a terminal and type `nvcc --version`. If it says "not found", install the CUDA toolkit from NVIDIA first.
 3. **On Windows only: Visual Studio Build Tools 2022.** `nvcc` needs it to work. You do not open it; the build script finds it on its own.
 4. **Git Bash** on Windows, or any normal terminal on Linux. Every command below runs in that terminal, not in PowerShell and not in cmd.
-5. **The exact integer code.** It comes with this repository, at `../../src/engine/base/no_rounding`, and the build finds it there on its own. To build against another copy, type `export ANCHOR_EXACT_ROOT=/your/path/to/no_rounding` before you build.
+5. **The exact integer code.** It comes with this repository, at `../../src/engine/arithmetic/no_rounding`, and the build finds it there on its own. To build against another copy, type `export ANCHOR_EXACT_ROOT=/your/path/to/no_rounding` before you build.
 6. **About 90 GB of free disk space** for the compressed copy of the training movies (step 3).
 
 ## Step 1: get the data
@@ -250,7 +250,7 @@ Other flags:
 ## Sharing the graphics card
 
 Every run goes through **tessera**, the one scheduler for your graphics card
-([../../src/engine/daemon/README.md](../../src/engine/daemon/README.md)). `--ingest` is one job, and so is each `--run` part. Before
+([../../src/engine/runtime/daemon/README.md](../../src/engine/runtime/daemon/README.md)). `--ingest` is one job, and so is each `--run` part. Before
 the part starts, the program asks tessera for room on the card. The part runs only once tessera admits it, and when
 the part ends the program releases the job. If no tessera is running, the program starts the `tessera_daemon.exe`
 beside it. The daemon closes by itself a few seconds after the last job ends.
@@ -292,7 +292,7 @@ way to run without it.
 | `its .kcr in ... did not load and prove` | you have not done step 3 for that movie, or `set` points at the wrong folder |
 | `the source's N axes are not all named t z y x` | add `--axes` (see step 3) |
 | `usage: track_driver ...` | it did not get a set or any movie names; check the `input` part of the `.cfg` |
-| `tessera: ... the daemon (...) did not take the job` | `tessera_daemon.exe` is missing from beside the program (rebuild), or its history was refused (the daemon names the file; see [../../src/engine/daemon/README.md](../../src/engine/daemon/README.md)) |
+| `tessera: ... the daemon (...) did not take the job` | `tessera_daemon.exe` is missing from beside the program (rebuild), or its history was refused (the daemon names the file; see [../../src/engine/runtime/daemon/README.md](../../src/engine/runtime/daemon/README.md)) |
 | `tessera: ... was held past its holding time and lost` | the job declared more than its kept peak; rerun with `--override` if that is meant |
 
 ## Where the results are written up

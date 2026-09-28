@@ -297,7 +297,7 @@ def main():
         "\n  a row is a place to ask. Held means granted by a community, or published with\n"
     )
     out.write(
-        "  its paper and kept here to calculate over. Neither is a licence to pass it on.\n\n"
+        "  its paper and kept here to calculate over. Neither is a license to pass it on.\n\n"
     )
     out.flush()
     return 0

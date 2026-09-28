@@ -1,8 +1,8 @@
 # Directions the engine's own proofs already license
 
 **Purpose:** Collect the capabilities that follow from what the engine has already proved, and the Laplacian construction that replaces its planning cost with a determinant.
-**Scope:** `src/engine/nbody/anchor_sift/anchor_sift.{h,c}`
-**Note, 26 September:** this scope first named `src/engine/c/portable/anchor_steer.{h,c}` and `src/engine/c/portable/anchor_sift.h`. Commit `510577b` (16 September) folded the steer files into `anchor_sift.{h,c}`, `0954259` (16 September) renamed `src/engine/c/portable/` to `src/engine/c/engine/`, and `bdaed61` (24 September) moved those to `src/engine/nbody/anchor_sift/`, where they are at anchor_sift `1948ae1`.
+**Scope:** `src/engine/nbody/anchor_sift/anchor_sift.h`, `src/engine/nbody/anchor_sift/anchor_sift_*.c`
+**Note, 26 September:** this scope first named `src/engine/c/portable/anchor_steer.{h,c}` and `src/engine/c/portable/anchor_sift.h`. Commit `510577b` (16 September) folded the steer files into `anchor_sift.{h,c}`, `0954259` (16 September) renamed `src/engine/c/portable/` to `src/engine/c/engine/`, and `bdaed61` (24 September) moved those to `src/engine/nbody/anchor_sift/`, where they are at anchor_sift `1948ae1`. The file splits of 27 September cut `anchor_sift.c` into `anchor_sift_*.c` beside `anchor_sift.h`.
 
 ## Contents
 

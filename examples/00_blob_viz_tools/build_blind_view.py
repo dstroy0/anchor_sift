@@ -28,7 +28,7 @@ its solid angle, and no part of the sphere is hidden or magnified.
 WHAT IS EXACT AND WHAT IS NOT
 
 The matrix, its decomposition, and the residual norms are computed at full depth with no smoothing, the
-most favourable case there is: both kernels are diagonal in degree and below one, so either can
+most favorable case there is: both kernels are diagonal in degree and below one, so either can
 only shrink a singular value. The field maps are drawn on a finite grid and are a picture; the
 numbers printed beside them are the measurement.
 """
@@ -212,9 +212,9 @@ def _check():
     # The projection has to be an involution on the equator and put the poles where they belong,
     # or every map on the page is a different sphere from the one being measured.
     x, y = mollweide(math.pi / 2.0, 0.0)
-    lines.append("  the equator's centre projects to (%.3f, %.3f)" % (x, y))
+    lines.append("  the equator's center projects to (%.3f, %.3f)" % (x, y))
     if abs(x) > 1e-9 or abs(y) > 1e-9:
-        lines.append("    FAIL the centre of the map is not the centre of the sphere")
+        lines.append("    FAIL the center of the map is not the center of the sphere")
         failed += 1
     x, y = mollweide(0.0, 1.2)
     lines.append("  the north pole projects to (%.3f, %.3f)" % (x, y))

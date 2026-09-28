@@ -30,7 +30,7 @@ def load():
     return by_round
 
 
-def standardised(values, skip):
+def standardized(values, skip):
     """Deviation of every class from the class mean, scaled by the scatter of the rest."""
     mean = sum(values) / len(values)
     others = [values[k] for k in range(len(values)) if k != skip]
@@ -62,7 +62,7 @@ def main():
         values = [classes[k] for k in range(32)]
         mean = sum(values) / 32.0
         best = max(range(32), key=lambda k: abs(values[k] - mean))
-        _, scatter = standardised(values, best)
+        _, scatter = standardized(values, best)
         excess = values[best] - mean
         sigmas = excess / scatter if scatter > 0 else 0.0
         verdict = "STRUCTURE" if abs(sigmas) > peak else "flat"
@@ -73,7 +73,7 @@ def main():
     values = [by_round[12][k] for k in range(32)]
     mean = sum(values) / 32.0
     for k in range(32):
-        _, scatter = standardised(values, k)
+        _, scatter = standardized(values, k)
         sigmas = (values[k] - mean) / scatter
         bar = "#" * int(min(40, abs(sigmas) * 10))
         print("  %2d %9.1f %7.2f %s%s" % (k, values[k] - mean, sigmas,

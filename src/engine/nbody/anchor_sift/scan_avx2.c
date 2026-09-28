@@ -23,7 +23,7 @@
  * WHAT THIS ARM IS NOT ALLOWED TO DO. It returns the portable arm's count or it has a defect. There
  * is no tolerance, no reordering that changes an answer, and no fast path that is right most of the
  * time: the value is an integer count of alignments and the two arms agree exactly or one is wrong.
- * That is the contract base/no_rounding/arm.h states for the exact arms and it is kept here for the same
+ * That is the contract arithmetic/no_rounding/arm.h states for the exact arms and it is kept here for the same
  * reason.
  *
  * @note Asks the processor at run time and not the build. A binary compiled with AVX2 available
@@ -96,8 +96,8 @@ static int steer_avx2_present(void)
 #endif
 }
 
-size_t anchor_steer_truthy_after_avx2(const uint8_t *corpus, size_t alignments,
-                                      const uint8_t *alive, uint8_t wanted, size_t offset)
+size_t anchor_steer_truthy_after_avx2(const uint8_t *corpus, size_t alignments, const uint8_t *alive, uint8_t wanted,
+                                      size_t offset)
 {
     /* Counted before the argument check. A caller passing nothing still records that this arm
      * was the one asked. The claim the counters carry is which arm RAN and not what it returned. */
@@ -129,8 +129,7 @@ size_t anchor_steer_truthy_after_avx2(const uint8_t *corpus, size_t alignments,
         const __m256i refuted = _mm256_cmpeq_epi8(standing_bytes, zero);
         const __m256i alive_mask = _mm256_andnot_si256(refuted, _mm256_set1_epi8((char)0xFF));
 
-        const unsigned int bits = (unsigned int)_mm256_movemask_epi8(
-            _mm256_and_si256(agrees, alive_mask));
+        const unsigned int bits = (unsigned int)_mm256_movemask_epi8(_mm256_and_si256(agrees, alive_mask));
         standing += steer_popcount(bits);
     }
 

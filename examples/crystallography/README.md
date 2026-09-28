@@ -214,7 +214,7 @@ way and leaves the agreeing lags unchanged. A period is a statement about repeti
 that repeats perfectly does not disturb it. A count, a density or any distance would have moved.
 
 The expansion is exact, and that took a second scale. A translation of 1/3 is not a decimal at any
-number of places, because 10^n factors into twos and fives and three divides neither. An R centred
+number of places, because 10^n factors into twos and fives and three divides neither. An R centerd
 operation is full of thirds and the corpus is full of R-3. Carrying those through the decimal scale
 would displace every copy they generate. A symmetry copy would land beside the atom it should have
 landed on, and the doping at that place would vanish silently. Coordinates in

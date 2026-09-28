@@ -26,7 +26,7 @@
 # a third. The scale in exact.py is very large and it does not help, because the problem is not size.
 #
 # A trigonal or hexagonal space group is full of thirds. '-y,x-y,z' with 'x+2/3,y+1/3,z+1/3' is an
-# ordinary R centred operation, and the corpus is full of R-3 and R-3c. Carrying those through a
+# ordinary R centered operation, and the corpus is full of R-3 and R-3c. Carrying those through a
 # decimal scale would round them, and a rounded symmetry copy lands next to the atom it should have
 # landed on and not on it. Two sites that are one place stop comparing equal and the doping
 # at that place disappears. The failure would be silent and would look like an absence of doping.
