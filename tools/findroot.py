@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-# ProtoCore v1.0.16 - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
-# SPDX-License-Identifier: AGPL-3.0-or-later
-"""Where the repo root is, for every script under src/, examples/, test/core_setup/, tools/ and test/.
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+"""Where anchor_sift's root is, for the scripts under test/ and tools/.
 
-Searches upward from this file for `maint` + `src`. This file sits at the root, so the
-answer does not depend on the caller's depth, its working directory, or how it was launched.
+Searches upward from this file for `maint` and `src`. This file sits one folder below the root, so
+the answer does not depend on the caller's depth, its working directory, or how it was launched.
 
-    import findroot
+    from tools import findroot
 
-    findroot.root()             # absolute path to the repo root
-    findroot.at("src", "mmgr")  # absolute path under it, native separators
-    findroot.rel(abs_path)      # root-relative POSIX path, for keys and report lines
-    findroot.here(__file__)     # the caller's own root-relative POSIX path
+    findroot.root()                 # absolute path to the root
+    findroot.at("test", "x.json")   # absolute path under it, native separators
+    findroot.rel(abs_path)          # root-relative POSIX path, for keys and report lines
+    findroot.here(__file__)         # the caller's own root-relative POSIX path
 
 `rel` and `here` return forward slashes on every platform.
 
@@ -39,7 +39,7 @@ _ROOT = _find()
 
 
 def root():
-    """Absolute path to the repo root."""
+    """Absolute path to the root."""
     return _ROOT
 
 
