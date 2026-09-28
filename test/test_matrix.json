@@ -705,14 +705,6 @@
         "engine/runtime/daemon"
       ]
     },
-    "tessera_run": {
-      "desc": "tessera_run.",
-      "script": "test/engine/runtime/daemon/tessera_run_test.sh",
-      "src": [],
-      "tests": [
-        "engine/runtime/daemon"
-      ]
-    },
     "tower_edge": {
       "desc": "The tower's lookup edges.",
       "script": "test/engine/analysis/tower/tower_edge_test.sh",
