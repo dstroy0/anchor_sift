@@ -16,8 +16,8 @@ void track_error_report(const char *what, const EngineError *error)
     const uintptr_t execaddr = (uintptr_t)error->execaddr;
     // the module is one of the enumerated values, so it re-signs to unsigned int exactly
     fprintf(stderr, "  %s: %s error, module %u, site %u, status %d, execaddr +0x%llx, evacaddr %p, frames", what,
-            KINDS[kind], (unsigned int)error->module, error->site, error->status,
-            (unsigned long long)(execaddr - base), error->evacaddr);
+            KINDS[kind], (unsigned int)error->module, error->site, error->status, (unsigned long long)(execaddr - base),
+            error->evacaddr);
     for (unsigned int frame = 0u; frame < error->frame_count; frame += 1u)
     {
         // an address converts to uintptr_t exactly

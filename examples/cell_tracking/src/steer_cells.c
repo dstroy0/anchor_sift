@@ -31,10 +31,9 @@ int main(int argc, char **argv)
 {
     if (argc < 3)
     {
-        (void)fprintf(stderr,
-                      "  usage: steer_cells VOLUME_TXT SHARE\n"
-                      "         VOLUME_TXT  rows of \"z y x level\", the whole field\n"
-                      "         SHARE       parts per thousand of the field to admit as cells\n");
+        (void)fprintf(stderr, "  usage: steer_cells VOLUME_TXT SHARE\n"
+                              "         VOLUME_TXT  rows of \"z y x level\", the whole field\n"
+                              "         SHARE       parts per thousand of the field to admit as cells\n");
         return 2;
     }
 
@@ -108,8 +107,7 @@ int main(int argc, char **argv)
     const uint64_t budget = (census.total * (uint64_t)share) / 1000u;
 
     (void)printf("  field %llu voxels, %u distinct levels, admitting %llu voxels (%lu per mille)\n",
-                 (unsigned long long)census.total, census.distinct,
-                 (unsigned long long)budget, share);
+                 (unsigned long long)census.total, census.distinct, (unsigned long long)budget, share);
     (void)printf("\n  rank  level  occurrences  magnitude\n");
 
     uint64_t spent = 0u;
@@ -131,14 +129,12 @@ int main(int argc, char **argv)
         if (taken < 8u)
         {
             (void)printf("  %-5u %-6u %-12llu %llu\n", taken, ranked[at].level,
-                         (unsigned long long)ranked[at].occurrences,
-                         (unsigned long long)ranked[at].magnitude);
+                         (unsigned long long)ranked[at].occurrences, (unsigned long long)ranked[at].magnitude);
         }
         taken++;
     }
 
-    (void)printf("\n  %u levels admitted, %llu voxels, %.3f per mille of the field\n",
-                 taken, (unsigned long long)spent,
+    (void)printf("\n  %u levels admitted, %llu voxels, %.3f per mille of the field\n", taken, (unsigned long long)spent,
                  census.total ? (1000.0 * (double)spent / (double)census.total) : 0.0);
 
     FILE *out = fopen("steered.txt", "w");

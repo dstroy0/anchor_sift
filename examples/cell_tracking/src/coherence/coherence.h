@@ -11,7 +11,7 @@ void links_of_node(const NodeIndex *index, unsigned int node, const unsigned int
 int export_capacity(const EngineBuffers *buffers, const CoherenceInputs *inputs, const char *directory);
 
 int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, const unsigned int *runs,
-                         const unsigned int *first_run, const unsigned int *leaf_runs, const TreeRules *rules);
+                  const unsigned int *first_run, const unsigned int *leaf_runs, const TreeRules *rules);
 
 int read_coherence(EngineBuffers *buffers, const CoherenceInputs *inputs, FILE *out);
 

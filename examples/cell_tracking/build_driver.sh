@@ -3,8 +3,8 @@
 set -u
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TOP="$(cd "$ROOT/../.." && pwd)"
-source "$TOP/maint/build_stamp.sh"
+TOP="$(cd "$ROOT/.." && pwd)"
+source "$ROOT/maint/build_stamp.sh"
 build_stamp driver
 NAME="${DRIVER_NAME:-track_driver}"
 EXTRA_DEFINES=(${DRIVER_DEFINES:-})
@@ -23,7 +23,7 @@ case "$(uname -s)" in
         fi
         HOST_FLAGS=(-ccbin "$MSVC_BIN" -Xcompiler /Zc:preprocessor -Xcompiler -Z7)
         LINK_FLAGS=(-Xlinker -DEBUG -Xlinker -OPT:REF -Xlinker -OPT:ICF
-                    -Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$TOP/src/engine/long_paths.manifest")")
+                    -Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$ENGINE/long_paths.manifest")")
         ;;
     *)
         BINARY="$OUT/$NAME"
@@ -43,11 +43,11 @@ for one in $ARCHES; do
 done
 echo "  architectures: $ARCHES"
 
-EXACT_ROOT="${ANCHOR_EXACT_ROOT:-$TOP/src/engine/arithmetic/no_rounding}"
-RESIDUAL_LIMBS="$(sed -n 's/^#define ENGINE_RESIDUAL_LIMBS \([0-9]*\)u.*/\1/p' "$TOP/src/engine"/engine_config_*.h)"
+EXACT_ROOT="${ANCHOR_EXACT_ROOT:-$ENGINE/arithmetic/no_rounding}"
+RESIDUAL_LIMBS="$(sed -n 's/^#define ENGINE_RESIDUAL_LIMBS \([0-9]*\)u.*/\1/p' "$ENGINE"/engine_config_*.h)"
 [ -n "$RESIDUAL_LIMBS" ] || { echo "  build failed: no ENGINE_RESIDUAL_LIMBS in engine_config_*.h"; exit 1; }
 QUESTION_LIMBS=$((RESIDUAL_LIMBS + 1))
-RECORD_LIMBS="$(sed -n 's/^#define ENGINE_RECORD_LIMBS_MAX \([0-9]*\)u.*/\1/p' "$TOP/src/engine"/engine_config_*.h)"
+RECORD_LIMBS="$(sed -n 's/^#define ENGINE_RECORD_LIMBS_MAX \([0-9]*\)u.*/\1/p' "$ENGINE"/engine_config_*.h)"
 [ -n "$RECORD_LIMBS" ] || { echo "  build failed: no ENGINE_RECORD_LIMBS_MAX in engine_config_*.h"; exit 1; }
 [ "$RECORD_LIMBS" -gt "$QUESTION_LIMBS" ] && QUESTION_LIMBS="$RECORD_LIMBS"
 FITTED_LIMBS=1
@@ -63,43 +63,47 @@ fi
 EXACT_FLAGS=(-I "$EXACT_ROOT" "-DANCHOR_EXACT_LIMBS=${EXACT_LIMBS}u" "-DANCHOR_EXACT_DIGITS=${EXACT_DIGITS}u")
 echo "  exact integer: $((EXACT_LIMBS * 32)) bits, $EXACT_DIGITS digits, for a question of $QUESTION_LIMBS limbs, from $EXACT_ROOT"
 
-FUNCTIONALS=(src/engine/prg_sch/run_cfg src/engine/formats/cfg_json src/engine/prg_sch/run_log src/engine/formats/stack
-             src/engine/formats/apxrep src/engine/runtime/device_pool src/engine/analysis/noise_detector
-             src/engine/analysis/compression src/engine/analysis/tower src/engine/analysis/entropy_history
-             src/engine/runtime/schedule src/engine/compiler/keymath src/engine/compiler/key_schedule
-             src/engine/compiler/cycle src/engine/compiler/codegen src/engine/runtime/radix_keys
-             src/engine/analysis/unit_sweep src/engine/runtime/obsignatio src/engine/analysis/residual
-             src/engine/nbody/max_tree src/engine/nbody/flatten examples/cell_tracking/src/track
-             src/engine/analysis/golden_bands src/engine/prg_sch/answer_key src/engine/analysis/residual_survey
-             src/engine/nbody/grow src/engine/analysis/shift_agreement src/engine/nbody/climb_machine
-             src/engine/nbody/body_overlap src/engine/nbody/fingerprint src/engine/nbody/print_pair
-             src/engine/nbody/velocity src/engine/nbody/division src/engine/nbody/marginal src/engine/nbody/contact_side
-             src/engine/nbody/box_history src/engine/nbody/heaviest_matching src/engine/arithmetic/double_fields
-             src/engine/arithmetic/decimal_double src/engine/runtime/scriptura src/engine/nbody/relate_frames
-             src/engine/nbody/group_objects src/engine/nbody/link_objects src/engine/nbody/bodies
-             examples/cell_tracking/src/score_sample examples/cell_tracking/src/coherence
-             examples/00_blob_viz_tools/view/vis_png examples/cell_tracking/src/track_driver)
-INGEST=(src/engine/formats/zarr src/engine/codecs/zstd src/engine/codecs/inflate src/engine/codecs/deflate
-        src/engine/codecs/lz4 src/engine/codecs/snappy src/engine/codecs/blosc src/engine/formats/tiff
-        src/engine/formats/hdf5 src/engine/codecs/zip src/engine/formats/dicom src/engine/formats/npy
-        src/engine/formats/nrrd src/engine/formats/nifti)
+FUNCTIONALS=(cell_tracking/src/run_cfg engine/formats/cfg_json cell_tracking/src/run_log engine/formats/stack
+             engine/formats/apxrep engine/analysis/compression engine/analysis/tower engine/runtime/device_pool
+             engine/analysis/entropy_history
+             engine/analysis/noise_detector
+             engine/runtime/schedule
+             engine/compiler/keymath engine/compiler/key_schedule engine/compiler/cycle engine/compiler/codegen
+             engine/runtime/radix_keys engine/analysis/unit_sweep engine/runtime/obsignatio engine/analysis/residual
+             engine/nbody/max_tree engine/nbody/flatten cell_tracking/src/track engine/analysis/golden_bands
+             cell_tracking/src/answer_key engine/analysis/residual_survey engine/nbody/grow
+             engine/analysis/shift_agreement engine/nbody/climb_machine engine/nbody/body_overlap
+             engine/nbody/fingerprint engine/nbody/print_pair engine/nbody/velocity engine/nbody/division
+             engine/nbody/marginal engine/nbody/contact_side engine/nbody/box_history engine/nbody/heaviest_matching
+             engine/arithmetic/double_fields engine/arithmetic/decimal_double engine/runtime/scriptura
+             cell_tracking/src/relate_frames cell_tracking/src/group_objects cell_tracking/src/link_objects
+             cell_tracking/src/bodies cell_tracking/src/score_sample cell_tracking/src/coherence cell_tracking/src/peaks
+             cell_tracking/src/scan cell_tracking/src/sort cell_tracking/src/divide
+             cell_tracking/src/faces
+             cell_tracking/src/output
+             anchor_sift/examples/00_blob_viz_tools/view/vis_png
+             cell_tracking/src/track_driver)
+INGEST=(engine/formats/zarr engine/codecs/zstd engine/codecs/inflate engine/codecs/deflate engine/codecs/lz4
+        engine/codecs/snappy engine/codecs/blosc engine/formats/tiff engine/formats/hdf5 engine/codecs/zip
+        engine/formats/dicom engine/formats/npy engine/formats/nrrd engine/formats/nifti)
 FUNCTIONALS+=("${INGEST[@]}")
-FUNCTIONAL_INCLUDES=(-I "$TOP/src/engine" -I "$TOP/src/engine/codecs/crc" -I "$TOP/src/engine/runtime/daemon")
-FUNCTIONAL_SOURCES=("$TOP/src/engine"/engine_{record,residual,files,zarr,source,listing,seal,report,history}.cu)
+FUNCTIONAL_INCLUDES=(-I "$ENGINE" -I "$ENGINE/codecs/crc" -I "$ENGINE/runtime/daemon")
+FUNCTIONAL_SOURCES=("$ENGINE"/engine_{record,residual,files,zarr,source,listing,seal,report,history}.cu)
 for functional in "${FUNCTIONALS[@]}"; do
-    [ -d "$TOP/$functional" ] || { echo "  build failed: no $functional"; exit 1; }
-    FUNCTIONAL_INCLUDES+=(-I "$TOP/$functional")
-    for source in "$TOP/$functional"/*.cu; do
+    folder="$(build_path "$functional")"
+    [ -d "$folder" ] || { echo "  build failed: no $functional"; exit 1; }
+    FUNCTIONAL_INCLUDES+=(-I "$folder")
+    for source in "$folder"/*.cu; do
         [ -f "$source" ] && FUNCTIONAL_SOURCES+=("$source")
     done
 done
 
 PORTABLE_OBJECTS=()
-for portable in src/engine/nbody/body_overlap src/engine/analysis/shift_agreement src/engine/formats/cfg_json \
-                src/engine/nbody/max_tree src/engine/compiler/cycle src/engine/nbody/heaviest_matching \
-                src/engine/nbody/marginal src/engine/arithmetic/double_fields src/engine/arithmetic/decimal_double \
-                src/engine/runtime/scriptura "${INGEST[@]}"; do
-    for source in "$TOP/$portable"/*.c; do
+for portable in engine/nbody/body_overlap engine/analysis/shift_agreement engine/formats/cfg_json \
+                engine/nbody/max_tree engine/compiler/cycle engine/nbody/heaviest_matching engine/nbody/marginal \
+                engine/arithmetic/double_fields engine/arithmetic/decimal_double engine/runtime/scriptura \
+                "${INGEST[@]}"; do
+    for source in "$(build_path "$portable")"/*.c; do
         name="$(basename "$source" .c)"
         case "$(uname -s)" in
             MINGW*|MSYS*|CYGWIN*) OBJECT="$OUT/${name}_portable.obj" ;;
@@ -154,12 +158,11 @@ for name in tessera_client_{socket,jobs} tessera_paths tessera_frame tessera_sel
     case "$(uname -s)" in
         MINGW*|MSYS*|CYGWIN*)
             nvcc "${HOST_FLAGS[@]}" -Xcompiler "/std:c11 /O2" "${FUNCTIONAL_INCLUDES[@]}" \
-                -c "$TOP/src/engine/runtime/daemon/$name.c" -o "$OBJECT" ;;
+                -c "$ENGINE/runtime/daemon/$name.c" -o "$OBJECT" ;;
         *)
-            cc -std=c11 -O2 -g -fPIC "${FUNCTIONAL_INCLUDES[@]}" -c "$TOP/src/engine/runtime/daemon/$name.c" \
-                -o "$OBJECT" ;;
+            cc -std=c11 -O2 -g -fPIC "${FUNCTIONAL_INCLUDES[@]}" -c "$ENGINE/runtime/daemon/$name.c" -o "$OBJECT" ;;
     esac
-    [ -f "$OBJECT" ] || { echo "  build failed: src/engine/runtime/daemon/$name.c did not compile"; exit 1; }
+    [ -f "$OBJECT" ] || { echo "  build failed: engine/runtime/daemon/$name.c did not compile"; exit 1; }
     case "$name" in
         tessera_client_*) TESSERA_CLIENT_OBJECTS+=("$OBJECT") ;;
         tessera_paths|tessera_frame|tessera_self) TESSERA_CLIENT_OBJECTS+=("$OBJECT"); TESSERA_DAEMON_OBJECTS+=("$OBJECT") ;;
@@ -173,8 +176,8 @@ SEAL_OBJECTS=()
 for name in obsignatio_{hash,seal}; do
     SEAL_OBJECT="$OUT/${name}_daemon.$OBJECT_SUFFIX"
     rm -f "$SEAL_OBJECT"
-    nvcc "${HOST_FLAGS[@]}" -O2 "${GENCODE[@]}" "${FUNCTIONAL_INCLUDES[@]}" \
-        -c "$TOP/src/engine/runtime/obsignatio/$name.cu" -o "$SEAL_OBJECT"
+    nvcc "${HOST_FLAGS[@]}" -O2 "${GENCODE[@]}" "${FUNCTIONAL_INCLUDES[@]}" -c "$ENGINE/runtime/obsignatio/$name.cu" \
+        -o "$SEAL_OBJECT"
     SEAL_OBJECTS+=("$SEAL_OBJECT")
 done
 nvcc "${HOST_FLAGS[@]}" "${GENCODE[@]}" "${LINK_FLAGS[@]}" -o "$DAEMON" "${TESSERA_DAEMON_OBJECTS[@]}" \

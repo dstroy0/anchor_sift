@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "exact_integer.h"
 #include "arm.h"
+#include "exact_integer.h"
 
 #define SHIFT_TEXT 64u
 
@@ -23,12 +23,10 @@ static int shift_from_unsigned(unsigned long long value, AnchorExactInteger *res
     {
         return 0;
     }
-    return anchor_exact_from_decimal(text, (size_t)written, ANCHOR_EXACT_DIGITS, result)
-           == ANCHOR_EXACT_OK;
+    return anchor_exact_from_decimal(text, (size_t)written, ANCHOR_EXACT_DIGITS, result) == ANCHOR_EXACT_OK;
 }
 
-static int shift_read_frame(const char *path, unsigned long long side_y, unsigned long long side_x,
-                            CellFrame *frame)
+static int shift_read_frame(const char *path, unsigned long long side_y, unsigned long long side_x, CellFrame *frame)
 {
     FILE *handle = fopen(path, "r");
     if (handle == NULL)
@@ -80,20 +78,18 @@ static int shift_read_frame(const char *path, unsigned long long side_y, unsigne
 
 static int shift_order(const void *left, const void *right)
 {
-    return anchor_exact_compare((const AnchorExactInteger *)left,
-                                (const AnchorExactInteger *)right);
+    return anchor_exact_compare((const AnchorExactInteger *)left, (const AnchorExactInteger *)right);
 }
 
 int main(int argc, char **argv)
 {
     if (argc < 6)
     {
-        (void)fprintf(stderr,
-                      "  usage: cell_shift FRAME_A FRAME_B SIDE_Y SIDE_X MAX_STEP [engine]\n"
-                      "         FRAME_A, FRAME_B  text files of \"z y x value\" rows\n"
-                      "         SIDE_Y, SIDE_X    volume extents, for the linearization\n"
-                      "         MAX_STEP          largest displacement to sweep, in voxels\n"
-                      "         engine            portable or cuda, default whichever is present\n");
+        (void)fprintf(stderr, "  usage: cell_shift FRAME_A FRAME_B SIDE_Y SIDE_X MAX_STEP [engine]\n"
+                              "         FRAME_A, FRAME_B  text files of \"z y x value\" rows\n"
+                              "         SIDE_Y, SIDE_X    volume extents, for the linearization\n"
+                              "         MAX_STEP          largest displacement to sweep, in voxels\n"
+                              "         engine            portable or cuda, default whichever is present\n");
         return 2;
     }
 
@@ -140,8 +136,8 @@ int main(int argc, char **argv)
     }
 #endif
 
-    (void)printf("  %zu positions from two frames, engine %s, sweeping to %ld voxels\n\n",
-                 total, engine->name, max_step);
+    (void)printf("  %zu positions from two frames, engine %s, sweeping to %ld voxels\n\n", total, engine->name,
+                 max_step);
     (void)printf("  %-10s %-14s %s\n", "dz", "lag", "agreement");
 
     size_t best = 0u;

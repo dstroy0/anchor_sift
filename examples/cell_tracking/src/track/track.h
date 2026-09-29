@@ -85,6 +85,7 @@ typedef struct
     FILE *edges;
     FILE *pool;
     FILE *nodes;
+    FILE *submission;
     const char *export_directory;
     bool object;
     const char *object_directory;
