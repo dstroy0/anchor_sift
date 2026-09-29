@@ -86,7 +86,8 @@ static unsigned int sass_operand_kind(const char *text)
     {
         return SASS_OPERAND_PREDICATE;
     }
-    if ((text[0] == 'U') && (text[1] == 'R') && sass_all_digits(text, 2u))
+    // URZ is to the uniform registers what RZ is to the numbered ones, and reads the same way
+    if ((text[0] == 'U') && (text[1] == 'R') && ((strcmp(text, "URZ") == 0) || sass_all_digits(text, 2u)))
     {
         return SASS_OPERAND_UNIFORM;
     }

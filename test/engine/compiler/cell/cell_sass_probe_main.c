@@ -14,6 +14,7 @@
 static SassProbe s_sass_probe;
 static SassMachine s_sass_machine;
 static SassListing s_sass_frame;
+static SassListing s_sass_resident;
 static SassListing s_sass_form;
 static char s_sass_texts[SASS_ENCODINGS][SASS_TEXT];
 
@@ -326,6 +327,27 @@ int main(int count, char **arguments)
         sass_operations_take(probe, &s_sass_form);
         sass_machine_listing(&s_sass_machine, &s_sass_form);
     }
+    // The resident, the kernel the host launches, which no question covers. Its PTX already runs and the part's own
+    // compiler turned it into SASS that already runs, so what is read here is that SASS: the floor a rearrangement
+    // has to beat, and the operations a whole coherent program needs that no single question reaches.
+    //
+    // It is listed after the questions, and the order carries weight. A form is keyed by its operation and the kinds
+    // of its operands, so the resident's CALL.ABS.NOINC `(cycle_lane) and the division question's
+    // CALL.ABS.NOINC `(__cuda_sm20_div_u64) are one form, and the first listing seen keeps it. The assembler holds
+    // a symbol operand by the text the form was learned with, having no way to write a relocation for another, so
+    // whichever call is listed first is the only call that assembles. Listing the resident first took that form and
+    // the division question stopped being writable. That limit on symbol operands is real and stands either way;
+    // the order keeps it from costing a question that used to pass
+    if (sass_list(probe, "resident", &s_sass_resident))
+    {
+        sass_form_print("the program resident", &s_sass_resident, &s_sass_frame);
+        sass_operations_take(probe, &s_sass_resident);
+        sass_machine_listing(&s_sass_machine, &s_sass_resident);
+    }
+    else
+    {
+        probe->failed += 1u;
+    }
     for (unsigned int number = 0u; number < probe->operations; number += 1u)
     {
         probe->failed += sass_fields(probe, &probe->operation[number]) ? 0u : 1u;
@@ -365,6 +387,24 @@ int main(int count, char **arguments)
            "same to their bytes alone, %u failed\n",
            tally.checked, tally.refused, tally.same_bits, tally.same_text, tally.by_bytes, differed);
     probe->failed += (differed == 0u) ? 0u : 1u;
+    // The resident put through the same check, counted apart. Everything above came from a membership question, and
+    // an instruction of one that stops assembling is this assembler breaking. The resident is a whole program the
+    // part's compiler wrote, and it reaches operands no question ever produced - a convergence barrier B0, the
+    // predicate file PR, a uniform predicate UP0, a constant bank past 0, a call to a symbol the form was not
+    // learned with. Those are refused and never guessed at, which is the reader working. Counting them beside the
+    // questions would read as a break where it is a frontier, so they are counted and named on their own
+    SassCheck reached;
+    memset(&reached, 0, sizeof(reached));
+    unsigned int resident_differed = 0u;
+    if (sass_list(probe, "resident", &s_sass_resident))
+    {
+        resident_differed =
+            sass_machine_check(&s_sass_machine, &s_sass_resident, probe->architecture, probe->folder, &reached, 8u);
+    }
+    printf("cell sass resident: %u written back, %u refused, %u the same bytes, %u read back as the same text, %u "
+           "same to their bytes alone, %u the assembler does not reach yet\n",
+           reached.checked, reached.refused, reached.same_bits, reached.same_text, reached.by_bytes,
+           resident_differed);
     // each kernel written again into a cubin of its own, loaded and run, and its answer same to the toolchain's
     unsigned int cubins = 0u;
     unsigned int same = 0u;

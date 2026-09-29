@@ -148,6 +148,26 @@ static int probe_write(const std::string &text, int major, int minor, const std:
 // the machine code of each membership question for the SASS probe (cell_sass_probe.c): the frame with no body
 // assembled into `folder`/frame.cubin and each question's kernel into `folder`/form_<number>.cubin, a line
 // "cubin <number> <name>" printed for each. Exit 0 where every cubin was written, 2 where one was not
+// The program resident as its own module: an empty lane for the resident's call to reach, then program_unit with
+// the launch's own layout in its 25 parameters. This is the one part of a program no question covers and no hand
+// should write twice - the resident is 110 instructions of PTX that already runs, and the part's own compiler turns
+// it into SASS that already runs. Asking for that is what the SASS probe does with every other form, and what comes
+// back is the floor a rearrangement has to beat
+static std::string probe_resident(ProbeWriter *writer, const std::string &header)
+{
+    std::string text = header;
+    probe_form(writer, text, "lane_open", {});
+    probe_form(writer, text, "return", {});
+    probe_form(writer, text, "lane_close", {});
+    std::vector<std::string> arguments;
+    for (unsigned int at = 0u; at < PROGRAM_UNIT_PARAMETERS; at += 1u)
+    {
+        arguments.push_back(std::to_string(codegen_unit(at)));
+    }
+    probe_form(writer, text, "program_unit", arguments);
+    return text;
+}
+
 static int probe_cubins(ProbeWriter *writer, const std::string &header, int major, int minor, const char *folder)
 {
     const std::vector<ProbeQuestion> questions = probe_questions(writer);
@@ -155,6 +175,12 @@ static int probe_cubins(ProbeWriter *writer, const std::string &header, int majo
     if (writer->broken || !probe_write(frame, major, minor, std::string(folder) + "/frame.cubin"))
     {
         printf("frame: not written\n");
+        return 2;
+    }
+    const std::string resident = probe_resident(writer, header);
+    if (writer->broken || !probe_write(resident, major, minor, std::string(folder) + "/resident.cubin"))
+    {
+        printf("resident: not written\n");
         return 2;
     }
     for (size_t number = 0u; number < questions.size(); number += 1u)
