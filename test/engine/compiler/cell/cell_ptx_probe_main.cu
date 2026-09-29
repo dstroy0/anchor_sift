@@ -322,6 +322,53 @@ static int probe_single(ProbeWriter *writer, const std::string &header, const st
     return 0;
 }
 
+// the cubin at `path` loaded and its kernel cell_ask run over one case, whose input words are `arguments`: the four
+// output words printed. Exit 0 where the device answers, 3 where it errors on the run, 4 where it will not load
+static int probe_cubin_run(const char *path, int count, char **arguments)
+{
+    std::vector<char> cubin;
+    FILE *const file = fopen(path, "rb");
+    if (file != NULL)
+    {
+        char block[4096];
+        size_t read = fread(block, 1u, sizeof(block), file);
+        while (read != 0u)
+        {
+            cubin.insert(cubin.end(), block, block + read);
+            read = fread(block, 1u, sizeof(block), file);
+        }
+        fclose(file);
+    }
+    cudaLibrary_t library = NULL;
+    cudaKernel_t kernel = NULL;
+    if (cubin.empty())
+    {
+        printf("the cubin at %s was not read\n", path);
+        return 4;
+    }
+    const cudaError_t loaded = cudaLibraryLoadData(&library, cubin.data(), NULL, NULL, 0u, NULL, NULL, 0u);
+    if ((loaded != cudaSuccess) || (cudaLibraryGetKernel(&kernel, library, "cell_ask") != cudaSuccess))
+    {
+        printf("the cubin at %s did not load (%s)\n", path, cudaGetErrorName(loaded));
+        return 4;
+    }
+    unsigned int in[PROBE_IN_WORDS] = {0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u};
+    for (int word = 0; (word < (count - 3)) && (word < (int)PROBE_IN_WORDS); word += 1)
+    {
+        // a word the caller gives in hex, which fits an unsigned int
+        in[word] = (unsigned int)strtoul(arguments[3 + word], NULL, 16);
+    }
+    unsigned int out[PROBE_OUT_WORDS] = {0u, 0u, 0u, 0u};
+    const cudaError_t status = probe_run(kernel, in, out, 1u);
+    if (status != cudaSuccess)
+    {
+        return probe_error(status);
+    }
+    printf("answered %08x %08x %08x %08x\n", out[0], out[1], out[2], out[3]);
+    cudaLibraryUnload(library);
+    return 0;
+}
+
 int main(int count, char **arguments)
 {
     const char *const question = (count > 1) ? arguments[1] : "";
@@ -352,6 +399,10 @@ int main(int count, char **arguments)
     if ((strcmp(question, "cubins") == 0) && (count > 2))
     {
         return probe_cubins(&writer, header, major, minor, arguments[2]);
+    }
+    if ((strcmp(question, "run") == 0) && (count > 2))
+    {
+        return probe_cubin_run(arguments[2], count, arguments);
     }
     if (strcmp(question, "alive") == 0)
     {

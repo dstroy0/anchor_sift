@@ -13,6 +13,7 @@
 // text is either control (the stall, yield and barriers the scheduler sets) or unused. Every process is run through the
 // cell, whose runner loses nothing when the disassembler fails
 #include "cell.h"
+#include "sass_machine.h"
 
 #include <stdio.h>
 
@@ -72,5 +73,52 @@ void sass_parts_read(const char *text, SassParts *parts);
 // where the disassembler failed otherwise
 int sass_decode(const char *architecture, const char *path, const unsigned long long *low,
                 const unsigned long long *high, unsigned int count, char (*texts)[SASS_TEXT]);
+
+// every instruction of `listing` that the listing gave an encoding for taken into `machine` as a shape
+// (cell_sass_probe_machine.c)
+void sass_machine_listing(SassMachine *machine, const SassListing *listing);
+
+// each shape's operand fields found by turning its 128 bits over and decoding, and the machine written to
+// `folder`/machine.kmc: 1, or 0 where a shape's fields were not found or the file was not written
+int sass_machine_fields(SassMachine *machine, const char *architecture, const char *folder);
+
+// the machine file the tree holds for this part, in `machines`, held to the one this run learned: 1 where the two
+// agree, or where the tree holds none for this part; 0 where they differ, with what to do printed
+int sass_machine_held(const SassMachine *machine, const char *machines);
+
+// how a check of the assembler came out: how many instructions were written back, how many of them the assembler
+// refused, how many came out as the very bytes the listing gave, and how many read back as the text they were
+// written from. The bytes are the stronger reading and the text is the true one: the probes found bits an
+// instruction carries that no listing prints (LDG's 32 to 39), so two instructions that print the same can differ
+typedef struct
+{
+    unsigned int checked;
+    unsigned int refused;
+    unsigned int same_bits;
+    unsigned int same_text;
+    unsigned int by_bytes;
+} SassCheck;
+
+// every instruction of `listing` assembled from its text alone, held to the encoding the listing gave it and then
+// disassembled and held to the text it was written from, counted into `tally`: how many did not read back, with the
+// first `report` of them printed
+unsigned int sass_machine_check(const SassMachine *machine, const SassListing *listing, const char *architecture,
+                                const char *folder, SassCheck *tally, unsigned int report);
+
+// a listing's own output turned back into the text it was written from, one instruction or label a line, into `text`,
+// which holds `room` letters: how many were written
+unsigned int sass_text_read(const char *output, const char *kernel, char *text, unsigned int room);
+
+// the listing of `name` in `folder` turned back into the text it was written from, into `text`, and kept beside it as
+// <name>.text: how many letters, 0 where the listing was not read
+unsigned int sass_cubin_text(const char *folder, const char *name, char *text, unsigned int room);
+
+// `text` assembled and put into a cubin made from `pattern`.cubin, written as `into`.cubin in the folder: 1, or 0
+// with the reason printed
+int sass_cubin_from_text(const SassMachine *machine, const char *folder, const char *pattern, const char *text,
+                         const char *into);
+
+// the kernel `name` in `folder` written again out of its own listing, as <name>_written.cubin
+int sass_cubin_round(const SassMachine *machine, const char *folder, const char *name);
 
 #endif

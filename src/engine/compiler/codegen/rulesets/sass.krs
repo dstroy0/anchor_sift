@@ -1,0 +1,231 @@
+krs 1
+# NVIDIA SASS for sm_86, the machine code the device runs, read back by the cell's probes
+# (test/engine/compiler/cell/cell_sass_probe*.c). The format is the comment at the head of ptx.krs. Every form below
+# whose text is an instruction was read out of a probe's own listing: cell_ptx_probe assembles each membership
+# question's kernel, written from ptx.krs, into a cubin, nvdisasm lists it, and what a question's listing holds past
+# the frame's is its forms' machine code. The comment over each group names the question it was read from; a form
+# whose instruction no question gave says so where it stands.
+#
+# The machine as the probes found it (25 questions, 33 operations, 0 failed, and each operation's fields from turning
+# its 128 bits over one at a time):
+#  - One file of 32-bit registers, R0 to R254, and RZ reading 0. The operand fields are Rd 16-23, Ra 24-31, Rb 32-39
+#    and an immediate 32-63. There is no 64-bit register: a 64-bit value is two registers, and only an address or a
+#    wide product needs them adjacent ([R2.64], IMAD.WIDE.U32 R2, R4, R3, ...).
+#  - Predicates P0 to P6, and PT, which always holds. Three bits name one (81-83, 84-86 and 87-90, where 90 negates),
+#    and every instruction carries a guard predicate at 12-15 (@P0, @!P0).
+#  - A carry is a predicate, not a flag: IADD3 leaves it in the predicate it names, IADD3.X takes it back, and a
+#    chain's last limb either keeps it (borrow_last) or drops it (add_last).
+#  - Bits 105-127 are the scheduler's, not the operation's: a stall of 4, yield, a write barrier, a read barrier, a
+#    wait mask of 6 and reuse of 4. This file writes none of them, and whatever assembles this text sets them.
+#  - No instruction declares a register. How many a kernel holds is the ELF's (SHI_REGISTERS in the section header,
+#    EIATTR_REGCOUNT in its attributes), so every declare_ form below is empty.
+#  - The listings' own ABI: R1 holds the stack pointer (MOV R1, c[0x0][0x28]), a call leaves its return address in R20
+#    and R21 (MOV R20, 32@lo(...), RET.ABS.NODEC R20 0x0), and a kernel's parameters lie in the constant bank from
+#    c[0x0][0x160]. A lane written as a function leaves R1, R20 and R21 alone.
+#
+# What this file names that no listing prints, each one this file's own:
+#  - .hi, the second register of a 64-bit pair. nvdisasm names that register itself (R3 for the pair at R2), and
+#    whatever assembles this text resolves {r}.hi the same way. A form that needs both halves of a 64-bit value has no
+#    other way to name the high one, because a ruleset writes a register from its number alone.
+#  - The banks are all the one file, so a writer must give numbers that do not collide across them. The code generator
+#    numbers each bank from 0 and needs an allocation before it writes SASS; the cell's probe gives its own numbers.
+#  - The lane's fixed registers, reserved at the top of the file, and P6, this file's scratch predicate: the carry of
+#    a chain, and the low half of a wide comparison. A lane of more than 240 registers, or of more than the three
+#    predicates P0 to P2, is past what this file reserves.
+#  - An immediate and an offset are written in decimal, as the code generator gives them, where a listing prints hex.
+#  - A 64-bit form is two instructions, and holds only where its destination is neither of its sources: the first
+#    instruction has written half the destination before the second reads them. A form's text can take no scratch to
+#    stand between, so the writer gives a destination apart.
+#
+# What this file does not write, each form left empty where it stands, with what the probes did see:
+#  - word_divide and wide_divide. The part has no integer divide. For 32 bits the compiler writes a 14-instruction
+#    reciprocal (I2F.U32.RP, MUFU.RCP, F2I.FTZ.U32.TRUNC.NTZ, IMAD.HI.U32, ...) over four scratch registers, and for
+#    64 bits a CALL.ABS.NOINC to __cuda_sm20_div_u64, a function the cubin must hold. A form's text can take no
+#    scratch, and only a construct can, whose lines must be forms this schema names.
+#  - product_low and product_high. SASS writes both halves of a word product with one IMAD.WIDE.U32 into an aligned
+#    pair, which is what the compiler did with the two together; neither half has an instruction of its own that also
+#    carries the carry between them.
+#  - predicate_xor and predicate_and. No question asked for an operation over predicates alone: the compiler folded
+#    both into the ISETP that set the operand (ISETP.NE.U32.XOR P1, PT, R0, RZ, P0). The next probe asks for them.
+#  - count_add, launch_load, open_launch, shared_open, shared_close and program_unit: the lane's entry, its launch,
+#    its file in shared memory and the resident kernel around it, none of which a question covered.
+ruleset sass
+toolchain cubin
+header probe_nvdisasm
+
+# the lane's registers, all of them the one file
+bank file = R{n}
+bank sign = R{n}
+bank out = R{n}
+bank atom = R{n}
+bank temporary = R{n}
+# the low register of a 64-bit pair; its high half is written {r}.hi
+bank wide = R{n}
+bank predicate = P{n}
+bank member = R{n}
+# a word's value written into a form, in decimal
+bank immediate = {n}
+fixed zero = RZ
+fixed lane_number = R240
+fixed record = R242
+fixed index = R244
+fixed body = R246
+fixed bodies = R248
+fixed tables = R250
+fixed threads = R252
+fixed sign_base = R253
+fixed indexed = P3
+fixed one = P4
+fixed ok = P5
+
+# the program's text around the lane. A listing's own opening is its .target and .elftype, which the header carries,
+# and each function is a section of its own
+form program_note steps major minor compiler_major compiler_minor block = // a record program of {steps} steps, for sm_{major}{minor}, NVRTC {compiler_major}.{compiler_minor}, as SASS for the target {block}\n
+form lane_open = \n\t.section\t.text.cycle_lane,"ax",@progbits\n\t.align\t128\n\t.type\t\tcycle_lane,@function\ncycle_lane:\n
+form lane_body = \n
+form lane_close = .L_lane_end:\n\t.size\t\tcycle_lane,(.L_lane_end - cycle_lane)\n
+
+# the lane's declarations: SASS has none, and how many registers the lane holds is the ELF's
+form declare_predicates count =
+form declare_fixed_predicates =
+form declare_file count =
+form declare_signs count =
+form declare_out count =
+form declare_atoms count =
+form declare_temporaries count =
+form declare_wides count =
+form declare_fixed_words =
+form declare_fixed_wides =
+form declare_members count =
+
+# the lane's opening and close. open_launch and launch_load are the lane's entry, which no question covered: a kernel
+# read its parameters out of the constant bank (IMAD.WIDE.U32 R2, R4, R3, c[0x0][0x160]) and a function takes them by
+# the ABI, and neither was probed
+form open_launch =
+form launch_load to offset =
+# an address is global and generic alike here: PTX's cvta.to.global left no instruction in any listing
+form to_global to =
+form shared_open =
+form shared_close =
+# a load under a predicate (word_select, test_nonzero: @!P0 LDG.E.CONSTANT R7, [R2.64+0x4])
+form guarded_load where to address = \t@{where} LDG.E.CONSTANT \t{to}, [{address}.64];\n
+form guarded_widen where to from = \t@{where} MOV \t{to}, {from};\n\t@{where} MOV \t{to}.hi, RZ;\n
+form open_error_unless where = \t@!{where} BRA \t`(.L_error_open);\n
+form error where at = \t@{where} BRA \t`(.L_error{at});\n
+form label_error_open = .L_error_open:\n
+form label_error at = .L_error{at}:\n
+form count_add address =
+# the lane is a function the resident calls, and returns through the address a call leaves in R20
+form return = \tRET.ABS.NODEC R20 0x0;\n
+form step_note at operation = \t// step {at}, operation {operation}\n
+
+# carry chains through a register's limbs (add_alone; add_first, add_middle, add_last: 96 bits; subtract_alone;
+# subtract_first, subtract_middle, subtract_last: 96 bits; borrow_alone, borrow_read; borrow_first, borrow_middle,
+# borrow_last, borrow_read: 96 bits). A subtraction adds the right's negation, and takes its borrow back as ~right
+form add_alone to left right = \tIADD3 \t{to}, {left}, {right}, RZ;\n
+form add_first to left right = \tIADD3 \t{to}, P6, {left}, {right}, RZ;\n
+form add_middle to left right = \tIADD3.X \t{to}, P6, {left}, {right}, RZ, P6, !PT;\n
+form add_last to left right = \tIADD3.X \t{to}, {left}, {right}, RZ, P6, !PT;\n
+form subtract_alone to left right = \tIADD3 \t{to}, {left}, -{right}, RZ;\n
+form subtract_first to left right = \tIADD3 \t{to}, P6, {left}, -{right}, RZ;\n
+form subtract_middle to left right = \tIADD3.X \t{to}, P6, {left}, ~{right}, RZ, P6, !PT;\n
+form subtract_last to left right = \tIADD3.X \t{to}, {left}, ~{right}, RZ, P6, !PT;\n
+# the subtract chain whose top limb leaves its borrow for borrow_read
+form borrow_alone to left right = \tIADD3 \t{to}, P6, {left}, -{right}, RZ;\n
+form borrow_first to left right = \tIADD3 \t{to}, P6, {left}, -{right}, RZ;\n
+form borrow_middle to left right = \tIADD3.X \t{to}, P6, {left}, ~{right}, RZ, P6, !PT;\n
+form borrow_last to left right = \tIADD3.X \t{to}, P6, {left}, ~{right}, RZ, P6, !PT;\n
+# the carry is 1 where the chain did not borrow, so -1 with it added is 0 there and all ones where it did
+form borrow_read held where = \tIMAD.X \t{held}, RZ, RZ, -0x1, P6;\n\tISETP.NE.U32.AND \t{where}, PT, {held}, RZ, PT;\n
+
+# a word's arithmetic (word_copy, word_set; word_and, word_or, word_xor; word_shift_left, word_shift_right;
+# word_funnel_right; word_multiply, word_multiply_add; word_select, test_nonzero). A bitwise operation is one LOP3
+# over a lookup of its three inputs: 0xc0 is a and b, 0xfc a or b, and 0x3c a xor b
+form word_copy to from = \tMOV \t{to}, {from};\n
+form word_set to value = \tMOV \t{to}, {value};\n
+form word_and to left right = \tLOP3.LUT \t{to}, {left}, {right}, RZ, 0xc0, !PT;\n
+form word_or to left right = \tLOP3.LUT \t{to}, {left}, {right}, RZ, 0xfc, !PT;\n
+form word_xor to left right = \tLOP3.LUT \t{to}, {left}, {right}, RZ, 0x3c, !PT;\n
+# a funnel shift of the pair (high, low) by the amount clamped to the width: a plain shift names RZ for the half it
+# does not have, and .HI takes the result's high word
+form word_shift_left to from bits = \tSHF.L.U32 \t{to}, {from}, {bits}, RZ;\n
+form word_shift_right to from bits = \tSHF.R.U32.HI \t{to}, RZ, {bits}, {from};\n
+form word_funnel_right to low high bits = \tSHF.R.U32 \t{to}, {low}, {bits}, {high};\n
+form word_multiply to left right = \tIMAD \t{to}, {left}, {right}, RZ;\n
+form word_multiply_add to left right added = \tIMAD \t{to}, {left}, {right}, {added};\n
+form word_divide to left right =
+form word_select to chosen otherwise where = \tSEL \t{to}, {chosen}, {otherwise}, {where};\n
+form product_low to left right added =
+form product_high to left right =
+
+# a sign's arithmetic, a signed word of -1, 0 or 1 (sign_set, sign_select; sign_multiply, sign_absolute, sign_negate)
+form sign_set to value = \tMOV \t{to}, {value};\n
+form sign_select to chosen otherwise where = \tSEL \t{to}, {chosen}, {otherwise}, {where};\n
+form sign_multiply to left right = \tIMAD \t{to}, {left}, {right}, RZ;\n
+form sign_absolute to from = \tIABS \t{to}, {from};\n
+form sign_negate to from = \tIADD3 \t{to}, -{from}, RZ, RZ;\n
+
+# tests, each setting a predicate (test_nonzero, test_zero, test_negative; test_signed_differ, test_signed_greater;
+# test_wide_nonzero, test_wide_equal, test_wide_below, test_wide_below_and). One ISETP compares two words, ands its
+# last operand into the answer, and .U32 reads them unsigned; a wide comparison is the low words compared, then the
+# high words compared with .EX, which takes the low answer as its last operand. The listings gave ISETP.NE.U32.AND,
+# ISETP.NE.AND, ISETP.GT.AND, ISETP.GE.AND, ISETP.GE.U32.AND, ISETP.LT.U32.AND and the .EX of NE, GE and LT, because
+# the compiler read zero and below off the negations of NE and GE. Three spellings below are the same comparison
+# field's remaining codes and no listing holds them: ISETP.EQ.U32.AND, ISETP.EQ.U32.AND.EX and ISETP.LT.AND
+form test_nonzero where value = \tISETP.NE.U32.AND \t{where}, PT, {value}, RZ, PT;\n
+form test_zero where value = \tISETP.EQ.U32.AND \t{where}, PT, {value}, RZ, PT;\n
+form test_negative where value = \tISETP.LT.AND \t{where}, PT, {value}, RZ, PT;\n
+form test_signed_differ where left right = \tISETP.NE.AND \t{where}, PT, {left}, {right}, PT;\n
+form test_signed_greater where left right = \tISETP.GT.AND \t{where}, PT, {left}, {right}, PT;\n
+form test_wide_nonzero where value = \tISETP.NE.U32.AND \tP6, PT, {value}, RZ, PT;\n\tISETP.NE.U32.AND.EX \t{where}, PT, {value}.hi, RZ, PT, P6;\n
+form test_wide_equal where left right = \tISETP.EQ.U32.AND \tP6, PT, {left}, {right}, PT;\n\tISETP.EQ.U32.AND.EX \t{where}, PT, {left}.hi, {right}.hi, PT, P6;\n
+form test_wide_below where left right = \tISETP.LT.U32.AND \tP6, PT, {left}, {right}, PT;\n\tISETP.LT.U32.AND.EX \t{where}, PT, {left}.hi, {right}.hi, PT, P6;\n
+form test_wide_below_and where left right also = \tISETP.LT.U32.AND \tP6, PT, {left}, {right}, PT;\n\tISETP.LT.U32.AND.EX \t{where}, PT, {left}.hi, {right}.hi, {also}, P6;\n
+form predicate_xor where left right =
+form predicate_and where left right =
+
+# 64-bit words, each two registers (wide_from_word, word_from_wide, wide_pack, wide_unpack; wide_multiply,
+# wide_multiply_word; wide_add, wide_add_unsigned; wide_shift_left, wide_select; wide_divide). A wide product writes
+# both halves of a word product into the pair, and the cross products are added into the high half after it, so that
+# the pair's write does not undo them
+form wide_from_word to from = \tMOV \t{to}, {from};\n\tMOV \t{to}.hi, RZ;\n
+form word_from_wide to from = \tMOV \t{to}, {from};\n
+form wide_pack to low high = \tMOV \t{to}, {low};\n\tMOV \t{to}.hi, {high};\n
+form wide_unpack low high from = \tMOV \t{low}, {from};\n\tMOV \t{high}, {from}.hi;\n
+form wide_multiply to left right = \tIMAD.WIDE.U32 \t{to}, {left}, {right}, RZ;\n\tIMAD \t{to}.hi, {left}.hi, {right}, {to}.hi;\n\tIMAD \t{to}.hi, {left}, {right}.hi, {to}.hi;\n
+form wide_multiply_word to left right = \tIMAD.WIDE.U32 \t{to}, {left}, {right}, RZ;\n
+form wide_add to left right = \tIADD3 \t{to}, P6, {left}, {right}, RZ;\n\tIADD3.X \t{to}.hi, {left}.hi, {right}.hi, RZ, P6, !PT;\n
+form wide_add_unsigned to left right = \tIADD3 \t{to}, P6, {left}, {right}, RZ;\n\tIADD3.X \t{to}.hi, {left}.hi, {right}.hi, RZ, P6, !PT;\n
+# the high half reads both halves of the value shifted, and is written before the low half overwrites it
+form wide_shift_left to from bits = \tSHF.L.U64.HI \t{to}.hi, {from}, {bits}, {from}.hi;\n\tSHF.L.U32 \t{to}, {from}, {bits}, RZ;\n
+form wide_select to chosen otherwise where = \tSEL \t{to}, {chosen}, {otherwise}, {where};\n\tSEL \t{to}.hi, {chosen}.hi, {otherwise}.hi, {where};\n
+form wide_divide to left right =
+
+# memory: the members' and the tables' words and the record's words (the frame's own loads and stores). An address is
+# the pair at the register named, and .CONSTANT is PTX's ld.global.nc
+form global_load to address offset = \tLDG.E.CONSTANT \t{to}, [{address}.64+{offset}];\n
+form record_store offset from = \tSTG.E \t[R242.64+{offset}], {from};\n
+
+# the states a target that clocks the lane a state at a time cuts it into (vhdl.krs); a SASS lane runs straight
+# through, as a PTX one does, and has none
+form states_declare count =
+form state_start state =
+form state_open state =
+form state_next state error =
+form state_exit =
+form dispatch_to error state =
+
+# a memory read's address named a state ahead of the read (vhdl.krs); a SASS load names its address itself
+form launch_ask offset =
+form global_ask address offset =
+form guarded_ask where address =
+form count_ask address =
+
+# a loop: its label, and the branch back to it where the predicate holds
+form loop_label loop = .L_loop{loop}:\n
+form loop_back loop where = \t@{where} BRA \t`(.L_loop{loop});\n
+form state_loop back where next =
+
+# the program resident around the lane: the kernel the record machine launches. No question wrote it, and the probes
+# read nothing of the shared memory, the barriers, the atomics or the timer it needs
+form program_unit launch_bytes count_offset hot_offset block_offset number_offset ttl_offset checkin_every_offset next_offset start_offset finished_offset checkins_offset owner_at command_at state_at offset_at step_at launch_time_at exectime_at checkin_at checkin_time_at run_command stop_command done_state stopped_state yielded_state =

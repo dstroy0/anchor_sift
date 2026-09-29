@@ -9,6 +9,7 @@ TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../../../.." && pwd)"
 CELL="$TOP/src/engine/compiler/cell"
 CODEGEN="$TOP/src/engine/compiler/codegen"
+CUBIN="$TOP/src/engine/compiler/cubin"
 source "$TOP/maint/build_stamp.sh"
 build_stamp cell_sass_test
 
@@ -49,10 +50,12 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/engine" -I "$CELL")
+INCLUDES=(-I "$TOP/src/engine" -I "$CELL" -I "$CUBIN")
 rm -f "$BINARY" "$PROBE"
 OBJECTS=()
-for source in "$CELL/cell.c" "$CELL/cell_names.c" "$TEST/cell_sass_probe_main.c" "$TEST/cell_sass_probe_read.c"; do
+for source in "$CELL/cell.c" "$CELL/cell_names.c" "$CUBIN/sass_machine.c" "$CUBIN/sass_assemble.c" \
+              "$CUBIN/cubin_write.c" "$TEST/cell_sass_probe_main.c" "$TEST/cell_sass_probe_machine.c" \
+              "$TEST/cell_sass_probe_read.c"; do
     object="$OUT/$(basename "$source" .c).$EXTENSION"
     rm -f "$object"
     case "$(uname -s)" in
@@ -81,7 +84,7 @@ nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" -I "$TOP/src/engine" -o "
 [ -f "$PROBE" ] || { echo "  build failed: the PTX probe did not build"; exit 1; }
 
 mkdir -p "$OUT/sass"
-"$BINARY" "$PROBE" "$OUT/sass"
+"$BINARY" "$PROBE" "$OUT/sass" "$CUBIN/machines"
 STATUS=$?
 echo "  cell sass test exit $STATUS"
 exit "$STATUS"

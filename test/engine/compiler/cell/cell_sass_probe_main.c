@@ -27,6 +27,7 @@ typedef struct
 typedef struct
 {
     const char *folder;
+    const char *prober;
     char architecture[16];
     unsigned int questions;
     char names[SASS_QUESTIONS][SASS_NAME];
@@ -36,6 +37,7 @@ typedef struct
 } SassProbe;
 
 static SassProbe s_sass_probe;
+static SassMachine s_sass_machine;
 static SassListing s_sass_frame;
 static SassListing s_sass_form;
 static char s_sass_texts[SASS_ENCODINGS][SASS_TEXT];
@@ -255,6 +257,142 @@ static int sass_fields(SassProbe *probe, const SassOperation *operation)
     return 1;
 }
 
+// the cubin at `path` run on the device through cell_ptx_probe over one case, its answer into `answered`: 1, or 0
+// with the reason printed
+static int sass_cubin_answer(SassProbe *probe, const char *path, char *answered, size_t room)
+{
+    char output[1024];
+    snprintf(output, sizeof(output), "%s/run.out", probe->folder);
+    // one case of eight words, none of them zero, so that a question that divides is not asked for a zero divisor
+    char *const command[] = {(char *)probe->prober, (char *)"run",   (char *)path,        (char *)"0000000b",
+                             (char *)"00000007",    (char *)"00000003", (char *)"00000005", (char *)"00000002",
+                             (char *)"00000009",    (char *)"00000001", (char *)"00000004", NULL};
+    const int status = sass_run(command, output);
+    const char *const line = (status == 0) ? strstr(sass_output(), "answered ") : NULL;
+    if (line == NULL)
+    {
+        printf("  cubin: %s did not run (exit %d)\n%s", path, status, (status > 0) ? sass_output() : "");
+        return 0;
+    }
+    snprintf(answered, room, "%.*s", (int)strcspn(line, "\r\n"), line);
+    return 1;
+}
+
+// the kernel `name` written again from its own listing, then both cubins run and their answers compared: 1 where the
+// two answer the same
+static int sass_cubin_holds(SassProbe *probe, const SassMachine *machine, const char *name)
+{
+    if (!sass_cubin_round(machine, probe->folder, name))
+    {
+        return 0;
+    }
+    char path[1024];
+    char was[256];
+    char now[256];
+    snprintf(path, sizeof(path), "%s/%s.cubin", probe->folder, name);
+    if (!sass_cubin_answer(probe, path, was, sizeof(was)))
+    {
+        return 0;
+    }
+    snprintf(path, sizeof(path), "%s/%s_written.cubin", probe->folder, name);
+    if (!sass_cubin_answer(probe, path, now, sizeof(now)))
+    {
+        return 0;
+    }
+    if (strcmp(was, now) != 0)
+    {
+        printf("  cubin %s: the toolchain's %s, the one written %s\n", name, was, now);
+        return 0;
+    }
+    return 1;
+}
+
+// a question of the cell's own, asked in the part's code: the instruction to put in place of form_0's own, and the
+// word the device should answer for the case sass_cubin_answer gives it
+typedef struct
+{
+    const char *instruction;
+    unsigned int answer;
+} SassAsk;
+
+// form_0's text with the line that begins `IADD3 ` replaced by `instruction`, into `text`: 1, or 0 where the text
+// holds no such line
+static int sass_ask_text(const char *was, const char *instruction, char *text, size_t room)
+{
+    size_t at = 0u;
+    int put = 0;
+    const char *walk = was;
+    while ((*walk != '\0') && (at < (room - 1u)))
+    {
+        const size_t length = strcspn(walk, "\n");
+        const char *const keep = (strncmp(walk, "IADD3 ", 6u) == 0) ? instruction : walk;
+        const size_t kept = (keep == instruction) ? strlen(instruction) : length;
+        put = put || (keep == instruction);
+        if ((at + kept + 1u) < room)
+        {
+            memcpy(&text[at], keep, kept);
+            at += kept;
+            text[at] = '\n';
+            at += 1u;
+        }
+        walk += length + ((walk[length] == '\n') ? 1u : 0u);
+    }
+    text[at] = '\0';
+    return put;
+}
+
+// each question of the cell's own written into a cubin of its own, run, and its answer held to what the question
+// says the part should say: how many answered so. form_0's kernel is the frame, which loads the case's first two
+// words into R0 and R7, and stores R7 as the first word of the answer
+static unsigned int sass_cubin_asks(SassProbe *probe, const SassMachine *machine, unsigned int *asked)
+{
+    static const SassAsk s_asks[] = {
+        // the case is 0x0000000b and 0x00000007, and the part is asked what each instruction makes of them
+        {"IADD3 R7, R0, R7, RZ", 0x00000012u},
+        {"LOP3.LUT R7, R0, R7, RZ, 0x3c, !PT", 0x0000000cu},
+        {"LOP3.LUT R7, R0, R7, RZ, 0xc0, !PT", 0x00000003u},
+        {"LOP3.LUT R7, R0, R7, RZ, 0xfc, !PT", 0x0000000fu},
+        {"IMAD R7, R0, R7, RZ", 0x0000004du},
+        {"SHF.L.U32 R7, R0, R7, RZ", 0x00000580u},
+        {"SHF.R.U32.HI R7, RZ, R7, R0", 0x00000000u},
+        {"IABS R7, R0", 0x0000000bu},
+        {"IADD3 R7, -R0, RZ, RZ", 0xfffffff5u},
+        {"SEL R7, R0, R7, PT", 0x0000000bu},
+    };
+    static char s_was[65536];
+    static char s_asking[65536];
+    if (sass_cubin_text(probe->folder, "form_0", s_was, sizeof(s_was)) == 0u)
+    {
+        return 0u;
+    }
+    unsigned int held = 0u;
+    for (unsigned int number = 0u; number < (sizeof(s_asks) / sizeof(s_asks[0])); number += 1u)
+    {
+        *asked += 1u;
+        char answered[256];
+        char path[1024];
+        unsigned int word = 0u;
+        if (!sass_ask_text(s_was, s_asks[number].instruction, s_asking, sizeof(s_asking)) ||
+            !sass_cubin_from_text(machine, probe->folder, "form_0", s_asking, "asked"))
+        {
+            printf("  ask %s: not written\n", s_asks[number].instruction);
+            continue;
+        }
+        snprintf(path, sizeof(path), "%s/asked.cubin", probe->folder);
+        if (!sass_cubin_answer(probe, path, answered, sizeof(answered)))
+        {
+            continue;
+        }
+        // the answer's first word, which the run prints after "answered "
+        word = (unsigned int)strtoul(answered + 9, NULL, 16);
+        const int same = (word == s_asks[number].answer);
+        held += same ? 1u : 0u;
+        printf("  ask %-36s the part answers %08x, the question says %08x%s\n", s_asks[number].instruction, word,
+               s_asks[number].answer, same ? "" : " <- differs");
+    }
+    return held;
+}
+
 // the questions cell_ptx_probe assembled, read from its lines "cubin <number> <name>", and the architecture from its
 // first line, "sm_86, ...": 1, or 0 where it printed none
 static int sass_questions_read(SassProbe *probe, const char *output)
@@ -292,6 +430,7 @@ int main(int count, char **arguments)
     }
     SassProbe *const probe = &s_sass_probe;
     probe->folder = arguments[2];
+    probe->prober = arguments[1];
     char output[1024];
     snprintf(output, sizeof(output), "%s/cubins.out", probe->folder);
     char *const command[] = {arguments[1], "cubins", arguments[2], NULL};
@@ -307,6 +446,7 @@ int main(int count, char **arguments)
         return 2;
     }
     sass_operations_take(probe, &s_sass_frame);
+    sass_machine_listing(&s_sass_machine, &s_sass_frame);
     for (unsigned int number = 0u; number < probe->questions; number += 1u)
     {
         char name[32];
@@ -318,6 +458,7 @@ int main(int count, char **arguments)
         }
         sass_form_print(probe->names[number], &s_sass_form, &s_sass_frame);
         sass_operations_take(probe, &s_sass_form);
+        sass_machine_listing(&s_sass_machine, &s_sass_form);
     }
     for (unsigned int number = 0u; number < probe->operations; number += 1u)
     {
@@ -325,5 +466,53 @@ int main(int count, char **arguments)
     }
     printf("cell sass probe: %u questions, %u operations, %u failed\n", probe->questions, probe->operations,
            probe->failed);
+    // the shapes the listings hold and the bits each one's operands sit in, written out for the assembler
+    probe->failed += sass_machine_fields(&s_sass_machine, probe->architecture, probe->folder) ? 0u : 1u;
+    if (count > 3)
+    {
+        probe->failed += sass_machine_held(&s_sass_machine, arguments[3]) ? 0u : 1u;
+    }
+    // every instruction listed, assembled back from its text alone, then disassembled and held to that text
+    SassCheck tally;
+    memset(&tally, 0, sizeof(tally));
+    unsigned int differed = 0u;
+    if (sass_list(probe, "frame", &s_sass_frame))
+    {
+        differed += sass_machine_check(&s_sass_machine, &s_sass_frame, probe->architecture, probe->folder, &tally, 4u);
+    }
+    for (unsigned int number = 0u; number < probe->questions; number += 1u)
+    {
+        char name[32];
+        snprintf(name, sizeof(name), "form_%u", number);
+        if (sass_list(probe, name, &s_sass_form))
+        {
+            differed += sass_machine_check(&s_sass_machine, &s_sass_form, probe->architecture, probe->folder, &tally,
+                                           (differed < 4u) ? 4u : 0u);
+        }
+    }
+    printf("cell sass assemble: %u written back, %u refused, %u the same bytes, %u read back as the same text, %u "
+           "held to their bytes alone, %u failed\n",
+           tally.checked, tally.refused, tally.same_bits, tally.same_text, tally.by_bytes, differed);
+    probe->failed += (differed == 0u) ? 0u : 1u;
+    // each kernel written again into a cubin of its own, loaded and run, and its answer held to the toolchain's
+    unsigned int cubins = 0u;
+    unsigned int held = 0u;
+    held += sass_cubin_holds(probe, &s_sass_machine, "frame") ? 1u : 0u;
+    cubins += 1u;
+    for (unsigned int number = 0u; number < probe->questions; number += 1u)
+    {
+        char name[32];
+        snprintf(name, sizeof(name), "form_%u", number);
+        held += sass_cubin_holds(probe, &s_sass_machine, name) ? 1u : 0u;
+        cubins += 1u;
+    }
+    printf("cell sass cubin: %u kernels written again, %u answering as the toolchain's did\n", cubins, held);
+    probe->failed += (held == cubins) ? 0u : 1u;
+    // the cell's own questions, in code no toolchain wrote
+    unsigned int asked = 0u;
+    const unsigned int answered = sass_cubin_asks(probe, &s_sass_machine, &asked);
+    printf("cell sass ask: %u questions asked in the part's own code, %u answered as the question says\n", asked,
+           answered);
+    probe->failed += (answered == asked) ? 0u : 1u;
     return (probe->failed == 0u) ? 0 : 1;
 }
