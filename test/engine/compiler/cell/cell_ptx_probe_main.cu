@@ -84,8 +84,8 @@ static std::string probe_kernel(ProbeWriter *writer, const std::string &header, 
     return text;
 }
 
-// the kernel's text assembled by nvJitLink for the device and loaded: 1 and the kernel, or 0 with the log printed
-static int probe_build(const std::string &text, int major, int minor, cudaLibrary_t *library, cudaKernel_t *kernel)
+// the kernel's text assembled by nvJitLink for the device: 1 and its cubin, or 0 with the log printed
+static int probe_assemble(const std::string &text, int major, int minor, std::vector<char> &cubin)
 {
     char architecture[32];
     snprintf(architecture, sizeof(architecture), "-arch=sm_%d%d", major, minor);
@@ -101,7 +101,7 @@ static int probe_build(const std::string &text, int major, int minor, cudaLibrar
                         NVJITLINK_SUCCESS) &&
                        (nvJitLinkComplete(handle) == NVJITLINK_SUCCESS) &&
                        (nvJitLinkGetLinkedCubinSize(handle, &size) == NVJITLINK_SUCCESS) && (size != 0u);
-    std::vector<char> cubin(linked ? size : 0u);
+    cubin.assign(linked ? size : 0u, '\0');
     const int taken = linked && (nvJitLinkGetLinkedCubin(handle, cubin.data()) == NVJITLINK_SUCCESS);
     if (!taken)
     {
@@ -115,8 +115,61 @@ static int probe_build(const std::string &text, int major, int minor, cudaLibrar
         printf("errored: nvJitLink did not assemble the kernel\n%s\n", log.data());
     }
     nvJitLinkDestroy(&handle);
-    return taken && (cudaLibraryLoadData(library, cubin.data(), NULL, NULL, 0u, NULL, NULL, 0u) == cudaSuccess) &&
+    return taken;
+}
+
+// the kernel's text assembled and loaded: 1 and the kernel, or 0 with the log printed
+static int probe_build(const std::string &text, int major, int minor, cudaLibrary_t *library, cudaKernel_t *kernel)
+{
+    std::vector<char> cubin;
+    return probe_assemble(text, major, minor, cubin) &&
+           (cudaLibraryLoadData(library, cubin.data(), NULL, NULL, 0u, NULL, NULL, 0u) == cudaSuccess) &&
            (cudaLibraryGetKernel(kernel, *library, "cell_ask") == cudaSuccess);
+}
+
+// the kernel's text assembled and written to `path`: 1, or 0 with the reason printed
+static int probe_write(const std::string &text, int major, int minor, const std::string &path)
+{
+    std::vector<char> cubin;
+    if (!probe_assemble(text, major, minor, cubin))
+    {
+        return 0;
+    }
+    FILE *const file = fopen(path.c_str(), "wb");
+    const int written = (file != NULL) && (fwrite(cubin.data(), 1u, cubin.size(), file) == cubin.size());
+    const int closed = (file != NULL) && (fclose(file) == 0);
+    if (!written || !closed)
+    {
+        printf("errored: %s could not be written\n", path.c_str());
+    }
+    return written && closed;
+}
+
+// the machine code of each membership question for the SASS probe (cell_sass_probe.c): the frame with no body
+// assembled into `folder`/frame.cubin and each question's kernel into `folder`/form_<number>.cubin, a line
+// "cubin <number> <name>" printed for each. Exit 0 where every cubin was written, 2 where one was not
+static int probe_cubins(ProbeWriter *writer, const std::string &header, int major, int minor, const char *folder)
+{
+    const std::vector<ProbeQuestion> questions = probe_questions(writer);
+    const std::string frame = probe_kernel(writer, header, std::string());
+    if (writer->broken || !probe_write(frame, major, minor, std::string(folder) + "/frame.cubin"))
+    {
+        printf("frame: not written\n");
+        return 2;
+    }
+    for (size_t number = 0u; number < questions.size(); number += 1u)
+    {
+        const std::string text = probe_kernel(writer, header, questions[number].body);
+        const std::string path = std::string(folder) + "/form_" + std::to_string(number) + ".cubin";
+        if (writer->broken || !probe_write(text, major, minor, path))
+        {
+            printf("%s: not written\n", questions[number].name.c_str());
+            return 2;
+        }
+        printf("cubin %zu %s\n", number, questions[number].name.c_str());
+    }
+    printf("cubins: %zu questions\n", questions.size());
+    return 0;
 }
 
 // the kernel run over `count` cases of `in`, its outputs into `out`; the CUDA error the run gave
@@ -295,6 +348,10 @@ int main(int count, char **arguments)
     if (strcmp(question, "membership") == 0)
     {
         return probe_membership(&writer, header, major, minor);
+    }
+    if ((strcmp(question, "cubins") == 0) && (count > 2))
+    {
+        return probe_cubins(&writer, header, major, minor, arguments[2]);
     }
     if (strcmp(question, "alive") == 0)
     {

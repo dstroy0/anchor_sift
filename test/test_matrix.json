@@ -22,6 +22,17 @@
         "engine/compiler/cell"
       ]
     },
+    "cell_sass": {
+      "desc": "The device's machine code probed: each ptx.krs form's SASS operations, and each operation's bit fields found by turning each bit over and decoding.",
+      "script": "test/engine/compiler/cell/cell_sass_test.sh",
+      "src": [
+        "+<engine/compiler/cell/*>",
+        "+<engine/compiler/codegen/*>"
+      ],
+      "tests": [
+        "engine/compiler/cell"
+      ]
+    },
     "codegen_device": {
       "desc": "The compiler on the device held to the compiler on the host: layout, each language's instructions as the lane runs and scheduled into states, and the text, byte for byte; then the bootstrap in PTX, C and VHDL.",
       "script": "test/engine/compiler/codegen/codegen_device_test.sh",

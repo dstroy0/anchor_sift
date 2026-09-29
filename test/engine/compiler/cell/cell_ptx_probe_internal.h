@@ -16,6 +16,8 @@
 //   trap         PTX's trap instruction
 //   lacking      elect.sync, which PTX gives sm_90 and later, in a kernel for this device
 //   alive        one form over one case, to show a fresh process's device answers
+//   cubins <folder>  the membership questions' kernels and the frame alone, assembled and written as cubins for the
+//                SASS probe (cell_sass_probe.c), nothing run
 // A question the device errors prints "error <code> <name>" for the CUDA error it gave, then the error the next
 // allocation gives, "after <code> <name>", and exits 3. One the toolchain errors prints "errored" and its log, and
 // exits 4. Exit 2 where the probe could not ask at all
