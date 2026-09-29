@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// A cubin written from a kernel's machine code and a cubin the toolchain made for a kernel of the same shape
+// A cubin written from a kernel's machine code and a cubin the toolchain made for a kernel that takes the same parameters
 #ifndef CUBIN_WRITE_H
 #define CUBIN_WRITE_H
 
-// A cubin is an ELF, and almost all of it says what the kernel takes rather than what it does: its parameters, the
+// A cubin is an ELF, and almost all of it says what the kernel takes and not what it does: its parameters, the
 // constant bank they lie in, its notes, its symbols and its relocations. The cell's probes found that between two
 // cubins of one kernel only its code, the size of the code, the count of registers it holds and the offsets of its
-// exits differ (engine_plan.md, the SASS findings). So a cubin is written by taking one the toolchain made for a
-// kernel of the same shape and putting new code in it, rather than by laying an ELF out from nothing: everything the
-// writer does not understand is carried over rather than invented.
+// exits differ (engine_plan.md, the SASS findings). A cubin is therefore written by taking one the toolchain made
+// for a kernel that takes the same parameters and putting new code in it, in place of laying an ELF out from
+// nothing: everything the writer does not understand is carried over, never invented.
 //
-// The template's own kernel decides the shape: the same name, the same parameters and the same constant bank. Give
-// the writer code for a different shape and the cubin loads and reads the wrong parameters.
+// The template's own kernel decides what fits: the same name, the same parameters, the same constant bank. Give
+// the writer code that takes other parameters and the cubin loads and reads the wrong parameters.
 
 // what a cubin is written from
 typedef struct

@@ -88,6 +88,14 @@ static void ruleset_opcode_text(const Ruleset *rules, std::string &text, unsigne
     if (construct->lines.empty())
     {
         const InstrTemplate *const form = &rules->forms[name];
+        // an err is the operation being an error on this language: it writes nothing and breaks what it was written
+        // into, so a program that needs it is refused rather than written with a hole in it. A nop writes nothing and
+        // the writing goes on
+        if (rules->form_given[name] == (unsigned char)RULESET_CORE_GIVEN_ERR)
+        {
+            *broken = 1;
+            return;
+        }
         text += form->pieces[0];
         for (size_t at = 0u; at < form->slots.size(); at += 1u)
         {

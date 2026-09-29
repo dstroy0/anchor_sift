@@ -3,10 +3,10 @@
 #ifndef SASS_ASSEMBLE_H
 #define SASS_ASSEMBLE_H
 
-// The assembler takes the encoding of the instruction's shape (sass_machine.h) as its base and writes the
-// instruction's own operands into it. Where each operand sits is not assumed: the base carries its own operands, so
+// The assembler takes the encoding of the instruction's form (sass_machine.h) as its base and writes the
+// instruction's own operands into it. Where each operand sits is not assumed: the base carries its own operands, and
 // the fields are found by giving each operand the first field of its kind whose value in the base is the value the
-// base printed there. A shape whose operands cannot all be placed that way assembles nothing and says so, and so does
+// base printed there. A form whose operands cannot all be placed that way assembles nothing and says so, and so does
 // an operand the assembler cannot turn into a number, which must then be the one the base holds.
 //
 // The fields are the ones the cell's probes found by turning each of an operation's 128 bits over and decoding: a

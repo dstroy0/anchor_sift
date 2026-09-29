@@ -19,6 +19,21 @@
 #define RULESET_CORE_PARAMETER 1u
 #define RULESET_CORE_SCRATCH 2u
 
+// How a form was given, held in form_given. A ruleset gives every form of its schema one of three ways, and each
+// way is deliberate: there is no way to leave a form blank and have it pass.
+//
+//     form <name> <parameter>... = <text>   the language writes this, and the text is how
+//     nop <name> <parameter>...             the language needs no instruction here, or has no such thing at all
+//     err <name> <parameter>...             the operation is an error on this language
+//
+// A nop writes nothing and the lane goes on without it. An err writes nothing and breaks the lane: a program that
+// needs one is refused, in place of being written with a hole in it. `form` with nothing after the equals is not a
+// third meaning, it is a file that has not said which of these it means, and the read ends on it
+#define RULESET_CORE_NOT_GIVEN 0u
+#define RULESET_CORE_GIVEN 1u
+#define RULESET_CORE_GIVEN_NOP 2u
+#define RULESET_CORE_GIVEN_ERR 3u
+
 // how a read ended: read, or the reason the host gave, by the line it was on where it was on one
 enum RulesetCoreEnd
 {

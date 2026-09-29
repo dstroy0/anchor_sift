@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// sass_assemble.c: an operand's value, the fields a shape's operands sit in, and one line assembled
+// sass_assemble.c: an operand's value, the fields a form's operands sit in, and one line assembled
 #include "sass_assemble.h"
 
 #include <stdio.h>
@@ -49,7 +49,7 @@ static const SassField s_offset_fields[] = {{40u, 24u, 1u}};
 #define SASS_PREDICATE_FIELDS (sizeof(s_predicate_fields) / sizeof(s_predicate_fields[0]))
 #define SASS_IMMEDIATE_FIELDS (sizeof(s_immediate_fields) / sizeof(s_immediate_fields[0]))
 
-// where one operand of a shape was placed: the field its value sits in, and for an address the field its offset sits
+// where one operand of a form was placed: the field its value sits in, and for an address the field its offset sits
 // in as well
 typedef struct
 {
@@ -73,19 +73,22 @@ static void sass_bits_write(unsigned long long *low, unsigned long long *high, u
     }
 }
 
-// the number a register, predicate or uniform register names: RZ is 255 and PT is 7
+// The number a register, predicate or uniform register names: RZ is 255 and PT is 7. A name ending in .hi is the
+// high half of what it is written on (sass.krs), which for a register is the second register of a 64-bit pair, one
+// past the one it is named from; RZ has no second half, since a pair of zero words reads zero at both. The high half
+// of a number is its high word, which sass_operand_value takes
 static unsigned long long sass_register_value(const char *text)
 {
-    if (strcmp(text, "RZ") == 0)
+    if (strncmp(text, "RZ", 2u) == 0)
     {
         return 255ull;
     }
-    if (strcmp(text, "PT") == 0)
+    if (strncmp(text, "PT", 2u) == 0)
     {
         return 7ull;
     }
     const char *const digits = text + ((text[0] == 'U') ? 2u : 1u);
-    return strtoull(digits, NULL, 10);
+    return strtoull(digits, NULL, 10) + (sass_high_half(text) ? 1ull : 0ull);
 }
 
 // the offset a constant names, c[bank][offset], and the bank through `bank`
@@ -121,9 +124,16 @@ static int sass_operand_value(const SassInstructionParts *parts, unsigned int pl
         *value = sass_register_value(text);
         return 1;
     case SASS_OPERAND_IMMEDIATE:
-        *value = (text[0] == '-') ? (unsigned long long)(-(long long)strtoull(text + 1, NULL, 0))
-                                  : strtoull(text, NULL, 0);
+    {
+        // .hi is the high half of the thing it is written on, whatever that thing is (sass.krs): for a register it
+        // is the pair's second register, and for a number it is the number's high word. strtoull stops at the dot:
+        // so the stem is read and shifted; a negative number is shifted as the 64-bit word it is written into
+        const unsigned long long whole = (text[0] == '-')
+                                             ? (unsigned long long)(-(long long)strtoull(text + 1, NULL, 0))
+                                             : strtoull(text, NULL, 0);
+        *value = sass_high_half(text) ? (whole >> 32u) : whole;
         return 1;
+    }
     case SASS_OPERAND_CONSTANT:
         *value = sass_constant_value(text, offset);
         return 1;
@@ -166,7 +176,7 @@ static const SassField *sass_fields_of(unsigned int kind, unsigned int *count)
 }
 
 // the field of `kind` that begins inside `run`, or NULL where the kind takes none there. A run is the bits the probe
-// saw change one operand, which is the field and whatever lies beside it that changes the same operand: a bit that
+// saw change one operand, being the field and whatever lies beside it that changes the same operand. A bit that
 // says what kind the operand is, or the low bits of an offset the operation counts in wider units
 static const SassField *sass_field_at(unsigned int kind, const SassRun *run)
 {
@@ -180,24 +190,24 @@ static const SassField *sass_field_at(unsigned int kind, const SassRun *run)
     return found;
 }
 
-// the shape's operands placed in the fields the probe's runs name: each operand takes the run that begins where a
+// the form's operands placed in the fields the probe's runs name: each operand takes the run that begins where a
 // field of its kind begins, and an address takes the offset field beside its base register. 1 where every operand was
 // placed, else 0 and the operand that could not be
-static int sass_places_find(const SassShape *shape, SassPlace *places, unsigned int *unplaced)
+static int sass_places_find(const SassForm *form, SassPlace *places, unsigned int *unplaced)
 {
     SassInstructionParts base;
-    sass_instruction_read(shape->text, &base);
-    for (unsigned int place = 0u; place < shape->operands; place += 1u)
+    sass_instruction_read(form->text, &base);
+    for (unsigned int place = 0u; place < form->operands; place += 1u)
     {
         memset(&places[place], 0, sizeof(places[place]));
-        const unsigned int kind = shape->kind[place];
-        // a label that names a symbol rather than a label of the text is a relocation: the field holds nothing and
-        // the loader fills it, so the instruction is held to the one the shape was seen with
+        const unsigned int kind = form->kind[place];
+        // a label that names a symbol and not a label of the text is a relocation: the field holds nothing and
+        // the loader fills it. The instruction is then checked against the one the form was seen with
         const char *const open = strchr(base.operand[place], '(');
         const int relocated = (kind == SASS_OPERAND_LABEL) && ((open == NULL) || (open[1] != '.'));
         if ((kind == SASS_OPERAND_UNKNOWN) || (kind == SASS_OPERAND_SYSTEM) || relocated)
         {
-            // a system register and anything else the assembler cannot count is held to the base's own text
+            // a system register and anything else the assembler cannot count is checked against the base's own text
             places[place].by_text = 1;
             continue;
         }
@@ -210,9 +220,9 @@ static int sass_places_find(const SassShape *shape, SassPlace *places, unsigned 
             continue;
         }
         int found = 0;
-        for (unsigned int number = 0u; number < shape->runs; number += 1u)
+        for (unsigned int number = 0u; number < form->runs; number += 1u)
         {
-            const SassRun *const run = &shape->run[number];
+            const SassRun *const run = &form->run[number];
             if (run->operand != place)
             {
                 continue;
@@ -250,12 +260,12 @@ static void sass_high_write(unsigned long long *high, unsigned int first, unsign
 
 // the scheduler's bits set so that every instruction waits for every one before it: the longest stall, no reuse, and
 // a wait on every barrier. An instruction whose result comes back late has to set a barrier for the wait to have
-// anything to wait on, and which instructions those are is read off the shape's own encoding: where the toolchain
-// set a barrier for that shape, this sets one too. A barrier no instruction set is already at rest, so waiting on all
+// anything to wait on, and which instructions those are is read off the form's own encoding: where the toolchain
+// set a barrier for that form, this sets one too. A barrier no instruction set is already at rest, and waiting on all
 // six costs nothing where none was set
-static void sass_control_safe(const SassShape *shape, unsigned long long *high)
+static void sass_control_safe(const SassForm *form, unsigned long long *high)
 {
-    const unsigned long long was = shape->high;
+    const unsigned long long was = form->high;
     const unsigned int wrote =
         (unsigned int)((was >> (SASS_WRITE_BARRIER_FIRST - 64u)) & 7ull) != SASS_BARRIER_NONE;
     const unsigned int read = (unsigned int)((was >> (SASS_READ_BARRIER_FIRST - 64u)) & 7ull) != SASS_BARRIER_NONE;
@@ -272,30 +282,30 @@ int sass_assemble(const SassMachine *machine, const char *text, unsigned long lo
 {
     SassInstructionParts parts;
     sass_instruction_read(text, &parts);
-    const SassShape *const shape = sass_machine_shape(machine, &parts);
-    if (shape == NULL)
+    const SassForm *const form = sass_machine_form(machine, &parts);
+    if (form == NULL)
     {
-        printf("  sass_assemble: no shape for %s\n", text);
+        printf("  sass_assemble: no form for %s\n", text);
         return 0;
     }
     SassPlace places[SASS_MACHINE_OPERANDS];
     unsigned int unplaced = 0u;
-    if (!sass_places_find(shape, places, &unplaced))
+    if (!sass_places_find(form, places, &unplaced))
     {
-        printf("  sass_assemble: operand %u of %s does not place in its own encoding\n", unplaced, shape->text);
+        printf("  sass_assemble: operand %u of %s does not place in its own encoding\n", unplaced, form->text);
         return 0;
     }
     SassInstructionParts base;
-    sass_instruction_read(shape->text, &base);
-    *low = shape->low;
-    *high = shape->high;
+    sass_instruction_read(form->text, &base);
+    *low = form->low;
+    *high = form->high;
     for (unsigned int place = 0u; place < parts.operands; place += 1u)
     {
         if (places[place].by_text != 0)
         {
             if (strcmp(parts.operand[place], base.operand[place]) != 0)
             {
-                printf("  sass_assemble: %s takes %s where its shape holds %s\n", text, parts.operand[place],
+                printf("  sass_assemble: %s takes %s where its form holds %s\n", text, parts.operand[place],
                        base.operand[place]);
                 return 0;
             }
@@ -310,7 +320,7 @@ int sass_assemble(const SassMachine *machine, const char *text, unsigned long lo
         {
             sass_bits_write(low, high, places[place].offset.first, places[place].offset.bits, offset);
         }
-        // a constant's bank must be the one the shape holds, since the bank's own bits were not found by probing
+        // a constant's bank must be the one the form holds, since the bank's own bits were not found by probing
         if (parts.kind[place] == SASS_OPERAND_CONSTANT)
         {
             unsigned long long bank = 0ull;
@@ -319,7 +329,7 @@ int sass_assemble(const SassMachine *machine, const char *text, unsigned long lo
             sass_constant_value(base.operand[place], &base_bank);
             if (bank != base_bank)
             {
-                printf("  sass_assemble: %s reads bank %llu where its shape reads %llu\n", text, bank, base_bank);
+                printf("  sass_assemble: %s reads bank %llu where its form reads %llu\n", text, bank, base_bank);
                 return 0;
             }
         }
@@ -331,7 +341,7 @@ int sass_assemble(const SassMachine *machine, const char *text, unsigned long lo
     sass_bits_write(low, high, SASS_GUARD_NOT, 1u, (parts.guard[1] == '!') ? 1ull : 0ull);
     if (control == SASS_CONTROL_SAFE)
     {
-        sass_control_safe(shape, high);
+        sass_control_safe(form, high);
     }
     return 1;
 }
@@ -357,12 +367,14 @@ static const char *sass_line_take(const char *text, char *line, size_t room)
     }
     const size_t length = strcspn(text, "\n");
     size_t kept = length;
-    while ((kept != 0u) && ((text[kept - 1u] == ' ') || (text[kept - 1u] == '\r') || (text[kept - 1u] == ';')))
+    // a listing indents with spaces and a ruleset with tabs, and both end an instruction with a semicolon
+    while ((kept != 0u) && ((text[kept - 1u] == ' ') || (text[kept - 1u] == '\t') || (text[kept - 1u] == '\r') ||
+                            (text[kept - 1u] == ';')))
     {
         kept -= 1u;
     }
     size_t first = 0u;
-    while ((first < kept) && (text[first] == ' '))
+    while ((first < kept) && ((text[first] == ' ') || (text[first] == '\t')))
     {
         first += 1u;
     }

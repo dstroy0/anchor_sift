@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// sass_machine.c: an instruction's text read into its parts, and a part's shapes kept, written and read back
+// sass_machine.c: an instruction's text read into its parts, and a part's forms kept, written and read back
 #include "sass_machine.h"
 
 #include <stdio.h>
@@ -14,16 +14,26 @@ static const char *const s_mark_names[] = {"", "-", "~", "!"};
 #define SASS_KIND_COUNT (sizeof(s_kind_names) / sizeof(s_kind_names[0]))
 #define SASS_MARK_COUNT (sizeof(s_mark_names) / sizeof(s_mark_names[0]))
 
+// 1 where `letter` stands between one token of an instruction and the next. A listing lays its instructions out with
+// spaces and a ruleset with tabs, and the two say the same thing: sass.krs writes "\tIADD3 \t{to}, {left}, ..." and
+// nvdisasm prints "        IADD3 R8, R0, R1, RZ ;", and this reader takes both
+#define SASS_SPACES " \t"
+
+static int sass_is_space(char letter)
+{
+    return (letter == ' ') || (letter == '\t');
+}
+
 // `length` letters of `text` copied into `token`, with the spaces at either end cut and the whole kept below
 // SASS_MACHINE_TOKEN letters
 static void sass_token_take(char *token, const char *text, size_t length)
 {
-    while ((length != 0u) && (*text == ' '))
+    while ((length != 0u) && sass_is_space(*text))
     {
         text += 1;
         length -= 1u;
     }
-    while ((length != 0u) && (text[length - 1u] == ' '))
+    while ((length != 0u) && sass_is_space(text[length - 1u]))
     {
         length -= 1u;
     }
@@ -43,12 +53,30 @@ static int sass_all_digits(const char *text, size_t at)
     return (at != first) && (text[at] == '\0');
 }
 
+// 1 where `text` ends in the .hi a ruleset writes for the second register of a 64-bit pair. A ruleset names a
+// register by its number alone, and the pair beginning at R14 has no other way to name R15 (sass.krs)
+int sass_high_half(const char *text)
+{
+    const size_t length = strlen(text);
+    return (length > 3u) && (strcmp(text + length - 3u, ".hi") == 0);
+}
+
 // what kind of thing `text` is, with any mark already cut off it
 static unsigned int sass_operand_kind(const char *text)
 {
     if (strchr(text, ' ') != NULL)
     {
         return SASS_OPERAND_UNKNOWN;
+    }
+    // the second register of a pair is a register, and is classified by the one it is named from
+    if (sass_high_half(text))
+    {
+        char stem[SASS_MACHINE_TOKEN];
+        const size_t length = strlen(text) - 3u;
+        const size_t kept = (length < (SASS_MACHINE_TOKEN - 1u)) ? length : (SASS_MACHINE_TOKEN - 1u);
+        memcpy(stem, text, kept);
+        stem[kept] = '\0';
+        return sass_operand_kind(stem);
     }
     if ((text[0] == 'R') && ((strcmp(text, "RZ") == 0) || sass_all_digits(text, 1u)))
     {
@@ -95,10 +123,10 @@ static void sass_operand_take(SassInstructionParts *parts, unsigned int place, c
 {
     char token[SASS_MACHINE_TOKEN];
     sass_token_take(token, text, length);
-    const size_t held = strlen(token);
-    if ((held > 6u) && (strcmp(token + held - 6u, ".reuse") == 0))
+    const size_t token_length = strlen(token);
+    if ((token_length > 6u) && (strcmp(token + token_length - 6u, ".reuse") == 0))
     {
-        token[held - 6u] = '\0';
+        token[token_length - 6u] = '\0';
     }
     unsigned int mark = (token[0] == '-')   ? SASS_MARK_NEGATE
                         : (token[0] == '~') ? SASS_MARK_INVERT
@@ -116,21 +144,21 @@ static void sass_operand_take(SassInstructionParts *parts, unsigned int place, c
 void sass_instruction_read(const char *text, SassInstructionParts *parts)
 {
     memset(parts, 0, sizeof(*parts));
-    while (*text == ' ')
+    while (sass_is_space(*text))
     {
         text += 1;
     }
     if (*text == '@')
     {
-        const size_t length = strcspn(text, " ");
+        const size_t length = strcspn(text, SASS_SPACES);
         sass_token_take(parts->guard, text, length);
         text += length;
-        while (*text == ' ')
+        while (sass_is_space(*text))
         {
             text += 1;
         }
     }
-    const size_t operation_length = strcspn(text, " ");
+    const size_t operation_length = strcspn(text, SASS_SPACES);
     sass_token_take(parts->operation, text, operation_length);
     text += operation_length;
     // the operands, split at each comma outside brackets
@@ -144,7 +172,7 @@ void sass_instruction_read(const char *text, SassInstructionParts *parts)
         if ((letter == '\0') || ((letter == ',') && (depth == 0)))
         {
             const size_t length = (size_t)(walk - start);
-            if ((parts->operands < SASS_MACHINE_OPERANDS) && (strspn(start, " ") < length))
+            if ((parts->operands < SASS_MACHINE_OPERANDS) && (strspn(start, SASS_SPACES) < length))
             {
                 sass_operand_take(parts, parts->operands, start, length);
                 parts->operands += 1u;
@@ -159,98 +187,98 @@ void sass_instruction_read(const char *text, SassInstructionParts *parts)
 }
 
 // 1 where the two hold the same operation and the same kind and mark at every operand, and the same text at every
-// operand the assembler cannot turn into a number: a system register is named, not counted, so two instructions that
-// name different ones are two shapes, each with the encoding it was seen with
-static int sass_shape_same(const SassShape *shape, const SassInstructionParts *parts)
+// operand the assembler cannot turn into a number: a system register is named, not counted, and two instructions that
+// name different ones are two forms, each with the encoding it was seen with
+static int sass_form_same(const SassForm *form, const SassInstructionParts *parts)
 {
-    int same = (strcmp(shape->operation, parts->operation) == 0) && (shape->operands == parts->operands);
+    int same = (strcmp(form->operation, parts->operation) == 0) && (form->operands == parts->operands);
     int by_text = 0;
-    for (unsigned int place = 0u; same && (place < shape->operands); place += 1u)
+    for (unsigned int place = 0u; same && (place < form->operands); place += 1u)
     {
-        same = (shape->kind[place] == parts->kind[place]) && (shape->mark[place] == parts->mark[place]);
-        by_text = by_text || (shape->kind[place] == SASS_OPERAND_SYSTEM) ||
-                  (shape->kind[place] == SASS_OPERAND_UNKNOWN);
+        same = (form->kind[place] == parts->kind[place]) && (form->mark[place] == parts->mark[place]);
+        by_text = by_text || (form->kind[place] == SASS_OPERAND_SYSTEM) ||
+                  (form->kind[place] == SASS_OPERAND_UNKNOWN);
     }
     if (same && by_text)
     {
         SassInstructionParts seen;
-        sass_instruction_read(shape->text, &seen);
-        for (unsigned int place = 0u; same && (place < shape->operands); place += 1u)
+        sass_instruction_read(form->text, &seen);
+        for (unsigned int place = 0u; same && (place < form->operands); place += 1u)
         {
-            same = ((shape->kind[place] != SASS_OPERAND_SYSTEM) && (shape->kind[place] != SASS_OPERAND_UNKNOWN)) ||
+            same = ((form->kind[place] != SASS_OPERAND_SYSTEM) && (form->kind[place] != SASS_OPERAND_UNKNOWN)) ||
                    (strcmp(seen.operand[place], parts->operand[place]) == 0);
         }
     }
     return same;
 }
 
-const SassShape *sass_machine_shape(const SassMachine *machine, const SassInstructionParts *parts)
+const SassForm *sass_machine_form(const SassMachine *machine, const SassInstructionParts *parts)
 {
-    const SassShape *found = NULL;
-    for (unsigned int number = 0u; number < machine->shapes; number += 1u)
+    const SassForm *found = NULL;
+    for (unsigned int number = 0u; number < machine->forms; number += 1u)
     {
-        found = sass_shape_same(&machine->shape[number], parts) ? &machine->shape[number] : found;
+        found = sass_form_same(&machine->form[number], parts) ? &machine->form[number] : found;
     }
     return found;
 }
 
 int sass_machine_take(SassMachine *machine, const char *text, unsigned long long low, unsigned long long high,
-                      SassShape **kept)
+                      SassForm **kept)
 {
     SassInstructionParts parts;
     sass_instruction_read(text, &parts);
-    const SassShape *const held = sass_machine_shape(machine, &parts);
-    if (held != NULL)
+    const SassForm *const found = sass_machine_form(machine, &parts);
+    if (found != NULL)
     {
-        *kept = &machine->shape[held - machine->shape];
+        *kept = &machine->form[found - machine->form];
         return 1;
     }
-    if (machine->shapes == SASS_MACHINE_SHAPES)
+    if (machine->forms == SASS_MACHINE_FORMS)
     {
         machine->refused += 1u;
         *kept = NULL;
         return 0;
     }
-    SassShape *const shape = &machine->shape[machine->shapes];
-    memset(shape, 0, sizeof(*shape));
-    memcpy(shape->operation, parts.operation, sizeof(shape->operation));
-    shape->operands = parts.operands;
+    SassForm *const form = &machine->form[machine->forms];
+    memset(form, 0, sizeof(*form));
+    memcpy(form->operation, parts.operation, sizeof(form->operation));
+    form->operands = parts.operands;
     for (unsigned int place = 0u; place < parts.operands; place += 1u)
     {
-        shape->kind[place] = parts.kind[place];
-        shape->mark[place] = parts.mark[place];
+        form->kind[place] = parts.kind[place];
+        form->mark[place] = parts.mark[place];
     }
-    shape->low = low;
-    shape->high = high;
-    snprintf(shape->text, sizeof(shape->text), "%s", text);
-    machine->shapes += 1u;
-    *kept = shape;
+    form->low = low;
+    form->high = high;
+    snprintf(form->text, sizeof(form->text), "%s", text);
+    machine->forms += 1u;
+    *kept = form;
     return 1;
 }
 
-// the runs of `shape` written into `written` as one column, "none" where the probe found it none
-static void sass_runs_write(const SassShape *shape, char *written, size_t room)
+// the runs of `form` written into `written` as one column, "none" where the probe found it none
+static void sass_runs_write(const SassForm *form, char *written, size_t room)
 {
     size_t at = 0u;
     written[0] = '\0';
-    for (unsigned int number = 0u; number < shape->runs; number += 1u)
+    for (unsigned int number = 0u; number < form->runs; number += 1u)
     {
-        const SassRun *const run = &shape->run[number];
+        const SassRun *const run = &form->run[number];
         const int printed = snprintf(written + at, room - at, "%s%u:%u-%u", (number == 0u) ? "" : ";", run->operand,
                                      run->first, run->last);
         // snprintf gives the letters it would have written, which the room below bounds
         at += ((printed > 0) && ((size_t)printed < (room - at))) ? (size_t)printed : 0u;
     }
-    if (shape->runs == 0u)
+    if (form->runs == 0u)
     {
         snprintf(written, room, "none");
     }
 }
 
-// one shape's runs column read into `shape`: 1, or 0 where a run does not read
-static int sass_runs_read(SassShape *shape, const char *column)
+// one form's runs column read into `form`: 1, or 0 where a run does not read
+static int sass_runs_read(SassForm *form, const char *column)
 {
-    shape->runs = 0u;
+    form->runs = 0u;
     if (strcmp(column, "none") == 0)
     {
         return 1;
@@ -261,33 +289,33 @@ static int sass_runs_read(SassShape *shape, const char *column)
         unsigned int operand = 0u;
         unsigned int first = 0u;
         unsigned int last = 0u;
-        if ((sscanf(at, "%u:%u-%u", &operand, &first, &last) != 3) || (shape->runs == SASS_MACHINE_RUNS))
+        if ((sscanf(at, "%u:%u-%u", &operand, &first, &last) != 3) || (form->runs == SASS_MACHINE_RUNS))
         {
             return 0;
         }
-        shape->run[shape->runs].operand = operand;
-        shape->run[shape->runs].first = first;
-        shape->run[shape->runs].last = last;
-        shape->runs += 1u;
+        form->run[form->runs].operand = operand;
+        form->run[form->runs].first = first;
+        form->run[form->runs].last = last;
+        form->runs += 1u;
         const size_t length = strcspn(at, ";");
         at += length + ((at[length] == ';') ? 1u : 0u);
     }
     return 1;
 }
 
-// the kinds and marks of `shape` written into `written` as one column, "none" where it takes no operand
-static void sass_kinds_write(const SassShape *shape, char *written, size_t room)
+// the kinds and marks of `form` written into `written` as one column, "none" where it takes no operand
+static void sass_kinds_write(const SassForm *form, char *written, size_t room)
 {
     size_t at = 0u;
     written[0] = '\0';
-    for (unsigned int place = 0u; place < shape->operands; place += 1u)
+    for (unsigned int place = 0u; place < form->operands; place += 1u)
     {
         const int printed = snprintf(written + at, room - at, "%s%s%s", (place == 0u) ? "" : ",",
-                                     s_kind_names[shape->kind[place]], s_mark_names[shape->mark[place]]);
+                                     s_kind_names[form->kind[place]], s_mark_names[form->mark[place]]);
         // snprintf gives the letters it would have written, which the room below bounds
         at += ((printed > 0) && ((size_t)printed < (room - at))) ? (size_t)printed : 0u;
     }
-    if (shape->operands == 0u)
+    if (form->operands == 0u)
     {
         snprintf(written, room, "none");
     }
@@ -301,20 +329,20 @@ int sass_machine_write(const SassMachine *machine, const char *path)
         printf("  sass_machine: %s could not be written\n", path);
         return 0;
     }
-    fprintf(file, "kmc 1\n");
-    fprintf(file, "# The part's instructions as the cell's probes read them back: one line a shape, an operation and\n"
-                  "# the kind and mark of each printed operand, with the encoding the shape was first seen with and\n"
+    fprintf(file, "forms 1\n");
+    fprintf(file, "# The part's instructions as the cell's probes read them back: one line a form, an operation and\n"
+                  "# the kind and mark of each printed operand, with the encoding the form was first seen with and\n"
                   "# the instruction it was seen as. The format is the comment at the head of sass_machine.h.\n");
     fprintf(file, "part %s\n", machine->part);
-    for (unsigned int number = 0u; number < machine->shapes; number += 1u)
+    for (unsigned int number = 0u; number < machine->forms; number += 1u)
     {
-        const SassShape *const shape = &machine->shape[number];
+        const SassForm *const form = &machine->form[number];
         char kinds[SASS_MACHINE_TOKEN * SASS_MACHINE_OPERANDS];
         char runs[SASS_MACHINE_RUNS * 16u];
-        sass_kinds_write(shape, kinds, sizeof(kinds));
-        sass_runs_write(shape, runs, sizeof(runs));
-        fprintf(file, "shape %s %s 0x%016llx 0x%016llx %s %s\n", shape->operation, kinds, shape->low, shape->high,
-                runs, shape->text);
+        sass_kinds_write(form, kinds, sizeof(kinds));
+        sass_runs_write(form, runs, sizeof(runs));
+        fprintf(file, "form %s %s 0x%016llx 0x%016llx %s %s\n", form->operation, kinds, form->low, form->high,
+                runs, form->text);
     }
     return (fclose(file) == 0) ? 1 : 0;
 }
@@ -330,10 +358,10 @@ static unsigned int sass_name_place(const char *const *names, unsigned int count
     return found;
 }
 
-// one shape's kinds column read into `shape`: 1, or 0 where a kind or a mark is none the writer names
-static int sass_kinds_read(SassShape *shape, const char *column)
+// one form's kinds column read into `form`: 1, or 0 where a kind or a mark is none the writer names
+static int sass_kinds_read(SassForm *form, const char *column)
 {
-    shape->operands = 0u;
+    form->operands = 0u;
     if (strcmp(column, "none") == 0)
     {
         return 1;
@@ -353,13 +381,13 @@ static int sass_kinds_read(SassShape *shape, const char *column)
             (mark_length == 0u)
                 ? (unsigned int)SASS_MARK_NONE
                 : sass_name_place(s_mark_names, (unsigned int)SASS_MARK_COUNT, at + length - 1u, 1u);
-        if ((kind == SASS_KIND_COUNT) || (shape->operands == SASS_MACHINE_OPERANDS))
+        if ((kind == SASS_KIND_COUNT) || (form->operands == SASS_MACHINE_OPERANDS))
         {
             return 0;
         }
-        shape->kind[shape->operands] = kind;
-        shape->mark[shape->operands] = mark;
-        shape->operands += 1u;
+        form->kind[form->operands] = kind;
+        form->mark[form->operands] = mark;
+        form->operands += 1u;
         at += length + ((at[length] == ',') ? 1u : 0u);
     }
     return 1;
@@ -384,9 +412,9 @@ int sass_machine_read(SassMachine *machine, const char *path)
         {
             continue;
         }
-        if (strncmp(line, "kmc ", 4u) == 0)
+        if (strncmp(line, "forms ", 6u) == 0)
         {
-            version = (unsigned int)strtoul(line + 4, NULL, 10);
+            version = (unsigned int)strtoul(line + 6, NULL, 10);
             continue;
         }
         if (strncmp(line, "part ", 5u) == 0)
@@ -395,7 +423,7 @@ int sass_machine_read(SassMachine *machine, const char *path)
             snprintf(machine->part, sizeof(machine->part), "%.*s", (int)(sizeof(machine->part) - 1u), line + 5);
             continue;
         }
-        if (strncmp(line, "shape ", 6u) != 0)
+        if (strncmp(line, "form ", 5u) != 0)
         {
             broken = 1;
             continue;
@@ -406,32 +434,32 @@ int sass_machine_read(SassMachine *machine, const char *path)
         unsigned long long low = 0ull;
         unsigned long long high = 0ull;
         int at = 0;
-        // the text past the runs is the instruction the shape was seen as, and holds spaces
-        if (sscanf(line + 6, "%63s %511s %llx %llx %511s %n", operation, kinds, &low, &high, runs, &at) != 5)
+        // the text past the runs is the instruction the form was seen as, and holds spaces
+        if (sscanf(line + 5, "%63s %511s %llx %llx %511s %n", operation, kinds, &low, &high, runs, &at) != 5)
         {
             broken = 1;
             continue;
         }
-        if (machine->shapes == SASS_MACHINE_SHAPES)
+        if (machine->forms == SASS_MACHINE_FORMS)
         {
             machine->refused += 1u;
             continue;
         }
-        SassShape *const shape = &machine->shape[machine->shapes];
-        memset(shape, 0, sizeof(*shape));
-        snprintf(shape->operation, sizeof(shape->operation), "%s", operation);
-        snprintf(shape->text, sizeof(shape->text), "%s", line + 6 + at);
-        shape->low = low;
-        shape->high = high;
-        broken = sass_kinds_read(shape, kinds) ? broken : 1;
-        broken = sass_runs_read(shape, runs) ? broken : 1;
-        machine->shapes += 1u;
+        SassForm *const form = &machine->form[machine->forms];
+        memset(form, 0, sizeof(*form));
+        snprintf(form->operation, sizeof(form->operation), "%s", operation);
+        snprintf(form->text, sizeof(form->text), "%s", line + 5 + at);
+        form->low = low;
+        form->high = high;
+        broken = sass_kinds_read(form, kinds) ? broken : 1;
+        broken = sass_runs_read(form, runs) ? broken : 1;
+        machine->forms += 1u;
     }
     fclose(file);
-    if ((version != 1u) || broken || (machine->shapes == 0u))
+    if ((version != 1u) || broken || (machine->forms == 0u))
     {
-        printf("  sass_machine: %s is not a machine file this reads (kmc %u, %u shapes)\n", path, version,
-               machine->shapes);
+        printf("  sass_machine: %s is not a machine file this reads (forms %u, %u read)\n", path, version,
+               machine->forms);
         return 0;
     }
     return 1;

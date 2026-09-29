@@ -84,7 +84,7 @@ static unsigned long long cubin_round(unsigned long long at, unsigned long long 
 unsigned int cubin_exits_find(const unsigned char *code, unsigned long long code_size, unsigned long long exit_low,
                               unsigned int *exits, unsigned int room)
 {
-    // the operation is the low twelve bits of the word, which is what one exit shares with another
+    // the operation is the low twelve bits of the word, what one exit shares with another
     const unsigned long long operation = exit_low & 0xfffull;
     unsigned int found = 0u;
     for (unsigned long long at = 0ull; (at + 16ull) <= code_size; at += 16ull)
@@ -154,14 +154,14 @@ static const unsigned char *cubin_attribute(const unsigned char *bytes, unsigned
     {
         const unsigned int format = bytes[at];
         const unsigned int named = bytes[at + 1u];
-        const unsigned long long held =
+        const unsigned long long kept =
             (format == ATTRIBUTE_FORMAT_VALUE) ? cubin_read(&bytes[at + 2u], 2u) : 0ull;
         if (named == attribute)
         {
-            *value_size = held;
+            *value_size = kept;
             return &bytes[at];
         }
-        at += ATTRIBUTE_HEADER + held;
+        at += ATTRIBUTE_HEADER + kept;
     }
     *value_size = 0ull;
     return NULL;
@@ -227,25 +227,25 @@ int cubin_write(const CubinWrite *args, unsigned char *written, unsigned long lo
         printf("  cubin_write: the pattern holds %u sections in %llu bytes\n", sections, args->pattern_size);
         return 0;
     }
-    CubinSection held[CUBIN_SECTIONS];
+    CubinSection kept[CUBIN_SECTIONS];
     for (unsigned int index = 0u; index < sections; index += 1u)
     {
         const unsigned long long at = section_table + ((unsigned long long)index * section_bytes);
-        held[index].was_at = at;
-        held[index].was_size = cubin_read(&pattern[at + SECTION_SIZE], 8u);
-        held[index].bytes = &pattern[cubin_read(&pattern[at + SECTION_OFFSET], 8u)];
-        held[index].size = held[index].was_size;
-        held[index].align = cubin_read(&pattern[at + SECTION_ALIGN], 8u);
-        held[index].goes_at = cubin_read(&pattern[at + SECTION_OFFSET], 8u);
+        kept[index].was_at = at;
+        kept[index].was_size = cubin_read(&pattern[at + SECTION_SIZE], 8u);
+        kept[index].bytes = &pattern[cubin_read(&pattern[at + SECTION_OFFSET], 8u)];
+        kept[index].size = kept[index].was_size;
+        kept[index].align = cubin_read(&pattern[at + SECTION_ALIGN], 8u);
+        kept[index].goes_at = cubin_read(&pattern[at + SECTION_OFFSET], 8u);
     }
-    const unsigned long long strings = cubin_read(&pattern[held[strings_index].was_at + SECTION_OFFSET], 8u);
+    const unsigned long long strings = cubin_read(&pattern[kept[strings_index].was_at + SECTION_OFFSET], 8u);
     char named[256];
     snprintf(named, sizeof(named), ".text.%s", args->kernel);
-    const unsigned int code_index = cubin_section_named(pattern, held, sections, strings, named);
+    const unsigned int code_index = cubin_section_named(pattern, kept, sections, strings, named);
     snprintf(named, sizeof(named), ".nv.info.%s", args->kernel);
-    const unsigned int info_index = cubin_section_named(pattern, held, sections, strings, named);
-    const unsigned int all_index = cubin_section_named(pattern, held, sections, strings, ".nv.info");
-    const unsigned int symbols_index = cubin_section_named(pattern, held, sections, strings, ".symtab");
+    const unsigned int info_index = cubin_section_named(pattern, kept, sections, strings, named);
+    const unsigned int all_index = cubin_section_named(pattern, kept, sections, strings, ".nv.info");
+    const unsigned int symbols_index = cubin_section_named(pattern, kept, sections, strings, ".symtab");
     if ((code_index == sections) || (info_index == sections) || (all_index == sections) ||
         (symbols_index == sections))
     {
@@ -256,34 +256,34 @@ int cubin_write(const CubinWrite *args, unsigned char *written, unsigned long lo
     static unsigned char s_info[4096];
     static unsigned char s_all[4096];
     const unsigned long long info_size =
-        cubin_info_write(held[info_index].bytes, held[info_index].size, args->exits, args->exit_count, s_info,
+        cubin_info_write(kept[info_index].bytes, kept[info_index].size, args->exits, args->exit_count, s_info,
                          sizeof(s_info));
     if (info_size == 0ull)
     {
         printf("  cubin_write: %s holds no exit offsets to write\n", named);
         return 0;
     }
-    if (held[all_index].size > sizeof(s_all))
+    if (kept[all_index].size > sizeof(s_all))
     {
-        printf("  cubin_write: .nv.info takes %llu bytes where the room is %llu\n", held[all_index].size,
+        printf("  cubin_write: .nv.info takes %llu bytes where the room is %llu\n", kept[all_index].size,
                sizeof(s_all));
         return 0;
     }
-    memcpy(s_all, held[all_index].bytes, held[all_index].size);
+    memcpy(s_all, kept[all_index].bytes, kept[all_index].size);
     const unsigned int symbol =
-        (unsigned int)(cubin_read(&pattern[held[code_index].was_at + SECTION_INFO], 4u) & 0xffffffu);
-    cubin_registers_set(s_all, held[all_index].size, symbol, args->registers);
-    held[code_index].bytes = args->code;
-    held[code_index].size = args->code_size;
-    held[info_index].bytes = s_info;
-    held[info_index].size = info_size;
-    held[all_index].bytes = s_all;
-    // every section laid out again in the order the pattern held them, each where its alignment puts it
+        (unsigned int)(cubin_read(&pattern[kept[code_index].was_at + SECTION_INFO], 4u) & 0xffffffu);
+    cubin_registers_set(s_all, kept[all_index].size, symbol, args->registers);
+    kept[code_index].bytes = args->code;
+    kept[code_index].size = args->code_size;
+    kept[info_index].bytes = s_info;
+    kept[info_index].size = info_size;
+    kept[all_index].bytes = s_all;
+    // every section laid out again in the order the pattern kept them, each where its alignment puts it
     unsigned long long at = ELF_HEADER_BYTES;
     for (unsigned int index = 1u; index < sections; index += 1u)
     {
-        held[index].goes_at = cubin_round(at, held[index].align);
-        at = held[index].goes_at + held[index].size;
+        kept[index].goes_at = cubin_round(at, kept[index].align);
+        at = kept[index].goes_at + kept[index].size;
     }
     const unsigned long long new_section_table = cubin_round(at, 8ull);
     const unsigned long long new_segment_table = new_section_table + ((unsigned long long)sections * section_bytes);
@@ -300,12 +300,12 @@ int cubin_write(const CubinWrite *args, unsigned char *written, unsigned long lo
     for (unsigned int index = 0u; index < sections; index += 1u)
     {
         unsigned char *const header = &written[new_section_table + ((unsigned long long)index * section_bytes)];
-        memcpy(header, &pattern[held[index].was_at], section_bytes);
+        memcpy(header, &pattern[kept[index].was_at], section_bytes);
         if (index != 0u)
         {
-            memcpy(&written[held[index].goes_at], held[index].bytes, held[index].size);
-            cubin_put(&header[SECTION_OFFSET], 8u, held[index].goes_at);
-            cubin_put(&header[SECTION_SIZE], 8u, held[index].size);
+            memcpy(&written[kept[index].goes_at], kept[index].bytes, kept[index].size);
+            cubin_put(&header[SECTION_OFFSET], 8u, kept[index].goes_at);
+            cubin_put(&header[SECTION_SIZE], 8u, kept[index].size);
         }
     }
     // the code section carries the register count in the top byte of its info, beside the symbol it names
@@ -313,7 +313,7 @@ int cubin_write(const CubinWrite *args, unsigned char *written, unsigned long lo
     cubin_put(&code_header[SECTION_INFO], 4u,
               ((unsigned long long)args->registers << SECTION_INFO_REGISTERS) | symbol);
     // the kernel's symbol is as long as its code
-    unsigned char *const symbol_table = &written[held[symbols_index].goes_at];
+    unsigned char *const symbol_table = &written[kept[symbols_index].goes_at];
     cubin_put(&symbol_table[((unsigned long long)symbol * SYMBOL_BYTES) + SYMBOL_SIZE], 8u, args->code_size);
     for (unsigned int index = 0u; index < segments; index += 1u)
     {
@@ -332,12 +332,12 @@ int cubin_write(const CubinWrite *args, unsigned char *written, unsigned long lo
         unsigned long long last = 0ull;
         for (unsigned int index_at = 1u; index_at < sections; index_at += 1u)
         {
-            const unsigned long long was_section = cubin_read(&pattern[held[index_at].was_at + SECTION_OFFSET], 8u);
+            const unsigned long long was_section = cubin_read(&pattern[kept[index_at].was_at + SECTION_OFFSET], 8u);
             if ((was_section >= was_at) && (was_section < (was_at + was_size)))
             {
-                first = (held[index_at].goes_at < first) ? held[index_at].goes_at : first;
-                last = ((held[index_at].goes_at + held[index_at].size) > last)
-                           ? (held[index_at].goes_at + held[index_at].size)
+                first = (kept[index_at].goes_at < first) ? kept[index_at].goes_at : first;
+                last = ((kept[index_at].goes_at + kept[index_at].size) > last)
+                           ? (kept[index_at].goes_at + kept[index_at].size)
                            : last;
             }
         }

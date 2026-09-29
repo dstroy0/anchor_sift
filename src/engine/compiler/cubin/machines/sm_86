@@ -1,0 +1,330 @@
+forms 1
+# The part's instructions as the cell's probes read them back: one line a form, an operation and
+# the kind and mark of each printed operand, with the encoding the form was first seen with and
+# the instruction it was seen as. The format is the comment at the head of sass_machine.h.
+part sm_86
+form MOV register,constant 0x00000a0000017a02 0x000fe40000000f00 1:9-9;1:11-11;0:16-23;1:40-58;1:91-91 MOV R1, c[0x0][0x28]
+form S2R register,system 0x0000000000027919 0x000e280000002500 0:16-23;1:72-79 S2R R2, SR_CTAID.X
+form S2R register,system 0x0000000000037919 0x000e240000002100 0:16-23;1:72-79 S2R R3, SR_TID.X
+form IMAD register,register,constant,register 0x0000000002027a24 0x001fca00078e0203 2:11-11;0:16-23;1:24-31;2:40-58;3:64-71;3:75-75;2:91-91 IMAD R2, R2, c[0x0][0x0], R3
+form ISETP.GE.U32.AND predicate,predicate,register,constant,predicate 0x00005c0002007a0c 0x000fda0003f06070 3:9-9;3:11-11;2:24-31;3:40-58;0:81-83;1:84-86;4:87-90;3:91-91 ISETP.GE.U32.AND P0, PT, R2, c[0x0][0x170], PT
+form EXIT none 0x000000000000094d 0x000fea0003800000 none @P0 EXIT
+form MOV register,immediate 0x0000001000037802 0x000fe20000000f00 1:9-9;0:16-23;1:32-63 MOV R3, 0x10
+form ULDC.64 uniform,constant 0x0000460000047ab9 0x000fc80000000a00 0:16-21;1:38-58;1:91-91 ULDC.64 UR4, c[0x0][0x118]
+form IMAD.WIDE.U32 register,register,register,constant 0x00005a0002027625 0x000fca00078e0003 0:16-23;1:24-31;3:40-58;3:63-63;2:64-71;3:91-91 IMAD.WIDE.U32 R2, R2, R3, c[0x0][0x168]
+form STG.E address,register 0x000000ff02007986 0x000fe8000c101904 0:24-31;1:32-39;0:40-63;0:76-76;0:101-101 STG.E [R2.64], RZ
+form BRA label 0xfffffff000007947 0x000fc0000383ffff 0:16-31;0:34-63;0:64-84;0:92-108;0:116-121;0:125-127 BRA `(.L_x_0)
+form NOP none 0x0000000000007918 0x000fc00000000000 none NOP
+form LDG.E.CONSTANT register,address 0x0000000402007981 0x000ea8000c1e9900 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.E.CONSTANT R0, [R2.64]
+form IADD3 register,register,register,register 0x0000000700077210 0x004fca0007ffe0ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;3:75-75 IADD3 R7, R0, R7, RZ
+form IADD3 register,predicate,register,register,register 0x0000000700077210 0x004fc80007f1e0ff 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;4:64-71;2:72-72;4:75-75;1:81-83 IADD3 R7, P0, R0, R7, RZ
+form IADD3.X register,predicate,register,register,register,predicate,predicate! 0x00000008050b7210 0x008fe2000071e4ff 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;4:64-71;2:72-72;4:75-75;6:77-80;1:81-83;5:87-90 IADD3.X R11, P0, R5, R8, RZ, P0, !PT
+form IADD3.X register,register,register,register,predicate,predicate! 0x0000000906097210 0x010fc600007fe4ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;3:75-75;5:77-80;4:87-90 IADD3.X R9, R6, R9, RZ, P0, !PT
+form IADD3 register,register,register-,register 0x8000000700077210 0x004fca0007ffe0ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;3:75-75 IADD3 R7, R0, -R7, RZ
+form IADD3 register,predicate,register,register-,register 0x8000000700077210 0x004fc80007f1e0ff 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;4:64-71;2:72-72;4:75-75;1:81-83 IADD3 R7, P0, R0, -R7, RZ
+form IADD3.X register,predicate,register,register~,register,predicate,predicate! 0x80000008050b7210 0x008fe2000071e4ff 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;4:64-71;2:72-72;4:75-75;6:77-80;1:81-83;5:87-90 IADD3.X R11, P0, R5, ~R8, RZ, P0, !PT
+form IADD3.X register,register,register~,register,predicate,predicate! 0x8000000906097210 0x010fc600007fe4ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;3:75-75;5:77-80;4:87-90 IADD3.X R9, R6, ~R9, RZ, P0, !PT
+form IMAD.MOV.U32 register,register,register,immediate 0x00000020ff037424 0x000fe200078e00ff 3:9-9;0:16-23;1:24-31;3:32-63;2:64-71 IMAD.MOV.U32 R3, RZ, RZ, 0x20
+form IMAD.X register,register,register,immediate,predicate 0xffffffffff097424 0x000fe400000e06ff 3:9-9;0:16-23;1:24-31;3:32-63;2:64-71;4:87-90 IMAD.X R9, RZ, RZ, -0x1, P0
+form ISETP.NE.U32.AND predicate,predicate,register,register,predicate 0x000000ff0900720c 0x000fe40003f05070 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.NE.U32.AND P0, PT, R9, RZ, PT
+form SEL register,register,immediate,predicate! 0x00000001ff0b7807 0x000fe40004000000 2:9-9;0:16-23;1:24-31;2:32-63;3:87-90 SEL R11, RZ, 0x1, !P0
+form LOP3.LUT register,register,register,register,immediate,predicate! 0x0000000700097212 0x0c4fe400078ec0ff 0:16-23;1:24-31;2:32-39;3:64-71;4:72-79;5:87-90 LOP3.LUT R9, R0.reuse, R7.reuse, RZ, 0xc0, !PT
+form SHF.L.U32 register,register,register,register 0x0000000700097219 0x084fe400000006ff 0:16-23;1:24-31;2:32-39;3:64-71 SHF.L.U32 R9, R0, R7.reuse, RZ
+form SHF.R.U32.HI register,register,register,register 0x00000007ff077219 0x000fc60000011600 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 SHF.R.U32.HI R7, RZ, R7, R0
+form SHF.R.U32 register,register,register,register 0x0000000600077219 0x004fca0000001607 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 SHF.R.U32 R7, R0, R6, R7
+form IMAD register,register,register,register 0x0000000700097224 0x0c4fe400078e02ff 0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IMAD R9, R0.reuse, R7.reuse, RZ
+form I2F.U32.RP register,register 0x0000000700087306 0x004e220000209000 1:11-11;0:16-23;1:32-39 I2F.U32.RP R8, R7
+form IMAD.MOV register,register,register,register- 0x000000ffff097224 0x000fe200078e0a07 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IMAD.MOV R9, RZ, RZ, -R7
+form MUFU.RCP register,register 0x0000000800087308 0x001e240000001000 1:11-11;0:16-23;1:32-39;1:62-63 MUFU.RCP R8, R8
+form IADD3 register,register,immediate,register 0x0ffffffe08047810 0x001fcc0007ffe0ff 2:9-9;0:16-23;1:24-31;2:32-63;3:64-71;1:72-72;3:75-75 IADD3 R4, R8, 0xffffffe, RZ
+form F2I.FTZ.U32.TRUNC.NTZ register,register 0x0000000400057305 0x000064000021f000 1:11-11;0:16-23;1:32-39;1:62-63 F2I.FTZ.U32.TRUNC.NTZ R5, R4
+form MOV register,register 0x000000ff00047202 0x001fe20000000f00 1:11-11;0:16-23;1:32-39 MOV R4, RZ
+form IMAD.HI.U32 register,register,register,register 0x0000000905057227 0x000fcc00078e0004 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IMAD.HI.U32 R5, R5, R9, R4
+form ISETP.GE.U32.AND predicate,predicate,register,register,predicate 0x000000070600720c 0x000fe40003f06070 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.GE.U32.AND P0, PT, R6, R7, PT
+form IADD3 register,register-,register,register 0x0000000607060210 0x000fc40007ffe1ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;3:75-75 @P0 IADD3 R6, -R7, R6, RZ
+form IMAD.WIDE.U32 register,register,register,register 0x0000000009067225 0x004fca00078e0006 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IMAD.WIDE.U32 R6, R9, R0, R6
+form IABS register,register 0x0000000000097213 0x004fe40000000000 1:11-11;0:16-23;1:32-39 IABS R9, R0
+form ISETP.GE.AND predicate,predicate,register,register,predicate 0x000000ff0200720c 0x000fe40003f46270 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.GE.AND P2, PT, R2, RZ, PT
+form SEL register,register,immediate,predicate 0x00000001ff097807 0x000fe40000800000 2:9-9;0:16-23;1:24-31;2:32-63;3:87-90 SEL R9, RZ, 0x1, P1
+form ISETP.GT.AND predicate,predicate,register,register,predicate 0x000000050000720c 0x0c4fe40003f24270 2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.GT.AND P1, PT, R0.reuse, R5.reuse, PT
+form ISETP.NE.AND predicate,predicate,register,register,predicate 0x000000050000720c 0x000fe20003f05270 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.NE.AND P0, PT, R0, R5, PT
+form ISETP.LT.U32.AND predicate,predicate,register,register,predicate 0x000000070400720c 0x000fe20003f61070 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.LT.U32.AND P3, PT, R4, R7, PT
+form ISETP.NE.U32.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000ff0500720c 0x060fe20003f05100 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.NE.U32.AND.EX P0, PT, R5.reuse, RZ, PT, P0
+form ISETP.GE.U32.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000060500720c 0x0c0fe40003f86140 2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.GE.U32.AND.EX P4, PT, R5.reuse, R6.reuse, PT, P4
+form ISETP.LT.U32.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000060500720c 0x000fe40001741130 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.LT.U32.AND.EX P2, PT, R5, R6, P2, P3
+form ISETP.NE.U32.XOR predicate,predicate,register,register,predicate 0x000000ff0000720c 0x008fe20000725870 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.NE.U32.XOR P1, PT, R0, RZ, P0
+form SHF.L.U64.HI register,register,register,register 0x00000006070b7219 0x010fd20000010200 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 SHF.L.U64.HI R11, R7, R6, R0
+form I2F.U64.RP register,register 0x0000000600007312 0x000e300000309000 1:11-11;0:16-23;1:32-39 I2F.U64.RP R0, R6
+form F2I.U64.TRUNC register,register 0x0000000800087311 0x000e24000020d800 1:11-11;0:16-23;1:32-39;1:62-63 F2I.U64.TRUNC R8, R8
+form IMAD.MOV.U32 register,register,register,register 0x000000ffff0b7224 0x000fe400078e0008 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IMAD.MOV.U32 R11, RZ, RZ, R8
+form IMAD.X register,register,register,register~,predicate 0x000000ffff037224 0x000fc800000e0e03 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75;4:87-90 IMAD.X R3, RZ, RZ, ~R3, P0
+form IMAD.WIDE.U32 register,predicate,register,register,register 0x00000003080a7225 0x000fc8000780000a 3:11-11;0:16-23;2:24-31;3:32-39;4:64-71;4:75-75;1:81-83 IMAD.WIDE.U32 R10, P0, R8, R3, R10
+form IMAD.HI.U32 register,predicate,register,register,register 0x0000000d090a7227 0x000fc8000782000a 3:11-11;0:16-23;2:24-31;3:32-39;4:64-71;4:75-75;1:81-83 IMAD.HI.U32 R10, P1, R9, R13, R10
+form IADD3.X register,register,register,register,predicate,predicate 0x000000ffff037210 0x000fe200017e2403 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;3:75-75;5:77-80;4:87-90 IADD3.X R3, RZ, RZ, R3, P2, P1
+form IMAD.X register,register,register,register,predicate 0x000000ffff037224 0x000fe400008e0603 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75;4:87-90 IMAD.X R3, RZ, RZ, R3, P1
+form IADD3 register,predicate,register-,register,register 0x000000040a0b7210 0x000fc60007f3e1ff 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;4:64-71;2:72-72;4:75-75;1:81-83 IADD3 R11, P1, -R10, R4, RZ
+form IADD3.X register,register~,register,register,predicate,predicate! 0x0000000508087210 0x000fe40000ffe5ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;3:75-75;5:77-80;4:87-90 IADD3.X R8, ~R8, R5, RZ, P1, !PT
+form IADD3 register,predicate,register,immediate,register 0x0000000100097810 0x000fe40007f3e0ff 3:9-9;0:16-23;2:24-31;3:32-63;4:64-71;2:72-72;4:75-75;1:81-83 IADD3 R9, P1, R0, 0x1, RZ
+form IMAD.X register,register,immediate,register~,predicate 0x00000001080d7824 0x000fe200010e0e07 2:9-9;0:16-23;1:24-31;2:32-63;3:64-71;3:75-75;4:87-90 IMAD.X R13, R8, 0x1, ~R7, P2
+form SEL register,register,register,predicate 0x0000000009097207 0x000fe40000000000 2:11-11;0:16-23;1:24-31;2:32-39;3:87-90 SEL R9, R9, R0, P0
+form ISETP.NE.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000ff0700720c 0x000fe40003f25310 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.NE.AND.EX P1, PT, R7, RZ, PT, P1
+form RET.ABS.NODEC unknown 0x0000000014007950 0x000fec0003e00000 0:24-31;0:34-63;0:64-81;0:91-91 RET.ABS.NODEC R20 0x0
+form MOV register,unknown 0x0000000000147802 0x000fe40000000f00 1:9-9;0:16-23;1:32-63 MOV R20, 32@lo((cell_ask + .L_x_0@srel))
+form MOV register,unknown 0x0000000000157802 0x000fc80000000f00 1:9-9;0:16-23;1:32-63 MOV R21, 32@hi((cell_ask + .L_x_0@srel))
+form CALL.ABS.NOINC label 0x0000000000007943 0x021fea0003c00000 0:9-9;0:34-63;0:64-80;0:91-91 CALL.ABS.NOINC `(__cuda_sm20_div_u64)
+form LOP3.LUT predicate,register,register,constant,register,immediate,predicate 0x00000a0000017a12 0x000fe40000000f00 3:9-9;3:11-11;1:16-23;2:24-31;3:40-58;4:64-71;5:72-79;0:81-83;6:87-90;3:91-91 LOP3.LUT P0, R1, R0, c[0x0][0x28], R0, 0xf, P0
+form POPC register,immediate 0x0000000000027909 0x000e280000002500 1:9-9;0:16-23;1:32-63 POPC R2, 0x0
+form SHF.L.S32 register,register,immediate,register 0x0000000000027819 0x000e280000002500 2:9-9;0:16-23;1:24-31;2:32-63;3:64-71 SHF.L.S32 R2, R0, 0x0, R0
+form SHF.L.S64 register,register,immediate,register 0x0000000000037819 0x000e240000002100 2:9-9;0:16-23;1:24-31;2:32-63;3:64-71 SHF.L.S64 R3, R0, 0x0, R0
+form IMAD.WIDE register,register,constant,register 0x0000000002027a25 0x001fca00078e0203 2:9-9;2:11-11;0:16-23;1:24-31;2:40-58;3:64-71;3:75-75;2:91-91 IMAD.WIDE R2, R2, c[0x0][0x0], R3
+form IDP.4A.S8.U8 register,register,constant,register 0x0000000002027a26 0x001fca00078e0203 2:11-11;0:16-23;1:24-31;2:40-58;3:64-71;3:75-75;2:91-91 IDP.4A.S8.U8 R2, R2, c[0x0][0x0], R3
+form CLMAD.LO register,register,constant,register 0x0000000002027a2c 0x001fca00078e0203 2:11-11;0:16-23;1:24-31;2:40-58;3:64-71;2:91-91 CLMAD.LO R2, R2, c[0x0][0x0], R3
+form IMAD.MOV register,register,immediate,register 0x0000000002027824 0x001fca00078e0203 0:16-23;1:24-31;3:64-71;3:75-75 IMAD.MOV R2, R2, 0x0, R3
+form IMAD.U32 register,register,constant,register 0x0000000002027a24 0x001fca00078e0003 2:11-11;0:16-23;1:24-31;2:40-58;3:64-71;3:75-75;2:91-91 IMAD.U32 R2, R2, c[0x0][0x0], R3
+form IMAD.X register,register,constant,register,predicate! 0x0000000002027a24 0x001fca00078e0603 2:9-9;2:11-11;0:16-23;1:24-31;2:40-58;3:64-71;3:75-75;4:87-90;2:91-91 IMAD.X R2, R2, c[0x0][0x0], R3, !PT
+form FSEL register,register,constant,predicate 0x00005c0002007a08 0x000fda0003f06070 2:9-9;2:11-11;0:16-23;1:24-31;2:40-58;2:62-63;1:72-73;3:87-90;2:91-91 FSEL R0, R2, c[0x0][0x170], PT
+form CLMAD.HI register,register,constant,register 0x00005c0002007a2c 0x000fda0003f06070 2:11-11;0:16-23;1:24-31;2:40-58;3:64-71;2:91-91 CLMAD.HI R0, R2, c[0x0][0x170], R112
+form ISETP.GE.U32.AND.EX predicate,predicate,register,constant,predicate,predicate 0x00005c0002007a0c 0x000fda0003f06170 3:9-9;3:11-11;2:24-31;3:40-58;5:68-71;0:81-83;1:84-86;4:87-90;3:91-91 ISETP.GE.U32.AND.EX P0, PT, R2, c[0x0][0x170], PT, PT
+form ISETP.GE.AND predicate,predicate,register,constant,predicate 0x00005c0002007a0c 0x000fda0003f06270 3:9-9;3:11-11;2:24-31;3:40-58;0:81-83;1:84-86;4:87-90;3:91-91 ISETP.GE.AND P0, PT, R2, c[0x0][0x170], PT
+form ISETP.GE.U32.OR predicate,predicate,register,constant,predicate 0x00005c0002007a0c 0x000fda0003f06470 3:9-9;3:11-11;2:24-31;3:40-58;0:81-83;1:84-86;4:87-90;3:91-91 ISETP.GE.U32.OR P0, PT, R2, c[0x0][0x170], PT
+form ISETP.GE.U32.XOR predicate,predicate,register,constant,predicate 0x00005c0002007a0c 0x000fda0003f06870 3:9-9;3:11-11;2:24-31;3:40-58;0:81-83;1:84-86;4:87-90;3:91-91 ISETP.GE.U32.XOR P0, PT, R2, c[0x0][0x170], PT
+form ISETP.T.U32.AND predicate,predicate,register,constant,predicate 0x00005c0002007a0c 0x000fda0003f07070 3:9-9;3:11-11;2:24-31;3:40-58;0:81-83;1:84-86;4:87-90;3:91-91 ISETP.T.U32.AND P0, PT, R2, c[0x0][0x170], PT
+form ISETP.GT.U32.AND predicate,predicate,register,constant,predicate 0x00005c0002007a0c 0x000fda0003f04070 3:9-9;3:11-11;2:24-31;3:40-58;0:81-83;1:84-86;4:87-90;3:91-91 ISETP.GT.U32.AND P0, PT, R2, c[0x0][0x170], PT
+form ISETP.EQ.U32.AND predicate,predicate,register,constant,predicate 0x00005c0002007a0c 0x000fda0003f02070 3:9-9;3:11-11;2:24-31;3:40-58;0:81-83;1:84-86;4:87-90;3:91-91 ISETP.EQ.U32.AND P0, PT, R2, c[0x0][0x170], PT
+form JMX register 0x000000000000094c 0x000fea0003800000 0:24-31;0:34-63;0:64-81 @P0 JMX R0
+form BRX register 0x0000000000000949 0x000fea0003800000 0:24-31;0:34-63;0:64-81 @P0 BRX R0
+form NANOSLEEP immediate 0x000000000000095d 0x000fea0003800000 0:9-9;0:32-63 @P0 NANOSLEEP 0x0
+form EXIT.KEEPREFCOUNT none 0x000000000000094d 0x000fea0003900000 none @P0 EXIT.KEEPREFCOUNT
+form EXIT.PREEMPTED none 0x000000000000094d 0x000fea0003a00000 none @P0 EXIT.PREEMPTED
+form EXIT.NO_ATEXIT none 0x000000000000094d 0x000fea0003c00000 none @P0 EXIT.NO_ATEXIT
+form LOP3.LUT predicate,register,register,immediate,register,immediate,predicate 0x0000001000037812 0x000fe20000000f00 3:9-9;1:16-23;2:24-31;3:32-63;4:64-71;5:72-79;0:81-83;6:87-90 LOP3.LUT P0, R3, R0, 0x10, R0, 0xf, P0
+form UMOV uniform,immediate 0x0000001000037882 0x000fe20000000f00 0:16-21;1:32-63 UMOV UR3, 0x10
+form ULDC uniform,constant 0x0000460000047ab9 0x000fc80000000800 0:16-21;1:38-58;1:91-91 ULDC UR4, c[0x0][0x118]
+form ULDC.S8 uniform,constant 0x0000460000047ab9 0x000fc80000000200 0:16-21;1:38-58;1:91-91 ULDC.S8 UR4, c[0x0][0x118]
+form IMAD.U32 register,register,register,constant 0x00005a0002027624 0x000fca00078e0003 3:9-9;0:16-23;1:24-31;3:40-58;3:63-63;2:64-71;3:91-91 IMAD.U32 R2, R2, R3, c[0x0][0x168]
+form IMAD.HI.U32 register,register,register,constant 0x00005a0002027627 0x000fca00078e0003 0:16-23;1:24-31;3:40-58;3:63-63;2:64-71;3:91-91 IMAD.HI.U32 R2, R2, R3, c[0x0][0x168]
+form FADD register,register,constant 0x00005a0002027621 0x000fca00078e0003 2:9-10;0:16-23;1:24-31;2:40-58;2:62-63;1:72-73;2:91-91 FADD R2, R2, c[0x0][0x168]
+form IMAD.WIDE register,register,register,constant 0x00005a0002027625 0x000fca00078e0203 0:16-23;1:24-31;3:40-58;3:63-63;2:64-71;3:91-91 IMAD.WIDE R2, R2, R3, c[0x0][0x168]
+form IMAD.WIDE.U32.X register,register,register,constant,predicate! 0x00005a0002027625 0x000fca00078e0403 0:16-23;1:24-31;3:40-58;3:63-63;2:64-71;4:87-90;3:91-91 IMAD.WIDE.U32.X R2, R2, R3, c[0x0][0x168], !PT
+form STL address,register 0x000000ff02007987 0x000fe8000c101904 0:24-31;1:32-39;0:40-63;0:76-76;0:101-101 STL [R2], RZ
+form LDS register,address 0x000000ff02007984 0x000fe8000c101904 0:16-23;1:24-37;1:40-63;1:78-79;1:91-91 LDS R0, [R2+URZ]
+form STG.???0 address,register 0x000000ff02007986 0x000fe8000c101804 0:24-31;1:32-39;0:40-63;0:76-76;0:101-101 STG.???0 [R2.64], RZ
+form STG.E.64 address,register 0x000000ff02007986 0x000fe8000c101b04 0:24-31;1:32-39;0:40-63;0:76-76;0:101-101 STG.E.64 [R2.64], RZ
+form STG.E.128 address,register 0x000000ff02007986 0x000fe8000c101d04 0:24-31;1:32-39;0:40-63;0:76-76;0:101-101 STG.E.128 [R2.64], RZ
+form STG.E.U8 address,register 0x000000ff02007986 0x000fe8000c101104 0:24-31;1:32-39;0:40-63;0:76-76;0:101-101 STG.E.U8 [R2.64], RZ
+form STG.E.CONSTANT.PRIVATE address,register 0x000000ff02007986 0x000fe8000c103904 0:24-31;1:32-39;0:40-63;0:76-76;0:101-101 STG.E.CONSTANT.PRIVATE [R2.64], RZ
+form STG.E.CONSTANT.CTA address,register 0x000000ff02007986 0x000fe8000c105904 0:24-31;1:32-39;0:40-63;0:76-76;0:101-101 STG.E.CONSTANT.CTA [R2.64], RZ
+form STG.E.STRONG.SM.PRIVATE address,register 0x000000ff02007986 0x000fe8000c109904 0:24-31;1:32-39;0:40-63;0:76-76;0:101-101 STG.E.STRONG.SM.PRIVATE [R2.64], RZ
+form STG.E.MMIO.GPU address,register 0x000000ff02007986 0x000fe8000c111904 0:24-31;1:32-39;0:40-63;0:76-76;0:101-101 STG.E.MMIO.GPU [R2.64], RZ
+form STG.E.EF address,register 0x000000ff02007986 0x000fe8000c001904 0:24-31;1:32-39;0:40-63;0:76-76;0:101-101 STG.E.EF [R2.64], RZ
+form STG.E.LU address,register 0x000000ff02007986 0x000fe8000c301904 0:24-31;1:32-39;0:40-63;0:76-76;0:101-101 STG.E.LU [R2.64], RZ
+form STG.E.NA address,register 0x000000ff02007986 0x000fe8000c501904 0:24-31;1:32-39;0:40-63;0:76-76;0:101-101 STG.E.NA [R2.64], RZ
+form YIELD none 0xfffffff000007946 0x000fc0000383ffff none YIELD
+form CALL.ABS immediate 0xfffffff000007943 0x000fc0000383ffff 0:9-9;0:34-63;0:64-80;0:91-91 CALL.ABS 0x1fffffffffff0
+form __HIR0X1E0 none 0xfffffff00000794f 0x000fc0000383ffff none __HIR0X1E0
+form BRA.U immediate 0xfffffff100007947 0x000fc0000383ffff 0:16-31;0:34-63;0:64-84;0:92-108;0:116-121;0:125-127 BRA.U 0x1a0
+form BRA.DIV immediate 0xfffffff200007947 0x000fc0000383ffff 0:16-31;0:34-63;0:64-84;0:92-108;0:116-121;0:125-127 BRA.DIV 0x1b0
+form BRA.INC immediate 0xfffffff000007947 0x000fc00003a3ffff 0:16-31;0:34-63;0:64-84;0:92-108;0:116-121;0:125-127 BRA.INC 0x4f0
+form BRA.DEC immediate 0xfffffff000007947 0x000fc00003c3ffff 0:16-31;0:34-63;0:64-84;0:92-108;0:116-121;0:125-127 BRA.DEC 0x500
+form S2R register,system 0x0000000000007919 0x000fc00000000000 0:16-23;1:72-79 S2R R0, SR_LANEID
+form DEPBAR none 0x000000000000791a 0x000fc00000000000 none DEPBAR
+form MUFU.COS register,immediate 0x0000000000007908 0x000fc00000000000 1:9-9;0:16-23;1:32-63 MUFU.COS R0, 0
+form LD.E.CONSTANT register,address 0x0000000402007980 0x000ea8000c1e9900 0:16-23;1:24-31;1:40-63;1:76-76;1:91-91;1:101-101 LD.E.CONSTANT R0, [R2.64]
+form LDL register,address 0x0000000402007983 0x000ea8000c1e9900 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDL R0, [R2]
+form LDG.E.LTC64B.CONSTANT register,address 0x0000000402007981 0x000ea8000c1e9910 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.E.LTC64B.CONSTANT R0, [R2.64]
+form LDG.E.LTC128B.CONSTANT register,address 0x0000000402007981 0x000ea8000c1e9920 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.E.LTC128B.CONSTANT R0, [R2.64]
+form LDG.???0.CONSTANT register,address 0x0000000402007981 0x000ea8000c1e9800 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.???0.CONSTANT R0, [R2.64]
+form LDG.E.64.CONSTANT register,address 0x0000000402007981 0x000ea8000c1e9b00 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.E.64.CONSTANT R0, [R2.64]
+form LDG.E.128.CONSTANT register,address 0x0000000402007981 0x000ea8000c1e9d00 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.E.128.CONSTANT R0, [R2.64]
+form LDG.E.U8.CONSTANT register,address 0x0000000402007981 0x000ea8000c1e9100 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.E.U8.CONSTANT R0, [R2.64]
+form LDG.E.STRONG.SM register,address 0x0000000402007981 0x000ea8000c1eb900 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.E.STRONG.SM R0, [R2.64]
+form LDG.E.STRONG.GPU.PRIVATE register,address 0x0000000402007981 0x000ea8000c1ed900 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.E.STRONG.GPU.PRIVATE R0, [R2.64]
+form LDG.E register,address 0x0000000402007981 0x000ea8000c1e1900 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.E R0, [R2.64]
+form LDG.E.MMIO.SYS register,address 0x0000000402007981 0x000ea8000c1f9900 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.E.MMIO.SYS R0, [R2.64]
+form LDG.E.EF.CONSTANT register,address 0x0000000402007981 0x000ea8000c0e9900 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.E.EF.CONSTANT R0, [R2.64]
+form LDG.E.LU.CONSTANT register,address 0x0000000402007981 0x000ea8000c3e9900 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.E.LU.CONSTANT R0, [R2.64]
+form LDG.E.NA.CONSTANT register,address 0x0000000402007981 0x000ea8000c5e9900 0:16-23;1:24-31;1:40-63;1:76-76;1:101-101 LDG.E.NA.CONSTANT R0, [R2.64]
+form LEA.HI register,register,register,register,immediate 0x0000000700077211 0x004fca0007ffe0ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;4:75-79 LEA.HI R7, R0, R7, RZ, 0x1c
+form LOP3.LUT.PAND register,register,register,register,immediate,predicate! 0x0000000700077212 0x004fca0007ffe0ff 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;4:72-79;5:87-90 LOP3.LUT.PAND R7, R0, R7, RZ, 0xe0, !PT
+form VABSDIFF.U32 register,register,register,register 0x0000000700077214 0x004fca0007ffe0ff 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 VABSDIFF.U32 R7, R0, R7, RZ
+form HADD2.F32.FTZ.SAT register,register,register 0x0000000700077230 0x004fca0007ffe0ff 2:10-10;0:16-23;1:24-31;2:32-39;2:60-63;1:72-72;1:74-75 HADD2.F32.FTZ.SAT R7, R0, R7
+form IADD3.X register,register,register,register,predicate!,predicate! 0x0000000700077210 0x004fca0007ffe4ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;3:75-75;5:77-80;4:87-90 IADD3.X R7, R0, R7, RZ, !PT, !PT
+form LEA.HI register,predicate,register,register,register,immediate 0x0000000700077211 0x004fc80007f1e0ff 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;4:64-71;2:72-72;5:75-79;1:81-83 LEA.HI R7, P0, R0, R7, RZ, 0x1c
+form LOP3.LUT.PAND predicate,register,register,register,register,immediate,predicate! 0x0000000700077212 0x004fc80007f1e0ff 3:11-11;1:16-23;2:24-31;3:32-39;4:64-71;5:72-79;0:81-83;6:87-90 LOP3.LUT.PAND P0, R7, R0, R7, RZ, 0xe0, !PT
+form VABSDIFF.U32 register,predicate,register,register,register 0x0000000700077214 0x004fc80007f1e0ff 3:11-11;0:16-23;2:24-31;3:32-39;4:64-71;1:81-83 VABSDIFF.U32 R7, P0, R0, R7, RZ
+form IADD3.X register,predicate,register,register,register,predicate!,predicate! 0x0000000700077210 0x004fc80007f1e4ff 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;4:64-71;2:72-72;4:75-75;6:77-80;1:81-83;5:87-90 IADD3.X R7, P0, R0, R7, RZ, !PT, !PT
+form LEA.HI.X register,predicate,register,register,register,immediate,predicate 0x00000008050b7211 0x008fe2000071e4ff 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;4:64-71;2:72-72;5:75-79;1:81-83;6:87-90 LEA.HI.X R11, P0, R5, R8, RZ, 0x1c, P0
+form LOP3.LUT.PAND predicate,register,register,register,register,immediate,predicate 0x00000008050b7212 0x008fe2000071e4ff 3:11-11;1:16-23;2:24-31;3:32-39;4:64-71;5:72-79;0:81-83;6:87-90 LOP3.LUT.PAND P0, R11, R5, R8, RZ, 0xe4, P0
+form LEA.HI.X register,register,register,register,immediate,predicate 0x0000000906097211 0x010fc600007fe4ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;4:75-79;5:87-90 LEA.HI.X R9, R6, R9, RZ, 0x1c, P0
+form LOP3.LUT.PAND register,register,register,register,immediate,predicate 0x0000000906097212 0x010fc600007fe4ff 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;4:72-79;5:87-90 LOP3.LUT.PAND R9, R6, R9, RZ, 0xe4, P0
+form LEA.HI register,register,register-,register,immediate 0x8000000700077211 0x004fca0007ffe0ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;4:75-79 LEA.HI R7, R0, -R7, RZ, 0x1c
+form HADD2.F32.FTZ.SAT register,register,register- 0x8000000700077230 0x004fca0007ffe0ff 2:10-10;0:16-23;1:24-31;2:32-39;2:60-63;1:72-72;1:74-75 HADD2.F32.FTZ.SAT R7, R0, -R7
+form IADD3.X register,register,register~,register,predicate!,predicate! 0x8000000700077210 0x004fca0007ffe4ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;3:75-75;5:77-80;4:87-90 IADD3.X R7, R0, ~R7, RZ, !PT, !PT
+form LEA.HI register,predicate,register,register-,register,immediate 0x8000000700077211 0x004fc80007f1e0ff 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;4:64-71;2:72-72;5:75-79;1:81-83 LEA.HI R7, P0, R0, -R7, RZ, 0x1c
+form IADD3.X register,predicate,register,register~,register,predicate!,predicate! 0x8000000700077210 0x004fc80007f1e4ff 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;4:64-71;2:72-72;4:75-75;6:77-80;1:81-83;5:87-90 IADD3.X R7, P0, R0, ~R7, RZ, !PT, !PT
+form LEA.HI.X register,predicate,register,register~,register,immediate,predicate 0x80000008050b7211 0x008fe2000071e4ff 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;4:64-71;2:72-72;5:75-79;1:81-83;6:87-90 LEA.HI.X R11, P0, R5, ~R8, RZ, 0x1c, P0
+form LEA.HI.X register,register,register~,register,immediate,predicate 0x8000000906097211 0x010fc600007fe4ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;4:75-79;5:87-90 LEA.HI.X R9, R6, ~R9, RZ, 0x1c, P0
+form IMAD.MOV register,register,register,immediate 0x00000020ff037424 0x000fe200078e02ff 3:9-9;0:16-23;1:24-31;3:32-63;2:64-71 IMAD.MOV R3, RZ, RZ, 0x20
+form IMAD.U32.X register,register,register,immediate,predicate! 0x00000020ff037424 0x000fe200078e04ff 3:9-9;0:16-23;1:24-31;3:32-63;2:64-71;4:87-90 IMAD.U32.X R3, RZ, RZ, 0x20, !PT
+form IMAD.U32.X register,register,register,immediate,predicate 0xffffffffff097424 0x000fe400000e04ff 3:9-9;0:16-23;1:24-31;3:32-63;2:64-71;4:87-90 IMAD.U32.X R9, RZ, RZ, -0x1, P0
+form FSEL register,register,register,predicate 0x000000ff09007208 0x000fe40003f05070 2:11-11;0:16-23;1:24-31;2:32-39;2:62-63;1:72-73;3:87-90 FSEL R0, R9, RZ, PT
+form CLMAD.LO register,register,register,register 0x000000ff0900722c 0x000fe40003f05070 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 CLMAD.LO R0, R9, RZ, R112
+form ISETP.NE.U32.OR predicate,predicate,register,register,predicate 0x000000ff0900720c 0x000fe40003f05470 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.NE.U32.OR P0, PT, R9, RZ, PT
+form ISETP.GT.U32.AND predicate,predicate,register,register,predicate 0x000000ff0900720c 0x000fe40003f04070 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.GT.U32.AND P0, PT, R9, RZ, PT
+form ISETP.T.U32.AND predicate,predicate,register,register,predicate 0x000000ff0900720c 0x000fe40003f07070 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.T.U32.AND P0, PT, R9, RZ, PT
+form VOTE.ALL register,predicate,predicate! 0x00000001ff0b7806 0x000fe40004000000 0:16-23;1:81-83;2:87-90 VOTE.ALL R11, P0, !P0
+form CS2R.32 register,system 0x00000001ff0b7805 0x000fe40004000000 0:16-23;1:72-79 CS2R.32 R11, SR_LANEID
+form IMNMX.U32 register,register,immediate,predicate! 0x00000001ff0b7817 0x000fe40004000000 2:9-9;0:16-23;1:24-31;2:32-63;3:87-90 IMNMX.U32 R11, RZ, 0x1, !P0
+form IMAD.HI.U32 register,predicate,register,immediate,register 0x00000001ff0b7827 0x000fe40004000000 3:9-9;0:16-23;2:24-31;3:32-63;4:64-71;4:75-75;1:81-83 IMAD.HI.U32 R11, P0, RZ, 0x1, R0
+form PRMT register,register,register,register 0x0000000700097216 0x0c4fe400078ec0ff 0:16-23;1:24-31;2:32-39;3:64-71 PRMT R9, R0.reuse, R7.reuse, RZ
+form SGXT.U32 register,register,register 0x000000070009721a 0x0c4fe400078ec0ff 0:16-23;1:24-31;2:32-39 SGXT.U32 R9, R0.reuse, R7.reuse
+form HMUL2.F32 register,register,register 0x0000000700097232 0x0c4fe400078ec0ff 0:16-23;1:24-31;2:32-39;2:60-63;1:72-75 HMUL2.F32 R9, R0.reuse, R7.reuse
+form BMSK register,register,register 0x000000070009721b 0x084fe400000006ff 0:16-23;1:24-31;2:32-39 BMSK R9, R0, R7.reuse
+form SHF.L.S32 register,register,register,register 0x0000000700097219 0x084fe400000004ff 0:16-23;1:24-31;2:32-39;3:64-71 SHF.L.S32 R9, R0, R7.reuse, RZ
+form SHF.L.U64 register,register,register,register 0x0000000700097219 0x084fe400000002ff 0:16-23;1:24-31;2:32-39;3:64-71 SHF.L.U64 R9, R0, R7.reuse, RZ
+form SHF.L.W.U32 register,register,register,register 0x0000000700097219 0x084fe40000000eff 0:16-23;1:24-31;2:32-39;3:64-71 SHF.L.W.U32 R9, R0, R7.reuse, RZ
+form SHF.L.U32.HI register,register,register,register 0x0000000700097219 0x084fe400000106ff 0:16-23;1:24-31;2:32-39;3:64-71 SHF.L.U32.HI R9, R0, R7.reuse, RZ
+form LEA.HI.X.SX32 register,predicate,register,register,immediate,predicate 0x00000007ff077211 0x000fc60000011600 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;2:72-72;4:75-79;1:81-83;5:87-90 LEA.HI.X.SX32 R7, P0, RZ, R7, 0x2, P0
+form SHF.R.S32.HI register,register,register,register 0x00000007ff077219 0x000fc60000011400 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 SHF.R.S32.HI R7, RZ, R7, R0
+form SHF.R.U64.HI register,register,register,register 0x00000007ff077219 0x000fc60000011200 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 SHF.R.U64.HI R7, RZ, R7, R0
+form SHF.R.W.U32.HI register,register,register,register 0x00000007ff077219 0x000fc60000011e00 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 SHF.R.W.U32.HI R7, RZ, R7, R0
+form SHF.R.S32 register,register,register,register 0x0000000600077219 0x004fca0000001407 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 SHF.R.S32 R7, R0, R6, R7
+form SHF.R.U64 register,register,register,register 0x0000000600077219 0x004fca0000001207 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 SHF.R.U64 R7, R0, R6, R7
+form SHF.R.W.U32 register,register,register,register 0x0000000600077219 0x004fca0000001e07 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 SHF.R.W.U32 R7, R0, R6, R7
+form IMAD.WIDE register,register,register,register 0x0000000700097225 0x0c4fe400078e02ff 0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IMAD.WIDE R9, R0.reuse, R7.reuse, RZ
+form IDP.4A.S8.U8 register,register,register,register 0x0000000700097226 0x0c4fe400078e02ff 0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IDP.4A.S8.U8 R9, R0.reuse, R7.reuse, RZ
+form IMAD.MOV register,register,register,constant 0x0000000700097624 0x0c4fe400078e02ff 3:9-9;0:16-23;1:24-31;3:40-58;3:63-63 IMAD.MOV R9, R0.reuse, RZ.reuse, c[0x0][0x0]
+form IMAD.U32 register,register,register,register 0x0000000700097224 0x0c4fe400078e00ff 0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IMAD.U32 R9, R0.reuse, R7.reuse, RZ
+form IMAD.X register,register,register,register,predicate! 0x0000000700097224 0x0c4fe400078e06ff 0:16-23;1:24-31;2:32-39;3:64-71;3:75-75;4:87-90 IMAD.X R9, R0.reuse, R7.reuse, RZ, !PT
+form FRND.CEIL register,register 0x0000000700087307 0x004e220000209000 1:11-11;0:16-23;1:32-39;1:62-63 FRND.CEIL R8, R7
+form FCHK predicate,register,register 0x0000000700087302 0x004e220000209000 2:11-11;1:24-31;2:32-39;2:62-63;1:72-73;0:81-83 FCHK P0, R0, R7
+form I2F.RP register,register 0x0000000700087306 0x004e220000209400 1:11-11;0:16-23;1:32-39 I2F.RP R8, R7
+form I2F.???3.U32.RP register,register 0x0000000700087306 0x004e220000209800 1:11-11;0:16-23;1:32-39 I2F.???3.U32.RP R8, R7
+form I2F.???0.U32.RP register,register 0x0000000700087306 0x004e220000208000 1:11-11;0:16-23;1:32-39 I2F.???0.U32.RP R8, R7
+form I2F.U32.RZ register,register 0x0000000700087306 0x004e22000020d000 1:11-11;0:16-23;1:32-39 I2F.U32.RZ R8, R7
+form I2F.U32 register,register 0x0000000700087306 0x004e220000201000 1:11-11;0:16-23;1:32-39 I2F.U32 R8, R7
+form I2F.U8.RP register,register 0x0000000700087306 0x004e220000009000 1:11-11;0:16-23;1:32-39;1:60-61 I2F.U8.RP R8, R7
+form IMAD.WIDE register,register,register,register- 0x000000ffff097225 0x000fe200078e0a07 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IMAD.WIDE R9, RZ, RZ, -R7
+form IDP.4A.S8.U8 register,register,register,register- 0x000000ffff097226 0x000fe200078e0a07 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IDP.4A.S8.U8 R9, RZ, RZ, -R7
+form IMAD.MOV.U32 register,register,register,register- 0x000000ffff097224 0x000fe200078e0807 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IMAD.MOV.U32 R9, RZ, RZ, -R7
+form IMAD.X register,register,register,register~,predicate! 0x000000ffff097224 0x000fe200078e0e07 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75;4:87-90 IMAD.X R9, RZ, RZ, ~R7, !PT
+form POPC register,register 0x0000000800087309 0x001e240000001000 1:11-11;0:16-23;1:32-39;1:63-63 POPC R8, R8
+form FLO.U32 register,predicate,register 0x0000000800087300 0x001e240000001000 2:11-11;0:16-23;2:32-39;2:63-63;1:81-83 FLO.U32 R8, P0, R8
+form MUFU.RCP.F16 register,register 0x0000000800087308 0x001e240000001200 1:11-11;0:16-23;1:32-39;1:60-63 MUFU.RCP.F16 R8, R8
+form MUFU.RSQ register,register 0x0000000800087308 0x001e240000001400 1:11-11;0:16-23;1:32-39;1:62-63 MUFU.RSQ R8, R8
+form MUFU.RCP64H register,register 0x0000000800087308 0x001e240000001800 1:11-11;0:16-23;1:32-39;1:62-63 MUFU.RCP64H R8, R8
+form MUFU.COS register,register 0x0000000800087308 0x001e240000000000 1:11-11;0:16-23;1:32-39;1:62-63 MUFU.COS R8, R8
+form LEA.HI register,register,immediate,register,immediate 0x0ffffffe08047811 0x001fcc0007ffe0ff 2:9-9;0:16-23;1:24-31;2:32-63;3:64-71;1:72-72;4:75-79 LEA.HI R4, R8, 0xffffffe, RZ, 0x1c
+form LOP3.LUT.PAND register,register,immediate,register,immediate,predicate! 0x0ffffffe08047812 0x001fcc0007ffe0ff 2:9-9;0:16-23;1:24-31;2:32-63;3:64-71;4:72-79;5:87-90 LOP3.LUT.PAND R4, R8, 0xffffffe, RZ, 0xe0, !PT
+form VABSDIFF.U32 register,register,immediate,register 0x0ffffffe08047814 0x001fcc0007ffe0ff 2:9-9;0:16-23;1:24-31;2:32-63;3:64-71 VABSDIFF.U32 R4, R8, 0xffffffe, RZ
+form IADD3.X register,register,immediate,register,predicate!,predicate! 0x0ffffffe08047810 0x001fcc0007ffe4ff 2:9-9;0:16-23;1:24-31;2:32-63;3:64-71;1:72-72;3:75-75;5:77-80;4:87-90 IADD3.X R4, R8, 0xffffffe, RZ, !PT, !PT
+form FRND.FTZ.TRUNC register,register 0x0000000400057307 0x000064000021f000 1:11-11;0:16-23;1:32-39;1:62-63 FRND.FTZ.TRUNC R5, R4
+form BREV register,register 0x0000000400057301 0x000064000021f000 1:11-11;0:16-23;1:32-39 BREV R5, R4
+form F2I.FTZ.TRUNC.NTZ register,register 0x0000000400057305 0x000064000021f100 1:11-11;0:16-23;1:32-39;1:62-63 F2I.FTZ.TRUNC.NTZ R5, R4
+form F2I.FTZ.???6.TRUNC.NTZ register,register 0x0000000400057305 0x000064000021f800 1:11-11;0:16-23;1:32-39;1:62-63 F2I.FTZ.???6.TRUNC.NTZ R5, R4
+form F2I.FTZ.U8.TRUNC.NTZ register,register 0x0000000400057305 0x000064000021e000 1:11-11;0:16-23;1:32-39;1:62-63 F2I.FTZ.U8.TRUNC.NTZ R5, R4
+form F2I.FTZ.U32.TRUNC register,register 0x0000000400057305 0x000064000021d000 1:11-11;0:16-23;1:32-39;1:62-63 F2I.FTZ.U32.TRUNC R5, R4
+form F2I.FTZ.U32.CEIL.NTZ register,register 0x0000000400057305 0x000064000021b000 1:11-11;0:16-23;1:32-39;1:62-63 F2I.FTZ.U32.CEIL.NTZ R5, R4
+form F2I.FTZ.U32.FLOOR.NTZ register,register 0x0000000400057305 0x0000640000217000 1:11-11;0:16-23;1:32-39;1:62-63 F2I.FTZ.U32.FLOOR.NTZ R5, R4
+form F2I.U32.TRUNC.NTZ register,register 0x0000000400057305 0x000064000020f000 1:11-11;0:16-23;1:32-39;1:62-63 F2I.U32.TRUNC.NTZ R5, R4
+form LOP3.LUT predicate,register,register,register,register,immediate,predicate 0x000000ff00047212 0x001fe20000000f00 3:11-11;1:16-23;2:24-31;3:32-39;4:64-71;5:72-79;0:81-83;6:87-90 LOP3.LUT P0, R4, R0, RZ, R0, 0xf, P0
+form IDP.4A.U8.U8 register,register,register,register 0x0000000905057226 0x000fcc00078e0004 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IDP.4A.U8.U8 R5, R5, R9, R4
+form FFMA register,register,register,register 0x0000000905057223 0x000fcc00078e0004 2:11-11;0:16-23;1:24-31;2:32-39;2:62-63;3:64-71;1:72-73;3:74-75 FFMA R5, R5, R9, R4
+form SEL register,register,register,predicate! 0x0000000905057207 0x000fcc00078e0004 2:11-11;0:16-23;1:24-31;2:32-39;3:87-90 SEL R5, R5, R9, !PT
+form IMAD.HI register,register,register,register 0x0000000905057227 0x000fcc00078e0204 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IMAD.HI R5, R5, R9, R4
+form IMAD.HI.U32.X register,register,register,register,predicate! 0x0000000905057227 0x000fcc00078e0404 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75;4:87-90 IMAD.HI.U32.X R5, R5, R9, R4, !PT
+form CLMAD.HI register,register,register,register 0x000000070600722c 0x000fe40003f06070 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 CLMAD.HI R0, R6, R7, R112
+form ISETP.GE.U32.OR predicate,predicate,register,register,predicate 0x000000070600720c 0x000fe40003f06470 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.GE.U32.OR P0, PT, R6, R7, PT
+form ISETP.GE.U32.XOR predicate,predicate,register,register,predicate 0x000000070600720c 0x000fe40003f06870 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.GE.U32.XOR P0, PT, R6, R7, PT
+form ISETP.EQ.U32.AND predicate,predicate,register,register,predicate 0x000000070600720c 0x000fe40003f02070 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.EQ.U32.AND P0, PT, R6, R7, PT
+form LEA.HI register,register-,register,register,immediate 0x0000000607060211 0x000fc40007ffe1ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;4:75-79 @P0 LEA.HI R6, -R7, R6, RZ, 0x1c
+form HADD2.F32.FTZ.SAT register,register-,register 0x0000000607060230 0x000fc40007ffe1ff 2:10-10;0:16-23;1:24-31;2:32-39;2:60-63;1:72-72;1:74-75 @P0 HADD2.F32.FTZ.SAT R6, -R7, R6
+form IADD3.X register,register~,register,register,predicate!,predicate! 0x0000000607060210 0x000fc40007ffe5ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;3:75-75;5:77-80;4:87-90 @P0 IADD3.X R6, ~R7, R6, RZ, !PT, !PT
+form FADD register,register,register 0x0000000009067221 0x004fca00078e0006 2:10-10;0:16-23;1:24-31;2:32-39;2:62-63;1:72-73 FADD R6, R9, R0
+form IMAD.WIDE.U32.X register,register,register,register,predicate! 0x0000000009067225 0x004fca00078e0406 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75;4:87-90 IMAD.WIDE.U32.X R6, R9, R0, R6, !PT
+form LEA register,predicate,register,register,immediate 0x0000000000097211 0x004fe40000000000 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;2:72-72;4:75-79;1:81-83 LEA R9, P0, R0, R0, 0x0
+form IMNMX.U32 register,register,register,predicate 0x0000000000097217 0x004fe40000000000 2:11-11;0:16-23;1:24-31;2:32-39;3:87-90 IMNMX.U32 R9, R0, R0, P0
+form HSET2.F.AND register,register,register,predicate 0x0000000000097233 0x004fe40000000000 2:10-10;0:16-23;1:24-31;2:32-39;2:60-63;1:72-75;3:87-90 HSET2.F.AND R9, R0, R0, P0
+form FRND.???0 register,register 0x0000000000097313 0x004fe40000000000 1:11-11;0:16-23;1:32-39;1:62-63 FRND.???0 R9, R0
+form ISETP.GE.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000ff0200720c 0x000fe40003f46370 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.GE.AND.EX P2, PT, R2, RZ, PT, PT
+form ISETP.GE.OR predicate,predicate,register,register,predicate 0x000000ff0200720c 0x000fe40003f46670 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.GE.OR P2, PT, R2, RZ, PT
+form ISETP.GE.XOR predicate,predicate,register,register,predicate 0x000000ff0200720c 0x000fe40003f46a70 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.GE.XOR P2, PT, R2, RZ, PT
+form ISETP.T.AND predicate,predicate,register,register,predicate 0x000000ff0200720c 0x000fe40003f47270 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.T.AND P2, PT, R2, RZ, PT
+form ISETP.EQ.AND predicate,predicate,register,register,predicate 0x000000ff0200720c 0x000fe40003f42270 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.EQ.AND P2, PT, R2, RZ, PT
+form VOTE.ALL register,predicate,predicate 0x00000001ff097806 0x000fe40000800000 0:16-23;1:81-83;2:87-90 VOTE.ALL R9, P0, P1
+form IMNMX.U32 register,register,immediate,predicate 0x00000001ff097817 0x000fe40000800000 2:9-9;0:16-23;1:24-31;2:32-63;3:87-90 IMNMX.U32 R9, RZ, 0x1, P1
+form ISETP.GT.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000050000720c 0x0c4fe40003f24370 2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.GT.AND.EX P1, PT, R0.reuse, R5.reuse, PT, PT
+form ISETP.GT.OR predicate,predicate,register,register,predicate 0x000000050000720c 0x0c4fe40003f24670 2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.GT.OR P1, PT, R0.reuse, R5.reuse, PT
+form ISETP.GT.XOR predicate,predicate,register,register,predicate 0x000000050000720c 0x0c4fe40003f24a70 2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.GT.XOR P1, PT, R0.reuse, R5.reuse, PT
+form ISETP.F.AND predicate,predicate,register,register,predicate 0x000000050000720c 0x0c4fe40003f20270 2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.F.AND P1, PT, R0.reuse, R5.reuse, PT
+form ISETP.NE.OR predicate,predicate,register,register,predicate 0x000000050000720c 0x000fe20003f05670 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.NE.OR P0, PT, R0, R5, PT
+form ISETP.NE.XOR predicate,predicate,register,register,predicate 0x000000050000720c 0x000fe20003f05a70 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.NE.XOR P0, PT, R0, R5, PT
+form ISETP.LT.AND predicate,predicate,register,register,predicate 0x000000050000720c 0x000fe20003f01270 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.LT.AND P0, PT, R0, R5, PT
+form ISETP.LT.U32.OR predicate,predicate,register,register,predicate 0x000000070400720c 0x000fe20003f61470 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.LT.U32.OR P3, PT, R4, R7, PT
+form ISETP.LT.U32.XOR predicate,predicate,register,register,predicate 0x000000070400720c 0x000fe20003f61870 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.LT.U32.XOR P3, PT, R4, R7, PT
+form ISETP.F.U32.AND predicate,predicate,register,register,predicate 0x000000070400720c 0x000fe20003f60070 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.F.U32.AND P3, PT, R4, R7, PT
+form ISETP.LE.U32.AND predicate,predicate,register,register,predicate 0x000000070400720c 0x000fe20003f63070 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.LE.U32.AND P3, PT, R4, R7, PT
+form FSEL register,register-,register,predicate 0x000000ff05007208 0x060fe20003f05100 2:11-11;0:16-23;1:24-31;2:32-39;2:62-63;1:72-73;3:87-90 FSEL R0, -R5.reuse, RZ, PT
+form ISETP.NE.U32.OR.EX predicate,predicate,register,register,predicate,predicate 0x000000ff0500720c 0x060fe20003f05500 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.NE.U32.OR.EX P0, PT, R5.reuse, RZ, PT, P0
+form ISETP.NE.U32.XOR.EX predicate,predicate,register,register,predicate,predicate 0x000000ff0500720c 0x060fe20003f05900 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.NE.U32.XOR.EX P0, PT, R5.reuse, RZ, PT, P0
+form ISETP.GT.U32.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000ff0500720c 0x060fe20003f04100 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.GT.U32.AND.EX P0, PT, R5.reuse, RZ, PT, P0
+form ISETP.T.U32.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000ff0500720c 0x060fe20003f07100 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.T.U32.AND.EX P0, PT, R5.reuse, RZ, PT, P0
+form ISETP.GE.U32.OR.EX predicate,predicate,register,register,predicate,predicate 0x000000060500720c 0x0c0fe40003f86540 2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.GE.U32.OR.EX P4, PT, R5.reuse, R6.reuse, PT, P4
+form ISETP.GE.U32.XOR.EX predicate,predicate,register,register,predicate,predicate 0x000000060500720c 0x0c0fe40003f86940 2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.GE.U32.XOR.EX P4, PT, R5.reuse, R6.reuse, PT, P4
+form ISETP.EQ.U32.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000060500720c 0x0c0fe40003f82140 2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.EQ.U32.AND.EX P4, PT, R5.reuse, R6.reuse, PT, P4
+form ISETP.LT.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000060500720c 0x000fe40001741330 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.LT.AND.EX P2, PT, R5, R6, P2, P3
+form ISETP.LT.U32.OR.EX predicate,predicate,register,register,predicate,predicate 0x000000060500720c 0x000fe40001741530 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.LT.U32.OR.EX P2, PT, R5, R6, P2, P3
+form ISETP.LT.U32.XOR.EX predicate,predicate,register,register,predicate,predicate 0x000000060500720c 0x000fe40001741930 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.LT.U32.XOR.EX P2, PT, R5, R6, P2, P3
+form ISETP.F.U32.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000060500720c 0x000fe40001740130 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.F.U32.AND.EX P2, PT, R5, R6, P2, P3
+form ISETP.LE.U32.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000060500720c 0x000fe40001743130 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.LE.U32.AND.EX P2, PT, R5, R6, P2, P3
+form ISETP.GT.U32.XOR predicate,predicate,register,register,predicate 0x000000ff0000720c 0x008fe20000724870 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.GT.U32.XOR P1, PT, R0, RZ, P0
+form ISETP.T.U32.XOR predicate,predicate,register,register,predicate 0x000000ff0000720c 0x008fe20000727870 3:11-11;2:24-31;3:32-39;0:81-83;1:84-86;4:87-90 ISETP.T.U32.XOR P1, PT, R0, RZ, P0
+form LEA.HI.SX32 register,predicate,register,register,immediate 0x00000006070b7211 0x010fd20000010200 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;2:72-72;4:75-79;1:81-83 LEA.HI.SX32 R11, P0, R7, R6, 0x0
+form SHF.L.S64.HI register,register,register,register 0x00000006070b7219 0x010fd20000010000 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 SHF.L.S64.HI R11, R7, R6, R0
+form SHF.L.W.U64.HI register,register,register,register 0x00000006070b7219 0x010fd20000010a00 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71 SHF.L.W.U64.HI R11, R7, R6, R0
+form FRND.???14.CEIL register,register 0x0000000600007313 0x000e300000309000 1:11-11;0:16-23;1:32-39;1:62-63 FRND.???14.CEIL R0, R6
+form F2F.F32.F64.RP register,register 0x0000000600007310 0x000e300000309000 1:11-11;0:16-23;1:32-39;1:62-63 F2F.F32.F64.RP R0, R6
+form I2F.S64.RP register,register 0x0000000600007312 0x000e300000309400 1:11-11;0:16-23;1:32-39 I2F.S64.RP R0, R6
+form I2F.F64.U64.RP register,register 0x0000000600007312 0x000e300000309800 1:11-11;0:16-23;1:32-39 I2F.F64.U64.RP R0, R6
+form I2F.U64.RZ register,register 0x0000000600007312 0x000e30000030d000 1:11-11;0:16-23;1:32-39 I2F.U64.RZ R0, R6
+form I2F.U64 register,register 0x0000000600007312 0x000e300000301000 1:11-11;0:16-23;1:32-39 I2F.U64 R0, R6
+form F2F.F64.F32.RZ register,register 0x0000000800087310 0x000e24000020d800 1:11-11;0:16-23;1:32-39;1:62-63 F2F.F64.F32.RZ R8, R8
+form FRND.???11.TRUNC register,register 0x0000000800087313 0x000e24000020d800 1:11-11;0:16-23;1:32-39;1:62-63 FRND.???11.TRUNC R8, R8
+form F2I.S64.TRUNC register,register 0x0000000800087311 0x000e24000020d900 1:11-11;0:16-23;1:32-39;1:62-63 F2I.S64.TRUNC R8, R8
+form F2I.U64.TRUNC.NTZ register,register 0x0000000800087311 0x000e24000020f800 1:11-11;0:16-23;1:32-39;1:62-63 F2I.U64.TRUNC.NTZ R8, R8
+form F2I.U64.CEIL register,register 0x0000000800087311 0x000e240000209800 1:11-11;0:16-23;1:32-39;1:62-63 F2I.U64.CEIL R8, R8
+form F2I.U64.FLOOR register,register 0x0000000800087311 0x000e240000205800 1:11-11;0:16-23;1:32-39;1:62-63 F2I.U64.FLOOR R8, R8
+form F2I.FTZ.U64.TRUNC register,register 0x0000000800087311 0x000e24000021d800 1:11-11;0:16-23;1:32-39;1:62-63 F2I.FTZ.U64.TRUNC R8, R8
+form F2I.U64.F64.TRUNC register,register 0x0000000800087311 0x000e24000030d800 1:11-11;0:16-23;1:32-39;1:62-63 F2I.U64.F64.TRUNC R8, R8
+form HSETP2.F.AND predicate,predicate,register,register,predicate! 0x000000ffff0b7234 0x000fe400078e0008 3:10-10;2:24-31;3:32-39;3:60-63;2:72-75;0:81-83;1:84-86;4:87-90 HSETP2.F.AND PT, P0, RZ, RZ, !PT
+form IMAD.MOV register,register,register,register 0x000000ffff0b7224 0x000fe400078e0208 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IMAD.MOV R11, RZ, RZ, R8
+form IMAD.U32.X register,register,register,register,predicate! 0x000000ffff0b7224 0x000fe400078e0408 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75;4:87-90 IMAD.U32.X R11, RZ, RZ, R8, !PT
+form IMAD.WIDE.X register,register,register,register~,predicate 0x000000ffff037225 0x000fc800000e0e03 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75;4:87-90 IMAD.WIDE.X R3, RZ, RZ, ~R3, P0
+form IDP.4A.S8.S8 register,register,register,register- 0x000000ffff037226 0x000fc800000e0e03 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IDP.4A.S8.S8 R3, RZ, RZ, -R3
+form IMAD.U32.X register,register,register,register~,predicate 0x000000ffff037224 0x000fc800000e0c03 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75;4:87-90 IMAD.U32.X R3, RZ, RZ, ~R3, P0
+form HFMA2.MMA register,register,register,register 0x00000003080a7235 0x000fc8000780000a 2:11-11;0:16-23;1:24-31;2:32-39;2:62-63;3:64-71;1:72-73;3:83-84 HFMA2.MMA R10, R8, R3, R10
+form IMAD.WIDE register,predicate,register,register,register 0x00000003080a7225 0x000fc8000780020a 3:11-11;0:16-23;2:24-31;3:32-39;4:64-71;4:75-75;1:81-83 IMAD.WIDE R10, P0, R8, R3, R10
+form IMAD.WIDE.U32.X register,predicate,register,register,register,predicate! 0x00000003080a7225 0x000fc8000780040a 3:11-11;0:16-23;2:24-31;3:32-39;4:64-71;4:75-75;1:81-83;5:87-90 IMAD.WIDE.U32.X R10, P0, R8, R3, R10, !PT
+form IMAD.HI register,predicate,register,register,register 0x0000000d090a7227 0x000fc8000782020a 3:11-11;0:16-23;2:24-31;3:32-39;4:64-71;4:75-75;1:81-83 IMAD.HI R10, P1, R9, R13, R10
+form IMAD.HI.U32.X register,predicate,register,register,register,predicate! 0x0000000d090a7227 0x000fc8000782040a 3:11-11;0:16-23;2:24-31;3:32-39;4:64-71;4:75-75;1:81-83;5:87-90 IMAD.HI.U32.X R10, P1, R9, R13, R10, !PT
+form LEA.X register,register,register,immediate,predicate 0x000000ffff037211 0x000fe200017e2403 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;1:72-72;3:75-79;4:87-90 LEA.X R3, RZ, RZ, 0x4, P2
+form LOP3.LUT register,register,register,register,immediate,predicate 0x000000ffff037212 0x000fe200017e2403 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;4:72-79;5:87-90 LOP3.LUT R3, RZ, RZ, R3, 0x24, P2
+form IMAD.WIDE.X register,register,register,register,predicate 0x000000ffff037225 0x000fe400008e0603 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75;4:87-90 IMAD.WIDE.X R3, RZ, RZ, R3, P1
+form IDP.4A.S8.S8 register,register,register,register 0x000000ffff037226 0x000fe400008e0603 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75 IDP.4A.S8.S8 R3, RZ, RZ, R3
+form IMAD.U32.X register,register,register,register,predicate 0x000000ffff037224 0x000fe400008e0403 2:11-11;0:16-23;1:24-31;2:32-39;3:64-71;3:75-75;4:87-90 IMAD.U32.X R3, RZ, RZ, R3, P1
+form LEA.HI register,predicate,register-,register,register,immediate 0x000000040a0b7211 0x000fc60007f3e1ff 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;4:64-71;2:72-72;5:75-79;1:81-83 LEA.HI R11, P1, -R10, R4, RZ, 0x1c
+form IADD3.X register,predicate,register~,register,register,predicate!,predicate! 0x000000040a0b7210 0x000fc60007f3e5ff 3:11-11;0:16-23;2:24-31;3:32-39;3:63-63;4:64-71;2:72-72;4:75-75;6:77-80;1:81-83;5:87-90 IADD3.X R11, P1, ~R10, R4, RZ, !PT, !PT
+form LEA.HI.X register,register~,register,register,immediate,predicate 0x0000000508087211 0x000fe40000ffe5ff 2:11-11;0:16-23;1:24-31;2:32-39;2:63-63;3:64-71;1:72-72;4:75-79;5:87-90 LEA.HI.X R8, ~R8, R5, RZ, 0x1c, P1
+form LEA.HI register,predicate,register,immediate,register,immediate 0x0000000100097811 0x000fe40007f3e0ff 3:9-9;0:16-23;2:24-31;3:32-63;4:64-71;2:72-72;5:75-79;1:81-83 LEA.HI R9, P1, R0, 0x1, RZ, 0x1c
+form LOP3.LUT.PAND predicate,register,register,immediate,register,immediate,predicate! 0x0000000100097812 0x000fe40007f3e0ff 3:9-9;1:16-23;2:24-31;3:32-63;4:64-71;5:72-79;0:81-83;6:87-90 LOP3.LUT.PAND P1, R9, R0, 0x1, RZ, 0xe0, !PT
+form VABSDIFF.U32 register,predicate,register,immediate,register 0x0000000100097814 0x000fe40007f3e0ff 3:9-9;0:16-23;2:24-31;3:32-63;4:64-71;1:81-83 VABSDIFF.U32 R9, P1, R0, 0x1, RZ
+form IADD3.X register,predicate,register,immediate,register,predicate!,predicate! 0x0000000100097810 0x000fe40007f3e4ff 3:9-9;0:16-23;2:24-31;3:32-63;4:64-71;2:72-72;4:75-75;6:77-80;1:81-83;5:87-90 IADD3.X R9, P1, R0, 0x1, RZ, !PT, !PT
+form IMAD.WIDE.X register,register,immediate,register~,predicate 0x00000001080d7825 0x000fe200010e0e07 2:9-9;0:16-23;1:24-31;2:32-63;3:64-71;3:75-75;4:87-90 IMAD.WIDE.X R13, R8, 0x1, ~R7, P2
+form OUT.???0 register,register,immediate 0x00000001080d7924 0x000fe200010e0e07 0:16-23;1:24-31;2:32-63 OUT.???0 R13, R8, 0x1
+form IMAD.U32.X register,register,immediate,register~,predicate 0x00000001080d7824 0x000fe200010e0c07 2:9-9;0:16-23;1:24-31;2:32-63;3:64-71;3:75-75;4:87-90 IMAD.U32.X R13, R8, 0x1, ~R7, P2
+form IMAD.IADD register,register,immediate,register- 0x00000001080d7824 0x000fe200010e0a07 0:16-23;1:24-31;3:64-71;3:75-75 IMAD.IADD R13, R8, 0x1, -R7
+form ISETP.NE.OR.EX predicate,predicate,register,register,predicate,predicate 0x000000ff0700720c 0x000fe40003f25710 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.NE.OR.EX P1, PT, R7, RZ, PT, P1
+form ISETP.NE.XOR.EX predicate,predicate,register,register,predicate,predicate 0x000000ff0700720c 0x000fe40003f25b10 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.NE.XOR.EX P1, PT, R7, RZ, PT, P1
+form ISETP.T.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000ff0700720c 0x000fe40003f27310 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.T.AND.EX P1, PT, R7, RZ, PT, P1
+form S2UR uniform,system 0x00000000000079c3 0x021fea0003c00000 0:16-21;1:72-79 S2UR UR0, SR_LANEID
+form F2IP.U8.F32 register,register,immediate,register 0x0000000000007843 0x021fea0003c00000 2:9-9;0:16-23;1:24-31;2:32-63;3:64-72 F2IP.U8.F32 R0, R0, 0, R0

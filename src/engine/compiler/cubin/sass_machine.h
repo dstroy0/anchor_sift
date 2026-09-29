@@ -3,19 +3,19 @@
 #ifndef SASS_MACHINE_H
 #define SASS_MACHINE_H
 
-// A shape is an operation with its modifiers and, for each printed operand, what kind of thing it is and the mark it
-// carries (- or ~ on a register, ! on a predicate). Two instructions of one shape differ only in the values their
-// operand fields hold, so the encoding a shape was first seen with is the base every instruction of that shape is
+// A form is an operation with its modifiers and, for each printed operand, what kind of thing it is and the mark it
+// carries (- or ~ on a register, ! on a predicate). Two instructions of one form differ only in the values their
+// operand fields hold, and the encoding a form was first seen with is the base every instruction of that form is
 // assembled from (sass_assemble.h).
 //
-// Which bits carry which operand is not guessed. The cell's probe turns each of the shape's 128 bits over one at a
+// Which bits carry which operand is not guessed. The cell's probe turns each of the form's 128 bits over one at a
 // time, disassembles all 129 encodings, and keeps the runs of bits that changed a printed operand; those runs are the
-// shape's fields. Matching an operand to a field by the value the base happens to hold there is not enough, because a
+// form's fields. Matching an operand to a field by the value the base happens to hold there is not enough, because a
 // field the operation does not use holds 0 and a register or predicate numbered 0 matches it.
 //
-// A part's own file is machines/<part>.kmc. Its first line is `kmc 1`, then `part <name>`, then a line a shape:
+// A part's own file is machines/<part>. Its first line is `forms 1`, then `part <name>`, then a line a form:
 //
-//     shape <operation> <kind><mark>,... <low> <high> <operand>:<first>-<last>;... <the instruction it was seen as>
+//     form <operation> <kind><mark>,... <low> <high> <operand>:<first>-<last>;... <the instruction it was seen as>
 //
 // where <low> and <high> are the instruction's two 64-bit words in hex, low first, as a listing prints them, and the
 // runs are the bits that change each operand, by the operand's place in the printed text.
@@ -24,15 +24,15 @@
 #define SASS_MACHINE_TEXT 192u
 #define SASS_MACHINE_TOKEN 64u
 #define SASS_MACHINE_OPERANDS 8u
-// the most runs of bits one shape's operands take between them, and the most shapes a machine file holds
+// the most runs of bits one form's operands take between them, and the most forms a machine file holds
 #define SASS_MACHINE_RUNS 32u
-#define SASS_MACHINE_SHAPES 1024u
+#define SASS_MACHINE_FORMS 1024u
 #define SASS_MACHINE_PART 16u
 
 // what one printed operand is
 enum SassOperandKind
 {
-    // an operand the parts reader did not know, which no instruction of that shape can be assembled
+    // an operand the parts reader did not know, which no instruction of that form can be assembled
     SASS_OPERAND_UNKNOWN = 0,
     SASS_OPERAND_REGISTER = 1,
     SASS_OPERAND_PREDICATE = 2,
@@ -44,8 +44,8 @@ enum SassOperandKind
     SASS_OPERAND_SYSTEM = 8
 };
 
-// the mark an operand carries, which the shape holds because the bit that puts it there is the operation's, not the
-// operand's: the encoding a shape was seen with already carries the mark every instruction of that shape has
+// the mark an operand carries, which the form holds because the bit that puts it there is the operation's, not the
+// operand's: the encoding a form was seen with already carries the mark every instruction of that form has
 enum SassOperandMark
 {
     SASS_MARK_NONE = 0,
@@ -74,7 +74,7 @@ typedef struct
     unsigned int last;
 } SassRun;
 
-// one shape, the encoding it was first seen with, and the bits its operands sit in
+// one form, the encoding it was first seen with, and the bits its operands sit in
 typedef struct
 {
     char operation[SASS_MACHINE_TOKEN];
@@ -86,28 +86,31 @@ typedef struct
     unsigned int runs;
     SassRun run[SASS_MACHINE_RUNS];
     char text[SASS_MACHINE_TEXT];
-} SassShape;
+} SassForm;
 
 typedef struct
 {
     char part[SASS_MACHINE_PART];
-    unsigned int shapes;
+    unsigned int forms;
     unsigned int refused;
-    SassShape shape[SASS_MACHINE_SHAPES];
+    SassForm form[SASS_MACHINE_FORMS];
 } SassMachine;
 
 // `text` read into its parts, whatever it holds: an operand the reader does not know is kept with the kind
 // SASS_OPERAND_UNKNOWN, and the guard is empty where the instruction carries none
+// 1 where `text` ends in the .hi a ruleset writes for the second register of a 64-bit pair (sass.krs)
+int sass_high_half(const char *text);
+
 void sass_instruction_read(const char *text, SassInstructionParts *parts);
 
-// an instruction kept in `machine` as a shape where it holds none of that shape yet, `low` and `high` its encoding
-// and `text` the instruction it was seen as; the shape it was kept as, or the one already held, through `kept`, whose
+// an instruction kept in `machine` as a form where it holds none of that form yet, `low` and `high` its encoding
+// and `text` the instruction it was seen as; the form it was kept as, or the one already there, through `kept`, whose
 // runs the caller fills. 1, or 0 where the machine is full, counted in machine->refused
 int sass_machine_take(SassMachine *machine, const char *text, unsigned long long low, unsigned long long high,
-                      SassShape **kept);
+                      SassForm **kept);
 
-// the shape of `parts`, or NULL where the machine holds none
-const SassShape *sass_machine_shape(const SassMachine *machine, const SassInstructionParts *parts);
+// the form of `parts`, or NULL where the machine holds none
+const SassForm *sass_machine_form(const SassMachine *machine, const SassInstructionParts *parts);
 
 // the machine written to `path`, and read back from it: 1, or 0 with the reason printed
 int sass_machine_write(const SassMachine *machine, const char *path);

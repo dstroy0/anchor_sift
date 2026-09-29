@@ -324,6 +324,43 @@ static int probe_single(ProbeWriter *writer, const std::string &header, const st
 
 // the cubin at `path` loaded and its kernel cell_ask run over one case, whose input words are `arguments`: the four
 // output words printed. Exit 0 where the device answers, 3 where it errors on the run, 4 where it will not load
+// Every clock the part will name, asked of it rather than assumed. A part is a clocked thing and everything it does
+// is transitions at some rate, so what rates it has is a question it can answer, and the answer is the unit every
+// cost is read in. The part's own clock register is not needed for that, and is not in the machine: the host's clock
+// times a run from outside (probe_cubin_run), and these say what one tick is worth
+static int probe_clocks(int device)
+{
+    static const struct
+    {
+        cudaDeviceAttr attribute;
+        const char *name;
+        const char *unit;
+    } asked[] = {
+        {cudaDevAttrClockRate, "the part's clock", "kHz"},
+        {cudaDevAttrMemoryClockRate, "the memory's clock", "kHz"},
+        {cudaDevAttrGlobalMemoryBusWidth, "the memory's bus", "bits"},
+        {cudaDevAttrMultiProcessorCount, "the part's multiprocessors", ""},
+        {cudaDevAttrWarpSize, "a warp", "lanes"},
+        {cudaDevAttrMaxThreadsPerMultiProcessor, "a multiprocessor's threads", ""},
+        // what the register file holds against what a thread may take: their ratio is how many registers a thread
+        // can hold and still fill the part, and a lane past it loses threads in step. That is where a knee is
+        {cudaDevAttrMaxRegistersPerMultiprocessor, "a multiprocessor's registers", ""},
+        {cudaDevAttrMaxRegistersPerBlock, "a block's registers", ""},
+        {cudaDevAttrL2CacheSize, "the second level cache", "bytes"},
+    };
+    for (unsigned int at = 0u; at < (sizeof(asked) / sizeof(asked[0])); at += 1u)
+    {
+        int value = 0;
+        const cudaError_t got = cudaDeviceGetAttribute(&value, asked[at].attribute, device);
+        printf("  %-28s %s", asked[at].name, (got == cudaSuccess) ? "" : "the part does not say\n");
+        if (got == cudaSuccess)
+        {
+            printf("%d %s\n", value, asked[at].unit);
+        }
+    }
+    return 0;
+}
+
 static int probe_cubin_run(const char *path, int count, char **arguments)
 {
     std::vector<char> cubin;
@@ -365,6 +402,22 @@ static int probe_cubin_run(const char *path, int count, char **arguments)
         return probe_error(status);
     }
     printf("answered %08x %08x %08x %08x\n", out[0], out[1], out[2], out[3]);
+    // The run timed by our own clock, which is all a cost needs: the part's clock register is not in the machine,
+    // and a run measured from outside says what a kernel costs whatever the part will name. The run above is not
+    // counted, since it carries the library load and the first launch
+    const char *const repeats = getenv("PROBE_REPEATS");
+    const unsigned long runs = (repeats != NULL) ? strtoul(repeats, NULL, 10) : 0ul;
+    if (runs != 0ul)
+    {
+        const std::chrono::steady_clock::time_point opened = std::chrono::steady_clock::now();
+        for (unsigned long run = 0ul; run < runs; run += 1ul)
+        {
+            probe_run(kernel, in, out, 1u);
+        }
+        const std::chrono::steady_clock::time_point closed = std::chrono::steady_clock::now();
+        const double taken = std::chrono::duration<double, std::nano>(closed - opened).count();
+        printf("timed %lu runs, %.1f ns a run\n", runs, taken / (double)runs);
+    }
     cudaLibraryUnload(library);
     return 0;
 }
@@ -403,6 +456,10 @@ int main(int count, char **arguments)
     if ((strcmp(question, "run") == 0) && (count > 2))
     {
         return probe_cubin_run(arguments[2], count, arguments);
+    }
+    if (strcmp(question, "clocks") == 0)
+    {
+        return probe_clocks(device);
     }
     if (strcmp(question, "alive") == 0)
     {

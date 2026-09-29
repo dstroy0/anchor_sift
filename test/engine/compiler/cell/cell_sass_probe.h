@@ -74,17 +74,30 @@ void sass_parts_read(const char *text, SassParts *parts);
 int sass_decode(const char *architecture, const char *path, const unsigned long long *low,
                 const unsigned long long *high, unsigned int count, char (*texts)[SASS_TEXT]);
 
-// every instruction of `listing` that the listing gave an encoding for taken into `machine` as a shape
+// every instruction of `listing` that the listing gave an encoding for taken into `machine` as a form
 // (cell_sass_probe_machine.c)
 void sass_machine_listing(SassMachine *machine, const SassListing *listing);
 
-// each shape's operand fields found by turning its 128 bits over and decoding, and the machine written to
-// `folder`/machine.kmc: 1, or 0 where a shape's fields were not found or the file was not written
+// Every operation one bit from a form the listings gave, taken into `machine` as a form of its own: each listed
+// form's 128 bits are turned over and decoded, and a decode that prints a different operation is an instruction the
+// compiler never wrote and the part still answers for. This is how a spelling reaches the machine without being
+// guessed: ISETP.EQ.U32.AND, ISETP.EQ.U32.AND.EX and ISETP.LT.AND are each one bit from a comparison the listings
+// did hold, and sass.krs names all three only because the compiler read zero and below off the negations instead.
+//
+// Two things a widened form is not. It is decodable, not run: only a question that assembles one and runs it says
+// the part executes it. And its operand bits are the ones the form it came from held, which the new operation may
+// read as something else - PLOP3.LUT is one bit from SHF.L.U32, and it decodes with a register standing where a
+// predicate belongs, so its form carries that kind and no predicate operation can be written from it. An operation
+// reached this way is the part saying the encoding is legal, not a form ready to assemble from. The count taken
+unsigned int sass_machine_widen(SassMachine *machine, const char *architecture, const char *folder);
+
+// each form's operand fields found by turning its 128 bits over and decoding, and the machine written to
+// `folder`/machine: 1, or 0 where a form's fields were not found or the file was not written
 int sass_machine_fields(SassMachine *machine, const char *architecture, const char *folder);
 
-// the machine file the tree holds for this part, in `machines`, held to the one this run learned: 1 where the two
+// the machine file the tree holds for this part, in `machines`, checked against the one this run learned: 1 where the two
 // agree, or where the tree holds none for this part; 0 where they differ, with what to do printed
-int sass_machine_held(const SassMachine *machine, const char *machines);
+int sass_machine_same(const SassMachine *machine, const char *machines);
 
 // how a check of the assembler came out: how many instructions were written back, how many of them the assembler
 // refused, how many came out as the very bytes the listing gave, and how many read back as the text they were
@@ -99,8 +112,8 @@ typedef struct
     unsigned int by_bytes;
 } SassCheck;
 
-// every instruction of `listing` assembled from its text alone, held to the encoding the listing gave it and then
-// disassembled and held to the text it was written from, counted into `tally`: how many did not read back, with the
+// every instruction of `listing` assembled from its text alone, checked against the encoding the listing gave it and then
+// disassembled and checked against the text it was written from, counted into `tally`: how many did not read back, with the
 // first `report` of them printed
 unsigned int sass_machine_check(const SassMachine *machine, const SassListing *listing, const char *architecture,
                                 const char *folder, SassCheck *tally, unsigned int report);

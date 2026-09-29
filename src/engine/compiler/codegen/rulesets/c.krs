@@ -36,14 +36,14 @@ fixed ok = ok
 # the program's text around the lane
 form program_note steps major minor compiler_major compiler_minor block = // a record program of {steps} steps, for sm_{major}{minor}, NVRTC {compiler_major}.{compiler_minor}, as C for the target {block}\n
 form lane_open = \nextern __shared__ u32 cycle_words[];\n\n// a 32-bit sum and its carry out, the carry in added\n__device__ static inline u32 cycle_c_add(const u32 left, const u32 right, const u32 carried, u32 *const carry)\n{\n    const u64 total = (u64)left + (u64)right + (u64)carried;\n    *carry = (u32)(total >> 32u);\n    return (u32)total;\n}\n\n// a 32-bit difference and its borrow out, the borrow in taken too\n__device__ static inline u32 cycle_c_subtract(const u32 left, const u32 right, const u32 borrowed, u32 *const borrow)\n{\n    const u64 total = (u64)left - (u64)right - (u64)borrowed;\n    *borrow = (u32)((total >> 32u) & 1u);\n    return (u32)total;\n}\n\n// a product's low word with a word added, and the sum's carry out\n__device__ static inline u32 cycle_c_product_low(const u32 left, const u32 right, const u32 added, u32 *const carry)\n{\n    const u64 total = (u64)(left * right) + (u64)added;\n    *carry = (u32)(total >> 32u);\n    return (u32)total;\n}\n\nextern "C" __device__ void cycle_lane(const CycleCompiledLaunch *launch_given, const u64 lane_given)\n{\n
-form lane_body =
+nop lane_body
 form lane_close = }\n
 
 # the lane's declarations
 form declare_predicates count =     int p[{count}];\n
 form declare_fixed_predicates =     int indexed, one, ok;\n
-form declare_file count =
-form declare_signs count =
+nop declare_file count
+nop declare_signs count
 form declare_out count =     u32 o[{count}];\n
 form declare_atoms count =     u32 a[{count}];\n
 form declare_temporaries count =     u32 t[{count}];\n
@@ -55,9 +55,9 @@ form declare_members count =     u64 member[{count}];\n
 # the lane's opening and close
 form open_launch =     launch = (u64)launch_given;\n    lane_number = lane_given;\n    zero = 0u;\n    carry = 0u;\n
 form launch_load to offset =     {to} = *(const u64 *)(launch + {offset}ull);\n
-form to_global to =
+nop to_global to
 form shared_open =     thread = threadIdx.x;\n    threads = blockDim.x;\n    sign_base = thread;\n
-form shared_close =
+nop shared_close
 form guarded_load where to address =     if ({where})\n    {\n        {to} = *(const u32 *){address};\n    }\n
 form guarded_widen where to from =     if ({where})\n    {\n        {to} = (u64){from};\n    }\n
 form open_error_unless where =     if (!{where})\n    {\n        goto error_open;\n    }\n
@@ -82,7 +82,7 @@ form borrow_alone to left right =     {to} = cycle_c_subtract({left}, {right}, 0
 form borrow_first to left right =     {to} = cycle_c_subtract({left}, {right}, 0u, &carry);\n
 form borrow_middle to left right =     {to} = cycle_c_subtract({left}, {right}, carry, &carry);\n
 form borrow_last to left right =     {to} = cycle_c_subtract({left}, {right}, carry, &carry);\n
-form borrow_read held where =     {held} = 0u - carry;\n    {where} = (carry != 0u);\n
+form borrow_read borrow where =     {borrow} = 0u - carry;\n    {where} = (carry != 0u);\n
 
 # a word's arithmetic
 form word_copy to from =     {to} = {from};\n
@@ -138,23 +138,23 @@ form global_load to address offset =     {to} = *(const u32 *)({address} + {offs
 form record_store offset from =     *(u32 *)(record_address + {offset}ull) = {from};\n
 
 # the states a target that clocks the lane a state at a time cuts it into (vhdl.krs); a C lane runs straight through
-form states_declare count =
-form state_start state =
-form state_open state =
-form state_next state error =
-form state_exit =
-form dispatch_to error state =
+nop states_declare count
+nop state_start state
+nop state_open state
+nop state_next state error
+nop state_exit
+nop dispatch_to error state
 
 # a memory read's address named a state ahead of the read (vhdl.krs); a C load names its address itself
-form launch_ask offset =
-form global_ask address offset =
-form guarded_ask where address =
-form count_ask address =
+nop launch_ask offset
+nop global_ask address offset
+nop guarded_ask where address
+nop count_ask address
 
 # a loop: its label, and the goto back to it where the predicate holds
 form loop_label loop = loop{loop}:\n
 form loop_back loop where =     if ({where})\n    {\n        goto loop{loop};\n    }\n
-form state_loop back where next =
+nop state_loop back where next
 
 # the program resident around the lane: the kernel the record machine launches, which takes the launch's lanes a round
 # a thread block and holds the program to its block (vhdl.krs writes the same resident as a circuit)

@@ -78,14 +78,30 @@ CODEGEN_CORE int ruleset_core_entry(RulesetCoreRead *read, RulesetCoreSpan kind,
     if (ruleset_core_is(read, kind, "form"))
     {
         const unsigned int named = ruleset_core_find(read, schema->forms, schema->form_count, name);
-        if ((has_equals == 0) || (named == schema->form_count) || (parameter_count != schema->form_parameters[named]) ||
-            (read->form_given[named] != 0u) ||
+        // a form with nothing after its equals has not said whether it is a nop or an error, and is neither
+        if ((has_equals == 0) || (text.length == 0u) || (named == schema->form_count) ||
+            (parameter_count != schema->form_parameters[named]) || (read->form_given[named] != 0u) ||
             !ruleset_core_split(read, text, read->text, parameters, parameter_count, &form))
         {
             return ruleset_core_ended(read, RULESET_CORE_FORM_WRONG, 0u, name);
         }
         read->forms[named] = form;
-        read->form_given[named] = 1u;
+        read->form_given[named] = (unsigned char)RULESET_CORE_GIVEN;
+        return 1;
+    }
+    // a nop and an err are a form's head with no equals and no text: both write nothing, and a lane that decides an
+    // err is refused where one that decides a nop is written without it
+    if (ruleset_core_is(read, kind, "nop") || ruleset_core_is(read, kind, "err"))
+    {
+        const unsigned int named = ruleset_core_find(read, schema->forms, schema->form_count, name);
+        if ((has_equals != 0) || (named == schema->form_count) || (parameter_count != schema->form_parameters[named]) ||
+            (read->form_given[named] != 0u) || !ruleset_core_split(read, text, read->text, parameters, 0u, &form))
+        {
+            return ruleset_core_ended(read, RULESET_CORE_FORM_WRONG, 0u, name);
+        }
+        read->forms[named] = form;
+        read->form_given[named] = (unsigned char)(ruleset_core_is(read, kind, "nop") ? RULESET_CORE_GIVEN_NOP
+                                                                                     : RULESET_CORE_GIVEN_ERR);
         return 1;
     }
     if (ruleset_core_is(read, kind, "construct"))

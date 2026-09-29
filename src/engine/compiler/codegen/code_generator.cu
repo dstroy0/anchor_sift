@@ -37,11 +37,23 @@ static const RulesetName s_physreg_names[PHYSREG_COUNT] = {PHYSREGS(PHYSREG_WRIT
 // program resident that runs its launch's lanes (program_unit), the kernel the record machine launches or a circuit's
 // top. The text is the whole program, and nothing hand-written is linked with it.
 
-// register `at` of a bank, as the ruleset writes it
-static std::string code_generator_register(const Ruleset *rules, unsigned int bank, unsigned int at)
+// Where each bank begins in the register file, and how many registers one of its own takes. A language whose
+// registers are virtual (PTX's %v and %t, C's arrays, VHDL's variables) gives every bank a namespace of its own and
+// leaves this zero; a language with one register file (SASS) has every bank in that file, and a bank numbered from 0
+// like every other collides with them. The banks are laid end to end from the counts the lane declares, and a bank
+// whose registers are 64 bits takes two of the file's for each of its own.
+struct RegisterFile
+{
+    unsigned int at[REGCLASS_COUNT];
+    unsigned int takes[REGCLASS_COUNT];
+};
+
+// register `at` of a bank, as the ruleset writes it, laid into the file by `file` where the language has one
+static std::string code_generator_register(const Ruleset *rules, const RegisterFile *file, unsigned int bank,
+                                           unsigned int at)
 {
     const InstrTemplate *const form = &rules->banks[bank];
-    const std::string number = std::to_string(at);
+    const std::string number = std::to_string(file->at[bank] + (file->takes[bank] * at));
     std::string name = form->pieces[0];
     for (size_t slot = 0u; slot < form->slots.size(); slot += 1u)
     {
@@ -53,11 +65,12 @@ static std::string code_generator_register(const Ruleset *rules, unsigned int ba
 
 // an argument the core decided, as the ruleset writes it: a register by its bank, a fixed register by its name, and a
 // number in decimal, a signed one with its minus
-static std::string code_generator_argument(const Ruleset *rules, const MachineOperand &argument)
+static std::string code_generator_argument(const Ruleset *rules, const RegisterFile *file,
+                                           const MachineOperand &argument)
 {
     if (argument.kind == OPERAND_REGISTER)
     {
-        return code_generator_register(rules, argument.which, argument.number);
+        return code_generator_register(rules, file, argument.which, argument.number);
     }
     if (argument.kind == OPERAND_PHYSREG)
     {
@@ -69,11 +82,58 @@ static std::string code_generator_argument(const Ruleset *rules, const MachineOp
                : std::to_string(argument.number);
 }
 
+// how many registers of the file one register of a bank takes: two for a bank of 64-bit registers, which the file
+// holds as a pair, and one for the rest. The bank of immediates is a word's value written into a form and none of the
+// file, so it is never moved
+static unsigned int code_generator_takes(unsigned int bank)
+{
+    return ((bank == REGCLASS_WIDE) || (bank == REGCLASS_MEMBER)) ? 2u : 1u;
+}
+
+// The banks laid into one register file, from the counts the lane declared: each bank begins where the one before it
+// ended, in the order the declarations come. A language whose banks are namespaces of their own leaves every bank at
+// 0, which writes each register by its own number as it always was. The predicates are a file of their own on every
+// language that has them, and are not laid with the rest. 0 where the banks run past what the file holds, the lane
+// then written by nobody: every register from there on would be one the language has already pinned
+static int code_generator_file(const CodeGenerator *generator, const std::vector<MachineInstr> &items,
+                               RegisterFile *file)
+{
+    for (unsigned int bank = 0u; bank < REGCLASS_COUNT; bank += 1u)
+    {
+        file->at[bank] = 0u;
+        file->takes[bank] = 1u;
+    }
+    const unsigned int holds = generator->register_file_holds();
+    if (holds == 0u)
+    {
+        return 1;
+    }
+    // each bank's count is the argument of the form that declares it, in the order the lane's declarations are written
+    const unsigned int declares[] = {OPCODE_DECLARE_FILE,        OPCODE_DECLARE_SIGNS, OPCODE_DECLARE_OUT,
+                                     OPCODE_DECLARE_ATOMS,       OPCODE_DECLARE_TEMPORARIES,
+                                     OPCODE_DECLARE_WIDES,       OPCODE_DECLARE_MEMBERS};
+    const unsigned int banks[] = {REGCLASS_FILE,      REGCLASS_SIGN, REGCLASS_OUT,   REGCLASS_ATOM,
+                                  REGCLASS_TEMPORARY, REGCLASS_WIDE, REGCLASS_MEMBER};
+    unsigned int at = 0u;
+    for (unsigned int which = 0u; which < (sizeof(banks) / sizeof(banks[0])); which += 1u)
+    {
+        unsigned int count = 0u;
+        for (const MachineInstr &item : items)
+        {
+            count = (item.form == declares[which]) ? item.arguments[0].number : count;
+        }
+        file->at[banks[which]] = at;
+        file->takes[banks[which]] = code_generator_takes(banks[which]);
+        at += count * file->takes[banks[which]];
+    }
+    return (at <= holds) ? 1 : 0;
+}
+
 // a form the core decided, written in the ruleset into `text`: its arguments, the program's note's from its step count
 // and the target, the resident's from the launch's layout, a construct's scratch taken from where the core left each
 // bank as it decided the form. `broken` set where the ruleset cannot write it
-static void code_generator_text(const Ruleset *rules, const TargetInfo *target, const MachineInstr &item,
-                                std::string &text, int *broken)
+static void code_generator_text(const Ruleset *rules, const RegisterFile *file, const TargetInfo *target,
+                                const MachineInstr &item, std::string &text, int *broken)
 {
     std::vector<std::string> arguments;
     if (item.form == OPCODE_PROGRAM_NOTE)
@@ -99,18 +159,18 @@ static void code_generator_text(const Ruleset *rules, const TargetInfo *target, 
     {
         for (unsigned int at = 0u; (at < item.count) && (at < MACHINE_INSTR_OPERANDS); at += 1u)
         {
-            arguments.push_back(code_generator_argument(rules, item.arguments[at]));
+            arguments.push_back(code_generator_argument(rules, file, item.arguments[at]));
         }
     }
     unsigned int taken[3] = {item.scratch[0], item.scratch[1], item.scratch[2]};
     const unsigned int banks[3] = {REGCLASS_TEMPORARY, REGCLASS_WIDE, REGCLASS_PREDICATE};
-    const ScratchRegisters scratch = [rules, &taken, &banks](unsigned int bank) {
+    const ScratchRegisters scratch = [rules, file, &taken, &banks](unsigned int bank) {
         for (unsigned int bank_index = 0u; bank_index < 3u; bank_index += 1u)
         {
             if (bank == banks[bank_index])
             {
                 taken[bank_index] += 1u;
-                return code_generator_register(rules, bank, taken[bank_index] - 1u);
+                return code_generator_register(rules, file, bank, taken[bank_index] - 1u);
             }
         }
         return std::string();
@@ -409,7 +469,8 @@ int CodeGenerator::decide(const EngineRecordLayout *layout, const ScheduleModel 
 }
 
 // the lane as decide() decides it, written in the ruleset under `header` for `target`, which the note names; empty
-// where it is not decided, or a form was written with other arguments than it takes
+// where it is not decided, its banks run past the language's register file, or a form was written with other
+// arguments than it takes
 std::string CodeGenerator::lane(const EngineRecordLayout *layout, const TargetInfo *target, const std::string &header,
                                 unsigned int *places, unsigned int *live, const ScheduleModel *model,
                                 ScheduleReport *report)
@@ -420,6 +481,11 @@ std::string CodeGenerator::lane(const EngineRecordLayout *layout, const TargetIn
         return std::string();
     }
     const Ruleset *const rules = ready();
+    RegisterFile file;
+    if (code_generator_file(this, items, &file) == 0)
+    {
+        return std::string();
+    }
     int broken = 0;
     std::string text;
     for (const MachineInstr &item : items)
@@ -430,7 +496,7 @@ std::string CodeGenerator::lane(const EngineRecordLayout *layout, const TargetIn
         }
         else
         {
-            code_generator_text(rules, target, item, text, &broken);
+            code_generator_text(rules, &file, target, item, text, &broken);
         }
     }
     return (broken != 0) ? std::string() : text;

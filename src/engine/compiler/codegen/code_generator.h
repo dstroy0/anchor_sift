@@ -76,6 +76,13 @@ class CodeGenerator : public Target
     // NULL where program() writes the lane whole
     virtual const ScheduleModel *program_schedule_model(void) const;
 
+    // how many registers the language's one register file holds for the lane, where every bank is in that file and
+    // the banks are laid end to end from the counts the lane declares, in place of each being numbered from 0. A
+    // language whose registers are virtual (PTX, C, VHDL) gives each bank a namespace of its own and answers 0. A
+    // lane whose banks run past what the file holds is written by nobody: program() refuses it, in place of writing
+    // a register the language has pinned to something else
+    virtual unsigned int register_file_holds(void) const;
+
     // 1 where program() splits the lane, `costs` then its model as the core splits by it, for the device to split the
     // same
     int program_schedule_costs(ScheduleCosts *costs) const;

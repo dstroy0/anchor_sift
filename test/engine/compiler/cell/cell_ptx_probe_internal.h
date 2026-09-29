@@ -28,8 +28,10 @@
 #include <nvrtc.h>
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
+#include <chrono>
 #include <functional>
 #include <string>
 #include <vector>

@@ -66,9 +66,9 @@ form declare_members count =         variable member : cycle_wides(0 to {count} 
 # state_exit, and a label only notes where an error's states begin
 form open_launch =             launch := launch_given;\n            lane_number := lane_given;\n            zero := (others => '0');\n
 form launch_load to offset =             {to} := high_word & low_word;\n
-form to_global to =
-form shared_open =
-form shared_close =
+nop to_global to
+nop shared_open
+nop shared_close
 form guarded_load where to address =             if {where} then\n                {to} := low_word;\n            end if;\n
 form guarded_widen where to from =             if {where} then\n                {to} := wide_of({from});\n            end if;\n
 form open_error_unless where =             if not {where} then\n                error := -1;\n            end if;\n
@@ -76,7 +76,7 @@ form error where at =             if {where} then\n                error := {at}
 form label_error_open =             -- errored at the open\n
 form label_error at =             -- errored at step {at}\n
 form count_add address =             write_at := word_index({address});\n            write_word := low_word + 1;\n            writing := true;\n
-form return =
+nop return
 form step_note at operation =             -- step {at}, operation {operation}\n
 
 # carry chains through a register's limbs: alone for a register of one limb, else first, middle and last; the carry is
@@ -94,7 +94,7 @@ form borrow_alone to left right =             total := resize(word_of({left}), 3
 form borrow_first to left right =             total := resize(word_of({left}), 33) - word_of({right});\n            {to} := total(31 downto 0);\n            carry := to_integer(total(32 downto 32));\n
 form borrow_middle to left right =             total := resize(word_of({left}), 33) - word_of({right}) - carry;\n            {to} := total(31 downto 0);\n            carry := to_integer(total(32 downto 32));\n
 form borrow_last to left right =             total := resize(word_of({left}), 33) - word_of({right}) - carry;\n            {to} := total(31 downto 0);\n            carry := to_integer(total(32 downto 32));\n
-form borrow_read held where =             {held} := word_of(0) - carry;\n            {where} := carry /= 0;\n
+form borrow_read borrow where =             {borrow} := word_of(0) - carry;\n            {where} := carry /= 0;\n
 
 # a word's arithmetic
 form word_copy to from =             {to} := word_of({from});\n
@@ -169,7 +169,7 @@ form count_ask address =             asked := word_index({address});\n
 # a loop: its label begins a state, and its branch back ends the state going back to the label's state where the
 # predicate holds and on to the next where not
 form loop_label loop =             -- loop {loop}\n
-form loop_back loop where =
+nop loop_back loop where
 form state_loop back where next =             if {where} then\n                state := {back};\n            else\n                state := {next};\n            end if;\n
 
 # the program resident around the lane, as the resident kernel is on NVIDIA: the entity cycle_program_unit,

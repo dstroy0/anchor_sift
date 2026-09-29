@@ -37,6 +37,11 @@ krs 1
 #    instruction has written half the destination before the second reads them. A form's text can take no scratch to
 #    stand between, so the writer gives a destination apart.
 #
+# What this file writes as a construct, because the part has the operation and no question ever made the compiler
+# write it: predicate_xor and predicate_and. The compiler folded both into the ISETP that set the operand
+# (ISETP.NE.U32.XOR P1, PT, R0, RZ, P0), so neither ever stood alone in a listing. Each is written 29 Sep out of forms
+# the listings did give, which is what a construct is for.
+#
 # What this file does not write, each form left empty where it stands, with what the probes did see:
 #  - word_divide and wide_divide. The part has no integer divide. For 32 bits the compiler writes a 14-instruction
 #    reciprocal (I2F.U32.RP, MUFU.RCP, F2I.FTZ.U32.TRUNC.NTZ, IMAD.HI.U32, ...) over four scratch registers, and for
@@ -45,8 +50,6 @@ krs 1
 #  - product_low and product_high. SASS writes both halves of a word product with one IMAD.WIDE.U32 into an aligned
 #    pair, which is what the compiler did with the two together; neither half has an instruction of its own that also
 #    carries the carry between them.
-#  - predicate_xor and predicate_and. No question asked for an operation over predicates alone: the compiler folded
-#    both into the ISETP that set the operand (ISETP.NE.U32.XOR P1, PT, R0, RZ, P0). The next probe asks for them.
 #  - count_add, launch_load, open_launch, shared_open, shared_close and program_unit: the lane's entry, its launch,
 #    its file in shared memory and the resident kernel around it, none of which a question covered.
 ruleset sass
@@ -86,27 +89,27 @@ form lane_body = \n
 form lane_close = .L_lane_end:\n\t.size\t\tcycle_lane,(.L_lane_end - cycle_lane)\n
 
 # the lane's declarations: SASS has none, and how many registers the lane holds is the ELF's
-form declare_predicates count =
-form declare_fixed_predicates =
-form declare_file count =
-form declare_signs count =
-form declare_out count =
-form declare_atoms count =
-form declare_temporaries count =
-form declare_wides count =
-form declare_fixed_words =
-form declare_fixed_wides =
-form declare_members count =
+nop declare_predicates count
+nop declare_fixed_predicates
+nop declare_file count
+nop declare_signs count
+nop declare_out count
+nop declare_atoms count
+nop declare_temporaries count
+nop declare_wides count
+nop declare_fixed_words
+nop declare_fixed_wides
+nop declare_members count
 
 # the lane's opening and close. open_launch and launch_load are the lane's entry, which no question covered: a kernel
 # read its parameters out of the constant bank (IMAD.WIDE.U32 R2, R4, R3, c[0x0][0x160]) and a function takes them by
 # the ABI, and neither was probed
-form open_launch =
-form launch_load to offset =
+err open_launch
+err launch_load to offset
 # an address is global and generic alike here: PTX's cvta.to.global left no instruction in any listing
-form to_global to =
-form shared_open =
-form shared_close =
+nop to_global to
+err shared_open
+err shared_close
 # a load under a predicate (word_select, test_nonzero: @!P0 LDG.E.CONSTANT R7, [R2.64+0x4])
 form guarded_load where to address = \t@{where} LDG.E.CONSTANT \t{to}, [{address}.64];\n
 form guarded_widen where to from = \t@{where} MOV \t{to}, {from};\n\t@{where} MOV \t{to}.hi, RZ;\n
@@ -114,7 +117,7 @@ form open_error_unless where = \t@!{where} BRA \t`(.L_error_open);\n
 form error where at = \t@{where} BRA \t`(.L_error{at});\n
 form label_error_open = .L_error_open:\n
 form label_error at = .L_error{at}:\n
-form count_add address =
+err count_add address
 # the lane is a function the resident calls, and returns through the address a call leaves in R20
 form return = \tRET.ABS.NODEC R20 0x0;\n
 form step_note at operation = \t// step {at}, operation {operation}\n
@@ -136,7 +139,7 @@ form borrow_first to left right = \tIADD3 \t{to}, P6, {left}, -{right}, RZ;\n
 form borrow_middle to left right = \tIADD3.X \t{to}, P6, {left}, ~{right}, RZ, P6, !PT;\n
 form borrow_last to left right = \tIADD3.X \t{to}, P6, {left}, ~{right}, RZ, P6, !PT;\n
 # the carry is 1 where the chain did not borrow, so -1 with it added is 0 there and all ones where it did
-form borrow_read held where = \tIMAD.X \t{held}, RZ, RZ, -0x1, P6;\n\tISETP.NE.U32.AND \t{where}, PT, {held}, RZ, PT;\n
+form borrow_read borrow where = \tIMAD.X \t{borrow}, RZ, RZ, -0x1, P6;\n\tISETP.NE.U32.AND \t{where}, PT, {borrow}, RZ, PT;\n
 
 # a word's arithmetic (word_copy, word_set; word_and, word_or, word_xor; word_shift_left, word_shift_right;
 # word_funnel_right; word_multiply, word_multiply_add; word_select, test_nonzero). A bitwise operation is one LOP3
@@ -153,10 +156,16 @@ form word_shift_right to from bits = \tSHF.R.U32.HI \t{to}, RZ, {bits}, {from};\
 form word_funnel_right to low high bits = \tSHF.R.U32 \t{to}, {low}, {bits}, {high};\n
 form word_multiply to left right = \tIMAD \t{to}, {left}, {right}, RZ;\n
 form word_multiply_add to left right added = \tIMAD \t{to}, {left}, {right}, {added};\n
-form word_divide to left right =
+err word_divide to left right
 form word_select to chosen otherwise where = \tSEL \t{to}, {chosen}, {otherwise}, {where};\n
-form product_low to left right added =
-form product_high to left right =
+# The two halves of a word product, which carry between them: the low is the product's low word plus the addend,
+# keeping its carry in P6, and the high is the product's high word plus that carry. The compiler wrote the pair as
+# one IMAD.WIDE.U32 into an aligned pair (form_13: MOV R7, RZ then IMAD.WIDE.U32 R6, R9, R0, R6), which needs the
+# two destinations to be a pair; the core names them apart, so each is written on its own out of instructions every
+# listing gave. Asked of the part 29 Sep, 0xffffffff squared plus 0xffffffff: the low answers 0 and the high
+# 0xffffffff, as the question says
+form product_low to left right added = \tIMAD \t{to}, {left}, {right}, RZ;\n\tIADD3 \t{to}, P6, {to}, {added}, RZ;\n
+form product_high to left right = \tIMAD.HI.U32 \t{to}, {left}, {right}, RZ;\n\tIMAD.X \t{to}, RZ, RZ, {to}, P6;\n
 
 # a sign's arithmetic, a signed word of -1, 0 or 1 (sign_set, sign_select; sign_multiply, sign_absolute, sign_negate)
 form sign_set to value = \tMOV \t{to}, {value};\n
@@ -170,8 +179,11 @@ form sign_negate to from = \tIADD3 \t{to}, -{from}, RZ, RZ;\n
 # last operand into the answer, and .U32 reads them unsigned; a wide comparison is the low words compared, then the
 # high words compared with .EX, which takes the low answer as its last operand. The listings gave ISETP.NE.U32.AND,
 # ISETP.NE.AND, ISETP.GT.AND, ISETP.GE.AND, ISETP.GE.U32.AND, ISETP.LT.U32.AND and the .EX of NE, GE and LT, because
-# the compiler read zero and below off the negations of NE and GE. Three spellings below are the same comparison
-# field's remaining codes and no listing holds them: ISETP.EQ.U32.AND, ISETP.EQ.U32.AND.EX and ISETP.LT.AND
+# the compiler read zero and below off the negations of NE and GE. Three spellings below no listing holds:
+# ISETP.EQ.U32.AND, ISETP.EQ.U32.AND.EX and ISETP.LT.AND. They are not guessed from the others. The comparison sits
+# in bits 76 to 78, unsigned in 73 and .EX in 72, and the probe's widening round turns each bit of a comparison the
+# listings did hold and asks the disassembler what comes back: EQ.U32.AND is bit 78 of GE.U32.AND, EQ.U32.AND.EX is
+# bit 78 of GE.U32.AND.EX, and LT.AND is bit 73 of LT.U32.AND. The part answers for all three
 form test_nonzero where value = \tISETP.NE.U32.AND \t{where}, PT, {value}, RZ, PT;\n
 form test_zero where value = \tISETP.EQ.U32.AND \t{where}, PT, {value}, RZ, PT;\n
 form test_negative where value = \tISETP.LT.AND \t{where}, PT, {value}, RZ, PT;\n
@@ -181,8 +193,25 @@ form test_wide_nonzero where value = \tISETP.NE.U32.AND \tP6, PT, {value}, RZ, P
 form test_wide_equal where left right = \tISETP.EQ.U32.AND \tP6, PT, {left}, {right}, PT;\n\tISETP.EQ.U32.AND.EX \t{where}, PT, {left}.hi, {right}.hi, PT, P6;\n
 form test_wide_below where left right = \tISETP.LT.U32.AND \tP6, PT, {left}, {right}, PT;\n\tISETP.LT.U32.AND.EX \t{where}, PT, {left}.hi, {right}.hi, PT, P6;\n
 form test_wide_below_and where left right also = \tISETP.LT.U32.AND \tP6, PT, {left}, {right}, PT;\n\tISETP.LT.U32.AND.EX \t{where}, PT, {left}.hi, {right}.hi, {also}, P6;\n
-form predicate_xor where left right =
-form predicate_and where left right =
+# The two operations over predicates alone, each a construct: the part has one (PLOP3.LUT), and no question ever made
+# the compiler write it, because it folded both into the ISETP that set the operand. So both go the long way, through
+# the words a predicate selects, over forms every listing did give. An exclusive or is the cheaper of the two: it does
+# not care that SEL reads its first operand from a register and so can only be given RZ, which selects 1 where the
+# predicate is false, because negating both inputs leaves an exclusive or alone. An and is not, so it pays one MOV to
+# hold the 1 and selects the predicates themselves
+construct predicate_xor where left right
+word_select {temporary:0} RZ 1 left
+word_select {temporary:1} RZ 1 right
+word_xor {temporary:0} {temporary:0} {temporary:1}
+test_nonzero where {temporary:0}
+end
+construct predicate_and where left right
+word_set {temporary:0} 1
+word_select {temporary:1} {temporary:0} 0 left
+word_select {temporary:2} {temporary:0} 0 right
+word_and {temporary:1} {temporary:1} {temporary:2}
+test_nonzero where {temporary:1}
+end
 
 # 64-bit words, each two registers (wide_from_word, word_from_wide, wide_pack, wide_unpack; wide_multiply,
 # wide_multiply_word; wide_add, wide_add_unsigned; wide_shift_left, wide_select; wide_divide). A wide product writes
@@ -199,7 +228,7 @@ form wide_add_unsigned to left right = \tIADD3 \t{to}, P6, {left}, {right}, RZ;\
 # the high half reads both halves of the value shifted, and is written before the low half overwrites it
 form wide_shift_left to from bits = \tSHF.L.U64.HI \t{to}.hi, {from}, {bits}, {from}.hi;\n\tSHF.L.U32 \t{to}, {from}, {bits}, RZ;\n
 form wide_select to chosen otherwise where = \tSEL \t{to}, {chosen}, {otherwise}, {where};\n\tSEL \t{to}.hi, {chosen}.hi, {otherwise}.hi, {where};\n
-form wide_divide to left right =
+err wide_divide to left right
 
 # memory: the members' and the tables' words and the record's words (the frame's own loads and stores). An address is
 # the pair at the register named, and .CONSTANT is PTX's ld.global.nc
@@ -208,24 +237,24 @@ form record_store offset from = \tSTG.E \t[R242.64+{offset}], {from};\n
 
 # the states a target that clocks the lane a state at a time cuts it into (vhdl.krs); a SASS lane runs straight
 # through, as a PTX one does, and has none
-form states_declare count =
-form state_start state =
-form state_open state =
-form state_next state error =
-form state_exit =
-form dispatch_to error state =
+nop states_declare count
+nop state_start state
+nop state_open state
+nop state_next state error
+nop state_exit
+nop dispatch_to error state
 
 # a memory read's address named a state ahead of the read (vhdl.krs); a SASS load names its address itself
-form launch_ask offset =
-form global_ask address offset =
-form guarded_ask where address =
-form count_ask address =
+nop launch_ask offset
+nop global_ask address offset
+nop guarded_ask where address
+nop count_ask address
 
 # a loop: its label, and the branch back to it where the predicate holds
 form loop_label loop = .L_loop{loop}:\n
 form loop_back loop where = \t@{where} BRA \t`(.L_loop{loop});\n
-form state_loop back where next =
+nop state_loop back where next
 
 # the program resident around the lane: the kernel the record machine launches. No question wrote it, and the probes
 # read nothing of the shared memory, the barriers, the atomics or the timer it needs
-form program_unit launch_bytes count_offset hot_offset block_offset number_offset ttl_offset checkin_every_offset next_offset start_offset finished_offset checkins_offset owner_at command_at state_at offset_at step_at launch_time_at exectime_at checkin_at checkin_time_at run_command stop_command done_state stopped_state yielded_state =
+err program_unit launch_bytes count_offset hot_offset block_offset number_offset ttl_offset checkin_every_offset next_offset start_offset finished_offset checkins_offset owner_at command_at state_at offset_at step_at launch_time_at exectime_at checkin_at checkin_time_at run_command stop_command done_state stopped_state yielded_state

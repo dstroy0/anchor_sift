@@ -18,6 +18,11 @@ const ScheduleModel *CodeGenerator::program_schedule_model(void) const
     return NULL;
 }
 
+unsigned int CodeGenerator::register_file_holds(void) const
+{
+    return 0u;
+}
+
 int CodeGenerator::program_schedule_costs(ScheduleCosts *costs) const
 {
     const ScheduleModel *const model = program_schedule_model();

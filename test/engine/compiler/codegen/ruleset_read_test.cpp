@@ -52,6 +52,41 @@ static void check_form(const Ruleset *rules, const char *name, const std::vector
     }
 }
 
+// form `name` refused, which is what a ruleset's `err <name> <parameter>...` means: the operation is an error on
+// that language, and writing it breaks what it was written into rather than leaving a hole nothing reports
+static void check_refused(const Ruleset *rules, const char *name, const std::vector<std::string> &arguments)
+{
+    s_checks += 1u;
+    std::string text;
+    if ((rules == NULL) || (ruleset_opcode(rules, name, arguments, no_scratch, text) != 0))
+    {
+        s_failed += 1u;
+        printf("  %s: wrote \"%s\", where the ruleset gives it as an error\n", name, text.c_str());
+    }
+}
+
+// the scratch a construct takes here: the temporaries R100 up, numbered where no argument of a check reaches
+static std::string some_scratch(const std::string &bank)
+{
+    static unsigned int taken;
+    taken += 1u;
+    return (bank == "temporary") ? ("R" + std::to_string(99u + taken)) : std::string();
+}
+
+// form `name` written with `arguments` and the scratch a construct takes, and checked against `expected`
+static void check_construct(const Ruleset *rules, const char *name, const std::vector<std::string> &arguments,
+                            const std::string &expected)
+{
+    s_checks += 1u;
+    std::string text;
+    const int written = (rules != NULL) && (ruleset_opcode(rules, name, arguments, some_scratch, text) != 0);
+    if (!written || (text != expected))
+    {
+        s_failed += 1u;
+        printf("  %s: wrote \"%s\", not \"%s\"\n", name, written ? text.c_str() : "", expected.c_str());
+    }
+}
+
 // register `number` of `bank` checked against `expected`
 static void check_register(const Ruleset *rules, const char *bank, unsigned int number, const char *expected)
 {
@@ -158,15 +193,27 @@ static void check_sass_lane(const Ruleset *rules)
     check_form(rules, "declare_temporaries", {"12"}, "");
     // PTX's cvta.to.global left no instruction in any listing
     check_form(rules, "to_global", {"R2"}, "");
-    // the part has no integer divide, and a form's text can take no scratch for the reciprocal the compiler writes
-    check_form(rules, "word_divide", {"R8", "R0", "R1"}, "");
-    check_form(rules, "wide_divide", {"R14", "R12", "R16"}, "");
-    // SASS writes both halves of a word product with one IMAD.WIDE.U32 into an aligned pair
-    check_form(rules, "product_low", {"R8", "R0", "R1", "R2"}, "");
-    check_form(rules, "product_high", {"R9", "R0", "R1"}, "");
-    // no question asked for an operation over predicates alone
-    check_form(rules, "predicate_xor", {"P2", "P0", "P1"}, "");
-    check_form(rules, "predicate_and", {"P3", "P0", "P1"}, "");
+    // The part has no integer divide, and SASS writes both halves of a word product with one IMAD.WIDE.U32 into an
+    // aligned pair. sass.krs gives all four as errors, not as nops: a lane that needs one is refused, where a lane
+    // that needs a declaration or a cvta is written without it
+    check_refused(rules, "word_divide", {"R8", "R0", "R1"});
+    check_refused(rules, "wide_divide", {"R14", "R12", "R16"});
+    check_refused(rules, "product_low", {"R8", "R0", "R1", "R2"});
+    check_refused(rules, "product_high", {"R9", "R0", "R1"});
+    // No question asked for an operation over predicates alone, and PLOP3.LUT is reached only from SHF.L.U32, where
+    // it decodes with a register where a predicate belongs. Both go through the words a predicate selects, as
+    // constructs over forms the listings did give: an exclusive or takes two scratch registers and an and three
+    check_construct(rules, "predicate_xor", {"P2", "P0", "P1"},
+                    "\tSEL \tR100, RZ, 1, P0;\n"
+                    "\tSEL \tR101, RZ, 1, P1;\n"
+                    "\tLOP3.LUT \tR100, R100, R101, RZ, 0x3c, !PT;\n"
+                    "\tISETP.NE.U32.AND \tP2, PT, R100, RZ, PT;\n");
+    check_construct(rules, "predicate_and", {"P3", "P0", "P1"},
+                    "\tMOV \tR102, 1;\n"
+                    "\tSEL \tR103, R102, 0, P0;\n"
+                    "\tSEL \tR104, R102, 0, P1;\n"
+                    "\tLOP3.LUT \tR103, R103, R104, RZ, 0xc0, !PT;\n"
+                    "\tISETP.NE.U32.AND \tP3, PT, R103, RZ, PT;\n");
 }
 
 int main(void)

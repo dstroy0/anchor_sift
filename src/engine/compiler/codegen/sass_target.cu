@@ -6,6 +6,11 @@ SassTarget::SassTarget(void) : CodeGenerator("sass.krs", "cubin", "probe_nvdisas
 {
 }
 
+unsigned int SassTarget::register_file_holds(void) const
+{
+    return 240u;
+}
+
 SassTarget &sass_target(void)
 {
     static SassTarget generator;
