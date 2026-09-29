@@ -232,11 +232,23 @@ unsigned int sass_cubin_prefers(SassProbe *probe, const SassMachine *machine, un
         }
         if (held == 0)
         {
+            // one of the two codings would not run, or answered something the question does not say, so there is
+            // no pair left to weigh
+            sass_class_take(SASS_CHANNEL_CLOCK, SASS_CLASS_ILLEGAL, prefer->what, 0u);
             continue;
         }
         read += 1u;
         const double apart = (least[0] > least[1]) ? (least[0] - least[1]) : (least[1] - least[0]);
         const double each = apart / (double)SASS_PREFER_TURNS;
+        // A reading the part gave, or a pair it ran and told nothing apart on: the two stood closer together than
+        // the same coding stood to itself across its own runs, a question asked with no answer in it.
+        //
+        // The word kept is 0 and never the time. How long a coding took is a cost and belongs in the .kdm; what
+        // belongs here is whether the question got an answer at all. Writing the time would also put a number that
+        // moves a nanosecond between runs into a file meant to be read against the last one, and every run would
+        // differ from the tree's copy for no reason the part could name
+        sass_class_take(SASS_CHANNEL_CLOCK, (apart <= spread) ? SASS_CLASS_NOTHING : SASS_CLASS_ANSWERS, prefer->what,
+                        0u);
         printf("  prefer %-24s first %9.0f ns, second %9.0f ns, %.0f ns apart against a spread of %.0f: %s\n",
                prefer->what, least[0], least[1], apart, spread,
                (apart <= spread) ? "no preference above the floor"
@@ -389,18 +401,27 @@ unsigned int sass_cubin_asks(SassProbe *probe, const SassMachine *machine, unsig
         if (!sass_ask_text(s_was, s_asks[number].instruction, s_asking, sizeof(s_asking)) ||
             !sass_cubin_from_text(machine, probe->folder, "form_0", s_asking, "asked"))
         {
+            // the question could not be written as the part's own code, which is a refusal before the part sees it
+            sass_class_take(SASS_CHANNEL_RUN, SASS_CLASS_ILLEGAL, s_asks[number].instruction, 0u);
             printf("  ask %s: not written\n", s_asks[number].instruction);
             continue;
         }
         snprintf(path, sizeof(path), "%s/asked.cubin", probe->folder);
         if (!sass_cubin_answer(probe, path, answered, sizeof(answered)))
         {
+            // the part was handed the question and would not run it: illegal on its own, however it assembled
+            sass_class_take(SASS_CHANNEL_RUN, SASS_CLASS_ILLEGAL, s_asks[number].instruction, 0u);
             continue;
         }
         // the answer's first word, which the run prints after "answered "
         word = (unsigned int)strtoul(answered + 9, NULL, 16);
         const int same = (word == s_asks[number].answer);
         right += same ? 1u : 0u;
+        // it ran and answered. Where the answer is what the question says, the part holds the question; where it
+        // differs, the part took the question and what came back is not what it was read as, which is nothing this
+        // can build on
+        sass_class_take(SASS_CHANNEL_RUN, same ? SASS_CLASS_ANSWERS : SASS_CLASS_NOTHING, s_asks[number].instruction,
+                        word);
         char named[SASS_TEXT];
         sass_ask_named(s_asks[number].instruction, named, sizeof(named));
         printf("  ask %-52s the part answers %08x, the question says %08x%s\n", named, word, s_asks[number].answer,

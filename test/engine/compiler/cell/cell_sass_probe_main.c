@@ -391,5 +391,9 @@ int main(int count, char **arguments)
     const unsigned int read = sass_cubin_prefers(probe, &s_sass_machine, &weighed);
     printf("cell sass prefer: %u codings weighed against each other, %u read in the part's own clock\n", weighed,
            read);
+    // How this system was asked and what came back. Written beside the machine this run learned, in the run's own
+    // folder, and copied into the tree by a hand the same way the machine is: a test writes nothing into the source
+    // tree, and a record of what the part said is worth reading before it replaces the one already there
+    probe->failed += sass_class_write(probe->folder, s_sass_machine.part) ? 0u : 1u;
     return (probe->failed == 0u) ? 0 : 1;
 }

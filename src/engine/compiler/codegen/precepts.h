@@ -115,13 +115,16 @@ static const PreceptRewrite s_precept_web[] = {
       {PRECEPT_OR, 1u, 3u}}},
     // MOV a = a OR a, the cheapest node that reads one word and writes it back unchanged
     {PRECEPT_MOV, 1u, {{PRECEPT_OR, PRECEPT_LEFT, PRECEPT_LEFT}}},
-    // a SUB b = a ADD (NOT b) ADD 1, the negation of b being its complement and one
+    // a SUB b = NOT ((NOT a) ADD b). The plainer reading of a subtraction is a plus the complement of b plus one,
+    // and the one is a word no leaf here carries: a rewrite has a word of zeroes and a word of ones and reaching a
+    // single set bit from either takes a shift by the width, the width-counted node this file does not
+    // have. Complementing the other side instead needs no constant at all. ~(~a + b) is -(~a + b) - 1 against ~a of
+    // -a - 1, leaving a - b with the same three nodes on every width
     {PRECEPT_SUB,
-     4u,
-     {{PRECEPT_NOT, PRECEPT_RIGHT, PRECEPT_NONE},
-      {PRECEPT_NOT, PRECEPT_ZERO, PRECEPT_NONE},
-      {PRECEPT_ADD, 0u, PRECEPT_LEFT},
-      {PRECEPT_ADD, 2u, 1u}}},
+     3u,
+     {{PRECEPT_NOT, PRECEPT_LEFT, PRECEPT_NONE},
+      {PRECEPT_ADD, 0u, PRECEPT_RIGHT},
+      {PRECEPT_NOT, 1u, PRECEPT_NONE}}},
     // BRA to a label is a JCC whose condition never fails
     {PRECEPT_BRA, 1u, {{PRECEPT_JCC, PRECEPT_ONES, PRECEPT_LEFT}}},
 };

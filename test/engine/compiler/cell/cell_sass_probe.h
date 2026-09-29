@@ -58,6 +58,58 @@ typedef struct
     char operand[SASS_OPERANDS][SASS_OPERAND_TEXT];
 } SassParts;
 
+// The channels this system answers a question on (the .ksc, Doug 29 Sep: "system classification (language map) ...
+// which return answers, which return nothing and which are illegal on their own"). A probe is not a thing of its
+// own: it is a question put on one of these and the answer read back. Which channels a system has is the system's
+// to declare and is never assumed - a part with no compiler and no disassembler still answers on `run`, with fewer
+// names and more slowly, and everything above is reached the same way through the one channel it does have
+#define SASS_CHANNELS(channel_)                                                                                        \
+    channel_(RUN, "run", "the system takes the question as its own code, runs it, and a word comes back")              \
+    channel_(DECODE, "decode", "the system's disassembler is handed an encoding and names it")                         \
+    channel_(COMPILE, "compile", "the system's compiler is handed a source and emits instructions for it")             \
+    channel_(CLOCK, "clock", "two codings of one thing are run against each other and timed")
+
+// What came back. These three are the whole of it: a question is taken and answered, taken and answers nothing a
+// reader can see, or refused. The third is the one that prunes - an encoding the decoder names but that no run will
+// take is illegal on its own, however well it decoded
+#define SASS_CLASSES(class_)                                                                                           \
+    class_(ANSWERS, "answers", "the question was put and the answer came back as the question says")                   \
+    class_(NOTHING, "nothing", "the question was taken and left nothing a reader here can see")                        \
+    class_(ILLEGAL, "illegal", "the question was refused: the system will not take it as it stands")
+
+#define SASS_CHANNEL_NAMED(name_, text_, why_) SASS_CHANNEL_##name_,
+#define SASS_CLASS_NAMED(name_, text_, why_) SASS_CLASS_##name_,
+
+enum SassChannel
+{
+    SASS_CHANNELS(SASS_CHANNEL_NAMED) SASS_CHANNEL_COUNT
+};
+
+enum SassClass
+{
+    SASS_CLASSES(SASS_CLASS_NAMED) SASS_CLASS_COUNT
+};
+
+// one question put on one channel, and what came back. The word is what the system answered where the channel gives
+// one, and 0 otherwise
+typedef struct
+{
+    unsigned char channel;
+    unsigned char answered;
+    unsigned int word;
+    char question[SASS_TEXT];
+} SassClassed;
+
+// one question and its answer kept for the .ksc (cell_sass_probe_class.c)
+void sass_class_take(unsigned int channel, unsigned int answered, const char *question, unsigned int word);
+
+// one more question counted on a channel, its text not kept: the decode channel puts tens of thousands of these and
+// only the count of each class is worth writing
+void sass_class_count(unsigned int channel, unsigned int answered);
+
+// the system's classification written to `machines`/<part>.ksc: 1, or 0 with the reason printed
+int sass_class_write(const char *machines, const char *part);
+
 // one operation the listings hold, keyed by the low 12 bits of its encoding: the first instruction seen with it
 typedef struct
 {

@@ -52,16 +52,50 @@ are not, nand, nor, asr and rol. Missing too is any general branch: every branch
 (error, open_error_unless, loop_back, dispatch_to), where the universal pair is a jump to a label and a jump on a
 predicate, with the reasons written as constructs over them.
 
+**The webs** (29 Sep). Doug: "storing ops as a binary tree of primitives is the most lightweight you can make a
+language", and "that is what we are building, the languages alphabet web, then the word web, and then we have
+coherence that we can measure with clock". Three layers, two of them written:
+
+- `precepts.h`, the alphabet web. 18 precepts, each a gate, a wire or a branch, with the arity that makes the tree
+  binary. Nine of them carry a rewrite over the others, the difference between a web and a list: a part that
+  answers yes to NAND alone is still a part this compiles to. The five the plan listed as missing above are in it.
+- `word_web.h`, the word web. Each operation the compiler decides in, written as its tree over the alphabet. 12 of
+  the schema's 99 are there, and the line is hard: a word is in only where its tree is fixed arity. The rest wait on
+  one missing piece, the width-counted node - an adder is a rank of gates a bit, a rotate needs the width less the
+  amount, a test against zero needs as many ranks as the width has powers of two. Writing any of those as a fixed
+  tree would put a wrong tree in the web.
+- `tree_number.h`, a tree as one number. Arities are fixed, and prefix order then determines the tree with no parentheses
+  and no child pointers, and a tree becomes a string over 24 symbols, which is a number in base 24. 13 places fit an
+  unsigned long long; past that the engine's own AnchorExactInteger holds it. web_check puts all 21 trees out
+  through a number and back. The gain is not bytes - at this size the node lists are smaller, 96 against 168 - it is
+  that one tree is one value, leaving two subtrees the same subtree by a compare. A .kdm keyed on
+  subtrees needs.
+
+**The unbounded round** (29 Sep, Doug: "we can unbound the search entirely to find new words we didn't know
+existed"). Widening asks what lies one bit from a form some compiler emitted, which bounds the search by what a
+compiler happens to write. The encoding's own structure lifts that bound: the low 12 bits of the low word key the
+operation and its operands' kinds, putting every operation the part's disassembler will name within 4096
+questions on the decode channel, starting from nothing a compiler wrote. Widening already runs 70 x 129 decodes and this
+costs less than what is there. Not written.
+
 ## Rules
 - No VHDL, Yosys, GHDL work unless Doug asks for that exact thing.
 - No other architectures (Pi, RISC-V, Xtensa are off the list).
 - Never propose removing the host build or host path; it is an entry point.
 - Run the thing being built first. No host sweeps unasked.
 - Harness for runs, no timeouts on queued runs. Work on main. No heredocs. No attribution. Don't make things up.
-- Do not invent a file type. The k-file family (.kcr the lattice, .krs the rulesets, .knf the noise floors, .kcs the
-  construction set) is Doug's; ask before adding to it. Two things that are not this: a qualifier inside a ruleset,
-  since the target's assembly syntax is what a .krs is for (.hi in sass.krs is that file doing its job), and .kmc,
-  which is a shim of this work's own, not a member of the family.
+- Do not invent a file type. The k-file family is Doug's; ask before adding to it. He named the last two on 29 Sep
+  and listed every member: kcr, krs, kcs, knf, kdm, ksc.
+  - `.kcr` the lattice, `.krs` the rulesets, `.kcs` the construction set, `.knf` the noise floors.
+  - `.kdm` the device map: one part's language web. Which subtrees of the word web that part has a single word for,
+    what each costs in its own clock, and how each was learned. This is the file that gets refined, and pruning a
+    false branch out of it is the work.
+  - `.ksc` the system classification, the language map: how a system can be asked at all, and what came back from
+    every question put to it. Doug, 29 Sep: "which return answers, which return nothing and which are illegal on
+    their own." Once this exists a probe stops being a thing of its own - it is a question on a channel, and the
+    channels belong to the system.
+  Two things that are not the family: a qualifier inside a ruleset, since the target's assembly syntax is what a
+  .krs is for (.hi in sass.krs is that file doing its job), and .kmc, a shim of this work's own.
 - One sentence commit messages.
 - Probes: small test kernels that ask one question and exit. Learn the ELF by reading their cubins with their tools
   (nvdisasm, cuobjdump -elf); never patch or inject.
@@ -72,22 +106,32 @@ predicate, with the reasons written as constructs over them.
 - sass.krs written from the probes' listings, with sass_target and the ruleset_read suite (56 checks, 0 failed):
   every ruleset read against its schema, and each SASS form held to the instruction its question's listing gave.
 - cell_sass on an RTX 3070 (sm_86), CUDA 13.3, 29 Sep, exit 0. Data in build/<stamp>_cell_sass_test/sass/:
-  - 25 questions, 33 operations, 0 failed. 69 forms learned from the listings. A form is an operation with the kind
+  - 26 questions, 34 operations, 0 failed. 70 forms learned from the listings. A form is an operation with the kind
     and mark of each printed operand.
-  - Widening: 69 forms turned bit by bit, 256 more one bit from them, 0 the disassembler failed. 325 forms, 0 without
-    fields, written as machines/sm_86 and read back with 0 differing. The 69 the listings gave are byte for byte
+  - Widening: 70 forms turned bit by bit, 272 more one bit from them, 0 the disassembler failed. 342 forms, 0 without
+    fields, written as machines/sm_86 and read back with 0 differing. The 70 the listings gave are byte for byte
     what they were: widening only adds.
-  - 976 instructions assembled from their text alone: 0 refused, 968 the very bytes the listing gave, 945 read back
-    as the text they were written from, 31 (branches and relocations) held to their bytes. Unchanged by widening.
-  - 26 of 26 kernels written again into cubins of their own, loaded and run: every one answers what the toolchain's
+  - 1008 instructions assembled from their text alone: 0 refused, 1000 the very bytes the listing gave, 976 read back
+    as the text they were written from, 32 (branches and relocations) held to their bytes.
+  - 27 of 27 kernels written again into cubins of their own, loaded and run: every one answers what the toolchain's
     own cubin answered.
-  - 20 questions asked in code no toolchain wrote (form_0's kernel with its arithmetic replaced): 20 answered as the
-    question says. Ten of them are new, and are the point of the widening: ISETP.EQ.U32.AND, ISETP.LT.AND and
-    ISETP.EQ.U32.AND.EX each asked once where the comparison should fire and once where it should not, and
-    predicate_xor and predicate_and run as sass.krs writes them, each both ways. The part answers right every time:
-    a form reached by turning one bit runs, and does not merely decode.
-- Every form sass.krs writes assembles against that machine file: 58 assembled, 0 refused
-  (maint/engine/sass_krs_check.sh, no device).
+  - 36 questions asked in code no toolchain wrote (form_0's kernel with its arithmetic replaced): 36 answered as the
+    question says. The widened ones are the point of the round - ISETP.EQ.U32.AND, ISETP.LT.AND, ISETP.EQ.U32.AND.EX
+    and both rotates reached no listing and all of them run.
+  - The rotates, 29 Sep, are the sharpest reading the asks have given. ROR and ROL were asked first on SHF.R.U32.HI
+    and SHF.L.U32 with one register handed to both halves of the funnel, the idiom everyone writes, and the part refused
+    both: 0xb carried right 7 answered 0 and 0xfffffff5 carried left 7 answered 0xfffffa80, each the plain shift with
+    the bits that left dropped. A 32-bit shift has no second half of a funnel to read. SHF.R.U64 and SHF.L.U64.HI
+    have one and answered 0x16000000 and 0xfffffaff. A guess at the idiom would have written wrong code that
+    assembled.
+  - Registers, asked the same way: in a kernel declaring 255, R0 through R254 each held what was written into them
+    and R255 read zero whatever went in, RZ by behavior alone. In a kernel declaring the
+    toolchain's own count, R238 and R254 errored on the device. How many registers a lane is given is the count its
+    own ELF asked for, and sass.krs records that where it claims R238, R239 and R254.
+- Every form sass.krs writes assembles against that machine file: 62 assembled, 0 refused
+  (maint/engine/sass_krs_check.sh, no device). ruleset_read is 59 checks, 0 failed.
+- The lane's blocking list is down to one form. count_add, open_launch and launch_load are written and held to their
+  text; program_unit, the resident, is the last `err` any lane asks for.
 - Known failures: VHDL lane in codegen_device (device writes where host refuses); cell_ptx test_signed_zero stale.
 
 ## SASS findings (sm_86)

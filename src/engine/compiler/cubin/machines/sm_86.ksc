@@ -1,0 +1,72 @@
+ksc sm_86
+# How this system is asked, and what came back. A probe is not a thing of its own: it is a
+# question put on one of the channels below and the answer read back. Written by the cell's
+# SASS probe; every line here is something the system said, and nothing here was assumed.
+
+# the channels this system answers on
+channel run      the system takes the question as its own code, runs it, and a word comes back
+channel decode   the system's disassembler is handed an encoding and names it
+channel compile  the system's compiler is handed a source and emits instructions for it
+channel clock    two codings of one thing are run against each other and timed
+
+# what an answer can be
+class answers  the question was put and the answer came back as the question says
+class nothing  the question was taken and left nothing a reader here can see
+class illegal  the question was refused: the system will not take it as it stands
+
+# every question put, counted by the channel it went out on and what came back
+count run      answers  36
+count run      nothing  0
+count run      illegal  0
+count decode   answers  8274
+count decode   nothing  26
+count decode   illegal  660
+count compile  answers  0
+count compile  nothing  0
+count compile  illegal  0
+count clock    answers  2
+count clock    nothing  1
+count clock    illegal  0
+
+# every question the system was asked in its own code, one a line: the channel, what came
+# back, the word it answered, and the question. These are the ones the system answered for
+# itself, with no compiler and no disassembler standing between.
+run answers 00000012 IADD3 R7, R0, R7, RZ
+run answers 0000000c LOP3.LUT R7, R0, R7, RZ, 0x3c, !PT
+run answers 00000003 LOP3.LUT R7, R0, R7, RZ, 0xc0, !PT
+run answers 0000000f LOP3.LUT R7, R0, R7, RZ, 0xfc, !PT
+run answers 0000004d IMAD R7, R0, R7, RZ
+run answers 00000580 SHF.L.U32 R7, R0, R7, RZ
+run answers 00000000 SHF.R.U32.HI R7, RZ, R7, R0
+run answers 0000000b IABS R7, R0
+run answers fffffff5 IADD3 R7, -R0, RZ, RZ
+run answers 0000000b SEL R7, R0, R7, PT
+run answers 0000000b ISETP.EQ.U32.AND P0, PT, R7, R7, PT;SEL R7, R0, RZ, P0
+run answers 00000000 ISETP.EQ.U32.AND P0, PT, R7, R0, PT;SEL R7, R0, RZ, P0
+run answers 0000000b ISETP.LT.AND P0, PT, R7, R0, PT;SEL R7, R0, RZ, P0
+run answers 00000000 ISETP.LT.AND P0, PT, R0, R7, PT;SEL R7, R0, RZ, P0
+run answers 0000000b ISETP.EQ.U32.AND P6, PT, R0, R0, PT;ISETP.EQ.U32.AND.EX P0, PT, R7, R7, PT, P6;SEL R7, R0, RZ, P0
+run answers 00000000 ISETP.EQ.U32.AND P6, PT, R0, R0, PT;ISETP.EQ.U32.AND.EX P0, PT, R7, R0, PT, P6;SEL R7, R0, RZ, P0
+run answers 00000007 IMAD.MOV.U32 R7, RZ, RZ, 30064771083.hi
+run answers 00000001 IMAD.MOV.U32 R7, RZ, RZ, 4294967296.hi
+run answers 0000000b LDG.E.64.CONSTANT R8, [R2.64];IMAD.MOV.U32 R7, RZ, RZ, R8
+run answers 00000007 LDG.E.64.CONSTANT R8, [R2.64];IMAD.MOV.U32 R7, RZ, RZ, R9
+run answers 00000007 LDG.E.128.CONSTANT R8, [R2.64];IMAD.MOV.U32 R7, RZ, RZ, R9
+run answers 000000ff IMAD.MOV.U32 R8, RZ, RZ, 4294967295;STG.E [R4.64+0x8], R8;LDG.E.U8.CONSTANT R9, [R4.64+0x8];IMAD.MOV.U32 R7, RZ, RZ, R9
+run answers 00000000 IMAD.MOV.U32 R2, RZ, RZ, 4294967295;IMAD.MOV.U32 R3, RZ, RZ, 4294967295;IMAD.MOV.U32 R6, RZ, RZ, 4294967295;IMAD R8, R2, R3, RZ;IADD3 R8, P6, R8, R6, RZ;IMAD.MOV.U32 R7, RZ, RZ, R8
+run answers ffffffff IMAD.MOV.U32 R2, RZ, RZ, 4294967295;IMAD.MOV.U32 R3, RZ, RZ, 4294967295;IMAD.MOV.U32 R6, RZ, RZ, 4294967295;IMAD R8, R2, R3, RZ;IADD3 R8, P6, R8, R6, RZ;IMAD.HI.U32 R9, R2, R3, RZ;IMAD.X R9, 
+run answers 0000000b ISETP.NE.U32.AND P1, PT, R0, RZ, PT;ISETP.NE.U32.AND P2, PT, RZ, RZ, PT;SEL R2, RZ, 0x1, P1;SEL R3, RZ, 0x1, P2;LOP3.LUT R2, R2, R3, RZ, 0x3c, !PT;ISETP.NE.U32.AND P0, PT, R2, RZ, PT;SEL R7, 
+run answers 00000000 ISETP.NE.U32.AND P1, PT, R0, RZ, PT;ISETP.NE.U32.AND P2, PT, R7, RZ, PT;SEL R2, RZ, 0x1, P1;SEL R3, RZ, 0x1, P2;LOP3.LUT R2, R2, R3, RZ, 0x3c, !PT;ISETP.NE.U32.AND P0, PT, R2, RZ, PT;SEL R7, 
+run answers 0000000b ISETP.NE.U32.AND P1, PT, R0, RZ, PT;ISETP.NE.U32.AND P2, PT, R7, RZ, PT;MOV R6, 0x1;SEL R2, R6, 0x0, P1;SEL R3, R6, 0x0, P2;LOP3.LUT R2, R2, R3, RZ, 0xc0, !PT;ISETP.NE.U32.AND P0, PT, R2, RZ,
+run answers 00000000 ISETP.NE.U32.AND P1, PT, R0, RZ, PT;ISETP.NE.U32.AND P2, PT, RZ, RZ, PT;MOV R6, 0x1;SEL R2, R6, 0x0, P1;SEL R3, R6, 0x0, P2;LOP3.LUT R2, R2, R3, RZ, 0xc0, !PT;ISETP.NE.U32.AND P0, PT, R2, RZ,
+run answers 0000000c STG.E [R4.64+0x8], RZ;MOV R6, 0x1;RED.E.ADD.STRONG.GPU [R4.64+0x8], R6;RED.E.ADD.STRONG.GPU [R4.64+0x8], R0;LDG.E.CONSTANT R7, [R4.64+0x8]
+run answers 00000000 MOV R255, 0x5a3c69a5;IMAD.MOV.U32 R7, RZ, RZ, R255
+run answers fffffff4 LOP3.LUT R7, R0, RZ, RZ, 0x0f, !PT
+run answers fffffffc LOP3.LUT R7, R0, R7, RZ, 0x3f, !PT
+run answers fffffff0 LOP3.LUT R7, R0, R7, RZ, 0x03, !PT
+run answers ffffffff IADD3 R6, -R0, RZ, RZ;SHF.R.S32.HI R7, RZ, R7, R6
+run answers 16000000 SHF.R.U64 R7, R0, R7, R0
+run answers fffffaff IADD3 R6, -R0, RZ, RZ;SHF.L.U64.HI R7, R6, R7, R6
+clock nothing 00000000 a move
+clock answers 00000000 a wide add's high word
+clock answers 00000000 doubled

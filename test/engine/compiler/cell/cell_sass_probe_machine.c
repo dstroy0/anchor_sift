@@ -446,9 +446,16 @@ unsigned int sass_machine_widen(SassMachine *machine, const char *architecture, 
         {
             SassInstructionParts parts;
             SassForm *kept = NULL;
-            if (sass_widened_holds(s_texts[1u + bit], &base, &parts))
+            const char *const said = s_texts[1u + bit];
+            // what the decoder said about this one bit, for the .ksc: it refused the encoding, it took it and
+            // printed no line, or it named it. Every bit of every form goes through here, which is why these are
+            // counted and not kept whole
+            sass_class_count(SASS_CHANNEL_DECODE, (strcmp(said, "illegal") == 0)     ? SASS_CLASS_ILLEGAL
+                                                  : (strcmp(said, "unprinted") == 0) ? SASS_CLASS_NOTHING
+                                                                                     : SASS_CLASS_ANSWERS);
+            if (sass_widened_holds(said, &base, &parts))
             {
-                sass_machine_take(machine, s_texts[1u + bit], s_low[1u + bit], s_high[1u + bit], &kept);
+                sass_machine_take(machine, said, s_low[1u + bit], s_high[1u + bit], &kept);
             }
         }
     }
