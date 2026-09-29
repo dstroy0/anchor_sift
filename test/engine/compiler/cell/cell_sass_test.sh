@@ -13,6 +13,7 @@ source "$TOP/maint/build_stamp.sh"
 build_stamp cell_sass_test
 
 type -P nvdisasm > /dev/null || { echo "  no nvdisasm on the PATH: the CUDA toolkit's disassembler is the oracle"; exit 1; }
+type -P cuobjdump > /dev/null || { echo "  no cuobjdump on the PATH: the CUDA toolkit reads the cubin's ELF"; exit 1; }
 
 HOST_FLAGS=()
 case "$(uname -s)" in

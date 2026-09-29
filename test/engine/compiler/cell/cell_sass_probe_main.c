@@ -40,8 +40,8 @@ static SassListing s_sass_frame;
 static SassListing s_sass_form;
 static char s_sass_texts[SASS_ENCODINGS][SASS_TEXT];
 
-// `name`.cubin in the folder listed with its encodings into `listing`, the listing written to `name`.sass: 1, or 0
-// with the reason printed
+// `name`.cubin in the folder listed with its encodings into `listing`, the listing written to `name`.sass, and the
+// whole ELF read by cuobjdump -elf into `name`.elf: 1, or 0 with the reason printed
 static int sass_list(SassProbe *probe, const char *name, SassListing *listing)
 {
     char cubin[1024];
@@ -58,6 +58,15 @@ static int sass_list(SassProbe *probe, const char *name, SassListing *listing)
     if (!sass_listing_read(sass_output(), listing))
     {
         printf("  %s: more than %u instructions\n", name, SASS_LISTING_LIMIT);
+        return 0;
+    }
+    // the rest of the cubin as cuobjdump reads it: its sections, symbols, segments and the kernel's attributes
+    snprintf(output, sizeof(output), "%s/%s.elf", probe->folder, name);
+    char *const elf[] = {"cuobjdump", "-elf", cubin, NULL};
+    const int elf_status = sass_run(elf, output);
+    if (elf_status != 0)
+    {
+        printf("  %s: cuobjdump exited %d\n%s", name, elf_status, (elf_status > 0) ? sass_output() : "");
         return 0;
     }
     return 1;
