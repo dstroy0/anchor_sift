@@ -7,8 +7,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// the bits of the low word that name an operation and its operands' kinds
-#define SASS_OPERATION_MASK 0xfffull
 // the longest category and example a bit's reading is given
 #define SASS_CATEGORY 32u
 #define SASS_EXAMPLE 160u
@@ -337,6 +335,8 @@ int main(int count, char **arguments)
     // every operation one bit from one the listings gave, asked of the disassembler before the fields are found, so
     // that the widened forms get their operand runs in the same pass
     sass_machine_widen(&s_sass_machine, probe->architecture, probe->folder);
+    // and every operation the part has a coding for at all, asked without starting from a compiler's output
+    sass_machine_sweep(&s_sass_machine, probe->architecture, probe->folder);
     // the forms the listings hold and the bits each one's operands sit in, written out for the assembler
     probe->failed += sass_machine_fields(&s_sass_machine, probe->architecture, probe->folder) ? 0u : 1u;
     if (count > 3)

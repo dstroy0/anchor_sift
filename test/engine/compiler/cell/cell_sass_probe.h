@@ -30,6 +30,9 @@
 // an operation's encoding and the 128 encodings one bit apart from it
 #define SASS_BITS 128u
 #define SASS_ENCODINGS (SASS_BITS + 1u)
+// the bits of the low word that name an operation and its operands' kinds. Every value of these is a question the
+// sweep puts to the disassembler, which is what makes that search unbounded by any compiler's output
+#define SASS_OPERATION_MASK 0xfffull
 
 // one instruction as the disassembler printed it: its address, its text without the ending ';', and its encoding, the
 // low word holding the operation and its operands, the high word more operands and the control, both 0 where the
@@ -179,6 +182,22 @@ void sass_machine_listing(SassMachine *machine, const SassListing *listing);
 // predicate belongs, so its form carries that kind and no predicate operation can be written from it. An operation
 // reached this way is the part saying the encoding is legal, not a form ready to assemble from. The count taken
 unsigned int sass_machine_widen(SassMachine *machine, const char *architecture, const char *folder);
+
+// Every operation the part has a coding for, asked of its disassembler without starting from anything a compiler
+// wrote (Doug, 29 Sep: "we can unbound the search entirely to find new words we didn't know existed").
+//
+// Widening asks what lies one bit from a form some compiler emitted, which bounds the search by what a compiler
+// happens to write. The encoding's own structure lifts that bound. The low 12 bits of the low word key the
+// operation and its operands' kinds, and the probe already found that much, so 4096 questions reach every operation
+// the disassembler will name. The carrier for all of them is a form the part ran, with its key cut out and each key
+// in turn put back, which leaves every bit that is not the key holding what a real instruction held.
+//
+// What comes back is read the same way widening reads it, with one difference: a widened form is kept where it
+// names something other than the form it came from, and a swept one came from no form, so every operation named
+// here is one to keep. The operand bits belong to the carrier and not to the operation they now sit under, the same
+// caveat widening carries; sass_machine_fields finds each kept form's fields afterward by turning its own bits. The
+// count of forms this added
+unsigned int sass_machine_sweep(SassMachine *machine, const char *architecture, const char *folder);
 
 // each form's operand fields found by turning its 128 bits over and decoding, and the machine written to
 // `folder`/machine: 1, or 0 where a form's fields were not found or the file was not written
