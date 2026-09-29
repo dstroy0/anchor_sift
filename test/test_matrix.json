@@ -50,6 +50,16 @@
         "engine/compiler/codegen"
       ]
     },
+    "web_check": {
+      "desc": "The alphabet web and the word web read once each and held to what a tree is: a node reaches only nodes below it, a node's children are as many as its precept takes, and a leaf is an operand the word reads.",
+      "script": "test/engine/compiler/codegen/web_check.sh",
+      "src": [
+        "+<engine/compiler/codegen/*>"
+      ],
+      "tests": [
+        "engine/compiler/codegen"
+      ]
+    },
     "ruleset_read": {
       "desc": "Every ruleset read against its code generator's schema, and sass.krs's forms held to the machine code the cell's probes read back.",
       "script": "test/engine/compiler/codegen/ruleset_read_test.sh",

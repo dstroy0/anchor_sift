@@ -189,17 +189,38 @@ static void check_sass_lane(const Ruleset *rules)
     check_form(rules, "error", {"P0", "3"}, "\t@P0 BRA \t`(.L_error3);\n");
     check_form(rules, "loop_back", {"2", "P0"}, "\t@P0 BRA \t`(.L_loop2);\n");
     check_form(rules, "return", {}, "\tRET.ABS.NODEC R20 0x0;\n");
+    // The lane's entry, which no listing gave because nothing has ever called our lane: the resident hands it the
+    // launch in R4 and R5 and the lane's number in R6 and R7, and both sides of that call are ours to write. One
+    // 64-bit load reads a parameter, since a ruleset does no arithmetic and cannot write {offset}+4 for the second
+    // half; the part answered LDG.E.64.CONSTANT on 29 Sep, R8 reading 0xb and R9 reading 0x7
+    check_form(rules, "open_launch", {},
+               "\tMOV \tR238, R4;\n"
+               "\tMOV \tR239, R5;\n"
+               "\tMOV \tR240, R6;\n"
+               "\tMOV \tR241, R7;\n");
+    check_form(rules, "launch_load", {"R2", "16"}, "\tLDG.E.64.CONSTANT \tR2, [R238.64+16];\n");
+    // the resident's counter. The part's reduction reads what it adds from a register and never out of the
+    // instruction, so the 1 is moved into R254, this file's scratch word, first
+    check_form(rules, "count_add", {"R6"},
+               "\tMOV \tR254, 1;\n"
+               "\tRED.E.ADD.STRONG.GPU \t[R6.64], R254;\n");
     // no instruction declares a register: how many the lane holds is the ELF's
     check_form(rules, "declare_temporaries", {"12"}, "");
     // PTX's cvta.to.global left no instruction in any listing
     check_form(rules, "to_global", {"R2"}, "");
-    // The part has no integer divide, and SASS writes both halves of a word product with one IMAD.WIDE.U32 into an
-    // aligned pair. sass.krs gives all four as errors, not as nops: a lane that needs one is refused, where a lane
-    // that needs a declaration or a cvta is written without it
+    // The part has no integer divide. sass.krs gives both as errors, not as nops: a lane that needs one is refused,
+    // where a lane that needs a declaration or a cvta is written without it
     check_refused(rules, "word_divide", {"R8", "R0", "R1"});
     check_refused(rules, "wide_divide", {"R14", "R12", "R16"});
-    check_refused(rules, "product_low", {"R8", "R0", "R1", "R2"});
-    check_refused(rules, "product_high", {"R9", "R0", "R1"});
+    // The compiler wrote a word product as one IMAD.WIDE.U32 into an aligned pair, which the core cannot promise
+    // because it names the two halves apart. Each half is written on its own instead, and the part was asked both
+    // (29 Sep): 0xffffffff squared plus 0xffffffff is 0 carrying 1 in the low word and 0xffffffff in the high
+    check_form(rules, "product_low", {"R8", "R0", "R1", "R2"},
+               "\tIMAD \tR8, R0, R1, RZ;\n"
+               "\tIADD3 \tR8, P6, R8, R2, RZ;\n");
+    check_form(rules, "product_high", {"R9", "R0", "R1"},
+               "\tIMAD.HI.U32 \tR9, R0, R1, RZ;\n"
+               "\tIMAD.X \tR9, RZ, RZ, R9, P6;\n");
     // No question asked for an operation over predicates alone, and PLOP3.LUT is reached only from SHF.L.U32, where
     // it decodes with a register where a predicate belongs. Both go through the words a predicate selects, as
     // constructs over forms the listings did give: an exclusive or takes two scratch registers and an and three

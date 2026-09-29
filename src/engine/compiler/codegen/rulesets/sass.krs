@@ -29,9 +29,17 @@ krs 1
 #    other way to name the high one, because a ruleset writes a register from its number alone.
 #  - The banks are all the one file, so a writer must give numbers that do not collide across them. The code generator
 #    numbers each bank from 0 and needs an allocation before it writes SASS; the cell's probe gives its own numbers.
-#  - The lane's fixed registers, reserved at the top of the file, and P6, this file's scratch predicate: the carry of
-#    a chain, and the low half of a wide comparison. A lane of more than 240 registers, or of more than the three
-#    predicates P0 to P2, is past what this file reserves.
+#  - The lane's fixed registers, reserved at the top of the file, and P6 and R254, this file's own scratch: P6 carries
+#    a chain's carry and the low half of a wide comparison, and R254 holds the 1 count_add adds, since the part's
+#    reduction reads what it adds from a register. R238 and R239 hold the launch the lane was called with, which
+#    open_launch puts there. A lane of more than 238 registers, or of more than the three predicates P0 to P2, is past
+#    what this file reserves.
+#  - That every number up to R254 is the lane's rests on one thing the lane's cubin must do, asked of the part 29 Sep
+#    and answered both ways: in a kernel declaring 255 registers, R0 through R254 each held what was written into
+#    them, and R255 read zero whatever was written into it. In a kernel declaring the toolchain's own count, writing
+#    R238 or R254 errored on the device. The part gives a kernel the numbers its ELF asked for and no more, so a lane
+#    written from this file is a lane whose cubin declares 255. Writing fewer and naming R254 anyway is the one way
+#    this file's register numbering goes wrong quietly.
 #  - An immediate and an offset are written in decimal, as the code generator gives them, where a listing prints hex.
 #  - A 64-bit form is two instructions, and holds only where its destination is neither of its sources: the first
 #    instruction has written half the destination before the second reads them. A form's text can take no scratch to
@@ -101,11 +109,25 @@ nop declare_fixed_words
 nop declare_fixed_wides
 nop declare_members count
 
-# the lane's opening and close. open_launch and launch_load are the lane's entry, which no question covered: a kernel
-# read its parameters out of the constant bank (IMAD.WIDE.U32 R2, R4, R3, c[0x0][0x160]) and a function takes them by
-# the ABI, and neither was probed
-err open_launch
-err launch_load to offset
+# The lane's opening and close. The lane is a function the resident calls and returns from through R20 (`return`
+# below), and what the resident hands it is a calling convention nobody else sets: we write both sides of that call,
+# so the numbers below are ours and their only duty is to be the same in both. They are:
+#
+#     R4 and R5    the launch, a 64-bit address, as the resident gives it
+#     R6 and R7    the lane's number, 64 bits
+#     R20 and R21  where to return to, which the caller sets before the call
+#
+# The part showed the shape of a call and nothing more: the divide's call to __cuda_sm20_div_u64 (form_24) sets R20
+# and R21 with MOV 32@lo and 32@hi and jumps with CALL.ABS.NOINC. Which registers carry what is not in any listing,
+# because nothing has ever called our lane.
+#
+# open_launch moves the two it was handed into the registers the lane holds them in throughout, and %zero needs no
+# move because RZ reads zero already. The launch lives in R238 and R239, under the fixed registers and over the file
+# (register_file_holds answers 238), and it is written here by its number as ptx.krs writes %launch by its name
+form open_launch = \tMOV \tR238, R4;\n\tMOV \tR239, R5;\n\tMOV \tR240, R6;\n\tMOV \tR241, R7;\n
+# one 64-bit word of the launch, in one instruction: a ruleset does no arithmetic and cannot write {offset}+4 for the
+# second half, and LDG.E.64.CONSTANT writes the pair (asked of the part 29 Sep, R8 reads 0xb and R9 reads 0x7)
+form launch_load to offset = \tLDG.E.64.CONSTANT \t{to}, [R238.64+{offset}];\n
 # an address is global and generic alike here: PTX's cvta.to.global left no instruction in any listing
 nop to_global to
 err shared_open
@@ -117,7 +139,11 @@ form open_error_unless where = \t@!{where} BRA \t`(.L_error_open);\n
 form error where at = \t@{where} BRA \t`(.L_error{at});\n
 form label_error_open = .L_error_open:\n
 form label_error at = .L_error{at}:\n
-err count_add address
+# the resident's counter, one added to a word of memory by every lane that reaches it. The part's reduction takes what
+# it adds from a register and never an immediate - RED.E.ADD.STRONG.GPU [R2.64], R7 is the whole of what the listing
+# gives, and turning its bits one at a time reaches MIN, MAX, DEC, the other widths and the other scopes, and no
+# coding that reads a number out of the instruction - so the 1 is moved into R254 first
+form count_add address = \tMOV \tR254, 1;\n\tRED.E.ADD.STRONG.GPU \t[{address}.64], R254;\n
 # the lane is a function the resident calls, and returns through the address a call leaves in R20
 form return = \tRET.ABS.NODEC R20 0x0;\n
 form step_note at operation = \t// step {at}, operation {operation}\n

@@ -23,6 +23,10 @@
 // the most operands an instruction's text holds, and the longest each is kept
 #define SASS_OPERANDS 8u
 #define SASS_OPERAND_TEXT 64u
+// the most questions and the most operations the probe keeps, and the longest question name
+#define SASS_QUESTIONS 256u
+#define SASS_OPERATIONS 512u
+#define SASS_NAME 160u
 // an operation's encoding and the 128 encodings one bit apart from it
 #define SASS_BITS 128u
 #define SASS_ENCODINGS (SASS_BITS + 1u)
@@ -54,9 +58,42 @@ typedef struct
     char operand[SASS_OPERANDS][SASS_OPERAND_TEXT];
 } SassParts;
 
+// one operation the listings hold, keyed by the low 12 bits of its encoding: the first instruction seen with it
+typedef struct
+{
+    unsigned int key;
+    SassInstruction first;
+} SassOperation;
+
+// what one run of the probe has found so far: where its cubins are, which program assembles them, and the part, the
+// questions and the operations read out of them
+typedef struct
+{
+    const char *folder;
+    const char *prober;
+    char architecture[16];
+    unsigned int questions;
+    char names[SASS_QUESTIONS][SASS_NAME];
+    unsigned int operations;
+    SassOperation operation[SASS_OPERATIONS];
+    unsigned int failed;
+} SassProbe;
+
 // one process run through the cell with its output written to `output_path`, and read into the shared buffer
 // (sass_output): its exit status, or -1 where it did not exit, with how it ended printed
 int sass_run(char *const *command, const char *output_path);
+
+// the cubin at `path` run on the device through cell_ptx_probe over one case, its answer into `answered`: 1, or 0
+// with the reason printed (cell_sass_probe_ask.c)
+int sass_cubin_answer(SassProbe *probe, const char *path, char *answered, size_t room);
+
+// every question of the cell's own put to the part in code no toolchain wrote, `asked` counting them: how many the
+// part answered as the question says
+unsigned int sass_cubin_asks(SassProbe *probe, const SassMachine *machine, unsigned int *asked);
+
+// every pair of codings weighed against each other in the part's own clock, `asked` counting the pairs: how many
+// gave a reading that stands above the noise
+unsigned int sass_cubin_prefers(SassProbe *probe, const SassMachine *machine, unsigned int *asked);
 
 // the output of the last process sass_run ran
 const char *sass_output(void);
