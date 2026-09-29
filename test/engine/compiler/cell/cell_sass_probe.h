@@ -234,10 +234,22 @@ unsigned int sass_text_read(const char *output, const char *kernel, char *text, 
 // <name>.text: how many letters, 0 where the listing was not read
 unsigned int sass_cubin_text(const char *folder, const char *name, char *text, unsigned int room);
 
-// `text` assembled and put into a cubin made from `pattern`.cubin, written as `into`.cubin in the folder: 1, or 0
-// with the reason printed
+// `text` assembled into the section `kernel` of a cubin made from `pattern`.cubin, written as `into`.cubin in the
+// folder: 1, or 0 with the reason printed. Every other section of the pattern is carried over untouched, which is
+// what lets one function of a cubin be replaced where another is left as the part's own compiler wrote it
+int sass_cubin_kernel(const SassMachine *machine, const char *folder, const char *pattern, const char *text,
+                      const char *into, const char *kernel);
+
+// the same, into the probe's own question kernel
 int sass_cubin_from_text(const SassMachine *machine, const char *folder, const char *pattern, const char *text,
                          const char *into);
+
+// A lane of our own written into the resident's cubin, in place of the empty cycle_lane the resident was built
+// with. This is how a SASS program is put together, and why sass.krs gives program_unit as an error without that
+// being a gap: the resident is 110 instructions of PTX the part's compiler turns into SASS that already runs, and
+// re-deriving it from a ruleset would throw that away. The lane is the part we write; the resident is the part we
+// ask for and keep
+int sass_cubin_lane_into(const SassMachine *machine, const char *folder, const char *text, const char *into);
 
 // the kernel `name` in `folder` written again out of its own listing, as <name>_written.cubin
 int sass_cubin_round(const SassMachine *machine, const char *folder, const char *name);

@@ -76,8 +76,8 @@ unsigned int sass_cubin_text(const char *folder, const char *name, char *text, u
     return text_size;
 }
 
-int sass_cubin_from_text(const SassMachine *machine, const char *folder, const char *pattern, const char *text,
-                         const char *into)
+int sass_cubin_kernel(const SassMachine *machine, const char *folder, const char *pattern, const char *text,
+                      const char *into, const char *kernel)
 {
     char path[1024];
     snprintf(path, sizeof(path), "%s/%s.cubin", folder, pattern);
@@ -97,10 +97,10 @@ int sass_cubin_from_text(const SassMachine *machine, const char *folder, const c
     memset(&written, 0, sizeof(written));
     written.pattern = s_pattern;
     written.pattern_size = pattern_size;
-    written.kernel = "cell_ask";
+    written.kernel = kernel;
     written.code = s_code;
     written.code_size = code_size;
-    written.registers = cubin_registers_read(s_pattern, "cell_ask");
+    written.registers = cubin_registers_read(s_pattern, kernel);
     written.exit_count = cubin_exits_find(s_code, code_size, sass_exit_encoding(machine), s_exits, SASS_EXITS);
     written.exits = s_exits;
     unsigned long long size = 0ull;
@@ -112,10 +112,21 @@ int sass_cubin_from_text(const SassMachine *machine, const char *folder, const c
     return sass_file_write(path, s_cubin, size);
 }
 
+int sass_cubin_from_text(const SassMachine *machine, const char *folder, const char *pattern, const char *text,
+                         const char *into)
+{
+    return sass_cubin_kernel(machine, folder, pattern, text, into, "cell_ask");
+}
+
 int sass_cubin_round(const SassMachine *machine, const char *folder, const char *name)
 {
     char into[256];
     snprintf(into, sizeof(into), "%s_written", name);
     return (sass_cubin_text(folder, name, s_text, sizeof(s_text)) != 0u) &&
            sass_cubin_from_text(machine, folder, name, s_text, into);
+}
+
+int sass_cubin_lane_into(const SassMachine *machine, const char *folder, const char *text, const char *into)
+{
+    return sass_cubin_kernel(machine, folder, "resident", text, into, "cycle_lane");
 }

@@ -281,6 +281,21 @@ form loop_label loop = .L_loop{loop}:\n
 form loop_back loop where = \t@{where} BRA \t`(.L_loop{loop});\n
 nop state_loop back where next
 
-# the program resident around the lane: the kernel the record machine launches. No question wrote it, and the probes
-# read nothing of the shared memory, the barriers, the atomics or the timer it needs
+# The program resident around the lane: the kernel the record machine launches. This file gives it as an error and
+# that is the answer, not a gap waiting on one.
+#
+# The resident is the same for every program. Its 25 arguments are byte offsets into the engine's own structures and
+# the commands and states it reads, all of them fixed at build time, and nothing in it depends on the lane it calls.
+# ptx.krs holds it as 110 instructions of PTX that run, and the part's own compiler turns those into 248 SASS
+# instructions that run. Deriving it again here would throw both away.
+#
+# So a SASS program is built the other way round: the resident's cubin is the pattern, and the lane is written into
+# its cycle_lane in place of the empty one it was compiled with, leaving cycle_program exactly as the part's compiler
+# wrote it. Asked of the part 29 Sep, 247 of the resident's 248 instructions came through a lane being written in,
+# the one that did not being the empty lane's own.
+#
+# What the part's compiler emitted is also the floor: a rearrangement of the resident has to beat it in the part's
+# own clock before it is worth having. There is room to look for - the form below is 5855 bytes of text against 3520
+# bytes of encodings, which is a transcription and carries no compression at all - and the way to take it is to
+# rearrange against that floor, never to start from nothing
 err program_unit launch_bytes count_offset hot_offset block_offset number_offset ttl_offset checkin_every_offset next_offset start_offset finished_offset checkins_offset owner_at command_at state_at offset_at step_at launch_time_at exectime_at checkin_at checkin_time_at run_command stop_command done_state stopped_state yielded_state

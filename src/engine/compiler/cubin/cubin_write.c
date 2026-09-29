@@ -177,7 +177,21 @@ static unsigned long long cubin_info_write(const unsigned char *bytes, unsigned 
     const unsigned char *const found = cubin_attribute(bytes, size, ATTRIBUTE_EXITS, &value_size);
     if (found == NULL)
     {
-        return 0ull;
+        // A section with no exit attribute belongs to a function and not to a kernel: an entry ends at an EXIT and
+        // the ELF says where each one lies, where a function ends at a RET and has none to say. Carrying the
+        // section over untouched is right for that, and only for that - code holding exits whose section has no
+        // attribute to record them in is a kernel being written into a function's place, and is refused
+        if (exit_count != 0u)
+        {
+            return 0ull;
+        }
+        if (size > room)
+        {
+            printf("  cubin_write: the function's attributes take %llu bytes where the room is %llu\n", size, room);
+            return 0ull;
+        }
+        memcpy(written, bytes, size);
+        return size;
     }
     const unsigned long long before = (unsigned long long)(found - bytes);
     const unsigned long long after = before + ATTRIBUTE_HEADER + value_size;

@@ -130,8 +130,22 @@ costs less than what is there. Not written.
     own ELF asked for, and sass.krs records that where it claims R238, R239 and R254.
 - Every form sass.krs writes assembles against that machine file: 62 assembled, 0 refused
   (maint/engine/sass_krs_check.sh, no device). ruleset_read is 59 checks, 0 failed.
-- The lane's blocking list is down to one form. count_add, open_launch and launch_load are written and held to their
-  text; program_unit, the resident, is the last `err` any lane asks for.
+- The lane's blocking list is down to one form, and that one is not a blocker. count_add, open_launch and
+  launch_load are written and held to their text. program_unit stays an error in sass.krs by design: the resident
+  is the same for every program, its 25 arguments are build-time constants, and ptx.krs already holds 110
+  instructions of it that run. A SASS program takes the resident's own cubin as the pattern and writes the lane into
+  its cycle_lane, leaving cycle_program as the part's compiler wrote it. Asked 29 Sep: 247 of the resident's 248
+  instructions survive a lane going in, the one that does not being the empty lane's own. sass_lane_needs counts
+  program_unit as blocking and is measuring the wrong thing for SASS.
+- The resident is also where the probes stop being interrogative. Every membership question asks whether the part
+  has one instruction; the resident hands the part's compiler a whole coherent program and reads back what it made,
+  which reaches what no single question can. It brought 48 forms and 28 operations nothing else found: BSSY, BSYNC,
+  WARPSYNC, YIELD, BAR.SYNC.DEFER_BLOCKING, ERRBAR, CCTL.IVALL, P2R, ATOMG.E.CAS.64, STL.64, STS.64, LDS.64,
+  CALL.ABS.NOINC, and a PLOP3.LUT that widening could only ever reach unusable.
+- Its 6 refusals and 22 unreached instructions are operand classes no question ever produced: the convergence
+  barriers B0 and B6, the predicate file PR, the uniform predicates UP0 and UPT, a constant bank past 0, and a call
+  to a symbol its form was not learned with. Every one is refused and none is guessed at. They are counted apart
+  from the questions', which still stand at 1008 written back, 0 refused, 0 failed.
 - Known failures: VHDL lane in codegen_device (device writes where host refuses); cell_ptx test_signed_zero stale.
 
 ## SASS findings (sm_86)

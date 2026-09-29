@@ -262,6 +262,51 @@ static int sass_cubin_same(SassProbe *probe, const SassMachine *machine, const c
     return 1;
 }
 
+// A lane of the cell's own written into the resident's cubin, and the resident checked for having survived it. What
+// goes in is the frame's own text, which assembles and asks nothing of the launch: under test here is the cubin
+// writer, not the lane. 1 where every instruction of the resident is still in the cubin afterwards
+static int sass_lane_written(SassProbe *probe)
+{
+    // A lane is a function the resident calls, and a function ends where it was called from. Putting a kernel's
+    // body here in place of this would be writing something that EXITs where the part expects a RET, which the
+    // cubin writer refuses and should
+    static const char s_lane[] = "\tIMAD.MOV.U32 R16, RZ, RZ, R4;\n"
+                                 "\tIMAD.MOV.U32 R17, RZ, RZ, R5;\n"
+                                 "\tRET.ABS.NODEC R20 0x0;\n";
+    if (!sass_cubin_lane_into(&s_sass_machine, probe->folder, s_lane, "program"))
+    {
+        printf("cell sass lane: the lane did not go into the resident's cubin\n");
+        return 0;
+    }
+    static SassListing s_before;
+    static SassListing s_after;
+    if (!sass_list(probe, "resident", &s_before) || !sass_list(probe, "program", &s_after))
+    {
+        printf("cell sass lane: the cubin did not list\n");
+        return 0;
+    }
+    // every instruction the resident's cubin held, looked for in the one the lane went into. cycle_program is the
+    // bulk of both and none of it may have moved; the empty cycle_lane it was built with is two instructions, and
+    // those are the ones expected to be gone
+    unsigned int held = 0u;
+    for (unsigned int number = 0u; number < s_before.count; number += 1u)
+    {
+        int found = 0;
+        for (unsigned int at = 0u; (found == 0) && (at < s_after.count); at += 1u)
+        {
+            found = ((s_before.instructions[number].low == s_after.instructions[at].low) &&
+                     (s_before.instructions[number].high == s_after.instructions[at].high))
+                        ? 1
+                        : 0;
+        }
+        held += (unsigned int)found;
+    }
+    printf("cell sass lane: %u instructions in the cubin the lane went into, %u of the resident's %u still in it\n",
+           s_after.count, held, s_before.count);
+    // the resident's own instructions all survive; what the empty lane held is what the new lane replaced
+    return (s_before.count - held) <= 2u;
+}
+
 static int sass_questions_read(SassProbe *probe, const char *output)
 {
     // the line may follow others the ruleset's reader printed
@@ -405,6 +450,10 @@ int main(int count, char **arguments)
            "same to their bytes alone, %u the assembler does not reach yet\n",
            reached.checked, reached.refused, reached.same_bits, reached.same_text, reached.by_bytes,
            resident_differed);
+    // A lane of our own put into the resident's cubin, which is how a SASS program is built. The resident keeps the
+    // code the part's own compiler gave it and only cycle_lane is replaced, so what is checked here is that
+    // replacing one function of a cubin leaves the other as it was, byte for byte
+    probe->failed += sass_lane_written(probe) ? 0u : 1u;
     // each kernel written again into a cubin of its own, loaded and run, and its answer same to the toolchain's
     unsigned int cubins = 0u;
     unsigned int same = 0u;
