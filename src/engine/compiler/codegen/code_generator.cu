@@ -494,6 +494,10 @@ std::string CodeGenerator::lane(const EngineRecordLayout *layout, const TargetIn
         {
             text += header;
         }
+        else if ((item.form == OPCODE_PROGRAM_UNIT) && (program_unit_written() == 0))
+        {
+            // the language's resident reaches it already built, and the ruleset is never asked for one
+        }
         else
         {
             code_generator_text(rules, &file, target, item, text, &broken);

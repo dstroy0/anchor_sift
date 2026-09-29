@@ -17,6 +17,8 @@ class SassTarget : public CodeGenerator
     // the part holds one register file and the banks are laid into it end to end: R0 through R239, the registers
     // sass.krs does not pin (R240 through R253 are the lane's fixed words and wides, and RZ is R255)
     unsigned int register_file_holds(void) const override;
+
+    int program_unit_written(void) const override;
 };
 
 // the SASS code generator a process holds, its ruleset read at its first call to ruleset()

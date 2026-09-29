@@ -188,15 +188,27 @@ int main(void)
     unsigned int decided = 0u;
     unsigned int blocking = 0u;
     printf("%u layouts decided for SASS\n", laid);
+    // A form the code generator leaves out is never asked of the ruleset, whatever the lane's items hold. SASS
+    // answers 0 to program_unit_written: its resident reaches it already built in the part's own compiler's cubin,
+    // and the lane is written into that. Counting such a form as blocking reads the lane's item list where the
+    // question is what program() puts to the ruleset
+    const int writes_unit = sass_target().program_unit_written();
     printf("forms the lane asks for that sass.krs gives as an error, which is what refuses it:\n");
     for (unsigned int place = 0u; place < OPCODE_COUNT; place += 1u)
     {
+        const int asked_of_ruleset = (place != (unsigned int)OPCODE_PROGRAM_UNIT) || (writes_unit != 0);
         decided += (asked[place] != 0u) ? 1u : 0u;
-        if ((asked[place] != 0u) && (lane_form_errors(rules, place) != 0))
+        if ((asked[place] != 0u) && asked_of_ruleset && (lane_form_errors(rules, place) != 0))
         {
             blocking += 1u;
             printf("  %-24s asked %u times\n", s_forms[place].text, asked[place]);
         }
+    }
+    if (writes_unit == 0)
+    {
+        printf("  (program_unit is asked %u times by the lane's items and never of the ruleset: SASS takes its\n"
+               "   resident from the part's own compiler and writes the lane into that cubin)\n",
+               asked[OPCODE_PROGRAM_UNIT]);
     }
     printf("forms sass.krs gives as an error that no lane here asks for:\n");
     for (unsigned int place = 0u; place < OPCODE_COUNT; place += 1u)

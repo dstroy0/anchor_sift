@@ -83,6 +83,16 @@ class CodeGenerator : public Target
     // a register the language has pinned to something else
     virtual unsigned int register_file_holds(void) const;
 
+    // Whether the language writes the program resident itself. Most do: the resident is a form of the ruleset like
+    // any other, and program() puts it after the lane. A language whose resident reaches it already built answers
+    // 0, and program() leaves the form out in place of asking the ruleset for it.
+    //
+    // SASS answers 0. The resident is the same for every program, its arguments are offsets fixed at build time,
+    // and the part's own compiler turns ptx.krs's 110 instructions of it into SASS that runs. A program is put
+    // together by writing the lane into that cubin's cycle_lane, leaving cycle_program as the compiler wrote it, and
+    // asking sass.krs for a resident would be asking it to derive what is already in hand
+    virtual int program_unit_written(void) const;
+
     // 1 where program() splits the lane, `costs` then its model as the core splits by it, for the device to split the
     // same
     int program_schedule_costs(ScheduleCosts *costs) const;

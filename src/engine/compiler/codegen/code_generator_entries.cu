@@ -23,6 +23,12 @@ unsigned int CodeGenerator::register_file_holds(void) const
     return 0u;
 }
 
+// a language writes its own resident unless it says otherwise
+int CodeGenerator::program_unit_written(void) const
+{
+    return 1;
+}
+
 int CodeGenerator::program_schedule_costs(ScheduleCosts *costs) const
 {
     const ScheduleModel *const model = program_schedule_model();

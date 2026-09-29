@@ -111,7 +111,11 @@ static unsigned int sass_operand_kind(const char *text)
     {
         return SASS_OPERAND_IMMEDIATE;
     }
-    if (((text[0] == '-') && (text[1] == '0') && (text[2] == 'x')) || sass_all_digits(text, 0u))
+    // a number, with its sign where it carries one. A listing prints these in hex and a ruleset writes them in
+    // decimal, and a negative decimal is a number the same as a negative hex: reading the digits from index 0 would
+    // put the sign among them and leave -1 as nothing the reader knows
+    if (((text[0] == '-') && (text[1] == '0') && (text[2] == 'x')) || sass_all_digits(text, 0u) ||
+        ((text[0] == '-') && sass_all_digits(text, 1u)))
     {
         return SASS_OPERAND_IMMEDIATE;
     }
