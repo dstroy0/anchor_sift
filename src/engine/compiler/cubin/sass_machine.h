@@ -24,9 +24,12 @@
 #define SASS_MACHINE_TEXT 192u
 #define SASS_MACHINE_TOKEN 64u
 #define SASS_MACHINE_OPERANDS 8u
-// the most runs of bits one form's operands take between them, and the most forms a machine file holds
+// the most runs of bits one form's operands take between them, and the most forms a machine file holds. The sweep
+// puts every operation key to the disassembler from each of several carriers and found 1001 forms on sm_86 at
+// 1024, close enough to the ceiling that another carrier or another part would have run into it, and a machine
+// that fills up keeps the forms it has and counts the rest in `refused`
 #define SASS_MACHINE_RUNS 32u
-#define SASS_MACHINE_FORMS 1024u
+#define SASS_MACHINE_FORMS 4096u
 #define SASS_MACHINE_PART 16u
 
 // what one printed operand is

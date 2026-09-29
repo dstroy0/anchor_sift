@@ -119,6 +119,3 @@ int sass_cubin_round(const SassMachine *machine, const char *folder, const char 
     return (sass_cubin_text(folder, name, s_text, sizeof(s_text)) != 0u) &&
            sass_cubin_from_text(machine, folder, name, s_text, into);
 }
-
-// 1 where the disassembler named every modifier of `operation`: one it could not name it prints as INVALID<n>, or
-// leaves the trailing dot with nothing after it. An encoding whose meaning the disassembler will not state is not a
