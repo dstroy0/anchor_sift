@@ -183,7 +183,7 @@ form word_funnel_right to low high bits = \tSHF.R.U32 \t{to}, {low}, {bits}, {hi
 form word_multiply to left right = \tIMAD \t{to}, {left}, {right}, RZ;\n
 form word_multiply_add to left right added = \tIMAD \t{to}, {left}, {right}, {added};\n
 err word_divide to left right
-form word_select to chosen otherwise where = \tSEL \t{to}, {chosen}, {otherwise}, {where};\n
+form word_select to chosen otherwise where = \tMOV \tR254, {chosen};\n\tSEL \t{to}, R254, {otherwise}, {where};\n
 # The two halves of a word product, which carry between them: the low is the product's low word plus the addend,
 # keeping its carry in P6, and the high is the product's high word plus that carry. The compiler wrote the pair as
 # one IMAD.WIDE.U32 into an aligned pair (form_13: MOV R7, RZ then IMAD.WIDE.U32 R6, R9, R0, R6), which needs the
@@ -195,7 +195,7 @@ form product_high to left right = \tIMAD.HI.U32 \t{to}, {left}, {right}, RZ;\n\t
 
 # a sign's arithmetic, a signed word of -1, 0 or 1 (sign_set, sign_select; sign_multiply, sign_absolute, sign_negate)
 form sign_set to value = \tMOV \t{to}, {value};\n
-form sign_select to chosen otherwise where = \tSEL \t{to}, {chosen}, {otherwise}, {where};\n
+form sign_select to chosen otherwise where = \tMOV \tR254, {chosen};\n\tSEL \t{to}, R254, {otherwise}, {where};\n
 form sign_multiply to left right = \tIMAD \t{to}, {left}, {right}, RZ;\n
 form sign_absolute to from = \tIABS \t{to}, {from};\n
 form sign_negate to from = \tIADD3 \t{to}, -{from}, RZ, RZ;\n
