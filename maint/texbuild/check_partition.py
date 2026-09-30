@@ -15,18 +15,18 @@
 # WHAT THIS CATCHES
 #
 # theory/theory/cryptography/sha256/main.tex includes eleven chapters. Six were published from anchor_sift.
-# Five postdate them and are held. Nothing in the build errors on that combination, so `build_theory.sh`
+# Five postdate them and are held. Nothing in the build errors on that combination, and `build_theory.sh`
 # produces one PDF carrying both halves and looking finished. That is the defect this exists for.
 #
 # HOW IT FAILS
 #
-# Closed, in three directions. An unlisted artifact is HELD, so a new document is private until
-# somebody classifies it and never public by being forgotten. PENDING is HELD, so an undecided
+# Closed, in three directions. An unlisted artifact is HELD, and a new document is private until
+# somebody classifies it and never public by being forgotten. PENDING is HELD, and an undecided
 # judgment call cannot reach a public build by nobody getting round to the decision. A missing or
 # unreadable manifest errors on the run outright, because a gate that skips itself when its input moves
 # is worse than no gate: every build after that passes while still looking gated.
 #
-# Exit status is the count of findings, so it fails a pipeline without needing a flag.
+# Exit status is the count of findings, and it fails a pipeline without needing a flag.
 
 import os
 import re
@@ -42,20 +42,20 @@ MANIFEST = os.path.join("theory", "PARTITION.tsv")
 # general-purpose multiply does not reveal what it is aimed at, and the advantage is the aiming.
 #
 # It ranks with PUBLIC and not below it. PUBLIC means already published in anchor_sift and therefore
-# settled; EXTERNAL means cleared for publication and not yet out. Neither constrains a research paper, so they
-# carry the same strictness, and keeping them distinct is what lets "cleared but unpublished" be
-# counted rather than assumed.
+# settled; EXTERNAL means cleared for publication and not yet out. Neither constrains a research paper, and they
+# carry the same strictness. Keeping them distinct leaves "cleared but unpublished" to be
+# counted in place of assumed.
 #
-# An unknown class is NOT silently ranked. `strictest` used to reach into this table directly, so a
+# An unknown class is NOT silently ranked. `strictest` used to reach into this table directly, and a
 # typo in the manifest would have produced a KeyError at best and a wrong rank at worst; classify()
 # now errors on a class this table does not name.
 RANK = {"PUBLIC": 0, "EXTERNAL": 0, "PENDING": 1, "HELD": 2}
 
 # \include{chapters/foo} and \input{../macros.tex}. The argument is a path with the extension
-# usually left off, which is how LaTeX writes it.
+# usually left off, the way LaTeX writes it.
 INCLUDE = re.compile(r"\\(?:include|input|subfile)\s*\{([^}]+)\}")
 
-# Prose that a build could reach. A .py or .cu file is not bound into a PDF, so it is out of scope
+# Prose that a build could reach. A .py or .cu file is not bound into a PDF, and it is out of scope
 # here and governed by the license instead.
 PROSE = (".tex", ".md")
 
@@ -68,7 +68,7 @@ def read_manifest(root):
 
     Returns None when the manifest cannot be read, which the caller turns into an error. A parse
     that quietly returns an empty mapping would classify the entire tree as unlisted, and unlisted
-    is HELD, so the run would report every file as a finding and bury the real cause.
+    is HELD, and the run would report every file as a finding and bury the real cause.
     """
     full = os.path.join(root, MANIFEST)
     if not os.path.isfile(full):
@@ -84,7 +84,7 @@ def read_manifest(root):
             if len(fields) < 3:
                 continue
             # AN UNKNOWN CLASS IS REPORTED, NOT SKIPPED. Skipping it silently is fail-closed, since
-            # the row then falls through to unlisted-is-HELD - but it is also invisible, so a
+            # the row then falls through to unlisted-is-HELD - but it is also invisible, and a
             # misspelled class holds a file while its author believes it was classified. That bit
             # for real: the fifteen EXTERNAL rows added on 2026-09-11 were dropped by this line
             # until RANK learned the class, and nothing said so.
@@ -99,7 +99,7 @@ def read_manifest(root):
                 continue
 
             # A SECOND ROW FOR ONE PATH IS REPORTED. This dict silently keeps the last row for a
-            # path, so two rows disagreeing about a file resolve to whichever sits lower with no
+            # path, and two rows disagreeing about a file resolve to whichever sits lower with no
             # sign that the other existed. That happened: docs/twiddle-proof.md was appended as
             # EXTERNAL while an older HELD row for it stood twelve lines up, and the file's class
             # then depended on line order alone.
@@ -116,7 +116,7 @@ def read_manifest(root):
 
 
 def normalize(path):
-    """One spelling for one file, so a manifest row and a walked path compare equal."""
+    """One form for one file, and a manifest row and a walked path compare equal."""
     return os.path.normpath(path).replace("\\", "/").lstrip("./")
 
 
@@ -130,7 +130,7 @@ def resolve(argument, build_dir, root):
 
     LaTeX resolves every path against the directory the compiler was invoked from, and not against
     the file holding the include. theory/preamble.tex says `\\input{../macros.tex}` and that reaches
-    theory/theory/cryptography/macros.tex when main.tex is built from theory/theory/cryptography/sha256, which is
+    theory/theory/cryptography/macros.tex when main.tex is built from theory/theory/cryptography/sha256, and that is
     the documented way to build it. An earlier version of this resolved against the including file
     and reported the shared preamble as missing on a tree where the build works.
     """
@@ -144,7 +144,7 @@ def resolve(argument, build_dir, root):
 def reachable(research_paper, root, seen=None, build_dir=None):
     """Every file a research paper pulls in, following includes through as many levels as they go.
 
-    A chapter that includes a fragment puts that fragment in the research paper, so a check reading only the
+    A chapter that includes a fragment puts that fragment in the research paper, and a check reading only the
     top level would pass a research paper whose held material sits one level down.
     """
     if seen is None:
@@ -250,8 +250,8 @@ def main(argv):
             print("          %s" % path)
         findings += len(unlisted)
 
-    # Checking nothing is not passing. docs_check.py learned this the expensive way and the lesson
-    # transfers without modification.
+    # A check that reads nothing has not passed. docs_check.py learned this the expensive way, and
+    # the lesson transfers without modification.
     if checked == 0:
         print("  no research paper was read. Nothing was checked, so nothing passed.")
         return 2

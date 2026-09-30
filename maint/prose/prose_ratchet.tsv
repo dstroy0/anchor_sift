@@ -220,7 +220,6 @@ maint/plan_fixes.py	2
 maint/prose/build_assistant_pole.py	4
 maint/prose/check_punctuation.py	7
 maint/prose/claudese_distance.py	2
-maint/prose/dependence_decay.py	43
 maint/prose/gate.py	2
 maint/prose/printed_check.py	4
 maint/prose/prosody_rate.py	8
@@ -250,7 +249,6 @@ maint/source/readclean.py	3
 maint/source/src2png.py	1
 maint/texbuild/build_bibliography.py	1
 maint/texbuild/build_theory.sh	2
-maint/texbuild/check_partition.py	26
 maint/texbuild/dotmap_svg.py	4
 maint/texbuild/navier_stokes_sets_figure.py	3
 maint/texbuild/submission_package.py	8

@@ -3,14 +3,14 @@
 THE QUESTION, AND WHY THE AFTERNOON'S INSTRUMENTS COULD NOT ANSWER IT
 
 `claudese_distance` places a file between a human pole and an assistant pole and prints its own
-limit at the foot: every file-level distance is a bag of words, so it reads COMPOSITION and never
-ARRANGEMENT. A bag of words is invariant under permutation - shuffle the corpus and every count is
-identical - so it cannot separate a text from its own shuffle, and it cannot say WHICH sentences
-carry the register. That is not a flaw in the tool, it is what a bag of words is.
+limit at the foot: every file-level distance is a bag of words, and so it reads COMPOSITION and
+never ARRANGEMENT. A bag of words is invariant under permutation - shuffle the corpus and every
+count is identical - and so it cannot separate a text from its own shuffle, and it cannot say WHICH
+sentences carry the register. That is not a flaw in the tool, it is what a bag of words is.
 
-The gap is the whole question. Generated text is close to MEMORYLESS: it is sampled token by token
-from a context window, so its long-range structure is whatever that window carries and no more.
-Human writing is not memoryless. A person holds a subject across paragraphs and returns to it, so
+The gap is what this measures. Generated text is close to MEMORYLESS: it is sampled token by token
+from a context window, and so its long-range structure is whatever that window carries. Human
+writing is not memoryless. A person holds a subject across paragraphs and returns to it, and so
 dependence survives to ranges no window covers.
 
 So the discriminator is not a score, it is a SHAPE: how fast dependence dies as the gap grows.
@@ -41,11 +41,11 @@ one too low, always the same direction.
 So it is measured. Shuffling the tokens destroys arrangement and keeps every count identical, which
 makes a shuffle EXACTLY the memoryless surrogate for this statistic. The floor at each lag is what
 the shuffle produces at that lag, drawn several times. What gets reported is the excess over that
-floor, so a decay to zero means decay to the point where this corpus at this size can no longer tell.
+floor. A decay to zero means decay to where this corpus at this size can no longer tell.
 
 THE POSITIVE CONTROL IS THE POINT, NOT AN EXTRA
 
-Both poles already exist in the tree, which is what makes this worth building rather than renting.
+Both poles already exist in the tree, and their existing is what this builds on in place of renting.
 Human research papers are one, the assistant's own transcript is the other. If the human corpus does
 not show a heavier tail than the assistant corpus, the instrument is not measuring what it claims
 and no reading from it means anything. That check runs first and its verdict gates the rest, the
@@ -54,20 +54,20 @@ same way pi in the compressor gates a compression claim.
 WHAT IT MEASURED, 2026-09-11, AND THE ANSWER IS NO
 
 Run as built, on the two poles this tree already holds, it does NOT separate them. Recorded here
-rather than in a note, because the intermediate readings all looked like findings and each one would
+and not in a note, because the intermediate readings all looked like findings and each one would
 have been quoted if the next check had not been run.
 
     reading                                               what it turned out to be
     human clear to lag 1024, assistant dead by lag 3      the corpora differ ELEVEN TIMES in
                                                           length and MI bias grows as a corpus
                                                           shrinks. At equal length: 4 against 2.
-    at equal length, floors 0.3707 against 0.5194         29 per cent apart, so an excess over
+    at equal length, floors 0.3707 against 0.5194         29 per cent apart, and an excess over
                                                           them compares two ESTIMATORS. Length was
                                                           not the whole nuisance parameter; the
                                                           unigram distribution sets the bias too.
     decay shape, -0.619 against -0.576                    the right direction, and inside the noise
 
-The last one is the one that needed the null, and drawing it settled the question. Twenty-four
+The last of them needed the null, and drawing it settled the question. Twenty-four
 DISJOINT human chunks cut to the assistant corpus's exact length give slopes from -0.857 to -0.234,
 mean -0.483, sd 0.129. The assistant sits at -0.587, which is 0.80 sd from the human mean, with FOUR
 OF TWENTY-FOUR human chunks decaying at least as fast. That is an ordinary value for a human text of
@@ -79,9 +79,9 @@ WHAT THAT DOES AND DOES NOT SETTLE
 
 It does not refute the hypothesis. Long-range dependence is real in natural language and the decay
 law is the right discriminator. What it settles is that THIS test at THIS size has no power to see
-it, and the binding constraint is named: the assistant corpus is 39,516 words, so every comparison
-has to be made at that length, and the human band at that length is 0.129 wide - far wider than any
-separation on offer.
+it, and the binding constraint is named: the assistant corpus is 39,516 words, and so every
+comparison has to be made at that length, and the human band at that length is 0.129 wide - far
+wider than any separation on offer.
 
 The way forward is more assistant text, not a better statistic. At ten times the length the human
 band narrows by about root ten and the same gap would be worth testing again.
@@ -99,24 +99,24 @@ side carries a measured spread instead of the assistant being a single point:
 Three things make this a stronger null than a small p-value usually is.
 
 THE GAP SHRANK AS THE DATA GREW. At 39,516 words it was 0.104; at 200,000 it is 0.024. An effect that
-is real tightens around a stable value as n rises. One that is noise walks toward zero, which is what
-this did.
+is real tightens around a stable value as n rises. One that is noise walks toward zero. That is
+the walk this took.
 
 THE ASSISTANT SPREAD IS WIDER THAN THE HUMAN ONE, 0.1761 against 0.1286. The hypothesis says
-generated text is closer to memoryless, so its decay should be tighter and steeper. It is neither. A
-wider spread is evidence against the proposed mechanism rather than a failure to detect it.
+generated text is closer to memoryless, and so its decay should be tighter and steeper. It is
+neither. A wider spread is evidence against the proposed mechanism and not a failure to detect it.
 
 THE NUISANCE WAS MEASURED AND IS NOT HIDING ANYTHING. Slope against top-256 mass share across all 42
-chunks gives r = +0.269, so the share difference between the poles cannot be producing a difference
-in slope, and matching on it would change nothing. That was checked rather than assumed, because the
-earlier floor mismatch proved the nuisance was real at the LEVEL and it had to be ruled out at the
-SHAPE separately.
+chunks gives r = +0.269, and so the share difference between the poles cannot be producing a
+difference in slope, and matching on it would change nothing. That was checked and not assumed,
+because the earlier floor mismatch proved the nuisance was real at the LEVEL and it had to be ruled
+out at the SHAPE separately.
 
-WHAT IS STILL OPEN. Every word of that assistant corpus was written under this tree's ban list, so
-the register is suppressed in the direction that works against a separation. A positive result there
-would have been conservative; a null is genuinely ambiguous about unsuppressed prose. But the
+WHAT IS STILL OPEN. Every word of that assistant corpus was written under this tree's ban list, and
+so the register is suppressed in the direction that works against a separation. A positive result
+there would have been conservative; a null is genuinely ambiguous about unsuppressed prose. But the
 wider-spread finding does not depend on the suppression and argues against the mechanism directly,
-so an unsuppressed pole is less promising than it looked before this run.
+and an unsuppressed pole is less promising than it looked before this run.
 
 AND THE HUMAN TAIL WAS THE CORPUS BEING ASSEMBLED. RETRACTED.
 
@@ -126,7 +126,7 @@ that long-range structure lives in content-word recurrence. It is not dependence
 that support.
 
 `load_papers` concatenates about 120 separate documents. Different papers use different words at
-different rates, so composition DRIFTS across the joins, and drift raises MI at every lag - knowing
+different rates, and composition DRIFTS across the joins, and drift raises MI at every lag - knowing
 where you are in the corpus tells you which document you are in, and therefore which words are
 likely. That is a fact about how the corpus was built and not about anything in the writing.
 
@@ -141,14 +141,14 @@ at lag 256 cannot survive it. Drift is unaffected by it. Measured, --scramble:
      768    0.033085      0.027101     survived
     1024    0.030351      0.023921     survived
 
-Every large lag survives, so the tail was drift the whole way.
+Every large lag survives, and the tail was drift the whole way.
 
 WHAT THIS DOES AND DOES NOT TOUCH. The two-band null stands unchanged: the decay SHAPE does not
 distinguish the poles at 200,000 tokens, and the assistant spread is the wider of the two. Those were
 computed on chunks and never rested on the tail. What falls is the tail itself and the support it
 was lending.
 
-A THIRD NUISANCE PARAMETER, AND IT IS THE ONE NOBODY CONTROLLED. Length was the first, the unigram
+A THIRD NUISANCE PARAMETER, AND NOBODY CONTROLLED IT. Length was the first, the unigram
 distribution the second, and ASSEMBLY is the third: how many source documents went into a corpus
 sets its large-lag excess. Cutting both poles to 200,000 tokens controls chunk size and controls
 neither the document count nor the join rate. Any two corpora built from different numbers of
@@ -180,7 +180,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 def _trees(start):
-    """Walk up until a directory holding anchor_sift is found, rather than counting parents.
+    """Walk up until a directory holding anchor_sift is found, in place of counting parents.
 
     A fixed number of dirname calls encodes how deep this file happens to sit, and this tree has
     already lost a day to a path that was written down and then moved. Searching upward for the
@@ -201,7 +201,7 @@ SESSION = os.path.join(ANCHOR, "build", "corpora", "session_prose.txt")
 
 WORD = re.compile(r"[a-z']+")
 
-# Lags are log spaced because the expected law is a power law, so the interesting axis is
+# Lags are log spaced because the expected law is a power law, and the axis it reads on is
 # multiplicative. Sampling 1..64 evenly would spend every point where the curve is steep and none
 # where the two hypotheses separate.
 LAGS = (1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024)
@@ -214,7 +214,7 @@ def tokens_of(text, vocabulary=256):
     table is emptier than the data, every cell holds zero or one, and the estimate is almost pure
     bias - the shuffle floor then sits on top of the signal and nothing is visible above it. Keeping
     the commonest few hundred words trades resolution for a table the corpus can actually fill.
-    That is a choice about the estimator and not about the text, so the same choice is made for
+    That is a choice about the estimator and not about the text, and the same choice is made for
     every corpus compared here.
     """
     words = WORD.findall(text.lower())
@@ -278,7 +278,7 @@ def show(name, rows, words):
 
 
 def decay_shape(rows):
-    """The log-log slope of the excess against lag, which is the statistic the hypothesis is about.
+    """The log-log slope of the excess against lag: the statistic the hypothesis is about.
 
     WHY SHAPE AND NOT LEVEL. The excess at any one lag carries the estimator's bias, and that bias
     depends on corpus size and on the unigram distribution, neither of which is register. Comparing
@@ -288,11 +288,11 @@ def decay_shape(rows):
 
     So each curve is divided by its own value at lag one and the slope is taken in log-log. A power
     law is a straight line there, with the exponent as the slope. An exponential curves downward and
-    runs off the bottom. Dividing by lag one is what removes the scale the bias sets, so this is the
-    same normalisation as dividing per-degree power by (2l+1) to make a spectrum flat.
+    runs off the bottom. Dividing by lag one removes the scale the bias sets, and this is the
+    same normalization as dividing per-degree power by (2l+1) to make a spectrum flat.
 
-    Returned as (slope, points used). Lags whose excess has gone non-positive are dropped rather
-    than clamped, because a logarithm of a negative number is not a small number, it is nothing.
+    Returned as (slope, points used). Lags whose excess has gone non-positive are dropped and not
+    clamped, because a logarithm of a negative number is not a small number, it is nothing.
     """
     import math
     base = rows[0][3]
@@ -320,10 +320,10 @@ def decay_shape(rows):
 def reach(rows):
     """The largest lag whose excess still stands clear of the shuffle floor.
 
-    "Clear" is a quarter of the floor rather than a sigma, because the floor here is a bias and not
-    a noise band: three shuffles agree with each other closely, so the spread understates how far
-    the estimate can sit from truth. A fraction of the bias is the honest bar and it is stated
-    rather than tuned.
+    "Clear" is a quarter of the floor where a sigma would be expected. The floor here is a bias.
+    It is no noise band: three shuffles agree with each other closely, and the spread understates
+    how far the estimate can sit from truth. A fraction of the bias is the honest bar, and it is
+    stated where it could have been tuned.
     """
     best = 0
     for lag, real, floor, excess in rows:
@@ -370,7 +370,7 @@ def main():
         # IS THE HUMAN TAIL DEPENDENCE, OR IS IT DOCUMENT BOUNDARIES?
         #
         # load_papers concatenates about 120 separate documents. Different papers use different
-        # words at different rates, so the COMPOSITION drifts across the joins - and drift raises MI
+        # words at different rates, and the COMPOSITION drifts across the joins - and drift raises MI
         # at every lag, because knowing where you are in the corpus tells you which document you are
         # in and therefore which words are likely. That is not dependence at a distance. It is the
         # corpus having been assembled.
@@ -553,7 +553,7 @@ def main():
         # (-0.576 against -0.619) means nothing without knowing how much a human slope varies from
         # one sample to the next. So the human corpus is cut into DISJOINT chunks of exactly the
         # assistant corpus's length and a slope is taken from each. That is the band a human text of
-        # this size produces, drawn rather than argued, and the assistant's slope either sits inside
+        # this size produces, drawn and not argued, and the assistant's slope either sits inside
         # it or it does not.
         session_text = io.open(SESSION, encoding="utf-8", errors="replace").read()
         session, size = tokens_of(session_text, given.vocabulary)
@@ -627,7 +627,7 @@ def main():
         # The poles differ by eleven times in length and their shuffle floors differ by five times -
         # 0.098 bits against 0.519 - because MI bias grows as a corpus shrinks and its joint table
         # empties. A comparison across that gap would report the LENGTH of the two corpora and call
-        # it register, which is the fault this tree has caught more than once.
+        # it register, the fault this tree has caught more than once.
         #
         # So the human pole is cut to the assistant pole's exact token count and the comparison is
         # made there. The full-length human curve above is kept only to show what the instrument can
@@ -651,18 +651,18 @@ def main():
               % (human_floor, session_floor, apart * 100.0))
         print()
 
-        # ERROR, RATHER THAN PRINT THE WARNING AND CARRY ON.
+        # ERROR, AND DO NOT PRINT THE WARNING AND CARRY ON.
         #
         # An earlier version of this file stated the floor-match requirement and then reported a
         # verdict regardless, which is a gate that advises instead of stopping - the same fail-open
         # shape as a linker that reports "created" without checking the link resolves.
         #
-        # The floors are the estimator's bias at each corpus, and equal length does NOT equalise
+        # The floors are the estimator's bias at each corpus, and equal length does NOT equalize
         # them: bias depends on how the joint table fills, which is set by the unigram distribution.
         # Two corpora whose commonest words carry different mass produce different bias at identical
         # token counts. Comparing an excess-over-floor across mismatched floors compares two
         # different estimators and reports the difference between THEM.
-        # THE SHAPE IS COMPARABLE EVEN WHERE THE LEVEL IS NOT, so it is computed either way and it
+        # THE SHAPE IS COMPARABLE EVEN WHERE THE LEVEL IS NOT, and it is computed either way and it
         # is what the verdict rests on when the floors do not match.
         human_slope, human_points = decay_shape(matched_rows)
         session_slope, session_points = decay_shape(session_rows)
