@@ -45,7 +45,8 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
-PAPERS = os.path.join(ROOT, "build", "papers")
+WORDS = os.path.join(HERE, "voice.tsv")
+WORD_WEB = os.path.join(HERE, "voice_word_web.tsv")
 FIXTURE = os.path.join(HERE, "fixtures", "claudese_reference.md")
 
 sys.path.insert(0, HERE)
@@ -160,6 +161,29 @@ def profile(words):
     for one in words:
         counts[one] = counts.get(one, 0) + 1
     total = len(words)
+    if not total:
+        return {}, 0
+    return {k: c / total for k, c in counts.items()}, total
+
+
+def counted_table(path, keys):
+    """A distribution read from a counted table: the first `keys` columns name it, the next counts it.
+
+    The corpus is counted once. voice_count.py writes the words and voice_web.py writes the pairs.
+    """
+    counts = {}
+    total = 0
+    try:
+        with open(path, encoding="utf-8", errors="replace") as handle:
+            for line in handle:
+                parts = line.rstrip("\r\n").split("\t")
+                if len(parts) < keys + 1 or not parts[keys].isdigit():
+                    continue
+                key = " ".join(parts[:keys])
+                counts[key] = counts.get(key, 0) + int(parts[keys])
+                total += int(parts[keys])
+    except OSError:
+        return {}, 0
     if not total:
         return {}, 0
     return {k: c / total for k, c in counts.items()}, total
@@ -416,25 +440,17 @@ def main():
         out.flush()
         return 1
 
-    human_text = ""
-    if os.path.isdir(PAPERS):
-        held = []
-        for name in sorted(os.listdir(PAPERS)):
-            if name.endswith(".txt"):
-                with open(
-                    os.path.join(PAPERS, name), encoding="utf-8", errors="replace"
-                ) as handle:
-                    held.append(handle.read())
-        human_text = "\n".join(held)
-    if not human_text:
-        out.write("  no human pole under build/papers\n")
+    human_full, human_words = counted_table(WORDS, 1)
+    if not human_full:
+        out.write("  no human pole in %s\n" % os.path.relpath(WORDS, ROOT))
         out.flush()
         return 1
+    # the papers themselves are not read. A pole is every word and how often it was used, and
+    # voice.tsv is that, counted once by voice_count.py over the corpus
+    human_text = ""
 
     claudese_all = words_of(claudese_text)
-    human_all = words_of(human_text)
     claudese_full, claudese_words = profile(claudese_all)
-    human_full, human_words = profile(human_all)
 
     vocabulary = top_words((claudese_full, human_full))
     claudese = restricted(claudese_full, vocabulary)
@@ -442,7 +458,7 @@ def main():
 
     out.write("\n  the two poles\n")
     out.write("    %-10s %7d words  %s\n" % ("claudese", claudese_words, pole_name))
-    out.write("    %-10s %7d words  154 research papers\n" % ("human", human_words))
+    out.write("    %-10s %7d words  maint/prose/voice.tsv\n" % ("human", human_words))
     out.write("    compared over the %d commonest words of the two\n" % len(vocabulary))
     out.write("    they sit %.4f apart\n" % distance(claudese, human))
 
@@ -678,7 +694,7 @@ def main():
     )
     out.write("    %-12s %-16s %s\n" % ("pole", "bag of words", "word web"))
     webs = {}
-    for name, words in (("claudese", claudese_all), ("human", human_all)):
+    for name, words in (("claudese", claudese_all),):
         turned = shuffled(words, 0x5EED)
         bag_real, _ = profile(words)
         bag_null, _ = profile(turned)
@@ -688,6 +704,20 @@ def main():
         out.write(
             "    %-12s %-16.4f %.4f\n"
             % (name, distance(bag_real, bag_null), distance(web_real, web_null))
+        )
+    # the human pole's own pairs, counted once over the corpus by voice_web.py. The pairs of a
+    # shuffle are pairs drawn from the bag. The null is therefore the product of the two word counts
+    webs["human"], _ = counted_table(WORD_WEB, 2)
+    if webs["human"]:
+        web_null = {}
+        for key in webs["human"]:
+            first, _, second = key.partition(" ")
+            web_null[key] = human_full.get(first, 0.0) * human_full.get(second, 0.0)
+        over = sum(web_null.values())
+        web_null = {k: v / over for k, v in web_null.items()} if over else web_null
+        out.write(
+            "    %-12s %-16.4f %.4f\n"
+            % ("human", 0.0, distance(webs["human"], web_null))
         )
     out.write(
         "    a bag of words returns exactly zero, because a shuffle does not change one.\n"
