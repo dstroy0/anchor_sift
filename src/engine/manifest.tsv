@@ -13,8 +13,9 @@
 #   scaffold   holds the work up while it is built, and comes out when it is done.
 #
 # item	kind	path	what it does
-relations	engine	src/engine/compiler/bootstrap/ladder.h	The relations known before meeting anything, and the anchors that name them. 1,1 -> 2 and no writing of it.
+relations	engine	src/engine/compiler/bootstrap/ladder.h	The relations known before meeting anything, the anchors that name them, and the cases the ladder climbs by. 1,1 -> 2 and no writing of it.
 relations	engine	src/engine/compiler/codegen/precept_value.h	A tree over the alphabet applied to words, so a tree states what a target must answer.
+relations	entry	test/engine/compiler/bootstrap/chain_check.c	How much of a relation the ladder's own cases decide. 507 arrangements fit them and are not it, 30 Sep.
 alphabet	key	src/engine/compiler/codegen/precepts.h	18 precepts and 9 rewrites, typed. What a derived alphabet is checked against.
 word web	key	src/engine/compiler/codegen/word_web.h	12 of the schema's 99 words as trees, typed. What a derived web is checked against.
 word web	engine	src/engine/compiler/codegen/tree_number.h	A tree as one number, so two trees compare without a walk.
@@ -23,7 +24,11 @@ word web	engine	src/engine/compiler/codegen/tree_number.h	A tree as one number, 
 .krs	seed	src/engine/compiler/codegen/rulesets/c.krs	gnascor to C. Written by hand. 83 forms, 16 nop.
 .krs	seed	src/engine/compiler/codegen/rulesets/vhdl.krs	gnascor to VHDL. Written by hand. 94 forms, 5 nop.
 .krs	seed	src/engine/compiler/codegen/rulesets/yosys.krs	gnascor to Yosys. Written by hand. 5 forms.
-.kdm	derived	-	Nothing writes one. Every arrangement of primitives that produces an operator, each with its cost.
+.kdm	engine	src/engine/compiler/bootstrap/chain_build.c	Every arrangement of primitives that produces a relation, found by walking them and running each.
+.kdm	engine	src/engine/compiler/bootstrap/chain_build.h	What an arrangement is and what a set of them holds.
+.kdm	entry	maint/engine/kdm_write.c	Writes a part's .kdm from the relations. 3068 chains, no cost, 30 Sep.
+.kdm	entry	maint/engine/chain_check.sh	Builds and runs the two things that work off the relations alone.
+.kdm	derived	src/engine/compiler/cubin/machines/sm_86.kdm	3068 arrangements over the 7 anchors. Every cost reads - until the part times one.
 .ksc	derived	src/engine/compiler/cubin/machines/sm_86.ksc	What sm_86 was asked and what came back, by channel and class.
 emitter	engine	src/engine/compiler/emit/container_write.c	One emitter, every container. Reads a layout and writes what it describes. No vendor word in it.
 emitter	engine	src/engine/compiler/emit/container_write.h	What a container is written from.

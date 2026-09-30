@@ -1,0 +1,3082 @@
+kdm sm_86
+# Every arrangement of primitives that produces an operator, and what each costs this part.
+# Found from the relations alone. No ruleset, no machine file and no naming went into a row
+# here. A cost of - over 0 runs has not been timed on anything.
+#
+# The rows of an operator are in no order. Timed in the order they were found, a chain's
+# reading carries where it sat and not what it costs; shuffled, that washes out over runs and
+# what is left is the difference between the arrangements. The order moves whenever a run is
+# folded in, which is why it moves and a cost does not.
+
+# operator	nodes	chain	cost	runs
+same	0	-	-	0
+places	0	-	-	0
+add	3	add(nor(zero, nand(w0, ones)), w1)	-	0
+add	3	add(ones, sub(w1, nand(ones, w0)))	-	0
+add	3	add(nor(nand(w1, w1), nand(w1, w1)), w0)	-	0
+add	3	sub(add(ones, w1), nand(w0, w0))	-	0
+add	3	xor(ones, not(add(w1, w0)))	-	0
+add	3	add(w1, nor(nand(w0, ones), zero))	-	0
+add	3	nand(not(add(w1, w0)), ones)	-	0
+add	3	add(w0, nor(nand(ones, w1), zero))	-	0
+add	3	add(w1, sub(w1, sub(w1, w0)))	-	0
+add	3	add(sub(w0, ones), add(w1, ones))	-	0
+add	3	nand(sub(nand(ones, w1), w0), ones)	-	0
+add	3	nand(ones, sub(nor(zero, w0), w1))	-	0
+add	3	nor(sub(nor(zero, w1), w0), sub(nor(zero, w1), w0))	-	0
+add	3	add(w0, nor(nand(ones, w1), nand(ones, w1)))	-	0
+add	3	add(nor(nor(w1, zero), zero), w0)	-	0
+add	3	add(w0, add(ones, sub(w1, ones)))	-	0
+add	3	add(ror(rol(w0, w1), w1), w1)	-	0
+add	3	nand(sub(nand(w1, ones), w0), ones)	-	0
+add	3	add(w1, nand(ones, not(w0)))	-	0
+add	3	add(sub(w0, nor(w1, zero)), ones)	-	0
+add	3	add(w0, sub(ones, sub(ones, w1)))	-	0
+add	3	add(w0, not(xor(ones, w1)))	-	0
+add	3	nand(sub(xor(ones, w0), w1), ones)	-	0
+add	3	nand(sub(not(w1), w0), ones)	-	0
+add	3	add(w0, nor(zero, sub(ones, w1)))	-	0
+add	3	xor(xor(w1, add(w0, w1)), w1)	-	0
+add	3	nand(ones, sub(nand(w0, w0), w1))	-	0
+add	3	sub(w0, sub(nand(ones, w1), ones))	-	0
+add	3	add(not(xor(ones, w1)), w0)	-	0
+add	3	sub(ones, nand(ones, add(w1, w0)))	-	0
+add	3	nand(nor(add(w0, w1), add(w0, w1)), nor(add(w0, w1), add(w0, w1)))	-	0
+add	3	add(w1, nand(nor(w0, w0), nor(w0, w0)))	-	0
+add	3	not(nor(zero, add(w1, w0)))	-	0
+add	3	sub(w0, sub(nor(ones, w0), w1))	-	0
+add	3	add(nor(xor(w0, ones), xor(w0, ones)), w1)	-	0
+add	3	not(sub(xor(ones, w0), w1))	-	0
+add	3	add(w0, sub(add(w0, w1), w0))	-	0
+add	3	add(w0, nor(nand(w1, ones), nand(w1, ones)))	-	0
+add	3	nand(not(add(w0, w1)), ones)	-	0
+add	3	sub(add(w1, add(w1, w0)), w1)	-	0
+add	3	sub(w1, sub(xor(w0, w0), w0))	-	0
+add	3	add(w1, add(ones, sub(w0, ones)))	-	0
+add	3	sub(add(ones, w1), not(w0))	-	0
+add	3	add(w1, nor(xor(ones, w0), zero))	-	0
+add	3	sub(add(w1, add(w0, ones)), ones)	-	0
+add	3	add(nor(nor(zero, w0), zero), w1)	-	0
+add	3	add(w0, xor(nand(w1, ones), ones))	-	0
+add	3	add(xor(ones, nand(w1, ones)), w0)	-	0
+add	3	nor(nand(ones, add(w1, w0)), zero)	-	0
+add	3	sub(w0, xor(ones, add(ones, w1)))	-	0
+add	3	add(nand(sub(ones, w0), ones), w1)	-	0
+add	3	add(w1, rol(ror(w0, w1), w1))	-	0
+add	3	nor(sub(nor(w0, zero), w1), sub(nor(w0, zero), w1))	-	0
+add	3	add(w0, not(not(w1)))	-	0
+add	3	add(w0, nor(nor(w1, zero), nor(w1, zero)))	-	0
+add	3	sub(w0, not(add(ones, w1)))	-	0
+add	3	add(nand(ones, nand(w1, w1)), w0)	-	0
+add	3	xor(w1, xor(add(w0, w1), w1))	-	0
+add	3	add(nor(nor(w1, w1), zero), w0)	-	0
+add	3	add(w0, not(nand(w1, w1)))	-	0
+add	3	add(nand(xor(ones, w1), ones), w0)	-	0
+add	3	add(nor(nand(w0, ones), zero), w1)	-	0
+add	3	add(w1, nand(ones, xor(w0, ones)))	-	0
+add	3	sub(ones, sub(nor(w0, w0), w1))	-	0
+add	3	sub(w0, sub(sub(w0, w1), w0))	-	0
+add	3	add(nor(xor(ones, w0), zero), w1)	-	0
+add	3	add(nor(zero, nor(w0, zero)), w1)	-	0
+add	3	add(nand(ones, nand(w0, w0)), w1)	-	0
+add	3	add(xor(ones, not(w0)), w1)	-	0
+add	3	sub(add(ones, w0), nor(w1, w1))	-	0
+add	3	add(w1, nor(zero, nand(ones, w0)))	-	0
+add	3	sub(add(add(w0, w1), w1), w1)	-	0
+add	3	xor(ones, xor(add(w0, w1), ones))	-	0
+add	3	add(nor(nor(w0, zero), nor(w0, zero)), w1)	-	0
+add	3	sub(w0, sub(sub(ones, w1), ones))	-	0
+add	3	add(w0, xor(xor(w1, ones), ones))	-	0
+add	3	add(w1, not(nand(w0, ones)))	-	0
+add	3	add(nand(nor(w1, w1), nor(w1, w1)), w0)	-	0
+add	3	nand(nand(add(w1, w0), add(w1, w0)), ones)	-	0
+add	3	nor(nor(add(w0, w1), zero), nor(add(w0, w1), zero))	-	0
+add	3	add(w0, xor(ones, nor(w1, zero)))	-	0
+add	3	not(sub(nand(w1, w1), w0))	-	0
+add	3	xor(ones, sub(xor(w0, ones), w1))	-	0
+add	3	sub(add(w1, ones), nand(w0, w0))	-	0
+add	3	add(nor(nand(ones, w0), zero), w1)	-	0
+add	3	nor(nor(add(w0, w1), add(w0, w1)), nor(add(w0, w1), add(w0, w1)))	-	0
+add	3	nor(zero, sub(ones, add(w1, w0)))	-	0
+add	3	nor(not(add(w1, w0)), zero)	-	0
+add	3	nor(sub(nand(w1, ones), w0), sub(nand(w1, ones), w0))	-	0
+add	3	add(w0, sub(ones, xor(ones, w1)))	-	0
+add	3	add(w0, nor(sub(ones, w1), zero))	-	0
+add	3	add(w1, nor(zero, sub(ones, w0)))	-	0
+add	3	nand(ones, sub(ones, add(w0, w1)))	-	0
+add	3	add(w0, xor(xor(w0, w1), w0))	-	0
+add	3	add(nand(not(w1), not(w1)), w0)	-	0
+add	3	add(sub(w1, nand(w0, w0)), ones)	-	0
+add	3	nand(nor(zero, add(w1, w0)), nor(zero, add(w1, w0)))	-	0
+add	3	add(w0, nand(nand(w1, ones), ones))	-	0
+add	3	sub(ones, sub(nand(ones, w0), w1))	-	0
+add	3	add(nor(xor(w1, ones), xor(w1, ones)), w0)	-	0
+add	3	nor(sub(ones, add(w0, w1)), zero)	-	0
+add	3	sub(w1, sub(ones, add(w0, ones)))	-	0
+add	3	not(sub(sub(ones, w1), w0))	-	0
+add	3	add(w1, nand(nor(w0, zero), ones))	-	0
+add	3	sub(w1, xor(ones, add(w0, ones)))	-	0
+add	3	nand(sub(xor(ones, w1), w0), ones)	-	0
+add	3	sub(add(w0, ones), nor(w1, w1))	-	0
+add	3	add(w0, sub(w0, sub(w0, w1)))	-	0
+add	3	nand(nand(ones, add(w1, w0)), ones)	-	0
+add	3	add(nand(sub(ones, w0), sub(ones, w0)), w1)	-	0
+add	3	xor(ones, sub(nand(w0, ones), w1))	-	0
+add	3	add(ones, sub(w1, not(w0)))	-	0
+add	3	add(add(ones, w1), sub(w0, ones))	-	0
+add	3	add(xor(ones, nand(w1, w1)), w0)	-	0
+add	3	sub(w1, nor(zero, add(w0, ones)))	-	0
+add	3	sub(add(ones, w1), sub(ones, w0))	-	0
+add	3	sub(ones, sub(xor(w1, ones), w0))	-	0
+add	3	nand(ones, nand(add(w0, w1), ones))	-	0
+add	3	nor(sub(xor(ones, w0), w1), zero)	-	0
+add	3	sub(add(w0, ones), xor(w1, ones))	-	0
+add	3	add(nor(sub(ones, w1), zero), w0)	-	0
+add	3	add(w1, nand(not(w0), ones))	-	0
+add	3	xor(xor(add(w0, w1), w0), w0)	-	0
+add	3	nor(sub(nand(ones, w1), w0), zero)	-	0
+add	3	sub(ones, nor(add(w1, w0), zero))	-	0
+add	3	nor(xor(ones, add(w1, w0)), zero)	-	0
+add	3	add(sub(w0, ones), add(ones, w1))	-	0
+add	3	xor(sub(ones, add(w1, w0)), ones)	-	0
+add	3	xor(sub(nor(zero, w0), w1), ones)	-	0
+add	3	add(w0, add(sub(w1, w0), w0))	-	0
+add	3	nor(sub(ones, add(w0, w1)), sub(ones, add(w0, w1)))	-	0
+add	3	xor(ones, xor(add(w1, w0), ones))	-	0
+add	3	add(nand(nand(w1, ones), nand(w1, ones)), w0)	-	0
+add	3	sub(ones, sub(nand(w1, ones), w0))	-	0
+add	3	not(sub(nor(w1, zero), w0))	-	0
+add	3	nor(zero, sub(xor(ones, w0), w1))	-	0
+add	3	sub(w1, sub(nor(w1, ones), w0))	-	0
+add	3	xor(ones, not(add(w0, w1)))	-	0
+add	3	add(xor(w0, xor(w0, w1)), w0)	-	0
+add	3	nor(xor(add(w1, w0), ones), zero)	-	0
+add	3	sub(add(w1, ones), nor(w0, zero))	-	0
+add	3	add(xor(ones, xor(ones, w0)), w1)	-	0
+add	3	add(or(w0, w1), and(w0, w1))	-	0
+add	3	sub(w0, sub(nor(w1, zero), ones))	-	0
+add	3	nand(nand(ones, add(w0, w1)), ones)	-	0
+add	3	add(nor(nor(w0, zero), zero), w1)	-	0
+add	1	add(w1, w0)	-	0
+add	3	sub(add(w0, ones), not(w1))	-	0
+add	3	add(xor(nand(ones, w1), ones), w0)	-	0
+add	3	sub(add(ones, w1), nand(w0, ones))	-	0
+add	3	nand(ones, sub(xor(ones, w0), w1))	-	0
+add	3	sub(w1, sub(nand(ones, ones), w0))	-	0
+add	3	add(nor(not(w0), not(w0)), w1)	-	0
+add	3	add(xor(sub(ones, w1), ones), w0)	-	0
+add	3	nand(ones, sub(nor(w0, w0), w1))	-	0
+add	3	add(nand(nor(w1, zero), nor(w1, zero)), w0)	-	0
+add	3	add(nand(nor(zero, w0), nor(zero, w0)), w1)	-	0
+add	3	add(nor(zero, xor(ones, w0)), w1)	-	0
+add	3	add(nor(sub(ones, w0), zero), w1)	-	0
+add	3	nor(zero, not(add(w1, w0)))	-	0
+add	3	nand(ones, xor(ones, add(w1, w0)))	-	0
+add	3	add(sub(ones, xor(ones, w0)), w1)	-	0
+add	3	add(w0, sub(zero, sub(zero, w1)))	-	0
+add	3	nor(sub(not(w1), w0), zero)	-	0
+add	3	add(xor(ones, nor(zero, w1)), w0)	-	0
+add	3	nor(nand(add(w0, w1), add(w0, w1)), nand(add(w0, w1), add(w0, w1)))	-	0
+add	3	sub(add(ones, w1), xor(w0, ones))	-	0
+add	3	add(xor(ones, nor(w1, zero)), w0)	-	0
+add	3	add(w0, nand(ones, xor(ones, w1)))	-	0
+add	3	xor(ones, nand(add(w0, w1), ones))	-	0
+add	3	nor(xor(ones, add(w0, w1)), xor(ones, add(w0, w1)))	-	0
+add	3	sub(add(w0, ones), nand(w1, ones))	-	0
+add	3	add(and(w1, w0), or(w0, w1))	-	0
+add	3	nand(sub(not(w0), w1), sub(not(w0), w1))	-	0
+add	3	ror(rol(add(w0, w1), ones), ones)	-	0
+add	3	xor(nand(ones, add(w1, w0)), ones)	-	0
+add	3	not(nor(add(w0, w1), zero))	-	0
+add	3	nand(sub(ones, add(w0, w1)), sub(ones, add(w0, w1)))	-	0
+add	3	add(w0, not(xor(w1, ones)))	-	0
+add	3	nand(sub(nor(w0, w0), w1), ones)	-	0
+add	3	sub(ones, xor(ones, add(w0, w1)))	-	0
+add	3	nand(nor(add(w1, w0), add(w1, w0)), ones)	-	0
+add	3	add(xor(ones, nand(w0, ones)), w1)	-	0
+add	3	sub(w1, sub(nor(zero, w0), ones))	-	0
+add	3	nand(ones, not(add(w0, w1)))	-	0
+add	3	nand(sub(ones, add(w1, w0)), ones)	-	0
+add	3	add(w0, nor(nor(zero, w1), zero))	-	0
+add	3	xor(sub(nand(w0, ones), w1), ones)	-	0
+add	3	sub(ones, nand(add(w0, w1), add(w0, w1)))	-	0
+add	3	sub(w1, sub(sub(w1, w1), w0))	-	0
+add	3	sub(w1, sub(xor(w0, ones), ones))	-	0
+add	3	nand(xor(add(w0, w1), ones), xor(add(w0, w1), ones))	-	0
+add	3	xor(ones, sub(not(w1), w0))	-	0
+add	3	sub(ones, nand(ones, add(w0, w1)))	-	0
+add	3	nor(sub(nor(w0, w0), w1), sub(nor(w0, w0), w1))	-	0
+add	3	add(sub(w1, not(w0)), ones)	-	0
+add	3	add(nor(not(w1), not(w1)), w0)	-	0
+add	3	add(w1, not(nor(w0, w0)))	-	0
+add	3	add(sub(w1, nand(ones, w0)), ones)	-	0
+add	3	xor(w0, xor(w0, add(w1, w0)))	-	0
+add	3	sub(add(ones, w1), nand(ones, w0))	-	0
+add	3	add(sub(add(w1, ones), ones), w0)	-	0
+add	3	add(ones, sub(w0, nor(w1, w1)))	-	0
+add	3	sub(w0, nor(add(ones, w1), zero))	-	0
+add	3	not(sub(nor(w0, w0), w1))	-	0
+add	3	xor(xor(add(w1, w0), ones), ones)	-	0
+add	3	add(nor(nand(w1, ones), nand(w1, ones)), w0)	-	0
+add	3	add(w0, sub(add(w1, w0), w0))	-	0
+add	3	sub(w1, nand(add(w0, ones), add(w0, ones)))	-	0
+add	3	add(nor(not(w1), zero), w0)	-	0
+add	3	xor(not(add(w0, w1)), ones)	-	0
+add	3	xor(ones, sub(nor(w1, w1), w0))	-	0
+add	3	sub(w1, sub(w1, add(w1, w0)))	-	0
+add	3	add(w1, nand(ones, nor(w0, zero)))	-	0
+add	3	rol(ror(add(w1, w0), w0), w0)	-	0
+add	3	add(add(w1, sub(w0, w1)), w1)	-	0
+add	3	add(add(ones, w1), sub(w0, ones))	-	0
+add	3	add(not(xor(ones, w0)), w1)	-	0
+add	3	nand(ones, sub(xor(w1, ones), w0))	-	0
+add	3	xor(xor(add(w1, w0), w1), w1)	-	0
+add	3	add(w1, nor(zero, not(w0)))	-	0
+add	3	add(xor(nand(w1, w1), ones), w0)	-	0
+add	3	not(sub(ones, add(w0, w1)))	-	0
+add	3	not(sub(ones, add(w1, w0)))	-	0
+add	3	add(ones, sub(w0, nand(w1, ones)))	-	0
+add	3	add(w0, nand(ones, sub(ones, w1)))	-	0
+add	3	add(nor(nand(w1, ones), zero), w0)	-	0
+add	3	add(w1, nor(xor(w0, ones), xor(w0, ones)))	-	0
+add	3	add(w0, nor(nor(zero, w1), nor(zero, w1)))	-	0
+add	3	add(not(xor(w1, ones)), w0)	-	0
+add	3	nand(ones, sub(nand(w0, ones), w1))	-	0
+add	3	sub(w0, sub(nor(ones, ones), w1))	-	0
+add	3	nor(not(add(w0, w1)), zero)	-	0
+add	3	add(sub(ones, not(w0)), w1)	-	0
+add	3	nand(nor(add(w1, w0), zero), ones)	-	0
+add	3	nor(sub(not(w0), w1), sub(not(w0), w1))	-	0
+add	3	add(nand(nor(w0, w0), nor(w0, w0)), w1)	-	0
+add	3	add(nor(nand(ones, w1), zero), w0)	-	0
+add	3	add(w0, nor(nor(w1, w1), zero))	-	0
+add	3	nand(sub(nor(w1, zero), w0), sub(nor(w1, zero), w0))	-	0
+add	3	sub(w1, sub(nor(w0, zero), ones))	-	0
+add	3	sub(add(add(w1, ones), w0), ones)	-	0
+add	3	nand(sub(not(w0), w1), ones)	-	0
+add	3	xor(ones, nor(zero, add(w0, w1)))	-	0
+add	3	add(sub(ones, nand(w0, ones)), w1)	-	0
+add	3	nand(ones, sub(ones, add(w1, w0)))	-	0
+add	3	add(nor(nand(ones, w1), nand(ones, w1)), w0)	-	0
+add	3	add(xor(sub(ones, w0), ones), w1)	-	0
+add	3	sub(w1, sub(nand(w0, ones), ones))	-	0
+add	3	sub(add(ones, w1), nand(w0, ones))	-	0
+add	3	nand(sub(nand(w0, ones), w1), ones)	-	0
+add	3	add(w1, nand(not(w0), not(w0)))	-	0
+add	3	add(sub(w1, nor(w0, zero)), ones)	-	0
+add	3	nor(nand(add(w1, w0), add(w1, w0)), nand(add(w1, w0), add(w1, w0)))	-	0
+add	3	add(rol(ror(w0, ones), ones), w1)	-	0
+add	3	add(w1, nand(ones, xor(ones, w0)))	-	0
+add	3	add(xor(nand(w0, w0), ones), w1)	-	0
+add	3	add(w0, nand(ones, xor(w1, ones)))	-	0
+add	3	xor(sub(xor(w0, ones), w1), ones)	-	0
+add	3	xor(nand(add(w1, w0), add(w1, w0)), ones)	-	0
+add	1	add(w0, w1)	-	0
+add	3	sub(w0, sub(nor(w0, ones), w1))	-	0
+add	3	add(w1, xor(nor(w0, zero), ones))	-	0
+add	3	sub(ones, sub(xor(ones, w0), w1))	-	0
+add	3	sub(add(add(w1, w0), w1), w1)	-	0
+add	3	add(ones, sub(w1, nand(w0, w0)))	-	0
+add	3	nor(sub(xor(ones, w1), w0), sub(xor(ones, w1), w0))	-	0
+add	3	nand(sub(nand(w1, ones), w0), sub(nand(w1, ones), w0))	-	0
+add	3	add(add(sub(w1, w0), w0), w0)	-	0
+add	3	add(w0, nand(ones, nand(ones, w1)))	-	0
+add	3	add(xor(nor(w1, zero), ones), w0)	-	0
+add	3	nand(xor(ones, add(w1, w0)), xor(ones, add(w1, w0)))	-	0
+add	3	sub(w0, nand(add(w1, ones), ones))	-	0
+add	3	add(w0, xor(ones, not(w1)))	-	0
+add	3	nor(zero, nand(add(w1, w0), add(w1, w0)))	-	0
+add	3	sub(add(w1, add(w0, w1)), w1)	-	0
+add	3	add(ones, sub(w1, xor(w0, ones)))	-	0
+add	3	add(not(not(w1)), w0)	-	0
+add	3	add(sub(w1, w0), add(w0, w0))	-	0
+add	3	add(ones, sub(w0, nor(w1, zero)))	-	0
+add	3	add(xor(nor(w0, w0), ones), w1)	-	0
+add	3	xor(sub(not(w0), w1), ones)	-	0
+add	3	add(w0, nand(xor(w1, ones), ones))	-	0
+add	3	not(sub(sub(ones, w0), w1))	-	0
+add	3	add(sub(w1, ones), add(w0, ones))	-	0
+add	3	nand(ones, nor(zero, add(w1, w0)))	-	0
+add	3	nand(nor(zero, add(w1, w0)), ones)	-	0
+add	3	add(w1, nor(nor(w0, w0), nor(w0, w0)))	-	0
+add	3	add(not(xor(w0, ones)), w1)	-	0
+add	3	nand(ones, sub(nor(w0, zero), w1))	-	0
+add	3	add(add(ones, sub(w1, ones)), w0)	-	0
+add	3	xor(w0, xor(add(w1, w0), w0))	-	0
+add	3	add(w0, nor(zero, xor(w1, ones)))	-	0
+add	3	sub(add(w0, add(ones, w1)), ones)	-	0
+add	3	sub(add(w1, ones), xor(w0, ones))	-	0
+add	3	nor(sub(nand(w0, ones), w1), sub(nand(w0, ones), w1))	-	0
+add	3	nor(sub(xor(w1, ones), w0), zero)	-	0
+add	3	nand(ones, sub(not(w0), w1))	-	0
+add	3	not(xor(add(w0, w1), ones))	-	0
+add	3	add(w1, nand(nand(ones, w0), nand(ones, w0)))	-	0
+add	3	xor(nand(add(w0, w1), add(w0, w1)), ones)	-	0
+add	3	add(add(sub(w0, ones), ones), w1)	-	0
+add	3	xor(not(add(w1, w0)), ones)	-	0
+add	3	nand(sub(nor(w0, zero), w1), ones)	-	0
+add	3	not(nand(ones, add(w1, w0)))	-	0
+add	3	ror(rol(add(w0, w1), w1), w1)	-	0
+add	3	sub(add(w0, ones), nor(zero, w1))	-	0
+add	3	add(w1, nor(xor(w0, ones), zero))	-	0
+add	3	sub(w1, sub(sub(ones, w0), ones))	-	0
+add	3	nand(nor(add(w0, w1), add(w0, w1)), ones)	-	0
+add	3	xor(ones, sub(nor(zero, w1), w0))	-	0
+add	3	add(xor(nand(ones, w0), ones), w1)	-	0
+add	3	sub(w0, sub(nor(zero, w1), ones))	-	0
+add	3	add(nor(zero, nand(ones, w1)), w0)	-	0
+add	3	add(nand(ones, xor(ones, w1)), w0)	-	0
+add	3	sub(w1, sub(nor(w0, w0), ones))	-	0
+add	3	nand(ones, nand(add(w1, w0), ones))	-	0
+add	3	add(nand(nor(w1, w1), ones), w0)	-	0
+add	3	sub(add(w0, ones), nor(w1, zero))	-	0
+add	3	add(w1, xor(ones, nor(w0, w0)))	-	0
+add	3	sub(add(ones, w0), not(w1))	-	0
+add	3	add(or(w0, w1), and(w1, w0))	-	0
+add	3	ror(rol(add(w1, w0), ones), ones)	-	0
+add	3	nand(sub(xor(w1, ones), w0), sub(xor(w1, ones), w0))	-	0
+add	3	nor(zero, nand(add(w0, w1), add(w0, w1)))	-	0
+add	3	xor(ones, sub(sub(ones, w1), w0))	-	0
+add	3	nor(sub(sub(ones, w0), w1), zero)	-	0
+add	3	add(or(w1, w0), and(w1, w0))	-	0
+add	3	add(sub(ones, nor(w1, zero)), w0)	-	0
+add	3	add(sub(add(w0, w1), w1), w1)	-	0
+add	3	add(ones, sub(w0, nor(zero, w1)))	-	0
+add	3	xor(ones, sub(xor(ones, w0), w1))	-	0
+add	3	add(w0, nand(ones, nor(w1, zero)))	-	0
+add	3	not(sub(nand(w1, ones), w0))	-	0
+add	3	add(nor(nand(w0, w0), nand(w0, w0)), w1)	-	0
+add	3	nor(sub(not(w1), w0), sub(not(w1), w0))	-	0
+add	3	add(w1, xor(ones, nand(w0, w0)))	-	0
+add	3	add(nand(nor(w1, zero), ones), w0)	-	0
+add	3	nand(sub(sub(ones, w0), w1), ones)	-	0
+add	3	add(w1, nand(xor(w0, ones), ones))	-	0
+add	3	add(add(w1, ones), sub(w0, ones))	-	0
+add	3	not(nand(add(w1, w0), ones))	-	0
+add	3	add(w0, sub(ones, xor(w1, ones)))	-	0
+add	3	nor(zero, xor(ones, add(w1, w0)))	-	0
+add	3	add(sub(w1, sub(ones, w0)), ones)	-	0
+add	3	add(xor(ones, nor(zero, w0)), w1)	-	0
+add	3	xor(nor(add(w1, w0), zero), ones)	-	0
+add	3	add(nand(sub(ones, w1), sub(ones, w1)), w0)	-	0
+add	3	add(ones, sub(w1, sub(ones, w0)))	-	0
+add	3	add(nor(xor(w0, ones), zero), w1)	-	0
+add	3	sub(add(ones, w0), sub(ones, w1))	-	0
+add	3	nand(sub(xor(w1, ones), w0), ones)	-	0
+add	3	sub(add(ones, w1), xor(ones, w0))	-	0
+add	3	add(ones, sub(w1, nor(w0, zero)))	-	0
+add	3	nor(nor(add(w0, w1), add(w0, w1)), zero)	-	0
+add	3	add(w1, xor(ones, nor(w0, zero)))	-	0
+add	3	xor(sub(nand(w1, w1), w0), ones)	-	0
+add	3	add(not(nand(w1, ones)), w0)	-	0
+add	3	nand(sub(xor(w0, ones), w1), ones)	-	0
+add	3	sub(w1, nor(add(ones, w0), zero))	-	0
+add	3	nor(zero, sub(nor(zero, w1), w0))	-	0
+add	3	nor(nor(zero, add(w0, w1)), nor(zero, add(w0, w1)))	-	0
+add	3	not(sub(nand(w0, w0), w1))	-	0
+add	3	add(not(nor(w1, w1)), w0)	-	0
+add	3	nor(zero, sub(ones, add(w0, w1)))	-	0
+add	3	sub(w0, sub(xor(ones, ones), w1))	-	0
+add	3	add(sub(add(w0, ones), ones), w1)	-	0
+add	3	sub(ones, sub(nor(w1, w1), w0))	-	0
+add	3	nor(sub(nor(w0, w0), w1), zero)	-	0
+add	3	xor(sub(xor(w1, ones), w0), ones)	-	0
+add	3	not(nor(add(w1, w0), add(w1, w0)))	-	0
+add	3	sub(add(ones, w1), nor(zero, w0))	-	0
+add	3	nand(sub(nor(zero, w0), w1), sub(nor(zero, w0), w1))	-	0
+add	3	nand(sub(nor(w1, w1), w0), ones)	-	0
+add	3	sub(w0, sub(xor(w0, w0), w1))	-	0
+add	3	xor(ones, nor(add(w1, w0), zero))	-	0
+add	3	nor(zero, sub(xor(ones, w1), w0))	-	0
+add	3	nand(sub(nand(ones, w0), w1), ones)	-	0
+add	3	add(w0, xor(w0, xor(w0, w1)))	-	0
+add	3	sub(add(w0, add(w1, w0)), w0)	-	0
+add	3	add(ror(rol(w0, ones), ones), w1)	-	0
+add	3	xor(sub(nor(zero, w1), w0), ones)	-	0
+add	3	nor(xor(ones, add(w0, w1)), zero)	-	0
+add	3	add(w0, xor(ones, nand(w1, ones)))	-	0
+add	3	add(nor(xor(ones, w1), zero), w0)	-	0
+add	3	add(ones, sub(w0, nand(w1, w1)))	-	0
+add	3	sub(w0, sub(nor(ones, w1), w1))	-	0
+add	3	sub(add(ones, w0), nor(w1, zero))	-	0
+add	3	add(and(w1, w0), or(w1, w0))	-	0
+add	3	add(w1, xor(ones, not(w0)))	-	0
+add	3	sub(add(w0, ones), nand(w1, w1))	-	0
+add	3	add(nand(nand(ones, w1), nand(ones, w1)), w0)	-	0
+add	3	nand(nand(add(w0, w1), ones), ones)	-	0
+add	3	sub(add(ones, add(w1, w0)), ones)	-	0
+add	3	add(or(w0, w1), and(w1, w0))	-	0
+add	3	add(add(ones, sub(w0, ones)), w1)	-	0
+add	3	nor(zero, nor(add(w0, w1), add(w0, w1)))	-	0
+add	3	add(w0, xor(ones, nor(w1, w1)))	-	0
+add	3	add(w0, nor(xor(w1, ones), zero))	-	0
+add	3	not(sub(nor(w0, zero), w1))	-	0
+add	3	nor(sub(nor(w1, w1), w0), zero)	-	0
+add	3	sub(add(w0, w0), sub(w0, w1))	-	0
+add	3	nor(nand(ones, add(w1, w0)), nand(ones, add(w1, w0)))	-	0
+add	3	add(w1, nand(nand(w0, w0), nand(w0, w0)))	-	0
+add	3	add(w0, nand(ones, nand(w1, ones)))	-	0
+add	3	add(and(w0, w1), or(w0, w1))	-	0
+add	3	add(w1, nor(nand(ones, w0), nand(ones, w0)))	-	0
+add	3	add(sub(w0, xor(ones, w1)), ones)	-	0
+add	3	xor(sub(nand(ones, w1), w0), ones)	-	0
+add	3	xor(sub(nand(w0, w0), w1), ones)	-	0
+add	3	add(add(ones, w0), sub(w1, ones))	-	0
+add	3	nor(zero, not(add(w0, w1)))	-	0
+add	3	add(ones, sub(w0, not(w1)))	-	0
+add	3	add(w1, xor(ones, xor(ones, w0)))	-	0
+add	3	add(ones, sub(add(w0, w1), ones))	-	0
+add	3	add(w0, nand(nor(w1, w1), ones))	-	0
+add	3	sub(add(ones, w1), nor(w0, w0))	-	0
+add	3	add(xor(ones, nand(ones, w1)), w0)	-	0
+add	3	add(w0, nand(not(w1), ones))	-	0
+add	3	nand(ones, sub(sub(ones, w0), w1))	-	0
+add	3	add(w0, nand(nor(w1, w1), nor(w1, w1)))	-	0
+add	3	nor(zero, sub(nand(w0, ones), w1))	-	0
+add	3	add(w1, not(nand(ones, w0)))	-	0
+add	3	xor(ones, nand(ones, add(w1, w0)))	-	0
+add	3	add(nand(ones, sub(ones, w0)), w1)	-	0
+add	3	sub(add(w1, ones), xor(ones, w0))	-	0
+add	3	add(w1, nand(nand(w0, ones), nand(w0, ones)))	-	0
+add	3	sub(w0, sub(w1, add(w1, w1)))	-	0
+add	3	sub(w0, sub(sub(w0, w0), w1))	-	0
+add	3	add(w1, nor(zero, nor(w0, w0)))	-	0
+add	3	add(w1, nor(nor(w0, zero), nor(w0, zero)))	-	0
+add	3	add(w1, nand(sub(ones, w0), sub(ones, w0)))	-	0
+add	3	add(xor(w1, xor(w1, w0)), w1)	-	0
+add	3	add(sub(w0, xor(w1, ones)), ones)	-	0
+add	3	add(w1, sub(add(ones, w0), ones))	-	0
+add	3	sub(add(w1, ones), sub(ones, w0))	-	0
+add	3	nor(sub(nor(w1, zero), w0), zero)	-	0
+add	3	add(add(w0, sub(w1, ones)), ones)	-	0
+add	3	nand(nand(add(w1, w0), add(w1, w0)), nand(add(w1, w0), add(w1, w0)))	-	0
+add	3	sub(add(w1, ones), nand(w0, ones))	-	0
+add	3	add(add(w0, sub(w1, w0)), w0)	-	0
+add	3	add(nor(nand(w0, w0), zero), w1)	-	0
+add	3	add(w0, nand(sub(ones, w1), ones))	-	0
+add	3	sub(w0, sub(not(w1), ones))	-	0
+add	3	sub(ones, sub(xor(ones, w1), w0))	-	0
+add	3	add(w1, xor(w1, xor(w1, w0)))	-	0
+add	3	xor(ones, nand(add(w1, w0), ones))	-	0
+add	3	add(not(nor(w1, zero)), w0)	-	0
+add	3	sub(w1, sub(not(ones), w0))	-	0
+add	3	sub(add(w0, ones), xor(ones, w1))	-	0
+add	3	xor(ones, sub(ones, add(w1, w0)))	-	0
+add	3	sub(add(w0, ones), sub(ones, w1))	-	0
+add	3	add(w1, nor(sub(ones, w0), zero))	-	0
+add	3	nor(zero, sub(nand(ones, w1), w0))	-	0
+add	3	xor(ones, sub(nor(w1, zero), w0))	-	0
+add	3	add(nand(xor(w0, ones), ones), w1)	-	0
+add	3	add(nand(ones, sub(ones, w1)), w0)	-	0
+add	3	add(w1, nand(ones, nor(zero, w0)))	-	0
+add	3	sub(w1, sub(nor(w0, ones), w0))	-	0
+add	3	ror(rol(add(w1, w0), w1), w1)	-	0
+add	3	add(sub(w0, nand(ones, w1)), ones)	-	0
+add	3	add(and(w1, w0), or(w0, w1))	-	0
+add	3	add(nor(zero, nor(w0, w0)), w1)	-	0
+add	3	sub(w0, nor(zero, add(ones, w1)))	-	0
+add	3	not(xor(add(w1, w0), ones))	-	0
+add	3	add(w1, nor(zero, nor(w0, zero)))	-	0
+add	3	nor(nand(ones, add(w0, w1)), zero)	-	0
+add	3	add(nand(ones, not(w1)), w0)	-	0
+add	3	nand(ones, nor(zero, add(w0, w1)))	-	0
+add	3	add(ones, sub(w0, xor(ones, w1)))	-	0
+add	3	add(nand(xor(ones, w1), xor(ones, w1)), w0)	-	0
+add	3	add(w0, nand(xor(ones, w1), ones))	-	0
+add	3	add(w1, xor(sub(ones, w0), ones))	-	0
+add	3	nor(zero, sub(nand(ones, w0), w1))	-	0
+add	3	add(w1, nand(nand(w0, ones), ones))	-	0
+add	3	add(w0, nand(nand(w1, w1), nand(w1, w1)))	-	0
+add	3	nor(sub(nand(ones, w1), w0), sub(nand(ones, w1), w0))	-	0
+add	3	add(nor(nor(w1, zero), nor(w1, zero)), w0)	-	0
+add	3	xor(xor(w0, add(w0, w1)), w0)	-	0
+add	3	nand(nand(add(w0, w1), ones), nand(add(w0, w1), ones))	-	0
+add	3	add(w0, nand(nor(w1, zero), nor(w1, zero)))	-	0
+add	3	sub(w1, sub(not(w0), ones))	-	0
+add	3	sub(add(ones, w0), nand(w1, ones))	-	0
+add	3	add(sub(ones, nand(ones, w1)), w0)	-	0
+add	3	add(sub(w0, nor(zero, w1)), ones)	-	0
+add	3	sub(add(ones, w0), nand(ones, w1))	-	0
+add	3	add(w1, xor(nand(w0, ones), ones))	-	0
+add	3	sub(add(ones, w0), nor(w1, zero))	-	0
+add	3	add(nand(nand(ones, w0), nand(ones, w0)), w1)	-	0
+add	3	add(add(w0, w0), sub(w1, w0))	-	0
+add	3	add(nand(ones, not(w0)), w1)	-	0
+add	3	nand(nor(add(w0, w1), zero), ones)	-	0
+add	3	add(add(w1, w1), sub(w0, w1))	-	0
+add	3	add(or(w1, w0), and(w0, w1))	-	0
+add	3	add(w1, xor(ones, sub(ones, w0)))	-	0
+add	3	add(nor(sub(ones, w0), sub(ones, w0)), w1)	-	0
+add	3	xor(ones, nor(add(w1, w0), add(w1, w0)))	-	0
+add	3	sub(zero, sub(zero, add(w1, w0)))	-	0
+add	3	sub(add(w1, ones), nand(w0, ones))	-	0
+add	3	nand(xor(add(w0, w1), ones), ones)	-	0
+add	3	add(xor(nor(zero, w1), ones), w0)	-	0
+add	3	sub(w1, xor(add(w0, ones), ones))	-	0
+add	3	add(w0, nand(nand(ones, w1), nand(ones, w1)))	-	0
+add	3	add(not(nor(zero, w1)), w0)	-	0
+add	3	add(w0, sub(ones, nor(w1, zero)))	-	0
+add	3	add(ones, sub(w1, nand(w0, ones)))	-	0
+add	3	nor(sub(ones, add(w1, w0)), zero)	-	0
+add	3	not(sub(not(w1), w0))	-	0
+add	3	sub(add(ones, w1), xor(w0, ones))	-	0
+add	3	sub(w1, nand(add(ones, w0), add(ones, w0)))	-	0
+add	3	not(sub(nor(zero, w1), w0))	-	0
+add	3	sub(add(ones, w1), nand(w0, w0))	-	0
+add	3	sub(w1, sub(xor(ones, w0), ones))	-	0
+add	3	add(sub(ones, nor(zero, w1)), w0)	-	0
+add	3	nand(ones, nor(add(w1, w0), zero))	-	0
+add	3	add(nor(nor(zero, w0), nor(zero, w0)), w1)	-	0
+add	3	add(w0, add(w0, sub(w1, w0)))	-	0
+add	3	add(w0, xor(nor(w1, zero), ones))	-	0
+add	3	xor(sub(ones, add(w0, w1)), ones)	-	0
+add	3	add(rol(ror(w0, w1), w1), w1)	-	0
+add	3	add(w1, not(nor(zero, w0)))	-	0
+add	3	add(xor(xor(w1, w0), w1), w1)	-	0
+add	3	add(nor(zero, nand(w1, w1)), w0)	-	0
+add	3	sub(zero, sub(sub(zero, w1), w0))	-	0
+add	3	sub(w0, nor(zero, add(w1, ones)))	-	0
+add	3	nand(nand(add(w0, w1), add(w0, w1)), ones)	-	0
+add	3	add(nor(nand(w0, ones), nand(w0, ones)), w1)	-	0
+add	3	nor(zero, nor(zero, add(w0, w1)))	-	0
+add	3	add(nand(nor(w0, w0), ones), w1)	-	0
+add	3	add(nor(xor(ones, w0), xor(ones, w0)), w1)	-	0
+add	3	sub(w0, nor(add(ones, w1), add(ones, w1)))	-	0
+add	3	sub(add(ones, w0), nor(zero, w1))	-	0
+add	3	add(w1, nor(nor(zero, w0), zero))	-	0
+add	3	nor(nor(add(w1, w0), add(w1, w0)), nor(add(w1, w0), add(w1, w0)))	-	0
+add	3	add(w1, sub(ones, nand(ones, w0)))	-	0
+add	3	sub(w1, sub(nor(ones, w0), w0))	-	0
+add	3	nand(sub(nand(w1, w1), w0), sub(nand(w1, w1), w0))	-	0
+add	3	sub(w0, sub(xor(w1, ones), ones))	-	0
+add	3	sub(add(add(w0, ones), w1), ones)	-	0
+add	3	add(ones, sub(add(w1, w0), ones))	-	0
+add	3	add(nor(nor(w0, w0), nor(w0, w0)), w1)	-	0
+add	3	add(w1, not(nor(w0, zero)))	-	0
+add	3	sub(add(w0, ones), nand(w1, w1))	-	0
+add	3	sub(add(ones, w0), xor(w1, ones))	-	0
+add	3	sub(w0, nand(add(ones, w1), ones))	-	0
+add	3	sub(ones, sub(nor(w0, zero), w1))	-	0
+add	3	not(sub(nand(w0, ones), w1))	-	0
+add	3	nand(ones, nand(add(w0, w1), add(w0, w1)))	-	0
+add	3	nor(zero, sub(not(w1), w0))	-	0
+add	3	add(w1, nor(zero, xor(ones, w0)))	-	0
+add	3	nand(sub(xor(w0, ones), w1), sub(xor(w0, ones), w1))	-	0
+add	3	nor(xor(add(w1, w0), ones), xor(add(w1, w0), ones))	-	0
+add	3	add(w0, rol(ror(w1, w0), w0))	-	0
+add	3	sub(ones, sub(xor(w0, ones), w1))	-	0
+add	3	sub(add(w1, ones), nor(zero, w0))	-	0
+add	3	add(w0, sub(ones, nor(zero, w1)))	-	0
+add	3	add(not(nand(ones, w1)), w0)	-	0
+add	3	sub(add(w0, w0), sub(w0, w1))	-	0
+add	3	add(nand(nor(w0, zero), ones), w1)	-	0
+add	3	sub(add(w0, add(w0, w1)), w0)	-	0
+add	3	add(w1, nand(ones, nand(w0, ones)))	-	0
+add	3	nand(sub(ones, add(w0, w1)), ones)	-	0
+add	3	add(nand(nand(ones, w1), ones), w0)	-	0
+add	3	add(nand(not(w0), not(w0)), w1)	-	0
+add	3	xor(xor(w1, add(w1, w0)), w1)	-	0
+add	3	nand(xor(add(w1, w0), ones), xor(add(w1, w0), ones))	-	0
+add	3	sub(add(w0, ones), not(w1))	-	0
+add	3	sub(w0, sub(w0, add(w0, w1)))	-	0
+add	3	add(w1, sub(ones, nor(w0, zero)))	-	0
+add	3	sub(add(ones, w0), xor(w1, ones))	-	0
+add	3	sub(add(ones, w1), nor(w0, zero))	-	0
+add	3	add(w1, xor(ones, nand(ones, w0)))	-	0
+add	3	sub(ones, nand(add(w1, w0), add(w1, w0)))	-	0
+add	3	add(w1, xor(w1, xor(w0, w1)))	-	0
+add	3	rol(ror(add(w1, w0), w1), w1)	-	0
+add	3	sub(ones, xor(ones, add(w1, w0)))	-	0
+add	3	sub(add(ones, w0), nand(w1, w1))	-	0
+add	3	sub(w0, sub(ones, add(w1, ones)))	-	0
+add	3	nor(nand(ones, add(w0, w1)), nand(ones, add(w0, w1)))	-	0
+add	3	sub(w0, sub(ones, add(ones, w1)))	-	0
+add	3	nor(sub(xor(w1, ones), w0), sub(xor(w1, ones), w0))	-	0
+add	3	add(w0, xor(nor(zero, w1), ones))	-	0
+add	3	nand(ones, sub(nand(ones, w1), w0))	-	0
+add	3	add(w1, sub(ones, sub(ones, w0)))	-	0
+add	3	sub(w0, sub(xor(ones, w1), ones))	-	0
+add	3	sub(ones, nor(add(w0, w1), add(w0, w1)))	-	0
+add	3	add(w1, xor(xor(ones, w0), ones))	-	0
+add	3	add(sub(ones, nor(w0, zero)), w1)	-	0
+add	3	nor(not(add(w0, w1)), not(add(w0, w1)))	-	0
+add	3	sub(w1, nand(add(w0, ones), ones))	-	0
+add	3	add(sub(w0, nand(w1, ones)), ones)	-	0
+add	3	add(w0, xor(not(w1), ones))	-	0
+add	3	add(not(sub(ones, w1)), w0)	-	0
+add	3	sub(w1, sub(nand(ones, w0), ones))	-	0
+add	3	add(add(w1, w1), sub(w0, w1))	-	0
+add	3	add(w1, sub(ones, nand(w0, w0)))	-	0
+add	3	add(w1, xor(xor(w0, w1), w1))	-	0
+add	3	nand(sub(xor(ones, w1), w0), sub(xor(ones, w1), w0))	-	0
+add	3	add(w0, nor(zero, not(w1)))	-	0
+add	3	nand(sub(nor(zero, w1), w0), sub(nor(zero, w1), w0))	-	0
+add	3	add(nor(zero, sub(ones, w1)), w0)	-	0
+add	3	sub(w1, nor(add(w0, ones), add(w0, ones)))	-	0
+add	3	rol(ror(add(w0, w1), ones), ones)	-	0
+add	3	sub(w1, sub(ones, add(ones, w0)))	-	0
+add	3	sub(w1, sub(sub(w1, w0), w1))	-	0
+add	3	nand(nor(add(w0, w1), zero), nor(add(w0, w1), zero))	-	0
+add	3	nand(sub(nand(w0, w0), w1), sub(nand(w0, w0), w1))	-	0
+add	3	add(sub(w0, nand(w1, w1)), ones)	-	0
+add	3	nor(zero, sub(sub(ones, w1), w0))	-	0
+add	3	sub(add(add(ones, w1), w0), ones)	-	0
+add	3	nand(sub(nand(w1, w1), w0), ones)	-	0
+add	3	add(nand(xor(w0, ones), xor(w0, ones)), w1)	-	0
+add	3	add(w0, nor(nand(w1, w1), zero))	-	0
+add	3	add(sub(w0, sub(ones, w1)), ones)	-	0
+add	3	nand(sub(sub(ones, w1), w0), ones)	-	0
+add	3	xor(w0, xor(w0, add(w0, w1)))	-	0
+add	3	add(ones, add(w1, sub(w0, ones)))	-	0
+add	3	add(nor(nor(zero, w1), zero), w0)	-	0
+add	3	add(w0, not(nor(w1, zero)))	-	0
+add	3	sub(w0, sub(nand(w1, w1), ones))	-	0
+add	3	sub(zero, sub(sub(zero, w0), w1))	-	0
+add	3	add(xor(w1, xor(w0, w1)), w1)	-	0
+add	3	nand(ones, sub(not(w1), w0))	-	0
+add	3	nor(sub(ones, add(w1, w0)), sub(ones, add(w1, w0)))	-	0
+add	3	xor(sub(xor(ones, w1), w0), ones)	-	0
+add	3	nor(nand(add(w1, w0), ones), zero)	-	0
+add	3	add(w1, nand(ones, nand(w0, w0)))	-	0
+add	3	add(sub(zero, sub(zero, w1)), w0)	-	0
+add	3	sub(zero, sub(zero, add(w0, w1)))	-	0
+add	3	sub(w1, sub(nand(w0, w0), ones))	-	0
+add	3	add(xor(w0, xor(w1, w0)), w0)	-	0
+add	3	xor(sub(xor(ones, w0), w1), ones)	-	0
+add	3	xor(nor(add(w1, w0), add(w1, w0)), ones)	-	0
+add	3	add(w1, not(xor(ones, w0)))	-	0
+add	3	add(xor(nor(w0, zero), ones), w1)	-	0
+add	3	sub(w0, nand(add(ones, w1), add(ones, w1)))	-	0
+add	3	not(sub(not(w0), w1))	-	0
+add	3	sub(ones, xor(add(w0, w1), ones))	-	0
+add	3	add(sub(add(ones, w1), ones), w0)	-	0
+add	3	nor(zero, nor(add(w1, w0), zero))	-	0
+add	3	add(xor(ones, nand(w0, w0)), w1)	-	0
+add	3	add(sub(w1, ones), add(ones, w0))	-	0
+add	3	nand(not(add(w1, w0)), not(add(w1, w0)))	-	0
+add	3	not(nor(zero, add(w0, w1)))	-	0
+add	3	add(w1, nor(nand(w0, w0), zero))	-	0
+add	3	add(nor(sub(ones, w1), sub(ones, w1)), w0)	-	0
+add	3	add(w1, xor(nand(w0, w0), ones))	-	0
+add	3	add(w0, nand(nand(ones, w1), ones))	-	0
+add	3	add(w0, not(sub(ones, w1)))	-	0
+add	3	add(w0, nand(xor(w1, ones), xor(w1, ones)))	-	0
+add	3	sub(add(ones, w1), nand(ones, w0))	-	0
+add	3	nand(nand(add(w1, w0), ones), nand(add(w1, w0), ones))	-	0
+add	3	sub(w0, xor(add(w1, ones), ones))	-	0
+add	3	add(w1, sub(ones, nor(w0, w0)))	-	0
+add	3	sub(w0, sub(nand(w1, ones), ones))	-	0
+add	3	add(or(w0, w1), and(w0, w1))	-	0
+add	3	sub(ones, not(add(w0, w1)))	-	0
+add	3	add(nor(zero, not(w0)), w1)	-	0
+add	3	not(nand(add(w0, w1), ones))	-	0
+add	3	not(sub(xor(w1, ones), w0))	-	0
+add	3	add(w1, nor(zero, nor(zero, w0)))	-	0
+add	3	xor(ones, nor(add(w0, w1), zero))	-	0
+add	3	add(xor(ones, not(w1)), w0)	-	0
+add	3	add(nand(ones, xor(w0, ones)), w1)	-	0
+add	3	nor(zero, nand(ones, add(w0, w1)))	-	0
+add	3	nand(nand(add(w0, w1), add(w0, w1)), nand(add(w0, w1), add(w0, w1)))	-	0
+add	3	nor(sub(sub(ones, w1), w0), sub(sub(ones, w1), w0))	-	0
+add	3	add(w1, nand(xor(w0, ones), xor(w0, ones)))	-	0
+add	3	xor(ones, sub(xor(ones, w1), w0))	-	0
+add	3	add(w1, xor(ones, xor(w0, ones)))	-	0
+add	3	nand(nor(zero, add(w0, w1)), nor(zero, add(w0, w1)))	-	0
+add	3	sub(add(ones, w0), nand(w1, w1))	-	0
+add	3	nor(sub(nand(w1, ones), w0), zero)	-	0
+add	3	add(w0, xor(ones, xor(ones, w1)))	-	0
+add	3	sub(add(add(w0, w1), w0), w0)	-	0
+add	3	nor(zero, nor(add(w1, w0), add(w1, w0)))	-	0
+add	3	xor(sub(nor(w0, w0), w1), ones)	-	0
+add	3	nor(nand(add(w1, w0), add(w1, w0)), zero)	-	0
+add	3	sub(add(ones, w0), xor(ones, w1))	-	0
+add	3	add(w1, xor(xor(w1, w0), w1))	-	0
+add	3	add(w0, xor(ones, nand(ones, w1)))	-	0
+add	3	xor(sub(nand(w1, ones), w0), ones)	-	0
+add	3	add(or(w1, w0), and(w1, w0))	-	0
+add	3	add(ror(rol(w1, ones), ones), w0)	-	0
+add	3	xor(nor(zero, add(w0, w1)), ones)	-	0
+add	3	sub(add(w0, ones), nor(w1, w1))	-	0
+add	3	sub(add(w1, w1), sub(w1, w0))	-	0
+add	3	xor(nor(add(w0, w1), add(w0, w1)), ones)	-	0
+add	3	add(w0, add(sub(w1, ones), ones))	-	0
+add	3	sub(w0, sub(nor(w1, ones), w1))	-	0
+add	3	add(nand(nand(w0, ones), nand(w0, ones)), w1)	-	0
+add	3	nand(sub(nor(zero, w0), w1), ones)	-	0
+add	3	sub(add(w0, ones), nand(w1, ones))	-	0
+add	3	add(xor(nor(w1, w1), ones), w0)	-	0
+add	3	nand(ones, nand(add(w1, w0), add(w1, w0)))	-	0
+add	3	add(w0, nand(sub(ones, w1), sub(ones, w1)))	-	0
+add	3	add(add(w0, ones), sub(w1, ones))	-	0
+add	3	not(sub(nor(w1, w1), w0))	-	0
+add	3	add(ones, sub(w1, nor(w0, w0)))	-	0
+add	3	nor(nand(add(w0, w1), ones), zero)	-	0
+add	3	nor(nor(add(w0, w1), zero), zero)	-	0
+add	3	xor(w1, xor(w1, add(w0, w1)))	-	0
+add	3	sub(add(ones, w1), not(w0))	-	0
+add	3	add(nor(zero, not(w1)), w0)	-	0
+add	3	sub(w1, sub(nor(ones, w1), w0))	-	0
+add	3	add(sub(w1, xor(ones, w0)), ones)	-	0
+add	3	not(sub(nand(ones, w0), w1))	-	0
+add	3	add(w0, xor(sub(ones, w1), ones))	-	0
+add	3	add(add(ones, w0), sub(w1, ones))	-	0
+add	3	add(w0, xor(xor(ones, w1), ones))	-	0
+add	3	add(not(nand(w1, w1)), w0)	-	0
+add	3	sub(add(w1, ones), nor(w0, w0))	-	0
+add	3	sub(add(ones, w0), not(w1))	-	0
+add	3	add(w1, xor(xor(w0, ones), ones))	-	0
+add	3	xor(nor(zero, add(w1, w0)), ones)	-	0
+add	3	add(nand(nand(w0, ones), ones), w1)	-	0
+add	3	add(and(w0, w1), or(w0, w1))	-	0
+add	3	xor(ones, xor(ones, add(w0, w1)))	-	0
+add	3	add(nor(nor(w0, w0), zero), w1)	-	0
+add	3	add(w0, nand(nor(zero, w1), nor(zero, w1)))	-	0
+add	3	nand(sub(nand(w0, w0), w1), ones)	-	0
+add	3	add(w1, not(not(w0)))	-	0
+add	3	add(w0, nand(nand(w1, w1), ones))	-	0
+add	3	add(sub(w0, ones), add(ones, w1))	-	0
+add	3	nand(ones, sub(xor(ones, w1), w0))	-	0
+add	3	xor(sub(not(w1), w0), ones)	-	0
+add	3	add(w1, xor(not(w0), ones))	-	0
+add	3	nor(sub(xor(ones, w0), w1), sub(xor(ones, w0), w1))	-	0
+add	3	xor(nand(add(w0, w1), ones), ones)	-	0
+add	3	add(nand(nand(w0, w0), nand(w0, w0)), w1)	-	0
+add	3	add(w1, nor(nand(w0, w0), nand(w0, w0)))	-	0
+add	3	nand(ones, not(add(w1, w0)))	-	0
+add	3	xor(nand(add(w1, w0), ones), ones)	-	0
+add	3	sub(ones, sub(ones, add(w1, w0)))	-	0
+add	3	xor(xor(ones, add(w1, w0)), ones)	-	0
+add	3	nand(nand(add(w1, w0), ones), ones)	-	0
+add	3	sub(add(w0, add(w1, w1)), w1)	-	0
+add	3	add(xor(nand(w0, ones), ones), w1)	-	0
+add	3	add(xor(ones, xor(w1, ones)), w0)	-	0
+add	3	nand(ones, nor(add(w0, w1), zero))	-	0
+add	3	nand(ones, xor(add(w1, w0), ones))	-	0
+add	3	add(nand(ones, nor(w1, zero)), w0)	-	0
+add	3	add(sub(ones, xor(w1, ones)), w0)	-	0
+add	3	add(w0, xor(ones, nor(zero, w1)))	-	0
+add	3	add(add(sub(w0, ones), w1), ones)	-	0
+add	3	add(sub(w1, xor(w0, ones)), ones)	-	0
+add	3	add(and(w0, w1), or(w1, w0))	-	0
+add	3	sub(add(w1, add(w0, w0)), w0)	-	0
+add	3	nand(ones, sub(xor(w0, ones), w1))	-	0
+add	3	add(w0, ror(rol(w1, w0), w0))	-	0
+add	3	nor(sub(nand(w0, w0), w1), sub(nand(w0, w0), w1))	-	0
+add	3	nand(ones, sub(nor(zero, w1), w0))	-	0
+add	3	add(and(w0, w1), or(w1, w0))	-	0
+add	3	add(w0, xor(nand(w1, w1), ones))	-	0
+add	3	nor(xor(add(w0, w1), ones), xor(add(w0, w1), ones))	-	0
+add	3	nand(sub(nor(w1, zero), w0), ones)	-	0
+add	3	sub(ones, sub(nor(w1, zero), w0))	-	0
+add	3	add(add(w1, sub(w0, ones)), ones)	-	0
+add	3	add(w0, rol(ror(w1, ones), ones))	-	0
+add	3	add(w1, not(nand(w0, w0)))	-	0
+add	3	nand(nor(add(w1, w0), zero), nor(add(w1, w0), zero))	-	0
+add	3	add(xor(ones, nor(w0, zero)), w1)	-	0
+add	3	add(w1, nor(nand(ones, w0), zero))	-	0
+add	3	add(nand(xor(w1, ones), xor(w1, ones)), w0)	-	0
+add	3	sub(add(ones, w0), nand(w1, ones))	-	0
+add	3	sub(w1, nor(zero, add(ones, w0)))	-	0
+add	3	add(xor(xor(ones, w1), ones), w0)	-	0
+add	3	xor(sub(nand(ones, w0), w1), ones)	-	0
+add	3	add(ones, add(sub(w0, ones), w1))	-	0
+add	3	sub(add(w1, ones), nor(w0, w0))	-	0
+add	3	add(nand(nand(w1, w1), nand(w1, w1)), w0)	-	0
+add	3	add(sub(ones, nand(w1, ones)), w0)	-	0
+add	3	add(w0, nand(nand(w1, ones), nand(w1, ones)))	-	0
+add	3	add(nand(nor(w0, zero), nor(w0, zero)), w1)	-	0
+add	3	add(and(w1, w0), or(w1, w0))	-	0
+add	3	nor(zero, sub(nor(zero, w0), w1))	-	0
+add	3	sub(add(w1, ones), xor(w0, ones))	-	0
+add	3	add(w1, add(sub(w0, ones), ones))	-	0
+add	3	sub(add(add(w1, w1), w0), w1)	-	0
+add	3	add(sub(w1, w0), add(w0, w0))	-	0
+add	3	nor(sub(nor(zero, w0), w1), zero)	-	0
+add	3	add(w0, sub(ones, nor(w1, w1)))	-	0
+add	3	xor(w0, xor(add(w0, w1), w0))	-	0
+add	3	nor(sub(nand(ones, w0), w1), sub(nand(ones, w0), w1))	-	0
+add	3	sub(ones, sub(nor(zero, w1), w0))	-	0
+add	3	nand(xor(ones, add(w0, w1)), xor(ones, add(w0, w1)))	-	0
+add	3	sub(add(w1, ones), nor(w0, zero))	-	0
+add	3	not(sub(xor(ones, w1), w0))	-	0
+add	3	add(w1, nand(sub(ones, w0), ones))	-	0
+add	3	add(nor(zero, nor(zero, w1)), w0)	-	0
+add	3	nor(sub(nor(w1, w1), w0), sub(nor(w1, w1), w0))	-	0
+add	3	add(xor(ones, nand(ones, w0)), w1)	-	0
+add	3	nand(sub(nand(ones, w1), w0), sub(nand(ones, w1), w0))	-	0
+add	3	add(nor(zero, xor(ones, w1)), w0)	-	0
+add	3	add(w1, add(w1, sub(w0, w1)))	-	0
+add	3	add(nand(ones, nand(ones, w1)), w0)	-	0
+add	3	nor(nor(zero, add(w1, w0)), zero)	-	0
+add	3	nor(sub(xor(ones, w1), w0), zero)	-	0
+add	3	sub(add(w1, ones), nand(w0, w0))	-	0
+add	3	add(ones, sub(w0, sub(ones, w1)))	-	0
+add	3	add(w0, nor(not(w1), not(w1)))	-	0
+add	3	not(nand(add(w0, w1), add(w0, w1)))	-	0
+add	3	add(sub(w0, sub(w0, w1)), w0)	-	0
+add	3	add(or(w1, w0), and(w0, w1))	-	0
+add	3	add(w1, nand(nand(ones, w0), ones))	-	0
+add	3	add(xor(ones, sub(ones, w0)), w1)	-	0
+add	3	add(add(w0, ones), sub(w1, ones))	-	0
+add	3	add(w0, not(nand(ones, w1)))	-	0
+add	3	add(w0, sub(ones, not(w1)))	-	0
+add	3	sub(add(w0, add(w1, ones)), ones)	-	0
+add	3	not(xor(ones, add(w1, w0)))	-	0
+add	3	add(w1, xor(ones, nor(zero, w0)))	-	0
+add	3	sub(add(w1, w1), sub(w1, w0))	-	0
+add	3	add(w0, nor(xor(w1, ones), xor(w1, ones)))	-	0
+add	3	add(w0, sub(ones, nand(ones, w1)))	-	0
+add	3	add(w1, nand(ones, sub(ones, w0)))	-	0
+add	3	add(sub(w1, sub(w1, w0)), w1)	-	0
+add	3	nand(xor(ones, add(w0, w1)), ones)	-	0
+add	3	add(w1, sub(add(w1, w0), w1))	-	0
+add	3	sub(ones, nor(add(w1, w0), add(w1, w0)))	-	0
+add	3	nor(sub(xor(w0, ones), w1), sub(xor(w0, ones), w1))	-	0
+add	3	sub(w1, sub(xor(w1, w1), w0))	-	0
+add	3	add(nand(ones, xor(ones, w0)), w1)	-	0
+add	3	xor(xor(w0, add(w1, w0)), w0)	-	0
+add	3	add(w1, xor(nor(zero, w0), ones))	-	0
+add	3	nand(ones, nand(ones, add(w0, w1)))	-	0
+add	3	sub(add(w0, ones), nor(zero, w1))	-	0
+add	3	add(w1, add(sub(w0, w1), w1))	-	0
+add	3	add(w0, nand(nor(w1, zero), ones))	-	0
+add	3	add(add(sub(w0, w1), w1), w1)	-	0
+add	3	nor(xor(add(w0, w1), ones), zero)	-	0
+add	3	add(xor(nand(w1, ones), ones), w0)	-	0
+add	3	nand(ones, nand(ones, add(w1, w0)))	-	0
+add	3	xor(ones, sub(nand(ones, w0), w1))	-	0
+add	3	add(not(nand(w0, ones)), w1)	-	0
+add	3	sub(ones, sub(nand(w1, w1), w0))	-	0
+add	3	add(not(nor(zero, w0)), w1)	-	0
+add	3	sub(add(ones, w1), nor(w0, zero))	-	0
+add	3	nand(sub(sub(ones, w1), w0), sub(sub(ones, w1), w0))	-	0
+add	3	add(w0, xor(ones, xor(w1, ones)))	-	0
+add	3	add(w0, nand(ones, nand(w1, w1)))	-	0
+add	3	add(w1, xor(nand(ones, w0), ones))	-	0
+add	3	add(w0, nand(nor(zero, w1), ones))	-	0
+add	3	add(w1, xor(nor(w0, w0), ones))	-	0
+add	3	nor(zero, nor(add(w0, w1), zero))	-	0
+add	3	add(w1, nand(nor(zero, w0), ones))	-	0
+add	3	not(nand(ones, add(w0, w1)))	-	0
+add	3	sub(w0, xor(add(ones, w1), ones))	-	0
+add	3	add(nand(xor(ones, w0), xor(ones, w0)), w1)	-	0
+add	3	not(not(add(w0, w1)))	-	0
+add	3	add(xor(not(w1), ones), w0)	-	0
+add	3	nand(ones, nor(add(w1, w0), add(w1, w0)))	-	0
+add	3	add(nor(xor(w1, ones), zero), w0)	-	0
+add	3	add(sub(zero, sub(zero, w0)), w1)	-	0
+add	3	sub(w1, not(add(w0, ones)))	-	0
+add	3	add(nand(not(w0), ones), w1)	-	0
+add	3	sub(ones, sub(sub(ones, w0), w1))	-	0
+add	3	sub(add(w1, ones), xor(ones, w0))	-	0
+add	3	add(w0, nor(nor(w1, w1), nor(w1, w1)))	-	0
+add	3	nor(nor(zero, add(w0, w1)), zero)	-	0
+add	3	add(ones, sub(w0, nand(ones, w1)))	-	0
+add	3	nor(sub(nand(w0, w0), w1), zero)	-	0
+add	3	add(nor(zero, nor(zero, w0)), w1)	-	0
+add	3	add(sub(ones, xor(ones, w1)), w0)	-	0
+add	3	add(nand(ones, nand(w0, ones)), w1)	-	0
+add	3	nand(xor(ones, add(w1, w0)), ones)	-	0
+add	3	add(ror(rol(w1, w0), w0), w0)	-	0
+add	3	add(xor(xor(w0, ones), ones), w1)	-	0
+add	3	add(xor(xor(ones, w0), ones), w1)	-	0
+add	3	nor(zero, sub(nor(w1, zero), w0))	-	0
+add	3	xor(nand(ones, add(w0, w1)), ones)	-	0
+add	3	xor(ones, sub(nand(ones, w1), w0))	-	0
+add	3	add(not(not(w0)), w1)	-	0
+add	3	nand(sub(nor(w0, w0), w1), sub(nor(w0, w0), w1))	-	0
+add	3	sub(w1, sub(w0, add(w0, w0)))	-	0
+add	3	sub(ones, sub(nand(w0, w0), w1))	-	0
+add	3	add(w0, nor(zero, nor(w1, w1)))	-	0
+add	3	nor(zero, sub(nand(w1, w1), w0))	-	0
+add	3	add(w0, nand(ones, not(w1)))	-	0
+add	3	sub(ones, nor(zero, add(w1, w0)))	-	0
+add	3	nand(ones, sub(nor(w1, w1), w0))	-	0
+add	3	add(w1, nand(nor(w0, w0), ones))	-	0
+add	3	sub(add(ones, w0), nor(w1, w1))	-	0
+add	3	xor(ones, nand(add(w1, w0), add(w1, w0)))	-	0
+add	3	add(nor(nor(w1, w1), nor(w1, w1)), w0)	-	0
+add	3	rol(ror(add(w0, w1), w1), w1)	-	0
+add	3	nor(zero, xor(add(w1, w0), ones))	-	0
+add	3	nor(zero, xor(ones, add(w0, w1)))	-	0
+add	3	add(w0, xor(ones, nand(w1, w1)))	-	0
+add	3	add(w1, not(sub(ones, w0)))	-	0
+add	3	not(nor(add(w1, w0), zero))	-	0
+add	3	xor(ones, sub(not(w0), w1))	-	0
+add	3	xor(xor(add(w0, w1), w1), w1)	-	0
+add	3	add(w0, nor(zero, xor(ones, w1)))	-	0
+add	3	xor(ones, sub(nand(w1, ones), w0))	-	0
+add	3	nor(nor(add(w1, w0), add(w1, w0)), zero)	-	0
+add	3	sub(w1, sub(nor(ones, ones), w0))	-	0
+add	3	nor(sub(sub(ones, w0), w1), sub(sub(ones, w0), w1))	-	0
+add	3	add(nor(zero, sub(ones, w0)), w1)	-	0
+add	3	nor(sub(nor(w0, zero), w1), zero)	-	0
+add	3	nor(sub(nand(w0, ones), w1), zero)	-	0
+add	3	add(xor(ones, xor(w0, ones)), w1)	-	0
+add	3	add(rol(ror(w1, w0), w0), w0)	-	0
+add	3	nor(sub(xor(w0, ones), w1), zero)	-	0
+add	3	add(sub(add(w0, w1), ones), ones)	-	0
+add	3	add(nor(zero, xor(w1, ones)), w0)	-	0
+add	3	add(nor(zero, nand(w1, ones)), w0)	-	0
+add	3	sub(add(add(w1, w0), w0), w0)	-	0
+add	3	nor(sub(nor(zero, w0), w1), sub(nor(zero, w0), w1))	-	0
+add	3	add(xor(xor(w0, w1), w0), w0)	-	0
+add	3	add(sub(w1, ones), add(ones, w0))	-	0
+add	3	rol(ror(add(w0, w1), w0), w0)	-	0
+add	3	nor(zero, sub(nor(w0, w0), w1))	-	0
+add	3	nor(nand(add(w1, w0), ones), nand(add(w1, w0), ones))	-	0
+add	3	add(w0, xor(xor(w1, w0), w0))	-	0
+add	3	sub(w0, nand(add(w1, ones), add(w1, ones)))	-	0
+add	3	nor(zero, sub(xor(w1, ones), w0))	-	0
+add	2	sub(w0, sub(zero, w1))	-	0
+add	3	add(w0, nor(zero, nor(zero, w1)))	-	0
+add	3	add(w1, nor(sub(ones, w0), sub(ones, w0)))	-	0
+add	3	sub(w0, sub(xor(w1, w1), w1))	-	0
+add	3	add(nor(xor(ones, w1), xor(ones, w1)), w0)	-	0
+add	3	add(w0, xor(nand(ones, w1), ones))	-	0
+add	3	nand(ones, sub(nand(ones, w0), w1))	-	0
+add	3	nand(xor(add(w1, w0), ones), ones)	-	0
+add	3	add(xor(ones, xor(ones, w1)), w0)	-	0
+add	3	add(nor(zero, nor(w1, zero)), w0)	-	0
+add	3	sub(add(w0, ones), nand(ones, w1))	-	0
+add	3	xor(xor(add(w0, w1), ones), ones)	-	0
+add	3	ror(rol(add(w1, w0), w0), w0)	-	0
+add	3	nor(zero, sub(nand(w0, w0), w1))	-	0
+add	3	sub(w1, xor(ones, add(ones, w0)))	-	0
+add	3	sub(add(w1, ones), nand(ones, w0))	-	0
+add	3	add(nand(ones, nand(ones, w0)), w1)	-	0
+add	3	add(w0, not(nor(w1, w1)))	-	0
+add	3	add(w1, nor(nand(w0, ones), nand(w0, ones)))	-	0
+add	3	ror(rol(add(w0, w1), w0), w0)	-	0
+add	3	add(not(nand(w0, w0)), w1)	-	0
+add	3	nand(sub(sub(ones, w0), w1), sub(sub(ones, w0), w1))	-	0
+add	3	add(w0, nand(ones, nor(zero, w1)))	-	0
+add	3	sub(w0, nand(ones, add(ones, w1)))	-	0
+add	3	sub(add(w1, ones), nand(ones, w0))	-	0
+add	3	add(sub(ones, nor(w1, w1)), w0)	-	0
+add	3	nor(sub(nand(ones, w0), w1), zero)	-	0
+add	3	nor(sub(nand(w1, w1), w0), zero)	-	0
+add	3	add(xor(xor(w1, ones), ones), w0)	-	0
+add	3	add(nand(sub(ones, w1), ones), w0)	-	0
+add	3	add(w1, nand(ones, nand(ones, w0)))	-	0
+add	3	add(nand(ones, nor(w0, w0)), w1)	-	0
+add	3	sub(w1, xor(add(ones, w0), ones))	-	0
+add	3	xor(ones, nor(add(w0, w1), add(w0, w1)))	-	0
+add	3	nor(zero, sub(nand(w1, ones), w0))	-	0
+add	3	nand(ones, xor(ones, add(w0, w1)))	-	0
+add	3	xor(xor(ones, add(w0, w1)), ones)	-	0
+add	3	add(nand(nand(w1, ones), ones), w0)	-	0
+add	3	nor(zero, xor(add(w0, w1), ones))	-	0
+add	3	add(w1, sub(ones, xor(w0, ones)))	-	0
+add	3	add(w0, ror(rol(w1, ones), ones))	-	0
+add	3	sub(w1, sub(w1, add(w0, w1)))	-	0
+add	3	nor(zero, nor(zero, add(w1, w0)))	-	0
+add	3	not(nor(add(w0, w1), add(w0, w1)))	-	0
+add	3	nand(ones, sub(sub(ones, w1), w0))	-	0
+add	3	sub(add(w1, ones), nor(zero, w0))	-	0
+add	3	add(nand(ones, nor(zero, w0)), w1)	-	0
+add	3	add(w0, nand(ones, nor(w1, w1)))	-	0
+add	3	add(ones, sub(w1, nor(zero, w0)))	-	0
+add	3	sub(add(ones, w0), nand(ones, w1))	-	0
+add	2	sub(w1, sub(zero, w0))	-	0
+add	3	add(w1, nor(zero, xor(w0, ones)))	-	0
+add	3	add(nor(zero, nand(ones, w0)), w1)	-	0
+add	3	xor(ones, nand(ones, add(w0, w1)))	-	0
+add	3	sub(add(ones, add(w0, w1)), ones)	-	0
+add	3	add(w1, not(xor(w0, ones)))	-	0
+add	3	nor(nand(add(w0, w1), add(w0, w1)), zero)	-	0
+add	3	nor(nor(zero, add(w1, w0)), nor(zero, add(w1, w0)))	-	0
+add	3	add(w1, xor(ones, nand(w0, ones)))	-	0
+add	3	add(w1, ror(rol(w0, w1), w1))	-	0
+add	3	add(w1, nor(xor(ones, w0), xor(ones, w0)))	-	0
+add	3	add(nand(ones, nor(zero, w1)), w0)	-	0
+add	3	sub(add(ones, w0), xor(ones, w1))	-	0
+add	3	sub(w0, nor(add(w1, ones), add(w1, ones)))	-	0
+add	3	sub(w1, nand(ones, add(ones, w0)))	-	0
+add	3	not(sub(xor(w0, ones), w1))	-	0
+add	3	add(w1, nor(nor(w0, w0), zero))	-	0
+add	3	add(w0, sub(add(w1, ones), ones))	-	0
+add	3	sub(add(w1, ones), not(w0))	-	0
+add	3	add(nor(zero, xor(w0, ones)), w1)	-	0
+add	3	add(add(sub(w1, ones), ones), w0)	-	0
+add	3	add(xor(nor(zero, w0), ones), w1)	-	0
+add	3	xor(nor(add(w0, w1), zero), ones)	-	0
+add	3	add(sub(add(w0, w1), w0), w0)	-	0
+add	3	nand(nor(zero, add(w0, w1)), ones)	-	0
+add	3	add(w0, sub(ones, nand(w1, w1)))	-	0
+add	3	sub(w0, nand(ones, add(w1, ones)))	-	0
+add	3	add(sub(add(w1, w0), w1), w1)	-	0
+add	3	add(nand(nor(zero, w1), ones), w0)	-	0
+add	3	nor(zero, nand(add(w1, w0), ones))	-	0
+add	3	sub(add(w0, ones), xor(w1, ones))	-	0
+add	3	xor(sub(sub(ones, w1), w0), ones)	-	0
+add	3	add(w1, nand(nor(zero, w0), nor(zero, w0)))	-	0
+add	3	sub(add(add(w0, w1), ones), ones)	-	0
+add	3	add(w1, nand(xor(ones, w0), xor(ones, w0)))	-	0
+add	3	sub(ones, sub(ones, add(w0, w1)))	-	0
+add	3	sub(ones, not(add(w1, w0)))	-	0
+add	3	add(not(nor(w0, w0)), w1)	-	0
+add	3	nor(zero, sub(nor(w1, w1), w0))	-	0
+add	3	add(add(w0, w0), sub(w1, w0))	-	0
+add	3	add(sub(ones, nor(zero, w0)), w1)	-	0
+add	3	sub(ones, nand(add(w0, w1), ones))	-	0
+add	3	add(nand(nor(zero, w0), ones), w1)	-	0
+add	3	add(xor(xor(w1, w0), w0), w0)	-	0
+add	3	sub(w0, sub(not(ones), w1))	-	0
+add	3	sub(w0, sub(nor(w1, w1), ones))	-	0
+add	3	nor(sub(not(w0), w1), zero)	-	0
+add	3	nand(nand(ones, add(w0, w1)), nand(ones, add(w0, w1)))	-	0
+add	3	nand(sub(nand(ones, w0), w1), sub(nand(ones, w0), w1))	-	0
+add	3	add(w1, sub(ones, xor(ones, w0)))	-	0
+add	3	not(sub(nand(ones, w1), w0))	-	0
+add	3	add(sub(w0, ones), add(w1, ones))	-	0
+add	3	add(sub(ones, xor(w0, ones)), w1)	-	0
+add	3	add(nor(nand(w1, w1), zero), w0)	-	0
+add	3	xor(ones, sub(sub(ones, w0), w1))	-	0
+add	3	sub(w0, sub(sub(w1, w1), w1))	-	0
+add	3	nor(zero, sub(sub(ones, w0), w1))	-	0
+add	3	sub(w1, nor(add(w0, ones), zero))	-	0
+add	3	add(w0, nor(xor(ones, w1), xor(ones, w1)))	-	0
+add	3	nor(not(add(w1, w0)), not(add(w1, w0)))	-	0
+add	3	sub(ones, sub(nor(zero, w0), w1))	-	0
+add	3	xor(sub(nor(w1, zero), w0), ones)	-	0
+add	3	add(w1, nand(ones, nor(w0, w0)))	-	0
+add	3	nand(ones, xor(add(w0, w1), ones))	-	0
+add	3	sub(ones, sub(sub(ones, w1), w0))	-	0
+add	3	xor(ones, sub(xor(w1, ones), w0))	-	0
+add	3	nor(xor(ones, add(w1, w0)), xor(ones, add(w1, w0)))	-	0
+add	3	not(xor(ones, add(w0, w1)))	-	0
+add	3	not(sub(nor(zero, w0), w1))	-	0
+add	3	xor(w1, xor(w1, add(w1, w0)))	-	0
+add	3	add(sub(w0, not(w1)), ones)	-	0
+add	3	sub(add(w0, ones), nor(w1, zero))	-	0
+add	3	sub(add(ones, w0), nor(zero, w1))	-	0
+add	3	add(w0, not(nor(zero, w1)))	-	0
+add	3	add(xor(ones, nor(w0, w0)), w1)	-	0
+add	3	nor(zero, sub(nor(w0, zero), w1))	-	0
+add	3	add(nor(zero, nand(w0, w0)), w1)	-	0
+add	3	add(sub(w0, w1), add(w1, w1))	-	0
+add	3	rol(ror(add(w1, w0), ones), ones)	-	0
+add	3	sub(ones, sub(not(w0), w1))	-	0
+add	3	add(w1, nor(zero, nand(w0, w0)))	-	0
+add	3	add(nand(ones, nor(w0, zero)), w1)	-	0
+add	3	add(nand(xor(w1, ones), ones), w0)	-	0
+add	3	add(w0, nor(zero, nand(w1, ones)))	-	0
+add	3	sub(ones, nand(add(w1, w0), ones))	-	0
+add	3	nand(sub(ones, add(w1, w0)), sub(ones, add(w1, w0)))	-	0
+add	3	add(w0, xor(w0, xor(w1, w0)))	-	0
+add	3	sub(add(w0, ones), xor(ones, w1))	-	0
+add	3	sub(w1, sub(sub(w0, w0), w0))	-	0
+add	3	add(w0, nor(sub(ones, w1), sub(ones, w1)))	-	0
+add	3	nor(sub(nor(zero, w1), w0), zero)	-	0
+add	3	add(sub(w1, ones), add(w0, ones))	-	0
+add	3	add(w1, nor(nor(w0, zero), zero))	-	0
+add	3	sub(ones, nor(zero, add(w0, w1)))	-	0
+add	3	add(sub(add(w1, w0), ones), ones)	-	0
+add	3	add(not(nand(ones, w0)), w1)	-	0
+add	3	nor(sub(sub(ones, w1), w0), zero)	-	0
+add	3	nand(not(add(w0, w1)), not(add(w0, w1)))	-	0
+add	3	add(w1, sub(add(w0, w1), w1))	-	0
+add	3	nand(sub(nor(w1, w1), w0), sub(nor(w1, w1), w0))	-	0
+add	3	add(ones, add(w0, sub(w1, ones)))	-	0
+add	3	nor(sub(nor(w1, zero), w0), sub(nor(w1, zero), w0))	-	0
+add	3	add(sub(ones, nand(ones, w0)), w1)	-	0
+add	3	sub(add(w0, ones), nand(ones, w1))	-	0
+add	3	nand(ones, sub(nor(w1, zero), w0))	-	0
+add	3	add(w0, xor(nor(w1, w1), ones))	-	0
+add	3	nor(nor(add(w1, w0), zero), zero)	-	0
+add	3	not(not(add(w1, w0)))	-	0
+add	3	sub(w0, sub(nand(ones, ones), w1))	-	0
+add	3	add(w1, nor(not(w0), not(w0)))	-	0
+add	3	add(w1, nand(nor(w0, zero), nor(w0, zero)))	-	0
+add	3	nand(sub(not(w1), w0), sub(not(w1), w0))	-	0
+add	3	add(w0, nand(not(w1), not(w1)))	-	0
+add	3	sub(w1, sub(xor(ones, ones), w0))	-	0
+add	3	sub(w1, not(add(ones, w0)))	-	0
+add	3	nand(nor(add(w1, w0), add(w1, w0)), nor(add(w1, w0), add(w1, w0)))	-	0
+add	3	xor(ones, sub(nor(w0, w0), w1))	-	0
+add	3	nor(zero, nand(add(w0, w1), ones))	-	0
+add	3	sub(add(w1, ones), sub(ones, w0))	-	0
+add	3	add(w1, nor(not(w0), zero))	-	0
+add	3	add(w0, nor(zero, nand(w1, w1)))	-	0
+add	3	sub(ones, sub(nand(w0, ones), w1))	-	0
+add	3	add(w0, nor(zero, nor(w1, zero)))	-	0
+add	3	add(xor(ones, nor(w1, w1)), w0)	-	0
+add	3	add(sub(ones, not(w1)), w0)	-	0
+add	3	add(xor(not(w0), ones), w1)	-	0
+add	3	add(ones, sub(w0, xor(w1, ones)))	-	0
+add	3	sub(add(w1, ones), not(w0))	-	0
+add	3	nor(zero, nand(ones, add(w1, w0)))	-	0
+add	3	add(w0, sub(ones, nand(w1, ones)))	-	0
+add	3	add(rol(ror(w1, ones), ones), w0)	-	0
+add	3	xor(sub(nor(w1, w1), w0), ones)	-	0
+add	3	sub(add(ones, w1), nor(w0, w0))	-	0
+add	3	nor(zero, sub(not(w0), w1))	-	0
+add	3	add(w0, sub(add(ones, w1), ones))	-	0
+add	3	xor(ones, sub(ones, add(w0, w1)))	-	0
+add	3	add(w1, nand(nand(w0, w0), ones))	-	0
+add	3	add(w0, nor(nor(w1, zero), zero))	-	0
+add	3	add(sub(w1, nor(zero, w0)), ones)	-	0
+add	3	sub(w0, sub(sub(ones, ones), w1))	-	0
+add	3	sub(ones, sub(nand(ones, w1), w0))	-	0
+add	3	sub(ones, nor(add(w0, w1), zero))	-	0
+add	3	nor(zero, sub(xor(w0, ones), w1))	-	0
+add	3	sub(add(add(w0, w0), w1), w0)	-	0
+add	3	add(w0, nand(xor(ones, w1), xor(ones, w1)))	-	0
+add	3	xor(ones, nand(add(w0, w1), add(w0, w1)))	-	0
+add	3	sub(add(w1, add(ones, w0)), ones)	-	0
+add	3	xor(ones, sub(nand(w0, w0), w1))	-	0
+add	3	add(w1, ror(rol(w0, ones), ones))	-	0
+add	3	add(w1, sub(add(w0, ones), ones))	-	0
+add	3	add(sub(add(ones, w0), ones), w1)	-	0
+add	3	add(sub(ones, nand(w0, w0)), w1)	-	0
+add	3	add(nand(ones, xor(w1, ones)), w0)	-	0
+add	3	add(nand(ones, nor(w1, w1)), w0)	-	0
+add	3	add(xor(xor(w0, w1), w1), w1)	-	0
+add	3	add(w1, nor(zero, nand(w0, ones)))	-	0
+add	3	add(w0, nor(xor(ones, w1), zero))	-	0
+add	3	xor(ones, nor(zero, add(w1, w0)))	-	0
+add	3	add(nor(nor(zero, w1), nor(zero, w1)), w0)	-	0
+add	3	sub(add(ones, w1), nor(zero, w0))	-	0
+add	3	sub(w1, nor(add(ones, w0), add(ones, w0)))	-	0
+add	3	add(add(w1, ones), sub(w0, ones))	-	0
+add	3	add(sub(w1, nor(w0, w0)), ones)	-	0
+add	3	add(nand(not(w1), ones), w0)	-	0
+add	3	add(not(sub(ones, w0)), w1)	-	0
+add	3	add(sub(ones, nand(w1, w1)), w0)	-	0
+add	3	add(nor(zero, nor(w1, w1)), w0)	-	0
+add	3	add(w1, sub(zero, sub(zero, w0)))	-	0
+add	3	not(nand(add(w1, w0), add(w1, w0)))	-	0
+add	3	nand(nand(ones, add(w1, w0)), nand(ones, add(w1, w0)))	-	0
+add	3	add(nor(nand(ones, w0), nand(ones, w0)), w1)	-	0
+add	3	sub(ones, sub(not(w1), w0))	-	0
+add	3	add(w0, nor(nand(w1, ones), zero))	-	0
+add	3	add(sub(add(w1, w0), w0), w0)	-	0
+add	3	sub(w1, nand(ones, add(w0, ones)))	-	0
+add	3	sub(w0, xor(ones, add(w1, ones)))	-	0
+add	3	add(nand(nand(ones, w0), ones), w1)	-	0
+add	3	xor(ones, sub(nor(w0, zero), w1))	-	0
+add	3	sub(add(ones, w0), sub(ones, w1))	-	0
+add	3	add(ones, sub(w1, xor(ones, w0)))	-	0
+add	3	add(w1, sub(ones, not(w0)))	-	0
+add	3	add(w0, not(nand(w1, ones)))	-	0
+add	3	add(w0, nor(not(w1), zero))	-	0
+add	3	add(sub(w1, nand(w0, ones)), ones)	-	0
+add	3	sub(w0, nor(add(w1, ones), zero))	-	0
+add	3	sub(add(add(w1, w0), ones), ones)	-	0
+add	3	xor(sub(sub(ones, w0), w1), ones)	-	0
+add	3	nand(sub(nand(w0, ones), w1), sub(nand(w0, ones), w1))	-	0
+add	3	add(sub(w0, nor(w1, w1)), ones)	-	0
+add	3	add(w0, nor(zero, nand(ones, w1)))	-	0
+add	3	nand(ones, nor(add(w0, w1), add(w0, w1)))	-	0
+add	3	xor(ones, sub(nand(w1, w1), w0))	-	0
+add	3	nor(nand(add(w0, w1), ones), nand(add(w0, w1), ones))	-	0
+add	3	xor(ones, xor(ones, add(w1, w0)))	-	0
+add	3	add(xor(ones, sub(ones, w1)), w0)	-	0
+add	3	nand(sub(xor(ones, w0), w1), sub(xor(ones, w0), w1))	-	0
+add	3	add(sub(ones, nor(w0, w0)), w1)	-	0
+add	3	add(nor(not(w0), zero), w1)	-	0
+add	3	sub(add(add(ones, w0), w1), ones)	-	0
+add	3	xor(xor(add(w1, w0), w0), w0)	-	0
+add	3	add(w1, nand(xor(ones, w0), ones))	-	0
+add	3	add(ones, add(sub(w1, ones), w0))	-	0
+add	3	add(nand(ones, nand(w1, ones)), w0)	-	0
+add	3	add(nand(nand(w1, w1), ones), w0)	-	0
+add	3	nor(nor(add(w1, w0), zero), nor(add(w1, w0), zero))	-	0
+add	3	xor(ones, sub(nor(zero, w0), w1))	-	0
+add	3	add(nand(nand(w0, w0), ones), w1)	-	0
+add	3	sub(add(ones, w1), xor(ones, w0))	-	0
+add	3	sub(w0, not(add(w1, ones)))	-	0
+add	3	xor(sub(nor(w0, zero), w1), ones)	-	0
+add	3	add(w1, sub(ones, nor(zero, w0)))	-	0
+add	3	add(nand(nor(zero, w1), nor(zero, w1)), w0)	-	0
+add	3	sub(ones, xor(add(w1, w0), ones))	-	0
+add	3	add(sub(ones, sub(ones, w0)), w1)	-	0
+add	3	nand(sub(nor(zero, w1), w0), ones)	-	0
+add	3	add(add(sub(w1, ones), w0), ones)	-	0
+add	3	nand(ones, sub(nand(w1, ones), w0))	-	0
+add	3	sub(add(ones, w1), sub(ones, w0))	-	0
+add	3	add(w1, rol(ror(w0, ones), ones))	-	0
+add	3	nand(sub(nor(w0, zero), w1), sub(nor(w0, zero), w1))	-	0
+add	3	nand(ones, sub(nand(w1, w1), w0))	-	0
+add	3	sub(add(w0, ones), sub(ones, w1))	-	0
+add	3	add(w0, nor(nand(w1, w1), nand(w1, w1)))	-	0
+add	3	add(w1, sub(ones, nand(w0, ones)))	-	0
+add	3	sub(w0, sub(w0, add(w1, w0)))	-	0
+add	3	sub(w1, sub(sub(ones, ones), w0))	-	0
+add	3	sub(w1, nand(add(ones, w0), ones))	-	0
+add	3	add(sub(ones, sub(ones, w1)), w0)	-	0
+add	3	xor(w1, xor(add(w1, w0), w1))	-	0
+add	3	add(w1, nor(nor(zero, w0), nor(zero, w0)))	-	0
+add	3	add(not(nor(w0, zero)), w1)	-	0
+add	3	nor(sub(nand(w1, w1), w0), sub(nand(w1, w1), w0))	-	0
+add	3	add(nand(xor(ones, w0), ones), w1)	-	0
+add	3	add(w0, xor(ones, sub(ones, w1)))	-	0
+add	3	add(sub(w0, w1), add(w1, w1))	-	0
+take	3	add(sub(nor(w1, zero), ones), w0)	-	0
+take	3	xor(add(w1, nand(w0, ones)), ones)	-	0
+take	3	sub(w0, sub(ones, nand(w1, w1)))	-	0
+take	3	add(nor(add(ones, w1), add(ones, w1)), w0)	-	0
+take	3	sub(nand(ones, w1), xor(w0, ones))	-	0
+take	3	sub(add(w0, xor(w1, ones)), ones)	-	0
+take	3	nand(add(not(w0), w1), add(not(w0), w1))	-	0
+take	3	sub(nor(w1, zero), nor(w0, w0))	-	0
+take	3	add(w0, not(add(w1, ones)))	-	0
+take	3	sub(not(w1), xor(ones, w0))	-	0
+take	3	sub(w0, nand(ones, xor(w1, ones)))	-	0
+take	3	sub(nor(w1, zero), nand(ones, w0))	-	0
+take	3	xor(ones, xor(ones, sub(w0, w1)))	-	0
+take	3	sub(nor(w1, zero), nand(w0, w0))	-	0
+take	3	nand(nand(sub(w0, w1), ones), ones)	-	0
+take	3	nor(add(w1, not(w0)), zero)	-	0
+take	3	sub(w0, nand(not(w1), not(w1)))	-	0
+take	3	sub(w0, xor(ones, nor(w1, zero)))	-	0
+take	3	not(add(w1, xor(ones, w0)))	-	0
+take	3	rol(ror(sub(w0, w1), w1), w1)	-	0
+take	3	sub(ones, add(xor(ones, w0), w1))	-	0
+take	3	sub(nor(nor(w0, w0), zero), w1)	-	0
+take	3	sub(w0, not(nor(w1, w1)))	-	0
+take	3	nor(zero, sub(add(w1, ones), w0))	-	0
+take	3	add(nand(add(w1, ones), add(w1, ones)), w0)	-	0
+take	3	sub(add(nand(w1, w1), w0), ones)	-	0
+take	3	add(w0, sub(xor(ones, ones), w1))	-	0
+take	3	sub(ones, add(nor(w0, zero), w1))	-	0
+take	3	sub(w0, not(nand(ones, w1)))	-	0
+take	3	sub(not(nand(w0, w0)), w1)	-	0
+take	3	sub(nor(w1, w1), nor(zero, w0))	-	0
+take	3	sub(nand(w1, w1), nor(zero, w0))	-	0
+take	3	sub(sub(ones, w1), nor(w0, w0))	-	0
+take	3	sub(ones, add(w1, nand(ones, w0)))	-	0
+take	3	nor(nor(zero, sub(w0, w1)), nor(zero, sub(w0, w1)))	-	0
+take	3	sub(nor(w0, ones), sub(w1, w0))	-	0
+take	3	sub(w0, nor(nand(ones, w1), nand(ones, w1)))	-	0
+take	3	xor(nand(sub(w0, w1), sub(w0, w1)), ones)	-	0
+take	3	xor(add(w1, xor(w0, ones)), ones)	-	0
+take	3	nand(add(not(w0), w1), ones)	-	0
+take	3	nor(add(nand(w0, w0), w1), zero)	-	0
+take	3	sub(xor(w0, w0), sub(w1, w0))	-	0
+take	3	xor(sub(add(w1, ones), w0), ones)	-	0
+take	3	xor(sub(w1, sub(w0, ones)), ones)	-	0
+take	3	add(sub(not(ones), w1), w0)	-	0
+take	3	sub(not(xor(ones, w0)), w1)	-	0
+take	3	add(w0, xor(add(w1, ones), ones))	-	0
+take	3	sub(w0, nor(xor(ones, w1), xor(ones, w1)))	-	0
+take	3	sub(w0, nor(nand(ones, w1), zero))	-	0
+take	3	sub(w0, sub(add(w1, w0), w0))	-	0
+take	3	nand(add(nand(ones, w0), w1), add(nand(ones, w0), w1))	-	0
+take	3	sub(nand(ones, sub(ones, w0)), w1)	-	0
+take	3	nand(ones, sub(ones, sub(w0, w1)))	-	0
+take	3	sub(xor(ones, nand(w0, w0)), w1)	-	0
+take	3	xor(ones, add(nor(w0, w0), w1))	-	0
+take	3	sub(sub(ones, nand(w0, w0)), w1)	-	0
+take	3	xor(ones, sub(add(ones, w1), w0))	-	0
+take	3	sub(nor(nand(w0, ones), zero), w1)	-	0
+take	3	sub(nand(ones, w1), nor(w0, zero))	-	0
+take	3	nand(add(w1, sub(ones, w0)), add(w1, sub(ones, w0)))	-	0
+take	3	nand(nor(sub(w0, w1), zero), nor(sub(w0, w1), zero))	-	0
+take	3	nor(sub(ones, sub(w0, w1)), sub(ones, sub(w0, w1)))	-	0
+take	3	add(sub(w0, ones), nand(w1, w1))	-	0
+take	3	sub(nand(nor(w0, zero), nor(w0, zero)), w1)	-	0
+take	3	sub(sub(ones, nand(ones, w0)), w1)	-	0
+take	3	nor(zero, add(ones, sub(w1, w0)))	-	0
+take	3	sub(w0, nor(zero, nand(w1, w1)))	-	0
+take	3	sub(xor(w1, ones), nor(w0, zero))	-	0
+take	3	sub(sub(ones, w1), nand(ones, w0))	-	0
+take	3	nor(zero, sub(ones, sub(w0, w1)))	-	0
+take	3	nand(ones, xor(ones, sub(w0, w1)))	-	0
+take	3	sub(xor(ones, nor(w0, zero)), w1)	-	0
+take	3	sub(xor(ones, w1), nor(w0, zero))	-	0
+take	3	nand(ones, add(sub(ones, w0), w1))	-	0
+take	3	add(nor(zero, add(ones, w1)), w0)	-	0
+take	3	sub(not(sub(w1, w0)), ones)	-	0
+take	3	sub(w0, nand(ones, nor(zero, w1)))	-	0
+take	3	sub(nor(sub(ones, w0), zero), w1)	-	0
+take	3	nor(nand(ones, sub(w0, w1)), nand(ones, sub(w0, w1)))	-	0
+take	3	sub(xor(ones, w1), nand(w0, ones))	-	0
+take	3	add(nor(zero, add(w1, ones)), w0)	-	0
+take	3	nand(ones, add(sub(w1, w0), ones))	-	0
+take	3	sub(add(sub(ones, w1), w0), ones)	-	0
+take	3	xor(ones, sub(add(w1, ones), w0))	-	0
+take	3	nor(zero, add(w1, xor(w0, ones)))	-	0
+take	3	sub(not(w1), nand(w0, ones))	-	0
+take	3	sub(not(nand(w0, ones)), w1)	-	0
+take	3	nand(ones, add(xor(w0, ones), w1))	-	0
+take	3	not(add(nand(w0, ones), w1))	-	0
+take	3	sub(nor(w1, zero), sub(ones, w0))	-	0
+take	3	nand(add(nor(w0, zero), w1), ones)	-	0
+take	3	sub(add(w0, sub(w0, w1)), w0)	-	0
+take	3	sub(nand(w1, ones), nand(w0, w0))	-	0
+take	3	add(sub(xor(w1, ones), ones), w0)	-	0
+take	3	nor(zero, add(xor(w0, ones), w1))	-	0
+take	3	nand(add(w1, sub(ones, w0)), ones)	-	0
+take	3	nand(ones, add(ones, sub(w1, w0)))	-	0
+take	3	sub(nor(xor(ones, w0), xor(ones, w0)), w1)	-	0
+take	3	nor(zero, add(sub(w1, w0), ones))	-	0
+take	3	sub(nand(ones, w1), nand(ones, w0))	-	0
+take	3	sub(w0, nor(zero, nand(ones, w1)))	-	0
+take	3	sub(sub(add(ones, w0), ones), w1)	-	0
+take	3	nor(sub(add(ones, w1), w0), sub(add(ones, w1), w0))	-	0
+take	3	sub(ones, add(w1, sub(ones, w0)))	-	0
+take	3	add(nor(zero, w1), sub(w0, ones))	-	0
+take	3	sub(sub(sub(w1, w0), sub(w1, w0)), sub(w1, w0))	-	0
+take	3	sub(not(w1), xor(w0, ones))	-	0
+take	3	sub(xor(sub(ones, w0), ones), w1)	-	0
+take	3	nand(nand(ones, sub(w0, w1)), nand(ones, sub(w0, w1)))	-	0
+take	3	add(w0, nor(add(w1, ones), add(w1, ones)))	-	0
+take	3	sub(nand(w1, w1), nand(w0, w0))	-	0
+take	3	sub(nand(nand(w0, w0), nand(w0, w0)), w1)	-	0
+take	3	sub(nor(w1, zero), xor(ones, w0))	-	0
+take	3	sub(nor(xor(ones, w0), zero), w1)	-	0
+take	3	sub(w0, sub(ones, sub(ones, w1)))	-	0
+take	3	sub(sub(ones, not(w0)), w1)	-	0
+take	3	sub(nor(w1, w1), xor(ones, w0))	-	0
+take	3	sub(nor(zero, w1), nor(w0, zero))	-	0
+take	3	sub(nand(ones, w1), nor(w0, w0))	-	0
+take	3	sub(nand(xor(ones, w0), xor(ones, w0)), w1)	-	0
+take	3	sub(nand(w1, ones), xor(ones, w0))	-	0
+take	3	sub(sub(ones, w1), not(w0))	-	0
+take	3	sub(w0, xor(xor(w0, w1), w0))	-	0
+take	3	nor(sub(add(ones, w1), w0), zero)	-	0
+take	3	xor(ones, add(nor(zero, w0), w1))	-	0
+take	3	nand(add(nor(w0, w0), w1), add(nor(w0, w0), w1))	-	0
+take	3	nand(ones, sub(w1, sub(w0, ones)))	-	0
+take	3	sub(xor(ones, nand(ones, w0)), w1)	-	0
+take	3	sub(ones, add(w1, nor(w0, w0)))	-	0
+take	3	sub(add(w0, not(w1)), ones)	-	0
+take	3	sub(w0, xor(xor(ones, w1), ones))	-	0
+take	3	sub(nand(nand(ones, w0), nand(ones, w0)), w1)	-	0
+take	3	nor(add(w1, nor(zero, w0)), add(w1, nor(zero, w0)))	-	0
+take	3	sub(nor(ones, w1), sub(w1, w0))	-	0
+take	3	nor(zero, not(sub(w0, w1)))	-	0
+take	3	nand(ones, nor(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	sub(w0, nor(nand(w1, w1), nand(w1, w1)))	-	0
+take	3	nand(nor(sub(w0, w1), sub(w0, w1)), nor(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	nor(add(w1, nand(ones, w0)), add(w1, nand(ones, w0)))	-	0
+take	3	add(sub(sub(w1, w1), w1), w0)	-	0
+take	3	nand(ones, sub(add(ones, w1), w0))	-	0
+take	3	nand(nor(zero, sub(w0, w1)), ones)	-	0
+take	3	nand(add(sub(w1, w0), ones), add(sub(w1, w0), ones))	-	0
+take	3	sub(nand(nor(zero, w0), ones), w1)	-	0
+take	3	sub(sub(ones, w1), nand(w0, w0))	-	0
+take	3	sub(add(w0, sub(ones, w1)), ones)	-	0
+take	3	sub(ones, sub(add(w1, ones), w0))	-	0
+take	3	nor(add(nor(w0, w0), w1), zero)	-	0
+take	3	sub(add(w0, ones), add(w1, ones))	-	0
+take	3	xor(ones, xor(sub(w0, w1), ones))	-	0
+take	3	sub(w0, xor(ones, nand(w1, w1)))	-	0
+take	3	nor(zero, add(xor(ones, w0), w1))	-	0
+take	3	sub(nand(ones, ones), sub(w1, w0))	-	0
+take	3	nor(zero, add(w1, not(w0)))	-	0
+take	3	sub(w0, nor(zero, nand(w1, ones)))	-	0
+take	3	xor(xor(sub(w0, w1), w0), w0)	-	0
+take	3	sub(nand(w1, w1), nand(w0, ones))	-	0
+take	3	sub(nand(w1, w1), nor(w0, zero))	-	0
+take	3	sub(xor(ones, sub(w1, w0)), ones)	-	0
+take	3	sub(sub(w1, w1), sub(w1, w0))	-	0
+take	3	sub(xor(ones, w1), not(w0))	-	0
+take	3	sub(nor(w1, zero), nand(w0, ones))	-	0
+take	3	xor(add(nor(zero, w0), w1), ones)	-	0
+take	3	sub(nand(not(w0), not(w0)), w1)	-	0
+take	3	add(sub(w0, ones), nand(ones, w1))	-	0
+take	3	xor(add(w1, not(w0)), ones)	-	0
+take	3	sub(w0, xor(ones, nor(zero, w1)))	-	0
+take	3	add(w0, sub(nor(ones, ones), w1))	-	0
+take	3	sub(w0, nor(nand(w1, ones), zero))	-	0
+take	3	sub(xor(xor(w1, w0), w1), w1)	-	0
+take	3	sub(nand(w1, w1), sub(ones, w0))	-	0
+take	3	nor(add(nand(w0, w0), w1), add(nand(w0, w0), w1))	-	0
+take	3	nor(add(ones, sub(w1, w0)), add(ones, sub(w1, w0)))	-	0
+take	3	sub(xor(w1, ones), nor(zero, w0))	-	0
+take	3	nor(xor(ones, sub(w0, w1)), xor(ones, sub(w0, w1)))	-	0
+take	3	nor(zero, add(w1, nor(w0, w0)))	-	0
+take	3	nor(nand(sub(w0, w1), sub(w0, w1)), nand(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	sub(nand(w1, ones), xor(w0, ones))	-	0
+take	3	sub(ones, add(xor(w0, ones), w1))	-	0
+take	3	sub(xor(w1, ones), not(w0))	-	0
+take	3	sub(w0, add(sub(w1, ones), ones))	-	0
+take	3	nand(nand(sub(w0, w1), ones), nand(sub(w0, w1), ones))	-	0
+take	3	sub(w1, sub(add(w1, w1), w0))	-	0
+take	3	sub(sub(ones, ones), sub(w1, w0))	-	0
+take	3	nand(nor(sub(w0, w1), sub(w0, w1)), ones)	-	0
+take	3	xor(xor(sub(w0, w1), ones), ones)	-	0
+take	3	nor(zero, xor(ones, sub(w0, w1)))	-	0
+take	3	nor(zero, add(nand(w0, w0), w1))	-	0
+take	3	nand(add(ones, sub(w1, w0)), ones)	-	0
+take	3	sub(add(sub(w0, w1), w0), w0)	-	0
+take	3	nand(add(xor(ones, w0), w1), ones)	-	0
+take	3	add(sub(nor(w1, w1), ones), w0)	-	0
+take	3	sub(w0, nor(nor(w1, w1), nor(w1, w1)))	-	0
+take	3	sub(nand(nor(w0, zero), ones), w1)	-	0
+take	3	sub(sub(ones, xor(ones, w0)), w1)	-	0
+take	3	sub(nand(w1, w1), nor(w0, zero))	-	0
+take	3	sub(sub(ones, xor(w0, ones)), w1)	-	0
+take	3	add(sub(w0, ones), nor(w1, zero))	-	0
+take	3	xor(ones, nor(zero, sub(w0, w1)))	-	0
+take	3	sub(add(w0, ones), add(ones, w1))	-	0
+take	3	xor(ones, nand(ones, sub(w0, w1)))	-	0
+take	3	sub(nand(w1, ones), xor(ones, w0))	-	0
+take	3	nand(ones, nand(ones, sub(w0, w1)))	-	0
+take	3	sub(sub(ones, w1), xor(ones, w0))	-	0
+take	3	nand(nand(sub(w0, w1), sub(w0, w1)), nand(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	nand(nand(ones, sub(w0, w1)), ones)	-	0
+take	3	add(w0, xor(ones, add(ones, w1)))	-	0
+take	3	sub(nor(nor(w0, zero), zero), w1)	-	0
+take	3	sub(nor(ones, sub(w1, w0)), sub(w1, w0))	-	0
+take	3	xor(xor(ones, sub(w0, w1)), ones)	-	0
+take	3	sub(xor(xor(w0, ones), ones), w1)	-	0
+take	3	sub(not(xor(w0, ones)), w1)	-	0
+take	3	nand(add(w1, nor(zero, w0)), add(w1, nor(zero, w0)))	-	0
+take	3	sub(nand(nor(zero, w0), nor(zero, w0)), w1)	-	0
+take	3	nand(ones, not(sub(w0, w1)))	-	0
+take	3	sub(w0, sub(zero, sub(zero, w1)))	-	0
+take	3	sub(nor(zero, nor(zero, w0)), w1)	-	0
+take	3	sub(xor(ones, w1), nor(w0, w0))	-	0
+take	3	sub(nor(nand(w0, w0), nand(w0, w0)), w1)	-	0
+take	3	sub(ones, add(nor(zero, w0), w1))	-	0
+take	3	sub(nor(w1, w1), nor(w0, w0))	-	0
+take	3	sub(nor(w1, w1), nand(ones, w0))	-	0
+take	3	nand(add(w1, nor(w0, zero)), add(w1, nor(w0, zero)))	-	0
+take	3	sub(xor(ones, w1), xor(ones, w0))	-	0
+take	3	not(add(w1, sub(ones, w0)))	-	0
+take	3	sub(not(w1), nor(w0, zero))	-	0
+take	3	sub(xor(sub(w1, w0), sub(w1, w0)), sub(w1, w0))	-	0
+take	3	add(sub(w0, add(w0, w1)), w0)	-	0
+take	3	sub(sub(ones, w1), nand(w0, ones))	-	0
+take	3	sub(not(w1), sub(ones, w0))	-	0
+take	3	sub(nor(nand(w0, w0), zero), w1)	-	0
+take	3	sub(w0, xor(nand(ones, w1), ones))	-	0
+take	3	nand(sub(add(ones, w1), w0), sub(add(ones, w1), w0))	-	0
+take	3	sub(nor(w1, zero), nor(w0, zero))	-	0
+take	3	sub(add(w0, w0), add(w1, w0))	-	0
+take	3	not(add(nor(zero, w0), w1))	-	0
+take	3	add(sub(sub(w0, w1), w0), w0)	-	0
+take	3	sub(nor(ones, w0), sub(w1, w0))	-	0
+take	3	sub(w0, sub(ones, nand(ones, w1)))	-	0
+take	3	sub(nand(xor(ones, w0), ones), w1)	-	0
+take	3	add(w0, sub(nor(w1, zero), ones))	-	0
+take	3	sub(sub(w0, ones), sub(w1, ones))	-	0
+take	3	sub(not(w1), not(w0))	-	0
+take	3	sub(ones, add(ones, sub(w1, w0)))	-	0
+take	3	add(w0, sub(nand(w1, ones), ones))	-	0
+take	3	xor(ones, nand(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	not(add(nor(w0, w0), w1))	-	0
+take	3	sub(add(ones, w0), add(w1, ones))	-	0
+take	3	sub(nand(w1, w1), nand(ones, w0))	-	0
+take	3	sub(xor(xor(w0, w1), w1), w1)	-	0
+take	3	add(sub(sub(ones, w1), ones), w0)	-	0
+take	3	nor(xor(ones, sub(w0, w1)), zero)	-	0
+take	3	sub(w0, not(nor(w1, zero)))	-	0
+take	3	sub(nand(ones, w1), xor(w0, ones))	-	0
+take	3	nand(add(w1, nand(w0, w0)), ones)	-	0
+take	3	add(ones, sub(sub(w0, ones), w1))	-	0
+take	3	sub(w0, not(xor(ones, w1)))	-	0
+take	3	sub(nor(w0, ones), sub(w1, w0))	-	0
+take	3	sub(sub(w0, sub(w1, ones)), ones)	-	0
+take	3	sub(add(w0, w1), add(w1, w1))	-	0
+take	3	add(w0, sub(ones, add(ones, w1)))	-	0
+take	3	add(w0, nor(zero, add(w1, ones)))	-	0
+take	3	sub(xor(ones, xor(w0, ones)), w1)	-	0
+take	3	sub(xor(w1, ones), xor(ones, w0))	-	0
+take	3	xor(nor(zero, sub(w0, w1)), ones)	-	0
+take	3	sub(sub(ones, w1), nor(w0, w0))	-	0
+take	3	nor(add(nor(zero, w0), w1), add(nor(zero, w0), w1))	-	0
+take	3	sub(xor(ones, w1), not(w0))	-	0
+take	3	sub(ones, nor(zero, sub(w0, w1)))	-	0
+take	3	nand(add(w1, nand(w0, ones)), ones)	-	0
+take	3	add(nand(add(w1, ones), ones), w0)	-	0
+take	3	sub(xor(nor(zero, w0), ones), w1)	-	0
+take	3	add(sub(w0, ones), not(w1))	-	0
+take	3	sub(nand(ones, w1), xor(ones, w0))	-	0
+take	3	add(w0, nand(add(ones, w1), add(ones, w1)))	-	0
+take	3	nor(zero, nor(zero, sub(w0, w1)))	-	0
+take	3	sub(nand(nand(w0, ones), nand(w0, ones)), w1)	-	0
+take	3	sub(nor(ones, ones), sub(w1, w0))	-	0
+take	3	sub(w0, nand(nor(w1, w1), nor(w1, w1)))	-	0
+take	3	sub(ones, nor(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	nand(add(w1, nand(w0, w0)), add(w1, nand(w0, w0)))	-	0
+take	3	add(w0, sub(w1, add(w1, w1)))	-	0
+take	3	sub(nand(w1, ones), not(w0))	-	0
+take	3	sub(w1, add(sub(w1, w0), w1))	-	0
+take	3	xor(ones, add(w1, nand(w0, ones)))	-	0
+take	3	add(sub(w0, ones), nand(w1, ones))	-	0
+take	3	sub(nor(w1, zero), xor(w0, ones))	-	0
+take	3	sub(w0, xor(w0, xor(w1, w0)))	-	0
+take	3	sub(rol(ror(w0, w1), w1), w1)	-	0
+take	3	add(nor(add(w1, ones), zero), w0)	-	0
+take	3	nor(add(w1, not(w0)), add(w1, not(w0)))	-	0
+take	3	xor(ones, add(xor(w0, ones), w1))	-	0
+take	3	add(w0, sub(nand(ones, ones), w1))	-	0
+take	3	nor(zero, nand(ones, sub(w0, w1)))	-	0
+take	3	nor(zero, xor(sub(w0, w1), ones))	-	0
+take	3	nand(add(w1, xor(w0, ones)), add(w1, xor(w0, ones)))	-	0
+take	3	sub(add(w0, w0), add(w0, w1))	-	0
+take	3	sub(nand(w1, w1), nor(w0, w0))	-	0
+take	3	nand(sub(ones, sub(w0, w1)), sub(ones, sub(w0, w1)))	-	0
+take	3	sub(not(not(w0)), w1)	-	0
+take	3	add(sub(sub(w0, w1), ones), ones)	-	0
+take	3	xor(nand(ones, sub(w0, w1)), ones)	-	0
+take	3	xor(w0, xor(w0, sub(w0, w1)))	-	0
+take	3	not(add(sub(ones, w0), w1))	-	0
+take	3	add(sub(w0, ones), xor(ones, w1))	-	0
+take	3	sub(sub(zero, w1), sub(zero, w0))	-	0
+take	3	add(w0, sub(sub(ones, ones), w1))	-	0
+take	3	sub(rol(ror(w0, ones), ones), w1)	-	0
+take	3	add(sub(w0, ones), nor(zero, w1))	-	0
+take	3	xor(ones, add(sub(ones, w0), w1))	-	0
+take	3	nand(sub(add(ones, w1), w0), ones)	-	0
+take	3	sub(nor(zero, w1), nor(w0, zero))	-	0
+take	3	sub(w0, nand(ones, nor(w1, zero)))	-	0
+take	3	nor(nor(sub(w0, w1), sub(w0, w1)), zero)	-	0
+take	3	sub(nand(ones, ones), sub(w1, w0))	-	0
+take	3	nor(zero, add(nor(w0, zero), w1))	-	0
+take	3	nand(nor(zero, sub(w0, w1)), nor(zero, sub(w0, w1)))	-	0
+take	3	nor(add(ones, sub(w1, w0)), zero)	-	0
+take	3	add(w0, sub(sub(w0, w0), w1))	-	0
+take	3	sub(nand(w1, ones), nor(zero, w0))	-	0
+take	3	sub(w0, not(not(w1)))	-	0
+take	3	xor(nor(sub(w0, w1), zero), ones)	-	0
+take	3	sub(nand(w1, ones), sub(ones, w0))	-	0
+take	3	not(add(w1, xor(w0, ones)))	-	0
+take	3	add(nor(w1, zero), sub(w0, ones))	-	0
+take	3	add(nand(w1, w1), sub(w0, ones))	-	0
+take	3	add(w0, nand(ones, add(w1, ones)))	-	0
+take	3	add(nor(w1, w1), sub(w0, ones))	-	0
+take	3	nand(ones, add(nand(w0, ones), w1))	-	0
+take	3	sub(add(w0, nand(w1, w1)), ones)	-	0
+take	3	add(w0, sub(sub(ones, w1), ones))	-	0
+take	3	nand(xor(sub(w0, w1), ones), ones)	-	0
+take	3	sub(sub(ones, w1), xor(w0, ones))	-	0
+take	3	add(sub(sub(w0, ones), w1), ones)	-	0
+take	3	sub(xor(w1, ones), nand(ones, w0))	-	0
+take	3	sub(w0, add(sub(w1, w0), w0))	-	0
+take	3	xor(add(nor(w0, zero), w1), ones)	-	0
+take	3	sub(nor(zero, nand(w0, w0)), w1)	-	0
+take	3	sub(xor(ones, w1), nor(w0, zero))	-	0
+take	3	sub(nor(sub(w1, w0), zero), ones)	-	0
+take	3	add(sub(w0, ones), nand(ones, w1))	-	0
+take	3	add(w0, not(add(ones, w1)))	-	0
+take	3	sub(nand(ones, nand(w0, ones)), w1)	-	0
+take	3	sub(nor(zero, w1), nand(w0, w0))	-	0
+take	3	sub(xor(w1, ones), nor(zero, w0))	-	0
+take	3	sub(w0, nor(xor(ones, w1), zero))	-	0
+take	3	not(nand(ones, sub(w0, w1)))	-	0
+take	3	xor(ones, add(w1, nor(zero, w0)))	-	0
+take	3	add(w0, sub(xor(w1, ones), ones))	-	0
+take	3	xor(add(w1, nand(ones, w0)), ones)	-	0
+take	3	sub(nand(sub(w1, w0), sub(w1, w0)), ones)	-	0
+take	3	sub(w0, ror(rol(w1, w0), w0))	-	0
+take	3	sub(w0, xor(nor(zero, w1), ones))	-	0
+take	3	add(sub(nand(ones, ones), w1), w0)	-	0
+take	3	xor(ones, add(not(w0), w1))	-	0
+take	3	nor(add(sub(w1, w0), ones), zero)	-	0
+take	3	add(sub(sub(w0, w0), w1), w0)	-	0
+take	3	add(sub(w0, ones), nor(zero, w1))	-	0
+take	3	xor(ones, add(nand(w0, ones), w1))	-	0
+take	3	nor(zero, add(w1, nand(w0, ones)))	-	0
+take	3	sub(nand(w1, w1), not(w0))	-	0
+take	3	nand(add(sub(ones, w0), w1), ones)	-	0
+take	3	nand(ones, add(w1, not(w0)))	-	0
+take	3	xor(ones, nand(sub(w0, w1), ones))	-	0
+take	3	nor(zero, nor(sub(w0, w1), zero))	-	0
+take	3	sub(add(w0, w1), add(w1, w1))	-	0
+take	3	xor(nand(sub(w0, w1), ones), ones)	-	0
+take	3	sub(nand(ones, w1), nor(w0, w0))	-	0
+take	3	add(sub(xor(w0, w0), w1), w0)	-	0
+take	3	sub(nand(sub(ones, w0), ones), w1)	-	0
+take	3	sub(add(ones, w0), add(ones, w1))	-	0
+take	3	add(w0, sub(nor(w1, ones), w1))	-	0
+take	3	sub(nor(zero, w1), nand(w0, w0))	-	0
+take	3	not(add(xor(w0, ones), w1))	-	0
+take	3	sub(xor(ones, ones), sub(w1, w0))	-	0
+take	3	sub(xor(w0, w0), sub(w1, w0))	-	0
+take	3	sub(w0, not(nand(w1, ones)))	-	0
+take	3	sub(zero, add(sub(zero, w0), w1))	-	0
+take	3	sub(not(sub(ones, w0)), w1)	-	0
+take	3	sub(w0, nand(ones, xor(ones, w1)))	-	0
+take	3	sub(nand(w1, w1), sub(ones, w0))	-	0
+take	3	xor(ones, sub(w1, sub(w0, ones)))	-	0
+take	3	sub(nor(w1, zero), not(w0))	-	0
+take	3	sub(xor(xor(ones, w0), ones), w1)	-	0
+take	3	sub(w0, add(ones, sub(w1, ones)))	-	0
+take	3	nand(add(w1, nor(zero, w0)), ones)	-	0
+take	3	nand(ones, add(xor(ones, w0), w1))	-	0
+take	3	add(sub(w0, add(ones, w1)), ones)	-	0
+take	3	nand(ones, add(w1, xor(ones, w0)))	-	0
+take	3	sub(add(nor(w1, w1), w0), ones)	-	0
+take	2	add(w0, sub(zero, w1))	-	0
+take	3	nand(add(sub(ones, w0), w1), add(sub(ones, w0), w1))	-	0
+take	3	xor(ones, add(w1, xor(w0, ones)))	-	0
+take	3	sub(nand(w1, w1), xor(ones, w0))	-	0
+take	3	nor(add(w1, nor(w0, w0)), add(w1, nor(w0, w0)))	-	0
+take	3	nor(xor(sub(w0, w1), ones), zero)	-	0
+take	3	sub(xor(ones, w1), nor(zero, w0))	-	0
+take	3	sub(add(xor(w1, ones), w0), ones)	-	0
+take	3	sub(nand(ones, w1), nand(w0, ones))	-	0
+take	3	sub(nand(ones, w1), sub(ones, w0))	-	0
+take	3	sub(w0, nor(sub(ones, w1), sub(ones, w1)))	-	0
+take	3	add(sub(nand(w1, ones), ones), w0)	-	0
+take	3	nor(add(w1, nor(w0, zero)), add(w1, nor(w0, zero)))	-	0
+take	3	sub(nor(zero, w1), nor(zero, w0))	-	0
+take	3	sub(not(nor(w0, w0)), w1)	-	0
+take	3	sub(ones, add(w1, xor(ones, w0)))	-	0
+take	3	sub(w0, nor(nand(w1, w1), zero))	-	0
+take	3	nor(nand(sub(w0, w1), ones), zero)	-	0
+take	3	nor(add(nand(ones, w0), w1), add(nand(ones, w0), w1))	-	0
+take	3	sub(sub(ones, w1), nor(w0, zero))	-	0
+take	3	nor(zero, nor(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	add(sub(w0, ones), nand(w1, w1))	-	0
+take	3	sub(sub(add(w1, w0), w1), w1)	-	0
+take	3	sub(nand(ones, w1), nor(w0, zero))	-	0
+take	3	sub(w0, nor(nor(zero, w1), nor(zero, w1)))	-	0
+take	3	not(sub(add(w1, ones), w0))	-	0
+take	3	sub(w0, nand(ones, nand(ones, w1)))	-	0
+take	3	nor(add(w1, nand(w0, w0)), add(w1, nand(w0, w0)))	-	0
+take	3	sub(sub(ones, w1), xor(ones, w0))	-	0
+take	3	sub(nand(w1, ones), nor(w0, w0))	-	0
+take	3	sub(ones, sub(ones, sub(w0, w1)))	-	0
+take	3	sub(nor(w1, zero), nand(w0, w0))	-	0
+take	3	sub(ones, xor(sub(w0, w1), ones))	-	0
+take	3	xor(not(sub(w0, w1)), ones)	-	0
+take	3	sub(nand(ones, nor(w0, zero)), w1)	-	0
+take	3	sub(nor(zero, sub(ones, w0)), w1)	-	0
+take	3	sub(add(sub(w0, w1), w1), w1)	-	0
+take	3	nor(add(nor(zero, w0), w1), zero)	-	0
+take	3	sub(xor(ones, w1), nor(zero, w0))	-	0
+take	3	sub(nor(w1, w1), nor(w0, w0))	-	0
+take	3	nor(not(sub(w0, w1)), zero)	-	0
+take	3	sub(xor(ones, w1), xor(ones, w0))	-	0
+take	3	add(xor(ones, add(ones, w1)), w0)	-	0
+take	3	sub(w0, sub(add(w0, w1), w0))	-	0
+take	3	nand(add(w1, nand(ones, w0)), add(w1, nand(ones, w0)))	-	0
+take	3	nand(ones, add(w1, nor(w0, w0)))	-	0
+take	3	not(nand(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	sub(nand(nor(w0, w0), nor(w0, w0)), w1)	-	0
+take	3	nor(zero, add(nand(ones, w0), w1))	-	0
+take	3	sub(nand(w1, w1), nor(zero, w0))	-	0
+take	3	nand(sub(add(w1, ones), w0), sub(add(w1, ones), w0))	-	0
+take	3	sub(w0, sub(ones, nor(w1, zero)))	-	0
+take	3	sub(add(w0, nand(ones, w1)), ones)	-	0
+take	3	sub(nor(xor(w0, ones), zero), w1)	-	0
+take	3	nand(ones, add(nand(ones, w0), w1))	-	0
+take	3	sub(nor(sub(w1, w0), ones), sub(w1, w0))	-	0
+take	3	add(sub(nand(w1, w1), ones), w0)	-	0
+take	3	sub(ones, add(sub(w1, w0), ones))	-	0
+take	3	add(nand(add(ones, w1), add(ones, w1)), w0)	-	0
+take	3	nor(nor(sub(w0, w1), sub(w0, w1)), nor(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	sub(w0, nor(nor(w1, w1), zero))	-	0
+take	3	add(nand(add(ones, w1), ones), w0)	-	0
+take	3	sub(xor(w1, ones), sub(ones, w0))	-	0
+take	3	add(w0, nand(ones, add(ones, w1)))	-	0
+take	3	sub(ones, nand(ones, sub(w0, w1)))	-	0
+take	3	not(add(nand(w0, w0), w1))	-	0
+take	3	sub(xor(not(w0), ones), w1)	-	0
+take	3	sub(add(nor(zero, w1), w0), ones)	-	0
+take	3	sub(nor(w1, w1), sub(ones, w0))	-	0
+take	3	xor(ones, add(nand(w0, w0), w1))	-	0
+take	3	add(xor(w1, ones), sub(w0, ones))	-	0
+take	3	xor(ones, add(nand(ones, w0), w1))	-	0
+take	3	sub(nor(ones, ones), sub(w1, w0))	-	0
+take	3	add(sub(nor(ones, ones), w1), w0)	-	0
+take	3	sub(nor(nor(w0, zero), nor(w0, zero)), w1)	-	0
+take	3	sub(nor(w1, w1), not(w0))	-	0
+take	3	xor(ones, add(nor(w0, zero), w1))	-	0
+take	3	xor(add(xor(ones, w0), w1), ones)	-	0
+take	3	sub(add(w0, nand(w1, ones)), ones)	-	0
+take	3	not(add(w1, not(w0)))	-	0
+take	3	sub(sub(w0, w0), sub(w1, w0))	-	0
+take	3	sub(w0, not(sub(ones, w1)))	-	0
+take	3	sub(xor(w1, ones), nand(w0, ones))	-	0
+take	3	not(not(sub(w0, w1)))	-	0
+take	3	add(sub(nor(zero, w1), ones), w0)	-	0
+take	3	add(xor(add(w1, ones), ones), w0)	-	0
+take	3	sub(nor(w1, w1), nand(w0, ones))	-	0
+take	3	sub(ones, add(w1, nand(w0, ones)))	-	0
+take	3	nand(ones, add(not(w0), w1))	-	0
+take	3	nand(add(w1, xor(w0, ones)), ones)	-	0
+take	3	sub(xor(ones, w1), nand(ones, w0))	-	0
+take	3	sub(nor(zero, w1), not(w0))	-	0
+take	3	sub(w0, sub(add(w1, ones), ones))	-	0
+take	3	add(sub(w1, add(w1, w1)), w0)	-	0
+take	3	nand(ones, add(w1, nor(zero, w0)))	-	0
+take	3	nand(add(w1, xor(ones, w0)), ones)	-	0
+take	3	sub(nor(w1, zero), nor(zero, w0))	-	0
+take	3	sub(w0, nor(zero, not(w1)))	-	0
+take	3	add(sub(w0, ones), not(w1))	-	0
+take	3	sub(not(w1), nand(w0, w0))	-	0
+take	3	nor(zero, add(sub(ones, w0), w1))	-	0
+take	3	sub(nor(zero, nor(w0, w0)), w1)	-	0
+take	3	sub(nor(zero, w1), sub(ones, w0))	-	0
+take	3	sub(nor(nand(ones, w0), nand(ones, w0)), w1)	-	0
+take	3	nand(ones, add(w1, xor(w0, ones)))	-	0
+take	3	nand(xor(sub(w0, w1), ones), xor(sub(w0, w1), ones))	-	0
+take	3	nor(add(nor(w0, w0), w1), add(nor(w0, w0), w1))	-	0
+take	3	add(w0, sub(w0, add(w0, w1)))	-	0
+take	3	nor(zero, add(nor(w0, w0), w1))	-	0
+take	3	sub(nor(w1, ones), sub(w1, w0))	-	0
+take	3	xor(ones, add(w1, nor(w0, w0)))	-	0
+take	3	sub(not(w1), nor(w0, w0))	-	0
+take	3	not(sub(w1, sub(w0, ones)))	-	0
+take	3	sub(w0, nand(sub(ones, w1), sub(ones, w1)))	-	0
+take	3	sub(w0, xor(ones, nand(w1, ones)))	-	0
+take	3	add(w0, sub(xor(w1, w1), w1))	-	0
+take	3	sub(nor(w1, zero), nor(w0, w0))	-	0
+take	3	sub(nor(zero, nand(ones, w0)), w1)	-	0
+take	3	add(nor(add(ones, w1), zero), w0)	-	0
+take	3	sub(nand(ones, w1), nand(w0, w0))	-	0
+take	3	nor(add(w1, sub(ones, w0)), zero)	-	0
+take	3	add(sub(not(w1), ones), w0)	-	0
+take	3	nand(add(w1, nor(w0, w0)), add(w1, nor(w0, w0)))	-	0
+take	3	nand(xor(ones, sub(w0, w1)), ones)	-	0
+take	3	sub(not(w1), xor(ones, w0))	-	0
+take	3	sub(nor(zero, nor(w0, zero)), w1)	-	0
+take	3	sub(sub(ones, w1), nor(zero, w0))	-	0
+take	3	xor(add(w1, nand(w0, w0)), ones)	-	0
+take	3	sub(w0, nand(xor(w1, ones), xor(w1, ones)))	-	0
+take	3	sub(xor(ones, w1), xor(w0, ones))	-	0
+take	3	sub(ones, nand(sub(w0, w1), ones))	-	0
+take	3	sub(nand(w1, ones), nor(zero, w0))	-	0
+take	3	sub(nor(w1, w1), sub(ones, w0))	-	0
+take	3	sub(nand(xor(w0, ones), ones), w1)	-	0
+take	3	sub(not(w1), nor(w0, w0))	-	0
+take	3	add(sub(nand(ones, w1), ones), w0)	-	0
+take	3	sub(xor(sub(w1, w0), ones), ones)	-	0
+take	3	nand(add(nand(w0, w0), w1), ones)	-	0
+take	3	sub(sub(ones, w1), xor(w0, ones))	-	0
+take	3	sub(nand(nand(ones, w0), ones), w1)	-	0
+take	3	add(sub(nor(w0, ones), w1), w0)	-	0
+take	3	sub(add(w0, nor(w1, zero)), ones)	-	0
+take	3	sub(nand(w1, ones), nor(w0, w0))	-	0
+take	3	xor(add(w1, nor(w0, w0)), ones)	-	0
+take	3	sub(nor(nand(w0, ones), nand(w0, ones)), w1)	-	0
+take	3	not(add(w1, nor(w0, w0)))	-	0
+take	3	nand(ones, nor(zero, sub(w0, w1)))	-	0
+take	3	add(sub(nor(ones, w1), w1), w0)	-	0
+take	3	sub(w0, nand(nor(w1, zero), ones))	-	0
+take	3	sub(sub(ones, nor(w0, zero)), w1)	-	0
+take	3	nor(add(w1, nand(w0, ones)), add(w1, nand(w0, ones)))	-	0
+take	3	sub(nand(ones, nand(ones, w0)), w1)	-	0
+take	3	add(w0, sub(w0, add(w1, w0)))	-	0
+take	3	nor(add(w1, nand(w0, w0)), zero)	-	0
+take	3	sub(w0, xor(not(w1), ones))	-	0
+take	3	nor(not(sub(w0, w1)), not(sub(w0, w1)))	-	0
+take	3	sub(nand(w1, w1), xor(ones, w0))	-	0
+take	3	rol(ror(sub(w0, w1), w0), w0)	-	0
+take	3	nor(zero, nand(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	sub(nand(w1, ones), xor(w0, ones))	-	0
+take	3	nand(sub(w1, sub(w0, ones)), sub(w1, sub(w0, ones)))	-	0
+take	3	sub(add(nor(w1, zero), w0), ones)	-	0
+take	3	add(ones, sub(w0, add(w1, ones)))	-	0
+take	3	sub(w0, nor(nand(w1, ones), nand(w1, ones)))	-	0
+take	3	sub(w0, nand(ones, not(w1)))	-	0
+take	3	sub(sub(ones, nor(zero, w0)), w1)	-	0
+take	3	sub(nor(zero, w1), sub(ones, w0))	-	0
+take	3	xor(add(not(w0), w1), ones)	-	0
+take	3	sub(w1, sub(w1, sub(w0, w1)))	-	0
+take	3	sub(not(w1), nor(w0, zero))	-	0
+take	3	nor(nor(zero, sub(w0, w1)), zero)	-	0
+take	3	nand(add(nand(w0, ones), w1), ones)	-	0
+take	3	nor(zero, add(w1, nand(ones, w0)))	-	0
+take	3	sub(xor(ones, w1), sub(ones, w0))	-	0
+take	3	sub(sub(ones, nor(w0, w0)), w1)	-	0
+take	3	add(sub(w0, ones), sub(ones, w1))	-	0
+take	3	nor(add(w1, nor(zero, w0)), zero)	-	0
+take	3	add(w0, sub(nand(ones, w1), ones))	-	0
+take	3	sub(w0, nand(nand(w1, w1), ones))	-	0
+take	3	nor(add(not(w0), w1), zero)	-	0
+take	3	sub(nor(zero, w1), xor(ones, w0))	-	0
+take	3	sub(not(w1), nand(w0, ones))	-	0
+take	3	nor(add(w1, nor(w0, w0)), zero)	-	0
+take	3	nor(sub(ones, sub(w0, w1)), zero)	-	0
+take	3	nand(sub(ones, sub(w0, w1)), ones)	-	0
+take	3	sub(nor(zero, w1), xor(w0, ones))	-	0
+take	3	sub(w0, nand(nor(zero, w1), ones))	-	0
+take	3	sub(nand(w1, w1), xor(w0, ones))	-	0
+take	3	not(nor(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	xor(ones, nor(sub(w0, w1), zero))	-	0
+take	3	not(add(nand(ones, w0), w1))	-	0
+take	3	nand(ones, add(w1, nand(w0, ones)))	-	0
+take	3	xor(sub(ones, sub(w0, w1)), ones)	-	0
+take	3	sub(nor(zero, w1), xor(w0, ones))	-	0
+take	3	sub(sub(ones, w1), nand(w0, ones))	-	0
+take	3	sub(sub(ones, sub(w1, w0)), ones)	-	0
+take	3	sub(nand(nor(w0, w0), ones), w1)	-	0
+take	3	sub(sub(w1, w1), sub(w1, w0))	-	0
+take	3	sub(w0, xor(ones, not(w1)))	-	0
+take	3	nor(add(w1, nand(w0, ones)), zero)	-	0
+take	3	sub(xor(w1, ones), nand(w0, ones))	-	0
+take	3	xor(w0, xor(sub(w0, w1), w0))	-	0
+take	3	sub(xor(ones, w1), nand(w0, ones))	-	0
+take	3	sub(add(w0, xor(ones, w1)), ones)	-	0
+take	3	sub(not(w1), xor(w0, ones))	-	0
+take	3	add(w1, sub(sub(w0, w1), w1))	-	0
+take	3	sub(nor(w1, zero), xor(w0, ones))	-	0
+take	3	add(sub(w0, ones), sub(ones, w1))	-	0
+take	3	add(not(w1), sub(w0, ones))	-	0
+take	3	sub(nor(ones, w0), sub(w1, w0))	-	0
+take	3	sub(w0, xor(nand(w1, w1), ones))	-	0
+take	3	add(w0, nor(add(ones, w1), zero))	-	0
+take	3	add(nor(add(w1, ones), add(w1, ones)), w0)	-	0
+take	3	sub(nor(w1, w1), xor(w0, ones))	-	0
+take	3	sub(xor(w1, ones), nand(ones, w0))	-	0
+take	3	sub(ones, add(w1, xor(w0, ones)))	-	0
+take	3	sub(add(sub(w0, ones), ones), w1)	-	0
+take	3	sub(w0, sub(ones, xor(ones, w1)))	-	0
+take	3	sub(nand(nand(w0, ones), ones), w1)	-	0
+take	3	sub(ones, nand(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	sub(ones, add(w1, nor(zero, w0)))	-	0
+take	3	sub(sub(ones, w1), nor(zero, w0))	-	0
+take	3	xor(add(w1, nor(w0, zero)), ones)	-	0
+take	3	nand(not(sub(w0, w1)), not(sub(w0, w1)))	-	0
+take	3	sub(nor(w1, w1), nand(w0, ones))	-	0
+take	3	xor(ones, add(sub(w1, w0), ones))	-	0
+take	3	nor(zero, add(w1, sub(ones, w0)))	-	0
+take	3	sub(w0, xor(xor(w1, w0), w0))	-	0
+take	3	add(nor(w1, zero), sub(w0, ones))	-	0
+take	3	add(w0, sub(nor(ones, w0), w1))	-	0
+take	3	nor(zero, nand(sub(w0, w1), ones))	-	0
+take	3	nor(nand(sub(w0, w1), ones), nand(sub(w0, w1), ones))	-	0
+take	3	nand(add(nor(w0, w0), w1), ones)	-	0
+take	3	add(w0, sub(ones, add(w1, ones)))	-	0
+take	3	sub(sub(zero, sub(zero, w0)), w1)	-	0
+take	3	nand(not(sub(w0, w1)), ones)	-	0
+take	3	sub(nor(zero, w1), nor(w0, w0))	-	0
+take	3	nor(zero, add(nand(w0, ones), w1))	-	0
+take	3	xor(add(xor(w0, ones), w1), ones)	-	0
+take	3	add(nand(ones, add(ones, w1)), w0)	-	0
+take	3	sub(nand(nand(w0, w0), ones), w1)	-	0
+take	3	sub(nand(w1, ones), nand(w0, ones))	-	0
+take	3	sub(ones, not(sub(w0, w1)))	-	0
+take	3	add(sub(w0, ones), xor(w1, ones))	-	0
+take	3	xor(add(sub(ones, w0), w1), ones)	-	0
+take	3	sub(w0, nor(nor(zero, w1), zero))	-	0
+take	3	sub(add(ones, sub(w0, w1)), ones)	-	0
+take	3	xor(add(sub(w1, w0), ones), ones)	-	0
+take	3	sub(xor(ones, w1), nor(w0, w0))	-	0
+take	3	sub(nor(w1, w1), nand(w0, w0))	-	0
+take	3	sub(xor(ones, nor(w0, w0)), w1)	-	0
+take	3	nand(add(w1, nand(ones, w0)), ones)	-	0
+take	3	nand(add(nor(zero, w0), w1), add(nor(zero, w0), w1))	-	0
+take	3	add(w1, sub(w0, add(w1, w1)))	-	0
+take	3	sub(sub(ones, w1), nor(w0, zero))	-	0
+take	3	sub(sub(add(ones, w0), w1), ones)	-	0
+take	3	sub(nand(sub(ones, w0), sub(ones, w0)), w1)	-	0
+take	3	add(xor(ones, w1), sub(w0, ones))	-	0
+take	3	sub(xor(w1, ones), xor(w0, ones))	-	0
+take	3	add(nand(ones, w1), sub(w0, ones))	-	0
+take	3	xor(w1, xor(sub(w0, w1), w1))	-	0
+take	3	sub(w0, nand(ones, nor(w1, w1)))	-	0
+take	3	xor(ones, add(w1, nor(w0, zero)))	-	0
+take	3	sub(sub(add(w0, ones), ones), w1)	-	0
+take	3	sub(w0, nor(zero, xor(w1, ones)))	-	0
+take	3	sub(xor(w1, ones), not(w0))	-	0
+take	3	sub(xor(nand(ones, w0), ones), w1)	-	0
+take	3	add(sub(w0, ones), xor(ones, w1))	-	0
+take	3	add(sub(sub(ones, ones), w1), w0)	-	0
+take	3	xor(add(nor(w0, w0), w1), ones)	-	0
+take	3	xor(w1, xor(w1, sub(w0, w1)))	-	0
+take	3	sub(w0, xor(xor(w1, ones), ones))	-	0
+take	3	add(xor(w1, ones), sub(w0, ones))	-	0
+take	3	add(w0, sub(not(w1), ones))	-	0
+take	3	sub(nor(nor(w0, w0), nor(w0, w0)), w1)	-	0
+take	3	sub(add(w1, w0), add(w1, w1))	-	0
+take	3	rol(ror(sub(w0, w1), ones), ones)	-	0
+take	3	add(w0, nor(add(w1, ones), zero))	-	0
+take	3	sub(w0, nand(not(w1), ones))	-	0
+take	3	xor(ones, add(w1, xor(ones, w0)))	-	0
+take	3	add(w0, nand(add(w1, ones), add(w1, ones)))	-	0
+take	3	xor(ones, add(w1, not(w0)))	-	0
+take	3	nand(ones, nand(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	add(not(add(w1, ones)), w0)	-	0
+take	3	sub(w0, sub(w0, sub(w0, w1)))	-	0
+take	3	nor(add(xor(ones, w0), w1), add(xor(ones, w0), w1))	-	0
+take	3	sub(ones, xor(ones, sub(w0, w1)))	-	0
+take	3	sub(w0, xor(ones, xor(w1, ones)))	-	0
+take	3	sub(sub(ones, w1), nand(ones, w0))	-	0
+take	3	nor(nand(ones, sub(w0, w1)), zero)	-	0
+take	3	sub(not(ones), sub(w1, w0))	-	0
+take	3	nand(nor(sub(w0, w1), zero), ones)	-	0
+take	3	sub(not(w1), nand(ones, w0))	-	0
+take	3	not(add(w1, nand(w0, ones)))	-	0
+take	3	sub(nor(w1, zero), xor(ones, w0))	-	0
+take	3	nor(add(nand(ones, w0), w1), zero)	-	0
+take	3	sub(xor(w1, ones), nor(w0, w0))	-	0
+take	3	sub(sub(ones, w1), nand(w0, w0))	-	0
+take	3	sub(nor(w1, w1), nand(ones, w0))	-	0
+take	3	add(w0, nor(add(ones, w1), add(ones, w1)))	-	0
+take	3	sub(xor(w1, ones), xor(ones, w0))	-	0
+take	3	sub(nand(w1, ones), nor(w0, zero))	-	0
+take	3	sub(nand(ones, sub(w1, w0)), ones)	-	0
+take	3	sub(xor(w1, ones), nor(w0, zero))	-	0
+take	3	add(sub(ones, add(w1, ones)), w0)	-	0
+take	3	add(sub(ones, w1), sub(w0, ones))	-	0
+take	3	add(sub(w0, add(w1, w0)), w0)	-	0
+take	3	sub(add(ones, sub(w0, ones)), w1)	-	0
+take	3	not(add(w1, nor(zero, w0)))	-	0
+take	3	sub(w0, sub(ones, nor(zero, w1)))	-	0
+take	3	add(sub(w0, ones), nor(w1, zero))	-	0
+take	3	sub(not(w1), nand(ones, w0))	-	0
+take	3	nand(add(w1, nor(w0, zero)), ones)	-	0
+take	3	nor(add(not(w0), w1), add(not(w0), w1))	-	0
+take	3	sub(w0, nor(zero, xor(ones, w1)))	-	0
+take	3	sub(w0, nor(zero, nor(w1, w1)))	-	0
+take	3	sub(w0, nor(sub(ones, w1), zero))	-	0
+take	3	add(sub(w0, ones), xor(w1, ones))	-	0
+take	3	nand(ones, add(w1, nand(w0, w0)))	-	0
+take	3	sub(add(w0, w0), add(w1, w0))	-	0
+take	3	add(w0, xor(ones, add(w1, ones)))	-	0
+take	1	sub(w0, w1)	-	0
+take	3	sub(nor(w1, w1), xor(w0, ones))	-	0
+take	3	sub(nor(nor(zero, w0), zero), w1)	-	0
+take	3	sub(w0, nand(nor(zero, w1), nor(zero, w1)))	-	0
+take	3	sub(nor(ones, w1), sub(w1, w0))	-	0
+take	3	add(sub(sub(w0, w1), w1), w1)	-	0
+take	3	nor(zero, add(not(w0), w1))	-	0
+take	3	nor(add(nor(w0, zero), w1), zero)	-	0
+take	3	nand(add(w1, nor(w0, w0)), ones)	-	0
+take	3	sub(sub(zero, w1), sub(zero, w0))	-	0
+take	3	sub(nand(ones, xor(w0, ones)), w1)	-	0
+take	3	nor(sub(add(w1, ones), w0), sub(add(w1, ones), w0))	-	0
+take	3	sub(nor(zero, nand(w0, ones)), w1)	-	0
+take	3	nand(ones, add(nor(w0, zero), w1))	-	0
+take	3	xor(ones, add(ones, sub(w1, w0)))	-	0
+take	3	sub(nand(w1, ones), nor(w0, zero))	-	0
+take	3	nand(add(w1, xor(ones, w0)), add(w1, xor(ones, w0)))	-	0
+take	3	nand(add(w1, nand(w0, ones)), add(w1, nand(w0, ones)))	-	0
+take	3	xor(add(w1, xor(ones, w0)), ones)	-	0
+take	3	sub(xor(nor(w0, zero), ones), w1)	-	0
+take	3	add(ones, sub(sub(w0, w1), ones))	-	0
+take	3	sub(nor(w1, w1), nand(w0, w0))	-	0
+take	3	nor(sub(w1, sub(w0, ones)), sub(w1, sub(w0, ones)))	-	0
+take	3	not(nor(zero, sub(w0, w1)))	-	0
+take	3	not(add(w1, nand(ones, w0)))	-	0
+take	3	add(w0, sub(not(ones), w1))	-	0
+take	3	sub(ones, add(w1, not(w0)))	-	0
+take	3	ror(rol(sub(w0, w1), w0), w0)	-	0
+take	3	nor(add(sub(ones, w0), w1), add(sub(ones, w0), w1))	-	0
+take	3	not(xor(sub(w0, w1), ones))	-	0
+take	3	not(add(w1, nor(w0, zero)))	-	0
+take	3	add(not(w1), sub(w0, ones))	-	0
+take	3	xor(ones, add(xor(ones, w0), w1))	-	0
+take	3	nor(add(nor(w0, zero), w1), add(nor(w0, zero), w1))	-	0
+take	3	sub(w0, not(xor(w1, ones)))	-	0
+take	3	xor(ones, add(w1, sub(ones, w0)))	-	0
+take	3	nor(add(sub(w1, w0), ones), add(sub(w1, w0), ones))	-	0
+take	3	sub(nor(zero, xor(w0, ones)), w1)	-	0
+take	3	xor(xor(w1, sub(w0, w1)), w1)	-	0
+take	3	nor(add(w1, nor(w0, zero)), zero)	-	0
+take	3	nand(ones, add(w1, sub(ones, w0)))	-	0
+take	3	sub(w0, nand(xor(ones, w1), ones))	-	0
+take	3	not(nor(sub(w0, w1), zero))	-	0
+take	3	add(w0, sub(sub(w0, w1), w0))	-	0
+take	3	sub(xor(w1, ones), xor(w0, ones))	-	0
+take	3	sub(nand(ones, xor(ones, w0)), w1)	-	0
+take	3	sub(w0, nand(nand(ones, w1), ones))	-	0
+take	3	add(nand(ones, add(w1, ones)), w0)	-	0
+take	3	sub(nand(ones, w1), nor(zero, w0))	-	0
+take	3	nand(nand(sub(w0, w1), sub(w0, w1)), ones)	-	0
+take	3	xor(ones, not(sub(w0, w1)))	-	0
+take	3	nand(add(xor(w0, ones), w1), ones)	-	0
+take	3	sub(sub(ones, w1), sub(ones, w0))	-	0
+take	3	sub(nor(w1, w1), not(w0))	-	0
+take	3	nand(add(nor(w0, zero), w1), add(nor(w0, zero), w1))	-	0
+take	3	add(xor(add(ones, w1), ones), w0)	-	0
+take	3	nor(add(xor(w0, ones), w1), zero)	-	0
+take	3	nor(sub(add(w1, ones), w0), zero)	-	0
+take	3	xor(add(nand(w0, ones), w1), ones)	-	0
+take	3	sub(sub(ones, ones), sub(w1, w0))	-	0
+take	3	not(xor(ones, sub(w0, w1)))	-	0
+take	3	not(nand(sub(w0, w1), ones))	-	0
+take	3	sub(add(nand(ones, w1), w0), ones)	-	0
+take	3	sub(w0, nor(xor(w1, ones), zero))	-	0
+take	3	nor(zero, add(w1, xor(ones, w0)))	-	0
+take	3	sub(sub(add(w0, w0), w1), w0)	-	0
+take	3	sub(not(nor(w0, zero)), w1)	-	0
+take	3	nor(add(xor(w0, ones), w1), add(xor(w0, ones), w1))	-	0
+take	3	sub(nor(zero, w1), nand(w0, ones))	-	0
+take	3	not(add(nor(w0, zero), w1))	-	0
+take	3	nand(ones, add(nor(zero, w0), w1))	-	0
+take	3	sub(not(w1), nor(zero, w0))	-	0
+take	3	nand(ones, sub(add(w1, ones), w0))	-	0
+take	3	sub(w0, xor(ones, xor(ones, w1)))	-	0
+take	3	nand(ones, add(nand(w0, w0), w1))	-	0
+take	3	add(w0, sub(nand(w1, w1), ones))	-	0
+take	3	sub(w0, nand(nand(w1, ones), nand(w1, ones)))	-	0
+take	3	sub(xor(ones, ones), sub(w1, w0))	-	0
+take	3	sub(xor(ones, w1), nand(w0, w0))	-	0
+take	3	sub(nand(ones, nor(w0, w0)), w1)	-	0
+take	3	add(sub(xor(ones, w1), ones), w0)	-	0
+take	3	sub(nor(w1, zero), nand(w0, ones))	-	0
+take	3	nor(add(w1, xor(w0, ones)), zero)	-	0
+take	3	sub(add(sub(w0, w1), ones), ones)	-	0
+take	3	sub(nand(w1, w1), nand(w0, ones))	-	0
+take	3	sub(nor(w1, zero), sub(ones, w0))	-	0
+take	3	sub(w0, nor(zero, sub(ones, w1)))	-	0
+take	3	sub(w0, sub(ones, nor(w1, w1)))	-	0
+take	3	sub(nor(w1, w1), nor(w0, zero))	-	0
+take	3	nor(zero, sub(add(ones, w1), w0))	-	0
+take	3	sub(w0, nand(nand(ones, w1), nand(ones, w1)))	-	0
+take	3	sub(w0, nand(nor(w1, zero), nor(w1, zero)))	-	0
+take	3	sub(xor(w1, w1), sub(w1, w0))	-	0
+take	3	nor(add(w1, xor(ones, w0)), zero)	-	0
+take	3	nor(zero, sub(w1, sub(w0, ones)))	-	0
+take	3	sub(w0, nand(xor(ones, w1), xor(ones, w1)))	-	0
+take	3	sub(nand(ones, w1), nand(w0, ones))	-	0
+take	3	add(w0, nand(add(ones, w1), ones))	-	0
+take	3	sub(xor(w1, w1), sub(w1, w0))	-	0
+take	3	sub(w0, not(nor(zero, w1)))	-	0
+take	3	sub(w0, sub(add(ones, w1), ones))	-	0
+take	3	sub(sub(w1, sub(w1, w0)), w1)	-	0
+take	3	sub(xor(w1, ones), nor(w0, w0))	-	0
+take	3	add(sub(w0, add(w1, ones)), ones)	-	0
+take	3	sub(nand(xor(w0, ones), xor(w0, ones)), w1)	-	0
+take	3	sub(nor(w1, zero), nor(w0, zero))	-	0
+take	3	sub(nor(zero, w1), nor(w0, w0))	-	0
+take	3	sub(w0, nor(xor(w1, ones), xor(w1, ones)))	-	0
+take	3	nor(zero, add(w1, nand(w0, w0)))	-	0
+take	3	nand(add(ones, sub(w1, w0)), add(ones, sub(w1, w0)))	-	0
+take	3	add(nand(w1, ones), sub(w0, ones))	-	0
+take	3	sub(nor(zero, w1), nand(w0, ones))	-	0
+take	3	sub(zero, add(w1, sub(zero, w0)))	-	0
+take	3	sub(w0, xor(ones, sub(ones, w1)))	-	0
+take	3	sub(nor(zero, w1), not(w0))	-	0
+take	3	sub(w0, nor(zero, nor(w1, zero)))	-	0
+take	3	sub(nor(w1, zero), not(w0))	-	0
+take	3	sub(nand(sub(w1, w0), ones), ones)	-	0
+take	3	nor(xor(sub(w0, w1), ones), xor(sub(w0, w1), ones))	-	0
+take	3	add(w0, sub(nor(w0, ones), w1))	-	0
+take	3	sub(nand(ones, w1), nor(zero, w0))	-	0
+take	3	nand(add(xor(ones, w0), w1), add(xor(ones, w0), w1))	-	0
+take	3	sub(w0, xor(nor(w1, zero), ones))	-	0
+take	3	add(w0, nor(zero, add(ones, w1)))	-	0
+take	3	add(xor(ones, add(w1, ones)), w0)	-	0
+take	3	add(w0, nand(add(w1, ones), ones))	-	0
+take	3	sub(xor(w1, ones), nand(w0, w0))	-	0
+take	3	sub(xor(ones, w1), nand(ones, w0))	-	0
+take	3	sub(w0, nand(ones, nand(w1, w1)))	-	0
+take	3	sub(add(w0, ones), add(ones, w1))	-	0
+take	3	sub(xor(w1, ones), nand(w0, w0))	-	0
+take	3	add(sub(w0, ones), nor(w1, w1))	-	0
+take	3	sub(nand(ones, nor(zero, w0)), w1)	-	0
+take	3	sub(ones, add(sub(ones, w0), w1))	-	0
+take	2	add(sub(zero, w1), w0)	-	0
+take	3	sub(w0, xor(nand(w1, ones), ones))	-	0
+take	3	nor(add(nand(w0, ones), w1), zero)	-	0
+take	3	sub(nor(nor(zero, w0), nor(zero, w0)), w1)	-	0
+take	3	sub(nor(xor(w0, ones), xor(w0, ones)), w1)	-	0
+take	3	sub(not(w1), nand(w0, w0))	-	0
+take	3	sub(xor(ones, nand(w0, ones)), w1)	-	0
+take	3	sub(nand(w1, ones), nand(ones, w0))	-	0
+take	3	sub(sub(ones, sub(ones, w0)), w1)	-	0
+take	3	add(nand(w1, ones), sub(w0, ones))	-	0
+take	3	sub(zero, sub(zero, sub(w0, w1)))	-	0
+take	3	sub(ones, add(nor(w0, w0), w1))	-	0
+take	3	add(nand(ones, w1), sub(w0, ones))	-	0
+take	3	nor(nor(sub(w0, w1), zero), zero)	-	0
+take	3	nor(zero, add(nor(zero, w0), w1))	-	0
+take	3	sub(ones, nor(sub(w0, w1), zero))	-	0
+take	3	sub(not(nand(ones, w0)), w1)	-	0
+take	3	sub(add(w0, w0), add(w0, w1))	-	0
+take	3	sub(ones, add(not(w0), w1))	-	0
+take	3	sub(nor(w1, ones), sub(w1, w0))	-	0
+take	3	sub(nor(zero, not(w0)), w1)	-	0
+take	3	not(add(not(w0), w1))	-	0
+take	3	sub(w1, add(w1, sub(w1, w0)))	-	0
+take	3	add(w0, sub(xor(ones, w1), ones))	-	0
+take	3	sub(ror(rol(w0, w1), w1), w1)	-	0
+take	3	sub(xor(ones, w1), xor(w0, ones))	-	0
+take	3	sub(add(ones, w0), add(ones, w1))	-	0
+take	3	add(sub(ones, add(ones, w1)), w0)	-	0
+take	3	sub(sub(w0, w0), sub(w1, w0))	-	0
+take	3	xor(add(ones, sub(w1, w0)), ones)	-	0
+take	3	xor(xor(w0, sub(w0, w1)), w0)	-	0
+take	3	sub(w0, rol(ror(w1, w0), w0))	-	0
+take	3	sub(nand(w1, w1), not(w0))	-	0
+take	3	sub(nor(not(w0), zero), w1)	-	0
+take	3	sub(nor(zero, w1), xor(ones, w0))	-	0
+take	3	add(ones, sub(w0, add(ones, w1)))	-	0
+take	3	sub(nor(zero, xor(ones, w0)), w1)	-	0
+take	3	add(sub(w0, add(w1, w1)), w1)	-	0
+take	3	sub(w0, nor(not(w1), zero))	-	0
+take	3	add(w0, sub(xor(w0, w0), w1))	-	0
+take	3	sub(xor(ones, xor(ones, w0)), w1)	-	0
+take	3	nor(sub(w1, sub(w0, ones)), zero)	-	0
+take	3	sub(not(w1), sub(ones, w0))	-	0
+take	3	ror(rol(sub(w0, w1), w1), w1)	-	0
+take	3	nand(xor(ones, sub(w0, w1)), xor(ones, sub(w0, w1)))	-	0
+take	3	add(sub(xor(ones, ones), w1), w0)	-	0
+take	3	sub(nor(w1, w1), nor(w0, zero))	-	0
+take	3	sub(nand(not(w0), ones), w1)	-	0
+take	3	sub(w0, sub(ones, xor(w1, ones)))	-	0
+take	3	sub(nor(zero, w1), nand(ones, w0))	-	0
+take	3	sub(w0, nand(xor(w1, ones), ones))	-	0
+take	3	sub(nand(ones, w1), not(w0))	-	0
+take	3	add(not(add(ones, w1)), w0)	-	0
+take	3	xor(ones, sub(ones, sub(w0, w1)))	-	0
+take	3	xor(sub(add(ones, w1), w0), ones)	-	0
+take	3	xor(nor(sub(w0, w1), sub(w0, w1)), ones)	-	0
+take	3	add(nor(zero, w1), sub(w0, ones))	-	0
+take	3	sub(nand(w1, w1), xor(w0, ones))	-	0
+take	3	sub(not(w1), not(w0))	-	0
+take	3	not(add(sub(w1, w0), ones))	-	0
+take	3	nor(add(nand(w0, ones), w1), add(nand(w0, ones), w1))	-	0
+take	3	sub(w0, nand(ones, nand(w1, ones)))	-	0
+take	3	not(add(w1, nand(w0, w0)))	-	0
+take	3	sub(xor(ones, w1), nand(w0, w0))	-	0
+take	3	nand(sub(add(w1, ones), w0), ones)	-	0
+take	3	sub(xor(w1, xor(w0, w1)), w1)	-	0
+take	3	sub(nand(ones, w1), sub(ones, w0))	-	0
+take	3	add(w0, sub(nor(ones, w1), w1))	-	0
+take	3	sub(not(w1), nor(zero, w0))	-	0
+take	3	sub(xor(ones, nor(zero, w0)), w1)	-	0
+take	3	nand(add(sub(w1, w0), ones), ones)	-	0
+take	3	sub(not(nor(zero, w0)), w1)	-	0
+take	3	sub(w0, nand(nand(w1, ones), ones))	-	0
+take	3	sub(w0, nor(not(w1), not(w1)))	-	0
+take	3	sub(w0, xor(ones, nor(w1, w1)))	-	0
+take	3	nor(add(sub(ones, w0), w1), zero)	-	0
+take	3	sub(nand(ones, w1), not(w0))	-	0
+take	3	sub(sub(w0, ones), sub(w1, ones))	-	0
+take	3	sub(nor(w1, w1), xor(ones, w0))	-	0
+take	3	sub(ones, add(w1, nand(w0, w0)))	-	0
+take	3	not(sub(ones, sub(w0, w1)))	-	0
+take	3	xor(add(nand(w0, w0), w1), ones)	-	0
+take	3	add(xor(ones, w1), sub(w0, ones))	-	0
+take	3	sub(w0, nand(sub(ones, w1), ones))	-	0
+take	3	not(add(xor(ones, w0), w1))	-	0
+take	3	add(w0, xor(add(ones, w1), ones))	-	0
+take	3	xor(add(w1, nor(zero, w0)), ones)	-	0
+take	3	nor(zero, add(w1, nor(w0, zero)))	-	0
+take	3	xor(add(nand(ones, w0), w1), ones)	-	0
+take	3	not(add(ones, sub(w1, w0)))	-	0
+take	3	nor(nand(sub(w0, w1), sub(w0, w1)), zero)	-	0
+take	3	sub(sub(w1, w0), add(sub(w1, w0), sub(w1, w0)))	-	0
+take	3	sub(sub(ones, nand(w0, ones)), w1)	-	0
+take	3	nor(add(xor(ones, w0), w1), zero)	-	0
+take	3	nand(add(w1, not(w0)), add(w1, not(w0)))	-	0
+take	3	sub(nand(w1, w1), nand(w0, w0))	-	0
+take	3	nand(ones, nand(sub(w0, w1), ones))	-	0
+take	3	sub(nor(sub(w1, w0), sub(w1, w0)), ones)	-	0
+take	3	nand(add(nand(w0, w0), w1), add(nand(w0, w0), w1))	-	0
+take	3	sub(w0, xor(nor(w1, w1), ones))	-	0
+take	3	sub(w0, nor(zero, nor(zero, w1)))	-	0
+take	3	nand(ones, xor(sub(w0, w1), ones))	-	0
+take	3	sub(xor(ones, sub(ones, w0)), w1)	-	0
+take	3	sub(nand(ones, w1), nand(ones, w0))	-	0
+take	3	sub(sub(ones, w1), not(w0))	-	0
+take	3	sub(ones, sub(add(ones, w1), w0))	-	0
+take	3	xor(add(w1, sub(ones, w0)), ones)	-	0
+take	3	add(sub(w0, ones), nand(w1, ones))	-	0
+take	3	sub(sub(add(w0, w1), w1), w1)	-	0
+take	3	sub(nand(w1, ones), nand(w0, ones))	-	0
+take	3	sub(xor(w1, ones), sub(ones, w0))	-	0
+take	3	sub(w0, nor(nor(w1, zero), zero))	-	0
+take	3	sub(add(w0, nor(zero, w1)), ones)	-	0
+take	3	sub(xor(ones, w1), sub(ones, w0))	-	0
+take	3	sub(add(w0, ones), add(w1, ones))	-	0
+take	3	sub(ones, add(nand(w0, w0), w1))	-	0
+take	3	sub(nor(w1, zero), nand(ones, w0))	-	0
+take	3	sub(ones, add(nand(w0, ones), w1))	-	0
+take	3	add(nand(w1, w1), sub(w0, ones))	-	0
+take	3	sub(sub(ones, w1), sub(ones, w0))	-	0
+take	3	nor(add(w1, nand(ones, w0)), zero)	-	0
+take	3	ror(rol(sub(w0, w1), ones), ones)	-	0
+take	3	sub(nand(w1, ones), nand(w0, w0))	-	0
+take	3	sub(w0, nand(ones, sub(ones, w1)))	-	0
+take	3	sub(nand(w1, ones), sub(ones, w0))	-	0
+take	3	sub(ror(rol(w0, ones), ones), w1)	-	0
+take	3	sub(nor(not(w0), not(w0)), w1)	-	0
+take	3	sub(nor(w1, w1), nor(zero, w0))	-	0
+take	3	nor(zero, add(w1, nor(zero, w0)))	-	0
+take	3	sub(w0, ror(rol(w1, ones), ones))	-	0
+take	3	sub(nand(w1, ones), nand(ones, w0))	-	0
+take	3	sub(xor(nand(w0, w0), ones), w1)	-	0
+take	3	nand(add(w1, not(w0)), ones)	-	0
+take	3	add(sub(w0, ones), nor(w1, w1))	-	0
+take	3	sub(xor(w1, xor(w1, w0)), w1)	-	0
+take	3	sub(xor(ones, not(w0)), w1)	-	0
+take	3	sub(w0, xor(sub(ones, w1), ones))	-	0
+take	3	sub(add(ones, w0), add(w1, ones))	-	0
+take	3	nand(sub(w1, sub(w0, ones)), ones)	-	0
+take	3	sub(add(w1, sub(w0, w1)), w1)	-	0
+take	3	sub(ones, sub(w1, sub(w0, ones)))	-	0
+take	3	sub(nand(ones, nand(w0, w0)), w1)	-	0
+take	3	add(sub(xor(w1, w1), w1), w0)	-	0
+take	3	sub(nor(sub(ones, w0), sub(ones, w0)), w1)	-	0
+take	3	sub(w0, sub(ones, not(w1)))	-	0
+take	3	sub(sub(add(w0, ones), w1), ones)	-	0
+take	3	add(w0, sub(nor(zero, w1), ones))	-	0
+take	3	add(nor(w1, w1), sub(w0, ones))	-	0
+take	3	nor(nor(sub(w0, w1), zero), nor(sub(w0, w1), zero))	-	0
+take	3	add(sub(nor(w1, ones), w1), w0)	-	0
+take	3	xor(ones, nor(sub(w0, w1), sub(w0, w1)))	-	0
+take	3	sub(nand(w1, w1), nor(w0, w0))	-	0
+take	3	not(sub(add(ones, w1), w0))	-	0
+take	3	xor(ones, add(w1, nand(ones, w0)))	-	0
+take	3	sub(w0, xor(w0, xor(w0, w1)))	-	0
+take	3	sub(w0, not(nand(w1, w1)))	-	0
+take	3	sub(nand(w1, w1), nand(ones, w0))	-	0
+take	3	sub(ones, add(w1, nor(w0, zero)))	-	0
+take	3	sub(nand(w1, ones), not(w0))	-	0
+take	3	sub(ones, add(nand(ones, w0), w1))	-	0
+take	3	sub(w0, nand(nand(w1, w1), nand(w1, w1)))	-	0
+take	3	xor(ones, add(w1, nand(w0, w0)))	-	0
+take	3	sub(nor(nand(ones, w0), zero), w1)	-	0
+take	3	sub(add(w1, w0), add(w1, w1))	-	0
+take	2	sub(zero, sub(w1, w0))	-	0
+take	3	sub(w0, nor(nor(w1, zero), nor(w1, zero)))	-	0
+take	3	nand(ones, add(w1, nand(ones, w0)))	-	0
+take	3	sub(add(not(w1), w0), ones)	-	0
+take	3	nand(add(nand(w0, ones), w1), add(nand(w0, ones), w1))	-	0
+take	3	nand(ones, add(w1, nor(w0, zero)))	-	0
+take	3	nand(add(nand(ones, w0), w1), ones)	-	0
+take	3	sub(not(ones), sub(w1, w0))	-	0
+take	3	add(w0, sub(sub(w1, w1), w1))	-	0
+take	3	sub(nor(w1, zero), nor(zero, w0))	-	0
+take	3	nor(add(w1, sub(ones, w0)), add(w1, sub(ones, w0)))	-	0
+take	3	sub(nand(ones, w1), nand(w0, w0))	-	0
+take	3	nand(add(xor(w0, ones), w1), add(xor(w0, ones), w1))	-	0
+take	3	nand(ones, add(nor(w0, w0), w1))	-	0
+take	3	sub(sub(w0, sub(w1, w0)), w0)	-	0
+take	3	sub(xor(nor(w0, w0), ones), w1)	-	0
+take	3	sub(nand(ones, not(w0)), w1)	-	0
+take	3	sub(w0, rol(ror(w1, ones), ones))	-	0
+take	3	sub(w0, xor(ones, nand(ones, w1)))	-	0
+take	3	nor(add(w1, xor(w0, ones)), add(w1, xor(w0, ones)))	-	0
+take	3	sub(nor(zero, w1), nand(ones, w0))	-	0
+take	3	sub(nor(zero, sub(w1, w0)), ones)	-	0
+take	3	sub(nand(ones, w1), xor(ones, w0))	-	0
+take	3	sub(add(nand(w1, ones), w0), ones)	-	0
+take	3	nor(add(w1, xor(ones, w0)), add(w1, xor(ones, w0)))	-	0
+take	3	add(sub(nor(ones, w0), w1), w0)	-	0
+take	3	sub(nor(zero, w1), nor(zero, w0))	-	0
+take	3	nand(add(nor(zero, w0), w1), ones)	-	0
+take	3	sub(add(w0, nor(w1, w1)), ones)	-	0
+take	3	sub(w0, sub(ones, nand(w1, ones)))	-	0
+take	3	xor(xor(sub(w0, w1), w1), w1)	-	0
+take	3	nand(ones, nor(sub(w0, w1), zero))	-	0
+take	3	sub(xor(nand(w0, ones), ones), w1)	-	0
+take	3	sub(add(xor(ones, w1), w0), ones)	-	0
+take	3	add(sub(ones, w1), sub(w0, ones))	-	0
+take	3	sub(w0, nand(nor(w1, w1), ones))	-	0
+take	3	sub(w0, add(w0, sub(w1, w0)))	-	0
+take	3	add(w0, sub(nor(w1, w1), ones))	-	0
+up	3	shl(nand(ones, nand(w0, ones)), w1)	-	0
+up	3	shl(w0, rol(ror(w1, ones), ones))	-	0
+up	3	shl(w0, nand(sub(ones, w1), sub(ones, w1)))	-	0
+up	3	shl(w0, rol(ror(w1, w0), w0))	-	0
+up	3	not(xor(shl(w0, w1), ones))	-	0
+up	3	add(w1, sub(shl(w0, w1), w1))	-	0
+up	3	shl(nor(nor(zero, w0), zero), w1)	-	0
+up	3	xor(sub(ones, shl(w0, w1)), ones)	-	0
+up	3	shl(xor(ones, nor(zero, w0)), w1)	-	0
+up	3	shl(nor(nand(w0, w0), zero), w1)	-	0
+up	3	shl(w0, sub(ones, nor(w1, zero)))	-	0
+up	3	shl(nand(not(w0), ones), w1)	-	0
+up	3	shl(xor(nand(w0, w0), ones), w1)	-	0
+up	3	shl(sub(zero, sub(zero, w0)), w1)	-	0
+up	3	shl(w0, xor(nand(ones, w1), ones))	-	0
+up	3	ror(rol(shl(w0, w1), ones), ones)	-	0
+up	3	shl(w0, nand(ones, nor(zero, w1)))	-	0
+up	3	sub(add(ones, shl(w0, w1)), ones)	-	0
+up	3	shl(w0, xor(ones, sub(ones, w1)))	-	0
+up	3	xor(ones, nand(shl(w0, w1), ones))	-	0
+up	3	shl(w0, xor(nor(w1, w1), ones))	-	0
+up	3	rol(ror(shl(w0, w1), w1), w1)	-	0
+up	3	shl(w0, xor(xor(w0, w1), w0))	-	0
+up	3	shl(nor(sub(ones, w0), sub(ones, w0)), w1)	-	0
+up	1	shl(w0, w1)	-	0
+up	3	xor(ones, sub(ones, shl(w0, w1)))	-	0
+up	3	shl(w0, xor(nor(zero, w1), ones))	-	0
+up	3	nor(xor(shl(w0, w1), ones), xor(shl(w0, w1), ones))	-	0
+up	3	nor(xor(shl(w0, w1), ones), zero)	-	0
+up	3	sub(ones, sub(ones, shl(w0, w1)))	-	0
+up	3	shl(w0, sub(add(w1, ones), ones))	-	0
+up	3	shl(or(w0, shl(w1, ones)), w1)	-	0
+up	3	nand(not(shl(w0, w1)), ones)	-	0
+up	3	shl(rol(ror(w0, w1), w1), w1)	-	0
+up	3	shl(w0, nor(zero, xor(w1, ones)))	-	0
+up	3	shl(shr(shl(w0, w1), w1), w1)	-	0
+up	3	shl(nand(ones, nor(zero, w0)), w1)	-	0
+up	3	xor(ones, nor(shl(w0, w1), zero))	-	0
+up	3	shl(w0, add(w1, shl(ones, ones)))	-	0
+up	3	nor(zero, nand(shl(w0, w1), ones))	-	0
+up	3	shl(w0, nor(zero, nor(zero, w1)))	-	0
+up	3	xor(ones, nand(ones, shl(w0, w1)))	-	0
+up	3	shl(w0, nand(nor(zero, w1), nor(zero, w1)))	-	0
+up	3	shl(sub(ones, nor(w0, w0)), w1)	-	0
+up	3	shl(w0, xor(w1, shl(ones, ones)))	-	0
+up	3	shl(w0, nor(sub(ones, w1), zero))	-	0
+up	3	shl(nor(nor(w0, w0), zero), w1)	-	0
+up	3	shl(nand(xor(ones, w0), xor(ones, w0)), w1)	-	0
+up	3	shl(w0, nor(zero, nand(w1, ones)))	-	0
+up	3	xor(nand(ones, shl(w0, w1)), ones)	-	0
+up	3	nor(nor(zero, shl(w0, w1)), zero)	-	0
+up	3	nor(sub(ones, shl(w0, w1)), zero)	-	0
+up	3	shl(w0, nor(nor(zero, w1), nor(zero, w1)))	-	0
+up	3	nand(nor(shl(w0, w1), shl(w0, w1)), nor(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	shl(nand(ones, xor(ones, w0)), w1)	-	0
+up	3	shl(w0, nor(not(w1), not(w1)))	-	0
+up	3	shl(nor(zero, nor(w0, zero)), w1)	-	0
+up	3	shl(add(w0, shl(w1, ones)), w1)	-	0
+up	3	add(sub(shl(w0, w1), ones), ones)	-	0
+up	3	nor(zero, xor(shl(w0, w1), ones))	-	0
+up	3	nor(nand(shl(w0, w1), ones), zero)	-	0
+up	3	nor(zero, nand(ones, shl(w0, w1)))	-	0
+up	3	shl(w0, nor(zero, nor(w1, w1)))	-	0
+up	3	sub(ones, nand(ones, shl(w0, w1)))	-	0
+up	3	shl(nor(sub(ones, w0), zero), w1)	-	0
+up	3	shl(asr(rol(w0, w1), w1), w1)	-	0
+up	3	shl(w0, nor(nand(w1, ones), nand(w1, ones)))	-	0
+up	3	shl(not(not(w0)), w1)	-	0
+up	3	nand(nor(shl(w0, w1), zero), ones)	-	0
+up	3	shl(ror(shl(w0, w1), w1), w1)	-	0
+up	3	nor(nor(shl(w0, w1), zero), zero)	-	0
+up	3	shl(shr(rol(w0, w1), w1), w1)	-	0
+up	3	nor(nand(ones, shl(w0, w1)), nand(ones, shl(w0, w1)))	-	0
+up	3	nand(xor(shl(w0, w1), ones), ones)	-	0
+up	3	shl(w0, nor(zero, not(w1)))	-	0
+up	3	add(ones, sub(shl(w0, w1), ones))	-	0
+up	3	add(sub(shl(w0, w1), w1), w1)	-	0
+up	3	shl(w0, xor(ones, xor(w1, ones)))	-	0
+up	3	sub(ones, nor(zero, shl(w0, w1)))	-	0
+up	3	shl(xor(nand(w0, ones), ones), w1)	-	0
+up	3	shl(rol(ror(w0, ones), ones), w1)	-	0
+up	3	shl(w0, sub(w0, sub(w0, w1)))	-	0
+up	3	shl(w0, or(shl(ones, ones), w1))	-	0
+up	3	xor(nor(shl(w0, w1), zero), ones)	-	0
+up	3	shl(w0, sub(w1, shl(w1, ones)))	-	0
+up	3	add(sub(shl(w0, w1), w0), w0)	-	0
+up	3	nor(not(shl(w0, w1)), not(shl(w0, w1)))	-	0
+up	3	shl(w0, nand(ones, nor(w1, w1)))	-	0
+up	3	shl(nor(xor(w0, ones), xor(w0, ones)), w1)	-	0
+up	3	rol(and(w0, shr(ones, w1)), w1)	-	0
+up	3	nor(nand(shl(w0, w1), shl(w0, w1)), nand(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	rol(shr(rol(w0, w1), w1), w1)	-	0
+up	3	xor(xor(shl(w0, w1), ones), ones)	-	0
+up	3	nand(nor(zero, shl(w0, w1)), nor(zero, shl(w0, w1)))	-	0
+up	3	shl(nor(zero, nor(zero, w0)), w1)	-	0
+up	3	nor(nand(shl(w0, w1), shl(w0, w1)), zero)	-	0
+up	3	shl(w0, nor(not(w1), zero))	-	0
+up	3	shl(xor(xor(w0, w1), w1), w1)	-	0
+up	3	shl(w0, nor(sub(ones, w1), sub(ones, w1)))	-	0
+up	3	shl(w0, not(nand(w1, ones)))	-	0
+up	3	nand(xor(shl(w0, w1), ones), xor(shl(w0, w1), ones))	-	0
+up	3	shl(w0, or(shl(w1, ones), w1))	-	0
+up	3	shl(w0, not(nor(w1, w1)))	-	0
+up	3	not(nor(zero, shl(w0, w1)))	-	0
+up	3	shl(nor(nor(w0, zero), zero), w1)	-	0
+up	3	shl(w0, xor(shl(w0, ones), w1))	-	0
+up	3	sub(ones, xor(shl(w0, w1), ones))	-	0
+up	3	shl(nor(zero, nand(w0, ones)), w1)	-	0
+up	3	shl(add(shl(w1, ones), w0), w1)	-	0
+up	3	shl(w0, nand(ones, sub(ones, w1)))	-	0
+up	3	shl(nor(nand(w0, ones), zero), w1)	-	0
+up	3	shl(ror(rol(w0, w1), w1), w1)	-	0
+up	3	shl(w0, nand(nand(w1, ones), ones))	-	0
+up	3	shl(w0, nand(ones, nand(w1, ones)))	-	0
+up	3	nand(sub(ones, shl(w0, w1)), sub(ones, shl(w0, w1)))	-	0
+up	3	nand(nand(shl(w0, w1), ones), ones)	-	0
+up	3	shl(xor(xor(w0, ones), ones), w1)	-	0
+up	3	shl(w0, nand(ones, nand(ones, w1)))	-	0
+up	3	nor(zero, sub(ones, shl(w0, w1)))	-	0
+up	3	shl(nor(xor(ones, w0), zero), w1)	-	0
+up	3	xor(ones, nor(zero, shl(w0, w1)))	-	0
+up	3	not(sub(ones, shl(w0, w1)))	-	0
+up	3	sub(add(shl(w0, w1), w1), w1)	-	0
+up	3	shl(w0, add(w1, shl(w0, ones)))	-	0
+up	3	shl(w0, xor(w0, xor(w0, w1)))	-	0
+up	3	shl(nand(nand(ones, w0), nand(ones, w0)), w1)	-	0
+up	3	shl(w0, nand(nor(zero, w1), ones))	-	0
+up	3	shl(w0, not(not(w1)))	-	0
+up	3	shl(w0, add(ones, sub(w1, ones)))	-	0
+up	3	shl(nand(nor(zero, w0), nor(zero, w0)), w1)	-	0
+up	3	xor(xor(ones, shl(w0, w1)), ones)	-	0
+up	3	nand(nor(zero, shl(w0, w1)), ones)	-	0
+up	3	nand(ones, nor(shl(w0, w1), zero))	-	0
+up	3	shl(nand(nand(w0, ones), ones), w1)	-	0
+up	3	shl(sub(ones, nand(w0, ones)), w1)	-	0
+up	3	add(w0, sub(shl(w0, w1), w0))	-	0
+up	3	shl(xor(nor(zero, w0), ones), w1)	-	0
+up	3	xor(xor(shl(w0, w1), w0), w0)	-	0
+up	3	nor(zero, nor(zero, shl(w0, w1)))	-	0
+up	3	not(nand(shl(w0, w1), ones))	-	0
+up	3	sub(ones, nor(shl(w0, w1), zero))	-	0
+up	3	shl(w0, nor(zero, nand(w1, w1)))	-	0
+up	3	shl(nand(not(w0), not(w0)), w1)	-	0
+up	3	shl(w0, or(w1, shl(w0, ones)))	-	0
+up	3	not(nand(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	shl(w0, xor(xor(ones, w1), ones))	-	0
+up	3	shl(xor(shl(w1, ones), w0), w1)	-	0
+up	3	not(xor(ones, shl(w0, w1)))	-	0
+up	3	shl(not(nand(w0, ones)), w1)	-	0
+up	3	shl(nand(ones, nor(w0, zero)), w1)	-	0
+up	3	shl(w0, xor(nand(w1, w1), ones))	-	0
+up	3	shl(sub(ones, nor(zero, w0)), w1)	-	0
+up	3	not(not(shl(w0, w1)))	-	0
+up	3	shl(xor(xor(ones, w0), ones), w1)	-	0
+up	3	shl(nand(sub(ones, w0), ones), w1)	-	0
+up	3	shl(w0, nand(not(w1), not(w1)))	-	0
+up	3	shl(xor(ones, xor(w0, ones)), w1)	-	0
+up	3	shl(xor(xor(w1, w0), w1), w1)	-	0
+up	3	shl(w0, xor(ones, nand(w1, w1)))	-	0
+up	3	shl(sub(add(w0, ones), ones), w1)	-	0
+up	3	shl(add(ones, sub(w0, ones)), w1)	-	0
+up	3	shl(xor(ones, nand(w0, ones)), w1)	-	0
+up	3	xor(nand(shl(w0, w1), shl(w0, w1)), ones)	-	0
+up	3	ror(rol(shl(w0, w1), w1), w1)	-	0
+up	3	shl(w0, nand(nor(w1, zero), nor(w1, zero)))	-	0
+up	3	ror(rol(shl(w0, w1), w0), w0)	-	0
+up	3	shl(w0, sub(ones, sub(ones, w1)))	-	0
+up	3	not(nor(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	shl(w0, nor(xor(w1, ones), zero))	-	0
+up	3	nand(sub(ones, shl(w0, w1)), ones)	-	0
+up	3	xor(nor(zero, shl(w0, w1)), ones)	-	0
+up	3	shl(nand(nor(w0, w0), nor(w0, w0)), w1)	-	0
+up	3	shl(w0, nor(nand(w1, w1), nand(w1, w1)))	-	0
+up	3	shl(w0, nand(nand(w1, ones), nand(w1, ones)))	-	0
+up	3	xor(ones, nor(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	shl(w0, sub(add(w1, w0), w0))	-	0
+up	3	shl(xor(w0, shl(w1, ones)), w1)	-	0
+up	3	shl(w0, nor(nand(ones, w1), nand(ones, w1)))	-	0
+up	3	shl(w0, xor(ones, not(w1)))	-	0
+up	3	nand(ones, sub(ones, shl(w0, w1)))	-	0
+up	3	rol(shr(shl(w0, w1), w1), w1)	-	0
+up	3	shl(w0, sub(w1, shl(w0, ones)))	-	0
+up	3	xor(xor(w0, shl(w0, w1)), w0)	-	0
+up	3	shl(xor(ones, nor(w0, w0)), w1)	-	0
+up	3	shl(w0, nor(nand(ones, w1), zero))	-	0
+up	3	shl(w0, xor(ones, nand(ones, w1)))	-	0
+up	3	shl(nand(nand(w0, w0), ones), w1)	-	0
+up	3	shl(w0, nand(ones, nor(w1, zero)))	-	0
+up	3	shl(nor(nand(ones, w0), zero), w1)	-	0
+up	3	shl(w0, nand(not(w1), ones))	-	0
+up	3	sub(add(shl(w0, w1), ones), ones)	-	0
+up	3	shl(and(w0, shr(ones, w1)), w1)	-	0
+up	3	shl(w0, nand(xor(w1, ones), xor(w1, ones)))	-	0
+up	3	shl(nor(xor(ones, w0), xor(ones, w0)), w1)	-	0
+up	3	nor(zero, nand(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	shl(w0, add(shl(w0, ones), w1))	-	0
+up	3	shl(w0, nand(nand(ones, w1), nand(ones, w1)))	-	0
+up	3	shl(xor(nor(w0, w0), ones), w1)	-	0
+up	3	shl(w0, not(nor(zero, w1)))	-	0
+up	3	shl(w0, add(sub(w1, ones), ones))	-	0
+up	3	shl(w0, nand(ones, not(w1)))	-	0
+up	3	shl(nor(zero, xor(ones, w0)), w1)	-	0
+up	3	shl(w0, nand(ones, xor(w1, ones)))	-	0
+up	3	shl(w0, xor(nand(w1, ones), ones))	-	0
+up	3	nand(ones, xor(shl(w0, w1), ones))	-	0
+up	3	shl(sub(add(w1, w0), w1), w1)	-	0
+up	3	xor(w1, xor(shl(w0, w1), w1))	-	0
+up	3	shl(w0, xor(xor(w1, w0), w0))	-	0
+up	3	xor(not(shl(w0, w1)), ones)	-	0
+up	3	xor(ones, not(shl(w0, w1)))	-	0
+up	3	nand(xor(ones, shl(w0, w1)), xor(ones, shl(w0, w1)))	-	0
+up	3	shl(w0, add(w0, sub(w1, w0)))	-	0
+up	3	shl(w0, nor(zero, nand(ones, w1)))	-	0
+up	3	nand(ones, nand(shl(w0, w1), ones))	-	0
+up	3	shl(nand(ones, xor(w0, ones)), w1)	-	0
+up	3	shl(w0, not(nand(ones, w1)))	-	0
+up	3	shl(w0, rol(add(w1, w1), ones))	-	0
+up	3	shl(xor(ones, xor(ones, w0)), w1)	-	0
+up	3	shl(w0, nand(nand(w1, w1), nand(w1, w1)))	-	0
+up	3	sub(ones, nand(shl(w0, w1), ones))	-	0
+up	3	shl(sub(ones, not(w0)), w1)	-	0
+up	3	nor(nor(zero, shl(w0, w1)), nor(zero, shl(w0, w1)))	-	0
+up	3	xor(xor(shl(w0, w1), w1), w1)	-	0
+up	3	shl(w0, nor(nand(w1, w1), zero))	-	0
+up	3	nand(ones, not(shl(w0, w1)))	-	0
+up	3	nor(zero, nor(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	shl(and(shr(ones, w1), w0), w1)	-	0
+up	3	shl(nand(ones, nand(ones, w0)), w1)	-	0
+up	3	shl(w0, nand(nor(w1, w1), nor(w1, w1)))	-	0
+up	3	shl(w0, nand(ones, nand(w1, w1)))	-	0
+up	3	shl(w0, xor(ones, nor(w1, zero)))	-	0
+up	3	shl(not(nor(w0, w0)), w1)	-	0
+up	3	shl(nor(xor(w0, ones), zero), w1)	-	0
+up	3	shl(nor(zero, nor(w0, w0)), w1)	-	0
+up	3	shl(nand(ones, not(w0)), w1)	-	0
+up	3	sub(w0, sub(w0, shl(w0, w1)))	-	0
+up	3	shl(xor(ones, not(w0)), w1)	-	0
+up	3	shl(w0, xor(shl(ones, ones), w1))	-	0
+up	3	nand(nor(shl(w0, w1), zero), nor(shl(w0, w1), zero))	-	0
+up	3	nor(xor(ones, shl(w0, w1)), zero)	-	0
+up	3	sub(ones, nor(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	shl(w0, ror(rol(w1, ones), ones))	-	0
+up	3	shl(xor(ones, nor(w0, zero)), w1)	-	0
+up	3	shl(w0, or(w1, shl(ones, ones)))	-	0
+up	3	shl(xor(w1, xor(w0, w1)), w1)	-	0
+up	3	nor(zero, not(shl(w0, w1)))	-	0
+up	3	shl(w0, add(w1, shl(w1, ones)))	-	0
+up	3	shl(w0, or(w1, shl(w1, ones)))	-	0
+up	3	shl(w0, xor(xor(w1, ones), ones))	-	0
+up	3	and(shl(ones, w1), rol(w0, w1))	-	0
+up	3	shl(w0, or(shl(w0, ones), w1))	-	0
+up	3	nand(nand(shl(w0, w1), shl(w0, w1)), nand(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	shl(w0, xor(ones, nor(w1, w1)))	-	0
+up	3	nand(ones, nor(zero, shl(w0, w1)))	-	0
+up	3	shl(nand(nor(w0, w0), ones), w1)	-	0
+up	3	shl(w0, sub(ones, nand(w1, w1)))	-	0
+up	3	shl(w0, sub(ones, nand(ones, w1)))	-	0
+up	3	shl(not(nand(ones, w0)), w1)	-	0
+up	3	shl(sub(ones, nand(ones, w0)), w1)	-	0
+up	3	nor(nor(shl(w0, w1), shl(w0, w1)), zero)	-	0
+up	3	shl(not(nand(w0, w0)), w1)	-	0
+up	3	shl(w0, xor(shl(w1, ones), w1))	-	0
+up	3	nand(nor(shl(w0, w1), shl(w0, w1)), ones)	-	0
+up	3	shl(w0, nor(zero, sub(ones, w1)))	-	0
+up	3	shl(w0, sub(add(w0, w1), w0))	-	0
+up	3	nor(sub(ones, shl(w0, w1)), sub(ones, shl(w0, w1)))	-	0
+up	3	shl(w0, add(shl(w1, ones), w1))	-	0
+up	3	shl(w0, sub(ones, xor(ones, w1)))	-	0
+up	3	shl(sub(ones, nor(w0, zero)), w1)	-	0
+up	3	shl(w0, sub(ones, not(w1)))	-	0
+up	3	shl(add(sub(w0, ones), ones), w1)	-	0
+up	3	shl(w0, sub(ones, nor(w1, w1)))	-	0
+up	3	shl(sub(add(w0, w1), w1), w1)	-	0
+up	3	shl(w0, nand(nand(ones, w1), ones))	-	0
+up	3	rol(ror(shl(w0, w1), w0), w0)	-	0
+up	3	nor(zero, nor(shl(w0, w1), zero))	-	0
+up	3	shl(w0, nand(xor(ones, w1), xor(ones, w1)))	-	0
+up	3	shl(w0, not(xor(w1, ones)))	-	0
+up	3	xor(w0, xor(w0, shl(w0, w1)))	-	0
+up	3	shl(w0, sub(zero, sub(zero, w1)))	-	0
+up	3	xor(xor(w1, shl(w0, w1)), w1)	-	0
+up	3	sub(ones, nand(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	shl(w0, nand(xor(ones, w1), ones))	-	0
+up	3	nand(nand(shl(w0, w1), ones), nand(shl(w0, w1), ones))	-	0
+up	3	shl(or(shl(w1, ones), w0), w1)	-	0
+up	3	shl(nand(ones, nand(w0, w0)), w1)	-	0
+up	3	shl(nand(xor(w0, ones), ones), w1)	-	0
+up	3	shl(xor(ones, sub(ones, w0)), w1)	-	0
+up	3	nand(nand(shl(w0, w1), shl(w0, w1)), ones)	-	0
+up	3	shl(nor(zero, not(w0)), w1)	-	0
+up	3	and(rol(w0, w1), shl(ones, w1))	-	0
+up	3	shl(not(sub(ones, w0)), w1)	-	0
+up	3	shl(nand(ones, sub(ones, w0)), w1)	-	0
+up	3	shl(w0, nor(nor(w1, w1), zero))	-	0
+up	3	xor(ones, xor(ones, shl(w0, w1)))	-	0
+up	3	not(nor(shl(w0, w1), zero))	-	0
+up	3	sub(add(w0, shl(w0, w1)), w0)	-	0
+up	3	shl(w0, nor(xor(ones, w1), zero))	-	0
+up	3	shl(nand(nand(w0, w0), nand(w0, w0)), w1)	-	0
+up	3	sub(add(shl(w0, w1), w0), w0)	-	0
+up	3	shl(not(xor(w0, ones)), w1)	-	0
+up	3	shl(nor(not(w0), zero), w1)	-	0
+up	3	nand(nand(ones, shl(w0, w1)), nand(ones, shl(w0, w1)))	-	0
+up	3	shl(sub(ones, xor(ones, w0)), w1)	-	0
+up	3	shl(ror(rol(w0, ones), ones), w1)	-	0
+up	3	shl(sub(ones, sub(ones, w0)), w1)	-	0
+up	3	sub(zero, sub(zero, shl(w0, w1)))	-	0
+up	3	shl(nor(nand(ones, w0), nand(ones, w0)), w1)	-	0
+up	3	shl(sub(w1, sub(w1, w0)), w1)	-	0
+up	3	xor(w0, xor(shl(w0, w1), w0))	-	0
+up	3	shl(w0, xor(w1, shl(w0, ones)))	-	0
+up	3	nor(nor(shl(w0, w1), shl(w0, w1)), nor(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	nor(xor(ones, shl(w0, w1)), xor(ones, shl(w0, w1)))	-	0
+up	3	shl(xor(nor(w0, zero), ones), w1)	-	0
+up	3	shl(add(w1, sub(w0, w1)), w1)	-	0
+up	3	shl(w0, nor(zero, xor(ones, w1)))	-	0
+up	3	shl(w0, sub(add(ones, w1), ones))	-	0
+up	3	shl(nor(zero, sub(ones, w0)), w1)	-	0
+up	3	nand(ones, nand(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	shl(nor(nor(w0, zero), nor(w0, zero)), w1)	-	0
+up	3	shl(w0, nand(nor(w1, w1), ones))	-	0
+up	3	nor(not(shl(w0, w1)), zero)	-	0
+up	3	xor(w1, xor(w1, shl(w0, w1)))	-	0
+up	3	shl(not(nor(w0, zero)), w1)	-	0
+up	3	shl(sub(ones, nand(w0, w0)), w1)	-	0
+up	3	shl(nor(nor(zero, w0), nor(zero, w0)), w1)	-	0
+up	3	shl(xor(ones, nand(ones, w0)), w1)	-	0
+up	3	shl(nor(nor(w0, w0), nor(w0, w0)), w1)	-	0
+up	3	shl(w0, xor(ones, nor(zero, w1)))	-	0
+up	3	shl(nor(zero, nand(ones, w0)), w1)	-	0
+up	3	shl(xor(nand(ones, w0), ones), w1)	-	0
+up	3	nand(ones, nor(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	shl(nor(zero, nand(w0, w0)), w1)	-	0
+up	3	nor(nor(shl(w0, w1), zero), nor(shl(w0, w1), zero))	-	0
+up	3	and(rol(w0, w1), shl(ones, w1))	-	0
+up	3	shl(nor(nand(w0, ones), nand(w0, ones)), w1)	-	0
+up	3	shl(w0, not(nor(w1, zero)))	-	0
+up	3	shl(w0, nor(zero, nor(w1, zero)))	-	0
+up	3	xor(ones, xor(shl(w0, w1), ones))	-	0
+up	3	shl(w0, nand(nor(w1, zero), ones))	-	0
+up	3	nor(zero, xor(ones, shl(w0, w1)))	-	0
+up	3	shl(nor(not(w0), not(w0)), w1)	-	0
+up	3	shl(w0, add(shl(ones, ones), w1))	-	0
+up	3	nor(nand(shl(w0, w1), ones), nand(shl(w0, w1), ones))	-	0
+up	3	shl(w0, xor(sub(ones, w1), ones))	-	0
+up	3	shl(w0, xor(not(w1), ones))	-	0
+up	3	shl(sub(add(ones, w0), ones), w1)	-	0
+up	3	shl(xor(w1, xor(w1, w0)), w1)	-	0
+up	3	nand(ones, nand(ones, shl(w0, w1)))	-	0
+up	3	shl(asr(shl(w0, w1), w1), w1)	-	0
+up	3	shl(w0, xor(w0, xor(w1, w0)))	-	0
+up	3	shl(w0, nor(nor(w1, zero), zero))	-	0
+up	3	shl(not(nor(zero, w0)), w1)	-	0
+up	3	shl(w0, sub(ones, xor(w1, ones)))	-	0
+up	3	shl(w0, add(sub(w1, w0), w0))	-	0
+up	3	and(shl(ones, w1), rol(w0, w1))	-	0
+up	3	shl(nand(nor(w0, zero), ones), w1)	-	0
+up	3	nand(ones, xor(ones, shl(w0, w1)))	-	0
+up	3	shl(w0, sub(w1, shl(ones, ones)))	-	0
+up	3	shl(w0, not(sub(ones, w1)))	-	0
+up	3	nand(nand(ones, shl(w0, w1)), ones)	-	0
+up	3	xor(nand(shl(w0, w1), ones), ones)	-	0
+up	3	shl(w0, nor(nor(w1, zero), nor(w1, zero)))	-	0
+up	3	shl(w0, sub(ones, nand(w1, ones)))	-	0
+up	3	shl(w0, nor(nor(w1, w1), nor(w1, w1)))	-	0
+up	3	sub(w1, sub(w1, shl(w0, w1)))	-	0
+up	3	shl(nand(xor(ones, w0), ones), w1)	-	0
+up	3	shl(nand(nand(ones, w0), ones), w1)	-	0
+up	3	shl(w0, nor(xor(ones, w1), xor(ones, w1)))	-	0
+up	3	shl(nand(sub(ones, w0), sub(ones, w0)), w1)	-	0
+up	3	sub(zero, shl(sub(zero, w0), w1))	-	0
+up	3	shl(nand(ones, nor(w0, w0)), w1)	-	0
+up	3	shl(add(sub(w0, w1), w1), w1)	-	0
+up	3	shl(w0, xor(ones, xor(ones, w1)))	-	0
+up	3	sub(ones, not(shl(w0, w1)))	-	0
+up	3	shl(nor(nand(w0, w0), nand(w0, w0)), w1)	-	0
+up	3	shl(w0, nor(xor(w1, ones), xor(w1, ones)))	-	0
+up	3	shl(nand(xor(w0, ones), xor(w0, ones)), w1)	-	0
+up	3	xor(nor(shl(w0, w1), shl(w0, w1)), ones)	-	0
+up	3	shl(not(xor(ones, w0)), w1)	-	0
+up	3	shl(xor(not(w0), ones), w1)	-	0
+up	3	nand(xor(ones, shl(w0, w1)), ones)	-	0
+up	3	nand(not(shl(w0, w1)), not(shl(w0, w1)))	-	0
+up	3	shl(w0, not(nand(w1, w1)))	-	0
+up	3	xor(ones, nand(shl(w0, w1), shl(w0, w1)))	-	0
+up	3	shl(w0, nor(nand(w1, ones), zero))	-	0
+up	3	shl(w0, nor(nor(zero, w1), zero))	-	0
+up	3	shl(w0, xor(nor(w1, zero), ones))	-	0
+up	3	not(nand(ones, shl(w0, w1)))	-	0
+up	3	shl(nand(nor(w0, zero), nor(w0, zero)), w1)	-	0
+up	3	sub(ones, xor(ones, shl(w0, w1)))	-	0
+up	3	shl(w0, sub(ones, nor(zero, w1)))	-	0
+up	3	rol(ror(shl(w0, w1), ones), ones)	-	0
+up	3	shl(w0, xor(w1, shl(w1, ones)))	-	0
+up	3	shl(w0, nand(sub(ones, w1), ones))	-	0
+up	3	shl(xor(ones, nand(w0, w0)), w1)	-	0
+up	3	shl(sub(ones, xor(w0, ones)), w1)	-	0
+up	3	shl(nor(zero, xor(w0, ones)), w1)	-	0
+up	3	shl(w0, xor(ones, nand(w1, ones)))	-	0
+up	3	shl(nand(nor(zero, w0), ones), w1)	-	0
+up	3	shl(w0, ror(rol(w1, w0), w0))	-	0
+up	3	rol(and(shr(ones, w1), w0), w1)	-	0
+up	3	shl(w0, nand(ones, xor(ones, w1)))	-	0
+up	3	nor(nand(ones, shl(w0, w1)), zero)	-	0
+up	3	shl(w0, nand(xor(w1, ones), ones))	-	0
+up	3	shl(nand(nand(w0, ones), nand(w0, ones)), w1)	-	0
+up	3	shl(w0, not(xor(ones, w1)))	-	0
+up	3	shl(w0, nand(nand(w1, w1), ones))	-	0
+up	3	shl(sub(w0, shl(w1, ones)), w1)	-	0
+up	3	sub(add(w1, shl(w0, w1)), w1)	-	0
+up	3	shl(xor(sub(ones, w0), ones), w1)	-	0
+down	3	shr(nand(xor(w0, ones), xor(w0, ones)), w1)	-	0
+down	3	shr(nand(ones, nand(ones, w0)), w1)	-	0
+down	3	nor(nor(shr(w0, w1), shr(w0, w1)), zero)	-	0
+down	3	xor(xor(w0, shr(w0, w1)), w0)	-	0
+down	3	shr(xor(ones, nand(w0, ones)), w1)	-	0
+down	3	shr(w0, sub(ones, xor(w1, ones)))	-	0
+down	3	shr(w0, sub(add(ones, w1), ones))	-	0
+down	3	shr(w0, nand(ones, nand(w1, w1)))	-	0
+down	3	shr(w0, nand(xor(ones, w1), ones))	-	0
+down	3	sub(ones, nand(ones, shr(w0, w1)))	-	0
+down	3	shr(w0, sub(ones, nor(zero, w1)))	-	0
+down	3	shr(nor(zero, nand(ones, w0)), w1)	-	0
+down	3	nand(xor(ones, shr(w0, w1)), xor(ones, shr(w0, w1)))	-	0
+down	3	shr(w0, nor(xor(w1, ones), zero))	-	0
+down	3	shr(w0, nor(zero, nand(ones, w1)))	-	0
+down	3	shr(sub(w1, sub(w1, w0)), w1)	-	0
+down	3	add(ones, sub(shr(w0, w1), ones))	-	0
+down	3	shr(w0, nand(nor(w1, zero), nor(w1, zero)))	-	0
+down	3	nand(nand(ones, shr(w0, w1)), ones)	-	0
+down	3	shr(w0, nand(ones, nor(w1, w1)))	-	0
+down	3	nand(ones, xor(ones, shr(w0, w1)))	-	0
+down	3	shr(nor(zero, sub(ones, w0)), w1)	-	0
+down	3	shr(w0, xor(not(w1), ones))	-	0
+down	3	shr(w0, nor(xor(ones, w1), xor(ones, w1)))	-	0
+down	3	nor(not(shr(w0, w1)), zero)	-	0
+down	3	nor(nor(shr(w0, w1), zero), zero)	-	0
+down	3	shr(w0, nand(ones, sub(ones, w1)))	-	0
+down	3	shr(nand(ones, nand(w0, ones)), w1)	-	0
+down	3	shr(w0, nand(nor(w1, w1), ones))	-	0
+down	3	shr(w0, add(shl(w1, ones), w1))	-	0
+down	3	shr(w0, xor(shl(ones, ones), w1))	-	0
+down	3	shr(w0, xor(nor(w1, w1), ones))	-	0
+down	3	shr(nand(nor(w0, zero), nor(w0, zero)), w1)	-	0
+down	3	shr(nor(zero, xor(ones, w0)), w1)	-	0
+down	3	nor(zero, nor(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	nand(ones, nor(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	nor(zero, nor(zero, shr(w0, w1)))	-	0
+down	3	nand(sub(ones, shr(w0, w1)), ones)	-	0
+down	3	sub(ones, nor(zero, shr(w0, w1)))	-	0
+down	3	nand(nand(shr(w0, w1), ones), ones)	-	0
+down	3	shr(xor(w1, xor(w0, w1)), w1)	-	0
+down	3	shr(w0, or(w1, shl(w1, ones)))	-	0
+down	3	not(nand(ones, shr(w0, w1)))	-	0
+down	3	xor(xor(w1, shr(w0, w1)), w1)	-	0
+down	3	shr(w0, nor(zero, xor(w1, ones)))	-	0
+down	3	shr(nor(xor(ones, w0), zero), w1)	-	0
+down	3	shr(w0, nand(nand(w1, ones), ones))	-	0
+down	3	nor(zero, sub(ones, shr(w0, w1)))	-	0
+down	3	shr(rol(asr(w0, w1), w1), w1)	-	0
+down	3	shr(w0, nor(nand(w1, w1), zero))	-	0
+down	3	shr(nor(not(w0), zero), w1)	-	0
+down	3	nand(nand(shr(w0, w1), shr(w0, w1)), nand(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	shr(not(xor(w0, ones)), w1)	-	0
+down	3	nand(not(shr(w0, w1)), ones)	-	0
+down	3	shr(w0, nor(sub(ones, w1), sub(ones, w1)))	-	0
+down	3	xor(ones, xor(ones, shr(w0, w1)))	-	0
+down	3	and(asr(w0, w1), shr(ones, w1))	-	0
+down	3	shr(w0, not(nor(w1, w1)))	-	0
+down	3	shr(w0, rol(add(w1, w1), ones))	-	0
+down	3	shr(w0, add(w0, sub(w1, w0)))	-	0
+down	3	sub(w0, sub(w0, shr(w0, w1)))	-	0
+down	3	shr(w0, xor(nor(zero, w1), ones))	-	0
+down	3	shr(w0, xor(nand(ones, w1), ones))	-	0
+down	3	xor(not(shr(w0, w1)), ones)	-	0
+down	3	shr(nand(nand(w0, w0), nand(w0, w0)), w1)	-	0
+down	3	ror(shl(asr(w0, w1), w1), w1)	-	0
+down	3	shr(w0, xor(xor(w1, w0), w0))	-	0
+down	3	xor(xor(shr(w0, w1), ones), ones)	-	0
+down	3	shr(add(sub(w0, ones), ones), w1)	-	0
+down	3	shr(nand(nor(w0, w0), ones), w1)	-	0
+down	3	nand(sub(ones, shr(w0, w1)), sub(ones, shr(w0, w1)))	-	0
+down	3	nor(nand(ones, shr(w0, w1)), nand(ones, shr(w0, w1)))	-	0
+down	3	shr(w0, nand(ones, xor(w1, ones)))	-	0
+down	3	shr(xor(ones, not(w0)), w1)	-	0
+down	3	nand(nor(zero, shr(w0, w1)), nor(zero, shr(w0, w1)))	-	0
+down	3	shr(nand(ones, nor(zero, w0)), w1)	-	0
+down	3	shr(nand(xor(ones, w0), xor(ones, w0)), w1)	-	0
+down	3	nor(nor(shr(w0, w1), shr(w0, w1)), nor(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	shr(w0, nand(nand(w1, w1), nand(w1, w1)))	-	0
+down	3	shr(w0, nor(sub(ones, w1), zero))	-	0
+down	3	shr(w0, nand(sub(ones, w1), sub(ones, w1)))	-	0
+down	3	shr(w0, nor(nor(w1, w1), nor(w1, w1)))	-	0
+down	3	shr(w0, nor(zero, sub(ones, w1)))	-	0
+down	3	shr(w0, nand(xor(ones, w1), xor(ones, w1)))	-	0
+down	3	nor(sub(ones, shr(w0, w1)), sub(ones, shr(w0, w1)))	-	0
+down	3	shr(nand(nand(ones, w0), nand(ones, w0)), w1)	-	0
+down	3	xor(ones, nand(ones, shr(w0, w1)))	-	0
+down	3	sub(ones, nand(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	shr(xor(nand(w0, ones), ones), w1)	-	0
+down	3	xor(w0, xor(w0, shr(w0, w1)))	-	0
+down	3	shr(shl(ror(w0, w1), w1), w1)	-	0
+down	3	xor(ones, not(shr(w0, w1)))	-	0
+down	3	shr(w0, add(sub(w1, ones), ones))	-	0
+down	3	shr(xor(nor(zero, w0), ones), w1)	-	0
+down	3	and(shr(ones, w1), ror(w0, w1))	-	0
+down	3	not(not(shr(w0, w1)))	-	0
+down	3	shr(w0, nor(zero, nand(w1, w1)))	-	0
+down	3	shr(w0, xor(w0, xor(w0, w1)))	-	0
+down	3	shr(w0, nor(zero, nand(w1, ones)))	-	0
+down	3	shr(w0, not(nor(w1, zero)))	-	0
+down	3	shr(w0, nor(nor(zero, w1), nor(zero, w1)))	-	0
+down	3	shr(nand(ones, sub(ones, w0)), w1)	-	0
+down	3	ror(shl(shr(w0, w1), w1), w1)	-	0
+down	3	nand(xor(shr(w0, w1), ones), xor(shr(w0, w1), ones))	-	0
+down	3	shr(w0, or(w1, shl(w0, ones)))	-	0
+down	3	not(sub(ones, shr(w0, w1)))	-	0
+down	3	shr(w0, nor(not(w1), zero))	-	0
+down	3	shr(sub(ones, xor(ones, w0)), w1)	-	0
+down	3	shr(w0, nand(ones, xor(ones, w1)))	-	0
+down	3	shr(w0, nand(not(w1), not(w1)))	-	0
+down	3	shr(w0, add(shl(ones, ones), w1))	-	0
+down	3	nor(sub(ones, shr(w0, w1)), zero)	-	0
+down	3	shr(nand(ones, nand(w0, w0)), w1)	-	0
+down	3	shr(nor(zero, nor(w0, w0)), w1)	-	0
+down	3	sub(ones, not(shr(w0, w1)))	-	0
+down	3	shr(rol(ror(w0, w1), w1), w1)	-	0
+down	3	nor(nand(ones, shr(w0, w1)), zero)	-	0
+down	3	shr(xor(nor(w0, w0), ones), w1)	-	0
+down	3	shr(nand(not(w0), ones), w1)	-	0
+down	3	nor(nand(shr(w0, w1), ones), zero)	-	0
+down	3	shr(w0, nor(nor(zero, w1), zero))	-	0
+down	3	shr(nand(not(w0), not(w0)), w1)	-	0
+down	3	shr(w0, xor(w1, shl(w1, ones)))	-	0
+down	3	xor(ones, nand(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	shr(xor(ones, nor(zero, w0)), w1)	-	0
+down	3	shr(xor(xor(w0, w1), w1), w1)	-	0
+down	3	xor(nor(zero, shr(w0, w1)), ones)	-	0
+down	3	shr(nor(nor(zero, w0), nor(zero, w0)), w1)	-	0
+down	3	shr(w0, not(xor(ones, w1)))	-	0
+down	3	nor(zero, nand(ones, shr(w0, w1)))	-	0
+down	3	xor(nand(shr(w0, w1), ones), ones)	-	0
+down	3	shr(w0, add(w1, shl(w1, ones)))	-	0
+down	3	ror(rol(shr(w0, w1), w1), w1)	-	0
+down	3	shr(w0, nor(zero, nor(w1, zero)))	-	0
+down	3	sub(w1, sub(w1, shr(w0, w1)))	-	0
+down	3	shr(ror(rol(w0, w1), w1), w1)	-	0
+down	3	sub(ones, nand(shr(w0, w1), ones))	-	0
+down	3	shr(w0, xor(ones, xor(ones, w1)))	-	0
+down	3	shr(xor(nand(w0, w0), ones), w1)	-	0
+down	3	shr(nand(nand(w0, w0), ones), w1)	-	0
+down	3	add(sub(shr(w0, w1), ones), ones)	-	0
+down	3	add(w1, sub(shr(w0, w1), w1))	-	0
+down	3	shr(nand(nor(zero, w0), nor(zero, w0)), w1)	-	0
+down	3	shr(nand(xor(w0, ones), ones), w1)	-	0
+down	3	shr(xor(ones, xor(ones, w0)), w1)	-	0
+down	3	shr(w0, sub(ones, nor(w1, zero)))	-	0
+down	3	shr(w0, xor(w1, shl(ones, ones)))	-	0
+down	3	shr(w0, xor(ones, nor(w1, zero)))	-	0
+down	3	nand(ones, nand(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	shr(nand(nor(w0, zero), ones), w1)	-	0
+down	3	shr(xor(ones, nor(w0, zero)), w1)	-	0
+down	3	shr(w0, rol(ror(w1, w0), w0))	-	0
+down	3	shr(w0, nand(nor(w1, w1), nor(w1, w1)))	-	0
+down	3	shr(w0, xor(ones, nor(w1, w1)))	-	0
+down	3	xor(ones, nor(shr(w0, w1), zero))	-	0
+down	3	sub(zero, sub(zero, shr(w0, w1)))	-	0
+down	3	shr(nor(nor(w0, zero), zero), w1)	-	0
+down	3	shr(w0, not(nor(zero, w1)))	-	0
+down	3	shr(nand(sub(ones, w0), ones), w1)	-	0
+down	3	shr(sub(ones, nand(ones, w0)), w1)	-	0
+down	3	sub(add(w0, shr(w0, w1)), w0)	-	0
+down	3	shr(w0, xor(xor(w1, ones), ones))	-	0
+down	3	shr(xor(not(w0), ones), w1)	-	0
+down	3	nor(nor(zero, shr(w0, w1)), nor(zero, shr(w0, w1)))	-	0
+down	3	xor(nand(ones, shr(w0, w1)), ones)	-	0
+down	3	shr(w0, xor(xor(w0, w1), w0))	-	0
+down	3	shr(w0, nand(nand(w1, w1), ones))	-	0
+down	3	shr(w0, sub(ones, xor(ones, w1)))	-	0
+down	3	xor(ones, nand(shr(w0, w1), ones))	-	0
+down	3	shr(xor(ones, xor(w0, ones)), w1)	-	0
+down	3	shr(nor(nand(w0, ones), nand(w0, ones)), w1)	-	0
+down	3	shr(w0, xor(w1, shl(w0, ones)))	-	0
+down	3	shr(not(sub(ones, w0)), w1)	-	0
+down	3	shr(w0, nand(ones, nand(ones, w1)))	-	0
+down	3	nor(xor(shr(w0, w1), ones), zero)	-	0
+down	3	shr(w0, not(nand(ones, w1)))	-	0
+down	3	shr(nand(ones, xor(ones, w0)), w1)	-	0
+down	3	ror(and(w0, shl(ones, w1)), w1)	-	0
+down	3	shr(nor(not(w0), not(w0)), w1)	-	0
+down	3	shr(rol(ror(w0, ones), ones), w1)	-	0
+down	3	shr(w0, or(shl(w1, ones), w1))	-	0
+down	3	nor(xor(ones, shr(w0, w1)), zero)	-	0
+down	3	shr(nor(zero, xor(w0, ones)), w1)	-	0
+down	3	rol(ror(shr(w0, w1), w0), w0)	-	0
+down	3	sub(add(shr(w0, w1), w0), w0)	-	0
+down	3	shr(w0, xor(ones, nor(zero, w1)))	-	0
+down	3	shr(nor(sub(ones, w0), zero), w1)	-	0
+down	3	shr(sub(add(ones, w0), ones), w1)	-	0
+down	3	shr(nor(nand(w0, w0), nand(w0, w0)), w1)	-	0
+down	3	shr(shl(shr(w0, w1), w1), w1)	-	0
+down	3	shr(w0, sub(ones, nand(ones, w1)))	-	0
+down	3	shr(w0, sub(ones, nor(w1, w1)))	-	0
+down	3	shr(nand(xor(ones, w0), ones), w1)	-	0
+down	3	not(nor(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	shr(not(nand(w0, w0)), w1)	-	0
+down	3	xor(ones, sub(ones, shr(w0, w1)))	-	0
+down	3	nor(zero, xor(ones, shr(w0, w1)))	-	0
+down	3	shr(sub(ones, xor(w0, ones)), w1)	-	0
+down	3	shr(not(nor(w0, zero)), w1)	-	0
+down	3	nor(not(shr(w0, w1)), not(shr(w0, w1)))	-	0
+down	3	shr(w0, nor(nor(w1, zero), zero))	-	0
+down	3	shr(not(nand(w0, ones)), w1)	-	0
+down	3	xor(nor(shr(w0, w1), shr(w0, w1)), ones)	-	0
+down	3	shr(nand(nand(ones, w0), ones), w1)	-	0
+down	3	and(shr(ones, w1), asr(w0, w1))	-	0
+down	3	shr(nand(ones, xor(w0, ones)), w1)	-	0
+down	3	shr(w0, nand(nand(ones, w1), ones))	-	0
+down	3	not(xor(ones, shr(w0, w1)))	-	0
+down	3	shr(nor(nor(w0, zero), nor(w0, zero)), w1)	-	0
+down	3	shr(xor(xor(w1, w0), w1), w1)	-	0
+down	3	shr(add(w1, sub(w0, w1)), w1)	-	0
+down	3	shr(nor(zero, nor(zero, w0)), w1)	-	0
+down	3	shr(not(nand(ones, w0)), w1)	-	0
+down	3	shr(w0, nor(nand(w1, w1), nand(w1, w1)))	-	0
+down	3	shr(w0, sub(add(w0, w1), w0))	-	0
+down	3	shr(w0, nor(nand(w1, ones), nand(w1, ones)))	-	0
+down	3	shr(nand(ones, not(w0)), w1)	-	0
+down	3	shr(sub(add(w0, ones), ones), w1)	-	0
+down	3	shr(w0, ror(rol(w1, ones), ones))	-	0
+down	3	nand(not(shr(w0, w1)), not(shr(w0, w1)))	-	0
+down	3	nor(zero, nor(shr(w0, w1), zero))	-	0
+down	3	nand(ones, nor(shr(w0, w1), zero))	-	0
+down	3	shr(nand(nand(w0, ones), ones), w1)	-	0
+down	3	and(ror(w0, w1), shr(ones, w1))	-	0
+down	3	shr(sub(ones, nor(w0, w0)), w1)	-	0
+down	3	nor(zero, not(shr(w0, w1)))	-	0
+down	3	shr(xor(xor(w0, ones), ones), w1)	-	0
+down	3	sub(ones, xor(ones, shr(w0, w1)))	-	0
+down	3	shr(w0, xor(shl(w0, ones), w1))	-	0
+down	3	nand(nor(zero, shr(w0, w1)), ones)	-	0
+down	3	shr(w0, not(not(w1)))	-	0
+down	3	shr(nand(sub(ones, w0), sub(ones, w0)), w1)	-	0
+down	3	and(asr(w0, w1), shr(ones, w1))	-	0
+down	3	shr(ror(rol(w0, ones), ones), w1)	-	0
+down	3	shr(w0, or(shl(w0, ones), w1))	-	0
+down	3	ror(shl(ror(w0, w1), w1), w1)	-	0
+down	3	shr(w0, add(w1, shl(w0, ones)))	-	0
+down	3	xor(w0, xor(shr(w0, w1), w0))	-	0
+down	3	shr(w0, nor(zero, nor(w1, w1)))	-	0
+down	3	shr(w0, nor(xor(ones, w1), zero))	-	0
+down	3	nand(ones, sub(ones, shr(w0, w1)))	-	0
+down	3	shr(not(not(w0)), w1)	-	0
+down	3	shr(sub(ones, nor(w0, zero)), w1)	-	0
+down	3	nor(nand(shr(w0, w1), shr(w0, w1)), zero)	-	0
+down	3	and(shr(ones, w1), asr(w0, w1))	-	0
+down	3	shr(w0, nor(nor(w1, zero), nor(w1, zero)))	-	0
+down	3	shr(add(ones, sub(w0, ones)), w1)	-	0
+down	3	not(xor(shr(w0, w1), ones))	-	0
+down	1	shr(w0, w1)	-	0
+down	3	shr(w0, xor(sub(ones, w1), ones))	-	0
+down	3	shr(w0, sub(ones, nand(w1, w1)))	-	0
+down	3	shr(shl(asr(w0, w1), w1), w1)	-	0
+down	3	shr(w0, add(sub(w1, w0), w0))	-	0
+down	3	shr(w0, xor(nor(w1, zero), ones))	-	0
+down	3	rol(ror(shr(w0, w1), ones), ones)	-	0
+down	3	shr(w0, nand(ones, not(w1)))	-	0
+down	3	nand(nor(shr(w0, w1), zero), nor(shr(w0, w1), zero))	-	0
+down	3	shr(w0, xor(shl(w1, ones), w1))	-	0
+down	3	shr(sub(ones, sub(ones, w0)), w1)	-	0
+down	3	shr(xor(ones, nand(ones, w0)), w1)	-	0
+down	3	shr(w0, nor(zero, nor(zero, w1)))	-	0
+down	3	shr(w0, nor(nand(ones, w1), zero))	-	0
+down	3	shr(xor(sub(ones, w0), ones), w1)	-	0
+down	3	and(ror(w0, w1), shr(ones, w1))	-	0
+down	3	nand(ones, nand(ones, shr(w0, w1)))	-	0
+down	3	shr(w0, nand(sub(ones, w1), ones))	-	0
+down	3	add(sub(shr(w0, w1), w0), w0)	-	0
+down	3	shr(w0, sub(w1, shl(w0, ones)))	-	0
+down	3	nand(ones, not(shr(w0, w1)))	-	0
+down	3	shr(w0, xor(xor(ones, w1), ones))	-	0
+down	3	shr(sub(ones, nand(w0, ones)), w1)	-	0
+down	3	shr(xor(ones, nor(w0, w0)), w1)	-	0
+down	3	shr(sub(ones, nand(w0, w0)), w1)	-	0
+down	3	not(nand(shr(w0, w1), ones))	-	0
+down	3	shr(w0, nand(xor(w1, ones), ones))	-	0
+down	3	shr(nand(nor(zero, w0), ones), w1)	-	0
+down	3	shr(w0, nor(zero, xor(ones, w1)))	-	0
+down	3	sub(add(ones, shr(w0, w1)), ones)	-	0
+down	3	shr(w0, sub(ones, nand(w1, ones)))	-	0
+down	3	shr(w0, not(sub(ones, w1)))	-	0
+down	3	nor(xor(shr(w0, w1), ones), xor(shr(w0, w1), ones))	-	0
+down	3	shr(nand(ones, nor(w0, zero)), w1)	-	0
+down	3	shr(w0, add(w1, shl(ones, ones)))	-	0
+down	3	shr(w0, nor(nand(w1, ones), zero))	-	0
+down	3	shr(w0, sub(add(w1, ones), ones))	-	0
+down	3	shr(w0, add(ones, sub(w1, ones)))	-	0
+down	3	shr(and(shl(ones, w1), w0), w1)	-	0
+down	3	shr(w0, add(shl(w0, ones), w1))	-	0
+down	3	shr(w0, nand(ones, nor(w1, zero)))	-	0
+down	3	shr(w0, xor(ones, xor(w1, ones)))	-	0
+down	3	shr(w0, nor(xor(w1, ones), xor(w1, ones)))	-	0
+down	3	ror(rol(shr(w0, w1), w0), w0)	-	0
+down	3	sub(add(shr(w0, w1), w1), w1)	-	0
+down	3	shr(w0, or(w1, shl(ones, ones)))	-	0
+down	3	shr(w0, sub(ones, not(w1)))	-	0
+down	3	sub(ones, xor(shr(w0, w1), ones))	-	0
+down	3	nand(nor(shr(w0, w1), zero), ones)	-	0
+down	3	nand(xor(ones, shr(w0, w1)), ones)	-	0
+down	3	xor(nand(shr(w0, w1), shr(w0, w1)), ones)	-	0
+down	3	shr(nor(nand(ones, w0), zero), w1)	-	0
+down	3	xor(ones, nor(zero, shr(w0, w1)))	-	0
+down	3	shr(w0, nand(not(w1), ones))	-	0
+down	3	shr(xor(ones, sub(ones, w0)), w1)	-	0
+down	3	xor(xor(shr(w0, w1), w0), w0)	-	0
+down	3	shr(nor(sub(ones, w0), sub(ones, w0)), w1)	-	0
+down	3	shr(nand(nand(w0, ones), nand(w0, ones)), w1)	-	0
+down	3	shr(w0, nand(nand(ones, w1), nand(ones, w1)))	-	0
+down	3	shr(w0, xor(nand(w1, w1), ones))	-	0
+down	3	shr(w0, not(xor(w1, ones)))	-	0
+down	3	xor(ones, nor(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	shr(nand(ones, nor(w0, w0)), w1)	-	0
+down	3	shr(w0, ror(rol(w1, w0), w0))	-	0
+down	3	ror(rol(shr(w0, w1), ones), ones)	-	0
+down	3	and(shr(ones, w1), ror(w0, w1))	-	0
+down	3	shr(rol(shr(w0, w1), w1), w1)	-	0
+down	3	shr(w0, nand(xor(w1, ones), xor(w1, ones)))	-	0
+down	3	shr(w0, nor(zero, not(w1)))	-	0
+down	3	nand(nand(shr(w0, w1), ones), nand(shr(w0, w1), ones))	-	0
+down	3	shr(w0, nor(not(w1), not(w1)))	-	0
+down	3	shr(w0, nand(ones, nand(w1, ones)))	-	0
+down	3	shr(not(nor(w0, w0)), w1)	-	0
+down	3	nor(nand(shr(w0, w1), shr(w0, w1)), nand(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	nor(xor(ones, shr(w0, w1)), xor(ones, shr(w0, w1)))	-	0
+down	3	shr(w0, sub(add(w1, w0), w0))	-	0
+down	3	sub(ones, nor(shr(w0, w1), zero))	-	0
+down	3	rol(ror(shr(w0, w1), w1), w1)	-	0
+down	3	shr(w0, nor(nand(ones, w1), nand(ones, w1)))	-	0
+down	3	xor(nor(shr(w0, w1), zero), ones)	-	0
+down	3	nor(nor(zero, shr(w0, w1)), zero)	-	0
+down	3	shr(nor(xor(ones, w0), xor(ones, w0)), w1)	-	0
+down	3	sub(ones, nor(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	add(w0, sub(shr(w0, w1), w0))	-	0
+down	3	shr(w0, nor(nor(w1, w1), zero))	-	0
+down	3	xor(w1, xor(shr(w0, w1), w1))	-	0
+down	3	shr(w0, xor(ones, nand(ones, w1)))	-	0
+down	3	shr(nor(zero, not(w0)), w1)	-	0
+down	3	nand(nor(shr(w0, w1), shr(w0, w1)), ones)	-	0
+down	3	nor(nand(shr(w0, w1), ones), nand(shr(w0, w1), ones))	-	0
+down	3	nand(nand(shr(w0, w1), shr(w0, w1)), ones)	-	0
+down	3	shr(w0, not(nand(w1, ones)))	-	0
+down	3	shr(w0, not(nand(w1, w1)))	-	0
+down	3	shr(w0, xor(w0, xor(w1, w0)))	-	0
+down	3	shr(add(sub(w0, w1), w1), w1)	-	0
+down	3	shr(nor(nor(w0, w0), nor(w0, w0)), w1)	-	0
+down	3	shr(nor(xor(w0, ones), xor(w0, ones)), w1)	-	0
+down	3	nand(ones, nor(zero, shr(w0, w1)))	-	0
+down	3	xor(xor(ones, shr(w0, w1)), ones)	-	0
+down	3	shr(nor(nand(w0, ones), zero), w1)	-	0
+down	3	shr(sub(ones, nor(zero, w0)), w1)	-	0
+down	3	shr(sub(add(w1, w0), w1), w1)	-	0
+down	3	shr(nor(nor(w0, w0), zero), w1)	-	0
+down	3	xor(sub(ones, shr(w0, w1)), ones)	-	0
+down	3	ror(and(shl(ones, w1), w0), w1)	-	0
+down	3	shr(w0, nand(nor(zero, w1), ones))	-	0
+down	3	shr(nor(nor(zero, w0), zero), w1)	-	0
+down	3	nand(nand(ones, shr(w0, w1)), nand(ones, shr(w0, w1)))	-	0
+down	3	shr(w0, xor(ones, not(w1)))	-	0
+down	3	shr(nor(zero, nand(w0, ones)), w1)	-	0
+down	3	sub(add(w1, shr(w0, w1)), w1)	-	0
+down	3	shr(w0, sub(w1, shl(w1, ones)))	-	0
+down	3	not(nor(zero, shr(w0, w1)))	-	0
+down	3	shr(sub(ones, not(w0)), w1)	-	0
+down	3	not(nor(shr(w0, w1), zero))	-	0
+down	3	shr(w0, or(shl(ones, ones), w1))	-	0
+down	3	shr(nor(zero, nor(w0, zero)), w1)	-	0
+down	3	nor(zero, nand(shr(w0, w1), ones))	-	0
+down	3	shr(w0, rol(ror(w1, ones), ones))	-	0
+down	3	sub(ones, sub(ones, shr(w0, w1)))	-	0
+down	3	nor(zero, nand(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	shr(w0, sub(zero, sub(zero, w1)))	-	0
+down	3	shr(w0, sub(ones, sub(ones, w1)))	-	0
+down	3	add(sub(shr(w0, w1), w1), w1)	-	0
+down	3	shr(xor(xor(ones, w0), ones), w1)	-	0
+down	3	shr(nor(nand(ones, w0), nand(ones, w0)), w1)	-	0
+down	3	shr(w0, nand(nor(w1, zero), ones))	-	0
+down	3	shr(w0, nand(nor(zero, w1), nor(zero, w1)))	-	0
+down	3	shr(xor(w1, xor(w1, w0)), w1)	-	0
+down	3	shr(sub(zero, sub(zero, w0)), w1)	-	0
+down	3	xor(xor(shr(w0, w1), w1), w1)	-	0
+down	3	shr(w0, nand(ones, nor(zero, w1)))	-	0
+down	3	shr(nor(xor(w0, ones), zero), w1)	-	0
+down	3	shr(w0, xor(ones, nand(w1, w1)))	-	0
+down	3	shr(w0, xor(nand(w1, ones), ones))	-	0
+down	3	shr(w0, xor(ones, sub(ones, w1)))	-	0
+down	3	nor(nor(shr(w0, w1), zero), nor(shr(w0, w1), zero))	-	0
+down	3	nand(ones, nand(shr(w0, w1), ones))	-	0
+down	3	shr(nor(zero, nand(w0, w0)), w1)	-	0
+down	3	nand(xor(shr(w0, w1), ones), ones)	-	0
+down	3	shr(w0, xor(ones, nand(w1, ones)))	-	0
+down	3	not(nand(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	shr(sub(add(w0, w1), w1), w1)	-	0
+down	3	shr(and(w0, shl(ones, w1)), w1)	-	0
+down	3	sub(add(shr(w0, w1), ones), ones)	-	0
+down	3	nor(zero, xor(shr(w0, w1), ones))	-	0
+down	3	nand(ones, xor(shr(w0, w1), ones))	-	0
+down	3	shr(not(xor(ones, w0)), w1)	-	0
+down	3	shr(w0, sub(w0, sub(w0, w1)))	-	0
+down	3	xor(w1, xor(w1, shr(w0, w1)))	-	0
+down	3	shr(not(nor(zero, w0)), w1)	-	0
+down	3	xor(ones, xor(shr(w0, w1), ones))	-	0
+down	3	shr(xor(nor(w0, zero), ones), w1)	-	0
+down	3	shr(w0, nand(nand(w1, ones), nand(w1, ones)))	-	0
+down	3	shr(nor(nand(w0, w0), zero), w1)	-	0
+down	3	shr(xor(nand(ones, w0), ones), w1)	-	0
+down	3	nand(nor(shr(w0, w1), shr(w0, w1)), nor(shr(w0, w1), shr(w0, w1)))	-	0
+down	3	shr(nand(nor(w0, w0), nor(w0, w0)), w1)	-	0
+down	3	shr(w0, sub(w1, shl(ones, ones)))	-	0
+down	3	shr(xor(ones, nand(w0, w0)), w1)	-	0
+product	0	-	-	0

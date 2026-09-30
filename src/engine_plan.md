@@ -54,9 +54,10 @@ works there.
 1. **Nothing searches for a writing.** No file of relations is emitted, run and read back, which leaves every
    writing unconfirmed by any target. `L*` is written by hand for want of this. It is the loop and it is the work.
 
-2. **`.kdm` is written by nothing.** It wants every arrangement of primitives that produces an operator, each with
-   its cost. The clock already reads codings against one another in the part's own time and the reading is thrown
-   away instead of kept against an operator.
+2. **`.kdm` holds no cost.** `maint/engine/chain_check.sh` writes one: 3068 arrangements over 27.6M tried, add
+   1202, take 1047, up 411, down 408, and nothing for same, places or product at three nodes. Every cost reads `-`.
+   The clock already reads codings against one another in the part's own time, and that reading is thrown away
+   instead of kept against a row here.
 
 3. **`.krs` has no derived half.** Five are written. None can be completed by asking. A partly written one is the
    normal case and not a failure.
@@ -77,6 +78,11 @@ works there.
 
 8. **Not proved.** The test matrix has not run since the machine file was replaced. `cell_ptx` test_signed_zero is
    stale.
+
+9. **The ladder's cases do not decide a relation.** 507 arrangements fit them and are not the relation: 287 of up,
+   151 of down, 36 of take, 25 of add, and all 8 of same. The chain builder gets past it by putting 512 more words
+   of its own, which a target cannot be asked in the same breath. Until the cases decide, a target's answer to the
+   ladder as written does not say it holds the relation.
 
 ## Pending Doug
 - Move cell_tracking into `examples/` and theory into anchor_sift. Don't start without direction.
