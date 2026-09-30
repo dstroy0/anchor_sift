@@ -37,7 +37,7 @@ Take the built page, which carries both halves in one file. Pull the JSON litera
 data.
 
 A path stops being a data path as soon as it leaves the dictionaries. `DATA.sources.length` is a
-`sources` key followed by a JavaScript property, so the walk descends while the value is a mapping
+`sources` key followed by a JavaScript property. The walk descends while the value is a mapping
 and stops when it is not. Anything past that point is the language's business.
 
 GUARDED AND UNGUARDED, BECAUSE ONLY ONE OF THEM IS A DEFECT
@@ -92,13 +92,13 @@ FOLLOWS = re.compile(r"(\?|&&|\|\|)\s*$")
 
 # THE PROXIMITY TEST THIS REPLACED WAS USELESS AND PASSED EVERYTHING. It looked for any of `&&`,
 # `||`, `?`, `if (` or `typeof` within 120 characters either side. JavaScript carries those
-# everywhere, so `var CLOCK = DATA.clock;` came back guarded because an unrelated `if` sat thirty
+# everywhere. `var CLOCK = DATA.clock;` came back guarded because an unrelated `if` sat thirty
 # characters earlier. A guard has to be a syntactic relationship with this read and never a token
 # sitting nearby.
 
 
 def strip_strings(text, start=0):
-    """The text from `start` with the contents of JSON strings blanked, so only structure is visible.
+    """The text from `start` with the contents of JSON strings blanked. Only structure is visible.
 
     A brace inside a string value must not be counted, and JSON has exactly one string delimiter.
 
@@ -138,7 +138,7 @@ def data_literal(text):
     """The JSON the page carries, as a string, or None with a reason.
 
     Braces are counted on a copy whose string contents are blanked, and the slice is taken from the
-    original, so the returned text is the real literal and the counting is not fooled by a brace in
+    original. The returned text is the real literal and the counting is not fooled by a brace in
     a value.
     """
     at = text.find(OPENER)
@@ -147,7 +147,7 @@ def data_literal(text):
     start = at + len(OPENER)
     if start >= len(text) or text[start] != "{":
         return None, "the data does not open with a brace"
-    # Blanked from the literal onward, and indexed from there, so nothing above the data can reach
+    # Blanked from the literal onward, and indexed from there. Nothing above the data can reach
     # into the count.
     blanked = " " * start + strip_strings(text, start)
 
@@ -165,7 +165,7 @@ def data_literal(text):
 def guarded_at(text, start, end):
     """Whether this one read is a question about the key instead of an assumption it is there.
 
-    Judged on the line holding the read and on the read's position within it, so the relationship is
+    Judged on the line holding the read and on the read's position within it. The relationship is
     syntactic. Four shapes count, and each is a way of writing "if this is absent, carry on":
 
         if (DATA.x)          the test of a conditional
@@ -311,7 +311,7 @@ KNOWN_BROKEN = "\n".join((
     'if (DATA.things) { paint(DATA.things.count); }',
 ))
 
-# `spin` is absent and unguarded, so one finding. `things` is absent and asked about, so none. The
+# `spin` is absent and unguarded. One finding. `things` is absent and asked about. None. The
 # clock and its ticks are present. One finding is therefore the expected answer entire.
 KNOWN_BROKEN_FINDINGS = 1
 

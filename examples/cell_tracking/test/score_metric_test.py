@@ -682,7 +682,7 @@ def summarize_cases():
     # by hand: J 1 and 3/6, no node over, weighed 5 and 6
     TALLY.near("summarize: the adjusted weighed by TP + FP + FN, by hand", summary["adj_edge_jaccard"], 8 / 11)
     TALLY.near("summarize: the edge jaccard over the summed counts, by hand", summary["edge_jaccard"], 8 / 11)
-    # by hand: 20 nodes against 10 is a ratio of 1, so J 1/2 is adjusted to 1/2 * 0.9
+    # by hand: 20 nodes against 10 is a ratio of 1. J 1/2 is adjusted to 1/2 * 0.9
     TALLY.near("per_sample_metrics: the node ratio, by hand", row(1, 0, 1, 20, 10, 1.0)["adj_edge_jaccard"], 0.45)
     TALLY.near("per_sample_metrics: never below 0, by hand", row(1, 0, 1, 200, 10, 1.0)["adj_edge_jaccard"], 0.0)
     TALLY.true("per_sample_metrics: no n_total is NaN, by hand",

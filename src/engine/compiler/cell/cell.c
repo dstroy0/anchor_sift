@@ -339,7 +339,7 @@ static long cell_probe_start(const CellProbe *probe, CellAnswer *answer, EngineE
         answer->code = (unsigned long long)errno;
         return 0L;
     }
-    // the group is set from both sides, so a limit that runs out before the child has set it still reaches it
+    // the group is set from both sides. A limit that runs out before the child has set it still reaches it
     setpgid(made, made);
     int failed = 0;
     ssize_t heard = read(told[0], &failed, sizeof(failed));

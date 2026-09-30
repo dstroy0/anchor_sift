@@ -43,7 +43,7 @@ sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
 from measure.periodicity import sequence_period
 
-# Windows read. The point of the sweep is that the answer moves, so a single window would hide it.
+# Windows read. The point of the sweep is that the answer moves. A single window would hide it.
 WINDOWS = (16, 24, 32, 48, 64, 96, 128)
 
 # Terms of the word. Long enough that the widest window still has four full candidate periods.

@@ -11,7 +11,7 @@
 #
 # dependence_decay.py cannot separate the poles because the assistant corpus is 39,516 words and the
 # human band at that length is 0.129 wide, wider than any separation on offer. Every comparison has
-# to be made at the shorter corpus's length, so the assistant side is the binding constraint and more
+# to be made at the shorter corpus's length. The assistant side is the binding constraint and more
 # assistant text is worth more than a better statistic.
 #
 # THE SPLIT THIS ADDS, WHICH IS NOT JUST MORE WORDS
@@ -48,7 +48,7 @@ import session_prose  # noqa: E402
 
 PROJECTS = os.path.join(os.path.expanduser("~"), ".claude", "projects")
 
-# The trees where docs_check.py runs, so prose written about them was written under the ban list.
+# The trees where docs_check.py runs. Prose written about them was written under the ban list.
 # Matched against the project directory name, which encodes the working directory path.
 SUPPRESSED = ("anchor-sift", "BTC", "mmgrwork", "making-money")
 

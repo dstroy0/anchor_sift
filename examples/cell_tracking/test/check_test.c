@@ -5,8 +5,8 @@
 // holds each exit and each fault's count against the case's.
 //
 // points_check's set: two samples, a and b, of two frames in a 2 x 3 x 4 view (24 voxels), two limbs a level. a's
-// readings are 20 of value 10 and 28 of 11, b's 8 of 10 and 40 of 12: 48 each, one a voxel of each frame, 96 in all,
-// so the contrast is 7 bits and C is 0 below 10, 28 at 10, 56 at 11 and 96 from 12. a's frame 0 holds voxels 3 and 17,
+// readings are 20 of value 10 and 28 of 11, b's 8 of 10 and 40 of 12: 48 each, one a voxel of each frame, 96 in all.
+// The contrast is 7 bits and C is 0 below 10, 28 at 10, 56 at 11 and 96 from 12. a's frame 0 holds voxels 3 and 17,
 // its frame 1 voxel 23; b's frame 0 nothing, its frame 1 voxels 0, 1 and 2. Every level is positive.
 //
 // output_check's set: output_test's, restated. chain is 4 frames in a 4 x 5 x 6 view: frame 0 A (voxel 7), B (50) and
@@ -23,9 +23,9 @@
 // the .links beside it, taken here a bit at a time, apart from output_check's table.
 //
 // The .faces cases (src/faces/faces.h) give chain and second a .drift, a .shape and a .faces, worked by hand. chain's
-// lags are (-1, 0, 3) onto frame 1, 0 onto frame 2 and (1, 0, 0) onto frame 3, and C's .shape faces x's high face; so
+// lags are (-1, 0, 3) onto frame 1, 0 onto frame 2 and (1, 0, 0) onto frame 3, and C's .shape faces x's high face.
 // A is carried back to (1, 1, -1), past x's low face, and has its link in; D back to (4, 4, 2), past z's high face,
-// with no link in, so it enters, and with its prediction past a face and no link out it leaves, as B leaves; E back to
+// with no link in. It enters, and with its prediction past a face and no link out it leaves, as B leaves; E back to
 // (-1, 0, 0), past z's low face, enters, and F back to (0, 0, 1) does not. second's lag onto frame 1 is (0, 0, 1): R
 // back to (0, 1, 1), and S to (0, 0, -1), past x's low face, with its link in. Each .faces carries the CRC-64 of the
 // .links beside it. The states are then chain's B 32, D 33 and E 1, and with the .divide files too D is daughter two
@@ -512,7 +512,7 @@ static int check_test_points_case(const char *root, PointsCase which)
         break;
     }
     // the set's C and readings from the counts the samples hold (at values 10, 11 and 12), as the scan sums them; in
-    // sum_past_64 the sum wraps, which is the case
+    // sum_past_64 the sum wraps.
     unsigned long long *const contrast = (unsigned long long *)calloc(CHECK_TEST_READINGS, sizeof(unsigned long long));
     if (contrast == NULL)
     {
@@ -1010,7 +1010,7 @@ static int check_test_faces_case(const char *root, FacesCase which)
 }
 
 // fork: 2 frames in second's view, P (0) and Q (5), then R (5), S (0) and T (3); P links to S at cost 0 and Q to R at
-// cost 3, and P to T is in the gate and not chosen, so T starts
+// cost 3, and P to T is in the gate and not chosen. T starts
 static int check_test_fork(const char *set)
 {
     const unsigned int head[6] = {2u, 1u, 2u, 3u, 0u, 34u};

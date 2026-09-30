@@ -2,18 +2,18 @@
 #
 # From the symbol width posit in anchor_sift: a detector is not told where the units begin, and a
 # slice of the right width at the wrong offset splits every unit across two symbols. Every window
-# bench_renyi reads is byte aligned, so seven of the eight possible alignments have never been
+# bench_renyi reads is byte aligned. Seven of the eight possible alignments have never been
 # looked at, at any width. Structure sitting at an offset of one to seven bits would be split at
 # every window in every run recorded so far and would be invisible to all of them.
 #
 # The sweep is affordable at a reduced domain because the resolution of a deficit ratio depends on
 # the bin count and not on the domain size: the chi-square statistic behind it has variance twice
-# its degrees of freedom, so one window resolves its deficit to sqrt(2/(r-1)) whatever the domain.
+# its degrees of freedom. One window resolves its deficit to sqrt(2/(r-1)) whatever the domain.
 # A 2^28 run is therefore exactly as sensitive to a phase difference as a 2^32 run and costs a
 # sixteenth as much, and eight of them together cost half of one full run.
 #
 # The splitmix control runs at every phase as well. A pseudorandom function has no preferred
-# alignment, so its spread across phases is the floor below which a difference between phases on
+# alignment. Its spread across phases is the floor below which a difference between phases on
 # the real function means nothing.
 
 $ErrorActionPreference = "Stop"

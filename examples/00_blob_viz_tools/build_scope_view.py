@@ -6,7 +6,7 @@ same depth, because the question they answer together is not answerable by any o
     state boundary      the 256 state bits as spikes, with a persistence smear across depth and a
                         tracer ring on every bit that ignited or went out entering this round
     residue spectrum    the 32 dependency classes at that depth, against the null band
-    round by class      all 64 depths and all 32 classes at once, so the window where the signal
+    round by class      all 64 depths and all 32 classes at once. The window where the signal
                         lives and the depth where it collapses are one glance rather than a scrub
     matched filter      the whole trajectory of the pre-registered waveform through depth
 
@@ -17,7 +17,7 @@ are structural rather than decorative:
 
     hot     lit or unlit, which is the state itself
     a.e     the two computed words against the six carried ones. SHA-256's round computes a and e
-            and shifts the rest along unchanged, so this tag makes the shift register visible as
+            and shifts the rest along unchanged. This tag makes the shift register visible as
             motion instead of as a fact in a document
     word    one hue per state word, for following a single word through the rounds
     dwell   how many rounds a bit has held its value, which separates the frozen from the churning
@@ -25,7 +25,7 @@ are structural rather than decorative:
 THE WAVEFORM IS NAMED BEFORE THE DATA IS OPENED
 
 Classes 0, 31, 6, 11 and 25 are the diagonal, the carry at -1 mod 32, and Sigma1's three rotation
-amounts. SHA-256 moves bits across positions in exactly those ways and no others, so the waveform
+amounts. SHA-256 moves bits across positions in exactly those ways and no others. The waveform
 is read off the round function rather than chosen after looking at the spectrum, and its matched
 filter carries no multiple-comparison penalty. That is the whole reason the number means anything.
 

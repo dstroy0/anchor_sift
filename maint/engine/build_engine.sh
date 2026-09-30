@@ -4,7 +4,7 @@
 #     maint/engine/build_engine.sh              configure, build, grade
 #     maint/engine/build_engine.sh --build-only configure and build, run nothing
 #
-# Needs cmake and a C11 compiler on PATH and nothing else. No network, no submodule, no generator
+# Needs cmake and a C11 compiler on PATH. No network, no submodule, no generator
 # run first. The engine links no library outside the C standard headers. There is nothing to
 # install before this works.
 #
@@ -133,7 +133,7 @@ else
     echo "[*] no nvcc, host arms only"
 fi
 
-# Unquoted on purpose: empty must expand to no argument and not to an empty one.
+# Unquoted: empty must expand to no argument and not to an empty one.
 # shellcheck disable=SC2086
 if [ "$want_cuda" -eq 1 ]; then
     cmake -S "$src" -B "$build" $generator $compiler -DCMAKE_BUILD_TYPE=Release >/dev/null
@@ -149,8 +149,8 @@ fi
 #     bench_lattice   bench/bench_lattice.c:500 onward needs C99 _Complex arithmetic; MSVC supplies
 #                     the types without the operators and rejects the declarations
 #
-# It predates this script and is not on the path the engine needs. It is named here rather than
-# silently skipped so nobody re-discovers it, and so that a reader on Linux knows it is expected to
+# It predates this script and is not on the path the engine needs. It is named here
+# so nobody re-discovers it, and so that a reader on Linux knows it is expected to
 # work there and is simply not built by this script.
 #
 # bench_dispatch USED TO BE ON THIS LIST for the same reason and no longer belongs to it. It reached
@@ -207,8 +207,8 @@ for grader in test_steer test_adversarial test_arm_agreement bench_steer_arms be
 done
 
 # The Python graders in test/python that grade a host build. Each is handed, in its environment variable, the program
-# or library this build made, so none of them finds an older one elsewhere under build/. The first name found in $bin
-# is the one given.
+# or library this build made. Not one finds an older one elsewhere under build/. The first name found in $bin
+# is given.
 python_grader()
 {
     script="$1"

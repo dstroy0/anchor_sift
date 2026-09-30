@@ -31,7 +31,7 @@
 # WHAT IS KEYLESS AND WHAT IS NOT
 #
 # Everything here. Computing digests, assembling the queue, and checking that every listed file is
-# present and unchanged need no secret, so they run on any machine at any time. Signing is one
+# present and unchanged need no secret. They run on any machine at any time. Signing is one
 # command over one small file, run by the person holding the key, and it is in sign.ps1 for him.
 
 import hashlib
@@ -79,7 +79,7 @@ def walk(root, label, exclude=()):
     """Every authored file under one root, as (label, relative path, size, digest).
 
     `exclude` holds absolute paths left out. The manifest and its signature belong there: a manifest
-    cannot contain its own digest, so listing itself makes it report CHANGED on every run forever.
+    cannot contain its own digest. Listing itself makes it report CHANGED on every run forever.
     The first version did exactly that, and it is the kind of defect that trains a reader to ignore
     the one line the check exists to print.
     """
@@ -111,7 +111,7 @@ def label_for(root):
     """What to call a tree in the manifest, TAKEN FROM ITS CONFIG AND NOT FROM ITS DIRECTORY NAME.
 
     This used to be os.path.basename(root), which spelled the directory the tree happens to sit in.
-    One of those directory names is the product name the commit guard errors, so every rebuild wrote
+    One of those directory names is the product name the commit guard errors. Every rebuild wrote
     it into 372 rows and the next commit was blocked by a file this script had just generated.
 
     A name taken from the filesystem is not the project's name, it is where somebody put it. Reading
@@ -141,7 +141,7 @@ def main(argv):
     # The manifest, its signature and BOTH proofs carry the claim and are not part of what it covers.
     #
     # `out + ".ots"` was missing from this tuple. Two anchors get taken - one over the manifest and
-    # one over the signature - and only the second was excluded, so the proof over the manifest sat
+    # one over the signature - and only the second was excluded. The proof over the manifest sat
     # inside the manifest's own coverage and verify reported CHANGED on it on every run, forever.
     #
     # This is the same defect `walk` already documents one function down, one filename over. It

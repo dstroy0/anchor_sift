@@ -48,7 +48,7 @@ import series
 def auxiliary(base, power, stride, offset, places):
     """x_j = sum over k of 1/(base^k (k*stride + j)^power), scaled by 2^places.
 
-    Every term is an exact integer division of a scaled one, so the whole sum is integer arithmetic
+    Every term is an exact integer division of a scaled one. The whole sum is integer arithmetic
     and carries no rounding beyond the single truncation each term makes. Terms are added until the
     denominator exceeds the scale, at which point every remaining term contributes zero.
     """
@@ -107,13 +107,13 @@ def _check(product):
 
     # The relation is NOT unique, and demanding a particular one was the wrong control.
     # Bailey's compendium notes it directly in its Section 11: the auxiliary sums satisfy "zero
-    # relations" among themselves, so the set of exact relations is a LATTICE of dimension greater
+    # relations" among themselves. The set of exact relations is a LATTICE of dimension greater
     # than one and the known formula is one member of it. A reduction returns some short vector from
     # that lattice, and any of them is a correct answer to the question actually asked.
     #
     # So the control is: does the pipeline return an EXACT relation, and is the known formula also
     # exact on the same values? The first says the search works; the second says the known formula
-    # is in the lattice the search is exploring, so the search is looking in the right place.
+    # is in the lattice the search is exploring. The search is looking in the right place.
     values = [alpha]
     for offset in range(1, 9):
         values.append(auxiliary(16, 1, 8, offset, places))
@@ -130,7 +130,7 @@ def _check(product):
     print("  precision                        2^%d" % places)
     print()
 
-    # A truncated series is not the constant, so neither residual can be exactly zero at every
+    # A truncated series is not the constant. Neither residual can be exactly zero at every
     # precision; both must simply sit far below what coefficients this size could cancel by accident.
     span = max(abs(v) for v in coefficients + want).bit_length() * 9 + 32
     found_ok = abs(found_residual).bit_length() < places - span
@@ -171,7 +171,7 @@ def main():
 
     # THE ENGINE IS CHOSEN HERE AND NOWHERE ELSE. One import, one name, handed down through every
     # call below. Nothing inspects an operand to decide, and nothing can change it from another
-    # module, so the line that ran is the line that says which machine ran it.
+    # module. The line that ran is the line that says which machine ran it.
     if given.device:
         import device_engine
         product = device_engine.product

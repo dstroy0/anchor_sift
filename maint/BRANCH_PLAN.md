@@ -32,7 +32,7 @@ Two dependencies reach out of the external set into held files. Both have to be 
 
 **`bench_ntt_cuda.cu` must come along.** `gpu_multiply.py` runs `build/bench_ntt_cuda.exe` and says
 `build it first: powershell src/scripts/build_ntt.ps1`, which compiles `src/bench/bench_ntt_cuda.cu`.
-Searched for the advantage domain, that kernel returns nothing, so it is external and it has to be,
+Searched for the advantage domain, that kernel returns nothing. It is external and it has to be,
 or the device half of the engine does not exist on `main`.
 
 **`natural_constants.py` has to be split.** `digit_engine.py` imports it, and so does `host_bench.py`.

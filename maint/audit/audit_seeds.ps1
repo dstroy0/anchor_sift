@@ -1,7 +1,7 @@
 # Sweeps the seed on the benches carrying live claims, and reports how far each number moves.
 #
 # Failure mode fourteen in theory/workbooks/anchor_sift/failure-modes.md. A statistic that appears at one draw and not at
-# others is a draw. Thirty-two of the fixed seeds in this tree are the same constant, so nothing
+# others is a draw. Thirty-two of the fixed seeds in this tree are the same constant. Nothing
 # measured here has ever been asked whether it survives a different one.
 #
 # The three-arm compiler audit already showed these benches are deterministic: one seed gives one

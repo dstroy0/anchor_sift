@@ -7,8 +7,8 @@
 #   Usage:  python maint/data/salishan/anchor_sift_algorithmic_extraction/symbol_sift.py <stem>
 #
 # Some of these PDFs drop a combining mark and leave behind the space the typesetter made room for.
-# Davis and Mellesmoen prints xʷəlp-í<p>l̓əx once with the mark and once as xʷəlp-í<p>l əx without it,
-# so one word arrives two ways in one file and nothing in either marks which is right.
+# Davis and Mellesmoen prints xʷəlp-í<p>l̓əx once with the mark and once as xʷəlp-í<p>l əx without it.
+# One word arrives two ways in one file and nothing in either marks which is right.
 #
 # Reading it off a rendered page works and does not scale. Twenty papers at twenty-four pages each is
 # a person squinting at four hundred images, and every one of those readings is a judgment nobody can
@@ -333,8 +333,8 @@ def main():
         pooled.update(counts[width])
     table, total, flat = flattened(pooled)
 
-    # The null. A site is only interesting where the paper attests one restoration and not several,
-    # so the rate to beat is how often a mark drawn at random from the inventory also lands on a form
+    # The null. A site is only interesting where the paper attests one restoration and not several.
+    # The rate to beat is how often a mark drawn at random from the inventory also lands on a form
     # this paper writes. That rate is measured over every site instead of assumed.
     chance = 0
     trials = 0

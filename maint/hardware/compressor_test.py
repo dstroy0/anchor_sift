@@ -7,15 +7,15 @@ five-operand T1, two for the four-operand schedule - and textbook is not a netli
 Three things are varied here, because each of them moves the answer:
 
   topology     3:2 is a full adder and climbs one bit per level. 4:2 is built from two of them but
-               its internal carry is absorbed and never rippled, so it reduces four operands to
+               its internal carry is absorbed and never rippled. It reduces four operands to
                two for one bit of climb. 7:3 spreads its three outputs over bits i, i+1 and i+2.
   state        whether a and e are resolved every round or carried redundantly. This is the
                that decides the answer, and it is not free to choose: Sigma is a xor of rotations,
-               rotation does not distribute over addition, so ROTR(s+c) is not ROTR(s)+ROTR(c).
+               rotation does not distribute over addition. ROTR(s+c) is not ROTR(s)+ROTR(c).
                A design that keeps the state redundant cannot compute Sigma on it.
   operands     five for T1, two for T2 and for the two final sums, four in the schedule.
 
-Taint is simulated bit by bit through each compressor and never modeled by a climb rate, so the
+Taint is simulated bit by bit through each compressor and never modeled by a climb rate. The
 climb is measured out of the simulation and printed beside the assumption it replaces.
 
     python maint/hardware/compressor_test.py
@@ -33,7 +33,7 @@ def rotr(value, by):
 
 
 # Cell shapes: how many operands a cell eats, and where its outputs land relative to the input bit.
-# A 4:2 absorbs its internal carry, so both outputs stay within one position of the input despite
+# A 4:2 absorbs its internal carry. Both outputs stay within one position of the input despite
 # being two full adders deep. A 7:3 spreads three outputs over three positions.
 CELLS = {
     "3:2": (3, (0, 1)),
@@ -50,7 +50,7 @@ def reduce_32(operands, topology):
 
     An earlier version used a queue - take from the front, push to the back - and reported that the
     topology made no difference. That was the queue and not the tree: a tainted operand's outputs
-    were re-queued behind untainted ones and met fewer cells than they should, so the climb came out
+    were re-queued behind untainted ones and met fewer cells than they should. The climb came out
     short and equal for every cell shape.
     """
     eats, lands = CELLS[topology]
@@ -181,7 +181,7 @@ def main():
 
     # -- which bits vary, not only how many ------------------------------------------------------
     #
-    # Everything above assumes a batch of *consecutive* nonces, so the varying field is the low
+    # Everything above assumes a batch of *consecutive* nonces. The varying field is the low
     # bits. Nothing forces that. A miner chooses its own enumeration order, and the varying field
     # is whatever that order makes it. Sweeping a single varying bit across all 32 positions asks
     # whether the order is worth choosing.

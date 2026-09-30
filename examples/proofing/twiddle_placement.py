@@ -18,7 +18,7 @@ THE PLACEMENT, AND WHY IT HAS AN EXACT NULL
 The twiddles are w_j = omega^j for j in [0, n), which is n points equally spaced around a circle.
 This tree already reads a ring placement exactly: deflection is the magnitude and is blind to a
 rotation by construction, torsion is the phase and recovers the turn with its sign. A placement
-turned by whole steps is the same set relabeled, so its null is not small, it is zero.
+turned by whole steps is the same set relabeled. Its null is not small, it is zero.
 
 For the twiddle table the statement is arithmetic and needs no geometry at all:
 
@@ -78,7 +78,7 @@ MODULUS = 2013265921          # 15 * 2^27 + 1, Proth witness 11
 def table_of(prime, length):
     """The twiddle table for a transform of `length`, as exact residues, with its root.
 
-    The root's order is proved before the table is built, so any table returned from here has already
+    The root's order is proved before the table is built. Any table returned from here has already
     passed the generation time check. Anything found later therefore came from corruption, since
     the constant was already proved good.
     """
@@ -132,7 +132,7 @@ def reading(table, prime, samples=256):
 
     The order test reads the root back out of the table, since w_1 IS the root, and asks whether it
     has the full order. That question cannot be answered by any of the other entries here, for the
-    reason recorded against `fault_wrong_order`, so it is carried as its own field instead of being
+    reason recorded against `fault_wrong_order`. It is carried as its own field instead of being
     folded into the group law it superficially resembles.
     """
     length = len(table)
@@ -200,7 +200,7 @@ def fault_one_bit(table, prime):
 
 
 def fault_wrong_order(table, prime):
-    """The table rebuilt on a root of half the order, so it repeats halfway through.
+    """The table rebuilt on a root of half the order. It repeats halfway through.
 
     This is the fiddled twiddle in its most plausible form: every entry is a real root of unity, the
     values look entirely ordinary, and the table is simply not the one the transform needs.

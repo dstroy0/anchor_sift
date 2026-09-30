@@ -19,7 +19,7 @@ SHA from random either, and saying so is the result.
 
 WHAT THIS CAN AND CANNOT DO
 
-Kolmogorov complexity is uncomputable, so no tool decides this. A compressor gives an UPPER bound:
+Kolmogorov complexity is uncomputable. No tool decides this. A compressor gives an UPPER bound:
 if it compresses, structure exists. Failing to compress proves nothing, because the compressor is
 looking for repetition and a generating program is not repetition. That asymmetry is the honest
 limit and the pi arm measures it directly rather than leaving it as a caveat.

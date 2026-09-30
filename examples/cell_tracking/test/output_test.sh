@@ -34,7 +34,7 @@ esac
 
 INCLUDES=(-I "$ENGINE" -I "$OUTPUT" -I "$SORT" -I "$SCAN" -I "$DIVIDE" -I "$FACES")
 rm -f "$BINARY"
-# the test is host work: the output reads and writes files and asks nothing of the device, so it is no job
+# the test is host work: the output reads and writes files and asks nothing of the device. It is no job
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 -DOUTPUT_TEST_FAULTS "${INCLUDES[@]}" -o "$BINARY" "$TEST/output_test.cu" "$OUTPUT/output_graph.cu"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }
 if [ "${BUILD_ONLY:-0}" = "1" ]; then

@@ -77,7 +77,7 @@ Read from the code at d5f6a06 and the files in `cache/iapx`; the claims are in [
 | the driver's share of raw | | printed as (1000 × bytes / raw) rounded down, shown as a percent with one decimal: "40.6%" is 406 per mille rounded down | the 25 at "42.0%" are 420 per mille: 8,809,343,524 of 20,971,520,000 |
 | floors printed on ingestion | the 25 (`logs/iapx_all.log`) | 8 floors, 25 of 25 | a 100 × 64 × 256 × 256 sample reaches one coefficient in 8 floors (proved) |
 | the floors' blocks | a 44b6 extent | 419,430,400 + 26,214,400 + 1,638,400 + 106,496 + 7,168 + 512 + 32 + 4 = 447,397,412 lanes, 1,066 per mille of the sample | depth is paid in shrinking blocks, not in passes over the whole |
-| the CRC join | a 44b6 extent | 6,553,600 segments of 64 voxels, joined in 23 levels by operators 2^7 to 2^29; the key's last operator, 2^47, is reached at level 40, so the join takes any message below 2^48 bytes | the 24,576 byte key covers 2^48 byte steps, as keys_explained §4 states |
+| the CRC join | a 44b6 extent | 6,553,600 segments of 64 voxels, joined in 23 levels by operators 2^7 to 2^29; the key's last operator, 2^47, is reached at level 40. The join takes any message below 2^48 bytes | the 24,576 byte key covers 2^48 byte steps, as keys_explained §4 states |
 | the Rice cost bound | | 24 + 32 = 56 bits a value at most; 5 + 64 × 56 = 3,589 bits a block at most | the escape bounds every value |
 | whether the 5/3 lift is linear | | the high of (0, 0, 1) is 0, of (1, 0, 0) is 0, of (1, 0, 1) is −1 | not so: the tower is exact and reversible, but it cannot be imprinted as one key by its impulse |
 

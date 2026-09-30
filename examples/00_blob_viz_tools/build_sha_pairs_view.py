@@ -10,8 +10,8 @@
 WHAT IS DRAWN
 
 The 256 output bits are placed on a sphere as 128 pairs. A pair is a bit and its antipode: the two
-sit at exactly opposite directions, so the line joining them is a diameter and passes through the
-center exactly. Nothing else goes into the construction. A generic spiral does not have this, so the
+sit at exactly opposite directions. The line joining them is a diameter and passes through the
+center exactly. Nothing else goes into the construction. A generic spiral does not have this. The
 placement is built to have it instead of hoped into it: 128 base directions are laid on a Fibonacci
 spiral, and bit k rides the direction while bit k + 128 rides its negative.
 

@@ -6,7 +6,7 @@
 #
 #   Usage:  python maint/prose/prosody_rate.py PATH [PATH ...]
 #
-# docs_check.py answers a different question. It reports every banned token it finds, so a file with
+# docs_check.py answers a different question. It reports every banned token it finds. A file with
 # no findings passes, and passing a ban list is not the same as reading human: a writer who avoids
 # eight named phrases and keeps the rhythm that produced them still reads wrong, and the ban list
 # only ever names the shapes somebody already noticed.
@@ -56,7 +56,7 @@ READ = (".md", ".tex")
 
 def words_and_hits(text):
     """Counts English words, and every banned pattern firing in them."""
-    # Strip what is not running prose, so a table of figures does not dilute the rate.
+    # Strip what is not running prose. A table of figures does not dilute the rate.
     text = re.sub(r"```.*?```", " ", text, flags=re.S)
     text = re.sub(r"\\begin\{(tabular|verbatim|center)\}.*?\\end\{\1\}", " ", text, flags=re.S)
     text = re.sub(r"`[^`]*`", " ", text)

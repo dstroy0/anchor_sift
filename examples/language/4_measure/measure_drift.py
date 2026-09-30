@@ -5,8 +5,8 @@
 #
 # Compare the vocabulary of two corpora, for the drift measurement in theory/workbooks/anchor_sift.
 #
-# Section 4.13 measures each text on its own. Drift is a claim about the distance between two of them,
-# so it needs a comparison the per corpus measures cannot give.
+# Section 4.13 measures each text on its own. Drift is a claim about the distance between two of them.
+# It needs a comparison the per corpus measures cannot give.
 #
 #   Usage:  python examples/language/4_measure/measure_drift.py left.txt right.txt
 #

@@ -1,7 +1,7 @@
 """Is the word-pair distribution anything but the light cone and the register chains?
 
 Seen from above, the word-pair shadow looks weighted from left to right. It has to be: input word
-w is outside the cone for exactly w rounds, so the volume of dead plateau in a row is set by which
+w is outside the cone for exactly w rounds. The volume of dead plateau in a row is set by which
 word it is, and the weighting follows from the geometry with nothing left to explain.
 
 The question worth asking is what remains once that is removed. Aligning every input word to its

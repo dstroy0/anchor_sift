@@ -1,19 +1,19 @@
 """Builds the longitude view: the daily cycle read as a map of where the hashrate sits.
 
 A daily cycle in UTC is already a statement about geography. Every miner follows its own local
-clock, so a hashrate spread evenly around the planet cancels to nothing in UTC and produces no
+clock. A hashrate spread evenly around the planet cancels to nothing in UTC and produces no
 daily signal at all. A signal exists only where the distribution is lopsided, and the hour its
 trough falls on is a longitude-weighted average of where the machines actually are.
 
 That makes the right picture a polar one. Twenty-four hours of UTC close a circle, and so do three
-hundred and sixty degrees of longitude, so the daily count plotted on a dial IS the planet seen
+hundred and sixty degrees of longitude. The daily count plotted on a dial IS the planet seen
 down its own axis with the hashrate drawn as radius. Nothing is being analogized: the two axes are
 the same axis.
 
 WHAT THE VIEW MAKES YOU SAY OUT LOUD
 
 Turning an hour into a longitude needs one assumption - which local hour the dip belongs to - and
-that assumption changes the answer. Electricity peaks in the local afternoon, so a curtailment dip
+that assumption changes the answer. Electricity peaks in the local afternoon. A curtailment dip
 should sit near local 16:00, but a maintenance window would not, and a cheap-power surge would sit
 opposite. The view therefore puts that hour on a control instead of burying it in the arithmetic:
 move it and the inferred longitude rotates, which is the honest way to show that the geography is
@@ -23,7 +23,7 @@ WHAT IT IS NOT
 
 The evidence is marginal. Twenty-four bins over six thousand nine hundred and eighty blocks give a
 chi-square of 36.62 against a multinomial null whose ninety-fifth percentile is 35.10. That is
-p = 0.036 and it is drawn on the page, so it cannot be read as more than it is.
+p = 0.036 and it is drawn on the page. It cannot be read as more than it is.
 
     python examples/00_blob_viz_tools/build_earth_view.py
     python examples/00_blob_viz_tools/build_earth_view.py --corpus maint/chain/blocks_deep.json

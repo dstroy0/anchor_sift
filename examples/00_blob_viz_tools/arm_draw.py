@@ -71,7 +71,7 @@ import boundary_read
 TAU = 2.0 * math.pi
 
 # The frame the rotated drawing is stated in. Two turns about different axes, at angles with no
-# relation to the placement, so no coordinate is spared the arithmetic.
+# relation to the placement. No coordinate is spared the arithmetic.
 FRAME_DOWN, FRAME_AROUND = 0.7853981633974483, 1.2566370614359172
 
 
@@ -375,7 +375,7 @@ def points_on_a_face(points):
     """Placement indices sitting exactly on a face, where the sign convention alone decides.
 
     The golden placement puts index 0 here at every count. Its longitude is `0 * GOLDEN`, which is
-    exactly zero, and the sine of that is exactly zero, so its third coordinate is exactly zero.
+    exactly zero, and the sine of that is exactly zero. Its third coordinate is exactly zero.
     Nothing about this is a rounding accident and no placement size avoids it.
     """
     return [at for at, (x, y, z) in enumerate(points)
@@ -463,7 +463,7 @@ def fault_residuals(points, live):
         points, live, by_rotated_frame(points, carry_the_frame=False))
     out["one face nudged"] = compared(points, live, by_nudged_face(points, live))
     out["record at six figures"] = compared(points, live, by_point_cloud(points, digits=6))
-    # This fault leaves every arm untouched and moves only the division, so it has no reading at
+    # This fault leaves every arm untouched and moves only the division. It has no reading at
     # the first two levels. It is a fault in the letter and is caught there.
     out["normalized by the arm"] = {
         "weight": 0.0,
@@ -480,7 +480,7 @@ def faults_caught(points, live):
     """Whether every drawing that is not a redraw moved a letter. The gate on this null.
 
     Three of the four move a letter by more than a millionth. The fourth writes the record at six
-    significant figures, which cannot touch an indicator weight and does touch a graded one, so it
+    significant figures, which cannot touch an indicator weight and does touch a graded one. It
     is held to moving something at all.
     """
     faults = fault_residuals(points, live)
@@ -617,7 +617,7 @@ def _check():
     say("")
 
     # The default lit set leaves index 0 dark, and index 0 is the point on the face. A pass over
-    # that set alone would say nothing about the case the pre-check flags, so the drawings are made
+    # that set alone would say nothing about the case the pre-check flags. The drawings are made
     # to carry it.
     if on_face:
         held = a_lit_set_holding_the_faces(points, count)

@@ -10,7 +10,7 @@ each of those is small enough to sit in fast memory, and that alone is why a lar
 fast on real hardware: the work never leaves the cache, or on a card the shared memory, because the
 pieces are root N and not N.
 
-THE DERIVATION, so the code is not a copied recipe
+THE DERIVATION. The code is not a copied recipe
 
 Write the transform X[k] = sum over n of x[n] w^(n k), with w a primitive N-th root of unity. Split
 both indices with N = P * Q:
@@ -63,7 +63,7 @@ def root_of(length, prime, generator, inverse=False):
     """A primitive `length`-th root of unity modulo `prime`, or its inverse.
 
     Every argument is explicit. An earlier version defaulted `prime` and `generator` to module
-    globals, which Python binds at definition time, so rebinding the globals to test a second
+    globals, which Python binds at definition time. Rebinding the globals to test a second
     modulus changed nothing and the fold ran on the wrong generator. The gate caught it at once.
     """
     root = pow(generator, (prime - 1) // length, prime)
@@ -87,7 +87,7 @@ def direct(values, prime, root):
 def fold(values, prime, generator, length, inverse=False):
     """The transform of `values` by the four-step fold, into P and Q point passes.
 
-    P and Q are chosen as balanced powers of two, so each pass is about root N. The sub-passes use
+    P and Q are chosen as balanced powers of two. Each pass is about root N. The sub-passes use
     the direct transform here, because the point of this file is to prove the FOLD; on the card the
     sub-passes are the shared-memory butterflies, and they are graded against this.
     """
@@ -199,7 +199,7 @@ def _check():
     lines.append("")
 
     lines.append("  THE FOLD ON ANOTHER MODULUS, so it is not tuned to one")
-    # Its own proven generator, found and not assumed, so nothing is bound to one modulus.
+    # Its own proven generator, found and not assumed. Nothing is bound to one modulus.
     for other in (2281701377, 3892314113):
         generator, _ = twiddle_proof.generator_of(other)
         length = 256

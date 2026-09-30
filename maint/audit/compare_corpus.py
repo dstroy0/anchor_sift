@@ -1,7 +1,7 @@
 """Differences the clean survey against the contaminated chain, position by position.
 
 The survey hashes synthetic headers on the device and counts every output bit. Nothing selects the
-results and no operator touches them, so it is the construction's own distribution measured to a
+results and no operator touches them. It is the construction's own distribution measured to a
 depth no chain could reach. The chain corpus is the same function's output contaminated twice over:
 every digest was SELECTED for sitting below a target, and every one was produced by a machine whose
 conventions we spent the night measuring.
@@ -23,7 +23,7 @@ check. If tilt reaches past the zero run it shows here and nowhere else.
 THE FLOOR
 
 The survey's precision is irrelevant to the comparison. A few thousand real digests give a standard
-error near one over twice the square root of that count, which is four parts in a thousand, so the
+error near one over twice the square root of that count, which is four parts in a thousand. The
 chain side sets the floor and the survey side is exact by comparison. The bar is the loudest of the
 positions tested, not a single position's, and it is drawn from the same binomial.
 
@@ -56,8 +56,8 @@ def load_digests():
 
     The target matters and carrying only the digest is what went wrong twice. A digest is free in
     its lower bits only where its own leading run EXCEEDS its target's run: at equal depth the
-    remaining bits are bounded by the target's remaining bits, so they are still selected. And the
-    corpora span difficulty epochs whose targets differ, so the free region is per block and cannot
+    remaining bits are bounded by the target's remaining bits. They are still selected. And the
+    corpora span difficulty epochs whose targets differ. The free region is per block and cannot
     be drawn once for the whole corpus.
     """
     seen = {}
@@ -112,7 +112,7 @@ def main():
     print("    %d positions remain to be tested" % (256 - skip))
 
     # Conditioning is per digest, not per corpus. A digest whose leading run is L has bit L set by
-    # the definition of a leading run and every bit past L unconstrained, so position p may only be
+    # the definition of a leading run and every bit past L unconstrained. Position p may only be
     # counted over digests with L < p. An earlier version excluded one region for the whole corpus,
     # using the SHALLOWEST run, which left most digests still inside their own constrained region
     # and reported position 76 at seventy-seven standard errors. That was the exclusion, not tilt.

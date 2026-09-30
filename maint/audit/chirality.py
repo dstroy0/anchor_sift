@@ -1,7 +1,7 @@
 """A counter-rotating arm: read the same state through both handednesses and difference them.
 
-The golden placement winds one way. Index k sits at height 1 - 2(k + 0.5)/n and longitude k gamma,
-so the arm is a helix with a handedness, and every reading taken through it inherits that
+The golden placement winds one way. Index k sits at height 1 - 2(k + 0.5)/n and longitude k gamma.
+The arm is a helix with a handedness, and every reading taken through it inherits that
 handedness. A second arm winding the other way - longitude MINUS k gamma, same heights - reads the
 same state through the mirror.
 
@@ -48,7 +48,7 @@ def helix_place(count, handed):
     """The golden placement, wound either way. handed is +1 for the tree's arm, -1 for its mirror.
 
     Heights are identical between the two; only the direction of the longitude advance changes. That
-    keeps every other property - no seam, no pole pile, even coverage - exactly as it was, so a
+    keeps every other property - no seam, no pole pile, even coverage - exactly as it was. A
     difference between the readings cannot be blamed on the placement being worse one way round.
     """
     out = []
@@ -64,7 +64,7 @@ def phase_residual(right_phases, left_phases):
     """How far the mirror's phases are from being the exact negation of the arm's.
 
     Reflecting a point set through a plane sends every longitude to its negative, and for real data
-    that sends each coefficient to its conjugate, so the phases negate. That is a GEOMETRIC identity
+    that sends each coefficient to its conjugate. The phases negate. That is a GEOMETRIC identity
     and it holds for any lit set whatever. So this residual is expected to be zero to the format's
     floor, and a nonzero one would mean the placement is wrong rather than that the data is handed.
     """

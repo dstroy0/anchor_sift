@@ -2,7 +2,7 @@
 
 The ridge was measured as the loudest of 32 residue classes, in standard errors, without
 subtracting the mean across classes. Incomplete avalanche and the message-schedule light cone both
-produce a large offset shared by every class - neither depends on the output bit, so both spread
+produce a large offset shared by every class - neither depends on the output bit. Both spread
 evenly over all 32 residues - and the loudest class is then mostly that offset.
 
 The honest statistic is a class's deviation from the mean of classes, in units of the scatter of

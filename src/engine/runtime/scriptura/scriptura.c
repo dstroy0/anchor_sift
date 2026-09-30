@@ -81,9 +81,9 @@ static unsigned int scriptura_hundredth(unsigned int value)
 
 static unsigned long long scriptura_divide(unsigned long long value)
 {
-    // each half is held at the 32 bits it carries, so the four products are widening
+    // each half is held at the 32 bits it carries. The four products are widening
     const unsigned long long value_low = (unsigned int)value;
-    // each half is held at the 32 bits it carries, so the four products are widening
+    // each half is held at the 32 bits it carries. The four products are widening
     const unsigned long long value_high = (unsigned int)(value >> 32u);
     const unsigned long long magic_low = SCRIPTURA_DIVIDE_MAGIC & 0xFFFFFFFFull;
     const unsigned long long magic_high = SCRIPTURA_DIVIDE_MAGIC >> 32u;

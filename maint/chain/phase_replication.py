@@ -8,8 +8,8 @@ part is measured, drawn rather than derived, and stated as marginal, which is co
 
 The PHASE is a different claim and it carried no test at all. The document reads the trough at 18:00
 to 23:00 UTC as United States afternoon peak pricing, and then builds a geography argument on it. The
-amplitude's p-value says nothing about the phase: a chi-square is invariant to relabeling the bins,
-so it fires identically whatever hour the trough lands in.
+amplitude's p-value says nothing about the phase: a chi-square is invariant to relabeling the bins.
+It fires identically whatever hour the trough lands in.
 
 That matters more than usual here because the nearest retracted claim in this tree is exactly this
 shape. Twenty per-pool trough hours were read as geography and turned out to sit where uniform draws
@@ -17,7 +17,7 @@ sit, p = 0.662. An amplitude with a null and a phase without one is how that hap
 
 THE TEST
 
-A real daily cycle is a property of the population, so it must be there in any large enough piece of
+A real daily cycle is a property of the population. It must be there in any large enough piece of
 it. A phase that is noise is a property of this particular draw and will not survive being cut.
 
     1. Split the corpus into halves, by time and then by parity of height.
@@ -29,7 +29,7 @@ it. A phase that is noise is a property of this particular draw and will not sur
 Splitting by PARITY as well as by time is the arm that matters. A split by time confounds phase with
 migration - if the hashrate genuinely moved between the first and second half, the troughs should
 differ, and a disagreement would be evidence FOR the geography reading rather than against it. A
-parity split interleaves the halves, so both see the same epochs, the same difficulty, the same
+parity split interleaves the halves. Both see the same epochs, the same difficulty, the same
 population, and any disagreement is noise with nothing else it can be.
 
 WHAT EACH OUTCOME MEANS
@@ -178,7 +178,7 @@ def main():
     print()
 
     # THE PARITY SPLIT IS THE ONE THAT DECIDES IT. Both halves span the same epochs and the same
-    # population, so nothing but noise can separate their troughs.
+    # population. Nothing but noise can separate their troughs.
     evens = [b for b in blocks if b["height"] % 2 == 0]
     odds = [b for b in blocks if b["height"] % 2 == 1]
     parity_apart, parity_p = report_split(

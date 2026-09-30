@@ -44,14 +44,14 @@ that returns a probability.
     almost nothing to run.
 
     THE GENERATOR, COMPLETELY. g generates the whole group if and only if g^((p-1)/q) is not 1 for
-    each prime q dividing p-1. Here p-1 is k * 2^n with k small, so factoring it is factoring k, and
+    each prime q dividing p-1. Here p-1 is k * 2^n with k small. Factoring it is factoring k, and
     the proof is complete instead of partial.
 
 WHY THE SIZE IS OURS TO CHOOSE
 
 The tabled moduli are small because they are sized to a machine word: a lane holds sixty four bits,
 a product of two residues has to fit, and so the modulus stops below 2^32. That is a property of the
-lane and not of the mathematics. The arithmetic here is on unbounded integers, so Proth's proof runs
+lane and not of the mathematics. The arithmetic here is on unbounded integers. Proth's proof runs
 at any width, and moduli far past anything tabled can be produced and proved on demand. The floor
 belongs to the format, which is this tree's own finding, and the format is a choice.
 
@@ -60,7 +60,7 @@ WHAT IT ERRORS
 A modulus outside Proth's range, where k is not below 2^n. The theorem's converse is the step that
 makes a witness a proof and it does not hold there. A root whose order is short of the length asked
 for, the fiddled twiddle exactly. And any verdict without its certificate: every answer
-below carries the witness that establishes it, so the reader can recheck the claim without rerunning
+below carries the witness that establishes it. The reader can recheck the claim without rerunning
 this file.
 """
 
@@ -101,7 +101,7 @@ def small_factors(value):
     """The distinct primes dividing `value`, by trial division to its own square root.
 
     Complete, not partial. This is only ever called on the odd part of a modulus less one, which is
-    small by the same condition that lets Proth's theorem apply, so dividing all the way up is
+    small by the same condition that lets Proth's theorem apply. Dividing all the way up is
     cheap and there is no probable answer anywhere in it.
     """
     found = []
@@ -123,7 +123,7 @@ def proth_prime(value, tries=1000):
 
     A witness a with a^((N-1)/2) congruent to -1 proves primality outright, by Proth. An a with
     a^(N-1) not congruent to 1 proves compositeness outright, by Fermat. Both directions are
-    certificates, so the only inconclusive outcome is running out of candidates, which is reported
+    certificates. The only inconclusive outcome is running out of candidates, which is reported
     as inconclusive instead of rounded to either verdict.
     """
     odd, power, reachable = proth_form(value)
@@ -147,7 +147,7 @@ def generator_of(prime, tries=1000):
     """The smallest proven generator of the group modulo `prime`, with the factors proving it.
 
     Complete because p-1 factors completely: it is k * 2^n and k is small. A candidate is a
-    generator exactly when it is not killed by any maximal divisor, so the test is one exponentiation
+    generator exactly when it is not killed by any maximal divisor. The test is one exponentiation
     per prime factor and there are only ever a handful.
     """
     factors = small_factors(prime - 1)
@@ -161,7 +161,7 @@ def order_is(root, length, prime):
     """Whether `root` has order exactly `length`, where `length` is a power of two.
 
     The whole proof, and the step a fault attack removes. An order dividing a power of two is a
-    power of two, so failing to divide the half is the same as being the whole. Two exponentiations,
+    power of two. Failing to divide the half is the same as being the whole. Two exponentiations,
     no factoring, and it catches a zeroed twiddle, a wrong modulus and a root of short order alike.
     """
     if length & (length - 1):

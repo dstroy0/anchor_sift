@@ -28,7 +28,7 @@ its solid angle, and no part of the sphere is hidden or magnified.
 WHAT IS EXACT AND WHAT IS NOT
 
 The matrix, its decomposition, and the residual norms are computed at full depth with no smoothing, the
-most favorable case there is: both kernels are diagonal in degree and below one, so either can
+most favorable case there is: both kernels are diagonal in degree and below one. Either can
 only shrink a singular value. The field maps are drawn on a finite grid and are a picture; the
 numbers printed beside them are the measurement.
 """
@@ -99,7 +99,7 @@ def field_grid(coefficients, top, rows=FIELD_LAT, columns=FIELD_LON):
 
 
 def grid_corners(rows=FIELD_LAT, columns=FIELD_LON):
-    """Projected corners of every grid cell, so the page draws quads and never guesses a shape."""
+    """Projected corners of every grid cell. The page draws quads and never guesses a shape."""
     out = []
     for r in range(rows):
         for c in range(columns):
@@ -223,7 +223,7 @@ def _check():
         failed += 1
 
     # Equal area, checked instead of asserted. A Mollweide cell's area on the page has to track its
-    # solid angle, so two bands of equal solid angle must project to equal page area.
+    # solid angle. Two bands of equal solid angle must project to equal page area.
     def band_area(low, high, steps=240):
         run = 0.0
         for k in range(steps):

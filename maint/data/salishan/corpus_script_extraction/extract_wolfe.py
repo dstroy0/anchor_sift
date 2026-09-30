@@ -16,8 +16,8 @@
 # Every other reader writes a .pure.txt holding one language. Pouring these forms into one file
 # would build a corpus of Sliammon, Sechelt, Squamish, three kinds of Halkomelem, three kinds of
 # Straits, Klallam, Lushootseed, Twana, Tillamook, Quinault and two Tsamosan languages together,
-# which is a corpus of no language at all. The language is what the anchor sift is trying to measure,
-# so mixing eighteen of them into the thing it measures against is the mistake that cannot be
+# which is a corpus of no language at all. The language is what the anchor sift is trying to measure.
+# Mixing eighteen of them into the thing it measures against is the mistake that cannot be
 # recovered from downstream.
 #
 # So this writes .pure.tsv instead, with the language in the first column. A reader downstream picks

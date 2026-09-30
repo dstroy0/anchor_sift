@@ -8,8 +8,8 @@
 # NAMES DO NOT CHANGE, ONLY PATHS
 #
 # check_slant.py becomes check\check_slant.py and keeps its name. The repetition is deliberate.
-# Every document, every printf inside a bench, and every usage line in a docstring names these files,
-# so a rename means finding all of those and being right every time. Inserting one directory level
+# Every document, every printf inside a bench, and every usage line in a docstring names these files.
+# A rename means finding all of those and being right every time. Inserting one directory level
 # means the filename is still the search key. A previous mechanical rewrite in this tree corrupted a
 # filename by matching a fragment of it; matching on the whole name cannot do that.
 #
@@ -17,7 +17,7 @@
 #
 # research_paper and prose already exist and hold symlinks into anchor_sift.
 # research_paper\build_theory.sh derives the
-# repository root with dirname "$0"/../.., which is only correct at exactly that depth, so moving it
+# repository root with dirname "$0"/../.., which is only correct at exactly that depth. Moving it
 # deeper would break it silently. Both stay where they are.
 
 param([switch]$DryRun)
@@ -86,7 +86,7 @@ try
             }
 
             # git mv keeps the file's history attached. An ignored file such as blocks.json is not
-            # tracked, so git errors on it and a plain move is correct there.
+            # tracked. Git errors on it and a plain move is correct there.
             git ls-files --error-unmatch $from 2>&1 | Out-Null
             if ($LASTEXITCODE -eq 0)
             {

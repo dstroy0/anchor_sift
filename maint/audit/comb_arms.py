@@ -9,7 +9,7 @@ between them buys something else, and it is the reason to run arms rather than o
     noise pushes each arm independently
 
 So the sign of a position's deviation, read across arms, separates the three. Under the null each
-arm's sign is a fair coin, so all eight agreeing has probability two in two hundred fifty six, and
+arm's sign is a fair coin. All eight agreeing has probability two in two hundred fifty six, and
 over 256 positions chance alone delivers about two such positions. That is the bar, and it is
 computed rather than chosen.
 
@@ -57,8 +57,8 @@ def main():
     depths = [int(a["nonces"]) for a in arms]
     total = sum(depths)
 
-    # Arms need not share a depth. Each one carries its own N and its own exact zero at 2c - N, so
-    # the deviations add and their variances add with them, and no calibration step exists to get
+    # Arms need not share a depth. Each one carries its own N and its own exact zero at 2c - N.
+    # The deviations add and their variances add with them, and no calibration step exists to get
     # wrong. An earlier version printed arms[0]'s depth as though it were everyone's, which was
     # only ever a display fault because the arithmetic below never used it.
     if min(depths) == max(depths):
@@ -118,11 +118,11 @@ def main():
         print("      %d of %d   %-40s %d positions" % (agree, width, bar, counts[agree]))
 
     # Under the null, all-agree has probability 2 / 2^width, and this is exact even where the arms
-    # differ in depth: the SIGN of 2c - N is a fair coin at every N, so a shallow arm votes with
+    # differ in depth: the SIGN of 2c - N is a fair coin at every N. A shallow arm votes with
     # exactly the same weight as a deep one and the binomial does not care.
     #
     # The power is not depth-independent, and that is the part worth saying. A shallow arm is less
-    # likely to show a REAL bias's sign, so mixing depths keeps the false-positive rate exact while
+    # likely to show a REAL bias's sign. Mixing depths keeps the false-positive rate exact while
     # diluting sensitivity. Short arms are free to add and never mislead; they simply carry less.
     expected_unanimous = (256 * 2) / float(1 << width)
     print()

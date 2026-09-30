@@ -101,8 +101,8 @@ def sites_at_positions(text):
 def total_occupancy(holders):
     """The published occupancies at one position, summed exactly. None where any is missing.
 
-    Returns (total, count_under_full). The sum is integer arithmetic at the scale: no float enters,
-    so the only inexactness in this check is the deposit's own rounding, which SLACK covers.
+    Returns (total, count_under_full). The sum is integer arithmetic at the scale: no float enters.
+    The only inexactness in this check is the deposit's own rounding, which SLACK covers.
     """
     total = 0
     under = 0

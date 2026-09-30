@@ -1,9 +1,9 @@
 # Compression and tower recursion
 
-**Purpose:** Explain, from first principles and with this engine's numbers, how a whole sample becomes one small exact file and comes back voxel for voxel. The tower recurses one exact step until the sample is one coefficient. The compression step writes what the tower leaves in as few bits as it needs. The CRC-64 is folded into the tower's own passes, so the proof that nothing was lost costs no pass of its own. Each of these had to be argued for before it was accepted, and each is explained thoroughly here so the next reader does not have to be argued into it.
+**Purpose:** Explain, from first principles and with this engine's numbers, how a whole sample becomes one small exact file and comes back voxel for voxel. The tower recurses one exact step until the sample is one coefficient. The compression step writes what the tower leaves in as few bits as it needs. The CRC-64 is folded into the tower's own passes, and the proof that nothing was lost costs no pass of its own. Each of these had to be argued for before it was accepted, and each is explained thoroughly here so the next reader does not have to be argued into it.
 **Scope:** anchor_sift's `src/engine/analysis/tower/`, `src/engine/analysis/compression/`, `src/engine/codecs/crc/`, the limit `ENGINE_COEFFICIENT_LIMIT` and the hand-off `EngineStream` in `src/engine/engine_config_requests.h`, and their composition in the entry, `src/engine/engine_*.cu`. The proof was `cell_tracking/maint/prove_codec.sh` at d5f6a06. The ledger's statuses ([README.md](README.md)) apply to every claim. The tower is integral to the engine, and it is categorized **measure / recursion**.
 
-Every number here is an exact integer. Where a share of raw is given, it is in per mille, rounded down: the driver prints it the same way, so its "40.6%" is 406 per mille rounded down, not a rounding to the nearest.
+Every number here is an exact integer. Where a share of raw is given, it is in per mille, rounded down: the driver prints it the same way, and its "40.6%" is 406 per mille rounded down, not a rounding to the nearest.
 
 ## 0. Why these ideas get resisted
 
@@ -29,7 +29,7 @@ The edges are mirrored. Undoing it runs the same two moves backwards, with the s
 
 **Why the floors do not break exactness.** Each move adds to one half a function of the *other* half only. The inverse has that other half in hand, computes the very same function, floor and all, and subtracts it. It does not matter that ⌊·/2⌋ throws a bit away. The bit it throws away is thrown away identically going up and coming down, and it is never part of what is stored. This is a lifting step, and any function at all could stand in the floors' place: the pair of moves is still an exact integer map with an exact integer inverse. The 5/3 functions are chosen because a smooth line leaves highs near zero.
 
-The high predicts each odd lane from its two even neighbors and keeps only the miss. The low then carries the line's local mean up to the next floor. What the prediction gets right is gone from the highs: that is what the program generates. What it misses stays: that is the residue.
+The high predicts each odd lane from its two even neighbors and keeps only the miss. The low then carries the line's local mean up to the next floor. What the prediction gets right is gone from the highs: the program generates it. What it misses stays: that is the residue.
 
 ### 1.2 The recursion: floors until the whole sample is one coefficient
 
@@ -37,7 +37,7 @@ The sample is one object over t z y x: time is an axis like the others, not a lo
 
     floor f + 1  =  lift( lows of floor f )
 
-This is the recursion of noise_sieve_tower §9, Kₘ₊₁ = R(Kₘ, ξ), with R one step and the same step at every floor. An axis of length n reaches one after ⌈log₂ n⌉ halvings, which is the bit length of n − 1, so the tower has as many floors as its longest axis needs. For a 100 × 64 × 256 × 256 sample:
+This is the recursion of noise_sieve_tower §9, Kₘ₊₁ = R(Kₘ, ξ), with R one step and the same step at every floor. An axis of length n reaches one after ⌈log₂ n⌉ halvings, the bit length of n − 1, and the tower has as many floors as its longest axis needs. For a 100 × 64 × 256 × 256 sample:
 
 | floor | block lifted (t × z × y × x) |
 |---|---|
@@ -91,26 +91,26 @@ Both arms are exact, because every coefficient is below 2^30 in magnitude, and s
 
 ### 2.2 Rice coding, a parameter per block of 64
 
-A natural n under the Rice parameter k is written in two parts. The first is its quotient q = n shifted right by k, in unary: q ones, then a zero. The second is its low k bits. It costs q + 1 + k bits. A small k suits a block of small values and a large k a block of large ones, so k is chosen per block of 64 values:
+A natural n under the Rice parameter k is written in two parts. The first is its quotient q = n shifted right by k, in unary: q ones, then a zero. The second is its low k bits. It costs q + 1 + k bits. A small k suits a block of small values and a large k a block of large ones, and k is chosen per block of 64 values:
 
 - The guess is the bit length of the block's mean (the sum over the count, rounded down).
 - The candidates run from the guess less two to the guess plus one: four candidates, or two or three where the guess is 0 or 1.
 - Each candidate's cost over the whole block is counted exactly, and the cheapest wins. A tie goes to the smaller k.
-- The chosen k is written in 5 bits, so any k from 0 to 31 can be named.
+- The chosen k is written in 5 bits, and any k from 0 to 31 can be named.
 
 Nothing about the data is assumed. The parameter is read from the block's own values, and the cost that picks it is an exact count of bits. This is keys_explained §7 (the noise is read, never modeled) applied to writing: no distribution is fitted, and a block of noise and a block of structure are coded by the same rule, each at its own cost.
 
 ### 2.3 The escape at quotient 24
 
-A single large value in a block of small ones would cost its whole quotient in unary: at k = 0, a value near 2^31 would cost about 2^31 bits. So a quotient reaching 24 is written as 24 ones, with no zero after them, followed by the value's 32 bits. The reader sees 24 ones and knows 32 plain bits follow. So:
+A single large value in a block of small ones would cost its whole quotient in unary: at k = 0, a value near 2^31 would cost about 2^31 bits. A quotient reaching 24 is therefore written as 24 ones, with no zero after them, followed by the value's 32 bits. The reader sees 24 ones and knows 32 plain bits follow. So:
 
 - no value costs more than 24 + 32 = 56 bits;
 - no block of 64 costs more than 5 + 64 × 56 = 3,589 bits;
-- the cost counted when k is chosen includes the escape exactly, so a block chooses its k knowing which of its values will escape.
+- the cost counted when k is chosen includes the escape exactly, and a block chooses its k knowing which of its values will escape.
 
 ### 2.4 The limit, 2^30
 
-ENGINE_COEFFICIENT_LIMIT is 2^30. It guarantees three things: every sum a lifting step forms stays inside a 64 bit integer's exact range; every coefficient fits a 32 bit integer; and its zigzag fits 32 bits, so the escape writes it whole. The tower flags any coefficient that reaches the limit, and a flagged sample is an error, never wrapped. The width is proved before anything is written, as keys_explained §6 asks, and a sample that would break it is not written at all.
+ENGINE_COEFFICIENT_LIMIT is 2^30. It guarantees three things: every sum a lifting step forms stays inside a 64 bit integer's exact range; every coefficient fits a 32 bit integer; and its zigzag fits 32 bits, and the escape writes it whole. The tower flags any coefficient that reaches the limit, and a flagged sample is an error, never wrapped. The width is proved before anything is written, as keys_explained §6 asks, and a sample that would break it is not written at all.
 
 ### 2.5 Chunks: every part reachable, the whole decoded in parallel
 
@@ -128,7 +128,7 @@ The reader returns an error for a stream whose chunk count is not its coefficien
 
 ### 2.6 The file, to the byte
 
-A 44b6 sample has 419,430,400 coefficients, so 102,400 chunks. Its .kcr, measured for 44b6_0113de3b:
+A 44b6 sample has 419,430,400 coefficients, and 102,400 chunks. Its .kcr, measured for 44b6_0113de3b:
 
 | part | bytes |
 |---|---|
@@ -142,7 +142,7 @@ Raw, the sample is 838,860,800 bytes. The file is 406 per mille of raw, and the 
 
 ### 2.7 What the compression does not claim
 
-It is not the floor of the data. Grouping each floor's coefficients row by row made the stream of 44b6_0113de3b 1,157,533 bytes smaller, and coding pairs along t apart for each floor made it 1,987,962 bytes smaller, though pairing along t hurt on most other samples (ledger, 21 September). So the stream as written is not the smallest one possible. What does bound it from below is the floor of §1.3. A bit plane at maximum entropy carries a full bit for every place it covers, and no exact coder writes it in fewer. That bound is standard (Shannon's). Whether the tower's highs inherit the floor's planes, plane for plane, has not been measured in this stream, so here the bound is theory.
+It is not the floor of the data. Grouping each floor's coefficients row by row made the stream of 44b6_0113de3b 1,157,533 bytes smaller, and coding pairs along t apart for each floor made it 1,987,962 bytes smaller, though pairing along t hurt on most other samples (ledger, 21 September). The stream as written is not the smallest one possible. What does bound it from below is the floor of §1.3. A bit plane at maximum entropy carries a full bit for every place it covers, and no exact coder writes it in fewer. That bound is standard (Shannon's). Whether the tower's highs inherit the floor's planes, plane for plane, has not been measured in this stream, and here the bound is theory.
 
 | claim | status |
 |---|---|
@@ -174,13 +174,13 @@ One register carried voxel by voxel would make the pass serial. So each thread t
 
 where A_|R| is the 64 × 64 bit matrix that carries a register across |R| zero bytes. The key in `crc_key.h` holds A for 2^0, 2^1, …, 2^47 bytes: 48 operators of 64 columns of 8 bytes each, 24,576 bytes.
 
-The join takes pairs from the right. The first segment is the short one, so every other segment at every level spans the same bytes, and one operator serves a whole level: level l carries registers across 2^(7 + l) bytes. For a 44b6 sample that is 6,553,600 segments joined in 23 levels, using operators 2^7 to 2^29. Then `crc_finish` carries the all-ones start across the sample's 838,860,800 bytes, adds it, and inverts. The result is CRC-64/XZ exactly, as a byte by byte CRC would give it.
+The join takes pairs from the right. The first segment is the short one, and every other segment at every level spans the same bytes, and one operator serves a whole level: level l carries registers across 2^(7 + l) bytes. For a 44b6 sample that is 6,553,600 segments joined in 23 levels, using operators 2^7 to 2^29. Then `crc_finish` carries the all-ones start across the sample's 838,860,800 bytes, adds it, and inverts. The result is CRC-64/XZ exactly, as a byte by byte CRC would give it.
 
-The key's reach bounds the message. The last operator the key holds is 2^47, reached at join level 40, so the join takes up to 2^41 segments of 128 bytes, and `crc_finish` takes any length below 2^48 bytes. That is the "2^48 byte steps" of keys_explained §4: past it, the join returns an error at that level rather than reach for an operator the key does not hold.
+The key's reach bounds the message. The last operator the key holds is 2^47, reached at join level 40, and the join takes up to 2^41 segments of 128 bytes, and `crc_finish` takes any length below 2^48 bytes. That is the "2^48 byte steps" of keys_explained §4: past it, the join returns an error at that level in place of reaching for an operator the key does not hold.
 
 ### 3.3 The accumulator stays one size
 
-However many segments are folded, the accumulator is 64 bits: over 64 voxels, over 419,430,400, or over the whole set, where each sample's CRC is carried on in the order the samples were named. That is the folding in [hash_boundary_functional_folding.md](../../thought_experiments/engine/hash_boundary_functional_folding.md): an accumulator that stays one size however much is folded, so a severe boundary condition adds no dimensions (noise_sieve_tower §11). What is folded is the *verification* of the work, not the work. Every voxel is still read once, in a pass that had to read it anyway, and the fold makes checking that read cost 64 bits.
+However many segments are folded, the accumulator is 64 bits: over 64 voxels, over 419,430,400, or over the whole set, where each sample's CRC is carried on in the order the samples were named. That is the folding in [hash_boundary_functional_folding.md](../../thought_experiments/engine/hash_boundary_functional_folding.md): an accumulator that stays one size however much is folded, and a severe boundary condition adds no dimensions (noise_sieve_tower §11). The fold carries the *verification* of the work, never the work. Every voxel is still read once, in a pass that had to read it anyway, and the fold makes checking that read cost 64 bits.
 
 Two samples with equal CRCs are equal pixel for pixel, short of a chance of 2^−64. The CRC is the pixel-for-pixel test compressed in time.
 
@@ -196,7 +196,7 @@ Two samples with equal CRCs are equal pixel for pixel, short of a chance of 2^�
 
 ## 4. How the three compose
 
-Lift, encode, write; read, decode, lower. Each is exact and closed, and each hands the next a plain value: coefficients as an array of exact integers, then an `EngineStream`. They are composed only in the entry (keys_explained §9). So the codec is one chain, and it composes transitively:
+Lift, encode, write; read, decode, lower. Each is exact and closed, and each hands the next a plain value: coefficients as a vector of exact integers, then an `EngineStream`. They are composed only in the entry (keys_explained §9). The codec is therefore one chain, and it composes transitively:
 
     lower ∘ decode ∘ read ∘ write ∘ encode ∘ lift  =  identity on the sample
 

@@ -5,7 +5,7 @@
 
 WHY HOST ONLY
 
-The card may be busy. This bench never opens a device context, so it runs while the miner holds the
+The card may be busy. This bench never opens a device context. It runs while the miner holds the
 GPU and measures the CPU arithmetic on its own terms. Every operation here has a substrate on the
 card as well. The measurement is the host floor each of those sits above, the number that
 says when the trip to the card is worth taking.

@@ -1,7 +1,7 @@
 """Proposes a phrase swap for each finding, for build_fixes.py to turn into table rows.
 
 The gate names a token, not a phrase: it reports the bare contrast word where the text carries its two-word form. A swap
-has to act on the phrase, so each site is widened to the construction actually present and then a
+has to act on the phrase. Each site is widened to the construction actually present and then a
 rule is applied to that construction.
 
     python maint/plan_fixes.py src hooks > plan.tsv
@@ -31,7 +31,7 @@ SHOW = os.path.join(os.path.dirname(os.path.abspath(__file__)), "show_findings.p
 
 # Widen a reported token to the construction it belongs to, longest first.
 # The comma-carrying form is tried first. Replacing a bare explainer with its comma-led form where the
-# source already ends the previous clause with a comma produces `, , the`, so the comma the source
+# source already ends the previous clause with a comma produces `, , the`. The comma the source
 # owns has to be inside the construction being swapped, never added by the replacement.
 WIDER = {
     "rather": ["rather than"],

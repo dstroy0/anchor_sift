@@ -7,8 +7,8 @@
 #   Usage:  python maint/data/salishan/corpus_script_extraction/extract_kim_twana.py
 #
 # The first Twana paper in this set, and Twana has no anchor yet. Every Twana form here is
-# Drachman's, from a 1969 dissertation Kim calls the only reliable reference in existence for this,
-# so what the paper prints is close to everything written down.
+# Drachman's, from a 1969 dissertation Kim calls the only reliable reference in existence for this.
+# What the paper prints is close to everything written down.
 #
 # THE FIRST EXAMPLE IS NOT TWANA
 #

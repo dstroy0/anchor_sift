@@ -22,7 +22,7 @@ thousand and the question of whether the format can carry them should not have t
 
 WHAT THE THIRD PANEL SHOWS
 
-A grid-stride loop in this kernel rounded its trip count up in thirty-two bits, so a survey of the
+A grid-stride loop in this kernel rounded its trip count up in thirty-two bits. A survey of the
 full nonce range wrapped to zero iterations and returned every counter empty while the host credited
 the whole count. The run looked, from outside, exactly like one that completed. The panel puts the
 two runs side by side because a silent zero is the failure mode worth being able to recognize.
@@ -105,7 +105,7 @@ def main():
         })
 
     # The sum of squared z, as an exact rational scaled by 10^6 so the page never divides.
-    # z is (2c - N) over the square root of N, so z squared is (2c - N) squared over N and there is
+    # z is (2c - N) over the square root of N. Z squared is (2c - N) squared over N and there is
     # no factor of four. An earlier version carried one and read 976.03 where the truth is 244.01,
     # which the float arm caught by disagreeing with it.
     sum_z_millionths = (total_squared * 1000000) // samples

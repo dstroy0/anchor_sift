@@ -2,13 +2,13 @@
 
     python examples/00_blob_viz_tools/boundary_read.py --check
 
-A library and not a tool. Nothing here knows what the lit points mean, so it serves a hash, a solar
+A library and not a tool. Nothing here knows what the lit points mean. It serves a hash, a solar
 system, or a file of bytes without changing. The part that knows is the caller.
 
 WHAT IS IN HERE
 
     placements    where an index sits on the sphere. A golden-angle spiral, and rings of equal
-                  width. A placement is a choice and it shapes what can be read, so the two that
+                  width. A placement is a choice and it shapes what can be read. The two that
                   the tools here use are both offered and neither is a default.
 
     readings      three ways to read one lit set:
@@ -71,7 +71,7 @@ def golden_place(count):
 def ring_place(rings, width):
     """Rings of equal width: the ring index chooses a latitude, the position chooses a longitude.
 
-    The latitudes are the interiors of the equal bands, so no ring lands on a pole where every point
+    The latitudes are the interiors of the equal bands. No ring lands on a pole where every point
     of it would pile into one place. A shift along a ring is a pure rotation about the ring axis,
     and that property makes this placement the right one to test a rotation on.
     """
@@ -103,8 +103,8 @@ def complex_coefficients(angles, live, top):
 
     A lit point at (colatitude, longitude) contributes P_lm(cos colatitude) times exp(-i m
     longitude), summed over the lit set. Moving every longitude by alpha multiplies the order m
-    entry by exp(-i m alpha), so the magnitude holds still and the phase moves by m alpha. Both
-    readings below come off this one table, so it is formed once and handed to them.
+    entry by exp(-i m alpha). The magnitude holds still and the phase moves by m alpha. Both
+    readings below come off this one table. It is formed once and handed to them.
     """
     out = {}
     for order in range(top + 1):
@@ -140,7 +140,7 @@ def deflection(table, top):
 def torsion(table, top):
     """The twist reading: the phase of each entry, as {(degree, order): radians}.
 
-    The zonal terms carry no phase, since order zero has no longitude in it, so they are left out
+    The zonal terms carry no phase, since order zero has no longitude in it. They are left out
     instead of being reported as a phase of nothing.
     """
     out = {}
@@ -156,7 +156,7 @@ def torsion(table, top):
 def turn_between(before, after, order=1):
     """The rotation that carries one lit set to another, in radians, read off the phase.
 
-    Positive is the direction the longitudes run. The coefficients carry exp(-i m longitude), so the
+    Positive is the direction the longitudes run. The coefficients carry exp(-i m longitude). The
     phase moves against the rotation and undoing that minus is undoing the convention they are
     written in. Order one is asked by default because it pins the angle down without a wrap of its
     own; a higher order divides the angle and returns it only up to its own fraction of a turn.
@@ -178,7 +178,7 @@ def octant_share(points, live):
 
     An earlier version of this note said a face is measure zero on a placement of this kind. That is
     false for `golden_place` and was refuted by measurement in `arm_draw`. Index 0 has longitude
-    `0 * GOLDEN`, which is exactly zero, and the sine of exactly zero is exactly zero, so its third
+    `0 * GOLDEN`, which is exactly zero, and the sine of exactly zero is exactly zero. Its third
     coordinate is exactly zero at every placement size: 64, 128, 256, 512, 1024 and 4096 were
     checked and all of them put index 0 on the face. One point of the placement is decided by the
     convention and not by its position, and a caller comparing two conventions gets two answers
@@ -210,7 +210,7 @@ def screw_of(count, amount):
     """The rigid move that shifting every index by this amount comes to on a golden placement.
 
     Returns the turn in radians, the axial slide, and the pitch, the slide per unit of turn. The
-    pitch comes to -2/(count gamma) whatever the amount is, so one axis and one pitch serve every
+    pitch comes to -2/(count gamma) whatever the amount is. One axis and one pitch serve every
     amount and a shift is a slide of the whole pattern along one fixed helix.
     """
     turn = amount * GOLDEN

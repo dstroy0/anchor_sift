@@ -11,8 +11,8 @@ tables at any precision asked for. Every one of them bottoms out on a series sum
 time, and the shape of that summation stops them, not the size of the answer.
 
 MEASURED. `pi_machin` takes 0.002 s at a thousand places and 0.045 s at four thousand. The Gregory
-series does a term per digit of output and each term costs a division at the full working precision,
-so the cost is the square of the digit count. Extrapolated to a billion digits that is on the order
+series does a term per digit of output and each term costs a division at the full working precision.
+The cost is the square of the digit count. Extrapolated to a billion digits that is on the order
 of ninety years, and no amount of care inside the loop changes the exponent.
 
 The ceiling was never a property of pi. It belonged to the shape of the sum.
@@ -20,19 +20,19 @@ The ceiling was never a property of pi. It belonged to the shape of the sum.
 WHAT REPLACED IT
 
 Binary splitting on Chudnovsky's series. The linear sum divides at every term at full precision;
-binary splitting carries three exact integers per interval and merges pairs, so there is exactly ONE
-division in the whole computation and it happens at the end. Nothing in between is rounded, so there
+binary splitting carries three exact integers per interval and merges pairs. There is exactly ONE
+division in the whole computation and it happens at the end. Nothing in between is rounded. There
 is no error to propagate and no tolerance to argue about: the intermediates are integers and they
 are exact.
 
-Chudnovsky gains 14.18 decimal digits per term against Machin's roughly 1.4, so the term count falls
+Chudnovsky gains 14.18 decimal digits per term against Machin's roughly 1.4. The term count falls
 by ten before the shape of the sum is even considered.
 
 WHERE THE HOST STOPS, AND WHY THAT IS THE HONEST NUMBER
 
 The multiply underneath is Python's own, which is Karatsuba: measured at 0.930 s for a million
 digits and 5.610 s for three million, an exponent of 1.635. Binary splitting turns the series into
-some tens of multiplies at the full size, so the reachable range follows directly from that exponent
+some tens of multiplies at the full size. The reachable range follows directly from that exponent
 and is reported by `--time` instead of promised here.
 
 THE TRANSFORM IS WIRED IN, BEHIND `--device`. It lowers the exponent to N log N and it runs on the
@@ -74,7 +74,7 @@ import series
 
 # CPython errors rather than render an integer past 4300 digits as text unless told otherwise, which is a
 # guard against a denial of service in a parser and has nothing to say about arithmetic. Every value
-# here is meant to be written out, so the guard is lifted instead of worked around; the arithmetic
+# here is meant to be written out. The guard is lifted instead of worked around; the arithmetic
 # was never affected by it and only the printing was.
 sys.set_int_max_str_digits(0)
 

@@ -134,7 +134,7 @@ This rule was argued for before it was accepted, because the ordinary default ru
 | `key_schedule_layout` | `EngineKey` | `EngineKeyLayout`: the key laid out for the machine, every lane width proved from its own bounds |
 | `cycle_key_load` | `EngineKeyLayout` | `CycleKey`: the layout held on the device, a type only `cycle` sees inside |
 
-Each producer releases what it made (`keymath_key_release`, `key_schedule_release`) as soon as the next stage has taken it, so ownership closes at every hand-off as well as the value.
+Each producer releases what it made (`keymath_key_release`, `key_schedule_release`) as soon as the next stage has taken it. Ownership closes at every hand-off as well as the value.
 
 *The codec* (`engine_ingest_set`, `engine_iapx_prove_set`, `engine_iapx_load`; `engine_entropy_set` and `engine_entropy_cloud` compose the entropy history the same way):
 

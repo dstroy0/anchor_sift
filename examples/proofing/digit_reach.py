@@ -6,8 +6,8 @@
 
 WHAT THIS DOES THAT THE OTHER ROUTE CANNOT
 
-`digit_engine.py` computes pi from the front. To hold the digit at place n it holds all n of them,
-so the storage is the answer's own size, and the wall sits there: a run of 10^30 digits needs 4 * 10^29
+`digit_engine.py` computes pi from the front. To hold the digit at place n it holds all n of them.
+The storage is the answer's own size, and the wall sits there: a run of 10^30 digits needs 4 * 10^29
 bytes, which is some ten million times all the storage ever manufactured. No transform and no
 factoring changes that, because it is a statement about the size of the answer and not about the
 cost of finding it.
@@ -42,7 +42,7 @@ place to spend that effort is only after the reach itself is proved, and this fi
 WHAT WOULD MAKE IT FAST
 
 The head sum is a sum over k of terms that do not refer to each other. It is embarrassingly
-parallel in the strict sense, so the same card that runs the transform would run this with one k
+parallel in the strict sense. The same card that runs the transform would run this with one k
 per lane and no communication at all. That is not built here; the reach is proved on the host first
 so the device has something to be checked against.
 """
@@ -67,9 +67,9 @@ HEX = "0123456789abcdef"
 def series(j, place):
     """The fractional part of sum over k of 16^(place-1-k) / (8k+j).
 
-    The head runs k below `place` and every term is a modular power over its own denominator, so
-    nothing here is ever larger than that denominator and the whole sum stays inside a double. The
-    tail runs above `place`, where the powers are negative and fall by sixteen each step, so it is
+    The head runs k below `place` and every term is a modular power over its own denominator.
+    Nothing here is ever larger than that denominator and the whole sum stays inside a double. The
+    tail runs above `place`, where the powers are negative and fall by sixteen each step. It is
     exhausted as soon as a term drops under the format's own resolution.
     """
     total = 0.0

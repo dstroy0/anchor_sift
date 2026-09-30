@@ -17,7 +17,7 @@
 # The signature answers WHO and cannot answer WHEN, because its date field is written by the signer's
 # own clock. The anchor answers WHEN and cannot answer WHO, because it needs no key and anyone can
 # make one. Running one without the other leaves half the claim, and the order matters only in that
-# the anchor is taken over the signature, so the signature has to exist first.
+# the anchor is taken over the signature. The signature has to exist first.
 #
 # THE ANCHOR DISCLOSES NOTHING. It is taken over a digest, which is the same size for a sentence or a
 # corpus and names no file. Held work can be anchored today and revealed whenever. Waiting for
@@ -46,7 +46,7 @@ $integrity = $LASTEXITCODE
 
 # verify.py counts an absent signature and an absent anchor as findings, and on a first run both are
 # absent by definition. Two findings with no CHANGED or MISSING lines above is the expected state
-# here, so this asks rather than erroring outright.
+# here. This asks rather than erroring outright.
 if ($integrity -gt 2)
 {
     Write-Output ""

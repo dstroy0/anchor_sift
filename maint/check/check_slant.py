@@ -50,7 +50,7 @@ PLATEAU = 6.0e7
 def standardize(values):
     """Z-score within one round, over the live cells only.
 
-    Dead cells are set to zero and never dropped, so every round keeps the same 512 positions and
+    Dead cells are set to zero and never dropped. Every round keeps the same 512 positions and
     a line through the bedrock contributes nothing instead of contributing the most.
     """
     live = [v for v in values if abs(v) < PLATEAU]

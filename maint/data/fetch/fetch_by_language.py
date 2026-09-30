@@ -11,8 +11,8 @@
 # predicts something checkable: two texts in one language should agree with each other more closely than
 # either agrees with a text in another language, on whatever quantity carries it.
 #
-# Nothing here can test that yet. English holds twelve texts and every other language holds one or two,
-# so there is no within language spread to compare a between language spread against. The comparison
+# Nothing here can test that yet. English holds twelve texts and every other language holds one or two.
+# There is no within language spread to compare a between language spread against. The comparison
 # needs several texts per language, and this fetches them.
 #
 # Texts are taken from Project Gutenberg's own per language index so the selection is not hand picked,

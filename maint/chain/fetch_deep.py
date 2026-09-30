@@ -1,7 +1,7 @@
 """Fetch a deep header corpus, for the integration the shallow one cannot support.
 
 A thousand blocks is seven days. Header statistics - pool conventions, clock offsets - are
-stationary over far longer than that, so they are exactly the case where integrating longer pays:
+stationary over far longer than that. They are exactly the case where integrating longer pays:
 the estimate sharpens as the square root of the count for as long as the thing being measured holds
 still, and firmware conventions hold still for months.
 
@@ -10,7 +10,7 @@ Two leads came out of the thousand-block corpus below the bar and neither can be
     blocks whose timestamp reverses carry a lower rolled version   -2.09 sd
     the shape of the clock-offset population                        31 reversals is too few
 
-Twenty thousand blocks is twenty times the count, so a real effect grows by the square root of
+Twenty thousand blocks is twenty times the count. A real effect grows by the square root of
 twenty, about 4.5, and a spurious one does not. That is the whole design: the same statistic, more
 of it, and the two outcomes are not alike.
 

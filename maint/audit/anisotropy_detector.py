@@ -1,4 +1,4 @@
-"""An anisotropy detector on a flat baseline, so a departure is one number and not a curve.
+"""An anisotropy detector on a flat baseline. A departure is one number and not a curve.
 
 For a set of points with no preferred direction, every mode carries the same expected power, and a
 degree holds (2l+1) of them. So the per-degree power rises linearly:

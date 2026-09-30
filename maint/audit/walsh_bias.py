@@ -1,7 +1,7 @@
 """Every linear approximation at once, by Walsh-Hadamard, instead of a sampled few.
 
 The first version of this search tested mask pairs one at a time: pick some masks, walk the nonces,
-count agreements. That is O(masks times nonces) and it samples, so it can only ever report the best
+count agreements. That is O(masks times nonces) and it samples. It can only ever report the best
 of whatever it happened to draw. Four thousand masks out of four billion is not a search.
 
 The transform does the whole thing. For a fixed output mask beta, put
@@ -19,7 +19,7 @@ So the transform is both complete and cheaper, which is the usual shape of using
 
 OUT OF SAMPLE STILL APPLIES
 
-The transform is exhaustive over masks, so there is no held-out mask space. The held-out axis is the
+The transform is exhaustive over masks. There is no held-out mask space. The held-out axis is the
 nonces: the best alpha is found on one range and its bias is then measured on a disjoint range it
 never saw. A real approximation holds there and a selection artifact does not, and over 2^k masks
 the largest is always large by construction.
@@ -40,7 +40,7 @@ def build_signs(first, span, beta):
 
     The array is arbitrary-width on purpose. An earlier version held these in array("i"), which is
     a thirty-two bit signed C integer, and the transform below sums them: after k stages a value can
-    reach the full span, so at a span of 2^31 the accumulator wraps and the transform returns
+    reach the full span. At a span of 2^31 the accumulator wraps and the transform returns
     nonsense that looks like data. That is the same fault as the uint32 overflow found in
     survey_nonces, in an analysis script rather than a kernel.
 

@@ -14,12 +14,12 @@ also writes, beside the objects, the roots and the headers whose names two of th
 argument but the output, into COMPILE_CACHE_DIR under a name made from the key, those arguments and the source's path;
 the ones not there yet are compiled COMPILE_CACHE_JOBS at a time (4 by default; the harness sets the processors a suite reserves). The
 call is then made again with each source replaced by its object, which only links. nvcc compiles each source of a
-call apart without -rdc, so the objects are the ones it would have made. A call that asks for anything else (-E, -M,
+call apart without -rdc. The objects are the ones it would have made. A call that asks for anything else (-E, -M,
 -x, -rdc, -dc, -dlink, -ptx, -cubin, -fatbin, -lib, -shared, --version, no source) goes to nvcc as it is, and so does
 every call when COMPILE_CACHE_KEY or COMPILE_CACHE_DIR is unset.
 
 An include folder inside the roots is left out of an object's name unless one of the shared-name headers lies under
-it: every other header there has one file of its name, so it is found as the same file from any set of folders, and
+it: every other header there has one file of its name. It is found as the same file from any set of folders, and
 the suites, each naming its own folders, link the same engine objects. An object one build is compiling is waited
 for by another (its .lock), for up to COMPILE_CACHE_WAIT seconds (900 by default), before that one compiles it too.
 """

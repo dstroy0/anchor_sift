@@ -81,12 +81,12 @@ def poisson_deficit(bins, total, alpha, kind):
 ORDERS = [("0", 0.0), ("1/2", 0.5), ("1", 1.0), ("2", 2.0), ("3", 3.0), ("4", 4.0), ("inf", 0.0)]
 
 FAMILY = re.compile(r"windows (\d+), bins (\d+), mean count")
-# The wide window prints no "windows N, bins M" line of its own, so without this the rows below it
+# The wide window prints no "windows N, bins M" line of its own. Without this the rows below it
 # would be checked against whatever family came last. That is a defect in this checker and not in
 # the bench, and it produced twelve false mismatches before it was noticed.
 WIDE = re.compile(r"32-bit window at digest bytes")
 ROW = re.compile(r"^\s+(0|1/2|1|2|3|4|inf)\s+(\S+)\s+(\S+)\s+")
-# A preimage-count table starts its rows with a small integer too, so matching rows by shape alone
+# A preimage-count table starts its rows with a small integer too. Matching rows by shape alone
 # reads counts and ratios as though they were entropies. Only rows under a Renyi header count.
 TABLE_HEAD = re.compile(r"^\s+order\s")
 

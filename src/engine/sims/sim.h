@@ -17,7 +17,7 @@
 
 // the words a counter owns in its key's run of counters: sim_binomial_half takes one word per 64 trials,
 // sim_poisson_four_cumulants one per 6 electrons and sim_thinned one per 64 / bits electrons, and a word past these
-// is drawn on a key of the counter's own (sim_counter_draw), so no count runs into the next counter's words
+// is drawn on a key of the counter's own (sim_counter_draw). No count runs into the next counter's words
 #define SIM_COUNTER_STRIDE 65536ull
 
 #define SIM_COUNTER_PAST_PURPOSE 0x50415354ull
@@ -60,7 +60,7 @@ static inline __host__ __device__ unsigned long long sim_draw_below(unsigned lon
 }
 
 // word `word` of a counter's draws: the first SIM_COUNTER_STRIDE lie in the counter's own stride of the key's counters,
-// and each word past them is drawn on a key made from the counter, so a count of any size keeps to its own words
+// and each word past them is drawn on a key made from the counter. A count of any size keeps to its own words
 static inline __host__ __device__ unsigned long long sim_counter_draw(unsigned long long key,
                                                                       unsigned long long counter,
                                                                       unsigned long long word)
@@ -107,7 +107,7 @@ static inline __host__ __device__ unsigned long long sim_binomial_half(unsigned 
 
 // A count of mean S whose first four cumulants are each S, a Poisson count's: each of the S expected electrons adds
 // 0, 1, 2 or 4 with chances 9, 8, 6 and 1 in 24, a law whose factorial moments are 1 to the fourth, as Poisson(1)'s
-// are; it parts from Poisson at the fifth. A word's draw below 24^6 gives six electrons' chances, so a counter's
+// are; it parts from Poisson at the fifth. A word's draw below 24^6 gives six electrons' chances. A counter's
 // SIM_COUNTER_STRIDE words hold 6 of them each.
 static inline __host__ __device__ unsigned long long sim_poisson_four_cumulants(unsigned long long key,
                                                                                 unsigned long long counter,
@@ -263,7 +263,7 @@ static inline unsigned long long sim_ratio_floor(const AnchorExactInteger *numer
 
 #define SIM_DECIMAL_GROUP_DIGITS 9u
 
-// 10^9 exceeds 2^29, so a magnitude of ANCHOR_EXACT_BITS bits has at most ANCHOR_EXACT_BITS / 29 + 1 groups
+// 10^9 exceeds 2^29. A magnitude of ANCHOR_EXACT_BITS bits has at most ANCHOR_EXACT_BITS / 29 + 1 groups
 #define SIM_DECIMAL_GROUPS ((((unsigned long long)(ANCHOR_EXACT_BITS)) / 29ull) + 1ull)
 
 // the count of limbs up to and including the top non-zero one; 0 for zero
@@ -291,7 +291,7 @@ static inline void sim_exact_decimal(ScripturaLine *line, const AnchorExactInteg
         for (unsigned long long index = used; index > 0ull; index -= 1ull)
         {
             const unsigned long long dividend = (remainder << 32u) | work.limb[index - 1ull];
-            // the remainder is below 10^9, so the dividend is below 10^9 * 2^32 and its quotient fits a limb
+            // the remainder is below 10^9. The dividend is below 10^9 * 2^32 and its quotient fits a limb
             work.limb[index - 1ull] = (uint32_t)(dividend / SIM_DECIMAL_GROUP);
             remainder = dividend % SIM_DECIMAL_GROUP;
         }
@@ -361,7 +361,7 @@ static inline int sim_status_check(SimResults *results, cudaError_t status, cons
 {
     if (status != cudaSuccess)
     {
-        // the runtime's last error is taken here, once reported, so the next launch check does not read it again
+        // the runtime's last error is taken here, once reported. The next launch check does not read it again
         (void)cudaGetLastError();
         sim_check(results, 0, what);
         scriptura_text(&results->line, "    cuda: ");

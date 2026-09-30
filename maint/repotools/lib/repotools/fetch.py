@@ -46,8 +46,8 @@ from repotools import boot, root
 LOCK_NAME = "repotools.lock"
 STAMP = "repotools-stamp:"
 
-# The importable spine. Every runnable tool walks up for a directory holding it and imports from it,
-# so it travels with every fetch whether or not a repository named it.
+# The importable spine. Every runnable tool walks up for a directory holding it and imports from it.
+# It travels with every fetch whether or not a repository named it.
 SPINE = "lib/repotools"
 
 # A set that cannot work without another one. Held here and not in the CLI, because a fetch can

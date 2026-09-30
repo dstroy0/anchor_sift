@@ -10,10 +10,10 @@ Four stages, in the order a receiver applies them:
 
   clutter map      what every class shares, estimated per round and removed
   OS-CFAR          the background under a cell estimated from its neighbors by an order
-                   statistic, so other targets sitting in the training cells cannot mask it.
+                   statistic. Other targets sitting in the training cells cannot mask it.
                    The earlier reading used the plain scatter of the other 31 classes, which
                    included 6, 11, 25 and 31 - all real targets - and inflated its own noise floor
-  coherent sum     the signature is constant across rounds 6 to 16, so integrating there gains
+  coherent sum     the signature is constant across rounds 6 to 16. Integrating there gains
                    sqrt(11) on it and nothing on noise
   matched filter   the transmitted waveform is known a priori, because it is the round function's
                    own transport: the diagonal, the carry, and the two Sigma functions' rotation
@@ -134,7 +134,7 @@ def main():
     # The waveform is the set of classes the round function actually transports along, each taken
     # with the sign the mechanism predicts: all positive, because a transport channel makes a cell
     # more dependent, not less. Projecting the per-round CFAR vector onto it and integrating is the
-    # optimal detector for that waveform in white noise, and it is pre-registered, so there is no
+    # optimal detector for that waveform in white noise, and it is pre-registered. There is no
     # maximum-of-N correction to pay.
     waveform = [DIAGONAL, CARRY] + list(SIGMA1)
     print("\nMatched filter on the pre-registered waveform %s:" % (waveform,))
@@ -174,7 +174,7 @@ def main():
 
     # -- the same chain, pointed where nothing has ever been found --------------------------------
     #
-    # The window above is where structure is known to exist, so finding it there says the receiver
+    # The window above is where structure is known to exist. Finding it there says the receiver
     # works, alone. The question worth asking is what this sensitivity reads past round
     # 23, where every instrument in this work goes flat.
     #
@@ -226,7 +226,7 @@ def main():
         print("%12s %8d %10.2f %10.2f %10.2f %10.2f"
               % ("%d-%d" % (start, stop), len(deep), here_zero, here_one, here_nought, here_wave))
 
-    # Four statistics on five windows is twenty maxima, so the peak to clear is the union's, not
+    # Four statistics on five windows is twenty maxima. The peak to clear is the union's, not
     # a single test's. The same correction that killed six claims in this work.
     cells = 4.0 * float(len(windows))
     peak = math.sqrt(2.0 * math.log(cells))

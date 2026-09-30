@@ -7,7 +7,7 @@ exclusive-or view because an addition is an exclusive-or plus a carry. A GF(2)-l
 0.03 bits the other way, which is nothing. GF(2) is strictly the more expressive of the two.
 
 That raised a claim about intuition and not about SHA-256: nature is full of accumulation, phase
-and carry, and almost empty of parity, so human intuition is trained on the weaker language. That
+and carry, and almost empty of parity. Human intuition is trained on the weaker language. That
 claim was an analogy. This turns it into a number.
 
 Each corpus is read as bytes. For a lag, the exclusive-or difference and the additive difference of
@@ -17,7 +17,7 @@ language has: eight bits is flat and anything above zero is structure that langu
 The corpora carry their own controls, and this set was therefore used in place of a new one:
 
   english_1813_austen_repeatkey_k8   Austen under an eight-byte repeating key. At lag eight the key
-                                     cancels exactly, so the exclusive-or view must see a great deal
+                                     cancels exactly. The exclusive-or view must see a great deal
                                      and the additive view must see nothing. A positive control for
                                      GF(2) built from real language.
   english_1813_austen_keystream      Austen under a running key. Both views must see nothing.
@@ -83,14 +83,14 @@ def grip(seats, shuffled, lag, additive):
     """Bits this language sees at this lag beyond what the alphabet alone accounts for.
 
     The first version of this compared against flat over 256 bins and every control failed. A
-    corpus of decimal digits uses ten byte values, so its difference distribution is concentrated
+    corpus of decimal digits uses ten byte values. Its difference distribution is concentrated
     whatever the arrangement, and the reading was the size of the alphabet and not any
     structure at the lag. Sqrt(2) read 4.09 bits of grip and it has none; the uniform monkey read
     3.05 and it has none by construction.
 
     The fix is the null the posits already specify: it must delete the property being asked about
     alone. A shuffle of the same bytes destroys every arrangement and preserves the
-    alphabet exactly, so the difference between the two readings is arrangement and cannot be
+    alphabet exactly. The difference between the two readings is arrangement and cannot be
     alphabet. That is also why the shuffle cannot be wrong - it is the data with one property
     removed and not a model that could be false.
     """
@@ -110,7 +110,7 @@ def built_control(kind, length=2_000_000, period=8):
     just as well. It read add 1.1585 against xor 0.9213 and the reading was uninterpretable.
 
     These are clean. In the GF(2) case each block is the previous block exclusive-ored with a fixed
-    constant, so the exclusive-or difference at the period is exactly that constant, eight bits of
+    constant. The exclusive-or difference at the period is exactly that constant, eight bits of
     grip, while the additive difference is spread by the carries. In the integer case each block is
     the previous block plus a constant, and the two roles swap. Each control has to come out
     lopsided in its own direction or this tool is measuring neither language.

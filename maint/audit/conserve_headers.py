@@ -167,13 +167,13 @@ def main():
         values = [found[key] for _, found in collected]
         bins, order = key
         across = statistics.pstdev(values)
-        # The chi-square statistic behind a deficit has variance twice its degrees of freedom, so
-        # one family of w windows resolves its ratio to this and no better. Nothing is fitted.
+        # The chi-square statistic behind a deficit has variance twice its degrees of freedom.
+        # One family of w windows resolves its ratio to this and no better. Nothing is fitted.
         windows = 32 if bins == 256 else 16
         if order == "inf":
             # Order infinity reads the largest bin, which is an extreme value and not a chi-square
             # quantity. Its deficit is log2(1 + max deviation), the max deviation sits near
-            # sigma*sqrt(2 ln r) and its own spread is the Gumbel scale sigma/sqrt(2 ln r), so the
+            # sigma*sqrt(2 ln r) and its own spread is the Gumbel scale sigma/sqrt(2 ln r). The
             # relative resolution is 1/(2 ln r) and has nothing to do with the bin count the way
             # the other orders do.
             #
@@ -183,7 +183,7 @@ def main():
             within = (1.0 / (2.0 * math.log(bins))) / (windows ** 0.5)
         elif order == "two-over-half":
             # A ratio between two orders, where the common scale cancels. Both are driven by the
-            # same chi-square statistic, so the difference is far better resolved than either.
+            # same chi-square statistic. The difference is far better resolved than either.
             within = (2.0 / (bins - 1)) ** 0.5 / (windows ** 0.5)
         else:
             within = (2.0 / (bins - 1)) ** 0.5 / (windows ** 0.5)

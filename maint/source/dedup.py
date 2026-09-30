@@ -49,8 +49,8 @@ from strip_comments import rewrite
 
 ROOT = os.getcwd()
 
-# C11 sec 6.4.1 keywords plus the ones this tree's dialect adds. A keyword is structure, not a name,
-# so it never renames: `while` and `for` must not collide.
+# C11 sec 6.4.1 keywords plus the ones this tree's dialect adds. A keyword is structure, not a name.
+# It never renames: `while` and `for` must not collide.
 KEYWORDS = set("""auto break case char const continue default do double else enum extern float for goto if
     inline int long register restrict return short signed sizeof static struct switch typedef union
     unsigned void volatile while _Alignas _Alignof _Atomic _Bool _Complex _Generic _Imaginary

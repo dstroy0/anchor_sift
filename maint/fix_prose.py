@@ -3,7 +3,7 @@
 Written after fixing eighty-five findings by hand. The hand work is the right shape and the risk in
 it is mechanical: a rewrite that matches nothing leaves the finding standing while the run looks
 successful, and a rewrite that matches twice edits a site nobody read. Both are the failure this
-whole day has been about, so both are errors here.
+whole day has been about. Both are errors here.
 
     python maint/fix_prose.py                    # report what would change
     python maint/fix_prose.py --write            # change it
@@ -63,7 +63,7 @@ def clean(text):
 
 
 def endings(path):
-    """The line ending the file already uses, so writing it back does not convert the whole file.
+    """The line ending the file already uses. Writing it back does not convert the whole file.
 
     The Python and Markdown in this tree are LF and the C and CUDA are CRLF. Reading with universal
     newlines and writing with newline="\\n" rewrites every line of a CRLF file, which is a diff

@@ -1,7 +1,7 @@
 """Device arithmetic. No host path, no dispatch, no fallback.
 
 This is the device half of a deliberate split. `digit_engine` is the host half. Neither imports the
-other's multiply, and nothing at runtime moves work between them, so "which machine ran this" is
+other's multiply, and nothing at runtime moves work between them. "which machine ran this" is
 answered by the import line and not by the size of an operand.
 
     import device_engine        every multiply here is on the card, at every size
@@ -112,7 +112,7 @@ def gate():
     The multiply is graded directly against the host's, and then the reciprocal is graded too,
     because the reciprocal is where a multiply that is subtly wrong at one width would first show up
     as a wrong answer and not a wrong product. Both must match EXACTLY: these are integer
-    routines returning exact floors, so there is no tolerance to argue about, and a check that
+    routines returning exact floors. There is no tolerance to argue about, and a check that
     allowed one would be hiding the only failure mode worth catching.
     """
     import digit_engine as host

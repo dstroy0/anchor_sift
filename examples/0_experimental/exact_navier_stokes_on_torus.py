@@ -248,8 +248,8 @@ class Ratio:
 class Scalar:
     """A finite sum of modes, each carrying a poly, over one positive integer denominator.
 
-    Normalized on construction: the denominator and every integer in every poly share no common divisor,
-    so two scalars are equal exactly when their modes and denominator are equal.
+    Normalized on construction: the denominator and every integer in every poly share no common divisor.
+    Two scalars are equal exactly when their modes and denominator are equal.
     """
     __slots__ = ("modes", "den")
 

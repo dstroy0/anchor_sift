@@ -56,7 +56,7 @@ def parses(source):
                               capture_output=True, text=True, timeout=60)
         if done.returncode == 0:
             return True, ""
-        # The temporary path is noise in the message, so the name is folded back to the block it
+        # The temporary path is noise in the message. The name is folded back to the block it
         # came from by the caller and stripped here.
         return False, re.sub(re.escape(handle.name), "<script>", done.stderr).strip()
     except FileNotFoundError:
@@ -75,7 +75,7 @@ def parses(source):
 # THE FAULT THIS CATCHES, WHICH A PARSE CANNOT
 #
 # Both declarations hoist. The function is bound first, then the var's assignment runs at load and
-# leaves its value sitting where the function was, so the first call throws. The script parses, the
+# leaves its value sitting where the function was. The first call throws. The script parses, the
 # page builds, the builder prints its digest, and the frame loop dies on its first turn -- after
 # setup has already drawn one frame. The result is a page that renders once and looks like a working
 # page with a feature that does nothing, when what does nothing is every feature after the throw.
@@ -194,7 +194,7 @@ def check(path):
     return failed
 
 
-# The fault this tool exists for, written out, so the tool is asked to find it before it is trusted
+# The fault this tool exists for, written out. The tool is asked to find it before it is trusted
 # on anything else. A checker that has never caught its own defect is a checker nobody has tested,
 # and the whole point of the collision above is that it is invisible without one.
 KNOWN_CLASH = "\n".join((

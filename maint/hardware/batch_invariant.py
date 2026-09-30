@@ -20,11 +20,11 @@ WHAT THE ADDER MODEL DECIDES, AND WHAT IT DOES NOT
 A first version assumed resolved adders and found the sharing dead at round 3, because a settled
 carry chain lets a change at bit zero reach bit thirty-one. That is not how SHA-2 hardware is built:
 the inner loop keeps sum and carry apart and never propagates during the rounds, as
-shortens the critical path. Under carry-save a 3:2 compressor moves influence up exactly one bit, so
-the answer changes - round 3 keeps twenty free bits and the total rises by about a third.
+shortens the critical path. Under carry-save a 3:2 compressor moves influence up exactly one bit.
+The answer changes - round 3 keeps twenty free bits and the total rises by about a third.
 
 It then dies at round 4 anyway, and the reason is worth stating because it is not the adder.
-Sigma1 is ROTR6 xor ROTR11 xor ROTR25, so one tainted bit becomes three at separated positions every
+Sigma1 is ROTR6 xor ROTR11 xor ROTR25. One tainted bit becomes three at separated positions every
 round, and a thirty-two bit word saturates in two or three rounds however the adder is arranged.
 The residue spectrum reached the same place independently: Sigma1 reads 12.61 against Sigma0's 3.34
 through the matched filter. The operation that carries the mixing is the operation that caps this.
@@ -48,12 +48,12 @@ def rotr(value, by):
 #              smears to the top of the word in one addition.
 #   carrysave  the inner loop keeps sum and carry apart and never propagates during the rounds,
 #              as SHA-2 hardware actually does to shorten the critical path. A 3:2
-#              compressor moves influence up exactly one bit, so taint grows a level at a time.
+#              compressor moves influence up exactly one bit. Taint grows a level at a time.
 #
 # Silicon uses the second. The first model's answer was wrong for that reason.
 ADDER = "carrysave"
 
-# A five-operand add (h, Sigma1, Choose, K, W) compresses 5 to 2 in three levels of 3:2, so taint
+# A five-operand add (h, Sigma1, Choose, K, W) compresses 5 to 2 in three levels of 3:2. Taint
 # climbs three bit positions per round. Two operands need one level.
 LEVELS_FIVE = 3
 LEVELS_TWO = 1
@@ -116,7 +116,7 @@ def compression_taint(words):
     """Taint of the eight state words after each round.
 
     Choose and Majority are bitwise. A position is tainted when any of its inputs is. The two
-    temporaries are sums, so they widen upward.
+    temporaries are sums. They widen upward.
     """
     state = [0] * 8
     per_round = []
@@ -154,7 +154,7 @@ def main():
         # them per nonce anyway.
         sched_fixed = sum(32 - popcount(words[t]) for t in range(16, ROUNDS))
         # State: word a and word e are computed each round; b, c, d, f, g, h are copies and cost
-        # nothing, so counting all eight would flatter the result.
+        # nothing. Counting all eight would flatter the result.
         state_fixed = sum((32 - popcount(r[0])) + (32 - popcount(r[4])) for r in rounds)
 
         total = sched_fixed + state_fixed

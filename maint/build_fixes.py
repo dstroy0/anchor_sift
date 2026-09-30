@@ -4,7 +4,7 @@ WHY THIS EXISTS
 
 The first attempt at the source tree typed whole replacement lines from a report that truncates its
 display at ninety-two characters. Twenty lines lost the end of a sentence: "A winner cleared the"
-became "A winner cle". Every one of those still cleared its finding, so the gate went green on
+became "A winner cle". Every one of those still cleared its finding. The gate went green on
 twenty mutilated comments, and only a length comparison against the original found them.
 
 So no replacement is typed here. A caller names a file, a line, the phrase to remove and the phrase

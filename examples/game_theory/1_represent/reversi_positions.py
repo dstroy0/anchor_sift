@@ -13,8 +13,8 @@
 # game was. Every measurement in this subject that reads values drops the empty squares. The one
 # that reads the grid's shape keeps them, because a hole in a row is part of the shape.
 #
-# The second decision is the flattening. A board is two dimensional and a sequence is not, so
-# reading one row major spends the second axis. The partition stage is where that is paid for.
+# The second decision is the flattening. A board is two dimensional and a sequence is not.
+# Reading one row major spends the second axis. The partition stage is where that is paid for.
 
 import io
 import os

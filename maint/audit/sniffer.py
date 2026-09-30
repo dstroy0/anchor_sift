@@ -16,7 +16,7 @@ So this runs two stages and reports which one fired, because they see disjoint c
 
 EVERY BAR IS DRAWN AND EVERY NULL IS WEIGHT-MATCHED
 
-Each stage reports its loudest over many cells, which is large by construction, so the bar is the
+Each stage reports its loudest over many cells, which is large by construction. The bar is the
 null's own loudest over the same number of cells. And the null holds the popcount fixed, because a
 lit set's spectrum depends heavily on how many bits are lit and an unmatched null reports the weight
 and calls it structure.
@@ -50,7 +50,7 @@ TOP = 8
 
 
 class Sniffer(object):
-    """Holds the placement and the basis, so a scan is an addition per lit bit."""
+    """Holds the placement and the basis. A scan is an addition per lit bit."""
 
     def __init__(self, top=TOP, seed=0x51FF):
         self.top = top
@@ -129,10 +129,10 @@ class Sniffer(object):
     def sniff(self, sets, label):
         # THE DRAWN BAR, AND NO SILENT FALLBACK TO THE DERIVED ONE. `spatial` and `algebraic` each
         # hand back root(2 ln N) as a third value, which is the EXPECTED maximum of N standard
-        # normals - half of all nulls exceed it, so it fires on flat data about half the time.
+        # normals - half of all nulls exceed it. It fires on flat data about half the time.
         #
         # An earlier fix computed the drawn bars in `draw_bars` and then left this line reading the
-        # derived ones, so the correct bar was calculated and thrown away on every call and the
+        # derived ones. The correct bar was calculated and thrown away on every call and the
         # tool went on reporting against the wrong threshold while looking fixed. That is worse than
         # never having drawn them, because the presence of `draw_bars` in the file reads as evidence
         # the fault was dealt with.

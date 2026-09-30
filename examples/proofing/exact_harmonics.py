@@ -1,4 +1,4 @@
-"""Spherical harmonics in fixed point, so the reading has no floor but the one it is given.
+"""Spherical harmonics in fixed point. The reading has no floor but the one it is given.
 
 The boundary readings in this tree were computed in float64 and reported a residual near 1e-16 under
 rotations that must leave them unchanged. That number was called the format's floor, which was true
@@ -6,7 +6,7 @@ and also an excuse: the format was chosen. Nothing in a spherical harmonic requi
 
     cosine and sine      Taylor series with argument reduction, exact in fixed point
     square root          Newton, which the engine already carries, multiplies and shifts only
-    Legendre             a three-term recurrence, polynomial, so exact with no series at all
+    Legendre             a three-term recurrence, polynomial. Exact with no series at all
 
 So the whole evaluation is integer arithmetic at whatever width is asked for, and the residual under
 a rotation that changes nothing drops with the width instead of stopping at 1e-16. That is the test
@@ -38,7 +38,7 @@ def cosine(angle, places):
     """cos of a fixed-point angle, by Taylor after reduction into [-pi, pi].
 
     The series converges fast once the argument is reduced, and every term is an exact integer
-    division of the one before it, so nothing rounds except the single truncation each term makes.
+    division of the one before it. Nothing rounds except the single truncation each term makes.
     """
     scale = 1 << places
     two_pi = 2 * pi_at(places)
@@ -61,7 +61,7 @@ def cosine(angle, places):
 
 
 def sine(angle, places):
-    """sin, as cos of the angle less a quarter turn, so only one series is carried."""
+    """sin, as cos of the angle less a quarter turn. Only one series is carried."""
     quarter = pi_at(places) // 2
     return cosine(angle - quarter, places)
 
@@ -69,7 +69,7 @@ def sine(angle, places):
 def legendre(degree, order, cos_theta, places):
     """The associated Legendre value P_l^m(cos theta), by the standard recurrence.
 
-    Polynomial in cos theta and in the sine, so with the sine supplied this is exact fixed point
+    Polynomial in cos theta and in the sine. With the sine supplied this is exact fixed point
     arithmetic with no series anywhere. The recurrence is the textbook one and is stable upward in
     degree, which is the direction it is used.
     """
@@ -130,7 +130,7 @@ def _check():
     for places in (64, 128, 256):
         scale = 1 << places
         pi = pi_at(places)
-        # cos(0) = 1, cos(pi) = -1, cos(pi/2) = 0, sin(pi/2) = 1. All exact, so the error is the
+        # cos(0) = 1, cos(pi) = -1, cos(pi/2) = 0, sin(pi/2) = 1. All exact. The error is the
         # arithmetic's and nothing else.
         checks = [
             ("cos 0", cosine(0, places), scale),

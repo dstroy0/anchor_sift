@@ -32,7 +32,7 @@ measured below is how many rounds it takes before the reading stops being able t
 WHAT THE CONTROL IS
 
 For each state, sets of the same weight drawn at random. Weight alone fixes the degree zero term
-exactly, so comparing against a control of equal weight removes the one degree that carries no
+exactly. Comparing against a control of equal weight removes the one degree that carries no
 information and leaves the comparison to the rest.
 
 WHAT WOULD COUNT AS A FINDING, AND WHAT WOULD NOT
@@ -88,7 +88,7 @@ def schedule_of(block):
 def states_of(block, start=None):
     """The compression state after each round, as a list of sixty five eight word tuples.
 
-    Entry zero is the state before any round runs, so entry r is the state after r rounds and the
+    Entry zero is the state before any round runs. Entry r is the state after r rounds and the
     indexing needs no apology.
     """
     words = schedule_of(block)
@@ -190,7 +190,7 @@ def _check():
     points = boundary_read.ring_place(RINGS, WIDTH)
     angles = boundary_read.as_angles(points)
     # A LIT SET WITH NO SYMMETRY ANYBODY CHOSE. Every second index was the first try, and it is
-    # sixteen fold symmetric, so every non zonal degree sits at about 1e-30 and the reading has
+    # sixteen fold symmetric. Every non zonal degree sits at about 1e-30 and the reading has
     # almost nothing in it to move.
     live = [k for k in range(TOTAL) if (k * 7 + k // 5) % 3]
     one = deflection_of(angles, live)
@@ -260,7 +260,7 @@ def concentration(power):
     carries everything. Degree zero is left out because it is fixed by the weight alone and would
     report the same number for every set of the same size.
 
-    Reported divided by the degree count, so the answer runs from near zero for a concentrated
+    Reported divided by the degree count. The answer runs from near zero for a concentrated
     spectrum to one for a flat one and does not change meaning when the degree changes.
     """
     rest = [value for value in power[1:] if value > 0.0]
@@ -286,7 +286,7 @@ def sign_runs(values):
     """How many runs of constant sign a sequence has, and what independence would predict.
 
     A run is a maximal stretch of one sign. Independent signs give
-    `2 n1 n2 / (n1 + n2) + 1` runs on average with a known variance, so the count is a test of
+    `2 n1 n2 / (n1 + n2) + 1` runs on average with a known variance. The count is a test of
     autocorrelation that assumes nothing about the distribution of the values themselves. Fewer runs
     than predicted means the sequence drifts; more means it alternates.
     """
@@ -339,7 +339,7 @@ def _runs(messages, draws):
                      % ("the real rounds, with carryover", runs, middle, score))
     sys.stdout.flush()
 
-    # The control, repeated, so one lucky draw cannot stand for the whole answer.
+    # The control, repeated. One lucky draw cannot stand for the whole answer.
     scores = []
     for _ in range(draws):
         made = []
@@ -369,7 +369,7 @@ def _shape(messages, draws):
     A cone sitting at one pole rather than the other is degree one, since that is what a dipole is:
     the whole set displaced along an axis. An elongation, a lemon, is degree two. Every statistic
     that averages over degrees washes both of them out, which is what the concentration reading
-    did, so these two are taken on their own and against their own controls.
+    did. These two are taken on their own and against their own controls.
     """
     points = boundary_read.ring_place(RINGS, WIDTH)
     angles = boundary_read.as_angles(points)
@@ -414,7 +414,7 @@ def _coherence(messages, draws):
     points = boundary_read.ring_place(RINGS, WIDTH)
     angles = boundary_read.as_angles(points)
 
-    # The padded empty message, so the states match the page and the published digest exactly.
+    # The padded empty message. The states match the page and the published digest exactly.
     block = [0x80000000] + [0] * 15
     states = states_of(block)
 

@@ -8,7 +8,7 @@ FAULT ONE: A REPLACEMENT THAT IS ITSELF BANNED
 Line 20 replaced "is exactly the" with "is precisely the". Both are banned by `docs_check.py` - the
 first at its line 63, the second at line 85 - so the rule carried a banned phrase from one spelling
 to another and reported success. It survived because its target is a `.h`, and the docs gate blanks
-code, so the file the rule edits is a file the gate does not read. A repair table that can introduce
+code. The file the rule edits is a file the gate does not read. A repair table that can introduce
 the thing it repairs is worse than no table, because the run comes back clean.
 
 FAULT TWO: A REPLACEMENT THAT DELETES A WORD AND LEAVES A HOLE
@@ -64,7 +64,7 @@ def rows_of(path):
 def banned_in(text):
     """Every banned pattern this text matches, by the same list the docs gate uses.
 
-    Read from `docs_check.BANNED` rather than copied, so the two cannot drift apart. A second copy
+    Read from `docs_check.BANNED` rather than copied. The two cannot drift apart. A second copy
     of a ban list is the same defect this file exists to catch, one level up.
     """
     hits = []
@@ -105,7 +105,7 @@ def main():
             broken += 1
             continue
 
-        # A rule that does not shorten cannot leave a hole, so only the shrinking ones are listed.
+        # A rule that does not shorten cannot leave a hole. Only the shrinking ones are listed.
         if len(replace.split()) < len(find.split()):
             deletions.append((number, target, find, replace))
 

@@ -8,7 +8,7 @@ THE DEFECT THIS EXISTS FOR
 
 The octant alphabet separated sixty-four rounds from sixty-four rounds, every signature distinct,
 and that was reported as coherence. It is nearly free. Eight real numbers will separate sixty-four
-arbitrary states whether or not the eight numbers mean anything, so distinctness at that sample size
+arbitrary states whether or not the eight numbers mean anything. Distinctness at that sample size
 is not evidence and the report should never have implied it was.
 
 What settles it is not a harder sample. It is a rank. The map from lit points to boundary
@@ -55,13 +55,13 @@ COUNT = 256
 DEGREES = (4, 8, 12, 15, 16)
 
 # A singular value below this fraction of the largest counts as zero. Chosen far above the double
-# precision floor and far below the smallest nonzero value any run here produces, so the rank does
+# precision floor and far below the smallest nonzero value any run here produces. The rank does
 # not depend on where in that gap the line is drawn.
 RANK_FLOOR = 1e-10
 
 
 def width(top):
-    """Real coefficients in a reading to this degree: one per order per degree, so (top+1)^2."""
+    """Real coefficients in a reading to this degree: one per order per degree. (top+1)^2."""
     return (top + 1) * (top + 1)
 
 
@@ -78,7 +78,7 @@ def reading_matrix(top, places):
     """The map from a weight per lit point to boundary coefficients, at full depth and no smoothing.
 
     Full depth and no smoothing is the most favorable case there is: the depth kernel (r/R)^l and
-    the conduction kernel exp(-l(l+1)tau) are both diagonal in degree and both below one, so either
+    the conduction kernel exp(-l(l+1)tau) are both diagonal in degree and both below one. Either
     of them can only shrink a singular value. A rank measured here is therefore an upper bound on
     the rank at any depth or any conduction time, and the nullity is a lower bound.
     """
@@ -144,7 +144,7 @@ def depth_rank(matrix, floor):
 def depth_kernel(top, radius_fraction, tau=0.0):
     """The per-coefficient gain of depth and conduction, laid out to match a flattened reading.
 
-    Both kernels are diagonal in the degree, so this is a scaling of the rows of the reading matrix
+    Both kernels are diagonal in the degree. This is a scaling of the rows of the reading matrix
     and never a change to its structure. Everything depth does to a reading is here.
     """
     out = numpy.zeros(width(top))

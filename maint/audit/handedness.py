@@ -25,7 +25,7 @@ WHAT EACH OUTCOME MEANS
                        construction has been discarding something real.
 
 The shifts are left alone on purpose. SHR is not a rotation and has no mirror that preserves the
-structure, so reversing it would change the function in a second way and spoil the comparison.
+structure. Reversing it would change the function in a second way and spoil the comparison.
 
     python maint/audit/handedness.py
 """
@@ -59,7 +59,7 @@ def compress(block, handed, rounds=64):
     """One block of SHA-256. handed is +1 for the standard function, -1 for its mirror.
 
     Only the rotation DIRECTION changes. Amounts, constants, additions, the nonlinear terms and the
-    round count are identical, so the two functions differ in one property and nothing else.
+    round count are identical. The two functions differ in one property and nothing else.
     """
     turn = rotr if handed > 0 else rotl
     w = list(block)

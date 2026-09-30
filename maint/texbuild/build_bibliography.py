@@ -26,7 +26,7 @@ TARGET = os.path.join(ROOT, "theory", "theory", "cryptography", "sha256", "chapt
 
 # Only rows the SHA-256 work actually cites. The registry also serves anchor sift, and a
 # bibliography listing sources this research paper never mentions would be padding.
-# A selector matched against the rows of the shared registry, and never a path to open, so it has
+# A selector matched against the rows of the shared registry, and never a path to open. It has
 # to read the same as whatever the rows were tagged with. Derived from the directory this tree
 # actually sits in instead of spelled out, which keeps it correct if the tree is renamed and keeps
 # the name itself out of the source.

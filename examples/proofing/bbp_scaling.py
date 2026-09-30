@@ -46,7 +46,7 @@ import relation_search
 class Counted(object):
     """A multiply that records how often it ran and how wide its operands were.
 
-    Wrapping instead of instrumenting the engine, so the engines stay exactly what they say they
+    Wrapping instead of instrumenting the engine. The engines stay exactly what they say they
     are and nothing measured here can leak into a real run.
     """
 

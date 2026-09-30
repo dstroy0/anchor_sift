@@ -6,7 +6,7 @@ run in this tree has used split it across two symbols and see nothing, and one o
 phases sees it.
 
 The splitmix control is measured at every phase too. A pseudorandom function has no preferred
-alignment, so its spread across phases is the floor: a difference on the real function smaller than
+alignment. Its spread across phases is the floor: a difference on the real function smaller than
 that difference on the control is not a difference.
 
 Usage: python maint/audit/sweep_phase.py <phase sweep directory>

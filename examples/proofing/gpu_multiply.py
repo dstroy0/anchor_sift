@@ -88,7 +88,7 @@ def server():
 
 
 def shut_down():
-    """Tell the device there is no more work, so it exits instead of being orphaned."""
+    """Tell the device there is no more work. It exits instead of being orphaned."""
     global _SERVED
     if _SERVED is not None and _SERVED.poll() is None:
         try:
@@ -134,8 +134,8 @@ def device_multiply(left, right, keep=False):
 
     THROUGH A PIPE AND NOT THROUGH THE DISK. The three returned arrays at a billion digits are some
     1.5 GB and the two operands another 0.5 GB, and routing that through files was measured at 8.6
-    seconds against 1.77 seconds of transform, so five sixths of the wall clock was the filesystem.
-    The device reads both operands to completion before it writes anything, so writing everything
+    seconds against 1.77 seconds of transform. Five sixths of the wall clock was the filesystem.
+    The device reads both operands to completion before it writes anything. Writing everything
     and then reading everything cannot deadlock on a full pipe.
     """
     if not os.path.exists(PACKER):
@@ -171,11 +171,11 @@ def multiply(left, right):
     """The product, by whichever route is cheaper at this size, sign included.
 
     THE SIGN IS HANDLED HERE AND NOWHERE ELSE. The device works on magnitudes, because a transform
-    over a prime field has no sign to carry. Chudnovsky's series alternates, so its partial sums go
+    over a prime field has no sign to carry. Chudnovsky's series alternates. Its partial sums go
     negative and a splitting merge multiplies a negative by a positive routinely.
 
     Every test of this file used non-negative operands, and below the threshold the native multiply
-    takes negatives without comment, so the first negative to reach the device was the first one in
+    takes negatives without comment. The first negative to reach the device was the first one in
     a real computation. The gate now covers exactly that case.
     """
     if min(limb_count(abs(left)), limb_count(abs(right))) < NATIVE_LIMBS:
@@ -281,7 +281,7 @@ def _say(text):
 
     A run reporting only on completion tells a reader nothing while it is the thing they are
     waiting on, and tells them nothing at all if it is stopped. Each row here costs minutes at the
-    top sizes, so each row is printed as it lands.
+    top sizes. Each row is printed as it lands.
     """
     sys.stdout.write(text + "\n")
     sys.stdout.flush()

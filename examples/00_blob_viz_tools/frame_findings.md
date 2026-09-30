@@ -33,7 +33,7 @@ costs one aimed point cloud instead of a new one.
 picture simply stops moving.
 
 **Severity: high.** A freed buffer is not a degraded buffer. The lamp beside it does own its
-geometry and material, so the same function was right about one object and wrong about the other,
+geometry and material. The same function was right about one object and wrong about the other,
 and that split is what made it hard to see.
 
 **Fixed.** Removing the mesh from the scene covers everything that teardown owns.
@@ -140,12 +140,12 @@ page would open a couple of percent away from its own reading with nothing sayin
 
 Recorded because each one costs a reader the same time to clear, and clearing it twice is waste.
 
-**`markMesh.count = mark`** is bounded. `layMark` returns early at `mark >= MARK_MAX`, so the count
+**`markMesh.count = mark`** is bounded. `layMark` returns early at `mark >= MARK_MAX`. The count
 can never exceed the buffer. This is the site that *did* fail once, at a buffer of sixty against a
-bundle wanting more, so it reads as suspicious and is now correct.
+bundle wanting more. It reads as suspicious and is now correct.
 
 **`stoppers.count` and `passers.count`** are bounded. Both meshes are sized `COUNT`, and every bit
-lands in exactly one of the two lists, so the two counts total `COUNT` and neither can exceed it.
+lands in exactly one of the two lists. The two counts total `COUNT` and neither can exceed it.
 
 **`buildBeamField` and `sized()`** allocate only when the requested width differs from the held
 one. That is the correct pattern and never a finding. An audit reports them because a pattern cannot
@@ -216,7 +216,7 @@ is.** The lit set has 256 degrees of freedom.
 | 16 | 289 | 256 | 0 | 1.524e-1 |
 
 Measured at full depth and no conduction, the most favorable case: both kernels sit below one and
-both are diagonal, so either can only shrink a singular value. The map reaches the rank its
+both are diagonal. Either can only shrink a singular value. The map reaches the rank its
 coefficient count allows at every degree below the source count, leaving the shortfall in coefficients as the
 entire cause of the blindness.
 
@@ -246,7 +246,7 @@ harmonics exactly). Degrees 4 and 8 read 2.2e-14 and 1.8e-14.
 At N = 256 over six shift amounts: worst turn error 9.948e-14 rad, worst slide error exactly 0,
 pitch -0.003255258, **spread of the pitch 4.337e-19**.
 
-The pitch is `-2/(N*gamma)`, independent of the shift amount, so one axis and one pitch describe
+The pitch is `-2/(N*gamma)`, independent of the shift amount. One axis and one pitch describe
 every amount. This is an identity and the numbers are the check on the arithmetic.
 
 ### 4.4 Deflection against torsion
@@ -262,7 +262,7 @@ handedness.
 
 Eight congruent spherical triangles, three right angles each, area `pi/2` by Girard, eight of them
 totaling `4*pi`. Measured shares total **1.000000000000000**. Determinants split **4 at +1 and 4 at
--1**, so the eight frames divide evenly between rotations of the first and rotations with a mirror
+-1**. The eight frames divide evenly between rotations of the first and rotations with a mirror
 in them.
 
 ### 4.6 The delta, on the state
@@ -342,7 +342,7 @@ in the order they are worth running:
 
 1. **Turn shadow casting off.** The `cast` checkbox already drives `light.castShadow` for every
    source. If the edges go, it is the shadow and nothing else. If they stay, this section is wrong.
-2. **Move a source and hold the observer still.** The cube is oriented in the light's frame, so a
+2. **Move a source and hold the observer still.** The cube is oriented in the light's frame. A
    shadow seam moves with the source. A tessellation or depth artifact is fixed to the room.
 3. The pattern should carry cube symmetry, meeting at eight points, and should not line up with the
    room's own 72 by 48 tessellation.
@@ -376,10 +376,10 @@ Recorded this way because the correction came from measuring the null instead of
 and the harness exists for that reason.
 
 **Coherence on the quotient.** Still open. Computed on the raw signature, counting invisible
-directions as though they were visible. The rank work says exactly which directions those are, so
-the measurement is now well posed: decompose each state-to-state difference into the part lying in
+directions as though they were visible. The rank work says exactly which directions those are.
+The measurement is now well posed: decompose each state-to-state difference into the part lying in
 the reading's row space and the part lying in its null space, and report the visible fraction. For
-the eight-letter alphabet the row space is the span of the eight octant indicators, so the visible
+the eight-letter alphabet the row space is the span of the eight octant indicators. The visible
 part of a difference is its per-octant means, and no other component of it. A difference drawn at random would
 put about 8 of 256 of its energy there.
 

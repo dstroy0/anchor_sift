@@ -44,8 +44,8 @@ def load():
 
     The bench writes this file as it runs. A read taken while it is still working sees a
     partial final round. A round missing classes would make the CFAR background be computed over
-    a different population than the others, and that is a silent error and not a loud one, so
-    incomplete rounds are dropped and never padded.
+    a different population than the others, and that is a silent error and not a loud one.
+    Incomplete rounds are dropped and never padded.
     """
     data = {}
     with open(SOURCE, newline="") as handle:

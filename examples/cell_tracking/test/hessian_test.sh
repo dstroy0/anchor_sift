@@ -75,7 +75,7 @@ nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BIN
     "$SHIFT"/shift_agreement_{kernels,run}.cu \
     "$DEVICE_POOL/device_pool.cu" "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "${TESSERA_SEAL[@]}"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }
-# BUILD_ONLY=1 builds and stops, so the device run can be its own launch
+# BUILD_ONLY=1 builds and stops. The device run can be its own launch
 if [ "${BUILD_ONLY:-}" = "1" ]; then
     echo "  built $BINARY"
     exit 0

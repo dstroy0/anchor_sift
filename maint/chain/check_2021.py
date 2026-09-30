@@ -13,7 +13,7 @@ event is dated, documented, enormous, and independent of anything being fitted h
 THE TRAP THIS AVOIDS
 
 Hashrate is not one over the interval. Difficulty retargets every 2016 blocks and the retarget
-changes intervals BY DESIGN, so a reading that ignores difficulty reports the protocol's own
+changes intervals BY DESIGN. A reading that ignores difficulty reports the protocol's own
 corrections as though they were events. The ban forced the largest downward retargets in the
 chain's history, which means the naive reading would find its biggest signal in exactly the wrong
 place. Hashrate is difficulty over interval, and that is what is computed here.
@@ -76,7 +76,7 @@ def main():
     # tree's own list: a quantity that structurally cannot show the effect, with the resulting null
     # reported as a finding. It is worse than no test, because it convicts a working instrument.
     #
-    # The ban ran May to July 2021 and the recovery through that autumn, so the window has to open
+    # The ban ran May to July 2021 and the recovery through that autumn. The window has to open
     # before the collapse and close after the return. Those are heights near 675,000 and 715,000.
     BAN_BEGAN = 1619827200      # 2021-05-01
     BAN_ENDED = 1627776000      # 2021-08-01

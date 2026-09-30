@@ -52,12 +52,12 @@ def reciprocal(product, value, bits):
         y' = 2y - value * y^2 / 2^bits
 
     which contains no division: two multiplies and a shift. Each step doubles the number of correct
-    bits, so the precision is doubled on the way up and the work is dominated by the last step,
+    bits. The precision is doubled on the way up and the work is dominated by the last step,
     making the whole thing a small multiple of ONE full size multiply.
 
-    The recursion lifts the precision instead of iterating from one bit, so the base case is
+    The recursion lifts the precision instead of iterating from one bit. The base case is
     reached once. The final correction is exact by construction: the answer is stepped until it is
-    the largest value whose product with the divisor does not exceed the numerator, so the return is
+    the largest value whose product with the divisor does not exceed the numerator. The return is
     the true floor and not a value within a tolerance of it.
 
     THE SQUARING GOES THROUGH THE ENGINE TOO. An earlier device copy of this wrote `lifted * lifted`
@@ -76,7 +76,7 @@ def reciprocal(product, value, bits):
     lifted = reciprocal(product, value, half)
     out = (lifted << (bits - half + 1)) - (product(value, product(lifted, lifted)) >> (2 * half - bits))
 
-    # Newton lands within a couple of units here, so this settles it by stepping, not searching.
+    # Newton lands within a couple of units here. This settles it by stepping, not searching.
     top = 1 << bits
     while product(out, value) > top:
         out -= 1
@@ -86,7 +86,7 @@ def reciprocal(product, value, bits):
 
 
 def divide(product, top, bottom, places):
-    """floor(top * 10^places / bottom), by reciprocal, so no division happens at size.
+    """floor(top * 10^places / bottom), by reciprocal. No division happens at size.
 
     The scale is applied to the numerator before the reciprocal is folded in, which keeps every
     intermediate an exact integer and leaves one shift at the end.
@@ -94,7 +94,7 @@ def divide(product, top, bottom, places):
     if bottom <= 0:
         raise ValueError("this divide is for a positive divisor")
     if top < 0:
-        # Floor division rounds toward negative infinity, so the sign is carried by negating the
+        # Floor division rounds toward negative infinity. The sign is carried by negating the
         # answer to the exact division and stepping down when anything was left over.
         out = divide(product, -top, bottom, places)
         return -out if product(out, bottom) == -top * 10 ** places else -out - 1
@@ -114,7 +114,7 @@ def divide_binary(product, top, bottom, bits):
 
     Kept beside the decimal one instead of folded into it because the two are used in different
     places and a single function taking a base would put a branch in front of every call for no
-    gain. Each name carries its base, so neither call site has to be read twice.
+    gain. Each name carries its base. Neither call site has to be read twice.
     """
     if bottom <= 0:
         raise ValueError("this divide is for a positive divisor")
@@ -153,7 +153,7 @@ def inverse_root(product, value, bits):
     # HALVE THE SIGNIFICANT BITS, NOT THE SCALE. The answer carries `bits - width/2` significant
     # bits, being the remainder of the scale once the root's own size is taken out. Halving
     # `bits` alone would halve the scale and leave the significant count almost untouched for a
-    # large value, so the step below it would arrive with too little precision to double.
+    # large value. The step below it would arrive with too little precision to double.
     half = (bits + value.bit_length() // 2) // 2 + 16
     lifted = inverse_root(product, value, half)
     shifted = lifted << (bits - half)
@@ -173,7 +173,7 @@ def inverse_root(product, value, bits):
 def root_scaled(product, value, places):
     """floor(sqrt(value) * 10^places) with no division at size, from the inverse root.
 
-    sqrt(v) = v / sqrt(v), so multiplying the value by its own inverse root gives the root, and the
+    sqrt(v) = v / sqrt(v). Multiplying the value by its own inverse root gives the root, and the
     only operations used are the ones the card already does.
     """
     # THE RECIPROCAL ROOT MUST COVER THE VALUE, NOT HALF OF IT. `back` is 2^bits / sqrt(value),
@@ -230,7 +230,7 @@ def power_mod(product, base, power, modulus):
     """
     if modulus <= 1:
         return 0
-    # Every reduction inside the climb is of a product of two values below the modulus, so the
+    # Every reduction inside the climb is of a product of two values below the modulus. The
     # widest value handed to `reduce_by` is just under the modulus squared. Sizing the reciprocal to
     # that once means no reduction below has to rebuild it.
     bits = 2 * modulus.bit_length() + 8

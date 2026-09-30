@@ -15,7 +15,7 @@ THE LAW SAYS THE RESIDUAL IS ZERO
 Power per degree, `P_l = sum over m of |a_lm|^2`, is invariant under every rotation, because the
 degree-l subspace carries a unitary irreducible representation of the rotation group. On a ring
 placement turned by whole steps the statement is stronger still: each point moves along its own
-ring, so the rotated configuration is the same set of directions relabeled, every coefficient pair
+ring. The rotated configuration is the same set of directions relabeled, every coefficient pair
 `(a_lm^cos, a_lm^sin)` turns rigidly by `m alpha`, and the sum of their squares is unchanged.
 
 So the exact residual is zero, identically, with no measurement needed. Anything a program reports
@@ -58,11 +58,11 @@ TOP = 8
 # Rotations to try, in whole ring steps. Each is an exact relabeling of the placement.
 STEPS = (1, 5, 13, 31)
 
-# Working digits above the requested precision. The Taylor sums below are alternating, so their
+# Working digits above the requested precision. The Taylor sums below are alternating. Their
 # cancellation is bounded by the largest term, and a dozen digits covers it.
 #
 # THE GUARD IS PART OF THE ARITHMETIC AND HAS TO BE REPORTED AS SUCH. A rounding residual is set by
-# the precision the arithmetic actually ran at, so asking for 20 digits and computing at 32 gives a
+# the precision the arithmetic actually ran at. Asking for 20 digits and computing at 32 gives a
 # residual near 1e-32 and not near 1e-20. Plotting those residuals against the requested figure put
 # a 3.82 decade per digit segment in an otherwise straight line and read as a real effect at the
 # boundary between the float arms and this ladder. It was this constant. Use `working_digits` for
@@ -86,7 +86,7 @@ def turned(live, steps):
 
 
 # -------------------------------------------------------------------------------------------------
-# Arbitrary precision trigonometry. Decimal ships sqrt and no transcendentals, so these are built.
+# Arbitrary precision trigonometry. Decimal ships sqrt and no transcendentals. These are built.
 # -------------------------------------------------------------------------------------------------
 
 def pi_at(digits):
@@ -98,7 +98,7 @@ def pi_at(digits):
 def cosine_of(angle, pi):
     """Cosine by Taylor series, after folding the argument to the nearest multiple of two pi.
 
-    Folding first keeps the series argument under pi in magnitude, so the terms fall quickly and the
+    Folding first keeps the series argument under pi in magnitude. The terms fall quickly and the
     alternating cancellation stays bounded by the first term.
     """
     two_pi = 2 * pi
@@ -166,7 +166,7 @@ def legendre_column(top, order, x, one, four_pi):
 def power_per_degree(live, top, columns, cosines, sines, kind, root_two):
     """`P_l` of the lit set, summed over orders, in the caller's arithmetic.
 
-    The basis is real, so each order above zero carries a cosine part and a sine part. Under a
+    The basis is real. Each order above zero carries a cosine part and a sine part. Under a
     rotation those two turn into each other rigidly and the sum of their squares does not move,
     and that rigidity is the invariance under test.
     """
@@ -198,7 +198,7 @@ def power_per_degree(live, top, columns, cosines, sines, kind, root_two):
 def residual_at(digits):
     """The worst relative change in `P_l` under the rotations, computed at `digits` places.
 
-    `digits` of None means float64, so the same code path supplies the comparison the harness runs
+    `digits` of None means float64. The same code path supplies the comparison the harness runs
     in. One implementation and two arithmetics, which removes any question of the two differing
     somewhere other than in their precision.
     """
@@ -286,7 +286,7 @@ def _check():
     # WHY THESE TWO NUMBERS DIFFER, since a reader will ask. The harness reads deflection off
     # complex coefficients and this reads it off the real basis; the lit points are summed in a
     # different order; and the two carry different depth gains. P_l is the same quantity in either
-    # basis, so the readings agree on the answer and disagree on the rounding. That rounding is the only
+    # basis. The readings agree on the answer and disagree on the rounding. That rounding is the only
     # thing being measured. Measured: 2.122e-14 here against 4.005e-16 there, a factor of about 53.
     #
     # So the finding does not rest on this value. It rests on the slope: whatever the constant in

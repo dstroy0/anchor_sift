@@ -5,7 +5,7 @@
 THE QUESTION
 
 A reading is a linear map from the source space to the reading space. Two states give the same
-reading exactly when their difference lies in the kernel of that map, so the part of a change lying
+reading exactly when their difference lies in the kernel of that map. The part of a change lying
 in the kernel is invisible by construction and no measurement recovers it.
 
 Counting distinct signatures ignores this. It counts a change as seen whenever the reading moved,
@@ -15,7 +15,7 @@ it could see:
     visible fraction = ||P d||^2 / ||d||^2
 
 for `d` the difference between consecutive states and `P` the projection onto the row space of the
-reading. For the eight-letter alphabet the row space is spanned by the eight octant indicators, so
+reading. For the eight-letter alphabet the row space is spanned by the eight octant indicators.
 `P d` holds the per-octant totals of `d` and the rest is discarded.
 
 WHAT THE ANSWER MEANS
@@ -23,7 +23,7 @@ WHAT THE ANSWER MEANS
 The row space has 8 dimensions out of 256, giving a difference that points nowhere in particular an
 expected visible fraction of 8/256, near 3.1 percent. A difference between two states of equal
 weight cannot move the all-ones direction, and the eight indicators span that direction between
-them, so the figure to predict for weight-preserving differences is 7/256 instead.
+them. The figure to predict for weight-preserving differences is 7/256 instead.
 
 A measured value near the baseline says the alphabet sees an arbitrary few percent of what changed.
 A measured value well above it says the changes sit in the directions the alphabet can see. A
@@ -57,7 +57,7 @@ import octant_lex
 
 N = 256
 
-# The row space of the eight-letter reading has this many dimensions, so this is the fraction of an
+# The row space of the eight-letter reading has this many dimensions. This is the fraction of an
 # unstructured difference it is expected to catch.
 BLIND_BASELINE = 8.0 / N
 
@@ -78,7 +78,7 @@ def octant_rows(points):
 def visible_fraction(difference, rows):
     """The share of a difference lying in the row space, for orthogonal rows.
 
-    The eight octant indicators are disjoint, so their cross products are exactly zero and the
+    The eight octant indicators are disjoint. Their cross products are exactly zero and the
     projection is a sum of independent terms. Measured, in null_harness and again here.
     """
     total = sum(value * value for value in difference)
@@ -212,7 +212,7 @@ def _check():
     say("    Sample is 8 pairs at each end. The direction is clear and the size is young.")
     say("    A distinct-signature count says nothing about any of this and never did.")
 
-    # The finding is the split, so the check holds the split and not the mean.
+    # The finding is the split. The check holds the split and not the mean.
     if early <= control_mean:
         say("  FAIL the early rounds no longer clear an unstructured draw")
         failed += 1

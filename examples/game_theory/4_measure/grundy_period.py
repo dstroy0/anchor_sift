@@ -23,7 +23,7 @@
 # uses on cell edges. It knows nothing about games. It is handed a list of small integers.
 #
 # One rule has to be respected and it is the detector's own. A period is scored against its
-# multiples, so a period beyond half the window has a family of one inside the window and is the
+# multiples. A period beyond half the window has a family of one inside the window and is the
 # single tallest lag again. Rows whose true period exceeds half the window are therefore out of
 # range by construction and are counted separately rather than counted as failures.
 
@@ -53,7 +53,7 @@ POSITIONS = 2048
 WINDOWS = (16, 24, 32, 48, 64)
 
 # Reseeds of the shuffle each row is scored against. The floor quoted is the tallest margin any of
-# them reached, not the average, so the separation is against the best a null permutation managed.
+# them reached, not the average. The separation is against the best a null permutation managed.
 DRAWS = 12
 
 
@@ -65,7 +65,7 @@ def read(values, longest):
 def floor_from_shuffles(values, longest, draws=DRAWS):
     """The tallest margin a shuffle of the same values reaches at this window.
 
-    The shuffle keeps every Grundy value and destroys which position carries it, so whatever it
+    The shuffle keeps every Grundy value and destroys which position carries it. Whatever it
     reaches is what the detector reads off the histogram alone.
     """
     best = 0.0

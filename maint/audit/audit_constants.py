@@ -1,7 +1,7 @@
 """Checks whether any number a bench prints was already sitting in its binary.
 
 The failure this looks for is specific. A compiler that can prove an expression's inputs are known
-at compile time will evaluate it then and emit the answer as an immediate, so the bench prints a
+at compile time will evaluate it then and emit the answer as an immediate. The bench prints a
 constant while appearing to measure one. bench_engines already caught an entire engine that was a
 constant function; nothing structural prevents the same thing happening to a statistic.
 
@@ -23,7 +23,7 @@ import sys
 from pathlib import Path
 
 # Values that appear in almost any binary and carry no information about folding. Printing one of
-# these proves nothing either way, so they are excluded to keep the report readable.
+# these proves nothing either way. They are excluded to keep the report readable.
 UNINTERESTING = {
     0.0,
     0.5,

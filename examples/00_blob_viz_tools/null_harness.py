@@ -15,9 +15,9 @@ WHY THIS EXISTS
 
 Thresholds in this tree were chosen and not measured. `coherence` rounds octant signatures at one
 part in a million by judgment, while the true grain of integer counts over an integer weight is
-nearer 1e-16, so it was ten decades coarse in the safe direction and arbitrary in both. Deflection
-and torsion carried no threshold at all. `sphere_field.live_modes` takes its floor as an argument,
-so every caller picks one. A floor picked by a caller is a result picked by a caller.
+nearer 1e-16. It was ten decades coarse in the safe direction and arbitrary in both. Deflection
+and torsion carried no threshold at all. `sphere_field.live_modes` takes its floor as an argument.
+Every caller picks one. A floor picked by a caller is a result picked by a caller.
 
 THE RULE THIS APPLIES TO ITSELF
 
@@ -28,18 +28,18 @@ has to catch it, and it is handed a genuine null and has to stay quiet. Both run
 
 WHAT EACH NULL RESTS ON
 
-    deflection under rotation     power per degree is a magnitude, so turning the object cannot
+    deflection under rotation     power per degree is a magnitude. Turning the object cannot
                                   move it. Stated in `boundary_read.deflection`.
     torsion under a whole turn    a rotation by a full turn is the identity on the object.
     octant share under relabeling moving a lit point to an unlit point in the same octant leaves
-                                  every octant's count alone, so the eight shares are unchanged.
+                                  every octant's count alone. The eight shares are unchanged.
     octant delta against itself   the distance from a reading to itself.
-    pitch across shift amounts    the pitch is -2/(count gamma) whatever the amount, so the spread
+    pitch across shift amounts    the pitch is -2/(count gamma) whatever the amount. The spread
                                   over amounts is grain. Stated in `boundary_read.screw_of`.
     spectrum power under rotation power per degree does not depend on how the sphere is oriented.
                                   Stated in `sphere_field.power`, untested until here.
     a redraw of the arms          an arm is identified by its topology and its weight, and a shape
-                                  is one realization of that, so redrawing the arms as different
+                                  is one realization of that. Redrawing the arms as different
                                   shapes carrying the same weight cannot move a letter. Stated in
                                   `theory/workbooks/anchor_sift/arm-records.md`, measured in
                                   `arm_draw`.
@@ -114,9 +114,9 @@ def rotated_by_rings(live, steps):
 
 
 def relabeled_within_octants(points, live):
-    """Each lit point moved to an unlit point in its own octant, so no octant's count changes.
+    """Each lit point moved to an unlit point in its own octant. No octant's count changes.
 
-    The shares are counts over a weight and both are integers, so this move has to leave all eight
+    The shares are counts over a weight and both are integers. This move has to leave all eight
     of them bit for bit identical. Any residual comes from the division and from no other source.
     """
     def octant_of(at):
@@ -250,7 +250,7 @@ def null_reading_under_a_redraw():
 
     A point cloud, a rotated frame, a letter built by subtracting two other arms, and a line with a
     dwell particle on it. Every one carries the same topology and the same weight as the sign test
-    the reading normally uses, so no letter can move. `arm_draw --check` reports the levels
+    the reading normally uses. No letter can move. `arm_draw --check` reports the levels
     separately and holds four faults against itself first.
     """
     points = boundary_read.golden_place(COUNT)
@@ -278,7 +278,7 @@ def floors():
 
 
 def quantize(value, floor):
-    """Snap a value to its floor, so anything under the grain reads as no move at all."""
+    """Snap a value to its floor. Anything under the grain reads as no move at all."""
     if floor <= 0.0 or not (floor == floor):
         return value
     return round(value / floor) * floor
@@ -297,7 +297,7 @@ def self_test():
     """A move that is not a null, and one that is. Catch the first and stay quiet on the second.
 
     Both are octant share moves of the same shape, one staying inside each octant and one crossing
-    between them, so catching the second is about the reading and not about the two moves differing
+    between them. Catching the second is about the reading and not about the two moves differing
     in some other way.
     """
     points = boundary_read.golden_place(COUNT)
@@ -381,7 +381,7 @@ def _check():
     if grain == 0.0:
         # Reporting a small number here would be inventing a floor the measurement did not find,
         # and stopping that mistake is why this harness exists. The octant reading has no continuum of
-        # small moves: a share is a count over a weight and both are integers, so the smallest move
+        # small moves: a share is a count over a weight and both are integers. The smallest move
         # it can register is one point changing octant.
         say("    the octant grain is exactly zero, so there is no small residual to allow for")
         say("    its smallest registrable move is one point crossing, or %.3e of a share"

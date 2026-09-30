@@ -1,6 +1,6 @@
 """Reports which bench outputs differ between optimization arms, ignoring wall clock.
 
-A bench built at -O0 and at -O2 runs at different speeds, so any line reporting elapsed time or a
+A bench built at -O0 and at -O2 runs at different speeds. Any line reporting elapsed time or a
 rate differs between arms for a reason that has nothing to do with arithmetic. Comparing whole
 files marks almost every bench as compiler-dependent and the finding is worthless.
 

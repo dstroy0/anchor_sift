@@ -1,7 +1,7 @@
 """Which message word loses its structure first, and does any of them break the schedule's order?
 
 Seen on the helix the sixteen message words read as petals, and which one goes first is apparent at
-a glance. The schedule makes an ordering inevitable - word w cannot act before round w+1, so it
+a glance. The schedule makes an ordering inevitable - word w cannot act before round w+1. It
 starts falling later than word w-1 - and that much is not a finding.
 
 The finding, if there is one, is a word that leaves order: one that falls faster or slower than its

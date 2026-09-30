@@ -43,8 +43,8 @@
 # nothing wrong in it.
 #
 # A cell too wide for the exact scale raises exact.WillNotFit, and the positive control deliberately
-# lets that stop the run. Over a whole archive one such entry would stop every other entry with it,
-# so the sweep records the entry by name as an error of its own and continues. It is reported in
+# lets that stop the run. Over a whole archive one such entry would stop every other entry with it.
+# The sweep records the entry by name as an error of its own and continues. It is reported in
 # the summary beside the misses and makes the exit status non-zero.
 
 import argparse

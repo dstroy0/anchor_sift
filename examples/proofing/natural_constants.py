@@ -36,7 +36,7 @@ whose roots are slightly wrong.
 
 Pi is checked twice more: against a fifty-digit prefix, and by computing it a second time from a
 different formula and requiring the two to agree. Machin's and Euler's arctangent identities share
-no term, so agreement between them is not two copies of one mistake.
+no term. Agreement between them is not two copies of one mistake.
 
 Integer arithmetic throughout. A root taken as the integer part of a root of a scaled integer is
 exact by construction, with no rounding to reason about at any step.
@@ -96,7 +96,7 @@ def integer_root(value, power):
     """The integer part of the `power`-th root of `value`, exactly.
 
     Newton from an over-estimate taken from the bit length, which converges downward and stops when
-    it stops moving. Integer arithmetic only, so there is no rounding anywhere in the descent, and
+    it stops moving. Integer arithmetic only. There is no rounding anywhere in the descent, and
     the final correction loop makes the answer exact by definition instead of by tolerance.
     """
     if value < 0:
@@ -138,7 +138,7 @@ def fraction_bits(number, power, bits):
 def arctangent(over, scale):
     """The arctangent of one over `over`, as an integer holding `scale` as its unit.
 
-    The Gregory series. Each term is its predecessor divided by the square of `over`, so the term
+    The Gregory series. Each term is its predecessor divided by the square of `over`. The term
     count falls as the reciprocal grows and a large `over` converges quickly. Truncating integer
     division loses at most one unit per term, and the guard digits cover that.
     """
@@ -164,7 +164,7 @@ def pi_machin(digits):
 def pi_euler(digits):
     """Pi to `digits` places, from Euler's identity: a quarter turn is arctan a half plus arctan a third.
 
-    Shares no term with Machin's, so agreement between the two is an independent check and never
+    Shares no term with Machin's. Agreement between the two is an independent check and never
     two copies of one mistake. The identity follows from the tangent addition formula, since a half
     plus a third over one less a sixth is one.
     """
@@ -196,7 +196,7 @@ def harmonic_unit(digits):
     """One over twice the square root of pi, to `digits` places.
 
     The degree zero harmonic, and the scale every other one is built on. Computed as the integer
-    root of ten to twice the digit count, over four pi, so the reciprocal and the root happen in one
+    root of ten to twice the digit count, over four pi. The reciprocal and the root happen in one
     step and no intermediate is rounded.
     """
     work = digits + GUARD
@@ -314,7 +314,7 @@ def _check():
     if machin != euler:
         failed += 1
 
-    # A root squared must return its argument. Exact for integer roots, so any gap is a defect.
+    # A root squared must return its argument. Exact for integer roots. Any gap is a defect.
     root = scaled_root(2, 2, digits)
     square = root * root
     target = 2 * 10 ** (2 * digits)
@@ -381,7 +381,7 @@ def _check():
     if gap > 1e-15:
         failed += 1
 
-    # Nothing measured in the reading path. A grep, asserted, so adding a physical constant to the
+    # Nothing measured in the reading path. A grep, asserted. Adding a physical constant to the
     # engine has to argue with a failing check instead of passing quietly.
     lines.append("  no measured constant in the reading path: asserted by search, see the report")
 

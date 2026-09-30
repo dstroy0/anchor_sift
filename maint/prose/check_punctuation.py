@@ -11,7 +11,7 @@
 # means the same thing. Those are worth reporting.
 #
 # This reports and does not error, for two reasons. docs_check.py owns the commit gate, and
-# ASCII-ising a quote inside a quoted string or a test vector can change what a program means, so a
+# ASCII-ising a quote inside a quoted string or a test vector can change what a program means. A
 # person decides each site.
 
 import os
@@ -26,7 +26,7 @@ import sys
 #
 # The corpus settles the wider question too. docs/ carries 74 U+2212 minus signs and a working set of
 # arrows, inequalities and set operators. It is a mathematics corpus using mathematical characters
-# deliberately, so "unicode punctuation is suspect" would be a rule imported from somewhere else.
+# deliberately. "unicode punctuation is suspect" would be a rule imported from somewhere else.
 #
 # The em dash is banned because it is a stylistic tell carrying no information. The en dash carries
 # information. docs_check.py is right to error on one and ignore the other, and this table follows it.

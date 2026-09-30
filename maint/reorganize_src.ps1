@@ -11,7 +11,7 @@
 #   test     the correctness gate
 #   scripts  the run wrappers that live with the sources
 #
-# git mv rather than move, so the history follows the files.
+# git mv rather than move. The history follows the files.
 
 $ErrorActionPreference = "Stop"
 

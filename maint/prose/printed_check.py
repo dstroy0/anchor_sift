@@ -7,7 +7,7 @@ WHY THIS EXISTS
 `docs_check.py` reads the comments and docstrings of a source file and blanks the code. For a
 library, blanking the code is correct. The checkers in `examples/00_blob_viz_tools` are not shaped like libraries
 when they run: each one prints several paragraphs of argument about what it measured, and a person
-reads those paragraphs the way they read a page. None of that text sits in a comment, so none of it
+reads those paragraphs the way they read a page. None of that text sits in a comment. None of it
 was gated.
 
 The gap was found by reading output instead of by any check, and it had already let two findings
@@ -25,12 +25,12 @@ WHAT IT READS
 
 The string literals handed to `say`, `print` and `sys.stdout.write`, taken from the parse tree so
 that a string built across several lines is read once and a string in a comment is not read twice.
-The banned table comes from `docs_check` itself through the symlink in this directory, so there is
+The banned table comes from `docs_check` itself through the symlink in this directory. There is
 one table and this file does not hold a copy of it to drift.
 
 Exit status follows `docs_check`: zero clean, one for findings, two for the sentinel that says no
 file was read. Never a count. `docs_check` records why, and the reasons apply here unchanged: a count
-wraps at 256, so 256 findings would exit clean, and returning 2 for a real pair of findings is
+wraps at 256. 256 findings would exit clean, and returning 2 for a real pair of findings is
 indistinguishable from the run that read nothing.
 """
 
@@ -59,7 +59,7 @@ def printed_strings(path):
     """Every string literal reaching a reader, as (line, text), each reported once.
 
     A literal nested inside a formatting expression is reached once through the call it sits in.
-    Walking the call would reach it again for every enclosing node, so the visited set is by
+    Walking the call would reach it again for every enclosing node. The visited set is by
     position and not by value: two identical sentences on different lines are two findings.
     """
     with open(path, "r", encoding="utf-8") as handle:

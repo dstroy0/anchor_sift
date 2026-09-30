@@ -49,7 +49,7 @@ def live_of(text):
 
 
 # Which word a round copies each carried word from. A round sets b to a's old value, c to b's, d to
-# c's, f to e's, g to f's and h to g's, so those six are copied and never computed.
+# c's, f to e's, g to f's and h to g's. Those six are copied and never computed.
 CARRIED = ((1, 0), (2, 1), (3, 2), (5, 4), (6, 5), (7, 6))
 
 
@@ -60,11 +60,11 @@ def rounds_of(message, read="state"):
 
     The digest reading adds the initial values back into every word before handing the frame over.
     That feed-forward is a mixing step applied after the round has finished, and it is applied to
-    every frame, so it hides the structure the round itself put there. Measuring the digest sequence
+    every frame. It hides the structure the round itself put there. Measuring the digest sequence
     and reporting it as a property of the round is measuring the wrong object.
 
     The working state is the eight words as the round leaves them, with nothing added back, and the
-    register shift is visible only in that. Every earlier reading here used the digest, so the
+    register shift is visible only in that. Every earlier reading here used the digest. The
     working state is the default now and the digest is kept as something to compare against.
     """
     block = sha.padded(message)
@@ -79,7 +79,7 @@ def rounds_of(message, read="state"):
             frames.append(text)
         return frames, "".join("%08x" % one for one in words)
 
-    # The clock traces every operation, so the state after a round is the last operation of it.
+    # The clock traces every operation. The state after a round is the last operation of it.
     every, digest = clock.trace(block, ROUNDS)
     frames = [every[at * clock.OPS + clock.OPS - 1] for at in range(ROUNDS)]
     return frames, "".join("%08x" % one for one in digest)
@@ -88,7 +88,7 @@ def rounds_of(message, read="state"):
 def shift_structure(frames):
     """How many of the six carried words survive a round exactly, once the shift is undone.
 
-    The decisive test of which object is being read. Those six words are copied, so on the working
+    The decisive test of which object is being read. Those six words are copied. On the working
     state every one of them has to match the word it came from, exactly, every round. A reading where
     none of them matches is a reading of something the round has been mixed into after the fact.
     """
@@ -233,7 +233,7 @@ def main():
     out.append("    against that floor the delta runs %.2f early and %.2f late"
                % (early_ratio, late_ratio))
 
-    # Three outcomes and they mean different things, so the number is not left to speak for itself.
+    # Three outcomes and they mean different things. The number is not left to speak for itself.
     #
     # WHAT IS MEASURED HERE AND WHAT IS NOT, because this output is the thing a reader trusts most
     # and it was overstating its case.
@@ -243,7 +243,7 @@ def main():
     #
     # Not measured: WHY it sits there. A move that carries mass coherently from octant to octant
     # shifts the shares further than a scramble of them would, and a rigid relabeling of the indices
-    # is such a move, so the register shift is a candidate cause of an excess over the floor. It is a
+    # is such a move. The register shift is a candidate cause of an excess over the floor. It is a
     # candidate and nothing here tests it. Separately, and this part IS counted, the shift is present
     # in the working state exactly: all 378 carried words match. Those are two different claims --
     # the shift being in the object, and the shift being what moved the delta -- and only the first
@@ -281,7 +281,7 @@ def main():
     # The rank first, and the distinctness second, because in the other order the distinctness
     # reads as the result and it is the cheaper number by a wide margin.
     #
-    # The eight shares are a linear map from the lit set to eight counts, so it has rank 8 at most.
+    # The eight shares are a linear map from the lit set to eight counts. It has rank 8 at most.
     # At fixed weight they carry one constraint, leaving seven free numbers, and every direction of
     # the source space beyond those seven moves no letter at all. That is a bound on the reading and
     # no sample size, precision or probe count moves it.
@@ -318,7 +318,7 @@ def main():
             sys.stdout.write("  FAIL the eight letters do not add to one\n")
             failed += 1
         # Which object is being read, checked by counting and not asserted. The six carried words
-        # are copied by the round, so on the working state every one of them matches and on the
+        # are copied by the round. On the working state every one of them matches and on the
         # digest none of them do, because the feed-forward adds the initial values back afterward.
         # This is the check that would have caught the whole reading being taken on the wrong thing.
         if read == "state" and hits != total:

@@ -8,7 +8,7 @@ WHAT THIS DRAWS
 Power per harmonic degree is invariant under rotation. A ring placement turned by whole ring
 steps has a residual of exactly zero. Every number any arm reports for that residual is therefore
 its own arithmetic, and the prediction that follows is a line: a format carrying `d` decimal digits
-should report a residual near `10^-d`, so the log of the residual against the digit count has slope
+should report a residual near `10^-d`. The log of the residual against the digit count has slope
 minus one and no free parameter anywhere in it.
 
 Eight readings go on that axis. Host and device float32, host and device float64, from
@@ -25,8 +25,8 @@ a prediction with no fitted quantity, and a departure from it is where a real ef
 
 WHY THE DEVICE ARM IS HERE
 
-Two arms of the same width differ only in where they ran, so their disagreement separates the
-device from the format. Two arms of the same side differ only in width, so their disagreement
+Two arms of the same width differ only in where they ran. Their disagreement separates the
+device from the format. Two arms of the same side differ only in width. Their disagreement
 separates the format from the device. One arm alone confounds them, and the confound is the failure
 this tree keeps finding under new disguises.
 """
@@ -134,7 +134,7 @@ def draw(points, slope, intercept, path):
                color="#888888", linewidth=1.0, zorder=1,
                label="fitted, %.3f decades per digit" % -slope)
 
-    # A label placed outward runs off the frame at the last point, so the right third labels
+    # A label placed outward runs off the frame at the last point. The right third labels
     # inward. Checked against the written figure and not assumed.
     turn = span[0] + 0.66 * (span[1] - span[0])
     seen = set()
@@ -208,7 +208,7 @@ def _check():
     failed = 0
 
     # The fit has to recover a slope it is handed, or the number it reports about the real data
-    # means nothing. Built on exact points, so the answer is known.
+    # means nothing. Built on exact points. The answer is known.
     made = [(float(d), "decimal", 10.0 ** (-1.0 * d), "made %d" % d) for d in (10, 20, 30, 40)]
     slope, _, worst = fitted_slope(made)
     lines.append("  a made ladder of exact slope one reads %.6f, departure %.2e" % (-slope, worst))
@@ -225,7 +225,7 @@ def _check():
         lines.append("    FAIL a flat ladder was not reported as flat")
         failed += 1
 
-    # The ladder itself, at two places, so this tool is not trusted on a broken import.
+    # The ladder itself, at two places. This tool is not trusted on a broken import.
     coarse = float(precision_floor.residual_at(20))
     lines.append("  the ladder at 20 places returns %.3e" % coarse)
     if not 0.0 < coarse < 1e-25:

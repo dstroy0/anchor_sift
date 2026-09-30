@@ -413,8 +413,8 @@ def main():
     ]
     flagged.extend(missed)
 
-    # The English of an example and the story summary under it are set in the same indented column,
-    # so the width rule that separates both from the essay does not separate them from each other.
+    # The English of an example and the story summary under it are set in the same indented column.
+    # The width rule that separates both from the essay does not separate them from each other.
     # Nothing else in the extracted lines does either: the blank line the typescript puts between
     # two paragraphs is gone, and both are English prose in the same measure.
     #

@@ -61,7 +61,7 @@ def read_rows(handle, head, held):
 def read_rows_fast(handle, head, held):
     # read_rows by column number: a column the head names twice is read at its last place, as dict(zip()) keeps it,
     # and an optional column the head lacks reads its default from a tail past the row's own fields. Rows come a frame
-    # at a time, so the frame's list is looked up only when the sample or time field changes
+    # at a time. The frame's list is looked up only when the sample or time field changes
     index = {}
     for at, name in enumerate(head):
         index[name] = at
@@ -171,8 +171,8 @@ def cell_of(place):
 
 def match(predicted, truth_nodes, truth_places):
     # the true nodes in a grid of cells REACH_UM wide in scaled um, each listed under its own cell and the 26 around
-    # it, so the list under a predicted node's cell is every true node in that cell and the 26 around it. A pair within
-    # REACH_UM differs by at most one cell on every axis, so no pair is lost; the pairs are measured and sorted as when
+    # it. The list under a predicted node's cell is every true node in that cell and the 26 around it. A pair within
+    # REACH_UM differs by at most one cell on every axis. No pair is lost; the pairs are measured and sorted as when
     # every predicted node met every true node, and the matching is the same
     near = collections.defaultdict(list)
     for identity in truth_nodes:

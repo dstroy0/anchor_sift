@@ -10,7 +10,7 @@ A Proth certificate is one modular exponentiation: `a^((N-1)/2) mod N`, which is
 it is `-1`. So the size of prime this engine can prove is the size of exponentiation it can run,
 and that size is set by the multiply underneath. Below about a thousand limbs the host's own
 multiply is faster; above it the products go to the card. This file walks the candidate size upward
-and reports the wall clock of one certificate at each, so the reach is a measured number and not a
+and reports the wall clock of one certificate at each. The reach is a measured number and not a
 projection.
 
 The candidates are real. `k * 2^n + 1` with `k` small and odd is the exact form the record hunts
@@ -21,7 +21,7 @@ WHAT IT IS NOT
 
 It is not a record attempt. The record Proth primes are millions of digits and take a native GPU
 exponentiation days to weeks; this engine still marshals each product through the host between
-device calls, so it reaches far less. That gap is the honest state of the tool, and the number this
+device calls. It reaches far less. That gap is the honest state of the tool, and the number this
 prints is where it actually stands today.
 """
 
@@ -46,8 +46,8 @@ def certify(multiplier, power, tries=64):
     """Certify `multiplier * 2^power + 1`, returning the verdict, the witness and the seconds.
 
     Tries small witnesses in turn, since a Proth witness is a quadratic non-residue and half of all
-    candidates are one, so the first few almost always settle it. A composite is caught the moment a
-    witness gives neither 1 nor -1, by Fermat, so this is fast to error as well as to prove.
+    candidates are one. The first few almost always settle it. A composite is caught the moment a
+    witness gives neither 1 nor -1, by Fermat. This is fast to error as well as to prove.
     """
     start = time.perf_counter()
     for witness in range(2, tries):
@@ -78,7 +78,7 @@ def _check():
 
     # Larger cases whose verdicts were DERIVED, not remembered: a deterministic Miller-Rabin found
     # each smallest odd k giving a prime and giving a composite at that power. A first version of
-    # this gate invented "known primes" from memory and two of them were composite, so the engine
+    # this gate invented "known primes" from memory and two of them were composite. The engine
     # was right and the test was wrong; the answers here come from a computation instead.
     lines.append("  LARGER CASES, verdicts derived rather than remembered")
     known = ((27, 40, True), (1, 40, False), (7, 50, True), (1, 50, False),
@@ -104,7 +104,7 @@ def _reach(ceiling):
     sys.stdout.write("  %12s %14s %12s %s\n" % ("power n", "decimal digits", "seconds", "verdict"))
     sys.stdout.flush()
 
-    # k = 5 is odd and small, so k < 2^n holds at every size here and Proth's criterion applies.
+    # k = 5 is odd and small. K < 2^n holds at every size here and Proth's criterion applies.
     multiplier = 5
     for power in (1000, 3000, 10000, 30000, 100000, 300000, 1000000):
         if power > ceiling:

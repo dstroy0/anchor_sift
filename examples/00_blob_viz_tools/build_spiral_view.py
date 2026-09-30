@@ -1,15 +1,15 @@
 """Puts the combed survey on the golden spiral: 256 output bits, 256 places, one arm each.
 
 The survey counts how often each of SHA-256's 256 output positions is set. A table of 256 numbers
-hides the one thing worth seeing, which is whether anything clusters, so the positions are placed
+hides the one thing worth seeing, which is whether anything clusters. The positions are placed
 on the sphere by `boundary_read.golden_place` - index k at height 1 - 2(k + 0.5)/256, longitude
-k gamma - and drawn there. That placement has no seam and no pole pile, so a cluster on the surface
+k gamma - and drawn there. That placement has no seam and no pole pile. A cluster on the surface
 is a cluster in the data rather than an artifact of where the points were put.
 
 WHAT EACH ARM ADDS
 
 An arm is one survey under one header. Arms cost nothing to keep: the counters are 256 numbers and
-33 bins whatever the depth, and the device buffers are allocated once, so memory is flat in the arm
+33 bins whatever the depth, and the device buffers are allocated once. Memory is flat in the arm
 count. What they buy is not flat, and it does not all scale alike:
 
     pooled depth   as the square root of the arm count, which is what more of anything buys
@@ -92,7 +92,7 @@ def main():
         })
 
     # How many positions agreed at each level, against the exact binomial. Under the null a
-    # position's sign is a fair coin in every arm, so the count agreeing is binomial and the
+    # position's sign is a fair coin in every arm. The count agreeing is binomial and the
     # expectation is computable rather than simulated.
     def binomial(n, k):
         return math.comb(n, k)

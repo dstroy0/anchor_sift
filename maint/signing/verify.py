@@ -8,7 +8,7 @@
 #
 # THREE CLAIMS, THREE CHECKS, AND THEY FAIL INDEPENDENTLY
 #
-# docs/provenance.md section 1 separates them and the separation is the whole design, so this reports
+# docs/provenance.md section 1 separates them and the separation is the whole design. This reports
 # them separately instead of printing one verdict:
 #
 #   integrity    every file still hashes to what the manifest says     no key, no network
@@ -159,7 +159,7 @@ def main(argv):
     # TWO PLACES A PROOF CAN SIT, AND BOTH COUNT.
     #
     # Stamping the signature dates who-and-when together. Stamping the manifest dates the bytes alone
-    # and needs no key, so it can be done while the signature waits for whoever holds it. An earlier
+    # and needs no key. It can be done while the signature waits for whoever holds it. An earlier
     # version of this looked only at the signature's proof and therefore reported PRIORITY ABSENT on a
     # tree that had an anchored manifest sitting beside it.
     anchors = [

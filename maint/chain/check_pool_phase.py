@@ -6,8 +6,8 @@ were artifacts.
 
 Peak minus trough is a maximum minus a minimum over twenty-four bins, and that spans three and a
 half to four and a half standard deviations for pure noise, by construction. A bar set at two, or
-even at four, is at or below what chance produces, so every pool clears it. And eight trough hours
-drawn uniformly from twenty-four span about nineteen hours on average, so a twenty hour spread is
+even at four, is at or below what chance produces. Every pool clears it. And eight trough hours
+drawn uniformly from twenty-four span about nineteen hours on average. A twenty hour spread is
 the expected result of no signal at all, not evidence against it.
 
 The correct question is asked here in two stages, each against a null built at that pool's own
@@ -113,7 +113,7 @@ def main():
     print("    pools carrying a phase: %s" % ", ".join(n for n, _, _ in passed))
     print("    their trough hours:     %s" % sorted(troughs))
 
-    # Circular spread: hours wrap, so a plain max-minus-min is the wrong measure. The resultant
+    # Circular spread: hours wrap. A plain max-minus-min is the wrong measure. The resultant
     # length of unit vectors at each hour is the right one - near 1 is agreement, near 0 is spread.
     def resultant(hours_list):
         x = sum(math.cos(h / 24.0 * 2 * math.pi) for h in hours_list)

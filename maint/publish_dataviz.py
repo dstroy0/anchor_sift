@@ -14,7 +14,7 @@ reason, putting the decision on the record instead of in a commit message.
 WHY THIS TRANSFORMS INSTEAD OF COPYING
 
 A generator here says `import dsp`, which works only because Python puts a script's own directory
-on sys.path when it is run. A fetched tool that is imported and not run does not get that, so the
+on sys.path when it is run. A fetched tool that is imported and not run does not get that. The
 published form opens with the toolkit's walk-up preamble and imports by set. That is a real
 difference between the two trees, and it is applied mechanically at publish time and never by
 hand: one source, one transform, no drift to maintain.
@@ -70,7 +70,7 @@ DATAVIZ = [
 # Rewritten in the published form only. The left side is what this tree says.
 #
 # Matched on the statement and not on a line with its indentation baked in. The first version of
-# this table wrote "\n    import exact as extended\n" for a line indented eight spaces, so it matched
+# this table wrote "\n    import exact as extended\n" for a line indented eight spaces. It matched
 # nothing, changed nothing, and published a file that raised ModuleNotFoundError the moment anyone
 # used the option it guarded. A rewrite that does not match has to be an error and never a quiet
 # pass-through, and LEFTOVERS below enforces that.
@@ -103,7 +103,7 @@ def published(text, name, runnable):
         # Nothing to add.
         return text
 
-    # Whole statements, so indentation cannot make a rule miss. Only a line matching exactly the
+    # Whole statements. Indentation cannot make a rule miss. Only a line matching exactly the
     # import is touched; the same words inside a docstring or a comment are left alone.
     out = []
     for line in text.split("\n"):
@@ -130,7 +130,7 @@ def published(text, name, runnable):
     # The rewrite is checked, not trusted. A module named here exists only in the source tree, and
     # a published file naming one would raise on import somewhere the author never runs it.
     for line in text.split("\n"):
-        # startswith, not equality. The first version of this guard compared the whole statement, so
+        # startswith, not equality. The first version of this guard compared the whole statement.
         # `import exact as extended` did not match the entry `import exact` and the check passed on
         # a file that raised at run time. A guard that only catches the spelling you thought of is
         # not a guard.

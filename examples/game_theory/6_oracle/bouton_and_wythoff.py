@@ -45,7 +45,7 @@ def losses_per_line(grid, heaps, heap):
     """Losing positions on each line along the first axis.
 
     Bouton's theorem says a position loses exactly when the heap sizes exclusive or to zero. Fix
-    every heap but one and exactly one size of the free heap makes that total zero, so every line
+    every heap but one and exactly one size of the free heap makes that total zero. Every line
     holds exactly one losing position. That consequence is readable off the grid by counting, with
     no exclusive or performed by the reader.
     """

@@ -9,7 +9,7 @@
 #
 # The null permutation of this work, written for a grid, keeps how many of each color are on the
 # board and which squares are occupied at all, and draws which color sits where. It is the maximum
-# entropy arrangement under the constraints the position supplies, so it cannot be wrong, and a
+# entropy arrangement under the constraints the position supplies. It cannot be wrong, and a
 # departure from it is arrangement and cannot be counts.
 #
 # What a departure does not say on its own is which part of the game put it there. A board game has
@@ -70,12 +70,12 @@ def place_only(seed, filled=SIDE * SIDE, from_opening=True):
 
     `from_opening` keeps Reversi's four fixed center pieces. They are worth a control of their own,
     because the first run of this script left them in and read 0.971 where the argument wanted 1.00,
-    and the miss is the opening itself: those four squares are laid out BW over WB, so all four of
+    and the miss is the opening itself: those four squares are laid out BW over WB. All four of
     the neighboring pairs inside them disagree by construction where a draw would have half of them
     agree. Four guaranteed disagreements out of 112 pairs is 0.018 of the reading, which is the whole
     of the gap. Starting from an empty board removes them and the control returns 0.997.
 
-    The same four squares sit under the Reversi rows and push them the same way, so the departure
+    The same four squares sit under the Reversi rows and push them the same way. The departure
     reported there is understated by about that much and never overstated.
     """
     rng = random.Random(seed)

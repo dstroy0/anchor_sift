@@ -55,7 +55,7 @@ static inline int sim_rational_small(const AnchorExactInteger *value, long long 
     {
         return 0;
     }
-    // below 2^62, so the magnitude fits the signed word with either sign
+    // below 2^62. The magnitude fits the signed word with either sign
     *small = (value->sign < 0) ? -(long long)magnitude : (long long)magnitude;
     return 1;
 }
@@ -158,7 +158,7 @@ static inline SimRational sim_rational_reciprocal(SimRational value)
     return turned;
 }
 
-// the denominator is positive, so the numerator carries the sign
+// the denominator is positive. The numerator carries the sign
 static inline int sim_rational_sign(SimRational value)
 {
     return (value.numerator.sign > 0) ? 1 : ((value.numerator.sign < 0) ? -1 : 0);

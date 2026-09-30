@@ -1,4 +1,4 @@
-# Points the files shared with anchor_sift at anchor_sift, so one edit reaches both.
+# Points the files shared with anchor_sift at anchor_sift. One edit reaches both.
 #
 #   Run elevated:  Start-Process pwsh -Verb RunAs -ArgumentList "-File","tools\link_shared.ps1"
 #
@@ -7,7 +7,7 @@
 #
 # THE TARGETS ARE SEARCHED FOR, NOT SPELLED OUT
 #
-# anchor_sift is being reorganized: tools/ became maint/ and the links broke silently, so the next
+# anchor_sift is being reorganized: tools/ became maint/ and the links broke silently. The next
 # commit here errored in a hook whose checker had no file behind it. A path written down here
 # would break again on the next move. Each target is found by name instead, and a name that matches
 # more than one file is reported and skipped rather than guessed at.
@@ -15,7 +15,7 @@
 # WHY build_theory.sh IS SAFE TO LINK
 #
 # It derives its root with cd "$(dirname "$0")/../..". A shell sets $0 to the path as invoked and
-# does not resolve it through the link, so running it from this repository as
+# does not resolve it through the link. Running it from this repository as
 # tools/research_paper/build_theory.sh gives dirname tools/research_paper, a real directory here, and ../.. lands back
 # at this repository instead of at anchor_sift. The invocation carries the location.
 #
@@ -34,7 +34,7 @@ $here = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 # ELEVATION IS CHECKED BEFORE ANYTHING IS REMOVED, NOT WHEN THE FIRST LINK IS WRITTEN.
 #
 # The loop below removes the existing link or file and then creates the replacement. Windows errors
-# symlink creation to an unelevated process, so run without elevation the remove succeeded and the
+# symlink creation to an unelevated process. Run without elevation the remove succeeded and the
 # create failed, and the build_theory.sh link went from a stale link to no file at all - a script
 # meant to repair links deleted one. The header has said "Run elevated" since it was written, which
 # is exactly the kind of instruction that does not survive being ignored once.
@@ -69,10 +69,10 @@ if (-not (Test-Path $repotools))
 # Where the file lives here, the name to find it by, and WHICH TREE to find it in.
 #
 # THE TOOLS COME FROM repo_tools, NOT FROM ANOTHER CAPTAIN'S REPOSITORY. docs_check.py pointed into
-# anchor_sift, so this tree's prose gate was whatever that repository last saved - and on 2026-09-11
+# anchor_sift. This tree's prose gate was whatever that repository last saved - and on 2026-09-11
 # eight patterns arrived here without anyone on this side asking for them or knowing. That is not a
 # shared file, it is one repository silently setting another's standard. Doug's rule is that every
-# captain takes tools from repo_tools, so the source moves and the theory files, which really are
+# captain takes tools from repo_tools. The source moves and the theory files, which really are
 # shared subject matter rather than tooling, stay where they are.
 $shared = @(
     @{ mine = "theory\preamble.tex";            name = "preamble.tex";    root = $anchor },
@@ -148,7 +148,7 @@ foreach ($one in $shared)
     New-Item -ItemType SymbolicLink -Path $mine -Target $theirs | Out-Null
 
     # VERIFY IT RESOLVES, RATHER THAN REPORTING THAT IT WAS CREATED. A symlink to a path that does
-    # not exist is created without complaint by Windows and by every other system, so "link" printed
+    # not exist is created without complaint by Windows and by every other system. "link" printed
     # in green has never meant the file is reachable - only that a link object now sits there.
     #
     # That gap is not hypothetical here. anchor_sift moved its research paper build scripts and

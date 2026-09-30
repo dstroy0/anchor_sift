@@ -1,7 +1,7 @@
 """Does the field ever gain structure, or only lose it?
 
 Reading color saturation as construction and desaturation as destruction makes a sharp prediction:
-a hash should destroy structure and never build it, so the total field power should fall at every
+a hash should destroy structure and never build it. The total field power should fall at every
 round and rise at none. A rise would be a construction event and would want explaining.
 
 Total power here is the signed residue fold summed in magnitude over all thirty-two classes. That
@@ -9,7 +9,7 @@ is the entire field with the sign folded out and nothing further discarded.
 
 Two things have to be separated. A monotone run while the field is still large is a real statement
 about the function. Rises after the field has reached its floor are not construction: each round is
-its own seed, so consecutive rounds are independent draws and about half of them will land higher
+its own seed. Consecutive rounds are independent draws and about half of them will land higher
 than the one before whatever the function does.
 
     python maint/check/check_monotone.py

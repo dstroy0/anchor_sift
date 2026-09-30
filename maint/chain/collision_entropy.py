@@ -1,7 +1,7 @@
 """Every measured deviation, converted to bits of collision entropy leaked.
 
 Chi-square answers whether a distribution departs from uniform. It does not say how much that
-departure is worth, and it is not comparable across measurements with different bin counts, so a
+departure is worth, and it is not comparable across measurements with different bin counts. A
 chi-square of 17723 over sixteen bins and one of 36.62 over twenty-four cannot be read against each
 other as they stand.
 
@@ -16,7 +16,7 @@ how much collision probability the field gives away by not being flat, and bits 
 the bin count.
 
 The floor comes out of the same expression. A uniform field produces a chi-square near its degrees
-of freedom, n - 1, so the deficit chance alone manufactures is
+of freedom, n - 1. The deficit chance alone manufactures is
 
     floor  =  log2(1 + (n - 1) / N)
 

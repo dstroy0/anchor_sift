@@ -8,7 +8,7 @@
 # The test that settles it is differential rather than inspective. Each bench is built three ways
 # and run three times:
 #
-#   O0    no optimization at all, so nothing is folded, hoisted or contracted
+#   O0    no optimization at all. Nothing is folded, hoisted or contracted
 #   O2    the flags the tree was built with
 #   NOFMA O2 with fused multiply-add contraction disabled, which is on by default in GCC
 #
@@ -17,7 +17,7 @@
 # re-derived before it is quoted. This is a whole-tree check: it does not require guessing which
 # statistic might be fragile.
 #
-# Benches seeded from a fixed constant are deterministic by construction, so any difference between
+# Benches seeded from a fixed constant are deterministic by construction. Any difference between
 # the three is the compiler and nothing else.
 
 $ErrorActionPreference = "Stop"
@@ -39,21 +39,21 @@ New-Item -ItemType Directory -Force -Path $work | Out-Null
 # compression function itself is subject to the same treatment as the statistics that read it.
 # The O0 arm carries no -mavx2, and the reason is a compiler defect rather than a preference.
 # MinGW-w64 GCC mishandles over-aligned locals at -O0 on this ABI: it hand-aligns a pointer for one
-# __m256i local and then places another at a fixed offset from a frame pointer it never realigned,
-# so it emits vmovdqa - the *aligned* 256-bit move - against an address that is 16 mod 32, and the
+# __m256i local and then places another at a fixed offset from a frame pointer it never realigned.
+# It emits vmovdqa - the *aligned* 256-bit move - against an address that is 16 mod 32, and the
 # process takes a general protection fault. The faulting instruction is
 #
-#   vmovdqa %ymm0,-0x20(%rbp)     with rbp = 0x5fe0b0, so the target is 0x5fe090, 16 mod 32
+#   vmovdqa %ymm0,-0x20(%rbp)     with rbp = 0x5fe0b0. The target is 0x5fe090, 16 mod 32
 #
 # and -mstackrealign changes the prologue not at all. Nothing in this tree causes it and no source
 # change here avoids it.
 #
-# sha256_core.c gates its vector arm on __AVX2__ and its else arm defers to the scalar reference, so
-# without -mavx2 the O0 build is the reference arm compiled unoptimized. That is the arm a fold
+# sha256_core.c gates its vector arm on __AVX2__ and its else arm defers to the scalar reference.
+# Without -mavx2 the O0 build is the reference arm compiled unoptimized. That is the arm a fold
 # audit wants anyway: it is the one whose arithmetic the statistics read.
 #
 # What this costs, stated rather than buried: for the two benches that exercise the vector arm, the
-# O0 column tests different code from the other two columns, so an agreement there is evidence about
+# O0 column tests different code from the other two columns. An agreement there is evidence about
 # the reference arm and not about the vector arm. The vector arm is covered instead by
 # kat_validation, which asserts it equal to the reference on the FIPS vectors, the genesis block,
 # block 125552 and 1000 consecutive real headers.
@@ -63,8 +63,8 @@ $arms = @(
     @{ Name = "NOFMA"; Flags = @("-O2", "-mavx2", "-ffp-contract=off") }
 )
 
-# kat_validation is included deliberately. It is the correctness gate every other result rests on,
-# so a compiler-dependent answer there would be the most expensive one to miss.
+# kat_validation is included deliberately. It is the correctness gate every other result rests on.
+# A compiler-dependent answer there would be the most expensive one to miss.
 $benches = @(Get-ChildItem -Path $benchDirectory -Filter "bench_*.cpp" |
     Where-Object { $_.Name -notin @("bench_cuda.cpp", "bench_keyhole.cpp") }) +
     @(Get-ChildItem -Path $testDirectory -Filter "kat_validation.cpp")
@@ -96,7 +96,7 @@ foreach ($arm in $arms)
     Write-Host "[*] arm $($arm.Name): built" -ForegroundColor DarkCyan
 }
 
-# Running is the slow part and the benches are independent, so run them concurrently. One core is
+# Running is the slow part and the benches are independent. Run them concurrently. One core is
 # left for the machine, which is the standing rule for this tree.
 $parallel = [Math]::Max(1, [int]$env:NUMBER_OF_PROCESSORS - 1)
 Write-Host "[*] running, $parallel at a time" -ForegroundColor Cyan
@@ -114,7 +114,7 @@ foreach ($arm in $arms)
 
 $jobs | ForEach-Object -ThrottleLimit $parallel -Parallel {
     $out = Join-Path (Split-Path -Parent $_.Exe) ($_.Bench + ".out")
-    # Benches that read a data file resolve it relative to the tree root, so run from there rather
+    # Benches that read a data file resolve it relative to the tree root. Run from there rather
     # than from wherever the arm's binaries happen to live.
     Set-Location $using:root
     try

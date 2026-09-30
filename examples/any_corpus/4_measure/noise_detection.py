@@ -10,8 +10,8 @@
 #
 # Two quantities in this work respond to different things and neither is a checksum. Collision entropy is
 # computed from the histogram. It is permutation invariant and cannot depend on where corruption sits,
-# only on how much of it there is. Dispersion against a null permutation is computed from the positions,
-# so it responds to arrangement and is blind to a change that leaves the counts alone.
+# only on how much of it there is. Dispersion against a null permutation is computed from the positions.
+# It responds to arrangement and is blind to a change that leaves the counts alone.
 #
 # Corruption is applied two ways to separate them. Scattered draws land uniformly across the corpus and
 # a contiguous block lands in one place, and both replace the same number of symbols. A detector that

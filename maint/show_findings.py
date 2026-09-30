@@ -8,7 +8,7 @@ replacement ends up saying less than the original did.
     python maint/show_findings.py --unread src       # kinds the gate does not read
     python maint/show_findings.py --tsv src          # tab separated, for building a fix table
 
-One line of output per finding, so two findings on one source line appear twice and both get
+One line of output per finding. Two findings on one source line appear twice and both get
 rewritten in the same pass instead of one being cleared and the other left standing.
 """
 

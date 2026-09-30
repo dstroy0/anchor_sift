@@ -6,8 +6,8 @@
 """Turns build/bench/sources.csv into a viewer that switches between sources.
 
 Every null in this work is a number. This puts the fields themselves side by side - SHA-256, a
-matrix that is pseudorandom by construction, and two ablations - through identical projection code,
-so "does this look like noise" can be answered by looking as well as by a statistic.
+matrix that is pseudorandom by construction, and two ablations - through identical projection code.
+"does this look like noise" can be answered by looking as well as by a statistic.
 
     python examples/00_blob_viz_tools/build_sources_view.py
 """

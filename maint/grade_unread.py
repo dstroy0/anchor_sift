@@ -4,7 +4,7 @@ The gate reads a fixed list of extensions. Everything else in a tree is invisibl
 invisible reads exactly like clean: pointed at src/ it reports twelve files and exits zero while
 never opening the thirty-eight .cpp and ten .cu files beside them, which are most of the tree.
 
-CUDA and C++ carry C comment syntax, so nothing has to be transformed. A file is copied under a
+CUDA and C++ carry C comment syntax. Nothing has to be transformed. A file is copied under a
 checked extension, the gate is run on the copy, and the findings are relabeled with the real path.
 Line numbers are already right because nothing is rewritten.
 
@@ -85,7 +85,7 @@ def main():
     made = {}
     for path in files:
         base, kind = os.path.splitext(os.path.basename(path))
-        # The staged name keeps the original kind in it, so two files that differ only by extension
+        # The staged name keeps the original kind in it. Two files that differ only by extension
         # do not collide and the mapping back is unambiguous.
         stand_in = os.path.join(room, "%s__%s%s" % (base, kind.lstrip("."), UNREAD[kind]))
         shutil.copyfile(path, stand_in)

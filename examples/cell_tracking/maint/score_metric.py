@@ -24,7 +24,7 @@ import truth_io
 # score_submission.py is left as it was. Where the prose and the code part, the code is followed. Each step as read:
 #
 #   the graph    a dataset's rows as csv_to_geffs builds them: a node for each node row and an edge for each edge row,
-#                each in the order the rows come, so an edge's id is its place among the dataset's edge rows. source_id
+#                each in the order the rows come. An edge's id is its place among the dataset's edge rows. source_id
 #                and target_id name node_ids. A node_id named twice is its later row, as csv_to_geffs's dict keeps it,
 #                and an edge that names no node errors on the CSV, as csv_to_geffs raises
 #   the key      its nodes and edges through truth_io, in the geff's array order. n_total is the geff's

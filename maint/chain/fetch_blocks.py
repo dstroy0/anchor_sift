@@ -1,7 +1,7 @@
 """Fetch recent block headers from a public explorer and write them as a KAT corpus.
 
 Read only. Hits mempool.space's public API, which needs no key and carries no account data. Each
-response gives the fields a header is built from, so the corpus can be verified offline afterwards
+response gives the fields a header is built from. The corpus can be verified offline afterwards
 without trusting the explorer's own hash: we rebuild the 80 byte header, hash it ourselves, and
 compare against the id the explorer reported. A disagreement means either our algorithm or their
 record is wrong, and the test says which.
@@ -42,7 +42,7 @@ def main():
     collected = {}
     height = tip
 
-    # /v1/blocks/:height returns that block and the 14 below it, so this walks down in strides.
+    # /v1/blocks/:height returns that block and the 14 below it. This walks down in strides.
     while len(collected) < WANTED and height > 0:
         try:
             batch = get(f"/v1/blocks/{height}")
@@ -72,7 +72,7 @@ def main():
         time.sleep(0.12)
 
     ordered = [collected[key] for key in sorted(collected, reverse=True)][:WANTED]
-    # A block whose parent hash is missing cannot be chain-linked by the verifier, so drop it here
+    # A block whose parent hash is missing cannot be chain-linked by the verifier. Drop it here
     # instead of letting it look like a hashing failure later.
     ordered = [block for block in ordered if block["previousblockhash"]]
 

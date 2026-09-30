@@ -41,7 +41,7 @@ def digest_int(value):
 def susceptibility(samples, rng, live=True):
     """Per (input bit, output bit), how often the output moves when that input moves.
 
-    With `live` false the twin is an independent draw, so every cell is a fair coin and the table
+    With `live` false the twin is an independent draw. Every cell is a fair coin and the table
     is the null: its loudest cell is the bar the real table has to clear.
     """
     table = [[0] * 256 for _ in range(512)]

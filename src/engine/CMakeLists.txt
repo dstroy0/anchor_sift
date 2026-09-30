@@ -1,7 +1,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# The C implementation of the engine. It needs a C11 compiler and nothing else: no ESP-IDF, no
+# The C implementation of the engine. It needs a C11 compiler: no ESP-IDF, no
 # device toolchain, no Python, and nothing from the vendored library.
 
 cmake_minimum_required(VERSION 3.16)
@@ -102,7 +102,7 @@ target_link_libraries(anchor_sift_kernel_counted PUBLIC anchor_exact_portable)
 target_compile_options(anchor_sift_kernel_counted PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
 
 # The shared libraries test/python's graders load through ctypes. anchor_sift_host is the kernel's host arms with the
-# read counters, and the exact integer sources compiled into it, so no static library has to be position independent;
+# read counters, and the exact integer sources compiled into it. No static library has to be position independent;
 # on Windows test/python/anchor_sift_probe.def names its exports. shift_agreement_host is shift_agreement.c alone.
 add_library(anchor_sift_host SHARED ${ANCHOR_SIFT_SOURCES} ${ANCHOR_EXACT_PORTABLE_SOURCES})
 target_include_directories(anchor_sift_host PRIVATE nbody/anchor_sift arithmetic/no_rounding)

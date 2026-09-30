@@ -16,8 +16,8 @@
 # no biological sequence is independent of the hypothesis, and all biology shares one machinery in any
 # case. What is needed is a domain under no selection at all.
 #
-# Mathematics supplies two. The digits of an irrational are fully determined and conjectured to be normal,
-# so they should carry no arrangement to find. The gaps between primes are equally determined and are not
+# Mathematics supplies two. The digits of an irrational are fully determined and conjectured to be normal.
+# They should carry no arrangement to find. The gaps between primes are equally determined and are not
 # structureless: they carry real arithmetic regularity, and nothing chose them.
 
 import math

@@ -32,7 +32,7 @@ Every cell of the field becomes a body hanging in the room:
 Putting the round on the radius makes the shape worth walking into. In the terrain the
 causal cone is a staircase along an edge. Here it is a ball: a cell outside the cone is pinned
 because the input has not reached it yet, and every direction reaches its cone edge at the same
-round, so the pinned region closes into a bright solid with a sharp surface at that radius. That
+round. The pinned region closes into a bright solid with a sharp surface at that radius. That
 surface is the thing to look at, and you can stand inside it or outside it.
 
 WHY THE DEFAULT ENERGY IS THE READING
@@ -76,7 +76,7 @@ ROUNDS = 64
 
 # How many rows each cut of the field has, and how a row is addressed in the dump. The word cut
 # arrives as sixteen message words against eight state variables and is flattened to one axis here,
-# the same way the voxel view flattens it, so every cut is a list of series over the rounds.
+# the same way the voxel view flattens it. Every cut is a list of series over the rounds.
 CUTS = {
     "residue": 32,
     "outbit": 256,
@@ -94,14 +94,14 @@ GLOWS = ("measured", "random", "flat")
 INNER = 0.12
 OUTER = 0.82
 
-# A pinned cell reads about 1.3e8 and a noise cell about 1e2, so the field is read as a decade count
+# A pinned cell reads about 1.3e8 and a noise cell about 1e2. The field is read as a decade count
 # and never as a value. The floor is one standard error: below it there is nothing to grade, and
 # without it a cell that came back at zero takes the logarithm to minus infinity.
 FLOOR = 1.0
 
 
 def draw(seed):
-    """The same small generator the other tools here use, so one seed means one room."""
+    """The same small generator the other tools here use. One seed means one room."""
     state = (seed ^ 0x9E3779B97F4A7C15) & 0xFFFFFFFFFFFFFFFF
     while True:
         state = (state * 6364136223846793005 + 1442695040888963407) & 0xFFFFFFFFFFFFFFFF
@@ -111,7 +111,7 @@ def draw(seed):
 def read_field(path, want):
     """Reads one cut of the bench dump into a dense table indexed [row][round].
 
-    The dump carries every cut in one file and names each row by kind, so the whole file is walked
+    The dump carries every cut in one file and names each row by kind. The whole file is walked
     once and the rows that are not wanted are dropped as they arrive. A round is stored one-based in
     the dump and zero-based here.
     """
@@ -188,7 +188,7 @@ def build(rows, args):
             deep = INNER + (OUTER - INNER) * part
 
             # Sized by strength as well as graded by it. A pinned cell is a body and a noise cell is
-            # a speck, so the cone has a volume to it instead of being a color change across a
+            # a speck. The cone has a volume to it instead of being a color change across a
             # cloud of one size.
             size = 0.005 + 0.013 * strength
 
@@ -281,7 +281,7 @@ def main():
 
     # A body count large enough to stall the page is worth erroring instead of shipping. The room
     # walks every body once a frame and renders the casters again for each face of each source's
-    # shadow cube, so the cost is real and it lands on the reader and not here.
+    # shadow cube. The cost is real and it lands on the reader and not here.
     if len(things) > 6000:
         sys.stderr.write("that is %d bodies, which will not run. raise --every\n" % len(things))
         return 2

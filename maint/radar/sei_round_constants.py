@@ -92,7 +92,7 @@ def main():
     # -- is the scatter real? --------------------------------------------------------------------
     #
     # The honest error on the common mode is measured, not assumed: past round 23 there is no
-    # signal, so the round-to-round variation there is what this statistic does when nothing is
+    # signal. The round-to-round variation there is what this statistic does when nothing is
     # happening.
     quiet = [common[r] for r in range(30, 65) if r in common]
     quiet_steps = [quiet[i + 1] - quiet[i] for i in range(len(quiet) - 1)]

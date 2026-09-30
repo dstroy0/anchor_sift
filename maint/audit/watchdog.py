@@ -2,11 +2,11 @@
 
 Every miner watchdog sets its alarms by judgment - warn under so many megahashes, complain after so
 many seconds without a share - and every one of those numbers is somebody's guess. The quantities
-being watched here have known distributions, so the thresholds can be computed instead.
+being watched here have known distributions. The thresholds can be computed instead.
 
 Four checks, each with its floor derived from the process rather than chosen:
 
-  anchor rate     the anchor fires when one 32-bit word lands on zero, so survivors are Poisson
+  anchor rate     the anchor fires when one 32-bit word lands on zero. Survivors are Poisson
                   with mean hashes / 2^32. That makes the ratio the log already prints testable:
                   a deficit means the kernel is missing survivors, which is a CORRECTNESS fault
                   and not a performance one. This is the most valuable check here because a miner
@@ -14,7 +14,7 @@ Four checks, each with its floor derived from the process rather than chosen:
   hashrate drift  the instantaneous rate wanders by timing jitter alone, and that spread is stable
                   on healthy hardware. A widening spread is thermal throttling before the mean has
                   moved far enough to notice.
-  share arrivals  shares are Poisson at the pool's share difficulty, so the gaps are exponential
+  share arrivals  shares are Poisson at the pool's share difficulty. The gaps are exponential
                   with a known mean. A drought is only meaningful against that mean, and the
                   probability of a drought this long is computable rather than alarming.
   job cadence     a pool sends work on its own rhythm. The gaps are what they are, and the alarm
@@ -211,13 +211,13 @@ def pooled_anchor_test():
     """Sum every run's hashes into one control target and test the anchor rate against it.
 
     A single run cannot resolve a small deficit: at fifteen hundred anchors the spread is thirty
-    nine, so anything under seven per cent hides inside it. Summing runs is the whole remedy, and
+    nine. Anything under seven per cent hides inside it. Summing runs is the whole remedy, and
     it works here because the quantity is extensive - hashes add, anchors add, and the Poisson
     expectation adds with them. A deficit that is real grows as the square root of the total while
     one that is noise does not grow at all.
 
     This is the check that separates a kernel fault from an accounting mismatch, and the two need
-    different fixes, so the distinction is drawn rather than guessed at.
+    different fixes. The distinction is drawn rather than guessed at.
     """
     logs = sorted(glob.glob(os.path.join(ROOT, "build", "miner_*.log")))
     logs = [f for f in logs if "token" not in os.path.basename(f)]

@@ -40,8 +40,8 @@ def main():
     bits = sorted(field.keys())
     rounds = [r for r in range(DEEP_FIRST, DEEP_LAST + 1) if r in field[bits[0]]]
 
-    # One number per input bit: its mean excess across the deep rounds. Each round is its own seed,
-    # so averaging gains sqrt(len(rounds)) on anything that persists and nothing on noise.
+    # One number per input bit: its mean excess across the deep rounds. Each round is its own seed.
+    # Averaging gains sqrt(len(rounds)) on anything that persists and nothing on noise.
     profile = []
     for b in bits:
         each = [field[b][r] for r in rounds]

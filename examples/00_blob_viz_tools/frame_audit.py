@@ -8,12 +8,12 @@ THE DEFECT THIS EXISTS FOR
 Two faults of this kind were found in one afternoon and neither was found by looking for it. One was
 a fresh array built once per frame in the bar painter, the same fault the surface sum had already
 been fixed for. The other was worse: a source teardown called dispose() on a geometry and a material
-that every source shares, so removing one source freed the buffers out from under all of them.
+that every source shares. Removing one source freed the buffers out from under all of them.
 
 Both faults fail alike, and this exists for that reason. A per-frame allocation raises no error and
 drops no frame until a collection lands. A freed shared buffer raises no error either -- the picture
 simply stops moving. Neither is visible in a screenshot and neither is visible in a review that is
-looking at something else, so the class needs a reader that only ever looks for it.
+looking at something else. The class needs a reader that only ever looks for it.
 
 WHAT IT REPORTS
 

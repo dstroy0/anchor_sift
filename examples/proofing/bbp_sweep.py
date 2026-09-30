@@ -53,7 +53,7 @@ def log_two(places):
 def apery(places):
     """zeta(3) by Apery's series: (5/2) sum (-1)^(n-1) / (n^3 C(2n,n)).
 
-    The central binomial grows like four to the n, so the series converges geometrically and every
+    The central binomial grows like four to the n. The series converges geometrically and every
     term is an exact integer division of a scaled one.
     """
     scale = 1 << places
@@ -96,7 +96,7 @@ def main():
     # the same sweep on --host, and that is a real cost and not a rounding error.
     #
     # It is also the regime this search is least interesting in. A relation whose coefficients run
-    # to D digits cannot be seen below about D*n digits of input, so the precision where a formula
+    # to D digits cannot be seen below about D*n digits of input. The precision where a formula
     # becomes visible and the precision where the card becomes the right machine are the same
     # region. Run it deep, where both facts point the same way.
     if given.host:

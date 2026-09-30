@@ -22,12 +22,12 @@ dependency field, a leak per output bit, a spectrum. This one runs the compressi
 draws the state while it is still moving, one operation at a time, at whatever rate the reader sets.
 
 The working state is eight words of thirty-two bits. Each word is drawn as a ring of thirty-two
-bodies and the eight rings are stacked as eight latitudes, so the whole live state is two hundred
+bodies and the eight rings are stacked as eight latitudes. The whole live state is two hundred
 and fifty-six bodies on one globe. A body is a bit. It is lit when the bit is set.
 
 TIME IS THE RADIUS
 
-The globe is not a fixed size. Its radius is the clock, so the state starts small near the middle
+The globe is not a fixed size. Its radius is the clock. The state starts small near the middle
 and inflates outward as the computation runs, reaching the shell at the last operation traced. The
 reader standing still therefore has the computation arrive at them and pass, and where they are
 standing decides which part of the run they are inside of. Depth in this room has meant distance
@@ -47,8 +47,8 @@ e, g takes f, h takes g. Eight rings turning through each other, once per round,
 
 THE SERIALIZATION
 
-The reference round assigns its eight words at once. Watching it that way there is nothing to watch,
-so the round is written out in the order the arithmetic actually forces:
+The reference round assigns its eight words at once. Watching it that way there is nothing to watch.
+The round is written out in the order the arithmetic actually forces:
 
     0  Sigma1(e)                       reads e, spins it by 6, 11, 25
     1  Ch(e, f, g)                     reads e, f, g
@@ -125,13 +125,13 @@ H0 = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x
 
 # The range of depths the room splits into bands, and the depth the state is held at inside it.
 #
-# HOLD is a single number. The state is eight words of thirty-two bits at every operation, so its
+# HOLD is a single number. The state is eight words of thirty-two bits at every operation. Its
 # size carries no information and must not move. Depth stays a setting because the boundary reading
 # is taken against it, but the reader sets it and the clock never touches it.
 INNER = 0.12
 OUTER = 0.82
 
-# Inside the first boundary. The room splits the shell into three, so the innermost surface sits at
+# Inside the first boundary. The room splits the shell into three. The innermost surface sits at
 # a third of it, and the state and the envelope drawn around the state both have to fit within that
 # surface. At 0.62 the state sat at twice the first boundary's radius and its envelope crossed the
 # second, which put the object outside the boundary it is meant to be read on.
@@ -139,7 +139,7 @@ HOLD = 0.22
 
 
 def draw(seed):
-    """The same small generator the other tools here use, so one seed means one room."""
+    """The same small generator the other tools here use. One seed means one room."""
     state = (seed ^ 0x9E3779B97F4A7C15) & 0xFFFFFFFFFFFFFFFF
     while True:
         state = (state * 6364136223846793005 + 1442695040888963407) & 0xFFFFFFFFFFFFFFFF
@@ -154,7 +154,7 @@ def padded(message):
     """The one-block padding, errored and not truncated when the message will not fit.
 
     A block is 512 bits and the padding costs a one bit, the length as 64 bits, and the zeroes
-    between, so 55 bytes is the most that fits in one block. Longer messages need the chaining of a
+    between. 55 bytes is the most that fits in one block. Longer messages need the chaining of a
     second block, which is a second compression and not the thing this page draws.
     """
     if len(message) > 55:
@@ -245,7 +245,7 @@ def distinct(frames):
 def harmonic_basis(top):
     """The real harmonics at each of the 256 bit directions, evaluated once.
 
-    A direction belongs to a bit and never to a state, so this is computed here and reused for
+    A direction belongs to a bit and never to a state. This is computed here and reused for
     every state and not recomputed inside the sum. It is the difference between evaluating the
     basis a hundred and thirty times over and evaluating it once.
     """
@@ -263,7 +263,7 @@ def expand(states, basis, top):
     """The depth-free harmonic coefficients of each state, as one flat list per state.
 
     Every bit sits at the same radius at a given operation, because the radius is the clock. The
-    kernel is diagonal in degree, so the whole depth dependence is one factor per degree that
+    kernel is diagonal in degree. The whole depth dependence is one factor per degree that
     multiplies every coefficient of that degree. Leaving it out here and applying it in the page is
     not an approximation: it is the same product, formed where the radius is known. The page can
     then move the depth and the degree ceiling while the reader watches, and it is the reading.
@@ -286,7 +286,7 @@ def ring(word, bit):
     """A direction for this bit: its word chooses a latitude, its position chooses the angle.
 
     Eight rings of thirty-two on one globe. The latitudes are the interiors of the eight equal
-    bands, so no ring lands on a pole where thirty-two bodies would pile into one place, and the
+    bands. No ring lands on a pole where thirty-two bodies would pile into one place, and the
     rings stay evenly spaced in angle and not in height.
     """
     down = math.pi * (word + 0.5) / float(WORDS)
@@ -339,7 +339,7 @@ def main():
     if points < 1 or points > 12:
         sys.stderr.write("--sources sits between 1 and 12\n")
         return 2
-    # The rings are eight latitudes of thirty-two, so degree 16 is the finest structure the
+    # The rings are eight latitudes of thirty-two. Degree 16 is the finest structure the
     # placement can carry in longitude and degree 8 the finest in latitude. Past that the expansion
     # is fitting the layout and not the state, and the page would show detail nothing put there.
     if top < 1 or top > 16:
@@ -373,12 +373,12 @@ def main():
                 "word": NAMES[word],
                 "bit": bit,
                 # The place the page starts it at. The clock rewrites the radius every tick and the
-                # ring angle every spin, so this is an opening position and not the body's home.
+                # ring angle every spin. This is an opening position and not the body's home.
                 "at": [round(unit[0] * INNER, 5),
                        round(unit[1] * INNER, 5),
                        round(unit[2] * INNER, 5)],
-                # Still. A bit goes where the operation puts it and never anywhere on its own, so
-                # the drift the drawn room gives its population would be a lie about this one.
+                # Still. A bit goes where the operation puts it and never anywhere on its own.
+                # The drift the drawn room gives its population would be a lie about this one.
                 "vel": [0.0, 0.0, 0.0],
                 # Small enough that the winding stays visible. At twice this the halos of adjacent
                 # bits overlap, the turns merge into a band of blobs, and the helix the placement

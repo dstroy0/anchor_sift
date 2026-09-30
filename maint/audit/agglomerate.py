@@ -6,14 +6,14 @@ each be unbiased on their own and still move together across arms. That is co-va
 structure, and no amount of per-position testing detects it.
 
 The arms are what make it askable. With k arms each position carries a VECTOR of k deviations
-rather than a single number, so positions can be correlated with each other and the correlation
+rather than a single number. Positions can be correlated with each other and the correlation
 matrix has something in it. A shared cause inside the compression would show as a cluster of
 positions whose deviations track one another arm after arm, while each stays unremarkable alone.
 
 METHOD
 
-    distance      one minus the absolute correlation of two positions' deviation vectors, so
-                  positions that track each other OR track each other inverted are near
+    distance      one minus the absolute correlation of two positions' deviation vectors.
+                  Positions that track each other OR track each other inverted are near
     linkage       average, because single linkage chains through noise and complete linkage is
                   dominated by the one worst pair in a cluster
     statistic     the tightest cluster of at least four positions, measured by its mean internal
@@ -72,7 +72,7 @@ def standardize(vectors):
 def tightest_cluster(unit, verbose=False):
     """Average-linkage agglomeration; returns the tightest cluster of at least MIN_CLUSTER.
 
-    Distance is one minus the absolute correlation, so a pair that tracks each other inverted is
+    Distance is one minus the absolute correlation. A pair that tracks each other inverted is
     as near as one that tracks directly. Sign is not the question here; moving together is.
     """
     count = len(unit)

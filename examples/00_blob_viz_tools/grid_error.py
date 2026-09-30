@@ -11,18 +11,18 @@ writes the values into a vertex buffer, and lets the rasterizer fill the space b
 linear interpolation across two triangles per cell.
 
 The 121 numbers are exact. Every pixel between the vertices is a straight line drawn through a
-curve, so the picture on screen is an approximation of a field held exactly. The approximation is
+curve. The picture on screen is an approximation of a field held exactly. The approximation is
 worst in the middle of a cell and vanishes at every vertex, and that pattern is what prints a
 5 degree quilt on a smooth surface.
 
-This tool measures the size of that approximation, so the choice between the grid and a per-pixel
+This tool measures the size of that approximation. The choice between the grid and a per-pixel
 evaluation is made against a number.
 
 WHAT IT REPORTS
 
 Three things, because the error depends on the state and a single state's number does not generalize.
 
-  per degree      error for a field confined to one degree, so any state's error follows from its
+  per degree      error for a field confined to one degree. Any state's error follows from its
                   own power spectrum without rerunning this
   named fields    a flat spectrum, and the 63 deposit field the viewer actually carries at two
                   reading depths
@@ -30,7 +30,7 @@ Three things, because the error depends on the state and a single state's number
                   surface is shaded and shading reads the gradient, not the value
 
 The gradient measure matters more than the value measure. Linear interpolation has a constant
-gradient inside a triangle, so the interpolated gradient is a staircase over a field whose gradient
+gradient inside a triangle. The interpolated gradient is a staircase over a field whose gradient
 turns smoothly, and the eye is far better at seeing a discontinuity in shading than an error in
 brightness.
 
@@ -64,12 +64,12 @@ INSIDE = 6
 
 # Step for the central difference that supplies the exact gradient. Small enough that the truncation
 # term is far below the error being measured, large enough to stay clear of cancellation in double
-# precision: a degree 10 field has third derivatives of order a thousand, so the truncation term is
+# precision: a degree 10 field has third derivatives of order a thousand. The truncation term is
 # about 1e-8, and the subtraction loses about 1e-11.
 NUDGE = 1.0e-5
 
 # Draws per degree for the per degree curve. The error for a field confined to one degree depends
-# slightly on how the power is spread across orders within that degree, so several random draws are
+# slightly on how the power is spread across orders within that degree. Several random draws are
 # averaged and the spread is reported.
 DRAWS = 12
 
@@ -165,8 +165,8 @@ def triangle_slopes(corners, across, down):
 def flat_spectrum(top, seed):
     """A coefficient set with equal power in every degree, drawn at random within each degree.
 
-    The realistic worst case for this measurement. Depth and conduction both suppress high degrees,
-    so any field carried outward through a kernel has less high degree power than this and less
+    The realistic worst case for this measurement. Depth and conduction both suppress high degrees.
+    Any field carried outward through a kernel has less high degree power than this and less
     interpolation error with it.
     """
     generator = numpy.random.default_rng(seed)
@@ -232,11 +232,11 @@ def gradient_error(total, top, rows=ROWS, columns=COLUMNS, inside=INSIDE, skip_r
 
     The shading error. A lit surface takes its normal from the gradient of the field that displaces
     it, the interpolant's gradient is constant inside a triangle, and the exact gradient turns
-    continuously, so the drawn normal is a staircase approximating a curve. Reported as an angle,
+    continuously. The drawn normal is a staircase approximating a curve. Reported as an angle,
     because an angle between normals is what a shading model consumes and is free of any scale.
 
     The polar rings are skipped. The longitude term carries a division by the sine of the
-    colatitude, and at a pole every column of the grid is the same point, so the quantity being
+    colatitude, and at a pole every column of the grid is the same point. The quantity being
     measured there is a property of the grid's parameterization and not of the drawn picture.
     """
     vertices = vertex_values(total, top, rows, columns)
@@ -290,7 +290,7 @@ def cost_note(rows=ROWS, columns=COLUMNS, top=TOP, across_screen=900):
 
     The grid pass reads a precomputed basis table, one row of 121 floats per vertex, and produces
     one sample per vertex. A per pixel pass builds the basis by recurrence from the direction and
-    reads only the coefficients, so its whole working set is 121 floats however many samples it
+    reads only the coefficients. Its whole working set is 121 floats however many samples it
     produces.
     """
     width = (top + 1) * (top + 1)
@@ -409,7 +409,7 @@ def _check():
         lines.append("    FAIL the fast path and the definition disagree")
         failed += 1
 
-    # At a cell corner the interpolant is the vertex value, so the error there is zero by
+    # At a cell corner the interpolant is the vertex value. The error there is zero by
     # construction. This is why the samples are taken at half step offsets, and checking it keeps
     # the reported error from being quietly diluted by exact points.
     corners = (numpy.array([[1.0]]), numpy.array([[2.0]]),

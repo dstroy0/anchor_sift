@@ -13,7 +13,7 @@ under a builder was a page that changed without anybody asking for it, and the o
 either was to open the page.
 
 The sharing is not even. `voxel_view_template.html` is filled by six builders, `room_view_template`
-by three and `sphere_view_template` by two, so one template edit reaches six pages and the record is
+by three and `sphere_view_template` by two. One template edit reaches six pages and the record is
 where that number lives.
 
 `data_check.py` answers the question for one built page. This answers it for the set, and it answers
@@ -227,7 +227,7 @@ def check():
     return failed
 
 
-# A record and a tree that differ in one field each, so every branch of `differences` is exercised
+# A record and a tree that differ in one field each. Every branch of `differences` is exercised
 # against an answer known before it runs.
 KNOWN_WAS = {"viewers": [
     {"builder": "build_a.py", "template": "one_template.html", "writes": "a.html",

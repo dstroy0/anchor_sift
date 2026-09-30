@@ -253,8 +253,8 @@ TABLE_CAPTION = re.compile(r"^Table (A?\d+)[:.]")
 # How a table knows one of its rows has ended, which is not the same question in every table.
 #
 # Most rows are one line and hold one form. Counting forms works. Tables 8 and 9 put a note after
-# the Southern form saying how its /a/ surfaces, and the note wraps across as many as three lines,
-# so those rows end when two forms have been seen outside the note. Table A2 is where counting
+# the Southern form saying how its /a/ surfaces, and the note wraps across as many as three lines.
+# Those rows end when two forms have been seen outside the note. Table A2 is where counting
 # cannot work at all: its rows carry lab ‘see’, sbadil ‘mountain’, ti and ta, none of which
 # holds a character of the alphabet above, and a row of it is over when its parentheses close.
 BY_FORMS = "forms"

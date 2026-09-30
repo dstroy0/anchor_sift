@@ -73,7 +73,7 @@ def main():
     height = tip
     unlabeled = 0
 
-    # /v1/blocks/:height returns that block and the fourteen below it, so this walks down in strides.
+    # /v1/blocks/:height returns that block and the fourteen below it. This walks down in strides.
     while len(collected) < given.blocks and height > 0:
         try:
             batch = get("/v1/blocks/%d" % height)
