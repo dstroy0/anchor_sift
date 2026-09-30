@@ -1,13 +1,34 @@
 # Engine plan
 
-**objective**: given a target's ruleset, compile a program to it, and prove it is the same program on every target
-that answers as the host does, word for word. Where the ruleset is unknown, derive it by asking the target.
+**objective**: compile a program written in gnascor to any language, including one nobody has met, and prove it is
+the same program everywhere. Where the language is unknown, derive it by asking.
 
-**method**: the transpiler learns `L*` by putting questions to the target and reading what comes back. sm_86 is the
-first subject, not the target. The rest are x86, AMD GPU, AArch64, RISC-V, Xtensa and VHDL.
+**what is known before meeting anything**: relations. `1,1 -> 2` is a relation and is not an addition, because
+addition is a spelling. Every system that computes agrees about the relation and each spells it its own way.
+Arithmetic is the shared ground and the spelling is what differs.
 
-**oracle**: nvdisasm and ptxas answer questions. No vendor source is read and no shipped ELF is taken apart to learn
-a rule. Asking an oracle keeps this clean room.
+**gnascor** is the internal language, `.g` high order and `.gsm` its assembly. It is designed and it is what a
+program is written in. It is not derived and its vocabulary does not move.
+
+**`L*`** is the map from gnascor to a target's spellings, and it is the derived part. The compiler emits whole
+files of relations in a shuffled order, which leaves a part nothing to tell measurement from work by, runs them,
+and keeps whichever spelling produced the relation.
+
+    .ksc   the relations put and what came back                       derived
+    .kdm   the part keyed to operators: every chain, each costed      derived
+    .krs   gnascor to this target                                     written or derived
+
+All three may be partly known. A known entry is information and is never thrown away; derivation fills the rest,
+and the three agreeing is the coherence picture.
+
+Cost is measured by chaining, never alone: one operation sits under the noise floor and a chain clears it by
+fifteen times. Chaining is also what takes the bias out. A primitive that reads worse by itself and is right for a
+job is then chosen for that job.
+
+An operator is a chain of primitives and the chain can be rearranged. Every arrangement that produces the operator
+is kept with its cost, and a job takes the one that suits it, in place of one arrangement that suits nothing in
+particular. A person writing a compiler by hand affords one arrangement for each operator, because a person has to
+write it. Nobody writes these, and the best for an application is therefore always available.
 
 Finished work lives in the engine table, `theory/workbooks/engine/engine_table.md`. What is written here is open.
 
@@ -22,38 +43,40 @@ Finished work lives in the engine table, `theory/workbooks/engine/engine_table.m
 
 Doug names these. Do not add one.
 
+## How this is worked
+
+Build the compiler and run it live. A test that takes forty minutes is not a development cycle and is not to be
+run. The device is the first target because it is the hard one; every other language falls out of a compiler that
+works there.
+
 ## Open
 
-1. **88 lines of 3200 find no form.** SEL with a number where Ra goes. No such encoding exists: all 34 forms the
-   part has with a number in the first source slot are single source, BREV, FLO, IABS, I2I, LDC, B2R and BAR.
-   sass.krs hands `wide_select` and `word_select` a number for `chosen`. Three fixes, none measured: always through
-   the file's scratch, a MOV every time; invert the predicate, free, and misses the 52 where both sources are
-   numbers; or write the number into a register in the generator, which wants a scratch from the allocator.
+1. **Nothing searches for a writing.** No file of relations is emitted, run and read back, which leaves every
+   writing unconfirmed by any target. `L*` is written by hand for want of this. It is the loop and it is the work.
 
-2. **count_add** wants an atomic add. The search reaches only `RED.E.ADD.INVALID12`, which nvdisasm will not name.
-   Needs a kernel that does an atomic add, through the PTX probe, as every other operation was learned.
+2. **`.kdm` is written by nothing.** It wants every arrangement of primitives that produces an operator, each with
+   its cost. The clock already reads codings against one another in the part's own time and the reading is thrown
+   away instead of kept against an operator.
 
-3. **The width-counted node is not designed.** 87 of the schema's 99 words wait on it in `word_web.h`. Adders,
-   multiplies, rotates, sign-spreads and zero-tests all need it.
+3. **`.krs` has no derived half.** Five are written. None can be completed by asking. A partly written one is the
+   normal case and not a failure.
 
-4. **S2R carries only SR_LANEID, SR_CTAID.X and SR_TID.X.** A clock read is one bit away and is kept as nothing,
-   because a form is keyed on its operation and its operand kinds, and SR_CLOCKLO is the kind SR_CTAID.X is. Keying
-   on named operands too splits every S2R into one form per system register.
+4. **The answer keys still hold the weight.** `precepts.h` holds 18 precepts and `word_web.h` 12 words, both typed.
+   `machines/sm_86` is one run's output read back as an input. These are for checking a derivation against. Nothing
+   that derives may read them.
 
-5. **.kdm is named and not written.** The device map wants the subtrees a part has a word for, the cost of each,
-   and how each was learned.
+5. **The relations are not asked for everything.** An atomic add has no relation put for it. `count_add` waits on
+   that, and not on a name a disassembler will not print.
 
-6. **The compile channel in .ksc reads 0.** It runs in another process, uninstrumented. Run and decode and clock
+6. **The compile channel in `.ksc` reads 0.** It runs in another process, uninstrumented. Run, decode and clock
    all read.
 
 7. **VHDL is a target on the Pi**, built on the `cell_tracking` branch at `bbc464b`, off main. State forms cut the
    program into clock states and `vhdl.krs` writes a clocked entity. In progress, uncommitted, and the device
    writes where the host refuses.
 
-8. **The suite takes about 40 minutes**, dominated by one decode a form. It grows with whatever the search finds.
-
-9. **Not proved.** The whole test matrix has not run since the machine file was replaced. `cell_ptx`
-   test_signed_zero is stale.
+8. **Not proved.** The test matrix has not run since the machine file was replaced. `cell_ptx` test_signed_zero is
+   stale.
 
 ## Pending Doug
 - Move cell_tracking into `examples/` and theory into anchor_sift. Don't start without direction.

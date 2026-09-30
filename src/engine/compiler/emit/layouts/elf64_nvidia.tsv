@@ -1,0 +1,65 @@
+# A container's layout, read by the emitter. Nothing here is compiled in.
+#
+# The emitter knows the shape of the work: read a pattern's tables, put the code and the attributes in, lay the
+# sections out again. It knows no offset, no width, no tag and no name. Those are here, and a container of another
+# shape is another file of these rows.
+#
+# field	<name>	<offset>	<width>     a place in a header, in bytes
+# size	<name>	<bytes>                 how long a thing is
+# tag	<name>	<value>                 a number the format gives a meaning
+# name	<name>	<text>                  a name the format spells, with {part} standing for the part's own
+#
+# this one is the ELF64 a CUDA toolchain writes, read off cubins it built
+#
+# the file header
+field	header.segment_table	32	8
+field	header.section_table	40	8
+field	header.segment_entry	54	2
+field	header.segment_count	56	2
+field	header.section_entry	58	2
+field	header.section_count	60	2
+field	header.strings_index	62	2
+size	header	64
+#
+# one section header
+field	section.name	0	4
+field	section.offset	24	8
+field	section.size	32	8
+field	section.info	44	4
+field	section.align	48	8
+#
+# one program header
+field	segment.offset	8	8
+field	segment.file_size	32	8
+field	segment.memory_size	40	8
+#
+# one symbol
+field	symbol.name	0	4
+field	symbol.size	16	8
+size	symbol	24
+#
+# The count of registers a thread holds sits in the top byte of the code section's info, and the symbol it names in
+# the rest. A format that keeps it elsewhere moves these two rows and nothing else
+tag	registers.shift	24
+tag	registers.symbol_mask	16777215
+#
+# An attribute is a byte of format, a byte of attribute, two bytes of size, then the value
+size	attribute.header	4
+tag	attribute.format_value	4
+tag	attribute.registers	47
+tag	attribute.exits	28
+#
+# the sections the emitter puts the part's code and attributes into, and the two it reads
+name	section.code	.text.{part}
+name	section.part_info	.nv.info.{part}
+name	section.program_info	.nv.info
+name	section.symbols	.symtab
+#
+# how long one instruction is, which the emitter counts endings in, and how wide a table's entries are written
+size	instruction	16
+size	table.align	8
+size	table.entry	8
+#
+# how many sections a container of this shape may hold, and the room one attribute section takes
+size	sections.most	64
+size	attributes.room	4096

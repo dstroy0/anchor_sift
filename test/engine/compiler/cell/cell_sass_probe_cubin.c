@@ -47,17 +47,6 @@ static int sass_file_write(const char *path, const unsigned char *bytes, unsigne
     return written && closed;
 }
 
-// the encoding of EXIT as the machine holds it, or 0 where it holds none
-static unsigned long long sass_exit_encoding(const SassMachine *machine)
-{
-    unsigned long long found = 0ull;
-    for (unsigned int number = 0u; number < machine->forms; number += 1u)
-    {
-        found = (strcmp(machine->form[number].operation, "EXIT") == 0) ? machine->form[number].low : found;
-    }
-    return found;
-}
-
 unsigned int sass_cubin_text(const char *folder, const char *name, char *text, unsigned int room)
 {
     char path[1024];

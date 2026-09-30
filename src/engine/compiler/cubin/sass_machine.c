@@ -227,6 +227,16 @@ const SassForm *sass_machine_form(const SassMachine *machine, const SassInstruct
     return found;
 }
 
+unsigned long long sass_exit_encoding(const SassMachine *machine)
+{
+    unsigned long long found = 0ull;
+    for (unsigned int number = 0u; number < machine->forms; number += 1u)
+    {
+        found = (strcmp(machine->form[number].operation, "EXIT") == 0) ? machine->form[number].low : found;
+    }
+    return found;
+}
+
 int sass_machine_take(SassMachine *machine, const char *text, unsigned long long low, unsigned long long high,
                       SassForm **kept)
 {

@@ -112,6 +112,10 @@ int sass_high_half(const char *text);
 
 void sass_instruction_read(const char *text, SassInstructionParts *parts);
 
+// the encoding of EXIT as `machine` holds it, or 0 where it holds none. A cubin names the offset of every exit in
+// its own section, and whatever writes one finds them by this
+unsigned long long sass_exit_encoding(const SassMachine *machine);
+
 // an instruction kept in `machine` as a form where it holds none of that form yet, `low` and `high` its encoding
 // and `text` the instruction it was seen as; the form it was kept as, or the one already there, through `kept`, whose
 // runs the caller fills. 1, or 0 where the machine is full, counted in machine->refused

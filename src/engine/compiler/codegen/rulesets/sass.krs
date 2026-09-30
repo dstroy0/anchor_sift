@@ -253,7 +253,7 @@ form wide_add to left right = \tIADD3 \t{to}, P6, {left}, {right}, RZ;\n\tIADD3.
 form wide_add_unsigned to left right = \tIADD3 \t{to}, P6, {left}, {right}, RZ;\n\tIADD3.X \t{to}.hi, {left}.hi, {right}.hi, RZ, P6, !PT;\n
 # the high half reads both halves of the value shifted, and is written before the low half overwrites it
 form wide_shift_left to from bits = \tSHF.L.U64.HI \t{to}.hi, {from}, {bits}, {from}.hi;\n\tSHF.L.U32 \t{to}, {from}, {bits}, RZ;\n
-form wide_select to chosen otherwise where = \tSEL \t{to}, {chosen}, {otherwise}, {where};\n\tSEL \t{to}.hi, {chosen}.hi, {otherwise}.hi, {where};\n
+form wide_select to chosen otherwise where = \tMOV \tR254, {chosen};\n\tSEL \t{to}, R254, {otherwise}, {where};\n\tMOV \tR254, {chosen}.hi;\n\tSEL \t{to}.hi, R254, {otherwise}.hi, {where};\n
 err wide_divide to left right
 
 # memory: the members' and the tables' words and the record's words (the frame's own loads and stores). An address is
