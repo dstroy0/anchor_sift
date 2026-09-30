@@ -47,8 +47,8 @@ import re
 import subprocess
 import sys
 
-# The subject built to overrun the width carries 315654 digits at 32768 limbs, and python errors rather than
-# convert a decimal string longer than 4300 digits unless told otherwise. The limit guards a server
+# The subject built to overrun the width carries 315654 digits at 32768 limbs, and python errors instead of
+# converting a decimal string longer than 4300 digits unless told otherwise. The limit guards a server
 # parsing untrusted text in quadratic time. The text here is the driver's own.
 sys.set_int_max_str_digits(0)
 

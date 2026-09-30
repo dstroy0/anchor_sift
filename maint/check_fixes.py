@@ -64,7 +64,7 @@ def rows_of(path):
 def banned_in(text):
     """Every banned pattern this text matches, by the same list the docs gate uses.
 
-    Read from `docs_check.BANNED` rather than copied. The two cannot drift apart. A second copy
+    Read from `docs_check.BANNED` instead of copied. The two cannot drift apart. A second copy
     of a ban list is the same defect this file exists to catch, one level up.
     """
     hits = []

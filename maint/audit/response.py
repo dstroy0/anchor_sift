@@ -6,7 +6,7 @@ that find things in physics are not of that shape. Nobody sees vacuum fluctuatio
 vacuum; they see the Lamb shift, the Casimir force, the anomalous moment - a RESPONSE of something
 else, with the fluctuation inferred from how the something else moved.
 
-The quantization here is real rather than borrowed. The field is 256 discrete bits, the excitation
+The quantization here is real instead of borrowed. The field is 256 discrete bits, the excitation
 is exactly one bit flipped, and the response is counted in whole bits. Nothing is approximated to a
 continuum at any point.
 

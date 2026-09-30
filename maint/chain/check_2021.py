@@ -23,7 +23,7 @@ THE SECOND TEST, WHICH IS HARDER
 The migration moved hashrate from about 105 degrees east to about 100 west, most of the way around
 the planet. If the daily cycle measures where miners are, its phase has to move by most of twelve
 hours across 2021. A cycle that stays put while the miners demonstrably moved is not measuring
-miners, and that would retire the longitude reading rather than support it.
+miners, and that would retire the longitude reading instead of supporting it.
 
     python maint/chain/check_2021.py
     python maint/chain/check_2021.py --corpus maint/chain/blocks_2021.json

@@ -108,7 +108,7 @@ def working_tree():
 
     git answers the question directly and answers it the same way for the main worktree and a linked
     one. The climb is kept only as the fallback for an exported tree with no history, and it looks
-    for src/engine rather than build/ because src/engine is TRACKED: a marker the repository
+    for src/engine instead of build/ because src/engine is TRACKED: a marker the repository
     contains is present in every checkout of it, and a marker the repository produces is present in
     none of them until something has already run. This fallback originally kept build/, which left
     one file climbing to a generated marker after the other fifty-two had stopped.

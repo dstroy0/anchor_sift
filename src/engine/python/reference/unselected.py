@@ -41,7 +41,7 @@ def sqrt_two_digits(count=DIGITS):
     Fully determined and conjectured normal. It should carry no arrangement to find. It returns
     1.00, the reading working correctly on a domain that holds nothing.
 
-    Writing the root out passes an interpreter guard that errors rather than render an integer wider than
+    Writing the root out passes an interpreter guard that errors on an integer wider than
     4300 digits, which exists to catch an accidental conversion of a huge number. This one is not
     accidental. The limit is lifted for the call and restored after, leaving a caller's own setting.
     """

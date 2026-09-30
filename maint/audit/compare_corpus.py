@@ -148,7 +148,7 @@ def main():
     tested = 0
     for position in range(256):
         # Only digests that reach this position contribute, and a position too thin to measure is
-        # skipped rather than reported with a floor it cannot support.
+        # skipped instead of reported with a floor it cannot support.
         reaching = chain_at[position]
         if reaching < 200:
             continue

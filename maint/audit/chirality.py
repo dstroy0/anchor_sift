@@ -66,7 +66,7 @@ def phase_residual(right_phases, left_phases):
     Reflecting a point set through a plane sends every longitude to its negative, and for real data
     that sends each coefficient to its conjugate. The phases negate. That is a GEOMETRIC identity
     and it holds for any lit set whatever. So this residual is expected to be zero to the format's
-    floor, and a nonzero one would mean the placement is wrong rather than that the data is handed.
+    floor, and a nonzero one would mean the placement is wrong instead of the data being handed.
     """
     total = 0.0
     scale = 0.0

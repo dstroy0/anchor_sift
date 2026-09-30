@@ -6,7 +6,7 @@ sliding windows it has three separable parts, and they answer different question
 
   mean          what the network's conventions cost on average, which is the number that belongs
                 in a summary
-  fluctuation   how much a window-sized sample wanders. The floor on this is known rather than
+  fluctuation   how much a window-sized sample wanders. The floor on this is known instead of
                 estimated: a window of W blocks manufactures a deficit near log2(1 + (n-1)/W)
                 on its own. Anything beyond that is real movement
   trend         whether the mean is going anywhere. A convention spreading or dying shows here and
@@ -165,7 +165,7 @@ print("=" * 78)
 print()
 usable = [d for d in diffs if d]
 if usable:
-    # Stated as hashes PER BIT rather than bits per hash. The reciprocal is a number near
+    # Stated as hashes PER BIT instead of bits per hash. The reciprocal is a number near
     # 3e-24, which is a float64 approaching its own floor and carries almost no significant
     # figures; its inverse is a large exact integer that says the same thing and can be checked.
     # Everything here is integer arithmetic at full width - no float appears in the result.

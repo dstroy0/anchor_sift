@@ -6,7 +6,7 @@ each be unbiased on their own and still move together across arms. That is co-va
 structure, and no amount of per-position testing detects it.
 
 The arms are what make it askable. With k arms each position carries a VECTOR of k deviations
-rather than a single number. Positions can be correlated with each other and the correlation
+instead of a single number. Positions can be correlated with each other and the correlation
 matrix has something in it. A shared cause inside the compression would show as a cluster of
 positions whose deviations track one another arm after arm, while each stays unremarkable alone.
 

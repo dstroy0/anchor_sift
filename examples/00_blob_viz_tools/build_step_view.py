@@ -135,7 +135,7 @@ def main():
     # A template whose script tag is never closed still runs when the file is opened directly,
     # because nothing follows the script to get swallowed. Published, the wrapper's closing tags
     # land inside the unterminated script, where they are a JavaScript syntax error, and the whole
-    # page is dead. That failure is invisible from here. Error rather than write it.
+    # page is dead. That failure is invisible from here. Error instead of writing it.
     if "</script>" not in page:
         raise SystemExit("template is truncated: the script tag is never closed")
 

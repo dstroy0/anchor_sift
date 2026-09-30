@@ -2,7 +2,7 @@
 
 Eight arms each survey the same nonce range under a different header. Pooling them tightens the
 estimate as the square root of the total, which is what more of anything buys. The agreement
-between them buys something else, and it is the reason to run arms rather than one longer arm:
+between them buys something else, and it is the reason to run arms instead of one longer arm:
 
     a bias in the construction pushes EVERY arm the same way
     a bias in one header pushes one arm and leaves the rest alone
@@ -11,7 +11,7 @@ between them buys something else, and it is the reason to run arms rather than o
 So the sign of a position's deviation, read across arms, separates the three. Under the null each
 arm's sign is a fair coin. All eight agreeing has probability two in two hundred fifty six, and
 over 256 positions chance alone delivers about two such positions. That is the bar, and it is
-computed rather than chosen.
+computed instead of chosen.
 
 Every comparison is integer. A position set c times out of N deviates by 2c - N exactly, pooling is
 addition, and testing against k standard errors is (sum of deviations) squared against k squared

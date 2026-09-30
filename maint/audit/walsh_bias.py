@@ -10,7 +10,7 @@ The transform does the whole thing. For a fixed output mask beta, put
 
 over a nonce range of length 2^k. The Walsh-Hadamard transform of g gives, at index alpha, exactly
 the sum over x of (-1)^(parity(x AND alpha) XOR parity(digest(x) AND beta)). That is the bias of
-EVERY input mask simultaneously, in k times 2^k butterfly operations rather than 2^k per mask.
+EVERY input mask simultaneously, in k times 2^k butterfly operations instead of 2^k per mask.
 
     sampled:     4000 masks, 160 million bignum operations, best-of-what-was-drawn
     transform:   all 2^k masks, k times 2^k integer adds, exhaustive
@@ -42,7 +42,7 @@ def build_signs(first, span, beta):
     a thirty-two bit signed C integer, and the transform below sums them: after k stages a value can
     reach the full span. At a span of 2^31 the accumulator wraps and the transform returns
     nonsense that looks like data. That is the same fault as the uint32 overflow found in
-    survey_nonces, in an analysis script rather than a kernel.
+    survey_nonces, in an analysis script instead of a kernel.
 
     The SHA-256 state itself stays at thirty-two bits either side of this, because the mod 2^32 ring
     IS the function and widening it computes a different one. The distinction is the whole point:

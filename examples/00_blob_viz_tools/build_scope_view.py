@@ -7,13 +7,13 @@ same depth, because the question they answer together is not answerable by any o
                         tracer ring on every bit that ignited or went out entering this round
     residue spectrum    the 32 dependency classes at that depth, against the null band
     round by class      all 64 depths and all 32 classes at once. The window where the signal
-                        lives and the depth where it collapses are one glance rather than a scrub
+                        lives and the depth where it collapses are one glance instead of a scrub
     matched filter      the whole trajectory of the pre-registered waveform through depth
 
 WHAT THE COLORS CARRY
 
 The stick coloring is selectable because different questions want different tags, and two of them
-are structural rather than decorative:
+are structural instead of decorative:
 
     hot     lit or unlit, which is the state itself
     a.e     the two computed words against the six carried ones. SHA-256's round computes a and e
@@ -26,7 +26,7 @@ THE WAVEFORM IS NAMED BEFORE THE DATA IS OPENED
 
 Classes 0, 31, 6, 11 and 25 are the diagonal, the carry at -1 mod 32, and Sigma1's three rotation
 amounts. SHA-256 moves bits across positions in exactly those ways and no others. The waveform
-is read off the round function rather than chosen after looking at the spectrum, and its matched
+is read off the round function instead of chosen after looking at the spectrum, and its matched
 filter carries no multiple-comparison penalty. That is the whole reason the number means anything.
 
     python examples/00_blob_viz_tools/build_scope_view.py

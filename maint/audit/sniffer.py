@@ -102,7 +102,7 @@ class Sniffer(object):
         return best_mask, best_z, bar
 
     def draw_bars(self, weight, trials, rounds=40):
-        """The bar each stage must clear, DRAWN from flat data rather than derived.
+        """The bar each stage must clear, DRAWN from flat data instead of derived.
 
         The first version used root(2 ln N), which is the EXPECTED maximum of N standard normals -
         so about half of all nulls exceed it and the floor fired on its own validation. That is the
@@ -137,7 +137,7 @@ class Sniffer(object):
         # never having drawn them, because the presence of `draw_bars` in the file reads as evidence
         # the fault was dealt with.
         #
-        # So it is an error to sniff before drawing, rather than a quiet default. A tool that cannot
+        # So it is an error to sniff before drawing, instead of a quiet default. A tool that cannot
         # state its own floor has nothing to report.
         if not hasattr(self, "spatial_bar") or not hasattr(self, "algebraic_bar"):
             raise RuntimeError(

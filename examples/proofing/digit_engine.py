@@ -72,7 +72,7 @@ if HERE not in sys.path:
 import natural_constants as nc
 import series
 
-# CPython errors rather than render an integer past 4300 digits as text unless told otherwise, which is a
+# CPython errors on an integer past 4300 digits as text unless told otherwise, which is a
 # guard against a denial of service in a parser and has nothing to say about arithmetic. Every value
 # here is meant to be written out. The guard is lifted instead of worked around; the arithmetic
 # was never affected by it and only the printing was.

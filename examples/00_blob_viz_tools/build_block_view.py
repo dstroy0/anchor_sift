@@ -14,10 +14,10 @@ chance alone produces on the same statistic at the same sample size, and a verdi
               correction erases
     level     came back flat. These are load-bearing: a flat reading from an instrument that
               detects signal elsewhere is evidence of absence, not absence of evidence
-    marginal  sits on the line. Named as such rather than rounded into one of the other two
+    marginal  sits on the line. Named as such instead of rounded into one of the other two
 
 Roughly half the entries are level, which is the honest proportion and the reason to publish them
-next to the tilted ones rather than only the interesting half.
+next to the tilted ones instead of only the interesting half.
 
     python examples/00_blob_viz_tools/build_block_view.py
 """

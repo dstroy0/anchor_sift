@@ -274,7 +274,7 @@ def concentration(power):
 def zonal_dipole(angles, live):
     """The degree one, order zero coefficient: the lit set's displacement along the polar axis.
 
-    This is the quantity a cone sitting at one pole rather than the other IS. Taken as the signed
+    This is the quantity a cone sitting at one pole instead of the other IS. Taken as the signed
     coefficient and not its magnitude, because the sign is the whole question.
     """
     table = boundary_read.complex_coefficients(angles, live, TOP)
@@ -366,7 +366,7 @@ def _runs(messages, draws):
 def _shape(messages, draws):
     """The two degrees that ARE the shape described: the dipole and the quadrupole.
 
-    A cone sitting at one pole rather than the other is degree one, since that is what a dipole is:
+    A cone sitting at one pole instead of the other is degree one, since that is what a dipole is:
     the whole set displaced along an axis. An elongation, a lemon, is degree two. Every statistic
     that averages over degrees washes both of them out, which is what the concentration reading
     did. These two are taken on their own and against their own controls.

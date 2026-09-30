@@ -6,7 +6,7 @@
 #
 # The three-arm compiler audit already showed these benches are deterministic: one seed gives one
 # answer under three different builds. That is not the same property. Determinism says the program
-# computes a function of its seed; stability says the answer is a property of SHA-256 rather than
+# computes a function of its seed; stability says the answer is a property of SHA-256 instead of
 # of the seed. Only the second one makes a number quotable.
 #
 # Output goes to maint/audit/audit_seeds.py, which lines the runs up and reports min, max and spread for
@@ -24,7 +24,7 @@ $work = Join-Path $root "build" "audit" "seeds"
 $compiler = "g++"
 
 # The benches whose numbers the workbook quotes and which draw from a generator. Benches that
-# enumerate rather than sample have no seed to sweep and are not here.
+# enumerate have no seed to sweep and are not here.
 $benches = @(
     "bench_deltanull",
     "bench_closeness",

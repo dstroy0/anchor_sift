@@ -1,7 +1,7 @@
 """Which scan finds which structure: the harmonic expansion against three rivals, on planted data.
 
 The claim under test is that spherical harmonics are the best sniffer for deciding where to point an
-expensive measurement. That is testable rather than arguable: plant structures whose nature is known,
+expensive measurement. That is testable instead of arguable: plant structures whose nature is known,
 run every scan on each, and see which finds what.
 
 Four structures, chosen so they are NOT all of one kind:
@@ -17,7 +17,7 @@ Four scans:
     harmonic    per-degree power, against a popcount-matched null
     shares      the 256 individual bit shares, loudest against its own max-of-256 bar
     walsh       the loudest parity correlation over a mask set, which is a linear functional in
-                bit space rather than on the sphere
+                bit space instead of on the sphere
     runs        adjacent-index agreement, which sees clumping in index order
 
 A scan that finds everything would be the answer. The expected result is that each finds its own

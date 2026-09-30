@@ -10,7 +10,7 @@
 # anchor_sift is being reorganized: tools/ became maint/ and the links broke silently. The next
 # commit here errored in a hook whose checker had no file behind it. A path written down here
 # would break again on the next move. Each target is found by name instead, and a name that matches
-# more than one file is reported and skipped rather than guessed at.
+# more than one file is reported and skipped instead of guessed at.
 #
 # WHY build_theory.sh IS SAFE TO LINK
 #
@@ -73,7 +73,7 @@ if (-not (Test-Path $repotools))
 # eight patterns arrived here without anyone on this side asking for them or knowing. That is not a
 # shared file, it is one repository silently setting another's standard. Doug's rule is that every
 # captain takes tools from repo_tools. The source moves and the theory files, which really are
-# shared subject matter rather than tooling, stay where they are.
+# shared subject matter instead of tooling, stay where they are.
 $shared = @(
     @{ mine = "theory\preamble.tex";            name = "preamble.tex";    root = $anchor },
     @{ mine = "theory\macros.tex";              name = "macros.tex";      root = $anchor; under = "theory" },
@@ -132,7 +132,7 @@ foreach ($one in $shared)
     }
     elseif ($item)
     {
-        # Error rather than replace a real file that has diverged. Linking would discard the local version
+        # Error instead of replacing a real file that has diverged. Linking would discard the local version
         # with no record of it, and a silent loss is worse than a stopped script.
         if ((Get-FileHash $mine -Algorithm SHA256).Hash -ne (Get-FileHash $theirs -Algorithm SHA256).Hash)
         {

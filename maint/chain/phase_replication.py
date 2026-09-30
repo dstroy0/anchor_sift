@@ -4,7 +4,7 @@ WHY THIS EXISTS
 
 `theory/workbooks/anchor_sift/version-rolling-signature.md` reports a daily cycle in block counts: 27.5 per cent peak to
 trough, chi-square 36.62 on 23 degrees of freedom, p = 0.036 against a drawn multinomial null. That
-part is measured, drawn rather than derived, and stated as marginal, which is correct.
+part is measured, drawn instead of derived, and stated as marginal, which is correct.
 
 The PHASE is a different claim and it carried no test at all. The document reads the trough at 18:00
 to 23:00 UTC as United States afternoon peak pricing, and then builds a geography argument on it. The
@@ -28,7 +28,7 @@ it. A phase that is noise is a property of this particular draw and will not sur
 
 Splitting by PARITY as well as by time is the arm that matters. A split by time confounds phase with
 migration - if the hashrate genuinely moved between the first and second half, the troughs should
-differ, and a disagreement would be evidence FOR the geography reading rather than against it. A
+differ, and a disagreement would be evidence FOR the geography reading instead of against it. A
 parity split interleaves the halves. Both see the same epochs, the same difficulty, the same
 population, and any disagreement is noise with nothing else it can be.
 
@@ -67,7 +67,7 @@ def hour_of(block):
 
     The block's timestamp and not the median-time, because the question is about when the block was
     produced. The timestamp is miner-supplied and loose by up to two hours, which widens the bins
-    rather than shifting them and so cannot manufacture a phase.
+    instead of shifting them and so cannot manufacture a phase.
     """
     stamp = datetime.datetime.fromtimestamp(block["timestamp"], datetime.timezone.utc)
     return stamp.hour
@@ -86,7 +86,7 @@ def trough_and_peak(counts):
     SMOOTHED, because the statistic being replicated has to be the one the claim is about. The
     document reads a BAND - "low across 18:00 to 23:00" - not a single hour, and a bare argmin over
     24 noisy bins moves around far more than the band does. A three-hour window is the narrowest
-    thing that reads a band rather than a bin.
+    thing that reads a band instead of a bin.
     """
     smoothed = [(counts[(h - 1) % HOURS] + counts[h] + counts[(h + 1) % HOURS]) / 3.0
                 for h in range(HOURS)]
@@ -107,7 +107,7 @@ def draw_null(first, second, trials, rng):
     The counts are redrawn multinomially at each half's own total over uniform hours, which is the
     same null the amplitude was tested against. What comes back is the distribution of the
     trough-to-trough distance under no common cycle, and it is emphatically NOT uniform on 0..12 -
-    the smoothing correlates neighboring bins - so it has to be drawn rather than reasoned about.
+    the smoothing correlates neighboring bins - so it has to be drawn instead of reasoned about.
     """
     totals = (sum(first), sum(second))
     spread = []

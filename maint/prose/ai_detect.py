@@ -50,7 +50,7 @@
 #
 # The free quota is 50,000 characters a day and 250,000 a month. This tree holds much more prose
 # than that. A run over all of it cannot happen quietly. A run that would exceed
-# the budget errors rather than start and prints the overage. It never sends a part of what it was asked for
+# the budget errors instead of starting and prints the overage. It never sends a part of what it was asked for
 # and reports that as the answer: a partial scan presented as a scan is the failure mode this file
 # exists to prevent.
 

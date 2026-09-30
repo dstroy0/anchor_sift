@@ -46,9 +46,9 @@ torsions, and those are what the rules are written over.
 
 Crystallography needs no tolerance: a lattice displacement lands on an occupied place or it does
 not. A protein cannot be read that way. A torsion is an `atan2` of the backbone geometry, an
-irrational the deposit never wrote, and the rules are published on a grid of two degrees rather
-than as a formula. So there is a quantum here, and the discipline is to take it from the reference
-rather than pick one.
+irrational the deposit never wrote, and the rules are published on a grid of two degrees instead
+of as a formula. So there is a quantum here, and the discipline is to take it from the reference
+instead of picking one.
 
 `representation.structure.protein.phi_psi` computes each torsion as exact integer terms: the whole
 of it is cross and dot products of integer coordinates, and it hands back the two integers whose
@@ -155,7 +155,7 @@ Three controls hold the grouping, and the generator carries all three:
   falls below what a structure-free reference of the same shape reaches.
 - A positive control gates the write. Before any family is emitted, the same pipeline runs on
   synthetic proteins built from four planted archetypes. If it fails to recover that split,
-  `derive_family_rules.py` errors rather than write a ruleset, because a grouping found by a method that
+  `derive_family_rules.py` errors instead of writing a ruleset, because a grouping found by a method that
   cannot find a known one means nothing.
 
 With the control passing, the corpus shows a near-continuum: the gap keeps improving as the count

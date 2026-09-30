@@ -6,8 +6,8 @@ it is what may follow what, and the interesting entries are the ones that never 
 
 So this reads the SUPPORT. For a single-bit input difference, which output positions are ever moved
 and which are never moved, at each depth. A position that is never moved after many excitations is
-not rare - it is forbidden, and a forbidden transition is a hard constraint on the machine rather
-than a statistical lean.
+not rare - it is forbidden, and a forbidden transition is a hard constraint on the machine instead
+of a statistical lean.
 
 WHY FORBIDDEN IS WORTH MORE THAN RARE
 

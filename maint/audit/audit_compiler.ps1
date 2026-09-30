@@ -5,14 +5,14 @@
 # appearing to compute one. bench_engines already caught a whole engine that was a constant
 # function; nothing structural stops the same thing happening to a statistic.
 #
-# The test that settles it is differential rather than inspective. Each bench is built three ways
+# The test that settles it is differential instead of inspective. Each bench is built three ways
 # and run three times:
 #
 #   O0    no optimization at all. Nothing is folded, hoisted or contracted
 #   O2    the flags the tree was built with
 #   NOFMA O2 with fused multiply-add contraction disabled, which is on by default in GCC
 #
-# A bench whose three outputs are byte-identical computed its numbers rather than inheriting them.
+# A bench whose three outputs are byte-identical computed its numbers instead of inheriting them.
 # A bench whose outputs differ had a result the compiler participated in, and that result has to be
 # re-derived before it is quoted. This is a whole-tree check: it does not require guessing which
 # statistic might be fragile.
@@ -37,7 +37,7 @@ New-Item -ItemType Directory -Force -Path $work | Out-Null
 
 # Each arm is a name and the flags that define it. The core is rebuilt per arm so that the
 # compression function itself is subject to the same treatment as the statistics that read it.
-# The O0 arm carries no -mavx2, and the reason is a compiler defect rather than a preference.
+# The O0 arm carries no -mavx2, and the reason is a compiler defect instead of a preference.
 # MinGW-w64 GCC mishandles over-aligned locals at -O0 on this ABI: it hand-aligns a pointer for one
 # __m256i local and then places another at a fixed offset from a frame pointer it never realigned.
 # It emits vmovdqa - the *aligned* 256-bit move - against an address that is 16 mod 32, and the
@@ -52,7 +52,7 @@ New-Item -ItemType Directory -Force -Path $work | Out-Null
 # Without -mavx2 the O0 build is the reference arm compiled unoptimized. That is the arm a fold
 # audit wants anyway: it is the one whose arithmetic the statistics read.
 #
-# What this costs, stated rather than buried: for the two benches that exercise the vector arm, the
+# What this costs, stated instead of buried: for the two benches that exercise the vector arm, the
 # O0 column tests different code from the other two columns. An agreement there is evidence about
 # the reference arm and not about the vector arm. The vector arm is covered instead by
 # kat_validation, which asserts it equal to the reference on the FIPS vectors, the genesis block,
@@ -114,8 +114,8 @@ foreach ($arm in $arms)
 
 $jobs | ForEach-Object -ThrottleLimit $parallel -Parallel {
     $out = Join-Path (Split-Path -Parent $_.Exe) ($_.Bench + ".out")
-    # Benches that read a data file resolve it relative to the tree root. Run from there rather
-    # than from wherever the arm's binaries happen to live.
+    # Benches that read a data file resolve it relative to the tree root. Run from there instead
+    # of from wherever the arm's binaries happen to live.
     Set-Location $using:root
     try
     {

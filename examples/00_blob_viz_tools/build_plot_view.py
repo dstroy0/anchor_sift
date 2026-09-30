@@ -82,7 +82,7 @@ def sample(source, xs, ys):
     """Evaluates one expression over the grid, one row per y.
 
     A point that cannot be evaluated becomes zero and does not stop the run: tan has poles and
-    log has a domain, and a plot that errors rather than draw at all because of one column is less useful
+    log has a domain, and a plot that errors instead of drawing at all because of one column is less useful
     than one that draws the rest. The count of such points is returned so it can be reported.
     """
     code = compile(source, "<expression>", "eval")

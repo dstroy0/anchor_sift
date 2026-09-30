@@ -25,7 +25,7 @@
 # One rule has to be respected and it is the detector's own. A period is scored against its
 # multiples. A period beyond half the window has a family of one inside the window and is the
 # single tallest lag again. Rows whose true period exceeds half the window are therefore out of
-# range by construction and are counted separately rather than counted as failures.
+# range by construction and are counted separately instead of as failures.
 
 import io
 import itertools

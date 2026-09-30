@@ -49,7 +49,7 @@ def turn(value, by):
 
 
 def trace(block, rounds):
-    """Every interior value the compression produces, kept rather than discarded.
+    """Every interior value the compression produces, kept instead of discarded.
 
     Returns the schedule, the state after each round, and the six intermediates inside each round.
     Nothing is summarized here: summarizing is what a boundary reading does and it is the thing

@@ -37,7 +37,7 @@
 #
 # So the merged pole is mostly one upload. The label on all three says Opus 5 and they are not the
 # same kind of text, which is a defect in the pole and not in the gate. maint/prose/
-# oracle_agreement.py is the check for it, and at this size it errors rather than place them at all.
+# oracle_agreement.py is the check for it, and at this size it errors instead of placing them at all.
 #
 # WHAT IS FETCHED, AND WHAT THAT IS NOT
 #

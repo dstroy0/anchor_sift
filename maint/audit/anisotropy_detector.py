@@ -5,7 +5,7 @@ degree holds (2l+1) of them. So the per-degree power rises linearly:
 
     E[P_l] = c (2l + 1)
 
-Drawn rather than assumed: over three hundred draws at 256 positions the ratio P_l/(2l+1) is flat at
+Drawn instead of assumed: over three hundred draws at 256 positions the ratio P_l/(2l+1) is flat at
 3.867 for a weight of 64 and 5.095 for 128, with spreads of 2.64 and 1.54 per cent across ten
 degrees. The constant carries the finite-population correction too - weights of 64 and 128 predict a
 ratio of 64/48 = 1.333 between their constants and deliver 1.318.

@@ -1,7 +1,7 @@
 # Sorts src into subdirectories by what each file is.
 #
 # src had forty-six sources in one flat directory, of which twenty-five were benches, and finding
-# the engine among them took reading the whole listing. The split is by role rather than by
+# the engine among them took reading the whole listing. The split is by role instead of by
 # language, because the question asked of this tree is almost always "where is the engine" or
 # "which bench produced that number" and never "which files are C".
 #
@@ -11,7 +11,7 @@
 #   test     the correctness gate
 #   scripts  the run wrappers that live with the sources
 #
-# git mv rather than move. The history follows the files.
+# git mv instead of move. The history follows the files.
 
 $ErrorActionPreference = "Stop"
 

@@ -119,7 +119,7 @@ def label_for(root):
     renamed tomorrow changes nothing in the record.
 
     Falls back to the basename when there is no config, because a tree with no repotools.toml is
-    still worth dating and a missing name is not a reason to error rather than build.
+    still worth dating and a missing name is not a reason to error instead of building.
     """
     config = os.path.join(root, "repotools.toml")
     if os.path.isfile(config):

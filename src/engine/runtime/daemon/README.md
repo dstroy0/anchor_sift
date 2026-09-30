@@ -441,7 +441,7 @@ systemctl --user enable --now tessera@<uuid>.socket
 - On the first connection systemd starts `tessera@.service`, which hands the socket over as fd 3 (`LISTEN_FDS=1`).
   The daemon takes that socket instead of binding its own. When idle it exits without removing the socket, and the
   next connection starts it again.
-- A daemon that errors rather than start (its history's seal fails, or the device can't be measured) accepts and closes
+- A daemon that errors instead of starting (its history's seal fails, or the device can't be measured) accepts and closes
   every connection waiting on the socket before it exits. The client that started it errors and systemd has
   nothing queued to start it for again. `StartLimitIntervalSec=0` stops systemd's start limit from turning away the
   next real client.

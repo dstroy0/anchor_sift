@@ -37,7 +37,7 @@ if (-not (Test-Path $manifest))
     exit 1
 }
 
-# Error rather than sign a manifest that no longer describes the tree. A signature over a stale list is worse
+# Error on a manifest that no longer describes the tree. A signature over a stale list is worse
 # than no signature: it is a deliberate attestation to bytes that have since moved.
 Write-Output "  checking the manifest still describes this tree"
 $repo = Resolve-Path (Join-Path $here "..\..")
@@ -46,7 +46,7 @@ $integrity = $LASTEXITCODE
 
 # verify.py counts an absent signature and an absent anchor as findings, and on a first run both are
 # absent by definition. Two findings with no CHANGED or MISSING lines above is the expected state
-# here. This asks rather than erroring outright.
+# here. This asks instead of erroring outright.
 if ($integrity -gt 2)
 {
     Write-Output ""

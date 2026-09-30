@@ -52,7 +52,7 @@
 # \input or \include fails that research paper and names the file and the line. A rule that was supposed to
 # catch a path is not evidence that it did.
 #
-# It also errors rather than carry what a LaTeX run leaves behind. See LEAVINGS.
+# It also errors instead of carrying what a LaTeX run leaves behind. See LEAVINGS.
 #
 # WHAT --arxiv ADDS, AND WHY EACH STEP IS THERE
 #

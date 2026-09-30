@@ -4,7 +4,7 @@ Every miner watchdog sets its alarms by judgment - warn under so many megahashes
 many seconds without a share - and every one of those numbers is somebody's guess. The quantities
 being watched here have known distributions. The thresholds can be computed instead.
 
-Four checks, each with its floor derived from the process rather than chosen:
+Four checks, each with its floor derived from the process instead of chosen:
 
   anchor rate     the anchor fires when one 32-bit word lands on zero. Survivors are Poisson
                   with mean hashes / 2^32. That makes the ratio the log already prints testable:
@@ -16,7 +16,7 @@ Four checks, each with its floor derived from the process rather than chosen:
                   moved far enough to notice.
   share arrivals  shares are Poisson at the pool's share difficulty. The gaps are exponential
                   with a known mean. A drought is only meaningful against that mean, and the
-                  probability of a drought this long is computable rather than alarming.
+                  probability of a drought this long is computable instead of alarming.
   job cadence     a pool sends work on its own rhythm. The gaps are what they are, and the alarm
                   belongs at a quantile of the observed distribution, not at a round number.
 
@@ -217,7 +217,7 @@ def pooled_anchor_test():
     one that is noise does not grow at all.
 
     This is the check that separates a kernel fault from an accounting mismatch, and the two need
-    different fixes. The distinction is drawn rather than guessed at.
+    different fixes. The distinction is drawn instead of guessed at.
     """
     logs = sorted(glob.glob(os.path.join(ROOT, "build", "miner_*.log")))
     logs = [f for f in logs if "token" not in os.path.basename(f)]
@@ -294,10 +294,10 @@ def learn_baseline():
     A threshold derived from the process is right for any machine. A threshold learned from THIS
     machine is right for this one, and the two disagree for real reasons: a card in a warm room
     idles at a different spread than the same card in a cold one, and a pool sends work on its own
-    rhythm rather than a standard one. So the process-derived checks above stay, and these sit
+    rhythm instead of a standard one. So the process-derived checks above stay, and these sit
     beside them, alarming on departure from what this rig actually does.
 
-    The quantiles are read off the pooled history rather than assumed, and the count of runs behind
+    The quantiles are read off the pooled history instead of assumed, and the count of runs behind
     each one is reported, because a baseline from two sessions is a guess wearing a number.
     """
     import json

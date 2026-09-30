@@ -23,8 +23,8 @@
 #   dispersion than the null is real grouping and not the data merely being tighter than a blob.
 #
 #   The method is controlled. Before any family is written, the same pipeline is run on synthetic
-#   proteins built from known archetypes. If it does not recover that planted split, this errors rather than
-#   write a ruleset, because a grouping found by a method that cannot find a known one means nothing.
+#   proteins built from known archetypes. If it does not recover that planted split, this errors instead of
+#   writing a ruleset, because a grouping found by a method that cannot find a known one means nothing.
 #
 # What the corpus actually shows, with the control passing, is a near-continuum: the gap keeps
 # improving as the count rises, with only a weak first peak. The families are soft partitions of a

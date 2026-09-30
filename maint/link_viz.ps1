@@ -17,7 +17,7 @@
 #
 # link_shared.ps1 runs the other direction: shared research paper and prose files live in anchor_sift and are
 # linked into here. This one is the reverse, because the viewers were written here and anchor_sift
-# is the consumer. One directory link rather than a file each. A viewer added to view later
+# is the consumer. One directory link instead of a file each. A viewer added to view later
 # appears over there without anyone re-running this.
 #
 # WHY THE TARGET IS RELATIVE
@@ -85,7 +85,7 @@ if (Test-Path $link)
     Write-Host "replaced the existing link"
 }
 
-# New-Item resolves a relative target against the working directory rather than against the link.
+# New-Item resolves a relative target against the working directory instead of against the link.
 # The working directory has to be the link's own folder for the stored path to mean what it reads.
 Push-Location $holder
 try

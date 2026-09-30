@@ -2,7 +2,7 @@
 
 The survey hashes a nonce range on the device and accumulates two things the miner never reads: how
 often each of the 256 output bit positions was set, and how many digests carried at least k leading
-zeros. Both are tests of the construction rather than of any particular block, and both were sitting
+zeros. Both are tests of the construction instead of any particular block, and both were sitting
 in the tree unread.
 
 EXACT ARITHMETIC, NO FLOATS
@@ -111,7 +111,7 @@ def main():
     sum_z_millionths = (total_squared * 1000000) // samples
 
     # The histogram against its exact expectation. Bin k expects samples / 2^k, and the comparison
-    # is done by cross-multiplying rather than dividing.
+    # is done by cross-multiplying instead of dividing.
     histogram = []
     for k, observed in enumerate(zeros):
         expected_numerator = samples

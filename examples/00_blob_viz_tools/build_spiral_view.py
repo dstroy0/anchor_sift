@@ -4,7 +4,7 @@ The survey counts how often each of SHA-256's 256 output positions is set. A tab
 hides the one thing worth seeing, which is whether anything clusters. The positions are placed
 on the sphere by `boundary_read.golden_place` - index k at height 1 - 2(k + 0.5)/256, longitude
 k gamma - and drawn there. That placement has no seam and no pole pile. A cluster on the surface
-is a cluster in the data rather than an artifact of where the points were put.
+is a cluster in the data instead of an artifact of where the points were put.
 
 WHAT EACH ARM ADDS
 
@@ -93,7 +93,7 @@ def main():
 
     # How many positions agreed at each level, against the exact binomial. Under the null a
     # position's sign is a fair coin in every arm. The count agreeing is binomial and the
-    # expectation is computable rather than simulated.
+    # expectation is computable instead of simulated.
     def binomial(n, k):
         return math.comb(n, k)
 
