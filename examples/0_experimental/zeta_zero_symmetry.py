@@ -95,7 +95,7 @@ def main():
     for point in points:
         size = len(orbit(point))
         fixed_by_reflect_conjugate = reflect_conjugate(point) == point
-        # the fixed set of s -> 1 - conj(s) is exactly the critical line
+        # the fixed set of s -> 1 - conj(s) is the critical line
         if fixed_by_reflect_conjugate != on_critical_line(point):
             fixed_set_correct = False
         # a point on the line has an orbit that collapses to at most the conjugate pair

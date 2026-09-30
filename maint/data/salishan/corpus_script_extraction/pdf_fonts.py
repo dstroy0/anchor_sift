@@ -10,8 +10,8 @@
 # published before about 2014 is all of them. Lushootseed with no glottal stop, no schwa and no lateral
 # fricative is not Lushootseed, and the whole pre-2010 literature in this archive reads that way.
 #
-# The glyphs are still in those files. What is missing is the map from the font's own character codes back
-# to Unicode, the ToUnicode entry a PDF may or may not carry. Where it is absent the extractor
+# The glyphs are still in those files. The map from the font's own character codes back
+# to Unicode is missing, the ToUnicode entry a PDF may or may not carry. Where it is absent the extractor
 # gets a code and has nothing to turn it into. It emits whatever the code happens to mean in a default
 # encoding and the marked consonants come out as blanks.
 #

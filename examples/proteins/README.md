@@ -16,7 +16,7 @@ rule somebody else published and applied to the same deposit before this instrum
 The subject stood at three of the six stages: represent, partition and sift. It had no reference,
 no measure and no oracle, and the reason that gap mattered is written into the crystallography
 subject next door. Every control in this work until the crystals was a memoryless process, and a
-memoryless process can only show that an instrument does not invent structure. It cannot show that
+memoryless process shows only that an instrument does not invent structure. It cannot show that
 an instrument finds structure that is present, and the protein case is exactly where that bit: a
 protein was reported as unstructured twice, and nothing here could tell an instrument that stayed
 silent on real structure from one that was working.
@@ -27,7 +27,7 @@ stages close it for proteins, against a rule that is closer to the ideal than a 
 ## Why this subject can carry a positive control at last
 
 A crystal's periodicity is published because somebody measured the cell and wrote the edge down. A
-protein has no single published number of that kind, and that is why the subject sat without an
+protein has no single published number of that kind, and the subject therefore sat without an
 oracle. The Ramachandran rules are what it has instead, and they are better suited than an edge.
 
 Two backbone torsions, phi and psi, place each residue on a plane. The Richardson laboratory's
@@ -39,8 +39,8 @@ computed and published per entry before this instrument read a single atom.
 
 The reading here never sees where an atom is. It takes only the two torsions of each residue, and a
 torsion is invariant to moving or turning the whole molecule. A protein's fold does not live in its
-coordinates, which carry a position and an orientation the fold does not have. It lives in the
-torsions, and those are what the rules are written over.
+coordinates, which carry a position and an orientation the fold does not have. The torsions hold it,
+and those are what the rules are written over.
 
 ## Where an irrational is unavoidable, named and not buried
 

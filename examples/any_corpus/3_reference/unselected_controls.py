@@ -14,7 +14,7 @@
 #
 # A genome will not serve. The selective pressure that shaped language shaped the organism reading it,
 # no biological sequence is independent of the hypothesis, and all biology shares one machinery in any
-# case. What is needed is a domain under no selection at all.
+# case. A domain under no selection at all is needed.
 #
 # Mathematics supplies two. The digits of an irrational are fully determined and conjectured to be normal.
 # They should carry no arrangement to find. The gaps between primes are equally determined and are not

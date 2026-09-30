@@ -14,10 +14,10 @@
 # widens. Those are Fibonacci numbers, and the Fibonacci numbers are the denominators of the
 # continued fraction convergents of phi.
 #
-# So the detector is not failing at random and it is not reading noise. Every margin here clears its
+# So the detector does not fail at random and it is not reading noise. Every margin here clears its
 # own shuffle floor by six to nine times. A rotation by an irrational really does agree with itself
 # at the denominator of any good rational approximation to that irrational, and the detector is
-# reporting that agreement correctly. What is false is the name on the output. "Period" is the wrong
+# reporting that agreement correctly. The name on the output is false. "Period" is the wrong
 # word for it, and the workbook's crystallography rows are safe only because a lattice has a period
 # for the reported number to be.
 #

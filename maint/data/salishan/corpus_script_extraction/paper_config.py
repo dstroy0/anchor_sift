@@ -251,8 +251,8 @@ ELMENDORF_COMPARATIVE = "?ə" + "čšɬƛθɪᴀ" + "ʷʸ" + "áäéíóú" + "�
 # character that changes nothing and a comment that reads as though it does.
 #
 # ɔ and ɨ are the two vowel colorings TT give for q and k. The ɨ is a reading taken from its
-# pairing with ɔ and not from the glyph, which is a typed i carrying a raised mark, and the table
-# says so on a row of its own and does not promote it here.
+# pairing with ɔ and not from the glyph, which is a typed i carrying a raised mark, and the table shows it
+# on a row of its own and does not promote it here.
 HAMP_TILLAMOOK = SHARED + "?" + "̣" + "ɔɨæʌɪ"
 
 # Kinkade on Columbian deictics, with Kalispel, Coeur d'Alene and three Colville forms beside it.

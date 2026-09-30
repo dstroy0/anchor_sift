@@ -17,8 +17,8 @@
 # many papers with what kind of language each is about, that is a constant nobody set out to publish, and
 # it is evidence from outside this work, which almost nothing here has.
 #
-# The whole bibliography of the field is served as one file with abstracts. What is mined is the
-# abstracts: which languages a paper names, and what run length it reports. An abstract states a setting
+# The whole bibliography of the field is served as one file with abstracts. The abstracts are mined:
+# which languages a paper names, and what run length it reports. An abstract states a setting
 # only when the authors thought it worth stating, which is a bias in what can be read and is stated here
 # because it cannot be removed.
 #

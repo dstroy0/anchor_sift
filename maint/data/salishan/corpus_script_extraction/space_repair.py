@@ -52,7 +52,7 @@ def entries_of(lines):
 
     A quoted line closes the block and is the free translation. A line carrying a run of two or
     more capitals is a gloss. A line carrying none of the damaged orthography is a page number or
-    the English word gloss. What is left is a word as spoken or its segmentation, one to a line.
+    the English word gloss. A word as spoken or its segmentation is left, one to a line.
 
     Written to work from the raw lines, not from a reader's parse, letting a reader and the
     coverage check build the same list. Two lists drift, and the check then reports as a hole every

@@ -106,7 +106,7 @@ def main():
 
     # The sum of squared z, as an exact rational scaled by 10^6 so the page never divides.
     # z is (2c - N) over the square root of N. Z squared is (2c - N) squared over N and there is
-    # no factor of four. An earlier version carried one and read 976.03 where the truth is 244.01,
+    # no factor of four. An earlier version carried one and read 976.03 where the true value is 244.01,
     # which the float arm caught by disagreeing with it.
     sum_z_millionths = (total_squared * 1000000) // samples
 

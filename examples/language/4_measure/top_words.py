@@ -7,7 +7,7 @@
 #
 #   Usage:  python examples/language/4_measure/top_words.py corpus.txt [more.txt ...]
 #
-# Every measurement in this document is distributional and none of them reads a word. Section 7.4 finds
+# Every measurement in this document is distributional and not one reads a word. Section 7.4 finds
 # the head of the distribution carrying the least information per token and Section 4.13.08 finds it the
 # slowest part of a language to change over four centuries. Printing the head lets a reader see what
 # occupies it, a question the statistics cannot answer.

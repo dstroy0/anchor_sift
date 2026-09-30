@@ -23,7 +23,7 @@ Three things come out of the reading, and all three are the same table read diff
     turn        the rotation recovered from the twist, in radians, with the sign giving which way.
 
 The geometry, the placements and the three readings live in boundary_read, which knows nothing about
-hashes. What is here is the part that knows: the compression, and what to ask of it.
+hashes. Here is the part that knows: the compression, and what to ask of it.
 """
 
 import math
@@ -90,7 +90,7 @@ def shift_structure(frames):
 
     The decisive test of which object is being read. Those six words are copied. On the working
     state every one of them has to match the word it came from, exactly, every round. A reading where
-    none of them matches is a reading of something the round has been mixed into after the fact.
+    not one matches is a reading of something the round has been mixed into after the fact.
     """
     hits = 0
     total = 0

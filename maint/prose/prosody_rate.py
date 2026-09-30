@@ -178,7 +178,7 @@ def main(argv):
         print("  %d words, %d hits, %.1f per 100k overall: %s"
               % (total_words, total_hits, overall, verdict(overall)))
 
-        # The shapes carrying the rate, since a number without its cause is not actionable.
+        # The shapes carrying the rate, since a number without its cause cannot be acted on.
         tally = {}
         for _, _, _, hits in worst:
             for pattern, n in hits:

@@ -39,8 +39,8 @@ put in after a correct quotation was reported as an invention:
     "first-arriving" where the hyphen IS the wrap; RFC 9293 breaks "option-length" where it belongs
     to the word. Both readings are built and either may match. Reading every break as a wrap loses
     the second kind.
-  - A run of // lines is one comment. code_mask marks the newline ending a // comment as code,
-    because that is what it is. Reading the mask alone gives one block per line and truncates
+  - A run of // lines is one comment. code_mask marks the newline ending a // comment as code.
+    Reading the mask alone gives one block per line and truncates
     every quotation spanning two of them. That was hiding 591 quotations - two fifths of the total
     - and every one of the odd quote-mark counts that made blocks unreadable.
   - A block often cites a bare "sec 5.4.2" against the document the FILE is about and not the
@@ -141,7 +141,7 @@ def comment_blocks(text):
     """Every comment in the file, as (line number, raw text).
 
     A run of // lines is ONE comment and has to be returned as one. code_mask marks the newline
-    that ends a // comment as code, because that is what it is. Scanning the mask alone yields
+    that ends a // comment as code. Scanning the mask alone yields
     one block per line and cuts every quotation that spans two of them - which is most of the long
     ones. Adjacent // blocks are merged back together here.
     """

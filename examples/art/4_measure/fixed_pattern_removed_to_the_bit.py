@@ -103,7 +103,7 @@ def fixed_pattern(frame, amplitude, seed):
 def with_static_feature(scene, frame, depth):
     """The scene with a pixel held bright in every frame. It no longer sums to zero there.
 
-    The floor case: a static feature is a constant per-pixel offset across the stack, which is exactly
+    The floor case: a static feature is a constant per-pixel offset across the stack, which is
     the shape of fixed-pattern noise. It cannot be told apart and is removed with it.
     """
     shaped = list(scene)

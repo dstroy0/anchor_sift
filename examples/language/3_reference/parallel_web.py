@@ -20,7 +20,7 @@
 # other more than separate books do, which makes it easier. The two do not cancel and the number below is
 # not directly comparable to the earlier one.
 #
-# What is comparable is the shape of the answer: whether the languages that get confused are still the
+# The shape of the answer is comparable: whether the languages that get confused are still the
 # related ones, and whether the families still come out, with the content that could have been carrying
 # them taken away.
 

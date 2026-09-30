@@ -132,7 +132,7 @@ def split_pp(text):
 
     A directive is not a statement and its parenthesis is not a call: walking back from a `{` over
     `#define MMGR_CONFIN_IO(w) ...` finds a name that belongs to a macro and reads the struct behind
-    it as that macro's body. So the directive lines are lifted out first, and what is left is code
+    it as that macro's body. So the directive lines are lifted out first, and the rest is code
     with the directives blanked to spaces - the offsets do not move, and neither does any line.
 
     A directive continues while its line ends in a backslash (C11 sec 5.1.1.2). The continuation

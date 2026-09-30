@@ -200,7 +200,7 @@ def main():
     # rendering of it from a plain-English gloss of a morphemic line.
     after_cj = False
     # The rows of the block being read. A stanza too wide for the page is printed as two groups of
-    # three rows and it is one sentence. Each row is collected and written once at the end.
+    # three rows that are one sentence. Each row is collected and written once at the end.
     pending = {}
     # The parenthesized plain-English glosses of the block, which the paper sets on their own line
     # under the morphemic gloss and footnote 30 explains.

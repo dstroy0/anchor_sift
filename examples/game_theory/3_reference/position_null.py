@@ -8,7 +8,7 @@
 #   Usage:  python examples/game_theory/3_reference/position_null.py [games]
 #
 # The null permutation of this work, written for a grid, keeps how many of each color are on the
-# board and which squares are occupied at all, and draws which color sits where. It is the maximum
+# board and which squares are occupied, and draws which color sits where. It is the maximum
 # entropy arrangement under the constraints the position supplies. It cannot be wrong, and a
 # departure from it is arrangement and cannot be counts.
 #

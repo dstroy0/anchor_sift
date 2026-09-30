@@ -30,7 +30,7 @@ Stated as requirements because each one is a fault this work actually made:
     max of N         the bar is the null's own LOUDEST over the same number of degrees, because
                      reporting the loudest of ten against a one-cell threshold manufactures
                      findings.
-    matched null     the null holds the weight fixed, because an unmatched one reports the weight.
+    matched null     the null holds the weight fixed, because a null that does not match reports the weight.
 
     python maint/audit/anisotropy_detector.py --check
     python maint/audit/anisotropy_detector.py --rounds

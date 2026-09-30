@@ -63,7 +63,7 @@
 # returns the same arrangement whatever order the rows arrive in. That was checked and not
 # assumed, on the same entry.
 #
-# So no published result in this subject is affected. What is true is that the first reading to
+# So no published result in this subject is affected. The first reading to
 # reach for `placed` on a structure carrying shared positions inherits a silent dependence on file
 # order, and nothing in its signature would say so. `contested` is the primitive that declines to
 # make that choice during ingestion and hands the question back to the domain, where it belongs.
@@ -188,7 +188,7 @@ def main():
         kinds = set()
         for elements in found.values():
             pairs[elements] = pairs.get(elements, 0) + 1
-            # How many elements share the one position. Two is the ordinary case and the tail is
+            # How many elements share the one position. Two is the common case and the tail is
             # where the interesting chemistry is: a rare earth site runs to ten.
             order[len(elements)] = order.get(len(elements), 0) + 1
             if len(elements) >= 4:

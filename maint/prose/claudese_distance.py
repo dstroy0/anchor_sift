@@ -33,7 +33,7 @@
 # is there for that: a file inside the resolution reported at the foot is not placed by this, and
 # the honest answer for it is that nothing was read.
 #
-# The fixture must never be repaired. docs_check skips the directory it lives in for that reason,
+# The fixture must never be repaired. docs_check skips the directory holding it for that reason,
 # and repairing it would delete the only positive sample the instrument has.
 
 import io

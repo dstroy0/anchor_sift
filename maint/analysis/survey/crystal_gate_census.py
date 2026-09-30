@@ -11,8 +11,8 @@
 #
 # representation.structure.crystal.exact_points returns (None, None) where a cell is absent, is not
 # right angled, holds no sites, or is not plain decimal text. Four errors, one return value, and
-# the readings that consume it treat the whole class as `continue`. That is the shape a silent
-# denominator takes: examples/crystallography/5_sift/lattice_breaks_the_product_rule.py skips a
+# the readings that consume it treat the whole class as `continue`. A silent denominator takes that shape:
+# examples/crystallography/5_sift/lattice_breaks_the_product_rule.py skips a
 # errored entry and its closing line still reports a median over whatever survived, with nothing on
 # the page saying how much did not.
 #

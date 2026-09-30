@@ -19,7 +19,7 @@ Stages three, five and six are not present for this subject.
 
 ## A picture is the case the construction was written for
 
-A picture is a domain whose alphabet is a range of values and whose arrangement has two dimensions, which is exactly what the engine reads. Read row by row, the second dimension survives as a periodicity, because a pixel and the pixel below it lie one width apart in the sequence. `a_picture_returns_its_width.py` recovers that width from nothing, and the other stage-four scripts read the same picture through the rest of the construction.
+A picture is a domain whose alphabet is a range of values and whose arrangement has two dimensions, which the engine reads. Read row by row, the second dimension survives as a periodicity, because a pixel and the pixel below it lie one width apart in the sequence. `a_picture_returns_its_width.py` recovers that width from nothing, and the other stage-four scripts read the same picture through the rest of the construction.
 
 ## Fixed-pattern noise
 

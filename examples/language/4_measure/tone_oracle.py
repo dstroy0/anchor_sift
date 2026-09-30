@@ -8,7 +8,7 @@
 #
 #   Usage:  python examples/language/4_measure/tone_oracle.py
 #
-# Three languages here carry tone and none of them lets it be taken out. Chinese fuses it into the
+# Three languages here carry tone and not one lets it be taken out. Chinese fuses it into the
 # character. Removing it means removing the word. Thai spreads it across marks and the class of the
 # initial consonant together. No set of codepoints is the tone. Japanese never writes its pitch accent
 # at all.

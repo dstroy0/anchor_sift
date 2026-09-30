@@ -13,7 +13,7 @@
 #
 # A rectangle per set cell gives the same picture and is unusable. Adjacent rectangles share an edge
 # and a renderer seams along it. The glyph shows hairline cracks at some zoom levels and not at
-# others. It also makes the file enormous and gives nothing to smooth, since there is no outline to
+# others. It also makes the file huge and gives nothing to smooth, since there is no outline to
 # cut a corner from.
 #
 # Tracing produces the actual boundary: every edge with a set cell on one side and an unset cell on
@@ -37,7 +37,7 @@
 # WHAT IT IS FOR
 #
 # A composed glyph of this orthography is a letter plus a combining mark, and where that mark sits is
-# decided by a shaping engine at render time. That placement is exactly what a PDF text extraction
+# decided by a shaping engine at render time. That placement is what a PDF text extraction
 # destroys, and papers.py:29-31 records a page printing the mark over its letter while the extracted
 # text puts it in front. An outline traced from a rendered composition has the placement baked in and
 # cannot lose it again.
@@ -175,7 +175,7 @@ def chaikin(ring, passes):
 
     Each pass replaces every corner with two points a quarter and three quarters along its edges.
     The ring keeps its shape and loses its sharpest angles. It invents no curve the dotmap did not
-    imply, and that is the reason to prefer it here over fitting splines.
+    imply, and it is preferred here over fitting splines for that reason.
     """
     for _ in range(max(0, passes)):
         count = len(ring)

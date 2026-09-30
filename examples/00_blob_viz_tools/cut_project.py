@@ -47,7 +47,7 @@ def chain(count):
     """The Fibonacci chain, by cutting a square lattice at the golden slope.
 
     A lattice point is kept where its perpendicular coordinate lands inside a window one unit cell
-    wide, and what is kept is projected onto the line. Nothing here is a rule about long and short
+    wide, and the part kept is projected onto the line. Nothing here is a rule about long and short
     intervals; those come out of the geometry, and doing it this way is the point.
     """
     scale = math.sqrt(1.0 + GOLDEN * GOLDEN)

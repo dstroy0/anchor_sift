@@ -12,7 +12,7 @@
 # them. Quoting it in levels instead put Chinese 565.9 deviations out. The normalizing was most of the
 # distance and something smaller is left.
 #
-# What is left is that the comparison is between unlike units. A Chinese character stands for a morpheme.
+# The comparison is between unlike units. A Chinese character stands for a morpheme.
 # A Latin letter stands for a piece of one, and it takes several to reach anything that means something.
 # Measuring one symbol on each side measures meaning on one and fragments on the other, and two languages
 # could agree perfectly about how their meaning is distributed while disagreeing here.

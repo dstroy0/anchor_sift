@@ -20,7 +20,7 @@ Stage one builds molecules. A molecule is a set of points carrying values, each 
 its element and each bond the vector between two of them, and `build_molecules.py` builds the
 connectivity: a catalog of named molecules as atoms and bonds and their orders. It does not place the
 atoms in space, because a bond's magnitude is its length and a length is an oracle fact that is not
-entered yet. What is built is the molecular graph and the geometry is left to stage six. The octet
+entered yet. The molecular graph is built and the geometry is left to stage six. The octet
 is the gate on the catalog. A mis-built bond is caught, and the reading it delivers is that a
 formula does not fix a molecule: ethanol and dimethyl ether are both C2H6O and both close. The
 formula is a label and not the structure. It holds only chemistry's own valence layer. It runs
@@ -95,7 +95,7 @@ python examples/chemistry/4_measure/a_single_period_cannot_see_a_growing_one.py
 python examples/chemistry/5_sift/valence_is_a_necessary_condition.py
 ```
 
-None of them reads a file or reaches a network. The molecules and their valences are in the scripts, a
+Not one reads a file or reaches a network. The molecules and their valences are in the scripts, a
 bonding map that is chemistry's own layer and not the element ledger, and the periodic example's
 sequence is a synthetic sawtooth with arbitrary segment lengths, not the shell counts.
 

@@ -120,7 +120,7 @@ def handshake_ok(atoms, bonds):
 def null_pass_rate(atoms, bonds, draws):
     """Fraction of element-label permutations, drawn by the engine's shuffle, that still close.
 
-    The bond graph is held and the multiset of elements is held; what is deleted is which element
+    The bond graph is held and the multiset of elements is held; the deleted part is which element
     sits at which atom. permuted preserves every count exactly. Each draw is a genuine
     rearrangement of the same atoms and never invents or loses one.
     """

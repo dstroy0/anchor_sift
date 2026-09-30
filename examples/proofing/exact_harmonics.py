@@ -9,7 +9,7 @@ and also an excuse: the format was chosen. Nothing in a spherical harmonic requi
     Legendre             a three-term recurrence, polynomial. Exact with no series at all
 
 So the whole evaluation is integer arithmetic at whatever width is asked for, and the residual under
-a rotation that changes nothing drops with the width instead of stopping at 1e-16. That is the test
+a rotation that changes nothing drops with the width instead of stopping at 1e-16. That test is one
 this module exists to make possible: a floor that MOVES when the width moves belongs to the format,
 and one that does not belongs to the object.
 

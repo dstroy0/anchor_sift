@@ -157,7 +157,7 @@ def salish(token):
         return False
     # An address, where @ is the at sign. The last line of the paper is john.lyon@alumni.ubc.ca and
     # it came out with a schwa in the middle of it. A Salish token is not plain ASCII once its @ is
-    # counted, and none of them holds a dot.
+    # counted, and not one holds a dot.
     if token.isascii() and ("@" in token) and ("." in token):
         return False
     if any((mark in token) for mark in MARKS):
@@ -253,7 +253,7 @@ def drafted(line):
     one that showed it: Lyon ends a clause with a semicolon in his English, and mapping the line
     without asking turned long ago over there; we came into over there· we came.
 
-    labialized runs over the whole joined line, and that is a known defect with a measured cost on
+    labialized runs over the whole joined line, and that is a known defect, and its cost is measured on
     both sides. Running it line-wide reads the w of an English gloss as a labializing one wherever
     a k or a q or an x stands in front of it. Backwards is drafted backʷards and
     he.fell.off.backwards is drafted he.fell.off.backʷards, and the check then reports the hand

@@ -37,8 +37,8 @@ reachable -- whether chance deals, and whether the opponent chooses.
 | **chance deals** | poker            | blackjack              |
 | **no chance**    | checkers, chess  | --                     |
 
-Blackjack, checkers endgames and small-deck poker give a solved arm. Chess does not, and that is why
-it is here. A chess position after four plies has more continuations than the other three games have
+Blackjack, checkers endgames and small-deck poker give a solved arm. Chess does not, and it is here
+for that reason. A chess position after four plies has more continuations than the other three games have
 positions. The chess number has to be estimated and nothing local can catch it being wrong. The
 only thing standing behind it is whether the same estimator reproduced the games that could be
 solved. This subject exists to make that boundary visible and not to hide it.
@@ -58,7 +58,7 @@ saying which quantity it is:
 That is the finding this subject was built for, and the cost of pruning is not that the number gets
 bigger. The cost is that it stops being the number it is named after. `P(outcome | move)` and
 `P(outcome | move, the opponent plays into our line)` are different quantities about different
-things, and the second is not an estimate of the first. Reporting the second under the first's name
+things, and the second does not estimate the first. Reporting the second under the first's name
 is the way this work would be quietly wrong.
 
 **In poker the pruning changes the recommendation, not just the probability.** On a pair of sevens
@@ -80,7 +80,7 @@ On a back rank mate in one at two plies, read over the resolved outcomes alone, 
 leaving only the mate, and a single certain outcome has no entropy to lose. The reading is computed
 over `1/20` of the move set and says so. Read over all four categories the same position reports
 `I(X;Y) = 0.2864`, because whether the game ends here is itself one of the things knowing the move
-tells you. That is why both readings are printed with the covered share beside them, and why neither
+tells you. Both readings are therefore printed with the covered share beside them, and why neither
 is offered as the number.
 
 **Every published value checked, and the negative control rejects.** Stage six runs 13 checks against
@@ -104,7 +104,7 @@ passant or promotion. A generator can be wrong in three ways and still pass perf
 The blackjack dealer bust rate is the only check with a window, and the window is stated in the call
 and not chosen until the result passed. The published figure is quoted for an infinite deck and
 this is one deck with three cards already removed. The two differ by composition. Standing on 16
-wins only where the dealer busts. That is why that single number checks the whole dealer rule.
+wins only where the dealer busts, and that single number checks the whole dealer rule.
 
 ## Played boards and impartial games
 
@@ -142,7 +142,7 @@ a bound on the search into a number that looks like an outcome, and nothing down
 two apart afterwards.
 
 This does not do that. Unresolved mass is carried as its own outcome and never redistributed over
-win, loss and draw. That is why the checkers table above reads 0.96 unresolved under an adversary
+win, loss and draw. The checkers table above therefore reads 0.96 unresolved under an adversary
 and not a confident-looking draw, and why the chess opening at four plies resolves almost
 nothing and says so. The standing discipline in this tree is that bounding is not allowed -- no
 judgment-picked tolerances or parameters -- and a search depth is a bound. It is allowed here only

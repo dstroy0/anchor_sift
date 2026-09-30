@@ -17,7 +17,7 @@ METHOD
     linkage       average, because single linkage chains through noise and complete linkage is
                   dominated by the one worst pair in a cluster
     statistic     the tightest cluster of at least four positions, measured by its mean internal
-                  distance. That is what a real shared cause would produce.
+                  distance. A real shared cause would produce that.
 
 THE NULL IS DRAWN, NOT DERIVED
 

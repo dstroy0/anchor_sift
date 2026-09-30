@@ -31,8 +31,8 @@ if [ $# -gt 0 ]; then
 else
     # Two depths, because a research paper sits on a shelf and may sit under a subject directory too:
     # theory/<shelf>/<research_paper>/ as most do, and theory/theory/<subject>/<research_paper>/ as the cryptography
-    # one does. The shelves are theory/, workbooks/ and thought_experiments/. What is kept is the
-    # path below theory/ and not the basename, since that is what the loop below joins back onto
+    # one does. The shelves are theory/, workbooks/ and thought_experiments/. The path below
+    # theory/ is kept, and not the basename, since the loop below joins that back onto
     # $ROOT.
     RESEARCH_PAPERS=$(for one in "$ROOT"/theory/*/*/main.tex "$ROOT"/theory/*/*/*/main.tex; do
         [ -f "$one" ] || continue

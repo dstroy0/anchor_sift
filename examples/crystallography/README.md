@@ -23,7 +23,7 @@ That was right about where the reader belongs and wrong about there being nothin
 
 The Crystallography Open Database publishes the cell edge for every entry. The periodicity is a number somebody else measured, refereed and wrote down before this instrument existed. It is the only positive control in this work with an answer nobody here produced.
 
-Every control in the tree until the protein structures was a memoryless process, and one of those can only show that an instrument does not invent structure. It cannot show that an instrument finds structure that is present, and this work reported a protein as unstructured twice before that difference was drawn.
+Every control in the tree until the protein structures was a memoryless process, and one of those shows only that an instrument does not invent structure. It cannot show that an instrument finds structure that is present, and this work reported a protein as unstructured twice before that difference was drawn.
 
 The same property makes a reader's own error visible here and nowhere else. Everywhere else the rounding happens against nothing to check it with.
 
@@ -148,7 +148,7 @@ one set of points.
 
 ### How complex the doping gets
 
-Two elements on one position is the ordinary case. Reading one
+Two elements on one position is the common case. Reading one
 cell each across the corpus, 705 positions hold two elements, 34 hold three, and the tail runs to
 **one position holding ten**: `Ce/Dy/Er/Gd/La/Nd/Pr/Sm/Y/Yb`, a rare earth site that took whichever
 lanthanides were in the melt. Three separate spinels hold seven at once, `Al/Cr/Fe/Mg/Ni/Ti/V`.

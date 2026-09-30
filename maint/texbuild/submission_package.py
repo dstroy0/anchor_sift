@@ -16,7 +16,7 @@
 #
 # THE REQUIREMENT IS NOT ANY ONE VENUE'S
 #
-# A submission is a directory that compiles from inside itself. Every venue enforces that and they
+# A submission is a directory that compiles in place. Every venue enforces that and they
 # differ only in what they want it wrapped in. arXiv extracts a tarball into one root and runs LaTeX
 # there. Most journals ask for a zip. A repository deposit takes the directory as it stands. A venue
 # that wants only the built PDF still needs the build to have worked somewhere.
@@ -334,7 +334,7 @@ def strip_latex(text):
 def metadata(out, research_paper):
     """The title, authors and abstract of an assembled research paper, as text to paste into the form.
 
-    Read off the assembled copy, because that is what ships. The titlepage carries the title and
+    Read off the assembled copy, because that copy ships. The titlepage carries the title and
     the author and the abstract sits in its own file, and both are found by name and not by
     position. A research paper that orders its frontmatter differently still reports.
     """

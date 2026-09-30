@@ -24,7 +24,7 @@
 # (D) speak of the whole plane: some stalk somewhere is empty. The front edge lies inside the plane,
 # an empty stalk on the edge would refute (A) or (B) and establish (C) or (D), and an empty stalk off the
 # edge establishes (C) or (D) and says nothing about the edge. That containment is all the
-# panel draws. It draws every stalk except one as a question, because that is what they are. The one
+# panel draws. It draws every stalk except one as a question, because they are questions. The one
 # drawn solid is the Arnold-Beltrami-Childress datum on the torus, whose stalk is not empty by a
 # classical closed form the example verifies exactly. One instance, and it is labeled as one.
 #

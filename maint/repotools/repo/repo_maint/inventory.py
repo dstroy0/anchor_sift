@@ -14,7 +14,7 @@ line, a project name inside a docstring, a formatter's line break and one identi
 those is invisible to a reader and fatal to an exact hash.
 
 So the comparison is over shape. Comments and docstrings come off, string literals fold to one
-token, and identifiers renumber by first appearance. What is left is the algorithm, and two copies
+token, and identifiers renumber by first appearance. The algorithm is left, and two copies
 of one tool land in the same bucket after four years of separate prose edits.
 
 WHAT COUNTS AS A CANDIDATE

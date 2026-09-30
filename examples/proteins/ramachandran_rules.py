@@ -9,7 +9,7 @@
 #
 # The engine hands back a torsion as exact integer terms and stops there, because the atan2 that
 # turns them into a degree is the only irrational step in the path and does not belong in the reader.
-# This is where it is taken, in decimal and to a precision stated below, well under the grid the
+# It is taken here, in decimal and to a precision stated below, well under the grid the
 # answer is read against. Nothing here imports numpy or any other computing library. Python's own
 # integers and decimals do all the arithmetic.
 #
@@ -28,7 +28,7 @@
 # A protein cannot be read that way, and the crystallography README says why. A backbone is a cloud
 # of real valued coordinates. A torsion is an irrational the deposit never wrote, and the rules
 # are published on a grid of two degrees, not as a formula. So there is a quantum here, and the
-# honest thing is to declare where it comes from and not pick one.
+# right move is to declare where it comes from and not pick one.
 #
 # It comes from the reference. The grid is two degrees because the Richardson laboratory published
 # it at two degrees; the favored and allowed cutoffs below are the numbers MolProbity scores with,

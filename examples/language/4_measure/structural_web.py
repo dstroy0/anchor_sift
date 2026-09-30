@@ -18,8 +18,8 @@
 # their family, sit widest apart of seven because Malayalam took Sanskrit letters into its writing and
 # Tamil did not. Seven English writers sharing one alphabet are barely told apart at all.
 #
-# Dividing the joint counts by the product of the two marginals removes exactly that first part. What is
-# left is how far each pair departs from what the frequencies alone would predict, which is zero
+# Dividing the joint counts by the product of the two marginals removes exactly that first part. The
+# rest is how far each pair departs from what the frequencies alone would predict, which is zero
 # everywhere for a text with no structure beyond its letter counts, and is the structure otherwise.
 #
 # Written before running, from what the earlier results say the frequencies are carrying: Tamil to

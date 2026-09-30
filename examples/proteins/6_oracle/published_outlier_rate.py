@@ -9,7 +9,7 @@
 #   Usage:  python examples/proteins/6_oracle/published_outlier_rate.py [how many proteins]
 #
 # This is the positive control the protein subject did not have. Every control in this work until
-# now was a memoryless process, and a memoryless process can only show that an instrument does not
+# now was a memoryless process, and a memoryless process shows only that an instrument does not
 # invent structure. It cannot show that an instrument finds structure that is present, and the
 # protein case is where that bit: the crystallography README records that a protein was reported as
 # unstructured twice, because nothing here could tell an instrument that stayed silent on real

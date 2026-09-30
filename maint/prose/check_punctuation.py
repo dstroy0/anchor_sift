@@ -80,7 +80,7 @@ def main(argv):
                 print("  %s:%d: %s (%d), write %s" % (
                     path.replace("\\", "/"), number, name, count, ascii_form))
 
-    # Checking nothing is not passing, the same lesson docs_check.py records against itself.
+    # Checking nothing does not pass, the same lesson docs_check.py records against itself.
     if checked == 0:
         print("  no files were read. Nothing was checked, so nothing passed.")
         return 2

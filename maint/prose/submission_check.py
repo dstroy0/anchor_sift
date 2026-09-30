@@ -12,7 +12,7 @@
 # CONTRIBUTING.md:8 states a condition as non-negotiable, and it is the only one there: a tool for
 # language that comes out of this work requires a human to review its output, and a contribution
 # that removes a person from that loop is not accepted. CONTRIBUTING.md:30 then lists three checks,
-# prose and the kernel and the ports, and none of them looks at the condition that comes first.
+# prose and the kernel and the ports, and not one looks at the condition that comes first.
 # Somebody pasting generated text into a Salishan form is a person removed from the loop, and
 # nothing in the tree caught it.
 #

@@ -19,7 +19,7 @@ Sections:
 
 ## 1. Defects that fail silently
 
-Every entry here shares one property, and it is the reason they are grouped: **none of them raises
+Every entry here shares one property, and it is the reason they are grouped: **not one raises
 an error, and none is visible in a screenshot.** A reviewer looking at something else does not find
 them, and the two tools in section 3 exist for that reason.
 

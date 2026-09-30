@@ -1,7 +1,7 @@
 """A counter-rotating arm: read the same state through both handednesses and difference them.
 
 The golden placement winds one way. Index k sits at height 1 - 2(k + 0.5)/n and longitude k gamma.
-The arm is a helix with a handedness, and every reading taken through it inherits that
+The arm is a helix with a handedness, and every reading taken through it carries that
 handedness. A second arm winding the other way - longitude MINUS k gamma, same heights - reads the
 same state through the mirror.
 

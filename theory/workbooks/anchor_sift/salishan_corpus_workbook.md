@@ -133,7 +133,7 @@ ICSNL 57), and none for the other four.
 What it shows. The method sorts the languages the survey could classify. The blanks cannot be filled
 from these tables: the forms that would fill them are not in the 138 papers extracted so far. The Twana
 count is four roots from one paper, and whether they are the reduplication type Table 4 classifies was
-not checked. It stands as a question for the authors and corrects nothing.
+not checked. It is a question for the authors and corrects nothing.
 
 ## P3, 2026-09-24: Nuxalk vowelless words and the spacing of clitics
 

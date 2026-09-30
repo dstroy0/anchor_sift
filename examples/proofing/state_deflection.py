@@ -366,7 +366,7 @@ def _runs(messages, draws):
 def _shape(messages, draws):
     """The two degrees that ARE the shape described: the dipole and the quadrupole.
 
-    A cone sitting at one pole instead of the other is degree one, since that is what a dipole is:
+    A cone sitting at one pole instead of the other is degree one, since a dipole is that:
     the whole set displaced along an axis. An elongation, a lemon, is degree two. Every statistic
     that averages over degrees washes both of them out. The concentration reading
     did that. These two are taken on their own and against their own controls.

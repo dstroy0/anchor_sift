@@ -14,7 +14,7 @@
 #   P(outcome | our move)                                     what H(Y|X) means
 #   P(outcome | our move, the opponent plays into our line)    what pruning returns
 #
-# Those are different quantities about different things, and the second is not an estimate of the
+# Those are different quantities about different things, and the second does not estimate the
 # first. Reporting the second under the first's name is the way this work would be quietly wrong,
 # all three conditionings are computed on the same position at the same budget and printed together,
 # each carrying the sentence that says which quantity it is.
