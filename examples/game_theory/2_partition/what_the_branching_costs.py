@@ -9,7 +9,7 @@
 #
 # A move partitions the futures reachable from a position into disjoint blocks: play this move and
 # you are in this block, and the blocks do not overlap. That is the partition this stage measures,
-# and the quantity that matters is how fast the blocks subdivide, because that is what decides
+# and the quantity to watch is how fast the blocks subdivide, because that decides
 # whether the outcome distribution under a move can be computed or only estimated.
 #
 # This stage is also where the budget stops being an implementation detail. Every later number in

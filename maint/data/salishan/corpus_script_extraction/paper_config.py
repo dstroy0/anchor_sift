@@ -269,8 +269,8 @@ HAMP_TILLAMOOK = SHARED + "?" + "̣" + "ɔɨæʌɪ"
 KINKADE_COLUMBIAN = SHARED + "̣" + "́̀̌" + "æɪ"
 
 # Givens and Hall on Bev Phillips's telling of The Moon and the Birchbark Canoe. Read off the
-# oracle's own form column: past SHARED these rows hold the acute and the dot below, and nothing
-# else. No grave and no caron anywhere in the paper.
+# oracle's own form column: past SHARED these rows hold the acute and the dot below.
+# No grave and no caron anywhere in the paper.
 #
 # Its lateral is U+026C. The file encodes that, and so does every other Nɬeʔkepmxcín row in the
 # corpus. The embedded font draws that character with a bar through the stem. A reader working

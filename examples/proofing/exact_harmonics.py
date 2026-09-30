@@ -130,8 +130,8 @@ def _check():
     for places in (64, 128, 256):
         scale = 1 << places
         pi = pi_at(places)
-        # cos(0) = 1, cos(pi) = -1, cos(pi/2) = 0, sin(pi/2) = 1. All exact. The error is the
-        # arithmetic's and nothing else.
+        # cos(0) = 1, cos(pi) = -1, cos(pi/2) = 0, sin(pi/2) = 1. All exact. The error is
+        # the arithmetic's.
         checks = [
             ("cos 0", cosine(0, places), scale),
             ("cos pi", cosine(pi, places), -scale),
@@ -142,7 +142,7 @@ def _check():
         for name, got, want in checks:
             error = abs(got - want)
             worst = max(worst, error)
-        # The error should fall as the width rises. That is the whole claim.
+        # The error should fall as the width rises.
         relative_bits = places - worst.bit_length() if worst else places
         print("    %4d bits   worst absolute error 2^%-4d   accurate to %d bits"
               % (places, worst.bit_length() if worst else 0, relative_bits))

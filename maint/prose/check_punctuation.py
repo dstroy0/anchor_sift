@@ -7,7 +7,7 @@
 #   Usage:  python maint/prose/check_punctuation.py [root ...]
 #
 # docs_check.py errors U+2014 and stops there. The quote characters below are the substitutions a
-# word processor, a web paste or a well-meaning editor makes, and each has an ASCII spelling that
+# word processor, a web paste or a well-meaning editor makes, and each has an ASCII form that
 # means the same thing. Those are worth reporting.
 #
 # This reports and does not error, for two reasons. docs_check.py owns the commit gate, and

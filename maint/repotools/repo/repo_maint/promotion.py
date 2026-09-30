@@ -14,7 +14,7 @@ those two states is invisible in a directory listing, and a half-converted tool 
 finished one until somebody in another repository runs it.
 
 So the gap is counted here and not remembered. Copying a tool in is cheap and reversible;
-believing it is ready when it is not is what puts a project's hardcoded root into three other trees.
+believing it is ready when it is not puts a project's hardcoded root into three other trees.
 
 WHY PULLING FIRST IS STILL RIGHT
 

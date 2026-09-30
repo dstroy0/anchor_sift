@@ -27,7 +27,7 @@ THE WAVEFORM IS NAMED BEFORE THE DATA IS OPENED
 Classes 0, 31, 6, 11 and 25 are the diagonal, the carry at -1 mod 32, and Sigma1's three rotation
 amounts. SHA-256 moves bits across positions in exactly those ways and no others. The waveform
 is read off the round function instead of chosen after looking at the spectrum, and its matched
-filter carries no multiple-comparison penalty. That is the whole reason the number means anything.
+filter carries no multiple-comparison penalty. The number means anything for that reason.
 
     python examples/00_blob_viz_tools/build_scope_view.py
     python examples/00_blob_viz_tools/build_scope_view.py --block 4 --out somewhere.html

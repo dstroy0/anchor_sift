@@ -6,7 +6,7 @@ invisible everywhere else, and one of each was live when this was written.
 FAULT ONE: A REPLACEMENT THAT IS ITSELF BANNED
 
 Line 20 replaced "is exactly the" with "is precisely the". Both are banned by `docs_check.py` - the
-first at its line 63, the second at line 85 - so the rule carried a banned phrase from one spelling
+first at its line 63, the second at line 85 - so the rule carried a banned phrase from one form
 to another and reported success. It survived because its target is a `.h`, and the docs gate blanks
 code. The file the rule edits is a file the gate does not read. A repair table that can introduce
 the thing it repairs is worse than no table, because the run comes back clean.

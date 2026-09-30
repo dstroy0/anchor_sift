@@ -100,7 +100,7 @@ def proth_form(value):
 def small_factors(value):
     """The distinct primes dividing `value`, by trial division to its own square root.
 
-    Complete, not partial. This is only ever called on the odd part of a modulus less one, which is
+    This is only ever called on the odd part of a modulus less one, which is
     small by the same condition that lets Proth's theorem apply. Dividing all the way up is
     cheap and there is no probable answer anywhere in it.
     """

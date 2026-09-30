@@ -21,7 +21,7 @@ WHAT EACH OUTCOME MEANS
 
     same statistics    handedness is cosmetic. The rotation amounts matter, their direction does
                        not, and the design could have gone either way.
-    different          the direction is load-bearing, and a reading that is mirror-blind by
+    different          the direction matters, and a reading that is mirror-blind by
                        construction has been discarding something real.
 
 The shifts are left alone on purpose. SHR is not a rotation and has no mirror that preserves the
@@ -59,7 +59,7 @@ def compress(block, handed, rounds=64):
     """One block of SHA-256. handed is +1 for the standard function, -1 for its mirror.
 
     Only the rotation DIRECTION changes. Amounts, constants, additions, the nonlinear terms and the
-    round count are identical. The two functions differ in one property and nothing else.
+    round count are identical. The two functions differ in one property.
     """
     turn = rotr if handed > 0 else rotl
     w = list(block)
@@ -104,8 +104,8 @@ def survey(handed, trials, rng):
 
 
 def diffusion_depth(handed, trials, rng):
-    """The round at which a single input bit first reaches half the output. Chirality, if it is
-    load-bearing anywhere, is most likely to show as a difference in how fast the thing mixes."""
+    """The round at which a single input bit first reaches half the output. Chirality, if it
+    matters anywhere, is most likely to show as a difference in how fast the thing mixes."""
     out = []
     for rounds in range(1, 33):
         total = 0

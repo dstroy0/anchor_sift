@@ -153,8 +153,8 @@ foreach ($one in $shared)
     #
     # That gap is not hypothetical here. anchor_sift moved its research paper build scripts and
     # the build_theory.sh link dangled for a day, while REPRODUCE.md went on telling a reader to
-    # run it. Nothing noticed until a scanner crashed opening it. The search above is what makes the
-    # link survive a rename, but only once someone re-runs this; until then a stale link is the one
+    # run it. Nothing noticed until a scanner crashed opening it. The search above makes the
+    # link survive a rename, but only once someone re-runs this; until then a stale link is a
     # state this script cannot see and a reader hits first.
     if (-not (Test-Path -LiteralPath $mine))
     {

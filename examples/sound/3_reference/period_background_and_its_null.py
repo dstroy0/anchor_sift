@@ -18,7 +18,7 @@
 # with a real period the phase means spread far apart and the background carries energy. On a shuffle
 # of the same samples the phase is gone, the phase means collapse toward the grand mean, and the
 # background carries almost nothing. The gap between the two is the only part of the reading that means
-# anything, and printing the shuffle beside the live number is what makes it readable.
+# anything, and printing the shuffle beside the live number makes it readable.
 #
 # The background is solved for, never searched for, and the null is drawn, never derived. reference
 # builds the background and reference.shuffles draws the null; the same one null the whole tree uses.

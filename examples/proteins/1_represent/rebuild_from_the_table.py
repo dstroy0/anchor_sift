@@ -15,7 +15,7 @@
 # the digit it was written to, the positive control printed first: the transform loses
 # nothing.
 #
-# The reading is what survives compressing the direction. Bond lengths, bond angles and the peptide
+# Compressing the direction leaves the reading. Bond lengths, bond angles and the peptide
 # torsion are kept; the two torsions the fold lives in, phi and psi, are quantized to the Richardson
 # two-degree grid, the reference's own quantum and the same grid ramachandran_rules scores against.
 # So the stored backbone is a magnitude table plus, per residue, which grid cell it fell in. The gap
@@ -48,7 +48,7 @@ from representation.structure.protein import (
 CORPORA = os.path.join(ROOT, "build", "corpora")
 CACHE = os.path.join(ROOT, "build", "rama")
 
-# Two degrees is the Richardson grid, the reference's quantum, and the whole of what the walk is told
+# Two degrees is the Richardson grid, the reference's quantum, and all the walk is told
 # about direction. It is not a number chosen here.
 GRID_DEGREES = 2.0
 CONSTITUENT = ("N", "CA", "C")

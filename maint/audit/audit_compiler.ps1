@@ -18,7 +18,7 @@
 # statistic might be fragile.
 #
 # Benches seeded from a fixed constant are deterministic by construction. Any difference between
-# the three is the compiler and nothing else.
+# the three is the compiler.
 
 $ErrorActionPreference = "Stop"
 
@@ -50,7 +50,7 @@ New-Item -ItemType Directory -Force -Path $work | Out-Null
 #
 # sha256_core.c gates its vector arm on __AVX2__ and its else arm defers to the scalar reference.
 # Without -mavx2 the O0 build is the reference arm compiled unoptimized. That is the arm a fold
-# audit wants anyway: it is the one whose arithmetic the statistics read.
+# audit wants anyway: the statistics read its arithmetic.
 #
 # What this costs, stated instead of buried: for the two benches that exercise the vector arm, the
 # O0 column tests different code from the other two columns. An agreement there is evidence about

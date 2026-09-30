@@ -190,7 +190,7 @@ def write_lock(cfg, entries):
 
 
 def _set_files(toolkit, one_set):
-    """Every file under one toolkit set, or the one file named, as `(absolute, toolkit-relative)`.
+    """Every file under one toolkit set, or the named file, as `(absolute, toolkit-relative)`.
 
     A SET or a FILE. A set is the normal grain and a file is the escape hatch, because a set is
     fetched whole and two repositories could not take `code/code_maint` at all: each already had its
@@ -313,15 +313,15 @@ def check(cfg, report):
 
     THE BREAKING HALF DOES NOT NEED THE TOOLKIT
 
-    Detecting a locally edited file needs the lock and the file on disk, and nothing else. Only the
+    Detecting a locally edited file needs the lock and the file on disk. Only the
     second half, saying a fetch is due, compares against the toolkit's current copy.
 
     This used to open by resolving the toolkit for both, and the resolver walks up from this file.
     Run as a gate out of a fetched tree that walk finds nothing: a toolkit checkout is a sibling of
     the repository and never an ancestor of it, and a fetch installs neither of the two markers the
     walk wants. So the whole gate raised, and the check that errors on a locally edited fetched file,
-    the reason the gate exists, could not run in any repository that had fetched it. The
-    one place it was needed was the one place it did not work.
+    the reason the gate exists, could not run in any repository that had fetched it. Where
+    it was needed was where it did not work.
     """
     toolkit = boot.find_toolkit_root()
     locked = read_lock(cfg)

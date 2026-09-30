@@ -12,7 +12,7 @@ chance alone produces on the same statistic at the same sample size, and a verdi
 
     tilted    clears its own calibrated null by a margin no reasonable multiple-comparison
               correction erases
-    level     came back flat. These are load-bearing: a flat reading from an instrument that
+    level     came back flat. These matter: a flat reading from an instrument that
               detects signal elsewhere is evidence of absence, not absence of evidence
     marginal  sits on the line. Named as such instead of rounded into one of the other two
 

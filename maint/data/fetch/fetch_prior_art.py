@@ -227,7 +227,7 @@ def main():
     out.write("\n  %d held, %d not retrieved\n" % (len(got), len(unmet)))
 
     # The unmet list is the deliverable when a fetch fails. Every row carries what it is, why it was
-    # wanted, and where a person should go. It is a worklist and not a complaint.
+    # wanted, and where a person should go. It is a worklist.
     if unmet:
         out.write("\n  COULD NOT RETRIEVE, to be fetched by hand\n")
         for one in unmet:

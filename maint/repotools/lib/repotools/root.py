@@ -2,7 +2,7 @@
 # repotools-stamp: lib/repotools/root.py 677bb1f27a459dba
 # repo_tools - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-"""Where the repository under maintenance is, for a tool that was handed a path and nothing else.
+"""Where the repository under maintenance is, for a tool that was handed a path.
 
 Every repository that adopts this toolkit carries `repotools.toml` at its root, and that file is
 the marker. A tool asks for the root by walking up from wherever it was pointed:

@@ -275,7 +275,7 @@ def zonal_dipole(angles, live):
     """The degree one, order zero coefficient: the lit set's displacement along the polar axis.
 
     This is the quantity a cone sitting at one pole instead of the other IS. Taken as the signed
-    coefficient and not its magnitude, because the sign is the whole question.
+    coefficient and not its magnitude, because the sign is the question.
     """
     table = boundary_read.complex_coefficients(angles, live, TOP)
     real, _ = table.get((1, 0), (0.0, 0.0))
@@ -313,7 +313,7 @@ def _runs(messages, draws):
     """The autocorrelation of the dipole across rounds, against states that carry nothing over.
 
     The real sequence cannot jump, because six of eight words at round r are round r-1's words in a
-    new position. So a drifting dipole is exactly what the shift register predicts, and reporting
+    new position. A drifting dipole is the shift register's own prediction, and reporting
     that drift as a finding without this control would be reporting the compression function's
     published structure as a discovery.
 

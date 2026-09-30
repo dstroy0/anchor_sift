@@ -109,7 +109,7 @@ def decay(samples, rng, depths=(2, 4, 6, 8, 10, 12, 16, 20)):
 
     Reduced-round SHA, one input bit flipped, counting output bits moved. A bit whose influence
     arrives faster or slower than the rest would be a channel, and the spread ACROSS input bits at
-    each depth is what says whether any does.
+    each depth says whether any does.
     """
     import sys, os
     sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(

@@ -181,7 +181,7 @@ def main():
 
     # The consensus at each frequency, and how far each setting departs from it. This is the field
     # the tool exists for: it is zero where the settings agree, and everything that is left is the
-    # analysis and not the signal.
+    # analysis.
     consensus = []
     for at in range(grid_n):
         column = sorted(row[at] for row in level)

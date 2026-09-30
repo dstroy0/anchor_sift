@@ -23,7 +23,7 @@
 #
 # The rebuild stores only the bond-length magnitudes, the real bond angles, the peptide torsion, and
 # each phi and psi quantized to the Richardson two-degree grid. That grid is the reference's quantum,
-# named in ramachandran_rules, and it is the whole of what the walk is told about direction.
+# named in ramachandran_rules, and it is all the walk is told about direction.
 
 import io
 import json

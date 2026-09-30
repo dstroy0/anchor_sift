@@ -34,7 +34,7 @@
 # has none: a rate against three quoted numbers cannot say what a file resembles, only how often it
 # uses named phrases.
 #
-# Run claudese_distance.py first. The one thing it states it does not measure is arrangement, since
+# Run claudese_distance.py first. It states it does not measure arrangement, since
 # its file-level distances are taken on a bag of words and it says so at the foot of its own output.
 # The RHYTHM section below is that missing half and is the only reason to run this.
 

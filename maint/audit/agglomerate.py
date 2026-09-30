@@ -24,7 +24,7 @@ THE NULL IS DRAWN, NOT DERIVED
 Correlations of 256 vectors give 32640 pairs, and the largest of those has no usable closed form.
 So the null permutes each position's arm order INDEPENDENTLY, which destroys co-variation while
 holding every position's own distribution exactly fixed, and reclusters. Anything the real data
-does that the permuted data cannot is co-variation and nothing else.
+does that the permuted data cannot is co-variation.
 
     python maint/audit/agglomerate.py
     python maint/audit/agglomerate.py --draws 200

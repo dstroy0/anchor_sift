@@ -12,7 +12,7 @@
 #
 # The result is bench_raster with the device arm compiled in. Without this script the CMake build
 # still produces bench_raster, linking the stub arms in anchor_raster_output.c, and it reports the device as
-# absent and grades the host alone. That is a skip and never a pass.
+# absent and grades the host alone. That is a skip.
 
 param(
     [string]$Arch = ""

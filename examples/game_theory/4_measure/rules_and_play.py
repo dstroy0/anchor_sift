@@ -14,8 +14,8 @@
 # different strength on one fixed rule set give nine corpora that differ in the play alone, and the
 # rule set's contribution is in every one of them.
 #
-# The three arms are the textbook ones. Drawing uniformly from the legal moves knows the rules and
-# nothing else. Taking the move that turns over the most pieces is the standard weak heuristic and is
+# The three arms are the textbook ones. Drawing uniformly from the legal moves knows the rules.
+# Taking the move that turns over the most pieces is the standard weak heuristic and is
 # weak here too. Taking a corner where one is offered, and otherwise turning over the fewest pieces,
 # is the standard improvement: a corner cannot be flipped back and a small flip leaves the opponent
 # fewer replies.

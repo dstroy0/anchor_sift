@@ -45,7 +45,7 @@ def build_signs(first, span, beta):
     survey_nonces, in an analysis script instead of a kernel.
 
     The SHA-256 state itself stays at thirty-two bits either side of this, because the mod 2^32 ring
-    IS the function and widening it computes a different one. The distinction is the whole point:
+    IS the function and widening it computes a different one. The distinction is why the widths are separate:
     the ring is fixed by definition, the statistics over it grow without bound, and they must not
     share a width.
     """

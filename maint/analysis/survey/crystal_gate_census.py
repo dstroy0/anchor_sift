@@ -46,7 +46,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke every
-# path in this tree the last time anything moved. The dirname guard is what keeps a missing sentinel
+# path in this tree the last time anything moved. The dirname guard keeps a missing sentinel
 # from climbing off the top of the drive and resolving every root to the filesystem root. That is
 # the failure recorded against the prose checker.
 while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
@@ -114,7 +114,7 @@ def main():
 
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
 
-    # Named, not assumed. A census whose root is wrong reports a smaller tree than the one it names,
+    # A census whose root is wrong reports a smaller tree than the one it names,
     # and the number still looks like an answer.
     out.write("\n  cache    %s\n" % args.cache)
     out.write("  families %s\n\n" % args.families)

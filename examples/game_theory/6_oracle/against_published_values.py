@@ -7,7 +7,7 @@
 #
 #   Usage:  python examples/game_theory/6_oracle/against_published_values.py
 #
-# A game carries its own answer key, and that is the whole reason this subject is in the tree. The
+# A game carries its own answer key, and this subject is in the tree for that reason. The
 # checks below are not self-consistency checks and they are not regression tests against a value this
 # code produced earlier. Each one is a number that existed before this file did, computed by other
 # people for other reasons, and the instrument either reproduces it or does not.

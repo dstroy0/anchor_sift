@@ -112,7 +112,7 @@ Run from the repository root, one at a time, reading the output of each.
 ## 5. Two things that can still leak after this
 
 **An untracked file is one `git add .` away from tracked.** On `main` every internal file is still
-sitting in the working tree, untracked. A `.gitignore` on `main` listing the internal paths is what
+sitting in the working tree, untracked. A `.gitignore` on `main` listing the internal paths
 stops a future `git add .` sweeping them into a public branch. Write it before the first commit, not
 after.
 

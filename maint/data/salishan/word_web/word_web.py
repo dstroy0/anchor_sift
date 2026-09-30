@@ -12,7 +12,7 @@
 # bytes: it cannot see that cítxʷ and citxw are the same word written twice, and it cannot see that
 # a Nuxalk word and a Lushootseed word mean the same thing.
 #
-# The web is what carries that. It has three kinds of edge and each is measured off the extraction
+# The web carries that. It has three kinds of edge and each is measured off the extraction
 # instead of listed by hand:
 #
 #   concept    two forms whose glosses share a content word. This is the edge that crosses

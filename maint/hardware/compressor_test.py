@@ -49,7 +49,7 @@ def reduce_32(operands, topology):
     can be grouped into a cell is, all cells fire at once, and their outputs form the next level.
 
     An earlier version used a queue - take from the front, push to the back - and reported that the
-    topology made no difference. That was the queue and not the tree: a tainted operand's outputs
+    topology made no difference. That was the queue: a tainted operand's outputs
     were re-queued behind untainted ones and met fewer cells than they should. The climb came out
     short and equal for every cell shape.
     """

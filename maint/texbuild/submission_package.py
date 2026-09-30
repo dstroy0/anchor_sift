@@ -22,8 +22,8 @@
 # that wants only the built PDF still needs the build to have worked somewhere.
 #
 # So the assembly and the checks below are the whole job and they are the same every time. The
-# archive format is the only part that changes, and it is a flag and not a name baked into the
-# file. This started life as arxiv_package.py and that was the wrong shape: it made one venue's
+# archive format is the only part that changes, and it is a flag.
+# This started life as arxiv_package.py and that was the wrong shape: it made one venue's
 # packaging look like a property of the work.
 #
 # WHY ANY OF IT IS NEEDED
@@ -33,7 +33,7 @@
 # says \input{../../preamble.tex}, and preamble.tex then says \input{../macros.tex}. That resolves
 # here because theory/ is the directory above them all, and it resolves nowhere else.
 #
-# The fix is not to restructure theory/, because one shared preamble across every research paper is what keeps
+# The fix is not to restructure theory/, because one shared preamble across every research paper keeps
 # a layout change reaching all of them. The fix is to copy the shared files into the research paper at
 # packaging time and rewrite the lines that point at them.
 #
@@ -222,7 +222,7 @@ def uncomment(text):
     A full line comment is deleted outright. A comment after content keeps its percent sign and
     loses everything after it. That percent sign is doing work: LaTeX drops the newline following
     it. Removing it joins two words with a space that was not there before. This is the step
-    that quietly changes a typeset page, and keeping the sign is what stops it.
+    that quietly changes a typeset page, and keeping the sign stops it.
     """
     held = []
     found = 0

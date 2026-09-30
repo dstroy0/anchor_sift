@@ -177,7 +177,7 @@ def main():
     print("-" * 78)
     print()
 
-    # THE PARITY SPLIT IS THE ONE THAT DECIDES IT. Both halves span the same epochs and the same
+    # THE PARITY SPLIT DECIDES IT. Both halves span the same epochs and the same
     # population. Nothing but noise can separate their troughs.
     evens = [b for b in blocks if b["height"] % 2 == 0]
     odds = [b for b in blocks if b["height"] % 2 == 1]

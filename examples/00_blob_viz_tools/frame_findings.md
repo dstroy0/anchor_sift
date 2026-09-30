@@ -341,7 +341,7 @@ whole sphere is in view and every seam is visible at once.
 in the order they are worth running:
 
 1. **Turn shadow casting off.** The `cast` checkbox already drives `light.castShadow` for every
-   source. If the edges go, it is the shadow and nothing else. If they stay, this section is wrong.
+   source. If the edges go, it is the shadow. If they stay, this section is wrong.
 2. **Move a source and hold the observer still.** The cube is oriented in the light's frame. A
    shadow seam moves with the source. A tessellation or depth artifact is fixed to the room.
 3. The pattern should carry cube symmetry, meeting at eight points, and should not line up with the

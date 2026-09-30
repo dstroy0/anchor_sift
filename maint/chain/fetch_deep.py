@@ -11,10 +11,10 @@ Two leads came out of the thousand-block corpus below the bar and neither can be
     the shape of the clock-offset population                        31 reversals is too few
 
 Twenty thousand blocks is twenty times the count. A real effect grows by the square root of
-twenty, about 4.5, and a spurious one does not. That is the whole design: the same statistic, more
-of it, and the two outcomes are not alike.
+twenty, about 4.5, and a spurious one does not. The design is the same statistic, more
+of it, and two outcomes that are not alike.
 
-Read only, and self-verifying: every header field is kept so a block can be rebuilt and hashed
+Read only, and self-verifying: every header field is kept so that a block can be rebuilt and hashed
 against its own recorded id without trusting the source.
 
     python maint/chain/fetch_deep.py

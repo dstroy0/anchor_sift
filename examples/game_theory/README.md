@@ -163,7 +163,7 @@ reporting only `H_all` lets a bigger budget look like a more certain position.
 Everything upstream of the logarithm is exact. Outcome distributions are `fractions.Fraction`, built
 from exact integer weights over deck counts and uniform move priors. Two distributions computed by
 different routes are compared with `==` and not with a tolerance. `log2` of a rational is irrational
-except at powers of two. The entropy is a float and carries sixteen digits and no more.
+except at powers of two. The entropy is a float and carries sixteen digits.
 
 That boundary is drawn as late as possible and every probability printed beside an entropy is the
 exact rational and not a rounded copy. A reader who distrusts the entropy can recompute it.
@@ -192,8 +192,8 @@ python examples/game_theory/2_partition/what_the_branching_costs.py 5
 python examples/game_theory/3_reference/what_random_play_reaches.py 20000
 ```
 
-Run stage six first -- it is the positive control, it takes a few seconds, and nothing
-else in the subject means anything if it fails. Stage two is the slow one: its chess arm is a perft
+Run stage six first -- it is the positive control, it takes a few seconds, and no other stage
+in the subject means anything if it fails. Stage two is the slow one: its chess arm is a perft
 and the node count is exponential. Passing a larger ply count costs what the game charges.
 
 ## What is not here

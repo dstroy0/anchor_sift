@@ -42,7 +42,7 @@ torsion is invariant to moving or turning the whole molecule. A protein's fold d
 coordinates, which carry a position and an orientation the fold does not have. It lives in the
 torsions, and those are what the rules are written over.
 
-## The one place an irrational is unavoidable, named and not buried
+## Where an irrational is unavoidable, named and not buried
 
 Crystallography needs no tolerance: a lattice displacement lands on an occupied place or it does
 not. A protein cannot be read that way. A torsion is an `atan2` of the backbone geometry, an
@@ -50,7 +50,7 @@ irrational the deposit never wrote, and the rules are published on a grid of two
 of as a formula. So there is a quantum here, and the discipline is to take it from the reference
 instead of picking one.
 
-`representation.structure.protein.phi_psi` computes each torsion as exact integer terms: the whole
+`representation.structure.protein.phi_psi` computes each torsion as exact integer terms: all
 of it is cross and dot products of integer coordinates, and it hands back the two integers whose
 ratio the angle is, without ever taking the `atan2`. The single irrational step is taken once, in
 `ramachandran_rules.angle`, in decimal and to forty digits, which is forty orders of magnitude

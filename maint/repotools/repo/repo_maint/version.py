@@ -11,7 +11,7 @@
     bump2version major                  0.1.0 -> 1.0.0
     bump2version --dry-run --verbose minor        what it would write, and to what
 
-That writes three files, and they are the three that carry a version as data and nothing else:
+That writes three files, and they are the three that carry a version as data:
 library.json and library.properties publish it to a package index, and CMakeLists.txt hands it to
 project(). Those three were apart once already - both manifests said v0.0.0 while CMake and every
 banner in the tree said 0.1.0 - the whole reason a version now has one home.

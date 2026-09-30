@@ -116,15 +116,15 @@ The residue left after the bodies are subtracted is the sample's own field noise
 
 This rule was argued for before it was accepted, because the ordinary default runs the other way: a module that needs another's result calls it, and a module that needs another's type includes its header. Both look free. Here is why neither is.
 
-**The hand-off is the b.** §1's condition was that a → b and b → c give a → c only where the b one step hands over is exactly the b the next takes in. Between modules, the b is the value that crosses the boundary. Where that value is a plain struct from `engine_config.h` (named fields, ownership stated on each, no behavior), the whole of b is visible: whoever holds it can see every part of what passed, and nothing else passed. The steps then compose as §1 says, and the chain can be written from outside:
+**The hand-off is the b.** §1's condition was that a → b and b → c give a → c only where the b one step hands over is exactly the b the next takes in. Between modules, the b is the value that crosses the boundary. Where that value is a plain struct from `engine_config.h` (named fields, ownership stated on each, no behavior), the whole of b is visible: whoever holds it can see every part of what passed. The steps then compose as §1 says, and the chain can be written from outside:
 
     stage3(stage2(stage1(x)))  =  (stage3 ∘ stage2 ∘ stage1)(x)
 
-**A reach hides part of the chain.** Where module 1 includes module 2 and calls it, the value module 1 hands on is no longer its own output: it already has some of module 2 folded into it, at a place nobody composing the chain can see. Nobody can then say where stage 1 ends. It cannot be regrouped, tested alone, replaced, or checked at its boundary, because it has no boundary. Composition still happens, but it happens inside a module, out of reach of the one place meant to hold the whole program. A chain like that is a tangle, and a tangle cannot collapse to one object.
+**A reach hides part of the chain.** Where module 1 includes module 2 and calls it, the value module 1 hands on is no longer its own output: it already has some of module 2 folded into it, at a place nobody composing the chain can see. Nobody can then say where stage 1 ends. It cannot be regrouped, tested alone, replaced, or checked at its boundary, because it has no boundary. Composition still happens, but it happens inside a module, out of reach of the place meant to hold the whole program. A chain like that is a tangle, and a tangle cannot collapse to one object.
 
 **A reach up into the composer is worse.** A module that includes the entry calls the thing that is meant to call it. The chain then contains itself, and "compose first, apply after" is no longer well founded.
 
-**Composed only in the entry.** The entry, `src/engine/engine_*.cu`, is where the program is written as a chain, and so the one place a chain is meant to be composed. At d5f6a06 it was the only place that included more than one of the key's or the codec's stages (the tracker's modules were not there yet: see the table below). Two chains are composed there.
+**Composed only in the entry.** The entry, `src/engine/engine_*.cu`, is where the program is written as a chain, and so the place a chain is meant to be composed. At d5f6a06 it was the only place that included more than one of the key's or the codec's stages (the tracker's modules were not there yet: see the table below). Two chains are composed there.
 
 *The key* (`engine_key_encode`):
 
@@ -158,5 +158,5 @@ None of these stages knows another exists. The tower does not know its coefficie
 | the key chain (`keymath`, `key_schedule`, `cycle`) reaches nothing | proved: `audit_reaching.py` at d5f6a06 |
 | the codec (`tower`, `compression`, `apxrep`, `entropy_history`) reaches nothing but `crc` | proved: `audit_reaching.py` at d5f6a06; `iapx` is gone, composed in the entry |
 | a split that regroups the chain in the entry changes no output | proved for three splits: compression from the tower (.kcr byte identical, set CRC 091daa41e1aceb7e), keymath and key_schedule from the cycle (edges identical), the driver split (edges and score rows identical) |
-| `crc` is a root and not a reach | by the rule; it is a compile-time constant and pure functions, held to the published check value |
+| `crc` is a root | by the rule; it is a compile-time constant and pure functions, held to the published check value |
 | the tracker's modules reach nothing | **not so yet**: at d5f6a06, 19 modules still reach and 18 reach nothing. `score_sample` reaches 14 modules; `binomial_basins`, `flatten` and `score_sample` reach up into `entry`; the rest reach `track` and one another. They are being split next, and each stays listed here until the audit clears it |

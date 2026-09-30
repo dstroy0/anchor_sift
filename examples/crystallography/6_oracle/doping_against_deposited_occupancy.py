@@ -167,7 +167,7 @@ def main():
         for position, holders in grouped.items():
             elements = sorted({element for element, _ in holders})
             if len(elements) < 2:
-                # Not shared. A single element under full occupancy is a vacancy and not a dopant,
+                # Not shared. A single element under full occupancy is a vacancy,
                 # the case stage four correctly declines to report.
                 total, under = total_occupancy(holders)
                 if (total is not None) and under:

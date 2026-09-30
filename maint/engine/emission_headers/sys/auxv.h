@@ -14,8 +14,8 @@
  *       RUN. maint/engine/verify_arm_asm.sh compiles an ARM arm to an object with clang and reads the
  *       instructions that came out. clang ships arm_neon.h and arm_sve.h and can target aarch64 from
  *       any host, but it ships no Linux C library. A file including <sys/auxv.h> stops before the
- *       vector loops are ever compiled. This header supplies what that include provides and nothing
- *       more. The loops reach the assembler.
+ *       vector loops are ever compiled. This header supplies what that include provides.
+ *       The loops reach the assembler.
  * @note What this cannot vouch for is detection. The two values below are the Linux ABI's, and a
  *       wrong one here would change which bit the arm tests without changing a single vector
  *       instruction. Emission grading never touched detection before this file existed, and it does

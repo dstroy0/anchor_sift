@@ -16,11 +16,11 @@
 #
 # Impartial games remove the cost. A subtraction game with a finite move set has an eventually
 # periodic Grundy sequence, proved, and the period is a quantity a dull exact routine computes by
-# comparison. So a row is free, the number of rows is a choice, and no row's answer came from the
-# detector being tested. That is the whole of what this subject is for.
+# comparison. A row is free, the number of rows is a choice, and no row's answer came from the
+# detector being tested. This subject is for that.
 #
-# The detector is `measure.periodicity.sequence_period` and it is the one the crystallography chapter
-# uses on cell edges. It knows nothing about games. It is handed a list of small integers.
+# The detector is `measure.periodicity.sequence_period` and the crystallography chapter
+# uses it on cell edges. It knows nothing about games. It is handed a list of small integers.
 #
 # One rule has to be respected and it is the detector's own. A period is scored against its
 # multiples. A period beyond half the window has a family of one inside the window and is the

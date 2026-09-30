@@ -9,7 +9,7 @@
 #   Usage:  python examples/game_theory/2_partition/board_width.py [games]
 #
 # Reading a grid row major spends its second axis, and the partition stage is where that is paid
-# for. The claim being tested is the one the picture work already makes: an image read as a byte
+# for. The picture work already makes the claim being tested: an image read as a byte
 # sequence returns its own width. A board is the same shape of object with a width nobody has to
 # look up.
 #

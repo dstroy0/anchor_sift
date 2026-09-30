@@ -37,8 +37,8 @@ from salish_marking import CAPS_RUN, bare_token, tagged_spans
 REPAIR = (("ˇx", "x̌"), ("ˇc", "č"), ("ˇs", "š"),
           ("@", "ə"), ("P", "ʔ"), ("ì", "ɬ"), ("Q", "ʕ"))
 
-# CAPS_RUN comes from salish_marking, which is where every reader here gets it. What it protects is
-# the run and not the whole token, because a gloss puts a lexical gloss and a label in one token:
+# CAPS_RUN comes from salish_marking, which is where every reader here gets it. It protects the run
+# inside a token, because a gloss puts a lexical gloss and a label in one token:
 # tell.story-APPL, know+INCH, -manage.to-DIR-3ERG. Guarding whole tokens left those unprotected and
 # wrote tell.story-AʔʔL into the record.
 #

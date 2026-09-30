@@ -12,7 +12,7 @@ The whole machine is visible at every instant:
     s1, ch, t1          the three values built on the e chain inside a round
     s0, maj, t2         the three built on the a chain
 
-So a single flipped input bit can be followed through all of it - where it arrives, in what order,
+A single flipped input bit can be followed through all of it - where it arrives, in what order,
 by which of the two chains, and how far it has spread at each point. A boundary reading gives one
 number per round; this gives the whole path.
 

@@ -260,7 +260,7 @@ def stamp(text, number):
     """The same file with its number on the line under the SPDX line, or None where there is no
     SPDX line to put it under.
 
-    Returning None and not the text unchanged is the whole point. A file
+    Returning None carries the difference. A file
     already carrying the right number returns its text unchanged. The caller could not tell a file it had nothing to
     do to from a file it could not write to, and reported both as stamped. The registry then held a
     number for a file whose header would never carry it, --check reported it adrift forever, and the

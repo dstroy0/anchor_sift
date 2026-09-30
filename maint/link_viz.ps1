@@ -51,7 +51,7 @@ if (-not (Test-Path $holder))
     Write-Host "created $holder"
 }
 
-# The earlier link was named for the whole tools directory. Remove it by name so an upgrade from
+# The earlier link was named for the whole tools directory. Remove it by name so that an upgrade from
 # that version does not leave the over-broad link in place beside the correct one.
 $stale = Join-Path $holder "tools"
 if (Test-Path $stale)

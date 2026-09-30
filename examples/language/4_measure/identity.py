@@ -8,8 +8,8 @@
 #   Usage:  python examples/language/4_measure/identity.py
 #
 # The test is the same one four separate scalars failed. Each text is held out, every language is
-# described by the texts that remain, and the held out text goes to the nearest. If the square is
-# what carries a language, its own texts come home and the scalars were reading a shadow of it.
+# described by the texts that remain, and the held out text goes to the nearest. If the square
+# carries a language, its own texts come home and the scalars were reading a shadow of it.
 #
 # The square is swept over how many ranks it keeps, since keeping more is a finer reading of a
 # smaller part of the alphabet and there is no reason to expect one width to be right.

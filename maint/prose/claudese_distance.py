@@ -230,7 +230,7 @@ def prose_of_path(path, where=None):
     """The prose of one file, for the explain mode.
 
     `where` is the tree the path is relative to, and defaults to this repository. It is a parameter
-    and not a module global because the caller may be measuring another repository.
+    because the caller may be measuring another repository.
     """
     return prose_distance.prose_of(os.path.join(where or prose_distance.ROOT, path))
 

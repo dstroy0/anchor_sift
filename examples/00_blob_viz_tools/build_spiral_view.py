@@ -1,7 +1,7 @@
 """Puts the combed survey on the golden spiral: 256 output bits, 256 places, one arm each.
 
 The survey counts how often each of SHA-256's 256 output positions is set. A table of 256 numbers
-hides the one thing worth seeing, which is whether anything clusters. The positions are placed
+hides whether anything clusters. The positions are placed
 on the sphere by `boundary_read.golden_place` - index k at height 1 - 2(k + 0.5)/256, longitude
 k gamma - and drawn there. That placement has no seam and no pole pile. A cluster on the surface
 is a cluster in the data instead of an artifact of where the points were put.

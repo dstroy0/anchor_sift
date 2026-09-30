@@ -18,8 +18,8 @@
 # This asks the two questions that survive a clean registry.
 #
 #   1. A PRIORITY CLAIM WITH NOTHING BEHIND IT. A sentence saying something here is new, first,
-#      unprecedented, or absent from the literature is a claim about everybody else's work. It is
-#      the one kind of claim this tree cannot check from inside itself, because the evidence for it
+#      unprecedented, or absent from the literature is a claim about everybody else's work. This
+#      tree cannot check that kind of claim from inside itself, because the evidence for it
 #      sits in journals nobody here has read. Either a reference stands near it, or the sentence
 #      says plainly that the reading has not been done.
 #

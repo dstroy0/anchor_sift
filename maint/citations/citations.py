@@ -171,7 +171,7 @@ ENTERED = ("bucket", "author", "year", "title", "identifier", "file", "differs")
 SKIP = ("__pycache__", ".git", "build", "deps", "site")
 
 # What counts as text this tree wrote. A source a reader can find in the tree and the gate cannot
-# read is a source the gate cannot ask about, and the extension list is the whole of what it reads.
+# read is a source the gate cannot ask about, and the extension list is all it reads.
 #
 # The six added here were each hiding a real registry question. .tsv hid maint/texbuild/
 # ledger_days.tsv, which carries the fullest bibliographic strings in the repository. .json hid
@@ -391,7 +391,7 @@ def private_candidates():
 
     Returned and not searched inline so the caller can say what it looked for when it finds
     nothing. A gate that reports only "not there" sends the reader to guess at paths, and the
-    guessing is what left this tool pointing at private_repos/ for the whole of the migration.
+    guessing is what left this tool pointing at private_repos/ throughout the migration.
     """
     base = main_checkout()
     return (
@@ -610,7 +610,7 @@ def main():
         # Naming every place it looked, and not only the one it would have used. A gate that
         # reports a single path it did not find reads as "the repository is missing" when what
         # happened is that the repository moved and this list did not, the state this
-        # tool was in for the whole of the migration.
+        # tool was in throughout the migration.
         out.write("  looked for it at:\n")
         for candidate in private_candidates():
             out.write("      %s\n" % candidate.replace("\\", "/"))

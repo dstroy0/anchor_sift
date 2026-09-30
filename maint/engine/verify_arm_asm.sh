@@ -86,7 +86,7 @@ check "avx2 x86-64" gcc \
     "$ARMS/arm_avx2.c" objdump \
     vpcmpeqd ymm
 
-# AVX-512: no hardware here. Emission is the whole of the grade.
+# AVX-512: no hardware here. Emission is the grade.
 check "avx512 xeon" gcc \
     "-O2 -mavx512f -mavx512bw -mavx512vl -I$ARMS -DANCHOR_EXACT_HAVE_AVX512=1" \
     "$ARMS/arm_avx512.c" objdump \
@@ -98,7 +98,7 @@ check "neon aarch64" aarch64-linux-gnu-gcc \
     "$ARMS/arm_neon.c" aarch64-linux-gnu-objdump \
     cmeq uminv
 
-# SVE: no hardware here. Emission is the whole of the grade.
+# SVE: no hardware here. Emission is the grade.
 #
 # whilelo and not whilelt. svwhilelt_b32 takes unsigned operands here, and the unsigned form of the
 # while instruction is WHILELO, lower-than; WHILELT is the signed one. This row asked for whilelt
@@ -126,7 +126,7 @@ check "scan avx2 x86-64" gcc \
     "$ENGINE/scan_avx2.c" objdump \
     vpcmpeqb ymm
 
-# AVX-512: emission is the whole of the grade. The byte compare writes a mask register. The
+# AVX-512: emission is the grade. The byte compare writes a mask register. The
 # instruction is vpcmpeqb against a zmm operand and not the vpcmpeqd the exact arm emits.
 check "scan avx512 xeon" gcc \
     "-O2 -mavx512f -mavx512bw $SCAN_INC -DANCHOR_STEER_HAVE_AVX512=1" \
@@ -138,7 +138,7 @@ check "scan neon aarch64" aarch64-linux-gnu-gcc \
     "$ENGINE/scan_neon.c" aarch64-linux-gnu-objdump \
     cmeq addv
 
-# SVE: emission is the whole of the grade. whilelo for the unsigned predicate, cmpeq for the byte
+# SVE: emission is the grade. whilelo for the unsigned predicate, cmpeq for the byte
 # compare, cntp for the population count that replaces a movemask, ld1b for the predicated load.
 check "scan sve neoverse" aarch64-linux-gnu-gcc \
     "-O2 -march=armv8.2-a+sve $SCAN_INC -DANCHOR_STEER_HAVE_SVE=1" \

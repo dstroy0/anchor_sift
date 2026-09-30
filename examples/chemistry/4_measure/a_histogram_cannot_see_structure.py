@@ -18,7 +18,7 @@
 # of the same atoms, and two isomers, being the same formula, carry the identical value. The measure
 # reads the formula and stops there.
 #
-# That is the negative result the rest of the pipeline exists for. Arrangement is what tells a
+# That is the negative result the rest of the pipeline exists for. Arrangement tells a
 # molecule from a random packing of its atoms, and the sift stage reads arrangement through the octet.
 # Telling one isomer from another is a finer reading still, and no histogram and no octet reaches it,
 # because both isomers close every atom; it is a geometry question, answered by the bond lengths that

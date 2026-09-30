@@ -13,7 +13,7 @@ WHY FORBIDDEN IS WORTH MORE THAN RARE
 
 A rare transition needs a probability and a null and an argument. A forbidden one needs none of
 those: it either happened or it did not, and if a transition cannot occur then any trajectory
-requiring it is ruled out completely. That is what makes impossible differentials a different kind
+requiring it is ruled out completely. That makes impossible differentials a different kind
 of tool from the statistical ones, and it is the reading a frequency table cannot give.
 
 THE WINDOW CLOSES FAST
