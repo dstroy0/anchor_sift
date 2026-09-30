@@ -22,8 +22,8 @@
 # WHY THESE DATASETS AND NOT A LEADERBOARD. The permutation null measure carries most of the
 # findings in this work and has no positive control from outside it, which theory/workbooks/anchor_sift calls the
 # largest single gap in the work. The shift agreement detector has three, all from published crystal
-# cell edges. These datasets ship published ground truth tracking annotations, which is what a
-# positive control is: an answer that existed before the measurement and was not supplied by it.
+# cell edges. These datasets ship published ground truth tracking annotations, a
+# positive control: an answer that existed before the measurement and was not supplied by it.
 #
 # TWO ROWS ARE NOT LIKE THE OTHERS AND THEY ARE THE ONES TO START ON. The marker the challenge
 # writes as a cross, here `perfect`, means the segmentation masks are exact because the data is

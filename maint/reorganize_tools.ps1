@@ -27,7 +27,7 @@ $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 $tools = Join-Path $root "tools"
 
-# What each file is, which is the only thing that decides where it goes.
+# What each file is. That is the only thing that decides where it goes.
 $sorting = @{
     "view" = @(
         "build_shadow_view.py", "build_sources_view.py", "build_step_view.py",

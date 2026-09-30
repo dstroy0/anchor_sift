@@ -15,7 +15,7 @@ EVERY input mask simultaneously, in k times 2^k butterfly operations instead of 
     sampled:     4000 masks, 160 million bignum operations, best-of-what-was-drawn
     transform:   all 2^k masks, k times 2^k integer adds, exhaustive
 
-So the transform is both complete and cheaper, which is the usual shape of using the right algorithm.
+So the transform is both complete and cheaper. That is the usual shape of using the right algorithm.
 
 OUT OF SAMPLE STILL APPLIES
 

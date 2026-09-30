@@ -31,7 +31,7 @@ cannot read is the same defect as a prose root that no longer exists.
 
 SAME SHAPE NEVER MEANS SAME BEHAVIOR. THIS IS THE INSTRUMENT'S LIMIT.
 
-Identifiers renumber by first appearance, which is what lets two copies match after they drift. It
+Identifiers renumber by first appearance. That lets two copies match after they drift. It
 also means a misspelled identifier is invisible here. Measured on this machine: ProtoCore's
 `move_code.py` reads `args.anchor_before` and MMgr's reads `args.ancorae_before`. The MMgr copy
 raises AttributeError on every anchored move. Both hash to cb2b60bdb26d6c01. One works, one is

@@ -35,7 +35,7 @@ population, and any disagreement is noise with nothing else it can be.
 WHAT EACH OUTCOME MEANS
 
     parity halves agree, time halves agree      a real phase, and a stable one
-    parity halves agree, time halves differ     a real phase that MOVED, which is the interesting
+    parity halves agree, time halves differ     a real phase that MOVED. That is the interesting
                                                 case and the one the geography claim wants
     parity halves differ                        no phase to speak of. The trough hour is this
                                                 corpus' noise and the geography paragraph has to go
@@ -104,7 +104,7 @@ def circular_distance(left, right):
 def draw_null(first, second, trials, rng):
     """How far apart two troughs land when neither half has a phase.
 
-    The counts are redrawn multinomially at each half's own total over uniform hours, which is the
+    The counts are redrawn multinomially at each half's own total over uniform hours, the
     same null the amplitude was tested against. What comes back is the distribution of the
     trough-to-trough distance under no common cycle, and it is emphatically NOT uniform on 0..12 -
     the smoothing correlates neighboring bins - so it has to be drawn instead of reasoned about.
@@ -132,7 +132,7 @@ def report_split(name, first, second, trials, rng):
 
     spread = draw_null(first_counts, second_counts, trials, rng)
     # How often chance alone puts two troughs THIS close or closer. Small means the halves agree
-    # more than they should by accident, which is what a real phase looks like.
+    # more than they should by accident. A real phase looks like that.
     beaten = sum(1 for value in spread if value <= apart)
     p = beaten / float(len(spread))
     middle = sum(spread) / float(len(spread))

@@ -16,7 +16,7 @@ Turning an hour into a longitude needs one assumption - which local hour the dip
 that assumption changes the answer. Electricity peaks in the local afternoon. A curtailment dip
 should sit near local 16:00, but a maintenance window would not, and a cheap-power surge would sit
 opposite. The view therefore puts that hour on a control instead of burying it in the arithmetic:
-move it and the inferred longitude rotates, which is the honest way to show that the geography is
+move it and the inferred longitude rotates. That is the honest way to show that the geography is
 downstream of a mechanism nobody has proved yet.
 
 WHAT IT IS NOT

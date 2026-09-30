@@ -76,14 +76,14 @@ with which phi. On every structure the favored fraction falls by ten to sixteen 
 favored regions are diagonal ridges on the plane and not a rectangle: a phi from a helix put beside
 a psi from a sheet lands between them, where the reference is thin. That gap is the fraction of the
 reading that rests on the pairing, the secondary structure. Drawing angles uniformly gives
-the flat background, about a sixth of the plane, which is how much a structure with no preference at
+the flat background, about a sixth of the plane. That is how much a structure with no preference at
 all would reach. Live sits well above the shuffle, and the shuffle well above the flat floor, on
 every entry.
 
 **Stage six** is the positive control the subject lacked. It draws 1000 proteins at random from
 every X-ray entry in the open Protein Data Bank, recovers each one's outlier rate from the torsions
 alone, and compares it to the rate wwPDB published for that entry. The archive is open and keyless
-the same way the Crystallography Open Database is, which is what let crystallography build its
+the same way the Crystallography Open Database is. That let crystallography build its
 control, and the draw is seeded so it repeats.
 
 The corpus is random on purpose. Sorting by resolution and taking the top was the wrong control:

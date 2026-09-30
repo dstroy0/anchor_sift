@@ -104,7 +104,7 @@ def norm(s):
 
 
 def words(s):
-    """The words alone, which is what a faithful quotation preserves."""
+    """The words alone. A faithful quotation preserves that."""
     s = MARKER.sub(" ", norm(s)).lower()
     return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9]+", " ", s)).strip()
 

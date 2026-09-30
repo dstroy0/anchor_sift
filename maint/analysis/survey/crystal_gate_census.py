@@ -47,7 +47,7 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke every
 # path in this tree the last time anything moved. The dirname guard is what keeps a missing sentinel
-# from climbing off the top of the drive and resolving every root to the filesystem root, which is
+# from climbing off the top of the drive and resolving every root to the filesystem root. That is
 # the failure recorded against the prose checker.
 while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)

@@ -1,6 +1,6 @@
 """Trace one flipped bit through every interior value, not just to the boundary.
 
-Every other measurement in this tree reads the digest: the state after N rounds, which is the
+Every other measurement in this tree reads the digest: the state after N rounds, the
 boundary of the computation. That is the right shape for a physical system, where the interior
 cannot be reached and has to be inferred from what escapes. It is the wrong shape here, because
 nothing about this interior is hidden.

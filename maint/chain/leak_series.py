@@ -4,7 +4,7 @@ A single number for the leak hides the thing worth knowing. Conventions are set 
 software is deployed, updated and retired. The leak has no reason to hold still. Measured in
 sliding windows it has three separable parts, and they answer different questions:
 
-  mean          what the network's conventions cost on average, which is the number that belongs
+  mean          what the network's conventions cost on average. That is the number that belongs
                 in a summary
   fluctuation   how much a window-sized sample wanders. The floor on this is known instead of
                 estimated: a window of W blocks manufactures a deficit near log2(1 + (n-1)/W)

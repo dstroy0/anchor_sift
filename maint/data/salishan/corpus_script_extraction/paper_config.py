@@ -272,8 +272,8 @@ KINKADE_COLUMBIAN = SHARED + "̣" + "́̀̌" + "æɪ"
 # oracle's own form column: past SHARED these rows hold the acute and the dot below, and nothing
 # else. No grave and no caron anywhere in the paper.
 #
-# Its lateral is U+026C, which is what the file encodes and what every other Nɬeʔkepmxcín row in the
-# corpus uses. The embedded font draws that character with a bar through the stem. A reader working
+# Its lateral is U+026C. The file encodes that, and so does every other Nɬeʔkepmxcín row in the
+# corpus. The embedded font draws that character with a bar through the stem. A reader working
 # from page renders sees U+0142 and writes it. The table's symbol note records the trap.
 #
 # The paper's own footnote 1 names the orthography: a form of the North American Phonetic Alphabet
@@ -286,8 +286,8 @@ GIVENS_HALL_NLEKEPMXCIN = SHARED + "́" + "̣"
 # words the text layer also writes correctly elsewhere. The page is consistent and the extraction is
 # not. The hand extraction differing from it is the extraction's defect and not the reading's.
 #
-# Every site was enumerated and every one read off a page render before it was entered here, which
-# is what corrected() asks of a pair. Seven patterns cover all twenty four:
+# Every site was enumerated and every one read off a page render before it was entered here.
+# corrected() asks that of a pair. Seven patterns cover all twenty four:
 #
 #   xwúy̓   xʷúy̓ceʔs on page 2 lines 2, 6 and 14 and in the segmentation of examples 4, 11, 20, 24
 #   xwʔít  xʷʔít on page 2 lines 3 and 5, example 5, example 9, example 18

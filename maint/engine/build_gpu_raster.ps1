@@ -8,7 +8,7 @@
 # nvcc drives a host compiler and on Windows that host compiler is MSVC. The CMake build uses a
 # different one, and objects from the two do not link. The device arm gets its own build exactly
 # as the exact arm does in build_gpu_arm.sh. Everything this binary needs is compiled here by the one
-# compiler nvcc is driving, which is what keeps the ABI consistent inside it.
+# compiler nvcc is driving. That keeps the ABI consistent inside it.
 #
 # The result is bench_raster with the device arm compiled in. Without this script the CMake build
 # still produces bench_raster, linking the stub arms in anchor_raster_output.c, and it reports the device as

@@ -110,7 +110,7 @@ def main():
 
         lowest = min(block["height"] for block in batch)
         height = lowest - 1
-        # The first run had no pause here at all, which is what earned the rate limit at 6980.
+        # The first run had no pause here at all. That earned the rate limit at 6980.
         time.sleep(given.pause)
         if len(collected) % 2000 < 10:
             rate = len(collected) / max(time.time() - started, 1e-9)

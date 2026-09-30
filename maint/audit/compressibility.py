@@ -9,7 +9,7 @@ short generating program, and that is exactly the property that would matter.
 
 This runs the other axis. Three sequences are compared under identical treatment:
 
-    sha       leading bits of SHA-256 over consecutive nonces, which is what mining searches
+    sha       leading bits of SHA-256 over consecutive nonces, the thing mining searches
     pi        hexadecimal digits of pi, which HAVE a short program by construction
     random    the operating system's entropy source, which by assumption has none
 

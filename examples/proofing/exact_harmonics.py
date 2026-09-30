@@ -71,7 +71,7 @@ def legendre(degree, order, cos_theta, places):
 
     Polynomial in cos theta and in the sine. With the sine supplied this is exact fixed point
     arithmetic with no series anywhere. The recurrence is the textbook one and is stable upward in
-    degree, which is the direction it is used.
+    degree. That is the direction it is used.
     """
     scale = 1 << places
     # sin theta from the identity, by Newton's root in the engine.

@@ -27,7 +27,7 @@
 # the pole the original could not be.
 #
 # So the two corpora are kept apart and never merged. Merging them would average a suppressed
-# register with an unsuppressed one and report a number belonging to neither, which is the same
+# register with an unsuppressed one and report a number belonging to neither. That is the same
 # error as pooling arms measured under different conditions.
 #
 # THE EXTRACTION IS IMPORTED AND NEVER COPIED

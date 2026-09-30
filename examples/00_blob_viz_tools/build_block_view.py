@@ -16,7 +16,7 @@ chance alone produces on the same statistic at the same sample size, and a verdi
               detects signal elsewhere is evidence of absence, not absence of evidence
     marginal  sits on the line. Named as such instead of rounded into one of the other two
 
-Roughly half the entries are level, which is the honest proportion and the reason to publish them
+Roughly half the entries are level. That is the honest proportion and the reason to publish them
 next to the tilted ones instead of only the interesting half.
 
     python examples/00_blob_viz_tools/build_block_view.py

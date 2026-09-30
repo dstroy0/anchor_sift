@@ -80,7 +80,7 @@
 #   00README.json  The engine, the top-level file and the TeX Live release, in the JSON form arXiv
 #                  reads (https://info.arxiv.org/help/00README.html, read 2026-09-23). Without it
 #                  arXiv guesses the engine from the source, and these research papers need xelatex.
-#   flat tarball   No wrapping directory, which is what `tar -cvvf ax.tar *` produces from inside
+#   flat tarball   No wrapping directory. `tar -cvvf ax.tar *` produces that from inside
 #                  the assembled copy.
 #   metadata.txt   The title, the authors and the abstract with the LaTeX taken out and the line
 #                  breaks collapsed, ready to paste into the web form. arXiv shows the whitespace
@@ -490,8 +490,8 @@ def still_climbing(out):
 def bundle(out, kind):
     """The assembled directory wrapped as the venue asked. Returns (name, bytes), or None.
 
-    Every path inside the archive sits under one top-level directory named for the research paper, which is
-    what an extract-into-one-root venue needs and what a person unpacking it locally wants anyway.
+    Every path inside the archive sits under one top-level directory named for the research paper.
+    An extract-into-one-root venue needs that, and a person unpacking it locally wants it anyway.
     """
     base = os.path.basename(out)
     if kind == "none":

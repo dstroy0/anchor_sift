@@ -72,8 +72,8 @@ def place_only(seed, filled=SIDE * SIDE, from_opening=True):
     because the first run of this script left them in and read 0.971 where the argument wanted 1.00,
     and the miss is the opening itself: those four squares are laid out BW over WB. All four of
     the neighboring pairs inside them disagree by construction where a draw would have half of them
-    agree. Four guaranteed disagreements out of 112 pairs is 0.018 of the reading, which is the whole
-    of the gap. Starting from an empty board removes them and the control returns 0.997.
+    agree. Four guaranteed disagreements out of 112 pairs is 0.018 of the reading. The gap comes from nothing
+    else. Starting from an empty board removes them and the control returns 0.997.
 
     The same four squares sit under the Reversi rows and push them the same way. The departure
     reported there is understated by about that much and never overstated.

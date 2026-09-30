@@ -18,7 +18,7 @@
 #     387.9   human prose, 759,815 words of the research papers
 #     112.8   this tree, after a day of repair
 #
-# Those are the bar, and they were drawn and not derived, which is the rule this tree applies to
+# Those are the bar, and they were drawn and not derived, the rule this tree applies to
 # every other threshold. A file scoring near 643 reads like an assistant however clean its findings
 # list is. A file near 112 reads like this tree.
 #

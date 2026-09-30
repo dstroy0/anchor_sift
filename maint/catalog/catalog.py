@@ -126,8 +126,8 @@ DOMAIN = {
 # CEL, GAM and EXP were added after seventeen examples had already been written carrying numbers
 # their authors minted by pattern. A domain absent from this table makes slot_of return None, the
 # file reports as NO DOMAIN and not numbered, and the hand-written header sits there looking issued.
-# Two sessions did that independently and neither was told by anything until --check was run, which
-# is the argument for running it instead of copying the shape of a number that is already there.
+# Two sessions did that independently and neither was told by anything until --check was run.
+# That is the argument for running it instead of copying the shape of a number that is already there.
 # CHM joined the same way, after three chemistry examples had landed with no number and --check
 # failed on main naming them.
 #

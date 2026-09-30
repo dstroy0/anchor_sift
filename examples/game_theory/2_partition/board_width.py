@@ -54,7 +54,7 @@ WIDTHS = (12, 16, 20, 24, 32)
 def two_heap(moves, width):
     """Grundy values of two independent heaps under one move set, as a square grid.
 
-    The value of a sum of independent games is the exclusive or of their values, which is the
+    The value of a sum of independent games is the exclusive or of their values. That is the
     Sprague-Grundy theorem and is not something measured here.
     """
     values = grundy_subtraction(moves, width)

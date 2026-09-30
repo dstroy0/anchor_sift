@@ -97,7 +97,7 @@ foreach ($arm in $arms)
 }
 
 # Running is the slow part and the benches are independent. Run them concurrently. One core is
-# left for the machine, which is the standing rule for this tree.
+# left for the machine. That is the standing rule for this tree.
 $parallel = [Math]::Max(1, [int]$env:NUMBER_OF_PROCESSORS - 1)
 Write-Host "[*] running, $parallel at a time" -ForegroundColor Cyan
 

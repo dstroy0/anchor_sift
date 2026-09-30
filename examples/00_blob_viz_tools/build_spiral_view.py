@@ -12,7 +12,7 @@ An arm is one survey under one header. Arms cost nothing to keep: the counters a
 33 bins whatever the depth, and the device buffers are allocated once. Memory is flat in the arm
 count. What they buy is not flat, and it does not all scale alike:
 
-    pooled depth   as the square root of the arm count, which is what more of anything buys
+    pooled depth   as the square root of the arm count. More of anything buys that
     agreement      as two to the arm count, because each further arm halves the chance that a run
                    of agreeing signs is coincidence
 

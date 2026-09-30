@@ -114,7 +114,7 @@ def is_stamp(line):
 
 
 def strip_stamp(text):
-    """`text` without its stamp line, which is what the digest is taken over.
+    """`text` without its stamp line. The digest is taken over that.
 
     The digest covers the file as it left the toolkit. Taking it over the stamped copy would make
     the stamp cover itself, and no two stamps could ever agree.

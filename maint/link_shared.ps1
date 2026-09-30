@@ -2,8 +2,8 @@
 #
 #   Run elevated:  Start-Process pwsh -Verb RunAs -ArgumentList "-File","tools\link_shared.ps1"
 #
-# Windows errors symlink creation to an unelevated process unless Developer Mode is on, which is
-# why this is a separate script and not a line in a build.
+# Windows errors symlink creation to an unelevated process unless Developer Mode is on. This is a
+# separate script and not a line in a build.
 #
 # THE TARGETS ARE SEARCHED FOR, NOT SPELLED OUT
 #

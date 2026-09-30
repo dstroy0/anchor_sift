@@ -15,7 +15,7 @@
 #
 # No occupancy is read here. The deposit publishes _atom_site_occupancy and that column is the
 # answer key. It belongs to stage six and not to this stage. What this measure sees is only
-# where the atoms are and what they are, which is what every other reading in this subject sees.
+# where the atoms are and what they are. Every other reading in this subject sees that.
 #
 # ONE CELL, NOT A TILING
 #
@@ -194,8 +194,8 @@ def main():
             if len(elements) >= 4:
                 widest.append((name[:-4], len(elements), "/".join(elements)))
             kinds.add(elements)
-        # Distinct substitution types in one deposit. Two at once is a coupled substitution, which
-        # is how a lattice stays charge balanced while swapping ions of different charge: the
+        # Distinct substitution types in one deposit. Two at once is a coupled substitution.
+        # That is how a lattice stays charge balanced while swapping ions of different charge: the
         # plagioclase series runs Al/Si against Ca/Na, and neither half works alone.
         coupled[len(kinds)] = coupled.get(len(kinds), 0) + 1
         if listed < SHOWN:

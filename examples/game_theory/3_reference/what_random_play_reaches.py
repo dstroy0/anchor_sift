@@ -19,7 +19,7 @@
 # printed and not tuned away.
 #
 # The sampled arm converges to the enumerated one and does not equal it. That gap is sampling error
-# and it shrinks as the trial count grows, which is what the sweep below shows. A gap that does not
+# and it shrinks as the trial count grows. The sweep below shows that. A gap that does not
 # shrink is a different animal and would mean one of the two routes is wrong.
 
 import os

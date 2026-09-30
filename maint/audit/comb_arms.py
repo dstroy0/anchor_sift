@@ -1,7 +1,7 @@
 """Combs the survey arms: pooled depth, and the agreement between them.
 
 Eight arms each survey the same nonce range under a different header. Pooling them tightens the
-estimate as the square root of the total, which is what more of anything buys. The agreement
+estimate as the square root of the total. More of anything buys that. The agreement
 between them buys something else, and it is the reason to run arms instead of one longer arm:
 
     a bias in the construction pushes EVERY arm the same way

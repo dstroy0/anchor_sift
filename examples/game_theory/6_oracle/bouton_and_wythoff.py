@@ -36,7 +36,7 @@ sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
 
 from representation.game.combinatorial import nim_losses, wythoff_losses, wythoff_pairs
 
-# The golden ratio, which is the answer the Wythoff half is scored against and is not computed from
+# The golden ratio, the answer the Wythoff half is scored against and not computed from
 # anything this work measured.
 PHI = (1.0 + (5.0 ** 0.5)) / 2.0
 

@@ -40,7 +40,7 @@ WHAT WOULD COUNT AS A FINDING, AND WHAT WOULD NOT
 A large departure at one degree in one state is noise: eight degrees times many states will produce
 large values by chance. A finding is the SAME degree departing in the SAME direction across many
 independent messages. So the sweep reports the median across messages and not the best case, and it
-reports how many messages agreed on the sign, which is the statistic a lucky draw cannot fake.
+reports how many messages agreed on the sign. That is the statistic a lucky draw cannot fake.
 """
 
 import argparse
@@ -194,7 +194,7 @@ def _check():
     # almost nothing in it to move.
     live = [k for k in range(TOTAL) if (k * 7 + k // 5) % 3]
     one = deflection_of(angles, live)
-    # ALONG EACH POINT'S OWN RING, which is what a turn about the ring axis is. Adding the ring
+    # ALONG EACH POINT'S OWN RING, the move a turn about the ring axis makes. Adding the ring
     # width to the index instead moves every point to the NEXT RING, which is a different set and
     # not a rotation of this one.
     turned = [(at // WIDTH) * WIDTH + (at % WIDTH + 7) % WIDTH for at in live]
@@ -256,7 +256,7 @@ def concentration(power):
     """How few degrees carry the power, as a participation ratio over degrees one and up.
 
     The sum of the spectrum squared against the square of its sum. One means every degree carries
-    the same power, which is the flattest a spectrum gets; the count of degrees means one degree
+    the same power. That is the flattest a spectrum gets; the count of degrees means one degree
     carries everything. Degree zero is left out because it is fixed by the weight alone and would
     report the same number for every set of the same size.
 
@@ -368,8 +368,8 @@ def _shape(messages, draws):
 
     A cone sitting at one pole instead of the other is degree one, since that is what a dipole is:
     the whole set displaced along an axis. An elongation, a lemon, is degree two. Every statistic
-    that averages over degrees washes both of them out, which is what the concentration reading
-    did. These two are taken on their own and against their own controls.
+    that averages over degrees washes both of them out. The concentration reading
+    did that. These two are taken on their own and against their own controls.
     """
     points = boundary_read.ring_place(RINGS, WIDTH)
     angles = boundary_read.as_angles(points)

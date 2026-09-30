@@ -15,7 +15,7 @@ WHAT THE COLORS CARRY
 The stick coloring is selectable because different questions want different tags, and two of them
 are structural instead of decorative:
 
-    hot     lit or unlit, which is the state itself
+    hot     lit or unlit. That is the state itself
     a.e     the two computed words against the six carried ones. SHA-256's round computes a and e
             and shifts the rest along unchanged. This tag makes the shift register visible as
             motion instead of as a fact in a document

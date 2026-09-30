@@ -18,7 +18,7 @@ sample size:
   do the phases differ        for the pools that clear, whether their trough hours are further
                               apart than the same number of uniform draws would be
 
-The second stage is only meaningful on pools that pass the first, which is the step the earlier
+The second stage is only meaningful on pools that pass the first. That is the step the earlier
 version skipped.
 """
 

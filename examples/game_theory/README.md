@@ -153,8 +153,8 @@ This is the same failure crystallography records, in a different domain. A 0.25 
 on the way in silently became the answer, and every number downstream carried the grid instead of the
 deposit. An evaluation function is that grid.
 
-Entropy is reported twice for the same reason: `H_res` over the resolved outcomes renormalized, which
-is the position's uncertainty, and `H_all` over all four categories, which includes the search's own
+Entropy is reported twice for the same reason: `H_res` over the resolved outcomes renormalized, the
+position's uncertainty, and `H_all` over all four categories, which includes the search's own
 ignorance. Neither is right on its own. Reporting only `H_res` hides how little was resolved;
 reporting only `H_all` lets a bigger budget look like a more certain position.
 
