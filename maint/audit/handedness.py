@@ -24,7 +24,7 @@ WHAT EACH OUTCOME MEANS
     different          the direction matters, and a reading that is mirror-blind by
                        construction has been discarding something real.
 
-The shifts are left alone on purpose. SHR is not a rotation and has no mirror that preserves the
+The shifts are left alone. SHR is not a rotation and has no mirror that preserves the
 structure. Reversing it would change the function in a second way and spoil the comparison.
 
     python maint/audit/handedness.py

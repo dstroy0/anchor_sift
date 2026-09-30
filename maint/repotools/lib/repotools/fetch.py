@@ -196,7 +196,7 @@ def _set_files(toolkit, one_set):
     fetched whole and two repositories could not take `code/code_maint` at all: each already had its
     own `readclean.py`, which shares a filename with the toolkit's and no API whatsoever, and one
     also imports `codemask` and `nsconv` as siblings from its own tools directory. Both were left
-    carrying five files they would rather have fetched, to decline three.
+    carrying five files they had no use for, to decline three.
 
     Naming a file instead of splitting the set into ever smaller sets, because the collisions are
     per file and a set that is subdivided until nothing collides has stopped being a grouping.

@@ -176,7 +176,7 @@ REFERENCES = (
     r"\b[A-Z][a-z]+(\s+(and|&)\s+[A-Z][a-z]+)?\s*\(?\b(1[89]\d{2}|20[0-5]\d)\b",
 )
 
-# A run of somebody else's sentences in quotation marks. The floor is high on purpose: a quoted
+# A run of somebody else's sentences in quotation marks. The floor is high: a quoted
 # word or a scare quote is not a passage, and the register checks next door use the same shape at
 # the same floor.
 PASSAGE = re.compile(r"[\"\u201c][^\"\u201c\u201d]{60,600}[\"\u201d]")

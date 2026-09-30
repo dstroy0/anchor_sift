@@ -147,7 +147,7 @@ foreach ($one in $shared)
 
     New-Item -ItemType SymbolicLink -Path $mine -Target $theirs | Out-Null
 
-    # VERIFY IT RESOLVES, RATHER THAN REPORTING THAT IT WAS CREATED. A symlink to a path that does
+    # VERIFY IT RESOLVES INSTEAD OF REPORTING THAT IT WAS CREATED. A symlink to a path that does
     # not exist is created without complaint by Windows and by every other system. "link" printed
     # in green has never meant the file is reachable - only that a link object now sits there.
     #

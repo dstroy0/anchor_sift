@@ -94,7 +94,7 @@ TARGET = 1000
 # Held. The random draw repeats. The corpus belongs to the seed and not to the run.
 SEED = 0x51F7
 
-# Every X-ray protein entry, spanning the whole resolution range on purpose. The monomer floor drops
+# Every X-ray protein entry, spanning the whole resolution range. The monomer floor drops
 # fragments and peptides that carry too little backbone to place a distribution.
 QUERY = {
     "query": {"type": "group", "logical_operator": "and", "nodes": [

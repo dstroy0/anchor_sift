@@ -38,7 +38,7 @@ import struct
 def build_signs(first, span, beta):
     """g[x] = +1 or -1 by the parity of digest(first + x) AND beta.
 
-    The array is arbitrary-width on purpose. An earlier version held these in array("i"), which is
+    The array is arbitrary-width. An earlier version held these in array("i"), which is
     a thirty-two bit signed C integer, and the transform below sums them: after k stages a value can
     reach the full span. At a span of 2^31 the accumulator wraps and the transform returns
     nonsense that looks like data. That is the same fault as the uint32 overflow found in

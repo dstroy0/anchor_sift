@@ -17,7 +17,7 @@
 # the page saying how much did not.
 #
 # The cache this runs against makes that worse and not better. maint/data/fetch/fetch_cod_doped.py
-# fetched solid solution formers on purpose and says so in its header: most of them are monoclinic
+# fetched solid solution formers and says so in its header: most of them are monoclinic
 # or triclinic, and the right angle restriction is deliberately not applied at fetch time. So the
 # corpus was built to contain exactly the cells the reading gate turns away.
 #

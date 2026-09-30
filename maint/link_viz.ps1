@@ -71,8 +71,8 @@ if (Test-Path $stale)
 
 $link = Join-Path $holder "view"
 
-# Replace a link, never a directory. A real directory here means someone put something at this name
-# on purpose, and deleting it to make room is not this script's decision to make.
+# Replace a link, never a directory. A real directory here means someone put something at this name,
+# and deleting it to make room is not this script's decision to make.
 if (Test-Path $link)
 {
     $existing = Get-Item $link -Force

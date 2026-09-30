@@ -86,7 +86,7 @@ alone, and compares it to the rate wwPDB published for that entry. The archive i
 the same way the Crystallography Open Database is. That let crystallography build its
 control, and the draw is seeded so it repeats.
 
-The corpus is random on purpose. Sorting by resolution and taking the top was the wrong control:
+The corpus is random. Sorting by resolution and taking the top was the wrong control:
 the best-resolved structures are almost all zero outliers. An instrument that only ever answered
 zero would have passed. A random protein spans the whole quality range and carries published rates
 from zero to several percent, and reproducing that spread is the test.
