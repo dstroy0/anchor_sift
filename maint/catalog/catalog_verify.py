@@ -9,7 +9,7 @@
 #
 # WHAT THIS IS AND IS NOT
 #
-# Heuristics. Each one below is cheap, mechanical, and wrong sometimes. None of them reads what a
+# Heuristics. Each one below is cheap, mechanical, and wrong sometimes. Not one reads what a
 # script means. A finding here is a place worth opening and not a defect. The value is in
 # the ratio: a hundred examples is more than anyone rereads, and this narrows it to the few where
 # the header and the file disagree about something checkable.

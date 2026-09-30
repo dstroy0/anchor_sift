@@ -17,7 +17,7 @@
 # should.
 #
 # A dictionary that files words by what they are gives the lists directly, and the categories for words
-# imitating sounds exist per language. What is fetched is those, for the pair in question and for the
+# imitating sounds exist per language. Those are fetched, for the pair in question and for the
 # controls that make the answer readable: Hungarian against its own family, Polish against its own, and
 # both against languages they have not shared a border with.
 #

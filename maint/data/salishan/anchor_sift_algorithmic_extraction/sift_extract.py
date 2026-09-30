@@ -273,7 +273,7 @@ def main():
 
     # One file per language, the record these candidates belong in. Not the same tier as
     # the nine: nothing here was read against a layout, and the speaker of any given line is not
-    # known. What is known is which paper and page it came from, and that is carried with it.
+    # known. Which paper and page it came from is known, and that is carried with it.
     for language in sorted(candidates):
         held = candidates[language]
         target = os.path.join(

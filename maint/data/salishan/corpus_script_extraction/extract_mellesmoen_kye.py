@@ -12,7 +12,7 @@
 # speech in Appendix A, thirty-odd phonotactic bullets in Appendix B, and forms cited inline with a
 # gloss in quotes throughout the prose.
 #
-# WHAT IS AND IS NOT A WORD HERE
+# WHICH FORMS COUNT AS A WORD HERE
 #
 # This is the whole difficulty of the paper and the reason a reader built on characters alone would
 # poison the corpus. A tableau prints five candidate forms of one word and the analysis rejects four

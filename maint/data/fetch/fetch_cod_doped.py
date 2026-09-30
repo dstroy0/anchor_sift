@@ -29,7 +29,7 @@
 #
 # The family is provenance and not chemistry. It records the search term that returned the entry,
 # which is a fact about how the corpus was built. An entry the archive returned for "olivine" that
-# is not an olivine is still recorded as fetched under olivine, because that is what happened. A
+# is not an olivine is still recorded as fetched under olivine, because that is how it happened. A
 # reading that needs true mineral classification has to get it from the deposit and not from here.
 #
 # THE RIGHT ANGLE RESTRICTION IS DELIBERATELY NOT APPLIED
@@ -89,7 +89,7 @@ TRIES = 3
 # large.
 #
 # Raising it alone would undo what it was introduced for. Walking the families in order with a high
-# cap lets olivine and feldspar reach the target before the sulfides are asked at all, the
+# cap lets olivine and feldspar reach the target before the sulfides are asked, the
 # same one family corpus the cap was added to prevent, arriving by a different route. The names are
 # therefore interleaved across families below. The cap governs how deep a single name goes and
 # the interleave governs how evenly the families are sampled. Neither setting is sufficient alone.

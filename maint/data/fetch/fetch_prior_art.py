@@ -113,7 +113,7 @@ def confirms(path, must_hold, out):
     this whole file is written around. Two invented identifiers both returned real PDFs of unrelated
     articles and both reported success.
 
-    The check reads the file's own text for words the paper must contain. Where the file is a page
+    The check reads the file itself for words the paper must contain. Where the file is a page
     scan and yields no text, it cannot be confirmed, and cannot-confirm is reported as an error
     and not a pass: a scan has to be rendered and read by a person, and that is a worklist item.
     """

@@ -374,7 +374,7 @@ def main_checkout():
     the main checkout.
 
     Falls back to ROOT where git cannot answer, which covers an exported tree with no history. That
-    fallback is the ordinary case and not a failure. It is silent; a private root that is looked
+    fallback is the common case and not a failure. It is silent; a private root that is looked
     for and not found is reported by the caller instead.
     """
     common = git_answer(["rev-parse", "--git-common-dir"])
@@ -395,8 +395,8 @@ def private_candidates():
     """
     base = main_checkout()
     return (
-        # The authoring copy, at repos/owned/private/ beside repos/owned/public/. This is where the
-        # registry actually lives after the move into owned/{public,private}, and its absence from
+        # The authoring copy, at repos/owned/private/ beside repos/owned/public/. The registry actually lives
+        # here after the move into owned/{public,private}, and its absence from
         # this list is why --check exited 2 on every commit and every commit needed the bypass.
         os.path.join(
             os.path.dirname(os.path.dirname(base)), "private", "anchor_sift_citations"

@@ -17,7 +17,7 @@
 #
 # So candidates are sorted by distance to the corpus and admitted in batches while D_self stays
 # inside the band the corpus was already in. Admission stops at the first batch that leaves it.
-# What is admitted is written out. What is not is kept, with the batch number that rejected it. The
+# Admitted rows are written out. The rest is kept, with the batch number that rejected it. The
 # boundary is then visible and not left implied.
 
 import collections

@@ -5,7 +5,7 @@ w is outside the cone for exactly w rounds. The volume of dead plateau in a row 
 word it is, and the weighting follows from the geometry with nothing left to explain.
 
 The question worth asking is what remains once that is removed. Aligning every input word to its
-own wavefront takes the cone out, and what is left is the eight output words, which are two chains
+own wavefront takes the cone out, and the rest is the eight output words, which are two chains
 of four: a, b, c, d are a delayed nought to three rounds, and e, f, g, h are e delayed the same.
 
 So the prediction is exact. At a fixed offset past the wavefront the eight output words should show

@@ -19,9 +19,9 @@
 #
 #   1. A PRIORITY CLAIM WITH NOTHING BEHIND IT. A sentence saying something here is new, first,
 #      unprecedented, or absent from the literature is a claim about everybody else's work. This
-#      tree cannot check that kind of claim from inside itself, because the evidence for it
+#      tree cannot check that kind of claim on its own, because the evidence for it
 #      sits in journals nobody here has read. Either a reference stands near it, or the sentence
-#      says plainly that the reading has not been done.
+#      says plainly that nobody here has read it.
 #
 #   2. A QUOTED PASSAGE WITH NO ATTRIBUTION. Somebody else's sentences, set in quotation marks,
 #      carried in a research paper that is about to be posted publicly under a license. Unattributed, it is
@@ -152,7 +152,7 @@ CLAIMS = (
     ),
 )
 
-# What makes a priority claim honest without a reference: saying the reading has not been done.
+# What makes a priority claim honest without a reference: saying nobody here has read it.
 # These are read off the crystallography chapter, the worked example.
 DISCLAIMERS = (
     r"\bhas not been done\b",

@@ -6,7 +6,7 @@ nothing until the same code is pointed at an event everyone already knows the an
 
 2021 supplies one. Mining was banned in China across May to July, global hashrate fell by roughly
 half, and it recovered over the following months as fleets moved, principally to North America. The
-event is dated, documented, enormous, and independent of anything being fitted here.
+event is dated, documented, large, and independent of anything being fitted here.
 
     if hashrate-from-intervals is an instrument, it must show the collapse and the recovery
 
@@ -16,7 +16,7 @@ Hashrate is not one over the interval. Difficulty retargets every 2016 blocks an
 changes intervals BY DESIGN. A reading that ignores difficulty reports the protocol's own
 corrections as though they were events. The ban forced the largest downward retargets in the
 chain's history, which means the naive reading would find its biggest signal in exactly the wrong
-place. Hashrate is difficulty over interval, and that is what is computed here.
+place. Hashrate is difficulty over interval, and that is computed here.
 
 THE SECOND TEST, WHICH IS HARDER
 

@@ -18,7 +18,7 @@
 # carry, including Vietnamese and Urdu, and it reaches them without hammering an encyclopedia that has
 # been erroring on these requests all evening.
 #
-# What is fetched is one side of a parallel corpus per language, which is that language's whole text with
+# One side of a parallel corpus is fetched per language, which is that language's whole text with
 # no alignment needed, since nothing here compares sentence to sentence. Files are named so their source
 # and their nature are never in doubt, and the languages already held from books stay where they are so
 # the two kinds can be measured against each other.

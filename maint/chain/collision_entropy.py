@@ -20,7 +20,7 @@ of freedom, n - 1. The deficit chance alone manufactures is
 
     floor  =  log2(1 + (n - 1) / N)
 
-which falls as one over N. That is the answer to what to target: a deficit above the floor is real,
+which falls as one over N. That answers what to target: a deficit above the floor is real,
 and the depth needed to resolve a deficit of d bits is N of about (n - 1) / (2^d - 1).
 
 Nothing is fitted here. Every chi-square below was produced by a script in this tree, and the

@@ -12,7 +12,7 @@
 #
 # It used to copy the corpus into build/ and hash each copy on the way. build/oracles, build/papers
 # and build/audio are symbolic links to the corpus now. There is no copy to make and nothing to
-# drift. What is left is the question the copy was really answering: is the corpus reachable from
+# drift. The question the copy was really answering remains: is the corpus reachable from
 # here the corpus somebody signed.
 #
 # The 186 MB duplicate is gone with it. It existed, an rm -rf build/ could not reach the closed

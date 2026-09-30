@@ -65,7 +65,7 @@
 # The family comes from families.tsv beside the cache, written by maint/data/fetch/fetch_cod_doped.py,
 # and it records the search term an entry was fetched under. That is provenance and not chemistry.
 # An entry the archive returned for "olivine" that is not an olivine is still filed under olivine,
-# because that is what happened. Entries fetched before families were recorded carry none, and are
+# because that is how it happened. Entries fetched before families were recorded carry none, and are
 # counted separately instead of being guessed at.
 
 import io

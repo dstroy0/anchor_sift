@@ -11,14 +11,14 @@ Having both makes a subtraction possible that neither supports alone.
 THE TRAP
 
 A real block's digest carries seventy-odd leading zeros by construction. Comparing those positions
-against the survey measures the difficulty rule, not the miners, and would report an enormous and
+against the survey measures the difficulty rule, not the miners, and would report a large and
 entirely uninteresting difference. So the leading run is excluded and the question is asked only of
 the positions past it:
 
     conditioning on the top k bits being zero leaves the remaining 256 - k uniform
 
-That is what the theory says, it is not obvious, and it is exactly what a selected sample lets you
-check. If tilt reaches past the zero run it shows here and nowhere else.
+The theory says that, it is not obvious, and a selected sample lets you
+check it. If tilt reaches past the zero run it shows here and nowhere else.
 
 THE FLOOR
 

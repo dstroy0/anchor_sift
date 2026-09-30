@@ -23,7 +23,7 @@
 # Each candidate is scored on the runs it makes. Run counts are taken from the tokens that carry no
 # break, the paper's own undamaged vocabulary, and then flattened to maximum entropy the way
 # radix flattens the pooled counts of two dialects: a run common everywhere contributes nothing
-# however common it is, and what is left is the part that belongs to this candidate. A restoration
+# however common it is, and the rest is the part that belongs to this candidate. A restoration
 # the language actually has makes runs the paper already uses. A wrong one makes runs nobody wrote.
 #
 # WHAT MAKES IT A MEASUREMENT AND NOT A GUESS

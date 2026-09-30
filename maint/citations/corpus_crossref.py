@@ -38,7 +38,7 @@
 #   speakers  a language named with none of its speakers named nearby, and a paper used here whose
 #             speakers are recorded nowhere
 #   forms     a value from the form column of a hand extraction, appearing anywhere in the tree
-#   prose     a run of words from a paper's own text, appearing in this tree's prose
+#   prose     a run of words from the paper itself, appearing in this tree's prose
 #
 # The speakers pass runs first because it carries the most. An earlier version of this file treated
 # a language name as noise to be skipped, and had it exactly backwards. A language is not an

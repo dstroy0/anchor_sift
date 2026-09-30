@@ -3,7 +3,7 @@
 Everything else here is statistical. Uniform shares, flat autocorrelation, full algebraic degree, no
 co-variation between positions. The digits of pi pass every one of those tests, and the digits of pi
 compress to about a kilobyte. So passing them establishes nothing about whether a sequence has a
-short generating program, and that is exactly the property that would matter.
+short generating program, and that is the property that would matter.
 
     a sequence can be perfectly uniform and perfectly compressible at the same time
 

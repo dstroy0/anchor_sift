@@ -10,7 +10,7 @@ Four structures, chosen so they are NOT all of one kind:
     word        one 32-bit state word biased. Aligned to SHA's own structure, not to the sphere's.
     stride      every seventh bit index lit. Periodic in index, which the placement scatters.
     parity      bits chosen so that a fixed parity is forced. Purely algebraic - no bit is individually
-                biased, no region is over-lit, and nothing about it is spatial at all.
+                biased, no region is over-lit, and nothing about it is spatial.
 
 Four scans:
 

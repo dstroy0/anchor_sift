@@ -36,7 +36,7 @@ $here = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 # The loop below removes the existing link or file and then creates the replacement. Windows errors
 # symlink creation to an unelevated process. Run without elevation the remove succeeded and the
 # create failed, and the build_theory.sh link went from a stale link to no file at all - a script
-# meant to repair links deleted one. The header has said "Run elevated" since it was written, which
+# meant to repair links deleted one. The header has said "Run elevated" since it was written. That
 # is the kind of instruction that does not survive being ignored once.
 #
 # Erroring up front costs one API call and makes the failure mode "nothing happened".

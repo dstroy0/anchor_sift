@@ -18,7 +18,7 @@ EVERY BAR IS DRAWN AND EVERY NULL IS WEIGHT-MATCHED
 
 Each stage reports its loudest over many cells, which is large by construction. The bar is the
 null's own loudest over the same number of cells. And the null holds the popcount fixed, because a
-lit set's spectrum depends heavily on how many bits are lit and an unmatched null reports the weight
+lit set's spectrum depends heavily on how many bits are lit and a null that does not match reports the weight
 and calls it structure.
 
 IT VALIDATES ITSELF BEFORE IT IS BELIEVED

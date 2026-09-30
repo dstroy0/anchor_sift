@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Ask the encyclopedia once, to find out whether it is answering at all.
+# Ask the encyclopedia once, to find out whether it answers.
 #
 #   Usage:  python maint/data/fetch/wiki_probe.py
 #

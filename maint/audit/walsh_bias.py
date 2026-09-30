@@ -13,13 +13,13 @@ the sum over x of (-1)^(parity(x AND alpha) XOR parity(digest(x) AND beta)). Tha
 EVERY input mask simultaneously, in k times 2^k butterfly operations instead of 2^k per mask.
 
     sampled:     4000 masks, 160 million bignum operations, best-of-what-was-drawn
-    transform:   all 2^k masks, k times 2^k integer adds, exhaustive
+    transform:   all 2^k masks, k times 2^k integer adds, complete
 
 So the transform is both complete and cheaper. That is the usual shape of using the right algorithm.
 
 OUT OF SAMPLE STILL APPLIES
 
-The transform is exhaustive over masks. There is no held-out mask space. The held-out axis is the
+The transform is complete over masks. There is no held-out mask space. The held-out axis is the
 nonces: the best alpha is found on one range and its bias is then measured on a disjoint range it
 never saw. A real approximation holds there and a selection artifact does not, and over 2^k masks
 the largest is always large by construction.

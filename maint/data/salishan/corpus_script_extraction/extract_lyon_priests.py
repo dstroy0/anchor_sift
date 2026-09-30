@@ -186,7 +186,7 @@ def kind_by_notation(text):
     """What a line is, from the notation this paper defines, where its position is unavailable.
 
     Used only inside a block whose cycle slipped. Position is the better evidence and it is gone.
-    What is left is what Lyon states about his own writing: a run of two or more capitals is a
+    The rest is what Lyon states about his own writing: a run of two or more capitals is a
     gloss label, and √ marks a root, which a segmentation carries and a spoken word does not.
 
     Nothing else is decided here. A line with neither is a word as spoken or the segmentation of a

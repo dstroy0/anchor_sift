@@ -30,7 +30,7 @@
 # from has granted it, and SPEECH.tsv carries the terms.
 #
 # It does not cover regeneration. That is governed by distribution: the code that produces the
-# representation lives in the closed repository under the terms in its LICENSE. No check here
+# representation sits in the closed repository under the terms in its LICENSE. No check here
 # detects a fitted model.
 #
 # WHAT THIS DOES NOT DO

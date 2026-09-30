@@ -2,7 +2,7 @@
 
 `fetch_blocks.py` keeps the header fields and drops everything else, which is right for verifying
 hashes and wrong for asking who produced them. Pool attribution is not in the header at all: it
-lives in the coinbase transaction's tag, in plaintext, and the explorer resolves that tag against a
+sits in the coinbase transaction's tag, in plaintext, and the explorer resolves that tag against a
 public list of known pool signatures. This keeps the resolved name alongside the header.
 
 The distinction matters for what the corpus can answer. Without labels, an emitter has to be

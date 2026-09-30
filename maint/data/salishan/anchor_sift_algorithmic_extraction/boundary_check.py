@@ -16,7 +16,7 @@
 # nothing and passes forever. Scoring it against a split a linguist published is a test.
 #
 # The measurement is blind. The labels are loaded, then set aside, then the forms are partitioned in
-# two by the sift with no label in sight, and only then are the two compared. What is reported is
+# two by the sift with no label in sight, and only then are the two compared. The number reported is
 # how much of the published border the partition recovered.
 #
 # WHY THE WORD WEB IS IN HERE

@@ -9,7 +9,7 @@
 #
 # Everything measured so far confounds a language with what it is written in. Dravidian gave close
 # languages in unlike scripts and the reading pulled them apart. Uralic gave a family without shared
-# contact and the reading lost it. What is missing is the case where one changes and the other does not,
+# contact and the reading lost it. The case where one changes and the other does not is missing,
 # and Chinese supplies both halves of it.
 #
 # Mandarin and Cantonese are not mutually intelligible in speech and are written in the same characters.

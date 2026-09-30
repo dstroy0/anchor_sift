@@ -212,7 +212,7 @@ def turns_of(record):
 
 
 def prose_of(said):
-    """One assistant turn with its code removed. What is left is what it wrote in English."""
+    """One assistant turn with its code removed, leaving what it wrote in English."""
     text = FENCED.sub(" ", said)
     text = INLINE.sub(" ", text)
     return " ".join(text.split())

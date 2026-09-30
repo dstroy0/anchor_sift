@@ -13,7 +13,7 @@ is false: the coefficients mix,
 
 so magnitude redistributes across orders inside a degree, and only the SUM of squared magnitudes
 over m is preserved. Reporting that sum and calling it the invariant hides the mixing, because
-summing over m is exactly the operation that makes the mixing invisible.
+summing over m is the operation that makes the mixing invisible.
 
 So this bench reports both, side by side, and never one without the other:
 
