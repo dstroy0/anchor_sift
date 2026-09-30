@@ -1,0 +1,243 @@
+
+\usepackage{iftex}
+\RequireXeTeX
+
+\usepackage{fontspec}
+
+\setmainfont{CharisSIL}[
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Ligatures=TeX,
+  Numbers=OldStyle,
+]
+\setsansfont{DejaVuSans}[
+  Extension=.ttf,
+  UprightFont=*,
+  BoldFont=*-Bold,
+  ItalicFont=*-Oblique,
+  BoldItalicFont=*-BoldOblique,
+  Ligatures=TeX,
+  Scale=MatchLowercase,
+]
+\setmonofont{DejaVuSansMono}[
+  Extension=.ttf,
+  UprightFont=*,
+  BoldFont=*-Bold,
+  ItalicFont=*-Oblique,
+  BoldItalicFont=*-BoldOblique,
+  Scale=MatchLowercase,
+]
+
+\usepackage[eulerchapternumbers, listings, style=linedheaders,
+pdfspacing]{classicthesis}
+
+\setmainfont{CharisSIL}[
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Ligatures=TeX,
+  Numbers=OldStyle,
+]
+\setmonofont{DejaVuSansMono}[
+  Extension=.ttf,
+  UprightFont=*,
+  BoldFont=*-Bold,
+  ItalicFont=*-Oblique,
+  BoldItalicFont=*-BoldOblique,
+  Scale=MatchLowercase,
+]
+
+\tracinglostchars=2
+
+\newfontfamily\theoryserifface{DejaVuSerif}[
+  Extension=.ttf,
+  UprightFont=*,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Scale=MatchLowercase,
+]
+\newfontfamily\theorysansface{DejaVuSans}[
+  Extension=.ttf,
+  UprightFont=*,
+  BoldFont=*-Bold,
+  ItalicFont=*-Oblique,
+  BoldItalicFont=*-BoldOblique,
+  Scale=MatchLowercase,
+]
+\newfontfamily\theorycharisface{CharisSIL}[
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+]
+
+\makeatletter
+\newXeTeXintercharclass\theory@serifclass
+\newXeTeXintercharclass\theory@sansclass
+\newXeTeXintercharclass\theory@monoclass
+
+\newcount\theory@point
+\newcommand*\theory@span[3]{%
+  \theory@point="#2\relax
+  \loop
+    \XeTeXcharclass\theory@point=#1\relax
+  \ifnum\theory@point<"#3\relax
+    \advance\theory@point\@ne
+  \repeat}
+\def\theory@split#1-#2-#3\relax#4{%
+  \ifx\relax#2\relax
+    \theory@span{#4}{#1}{#1}%
+  \else
+    \theory@span{#4}{#1}{#2}%
+  \fi}
+\newcommand*\theory@classes[2]{%
+  \@for\theory@item:=#2\do{\expandafter\theory@split\theory@item--\relax{#1}}}
+
+\theory@classes\theory@serifclass{%
+0370-0377,037A-037E,0384-0386,0388-038A,038C,038E-0392,0395-0397,0399-039D,039F,03A1,%
+03A3-03A7,03AA-03B0,03B5-03B7,03B9-03BA,03BD-03BF,03C2,03C4-03C5,03C8,03CA-03D0,03D2-03E1,%
+03F0-03F3,03F5-03FF,219C-21A7,21A9-21CF,21D6-2200,2207-2209,220B-220C,2210,2214-2215,%
+2217-2218,221B-221D,221F-2220,2223-2224,2227-222A,222C-222D,2238-223B,223D,2242-2243,%
+2250-2255,228C-22AF,22C5,2302,2310-2311,2318-2319,2320-2321,2325,2328,237D,23AE,23CF,%
+2500-25C9,25CB,25CD-25FF,27F0-27FF,2900-297F,2A0C-2A0E,2A2F,2A6A-2A6B}
+\theory@classes\theory@sansclass{%
+03E2-03EF,2201,220A,220D-220E,2216,2221-2222,222E-2233,2236-2237,223E-2241,2244-2247,%
+2249-224F,2256-225E,2263,2266-2281,2288-228B,22B0-22C4,22C6-2301,2303-2307,230C-230F,2324,%
+2326-2327,232B-232C,2373-2375,237A,2387,2394,23CE,23E3,23E5,23E8,2A00-2A02,2A0F-2A1C,%
+2A7D-2AA0,2AAE-2ABA,2AF9-2AFA}
+\theory@classes\theory@monoclass{02FD,200B}
+
+\let\theory@leave\relax
+\newcommand*\theory@open[1]{\begingroup\global\let\theory@leave\endgroup#1}
+\newcommand*\theory@stay{\global\let\theory@leave\relax}
+\newcommand*\theory@unlessdejavu[1]{%
+  \edef\theory@here{\f@family}%
+  \edef\theory@sf{\sfdefault}%
+  \edef\theory@tt{\ttdefault}%
+  \ifx\theory@here\theory@sf
+    \theory@stay
+  \else\ifx\theory@here\theory@tt
+    \theory@stay
+  \else
+    \theory@open{#1}%
+  \fi\fi}
+\newcommand*\theory@onlymono[1]{%
+  \edef\theory@here{\f@family}%
+  \edef\theory@tt{\ttdefault}%
+  \ifx\theory@here\theory@tt
+    \theory@open{#1}%
+  \else
+    \theory@stay
+  \fi}
+\def\theory@toserif{\theory@unlessdejavu\theoryserifface}
+\def\theory@tosans{\theory@unlessdejavu\theorysansface}
+\def\theory@tocharis{\theory@onlymono\theorycharisface}
+
+\newcommand*\theory@switch[2]{%
+  \XeTeXinterchartoks 0 #1 = {#2}%
+  \XeTeXinterchartoks 4095 #1 = {#2}%
+  \XeTeXinterchartoks #1 0 = {\theory@leave}%
+  \XeTeXinterchartoks #1 4095 = {\theory@leave}}
+\theory@switch\theory@serifclass\theory@toserif
+\theory@switch\theory@sansclass\theory@tosans
+\theory@switch\theory@monoclass\theory@tocharis
+\XeTeXinterchartoks\theory@serifclass\theory@sansclass = {\theory@leave\theory@tosans}
+\XeTeXinterchartoks\theory@sansclass\theory@serifclass = {\theory@leave\theory@toserif}
+\XeTeXinterchartoks\theory@serifclass\theory@monoclass = {\theory@leave\theory@tocharis}
+\XeTeXinterchartoks\theory@monoclass\theory@serifclass = {\theory@leave\theory@toserif}
+\XeTeXinterchartoks\theory@sansclass\theory@monoclass = {\theory@leave\theory@tocharis}
+\XeTeXinterchartoks\theory@monoclass\theory@sansclass = {\theory@leave\theory@tosans}
+\XeTeXinterchartokenstate=1
+\makeatother
+
+\areaset[current]{430pt}{720pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+
+\let\eth\relax
+\usepackage{amsmath,amsthm}
+\usepackage{unicode-math}
+\unimathsetup{mathbf=sym}
+\setmathfont{texgyretermes-math.otf}
+\usepackage{array,booktabs,longtable}
+\usepackage{ragged2e}
+\microtypesetup{protrusion=true,final=true}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+\raggedbottom
+\usepackage{graphicx}
+\graphicspath{{./}{./chapters/}}
+\renewcommand{\cfttoctitlefont}{\hfill\spacedallcaps}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftparaleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubparaleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftbeforechapskip}{0.9em}
+\setlength{\cftbeforesecskip}{0.2em}
+\setlength{\cftbeforesubsecskip}{0.1em}
+\setlength{\cftbeforesubsubsecskip}{0.05em}
+\setlength{\cftbeforeparaskip}{0.05em}
+\cftsetpnumwidth{2.5em}
+\cftsetrmarg{3em}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+\setcounter{LTchunksize}{8}
+
+\usepackage{fvextra}
+\fvset{breaklines=true,breakanywhere=true,fontsize=\small}
+\usepackage{pdfpages}
+
+\newcommand{\tablerecord}[1]{\par\medskip\noindent\textbf{#1}\par\nopagebreak}
+
+\titleformat{\section}
+    {\relax\raggedright}{\textsc{\MakeTextLowercase{\thesection}}}{1em}{\spacedlowsmallcaps}
+\titleformat{\subsection}
+    {\relax\raggedright}{\textsc{\MakeTextLowercase{\thesubsection}}}{1em}{\normalsize\itshape}
+\titleformat{\subsubsection}
+    {\relax\raggedright}{\textsc{\MakeTextLowercase{\thesubsubsection}}}{1em}{\normalsize\itshape}
+
+\setlength{\LTpre}{\medskipamount}
+\setlength{\LTpost}{\medskipamount}
+
+\newsavebox\theoryheadbox
+\newcommand{\theoryfithead}[1]{%
+  \sbox\theoryheadbox{#1}%
+  \ifdim\wd\theoryheadbox>\textwidth
+    \resizebox{\textwidth}{!}{\usebox\theoryheadbox}%
+  \else
+    \usebox\theoryheadbox
+  \fi}
+\lehead{\mbox{\llap{\small\pagemark\kern2em}\theoryfithead{\headmark}\hfil}}
+\rohead{\mbox{\hfil\theoryfithead{\headmark}\rlap{\small\kern2em\pagemark}}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ker}{Ker}
+\providecommand{\subsetneq}{\mathrel{\subset\!\not=}}

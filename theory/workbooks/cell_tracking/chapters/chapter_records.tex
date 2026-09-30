@@ -1,0 +1,31 @@
+\chapter{\texorpdfstring{Records}{Records}}
+\label{chap:records}
+
+\textbf{Purpose:} The commit texts written for the cell program, dated, as they were written. The reasons for each change travel with the workbook.
+
+\textbf{Scope:} commits to dstroy0/cell\_\allowbreak{}tracking main, each with its hash and its time (UTC−4). A commit's subject is its heading and its message follows. The engine's texts are in the engine workbook's records.md.
+
+\section{\texorpdfstring{25 September}{25 September}}
+
+\subsection{\texorpdfstring{08:26, 0523a6e: theory: the driver's stages, OrganoidTracker and Hawkins into them, and the residual at any width}{08:26, 0523a6e: theory: the driver's stages, OrganoidTracker and Hawkins into them, and the residual at any width}}
+
+The cell program's part of the commit's text. Its paragraph on the engine table's M2 is the engine's, in the engine workbook's records.md.
+
+\begin{Verbatim}
+The cell table's driver section now holds the walk-back rule and the
+stages S0 to S11. S0 is the set's intensities: a per-sample affine
+footing whose bounds converge by two-means from OrganoidTracker's 1% and
+99%, and the set's cumulative count as the contrast. Neither clips, and
+both walk back exactly. OrganoidTracker's techniques, O1 to O22, read
+from the vendor reference, each go to the stage they land in, exact and
+with nothing chosen. Hawkins et al. 2025 (the pronephros progenitor
+kinetics) adds H1 to H6: asymmetric division, fate change without
+division, near-zero death, the population balance, rates read from
+counts, and the null in place of LRT and AIC.
+
+S0 and S1 are built and measured on the 25: 10,485,760,000 readings,
+the contrast 34 bits, the residual 10 limbs, 6,518,615 points. Every
+.points holds the set's C and passes a separate reader.
+\end{Verbatim}
+
+Note, 26 September: the separate reader was not kept. \texttt{points\_\allowbreak{}check} (\texttt{cell\_\allowbreak{}tracking/\allowbreak{}src/\allowbreak{}check/\allowbreak{}points\_\allowbreak{}check.\allowbreak{}c}) is kept in its place. Run on the 25 samples of \texttt{scan.\allowbreak{}set}, as \texttt{points\_\allowbreak{}check D:/\allowbreak{}kaggle\_\allowbreak{}project\_\allowbreak{}data/\allowbreak{}biohub\_\allowbreak{}cell\_\allowbreak{}tracking\_\allowbreak{}set\_\allowbreak{}kcr/\allowbreak{}train 44b6\_\allowbreak{}0113de3b .\allowbreak{}.\allowbreak{}.\allowbreak{} 44b6\_\allowbreak{}668e0cc7}, it rebuilt 10,485,760,000 readings and 34 bits from the summed \texttt{.\allowbreak{}readings}, the same as \texttt{scan.\allowbreak{}set}, and printed “checked 25 samples, 25 with no fault, 6518615 points” and “0 faults”. \texttt{cell\_\allowbreak{}tracking/\allowbreak{}test/\allowbreak{}check\_\allowbreak{}test.\allowbreak{}sh} fires each of its 16 faults: 39 checks, 0 failed.

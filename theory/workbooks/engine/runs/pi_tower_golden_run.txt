@@ -1,0 +1,309 @@
+  build directory: /d/kaggle/biohub_cell_tracking/build/20260924_200859_sim_pi_tower
+scriptura.c
+scriptura_arm_avx2.c
+scriptura_arm_avx512.c
+scriptura_arm_neon.c
+scriptura_arm_portable.c
+scriptura_arm_sve.c
+exact_integer.c
+tessera_client.c
+tessera_paths.c
+tessera_frame.c
+tessera_self.c
+tessera_ledger.c
+tessera_measure.c
+tessera_daemon.c
+obsignatio.cu
+tmpxft_00003440_00000000-10_obsignatio.cudafe1.cpp
+tessera_paths_sim.obj
+tessera_frame_sim.obj
+tessera_self_sim.obj
+tessera_ledger_sim.obj
+tessera_measure_sim.obj
+tessera_daemon_sim.obj
+scriptura_sim.obj
+scriptura_arm_avx2_sim.obj
+scriptura_arm_avx512_sim.obj
+scriptura_arm_neon_sim.obj
+scriptura_arm_portable_sim.obj
+scriptura_arm_sve_sim.obj
+obsignatio_sim.obj
+pi_tower.cu
+tmpxft_00006304_00000000-10_pi_tower.cudafe1.cpp
+sim_job.cu
+tmpxft_00006304_00000000-14_sim_job.cudafe1.cpp
+scriptura_sim.obj
+scriptura_arm_avx2_sim.obj
+scriptura_arm_avx512_sim.obj
+scriptura_arm_neon_sim.obj
+scriptura_arm_portable_sim.obj
+scriptura_arm_sve_sim.obj
+exact_integer_sim.obj
+tessera_client_sim.obj
+tessera_paths_sim.obj
+tessera_frame_sim.obj
+tessera_self_sim.obj
+obsignatio_sim.obj
+  resolutions 2^1 to 2^100 cells, the turn held to 384 bits, in an exact width of 4096 bits
+  pi by Machin's formula at 416 bits, 116 terms; after the point it begins 0x243F6A8885A308D3
+  the arc: the helix of radius 1/(2 pi) rising 1/pi a turn, over our disk
+    curvature 5.705134342735, torsion 1.816000663299, the tilt of its plane against our disk 17.656787151412 degrees, and against our axis 72.343212848587 degrees
+    angular momentum about our axis at unit speed 0.151657235526
+  109 floors certified by the bracket: pi = [3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, 1, 84, 2, 1, 1, 15, 3, 13, 1, 4, 2, 6, 6, 99, 1, 2, 2, 6, 3, 5, 1, ...]
+  floor j, turns on it a_j, the step q_j of its closest return, and how close
+    00  a 0  q 1  ||q pi|| 1.415e-1
+    01  a 7  q 7  ||q pi|| 8.851e-3
+    02  a 15  q 106  ||q pi|| 8.821e-3
+    03  a 1  q 113  ||q pi|| 3.014e-5
+    04  a 292  q 33102  ||q pi|| 1.912e-5
+    05  a 1  q 33215  ||q pi|| 1.101e-5
+    06  a 1  q 66317  ||q pi|| 8.114e-6
+    07  a 1  q 99532  ||q pi|| 2.900e-6
+    08  a 2  q 265381  ||q pi|| 2.312e-6
+    09  a 1  q 364913  ||q pi|| 5.877e-7
+    10  a 3  q 1360120  ||q pi|| 5.495e-7
+    11  a 1  q 1725033  ||q pi|| 3.820e-8
+    12  a 14  q 25510582  ||q pi|| 1.477e-8
+    13  a 2  q 52746197  ||q pi|| 8.654e-9
+    14  a 1  q 78256779  ||q pi|| 6.118e-9
+    15  a 1  q 131002976  ||q pi|| 2.536e-9
+    16  a 2  q 340262731  ||q pi|| 1.044e-9
+    17  a 2  q 811528438  ||q pi|| 4.474e-10
+    18  a 2  q 1963319607  ||q pi|| 1.497e-10
+    19  a 2  q 4738167652  ||q pi|| 1.479e-10
+    20  a 1  q 6701487259  ||q pi|| 1.753e-12
+    21  a 84  q 567663097408  ||q pi|| 6.969e-13
+    22  a 2  q 1142027682075  ||q pi|| 3.594e-13
+    23  a 1  q 1709690779483  ||q pi|| 3.374e-13
+    24  a 1  q 2851718461558  ||q pi|| 2.201e-14
+    25  a 15  q 44485467702853  ||q pi|| 7.167e-15
+    26  a 3  q 136308121570117  ||q pi|| 5.187e-16
+    27  a 13  q 1816491048114374  ||q pi|| 4.237e-16
+    28  a 1  q 1952799169684491  ||q pi|| 9.495e-17
+    29  a 4  q 9627687726852338  ||q pi|| 4.391e-17
+    30  a 2  q 21208174623389167  ||q pi|| 7.122e-18
+    31  a 6  q 136876735467187340  ||q pi|| 1.185e-18
+    32  a 6  q 842468587426513207  ||q pi|| 1.188e-20
+    33  a 99  q 83541266890691994833  ||q pi|| 8.453e-21
+    34  a 1  q 84383735478118508040  ||q pi|| 3.431e-21
+    35  a 2  q 252308737846929010913  ||q pi|| 1.589e-21
+    36  a 2  q 589001211171976529866  ||q pi|| 2.517e-22
+    37  a 6  q 3786316004878788190109  ||q pi|| 7.916e-23
+    38  a 3  q 11947949225808341100193  ||q pi|| 1.429e-23
+    39  a 5  q 63526062133920493691074  ||q pi|| 7.688e-24
+    40  a 1  q 75474011359728834791267  ||q pi|| 6.607e-24
+    41  a 1  q 139000073493649328482341  ||q pi|| 1.080e-24
+    42  a 6  q 909474452321624805685313  ||q pi|| 1.216e-25
+    43  a 8  q 7414795692066647773964845  ||q pi|| 1.076e-25
+    44  a 1  q 8324270144388272579650158  ||q pi|| 1.398e-26
+    45  a 7  q 65684686702784555831515951  ||q pi|| 9.772e-27
+    46  a 1  q 74008956847172828411166109  ||q pi|| 4.213e-27
+    47  a 2  q 213702600397130212653848169  ||q pi|| 1.346e-27
+    48  a 3  q 715116758038563466372710616  ||q pi|| 1.744e-28
+    49  a 7  q 5219519906667074477262822481  ||q pi|| 1.248e-28
+    50  a 1  q 5934636664705637943635533097  ||q pi|| 4.958e-29
+    51  a 2  q 17088793236078350364533888675  ||q pi|| 2.573e-29
+    52  a 1  q 23023429900783988308169421772  ||q pi|| 2.384e-29
+    53  a 1  q 40112223136862338672703310447  ||q pi|| 1.886e-30
+    54  a 12  q 504370107543132052380609147136  ||q pi|| 1.207e-30
+    55  a 1  q 544482330679994391053312457583  ||q pi|| 6.788e-31
+    56  a 1  q 1048852438223126443433921604719  ||q pi|| 5.289e-31
+    57  a 1  q 1593334768903120834487234062302  ||q pi|| 1.499e-31
+    58  a 3  q 5828856744932488946895623791625  ||q pi|| 7.909e-32
+    59  a 1  q 7422191513835609781382857853927  ||q pi|| 7.083e-32
+    60  a 1  q 13251048258768098728278481645552  ||q pi|| 8.261e-33
+    61  a 8  q 113430577583980399607610711018343  ||q pi|| 4.744e-33
+    62  a 1  q 126681625842748498335889192663895  ||q pi|| 3.517e-33
+    63  a 1  q 240112203426728897943499903682238  ||q pi|| 1.226e-33
+    64  a 2  q 606906032696206294222889000028371  ||q pi|| 1.064e-33
+    65  a 1  q 847018236122935192166388903710609  ||q pi|| 1.626e-34
+  the turn's closest returns to 2^112 steps: 66; the floors' q_j to 2^112: 66; equal in order: 66
+  the residue: floor j, pi's identity P/q, the residue q pi - P, and q steps walked as the permutation n -> n p mod q
+    00  3/1  residue +1.415e-1  the permutation's whole parts, and the residue at step q
+    01  22/7  residue -8.851e-3  the permutation's whole parts, and the residue at step q
+    02  333/106  residue +8.821e-3  the permutation's whole parts, and the residue at step q
+    03  355/113  residue -3.014e-5  the permutation's whole parts, and the residue at step q
+    04  103993/33102  residue +1.912e-5  the permutation's whole parts, and the residue at step q
+    05  104348/33215  residue -1.101e-5  the permutation's whole parts, and the residue at step q
+    06  208341/66317  residue +8.114e-6  the permutation's whole parts, and the residue at step q
+    07  312689/99532  residue -2.900e-6  the permutation's whole parts, and the residue at step q
+    08  833719/265381  residue +2.312e-6  the permutation's whole parts, and the residue at step q
+    09  1146408/364913  residue -5.877e-7  the permutation's whole parts, and the residue at step q
+    10  4272943/1360120  residue +5.495e-7  the permutation's whole parts, and the residue at step q
+    11  5419351/1725033  residue -3.820e-8  the permutation's whole parts, and the residue at step q
+  the golden helix: floor j (a_(j+1)), the residue's shrink |delta_j| / |delta_(j-1)|, against 1/phi = 0.6180
+    01 (15)  0.0625  below the golden shrink
+    02 (1)  0.9965  above the golden shrink
+    03 (292)  0.0034  below the golden shrink
+    04 (1)  0.6345  above the golden shrink
+    05 (1)  0.5758  below the golden shrink
+    06 (1)  0.7366  above the golden shrink
+    07 (2)  0.3574  below the golden shrink
+    08 (1)  0.7973  above the golden shrink
+    09 (3)  0.2541  below the golden shrink
+    10 (1)  0.9350  above the golden shrink
+    11 (14)  0.0695  below the golden shrink
+    12 (2)  0.3867  below the golden shrink
+    13 (1)  0.5858  below the golden shrink
+    14 (1)  0.7069  above the golden shrink
+    15 (2)  0.4146  below the golden shrink
+    16 (2)  0.4118  below the golden shrink
+    17 (2)  0.4283  below the golden shrink
+    18 (2)  0.3346  below the golden shrink
+    19 (1)  0.9882  above the golden shrink
+    20 (84)  0.0118  below the golden shrink
+    21 (2)  0.3974  below the golden shrink
+    22 (1)  0.5157  below the golden shrink
+    23 (1)  0.9387  above the golden shrink
+    24 (15)  0.0652  below the golden shrink
+    25 (3)  0.3254  below the golden shrink
+    26 (13)  0.0723  below the golden shrink
+    27 (1)  0.8169  above the golden shrink
+    28 (4)  0.2240  below the golden shrink
+    29 (2)  0.4624  below the golden shrink
+    30 (6)  0.1621  below the golden shrink
+    31 (6)  0.1663  below the golden shrink
+    32 (99)  0.0100  below the golden shrink
+    33 (1)  0.7112  above the golden shrink
+    34 (2)  0.4059  below the golden shrink
+    35 (2)  0.4633  below the golden shrink
+    36 (6)  0.1583  below the golden shrink
+    37 (3)  0.3144  below the golden shrink
+    38 (5)  0.1805  below the golden shrink
+    39 (1)  0.5378  below the golden shrink
+    40 (1)  0.8594  above the golden shrink
+    41 (6)  0.1635  below the golden shrink
+    42 (8)  0.1125  below the golden shrink
+    43 (1)  0.8850  above the golden shrink
+    44 (7)  0.1298  below the golden shrink
+    45 (1)  0.6987  above the golden shrink
+    46 (2)  0.4311  below the golden shrink
+    47 (3)  0.3195  below the golden shrink
+    48 (7)  0.1296  below the golden shrink
+    49 (1)  0.7158  above the golden shrink
+    50 (2)  0.3969  below the golden shrink
+    51 (1)  0.5190  below the golden shrink
+    52 (1)  0.9266  above the golden shrink
+    53 (12)  0.0791  below the golden shrink
+    54 (1)  0.6401  above the golden shrink
+    55 (1)  0.5620  below the golden shrink
+    56 (1)  0.7791  above the golden shrink
+    57 (3)  0.2834  below the golden shrink
+    58 (1)  0.5275  below the golden shrink
+    59 (1)  0.8955  above the golden shrink
+    60 (8)  0.1166  below the golden shrink
+    61 (1)  0.5742  below the golden shrink
+    62 (1)  0.7414  above the golden shrink
+    63 (2)  0.3487  below the golden shrink
+    64 (1)  0.8674  above the golden shrink
+    65 (6)  0.1528  below the golden shrink
+    45 floors shrink below the golden 1/phi and 20 above; 28 shrink between 1/2 and 1, the floors of 1
+    growth a floor, q_65^(1/65) = 3.210576, against the golden phi = 1.618033
+  the billiard from the corner at slope pi, 2^24 columns: 69484394 segments between 16777216 side-wall and 52707178 floor-wall hits, 0 corners
+    the lead in L about the centre changed hands 35929962 times, the longest lead 2 segments, one side ahead on 34742196 of 69484394
+    the nearest tie: |L| = 1.910e-8 (p = (1, pi)) in cell (862516, 2709675), where pi stands nearest 5419351/1725033
+    the record near-corners at the side walls: 1, 7, 106, 113, 33102, 33215, 66317, 99532, 265381, 364913, 1360120, 1725033
+  2^k cells: the step that fills the boundary, its ratio to the cells, the last cell filled as a place on the circle, and the floor it fills on
+    2^1  step 4.000e0 = 4  x2.0000  last cell at 0.500000000000  floor 0 (a 7)  cell 0 again at step 8, 4 after the fill; the last cell again at step 11, 3 after cell 0: 1 shorter  walked 4, longest stall 4, etched again by 5
+    2^2  step 6.000e0 = 6  x1.5000  last cell at 0.750000000000  floor 0 (a 7)  cell 0 again at step 8, 2 after the fill; the last cell again at step 13, 5 after cell 0: 1 shorter  walked 6, longest stall 2, etched again by 7
+    2^3  step 7.000e0 = 7  x0.8750  last cell at 0.875000000000  floor 1 (a 15)  cell 0 again at step 15, 8 after the fill; the last cell again at step 21, 6 after cell 0: 1 shorter  walked 7, longest stall 1, etched again by 15
+    2^4  step 6.000e1 = 60  x3.7500  last cell at 0.437500000000  floor 1 (a 15)  cell 0 again at step 64, 4 after the fill; the last cell again at step 67, 3 after cell 0: 57 shorter  walked 60, longest stall 11, etched again by 75
+    2^5  step 9.000e1 = 90  x2.8125  last cell at 0.718750000000  floor 1 (a 15)  cell 0 again at step 92, 2 after the fill; the last cell again at step 97, 5 after cell 0: 85 shorter  walked 90, longest stall 9, etched again by 105
+    2^6  step 1.050e2 = 105  x1.6406  last cell at 0.859375000000  floor 1 (a 15)  cell 0 again at step 106, 1 after the fill; the last cell again at step 218, 112 after cell 0: 7 longer  walked 105, longest stall 8, etched again by 218
+    2^7  step 3.730e3 = 3730  x29.1406  last cell at 0.132812500000  floor 3 (a 292)  cell 0 again at step 3948, 218 after the fill; the last cell again at step 3956, 8 after cell 0: 3722 shorter  walked 3730, longest stall 331, etched again by 3948
+    2^8  step 1.841e4 = 18416  x71.9375  last cell at 0.566406250000  floor 3 (a 292)  cell 0 again at step 18638, 222 after the fill; the last cell again at step 18642, 4 after cell 0: 18412 shorter  walked 18416, longest stall 222, etched again by 18747
+    2^9  step 2.598e4 = 25981  x50.7441  last cell at 0.716796875000  floor 3 (a 292)  cell 0 again at step 25983, 2 after the fill; the last cell again at step 26094, 111 after cell 0: 25870 shorter  walked 25981, longest stall 109, etched again by 26094
+    2^10  step 2.970e4 = 29709  x29.0126  last cell at 0.575195312500  floor 3 (a 292)  cell 0 again at step 29712, 3 after the fill; the last cell again at step 29822, 110 after cell 0: 29599 shorter  walked 29709, longest stall 111, etched again by 29822
+    2^11  step 3.151e4 = 31518  x15.3896  last cell at 0.716796875000  floor 3 (a 292)  cell 0 again at step 31520, 2 after the fill; the last cell again at step 31631, 111 after cell 0: 31407 shorter  walked 31518, longest stall 54, etched again by 31631
+    2^12  step 3.242e4 = 32422  x7.9155  last cell at 0.716796875000  floor 3 (a 292)  cell 0 again at step 32424, 2 after the fill; the last cell again at step 32535, 111 after cell 0: 32311 shorter  walked 32422, longest stall 27, etched again by 32535
+    2^13  step 3.287e4 = 32874  x4.0129  last cell at 0.716796875000  floor 3 (a 292)  cell 0 again at step 32876, 2 after the fill; the last cell again at step 32987, 111 after cell 0: 32763 shorter  walked 32874, longest stall 13, etched again by 32987
+    2^14  step 3.310e4 = 33100  x2.0202  last cell at 0.716796875000  floor 3 (a 292)  cell 0 again at step 33102, 2 after the fill; the last cell again at step 33213, 111 after cell 0: 32989 shorter  walked 33100, longest stall 6, etched again by 33213
+    2^15  step 3.321e4 = 33213  x1.0135  last cell at 0.716796875000  floor 4 (a 1)  cell 0 again at step 66317, 33104 after the fill; the last cell again at step 99530, 33213 after cell 0: the same period  walked 33213, longest stall 3, etched again by 66427
+    2^16  step 9.953e4 = 99531  x1.5187  last cell at 0.858398437500  floor 6 (a 1)  cell 0 again at step 165849, 66318 after the fill; the last cell again at step 199063, 33214 after cell 0: 66317 shorter  walked 99531, longest stall 5, etched again by 199056
+    2^17  step 2.653e5 = 265379  x2.0246  last cell at 0.716812133789  floor 7 (a 2)  cell 0 again at step 265381, 2 after the fill; the last cell again at step 364911, 99530 after cell 0: 165849 shorter  walked 265379, longest stall 107, etched again by 364911
+    2^18  step 3.649e5 = 364911  x1.3920  last cell at 0.716812133789  floor 8 (a 1)  cell 0 again at step 630294, 265383 after the fill; the last cell again at step 729824, 99530 after cell 0: 265381 shorter  walked 364911, longest stall 3, etched again by 729824
+    2^19  step 9.951e5 = 995183  x1.8981  last cell at 0.601776123046  floor 9 (a 3)  cell 0 again at step 995207, 24 after the fill; the last cell again at step 1360096, 364889 after cell 0: 630294 shorter  walked 995183, longest stall 34, etched again by 1360103
+    2^20  step 1.725e6 = 1725020  x1.6451  last cell at 0.159295082092  floor 10 (a 1)  cell 0 again at step 3085153, 1360133 after the fill; the last cell again at step 3450053, 364900 after cell 0: 1360120 shorter  walked 1725020, longest stall 20, etched again by 3450050
+    2^21  step 6.535e6 = 6535216  x3.1162  last cell at 0.575222015380  floor 11 (a 14)  cell 0 again at step 6535219, 3 after the fill; the last cell again at step 8260249, 1725030 after cell 0: 4810186 shorter  walked 6535216, longest stall 19, etched again by 8260249
+    2^22  step 1.861e7 = 18610106  x4.4369  last cell at 0.292127132415  floor 11 (a 14)  cell 0 again at step 18610450, 344 after the fill; the last cell again at step 20335139, 1724689 after cell 0: 16885417 shorter  walked 18610106, longest stall 949, etched again by 20335474
+    2^23  step 2.378e7 = 23785535  x2.8354  last cell at 0.017702817916  floor 11 (a 14)  cell 0 again at step 23785549, 14 after the fill; the last cell again at step 25510568, 1725019 after cell 0: 22060516 shorter  walked 23785535, longest stall 15, etched again by 25510573
+    2^24  step 2.551e7 = 25510581  x1.5205  last cell at 0.858407318592  floor 11 (a 14)  cell 0 again at step 25510582, 1 after the fill; the last cell again at step 27235614, 1725032 after cell 0: 23785549 shorter  walked 25510581, longest stall 3, etched again by 51021159
+    2^25  step 5.274e7 = 52746193  x1.5719  last cell at 0.433629363775  floor 12 (a 2)  cell 0 again at step 78256779, 25510586 after the fill; the last cell again at step 105492390, 27235611 after cell 0: 25510582 shorter
+    2^26  step 7.825e7 = 78256775  x1.1661  last cell at 0.433629378676  floor 13 (a 1)  cell 0 again at step 78256779, 4 after the fill; the last cell again at step 131002972, 52746193 after cell 0: 25510582 shorter
+    2^27  step 2.092e8 = 209259752  x1.5591  last cell at 0.575222037732  floor 15 (a 2)  cell 0 again at step 209259755, 3 after the fill; the last cell again at step 340262728, 131002973 after cell 0: 78256779 shorter
+    2^28  step 3.402e8 = 340262730  x1.2675  last cell at 0.858407344669  floor 15 (a 2)  cell 0 again at step 340262731, 1 after the fill; the last cell again at step 471265706, 131002975 after cell 0: 209259755 shorter
+    2^29  step 8.115e8 = 811528434  x1.5115  last cell at 0.433629384264  floor 16 (a 2)  cell 0 again at step 1151791169, 340262735 after the fill; the last cell again at step 1623056872, 471265703 after cell 0: 340262731 shorter
+    2^30  step 1.963e9 = 1963319603  x1.8284  last cell at 0.433629385195  floor 17 (a 2)  cell 0 again at step 1963319607, 4 after the fill; the last cell again at step 2774848041, 811528434 after cell 0: 1151791169 shorter
+    2^31  step 2.774e9 = 2774848044  x1.2921  last cell at 0.858407346066  floor 18 (a 2)  cell 0 again at step 3926639214, 1151791170 after the fill; the last cell again at step 4738167651, 811528437 after cell 0: 1963319607 shorter
+    2^32  step 6.701e9 = 6701487258  x1.5603  last cell at 0.858407346298  floor 19 (a 1)  cell 0 again at step 6701487259, 1 after the fill; the last cell again at step 13402974517, 6701487258 after cell 0: the same period
+    2^33  step 1.387e11 = 138767889965  x16.1547  last cell at 0.200790362083  floor 20 (a 84)  cell 0 again at step 140731232439, 1963342474 after the fill; the last cell again at step 145469377224, 4738144785 after cell 0: 134029745180 shorter
+    2^34  step 3.599e11 = 359916992356  x20.9499  last cell at 0.743368967378  floor 20 (a 84)  cell 0 again at step 574364584667, 214447592311 after the fill; the last cell again at step 927580089764, 353215505097 after cell 0: 6701487259 shorter
+    2^35  step 4.671e11 = 467140788517  x13.5955  last cell at 0.150444078433  floor 20 (a 84)  cell 0 again at step 574364584667, 107223796150 after the fill; the last cell again at step 1041505373184, 467140788517 after cell 0: the same period
+    2^36  step 5.274e11 = 527454173848  x7.6754  last cell at 0.150444078448  floor 20 (a 84)  cell 0 again at step 574364584667, 46910410819 after the fill; the last cell again at step 1095117271256, 520752686589 after cell 0: 6701487259 shorter
+    2^37  step 5.542e11 = 554260122884  x4.0327  last cell at 0.150444078455  floor 20 (a 84)  cell 0 again at step 574364584667, 20104461783 after the fill; the last cell again at step 1121923220292, 547558635625 after cell 0: 6701487259 shorter
+    2^38  step 5.676e11 = 567663097407  x2.0651  last cell at 0.858407346408  floor 20 (a 84)  cell 0 again at step 574364584667, 6701487260 after the fill; the last cell again at step 1135326194815, 560961610148 after cell 0: 6701487259 shorter
+    2^39  step 5.743e11 = 574364584666  x1.0447  last cell at 0.858407346409  floor 21 (a 2)  cell 0 again at step 574364584667, 1 after the fill; the last cell again at step 1142027682074, 567663097407 after cell 0: 6701487259 shorter
+    2^40  step 1.709e12 = 1709690779481  x1.5549  last cell at 0.716814692819  floor 22 (a 1)  cell 0 again at step 2284055364150, 574364584669 after the fill; the last cell again at step 2851718461556, 567663097406 after cell 0: 1142027682075 shorter
+    2^41  step 2.851e12 = 2851718461557  x1.2968  last cell at 0.858407346409  floor 23 (a 1)  cell 0 again at step 2851718461558, 1 after the fill; the last cell again at step 4561409241040, 1709690779482 after cell 0: 1142027682075 shorter
+    2^42  step 1.882e13 = 18820001548829  x4.2791  last cell at 0.716814692820  floor 24 (a 15)  cell 0 again at step 19962029230906, 1142027682077 after the fill; the last cell again at step 21671720010387, 1709690779481 after cell 0: 17110310769348 shorter
+    2^43  step 3.593e13 = 35930312318177  x4.0848  last cell at 0.716814692820  floor 24 (a 15)  cell 0 again at step 47337186164411, 11406873846234 after the fill; the last cell again at step 80415780021030, 33078593856619 after cell 0: 2851718461558 shorter
+    2^44  step 4.163e13 = 41633749241294  x2.3666  last cell at 0.858407346410  floor 24 (a 15)  cell 0 again at step 47337186164411, 5703436923117 after the fill; the last cell again at step 86119216944147, 38782030779736 after cell 0: 2851718461558 shorter
+    2^45  step 4.733e13 = 47337186164409  x1.3454  last cell at 0.716814692820  floor 25 (a 3)  cell 0 again at step 47337186164411, 2 after the fill; the last cell again at step 91822653867262, 44485467702851 after cell 0: 2851718461558 shorter
+    2^46  step 1.363e14 = 136308121570115  x1.9370  last cell at 0.716814692820  floor 25 (a 3)  cell 0 again at step 136308121570117, 2 after the fill; the last cell again at step 180793589272968, 44485467702851 after cell 0: 91822653867264 shorter
+    2^47  step 3.171e14 = 317101710843083  x2.2531  last cell at 0.433629385640  floor 26 (a 13)  cell 0 again at step 408924364710351, 91822653867268 after the fill; the last cell again at step 453409832413200, 44485467702849 after cell 0: 272616243140234 shorter
+    2^48  step 1.134e15 = 1134950440263788  x4.0321  last cell at 0.858407346410  floor 26 (a 13)  cell 0 again at step 1952799169684491, 817848729420703 after the fill; the last cell again at step 3087749609948279, 1134950440263788 after cell 0: the same period
+    2^49  step 1.680e15 = 1680182926544254  x2.9846  last cell at 0.575222039230  floor 26 (a 13)  cell 0 again at step 1952799169684491, 272616243140237 after the fill; the last cell again at step 3496673974658628, 1543874804974137 after cell 0: 136308121570117 shorter
+    2^50  step 1.952e15 = 1952799169684487  x1.7344  last cell at 0.433629385640  floor 27 (a 1)  cell 0 again at step 1952799169684491, 4 after the fill; the last cell again at step 3769290217798861, 1816491048114370 after cell 0: 136308121570117 shorter
+    2^51  step 3.769e15 = 3769290217798861  x1.6739  last cell at 0.433629385640  floor 28 (a 4)  cell 0 again at step 3905598339368982, 136308121570121 after the fill; the last cell again at step 5722089387483352, 1816491048114370 after cell 0: 1952799169684491 shorter
+    2^52  step 9.627e15 = 9627687726852330  x2.1377  last cell at 0.867258771281  floor 28 (a 4)  cell 0 again at step 11580486896536829, 1952799169684499 after the fill; the last cell again at step 19255375453704668, 7674888557167839 after cell 0: 1952799169684491 shorter
+    2^53  step 1.158e16 = 11580486896536823  x1.2856  last cell at 0.150444078461  floor 29 (a 2)  cell 0 again at step 11580486896536829, 6 after the fill; the last cell again at step 21208174623389161, 9627687726852332 after cell 0: 1952799169684491 shorter
+    2^54  step 2.120e16 = 21208174623389165  x1.1772  last cell at 0.716814692820  floor 29 (a 2)  cell 0 again at step 21208174623389167, 2 after the fill; the last cell again at step 42416349246778332, 21208174623389165 after cell 0: the same period
+    2^55  step 9.446e16 = 94460386220409003  x2.6218  last cell at 0.575222039230  floor 30 (a 6)  cell 0 again at step 158084910090576507, 63624523870167504 after the fill; the last cell again at step 231337121687596343, 73252211597019836 after cell 0: 21208174623389167 shorter
+    2^56  step 1.368e17 = 136876735467187337  x1.8995  last cell at 0.575222039230  floor 30 (a 6)  cell 0 again at step 158084910090576507, 21208174623389170 after the fill; the last cell again at step 273753470934374677, 115668560843798170 after cell 0: 21208174623389167 shorter
+    2^57  step 2.949e17 = 294961645557763838  x2.0467  last cell at 0.725666117691  floor 31 (a 6)  cell 0 again at step 294961645557763847, 9 after the fill; the last cell again at step 431838381024951178, 136876735467187331 after cell 0: 158084910090576507 shorter
+    2^58  step 7.055e17 = 705591851959325858  x2.4480  last cell at 0.725666117691  floor 31 (a 6)  cell 0 again at step 705591851959325867, 9 after the fill; the last cell again at step 842468587426513198, 136876735467187331 after cell 0: 568715116492138527 shorter
+    2^59  step 8.424e17 = 842468587426513206  x1.4614  last cell at 0.858407346410  floor 31 (a 6)  cell 0 again at step 842468587426513207, 1 after the fill; the last cell again at step 1684937174853026413, 842468587426513206 after cell 0: the same period
+    2^60  step 2.372e19 = 23725997183409556959  x20.5790  last cell at 0.938100314606  floor 32 (a 99)  cell 0 again at step 24431589035368883003, 705591851959326044 after the fill; the last cell again at step 24568465770836070166, 136876735467187163 after cell 0: 23589120447942369796 shorter
+    2^61  step 5.489e19 = 54897334918190545618  x23.8079  last cell at 0.938100314606  floor 32 (a 99)  cell 0 again at step 84383735478118508040, 29486400559927962422 after the fill; the last cell again at step 138438601808882540451, 54054866330764032411 after cell 0: 842468587426513207 shorter
+    2^62  step 7.006e19 = 70061769491867783478  x15.1922  last cell at 0.911515895638  floor 32 (a 99)  cell 0 again at step 84383735478118508040, 14321965986250724562 after the fill; the last cell again at step 154445504969986291518, 70061769491867783478 after cell 0: the same period
+    2^63  step 7.764e19 = 77643986778706402382  x8.4181  last cell at 0.716814692820  floor 32 (a 99)  cell 0 again at step 84383735478118508040, 6739748699412105658 after the fill; the last cell again at step 161185253669398397215, 76801518191279889175 after cell 0: 842468587426513207 shorter
+    2^64  step 8.185e19 = 81856329715838968403  x4.4374  last cell at 0.734517542563  floor 32 (a 99)  cell 0 again at step 84383735478118508040, 2527405762279539637 after the fill; the last cell again at step 165397596606530963236, 81013861128412455196 after cell 0: 842468587426513207 shorter
+    2^65  step 8.354e19 = 83541266890691994831  x2.2643  last cell at 0.716814692820  floor 32 (a 99)  cell 0 again at step 84383735478118508040, 842468587426513209 after the fill; the last cell again at step 167082533781383989664, 82698798303265481624 after cell 0: 842468587426513207 shorter
+    2^66  step 8.438e19 = 84383735478118508038  x1.1436  last cell at 0.716814692820  floor 33 (a 1)  cell 0 again at step 84383735478118508040, 2 after the fill; the last cell again at step 167925002368810502871, 83541266890691994831 after cell 0: 842468587426513207 shorter
+    2^67  step 2.523e20 = 252308737846929010909  x1.7097  last cell at 0.433629385640  floor 34 (a 2)  cell 0 again at step 336692473325047518953, 84383735478118508044 after the fill; the last cell again at step 504617475693858021822, 167925002368810502869 after cell 0: 84383735478118508040 shorter
+    2^68  step 5.890e20 = 589001211171976529760  x1.9956  last cell at 0.991178719481  floor 35 (a 2)  cell 0 again at step 589001211171976529866, 106 after the fill; the last cell again at step 841309949018905540673, 252308737846929010807 after cell 0: 336692473325047518953 shorter
+    2^69  step 8.413e20 = 841309949018905540771  x1.4252  last cell at 0.867258771281  floor 36 (a 6)  cell 0 again at step 1178002422343953059732, 336692473325047518961 after the fill; the last cell again at step 1430311160190882070637, 252308737846929010905 after cell 0: 589001211171976529866 shorter
+    2^70  step 2.608e21 = 2608313582534835130373  x2.2093  last cell at 0.433629385640  floor 36 (a 6)  cell 0 again at step 4375317216050764719975, 1767003633515929589602 after the fill; the last cell again at step 6394629587413623320482, 2019312371362858600507 after cell 0: 589001211171976529866 shorter
+    2^71  step 3.786e21 = 3786316004878788190108  x1.6035  last cell at 0.858407346410  floor 36 (a 6)  cell 0 again at step 4375317216050764719975, 589001211171976529867 after the fill; the last cell again at step 7572632009757576380217, 3197314793706811660242 after cell 0: 589001211171976529866 shorter
+    2^72  step 8.161e21 = 8161633220929552910077  x1.7282  last cell at 0.008851424871  floor 37 (a 3)  cell 0 again at step 8161633220929552910084, 7 after the fill; the last cell again at step 11947949225808341100186, 3786316004878788190102 after cell 0: 4375317216050764719975 shorter
+    2^73  step 1.194e22 = 11947949225808341100191  x1.2650  last cell at 0.716814692820  floor 37 (a 3)  cell 0 again at step 11947949225808341100193, 2 after the fill; the last cell again at step 23895898451616682200384, 11947949225808341100191 after cell 0: the same period
+    2^74  step 3.963e22 = 39630163682303811490685  x2.0980  last cell at 0.575222039230  floor 38 (a 5)  cell 0 again at step 75474011359728834791267, 35843847677425023300582 after the fill; the last cell again at step 115104175042032646281952, 39630163682303811490685 after cell 0: the same period
+    2^75  step 6.352e22 = 63526062133920493691071  x1.6815  last cell at 0.575222039230  floor 38 (a 5)  cell 0 again at step 75474011359728834791267, 11947949225808341100196 after the fill; the last cell again at step 127052124267840987382145, 51578112908112152590878 after cell 0: 11947949225808341100193 shorter
+    2^76  step 1.390e23 = 139000073493649328482310  x1.8396  last cell at 0.610627738716  floor 40 (a 1)  cell 0 again at step 150948022719457669582534, 11947949225808341100224 after the fill; the last cell again at step 214474084853378163273577, 63526062133920493691043 after cell 0: 75474011359728834791267 shorter
+    2^77  step 2.144e23 = 214474084853378163273603  x1.4192  last cell at 0.292036732051  floor 41 (a 6)  cell 0 again at step 214474084853378163273608, 5 after the fill; the last cell again at step 353474158347027491755944, 139000073493649328482336 after cell 0: 75474011359728834791267 shorter
+    2^78  step 7.704e23 = 770474378827975477202791  x2.5492  last cell at 0.371729700247  floor 41 (a 6)  cell 0 again at step 770474378827975477202972, 181 after the fill; the last cell again at step 909474452321624805685132, 139000073493649328482160 after cell 0: 631474305334326148720631 shorter
+    2^79  step 9.094e23 = 909474452321624805685311  x1.5045  last cell at 0.716814692820  floor 41 (a 6)  cell 0 again at step 909474452321624805685313, 2 after the fill; the last cell again at step 1818948904643249611370624, 909474452321624805685311 after cell 0: the same period
+    2^80  step 3.776e24 = 3776897882780148551223489  x3.1241  last cell at 0.274364026661  floor 42 (a 8)  cell 0 again at step 4547372261608124028426565, 770474378827975477203076 after the fill; the last cell again at step 4686372335101773356908802, 139000073493649328482237 after cell 0: 3637897809286499222741252 shorter
+    2^81  step 6.505e24 = 6505321239745022968279530  x2.6905  last cell at 0.716814692820  floor 42 (a 8)  cell 0 again at step 8324270144388272579650158, 1818948904643249611370628 after the fill; the last cell again at step 13920116931811670742244375, 5595846787423398162594217 after cell 0: 909474452321624805685313 shorter
+    2^82  step 8.324e24 = 8324270144388272579650142  x1.7214  last cell at 0.734517542563  floor 43 (a 1)  cell 0 again at step 8324270144388272579650158, 16 after the fill; the last cell again at step 15739065836454920353614987, 7414795692066647773964829 after cell 0: 909474452321624805685313 shorter
+    2^83  step 2.406e25 = 24063335980843192933265126  x2.4880  last cell at 0.044257124357  floor 44 (a 7)  cell 0 again at step 24972810433164817738950474, 909474452321624805685348 after the fill; the last cell again at step 32387606125231465512915284, 7414795692066647773964810 after cell 0: 16648540288776545159300316 shorter
+    2^84  step 5.736e25 = 57360416558396283251862976  x2.9654  last cell at 0.133494837552  floor 44 (a 7)  cell 0 again at step 74008956847172828411166109, 16648540288776545159303133 after the fill; the last cell again at step 123045103261180839083378927, 49036146414008010672212818 after cell 0: 8324270144388272579650158 shorter
+    2^85  step 6.568e25 = 65684686702784555831515950  x1.6979  last cell at 0.858407346410  floor 44 (a 7)  cell 0 again at step 74008956847172828411166109, 8324270144388272579650159 after the fill; the last cell again at step 139693643549957384242682059, 65684686702784555831515950 after cell 0: the same period
+    2^86  step 1.396e26 = 139693643549957384242682054  x1.8054  last cell at 0.150444078461  floor 46 (a 2)  cell 0 again at step 148017913694345656822332218, 8324270144388272579650164 after the fill; the last cell again at step 213702600397130212653848163, 65684686702784555831515945 after cell 0: 74008956847172828411166109 shorter
+    2^87  step 2.137e26 = 213702600397130212653848167  x1.3810  last cell at 0.716814692820  floor 46 (a 2)  cell 0 again at step 287711557244303041065014278, 74008956847172828411166111 after the fill; the last cell again at step 427405200794260425307696336, 139693643549957384242682058 after cell 0: 74008956847172828411166109 shorter
+    2^88  step 5.014e26 = 501414157641433253718862443  x1.6201  last cell at 0.433629385640  floor 47 (a 3)  cell 0 again at step 501414157641433253718862447, 4 after the fill; the last cell again at step 715116758038563466372710612, 213702600397130212653848165 after cell 0: 287711557244303041065014278 shorter
+    2^89  step 7.151e26 = 715116758038563466372710615  x1.1553  last cell at 0.858407346410  floor 47 (a 3)  cell 0 again at step 715116758038563466372710616, 1 after the fill; the last cell again at step 1430233516077126932745421231, 715116758038563466372710615 after cell 0: the same period
+    2^90  step 3.789e27 = 3789286390589947544517401175  x3.0609  last cell at 0.522143634355  floor 48 (a 7)  cell 0 again at step 5934636664705637943635533097, 2145350274115690399118131922 after the fill; the last cell again at step 9008806297257022021780223656, 3074169632551384078144690559 after cell 0: 715116758038563466372710616 shorter
+    2^91  step 5.219e27 = 5219519906667074477262822478  x2.1081  last cell at 0.575222039230  floor 48 (a 7)  cell 0 again at step 5934636664705637943635533097, 715116758038563466372710619 after the fill; the last cell again at step 10439039813334148954525644959, 4504403148628511010890111862 after cell 0: 715116758038563466372710616 shorter
+    2^92  step 5.934e27 = 5934636664705637943635533095  x1.1984  last cell at 0.716814692820  floor 49 (a 1)  cell 0 again at step 5934636664705637943635533097, 2 after the fill; the last cell again at step 11869273329411275887271066192, 5934636664705637943635533095 after cell 0: the same period
+    2^93  step 1.708e28 = 17088793236078350364533888672  x1.7255  last cell at 0.575222039230  floor 50 (a 2)  cell 0 again at step 23023429900783988308169421772, 5934636664705637943635533100 after the fill; the last cell again at step 34177586472156700729067777347, 11154156571372712420898355575 after cell 0: 5934636664705637943635533097 shorter
+    2^94  step 2.302e28 = 23023429900783988308169421771  x1.1623  last cell at 0.858407346410  floor 51 (a 1)  cell 0 again at step 23023429900783988308169421772, 1 after the fill; the last cell again at step 40112223136862338672703310446, 17088793236078350364533888674 after cell 0: 5934636664705637943635533097 shorter
+    2^95  step 6.313e28 = 63135653037646326980872732081  x1.5937  last cell at 0.460213804608  floor 53 (a 12)  cell 0 again at step 63135653037646326980872732219, 138 after the fill; the last cell again at step 103247876174508665653576042528, 40112223136862338672703310309 after cell 0: 23023429900783988308169421772 shorter
+    2^96  step 3.038e29 = 303808991858820359017092594837  x3.8346  last cell at 0.938070170253  floor 53 (a 12)  cell 0 again at step 303808991858820359017092594901, 64 after the fill; the last cell again at step 343921214995682697689795905284, 40112223136862338672703310383 after cell 0: 263696768721958020344389284454 shorter
+    2^97  step 4.642e29 = 464257884406269713707905836662  x2.9298  last cell at 0.176998353075  floor 53 (a 12)  cell 0 again at step 464257884406269713707905836689, 27 after the fill; the last cell again at step 504370107543132052380609147109, 40112223136862338672703310420 after cell 0: 424145661269407375035202526242 shorter
+    2^98  step 5.043e29 = 504370107543132052380609147128  x1.5915  last cell at 0.867258771281  floor 53 (a 12)  cell 0 again at step 504370107543132052380609147136, 8 after the fill; the last cell again at step 544482330679994391053312457575, 40112223136862338672703310439 after cell 0: 464257884406269713707905836689 shorter
+    2^99  step 1.048e30 = 1048852438223126443433921604713  x1.6547  last cell at 0.150444078461  floor 55 (a 1)  cell 0 again at step 1048852438223126443433921604719, 6 after the fill; the last cell again at step 1593334768903120834487234062296, 544482330679994391053312457577 after cell 0: 504370107543132052380609147136 shorter
+    2^100  step 1.593e30 = 1593334768903120834487234062301  x1.2569  last cell at 0.858407346410  floor 56 (a 1)  cell 0 again at step 2642187207126247277921155667021, 1048852438223126443433921604720 after the fill; the last cell again at step 3186669537806241668974468124603, 544482330679994391053312457582 after cell 0: 1048852438223126443433921604719 shorter
+  the second run, cell 0 to the first run's last cell, has the first run's period at 13 of 100 resolutions
+  pi tower: 23 checks, 0 failed
+  pi_tower exit 0

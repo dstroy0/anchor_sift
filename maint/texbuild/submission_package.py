@@ -141,7 +141,7 @@ def _repository_root():
 
 ROOT = _repository_root()
 THEORY = os.path.join(ROOT, "theory")
-# Every research paper sits under theory/, the dstroy0/theory submodule, on one of its three shelves:
+# Every research paper sits under theory/, a directory of this repository, on one of its three shelves:
 # theory/theory/, theory/workbooks/ and theory/thought_experiments/. A research paper is named by its path
 # below theory/.
 TREES = (THEORY,)
@@ -172,8 +172,8 @@ README = {
 # gets reported instead of quietly repointed.
 CLIMBING = re.compile(r"(\\(?:input|include)\{)((?:\.\./)+)([^}]+)(\})")
 
-# What a source file is. Everything else in a research paper directory is copied as it stands, which is how
-# the matplotlib figure beside the corpus derivation chapter travels with its chapter.
+# What a source file is. Everything else in a research paper directory is copied as it stands, and on those
+# terms the matplotlib figure beside the corpus derivation chapter travels with its chapter.
 TEX = ".tex"
 
 # What the archive flag accepts, against what it writes.

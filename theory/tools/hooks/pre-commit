@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+# Refuses a commit whose working tree carries a banned word.
+#
+# Install once per clone:   git config core.hooksPath tools/hooks
+#
+# This repository, dstroy0/theory and theory_bucket before 2026-09-26, shipped no hooks until this
+# file existed, and commits here ran zero gates. It is public, and a banned word committed here is
+# published with it. The name guard is a tree-wide control and not a per-repository preference. Root CLAUDE.md refuses every commit in a repository whose
+# core.hooksPath is unset.
+#
+# WHERE THE CHECKER IS, AND WHY IT IS NOT IN THIS TREE
+#
+# The list of banned words is itself the thing being kept out, a denylist held inside the tree
+# would write every word it bans into the tree and defeat its own purpose. Both the list and the
+# checker sit outside every repository they guard. This hook finds them under the user's home and
+# not at a literal path, because a hard-coded absolute path is banned tree-wide and would be wrong on
+# any other machine. THEORY_BUCKET_COMMIT_GUARD overrides the directory.
+#
+# This is idemIP's tools/git-hooks/pre-commit at c2ab33a, itself a copy of MMgr's, with its two
+# variable names changed and this paragraph and the one above rewritten for this repository. The
+# copies are kept apart deliberately: each repository has to install without depending on another.
+# The directory is tools/hooks here, where idemIP and MMgr use tools/git-hooks. A command naming
+# tools/git-hooks carries the word "git" twice, and a worktree-isolated shell refuses to run it.
+# The shorter name keeps every commit in this repository runnable from a worktree.
+#
+# IT FAILS CLOSED
+#
+# A missing checker refuses the commit. It does not skip the step and exit 0. A gate that cannot
+# find its instrument reports the same success as a gate that ran and found nothing, and the two
+# are indistinguishable to the person reading the exit code. Set THEORY_BUCKET_HOOK_NO_BANNED_SCAN=1
+# to bypass deliberately, which leaves a trace in the shell and not a silence.
+#
+# KNOWN GAP
+#
+# The checker skips `.claude/` along with build and cache output. Notes kept under `.claude/` are the
+# tracked files likeliest to carry a local path, and they are the one directory this gate does not
+# read. The skip belongs to the checker and not to this hook, and it is recorded here for that reason.
+set -uo pipefail
+
+# Resolve the tree being committed and not this script's own location. A linked worktree runs the
+# shared checkout's copy of this file, and deriving the root from the script path would scan the
+# wrong tree.
+REPO=$(git rev-parse --show-toplevel 2>/dev/null) || exit 1
+cd "$REPO" || exit 1
+
+if [ "${THEORY_BUCKET_HOOK_NO_BANNED_SCAN:-0}" = "1" ]; then
+    echo "pre-commit: banned-word scan bypassed by THEORY_BUCKET_HOOK_NO_BANNED_SCAN=1"
+    exit 0
+fi
+
+GUARD_DIR=${THEORY_BUCKET_COMMIT_GUARD:-$HOME/.claude/commit_guard}
+CHECKER=$GUARD_DIR/check_banned.py
+
+if [ ! -f "$CHECKER" ]; then
+    echo "pre-commit: BLOCKED - no banned-word checker at $CHECKER"
+    echo "            Set THEORY_BUCKET_COMMIT_GUARD to the directory holding check_banned.py."
+    echo "            Refusing and not skipping: a gate that cannot find its checker and"
+    echo "            exits 0 is indistinguishable from one that ran and passed."
+    exit 1
+fi
+
+PYBIN=$(command -v python 2>/dev/null || command -v python3 2>/dev/null)
+if [ -z "$PYBIN" ]; then
+    echo "pre-commit: BLOCKED - no python on PATH to run $CHECKER"
+    exit 1
+fi
+
+if ! "$PYBIN" "$CHECKER" "$REPO"; then
+    echo "pre-commit: BLOCKED - the tree carries a banned word. The words are listed outside this"
+    echo "            repository, in $GUARD_DIR. Fix the lines named above before committing."
+    exit 1
+fi
+
+exit 0

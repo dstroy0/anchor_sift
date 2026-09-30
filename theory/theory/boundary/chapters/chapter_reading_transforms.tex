@@ -1,0 +1,273 @@
+\chapter{Reading transforms}
+
+\textbf{Purpose:} Write out every transform a boundary reading passes through, from the interior state to the pixel, with its action on the coefficients, whether it is diagonal in degree, what it leaves invariant, and what it costs. Keep the pieces in one table, leaving a transform already priced unpriced again while a transform never tried stays visible. \textbf{Scope:} \texttt{sphere\_field.py}, \texttt{boundary\_read.py}, \texttt{reading\_rank.py}, \texttt{grid\_error.py}, \texttt{natural\_constants.py}, \texttt{room\_view\_template.html}.
+
+\section{The object every transform acts on}
+
+A reading is a real function on a closed boundary. Expanded in real spherical harmonics to degree \(L\), it is \(f(n) = \sum_{l=0}^{L} \sum_{m=-l}^{+l} a_{lm} Y_{lm}(n)\).
+
+The reading is the vector \(a\), of length \((L+1)^2\). At the ceiling the clock runs to, \(L = 10\), that is \(121\) real numbers. Everything below is an operator on that vector.
+
+Two facts about the vector before any operator touches it.
+
+\textbf{Its length bounds what a reading can say.} A reading to degree \(L\) carries \((L+1)^2\) real numbers about its source, whatever the source is. \(256\) sources read at degree \(8\) arrive as \(81\) numbers, and \(175\) directions of the source space are absent from the reading. The eight-letter octant alphabet is rank \(8\), absent in \(248\), with \(7\) free numbers left once the weight is fixed.
+
+\textbf{Degree 15 dips and then recovers.} At full depth the least live singular value is \(3.47 \times 10^{-3}\) at degree \(15\) against \(1.75\) at degree \(14\). The exactly-complete degree is about \(500\) times worse conditioned than the incomplete degree beneath it, recovery arrives by \(17\), and saturation follows. Completeness of count and health of conditioning are separate properties.
+
+\textbf{Note, 26 September.} The three values are in \texttt{docs/\allowbreak{}arm-records.md} at anchor\_sift \texttt{ddeccb3}: \(1.75\) at degree \(14\) (:269), \(3.474 \times 10^{-3}\) at degree \(15\) (:270) and \(2.52\) at degree \(17\) (:272). The ratio of about \(500\) is \(1.75 / 3.474 \times 10^{-3} = 504\), a ratio of least singular values. A condition number also divides by the largest singular value, which the table does not give.
+
+\section{The transform table}
+
+\emph{Diag} asks whether the operator is diagonal in degree: whether it acts on each degree \(l\) by one number, without moving power between degrees.
+
+\begin{center}
+\begin{tabular}{@{}llp{0.26\linewidth}llp{0.12\linewidth}@{}}
+\toprule
+\# & transform & action on \(a_{lm}\) & diag & invariant & cost \\
+\midrule
+T1 & rotation, general & \(a_{lm} \to \sum_{m'} D^l_{m'm}(R)\, a_{lm'}\) & block & \(P_l\) & \(O(L^3)\) \\
+T2 & rotation about read axis & phase moves by \(-m\alpha\) & yes & \(P_l\), each \(|a_{lm}|\) & \(O(L^2)\) \\
+T3 & depth, outward carry & \(a_{lm} \to (r/R)^l a_{lm}\) & yes & direction per degree & \(O(L^2)\) \\
+T4 & conduction, smoothing & \(a_{lm} \to e^{-l(l+1)\tau} a_{lm}\) & yes & direction per degree & \(O(L^2)\) \\
+T5 & pixel prefilter & \(a_{lm} \to e^{-l(l+1)\sigma^2/2} a_{lm}\) & yes & direction per degree & \(O(L^2)\) \\
+T6 & band truncation & keep \(l \le L\), zero above & yes & every kept coefficient & free \\
+T7 & parity, reflection & \(a_{lm} \to (-1)^l a_{lm}\) & yes & \(P_l\) & \(O(L^2)\) \\
+T8 & screw, index shift & rotation \(n\gamma\), slide \(-2n/N\) & yes & \(P_l\) & \(O(L^2)\) \\
+T9 & synthesis & \(f(n) = \sum a_{lm} Y_{lm}(n)\) & no & none & \(O(L^2)\)/pt \\
+T10 & gradient & \(\partial_\theta\), \(\partial_\phi\) by recurrence & \(l \pm 1\) & none & \(O(L^2)\)/pt \\
+T11 & translation & mixes every degree & \textbf{no} & nothing per degree & \(O(L^3)\) \\
+T12 & octant indicator & project onto 8 indicators & \textbf{no} & total weight & rank 8 \\
+T13 & linear interpolation & not an operator on \(a\) at all & n/a & vertex values & \(O(1)\)/px \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+T5 and T10 are not built. T1, T2 live in \texttt{boundary\_read.py}; T3, T4 in \texttt{sphere\_field.kernel}; T8 in \texttt{screw\_of}; T12 in \texttt{reading\_rank.octant\_matrix}; T13 is the current viewer.
+
+Three rows carry the weight of the table.
+
+\textbf{T5 is not built and is one addition away.} Its action is T4's action with a different time.
+
+\textbf{T11 is the exception proving the rule.} Translation is the only physical move in the table mixing degrees. It is avoided in the tree by giving each source its own depth factor in T3 instead of moving an origin.
+
+\textbf{T13 is in the table to be seen for what it is.} It is not a transform of the reading. It is a straight line drawn between two samples of the reading, and the grid measurement below says how far that line sits from the curve it replaces.
+
+\section{The composition law}
+
+Rows T3 to T8 are all diagonal. Diagonal operators on the same eigenspaces commute, and composing them multiplies one number per degree. The entire chain from an interior state to a screen pixel therefore collapses to a single vector of \(L+1\) gains:
+
+\begin{center}
+\(a_{lm}(\text{screen}) = g_l\, a_{lm}(\text{state}), \qquad g_l = (r/R)^l e^{-l(l+1)\tau_{\text{total}}}, \qquad \tau_{\text{total}} = \tau_{\text{conduction}} + \tau_{\text{pixel}}\)
+\end{center}
+
+The two smoothing times add. The heat kernel on the sphere is a semigroup: smoothing for \(\tau_1\) then \(\tau_2\) is smoothing once for the sum. Nothing about that is an approximation.
+
+\textbf{The whole physical and imaging chain is 11 multiplications.} At \(L = 10\), \(g\) is eleven numbers, recomputed when the depth, the smoothing or the ceiling changes and never per pixel.
+
+\textbf{Derived, 26 September.} The pixel width \(\sigma\) varies per pixel (below, under the footprint), and \(\tau_{\text{pixel}} = \sigma^2/2\) enters \(g\). The gains are then per pixel. Group the synthesis by degree, \(f = \sum_l g_l S_l\) with \(S_l = \sum_m a_{lm} Y_{lm}\), and set \(q = e^{-2\tau}\). Since \(g_l / g_{l-1} = e^{-2l\tau} = q^l\), each degree past the first takes two multiplications, one for \(q^l\) and one for \(g_l\). The filter costs one exponential and \(3L - 2\) multiplications per pixel, \(28\) at \(L = 10\). Applying \(g\) to the whole vector costs \(121\) multiplications at \(L = 10\), where the eleven count the gains alone.
+
+\textbf{A correct pixel filter is free.} It is one addend inside a \(\tau\) already being applied. There is no second pass, no extra sampling, and no new operator.
+
+\section{Why they are diagonal, and why one is not}
+
+The table is not a coincidence and does not have to be memorized. The Laplace-Beltrami operator on the sphere has the degree \(l\) subspace as its eigenspace with eigenvalue \(-l(l+1)\), that is, \(\Delta Y_{lm} = -l(l+1) Y_{lm}\).
+
+Any operator commuting with \(\Delta\) preserves its eigenspaces and therefore acts on each degree separately.
+
+\textbf{T3, depth.} The field between the source and the boundary satisfies \(\Delta f = 0\) in the shell. Harmonic continuation outward is the solution of Laplace's equation there, and separating variables gives \((r/R)^l\) as the radial factor. The exponent is the degree because the degree is the eigenvalue's index.
+
+\textbf{T4 and T5, smoothing.} Both are \(e^{\tau\Delta}\), the heat semigroup. An operator built as a function of \(\Delta\) commutes with it by construction.
+
+\textbf{T1, T2, T7, T8, rotations and parity.} These are isometries of the sphere, and \(\Delta\) is built from the metric. They therefore commute with it. Each degree \(l\) subspace is an irreducible unitary representation of \(\mathrm{SO}(3)\) of dimension \(2l+1\), and rotation therefore mixes orders inside a degree while moving no power between degrees.
+
+\textbf{Derived, 26 September.} T8 is not an isometry of the sphere. The index shift \(n\) turns by \(n\gamma\) about the axis and slides the height by \(-2n/N\). That is rigid in height and longitude and keeps area, by Archimedes' hat-box theorem, but the axial radius \(\sqrt{1 - y^2}\) changes under the slide. The slide moves power between degrees: \(Y_{10} \propto y\) goes to \(y - 2n/N\), which has a degree \(0\) part. Only T8's rotation is diagonal. T8's entry in the diag column is no, \(P_l\) is not invariant under T8, and the diagonal rows at the composition law are T3 to T7.
+
+\textbf{Derived, 26 September.} T7's \((-1)^l\) is point inversion, \(n \to -n\). A mirror through the equatorial plane gives \((-1)^{l+m}\).
+
+\textbf{T6, truncation.} A spectral projection onto a set of eigenspaces.
+
+\textbf{T11 does not commute with \(\Delta\), and cannot.} A translation is not a map of the sphere to itself. There is no \(\Delta\) on the sphere for it to commute with. Re-expanding a field about a shifted origin mixes every degree into every other, at \(O(L^3)\) and with no per-degree number to carry it. Every cheap operation in this tree is diagonal, and the operation the tree avoids fails to be.
+
+\textbf{Derived, 26 September.} Moving a source changes its moments triangularly. Degree \(l\) of the shifted expansion draws on degrees \(0\) to \(l\) of the old one, and degree \(0\) stays fixed: Greengard and Rokhlin's Lemma 2.3 gives the plane's case. T11 is not diagonal, and it does not mix every degree into every other. The \(O(L^3)\) cost holds by rotating, shifting along the axis and rotating back (Gumerov and Duraiswami, Section 1, crediting White and Head-Gordon).
+
+\section{Reading a picture off the coefficients}
+
+\subsection{What a pixel asks for}
+
+A pixel does not ask for the field at a point. It asks for the field averaged over the solid angle it covers, and every antialiasing scheme is an attempt to answer that average.
+
+\textbf{Supersampling estimates the average.} Take \(k\) samples inside the pixel and average them: cost scales with \(k\), and the error falls about as \(1/k\). It converges toward the answer and arrives at it only in the limit.
+
+\textbf{A band-limited field has the average in closed form.} Convolution on the sphere is multiplication in degree. Averaging the field against a kernel \(K\) is therefore \(a_{lm} \to K_l a_{lm}\), with no sampling anywhere. Choosing \(K\) to be the heat kernel of width \(\sigma\) gives T5, and one evaluation of the prefiltered field is the pixel's area average exactly.
+
+\textbf{Derived, 26 September.} The heat kernel gives a Gaussian-weighted average. The exact average over a cap of angular radius \(\theta_0\) is also diagonal, by Hecke's eq. (8): with \(x = \cos\theta_0\), \(K_l = (P_{l-1}(x) - P_{l+1}(x)) / ((2l+1)(1-x))\), and \(K_0 = 1\) with \(P_{-1} = 1\). A square footprint is not zonal and is not diagonal.
+
+The comparison is therefore not between one scheme and a cheaper scheme. Supersampling approximates a quantity this field hands over in one multiplication.
+
+\subsection{The footprint and the time}
+
+The width to filter at is the pixel's own angular size on the boundary, available per fragment from the screen-space derivatives of the direction vector: \(\sigma\) is the length of the change in direction across one pixel, in radians, and \(\tau_{\text{pixel}} = \sigma^2/2\).
+
+Two properties follow that a mip chain has to be built to imitate. The width varies per pixel, and the filter is therefore continuous in distance and in surface angle with no levels and no transitions between them. And the width enters \(\tau_{\text{total}}\), where it is applied by the same eleven multiplications the chain already pays for.
+
+\subsection{Where the degrees stop mattering}
+
+The prefilter also says which degrees can be skipped. \(e^{-l(l+1)\tau}\) falls below a threshold \(\epsilon\) once \(l(l+1) > \ln(1/\epsilon)/\tau\), which gives \(l_{\max} \approx \sqrt{2\ln(1/\epsilon)}/\sigma\). At \(\epsilon = 1/256\), one level of an eight-bit channel, \(l_{\max}\) is about \(3.33/\sigma\).
+
+\textbf{Stated honestly, this saving is small.} \(l_{\max}\) reaches down to \(10\) only when \(\sigma\) is about \(0.33\) radians, which happens when the object spans a few tens of pixels. Above that size every one of the \(121\) terms contributes something visible and none may be dropped. The level-of-detail behavior is real, it is derived instead of authored, and it earns nothing at the sizes the viewer is normally used at.
+
+\textbf{Derived, 26 September.} At the center of a disk of radius \(\rho\) pixels the direction changes by \(1/\rho\) radians per pixel. \(\sigma = 0.33\) gives \(\rho \approx 3\), an object about \(6\) pixels across. The conclusion holds with more force.
+
+\subsection{The grid against the coefficients, measured}
+
+\texttt{grid\_error.py} compares the drawn picture against the field the coefficients hold. The viewer samples \(121\) coefficients at \(2{,}701\) vertices of a \(36 \times 72\) grid, \(5.0\) degrees to a cell, and the rasterizer fills each cell with two planes.
+
+Error per degree, for unit power in that degree alone, as a fraction of the picture's own contrast:
+
+\begin{center}
+\begin{tabular}{@{}rrrrr@{}}
+\toprule
+degree & largest & typical & gradient median & gradient 95th \\
+\midrule
+1 & \(0.0010\) & \(0.0004\) & \(1.25^\circ\) & \(5.85^\circ\) \\
+4 & \(0.0107\) & \(0.0026\) & \(3.22^\circ\) & \(19.15^\circ\) \\
+7 & \(0.0277\) & \(0.0058\) & \(5.34^\circ\) & \(31.94^\circ\) \\
+10 & \(0.0592\) & \(0.0108\) & \(7.47^\circ\) & \(47.15^\circ\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The value error climbs as the square of the degree, as a linear interpolant must: interpolating a wave of length \(\lambda\) over a step \(h\) is wrong by about \((\pi h/\lambda)^2/2\), and a degree \(l\) harmonic has length \(360/l\) degrees.
+
+\textbf{Derived, 26 September.} The largest error rises \(59\) times from degree \(1\) to degree \(10\), \(0.0592 / 0.0010\), an exponent of \(1.77\). The square gives \(2\). With \(h = 5^\circ\) the estimate \((\pi h/\lambda)^2/2\) gives \(0.00095\), \(0.0152\), \(0.0466\) and \(0.0952\) at degrees \(1\), \(4\), \(7\) and \(10\), within the table's rounding at degree \(1\) and above it at the other three. ``Climbs as the square'', a reading.
+
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+field & largest & typical & gradient median \\
+\midrule
+flat spectrum to degree 10 & \(0.0312\) & \(0.0050\) & \(5.85^\circ\) \\
+63 deposits at \(r/R = 0.80\) & \(0.0273\) & \(0.0061\) & \(6.67^\circ\) \\
+63 deposits at \(r/R = 0.60\) & \(0.0174\) & \(0.0034\) & \(6.05^\circ\) \\
+63 deposits at \(r/R = 0.40\) & \(0.0075\) & \(0.0015\) & \(2.14^\circ\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The depth kernel is doing the work in that last column. A deeper reading carries less high-degree power by T3, and the same grid draws it more accurately. The grid is wrong in proportion to the fine structure the state happens to hold.
+
+\textbf{Read the gradient column.} The surface is shaded, and shading takes its normal from the gradient. A linear interpolant has a constant gradient inside a triangle. The drawn normal is a staircase across a field whose gradient turns smoothly. At degree \(10\) the median normal is \(7.5\) degrees off and one sample in twenty is more than \(47\) degrees off. That is the 5-degree quilt visible on the reconstruction, and it is a far larger error than the one percent in the value column.
+
+A per-fragment evaluation has no interpolation error in either column, because there is no interpolation. T10 supplies the exact gradient in closed form for the same reason T9 supplies the exact value: the derivative of the expansion is another expansion.
+
+\subsection{What the grid would cost to fix as a grid}
+
+\begin{center}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+grid & vertices & largest & typical & gradient median \\
+\midrule
+\(36 \times 72\) & \(2{,}701\) & \(0.0300\) & \(0.0051\) & \(5.83^\circ\) \\
+\(72 \times 144\) & \(10{,}585\) & \(0.0077\) & \(0.0013\) & \(2.89^\circ\) \\
+\(144 \times 288\) & \(41{,}905\) & \(0.0019\) & \(0.0003\) & \(1.46^\circ\) \\
+\(288 \times 576\) & \(166{,}753\) & \(0.0005\) & \(0.0001\) & \(0.73^\circ\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Four times the vertices for a quarter of the error, the second-order convergence of a linear interpolant, confirmed at \(3.95\) against a predicted \(4\).
+
+\subsection{The two working sets}
+
+\begin{center}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+ & grid pass & per fragment \\
+\midrule
+samples produced & \(2{,}701\) & as many as there are pixels \\
+basis & read from a table & built by recurrence \\
+bytes touched per pass & \(1.25\) MB & \(484\) \\
+samples at 900 px across & not applicable & \(636{,}172\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The grid pass is bound by a \(1.25\) MB table that does not fit in cache. A fragment evaluation reads the \(121\) coefficients and computes the basis from the direction. Its working set is \(484\) bytes at any sample count. \textbf{No frame time is claimed here.} These are sizes and counts; throughput belongs to a measurement that has not been made.
+
+\subsection{Where this fails}
+
+\textbf{Anisotropy.} The heat kernel is isotropic and a pixel's footprint near the silhouette is stretched. A single \(\sigma\) over-blurs across the short axis. The exact fix wants a directional kernel, which is not diagonal in degree and therefore leaves the composition law behind. The honest position is the same trade a trilinear filter makes against an anisotropic one.
+
+\textbf{Edges that are not band-limited.} T5 is exact for a band-limited field, and the boundary field is band-limited by construction, since a reading is a truncated expansion. The room's walls, the beam stops and the arms have real corners, and prefiltering those rings. The split is therefore: the field gets the exact prefilter, the geometry keeps conventional coverage antialiasing. Applying T5 to the geometry would be a Gibbs artifact sold as a feature.
+
+\section{Invariants, and the split they give}
+
+\(P_l = \sum_m a_{lm}^2\) is invariant under every element of \(\mathrm{SO}(3)\), because the degree \(l\) subspace is a unitary irreducible representation. Under a rotation by \(\alpha\) about the read axis, \(\arg a_{lm}\) moves by exactly \(-m\alpha\).
+
+\textbf{Derived, 26 September.} The coefficients are real (the object every transform acts on), and a real \(a_{lm}\) has no phase. Under a rotation by \(\alpha\) about the axis the pair \((a_{l,m}, a_{l,-m})\) turns by \(m\alpha\) as a vector in the plane. Each \(|a_{lm}|\) changes, and \(a_{l,m}^2 + a_{l,-m}^2\) is invariant. The phase moving by \(-m\alpha\) holds for complex coefficients, and the T2 row's invariant is the pair's sum of squares.
+
+The reading splits exactly along those two properties. \textbf{Power per degree is intrinsic}, a property of the source carrying no information about where the reader stands. \textbf{Phase is contextual}, a property of the source and the reader together, moving by a known amount under a known rotation. The split needs no estimator, and deflection and torsion are the two halves.
+
+\section{The constants, and which kind they are}
+
+Every constant in the table is a computed number. \texttt{natural\_constants.py} produces them to any requested length by integer arithmetic, verified at \(60\) places: \(\pi\), \(\sqrt{2}\), \(\sqrt{5}\), the golden angle \(2.399963229728653\ldots\), and the harmonic unit \(0.282094791773878\ldots\).
+
+The golden angle is \(\pi(3 - \sqrt{5})\), the index step of T8. The harmonic unit is \(1/(2\sqrt{\pi})\), the degree zero harmonic and the scale every other one is built on.
+
+\textbf{The verification carries no trusted digit string.} SHA-256's \(64\) round constants are defined as the first \(32\) bits of the fractional parts of the cube roots of the first \(64\) primes, and its \(8\) starting words the same for the square roots of the first \(8\) primes. Recomputing them from the primes and comparing against FIPS 180-4 checks \(2{,}048\) independently published bits. All \(2{,}048\) agree. The tool also grades every copy of the table in this tree against the definition: fifteen copies found, one of them the tool's own reference, and all fifteen match.
+
+\textbf{Derived, 26 September.} The check covers the \(64\) round constants and the \(8\) starting words, \(72 \times 32 = 2{,}304\) bits (\texttt{examples/\allowbreak{}proofing/\allowbreak{}natural\_constants.py:338-350} at anchor\_sift \texttt{ddeccb3}). The print at :273 says \(2{,}048\), the round constants' \(64 \times 32\) alone.
+
+Pi is checked twice more, against a 50-digit prefix and against a second computation from Euler's arctangent identity. Machin's and Euler's identities share no term. Agreement between them is not two copies of one mistake.
+
+\textbf{The measured value this produced.} The double the golden placement runs on sits \(4.441 \times 10^{-16}\) radians from the true golden angle. Over \(63\) indices the accumulated difference is about \(2.8 \times 10^{-14}\) radians, negligible, and now a number instead of an assumption.
+
+\subsection{The other kind of constant}
+
+The 2022 CODATA adjustment lists each fundamental physical constant with a value and an uncertainty. About half read \emph{exact}, because the 2019 redefinition of the SI fixed the speed of light, the Planck constant, the elementary charge, the Boltzmann constant and the Avogadro constant by definition. The rest carry an uncertainty no amount of computing will shrink: the fine-structure constant at \(1.5 \times 10^{-10}\) relative, the Newtonian constant of gravitation at \(2.2 \times 10^{-5}\), every particle mass at its own figure.
+
+\textbf{Note, 26 September.} The 2022 adjustment's Table XXXII gives the fine-structure constant at \(1.6 \times 10^{-10}\) relative. The Newtonian constant of gravitation at \(2.2 \times 10^{-5}\) holds.
+
+\textbf{No constant of that kind appears in the reading path}, confirmed by search across every source file in the tree. The consequence is worth stating plainly: the reading engine carries no experimental uncertainty at all. Its only floors are chosen ones, and there are three.
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+floor & what sets it & how to move it \\
+\midrule
+degree ceiling & the reading's rank, \((L+1)^2\) & raise \(L\), and pay \(O(L^2)\) \\
+number format & double at 16 digits, shader float at 7 & carry more digits \\
+calibrated null & a move that changes nothing, measured & a better null \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The null is the only measured floor of the three, and it measures this tree's own arithmetic and not the world. The power-under-rotation null floor stands at \(4.005 \times 10^{-16}\).
+
+\section{Not settled}
+
+\textbf{T5 and T10 are unbuilt.} The mathematics above is written and the shader is not. Nothing here is a frame time, and the claim that a fragment evaluation is faster than a table read is an architectural argument from working-set sizes, and not a measurement.
+
+\textbf{The anisotropic case has no answer} beyond accepting the isotropic kernel's over-blur.
+
+\textbf{The \(l_{\max}\) constant} of \(3.33/\sigma\) follows from a threshold of one level in eight bits. The crossover where dropping degrees begins to pay has not been measured against a real frame.
+
+\textbf{T11's cost} is quoted as \(O(L^3)\) from the shape of the re-expansion and has not been timed here, because the tree avoids it.
+
+\textbf{Depth and degree do not interact in the choice.} Depth multiplies a column by about a constant without reordering degrees. The price and the structure are chosen separately. Measured, and the mechanism is T3's diagonality.
+
+\section{References}
+
+\textbf{Checked 26 September.} Every entry below was read in the copy named, at the section, equation or table given. Three entries listed before this date had no open copy: Edmonds (1957) for T1 and T2, Driscoll and Healy (1994) for convolution as multiplication in degree, and White and Head-Gordon (1996) for translation after rotation. Each is replaced by a read source that states the same fact. The Funk entry named the other paper of his in Mathematische Annalen 77, and the Hecke entry gave 1918. Both are corrected.
+
+\begin{enumerate}
+  \item Mohr, P. J., Newell, D. B., Taylor, B. N. and Tiesinga, E. (2025). \emph{CODATA recommended values of the fundamental physical constants: 2022}. Reviews of Modern Physics 97, 025002. Read in arXiv:2409.03787, Table XXXII: the fine-structure constant at \(1.6 \times 10^{-10}\) relative, the Newtonian constant of gravitation at \(2.2 \times 10^{-5}\), the speed of light and the Planck constant exact.
+  \item National Institute of Standards and Technology (2015). FIPS 180-4, \emph{Secure Hash Standard}. Read, Section 4.2.2: the 64 round constants are the first 32 bits of the fractional parts of the cube roots of the first 64 primes, the constants recomputed above.
+  \item Gumerov, N. A. and Duraiswami, R. (2014). \emph{Recursive computation of spherical harmonic rotation coefficients of large degree}. arXiv:1403.7698. Read, Section 2, eq. (15): a rotation acts on the coefficients of each degree separately, for T1 and T2. Section 3, eq. (52): the degree-\(n\) matrix of the elementary rotation is real and squares to the identity. Section 1: rotating, translating along the axis and rotating back cuts a translation from \(O(p^4)\) to \(O(p^3)\), credited there to White, C. A. and Head-Gordon, M. (1996), Journal of Chemical Physics 105, 5061--5067, for T11's cost.
+  \item Kazhdan, M., Funkhouser, T. and Rusinkiewicz, S. (2003). \emph{Rotation invariant spherical harmonic representation of 3D shape descriptors}. Symposium on Geometry Processing, 156--165, doi 10.2312/SGP/SGP03/156-165. Read: the norm of each degree's component is unchanged by rotation, and the descriptor keeps one norm per degree. For \(P_l\) as a rotation invariant.
+  \item Funk, P. (1915). \emph{Beitr\"age zur Theorie der Kugelfunktionen}. Mathematische Annalen 77, 136--152, doi 10.1007/BF01456825. Read in the G\"ottingen digital copy, whose volume is dated 1916, Part 1: an integral equation whose kernel depends only on the spherical distance has the spherical harmonics as eigenfunctions. For averages against a zonal kernel.
+  \item Hecke, E. (1917). \emph{\"Uber orthogonal-invariante Integralgleichungen}. Mathematische Annalen 78, 398--404, doi 10.1007/BF01457114. Read, Section 3, eq. (8): a zonal kernel \(F\) acts on a harmonic \(Y_n\) of degree \(n\) as multiplication by \(2\pi \int_{-1}^{1} F(x) P_n(x)\,dx\), one number per degree. For convolution on the sphere as multiplication in degree.
+  \item Ramamoorthi, R. and Hanrahan, P. (2001). \emph{An efficient representation for irradiance environment maps}. Proceedings of SIGGRAPH 2001, 497--500. Read, Section 2: irradiance is the lighting filtered by a clamped cosine one degree at a time. Section 3.1: nine coefficients through degree 2 carry it, with a worst pixel error of 9\% of the total illumination. For filtering a spherical function in harmonics at render time.
+  \item Williams, L. (1983). \emph{Pyramidal parametrics}. Computer Graphics 17(3), 1--11, doi 10.1145/964967.801126. Read: a pyramid of prefiltered images indexed by \(u\), \(v\) and the level \(d\). For the mip chain.
+  \item Greengard, L. and Rokhlin, V. (1987). \emph{A fast algorithm for particle simulations}. Journal of Computational Physics 73, 325--348. Read, Section 2: Lemma 2.3 shifts the center of a multipole expansion, Lemma 2.4 converts it to a local expansion, and Lemma 2.5 shifts a local expansion. The paper works in the plane. For T11, translating a multipole expansion.
+\end{enumerate}

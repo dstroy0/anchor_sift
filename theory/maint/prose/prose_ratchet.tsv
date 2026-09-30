@@ -1,0 +1,4 @@
+# Prose findings per file, the most each file may carry. docs_check.py --ratchet reads it.
+# A count may fall and never rise: a commit that raises one is stopped, and a commit that
+# lowers one writes the lower number here. Regenerate by hand with --ratchet-write only when a
+# file moves, since a moved file starts again at zero under its new name.

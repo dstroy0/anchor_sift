@@ -1,0 +1,62 @@
+  build directory: /d/kaggle/biohub_cell_tracking/build/20260924_203642_sim_omega_computer
+scriptura.c
+scriptura_arm_avx2.c
+scriptura_arm_avx512.c
+scriptura_arm_neon.c
+scriptura_arm_portable.c
+scriptura_arm_sve.c
+exact_integer.c
+tessera_client.c
+tessera_paths.c
+tessera_frame.c
+tessera_self.c
+tessera_ledger.c
+tessera_measure.c
+tessera_daemon.c
+obsignatio.cu
+tmpxft_000052f8_00000000-10_obsignatio.cudafe1.cpp
+tessera_paths_sim.obj
+tessera_frame_sim.obj
+tessera_self_sim.obj
+tessera_ledger_sim.obj
+tessera_measure_sim.obj
+tessera_daemon_sim.obj
+scriptura_sim.obj
+scriptura_arm_avx2_sim.obj
+scriptura_arm_avx512_sim.obj
+scriptura_arm_neon_sim.obj
+scriptura_arm_portable_sim.obj
+scriptura_arm_sve_sim.obj
+obsignatio_sim.obj
+omega_computer.cu
+tmpxft_0000540c_00000000-10_omega_computer.cudafe1.cpp
+sim_job.cu
+tmpxft_0000540c_00000000-14_sim_job.cudafe1.cpp
+scriptura_sim.obj
+scriptura_arm_avx2_sim.obj
+scriptura_arm_avx512_sim.obj
+scriptura_arm_neon_sim.obj
+scriptura_arm_portable_sim.obj
+scriptura_arm_sve_sim.obj
+exact_integer_sim.obj
+tessera_client_sim.obj
+tessera_paths_sim.obj
+tessera_frame_sim.obj
+tessera_self_sim.obj
+obsignatio_sim.obj
+  U, Tromp's universal machine: 190 bits, 79 tokens; delimit: 326 bits
+  Tromp's test, delimit then 1111000111001: depth, fate, beta steps, and the list
+    0  halts  6657  cells 8262  11010
+    1  halts  129817  cells 211203  11010
+    2  halts  1257843  cells 2056287  11010
+    3  halts  12070646  cells 19736983  11010
+    the rewriting, directly: fate 0, 6881 steps, 38 tokens
+  6069 closed programs through 22 bits, run on nil; the direct run halts 6060 and proves 8 never halt; the rewriting and the lazy machine agree on 6060 normal forms
+  depth  halted  proven never  out of steps  outgrew  Omega_nil at least  proven bits  steps (settled everywhere)
+    0  6060  8  0  1  0.0001111010000000011011  2  14265
+    1  6060  0  8  1  0.0001111010000000011011  2  1042287 (x73.06)
+    2  6060  0  8  1  0.0001111010000000011011  2  15959314 (x15.31)
+    3  6060  0  9  0  0.0001111010000000011011  2  145120505 (x9.09)
+  Omega_nil at most 0.0011100011011000100111 at every depth; 6060 programs halt at every depth
+  omega computer: 5 checks, 0 failed
+  omega_computer exit 0

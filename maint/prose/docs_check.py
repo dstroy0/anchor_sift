@@ -3052,8 +3052,8 @@ def dead_links(path, lines):
 # exemptions a verbatim text is held under (a quoted span, a quiet block, a .verbatim marker) are
 # read in the .md and are lost in the conversion, so the same quote passed in the .md and failed
 # in its chapter. The cost: markdown the converter left in a chapter is no longer caught here.
-# The dstroy0/theory repository's copy of this file, anchor_sift's theory/ as a submodule, skips
-# them the same way.
+# The dstroy0/theory repository's copy of this file skips them the same way. anchor_sift's theory/
+# is a directory of this repository, not that one: the two copies are kept in step by hand.
 #
 # The chapters carry no comment line saying they are generated; the theory research papers hold no TeX
 # comments. theory_tex.py manages every research paper under workbooks/ or thought_experiments/ that holds a

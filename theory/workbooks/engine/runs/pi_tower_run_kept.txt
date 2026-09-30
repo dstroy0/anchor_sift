@@ -1,0 +1,219 @@
+  build directory: /d/kaggle/biohub_cell_tracking/build/20260924_192322_sim_pi_tower
+scriptura.c
+scriptura_arm_avx2.c
+scriptura_arm_avx512.c
+scriptura_arm_neon.c
+scriptura_arm_portable.c
+scriptura_arm_sve.c
+exact_integer.c
+tessera_client.c
+tessera_paths.c
+tessera_frame.c
+tessera_self.c
+tessera_ledger.c
+tessera_measure.c
+tessera_daemon.c
+obsignatio.cu
+tmpxft_0000a9f8_00000000-10_obsignatio.cudafe1.cpp
+tessera_paths_sim.obj
+tessera_frame_sim.obj
+tessera_self_sim.obj
+tessera_ledger_sim.obj
+tessera_measure_sim.obj
+tessera_daemon_sim.obj
+scriptura_sim.obj
+scriptura_arm_avx2_sim.obj
+scriptura_arm_avx512_sim.obj
+scriptura_arm_neon_sim.obj
+scriptura_arm_portable_sim.obj
+scriptura_arm_sve_sim.obj
+obsignatio_sim.obj
+pi_tower.cu
+tmpxft_0000a41c_00000000-10_pi_tower.cudafe1.cpp
+sim_job.cu
+tmpxft_0000a41c_00000000-14_sim_job.cudafe1.cpp
+scriptura_sim.obj
+scriptura_arm_avx2_sim.obj
+scriptura_arm_avx512_sim.obj
+scriptura_arm_neon_sim.obj
+scriptura_arm_portable_sim.obj
+scriptura_arm_sve_sim.obj
+exact_integer_sim.obj
+tessera_client_sim.obj
+tessera_paths_sim.obj
+tessera_frame_sim.obj
+tessera_self_sim.obj
+obsignatio_sim.obj
+  pi by Machin's formula at 416 bits, 116 terms; after the point it begins 0x243F6A8885A308D3
+  109 floors certified by the bracket: pi = [3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, 1, 84, 2, 1, 1, 15, 3, 13, 1, 4, 2, 6, 6, 99, 1, 2, 2, 6, 3, 5, 1, ...]
+  floor j, turns on it a_j, the step q_j of its closest return, and how close
+    00  a 0  q 1  ||q pi|| 1.415e-1
+    01  a 7  q 7  ||q pi|| 8.851e-3
+    02  a 15  q 106  ||q pi|| 8.821e-3
+    03  a 1  q 113  ||q pi|| 3.014e-5
+    04  a 292  q 33102  ||q pi|| 1.912e-5
+    05  a 1  q 33215  ||q pi|| 1.101e-5
+    06  a 1  q 66317  ||q pi|| 8.114e-6
+    07  a 1  q 99532  ||q pi|| 2.900e-6
+    08  a 2  q 265381  ||q pi|| 2.312e-6
+    09  a 1  q 364913  ||q pi|| 5.877e-7
+    10  a 3  q 1360120  ||q pi|| 5.495e-7
+    11  a 1  q 1725033  ||q pi|| 3.820e-8
+    12  a 14  q 25510582  ||q pi|| 1.477e-8
+    13  a 2  q 52746197  ||q pi|| 8.654e-9
+    14  a 1  q 78256779  ||q pi|| 6.118e-9
+    15  a 1  q 131002976  ||q pi|| 2.536e-9
+    16  a 2  q 340262731  ||q pi|| 1.044e-9
+    17  a 2  q 811528438  ||q pi|| 4.474e-10
+    18  a 2  q 1963319607  ||q pi|| 1.497e-10
+    19  a 2  q 4738167652  ||q pi|| 1.479e-10
+    20  a 1  q 6701487259  ||q pi|| 1.753e-12
+    21  a 84  q 567663097408  ||q pi|| 6.969e-13
+    22  a 2  q 1142027682075  ||q pi|| 3.594e-13
+    23  a 1  q 1709690779483  ||q pi|| 3.374e-13
+    24  a 1  q 2851718461558  ||q pi|| 2.201e-14
+    25  a 15  q 44485467702853  ||q pi|| 7.167e-15
+    26  a 3  q 136308121570117  ||q pi|| 5.187e-16
+    27  a 13  q 1816491048114374  ||q pi|| 4.237e-16
+    28  a 1  q 1952799169684491  ||q pi|| 9.495e-17
+    29  a 4  q 9627687726852338  ||q pi|| 4.391e-17
+    30  a 2  q 21208174623389167  ||q pi|| 7.122e-18
+    31  a 6  q 136876735467187340  ||q pi|| 1.185e-18
+    32  a 6  q 842468587426513207  ||q pi|| 1.188e-20
+    33  a 99  q 83541266890691994833  ||q pi|| 8.453e-21
+    34  a 1  q 84383735478118508040  ||q pi|| 3.431e-21
+    35  a 2  q 252308737846929010913  ||q pi|| 1.589e-21
+    36  a 2  q 589001211171976529866  ||q pi|| 2.517e-22
+    37  a 6  q 3786316004878788190109  ||q pi|| 7.916e-23
+    38  a 3  q 11947949225808341100193  ||q pi|| 1.429e-23
+    39  a 5  q 63526062133920493691074  ||q pi|| 7.688e-24
+    40  a 1  q 75474011359728834791267  ||q pi|| 6.607e-24
+    41  a 1  q 139000073493649328482341  ||q pi|| 1.080e-24
+    42  a 6  q 909474452321624805685313  ||q pi|| 1.216e-25
+    43  a 8  q 7414795692066647773964845  ||q pi|| 1.076e-25
+    44  a 1  q 8324270144388272579650158  ||q pi|| 1.398e-26
+    45  a 7  q 65684686702784555831515951  ||q pi|| 9.772e-27
+    46  a 1  q 74008956847172828411166109  ||q pi|| 4.213e-27
+    47  a 2  q 213702600397130212653848169  ||q pi|| 1.346e-27
+    48  a 3  q 715116758038563466372710616  ||q pi|| 1.744e-28
+    49  a 7  q 5219519906667074477262822481  ||q pi|| 1.248e-28
+    50  a 1  q 5934636664705637943635533097  ||q pi|| 4.958e-29
+    51  a 2  q 17088793236078350364533888675  ||q pi|| 2.573e-29
+    52  a 1  q 23023429900783988308169421772  ||q pi|| 2.384e-29
+    53  a 1  q 40112223136862338672703310447  ||q pi|| 1.886e-30
+    54  a 12  q 504370107543132052380609147136  ||q pi|| 1.207e-30
+    55  a 1  q 544482330679994391053312457583  ||q pi|| 6.788e-31
+    56  a 1  q 1048852438223126443433921604719  ||q pi|| 5.289e-31
+    57  a 1  q 1593334768903120834487234062302  ||q pi|| 1.499e-31
+    58  a 3  q 5828856744932488946895623791625  ||q pi|| 7.909e-32
+    59  a 1  q 7422191513835609781382857853927  ||q pi|| 7.083e-32
+    60  a 1  q 13251048258768098728278481645552  ||q pi|| 8.261e-33
+    61  a 8  q 113430577583980399607610711018343  ||q pi|| 4.744e-33
+    62  a 1  q 126681625842748498335889192663895  ||q pi|| 3.517e-33
+    63  a 1  q 240112203426728897943499903682238  ||q pi|| 1.226e-33
+    64  a 2  q 606906032696206294222889000028371  ||q pi|| 1.064e-33
+    65  a 1  q 847018236122935192166388903710609  ||q pi|| 1.626e-34
+  the turn's closest returns to 2^112 steps: 66; the floors' q_j to 2^112: 66; equal in order: 66
+  2^k cells: the step that fills the boundary, its ratio to the cells, the last cell filled as a place on the circle, and the floor it fills on
+    2^1  step 4.000e0 = 4  x2.0000  last cell at 0.500000000000  floor 0 (a 7)  walked 4, longest stall 4
+    2^2  step 6.000e0 = 6  x1.5000  last cell at 0.750000000000  floor 0 (a 7)  walked 6, longest stall 2
+    2^3  step 7.000e0 = 7  x0.8750  last cell at 0.875000000000  floor 1 (a 15)  walked 7, longest stall 1
+    2^4  step 6.000e1 = 60  x3.7500  last cell at 0.437500000000  floor 1 (a 15)  walked 60, longest stall 11
+    2^5  step 9.000e1 = 90  x2.8125  last cell at 0.718750000000  floor 1 (a 15)  walked 90, longest stall 9
+    2^6  step 1.050e2 = 105  x1.6406  last cell at 0.859375000000  floor 1 (a 15)  walked 105, longest stall 8
+    2^7  step 3.730e3 = 3730  x29.1406  last cell at 0.132812500000  floor 3 (a 292)  walked 3730, longest stall 331
+    2^8  step 1.841e4 = 18416  x71.9375  last cell at 0.566406250000  floor 3 (a 292)  walked 18416, longest stall 222
+    2^9  step 2.598e4 = 25981  x50.7441  last cell at 0.716796875000  floor 3 (a 292)  walked 25981, longest stall 109
+    2^10  step 2.970e4 = 29709  x29.0126  last cell at 0.575195312500  floor 3 (a 292)  walked 29709, longest stall 111
+    2^11  step 3.151e4 = 31518  x15.3896  last cell at 0.716796875000  floor 3 (a 292)  walked 31518, longest stall 54
+    2^12  step 3.242e4 = 32422  x7.9155  last cell at 0.716796875000  floor 3 (a 292)  walked 32422, longest stall 27
+    2^13  step 3.287e4 = 32874  x4.0129  last cell at 0.716796875000  floor 3 (a 292)  walked 32874, longest stall 13
+    2^14  step 3.310e4 = 33100  x2.0202  last cell at 0.716796875000  floor 3 (a 292)  walked 33100, longest stall 6
+    2^15  step 3.321e4 = 33213  x1.0135  last cell at 0.716796875000  floor 4 (a 1)  walked 33213, longest stall 3
+    2^16  step 9.953e4 = 99531  x1.5187  last cell at 0.858398437500  floor 6 (a 1)  walked 99531, longest stall 5
+    2^17  step 2.653e5 = 265379  x2.0246  last cell at 0.716812133789  floor 7 (a 2)  walked 265379, longest stall 107
+    2^18  step 3.649e5 = 364911  x1.3920  last cell at 0.716812133789  floor 8 (a 1)  walked 364911, longest stall 3
+    2^19  step 9.951e5 = 995183  x1.8981  last cell at 0.601776123046  floor 9 (a 3)  walked 995183, longest stall 34
+    2^20  step 1.725e6 = 1725020  x1.6451  last cell at 0.159295082092  floor 10 (a 1)  walked 1725020, longest stall 20
+    2^21  step 6.535e6 = 6535216  x3.1162  last cell at 0.575222015380  floor 11 (a 14)  walked 6535216, longest stall 19
+    2^22  step 1.861e7 = 18610106  x4.4369  last cell at 0.292127132415  floor 11 (a 14)  walked 18610106, longest stall 949
+    2^23  step 2.378e7 = 23785535  x2.8354  last cell at 0.017702817916  floor 11 (a 14)  walked 23785535, longest stall 15
+    2^24  step 2.551e7 = 25510581  x1.5205  last cell at 0.858407318592  floor 11 (a 14)  walked 25510581, longest stall 3
+    2^25  step 5.274e7 = 52746193  x1.5719  last cell at 0.433629363775  floor 12 (a 2)
+    2^26  step 7.825e7 = 78256775  x1.1661  last cell at 0.433629378676  floor 13 (a 1)
+    2^27  step 2.092e8 = 209259752  x1.5591  last cell at 0.575222037732  floor 15 (a 2)
+    2^28  step 3.402e8 = 340262730  x1.2675  last cell at 0.858407344669  floor 15 (a 2)
+    2^29  step 8.115e8 = 811528434  x1.5115  last cell at 0.433629384264  floor 16 (a 2)
+    2^30  step 1.963e9 = 1963319603  x1.8284  last cell at 0.433629385195  floor 17 (a 2)
+    2^31  step 2.774e9 = 2774848044  x1.2921  last cell at 0.858407346066  floor 18 (a 2)
+    2^32  step 6.701e9 = 6701487258  x1.5603  last cell at 0.858407346298  floor 19 (a 1)
+    2^33  step 1.387e11 = 138767889965  x16.1547  last cell at 0.200790362083  floor 20 (a 84)
+    2^34  step 3.599e11 = 359916992356  x20.9499  last cell at 0.743368967378  floor 20 (a 84)
+    2^35  step 4.671e11 = 467140788517  x13.5955  last cell at 0.150444078433  floor 20 (a 84)
+    2^36  step 5.274e11 = 527454173848  x7.6754  last cell at 0.150444078448  floor 20 (a 84)
+    2^37  step 5.542e11 = 554260122884  x4.0327  last cell at 0.150444078455  floor 20 (a 84)
+    2^38  step 5.676e11 = 567663097407  x2.0651  last cell at 0.858407346408  floor 20 (a 84)
+    2^39  step 5.743e11 = 574364584666  x1.0447  last cell at 0.858407346409  floor 21 (a 2)
+    2^40  step 1.709e12 = 1709690779481  x1.5549  last cell at 0.716814692819  floor 22 (a 1)
+    2^41  step 2.851e12 = 2851718461557  x1.2968  last cell at 0.858407346409  floor 23 (a 1)
+    2^42  step 1.882e13 = 18820001548829  x4.2791  last cell at 0.716814692820  floor 24 (a 15)
+    2^43  step 3.593e13 = 35930312318177  x4.0848  last cell at 0.716814692820  floor 24 (a 15)
+    2^44  step 4.163e13 = 41633749241294  x2.3666  last cell at 0.858407346410  floor 24 (a 15)
+    2^45  step 4.733e13 = 47337186164409  x1.3454  last cell at 0.716814692820  floor 25 (a 3)
+    2^46  step 1.363e14 = 136308121570115  x1.9370  last cell at 0.716814692820  floor 25 (a 3)
+    2^47  step 3.171e14 = 317101710843083  x2.2531  last cell at 0.433629385640  floor 26 (a 13)
+    2^48  step 1.134e15 = 1134950440263788  x4.0321  last cell at 0.858407346410  floor 26 (a 13)
+    2^49  step 1.680e15 = 1680182926544254  x2.9846  last cell at 0.575222039230  floor 26 (a 13)
+    2^50  step 1.952e15 = 1952799169684487  x1.7344  last cell at 0.433629385640  floor 27 (a 1)
+    2^51  step 3.769e15 = 3769290217798861  x1.6739  last cell at 0.433629385640  floor 28 (a 4)
+    2^52  step 9.627e15 = 9627687726852330  x2.1377  last cell at 0.867258771281  floor 28 (a 4)
+    2^53  step 1.158e16 = 11580486896536823  x1.2856  last cell at 0.150444078461  floor 29 (a 2)
+    2^54  step 2.120e16 = 21208174623389165  x1.1772  last cell at 0.716814692820  floor 29 (a 2)
+    2^55  step 9.446e16 = 94460386220409003  x2.6218  last cell at 0.575222039230  floor 30 (a 6)
+    2^56  step 1.368e17 = 136876735467187337  x1.8995  last cell at 0.575222039230  floor 30 (a 6)
+    2^57  step 2.949e17 = 294961645557763838  x2.0467  last cell at 0.725666117691  floor 31 (a 6)
+    2^58  step 7.055e17 = 705591851959325858  x2.4480  last cell at 0.725666117691  floor 31 (a 6)
+    2^59  step 8.424e17 = 842468587426513206  x1.4614  last cell at 0.858407346410  floor 31 (a 6)
+    2^60  step 2.372e19 = 23725997183409556959  x20.5790  last cell at 0.938100314606  floor 32 (a 99)
+    2^61  step 5.489e19 = 54897334918190545618  x23.8079  last cell at 0.938100314606  floor 32 (a 99)
+    2^62  step 7.006e19 = 70061769491867783478  x15.1922  last cell at 0.911515895638  floor 32 (a 99)
+    2^63  step 7.764e19 = 77643986778706402382  x8.4181  last cell at 0.716814692820  floor 32 (a 99)
+    2^64  step 8.185e19 = 81856329715838968403  x4.4374  last cell at 0.734517542563  floor 32 (a 99)
+    2^65  step 8.354e19 = 83541266890691994831  x2.2643  last cell at 0.716814692820  floor 32 (a 99)
+    2^66  step 8.438e19 = 84383735478118508038  x1.1436  last cell at 0.716814692820  floor 33 (a 1)
+    2^67  step 2.523e20 = 252308737846929010909  x1.7097  last cell at 0.433629385640  floor 34 (a 2)
+    2^68  step 5.890e20 = 589001211171976529760  x1.9956  last cell at 0.991178719481  floor 35 (a 2)
+    2^69  step 8.413e20 = 841309949018905540771  x1.4252  last cell at 0.867258771281  floor 36 (a 6)
+    2^70  step 2.608e21 = 2608313582534835130373  x2.2093  last cell at 0.433629385640  floor 36 (a 6)
+    2^71  step 3.786e21 = 3786316004878788190108  x1.6035  last cell at 0.858407346410  floor 36 (a 6)
+    2^72  step 8.161e21 = 8161633220929552910077  x1.7282  last cell at 0.008851424871  floor 37 (a 3)
+    2^73  step 1.194e22 = 11947949225808341100191  x1.2650  last cell at 0.716814692820  floor 37 (a 3)
+    2^74  step 3.963e22 = 39630163682303811490685  x2.0980  last cell at 0.575222039230  floor 38 (a 5)
+    2^75  step 6.352e22 = 63526062133920493691071  x1.6815  last cell at 0.575222039230  floor 38 (a 5)
+    2^76  step 1.390e23 = 139000073493649328482310  x1.8396  last cell at 0.610627738716  floor 40 (a 1)
+    2^77  step 2.144e23 = 214474084853378163273603  x1.4192  last cell at 0.292036732051  floor 41 (a 6)
+    2^78  step 7.704e23 = 770474378827975477202791  x2.5492  last cell at 0.371729700247  floor 41 (a 6)
+    2^79  step 9.094e23 = 909474452321624805685311  x1.5045  last cell at 0.716814692820  floor 41 (a 6)
+    2^80  step 3.776e24 = 3776897882780148551223489  x3.1241  last cell at 0.274364026661  floor 42 (a 8)
+    2^81  step 6.505e24 = 6505321239745022968279530  x2.6905  last cell at 0.716814692820  floor 42 (a 8)
+    2^82  step 8.324e24 = 8324270144388272579650142  x1.7214  last cell at 0.734517542563  floor 43 (a 1)
+    2^83  step 2.406e25 = 24063335980843192933265126  x2.4880  last cell at 0.044257124357  floor 44 (a 7)
+    2^84  step 5.736e25 = 57360416558396283251862976  x2.9654  last cell at 0.133494837552  floor 44 (a 7)
+    2^85  step 6.568e25 = 65684686702784555831515950  x1.6979  last cell at 0.858407346410  floor 44 (a 7)
+    2^86  step 1.396e26 = 139693643549957384242682054  x1.8054  last cell at 0.150444078461  floor 46 (a 2)
+    2^87  step 2.137e26 = 213702600397130212653848167  x1.3810  last cell at 0.716814692820  floor 46 (a 2)
+    2^88  step 5.014e26 = 501414157641433253718862443  x1.6201  last cell at 0.433629385640  floor 47 (a 3)
+    2^89  step 7.151e26 = 715116758038563466372710615  x1.1553  last cell at 0.858407346410  floor 47 (a 3)
+    2^90  step 3.789e27 = 3789286390589947544517401175  x3.0609  last cell at 0.522143634355  floor 48 (a 7)
+    2^91  step 5.219e27 = 5219519906667074477262822478  x2.1081  last cell at 0.575222039230  floor 48 (a 7)
+    2^92  step 5.934e27 = 5934636664705637943635533095  x1.1984  last cell at 0.716814692820  floor 49 (a 1)
+    2^93  step 1.708e28 = 17088793236078350364533888672  x1.7255  last cell at 0.575222039230  floor 50 (a 2)
+    2^94  step 2.302e28 = 23023429900783988308169421771  x1.1623  last cell at 0.858407346410  floor 51 (a 1)
+    2^95  step 6.313e28 = 63135653037646326980872732081  x1.5937  last cell at 0.460213804608  floor 53 (a 12)
+    2^96  step 3.038e29 = 303808991858820359017092594837  x3.8346  last cell at 0.938070170253  floor 53 (a 12)
+    2^97  step 4.642e29 = 464257884406269713707905836662  x2.9298  last cell at 0.176998353075  floor 53 (a 12)
+    2^98  step 5.043e29 = 504370107543132052380609147128  x1.5915  last cell at 0.867258771281  floor 53 (a 12)
+    2^99  step 1.048e30 = 1048852438223126443433921604713  x1.6547  last cell at 0.150444078461  floor 55 (a 1)
+    2^100  step 1.593e30 = 1593334768903120834487234062301  x1.2569  last cell at 0.858407346410  floor 56 (a 1)
+  pi tower: 8 checks, 0 failed
+  pi_tower exit 0

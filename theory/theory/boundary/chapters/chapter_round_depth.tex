@@ -1,0 +1,82 @@
+\chapter{Round count as depth}
+
+\textbf{Purpose:} Specify an experiment measuring how fast the interior stops reaching the boundary as a function of how many rounds it passed through, and reporting where that curve crosses below the detection floor. \textbf{Scope:} \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}sha256/\allowbreak{}bench/}, the \texttt{representation} arm's exact contract, and a driver that does not yet exist.
+
+\textbf{This chapter specifies work and does not report it.} Everything below is a design: the observables are built, the driver is not, and no curve has been measured. It is transcribed with the rest because a specification written down before the run is the only kind that can be checked against the run afterwards.
+
+\textbf{Note, 26 September.} The observables were built as the benches in \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}sha256/\allowbreak{}bench}. Commit \texttt{bdaed61} deleted that directory on 24 September, 54 files, and none of them is in a file at anchor\_sift \texttt{1948ae1}. At the pin the observables are not built, and the driver is not built.
+
+\section{The idea in one line}
+
+The boundary work measured information reaching a surface as a function of depth, and found it falls as \((r/R)^l\). Here depth is the round number. The question is the same one: how much of the input reaches the output, measured against how far in it started.
+
+\section{Why this is the right question and breaking it is the wrong one}
+
+A break needs a boundary observable departing from flat by more than sample noise, at full rounds. The tree's own instruments say there is none: \(H(\text{digest} \mid \text{input}) = 0\), which leaves the bias bound limited by sample size alone with no floor beneath it, and the keyhole, SAC and Renyi benches read flat at full rounds. Twenty years of linear and differential cryptanalysis reach about \(31\) of \(64\) rounds and no further. Hunting the full-round hole is hunting a thing the detector already says is not there.
+
+\textbf{Derived, 26 September.} Every deterministic function has \(H(\text{output} \mid \text{input}) = 0\), biased ones included. The equality holds for a biased function as much as for a flat one, and it bounds no bias.
+
+\textbf{Note, 26 September.} Thirty-one steps is the collision record: Mendel, Nad and Schl\"affer (2013), with a colliding pair found in practice by Li, Liu, Wang, Dong and Sun (2024). Other attacks reach further. Semi-free-start collisions reach \(39\) steps (Li, Liu and Wang, 2024), and the biclique attacks of Khovratovich, Rechberger and Savelieva (2012) reach \(45\) steps for preimages and \(52\) for pseudo-preimages. The two biclique step counts are cited from knowledge.
+
+Measuring the decay is different. Reduced rounds leak, everyone knows they leak, and nobody has written down the leak as a curve in the depth variable with a detection floor drawn on the same axes. That curve is a real result. It quantifies the difficulty instead of asserting it, and it makes a falsifiable claim: the leak at round \(k\) is this size, and here is where it falls under what this many samples can see.
+
+\section{What is measured}
+
+Run SHA-256 truncated at \(k\) rounds, for \(k\) from \(1\) to \(64\), and read a boundary observable at each. The observable is one already built:
+
+\textbf{Strict avalanche.} Flip one input bit, count how often each output bit flips, over many inputs. A flat function sits every counter at half the sample size. The departure from half, summed across output bits, is the leak. This is the keyhole scan with the round count as a parameter.
+
+\textbf{Bit bias.} How far each output bit's one-rate departs from half. The survey bench, truncated.
+
+\textbf{Collision entropy of the output byte histogram.} The Renyi bench, truncated.
+
+Each returns a single number per round count. The run is one curve per observable, \(64\) points each.
+
+\section{The detection floor, drawn on the same axes}
+
+A bias of size \(b\) needs about \(1/b^2\) samples to see above the noise. \(N\) samples can see down to about \(1/\sqrt{N}\). That floor is a horizontal line on the same plot as the decay curve, and where the curve crosses under it is the round count past which this run cannot tell the function from flat.
+
+\textbf{Derived, 26 September.} At a flat function one counter's rate over \(N\) samples has standard deviation \(1/(2\sqrt{N})\). The strict avalanche observable sums \(|\text{departure}|\) over \(M\) counters, and that sum has a null mean of \(M\sqrt{2/\pi}/(2\sqrt{N})\), \(M\) times the mean of a half-normal. A summed observable is plotted against that line. The \(1/\sqrt{N}\) above is the floor of one counter, up to a factor of two.
+
+The floor is not a nuisance to be hidden. It carries the result: it says what was in reach of this much compute, and a later run with more samples can lower the line and show the curve continuing underneath, or show it genuinely flattening.
+
+\section{The exact-arithmetic role}
+
+The decay spans many orders of magnitude, from a large leak at a few rounds to nothing measurable at full rounds. Read in single precision the small end is noise about noise. The \texttt{representation} arm's exact contract carries the small counts without rounding. The curve stays a curve down to where sample size and not arithmetic stops it. That separates measuring the decay from measuring the floating-point floor, and it is the reason this experiment belongs in this tree and nowhere else.
+
+\textbf{26 September.} The counts are integers. A 64-bit counter holds them exactly to \(1.8 \times 10^{19}\), and single precision holds every integer exactly up to \(2^{24}\). Exact small counts need only an integer counter. That this experiment belongs in this tree and nowhere else is a reading.
+
+\section{What each outcome would mean}
+
+\textbf{The curve falls smoothly and crosses the floor around the round count cryptanalysis already reaches.} The expected result. It turns the known reduced-round weakness into a measured decay rate and puts a number on the margin.
+
+\textbf{The curve has a step, a shoulder, or a bump that does not fall.} A round range where more structure survives than the smooth decay predicts. That is where a cryptanalyst would look, and the framework would have pointed at it instead of guessing. Almost certainly it will not happen at full rounds, and the experiment would show it if it did.
+
+\textbf{The curve is already under the floor by a few rounds.} The samples were too few. Lower the line with more samples and run again. Nothing is concluded from a curve starting under its own floor, and a run passes that check before its flat tail means anything.
+
+\section{What this does not claim}
+
+It does not claim a break, a bias at full rounds, or a shortcut to a preimage. It claims a measurement: the leak as a function of depth, with the floor saying how far down the measurement could see. A flat tail under a floor is not evidence the function is flat there. It is evidence the run could not see a leak that small, a statement about the run and not about SHA-256.
+
+\section{Running it}
+
+The benches are in \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}sha256/\allowbreak{}bench}. This experiment is a driver calling them with a round-count parameter and collecting the curve, plus a plot through \texttt{build\_chart\_view.py} with the floor drawn as a second series. The one piece of new engine work is truncating the compression function at an arbitrary round, which the early-exit path in \texttt{sha256\_core.c} already does for the anchor and would be extended to stop at any \(k\).
+
+\textbf{Note, 26 September.} The Scope and this section contradict the note under the design statement. At anchor\_sift \texttt{d09b489}, as at \texttt{1948ae1}, \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}sha256/} holds no file and no \texttt{sha256\_core.c} is in the tree. The benches, the early-exit path and the truncation this section names are not built.
+
+\section{References}
+
+\textbf{Added 26 September.} Prior art for the observables and for reduced-round SHA-256. Entries 7 to 9 were checked against the publishers' pages on 26 September; the rest are cited from knowledge, with volumes and pages not yet checked against the originals.
+
+\begin{enumerate}
+  \item National Institute of Standards and Technology (2015). \emph{Secure Hash Standard}, FIPS 180-4. For SHA-256 and its sixty-four rounds.
+  \item Webster, A. F. and Tavares, S. E. (1986). \emph{On the design of S-boxes}. Advances in Cryptology, CRYPTO '85, Lecture Notes in Computer Science 218, 523--534. For the strict avalanche criterion.
+  \item R\'enyi, A. (1961). \emph{On measures of entropy and information}. Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and Probability 1, 547--561. For collision entropy.
+  \item Biham, E. and Shamir, A. (1991). \emph{Differential cryptanalysis of DES-like cryptosystems}. Journal of Cryptology 4, 3--72. For differential cryptanalysis.
+  \item Matsui, M. (1994). \emph{Linear cryptanalysis method for DES cipher}. Advances in Cryptology, EUROCRYPT '93, Lecture Notes in Computer Science 765, 386--397. For linear cryptanalysis.
+  \item Mendel, F., Nad, T. and Schl\"affer, M. (2013). \emph{Improving local collisions: new attacks on reduced SHA-256}. Advances in Cryptology, EUROCRYPT 2013, Lecture Notes in Computer Science 7881, 262--278. For collisions on 31 steps of SHA-256.
+  \item Khovratovich, D., Rechberger, C. and Savelieva, A. (2012). \emph{Bicliques for preimages: attacks on Skein-512 and the SHA-2 family}. Fast Software Encryption 2012, Lecture Notes in Computer Science 7549, 244--263. For preimage attacks on reduced SHA-256.
+  \item Li, Y., Liu, F. and Wang, G. (2024). \emph{New records in collision attacks on SHA-2}. Advances in Cryptology, EUROCRYPT 2024; IACR ePrint 2024/349. For the 39-step semi-free-start collision of SHA-256.
+  \item Li, Y., Liu, F., Wang, G., Dong, X. and Sun, S. (2024). \emph{The first practical collision for 31-step SHA-256}. Advances in Cryptology, ASIACRYPT 2024, doi 10.1007/978-981-96-0941-3\_8. For a colliding pair on 31 steps, found in practice.
+  \item Biryukov, A., Lamberger, M., Mendel, F. and Nikoli\'c, I. (2011). \emph{Second-order differential collisions for reduced SHA-256}. Advances in Cryptology, ASIACRYPT 2011, Lecture Notes in Computer Science 7073, 270--287. For distinguishers on reduced SHA-256.
+\end{enumerate}
