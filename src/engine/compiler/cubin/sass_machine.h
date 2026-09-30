@@ -27,9 +27,15 @@
 // the most runs of bits one form's operands take between them, and the most forms a machine file holds. The sweep
 // puts every operation key to the disassembler from each of several carriers and found 1001 forms on sm_86 at
 // 1024, close enough to the ceiling that another carrier or another part would have run into it, and a machine
-// that fills up keeps the forms it has and counts the rest in `refused`
+// that fills up keeps the forms it has and counts the rest in `refused`.
+//
+// Widening repeats over what it finds for a bounded number of rounds. The count then follows how many operations
+// and operand kinds lie that far from what a compiler wrote, and not how many the compiler wrote. Run to its own end
+// instead it does not close: 3128 forms from 118 in 19 minutes and still climbing, measured 29 Sep. A form is 736
+// bytes, which puts this ceiling at 12 MB of a machine, and a run that reaches it says so in `refused` in place of
+// dropping forms quietly
 #define SASS_MACHINE_RUNS 32u
-#define SASS_MACHINE_FORMS 4096u
+#define SASS_MACHINE_FORMS 16384u
 #define SASS_MACHINE_PART 16u
 
 // what one printed operand is

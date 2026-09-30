@@ -30,6 +30,10 @@
 // an operation's encoding and the 128 encodings one bit apart from it
 #define SASS_BITS 128u
 #define SASS_ENCODINGS (SASS_BITS + 1u)
+// how many times widening walks out a bit, each round over what the round before found. Two, because the field the
+// lane is short of is the kind of an operand, and a register and a number in one slot are two bits apart through the
+// constant between them (sass_machine_widen)
+#define SASS_WIDEN_ROUNDS 2u
 // the bits of the low word that name an operation and its operands' kinds. Every value of these is a question the
 // sweep puts to the disassembler, which is what makes that search unbounded by any compiler's output
 #define SASS_OPERATION_MASK 0xfffull
@@ -170,11 +174,21 @@ int sass_decode(const char *architecture, const char *path, const unsigned long 
 // (cell_sass_probe_machine.c)
 void sass_machine_listing(SassMachine *machine, const SassListing *listing);
 
-// Every operation one bit from a form the listings gave, taken into `machine` as a form of its own: each listed
-// form's 128 bits are turned over and decoded, and a decode that prints a different operation is an instruction the
-// compiler never wrote and the part still answers for. This is how a spelling reaches the machine without being
-// guessed: ISETP.EQ.U32.AND, ISETP.EQ.U32.AND.EX and ISETP.LT.AND are each one bit from a comparison the listings
-// did hold, and sass.krs names all three only because the compiler read zero and below off the negations instead.
+// Every form reachable from the listings a bit at a time, taken into `machine` as a form of its own: a form's 128
+// bits are turned over and decoded, and a decode the disassembler names whole is an instruction the compiler never
+// wrote and the part still answers for. This is how a name reaches the machine without being guessed:
+// ISETP.EQ.U32.AND, ISETP.EQ.U32.AND.EX and ISETP.LT.AND are each one bit from a comparison the listings did hold,
+// and sass.krs names all three only because the compiler read zero and below off the negations instead.
+//
+// A form found this way is widened in turn, for SASS_WIDEN_ROUNDS rounds. The reach is what one bit at a time gets
+// to through forms, in place of what one bit gets to. The kind of an operand is a field of more than one bit: a
+// register in a slot and a number in that slot are two bits apart, through the constant in that slot which lies
+// between them. One round reaches the constant; the next reaches the number. The operation's name does not decide
+// this, because a form is its operation and its operands' kinds together -- both SHF.L.U32 forms carry that name,
+// and the assembler puts a number in a different place for each.
+//
+// The rounds are bounded and the walk is not run to its own end, which was measured and does not close: see
+// sass_machine_widen for the reading and why taking the whole component is worse than taking this much of it.
 //
 // Two things a widened form is not. It is decodable, not run: only a question that assembles one and runs it says
 // the part executes it. And its operand bits are the ones the form it came from held, which the new operation may
@@ -192,9 +206,10 @@ unsigned int sass_machine_widen(SassMachine *machine, const char *architecture, 
 // the disassembler will name. The carrier for all of them is a form the part ran, with its key cut out and each key
 // in turn put back, which leaves every bit that is not the key holding what a real instruction held.
 //
-// What comes back is read the same way widening reads it, with one difference: a widened form is kept where it
-// names something other than the form it came from, and a swept one came from no form, so every operation named
-// here is one to keep. The operand bits belong to the carrier and not to the operation they now sit under, the same
+// What comes back is read exactly the way widening reads it: every operation the disassembler names whole, with
+// every operand a kind the assembler can place, is one to keep, and a form already held is found by its operation
+// and kinds and taken no second time. The operand bits belong to the carrier and not to the operation they now sit
+// under, the same
 // caveat widening carries; sass_machine_fields finds each kept form's fields afterward by turning its own bits. The
 // count of forms this added
 unsigned int sass_machine_sweep(SassMachine *machine, const char *architecture, const char *folder);

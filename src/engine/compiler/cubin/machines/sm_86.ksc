@@ -18,9 +18,9 @@ class illegal  the question was refused: the system will not take it as it stand
 count run      answers  36
 count run      nothing  0
 count run      illegal  0
-count decode   answers  16387
-count decode   nothing  157
-count decode   illegal  31200
+count decode   answers  87298
+count decode   nothing  257
+count decode   illegal  37629
 count compile  answers  0
 count compile  nothing  0
 count compile  illegal  0

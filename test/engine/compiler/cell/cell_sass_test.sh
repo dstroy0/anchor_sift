@@ -56,7 +56,7 @@ OBJECTS=()
 for source in "$CELL/cell.c" "$CELL/cell_names.c" "$CUBIN/sass_machine.c" "$CUBIN/sass_assemble.c" \
               "$CUBIN/cubin_write.c" "$TEST/cell_sass_probe_main.c" "$TEST/cell_sass_probe_machine.c" \
               "$TEST/cell_sass_probe_ask.c" "$TEST/cell_sass_probe_class.c" "$TEST/cell_sass_probe_cubin.c" \
-              "$TEST/cell_sass_probe_read.c"; do
+              "$TEST/cell_sass_probe_read.c" "$TEST/cell_sass_probe_check.c"; do
     object="$OUT/$(basename "$source" .c).$EXTENSION"
     rm -f "$object"
     case "$(uname -s)" in

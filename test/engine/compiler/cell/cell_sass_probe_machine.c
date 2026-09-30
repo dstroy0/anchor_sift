@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// cell_sass_probe_machine.c: every instruction of the listings taken as a form, and each form's operand fields
-// found by turning its bits over, written out as the part's machine file for the assembler (sass_machine.h)
+// cell_sass_probe_machine.c: every instruction of the listings taken as a form, each form's operand fields found by
+// turning its bits over, and the two searches that find the forms no listing held -- widening, which walks out from
+// a form a bit at a time, and the sweep, which puts every operation key to the disassembler (sass_machine.h)
 #include "cell_sass_probe.h"
 
-#include "cubin_write.h"
 #include "sass_assemble.h"
 #include "sass_machine.h"
 
@@ -103,184 +103,6 @@ static int sass_form_fields(SassForm *form, const char *architecture, const char
     return 1;
 }
 
-unsigned int sass_text_read(const char *output, const char *kernel, char *text, unsigned int room)
-{
-    char wanted[256];
-    snprintf(wanted, sizeof(wanted), ".text.%s,", kernel);
-    unsigned int at = 0u;
-    int inside = 0;
-    const char *walk = output;
-    while ((walk != NULL) && (*walk != '\0'))
-    {
-        const size_t length = strcspn(walk, "\n");
-        char line[SASS_TEXT * 2u];
-        const size_t taken = (length < (sizeof(line) - 1u)) ? length : (sizeof(line) - 1u);
-        memcpy(line, walk, taken);
-        line[taken] = '\0';
-        // the disassembler's output ends its lines the way the host does, and a carriage return is none of the text
-        line[strcspn(line, "\r")] = '\0';
-        walk += length + ((walk[length] == '\n') ? 1u : 0u);
-        // a listing holds a section a function, and only the kernel's own is written back. .sectioninfo names no
-        // section, and the name it shares the front of is not a line that opens one
-        const char *const section = strstr(line, ".section");
-        if ((section != NULL) && ((section[8] == ' ') || (section[8] == '\t')))
-        {
-            inside = (strstr(line, wanted) != NULL) ? 1 : 0;
-            continue;
-        }
-        if (inside == 0)
-        {
-            continue;
-        }
-        const char *const address = strstr(line, "/*");
-        const char *keep = NULL;
-        size_t kept = 0u;
-        if ((address != NULL) && (strlen(address) > 8u) && (address[6] == '*') && (address[7] == '/'))
-        {
-            // an instruction: its text lies past the address, /*0000*/, and before the encoding printed after it
-            keep = address + 8;
-            const char *const encoding = strstr(keep, "/*");
-            kept = (encoding != NULL) ? (size_t)(encoding - keep) : strlen(keep);
-        }
-        else if ((line[0] == '.') && (line[strlen(line) - 1u] == ':'))
-        {
-            keep = line;
-            kept = strlen(line);
-        }
-        if (keep == NULL)
-        {
-            continue;
-        }
-        while ((kept != 0u) && ((keep[kept - 1u] == ' ') || (keep[kept - 1u] == ';')))
-        {
-            kept -= 1u;
-        }
-        while ((kept != 0u) && (*keep == ' '))
-        {
-            keep += 1;
-            kept -= 1u;
-        }
-        if ((kept != 0u) && ((at + kept + 1u) < room))
-        {
-            memcpy(&text[at], keep, kept);
-            at += (unsigned int)kept;
-            text[at] = '\n';
-            at += 1u;
-        }
-    }
-    text[at] = '\0';
-    return at;
-}
-
-// the most instructions one check decodes at a time
-#define SASS_CHECK_BLOCK 400u
-
-static unsigned long long s_check_low[SASS_CHECK_BLOCK];
-static unsigned long long s_check_high[SASS_CHECK_BLOCK];
-static char s_check_texts[SASS_CHECK_BLOCK][SASS_TEXT];
-static char s_check_asked[SASS_CHECK_BLOCK][SASS_TEXT];
-
-// `text` with .reuse cut out of it, into `without`: reuse lies in the scheduler's bits, which the text does not carry
-static void sass_reuse_cut(const char *text, char *without, size_t room)
-{
-    size_t at = 0u;
-    for (const char *walk = text; (*walk != '\0') && (at < (room - 1u)); walk += 1)
-    {
-        if (strncmp(walk, ".reuse", 6u) == 0)
-        {
-            walk += 5;
-            continue;
-        }
-        without[at] = *walk;
-        at += 1u;
-    }
-    without[at] = '\0';
-}
-
-unsigned int sass_machine_check(const SassMachine *machine, const SassListing *listing, const char *architecture,
-                               const char *folder, SassCheck *tally, unsigned int report)
-{
-    unsigned int filled = 0u;
-    unsigned int differed = 0u;
-    for (unsigned int number = 0u; number <= listing->count; number += 1u)
-    {
-        const SassInstruction *const instruction = &listing->instructions[number];
-        const int listed = (number < listing->count) && ((instruction->low != 0ull) || (instruction->high != 0ull));
-        if (listed)
-        {
-            tally->checked += 1u;
-            unsigned long long low = 0ull;
-            unsigned long long high = 0ull;
-            // a branch counts its target from itself, and a listing's own branch names where it stands
-            if (!sass_assemble(machine, instruction->text, instruction->address, instruction->address,
-                               SASS_CONTROL_BASE, &low, &high))
-            {
-                tally->refused += 1u;
-                differed += 1u;
-                continue;
-            }
-            // the scheduler's bits are none of the text's, and the form carries whatever they were when it was seen
-            const unsigned long long control = 0xfffffe0000000000ull;
-            const int same_bits =
-                (low == instruction->low) && ((high | control) == (instruction->high | control));
-            tally->same_bits += same_bits ? 1u : 0u;
-            SassInstructionParts parts;
-            sass_instruction_read(instruction->text, &parts);
-            int by_bytes = 0;
-            for (unsigned int place = 0u; place < parts.operands; place += 1u)
-            {
-                by_bytes = by_bytes || (parts.kind[place] == SASS_OPERAND_LABEL) ||
-                           (parts.kind[place] == SASS_OPERAND_UNKNOWN);
-            }
-            // a branch counts its target from where it stands, and a relocated operand is not in the instruction at
-            // all: the loader puts it there, and the listing prints what the ELF says it will be. Neither reads back
-            // from the bytes alone, so for those the bytes are the whole of what can be filled to the listing
-            if (by_bytes)
-            {
-                tally->by_bytes += 1u;
-                differed += same_bits ? 0u : 1u;
-                if (!same_bits && (differed <= report))
-                {
-                    printf("  check: %s\n    assembled 0x%016llx 0x%016llx\n    listed    0x%016llx 0x%016llx\n",
-                           instruction->text, low, high, instruction->low, instruction->high);
-                }
-                continue;
-            }
-            s_check_low[filled] = low;
-            s_check_high[filled] = high;
-            snprintf(s_check_asked[filled], SASS_TEXT, "%s", instruction->text);
-            filled += 1u;
-        }
-        // the block decoded whenever it is full, and at the end of the listing
-        if ((filled == SASS_CHECK_BLOCK) || ((number == listing->count) && (filled != 0u)))
-        {
-            char path[1024];
-            snprintf(path, sizeof(path), "%s/written", folder);
-            if (!sass_decode(architecture, path, s_check_low, s_check_high, filled, s_check_texts))
-            {
-                tally->refused += filled;
-                return differed + filled;
-            }
-            for (unsigned int at = 0u; at < filled; at += 1u)
-            {
-                char asked[SASS_TEXT];
-                char read[SASS_TEXT];
-                sass_reuse_cut(s_check_asked[at], asked, sizeof(asked));
-                sass_reuse_cut(s_check_texts[at], read, sizeof(read));
-                const int same = (strcmp(asked, read) == 0);
-                tally->same_text += same ? 1u : 0u;
-                differed += same ? 0u : 1u;
-                if (!same && (differed <= report))
-                {
-                    printf("  check: asked %s\n         read  %s\n", asked, read);
-                }
-            }
-            filled = 0u;
-        }
-    }
-    return differed;
-}
-
 // 1 where the disassembler named every modifier of `operation`. It has three ways of saying it could not: it prints
 // INVALID<n>, it prints ???<n>, or it leaves the trailing dot with nothing after it. An encoding whose meaning the
 // disassembler will not state is not a form, because assembling from it would write bits nothing can say the part
@@ -293,16 +115,21 @@ static int sass_operation_named(const char *operation)
 }
 
 // 1 where `text` is an instruction a form can be kept from: the disassembler took it, it names an operation it could
-// spell whole, and every operand it prints is a kind the assembler knows where to put
-static int sass_widened_holds(const char *text, const SassInstructionParts *base, SassInstructionParts *parts)
+// spell whole, and every operand it prints is a kind the assembler knows where to put.
+//
+// The operation's name alone does not say which form this is. A form is keyed by its operation and the kind of each
+// operand together, because those are what decide where the assembler puts a number: SHF.L.U32 with a register in
+// the shift slot and SHF.L.U32 with a number there read the same name and are two forms. So nothing here is turned
+// away for naming the operation it was turned from, and what is genuinely the form already in hand -- its registers
+// moved, or its control bits -- is turned away by sass_machine_take, which finds the operation and the kinds
+static int sass_widened_holds(const char *text, SassInstructionParts *parts)
 {
     if ((strcmp(text, "illegal") == 0) || (strcmp(text, "unprinted") == 0))
     {
         return 0;
     }
     sass_instruction_read(text, parts);
-    // the same operation is the form already in hand: its operands moved, or its control bits, neither a new form
-    if (!sass_operation_named(parts->operation) || (strcmp(parts->operation, base->operation) == 0))
+    if (!sass_operation_named(parts->operation))
     {
         return 0;
     }
@@ -321,37 +148,59 @@ unsigned int sass_machine_widen(SassMachine *machine, const char *architecture, 
     // the forms the listings gave, before any this pass adds: a form is widened from an instruction the part ran
     const unsigned int listed = machine->forms;
     unsigned int failed = 0u;
-    for (unsigned int number = 0u; number < listed; number += 1u)
+    unsigned int rounds = 0u;
+    // A form one bit from a listed one is a form the next round can be a bit from in turn. Widening only the
+    // listings reaches whatever is one bit out and stops, which leaves a form two bits out unreached even where the
+    // bit between them is a form the part takes. The kind of a slot is such a field, and the lane is short of it:
+    // the low word picks a register, a number or a constant for the second and the third operand, and on sm_86 those
+    // read 0x2 for a register in both, 0xa and 0x8 for a constant and a number in the second, 0x6 and 0x4 for a
+    // constant and a number in the third. A register to a number is two bits either way, through the constant that
+    // lies between. One round reaches the constant and the round after reaches the number.
+    //
+    // SASS_WIDEN_ROUNDS is that reach. Letting the walk run to its own end was measured on 29 Sep: from 118 listed
+    // forms it processed 3128 in 19 minutes at a flat 177 a minute and was still finding more, because the component
+    // reachable a bit at a time is most of what the part decodes. Two things are wrong with taking all of it. It
+    // does not close anywhere near the 16384 a machine holds: the run ends in `refused` and reports nothing. And a
+    // form reached far out carries the operand bits of a chain of forms it has nothing to do with, the PLOP3.LUT
+    // reading written down below -- a form that decodes and that no operation can be written from. The bound is the
+    // field the lane is short of, measured, in place of a guess at how far is far enough
+    unsigned int done = 0u;
+    while ((done < machine->forms) && (rounds < SASS_WIDEN_ROUNDS))
     {
-        sass_form_turned(&machine->form[number]);
-        char path[1024];
-        snprintf(path, sizeof(path), "%s/widen_%03u", folder, number);
-        if (!sass_decode(architecture, path, s_low, s_high, SASS_ENCODINGS, s_texts))
+        const unsigned int reach = machine->forms;
+        for (unsigned int number = done; number < reach; number += 1u)
         {
-            failed += 1u;
-            continue;
-        }
-        SassInstructionParts base;
-        sass_instruction_read(s_texts[0], &base);
-        for (unsigned int bit = 0u; bit < SASS_BITS; bit += 1u)
-        {
-            SassInstructionParts parts;
-            SassForm *kept = NULL;
-            const char *const said = s_texts[1u + bit];
-            // what the decoder said about this one bit, for the .ksc: it refused the encoding, it took it and
-            // printed no line, or it named it. Every bit of every form goes through here, which is why these are
-            // counted and not kept whole
-            sass_class_count(SASS_CHANNEL_DECODE, (strcmp(said, "illegal") == 0)     ? SASS_CLASS_ILLEGAL
-                                                  : (strcmp(said, "unprinted") == 0) ? SASS_CLASS_NOTHING
-                                                                                     : SASS_CLASS_ANSWERS);
-            if (sass_widened_holds(said, &base, &parts))
+            sass_form_turned(&machine->form[number]);
+            char path[1024];
+            snprintf(path, sizeof(path), "%s/widen_%04u", folder, number);
+            if (!sass_decode(architecture, path, s_low, s_high, SASS_ENCODINGS, s_texts))
             {
-                sass_machine_take(machine, said, s_low[1u + bit], s_high[1u + bit], &kept);
+                failed += 1u;
+                continue;
+            }
+            for (unsigned int bit = 0u; bit < SASS_BITS; bit += 1u)
+            {
+                SassInstructionParts parts;
+                SassForm *kept = NULL;
+                const char *const said = s_texts[1u + bit];
+                // what the decoder said about this one bit, for the .ksc: it refused the encoding, it took it and
+                // printed no line, or it named it. Every bit of every form goes through here: they are counted and
+                // not kept whole
+                sass_class_count(SASS_CHANNEL_DECODE, (strcmp(said, "illegal") == 0)     ? SASS_CLASS_ILLEGAL
+                                                      : (strcmp(said, "unprinted") == 0) ? SASS_CLASS_NOTHING
+                                                                                         : SASS_CLASS_ANSWERS);
+                if (sass_widened_holds(said, &parts))
+                {
+                    sass_machine_take(machine, said, s_low[1u + bit], s_high[1u + bit], &kept);
+                }
             }
         }
+        done = reach;
+        rounds += 1u;
     }
-    printf("cell sass widen: %u forms listed, %u one bit from them, %u forms the disassembler failed\n", listed,
-           machine->forms - listed, failed);
+    printf("cell sass widen: %u forms listed, %u a bit at a time from them over %u rounds, %u forms the "
+           "disassembler failed\n",
+           listed, machine->forms - listed, rounds, failed);
     return machine->forms - listed;
 }
 
@@ -464,14 +313,10 @@ unsigned int sass_machine_sweep(SassMachine *machine, const char *architecture, 
                                                                                          : SASS_CLASS_ANSWERS);
                 named += ((strcmp(said, "illegal") != 0) && (strcmp(said, "unprinted") != 0)) ? 1u : 0u;
                 SassInstructionParts parts;
-                SassInstructionParts base;
                 SassForm *kept = NULL;
-                // a widened form is held against the form it came from, and a swept one came from no form, leaving
-                // it held against itself: every operation the decoder names here is one to keep, where widening
-                // keeps only what differs from where it started
-                sass_instruction_read(said, &base);
-                base.operation[0] = '\0';
-                if (sass_widened_holds(said, &base, &parts))
+                // a swept encoding came from no form, and is read the same way a widened one is: every operation the
+                // decoder names, with every operand a kind the assembler can place, is one to keep
+                if (sass_widened_holds(said, &parts))
                 {
                     sass_machine_take(machine, said, s_low[at], s_high[at], &kept);
                 }
