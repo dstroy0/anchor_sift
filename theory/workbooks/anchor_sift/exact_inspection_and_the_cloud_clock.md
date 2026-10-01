@@ -3,11 +3,7 @@
 **Purpose:** State the model the engine's primitive now carries. A reader then takes the bit idiom, the atom, the valence and the cloud clock as one picture and knows which parts a proof already holds.
 **Scope:** `reference/bitfield.py`, `reference/atom.py`, `measure/invariance.py`, `examples/particle_physics/4_measure/atom_valence_by_presence.py`, and the posits `evidence/proofs/posits/proof_invariance_survives_null.py` and `evidence/proofs/posits/proof_pi_clears_the_term.py`.
 
-**Note, 26 September.** `reference/bitfield.py`, `reference/atom.py` and `measure/invariance.py` lived in `src/engine/python/`, which commit `74601c1` deleted on 26 September; none is in a file at anchor_sift `1948ae1`. `atom_valence_by_presence.py`, `proof_invariance_survives_null.py` and `examples/0_experimental/pi_has_no_last_digit.py` import from that tree. What this note says a proof holds was read before the deletion.
-
-**Later, 26 September.** Commit `d09b489` (anchor_sift PR 12) put back the 126 files `74601c1` deleted, each byte-identical to its state before the deletion, and biohub pins anchor_sift at `d09b489`. Every file named here that `74601c1` deleted is at the pin again; nothing here was rerun against them.
-
-This note supersedes the earlier one-dimensional bit framing. The primitive is not a line of bits and it is not a rational. It is a field of exact presences over an atom, inspected at an instant, and the reading is a cardinality of the invariances that survive a drawn null.
+The primitive is not a line of bits and it is not a rational. It is a field of exact presences over an atom, inspected at an instant, and the reading is a cardinality of the invariances that survive a drawn null.
 
 ## The idiom is presence, not proportion
 
