@@ -25,4 +25,3 @@ Questions asked across the whole tree at once, feeding sections of `theory/workb
 It reads any recording and knows no language. It sat in the closed corpus for a while on the reasoning that a faithful representation deserves the terms the recordings have, and that was the wrong lever: withholding a generic tool protects nothing, because whoever has audio can write one. What prevents casual misuse is that the corpus is not shipped, which leaves the hard part hard.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-09

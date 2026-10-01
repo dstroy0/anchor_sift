@@ -13,4 +13,3 @@
 The repository is at [github.com/dstroy0/anchor_sift](https://github.com/dstroy0/anchor_sift). A tool for language built on this work requires a human to review its output. The [condition of use](https://github.com/dstroy0/anchor_sift#the-condition-of-use) states why.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-26
