@@ -71,12 +71,11 @@ def to_bare(text):
     That test was worth running because a milder one had already moved fourteen of twenty languages
     to a different nearest neighbor, which read as the family signal being definition. Removing the
     alphabet entirely gives 13 of 22 languages nearest a relative, against 13 of 22 for reading every
-    character they actually use. The alphabet is worth nothing to the family result, and the earlier
-    reading of that milder test was an overclaim.
+    character they actually use. The alphabet is worth nothing to the family result.
 
     Stripping it also corrects some pairings, and that part is worth keeping. Latvian moves from
     Czech to Lithuanian, Baltic finding Baltic. Polish moves from Slovenian to Czech, West Slavic
-    finding West Slavic. The orthography had been interfering.
+    finding West Slavic. The orthography interferes.
 
     Only for languages already written in this alphabet. Stripping a Greek or Indic text would mean
     transliterating it, which is a judgement about sounds and puts back exactly what this removes.

@@ -6,7 +6,7 @@ static_assert(sizeof(EngineSignum) == 32u, "cycle: the block's signature is four
 
 // every C lane opens with this: the launch the kernel takes, and the lane a program defines. launch.places is the
 // words a thread holds in shared memory, a program's file where its language lays out the file there. The resident
-// kernel that runs the lanes is no longer here: each language writes it after the lane from its own ruleset
+// kernel that runs the lanes is not in this prelude: each language writes it after the lane from its own ruleset
 // (program_unit)
 extern const char g_cycle_prelude[] = R"CYCLE(
 typedef unsigned int u32;

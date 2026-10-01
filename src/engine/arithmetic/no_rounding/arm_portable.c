@@ -8,7 +8,6 @@
  * @file arm_portable.c
  * @brief Presents the portable C11 operations as an arm, letting a driver hold it in one table.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-09
  *
  * @note The functions are the ones in exact_integer_*.c and are not reimplemented here. This file is a
  *       table of pointers to them. The reference arm and the reference implementation can never

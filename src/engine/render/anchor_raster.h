@@ -8,7 +8,6 @@
  * @file anchor_raster.h
  * @brief Rasterizes the object under examination directly from engine state, on host or device.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
  *
  * THE OBJECT UNDER EXAMINATION IS THE FIELD AND WHAT THE ENGINE SAW OF IT. A search over a corpus
  * produces one outcome per alignment: some probe rejected it, or every probe agreed and the full
@@ -259,8 +258,7 @@ extern "C"
      *                        correct and is what every caller in this tree does. Passing a census
      *                        built over something else is silently ignored, which has no symptom: the
      *                        render succeeds and carries rarity computed from the corpus in front of
-     *                        it. An earlier form of this line called it the rarity source, which it is
-     *                        not.
+     *                        it.
      * @return                1 where the volume was written, 0 where the configuration errored.
      *
      * @note THE HOST ARM. anchor_volume_render is the entry a caller should use: it prefers the device

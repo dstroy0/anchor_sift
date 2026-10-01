@@ -8,9 +8,9 @@
 #                                             to_float
 #
 # The measure layer produces rationals: a phase mean is a class sum over a class count, and the
-# dispersion ratio is one energy over another. fractions.Fraction held them until now. This carries
-# the same values as an explicit (numerator, denominator) pair of Python integers. Those are
-# arbitrary precision and the ratio has no bit cap. The C form (fixed-width limbs, 128 by default and
+# dispersion ratio is one energy over another. This carries them as an explicit (numerator,
+# denominator) pair of Python integers. Those are arbitrary precision and the ratio has no bit cap.
+# The C form (fixed-width limbs, 128 by default and
 # any power of two from 1 to 32768 a build selects) carries the same integers up to its declared
 # width. The two forms agree because both are integers and both compare the same way.
 #

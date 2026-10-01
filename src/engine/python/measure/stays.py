@@ -6,10 +6,9 @@
 #
 #   Usage:  from measure.stays import mean_stay, noise_level, steady
 #
-# Only some corpora move when their symbols are renumbered, and the property behind it was narrowed
-# twice by things that turned out not to be it. Ordered values was wrong, since recorded speech is
-# as ordered as a grayscale level and holds. Nearness between neighbors was wrong on its own, since
-# speech sits at 0.54 and whale song at 0.48 and only one of them moves.
+# Only some corpora move when their symbols are renumbered. Ordered values is wrong, since recorded
+# speech is as ordered as a grayscale level and holds. Nearness between neighbors is wrong on its
+# own, since speech sits at 0.54 and whale song at 0.48 and only one of them moves.
 #
 # What the moving corpora have is not small steps but long stays. A picture is flat regions with
 # edges between them, and a row crossing a stretch of sky holds near one value for a long run.

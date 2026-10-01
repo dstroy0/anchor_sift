@@ -246,8 +246,7 @@ void pi_tower_billiard(SimResults *results, const PiWide &alpha, const std::vect
     sim_flush(results);
 }
 
-// 11. The residue (Doug, 24 September: "if qa is almost a whole number, we can get its identity and its null
-// permutation will make it a whole, that is its residue"). On floor j, q_j alpha = p_j + delta_j. Put p_j / q_j for
+// 11. The residue. On floor j, q_j alpha = p_j + delta_j. Put p_j / q_j for
 // alpha and the turn is the permutation n -> n p_j mod q_j of q_j cells, whole again after q_j steps: the identity.
 // Where q_j |delta_j| < 1, pi's whole parts for n < q_j are the permutation's, floor(n alpha) = floor(n p_j / q_j),
 // each point carried n delta_j / q_j off the permutation's mark, past it where delta_j > 0 and short of it where

@@ -2,7 +2,7 @@
 #ifndef CELL_H
 #define CELL_H
 
-// The cell, a probe runner (engine_table.md item 11(f) 3; posit 12 of 26 September). A probe is a small program that
+// The cell, a probe runner (engine_table.md item 11(f) 3). A probe is a small program that
 // asks the target one question. It runs in a child process the cell can lose, and the cell records how it ended: the
 // exit status, or the signal or fault that ended it, the output it wrote and the time it took. A probe that kills its
 // process is answered by its death, and the next question is asked from a fresh process

@@ -187,17 +187,6 @@ size_t anchor_sift_free(const uint8_t *corpus, size_t corpus_len, const uint8_t 
     return found;
 }
 
-/* The threshold that used to live here, ANCHOR_SIFT_FLAT_SHARE at 0.85, moved into
- * anchor_steer_prefers_free as the exact rational 85/100 and is gone from this file. It is not left
- * defined and unread: a constant nobody reads is how a rule that has been removed goes on looking
- * like a rule that is still enforced.
- *
- * What it meant is unchanged. It is how close the effective alphabet has to sit to the symbols
- * actually used before a corpus counts as memoryless, and it was swept by bench_dispatch and not
- * chosen. Every threshold from 0.34 to 0.96 scores identically on the corpora measured, since the
- * three of them read 0.96, 0.33 and 1.00 and nothing sits between. Clearing the denominators did not
- * re-open that sweep; 85/100 is the same value carried exactly instead of rounded. */
-
 AnchorSiftEngine anchor_sift_choose(const AnchorSiftPlan *plan)
 {
     // No plan is no statistics, and the engine that needs none is the naive one. BOTH POINTERS ARE
@@ -215,18 +204,18 @@ AnchorSiftEngine anchor_sift_choose(const AnchorSiftPlan *plan)
     // enough to make the loop trip count vary, and a varying trip count costs a mispredicted branch
     // per alignment. The branchless engine exists to avoid that.
     //
-    // THE RULE IS THE SAME ONE AND THE ARITHMETIC IS NOT. It asked whether the effective alphabet
-    // 2^H2 reaches ANCHOR_SIFT_FLAT_SHARE of the symbols used, computed by taking a logarithm and
-    // approximating a power of two with three terms of a series. That constant no longer exists;
-    // it is named here because this paragraph records what was replaced. Writing 2^H2 as total^2
-    // over the sum of squared counts clears both denominators and leaves
+    // THE RULE IS AN EXACT INTEGER COMPARISON. It asks whether the effective alphabet 2^H2 reaches
+    // 85/100 of the symbols used: how close it has to sit to the symbols actually used before a
+    // corpus counts as memoryless. Writing 2^H2 as total^2 over the sum of squared counts clears
+    // both denominators and leaves
     //
     //     100 * total^2  >=  85 * distinct * sum(count^2)
     //
     // which is a comparison between two exact integers, carried in the limb form where it outgrows
-    // 64 bits. No logarithm is taken, no series is evaluated, and the threshold is the exact
-    // rational 85/100 instead of the nearest double to 0.85. anchor_steer_prefers_free holds that
-    // comparison and the sweep in test_steer grades it against the double form it replaced.
+    // 64 bits. No logarithm is taken, no series is evaluated, and the threshold is the exact rational
+    // 85/100. Every threshold from 0.34 to 0.96 scores identically on the corpora, which read 0.96,
+    // 0.33 and 1.00 with nothing between. anchor_steer_prefers_free holds the comparison, and the
+    // sweep in test_steer grades it.
     return anchor_steer_prefers_free(plan->census) ? anchor_sift_free : anchor_sift_inorder;
 }
 
@@ -253,9 +242,9 @@ size_t anchor_sift_run(const AnchorSiftPlan *plan, const uint8_t *corpus, size_t
 {
     const AnchorSiftEngine chosen = anchor_sift_choose(plan);
 
-    // Held and dispatched and not re-asked, because the choice is now three ways and not two.
-    // Reaching the tail on a null plan would have run the in order engine with the full anchor set,
-    // the outcome the guard in anchor_sift_choose was added to prevent.
+    // Held and dispatched and not re-asked, because the choice is three ways and not two.
+    // Reaching the tail on a null plan would run the in order engine with the full anchor set,
+    // the outcome the guard in anchor_sift_choose prevents.
     if (chosen == anchor_sift_naive)
     {
         return anchor_sift_naive(corpus, corpus_len, needle, needle_len);

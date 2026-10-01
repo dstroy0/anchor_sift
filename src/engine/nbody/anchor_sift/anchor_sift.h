@@ -9,7 +9,6 @@
  * @file anchor_sift.h
  * @brief The engine: the search, the steering that places its probes, and the scan underneath both.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-04
  *
  * @note This is the kernel. Everything here is the thing being measured, and nothing here reads a
  *       clock, builds a corpus or prints a row. Those belong to the driver.

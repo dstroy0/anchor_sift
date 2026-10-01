@@ -9,7 +9,6 @@
  * @file exact_integer.h
  * @brief An exact integer held as a fixed width array of limbs, and the operations a measure needs.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-09
  *
  * @note A limb array is a transform of an integer, the same way decimal text is one. The value is
  *       identical in every form. What changes is which machine can work on it.

@@ -100,13 +100,7 @@ static size_t field_number_classes(AnchorSameAt same_in_field, const void *field
     // is applied at relabel time. A field of a thousand classes keeps its 255 rarest apart and
     // merges the commonest into rank 255.
     //
-    // The form this replaced capped the class count during DISCOVERY. The merged set was chosen
-    // by arrival order and not by commonness. A class occurring once has one chance to arrive
-    // early and a class occurring nine times has nine. The rarest arrived last and were merged
-    // first. Two fields with identical frequency multisets and opposite arrangements merged sets
-    // whose mean occupancies were 1.06 and 9.00, which no histogram can tell apart. The rarest class
-    // is the best probe the steering has. That form spent exactly what the projection exists to
-    // find, and worst on the most natural arrangement.
+    // The rarest class is the best probe the steering has.
     //
     // A class's place is the number of classes strictly rarer than it, with the class index breaking
     // ties so the order is total and does not depend on the arrangement. THE TIE BREAK IS WHY TWO
@@ -178,14 +172,12 @@ int anchor_field_project(const AnchorFieldProjection *args)
     }
 
     // FAILS CLOSED ON A SHORT BUFFER. Every position can be its own class. The three arrays have
-    // to reach `length` or a field of singletons writes past their end. The previous form capped
-    // the arrays, and what that cost is recorded below.
+    // to reach `length` or a field of singletons writes past their end.
     if (args->classes_length < args->length)
     {
-        // WRITES NOTHING, LIKE EVERY OTHER ERROR HERE. This path used to set `distinct` to zero
-        // while the null and zero-length errors left it alone, which meant a caller could not tell
-        // an errored zero from a measured zero. Fail closed says a request that cannot be met changes
-        // no state. No error touches it and the return value is the only thing to read.
+        // WRITES NOTHING, LIKE EVERY OTHER ERROR HERE. Fail closed says a request that cannot be met
+        // changes no state: a caller cannot tell an errored zero from a measured zero. No error
+        // touches `distinct` and the return value is the only thing to read.
         return 0;
     }
 

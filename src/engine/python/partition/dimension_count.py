@@ -16,21 +16,13 @@
 # modulo n, and the roughness at that step belongs to that axis. There are n such magnitudes and
 # they exist only at the exact powers of two.
 #
-# Three attempts and two of them failed for reasons worth carrying.
+# Scoring each candidate against shuffles of the same readings holds the group count fixed. Without
+# the shuffle, splitting few readings into many groups raises the score on its own and returns the
+# largest candidate offered.
 #
-# The first looked for a repeat spaced n doublings apart and sampled eight times per doubling, which
-# sampled away the only steps that carry anything. It returned the same period for every field at
-# every dimension, and that period was the lowest the search allowed.
-#
-# The second read the powers of two correctly and scored them by how consistently they grouped,
-# which returned the largest candidate offered in all twelve readings, because splitting few
-# readings into many groups raises that score on its own. Scoring each candidate against shuffles of
-# the same readings holds the group count fixed and cancels it.
-#
-# Under both sat a worse error. The fields were built isotropic. Every axis had identical
-# statistics and there was one magnitude repeated n times instead of n magnitudes. No line can count
-# what was never made different, and the first two attempts were asked to do exactly that. Rebuilt
-# with a different correlation length along each axis, eleven of twelve readings return the count.
+# The fields are built with a different correlation length along each axis. An isotropic field has
+# identical statistics on every axis, one magnitude repeated n times instead of n magnitudes, and no
+# line can count what was never made different. Built so, eleven of twelve readings return the count.
 
 import numpy
 
@@ -47,8 +39,8 @@ DRAWS = 200
 def roughness(series, steps=STEPS):
     """Mean absolute difference at each power of two step, one reading per bit crossed.
 
-    Only the exact powers of two, because that is where the magnitudes are. Sampling between them is
-    what made the first attempt return nothing at any dimension.
+    Only the exact powers of two, because that is where the magnitudes are. Sampling between them
+    returns nothing at any dimension.
     """
     floats = numpy.asarray(series, dtype=numpy.float64)
     out = []

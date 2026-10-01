@@ -28,7 +28,7 @@
 
 `web.py` holds four readings of one thing and the comparison between them is the finding. `marginal` is the square with its structure removed and comes within three points of it on three of four questions. `deep_web` extends it to runs of several symbols. `structural` divides the frequencies out, which turns out to compress every distance toward the average instead of isolating structure.
 
-`point_cloud.py` replaced the separate reader each domain used to have. Every corpus here is already a cloud of points carrying values: text is positions along a line holding symbols, a picture is positions on a plane, a structure is positions in space. The orientation channel is undefined below two dimensions and is reported as absent, never as zero.
+`point_cloud.py` is the reader for every domain. Every corpus here is already a cloud of points carrying values: text is positions along a line holding symbols, a picture is positions on a plane, a structure is positions in space. The orientation channel is undefined below two dimensions and is reported as absent, never as zero.
 
 ## Reading at the wrong lag sees nothing whatever the data does
 

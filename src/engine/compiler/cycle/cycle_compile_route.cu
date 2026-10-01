@@ -131,7 +131,7 @@ static TargetInfo cycle_target_info(const CycleTarget *lane_target)
 // Rule (i): a program held as PTX routed between its two rulesets by its local frame against the device's stack limit.
 // A frame past the limit has the runtime grow the stack for every resident thread at a run's first launch, and
 // cycle_stack_return gives it back once the run is done: 7.449 to 10.130 ms a run on the record tests, against 0.127 to
-// 1.630 ms for frames within the limit (26 September, engine_table item 11(f)). Past the limit the program is built as
+// 1.630 ms for frames within the limit (engine_table item 11(f)). Past the limit the program is built as
 // C source as well, and the smaller frame runs, the C source's wherever it fits and the PTX's does not; the
 // other's hold is given back. Where the C source does not build, or its frame cannot be read, the PTX runs.
 // CYCLE_RECORD_KEEP_PTX=1 turns the rule off: a program held as PTX runs as PTX

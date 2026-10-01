@@ -3,14 +3,14 @@
 #ifndef OMEGA_COMPUTER_INTERNAL_H
 #define OMEGA_COMPUTER_INTERNAL_H
 
-// The omega computer: Omega inside Omega inside Omega (Doug, 24 September: "Omega omega omega", the nesting chosen,
-// and "build the omega computer"). The machine is Tromp's binary lambda calculus run on the empty input. It reads a
+// The omega computer: Omega inside Omega inside Omega. The machine is Tromp's binary lambda calculus run on the empty
+// input. It reads a
 // closed term M, self-delimited in de Bruijn form (00 M is lambda M, 01 M N is M applied to N, 1^k 0 is the variable
 // bound k lambdas out), applies it to the empty list, and halts where M nil has a normal form. Omega_nil, the sum of
 // 2^-|M| over the M that halt, is bracketed between two exact dyadics, as chaitin_omega brackets its Omega.
 // Tromp's universal machine U is itself such a term, of 190 bits (J. Tromp, the AIT repository, ait/uni.lam, with the
 // improvements by 50_ft_lock and Sean Palmer; the bits are those of Tromp's `blc blc`, whose size optimizer was
-// reproduced to read them off). uni.lam, read 26 September 2026, gives uni's text and its size, 190 bits, and not its
+// reproduced to read them off). uni.lam gives uni's text and its size, 190 bits, and not its
 // bits: no translation of that text that only inlines its lets or lays them out as redexes comes to fewer than 209
 // bits, since the optimizer also reduces. The bits here are checked by Tromp's test below and not against a published
 // string. Given the bits of a closed M and then the rest of its input, U reduces to M applied to

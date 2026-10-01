@@ -183,8 +183,7 @@ void settle_sign(AnchorExactInteger *result, int32_t sign)
  *       magnitudes, which alone can overrun and is tested before a limb is written. Opposite signs
  *       subtract the smaller magnitude from the larger and take the larger one's sign. Equal
  *       magnitudes of opposite sign are zero.
- * @note Subtraction is this call with the sign turned over. An earlier form copied the whole
- *       integer to negate it, which at 32768 limbs put 128 KiB on the stack to change four bytes.
+ * @note Subtraction is this call with the sign turned over.
  */
 static AnchorExactStatus exact_add_signed(const AnchorExactInteger *left, const AnchorExactInteger *right,
                                           int32_t right_sign, AnchorExactInteger *result)

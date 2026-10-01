@@ -8,7 +8,6 @@
  * @file arm_cuda.h
  * @brief The exact measure on a CUDA device, parallel over positions instead of over limbs.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-09
  *
  * @note The vectorized arms widen one comparison. This one does not widen a comparison at all: it
  *       gives one position to each thread and runs the whole search for that position there. The

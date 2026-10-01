@@ -7,12 +7,11 @@
 #   Usage:  from representation.exact import units, scaled, measured, product, placed, contested,
 #                                              along
 #
-# Every reader in this part turns a file into points carrying values, and until now each one bounded
-# the values on the way in. levels.py holds a protein's angstroms and a shaped field's floating point
-# to the 256 levels a byte carries. crystal.py rounded a published cell edge onto a grid of 0.25
-# angstroms. Both bounds were chosen here and neither came from the source, and the crystal one is
-# measurable: it answers a published edge to 0.0124 angstroms on average where the same points read
-# exactly answer it with an error of zero.
+# Every reader in this part turns a file into points carrying values. levels.py holds a protein's
+# angstroms and a shaped field's floating point to the 256 levels a byte carries. crystal.py rounds a
+# published cell edge onto a grid of 0.25 angstroms. Both bounds are chosen here and neither comes
+# from the source, and the crystal one is measurable: it answers a published edge to 0.0124 angstroms
+# on average where the same points read exactly answer it with an error of zero.
 #
 # A source writes decimal text. 4.76050, 0.35216, 12.4. That text is a numerator and a count of
 # decimal places, and both are integers. The number arrives here with nothing lost and no float
@@ -57,10 +56,9 @@
 #
 # A python integer of 1024 decimal digits occupies 480 bytes. A crystal cell tiled four times an
 # axis is about 1280 points. All three coordinates of the whole arrangement come to 1.76 MB. The
-# dense grid that crystal.py used to build for the same cell is 320 cubed at a byte a voxel, which
-# is 31.25 MB, and 0.0039 percent of it is occupied. The exact reading is eighteen times smaller
-# than the grid it replaces and it rounds nothing, while the grid spent that memory holding empty
-# space and rounded anyway.
+# dense grid for the same cell is 320 cubed at a byte a voxel, which is 31.25 MB, and 0.0039 percent
+# of it is occupied. The exact reading is eighteen times smaller than that grid and it rounds
+# nothing, while the grid spends that memory holding empty space and rounds anyway.
 #
 # Time behaves the same way over the range that matters and stops behaving that way past it. On 180
 # crystal axes, 8 digits takes 0.13 seconds and 1024 takes 0.37, which is 128 times the digits for
@@ -104,9 +102,6 @@ def _layout(text):
 
     The whole text is checked before any number is built. The C arm checks it the same way. Both
     error malformed text as not decimal before either errors on a value as too wide.
-
-    An earlier version cut the bracket out and joined the text on either side of it, which read
-    "1.2(3)4" as 1.24 while the C read 1.2, and it accepted "1.23(" with no closing bracket.
     """
     body = str(text)
     at = 0
@@ -164,8 +159,7 @@ def units(text, digits=SCALE_DIGITS):
     Raises WillNotFit where the text carries a bracket and prints more places than `digits`, dropped
     or not. The bracket counts units of the last place printed, and a text printed past the scale
     claims more precision than the reader was asked to hold. decimal_read in exact_integer_decimal.c sizes
-    it the same way for anchor_exact_from_decimal, and until 27 September this side read
-    "1.00000000000000000000000000(1)" as 1 at 24 places where the C errored on it.
+    it the same way for anchor_exact_from_decimal.
     """
     sign, whole, fraction, uncertainty = _layout(text)
     if uncertainty is not None and len(fraction) > digits:
@@ -173,12 +167,8 @@ def units(text, digits=SCALE_DIGITS):
                          % (len(fraction), digits))
 
     # Trailing zeros in the fraction are dropped before the places are counted. 1.2300 and 1.23 are
-    # the same number, and a scale of two places holds both of them exactly. Counting the zeros as
-    # places made the first error at a scale the second passed, which is an error to represent a
-    # value that needed no rounding at all. A cross check against a second implementation is what
-    # surfaced it. ".000" is zero at no places. Dropping all three zeros once left no digit behind,
-    # and the text errored as not decimal. Measured 2026-09-16 over 8885 cached COD deposits,
-    # that skipped 149 atom sites in 59 of them.
+    # the same number, and a scale of two places holds both of them exactly. ".000" is zero at no
+    # places: dropping all three zeros leaves no digit behind, and the empty string reads as zero.
     fraction = fraction.rstrip("0")
     return sign * int((whole + fraction) or "0"), len(fraction)
 

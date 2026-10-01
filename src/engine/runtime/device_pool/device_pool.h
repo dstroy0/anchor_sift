@@ -15,8 +15,7 @@ extern "C"
 // reads a slice as it would read an allocation of its own
 #define DEVICE_POOL_SLICE_ALIGN 256ull
 
-// the device's allocation page: the driver maps allocations in whole pages, small ones sharing a page (measured on the
-// RTX 3070, 25 September: 1 byte took 2 MiB, 1 MiB more took nothing, 3 MiB took 4 MiB). A pool is one
+// the device's allocation page: the driver maps allocations in whole pages, small ones sharing a page. A pool is one
 // allocation, rounded to the page once
 #define DEVICE_POOL_PAGE_BYTES (2ull << 20u)
 

@@ -8,7 +8,6 @@
  * @file scan_neon.c
  * @brief The steering scan under NEON, sixteen alignments per compare.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
  *
  * THE SAME QUESTION AVX2 ANSWERS, ONE ARM OVER. Held at one needle offset, does
  * `corpus[at + offset]` equal `needle[offset]` for consecutive `at`. The needle byte broadcasts

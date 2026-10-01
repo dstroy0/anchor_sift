@@ -41,7 +41,7 @@ Eight subjects have their own directories so far: `atom`, `constants`, `game`, `
 
 ## Nothing here writes to a stream
 
-A primitive returns numbers. Printing them is the caller's, and an example that wants a table of results formats it in its own `main`. This is why `oracle.language.families.dravidian_check` hands back a dict of distances and verdicts instead of the paragraph three examples used to print from three copies of the same code.
+A primitive returns numbers. Printing them is the caller's, and an example that wants a table of results formats it in its own `main`. This is why `oracle.language.families.dravidian_check` hands back a dict of distances and verdicts instead of printing a paragraph itself.
 
 The two mains above are the exceptions. Each opens standard output and writes to it, and `english_sift`'s `check` writes to the stream its main hands it.
 

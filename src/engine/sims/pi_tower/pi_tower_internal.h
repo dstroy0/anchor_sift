@@ -3,7 +3,7 @@
 #ifndef PI_TOWER_INTERNAL_H
 #define PI_TOWER_INTERNAL_H
 
-// Pi turning at the boundary, and the tower it builds (Doug, 24 September: the turn that gave us tower recursion).
+// Pi turning at the boundary, and the tower it builds.
 // The boundary is the circle of length 1 and the turn is x -> x + pi, which on the circle is the rotation by
 // alpha = pi - 3. The turn never closes. It never lands where it has been. Its returns near the start are its
 // floors: the return map to the arc under a close return is again a rotation, by the Gauss map's angle, and the
@@ -24,22 +24,18 @@
 // 5. The step that fills the boundary, read from the floors, equals a walk of every step, at 2^1 to 2^PI_TOWER_WALK_MAX
 //    cells, and so does the last cell filled.
 // 6. At every resolution asked for, the last cell filled is first touched at that step.
-// The resolutions come with the request (Doug, 24 September: "you can go to 2^n arbitrarily in the tower it is one
-// term"): pi_tower [n] reads 2^n alone, pi_tower [from] [to] reads 2^from to 2^to, and no argument reads 2^1 to 2^100.
+// The resolutions come with the request: pi_tower [n] reads 2^n alone, pi_tower [from] [to] reads 2^from to 2^to, and
+// no argument reads 2^1 to 2^100.
 // The precision follows the largest, P = 3 n + 64 bits rounded up to a word and at least PI_TOWER_BITS, and a build
 // whose exact width cannot hold 3 (P + PI_TOWER_GUARD) + 64 bits errors on it by name (SIM_EXACT_LIMBS sets the width).
-// The arc (Doug, 24 September: "if we were on a disk, and pi were on a separate disc balanced by its torsion, that
-// would be its planes offset in degrees to our plane"; "this is the arc it follows"). Roll the boundary into a
-// cylinder whose cross-section is our disk: the turn is the helix of radius 1 / (2 pi) rising 1 / pi a turn, and it
-// pierces our disk at the marks {n pi}. Its bending plane stands at the angle phi = arctan(1 / pi) to our disk, and
-// the ratio of its torsion to its curvature is tan phi (Lancret, 1806).
+// The arc. Roll the boundary into a cylinder whose cross-section is our disk: the turn is the helix of radius 1 / (2
+// pi) rising 1 / pi a turn, and it pierces our disk at the marks {n pi}. Its bending plane stands at the angle
+// phi = arctan(1 / pi) to our disk, and the ratio of its torsion to its curvature is tan phi (Lancret, 1806).
 // 7. In Q(pi), where pi is a free variable because it is transcendental (Lindemann, 1882), the helix's Frenet frame
 //    taken from its derivatives at the four quarter turns gives curvature 2 pi^3 / (pi^2 + 1), torsion
 //    2 pi^2 / (pi^2 + 1), tau / kappa = 1 / pi = tan phi, and a Darboux vector tau T + kappa B along our disk's axis.
 // 8. The same numbers from the bracket: kappa, tau and phi in degrees, each printed only where both ends agree.
-// The balance and the boundary (Doug, 24 September: "it is present but balanced"; "the UNBALANCING happens at the
-// boundary, that is when those forces lose equilibrium"; "one force must win because we cannot divide by zero and the
-// boundary is "real" in our information space").
+// The balance and the boundary.
 // 9. On the helix the pull points at our axis. The torque about it is zero, and the angular momentum about it at
 //    unit speed is L_z^2 = 1 / (4 (pi^2 + 1)) at all four quarter turns, in Q(pi); L_z from the bracket to 12 places.
 // 10. The billiard in the unit square from the corner at slope pi, unfolded: the segment in lattice cell (i, j) carries
@@ -53,8 +49,7 @@
 // 12. The golden helix: the residues flip sign every floor, q_j >= F_(j+1), |delta_j| < 1 / q_(j+1), and the shrink
 //    |delta_j| / |delta_(j-1)| is above 1/2 exactly where a_(j+1) = 1. Measured: each shrink against the golden 1/phi,
 //    and the growth a floor q_J^(1/J) against phi.
-// The tower's deepest turns, on the engine (Doug, 24 September: "I don't want anything less than 2^googol"; "represent
-// the base and its operation as separate parts"). The turn at depth n is bit n of alpha, pi's fraction, and the BBP
+// The tower's deepest turns, on the engine. The turn at depth n is bit n of alpha, pi's fraction, and the BBP
 // formula (D. H. Bailey, P. B. Borwein and S. Plouffe, Math. Comp. 66, 1997) reads it where it stands, without the bits
 // before it: {16^d pi} = {4 S_1 - 2 S_4 - S_5 - S_6}, S_j = sum over i of 16^(d - i) / (8 i + j). Each term is a lane
 // of the engine's record machine, its power shrunk mod 8 i + j at every square; keymath sizes every register, the

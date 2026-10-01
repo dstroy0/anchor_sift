@@ -465,7 +465,7 @@ int main(int argc, char **argv)
         sim_flush(&results);
     }
     // BusyBeaverWiki's BB lambda (OEIS A333479) from 4 through 33 bits; 0 where no closed term exists. The entries
-    // equal the terms of OEIS's b-file for A333479 at 4 to 33, read 26 September 2026. A row with a term still open
+    // equal the terms of OEIS's b-file for A333479 at 4 to 33. A row with a term still open
     // holds only a lower bound, and the published value is the true maximum. The two meeting means the run
     // reached the champion; past 33 the champions outgrow any space here (327686 bits at 34)
     static const unsigned long long published_max[34] = {

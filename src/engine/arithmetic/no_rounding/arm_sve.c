@@ -8,7 +8,6 @@
  * @file arm_sve.c
  * @brief The SVE arm of the exact arithmetic, at whatever vector length the part turns out to have.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
  *
  * @note Written for server class ARM: Graviton, Ampere Altra, Grace, the Neoverse cores. No part in
  *       this project has SVE. The Raspberry Pi 5 is a Cortex-A76, which is NEON only. This arm has

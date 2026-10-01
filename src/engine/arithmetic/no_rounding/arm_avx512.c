@@ -8,7 +8,6 @@
  * @file arm_avx512.c
  * @brief The AVX-512 arm of the exact arithmetic, comparing sixteen 32 bit limbs per instruction.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
  *
  * @note No machine in this project has AVX-512. This arm has never been run. It is compiled for
  *       the target and its emitted instructions are read by maint/engine/verify_arm_asm.sh, which

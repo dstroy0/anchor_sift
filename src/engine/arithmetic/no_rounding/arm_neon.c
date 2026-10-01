@@ -8,7 +8,6 @@
  * @file arm_neon.c
  * @brief The NEON arm: the same limb comparison, four limbs to an instruction instead of eight.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-09
  *
  * @note Written for the Raspberry Pi 5, which is a Cortex-A76 at aarch64. NEON is mandatory in the
  *       base aarch64 architecture. On a 64 bit ARM build there is nothing to detect and the arm

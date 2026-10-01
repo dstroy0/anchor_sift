@@ -10,7 +10,7 @@
 // form: the bump leaves the tree as it is, and the subtraction lowers it. Every sequence reaches 0. The start 2^^k
 // is omega^^k. 16 is omega^omega^omega. The values grow as towers and are never formed: a form is the tree itself,
 // with the base a separate number, and b^L - 1 at a large L is held as one run of coefficient b - 1 over the exponents
-// 0 .. L - 1 of the base the run was made at (Doug, 24 September: "perform tetration of omega").
+// 0 .. L - 1 of the base the run was made at.
 // 1. The bump keeps the tree: for every n below GOODSTEIN_LEMMA_BELOW at bases 2 to 6, n bumped numerically and
 //    written in base b + 1 is the tree of n in base b.
 // 2. 2^^k in hereditary base 2 is omega^^k for k = 1 to 4, and the towers climb.

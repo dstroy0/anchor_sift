@@ -206,8 +206,7 @@ extern "C"
      * @param[in,out] value Integer to scale [BORROWS].
      * @param[in]     power How many powers of ten to apply.
      * @return              ANCHOR_EXACT_OK, or ANCHOR_EXACT_WILL_NOT_FIT.
-     * @note On an error `value` is left unchanged. An earlier version wrote the low limbs of an
-     *       overrun product into `value` before erroring, which left a wrapped magnitude behind.
+     * @note On an error `value` is left unchanged.
      */
     AnchorExactStatus anchor_exact_scale_by_ten(AnchorExactInteger *value, uint32_t power);
 

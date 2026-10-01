@@ -2,7 +2,7 @@
 // pi_plane_ring_report.cu: rings, paths and printing
 #include "pi_plane_internal.h"
 
-// the rings mod floor(pi 2^k) (Doug, 24 September: "make each ring the mod of a known digit"): drawn, and each bit
+// the rings mod floor(pi 2^k): drawn, and each bit
 // read against the bit at its angle one ring in, against keyed shuffles of the rings' bits
 int plane_rings(SimResults *results, const std::vector<unsigned char> &bits, unsigned int draws, unsigned int blind,
                 unsigned int blind_first, int balanced, unsigned int funnels, const std::string &directory)

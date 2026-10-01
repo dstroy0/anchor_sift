@@ -40,7 +40,7 @@ def substitute(seats, seed=0xC10DE):
     """One fixed permutation of the seats, which is a monoalphabetic cipher.
 
     Relabeling cannot change how often a word recurs or where it falls. This is the mapping a
-    position reading has to be blind to. It is also the check that caught a real defect: the ranking
+    position reading has to be blind to. It is also the check that catches a real defect: the ranking
     sorts symbols by count. Symbols sharing a count are ordered by their label, and relabeling
     moves which of them falls in the rare half. Small, and real.
     """

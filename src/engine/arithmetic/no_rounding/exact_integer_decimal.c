@@ -15,9 +15,7 @@ static const uint32_t TEN_TO[LIMB_DECIMAL_DIGITS + 1u] = {
  *                       where the product reaches further [BORROWS].
  * @param[in]     factor What to multiply by.
  * @return               1 where the product needs a limb past the width, 0 otherwise.
- * @note Walks `used` limbs and never the width. An earlier form walked the whole width once per
- *       decimal digit read, which made reading 315000 digits at 32768 limbs cost ten billion limb
- *       steps.
+ * @note Walks `used` limbs and never the width.
  * @warning On a return of 1 `value` holds the low limbs of the product. Callers run this on a copy
  *          they discard on error.
  */
@@ -282,8 +280,6 @@ static int magnitude_accumulate_digits(uint32_t *value, size_t *used, const char
  *       the grammar serves both, and the two entries cannot accept different text.
  * @warning On an error `value` and `uncertainty` hold partial limbs. Both entries pass integers of
  *          their own and copy out only on ANCHOR_EXACT_OK. An error leaves a caller's untouched.
- *          An earlier form read into two limb arrays of its own and then copied, which put a third
- *          and fourth width-sized array on the stack beside the entry's two.
  */
 static AnchorExactStatus decimal_read(const char *text, size_t length, uint32_t digits, AnchorExactInteger *value,
                                       AnchorExactInteger *uncertainty, int *carried)
