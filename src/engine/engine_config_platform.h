@@ -183,8 +183,14 @@ extern "C"
 // a header helper kept out of line: MSVC takes noinline on an inline function, and an unused plain static warns
 #define ENGINE_NOINLINE_HELPER __declspec(noinline) static inline
 #elif defined(__GNUC__)
+// a PE image's linker names its base __ImageBase, as MSVC's does, and an ELF image's names its header __ehdr_start
+#if defined(_WIN32)
+extern const char __ImageBase;
+#define ENGINE_IMAGE_BASE ((const void *)&__ImageBase)
+#else
 extern const char __ehdr_start;
 #define ENGINE_IMAGE_BASE ((const void *)&__ehdr_start)
+#endif
 #define ENGINE_RETURN_ADDRESS() ((const void *)__builtin_return_address(0))
 #define ENGINE_NOINLINE __attribute__((noinline))
 // a header helper kept out of line: gcc errors noinline on an inline function. It is a static marked unused

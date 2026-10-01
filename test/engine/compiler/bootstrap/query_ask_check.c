@@ -79,15 +79,20 @@ int main(void)
     counts.address = clock;
     counts.qualifier = QUERY_ADVANCES;
     // The counter is kept in hundred-nanosecond counts and is stepped once per clock interrupt: it moves by a whole
-    // interrupt at a time and an ask is far shorter than one. Every ask below is put until the counter moves under
-    // it, and the cap is far past the turns one interrupt takes
+    // interrupt at a time and an ask is far shorter than one. The ADVANCES ask reads until the counter moves, and
+    // every clocked ask below is put until the counter moves under it; each cap is far past the reads one interrupt
+    // takes
     const unsigned int turns = 1u << 30;
-    unsigned int moved = 0u;
-    for (unsigned int turn = 0u; (turn < turns) && (moved == 0u); turn += 1u)
+    counts.turns = turns;
+    check_that(query_ask(&counts) == 1u, "the interrupt time advances under the ADVANCES qualifier, asked once");
+    QueryAsk once = counts;
+    once.turns = 0ull;
+    unsigned int caught = 0u;
+    for (unsigned int turn = 0u; turn < 1000u; turn += 1u)
     {
-        moved = query_ask(&counts);
+        caught += query_ask(&once);
     }
-    check_that(moved == 1u, "the interrupt time advances under the ADVANCES qualifier");
+    check_that(caught < 1000u, "two reads in a row see the counter still more often than not");
 
     // an ask clocked on that counter, put until one ask has a step of the counter inside it
     QueryAsk timed = {0};
