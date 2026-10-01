@@ -30,31 +30,34 @@ import sys
 # these; nothing here draws anything.
 KNOWN = {
     # what is shown
-    "step": {"kind": "int", "fallback": 0, "what": "which step is selected, counting from zero"},
+    "step": {"kind": "int", "low": 0, "fallback": 0, "what": "which step is selected, counting from zero"},
     "shape": {"kind": "str", "fallback": "", "what": "representation key, such as plane, sphere, hilbert, torus"},
     "transform": {"kind": "str", "fallback": "", "what": "transform key, such as none, invert, shadow, wall"},
     "overlay": {"kind": "str", "fallback": "", "what": "step key whose values drive color, or empty for off"},
-    "order": {"kind": "int", "fallback": 0, "what": "sides, petals or winding, 3 to 4096"},
-    "wrap": {"kind": "int", "fallback": 0, "what": "how many times the data is laid around the shape"},
+    "order": {"kind": "int", "low": 3, "high": 4096, "fallback": 6, "what": "sides, petals or winding"},
+    "wrap": {"kind": "int", "low": 1, "high": 32, "fallback": 1, "what": "how many times the data is laid around the shape"},
 
     # how it is drawn
-    "height": {"kind": "int", "fallback": 0, "what": "relief, 1 to 60"},
-    "floor": {"kind": "int", "fallback": 0, "what": "hides cells quieter than this, 0 to 90"},
-    "contrast": {"kind": "float", "fallback": 0.0, "what": "exponent the value is raised to before the ramp"},
-    "theme": {"kind": "str", "fallback": "", "what": "light or dark, or empty to follow the reader's system"},
+    "height": {"kind": "int", "low": 1, "high": 60, "fallback": 22, "what": "relief"},
+    "floor": {"kind": "int", "low": 0, "high": 90, "fallback": 0, "what": "hides cells quieter than this"},
+    "contrast": {"kind": "float", "low": 0.1, "high": 2.0, "fallback": 0.6,
+                 "what": "exponent the value is raised to before the ramp"},
+    "theme": {"kind": "word", "words": ["light", "dark"], "fallback": "",
+              "what": "light or dark, or unset to follow the reader's system"},
     "background": {"kind": "color", "fallback": "#0b0d12", "what": "ground color behind the page"},
-    "low": {"kind": "color", "fallback": "#000000", "what": "ramp color for the low end"},
-    "mid": {"kind": "color", "fallback": "#000000", "what": "ramp color at zero"},
-    "high": {"kind": "color", "fallback": "#000000", "what": "ramp color for the high end"},
+    "low": {"kind": "color", "fallback": "#2f7fb5", "what": "ramp color for the low end"},
+    "mid": {"kind": "color", "fallback": "#0a0d12", "what": "ramp color at zero"},
+    "high": {"kind": "color", "fallback": "#d2552a", "what": "ramp color for the high end"},
     "opacity": {"kind": "int", "low": 15, "high": 100, "fallback": 100,
                 "what": "how present the control boxes are"},
 
     # where the observer is, and whether anything moves
     "yaw": {"kind": "float", "fallback": 0.0, "what": "observer angle around the object, in radians"},
     "pitch": {"kind": "float", "fallback": 0.0, "what": "observer angle above the object, in radians"},
-    "distance": {"kind": "float", "fallback": 0.0, "what": "observer distance, 60 to 1400"},
-    "spin": {"kind": "float", "fallback": 0.0, "what": "turns per minute the object rotates on its own, 0 for still"},
-    "spinaxis": {"kind": "str", "fallback": "", "what": "up or right, the axis the spin turns about"},
+    "distance": {"kind": "float", "low": 60, "high": 1400, "fallback": 600, "what": "observer distance"},
+    "spin": {"kind": "float", "low": 0, "fallback": 0.0,
+             "what": "turns per minute the object rotates on its own, 0 for still"},
+    "spinaxis": {"kind": "word", "words": ["up", "right"], "fallback": "up", "what": "the axis the spin turns about"},
 
     # what is already selected
     "select_from": {"kind": "float", "fallback": 0.0, "what": "low end of a value range selected on opening"},

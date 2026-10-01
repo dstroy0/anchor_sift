@@ -29,6 +29,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 SOURCE = os.path.join(ROOT, "build", "bench", "shadows.csv")
 TEMPLATE = os.path.join(HERE, "voxel_view_template.html")
+BAR_SOURCE = os.path.join(HERE, "control_bar.js")
 TARGET = os.path.join(HERE, "voxel_view.html")
 
 ROUNDS = 64
@@ -98,6 +99,7 @@ def main():
                  "staircase. The ground falls away after round 23, where every instrument in this "
                  "work goes flat and the field becomes white noise at every lag in both axes."),
         "settings": settings.collect(sys.argv[1:]),
+        "schema": settings.schema(sorted(settings.KNOWN)),
         "fields": [
             {"key": "residue", "label": "Residue", "axis": "residue 0-31",
              "rows": trimmed(residue, 2)},
@@ -118,6 +120,14 @@ def main():
         sys.stderr.write("the template has no place to put the data\n")
         return 1
     page = page[:place.start()] + packed + page[place.end():]
+
+    with open(BAR_SOURCE, encoding="utf-8") as handle:
+        bar = handle.read()
+    slot = re.search(r"/\*CONTROL_BAR\*/", page)
+    if slot is None:
+        sys.stderr.write("the template has no place for the control bar\n")
+        return 1
+    page = page[:slot.start()] + bar + page[slot.end():]
 
     with open(TARGET, "w", encoding="utf-8") as handle:
         handle.write(page)

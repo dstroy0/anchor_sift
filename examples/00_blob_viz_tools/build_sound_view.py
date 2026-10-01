@@ -46,6 +46,7 @@ import settings
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "voxel_view_template.html")
+BAR_SOURCE = os.path.join(HERE, "control_bar.js")
 
 
 def main():
@@ -189,6 +190,7 @@ def main():
             "to the window."
         ),
         "settings": settings.collect(sys.argv[1:]),
+        "schema": settings.schema(sorted(settings.KNOWN)),
         "fields": [
             {
                 "key": "level",
@@ -221,6 +223,14 @@ def main():
         sys.stderr.write("the template has no place to put the data\n")
         return 1
     page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
+
+    with io.open(BAR_SOURCE, encoding="utf-8") as handle:
+        bar = handle.read()
+    slot = re.search(r"/\*CONTROL_BAR\*/", page)
+    if slot is None:
+        sys.stderr.write("the template has no place for the control bar\n")
+        return 1
+    page = page[:slot.start()] + bar + page[slot.end():]
 
     target = text("--out") or os.path.join(HERE, "sound_view.html")
     with io.open(target, "w", encoding="utf-8", newline="\n") as handle:
