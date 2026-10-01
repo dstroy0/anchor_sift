@@ -125,7 +125,7 @@ if [ "${TESSERA_DEVICE:-1}" = "1" ]; then
     for name in obsignatio_{hash,seal}; do
         object="$OUT/${name}_tessera.$OBJECT"
         rm -f "$object"
-        build_seal "$OBSIGNATIO/$name.cu" -o "$object"
+        build_seal "$OBSIGNATIO_CU/$name.cu" -o "$object"
         SEAL_OBJECTS+=("$object")
     done
     DAEMON_OBJECTS=()

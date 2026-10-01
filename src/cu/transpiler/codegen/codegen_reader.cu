@@ -2,7 +2,7 @@
 // codegen_reader.cu: a ruleset's .krs file read, and its scratch laid out, on the device, and held to the host's
 #include "codegen_device.h"
 #include "codegen_device_internal.h"
-#include "ruleset_flat.h"
+#include "../../types/file_defs/krs/ruleset_flat.h"
 
 // 1 where two templates are the same: their pieces and slots
 static int ruleset_same_templates(const std::vector<InstrTemplate> &left, const std::vector<InstrTemplate> &right)

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "print_pair.h"
+#include "../../../../engine/nbody/print_pair/print_pair.h"
 
 #include <string.h>
 

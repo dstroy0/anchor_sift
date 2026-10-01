@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "fingerprint.h"
+#include "../../../../engine/nbody/fingerprint/fingerprint.h"
 
 #include <string.h>
 

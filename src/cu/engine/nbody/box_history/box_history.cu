@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "box_history.h"
+#include "../../../../engine/nbody/box_history/box_history.h"
 
 #include <cuda_runtime.h>
 

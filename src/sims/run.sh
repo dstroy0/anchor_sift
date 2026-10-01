@@ -176,7 +176,7 @@ SEAL_OBJECTS=()
 for name in obsignatio_{hash,seal}; do
     object="$OUT/${name}_sim.$EXTENSION"
     rm -f "$object"
-    nvcc "${HOST_FLAGS[@]}" -O2 "${GENCODE[@]}" "${WIDTH[@]}" "${INCLUDES[@]}" -c "$OBSIGNATIO/$name.cu" -o "$object"
+    nvcc "${HOST_FLAGS[@]}" -O2 "${GENCODE[@]}" "${WIDTH[@]}" "${INCLUDES[@]}" -c "$OBSIGNATIO_CU/$name.cu" -o "$object"
     [ -f "$object" ] || { echo "  build failed: $name.cu did not compile"; exit 1; }
     SEAL_OBJECTS+=("$object")
 done

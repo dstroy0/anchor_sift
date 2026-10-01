@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "body_overlap.h"
+#include "../../../../engine/nbody/body_overlap/body_overlap.h"
 #include "radix_keys.h"
 
 #include <cuda_runtime.h>

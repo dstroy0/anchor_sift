@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "keymath.h"
+#include "../../../../engine/compiler/keymath/keymath.h"
 #include "keymath_core.h"
 
 #include <stdlib.h>
