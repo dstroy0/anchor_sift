@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "device_pool.h"
+#include "../../../../engine/runtime/device_pool/device_pool.h"
 
 #include <cuda_runtime.h>
 

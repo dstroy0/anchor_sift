@@ -32,7 +32,7 @@
  *       disagreement and blame the scan for what was an allocation failure.
  */
 
-#include "anchor_sift.h"
+#include "../../../../engine/nbody/anchor_sift/anchor_sift.h"
 
 #include <cuda_runtime.h>
 

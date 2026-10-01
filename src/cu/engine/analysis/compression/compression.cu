@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "compression.h"
+#include "../../../../engine/analysis/compression/compression.h"
 
 #include "device_pool.h"
 

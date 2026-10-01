@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "division.h"
+#include "../../../../engine/nbody/division/division.h"
 
 #include <string.h>
 

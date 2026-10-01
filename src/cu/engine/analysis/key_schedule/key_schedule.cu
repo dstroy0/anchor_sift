@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "key_schedule.h"
+#include "../../../../engine/compiler/key_schedule/key_schedule.h"
 #include "key_schedule_core.h"
 
 #include <stdlib.h>

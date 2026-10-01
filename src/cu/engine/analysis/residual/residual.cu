@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "residual.h"
+#include "../../../../engine/analysis/residual/residual.h"
 
 #include <stdlib.h>
 #include <string.h>

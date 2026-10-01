@@ -23,6 +23,7 @@ $ErrorActionPreference = "Stop"
 $root = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..")).Path
 $src = Join-Path $root "src\engine"
 $render = Join-Path $src "render"
+$render_cu = Join-Path $root "src\cu\engine\render"
 $exact = Join-Path $src "arithmetic\no_rounding"
 $sift = Join-Path $src "nbody\anchor_sift"
 $bench = Join-Path $root "utils\bench"
@@ -119,8 +120,8 @@ try
     }
 
     Write-Host "[*] nvcc -> bench_raster.exe"
-    & nvcc -O3 "-arch=$Arch" -DANCHOR_RASTER_HAVE_CUDA=1 ("-I" + $render) `
-        (Join-Path $render "raster.cu") (Join-Path $render "raster_entry.cu") `
+    & nvcc -O3 "-arch=$Arch" -DANCHOR_RASTER_HAVE_CUDA=1 ("-I" + $render) ("-I" + $render_cu) `
+        (Join-Path $render_cu "raster.cu") (Join-Path $render_cu "raster_entry.cu") `
         $objects -o bench_raster.exe
     if ($LASTEXITCODE -ne 0)
     {

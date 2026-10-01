@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "unit_sweep.h"
+#include "../../../../engine/analysis/unit_sweep/unit_sweep.h"
 
 #include <cuda_runtime.h>
 

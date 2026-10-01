@@ -11,7 +11,7 @@ if [ "$#" -eq 0 ]; then
 fi
 source "$HERE/build.sh"
 qasm_build qasm || exit 1
-qasm_link qasm_bitstring "$QASM/qasm_bitstring.cu" || exit 1
+qasm_link qasm_bitstring "$QASM_CU/qasm_bitstring.cu" || exit 1
 
 "$BINARY" "$@"
 STATUS=$?

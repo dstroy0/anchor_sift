@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "flatten.h"
+#include "../../../../engine/nbody/flatten/flatten.h"
 
 #include "apxrep.h"
 #include "cycle.h"
