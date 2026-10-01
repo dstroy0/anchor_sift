@@ -65,8 +65,8 @@ typedef struct
     char operand[SASS_OPERANDS][SASS_OPERAND_TEXT];
 } SassParts;
 
-// The channels this system answers a question on (the .ksc, Doug 29 Sep: "system classification (language map) ...
-// which return answers, which return nothing and which are illegal on their own"). A probe is not a thing of its
+// The channels this system answers a question on (the .ksc, the system's classification as a language map: which
+// return answers, which return nothing and which are illegal on their own). A probe is not a thing of its
 // own: it is a question put on one of these and the answer read back. Which channels a system has is the system's
 // to declare and is never assumed - a part with no compiler and no disassembler still answers on `run`, with fewer
 // names and more slowly, and everything above is reached the same way through the one channel it does have

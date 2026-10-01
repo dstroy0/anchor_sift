@@ -34,10 +34,10 @@ krs 1
 #    reduction reads what it adds from a register. R238 and R239 hold the launch the lane was called with, which
 #    open_launch puts there. A lane of more than 238 registers, or of more than the three predicates P0 to P2, is past
 #    what this file reserves.
-#  - That every number up to R254 is the lane's rests on one thing the lane's cubin must do, asked of the part 29 Sep
-#    and answered both ways: in a kernel declaring 255 registers, R0 through R254 each held what was written into
-#    them, and R255 read zero whatever was written into it. In a kernel declaring the toolchain's own count, writing
-#    R238 or R254 errored on the device. The part gives a kernel the numbers its ELF asked for and no more, so a lane
+#  - That every number up to R254 is the lane's rests on one thing the lane's cubin must do, asked of the part
+#    and answered both ways: in a kernel declaring 255 registers, R0 through R254 each hold what is written into
+#    them, and R255 reads zero whatever is written into it. In a kernel declaring the toolchain's own count, writing
+#    R238 or R254 errors on the device. The part gives a kernel the numbers its ELF asked for and no more, so a lane
 #    written from this file is a lane whose cubin declares 255. Writing fewer and naming R254 anyway is the one way
 #    this file's register numbering goes wrong quietly.
 #  - An immediate and an offset are written in decimal, as the code generator gives them, where a listing prints hex.
@@ -47,8 +47,8 @@ krs 1
 #
 # What this file writes as a construct, because the part has the operation and no question ever made the compiler
 # write it: predicate_xor and predicate_and. The compiler folded both into the ISETP that set the operand
-# (ISETP.NE.U32.XOR P1, PT, R0, RZ, P0), so neither ever stood alone in a listing. Each is written 29 Sep out of forms
-# the listings did give, which is what a construct is for.
+# (ISETP.NE.U32.XOR P1, PT, R0, RZ, P0), so neither ever stood alone in a listing. Each is written out of forms
+# the listings give, which is what a construct is for.
 #
 # What this file does not write, each form left empty where it stands, with what the probes did see:
 #  - word_divide and wide_divide. The part has no integer divide. For 32 bits the compiler writes a 14-instruction
@@ -126,7 +126,7 @@ nop declare_members count
 # (register_file_holds answers 238), and it is written here by its number as ptx.krs writes %launch by its name
 form open_launch = \tMOV \tR238, R4;\n\tMOV \tR239, R5;\n\tMOV \tR240, R6;\n\tMOV \tR241, R7;\n
 # one 64-bit word of the launch, in one instruction: a ruleset does no arithmetic and cannot write {offset}+4 for the
-# second half, and LDG.E.64.CONSTANT writes the pair (asked of the part 29 Sep, R8 reads 0xb and R9 reads 0x7)
+# second half, and LDG.E.64.CONSTANT writes the pair (asked of the part, R8 reads 0xb and R9 reads 0x7)
 form launch_load to offset = \tLDG.E.64.CONSTANT \t{to}, [R238.64+{offset}];\n
 # an address is global and generic alike here: PTX's cvta.to.global left no instruction in any listing
 nop to_global to
@@ -188,7 +188,7 @@ form word_select to chosen otherwise where = \tMOV \tR254, {chosen};\n\tSEL \t{t
 # keeping its carry in P6, and the high is the product's high word plus that carry. The compiler wrote the pair as
 # one IMAD.WIDE.U32 into an aligned pair (form_13: MOV R7, RZ then IMAD.WIDE.U32 R6, R9, R0, R6), which needs the
 # two destinations to be a pair; the core names them apart, so each is written on its own out of instructions every
-# listing gave. Asked of the part 29 Sep, 0xffffffff squared plus 0xffffffff: the low answers 0 and the high
+# listing gave. Asked of the part, 0xffffffff squared plus 0xffffffff: the low answers 0 and the high
 # 0xffffffff, as the question says
 form product_low to left right added = \tIMAD \t{to}, {left}, {right}, RZ;\n\tIADD3 \t{to}, P6, {to}, {added}, RZ;\n
 form product_high to left right = \tIMAD.HI.U32 \t{to}, {left}, {right}, RZ;\n\tIMAD.X \t{to}, RZ, RZ, {to}, P6;\n
@@ -291,7 +291,7 @@ nop state_loop back where next
 #
 # So a SASS program is built the other way round: the resident's cubin is the pattern, and the lane is written into
 # its cycle_lane in place of the empty one it was compiled with, leaving cycle_program exactly as the part's compiler
-# wrote it. Asked of the part 29 Sep, 247 of the resident's 248 instructions came through a lane being written in,
+# wrote it. Asked of the part, 247 of the resident's 248 instructions come through a lane being written in,
 # the one that did not being the empty lane's own.
 #
 # What the part's compiler emitted is also the floor: a rearrangement of the resident has to beat it in the part's

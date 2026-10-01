@@ -15,7 +15,7 @@
 # item	kind	path	what it does
 relations	engine	src/engine/compiler/bootstrap/ladder.h	The relations known before meeting anything, the anchors that name them, and the cases the ladder climbs by. 1,1 -> 2 and no writing of it.
 relations	engine	src/engine/compiler/codegen/precept_value.h	A tree over the alphabet applied to words, so a tree states what a target must answer.
-relations	entry	test/engine/compiler/bootstrap/chain_check.c	How much of a relation the ladder's own cases decide. 507 arrangements fit them and are not it, 30 Sep.
+relations	entry	test/engine/compiler/bootstrap/chain_check.c	How much of a relation the ladder's own cases decide. 507 arrangements fit them and are not it.
 alphabet	key	src/engine/compiler/codegen/precepts.h	18 precepts and 9 rewrites, typed. What a derived alphabet is checked against.
 word web	key	src/engine/compiler/codegen/word_web.h	12 of the schema's 99 words as trees, typed. What a derived web is checked against.
 word web	engine	src/engine/compiler/codegen/tree_number.h	A tree as one number, so two trees compare without a walk.
@@ -26,7 +26,7 @@ word web	engine	src/engine/compiler/codegen/tree_number.h	A tree as one number, 
 .krs	seed	src/engine/compiler/codegen/rulesets/yosys.krs	gnascor to Yosys. Written by hand. 5 forms.
 .kdm	engine	src/engine/compiler/bootstrap/chain_build.c	Every arrangement of primitives that produces a relation, found by walking them and running each.
 .kdm	engine	src/engine/compiler/bootstrap/chain_build.h	What an arrangement is and what a set of them holds.
-.kdm	entry	maint/engine/kdm_write.c	Writes a part's .kdm from the relations. 3068 chains, no cost, 30 Sep.
+.kdm	entry	maint/engine/kdm_write.c	Writes a part's .kdm from the relations. 3068 chains, no cost.
 .kdm	entry	maint/engine/chain_check.sh	Builds and runs the two things that work off the relations alone.
 .kdm	derived	src/engine/compiler/cubin/machines/sm_86.kdm	3068 arrangements over the 7 anchors. Every cost reads - until the part times one.
 .ksc	derived	src/engine/compiler/cubin/machines/sm_86.ksc	What sm_86 was asked and what came back, by channel and class.
@@ -35,7 +35,7 @@ emitter	engine	src/engine/compiler/emit/container_write.h	What a container is wr
 emitter	engine	src/engine/compiler/emit/container_layout.c	A layout read from its file and looked up by name.
 emitter	engine	src/engine/compiler/emit/container_layout.h	A container's layout as rows.
 emitter	seed	src/engine/compiler/emit/layouts/elf64_nvidia.tsv	Every offset, width, tag and name the NVIDIA container uses. 34 rows, read off containers its toolchain built.
-emitter	entry	test/engine/compiler/emit/container_same.cpp	The file-driven emitter against the compiled-in one. 8232 bytes each, 0 differing, 30 Sep.
+emitter	entry	test/engine/compiler/emit/container_same.cpp	The file-driven emitter against the compiled-in one. 8232 bytes each, 0 differing.
 emitter	scaffold	src/engine/compiler/cubin/cubin_write.c	Writes a container by hand, with the layout compiled in. Replaced by emit/. Callers move as they are worked on.
 emitter	scaffold	src/engine/compiler/cubin/sass_assemble.c	Turns text into encodings against a machine held in memory.
 emitter	scaffold	src/engine/compiler/cubin/sass_machine.c	Holds forms read from a machine file, and reads and writes that file.
@@ -46,8 +46,8 @@ target	engine	src/engine/compiler/codegen/sass_target.cu	sm_86 as a language: it
 target	engine	src/engine/compiler/codegen/ptx_target.h	PTX as a language.
 target	engine	src/engine/compiler/codegen/c_target.h	C as a language.
 target	engine	src/engine/compiler/codegen/vhdl_target.h	VHDL as a language.
-lane needs	entry	maint/engine/sass_lane_needs.cpp	Every form a real program asks of a ruleset, and every line of it the assembler refuses. 0 refused, 30 Sep.
-krs check	entry	maint/engine/sass_krs_check.sh	Every form a ruleset writes, assembled. 63 forms, 0 refused, 30 Sep.
+lane needs	entry	maint/engine/sass_lane_needs.cpp	Every form a real program asks of a ruleset, and every line of it the assembler refuses. 0 refused.
+krs check	entry	maint/engine/sass_krs_check.sh	Every form a ruleset writes, assembled. 63 forms, 0 refused.
 probe	scaffold	test/engine/compiler/cell/cell_sass_probe_machine.c	Builds a machine by widening and sweeping, asking a disassembler for names.
 probe	scaffold	test/engine/compiler/cell/cell_sass_probe_ask.c	36 questions put in the part's own code, each with the answer a person worked out.
 probe	scaffold	test/engine/compiler/cell/cell_sass_probe_cubin.c	A cubin written from text, with one the toolchain built standing as the pattern.

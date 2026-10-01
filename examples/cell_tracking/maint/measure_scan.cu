@@ -151,7 +151,7 @@ int main(int argc, char **argv)
     }
     rectangles.push_back({0ull, box[floors][2], 0ull, box[floors][3]});
 
-    const char *const names[3] = {"each floor's rectangles row by row", "shells, each swept by angle (21 September)",
+    const char *const names[3] = {"each floor's rectangles row by row", "shells, each swept by angle",
                                   "shells, each in the golden order"};
     for (int order = 0; order < 3; order += 1)
     {

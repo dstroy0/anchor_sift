@@ -31,7 +31,7 @@
 //
 // Widening repeats over what it finds for a bounded number of rounds. The count then follows how many operations
 // and operand kinds lie that far from what a compiler wrote, and not how many the compiler wrote. Run to its own end
-// instead it does not close: 3128 forms from 118 in 19 minutes and still climbing, measured 29 Sep. A form is 736
+// instead it does not close: the count climbs past what a machine holds. A form is 736
 // bytes, which puts this ceiling at 12 MB of a machine, and a run that reaches it says so in `refused` in place of
 // dropping forms quietly
 #define SASS_MACHINE_RUNS 32u

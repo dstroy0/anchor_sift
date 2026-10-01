@@ -21,8 +21,8 @@ edit() {
 }
 
 edit "ends on it: that is what kept 22 holes" "ends on it, and that kept 22 holes"
-edit "bit-slices, not arithmetic (Doug, 29 Sep: \"bitwise operators are not arithmetic\")," \
-    "bit-slices and not arithmetic (Doug, 29 Sep: \"bitwise operators are not arithmetic\"),"
+edit "bit-slices, not arithmetic," \
+    "bit-slices and not arithmetic,"
 edit "which is why a ruleset can write them at all." "and a ruleset can write them for that reason."
 edit "target sitting in C++ rather than in the .krs" "target sitting in C++ and not in the .krs"
 edit "The part answers right every time,
