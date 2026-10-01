@@ -1,0 +1,823 @@
+where	who	kind	form	gloss
+front	Daniel J. Frim	title	A morphemically glossed Kwak’wala text from the Boas-Hunt corpus	page 1, carries footnote *
+front	Daniel J. Frim	name	Daniel J. Frim	author
+front	Daniel J. Frim	note	University of British Columbia	page 1, under Daniel J. Frim
+front	Daniel J. Frim	note	Abstract: This paper provides a morphemically glossed excerpt from a Kwak’wala text. It is intended as an instructional tool for linguists and others who are interested in accessing and analyzing the narratives in the Boas- Hunt corpus.	page 1, the abstract
+front	Daniel J. Frim	note	Keywords: Kwak’wala, George Hunt, Franz Boas	page 1, the keywords
+front	Daniel J. Frim	note	In Papers for the International Conference on Salish and Neighbouring Languages 50, University of British Columbia Working Papers in Linguistics 40, Natalie Weber, Erin Guntly, Zoe Lam, and Sihwei Chen (eds.), 2015.	page 1, the volume's header
+front	Daniel J. Frim	language	Kwak’wala	Wakashan, North Wakashan branch
+footnote *	Daniel J. Frim	note	An earlier version of this paper was prepared in conjunction with First Nation Languages 448W: Word Structures in Endangered Languages: Conservation and Revitalization, a course taught by Professor Daisy Rosenblum at the University of British Columbia in 2015. I would like to thank Professor Judith Berman, Mr. Patrick Littell, Professor Daisy Rosenblum, and Professor Patricia Shaw for generously assisting me in the process of familiarizing myself with Kwak’wala grammar and with the Boas-Hunt corpus.	page 1, footnote *, on the title
+footnote *	Daniel J. Frim	name	Daisy Rosenblum	taught the course the paper was prepared in; thanked; Rosenblum (2013, 2014)
+footnote *	Daniel J. Frim	name	Judith Berman	thanked; Berman (1983 to 1994)
+footnote *	Daniel J. Frim	name	Patrick Littell	thanked; Littell (2012)
+footnote *	Daniel J. Frim	name	Patricia Shaw	thanked
+§1	Daniel J. Frim	heading	1 Introduction	page 1
+§1	Daniel J. Frim	note	This publication reproduces a portion of a narrative from the Kwak’wala textual corpus assembled by Franz Boas and George Hunt,1 along with a transcription into the orthography of the North American Phonetic Association, morphemic glosses, and an interlinear translation. It is meant to assist linguists and students of oral literature who are interested in accessing narratives from the Boas-Hunt corpus in their original language, but who may have difficulty interpreting the texts’ morphological features or deciphering Boas’s Kwak’wala orthography. The excerpt that I reproduce is the second half of a narrative that Boas titled “Star Story” (Boas 1935a:92–94, 1943:92–94), in which a sea otter drags several human hunters into the sky, where they are transformed into the Pleiades and the constellation Orion.	page 1
+footnote 1	Daniel J. Frim	note	For an introduction to the corpus and its history, consult Berman (1991:13–57 and 1992).	page 1, footnote 1
+§1	Daniel J. Frim	name	Franz Boas	Franz Boas, who published the text (1943) and its translation (1935a)
+§1	Daniel J. Frim	name	George Hunt	recorded the narrative; Boas and Hunt (1905, 1906)
+§1	Daniel J. Frim	note	The provenance of “Star Story” is unclear. The tale focuses on a Gusgiməxʷ (Koskimo) hunting party and mentions two Gusgiməxʷ and Gop̓inuχʷ hunters by name.2 This likely suggests that the story originated in the Quatsino Sound region of northwestern Vancouver Island, where the Gusgiməxʷ and Gop̓inuχʷ tribes had their territories (Galois 1994:347–349). However, whereas most of the narratives published alongside “Star Story” are prefaced with introductory labels identifying the tribe to which each tale belongs, Boas does not provide this information for “Star Story.” He simply labels it as having been “Recorded by George Hunt.” The text also lacks the dialect-specific features (such as frequent use of the suffix -kas, special vocabulary, and certain phonological tendencies3) that appear in some of the narratives Hunt documented4 among the tribes of northwestern Vancouver Island.5 Hunt may have drawn “Star Story” from his own narrative repertoire without consulting a Gusgiməxʷ or Gop̓inuχʷ narrator. 6 I cannot determine how Hunt first became familiar with the tale or whether it originated in the Quatsino Sound region.	page 1
+footnote 2	Daniel J. Frim	note	Here, I have followed Boas’s (1966:48) transcription (G.ósg·imEx̣ᵘ) and analysis of this tribal name. However, in my morphemic analysis of “Star Story,” I transcribe the name as Gusgimuxʷ, in accordance with how Boas transcribes it (g.ṓsg·imux̣w-) in his edition of the text. The initial consonant in Gusgiməxʷ is uvular. The initial consonant in Gop̓inuχʷ is velar, but I capitalize the G at the beginning of this proper noun.	page 1, footnote 2
+footnote 2	Kwak’wala	cited form	Gusgimuxʷ	page 1, in italics
+footnote 3	Daniel J. Frim	note	E.g. spirantization of velar and uvular stops in word-final position (Boas 1947:295).	page 2, footnote 3
+footnote 4	Daniel J. Frim	note	While a small fraction of the texts in the Boas/Hunt corpus were dictated directly to Boas by Kwak’wala speakers, Hunt documented most of the narratives, and he typically recomposed them in writing after they were told to him (Berman 1991:34, 1994:491). As Berman notes, “The narratives we have are Hunt’s tellings of the story, not the words of the Indian who told the story to Hunt and whose name Boas often appended to the text in the published version” (Berman 1991:34). Furthermore, Berman has adduced strong evidence to the effect that “Hunt altered the material…to conform to his own narrative style” (Berman 1983:21). Therefore, the dialect-specific features to which I refer reflect Hunt’s efforts to imitate the dialects of northwestern Vancouver Island. Boas made the following statement regarding a narrative cycle that exhibits these linguistic features: “Mr. Hunt has tried to record the following traditions in the LáLasiqwala dialect. The language is, however, not quite consistent” (Boas and Hunt 1906:185).	page 2, footnote 4
+footnote 5	Daniel J. Frim	note	Hunt did not always imitate regional dialects when recomposing narratives that originated among groups from northwestern Vancouver Island. Therefore, the fact that “Star Story” does not exhibit special dialectal features should not be taken as evidence against a northwestern provenance. However, the absence of these distinctive features leaves us without a firm basis on which to establish the geographic origins of the narrative, given that Boas did not supply an introductory label identifying the tribe to which the story belongs. For examples of texts that Hunt wrote in northwestern dialects, see Boas and Hunt (1905:393–397, 1906:185–224) and Boas (1910a:244–285, 296–352).	page 2, footnote 5
+footnote 6	Daniel J. Frim	note	Professor Daisy Rosenblum made me aware of the fact that some of the narratives in the Boas-Hunt corpus originated this way. It should be noted that in the anthology containing Boas’s translation of “Star Story” (Boas 1935a), Boas frequently labels texts as having been “Recorded by George Hunt.” Normally, he does not italicize the name, “George Hunt.” However, when Boas identifies the narrators who told the stories in the anthology, he italicizes their Kwak’wala names. Interestingly, above his translation of “Star Story,” Boas prints the label, “Recorded by George Hunt,” with “George Hunt” in italics. This may indicate that Hunt was not only the documenter, but also the source, of “Star Story.”	page 2, footnote 6
+§1	Kwak’wala	cited form	Gusgiməxʷ	page 1, in italics
+§1	Kwak’wala	cited form	-kas	page 2, in italics
+§1	Daniel J. Frim	name	Galois	Robert Galois, Kwakwaka’wakw settlements (1994)
+§1	Daniel J. Frim	note	The etiological content of “Star Story” differs from depictions of the constellation Orion in other Kwak’wala texts (see Boas 1935b:126). Two other narratives (Boas and Hunt 1905:383–387, 127–128) associate Orion with a heavenly canoe bearing either nine or fourteen crewmen and a skipper. One of the skipper’s names, “Harpooneer-of-Heaven” (translation from Boas and Hunt 1905:383), is nearly identical to the name for Orion’s Belt that appears in “Star Story.” The skipper of the canoe gives supernatural gifts to the tales’ protagonists. In one of the narratives, the protagonist is a celestial ancestor figure who travels across the sky-world before descending to the earth and becoming the progenitor of a Gusgiməxʷ n̓əm̓ima.7 His encounter with “Harpooner-of-Heaven” occurs while he is still in the sky. In another narrative, the personified constellation Orion is depicted as the owner of a “fog-box” (translation from Boas 1910a:165), which causes foggy weather when it is opened. 8 None of these narratives gives the impression that the constellation Orion was once a human being or a group of human beings who lived on earth before being pulled into the sky and transformed into stars. Nevertheless, like “Star Story,” two of the other tales I have cited (Boas and Hunt 1905:383–387, 127–128) associate Orion with sea-mammal hunting.9	page 2
+footnote 7	Daniel J. Frim	note	For a definition and brief discussion of this type of social division, see Codere (1990:366–368).	page 2, footnote 7
+footnote 7	Daniel J. Frim	name	Codere	Helen Codere, Kwakiutl traditional culture (1990); editor of Boas (1966)
+footnote 8	Daniel J. Frim	note	In his discussion focusing on depictions of the sky-world in Kwak’wala oral literature, Boas (1935b:126) has already assembled and compared each of the narratives I have reviewed, implicitly calling attention to the differences between how the constellation Orion is portrayed in “Star Story” and how it is depicted in the other tales. I rely on Boas’s identification of the figures depicted in these narratives as personifications of the constellation Orion (ibid.). Presumably, Boas relied, in turn, on information supplied by Hunt. Berman (1991:599) states this identification in more tentative terms, suggesting that the canoe and its crewmen “seem to represent the constellation Orion” (Berman 1991:599, emphasis added).	page 3, footnote 8
+footnote 9	Daniel J. Frim	note	Incidentally, narratives paralleling “Star Story” have been documented among Inuit groups. In a discussion focusing on genres of Inuit oral literature, Boas (1904:4) summarizes one narrative as follows: “A number of bear-hunters, their sledge, and the bear which they were pursuing, rose to the sky and became the constellation Orion.” A fuller form of this narrative can be found in Boas (1901:174), “The Hunters transformed into a Constellation.” See, also, the examples cited in Boas (1901:360).	page 3, footnote 9
+§1	Daniel J. Frim	note	In the morphemic analysis that follows, seven separate tiers are used to represent each segment of the text. In the first tier, I reproduce the originally published text of “Star Story” in Boas’s orthography. The second tier contains a transcription of the text into the NAPA orthography. 10 My transcriptions of vowels, particularly Boas’s ē and e, are extremely tentative. The next three tiers contain segmented morphemes, morphemic glosses, and a word-level translation. Then, I reproduce Boas’s sentence-level translation, followed by a modified version of his translation that more closely matches my morphemic analysis of the text.	page 3
+footnote 10	Daniel J. Frim	note	My transcription is guided by the table of Kwak’wala orthographies that has been produced by the School District 85 First Nations Education Council (2010:6).	page 3, footnote 10
+§1	Kwak’wala	cited form	ē	page 3, in italics
+§1	Daniel J. Frim	note	An explanatory list of abbreviated morphemic glosses appears at the end of this paper. However, it is helpful to introduce in advance a particularly complex set of suffixes and the glosses I use to represent them.11 Boas (1947:271–272, 284–285) analyzes a morphological pattern involving words that express spatial relationships and that are formed from the following three items, in order: (1) a postural or other root; (2) a locative suffix; and (3) either the suffix -eʔ, -ala, or -d.12 The first of these three components (a postural or other root) denotes the figure in the spatial relationship that the word expresses, while the second of these three components (a locative suffix) denotes the ground. The third component (-eʔ, -ala, or -d) indicates whether the subject of the verb is the figure, the ground, or a separate entity. If -eʔ (which I gloss as LOC1) is used, then the root denotes the subject, and the locative suffix denotes where the subject is. The resulting word means, roughly, “the [root] is at the [locative suffix].” If -ala (which I gloss as LOC2) is used, then the locative suffix denotes the subject or a spatially circumscribed part of the subject (such as a body-part, if the subject is animate), and the root denotes a primary object that the subject possesses at the location denoted by the locative suffix. The resulting word means something along the lines of, “the [subject] has the [root] at the [locative suffix].” Finally, if the suffix -d (which I gloss as LOC3) is used, then the verb describes the act of placing the item or entity denoted by the root at the location denoted by the locative suffix.13 The resulting word means, roughly, “to place the [root] at the [locative suffix].” For purposes of illustration, I now reproduce a set of examples cited by Boas (1947:272) in his discussion of this morphological paradigm. The words exhibiting the phenomenon and the segmented suffixes -eʔ, -ala, and -d are printed in bold:	page 3
+footnote 11	Daniel J. Frim	note	Throughout the discussion that follows, I merely reiterate Boas’s analysis of the paradigm in question (1947:271–272, 284–285).	page 3, footnote 11
+footnote 12	Daniel J. Frim	note	The form of the third suffix varies considerably depending on its phonetic environment (see Boas 1947:273, 365).	page 3, footnote 12
+footnote 13	Daniel J. Frim	note	The suffix I gloss as ‘LOC3’ is homophonous with a more general transitivizing suffix (Boas 1947:273, 365) that I label ‘TRANS’. I believe LOC3 and TRANS are, in fact, the same morpheme. Boas (1947:273) has already implied that this is the case: in his discussion of the suffix I label ‘TRANS’, Boas provides several examples of words in which this suffix functions in the same manner as the suffix that I label ‘LOC3’. Nevertheless, I use the gloss ‘LOC3’ when the morpheme in question occurs in complementary distribution with LOC1 and LOC2.	page 4, footnote 13
+§1	Kwak’wala	cited form	-eʔ	page 3, in italics
+§1	Kwak’wala	cited form	-ala	page 4, in italics
+(1) line 1	Kwak’wala	transcription	wɛ lal̓aʔi q̓umxq̓umgil̓a	page 4
+(1) line 2	Daniel J. Frim	segmentation	wɛ la-l̓a=i q̓umx-q̓um-gil̓a	page 4
+(1) line 3	Daniel J. Frim	gloss	well AUX-QUOT=SBJ RED-wealth-MAKE (PN)	page 4
+(1) line 4	Kwak’wala	transcription	n̓əxw̓ənalaχida	page 4
+(1) line 5	Daniel J. Frim	segmentation	n̓əxʷ-k̓ən-ala=χida	page 4
+(1) line 6	Daniel J. Frim	gloss	be.close-SURFACE.OF.LONG.BODY14-LOC2=OBJ1	page 4
+footnote 14	Daniel J. Frim	note	Boas (1947:357).	page 4, footnote 14
+(1) line 7	Kwak’wala	transcription	q̓iq̓asasGəmi	page 4
+(1) line 8	Daniel J. Frim	segmentation	q̓i-q̓asa-sGəm=i	page 4
+(1) line 9	Daniel J. Frim	gloss	RED-sea.otter-ROUND=DEM	page 4
+(1) line 10	Daniel J. Frim	note	“to have blanket on body”	page 4, Boas's gloss of the word group in bold
+(1) line 11	Daniel J. Frim	citation	(Boas 1947:272)	page 4, at the right of the gloss
+(1) line 12	Kwak’wala	transcription	n̓əxw̓ənay̓a.	page 4
+(1) line 13	Daniel J. Frim	segmentation	n̓əxʷ-k̓ən-eʔ=a	page 4
+(1) line 14	Daniel J. Frim	gloss	be.close-SURFACE.OF.LONG.BODY-LOC1=DEM	page 4
+(1) line 15	Daniel J. Frim	note	“blanket”	page 4, Boas's gloss of the word group in bold
+(1) line 16	Daniel J. Frim	citation	(Boas 1947:272)	page 4, at the right of the gloss
+(1) line 17	Daniel J. Frim	note	(i.e. nominalised form of ‘being close to surface of body’)	page 4, at the right of the gloss
+(1) line 18	Daniel J. Frim	translation	“Wealthy [PN] wore a marten blanket”	page 4
+(1) line 19	Daniel J. Frim	citation	(Boas and Hunt 1905:74).	page 4, at the right of the translation
+(2) line 1	Kwak’wala	transcription	wɛ lal̓aʔi Gʷała laʔi	page 4
+(2) line 2	Daniel J. Frim	segmentation	wɛ la-l̓=i Gʷał-a la=i	page 4
+(2) line 3	Daniel J. Frim	gloss	well AUX-QUOT=SBJ finish-? AUX=SBJ	page 4
+(2) line 4	Kwak’wala	transcription	n̓əxw̓ənda	page 5
+(2) line 5	Daniel J. Frim	segmentation	n̓əxʷ-k̓ən-d-a	page 5
+(2) line 6	Daniel J. Frim	gloss	be.close-SURFACE.OF.LONG.BODY-LOC3-?	page 5
+(2) line 7	Kwak’wala	transcription	yəsis	page 5
+(2) line 8	Daniel J. Frim	segmentation	yə=s=is	page 5
+(2) line 9	Daniel J. Frim	gloss	PRONOMINAL=OBJ2=3.POSS	page 5
+(2) line 10	Daniel J. Frim	note	“to put blanket on body”	page 5, Boas's gloss of the word group in bold
+(2) line 11	Daniel J. Frim	citation	(Boas 1947:272)	page 5, at the right of the gloss
+(2) line 12	Kwak’wala	transcription	n̓əxw̓ənaʔi	page 5
+(2) line 13	Daniel J. Frim	segmentation	n̓əxʷ-k̓ən-eʔ=i	page 5
+(2) line 14	Daniel J. Frim	gloss	be.close-SURFACE.OF.LONG.BODY-LOC1=DEM	page 5
+(2) line 15	Daniel J. Frim	note	“blanket”	page 5, Boas's gloss of the word group in bold
+(2) line 16	Daniel J. Frim	citation	(Boas 1947:272)	page 5, at the right of the gloss
+(2) line 17	Daniel J. Frim	note	(i.e. nominalised form of ‘being close to surface of body’)	page 5, at the right of the gloss
+(2) line 18	Daniel J. Frim	translation	“Then he finished, and put on his blanket”	page 5
+(2) line 19	Daniel J. Frim	citation	(Boas and Hunt 1905:65).	page 5, at the right of the translation
+§1	Daniel J. Frim	note	In sentence (1), we find a word that denotes being a blanket on the surface of a body (n̓əxw̓əneʔ, formed with -e ʔ, ‘LOC1’) alongside of a word that denotes having a blanket on the surface of one’s own body (n̓əxw̓ənala, formed with -ala ‘LOC2’). In sentence (2), we find a word that denotes putting a blanket onto the surface of a body (n̓əxw̓ənd, formed with -d ‘LOC3’).	page 5
+§1	Kwak’wala	cited form	-d	page 5, in italics, ‘LOC3’
+§2	Daniel J. Frim	heading	2 Morphemic analysis of “Star Story”	page 5
+§2	Daniel J. Frim	note	Key	page 5, heading the key to the tiers
+§2	Daniel J. Frim	note	a. Kwak’wala text as it was first published (Boas 1943:93–94) in Boas’s orthography.	page 5, a tier of the key
+§2	Daniel J. Frim	note	b. Kwak’wala text transcribed into the orthography of the North American Phonetic Association.	page 5, a tier of the key
+§2	Daniel J. Frim	note	c. Morphemic segmentation.	page 5, a tier of the key
+§2	Daniel J. Frim	note	d. Morphemic glossing.	page 5, a tier of the key
+§2	Daniel J. Frim	note	e. Word-level translation.	page 5, a tier of the key
+§2	Daniel J. Frim	note	f. Boas’s (1935a:93–94) sentence-level translation.	page 5, a tier of the key
+§2	Daniel J. Frim	note	g. Modified version of Boas’s sentence-level translation.	page 5, a tier of the key
+2 1	Kwak’wala	transcription	wä láᵋlăe lÉnts!es lā́xa	page 6, Boas's orthography
+2 1	Kwak’wala	transcription	wɛ lal̓əʔi lənc̓is laχa	page 6, NAPA
+2 1	Daniel J. Frim	segmentation	wɛ la-l̓a=i la-ənc̓is la=χa	page 6
+2 1	Daniel J. Frim	gloss	well15 SEQ-QUOT=SBJ go-DOWN.TO.BEACH16 PREP=OBJ1	page 6
+footnote 15	Daniel J. Frim	note	I follow Berman (1983:1; 1991:288–321) in glossing and translating wɛ as “well.”	page 6, footnote 15
+footnote 15	Kwak’wala	cited form	wɛ	page 6, in italics
+footnote 16	Daniel J. Frim	note	Boas (1947:304). I have drawn extensively on lexicographic sources throughout. I generally provide citations to specific sources when I borrow unusual or multi-word glosses from them, especially (but not exclusively) when I reproduce these multi-word glosses verbatim.	page 6, footnote 16
+2 1	Daniel J. Frim	gloss	Well, then, it is said17 they went down-beach to the	page 6, word by word
+footnote 17	Daniel J. Frim	note	I follow Boas (1947:245) in translating the suffix -l̓a as “it is said.”	page 6, footnote 17
+2 1	Franz Boas	translation	Then q18 they went down the	page 6, Boas (1935a)
+footnote 18	Daniel J. Frim	note	The letter q, short for “quotative,” is Boas’s representation of the suffix -l̓a (see Berman 1991:357).	page 6, footnote 18
+2 1	Daniel J. Frim	translation	Well, then, it is said that they went down to the19	page 6, modified
+footnote 19	Daniel J. Frim	note	The first half of the text, which I have not reproduced, describes the hunters’ preparations for the expedition that follows.	page 6, footnote 19
+2 2	Kwak’wala	transcription	L! Emáise lax	page 6, Boas's orthography
+2 2	Kwak’wala	transcription	ƛ̓əmaʔisi laχ	page 6, NAPA
+2 2	Daniel J. Frim	segmentation	ƛ̓əma-is=i la=χ	page 6
+2 2	Daniel J. Frim	gloss	beach-ON.BEACH=DEM PREP=OBJ1	page 6
+2 2	Daniel J. Frim	gloss	beach to	page 6, word by word
+2 2	Franz Boas	translation	beach to	page 6, Boas (1935a)
+2 2	Daniel J. Frim	translation	beach to	page 6, modified
+2 3	Kwak’wala	transcription	hăᵋnḗdzasases	page 6, Boas's orthography
+2 3	Kwak’wala	transcription	hən̓izasasis	page 6, NAPA
+2 3	Daniel J. Frim	segmentation	hən-is-as=as=is	page 6
+2 3	Daniel J. Frim	gloss	hollow.object.is.located20-ON.BEACH-PLACE=GEN=3.POSS	page 6
+footnote 20	Daniel J. Frim	note	Cf. Boas (1948:90) and Lincoln and Rath (1981:383).	page 6, footnote 20
+footnote 20	Daniel J. Frim	name	Lincoln	Neville Lincoln, the North Wakashan comparative root list with Rath (1981)
+footnote 20	Daniel J. Frim	name	Rath	John Rath, the North Wakashan comparative root list with Lincoln (1981)
+2 3	Daniel J. Frim	gloss	location on the beach of their	page 6, word by word
+2 3	Franz Boas	translation	where	page 6, Boas (1935a)
+2 3	Daniel J. Frim	translation	where their	page 6, modified
+2 4	Kwak’wala	transcription	ălḗwats!e x̣wā́x̣wagwEma.	page 7, Boas's orthography
+2 4	Kwak’wala	transcription	ʔəliwac̓i xʷaxʷagwəma.	page 7, NAPA
+2 4	Daniel J. Frim	segmentation	ʔəlixʷ-ac̓i xʷa-xʷakʷ-əm=a	page 7
+2 4	Daniel J. Frim	gloss	sea.mammal.hunting21-HOLLOW.CONTAINER22 RED-canoe-DIM=DEM	page 7
+footnote 21	Daniel J. Frim	note	Cf. Boas (1948:12) and Lincoln and Rath (1981:400).	page 7, footnote 21
+footnote 22	Daniel J. Frim	note	Cf. Berman (1990:13).	page 7, footnote 22
+2 4	Daniel J. Frim	gloss	container used for hunting sea mammals little canoe.	page 7, word by word
+2 4	Franz Boas	translation	the small hunting canoe was,	page 7, Boas (1935a)
+2 4	Daniel J. Frim	translation	little sea-mammal-hunting canoe was.	page 7, modified
+2 5	Kwak’wala	transcription	wä, ấᵋEmᵋláwise háyaxstálisEleda	page 7, Boas's orthography
+2 5	Kwak’wala	transcription	wɛ ʔoʔəml̓awisi hayaχstalisəlida	page 7, NAPA
+2 5	Daniel J. Frim	segmentation	wɛ ʔo-m̓-l̓a-wis=i hi-əχsta-lis-əla=ida	page 7
+2 5	Daniel J. Frim	gloss	well just-OI-QUOT-CONN=SBJ go.straight-OPENING-BEACH-CONT=SBJ	page 7
+2 5	Daniel J. Frim	gloss	Well and so, it is said, they just went straight to the shore23 the	page 7, word by word
+footnote 23	Daniel J. Frim	note	A more literal translation would be, “went straight to the mouth of the beach.” I follow Boas (1935a:93), who gives the translation, “went straight down to the shore.”	page 7, footnote 23
+2 5	Franz Boas	translation	(See below)24	page 7, Boas (1935a)
+footnote 24	Daniel J. Frim	note	Owing to the differences between Kwak’wala and English syntax, it often makes sense to delay sentence-level English translations until after both the verb and the subject have appeared in the original Kwak’wala sentence.	page 7, footnote 24
+footnote 24	Daniel J. Frim	language	English	the translations
+2 5	Daniel J. Frim	translation	(See below)	page 7, modified
+2 6	Kwak’wala	transcription	ăléᵋwinoxwe qaᵋs	page 7, Boas's orthography
+2 6	Kwak’wala	transcription	ʔəliw̓inuχʷi qaʔs	page 7, NAPA
+2 6	Daniel J. Frim	segmentation	ʔəlixʷ-inuχʷ=i qaʔ=s	page 7
+2 6	Daniel J. Frim	gloss	sea.mammal.hunting-PROF=DEM PURP=3.POSS	page 7
+2 6	Daniel J. Frim	gloss	sea-mammal hunters in order to	page 7, word by word
+2 6	Franz Boas	translation	and so q, the sea hunters went straight down to the shore and	page 7, Boas (1935a)
+2 6	Daniel J. Frim	translation	Well, and so, it is said, the sea-mammal hunters just went straight to the shore and	page 7, modified
+2 7	Kwak’wala	transcription	ɛmṓgwaᵋleᵋsexes dăákwe lā́xa	page 8, Boas's orthography
+2 7	Kwak’wala	transcription	m̓ugwal̓iʔsixis dəʔakʷi laχa	page 8, NAPA
+2 7	Daniel J. Frim	segmentation	m̓u25-gaʔł-iʔ=s=x=is da-kʷ=i la=χa	page 8
+footnote 25	Daniel J. Frim	note	Boas (1948:148) glosses m̓awa as “to move away, move a pile of things, to move with goods.” Lincoln and Rath (1981:88) gloss m̓w- as “to pile, load, transport.”	page 8, footnote 25
+2 7	Daniel J. Frim	gloss	load-ONTO26-NMLZ=3.POSS=OBJ1=3.POSS CARRY-PASS=DEM PREP=OBJ1	page 8
+footnote 26	Daniel J. Frim	note	See Boas (1947:246).	page 8, footnote 26
+2 7	Daniel J. Frim	gloss	load their things that were carried onto the	page 8, word by word
+2 7	Franz Boas	translation	put down what they carried at the	page 8, Boas (1935a)
+2 7	Daniel J. Frim	translation	loaded what they were carrying at the	page 8, modified
+2 8	Kwak’wala	transcription	mā́g·Exstaᵋlisasa dÉmsx·e. wä,	page 8, Boas's orthography
+2 8	Kwak’wala	transcription	magəχstal̓isasa dəmsxi. wɛ	page 8, NAPA
+2 8	Daniel J. Frim	segmentation	mak-əχsta-l̓is27=asa dəm-sxi wɛ	page 8
+footnote 27	Daniel J. Frim	note	See Boas (1947:239) and Rosenblum (2014) regarding the status of the l̓at the beginning of this suffix. (Cf. also Boas [1900:718] for an early interpretation of this phenomenon).	page 8, footnote 27
+2 8	Daniel J. Frim	gloss	next.to28-OPENING-BEACH=GEN salt29-?30 well	page 8
+footnote 28	Daniel J. Frim	note	Boas (1948:139).	page 8, footnote 28
+footnote 29	Daniel J. Frim	note	Lincoln and Rath (1981:91).	page 8, footnote 29
+footnote 30	Daniel J. Frim	note	I use question marks in the fourth tier to indicate that I am unable to determine the meaning of a morpheme.	page 8, footnote 30
+2 8	Daniel J. Frim	gloss	shore of the sea. Well,	page 8, word by word
+2 8	Franz Boas	translation	edge of the sea.	page 8, Boas (1935a)
+2 8	Daniel J. Frim	translation	shore of the sea. Well,	page 8, modified
+2 9	Kwak’wala	transcription	g·ā́xᵋlăe x̣wḗlaxᵋwEsdes lā́xa	page 8, Boas's orthography
+2 9	Kwak’wala	transcription	gaχl̓əʔi xʷilaχw̓əsdis laχa	page 8, NAPA
+2 9	Daniel J. Frim	segmentation	gaχ-l̓a=i xʷił-aqa-w̓əsdis la=χa	page 8
+2 9	Daniel J. Frim	gloss	AUX-QUOT=SBJ go.back-PAST-UP.FROM.BEACH31 PREP=OBJ1	page 8
+footnote 31	Daniel J. Frim	note	Boas (1947:213).	page 8, footnote 31
+2 9	Daniel J. Frim	gloss	then, it is said go back up-beach from the	page 8, word by word
+2 9	Franz Boas	translation	Then q they came up again on the	page 8, Boas (1935a)
+2 9	Daniel J. Frim	translation	then, it is said that they went back up from the	page 8, modified
+2 10	Kwak’wala	transcription	L! Emā́ise qaᵋs läᵋ	page 9, Boas's orthography
+2 10	Kwak’wala	transcription	ƛ̓əmaʔisi qaʔs lɛʔ	page 9, NAPA
+2 10	Daniel J. Frim	segmentation	ƛ̓əma-is=i qaʔ=s la=iʔ	page 9
+2 10	Daniel J. Frim	gloss	beach-BEACH=DEM PURP=3.POSS go=NMLZ	page 9
+2 10	Daniel J. Frim	gloss	beach in order to go	page 9, word by word
+2 10	Franz Boas	translation	beach and	page 9, Boas (1935a)
+2 10	Daniel J. Frim	translation	beach, and	page 9, modified
+2 11	Kwak’wala	transcription	LÉlLElbEndxa x̣wā́x̣wagwEme	page 9, Boas's orthography
+2 11	Kwak’wala	transcription	ƛəlƛəlbəndχa xʷaxʷagʷəmi	page 9, NAPA
+2 11	Daniel J. Frim	segmentation	ƛəl-ƛəl-ba-nd=χa xʷa-xʷakʷ-əm=i	page 9
+2 11	Daniel J. Frim	gloss	RED-carry.canoe32-HORIZ.END-TRANS=OBJ1 RED-canoe-DIM=DEM	page 9
+footnote 32	Daniel J. Frim	note	Boas (1948:429).	page 9, footnote 32
+2 11	Daniel J. Frim	gloss	carry the canoe by its ends the little canoe	page 9, word by word
+2 11	Franz Boas	translation	carried at each end the small canoe,	page 9, Boas (1935a)
+2 11	Daniel J. Frim	translation	they carried by its ends the little canoe,	page 9, modified
+2 12	Kwak’wala	transcription	ḶEɛwís k!waxḶáᵋye bEgwanEm	page 9, Boas's orthography
+2 12	Kwak’wala	transcription	λəw̓is k̓ʷaχλay̓i bəgʷanəm	page 9, NAPA
+2 12	Daniel J. Frim	segmentation	λuʔ=is k̓ʷa-χλa-eʔ=i bəkʷ-anəm	page 9
+2 12	Daniel J. Frim	gloss	with=3.POSS sit-STERN-LOC1=DEM human-ANIMATE33	page 9
+footnote 33	Daniel J. Frim	note	Boas (1910b:511).	page 9, footnote 33
+2 12	Daniel J. Frim	gloss	with their sitting at the stern man	page 9, word by word
+2 12	Franz Boas	translation	with their spearsman,	page 9, Boas (1935a)
+2 12	Daniel J. Frim	translation	with their spearsman,	page 9, modified
+2 13	Kwak’wala	transcription	qaᵋs läᵋ LElstÉndEs	page 9, Boas's orthography
+2 13	Kwak’wala	transcription	qaʔs lɛʔ ƛəlstəndəs	page 9, NAPA
+2 13	Daniel J. Frim	segmentation	qaʔ=s la-iʔ ƛəl-ʔsta-nd=s	page 9
+2 13	Daniel J. Frim	gloss	PURP=3.POSS go-NMLZ carry.canoe-IN.LIQUID34-TRANS=OBJ2	page 9
+footnote 34	Daniel J. Frim	note	Rosenblum (2014).	page 9, footnote 34
+2 13	Daniel J. Frim	gloss	in order to go carry the canoe into the water	page 9, word by word
+2 13	Franz Boas	translation	and they launched it	page 9, Boas (1935a)
+2 13	Daniel J. Frim	translation	and they carried it into the water	page 9, modified
+2 14	Kwak’wala	transcription	lax L!asaᵋlisas ᵋmEɛwḗdzasasa g.wig.wäläs.	page 10, Boas's orthography
+2 14	Kwak’wala	transcription	laχ ƛ̓asal̓isas m̓əw̓izasasa GʷiłGʷɛlɛs.	page 10, NAPA
+2 14	Daniel J. Frim	segmentation	la=χ ƛ̓as-l̓is=as m̓u-is-as=asa GʷiłGʷɛla-as.	page 10
+2 14	Daniel J. Frim	gloss	PREP=OBJ1 seaside-BEACH=GEN (un)load-BEACH-PLACE=GEN clothing-3.POSS	page 10
+2 14	Daniel J. Frim	gloss	at area of the beach to unloading place on the belongings.35 the seaside of beach of their	page 10, word by word
+footnote 35	Daniel J. Frim	note	I follow Boas (1935a:93) in translating this word as “belongings,” although elsewhere (1948:329), he indicates that “clothing” is a more literal translation.	page 10, footnote 35
+2 14	Franz Boas	translation	outside of where they had put down their belongings.	page 10, Boas (1935a)
+2 14	Daniel J. Frim	translation	seaward from where they had put down their belongings on the beach.	page 10, modified
+2 15	Kwak’wala	transcription	wä, láᵋlăe ᵋmṓxsaq lā́xes	page 10, Boas's orthography
+2 15	Kwak’wala	transcription	wɛ lal̓əʔi m̓uχsaq laχis	page 10, NAPA
+2 15	Daniel J. Frim	segmentation	wɛ la-l̓a=i m̓u-χs=q la=χ=is	page 10
+2 15	Daniel J. Frim	gloss	well SEQ-QUOT=SBJ load-IN.CANOE=OBJ1.PRON PREP=OBJ1=3.POSS	page 10
+2 15	Daniel J. Frim	gloss	Well, then, it is said they loaded them [i.e. their into their belongings] into the canoe	page 10, word by word
+2 15	Franz Boas	translation	Then q they put them aboard their	page 10, Boas (1935a)
+2 15	Daniel J. Frim	translation	Well, then, it is said that they loaded [their belongings] into their	page 10, modified
+2 16	Kwak’wala	transcription	x̣wā́x̣wagwEme. wä, láᵋlăe ᵋwī́ᵋla hṓg.wExsa	page 10, Boas's orthography
+2 16	Kwak’wala	transcription	xʷaxʷagʷəmi. wɛ lal̓əʔi w̓il̓a huGʷəχsa	page 10, NAPA
+2 16	Daniel J. Frim	segmentation	xʷa-xʷakʷ-əm=i wɛ la-l̓a=i w̓il̓-a huqʷ-χs-a	page 10
+2 16	Daniel J. Frim	gloss	RED-canoe-DIM=DEM well SEQ-QUOT=SBJ all-? go.plural36-IN.CANOE-?	page 10
+footnote 36	Daniel J. Frim	note	Boas (1948:108).	page 10, footnote 36
+2 16	Daniel J. Frim	gloss	little canoe. Well, then, it is said they all went into canoes	page 10, word by word
+2 16	Franz Boas	translation	small canoes. (See below)	page 10, Boas (1935a)
+2 16	Daniel J. Frim	translation	little canoes. (See below)	page 10, modified
+2 17	Kwak’wala	transcription	ḗsᵋălḗᵋwinoxwe lā́xes	page 10, Boas's orthography
+2 17	Kwak’wala	transcription	ʔisʔəliw̓inuχʷi laχis	page 10, NAPA
+2 17	Daniel J. Frim	segmentation	ʔis-ʔəlixʷ-inuχʷ=i la=χ=is	page 10
+2 17	Daniel J. Frim	gloss	RED-sea.mammal.hunting-PROF=DEM PREP=OBJ1=3.POSS	page 10
+2 17	Daniel J. Frim	gloss	sea-mammal hunters into their	page 10, word by word
+2 17	Franz Boas	translation	Then q all the hunters went aboard their	page 10, Boas (1935a)
+2 17	Daniel J. Frim	translation	Well, then, it is said that all the sea-mammal hunters went aboard their	page 10, modified
+2 18	Kwak’wala	transcription	ḗălḗwats!e x̣wā́x̣wEx̣wagwEma.	page 11, Boas's orthography
+2 18	Kwak’wala	transcription	ʔiʔəliwac̓i xʷaxʷəxʷagʷəma.	page 11, NAPA
+2 18	Daniel J. Frim	segmentation	ʔi-ʔəlixʷ-ac̓i xʷa-xʷə-xʷakʷ-əm=a	page 11
+2 18	Daniel J. Frim	gloss	RED-sea.mammal.hunting-HOLLOW.CONTAINER RED-RED-canoe-DIM=DEM	page 11
+2 18	Daniel J. Frim	gloss	containers for hunting sea mammals little canoes.	page 11, word by word
+2 18	Franz Boas	translation	small hunting canoes	page 11, Boas (1935a)
+2 18	Daniel J. Frim	translation	little sea-mammal-hunting canoes.	page 11, modified
+2 19	Kwak’wala	transcription	wä, laᵋÉmᵋlăe yū́dEx̣ᵘts!âle yā́qela ḶEɛwís	page 11, Boas's orthography
+2 19	Kwak’wala	transcription	wɛ laʔəml̓əʔi yudəxʷc̓oli yaqila λəw̓is	page 11, NAPA
+2 19	Daniel J. Frim	segmentation	wɛ la-m̓-l̓a=i yudəxʷ-c̓o-Gola=i ?37 λuʔ=is	page 11
+footnote 37	Daniel J. Frim	note	I use question marks in the third tier to indicate that I am unable to segment a sequence into its constituent morphemes.	page 11, footnote 37
+2 19	Daniel J. Frim	gloss	well SEQ-OI-QUOT=DEM three-IN-TOGETHER38=SBJ PN with=3.POSS	page 11
+footnote 38	Daniel J. Frim	note	Boas (1947:361).	page 11, footnote 38
+2 19	Daniel J. Frim	gloss	Well and then, it is said they were three Yaqila and his inside together	page 11, word by word
+2 19	Franz Boas	translation	and q there were three in one canoe, Yaqela and his	page 11, Boas (1935a)
+2 19	Daniel J. Frim	translation	Well, and then it is said that there were three together inside [the canoe], Yaqila and his	page 11, modified
+2 20	Kwak’wala	transcription	maᵋlṓkwe ḶṓḶEɛleᵋyá. wä lā́ᵋlaxăe	page 11, Boas's orthography
+2 20	Kwak’wala	transcription	mal̓ukʷi λuλəl̓iy̓a. wɛ lal̓aχəʔi	page 11, NAPA
+2 20	Daniel J. Frim	segmentation	maʔł-ukʷ=i λu-λul̓iʔ=a wɛ la-l̓a-xəʔə=i	page 11
+2 20	Daniel J. Frim	gloss	two-HUMAN=DEM RED-nephew=DEM well SEQ-QUOT-ALSO39=SBJ	page 11
+footnote 39	Daniel J. Frim	note	Boas (1947:234).	page 11, footnote 39
+2 20	Daniel J. Frim	gloss	two nephews. Well then, also, it is said	page 11, word by word
+2 20	Franz Boas	translation	two nephews. Then q there were also	page 11, Boas (1935a)
+2 20	Daniel J. Frim	translation	two nephews. Well, then, it is also said that	page 11, modified
+2 21	Kwak’wala	transcription	yū́dEx̣ᵘts!âle yáyag.Exts!a ḶEɛwís ts! ā́ts!aᵋya	page 12, Boas's orthography
+2 21	Kwak’wala	transcription	yudəxʷc̓ole yayaGəχc̓a λəw̓is c̓ac̓ay̓a	page 12, NAPA
+2 21	Daniel J. Frim	segmentation	yudəxʷ-c̓o-Gola=i ? λuʔ=is c̓a-c̓ay̓a	page 12
+2 21	Daniel J. Frim	gloss	three-IN-TOGETHER=SBJ PN with=3.POSS RED-younger.sibling	page 12
+2 21	Daniel J. Frim	gloss	they were three YayaGəχc̓a with his younger brothers inside together	page 12, word by word
+2 21	Franz Boas	translation	three in one canoe, Yā́yag.Exts!a and his younger brothers,	page 12, Boas (1935a)
+2 21	Daniel J. Frim	translation	there were three together in [another canoe], YayaGəχc̓a and his younger brothers,	page 12, modified
+2 22	Kwak’wala	transcription	yExs ălḗᵋwinoxwăe yā́qela	page 12, Boas's orthography
+2 22	Kwak’wala	transcription	yəχs ʔəliw̓inuχʷəʔi yaqila	page 12, NAPA
+2 22	Daniel J. Frim	segmentation	yə=χs ʔəlixʷ-inuχʷ=əʔi ?	page 12
+2 22	Daniel J. Frim	gloss	PRONOM=SUBORD sea.mammal.hunting-PROF=DEM.SUBORD PN	page 12
+2 22	Daniel J. Frim	gloss	as that one was a sea-mammal hunter Yaqila	page 12, word by word
+2 22	Franz Boas	translation	for Yaqela was the sea hunter	page 12, Boas (1935a)
+2 22	Daniel J. Frim	translation	as that one, Yaqila, was the sea-mammal hunter	page 12, modified
+2 23	Kwak’wala	transcription	yEs ᵋnEɛmḗmutasa naÉnsx·äsa	page 12, Boas's orthography
+2 23	Kwak’wala	transcription	yəs n̓əm̓imutasa naʔənsxɛsa	page 12, NAPA
+2 23	Daniel J. Frim	segmentation	yə=s n̓əm-ima-ut=asa na-nəs-sxɛ=sa	page 12
+2 23	Daniel J. Frim	gloss	PRONOM=OBJ2 one-CLASS40-FELLOW41=GEN RED42-rot-TOOTH=GEN	page 12
+footnote 40	Daniel J. Frim	note	Boas (1947:324).	page 12, footnote 40
+footnote 41	Daniel J. Frim	note	Boas (1947:355).	page 12, footnote 41
+footnote 42	Daniel J. Frim	note	See Boas (1947:248–249).	page 12, footnote 42
+2 23	Daniel J. Frim	gloss	of clan of the Dirty-Teeth of the	page 12, word by word
+2 23	Franz Boas	translation	of the numaym NaÉnsx·a of the	page 12, Boas (1935a)
+2 23	Daniel J. Frim	translation	of the clan Naʔənsxa of the	page 12, modified
+2 24	Kwak’wala	transcription	g.ṓsg·imux̣we. wä, lā́ᵋlăe ălḗᵋwinoxwe	page 12, Boas's orthography
+2 24	Kwak’wala	transcription	Gusgimuxʷi. wɛ lal̓əʔi ʔəliw̓inuχʷ	page 12, NAPA
+2 24	Daniel J. Frim	segmentation	Gus-giməxʷ43=i wɛ la-l̓a=i ʔəlixʷ-inuχʷ=i	page 12
+footnote 43	Daniel J. Frim	note	See Boas (1966:42).	page 12, footnote 43
+2 24	Daniel J. Frim	gloss	?-?=DEM well SEQ-QUOT=SBJ sea.mammal.hunting-PROF=SBJ	page 12
+2 24	Daniel J. Frim	gloss	Gusgimuxʷ Well then, it is said was a sea-mammal hunter	page 12, word by word
+2 24	Franz Boas	translation	Koskimo. (See below)	page 12, Boas (1935a)
+2 24	Daniel J. Frim	translation	Gusgimuxʷ. (See below)	page 12, modified
+2 25	Kwak’wala	transcription	yā́yag.Exts!asa ᵋnEɛmḗmutasa q!ấL! enoxwasa g·ấp!enoxᵘ.	page 13, Boas's orthography
+2 25	Kwak’wala	transcription	yayaGəχc̓asa n̓əm̓imutasa q̓oƛ̓inuχʷasa gop̓inuχʷ.	page 13, NAPA
+2 25	Daniel J. Frim	segmentation	?=sa n̓əm-ima-ut=asa q̓oƛ-inuχʷ=asa gop-inuχʷ	page 13
+2 25	Daniel J. Frim	gloss	PN=GEN one-CLASS-FELLOW=GEN?-TRIBE=GEN ?-TRIBE	page 13
+2 25	Daniel J. Frim	gloss	YayaGəχc̓a clan of the Q’oƛ̓inuχʷ Gop̓inuχʷ of the of the	page 13, word by word
+2 25	Franz Boas	translation	Yā́yag.Exts!a q was the sea hunter of the numaym Q!ấL!ḗnoxᵘ of the G·ấp!ḗnoxᵘ	page 13, Boas (1935a)
+2 25	Daniel J. Frim	translation	Well, then, it is said that YayaGəχc̓a was the sea-mammal hunter of the clan Q’oƛ̓inuχʷ of the Gop̓inuχʷ.	page 13, modified
+2 26	Kwak’wala	transcription	wä, laᵋÉmᵋlăe ᵋnEmā́x· ɛid sḗx̣ᵋwida	page 13, Boas's orthography
+2 26	Kwak’wala	transcription	wɛ laʔəml̓əʔi n̓əmaxʔid siχw̓ida	page 13, NAPA
+2 26	Daniel J. Frim	segmentation	wɛ la-m̓-l̓a=i n̓əm-a-xʔid siχʷ-xʔid-a	page 13
+2 26	Daniel J. Frim	gloss	well SEQ-OI-QUOT=SJB one-?-MOM paddle-MOM-?	page 13
+2 26	Daniel J. Frim	gloss	Well and then, it is said simultaneously44 started to paddle	page 13, word by word
+footnote 44	Daniel J. Frim	note	Boas (1935a:94): “at the same time.”	page 13, footnote 44
+2 26	Franz Boas	translation	and q they started paddling at the same time,	page 13, Boas (1935a)
+2 26	Daniel J. Frim	translation	Well, and then it is said that they started to paddle simultaneously,	page 13, modified
+2 27	Kwak’wala	transcription	lā́qexs hăyā́qăax	page 13, Boas's orthography
+2 27	Kwak’wala	transcription	laqiχs həyaqəʔaχ	page 13, NAPA
+2 27	Daniel J. Frim	segmentation	la=q=iχs hi-aqa=əʔiχ45	page 13
+footnote 45	Daniel J. Frim	note	See the seventh entry in the chart of subordinate forms in Boas (1947:274).	page 13, footnote 45
+2 27	Daniel J. Frim	gloss	PREP=OBJ1.PRON=SUBORD straight-GO.PAST46=SUBORD.DEM	page 13
+footnote 46	Daniel J. Frim	note	Boas (1947:237).	page 13, footnote 46
+2 27	Daniel J. Frim	gloss	when were more than	page 13, word by word
+2 27	Franz Boas	translation	as there were more than	page 13, Boas (1935a)
+2 27	Daniel J. Frim	translation	when there were more than	page 13, modified
+2 28	Kwak’wala	transcription	maᵋłtsÉmg·ustEwe	page 14, Boas's orthography
+2 28	Kwak’wala	transcription	maʔłcəmgustəwi	page 14, NAPA
+2 28	Daniel J. Frim	segmentation	maʔł-sGəmgusto=i	page 14
+2 28	Daniel J. Frim	gloss	two-MULTIPLE.OF.TEN47=DEM	page 14
+footnote 47	Daniel J. Frim	note	See Boas (1947:277).	page 14, footnote 47
+2 28	Daniel J. Frim	gloss	twenty	page 14, word by word
+2 28	Franz Boas	translation	twenty	page 14, Boas (1935a)
+2 28	Daniel J. Frim	translation	twenty	page 14, modified
+2 29	Kwak’wala	transcription	ḗălḗwats!äs	page 14, Boas's orthography
+2 29	Kwak’wala	transcription	ʔiʔəliwac̓ɛs	page 14, NAPA
+2 29	Daniel J. Frim	segmentation	ʔi-ʔəlixʷ-ac̓i=as	page 14
+2 29	Daniel J. Frim	gloss	RED-sea.mammal.hunting-HOLLOW.CONTAINER=GEN	page 14
+2 29	Daniel J. Frim	gloss	containers for hunting sea mammals	page 14, word by word
+2 29	Franz Boas	translation	small sea hunting	page 14, Boas (1935a)
+2 29	Daniel J. Frim	translation	little sea-mammal-hunting	page 14, modified
+2 30	Kwak’wala	transcription	x̣wā́x̣wEx̣wagwEma wä, lā́ᵋlăe lā́g·ăă lax	page 14, Boas's orthography
+2 30	Kwak’wala	transcription	xʷaxʷəxʷagʷəma. wɛ lal̓əʔi lagəʔə laχ	page 14, NAPA
+2 30	Daniel J. Frim	segmentation	xʷa-xʷə-xʷakʷ-əm=a. wɛ la-l̓a=i la-gəʔə la=χ	page 14
+2 30	Daniel J. Frim	gloss	RED-RED-canoe-DIM=DEM well SEQ-QUOT=SBJ go-ARRIVE PREP=OBJ1	page 14
+2 30	Daniel J. Frim	gloss	little canoes. Well, then, it is said they arrived at	page 14, word by word
+2 30	Franz Boas	translation	canoes. Then they arrived at	page 14, Boas (1935a)
+2 30	Daniel J. Frim	translation	canoes. Well, then, it is said that they arrived at	page 14, modified
+2 31	Kwak’wala	transcription	k! ā́waq. wä lā́ᵋlăe wāx·	page 14, Boas's orthography
+2 31	Kwak’wala	transcription	k̓awaq. wɛ lal̓əʔi wax	page 14, NAPA
+2 31	Daniel J. Frim	segmentation	? wɛ la-l̓a=i wax	page 14
+2 31	Daniel J. Frim	gloss	GN. well SEQ-QUOT=SBJ not.knowing.whether.successful48	page 14
+footnote 48	Daniel J. Frim	note	Boas (1948:65).	page 14, footnote 48
+2 31	Daniel J. Frim	gloss	k̓awaq. Well then, it is said they tried	page 14, word by word
+2 31	Franz Boas	translation	K·ā́waq. Then q they would	page 14, Boas (1935a)
+2 31	Daniel J. Frim	translation	K’awaq. Well, then, it is said that they tried to	page 14, modified
+2 32	Kwak’wala	transcription	ā́läx q!ā́sa lā́xa lāq.	page 15, Boas's orthography
+2 32	Kwak’wala	transcription	ʔalɛχ q̓asa laχa laq.	page 15, NAPA
+2 32	Daniel J. Frim	segmentation	ʔalɛ=χ q̓asa la=χa la=q	page 15
+2 32	Daniel J. Frim	gloss	search=OBJ1 sea.otter PREP=OBJ1 PREP=OBJ1.PRON	page 15
+2 32	Daniel J. Frim	gloss	search for sea otters at the [place] at it.	page 15, word by word
+2 32	Franz Boas	translation	search for sea otters that might be there,	page 15, Boas (1935a)
+2 32	Daniel J. Frim	translation	search for sea otters at that [place].	page 15, modified
+2 33	Kwak’wala	transcription	wä k·!eyấsᵋlat!a q!ā́soᵋs lāq. wä lā́ᵋlăe	page 15, Boas's orthography
+2 33	Kwak’wala	transcription	wɛ k̓iyosl̓at̓a q̓asuʔs laq. wɛ lal̓əʔi	page 15, NAPA
+2 33	Daniel J. Frim	segmentation	wɛ k̓iyos-l̓a-t̓a q̓a-suʔ=s la=q wɛ la-l̓a=i	page 15
+2 33	Daniel J. Frim	gloss	well none-QUOT-BUT find-PASS=OBJ2 PREP=OBJ1.PRON well SEQ-QUOT=SBJ	page 15
+2 33	Daniel J. Frim	gloss	Well but none, found by them at it. Well then, it is said it is said,	page 15, word by word
+2 33	Franz Boas	translation	but q none were found there. Then q	page 15, Boas (1935a)
+2 33	Daniel J. Frim	translation	Well, it is said that none were found by them at that [place]. Well, then, it is said that	page 15, modified
+2 34	Kwak’wala	transcription	sḗx̣ᵋwid qaᵋs läᵋ lax áᵋyăăx·siweᵋ.	page 15, Boas's orthography
+2 34	Kwak’wala	transcription	siχw̓id qaʔs lɛʔ laχ ʔay̓əʔəxsiweʔ	page 15, NAPA
+2 34	Daniel J. Frim	segmentation	siχʷ-xʔid qaʔ=s la-iʔ la=χ ?-xsiu-eʔ	page 15
+2 34	Daniel J. Frim	gloss	paddle-MOM PURP=3.POSS go-NMLZ PREP=OBJ1 ?-RIVERMOUTH-LOC1	page 15
+2 34	Daniel J. Frim	gloss	they started in order to go to ʔay̓əʔəxsiwiʔ to paddle	page 15, word by word
+2 34	Franz Boas	translation	they started paddling and went to Aᵋyaax·siweᵋ	page 15, Boas (1935a)
+2 34	Daniel J. Frim	translation	they started paddling in order to go to ʔay̓əʔəxsiweʔ.	page 15, modified
+2 35	Kwak’wala	transcription	wä, laᵋÉmᵋlăe q!ā́xa q!ḗnEme q!ā́sa lax	page 15, Boas's orthography
+2 35	Kwak’wala	transcription	wɛ laʔəml̓əʔi q̓aχa q̓inəmi q̓asa laχ	page 15, NAPA
+2 35	Daniel J. Frim	segmentation	wɛ la-m̓-l̓a=i q̓a=χa q̓i-nəm=i q̓asa la=χ	page 15
+2 35	Daniel J. Frim	gloss	well SEQ-OI-QUOT=DEM find=OBJ1 many-NOM=DEM sea.otter PREP=OBJ1	page 15
+2 35	Daniel J. Frim	gloss	Well and then, it is said they found many sea otters at	page 15, word by word
+2 35	Franz Boas	translation	and now q they found many sea otters	page 15, Boas (1935a)
+2 35	Daniel J. Frim	translation	Well, then, it is said that they found many sea otters in	page 15, modified
+2 36	Kwak’wala	transcription	ăwī́ᵋstäsa ᵋmEk·ấla.	page 16, Boas's orthography
+2 36	Kwak’wala	transcription	ʔəwiʔstɛsa m̓əkola.	page 16, NAPA
+2 36	Daniel J. Frim	segmentation	ʔu-siʔsta=asa m̓əkʷ-ola.	page 16
+2 36	Daniel J. Frim	gloss	locative-AROUND=GEN round.object.is.located49-STATIONARY.ON.WATER50	page 16
+footnote 49	Daniel J. Frim	note	Cf. Boas (1948:145).	page 16, footnote 49
+footnote 50	Daniel J. Frim	note	Boas (1947:239).	page 16, footnote 50
+2 36	Daniel J. Frim	gloss	the environs of the island.	page 16, word by word
+2 36	Franz Boas	translation	all around the island.	page 16, Boas (1935a)
+2 36	Daniel J. Frim	translation	the area around the island.	page 16, modified
+2 37	Kwak’wala	transcription	wä, laᵋÉmᵋlăe q!ā́p!ex·sä yāqela Ḷōᵋ	page 16, Boas's orthography
+2 37	Kwak’wala	transcription	wɛ laʔəml̓əʔi q̓ap̓ixsɛ yaqila λuʔ	page 16, NAPA
+2 37	Daniel J. Frim	segmentation	wɛ la-m̓-l̓a=i q̓a-ap̓-i-xsɛ ? λuʔ	page 16
+2 37	Daniel J. Frim	gloss	well SEQ-OI-QUOT=DEM be.situated51-MUTUAL52-?-STILL PN with	page 16
+footnote 51	Daniel J. Frim	note	Lincoln and Rath (1981:371).	page 16, footnote 51
+footnote 52	Daniel J. Frim	note	Boas (1947:245).	page 16, footnote 52
+2 37	Daniel J. Frim	gloss	Well, and then, it is said still remained together Yaqila with	page 16, word by word
+2 37	Franz Boas	translation	And q Yaqela and Yā́yag.Exts!a kept together,	page 16, Boas (1935a)
+2 37	Daniel J. Frim	translation	Well, and then it is said that Yaqila and YayaGəχc̓a stayed together.	page 16, modified
+2 38	Kwak’wala	transcription	yā́yag.Exts!a. wä, laᵋÉmᵋláwise gwḗłaᵋLaᵋyeda	page 16, Boas's orthography
+2 38	Kwak’wala	transcription	yayaGəχc̓a. wɛ laʔəml̓awisi gʷiłaʔƛay̓ida	page 16, NAPA
+2 38	Daniel J. Frim	segmentation	? wɛ la-m̓-l̓a-wis=i gʷił-aʔ-ƛiʔ=ida	page 16
+2 38	Daniel J. Frim	gloss	PN well SEQ-OI-QUOT-CONN=SBJ scatter-?-AT.SEA53=SBJ	page 16
+footnote 53	Daniel J. Frim	note	Boas (1947:377).	page 16, footnote 53
+2 38	Daniel J. Frim	gloss	YayaGəχc̓a. Well and so, then, it is said scattered at sea the	page 16, word by word
+2 38	Franz Boas	translation	(See below)	page 16, Boas (1935a)
+2 38	Daniel J. Frim	translation	(See below)	page 16, modified
+2 39	Kwak’wala	transcription	ḗălḗwats!e x̣wā́x̣wEx̣wagwEmsa	page 16, Boas's orthography
+2 39	Kwak’wala	transcription	ʔiʔəliwac̓i xʷaxʷəxʷagʷəmsa	page 16, NAPA
+2 39	Daniel J. Frim	segmentation	ʔi-ʔəlixʷ-ac̓i xʷa-xʷə-xʷakʷ-əm=sa	page 16
+2 39	Daniel J. Frim	gloss	RED-sea.mammal.hunting-HOLLOW.CONTAINER RED-RED-canoe-DIM=GEN	page 16
+2 39	Daniel J. Frim	gloss	hollow containers for hunting sea mammals little canoes of the	page 16, word by word
+2 39	Franz Boas	translation	(See below)	page 16, Boas (1935a)
+2 39	Daniel J. Frim	translation	(See below)	page 16, modified
+2 40	Kwak’wala	transcription	ḗsᵋălḗᵋwinoxwe lax	page 17, Boas's orthography
+2 40	Kwak’wala	transcription	ʔisʔəliw̓inuχʷi laχ	page 17, NAPA
+2 40	Daniel J. Frim	segmentation	ʔis-ʔəlixʷ-inuχʷ=i la=χ	page 17
+2 40	Daniel J. Frim	gloss	RED-sea.mammal.hunting-PROFESSIONAL=DEM PREP=OBJ1	page 17
+2 40	Daniel J. Frim	gloss	sea-mammal hunters according to	page 17, word by word
+2 40	Franz Boas	translation	and so q the small hunting canoes of the sea hunters were scattered in	page 17, Boas (1935a)
+2 40	Daniel J. Frim	translation	Well, and so then it is said that the little sea-mammal hunting canoes of the sea-mammal hunters scattered in accordance with	page 17, modified
+2 41	Kwak’wala	transcription	g.wḗᵋg·ilasasa q!ā́q!asăaxs	page 17, Boas's orthography
+2 41	Kwak’wala	transcription	Gʷigil̓asasa q̓aq̓asəʔaχs	page 17, NAPA
+2 41	Daniel J. Frim	segmentation	Gʷi54-gil̓a-as=asa q̓a-q̓asa-a=χs	page 17
+footnote 54	Daniel J. Frim	note	Here, I have followed Lincoln and Rath (1981:317) as opposed to Boas (1948:322).	page 17, footnote 54
+2 41	Daniel J. Frim	gloss	thus-GO.IN.DIRECTION55-WAY.OF56=GEN RED-sea.otter-TRY.TO.GET57=SUBORD	page 17
+footnote 55	Daniel J. Frim	note	Boas (1947:354).	page 17, footnote 55
+footnote 56	Daniel J. Frim	note	Boas (1947:319).	page 17, footnote 56
+footnote 57	Daniel J. Frim	note	Boas (1947:309).	page 17, footnote 57
+2 41	Daniel J. Frim	gloss	procedure of the trying for [i.e. hunting for] sea otters when	page 17, word by word
+2 41	Franz Boas	translation	the way it is done in sea otter hunting when	page 17, Boas (1935a)
+2 41	Daniel J. Frim	translation	the method of hunting for sea otters, when	page 17, modified
+2 42	Kwak’wala	transcription	x·EɛmeᵋstÉndăaxa q!ā́sa qaᵋs	page 17, Boas's orthography
+2 42	Kwak’wala	transcription	xəm̓iʔstəndəʔaχa q̓asa qaʔs	page 17, NAPA
+2 42	Daniel J. Frim	segmentation	xəm̓-siʔsta-nd=əʔə=χa q̓asa qaʔ=s	page 17
+2 42	Daniel J. Frim	gloss	snare-AROUND-LOC3=SUBORD.DEM=OBJ2 sea.otter PURP=3.POSS	page 17
+2 42	Daniel J. Frim	gloss	they trap by encircling the sea otters and	page 17, word by word
+2 42	Franz Boas	translation	they surround the sea otters	page 17, Boas (1935a)
+2 42	Daniel J. Frim	translation	they surround the sea otters and	page 17, modified
+2 43	Kwak’wala	transcription	hā́dzExstáleᵋ qaᵋ	page 18, Boas's orthography
+2 43	Kwak’wala	transcription	hazəχstalɛʔ qaʔ	page 18, NAPA
+2 43	Daniel J. Frim	segmentation	has-əχsta-əla-iʔ qaʔ	page 18
+2 43	Daniel J. Frim	gloss	make.loud.noise58-VOICE59-CONT-NMLZ PURP	page 18
+footnote 58	Daniel J. Frim	note	Boas (1947:89).	page 18, footnote 58
+footnote 59	Daniel J. Frim	note	Boas (1947:305).	page 18, footnote 59
+2 43	Daniel J. Frim	gloss	being noisy so that	page 18, word by word
+2 43	Franz Boas	translation	shouting in order to	page 18, Boas (1935a)
+2 43	Daniel J. Frim	translation	make noise so that	page 18, modified
+2 44	Kwak’wala	transcription	wī́balisEmeᵋs wä laᵋÉmᵋláwise	page 18, Boas's orthography
+2 44	Kwak’wala	transcription	wibalisəmiʔs. wɛ laʔəml̓awisi	page 18, NAPA
+2 44	Daniel J. Frim	segmentation	wi-ba-lis-əm-iʔ=s wɛ la-m̓-l̓a-wis=i	page 18
+2 44	Daniel J. Frim	gloss	fail-HORIZ.END-BEACH-?-NMLZ=3.POSS well SEQ-OI-QUOT-CONN=SBJ	page 18
+2 44	Daniel J. Frim	gloss	fail to be on the shore. Well and then, it is said	page 18, word by word
+2 44	Franz Boas	translation	drown them. And so q	page 18, Boas (1935a)
+2 44	Daniel J. Frim	translation	[the sea otters] cannot get to the shore. Well, and then it is said that	page 18, modified
+2 45	Kwak’wala	transcription	k!wä́g·ila la dzā́qwa. laᵋÉmᵋlăe q! EyṓLa	page 18, Boas's orthography
+2 45	Kwak’wala	transcription	k̓ʷɛʔgila la la zaqʷa. laʔəml̓əʔi q̓əyuƛa	page 18, NAPA
+2 45	Daniel J. Frim	segmentation	k̓ʷay̓-gila la zaqʷ-a la-m̓-l̓a=i q̓əy-uƛ-a	page 18
+2 45	Daniel J. Frim	gloss	quite-GO.IN.DIRECTION60 then evening-?61 SEQ-OI-QUOT=SBJ many-OBTAIN-?62	page 18
+footnote 60	Daniel J. Frim	note	Boas (1947:354).	page 18, footnote 60
+footnote 61	Daniel J. Frim	note	I do not know whether this terminal morpheme -a/=a is a demonstrative clitic of the type that often occurs at the end of sentence-final verbs (Boas 1947:257) or a “default verb ending” (Black and Greene 2010:6).	page 18, footnote 61
+footnote 62	Daniel J. Frim	note	It is conceivable that this final morpheme is a form of the subject marker =ida (see Table IV in Boas [1947:253] and Paragraph 5 in Boas [1947:256]).	page 18, footnote 62
+2 45	Daniel J. Frim	gloss	it was towards then evening. And then, obtained many it is said	page 18, word by word
+2 45	Franz Boas	translation	it was towards evening and q	page 18, Boas (1935a)
+2 45	Daniel J. Frim	translation	it was towards evening. And then it is said that	page 18, modified
+2 46	Kwak’wala	transcription	wăṓkwe ḗsᵋălḗᵋwinoxᵘxa q!ā́sa.	page 19, Boas's orthography
+2 46	Kwak’wala	transcription	wəʔukʷi ʔisʔəliw̓inuχʷχa q̓asa.	page 19, NAPA
+2 46	Daniel J. Frim	segmentation	wəʔukʷ=i ʔis-ʔəlixʷ-inuχʷ=χa q̓asa	page 19
+2 46	Daniel J. Frim	gloss	other=DEM RED-sea.mammal.hunting-PROFESSIONAL=OBJ1 sea.otter	page 19
+2 46	Daniel J. Frim	gloss	the other sea-mammal hunters sea otters.	page 19, word by word
+2 46	Franz Boas	translation	the other hunters had caught many sea otters.	page 19, Boas (1935a)
+2 46	Daniel J. Frim	translation	the other sea-mammal hunters caught many sea otters.	page 19, modified
+2 47	Kwak’wala	transcription	wä lā́ᵋlăe k·!eyấs yā́nEmᵋlasa	page 19, Boas's orthography
+2 47	Kwak’wala	transcription	wɛ lal̓əʔi k̓iyos yanəml̓asa	page 19, NAPA
+2 47	Daniel J. Frim	segmentation	wɛ la-l̓a=i k̓iyos ya-anəm-l̓a=asa	page 19
+2 47	Daniel J. Frim	gloss	well SEQ-QUOT=SBJ none act63-OBTAINED-QUOT=OBJ2	page 19
+footnote 63	Daniel J. Frim	note	Boas (1947:44).	page 19, footnote 63
+2 47	Daniel J. Frim	gloss	Well then, it is said there was nothing caught, it is said, by the	page 19, word by word
+2 47	Franz Boas	translation	Then q there was no game now of the	page 19, Boas (1935a)
+2 47	Daniel J. Frim	translation	Well, and then it is said that there was nothing caught by the	page 19, modified
+2 48	Kwak’wala	transcription	maᵋłts! ā́qe x̣wā́x̣wEx̣wagwEma, yEx yāqela	page 19, Boas's orthography
+2 48	Kwak’wala	transcription	maʔłc̓aqi xʷaxʷəxʷagʷəma, yəχ yaqila	page 19, NAPA
+2 48	Daniel J. Frim	segmentation	maʔł-c̓aq=i xʷa-xʷə-xʷakʷ-əm=a yə=χ ?	page 19
+2 48	Daniel J. Frim	gloss	two-LONG=DEM RED-RED-canoe-DIM=DEM PRONOM=OBJ1 PN	page 19
+2 48	Daniel J. Frim	gloss	two little canoes those ones Yaqila	page 19, word by word
+2 48	Franz Boas	translation	two small canoes (of) Yaqela	page 19, Boas (1935a)
+2 48	Daniel J. Frim	translation	two little canoes [belonging to] that Yaqila	page 19, modified
+2 49	Kwak’wala	transcription	Ḷōᵋlăe yā́yag.Exts!a. wä, laᵋÉmᵋláwise	page 19, Boas's orthography
+2 49	Kwak’wala	transcription	λul̓əʔi yayaGəχc̓a. wɛ laʔəml̓awisi	page 19, NAPA
+2 49	Daniel J. Frim	segmentation	λuʔ-l̓a=i ? wɛ la-m̓-l̓a-wis=i	page 19
+2 49	Daniel J. Frim	gloss	with-QUOT=DEM PN well SEQ-OI-QUOT-CONN=SBJ	page 19
+2 49	Daniel J. Frim	gloss	with, it is said YayaGəχc̓a. Well and so, then, it is said	page 19, word by word
+2 49	Franz Boas	translation	and Yā́yag.Exts!a, and so q	page 19, Boas (1935a)
+2 49	Daniel J. Frim	translation	and, it is said, YayaGəχc̓a. Well, and so then it is said that	page 19, modified
+2 50	Kwak’wala	transcription	g·ā́labaᵋye yāqela Ḷōᵋ yā́yag.Exts!ases	page 20, Boas's orthography
+2 50	Kwak’wala	transcription	galabay̓i yaqila λuʔ yayaGəχc̓asis	page 20, NAPA
+2 50	Daniel J. Frim	segmentation	gal-ba-eʔ=i ? λuʔ ?=s=is	page 20
+2 50	Daniel J. Frim	gloss	first-HORIZ.END-LOC1=SBJ PN and PN=GEN=3.POSS	page 20
+2 50	Daniel J. Frim	gloss	first at the end were Yaqila and YayaGəχc̓a of their	page 20, word by word
+2 50	Franz Boas	translation	Yaqela and Yā́yag.Exts!a were the first among their	page 20, Boas (1935a)
+2 50	Daniel J. Frim	translation	Yaqila and YayaGəχc̓a were first in front [of the hunting party] of their	page 20, modified
+2 51	Kwak’wala	transcription	ḗsᵋălḗᵋwinoxᵘwᵘte. wä, laᵋÉmᵋlăe	page 20, Boas's orthography
+2 51	Kwak’wala	transcription	ʔisʔəliwinuχʷwuti. wɛ laʔəml̓əʔi	page 20, NAPA
+2 51	Daniel J. Frim	segmentation	ʔis-ʔəlixʷ-inuχʷ-wut=i wɛ la-m̓-l̓a=i	page 20
+2 51	Daniel J. Frim	gloss	RED-sea.mammal.hunting-PROF-FELLOW=DEM well SEQ-OI-QUOT=SBJ	page 20
+2 51	Daniel J. Frim	gloss	fellow sea-mammal hunters. Well and then, it is said	page 20, word by word
+2 51	Franz Boas	translation	sea hunting fellows, and q	page 20, Boas (1935a)
+2 51	Daniel J. Frim	translation	fellow sea-mammal hunters. Well, and then it is said that	page 20, modified
+2 52	Kwak’wala	transcription	ălā́q p! EdEx· ɛī́da. wä lā́ᵋlăe	page 20, Boas's orthography
+2 52	Kwak’wala	transcription	ʔəlaq p̓ədəxʔida. wɛ lal̓əʔi	page 20, NAPA
+2 52	Daniel J. Frim	segmentation	ʔəlaq p̓əd-xʔid=a wɛ la-l̓a=i	page 20
+2 52	Daniel J. Frim	gloss	almost dark-MOM=DEM well SEQ-QUOT=SBJ	page 20
+2 52	Daniel J. Frim	gloss	almost it started to be dark. Well then, it is said	page 20, word by word
+2 52	Franz Boas	translation	it began to be nearly dark. Then q	page 20, Boas (1935a)
+2 52	Daniel J. Frim	translation	it was almost getting to be dark. Well, then, it is said that	page 20, modified
+2 53	Kwak’wala	transcription	yā́qela dṓxᵋwaLElaxa ᵋwā́lase q!ā́sa	page 20, Boas's orthography
+2 53	Kwak’wala	transcription	yaqila doχw̓aƛəlaχa w̓alasi q̓asa	page 20, NAPA
+2 53	Daniel J. Frim	segmentation	? doqʷ-gəʔaƛəla=χa w̓alas=i q̓asa	page 20
+2 53	Daniel J. Frim	gloss	PN see-SUDDENLY=OBJ1 large=DEM sea.otter	page 20
+2 53	Daniel J. Frim	gloss	Yaqila suddenly saw large sea otter	page 20, word by word
+2 53	Franz Boas	translation	Yaqela saw a large sea otter	page 20, Boas (1935a)
+2 53	Daniel J. Frim	translation	Yaqila suddenly saw a large sea otter	page 20, modified
+2 54	Kwak’wala	transcription	dzā́gwEɛnákwEla. wä lā́ᵋlăe	page 21, Boas's orthography
+2 54	Kwak’wala	transcription	zagʷən̓akʷəla. wɛ lal̓əʔi	page 21, NAPA
+2 54	Daniel J. Frim	segmentation	zakʷ-n̓akʷəla. wɛ la-l̓a=i	page 21
+2 54	Daniel J. Frim	gloss	spread.apart.with.hands64-GRADUAL.MOTION65 well SEQ-QUOT=SBJ	page 21
+footnote 64	Daniel J. Frim	note	Boas (1948:193).	page 21, footnote 64
+footnote 65	Daniel J. Frim	note	Boas (1947:347).	page 21, footnote 65
+2 54	Daniel J. Frim	gloss	swimming along. Well then, it is said	page 21, word by word
+2 54	Franz Boas	translation	swimming along.	page 21, Boas (1935a)
+2 54	Daniel J. Frim	translation	swimming along. Well, then, it is said that	page 21, modified
+2 55	Kwak’wala	transcription	ɛmEgwā́p!alaxa x·ī́xsEmala.	page 21, Boas's orthography
+2 55	Kwak’wala	transcription	m̓əgʷap̓alaχa xiχsəmala.	page 21, NAPA
+2 55	Daniel J. Frim	segmentation	m̓əkʷ-ap̓-ala=χa xiq-sGəm-ala	page 21
+2 55	Daniel J. Frim	gloss	round.object.is.located66-NAPE.OF.NECK67-LOC2=OBJ1 blaze-ROUND-CONT	page 21
+footnote 66	Daniel J. Frim	note	Boas (1948:145).	page 21, footnote 66
+footnote 67	Daniel J. Frim	note	Boas (1947:314).	page 21, footnote 67
+2 55	Daniel J. Frim	gloss	it had on the back of its neck a round blazing object	page 21, word by word
+2 55	Franz Boas	translation	On the nape of its neck q was a ball of fire.	page 21, Boas (1935a)
+2 55	Daniel J. Frim	translation	it had a round blazing object on the back of its neck.	page 21, modified
+2 56	Kwak’wala	transcription	wä, lā́ᵋlăe yā́qela sEx· ɛī́dEq. wä, lā́ᵋlăe	page 21, Boas's orthography
+2 56	Kwak’wala	transcription	wɛ lal̓əʔi yaqila səxʔidəq. wɛ lal̓əʔi	page 21, NAPA
+2 56	Daniel J. Frim	segmentation	wɛ la-l̓a=i ? sək-xʔid=q wɛ la-l̓a=i	page 21
+2 56	Daniel J. Frim	gloss	well SEQ-QUOT=SBJ PN spear-MOM=OBJ1.PRON well SEQ-QUOT=SBJ	page 21
+2 56	Daniel J. Frim	gloss	Well then, it is said Yaqila threw a harpoon at it. Well then, it is said	page 21, word by word
+2 56	Franz Boas	translation	Then q Yaqela speared it.	page 21, Boas (1935a)
+2 56	Daniel J. Frim	translation	Well, then, it is said that Yaqila speared it. Well, then, it is said that	page 21, modified
+2 57	Kwak’wala	transcription	ṓgwaqa sEx· ɛī́de yā́yag.Exts!äxa ᵋwā́lase q!ā́sa. wä	page 21, Boas's orthography
+2 57	Kwak’wala	transcription	ʔugʷaqa səxʔidi yayaGəχc̓ɛχa w̓alasi q̓asa. wɛ	page 21, NAPA
+2 57	Daniel J. Frim	segmentation	ʔugʷaqa sək-xʔid=i ?=χa w̓alas=i q̓asa wɛ	page 21
+2 57	Daniel J. Frim	gloss	also spear-MOM=SBJ PN=OBJ1 large=DEM sea.otter well	page 21
+2 57	Daniel J. Frim	gloss	also threw a harpoon YayaGəχc̓a large sea otter. Well, at the	page 21, word by word
+2 57	Franz Boas	translation	Yā́yag.Exts!a q also speared the large sea otter,	page 21, Boas (1935a)
+2 57	Daniel J. Frim	translation	YayaGəχc̓a also speared the large sea otter. Well,	page 21, modified
+2 58	Kwak’wala	transcription	g·ÉlᵋEmᵋláwise la ᵋwīᵋla k·! ExsEmáᵋye	page 22, Boas's orthography
+2 58	Kwak’wala	transcription	gəlʔəml̓awisi la w̓il̓a k̓əχsəmay̓i	page 22, NAPA
+2 58	Daniel J. Frim	segmentation	gəl-m̓-l̓a-wis=i la w̓il̓-a k̓əq-sGəm-eʔ=i	page 22
+2 58	Daniel J. Frim	gloss	first-CONN-QUOT-CONN=SBJ then all-? load.is.located68-ROUND-LOC1=SBJ	page 22
+footnote 68	Daniel J. Frim	note	Lincoln and Rath (1981:251).	page 22, footnote 68
+2 58	Daniel J. Frim	gloss	and so as soon as then all were on the surface of the round body69	page 22, word by word
+footnote 69	Daniel J. Frim	note	Here, I follow Boas (1947:343), one of whose glosses for -sGəm is “round surface.”	page 22, footnote 69
+footnote 69	Kwak’wala	cited form	-sGəm	page 22, in italics
+2 58	Franz Boas	translation	and so q as soon as	page 22, Boas (1935a)
+2 58	Daniel J. Frim	translation	and so it is said that as soon as all	page 22, modified
+2 59	Kwak’wala	transcription	LḗLEg·Ekwás lā́xa q!ā́sa láe	page 22, Boas's orthography
+2 59	Kwak’wala	transcription	ƛiƛəgəkʷas laχa q̓asa laʔi	page 22, NAPA
+2 59	Daniel J. Frim	segmentation	ƛi-ƛək-kʷ=as la=χa q̓asa la=i	page 22
+2 59	Daniel J. Frim	gloss	RED-notch70-PASS=3.POSS PREP=OBJ1 sea.otter then=?	page 22
+footnote 70	Daniel J. Frim	note	Boas (1948:427).	page 22, footnote 70
+2 59	Daniel J. Frim	gloss	their harpoon points71 in the sea otter then	page 22, word by word
+footnote 71	Daniel J. Frim	note	Boas (1948:427).	page 22, footnote 71
+2 59	Franz Boas	translation	their spears had hit the sea otter,	page 22, Boas (1935a)
+2 59	Daniel J. Frim	translation	their harpoon points were on the sea otter, then	page 22, modified
+2 60	Kwak’wala	transcription	L! ā́stox̣ᵋwideda q!ā́sa qaᵋs ḗk·!eᵋsteᵋ	page 22, Boas's orthography
+2 60	Kwak’wala	transcription	ƛ̓astuxw̓idida q̓asa qaʔs ʔik̓iʔstɛʔ	page 22, NAPA
+2 60	Daniel J. Frim	segmentation	ƛ̓as-ʔstu-xʔid=ida q̓asa qaʔ=s ʔik̓-siʔsta-iʔ	page 22
+2 60	Daniel J. Frim	gloss	seaward-PATH72-MOM=SBJ sea.otter PURP=3.POSS up-GO.IN.DIRECTION73-NMLZ	page 22
+footnote 72	Daniel J. Frim	note	Cf. Boas (1947:343).	page 22, footnote 72
+footnote 73	Daniel J. Frim	note	Boas (1947:343) glosses this suffix as “around,” but I believe that in some cases, it means ‘to go in a direction.’	page 22, footnote 73
+2 60	Daniel J. Frim	gloss	started to go seaward the sea otter and went up	page 22, word by word
+2 60	Franz Boas	translation	the sea otter went out seaward and went up	page 22, Boas (1935a)
+2 60	Daniel J. Frim	translation	the sea otter began to go seaward and went upward	page 22, modified
+2 61	Kwak’wala	transcription	lā́xEnts ᵋnā́lax. wä, laᵋÉmᵋlăe	page 23, Boas's orthography
+2 61	Kwak’wala	transcription	laχənc n̓alaχ. wɛ laʔəml̓əʔi	page 23, NAPA
+2 61	Daniel J. Frim	segmentation	la=χ=ənc n̓a-əla=iχ wɛ la-m̓-l̓a=i	page 23
+2 61	Daniel J. Frim	gloss	PREP=OBJ1=INCL.POSS sky74-CONT=DEM well SEQ-OI-QUOT=DEM	page 23
+footnote 74	Daniel J. Frim	note	Lincoln and Rath (1981:131) list “firmament” among the meanings of this root.	page 23, footnote 74
+2 61	Daniel J. Frim	gloss	to our sky. Well and then, it is said	page 23, word by word
+2 61	Franz Boas	translation	toward our sky, and q	page 23, Boas (1935a)
+2 61	Daniel J. Frim	translation	to our sky. Well, and then it is said that	page 23, modified
+2 62	Kwak’wala	transcription	qwÉlx·ElxḶā́laxa maᵋłts! ā́qe	page 23, Boas's orthography
+2 62	Kwak’wala	transcription	qʷəlxəlχλalaχa maʔłc̓aqi	page 23, NAPA
+2 62	Daniel J. Frim	segmentation	qʷəlx-əl-χλa-əla=χa maʔł-c̓aq=i	page 23
+2 62	Daniel J. Frim	gloss	gather.long.things75-?-BEHIND-CONT=OBJ1 two-LONG=DEM	page 23
+footnote 75	Daniel J. Frim	note	Boas (1948:342).	page 23, footnote 75
+2 62	Daniel J. Frim	gloss	it dragged behind the two	page 23, word by word
+2 62	Franz Boas	translation	it was dragging behind the two	page 23, Boas (1935a)
+2 62	Daniel J. Frim	translation	it dragged behind [itself] the two	page 23, modified
+2 63	Kwak’wala	transcription	x̣wā́x̣wEx̣wagwEmxs láe ḗk·!ołEla	page 23, Boas's orthography
+2 63	Kwak’wala	transcription	xʷaxʷəxʷagʷəmχs laʔi ʔik̓ułəla	page 23, NAPA
+2 63	Daniel J. Frim	segmentation	xʷa-xʷə-xʷakʷ-əm=χs la=əʔi ʔik̓-uł-əla	page 23
+2 63	Daniel J. Frim	gloss	RED-RED-canoe-DIM=SUBORD then=SUBORD.DEM up-GO.IN.DIRECTION76-CONT	page 23
+footnote 76	Daniel J. Frim	note	Boas (1947:334).	page 23, footnote 76
+2 63	Daniel J. Frim	gloss	little canoes when then it was going upward	page 23, word by word
+2 63	Franz Boas	translation	small canoes as it was going upward	page 23, Boas (1935a)
+2 63	Daniel J. Frim	translation	little canoes as it was going upward,	page 23, modified
+2 64	Kwak’wala	transcription	qaᵋs läᵋ k!wEdEdzṓdxEnts	page 23, Boas's orthography
+2 64	Kwak’wala	transcription	qaʔs lɛʔ k̓ʷədəzudχənc	page 23, NAPA
+2 64	Daniel J. Frim	segmentation	qaʔ=s la-iʔ k̓ʷət-zu-ud=χ=ənc	page 23
+2 64	Daniel J. Frim	gloss	PURP=3.POSS go-NMLZ stick.on77-FLAT-TRANS=OBJ1=INCL.POSS	page 23
+footnote 77	Daniel J. Frim	note	Boas (1948:304).	page 23, footnote 77
+2 64	Daniel J. Frim	gloss	and then stuck onto the flat surface, our	page 23, word by word
+2 64	Franz Boas	translation	and stuck on our	page 23, Boas (1935a)
+2 64	Daniel J. Frim	translation	and then it stuck onto our	page 23, modified
+2 65	Kwak’wala	transcription	ɛnā́lax. wä, hḗᵋme q!ā́sax·deda k!wā́ᵋmaᵋdzâᵋye	page 24, Boas's orthography
+2 65	Kwak’wala	transcription	n̓alaχ. wɛ hem̓i q̓asaxdida k̓ʷam̓aʔzoy̓i.	page 24, NAPA
+2 65	Daniel J. Frim	segmentation	n̓a-əla=iχ wɛ he-m̓=i q̓asa-xdi=ida k̓ʷa-?-zu-eʔ=i78	page 24
+footnote 78	Daniel J. Frim	note	Boas (1948:306; 1947:324) provides examples of words beginning with the sequence k̓ʷɛm̓-, formed from k̓ʷa-, “to sit,” and -im̓, “nearby.” I do not know whether k̓ʷam̓aʔzoy̓i can be interpreted as related to these forms.	page 24, footnote 78
+2 65	Daniel J. Frim	gloss	sky-CONT=DEM well that-OI=SBJ sea.otter-PAST=SBJ sit-?-FLAT-LOC1=DEM	page 24
+2 65	Daniel J. Frim	gloss	sky. Well and that former sea otter Pleiades. was the	page 24, word by word
+2 65	Franz Boas	translation	sky. That was the sea otter, the Pleiades,	page 24, Boas (1935a)
+2 65	Daniel J. Frim	translation	sky. Well, and that [constellation], the Pleiades, is the former sea otter.79	page 24, modified
+footnote 79	Daniel J. Frim	note	In assigning the Pleiades the role of subject and translating this as an “equative” sentence, I am following Littell (2012). I believe the same understanding of this sentence underlies Boas’s translation of it, but Boas tries to maintain the syntax of the original text, obscuring the sentence’s equative meaning.	page 24, footnote 79
+2 66	Kwak’wala	transcription	wä, hḗᵋEmᵋláwis ălḗwadzâᵋya	page 24, Boas's orthography
+2 66	Kwak’wala	transcription	wɛ heʔəml̓awis ʔəliwazoy̓a	page 24, NAPA
+2 66	Daniel J. Frim	segmentation	wɛ he-m̓-l̓a-wis ʔəlixʷ-zu-eʔ=a	page 24
+2 66	Daniel J. Frim	gloss	well that-OI-QUOT-CONN sea.mammal.hunting-FLAT-LOC1=DEM80	page 24
+footnote 80	Daniel J. Frim	note	My morphemic break-down follows Boas (1947:212).	page 24, footnote 80
+2 66	Daniel J. Frim	gloss	Well and so that is Orion’s Belt81	page 24, word by word
+footnote 81	Daniel J. Frim	note	Here, I have followed Boas’s dictionary (1948:14), which glosses a similar form, ʔaluzoy̓i, as Orion’s Belt, rather than Boas’s translation (1935a:94) of the form ʔəliwazoy̓a as “Orion.” This allows us to interpret the form ʔaʔəliwin̓osəw̓i in the next sentence as Orion, in line with Boas’s dictionary (1948:14, citing the attestation of this word in “Star Story”), and in contrast to his ambiguous translation (1935a:94) of this form as “the hunter with him,” which does not seem to take into account the passive suffix -səw̓.	page 24, footnote 81
+2 66	Franz Boas	translation	and so q that is the hunter in the sky (Orion)	page 24, Boas (1935a)
+2 66	Daniel J. Frim	translation	Well, and so it is said that that one, Yaqila, is Orion’s Belt.	page 24, modified
+2 67	Kwak’wala	transcription	yEx yā́qela. wä, hḗᵋmis	page 24, Boas's orthography
+2 67	Kwak’wala	transcription	yəχ yaqila. wɛ hem̓is	page 24, NAPA
+2 67	Daniel J. Frim	segmentation	yə=χ ? wɛ he-m̓-wis	page 24
+2 67	Daniel J. Frim	gloss	PRONOM=OBJ1 PN well that-OI-CONN	page 24
+2 67	Daniel J. Frim	gloss	that Yaqila. Well and so that	page 24, word by word
+2 67	Franz Boas	translation	Yaqela, and	page 24, Boas (1935a)
+2 67	Daniel J. Frim	translation	Well, and so that one,	page 24, modified
+2 68	Kwak’wala	transcription	ā́ălḗwēᵋnâsEɛwe yā́yag.Exts!a hēt	page 25, Boas's orthography
+2 68	Kwak’wala	transcription	ʔaʔəliwin̓osəw̓i yayaGəχc̓a. het	page 25, NAPA
+2 68	Daniel J. Frim	segmentation	ʔa-ʔəlixʷ-in̓u-suʔ=i ? he-t	page 25
+2 68	Daniel J. Frim	gloss	RED-sea.mammal.hunting-AT.PASSERBY82-PASS=SBJ PN that-?	page 25
+footnote 82	Daniel J. Frim	note	Boas (1947:239).	page 25, footnote 82
+2 68	Daniel J. Frim	gloss	Orion was YayaGəχc̓a. That	page 25, word by word
+2 68	Franz Boas	translation	the hunter with him is Yā́yag.Exts!a. And	page 25, Boas (1935a)
+2 68	Daniel J. Frim	translation	YayaGəχc̓a, is Orion. The	page 25, modified
+2 69	Kwak’wala	transcription	lā́g·iłas q!ā́leda ḗsᵋălḗᵋwinoxwaq	page 25, Boas's orthography
+2 69	Kwak’wala	transcription	lagiłas q̓alida ʔisʔəliw̓inuχʷaq	page 25, NAPA
+2 69	Daniel J. Frim	segmentation	la-gił=as q̓a-əla=ida ʔis-ʔəlixʷ-inuχʷ=q	page 25
+2 69	Daniel J. Frim	gloss	go-REASON=GEN find-CONT=SBJ RED-sea.mammal.hunting-PROF=OBJ1.PRON	page 25
+2 69	Daniel J. Frim	gloss	reason knew the sea-mammal hunters it	page 25, word by word
+2 69	Franz Boas	translation	therefore the hunters know about them,	page 25, Boas (1935a)
+2 69	Daniel J. Frim	translation	reason why the sea-mammal hunters knew it [i.e. these events]	page 25, modified
+2 70	Kwak’wala	transcription	yExs ᵋnā́x̣waᵋmăe dṓqwElaqexs	page 25, Boas's orthography
+2 70	Kwak’wala	transcription	yəχs n̓axʷam̓əʔi duqʷəlaqiχs	page 25, NAPA
+2 70	Daniel J. Frim	segmentation	yə=χs n̓axʷ-a-m̓=əʔi duqʷ-əla=q=χs	page 25
+2 70	Daniel J. Frim	gloss	PRONOM=SUBORD all-?-OI=SUBORD.DEM see-CONT=OBJ1.PRON=SUBORD	page 25
+2 70	Daniel J. Frim	gloss	because all saw it when	page 25, word by word
+2 70	Franz Boas	translation	for they all saw them	page 25, Boas (1935a)
+2 70	Daniel J. Frim	translation	is because they all saw when	page 25, modified
+2 71	Kwak’wala	transcription	láe ḗk·!ołEla qaᵋs	page 25, Boas's orthography
+2 71	Kwak’wala	transcription	laʔi ʔik̓ułəla qaʔs	page 25, NAPA
+2 71	Daniel J. Frim	segmentation	la=əʔi ʔik̓-uł-əla qaʔ=s	page 25
+2 71	Daniel J. Frim	gloss	then=SUBORD.DEM up-GO.IN.DIRECTION-CONT PURP=3.POSS	page 25
+2 71	Daniel J. Frim	gloss	then they were going up and	page 25, word by word
+2 71	Franz Boas	translation	going up and	page 25, Boas (1935a)
+2 71	Daniel J. Frim	translation	they [i.e. the sea otter, Yaqila, and YayaGəχc̓a] went up and	page 25, modified
+2 72	Kwak’wala	transcription	läᵋ k!wEt!ā́LEla lax la ăxᵋā́tsa	page 26, Boas's orthography
+2 72	Kwak’wala	transcription	lɛʔ k̓ʷət̓aƛəla laχ la ʔəχʔaca	page 26, NAPA
+2 72	Daniel J. Frim	segmentation	la-iʔ k̓ʷət-gəʔaƛəla la=χ la ʔəχ-as=sa	page 26
+2 72	Daniel J. Frim	gloss	go-NMLZ stick.on83-SUDDENLY PREP=OBJ1 then be.in.position84-PLACE=GEN	page 26
+footnote 83	Daniel J. Frim	note	Boas (1948:304).	page 26, footnote 83
+footnote 84	Daniel J. Frim	note	Boas (1948:11).	page 26, footnote 84
+2 72	Daniel J. Frim	gloss	then suddenly stuck on to then place of the	page 26, word by word
+2 72	Franz Boas	translation	sticking where the place is of	page 26, Boas (1935a)
+2 72	Daniel J. Frim	translation	then suddenly stuck to the new place of	page 26, modified
+2 73	Kwak’wala	transcription	ălḗwadzâᵋye ḶEɛwá k!wā́ᵋmaᵋdzâᵋye	page 26, Boas's orthography
+2 73	Kwak’wala	transcription	ʔəliwazoy̓i λəw̓a k̓ʷam̓aʔzoy̓i	page 26, NAPA
+2 73	Daniel J. Frim	segmentation	ʔəlixʷ-zu-eʔ=i λuʔ=a k̓ʷa-?-zu-eʔ=i	page 26
+2 73	Daniel J. Frim	gloss	sea.mammal.hunting-FLAT-LOC1=DEM with=SBJ85 sit-?-FLAT-LOC1=DEM	page 26
+footnote 85	Daniel J. Frim	note	See Paragraph 5 in Boas (1947:256).	page 26, footnote 85
+2 73	Daniel J. Frim	gloss	Orion’s Belt and the Pleiades	page 26, word by word
+2 73	Franz Boas	translation	Orion and of the Pleiades	page 26, Boas (1935a)
+2 73	Daniel J. Frim	translation	Orion’s belt and the Pleiades	page 26, modified
+2 74	Kwak’wala	transcription	ḶEɛwá ā́ălḗwēᵋnâsEɛwe. wä,	page 26, Boas's orthography
+2 74	Kwak’wala	transcription	λəw̓a ʔaʔəlixʷin̓osəw̓i. wɛ	page 26, NAPA
+2 74	Daniel J. Frim	segmentation	λuʔ=a ʔa-ʔəlixʷ-in̓o-suʔ=i wɛ	page 26
+2 74	Daniel J. Frim	gloss	with=SBJ RED-sea.mammal.hunting-AT.PASSERBY-PASS=DEM well	page 26
+2 74	Daniel J. Frim	gloss	and the Orion. Well	page 26, word by word
+2 74	Franz Boas	translation	and of the one who joins in sea hunting.	page 26, Boas (1935a)
+2 74	Daniel J. Frim	translation	and Orion. Well,	page 26, modified
+2 75	Kwak’wala	transcription	hḗᵋmis g·ä́g·ELElats la Ḷḗg.adeda	page 27, Boas's orthography
+2 75	Kwak’wala	transcription	hem̓is gɛgəƛəlac la λiGadida	page 27, NAPA
+2 75	Daniel J. Frim	segmentation	he-m̓-wis gɛy86-gəƛəla-as=s la λiq-ad=ida	page 27
+footnote 86	Daniel J. Frim	note	Although Boas (1947:351) analyzes gɛgəƛəla as a derivative of the root gəy-, “to be somewhere” (Boas 1948:246), I believe that the root gɛy-, “to move from a certain place, to come from” (Boas 1948:252) better fits the meaning of the word (which Boas [1947:351] translates as, “to come from”).	page 27, footnote 86
+footnote 86	Kwak’wala	cited form	gɛgəƛəla	page 27, in italics
+footnote 86	Kwak’wala	cited form	gəy-	page 27, in italics
+footnote 86	Kwak’wala	cited form	gɛy-	page 27, in italics
+2 75	Daniel J. Frim	gloss	that-OI-CONN come.from87-MOTION88-PLACE=GEN then name-HAVE=SBJ	page 27
+footnote 87	Daniel J. Frim	note	Boas (1948:252).	page 27, footnote 87
+footnote 88	Daniel J. Frim	note	Cf. Boas’s (1947:242) gloss for this suffix: “country lying in a certain direction.”	page 27, footnote 88
+2 75	Daniel J. Frim	gloss	and so that is the origin of then had names the	page 27, word by word
+2 75	Franz Boas	translation	And so, from this	page 27, Boas (1935a)
+2 75	Daniel J. Frim	translation	and so that is the origin of [the fact that] then the stars had as names	page 27, modified
+2 76	Kwak’wala	transcription	t! ṓt!âses ḶḗḶEg.Em qaxs láe	page 27, Boas's orthography
+2 76	Kwak’wala	transcription	t̓ut̓osis λiλəGəm qaχs laʔi	page 27, NAPA
+2 76	Daniel J. Frim	segmentation	t̓ut̓u=as=is λi-λiq-əm qaʔ=χs la=əʔi	page 27
+2 76	Daniel J. Frim	gloss	star=OBJ2=3.POSS RED-name-PASS CAUSE=SUBORD then=SUBORD.DEM	page 27
+2 76	Daniel J. Frim	gloss	stars, their names because then	page 27, word by word
+2 76	Franz Boas	translation	these stars have their names, for	page 27, Boas (1935a)
+2 76	Daniel J. Frim	translation	their [current] names, because then	page 27, modified
+2 77	Kwak’wala	transcription	ts! Ek·! ā́łᵋideda ḗsᵋălḗwinoxwaxa g·ā́lä	page 27, Boas's orthography
+2 77	Kwak’wala	transcription	c̓ək̓ałʔidida ʔisʔəliw̓inuχʷaχa galɛ	page 27, NAPA
+2 77	Daniel J. Frim	segmentation	c̓ək̓ał-xʔid=ida ʔis-ʔəlixʷ-inuχʷ=aχa gal-a=i	page 27
+2 77	Daniel J. Frim	gloss	tell.news89-MOM=SBJ RED-sea.mammal.hunting-PROF=OBJ1 first-?=DEM	page 27
+footnote 89	Daniel J. Frim	note	Boas (1948:210).	page 27, footnote 89
+2 77	Daniel J. Frim	gloss	told the news the sea-mammal hunters the first	page 27, word by word
+2 77	Franz Boas	translation	the sea hunters told the first	page 27, Boas (1935a)
+2 77	Daniel J. Frim	translation	the sea-mammal hunters told as news to the first	page 27, modified
+2 78	Kwak’wala	transcription	g.ṓsg·imux̣wa yEs g.wḗx· ɛidăasax yā́qela	page 28, Boas's orthography
+2 78	Kwak’wala	transcription	Gusgimuxʷa yəs Gwixʔidəʔasaχ yaqila	page 28, NAPA
+2 78	Daniel J. Frim	segmentation	Gus-giməxʷ=a yə=s Gwi-xʔid-as=aχ ?	page 28
+2 78	Daniel J. Frim	gloss	?-?=DEM PRONOM=OBJ2 thus-MOM-WAY.OF90=OBJ1 PN	page 28
+footnote 90	Daniel J. Frim	note	Boas (1947:318–319).	page 28, footnote 90
+2 78	Daniel J. Frim	gloss	Gusgimuxʷ regarding that matter Yaqila	page 28, word by word
+2 78	Franz Boas	translation	Koskimo all that happened to Yaqela	page 28, Boas (1935a)
+2 78	Daniel J. Frim	translation	Gusgimuxʷ regarding the matter of Yaqila	page 28, modified
+2 79	Kwak’wala	transcription	Ḷōᵋ yā́yag.Exts!a ḶEɛwís mṓkwe lḗElota.	page 28, Boas's orthography
+2 79	Kwak’wala	transcription	λuʔ yayaGəχc̓a λəw̓is mukʷi liʔəluta.91	page 28, NAPA
+footnote 91	Daniel J. Frim	note	This word is a plural form exhibiting stem modification (see Boas 1947:248–249).	page 28, footnote 91
+2 79	Daniel J. Frim	segmentation	λuʔ ? λuʔ=is mu-ukʷ=i lilut=a	page 28
+2 79	Daniel J. Frim	gloss	with PN with=3.POSS four-HUMAN=DEM fellow.riding92=DEM	page 28
+footnote 92	Daniel J. Frim	note	Here, I follow Boas (1948:402) in glossing this form as “fellow riding.” The word lilut, which is the singular form of liʔəluta (Boas 1948:402), may be derived via reduplication from la-, “go” (following, roughly, the reduplication pattern described by Boas [1947:248–249] for words beginning with the sounds m, n, l, ł, and ƛ) combined with the suffix -ut, “fellow.” The resulting word undergoes further reduplication to yield liʔəluta, the plural form that appears in “Star Story.”	page 28, footnote 92
+footnote 92	Kwak’wala	cited form	liʔəluta	page 28, in italics
+footnote 92	Kwak’wala	cited form	ł	page 28, in italics
+footnote 92	Kwak’wala	cited form	ƛ	page 28, in italics
+footnote 92	Kwak’wala	cited form	-ut	page 28, in italics
+2 79	Daniel J. Frim	gloss	with YayaGəχc̓a with their four fellow passengers.	page 28, word by word
+2 79	Franz Boas	translation	and Yā́yag.Exts!a and the four men of their crew,	page 28, Boas (1935a)
+2 79	Daniel J. Frim	translation	and YayaGəχc̓a and their four fellow passengers.	page 28, modified
+2 80	Kwak’wala	transcription	wä, laᵋÉm lā́ba.	page 28, Boas's orthography
+2 80	Kwak’wala	transcription	wɛ laʔəm laba.	page 28, NAPA
+2 80	Daniel J. Frim	segmentation	wɛ la-m̓ la-ba	page 28
+2 80	Daniel J. Frim	gloss	well then-OI go-HORIZ.END	page 28
+2 80	Daniel J. Frim	gloss	Well and then it has gone to the end.93	page 28, word by word
+footnote 93	Daniel J. Frim	note	I have borrowed this translation (which I also use in my sentence-level translation tier) directly from Berman (1991:337).	page 28, footnote 93
+2 80	Franz Boas	translation	and that is the end.	page 28, Boas (1935a)
+2 80	Daniel J. Frim	translation	Well, and then it has gone to the end.	page 28, modified
+§3	Daniel J. Frim	heading	3 List of abbreviated suffixes	page 28
+§3	Daniel J. Frim	note	3.POSS: Third-person possessive (borrowed from Rosenblum 2013). See Boas (1947:254) and Anderson (1984:29–30).	page 28, an entry of the list
+§3	Daniel J. Frim	name	Anderson	Stephen R. Anderson, Kwakwala syntax (1984)
+§3	Daniel J. Frim	note	CONN: Connective (borrowed from Rosenblum 2013). See Boas (1947:338) and Berman (1991:370–380).	page 29, an entry of the list
+§3	Daniel J. Frim	note	CONT: Continuative aspect (borrowed from Rosenblum 2013). See Boas (1947:291, 306–307) and Black and Greene (2010).	page 29, an entry of the list
+§3	Daniel J. Frim	name	Black	Anne Black, Aktionsart in Kwak’wala with Greene (2010)
+§3	Daniel J. Frim	name	Greene	H. Greene, Aktionsart in Kwak’wala with Black (2010)
+§3	Daniel J. Frim	note	DEM: Demonstrative (borrowed from Rosenblum 2013). See Boas (1947:527– 528) and Nicolson and Werle (2009:25–30).	page 29, an entry of the list
+§3	Daniel J. Frim	name	Nicolson	Marianne Nicolson, Kwakw’ala determiners with Werle (2009)
+§3	Daniel J. Frim	name	Werle	Adam Werle, Kwakw’ala determiners with Nicolson (2009)
+§3	Daniel J. Frim	note	DIM: Diminutive (borrowed from Rosenblum 2013). See Boas (1947:301).	page 29, an entry of the list
+§3	Daniel J. Frim	note	FLAT: This gloss labels the suffix -zu, which denotes flat surfaces (such as, in “Star Story,” the sky (Boas 1947:212)). See Boas (1947:345).	page 29, an entry of the list
+§3	Daniel J. Frim	note	HORIZ.END: This gloss labels the suffix -ba, denoting the “end of a long horizontal object” (Boas 1947:336).	page 29, an entry of the list
+§3	Daniel J. Frim	note	INCL.POSS: Inclusive possessive (both parts of this composite gloss are borrowed from Rosenblum 2013). This gloss labels forms indicating joint possession by both the speaker and addressee (Boas 1947:251).	page 29, an entry of the list
+§3	Daniel J. Frim	note	GEN: Genitive (borrowed from Rosenblum 2013; see also Boas 1947:259).	page 29, an entry of the list
+§3	Daniel J. Frim	note	GN: Geographic name.	page 29, an entry of the list
+§3	Daniel J. Frim	note	LOC1, LOC2, LOC3: See Section 1 Introduction above.	page 29, an entry of the list
+§3	Daniel J. Frim	note	LONG: This gloss is used to label the suffix -c̓aq, which normally functions as a classifier that attaches to numerals used to count “long” objects (Boas 1947:240, 346). Regarding Kwak’wala “numeral classifiers,” see Berman (1990:2–11).	page 29, an entry of the list
+§3	Daniel J. Frim	note	MOM: Momentaneous aspect (borrowed from Rosenblum 2013). See Boas (1947:290-291) and Black and Greene (2010).	page 29, an entry of the list
+§3	Daniel J. Frim	note	NMLZ: “Nominalizer” (borrowed from Rosenblum 2013). I have used this gloss to label the suffix -iʔ, which can turn a verbal form into a noun that means, roughly, “the act of [verb]ing” (Katie Sardinha and Patrick Littell, personal communications; see Boas (1947:274) with regard to the use of the nominalizing suffix -iʔ in verbs following the purposive qaʔ-).	page 29, an entry of the list
+§3	Kwak’wala	cited form	-iʔ	page 29, in italics
+§3	Kwak’wala	cited form	qaʔ-	page 29, in italics
+§3	Daniel J. Frim	name	Katie Sardinha	a personal communication on -iʔ
+§3	Daniel J. Frim	note	NOM: Nominal. I have used this gloss to label the suffix -nəm, which appears at the end of some nouns and which Boas (1947:347) describes as a “nominal formative suffix.” I do not know whether this suffix carries specific meaning beyond its function of turning roots into nouns.	page 29, an entry of the list
+§3	Kwak’wala	cited form	-nəm	page 29, in italics
+§3	Daniel J. Frim	note	OBJ1: “Primary object” (borrowed from Rosenblum 2013). OBJ1 is equivalent to what Boas describes as the “objective” case. See Boas (1947:284–286) and Rosenblum (2013:231–233).	page 29, an entry of the list
+§3	Daniel J. Frim	note	OBJ2: “Secondary object” (borrowed from Rosenblum 2013). OBJ2 is equivalent to what Boas describes as the “instrumental” case. See Boas (1947:284–286) and Rosenblum (2013:231-233).	page 30, an entry of the list
+§3	Daniel J. Frim	note	OI: “Old (known) information” (borrowed from Rosenblum 2013:253). See Boas (1947:335) and Berman (1991:374–380).	page 30, an entry of the list
+§3	Daniel J. Frim	note	PASS: Passive (borrowed from Rosenblum 2013). See Boas (1947:241), Levine (1980), and Rosenblum (2013).	page 30, an entry of the list
+§3	Daniel J. Frim	name	Levine	Robert Levine, the Kwakwala passive (1980)
+§3	Daniel J. Frim	note	PAST: I have used this gloss to label the past-tense suffix -xdi, which denotes the “transition from present to past, from existence to non-existence,” or pluperfect tense (Boas 1947:367; see also Boas 1947:288, 290).	page 30, an entry of the list
+§3	Daniel J. Frim	note	PN: Personal name.	page 30, an entry of the list
+§3	Daniel J. Frim	note	PREP: Preposition. See Anderson (1984:25) and Rosenblum (2014). See, also, Boas’s comments regarding “indirect objects” (i.e. prepositional phrases) (Boas 1947:255, 285).	page 30, an entry of the list
+§3	Daniel J. Frim	note	PROF: Professional. I have used this gloss to label the suffix -inuχʷ, which can mean, “a person who does an act habitually, professionally” (Boas 1947:326).	page 30, an entry of the list
+§3	Kwak’wala	cited form	-inuχʷ	page 30, in italics
+§3	Daniel J. Frim	note	PRON: Pronoun. I add this gloss to OBJ1 and OBJ2 when the morpheme that is being identified is a pronoun, rather than a prenominal form. A prenominal form indicates the case and deictic proximity of the noun that follows; a pronoun stands in place of a noun, indicating case as well as, sometimes, deictic proximity and visibility (see the tables in Boas 1947:252–253; deictic/visibility-marking third- person pronouns are listed in Table IIa (1947:252), as well as in Boas’s introduction to the section entitled “Paradigms” (1947:260)). Regarding the distinction between prenominal forms and pronouns, see Boas (1947:281). See, also, Rosenblum (2013:231–232).	page 30, an entry of the list
+§3	Daniel J. Frim	note	PRONOM: Pronominal. In contrast with PRON, which labels pronominal clitics, I use PRONOM to gloss word-initial elements that Boas (1947:257–258) terms “nominal or adjectival forms” of the “independent personal pronoun.”	page 30, an entry of the list
+§3	Daniel J. Frim	note	PURP: Purposive (borrowed from Rosenblum 2013). See Boas (1947:274).	page 30, an entry of the list
+§3	Daniel J. Frim	note	QUOT: Quotative (borrowed from Rosenblum 2013). See Boas (1910b:496, 1947:245, 377) and Berman (1991:357–369).	page 30, an entry of the list
+§3	Daniel J. Frim	note	RED: Reduplication (borrowed from Rosenblum 2013). “Plurality, repetition, [and] distribution are expressed,” in many cases, via reduplication, but “Many suffixes require some form of reduplication or of stem expansion, not only those [suffixes] implying some kind of repetition” (Boas 1947:219). Regarding patterns of reduplication and other forms of stem modification, see Boas (1947:220–223, 232–234, 246–251). Regarding the expression of plurality in Kwak’wala, see Boas (1932, 1947:206, 291–294).	page 30, an entry of the list
+§3	Daniel J. Frim	note	SEQ: Sequential (borrowed from Rosenblum 2013). I have used this gloss to label the auxiliaries la- and gaχ-. See Berman (1991:324–336).	page 31, an entry of the list
+§3	Kwak’wala	cited form	la-	page 31, in italics
+§3	Kwak’wala	cited form	gaχ-	page 31, in italics
+§3	Daniel J. Frim	note	SBJ: Subject (borrowed from Rosenblum 2013).	page 31, an entry of the list
+§3	Daniel J. Frim	note	SUBORD: Subordination. I use this gloss to label the subordinating clitic =χs and associated demonstrative clitics (the latter are glossed as ‘SUBORD.DEM’). See Boas (1947:274–275).	page 31, an entry of the list
+§3	Kwak’wala	cited form	=χs	page 31, in italics
+§3	Daniel J. Frim	note	TRANS: Transitivizer. I have used this gloss to label the transitive suffix that takes the forms -d, -nd, and -ud depending on its phonetic environment (Boas 1947:273, 365).	page 31, an entry of the list
+§3	Kwak’wala	cited form	-nd	page 31, in italics
+§3	Kwak’wala	cited form	-ud	page 31, in italics
+references	Daniel J. Frim	heading	References	page 31
+references	Daniel J. Frim	reference	Anderson, S. R. (1984). Kwakwala Syntax and the Government-Binding Theory. In Eung-Do Cook and Donna Gerdts (eds.), Syntax and Semantics 16: The Syntax of Native American Languages, pp. 21–75. New York: Academic Press.	page 31
+references	Daniel J. Frim	reference	Berman, J. (1983). Three Discourse Elements in Boas’ Kwakw’ala Texts. In Papers for the XVIIIth International Conference on Salish and Neighboring Languages, pp. 1–52. Seattle: University of Washington Working Papers in Linguistics.	page 31
+references	Daniel J. Frim	reference	Berman, J. (1990). Notes on Shape-Classification in Kwakw’ala. In Papers for the XXVth International Conference on Salish and Neighboring Languages, pp. 37–60. Vancouver: UBC Press.	page 31
+references	Daniel J. Frim	reference	Berman, J. (1991). The seals’ sleeping cave: The interpretation of Boas’ Kwakw’ala texts (doctoral dissertation, University of Pennsylvania). Retrieved from Proquest.	page 31
+references	Daniel J. Frim	reference	Berman, J. (1992). Oolachan-Woman’s Robe: Fish, Blankets, Masks, and Meaning in Boas’ Kwakw’ala Texts. In B. Swann (ed.), On the Translation of Native American Literatures, pp. 125–162. Washington: Smithsonian Institution.	page 31
+references	Daniel J. Frim	reference	Berman, J. (1994). George Hunt and the Kwak’wala Texts. Anthropological Linguistics 36:483–514.	page 31
+references	Daniel J. Frim	reference	Black, A. and H. Greene. (2010). The Role of Aktionsart: Redefining the Tense and Aspectual Grammar of Kwak’wala. In A. Cooper, E. Görgülü, E. Mileva, and D. Potter (eds.), Proceedings of the 26th Northwest Linguistics Conference. Burnaby: SFU Linguistics Graduate Student Association.	page 31
+references	Daniel J. Frim	reference	Boas, F. (1900). Sketch of the Kwakiutl Language. American Anthropologist 2:708–721.	page 31
+references	Daniel J. Frim	reference	Boas, F. (1901). The Eskimo of Baffin Land and Hudson Bay. Bulletin of the American Museum of Natural History 15:1–370.	page 32
+references	Daniel J. Frim	reference	Boas, F. (1904). The Folk-Lore of the Eskimo. The Journal of American Folklore 17:1–13.	page 32
+references	Daniel J. Frim	reference	Boas, F. (1910a). Kwakiutl Tales. New York: Columbia University Press.	page 32
+references	Daniel J. Frim	reference	Boas, F. (1910b). Kwakiutl: An Illustrative Sketch. Washington: Government Printing Office.	page 32
+references	Daniel J. Frim	reference	Boas, F. (1932). Note on Some Recent Changes in the Kwakiutl Language. International Journal of American Linguistics 7:90–93.	page 32
+references	Daniel J. Frim	reference	Boas, F. (1935a). Kwakiutl Tales: New Series, Part I – Translations. New York: Columbia University Press.	page 32
+references	Daniel J. Frim	reference	Boas, F. (1935b). Kwakiutl Culture as Reflected in Mythology. New York: Stechert.	page 32
+references	Daniel J. Frim	reference	Boas, F. (1943). Kwakiutl Tales: New Series, Part II – Texts. New York: Columbia University Press.	page 32
+references	Daniel J. Frim	reference	Boas, F. (1947). Kwakiutl Grammar with a Glossary of the Suffixes. Transactions of the American Philosophical Society 37:203–337.	page 32
+references	Daniel J. Frim	reference	Boas, F. (1948). Kwakiutl Dictionary. Unpublished manuscript, American Philosophical Society.	page 32
+references	Daniel J. Frim	reference	Boas, F. (1966). Kwakiutl Ethnography. Helen Codere (ed.). Chicago: The University of Chicago Press.	page 32
+references	Daniel J. Frim	reference	Boas, F. and G. Hunt. (1905). Kwakiutl Texts. New York: Stechert.	page 32
+references	Daniel J. Frim	reference	Boas, F. and G. Hunt. (1906). Kwakiutl Texts, New Series. New York: Stechert.	page 32
+references	Daniel J. Frim	reference	Codere, H. (1990). Kwakiutl: Traditional Culture. In W. Suttles and W. C. Sturtevant (eds.), Handbook of North American Indians, Volume 7: Northwest Coast, pp. 359–377. Washington: Smithsonian Institution.	page 32
+references	Daniel J. Frim	reference	Galois, P. (1994). Kwakwaka’wakw Settlements, 1775–1920: A Geographical Analysis and Gazetteer. Vancouver: UBC Press.	page 32
+references	Daniel J. Frim	reference	Levine, R. (1980). On the Lexical Origin of the Kwakwala Passive. International Journal of American Linguistics 46:240–258.	page 32
+references	Daniel J. Frim	reference	Lincoln, N. and J. Rath. (1981). North Wakashan Comparative Root List. Ottawa: National Museum of Man.	page 32
+references	Daniel J. Frim	reference	Littell, P. (2012). The Content of Copulas in Kwak’wala.” In E. Bogal-Allbritten (ed.), Proceedings of the Sixth Conference on the Semantics of Under-Represented Languages in the Americas and SULA-Bar. Amherst: University of Massachusetts.	page 32
+references	Daniel J. Frim	reference	Nicolson, M. and A. Werle. (2009). An Investigation of Modern Kwakw’ala Determiner Systems. Unpublished manuscript, University of Victoria.	page 32
+references	Daniel J. Frim	reference	Rosenblum, D. (2013). Passive Constructions in Kʷak̓ʷala. In J. Sylak-Glassman and J. Spence (eds.), Structure and Contact in Languages of the Americas, pp. 229–278. Berkeley: The Survey of California and Other Indian Languages.	page 33
+references	Daniel J. Frim	reference	Rosenblum, D. (2014). The Grammar of Space in Kʷak̓ʷala. Unpublished doctoral dissertation, University of California, Santa Barbara.	page 33
+references	Daniel J. Frim	reference	School District 85 First Nations Education Council. (2010). Appendix E: Kwak̓wala Alphabets. In Kwak̓wala 5 to 12: Integrated Resource Package 2010. School District 85 First Nations Education Council.	page 33

@@ -1,0 +1,929 @@
+where	who	kind	form	gloss
+front	Henry Davis and Sander Nederveen	title	Hli, Focus and Relativization in Gitksan	page 1, carries footnote *
+front	Henry Davis and Sander Nederveen	byline	Henry Davis and Sander Nederveen, University of British Columbia	page 1, the two authors side by side, each over University of British Columbia, Sander Nederveen carrying footnote 1
+front	Henry Davis and Sander Nederveen	name	Henry Davis	author, University of British Columbia
+front	Henry Davis and Sander Nederveen	name	Sander Nederveen	author, University of British Columbia
+front	Henry Davis and Sander Nederveen	note	Abstract: There are two parts to this paper. In the first, we give an overview of the various uses of the particle hli in Interior Tsimshianic (IT), drawing on previous research as well as both textual and directly elicited examples. We classify the function of hli into three broad types, “nominal”, “subordinating”, and “relativizing”, each of which contains several subtypes. We find much variation between speakers, with many uses of hli either lexicalized or semantically bleached. In the second part of the paper, we conduct a detailed examination of hli in A’-movement configurations. Our investigation leads us to the conclusion that there are two distinct syntactically active uses of hli, one in relative clauses and one in focus fronting structures. We provide evidence that in both cases, hli is a complementizer, and give a detailed account of its interaction with WH-relative pronouns, which leads us to distinguish the latter from interrogative-indefinite WH-words. The result is a comprehensive account of the various surface forms of relative clause in IT, which also extends naturally to relativization in Sm’algyax (Coast Tsimshian).	page 1, the abstract
+front	Henry Davis and Sander Nederveen	note	Keywords: Gitksan, Tsimshianic, relative clauses, focus, A’-movement	page 1
+front	Henry Davis and Sander Nederveen	note	Papers for the International Conference on Salish and Neighboring Languages 56. D. K. E. Reisinger, Hannah Green, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2021.	page 1, the journal header at the foot of the page
+front	Henry Davis and Sander Nederveen	language	Gitksan	the language of the paper, Interior Tsimshianic
+front	Henry Davis and Sander Nederveen	language	Nisga’a	Interior Tsimshianic, with Gitksan
+front	Henry Davis and Sander Nederveen	language	Sm’algyax	Coast Tsimshian
+§1	Henry Davis and Sander Nederveen	heading	1 Introduction	page 1
+§1	Gitksan	cited form	hli	page 1
+§1	Henry Davis and Sander Nederveen	note	The particle hli has multiple uses in Interior Tsimshianic (IT), none of them easy to elucidate.1,2 This is reflected in the nomenclature used to label it. Rigsby (1986:399) refers to it as a ‘DEFinite prefix’ in Gitksan, though it is neither definite nor a prefix (the idea that it is connected to definiteness probably comes from its use in possessive constructions, since possessors are typically definite). Tarpent (1987:471) calls it ‘RESTrictive’ in Nisga’a, presumably on the basis that it narrows down the reference of a nominal, though even that very broad definition fails to account for all of its uses, not all of which involve nominals.	page 1
+§1	Gitksan	cited form	hli	page 1
+§1	Henry Davis and Sander Nederveen	note	There are two parts to this paper. In the first (Section 2), we give an overview of the various uses of hli in IT, drawing on previous research (particularly Tarpent’s 1987 grammar of Nisga’a) as well as both textual and directly elicited examples from Gitksan. We classify the function of hli into three broad types, ‘nominal’, ‘subordinating’, and ‘relativizing’, each of which contains several subtypes. We find much variation between speakers, with many uses of hli either lexicalized or semantically bleached.	page 1, runs on to page 2
+footnote *	Henry Davis and Sander Nederveen	note	* Our work would be literally impossible without the patience, insight, and generosity of our Gitksan consultants Vincent Gogag, Hector Hill, and Barbara Sennott. The last year has been a difficult one for fieldwork, and we really appreciate their willingness to work with us online, while simultaneously dealing with a truly frightening pandemic. For this paper, we are particularly indebted to Vince, whose unflagging cheerfulness in dark times has been a real inspiration to us. We would also like to thank the UBC Gitksan Research Laboratory, and Clarissa Forbes and Michael Schwan in particular for very helpful support and feedback. All errors of fact and interpretation belong to us. This work has been supported by a Jacobs Research Funds Group Grant (Lisa Matthewson, PI). Contact information: henry.davis@ubc.ca; sander.nederveen@ubc.ca.	page 1, footnote
+footnote *	Henry Davis and Sander Nederveen	name	Vincent Gogag	a Gitksan consultant, VG
+footnote *	Henry Davis and Sander Nederveen	name	Hector Hill	a Gitksan consultant, HH
+footnote *	Henry Davis and Sander Nederveen	name	Barbara Sennott	a Gitksan consultant, BS
+footnote 1	Henry Davis and Sander Nederveen	note	1 As far as we can see, hli is completely absent in the Maritime branch of Tsimshianic; its role in nominal contexts is partly filled by the possessive proclitic na, though the latter has a rather different distribution: it never occurs as a relativizer, for example.	page 1, footnote
+footnote 1	Gitksan	cited form	hli	page 1
+footnote 2	Henry Davis and Sander Nederveen	note	2 Pronunciation of the particle varies from [ɬɩ] (hli) to [ɬa] (hla), with the vowel in the latter predictably raised to [ɬɛ] (hle) in western dialects of Gitksan.	page 1, footnote
+footnote 2	Gitksan	cited form	hli	page 1
+§1	Gitksan	cited form	hli	page 2
+§1	Henry Davis and Sander Nederveen	note	In the second part of the paper (Section 3), we conduct a detailed examination of hli in relative clauses, focusing on its use by VG, the only one of our principal Gitksan consultants to employ it productively. Our investigation leads to the conclusion that at least for VG there are two distinct uses of hli, one in relative clauses and one in focus fronting structures. We provide evidence that in both cases, hli is a complementizer, and give a detailed account of its interaction with WH- relative pronouns, which leads us to distinguish the latter from interrogative-indefinite WH-words. The result is a comprehensive account of the various surface forms of relative clause in IT, which extends naturally to relativization in Sm’algyax (Coast Tsimshian).	page 2
+§1	Henry Davis and Sander Nederveen	note	Section 4 concludes.	page 2
+§2	Henry Davis and Sander Nederveen	heading	2 An overview of hli in Interior Tsimshianic	page 2
+§2	Gitksan	cited form	hli	page 2
+§2	Henry Davis and Sander Nederveen	note	In this section, we give a catalogue of the principal uses of hli. Subsections 2.1–2.4 deal with nominal uses, 2.5–2.7 with subordinating uses, and 2.8–2.10 with relativizing uses.	page 2
+§2.1	Henry Davis and Sander Nederveen	heading	2.1 Hli on possessed nouns	page 2
+§2.1	Gitksan	cited form	hli	page 2
+§2.1	Henry Davis and Sander Nederveen	note	Perhaps the core nominal use of hli, present in Nisga’a and for all speakers of Gitksan, is on possessed nouns. There are two cases to consider here: those where hli introduces a noun with ordinary (Series II) possessor marking, and those where it induces an additional ‘increment’ (the term is Rigsby’s), identified by Tarpent (1987) as the ubiquitous — and enigmatic — morpheme ‘Big T’. (Tarpent dubs Big T ‘DEFinite medial’; we will simply label it -T).3	page 2
+§2.1	Gitksan	cited form	hli	page 2
+§2.1	Gitksan	cited affix	-T	page 2
+§2.1	Henry Davis and Sander Nederveen	note	Tarpent (1987) claims that while both these cases are broadly partitive, there is a semantic difference between them in Nisga’a. With hli plus -T, the possessive relation is what she calls ‘generic’, by which she appears to mean that the possessor forms an intrinsic (inalienable) part of the possessed noun.	page 2
+(1a) line 1	Nisga’a	segmentation	hla gan-di=hl gan	page 2
+(1a) line 2	Nisga’a	gloss	HLI tree-T[-3.II]=CN tree	page 2
+(1a) line 3	Henry Davis and Sander Nederveen	translation	‘the trunk of the/a tree’	page 2
+(1b) line 1	Nisga’a	segmentation	hla meeg-a=hl sginist	page 3
+(1b) line 2	Nisga’a	gloss	HLI cone-T[-3.II]=CN pine	page 3
+(1b) line 3	Henry Davis and Sander Nederveen	translation	‘the cones of a pine tree’	page 3
+(1b) line 3	Henry Davis and Sander Nederveen	citation	(Nisga’a: Tarpent 1987:472)	the tag or source at the right of the translation
+footnote 3	Henry Davis and Sander Nederveen	note	3 The name ‘Big T’ derives from Tarpent’s gloss -T, used as a cover term for the surface allomorphs, -d (-t), -i (-ə), and -di (-tə). See Tarpent (1987:634).	page 2, footnote
+footnote 3	Gitksan	cited affix	-d (-t)	page 2
+footnote 4	Henry Davis and Sander Nederveen	note	4 We gloss the sequence -di (tə) simply as -T here, without segmenting it further. Tarpent (1987) analyzes the consonantal onset as epenthetic, with -T itself surfacing as schwa. Since -T may actually lack any fixed content, we remain neutral as to its exact phonological analysis here.	page 2, footnote
+footnote 4	Gitksan	cited affix	-di (tə)	page 2
+footnote 4	Gitksan	cited affix	-T	page 2
+footnote 5	Henry Davis and Sander Nederveen	note	5 Examples are given in the Hindle-Rigsby practical orthography widely employed in Gitksan and Nisga’a territory, and also adopted in a slightly modified form throughout Sm’algyax territory. Glossing abbreviations are as follows: 1, 2, 3 = first, second, and third person, respectively, I, II, and III = Series I (clitic), Series II (suffixal), and Series III (independent) pronouns, respectively, ABSN = absent, AFF = affirmative marker, ANTIP = antipassive, ASSOC = associative plural, ATTR = attributive, AX = A (transitive subject) extraction marker, CAUS = causative suffix, CAUS1 = causative prefix, CCNJ = clausal conjunction, CN = common noun connective, COM = comitative, COMP = complementizer, DEM = demonstrative, HLI = hli, IMPS = impersonal, INCEP = inceptive aspect, INDEF = indefinite, INTJ = interjection, IRR = irrealis, LOC = locative, MANR = manner, NEG = negation, NMLZ = nominalizer, OBL = oblique, PCNJ = phrasal conjunction, PL = plural, PN = proper noun connective, POSS = possessive, PR.EV = previous evidence, PROSP = prospective aspect, PROX = proximal, REPORT = reportative enclitic, RSTR = restrictive, SG = singular, SPT = spatio-temporal, SX = S (intransitive subject) extraction marker, T = ‘Big T’, TR = transitive marker (independent clauses and object relatives), VAL = valency suffix, YNQ = yes-no question enclitic. Affixes are marked by hyphens (-), clitics by equals signs (=), a tilde (~) separates reduplicants, and pre- verbs and pre-nouns are marked with a plus sign (+). Material which is underlying present but has been deleted by a regular morphophonological rule is marked by square brackets […] in the gloss line only; material which is deleted in fast or casual speech but may be restored in slower or more formal speech is marked by square brackets […] in both the orthographic representation and the gloss line.	page 2, footnote
+§2.1	Gitksan	cited affix	-T	page 3
+§2.1	Gitksan	cited form	hli	page 3
+§2.1	Henry Davis and Sander Nederveen	note	Without -T, Tarpent (1987) claims that the possessive relation induced by hli is ‘non-generic’, and more specifically that the possessor is conceived of “as a part separate from the whole” (in other words, what we might refer to as “alienated” possession). Examples are given in (2)–(3).	page 3
+(2) line 1	Nisga’a	segmentation	hli maas=hl sguusiit	page 3
+(2) line 2	Nisga’a	gloss	HLI peel[-3.II]=CN potato	page 3
+(2) line 3	Henry Davis and Sander Nederveen	translation	‘the peel of potatoes, potato peelings’	page 3
+(2) line 3	Henry Davis and Sander Nederveen	citation	(Nisga’a: Tarpent 1987:472)	the tag or source at the right of the translation
+(3) line 1	Nisga’a	segmentation	Gu’ws-im-muus=hl wag-i’y ii=t gin-i’m	page 3
+(3) line 2	Nisga’a	gloss	shoot-ATTR-moose=CN elder.brother-1SG.II CCNJ=3.I give.food.to-1PL.II	page 3
+(3) line 3	Nisga’a	segmentation	a=hl [hl]i t’imges-t.	page 3
+(3) line 4	Nisga’a	gloss	OBL[-3.II]=CNN HLI head-3.II	page 3
+(3) line 5	Henry Davis and Sander Nederveen	translation	‘My brother killed a moose and gave us its head.’	page 3
+(3) line 5	Henry Davis and Sander Nederveen	citation	(Nisga’a: Tarpent 1987:168)	the tag or source at the right of the translation
+§2.1	Gitksan	cited affix	-T	page 3
+§2.1	Henry Davis and Sander Nederveen	note	We have not been able to replicate this finding consistently for Gitksan. For example, Rigsby (1986) gives the following example with -T:	page 3
+(4) line 1	Gitksan	segmentation	lha hab-i=hl an-jam	page 3
+(4) line 2	Gitksan	gloss	HLI cover-T[-3.II]=CN NMLZ-boil	page 3
+(4) line 3	Henry Davis and Sander Nederveen	translation	‘the lid of the kettle’	page 3
+(4) line 3	Henry Davis and Sander Nederveen	citation	(Rigsby 1986:399)	the tag or source at the right of the translation
+§2.1	Gitksan	cited affix	-T	page 3
+§2.1	Henry Davis and Sander Nederveen	note	Following Tarpent (1987), we might interpret this to mean that the lid is an inalienable part of the kettle. However, lids can also be alienated (by being removed and lost, or being used for a different purpose, for example) and in that case we predict that -T should disappear. When we tested this contrast with VG, however, there was no difference between these cases: -T was invariably present.	page 3
+(5a) line 1	Henry Davis and Sander Nederveen	note	Context: You can’t get the lid off the kettle.	page 3, the context
+(5a) line 2	Gitksan	segmentation	Gos ji=n saa+guu-di=hl hla habax-a=hl an-jem.	page 3
+(5a) line 3	Gitksan	gloss	impossible IRR=1SG.I off+take-T[-3.II]=CN HLI cover-T[-3.II]=CN NMLZ-boil	page 3
+(5a) line 4	Vincent Gogag	translation	‘I can’t get the lid off the kettle.’	page 3
+(5a) line 4	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+(5b) line 1	Henry Davis and Sander Nederveen	note	Context: You can’t find the lid of the kettle.	page 4, the context
+(5b) line 2	Gitksan	segmentation	Gos ji=n ‘we=hl hla habax-a=hl an-jem.	page 4
+(5b) line 3	Gitksan	gloss	impossible IRR=1SG.I find[-3.II]=CN HLI cover-T[-3.II]=CN NMLZ-boil	page 4
+(5b) line 4	Vincent Gogag	translation	‘I can’t find the lid of the kettle.’	page 4
+(5b) line 4	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+(5c) line 1	Henry Davis and Sander Nederveen	note	Context: You’re using the lid of the kettle as something else entirely.	page 4, the context
+(5c) line 2	Gitksan	segmentation	Hooy-i-‘y=hl hla habax-a=hl an-jem dim win=in	page 4
+(5c) line 3	Gitksan	gloss	use-TR-2SG.II=CN HLI cover-T[-3.II]=CN NMLZ-boil PROSP COMP=1SG.I	page 4
+(5c) line 4	Gitksan	segmentation	k’ag-a=hl anluugoyp’ax.	page 4
+(5c) line 5	Gitksan	gloss	open-T[-3.II]=CN window	page 4
+(5c) line 6	Vincent Gogag	translation	‘I’m using the lid of the kettle to keep the window open.’	page 4
+(5c) line 6	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+§2.1	Gitksan	cited affix	-T	page 4
+§2.1	Henry Davis and Sander Nederveen	note	The same is true for Tarpent (1987)’s example (2), where -T appears when potato peelings have been alienated — i.e., removed from the potato. Again, the prediction is that when still on the potato (i.e., as an inalienable part), -T should be absent. This is not, however, what we find: for VG, -T is present in both cases.	page 4
+(6a) line 1	Henry Davis and Sander Nederveen	note	Context: I’m about to peel some potatoes. You say:	page 4, the context
+(6a) line 2	Gitksan	segmentation	Am hli maas-i=hl sguusiit loo-n: ha’w mi=ji	page 4
+(6a) line 3	Gitksan	gloss	good HLI peel-T[-3.II]=CN potato OBL-2SG.II don’t 2SG.I=IRR	page 4
+(6a) line 4	Gitksan	segmentation	ksi+maas-t	page 4
+(6a) line 5	Gitksan	gloss	off+peel-3.II	page 4
+(6a) line 6	Vincent Gogag	translation	‘Potato peel is good for you: don’t take the peel off.’	page 4
+(6a) line 6	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+(6b) line 1	Henry Davis and Sander Nederveen	note	Context: I’ve just finished peeling some potatoes. You say:	page 4, the context
+(6b) line 2	Gitksan	segmentation	Ksi+xhlu-xws hli maas-i=hl sguusiit.	page 4
+(6b) line 3	Gitksan	gloss	off+throw-VAL HLI peel-T[-3.II]=CN potato	page 4
+(6b) line 4	Vincent Gogag	translation	‘Throw the potato peel out.’	page 4
+(6b) line 4	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+§2.1	Gitksan	cited affix	-T	page 4
+§2.1	Gitksan	cited form	hli	page 4
+§2.1	Gitksan	cited form	gedit	page 4
+§2.1	Gitksan	cited form	hli hlgit	page 4
+§2.1	Henry Davis and Sander Nederveen	note	More broadly, it is difficult to find a consistent pattern for the use of -T with nominals introduced by hli in Gitksan. Some combinations are almost certainly lexicalized: these include hli gedit ‘the people of…’ (7), which always appears with -T, and hli hlgit ‘the children of…’ (8) which always appears without it.	page 4
+(7) line 1	Gitksan	segmentation	Ii bis~besax̲-xw=hl hli ged-i=hl Gitanyaaw.	page 4
+(7) line 2	Gitksan	gloss	CCNJ PL~separate-VAL[-3.II]=CN HLI people-T[-3.II]=CN Gitanyaaw	page 4
+(7) line 3	Vincent Gogag	translation	‘That was when the people of Gitanyaaw were dispersed.’	page 4, carries footnote 6
+(7) line 3	Henry Davis and Sander Nederveen	citation	(VG; Frog Phratry)	the tag or source at the right of the translation
+(8) line 1	Gitksan	segmentation	Ii=t si-limx̲s hli hlgi=s wak-t.	page 4
+(8) line 2	Gitksan	gloss	CCNJ=3.I CAUS1-grow HLI PL.children[-3.II]=PN man’s.brother-3.II	page 4
+(8) line 3	Barbara Sennott	translation	‘And he raised his brother’s children.’	page 4, carries footnote 7
+(8) line 3	Henry Davis and Sander Nederveen	citation	(BS; Grandfather)	the tag or source at the right of the translation
+footnote 6	Henry Davis and Sander Nederveen	note	6 Textual examples in this paper are taken from Forbes et al. (in preparation).	page 4, footnote
+footnote 7	Henry Davis and Sander Nederveen	note	7 Tarpent (1987:169) claims that “the ‘possessions’ of a human being, such as relations, clothing, houses etc., never take the particle [hli]”. This is clearly false for Gitksan, as shown by (8).	page 4, footnote
+§2.1	Gitksan	cited form	hli sipt	page 5
+§2.1	Henry Davis and Sander Nederveen	note	The same is probably true for hli sipt referring to the body (literally, ‘the bones of…’) of a dead person, as in (9).	page 5
+(9) line 1	Gitksan	segmentation	… naa dim ehldi+t’aa-t dim an am-a-ga’a-di=hl	page 5
+(9) line 2	Gitksan	gloss	… who PROSP all.night+sit-SX PROSP AX[=3.I] good-ATTR-see-T[-3.II]=CN	page 5
+(9) line 3	Gitksan	segmentation	aloohl hli sip=hl a=hl ‘nu’w-it.	page 5
+(9) line 4	Gitksan	gloss	INTJ HLI bone[-3.II]=CN OBL[-3.II]=CN die-SX	page 5
+(9) line 5	Hector Hill	translation	‘…who will be staying up to look after the body (literally, the bones) of the dead person.’	page 5
+(9) line 5	Henry Davis and Sander Nederveen	citation	(HH; Before the People Die)	the tag or source at the right of the translation
+§2.1	Gitksan	cited form	hli	page 5
+§2.1	Gitksan	cited form	hli + -T	page 5
+§2.1	Gitksan	cited affix	-T	page 5
+§2.1	Henry Davis and Sander Nederveen	note	In short, it seems most likely that at least in Gitksan, there is no longer a systematic semantic difference between possessed nouns with hli and those with hli + -T. This is reminiscent of the status of -T on verbs, whose distribution must be explained by a combination of lexical factors (certain verbs are inherently ‘T-verbs’), morphological factors (certain preverbs trigger -T even on non-T verbs), and syntactic factors (-T only appears on transitive verbs); there is no semantic explanation for this distribution, at least synchronically.	page 5
+§2.1	Gitksan	cited affix	-T	page 5
+§2.1	Gitksan	cited form	hli	page 5
+§2.1	Henry Davis and Sander Nederveen	note	In fact, setting aside -T, the use of hli itself on nominals is not always easy to assimilate to the idea of inalienable/alienated possession. It is unclear, for example, whether wishes can be thought of as inalienable or alienated, yet in (10), they are introduced by hli:	page 5
+(10) line 1	Gitksan	segmentation	Ii luu+wil-txw hla k̲’oo’m-sxw=s Wiladoo.	page 5
+(10) line 2	Gitksan	gloss	CCNJ in+be/do-VAL HLI wish-ANTIP[-3.II]=PN Wiladoo	page 5
+(10) line 3	Vincent Gogag	translation	‘Wiladoo’s curse came true.’	page 5
+(10) line 3	Henry Davis and Sander Nederveen	citation	(VG; Wiixagwaashlaam)	the tag or source at the right of the translation
+§2.1	Gitksan	cited form	hli	page 5
+§2.1	Henry Davis and Sander Nederveen	note	The converse is also true: hli is not obligatory with inalienable possession, either in Gitksan or Nisga’a. In the following example, given in both Nisga’a and Gitksan, the head of a cat is clearly inalienable, yet hli is not present on the possessive NP.	page 5
+(11a) line 1	Nisga’a	segmentation	Sim+anoog-a=hl duus-i’y daa hlaa na=gap~gaap=hl	page 5
+(11a) line 2	Nisga’a	gloss	really+like-TR[-3.II]=CN cat-1SG.II SPT INCEP 1SG.I=PL~scratch[-3.II]=CN	page 5
+(11a) line 3	Nisga’a	segmentation	t’imges-t.	page 5
+(11a) line 4	Nisga’a	gloss	head-3.II	page 5
+(11a) line 5	Henry Davis and Sander Nederveen	translation	‘My cat really likes it when I scratch its head.’	page 5
+(11a) line 5	Henry Davis and Sander Nederveen	citation	(Nisga’a: Tarpent 1987:168)	the tag or source at the right of the translation
+(11b) line 1	Nisga’a	segmentation	Aanoog-a=hl duus-i’y win=in gaap=hl t’imges-t.	page 5
+(11b) line 2	Nisga’a	gloss	like-TR[-3.II]=CN cat-1SG.II COMP=1SG.I scratch[-3.II]=CN head-3.II	page 5
+(11b) line 3	Vincent Gogag	translation	‘My cat really likes it when I scratch its head.’	page 5
+(11b) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+§2.1	Gitksan	cited form	hli	page 5
+§2.1	Gitksan	cited affix	-T	page 5
+§2.1	Henry Davis and Sander Nederveen	note	It appears the best we can say is that in possessive contexts hli is broadly partitive in meaning, with many hli-possessed NP combinations lexicalized, either with or without -T.	page 5
+§2.2	Henry Davis and Sander Nederveen	heading	2.2 Hli on locative nouns	page 5
+§2.2	Gitksan	cited form	hli	page 5
+§2.2	Henry Davis and Sander Nederveen	note	As an extension of its use with possessed nouns, hli is employed widely in both Nisga’a and Gitksan to introduce locative nouns such as ‘the inside (of )’, ‘the edge (of )’, ‘the bottom (of)’, ‘the top (of)’. In this construction, the possessor denotes an entity, and the head noun a location on that entity. Examples are given in (12)–(15):	page 5
+(12) line 1	Gitksan	segmentation	hli ts’ee’w=hl ts’i[m]+muw-i’y	page 6
+(12) line 2	Gitksan	gloss	HLI inside[-3.II]=CN in+mouth-1SG.II	page 6
+(12) line 3	Henry Davis and Sander Nederveen	translation	‘the inside of my mouth’	page 6
+(12) line 3	Henry Davis and Sander Nederveen	citation	(Rigsby 1986:400)	the tag or source at the right of the translation
+(13) line 1	Nisga’a	segmentation	hli ts’ee’w-i=hl wilp	page 6
+(13) line 2	Nisga’a	gloss	HLI inside-T[-3.II]=CN house	page 6
+(13) line 3	Henry Davis and Sander Nederveen	translation	‘the inside of the house’	page 6
+(13) line 3	Henry Davis and Sander Nederveen	citation	(Nisga’a: Tarpent 1987:241)	the tag or source at the right of the translation
+(14) line 1	Gitksan	segmentation	Hlimoo’l-txw=hl hli ts’ee’w-i=hl g̲ald-im si-mihl-a’a,	page 6
+(14) line 2	Gitksan	gloss	wrap-VAL[-3.II]=CN HLI inside-T[-3.II]=CN container-ATTR CAUS1-burn-DETR	page 6
+(14) line 3	Gitksan	segmentation	sgen-di=hl aloohl sginist.	page 6
+(14) line 4	Gitksan	gloss	pitch-T[-3.II]=CN INTJ pine	page 6
+(14) line 5	Vincent Gogag	translation	‘The inside of the torch was wrapped (with) pine tree pitch.’	page 6
+(14) line 5	Henry Davis and Sander Nederveen	citation	(VG: Volcano)	the tag or source at the right of the translation
+(15) line 1	Gitksan	segmentation	Ii masxw=hl hla g̲a-daax-t.	page 6
+(15) line 2	Gitksan	gloss	CCNJ red[-3.II]=CN HLI DIST-outer.surface-3.II	page 6
+(15) line 3	Barbara Sennott	translation	‘And it’s red around the edges.’	page 6
+(15) line 3	Henry Davis and Sander Nederveen	citation	(BS; Button Blanket)	the tag or source at the right of the translation
+(16) line 1	Gitksan	segmentation	Ii tx̲alpx̲ g̲abi=hl hu~wilp, wiit’ax̲ hu~wilp, ii=t	page 6
+(16) line 2	Gitksan	gloss	CCNJ four[-3.II=CN] how.many[-3.II]=CN PL~house PL.big PL~house CCNJ=3.I	page 6
+(16) line 3	Gitksan	segmentation	jap-diit=hl gahl g̲an het-xw-it g̲oo=hl	page 6
+(16) line 4	Gitksan	gloss	make-3PL.II=CN carve pole[=CN] stand-VAL-SX LOC[-3.II]=CN	page 6
+(16) line 5	Gitksan	segmentation	hla-g̲ook̲=hl mahla k’i’y=hl hu~wilp.	page 6
+(16) line 6	Gitksan	gloss	HLI-in.front[-3.II]=CN each one=CN PL~house	page 6
+(16) line 7	Barbara Sennott	translation	‘And there were four houses, big houses, and they made totem poles which stood in front of each house.’	page 6
+(16) line 7	Henry Davis and Sander Nederveen	citation	(BS: Ansbayaxw)	the tag or source at the right of the translation
+§2.2	Gitksan	cited affix	-T	page 6
+§2.2	Gitksan	cited form	ts’ee’w	page 6
+§2.2	Henry Davis and Sander Nederveen	note	Notice that -T is absent on ts’ee’w ‘inside’ in (12) but present in (13) and (14): as with possessive nouns, there is no obvious semantic difference between these cases, suggesting either dialectal, idiolectal, or free variation.8	page 6
+§2.3	Henry Davis and Sander Nederveen	heading	2.3 Hli on quantifiers	page 6
+§2.3	Gitksan	cited form	hli	page 6
+§2.3	Gitksan	cited form	hlibuu(t)~hlebuu(t)	page 6
+§2.3	Gitksan	cited form	hlagats’uu(t)~hlagats’oo(t)	page 6
+§2.3	Gitksan	cited form	hli sdo’o(t)	page 6
+§2.3	Gitksan	cited form	hla k’ap(t)	page 6
+§2.3	Gitksan	cited form	hli k’i’y(t), hli ky’ul((i)(t))	page 6
+§2.3	Henry Davis and Sander Nederveen	note	Probably also related to its broadly partitive function, we find hli on a number of quantification elements in both Nisga’a and Gitksan, including at least the following: hlibuu(t)~hlebuu(t) ‘(a) few (of)’, hlagats’uu(t)~hlagats’oo(t) ‘some (of), others (of)’, hli sdo’o(t) ‘half (of)…’, hla k’ap(t) ‘part of…’, hli k’i’y(t), hli ky’ul((i)(t)) ‘one of…’.9 In the first two cases, hli is fused to the stem, but in the others, hli is detachable and the stem appears as an independent word .10 Examples are given in (17)–(21):	page 6, runs on to page 7
+footnote 8	Henry Davis and Sander Nederveen	note	8 Clarissa Forbes (p.c. 2021) raises an important point with respect to tsee’w: namely, that following a glottalized sonorant and preceding an obstruent, schwa is often epenthesized even when it does not represent an underlying segment. This means that the presence of -T in (12)-(14) may be independently difficult or impossible to detect.	page 6, footnote
+footnote 8	Gitksan	cited form	tsee’w	page 6
+footnote 9	Henry Davis and Sander Nederveen	note	9 K’i’y is used for non-humans, k’yul for humans.	page 6, footnote
+footnote 9	Gitksan	cited form	K’i’y	page 6
+footnote 9	Gitksan	cited form	k’yul	page 6
+(17) line 1	Gitksan	segmentation	Anoog-a-’y[=hl] kshla’wxws dipun ii na=dok=hl hlibuu-t.	page 7
+(17) line 2	Gitksan	gloss	like-TR-1SG.II[=CN] shirt PL.PROX.DEM CCNJ 1SG.I=PL.hold=CN few-3.II	page 7
+(17) line 3	Vincent Gogag	translation	‘Those shirts were good so I bought a few (of them).’	page 7
+(17) line 3	Henry Davis and Sander Nederveen	citation	(VG: Bicevskis et al. 2017:315)	the tag or source at the right of the translation
+(18) line 1	Gitksan	segmentation	Nee dii=t wilaax[=hl] hla-g̲a-ts’uu=hl jayn win	page 7
+(18) line 2	Gitksan	gloss	NEG FOC=3.I know[-3.II][=CN] HLI-DIST-other[-3.II]=CN Chinese COMP	page 7
+(18) line 3	Gitksan	segmentation	lok̲’on t’i+gwen-txw hli ky’ul-diit	page 7
+(18) line 4	Gitksan	gloss	into.water/fire sharply.down+fall-VAL[-3.II=CN] HLI one.HUM-3PL.II	page 7
+(18) line 5	Gitksan	segmentation	g̲o’o=hl ts’im+’aks.	page 7
+(18) line 6	Gitksan	gloss	LOC[-3.II]=CN in+water	page 7
+(18) line 7	Vincent Gogag	translation	‘The other Chinese didn’t know one of them fell into the water.’	page 7
+(18) line 7	Henry Davis and Sander Nederveen	citation	(VG; Origin of Words)	the tag or source at the right of the translation
+(19) line 1	Gitksan	segmentation	Dim gub-i=lh tk’ihlxw-um ii’uxwt hli sdo’o=hl cake,	page 7
+(19) line 2	Gitksan	gloss	PROSP eat-TR[-3.II]=CN young-ATTR men HLI half[-3.II]=CN cake	page 7
+(19) line 3	Gitksan	segmentation	ii dim=t gup=hl tk’ihlxw-um haanak’ hli sdo’o-t.	page 7
+(19) line 4	Gitksan	gloss	CCNJ PROSP=3.I eat[-3.II]=CN young-ATTR women HLI half-3.II	page 7
+(19) line 5	Vincent Gogag	translation	‘The young men will eat half the cake, and the young women will eat half of it.’	page 7
+(19) line 5	Henry Davis and Sander Nederveen	citation	(VG: Bicevskis et al. 2017:322)	the tag or source at the right of the translation
+(20) line 1	Gitksan	segmentation	Ii ‘nit=hl hla k̲’ap=hl lax̲yip=hl Lax̲+Gibuu=hl	page 7
+(20) line 2	Gitksan	gloss	CCNJ 3.III=CN HLI part[-3.II]=CN territory[-3.II]=CN Wolf.Clan=CN	page 7
+(20) line 3	Gitksan	segmentation	an-sdo’o=hl Ksi+Tx̲emsim, ii wag̲ayt ‘wudin	page 7
+(20) line 4	Gitksan	gloss	NMLZ-half[-3.II]=CN River+Nass CCNJ all.the.way forward	page 7
+(20) line 5	Gitksan	segmentation	daa’whl-t g̲o’o=hl T’ah-am Meji’aadin.	page 7
+(20) line 6	Gitksan	gloss	leave-3.II LOC[-3.II]=CN lake-ATTR Meji’aadin	page 7
+(20) line 7	Vincent Gogag	translation	‘This is part of the Wolf Clan territories, which includes half of the Nass River, and continues all the way along the river to Meji’aadin Lake.’	page 7
+(20) line 7	Henry Davis and Sander Nederveen	citation	(VG: Founding of Gitanyaaw)	the tag or source at the right of the translation
+(21) line 1	Gitksan	segmentation	Bagadil=hl k’uba+tk’ihlxw-um ha’nak’ ii daa’w=hl hli	page 7
+(21) line 2	Gitksan	gloss	two.HUM=CN PL.small+young-ATTR PL.woman CCNJ leave[-3.II]=CN HLI	page 7
+(21) line 3	Gitksan	segmentation	ky’ul-i-t ii gina+t’aa=hl hli ky’ul-i-t.	page 7
+(21) line 4	Gitksan	gloss	one.HUM-T-3.II CCNJ behind+sit[-3.II]=CN HLI one.HUM-T-3.II	page 7
+(21) line 5	Barbara Sennott	translation	‘There were two girls. One of them left and one of them stayed.’	page 7
+(21) line 5	Henry Davis and Sander Nederveen	citation	(BS: Bicevskis et al. 2017:324)	the tag or source at the right of the translation
+footnote 10	Henry Davis and Sander Nederveen	note	10 Tarpent (1987:563) reports that in Nisga’a, the element ts’uu, as found in hlagats’uu ‘others’, is used to form ordinal numbers: thus ts’uu-bagadil means ‘second (human)’, and ts’uu-gwilan means ‘third (animal)’. Michael Schwan (p.c. 2021) points out that this is also possible in Gitksan.	page 7, footnote
+footnote 10	Gitksan	cited form	ts’uu	page 7
+footnote 10	Gitksan	cited form	hlagats’uu	page 7
+§2.3	Gitksan	cited affix	-T	page 8
+§2.3	Gitksan	cited form	hli	page 8
+§2.3	Henry Davis and Sander Nederveen	note	As with possessed nominals, -T appears on quantificational elements introduced by hli, particularly with the numeral ‘one’, as in ( 21) above.11 However, it is not always present in this environment, as can be seen in (22)–(23) below; note that (23) is from the same speaker as (21).	page 8
+(22) line 1	Gitksan	segmentation	Huxw nde win hlaa huxw beligi kw’oot-xw hli ky’ul-t	page 8
+(22) line 2	Gitksan	gloss	again WH COMP INCEP again suddenly lost-VAL[=CN] HLI one.HUM-3.II	page 8
+(22) line 3	Gitksan	segmentation	ii=t huxw gidax̲-diit=g̲at=hl miin-diit…	page 8
+(22) line 4	Gitksan	gloss	CCNJ=3.I again ask-3PL.II=REPORT=CN boss-3PL.II	page 8
+(22) line 5	Vincent Gogag	translation	‘Whenever one of them was unexpectedly absent they apparently asked their boss…’	page 8
+(22) line 5	Henry Davis and Sander Nederveen	citation	(VG: Origin of Words)	the tag or source at the right of the translation
+(23) line 1	Gitksan	segmentation	N=ii ‘wa=hl wilp=s nibib-iy, ii bax̲+yee-’y	page 8
+(23) line 2	Gitksan	gloss	1SG.I=CCNJ find[-3.II]=CN house[-3.II]=PN uncle-1SG.II CCNJ uphill+go-1SG.II	page 8
+(23) line 3	Gitksan	segmentation	g̲oo=hl hlgu+k̲’elt n=ii ‘wa=hl wilp=hl	page 8
+(23) line 4	Gitksan	gloss	LOC[-3.II]=CN small+hill 1SG.I=CCNJ find[-3.II]=CN house[-3.II]=CN	page 8
+(23) line 5	Gitksan	segmentation	hli ky’ul=hl nibib-i’y.	page 8
+(23) line 6	Gitksan	gloss	HLI one.HUM[-3.II]=CN uncle-1SG.II	page 8
+(23) line 7	Barbara Sennott	translation	‘And I came upon my uncle's house, and I walked up the hill and came to my other uncle’s house.’	page 8
+(23) line 7	Henry Davis and Sander Nederveen	citation	(BS: Gitxsan Barbie)	the tag or source at the right of the translation
+§2.3	Gitksan	cited form	ky’ulit	page 8
+§2.3	Gitksan	cited form	hli	page 8
+§2.3	Gitksan	cited form	k’i’y/k’yul	page 8
+§2.3	Henry Davis and Sander Nederveen	note	There does not appear to be any significant semantic difference between cases with and without -T. In fact, for VG, ky’ulit is simply ungrammatical, and hli itself appears to be optional with k’i’y/k’yul, as shown in (24) below (cf. (21)).	page 8
+(24) line 1	Gitksan	segmentation	Daa’w=hl ky’ul=hl tk’ihlxw-um hanak’ ii gina+wil=hl	page 8
+(24) line 2	Gitksan	gloss	leave=CN one.HUM[-3.II]=CN young-ATTR woman CCNJ behind+be/do[-3.II]=CN	page 8
+(24) line 3	Gitksan	segmentation	(hli) ky’ul-t.	page 8
+(24) line 4	Gitksan	gloss	(HLI) one.HUM-3.II	page 8
+(24) line 5	Vincent Gogag	translation	‘One girl left and one stayed.’	page 8
+(24) line 5	Henry Davis and Sander Nederveen	citation	(VG: based on Bicevskis et al. 2017:324)	the tag or source at the right of the translation
+§2.3	Gitksan	cited affix	-T	page 8
+§2.3	Gitksan	cited form	hli	page 8
+§2.3	Henry Davis and Sander Nederveen	note	More investigation is needed here; however, provisionally it appears that the use of -T on quantificational elements with hli is often lexicalized and does not appear (at least synchronically) to have a consistent semantic effect.	page 8
+§2.4	Henry Davis and Sander Nederveen	heading	2.4 Hli in event nominalizations	page 8
+§2.4	Gitksan	cited form	hli	page 8
+§2.4	Gitksan	cited affix	-T	page 8
+§2.4	Henry Davis and Sander Nederveen	note	Still in the nominal domain, but less obviously related to the first three uses, Tarpent (1987:192, 242) documents a construction in Nisga’a where hli + -T can be applied to a verb phrase to produce an event nominalization.	page 8
+footnote 11	Henry Davis and Sander Nederveen	note	11 An alternative analysis, suggested by Clarissa Forbes (p.c. 2021) is that the ending in hli k’yul-it is actually the intransitive subject extraction marker (SX) -it rather than -T (-i) plus the third person Series II possessive -t, in which case the examples of hli ky’ulit in (21) have the status of relative clauses, perhaps with an elided NP head.	page 8, footnote
+footnote 11	Gitksan	cited form	hli k’yul-it	page 8
+(25) line 1	Nisga’a	segmentation	hli ‘nii-t’aat-gw-i=hl gyuwadan	page 9
+(25) line 2	Nisga’a	gloss	HLI on-sit-VAL-T[-3.II]=CN horse	page 9
+(25) line 3	Henry Davis and Sander Nederveen	translation	‘the riding of a horse’	page 9
+(25) line 3	Henry Davis and Sander Nederveen	citation	(Nisga’a: Tarpent 1987:242)	the tag or source at the right of the translation
+(26) line 1	Nisga’a	segmentation	hli yee-di=hl limx	page 9
+(26) line 2	Nisga’a	gloss	HLI perform-T[-3.II]=CN song	page 9
+(26) line 3	Henry Davis and Sander Nederveen	translation	‘the singing of a song’	page 9
+(26) line 3	Henry Davis and Sander Nederveen	citation	(Nisga’a: Tarpent 1987:243)	the tag or source at the right of the translation
+§2.4	Gitksan	cited form	hli	page 9
+§2.4	Gitksan	cited affix	-T	page 9
+§2.4	Henry Davis and Sander Nederveen	note	Attempts to replicate this construction in Gitksan have met with mixed success. VG, whose dialect is closest to Nisga’a of the speakers we work with, does appear to at least recognize it, as evidenced by the three-way contrast in (27) below. VG accepted the first example in (a) together with its translation as an event nominal, and then volunteered the two other examples, which involve relativization as opposed to nominalization with hli, and crucially lack -T.	page 9
+(27a) line 1	Sm’algyax	segmentation	Am hli t’am-di=hl sim+’algax.	page 9
+(27a) line 2	Sm’algyax	gloss	good HLI mark-T[-3.II]=CN true+language	page 9
+(27a) line 3	Henry Davis and Sander Nederveen	translation	‘The writing of Sm’algyax is good.’	page 9
+(27a) line 4	Henry Davis and Sander Nederveen	speaker comment	Consultant’s comment: “That’s right.”	page 9, the consultant's comment
+(27b) line 1	Sm’algyax	segmentation	Hli ent t’am=hl sim+’algax am-it.	page 9
+(27b) line 2	Sm’algyax	gloss	HLI AX=3.I mark[-3.II]=CN true+language good-SX	page 9
+(27b) line 3	Vincent Gogag	translation	‘The one who wrote Sm’algyax was good.’	page 9
+(27b) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+(27c) line 1	Sm’algyax	segmentation	Am hli t’am-i=s Michael.	page 9
+(27c) line 2	Sm’algyax	gloss	good HLI mark-TR[-3.II]=PN Michael	page 9
+(27c) line 3	Vincent Gogag	translation	‘What Michael wrote is good.’	page 9
+(27c) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+§2.4	Gitksan	cited affix	-T	page 9
+§2.4	Henry Davis and Sander Nederveen	note	However, we have never recorded this construction being produced spontaneously in Gitksan, and even VG does not always recognize it, as evidenced by our attempt to replicate Tarpent (1987)’s example in (25) above. His comments on (28a) below indicate he has difficulty processing -T, probably because he is attempting to interpret the sentence as containing an object relative clause rather than a nominalization. His volunteered alternative in (28b) employs an ordinary subordinate clause (i.e., ‘I saw (that) Michael rode’ as opposed to ‘I saw Michael’s riding.’).	page 9
+(28a) line 1	Gitksan	segmentation	* Ga’-a-’y hli mak-xw-di=s Michael.	page 9
+(28a) line 2	Gitksan	gloss	see-TR-1SG.II HLI ride-VAL-T[-3.II]=PN Michael	page 9
+(28a) line 3	Vincent Gogag	speaker comment	Consultant’s comment: “Hmm…It’s used somewhere, but… dis is what’s throwing me: ‘I saw what it was that Michael was riding’, I guess.”	page 9, the consultant's comment, VG
+(28a) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the comment
+(28b) line 1	Gitksan	segmentation	Ga’-a-’y mak-xw=s Michael.	page 9
+(28b) line 2	Gitksan	gloss	see-TR-1SG.II ride-VAL[-3.II]=PN Michael	page 9
+(28b) line 3	Vincent Gogag	translation	‘I saw Michael riding.’	page 9
+(28b) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+§2.5	Henry Davis and Sander Nederveen	heading	2.5 Hli in counterfactuals	page 10
+§2.5	Gitksan	cited form	hli	page 10
+§2.5	Henry Davis and Sander Nederveen	note	We now turn to cases where hli acts as a clausal subordinator. Tarpent (1987) treats subordinating hli as a different, homophonous particle to nominal hli; this seems reasonable, though not entirely satisfying.	page 10
+§2.5	Gitksan	cited form	hli	page 10
+§2.5	Gitksan	cited form	dim	page 10
+§2.5	Gitksan	cited form	ji	page 10
+§2.5	Henry Davis and Sander Nederveen	note	The first case of subordinating hli is found in counterfactual clauses, as discussed by Tarpent (1987:416) for Nisga’a. Here, hli occurs in combination with the prospective aspect marker dim in independent clauses (29a), and with dim and the irrealis particle ji in dependent (counterfactual conditional) clauses (29b).	page 10
+(29a) line 1	Nisga’a	segmentation	Hli dim giigw-i-‘y.	page 10
+(29a) line 2	Nisga’a	gloss	HLI PROSP buy-TR-1SG.II	page 10
+(29a) line 3	Henry Davis and Sander Nederveen	translation	‘I was going to buy it.’ / ‘I would have bought it.’	page 10
+(29b) line 1	Nisga’a	segmentation	Ji hli taala-‘y, hli dim ii ni=giikw-t.	page 10
+(29b) line 2	Nisga’a	gloss	IRR HLI money-1SG.II HLI PROSP CCNJ 1SG.I=buy-3.II	page 10
+(29b) line 3	Henry Davis and Sander Nederveen	translation	‘If I had had money, I would have bought it.’	page 10
+(29b) line 3	Henry Davis and Sander Nederveen	citation	(Nisga’a: Tarpent 1987:417)	the tag or source at the right of the translation
+§2.5	Gitksan	cited form	hli	page 10
+§2.5	Henry Davis and Sander Nederveen	note	Counterfactuals with hli have not previously been recorded in Gitksan; however, preliminary investigation indicates that the construction is present in VG’s grammar:	page 10
+(30) line 1	Henry Davis and Sander Nederveen	note	Context: you were buying shirts: you saw a nice blue one, but it was too expensive	page 10, the context
+(30a) line 1	Gitksan	segmentation	Hli dim giigw-i-‘y.	page 10
+(30a) line 2	Gitksan	gloss	HLI PROSP buy-TR-1SG.II	page 10
+(30a) line 3	Vincent Gogag	translation	‘I was going to buy it.’	page 10
+(30a) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+(30b) line 1	Gitksan	segmentation	Dim giigwi’y ji hli daala-’y.	page 10
+(30b) line 2	Gitksan	gloss	PROSP buy-TR-1SG.II IRR HLI money-1SG.II	page 10
+(30b) line 3	Vincent Gogag	translation	‘I would buy it if I had money.’	page 10
+(30b) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+§2.6	Henry Davis and Sander Nederveen	heading	2.6 Hli on temporal adjuncts	page 10
+§2.6	Gitksan	cited form	Hli	page 10
+§2.6	Gitksan	cited form	hlidaa	page 10
+§2.6	Gitksan	cited form	hli	page 10
+§2.6	Gitksan	cited form	daa	page 10
+§2.6	Henry Davis and Sander Nederveen	note	Hli also forms a component of at least two temporal subordinators. The first, hlidaa ‘(at the time) when’, consists of hli plus the ‘spatio-temporal’ particle daa, though it seems to act synchronically as a fixed expression. It is found in both Nisga’a and Gitksan.	page 10
+(31) line 1	Nisga’a	segmentation	Hlaa xbi’l=hl k’uuhl hli-daa ‘nu’w-t.	page 10
+(31) line 2	Nisga’a	gloss	INCEP ten[-3.II]=CN year HLI-SPT die-3II	page 10
+(31) line 3	Henry Davis and Sander Nederveen	translation	‘It’s been ten years since she died.’	page 10
+(31) line 3	Henry Davis and Sander Nederveen	citation	(Nisga’a: Tarpent 1987:474)	the tag or source at the right of the translation
+(32) line 1	Gitksan	segmentation	‘Nakw hli-daa wil an-[h]ee-’y=sa, ‘nakw.	page 10
+(32) line 2	Gitksan	gloss	long HLI-SPT be/do NMLZ-say-1SG.II=PROX long	page 10
+(32) line 3	Barbara Sennott	translation	‘What I’m talking about happened a long time ago, a long time ago.’	page 10
+(32) line 3	Henry Davis and Sander Nederveen	citation	(BS; Big Snake)	the tag or source at the right of the translation
+§2.6	Gitksan	cited form	gook	page 10
+§2.6	Gitksan	cited form	hli	page 10
+§2.6	Henry Davis and Sander Nederveen	note	In addition, in Gitksan, the locative noun gook ‘the front (of)’ (cf. (16) above) combines with hli to create the temporal subordinator ‘before’:	page 10
+(33) line 1	Gitksan	segmentation	Ii hla-g̲ook̲ dim bekw=hl an-wo’o-txw=gi ii	page 11
+(33) line 2	Gitksan	gloss	CCNJ HLI-in.front PROSP arrive.PL[-3.II]=CN NMLZ-invite-VAL=PR.EV CCNJ	page 11
+(33) line 3	Gitksan	segmentation	sim+luu+wila jiip=hl lo’op tun=si.	page 11
+(33) line 4	Gitksan	gloss	true+in+MANR vanish[-3.II]=CN rock that=PROX	page 11
+(33) line 5	Vincent Gogag	translation	‘Before the guests arrived it’s as if the boulder disappeared.’	page 11
+(33) line 5	Henry Davis and Sander Nederveen	citation	(VG: Raven’s Nest)	the tag or source at the right of the translation
+§2.7	Henry Davis and Sander Nederveen	heading	2.7 Arbitrary hli	page 11
+§2.7	Gitksan	cited form	hli	page 11
+§2.7	Henry Davis and Sander Nederveen	note	One of our Gitksan consultants, HH, uses hli in a unique construction which we have not encountered elsewhere, and which appears roughly equivalent to infinitival clauses with PROARB in English.	page 11
+(34) line 1	Gitksan	segmentation	Nee dii am hli=t yim-t.	page 11
+(34) line 2	Gitksan	gloss	NEG FOC good[-3.II] HLI=3.I smell-3.II	page 11
+(34) line 3	Hector Hill	translation	‘It wasn’t good to smell it.’	page 11
+(34) line 3	Henry Davis and Sander Nederveen	citation	(HH; Jayeehlim)	the tag or source at the right of the translation
+(35a) line 1	Gitksan	segmentation	Am hle=t gya’a-n.	page 11
+(35a) line 2	Gitksan	gloss	good HLI=3.I see-2SG.II	page 11
+(35a) line 3	Hector Hill	translation	‘It’s good to see you.’	page 11
+(35a) line 3	Henry Davis and Sander Nederveen	citation	(HH)	the tag or source at the right of the translation
+(35b) line 1	Gitksan	segmentation	* Am hle=n gya’a-n.	page 11
+(35b) line 2	Gitksan	gloss	good HLI=1SG.I see-2SG.II	page 11
+(35b) line 3	Henry Davis and Sander Nederveen	translation	(Intended meaning: ‘It’s good that I see you/for me to see you.’)	page 11, the meaning intended, the sentence judged out
+§2.7	Gitksan	cited affix	=t	page 11
+§2.7	Henry Davis and Sander Nederveen	note	The third person Series I enclitic =t in these cases cannot be replaced by a first- or second- person enclitic, as shown in (35b): the subject therefore appears to be genuinely arbitrary/generic. More investigation is needed.	page 11
+§2.8	Henry Davis and Sander Nederveen	heading	2.8 Relative clauses with hli wil	page 11
+§2.8	Gitksan	cited form	hli	page 11
+§2.8	Henry Davis and Sander Nederveen	note	We now turn to relativizing uses of hli. For the purposes of exposition, we distinguish here between argument and non-argument relatives. The former are discussed in Section 2.10 and more extensively in Section 3, but the latter are actually more common in the Gitksan texts we have recorded, and form the subject matter of the next two subsections.	page 11
+§2.8	Gitksan	cited form	hli wil	page 11
+§2.8	Gitksan	cited form	go’o	page 11
+§2.8	Henry Davis and Sander Nederveen	note	One type of adjunct relative features the combination hli wil, the latter element being the standard complementizer used to introduce a variety of subordinate clauses throughout Tsimshianic. In both Gitksan and Nisga’a, hli wil is used to introduce locative relative clauses; for VG, these are headed by the locative noun go’o, which is otherwise used mainly in a prepositional function (cf. (18) above).	page 11
+(36) line 1	Gitksan	segmentation	Gina+g̲abi-txw hla g̲o’o wil wok̲’-asxw-dix.	page 11
+(36) line 2	Gitksan	gloss	behind+apparent-VAL HLI LOC COMP dig-ANTIP-IMPS	page 11
+(36) line 3	Vincent Gogag	translation	‘(The place) where the digging was is still visible.’	page 11
+(36) line 3	Henry Davis and Sander Nederveen	citation	(VG; Wiixagwaashlaam)	the tag or source at the right of the translation
+§2.8	Gitksan	cited form	go’o	page 11
+§2.8	Henry Davis and Sander Nederveen	note	Tarpent (1987) identifies a parallel construction in Nisga’a, but without go’o (which is only used as a verb in Nisga’a).	page 11
+(37) line 1	Nisga’a	segmentation	Huxw ‘wa-diit[=hl] hli wil wi[l]=hl wak-t=gi.	page 12
+(37) line 2	Nisga’a	gloss	again find-3PL.II[=CN] HLI COMP be/do[-3.II]=CN older.brother-3.II=PR.EV	page 12
+(37) line 3	Henry Davis and Sander Nederveen	translation	‘Again they reached (the place) where his brother had been.’	page 12
+(37) line 3	Henry Davis and Sander Nederveen	citation	(Nisga’a; Tarpent 1987:473, citing Boas 1902)	the tag or source at the right of the translation
+§2.8	Gitksan	cited form	hli wil	page 12
+§2.8	Henry Davis and Sander Nederveen	note	Tarpent also claims that hli wil is obligatory in Nisga’a for headless relative clauses with an adjectival predicate:	page 12
+(38) line 1	Nisga’a	segmentation	Anoog-a-’y=hl hli *(wil) gwisgwooskw-t.	page 12
+(38) line 2	Nisga’a	gloss	like-TRA-1SG.II=CN HLI *(COMP) blue-3.II	page 12
+(38) line 3	Henry Davis and Sander Nederveen	translation	‘I like the blue one.’	page 12
+(38) line 3	Henry Davis and Sander Nederveen	citation	(Nisga’a; Tarpent 1987:474)	the tag or source at the right of the translation
+§2.8	Gitksan	cited form	hli	page 12
+§2.8	Gitksan	cited form	wil	page 12
+§2.8	Gitksan	cited form	hli wil	page 12
+§2.8	Henry Davis and Sander Nederveen	note	We have checked this structure with one Gitksan speaker (VG), who volunteered the equivalent to (38) without hli or wil (39a), accepted it with hli (39b), but rejected it with hli wil (39c).	page 12
+(39) line 1	Henry Davis and Sander Nederveen	note	Context: Buying shirts.	page 12, the context
+(39a) line 1	Gitksan	segmentation	Hasag-a’y=hl xs-lax[h]a-txw-it.	page 12
+(39a) line 2	Gitksan	gloss	want-1SG.II=CN colour-sky-VAL-SX	page 12
+(39a) line 3	Vincent Gogag	translation	‘I want the blue one.’	page 12
+(39a) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+(39b) line 1	Gitksan	segmentation	Hasag-a’y=hl hli xs-lax[h]a-txw-it.	page 12
+(39b) line 2	Gitksan	gloss	Want-1SG.II=CN HLI colour-sky-VAL-SX	page 12
+(39b) line 3	Henry Davis and Sander Nederveen	translation	‘I want the blue one.’	page 12
+(39b) line 4	Vincent Gogag	speaker comment	Consultant (VG)’s comment: “Yes, you can do that, too.”	page 12, the consultant's comment, VG
+(39c) line 1	Gitksan	segmentation	* Hasag-a’y=hl hli wil xs-lax[h]a-txw-it.	page 12
+(39c) line 2	Gitksan	gloss	want-1SG.II=CN HLI COMP colour-sky-VAL-SX	page 12
+(39c) line 3	Vincent Gogag	speaker comment	Consultant (VG)’s comment: “Couldn’t use wil, no.”	page 12, the consultant's comment, VG
+§2.9	Henry Davis and Sander Nederveen	heading	2.9 Hli in amount/degree relatives	page 12
+§2.9	Gitksan	cited form	gasgoo	page 12
+§2.9	Henry Davis and Sander Nederveen	note	A second type of non-argument relative clause appears in Gitksan as the complement to gasgoo ‘how much, so much’:	page 12
+(40) line 1	Gitksan	segmentation	Hats’im ligi kw’ihl wilxs-in=s k’inaa=hl gan~gan	page 12
+(40) line 2	Gitksan	gloss	just INDEF around go-CAUS[-3.II]=PN so-and-so=CN PL~tree	page 12
+(40) line 3	Gitksan	segmentation	gasg̲oo=hl hli=t an wilaax=hl yal.	page 12
+(40) line 4	Gitksan	gloss	how.much=CN HLI=3.I AX know[-3.II]=CN lie	page 12
+(40) line 5	Henry Davis and Sander Nederveen	translation	‘So-and-so could just about make trees walk, the amount of lies s/he knows.’	page 12
+(40) line 5	Henry Davis and Sander Nederveen	citation	(Rigsby 1986:418)	the tag or source at the right of the translation
+(41) line 1	Gitksan	segmentation	G̲asg̲oo=hl hli ‘wii+t’is=hl t’a’wihlg̲an tun=si.	page 12
+(41) line 2	Gitksan	gloss	how.much=CN HLI big+large[-3.II]=CN grubworm PROX.DEM=PROX	page 12
+(41) line 3	Vincent Gogag	translation	‘This boy (the grubworm) grew to be of giant stature.’ (More literally: ‘How much was the amount to which this grubworm was big!’)	page 12
+(41) line 3	Henry Davis and Sander Nederveen	citation	(VG; Wiixagwaashlaam)	the tag or source at the right of the translation
+§2.9	Henry Davis and Sander Nederveen	note	These examples appear to correspond to amount relatives, with abstraction over a degree or quantity rather than an argument.12	page 13
+§2.10	Henry Davis and Sander Nederveen	heading	2.10 Argument relativizaton with hli	page 13
+§2.10	Gitksan	cited form	hli	page 13
+§2.10	Henry Davis and Sander Nederveen	note	We now turn to relativization of arguments with hli. Rigsby (1986), the first to discuss relativization in Gitksan, provides the following remarks:	page 13
+§2.10	Henry Davis and Sander Nederveen	note	I have twice elicited object relative constructions, but I don’t recall having come across them in texts or discourse. In 1968, I recorded an isolated phrase smax hligiigwi'y /smax ɬə-ki:kʷ-əy̓ /, which my consultant translated as ‘the meat l bought’, and in 1969, I elicited a series of sentences with object relatives from an older western Gitksan man during a field methods course. (Rigsby 1986:471)	page 13, a quotation set off from the text
+§2.10	Henry Davis and Sander Nederveen	note	One of the object relatives Rigsby elicited is given in (42).	page 13
+(42) line 1	Gitksan	segmentation	mahl-d-i-‘y loo-dit dim guw-i=s John=hl smax hli	page 13
+(42) line 2	Gitksan	gloss	tell-T-TR-1SG.II OBL-3PL.II PROSP shoot-TR[-3II]=PN John=CN bear HLI	page 13
+(42) line 3	Gitksan	segmentation	ga’-a-n.	page 13
+(42) line 4	Gitksan	gloss	see-TR-2SG.II	page 13
+(42) line 5	Henry Davis and Sander Nederveen	translation	‘I told them John would shoot the bear you saw.’	page 13
+(42) line 5	Henry Davis and Sander Nederveen	citation	(Rigsby 1986:471)	the tag or source at the right of the translation
+§2.10	Gitksan	cited form	hli	page 13
+§2.10	Henry Davis and Sander Nederveen	note	Further examples of object-relativizing hli appear sporadically in the literature on Gitksan: the following is from Hunt (1993), featuring an extraposed object relative.	page 13
+(43) line 1	Gitksan	segmentation	T’imis=hl k’ay ’ mas-im hanak’ loo-’y hli yeexs-d-i-’y	page 13
+(43) line 2	Gitksan	gloss	write=CN still grow-ATTR woman OBL-1SG.II HLI visit-T-TR-1SG.II	page 13
+(43) line 3	Gitksan	segmentation	go’o=hl Terrace.	page 13
+(43) line 4	Gitksan	gloss	at=CN Terrace	page 13
+(43) line 5	Henry Davis and Sander Nederveen	translation	‘The young woman wrote to me whom I visited in Terrace.’	page 13
+(43) line 5	Henry Davis and Sander Nederveen	citation	(Hunt 1993:61)	the tag or source at the right of the translation
+§2.10	Henry Davis and Sander Nederveen	note	Though neither Rigsby (1986) nor Hunt (1993) give examples of subject relatives, Davis and Brown (2011) show that they are equally possible for speakers who allow hli-relatives; the example below involves relativization of a transitive subject:	page 13
+(44) line 1	Gitksan	segmentation	Guw-i=s John=hl smax hla an=t jagw-i=s Bill.	page 13
+(44) line 2	Gitksan	gloss	shoot-TR[-3II]=PN John=CN bear HLI AX=3.I kill-T[-3.II]=PN Bill	page 13
+(44) line 3	Henry Davis and Sander Nederveen	translation	‘John shot the bear that killed Bill.’	page 13
+(44) line 3	Henry Davis and Sander Nederveen	citation	(Davis & Brown 2011:72)	the tag or source at the right of the translation
+§2.10	Gitksan	cited form	hli	page 13
+§2.10	Gitksan	cited form	geets	page 13
+§2.10	Gitksan	cited form	gigeenix	page 13
+§2.10	Henry Davis and Sander Nederveen	note	While, as observed by Rigsby (1986), relativization with hli seems to be more commonly used by western/downriver (geets) speakers, eastern/upriver (gigeenix) speakers do occasionally employ them, as in the following textual example from BS, who is originally from Ansbayaxw (Kispiox):	page 13
+footnote 12	Henry Davis and Sander Nederveen	note	12 Tarpent (1987:751) gives similar structures in Nisga’a with both gasgoo and gabi ‘how many’, but without hli.	page 13, footnote
+footnote 12	Gitksan	cited form	gasgoo	page 13
+footnote 12	Gitksan	cited form	gabi	page 13
+footnote 13	Henry Davis and Sander Nederveen	note	13 The transitivizing schwa (-i) in guw-i=s is odd (it is in a dependent clause, where it should be absent). It is just possible that this is a direct speech report, i.e., “I told them: ‘John will shoot the bear you saw’”: however, in that case the object pronoun in the second clause should be 2PL rather than 2SG.	page 13, footnote
+footnote 13	Gitksan	cited form	guw-i=s	page 13
+(45) line 1	Gitksan	segmentation	Ii ‘widin+wax-t loo-t ii=t ga’a[-t] wil hlgu+t’ihlxw	page 14
+(45) line 2	Gitksan	gloss	CCNJ towards+paddle-3.II OBL-3.II CCNJ=3.I see[-3.II] COMP small+child	page 14
+(45) line 3	Gitksan	segmentation	hli hee-t.	page 14
+(45) line 4	Gitksan	gloss	HLI make.noise-SX	page 14
+(45) line 5	Barbara Sennott	translation	‘And he paddled towards it and saw that it was a small child that was making the noise.’	page 14
+(45) line 5	Henry Davis and Sander Nederveen	citation	(BS: Birth of ‘Wiigat)	the tag or source at the right of the translation
+§2.10	Gitksan	cited form	hli	page 14
+§2.10	Henry Davis and Sander Nederveen	note	As documented by Tarpent (1987), argument relatives with hli are also attested in Nisga’a: examples are given in (46)–(47), featuring a headless transitive subject relative and object relative, respectively.	page 14
+(46) line 1	Nisga’a	segmentation	Wilaay-i-n hli=t an guuhl hlguhlgw-in=a?	page 14
+(46) line 2	Nisga’a	gloss	know-TR-2SG.II HLI=3.1 AX take[-3II]=CN child-2SG.II=YNQ	page 14
+(46) line 3	Henry Davis and Sander Nederveen	translation	‘Do you know who took the child?’	page 14
+(46) line 3	Henry Davis and Sander Nederveen	citation	(Nisga’a; Tarpent 1987:473)	the tag or source at the right of the translation
+(47) line 1	Gitksan	segmentation	Luu+yuxgw-i-t=hl hli yuxgw-i=hl hu~wak-kw-t.	page 14
+(47) line 2	Gitksan	gloss	in+follow-TR-3SG HLI follow-TR[-3II]=CN PL~older.brother-POSS-3.II	page 14
+(47) line 3	Henry Davis and Sander Nederveen	translation	‘He followed what (the route) his brothers had followed.’	page 14
+(47) line 3	Henry Davis and Sander Nederveen	citation	(Tarpent 1987:263, citing Boas 1902)	the tag or source at the right of the translation
+§2.11	Henry Davis and Sander Nederveen	heading	2.11 Interim summary	page 14
+§2.11	Gitksan	cited form	hli	page 14
+§2.11	Gitksan	cited affix	-T	page 14
+§2.11	Henry Davis and Sander Nederveen	note	The picture that emerges from our overview of hli is complex and variable. Of the three types of hli covered in our survey, it appears that nominal hli is neither fully productive nor compositional in Gitksan. In particular, we failed to replicate the semantic contrasts reported by Tarpent (1987) for hli on possessed nominals with and without -T (Sections 2.1–2.2), and obtained at best mixed results for event nominalization (Section 2.4). In addition, we noted that hli (with or without -T) has become lexicalized with some common possessed nominals, as well as on many quantificational elements (Section 2.3).	page 14
+§2.11	Gitksan	cited form	hli	page 14
+§2.11	Gitksan	cited form	hlidaa	page 14
+§2.11	Henry Davis and Sander Nederveen	note	The same is partially true for subordinating hli. Elements such as hlidaa ‘(the time) when’ (Sections 2.5) seem to be fully lexicalized, though we have identified at least two subordinating environments — neither of them recorded before for Gitksan — where hli behaves independently: in conditionals (Sections 2.6) and — for one speaker only — in arbitrary/generic contexts.	page 14
+§2.11	Gitksan	cited form	hli	page 14
+§2.11	Henry Davis and Sander Nederveen	note	This leaves relativizing hli. Here, for speakers who use it (and not all do), hli is fully productive, both in adjunct and argument uses. Setting aside adjunct uses, at this point we change course, focusing in detail on the use of hli in argument relatives.	page 14
+§3	Henry Davis and Sander Nederveen	heading	3 A closer look at argument relativization with hli	page 14
+§3	Gitksan	cited form	hli	page 14
+§3	Gitksan	cited form	hlaa	page 14
+§3	Henry Davis and Sander Nederveen	note	Data in the following sections are largely taken from our own recent fieldwork with two speakers from the western half of the Gitksan dialect continuum, VG and HH. However, it turns out that only one of them (VG, from Gitanyaaw) uses hli in argument relative clauses. In contrast, HH, from Gijigyukwhla, does not even recognize hli relatives: when presented with relevant examples, he systematically reinterprets hli as the inceptive aspect marker hlaa. Consider the following sequence:	page 14
+(48a) line 1	Gitksan	segmentation	Guxw-i=s John=hl smex=hl ga’-a-n.	page 15
+(48a) line 2	Gitksan	gloss	shoot-TR[-3II]=PN John=CN bear=CN see-TR-2SG.II	page 15
+(48a) line 3	Henry Davis and Sander Nederveen	translation	‘John shot the bear you see.’	page 15
+(48a) line 3	Henry Davis and Sander Nederveen	citation	(consultant’s translation)	the tag or source at the right of the translation
+(48b) line 1	Gitksan	segmentation	Guxw-i=s John=hl smex[=hl] hla ga’-a-n.	page 15
+(48b) line 2	Gitksan	gloss	shoot-TR[-3II]=PN John=CN bear[=CN] HLI see-TR-2SG.II	page 15
+(48b) line 3	Henry Davis and Sander Nederveen	translation	‘You are about to see the bear John shot.’	page 15
+(48b) line 3	Henry Davis and Sander Nederveen	citation	(consultant’s translation)	the tag or source at the right of the translation
+(48b) line 4	Henry Davis and Sander Nederveen	speaker comment	Consultant’s comment: “Some people say hlaa dim ga’an for ‘about to see’.”	page 15, the consultant's comment
+§3	Gitksan	cited form	hlaa	page 15
+§3	Gitksan	cited form	hla	page 15
+§3	Gitksan	cited form	hli	page 15
+§3	Henry Davis and Sander Nederveen	note	It seems clear both from HH’s translation for (48b) and his follow-up comment that he is hearing hlaa rather than hla (i.e., hli) in this example.	page 15
+§3	Gitksan	cited form	hli	page 15
+§3	Henry Davis and Sander Nederveen	note	Accordingly, from now on we focus on VG’s use of hli in relativization structures, which it turns out is both highly productive and provides important insight into the structure of relative clauses and A’-movement in Gitksan more generally.	page 15
+§3.1	Henry Davis and Sander Nederveen	heading	3.1 Two types of hli	page 15
+§3.1	Gitksan	cited form	hli	page 15
+§3.1	Gitksan	cited form	hla (hle	page 15
+§3.1	Henry Davis and Sander Nederveen	note	We begin with a somewhat surprising finding. Since Rigsby (1986), it has been assumed that hli and hla (hle in western dialects) are allophonic variants of a single morpheme. VG, however, treats them as syntactically distinct, based on the phonological differentiation of the vowel. Consider the examples in (49), which come from the same elicitation session:	page 15
+(49a) line 1	Gitksan	segmentation	Hun=hl gub-i=hl log-om ‘wii+get.	page 15
+(49a) line 2	Gitksan	gloss	fish=CN eat-TR[-3.II]=CN decayed-ATTR big+man	page 15
+(49a) line 3	Henry Davis and Sander Nederveen	translation	‘It’s fish the old man ate.’	page 15
+(49b) line 1	Gitksan	segmentation	hun[=hl] hli gub-i=hl log-om ‘wii+get	page 15
+(49b) line 2	Gitksan	gloss	fish[=CN] HLI eat-TR[-3.II]=CN decayed-ATTR big+man	page 15
+(49b) line 3	Henry Davis and Sander Nederveen	translation	‘the fish the old man ate’	page 15
+(49b) line 4	Henry Davis and Sander Nederveen	speaker comment	Consultant’s comment: “Yeah, that’s a phrase.”	page 15, the consultant's comment
+(49c) line 1	Gitksan	segmentation	Hun[=hl] hle gub-i=hl log-om ‘wii+get.	page 15
+(49c) line 2	Gitksan	gloss	fish[=CN] HLE eat-TR[-3.II]=CN decayed-ATTR big+man	page 15
+(49c) line 3	Henry Davis and Sander Nederveen	translation	‘It was fish the old man ate.’	page 15
+(49c) line 4	Vincent Gogag	speaker comment	Consultant’s comment: “That’s a sentence.”	page 15, the consultant's comment, VG
+(49c) line 4	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the comment
+§3.1	Gitksan	cited form	hli	page 15
+§3.1	Gitksan	cited form	hle	page 15
+§3.1	Henry Davis and Sander Nederveen	note	VG’s comments show that he treats hli and hle as syntactically distinct. In (49b), hli acts as a relativizer which turns the sentence in (49a) into a noun phrase, whereas in (49c) hle merely marks a fronted object, without affecting the sentential status of the base structure.	page 15
+§3.1	Gitksan	cited form	hle	page 15
+§3.1	Gitksan	cited form	hli	page 15
+§3.1	Henry Davis and Sander Nederveen	note	On other occasions, however, VG switches the roles of hle and hli, such that hli serves to mark a fronted argument, while hle acts as a relativizer:	page 15
+footnote 14	Henry Davis and Sander Nederveen	note	14 The use of the connective =hl before hli is highly variable. We have yet not undertaken a systematic investigation as to whether it is always underlyingly present but phonologically deleted, or simply optional. For present purposes, we treat it as present but optionally deleted.	page 15, footnote
+footnote 14	Gitksan	cited affix	=hl	page 15
+footnote 14	Gitksan	cited form	hli	page 15
+(50a) line 1	Gitksan	segmentation	log-om ‘wii+get hle ‘witxw-it	page 16
+(50a) line 2	Gitksan	gloss	decayed-ATTR big+man[=CN] HLE come-SX	page 16
+(50a) line 3	Henry Davis and Sander Nederveen	translation	‘the old man who came’	page 16
+(50a) line 4	Vincent Gogag	speaker comment	Consultant (VG)’s comment: “Seems to be a phrase.”	page 16, the consultant's comment, VG
+(50b) line 1	Gitksan	segmentation	Siipxw=hl log-om ‘wii+get[=hl] hle ‘witxw-it.	page 16
+(50b) line 2	Gitksan	gloss	sick=CN decayed-ATTR big+man[=CN] HLE come-SX	page 16
+(50b) line 3	Henry Davis and Sander Nederveen	translation	‘The sick old man was the one who came.’	page 16
+(50b) line 3	Henry Davis and Sander Nederveen	citation	(consultant (VG)’s translation)	the tag or source at the right of the translation
+(50c) line 1	Gitksan	segmentation	log-om ‘wii+get[=hl] hli bax-at.	page 16
+(50c) line 2	Gitksan	gloss	decayed-ATTR big+man[=CN] HLI run-SX	page 16
+(50c) line 3	Henry Davis and Sander Nederveen	translation	‘It was an old man who ran.’	page 16
+§3.1	Gitksan	cited form	hle	page 16
+§3.1	Gitksan	cited form	hli	page 16
+§3.1	Henry Davis and Sander Nederveen	note	The example in (50a) is structurally parallel to that in (49b): hle is treated as a relativizer, and therefore yields a phrasal interpretation (as confirmed by (50b), where the relative clause is embedded in a sentential context). On the other hand, the structure of (50c) is parallel to that of (49c): hli marks a fronted argument, and the resulting structure is a sentence, not a noun phrase.	page 16
+§3.1	Gitksan	cited form	hle	page 16
+§3.1	Gitksan	cited form	hli	page 16
+§3.1	Henry Davis and Sander Nederveen	note	While the examples in (49) and (50) are clearly inconsistent, they are not randomly so. VG alternates between phases where hle marks a fronted DP and hli marks a relative clause, and phases where the exact opposite is true: however, within any given phase he systematically discriminates between the two. We interpret this pattern as follows: at the syntactic level there are two types of hli, but this distinction is not realized consistently in the phonology, because hli and hle are indeed just allophonic variants. VG therefore consistently makes a syntactic distinction by creating a temporary (and fluctuating) phonological contrast.	page 16
+§3.2	Henry Davis and Sander Nederveen	heading	3.2 Focusing hli	page 16
+§3.2	Gitksan	cited form	nit	page 16
+§3.2	Gitksan	cited form	hli	page 16
+§3.2	Gitksan	cited form	hlifoc	page 16
+§3.2	Gitksan	cited form	hlirel	page 16
+§3.2	Henry Davis and Sander Nederveen	note	The data in (49)–(50) suggest that we must draw a distinction between relativizing hli, as exemplified in (49b) and (50a,b) and what we will call focusing hli, as exemplified in (49c) and (50c). With regards to the latter label, though it is not clear that all cases of DP fronting involve focus, it does seem to be the case that all focused DPs are fronted; furthermore, as we shall see, ‘nit clefts, which are canonical focus structures, also take focusing hli. We will henceforth notate focusing hli as hlifoc and relativizing hli as hlirel, ignoring the surface value of the vowel.	page 16
+§3.2	Gitksan	cited form	hli	page 16
+§3.2	Gitksan	cited form	hlifoc	page 16
+§3.2	Henry Davis and Sander Nederveen	note	So far, we have referred to hli simply as a ‘particle’, but it is now time to consider its syntax more closely, beginning with hlifoc. There are two potential analyses for the structure of sentences such as those in (49c) and (50c). The first, referred to as the direct movement account by Davis and Brown (2011), involves A’-movement of a DP constituent to an initial position preceding hli. The second, referred to by Davis and Brown as the indirect movement account, involves a pseudo-cleft- like structure: an NP predicate is base-generated in initial position, with its argument consisting of a headless relative clause introduced by hli. For an example like (49c), repeated as (51a) below, these two candidate structures are schematized in (51b) and (51c), respectively. (We represent the relativization operation in (c) via movement of an empty operator Orel, which can be thought of as the covert counterpart of a relative pronoun).	page 16
+(51a) line 1	Gitksan	segmentation	Hun hle gub-i=hl log-om ‘wii+get.	page 16
+(51a) line 2	Gitksan	gloss	fish HLIFOC eat-TR[-3.II]=CN decayed-ATTR big+man	page 16
+(51a) line 3	Henry Davis and Sander Nederveen	translation	‘It was fish the old man ate.’	page 16
+(51b) line 1	Henry Davis and Sander Nederveen	note	Direct movement	page 17, the label over the structure, in italics
+(51b) line 2	Gitksan	segmentation	[ hun [hle [ gubihl logom ‘wii get ___ ]]]	page 17
+(51b) line 3	Gitksan	gloss	[CP DP [C [IP DP ]]]	page 17
+(51c) line 1	Henry Davis and Sander Nederveen	note	Indirect movement	page 17, the label over the structure, in italics
+(51c) line 2	Gitksan	segmentation	[ hun [ ___ [ ___ [hle [ gubihl logom ‘wii get ___ ]]]]]	page 17
+(51c) line 3	Gitksan	gloss	[IP NP [DP pro [CP Orel [C [IP Orel ]]]]]	page 17
+§3.2	Gitksan	cited form	hlifoc	page 17
+§3.2	Gitksan	cited form	hlirel	page 17
+§3.2	Gitksan	cited form	hli	page 17
+§3.2	Henry Davis and Sander Nederveen	note	An initial consideration in favour of the direct movement account is that it allows us to distinguish straightforwardly between hlifoc and hlirel, unlike the indirect movement account, where both hlifoc and hlirel introduce a relative clause. Davis and Brown (2011) give a number of additional arguments for direct A’-movement in cases of focus fronting, of which perhaps the most straightforward is that the initial position in focusing structures can be occupied by elements (proper names and Series III pronouns) which cannot be predicative, and therefore must be fronted arguments. This is equally true of focus movement structures with hli:	page 17
+(52) line 1	Gitksan	segmentation	[Dip John gan=s Sander] hle en=t gup=hl hun.	page 17
+(52) line 2	Gitksan	gloss	ASSOC John PCNJ[-3.II]=PN Sander HLIFOC AX=3.I eat=CN fish	page 17
+(52) line 3	Vincent Gogag	translation	‘John and Sander ate the fish.’	page 17
+(52) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+§3.2	Gitksan	cited form	dip	page 17
+§3.2	Henry Davis and Sander Nederveen	note	In addition to a fronted (conjoined) proper name, this example contains the associative marker dip, which forms part of the connective system, and therefore marks arguments, never predicates.15	page 17
+§3.2	Gitksan	cited form	hli	page 17
+§3.2	Henry Davis and Sander Nederveen	note	We conclude that focus fronting involves direct movement. It remains, however, an open question as to why the indirect movement structure in (51c) is ruled out, or at least over-ruled by direct movement, given that both its components (headless relative clauses with hli and nominal predicates) are independently possible. Headless relatives introduced by hli are common — in fact, they constitute the most frequently attested type of hli-relative in textual material:	page 17
+(53) line 1	Gitksan	segmentation	Ii=t luu+si-tyeexw-i=hl Gitanyaaw hli wa-diit	page 17
+(53) line 2	Gitksan	gloss	CCNJ in+CAUS1-change-T[-3.II]=CN Gitanyaaw HLIREL name-3PL.II	page 17
+(53) line 3	Gitksan	segmentation	hlig̲ook̲=gi a=hl Gitwinhlguu’l…	page 17
+(53) line 4	Gitksan	gloss	before=PR.EV OBL[-3.II]=CN Gitwinhlguu’l	page 17
+(53) line 5	Vincent Gogag	translation	‘It was then that what they had previously named Gitanyaaw was changed to Gitwinhlguu’l…’ (More literally: ‘ThenGitanyaawchangedwhatthey called it previously to Gitwinhlguu’l…’)	page 17
+(53) line 5	Henry Davis and Sander Nederveen	citation	(VG: War with the Jits’aawit)	the tag or source at the right of the translation
+§3.2	Henry Davis and Sander Nederveen	note	Nominal predicates are also certainly possible in both Gitksan and Nisga’a (see Rigsby 1986:257; Tarpent 1987:248; Davis and Brown 2011:55). However, it is worth observing that nearly all unambiguous examples of nominal predication are “asymmetrical”: that is, they consist of cases where a noun is the only possible predicate because the subject is a proper noun (54a) or a (Series III) independent pronoun (55a), neither of which can be predicative, as shown in (54b) and (55b), respectively. (The only exception is where there are two common nouns, in which case either one can act as the predicate (56)).	page 17, runs on to page 18
+footnote 15	Henry Davis and Sander Nederveen	note	15 Dip is particularly useful in this regard because unlike the common noun connective =hl, it does not automatically drop in initial position. This is probably because =hl is strongly enclitic and deletes unless it can find a host to its left, whereas dip is prosodically independent. The proper noun connective t is intermediate in this respect: though it is a clitic, it is “bi-directional”, meaning it can procliticize as well as encliticize to a host. For some (more conservative) speakers such as BS, this allows it to surface on fronted DPs.	page 17, footnote
+footnote 15	Gitksan	cited form	Dip	page 17
+footnote 15	Gitksan	cited affix	=hl	page 17
+(54a) line 1	Gitksan	segmentation	Si’moogit t Cathy.	page 18
+(54a) line 2	Gitksan	gloss	chief PN Cathy	page 18
+(54a) line 3	Henry Davis and Sander Nederveen	translation	‘Cathy is a chief.’	page 18
+(54b) line 1	Gitksan	segmentation	* Cathy=hl si’moogit.	page 18
+(54b) line 2	Gitksan	gloss	Cathy=CN chief	page 18
+(55a) line 1	Gitksan	segmentation	Si’moogit ‘nid=ist.	page 18
+(55a) line 2	Gitksan	gloss	chief 3SG.III=AFF	page 18
+(55a) line 3	Henry Davis and Sander Nederveen	translation	‘S/he is a chief.’	page 18
+(55b) line 1	Gitksan	segmentation	* ‘Nit=hl si’moogid=ist.	page 18
+(55b) line 2	Gitksan	gloss	3SG.III=CN chief=AFF	page 18
+(55b) line 2	Henry Davis and Sander Nederveen	citation	(Davis & Brown 2011:55)	the source at the right of the gloss
+(56a) line 1	Gitksan	segmentation	Hlgu+tk’ihlxw=hl gat.	page 18
+(56a) line 2	Gitksan	gloss	small+child=CN male	page 18
+(56a) line 3	Henry Davis and Sander Nederveen	translation	‘The boy is a child.’	page 18
+(56b) line 1	Gitksan	segmentation	Gat=hl hlgu+tk’ihlxw.	page 18
+(56b) line 2	Gitksan	gloss	male=CN small+child	page 18
+(56b) line 3	Henry Davis and Sander Nederveen	translation	‘The child is a boy.’	page 18
+(56b) line 3	Henry Davis and Sander Nederveen	citation	(Rigsby 1986:284)	the tag or source at the right of the translation
+§3.2	Henry Davis and Sander Nederveen	note	It seems possible, therefore, that nominal predication in IT is more restricted than previously thought, with direct movement taking precedence over indirect movement whenever possible. If true, this is an interesting finding, because it contrasts quite sharply with the situation elsewhere in the NW Sprachbund, where “predicate-argument flexibility” (the ability of open-class lexical items to switch freely between predicate and argument) is a well-established phenomenon in, e.g., Salish and Wakashan languages (see Davis et al. 2014 for discussion).	page 18
+§3.2	Gitksan	cited form	hlifoc	page 18
+§3.2	Gitksan	cited form	hlirel	page 18
+§3.2	Henry Davis and Sander Nederveen	note	Returning to the role of hlifoc in the direct movement analysis of focus fronting, we assume that the fronted constituent moves to a left peripheral A’-position which we provisionally identify here as [Spec, C], without undertaking a more fine-grained investigation of functional heads in the left periphery.16 We further identify hlifoc as the C head of this projection. In order to distinguish hlifoc from hlirel, we assume that ‘flavours’ of C are endowed with unvalued syntactic features: thus, hlifoc acts as a probe for an agreeing DP with a matching focus feature, which moves to [Spec, C] to value the unvalued focus feature on Cfoc. For a sentence such as (57a), which involves direct A’- movement of a transitive subject, we therefore propose the (somewhat simplified) structure in (57b).	page 18, runs on to page 19
+footnote 16	Henry Davis and Sander Nederveen	note	16 This is certainly an over-simplification. A more plausible hypothesis is that hlifoc occupies one of the ‘split CP’ positions advocated by Rizzi (1997) — the most obvious one being the head of FocP. We do not make this move here because of our uncertainty about the semantic status of fronted DPs, which may not all be focused: we do not want to make a syntactic diacritic stand in for a semantic analysis.	page 18, footnote
+footnote 16	Gitksan	cited form	hlifoc	page 18
+(57a) line 1	Gitksan	segmentation	[log-om ‘wii+get] [hli [en=[t gup=hl hun.]]]	page 19
+(57a) line 2	Gitksan	gloss	decayed-ATTR big+man HLIFOC AX=3.I eat[-3II]=CN fish	page 19
+(57a) line 3	Henry Davis and Sander Nederveen	translation	‘It was an old man who ate (the) fish.’	page 19, carries footnote 17
+(57b)	Henry Davis and Sander Nederveen	note	DP CP C’ AXP vP v’ VP [logom ‘wii get]foc gup-t=hl hun hlifoc en DP [logom ‘wii get]foc =t	page 19, a tree diagram, its labels in the text layer's order
+§3.3	Henry Davis and Sander Nederveen	heading	3.3 Relativizing hli	page 19
+§3.3	Gitksan	cited form	hlirel	page 19
+§3.3	Gitksan	cited form	hlifoc	page 19
+§3.3	Henry Davis and Sander Nederveen	note	We now turn to the role of hlirel. We begin by outlining two possible analyses. In the first, hlirel is a relative complementizer (and thus parallel to hlifoc); in the second, it is a relative pronoun, moving from an argument position to [Spec, C] in the same way as a WH-pronoun in English relative clauses. These two possibilities are schematized in (58b) and (58c) for the example in (49b), repeated below as (58a).	page 19
+(58a) line 1	Gitksan	segmentation	hun hli gub-i=hl log-om ‘wii+get	page 19
+(58a) line 2	Gitksan	gloss	fish HLI eat-TR[-3.II]=CN decayed-ATTR big+man	page 19
+(58a) line 3	Henry Davis and Sander Nederveen	translation	‘the fish the old man ate’	page 19
+(58b) line 1	Gitksan	segmentation	[ hun [ ___ [ hli [ gubihl logom ‘wii get ____ ]]]]	page 19
+(58b) line 2	Gitksan	gloss	[NP NP [CP Orel [ HLIrel [IP Orel ]]]]	page 19
+(58c) line 1	Gitksan	segmentation	. [ hun [ hli [ [ gubihl logom ‘wii get ____ ]]]]	page 20
+(58c) line 2	Gitksan	gloss	[NP NP [CP HLIrel [ [IP HLIrel ]]]]	page 20
+footnote 17	Henry Davis and Sander Nederveen	note	17 We have dubbed the projection hosting the A’-extraction marker an~en AXP here for convenience. Though it clearly sits lower in the tree than hli and WH-pronouns and above the vP, we do not know whether it forms the lower part of the left periphery or the upper part of the verbal complex, and set the issue aside here.	page 19, footnote
+footnote 17	Gitksan	cited form	an~en	page 19
+§3.3	Gitksan	cited form	gigeenix	page 20
+§3.3	Henry Davis and Sander Nederveen	note	These competing hypotheses are testable. As documented in Davis and Brown (2011) and Davis (2011), Gitksan, like English, has overt WH-relative pronouns, homophonous with WH- question words. These are most prominent in eastern (gigeenix) dialects, where they surface in headed as well as free relative clauses:	page 20
+(59a) line 1	Gitksan	segmentation	Ixsta=hl [suusiit=hl [agwi=hl gub-i=s John]].	page 20
+(59a) line 2	Gitksan	gloss	tasty=CN potato=CN what=CN eat-TR[-3.II]=PN John	page 20
+(59a) line 3	Henry Davis and Sander Nederveen	translation	‘The potato John ate was tasty.’	page 20
+(59b) line 1	Gitksan	segmentation	Wilaay-i-n=hl [gat [naa=hl lim-id]]=a?	page 20
+(59b) line 2	Gitksan	gloss	know-TR-2SG.II=CN man who=CN sing-SX=YNQ	page 20
+(59b) line 3	Henry Davis and Sander Nederveen	translation	‘Do you know the man who sang?’	page 20
+(59c) line 1	Gitksan	segmentation	Ga’-a-’y=hl [gat [naa an=t gup=hl suusiit]].	page 20
+(59c) line 2	Gitksan	gloss	see-TR-1SG.II=CN man who AX=3.I eat[-3.II]=CN potato	page 20
+(59c) line 3	Henry Davis and Sander Nederveen	translation	‘I saw the man that ate the potato.’	page 20
+(59c) line 3	Henry Davis and Sander Nederveen	citation	(Davis 2011)	the tag or source at the right of the translation
+§3.3	Henry Davis and Sander Nederveen	note	Speakers of western dialects are less tolerant of overt WH-relative pronouns in headed relative clauses, but often prefer free (WH-headed relatives) to “bare” (truly headless) relatives:	page 20
+(60) line 1	Gitksan	segmentation	Ga’-a-’y [naa [an=t jagw-i=hl smax]].	page 20
+(60) line 2	Gitksan	gloss	see-TR-1SG.II who AX=3.I eat-T-[-3.II]=CN bear	page 20
+(60) line 3	Henry Davis and Sander Nederveen	translation	‘I saw the one who killed the bear.’	page 20
+(60) line 4	Vincent Gogag	speaker comment	Consultant (VG)’s comment: “More correct [than without naa].” (Davis 2011)	page 20, the consultant's comment, VG
+§3.3	Henry Davis and Sander Nederveen	note	There is thus evidence throughout the Gitksan dialect continuum for WH-relative pronouns, though speakers/dialects differ in how freely they allow them to surface.	page 20
+§3.3	Henry Davis and Sander Nederveen	note	There are a number of reasons to believe that WH-relative pronouns undergo A’-movement to [Spec, C]: the most striking, documented by Davis (2011), is the fact that for some speakers a copy of the WH-pronoun can be found in intermediate [Spec, C] landing sites in cases of long-distance extraction:	page 20
+(61) line 1	Gitksan	segmentation	Nee=ma ga’a=hl [gat [naa=hl ha’nigoot=s James	page 20
+(61) line 2	Gitksan	gloss	NEG=2SG.I see[-3.II]=CN man who=CN thought[-3.II]=PN James	page 20
+(61) line 3	Gitksan	segmentation	[naa [an=t gup=hl anaay]]]]=a?	page 20
+(61) line 4	Gitksan	gloss	who AX=3.I eat[-3.II]=CN bread=YNQ	page 20
+(61) line 5	Barbara Sennott	translation	‘Did you see the man who James thinks ate the bread?’	page 20
+(61) line 5	Henry Davis and Sander Nederveen	citation	(BS: Davis 2011)	the tag or source at the right of the translation
+§3.3	Gitksan	cited form	hlirel	page 20
+§3.3	Henry Davis and Sander Nederveen	note	Given the existence of WH-relative pronouns, it is straightforward to test whether hlirel is itself a relative pronoun. If it is, it should (i) show parallel behaviour to WH-pronouns, and in particular, optionally appear in intermediate [Spec, C] positions in cases of long-range extraction; and (ii) be in complementary distribution with WH-pronouns.	page 20, runs on to page 21
+§3.3	Gitksan	cited form	Hlirel	page 21
+§3.3	Henry Davis and Sander Nederveen	note	Neither of these predictions is borne out. Hlirel is ungrammatical in intermediate [Spec, C] positions in cases of long-range relativization:	page 21
+(62) line 1	Gitksan	segmentation	Nee=ma ga’a=hl [get [naa=hl ha’nigoot=s James	page 21
+(62) line 2	Gitksan	gloss	NEG=2SG.I see[-3.II]=CN man who=CN thought[-3.II]=PN James	page 21
+(62) line 3	Gitksan	segmentation	[(*hli) [en=t gup=hl anaax]]]]=a?	page 21
+(62) line 4	Gitksan	gloss	(*HLIREL) AX=3.I eat[-3.II]=CN bread=YNQ	page 21
+(62) line 5	Henry Davis and Sander Nederveen	translation	‘Did you see the man who James thinks ate the bread?’	page 21
+§3.3	Gitksan	cited form	hlirel	page 21
+§3.3	Henry Davis and Sander Nederveen	note	More strikingly, WH-pronouns and hlirel can and do co-occur, in that order, showing unambiguously that hlirel must be a complementizer, not a relative pronoun.	page 21
+(63) line 1	Gitksan	segmentation	[Log-om ‘wii+get [naa [hli en=t gup=hl hun]]]	page 21
+(63) line 2	Gitksan	gloss	decayed-ATTR big+man who HLIREL AX=3.I eat[-3.II]=CN fish	page 21
+(63) line 3	Gitksan	segmentation	gukws+‘witxw-it.	page 21
+(63) line 4	Gitksan	gloss	back+come-SX	page 21
+(63) line 5	Henry Davis and Sander Nederveen	translation	‘The old man who ate the fish came back.’	page 21
+§3.3	Gitksan	cited form	gukws +‘witxw	page 21
+§3.3	Henry Davis and Sander Nederveen	note	(Note that in this example, the entire DP containing the relative clause has been focus fronted, triggering intransitive subject (SX) morphology on the main predicate gukws +‘witxw.)	page 21
+§3.3	Henry Davis and Sander Nederveen	note	The full order of elements in the left periphery exemplified in (63) leads us to propose the structure in (64) (assuming an externally headed relative clause).	page 21
+(64)	Henry Davis and Sander Nederveen	note	NP NP CP C’ AXP vP v’ VP logom ‘wii get gup-t=hl hun naa hlirel en naa =t	page 21, a tree diagram, its labels in the text layer's order
+§3.3	Gitksan	cited form	hlirel	page 22
+§3.3	Gitksan	cited form	hli	page 22
+§3.3	Henry Davis and Sander Nederveen	note	This structure provides a unified account for the WH-relative pattern prevalent in eastern dialects and VG’s hlirel system as investigated here. The differences between the systems follow from the fact that hli is not usually used as a complementizer in eastern dialects (where we assume Crel is generally null). As an indirect consequence, WH-relative pronouns surface more freely, including in contexts where VG and other western dialect speakers reject them. More generally, (non-)pronunciation of elements at the left periphery is subject to dialect and speaker-specific “doubly-filled COMP” effects (Koopman 2000), which leads to telescoping of functional elements in CP.	page 22
+§3.4	Henry Davis and Sander Nederveen	heading	3.4 Free (WH-)relatives and headless relatives	page 22
+§3.4	Gitksan	cited form	hlirel	page 22
+§3.4	Gitksan	cited affix	=hl	page 22
+§3.4	Henry Davis and Sander Nederveen	note	Aside from relatives with an overt nominal head, Gitksan has at least two other types of argument relative clause: those with an initial WH-word, which we will refer to here as free relatives, and those with either an initial hlirel or just a connective =hl preceding the clause, which we will refer to as headless relatives.18 Examples of each are given in (65)–(67).	page 22
+(65) line 1	Gitksan	segmentation	Ga’-a-’y[=hl] [naa [an=t jagw-i=hl smax]].	page 22
+(65) line 2	Gitksan	gloss	see-TR-1SG.II[=CN] who AX=3.I eat-T[-3.II]=CN bear	page 22
+(65) line 3	Henry Davis and Sander Nederveen	translation	‘I saw the one who killed the bear.’	page 22
+(65) line 3	Henry Davis and Sander Nederveen	citation	(Davis 2011)	the tag or source at the right of the translation
+(66) line 1	Gitksan	segmentation	Ga’-a-’y[=hl] [hli en=t giikw=hl hun].	page 22
+(66) line 2	Gitksan	gloss	see-TR-1SG.II[=CN] HLIREL AX=3.I buy[-3.II]=CN fish	page 22
+(66) line 3	Vincent Gogag	translation	‘I saw the one who bought fish.’	page 22
+(66) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+(67) line 1	Gitksan	segmentation	Ga’-a-’y[=hl] [an=t jagw-i=hl smax].	page 22
+(67) line 2	Gitksan	gloss	see-TR-1SG.II[=CN] AX=3.I eat-T[-3.II]=CN bear	page 22
+(67) line 3	Henry Davis and Sander Nederveen	translation	‘I saw the one who killed the bear.’	page 22
+(67) line 3	Henry Davis and Sander Nederveen	citation	(Davis 2011)	the tag or source at the right of the translation
+§3.4	Gitksan	cited form	hlirel	page 22
+§3.4	Henry Davis and Sander Nederveen	note	In light of the discussion presented so far, it is fairly clear how to relate these cases to headed relative clauses: they involve non-pronunciation either of hlirel in C (65), a WH-relative pronoun in [Spec, C] (66), or both (67). Since hlirel and WH-relative pronouns may co-occur in headed relative clauses, we predict that they should also co-occur in free relatives: this prediction is borne out, as shown in (68):	page 22
+(68) line 1	Gitksan	segmentation	Ga’-a-’y[=hl] [naa [hli en=t giikw=hl hun]].	page 22
+(68) line 2	Gitksan	gloss	see-TR-1SG.II[=CN] who HLIREL AX=3.I buy[-3.II]=CN fish	page 22
+(68) line 3	Vincent Gogag	translation	‘I saw the one who bought the fish.’	page 22
+(68) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+§3.4	Henry Davis and Sander Nederveen	note	An interesting question now arises as to the status of the head in free relatives. First, note that free relatives have the external syntax of DPs, not bare CPs, as evidenced by their parallel distribution to other DPs in the language. For example, they can be transitive subjects (69a) like ordinary DPs (69b) but unlike CPs (69c), and they can be freely coordinated with other DPs (70).	page 22, runs on to page 23
+footnote 18	Henry Davis and Sander Nederveen	note	18 Aonuki (2021) refers to the latter as “super-free” relatives following Caponigro (2020).	page 22, footnote
+(69a) line 1	Gitksan	segmentation	Dim hlimooy-i=s [naa hli ent giikwhl hun] ‘nii’y.	page 23
+(69a) line 2	Gitksan	gloss	PROSP help-TR[-3.II]=PN who HLIREL AX=3.I buy[-3.II]=CN fish 1SG.III	page 23
+(69a) line 3	Henry Davis and Sander Nederveen	translation	‘The one who bought fish will help me.’	page 23
+(69b) line 1	Gitksan	segmentation	Dim hlimooy-i=s John ‘nii’y.	page 23
+(69b) line 2	Gitksan	gloss	PROSP help-TR[-3.II]=PN John 1SG.III	page 23
+(69b) line 3	Henry Davis and Sander Nederveen	translation	‘John will help me.’	page 23
+(69c) line 1	Gitksan	segmentation	* Dim hlimooy-i=hl [win ‘witxw=s John] ‘nii’y.	page 23
+(69c) line 2	Gitksan	gloss	PROSP help-TR[-3.II]=CN COMP arrive[-3.II]=PN John 1SG.III	page 23
+(69c) line 3	Henry Davis and Sander Nederveen	translation	(Intended meaning: ‘That John arrived will help me.’)	page 23, the meaning intended, the sentence judged out
+(70) line 1	Gitksan	segmentation	Ga’-a-’y [t John [gan[=t [naa hli an=t giikw=hl hun]]]].	page 23
+(70) line 2	Gitksan	gloss	see-TR-1SG.II PN John PCNJ=PN who HLIREL AX=3.I buy[-3.II]=CN fish	page 23
+(70) line 3	Henry Davis and Sander Nederveen	translation	‘I saw John and the one who bought fish.’	page 23
+(70) line 3	Henry Davis and Sander Nederveen	citation	(Consultant (VG)’s translation)	the tag or source at the right of the translation
+§3.4	Gitksan	cited form	hlirel	page 23
+§3.4	Henry Davis and Sander Nederveen	note	Now, note that both WH-relative pronouns and hlirel occupy positions in CP under our hypothesis. This means that either D (as the head of DP) selects directly for CP, or it selects for an intermediate null (pro) NP. If the D-head directly selects for a CP, then we must adopt a raising analysis of relative clauses (Kayne 1994).	page 23
+§3.4	Henry Davis and Sander Nederveen	note	However, Davis (2011) argues for a matching analysis for headed relative clauses in Gitksan, since it is possible to extrapose the relative clause, as shown in (43) above. (As argued by Hulsey and Sauerland 2006, extraposition is a key diagnostic for the matching analysis: see Cinque 2015 for a useful summary of relevant tests.) Under the matching analysis, an NP moves to [Spec, C] in the relative clause and is elided at PF via an identity relation with a base-generated external head.	page 23
+§3.4	Gitksan	cited form	naa	page 23
+§3.4	Henry Davis and Sander Nederveen	note	On the other hand, Aonuki (2021) specifically argues that free and headless relative clauses in Gitksan are bare CPs, entailing a raising analysis. Her account runs as follows. For free relatives, she first of all adopts the standard analysis of relativization, whereby WH-movement to [Spec, C] leaves a trace which is converted to a lambda-bound variable at LF: the remnant clause is a derived predicate of type ⟨e,t⟩. However, rather than being semantically vacuous, as in the standard analysis of headed relative clauses, she supplies the WH-word itself with a minimal semantic denotation (e.g., ⟦human⟧ for naa). As a noun of type ⟨e,t⟩, the WH-word is then composed with the relative clause via predicate modification. In contrast, she treats headless relative clauses as simply CP predicates (presumably derived by movement of a semantically vacuous null operator to [Spec, C], in order to create the required semantic category of type ⟨e,t⟩.	page 23
+§3.4	Gitksan	cited form	naa	page 23
+§3.4	Gitksan	cited form	ligi	page 23
+§3.4	Henry Davis and Sander Nederveen	note	In support of her analysis, Aonuki (2021) adduces semantic differences between free and headless relative clauses. In particular, she claims that (i) the WH-word naa in free relatives comes with an animacy restriction lacking in headless relatives, and (ii) that the domain-widening particle ligi is only possible with free relatives, not headless relatives, because a WH-word is needed to provide the domain for ligi to widen.	page 23
+footnote 19	Henry Davis and Sander Nederveen	note	19 The WH-word naa is unusual in taking the proper noun connective t~=s rather than the common noun connective =hl: see, e.g., Davis and Brown (2011) for discussion.	page 23, footnote
+footnote 19	Gitksan	cited form	naa	page 23
+footnote 19	Gitksan	cited form	t~=s	page 23
+§3.4	Henry Davis and Sander Nederveen	note	However, the analysis of headed relative clauses with WH-relative pronouns which we have adopted from Davis (2011) is not easy to reconcile with Aonuki (2021)’s analysis of free relatives. The reason is that we treat the WH-relative pronouns in headed relatives as semantically vacuous, in line with the standard analysis where predicate modification takes place between the (external) head and the relative clause, not the moved WH-word and the relative clause (Heim & Kratzer 1998).20 This means that given Aonuki’s analysis, the semantic representation of WH-relative pronouns would have to differ between free and headed relatives (semantically contentful in the former, vacuous in the latter): we take this to be an undesirable result. Given the syntactic reasons outlined above as to why we would want to maintain a matching account for headed relative clauses, it seems that an alternative analysis of free relatives is warranted.	page 24
+§3.4	Henry Davis and Sander Nederveen	note	There are at least two possible directions to take. The first is to assume a null pro-NP (effectively the equivalent of English ‘one’ in ‘the one who/that…’) in the head position. The second is to propose that there is a second (interrogative-indefinite) WH-word in the external head position, with the moved internal WH-relative pronoun obligatorily deleted under identity (i.e., via matching) with this external WH-word.21 These possibilities are schematized in (71b) and (71c), respectively for the free relative in (71a):	page 24
+(71a) line 1	Gitksan	segmentation	naa (hli) en=t giikw=hl hun	page 24
+(71a) line 2	Gitksan	gloss	who (HLIREL) AX-3.1 buy[-3.II]=CN fish	page 24
+(71a) line 3	Henry Davis and Sander Nederveen	translation	‘(the one) who bought the fish’	page 24
+(71b) line 1	Gitksan	segmentation	[ pro [ naa [ (hli) [ ent giikwhl hun ____ ]]]]	page 24
+(71b) line 2	Gitksan	gloss	[NP NP [CP WHREL [ (HLIREL) [IP WHREL]]]]	page 24
+(71c) line 1	Gitksan	segmentation	[ naa [ ____ [ (hli) [ ent giikwhl hun ____ ]]]]	page 24
+(71c) line 2	Gitksan	gloss	[NP WHINT [CP WHREL [ (HLIREL) [IP WHREL ]]]]	page 24
+§3.4	Gitksan	cited form	naa	page 24
+§3.4	Henry Davis and Sander Nederveen	note	While (71b) appears simpler on the surface, (71c) has two advantages for the analysis of free relatives. First, it provides a matching account parallel to that for ordinary headed relatives. And second, it allows the WH-head naa to have semantic content, as argued by Aonuki (2021), while the moved naa in the relative clause remains semantically vacuous, as in headed relative clauses.	page 24
+§3.4	Henry Davis and Sander Nederveen	note	If we make the additional assumption that headless relative clauses actually have the structure in (71b), we also correctly predict that free (WH-headed) and headless relatives differ semantically, since the nominal head in the former is a contentful WH-pronoun, while in the latter it is a semantically empty pro.22	page 24
+footnote 20	Henry Davis and Sander Nederveen	note	20 It would be possible to save the Aonuki (2021) analysis of free relatives by saying that headed relative clauses are “doubly modified”: that is that predicate modification (Heim & Kratzer 1998) first applies to a WH-phrase and the clause it has been extracted from, and then to the resulting predicate and the external head. Since the output of predicate modification is itself simply a predicate, there’s nothing to stop this in principle, but it would be then hard to stop recursive predicate modification from producing strings of heads.	page 24, footnote
+footnote 21	Henry Davis and Sander Nederveen	note	21 VG never permits more than one WH-word to surface in a relative clause, just as he never permits more than one hli.	page 24, footnote
+footnote 22	Henry Davis and Sander Nederveen	note	22 For the analysis of headless relatives, we must either assume that the moved (internal) WH-phrase is always deleted, or that it can optionally surface. In the latter case, relative clauses with an initial WH-word would actually be structurally ambiguous between free and headless relatives, though they would differ subtly in meaning. We will not attempt to distinguish between these two possibilities here.	page 24, footnote
+§3.4	Gitksan	cited form	hlirel	page 25
+§3.4	Henry Davis and Sander Nederveen	note	The approach we have sketched out here thus provides a potentially unified analysis of headed, free, and headless relative clauses in all varieties of Gitksan. The basic structure is that of an externally headed relative clause, with variation in what occupies the head NP position (an overt nominal, a WH-pronoun, or pro) and in which elements can surface in the relative clause itself (a moved WH-pronoun, the complementizer hlirel, both, or neither). The findings of Aonuki (2021) that there are semantic differences between free and headless relatives are accounted for, as well as the arguments in Davis (2011) that Gitksan relative clauses are uniformly of the matching rather than the raising type.23	page 25
+§3.5	Henry Davis and Sander Nederveen	heading	3.5 Further extensions: relativization in Sm’algyax	page 25
+§3.5	Henry Davis and Sander Nederveen	note	While a full cross-Tsimshianic comparison is beyond the scope of this paper, in this section, we would like to briefly point out how our analysis of relative clauses in Interior Tsimshianic (IT) might fit in with observed relativization patterns in the Maritime branch of the family — more specifically, in Sm’algyax (a.k.a. Coast Tsimshian).	page 25
+§3.5	Gitksan	cited form	hli	page 25
+§3.5	Henry Davis and Sander Nederveen	note	First, as mentioned in footnote 1, hli seems to be systematically absent in Sm’algyax, a finding which is itself quite significant given its antiquity in IT, as attested both by its appearance in older texts (e.g., Boas 1902) and its diverse, partly lexicalized and highly variable uses, as documented in the first part of this paper.	page 25
+§3.5	Henry Davis and Sander Nederveen	note	WH-relatives, however, are robustly attested in Sm’algyax:	page 25
+(72) line 1	Sm’algyax	segmentation	Ada ‘nii+wil lu+spag̱ayt hoksg=a hana’ax=ga gu ksm+Gitksan.	page 25
+(72) line 2	Sm’algyax	gloss	and on+COMP in+among join=CN woman=ABSN.CN WHREL female+Gitksan	page 25
+(72) line 3	Henry Davis and Sander Nederveen	translation	‘And among them was the woman who was the Gitksan lady.’	page 25, carries footnote 24
+(72) line 3	Henry Davis and Sander Nederveen	citation	(Sm’algyax Living Legacy Dictionary)	the tag or source at the right of the translation
+(73) line 1	Sm’algyax	segmentation	Ła hasax-d=a dm=t wilaay naa=ga sup’as-m ‘yuuta	page 25
+(73) line 2	Sm’algyax	gloss	ASP want-3.II=CN PROSP=3.I know[-3.II] ho=ABSN.CN young-ATTR man	page 25
+(73) line 3	Sm’algyax	segmentation	gu t=in di-da̱mg̱(i)-t=ga a=txa̱’nii aatk.	page 25
+(73) line 4	Sm’algyax	gloss	WHREL 3.I=AX COM-sleep-3.II=ABSN.CN OBL=every night	page 25
+(73) line 5	Henry Davis and Sander Nederveen	translation	‘She wanted to know who the young man was who slept with her every night.’	page 25, carries footnote 25
+(73) line 5	Henry Davis and Sander Nederveen	citation	(Sm’algyax Living Legacy Dictionary)	the tag or source at the right of the translation
+footnote 23	Henry Davis and Sander Nederveen	note	23 This analysis makes one prediction that is not supported by the data. If free relatives are actually headed by a WH NP, as proposed here, then extraposition should be possible, stranding the WH-word, just as an NP head can be stranded in ordinary headed relatives (see (43) above). However, this is impossible, as can be seen in (ib): a temporal adjunct cannot intervene between naa and the rest of the relative clause. (i) a. Dim ‘witxw naa hli en=t giikw=hl hun t’aalhakw. PROS come who HLIREL AX=3.I buy[-3.II]=CN fish tomorrow ‘The one who bought the fish will come tomorrow.’ (VG) b. * Dim ‘witxw naa t’aalhakw hli en=t giikw=hl hun. We leave this as an unresolved problem.	page 25, footnote
+footnote 24	Henry Davis and Sander Nederveen	note	24 https://www.webonary.org/smalgyax/browse/browse- vernacular/?letter=g&key=tsi&totalEntries=182&pagenr=6. Morpheme glosses (including mistakes!) are ours.	page 25, footnote
+footnote 25	Henry Davis and Sander Nederveen	note	25 https://www.webonary.org/smalgyax/g0409ffd4-2dd1-4763-9126-cada6d09e420/	page 25, footnote
+§3.5	Gitksan	cited form	gigeenix	page 26
+§3.5	Gitksan	cited form	hli	page 26
+§3.5	Gitksan	cited form	hlirel	page 26
+§3.5	Henry Davis and Sander Nederveen	note	This is significant from a historical-comparative perspective, since it strongly suggests that WH-relativization is a deep-seated property of the Tsimshianic language family, rather than a recent innovation under European influence. The distribution of headed relative clauses with WH- pronouns is particularly telling: they surface in gigeenix dialects of Gitksan, at the eastern periphery of the Tsimshianic language continuum, and in Sm’algyax, at the western edge, but are largely missing (or at least, highly marked) in the middle. This type of geographical distribution is typically associated with older and more conservative linguistic traits, which are furthest removed from centres of linguistic innovation. It also means that the speculation in Davis and Brown (2011:73) that hli might have been a structural precursor to WH-relative pronouns cannot be right: aside from the fact that hlirel is a complementizer, not a relative pronoun, WH-relatives evidently pre-date hli relatives.	page 26
+§3.5	Gitksan	cited form	gu	page 26
+§3.5	Gitksan	cited form	go(o)	page 26
+§3.5	Gitksan	cited form	naa	page 26
+§3.5	Gitksan	cited form	wilaay	page 26
+§3.5	Gitksan	cited form	yuuta	page 26
+§3.5	Henry Davis and Sander Nederveen	note	Of particular interest for the current analysis, WH-pronouns in Sm’algyax are differentiated into a set of non-relative (interrogative-indefinite) WH-pronouns, largely cognate with those of IT, and a single, undifferentiated WH-relative pronoun gu (sometimes pronounced as go(o)). Both types can be seen in (73) above: the interrogative-indefinite pronoun naa ‘who’ introduces the embedded question which serves as complement to the verb wilaay ‘know’, while the relative pronoun gu introduces the relative clause headed by the noun ‘yuuta ‘man’. The phonological distinction between these two types of WH-pronoun is exactly what we might expect to emerge based on our analysis of Gitksan relative clauses, where interrogative-indefinite and relative WH- pronouns, though homophonous, are distinguished on the basis of syntactic and semantic criteria. We further predict that in Sm’algyax free relatives, interrogative-indefinite pronouns will show up in the external head position, with gu inside the relative clause. As far as we can tell, this prediction is borne out, as shown in (74)–(75).	page 26
+(74) line 1	Sm’algyax	segmentation	Ałga mi=dm=sm ga̱b=a [ksg̱oog̱-m goo=ga dm=t gyiin-sm]	page 26
+(74) line 2	Sm’algyax	gloss	NEG 2.I=PROSP=2PL.I eat=CN [first-ATTR what=ABSN.CN PROSP=3.I feed-2PL.II]	page 26
+(74) line 3	Henry Davis and Sander Nederveen	translation	‘Do not eat what they feed you first.’	page 26, carries footnote 26
+(74) line 3	Henry Davis and Sander Nederveen	citation	(Sm’algyax Living Legacy Dictionary)	the tag or source at the right of the translation
+(75) line 1	Sm’algyax	segmentation	Ada=t wil baal-t=ga gyet dm=t ksigaa-t ada ałga=t	page 26
+(75) line 2	Sm’algyax	gloss	and=3.I COMP try-3.II=ABSN.CN person PROS=3.I catch-3.II but NEG=3.I	page 26
+(75) line 3	Sm’algyax	segmentation	da’axłg-it awil=t łaxs-d=a łguwoomłg=a	page 26
+(75) line 4	Sm’algyax	gloss	able.to-3.II because=3.I scratch-3.II=CN child=CN	page 26
+(75) line 5	Sm’algyax	segmentation	[naa goo t=in baal dm(t) t=in gaa-t].	page 26
+(75) line 6	Sm’algyax	gloss	who WHREL 3.I=AX try[-3.II] PROSP 3.I=AX take-3.II	page 26
+(75) line 7	Henry Davis and Sander Nederveen	translation	‘And then the people tried to catch him but they couldn’t because the child scratched whoever tried to take him.’	page 26, carries footnote 27
+(75) line 7	Henry Davis and Sander Nederveen	citation	(Sm’algyax Living Legacy Dictionary)	the tag or source at the right of the translation
+§3.5	Gitksan	cited form	goo	page 26
+§3.5	Gitksan	cited form	ksgoox	page 26
+§3.5	Gitksan	cited form	naa	page 26
+§3.5	Gitksan	cited form	gu	page 26
+§3.5	Henry Davis and Sander Nederveen	note	In (74), we see the interrogative-indefinite goo ‘what’ modified by ksgoox ‘first’ and heading a free relative. In (75), both types of WH-pronoun occur in the same free relative clause: interrogative-indefinite naa is in the head position, followed by the WH-relative pronoun gu (here realized as goo) in [Spec, C]. Sm’algyax thus provides strong supporting evidence for our analysis of free relatives in IT.	page 26, runs on to page 27
+footnote 26	Henry Davis and Sander Nederveen	note	26 https://www.webonary.org/smalgyax?s=gyiinsm&search=Search&key=&tax=-1&search_options_set=1 &match_whole_words=1&displayAdvancedSearchName=0)	page 26, footnote
+footnote 27	Henry Davis and Sander Nederveen	note	27 https://www.webonary.org/smalgyax?s=scratch&search=Search&key=&tax=-1&search_options_set=1& match_whole_words=1&displayAdvancedSearchName=0	page 26, footnote
+§3.6	Henry Davis and Sander Nederveen	heading	3.6 Back to hlifoc again	page 27
+§3.6	Gitksan	cited form	hlifoc	page 27
+§3.6	Gitksan	cited form	hlirel	page 27
+§3.6	Henry Davis and Sander Nederveen	note	In this section, we return to hlifoc in the light of our analysis of hlirel. Recall the direct movement analysis of focus, as developed in Section 3.1. and exemplified in (76) below, repeated from (51).	page 27
+(76a) line 1	Gitksan	segmentation	Hun hle gub-i=hl log-om ‘wii+get.	page 27
+(76a) line 2	Gitksan	gloss	fish HLIFOC eat-TR[-3.II]=CN decayed-ATTR big+man	page 27
+(76a) line 3	Henry Davis and Sander Nederveen	translation	‘It was fish the old man ate.’	page 27
+(76b) line 1	Henry Davis and Sander Nederveen	note	Direct movement	page 27, the label over the structure, in italics
+(76b) line 2	Gitksan	segmentation	[ hun [hle [ gubihl logom ‘wii get ___ ]]]	page 27
+(76b) line 3	Gitksan	gloss	[CP DP [CFOC [IP DP ]]]	page 27
+§3.6	Gitksan	cited form	hlifoc	page 27
+§3.6	Henry Davis and Sander Nederveen	note	Under the direct movement analysis, hlifoc occupies the head of CPfoc and a focused DP moves to its specifier, leaving a trace/deleted copy in argument position. This analysis straightforwardly predicts that WH-relative pronouns may not co-occur with hlifoc: the examples in (77) show that this prediction is borne out.	page 27
+(77a) line 1	Gitksan	segmentation	hanak’ hli en=t gup=hl hun, nee-t a=hl get.	page 27
+(77a) line 2	Gitksan	gloss	woman HLIFOC AX=3.I eat[-3.II]=CN fish NEG-3.II OBL[-3.II]=CN man	page 27
+(77a) line 3	Henry Davis and Sander Nederveen	translation	‘A woman ate fish, not a man.’	page 27
+(77b) line 1	Gitksan	segmentation	* hanak’ naa hli en=t gup=hl hun, nee-t	page 27
+(77b) line 2	Gitksan	gloss	woman who HLIFOC AX=3.I eat[-3.II]=CN fish NEG-3.II	page 27
+(77b) line 3	Gitksan	segmentation	a=hl get.	page 27
+(77b) line 4	Gitksan	gloss	OBL[-3.II]=CN man	page 27
+§3.6	Gitksan	cited form	hanak	page 27
+§3.6	Gitksan	cited form	naa	page 27
+§3.6	Henry Davis and Sander Nederveen	note	Note that as observed previously, the ungrammaticality of (77b) entails the unavailability of a potential alternative structure with hanak’ ‘woman’ acting as a nominal predicate and naa heading a free relative clause. This reinforces our earlier conclusion that nominal predication in Gitksan is generally ungrammatical with a relative clause argument (though see Section 3.7 below).	page 27
+§3.6	Gitksan	cited form	hlifoc	page 27
+§3.6	Gitksan	cited form	nit	page 27
+§3.6	Henry Davis and Sander Nederveen	note	In light of our direct movement proposal for hlifoc, an interesting issue arises with ‘nit clefts. As first observed by Davis and Brown (2011), clefts behave syntactically like focus structures in never permitting a WH-word; exactly the same is true with clefts containing hlifoc, as show in (78).	page 27
+(78a) line 1	Gitksan	segmentation	Cathy hli en=t yee-di=hl limx.	page 27
+(78a) line 2	Gitksan	gloss	Cathy HLIFOC AX=3.I go-T-[-3.II]=CN song	page 27
+(78a) line 3	Henry Davis and Sander Nederveen	translation	‘It was Cathy who sang a song.’	page 27
+(78b) line 1	Gitksan	segmentation	* Cathy naa hli en=t yee-di=hl limx.	page 27
+(78b) line 2	Gitksan	gloss	Cathy who HLIFOC AX=3.I go-T-[-3.II]=CN song	page 27
+(78b) line 3	Vincent Gogag	speaker comment	Consultant (VG)’s comment: “Couldn’t do it, no.”	page 27, the consultant's comment, VG
+(78c) line 1	Gitksan	segmentation	‘Nit Cathy hli en=t yee-di=hl limx.	page 28
+(78c) line 2	Gitksan	gloss	FOC Cathy HLIFOC AX=3.I go-T-[-3.II]=CN song	page 28
+(78c) line 3	Henry Davis and Sander Nederveen	translation	‘It was Cathy who sang a song.’	page 28
+(78d) line 1	Gitksan	segmentation	* ‘Nit Cathy naa hli en=t yee-di=hl limx.	page 28
+(78d) line 2	Gitksan	gloss	FOC Cathy who HLIFOC AX=3.I go-T-[-3.II]=CN song	page 28
+(78d) line 3	Vincent Gogag	speaker comment	Consultant (VG)’s comment: “Nope.”	page 28, the consultant's comment, VG
+§3.6	Gitksan	cited form	nit	page 28
+§3.6	Henry Davis and Sander Nederveen	note	This indicates that clefts in Gitksan act as direct rather than indirect movement structures, unlike their equivalents in English. One way to implement a direct movement analysis within the framework adopted here is to simply embed a focus movement structure beneath ‘nit, as in (79):	page 28
+(79) line 1	Gitksan	segmentation	[ ‘nit [ Cathy [ hli [ en [ ___ t yeedihl limx ]]]]]	page 28
+(79) line 2	Gitksan	gloss	[FOCP FOC [CP DP [ CFOC [AXP [IP DP ]]]]]	page 28
+§3.6	Gitksan	cited form	nit	page 28
+§3.6	Gitksan	cited form	hlifoc	page 28
+§3.6	Henry Davis and Sander Nederveen	note	The basic idea here is that ‘nit will select a clause headed by hlifoc. We currently have no empirical evidence for or against the structure in (79) — for example, we do not know how ‘nit clefts work in embedded contexts — and we set aside more detailed investigation for future work.	page 28
+§3.7	Henry Davis and Sander Nederveen	heading	3.7 WH-questions	page 28
+§3.7	Gitksan	cited form	hli	page 28
+§3.7	Henry Davis and Sander Nederveen	note	In this section, we briefly assess what the analysis outlined above means for WH-questions. As a first observation, notice that WH-questions with hli are certainly possible for VG as an alternative to regular WH-questions without a complementizer:	page 28
+(80a) line 1	Gitksan	segmentation	Naa en=t ga’a-n?	page 28
+(80a) line 2	Gitksan	gloss	who AX=3.I see-2SG.II	page 28
+(80a) line 3	Henry Davis and Sander Nederveen	translation	‘Who saw you?’	page 28
+(80b) line 1	Gitksan	segmentation	Naa=hl hli en=t ga’a-n?	page 28
+(80b) line 2	Gitksan	gloss	who=CN HLI AX=3.I see-2SG.II	page 28
+(80b) line 3	Vincent Gogag	translation	‘Who is it that saw you?’	page 28
+(80b) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+§3.7	Gitksan	cited form	hlifoc	page 28
+§3.7	Gitksan	cited form	hlirel	page 28
+§3.7	Henry Davis and Sander Nederveen	note	Once again, both direct and indirect movement accounts are potentially available for (80b): direct movement involves the mechanism we have invoked for focus, and therefore should be possible with hlifoc; indirect movement involves a WH-nominal predicate and a headless relative clause in argument position, and therefore should allow hlirel. The relevant structures are given in (81a) and (81b):	page 28
+(81a) line 1	Gitksan	segmentation	[ naa [ hli [ en [ _____ t ga’an ]]]]	page 28
+(81a) line 2	Gitksan	gloss	[CP WHINT [ CFOC [AXP [vP WHINT ]]]]	page 28
+(81b) line 1	Gitksan	segmentation	[ naa [ [ _____ [hli [ en [ _____ t ga’an ]]]]]]	page 28
+(81b) line 2	Gitksan	gloss	[IP WHINT [DP pro [CP WHREL [CREL [AXP [vP WHREL ]]]]]]	page 28
+§3.7	Gitksan	cited form	gigeenix	page 28
+§3.7	Henry Davis and Sander Nederveen	note	The structure in (81a) looks initially more attractive, not only on the grounds of simplicity, but also because we have already seen that structures like (81b) appear to be unavailable with non-WH nominal predicates. However, Davis and Brown (2011) point out that gigeenix (upriver/eastern) speakers who permit headed relatives with WH-pronouns do allow them to be arguments of WH- predicates:	page 28, runs on to page 29
+(82a) line 1	Gitksan	segmentation	Naa=hl [t’ihlxw-um haanak’ naa=hl saks-it]?	page 29
+(82a) line 2	Gitksan	gloss	who=CN young-ATTR women who=CN PL.leave-SX	page 29
+(82a) line 3	Henry Davis and Sander Nederveen	translation	‘Who are the young women who left?’	page 29
+(82b) line 1	Gitksan	segmentation	Naa=hl [gat naa an=t jagw-i=hl smax]?	page 29
+(82b) line 2	Gitksan	gloss	who=CN man who AX=3.I eat-T[-3.II]=CN bear	page 29
+(82b) line 3	Henry Davis and Sander Nederveen	translation	‘Who is the person who killed the bear?’	page 29
+(82c) line 1	Gitksan	segmentation	Gwi=hl [alp’a wineex=hl gwi=hl gub-i=s John]?	page 29
+(82c) line 2	Gitksan	gloss	what=CN RSTR food=CN what=CN eat-TR[-3.II]=PN John	page 29
+(82c) line 3	Barbara Sennott	translation	‘Which foods exactly are the ones which John ate?’	page 29
+(82c) line 3	Henry Davis and Sander Nederveen	citation	(BS: Davis & Brown 2011:68)	the tag or source at the right of the translation
+§3.7	Gitksan	cited form	hli	page 29
+§3.7	Henry Davis and Sander Nederveen	note	Furthermore, for VG, WH-predicates appear to be able to select headed relative clauses with hli:	page 29
+(83) line 1	Gitksan	segmentation	Naa=hl [hanak’ hli en=t ga’a-n]?	page 29
+(83) line 2	Gitksan	gloss	who=CN woman HLI AX=3.I see-2SG.II	page 29
+(83) line 3	Vincent Gogag	translation	‘What woman saw you?’	page 29
+(83) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+§3.7	Gitksan	cited form	dip	page 29
+§3.7	Gitksan	cited form	simgigat	page 29
+§3.7	Henry Davis and Sander Nederveen	note	This appears to provide evidence that the indirect movement structure in (81b) may be available for WH-questions after all. At the same time, Davis and Brown (2011) also show that direct WH- questions must be permitted, since an initial WH-phrase can appear with the associative plural marker dip, which unambiguously signals a fronted argument rather than a predicate. The SX (subject extraction) morphology on the nominal predicate simgigat ‘chiefs’ in (84) further indicates that movement of the WH-phrase has taken place.	page 29
+(84) line 1	Gitksan	segmentation	Dip naa=hl simgigad-id=ist?	page 29
+(84) line 2	Gitksan	gloss	ASSOC who=CN PL.chief-SX=AFF	page 29
+(84) line 3	Henry Davis and Sander Nederveen	translation	‘Who are the chiefs?’	page 29
+(84) line 3	Henry Davis and Sander Nederveen	citation	(Davis & Brown 2011:71)	the tag or source at the right of the translation
+§3.7	Gitksan	cited form	hlirel	page 29
+§3.7	Henry Davis and Sander Nederveen	note	Given all this, we make a clear set of predictions. First, if indirect WH-movement is permitted for VG, we expect both hlirel and a WH-relative pronoun to be possible inside the relative clause complement to a WH-predicate, as in (85). However, VG rejects sentences like this (and all other cases with “doubled” WH-phrases) on the grounds of redundancy.	page 29
+(85) line 1	Gitksan	segmentation	?*Naa=hl [hanak’ naa hli en=t ga’a-n]?	page 29
+(85) line 2	Gitksan	gloss	who=CN [woman who HLIREL AX=3.I see-2SG.II	page 29
+(85) line 3	Henry Davis and Sander Nederveen	translation	‘What woman saw you?’	page 29
+(85) line 4	Vincent Gogag	speaker comment	Consultant (VG)’s comment: “You’ve already said naa, so you wouldn’t need another one.”	page 29, the consultant's comment, VG
+§3.7	Gitksan	cited form	dip	page 29
+§3.7	Gitksan	cited form	hlifoc	page 29
+§3.7	Henry Davis and Sander Nederveen	note	Second, if direct WH-movement is possible, we should find WH-questions with associative dip, and if so, hlifoc should be available. These cases are indeed grammatical for VG.	page 29
+(86a) line 1	Gitksan	segmentation	Dip naa=hl [en=t ga’a-n]?	page 30
+(86a) line 2	Gitksan	gloss	ASSOC who=CN [AX=3.I see-2SG.II	page 30
+(86a) line 3	Vincent Gogag	translation	‘Who (pl.) saw you?’	page 30
+(86a) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+(86b) line 1	Gitksan	segmentation	Dip naa=hl [hli en=t ga’a-n]?	page 30
+(86b) line 2	Gitksan	gloss	ASSOC who=CN [HLIFOC AX=3.I see-2SG.II	page 30
+(86b) line 3	Vincent Gogag	translation	‘Who (pl.) saw you?’	page 30
+(86b) line 3	Henry Davis and Sander Nederveen	citation	(VG)	the tag or source at the right of the translation
+§3.7	Gitksan	cited form	dip naa	page 30
+§3.7	Gitksan	cited form	hlirel	page 30
+§3.7	Henry Davis and Sander Nederveen	note	Third, we should not find WH-questions with dip naa co-occurring with hlirel or a WH-relative pronoun. These cases are unequivocally rejected by VG.	page 30
+(87a) line 1	Gitksan	segmentation	* Dip naa=hl [haanak’ hli en=t ga’a-n]?	page 30
+(87a) line 2	Gitksan	gloss	ASSOC who=CN [women HLIREL AX=3.I see-2SG.II	page 30
+(87a) line 3	Henry Davis and Sander Nederveen	translation	(Intended meaning: ‘Which women saw you?’)	page 30, the meaning intended, the sentence judged out
+(87b) line 1	Gitksan	segmentation	* Dip naa=hl [haanak’ naa hli en=t ga’a-n]?	page 30
+(87b) line 2	Gitksan	gloss	ASSOC who=CN [women who HLIREL AX=3.I see-2SG.II	page 30
+(87b) line 3	Henry Davis and Sander Nederveen	translation	(Intended meaning: ‘Which women saw you?’)	page 30, the meaning intended, the sentence judged out
+§3.7	Henry Davis and Sander Nederveen	note	Setting aside (85) as ruled out by VG’s general reluctance to double WH-words, we conclude from (86) and (87) that he does appear to employ both direct and indirect movement strategies for WH-questions (supporting earlier conclusions to this effect in Davis & Brown 2011).	page 30
+§3.7	Gitksan	cited form	hlirel	page 30
+§3.7	Gitksan	cited form	hlifoc	page 30
+§3.7	Henry Davis and Sander Nederveen	note	The existence of indirect WH-questions with hlirel as an alternative to direct WH-questions with hlifoc is something of a puzzle, given the lack of “indirect focus” constructions (including clefts). Clearly, there is something special about WH-predicates which overcomes the language’s general tendency to avoid nominal predication; however, we must leave further investigation of this issue for future work.	page 30
+§4	Henry Davis and Sander Nederveen	heading	4 Conclusion	page 30
+§4	Gitksan	cited form	hli	page 30
+§4	Gitksan	cited form	hli + -T	page 30
+§4	Henry Davis and Sander Nederveen	note	We have covered a lot of ground in this paper. In the first part, we undertook a broad survey of the uses of the particle hli across Interior Tsimshianic, drawing on previous literature (in particular, Tarpent (1987)’s detailed descriptive work on Nisga’a) as well as textual evidence from Gitksan, with follow-up elicitation where appropriate. We found a multiplicity of uses, broadly falling into three types: “nominal”, “subordinating”, and “relativizing”. Within each of these types, we encountered much variation: not all Gitksan speakers control all uses, and not all of the observed variation falls into standard dialect divisions. Furthermore, within the first two types, many instances of hli are clearly lexicalized, and even when they are not, the semantic contribution of hli is often unclear, as evidenced, for example, by our failure to replicate Tarpent’s claim for Nisga’a that hli + -T marks inalienable possession with possessed nominals, while hli by itself marks alienated possession. Overall, our impression is that in its nominal functions, and to a lesser extent in its subordinating functions, hli is on its way to obsolescence, either by becoming lexicalized or semantically bleached.	page 30
+§4	Gitksan	cited form	hli	page 30
+§4	Gitksan	cited form	hlifoc	page 30
+§4	Gitksan	cited form	hlirel	page 30
+§4	Henry Davis and Sander Nederveen	note	This is not true, however, of relativizing hli, the focus of the second part of the paper. For VG, the only one of our consultants who uses it systematically and productively, hli is a prominent structural component not only of relative clauses but — in an unexpected development — of focus fronting structures. In investigating the role of hli in these two structures, we came to the conclusion that VG has split hli into two separate morphemes, hlifoc and hlirel. Both are complementizers but are associated with different syntax: hlifoc triggers direct movement of a focused argument to [Spec, C], while hlirel attracts a WH-pronoun (either overt or covert) to the [Spec, C] of a relative clause to create a derived predicate, which then undergoes predicate modification with a covert or overt nominal head.	page 30, runs on to page 31
+§4	Gitksan	cited form	hlirel	page 31
+§4	Gitksan	cited form	hlifoc	page 31
+§4	Henry Davis and Sander Nederveen	note	We have shown that our analysis correctly predicts the co-occurrence of WH-relative pronouns with hlirel, but not with hlifoc. In addition, by distinguishing WH interrogative-indefinite pronouns from WH-relative pronouns, we have been able to accommodate the semantic distinction between free (WH-headed) and headless (pro-headed) relatives observed by Aonuki (2021), while maintaining a uniform matching structure for all types of relative clause. Our analysis also extends to relative clauses in Sm’algyax (Coast Tsimshian), where there is an overt phonological distinction between indefinite-interrogative and WH-relative pronouns: we take this as an additional indication that we are on the right track.	page 31
+§4	Gitksan	cited form	hli	page 31
+§4	Henry Davis and Sander Nederveen	note	This analysis undertaken here has two major cross-Tsimshianic implications, one for WH- relative pronouns, one for relativizing hli. The geographical distribution of WH-relative pronouns at both the eastern and western peripheries of the family (and the fact that they also surface in the middle, though less obviously) reinforces the earlier conclusions of Davis and Brown (2011) that they are a deep-seated feature of Tsimshianic, almost certainly dating back to the proto-language, and therefore not a recent development under European influence. This is significant in that the grammar of WH-relatives is in some ways closer to that of European languages than to that of other language families in the Pacific Northwest Sprachbund, with larger cross-linguistic implications for the typology of relative clauses.	page 31
+§4	Gitksan	cited form	hli	page 31
+§4	Henry Davis and Sander Nederveen	note	Relativizing hli, on the other hand, is confined to Interior Tsimshianic, and though sporadically attested in eastern dialects, appears to be most prominent in Nisga’a and neighbouring dialects of Gitksan (notably that of VG, from Gitanyaaw).28 This suggests it represents a more recent development than WH-relative pronouns, though hli itself is evidently of some antiquity, judging both by its distribution and the multiplicity of functions it has assumed across IT, as documented in the first part of the paper.	page 31
+§4	Henry Davis and Sander Nederveen	note	Our analysis also raises several unanswered questions. The most important is perhaps our finding that direct focus movement always takes precedence over a potential alternative pseudo- cleft-like structure with a nominal predicate and an argument consisting of a free or headless relative clause. In principle, we expect this latter structure to be available, given that both its components are independently attested, but it appears to be systematically ruled out in VG’s grammar except in the case of WH-questions, which do appear to optionally take the form of pseudo-clefts. We leave further exploration of this issue for future work.	page 31
+§4	Gitksan	cited form	hli	page 31
+§4	Henry Davis and Sander Nederveen	note	Lastly, it is important to acknowledge how much inter-speaker variation we have discovered in our exploration of the grammar of hli. The data presented in the second part of the paper result from elicitation with a speaker from Gitanyaaw (VG) who actively employs hli in both focus and relative clause structures, but a second western dialect speaker, HH from Gijigyukwlha, uses hli in neither. On the other hand, HH employs hli in an impersonal construction (Section 2.7) which is completely missing from VG’s grammar (and indeed, has never been recorded before). This highlights the need to distinguish not just different “dialects” — which are in themselves idealizations over the complex dynamics of language variation across time and place — but the idiolects of individual speakers, whose grammars can vary widely even within the same speech community.	page 31
+footnote 28	Henry Davis and Sander Nederveen	note	28 VG himself identifies his dialect as ganimx, distinct from both Gitksan and Nisga’a.	page 31, footnote
+footnote 28	Gitksan	cited form	ganimx	page 31
+references	Henry Davis and Sander Nederveen	heading	References	page 32
+references	Henry Davis and Sander Nederveen	reference	Aonuki, Yurika. 2021. Free relatives in Gitksan. In: Proceedings of the Conference on Semantics of Under-Represented Languages of the Americas (SULA) 11.	
+references	Henry Davis and Sander Nederveen	reference	Boas, Franz. 1902. Tsimshian Texts. Washington: Bureau of American Ethnology. Bulletin 27.	
+references	Henry Davis and Sander Nederveen	reference	Bicevskis, Katie, Henry Davis, & Lisa Matthewson. 2017. Quantification in Gitksan. In: Denis Paperno & Edward L. Keenan (eds.), Handbook of Quantifiers in Natural Language 2. Cham: Springer, 281–382.	
+references	Henry Davis and Sander Nederveen	reference	Caponigro, Ivano. 2020. Introducing Headless Relative Clauses and the Findings from Mesoamerican Languages. In: Ivano Caponigro, Harold Torrence, & Roberto Zavala Maldonado (eds.), Headless Relative Clauses in Mesoamerican Languages. Oxford: Oxford University Press, 1–57.	
+references	Henry Davis and Sander Nederveen	reference	Cinque, Guglielmo. 2015. Three phenomena discriminating between “raising” and “matching” relative clauses. Semantics-Syntax Interface 2(1):1–27.	
+references	Henry Davis and Sander Nederveen	reference	Davis, Henry. 2011. WH-Relatives in Interior Tsimshianic. Handout of talk presented at the University of Victoria Workshop on Relative Clauses.	
+references	Henry Davis and Sander Nederveen	reference	Davis, Henry & Jason Brown. 2011. On A’-dependencies in Gitksan. Papers for ICSNL 46:43–80.	
+references	Henry Davis and Sander Nederveen	reference	Davis, Henry, Carrie Gillon, & Lisa Matthewson. 2014. How to investigate linguistic diversity: Lessons from the Pacific Northwest. Language, 90(4):180–226.	
+references	Henry Davis and Sander Nederveen	reference	Forbes, Clarissa, Michael Schwan, Henry Davis, & the UBC Gitksan Research Lab (eds). In prep. ‘Nit g̲anwilt: Thirty-six Gitksan stories. Ms. July 14, 2021. 12,500 words interlinear glossed text.	
+references	Henry Davis and Sander Nederveen	reference	Heim, Irene & Angelika Kratzer. 1998. Semantics in Generative Grammar. Oxford: Blackwell.	
+references	Henry Davis and Sander Nederveen	reference	Hulsey, Sarah & Uli Sauerland. 2006. Sorting out relative clauses. Natural Language Semantics 14:111–137.	
+references	Henry Davis and Sander Nederveen	reference	Hunt, Katharine. 1993. Clause Structure, Agreement, and Case in Gitksan. Ph.D. dissertation, University of British Columbia, Vancouver, B.C.	
+references	Henry Davis and Sander Nederveen	reference	Kayne, Richard S. 1994. The Antisymmetry of Syntax. Cambridge, MA: MIT Press.	
+references	Henry Davis and Sander Nederveen	reference	Koopman, Hilda. 2000. The Syntax of Specifiers and Heads. London: Routledge.	
+references	Henry Davis and Sander Nederveen	reference	Rigsby, Bruce. 1986. Gitksan grammar. Ms. University of Queensland, Australia.	
+references	Henry Davis and Sander Nederveen	reference	Rizzi, Luigi. 1997. The fine structure of the left periphery. In: Liliane Haegeman (ed.), Elements of grammar. Dordrecht: Springer, 281–337.	
+references	Henry Davis and Sander Nederveen	reference	Tarpent, Marie-Lucie. 1987. A grammar of Nisgha. Ph.D. dissertation, University of Victoria, Victoria, B.C.	

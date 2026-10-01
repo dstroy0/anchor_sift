@@ -1,0 +1,325 @@
+where	who	kind	form	gloss
+front	Katherine Givens	note	Papers for the International Conference on Salish and Neighbouring Languages 58. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Julia Schillo, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2023.	page 1
+front	Katherine Givens	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+front	Katherine Givens	language	Secwepemctsín	Secwepemctsín, Shuswap
+front	Katherine Givens	language	St’át’imcets	St’át’imcets, Lillooet
+front	Katherine Givens	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+front	Katherine Givens	title	Degree Comparison in Nɬeʔkepmxcín*	page 1
+front	Katherine Givens	byline	Katherine Givens, University of British Columbia	page 1
+front	Katherine Givens	note	Abstract: In this paper I present data to illustrate how comparison is expressed in Nɬeʔkepmxcín (a.k.a. Thompson River Salish), with a focus on degree-related comparative constructions. Examining the availability of specific degree-based constructions, I conclude that Nɬeʔkepmxcín has a positive setting of the Degree Semantics Parameter proposed by Beck et al. (2009), and consequently has gradable predicates of type ⟨d, ⟨e,t⟩⟩. Furthermore, I argue that the language also has positive settings of the Degree Abstraction Parameter and the Degree Phrase Parameter. This conclusion aligns with previous research on Secwepemctsín (Suharwardy 2021), St’át’imcets (Davis & Mellesmoen 2019), and ʔayʔaǰuθəm (Davis & Mellesmoen 2019).	page 1
+front	Katherine Givens	note	Keywords: Salish, Nɬeʔkepmxcín (Thompson River Salish), semantics, degrees, comparison	page 1
+front	Katherine Givens	name	Katherine Givens	author, University of British Columbia
+§1	Katherine Givens	heading	1 Introduction	page 1
+§1	Katherine Givens	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§1	Katherine Givens	note	There have been four previous accounts that undertake an investigation of degrees and the parameters proposed by Beck et al. (2009) in the Salish family. The first, Reisinger and Lo (2017; henceforth R&L) investigate the Central Salish language ʔayʔaǰuθəm (Comox-Sliammon), arguing that it does not possess gradable predicates, and is negative for the Degree Semantics Parameter (DSP); I will provide an overview of the DSP later in this paper. The second, by the same authors, Lo and Reisinger (2018; henceforth L&R) reanalyzes a specific comparative construction in ʔayʔaǰuθəm, and preforms further tests which indicates that the language might originally have been degreeless, but is in the process of gaining degrees.	page 1
+§1	Katherine Givens	language	St’át’imcets	St’át’imcets, Lillooet
+§1	Katherine Givens	note	Thirdly, Davis and Mellesmoen (2019; henceforth D&M) carry out a comparison of degree- constructions in St’át’imcets (Lillooet) and reanalyze the conclusion R&L (2017) and L&R (2018) came to with regards to ʔayʔaǰuθəm with new data. Comparing the two languages, they conclude that both have positive settings for the DSP and the other degree-related parameters proposed by Beck et al. (2009).	page 1
+§1	Katherine Givens	language	Secwepemctsín	Secwepemctsín, Shuswap
+§1	Katherine Givens	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+footnote *	Katherine Givens	note	* I am deeply grateful to my consultants: Bev Phillips (BP), Kʷ əɬtèzetkʷu (Bernice Garcia, KBG) and C̓úʔsinek (Marty Aspinall). Thank you all so much for taking the time and effort to share your language with me. kʷukʷstéyp! Bernice wishes it to be stated that she is a Kamloops Indian Residential School speaker, relearning her language. She introduces herself thus:	page 1, footnote
+footnote *	Katherine Givens	name	Bev Phillips	a Nɬeʔkepmxcín consultant, BP
+footnote *	Katherine Givens	name	Bernice Garcia	a Nɬeʔkepmxcín consultant, Kʷəɬtèzetkʷu, KBG
+footnote *	Katherine Givens	name	Marty Aspinall	a Nɬeʔkepmxcín consultant, C̓úʔsinek
+footnote *	Bernice Garcia	running speech	ʔes ʔúməcəms kʷəɬtèzetkʷuʔ təw ɬe c̓əɬétkʷu, wéʔe ncitxʷ, ƛ̓uʔ wéʔe cʔex netíyxs, scweʷ w̓xmx, ƛ̓uʔ tékm he w éʔe ne ʔex x éʔe N ɬeʔkepmx ʔe tmixʷs.	page 1, footnote, Bernice Garcia introduces herself
+footnote *	Bernice Garcia	translation	‘My traditional name is kʷəɬtèzetkʷuʔ, my home is in Coldwater of ‘Nicola’ of Nlaka’pamux lands.’	page 1, footnote, her introduction in English
+footnote *	Katherine Givens	note	Additionally, I would like to thank Lisa Matthewson and the members of the Nɬab. This work has been financially supported by the UBC Department of Linguistics for the 2022–2023 Linguistics Field Methods course, and the Jacobs Research Fund Group Grant and the Kinkade Language and Culture Foundation. Contact info: kagivens@student.ubc.ca	page 1, footnote, her introduction in English
+footnote *	Katherine Givens	name	Lisa Matthewson	thanked by the author
+footnote *	Katherine Givens	name	Kʷəɬtèzetkʷu	page 1, Bernice Garcia's Nɬeʔkepmxcín name
+footnote *	Katherine Givens	name	C̓úʔsinek	page 1, Marty Aspinall's Nɬeʔkepmxcín name
+footnote *	Nɬeʔkepmxcín	cited form	kʷukʷstéyp	page 1, the author's thanks
+footnote *	Katherine Givens	name	Nlaka’pamux	page 1, the Nlaka’pamux lands of Bernice Garcia's home
+footnote *	Katherine Givens	name	Nɬab	page 1, the Nɬeʔkepmxcín lab the author thanks
+§1	Katherine Givens	note	Finally, and most recently, Suharwardy (2021) investigates these same parameters in Secwepemctsín (Shuswap) and concludes that Secwepemctsín is also degreeful, with a positive setting for the DSP. In this paper, using novel fieldwork data, I investigate the Interior Salish language Nɬeʔkepmxcín, which to my knowledge has never before been examined with regards to gradable predicates and comparatives. I argue, like the aforementioned D&M (2019) and Suharwardy (2021) on ʔayʔaǰuθəm, St’át’imcets, and Secwepemctsín, that Nɬeʔkepmxcín has a positive setting of the DSP, and furthermore, a positive setting for the Degree Abstraction Parameter and the Degree Phrase Parameter also proposed by Beck et al. (2009).	page 1
+§1	Katherine Givens	note	Nɬeʔkepmxcín (a.k.a. Thompson River Salish) is a Northern Interior Salish language, spoken in Central and Southern British Columbia, with about 100 fully fluent speakers, and 300 semi- fluent speakers (Gessner et al. 2022). The data in this paper come from online elicitations with two fluent speakers of the language over the course of roughly eight months. One consultant speaks the Nicola Valley dialect and the other the Lytton dialect. These dialects are under-represented in the literature on Nɬeʔkepmxcín, most of which are primarily based on the Spuzzum dialect — including the grammar and dictionary of the language, both written by Thompson and Thompson (1992 and 1996, respectively).	page 2
+§1	Katherine Givens	note	This paper is organized as follows: in Section 2, I will briefly outline some of the previous research performed on degree semantics and syntax, with particular attention paid to the parametric approach proposed by Beck et al. (2009). In Section 3, I will then describe and provide examples of degree-based morphology in Nɬeʔkepmxcín. Following that, I will focus on specific degree- related constructions in Section 4, culminating with a summary of what these constructions show about the settings of the Degree Parameters in Section 5. Finally, I conclude in Section 6.	page 2
+§2	Katherine Givens	heading	2 Degree systems and comparison	page 2
+§2	Katherine Givens	note	The grammar of comparatives has been of interest both to syntacticians and semanticists for the last half-century, first focusing on exploring the syntax and semantics of comparisons (see Bresnan 1973; Corver 1993, 1997; Cresswell 1976; von Stechow 1984; Kennedy 1997, 2006; Heim 1985, 2000). Recently, there has been more research focusing explicitly on developing cross-linguistic approaches and surveys (see Shimoyama 2012; Bobaljik 2012; Bacskai-Atkari 2018). Central to many proposals on the subject is the idea of degrees — the theory that gradable adjectives possess a dimensional scale, on which intervals are marked. Gradable adjectives contain an additional argument of type d, and they are therefore considered to be of type ⟨d, ⟨e,t⟩⟩ instead of ⟨e,t⟩. This argument can then be modified or quantified over by degree operators. Using this degree-scale, (1) could therefore be paraphrased as ‘the maximum degree on the scale of height that characterizes Mt. Everest is greater than the maximum degree on the scale of height that characterizes Mt. Fuji’.	page 2
+(1) line 1	English	transcription	Mt. Everest is taller than Mt. Fuji.	page 2, English
+§2	Katherine Givens	note	A degree-based analysis of gradable adjectives was first proposed for English by Cresswell (1976) and subsequently expanded upon by Kennedy (1997, 2006), von Stechow (1984), and Heim (1985, 2000). However, there are some proposals that argue against a degree-based analysis (most notably Klein 1980), who instead proposes a vague-predicate analysis, where gradable adjectives are context-dependent, and any comparison partitions the discourse context so that the gradable adjective is true of one entity or set of entities and false of another. Further, recent authors have proposed different non-degree scales to explain gradability (see Bale 2008; van Rooij 2011). However, despite this debate, degree-based analyses are most commonly adopted.	page 2
+§2	Katherine Givens	note	Particularly significant to analyses of these types is Beck et al. (2009) — the work that a large deal of the analysis in this paper is based upon. In a cross-linguistic study, they claim that languages differ in whether or not they make reference to degrees. In this framework, multiple of the above theories can be correct, but for different languages.	page 2
+§2	Katherine Givens	note	To account for the cross-linguistic variation, Beck et al. (2009) proposes three parameters (see (2) to (4), below). These parameters follow from each other; in other words, only languages with a positive DSP setting can have a positive DAP setting, and only languages with a positive DAP setting can have a positive DegPP setting.	page 3
+(2) line 1	Beck et al. 2009	note	Degree Semantics Parameter (DSP): A language does/does not have gradable predicates (type ⟨d, ⟨e,t⟩⟩ and related), i.e. lexical items that introduce degree arguments.	page 3, the parameter as Beck et al. state it
+(2) line 2	Katherine Givens	citation	(Beck et al. 2009:26)	page 3
+(3) line 1	Beck et al. 2009	note	Degree Abstraction Parameter (DAP): A language does/does not have binding of degree variables in the syntax.	page 3, engine english
+(3) line 2	Katherine Givens	citation	(Beck et al. 2009:16)	page 3, engine residue
+(4) line 1	Beck et al. 2009	note	Degree Phrase Parameter (DegPP): The degree argument position of a gradable predicate may/may not be overtly filled.	page 3, engine english
+(4) line 2	Katherine Givens	citation	(Beck et al. 2009:34)	page 3, engine residue
+§2	Katherine Givens	note	Any language can be examined with regards to these parameters. If a language possesses degree quantifiers such as comparatives, superlatives, or equatives, or syntactic constructions (which I will discuss in greater detail later) such as difference comparatives and comparisons with degree, these indicate the language has a positive setting for the DSP. Examining scope interactions or degree questions (with WH-operators) can determine the setting of the DAP. Finally, the availability of degree questions and measure phrase constructions with overt degree arguments can indicate the setting of the DegPP.	page 3
+§2	Katherine Givens	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§2	Katherine Givens	note	There is ongoing debate over how well these parameters account for variation across languages, and whether the diagnostic degree-based structures are applicable in all languages. There have been several cases where a language has been analyzed as having one setting for these parameters, but later reanalysis casts doubt on the proposed setting — such as in Japanese, which is proposed to be [-DAP] by Beck et al. (2009), but an examination of island sensitivities by Shimoyama (2012) indicate it might actually be [+DAP]. Or the debate mentioned in the opening section of this paper over whether ʔayʔaǰuθəm is [-DSP] (R&L 2017) or [+DSP] (D&M 2019). However, questions regarding the validity of the Degree Parameters are beyond the scope of this paper.	page 3
+§3	Katherine Givens	heading	3 Comparative constructions in Nɬeʔkepmxcín	page 3
+§3	Katherine Givens	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+footnote 1	Katherine Givens	note	1 I use the following abbreviations: AFF = affective, AUT = autonomous, CHR = characteristic, DEM = demonstrative, DET = determiner, D/C = determiner/complementizer, DSCR = descriptive, DVL = developmental, CTR.MID = control middle, EMPH = emphatic, EV = evidential, FMV = general formative, FUND = fundamental, IM = immediate, INS = instrument, INT = introductory predicate, LOC = locative, NMLZ = nominalizer, OBL = oblique, PL = plural, PRP = proportional, RSL = resultive, TR = transitive.	page 3, footnote
+§3	Katherine Givens	note	In this section, I will provide data to illustrate how simple comparatives, equatives, and superlatives are formed in Nɬeʔkepmxcín.1	page 3
+§3.1	Katherine Givens	heading	3.1 Comparatives	page 4
+§3.1	Katherine Givens	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§3.1	Katherine Givens	note	In the detailed grammar of Nɬeʔkepmxcín, Thompson and Thompson (1992) provide the following example of a comparative construction:2	page 4
+(5) line 1	Nɬeʔkepmxcín	transcription	xʷúy̓ceʔ ʔə smaʕmáʕs ʔə maʕxetn tu ʔə sk̓ʷák̓ʷes.	page 4, engine language
+(5) line 2	Nɬeʔkepmxcín	segmentation	xʷúy̓ceʔ ʔe=s=maʕ~máʕ=s ʔe=maʕ-xe-tn tu	page 4, engine language
+(5) line 3	Nɬeʔkepmxcín	gloss	more DET=NMLZ=AUG~light.up=3POSS DET=light.up-foot-INS[moon] than	page 4, engine english
+(5) line 4	Nɬeʔkepmxcín	segmentation	ʔe=s-k̓ʷák̓ʷes	page 4, engine language
+(5) line 5	Nɬeʔkepmxcín	gloss	DET=NMLZ-sun	page 4, engine english
+(5) line 6	Thompson & Thompson 1992:161	translation	‘The moon was brighter than the sun.’	page 4, engine english, cited Thompson & Thompson 1992:161
+(5) line 6	Katherine Givens	citation	(Thompson & Thompson 1992:161)	the tag or source at the right of the translation
+§3.1	Katherine Givens	language	Secwepemctsín	Secwepemctsín, Shuswap
+§3.1	Katherine Givens	language	St’át’imcets	St’át’imcets, Lillooet
+§3.1	St’át’imcets	cited form	p̓aʔxʷ	more
+§3.1	Nɬeʔkepmxcín	cited form	xʷúy̓ceʔ	page 4, ‘more’
+§3.1	Nɬeʔkepmxcín	cited form	təw	page 4, ‘than’
+§3.1	Katherine Givens	note	The comparative above is similar to the comparatives reported in the closely related languages Secwepemctsín and St’át’imcets, which use the comparative words p’7e7cw ‘more’ and p̓aʔxʷ ‘more’, respectively, followed by a nominalized clause (D&M 2019; Suharwardy 2021). However, my consultants more typically did not use xʷúy̓ceʔ ‘more’ followed by a nominalized clause, although they did consider (5) to be acceptable. Instead, they almost ubiquitously used a form in which the gradable adjective is the main predicate, with the preposition tu (təw) ‘than’ connecting the objects under comparison and serving as the only overt comparative word in the sentence.	page 4
+(6) line 1	Nɬeʔkepmxcín	transcription	c̓éɬt ʔə máʕxetn tu ʔə sk̓ʷák̓ʷes.	page 4, engine language
+(6) line 2	Nɬeʔkepmxcín	segmentation	c̓éɬ-t ʔə=máʕ-xe-tn tu ʔə=s-k̓ʷák̓ʷes	page 4, engine language
+(6) line 3	Nɬeʔkepmxcín	gloss	chill-IM DET=light.up-foot-INS[moon] than DET=NMLZ-sun	page 4, engine english
+(6) line 4	Bev Phillips	translation	‘The moon is colder than the sun.’	page 4, engine english
+(6) line 4	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+(7) line 1	Nɬeʔkepmxcín	transcription	c̓lox̣ʷ ʔə sk̓ʷák̓ʷes ʔeɬ nkʷəkʷúsn̓ tu ʔə máʕxetn.	page 4, engine language
+(7) line 2	Nɬeʔkepmxcín	segmentation	c̓lox̣ʷ ʔə=s-k̓ʷák̓ʷes ʔeɬ n-kʷə~kʷúsn̓ tu ʔə=máʕ-xe-tn	page 4, engine language
+(7) line 3	Nɬeʔkepmxcín	gloss	hot DET=NMLZ-sun and LOC-AFF~star than DET=light.up-foot-INS[moon]	page 4, engine english
+(7) line 4	Bev Phillips	translation	‘The sun and stars are hotter than the moon.’	page 4, engine english
+(7) line 4	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+(8) line 1	Nɬeʔkepmxcín	transcription	ɬáq̓t tu ʔə ntəqcíntn ʔə sqyéytn.	page 4, engine language
+(8) line 2	Nɬeʔkepmxcín	segmentation	ɬáq̓-t tu ʔə=n-təq-cín-tn ʔə=s-qy-éytn	page 4, engine english
+(8) line 3	Nɬeʔkepmxcín	gloss	wide-IM than DET=LOC-touch-mouth-INS[door] DET=NMLZ-damp-food[salmon]	page 4, engine english
+(8) line 4	Bev Phillips	translation	‘The salmon is wider than the door.’	page 4, engine english
+(8) line 4	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+(9) line 1	Nɬeʔkepmxcín	transcription	zéxtwiʔx ʔə sqyéytn tə tʔústks ʔə smúɬəc tu ʔə sqyéytn tə tʔústks ʔə ƛ̓uʔsqáyxʷ.	page 4, engine language
+(9) line 2	Nɬeʔkepmxcín	segmentation	zéx-t-wiʔx ʔə=s-qy-éytn tə=tʔústk-s ʔə=s-múɬəc	page 4, engine language
+(9) line 3	Nɬeʔkepmxcín	gloss	long-IM-DVL DET=NMLZ-damp-food[salmon] OBL=catch.fish-3POSS DET=NMLZ-woman	page 4, engine english
+(9) line 4	Nɬeʔkepmxcín	segmentation	tu ʔə=s-qy-éytn tə=tʔústk-s	page 4, engine language
+(9) line 5	Nɬeʔkepmxcín	gloss	than DET=NMLZ-damp-food[salmon] OBL=catch.fish-3POSS	page 4, engine english
+(9) line 6	Nɬeʔkepmxcín	segmentation	ʔə=ƛ̓uʔ-s-qáyxʷ	page 4, engine language
+(9) line 7	Nɬeʔkepmxcín	gloss	DET=FUND-NMLZ-man	page 4, engine english
+(9) line 8	Bev Phillips	translation	‘The salmon that the woman caught is longer than the salmon that the man caught.’	page 4, engine english
+(9) line 8	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+footnote 2	Katherine Givens	note	2 Since Thompson and Thompson wrote their grammar, the categorization and spelling of several words and standard abbreviations for glosses has changed somewhat. I have made the requisite adjustments in any glosses presented in this paper.	page 4, footnote
+§3.1	Katherine Givens	note	In these sentences, tu ‘than’ serves as the introduction to the standard of comparison phrase, or the object against which the target object is compared. The standard of comparison typically follows the target — as in a than-phrase in English — although it can sometimes precede it without changing the meaning of the sentence, as shown in (8), above.	page 5
+§3.2	Katherine Givens	heading	3.2 Superlatives	page 5
+§3.2	Nɬeʔkepmxcín	cited form	néxʷm	page 5, ‘it exceeds, is excessive’
+§3.2	Nɬeʔkepmxcín	cited form	ném	néxʷm reduced
+§3.2	Nɬeʔkepmxcín	cited form	ném̓	néxʷm reduced, with footnote 3
+§3.2	Katherine Givens	note	There are a couple of strategies that my consultants have used to express a superlative meaning. The first is a simple intensifier néxʷm ‘it exceeds, is excessive’ (frequently reduced to ném or ném̓).3 This intensifier is frequently paired with a stressed intonation pattern that emphasizes the intensifier, establishing the intensified adjective as particularly noteworthy in the context.	page 5
+(10) line 1	Nɬeʔkepmxcín	transcription	ném nukʷ péti ʔə tk sp̓áq̓m.	page 5, engine language
+(10) line 2	Nɬeʔkepmxcín	segmentation	né-m nukʷ péti ʔə=tək=s-p̓áq̓-m	page 5, engine language, carries footnote 4, written here without its digit
+(10) line 3	Nɬeʔkepmxcín	gloss	exceeds-CTR.MID EV pretty DET=DSCR=NMLZ-blossom-CTR.MID	page 5, engine english
+(10) line 4	Bernice Garcia	translation	‘The flower is very pretty.’	page 5, engine english
+(10) line 5	Katherine Givens	note	Prompt: ‘The flower is the prettiest.’ (KBG)	page 5, engine english
+(11) line 1	Nɬeʔkepmxcín	transcription	ném x̣ʷənt ʔə q̓ázix ʔə smíyc.	page 5, engine language
+(11) line 2	Nɬeʔkepmxcín	segmentation	né-m x̣ʷən-t ʔə=q̓áz-ix ʔə=s-míyc	page 5, engine language
+(11) line 3	Nɬeʔkepmxcín	gloss	exceeds-CTR.MID rapid-IM DET=jump-AUT DET=NMLZ-deer	page 5, engine english
+(11) line 4	Bernice Garcia	translation	‘The deer is a very fast jumper.’	page 5, engine english
+(11) line 5	Katherine Givens	note	Prompt: ‘The deer is the fastest jumper.’ (KBG)	page 5, engine english
+§3.2	Katherine Givens	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§3.2	Nɬeʔkepmxcín	cited form	tékm	page 5, ‘all’
+§3.2	Nɬeʔkepmxcín	cited form	sʔíxʷɬ	some, others
+§3.2	Katherine Givens	note	The other way to form a superlative in Nɬeʔkepmxcín is to construct a comparative in which the standard of comparison is all relevant items in the context, frequently tékm ‘all’, sʔíxʷɬ ‘some, others’, or a comparison to all similar entities in the context.5	page 5
+(12) line 1	Nɬeʔkepmxcín	transcription	ƛ̓áxt ʔə Alice tu ʔə si̓xʷɬ.	page 5, engine language
+(12) line 2	Nɬeʔkepmxcín	segmentation	ƛ̓áx-t ʔə=Alice tu ʔə=s-i̓xʷɬ	page 5, engine language
+(12) line 3	Nɬeʔkepmxcín	gloss	tall-IM DET=Alice than DET=NMLZ-some	page 5, engine english
+(12) line 4	Bev Phillips	translation	‘Alice is taller than the rest.’	page 5, engine english
+(12) line 5	Katherine Givens	note	Prompt: ‘Alice is the tallest.’ (BP)	page 5, engine english
+(13) line 1	Nɬeʔkepmxcín	transcription	ɬq̓íʔq̓eʔt ʔə Ella tu ʔə tékm.	page 5, engine language
+(13) line 2	Nɬeʔkepmxcín	segmentation	ɬq̓<íʔq̓eʔ>-t ʔə=Ella tu ʔə=tékm	page 5, engine language
+(13) line 3	Nɬeʔkepmxcín	gloss	short<PRP>-IM DET=Ella than DET=all	page 5, engine english
+(13) line 4	Bev Phillips	translation	‘Ella is shorter than all.’	page 5, engine english
+(13) line 5	Katherine Givens	note	Prompt: ‘Ella is the shortest.’ (BP)	page 5, engine english
+footnote 3	Katherine Givens	note	3 This is a common strategy to form superlatives in St’át’imcets (D&M 2019).	page 5, footnote
+§3.2	Katherine Givens	language	St’át’imcets	St’át’imcets, Lillooet
+footnote 4	Katherine Givens	note	4 The root péti is not in the dictionary, and likely a borrowing from English pretty.	page 5, footnote
+§3.2	Nɬeʔkepmxcín	cited form	péti	pretty, a root not in the dictionary, likely borrowed from English pretty
+footnote 5	Katherine Givens	note	5 This is the most common strategy to form superlatives in Secwepemctsín (Suharwardy 2021), and is also relatively common cross-linguistically (Bobaljik 2012).	page 5, footnote
+§3.2	Katherine Givens	language	Secwepemctsín	Secwepemctsín, Shuswap
+(14) line 1	Nɬeʔkepmxcín	transcription	xeʔe ʔə smíyc ʔə x̣ʷənt tə q̓ázix tu tékm ʔə spzúʔ.	page 6, engine language
+(14) line 2	Nɬeʔkepmxcín	segmentation	xeʔ-e ʔə=s-míyc ʔə=x̣ʷən-t tə=q̓áz-ix tu tékm	page 6, engine language
+(14) line 3	Nɬeʔkepmxcín	gloss	DEM-FMV DET-NMLZ-deer DET=rapid-IM OBL=jump-AUT than all	page 6, engine english, carries footnote 6, written here without its digit
+(14) line 4	Nɬeʔkepmxcín	segmentation	ʔə=s-pzúʔ	page 6, engine language
+(14) line 5	Nɬeʔkepmxcín	gloss	DET=NMLZ-animal	page 6, engine english
+(14) line 6	Bev Phillips	translation	‘The deer is a faster jumper than all animals.’	page 6, engine english
+(14) line 7	Katherine Givens	note	Prompt: ‘The deer is the fastest jumper.’ (BP)	page 6, engine english
+§3.2	Katherine Givens	note	It is unclear whether the choice of strategy to form the superlative is due to dialectical differences or speaker preference, but both the consultants seemed to accept the other’s strategy, making agreeable noises such as “mm-hmm” (KBG) or comments like “I think I said almost the same thing” (BP) in response to the other’s volunteered sentences.	page 6
+§3.3	Katherine Givens	heading	3.3 Equatives	page 6
+§3.3	Nɬeʔkepmxcín	cited form	c̓íc̓iye	page 6, ‘similar, same’
+§3.3	Katherine Givens	note	Looking now at equatives, these expressions are created using the word c̓íc̓iye ‘similar, same’ in the position of the main predicate, which is followed by the gradable adjective. Much like comparatives, the standard of comparison is introduced with tu, although simple equative-like phrases can be formed without the use of a comparison, as in (16), similar to the difference in English between (15a) and (15b):	page 6
+§3.3	Katherine Givens	note	(15) a. The door is as tall as the window.	page 6
+(15a) line 1	English	transcription	The door is as tall as the window.	page 6, English
+(15b) line 1	English	transcription	The door and the window are the same height.	page 6, English
+(16) line 1	Nɬeʔkepmxcín	transcription	c̓íc̓iye ʔə maʔas ʔə Mars ʔeɬ ʔə Jupiter.	page 6, engine language
+(16) line 2	Nɬeʔkepmxcín	segmentation	c̓í~c̓iy-e ʔə=mʔaʕ-s ʔə=Mars ʔeɬ ʔə=Jupiter	page 6, engine language
+(16) line 3	Nɬeʔkepmxcín	gloss	AUG~same-RSL DET=light.up-3POSS DET=Mars and DET=Jupiter	page 6, engine english
+(16) line 4	Bev Phillips	translation	‘Mars and Jupiter are the same brightness.’	page 6, engine english
+(16) line 4	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+(17) line 1	Nɬeʔkepmxcín	transcription	c̓íc̓iye ʔə ƛ̓áxts ʔə sk̓ʷúk̓mit tu zéxts ʔə tépəl.	page 6, engine language
+(17) line 2	Nɬeʔkepmxcín	segmentation	c̓í~c̓iy-e ʔə=ƛ̓áx-t-s ʔə=s-k̓ʷúk̓ʷm-ʔit tu zéx-t-s	page 6, engine language
+(17) line 3	Nɬeʔkepmxcín	gloss	AUG~same-RSL DET=tall-IM-3POSS DET=NMLZ-small-agent than long-IM-3POSS	page 6, engine english
+(17) line 4	Nɬeʔkepmxcín	segmentation	ʔə=tépəl	page 6, engine language
+(17) line 5	Nɬeʔkepmxcín	gloss	DET=table	page 6, engine english
+(17) line 6	Bev Phillips	translation	‘The child is as tall as the table is long.’	page 6, engine english
+(17) line 7	Katherine Givens	translation	Literally: ‘Same is the tallness of the child than the longness of the table.’	page 6, engine english
+(17) line 7	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+(18) line 1	Nɬeʔkepmxcín	transcription	c̓íc̓iye ʔə ƛ̓áxts ʔə sk̓ʷúk̓ʷmiʔt tu ʔə nteqcíntn.	page 6, engine language
+(18) line 2	Nɬeʔkepmxcín	segmentation	c̓í~c̓iy-e ʔə=ƛ̓áx-t-s ʔə=s-k̓ʷúk̓ʷm-iʔt tu	page 6, engine language
+(18) line 3	Nɬeʔkepmxcín	gloss	AUG~same-RSL DET=tall-IM-3POSS DET=NMLZ-small-agent than	page 6, engine english
+(18) line 4	Nɬeʔkepmxcín	segmentation	ʔə=n-teq-cín-tn	page 6, engine language
+(18) line 5	Nɬeʔkepmxcín	gloss	DET=LOC-touch-mouth-INS	page 6, engine english
+(18) line 6	Bev Phillips	translation	‘The child is as tall as the door.’	page 6, engine english
+(18) line 7	Katherine Givens	translation	Literally: ‘Same is the tallness of the child than the door.’	page 6, engine english
+(18) line 7	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+footnote 6	Katherine Givens	note	6 The general formative (FMV) -e is a suffix recorded at the end of many words, but its function has not of yet been analyzed, and requires further study.	page 6, footnote
+§4	Katherine Givens	heading	4 Degree constructions	page 7
+§4	Katherine Givens	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§4	Katherine Givens	note	In this section, I will first provide an inventory of specific degree-constructions in Nɬeʔkepmxcín, following the example of Beck et al. (2009). For each construction, I will provide a brief description and an English equivalent before the Nɬeʔkepmxcín examples.	page 7
+§4	Katherine Givens	note	Note that some of the constructions below use measurement units to explicitly rank degrees on a gradable scale. There are no direct translations for many commonly used English units in Nɬeʔkepmxcín like meters, kilograms, miles, degrees Celsius, etc. (although there are units for measures of time, such as days, months, and years). I also did not wish to attempt to elicit sentences using the English units, both because my consultants were somewhat resistant to using English degree loans, and because I did not want to potentially affect the consultants’ judgment of the degreefulness of a sentence due to using loaned degree-words from a degree-based language. However, I saw some success using measurements such as loaves of bread, arm-spans, and the measurement that my consultants were most comfortable with, hand-spans or, more simply, hands.7	page 7
+§4.1	Katherine Givens	heading	4.1 Difference comparative (DiffC)	page 7
+§4.1	Katherine Givens	note	Difference comparatives (also sometimes called differential comparatives) are sentences in which two sets of degrees are being explicitly compared on the same scalar dimension — for example, width, depth, height, etc.	page 7
+(19) line 1	English	transcription	Reed’s dog is one foot taller than my dog.	page 7, English
+§4.1	Katherine Givens	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§4.1	Katherine Givens	note	In the example above, the degree of height (tallness) of Reed’s dog is compared to the degree of height (tallness) of my dog. The way in which a DiffC differs from a standard comparative construction is that they do not merely provide relative rankings on the gradable scale, but explicitly specify the difference between the two sets of degrees (one foot, in the above example). In a language which does not possess explicit degrees, such specific differential comparison between two sets of degrees is not possible, with the closest equivalent in such a system being ‘tall’ vs. ‘not tall’. Difference comparatives are thus crucial evidence for a degree-based system. These constructions are available in Nɬeʔkepmxcín and resemble the basic comparative.	page 7
+(20) line 1	Nɬeʔkepmxcín	transcription	séye t k kéykix ʔə zéxt tu ʔə sʔíxʷɬ.	page 7, engine language
+(20) line 2	Nɬeʔkepmxcín	segmentation	séye t=k=kéy~kix ʔə=zéx-t tu ʔə=s-ʔíxʷɬ	page 7, engine language
+(20) line 3	Nɬeʔkepmxcín	gloss	two OBL=DET=PL~hand DET=long-IM than DET=NMLZ-some	page 7, engine english
+(20) line 4	Bev Phillips	translation	‘It [a salmon] is two hands longer than the rest.’	page 7, engine english
+(20) line 4	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+(21) line 1	Nɬeʔkepmxcín	transcription	cúnts k skeʔɬes t k kéykix t k wist tu ʔə xéʔə t k sk̓íx.	page 7, engine language
+(21) line 2	Nɬeʔkepmxcín	segmentation	cún-t-s k=s=keʔɬes=[s] t=k=kéy~kix t=k=wís-t tu	page 7, engine language
+(21) line 3	Nɬeʔkepmxcín	gloss	say-IM-TR D/C=NMLZ=three=[3POSS] OBL=DET=PL~hand OBL=DET=high-IM than	page 7, engine english
+(21) line 4	Nɬeʔkepmxcín	segmentation	ʔə xéʔə t=k=s-k̓íx	page 7, engine language
+(21) line 5	Nɬeʔkepmxcín	gloss	DET DEM OBL=D/C=NMLZ-fence	page 7, engine english
+(21) line 6	Bev Phillips	translation	‘He says it [a different fence] is three hand-spans taller than this fence.’	page 7, engine english
+(21) line 6	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+footnote 7	Katherine Givens	note	7 It could also be possible to avoid the issue of units using demonstratives such as this (or that) much paired with a gesture (Suharwardy 2021), but due to the online nature of my elicitation sessions, where measure gestures are difficult to portray, I never attempted to elicit constructions such as those.	page 7, footnote
+§4.1	Katherine Givens	note	As noted above, the presence of difference comparisons is strong evidence that Nɬeʔkepmxcín is [+DSP], and a degreeful language.	page 8
+§4.2	Katherine Givens	heading	4.2 Comparison with a degree (CompDeg)	page 8
+§4.2	Katherine Givens	note	A comparison with a degree is a comparative construction wherein the standard of comparison is not an object or entity, but a specific degree, such as the English example below, where the degree to which Brent is tall is greater than the degree of tallness specified as five feet:	page 8
+(22) line 1	English	transcription	Brent is more than five feet tall.	page 8, English
+§4.2	Katherine Givens	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§4.2	Katherine Givens	note	Given the previously mentioned difficulty of finding units that can be used to explicitly demote degrees in Nɬeʔkepmxcín, these constructions were somewhat challenging to elicit. However, it was possible to use physical measurements like the hand-span as the standard of comparison, as shown below:	page 8
+(23) line 1	Nɬeʔkepmxcín	transcription	təteʔe k széxt tu ʔə keʔɬés tə səplíl.	page 8, engine language
+(23) line 2	Nɬeʔkepmxcín	segmentation	təteʔe k=s=zéx=t tu ʔə=keʔɬés tə=səplíl	page 8, engine language
+(23) line 3	Nɬeʔkepmxcín	gloss	NEG D/C=NMLZ=long=IM than DET=three OBL=bread	page 8, engine english
+(23) line 4	Bev Phillips	translation	‘It [the oven] is no longer than three [loaves of] bread.’	page 8, engine english
+(23) line 4	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+(24) line 1	Nɬeʔkepmxcín	transcription	xʷúy̓ceʔ tu ʔə ƛ̓áq̓mekst t k kéykix ʔə zéxt ʔə sqyéytn.	page 8, engine language
+(24) line 2	Nɬeʔkepmxcín	segmentation	xʷúy̓ceʔ tu ʔə=ƛ̓áq̓-m-ekst t=k=kéy~kix ʔə=zéx-t	page 8, engine language
+(24) line 3	Nɬeʔkepmxcín	gloss	more than DET=cross-CTR.MID-hand OBL=DET=PL~hand DET=long-IM	page 8, engine english
+(24) line 4	Nɬeʔkepmxcín	segmentation	ʔə=s-qy-éytn	page 8, engine language
+(24) line 5	Nɬeʔkepmxcín	gloss	DET=NMLZ-damp-food[salmon]	page 8, engine english
+(24) line 6	Bev Phillips	translation	‘The salmon is more than six hand-spans long.’	page 8, engine english
+(24) line 6	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+§4.2	Katherine Givens	note	The presence of comparisons with a degree is further evidence that Nɬeʔkepmxcín is [+DSP].	page 8
+§4.3	Katherine Givens	heading	4.3 Degree question (DegQ)	page 8
+§4.3	Katherine Givens	note	Degree questions are important with regards to Beck et al.’s (2009) degree parameters, not only for the DSP, but also the Degree Abstraction Parameter (DAP). So not only does the construction require gradable predicates with degrees, but also explicit quantification over the degree argument. Thus, there is a difference between a true degree question (25a) and a similar-appearing construction with a question involving a degree-denoting noun (25b).	page 8
+(25a) line 1	English	transcription	How (many centimeters) tall is your dog?	page 8, English
+(25b) line 1	English	transcription	What is the height (in centimeters) of your dog?	page 8, English
+§4.3	Katherine Givens	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§4.3	Nɬeʔkepmxcín	cited form	c̓-e	the emphatic and introductory particle combination
+§4.3	Nɬeʔkepmxcín	cited form	hén̓	page 8, ‘where, which, what’
+§4.3	Katherine Givens	note	Degree questions can potentially be formed in two ways in Nɬeʔkepmxcín, the first through a combination of the emphatic and introductory particle combination c̓-e followed by the indefinite question particle hén̓ ‘where, which, what’.	page 8
+(26) line 1	Nɬeʔkepmxcín	transcription	c̓e hén̓ ʔə sɬáq̓ts ʔə sqyéytn.	page 8, engine language
+(26) line 2	Nɬeʔkepmxcín	segmentation	c̓-e hén̓ ʔə=s-ɬáq̓-t-s ʔə=s-qy-éytn	page 8, engine language
+(26) line 3	Nɬeʔkepmxcín	gloss	EMPH-INT Q/INDF DET=NMLZ-wide.flat-IM-3POSS DET=NMLZ-damp-food[salmon]	page 8, engine english
+(26) line 4	Bev Phillips	translation	‘How wide is the salmon?’	page 8, engine english
+(26) line 4	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+(27) line 1	Nɬeʔkepmxcín	transcription	c̓e hén̓ ks wísts ʔə ʕin̓ʕən̓ tu ʔə tmixʷ.	page 9, engine language
+(27) line 2	Nɬeʔkepmxcín	segmentation	c̓-e hén̓ k=s=wís-t=s ʔə=ʕin̓~ʕən̓ tu ʔə=tmixʷ	page 9, engine language
+(27) line 3	Nɬeʔkepmxcín	gloss	EMPH-INT Q/INDF D/C=NMLZ=high-IM=3POSS DET=magpie~CHR than DET=land	page 9, engine english
+(27) line 4	Bev Phillips	translation	‘How high is the magpie above the ground?’	page 9, engine english
+(27) line 4	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+§4.3	Katherine Givens	note	It is unclear whether this is a genuine case of WH-quantification over the gradable adjective, or a construction similar to (25b), but it is most likely to be an extent question along the lines of ‘to which extent is the salmon wide’ as attested in (Beck et al. 2009).	page 9
+§4.3	Nɬeʔkepmxcín	cited form	k̓ʷinex	page 9, ‘how many, how much’
+§4.3	Secwepemctsín	cited form	k̓winc	how many
+§4.3	St’át’imcets	cited form	ənkán	how (much)
+§4.3	ʔayʔaǰuθəm	cited form	k̓ʷin	how many
+§4.3	Katherine Givens	language	Secwepemctsín	Secwepemctsín, Shuswap
+§4.3	Katherine Givens	language	St’át’imcets	St’át’imcets, Lillooet
+§4.3	Katherine Givens	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§4.3	Katherine Givens	note	The second method in which a degree question could potentially be formed is through use of the WH-word k̓ʷinex ‘how many, how much’, which is also used to inquire about mass nouns. The similar words k̓winc ‘how many’ , sk ənkán ‘how (much)’, and k̓ʷin ‘how many’ appear in Secwepemctsín, St’át’imcets, and ʔayʔaǰuθəm, respectively, and also show this quantification, so it is likely that Nɬeʔkepmxcín does as well, although I do not have any examples from my fieldwork.	page 9
+§4.4	Katherine Givens	heading	4.4 Measure phrase (MP)	page 9
+§4.4	Katherine Givens	note	Measure phrases are constructions which possess an explicit measurement ranking on a gradable scale. The number and unit (e.g., 45 centimeters, as in (28)) overtly fill the degree argument in a measure phrase.8	page 9
+(28) line 1	English	transcription	The dog is 45 centimeters tall.	page 9, English
+§4.4	Katherine Givens	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§4.4	Katherine Givens	note	In order to possess measure phrases, a language must have a positive setting for the DSP, and have gradable degree scales. It also must have a positive setting for the DegPP, as this parameter allows for the degree argument to be overtly filled. Measure phrases are attested in Nɬeʔkepmxcín.	page 9
+(29) line 1	Nɬeʔkepmxcín	transcription	mús t k səplíl ʔə zéxts ʔə nq̓ʷimíntn.	page 9, engine language
+(29) line 2	Nɬeʔkepmxcín	segmentation	mús t=k=səplíl ʔə=zéx-t ʔə=n-q̓ʷi-mín-tn	page 9, engine language
+(29) line 3	Nɬeʔkepmxcín	gloss	four OBL=DET=bread DET=long-IM DET=LCL-cook-INS-INS[oven]	page 9, engine english
+(29) line 4	Bev Phillips	translation	‘The oven is four [loaves of] bread long.’	page 9, engine english
+(29) line 4	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+(30) line 1	Nɬeʔkepmxcín	transcription	ʔupnekst t k keyx ʔə zéxt xeʔe t ʔə x̣ʷə́y̓ləm.	page 9, engine language
+(30) line 2	Nɬeʔkepmxcín	segmentation	ʔupn-ekst t=k=keyx ʔə=zéx-t xeʔ-e t=ʔə=x̣ʷə́y̓ləm	page 9, engine language
+(30) line 3	Nɬeʔkepmxcín	gloss	both-hand OBL=DET=hand DET=long-IM DEM-FMV OBL=DET=rope	page 9, engine english
+(30) line 4	Bev Phillips	translation	‘The rope is ten hands long.’	page 9, engine english
+(30) line 4	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+(31) line 1	Nɬeʔkepmxcín	transcription	ʔupnekst t k kéykix ʔə ƛ̓axt ʔə sq̓ʷitéɬp.	page 9, engine language
+(31) line 2	Nɬeʔkepmxcín	segmentation	ʔupn-ekst t=k=kéy~kix ʔə=ƛ̓ax-t ʔə=s-q̓ʷi-t-éɬp	page 9, engine language
+(31) line 3	Nɬeʔkepmxcín	gloss	both-hand OBL=DET=PL~hand DET=tall-IM DET=NMLZ-ripe-IM-plant[bush]	page 9, engine english
+(31) line 4	Bev Phillips and Bernice Garcia	translation	‘The berry bush is ten hand-spans tall.’	page 9, engine english
+(31) line 4	Katherine Givens	citation	(BP/KBG)	the tag or source at the right of the translation
+footnote 8	Katherine Givens	note	8 The degree argument can also potentially be filled by a demonstrative, sometimes paired with a gesture, as in The dog is this tall.	page 9, footnote
+§4.4	Katherine Givens	note	In these measure phrases, the overt degree argument precedes the gradable adjective.	page 9
+§4.5	Katherine Givens	heading	4.5 Sub-comparative (SubC)	page 10
+§4.5	Katherine Givens	note	Sub-comparatives are comparatives which involve the comparison of two sets of degrees across two different dimensions, for example, length and height, or width and depth. In English (32), the comparison is between the degree to which the dog is wide, and the degree to which the door is tall. Most sub-comparatives also compare across dimensions that use the same units, e.g., distance in (32), where both degrees could be theoretically measured in meters, inches, etc. Sub-comparatives across different units are rarer and frequently more marginal, as in (33).	page 10
+(32) line 1	English	transcription	The dog is wider than the door is tall.	page 10, English
+(33) line 1	English	transcription	? The soup is hotter than the sun is bright.	page 10, English
+§4.5	Katherine Givens	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§4.5	Katherine Givens	note	Nɬeʔkepmxcín does allow sub-comparatives, which is also an indication that the standard of comparison may be clausal and not merely phrasal, as only languages which allow a clausal standard possess sub-comparatives.	page 10
+(34) line 1	Nɬeʔkepmxcín	transcription	c̓íc̓iye ʔə ƛ̓áxts ʔə sk̓ʷuk̓mit tu zext ʔə tépəl.	page 10, engine language
+(34) line 2	Nɬeʔkepmxcín	segmentation	c̓í~c̓iy-e ʔə=ƛ̓áx-t-s ʔə=s-k̓ʷuk̓ʷm-ʔit tu zex-t ʔə=tépəl	page 10, engine language
+(34) line 3	Nɬeʔkepmxcín	gloss	AUG~same-RSL DET=tall-IM-3POSS DET=NMLZ-small-agent than long-IM DET=table	page 10, engine english
+(34) line 4	Bev Phillips	translation	‘The child is as tall as the table is long.’	page 10, engine english
+(34) line 4	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+(35) line 1	Nɬeʔkepmxcín	transcription	ƛ̓áxt ʔə sqax̣a tu ʔə sɬq̓íʔq̓eʔts ʔə səplíl.	page 10, engine language
+(35) line 2	Nɬeʔkepmxcín	segmentation	ƛ̓áx-t ʔə=s-qax̣a tu ʔə=ɬq̓<íʔq̓eʔ>-t-s ʔə=səplíl	page 10, engine language
+(35) line 3	Nɬeʔkepmxcín	gloss	tall-IM DET=NMLZ-dog than DET=short<PRP>-IM-3POSS DET=bread	page 10, engine english
+(35) line 4	Bev Phillips	translation	‘The dog is taller than the bread is short.’	page 10, engine english
+(35) line 4	Katherine Givens	citation	(BP)	the tag or source at the right of the translation
+§5	Katherine Givens	heading	5 Summary and analysis	page 10
+§5	Katherine Givens	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§5	Katherine Givens	note	From the data presented in Sections 3 and 4, it is possible to analyze Nɬeʔkepmxcín with regards to Beck et al.’s (2009) parameters.	page 10
+Table 1	Katherine Givens	note	Table 1: Availability of degree-constructions in Nɬeʔkepmxcín	page 10
+Table 1	Katherine Givens	note	Degree-Constructions Allowed?	page 10, heads the rows below
+Table 1	Katherine Givens	note	Difference Comparatives Yes	page 10
+Table 1	Katherine Givens	note	Comparison with a Degree Yes	page 10
+Table 1	Katherine Givens	note	Degree Questions Likely	page 10
+Table 1	Katherine Givens	note	Measure Phrases Yes	page 10
+Table 1	Katherine Givens	note	Sub-comparatives Yes	page 10
+§5	Katherine Givens	note	Based on the presence of difference comparatives, and comparison with a degree, which require an overt degree argument that is quantified over, it is apparent that Nɬeʔkepmxcín possesses expressions that refer to degrees and can manipulate degree arguments, and therefore has a positive setting of the DSP.	page 10
+§5	Katherine Givens	note	Turning now to the DAP, Nɬeʔkepmxcín allows sub-comparatives, and likely allows degree questions, indicating that it has a positive setting for the DAP as well.	page 10
+§5	Katherine Givens	note	Finally, examining the DegPP, Nɬeʔkepmxcín allows the degree argument to be overtly filled in constructions such as measure phrases and difference comparatives, indicating that it also has a positive setting for the DegPP, and is therefore [+DSP], [+DAP], and [+DegPP]. These results are similar to previous ones from other Salish languages as shown below (Suharwardy 2021; D&M 2019; R&L 2017; L&R 2018).	page 10
+§5	Katherine Givens	language	Secwepemctsín	Secwepemctsín, Shuswap
+§5	Katherine Givens	language	St’át’imcets	St’át’imcets, Lillooet
+§5	Katherine Givens	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+Table 2	Katherine Givens	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, in Table 2 with footnote 9
+Table 2	Katherine Givens	note	Table 2: Degree parameter settings in Nɬeʔkepmxcín, Secwepemctsín, St’át’imcets, and ʔayʔaǰuθəm	page 11
+Table 2	Katherine Givens	note	Nɬeʔkepmxcín Secwepemctsín St’át’imcets ʔayʔaǰuθəm9	page 11, heads the rows below, ʔayʔaǰuθəm carries footnote 9
+Table 2	Katherine Givens	note	DSP + + + +	page 11
+Table 2	Katherine Givens	note	DAP + + + (+)	page 11
+Table 2	Katherine Givens	note	DegPP + + + (+)	page 11
+§6	Katherine Givens	heading	6 Conclusion	page 11
+§6	Katherine Givens	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§6	Katherine Givens	note	In conclusion, I have provided data to illustrate the typical structures of comparative and degree- based constructions in Nɬeʔkepmxcín, and analyzed the constructions available in the language to show that it has a positive setting for the Degree Semantics Parameter, Degree Abstraction Parameter, and Degree Phrase Parameter. There is still much research to be done on the specific properties of the syntax and semantics of these constructions, including examination of whether the standard of comparison can be both clausal and phrasal, and the syntactic construction of comparative clauses, and whether the morpheme used in the introduction of the standard of comparison is semantically vacuous or not. Though much work remains to be done, this paper can help serve as a starting point, and more generally add to the growing body of work on comparison and degree semantics in Salish languages.	page 11
+references	Katherine Givens	heading	References	page 11
+references	Katherine Givens	reference	Bacskai-Atkari, Julia. 2018. Deletion phenomena in comparative constructions: English comparatives in a cross-linguistic perspective. Berlin: Language Science Press.	
+references	Katherine Givens	reference	Bale, Alan C. 2008. A universal scale of comparison. Linguistics and Philosophy 31(1):1–55.	
+references	Katherine Givens	reference	Beck, Sigrid, Sveta Krasikova, Daniel Fleischer, Remus Gergel, Stefan Hofstetter, Christiane Savelsberg, John Vanderelst, & Elisabeth Villalta. 2009. Crosslinguistic variation in comparison constructions. Linguistic Variation Yearbook 9(1):1–66.	
+references	Katherine Givens	reference	Bobaljik, Jonathan. 2012. Universals in comparative morphology: suppletion, superlatives, and the structure of words. Cambridge, MA: MIT Press.	
+references	Katherine Givens	reference	Bresnan, Joan W. 1973. Syntax of the Comparative Clause Construction in English. Linguistic Inquiry 4(3):275–343.	
+references	Katherine Givens	reference	Corver, Nobert. 1993. A Note on Subcomparatives. Linguistic Inquiry 24(4):773–781.	
+references	Katherine Givens	reference	Corver, Norbert. 1997. Much-Support as a Last Resort. Linguistic Inquiry 28(1):119–164.	
+references	Katherine Givens	reference	Cresswell, Max J. 1976. The Semantics of Degree. In Barbara H. Partee (ed.), Montague Grammar. New York, NY: Academic Press, 261–292.	
+references	Katherine Givens	reference	9 There is still debate over whether ʔayʔaǰuθəm is (D&M 2019) or is not (R&L 2017; L&R 2018) positive with regards to the degree parameters other than the DSP, however, since the most recent research indicates that it is, I have indicated it as possibly so.	
+references	Katherine Givens	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+references	Katherine Givens	reference	Davis, Henry & Gloria Mellesmoen. 2019. Degree Constructions in Two Salish Languages. Papers for ICSNL 54:24–52.	
+references	Katherine Givens	reference	Gessner, Suzanne, Tracey Herbert, & Aliana Parker. 2023. Report on the Status of BC First Nations Languages. First Peoples’ Cultural Council.	
+references	Katherine Givens	reference	Heim, Irene. 1985. Notes on comparatives and related matters. Ms. University of Texas.	
+references	Katherine Givens	reference	Heim, Irene. 2000. Degree operators and scope. Proceedings of SALT 10:214–239.	
+references	Katherine Givens	reference	Kennedy, Chris. 1997. Projecting the Adjective: The Syntax and Semantics of Gradability and Comparison. Doctoral dissertation. University of California, Santa Cruz, CA.	
+references	Katherine Givens	reference	Kennedy, Chris. 2006. Comparatives, Semantics of. In Keith Brown (ed.), Encyclopedia of Language and Linguistics. Boston, MA: Elsevier.	
+references	Katherine Givens	reference	Klein, Ewan. 1980. A semantics for positive and comparative adjectives. Linguistics and Philosophy 4:1–45.	
+references	Nɬeʔkepmxcín	cited form	Göbel	page 12
+references	Katherine Givens	reference	Lo, Roger & D. K. E. Reisinger. 2018. Exploring the status of degrees in ʔayʔaǰuθəm. In K. Johnson & A. Göbel (eds), SULA 10: Proceedings of the Tenth Conference on the Semantics of Under- Represented Languages in the Americas: 117–132.	
+references	Katherine Givens	reference	Reisinger, D. K. E. & Roger Lo. 2017. ʔayʔaǰuθəm: A degreeless language. Papers for ICSNL 52:225–243.	
+references	Katherine Givens	reference	Shimoyama, Junko. 2012. Reassessing crosslinguistic variation in clausal comparatives. Natural Language Semantics 20(1):83–113.	
+references	Katherine Givens	language	Secwepemctsín	Secwepemctsín, Shuswap
+references	Katherine Givens	reference	Suharwardy, Eve. 2021. Degreeful Comparison in Secwepemctsín. Papers for ICSNL 56:427–442.	
+references	Katherine Givens	reference	Thompson, Laurence C. & M. Terry Thompson.1992. The Thompson Language. Missoula, MT: University of Montana Occasional Papers in Linguistics.	
+references	Nɬeʔkepmxcín	cited form	nɬeʔkepmxcín	page 12
+references	Katherine Givens	reference	Thompson, Laurence C. & M. Terry Thompson. 1996. Thompson River Salish dictionary: nɬeʔkepmxcín. Missoula, MT: University of Montana Occasional Papers in Linguistics. van Rooij, Robert. 2011. Measurement and Interadjective Comparisons. Journal of Semantics 28(3): 335–358.	
+references	Katherine Givens	reference	von Stechow, Arnim. 1984. Comparing Semantic Theories of Comparison. Journal of Semantics 3(1–2):1–77.	

@@ -1,0 +1,237 @@
+where	who	kind	form	gloss
+front	Jan P. van Eijk	title	Subject and object NPs in a Lillooet text collection	page 1, carries footnote *
+front	Jan P. van Eijk	name	Jan P. van Eijk	author
+front	Jan P. van Eijk	note	First Nations University of Canada	page 1, under Jan P. van Eijk
+front	Jan P. van Eijk	note	Abstract: The presence of full subject and object complements to a transitive predicate (or an intransitive one where this still implies reference to a patient) in Salish has been the subject of a considerable amount of literature. In this paper we investigate the presence of such constructions in Lillooet (St’át’imcets), with regard to the main dialects of this language, and to the possible provenance of such constructions in Salish in general.	page 1, the abstract
+front	Jan P. van Eijk	note	Keywords: Lillooet (St’át’imcets), predicate, subject, object, NP (nominal phrase)	page 1, the keywords
+front	Jan P. van Eijk	note	In Papers for the International Conference on Salish and Neighbouring Languages 52, University of British Columbia Working Papers in Linguistics 45, Andrei Anghelescu, Michael Fry, Marianne Huijsmans, and Daniel Reisinger (eds.), 2017.	page 1, the volume's header
+front	Jan P. van Eijk	language	Lillooet	Northern Interior Salish
+footnote *	Jan P. van Eijk	note	This is an expanded version of a paper that I had planned to deliver (but was prevented from doing so due to personal circumstances) at the 4th Prairies Workshop on Language and Linguistics, University of Saskatchewan (Saskatoon), March 18, 2017. I gladly take this opportunity to express my gratitude to my Lillooet consultants and to my fellow- linguists, for their time, wisdom, and patience, which they so generously shared with me over so many years. The responsibility for the contents of this paper remains mine alone. (This also holds for where my translations of Lillooet sentences in Section 3 are less fluent than those in the original stories, because in my paper the sentences are quoted outside their original context.) Contact email: jvaneijk@fnuniv.ca	page 1, footnote *, on the title
+§1	Jan P. van Eijk	heading	1 Introduction	page 1
+§1	Jan P. van Eijk	note	In his well-known and highly insightful survey of topics in Salish linguistics, Thompson 1979:740–741 makes the following observation on Salish syntax:	page 1
+§1	Jan P. van Eijk	name	Thompson	Lawrence C. Thompson (1979)
+§1	Jan P. van Eijk	note	There are important problems concerned with the adjunct phrases by which	page 1
+§1	Jan P. van Eijk	note	predicates can be modified. Hess (1973) has explored some of these, drawing	page 1
+§1	Jan P. van Eijk	name	Hess	Thom Hess (1973)
+§1	Jan P. van Eijk	note	on Lushootseed, Straits, and Halkomelem materials. The type of English	page 1
+§1	Jan P. van Eijk	language	Lushootseed	Central Salish
+§1	Jan P. van Eijk	language	Halkomelem	Central Salish
+§1	Jan P. van Eijk	language	Straits	Central Salish
+§1	Jan P. van Eijk	note	transitive sentence in which both agent and patient are indicated by noun	page 1
+§1	Jan P. van Eijk	note	phrases (e.g. Bill killed the bear) seems atypical of at least many Salish	page 1
+§1	Jan P. van Eijk	note	languages, and is actually impossible in Lushootseed, where only the patient	page 1
+§1	Jan P. van Eijk	note	can be so specified. In fact, such sentences as do occur in elicited material	page 1
+§1	Jan P. van Eijk	note	may represent one of the ways bilingual speakers tend to modify the tradition	page 1
+§1	Jan P. van Eijk	note	of their Indian languages in adaptation to the English model to please	page 1
+§1	Jan P. van Eijk	note	assiduous linguists. Even in languages which appear to permit such sentences,	page 1
+§1	Jan P. van Eijk	note	they are rare or nonexistent in spontaneous conversations and traditional texts	page 1
+§1	Jan P. van Eijk	note	(noted most recently by Hukari 1976[..]). As for the order of subject and object NPs where they occur, Kroeber 1999:40 mentions that “[t]he languages vary as to how flexible the order of participant expressions is,” and notes that while Bella Coola and the Coast Salish languages prefer predicate-subject-object (PSO) order, the Coast Salish languages also allow instances of predicate-object-subject (POS), and that other languages are even more flexible in this respect.	page 1
+§1	Jan P. van Eijk	name	Hukari	Hukari 1976
+§1	Jan P. van Eijk	name	Kroeber	Paul D. Kroeber (1999)
+§1	Jan P. van Eijk	language	Bella Coola	Salish
+§1	Jan P. van Eijk	note	Kroeber’s observation for the languages other than Bella Coola and Coast Salish is supported by data from Lillooet (St’át’imcets) as presented in Van Eijk 1997:227–228 (the published version of my Ph.D. dissertation defended in 1985), in which, as per fn. 5 on p. 267, the ratio PSO:POS in texts is roughly 4:1. However, data made available to me after 1985 (presented in Van Eijk 1995, 2001) give eleven sentences with POS, and only one with PSO. This caused me to presume that POS represented a shift in progress to POS from PSO. On the other hand, later research, in particular Davis 1999, has shown that while POS is generally preferred in the northern (Upper) dialect of Lillooet, PSO is preferred in the southern (Lower) dialect. Interestingly, in two recent Lillooet text collections recorded from a speaker of a central dialect (Callahan et al. 2016, and Alexander et al. 2016) PSO and POS constructions are in a relatively equal balance, with 15 PSO phrases vs. 10 POS. In what follows, I repeat the data from Van Eijk 1995 and 2001 in Section 2, and the PSO and POS constructions that I collected from Callahan et al., and from Alexander et al. in Section 3, while Section 4 gives some preliminary conclusions about the possible origin of PSO and POS constructions.	page 2
+§1	Jan P. van Eijk	name	Davis	Henry Davis
+§1	Jan P. van Eijk	name	Callahan	Callahan et al. 2016
+§1	Jan P. van Eijk	language	St’át’imcets	Lillooet, in its own name
+§2	Jan P. van Eijk	heading	2 Lillooet PSO vs. POS	page 2
+§2	Jan P. van Eijk	note	As is mentioned in Section 1 above, the ratio PSO:POS in Lillooet texts analysed up to 1985 is roughly 4:1, so PSO is the more common order in the data at my disposal at that time. However, in 1995 I was asked to check the first proofs of a northern Lillooet dialect dictionary for the primary grades which was in the process of being composed by a committee of native speakers of Lillooet (Upper St’át’imc Language, Culture and Education Society 1995), and this dictionary contains 11 examples of transitive predications which show POS order and only one which shows PSO order. These twelve sentences are given below, with references to the pages where they occur, and in the practical orthography used in the primer (with the added orthographical devices of hyphens to introduce (third person) subject suffixes, and the equal sign to mark various clitics, including articles and the ‘reinforcing’ enclitic a which is required by certain articles – for a far more detailed morphological breakdown see Callahan et al. 2016). For brevity’s sake I omit nilh or the combination nílh=t’u7 ‘and then’ (also requiring factualization with the prefix s in the following clause) where these occur, as these have no bearing on the focus of this paper. The examples of POS are:	page 2
+§2	Lillooet	cited form	nílh=t’u7	page 2, in italics, ‘and then’
+(1) line 1	Lillooet	transcription	wa7 qixexs-twítas i=ntsqústn=a i=wa7=nts’áw’cal	page 3
+(1) line 1	Jan P. van Eijk	citation	p. 6	the page of Upper St’át’imc Language, Culture and Education Society 1995
+(1) line 2	Jan P. van Eijk	translation	‘the ones washing dishes (nts’áw’cal) are banging (qíxexs) the pots (ntsqústen)’	page 3
+(2) line 1	Lillooet	transcription	pápt=t’u7 wa7 wáz’an-as i=káoh=a ti=nsqáx7=a	page 3
+(2) line 1	Jan P. van Eijk	citation	p. 6	the page of Upper St’át’imc Language, Culture and Education Society 1995
+(2) line 2	Jan P. van Eijk	translation	‘my dog (sqáxa7) always (papt) barks at (wáz’an) cars (kaoh)’	page 3
+(3) line 1	Lillooet	transcription	t’útsun’-as ti=sráp=a ti=sqáycw=a	page 3
+(3) line 1	Jan P. van Eijk	citation	p. 22	the page of Upper St’át’imc Language, Culture and Education Society 1995
+(3) line 2	Jan P. van Eijk	translation	‘the man (sqaycw) is chopping (t’útsun’) the tree (srap)’	page 3
+(4) line 1	Lillooet	transcription	wa7 nzanmán-as i=sráp=a ti=wa7=pél’p	page 3
+(4) line 1	Jan P. van Eijk	citation	p. 22	the page of Upper St’át’imc Language, Culture and Education Society 1995
+(4) line 2	Jan P. van Eijk	translation	‘the one who is lost (pel’p) is going in circles around (nzánman) the trees (srap)’	page 3
+(5) line 1	Lillooet	transcription	nq’ixtsán’-as ti=sk’ém’ts=a ti=sk’úk’wm’it=a	page 3
+(5) line 1	Jan P. van Eijk	citation	p. 23	the page of Upper St’át’imc Language, Culture and Education Society 1995
+(5) line 2	Jan P. van Eijk	translation	‘the child (sk’úk’wm’it) closed (nq’íxtsan’) the door (sk’em’ts)’	page 3
+(6) line 1	Lillooet	transcription	ts’áts’qn’-as ti=sm’úm’tm’=a ti=nskícez7=a	page 3
+(6) line 1	Jan P. van Eijk	citation	p. 86	the page of Upper St’át’imc Language, Culture and Education Society 1995
+(6) line 2	Jan P. van Eijk	translation	‘my mother (skícza7) plucked (ts’áts’qen’) the grouse (sm’úm’tem’)’	page 3
+(7) line 1	Lillooet	transcription	wa7 steqs-ás ti=nqépktn=a ti=twíw’t=a	page 3
+(7) line 1	Jan P. van Eijk	citation	p. 96	the page of Upper St’át’imc Language, Culture and Education Society 1995
+(7) line 2	Jan P. van Eijk	translation	‘the young boy (twiw’t) is holding (steqs) the saddle-blanket (nqépkten)’	page 3
+(8) line 1	Lillooet	transcription	kelhn-ás ti=t’ímin=a ti=nsís7=a	page 3
+(8) line 1	Jan P. van Eijk	citation	p. 104	the page of Upper St’át’imc Language, Culture and Education Society 1995
+(8) line 2	Jan P. van Eijk	translation	‘my uncle (sísqa7) took the sinew (t’ímin) of’	page 3
+(8) line 2	Jan P. van Eijk	note	(kélhen ‘to take off’)	page 3, the author's comment after the translation
+(9) line 1	Lillooet	transcription	naq’wtsán’-as i=sts’wán=a ti=míxalh=a	page 3
+(9) line 1	Jan P. van Eijk	citation	p. 114	the page of Upper St’át’imc Language, Culture and Education Society 1995
+(9) line 2	Jan P. van Eijk	translation	‘the bear (míxalh) is stealing (náq’wtsan’) the dried salmon (sts’wan)’	page 3
+(10) line 1	Lillooet	transcription	lhvnps-ás ti=tsítcw=a ti=xzúm=a kém’cwyeqs	page 3
+(10) line 1	Jan P. van Eijk	citation	p. 129	the page of Upper St’át’imc Language, Culture and Education Society 1995
+(10) line 2	Jan P. van Eijk	translation	‘the big (xzum) truck (kém’cwyeqs) made the house (tsítcw) vibrate’	page 3
+(10) line 2	Jan P. van Eijk	note	(lhvnps ‘to make vibrate’)	page 3, the author's comment after the translation
+§2	Jan P. van Eijk	note	The lone example of PSO is:	page 3
+(11) line 1	Lillooet	transcription	kwezen-ás kw=sBill ti=káohs=a	page 3
+(11) line 1	Jan P. van Eijk	citation	p. 87	the page of Upper St’át’imc Language, Culture and Education Society 1995
+(11) line 2	Jan P. van Eijk	translation	‘Bill shined (kwézen) his car (kaoh)’	page 3
+§2	Jan P. van Eijk	note	Interestingly, the dictionary also gives one sentence which allows both a POS and a PSO reading:	page 3
+(12) line 1	Lillooet	transcription	t’axilmín-as ti=qwílqn=a ti=staníy7=a	page 3
+(12) line 1	Jan P. van Eijk	citation	p. 4	the page of Upper St’át’imc Language, Culture and Education Society 1995
+(12) line 2	Jan P. van Eijk	translation	‘the moose (staníya7) attacked (t’áxilmin) the wolverine (qwílqen);’	page 3
+(12) line 3	Jan P. van Eijk	translation	‘the wolverine attacked the moose’	page 3
+§2	Jan P. van Eijk	note	In a draft of a reworked version of the same dictionary (Frank and Whitley 2000), the second translation is crossed out by one of the editors, with a note to delete it (see Figure 1).	page 4
+Figure 1	Jan P. van Eijk	note	Figure 1 Example (12) in northern Lillooet dialect dictionary draft	page 4, the caption
+§2	Jan P. van Eijk	note	The reworked version also contains a number of additional sentences with an object and a subject complement which are given here, with references to the pages on which they occur. As the examples show, the order, although based on only six examples, is again predominantly POS (13–16), with only two cases of PSO (17–18).	page 4
+(13) line 1	Lillooet	transcription	wa7 k’úl’em ta=tsepalína ta=nskícez7=a	page 4
+(13) line 1	Jan P. van Eijk	citation	p. 4	the page of Frank and Whitley 2000
+(13) line 2	Jan P. van Eijk	translation	‘my mother (nskícza7) is making (k’úl’em) a baby basket (tsepalín)’	page 4
+(14) line 1	Lillooet	transcription	wa7 xelentsám’ ku=sk’wílhal’ts ta=nsqáx7=a	page 4
+(14) line 1	Jan P. van Eijk	citation	p. 7	the page of Frank and Whitley 2000
+(14) line 2	Jan P. van Eijk	translation	‘my dog (nsqáxa7) is begging for leftovers (sk’wílhal’ts)’	page 4
+(15) line 1	Lillooet	transcription	wa7 xet’nás ta=áopvls=a ta=ts’qáx7=a	page 4
+(15) line 1	Jan P. van Eijk	citation	p. 9	the page of Frank and Whitley 2000
+(15) line 2	Jan P. van Eijk	translation	‘the horse (ts’qáxa7) is taking a bite of the apple (áopvls)’	page 4
+(15) line 2	Jan P. van Eijk	note	(xét’en ‘to take a bite of s.t.’)	page 4, the author's comment after the translation
+(16) line 1	Lillooet	transcription	wa7 cwíl’em ku=ts’éts’qwaz’ ta=ts’ícwts’icw=a	page 4
+(16) line 1	Jan P. van Eijk	citation	p. 42	the page of Frank and Whitley 2000
+(16) line 2	Jan P. van Eijk	translation	‘the fishhawk (ts’ícwts’icw) is looking for (cwíl’em) trout (ts’éts’qwaz’)’	page 4
+(17) line 1	Lillooet	transcription	tecwp kw=sCharlie ta=káoh=a	page 4
+(17) line 1	Jan P. van Eijk	citation	p. 17	the page of Frank and Whitley 2000
+(17) line 2	Jan P. van Eijk	translation	‘Charlie bought (tecwp) a car (kaoh)’	page 4
+(18) line 1	Lillooet	transcription	az’ kw=sCharlie ta=káoh=a	page 4
+(18) line 1	Jan P. van Eijk	citation	p. 82	the page of Frank and Whitley 2000
+(18) line 2	Jan P. van Eijk	translation	‘Charlie paid for (az’) a car (kaoh)’	page 4
+§2	Jan P. van Eijk	note	The two PSO sentences above are paralleled by sentence (11) kwezen-ás kw=sBill ta=káohs=a ‘Bill shined his car,’ where we also have PSO and also a proper noun as the subject.	page 5
+§2	Lillooet	cited form	kwezen-ás kw=sBill ta=káohs=a	page 5, in italics, ‘Bill shined his car,’
+§2	Jan P. van Eijk	note	The ambiguity shown by sentence (12) is also discussed by Kuipers with regard to Squamish, a language which also allows both PSO and POS, though with preference for the former (Kuipers 1967:169, section 245). Of course, this ambiguity only arises where the subject and object noun phrases could conceivably switch roles. (In a case like ‘wash-father-car’ it is obvious who does the washing, and this sentence could allow any order, but in a case like ‘bite-cat- dog’ both the dog and the cat could do the biting, and the order becomes important.) As is mentioned in Van Eijk 1997:267, fn. 5 to section 36, when I read sentences with two noun phrases that could be both subject and object back to my consultants, confusion arose as to the role of the participants.	page 5
+§2	Jan P. van Eijk	name	Kuipers	Aert H. Kuipers (1967)
+§2	Jan P. van Eijk	language	Squamish	Central Salish
+§3	Jan P. van Eijk	heading	3 PSO vs. POS: recent insights	page 5
+§3	Jan P. van Eijk	note	Callahan et al. 2016 contains a number of texts provided by Qwa7yán’ak (Carl Alexander), now residing at Bridge River (northern Lillooet area), but originally from Tsal’álh (anglicized Shalalth), a community between the northern and southern Lillooet dialect areas (see the maps in Callahan at al. 2016:ix–xvi). As could be expected, Mr. Alexander’s speech shows features of both the northern and southern dialect varieties, and to those discussed by Callahan et al. (2016: xxv–xxvi) we can add the fact that the ratio POS:PSO is in a roughly equitable balance (10 vs. 15) in the texts provided by Mr. Alexander. Instances of POS are given first:	page 5
+§3	Lillooet	cited form	Qwa7yán’ak	page 5, in italics
+§3	Lillooet	cited form	Tsal’álh	page 5, in italics
+§3	Jan P. van Eijk	name	Qwa7yán’ak	Carl Alexander, the speaker of the narratives in Callahan et al. 2016
+§3	Jan P. van Eijk	name	Carl Alexander	Qwa7yán’ak
+(19) line 1	Lillooet	transcription	tsún-as láti7 ta=kwtámtss=a ti=smúlhats=a	page 5
+(19) line 1	Jan P. van Eijk	citation	p. 5	the page of Callahan et al. 2016
+(19) line 2	Jan P. van Eijk	translation	‘the woman (smúlhats) said (tsun) to her husband (kwtamts)’	page 5, carries footnote 1
+footnote 1	Jan P. van Eijk	note	When given by itself and outside the context of the story, the Lillooet sentence can also mean ‘s/he told the husband of the woman’ (where ‘she’ and the ‘woman’ cannot be coreferential, see Davis 2009). Similarly, sentences (21) and (29) can also mean ‘they invited the daughter of the man and the woman,’ and ‘they tried to see the mother and the husband of the young woman.’ In fact, in lhq’aw’sen-ítas áku7 ta=c.wálhts =a i=ucwalmícw=a=tú7=a ‘they widened (lhq’áw’sen) the road (c.walh) of the Indians (úcwalmicw) of old (=tu7)’ (Callahan et al., p. 83), we do have the ‘to X the possession of Y’ reading. Of course, the translations given by Callahan et al. for (19), (21), and (29) are entirely correct, as they truly represent Qwa7yán’ak’s St’át’imcets account. See also fn. 7.	page 5, footnote 1
+(20) line 1	Lillooet	transcription	qvls-ás t[a=]sxílhtum’=a áti7 ta=skícza7s=a	page 5
+(20) line 1	Jan P. van Eijk	citation	p. 6	the page of Callahan et al. 2016
+(20) line 2	Jan P. van Eijk	translation	‘her mother (skícza7) disliked (qvls) what he had done to her (daughter)’	page 5
+(20) line 2	Jan P. van Eijk	note	(sxilhts ‘what s.o. has done to s.o.,’ with regular dropping of the transitivizer before t in sxílhtum’)	page 5, the author's comment after the translation
+(21) line 1	Lillooet	transcription	xliten-ítas láti7 ta=skuz7íh=a láti7 ta=sqáycw=a múta7 ta=smúlhats=a	page 6
+(21) line 1	Jan P. van Eijk	citation	p. 48	the page of Callahan et al. 2016
+(21) line 2	Jan P. van Eijk	translation	‘the man (sqaycw) and (múta7) the woman (smúlhats) called (xlíten) their daughter (skúza7)’	page 6
+(22) line 1	Lillooet	transcription	wegen-ás láti7 ku=xát’min’-as láti7 ta=sm’ém’lhats=a	page 6
+(22) line 1	Jan P. van Eijk	citation	p. 48	the page of Callahan et al. 2016
+(22) line 2	Jan P. van Eijk	translation	‘the girl (sm’ém’lhats) will choose (wégen) the one she wants (xát’min’)’	page 6, carries footnote 2
+footnote 2	Jan P. van Eijk	note	The future tense is implied by nílh=t’u7 (which is not repeated here) in the original sentence.	page 6, footnote 2
+(23) line 1	Lillooet	transcription	kem’em-wít ku=skwenkwín i=smelhmúlhats=a	page 6
+(23) line 1	Jan P. van Eijk	citation	p. 69	the page of Callahan et al. 2016
+(23) line 2	Jan P. van Eijk	translation	‘the women (smelhmúlhats) were digging (kém’em) wild potatoes (skwenkwín)’	page 6
+(24) line 1	Lillooet	transcription	kwán-as láti7 ta=sílhts’7=a sP’xus	page 6
+(24) line 1	Jan P. van Eijk	citation	p. 125	the page of Callahan et al. 2016
+(24) line 2	Jan P. van Eijk	translation	‘P’xus took (kwan) a shoe (sílhts’a7)’	page 6
+(25) line 1	Lillooet	transcription	qúsen-as láti7 na=míxalh=a ta=nsqatsza7lhkálh=a	page 6
+(25) line 1	Jan P. van Eijk	citation	p. 152	the page of Callahan et al. 2016
+(25) line 2	Jan P. van Eijk	translation	‘our father (sqátsza7) shot (qúsen) a bear (míxalh)’	page 6
+§3	Jan P. van Eijk	note	Embedded in a longer sentence we have:	page 6
+(26) line 1	Lillooet	transcription	átsxen-em aylh múta7 láti7 na=répqwtens=a láti7 l=tsá=k’a cwíl’em ku=sqláw’ i=sám7=a	page 6
+(26) line 1	Jan P. van Eijk	citation	p. 390	the page of Callahan et al. 2016
+(26) line 2	Jan P. van Eijk	translation	‘we also (múta7) saw (áts’xen) a claim stake (nrépqwten) where (l=tsa) the White people (sáma7) looked for (cwíl’em) gold (sqlaw’)’	page 6
+§3	Jan P. van Eijk	note	The instances of PSO are:	page 6
+(27) line 1	Lillooet	transcription	zeq’zaq’ilmín-as láti7 ta=skalúl7=a ta=sm’ém’lhats=a	page 6
+(27) line 1	Jan P. van Eijk	citation	p. 4	the page of Callahan et al. 2016
+(27) line 2	Jan P. van Eijk	translation	‘the owl (skalúla7) peeked at (zeq’záq’ilmin) the girl (sm’ém’lhats)’	page 6
+(28) line 1	Lillooet	transcription	kwán-as=ku7 láti7 ta=skalúl7=a ta=skúza7s=a ta=smúlhats=a	page 6
+(28) line 1	Jan P. van Eijk	citation	p. 5	the page of Callahan et al. 2016
+(28) line 2	Jan P. van Eijk	translation	‘the owl (skalúla7) took (kwan) the woman’s (smúlhats) daughter (skúza7)’	page 6
+(28) line 2	Jan P. van Eijk	note	(=ku7 reportative marker, ‘as I was told’)	page 6, the author's comment after the translation
+(29) line 1	Lillooet	transcription	t’iq séna7 ats’xen-ítas láti7 ta=skícza7s=a múta7 ta=kwtámtss=a ta=sm’ém’lhats=a	page 7
+(29) line 1	Jan P. van Eijk	citation	p. 5	the page of Callahan et al. 2016
+(29) line 2	Jan P. van Eijk	translation	‘the young woman’s (sm’ém’lhats) mother (skícza7) and her (i.e., the mother’s) husband (kwtamts) tried to come (t’iq) see (áts’xen) her’	page 7, carries footnote 3
+footnote 3	Jan P. van Eijk	note	For a very insightful discussion of the ‘against expectation’ function of séna7 (which here indicates that the parents were not allowed to see the girl) see Davis and Matthewson 2016.	page 7, footnote 3
+footnote 3	Lillooet	cited form	séna7	page 7, in italics
+(30) line 1	Lillooet	transcription	áoz=t’u7 kwas úlhcws-as láti7 ta=skalúl7=a i=slalíl’tems=a láti7 ta=sm’ém’hats=a	page 7
+(30) line 1	Jan P. van Eijk	citation	p. 5	the page of Callahan et al. 2016
+(30) line 2	Jan P. van Eijk	translation	‘the owl (skalúla7) did not (aoz) admit (ulhcws) the girl’s (sm’ém’lhats) parents (slalíl’tem)’	page 7
+(31) line 1	Lillooet	transcription	áoz=t’u7 aylh kwas kaklhal’usmín-as=a láti7 ta=skalúl7=a ta=sm’ém’lhats=a	page 7
+(31) line 1	Jan P. van Eijk	citation	p. 6	the page of Callahan et al. 2016
+(31) line 2	Jan P. van Eijk	translation	‘the owl could not (aoz) take his eyes off (kaklhal’usmín-as=a) the girl (sm’ém’lhats)’	page 7, carries footnote 4
+footnote 4	Jan P. van Eijk	note	I follow Van Eijk 1997:51 in classing final a in kaklhal’usmín-as =a as an enclitic, while Callahan et al. 2016 class it as a suffix.	page 7, footnote 4
+(32) line 1	Lillooet	transcription	t’ak q’weláw’em-wit láti7 i=slalíl’tems=a ta=sm’ém’lhats=a láti7 i=qwal’ílh=a	page 7
+(32) line 1	Jan P. van Eijk	citation	p. 6	the page of Callahan et al. 2016
+(32) line 2	Jan P. van Eijk	translation	‘the young woman’s (sm’ém’lhats) parents (slalíl’tem) went (t’ak) gathering (q’weláw’em) pine pitch (qwal’ílh)’	page 7
+(33) line 1	Lillooet	transcription	kwán-as=ku7 láti7 ta=sqáycw=a i=qwal’ílh=a	page 7
+(33) line 1	Jan P. van Eijk	citation	p. 6	the page of Callahan et al. 2016
+(33) line 2	Jan P. van Eijk	translation	‘the man (sqaycw) took (kwan) the pitch (qwal’ílh)’	page 7
+(34) line 1	Lillooet	transcription	ets’7áts’xen-as láti7 ta=sm’ém’lhats=a i=sqáyqeycw=a	page 7
+(34) line 1	Jan P. van Eijk	citation	p. 48	the page of Callahan et al. 2016
+(34) line 2	Jan P. van Eijk	translation	‘the young woman (sm’ém’lhats) inspected (ets’7áts’xen) the men (sqáyqyecw, with regular metathesis in i=sqáyqeycw=a)’	page 7
+(35) line 1	Lillooet	transcription	kwán-itas i=sám7=a lhláta7 ta=t’láz’=a	page 7
+(35) line 1	Jan P. van Eijk	citation	p. 82	the page of Callahan et al. 2016
+(35) line 2	Jan P. van Eijk	translation	‘the White people (sáma7) took (kwan) the boat (t’laz’) from there (lhláta7)’	page 7
+(36) line 1	Lillooet	transcription	k’úl’em i=smelhmúlhats=a káti7 i=skwenkwín=a múta7 i=skím’ut=a... qweláw7=a	page 7
+(36) line 1	Jan P. van Eijk	citation	p. 83	the page of Callahan et al. 2016
+(36) line 2	Jan P. van Eijk	translation	‘the women (smelhmúlhats) gathered (k’úl’em) wild potatoes (skwenkwín) and (múta7) tiger lilies (skím’ut)... and wild onions (qweláwa7)’	page 7
+(37) line 1	Lillooet	transcription	láni7 i=tsícw-as áku7 i=sám7=a qwal’uts-twítas ta=nsqátsez7=a	page 8
+(37) line 1	Jan P. van Eijk	citation	p. 199	the page of Callahan et al. 2016
+(37) line 2	Jan P. van Eijk	translation	‘it is then (láni7) when (i=) the White people (sáma7) came (tsicw) to talk to (qwal’úts) my father (sqátsza7)’	page 8
+(38) line 1	Lillooet	transcription	xliten-ítas i=plísmen=a ta=ncwelpék=a	page 8
+(38) line 1	Jan P. van Eijk	citation	p. 332	the page of Callahan et al. 2016
+(38) line 2	Jan P. van Eijk	translation	‘the policemen (plísmen) called for (xlíten) a helicopter (cwelpék)’	page 8, carries footnote 5
+footnote 5	Jan P. van Eijk	note	Later on the same page, the word for ‘helicopter’ is twice given as ta=ncwelelpék=a, and once as ta=cwelelpék=a.	page 8, footnote 5
+footnote 5	Lillooet	cited form	ta=ncwelelpék=a	page 8, in italics
+footnote 5	Lillooet	cited form	ta=cwelelpék=a	page 8, in italics
+(39) line 1	Lillooet	transcription	q’weláw’em-wit i=núkw=a i=tsítsl=a ri7p láti7	page 8
+(39) line 1	Jan P. van Eijk	citation	p. 390	the page of Callahan et al. 2016
+(39) line 2	Jan P. van Eijk	translation	‘some picked (q’weláw’em) new (tsítsel) growth (ri7p) there (láti7)’	page 8
+§3	Jan P. van Eijk	note	Embedded in longer sentences (the latter one with the cataphoric marker nilh) we have:	page 8
+(40) line 1	Lillooet	transcription	áts’xenem lati7 na=wa7=tsún-itas i=ucwalmícw=a áku7 xzúm=a stswaw’cw	page 8
+(40) line 1	Jan P. van Eijk	citation	p. 391	the page of Callahan et al. 2016
+(40) line 2	Jan P. van Eijk	translation	‘we saw (áts’xen) what the people (úcwalmicw ‘person, human being, Indian’) there (áku7) used to call (tsun) “Big (xzum) Creek (stswaw’cw).”’	page 8
+(41) line 1	Lillooet	transcription	nílh=k’a=ti7 wa7 tsún-itas i=sám7=a cá7=a tmicw	page 8
+(41) line 1	Jan P. van Eijk	citation	p. 391	the page of Callahan et al. 2016
+(41) line 2	Jan P. van Eijk	translation	‘that (ti7) is apparently (=k’a) what the White people (sáma7) call (tsun) Heaven’	page 8
+(41) line 2	Jan P. van Eijk	note	(ca7 ‘high,’ tmicw ‘land, earth’)	page 8, the author's comment after the translation
+§3	Jan P. van Eijk	note	Alexander et al. have two examples of POS, both on p. 7:	page 8
+(42) line 1	Lillooet	transcription	maysen-ítas i=n7ú7sa7tens=a i=haláw’=a	page 8
+(42) line 2	Jan P. van Eijk	translation	‘the eagles (haláw’) make (máysen) their nests (n7ú7sa7ten)’	page 8, carries footnote 6
+footnote 6	Jan P. van Eijk	note	With reference to fn. 1, sentences (42) and (43) could also mean ‘they made the nests (aeries) of the eagles’ but not within the context of this story, and the translations given by John Lyon are the only correct ones in this context.	page 8, footnote 6
+footnote 6	Jan P. van Eijk	name	John Lyon	translated the narratives in Alexander et al. 2016
+(43) line 1	Lillooet	transcription	maysen-ítas nqwaxqteníh=a i=haláw’=a	page 8
+(43) line 2	Jan P. van Eijk	translation	‘the eagles (haláw’) made (máysen) their aeries (nqwáxqten)’	page 8, carries footnote 7
+footnote 7	Jan P. van Eijk	note	The transcription of the word for ‘aerie’ (also the name for the geographical spot that is the focus of Mr. Alexander’s account) is problematic in that on p. 7 the name for the location is given as nqwáxwqten (also sic on Callahan et al. 2016:x, with reference to the map on p. xv, and on pp. 121, 151 and 157). A check against the on-line sound files (to which Henry Davis has kindly referred me) proves that (n)qwáxwqten is indeed the correct transcription for the location (and then must also be for the meaning ‘aerie’). The transcriptions nqwáxwqwten (with variants nqwáxqwten and nqáxqten, the latter admittedly a very probable transcription error) in Van Eijk 2013:293 will have to be corrected accordingly.	page 8, footnote 7
+footnote 7	Lillooet	cited form	nqwáxwqten	page 8, in italics
+footnote 7	Lillooet	cited form	(n)qwáxwqten	page 8, in italics
+footnote 7	Lillooet	cited form	nqwáxwqwten	page 8, in italics
+footnote 7	Lillooet	cited form	nqwáxqwten	page 8, in italics
+footnote 7	Lillooet	cited form	nqáxqten	page 8, in italics
+footnote 7	Jan P. van Eijk	name	Henry Davis	referred the author to the sound files
+§4	Jan P. van Eijk	heading	4 Preliminary conclusions	page 9
+§4	Jan P. van Eijk	note	While the data in Section 2 most probably result from elicitations by and from the editors of the volume from which these examples are taken, the data in Section 3 come from running texts provided by a fluent speaker of the language. As such, Thompson’s conclusion that constructions with two overt DPs mostly result from prompting by “assiduous linguists” and do not reflect original Salish grammatical patterns can no longer be maintained. As Davis 1999:22, notes, the presence of such constructions is thus a reflection of the structure of the texts, not of the grammar. (It is in this respect significant that in Callahan et al. the incidence of both POS and PSO drops rather sharply in texts 5 through 8, which deal with personal reminiscences and reflections where one of the participants is in the first person singular and the occasion for two overt third person DPs rarely arises.) This still leaves the questions of why northern Lillooet prefers POS, while the southern dialect prefers PSO, and also how old constructions with two overt DPs are in Salish.	page 9
+§4	Jan P. van Eijk	note	The fact that the southern dialect area of Lillooet shows a preference for PSO may reflect the fact that the communities in this area were in frequent contact with Coast Salish communities, where PSO is preferred, while the northern area was in more frequent contact with Interior Salish communities, where POS is in stronger competition with PSO. (For trade contacts of the northern (Upper) and southern (Lower) Lillooet not only with each other, but also with respectively the Interior and Coastal groups, see Teit 1906:231–233.)	page 9
+§4	Jan P. van Eijk	name	Teit	James A. Teit (1906)
+§4	Jan P. van Eijk	note	As for the origin of constructions with both a subject NP and an object NP, it is possible that such constructions go back to Proto-Salish, but in that case, it is puzzling that they do not (or did not) occur in Lushootseed (as noted by Thompson, referring to Hess). If they do now, it may be possible that they have risen under influence from English after Hess did his research on Lushootseed. After all, there are convincing examples of languages rearranging their syntax under foreign influence, even across language families: Arlotto 1972:193–195 mentions the replacement of the “X has” construction in Russian with “at X is,” under influence of neighbouring Finno-Ugric or Altaic, and the rise of the izafet-construction in Turkish under Persian influence. With regard to Salish, the influence of omnipresent English seems not only plausible, but in this case perhaps even unavoidable. On the other hand, Davis 1999 makes a strong case for classing constructions with two overt DPs as deeply embedded in Lillooet syntax, and his observations certainly deserve careful consideration.	page 9
+§4	Jan P. van Eijk	name	Arlotto	Anthony Arlotto (1972)
+§4	Jan P. van Eijk	language	Russian	Slavic
+§4	Jan P. van Eijk	language	Turkish	Turkic
+§4	Jan P. van Eijk	language	Persian	Iranian
+references	Jan P. van Eijk	heading	References	page 9
+references	Jan P. van Eijk	reference	Alexander, Carl, Keith Langergraber, and John Lyon. (2016). The Flooding of the Upper Bridge River Valley: St’át’imcets Narratives and an Artist’s Exhibition. Pp. 1–17 of Huijsmans et al. (eds.), Papers for the 51st ICSNL. UBCWPL, vol. 42.	page 9
+references	Jan P. van Eijk	reference	Arlotto, Anthony. (1972). Introduction to Historical Linguistics. Lanham/New York/London: University Press of America.	page 10
+references	Jan P. van Eijk	reference	Callahan, Elliott, Henry Davis, John Lyon, and Lisa Matthewson (eds.). (2016). Sqwéqwel’ múta7 Sptakwlh: St’át’imcets Narratives by Qwa7yán’ak (Carl Alexander). Upper St’át’imc Language, Culture and Education Society/UBCOPL, Vol. 3.	page 10
+references	Jan P. van Eijk	reference	Davis, Henry. (1999). Word Order and Configurationality in St’át’imcets. Pp. 61– 82 of the Papers for the 34th International Conference on Salish and Neighbouring Languages.	page 10
+references	Jan P. van Eijk	reference	Davis, Henry. (2009). Cross-Linguistic Variation in Anaphoric Dependencies: Evidence from the Pacific Northwest. Natural Language and Linguistic Theory 27:1–43.	page 10
+references	Jan P. van Eijk	reference	Davis, Henry, and Lisa Matthewson. (2016). Against All Expectations: The Meaning of St’át’imcets séna7. Pp. 37–67 of Huijsmans et al. (eds), Papers for the 51st ICSNL. UBCWPL, vol. 42.	page 10
+references	Jan P. van Eijk	reference	Frank, Beverley R., and Rose A. Whitley (with the assistance of Jan van Eijk). (2000). Nqwal’uttenlhkálha: English to St’át’im’cets Dictionary. Upper St’át’imc Language, Culture and Education Society.	page 10
+references	Jan P. van Eijk	reference	Hess, Thom. (1973). Agent in a Coast Salish Language. IJAL 39:89–94.	page 10
+references	Jan P. van Eijk	reference	Hill, Archibald, A. (ed.). (1962). Third Texas Conference on Problems of Linguistic Analysis in English. Austin: University of Texas Press.	page 10
+references	Jan P. van Eijk	reference	Kroeber, Paul D. (1999). The Salish Language Family: Reconstructing Syntax. University of Nebraska Press.	page 10
+references	Jan P. van Eijk	reference	Kuipers, Aert H. (1967). The Squamish Language: Grammar, Texts, Dictionary. The Hague: Mouton.	page 10
+references	Jan P. van Eijk	reference	Teit, James A. (1906). The Lillooet Indians. The Jesup North Pacific Expedition. Memoirs of the American Museum of Natural History Memoir, Vol. II, Part V. Leiden: E. J. Brill. Reprinted by AMS, 1975.	page 10
+references	Jan P. van Eijk	reference	Thompson. Lawrence C. (1979). ‘Salishan and the Northwest.’ Pp. 692–765 of Lyle Campbell and Marianne Mithun (eds.), The Languages of Native America: Historical and Comparative Assessment. Austin: University of Texas Press.	page 10
+references	Jan P. van Eijk	reference	Upper St’át’imc Language, Culture and Education Society. (1995). An English- St’át’imcets Primary Dictionary. MS. [Although the material in the dictionary was collected by Van Eijk and he is listed as the author, the quantity and quality of the additions made by the USLCES are such that they should be listed as the author of the dictionary.]	page 10
+references	Jan P. van Eijk	reference	Van Eijk, Jan P. (1995). POS and PSO in Lillooet. Paper submitted to the 30th ICSNL.	page 11
+references	Jan P. van Eijk	reference	Van Eijk, Jan P. (1997). The Lillooet Language: Phonology, Morphology, Syntax. Vancouver: University of British Columbia Press.	page 11
+references	Jan P. van Eijk	reference	Van Eijk, Jan P. (2001). POS and PSO in Lillooet, Part 2. MS.	page 11
+references	Jan P. van Eijk	reference	Van Eijk, Jan P. (2013). Lillooet-English Dictionary. UBCOPL, Vol. 2.	page 11

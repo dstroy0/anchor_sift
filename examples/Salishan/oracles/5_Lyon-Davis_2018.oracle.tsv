@@ -1,0 +1,1336 @@
+where	who	kind	form	gloss
+front	John Lyon, Henry Davis	title	‘The Outlaws’: An Upper St’át’imcets Tale by Sam Mitchell	page 1, carries footnote *
+front	John Lyon, Henry Davis	name	John Lyon	author
+front	John Lyon, Henry Davis	note	University of Victoria	page 1, under John Lyon
+front	John Lyon, Henry Davis	name	Henry Davis	author
+front	John Lyon, Henry Davis	note	University of British Columbia	page 1, under Henry Davis
+front	John Lyon, Henry Davis	note	Abstract: This paper consists of a fully transcribed, translated and glossed ver- sion of an Upper St’át’imcets narrative known as The Outlaws, recounted by the well-known story-teller Sam Mitchell of Cácl’ep (Fountain) and recorded by Randy Bouchard in August, 1968. This is the first and shortest of three recorded versions of this story: another was recorded by Bouchard during the same period, while a third version was recorded by Jan van Eijk in 1971 or 1972. The third version has already appeared in Davis et al. (2017), and the second is due to appear in a forthcoming volume of texts transcribed from Bouchard’s recordings (Lyon et al., in prep), which will feature a dozen other recordings by Sam Mitchell. The Out- laws is typical of Sam’s story-telling style and subject matter: it is a true-life wild western adventure, involving a murder, a jail-break, a prolonged pursuit through the bush, and the eventual capture, trial and sentencing of the protagonists.	page 1, the abstract
+front	John Lyon, Henry Davis	note	Keywords: Salish, Northern Interior Salish, St’át’imcets, narrative, stories	page 1, the keywords
+front	John Lyon, Henry Davis	note	In Proceedings of the International Conference on Salish and Neighbouring Languages 53, University of British Columbia Working Papers in Linguistics 47, Marianne Huijsmans, Roger Lo, Daniel Reisinger, and Oksana Tkachman (eds.), 2018.	page 1, the volume's header
+front	John Lyon, Henry Davis	language	St’át’imcets	Northern Interior Salish (Lillooet), ISO 639-3 lil
+footnote *	John Lyon, Henry Davis	note	We are first of all very grateful to Randy Bouchard for making the recording of this story available to us in digital form, providing us with scanned versions of Sam Mitchell’s English version, and of course for his pioneering language documentation work in St’át’imc territory during the 1960s and 1970s, without which this and many other texts would never have been available. We would also like to thank Carl Alexander and Linda Redan for help with the transcription of more difficult passages in this text. This work has been supported by a SSHRC Partnership Grant #895-2012-1029 awarded to Dr. Marianne Ignace of Simon Fraser University, and a SSHRC Insight grant #435-2015-1694 awarded to Henry Davis.	page 1, footnote *, on the title
+footnote *	John Lyon, Henry Davis	note	Contact info: johnlyon@uvic.ca, henry.davis@ubc.ca	page 1, the authors' contact
+footnote *	John Lyon, Henry Davis	name	Sam Mitchell	the storyteller, of Cácl’ep (Fountain), 1894-1985
+footnote *	John Lyon, Henry Davis	name	Randy Bouchard	recorded the tale in August 1968, BC Indian Languages Project
+footnote *	John Lyon, Henry Davis	name	Carl Alexander	helped transcribe the harder passages
+footnote *	John Lyon, Henry Davis	name	Linda Redan	helped transcribe the harder passages
+footnote *	John Lyon, Henry Davis	name	Marianne Ignace	held the SSHRC Partnership Grant
+footnote *	John Lyon, Henry Davis	name	Simon Fraser	the explorer in Sam Mitchell's The Drifters
+footnote *	John Lyon, Henry Davis	language	English	the translations
+§1	John Lyon, Henry Davis	heading	1 Introduction	page 1
+§1	John Lyon, Henry Davis	note	Sam Mitchell (1894-1985) was one of the most skillful and certainly the best- known of the Upper St’át’imc (Lillooet) story-tellers involved in the language documentation and revival efforts which began in St’át’imc territory in the late 1960s, in association with Randy Bouchard and later Dorothy Kennedy of the BC Indian Languages Project. Together with Baptiste Ritchie and Charlie Mack Sey- mour, both Lower St’át’imcets speakers from Lil’wat7úl (Mount Currie), and Slim Jackson who was raised in Upper St’át’imc territory but spent most of his life in Lil’wat7úl, Sam Mitchell was instrumental not only in documenting many aspects of the traditional St’át’imc way of life which were in danger of being lost or for- gotten, but also – in the immediate aftermath of the disastrous residential school era – in restoring awareness of and pride in the St’át’imc language.	page 1
+§1	John Lyon, Henry Davis	name	Dorothy Kennedy	BC Indian Languages Project
+§1	John Lyon, Henry Davis	name	Baptiste Ritchie	Lower St’át’imcets storyteller from Lil’wat7úl
+§1	John Lyon, Henry Davis	name	Slim Jackson	storyteller raised in Upper St’át’imc territory
+§1	John Lyon, Henry Davis	language	Lower St’át’imcets	the Lil’wat7úl (Mount Currie) dialect
+§1	John Lyon, Henry Davis	note	Sam lived all his life in and around Cácl’ep (Fountain). Unlike many of his contemporaries, he did not go to residential school, but instead taught himself En- glish (partly from listening to the radio, as he himself recounts), eventually becom- ing an acknowledged authority on Upper St’át’imc language, culture and history, and a go-to consultant for linguists, ethnobotanists, and archeologists. He was recorded in St’át’imcets not only by Bouchard, but also subsequently in the early 1970s by Jan van Eijk, with the result that multiple recorded versions now exist for several of his narratives. Nearly all of Sam’s recorded repertoire has now been transcribed: See Bouchard and Kennedy (1977) for a selection of Sam’s stories in English translation, and van Eijk and Williams (1981) and Davis et al. (2017) for fully transcribed versions of the van Eijk recordings.	page 1
+§1	John Lyon, Henry Davis	name	Jan van Eijk	recorded a third version in 1971 or 1972
+§1	John Lyon, Henry Davis	note	Unlike some of his contemporaries, Sam was less interested in sptakwlh (leg- ends) than sqwéqwel’ (‘true’ stories).1 In fact, there is only a single sptakwlh in the recordings we have of him, a version of the widespread legend of The Aban- doned Boy, published in Davis et al. (2017).2 His main focus was on history, and in particular the post-contact period which lasted from the gold-rush days of the 1860s to the pre-war period of the 1930s. It is no accident that this period corre- sponds to approximately three generations – Sam’s own, that of his parents, and that of his grandparents – because that is the maximum time span where reliable eye-witness testimony is available, either through direct observation or by inter- viewing witnesses who were present at the events being reported. And indeed, in his reconstruction of historical events, Sam pays particular attention to the trust- worthiness of his sources, often including details as to whether the events were independently confirmed by more than one witness, how long after the events wit- nesses were interviewed, and whether their accounts might have been subject to bias. The result is a fascinating first-hand glimpse at the construction of oral his- tory, at a period in time which enables a direct comparsion with the ‘official’ (i.e., colonial) version of the same events.	page 2
+footnote 1	John Lyon, Henry Davis	note	This distinction is an important one in St’át’imcets, but blurs at the edges, where historical memory fades into myth. Sam’s version of The Drifters (published in English in Bouchard and Kennedy, 1977) provides a good illustration of this process. It is the story of first contact between the St’át’imc and European explorers, in the person of Simon Fraser and his expedition, whose journey down the river which now bears his name passed through Upper St’át’imc territory in June 1808. This date is just within reach of the oral history tradition to which Sam belongs: he recounts that he heard the story from his father, who heard it in turn from Pyal (‘Old Pierre’), who was two years old when the fateful encounter occurred. But in retelling the story, mythical elements have crept into the St’át’imcets version: contrary to historical fact, Simon Fraser is portrayed as having tattoos of the moon on his chest and the sun on his forehead. This embellishment is also found in a version of the story recorded by Bouchard from the Lil’wat7úl speaker Charlie Mack, as well as in Nɬeʔkepmx (Thompson River Salish) accounts from further downstream (Teit 1912). As such, it appears to involve the interweaving of a much older Interior Salish prophecy into the historical narrative.	page 2, footnote 1
+footnote 1	John Lyon, Henry Davis	name	Pyal	Old Pierre, who heard the story of first contact
+footnote 1	John Lyon, Henry Davis	name	Teit	James Teit, Mythology of the Thompson Indians (1912)
+footnote 1	John Lyon, Henry Davis	language	Nɬeʔkepmx	Thompson River Salish
+footnote 1	John Lyon, Henry Davis	language	Interior Salish	the branch
+footnote 2	John Lyon, Henry Davis	note	See Lyon (2016) for a Syilx version of this legend.	page 2, footnote 2
+footnote 2	John Lyon, Henry Davis	language	Syilx	Okanagan, Lyon's version of The Abandoned Boy
+§1	St’át’imcets	cited form	sptakwlh	page 2, in italics
+§1	St’át’imcets	cited form	sqwéqwel’	page 2, in italics
+§1	John Lyon, Henry Davis	note	The Outlaws is particularly informative in this respect, because it is a notorious true crime story which was widely reported in the press at the time of the events (1911-1913) and is also recounted in subsequent non-indigenous accounts of local history (Clark 2014). See the introduction in Davis et al. (2017) for a more detailed comparison of Sam’s account with non-indigenous versions of the story.	page 2
+§1	John Lyon, Henry Davis	name	Clark	C. Clark, Phantoms of the Rangeland (2014)
+§1	John Lyon, Henry Davis	note	The Outlaws is the longest of Sam’s narratives, and the only one that he vol- unteered three times. The three versions differ quite substantially in length: The version that appears here, recorded by Bouchard, is the first and shortest, running for 20 minutes 30 seconds. A longer version, also recorded by Bouchard, is 34 minutes long and appears in English translation in Bouchard and Kennedy (1977), with the St’át’imcets original to appear in Lyon et al. (in prep). A third, fully transcribed version recorded by van Eijk is 28 minutes and 30 seconds in length, and is in print in Davis et al. (2017). The versions all cover the same time period, and agree on the main events; the discrepancy in length is due rather to the number of incidents reported and the level of detail included in each telling. Though the shorter version transcribed here covers the main arc of the narrative from the ini- tial discovery of the body of a teamster outside Clinton to the eventual surrender and trial of the outlaws, it misses out on some important episodes recounted in the other two versions, in particular a second murder, that of a Chinese woodcutter who recognized one of the outlaws and tried to apprehend him. It also lacks most of the direct speech reproduced in the other two versions, which gives them an immediacy absent from the more compressed narrative style of this version.	page 3
+§1	John Lyon, Henry Davis	note	Nevertheless, the version here is of obvious linguistic interest given the still limited amount of fully transcribed textual material available for Upper St’át’imcets, as well as for the direct comparison it affords with longer versions of the same story by the same story-teller.	page 3
+§1	John Lyon, Henry Davis	language	Upper St’át’imcets	the Fountain dialect, Sam Mitchell's
+§1	John Lyon, Henry Davis	note	We present the text in the following format, based on that which we adopted for Sam’s stories in Davis et al. (2017): we begin with Sam’s own rather free English translation, reprinted from an unpublished manuscript (Bouchard 1969),3 followed by a transcription of the original St’át’imcets telling, a more literal En- glish translation, and finally a fully glossed interlinear version.	page 3
+footnote 3	John Lyon, Henry Davis	note	Bouchard’s working method was to record a story in St’át’imcets, then – sometimes at a considerably later period – to play the recording back to either the same or another speaker, and record and transcribe their English translation of the original St’át’imcets. Sam trans- lated his own stories: the English version of this particular text was recorded in December 1969, some 15 months after the original St’át’imcets recording.	page 3, footnote 3
+§1	John Lyon, Henry Davis	note	A list of glossing abbreviations appears in the appendix, together with a con- version chart from the APA to the variant of the van Eijk orthography that we em- ploy here: see the introduction in Davis et al. (2017) for discussion of the glossing conventions we have adopted.	page 3
+§2	John Lyon, Henry Davis	heading	2 Sam Mitchell’s English Translation (Bouchard 1969)	page 3
+§2	John Lyon, Henry Davis	note	A white man was found dead near here, and Moses Paul was blamed for killing him. It was spring-time, and they put Moses Paul in jail, but he escaped in the fall-time. The police thought that it was Paul Spintlum who helped Moses Paul to escape from jail, and they hired an Indian named Cultus Jack to help them. He told the police, “Paul Spintlum goes out hunting every day, but I know where he camps. You can only catch him early in the morning, before daylight.” So Cultus Jack took a policeman to Paul Spintlum’s camp, very early one morning, before daylight. The policeman stood outside the entrance to the tent, and yelled out, “Paul Spintlum, I want you!” Answered Paul Spintlum, “OK. I’m coming. But first I have to get dressed.” He picked up his gun and came out from the tent. Pointing his gun right at the policeman, he said, “If you want me, then come and get me, right now!” Still pointing the gun at the policeman, Paul Spintlum backed into the bushes, and disappeared. Cultus Jack and the policeman returned to Clinton, where the policeman turned in his badge. He quit his job, he was so shaken up.	page 3
+§2	John Lyon, Henry Davis	name	Moses Paul	one of the two outlaws
+§2	John Lyon, Henry Davis	name	Paul Spintlum	one of the two outlaws
+§2	John Lyon, Henry Davis	name	Cultus Jack	Jack McMillan, hired by the police
+§2	John Lyon, Henry Davis	note	After that, Moses Paul and Paul Spintlum became outlaws, and were never seen. In the spring of the next year, many people were gathered in Clinton for the Spring Assizes. A rider came into town and told every one that he had seen Paul Spintlum, not far away. Policemen and white men all gathered together to look for Paul Spintlum, and they separated to search around. Near a hollow area, one policeman was shot, and fell down. Another policeman was shot in the arm. The searchers saw a person get on a horse and ride away, so they shot at him, but didn’t hit him, and he went out of sight. They said that this was one of the outlaws, Paul Spintlum. They put the dead policeman on a horse, and took him into Clinton.	page 4
+§2	John Lyon, Henry Davis	note	After this, the government hired a bunch of trackers, both white men and Indians, from Kamloops, and not from the area around Clinton. They had a lot of horses, and searched for close to two months, but they never caught the outlaws. Once, they surrounded a mountain where the outlaws were supposed to be, but found no one. The government could not succeed, even though they put up four thousand dollars as reward for the outlaws.	page 4
+§2	John Lyon, Henry Davis	note	Once, a tracker came close to meeting Moses Paul. He was at Chasm, and he had tied up a horse near the edge of the canyon, while he looked down into it. Moses Paul came along and took off with the horse, and the binoculars. Another time, a friend of mine named Tom Evans, a white man, told me that he and some other trackers were chasing the outlaws, but they took off into the bush, and by the time they got there, they had gone on foot - all that was there was their horses, sweating heavily. They didn’t want to go any further after them.	page 4
+§2	John Lyon, Henry Davis	name	Tom Evans	a tracker, Sam Mitchell's source
+§2	John Lyon, Henry Davis	note	Even though the government paid the trackers, they still couldn’t catch the outlaws. Moses Paul and Paul Spintlum had relatives and friends all over the place, in the Clinton area. Later, one of the outlaws told his relatives how he had stolen the horse, saddle, and binoculars from one of the trackers, over at Chasm. And that was not all they did. Their relatives and friends helped them everywhere - around Chasm and around Lillooet - they fed the outlaws and protected them by telling misleading stories to the trackers.	page 4
+§2	John Lyon, Henry Davis	note	At 11-mile, outside Lillooet (going towards Pavilion), the outlaws saw a boat there that was used to cross the Fraser River, so they went across in it, and then let the boat drift down the river. Then they went down the other side of the river to Bridge River village, to a house where there was some washing hanging on a line. They stole some dresses, and planned to cross over the bridge at Lillooet at nighttime, disguised as women. Some people gave them food to pack - this is something that women would conceivably be doing. Towards nightfall, they got to the bridge, and they recognized the white man who was guarding it - Joe Russell. Still they went across - the white man thought it was just some Indian women going home with food.	page 4
+§2	John Lyon, Henry Davis	name	Joe Russell	guarded the bridge at Lillooet
+§2	John Lyon, Henry Davis	note	Another time, the outlaws hid out around Pavilion for awhile, in summer-time, when everyone was working in the hayfields. They told the people there about the things that they had done. Also, they hid out for awhile in a cave at Leon’s Creek, across from Pavilion, and no one could find them there.	page 5
+§2	John Lyon, Henry Davis	note	Moses Paul and Paul Spintlum were outlaws for four years, from 1910-1914. Finally, a relative of theirs - Chief Major from Leon’s Creek - decided that he would turn them in, not because he wanted the $4000 reward (he was a rich man, himself), but because he wanted to get a good lawyer for them and officially prove their innocence in court. So he went to the Merritt area, where they were staying, picked them up, and took them to Bonaparte Reserve, which is where the police picked them up. He got two lawyers - using his own money - Henry Costello and Stuart Henderson, but one of the outlaws was hung, and the other one was given a life-time sentence, and died four years later in jail.	page 5
+§2	John Lyon, Henry Davis	name	Chief Major	of Leon’s Creek, turned the outlaws in
+§2	John Lyon, Henry Davis	name	Henry Costello	the outlaws' lawyer
+§2	John Lyon, Henry Davis	name	Stuart Henderson	the outlaws' lawyer
+§3	John Lyon, Henry Davis	heading	3 St’át’imcets	page 5
+§3.1	John Lyon, Henry Davis	heading	3.1 Na skéla7sa4	page 5
+footnote 4	John Lyon, Henry Davis	note	The St’át’imcets sub-section titles in this section and the interlinear section correspond to the titles given in the version of The Outlaws published in Davis et al. (2017), where Sam gives more information concerning his information sources for the individual episodes.	page 5, footnote 4
+§3.1	St’át’imcets	transcription	Lts7áwna, pun ta sám7a szuqw.	page 5, the telling in St’át’imcets
+§3.1	St’át’imcets	transcription	Tsicw i wa7 cwíl’em.	page 5, the telling in St’át’imcets
+§3.1	St’át’imcets	transcription	Nilh t’u7 snilhts ti7 ta wa7 sMoses Paul ma7eném kw snilhts k’a zúqwstal’i.	page 5, the telling in St’át’imcets
+§3.1	St’át’imcets	transcription	Nilh t’u7 skwánem, nilh t’u7 nk’a7ném, nk’a7 lta...	page 5, the telling in St’át’imcets
+§3.1	St’át’imcets	transcription	Nilh láti7 swa7s t’u nas et7ú lhwál’tsten k’a sxek.	page 5, the telling in St’át’imcets
+§3.1	St’át’imcets	transcription	Qapts k’a ts7a, nilh sqapt- snún k’a nilh s... ts7a ku száyten.	page 5, the telling in St’át’imcets
+§3.1	St’át’imcets	transcription	Lhwál’tsten k’a nilh t’u7 s... nilh t’u7 tu7 s7ulhcw, lhwal’tstenálmen nilh t’u7 s7úts’ets’qa7s lhélta nk’á7mena.	page 5, the telling in St’át’imcets
+§3.1	St’át’imcets	transcription	Nilh t’u7 múta7 ntsutánwas i plísmena kw snilhts k’a ti7 ta wa7 sPaul Spintlum nuk’w7antáli kw s7úts’ets’qa7s.	page 5, the telling in St’át’imcets
+§3.2	John Lyon, Henry Davis	heading	3.2 Wa7 sqwéqwel’ sCultus Jack: Jack McMillan múta7 sPaul Spintlum	page 5
+§3.2	St’át’imcets	transcription	Wa7 ta wa7 zúscal, nilh t’u7 sk’wálhan’as ta pápl7a úcwalmicw.	page 5, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Wa7 t’u7 ma7enítas ti7 ta wa7 sPaul Spintlum kwes nilh k’a ti7 nuk’w7an’táli sMoses Paul ta ka7úts’q7a.	page 5, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Nilh t’u7 sqwatsátss ta wa7 zúscal, k’wálhan’as ta pápl7a úcwalmicw, nilh ti7 wa7 sCultus Jack.	page 5, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Tsúnas, “Wá7lhkacw ka zewáten nká7as lhas wa7 tu7 píxem’?” Plan tu7 ti7 wa7 qwatsáts píxem’ kenkw7ú kísema, ti7 ta wa7 sPaul Spintlum.	page 5, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Tsut kw sCultus Jack, “Wá7lhkan zewáten nká7as tu7 lht’ákas.”	page 5, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Nilh t’u7 sqwatsátsi, k’wálhan’em éta plísmena, tsúnem éta ucwalmícwa ta wa7 sCultus Jack, “Ao kwásu kanása lku sq’it. Tsukw t’u7 lhn’án’atcwas kéla7 kw smá7eg’s, kéla7 sqwatsátss píxem’, láti7 kelh lhnas- min’émas, nilh t’u7 skwánensacw. Wa7 ti7 píxem’ lhas sq’it, t’u7 ao kwas wa7 lta campsa.”	page 5, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Nilh t’u7 sk’ul’ún’itas kw skatsícwiha áta7 lkw skéla7s kw spsil’s.	page 5, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Tsícwwit, t’qwáw’swit, ti7 ta ucwalmícwa ta wa7 sCultus Jack múta7 ti7 ta plísmena, ta wa7 zúscal.	page 6, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Tsícwwit áta7, wa7 t’u7 guy’t.	page 6, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Nilh s... nilh t’u7 stsicws ta wa7 zúscal, tsícwmin’as, plan wa7 esp’ám i núkwa wa7 láti7 wa7 escamp.	page 6, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Tsicw ta wa7 zúscal sáwlhen, wa7 tsúnem ku7 láta7 lhwá7as lt7u lta latáonta.	page 6, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Nilh t’u7 stsícws ta wa7 zúscal.	page 6, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Wa7 ti7 zewátenas, nilh t’u7 stsúnas, qwal’út.sas áku7 lhélta sk’ém’tssa ta latáonta, tsúnas, “Paul Spintlum, wá7lhkan xát’min’tsin.”	page 6, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Nilh t’u7 stsut.s kw sPaul Spintlum, “Wa7... cuy áma, cúy’lhkan, sk’al’emmínts kw nsyax. Cúz’lhkan yax.”	page 6, the telling in St’át’imcets
+§3.2	John Lyon, Henry Davis	note	Put on his clothes.	page 6, Sam Mitchell's aside in English
+§3.2	St’át’imcets	transcription	Nilh t’u7 syaxs.	page 6, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Tsukw syaxs, kwánas ta swelmín’ksa, nilh t’u7 s7úts’qa7s lhélta latáont.sa.	page 6, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Ka7úts’q7a áku7, nilh t’u7 skwil’qscítas ta plísmena.	page 6, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Tsúnas, “Lhxát’min’tsacw, nilh t’u7 sts7ástsu kwants lhkun.”	page 6, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Lhláti7 ta wa7 zúscal, nilh t’u7 scw7aoys t’u7 kw sqwtsilcs, nilh t’u7 st’aks t’u7 ti7 kel’q ti7 ta wa7 sPaul Spintlum t’u kalhúcwa tú7a, nilh t’u7 láti7 s7aw’t.s kw s7áts’xs.	page 6, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Nilh t’u7 lhláti7 sqwatsátsi ti7 ta wa7 zúscal múta7 sCultus Jack, p’án’twit et7ú Clintona, lhláta7 ti Clintona ti7 ku wa7 zúscal.	page 6, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Tsicw éta Clintona ti7 ta wa7 zúscal.	page 6, the telling in St’át’imcets
+§3.2	St’át’imcets	transcription	Nilh t’u7 skelhenás ta q’wáolapstsa, that’s the badge, kelhenás ta q’wáolapsa, nilh t’u7 skáwlecs kws zúscal láti7.	page 6, the telling in St’át’imcets
+§3.3	John Lyon, Henry Davis	heading	3.3 Wa7 sqwéqwel’ sJohnny Pólat: Pála7 ta zúqwa plísmen, pála7 ta q’ám’ta t’u7	page 6
+§3.3	St’át’imcets	transcription	S7aw’t.s lhláti7, nilh t’u7 ses wa7 iz’... q’wmiw’s, qecwqícw.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Ao kwas wá7wit káti7 iz’ i n7án’wasa, ti7 ta wa7 sMoses Paul múta7 ta wa7 sPaul Spintlum.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Aoy t’u7 kwas áts’x.wit, q’wmiw’swít tu7.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Nas et7ú zánucwem, qapts.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Tsicw k’a ta wa7 t’ánam’ten ekw7á May, láti7 lhas wa7 i wa7 Spring Assizes, láku7 Clintona.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Cw7it áti7 gaw’p i sám7a.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Nilh t’u7 sts7asts ta núkwa wa7... ta...	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Láni7 ku time wa7... tákem lhas wa7 ta wa7 slheqw, ts7as lhláku7 ta wa7 slheqw.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	T’iq ekw7á ti7 ta táowna, nilh ku7 tu7 stsut.s, “Wa7 lkw7u kw sPaul Spintlum lkw7a t’u7, k’ík’ta7!”	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	T’u7 snilh t’u7 láti7 sqelilám’s i sám7a múta7 i plísmena nas cwil’enítas, xekenás ti7 nká7as lhwá7witas.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Tsicwalmenwít t’u7 áti7, nilh t’u7 sklhew’sílci.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Nilh iz’ i plísmena n7í7z’ek.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	T’ák.wit t’u7 áti7 lta ts’íl.ha áku7 lta k’cúlm’ecwa, nilh t’u7 sqúscitem ta pápl7a plísmen, kwis tu7.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Qúscitem ta núkwa, qam’táka7, t’u7 nilh ts7a ta sqelilám’i náswit, plan wa7 qwatsáts.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Q’áylec ta pápl7a, lhqwilc, quscitítas, t’u7 aoy t’u7 kw sqam’t.stwítas, nilh t’u7 tu7 sq’áylecs.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Qelilám’ lhláti7 i núkwa, qelilám’wit áku7 lt.swá7sa ku t’eqwp.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Tsícwwit, plan wa7 skits ta pápl7a plísmen, wa7 zúscal.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Wa7 qáqey’t ta núkwa sqam’táka7.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Ats’xenítas tu7, plan wa7 lhqwilc ta... ti7 nilh iz’ i sq’wemq’wmíw’sa, stsúnitas iz’, sPaul Spintlum.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Quscitítas, ao t’u7 kw sqam’t.s, nilh skacím’a, nilh t’u7 skwánitas lhláti7 ta zúqwa.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	Q’ilin’ítas lta pépl7a ts’qáxa7, nilh t’u7 s7uxwal’stwítas, sts’itemstwítas ta táowna.	page 6, the telling in St’át’imcets
+§3.3	St’át’imcets	transcription	T’iqstwítas áti7, plan wa7 szuqw ti7, nilh tu7 ti wa7 zúscal láti7 Clintona.	page 6, the telling in St’át’imcets
+§3.4	John Lyon, Henry Davis	heading	3.4 Wa7 sqwéqwel’ sPaul Spintlum: Nk’wancenánem nelh wa7 cwelcúlel	page 7
+§3.4	St’át’imcets	transcription	S7aw’t.s lhláti7, nilh t’u7 sk’wálhcals ta kv́pmena ku wa7 k’wen’k’wan’cenálhts’a7 k’wen’k’wan’cenan’tanemwítas, cuz’ cwil’entanemwítas ncwa7cw7ít.	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	Cw7it i wa7 sáma7, lhelkw7ú Kamloopsa lhkwánitas i ucwalmícwa wa7 tsúnitas wa7 tracker.	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	Ao kw sk’walhan’ítas ku úcwalmicw káti7 k’ík’t7a, s7icwlhúlm’ecw úcwalmicw ku k’walhan’ítas.	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	Cw7it ts’qáxa7 wa7 qwezenítas, cuz’ nk’wan’cenán’itas, cuz’ kalenítas iz’ i n7án’wasa, wa7 q’wemq’wmíw’s.	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	Cw7it... p’a7cw k’a lhélku pála7 t’ánam’ten, tqilh k’a án’was t’ánam’ten kwas kalenítas, kwas tsútwit kwas plan wa7 npzánitas, cw7aoy t’u7 kwas kak- wanenstwítasa.	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	Plan ku7 lts7a, q’ecwecwstwítas lta pál7a sqwem, náswit áta7, plan tu7 ao láta7 kwas wá7wit.	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	Tsáma t’u7 ta kv́pmena, cw7it sqlaw’ sgí7el’s ta kv́pmena, nilh t’u7 st’álan’as i wa7 nk’wen’cenálhts’a7, i wa7....	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	Nilh t’u7 scwíts’in’as ta kv́pmena four thousand dollars ku reward, lhswátas ku kwanen- stanemwítas iz’.	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	Nilh t’u7 slhláti7s lht’álas i wa7 nk’wen’cenálhts’a7, nilh t’u7 iz’ swa7s q’wemq’wmíw’s láti7 ku...	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	Iz’ lts7a i wá7as i wa7 nk’wen’cenálhts’a7, cw7it kwas ts’íla wa7 npzanal- menstwítas.	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	Ta pápl7a láku7 lta wa7 tsúnitas wa7 fifty-nine, nilh ti7 wa7 Chasm lki sám7a, necnactám’ in the Indian.	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	Wa7 áku7 ti7, nilh ti7 stsúw7i sqwéqwel’ izáwna wa7 q’wemq’wmíw’s.	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	T’ak ta sám7a kacála, nilh t’u7 sgetsenás ta sts’qáxa7sa, nilh t’u7 láku7 ses cálus.	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	Q’wemílc ta pápl7a lhláti7 t’u7 wi snilh iz’, Moses Paul, lhqwilecmínas ta ts’qáxa7sa, nilh t’u7 ta sq’áy’lecsa.	page 7, the telling in St’át’imcets
+§3.4	St’át’imcets	transcription	P’elenílh ta trápstena, láti7 lhkwamemwítas ta ámha trápsten, (trápsten, that’s uh...)	page 7, the telling in St’át’imcets
+§3.5	John Lyon, Henry Davis	heading	3.5 Wa7 sqwéqwel’ sTom Evans: Tqilh t’u7 kwánenwit nelh wa7 cwelcúlel lta qwlitúlm’ecwa	page 7
+§3.5	St’át’imcets	transcription	Tsamawít t’u7, cw7it, cw7it kentswása ts’íla wa7 qwenanstwítas t’u7 wa7... t’u7 kalhúcwwita, nilh t’u7 ses páqu7 iz’ i wa7 nk’wen’cenálhts’a7.	page 7, the telling in St’át’imcets
+§3.5	St’át’imcets	transcription	Sk’alán’min’skan ta pápl7a iz’ i wa7 nk’wen’cenálhts’a7.	page 7, the telling in St’át’imcets
+§3.5	St’át’imcets	transcription	“Kálenem,” tsut, “t’u tsícwkalh t’u7 kalhucwkalhá t’u7, wa7 láti7 i ts’qax7íha estálhlec, cw7aoz káti7 láti7 kwas wá7wit. Plan t’u7 wa7 tsexwtsíxw sqemps i ts’qax7íha.”	page 7, the telling in St’át’imcets
+§3.5	St’át’imcets	transcription	Nilh ku7 t’u7 stsut.s ts7a ta pápl7a ta sám7a ti7 ta wa7..., nilh ti7 wa7 sTom Evans, nilh ti7 wa7 sqwe- qwel’entsás.	page 7, the telling in St’át’imcets
+§3.5	St’át’imcets	transcription	Tsut ku7, “That’s, láti7 lh... láti7 t’u7 lhtsem’pás kwenswá kálen kw sPaul Spintlum. Lhqwenánal’ap áta7 kw st’ákl’ap, nilh st’ákl’ap, cúz’lhkan p’an’t lhelts7á.”	page 7, the telling in St’át’imcets
+§3.6	John Lyon, Henry Davis	heading	3.6 Wa7 sqwéqwel’ ta ts’k’wáylacwmeca: Smúlhats ta syáxiha i wa7 cwel- cúlel	page 7
+§3.6	St’át’imcets	transcription	S7aw’t.s lhláti7, lhel t.st’álsa ta kv́pmena kwas xáq’enas kwa nk’wen’cenálhts’a7, nilh t’u7 aylh sts’ílas ku tí7eg’wwit, nilh t’u7 sas kentákem t’u7 lhas áts’x.wit kénki ucwalmícwa.	page 7, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Cw7it úcwalmicw wa7 qan’ímensan kwas tsut kwas tsícwwit áti7, um’nítas kénki s...	page 7, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Cw7it i nk’saytkeníha kentákem, aoz kwas tsukw láku7 Clintona i ucwalmícwa, kentákem lhas snek’wnúk’wa7wit, kekáw’ kentswása tsicw i wa7 nk’sáytkeni.	page 7, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Nilh t’u7 ses t’u7 wá7wit, ts’íla kentákem lhas tsícwecwwit.	page 7, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Cw7it kentswása áts’x.wit, kent7ú lhas wa7 i wa7 leqmám, kent7ú i spálema wa7 láti7 i núkwa nk’sáytkeni, áti7 lhus tsícwwit.	page 7, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Wa7 ti7 hal’hán’itas, hal’acítas izáwna, wa7... wá7lhkan zewáten izá wa7 sqweqwel’mintanemwítas... ti7 ta trapsteníha, stexw ku7 t’u7 áma ku trápsten.	page 7, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Láti7 lhas sqweqwel’mínitas nka7 lhkwanenstwítas ti7 ta trápstena.	page 7, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Naq’wcitítas ti ts’qáxa7sa ta saddlesa, ti7 ta wa7 nk’wen’cenálhts’a7 ta trápstensa.	page 7, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Cw7aoy ti7 kwas tsukw száyteni, cw7it áti7 kw sxílemi, wa7, kw skwánitas ku ts’qáxa7, ku áma ts’qáxa7, ku áma sáotvl, kenká7 tu7 lhas kakwanstwítasa.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Nilh t’u7 sas t’u7 wá7wit t’u7 ts’íla káti7 estíg’w kénki tákema kénki... kwelh ucwalmícwiha.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Cw7ao káti7 kwa tsut ltsa lhwa7witás t’u7.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Kentákem t’u7 lhas tsícwwit kent7ú Lillooeta, ta pál7a száyteni lts7áwna ti7, lkw7a ta wa7 tsúnem wa7 eleven mile.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	T’ák.wit ku7 áti7, wa7 t’u7 nmátq.wit, t’u7 aoz t’u7 kwas ests’qáxa7wit, láti7.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Ats’xenítas ta t’láz’a láti7, nilh t’u7 scuy’s... stsúti, “Cúz’lhkalh lha7q et7ú x7ílha.”	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Nilh t’u7 skwánitas ta t’láz’a, t’áq’.wit áta7 x7ílha.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Lha7qswít, nilh t’u7 sweq’wenítas ta t’láz’a, kelhenítas ta lópa.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Nilh t’u7 ntáki et7úwna, et7ú ta wa7 tsúnem wa7 nxwísten, áta7 lhts’itemwítas.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	T’ák.wit áta7... tsícwwit láta7 lki ucwalmícwa tsitcws wa7 eslhép’ i sq’wíts’ma, st’ánwen.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Nilh t’u7 stsut.s ta núkwa, “Cúz’lhkalh láti7 kwam ku st’ánwen. Cúz’lhkalh t’aq’ lt7u lta ntqwíxwa, nilh iz’ lhecweném i st’ánwena.”	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Nilh t’u7 skwánitas láti7 ku án’was st’ánwen wa7 esq’wíts’em lta linea.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Iy, pták.wit lhláti7 aylh, nilh t’u7 snlhá7qi, ts’ítemwit ets7áwna...	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Lillooeta, ti7 ta táowna.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Nilh t’u7 swá7i káta7 cá7a; nilh ti7 stsúw7i sqwéqwel’.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Nilh ti7 sqweqwel’í kwas wá7wit káta7.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Láni7 ku... láti7 ku time, k’a cw7aoz káti7 kwas cw7it kwa... ku úcwalmicw, cw7aoz kwas cw7it i sám7a.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Gap lhláti7, nilh t’u7 stsícwwit káti7 táowna, cw7it ki wa7 s7ílheni.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Cw7ao láti7 kw zewatentanemwí- tas.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Gap, ts7as gap, ts7as kakwása, nilh t’u7 stsúti, “Cúz’lhkalh t’aq’ lta ntqwíxwa.”	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Lhecwenítas iz’ i st’ánwena, nilh t’u7 sqwatsátsi szeczacenstwítas i s7ilheníha.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Papt láti7 wa7 matq i ucwalmícwa smelhmúlhats, nmatq.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	T’ák.wit aylh éta n... tsícwwit áti7 ta ntqwíxwa, wa7 zewatenítas ta pápl7a láti7 sáma7, wa7 es7ats’xstáli ta ntqwíxwa.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Nilh iz’ láti7 wa7 s7ats’xstanemwítas kánas kwas t’áq’.wit.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Sucwtenítas ta pápl7a, nilh ku7 ti7 wa7 sJoe Russell, wa7 ti7 zewatení- tas, nilh t’u7 ti7 st’áki t’u t’aq’.	page 8, the telling in St’át’imcets
+§3.6	St’át’imcets	transcription	Lha7qswít, ao káti7 wa7 kastanemwítas, tsut t’u7 iz’ i sám7a kw s7úcwalmicw kwelh smelhmelhmúlhats káti7 t’áka.	page 8, the telling in St’át’imcets
+§3.7	John Lyon, Henry Davis	heading	3.7 K’úl’emwit ku tsitcwíha ku sk’wals láku7 Leon’s Creek	page 8
+§3.7	St’át’imcets	transcription	Pták.wit lhláti7, nilh t’u7 st’áki t’u7 ts’ítem wa7 i nk’saytkeníha áku7 cácel’pa lh...	page 8, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Wa7 zewatenítas láku7 i núkwa úcwalmicw, áku7 lhtsícwwitas ti pál7a sgap.	page 8, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Lhláti7 qwatsátswit kent7úwna ta wa7 tsúnem spálem.	page 8, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Áta7 lhwá7as i núkwa nk’sáytkeni, káta7 lhas tsícwwit.	page 8, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Kentákem kénki ucwalmícwa lhas tsícwwit, sqweqwel’mínitas i wa7 száyteni, ats’x i wa7 sqweqwel’mínitas iwás kalentánemwit ki sám7a, legwilcmínitas lhnúkwas: T’ák.wit ku7 káti7 s... wá7wit láti7 slegwílc, t’ak káti7 i wa7 nk’wan’cenantanemwítas sq’útiha, t’u ptá::k.wit.	page 8, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Láti7 lta pápl7a snúk’w7i lhláta7 ti7 ta wa7 tsúnem ts’k’wáylacw, wa7 iz’ alkst láta7 lki wa7 leqmám lhas pipántsk.	page 9, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Áti7 ku7 papt... lhk’wínas gap kwas tsícwwit áta7, láta7 lhas kwanenstwítas i s7ilheníha.	page 9, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Nilh láti7 ku7 lhas sqwe- qwel’mínitas kwas ti7 naq’wcitítas ta trápstena múta7 ta ts’qáxa7sa ti7 ta wa7 nk’wan’cenantanemwítas.	page 9, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Stexw ku7 t’u7 ti7 áma ta trapsteníha, kaw’ kw shál’a... sk’ík’ta7sa s...	page 9, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Kentákem t’u7 aylh káti7 lhas wá7wit t’u7 wa7 hem’, wá7wit hém’ t’u7 sleg- wílc lt7u lta wa7 tsúnitas wa7 Leon’s Creek, sx7ilhts.	page 9, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Láku7 ku7 ku tsitcwíha sk’ul’emwít t’u7 ku sk’wals, nilh ti7 ta wa7 tsúnem ti sám7a wa7 cave.	page 9, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Láti7 lhas wá7wit, kekáw’ ti7 tswása eshál’a kentákem, lhláti7 ltswása wá7wit.	page 9, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Lhkúnsa wa7 k’a t’u7 sts’íla eshál’a, kw sts’ílas ti7 wa7, nk’wink’wenás k’a wa7 tsicw áku7 ats’xentáli, ti7 lta tsitcwíha esmáys ku...	page 9, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Tsícwkacw áta7, wa7 hem’ t’u7 cw7aoz kwásu áts’xen kwas wa7 láti7 ku tsitcw.	page 9, the telling in St’át’imcets
+§3.7	St’át’imcets	transcription	Pútkacw t’u7 zewáten kw s... lhnká7as lhlákas, t’u7 wá7lhkacw ka7áts’xsa.	page 9, the telling in St’át’imcets
+§3.8	John Lyon, Henry Davis	heading	3.8 Wa7 kwánenwit i wa7 q’wemq’wmíw’s, nilh swas kotháwsi	page 9
+§3.8	St’át’imcets	transcription	S7aw’t.s lhelts7áwna, cw7it kwas... p’a7cw k’a t’u7 ku xw7útsin máqa7 kwas wá7wit q’wmiw’s.	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	Plan t’u7 tu7 pa7cw ta kv́pmena kwas nk’wan’cenán’as, cw7aoy t’u7 kw skakwánsa, kwas ts’íla wa7 npzánitas.	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	Tsukw t’u7 ti7 aylh ta wa7 tsúnitas wa7 reward, four thousand dollars.	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	Wa7 t’u7 ts7a ta pápl7a kúkwpi7, ts’íla k’a ti7 ku sísq7i izá.	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	Nilh t’u7 stsután- wasts, “Lhnásan tsuntaníhan kw sts7así t’u7 ets7áwna, nilh t’u7 scuy náscit i wa7 zúscal, tsukw t’u7 kw scw7aoys kw nscuz’ kwan ta sqláw’a wa7 sxaq’. Cúz’lhkan t’u7 qwézen ku ntsúwa7 sqlaw’ lkw s... lku lóya.”	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	Nilh t’u7 stsicws sqwel’qwel’sás izá i tewtwíw’ta, n7án’was.	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	Nilh t’u7 sncwatsín’em, nilh t’u7 sts7ási.	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	Nilh t’u7 aylh skwántanemwit éki plísmena, nilh t’u7 ts7a ta kúkwpi7a cwits’in’táli, elh cúz’wit aylh láti7 kotháws.	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	S7aw’t.s lhláti7, cw7it kw skotháwsi.	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	Kentákem lhtsícwas, nilh ti7 wa7 sStewart Henderson ta loyhíha múta7 nilh wa7 sCostello.	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	Henry Costello ti7 ta núkwa lóyhi.	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	Cw7it kw skotháwsi kénki s7ícwlha tmicw.	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	Pápla7 t’u7 ta láwa lhel wi snilh.	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	Nilh t’u7 slifetímestum ta pápl7a, t’u7 cw7aoy t’u7 kw scw7it.s máqa7, xw7útsin k’a t’u7 ts’íla máqa7, nilh t’u7 szuqws tu7 láta7 t’u7 lta nk’á7mena.	page 9, the telling in St’át’imcets
+§3.8	St’át’imcets	transcription	Láti7 iz’ lhtsem’pwítas.	page 9, the telling in St’át’imcets
+§4	John Lyon, Henry Davis	heading	4 Direct English Translation	page 9
+§4.1	John Lyon, Henry Davis	heading	4.1 Prologue	page 9
+§4.1	John Lyon, Henry Davis	note	At the time I’m talking about, a white man was found dead.	page 9
+§4.1	John Lyon, Henry Davis	note	When the people who had been searching for him got there, they blamed Moses Paul for killing him. So they took him and threw him in jail. He stayed there until it was getting towards fall, I guess. It must’ve been getting towards spring, when this happened. So he was inside, and when it was nearly fall he got out of jail. The police thought that it must have been Paul Spintlum who helped to get him out.	page 9
+§4.2	John Lyon, Henry Davis	heading	4.2 Cultus Jack’s Story: Jack McMillan and Paul Spintlum	page 10
+§4.2	John Lyon, Henry Davis	note	So the policeman who was there hired this Indian guy. They were blaming Paul Spintlum for helping Moses Paul to get out of jail. So the policeman went off and hired this Indian, Cultus Jack. He said to him, “Do you know where he (Paul Spintlum) used to go hunting?” Paul Spintlum had already set out hunting in the bush. Cultus Jack said, “I know where he is.” So then they set out, the policeman and the one he had hired. This Indian named Cultus Jack told him, “Don’t get there during the day. In the morning, just before dawn, he leaves to go hunting, that’s when we’ll go after him, then you’ll get him. He goes hunting during the day, and won’t be there in his camp.” So they arranged it so that they would be able to get there before dawn.	page 10
+§4.2	John Lyon, Henry Davis	note	They arrived there together, that Indian named Cultus Jack and the policeman. When they got there, he (Paul Spintlum) was still sleeping. When the policeman who was going after him got there, some of the others in camp already had a fire going. So he went and asked, and was told that his (Paul Spintlum’s) tent was over yonder.	page 10
+§4.2	John Lyon, Henry Davis	note	So the policeman went there. He knew Paul Spintlum, so he spoke to him from the entrance of the tent, he said, “Paul Spintlum, I want you.” Then Paul Spintlum said, “Okay, I’m coming, just wait for me to get dressed. I’m going to get dressed.” (Put on his clothes.) So he got dressed. When he finished dressing, he grabbed his gun, and he went outside his tent. As soon as he had got outside, he aimed his gun at the policeman. He told the policeman, “If you want me, then come and get me now.” The policeman didn’t move, so Paul Spintlum kept backing away until he disappeared in the bushes, and that was the last time he was seen.	page 10
+§4.2	John Lyon, Henry Davis	note	Then the policeman and Cultus Jack left, they went back to Clinton, where that policeman was from. The policeman got to Clinton. Then he took off his badge - that’s the badge - he took off the badge, and he quit being a policeman.	page 10
+§4.3	John Lyon, Henry Davis	heading	4.3 Johnny Pollard’s Story: One Policeman Dead, One Wounded	page 10
+§4.3	John Lyon, Henry Davis	note	After that, those guys were outlaws, on the run. They weren’t around anymore, Moses Paul and Paul Spintlum: they weren’t seen around, because they had be- come outlaws.	page 10
+§4.3	John Lyon, Henry Davis	note	Next spring came around. The month of May came, that’s when the Spring Assizes were held in Clinton. There were a lot of white people gathered there. Then this guy came who was... At that time, everyone there rode horses, and someone came in on horseback. He arrived at the town, and said, “Paul Spintlum is just over there, he’s nearby!”	page 10
+§4.3	John Lyon, Henry Davis	note	So the white people and the policemen started rushing around looking for them, and they figured out where they were at. When they had almost gotten there, then they split up. Those policemen were in the middle. They went over to where there was kind of a hollow in the ground, then one of the policemen was shot, and he fell. Another one was shot in the arm, but by the time they rushed over to get the shooters, they had left. One of them jumped on his horse, they shot at him but they didn’t hit him, and so he got away. Some other members of the posse rushed over to where the gunshots had come from. When they got there, one policeman was already down. The other one was suffering because he’d been hit in the arm. They saw that one of them - the outlaws, that’s what they called them - Paul Spintlum, had already got on his horse. They shot at him but he didn’t get hit, then he disappeared, so then they took the dead person and laid him on one of the horses; then they brought him home, towards town. When they arrived there, the policeman from Clinton was already dead.	page 10
+§4.4	John Lyon, Henry Davis	heading	4.4 Paul Spintlum’s Story: Tracking the Outlaws	page 11
+§4.4	John Lyon, Henry Davis	note	After that, the government hired trackers to track them, and to search for them all over the place. A lot of them were white people, but they also got some Indians from Kamloops that they call “trackers”. They didn’t hire any Indians from near here, the Indians they hired were from different places. They used a lot of horses to track and chase down the two outlaws.	page 11
+§4.4	John Lyon, Henry Davis	note	Many times - they must’ve been chasing them for more than a month, maybe nearly two - they thought they’d caught up with them, but they couldn’t catch them. They had them surrounded at one mountain, but when they went there, they’d already gone. The government tried in vain, and lost a lot of money, so they stopped (paying for) the trackers. But the government handed over four thousand dollars as a reward for anyone who could catch them. So then the trackers stopped, and then the outlaws...	page 11
+§4.4	John Lyon, Henry Davis	note	When they were there, the trackers nearly kind of caught up to them a bunch of times. One of them was at 59 Mile, that’s Chasm amongst the white people, and necnactám’ in Indian. That’s where it was, according to the outlaws’ own story. A white guy went over to look across the brow of a hill, then he tied up his horse and looked over the edge. One of the outlaws was crouching down, it was Moses Paul, and he jumped on the guy’s horse and escaped. Among other things, there were some binoculars in there, they got some good binoculars there.	page 11
+§4.4	St’át’imcets	cited form	necnactám’	page 11, in italics
+§4.5	John Lyon, Henry Davis	heading	4.5 Tom Evans’ Story: A Close Call in Jack Pine Country	page 11
+§4.5	John Lyon, Henry Davis	note	They kept trying, many, many people wanted to get them... but they managed to disappear into the bush... So then the trackers got scared. I listened to one of those trackers. He said, “We followed them until we got into the brush, and there were their horses standing there, but they weren’t there. Their horses were dripping with sweat.” This part comes from this one white person, it was Tom Evans, that’s who told me this story. He said, “This is where I quit chasing Paul Spintlum. If you all want to keep going, then keep going, but I’m going back.”	page 11
+§4.6	John Lyon, Henry Davis	heading	4.6 Pavilion Person’s Story: Disguised as Women	page 12
+§4.6	John Lyon, Henry Davis	note	After the government stopped paying for trackers, the outlaws kind of got free, and they were seen all over where there were Indian people. I heard a lot of Indian people say that they went by there, and they’d give them some of their stuff. They had a lot of relatives all over the place, not just the Indians at Clinton, they had friends everywhere, and they had relatives spread over a large area. And so there they were, and they kind of went all over the place. They were seen in a lot of places: where the haymakers were, over in the fields where some of their relatives were, that’s where they used to go. They showed - I know the people who told this story about them - they showed them the binoculars, really good binoculars. That’s when they told the story about where they got those binoculars. They stole the horse’s saddle and the tracker’s binoculars.	page 12
+§4.6	John Lyon, Henry Davis	note	That wasn’t all they did, either, they did a lot of things, they took horses, good horses, good saddles, anywhere they could get them. They just kind of lived freely amongst their relatives. Nobody would say where they were.	page 12
+§4.6	John Lyon, Henry Davis	note	They went everywhere around Lillooet, and there was this one thing that they did there, over at what we call Eleven Mile. I heard they were traveling on foot, because they didn’t have horses at that point. They saw a canoe, so they began to.... they said, “Let’s cross over to the other side.” So they took the canoe and crossed over. They got to shore, then they let the canoe drift away, they took off the rope. Then they were on the other side of the river, over towards what we call Nxwísten (Bridge River), and that’s where they headed.	page 12
+§4.6	John Lyon, Henry Davis	note	They went on, and they got to some Indian’s houses which had laundry hang- ing up, skirts. So one of them said, “We’ll take some skirts. We’ll cross over on the bridge, and we’ll put those skirts on.” So they took two skirts that had been washed from the line.	page 12
+§4.6	John Lyon, Henry Davis	note	Yes, they went past there, then they crossed over (Bridge River) and came towards Lillooet, to the town. They were up above the town; that was their own story. It was their story that they were around there. At that time, there can’t have been many Indians around, and not many white people. When it was evening, they went around town and got a lot of food. Nobody there knew who they were.	page 12
+§4.6	John Lyon, Henry Davis	note	Evening came, it began to get dark, then they said, “Let’s cross over on the bridge.” They put on those skirts, then they set off, packing their food on their backs. There were always Indian women travelling there, walking. They got to the bridge and they knew this one white person who was there watching the bridge. They were watching out in case they (the outlaws) crossed. They recognized one person, it was Joe Russell, they knew him, but they kept going until they crossed over. They crossed over, nobody did anything to them, those white people just thought that the women going by were Indians.	page 12
+§4.7	John Lyon, Henry Davis	heading	4.7 The Hideout at Leon’s Creek	page 12
+§4.7	John Lyon, Henry Davis	note	They continued towards where their relatives were at Fountain. They knew some of the Indians there. They got there one evening. From there they set out for what we call Spálem (Fountain Flats). Some of their relatives were living there, where they went. Everywhere they went amongst the Indians, they told the story of what they had been doing: they told about how they were seen by the white people chasing them, and how they hid from them sometimes: the trackers went along - they were hiding, and the ones tracking them went by right beside them, until they passed by.	page 12
+§4.7	John Lyon, Henry Davis	note	At one of their relative’s places over in what we call Ts’k’wáylacw (Pavilion), they worked amongst the haymakers during the summertime. On many evenings, they’d go there to get food. That’s where they told the story about stealing those binoculars and the horse from the tracker. Their binoculars were really nice, far away things showed close up.	page 13
+§4.7	John Lyon, Henry Davis	note	They were staying all over, but they hid out over at what they call Leon’s Creek, on the other side of the river. They built their house in a rock-overhang, what is called a ‘cave’ in English. Where they were staying, you can see everything for a long ways, from where they were. Today it’s still more or less visible, it’s still kind of there, a bunch of people must have gone up there to take a look at it, that house they built... You get there, but you don’t see any house there. If you know just where it’s at, then you’re able to see it.	page 13
+§4.8	John Lyon, Henry Davis	heading	4.8 The Outlaws’ Capture, Trial, and Sentencing	page 13
+§4.8	John Lyon, Henry Davis	note	After that, there were a lot.... it must’ve been more than four years that they were on the run. The government had given up on tracking them, they couldn’t catch... kind of catch up to them. There was just what they called the reward, four thousand dollars.	page 13
+§4.8	John Lyon, Henry Davis	note	There was this one chief, he must’ve been kind of like their uncle. He thought, “What if I go tell them to come over here, and then go send for a policeman, only I’ll never take the reward money. I’m going to use my own money for a lawyer.” Then he went to talk to these two young people. So they listened to his advice and came. Then they were taken by the police, it was this chief who handed them over, and then they were going to go to trial after that.	page 13
+§4.8	John Lyon, Henry Davis	note	After this, there were a lot of trials. They went everywhere, Stuart Henderson was their lawyer, and then there was Costello... Henry Costello was their other lawyer. There were a lot of trials in different places.	page 13
+§4.8	John Lyon, Henry Davis	note	One of them was hung. The other one got a life sentence, but he didn’t survive many years, maybe something like four years, then he died there in jail.	page 13
+§4.8	John Lyon, Henry Davis	note	That’s how it ended for them.	page 13
+§5	John Lyon, Henry Davis	heading	5 Interlinear Gloss	page 13
+§5.1	John Lyon, Henry Davis	heading	5.1 Na skéla7sa	page 13
+(1) line 1	St’át’imcets	segmentation	lts7á-wna, pun ta=sám7=a s-zuqw.	page 13
+(1) line 2	St’át’imcets	gloss	at+here.VIS-precisely get.found DET=white.person=EXIS STAT-dead	page 13
+(1) line 3	John Lyon, Henry Davis	translation	At the time I’m talking about, a white man was found dead.	page 13
+(2) line 1	St’át’imcets	segmentation	tsicw i=wa7=cwíl’-em...	page 14
+(2) line 2	St’át’imcets	gloss	get.there PL.DET=IPFV=look.for-MID	page 14
+(2) line 3	John Lyon, Henry Davis	translation	When the people who had been searching for him got there...	page 14
+(3) line 1	St’át’imcets	segmentation	...nílh=t’u7 s... s=nilh=ts ti7 ta=wa7=s=Moses	page 14
+(3) line 2	St’át’imcets	gloss	COP=EXCL NMLZ NMLZ=COP=3POSS that.VIS DET=IPFV=NMLZ=Moses	page 14
+(3) line 3	St’át’imcets	segmentation	Paul ma7-en-ém kw=s=[s]nílh=ts=k’a	page 14
+(3) line 4	St’át’imcets	gloss	Paul blame-DIR-3PASS DET=NMLZ=3SG.INDEP=3POSS=EPIS	page 14
+(3) line 5	St’át’imcets	segmentation	zúqw-s-tal’i.	page 14
+(3) line 6	St’át’imcets	gloss	dead-CAUS-NTS	page 14
+(3) line 7	John Lyon, Henry Davis	translation	...they blamed Moses Paul for killing him.	page 14
+(4) line 1	St’át’imcets	segmentation	nílh=t’u7 s=kwán-em, nílh=t’u7 n-k’a7-n-ém,	page 14
+(4) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=take+DIR-3PASS COP=EXCL LOC-get.stuck-DIR-3PASS	page 14
+(4) line 3	St’át’imcets	segmentation	n-k’a7 l=ta...	page 14
+(4) line 4	St’át’imcets	gloss	LOC-get.stuck at=DET	page 14
+(4) line 5	John Lyon, Henry Davis	translation	So they took him and threw him in jail.	page 14
+(5) line 1	St’át’imcets	segmentation	nilh láti7 s=wa7=s t’u nas e=t7ú lhwál’tsten=k’a	page 14
+(5) line 2	St’át’imcets	gloss	COP at+there.VIS NMLZ=be=3POSS until go to=there.VIS autumn=EPIS	page 14
+(5) line 3	St’át’imcets	segmentation	sxek.	page 14
+(5) line 4	St’át’imcets	gloss	maybe	page 14
+(5) line 5	John Lyon, Henry Davis	translation	He stayed there until it was getting towards fall, I guess.	page 14
+(6) line 1	St’át’imcets	segmentation	qápts=k’a ts7a, nilh s=qapts- [n]ún=k’a nilh s=... ts7a	page 14
+(6) line 2	St’át’imcets	gloss	spring=EPIS this.VIS COP NMLZ=spring-EXP+DIR=EPIS COP NMLZ this	page 14
+(6) line 3	St’át’imcets	segmentation	ku=száyten.	page 14
+(6) line 4	St’át’imcets	gloss	DET=doings	page 14
+(6) line 5	John Lyon, Henry Davis	translation	It must’ve spring, early spring, when this happened.	page 14
+(7) line 1	St’át’imcets	segmentation	lhwál’tsten=k’a nílh=t’u7 s... nílh=t’u7=tu7 s=7ulhcw,	page 14
+(7) line 2	St’át’imcets	gloss	autumn=EPIS COP=EXCL NMLZ COP=EXCL=REM NMLZ=enter	page 14
+(7) line 3	St’át’imcets	segmentation	lhwal’tsten-álmen nílh=t’u7 s=7úts’•ets’•qa7=s	page 14
+(7) line 4	St’át’imcets	gloss	autumn-nearly COP=EXCL NMLZ=go.outside•FRED•=3POSS	page 14
+(7) line 5	St’át’imcets	segmentation	lhel=ta=n-k’á7-men=a.	page 14
+(7) line 6	St’át’imcets	gloss	from=DET=LOC-get.stuck-INS=EXIS	page 14
+(7) line 7	John Lyon, Henry Davis	translation	So he was inside, and when it was nearly fall he got out of jail.	page 14
+(8) line 1	St’át’imcets	segmentation	nílh=t’u7 múta7 n-tsut-ánwas i=plísmen=a	page 15
+(8) line 2	St’át’imcets	gloss	COP=EXCL again LOC-say-inside PL.DET=policeman=EXIS	page 15
+(8) line 3	St’át’imcets	segmentation	kw=s=nílh=ts=k’a=ti7 ta=wa7=s=Paul Spintlum	page 15
+(8) line 4	St’át’imcets	gloss	DET=NMLZ=COP=3POSS=EPIS=that.VIS DET=IPFV=NMLZ=Paul Spintlum	page 15
+(8) line 5	St’át’imcets	segmentation	nuk’w7-an-táli kw=s=7úts’•ets’•qa7=s.	page 15
+(8) line 6	St’át’imcets	gloss	help-DIR-NTS DET=NMLZ=go.outside•FRED•=3POSS	page 15
+(8) line 7	John Lyon, Henry Davis	translation	The police thought that it must have been Paul Spintlum who helped to get him out.	page 15
+§5.2	John Lyon, Henry Davis	heading	5.2 Wa7 sqwéqwel’ sCultus Jack: Jack McMillan múta7 sPaul Spintlum	page 15
+(9) line 1	St’át’imcets	segmentation	wa7 ta=wa7=zús-cal, nílh=t’u7 s=k’wálh-an’-as	page 15
+(9) line 2	St’át’imcets	gloss	be DET=IPFV=get.tied.up-ACT COP=EXCL NMLZ=call.on-DIR-3ERG	page 15
+(9) line 3	St’át’imcets	segmentation	ta=pá•pl7=a úcwalmicw.	page 15
+(9) line 4	St’át’imcets	gloss	DET=IRED•one=EXIS indigenous.person	page 15
+(9) line 5	John Lyon, Henry Davis	translation	So the policeman who was there hired this Indian guy.	page 15
+(10) line 1	St’át’imcets	segmentation	wá7=t’u7 ma7-en-ítas ti7 ta=wa7=s=Paul	page 15
+(10) line 2	St’át’imcets	gloss	IPFV=EXCL blame-DIR-3PL.ERG that.VIS DET=IPFV=NMLZ=Paul	page 15
+(10) line 3	St’át’imcets	segmentation	Spintlum kwes nílh=k’a=ti7 nuk’w7-an’-táli	page 15
+(10) line 4	St’át’imcets	gloss	Spintlum DET+NMLZ+IPFV+3POSS COP=EPIS=that.VIS help-DIR-NTS	page 15
+(10) line 5	St’át’imcets	segmentation	s=Moses Paul ta=ka-7úts’q7-a.	page 15
+(10) line 6	St’át’imcets	gloss	NMLZ=Moses Paul DET=CIRC-go.outside-CIRC	page 15
+(10) line 7	John Lyon, Henry Davis	translation	They were blaming Paul Spintlum for helping Moses Paul to get out of jail.	page 15
+(11) line 1	St’át’imcets	segmentation	nílh=t’u7 s=qwatsáts=[s] ta=wa7=zús-cal,	page 15
+(11) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=leave=3POSS DET=IPFV=get.tied.up-ACT	page 15
+(11) line 3	St’át’imcets	segmentation	k’wálh-an’-as ta=pá•pl7=a úcwalmicw, nilh	page 15
+(11) line 4	St’át’imcets	gloss	call.on-DIR-3ERG DET=IRED•one=EXIS indigenous.person COP	page 15
+(11) line 5	St’át’imcets	segmentation	ti7 wa7 s=Cultus Jack.	page 15
+(11) line 6	St’át’imcets	gloss	that.VIS IPFV NMLZ=Cultus Jack	page 15
+(11) line 7	John Lyon, Henry Davis	translation	So the policeman went off and hired this Indian, Cultus Jack.	page 15
+(12) line 1	St’át’imcets	segmentation	tsún-as, “wá7=lhkacw=ka zewát-en nká7=as	page 15
+(12) line 2	St’át’imcets	gloss	say+DIR-3ERG IPFV=2SG.SBJ=IRR be.known-DIR where=3SBJV	page 15
+(12) line 3	St’át’imcets	segmentation	lhas wá7=tu7 píxem’?”	page 15
+(12) line 4	St’át’imcets	gloss	COMP+IPFV+3SBJV IPFV=REM hunting	page 15
+(12) line 5	John Lyon, Henry Davis	translation	He said to him, “Do you know where he (Paul Spintlum) used to go hunt- ing?”	page 15
+(13) line 1	St’át’imcets	segmentation	plán=tu7=ti7 wa7 qwatsáts píxem’ ken=kw7ú	page 16
+(13) line 2	St’át’imcets	gloss	already=REM=that.VIS IPFV leave hunting around=that.INVIS	page 16
+(13) line 3	St’át’imcets	segmentation	kísem=a, ti7 ta=wa7=s=Paul Spintlum.	page 16
+(13) line 4	St’át’imcets	gloss	back.area=EXIS that.VIS DET=IPFV=NMLZ=Paul Spintlum	page 16
+(13) line 5	John Lyon, Henry Davis	translation	Paul Spintlum had already set out hunting in the bush.	page 16
+(14) line 1	St’át’imcets	segmentation	tsut kw=s=Cultus Jack, “wá7=lhkan zewát-en	page 16
+(14) line 2	St’át’imcets	gloss	say DET=NMLZ=Cultus Jack IPFV=1SG.SBJ be.known-DIR	page 16
+(14) line 3	St’át’imcets	segmentation	nká7=as=tu7 lh=t’ák=as.”	page 16
+(14) line 4	St’át’imcets	gloss	where=3SBJV=REM COMP=go.along=3SBJV	page 16
+(14) line 5	John Lyon, Henry Davis	translation	Cultus Jack said, “I know where he is.”	page 16
+(15) line 1	St’át’imcets	segmentation	nílh=t’u7 s=qwatsáts=i, k’wálh-an’-em	page 16
+(15) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=leave=3PL.POSS call.on-DIR-3PASS	page 16
+(15) line 3	St’át’imcets	segmentation	e=ta=plísmen=[a], tsún-em	page 16
+(15) line 4	St’át’imcets	gloss	OBL=DET=policeman=EXIS say+DIR-3PASS	page 16
+(15) line 5	St’át’imcets	segmentation	e=ta=7ucwalmícw=a ta=wa7=s=Cultus	page 16
+(15) line 6	St’át’imcets	gloss	OBL=DET=indigineous.person=EXIS DET=IPFV=NMLZ=Cultus	page 16
+(15) line 7	St’át’imcets	segmentation	Jack, “ao kwásu ka-nás-a	page 16
+(15) line 8	St’át’imcets	gloss	Jack NEG DET+NMLZ+IPFV+2SG.POSS CIRC-go-CIRC	page 16
+(15) line 9	St’át’imcets	segmentation	l=ku=sq’ít.”	page 16
+(15) line 10	St’át’imcets	gloss	at=DET=day	page 16
+(15) line 11	John Lyon, Henry Davis	translation	So then they set out, the policeman and the one he had hired. This Indian named Cultus Jack told him, “Don’t get there during the day.”	page 16
+(16) line 1	St’át’imcets	segmentation	“tsúkw=t’u7 lh=n’án’atcw=as kéla7	page 16
+(16) line 2	St’át’imcets	gloss	finish=EXCL COMP=morning=3SBJV first	page 16
+(16) line 3	St’át’imcets	segmentation	kw=s=má<7>eg’=s, kéla7 s=qwatsáts=[s]	page 16
+(16) line 4	St’át’imcets	gloss	DET=NMLZ=daybreak<INCH>=3POSS before NMLZ=leave=3POSS	page 16
+(16) line 5	St’át’imcets	segmentation	píxem’...”	page 16
+(16) line 6	St’át’imcets	gloss	hunting	page 16
+(16) line 7	John Lyon, Henry Davis	translation	“In the morning, just before dawn, he leaves to go hunting...”	page 16
+(17) line 1	St’át’imcets	segmentation	“...láti7=klh lh=nas-min’-ém=as, nílh=t’u7	page 16
+(17) line 2	St’át’imcets	gloss	at+there.VIS=FUT COMP=go-APPL-1PL.ERG=3SBJV COP=EXCL	page 16
+(17) line 3	St’át’imcets	segmentation	s=kwán•en-s-acw.”	page 16
+(17) line 4	St’át’imcets	gloss	NMLZ=take•FRED-CAUS-2SG.ERG	page 16
+(17) line 5	John Lyon, Henry Davis	translation	“...that’s when we’ll go after him, then you’ll get him.”	page 16
+(18) line 1	St’át’imcets	segmentation	“wá7=ti7 píxem’ lhas sq’it, t’u7 ao	page 17
+(18) line 2	St’át’imcets	gloss	IPFV=that.VIS hunting COMP+IPFV+3SBJV day EXCL NEG	page 17
+(18) line 3	St’át’imcets	segmentation	kwas wa7 l=ta=camp-s=a.”	page 17
+(18) line 4	St’át’imcets	gloss	DET+NMLZ+IPFV+3POSS be at=DET=camp-3POSS=EXIS	page 17
+(18) line 5	John Lyon, Henry Davis	translation	“He goes hunting during the day, and won’t be there in his camp.”	page 17
+(19) line 1	St’át’imcets	segmentation	nílh=t’u7 s=k’ul’-ún’-itas	page 17
+(19) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=get.made-DIR-3PL.ERG	page 17
+(19) line 3	St’át’imcets	segmentation	kw=s=ka-tsícw=i-ha áta7	page 17
+(19) line 4	St’át’imcets	gloss	DET=NMLZ=CIRC-get.there=3PL.POSS-CIRC to+there.VIS	page 17
+(19) line 5	St’át’imcets	segmentation	l=kw=s-kéla7-s kw=s=psil’=s.	page 17
+(19) line 6	St’át’imcets	gloss	at=DET=NMLZ-first-3POSS DET=NMLZ=daybreak=3POSS	page 17
+(19) line 7	John Lyon, Henry Davis	translation	So they arranged it so that they would be able to get there before dawn.	page 17
+(20) line 1	St’át’imcets	segmentation	tsícw=wit, t’qwáw’s=wit, ti7 ta=7ucwalmícw=a	page 17
+(20) line 2	St’át’imcets	gloss	get.there=3PL together=3PL that.VIS DET=indigenous.person=EXIS	page 17
+(20) line 3	St’át’imcets	segmentation	ta=wa7=s=Cultus Jack múta7 ti7 ta=plísmen=[a],	page 17
+(20) line 4	St’át’imcets	gloss	DET=IPFV=NMLZ=Cultus Jack and that.VIS DET=policeman=EXIS	page 17
+(20) line 5	St’át’imcets	segmentation	ta=wa7=zús-cal.	page 17
+(20) line 6	St’át’imcets	gloss	DET=IPFV=get.tied.up-ACT	page 17
+(20) line 7	John Lyon, Henry Davis	translation	They arrived there together, that Indian named Cultus Jack and the police- man.	page 17
+(21) line 1	St’át’imcets	segmentation	tsícw=wit áta7, wá7=t’u7 guy’t.	page 17
+(21) line 2	St’át’imcets	gloss	get.there=3PL to+there.VIS IPFV=EXCL sleep	page 17
+(21) line 3	John Lyon, Henry Davis	translation	When they got there, he (Paul Spintlum) was still sleeping.	page 17
+(22) line 1	St’át’imcets	segmentation	nilh s=... nílh=t’u7 s=tsicw=s ta=wa7=zús-cal,	page 17
+(22) line 2	St’át’imcets	gloss	COP NMLZ COP=EXCL NMLZ=get.there=3POSS DET=IPFV=get.tied.up-ACT	page 17
+(22) line 3	St’át’imcets	segmentation	tsícw-min’-as, plan wa7 es=[s]p’ám i=núkw=a	page 17
+(22) line 4	St’át’imcets	gloss	get.there-RLT-3ERG already IPFV have=firewood PL.DET=other=EXIS	page 17
+(22) line 5	St’át’imcets	segmentation	wa7 láti7 wa7 es=camp.	page 17
+(22) line 6	St’át’imcets	gloss	IPFV at+there.VIS be have=camp	page 17
+(22) line 7	John Lyon, Henry Davis	translation	When the policeman who was going after him got there, some of the others in camp already had a fire going.	page 17
+(23) line 1	St’át’imcets	segmentation	tsicw ta=wa7=zús-cal sáwlhen, wa7	page 18
+(23) line 2	St’át’imcets	gloss	get.there DET=IPFV=get.tied.up-ACT ask.a.question IPFV	page 18
+(23) line 3	St’át’imcets	segmentation	tsún-em=ku7 láta7 lh=wá7=as l=t7u	page 18
+(23) line 4	St’át’imcets	gloss	say+DIR-3PASS=QUOT at=that.VIS COMP=be=3SBJV at=there.VIS	page 18
+(23) line 5	St’át’imcets	segmentation	l=ta=latáont=[a].	page 18
+(23) line 6	St’át’imcets	gloss	at=DET=tent=EXIS	page 18
+(23) line 7	John Lyon, Henry Davis	translation	So he went and asked, and was told that his (Paul Spintlum’s) tent was over yonder.	page 18
+(24) line 1	St’át’imcets	segmentation	nílh=t’u7 s=tsicw=s ta=wa7=zús-cal.	page 18
+(24) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=get.there=3POSS DET=IPFV=get.tied.up-ACT	page 18
+(24) line 3	John Lyon, Henry Davis	translation	So the policeman went there.	page 18
+(25) line 1	St’át’imcets	segmentation	wá7=ti7 zewát-en-as, nílh=t’u7 s=tsún-as,	page 18
+(25) line 2	St’át’imcets	gloss	IPFV=that.VIS be.known-DIR-3ERG COP=EXCL NMLZ=say+DIR-3ERG	page 18
+(25) line 3	St’át’imcets	segmentation	qwal’út-s-as áku7 lhel=ta=sk’ém’ts-s=a	page 18
+(25) line 4	St’át’imcets	gloss	speak-CAUS-3ERG to+there.INVIS from=DET=door-3POSS=EXIS	page 18
+(25) line 5	St’át’imcets	segmentation	ta=latáont=a...	page 18
+(25) line 6	St’át’imcets	gloss	DET=tent=EXIS	page 18
+(25) line 7	John Lyon, Henry Davis	translation	He knew Paul Spintlum, so he spoke to him from the entrance of the tent...	page 18
+(26) line 1	St’át’imcets	segmentation	tsún-as, “Paul Spintlum, wá7=lhkan xát’-min’-tsin.”	page 18
+(26) line 2	St’át’imcets	gloss	say+DIR-3ERG Paul Spintlum IPFV=1SG.SBJ want-RLT-2SG.OBJ	page 18
+(26) line 3	John Lyon, Henry Davis	translation	...he said, “Paul Spintlum, I want you.”	page 18
+(27) line 1	St’át’imcets	segmentation	nílh=t’u7 s=tsut=s kw=s=Paul Spintlum, “wa7...	page 18
+(27) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=say=3POSS DET=NMLZ=Paul Spintlum IPFV	page 18
+(27) line 3	St’át’imcets	segmentation	cuy áma, cúy’=lhkan, s-k’al’em-mín-ts	page 18
+(27) line 4	St’át’imcets	gloss	okay good going.to=1SG.SBJ STAT-wait.for-RLT-1SG.OBJ	page 18
+(27) line 5	St’át’imcets	segmentation	kw=n=s=yax. cúz’=lhkan yax.”	page 18
+(27) line 6	St’át’imcets	gloss	DET=1SG.POSS=NMLZ=get.dressed going.to=1SG.SBJ get.dressed	page 18
+(27) line 7	John Lyon, Henry Davis	note	Put on his clothes.	page 18, Sam Mitchell's aside in English, set as a tier
+(27) line 8	John Lyon, Henry Davis	note	put on his clothes	page 18, under the aside, set as its gloss
+(27) line 9	John Lyon, Henry Davis	translation	Then Paul Spintlum said, “Okay, I’m coming, just wait for me to get dressed. I’m going to get dressed.” (Put on his clothes.)	page 18
+(28) line 1	St’át’imcets	segmentation	nílh=t’u7 s=yax=s.	page 18
+(28) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=get.dressed=3POSS	page 18
+(28) line 3	John Lyon, Henry Davis	translation	So he got dressed.	page 18
+(29) line 1	St’át’imcets	segmentation	tsukw s=yax=s, kwán-as ta=swelmín’k-s=a,	page 19
+(29) line 2	St’át’imcets	gloss	finish NMLZ=get.dressed=3POSS take+DIR-3ERG DET=gun-3POSS=EXIS	page 19
+(29) line 3	St’át’imcets	segmentation	nílh=t’u7 s=7úts’qa7=s lhel=ta=latáont-s=a.	page 19
+(29) line 4	St’át’imcets	gloss	COP=EXCL NMLZ=go.outside=3POSS from=DET=tent-3POSS=EXIS	page 19
+(29) line 5	John Lyon, Henry Davis	translation	When he finished dressing, he grabbed his gun, and he went outside his tent.	page 19
+(30) line 1	St’át’imcets	segmentation	ka-7úts’q7-a áku7, nílh=t’u7	page 19
+(30) line 2	St’át’imcets	gloss	CIRC-go.outside-CIRC to+there.INVIS COP=EXCL	page 19
+(30) line 3	St’át’imcets	segmentation	s=kwil’-qs-cít-as ta=plísmen=a.	page 19
+(30) line 4	St’át’imcets	gloss	NMLZ=prepare-end-IND-3ERG DET=policeman=EXIS	page 19
+(30) line 5	John Lyon, Henry Davis	translation	As soon as he had got outside, he aimed his gun at the policeman.	page 19
+(31) line 1	St’át’imcets	segmentation	tsún-as, “lh=xát’-min’-ts-acw, nílh=t’u7	page 19
+(31) line 2	St’át’imcets	gloss	say+DIR-3ERG COMP=want-RLT-1SG.OBJ-2SG.ERG COP=EXCL	page 19
+(31) line 3	St’át’imcets	segmentation	s=ts7ás=tsu kwan-ts lhkun.”	page 19
+(31) line 4	St’át’imcets	gloss	NMLZ=come=2SG.POSS take+DIR-1SG.OBJ now	page 19
+(31) line 5	John Lyon, Henry Davis	translation	He told the policeman, “If you want me, then come and get me now.”	page 19
+(32) line 1	St’át’imcets	segmentation	lhláti7 ta=wa7=zús-cal, nílh=t’u7	page 19
+(32) line 2	St’át’imcets	gloss	from+there.VIS DET=IPFV=get.tied.up-ACT COP=EXCL	page 19
+(32) line 3	St’át’imcets	segmentation	s=cw7áoy=s=t’u7 kw=s-qwts-ilc-s,	page 19
+(32) line 4	St’át’imcets	gloss	NMLZ=NEG=3POSS=EXCL DET=NMLZ-move-AUT-3POSS	page 19
+(32) line 5	St’át’imcets	segmentation	nílh=t’u7 s=t’ák=s=t’u7 ti7 kel’q	page 19
+(32) line 6	St’át’imcets	gloss	COP=EXCL NMLZ=continue=3POSS=EXCL that.VIS back.up	page 19
+(32) line 7	St’át’imcets	segmentation	ti7 ta=wa7=s=Paul Spintlum t’u	page 19
+(32) line 8	St’át’imcets	gloss	that.VIS DET=IPFV=NMLZ=Paul Spintlum until	page 19
+(32) line 9	St’át’imcets	segmentation	ka-lhucw-a=tú7=a, nílh=t’u7 láti7	page 19
+(32) line 10	St’át’imcets	gloss	CIRC-bushes-CIRC=REM=A COP=EXCL at+there.VIS	page 19
+(32) line 11	St’át’imcets	segmentation	s=7aw’t=s kw=s=7áts’x=s.	page 19
+(32) line 12	St’át’imcets	gloss	NMLZ=behind=3POSS DET=NMLZ=get.seen=3POSS	page 19
+(32) line 13	John Lyon, Henry Davis	translation	The policeman didn’t move, so Paul Spintlum kept backing away until he disappeared in the bushes, and that was the last time he was seen.	page 19
+(33) line 1	St’át’imcets	segmentation	nílh=t’u7 lhláti7 s=qwatsáts=i ti7	page 19
+(33) line 2	St’át’imcets	gloss	COP=EXCL from+there.VIS NMLZ=leave=3PL.POSS that.VIS	page 19
+(33) line 3	St’át’imcets	segmentation	ta=wa7=zús-cal múta7 s=Cultus Jack...	page 19
+(33) line 4	St’át’imcets	gloss	DET=IPFV=get.tied.up-ACT and NMLZ=Cultus Jack	page 19
+(33) line 5	John Lyon, Henry Davis	translation	Then the policeman and Cultus Jack left...	page 19
+(34) line 1	St’át’imcets	segmentation	...p’án’t=wit e=t7ú Clinton=a, lhláta7	page 20
+(34) line 2	St’át’imcets	gloss	return=3PL to=that.VIS Clinton=EXIS from+there.VIS	page 20
+(34) line 3	St’át’imcets	segmentation	ti=Clinton=a ti7 ku=wa7=zús-cal.	page 20
+(34) line 4	St’át’imcets	gloss	DET=Clinton=EXIS that.VIS DET=IPFV=get.tied.up-ACT	page 20
+(34) line 5	John Lyon, Henry Davis	translation	...they went back to Clinton, where the policeman was from.	page 20
+(35) line 1	St’át’imcets	segmentation	tsicw [e]=ta=Clinton=a (ta...) ti7 ta=wa7=zús-cal.	page 20
+(35) line 2	St’át’imcets	gloss	get.there to=DET=Clinton=EXIS DET that.VIS DET=IPFV=get.tied.up-ACT	page 20
+(35) line 3	John Lyon, Henry Davis	translation	The policeman got to Clinton.	page 20
+(36) line 1	St’át’imcets	segmentation	nílh=t’u7 s=kelh-en-ás ta=q’wáolaps-ts=a, that’s	page 20
+(36) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=take.off-DIR-3ERG DET=badge-3POSS=EXIS that’s	page 20
+(36) line 3	St’át’imcets	segmentation	the badge, kelh-en-ás ta=q’wáolaps=a, nílh=t’u7	page 20
+(36) line 4	St’át’imcets	gloss	the badge take.off-DIR-3ERG DET=badge=EXIS COP=EXCL	page 20
+(36) line 5	St’át’imcets	segmentation	s=káw-lec=s kws	page 20
+(36) line 6	St’át’imcets	gloss	NMLZ=move.away-AUT=3POSS DET+NMLZ+IPFV+3POSS	page 20
+(36) line 7	St’át’imcets	segmentation	zús-cal láti7.	page 20
+(36) line 8	St’át’imcets	gloss	get.tied.up-ACT at+there.VIS	page 20
+(36) line 9	John Lyon, Henry Davis	translation	Then he took off his badge - that’s the badge - he took off the badge, and he quit being a policeman.	page 20
+§5.3	John Lyon, Henry Davis	heading	5.3 Wa7 sqwéqwel’ sJohnny Pólat: Pála7 ta zúqwa plísmen, pála7 ta q’ám’ta t’u7	page 20
+(37) line 1	St’át’imcets	segmentation	s-7aw’t-s lhláti7, nílh=t’u7 ses wa7	page 20
+(37) line 2	St’át’imcets	gloss	NMLZ-behind-3POSS at+there.VIS COP=EXCL NMLZ+IPFV+3POSS be	page 20
+(37) line 3	St’át’imcets	segmentation	iz’... q’wmiw’s, qecw•qícw.	page 20
+(37) line 4	St’át’imcets	gloss	those.VIS wild TRED•wild	page 20
+(37) line 5	John Lyon, Henry Davis	translation	After that, those guys were outlaws, on the run.	page 20
+(38) line 1	St’át’imcets	segmentation	ao kwas wá7=wit káti7 iz’	page 20
+(38) line 2	St’át’imcets	gloss	NEG DET+NMLZ+IPFV+3POSS be=3PL around+there.VIS those.VIS	page 20
+(38) line 3	St’át’imcets	segmentation	i=n-7án’was=a, ti7 ta=wa7=s=Moses Paul múta7	page 20
+(38) line 4	St’át’imcets	gloss	PL.DET=LOC-two=EXIS that.VIS DET=IPFV=NMLZ=Moses Paul and	page 20
+(38) line 5	St’át’imcets	segmentation	ta=wa7=s=Paul Spintlum:	page 20
+(38) line 6	St’át’imcets	gloss	DET=IPFV=NMLZ=Paul Spintlum	page 20
+(38) line 7	John Lyon, Henry Davis	translation	They weren’t around anymore, Moses Paul and Paul Spintlum:	page 20
+(39) line 1	St’át’imcets	segmentation	...áoy=t’u7 kwas áts’x=wit, q’wmiw’s=wít=tu7.	page 21
+(39) line 2	St’át’imcets	gloss	NEG=EXCL DET+NMLZ+IPFV+3POSS get.seen=3PL wild=3PL=REM	page 21
+(39) line 3	John Lyon, Henry Davis	translation	...they weren’t seen around, because they had become outlaws.	page 21
+(40) line 1	St’át’imcets	segmentation	nas e=t7ú zánucw-em, qapts.	page 21
+(40) line 2	St’át’imcets	gloss	go to=that.VIS year-MID spring	page 21
+(40) line 3	John Lyon, Henry Davis	translation	Next spring came around.	page 21
+(41) line 1	St’át’imcets	segmentation	tsícw=k’a ta=wa7=t’ánam’ten e=kw7á May, láti7	page 21
+(41) line 2	St’át’imcets	gloss	get.there=EPIS DET=IPFV=moon to=this.INVIS May at+there.VIS	page 21
+(41) line 3	St’át’imcets	segmentation	lhas wa7 i=wa7=Spring Assizes láku7	page 21
+(41) line 4	St’át’imcets	gloss	COMP+IPFV+3SBJV be PL.DET=IPFV=Spring Assizes at+there.VIS	page 21
+(41) line 5	St’át’imcets	segmentation	Clinton=a.	page 21
+(41) line 6	St’át’imcets	gloss	Clinton=EXIS	page 21
+(41) line 7	John Lyon, Henry Davis	translation	The month of May came, that’s when the Spring Assizes were held in Clin- ton.	page 21
+(42) line 1	St’át’imcets	segmentation	cw7it áti7 gaw’-p i=sám7=a.	page 21
+(42) line 2	St’át’imcets	gloss	many at+there.VIS gather-INCH PL.DET=white.person=EXIS	page 21
+(42) line 3	John Lyon, Henry Davis	translation	There were a lot of white people gathered there.	page 21
+(43) line 1	St’át’imcets	segmentation	nílh=t’u7 s=ts7as=ts ta=núkw=a wa7... ta...	page 21
+(43) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=come=3POSS DET=other=EXIS IPFV DET	page 21
+(43) line 3	John Lyon, Henry Davis	translation	Then this guy came who was....	page 21
+(44) line 1	St’át’imcets	segmentation	(láni7...) láni7 ku=time wa7... tákem lhas	page 21
+(44) line 2	St’át’imcets	gloss	at+there.ABS at+there.ABS DET=time IPFV all COMP+IPFV+3SBJV	page 21
+(44) line 3	St’át’imcets	segmentation	wa7 ta=wa7=s-lhéqw, ts7as lhláku7	page 21
+(44) line 4	St’át’imcets	gloss	be DET=IPFV=STAT-ride.horseback come from+there.INVIS	page 21
+(44) line 5	St’át’imcets	segmentation	ta=wa7=s-lhéqw.	page 21
+(44) line 6	St’át’imcets	gloss	DET+IPFV=STAT-ride.horseback	page 21
+(44) line 7	John Lyon, Henry Davis	translation	At that time, everyone there rode horses, and someone came in on horse- back.	page 21
+(45) line 1	St’át’imcets	segmentation	t’iq [e]=kw7á ti7 ta=táown=a, nílh=ku7=tu7	page 22
+(45) line 2	St’át’imcets	gloss	arrive to=there.INVIS that.VIS DET=town=EXIS COP=QUOT=REM	page 22
+(45) line 3	St’át’imcets	segmentation	s=tsut=s, “wa7 l=kw7u kw=s=Paul Spintlum	page 22
+(45) line 4	St’át’imcets	gloss	NMLZ=say=3POSS IPFV at=that.INVIS DET=NMLZ=Paul Spintlum	page 22
+(45) line 5	St’át’imcets	segmentation	l=kw7á=t’u7, k’ík’ta7!”	page 22
+(45) line 6	St’át’imcets	gloss	at=this.INVIS=EXCL nearby	page 22
+(45) line 7	John Lyon, Henry Davis	translation	He arrived at the town, and said, “Paul Spintlum is just over there, he’s nearby!”	page 22
+(46) line 1	St’át’imcets	segmentation	t’u7 s=nílh=t’u7 láti7 s=qelilám’=s	page 22
+(46) line 2	St’át’imcets	gloss	EXCL NMLZ=COP=EXCL at+there.VIS NMLZ=rush.around=3POSS	page 22
+(46) line 3	St’át’imcets	segmentation	i=sám7=a múta7 i=plísmen=a nas	page 22
+(46) line 4	St’át’imcets	gloss	PL.DET=white.person=EXIS and PL.DET=policeman=EXIS go	page 22
+(46) line 5	St’át’imcets	segmentation	cwil’-en-ítas, xek-en-ás=ti7 nká7=as	page 22
+(46) line 6	St’át’imcets	gloss	look.for-DIR-3PL.ERG figure-DIR-3ERG=that.VIS where=3SBJV	page 22
+(46) line 7	St’át’imcets	segmentation	lh=wá7=wit=as.	page 22
+(46) line 8	St’át’imcets	gloss	COMP=be=3PL=3SBJV	page 22
+(46) line 9	John Lyon, Henry Davis	translation	So the white people and the policemen started rushing around looking for them, and they figured out where they were at.	page 22
+(47) line 1	St’át’imcets	segmentation	tsicw-almen=wít=t’u7 áti7, nílh=t’u7	page 22
+(47) line 2	St’át’imcets	gloss	get.there-nearly=3PL=EXCL to+there.VIS COP=EXCL	page 22
+(47) line 3	St’át’imcets	segmentation	s=klh-ew’s-ílc=i.	page 22
+(47) line 4	St’át’imcets	gloss	NMLZ=take.off-middle-AUT=3PL.POSS	page 22
+(47) line 5	John Lyon, Henry Davis	translation	When they had almost gotten there, they split up.	page 22
+(48) line 1	St’át’imcets	segmentation	nílh=iz’ i=plísmen=a n7í7z’ek.	page 22
+(48) line 2	St’át’imcets	gloss	COP=those.VIS PL.DET=policeman=EXIS in.the.middle	page 22
+(48) line 3	John Lyon, Henry Davis	translation	Those policemen were in the middle.	page 22
+(49) line 1	St’át’imcets	segmentation	t’ák=wit=t’u7 áti7 l=ta=ts’íl.h=a áku7	page 22
+(49) line 2	St’át’imcets	gloss	go.along=3PL=EXCL to+there.VIS at=DET=like=EXIS to+there.INVIS	page 22
+(49) line 3	St’át’imcets	segmentation	l=ta=k’cw-úlm’ecw=[a], nílh=t’u7 s=qús-cit-em	page 22
+(49) line 4	St’át’imcets	gloss	at=DET=hollow-ground=EXIS COP=EXCL NMLZ=shoot-IND-3PASS	page 22
+(49) line 5	St’át’imcets	segmentation	ta=pá•pl7=a plísmen, kwís=tu7.	page 22
+(49) line 6	St’át’imcets	gloss	DET=IRED•one=EXIS policeman fall=REM	page 22
+(49) line 7	John Lyon, Henry Davis	translation	They went over to where there was kind of a hollow in the ground, then one of the policemen was shot, and he fell.	page 22
+(50) line 1	St’át’imcets	segmentation	qús-cit-em ta=núkw=a, qam’t-áka7, t’u7 nilh ts7a	page 23
+(50) line 2	St’át’imcets	gloss	shoot-IND-3PASS DET=other=EXIS get.hit-hand but COP this.VIS	page 23
+(50) line 3	St’át’imcets	segmentation	ta=s=qelilám’=i nás=wit, plan wa7 qwatsáts.	page 23
+(50) line 4	St’át’imcets	gloss	DET=NMLZ=rush.around=3PL.POSS go=3PL already IPFV leave	page 23
+(50) line 5	John Lyon, Henry Davis	translation	Another one was shot in the arm, but by the time they rushed over to get the shooters, they had left.	page 23
+(51) line 1	St’át’imcets	segmentation	q’áy-lec ta=pá•pl7=a, lhqw-ilc, qus-cit-ítas,	page 23
+(51) line 2	St’át’imcets	gloss	jump-AUT DET=IRED•one=EXIS ride.horseback-AUT shoot-IND-3PL.ERG	page 23
+(51) line 3	St’át’imcets	segmentation	t’u7 áoy=t’u7 kw=s=qam’t-s-twítas, nílh=t’u7=tu7	page 23
+(51) line 4	St’át’imcets	gloss	but NEG=EXCL DET=NMLZ=get.hit-CAUS-3PL.ERG COP=EXCL=REM	page 23
+(51) line 5	St’át’imcets	segmentation	s=q’áy-lec=s.	page 23
+(51) line 6	St’át’imcets	gloss	NMLZ=jump-AUT=3POSS	page 23
+(51) line 7	John Lyon, Henry Davis	translation	One of them jumped on his horse, they shot at him but they didn’t hit him, and so he got away.	page 23
+(52) line 1	St’át’imcets	segmentation	qelilám’ lhláti7 i=núkw=a, qelilám’=wit	page 23
+(52) line 2	St’át’imcets	gloss	rush.around from+there.VIS PL.DET=other=EXIS rush.around=3PL	page 23
+(52) line 3	St’át’imcets	segmentation	áku7 l=t=s=wá7=s=a ku=t’éqw-p.	page 23
+(52) line 4	St’át’imcets	gloss	to+there.INVIS at=DET=NMLZ=be=3POSS=EXIS DET=explode-INCH	page 23
+(52) line 5	John Lyon, Henry Davis	translation	Some other members of the posse rushed over to where the gunshots had come from.	page 23
+(53) line 1	St’át’imcets	segmentation	tsícw=wit, plan wa7 s-kits ta=pá•pl7=a	page 23
+(53) line 2	St’át’imcets	gloss	get.there=3PL already IPFV STAT-get.laid.down DET=IRED•one=EXIS	page 23
+(53) line 3	St’át’imcets	segmentation	(plis...) plísmen, wa7 zús-cal.	page 23
+(53) line 4	St’át’imcets	gloss	policeman policeman IPFV get.tied.up-ACT	page 23
+(53) line 5	John Lyon, Henry Davis	translation	When they got there, one policeman was already down.	page 23
+(54) line 1	St’át’imcets	segmentation	wa7 qá•q•ey’t ta=núkw=a s-qam’t-áka7.	page 23
+(54) line 2	St’át’imcets	gloss	IPFV suffer•CRED• DET=other=EXIS STAT-get.hit-hand	page 23
+(54) line 3	John Lyon, Henry Davis	translation	The other one was suffering because he’d been hit in the arm.	page 23
+(55) line 1	St’át’imcets	segmentation	ats’x-en-ítas=tu7, plan wa7 lhqw-ilc	page 23
+(55) line 2	St’át’imcets	gloss	get.seen-DIR-3PL.ERG=REM already IPFV ride.horseback-AUT	page 23
+(55) line 3	St’át’imcets	segmentation	ta... ti7 nilh iz’ i=sq’wem•q’wmíw’s=a,	page 23
+(55) line 4	St’át’imcets	gloss	DET that.VIS COP those.VIS PL.DET=TRED•wild=EXIS	page 23
+(55) line 5	St’át’imcets	segmentation	s=tsún-itas iz’, s=Paul Spintlum.	page 23
+(55) line 6	St’át’imcets	gloss	NMLZ=say+DIR-3PL.ERG those.VIS NMLZ=Paul Spintlum	page 23
+(55) line 7	John Lyon, Henry Davis	translation	They saw that one of them - the outlaws, that’s what they called them - Paul Spintlum, had already got on his horse.	page 23
+(56) line 1	St’át’imcets	segmentation	qus-cit-ítas, áo=t’u7 kw=s=qam’t=s, nilh	page 24
+(56) line 2	St’át’imcets	gloss	shoot-IND-3PL.ERG NEG=EXCL DET=NMLZ=get.hit=3POSS COP	page 24
+(56) line 3	St’át’imcets	segmentation	[s]=ka-cím’-a, nílh=t’u7 s=kwán-itas	page 24
+(56) line 4	St’át’imcets	gloss	NMLZ=CIRC-disappear-CIRC COP=EXCL NMLZ=take+DIR-3PL.ERG	page 24
+(56) line 5	St’át’imcets	segmentation	lhláti7 ta=zúqw=a...	page 24
+(56) line 6	St’át’imcets	gloss	from+there.VIS DET=dead=EXIS	page 24
+(56) line 7	John Lyon, Henry Davis	translation	They shot at him but he didn’t get hit, then he disappeared, so then they took the dead person...	page 24
+(57) line 1	St’át’imcets	segmentation	...q’il-in’-ítas l=ta=pé•p•l7=a	page 24
+(57) line 2	St’át’imcets	gloss	get.laid.down.on.flat.surface-DIR-3PL.ERG at=DET=one•CRED•=EXIS	page 24
+(57) line 3	St’át’imcets	segmentation	ts’qáxa7, nílh=t’u7 s=7uxwal’-s-twítas,	page 24
+(57) line 4	St’át’imcets	gloss	horse COP=EXCL NMLZ=go.home-CAUS-3PL.ERG	page 24
+(57) line 5	St’át’imcets	segmentation	s=ts’item-s-twítas ta=táown=a.	page 24
+(57) line 6	St’át’imcets	gloss	NMLZ=go.towards-CAUS-3PL.ERG DET=town=EXIS	page 24
+(57) line 7	John Lyon, Henry Davis	translation	...and laid him on one of the horses; then they brought him home, towards town.	page 24
+(58) line 1	St’át’imcets	segmentation	t’iq-s-twítas áti7, plan wa7 s-zuqw ti7,	page 24
+(58) line 2	St’át’imcets	gloss	arrive-CAUS-3PL.ERG to+there.VIS already IPFV STAT-dead that.VIS	page 24
+(58) line 3	St’át’imcets	segmentation	nílh=tu7 ti=wa7=zús-cal láti7 Clinton=a.	page 24
+(58) line 4	St’át’imcets	gloss	COP=REM DET=IPFV=get.tied.up-ACT at+there.VIS Clinton=EXIS	page 24
+(58) line 5	John Lyon, Henry Davis	translation	When they arrived there, the policeman from Clinton was already dead.	page 24
+§5.4	John Lyon, Henry Davis	heading	5.4 Wa7 sqwéqwel’ sPaul Spintlum: Nk’wancenánem nelh wa7 cwelcúlel	page 24
+(59) line 1	St’át’imcets	segmentation	s-7aw’t-s lhláti7, nílh=t’u7 (s...)	page 24
+(59) line 2	St’át’imcets	gloss	NMLZ-behind-3POSS from+there.VIS COP=EXCL NMLZ	page 24
+(59) line 3	St’át’imcets	segmentation	s=k’wálh-cal=s ta=kv́pmen=a	page 24
+(59) line 4	St’át’imcets	gloss	NMLZ=call.on-ACT=3POSS DET=government=EXIS	page 24
+(59) line 5	St’át’imcets	segmentation	ku=wa7=k’wen’•k’wan’-cen-álhts’a7	page 24
+(59) line 6	St’át’imcets	gloss	DET=IPFV=TRED•look-foot-meat	page 24
+(59) line 7	St’át’imcets	segmentation	k’wen’•k’wan’-cen-an’-tanemwítas, cuz’	page 24
+(59) line 8	St’át’imcets	gloss	TRED•look-foot-DIR-3PL.OBJ+NTS going.to	page 24
+(59) line 9	St’át’imcets	segmentation	cwil’-en-tanemwítas n-cwa7•cw7ít.	page 24
+(59) line 10	St’át’imcets	gloss	look.for-DIR-3PL.OBJ+NTS LOC-TRED•many	page 24
+(59) line 11	John Lyon, Henry Davis	translation	After that, the government hired trackers to track them, and to search for them all over the place.	page 24
+(60) line 1	St’át’imcets	segmentation	cw7it i=wa7=sáma7, lhel=kw7ú Kamloops=a	page 25
+(60) line 2	St’át’imcets	gloss	many PL.DET=IPFV=white.person from=that.INVIS Kamloops=EXIS	page 25
+(60) line 3	St’át’imcets	segmentation	(e)lh=kwán-itas i=7ucwalmícw=a wa7	page 25
+(60) line 4	St’át’imcets	gloss	COMP=take+DIR-3PL.ERG PL.DET=indigenous.person=EXIS IPFV	page 25
+(60) line 5	St’át’imcets	segmentation	tsún-itas wa7 tracker.	page 25
+(60) line 6	St’át’imcets	gloss	say+DIR-3PL.ERG IPFV tracker	page 25
+(60) line 7	John Lyon, Henry Davis	translation	A lot of them were white people, but they also got some Indians that they call “trackers”.	page 25
+(61) line 1	St’át’imcets	segmentation	ao kw=s=k’walh-an’-ítas ku=7úcwalmicw	page 25
+(61) line 2	St’át’imcets	gloss	NEG DET=NMLZ=call.on-DIR-3PL.ERG DET=indigenous.person	page 25
+(61) line 3	St’át’imcets	segmentation	káti7 k’ík’t7=a, s7ícwlh-úlm’ecw úcwalmicw	page 25
+(61) line 4	St’át’imcets	gloss	around+there.VIS nearby=EXIS different-land indigenous.person	page 25
+(61) line 5	St’át’imcets	segmentation	ku=k’walh-an’-ítas.	page 25
+(61) line 6	St’át’imcets	gloss	DET=call.on-DIR-3PL.ERG	page 25
+(61) line 7	John Lyon, Henry Davis	translation	They didn’t hire any Indians from near here, the Indians they hired were from different places.	page 25
+(62) line 1	St’át’imcets	segmentation	cw7it ts’qáxa7 wa7 qwez-en-ítas, (t’)cuz’	page 25
+(62) line 2	St’át’imcets	gloss	many horse IPFV get.used-DIR-3PL.ERG going.to	page 25
+(62) line 3	St’át’imcets	segmentation	n-k’wan’-cen-án’-itas, cuz’ kal-en-ítas iz’	page 25
+(62) line 4	St’át’imcets	gloss	LOC-look-foot-DIR-3PL.ERG going.to chase-DIR-3PL.ERG those.VIS	page 25
+(62) line 5	St’át’imcets	segmentation	i=n-7án’was=a, wa7 q’wem•q’wmíw’s.	page 25
+(62) line 6	St’át’imcets	gloss	PL.DET=LOC-two=EXIS IPFV TRED•wild	page 25
+(62) line 7	John Lyon, Henry Davis	translation	They used a lot of horses to track and chase down the two outlaws.	page 25
+(63) line 1	St’át’imcets	segmentation	cw7it... p’á7cw=k’a lhel=ku=pála7 t’ánam’ten, tqílh=k’a	page 25
+(63) line 2	St’át’imcets	gloss	many more.than=EPIS from=DET=one moon almost=EPIS	page 25
+(63) line 3	St’át’imcets	segmentation	án’was t’ánam’ten (kwas...) kwas	page 25
+(63) line 4	St’át’imcets	gloss	two moon DET+NMLZ+IPFV+3POSS DET+NMLZ+IPFV+3POSS	page 25
+(63) line 5	St’át’imcets	segmentation	kal-en-ítas, kwas tsút=wit	page 25
+(63) line 6	St’át’imcets	gloss	chase-DIR-3PL.ERG DET+NMLZ+IPFV+3POSS think=3PL	page 25
+(63) line 7	St’át’imcets	segmentation	kwas plan wa7 n-pzán-itas,	page 25
+(63) line 8	St’át’imcets	gloss	DET+NMLZ+IPFV+3POSS already IPFV LOC-meet+DIR-3PL.ERG	page 25
+(63) line 9	St’át’imcets	segmentation	cw7áoy=t’u7 kwas	page 25
+(63) line 10	St’át’imcets	gloss	NEG=EXCL DET+NMLZ+IPFV+3POSS	page 25
+(63) line 11	St’át’imcets	segmentation	ka-kwan•en-s-twítas-a.	page 25
+(63) line 12	St’át’imcets	gloss	CIRC-take•FRED-CAUS-3PL.ERG-CIRC	page 25
+(63) line 13	John Lyon, Henry Davis	translation	Many times - they must’ve been chasing them for more than a month, maybe nearly two - they thought they’d caught up with them, but they couldn’t catch them.	page 25
+(64) line 1	St’át’imcets	segmentation	plán=ku7 l=ts7a q’ecw•ecw-s-twítas	page 26
+(64) line 2	St’át’imcets	gloss	already=QUOT at=this.VIS surround•FRED-CAUS-3PL.ERG	page 26
+(64) line 3	St’át’imcets	segmentation	l=ta=pál7=a sqwem, nás=wit áta7, plán=tu7	page 26
+(64) line 4	St’át’imcets	gloss	at=DET=one=EXIS mountain go=3PL to+there.VIS already=REM	page 26
+(64) line 5	St’át’imcets	segmentation	ao láta7 kwas wá7=wit.	page 26
+(64) line 6	St’át’imcets	gloss	NEG at+there.VIS DET+NMLZ+IPFV+3POSS be=3PL	page 26
+(64) line 7	John Lyon, Henry Davis	translation	They had them surrounded at one mountain, but when they went there, they’d already gone.	page 26
+(65) line 1	St’át’imcets	segmentation	tsáma=t’u7 ta=kv́pmen=a, cw7it sqlaw’	page 26
+(65) line 2	St’át’imcets	gloss	try.in.vain=EXCL DET=government=EXIS many money	page 26
+(65) line 3	St’át’imcets	segmentation	(e)s=gí<7>el’=s ta=kv́pmen=a, nílh=t’u7	page 26
+(65) line 4	St’át’imcets	gloss	NMLZ=lose<INCH>=3POSS DET=government=EXIS COP=EXCL	page 26
+(65) line 5	St’át’imcets	segmentation	s=t’ál-an’-as i=wa7=n-k’wen’-cen-álhts’a7,	page 26
+(65) line 6	St’át’imcets	gloss	NMLZ=stop-DIR-3ERG PL.DET=IPFV=LOC-look-foot-meat	page 26
+(65) line 7	St’át’imcets	segmentation	i=wá7....	page 26
+(65) line 8	St’át’imcets	gloss	PL.DET=IPFV	page 26
+(65) line 9	John Lyon, Henry Davis	translation	The government tried in vain, and lost a lot of money, so they stopped (pay- ing for) the trackers.	page 26
+(66) line 1	St’át’imcets	segmentation	nílh=t’u7 s=cwíts’-in’-as ta=kv́pmen=a	page 26
+(66) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=hand.over-DIR-3ERG DET=government=EXIS	page 26
+(66) line 3	St’át’imcets	segmentation	four thousand dollars ku=reward, lh=swát=as	page 26
+(66) line 4	St’át’imcets	gloss	four thousand dollars DET=reward COMP=who=3SBJV	page 26
+(66) line 5	St’át’imcets	segmentation	ku=kwan•en-s-tanemwítas iz’.	page 26
+(66) line 6	St’át’imcets	gloss	DET=take•FRED-CAUS-3PL.OBJ+NTS those	page 26
+(66) line 7	John Lyon, Henry Davis	translation	But the government handed over four thousand dollars as a reward for any- one who could catch them.	page 26
+(67) line 1	St’át’imcets	segmentation	nílh=t’u7 s=lhláti7=s lh=t’ál=as	page 26
+(67) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=from+there.VIS=3POSS COMP=stop=3SBJV	page 26
+(67) line 3	St’át’imcets	segmentation	i=wa7=n-k’wen’-cen-álhts’a7, nílh=t’u7 iz’	page 26
+(67) line 4	St’át’imcets	gloss	PL.DET=IPFV=LOC-look-foot-meat COP=EXCL those.VIS	page 26
+(67) line 5	St’át’imcets	segmentation	s=wa7=s q’wem•q’wmíw’s láti7 ku...5	page 26
+(67) line 6	St’át’imcets	gloss	NMLZ=be=3POSS TRED•wild at+there.VIS DET	page 26
+(67) line 7	John Lyon, Henry Davis	translation	So then the trackers stopped, and then the outlaws...	page 26
+footnote 5	John Lyon, Henry Davis	note	There is a break in the recording at the end of this stanza.	page 26, footnote 5
+(68) line 1	St’át’imcets	segmentation	iz’ l=ts7a i=wá7=as	page 27
+(68) line 2	St’át’imcets	gloss	those.VIS at=this.VIS when.PAST=be=3SBJV	page 27
+(68) line 3	St’át’imcets	segmentation	i=wa7=n-k’wen’-cen-álhts’a7, cw7it kwas	page 27
+(68) line 4	St’át’imcets	gloss	PL.DET=IPFV=LOC-look-foot-meat many DET+NMLZ+IPFV+3POSS	page 27
+(68) line 5	St’át’imcets	segmentation	ts’íla wa7 n-pzan-almen-s-twítas.	page 27
+(68) line 6	St’át’imcets	gloss	like IPFV LOC-meet-nearly-CAUS-3PL.ERG	page 27
+(68) line 7	John Lyon, Henry Davis	translation	When they were there, the trackers nearly kind of caught up to them a bunch of times.	page 27
+(69) line 1	St’át’imcets	segmentation	ta=pá•pl7=a láku7 l=ta=wa7=tsún-itas wa7	page 27
+(69) line 2	St’át’imcets	gloss	DET=IRED•one=EXIS at+there.INVIS at=DET=IPFV=say+DIR-3PL.ERG IPFV	page 27
+(69) line 3	St’át’imcets	segmentation	fifty-nine, nilh ti7 wa7 Chasm l=ki=sám7=a,	page 27
+(69) line 4	St’át’imcets	gloss	fifty-nine COP that.VIS IPFV Chasm at=PL.DET=white.person=EXIS	page 27
+(69) line 5	St’át’imcets	segmentation	necnactám’ in the Indian.	page 27
+(69) line 6	St’át’imcets	gloss	flat.on.top [Chasm] in the Indian	page 27
+(69) line 7	John Lyon, Henry Davis	translation	One of them was at 59 Mile, that’s Chasm amongst the white people, and necncetám’ in Indian.	page 27
+(70) line 1	St’át’imcets	segmentation	wa7 áku7 ti7, nilh ti7 stsúw7-i sqwé•qw•el’	page 27
+(70) line 2	St’át’imcets	gloss	be to+there.INVIS that.VIS COP that.VIS own-3PL.POSS tell•CRED•	page 27
+(70) line 3	St’át’imcets	segmentation	izá-wna wa7 q’wem•q’wmíw’s.	page 27
+(70) line 4	St’át’imcets	gloss	these-precisely IPFV TRED•wild	page 27
+(70) line 5	John Lyon, Henry Davis	translation	That’s where it was, according to the outlaws’ own story.	page 27
+(71) line 1	St’át’imcets	segmentation	t’ak ta=sám7=a ka-cál-a, nílh=t’u7	page 27
+(71) line 2	St’át’imcets	gloss	go.along DET=white.person=EXIS CIRC-edge.of.hill-CIRC COP=EXCL	page 27
+(71) line 3	St’át’imcets	segmentation	s=gets-en-ás ta=sts’qáxa7-s=a, nílh=t’u7 láku7	page 27
+(71) line 4	St’át’imcets	gloss	NMLZ=tie-DIR-3ERG DET=horse-3POSS=EXIS COP=EXCL at+there.INVIS	page 27
+(71) line 5	St’át’imcets	segmentation	ses cál-us.	page 27
+(71) line 6	St’át’imcets	gloss	NMLZ+IPFV+3POSS edge-hill	page 27
+(71) line 7	John Lyon, Henry Davis	translation	A white guy went over to look across the brow of a hill, then he tied up his horse and looked over the edge.	page 27
+(72) line 1	St’át’imcets	segmentation	q’wem-ílc ta=pá•pl7=a	page 28
+(72) line 2	St’át’imcets	gloss	get.rolled.into.ball-AUT DET=IRED•one=EXIS	page 28
+(72) line 3	St’át’imcets	segmentation	lhláti7=t’u7 wi=snílh iz’, Moses Paul,	page 28
+(72) line 4	St’át’imcets	gloss	from+there.VIS=EXCL PL=3SG.INDEP those Moses Paul	page 28
+(72) line 5	St’át’imcets	segmentation	lhqw-ilec-mín-as ta=ts’qáxa7-s=a, nílh=t’u7	page 28
+(72) line 6	St’át’imcets	gloss	ride.horseback-AUT-RLT-3ERG DET=horse-3POSS=EXIS COP=EXCL	page 28
+(72) line 7	St’át’imcets	segmentation	ta=s-q’áy’-lec-s=a.	page 28
+(72) line 8	St’át’imcets	gloss	DET=NMLZ-jump-AUT-3POSS=EXIS	page 28
+(72) line 9	John Lyon, Henry Davis	translation	One of the outlaws was crouching down, it was Moses Paul, and he jumped on the guy’s horse and escaped.	page 28
+(73) line 1	St’át’imcets	segmentation	p’elenílh ta=trápsten=a, láti7 lh=kwam•em=wít=as	page 28
+(73) line 2	St’át’imcets	gloss	including DET=binoculars=EXIS at+there.VIS COMP=get•FRED=3PL=3SBJV	page 28
+(73) line 3	St’át’imcets	segmentation	ta=ámh=a trápsten, (trápsten, that’s uh...)	page 28
+(73) line 4	St’át’imcets	gloss	DET=good=EXIS binoculars binoculars that’s uh	page 28
+(73) line 5	John Lyon, Henry Davis	translation	Among other things, there were some binoculars in there, they got some good binoculars there.	page 28
+§5.5	John Lyon, Henry Davis	heading	5.5 Wa7 sqwéqwel’ sTom Evans: Tqilh t’u7 kwánenwit nelh wa7 cwelcúlel lta qwlitúlm’ecwa	page 28
+(74) line 1	St’át’imcets	segmentation	tsa::ma=wít=t’u7, cw7it, cw7it ken=tswása	page 28
+(74) line 2	St’át’imcets	gloss	try.in.vain=3PL=EXCL many many around=DET+NMLZ+IPFV+3POSS+EXIS	page 28
+(74) line 3	St’át’imcets	segmentation	ts’íla wa7 qwena[n] -s-twítas t’u7 wa7... t’u7	page 28
+(74) line 4	St’át’imcets	gloss	like IPFV want-CAUS-3PL.ERG but IPFV but	page 28
+(74) line 5	St’át’imcets	segmentation	ka-lhúcw=wit-a...	page 28
+(74) line 6	St’át’imcets	gloss	CIRC-bushes=3PL-CIRC	page 28
+(74) line 7	John Lyon, Henry Davis	translation	They kept trying, many, many people wanted to get them... but they man- aged to disappear into the bush...	page 28
+(75) line 1	St’át’imcets	segmentation	...nílh=t’u7 ses páqu7 iz’	page 28
+(75) line 2	St’át’imcets	gloss	COP=EXCL NMLZ+IPFV+3POSS afraid those.VIS	page 28
+(75) line 3	St’át’imcets	segmentation	i=wa7=n-k’wen’-cen-álhts’a7.	page 28
+(75) line 4	St’át’imcets	gloss	PL.DET=IPFV=LOC-look-foot-meat	page 28
+(75) line 5	John Lyon, Henry Davis	translation	...so then the trackers got scared.	page 28
+(76) line 1	St’át’imcets	segmentation	s-k’alán’-min’-s-kan ta=pá•pl7=a iz’	page 29
+(76) line 2	St’át’imcets	gloss	STAT-listen.to-RLT-CAUS-1SG.SBJ DET=IRED•one=EXIS those.VIS	page 29
+(76) line 3	St’át’imcets	segmentation	i=wa7=n-k’wen’-cen-álhts’a7.	page 29
+(76) line 4	St’át’imcets	gloss	PL.DET=IPFV=LOC-look-foot-meat	page 29
+(76) line 5	John Lyon, Henry Davis	translation	I listened to one of those trackers.	page 29
+(77) line 1	St’át’imcets	segmentation	“kál-en-em,” tsut, “t’u tsícw=kalh=t’u7	page 29
+(77) line 2	St’át’imcets	gloss	chase-DIR-1PL.ERG say until get.there=1PL.SBJ=EXCL	page 29
+(77) line 3	St’át’imcets	segmentation	ka-lhucw=kalh-á=t’u7, wa7 láti7	page 29
+(77) line 4	St’át’imcets	gloss	CIRC-bushes=1PL.SBJ-CIRC=EXCL IPFV at+there.VIS	page 29
+(77) line 5	St’át’imcets	segmentation	i=ts’qax7-í=ha es-tálh-lec, cw7aoz	page 29
+(77) line 6	St’át’imcets	gloss	PL.DET=horse-3PL.POSS=EXIS STAT-stand-AUT NEG	page 29
+(77) line 7	St’át’imcets	segmentation	káti7 láti7 kwas	page 29
+(77) line 8	St’át’imcets	gloss	around+there.VIS at+there.VIS DET+NMLZ+IPFV+3POSS	page 29
+(77) line 9	St’át’imcets	segmentation	wá7=wit.”	page 29
+(77) line 10	St’át’imcets	gloss	be=3PL	page 29
+(77) line 11	John Lyon, Henry Davis	translation	He said, “We followed them until we got into the brush, and there were their horses standing there, but they weren’t there.”	page 29
+(78) line 1	St’át’imcets	segmentation	“plán=t’u7 wa7 tsexw•tsíxw s-qemp-s	page 29
+(78) line 2	St’át’imcets	gloss	already=EXCL IPFV TRED•sweat NMLZ-hot-3POSS	page 29
+(78) line 3	St’át’imcets	segmentation	i=ts’qax7-í=ha.”	page 29
+(78) line 4	St’át’imcets	gloss	PL.DET=horse-3PL.POSS=EXIS	page 29
+(78) line 5	John Lyon, Henry Davis	translation	“Their horses were dripping with sweat.”	page 29
+(79) line 1	St’át’imcets	segmentation	nílh=ku7=t’u7 s=tsut=s ts7a ta=pá•pl7=a	page 29
+(79) line 2	St’át’imcets	gloss	COP=QUOT=EXCL NMLZ=say=3POSS this.VIS DET=IRED•one=EXIS	page 29
+(79) line 3	St’át’imcets	segmentation	ta=sám7=a ti7 ta=wá7..., nilh ti7	page 29
+(79) line 4	St’át’imcets	gloss	DET=white.person=EXIS that.VIS DET=IPFV COP that.VIS	page 29
+(79) line 5	St’át’imcets	segmentation	wa7 s=Tom Evans, nilh ti7 wa7	page 29
+(79) line 6	St’át’imcets	gloss	IPFV NMLZ=Tom Evans COP that.VIS IPFV	page 29
+(79) line 7	St’át’imcets	segmentation	sqwe•qw•el’-en-ts-ás.	page 29
+(79) line 8	St’át’imcets	gloss	tell•CRED•-DIR-1SG.OBJ-3ERG	page 29
+(79) line 9	John Lyon, Henry Davis	translation	This part comes from this one white person, it was Tom Evans, that’s who told me this story.	page 29
+(80) line 1	St’át’imcets	segmentation	tsút=ku7, “that’s, láti7 lh... láti7=t’u7	page 30
+(80) line 2	St’át’imcets	gloss	say=QUOT that’s at+there.VIS COMP at+there.VIS=EXCL	page 30
+(80) line 3	St’át’imcets	segmentation	lh=tsem’p=ás kwenswá kál-en	page 30
+(80) line 4	St’át’imcets	gloss	COMP=get.finished=3SBJV DET+1SG.POSS+NMLZ+IPFV chase-DIR	page 30
+(80) line 5	St’át’imcets	segmentation	kw=s=Paul Spintlum.”	page 30
+(80) line 6	St’át’imcets	gloss	DET=NMLZ=Paul Spintlum	page 30
+(80) line 7	John Lyon, Henry Davis	translation	He said, “This is where I quit chasing Paul Spintlum.”	page 30
+(81) line 1	St’át’imcets	segmentation	“lh=qwenán=al’ap áta7 kw=s=t’ák=l’ap, nilh	page 30
+(81) line 2	St’át’imcets	gloss	COMP=want=2PL.SBJV to+there.VIS DET=NMLZ=go.along=2PL.POSS COP	page 30
+(81) line 3	St’át’imcets	segmentation	s=t’ák=l’ap, cúz’=lhkan p’an’t lhel=ts7á.”	page 30
+(81) line 4	St’át’imcets	gloss	NMLZ=go.along=2PL.POSS going.to=1SG.SBJ return from=this.VIS	page 30
+(81) line 5	John Lyon, Henry Davis	translation	“If you all want to keep going, then keep going, but I’m going back.”	page 30
+§5.6	John Lyon, Henry Davis	heading	5.6 Wa7 sqwéqwel’ ta ts’k’wáylacwmeca: Smúlhats ta syáxiha i wa7 cwel- cúlel	page 30
+(82) line 1	St’át’imcets	segmentation	s-7aw’t-s lhláti7, lhel=t=s=t’ál=s=a	page 30
+(82) line 2	St’át’imcets	gloss	NMLZ-behind-3POSS from+there.VIS from=DET=NMLZ=stop=3POSS=EXIS	page 30
+(82) line 3	St’át’imcets	segmentation	ta=kv́pmen=a kwas xáq’-en-as	page 30
+(82) line 4	St’át’imcets	gloss	DET=government=EXIS DET+NMLZ+IPFV+3POSS pay-DIR-3ERG	page 30
+(82) line 5	St’át’imcets	segmentation	kwa n-k’wen’-cen-álhts’a7...	page 30
+(82) line 6	St’át’imcets	gloss	DET+IPFV LOC-look-foot-meat	page 30
+(82) line 7	John Lyon, Henry Davis	translation	After the government stopped paying for trackers...	page 30
+(83) line 1	St’át’imcets	segmentation	(...nílh=t’u7 s= uh...) nílh=t’u7 aylh s=ts’íla=s	page 30
+(83) line 2	St’át’imcets	gloss	COP=EXCL NMLZ uh COP=EXCL then NMLZ=like=3POSS	page 30
+(83) line 3	St’át’imcets	segmentation	ku=tí<7>eg’w=wit, nílh=t’u7 sas	page 30
+(83) line 4	St’át’imcets	gloss	DET=get.loose<INCH>=3PL COP=EXCL NMLZ+IPFV+3POSS	page 30
+(83) line 5	St’át’imcets	segmentation	ken-tákem=t’u7 lhas áts’x=wit	page 30
+(83) line 6	St’át’imcets	gloss	around-all=EXCL COMP+IPFV+3SBJV get.seen=3PL	page 30
+(83) line 7	St’át’imcets	segmentation	ken=ki=7ucwalmícw=a.	page 30
+(83) line 8	St’át’imcets	gloss	around=PL.DET=indigenous.person=EXIS	page 30
+(83) line 9	John Lyon, Henry Davis	translation	...the outlaws kind of got free, and they were seen all over where there were Indian people.	page 30
+(84) line 1	St’át’imcets	segmentation	cw7it úcwalmicw wa7 qan’ím-ens-an kwas	page 31
+(84) line 2	St’át’imcets	gloss	many indigenous.person IPFV hear-DIR-1SG.ERG DET+NMLZ+IPFV+3POSS	page 31
+(84) line 3	St’át’imcets	segmentation	tsut kwas tsícw=wit áti7,	page 31
+(84) line 4	St’át’imcets	gloss	say DET+NMLZ+IPFV+3POSS get.there=3PL to+there.VIS	page 31
+(84) line 5	St’át’imcets	segmentation	um’-n-ítas ken=ki=s...	page 31
+(84) line 6	St’át’imcets	gloss	be.given-DIR-3PL.ERG around=PL.DET=NMLZ	page 31
+(84) line 7	John Lyon, Henry Davis	translation	I heard a lot of Indian people say that they went by there, and they’d give them some of their stuff.	page 31
+(85) line 1	St’át’imcets	segmentation	cw7it i=nk’saytken-í=ha ken-tákem, aoz	page 31
+(85) line 2	St’át’imcets	gloss	many PL.DET=relative-3PL.POSS=EXIS around-all NEG	page 31
+(85) line 3	St’át’imcets	segmentation	kwas tsukw láku7 Clinton=a...	page 31
+(85) line 4	St’át’imcets	gloss	DET+NMLZ+IPFV+3POSS finish at+there.INVIS Clinton=EXIS	page 31
+(85) line 5	St’át’imcets	segmentation	i=7ucwalmícw=a, ken-tákem	page 31
+(85) line 6	St’át’imcets	gloss	PL.DET=indigenous.person=EXIS around-all	page 31
+(85) line 7	St’át’imcets	segmentation	lhas s-nek’w•núk’wa7=wit, ke•káw’	page 31
+(85) line 8	St’át’imcets	gloss	COMP+IPFV+3SBJV have-TRED•friend=3PL IRED•far	page 31
+(85) line 9	St’át’imcets	segmentation	ken=tswása tsicw	page 31
+(85) line 10	St’át’imcets	gloss	around=DET+NMLZ+IPFV+3POSS+EXIS get.there	page 31
+(85) line 11	St’át’imcets	segmentation	i=wa7=nk’sáytken-i.	page 31
+(85) line 12	St’át’imcets	gloss	PL.DET=IPFV=relative-3PL.POSS	page 31
+(85) line 13	John Lyon, Henry Davis	translation	They had a lot of relatives all over the place, not just the Indians at Clinton, they had friends everywhere, and they had relatives spread over a large area.	page 31
+(86) line 1	St’át’imcets	segmentation	nílh=t’u7 sés=t’u7 wá7=wit, ts’íla ken-tákem	page 31
+(86) line 2	St’át’imcets	gloss	COP=EXCL NMLZ+IPFV+3POSS=EXCL be=3PL like around-all	page 31
+(86) line 3	St’át’imcets	segmentation	lhas tsícw•ecw=wit.	page 31
+(86) line 4	St’át’imcets	gloss	COMP+IPFV+3SBJV get.there•FRED=3PL	page 31
+(86) line 5	John Lyon, Henry Davis	translation	And so there they were, and they kind of went all over the place.	page 31
+(87) line 1	St’át’imcets	segmentation	cw7it ken=tswása áts’x=wit,	page 32
+(87) line 2	St’át’imcets	gloss	many around=DET+NMLZ+IPFV+3POSS+EXIS get.seen=3PL	page 32
+(87) line 3	St’át’imcets	segmentation	ken=t7ú lhas wa7 [i]=wa7=leqm-ám,	page 32
+(87) line 4	St’át’imcets	gloss	around=that.VIS COMP+IPFV+3SBJV be PL.DET=IPFV=hay-MID	page 32
+(87) line 5	St’át’imcets	segmentation	ken=t7ú i=spálem=a wa7 láti7	page 32
+(87) line 6	St’át’imcets	gloss	around=that.VIS PL.DET=field=EXIS be at+there.VIS	page 32
+(87) line 7	St’át’imcets	segmentation	i=núkw=a nk’sáytken-i, áti7	page 32
+(87) line 8	St’át’imcets	gloss	PL.DET=other=EXIS relative-3PL.POSS to+there.VIS	page 32
+(87) line 9	St’át’imcets	segmentation	lhus tsícw=wit.	page 32
+(87) line 10	St’át’imcets	gloss	COMP+IPFV+3SBJV get.there=3PL	page 32
+(87) line 11	John Lyon, Henry Davis	translation	They were seen in a lot of places: where the haymakers were, over in the fields where some of their relatives were, that’s where they used to go.	page 32
+(88) line 1	St’át’imcets	segmentation	wá7=ti7 hal’h-án’-itas, hal’a-cít-as izá-wna,	page 32
+(88) line 2	St’át’imcets	gloss	IPFV=that.VIS show-DIR-3PL.ERG show-IND-3ERG these-precisely	page 32
+(88) line 3	St’át’imcets	segmentation	wa7... wá7=lhkan zewát-en izá	page 32
+(88) line 4	St’át’imcets	gloss	IPFV IPFV=1SG.SBJ be.known-DIR these.VIS	page 32
+(88) line 5	St’át’imcets	segmentation	wa7 sqwe•qw•el’-min-tanemwítas... ti7	page 32
+(88) line 6	St’át’imcets	gloss	IPFV tell•CRED•-RLT-3PL.OBJ+NTS that.VIS	page 32
+(88) line 7	St’át’imcets	segmentation	ta=trapsten-í=ha, stéxw=ku7=t’u7 áma	page 32
+(88) line 8	St’át’imcets	gloss	DET=binoculars-3PL.POSS=EXIS really=QUOT=EXCL good	page 32
+(88) line 9	St’át’imcets	segmentation	ku=trápsten.	page 32
+(88) line 10	St’át’imcets	gloss	DET=binoculars	page 32
+(88) line 11	John Lyon, Henry Davis	translation	They showed - I know the people who told this story about them - they showed them the binoculars, really good binoculars.	page 32
+(89) line 1	St’át’imcets	segmentation	láti7 lhas sqwe•qw•el’-mín-itas nka7	page 32
+(89) line 2	St’át’imcets	gloss	at+there.VIS COMP+IPFV+3SBJV tell•CRED•-RLT-3PL.ERG where	page 32
+(89) line 3	St’át’imcets	segmentation	lh=kwan•en-s-twítas ti7 ta=trápsten=a.	page 32
+(89) line 4	St’át’imcets	gloss	COMP=take•FRED-CAUS-3PL.ERG that.VIS DET=binoculars=EXIS	page 32
+(89) line 5	John Lyon, Henry Davis	translation	That’s when they told the story about where they got those binoculars.	page 32
+(90) line 1	St’át’imcets	segmentation	naq’w-cit-ítas ti=ts’qáxa7-s=a ta=saddle-s=a,	page 32
+(90) line 2	St’át’imcets	gloss	steal-IND-3PL.ERG DET=horse-3POSS=EXIS DET=saddle-3POSS=EXIS	page 32
+(90) line 3	St’át’imcets	segmentation	ti7 ta=wa7=n-k’wen’-cen-álhts’a7 ta=trápsten-s=a.	page 32
+(90) line 4	St’át’imcets	gloss	that.VIS DET=IPFV=LOC-look-foot-meat DET=binoculars-3POSS=EXIS	page 32
+(90) line 5	John Lyon, Henry Davis	translation	They stole the horse’s saddle and the tracker’s binoculars.	page 32
+(91) line 1	St’át’imcets	segmentation	cw7áoy=ti7 kwas tsukw száyten-i,	page 33
+(91) line 2	St’át’imcets	gloss	NEG=that.VIS DET+NMLZ+IPFV+3POSS finish doings-3PL.POSS	page 33
+(91) line 3	St’át’imcets	segmentation	cw7it áti7 kw=s-xíl-em-i, wa7,	page 33
+(91) line 4	St’át’imcets	gloss	many to+there.VIS DET=NMLZ-do-MID-3PL.POSS be	page 33
+(91) line 5	St’át’imcets	segmentation	kw=s=kwán-itas ku=ts’qáxa7, ku=7áma	page 33
+(91) line 6	St’át’imcets	gloss	DET=NMLZ=take+DIR-3PL.ERG DET=horse DET=good	page 33
+(91) line 7	St’át’imcets	segmentation	ts’qáxa7, ku=7áma sáotvl, kenká7=tu7	page 33
+(91) line 8	St’át’imcets	gloss	horse DET=good saddle around+there.INVIS=REM	page 33
+(91) line 9	St’át’imcets	segmentation	lhas ka-kwan-s-twítas-a.	page 33
+(91) line 10	St’át’imcets	gloss	COMP+IPFV+3SBJV CIRC-take-CAUS-3PL.ERG-CIRC	page 33
+(91) line 11	John Lyon, Henry Davis	translation	That wasn’t all they did, either, they did a lot of things, they took horses, good horses, good saddles, anywhere they could get them.	page 33
+(92) line 1	St’át’imcets	segmentation	nílh=t’u7 sás=t’u7 wá7=wit=t’u7 ts’íla	page 33
+(92) line 2	St’át’imcets	gloss	COP=EXCL NMLZ+IPFV+3POSS=EXCL be=3PL=EXCL like	page 33
+(92) line 3	St’át’imcets	segmentation	káti7 es-tíg’w ken=ki=tákem=a	page 33
+(92) line 4	St’át’imcets	gloss	around+there.VIS STAT-get.loose around=PL.DET=all=EXIS	page 33
+(92) line 5	St’át’imcets	segmentation	kén=ki... kwelh=ucwalmícw-i=ha.	page 33
+(92) line 6	St’át’imcets	gloss	around=PL.DET PL.INVIS.DET=indigenous.person-3PL.POSS=EXIS	page 33
+(92) line 7	John Lyon, Henry Davis	translation	They just kind of lived freely amongst their relatives.	page 33
+(93) line 1	St’át’imcets	segmentation	cw7ao káti7 (kwa...) kwa tsut	page 33
+(93) line 2	St’át’imcets	gloss	NEG around+there.VIS DET+IPFV DET+IPFV say	page 33
+(93) line 3	St’át’imcets	segmentation	l=tsa lh=wa7=wit=ás=t’u7.	page 33
+(93) line 4	St’át’imcets	gloss	at=DET+NMLZ+IPFV+3POSS+EXIS COMP=be=3PL=3SBJV=EXCL	page 33
+(93) line 5	John Lyon, Henry Davis	translation	Nobody would say where they were.	page 33
+(94) line 1	St’át’imcets	segmentation	ken-tákem=t’u7 lhas tsícw=wit ken=t7ú	page 33
+(94) line 2	St’át’imcets	gloss	around-all=EXCL COMP+IPFV+3SBJV get.there=3PL around=that.VIS	page 33
+(94) line 3	St’át’imcets	segmentation	Lillooet=a, ta=pál7=a száyten-i l=ts7á-wna	page 33
+(94) line 4	St’át’imcets	gloss	Lillooet=EXIS DET=one=EXIS doings-3PL.POSS at=this.VIS-precisely	page 33
+(94) line 5	St’át’imcets	segmentation	ti7, l=kw7a ta=wa7=tsún-em wa7 eleven	page 33
+(94) line 6	St’át’imcets	gloss	that.VIS at=this.INVIS DET=IPFV=say+DIR-1PL.ERG IPFV eleven	page 33
+(94) line 7	St’át’imcets	segmentation	mile.	page 33
+(94) line 8	St’át’imcets	gloss	mile	page 33
+(94) line 9	John Lyon, Henry Davis	translation	They went everywhere around Lillooet, and there was this one thing that they did there, over at what we call Eleven Mile.	page 33
+(95) line 1	St’át’imcets	segmentation	t’ák=wit=ku7 áti7, wá7=t’u7 n-mátq=wit, t’u7	page 34
+(95) line 2	St’át’imcets	gloss	go.along=3PL=QUOT to+there.VIS IPFV=EXCL LOC-walk=3PL but	page 34
+(95) line 3	St’át’imcets	segmentation	áoz=t’u7 kwas es=ts’qáxa7=wit, láti7.	page 34
+(95) line 4	St’át’imcets	gloss	NEG=EXCL DET+NMLZ+IPFV+3POSS have=horse=3PL at+there.VIS	page 34
+(95) line 5	John Lyon, Henry Davis	translation	I heard they were traveling on foot, because they didn’t have horses at that point.	page 34
+(96) line 1	St’át’imcets	segmentation	ats’x-en-ítas ta=t’láz’=a láti7, nílh=t’u7	page 34
+(96) line 2	St’át’imcets	gloss	get.seen-DIR-3PL.ERG DET=canoe=EXIS at+there.VIS COP=EXCL	page 34
+(96) line 3	St’át’imcets	segmentation	s=cuy’=s... (a...) s=tsút=i, “cúz’=lhkalh	page 34
+(96) line 4	St’át’imcets	gloss	NMLZ=going.to=3POSS NMLZ=say=3PL.POSS going.to=1PL.SBJ	page 34
+(96) line 5	St’át’imcets	segmentation	lha7-q e=t7ú x7ílh=a.”6	page 34
+(96) line 6	St’át’imcets	gloss	close.to-point to=that.VIS other.side=EXIS	page 34
+(96) line 7	John Lyon, Henry Davis	translation	They saw a canoe, so they began to... they said, “Let’s cross over to the other side.”	page 34
+footnote 6	John Lyon, Henry Davis	note	Sam Mitchell uses lha7-q and lha7-qs interchangeably in this narrative, which suggests that the lexical suffix -qs ‘point’ may have a less common variant, -q.	page 34, footnote 6
+footnote 6	St’át’imcets	cited form	-qs	page 34, in italics, ‘point’
+footnote 6	St’át’imcets	cited form	-q	page 34, in italics
+(97) line 1	St’át’imcets	segmentation	nílh=t’u7 s=kwán-itas ta=t’láz’=a, t’áq’=wit	page 34
+(97) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=take+DIR-3PL.ERG DET=canoe=EXIS cross.over=3PL	page 34
+(97) line 3	St’át’imcets	segmentation	áta7 x7ílh=a.	page 34
+(97) line 4	St’át’imcets	gloss	to+there.VIS other.side=EXIS	page 34
+(97) line 5	John Lyon, Henry Davis	translation	So they took the canoe and crossed over.	page 34
+(98) line 1	St’át’imcets	segmentation	lha7-qs=wít, nílh=t’u7	page 34
+(98) line 2	St’át’imcets	gloss	close.to-point=3PL COP=EXCL	page 34
+(98) line 3	St’át’imcets	segmentation	s=weq’w-en-ítas	page 34
+(98) line 4	St’át’imcets	gloss	NMLZ=get.carried.away.by.water-DIR-3PL.ERG	page 34
+(98) line 5	St’át’imcets	segmentation	ta=t’láz’=a, kelh-en-ítas ta=lóp=a.	page 34
+(98) line 6	St’át’imcets	gloss	DET=canoe=EXIS take.off-DIR-3PL.ERG DET=rope=EXIS	page 34
+(98) line 7	John Lyon, Henry Davis	translation	They got to shore, then they let the canoe drift away, they took off the rope.	page 34
+(99) line 1	St’át’imcets	segmentation	nílh=t’u7 n-ták-i e=t7ú-wna, e=t7ú	page 34
+(99) line 2	St’át’imcets	gloss	COP=EXCL LOC-side-3PL.POSS to=that.VIS-precisely to=that.VIS	page 34
+(99) line 3	St’át’imcets	segmentation	ta=wa7=tsún-em wa7 nxwísten,	page 34
+(99) line 4	St’át’imcets	gloss	DET=IPFV=say+DIR-1PL.ERG IPFV nxwísten[Bridge.River]	page 34
+(99) line 5	St’át’imcets	segmentation	áta7 lh=ts’item=wít=as.	page 34
+(99) line 6	St’át’imcets	gloss	to+there.VIS COMP=go.towards=3PL=3SBJV	page 34
+(99) line 7	John Lyon, Henry Davis	translation	Then they were on the other side of the river, over towards what we call Nxwísten (Bridge River), and that’s where they headed.	page 34
+(100) line 1	St’át’imcets	segmentation	t’ák=wit áta7... tsícw=wit láta7	page 35
+(100) line 2	St’át’imcets	gloss	go.along=3PL to+there.VIS get.there=3PL at+there.VIS	page 35
+(100) line 3	St’át’imcets	segmentation	l=ki=7ucwalmícw=a tsitcw-s wa7 es-lhép’	page 35
+(100) line 4	St’át’imcets	gloss	at=PL.DET-indigenous.person=EXIS house-3PL IPFV STAT-hung	page 35
+(100) line 5	St’át’imcets	segmentation	i=s-q’wíts’-m=a, st’ánwen.	page 35
+(100) line 6	St’át’imcets	gloss	PL.DET=NMLZ-clothes.get.washed-MID=EXIS skirt	page 35
+(100) line 7	John Lyon, Henry Davis	translation	They went on, and they got to some Indian’s houses which had laundry hanging up, skirts.	page 35
+(101) line 1	St’át’imcets	segmentation	nílh=t’u7 s=tsut=s ta=núkw=a, “cúz’=lhkalh	page 35
+(101) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=say=3POSS DET=other=EXIS going.to=1PL.SBJ	page 35
+(101) line 3	St’át’imcets	segmentation	láti7 kwam ku=st’ánwen.”	page 35
+(101) line 4	St’át’imcets	gloss	at+there.VIS get DET=skirt	page 35
+(101) line 5	John Lyon, Henry Davis	translation	So one of them said, “We’ll take some skirts.”	page 35
+(102) line 1	St’át’imcets	segmentation	“cúz’=lhkalh t’aq’ l=t7u l=ta=ntqwíxw=a,	page 35
+(102) line 2	St’át’imcets	gloss	going.to=1PL.SBJ cross.over at=that.VIS at=DET=bridge=EXIS	page 35
+(102) line 3	St’át’imcets	segmentation	nílh=iz’ s=lhecw-en-ém i=st’ánwen=a.”	page 35
+(102) line 4	St’át’imcets	gloss	COP=those.VIS NMLZ=put.on-DIR-1PL.ERG PL.DET=skirt=EXIS	page 35
+(102) line 5	John Lyon, Henry Davis	translation	“We’ll cross over on the bridge, and we’ll put those skirts on.”	page 35
+(103) line 1	St’át’imcets	segmentation	nílh=t’u7 s=kwán-itas láti7 [ku]=án’was	page 35
+(103) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=take+DIR-3PL.ERG at+there.VIS DET=two	page 35
+(103) line 3	St’át’imcets	segmentation	st’ánwen wa7 es-q’wíts’-em l=ta=line=a.7	page 35
+(103) line 4	St’át’imcets	gloss	skirt IPFV STAT-clothes.get.washed-MID at=DET=line=EXIS	page 35
+(103) line 5	John Lyon, Henry Davis	translation	So they took two skirts that had been washed from the line.	page 35
+footnote 7	John Lyon, Henry Davis	note	There is a break in the recording after this stanza.	page 35, footnote 7
+(104) line 1	St’át’imcets	segmentation	iy, pták=wit lhláti7 aylh, nílh=t’u7 s...	page 35
+(104) line 2	St’át’imcets	gloss	yes go.past=3PL from+there.VIS then COP=EXCL NMLZ	page 35
+(104) line 3	St’át’imcets	segmentation	n-lhá7-q=i, ts’ítem=wit e=ts7á-wna...	page 35
+(104) line 4	St’át’imcets	gloss	LOC-close.to-point=3PL.POSS go.towards=3PL to=this.VIS-precisely	page 35
+(104) line 5	St’át’imcets	segmentation	Lillooet=a, ti7 ta=táown=a.	page 35
+(104) line 6	St’át’imcets	gloss	Lillooet=EXIS that.VIS DET=town=EXIS	page 35
+(104) line 7	John Lyon, Henry Davis	translation	Yes, they went past there, and then they crossed over (Bridge River) and came towards Lillooet, to the town.	page 35
+(105) line 1	St’át’imcets	segmentation	nílh=t’u7 s=wá7=i káta7 cá7=a; nílh=ti7	page 36
+(105) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=be=3PL around+there.VIS high=EXIS COP=that.VIS	page 36
+(105) line 3	St’át’imcets	segmentation	stsúw7-i sqwé•qw•el’.	page 36
+(105) line 4	St’át’imcets	gloss	own-3PL.POSS tell•CRED•	page 36
+(105) line 5	John Lyon, Henry Davis	translation	They were up above the town; that was their own story.	page 36
+(106) line 1	St’át’imcets	segmentation	nilh ti7 sqwe•qw•el’-í kwas wá7=wit	page 36
+(106) line 2	St’át’imcets	gloss	COP that.VIS tell•CRED•-3PL.POSS DET+NMLZ+IPFV+3POSS be=3PL	page 36
+(106) line 3	St’át’imcets	segmentation	káta7.	page 36
+(106) line 4	St’át’imcets	gloss	around+there.VIS	page 36
+(106) line 5	John Lyon, Henry Davis	translation	It was their story that they were around there.	page 36
+(107) line 1	St’át’imcets	segmentation	láni7 ku... láti7 ku=time, k’a cw7aoz	page 36
+(107) line 2	St’át’imcets	gloss	at+there.ABS DET at+there.VIS DET=time EPIS NEG	page 36
+(107) line 3	St’át’imcets	segmentation	káti7 kwas cw7it kwa...	page 36
+(107) line 4	St’át’imcets	gloss	around+there.VIS DET+NMLZ+IPFV+3POSS many DET+IPFV	page 36
+(107) line 5	St’át’imcets	segmentation	ku=7úcwalmicw, cw7aoz kwas cw7it	page 36
+(107) line 6	St’át’imcets	gloss	DET=indigenous.person NEG DET+NMLZ+IPFV+3POSS many	page 36
+(107) line 7	St’át’imcets	segmentation	i=sám7=a.	page 36
+(107) line 8	St’át’imcets	gloss	PL.DET=white.person=EXIS	page 36
+(107) line 9	John Lyon, Henry Davis	translation	At that time, there can’t have been many Indians around, and not many white people.	page 36
+(108) line 1	St’át’imcets	segmentation	gap lhláti7, nílh=t’u7 s=tsícw=wit	page 36
+(108) line 2	St’át’imcets	gloss	evening from+there.VIS COP=EXCL NMLZ=get.there=3PL	page 36
+(108) line 3	St’át’imcets	segmentation	káti7 táown=a, cw7it	page 36
+(108) line 4	St’át’imcets	gloss	around+there.VIS town=EXIS many	page 36
+(108) line 5	St’át’imcets	segmentation	ki=wa7=s-7ílhen-i.	page 36
+(108) line 6	St’át’imcets	gloss	COLL.DET=IPFV=NMLZ-eat-3PL.POSS	page 36
+(108) line 7	John Lyon, Henry Davis	translation	When it was evening, they went around town and got a lot of food.	page 36
+(109) line 1	St’át’imcets	segmentation	cw7ao láti7 kw=zewat-en-tanemwítas.	page 36
+(109) line 2	St’át’imcets	gloss	NEG at+there.VIS DET=be.known-DIR-3PL.OBJ+NTS	page 36
+(109) line 3	John Lyon, Henry Davis	translation	Nobody there knew who they were.	page 36
+(110) line 1	St’át’imcets	segmentation	gap, ts7as gap, ts7as ka-kwás-a,	page 37
+(110) line 2	St’át’imcets	gloss	evening begin.to evening begin.to CIRC-dusk-CIRC	page 37
+(110) line 3	St’át’imcets	segmentation	nílh=t’u7 s=tsút=i, “cúz’=lhkalh t’aq’	page 37
+(110) line 4	St’át’imcets	gloss	COP=EXCL NMLZ=say=3PL.POSS going.to=1PL.SBJ cross.over	page 37
+(110) line 5	St’át’imcets	segmentation	l=ta=ntqwíxw=a.”	page 37
+(110) line 6	St’át’imcets	gloss	at=DET=bridge=EXIS	page 37
+(110) line 7	John Lyon, Henry Davis	translation	Evening came, it began to get dark, then they said, “Let’s cross over on the bridge.”	page 37
+(111) line 1	St’át’imcets	segmentation	lhecw-en-ítas iz’ i=st’ánwen=a, nílh=t’u7	page 37
+(111) line 2	St’át’imcets	gloss	put.on-DIR-3PL.ERG those.VIS PL.DET=skirt=EXIS COP=EXCL	page 37
+(111) line 3	St’át’imcets	segmentation	s=qwatsáts=i s-zec•zacen-s-twítas	page 37
+(111) line 4	St’át’imcets	gloss	NMLZ=leave=3PL.POSS STAT-TRED•pack-CAUS-3PL.ERG	page 37
+(111) line 5	St’át’imcets	segmentation	i=s7ilhen-í=ha.	page 37
+(111) line 6	St’át’imcets	gloss	PL.DET=food-3PL.POSS=EXIS	page 37
+(111) line 7	John Lyon, Henry Davis	translation	They put on those skirts, then they set off, packing their food on their backs.	page 37
+(112) line 1	St’át’imcets	segmentation	papt láti7 (wa7...) wa7 matq i=7ucwalmícw=a	page 37
+(112) line 2	St’át’imcets	gloss	always at+there.VIS IPFV IPFV walk PL.DET=indigenous.person=EXIS	page 37
+(112) line 3	St’át’imcets	segmentation	smelh•múlhats, n-matq.	page 37
+(112) line 4	St’át’imcets	gloss	TRED•woman LOC-walk	page 37
+(112) line 5	John Lyon, Henry Davis	translation	There were always Indian women travelling there, walking.	page 37
+(113) line 1	St’át’imcets	segmentation	t’ák=wit aylh é=ta=n... tsícw=wit áti7	page 37
+(113) line 2	St’át’imcets	gloss	go.along=3PL then to=DET=LOC get.there=3PL to+there.VIS	page 37
+(113) line 3	St’át’imcets	segmentation	ta=ntqwíxw=a, wa7 zewat-en-ítas ta=pá•pl7=a	page 37
+(113) line 4	St’át’imcets	gloss	DET=bridge=EXIS IPFV be.known-DIR-3PL.ERG DET=IRED•one=EXIS	page 37
+(113) line 5	St’át’imcets	segmentation	láti7 sáma7 wa7 es-7ats’x-s-táli	page 37
+(113) line 6	St’át’imcets	gloss	at+there.VIS white.person IPFV STAT-get.seen-CAUS-NTS	page 37
+(113) line 7	St’át’imcets	segmentation	ta=ntqwíxw=a.	page 37
+(113) line 8	St’át’imcets	gloss	DET=bridge=EXIS	page 37
+(113) line 9	John Lyon, Henry Davis	translation	They got to the bridge and they knew this one white person who was there watching the bridge.	page 37
+(114) line 1	St’át’imcets	segmentation	nílh=iz’ láti7 wa7 s-7ats’x-s-tanemwítas	page 37
+(114) line 2	St’át’imcets	gloss	COP=those.VIS at+there.VIS IPFV STAT-get.seen-CAUS-3PL.OBJ+NTS	page 37
+(114) line 3	St’át’imcets	segmentation	kán=as kwas t’áq’=wit.	page 37
+(114) line 4	St’át’imcets	gloss	whether=3SBJV DET+NMLZ+IPFV+3POSS cross.over=3PL	page 37
+(114) line 5	John Lyon, Henry Davis	translation	They were watching out in case they (the outlaws) crossed.	page 37
+(115) line 1	St’át’imcets	segmentation	sucwt-en-ítas ta=pá•pl7=a, nílh=ku7=ti7	page 38
+(115) line 2	St’át’imcets	gloss	recognize-DIR-3PL.ERG DET=IRED•one=EXIS COP=QUOT=that.VIS	page 38
+(115) line 3	St’át’imcets	segmentation	wa7 s=Joe Russell, wá7=ti7 zewat-en-ítas,	page 38
+(115) line 4	St’át’imcets	gloss	IPFV NMLZ=Joe Russell IPFV=that.VIS be.known-DIR-3PL.ERG	page 38
+(115) line 5	St’át’imcets	segmentation	nílh=t’u7=ti7 s=t’ák=i t’u t’aq’.	page 38
+(115) line 6	St’át’imcets	gloss	COP=EXCL=that.VIS NMLZ=go.along=3PL.POSS until cross.over	page 38
+(115) line 7	John Lyon, Henry Davis	translation	They recognized one person, it was Joe Russell, they knew him, but they kept going until they crossed over.	page 38
+(116) line 1	St’át’imcets	segmentation	lha7-qs=wít, ao káti7 wa7	page 38
+(116) line 2	St’át’imcets	gloss	close.to-point=3PL NEG around+there.VIS IPFV	page 38
+(116) line 3	St’át’imcets	segmentation	kas- [ts] -tanemwítas, tsút=t’u7 iz’	page 38
+(116) line 4	St’át’imcets	gloss	do.how-CAUS-3PL.OBJ+NTS say=EXCL those.VIS	page 38
+(116) line 5	St’át’imcets	segmentation	i=sám7=a kw=s7úcwalmicw	page 38
+(116) line 6	St’át’imcets	gloss	PL.DET=white.person=EXIS DET=indigenous.person	page 38
+(116) line 7	St’át’imcets	segmentation	[kwe]lh=smelh•melh•múlhats káti7	page 38
+(116) line 8	St’át’imcets	gloss	PL.ABS.DET=TRED•TRED•woman=EPIS around+there.VIS	page 38
+(116) line 9	St’át’imcets	segmentation	t’ák=a.	page 38
+(116) line 10	St’át’imcets	gloss	go.along=EXIS	page 38
+(116) line 11	John Lyon, Henry Davis	translation	They crossed over, nobody did anything to them, those white people just thought that the women going by were Indians.	page 38
+§5.7	John Lyon, Henry Davis	heading	5.7 K’úl’emwit ku tsitcwíha ku sk’wals láku7 Leon’s Creek	page 38
+(117) line 1	St’át’imcets	segmentation	pták=wit lhláti7, nílh=t’u7 s=t’ák=i=t’u7	page 38
+(117) line 2	St’át’imcets	gloss	go.past=3PL from+there.VIS COP=EXCL NMLZ=continue=3PL.POSS=EXCL	page 38
+(117) line 3	St’át’imcets	segmentation	ts’ítem wa7 i=nk’saytken-í=ha (áku7...)	page 38
+(117) line 4	St’át’imcets	gloss	go.towards be PL.DET=relative-3PL.POSS=EXIS to+there.INVIS	page 38
+(117) line 5	St’át’imcets	segmentation	áku7 cácel’p=a lh...	page 38
+(117) line 6	St’át’imcets	gloss	to+there.INVIS Cácl’ep [Fountain]=EXIS COMP	page 38
+(117) line 7	John Lyon, Henry Davis	translation	They continued towards where their relatives were at Fountain.	page 38
+(118) line 1	St’át’imcets	segmentation	wa7 zewat-en-ítas láku7 i=núkw=a	page 38
+(118) line 2	St’át’imcets	gloss	IPFV be.known-DIR-3PL.ERG at+there.INVIS PL.DET=other=EXIS	page 38
+(118) line 3	St’át’imcets	segmentation	úcwalmicw...	page 38
+(118) line 4	St’át’imcets	gloss	indigenous.person	page 38
+(118) line 5	John Lyon, Henry Davis	translation	They knew some of the Indians there...	page 38
+(119) line 1	St’át’imcets	segmentation	...áku7 lh=tsícw=wit=as ti=pál7=a sgap.	page 39
+(119) line 2	St’át’imcets	gloss	to+there.INVIS COMP=get.there=3PL=3SBJV DET=one=EXIS evening	page 39
+(119) line 3	John Lyon, Henry Davis	translation	...They got there one evening.	page 39
+(120) line 1	St’át’imcets	segmentation	lhláti7 qwatsáts=wit ken=t7ú-wna	page 39
+(120) line 2	St’át’imcets	gloss	from+there.VIS leave=3PL around=that.VIS-precisely	page 39
+(120) line 3	St’át’imcets	segmentation	ta=wa7=tsún-em spálem.	page 39
+(120) line 4	St’át’imcets	gloss	DET=IPFV=say+DIR-1PL.ERG field[Fountain.Flats]	page 39
+(120) line 5	John Lyon, Henry Davis	translation	From there they set out for what we call Spálem (Fountain Flats).	page 39
+(121) line 1	St’át’imcets	segmentation	áta7 lh=wá7=as i=núkw=a nk’sáytken-i,	page 39
+(121) line 2	St’át’imcets	gloss	to+there.VIS COMP=be=3SBJV PL.DET=other=EXIS relative-3PL.POSS	page 39
+(121) line 3	St’át’imcets	segmentation	káta7 lhas tsícw=wit.	page 39
+(121) line 4	St’át’imcets	gloss	around+there.VIS COMP+IPFV+3SBJV get.there=3PL	page 39
+(121) line 5	John Lyon, Henry Davis	translation	Some of their relatives were living there, where they went.	page 39
+(122) line 1	St’át’imcets	segmentation	ken-tákem ken=ki=7ucwalmícw=a lhas	page 39
+(122) line 2	St’át’imcets	gloss	around-all around=PL.DET=indigenous.person=EXIS COMP+IPFV+3SBJV	page 39
+(122) line 3	St’át’imcets	segmentation	tsícw=wit, sqwe•qw•el’-mín-itas [i]=wa7=száyten-i,	page 39
+(122) line 4	St’át’imcets	gloss	get.there=3PL tell•CRED•-RLT-3PL.ERG PL.DET=IPFV=doings-3PL.POSS	page 39
+(122) line 5	St’át’imcets	segmentation	ats’x i=wa7=sqwe•qw•el’-mín-itas	page 39
+(122) line 6	St’át’imcets	gloss	get.seen PL.DET=IPFV=tell•CRED•-RLT-3PL.ERG	page 39
+(122) line 7	St’át’imcets	segmentation	i=wás kal-en-tánemwit	page 39
+(122) line 8	St’át’imcets	gloss	when.PAST=IPFV+3SBJV chase-DIR-3PL.PASS	page 39
+(122) line 9	St’át’imcets	segmentation	ki=sám7=a, legw-ilc-mín-itas	page 39
+(122) line 10	St’át’imcets	gloss	PL.DET=white.person=EXIS hide-AUT-RLT-3PL.ERG	page 39
+(122) line 11	St’át’imcets	segmentation	lh=núkw=as:	page 39
+(122) line 12	St’át’imcets	gloss	COMP=some=3SBJV	page 39
+(122) line 13	John Lyon, Henry Davis	translation	Everywhere they went amongst the Indians, they told the story of what they had been doing: they told about how they were seen by the white people chasing them, and how they hid from them sometimes:	page 39
+(123) line 1	St’át’imcets	segmentation	t’ák=wit=ku7 káti7 s... wá7=wit	page 40
+(123) line 2	St’át’imcets	gloss	go.along=3PL=QUOT around+there.VIS NMLZ IPFV=3PL	page 40
+(123) line 3	St’át’imcets	segmentation	láti7 s-legw-ílc, t’ak káti7	page 40
+(123) line 4	St’át’imcets	gloss	at+there.VIS STAT-hide-AUT go.along around+there.VIS	page 40
+(123) line 5	St’át’imcets	segmentation	[i]=wa7=n-k’wan’-cen-an-tanemwítas	page 40
+(123) line 6	St’át’imcets	gloss	PL.DET=IPFV=LOC-look-foot-DIR-3PL.OBJ+NTS	page 40
+(123) line 7	St’át’imcets	segmentation	sq’út-i=ha, t’u ptá::k=wit.	page 40
+(123) line 8	St’át’imcets	gloss	beside-3PL.POSS=EXIS until go.past=3PL	page 40
+(123) line 9	John Lyon, Henry Davis	translation	The trackers went along - they were hiding, and the ones tracking them went by right beside them, until they passed by.	page 40
+(124) line 1	St’át’imcets	segmentation	láti7 l=ta=pá•pl7=a snúk’w7-i lhláta7	page 40
+(124) line 2	St’át’imcets	gloss	at+there.VIS at=DET=IRED•one=EXIS relative-3PL.POSS from+there.VIS	page 40
+(124) line 3	St’át’imcets	segmentation	ti7 ta=wa7=tsún-em ts’k’wáylacw,	page 40
+(124) line 4	St’át’imcets	gloss	that.VIS DET=IPFV=say+DIR-1PL.ERG Ts’k’wáylacw[Pavilion]	page 40
+(124) line 5	St’át’imcets	segmentation	wá7=iz’ alkst láta7 l=ki=wa7=leqm-ám	page 40
+(124) line 6	St’át’imcets	gloss	IPFV=those.VIS work at+there.VIS at=PL.DET=IPFV=hay-MID	page 40
+(124) line 7	St’át’imcets	segmentation	lhas pipántsk.	page 40
+(124) line 8	St’át’imcets	gloss	COMP+IPFV+3SBJV summer	page 40
+(124) line 9	John Lyon, Henry Davis	translation	At one of their relative’s places over in what we call Ts’k’wáylacw (Pavil- ion), they worked amongst the haymakers during the summertime.	page 40
+(125) line 1	St’át’imcets	segmentation	áti7=ku7 papt... lh=k’wín=as gap	page 40
+(125) line 2	St’át’imcets	gloss	to+there.VIS=QUOT always COMP=how.many=3SBJV evening	page 40
+(125) line 3	St’át’imcets	segmentation	kwas tsícw=wit áta7,	page 40
+(125) line 4	St’át’imcets	gloss	DET+NMLZ+IPFV+3POSS get.there=3PL to+there.VIS	page 40
+(125) line 5	St’át’imcets	segmentation	láta7 lhas kwan•en-s-twítas	page 40
+(125) line 6	St’át’imcets	gloss	at+there.VIS COMP+IPFV+3SBJV take•FRED-CAUS-3PL.ERG	page 40
+(125) line 7	St’át’imcets	segmentation	i=s7ilhen-í=ha.	page 40
+(125) line 8	St’át’imcets	gloss	PL.DET=food-3PL.POSS=EXIS	page 40
+(125) line 9	John Lyon, Henry Davis	translation	On many evenings, they’d go there to get food.	page 40
+(126) line 1	St’át’imcets	segmentation	nilh láti7=ku7 lhas sqwe•qw•el’-mín-itas	page 41
+(126) line 2	St’át’imcets	gloss	COP at+there.VIS=QUOT COMP+IPFV+3POSS tell•CRED•-RLT-3PL.ERG	page 41
+(126) line 3	St’át’imcets	segmentation	kwás=ti7 naq’w-cit-ítas	page 41
+(126) line 4	St’át’imcets	gloss	DET+NMLZ+IPFV+3POSS=that.VIS steal-IND-3PL.ERG	page 41
+(126) line 5	St’át’imcets	segmentation	ta=trápsten=a (ta...) múta7 ta=ts’qáxa7-s=a	page 41
+(126) line 6	St’át’imcets	gloss	DET=binoculars=EXIS DET and DET=horse-3POSS=EXIS	page 41
+(126) line 7	St’át’imcets	segmentation	ti7 ta=wa7=n-k’wan’-cen-an-tanemwítas.	page 41
+(126) line 8	St’át’imcets	gloss	that.VIS DET=IPFV=LOC-look-foot-DIR-3PL.OBJ+NTS	page 41
+(126) line 9	John Lyon, Henry Davis	translation	That’s where they told the story about stealing those binoculars and the horse from the tracker.	page 41
+(127) line 1	St’át’imcets	segmentation	stéxw=ku7=t’u7 ti7 áma ta=trapsten-í=ha, kaw’	page 41
+(127) line 2	St’át’imcets	gloss	really=QUOT=EXCL that.VIS good DET=binoculars-3PL.POSS=EXIS far	page 41
+(127) line 3	St’át’imcets	segmentation	kw=s-hál’a... sk’ík’ta7-s=a s...	page 41
+(127) line 4	St’át’imcets	gloss	DET=STAT-show nearby-3POSS=EXIS NMLZ	page 41
+(127) line 5	John Lyon, Henry Davis	translation	Their binoculars were really nice, far away things showed close up.	page 41
+(128) line 1	St’át’imcets	segmentation	ken-tákem=t’u7 aylh káti7 lhas	page 41
+(128) line 2	St’át’imcets	gloss	around-all=EXCL then around+there.VIS COMP+IPFV+3SBJV	page 41
+(128) line 3	St’át’imcets	segmentation	wá7=wit=t’u7 wa7=hém’, wa7=wit=hém’=t’u7 s-legw-ílc	page 41
+(128) line 4	St’át’imcets	gloss	be=3PL=EXCL IPFV=ANTI IPFV=3PL=ANTI=EXCL NMLZ-hide-AUT	page 41
+(128) line 5	St’át’imcets	segmentation	l=t7u l=ta=wa7=tsún-itas wa7 Leon’s Creek,	page 41
+(128) line 6	St’át’imcets	gloss	at=that.VIS at=DET=IPFV=say+DIR-3PL.ERG IPFV Leon’s Creek	page 41
+(128) line 7	St’át’imcets	segmentation	s-x7ilh-ts.	page 41
+(128) line 8	St’át’imcets	gloss	NMLZ-across-3POSS	page 41
+(128) line 9	John Lyon, Henry Davis	translation	They were staying all over, but they hid out over at what they call Leon’s Creek, on the other side of the river.	page 41
+(129) line 1	St’át’imcets	segmentation	láku7=ku7 ku=tsitcw-í=ha	page 41
+(129) line 2	St’át’imcets	gloss	at+there.INVIS=that.INVIS INVIS.DET=house-3PL.POSS=EXIS	page 41
+(129) line 3	St’át’imcets	segmentation	s-k’ul’-em=wít=t’u7 ku=sk’wáls, nilh ti7	page 41
+(129) line 4	St’át’imcets	gloss	NMLZ-get.made-MID=3PL=EXCL DET=rock.overhang COP that.VIS	page 41
+(129) line 5	St’át’imcets	segmentation	ta=wa7=tsún-em ti=sám7=a wa7 cave.	page 41
+(129) line 6	St’át’imcets	gloss	DET=IPFV=say+DIR-3PASS DET=white.person=EXIS IPFV cave	page 41
+(129) line 7	John Lyon, Henry Davis	translation	They built their house in a rock-overhang, what is called a ‘cave’ in En- glish.	page 41
+(130) line 1	St’át’imcets	segmentation	láti7 lhas wá7=wit, ke•káw’ ti7	page 42
+(130) line 2	St’át’imcets	gloss	at+there.VIS COMP+IPFV+3SBJV be=3PL IRED•far that.VIS	page 42
+(130) line 3	St’át’imcets	segmentation	tswása [e] s-hál’a ken-tákem,	page 42
+(130) line 4	St’át’imcets	gloss	DET+NMLZ+IPFV+3POSS+EXIS STAT-show around-all	page 42
+(130) line 5	St’át’imcets	segmentation	lhláti7 l=tswása wá7=wit.	page 42
+(130) line 6	St’át’imcets	gloss	from+there.VIS at=DET+NMLZ+IPFV+3POSS+EXIS be=3PL	page 42
+(130) line 7	John Lyon, Henry Davis	translation	Where they were staying, you can see everything for a long ways, from where they were.	page 42
+(131) line 1	St’át’imcets	segmentation	lhkúnsa wá7=k’a=t’u7 s=ts’íla es-hál’a, kw=s=ts’íla=s	page 42
+(131) line 2	St’át’imcets	gloss	today IPFV=EPIS=EXCL NMLZ=like STAT-show DET=NMLZ=like=3POSS	page 42
+(131) line 3	St’át’imcets	segmentation	ti7 wa7, n-k’win•k’wen=ás=k’a wa7	page 42
+(131) line 4	St’át’imcets	gloss	that.VIS be LOC-TRED•how.many=3SBJV=EPIS IPFV	page 42
+(131) line 5	St’át’imcets	segmentation	tsicw áku7 ats’x-en-táli, ti7	page 42
+(131) line 6	St’át’imcets	gloss	get.there to+there.INVIS get.seen-DIR-NTS that.VIS	page 42
+(131) line 7	St’át’imcets	segmentation	l=ta=tsitcw-í=ha es-máys ku...	page 42
+(131) line 8	St’át’imcets	gloss	at=DET=house-3PL.POSS=EXIS STAT-get.fixed DET	page 42
+(131) line 9	John Lyon, Henry Davis	translation	Today it’s still more or less visible, it’s still kind of there, a bunch of people must have gone up there to take a look at it, that house they built...	page 42
+(132) line 1	St’át’imcets	segmentation	tsícw=kacw áta7, [wa7]=hém’=t’u7 cw7aoz	page 42
+(132) line 2	St’át’imcets	gloss	get.there=2SG.SBJ to+there.VIS IPFV=ANTI=EXCL NEG	page 42
+(132) line 3	St’át’imcets	segmentation	kwásu áts’x-en kwas	page 42
+(132) line 4	St’át’imcets	gloss	DET+NMLZ+IPFV+2SG.POSS get.seen-DIR DET+NMLZ+IPFV+3POSS	page 42
+(132) line 5	St’át’imcets	segmentation	wa7 láti7 ku=tsítcw.	page 42
+(132) line 6	St’át’imcets	gloss	be at+there.VIS DET=house	page 42
+(132) line 7	John Lyon, Henry Davis	translation	You get there, but you don’t see any house there.	page 42
+(133) line 1	St’át’imcets	segmentation	pút=kacw=t’u7 zewát-en kw=s... lh=nká7=as	page 42
+(133) line 2	St’át’imcets	gloss	exactly=2SG.SBJ=EXCL be.known-DIR DET=NMLZ COMP=where=3SBJV	page 42
+(133) line 3	St’át’imcets	segmentation	lh=lák=as, t’u7 wá7=lhkacw ka-7áts’x-s-a.	page 42
+(133) line 4	St’át’imcets	gloss	COMP=be.there=3SBJV EXCL IPFV=2SG.SBJ CIRC-get.seen-CAUS-CIRC	page 42
+(133) line 5	John Lyon, Henry Davis	translation	If you know just where it’s at, then you’re able to see it.	page 42
+§5.8	John Lyon, Henry Davis	heading	5.8 Wa7 kwánenwit i wa7 q’wemq’wmíw’s, nilh swas kotháwsi	page 43
+(134) line 1	St’át’imcets	segmentation	s-7aw’t-s lhel=ts7á-wna, cw7it	page 43
+(134) line 2	St’át’imcets	gloss	NMLZ-behind-3POSS from=this.VIS-precisely many	page 43
+(134) line 3	St’át’imcets	segmentation	kwas... p’á7cw=k’a=t’u7 ku=xw7útsin máqa7	page 43
+(134) line 4	St’át’imcets	gloss	DET+NMLZ+IPFV+3POSS more.than=EPIS=EXCL DET=four snow	page 43
+(134) line 5	St’át’imcets	segmentation	kwas wá7=wit q’wmiw’s.	page 43
+(134) line 6	St’át’imcets	gloss	DET+NMLZ+IPFV+3POSS IPFV=3PL wild	page 43
+(134) line 7	John Lyon, Henry Davis	translation	After that, there were a lot.... it must’ve been more than four years that that they were on the run.	page 43
+(135) line 1	St’át’imcets	segmentation	plán=t’u7=tu7 pa<7>cw (i...) ta=kv́pmen=a	page 43
+(135) line 2	St’át’imcets	gloss	already=EXCL=REM give.up<INCH> PL.DET DET=government=EXIS	page 43
+(135) line 3	St’át’imcets	segmentation	kwas n-k’wan’-cen-án’-as, cw7áoy=t’u7	page 43
+(135) line 4	St’át’imcets	gloss	DET+NMLZ+IPFV+3POSS LOC-look-foot-DIR-3ERG NEG=EXCL	page 43
+(135) line 5	St’át’imcets	segmentation	kw=s=ka-kwán-s- [a], kwas ts’íla	page 43
+(135) line 6	St’át’imcets	gloss	DET=NMLZ=CIRC-take-CAUS-CIRC DET+NMLZ+IPFV+3POSS like	page 43
+(135) line 7	St’át’imcets	segmentation	wa7 n-pzán-itas.	page 43
+(135) line 8	St’át’imcets	gloss	IPFV LOC-meet+DIR-3PL.ERG	page 43
+(135) line 9	John Lyon, Henry Davis	translation	The government had given up on tracking them, they couldn’t catch... kind of catch up to them.	page 43
+(136) line 1	St’át’imcets	segmentation	tsúkw=t’u7 ti7 aylh ta=wa7=tsún-itas wa7 reward,	page 43
+(136) line 2	St’át’imcets	gloss	finish=EXCL that.VIS then DET=IPFV=say+DIR-3PL.ERG IPFV reward	page 43
+(136) line 3	St’át’imcets	segmentation	four thousand dollars.	page 43
+(136) line 4	St’át’imcets	gloss	four thousand dollars	page 43
+(136) line 5	John Lyon, Henry Davis	translation	There was just what they called the reward, 4000 dollars.	page 43
+(137) line 1	St’át’imcets	segmentation	wá7=t’u7 ts7a ta=pá•pl7=a kúkwpi7, ts’ila=k’á=ti7	page 43
+(137) line 2	St’át’imcets	gloss	be=EXCL this.VIS DET=IRED•one=EXIS chief like=EPIS=that.VIS	page 43
+(137) line 3	St’át’imcets	segmentation	ku=sísq7-i izá.	page 43
+(137) line 4	St’át’imcets	gloss	DET=uncle-3PL.POSS these	page 43
+(137) line 5	John Lyon, Henry Davis	translation	There was this one chief, he must’ve been kind of like their uncle.	page 43
+(138) line 1	St’át’imcets	segmentation	nílh=t’u7 s=tsut-ánwas=ts, “lh=nás=an	page 43
+(138) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=say-inside=3POSS COMP=go=1SG.SBJV	page 43
+(138) line 3	St’át’imcets	segmentation	tsun-taníhan (kw=s...)	page 43
+(138) line 4	St’át’imcets	gloss	say+DIR-3PL.OBJ+1SG.ERG DET=NMLZ	page 43
+(138) line 5	St’át’imcets	segmentation	kw=s=ts7as=í=t’u7 e=ts7á-wna...”	page 43
+(138) line 6	St’át’imcets	gloss	DET=NMLZ=come=3PL.POSS=EXCL to=this.VIS-precisely	page 43
+(138) line 7	John Lyon, Henry Davis	translation	He thought, “What if I go tell them to come over here...”	page 43
+(139) line 1	St’át’imcets	segmentation	“...nílh=t’u7 s=cuy nás-cit i=wa7=zús-cal,	page 44
+(139) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=go go-IND PL.DET=IPFV=get.tied.up-ACT	page 44
+(139) line 3	St’át’imcets	segmentation	tsúkw=t’u7 kw=s=cw7aoy=s kw=n=s=cuz’	page 44
+(139) line 4	St’át’imcets	gloss	finish=EXCL DET=NMLZ=NEG=3POSS DET=1SG.POSS=NMLZ=going.to	page 44
+(139) line 5	St’át’imcets	segmentation	kwan ta=sqláw’=a wa7 s-xaq’.”	page 44
+(139) line 6	St’át’imcets	gloss	take+DIR DET=money=EXIS IPFV STAT-pay	page 44
+(139) line 7	John Lyon, Henry Davis	translation	“...and then go send for a policeman, only I’ll never take the reward ” money.	page 44
+(140) line 1	St’át’imcets	segmentation	“cúz’=lhkan=t’u7 qwéz-en ku=n-tsúwa7 sqlaw’	page 44
+(140) line 2	St’át’imcets	gloss	going.to=1SG.SBJ=EXCL get.used-DIR DET=1SG.POSS-own money	page 44
+(140) line 3	St’át’imcets	segmentation	l=kw=s... l=ku=lóya.”	page 44
+(140) line 4	St’át’imcets	gloss	at=DET=NMLZ at=DET=lawyer	page 44
+(140) line 5	John Lyon, Henry Davis	translation	“I’m going to use my own money for a lawyer.”	page 44
+(141) line 1	St’át’imcets	segmentation	nílh=t’u7 s=tsicw=s sqwel’•qwel’-s-ás izá	page 44
+(141) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=get.there=3POSS TRED•tell•-CAUS-3ERG these.VIS	page 44
+(141) line 3	St’át’imcets	segmentation	i=tew•twíw’t=a, n-7án’was.	page 44
+(141) line 4	St’át’imcets	gloss	PL.DET=TRED•young.person=EXIS LOC-two	page 44
+(141) line 5	John Lyon, Henry Davis	translation	Then he went to talk to these two young people.	page 44
+(142) line 1	St’át’imcets	segmentation	nílh=t’u7 s=n-cwatsín’- [n] -em, nílh=t’u7 s=ts7ás=i.	page 44
+(142) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=LOC-obey-DIR-3PASS COP=EXCL NMLZ=come=3PL.POSS	page 44
+(142) line 3	John Lyon, Henry Davis	translation	So they listened to his advice and came.	page 44
+(143) line 1	St’át’imcets	segmentation	nílh=t’u7 aylh s=kwán-tanemwit [e]=ki=plísmen=a,	page 44
+(143) line 2	St’át’imcets	gloss	COP=EXCL then NMLZ=take+DIR-3PL.PASS OBL=PL.DET=policeman=EXIS	page 44
+(143) line 3	St’át’imcets	segmentation	nílh=t’u7 ts7a ta=kúkwpi7=[a] cwits’-in’-táli, elh	page 44
+(143) line 4	St’át’imcets	gloss	COP=EXCL this.VIS DET=chief=EXIS hand.over-DIR-NTS and.then	page 44
+(143) line 5	St’át’imcets	segmentation	cúz’=wit aylh láti7 kotháws.	page 44
+(143) line 6	St’át’imcets	gloss	going.to=3PL then at+there.VIS court	page 44
+(143) line 7	John Lyon, Henry Davis	translation	Then they were taken by the police, it was this chief who handed them over, and then they were going to go to trial after that.	page 44
+(144) line 1	St’át’imcets	segmentation	s-7aw’t-s lhláti7, cw7it kw=s=kotháws=i.	page 44
+(144) line 2	St’át’imcets	gloss	NMLZ-behind-3POSS from+there.VIS many DET=NMLZ=court=3PL.POSS	page 44
+(144) line 3	John Lyon, Henry Davis	translation	After this, there were a lot of trials.	page 44
+(145) line 1	St’át’imcets	segmentation	ken-tákem lh=tsícw=as, nílh=ti7 wa7 s=Stewart	page 45
+(145) line 2	St’át’imcets	gloss	around-all COMP=get.there=3SBJV COP=that.VIS IPFV NMLZ=Stewart	page 45
+(145) line 3	St’át’imcets	segmentation	Henderson ta=loyh-í=ha múta7 nilh wa7	page 45
+(145) line 4	St’át’imcets	gloss	Henderson DET=lawyer-3PL.POSS=EXIS and COP IPFV	page 45
+(145) line 5	St’át’imcets	segmentation	s=Costello...	page 45
+(145) line 6	St’át’imcets	gloss	NMLZ=Costello	page 45
+(145) line 7	John Lyon, Henry Davis	translation	They went everywhere, Stuart Henderson was their lawyer, and then there was Costello...	page 45
+(146) line 1	St’át’imcets	segmentation	Henry Costello ti7 ta=núkw=a lóyh-i.	page 45
+(146) line 2	St’át’imcets	gloss	Henry Costello that.VIS DET=other=EXIS lawyer-3PL.POSS	page 45
+(146) line 3	John Lyon, Henry Davis	translation	Henry Costello was their other lawyer.	page 45
+(147) line 1	St’át’imcets	segmentation	cw7it kw=s=kotháws=i ken=ki=s7ícwlh=a	page 45
+(147) line 2	St’át’imcets	gloss	many DET=NMLZ=court=3PL.POSS around=PL.DET=different=EXIS	page 45
+(147) line 3	St’át’imcets	segmentation	tmicw.	page 45
+(147) line 4	St’át’imcets	gloss	land	page 45
+(147) line 5	John Lyon, Henry Davis	translation	There were a lot of trials in different places.	page 45
+(148) line 1	St’át’imcets	segmentation	pá•pla7=t’u7 ta=láw=a lhel=wi=snílh.	page 45
+(148) line 2	St’át’imcets	gloss	IRED•one=EXIS DET=get.hung=EXIS from=PL=3SG.INDEP	page 45
+(148) line 3	John Lyon, Henry Davis	translation	One of them was hung.	page 45
+(149) line 1	St’át’imcets	segmentation	nílh=t’u7 s=lifetíme-s- [s]tum ta=pá•pl7=a=t’u7,	page 45
+(149) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=lifetime-CAUS-3PASS DET=IRED•one=EXIS=EXCL	page 45
+(149) line 3	St’át’imcets	segmentation	cw7áoy=t’u7 kw=s=cw7ít=s máqa7, xw7utsin=k’á=t’u7	page 45
+(149) line 4	St’át’imcets	gloss	NEG=EXCL DET=NMLZ=many=3POSS snow four=EPIS=EXCL	page 45
+(149) line 5	St’át’imcets	segmentation	ts’íla máqa7, nílh=t’u7 s=zúqw=s=tu7	page 45
+(149) line 6	St’át’imcets	gloss	like snow COP=EXCL NMLZ=dead=3POSS=REM	page 45
+(149) line 7	St’át’imcets	segmentation	láta7=t’u7 l=ta=n-k’á7-men=a.	page 45
+(149) line 8	St’át’imcets	gloss	at+there.VIS=EXCL at=DET=LOC-get.stuck-INS=EXIS	page 45
+(149) line 9	John Lyon, Henry Davis	translation	The other one got a life sentence, but he didn’t survive many years, maybe something like four years, then he died there in jail.	page 45
+(150) line 1	St’át’imcets	segmentation	láti7 iz’ lh=tsem’p=wít=as.	page 45
+(150) line 2	St’át’imcets	gloss	at+there.VIS those.VIS COMP=get.finished=3PL=3SBJV	page 45
+(150) line 3	John Lyon, Henry Davis	translation	That’s how it ended for them.	page 45
+§6	John Lyon, Henry Davis	heading	6 Appendices	page 46
+Appendix chart	John Lyon, Henry Davis	heading	Conversion Chart: van Eijk Orthography to American Phonemic Alphabet (A.P.A.)	page 46, the chart's caption
+Appendix chart	John Lyon, Henry Davis	note	Van Eijk	page 46, the van Eijk columns: an underline marks a retracted consonant, note (ii), and is drawn under ts, ts’, s, l and l’, no letter of the text; read off a render
+Appendix chart line 1	John Lyon, Henry Davis	note	Van Eijk A.P.A. Van Eijk A.P.A.	page 46, the column heads, twice over
+Appendix chart line 2	John Lyon, Henry Davis	note	p p q q	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 3	John Lyon, Henry Davis	note	p’ p̓ q’ q̓	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 4	John Lyon, Henry Davis	note	m m qw qʷ	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 5	John Lyon, Henry Davis	note	m m̓ q’w q̓ʷ	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 6	John Lyon, Henry Davis	note	t t x x̌	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 7	John Lyon, Henry Davis	note	ts c xw x̌ʷ	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 8	John Lyon, Henry Davis	note	ts c̣ g ʕ	page 46, van Eijk and A.P.A., two pairs side by side, the first cell underlined on the page
+Appendix chart line 9	John Lyon, Henry Davis	note	ts’ c̓ g’ ʕ̓	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 10	John Lyon, Henry Davis	note	ts’ c̣̓ gw ʕʷ	page 46, van Eijk and A.P.A., two pairs side by side, the first cell underlined on the page
+Appendix chart line 11	John Lyon, Henry Davis	note	s š g’w ʕ̓ʷ	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 12	John Lyon, Henry Davis	note	s ṣ w w	page 46, van Eijk and A.P.A., two pairs side by side, the first cell underlined on the page
+Appendix chart line 13	John Lyon, Henry Davis	note	n n w’ w̓	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 14	John Lyon, Henry Davis	note	n’ n̓ y y	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 15	John Lyon, Henry Davis	note	t’ ƛ̓ y’ y̓	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 16	John Lyon, Henry Davis	note	lh ɬ z z	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 17	John Lyon, Henry Davis	note	l l z’ z̓	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 18	John Lyon, Henry Davis	note	l’ l̓ h h	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 19	John Lyon, Henry Davis	note	l ḷ 7 ʔ	page 46, van Eijk and A.P.A., two pairs side by side, the first cell underlined on the page
+Appendix chart line 20	John Lyon, Henry Davis	note	l’ ḷ̓ a a	page 46, van Eijk and A.P.A., two pairs side by side, the first cell underlined on the page
+Appendix chart line 21	John Lyon, Henry Davis	note	k k ao ạ	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 22	John Lyon, Henry Davis	note	k’ k̓ e ə	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 23	John Lyon, Henry Davis	note	kw kʷ v ə̣	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 24	John Lyon, Henry Davis	note	k’w k̓ʷ i i	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 25	John Lyon, Henry Davis	note	c x ii ị	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 26	John Lyon, Henry Davis	note	cw xʷ u u	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 27	John Lyon, Henry Davis	note	r ɣ o ụ	page 46, van Eijk and A.P.A., two pairs side by side
+Appendix chart line 28	John Lyon, Henry Davis	note	r’ ɣ̓	page 46, van Eijk and A.P.A., two pairs side by side
+§6	John Lyon, Henry Davis	note	Notes on the version of the van Eijk orthography employed here:	page 46
+§6	John Lyon, Henry Davis	note	(i) Where a sequence of two adjacent consonants may be confused with a di- graph (a single sound represented by a sequence of two letters), a period is inserted between them. Thus we have c.walh ‘road’ versus cwak ‘get wo- ken’, t’íq.wit ‘they arrived’ versus t’iqwt ‘fire crackles’, ts’il.hál’qwem’ ‘re- sembling’ versus ts’elhts’álh ‘cool’, and stsut.s ‘what someone says’ versus tsútsin ‘mouth’.	page 46
+§6	St’át’imcets	cited form	c.walh	page 46, in italics, ‘road’
+§6	St’át’imcets	cited form	cwak	page 46, in italics, ‘get wo- ken’
+§6	St’át’imcets	cited form	t’íq.wit	page 46, in italics, ‘they arrived’
+§6	St’át’imcets	cited form	t’iqwt	page 46, in italics, ‘fire crackles’
+§6	St’át’imcets	cited form	ts’il.hál’qwem’	page 46, in italics, ‘re- sembling’
+§6	St’át’imcets	cited form	ts’elhts’álh	page 46, in italics, ‘cool’
+§6	St’át’imcets	cited form	stsut.s	page 46, in italics, ‘what someone says’
+§6	St’át’imcets	cited form	tsútsin	page 46, in italics, ‘mouth’
+§6	John Lyon, Henry Davis	note	(ii) Underlined consonants are retracted, that is, produced with the tongue root pulled back and down.	page 46
+§6	John Lyon, Henry Davis	note	(iii) Non-retracted s is pronounced like the sh in ‘ship’, retracted s like the s in ‘sip’; non-retracted ts is pronounced like the ch in ‘catch’, retracted ts like the ts in ‘cats’.	page 47
+§6	John Lyon, Henry Davis	note	(iv) Vowels may also be retracted: the system here recognizes four underlying plain vowels (a, e, i, u) and four retracted vowels (ao, v, ii, o).	page 47
+§6	John Lyon, Henry Davis	note	(v) Vowels are automatically retracted immediately before back consonants (q, q’, qw, q’w, x, xw, g, gw, g’, g’w), and to a lesser extent immediately af- terwards; non-retracted vowels are written in these environments, since re- traction is predictable. Thus we write t’iq rather than t’iiq for ‘arrive here’, even though the vowel is pronounced as ii.	page 47
+§6	St’át’imcets	cited form	t’iq	page 47, in italics
+§6	St’át’imcets	cited form	t’iiq	page 47, in italics
+§6	John Lyon, Henry Davis	note	(vi) The glottal stop (7) is ‘transparent’ to retraction - that is, for the purposes of retraction, we treat it as though it wasn’t there. Thus we write nli7x rather than nlii7x for ‘water clears up’, even though the vowel is pronounced as ii.	page 47
+§6	St’át’imcets	cited form	nli7x	page 47, in italics
+§6	St’át’imcets	cited form	nlii7x	page 47, in italics
+§6	John Lyon, Henry Davis	note	(vii) Particularly in clitics and suffixes, schwa (e) is frequently deleted. Thus kelh ‘will, might’ is often pronounced klh, and t’elh ‘at this/that moment in time’ is often pronounced t’lh. By convention, the schwa is uniformly represented in these forms within the St’át’imcets-only versions. When not pronounced, the schwa is not represented in these forms within the Interlinear Gloss ver- sions.	page 47
+§6	St’át’imcets	cited form	kelh	page 47, in italics, ‘will, might’
+§6	St’át’imcets	cited form	klh	page 47, in italics
+§6	St’át’imcets	cited form	t’elh	page 47, in italics, ‘at this/that moment in time’
+§6	St’át’imcets	cited form	t’lh	page 47, in italics
+Appendix abbreviations	John Lyon, Henry Davis	heading	Abbreviations	page 47
+Appendix abbreviations line 1	John Lyon, Henry Davis	note	1 first person	page 47, the label and its name
+Appendix abbreviations line 2	John Lyon, Henry Davis	note	2 second person	page 47, the label and its name
+Appendix abbreviations line 3	John Lyon, Henry Davis	note	3 third person	page 47, the label and its name
+Appendix abbreviations line 4	John Lyon, Henry Davis	note	A paragogic “a”	page 47, the label and its name
+Appendix abbreviations line 5	John Lyon, Henry Davis	note	ABS absent	page 47, the label and its name
+Appendix abbreviations line 6	John Lyon, Henry Davis	note	ACT active intransitivizer	page 47, the label and its name
+Appendix abbreviations line 7	John Lyon, Henry Davis	note	ANTI antithetical	page 47, the label and its name
+Appendix abbreviations line 8	John Lyon, Henry Davis	note	APPL applicative transitivizer	page 47, the label and its name
+Appendix abbreviations line 9	John Lyon, Henry Davis	note	AUT autonomous intransitivizer	page 47, the label and its name
+Appendix abbreviations line 10	John Lyon, Henry Davis	note	CAUS causative transitivizer	page 47, the label and its name
+Appendix abbreviations line 11	John Lyon, Henry Davis	note	CIRC circumstantial modal	page 47, the label and its name
+Appendix abbreviations line 12	John Lyon, Henry Davis	note	COLL collective	page 47, the label and its name
+Appendix abbreviations line 13	John Lyon, Henry Davis	note	COMP complementizer	page 47, the label and its name
+Appendix abbreviations line 14	John Lyon, Henry Davis	note	COP copula	page 47, the label and its name
+Appendix abbreviations line 15	John Lyon, Henry Davis	note	CRED consonant reduplication	page 47, the label and its name
+Appendix abbreviations line 16	John Lyon, Henry Davis	note	DET determiner	page 47, the label and its name
+Appendix abbreviations line 17	John Lyon, Henry Davis	note	DIR directive transitivizer	page 47, the label and its name
+Appendix abbreviations line 18	John Lyon, Henry Davis	note	EPIS epistemic modal	page 47, the label and its name
+Appendix abbreviations line 19	John Lyon, Henry Davis	note	ERG ergative	page 47, the label and its name
+Appendix abbreviations line 20	John Lyon, Henry Davis	note	EXCL exclusive	page 48, the label and its name
+Appendix abbreviations line 21	John Lyon, Henry Davis	note	EXIS assertion-of-existence	page 48, the label and its name
+Appendix abbreviations line 22	John Lyon, Henry Davis	note	EXP experience involuntarily	page 48, the label and its name
+Appendix abbreviations line 23	John Lyon, Henry Davis	note	FRED final reduplication	page 48, the label and its name
+Appendix abbreviations line 24	John Lyon, Henry Davis	note	FUT future	page 48, the label and its name
+Appendix abbreviations line 25	John Lyon, Henry Davis	note	INCH inchoative	page 48, the label and its name
+Appendix abbreviations line 26	John Lyon, Henry Davis	note	IND indirective applicative	page 48, the label and its name
+Appendix abbreviations line 27	John Lyon, Henry Davis	note	INDEP independent pronoun	page 48, the label and its name
+Appendix abbreviations line 28	John Lyon, Henry Davis	note	INS instrumental	page 48, the label and its name
+Appendix abbreviations line 29	John Lyon, Henry Davis	note	INVIS invisible	page 48, the label and its name
+Appendix abbreviations line 30	John Lyon, Henry Davis	note	IPFV imperfective	page 48, the label and its name
+Appendix abbreviations line 31	John Lyon, Henry Davis	note	IRED initial reduplication	page 48, the label and its name
+Appendix abbreviations line 32	John Lyon, Henry Davis	note	IRR irrealis	page 48, the label and its name
+Appendix abbreviations line 33	John Lyon, Henry Davis	note	LOC locative	page 48, the label and its name
+Appendix abbreviations line 34	John Lyon, Henry Davis	note	MID middle intransitivizer	page 48, the label and its name
+Appendix abbreviations line 35	John Lyon, Henry Davis	note	NEG negative	page 48, the label and its name
+Appendix abbreviations line 36	John Lyon, Henry Davis	note	NMLZ nominalizer	page 48, the label and its name
+Appendix abbreviations line 37	John Lyon, Henry Davis	note	NTS non-topical subject	page 48, the label and its name
+Appendix abbreviations line 38	John Lyon, Henry Davis	note	OBJ object	page 48, the label and its name
+Appendix abbreviations line 39	John Lyon, Henry Davis	note	OBL oblique	page 48, the label and its name
+Appendix abbreviations line 40	John Lyon, Henry Davis	note	PASS passive	page 48, the label and its name
+Appendix abbreviations line 41	John Lyon, Henry Davis	note	PAST past tense marker	page 48, the label and its name
+Appendix abbreviations line 42	John Lyon, Henry Davis	note	PL plural	page 48, the label and its name
+Appendix abbreviations line 43	John Lyon, Henry Davis	note	POSS possessive	page 48, the label and its name
+Appendix abbreviations line 44	John Lyon, Henry Davis	note	QUOT quotative	page 48, the label and its name
+Appendix abbreviations line 45	John Lyon, Henry Davis	note	REM remote in time	page 48, the label and its name
+Appendix abbreviations line 46	John Lyon, Henry Davis	note	RLT relational applicative	page 48, the label and its name
+Appendix abbreviations line 47	John Lyon, Henry Davis	note	SBJ subject	page 48, the label and its name
+Appendix abbreviations line 48	John Lyon, Henry Davis	note	SBJV subjunctive	page 48, the label and its name
+Appendix abbreviations line 49	John Lyon, Henry Davis	note	SG singular	page 48, the label and its name
+Appendix abbreviations line 50	John Lyon, Henry Davis	note	STAT stative	page 48, the label and its name
+Appendix abbreviations line 51	John Lyon, Henry Davis	note	TRED total reduplication	page 48, the label and its name
+Appendix abbreviations line 52	John Lyon, Henry Davis	note	VIS visible	page 48, the label and its name
+references	John Lyon, Henry Davis	heading	References	page 48
+references	John Lyon, Henry Davis	reference	Bouchard, R. (1969). Story of the 2 Outlaws (manuscript translation).	page 48
+references	John Lyon, Henry Davis	reference	Bouchard, R. and Kennedy, D. (1977). Lillooet Stories. Provincial Archives of British Columbia Aural History, Sound Heritage Volume VI, No.1. Victoria, BC.	page 48
+references	John Lyon, Henry Davis	reference	Clark, C. (2014). Phantoms of the Rangeland. In Downs, A., editor, The Law and the Lawless: Frontier Justice in British Columbia and the Yukon, 1858-1911, pages 126–139. Heritage House Publishing.	page 48
+references	John Lyon, Henry Davis	reference	Davis, H., Lyon, J., and van Eijk, J. (2017). Sqwéqwel’s Nelh Skelkekla7lhkálha: Tales of Our Elders. University of British Columbia Occasional Papers in Linguistics vol. 4, Vancouver, BC.	page 48
+references	John Lyon, Henry Davis	reference	Lyon, J. (2016). Upper Nicola Okanagan Narratives by Lottie Lindley. University of Nebraska Press, Lincoln, Nebraska.	page 49
+references	John Lyon, Henry Davis	reference	Teit, J. (1912). Mythology of the Thompson Indians. Memoirs of the American Museum of Natural History, Volume XII, Part 2. Washington, DC.	page 49
+references	John Lyon, Henry Davis	reference	van Eijk, J. P. and Williams, L. (1981). Lillooet Legends and Stories. Ts’zil Pub- lishing House, Mount Currie, BC.	page 49

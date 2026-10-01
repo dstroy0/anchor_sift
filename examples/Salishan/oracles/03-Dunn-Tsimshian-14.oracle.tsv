@@ -1,0 +1,817 @@
+where	who	kind	form	gloss
+front	John A. Dunn	title	Tsimshian syllable devolution1	page 1
+front	John A. Dunn	name	John A. Dunn	author
+front	John A. Dunn	note	Professor Emeritus, University of Oklahoma	page 1, under John A. Dunn
+front	John A. Dunn	note	Abstract: A Tsimshian natural class of sounds, {[ʔ], [h], [r], [l], [j], [w]}, in syllable coda position, often significantly alters syllable structure by losing certain phonetic features while spreading/copying them to onset and peak. This spreading/losing (transference) of features (devolution) occurs in stages, often giving individual lexical items several surprising variants.	page 1, the abstract
+front	John A. Dunn	note	Keywords: phonology, feature spreading/copying, feature loss, devolution, variability	page 1, the keywords
+front	John A. Dunn	note	In Papers for the International Conference on Salish and Neighbouring Languages 50, University of British Columbia Working Papers in Linguistics 40, Natalie Weber, Erin Guntly, Zoe Lam, and Sihwei Chen (eds.), 2015.	page 1, the volume's header
+front	John A. Dunn	language	Coast Tsimshian	Maritime Tsimshianic
+footnote 1	John A. Dunn	note	Devolution: 1. A passing down or descent through successive stages of time or a process. 2. Transference, as of rights or qualities, to a successor. 4. A transfer of powers from a central government to local units. The free dictionary by Farlex (2003–2015), http://www.thefreedictionary.com/devolution.	page 1, footnote 1, on the title
+footnote 1	John A. Dunn	name	Farlex	The free dictionary by Farlex, the definition of devolution
+§1	John A. Dunn	heading	1 The spread of syllable coda features	page 1
+§1	John A. Dunn	note	There is a pervasive tendency in Tsimshian for syllable coda elements (features and whole segments) to spread/copy in stages to syllable onset, ‘strengthening’ the onset and coloring the syllable peak along the way. The coda subsequently ‘weakens’ also in stages. See Figure 1.	page 1
+§1	John A. Dunn	language	Tsimshian	the family, and Coast Tsimshian
+Figure 1 line 1	John A. Dunn	note	σ	page 1, the tree
+Figure 1 line 2	John A. Dunn	note	O R	page 1, the tree
+Figure 1 line 3	John A. Dunn	note	peak coda	page 1, the tree
+Figure 1 line 4	John A. Dunn	note	C V [+feature ǝ]	page 1, the tree
+Figure 1 line 5	John A. Dunn	note	C [+feature ǝ] V' [-feature ǝ]	page 1, the tree
+Figure 1	John A. Dunn	note	Figure 1 The spread/loss of coda features	page 1, the caption of Figure 1
+§1	John A. Dunn	note	This was both a synchronic and diachronic process (continuum) at least into the 1980s. Individual lexical items differed in the same speaker from time to time, from speaker to speaker and from dialect to dialect as to where they were in this continuum or staging process. This resulted in an unusually rich variation in many single lexical roots or stems. This variability, documented in Dunn (1978), is confirmed by Dale Kinkade in a personal communication some years ago after he had taught a field methods course with a Gitxsen speaker. Matthews (2001) also records significant variability in Gitxsen.	page 1
+§1	John A. Dunn	name	Dale Kinkade	confirmed the variability after a field methods course with a Gitxsen speaker
+§1	John A. Dunn	name	Matthews	Art Matthews, the Gitxsen lexical database (2001), the G sources
+§1	John A. Dunn	language	Gitxsen	Interior Tsimshianic, the G sources
+§2	John A. Dunn	heading	2 Syllable diversity and staging	page 2
+§2	John A. Dunn	note	The lexical root/stem for the verb ‘to tear, tear up, tear out’ shows this diversity.	page 2
+(1) line 1	Coast Tsimshian	transcription	bāᵒχ	page 2
+(1) line 2	Coast Tsimshian	transcription	baχ-bāˀqal	page 2
+(1) line 3	John A. Dunn	translation	‘to tear [out]’	page 2
+(1) line 4	John A. Dunn	citation	(Boas 1912:262, hence B262)2	page 2, the source, carries footnote 2
+footnote 2	John A. Dunn	note	Boas used the superscript symbol ᵒ to represent a weakened secondary vowel or a glottal stop (1911:68). The [H] in Dunn (1978) is the same as Boas’ [o], but representing only the weakened secondary vowel, i.e., a reduced vowel, tending toward [ǝ] and with a falling tone. In CODA position, [q], [χ], and [G] are free variants.	page 2, footnote 2
+(1) line 5	Coast Tsimshian	transcription	beˀəχ	page 2
+(1) line 6	Coast Tsimshian	transcription	beHχ	page 2
+(1) line 7	Coast Tsimshian	transcription	beeχ	page 2
+(1) line 8	John A. Dunn	translation	‘to tear, tear up’	page 2
+(1) line 9	John A. Dunn	citation	(Dunn 1978, entry #151, hence D151)	page 2, the source
+(1) line 10	Coast Tsimshian	transcription	pˀēᵒG-al	page 2
+(1) line 11	John A. Dunn	translation	‘to tear out and turn over’	page 2
+(1) line 12	John A. Dunn	citation	(B263)	page 2, the source
+(1) line 13	Coast Tsimshian	transcription	pˀeeG-l	page 2
+(1) line 14	Coast Tsimshian	transcription	pˀeeG-n	page 2
+(1) line 15	John A. Dunn	translation	‘tear out and turn over’	page 2
+(1) line 16	John A. Dunn	citation	(D1595)	page 2, the source
+§2	John A. Dunn	note	Figure 2 represents the spread of the laryngeal to the onset, changing [b] to [pˀ], and the spread of the feature [-low] to the vowel, [ā] becoming [ē].	page 2
+§2	Coast Tsimshian	cited form	ē	page 2, in italics
+Figure 2 line 1	John A. Dunn	note	σ	page 2, the tree
+Figure 2 line 2	John A. Dunn	note	O R	page 2, the tree
+Figure 2 line 3	John A. Dunn	note	peak coda	page 2, the tree
+Figure 2 line 4	John A. Dunn	note	C V	page 2, the tree
+Figure 2 line 5	John A. Dunn	note	b ā ˀ[laryngeal][-low] q	page 2, the tree
+Figure 2 line 6	John A. Dunn	note	pˀ [laryngeal] ē [-low] Ø G	page 2, the tree
+Figure 2	John A. Dunn	note	Figure 2 baˀq > … > pˀēG	page 2, the caption of Figure 2
+§2	John A. Dunn	note	I interpret the staging, i.e., development in stages, devolution, of this lexical item as baˀq > bāᵒχ > beˀəχ > beHχ > bēχ and alternate baˀq > pˀē°G > pˀēG. The laryngeal feature of the coda [-ʔq] causes the vowel to lengthen, baˀq > bāᵒx, stage one. Then the laryngeal moves into the peak and the vowel assimilates the [-low] feature of the laryngeal, bāᵒχ > beˀəχ, stage two. The laryngeal feature is then lost, leaving the reduced, falling tone [H], beˀəχ > beHχ, stage three. Finally the [eH] becomes a simple long vowel, beHχ > bēχ, stage four. In the alternate staging, the laryngeal spreads to onset, raising and lengthening the vowel, baˀq > pˀē°G, alternate stage one. Then the laryngeal is lost in the coda, pˀē°G > pˀēG, alternate stage two.	page 2
+§2	Coast Tsimshian	cited form	bāᵒχ	page 2, in italics
+§2	Coast Tsimshian	cited form	beˀəχ	page 2, in italics
+§2	Coast Tsimshian	cited form	beHχ	page 2, in italics
+§2	Coast Tsimshian	cited form	baˀq	page 2, in italics
+§2	Coast Tsimshian	cited form	pˀēG	page 2, in italics
+§2	Coast Tsimshian	cited form	bēχ	page 2, in italics
+§2	Coast Tsimshian	cited form	pˀē°G	page 2, in italics
+§2	Coast Tsimshian	cited form	bāᵒx	page 2, in italics
+§2	John A. Dunn	note	This staging pattern is typical of a large number of lexical items.	page 3
+(2) line 1	Coast Tsimshian	transcription	hāᵒx	page 3
+(2) line 2	John A. Dunn	translation	‘goose’	page 3
+(2) line 3	John A. Dunn	citation	(B261)	page 3, the source
+(2) line 4	Coast Tsimshian	transcription	haaˀq	page 3
+(2) line 5	Coast Tsimshian	transcription	haˀq	page 3
+(2) line 6	Coast Tsimshian	transcription	haˀx	page 3
+(2) line 7	Coast Tsimshian	transcription	haˀax	page 3
+(2) line 8	Coast Tsimshian	transcription	haˀa	page 3
+(2) line 9	John A. Dunn	translation	‘goose’	page 3
+(2) line 10	John A. Dunn	citation	(D641)	page 3, the source
+(2) line 11	John A. Dunn	note	staged haˀq > haaˀq > hāᵒx > haˀax > haˀa	page 3, the staging
+(2) staging	Coast Tsimshian	cited form	hāᵒx	page 3, in italics
+(2) staging	Coast Tsimshian	cited form	haaˀq	page 3, in italics
+(2) staging	Coast Tsimshian	cited form	haˀq	page 3, in italics
+(2) staging	Coast Tsimshian	cited form	haˀax	page 3, in italics
+(2) staging	Coast Tsimshian	cited form	haˀa	page 3, in italics
+§3	John A. Dunn	heading	3 Staging and semantic development	page 3
+§3	John A. Dunn	note	In some instances the different stages carry modifications in meaning:	page 3
+(3) line 1	Coast Tsimshian	transcription	dzēᵒs	page 3
+(3) line 2	John A. Dunn	translation	‘grandmother’	page 3
+(3) line 3	John A. Dunn	citation	(B270)	page 3, the source
+(3) line 4	Coast Tsimshian	transcription	na-Gan-dzēᵒs-k	page 3
+(3) line 5	John A. Dunn	translation	‘ancestress’	page 3
+(3) line 6	John A. Dunn	citation	(B270)	page 3, the source
+(3) line 7	Coast Tsimshian	transcription	dziɁis	page 3
+(3) line 8	John A. Dunn	translation	‘grandmother’	page 3
+(3) line 9	John A. Dunn	citation	(D262)	page 3, the source
+(3) line 10	Coast Tsimshian	transcription	na-Gan-dziɁis-k	page 3
+(3) line 11	John A. Dunn	translation	‘ancestresses’	page 3
+(3) line 12	John A. Dunn	citation	(D1483)	page 3, the source
+(3) line 13	Coast Tsimshian	transcription	tsɁiɁi	page 3
+(3) line 14	John A. Dunn	translation	‘grandmother’	page 3
+(3) line 15	John A. Dunn	citation	(D1931)	page 3, the source
+(3) line 16	John A. Dunn	note	staged thus dzēᵒs > dziɁis > tsɁiɁi	page 3, the staging
+(3) staging	Coast Tsimshian	cited form	dzēᵒs	page 3, in italics
+(3) staging	Coast Tsimshian	cited form	dziɁis	page 3, in italics
+(3) staging	Coast Tsimshian	cited form	tsɁiɁi	page 3, in italics
+(4) line 1	Coast Tsimshian	transcription	Gāᵒb	page 3
+(4) line 2	John A. Dunn	translation	‘scratch’	page 3
+(4) line 3	John A. Dunn	citation	(B278)	page 3, the source
+(4) line 4	Coast Tsimshian	transcription	Gap-Gāᵒp!-El	page 3
+(4) line 5	John A. Dunn	translation	‘rake, scratch’	page 3
+(4) line 6	John A. Dunn	citation	(B278)3	page 3, the source, carries footnote 3
+footnote 3	John A. Dunn	note	Boas’ [E] is “an obscure, weak vowel, as in flower” (Boas 1912:67).	page 3, footnote 3
+(4) line 7	Coast Tsimshian	transcription	kʸˀaap-n	page 3
+(4) line 8	John A. Dunn	translation	‘scrape; scraped’	page 3
+(4) line 9	John A. Dunn	citation	(D1039)	page 3, the source
+(4) line 10	Coast Tsimshian	transcription	Gaap-k	page 3
+(4) line 11	John A. Dunn	translation	‘rake, scratch’	page 3
+(4) line 12	John A. Dunn	citation	(D291)	page 3, the source
+(4) line 13	John A. Dunn	note	staged Gāᵒpˀ > Gāᵒb > kʸˀāp > Gāp	page 3, the staging
+(4) staging	Coast Tsimshian	cited form	Gāᵒb	page 3, in italics
+(4) staging	Coast Tsimshian	cited form	Gāᵒpˀ	page 3, in italics
+(4) staging	Coast Tsimshian	cited form	kʸˀāp	page 3, in italics
+(4) staging	Coast Tsimshian	cited form	Gāp	page 3, in italics
+§4	John A. Dunn	heading	4 Dialect boundaries	page 3
+§4.1	John A. Dunn	heading	4.1 Dialects and sources	page 3
+§4.1	John A. Dunn	note	The sources for Coast Tsimshian (Sm'algyax) in this paper are Boas (1911, 1912), Dunn (1978/1995), and the Ts'msyeen Sm'algyax Language Authority (2001). Much of this material is repeated with additional data in Anderson et al. (2013). The sources for Southern Tsimshian (Sgüüχs) are the field notes of Nislaus and Dunn (1976–1981). The source for Gitxsen is Matthews (2001). The sources for NisGa'a are Tarpent (1986) and Williams and Rai (2001).	page 3
+§4.1	John A. Dunn	name	Boas	Franz Boas, Tsimshian (1911) and Tsimshian Texts (1912), the B sources
+§4.1	John A. Dunn	name	Nislaus	Violet Nislaus, the Southern Tsimshian field notes (1976–1981), the S sources
+§4.1	John A. Dunn	name	Tarpent	Marie-Lucie Tarpent, the Nishga Phrase Dictionary (1986), the T sources
+§4.1	John A. Dunn	name	Williams and Rai	Verna Williams and Dianna Rai, the NisGa'a Dictionary (2001), the N sources
+§4.1	John A. Dunn	name	Anderson	Margaret Anderson et al., Sm'algyax living legacy (2013)
+§4.1	John A. Dunn	language	Sm'algyax	the Coast Tsimshian name of Coast Tsimshian
+§4.1	John A. Dunn	language	Southern Tsimshian	Maritime Tsimshianic, the S sources
+§4.1	John A. Dunn	language	Sgüüχs	the Southern Tsimshian name of Southern Tsimshian
+§4.1	John A. Dunn	language	NisGa'a	Interior Tsimshianic, the N and T sources
+§4.2	John A. Dunn	heading	4.2 Syllable devolution across dialect boundaries	page 3
+§4.2	John A. Dunn	note	The progressive staging of syllable coda features-spread (devolution) can cross dialect boundaries, and is therefore diachronic.	page 3
+(5) line 1	Coast Tsimshian	transcription	bāᵒ	page 4
+(5) line 2	John A. Dunn	translation	‘to run’	page 4
+(5) line 3	John A. Dunn	citation	(B262)	page 4, the source
+(5) line 4	Coast Tsimshian	transcription	baah	page 4
+(5) line 5	Coast Tsimshian	transcription	baH	page 4
+(5) line 6	John A. Dunn	translation	‘to run’	page 4
+(5) line 7	John A. Dunn	citation	(D123)	page 4, the source
+(5) line 8	Gitxsen	transcription	baχ	page 4
+(5) line 9	John A. Dunn	translation	‘to run’	page 4
+(5) line 10	John A. Dunn	language	Gitxsen	page 4, the language of the line's form
+(5) line 11	John A. Dunn	citation	(Mathews 2001:7, hence G7)	page 4, the source
+(5) line 12	NisGa'a	transcription	baχ	page 4
+(5) line 13	John A. Dunn	translation	‘run’	page 4
+(5) line 14	John A. Dunn	language	NisGa'a	page 4, the language of the line's form
+(5) line 15	John A. Dunn	citation	(Williams & Rai 2001:18, hence N18; Tarpent 1986:413, hence T413)	page 4, the source
+(5) line 16	Southern Tsimshian	transcription	bah-an	page 4
+(5) line 17	John A. Dunn	translation	‘make run, e.g., start an engine’	page 4
+(5) line 18	John A. Dunn	language	Southern Tsimshian	page 4, the language of the line's form
+(5) line 19	John A. Dunn	citation	(Nealaus and Dunn 1976–1981, hence S9/76)	page 4, the source
+(5) line 20	John A. Dunn	note	staged baH > bāᵒ > bāh > baχ	page 4, the staging
+(5) staging	Coast Tsimshian	cited form	bāᵒ	page 4, in italics
+(5) staging	Coast Tsimshian	cited form	baχ	page 4, in italics
+(5) staging	Coast Tsimshian	cited form	bāh	page 4, in italics
+§4.2	John A. Dunn	note	See Figure 3. The sounds [H], [o], and [h] are variants of the continuant laryngeal. The loss of the laryngeal and [-back] features in coda results in [h] becoming [χ]. This analysis makes the claim that laryngeal sounds are stronger than consonantal fricatives. Whereas [h] can be predicted as a source of [χ], the reverse is not true; [h] cannot lose the feature [-back] without all the other features of a consonant filling in, but for [χ] to become [-back] simply results in another fricative, not a laryngeal.	page 4
+§4.2	Coast Tsimshian	cited form	χ	page 4, in italics
+Figure 3 line 1	John A. Dunn	note	σ	page 4, the tree
+Figure 3 line 2	John A. Dunn	note	O R	page 4, the tree
+Figure 3 line 3	John A. Dunn	note	peak coda	page 4, the tree
+Figure 3 line 4	John A. Dunn	note	C V	page 4, the tree
+Figure 3 line 5	John A. Dunn	note	b a H [laryngeal][+voi][-back]	page 4, the tree
+Figure 3 line 6	John A. Dunn	note	ā ᵒ [laryngeal][+voi][-back]	page 4, the tree
+Figure 3 line 7	John A. Dunn	note	h [laryngeal][-voi][-back]	page 4, the tree
+Figure 3 line 8	John A. Dunn	note	χ [-laryngeal][-voi][+back]	page 4, the tree
+Figure 3	John A. Dunn	note	Figure 3 baH > bāᵒ > bāh > baχ	page 4, the caption of Figure 3
+(6) line 1	Coast Tsimshian	transcription	biāl-s	page 5
+(6) line 2	John A. Dunn	translation	‘star’	page 5
+(6) line 3	John A. Dunn	citation	(B263)	page 5, the source
+(6) line 4	Coast Tsimshian	transcription	biyaal-s	page 5
+(6) line 5	Coast Tsimshian	transcription	biyeel-s	page 5
+(6) line 6	John A. Dunn	translation	‘star, i.e. it flashes forth, shines’	page 5
+(6) line 7	John A. Dunn	citation	(D162)	page 5, the source
+(6) line 8	Southern Tsimshian	transcription	biyaˀal-s	page 5
+(6) line 9	John A. Dunn	translation	‘star’	page 5
+(6) line 10	John A. Dunn	citation	(S9/79)	page 5, the source
+(6) line 11	Gitxsen	transcription	bil-'u-s-t	page 5
+(6) line 12	John A. Dunn	translation	‘star’	page 5
+(6) line 13	John A. Dunn	citation	(G11)	page 5, the source
+(6) line 14	NisGa'a	transcription	bil-'i-s-t	page 5
+(6) line 15	John A. Dunn	translation	‘star’	page 5
+(6) line 16	John A. Dunn	citation	(N21, T414)	page 5, the source
+(6) line 17	John A. Dunn	note	staged biāl-s > biyaal-s > biyaˀal-s > biyāl-s > biyēl-s > bil-ˀi-s-t > bil-ˀu-s-t	page 5, the staging
+(6) staging	Coast Tsimshian	cited form	biāl-s	page 5, in italics
+(6) staging	Coast Tsimshian	cited form	biyaˀal-s	page 5, in italics
+(6) staging	Coast Tsimshian	cited form	biyāl-s	page 5, in italics
+(6) staging	Coast Tsimshian	cited form	biyēl-s	page 5, in italics
+(6) staging	Coast Tsimshian	cited form	bil-ˀi-s-t	page 5, in italics
+(6) staging	Coast Tsimshian	cited form	bil-ˀu-s-t	page 5, in italics
+(7) line 1	Coast Tsimshian	transcription	mâᵒn	page 5
+(7) line 2	John A. Dunn	translation	‘the salt water, sea, salt’	page 5
+(7) line 3	John A. Dunn	citation	(B264)	page 5, the source
+(7) line 4	Coast Tsimshian	transcription	moHn	page 5
+(7) line 5	John A. Dunn	translation	‘the sea’	page 5
+(7) line 6	John A. Dunn	citation	(D1445)	page 5, the source
+(7) line 7	Coast Tsimshian	transcription	ʔmoon	page 5
+(7) line 8	John A. Dunn	translation	‘salt’	page 5
+(7) line 9	John A. Dunn	citation	(Ts'msyeen Sm'algyax Language Authority 2000:146, hence L146)	page 5, the source
+(7) line 10	Southern Tsimshian	transcription	moˀon	page 5
+(7) line 11	John A. Dunn	translation	‘salt’	page 5
+(7) line 12	John A. Dunn	citation	(S9/76)	page 5, the source
+(7) line 13	Gitxsen	transcription	moˀon	page 5
+(7) line 14	John A. Dunn	translation	‘salt’	page 5
+(7) line 15	John A. Dunn	citation	(G81)	page 5, the source
+(7) line 16	NisGa'a	transcription	moˀon	page 5
+(7) line 17	John A. Dunn	translation	‘salt’	page 5
+(7) line 18	John A. Dunn	citation	(N129, T447)	page 5, the source
+(7) line 19	John A. Dunn	note	staged mâᵒn > moHn > moˀon > ʔmōn	page 5, the staging
+(7) staging	Coast Tsimshian	cited form	mâᵒn	page 5, in italics
+(7) staging	Coast Tsimshian	cited form	moˀon	page 5, in italics
+(7) staging	Coast Tsimshian	cited form	ʔmōn	page 5, in italics
+§5	John A. Dunn	heading	5 Unusual consequences of syllable devolution	page 5
+§5	John A. Dunn	note	The spread and loss of features can account for [p] becoming [m], [l] becoming [ɬ], and [ɬ] becoming [s].	page 5
+§5	Coast Tsimshian	cited form	ɬ	page 5, in italics
+§5.1	John A. Dunn	heading	5.1 Devolution: [+voi][+son] > [-voi][-son]	page 5
+§5.1	John A. Dunn	note	The spread of features [+voi][+son] from coda to onset can derive [ʔm] from onset [pˀ]. The subsequent loss of the same features in coda can derive [ɬ] from [l]. See Figure 4.	page 5
+§5.1	Coast Tsimshian	cited form	ʔm	page 5, in italics
+Figure 4 line 1	John A. Dunn	note	σ	page 5, the tree
+Figure 4 line 2	John A. Dunn	note	O R	page 5, the tree
+Figure 4 line 3	John A. Dunn	note	peak coda	page 5, the tree
+Figure 4 line 4	John A. Dunn	note	pˀ a l [+voi][+son][-low]	page 5, the tree
+Figure 4 line 5	John A. Dunn	note	ʔm [+voi][+son] ə [-low] ɬ [-voi][-son]	page 5, the tree
+Figure 4	John A. Dunn	note	Figure 4 [m] derived from [p], and [ɬ] from [l]	page 5, the caption of Figure 4
+§5.1	John A. Dunn	note	The features [+voi][+son] copy from coda [l] to onset, changing [pˀ] to [ʔm]. The feature [-low] copies to the vowel, changing [a] to [ǝ]. Coda [l] loses the features [+voi] [+son], changing [l] to [ɬ].	page 5
+(8) line 1	Coast Tsimshian	transcription	pˀal	page 6
+(8) line 2	John A. Dunn	translation	‘button’	page 6
+(8) line 3	John A. Dunn	citation	(B263)	page 6, the source
+(8) line 4	Coast Tsimshian	transcription	pˀaˀla	page 6
+(8) line 5	Coast Tsimshian	transcription	ni-pˀaˀla	page 6, the word that holds pˀaˀla
+(8) line 6	John A. Dunn	translation	‘abalone shell button, i.e. it glitters’	page 6
+(8) line 7	John A. Dunn	citation	(D1539)	page 6, the source
+(8) line 8	Coast Tsimshian	transcription	pˀəɬ	page 6
+(8) line 9	Coast Tsimshian	transcription	pˀəɬ-muu	page 6, the word that holds pˀəɬ
+(8) line 10	John A. Dunn	translation	‘earring (muu ‘ear’)’	page 6
+(8) line 11	John A. Dunn	citation	(D1589)	page 6, the source
+(8) line 12	NisGa'a	transcription	ʔmal	page 6
+(8) line 13	John A. Dunn	translation	‘to button (something)’	page 6
+(8) line 14	John A. Dunn	citation	(N130)	page 6, the source
+(8) line 15	John A. Dunn	note	staged pˀaˀla > pˀal > pˀəɬ and ˀmal	page 6, the staging
+(8) staging	Coast Tsimshian	cited form	pˀal	page 6, in italics
+(8) staging	Coast Tsimshian	cited form	pˀaˀla	page 6, in italics
+(8) staging	Coast Tsimshian	cited form	pˀəɬ	page 6, in italics
+(9) line 1	Coast Tsimshian	transcription	pˀūᵒ	page 6
+(9) line 2	Coast Tsimshian	transcription	pˀūᵒ-l	page 6
+(9) line 3	John A. Dunn	translation	‘scatter’	page 6
+(9) line 4	John A. Dunn	citation	(B263)	page 6, the source
+(9) line 5	Coast Tsimshian	transcription	pˀūᵒ-tk	page 6
+(9) line 6	John A. Dunn	translation	‘steam, scattered’	page 6
+(9) line 7	John A. Dunn	citation	(B263)	page 6, the source
+(9) line 8	Coast Tsimshian	transcription	pˀuH-tk	page 6
+(9) line 9	John A. Dunn	translation	‘scattered, steam, i.e., it blows out’	page 6
+(9) line 10	John A. Dunn	citation	(D1613)	page 6, the source
+(9) line 11	Coast Tsimshian	transcription	pˀuH	page 6
+(9) line 12	Coast Tsimshian	transcription	pˀuH-l	page 6
+(9) line 13	John A. Dunn	translation	‘scatter’	page 6
+(9) line 14	John A. Dunn	citation	(D1613)	page 6, the source
+(9) line 15	Coast Tsimshian	transcription	pˀui-ɬ-k	page 6
+(9) line 16	John A. Dunn	translation	‘get out of the way’	page 6
+(9) line 17	John A. Dunn	citation	(D1611)	page 6, the source
+(9) line 18	Gitxsen	transcription	ʔmi-txw	page 6
+(9) line 19	John A. Dunn	translation	‘scattered all over the place’	page 6
+(9) line 20	John A. Dunn	citation	(G118)	page 6, the source
+(9) line 21	NisGa'a	transcription	ʔmi-tkw	page 6
+(9) line 22	John A. Dunn	translation	‘scattered’	page 6
+(9) line 23	John A. Dunn	citation	(N132)	page 6, the source
+(9) line 24	John A. Dunn	note	staged pˀūᵒ > pˀuH > ʔmi and pˀūᵒ-l > pˀui-ɬ	page 6, the staging
+(9) staging	Coast Tsimshian	cited form	pˀūᵒ	page 6, in italics
+(9) staging	Coast Tsimshian	cited form	pˀūᵒ-l	page 6, in italics
+(9) staging	Coast Tsimshian	cited form	pˀuH	page 6, in italics
+(9) staging	Coast Tsimshian	cited form	ʔmi	page 6, in italics
+(9) staging	Coast Tsimshian	cited form	pˀui-ɬ	page 6, in italics
+§5.2	John A. Dunn	heading	5.2 Devolution: [+lat] > [-lat]	page 6
+§5.2	John A. Dunn	note	Some lexical items show [s] derived from [ɬ]. See Figure 5.	page 6
+Figure 5 line 1	John A. Dunn	note	σ	page 6, the tree
+Figure 5 line 2	John A. Dunn	note	O R	page 6, the tree
+Figure 5 line 3	John A. Dunn	note	peak coda	page 6, the tree
+Figure 5 line 4	John A. Dunn	note	h ū ɬ [-voi][-son][+lat]	page 6, the tree
+Figure 5 line 5	John A. Dunn	note	h ū s [-voi][-son][-lat]	page 6, the tree
+Figure 5	John A. Dunn	note	Figure 5 [+lat] > [-lat], [s] derived from[ɬ]	page 6, the caption of Figure 5
+§5.2	John A. Dunn	note	Coda [ɬ][-voi][-son][-low][+lat] gives up its feature [+lat], coda [ɬ] becoming [s] [-voi][-son][-low][-lat], hūɬ-en-s, hūs ‘hellebore root’.	page 6
+§5.2	Coast Tsimshian	cited form	hūɬ-en-s	page 6, in italics
+(10) line 1	Coast Tsimshian	transcription	hūᵒɬ-En-s	page 6
+(10) line 2	John A. Dunn	translation	‘hellebore’	page 6
+(10) line 3	John A. Dunn	citation	(B262)	page 6, the source
+(10) line 4	Coast Tsimshian	transcription	hūᵒs	page 6
+(10) line 5	John A. Dunn	translation	root’	page 6
+(10) line 6	John A. Dunn	citation	(B262)	page 6, the source
+(10) line 7	Coast Tsimshian	transcription	huHɬ-n-n	page 6
+(10) line 8	John A. Dunn	translation	‘poisonous root, used for medicine’	page 6
+(10) line 9	John A. Dunn	citation	(D823)	page 6, the source
+(10) line 10	Coast Tsimshian	transcription	hūs	page 6
+(10) line 11	Coast Tsimshian	transcription	hūs-t	page 6
+(10) line 12	John A. Dunn	translation	‘root’	page 6
+(10) line 13	John A. Dunn	citation	(D43)	page 6, the source
+(10) line 14	Coast Tsimshian	transcription	hūɬ-en-s	page 6
+(10) line 15	John A. Dunn	translation	‘hellebore’	page 6
+(10) line 16	John A. Dunn	citation	(L85)	page 6, the source
+(10) line 17	John A. Dunn	note	staged hūᵒɬ > hūᵒs and hūᵒɬ > huHɬ > hūɬ > hūs	page 6, the staging
+(10) staging	Coast Tsimshian	cited form	hūᵒs	page 6, in italics
+(10) staging	Coast Tsimshian	cited form	hūᵒɬ	page 6, in italics
+(10) staging	Coast Tsimshian	cited form	huHɬ	page 6, in italics
+(11) line 1	Coast Tsimshian	transcription	diHɬ	page 7
+(11) line 2	Coast Tsimshian	transcription	Ga-diHɬ-g-m-was	page 7, the word that holds diHɬ
+(11) line 3	John A. Dunn	translation	‘fringed blanket’	page 7
+(11) line 4	John A. Dunn	citation	(D310)	page 7, the source
+(11) line 5	Coast Tsimshian	transcription	dīɬ	page 7
+(11) line 6	Coast Tsimshian	transcription	Ga-dīɬ-gm-was	page 7, the word that holds dīɬ
+(11) line 7	John A. Dunn	translation	‘fringed blanket’	page 7
+(11) line 8	John A. Dunn	citation	(L50)	page 7, the source
+(11) line 9	Coast Tsimshian	transcription	dīs	page 7
+(11) line 10	Coast Tsimshian	transcription	Ga-dīs-k	page 7, the word that holds dīs
+(11) line 11	John A. Dunn	translation	‘braid one’s hair in one braid on the side of the head’	page 7
+(11) line 12	John A. Dunn	citation	(D311)	page 7, the source
+(11) line 13	Coast Tsimshian	transcription	diHs	page 7
+(11) line 14	Coast Tsimshian	transcription	qˀa-diHs-k	page 7, the word that holds diHs
+(11) line 15	John A. Dunn	translation	‘a braid; esp. in one braid on the side of the head’	page 7
+(11) line 16	John A. Dunn	citation	(D311)	page 7, the source
+(11) line 17	Coast Tsimshian	transcription	dīɬ	page 7
+(11) line 18	Coast Tsimshian	transcription	Ga-dīɬ -g-m-wǝs	page 7, the word that holds dīɬ
+(11) line 19	John A. Dunn	translation	‘fringed blanket’	page 7
+(11) line 20	John A. Dunn	citation	(L50)	page 7, the source
+(11) line 21	Coast Tsimshian	transcription	dīs	page 7
+(11) line 22	Coast Tsimshian	transcription	k’a-dīs-k	page 7, the word that holds dīs
+(11) line 23	Coast Tsimshian	transcription	k’a-dēs	page 7
+(11) line 24	John A. Dunn	translation	‘braid’	page 7
+(11) line 25	John A. Dunn	citation	(L103)	page 7, the source
+(11) line 26	John A. Dunn	note	staged diHɬ > dīɬ > diHs > dīs	page 7, the staging
+(11) staging	Coast Tsimshian	cited form	diHɬ	page 7, in italics
+(11) staging	Coast Tsimshian	cited form	dīɬ	page 7, in italics
+(11) staging	Coast Tsimshian	cited form	dīs	page 7, in italics
+(12) line 1	Coast Tsimshian	transcription	dukʷɬ-Gn	page 7
+(12) line 2	John A. Dunn	translation	‘drown’	page 7
+(12) line 3	John A. Dunn	citation	(D227)	page 7, the source
+(12) line 4	Coast Tsimshian	transcription	dakʷɬ-Gn	page 7
+(12) line 5	John A. Dunn	translation	‘drown’	page 7
+(12) line 6	John A. Dunn	citation	(L20)	page 7, the source
+(12) line 7	Gitxsen	transcription	dukʷɬ-inχ	page 7
+(12) line 8	John A. Dunn	translation	‘suffocate, drown’	page 7
+(12) line 9	John A. Dunn	citation	(G19)	page 7, the source
+(12) line 10	NisGa'a	transcription	dukʷs-gum-naaɬ-q	page 7
+(12) line 11	John A. Dunn	translation	‘be out of breath’	page 7
+(12) line 12	John A. Dunn	citation	(N30, T417)	page 7, the source
+(12) line 13	NisGa'a	transcription	dukʷs-kw	page 7
+(12) line 14	John A. Dunn	translation	‘run out of supplies’	page 7
+(12) line 15	John A. Dunn	citation	(N30, T417)	page 7, the source
+(12) line 16	John A. Dunn	note	staged dukʷɬ > dukʷs	page 7, the staging
+(12) staging	Coast Tsimshian	cited form	dukʷɬ	page 7, in italics
+(12) staging	Coast Tsimshian	cited form	dukʷs	page 7, in italics
+§5.2	John A. Dunn	note	It is clear that the Tsimshian [s] is related to [ɬ] for it maintains the contact between the lateral edges of the tongue and the roof of the mouth, the difference being that air exits the mouth across the top of the tongue rather than along the sides of the tongue. The [ɬ] becomes [s] by holding all articulators the same except simply lowering the tip of the tongue from its contact with the roof of the mouth.4 The Tsimshian [s] is variously heard as something between English [s] and [ʃ].	page 7
+footnote 4	John A. Dunn	note	Boas (1912:68) said the Tsimshian [s] is lateral.	page 7, footnote 4
+§5.2	John A. Dunn	language	English	its [s] against the Tsimshian [s]
+§6	John A. Dunn	heading	6 Devolution initiators, a natural class	page 7
+§6	John A. Dunn	note	The coda elements that most frequently copy to onset are [ʔ], [h], [r], [l], and post vocalic or glide [j] and [w]. These form a natural class of devolution initiators. They are approximant sonorants.5 The Tsimshian laryngeal [ʔ] is very soft in comparison to glottal stops in the neighboring languages, and often becomes a suprasegmental as something approximating very soft creaky voice.	page 7
+footnote 5	John A. Dunn	note	There is considerable disagreement as to whether the laryngeals [ʔ] and [h] are sonorant or approximant. In Tsimshian, the laryngeals behave like the other sonorant approximants, or rather, the sonorant approximants behave like the laryngeals.	page 7, footnote 5
+§6	Coast Tsimshian	cited form	ʔ	page 7, in italics
+§6.1	John A. Dunn	heading	6.1 Glottal approximant [ʔ]	page 7
+(13) line 1	Coast Tsimshian	transcription	Gāᵒ	page 7
+(13) line 2	Coast Tsimshian	transcription	qˀāᵒ	page 7
+(13) line 3	John A. Dunn	translation	‘cane’	page 7
+(13) line 4	John A. Dunn	citation	(B278)	page 7, the source
+(13) line 5	Coast Tsimshian	transcription	qˀāᵒ-d	page 7
+(13) line 6	John A. Dunn	translation	‘shaft of a lance’	page 7
+(13) line 7	John A. Dunn	citation	(B279)	page 7, the source
+(13) line 8	Coast Tsimshian	transcription	qˀaˀa-t	page 7
+(13) line 9	John A. Dunn	translation	‘a cane’	page 7
+(13) line 10	John A. Dunn	citation	(D853)	page 7, the source
+(13) line 11	John A. Dunn	note	staging Gāᵒ > qˀāᵒ > qˀaˀa	page 7, the staging
+(13) staging	Coast Tsimshian	cited form	Gāᵒ	page 7, in italics
+(13) staging	Coast Tsimshian	cited form	qˀāᵒ	page 7, in italics
+(13) staging	Coast Tsimshian	cited form	qˀaˀa	page 7, in italics
+(14) line 1	Coast Tsimshian	transcription	Gatsˀa-ɬ	page 8
+(14) line 2	John A. Dunn	translation	‘to swallow’	page 8
+(14) line 3	John A. Dunn	citation	(D427)	page 8, the source
+(14) line 4	Coast Tsimshian	transcription	qˀadza-ɬ	page 8
+(14) line 5	John A. Dunn	translation	‘swallow’	page 8
+(14) line 6	John A. Dunn	citation	(B279)	page 8, the source
+(14) line 7	Coast Tsimshian	transcription	qˀadzā	page 8
+(14) line 8	Coast Tsimshian	transcription	qˀadzā-ɬ	page 8
+(14) line 9	John A. Dunn	translation	‘to swallow’	page 8
+(14) line 10	John A. Dunn	citation	(D860)	page 8, the source
+(14) line 11	Southern Tsimshian	transcription	kˀadza-ɬ	page 8
+(14) line 12	John A. Dunn	translation	‘to swallow’	page 8
+(14) line 13	John A. Dunn	citation	(S9/76)	page 8, the source
+(14) line 14	John A. Dunn	note	staging Gatsˀa > qˀadza > kˀadza	page 8, the staging
+(14) staging	Coast Tsimshian	cited form	Gatsˀa	page 8, in italics
+(14) staging	Coast Tsimshian	cited form	qˀadza	page 8, in italics
+(14) staging	Coast Tsimshian	cited form	kˀadza	page 8, in italics
+(15) line 1	Coast Tsimshian	transcription	gū´op!El	page 8
+(15) line 2	John A. Dunn	translation	‘two round objects’	page 8
+(15) line 3	John A. Dunn	citation	(B274)	page 8, the source
+(15) line 4	Coast Tsimshian	transcription	guˀpl	page 8
+(15) line 5	Coast Tsimshian	transcription	guuˀpl	page 8
+(15) line 6	John A. Dunn	translation	‘two (general number)’	page 8
+(15) line 7	John A. Dunn	citation	(D498)	page 8, the source
+(15) line 8	Coast Tsimshian	transcription	qˀōp-sχn	page 8
+(15) line 9	John A. Dunn	translation	‘two (of long objects)’	page 8
+(15) line 10	John A. Dunn	citation	(D939)	page 8, the source
+(15) line 11	Coast Tsimshian	transcription	Gôp-sχan	page 8
+(15) line 12	John A. Dunn	translation	‘two long ones’	page 8
+(15) line 13	John A. Dunn	citation	(B280)	page 8, the source
+(15) line 14	Coast Tsimshian	transcription	gulba	page 8
+(15) line 15	John A. Dunn	translation	‘double’	page 8
+(15) line 16	John A. Dunn	citation	(B274)	page 8, the source
+(15) line 17	John A. Dunn	note	staging gūˀp-l > qˀōp	page 8, the staging
+(15) staging	Coast Tsimshian	cited form	gūˀp-l	page 8, in italics
+(15) staging	Coast Tsimshian	cited form	qˀōp	page 8, in italics
+(16) line 1	Coast Tsimshian	transcription	daχ-iā°gʷa	page 8
+(16) line 2	John A. Dunn	translation	‘hold firmly’	page 8
+(16) line 3	John A. Dunn	citation	(B265)	page 8, the source
+(16) line 4	Coast Tsimshian	transcription	daχ-yaHgʷa	page 8
+(16) line 5	John A. Dunn	translation	‘hold fast, hold tight’	page 8
+(16) line 6	John A. Dunn	citation	(D206)	page 8, the source
+(16) line 7	Coast Tsimshian	transcription	tɁaχ-yakʷ	page 8
+(16) line 8	John A. Dunn	translation	‘hold’	page 8
+(16) line 9	John A. Dunn	citation	(D1841)	page 8, the source
+(16) line 10	John A. Dunn	note	staging daχ-iā°gʷa > daχ-yaHgʷa > tɁaχ-yakʷ	page 8, the staging
+(16) staging	Coast Tsimshian	cited form	daχ-iā°gʷa	page 8, in italics
+(16) staging	Coast Tsimshian	cited form	daχ-yaHgʷa	page 8, in italics
+(16) staging	Coast Tsimshian	cited form	tɁaχ-yakʷ	page 8, in italics
+§6.2	John A. Dunn	heading	6.2 Glottal approximant [h]	page 8
+§6.2	John A. Dunn	note	Coda [h] spreads to onset its laryngeal property as [ʔ].	page 8
+(17) line 1	Coast Tsimshian	transcription	Gan-dah	page 8
+(17) line 2	Coast Tsimshian	transcription	Gan-deh	page 8
+(17) line 3	John A. Dunn	translation	‘skate, ray (fish)’	page 8
+(17) line 4	John A. Dunn	citation	(D388)	page 8, the source
+(17) line 5	Coast Tsimshian	transcription	Gandah	page 8
+(17) line 6	Coast Tsimshian	transcription	Gandeh	page 8
+(17) line 7	Coast Tsimshian	transcription	qˀandah	page 8
+(17) line 8	John A. Dunn	translation	‘skate; ray’	page 8
+(17) line 9	John A. Dunn	citation	(L58)	page 8, the source
+(17) line 10	John A. Dunn	note	staging Gandah > qˀandah	page 8, the staging
+(17) staging	Coast Tsimshian	cited form	qˀandah	page 8, in italics
+(18) line 1	Southern Tsimshian	transcription	nah gʸigʸaanxʸ	page 8
+(18) line 2	John A. Dunn	translation	‘upstream’	page 8
+(18) line 3	John A. Dunn	citation	(S9/76)	page 8, the source
+(18) line 4	Coast Tsimshian	transcription	ʔnah-	page 8
+(18) line 5	Coast Tsimshian	transcription	ʔna-	page 8
+(18) line 6	John A. Dunn	translation	‘direction toward’	page 8
+(18) line 7	John A. Dunn	citation	(L154)	page 8, the source
+(18) line 8	John A. Dunn	note	staging nah > ʔnah- > ʔna-	page 8, the staging
+(18) staging	Coast Tsimshian	cited form	ʔnah-	page 8, in italics
+(18) staging	Coast Tsimshian	cited form	ʔna-	page 8, in italics
+(19) line 1	Coast Tsimshian	transcription	GaH	page 8
+(19) line 2	Coast Tsimshian	transcription	Gah	page 8
+(19) line 3	John A. Dunn	translation	‘come’	page 8
+(19) line 4	John A. Dunn	citation	(D277)	page 8, the source
+(19) line 5	Coast Tsimshian	transcription	qˀah	page 8
+(19) line 6	John A. Dunn	translation	‘come’	page 8
+(19) line 7	John A. Dunn	citation	(D863)	page 8, the source
+(19) line 8	John A. Dunn	note	staging GaH > Gah > qˀah	page 8, the staging
+(19) staging	Coast Tsimshian	cited form	qˀah	page 8, in italics
+(20) line 1	Coast Tsimshian	transcription	Gooy-pah	page 8
+(20) line 2	Coast Tsimshian	transcription	Goy-p	page 8
+(20) line 3	John A. Dunn	translation	‘bright, moon’	page 8
+(20) line 4	John A. Dunn	citation	(D488)	page 8, the source
+(20) line 5	Coast Tsimshian	transcription	Gôe-pˀa	page 8
+(20) line 6	John A. Dunn	translation	‘light’	page 8
+(20) line 7	John A. Dunn	citation	(B280)	page 8, the source
+(20) line 8	Coast Tsimshian	transcription	Goy-ˀpa	page 8
+(20) line 9	John A. Dunn	translation	‘daylight’	page 8
+(20) line 10	John A. Dunn	citation	(D488)	page 8, the source
+(20) line 11	Coast Tsimshian	transcription	Goy-pˀa	page 8
+(20) line 12	John A. Dunn	translation	‘daylight, brightness’	page 8
+(20) line 13	John A. Dunn	citation	(L67)	page 8, the source
+(20) line 14	Southern Tsimshian	transcription	Gooy-ˀpa	page 8
+(20) line 15	John A. Dunn	translation	‘light’	page 8
+(20) line 16	John A. Dunn	citation	(S9/76)	page 8, the source
+(20) line 17	Gitxsen	transcription	Goy-ˀmaχ	page 8
+(20) line 18	Gitxsen	transcription	ǥoy-pˀmaχ	page 8
+(20) line 19	John A. Dunn	translation	‘bright’	page 8
+(20) line 20	John A. Dunn	citation	(G35)	page 8, the source
+(20) line 21	NisGa'a	transcription	Goy-pˀaχ	page 8
+(20) line 22	John A. Dunn	translation	‘(light) be bright’	page 8
+(20) line 23	John A. Dunn	citation	(N57, T424)	page 8, the source
+(20) line 24	John A. Dunn	note	staging Gooy-pah > Gooy-ˀpa > ǥoy-pˀmaχ > Goy-ˀmaχ	page 8, the staging
+(20) staging	Coast Tsimshian	cited form	Gooy-ˀpa	page 8, in italics
+(20) staging	Coast Tsimshian	cited form	Goy-ˀmaχ	page 8, in italics
+(20) staging	Coast Tsimshian	cited form	ǥoy-pˀmaχ	page 8, in italics
+§6.3	John A. Dunn	heading	6.3 Coda [r]	page 8
+§6.3	John A. Dunn	note	Boas used the symbol [r] in only a handful of words. He characterizes his [r] as “a very weak, strongly sonorant middle palatal trill” (Boas 1912:68). This is equivalent to or became Dunn’s [ɰ], a high, back, unround, continuant, sonorant glide.	page 8
+§6.3	John A. Dunn	note	In the word dEr ‘to die’, the [r] spreads its [+high][-rnd] features to the syllalble peak and lengthens it, [E] becoming [üü]. Then [r] disappears, dEr > düü. In some instances it weakens by losing its sonorant approximant, voicing and unround properties, becoming [xʷ]. Then the [+rnd] feature spreads to the vowel, daxʷ > dō.	page 9
+§6.3	Coast Tsimshian	cited form	düü	page 9, in italics
+§6.3	Coast Tsimshian	cited form	daxʷ	page 9, in italics
+§6.3	Coast Tsimshian	cited form	dō	page 9, in italics
+(21) line 1	Coast Tsimshian	transcription	dEr	page 9
+(21) line 2	John A. Dunn	translation	‘dead, to die, plural’	page 9
+(21) line 3	John A. Dunn	citation	(B265)	page 9, the source
+(21) line 4	Coast Tsimshian	transcription	düü	page 9
+(21) line 5	John A. Dunn	translation	‘dead, to die, plural agreement’	page 9
+(21) line 6	John A. Dunn	citation	(D244)	page 9, the source
+(21) line 7	Coast Tsimshian	transcription	doo	page 9
+(21) line 8	John A. Dunn	translation	‘to put down, lay down’	page 9
+(21) line 9	John A. Dunn	citation	(D1686)	page 9, the source
+(21) line 10	NisGa'a	transcription	daxʷ	page 9
+(21) line 11	John A. Dunn	translation	‘die, plural’	page 9
+(21) line 12	John A. Dunn	citation	(N24, T415)	page 9, the source
+§6.3	John A. Dunn	note	The [r] in word ksEr ‘to go out’ behaves in much the same way.	page 9
+(22) line 1	Coast Tsimshian	transcription	ksEr	page 9
+(22) line 2	John A. Dunn	translation	‘to go out’	page 9
+(22) line 3	John A. Dunn	citation	(B275)	page 9, the source
+(22) line 4	Coast Tsimshian	transcription	ksâχ	page 9
+(22) line 5	John A. Dunn	translation	‘to go out’	page 9
+(22) line 6	John A. Dunn	citation	(B275)	page 9, the source
+(22) line 7	Coast Tsimshian	transcription	ksüü	page 9
+(22) line 8	John A. Dunn	translation	‘to go out (singular)’	page 9
+(22) line 9	John A. Dunn	citation	(D989)	page 9, the source
+(22) line 10	Coast Tsimshian	transcription	ksooχ	page 9
+(22) line 11	John A. Dunn	translation	‘to go out (plural)’	page 9
+(22) line 12	John A. Dunn	citation	(D989)	page 9, the source
+§6.3	John A. Dunn	note	In sger ‘to lie on, to set down, place’, the [r] colors and lengthens the vowel as before.	page 9
+(23) line 1	Coast Tsimshian	transcription	sger	page 9
+(23) line 2	John A. Dunn	translation	‘to lie (be lying on)’	page 9
+(23) line 3	John A. Dunn	citation	(B270)	page 9, the source
+(23) line 4	Coast Tsimshian	transcription	sgii	page 9
+(23) line 5	Coast Tsimshian	transcription	sgüü	page 9
+(23) line 6	John A. Dunn	translation	‘be lying on, put down, place’	page 9
+(23) line 7	John A. Dunn	citation	(D1681, 1686)	page 9, the source
+§6.3	John A. Dunn	note	In ɬErdEr ‘keep, preserve’ the [r] in the second syllalble colors and lengthens the vowel as above. But the [r] in the first syllable behaves like, becomes [ʔ]: ɬEr > ɬuˀə > ɬuH > ɬū.	page 9
+§6.3	Coast Tsimshian	cited form	ɬErdEr	page 9, in italics, ‘keep, preserve’
+§6.3	Coast Tsimshian	cited form	ɬEr	page 9, in italics
+§6.3	Coast Tsimshian	cited form	ɬuˀə	page 9, in italics
+§6.3	Coast Tsimshian	cited form	ɬuH	page 9, in italics
+§6.3	Coast Tsimshian	cited form	ɬū	page 9, in italics
+(24) line 1	Coast Tsimshian	transcription	ɬErdEr	page 9
+(24) line 2	John A. Dunn	translation	‘keep, preserve’	page 9
+(24) line 3	John A. Dunn	citation	(B283)	page 9, the source
+(24) line 4	Coast Tsimshian	transcription	ɬuˀədüü	page 9
+(24) line 5	John A. Dunn	translation	‘keep, preserve, i.e., keep hidden’	page 9
+(24) line 6	John A. Dunn	citation	(D1347)	page 9, the source
+(24) line 7	Coast Tsimshian	transcription	n-ɬuHt	page 9
+(24) line 8	John A. Dunn	translation	‘be under’	page 9
+(24) line 9	John A. Dunn	citation	(D1551)	page 9, the source
+(24) line 10	Coast Tsimshian	transcription	ɬuudk	page 9
+(24) line 11	Coast Tsimshian	transcription	ɬut'ak	page 9
+(24) line 12	John A. Dunn	translation	‘keep, look after, treasure, prize’	page 9
+(24) line 13	John A. Dunn	citation	(L137)	page 9, the source
+(24) line 14	NisGa'a	transcription	ɬuut'uxw	page 9
+(24) line 15	John A. Dunn	translation	‘cherish, treasure, value’	page 9
+(24) line 16	John A. Dunn	citation	(N83, T432)	page 9, the source
+§6.4	John A. Dunn	heading	6.4 Coda [l]	page 9
+§6.4	John A. Dunn	note	Coda [l] behaves like or becomes [ʔ].	page 9
+(25) line 1	Coast Tsimshian	transcription	lEbElt-	page 9
+(25) line 2	John A. Dunn	translation	‘against’	page 9
+(25) line 3	John A. Dunn	citation	(B281	page 9, the source
+(25) line 4	Coast Tsimshian	transcription	lEbElt-wālks	page 9
+(25) line 5	John A. Dunn	translation	‘enemy’	page 9
+(25) line 6	John A. Dunn	citation	(B281)	page 9, the source
+(25) line 7	Coast Tsimshian	transcription	lib-ilt-waltk	page 9
+(25) line 8	John A. Dunn	translation	‘enemy’	page 9
+(25) line 9	John A. Dunn	citation	(D1142)	page 9, the source
+(25) line 10	Coast Tsimshian	transcription	līᵒp!El	page 9
+(25) line 11	John A. Dunn	translation	‘tear up’	page 9
+(25) line 12	John A. Dunn	citation	(B282)	page 9, the source
+(25) line 13	Coast Tsimshian	transcription	liˀəˀp-l	page 9
+(25) line 14	John A. Dunn	translation	‘tear up’	page 9
+(25) line 15	John A. Dunn	citation	(D1139)	page 9, the source
+(25) line 16	John A. Dunn	note	staging lib-ilt > lEbElt > līᵒpˀEl > liˀəˀpl	page 9, the staging
+(25) staging	Coast Tsimshian	cited form	līᵒpˀEl	page 9, in italics
+(25) staging	Coast Tsimshian	cited form	liˀəˀpl	page 9, in italics
+(26) line 1	Coast Tsimshian	transcription	matχa-laal-t	page 10
+(26) line 2	John A. Dunn	translation	‘snake’	page 10
+(26) line 3	John A. Dunn	citation	(D1407)	page 10, the source
+(26) line 4	NisGa'a	transcription	lal-t	page 10
+(26) line 5	John A. Dunn	translation	‘worm, snake’	page 10
+(26) line 6	John A. Dunn	citation	(N110, T439)	page 10, the source
+(26) line 7	NisGa'a	transcription	lal-t-kw	page 10
+(26) line 8	John A. Dunn	translation	‘be slow’	page 10
+(26) line 9	John A. Dunn	citation	(N110, T439)	page 10, the source
+(26) line 10	Coast Tsimshian	transcription	lāᵒlt	page 10
+(26) line 11	John A. Dunn	translation	‘snake’	page 10
+(26) line 12	John A. Dunn	citation	(B282)	page 10, the source
+(26) line 13	Coast Tsimshian	transcription	lāᵒlt-k	page 10
+(26) line 14	John A. Dunn	translation	‘slow’	page 10
+(26) line 15	John A. Dunn	citation	(B282)	page 10, the source
+(26) line 16	Coast Tsimshian	transcription	laHl-t	page 10
+(26) line 17	Coast Tsimshian	transcription	laal-t	page 10
+(26) line 18	John A. Dunn	translation	‘worm, slow’	page 10
+(26) line 19	John A. Dunn	citation	(D1066)	page 10, the source
+(26) line 20	John A. Dunn	note	staging lalt > lāᵒlt > laHlt > lālt	page 10, the staging
+(26) staging	Coast Tsimshian	cited form	lāᵒlt	page 10, in italics
+(26) staging	Coast Tsimshian	cited form	lālt	page 10, in italics
+(27) line 1	Coast Tsimshian	transcription	Gôli	page 10
+(27) line 2	John A. Dunn	translation	‘scalp’	page 10
+(27) line 3	John A. Dunn	citation	(B280)	page 10, the source
+(27) line 4	Coast Tsimshian	transcription	qˀōl-i	page 10
+(27) line 5	John A. Dunn	translation	‘scalp’	page 10
+(27) line 6	John A. Dunn	citation	(D932)	page 10, the source
+(27) line 7	Coast Tsimshian	transcription	Gōl-i	page 10
+(27) line 8	John A. Dunn	translation	‘scalp, hair’	page 10
+(27) line 9	John A. Dunn	citation	(L67)	page 10, the source
+(27) line 10	NisGa'a	transcription	Gol-x	page 10
+(27) line 11	John A. Dunn	translation	‘skull’	page 10
+(27) line 12	John A. Dunn	citation	(N57, T424)	page 10, the source
+(27) line 13	John A. Dunn	note	staging Gol > Gōl, Gqˀōl	page 10, the staging
+(27) staging	Coast Tsimshian	cited form	Gōl	page 10, in italics
+(27) staging	Coast Tsimshian	cited form	Gqˀōl	page 10, in italics
+(28) line 1	Coast Tsimshian	transcription	Gol	page 10
+(28) line 2	John A. Dunn	translation	‘to run (plural agreement)’	page 10
+(28) line 3	John A. Dunn	citation	(D474.1)	page 10, the source
+(28) line 4	Coast Tsimshian	transcription	q!ôɬ	page 10
+(28) line 5	Coast Tsimshian	transcription	Gȃɬ	page 10
+(28) line 6	John A. Dunn	translation	‘run (plural)’	page 10
+(28) line 7	John A. Dunn	citation	(B280)	page 10, the source
+(28) line 8	Coast Tsimshian	transcription	qˀol	page 10
+(28) line 9	John A. Dunn	translation	‘to run (plural agreement)’	page 10
+(28) line 10	John A. Dunn	citation	(D916)	page 10, the source
+(28) line 11	Coast Tsimshian	transcription	qˀoɬ	page 10
+(28) line 12	John A. Dunn	translation	‘to run (plural)’	page 10
+(28) line 13	John A. Dunn	citation	(L107)	page 10, the source
+(28) line 14	John A. Dunn	note	staging Gol > qˀol > qˀoɬ	page 10, the staging
+(28) staging	Coast Tsimshian	cited form	qˀol	page 10, in italics
+(28) staging	Coast Tsimshian	cited form	qˀoɬ	page 10, in italics
+§6.5	John A. Dunn	heading	6.5 [j]-glide	page 10
+§6.5	John A. Dunn	note	The [j]-glide is not strictly speaking a coda element, but it follows the peak vowel and behaves in the same way as the coda sources of devolution. The [j]-glide behaves like or becomes [ʔ].	page 10
+(29) line 1	Coast Tsimshian	transcription	hëtk	page 10
+(29) line 2	John A. Dunn	translation	‘to stand’	page 10
+(29) line 3	John A. Dunn	citation	(B261)6	page 10, the source, carries footnote 6
+footnote 6	John A. Dunn	note	Boas’ [ë] is [aj] (Boas 1912:67).	page 10, footnote 6
+(29) line 4	Coast Tsimshian	transcription	hai-tk	page 10
+(29) line 5	Coast Tsimshian	transcription	haai-tk	page 10
+(29) line 6	John A. Dunn	translation	‘stand up (intransitive)’	page 10
+(29) line 7	John A. Dunn	citation	(D659)	page 10, the source
+(29) line 8	Southern Tsimshian	transcription	hāi-tgi	page 10
+(29) line 9	John A. Dunn	translation	‘stand up (intransitive)’	page 10
+(29) line 10	John A. Dunn	citation	(S9/20/79)	page 10, the source
+(29) line 11	Coast Tsimshian	transcription	haaɁi-ti-sk	page 10
+(29) line 12	John A. Dunn	translation	‘house posts’	page 10
+(29) line 13	John A. Dunn	citation	(D658)	page 10, the source
+(29) line 14	Coast Tsimshian	transcription	haɁy-ti-sk	page 10
+(29) line 15	John A. Dunn	translation	‘house posts’	page 10
+(29) line 16	John A. Dunn	citation	(L82)	page 10, the source
+(29) line 17	John A. Dunn	note	staging haj > haɁj > hāɁj > hāj	page 10, the staging
+(29) staging	Coast Tsimshian	cited form	haɁj	page 10, in italics
+(29) staging	Coast Tsimshian	cited form	hāɁj	page 10, in italics
+(29) staging	Coast Tsimshian	cited form	hāj	page 10, in italics
+(30) line 1	Coast Tsimshian	transcription	Gai-ak	page 10
+(30) line 2	John A. Dunn	translation	‘grey (colour)’	page 10
+(30) line 3	John A. Dunn	citation	(D452)	page 10, the source
+(30) line 4	Coast Tsimshian	transcription	Gay-ak	page 10
+(30) line 5	Coast Tsimshian	transcription	Gay-aak	page 10
+(30) line 6	John A. Dunn	translation	‘grey (colour)’	page 10
+(30) line 7	John A. Dunn	citation	(L65)	page 10, the source
+(30) line 8	Coast Tsimshian	transcription	qˀai-a-dzen	page 10
+(30) line 9	John A. Dunn	translation	‘grey snapper’	page 10
+(30) line 10	John A. Dunn	citation	(D47)	page 10, the source
+(30) line 11	Coast Tsimshian	transcription	q’ay-a-dzen	page 10
+(30) line 12	John A. Dunn	translation	‘grey snapper’	page 10
+(30) line 13	John A. Dunn	citation	(L106)	page 10, the source
+(30) line 14	John A. Dunn	note	staging Gaj > qˀaj	page 10, the staging
+(30) staging	Coast Tsimshian	cited form	qˀaj	page 10, in italics
+(31) line 1	Coast Tsimshian	transcription	nay	page 11
+(31) line 2	John A. Dunn	translation	‘mother (archaic address form)’	page 11
+(31) line 3	John A. Dunn	citation	(L151)	page 11, the source
+(31) line 4	Coast Tsimshian	transcription	nāy-a	page 11
+(31) line 5	John A. Dunn	translation	‘mother (said by a girl)’	page 11
+(31) line 6	John A. Dunn	citation	(B272)	page 11, the source
+(31) line 7	Coast Tsimshian	transcription	nâ	page 11
+(31) line 8	John A. Dunn	translation	‘mother’	page 11
+(31) line 9	John A. Dunn	citation	(B273)	page 11, the source
+(31) line 10	Coast Tsimshian	transcription	nâᵒ-s	page 11
+(31) line 11	John A. Dunn	translation	‘wife of father's brother’	page 11
+(31) line 12	John A. Dunn	citation	(B273)	page 11, the source
+(31) line 13	Coast Tsimshian	transcription	noˀo	page 11
+(31) line 14	Coast Tsimshian	transcription	noo	page 11
+(31) line 15	John A. Dunn	translation	‘mother (includes maternal aunt and uncle's wife)’	page 11
+(31) line 16	John A. Dunn	citation	(D1554	page 11, the source
+(31) line 17	Southern Tsimshian	transcription	noˀoh	page 11
+(31) line 18	John A. Dunn	translation	‘mother’	page 11
+(31) line 19	John A. Dunn	citation	(S9/76)	page 11, the source
+(31) line 20	Southern Tsimshian	transcription	ʔno	page 11
+(31) line 21	John A. Dunn	translation	‘mother’	page 11
+(31) line 22	John A. Dunn	citation	(S12/80)	page 11, the source
+(31) line 23	Coast Tsimshian	transcription	noo-ts	page 11
+(31) line 24	John A. Dunn	translation	‘male homosexual i.e. like a mother’	page 11
+(31) line 25	John A. Dunn	citation	(D1558)	page 11, the source
+(31) line 26	Coast Tsimshian	transcription	noo-ts	page 11
+(31) line 27	John A. Dunn	translation	‘homosexual’	page 11
+(31) line 28	John A. Dunn	citation	(L153)	page 11, the source
+(31) line 29	John A. Dunn	note	staging naj > nāj > nâᵒ-s > noˀoh > noˀo > ʔno/nō	page 11, the staging
+(31) staging	Coast Tsimshian	cited form	nâᵒ-s	page 11, in italics
+(31) staging	Coast Tsimshian	cited form	noˀo	page 11, in italics
+(31) staging	Coast Tsimshian	cited form	noˀoh	page 11, in italics
+(31) staging	Coast Tsimshian	cited form	ʔno	page 11, in italics
+(31) staging	Coast Tsimshian	cited form	nāj	page 11, in italics
+(31) staging	Coast Tsimshian	cited form	ʔno/nō	page 11, in italics
+(32) line 1	Coast Tsimshian	transcription	Gay-k	page 11
+(32) line 2	John A. Dunn	translation	‘chest’	page 11
+(32) line 3	John A. Dunn	citation	(D455)	page 11, the source
+(32) line 4	Coast Tsimshian	transcription	Gāi	page 11
+(32) line 5	Coast Tsimshian	transcription	qˀāi	page 11
+(32) line 6	John A. Dunn	translation	‘wing, arm, fathom (measure of opened arms, trump in stick game)’	page 11
+(32) line 7	John A. Dunn	citation	(B278)	page 11, the source
+(32) line 8	Coast Tsimshian	transcription	Gaˀai	page 11
+(32) line 9	Coast Tsimshian	transcription	Ga-qˀai	page 11
+(32) line 10	John A. Dunn	translation	‘wing, i.e., like a gill’	page 11
+(32) line 11	John A. Dunn	citation	(D294)	page 11, the source
+(32) line 12	Coast Tsimshian	transcription	qˀa-qˀai	page 11
+(32) line 13	John A. Dunn	translation	‘wing’	page 11
+(32) line 14	John A. Dunn	citation	(D294)	page 11, the source
+(32) line 15	Southern Tsimshian	transcription	Ga-qˀaaxʸ	page 11
+(32) line 16	John A. Dunn	translation	‘wing’	page 11
+(32) line 17	John A. Dunn	citation	(S9/76)	page 11, the source
+(32) line 18	Coast Tsimshian	transcription	Gāi-k	page 11
+(32) line 19	John A. Dunn	translation	‘chest, front of body, half a fathom’	page 11
+(32) line 20	John A. Dunn	citation	(B278)	page 11, the source
+(32) line 21	Coast Tsimshian	transcription	Gāi-t	page 11
+(32) line 22	Coast Tsimshian	transcription	Gāy-t	page 11
+(32) line 23	John A. Dunn	translation	‘billed (wing in front) hat’	page 11
+(32) line 24	John A. Dunn	citation	(B278)	page 11, the source
+(32) line 25	Southern Tsimshian	transcription	Gaay-t	page 11
+(32) line 26	John A. Dunn	translation	‘hat’	page 11
+(32) line 27	John A. Dunn	citation	(S12/10/80)	page 11, the source
+(32) line 28	John A. Dunn	note	staging Gaj > Gaˀaj > qˀaj > qˀāxʸ	page 11, the staging
+(32) staging	Coast Tsimshian	cited form	Gaˀaj	page 11, in italics
+(32) staging	Coast Tsimshian	cited form	qˀāxʸ	page 11, in italics
+§6.5	John A. Dunn	note	See Figure 6 for an illustration of the devoltion from the above examples.	page 11
+Figure 6 line 1	John A. Dunn	note	σ	page 11, the tree
+Figure 6 line 2	John A. Dunn	note	O R	page 11, the tree
+Figure 6 line 3	John A. Dunn	note	G a j	page 11, the tree
+Figure 6 line 4	John A. Dunn	note	ʔ j [+son][+voi]	page 11, the tree
+Figure 6 line 5	John A. Dunn	note	a ˀ a	page 11, the tree
+Figure 6 line 6	John A. Dunn	note	qˀ ā xʸ [-son][-voi]	page 11, the tree
+Figure 6	John A. Dunn	note	Figure 6 Gaj > Gaˀaj > qˀaj > qˀāxʸ	page 11, the caption of Figure 6
+§6.6	John A. Dunn	heading	6.6 [w]-glide	page 11
+(33) line 1	Coast Tsimshian	transcription	hauɁts	page 11
+(33) line 2	Coast Tsimshian	transcription	haɁuɁts	page 11
+(33) line 3	Coast Tsimshian	transcription	hauts	page 11
+(33) line 4	John A. Dunn	translation	‘sea loon; cormorant; bottle-neck duck’	page 11
+(33) line 5	John A. Dunn	citation	(D786)	page 11, the source
+(33) line 6	Coast Tsimshian	transcription	haɁuɁuts	page 11
+(33) line 7	Coast Tsimshian	transcription	haɁwts	page 11
+(33) line 8	John A. Dunn	translation	‘black cormorant, bottle-neck duck’	page 11
+(33) line 9	John A. Dunn	citation	(L81)	page 11, the source
+(33) line 10	John A. Dunn	note	staging hauts > hauɁts > haɁuɁts	page 11, the staging
+(33) staging	Coast Tsimshian	cited form	hauɁts	page 11, in italics
+(33) staging	Coast Tsimshian	cited form	haɁuɁts	page 11, in italics
+(34) line 1	NisGa'a	transcription	qˀaɬumˀq	page 12
+(34) line 2	John A. Dunn	translation	‘swallow (something) in one gulp’	page 12
+(34) line 3	John A. Dunn	citation	(N100)	page 12, the source
+(34) line 4	Southern Tsimshian	transcription	kˀaɬ-ikpˀahmχs	page 12
+(34) line 5	John A. Dunn	translation	‘choke’	page 12
+(34) line 6	John A. Dunn	citation	(S9/76)	page 12, the source
+(34) line 7	Southern Tsimshian	transcription	kˀaɬ-haaɰ	page 12
+(34) line 8	John A. Dunn	translation	‘choke’	page 12
+(34) line 9	John A. Dunn	citation	(S9/76)	page 12, the source
+(34) line 10	Coast Tsimshian	transcription	kˀaɬ-au	page 12
+(34) line 11	John A. Dunn	translation	‘choke’	page 12
+(34) line 12	John A. Dunn	citation	(D875)	page 12, the source
+(34) line 13	John A. Dunn	note	staging au > haaɰ	page 12, the staging
+(34) staging	Coast Tsimshian	cited form	haaɰ	page 12, in italics
+(35) line 1	Coast Tsimshian	transcription	Gaus	page 12
+(35) line 2	John A. Dunn	translation	‘hair’	page 12
+(35) line 3	John A. Dunn	citation	(B278)	page 12, the source
+(35) line 4	Coast Tsimshian	transcription	Gaus	page 12
+(35) line 5	John A. Dunn	translation	‘hair’	page 12
+(35) line 6	John A. Dunn	citation	(D435)	page 12, the source
+(35) line 7	Southern Tsimshian	transcription	Gaaus	page 12
+(35) line 8	Southern Tsimshian	transcription	Gaɰs	page 12
+(35) line 9	John A. Dunn	translation	‘hair’	page 12
+(35) line 10	John A. Dunn	citation	(S9/76)	page 12, the source
+(35) line 11	Coast Tsimshian	transcription	t!Em-Gaus	page 12
+(35) line 12	John A. Dunn	translation	‘head’	page 12
+(35) line 13	John A. Dunn	citation	(B278)	page 12, the source
+(35) line 14	Coast Tsimshian	transcription	tˀm-qˀaus	page 12
+(35) line 15	John A. Dunn	translation	‘head’	page 12
+(35) line 16	John A. Dunn	citation	(D1863)	page 12, the source
+(35) line 17	Southern Tsimshian	transcription	qˀam-Gaus-(u)	page 12
+(35) line 18	John A. Dunn	translation	‘head’	page 12
+(35) line 19	John A. Dunn	citation	(S5/81)	page 12, the source
+(35) line 20	Coast Tsimshian	transcription	Ga-Gaaus	page 12
+(35) line 21	Coast Tsimshian	transcription	Ga-Gaus	page 12
+(35) line 22	John A. Dunn	translation	‘horn (of any animal), antlers, a buck with antlers’	page 12
+(35) line 23	John A. Dunn	citation	(D320)	page 12, the source
+(35) line 24	Southern Tsimshian	transcription	Ga-Gaaus	page 12
+(35) line 25	John A. Dunn	translation	‘horn’	page 12
+(35) line 26	John A. Dunn	citation	(S9/76)	page 12, the source
+(35) line 27	John A. Dunn	note	staging Gaus > qˀaus and Gaus > Gaɰs and Gaus > Gaaus	page 12, the staging
+(35) staging	Coast Tsimshian	cited form	Gaɰs	page 12, in italics
+(35) staging	Coast Tsimshian	cited form	qˀaus	page 12, in italics
+(36) line 1	Coast Tsimshian	transcription	gau	page 12
+(36) line 2	Coast Tsimshian	transcription	qˀa-gau-tk	page 12, the word that holds gau
+(36) line 3	John A. Dunn	translation	‘howl’	page 12
+(36) line 4	John A. Dunn	citation	(D862)	page 12, the source
+(36) line 5	Coast Tsimshian	transcription	qˀaw	page 12
+(36) line 6	Coast Tsimshian	transcription	Ga-qˀaw-tk	page 12, the word that holds qˀaw
+(36) line 7	John A. Dunn	translation	‘howl, bay (of dogs and wolves)’	page 12
+(36) line 8	John A. Dunn	citation	(L52)	page 12, the source
+(36) line 9	John A. Dunn	note	staging gaw > qˀaw	page 12, the staging
+(36) staging	Coast Tsimshian	cited form	qˀaw	page 12, in italics
+(37) line 1	Coast Tsimshian	transcription	sqāɢ	page 12
+(37) line 2	Coast Tsimshian	transcription	sɢau	page 12
+(37) line 3	John A. Dunn	translation	‘to refuse’	page 12
+(37) line 4	John A. Dunn	citation	(B270)	page 12, the source
+(37) line 5	Coast Tsimshian	transcription	sɢaaɢ	page 12
+(37) line 6	John A. Dunn	translation	‘to refuse’	page 12
+(37) line 7	John A. Dunn	citation	(D1665)	page 12, the source
+(37) line 8	Coast Tsimshian	transcription	sɢaaɰ	page 12
+(37) line 9	Coast Tsimshian	transcription	sɢaaw	page 12
+(37) line 10	John A. Dunn	translation	‘to refuse’	page 12
+(37) line 11	John A. Dunn	citation	(L172)	page 12, the source
+(37) line 12	John A. Dunn	note	staging sɢau > sɢāu > sɢāɰ > sqā	page 12, the staging
+(37) staging	Coast Tsimshian	cited form	sɢau	page 12, in italics
+(37) staging	Coast Tsimshian	cited form	sɢāu	page 12, in italics
+(37) staging	Coast Tsimshian	cited form	sɢāɰ	page 12, in italics
+(37) staging	Coast Tsimshian	cited form	sqā	page 12, in italics
+§6.6	John A. Dunn	note	The sonorant approximants can readily become laryngealized by a simple merging rule, i.e., {[r],[l],[j],[w]} > {[Ɂr],[Ɂl],[Ɂj],[Ɂw]} > [Ɂ], but deriving the various sonorant approximants from the laryngeal, e.g., [Ɂ] > {[r].[l],[j],[w], is problematic, as there is no way to predict which sonorant approximant the laryngeal will become.	page 12
+§7	John A. Dunn	heading	7 Summary and conclusions	page 12
+§7	John A. Dunn	note	Tsimshian syllable devolution is an elegant phenomenon, a simple paradigm, accounting for much if not all lexical root/stem variations. The coda/post-vocalic devolution initiators spread some of their phonetic properties to syllable onset and peak and lose or degrade those same and other properties in their original coda position. What counts for coda weakening or degradation is not clear when one tries to characterize it in terms of the traditional phonological/phonetic feature systems. The Tsimshian postvocalic sonorant approximants {[r], [l], [j], [w]} function as devolution initiators and behave like the laryngeal devolution initiators {[ʔ], [h]}. Indeed in the devolution process they become laryngeals. In a sense the laryngeals are the skeletal remains of the sonorant approximants after they have lost all or most of their other features, absolute devolution. The important question is this: at some systematic level are all the devolution initiators laryngeals?	page 12
+references	John A. Dunn	heading	References	page 13
+references	John A. Dunn	reference	Anderson, Margaret et al. (2013). Sm'algyax living legacy. http://smalgyax.unbc.ca/	page 13
+references	John A. Dunn	reference	Boas, Franz. (1911). “Tsimshian,” in Handbook of American Indian languages. Part 1. Smithsonian Institution Bureau of American Ethnology. Bulletin 40.	page 13
+references	John A. Dunn	reference	Boas, Franz. (1912). Tsimshian Texts, New Series. E. J. Brill, Leyden, Netherlands.	page 13
+references	John A. Dunn	reference	Farlex (2003–2015). The free dictionary by Farlex. http://www.thefreedictionary.com/devolution	page 13
+references	John A. Dunn	reference	Dunn, John. (1978/1995). A practical dictionary of the Coast Tsimshian language. Canadian Ethnology Service, Paper 42. Republished in Sm'algyax: A Reference Dictionary and Grammar for the Coast Tshimshian Language, the Sealaska Heritage Foundation, Juneau, and the University of Washington Press, Seattle.	page 13
+references	John A. Dunn	reference	Matthews, Art. (2001). Gitxsen lexical database. Unpublished manuscript.	page 13
+references	John A. Dunn	reference	Nislaus, Violet and John Dunn. (1976–1981). Southern Tsimshian lexicon Unpublished field notes.	page 13
+references	John A. Dunn	reference	Tarpent, Marie-Lucie (ed.). (1986). Nishga Phrase Dictionary. School District 93, New Aiyansh.	page 13
+references	John A. Dunn	reference	Ts'msyeen Sm'algyax Language Authority. (2001). Sm'algyax Dictionary.	page 13
+references	John A. Dunn	reference	Williams, Verna and Dianna Rai. (2001). NisGa'a Dictionary. New Aiyansh B. C., WWN Curriculum Committee.	page 13

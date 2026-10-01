@@ -1,0 +1,235 @@
+where	who	kind	form	gloss
+front	Ethan Pincott	title	When Did the *k > *č Shift Occur in Central Salish?	page 1, carries footnote *
+front	Ethan Pincott	name	Ethan Pincott	author
+front	Ethan Pincott	note	Simon Fraser University	page 1, under Ethan Pincott
+front	Ethan Pincott	note	Abstract: The Proto-Salish velar series has fronted in all languages of the Central Salish branch. This leads Galloway (1988) to reconstruct the *k > *č shift as occurring between the Proto-Salish and Proto-Central Salish stages. However, this leaves some irregular sound correspondences unexplained, both within Central Salish and between Central Salish and neighbouring languages. This paper examines these sound correspondences and concludes that the shift must have occurred after Proto-Central Salish.	page 1, the abstract
+front	Ethan Pincott	note	Keywords: sound change, velars, palatalization, Central Salish, loanwords	page 1, the keywords
+front	Ethan Pincott	note	Papers for the International Conference on Salish and Neighboring Languages 55. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2020.	page 1, the volume's header
+front	Ethan Pincott	language	Central Salish	the branch of Salish the paper dates the shift in
+§1	Ethan Pincott	heading	1 Introduction	page 1
+§1	Ethan Pincott	note	One of the primary phonological divisions in the Salish family is between those that have retained the Proto-Salish (PS) velar series and those that have fronted them to palato-alveolars, or further. This shift was described very early on in the study of the language family by Boas and Haeberlin (1927), who noted its striking geographic distribution, with the majority of coastal languages having the č–series, while the Interior Salish languages are divided between k–languages in the west and č–languages in the east. Swadesh (1952) elaborated on this distributional pattern, concluding that since the shift cuts across divisions of the family, it must have occurred well after these branches had begun to diverge. Despite this widespread fronting of the plain velar series, the other dorsal obstruents have remained completely stable across the family. In addition to the plain velar series, Proto-Salish contrasted a labio-velar kʷ–series, a uvular q–series, and a labio-uvular qʷ–series, which are preserved in all modern Salish languages.	page 1
+§1	Central Salish	cited form	č	page 1, in italics
+§1	Central Salish	cited form	kʷ	page 1, in italics
+§1	Central Salish	cited form	qʷ	page 1, in italics
+§1	Ethan Pincott	name	Swadesh	Morris Swadesh (1952, 1955)
+§1	Ethan Pincott	name	Boas	Franz Boas, with Haeberlin (1927)
+§1	Ethan Pincott	name	Haeberlin	Herman Haeberlin, with Boas (1927)
+§1	Ethan Pincott	language	Proto-Salish	PS
+§1	Ethan Pincott	language	Interior Salish	the division
+§1	Ethan Pincott	note	Central Salish forms one of the primary branches of the family, with ten languages spoken in an area from Bute Inlet in the north to the southern end of Puget Sound. These languages are closely related, and are said to form an old dialect continuum, with languages sharing features with their closest neighbours (Czaykowska-Higgins & Kinkade 1997:4). The languages of the Central Salish branch are all č–languages,1 leading Galloway (1988) to conclude that the *k > *č shift was complete by the Proto-Central Salish (PCS) stage. He suggests that the few cases of the k–series that do occur in these languages result from borrowing, sound symbolic shifts of the q– and kʷ– series, or unexplained residue (Galloway 1988:297). However, there are some issues with this account of the timing of the *k > č shift, which are the subject of this paper. Section 2 presents evidence from borrowings between Central Salish and neighbouring languages. Section 3 deals with the primary evidence in the form of sporadic /kʷ/: /č/ correspondences that occur within Central Salish, particularly before PCS *u. Finally, Section 4 discusses the implications of these findings, and Section 5 concludes.	page 1
+footnote 1	Ethan Pincott	note	With the exception that PS *x > xʸ in the Musqueam and Chilliwack dialects of Halkomelem.	page 1, footnote 1
+footnote 1	Ethan Pincott	language	Chilliwack	Ck, Upriver Halkomelem
+§1	Central Salish	cited form	*č	page 1, in italics
+§1	Ethan Pincott	name	Galloway	Brent D. Galloway, Proto-Central Salish sound correspondences (1988)
+§1	Ethan Pincott	name	Kinkade	M. Dale Kinkade (1993, 2003), and with Czaykowska-Higgins (1997)
+§1	Ethan Pincott	name	Czaykowska-Higgins	Ewa Czaykowska-Higgins, with Kinkade (1997)
+§1	Ethan Pincott	language	Proto-Central Salish	PCS
+§2	Ethan Pincott	heading	2 Evidence from borrowings	page 2
+§2.1	Ethan Pincott	heading	2.1 Borrowings between Central and Interior Salish	page 2
+§2.1	Ethan Pincott	note	The Interior languages Lillooet and Thompson share a significant number of lexical items with Central Salish languages (Kuipers 2002:10). Some of these are clearly recent loanwords, while others that belong to an older layer display characteristic sound changes of the languages involved (van Eijk 2014:197). Table 1 presents a few of the roughly two dozen cognate sets where Lillooet and/or Thompson have a k–form while neighbouring Central Salish languages have a č–form.2	page 2
+footnote 2	Ethan Pincott	note	In addition to Kuipers (2002), data for this section come from Squamish Nation Education Department (2011) and van Eijk (1997).	page 2, footnote 2
+footnote 2	Ethan Pincott	name	Squamish Nation Education Department	the Squamish dictionary (2011)
+§2.1	Ethan Pincott	name	Kuipers	Aert H. Kuipers, Salish etymological dictionary (2002)
+§2.1	Ethan Pincott	name	van Eijk	Jan P. van Eijk (1997, 2014)
+§2.1	Ethan Pincott	language	Lillooet	Li, Northern Interior Salish
+§2.1	Ethan Pincott	language	Thompson	Th, Northern Interior Salish
+Table 1	Ethan Pincott	note	Table 1: Borrowings between Central Salish and Lillooet/Thompson3	page 2, the table's caption
+footnote 3	Ethan Pincott	note	Abbreviations used for language names are based on Kuipers (2002) for ease of comparison: Cx Comox, Se Sechelt, Sq Squamish, Ck Chilliwack, Ms Musqueam, Cw Cowichan, Sn Saanich, Sg Songish, Sm Samish, Kl Klallam, Nk Nooksack, Tw Twana, Ld Lushootseed, Li Lillooet, and Th Thompson. The term “Straits” as used here includes the Northern Straits dialects Saanich, Songish, and Samish, as well as Klallam, while “Halkomelem” includes the Cowichan (Island), Musqueam (Downriver), and Chilliwack (Upriver) dialects. Abbreviations for non-Salish languages are Kw Kwak’wala, Di Ditidaht, Ch Chemakum, Qu Quileute.	page 2, footnote 3
+footnote 3	Ethan Pincott	language	Cowichan	Cw, Island Halkomelem
+footnote 3	Ethan Pincott	language	Saanich	Sn, Northern Straits
+footnote 3	Ethan Pincott	language	Songish	Sg, Northern Straits
+footnote 3	Ethan Pincott	language	Samish	Sm, Northern Straits
+footnote 3	Ethan Pincott	language	Klallam	Kl
+footnote 3	Ethan Pincott	language	Kwak’wala	Kw, Wakashan
+footnote 3	Ethan Pincott	language	Ditidaht	Di, Wakashan
+footnote 3	Ethan Pincott	language	Quileute	Qu, Chimakuan
+Table 1 line 1	Ethan Pincott	note	Gloss Central Interior	page 2, the table's line 1 as printed
+Table 1 line 2	Ethan Pincott	note	‘stone maul’ Sq ntə́ɬčis, Ck štə́ɬcəs Li túɬkis, Th túɬkist	page 2, the table's line 2 as printed
+Table 1 line 3	Ethan Pincott	note	‘devil’s club’ Se č’ə́ʔatay, Sq č’átiyay̓ Li k’átlaz̓, Th k’etyeʔ	page 2, the table's line 3 as printed
+Table 1 line 4	Ethan Pincott	note	‘fireweed’ Sq χač’t, Ck χec’ət,	page 2, the table's line 4 as printed
+Table 1 line 5	Ethan Pincott	note	Ld χáč’tac	page 2, the table's line 5 as printed
+Table 1 line 6	Ethan Pincott	note	Li (s)χak’t, Th sχə́ k’iʔt	page 2, the table's line 6 as printed
+Table 1 line 7	Ethan Pincott	note	Cx/Se ‘climb’;	page 2, the table's line 7 as printed
+Table 1 line 8	Ethan Pincott	note	Li/Th ‘high, area	page 2, the table's line 8 as printed
+Table 1 line 9	Ethan Pincott	note	above’	page 2, the table's line 9 as printed
+Table 1 line 10	Ethan Pincott	note	Cx šaʔ, Se šaʔ Li xaʔ, Th xeʔ	page 2, the table's line 10 as printed
+Table 1 line 11	Ethan Pincott	note	‘twin(s)’ Se sč’ič’iyúya,	page 2, the table's line 11 as printed
+Table 1 line 12	Ethan Pincott	note	Sq (s)č’iyúy,	page 2, the table's line 12 as printed
+Table 1 line 13	Ethan Pincott	note	Cw sc’iyáyə	page 2, the table's line 13 as printed
+Table 1 line 14	Ethan Pincott	note	Li sk’zuz	page 2, the table's line 14 as printed
+Table 1 line 15	Ethan Pincott	note	‘fish weir’ Sq č’iyáq, Ck c’iyéq Li sk’zaq	page 2, the table's line 15 as printed
+Table 1 line 16	Ethan Pincott	note	‘go upstream’ Sq ʔúmič Li ʔúmik	page 2, the table's line 16 as printed
+Table 1 line 17	Ethan Pincott	note	‘again, for a little	page 2, the table's line 17 as printed
+Table 1 line 18	Ethan Pincott	note	while’	page 2, the table's line 18 as printed
+Table 1 line 19	Ethan Pincott	note	Sq čaʔɬ Li kaʔɬ	page 2, the table's line 19 as printed
+§2.1	Ethan Pincott	note	These cognate sets are significant because they display expected sound changes as if they had descended from PS, but their limited and largely geographically contiguous distribution strongly suggests borrowing. These loanwords are therefore likely ancient, and in most cases the direction of borrowing is difficult to determine, but in either case these etymologies strongly support a post- PCS date for the *k > č shift. If the alternative hypothesis is correct, one would expect Central Salish /k/ in these words if the direction of borrowing were Interior > Central (cf. Squamish k’ə́xʷaʔ ‘lacrosse’ from Lillooet k’ə́xʷaʔ), or Interior Salish /c/ if the direction of borrowing were reversed (cf. Lillooet c’ạ́ʔmiqʷ ‘removed, in a genealogical sense’ from Squamish sč’áʔmiqʷ ‘great- grandparent/grandchild’; van Eijk 2014:187). The large number of shared lexical items between these languages suggests that Lillooet, Thompson, and neighbouring Central Salish languages formed an ancient language area at a time when early Central Salish dialects still possessed the k– series.	page 2
+§2.1	Central Salish	cited form	k’ə́xʷaʔ	page 3, in italics, ‘lacrosse’
+§2.1	Central Salish	cited form	c’ạ́ʔmiqʷ	page 3, in italics, ‘removed, in a genealogical sense’
+§2.1	Central Salish	cited form	sč’áʔmiqʷ	page 3, in italics, ‘great- grandparent/grandchild’
+§2.1	Ethan Pincott	language	Squamish	Sq
+§2.2	Ethan Pincott	heading	2.2 Borrowings between Central Salish and neighbouring families	page 3
+§2.2	Ethan Pincott	note	There are also some words found in the neighbouring Wakashan and Chimakuan language families that have /k/ or /kʷ/ where related words in Central Salish have *č. Again, the direction that these words were borrowed is not always clear, but the implications remain the same. Assuming that PCS had already fronted the k–series, it would be expected that these forms should have /k/ in the modern Salish languages if they originated in Wakashan or Chimakuan; if the direction of borrowing went the other way, then there would be no PCS *k to give /k/ in Wakashan or Chimakuan. Table 2 provides the loanwords that have been discovered so far.4	page 3
+footnote 4	Ethan Pincott	note	Wakashan data are from Fortescue (2007) and Chimakuan data from Swadesh (1955).	page 3, footnote 4
+§2.2	Ethan Pincott	language	Wakashan	a neighboring family
+§2.2	Ethan Pincott	language	Chimakuan	a neighboring family
+Table 2	Ethan Pincott	note	Table 2: Borrowings between Central Salish and neighbouring families	page 3, the table's caption
+Table 2 line 1	Ethan Pincott	note	Gloss Central Salish Wakashan Chimakuan	page 3, the table's line 1 as printed
+Table 2 line 2	Ethan Pincott	note	‘type of basket’ PCS *spəčuʔ Kw pəku,	page 3, the table's line 2 as printed
+Table 2 line 3	Ethan Pincott	note	Di pukuʔ	page 3, the table's line 3 as printed
+Table 2 line 4	Ethan Pincott	note	Ch spčuuʔu,	page 3, the table's line 4 as printed
+Table 2 line 5	Ethan Pincott	note	Qu pikʷoʔ	page 3, the table's line 5 as printed
+Table 2 line 6	Ethan Pincott	note	‘rock’5 Cw ƛ’ə́c’a, Ld č’əƛ’əʔ Ch č’aaɬa,	page 3, the table's line 6 as printed
+footnote 5	Ethan Pincott	note	This form is also found in Lillooet k’ə́ƛ’a. It may be the case that this root predates Proto-Central Salish and is only preserved in these three languages.	page 3, footnote 5
+footnote 5	Central Salish	cited form	k’ə́ƛ’a	page 3, in italics
+Table 2 line 7	Ethan Pincott	note	Qu k’aƛ’aʔ	page 3, the table's line 7 as printed
+Table 2 line 8	Ethan Pincott	note	‘harpoon’ Sq miyáč Qu bíyaʔk	page 3, the table's line 8 as printed
+§2.2	Ethan Pincott	note	These words do not provide as strong of evidence for the late velar fronting shift, since there is always the possibility that borrowing took place prior to the PCS stage, with the words being lost in all other branches. Hopefully future research into borrowing between these three families will help clarify this question.	page 3
+§3	Ethan Pincott	heading	3 Evidence within Central Salish	page 3
+§3.1	Ethan Pincott	heading	3.1 /kʷ/: /č/ correspondences	page 3
+§3.1	Ethan Pincott	note	There are several cases within Central Salish of cognates with the kʷ–series in one language corresponding to the č–series in another, and occasionally occurring in doublets within the same language. These are presented in Table 3 below, with comments following. To simplify the data, I have omitted glosses for the reflexes in the modern languages. The PCS reconstructions are modified from Kuipers (2002) (see discussion below).	page 3
+Table 3	Ethan Pincott	note	Table 3: /kʷ/: /č/ correspondences in Central Salish	page 4, the table's caption
+Table 3 line 1	Ethan Pincott	note	Reconstruction Gloss /kʷ/ reflexes /č/ reflexes	page 4, the table's line 1 as printed
+Table 3 line 2	Ethan Pincott	note	a.	page 4, the table's line 2 as printed
+Table 3 line 3	Ethan Pincott	note	PCS *kul ‘borrow’ Cx kʷuɬəma,	page 4, the table's line 3 as printed
+Table 3 line 4	Ethan Pincott	note	Se kʷuɬtn, Sq kʷuɬn	page 4, the table's line 4 as printed
+Table 3 line 5	Ethan Pincott	note	Cw cálaʔɬ, Ms cə́ ɬtn,	page 4, the table's line 5 as printed
+Table 3 line 6	Ethan Pincott	note	Ck cə́ ɬte, Ld čul’álc	page 4, the table's line 6 as printed
+Table 3 line 7	Ethan Pincott	note	b. PCS *kum ‘go up/ashore’ Cx kʷúmšin,	page 4, the table's line 7 as printed
+Table 3 line 8	Ethan Pincott	note	Se kʷum, Sq kʷum	page 4, the table's line 8 as printed
+Table 3 line 9	Ethan Pincott	note	Cw cam, Ms ca:m,	page 4, the table's line 9 as printed
+Table 3 line 10	Ethan Pincott	note	Sm saŋ, Sn θaŋ,	page 4, the table's line 10 as printed
+Table 3 line 11	Ethan Pincott	note	Kl cuŋ, Ld čubə	page 4, the table's line 11 as printed
+Table 3 line 12	Ethan Pincott	note	c. PCS *kusan ‘star’ Cx kʷusnʔ, Se kʷusn,	page 4, the table's line 12 as printed
+Table 3 line 13	Ethan Pincott	note	Sq kʷusn, Cw kʷasn,	page 4, the table's line 13 as printed
+Table 3 line 14	Ethan Pincott	note	Ms kʷasn, Ck kʷasl,	page 4, the table's line 14 as printed
+Table 3 line 15	Ethan Pincott	note	Nk kʷúsen	page 4, the table's line 15 as printed
+Table 3 line 16	Ethan Pincott	note	Ld čúsad	page 4, the table's line 16 as printed
+Table 3 line 17	Ethan Pincott	note	d. PCS *k’útəp ‘flea’ Nk kʷ’út’əp Ld č’út’əp	page 4, the table's line 17 as printed
+Table 3 line 18	Ethan Pincott	note	e. PCS *xul ‘spin, drill’ Ck xʷəlkʷ’, Sn xʷələkʷ’t,	page 4, the table's line 18 as printed
+Table 3 line 19	Ethan Pincott	note	Sg xʷələkʷ’t,	page 4, the table's line 19 as printed
+Table 3 line 20	Ethan Pincott	note	Kl xʷəyəkʷ’t	page 4, the table's line 20 as printed
+Table 3 line 21	Ethan Pincott	note	Sq šiʔúkʷ’, Ms xəlákʷ’,	page 4, the table's line 21 as printed
+Table 3 line 22	Ethan Pincott	note	Ck xa:lt, Sn šəlakʷ’,	page 4, the table's line 22 as printed
+Table 3 line 23	Ethan Pincott	note	Sg šəlakʷ’, Kl šaʔyaʔkʷ’,	page 4, the table's line 23 as printed
+Table 3 line 24	Ethan Pincott	note	Ld šuláʔkʷčup	page 4, the table's line 24 as printed
+Table 3 line 25	Ethan Pincott	note	f. PCS *xup1 ‘a night bird’ Ld xʷupšəd Cw šapšəp, Sa šapšəp,	page 4, the table's line 25 as printed
+Table 3 line 26	Ethan Pincott	note	Kl šupšp	page 4, the table's line 26 as printed
+Table 3 line 27	Ethan Pincott	note	g. PCS *xup2 ‘whistle’ Cx xʷupt, Se xʷúpum Sq šupn, Cw šapəs,	page 4, the table's line 27 as printed
+Table 3 line 28	Ethan Pincott	note	Ms xápəm, Ck xa:pm,	page 4, the table's line 28 as printed
+Table 3 line 29	Ethan Pincott	note	Sn šapt, Kl šupt	page 4, the table's line 29 as printed
+Table 3 line 30	Ethan Pincott	note	h. PCS *xuyaʔ ‘maggot, insect’ Cw xʷəxʷiyémʔ,	page 4, the table's line 30 as printed
+Table 3 line 31	Ethan Pincott	note	Ck xʷəxʷíye,	page 4, the table's line 31 as printed
+Table 3 line 32	Ethan Pincott	note	Sn xʷəxʷəyem	page 4, the table's line 32 as printed
+Table 3 line 33	Ethan Pincott	note	Cw šáyaʔ, Ms xáyeʔ,	page 4, the table's line 33 as printed
+Table 3 line 34	Ethan Pincott	note	Sn šayəʔ, Sm šáyeʔ,	page 4, the table's line 34 as printed
+Table 3 line 35	Ethan Pincott	note	Ld šuǰəʔ	page 4, the table's line 35 as printed
+Table 3 line 36	Ethan Pincott	note	i. PCS *–kup ‘fire, firewood’ Cx –awkʷup,	page 4, the table's line 36 as printed
+Table 3 line 37	Ethan Pincott	note	Se –ikʷup, Sq –ikʷup,	page 4, the table's line 37 as printed
+Table 3 line 38	Ethan Pincott	note	Tw –ayqʷp	page 4, the table's line 38 as printed
+Table 3 line 39	Ethan Pincott	note	Se –ičup, Sq –čəp,	page 4, the table's line 39 as printed
+Table 3 line 40	Ethan Pincott	note	Cw –əlcəp, Ms –əlcəp,	page 4, the table's line 40 as printed
+Table 3 line 41	Ethan Pincott	note	Ck –əlcəp, Sm –ečəp,	page 4, the table's line 41 as printed
+Table 3 line 42	Ethan Pincott	note	Sn –čəp, Ld –čup,	page 4, the table's line 42 as printed
+Table 3 line 43	Ethan Pincott	note	Tw –čup	page 4, the table's line 43 as printed
+Table 3 line 44	Ethan Pincott	note	j. PCS *–ku6 ‘water’ Cx –kʷu, Se –kʷu,	page 4, the table's line 44 as printed
+footnote 6	Ethan Pincott	note	This morpheme has several variants, which sometimes co-occur in the same language as doublets. These include *-qu, *-ka, and *-qa. It is therefore possible that the fronted forms actually derive from *-ka.	page 5, footnote 6
+Table 3 line 45	Ethan Pincott	note	Sq –aɬkʷu, Tw –akʷ	page 4, the table's line 45 as printed
+Table 3 line 46	Ethan Pincott	note	Sq –aɬč, Ms –əɬcə,	page 4, the table's line 46 as printed
+Table 3 line 47	Ethan Pincott	note	Ck –əɬce, Sm –əɬsə,	page 4, the table's line 47 as printed
+Table 3 line 48	Ethan Pincott	note	Sn –əɬsə, Kl –aɬc	page 4, the table's line 48 as printed
+Table 3 line 49	Ethan Pincott	note	k. PCS *sk’úɬaʔ ‘leaf’ Tw qʷ’iɬuʔáy Sq sč’úɬaʔ, Cw sc’áɬeʔ,	page 4, the table's line 49 as printed
+Table 3 line 50	Ethan Pincott	note	Ck sc’á:ɬe, Sn sθ’áθ’ɬəʔ, Sg	page 4, the table's line 50 as printed
+Table 3 line 51	Ethan Pincott	note	sc’aɬə, Kl sc’úc’ɬaʔ,	page 4, the table's line 51 as printed
+Table 3 line 52	Ethan Pincott	note	Ld sč’uɬəy	page 4, the table's line 52 as printed
+Table 3 line 53	Ethan Pincott	note	l. PCS? *xʷikʷ’ ‘grey’ Sq xʷikʷ’, Cw cxʷikʷ’,	page 4, the table's line 53 as printed
+Table 3 line 54	Ethan Pincott	note	Sn nəxʷíkʷ’,	page 4, the table's line 54 as printed
+Table 3 line 55	Ethan Pincott	note	Kl ʔənəxʷíkʷ’	page 4, the table's line 55 as printed
+Table 3 line 56	Ethan Pincott	note	Ld šukʷ’	page 4, the table's line 56 as printed
+Table 3 line 57	Ethan Pincott	note	m. *k’uɬ– ‘fellow, co-’ Sq kʷ’əɬ–, Sa kʷ’əɬ– Cw c’ɬ–, Ms c’ɬ–	page 4, the table's line 57 as printed
+§3.1	Ethan Pincott	note	Kuipers (2002:7) reconstructs these forms with initial *kʷ, stating that they have become unrounded before a following *u. However, Kinkade (2003:246) suggests that these cases should be reconstructed with plain velars, which can then become labialized before the rounded vowel, or front as expected. The fact that this pattern of labialization is attested in most modern Salish languages that preserve both series, as well that Kuipers reconstructs no Proto-Salish, Proto-Coast Salish, or Proto-Interior Salish roots with initial *ku, *k’u, or *xu suggests that the reconstruction with plain velars is correct.	page 5
+§3.1	Central Salish	cited form	*kʷ	page 5, in italics
+§3.1	Ethan Pincott	note	Some specific words in Table 3 call for comment. The form (d) *k’útəp ‘flea’ is inferred from the Nooksack and Lushootseed forms; however, Kuipers reconstructs PS *kʷ’ət’, presumably to account for reflexes in Interior Salish such as Moses-Columbian kʷ’ət’akʷ’ít’ps and Shuswap kʷətkʷit’p. However, this leaves the /u/ in the Nooksack and Lushootseed forms unexplained, while the schwa in Interior can easily be derived from *u via unstressed vowel reduction. The Straits reflexes for words (e), (f), (g), (h), and (i), contain phonemes /š/, /č/, and /p/ instead of expected /s/, /c/, and /č/, which likely reflects borrowing. Form (l) is tentatively reconstructed to PCS based on the forms cited, but I have not been able to check if it occurs in the northern languages of the branch. The Lushootseed form is also problematic, since the expected vowel is /i/ not /u/. However, it does appear to derive from the same etymon, since derived forms such as šúkʷ’us ‘loon’ (lit., ‘grey-face’) have clear cognates in other Central Salish languages (e.g., Squamish xʷikʷ’us). Form (k) shows an irregular uvular > velar shift in Twana which is sporadically attested in the language (Kuipers 2002:6): cf. (i) –ayqʷp. Form (m) appears to be limited to Squamish, Straits, and Halkomelem, so this is likely an innovation in these languages postdating PCS.	page 5
+§3.1	Central Salish	cited form	*k’útəp	page 5, in italics, ‘flea’
+§3.1	Central Salish	cited form	*kʷ’ət’	page 5, in italics
+§3.1	Central Salish	cited form	kʷ’ət’akʷ’ít’ps	page 5, in italics
+§3.1	Central Salish	cited form	kʷətkʷit’p	page 5, in italics
+§3.1	Central Salish	cited form	šúkʷ’us	page 5, in italics, ‘loon’
+§3.1	Central Salish	cited form	xʷikʷ’us	page 5, in italics
+§3.1	Central Salish	cited form	–ayqʷp	page 5, in italics
+§3.1	Ethan Pincott	language	Halkomelem	Cowichan, Musqueam and Chilliwack
+§3.1	Ethan Pincott	language	Nooksack	Nk
+§3.1	Ethan Pincott	language	Twana	Tw
+§3.1	Ethan Pincott	language	Lushootseed	Ld
+§3.1	Ethan Pincott	language	Moses-Columbian	Southern Interior Salish
+§3.1	Ethan Pincott	language	Shuswap	Northern Interior Salish
+§3.2	Ethan Pincott	heading	3.2 Areal patterns	page 5
+§3.2	Ethan Pincott	note	The č–reflexes of the etyma in Table 3 have a strong areal pattern: in all cases where multiple languages have č, these languages are spoken in a contiguous area. Furthermore, the frequency of č also seems to have an areal pattern. Generally, the languages from Squamish south to Lushootseed have more instances of č, which decreases as one goes north (Table 4). Note that for Nooksack, lexical materials are currently quite limited, and it may be the case that the language does have cognates for some of the forms in Table 1.	page 5
+Table 4	Ethan Pincott	note	Table 4: Number of /č/ forms	page 5, the table's caption
+Table 4 line 1	Ethan Pincott	note	Comox-Sliammon 0	page 5, the table's line 1 as printed
+Table 4 line 2	Ethan Pincott	note	Sechelt 1	page 5, the table's line 2 as printed
+Table 4 line 3	Ethan Pincott	note	Squamish 5	page 5, the table's line 3 as printed
+Table 4 line 4	Ethan Pincott	note	Halkomelem 10	page 5, the table's line 4 as printed
+Table 4 line 5	Ethan Pincott	note	Northern Straits 8	page 5, the table's line 5 as printed
+Table 4 line 6	Ethan Pincott	note	Klallam 6	page 5, the table's line 6 as printed
+Table 4 line 7	Ethan Pincott	note	Nooksack 0	page 5, the table's line 7 as printed
+Table 4 line 8	Ethan Pincott	note	Twana 1	page 5, the table's line 8 as printed
+Table 4 line 9	Ethan Pincott	note	Lushootseed 9	page 5, the table's line 9 as printed
+§3.2	Ethan Pincott	note	This suggests that the labialization shift of *k > kʷ before *u is regular in the northern languages Comox and Sechelt, while in the southern languages this shift did not occur, or occurred only sporadically. This is complicated by the problem of doublets, where one language has both kʷ and č reflexes of the same root. These could be interpreted in two ways: firstly, that one phonological form is inherited directly from PCS while the other is borrowed; or secondly that the *kʷ ~ *k alternation was already present in the proto-language and caused a split into phonologically distinct forms in some roots following the *k > *č shift. Both scenarios require the existence of a k–series in PCS, with the fronting shift occurring after the languages had already begun to diverge.	page 6
+§3.2	Ethan Pincott	language	Comox	Cx
+§3.2	Ethan Pincott	language	Sechelt	Se
+§3.2	Ethan Pincott	note	The southern bias towards č–forms in interesting, since the Tsamosan and Tillamook branches spoken to the south of Central Salish often have the č–series where other branches have the kʷ– series. The Tsamosan languages occasionally unround and/or palatalize PS *xʷ word-finally, as in Cowlitz təmx, Chehalis təmš ‘earth’ (cf. Squamish təmíxʷ) (Kinkade 1993:180). Unfortunately, it is unclear exactly how common this is, since Kinkade (1993:180) states that it “is not a widespread development” and gives only four examples. Additionally, he shows that Chehalis has –či/–ča in four morphemes which correspond to –kʷu elsewhere in Salish, although this too is clearly not a regular change (Kinkade 1993:181). Tillamook appears to also have frequent č–forms, including t’č’əws ‘seven’ (cf. Squamish t’akʷ’usáč), –əš ‘2SG.SUB’ (cf. Squamish –axʷ), and nəš– ~ š– ‘LOC’ (cf. Squamish nəxʷ– ~ xʷ–).7 Further comparisons between these languages and Central Salish will allow for a better understanding of how and when the *k > *č shift spread through Salish languages of the coast.	page 6
+footnote 7	Ethan Pincott	note	Tillamook data are from Egesdal and Thompson (1996).	page 6, footnote 7
+footnote 7	Ethan Pincott	name	Egesdal	Steven M. Egesdal, with Marita T. Thompson (1996)
+§3.2	Central Salish	cited form	*xʷ	page 6, in italics
+§3.2	Central Salish	cited form	təmx	page 6, in italics
+§3.2	Central Salish	cited form	təmš	page 6, in italics, ‘earth’
+§3.2	Central Salish	cited form	təmíxʷ	page 6, in italics
+§3.2	Central Salish	cited form	–či/–ča	page 6, in italics
+§3.2	Central Salish	cited form	–kʷu	page 6, in italics
+§3.2	Central Salish	cited form	t’č’əws	page 6, in italics, ‘seven’
+§3.2	Central Salish	cited form	t’akʷ’usáč	page 6, in italics
+§3.2	Central Salish	cited form	–əš	page 6, in italics, ‘2SG.SUB’
+§3.2	Central Salish	cited form	–axʷ	page 6, in italics
+§3.2	Central Salish	cited form	nəš–	page 6, in italics
+§3.2	Central Salish	cited form	š	page 6, in italics
+§3.2	Central Salish	cited form	nəxʷ–	page 6, in italics
+§3.2	Central Salish	cited form	xʷ	page 6, in italics
+§3.2	Ethan Pincott	language	Tsamosan	a branch of Salish
+§3.2	Ethan Pincott	language	Cowlitz	Tsamosan
+§3.2	Ethan Pincott	language	Chehalis	Tsamosan
+§3.2	Ethan Pincott	language	Tillamook	a branch of Salish
+§3.3	Ethan Pincott	heading	3.3 Irregular labio-velar reduplication in Halkomelem	page 6
+§3.3	Ethan Pincott	note	A related piece of evidence comes from the reduplication patterns in Halkomelem observed with certain roots with an initial /c/ followed by /a/, which derives historically from *u. When these roots are reduplicated, the consonant appears as /kʷ/: cam ‘go ashore’ > cákʷəm ‘going ashore’ (Suttles 2004:20). In Suttles’ (2004) Musqueam grammar, he points out that these forms must derive from labialization of the second *k under influence of the preceding rounded vowel, a process which is attested in languages like Lillooet (van Eijk 1997:10) which have both velar series. The historical process Suttles (2004:20) outlines is: *kúkum > *kúkʷum > *čúkʷəm > cákʷəm. This shows that the k–series must have remained relatively late in the evolution of the Halkomelem language, since closely related Squamish and Northern Straits languages show no trace of this process.	page 6
+§3.3	Central Salish	cited form	cákʷəm	page 6, in italics, ‘going ashore’
+§3.3	Central Salish	cited form	*kúkum	page 6, in italics
+§3.3	Central Salish	cited form	*kúkʷum	page 6, in italics
+§3.3	Central Salish	cited form	*čúkʷəm	page 6, in italics
+§3.3	Ethan Pincott	name	Suttles	Wayne P. Suttles, Musqueam reference grammar (2004)
+§3.3	Ethan Pincott	language	Musqueam	Ms, Downriver Halkomelem
+§3.3	Ethan Pincott	language	Northern Straits	Saanich, Songish and Samish
+§4	Ethan Pincott	heading	4 Discussion	page 6
+§4	Ethan Pincott	note	The evidence presented in this paper shows that PCS had not yet fronted the k–series, contrary to Galloway (1988). This is significant because the *k > *č shift is the only sound change separating PCS and PS in Galloway’s paper, leaving the branch without any shared phonological innovations. In fact, the Central Salish branch has not been rigorously defined by any set of shared innovations (Czaykowska-Higgins & Kinkade 1997:4), but instead by general morphosyntactic similarities (Kroeber 1999), and shared lexical items (Jorgensen 1969:19). The latter type of evidence is particularly problematic, since early lexicostatistical studies failed to distinguish between borrowings, shared retentions, and shared innovations, when only shared innovations are useful for defining subgroups. Further research will be required to discover what shared phonological innovations, if any, occurred in the transition from PS to PCS.	page 6
+§4	Ethan Pincott	name	Kroeber	Paul D. Kroeber, The Salish language family (1999)
+§4	Ethan Pincott	name	Jorgensen	Joseph G. Jorgensen, Salish language and culture (1969)
+§4	Ethan Pincott	note	This fronting shift occurs not only in Salish, but in the neighbouring language families as well. The Chemakum language, one of two members of the Chimakuan language family, forms a linguistic enclave spoken on the Hood Canal, surrounded by Coast Salishan speakers. Here, Proto- Chimakuan plain velars have fronted to palato-alveolars in the same way as neighbouring Salish languages (Andrade 1953:215). Likewise, the other dorsal series have not shifted to fill the gap, leaving Chemakum with a phonological inventory that is nearly identical to most Central Salish languages. The Southern Wakashan languages, spoken on the west coasts of Vancouver Island and the Olympic Peninsula, have also fronted earlier velars to palato-alveolars. However, these languages have phonemic plain velars as well, which derive from earlier labio-velars that have become unrounded before /u/ and some consonants, as well as word-finally (Fortescue 2007:8). Whether the velar fronting shift spread from one family to the others through contact, or simply developed independently due to drift because of similar phonological pressures in the languages must remain a question for future research.	page 7
+§4	Ethan Pincott	name	Fortescue	Michael D. Fortescue, Comparative Wakashan dictionary (2007)
+§4	Ethan Pincott	name	Andrade	Manuel J. Andrade, Chemakum and Quileute (1953)
+§4	Ethan Pincott	language	Chemakum	Ch, Chimakuan
+§4	Ethan Pincott	note	This paper demonstrates how both comparative reconstruction and loanword analysis can be used together to establish a relative chronology of sound change. These methodologies could be useful to examine sound change within the Central Salish branch, particularly in the Straits- Halkomelem area. These languages are very phonologically innovative, and Halkomelem in particular is a source of many loanwords in Northern Straits and other neighbouring languages. By analyzing these borrowings and sound changes in an areal context, a clearer picture of when certain developments occurred and how different languages influenced one another over the course of their histories will emerge.	page 7
+§5	Ethan Pincott	heading	5 Conclusion	page 7
+§5	Ethan Pincott	note	A re-examination of cognates and loanwords shows that the *k > *č shift in Central Salish must have occurred after the languages had already started to diverge, and not in the transition from PS. This explanation accounts for the occurrence of /kʷ/ to /č/ correspondences within Central Salish, and clarifies why loanwords between Lillooet, Thompson, and Central Salish show /k/ to /č/ correspondences that give the illusion of inheritance from PS. These facts are otherwise difficult to explain assuming Galloway’s theory that PCS lacked /k/.	page 7
+references	Ethan Pincott	heading	References	page 7
+references	Ethan Pincott	reference	Andrade, Manuel J. 1953. Notes on the relations between Chemakum and Quileute. International Journal ofAmerican Linguistics, 19(3), 212–215.	page 7
+references	Ethan Pincott	reference	Boas, Franz. & Herman Haeberlin. 1927. Sound shifts in Salishan dialects. International Journal ofAmerican Linguistics, 4(2/4), 117–136.	page 7
+references	Ethan Pincott	reference	Czaykowska-Higgins, Ewa & M. Dale Kinkade. 1997. Salish languages and linguistics. Trends in linguistics studies and monographs, 107, 1–70.	page 7
+references	Ethan Pincott	reference	Egesdal, Steven M., & Marita T. Thompson. 1996. A fresh look at Tillamook inflectional morphology. International Conference on Salish and Neighbouring Languages 31.	page 7
+references	Ethan Pincott	reference	Fortescue, Michael D. 2007. Comparative Wakashan dictionary. Munich: LINCOM Europa.	page 7
+references	Ethan Pincott	reference	Galloway, Brent D. 1988. Some Proto-Central Salish sound correspondences. In Honor of Mary Haas: From the Mary Haas Festival on Native American Linguistics, 293–343.	page 8
+references	Ethan Pincott	reference	Jorgensen, Joseph G. 1969. Salish language and culture: a statistical analysis of internal relationships, history, and evolution (Vol. 3). Bloomington: Indiana University; The Hague: Mouton.	page 8
+references	Ethan Pincott	reference	Kinkade, M. Dale. 1993. The non-lexical basis for a Tsamosan branch of Salish. International Conference on Salish and Neighbouring Languages 29, 175–203.	page 8
+references	Ethan Pincott	reference	Kinkade, M. Dale. 2003. Review “Salish etymological dictionary”. Anthropological Linguistics,. 45(2), 245–247.	page 8
+references	Ethan Pincott	reference	Kroeber, Paul D. 1999. The Salish language family: Reconstructing syntax. University of Nebraska Press.	page 8
+references	Ethan Pincott	reference	Kuipers, Aert H. 2002. Salish etymological dictionary (No. 16). Missoula: Linguistics Laboratory University of Montana. Squamish Nation Education Department and University of Washington, 2011. Skwxwú7mesh Sníchim Xwelíten Sníchim: Skexwts. Seattle: University of Washington Press.	page 8
+references	Ethan Pincott	reference	Suttles, Wayne P. 2004. Musqueam reference grammar (Vol. 2). UBC Press.	page 8
+references	Ethan Pincott	reference	Swadesh, Morris, 1952. Salish phonologic geography. Language, 28(2), 232–248.	page 8
+references	Ethan Pincott	reference	Swadesh, Morris, 1955. Chemakum lexicon compared with Quileute. International Journal of American Linguistics, 21(1), 60–72. Van Eijk, Jan P. 1997. Lillooet-English dictionary. Vancouver: University of British Columbia Occasional Papers in Linguistics Volume 2. Van Eijk, Jan P., 2014. A note on the Coast-Salish component of the Lillooet lexicon. International Conference on Salish and Neighbouring Languages 49, 183–200.	page 8

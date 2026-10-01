@@ -1,0 +1,729 @@
+where	who	kind	form	gloss
+front	Lauren Schneider and Donna B. Gerdts	note	Papers for the International Conference on Salish and Neighbouring Languages 59. D. K. E. Reisinger, Laura Griffin, Ella Hannon, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, Julia Schillo, Lauren Schneider, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2024.	page 1
+front	Lauren Schneider and Donna B. Gerdts	title	Keeping Things Moving Along: The Aspectoid Proclitc yə= in Hul’q’umi’num’ Salish*	page 1
+front	Hul’q’umi’num’	cited affix	yə=	page 1
+front	Lauren Schneider and Donna B. Gerdts	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+front	Lauren Schneider and Donna B. Gerdts	byline	Lauren Schneider and Donna B. Gerdts, Simon Fraser University	page 1
+front	Lauren Schneider and Donna B. Gerdts	note	Abstract: Salish languages are well-known for encoding aspects such as imperfective, stative, and durative, as well as plurality, through non-concatenative means. They also have many aspectoidal particles, optional elements that may co-occur with the obligatory aspectual categories. This paper reports on the aspectoidal proclitic yə= in Hul’q’umi’num’, based on original fieldwork with speakers and analysis of a corpus of stories. We explore the diverse meanings of yə=, which range from translational motion to plurality, its distribution with respect to verb type, and its combinatory properties with various aspects and other aspectoidal clitics. As a polysynthetic language with a rich verb complex, Hul’q’umi’num’ has many affixes, clitics, and non-concatenative morphological processes that contribute in subtle ways to the semantics of the whole structure, adding spatial, temporal, or referential meanings, and we see in the case of yə= that it contributes to all of these domains.	page 1
+front	Lauren Schneider and Donna B. Gerdts	note	Keywords: aspect, aspectoid, clitics, Hul’q’umi’num’ Salish	page 1
+front	Lauren Schneider and Donna B. Gerdts	name	Lauren Schneider	author, Simon Fraser University
+front	Lauren Schneider and Donna B. Gerdts	name	Donna B. Gerdts	author, Simon Fraser University
+§1	Lauren Schneider and Donna B. Gerdts	heading	1 Introduction	page 1
+§1	Hul’q’umi’num’	cited affix	yə=	page 1
+§1	Lauren Schneider and Donna B. Gerdts	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+footnote *	Lauren Schneider and Donna B. Gerdts	note	* We would like to thank our colleagues Delores Louie, Nancy Hedberg, Ruby Peter, and Tom Hukari for sharing their insights on this topic and also Charles Ulrich, Daniel Reisinger, and Julia Schillo for editorial assistance.	page 1, footnote
+footnote 1	Lauren Schneider and Donna B. Gerdts	note	1 The Hul’q’umi’num’ speakers whose stories are in the corpus are: Basil Alphonse, Elsie Canute, Pat Charlie, Manson George, Arnold Guerin, Mrs. Jimmy Joe, Andrew Misheal, Sophie Misheal, Peter Mitchell, Elwood Modeste, Bob Rice, Cecelia Leo, Wilfred Sampson, Arnold Sylvester, Eva Thomas, Samuel Tom, and Ellen White. We also consulted stories by Ruby Peter and Willie Seymour. We cannot express our appreciation enough for all the work that these speakers did on behalf of their language and communities. The story collection, curated by Donna Gerdts, is based on recordings by Wayne Suttles, Thomas Hukari, and Donna Gerdts made between 1962 and 2000. The stories were transcribed, translated, and edited by Ruby Peter, Donna Gerdts, Arnold Guerin, Tom Hukari, Delores Louie, Theresa Thorne, and Ellen White, with assistance from Elena Barreiro, Samara Channell, Zachary Gilkison, Sarah Kell, Kaoru Kiyosawa, Zoey Peterson, Lauren Schneider, and others. The work on texts, data collection, and analysis was funded by Social Sciences and Humanities Research Council, Jacobs Research Fund, American Philosophical Society, and Simon Fraser University.	page 1, footnote
+footnote 1	Lauren Schneider and Donna B. Gerdts	name	Basil Alphonse	a storyteller, BA
+footnote 1	Lauren Schneider and Donna B. Gerdts	name	Elsie Canute	a storyteller, EC
+footnote 1	Lauren Schneider and Donna B. Gerdts	name	Manson George	a storyteller, MG
+footnote 1	Lauren Schneider and Donna B. Gerdts	name	Arnold Guerin	a storyteller, AG
+footnote 1	Lauren Schneider and Donna B. Gerdts	name	Andrew Misheal	a storyteller, AM
+footnote 1	Lauren Schneider and Donna B. Gerdts	name	Cecelia Leo	a storyteller, CL
+footnote 1	Lauren Schneider and Donna B. Gerdts	name	Wilfred Sampson	a storyteller, WSa
+footnote 1	Lauren Schneider and Donna B. Gerdts	name	Arnold Sylvester	a storyteller, AS
+footnote 1	Lauren Schneider and Donna B. Gerdts	name	Eva Thomas	a storyteller, ET
+footnote 1	Lauren Schneider and Donna B. Gerdts	name	Samuel Tom	a storyteller, ST
+footnote 1	Lauren Schneider and Donna B. Gerdts	name	Ellen White	a storyteller, EW
+footnote 1	Lauren Schneider and Donna B. Gerdts	name	Willie Seymour	a storyteller, WS
+footnote 2	Lauren Schneider and Donna B. Gerdts	note	2 Abbreviations: ACTL = actual, ACTV = activity, AUX = auxiliary, CERT = certainty, CN = connective	page 1, footnote
+§1	Lauren Schneider and Donna B. Gerdts	note	This paper researches the clitic yə= in Hul’q’umi’num’, the Vancouver Island dialect of Halkomelem Salish (ISO 639-3: hur). This work is based on original fieldwork with speakers, the late Dr. Ruby Peter and the late Mrs. Delores Louie, and an analysis of a corpus of transcriptions of recordings from 17 elders.1 The clitic yə= occurs in conversations, but is much more frequent in stories, with a variety of usages. For example, yə= occurs three times in the following line from the story Raven copies his siblings by Cecelia Leo, first with an imperfective verb, second with a durative verb, and finally with a stative verb.2	page 1
+§1	Lauren Schneider and Donna B. Gerdts	name	Ruby Peter	a speaker, late, RP
+§1	Lauren Schneider and Donna B. Gerdts	name	Delores Louie	a speaker, late, DL
+(1) line 1	Hul’q’umi’num’	transcription	wulh tus tthu yu ’i’mush yu kwun’eem’ ’u tthu qwthalus yu sul’its’ ’u tthu slhewut’.	page 2, engine residue
+(1) line 2	Hul’q’umi’num’	segmentation	wəł təs tᶿə yə=ʔim̓əš yə=kʷən̓e:m̓ ʔə tᶿə qʷθaləs	page 2, engine language
+(1) line 3	Hul’q’umi’num’	gloss	PRF get.here DT DYN=walk<IPFV> DYN=take<DUR> OBL DT platter	page 2, engine english
+(1) line 4	Hul’q’umi’num’	segmentation	yə=səl̓ic̓ ʔə tᶿə słewət̓	page 2, engine language
+(1) line 5	Hul’q’umi’num’	gloss	DYN=full<STA> OBL DT herring	page 2, engine english
+(1) line 6	Cecelia Leo	translation	‘Someone came walking along, holding a platter of herrings.’	page 2, engine english, cited CL.1975.5
+(1) line 6	Lauren Schneider and Donna B. Gerdts	citation	(CL.1975.5)	the tag or source at the right of the translation
+§1	Hul’q’umi’num’	cited affix	yə-	page 2
+§1	Lauren Schneider and Donna B. Gerdts	language	hən̓q̓əmin̓əm̓	hən̓q̓əmin̓əm̓, Downriver Halkomelem
+§1	Lauren Schneider and Donna B. Gerdts	note	Based on examples like these, where yə= signals that the action is done ‘while moving’, Suttles (2004:258) glosses yə- in the neighboring dialect hən̓q̓əmin̓əm̓ as ‘along’. Gerdts and Hukari (to appear), noting that yə= often occurs on verbs in a series of events, call it ‘serial’. These previous researchers have also noted that yə= prototypically occurs with imperfective verbs, but can also be used with the perfective with the meaning ‘first … (and next)’, as in the following example:	page 2
+(2) line 1	Hul’q’umi’num’	transcription	yu yuqwqst ch tthu p’utth’tun yelh ’un’stl’uw’ut kwthu sts’uqw’shens kwthun’ mun’u.	page 2, engine language
+(2) line 2	Hul’q’umi’num’	segmentation	yə=yəqʷ-qs-t č tᶿə p̓ət̓ᶿtən yeł ʔən̓-s-ƛ̓əw̓-ət	page 2, engine language
+(2) line 3	Hul’q’umi’num’	gloss	DYN=burn-LS:point-TR 2SG.SUB DT needle next 2POS-NM-remove-TR	page 2, engine english
+(2) line 4	Hul’q’umi’num’	segmentation	kʷθə sc̓əq̓ʷšen-s kʷθən̓ mən̓ə	page 2, engine language
+(2) line 5	Hul’q’umi’num’	gloss	DT sliver-3POS DT.2POS son	page 2, engine english
+(2) line 6	Lauren Schneider and Donna B. Gerdts	translation	‘(First) burn the needle point before you take the sliver from your son’s foot.’	page 2, engine english
+(2) line 7	Lauren Schneider and Donna B. Gerdts	citation	(Gerdts & Hukari to appear)	page 2, engine english
+§1	Lauren Schneider and Donna B. Gerdts	note	Given its association with event structure and temporal flow, yə= could be considered to be part of the aspect system. But because yə= occurs only optionally and always attached to words otherwise inflected for aspect, it fits in the class of aspectoidals (Kinkade 1976:133), and the purpose of this paper is to explore its meaning and function.	page 2
+§1	Lauren Schneider and Donna B. Gerdts	note	Taking into consideration what we have learned about yə= in our study, we suggest the label ‘dynamic’ for this aspectoidal, as it not only adds a meaning of movement or progress to an event or state but also enlivens the story performance by drawing attention to certain sequences of actions. In Section 2, we explore the co-occurrence of yə= with aspectual categories and with other aspectoidal clitics. In Section 3, we describe the effects of yə= in serial verb constructions. In Section 4, we explore the seemingly optional nature of yə= and further discusses its use in narratives. In Section 5, we widen the discussion to a prefix yə- that is used in plural contexts. We conclude in Section 6 by briefly discussing some elements in other Central Salish languages that have a similar form or function to Hul’q’umi’num’ yə=.	page 2
+§1	Lauren Schneider and Donna B. Gerdts	note	element, CNJ = conjunction, CNTRPT = centripetal, CS = causative, DEM = demonstrative, DIM = diminutive, DIST = distal, DT = determiner, DUR = durative, DYN= dynamic, FOC = focus, FUT = future, HS = hearsay, INCH = inchoative, INCPT = inceptive, INFO = informative, INTJ = interjection, IPFV = imperfective, LCTR = limited control transitive, LOC = locative, LS = lexical suffix, MIR = mirative, NEG = negation, NM = nominalizer, OBJ = object, OBL = oblique, PAS = passive, PL = Plural, PLR = pluractional, POS = possessive, PRF = perfect, PRLV = prolative, PRO.DT = pro-determiner, PROG = progressive, PROP = proprietive, PROX = proximal, PRST = persistive, PST = past, Q = question, REAL = realized, REM = remote, RL = rhetorical lengthening, SCNJ = subordinating conjunction, SG = singular, STA = stative, SUB = subject, TR = transitive, VBL = verbalizer, V1 = first verb in series, V2 = second verb in series, 2P = second-position (clitic), < > = non-concatenative morphology, # = semantically problematic.	page 2
+§2	Lauren Schneider and Donna B. Gerdts	heading	2 The aspectoidal yə=	page 3
+§2	Hul’q’umi’num’	cited affix	yə=	page 3
+§2	Lauren Schneider and Donna B. Gerdts	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+§2	Hul’q’umi’num’	cited affix	wəɫ=	page 3
+§2	Hul’q’umi’num’	cited form	p̓eʔ	page 3
+§2	Hul’q’umi’num’	cited form	t̓it̓ələm̓	page 3, ‘singing’
+§2	Lauren Schneider and Donna B. Gerdts	note	In this section, we report on the aspectoidal proclitic yə= in Hul’q’umi’num’. We explore its diverse meanings, its distribution with respect to verb type, and its combinatory properties with various aspects and other aspectoidal clitics. We found it most useful to study yə= as used in a corpus of stories. All the speakers who shared their stories for the corpus used this clitic frequently, averaging between one to two instances per transcribed page. Several of the speakers used it quite densely in certain sections of texts. While it is not used as frequently as the perfect wəɫ= — see example (1) — it is much more frequent than some of the evidentials, such as the certainty clitic p̓eʔ. For all speakers, the clitic yə= is most commonly used with motion verbs, as in (3), and it can add a sense of translational motion to manner of motion verbs, as in (4), or add a motion meaning to non-motion verbs, e.g., t̓it̓ələm̓ ‘singing’, as in (5):	page 3
+(3) line 1	Hul’q’umi’num’	transcription	wulh nem’ yu huy’u xwut’e ’u tnanulh tuywut.	page 3, engine language
+(3) line 2	Hul’q’umi’num’	segmentation	wəł nem̓ yə=həy̓ə x̌ʷət̓e ʔə tnanuł təywət.	page 3, engine language
+(3) line 3	Hul’q’umi’num’	gloss	PRF go.AUX DYN=leave<IPFV> go.toward<IPFV> OBL that.way upstream.north	page 3, engine english
+(3) line 4	Wilfred Sampson	translation	‘They were on their way up north.’	page 3, engine english
+(3) line 4	Lauren Schneider and Donna B. Gerdts	citation	(WSa.784)	the tag or source at the right of the translation
+(4) line 1	Hul’q’umi’num’	transcription	ni.i.i’ ts’u tl’uwulh huye’ tthuw’nilh xeel’s, yu ’i’mush.	page 3, engine language
+(4) line 2	Hul’q’umi’num’	segmentation	niʔ c̓ə ƛ̓əwəł həyeʔ tᶿəw̓nił x̌e:l̓s, yə=ʔim̓əš	page 3, engine language
+(4) line 3	Hul’q’umi’num’	gloss	AUX<RL> HS also.now leave PRO.DT Xeel’s DYN=walk<IPFV>	page 3, engine english
+(4) line 4	Ellen White	translation	‘And again, Xeel’s goes off walking about.’	page 3, engine english, cited EW.1974.10486
+(4) line 4	Lauren Schneider and Donna B. Gerdts	citation	(EW.1974.10486)	the tag or source at the right of the translation
+(5) line 1	Hul’q’umi’num’	transcription	suw’ huye’ ts’u wulh yu t’it’ulum’ yu t’et’un’ ’al’.	page 3, engine language
+(5) line 2	Hul’q’umi’num’	segmentation	səw̓ həyeʔ c̓ə wəł yə=t̓it̓ələm̓ yə=t̓et̓ən̓ ʔal̓	page 3, engine language
+(5) line 3	Hul’q’umi’num’	gloss	NM.CN leave HS PRF DYN=sing<IPFV> DYN=out.of.sight<IPFV> just	page 3, engine english
+(5) line 4	Ellen White	translation	‘And he left singing until he was out of sight.’	page 3, engine english, cited EW.1974.111
+(5) line 4	Lauren Schneider and Donna B. Gerdts	citation	(EW.1974.111)	the tag or source at the right of the translation
+§2	Lauren Schneider and Donna B. Gerdts	note	A corpus count of 1,010 motion verbs found that they co-occur with yə= 23.8% of the time, while non-motion verbs (count 4,294) co-occur with yə= only 6.4% of the time. Although the verbs marked with yə= often involve movement, we see that the aspect of the clause also plays a part in the use of yə=.	page 3
+§2.1	Lauren Schneider and Donna B. Gerdts	heading	2.1 Aspect vs. aspectoid	page 3
+§2.1	Hul’q’umi’num’	cited affix	yə=	page 3
+§2.1	Lauren Schneider and Donna B. Gerdts	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+§2.1	Lauren Schneider and Donna B. Gerdts	note	The clitic yə= interacts in interesting ways with aspect. Hul’q’umi’num’, like other Salish languages, is well-known for encoding aspects such as imperfective, stative, and durative through non-concatenative (marked ‘< >’ in glosses) means (cf. Gerdts 1988; Hukari & Peter 1995; Suttles 2004; Urbanczyk 2011).	page 3
+Table 1 line 1	Lauren Schneider and Donna B. Gerdts	note	Sample of aspectual verb inflections (Hukari & Peter 1995)	page 4, the caption
+Table 1 line 2	Lauren Schneider and Donna B. Gerdts	note	Verb inflection APA Gloss Translation	page 4, heads the rows below
+Table 1 line 3	Hul’q’umi’num’	transcription	kwunut kʷən-ət take-TR	page 4, the orthography, carries footnote 3, written here without its digit
+Table 1 line 3	Lauren Schneider and Donna B. Gerdts	translation	‘take, hold, catch’	page 4
+Table 1 line 4	Hul’q’umi’num’	transcription	kwukwun’ut	page 4, the orthography
+Table 1 line 4	Hul’q’umi’num’	transcription	kʷəkʷən̓-ət	page 4, the orthography
+Table 1 line 4	Hul’q’umi’num’	transcription	take-TR<IPFV>	page 4, the orthography
+Table 1 line 4	Lauren Schneider and Donna B. Gerdts	translation	‘taking, catching’	page 4
+Table 1 line 5	Hul’q’umi’num’	transcription	kwun’et kʷən̓-et take-TR<DUR>	page 4, the orthography
+Table 1 line 5	Lauren Schneider and Donna B. Gerdts	translation	‘hold, possess’	page 4
+Table 1 line 6	Hul’q’umi’num’	transcription	kwulush	page 4, the orthography
+Table 1 line 6	Hul’q’umi’num’	transcription	kʷələš	page 4, the orthography
+Table 1 line 6	Hul’q’umi’num’	transcription	shoot	page 4, the orthography
+Table 1 line 6	Lauren Schneider and Donna B. Gerdts	translation	‘shoot it’	page 4
+Table 1 line 7	Hul’q’umi’num’	transcription	huy’kwul’usht həy̓kʷəl̓əš-t shoot-TR<IPFV>	page 4, the orthography
+Table 1 line 7	Lauren Schneider and Donna B. Gerdts	translation	‘shooting it’	page 4
+Table 1 line 8	Hul’q’umi’num’	transcription	si’kwul’esh siʔkʷəl̓eš shoot<STA>	page 4, the orthography
+Table 1 line 8	Lauren Schneider and Donna B. Gerdts	translation	‘gun: holding, carrying a gun’	page 4
+Table 1 line 9	Hul’q’umi’num’	transcription	thuyt θəy-t fix-TR	page 4, the orthography
+Table 1 line 9	Lauren Schneider and Donna B. Gerdts	translation	‘fix, make it’	page 4
+Table 1 line 10	Hul’q’umi’num’	transcription	they’t θey̓-t fix-TR<IPFV>	page 4, the orthography
+Table 1 line 10	Lauren Schneider and Donna B. Gerdts	translation	‘fixing, making it’	page 4
+Table 1 line 11	Hul’q’umi’num’	transcription	sthuthi’ s-θəθiɁ STA-fix<STA>	page 4, the orthography
+Table 1 line 11	Lauren Schneider and Donna B. Gerdts	translation	‘fixed, okay’	page 4
+Table 1 line 12	Hul’q’umi’num’	transcription	ts’tl’um c̓ƛ̓əm jump	page 4, the orthography
+Table 1 line 12	Lauren Schneider and Donna B. Gerdts	translation	‘jump’	page 4
+Table 1 line 13	Hul’q’umi’num’	transcription	ts’etl’um’	page 4, the orthography
+Table 1 line 13	Hul’q’umi’num’	transcription	c̓eƛ̓əm̓	page 4, the orthography
+Table 1 line 13	Hul’q’umi’num’	transcription	jump<IPFV>	page 4, the orthography
+Table 1 line 13	Lauren Schneider and Donna B. Gerdts	translation	‘jumping’	page 4
+Table 1 line 14	Hul’q’umi’num’	transcription	ts’i’ts’tl’im’	page 4, the orthography
+Table 1 line 14	Hul’q’umi’num’	transcription	c̓iʔc̓ƛ̓im̓	page 4, the orthography
+Table 1 line 14	Hul’q’umi’num’	transcription	jump<DUR>	page 4, the orthography
+Table 1 line 14	Lauren Schneider and Donna B. Gerdts	translation	‘hopping’	page 4
+§2.1	Lauren Schneider and Donna B. Gerdts	note	These languages also have large inventories of clitics as well as adverbs with aspectual, temporal, and spatial meanings. The aspectoidal clitics are optional elements that may co-occur with the obligatory aspectual categories (Kinkade 1976:133; cf. Friedrich 1974). Hul’q’umi’num’ has a variety of clitic types (cf. Gerdts & Werle 2014), including introducer clitics, enclitics, second-position clitics, and proclitics:	page 4
+Table 2 line 1	Lauren Schneider and Donna B. Gerdts	note	Sample of Hul’q’umi’num’ clitic types	page 4, the caption
+Table 2 line 2	Lauren Schneider and Donna B. Gerdts	note	Type Clitic APA Gloss	page 4, heads the rows below
+Table 2 line 3	Lauren Schneider and Donna B. Gerdts	note	introducer	page 4, between the cells
+Table 2 line 3	Hul’q’umi’num’	transcription	’i	page 4, the orthography
+Table 2 line 3	Hul’q’umi’num’	transcription	ʔi=	page 4, the orthography
+Table 2 line 3	Lauren Schneider and Donna B. Gerdts	translation	‘here and now’	page 4
+Table 2 line 3	Lauren Schneider and Donna B. Gerdts	note	(proximal)	page 4
+Table 2 line 4	Hul’q’umi’num’	transcription	enclitic ulh	page 4, the orthography
+Table 2 line 4	Hul’q’umi’num’	transcription	=əł	page 4, the orthography
+Table 2 line 4	Lauren Schneider and Donna B. Gerdts	translation	‘past’	page 4
+Table 2 line 5	Lauren Schneider and Donna B. Gerdts	note	2P clitic tse’	page 4, between the cells
+Table 2 line 5	Hul’q’umi’num’	transcription	=ceʔ	page 4, the orthography
+Table 2 line 5	Lauren Schneider and Donna B. Gerdts	translation	‘future’	page 4
+Table 2 line 6	Lauren Schneider and Donna B. Gerdts	note	proclitic	page 4, between the cells
+Table 2 line 6	Hul’q’umi’num’	transcription	wulh	page 4, the orthography
+Table 2 line 6	Hul’q’umi’num’	transcription	wəł=	page 4, the orthography
+Table 2 line 6	Lauren Schneider and Donna B. Gerdts	translation	‘now, then’	page 4
+Table 2 line 6	Lauren Schneider and Donna B. Gerdts	note	(perfect)	page 4
+Table 2 line 7	Lauren Schneider and Donna B. Gerdts	note	proclitic hwi’	page 4, between the cells
+Table 2 line 7	Hul’q’umi’num’	transcription	xʷiʔ=	page 4, the orthography
+Table 2 line 7	Lauren Schneider and Donna B. Gerdts	translation	‘now, next, suddenly, unexpected’	page 4
+Table 2 line 7	Lauren Schneider and Donna B. Gerdts	note	(mirative)	page 4
+Table 2 line 8	Lauren Schneider and Donna B. Gerdts	note	proclitic hwun’	page 4, between the cells
+Table 2 line 8	Hul’q’umi’num’	transcription	xʷən̓=	page 4, the orthography
+Table 2 line 8	Lauren Schneider and Donna B. Gerdts	translation	‘still, yet’	page 4
+Table 2 line 8	Lauren Schneider and Donna B. Gerdts	note	(persistive)	page 4
+Table 2 line 9	Lauren Schneider and Donna B. Gerdts	note	proclitic hwu	page 4, between the cells
+Table 2 line 9	Hul’q’umi’num’	transcription	xʷə=	page 4, the orthography
+Table 2 line 9	Lauren Schneider and Donna B. Gerdts	translation	‘become’	page 4
+Table 2 line 9	Lauren Schneider and Donna B. Gerdts	note	(inchoative)	page 4
+Table 2 line 10	Lauren Schneider and Donna B. Gerdts	note	proclitic	page 4, between the cells
+Table 2 line 10	Hul’q’umi’num’	transcription	yu	page 4, the orthography
+Table 2 line 10	Hul’q’umi’num’	transcription	yə=	page 4, the orthography
+Table 2 line 10	Lauren Schneider and Donna B. Gerdts	translation	‘on-going, dynamic’	page 4
+§2.1	Hul’q’umi’num’	cited affix	wəł=	page 4
+§2.1	Hul’q’umi’num’	cited affix	xʷiʔ=	page 4
+§2.1	Hul’q’umi’num’	cited affix	xʷən̓=	page 4
+§2.1	Hul’q’umi’num’	cited affix	xʷə=	page 4
+footnote 3	Lauren Schneider and Donna B. Gerdts	note	3 Perfective aspect is encoded by the plain form of the verb and thus is unmarked. In this paper, it should be assumed that the verb is perfective unless otherwise indicated by the gloss.	page 4, footnote
+footnote 4	Lauren Schneider and Donna B. Gerdts	note	4 One difference between yə= and the other pre-predicative clitics xʷən̓= and xʷə= is that the latter two can appear on a range of categories including nouns, adjectives, and verbs while yə= only appears on verbs. “Adjectives” here refers to true adjectives and not stative verbs used adjectivally. See Gerdts and Schneider	page 4, footnote
+§2.1	Lauren Schneider and Donna B. Gerdts	note	To be precise, Gerdts and Werle (2014) distinguish between two types of proclitics, the outer proclitics, such as wəł= and xʷiʔ=, and the inner (aka pre-predicative) clitics xʷən̓=, xʷə=, and yə= based on various tests such as ordering and interchangeability, and furthermore differentiate between inner proclitics and prefixes by tests such as pauses and syllabification.4 (2023) for a discussion of non-verbal predicates.	page 4
+§2.1	Lauren Schneider and Donna B. Gerdts	note	We see then that aspectoidals are expressed by clitics, while the obligatory aspects are expressed via non-concatenative morphology:	page 5
+Table 3 line 1	Lauren Schneider and Donna B. Gerdts	note	Aspect vs. aspectoid	page 5, the caption
+Table 3 line 2	Lauren Schneider and Donna B. Gerdts	note	Aspect Aspectoid	page 5, heads the rows below
+Table 3 line 3	Lauren Schneider and Donna B. Gerdts	note	non-concatenative clitics	page 5, heads the rows below
+§2.1	Lauren Schneider and Donna B. Gerdts	note	IPFV, STA, DUR, PL … PRF, INCH, MIR … obligatory optional The two different types of aspectual information can be divided neatly into categories based on function and morphological expression. The two categories work together to elaborate the internal structure of the event, the unfolding of the situation over time, and the contextualization of action or state. The next section explores the interactions of the aspectoidal clitic yə= with several aspectual categories.	page 5
+§2.2	Lauren Schneider and Donna B. Gerdts	heading	2.2 Co-occurrence with aspect	page 5
+§2.2	Hul’q’umi’num’	cited affix	yə=	page 5
+§2.2	Hul’q’umi’num’	cited form	yə	page 5
+§2.2	Hul’q’umi’num’	cited form	x̌ət̓ə	page 5, ‘kept doing’
+§2.2	Hul’q’umi’num’	cited form	təy̓tiʔqəl̓	page 5, ‘moving place to place’
+§2.2	Hul’q’umi’num’	cited form	t̓it̓ələm̓	page 5
+§2.2	Hul’q’umi’num’	cited form	kʷsis	page 5
+§2.2	Hul’q’umi’num’	cited form	ʔil̓htən̓	page 5, ‘singing while eating’
+§2.2	Lauren Schneider and Donna B. Gerdts	note	Aspectually, yə= is used in events that are continuing — e.g., yə x̌ət̓ə ‘kept doing’ in (6) — repeating — yə təy̓tiʔqəl̓ ‘moving place to place’ in (6) — or concurrent — yə t̓it̓ələm̓ kʷsis yə ʔil̓htən̓ ‘singing while eating’ in (7):	page 5
+(6) line 1	Hul’q’umi’num’	transcription	’uw’ yu xut’u ’ul’ ’u tey’ ’uw’ yu tuy’ti’qul’ ’a.a.al’.	page 5, engine language
+(6) line 2	Hul’q’umi’num’	segmentation	ʔəw̓ yə=x̌ət̓ə ʔəl̓ʔə tey̓ ʔəw̓ yə=təy̓tiʔqəl̓ʔal̓	page 5, engine language
+(6) line 3	Hul’q’umi’num’	gloss	CN DYN=do<IPFV> just OBL DEM CN DYN=move.place<IPFV.PL> just<RL>	page 5, engine english
+(6) line 4	Willie Seymour	translation	‘They kept doing that, just moving from place to place.’	page 5, engine english, cited WS.1977.106
+(6) line 4	Lauren Schneider and Donna B. Gerdts	citation	(WS.1977.106)	the tag or source at the right of the translation
+(7) line 1	Hul’q’umi’num’	transcription	’a.a.a, hwun’ yu t’it’ulum’ kwsis yu ’i’lhtun’.	page 5, engine language
+(7) line 2	Hul’q’umi’num’	segmentation	ʔa xʷən̓ yə=t̓it̓ələm̓ kʷsis yə=ʔiʔłtən̓	page 5, engine language
+(7) line 3	Hul’q’umi’num’	gloss	ah<RL> PRST DYN=sing<IPFV> DT DYN=eat<IPFV>	page 5, engine english
+(7) line 4	Ellen White	translation	‘And he was singing while he was eating.’	page 5, engine english, cited EW.1974.102
+(7) line 4	Lauren Schneider and Donna B. Gerdts	citation	(EW.1974.102)	the tag or source at the right of the translation
+§2.2	Lauren Schneider and Donna B. Gerdts	note	Given its use with continuing activities, it is not unexpected that yə= is compatible with aspects such as durative, imperfective, and stative:	page 5
+Table 4 line 1	Lauren Schneider and Donna B. Gerdts	note	Frequency of co-occurrence with aspect categories	page 5, the caption
+Table 4 line 2	Lauren Schneider and Donna B. Gerdts	note	Aspect With yə=	page 5, heads the rows below
+Table 4 line 3	Lauren Schneider and Donna B. Gerdts	note	durative 39% (79 of 197 examples)	page 5, heads the rows below
+Table 4 line 4	Lauren Schneider and Donna B. Gerdts	note	imperfective 13.8% (240 of 1010 examples)	page 5, heads the rows below
+Table 4 line 5	Lauren Schneider and Donna B. Gerdts	note	stative 7.3% (94 of 1280 examples)	page 5, heads the rows below
+Table 4 line 6	Lauren Schneider and Donna B. Gerdts	note	perfective >1% (12 of 1455 examples)	page 5, heads the rows below
+§2.2	Lauren Schneider and Donna B. Gerdts	note	The difference in the counts reflects the fact that plain perfective verbs are by far the most frequent, and those marked durative are the least frequent.	page 5
+§2.2	Hul’q’umi’num’	root	√kʷən	page 5, ‘take, grab, hold’
+§2.2	Lauren Schneider and Donna B. Gerdts	note	To illustrate the frequency of yə= with various aspectual categories, we’ll look at a handful of high frequency verbs. For example, the transitive form of the verb root √kʷən ‘take, grab, hold’, as in (8), has both an imperfective (9) and a durative (10) form:	page 5
+(8) line 1	Ellen White	translation	‘nem’ tsun tse’ yu kwunut kwthu nu shuptun’ …	page 6, engine residue
+(8) line 2	Hul’q’umi’num’	transcription	nem̓ cən ceʔ yə=kʷən-ət kʷθə nə šəptən̓	page 6, engine language
+(8) line 3	Hul’q’umi’num’	gloss	go.AUX 1SG.SUB FUT DYN=take-TR DT 1POS knife	page 6, engine english
+(8) line 4	Ellen White	translation	‘I am going to get my knife …’	page 6, engine english, cited EW.11128
+(8) line 4	Lauren Schneider and Donna B. Gerdts	citation	(EW.11128)	the tag or source at the right of the translation
+(9) line 1	Hul’q’umi’num’	transcription	’i’ wulh m’i t’ul’tth’els ’i’ ni’ ch ’uw’ yu kwukwun’ut ’al’.	page 6, engine language
+(9) line 2	Hul’q’umi’num’	segmentation	ʔiʔ wəł=m̓i t̓əl̓t̓ᶿels ʔiʔ niʔ č ʔəw̓ yə=kʷəkʷən̓-ət ʔal̓	page 6, engine language
+(9) line 3	Hul’q’umi’num’	gloss	CNJ PRF=AUX spurt CNJ AUX 2SG.SUB CN DYN=take-TR<IPFV> just	page 6, engine english
+(9) line 4	Ellen White	translation	‘And sometimes they are spurting out and you can grab them.’	page 6, engine english, cited EW.26951
+(9) line 4	Lauren Schneider and Donna B. Gerdts	citation	(EW.26951)	the tag or source at the right of the translation
+(10) line 1	Hul’q’umi’num’	transcription	sis ’uw’ hwu ’uy’ tthuw’nilh, sis ’uw’ yu kwun’etus.	page 6, engine language
+(10) line 2	Hul’q’umi’num’	segmentation	sis=ʔəw̓ xʷə=ʔəy̓ tᶿəw̓nił, sis=ʔəw̓	page 6, engine language
+(10) line 3	Hul’q’umi’num’	gloss	NM.AUX.3POS=CN INCH=good PRO.DT NM.AUX.3POS=CN	page 6, engine english
+(10) line 4	Hul’q’umi’num’	segmentation	yə=kʷən̓-et-əs	page 6, engine language
+(10) line 5	Hul’q’umi’num’	gloss	DYN=take-TR-3SUB<DUR>	page 6, engine english
+(10) line 6	Samuel Tom	translation	‘And it became good for him, and he took it along.’	page 6, engine english, cited ST.6247
+(10) line 6	Lauren Schneider and Donna B. Gerdts	citation	(ST.6247)	the tag or source at the right of the translation
+§2.2	Hul’q’umi’num’	cited form	kʷən̓et	page 6
+§2.2	Lauren Schneider and Donna B. Gerdts	note	The perfective form of √kʷən is the most frequent at about 565 cases, and it only occurs with yə= about 0.9% of the time, as in (8). The imperfective form of √kʷən is less frequent, with only about 18 cases in the corpus, such as (9), and it co-occurs with yə= 22.2% of the time. The durative form kʷən̓et occurs about 145 times in the corpus and co-occurs with yə= 42.8% of the time, such as (10).	page 6
+§2.2	Hul’q’umi’num’	root	√θəy	page 6, ‘fix, make ready, build’
+§2.2	Lauren Schneider and Donna B. Gerdts	note	The verb root √θəy ‘fix, make ready, build’ has both an imperfective (11) and a stative (12) form.	page 6
+(11) line 1	Hul’q’umi’num’	transcription	si.i.is ’uw’ tsqw’i’qw’ul’esh, sus ’uw’ yu they’tus, yu hwtth’utth’a’tum’ thu	page 6, engine residue
+(11) line 2	Hul’q’umi’num’	transcription	sqw’uqw’ul’ush …	page 6, engine language
+(11) line 3	Hul’q’umi’num’	segmentation	si.i.is ʔəw̓ c-q̓ʷiʔq̓ʷəl̓eš, səs ʔəw̓	page 6, engine language
+(11) line 4	Hul’q’umi’num’	gloss	NM.AUX.3POS CN VBL-bird<PL> NM.AUX.3POS CN	page 6, engine english
+(11) line 5	Hul’q’umi’num’	segmentation	yə=θey̓-t-əs yə=xʷ-t̓ᶿət̓ᶿaʔtəm̓ θə sq̓ʷəq̓ʷəl̓əš	page 6, engine language
+(11) line 6	Hul’q’umi’num’	gloss	DYN=fix-TR-3SUB<IPFV> DYN=LOC-skin<IPFV> DT bird<PL>	page 6, engine english
+(11) line 7	Basil Alphonse	translation	‘So, he started hunting the birds, fixing them, pulling the skins off the birds …’	page 6, engine english
+(11) line 7	Lauren Schneider and Donna B. Gerdts	citation	(BA.74)	the tag or source at the right of the translation
+(12) line 1	Hul’q’umi’num’	transcription	’uwu ni’us yu sthuthi’ …	page 6, engine residue
+(12) line 2	Hul’q’umi’num’	segmentation	ʔəwə niʔ=əs yə=sθəθiʔ	page 6, engine language
+(12) line 3	Hul’q’umi’num’	gloss	NEG AUX=3SUB DYN=fix<STA>	page 6, engine english
+(12) line 4	Samuel Tom	translation	‘It wasn’t done properly …’	page 6, engine english, cited ST.1962.131
+(12) line 4	Lauren Schneider and Donna B. Gerdts	citation	(ST.1962.131)	the tag or source at the right of the translation
+§2.2	Hul’q’umi’num’	cited form	sθəθiʔ	page 6
+§2.2	Lauren Schneider and Donna B. Gerdts	note	The imperfective form of √θəy co-occurs with yə= 15.6% (of 64) of the times it occurs, such as (11), while yə= only occurs on one of 191 perfective cases of √θəy. The stative form sθəθiʔ co- occurs with yə= less frequently than the imperfective at 4.1% (of 169), as in (12) above. To sum up so far, yə= typically occurs with unbounded aspects. Perfective aspect, especially in isolated examples, implies completion (i.e., is telic), and so is incompatible with yə=. On the other hand, durative, imperfective, and stative are typically unbounded.	page 6
+§2.2	Lauren Schneider and Donna B. Gerdts	note	In addition to occurring with various aspectual categories, the aspectoidal clitics also co-occur with one another.	page 6
+§2.3	Lauren Schneider and Donna B. Gerdts	heading	2.3 Co-occurrence with other aspectoidal clitics	page 7
+§2.3	Hul’q’umi’num’	cited affix	yə=	page 7
+§2.3	Lauren Schneider and Donna B. Gerdts	note	The clitic yə= can co-occur with other aspectoidal clitics. First, let’s consider co-occurrence with ‘outer proclitic’ — these will occur before yə= since yə= is an ‘inner’ proclitic (Gerdts & Werle 2014:248).	page 7
+§2.3	Hul’q’umi’num’	cited affix	xʷiʔ=	page 7
+§2.3	Lauren Schneider and Donna B. Gerdts	note	Examples (13) and (14) demonstrate the mirative proclitic xʷiʔ= (cf. Gerdts 2011) co-occurring with yə=.	page 7
+(13) line 1	Hul’q’umi’num’	transcription	’i ch kwu’elh hwi’ yu stsekwul’ ’un’sh’i huli?	page 7, engine language
+(13) line 2	Hul’q’umi’num’	segmentation	ʔi č kʷəʔeł xʷiʔ=yə=scekʷəl̓ ʔən̓ š-ʔi həli	page 7, engine language
+(13) line 3	Hul’q’umi’num’	gloss	AUX 2SG.SUB indeed MIR=DYN=how<STA> 2POS NM.OBL-AUX alive	page 7, engine english
+(13) line 4	Wilfred Sampson	translation	‘How is it that you are alive?’	page 7, engine english, cited WSa.22525
+(13) line 4	Lauren Schneider and Donna B. Gerdts	citation	(WSa.22525)	the tag or source at the right of the translation
+(14) line 1	Hul’q’umi’num’	transcription	mukw’ lhwet ’uw’ hwi’ yu lhi’lhekw kws t’akw’s.	page 7, engine language
+(14) line 2	Hul’q’umi’num’	segmentation	mək̓ʷ łwet ʔəw̓ xʷiʔ=yə=łiʔłekʷ kʷs t̓ak̓ʷs	page 7, engine language
+(14) line 3	Hul’q’umi’num’	gloss	all who CN MIR=DYN=hurry<IPFV> DT.NM go.home	page 7, engine english
+(14) line 4	Arnold Sylvester	translation	‘Everyone is suddenly in a hurry to go home.’	page 7, engine english, cited AS.32926
+(14) line 4	Lauren Schneider and Donna B. Gerdts	citation	(AS.32926)	the tag or source at the right of the translation
+§2.3	Lauren Schneider and Donna B. Gerdts	note	Compare with a sentence that has only xʷiʔ=:	page 7
+(15) line 1	Hul’q’umi’num’	transcription	nus nuw’ hwi’ t’a’thut kw’ouyukw.	page 7, engine language
+(15) line 2	Hul’q’umi’num’	segmentation	nəs nəw̓ xʷiʔ=t̓aʔθət k̓ʷuyəkʷ	page 7, engine language
+(15) line 3	Hul’q’umi’num’	gloss	1POS.NM AUX.CN MIR=try<IPFV> trolling	page 7, engine english
+(15) line 4	Arnold Guerin	translation	‘And then I tried trolling.’	page 7, engine english, cited AG.29622
+(15) line 4	Lauren Schneider and Donna B. Gerdts	citation	(AG.29622)	the tag or source at the right of the translation
+§2.3	Lauren Schneider and Donna B. Gerdts	note	xʷiʔ= alone often has an operational ‘and then’ or ‘now’ meaning, while xʷiʔ= and yə= together tends to mean ‘and then suddenly’ when used with the imperfective or indicates that the speaker is surprised that some state is the case.	page 7
+§2.3	Hul’q’umi’num’	cited affix	wəɫ=	page 7
+§2.3	Lauren Schneider and Donna B. Gerdts	note	Examples (16) and (17) demonstrate the perfect wəɫ= co-occurring with yə=.	page 7
+(16) line 1	Hul’q’umi’num’	transcription	’a.a.a ’i p’e’ wulh yu ’e’wu tthu qa’.	page 7, engine language
+(16) line 2	Hul’q’umi’num’	segmentation	ʔa ʔi p̓eʔ wəł=yə=ʔew̓ə tᶿə qaʔ	page 7, engine language
+(16) line 3	Hul’q’umi’num’	gloss	ah<RL> AUX CERT PRF=DYN=walk<IPFV> DT water	page 7, engine english
+(16) line 4	Ellen White	translation	‘Ah, the tide was coming up.’	page 7, engine english, cited EW.15628
+(16) line 4	Lauren Schneider and Donna B. Gerdts	citation	(EW.15628)	the tag or source at the right of the translation
+(17) line 1	Hul’q’umi’num’	transcription	’a.a.asha! wulh yu t’at’ukw’ thu granny.	page 7, engine residue
+(17) line 2	Hul’q’umi’num’	segmentation	ʔa:ša wəł=yə=t̓at̓ək̓ʷ θə granny	page 7, engine language
+(17) line 3	Hul’q’umi’num’	gloss	oh.shucks PRF=DYN=come.home<IPFV> DT granny	page 7, engine english
+(17) line 4	Elsie Canute	translation	‘Oh shucks! Here’s granny coming home.’	page 7, engine english, cited EC.18249
+(17) line 4	Lauren Schneider and Donna B. Gerdts	citation	(EC.18249)	the tag or source at the right of the translation
+§2.3	Lauren Schneider and Donna B. Gerdts	note	Compare with a sentence that has only wəɫ=:	page 7
+(18) line 1	Hul’q’umi’num’	transcription	… ’i’ wulh ’i’shul’ tsun.	page 7, engine residue
+(18) line 2	Hul’q’umi’num’	segmentation	… ʔiʔ wəł=ʔiʔšəl̓cən	page 7, engine language
+(18) line 3	Hul’q’umi’num’	gloss	… CNJ PRF=paddle<IPFV> 1SG.SUB	page 7, engine english
+(18) line 4	Eva Thomas	translation	‘… and already I was paddling.’	page 7, engine english, cited ET.28177
+(18) line 4	Lauren Schneider and Donna B. Gerdts	citation	(ET.28177)	the tag or source at the right of the translation
+§2.3	Hul’q’umi’num’	cited affix	wəł=	page 8
+§2.3	Lauren Schneider and Donna B. Gerdts	note	The examples with both wəł= and yə= indicate that the event is happening right now, at the time of speaking. wəł= alone has a variety of uses, but the one here indicates that the event being referenced was already in progress at the reference time.	page 8
+§2.3	Hul’q’umi’num’	cited affix	xʷə=	page 8
+§2.3	Lauren Schneider and Donna B. Gerdts	note	Turning to examples of co-occurrence of the inner proclitics yə= and the inchoative xʷə=, we found only three examples in our corpus, and in each case yə= preceded xʷə= and also the inchoative was the culmination of a series of events, as discussed in Section 3.5	page 8
+(19) line 1	Hul’q’umi’num’	transcription	ni’ ch nem’ yu hul’meel’s tl’e’ yu hwu huy’qwthut.	page 8, engine residue
+(19) line 2	Hul’q’umi’num’	segmentation	niʔ č nem̓ yə=həl̓me:l̓s ƛ̓eʔ yə=xʷə=həy̓qʷθət	page 8, engine language
+(19) line 3	Hul’q’umi’num’	gloss	AUX 2SG.SUB go DYN=kick<IPFV> also DYN=INCH=fire<IPFV>	page 8, engine english
+(19) line 4	Samuel Tom	translation	‘You are kicking again toward the fire.’	page 8, engine english, cited ST.6440
+(19) line 4	Lauren Schneider and Donna B. Gerdts	citation	(ST.6440)	the tag or source at the right of the translation
+§2.3	Hul’q’umi’num’	cited affix	xʷən̓=	page 8
+§2.3	Lauren Schneider and Donna B. Gerdts	note	Examples (20) and (21) demonstrate the persistive proclitic xʷən̓= co-occurring with yə=.	page 8
+(20) line 1	Hul’q’umi’num’	transcription	wa’lu ni’uhw ’uw’ hwun’ yu t’ut’a’thut.	page 8, engine language
+(20) line 2	Hul’q’umi’num’	segmentation	wal̓ə niʔ=əxʷ ʔəw̓ xʷən̓=yə=t̓ət̓aʔθət	page 8, engine language
+(20) line 3	Hul’q’umi’num’	gloss	maybe AUX=1PL CN still= DYN=try<IPFV>	page 8, engine english
+(20) line 4	Wilfred Sampson	translation	‘I guess we should keep trying.’	page 8, engine english
+(20) line 4	Lauren Schneider and Donna B. Gerdts	citation	(WSa.816)	the tag or source at the right of the translation
+(21) line 1	Hul’q’umi’num’	transcription	’a.a.a, hwun’ yu t’it’ulum’ kwsis yu ’i’lhtun’.	page 8, engine language
+(21) line 2	Hul’q’umi’num’	segmentation	ʔa xʷən̓=yə=t̓it̓ələm̓ kʷsis yə=ʔiʔłtən̓	page 8, engine language
+(21) line 3	Hul’q’umi’num’	gloss	ah<RL> PRST=DYN=sing<IPFV> DT DYN=eat<IPFV>	page 8, engine english
+(21) line 4	Ellen White	translation	‘And he kept singing when he was eating.’	page 8, engine english, cited EW.11471
+(21) line 4	Lauren Schneider and Donna B. Gerdts	citation	(EW.11471)	the tag or source at the right of the translation
+§2.3	Lauren Schneider and Donna B. Gerdts	note	Compare with a sentence that has only xʷən̓=:	page 8
+(22) line 1	Hul’q’umi’num’	transcription	hwun’ le’lum’utus ’i’ wulh nem’ tthu qwuni’ …	page 8, engine residue
+(22) line 2	Hul’q’umi’num’	segmentation	xʷən̓=lel̓əm̓-ət-əs ʔiʔ wəł nem̓ tᶿə qʷəniʔ	page 8, engine language
+(22) line 3	Hul’q’umi’num’	gloss	PRST=look-TR-3SUB<IPFV> CNJ PRF go DT seagull	page 8, engine english
+(22) line 4	Manson George	translation	‘They were still watching it and a seagull went to it …’	page 8, engine english, cited MG.1439
+(22) line 4	Lauren Schneider and Donna B. Gerdts	citation	(MG.1439)	the tag or source at the right of the translation
+§2.3	Hul’q’umi’num’	cited form	xʷən̓	page 8
+§2.3	Lauren Schneider and Donna B. Gerdts	note	xʷən̓ alone with an imperfective verb has the meaning of ‘still doing that thing’, while both xʷən̓= and yə= with an imperfective verb has the meaning ‘keep doing that thing’.	page 8
+§2.3	Lauren Schneider and Donna B. Gerdts	note	In Table 5, the total represents how often each other clitic occurs in the corpus, and the rightmost column indicates how often that clitic co-occurs with yə=.	page 8
+§2.3	Hul’q’umi’num’	cited form	xʷiʔ	page 8
+§2.3	Hul’q’umi’num’	cited form	wəł	page 8
+footnote 5	Lauren Schneider and Donna B. Gerdts	note	5 Two of the occurrences involved the frozen expression hwu’eyul /xʷəʔeyəl/ ‘go away’. According to Gerdts and Werle (2014), the sequence of xʷə= + yə= is acceptable, and they gave one example, but we found no examples of this in the corpus.	page 8, footnote
+§2.3	Hul’q’umi’num’	cited form	hwu’eyul	page 8
+§2.3	Hul’q’umi’num’	phonemic	/xʷəʔeyəl/	page 8, ‘go away’
+§2.3	Lauren Schneider and Donna B. Gerdts	note	Table 5: Frequency of co-occurrence with other aspectoidal clitics Clitic APA Gloss Corpus total + yə= hwun’ xʷən̓ persistive 294 22 (7.5%) hwi’ xʷiʔ mirative 295 12 (4%) wulh wəł perfect 2,364 58 (2.4%) In sum, yə= tends to occur with unbounded aspects (durative and imperfective) and thus can easily co-occur with the persistive xʷən̓=, which focuses on the middle of an event. yə= is rarer with bounded aspects (perfective) and also is infrequent with the perfect wəł=, which signals the start or completion of an event, the inchoative xʷə=, which signals the completion of a change of state, and the mirative xʷiʔ=, which adds the meaning of surprise about an event.	page 8
+§3	Lauren Schneider and Donna B. Gerdts	heading	3 The aspectoidal yə= in serial verb constructions	page 9
+§3	Hul’q’umi’num’	cited affix	yə=	page 9
+§3	Lauren Schneider and Donna B. Gerdts	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+§3	Lauren Schneider and Donna B. Gerdts	note	This section explores the effect of yə= on the meaning of serial verb constructions (SVCs). Hul’q’umi’num’ SVCs are monoclausal constructions made up of two or more independent verbs, which have no linking element connecting them and have shared aspect (cf. Schneider 2021). As discussed previously, yə= is more common on motion verbs than non-motion verbs, and, yə= can add motion to a non-motion verb (as in (5) above). SVCs are also frequently made up of motion verbs, and can function to add motion to a non-motion event (cf. Schneider 2022a; Schneider 2022b). Because of the similarities in semantic function, it is not surprising that we would find yə= occurring on the verbs in an SVC.	page 9
+§3	Lauren Schneider and Donna B. Gerdts	note	As has been established, yə= often co-occurs with imperfective aspect, as in (23) to (26).	page 9
+(23) line 1	Hul’q’umi’num’	transcription	yu ’i.i.imush ts’u tthu xeel’s, ’uw’ yath ’uw’ yu ’i’mush yu le’lum’utus tthu mustimuhw	page 9, engine residue
+(23) line 2	Hul’q’umi’num’	transcription	ni’ulh yu lhelhuq’utus …	page 9, engine language
+(23) line 3	Hul’q’umi’num’	segmentation	yə=ʔiməš c̓ə tθə x̌e:l̓s,	page 9, engine language
+(23) line 4	Hul’q’umi’num’	gloss	DYN=walk HS DT Xeel’s	page 9, engine english
+(23) line 5	Hul’q’umi’num’	segmentation	ʔəw̓ yaθ ʔəw̓ yə=ʔim̓əš yə=lel̓əm̓-ət-əs	page 9, engine language
+(23) line 6	Hul’q’umi’num’	gloss	CN always CN DYN=walk DYN=look-TR-3SUB<IPFV>	page 9, engine english
+(23) line 7	Hul’q’umi’num’	segmentation	tθə məstiməxʷ niʔ=ʔəł yə=łełəq̓-ət-əs	page 9, engine language
+(23) line 8	Hul’q’umi’num’	gloss	DT people AUX=PST DYN=lay.down-TR-3SUB<IPFV>	page 9, engine english
+(23) line 9	Ellen White	translation	‘Xeel’s was walking along, always walking and looking at the people that he had put down on earth …’	page 9, engine english
+(23) line 9	Lauren Schneider and Donna B. Gerdts	citation	(EW.10290)	the tag or source at the right of the translation
+§3	Lauren Schneider and Donna B. Gerdts	note	In (23), the creator Xeel’s is doing the walking and looking, and these actions are continuously happening at the same time. In (24), the subject is also walking, but the second verb describes the direction of motion instead of simultaneous action.	page 9
+(24) line 1	Hul’q’umi’num’	transcription	yuse’lu skweyul kwus nem’ ’i’mush yu tl’upul’.	page 9, engine language
+(24) line 2	Hul’q’umi’num’	segmentation	yəsel̓ə s-kʷeyəl kʷəs nem̓ ʔim̓əš yə=ƛ̓əpəl̓	page 9, engine language
+(24) line 3	Hul’q’umi’num’	gloss	two NM-day DT.NM go.AUX walk<IPFV> DYN=go.down<IPFV>	page 9, engine english
+(24) line 4	Lauren Schneider and Donna B. Gerdts	translation	‘It took him two days coming down from the mountains.’	page 9, engine english
+(24) line 4	Lauren Schneider and Donna B. Gerdts	citation	(WSa.line.298)	the tag or source at the right of the translation
+§3	Lauren Schneider and Donna B. Gerdts	note	Both (24) and (25) involve a manner of motion verb followed by a direction of motion verb.	page 9
+(25) line 1	Hul’q’umi’num’	transcription	nilh tsun p’e’ yu t’it’utsum’, yu lhulheel’ ’i’ hwi’ nets’ tun’u ’i nu shhw’i.	page 9, engine language
+(25) line 2	Hul’q’umi’num’	segmentation	nił cən p̓eʔ yə=t̓it̓əcəm̓ yə=łəłe:lʔ	page 9, engine language
+(25) line 3	Hul’q’umi’num’	gloss	3FOC 1SG.SUB CERT DYN=swim<IPFV> DYN=go.to.shore<IPFV>	page 9, engine english
+(25) line 4	Hul’q’umi’num’	segmentation	ʔiʔ xʷiʔ nec̓ tən̓ə ʔi nə=šxʷʔi	page 9, engine language
+(25) line 5	Hul’q’umi’num’	gloss	CNJ MIR different DT.POS PROX.AUX POS=place.where	page 9, engine english
+(25) line 6	Lauren Schneider and Donna B. Gerdts	translation	‘I was indeed swimming along, going to shore and here I am at a different place.’	page 9, engine english
+(25) line 7	Lauren Schneider and Donna B. Gerdts	citation	(WSa.line.463)	page 9, engine english
+(26) line 1	Hul’q’umi’num’	transcription	ts’aal’uts ’u tu’i smunmeent yu qwasthut, yu shahwukw’um’.	page 10, engine residue
+(26) line 2	Hul’q’umi’num’	segmentation	c̓a:l̓əc ʔə təʔi smənme:nt	page 10, engine language
+(26) line 3	Hul’q’umi’num’	gloss	go.over.mountain OBL DT.PROX mountain<PL>	page 10, engine english
+(26) line 4	Hul’q’umi’num’	segmentation	yə=qʷasθət yə=šaxʷək̓ʷəm̓	page 10, engine language
+(26) line 5	Hul’q’umi’num’	gloss	DYN=go.in.water<IPFV> DYN=bathe<IPFV>	page 10, engine english
+(26) line 6	Lauren Schneider and Donna B. Gerdts	translation	‘He went over the mountains, going into the water and bathing as he went.’	page 10, engine english
+(26) line 7	Lauren Schneider and Donna B. Gerdts	citation	(WSa.line.743)	page 10, engine english
+§3	Hul’q’umi’num’	cited form	yə=qʷasθət	page 10, ‘going into the water’
+§3	Hul’q’umi’num’	cited form	yə=šaxʷək̓ʷəm̓	page 10, ‘going along bathing’
+§3	Lauren Schneider and Donna B. Gerdts	note	Example (26) illustrates how a directional verb yə=qʷasθət ‘going into the water’ can be combined with a non-motion verb yə=šaxʷək̓ʷəm̓ ‘going along bathing’ — with yə= marked on both verbs to make them concurrent — to add motion to a non-motion event.	page 10
+§3	Lauren Schneider and Donna B. Gerdts	note	To investigate the effect of yə= on this type of imperfective construction, we began by presenting Mrs. Louie with a corpus example with yə= on both verbs:	page 10
+(27) line 1	Hul’q’umi’num’	transcription	hith ’i’ wil’ thuw’nilh tl’e’ wulh yu ’i’mush yu tsetl’um’.	page 10, engine residue
+(27) line 2	Hul’q’umi’num’	segmentation	hiθ ʔiʔ wil̓θəw̓nił ƛ̓eʔ wəł	page 10, engine language
+(27) line 3	Hul’q’umi’num’	gloss	long.time CNJ appear PRO.DT also PRF	page 10, engine english
+(27) line 4	Hul’q’umi’num’	segmentation	yə=ʔim̓əš yə=ceƛ̓əm̓	page 10, engine language
+(27) line 5	Hul’q’umi’num’	gloss	DYN=walk<IPFV> DYN=jump<IPFV>	page 10, engine english
+(27) line 6	Andrew Misheal	translation	‘Quite a while later he appeared, jumping around.’	page 10, engine english, cited AM.4342
+(27) line 6	Lauren Schneider and Donna B. Gerdts	citation	(AM.4342)	the tag or source at the right of the translation
+§3	Lauren Schneider and Donna B. Gerdts	note	Then, we isolated the verbs into a shorter sentence (28a) and started to take the yə= out and see how it affected the meaning (28b–e).	page 10
+(28a) line 1	Hul’q’umi’num’	transcription	ni’ yu ’i’mush yu tsetl’um’ tthu smuyuth.	page 10, engine residue
+(28a) line 2	Hul’q’umi’num’	segmentation	niʔ yə=ʔim̓əš yə=ceƛ̓əm̓ tᶿə sməyəθ	page 10, engine language
+(28a) line 3	Hul’q’umi’num’	gloss	AUX DYN=walk<IPFV> DYN=jump<IPFV> DT deer	page 10, engine english
+(28a) line 4	Delores Louie	translation	‘The deer was walking, jumping.’	page 10, engine english, the tag or source closing the set
+(28b) line 1	Hul’q’umi’num’	transcription	ni’ yu ’i’mush tsetl’um’ tthu smuyuth.	page 10, engine residue
+(28b) line 2	Hul’q’umi’num’	segmentation	niʔ yə=ʔim̓əš ceƛ̓əm̓ tᶿə sməyəθ	page 10, engine language
+(28b) line 3	Hul’q’umi’num’	gloss	AUX DYN=walk<IPFV> jump<IPFV> DT deer	page 10, engine english
+(28b) line 4	Delores Louie	translation	‘The deer was walking and jumping (at the same time).’	page 10, engine english, the tag or source closing the set
+(28c) line 1	Hul’q’umi’num’	transcription	ni’ yu ’i’mush tsi’tstl’im’ tthu smuyuth.	page 10, engine language
+(28c) line 2	Hul’q’umi’num’	segmentation	niʔ yə=ʔim̓əš ceʔcƛ̓im̓ tᶿə sməyəθ	page 10, engine language
+(28c) line 3	Hul’q’umi’num’	gloss	AUX DYN=walk<IPFV> jump<DUR> DT deer	page 10, engine english
+(28c) line 4	Delores Louie	translation	‘The deer was walking and prancing along.’	page 10, engine english, the tag or source closing the set
+(28d) line 1	Hul’q’umi’num’	transcription	ni’ ’i’mush yu tsetl’um’ tthu smuyuth.	page 10, engine residue
+(28d) line 2	Hul’q’umi’num’	segmentation	niʔ ʔim̓əš yə=ceƛ̓əm̓ tᶿə sməyəθ	page 10, engine language
+(28d) line 3	Hul’q’umi’num’	gloss	AUX walk<IPFV> DYN=jump<IPFV> DT deer	page 10, engine english
+(28d) line 4	Delores Louie	translation	‘The deer was walking and jumping (over sticks in the path).’	page 10, engine english, the tag or source closing the set
+(28e) line 1	Hul’q’umi’num’	transcription	ni’ ’i’mush tsetl’um’ tthu smuyuth.	page 11, engine residue
+(28e) line 2	Hul’q’umi’num’	segmentation	niʔ ʔim̓əš ceƛ̓əm̓ tᶿə sməyəθ	page 11, engine language
+(28e) line 3	Hul’q’umi’num’	gloss	AUX walk<IPFV> jump<IPFV> DT deer	page 11, engine english
+(28e) line 4	Delores Louie	translation	‘The deer was stepping and hopping around (playing).’	page 11, engine english
+(28e) line 4	Lauren Schneider and Donna B. Gerdts	citation	(DL.10.22)	the tag or source at the right of the translation
+§3	Hul’q’umi’num’	cited form	ceʔcƛ̓im̓	page 11
+§3	Lauren Schneider and Donna B. Gerdts	note	Mrs. Louie said that (28a) and (28b) are about the same; she offered (28c) as an alternative. The durative form proposed in (28c) — ceʔcƛ̓im̓ — is the jumping, hopping motion associated with deer and rabbit. Mrs. Louie interpreted (28d) as if ‘there are a bunch of sticks or branches in his path that he has to jump over’. Finally, she said that (28d) and (28e) are similar; in (28e) the deer is a fawn playing, stepping, and hopping around. In this case, if yə= occurs on the first verb, the ‘walking’ and ‘jumping’ actions are continuously and simultaneously happening. When the yə= only occurs on the second verb, as in (28d), it is more like the ‘walking’ action is periodically interspersed with the ‘jumping’ action as the deer went along and had to jump over obstacles. In the next corpus example, the original speaker only put yə= on the first verb.	page 11
+(29) line 1	Hul’q’umi’num’	transcription	wulh nem’ yu huy’u xwut’e ’u tnanulh tuywut.	page 11, engine language
+(29) line 2	Hul’q’umi’num’	segmentation	wəł nem̓ yə=həy̓ə x̌ʷət̓e ʔə tnanuł təywət	page 11, engine language
+(29) line 3	Hul’q’umi’num’	gloss	PRF go.AUX DYN=leave<IPFV> go.toward<IPFV> OBL that.way upstream.north	page 11, engine english
+(29) line 4	Wilfred Sampson	translation	‘They were on their way up north.’	page 11, engine english
+(29) line 4	Lauren Schneider and Donna B. Gerdts	citation	(WSa.784)	the tag or source at the right of the translation
+§3	Lauren Schneider and Donna B. Gerdts	note	Compare (29) with (30a–d) below; Mrs. Louie agreed with the original speaker that if yə= was present, it was best if it was only on V1.	page 11
+(30a) line 1	Hul’q’umi’num’	transcription	nem’ yu huy’u xwut’e ’u tnanulh tuywut.	page 11, engine residue
+(30a) line 2	Hul’q’umi’num’	segmentation	nem̓ yə=həy̓ə x̌ʷət̓e ʔə tnanuł təywət	page 11, engine language
+(30a) line 3	Hul’q’umi’num’	gloss	go.AUX DYN=leave<IPFV> go.toward<IPFV> OBL that.way upstream.north	page 11, engine english
+(30a) line 4	Delores Louie	translation	‘He’s leaving turning to the north. (waaay north)’	page 11, engine english, the tag or source closing the set
+(30b) line 1	Hul’q’umi’num’	transcription	#nem’ yu huy’u yu xwut’e ’u tnanulh tuywut.	page 11, engine language, carries footnote 6, written here without its digit
+(30b) line 2	Hul’q’umi’num’	segmentation	#nem̓ yə=həy̓ə yə=x̌ʷət̓e ʔə tnanuł təywət	page 11, engine language
+(30b) line 3	Hul’q’umi’num’	gloss	go.AUX DYN=leave<IPFV> DYN=go.toward<IPFV> OBL that.way upstream.north	page 11, engine english
+(30c) line 1	Hul’q’umi’num’	transcription	nem’ huy’u xwut’e ’u tnanulh tuywut.	page 11, engine language
+(30c) line 2	Hul’q’umi’num’	segmentation	nem̓ həy̓ə x̌ʷət̓e ʔə tnanuł təywət	page 11, engine language
+(30c) line 3	Hul’q’umi’num’	gloss	go.AUX leave<IPFV> go.toward<IPFV> OBL that.way upstream.north	page 11, engine english
+(30c) line 4	Delores Louie	translation	‘He’s leaving turning to the north. (waaay north)’	page 11, engine english, the tag or source closing the set
+(30d) line 1	Hul’q’umi’num’	transcription	nem’ huye’ xwut’e ’u tnanulh tuywut.	page 11, engine language
+(30d) line 2	Hul’q’umi’num’	segmentation	nem̓ həyeɁ x̌ʷət̓e ʔə tnanuł təywət	page 11, engine language
+(30d) line 3	Hul’q’umi’num’	gloss	go.AUX leave go.toward<IPFV> OBL that.way upstream.north	page 11, engine english
+(30d) line 4	Delores Louie	translation	‘He left, turning to the north.’	page 11, engine english
+(30d) line 4	Lauren Schneider and Donna B. Gerdts	citation	(DL.10.22)	the tag or source at the right of the translation
+footnote 6	Lauren Schneider and Donna B. Gerdts	note	6 Example (30b) is marked with # because Mrs. Louie did not think that adding yə= to x̌ʷət̓e ‘going toward’ made sense. Because of this, there is no translation for this line.	page 11, footnote
+§3	Hul’q’umi’num’	cited form	x̌ʷət̓e	page 11, ‘going toward’
+§3	Lauren Schneider and Donna B. Gerdts	note	Mrs. Louie said that (30a) and (30c) are pretty much the same; she supplied (30d) as an alternative to (30c), making the first verb perfective. Moving yə= around in example (30) does not have quite the same effect as in (28); this is likely due to the semantics of the verbs themselves. In this case, it does not make as much sense to ‘turn north as they go along’ in the same way it makes sense to ‘hop over things as they go along’. To probe this further, a further test would be to construct a context in which the actor is unable to continue north (perhaps there is some large obstacle), and they are going along, turning to the north whenever they can.	page 12
+§3	Lauren Schneider and Donna B. Gerdts	note	Generally, when both verbs are imperfective, if yə= is marked on V1, marking on V2 tends to be unnecessary and optional; both actions are continuously and simultaneously happening and are thought of as a single event.	page 12
+(31) line 1	Lauren Schneider and Donna B. Gerdts	note	Imperfective Vs	page 12, the display
+(31) line 2	Lauren Schneider and Donna B. Gerdts	note	yə= V1 (yə=) V2 | ————————— |	page 12, the display
+(31) line 3	Lauren Schneider and Donna B. Gerdts	note	walking + jumping = walk-hopping along (i.e., prancing)	page 12, the display
+§3	Lauren Schneider and Donna B. Gerdts	note	Marking yə= exclusively on V2 in this context seems to indicate that the second action happened at the same time as the action described by V1, but perhaps these are describing subevents of a complex action.	page 12
+(32) line 1	Lauren Schneider and Donna B. Gerdts	note	Imperfective Vs	page 12, the display
+(32) line 2	Lauren Schneider and Donna B. Gerdts	note	V1 yə= V2 | ——x——x——x—— |	page 12, the display
+(32) line 3	Lauren Schneider and Donna B. Gerdts	note	walking + jumping = walking and jumping over things	page 12, the display
+§3	Lauren Schneider and Donna B. Gerdts	note	In imperfective SVCs, if yə= is marked on V1, marking on V2 tends to be optional. Both actions are continuously and simultaneously happening, where V2 is providing additional information about the manner of motion in V1, as in (31). Marking yə= exclusively on V2 in this context seems to indicate that, while the second action is happening at the same time as V1, perhaps V2 is an ongoing but repeating action, as in (32).	page 12
+§3	Lauren Schneider and Donna B. Gerdts	note	As has been demonstrated, yə= most often co-occurs with unbounded aspects. But, in the following text corpus example, yə= occurs on the second verb in the string, which is perfective.	page 12
+(33) line 1	Hul’q’umi’num’	transcription	m’ihw ts’u lheel, yu xlhastham tst tse’ ’i’ yelh ’us nem’ ’u kw’uni’ ’un’ yu shhwunum’.	page 12, engine language
+(33) line 2	Hul’q’umi’num’	segmentation	m̓i=əxʷ c̓ə łe:l yə=x̌łas-θamə ct ceʔ ʔiʔ yeł	page 12, engine language
+(33) line 3	Hul’q’umi’num’	gloss	come=2SG.SUB HS go.ashore DYN=eat-TR.2OBJ 1PL.SUB FUT CNJ then	page 12, engine english
+(33) line 4	Hul’q’umi’num’	segmentation	ʔəs nem̓ ʔə k̓ʷəniʔ ʔən̓ yə=šxʷənəm̓	page 12, engine language
+(33) line 5	Hul’q’umi’num’	gloss	AUX.3POS go OBL DIST.DEM 2POS DYN=OBL.NM.go<IPFV>	page 12, engine english
+(33) line 6	Ellen White	translation	‘Come ashore, and we will feed you before you go on your way.’	page 12, engine english, cited EW.10714
+(33) line 6	Lauren Schneider and Donna B. Gerdts	citation	(EW.10714)	the tag or source at the right of the translation
+§3	Hul’q’umi’num’	cited form	ceɁ	page 12, ‘future’
+footnote 7	Lauren Schneider and Donna B. Gerdts	note	7 For more on second-position clitics and clause boundaries, see Bätscher (2014) and Schneider (2021).	page 12, footnote
+§3	Lauren Schneider and Donna B. Gerdts	note	In (33), there are two conceptually distinct actions, i.e., it is not the case that they will be fed while they are coming to shore. This interpretation is supported by the fact that there is a clause boundary between the verb components, which is apparent from the presence of second-position clitics (ct ‘we’ and ceɁ ‘future’) following the second verb, rather than subordinate subject suffixes.7 Both yə= and SVCs are more common in contexts where motion is being expressed, thus their co-occurrence is expected. These strategies work together to express the internal structure of events.	page 12
+§4	Lauren Schneider and Donna B. Gerdts	heading	4 Optionality and discourse use	page 13
+§4	Hul’q’umi’num’	cited affix	yə=	page 13
+§4	Lauren Schneider and Donna B. Gerdts	note	One puzzle encountered when working on aspectoidals is their seemingly optional nature. Isolated examples can be acceptable with or without yə=. Elicitations with speakers reveal that they do not have a firm sense of the meaning that yə= contributes. For example, in the case of a progressive- type construction, the meaning really does not change with (34a) and without (34b) yə=.	page 13
+(34a) line 1	Hul’q’umi’num’	transcription	yath ’uw’ yu ’i’mush lhunu mun’u.	page 13, engine residue
+(34a) line 2	Hul’q’umi’num’	segmentation	yaθ ʔəw̓ yə=ʔim̓əš łə-nə mən̓ə	page 13, engine language
+(34a) line 3	Hul’q’umi’num’	gloss	always CN DYN=walk<IPFV> DT-1POS child	page 13, engine english
+(34a) line 4	Delores Louie	translation	‘My daughter is always walking.’	page 13, engine english, the tag or source closing the set
+(34b) line 1	Hul’q’umi’num’	transcription	yath ’uw’ ’i’mush lhunu mun’u.	page 13, engine language
+(34b) line 2	Hul’q’umi’num’	segmentation	yaθ ʔəw̓ ʔim̓əš łə-nə mən̓ə	page 13, engine language
+(34b) line 3	Hul’q’umi’num’	gloss	always CN walk<IPFV> DT-1POS child	page 13, engine english
+(34b) line 4	Delores Louie	translation	‘My daughter is always walking.’	page 13, engine english
+(34b) line 4	Lauren Schneider and Donna B. Gerdts	citation	(DL.01.23)	the tag or source at the right of the translation
+§4	Lauren Schneider and Donna B. Gerdts	note	Nevertheless, speakers have a clear sense of when yə= should be used. Working with Dr. Peter on transcriptions and translations of stories, she often suggested adding a yə= especially to motion verbs in the imperfective or verbs in a series, but she never suggested deleting a yə=. We mark her additions in the transcription of the text corpus with [brackets], for example:	page 13
+(35) line 1	Hul’q’umi’num’	transcription	tsakw wa’lu ni’ [yu] shhwun’um’s kws nem’s t’akw’.	page 13, engine language
+(35) line 2	Hul’q’umi’num’	segmentation	cakʷ wal̓ə niʔ [yə=]šxʷən̓əm̓s kʷs nem̓-s t̓ak̓ʷ	page 13, engine language
+(35) line 3	Hul’q’umi’num’	gloss	be.far maybe AUX [DYN=]OBL.NM.go<IPFV> DT go-NM go.home	page 13, engine english
+(35) line 4	Lauren Schneider and Donna B. Gerdts	translation	‘Perhaps he had a long way to go going home.’	page 13, engine english
+(35) line 4	Lauren Schneider and Donna B. Gerdts	citation	(CP, Old woman who became a bluejay)	the tag or source at the right of the translation
+§4	Lauren Schneider and Donna B. Gerdts	note	As we were working on this with Mrs. Louie, she suggested that yə= adds a sense that the action is more ‘definite’ and ‘clear’, like it is happening right in front of you. The presence of yə= makes the telling of the event more vivid. In testing example (35) with and without yə=, Mrs. Louie told us “you can tell it’s a story with the extra yu.” Similarly, repeatedly during elicitation, this consultant indicated that it would be easier to tell if there should be a yə= or not if there was more context about the events before and after.	page 13
+§4	Hul’q’umi’num’	cited form	squl’ew’	page 13
+§4	Hul’q’umi’num’	cited form	sxwi’em’	page 13
+footnote 8	Lauren Schneider and Donna B. Gerdts	note	8 squl’ew’ sxwi’em’ | The beaver story can be read and listened to at: https://saalhsqwal.hwulmuhwqun.ca/willie-seymour-beaver-story/	page 13, footnote
+§4	Lauren Schneider and Donna B. Gerdts	note	Studying the use of yə= in our story corpus reveals an uneven distribution. Sometimes speakers go several minutes without using a single yə=, especially in sections that are setting the scene or relating characters’ thoughts or conversations. And then when the action picks up and the characters are moving in time and space and engaging in actions central to the narrative, a flurry of yə= marked words will appear. Here is a sample paragraph from the late Willie Seymour’s squl’ew’ sxwi’em’ | The beaver story (Seymour 2016).8	page 13
+(36a) line 1	Hul’q’umi’num’	transcription	sis ’uw’ yu tl’itl’uts’ul’s nem’ lemutus tu’i ’i ’u kw’i tsa’luqw.	page 14, engine language
+(36a) line 2	Hul’q’umi’num’	segmentation	sis=ʔəw̓ yə=ƛ̓iƛ̓əc̓əl̓s nem̓ lem-ət-əs təʔi ʔi	page 14, engine language
+(36a) line 3	Hul’q’umi’num’	gloss	NM.AUX.3POS=CN DYN=sneak<IPFV> go see-TR-3SUB DT.PROX AUX	page 14, engine english
+(36a) line 4	Hul’q’umi’num’	transcription	ʔə k̓ʷi cal̓əqʷ	page 14, engine language
+(36a) line 5	Hul’q’umi’num’	gloss	OBL DT upward.slope	page 14, engine english
+(36a) line 6	Seymour 2016	translation	‘So he decided to go and see what was happening up here on the mountain.’	page 14, engine english, the tag or source closing the set
+(36a) line 7	Lauren Schneider and Donna B. Gerdts	citation	(lines 39–40)	page 14, engine residue
+(36b) line 1	Hul’q’umi’num’	transcription	ni’ wulh hwu stutes kwus yu ts’its’elhum’utus … “Hup ho!”	page 14, engine language
+(36b) line 2	Hul’q’umi’num’	segmentation	niʔ wəł xʷə=s-tətes kʷəs yə=c̓ic̓ełəm̓-ət-əs	page 14, engine language
+(36b) line 3	Hul’q’umi’num’	gloss	AUX PRF INCH=STA-close<STA> DT.NM DYN=hear-TR-3SUB<IPFV>	page 14, engine english
+(36b) line 4	Hul’q’umi’num’	transcription	həp ho	page 14, engine language
+(36b) line 5	Hul’q’umi’num’	gloss	INTJ	page 14, engine english
+(36b) line 6	Seymour 2016	translation	‘He snuck up closer and could hear … “Hup ho!”’ (lines 41–42)	page 14, engine english, the tag or source closing the set
+(36c) line 1	Hul’q’umi’num’	transcription	sis ’uw’ yu tl’itl’uts’ul’s suw’ lemutus ’i’ squl’ew’ sq’uq’ip kwus yu hwakw’tus tu	page 14, engine language
+(36c) line 2	Hul’q’umi’num’	transcription	thqet [yu] hunum’ust-hwus ’u tu qa’. “Hup ho!”	page 14, engine language
+(36c) line 3	Hul’q’umi’num’	segmentation	sis=ʔəw̓ yə=ƛ̓iƛ̓əc̓əl̓s səw̓ lem-ət-əs ʔiʔ sqəl̓ew̓	page 14, engine language
+(36c) line 4	Hul’q’umi’num’	gloss	NM.AUX.3POS=CN DYN=sneak<IPFV> NM.CN see-TR-3SUB CNJ beaver	page 14, engine english
+(36c) line 5	Hul’q’umi’num’	segmentation	s-q̓əq̓ip kʷəs yə=xʷak̓ʷ-t-əs tə θqet	page 14, engine language
+(36c) line 6	Hul’q’umi’num’	gloss	STA-be.with<STA> DT.NM DYN=drag-TR-3SUB<IPFV> DT tree	page 14, engine english
+(36c) line 7	Hul’q’umi’num’	segmentation	[yə]=hənəm̓-əstxʷ-əs ʔə tə qaʔ həp ho	page 14, engine language
+(36c) line 8	Hul’q’umi’num’	gloss	[DYN=]go-CS-3SUB<IPFV> OBL DT water INTJ	page 14, engine english
+(36c) line 9	Seymour 2016	translation	‘He crept closer and saw beavers tugging together on a tree bringing it to the water. “Hup ho!”’ (lines 43–45)	page 14, engine english, the tag or source closing the set
+(36d) line 1	Hul’q’umi’num’	transcription	ni’ wa’lu yu xi’xlhem’utus tu kwus yu t’at’uhwstum’ tu snuhwulh, tu q’xuw’lh.	page 14, engine language
+(36d) line 2	Hul’q’umi’num’	segmentation	niʔ wal̓ə yə=x̌iʔx̌łem̓-ət-əs tə kʷəs	page 14, engine language
+(36d) line 3	Hul’q’umi’num’	gloss	AUX perhaps DYN=watch-TR-3SUB<DUR> DT DT.NM	page 14, engine english
+(36d) line 4	Hul’q’umi’num’	segmentation	yə=t̓at̓əxʷ-stəm̓ tə snəxʷəł tə q̓x̌əw̓ł	page 14, engine language
+(36d) line 5	Hul’q’umi’num’	gloss	DYN=go.home-CS.PAS<IPFV> DT canoe DT war.canoe	page 14, engine english
+(36d) line 6	Seymour 2016	translation	‘They must have been watching when they brought down the canoe, that big canoe.’	page 14, engine english, the tag or source closing the set
+(36d) line 7	Lauren Schneider and Donna B. Gerdts	citation	(lines 46–47)	page 14, engine residue
+(36e) line 1	Hul’q’umi’num’	transcription	’u shus tl’uw’ yu xut’e ’u tey’ tuw’ne’ullh.	page 14, engine language
+(36e) line 2	Hul’q’umi’num’	segmentation	ʔə šəs ƛ̓əw̓ yə=x̌ət̓e ʔə tey̓ təw̓neʔəlł	page 14, engine language
+(36e) line 3	Hul’q’umi’num’	gloss	OBL thus really DYN=do<IPFV> OBL DT PRO.DT	page 14, engine english
+(36e) line 4	Seymour 2016	translation	‘So they were copying.’ (line 48) (Seymour 2016)	page 14, engine english, cited Seymour 2016
+§4	Hul’q’umi’num’	cited form	sqəl̓ew̓	page 14
+§4	Lauren Schneider and Donna B. Gerdts	note	As Gerdts (2010) discusses, the lines in (36a), (36b), and the first half of (36c) are delivered very softly and slowly with stretched out intonation, leading up to the climactic revelation of the sqəl̓ew̓ ‘beavers’, and then followed by a speedily delivered denouement. The use of yə= makes this section of the story especially vivid and dramatic.	page 14
+§4	Hul’q’umi’num’	cited form	Tth’uwxe’le’ts	page 15
+§4	Lauren Schneider and Donna B. Gerdts	note	As mentioned above, Dr. Ruby Peter had strong intuitions about the importance of using the aspectoidal yə= and she often inserted it into texts she was editing. She regularly used it herself in oral performances of stories. For example, in her telling of Tth’uwxe’le’ts — The basket ogress (Peter 2016), she uses yə= three times in the lines where she describes the onerous act of preparing the kidnapped children for barbecuing:9	page 15
+(37a) line 1	Hul’q’umi’num’	transcription	suw’ yu q’eq’up’utus yu hunum’st-hwus ’u tthu pi’kwun, xuxeem’ stl’ul’iqulh.	page 15, engine language
+(37a) line 2	Hul’q’umi’num’	segmentation	səw̓ yə=q̓eq̓əp̓-ət-əs yə=hənəm̓-stxʷ-əs ʔə	page 15, engine language
+(37a) line 3	Hul’q’umi’num’	gloss	NM.CN DYN=tie.up-TR-3SUB<IPFV> DYN=go-CS-3SUB<IPFV> OBL	page 15, engine english
+(37a) line 4	Hul’q’umi’num’	transcription	tᶿə piʔkʷən, x̌əx̌e:m̓ sƛ̓əl̓iqəł	page 15, engine language
+(37a) line 5	Hul’q’umi’num’	gloss	DT roasting.stick cry<PL.IPFV> child<PL>	page 15, engine english
+(37a) line 6	Peter 2016; Alphonse et al. 2021:13	translation	‘So she tied them up onto the barbecue sticks, the crying children.’	page 15, engine english, the tag or source closing the set
+(37b) line 1	Hul’q’umi’num’	transcription	kwus wulh yu t’ut’uyum’tus tthu smuqw’iws ’u thu qulum’s.	page 15, engine language
+(37b) line 2	Hul’q’umi’num’	segmentation	kʷəs wəł yə=t̓ət̓əyəm̓-t-əs tᶿə sməq̓ʷiws	page 15, engine language
+(37b) line 3	Hul’q’umi’num’	gloss	DT.NM PRF DYN=stick.to-TR-3SUB<IPFV> DT balsam.pitch	page 15, engine english
+(37b) line 4	Hul’q’umi’num’	segmentation	ʔə θə qələm̓-s	page 15, engine language
+(37b) line 5	Hul’q’umi’num’	gloss	OBL DT eye-3POS	page 15, engine english
+(37b) line 6	Peter 2016; Alphonse et al. 2021:13	translation	‘And then she put balsam pitch into their eyes.’	page 15, engine english, cited Peter 2016; Alphonse et al. 2021:13
+(37b) line 6	Lauren Schneider and Donna B. Gerdts	citation	(Peter 2016; Alphonse et al. 2021:13)	the tag or source at the right of the translation
+§4	Lauren Schneider and Donna B. Gerdts	note	She also uses yə= four times in the climax of the story where she describes the character Tth’uwxe’le’ts burning up:	page 15
+(38a) line 1	Hul’q’umi’num’	transcription	’i’ nilh yu thextus yu hun’wushum’ ’u thu huy’qw.	page 15, engine residue
+(38a) line 2	Hul’q’umi’num’	segmentation	ʔiʔ nił yə=θex̌-t-əs yə=hənw̓-əš-əm̓ ʔə	page 15, engine language
+(38a) line 3	Hul’q’umi’num’	gloss	CNJ 3FOC DYN=push-TR-3SUB<IPFV> DYN=in-TR-PAS<IPFV> OBL	page 15, engine english
+(38a) line 4	Hul’q’umi’num’	transcription	θə həy̓qʷ	page 15, engine language
+(38a) line 5	Hul’q’umi’num’	gloss	DT fire	page 15, engine english
+(38a) line 6	Peter 2016; Alphonse et al. 2021:18	translation	‘But she was in fact pushing her deeper into the fire.’	page 15, engine english, the tag or source closing the set
+(38b) line 1	Hul’q’umi’num’	transcription	wulh yuqw tth’uwxe’le’ts, yu kwukwtsem’.	page 15, engine language
+(38b) line 2	Hul’q’umi’num’	segmentation	wəł yəqʷ t̓ᶿəwx̌el̓eʔc yə=kʷəkʷcem̓	page 15, engine language
+(38b) line 3	Hul’q’umi’num’	gloss	PRF burn NAME DYN=scream<IPFV>	page 15, engine english
+(38b) line 4	Peter 2016; Alphonse et al. 2021:18	translation	‘And Tth’uwxe’le’ts burned up, screaming.’	page 15, engine english, the tag or source closing the set
+(38c) line 1	Hul’q’umi’num’	transcription	kwus wulh yuqw ’i’ ni.i.i’ lhakw’ tthu qwa’tsup, lhakw’ tthu qwa’tsups.	page 15, engine language
+(38c) line 2	Hul’q’umi’num’	segmentation	kʷəs wəł yəqʷ ʔiʔ niʔ łak̓ʷ tᶿə qʷaʔcəp	page 15, engine language
+(38c) line 3	Hul’q’umi’num’	gloss	DT.NM PRF burn CNJ AUX<RL> fly DT cinder	page 15, engine english
+(38c) line 4	Hul’q’umi’num’	segmentation	łak̓ʷ tᶿə qʷaʔcəp-s	page 15, engine language
+(38c) line 5	Hul’q’umi’num’	gloss	fly DT cinder-3POS	page 15, engine english
+(38c) line 6	Peter 2016; Alphonse et al. 2021:18	translation	‘When she was burning, the cinders were flying.’	page 15, engine english, the tag or source closing the set
+footnote 9	Lauren Schneider and Donna B. Gerdts	note	9 Tth’uwxe’le’ts — The basket ogress can be read and listened to at: https://sqwal.hwulmuhwqun.ca/learn/stories/tthuwxelets-the-basket-ogress/	page 15, footnote
+(38d) line 1	Hul’q’umi’num’	transcription	sus ’uw’ yu ’eeye’q, ni.i.i’ hwu sqw’uli’qw’lush,	page 16, engine language
+(38d) line 2	Hul’q’umi’num’	transcription	hay ’ul’ qux sqw’uli’qw’lush, hay ’ul’ qux kwus nuts’tul.	page 16, engine language
+(38d) line 3	Hul’q’umi’num’	segmentation	səs=ʔəw̓ yə=ʔe:yeʔq, niʔ xʷə=sq̓ʷəliʔq̓ʷləš	page 16, engine language
+(38d) line 4	Hul’q’umi’num’	gloss	NM.AUX.3POS=CN DYN=change<IPFV> AUX<RL> INCH=bird<DIM.PL>	page 16, engine english
+(38d) line 5	Hul’q’umi’num’	transcription	hay ʔəl̓qəx̌ sq̓ʷəliʔq̓ʷləš hay ʔəl̓qəx̌ kʷəs nəc̓təl	page 16, engine language
+(38d) line 6	Hul’q’umi’num’	gloss	3FOC just more bird<DIM.PL> 3FOC just more DT.NM different	page 16, engine english
+(38d) line 7	Peter 2016; Alphonse et al. 2021:18	translation	‘And they changed into little birds, many little birds, many different kinds of birds.’	page 16, engine english, cited Peter 2016; Alphonse et al. 2021:18
+(38d) line 8	Lauren Schneider and Donna B. Gerdts	citation	(Peter 2016; Alphonse et al. 2021:18)	page 16, engine english
+§4	Lauren Schneider and Donna B. Gerdts	note	Notably, some of the occurrences of yə= in texts fall on events or states that do not seem to otherwise involve motion, on-going activity, etc. and so we are left with the impression that one of the functions of yə= is as a narrative device used at the discretion of the story-teller to make sections of a story more dynamic.	page 16
+§5	Lauren Schneider and Donna B. Gerdts	heading	5 Plural prefix yə-	page 16
+§5	Hul’q’umi’num’	cited affix	yə-	page 16
+§5	Lauren Schneider and Donna B. Gerdts	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+§5	Lauren Schneider and Donna B. Gerdts	note	There is also a predicative prefix (or possibly proclitic) yə- that occurs on verbs which seems to refer to a plural participant of an event. Hul’q’umi’num’, like other Salish languages, marks plurality on nouns, verbs, adjectives, and adverbs, with meanings related to either plural participants or pluractionality (cf. Gerdts 2012; Huijsmans & Mellesmoen 2021; Suttles 2004). As noted by Gerdts (2012), most nominals have plural forms, but only some nominals require plural inflection when they are semantically plural (39), and many nominals need not be inflected for plurality (40).	page 16
+(39) line 1	Hul’q’umi’num’	transcription	’ii tl’e’ wulh t’il’t’ulum’ kw’un’a q’e’lumi’?	page 16, engine language
+(39) line 2	Hul’q’umi’num’	segmentation	ʔi: ƛ̓eʔ wəł t̓il̓t̓ələm̓ k̓ʷən̓a q̓el̓əmiʔ	page 16, engine language
+(39) line 3	Hul’q’umi’num’	gloss	AUX.Q also PRF sing<IPFV.PL> DEM young.lady<PL>	page 16, engine english
+(39) line 4	Hukari & Peter 1995	translation	‘Are those young ladies singing again?’	page 16, engine english, cited Hukari & Peter 1995
+(39) line 4	Lauren Schneider and Donna B. Gerdts	citation	(Hukari & Peter 1995)	the tag or source at the right of the translation
+(40) line 1	Hul’q’umi’num’	transcription	lukwlukwa’qwt ch tthu ni’ wulh qulqulul ’u tthu sp’eq’um.	page 16, engine residue
+(40) line 2	Hul’q’umi’num’	segmentation	ləkʷləkʷaʔqʷ-t č tᶿə niʔ wəł qəlqəl-əl ʔə tᶿə sp̓eq̓əm	page 16, engine language
+(40) line 3	Hul’q’umi’num’	gloss	break-TR<PL> 2SG.SUB DT AUX PRF bad-INCPT<PL> OBL DT flower	page 16, engine english
+(40) line 4	Hukari & Peter 1995	translation	‘Break off the flowers that have gone bad.’	page 16, engine english, cited Hukari & Peter 1995
+(40) line 4	Lauren Schneider and Donna B. Gerdts	citation	(Hukari & Peter 1995)	the tag or source at the right of the translation
+§5	Lauren Schneider and Donna B. Gerdts	note	Modifiers and verbs optionally inflect for plurality even if the semantically plural nominal that they reference does not.	page 16
+footnote 10	Lauren Schneider and Donna B. Gerdts	note	10 As discussed above, Gerdts and Werle (2014) use tests like pauses, syllabification, and ordering with other elements to differentiate pre-predicative clitics from prefixes. However, our data on the plural are too scant to make a decision about its analysis. Dr. Peter though suggested that the dynamic yə= be written as a separate word while she attached the plural yə- to its host.	page 16, footnote
+§5	Hul’q’umi’num’	cited affix	yə=	page 16
+§5	Lauren Schneider and Donna B. Gerdts	note	There is also a predicative prefix (or possibly proclitic) yə- that sometimes occurs with semantically plural nominals:10	page 16
+(41) line 1	Hul’q’umi’num’	transcription	mukw’ kwthu suw’wuy’qe’ ’uw’ tsput, ha’ nem’ nem’ ’u tthu kw’atl’kwu ’i’ nuw’	page 17, engine language
+(41) line 2	Hul’q’umi’num’	transcription	yuha’kwushus tthu pu’ult.	page 17, engine residue
+(41) line 3	Hul’q’umi’num’	segmentation	mək̓ʷ kʷθə səw̓wəy̓qeʔ ʔəw̓ c-pət haʔ nem̓ nem̓ ʔə	page 17, engine language
+(41) line 4	Hul’q’umi’num’	gloss	all DT man<PL> CN VBL-boat if AUX go OBL	page 17, engine english
+(41) line 5	Hul’q’umi’num’	segmentation	tᶿə k̓ʷaƛ̓kʷə ʔiʔ nəw̓ yə-haʔkʷəš-əs tᶿə pəʔəlt	page 17, engine language
+(41) line 6	Hul’q’umi’num’	gloss	DT sea CNJ AUX.CN PL-use.it-3SUB DT boat<PL>	page 17, engine english
+(41) line 7	Ruby Peter	translation	‘All of the men own boats that they use for fishing.’	page 17, engine english, cited RP 11.22.2011
+(41) line 7	Lauren Schneider and Donna B. Gerdts	citation	(RP 11.22.2011)	the tag or source at the right of the translation
+(42) line 1	Hul’q’umi’num’	transcription	….shni’s ’i’ ni’ hwi’ yule’lumuhwus kwuw’ mukw’ ’ul’ stsekwul mustimuhw.	page 17, engine language
+(42) line 2	Hul’q’umi’num’	segmentation	… šniʔs ʔiʔ niʔ xʷiʔ=yə-lel̓əməxʷ-əs kʷəw̓	page 17, engine language
+(42) line 3	Hul’q’umi’num’	gloss	where.it.is CNJ AUX MIR=PL-look.LCTR-3SUB<IPFV> DT.CN	page 17, engine english
+(42) line 4	Hul’q’umi’num’	transcription	mək̓ʷ ʔəl̓scekʷəl̓məstiməxʷ	page 17, engine language
+§5	Lauren Schneider and Donna B. Gerdts	note	all just how people ‘….and this is where they saw many different nations.’ (WSa.157.line.61)	page 17
+(43) line 1	Hul’q’umi’num’	transcription	m’i tse’ yukwunutus kwthunu mun’u kwthu shkwey’xutssum’ — lupen, sqw’qwum, maal,	page 17, engine language
+(43) line 2	Hul’q’umi’num’	transcription	’i’ kwthu humun.	page 17, engine language
+(43) line 3	Hul’q’umi’num’	segmentation	m̓i ceʔ yə-kʷən-ət-əs kʷθənə mən̓ə kʷθə škʷey̓x̌əcsəm̓	page 17, engine language
+(43) line 4	Hul’q’umi’num’	gloss	AUX FUT PL-take-TR-3SUB DT.1POS child DT tools	page 17, engine english
+(43) line 5	Hul’q’umi’num’	transcription	ləpen sq̓ʷqʷəm, ma:l ʔiʔ kʷθə həmən	page 17, engine language
+(43) line 6	Hul’q’umi’num’	gloss	shovel axe maul CNJ DT hammer	page 17, engine english
+(43) line 7	Ruby Peter	translation	‘My son will bring all the tools — shovels, axes, mauls, and hammers.’	page 17, engine english, cited RP 11.22.2011
+(43) line 7	Lauren Schneider and Donna B. Gerdts	citation	(RP 11.22.2011)	the tag or source at the right of the translation
+§5	Hul’q’umi’num’	cited form	mək̓ʷ	page 17, ‘all’
+§5	Hul’q’umi’num’	cited form	k̓ʷin	page 17, ‘how many’
+§5	Lauren Schneider and Donna B. Gerdts	note	The nominal triggering this plural is a collective or distributive plural, and often the examples contain the quantifier mək̓ʷ ‘all’ or k̓ʷin ‘how many’, and elicitations reveal that single entities are incompatible with the prefix yə-:	page 17
+(44) line 1	Hul’q’umi’num’	transcription	m’i tse’ yuhwuhwe kw’ kw’in’ule’ts saxwul.	page 17, engine language
+(44) line 2	Hul’q’umi’num’	segmentation	m̓i ceʔ yə-xʷəxʷe k̓ʷ k̓ʷin̓-əleʔc sax̌ʷəl	page 17, engine language
+(44) line 3	Hul’q’umi’num’	gloss	AUX FUT PL-be.lowered.down<PL> DT many-bundle grass	page 17, engine english
+(44) line 4	Ruby Peter	translation	‘There will be so many bales of hay lowered down.’	page 17, engine english, cited RP.2010
+(44) line 4	Lauren Schneider and Donna B. Gerdts	citation	(RP.2010)	the tag or source at the right of the translation
+(45) line 1	Hul’q’umi’num’	transcription	m’i tse’ (*yu)hwe kw’ nəts’ule’ts saxwul.	page 17, engine language
+(45) line 2	Hul’q’umi’num’	segmentation	m̓i ceʔ (*yə-)xʷe k̓ʷ nəc̓-əleʔc sax̌ʷəl	page 17, engine language
+(45) line 3	Hul’q’umi’num’	gloss	AUX FUT (PL-)be.lowered.down DT one-bundle grass	page 17, engine english
+(45) line 4	Ruby Peter	translation	‘There will be one bale of hay lowered down.’	page 17, engine english, cited RP.2010
+(45) line 4	Lauren Schneider and Donna B. Gerdts	citation	(RP.2010)	the tag or source at the right of the translation
+§5	Lauren Schneider and Donna B. Gerdts	note	One thing we noted was that while the plural prefix yə- occurs on many types of verbs, it does not occur with plain adjectives or adverbs — as in the (a) examples of (46) and (47) below — rather the modifier is cast as a durative or stative — as in the (b) examples.	page 17
+(46a) line 1	Hul’q’umi’num’	transcription	m’i tse’ ’uw’ (*yu)mukw’ tthu luplaash kwun’s m’i tuyqt.	page 17, engine language
+(46a) line 2	Hul’q’umi’num’	segmentation	m̓i ceʔ ʔəw̓ (*yə-)mək̓ʷ tᶿə ləpla:š kʷən̓s m̓i təyq-t	page 17, engine language
+(46a) line 3	Hul’q’umi’num’	gloss	AUX FUT CN (PL-)all DT board DT.2POS.NM come move-TR	page 17, engine english
+(46a) line 4	Ruby Peter	translation	‘You will move all the lumber at once.’	page 17, engine english, the tag or source closing the set
+(46b) line 1	Hul’q’umi’num’	transcription	m’i tse’ ’uw’ yusum’mikw’ tthu luplaash kwun’s m’i tuyqt.	page 18, engine language
+(46b) line 2	Hul’q’umi’num’	segmentation	m̓i ceʔ ʔəw̓ yə=səm̓mik̓ʷ tᶿə ləpla:š kʷən̓s m̓i təyq-t	page 18, engine language
+(46b) line 3	Hul’q’umi’num’	gloss	AUX FUT CN PL=all<STA> DT board DT.2POS.NM come move-TR	page 18, engine english
+(46b) line 4	Ruby Peter	translation	‘You will move all the lumber at once.’	page 18, engine english, cited RP.2010
+(46b) line 4	Lauren Schneider and Donna B. Gerdts	citation	(RP.2010)	the tag or source at the right of the translation
+(47a) line 1	Hul’q’umi’num’	transcription	(*yu)kw’in tthu lumutou ni’ kwsetuhw?	page 18, engine residue
+(47a) line 2	Hul’q’umi’num’	segmentation	(*yə-)k̓ʷin tᶿə ləmətu niʔ kʷset-əxʷ	page 18, engine language
+(47a) line 3	Hul’q’umi’num’	gloss	(*PL-)how.many DT sheep AUX count-2SUB	page 18, engine english
+(47a) line 4	Ruby Peter	translation	‘How many sheep did you count?’	page 18, engine english, the tag or source closing the set
+(47b) line 1	Hul’q’umi’num’	transcription	yukw’ikw’un’ tse’ kw’ sunihwulh nem’ tl’pestun?	page 18, engine language
+(47b) line 2	Hul’q’umi’num’	segmentation	yə-k̓ʷik̓ʷən̓ ceʔ k̓ʷ sənixʷəł nem̓ ƛ̓-pestən	page 18, engine language
+(47b) line 3	Hul’q’umi’num’	gloss	PL-how.many<STA> FUT DT canoe<PL> go VBL-United.States	page 18, engine english
+(47b) line 4	Ruby Peter	translation	‘How many canoes will go to the States?’	page 18, engine english, cited RP.2010
+(47b) line 4	Lauren Schneider and Donna B. Gerdts	citation	(RP.2010)	the tag or source at the right of the translation
+§5	Lauren Schneider and Donna B. Gerdts	note	We have also not found yə- on nouns, and so like dyamic yə= it is a pre-predicative prefix limited to verbs.	page 18
+§5	Lauren Schneider and Donna B. Gerdts	note	Looking for the plural prefix in the neighboring dialects, we see that in the Upriver dialect of Halkomelem, yə- is used as a (gender unspecified) plural determiner (used mostly for humans), where it apparently denotes a collective plural, and the examples given usually involve generic statements (Galloway 1993:390–391).11	page 18
+(48) line 1	Lauren Schneider and Donna B. Gerdts	note	Upriver Halkomelem	page 18, engine english
+(48) line 2	Upriver Halkomelem	segmentation	łəq̓=əł x̌ət̓ə yə xʷəlməxʷ	page 18, engine language
+(48) line 3	Upriver Halkomelem	gloss	know=PST say<IPFV> PL.DT First.Nation.person	page 18, engine english
+(48) line 4	Galloway 1993:391	translation	‘The Indian people used to say …’	page 18, engine english, cited Galloway 1993:391
+(48) line 4	Lauren Schneider and Donna B. Gerdts	citation	(Galloway 1993:391)	the tag or source at the right of the translation
+§5	Hul’q’umi’num’	cited form	yəθɛ́	page 18, ‘those people (there), them (human)’
+§5	Hul’q’umi’num’	cited form	yəƛ̓a:ləm	page 18, ‘that’
+§5	Hul’q’umi’num’	cited form	yə	page 18
+§5	Hul’q’umi’num’	cited form	yəθéʔ	page 18
+§5	Hul’q’umi’num’	cited form	yəθéləy̓	page 18
+§5	Hul’q’umi’num’	cited form	yən̓á	page 18, ‘these, they, them’
+§5	Hul’q’umi’num’	cited form	yən̓á:ɫtən	page 18, ‘they, them, those’
+§5	Lauren Schneider and Donna B. Gerdts	note	This determiner serves as the base for the demonstrative yəθɛ́ ‘those people (there), them (human)’ and it is also seen as an element in the pro-determiner yəƛ̓a:ləm ‘that’s them (gender unspecified), they, them’ (Galloway 1993:403). The Downriver dialect, Musqueam, does not seem to have yə as a plural determiner, but it is found as an element in the plural demonstratives: yəθéʔ, yəθéləy̓ ‘those, they, them’; yən̓á ‘these, they, them’; yən̓á:ɫtən ‘they, them, those’ (Suttles 2004:351–353). Comparative-historical data might reveal if other Salish languages had plural determiners or predicative prefixes, but for the Hul’q’umi’num’ dialect, the plural yə- is manifested only as a predicative prefix, and when we presented data from other dialects to our consultants for their consideration, the plural determiner was not familiar to them.	page 18
+§5	Hul’q’umi’num’	cited form	yə’s	page 18
+footnote 11	Lauren Schneider and Donna B. Gerdts	note	11 In Hul’q’umi’num’, the masculine determiners are used for human plurals, regardless of gender.	page 18, footnote
+footnote 12	Lauren Schneider and Donna B. Gerdts	note	12 See work on Salish pluractionality (e.g., Bar-El 1998:§4; Gerdts 2012; Huijsmans & Mellesmoen 2021; Matthewson 2000; Mellesmoen & Huijsmans 2019).	page 18, footnote
+§5	Lauren Schneider and Donna B. Gerdts	note	This begs the question whether one or two yə’s are needed for the analysis of Hul’q’umi’num’. After all, one could see that it is a natural extension of a dynamic marker associated with unbounded events to grammaticize to become a pluractional marker.12 They appear in the same pre -verbal position, and we have no examples of them co-occurring. However, contrasting the data in (44) and	page 18
+(45)	Lauren Schneider and Donna B. Gerdts	note	(45)	page 19, drawn as a picture with no text layer
+§5	Lauren Schneider and Donna B. Gerdts	note	(45) with the following verifies the difference between plural readings and dynamic readings, and also the usefulness of the contexts provided by consultants.	page 19
+(49) line 1	Hul’q’umi’num’	transcription	ni’ yu sts’uts’e’ kwthu snuhwulh ’u lhu kaa.	page 19, engine language
+(49) line 2	Hul’q’umi’num’	segmentation	niʔ yə=sc̓əc̓eʔ kʷθə snəxʷəł ʔə łə ka:	page 19, engine language
+(49) line 3	Hul’q’umi’num’	gloss	AUX DYN=be.on<STA> DT canoe OBL DT car	page 19, engine english
+(49) line 4	Ruby Peter	translation	‘The canoe was on top of the car (as the car was moving along).’	page 19, engine english, cited RP 22.11.2011
+(49) line 4	Lauren Schneider and Donna B. Gerdts	citation	(RP 22.11.2011)	the tag or source at the right of the translation
+(50) line 1	Hul’q’umi’num’	transcription	ni’ yu sts’uts’e’ kwthu sunihwulh ’u lhu kaa.	page 19, engine language
+(50) line 2	Hul’q’umi’num’	segmentation	niʔ yə=sc̓əc̓eʔ kʷθə sənixʷəł ʔə łə ka:	page 19, engine language
+(50) line 3	Hul’q’umi’num’	gloss	AUX DYN=be.on<STA> DT canoe<PL> OBL DT car	page 19, engine english
+(50) line 4	Ruby Peter	translation	‘The canoes were on top of the car (as the car was moving along).’	page 19, engine english, cited RP 22.11.2011
+(50) line 4	Lauren Schneider and Donna B. Gerdts	citation	(RP 22.11.2011)	the tag or source at the right of the translation
+§5	Lauren Schneider and Donna B. Gerdts	note	In many instances is it difficult to tell, in the absence of clearer contexts, whether a pre-predicative yə is signaling a plural or a dynamic meaning.	page 19
+(51) line 1	Hul’q’umi’num’	transcription	ni’ yust’ut’in’ kwthu sunihwulh kwsus wulh thaythut kws ’uwatul’s.	page 19, engine language
+(51) line 2	Hul’q’umi’num’	segmentation	niʔ yə-st̓ət̓in̓ kʷθə sənixʷəł kʷsəs wəł=θayθət kʷs ʔəwatəl̓s	page 19, engine language
+(51) line 3	Hul’q’umi’num’	gloss	AUX PL-line.up<STA> DT canoe<PL> DT.NM PRF=get.ready DT.NM race	page 19, engine english
+(51) line 4	Ruby Peter	translation	‘The canoes were lined up at the start of the race.’	page 19, engine english, cited RP.22.11. 2011
+(51) line 4	Lauren Schneider and Donna B. Gerdts	citation	(RP.22.11. 2011)	the tag or source at the right of the translation
+(52) line 1	Hul’q’umi’num’	transcription	’uwu ch me’mul’quhw kwun’s m’i yu kwun’eem’ ’ukw’ la’thun ’i’ kw’ lupat.	page 19, engine language
+(52) line 2	Hul’q’umi’num’	segmentation	ʔəwə č mem̓əl̓q-əxʷ kʷən̓s m̓i yə=kʷən̓e:m̓	page 19, engine language
+(52) line 3	Hul’q’umi’num’	gloss	NEG 2SG.SUB forget-2SUB DT.2POS.NM come DYN=take<DUR>	page 19, engine english
+(52) line 4	Hul’q’umi’num’	transcription	ʔək̓ʷ laʔθən ʔiʔ k̓ʷ ləpat	page 19, engine language
+(52) line 5	Hul’q’umi’num’	gloss	OBL.DT plate CNJ DT cup	page 19, engine english
+(52) line 6	Ruby Peter	translation	‘Don’t forget to bring plates and cups to the meeting.’	page 19, engine english, cited RP.22.11. 2011
+(52) line 6	Lauren Schneider and Donna B. Gerdts	citation	(RP.22.11. 2011)	the tag or source at the right of the translation
+(53) line 1	Hul’q’umi’num’	transcription	’i yu ’i’mush ’u tthu tsuwmun sus ’uw’ yu q’eptus tthu ts’e’luwi’.	page 19, engine residue
+(53) line 2	Hul’q’umi’num’	segmentation	ʔi yə=ʔim̓əš ʔə tᶿə cəwmən səs=ʔəw̓	page 19, engine language
+(53) line 3	Hul’q’umi’num’	gloss	AUX DYN=walk<IPFV> OBL DT shore NM.AUX.3POS=CN	page 19, engine english
+(53) line 4	Hul’q’umi’num’	segmentation	yə=q̓ept-əs tᶿə c̓el̓əwiʔ	page 19, engine language
+(53) line 5	Hul’q’umi’num’	gloss	DYN=gather.TR-3SUB<IPFV> DT shell<PL>	page 19, engine english
+(53) line 6	Ruby Peter	translation	‘She was walking along the shoreline picking up shells.’	page 19, engine english, cited RP.2011
+(53) line 6	Lauren Schneider and Donna B. Gerdts	citation	(RP.2011)	the tag or source at the right of the translation
+§5	Lauren Schneider and Donna B. Gerdts	note	If criteria for the dynamic, such as motion or verb chaining, are met, we have opted to analyze yə as the aspectoidal proclitic yə=, as the use of the plural prefix yə- is extremely rare.	page 19
+§6	Lauren Schneider and Donna B. Gerdts	heading	6 Conclusion	page 19
+§6	Hul’q’umi’num’	cited affix	yə=	page 19
+§6	Lauren Schneider and Donna B. Gerdts	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+§6	Lauren Schneider and Donna B. Gerdts	note	We hope this study of yə= contributes to the cross-linguistic research on aspectoidals and their relationship to aspect and event semantics. As a polysynthetic language with a rich verb complex, Hul’q’umi’num’ has many affixes, clitics, and non-concatenative morphological processes that contribute in subtle ways to the semantics of the whole event structure, adding temporal, spatial, and referential meanings, and we see in the case of yə= that it contributes to all of these domains, making it difficult to label. We have considered terms such as ‘progressive’, ‘continuous’, and ‘incompletive’, as they capture the sense that the action or state is on-going or unbounded, but these terms are generally used for aspects rather than optional aspectoidal elements .13 The term ‘serial’ suggested by Gerdts and Hukari (to appear) captures the temporal use of yə= to mean ‘first, next’ and also highlights the use of yə= in a chain of verbs or in serial verb constructions (Schneider to appear).14 This label though does not capture the prototypical function of yə= on motion verbs or its ability to add a meaning of motion to non-motion verbs. We have settled on the term ‘dynamic’, as it captures the meaning of movement or progress in an action or state and in addition captures the intuition of our consultants that yə= is used to draw attention to certain crucial or climactic events, thus enlivening the story performance.	page 19
+§6	Hul’q’umi’num’	cited affix	yə-	page 20
+§6	Lauren Schneider and Donna B. Gerdts	note	We have left open the issue of the plural yə- and if it should be considered to be a manifestation of the aspectoidal, since it is very easy to conceive that the sort of on-going events signaled by the dynamic often involve pluractionality. Perhaps a comparison with similar morphemes in other Central Salish languages will shed light on this issue.	page 20
+§6	Hul’q’umi’num’	cited form	yéʔ	page 20
+§6	Lauren Schneider and Donna B. Gerdts	language	SENĆOŦEN	SENĆOŦEN, Saanich
+§6	Lauren Schneider and Donna B. Gerdts	note	While we have found no straightforward equivalent to Hul’q’umi’num’ yə= in the neighboring languages, we do find some common threads. For example, yéʔ is the verb ‘go’, frequently used as an auxiliary with motion verbs in SENĆOŦEN (cf. Campbell 2023; Montler 2018).	page 20
+§6	Lauren Schneider and Donna B. Gerdts	note	SENĆOŦEN (Saanich, Central Salish)	page 20
+(54a) line 1	SENĆOŦEN	transcription	yéʔ láʔ sən téyəl.	page 20, engine language
+(54a) line 2	SENĆOŦEN	gloss	go PST 1SG.SUB go.upstream	page 20, engine english
+(54a) line 3	Turner 2006:40	translation	‘I went upstream.’	page 20, engine english, the tag or source closing the set
+(54b) line 1	SENĆOŦEN	segmentation	tə-téy̓əl̓ sən.	page 20, engine language
+(54b) line 2	SENĆOŦEN	gloss	ACTL-go.upstream 1SG.SUB	page 20, engine english
+(54b) line 3	Turner 2006:40	translation	‘I’m going upstream.’	page 20, engine english, cited Turner 2006:40
+(54b) line 3	Lauren Schneider and Donna B. Gerdts	citation	(Turner 2006:40)	the tag or source at the right of the translation
+(55a) line 1	SENĆOŦEN	transcription	kʷł yeʔ kʷə t̓ák̓ʷ θə Janet.	page 20, engine language
+(55a) line 2	SENĆOŦEN	gloss	REAL go INFO go.home DT NAME	page 20, engine english
+(55a) line 3	Turner 2006:30	translation	‘Janet went home; Janet’s gone home.’	page 20, engine english, the tag or source closing the set
+(55b) line 1	SENĆOŦEN	segmentation	yeʔ sən ʔi t̓á-t̓ək̓ʷ.	page 20, engine language
+(55b) line 2	SENĆOŦEN	gloss	go 1SG.SUB AUX ACTL-go.home	page 20, engine english
+(55b) line 3	Turner 2006:30	translation	‘I’m going home; I’m on my way home.’ (already walking) (Turner 2006:30)	page 20, engine english, cited Turner 2006:30
+footnote 13	Lauren Schneider and Donna B. Gerdts	note	13 The term ‘progressive’ is used by Hukari and Peter (1995) and Suttles (2004), and ‘continuative’ is used by Gerdts (1988) for what is now called ‘imperfective’.	page 20, footnote
+footnote 14	Lauren Schneider and Donna B. Gerdts	note	14 Section 3 described the effect of yə= in serial verb constructions. In imperfective SVCs, if yə= is marked on the first verb, then marking on the second tends to be optional. The second verb is typically providing additional information about the manner of the action described by the first verb, as in (31). Marking yə= exclusively on the second verb seems to indicate that the action described by that verb is an ongoing but repeating action, as in (32).	page 20, footnote
+§6	Lauren Schneider and Donna B. Gerdts	language	dxʷləšucid	dxʷləšucid, Lushootseed
+§6	Hul’q’umi’num’	cited affix	lə=	page 21
+§6	Lauren Schneider and Donna B. Gerdts	note	Historically, there were many bilingual speakers of Hul’q’umi’num’ and SENĆOŦEN. Perhaps Hul’q’umi’num’ yə= had an auxiliary verb source that procliticized as an aspectoid. The dxʷləšucid progressive proclitic lə= co-occurs with the same types of verbs, sometimes marking multiple verbs in a sequence (cf. Beck & Hess 2010).	page 20
+§6	Lauren Schneider and Donna B. Gerdts	note	dxʷləšucid (Lushootseed, Central Salish)	page 21
+(56) line 1	Lushootseed	segmentation	huy lə=ʔíbəš lił-ʔígʷł.	page 21, engine language
+(56) line 2	Lushootseed	gloss	SCNJ PROG=walk PRLV-shore	page 21, engine english
+(56) line 3	Bierwert 1996:71	translation	‘Then he was walking along the shore.’	page 21, engine english, cited Bierwert 1996:71
+(56) line 3	Lauren Schneider and Donna B. Gerdts	citation	(ML 29) (Bierwert 1996:71)	page 21, engine english, cited Bierwert 1996:71
+(57) line 1	Lushootseed	segmentation	čəda lə=Ɂəƛ̓ lə=gʷəč̓-alikʷ dxʷ-Ɂal kʷi siɁab	page 21, engine language
+(57) line 2	Lushootseed	gloss	1SG.CNJ PROG=come PROG=search-ACTV CNTRPT-LOC REM noble	page 21, engine english
+(57) line 3	Lushootseed	segmentation	Ɂas-bəs-sləx̌il.	page 21, engine language
+(57) line 4	Lushootseed	gloss	STA-PROP-daylight	page 21, engine english
+(57) line 5	Beck & Hess 2010:11	translation	‘... so I am coming, looking for the nobleman who possesses the daylight.’	page 21, engine english, cited Beck & Hess 2010:11
+(57) line 6	Lauren Schneider and Donna B. Gerdts	citation	(HM 51) (Beck & Hess 2010:11)	page 21, engine residue
+§6	Lauren Schneider and Donna B. Gerdts	language	Skwxwú7mesh	Skwxwú7mesh, Squamish
+§6	Lauren Schneider and Donna B. Gerdts	note	In the nearby Central Salish language Skwxwú7mesh, Bar-el (1998) analyzes the particle wa as an auxiliary pluractional marker that can be used to indicate an imperfective meaning. Skwxwú7mesh (Squamish, Central Salish)	page 21
+(58a) line 1	Squamish	segmentation	čən-t wa x̌a:m.	page 21, engine language
+(58a) line 2	Squamish	gloss	1SG.SUB-PST PLR cry	page 21, engine english
+(58a) line 3	Bar-El 1998:38	translation	‘I was crying.’	page 21, engine english, cited Bar-El 1998:38
+(58a) line 3	Lauren Schneider and Donna B. Gerdts	citation	(Bar-El 1998:38)	the tag or source at the right of the translation
+(58b) line 1	Squamish	segmentation	čən-t x̌a:m.	page 21, engine language
+(58b) line 2	Squamish	gloss	1SG.SUB-PST cry	page 21, engine english
+(58b) line 3	Bar-El 1998:39	translation	‘I cried.’	page 21, engine residue, cited Bar-El 1998:39
+(58b) line 3	Lauren Schneider and Donna B. Gerdts	citation	(Bar-El 1998:39)	the tag or source at the right of the translation
+§6	Lauren Schneider and Donna B. Gerdts	note	So we see that other Central Salish languages have aspectoidals that modify an event in terms of boundedness and plurality. As often is the case in comparing across Central Salish languages, one can often find elements that are similar in either form or function, but seldom both, a complexity that can be attributed to both the time-depth of that branch of the language family and the on-going contact and multilingualism of its speakers.15 Additional cross-linguistic and language-internal research will no doubt shed more light on the analysis of the dynamic yə=. Today’s speakers and learners of Hul’q’umi’num’ have expressed interest in learning to tell stories in the traditional style of their ancestors. We hope that this examination of yə= as used in legacy materials will be of help towards that goal.	page 21
+references	Lauren Schneider and Donna B. Gerdts	heading	References	page 21
+references	Lauren Schneider and Donna B. Gerdts	reference	15 See, for example, Gerdts and Hukari (2008) on denominal verbs.	
+references	Lauren Schneider and Donna B. Gerdts	language	Skwxú7mesh	Skwxwú7mesh, Squamish, as printed
+references	Hul’q’umi’num’	cited form	syəyəhub	page 22
+references	Lauren Schneider and Donna B. Gerdts	reference	Alphonse, Christopher & George, Roseanna & Joe, Martina & Johnny, Thomas & Modeste, Donna & Seymour, Sharon A.V. & Zhang, Helen Yu. 2021. Analyzing a story by Sti’tum’at: Tth’uwxe’le’ts - Basket Ogress. (Presented at the International Conference on Salish and Neighboring Languages.) Bar-El, Leora Anne. 1998. Verbal plurality and adverbial quantification : A case study of Skwxú7mesh (Squamish Salish). University of British Columbia. (MA Thesis.) (doi:10.14288/1.0088526) (https://open.library.ubc.ca/soa/cIRcle/collections/ubctheses/831/items/1.0088526) Bätscher, Kevin. 2014. Interclausal and intraclausal linking elements in Hul’q’umi’num’ Salish. Burnaby: Simon Fraser University. (MA Thesis.)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Beck, David & Hess, Thom. 2010. Two syəyəhub from Harry Moses. In Beck, David (ed.), A festschrift for Thomas M. Hess on the occasion of his seventieth birthday, 1–56. Bellingham, WA: Whatcom Museum.	
+references	Lauren Schneider and Donna B. Gerdts	reference	Bierwert, Crisca (ed.). 1996. Lushootseed texts: An introduction to Puget Salish narrative aesthetics (Studies in the Anthropology of North American Indians Series). Lincoln, NE: University of Nebraska Press.	
+references	Lauren Schneider and Donna B. Gerdts	language	SENĆOŦEN	SENĆOŦEN, Saanich
+references	Lauren Schneider and Donna B. Gerdts	reference	Campbell, Jessalyn. 2023. Serial verb constructions and auxiliary verb constructions in SENĆOŦEN. (MA Thesis.)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Friedrich, Paul. 1974. On aspect theory and Homeric aspect. International Journal of American Linguistics 40(4, Part 2). S1–S44. (doi:10.1086/ijal.40.4_p2.42004709) Galloway, Brent Douglas. 1993. A grammar of Upriver Halkomelem. University of California Press.	
+references	Lauren Schneider and Donna B. Gerdts	reference	Gerdts, Donna B. 1988. Object and absolutive in Halkomelem Salish. New York: Routledge/Garland. (https://doi.org/htxq)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Gerdts, Donna B. 2010. Styling a Hul’q’umi’num’ Story. Simon Fraser University. (Keynote address presented at the Northwest Conference on Linguistics, Simon Fraser University.)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Gerdts, Donna B. 2011. Expected and unexpected: Ponderative particles in Halkomelem. Boulder, Colorado. (Presented at the Society for the Study of the Indigenous Languages of the Americas, Boulder, Colorado.)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Gerdts, Donna B. 2012. What agreement mismatches in Halkomelem tell us about NP architecture. Portland, OR. (Presented at the 86th Annual Meeting of the Linguistics Society of America, Portland, OR.)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Gerdts, Donna B. & Hukari, Thomas E. 2008. Halkomelem denominal verb constructions. International Journal of American Linguistics 74(4). 489–510. (doi:https://doi.org/fr8qfm)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Gerdts, Donna B. & Hukari, Thomas E. to appear. Halkomelem. Munich: Lincom Europa.	
+references	Lauren Schneider and Donna B. Gerdts	reference	Gerdts, Donna B. & Schneider, Lauren. 2023. Word classes in Salish languages. In van Lier, Eva (ed.), Handbook of word classes. Oxford: Oxford University Press.	
+references	Lauren Schneider and Donna B. Gerdts	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+references	Lauren Schneider and Donna B. Gerdts	reference	Gerdts, Donna B. & Werle, Adam. 2014. Halkomelem clitic types. Morphology 24. 245–281.	
+references	Lauren Schneider and Donna B. Gerdts	reference	Huijsmans, Marianne & Mellesmoen, Gloria. 2021. How to distribute events: ʔayʔaǰuθəm pluractionals. International Journal of American Linguistics. The University of Chicago Press 87(3). 339–368. (doi:10.1086/714247)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Hukari, Thomas E. & Peter, Ruby (eds.). 1995. The Cowichan dictionary of the Hul’qumin’um’ dialect of the Coast Salish People. BC: Cowichan Tribes.	
+references	Lauren Schneider and Donna B. Gerdts	language	ʔayʔaj̆uɵəm	ʔayʔaǰuθəm, Comox-Sliammon, as printed
+references	Lauren Schneider and Donna B. Gerdts	reference	(https://sqwal.hwulmuhwqun.ca/resources/) Kinkade, M. Dale. 1976. Interior Salishan particles. Papers for ICSNL 21, 120–147.	
+references	Lauren Schneider and Donna B. Gerdts	reference	Matthewson, Lisa. 2000. On distributivity and pluractionality. Semantics and Linguistic Theory 10. 98–114. (doi:10.3765/salt.v10i0.3105)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Mellesmoen, Gloria & Huijsmans, Marianne. 2019. Types of pluractionality and plurality across domains in ʔayʔaj̆uɵəm. Semantics and Linguistic Theory 29(0). 103–116.	
+references	Lauren Schneider and Donna B. Gerdts	reference	(doi:10.3765/salt.v29i0.4599)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Montler, Timothy. 2018. SENĆOŦEN: A dictionary of the Saanich language. Illustrated edition. Seattle: University of Washington Press.	
+references	Lauren Schneider and Donna B. Gerdts	reference	Peter, Ruby. 2016. Tth’uwxe’le’ts | The basket ogress. ta’ulthun sqwal.	
+references	Lauren Schneider and Donna B. Gerdts	language	Hulʼqʼumiʼnumʼ	Hul’q’umi’num’, Island Halkomelem, with modifier apostrophes
+references	Lauren Schneider and Donna B. Gerdts	reference	(https://sqwal.hwulmuhwqun.ca/learn/stories/tthuwxelets-the-basket-ogress/)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Schneider, Lauren. 2021. Classifying multi-verb constructions in Hulʼqʼumiʼnumʼ Salish. Papers for ICSCNL 56:392–409.	
+references	Lauren Schneider and Donna B. Gerdts	reference	Schneider, Lauren. 2022a. Using Hul’q’umi’num’ directional SVCs to express path and manner. Working Papers of the Linguistics Circle of the University of Victoria 32(1). 1–20.	
+references	Lauren Schneider and Donna B. Gerdts	reference	Schneider, Lauren. 2022b. Expressing associated motion using Hul’q’umi’num’ Salish SVCs. Papers for ICSNL 57:143–164.	
+references	Lauren Schneider and Donna B. Gerdts	reference	Schneider, Lauren. to appear. Serial verb constructions in Hul’q’umi’num’ Salish. Burnaby, BC: Simon Fraser University. (PhD thesis.)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Seymour, Willie. 2016. squl’ew’ sxwi’em’ | Beaver story. s’aa’lh sqwal.	
+references	Lauren Schneider and Donna B. Gerdts	reference	(https://saalhsqwal.hwulmuhwqun.ca/willie-seymour-beaver-story/) (Accessed June 18, 2024.)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Suttles, Wayne P. 2004. Musqueam reference grammar. UBC Press.	
+references	Lauren Schneider and Donna B. Gerdts	reference	Turner, Claire Kelly. 2006. The SENĆOŦEN resultative construction. University of Victoria. (MA Thesis.)	
+references	Lauren Schneider and Donna B. Gerdts	reference	Urbanczyk, Suzanne. 2011. Evidence from Halkomelem for word-based morphology. Papers for ICSNL 46:470–489.	

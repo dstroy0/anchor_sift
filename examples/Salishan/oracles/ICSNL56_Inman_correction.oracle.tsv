@@ -1,0 +1,17 @@
+where	who	kind	form	gloss
+front	David Inman	title	Correction to Inman (2021)	page 1, a correction to ICSNL56_Inman_final
+front	David Inman	name	David Inman	author of the article corrected
+front	David Inman	language	Nuuchahnulth	the language of the article corrected
+§1	David Inman	note	In the article “The Exponence and Development of Plurals in Nuuchahnulth” by David Inman (Papers for ICSNL 56:111–133), there was an error on page 125, which the author wishes to correct.	page 1
+§2	Nuuchahnulth	cited form	ʔanaḥ	page 1, ‘size’, the base of the adjectives
+§2	David Inman	note	The plural forms for the adjectives based on ʔanaḥ ‘size’ are not irregular, as stated in the article, but formed in part through a phonological rule which includes the “thinning” of prenasal vowels to i. The process is described in greatest detail in Davidson 2002:19–23, with the example of ʔanaḥ given on p. 210. The result of the full phonological process is that a sequence of CVNV (where N is any nasal) becomes CiN.	page 1
+§3	Nuuchahnulth	cited form	ʔanaḥʔis	page 1, ‘small’, the singular
+§3	Nuuchahnulth	rule	ʔanaḥʔis > * ʔaʔanaḥʔis > ʔaʔinḥʔis	page 1, CV- reduplication, then the thinning of CVNV to CiN; the middle form starred, unattested
+§3	Nuuchahnulth	cited form	ʔaʔinḥʔis	page 1, the plural
+§3	Nuuchahnulth	cited affix	<čk>	page 1, the infix of ʔačknaḥʔis
+§3	Nuuchahnulth	cited form	ʔačknaḥ	page 1
+§3	Nuuchahnulth	cited form	*ʔaʔačknaḥ	page 1, unobserved, CV- reduplication applied before the infix
+§3	Nuuchahnulth	cited form	maaƛʔitqinḥ	page 1, ‘boys’, Barkley Sound, the only fully irregular plural left in the article
+§3	Nuuchahnulth	cited form	meʔiƛqac	page 1, ‘boy’
+§3	Nuuchahnulth	cited form	maʔiƛqac	page 1, the underlying form of meʔiƛqac
+§3	David Inman	note	The formation of the plural of ʔanaḥʔis is normal CV- reduplication followed by “thinning” of CVNV to CiN: ʔanaḥʔis > * ʔaʔanaḥʔis > ʔaʔinḥʔis. Interestingly, the infixed <čk> must be inserted after reduplication, as application of CV- reduplication to ʔačknaḥ would yield the unobserved *ʔaʔačknaḥ, which would not feed into the thinning rule. This correction means that the only fully irregular plural in the paper is Barkley Sound maaƛʔitqinḥ ‘boys’ from meʔiƛqac ‘boy’ (underlying, maʔiƛqac).	page 1

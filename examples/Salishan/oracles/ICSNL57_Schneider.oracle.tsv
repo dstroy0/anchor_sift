@@ -1,0 +1,604 @@
+where	who	kind	form	gloss
+front	Lauren Schneider	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+front	Lauren Schneider	note	Keywords: serial verb, associated motion, Halkomelem Salish, Hul’q’umi’num’	page 1
+front	Lauren Schneider	title	Expressing Associated Motion Using Hul’q’umi’num’ Salish SVCs	page 1, carries footnote *
+front	Lauren Schneider	byline	Lauren Schneider, Simon Fraser University	page 1
+front	Lauren Schneider	name	Lauren Schneider	author, Simon Fraser University
+front	Lauren Schneider	note	Abstract: This paper explores how associated motion (AM) is expressed in serial verb constructions (SVCs) in Hul’q’umi’num’, the Island dialect of Halkomelem Salish. While AM has largely been treated as a morphological phenomenon, it can also be expressed using SVCs. AM SVCs typically consist of a motion verb and a verb from another semantic class. I address three types of AM SVCs: one with a simultaneous event order and two with sequential event order. Most often, simultaneous event order is conveyed using imperfective aspect while sequential order exhibits plain perfective aspect. Sequential motion SVCs most frequently have a purposive meaning ‘go (in order to) V’. There is also a subsequent motion construction consisting of a verb followed by a motion verb with causative morphology with the meaning ‘X did V to Y and then X took Y (somewhere)’. This work is completed using elicited and text corpus data.	page 1, the abstract
+front	Lauren Schneider	note	Papers for the International Conference on Salish and Neighboring Languages 57. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2022.	page 1, the journal header
+footnote *	Lauren Schneider	note	*Acknowledgments: My deepest gratitude to Delores Louie and the late Dr. Ruby Peter who provided the elicited data. My fieldwork was funded by Jacobs Research Fund and American Philosophical Society (Phillips Fund). I thank Donna Gerdts for her support and advice on this project.	page 1, footnote
+footnote *	Lauren Schneider	note	Contact info: lauren_schneider@sfu.ca	page 1, the author's contact under footnote *
+footnote *	Lauren Schneider	name	Delores Louie	a speaker, DL, who gave the elicited data
+footnote *	Lauren Schneider	name	Ruby Peter	a speaker, the late, RP, who gave the elicited data
+§1	Lauren Schneider	heading	1 Introduction	page 1
+§1	Lauren Schneider	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+footnote 1	Lauren Schneider	note	1 Abbreviations used in the paper: 1, 2, 3 = person marking, ACT = actual, AUX = auxiliary, CN = connective element, CNJ = conjunction, CS = causative, DIM = diminutive, DIST = distal, DT = determiner, DYN = dynamic, FOC = focus, FUT = future, HS = hearsay, IPFV = imperfective, LCTR = limited control transitive, MID = middle, MIR = mirative, N = nominalizer, NOM = nominative, OBL = oblique, PAS = passive, PFV = perfective, PL = plural, POS = possessive, POT = potential, PRF = perfective, PROX = proximal, PST = past, RDP = reduplication, RL = rhetorical lengthening, SG = singular, SUB = subject, TR = transitive, V1 = first verb in series, V2 = second verb in series, < > = non-concatenative morphology. Papers for the International Conference on Salish and Neighboring Languages 57. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2022.	page 1, footnote
+§1	Lauren Schneider	note	This paper explores associated motion serial verb constructions (SVCs) in Hul’q’umi’num’, the Island dialect of Halkomelem Salish (ISO 639-3: hur). One objective of our research on the language is the in-depth study of aspects of Hul’q’umi’num’ that differ significantly from those of English and are thus difficult to translate and are subject to loss through interference. One understudied feature of some Central Salish languages is serial verb constructions (cf. Montler 2008; Schneider 2021). ‘Serial verb constructions’ (SVCs) consist of two or more verbs that can function as independent lexical verbs, share a subject, have matching aspect, and are not connected by any sort of linking element (Schneider 2021). ‘Associated motion’ (AM) is defined as a verbal grammatical category whose function is to associate different kinds of translational motion to a verb event (Guillaume & Koch 2021:3). While associated motion has largely been treated as a morphological phenomenon, it can also be expressed using serialized verbs (Lovestrand & Ross 2021). An example of an associated motion serial verb construction (AM SVC) is provided below.1 * Acknowledgments: My deepest gratitude to Delores Louie and the late Dr. Ruby Peter who provided the elicited data. My fieldwork was funded by Jacobs Research Fund and American Philosophical Society (Phillips Fund). I thank Donna Gerdts for her support and advice on this project. Contact info: lauren_schneider@sfu.ca	page 1
+(1) line 1	Hul’q’umi’num’	transcription	ni’ ’utl’qul’ lemutus tthu sqwumey’.	page 2, engine english
+(1) line 2	Hul’q’umi’num’	segmentation	niʔ ʔəƛ̓qəl̓ lem-ət-əs tᶿə sqʷəmey̓	page 2, engine language
+(1) line 3	Hul’q’umi’num’	gloss	AUX.DIST go.out look-TR-3SUB DT dog	page 2, engine english
+(1) line 4	Elsie Canute	translation	‘He went out to look at the dog.’	page 2, engine english, cited EC 18101
+(1) line 4	Lauren Schneider	citation	(EC 18101)	the tag or source at the right of the translation
+§1	Hul’q’umi’num’	cited form	’utl’qul’	page 2, ‘go out’
+§1	Hul’q’umi’num’	cited form	lemutus	page 2
+§1	Lauren Schneider	note	This example consists of a motion verb ’utl’qul’ ‘go out’ and a non-motion verb lemutus ‘look at it’. This paper will demonstrate how Hul’q’umi’num’ utilizes serial verbs to form associated motion constructions. This work is accomplished through examination of data from dictionaries (e.g., Hukari & Peter 1995), elicitation, and a text corpus.2 The following section (Section 1.1) briefly provides additional background information about the Hul’q’umi’num’ language and Section 1.2 introduces motion SVCs in the language.	page 2
+§1.1	Lauren Schneider	heading	1.1 Language and Context	page 2
+§1.1	Lauren Schneider	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+§1.1	Lauren Schneider	language	hən̓q̓əmin̓əm̓	hən̓q̓əmin̓əm̓, Downriver Halkomelem, Musqueam
+§1.1	Lauren Schneider	language	Halq’eméylem	Halq’eméylem, Upriver Halkomelem, Chilliwack
+§1.1	Lauren Schneider	note	Halkomelem is one of twenty-three Salish languages currently or historically spoken in British Columbia, Washington, Idaho, Montana, and Oregon. The Salish language family is divided into five branches: Bella Coola, Central, Salish, Tillamook, Tsamosan, and Interior Salish. Halkomelem is a Central Salish language consisting of three main dialects: Hul’q’umi’num’ (Island: Cowichan, Nanaimo), hən̓q̓əmin̓əm̓ (Downriver: Musqueam), and Halq’eméylem (Upriver: Chilliwack). Today, only around forty fluent Hul’q’umi’num’ speakers remain, mostly over the age of 70, but the language is also spoken by over 200 second-language speakers.	page 2
+§1.1	Lauren Schneider	note	All Salish languages are predicate-initial. In Hul’q’umi’num’, VSO (a) is the basic word order, but VOS (b) is also possible (Gerdts & Hukari 2003).	page 2
+(2a) line 1	Hul’q’umi’num’	transcription	ni’ punutus lhu q’e’mi’ kwthu sqewth.	page 2, engine residue
+(2a) line 2	Hul’q’umi’num’	segmentation	niʔ pən-ət-əs łə q̓em̓iʔ kʷθə sqewθ	page 2, engine language
+(2a) line 3	Hul’q’umi’num’	gloss	AUX.DIST plant-TR-3SUB DT girl DT potato	page 2, engine english
+(2a) line 4	Kiyosawa & Gerdts 2010:25	translation	‘The girl planted the potatoes.’	page 2, engine english, cited Kiyosawa & Gerdts 2010:25
+(2a) line 4	Lauren Schneider	citation	(Kiyosawa & Gerdts 2010:25)	the tag or source at the right of the translation
+(2b) line 1	Hul’q’umi’num’	transcription	ni’ punutus kwthu sqewth lhu q’e’mi’.	page 2, engine residue
+(2b) line 2	Hul’q’umi’num’	segmentation	niʔ pən-ət-əs kʷθə sqewθ łə q̓em̓iʔ	page 2, engine language
+(2b) line 3	Hul’q’umi’num’	gloss	AUX.DIST plant-TR-3SUB DT potato DT girl	page 2, engine english
+(2b) line 4	Kiyosawa & Gerdts 2010:25	translation	‘The girl planted the potatoes.’	page 2, engine english, cited Kiyosawa & Gerdts 2010:25
+(2b) line 4	Lauren Schneider	citation	(Kiyosawa & Gerdts 2010:25)	the tag or source at the right of the translation
+§1.1	Hul’q’umi’num’	cited form	tsun	page 2, ‘first-person singular subject’
+§1.1	Lauren Schneider	note	Canonically, as demonstrated here, NPs appear post-verbally (cf. Gerdts 1988). The verb may be preceded by an auxiliary, linking element, adverb, or certain clitics (Gerdts & Werle 2014:263). For example, first- and second-person subject clitics occur in second position after the first available host, such as tsun ‘first-person singular subject’ below.	page 2
+footnote 2	Lauren Schneider	note	2 Delores Louie (DL) and the late Dr. Ruby Peter (RP) provided the elicited data. The collection and compilation of texts was completed by Donna Gerdts and funded by SSHRC, SFU, and JRF. My thanks to the many Elders whose recordings make up the 17,000-line text corpus, and thanks to the researchers who recorded these legacy stories: Donna Gerdts, Tom Hukari, Randy Bouchard, Wayne Suttles. The elders referenced in this paper include Cecelia Leo Alphonse (CA), Basil Alphonse (BA), Elsie Canute (EC), Manson George (MG), Arnold Guerin (AG), Sophie Misheal (SM), Wilfred Sampson (WSa), W. Seymour (WSe), Eva Thomas (ET), Samuel Tom (ST), and Ellen White (EW).	page 2, footnote
+footnote 2	Lauren Schneider	name	Cecelia Leo Alphonse	an elder whose recordings the text corpus holds, CA
+footnote 2	Lauren Schneider	name	Basil Alphonse	an elder whose recordings the text corpus holds, BA
+footnote 2	Lauren Schneider	name	Elsie Canute	an elder whose recordings the text corpus holds, EC
+footnote 2	Lauren Schneider	name	Manson George	an elder whose recordings the text corpus holds, MG
+footnote 2	Lauren Schneider	name	Arnold Guerin	an elder whose recordings the text corpus holds, AG
+footnote 2	Lauren Schneider	name	Sophie Misheal	an elder whose recordings the text corpus holds, SM
+footnote 2	Lauren Schneider	name	Wilfred Sampson	an elder whose recordings the text corpus holds, WSa
+footnote 2	Lauren Schneider	name	W. Seymour	an elder whose recordings the text corpus holds, WSe
+footnote 2	Lauren Schneider	name	Eva Thomas	an elder whose recordings the text corpus holds, ET
+footnote 2	Lauren Schneider	name	Samuel Tom	an elder whose recordings the text corpus holds, ST
+footnote 2	Lauren Schneider	name	Ellen White	an elder whose recordings the text corpus holds, EW
+(3) line 1	Hul’q’umi’num’	transcription	ni’ tsun qw’aqwut tthu spe’uth.	page 3, engine residue
+(3) line 2	Hul’q’umi’num’	segmentation	niʔ cən q̓ʷaqʷ-ət tθǝ speʔəθ	page 3, engine language
+(3) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB club-TR DT bear	page 3, engine english
+(3) line 4	Gerdts 2010a:575	translation	‘I clubbed the bear.’	page 3, engine english, cited Gerdts 2010a:575
+(3) line 4	Lauren Schneider	citation	(Gerdts 2010a:575)	the tag or source at the right of the translation
+§1.1	Hul’q’umi’num’	phonemic	/niʔ/	page 3
+§1.1	Hul’q’umi’num’	phonemic	/cən/	page 3
+§1.1	Lauren Schneider	note	The verb complex in this example is made up of an auxiliary introducer clitic /niʔ/, a second- position subject clitic /cən/, and the transitive main verb.3 The object NP follows the verb complex. Throughout this paper, I will distinguish between SVCs, which are monoclausal, and constructions consisting of multiple linked clauses. In order for a construction consisting of multiple verbs to qualify as an SVC, it must not contain any linking elements between the component verbs (cf. Cleary-Kemp 2015; Haspelmath 2016). There can be no relationship of coordination or subordination between the verb components. The table below provides a brief overview of a selection of the linking elements found in Hul’q’umi’num’:	page 3
+Table 1 line 1	Lauren Schneider	note	Linking elements in Hul’q’umi’num’	page 3, the caption
+Table 1 line 2	Lauren Schneider	note	Orth. APA Gloss	page 3, heads the rows below
+Table 1 line 3	Hul’q’umi’num’	transcription	’i’	page 3, the orthography
+Table 1 line 3	Hul’q’umi’num’	phonemic	/ʔiʔ/	page 3, phonemic, in / /
+Table 1 line 3	Lauren Schneider	translation	‘conjunction’	page 3
+Table 1 line 4	Hul’q’umi’num’	transcription	’uw’	page 3, the orthography
+Table 1 line 4	Hul’q’umi’num’	phonemic	/ʔəw̓/	page 3, phonemic, in / /
+Table 1 line 4	Lauren Schneider	translation	‘connective’	page 3
+Table 1 line 5	Lauren Schneider	note	(suw’ /səw̓/)	page 3
+Table 1 line 5	Lauren Schneider	translation	‘connective + nominalizer’	page 3
+Table 1 line 6	Hul’q’umi’num’	transcription	kws	page 3, the orthography
+Table 1 line 6	Hul’q’umi’num’	phonemic	/kʷs/	page 3, phonemic, in / /
+Table 1 line 6	Lauren Schneider	translation	‘determiner + nominalizer’	page 3
+§1.1	Hul’q’umi’num’	phonemic	/ʔiʔ/	page 3, ‘conjunction’
+§1.1	Hul’q’umi’num’	phonemic	/ʔəw̓/	page 3, ‘connective’
+§1.1	Lauren Schneider	note	The linking elements /ʔiʔ/ ‘conjunction’ and /ʔəw̓/ ‘connective’ function as both intraclausal and interclausal linkers (Bätscher 2014). They can link elements within the same clause, e.g., (4) and (5), verbs, e.g., (6) and (7), and separate clauses, e.g., (8) and (9).	page 3
+(4) line 1	Hul’q’umi’num’	transcription	tl’lim’ ’uw’ t’et’iyuq’ tthu swiw’lus.	page 3, engine language
+(4) line 2	Hul’q’umi’num’	segmentation	ƛ̓lim̓ ʔǝw̓ t̓et̓iyǝq̓ tθǝ swiw̓lǝs	page 3, engine language
+(4) line 3	Hul’q’umi’num’	gloss	really CN angry DT boy	page 3, engine english
+(4) line 4	Bätscher 2014:5	translation	‘The young man is really angry.’ (RP) (Bätscher 2014:5)	page 3, engine english, cited Bätscher 2014:5
+(5) line 1	Hul’q’umi’num’	transcription	tsulel ’i’ ni’ tl’hwunuq.	page 3, engine residue
+(5) line 2	Hul’q’umi’num’	segmentation	cǝlel ʔiʔ niʔ ƛ̓xʷ-ǝnǝq	page 3, engine language
+(5) line 3	Hul’q’umi’num’	gloss	almost CNJ AUX.DIST beat-people	page 3, engine english
+(5) line 4	Bätscher 2014:5	translation	‘He almost won.’ (DL) (Bätscher 2014:5)	page 3, engine english, cited Bätscher 2014:5
+§1.1	Hul’q’umi’num’	phonemic	/ʔǝw̓/	page 3
+§1.1	Hul’q’umi’num’	phonemic	/sǝw̓/	page 3
+§1.1	Lauren Schneider	note	In (4) and (5) the linkers /ʔǝw̓/ and /ʔiʔ/ are used to link adverbs to the predicate they modify. Next, both of these linkers can be used to link two verbs. When linking verbs, /ʔiʔ/ is used for simultaneity of events (6), while /sǝw̓/ (/s-/ ‘nominalizer’ + /ʔǝw̓/ ‘connector’) is used for sequences of events (7) (Gerdts 2016).	page 3
+footnote 3	Lauren Schneider	note	3 In this paper in the APA line of the examples, inner clitics (such as the dynamic clitic /yə=/) will be marked with “=” and outer clitics (such as introducer clitics like /niʔ/ ‘distal auxiliary’ and second position clitics like /cən/ ‘first person singular subject’) will be marked as separate words. See Gerdts and Werle (2014) for discussion of inner and outer clitics.	page 3, footnote
+§1.1	Hul’q’umi’num’	phonemic	/yə=/	page 3
+(6) line 1	Hul’q’umi’num’	transcription	ni’ q’uwutum ’i’ t’ilum kwthu slhunlheni’.	page 4, engine residue
+(6) line 2	Hul’q’umi’num’	segmentation	niʔ q̓əwətəm ʔiʔ t̓iləm kʷθə słənłeniʔ	page 4, engine language
+(6) line 3	Hul’q’umi’num’	gloss	AUX.DIST drum CNJ sing DT women	page 4, engine english
+(6) line 4	Gerdts 2016:1	translation	‘The women drummed and sang.’ (at the same time) (Gerdts 2016:1)	page 4, engine english, cited Gerdts 2016:1
+(7) line 1	Hul’q’umi’num’	transcription	ni’ t’ilum kwthu slhunlheni’ suw’ qw’uyilushs.	page 4, engine residue
+(7) line 2	Hul’q’umi’num’	segmentation	niʔ t̓iləm kʷθə słənłeniʔ s-əw̓ q̓ʷəyiləš-s	page 4, engine language
+(7) line 3	Hul’q’umi’num’	gloss	AUX.DIST sing DT women N-CN dance-3POS	page 4, engine english
+(7) line 4	Gerdts 2016:1	translation	‘The women sang and then danced.’	page 4, engine english, cited Gerdts 2016:1
+(7) line 4	Lauren Schneider	citation	(Gerdts 2016:1)	the tag or source at the right of the translation
+§1.1	Lauren Schneider	note	Notice that the nominalization of /ʔǝw̓/ in (7) requires a corresponding enclitic /=s/ (third-person) on the first predicational element of the nominalized clause.	page 4
+§1.1	Lauren Schneider	note	Finally, the linker /ʔiʔ/ serves to coordinate two clauses (8), and /ʔəw̓/ subordinates one clause to another (9) (Bätscher 2014):	page 4
+(8) line 1	Hul’q’umi’num’	transcription	[xte’um tst tse’ ’u kw’ s’ulhtun] ’i’ [m’i tsun tse’ tl’eshut tthu swaw’lus].	page 4
+(8) line 2	Hul’q’umi’num’	segmentation	[x̌teʔ-ǝm ct ceʔ ʔə k̓ʷ s-ʔəɬtən] ʔiʔ	page 4
+(8) line 3	Hul’q’umi’num’	gloss	make-MID 1PL.SUB FUT OBL DT STA-eat CNJ	page 4
+(8) line 4	Hul’q’umi’num’	segmentation	[m̓i cǝn ceʔ ƛ̓ešǝt tθǝ swaw̓lǝs]	page 4
+(8) line 5	Hul’q’umi’num’	gloss	come 1SG.SUB FUT invite DT boy.PL	page 4
+(8) line 6	W. Seymour	translation	‘We’re going to make something to eat, and I’ll invite the young men.’	page 4
+(8) line 6	Lauren Schneider	citation	(WSe)	the tag or source at the right of the translation
+(8) line 6	Lauren Schneider	citation	(Bätscher 2014:4)	the tag or source at the right of the translation
+(9) line 1	Hul’q’umi’num’	transcription	[ni’ ch tssetham’sh] ’uw’ [nem’un’ nets’uw’t-hwum].	page 4, engine residue
+(9) line 2	Hul’q’umi’num’	segmentation	[niʔ č cse-θam̓š ] ʔǝw̓	page 4, engine language
+(9) line 3	Hul’q’umi’num’	gloss	AUX.DIST 2SG.SUB tell-TR.1SG.OBJ CN	page 4, engine english
+(9) line 4	Hul’q’umi’num’	segmentation	[nem̓-ən̓ nec̓-əw̓txʷ-əm ]	page 4, engine language
+(9) line 5	Hul’q’umi’num’	gloss	go-1SG.SUB different-house-MID	page 4, engine english
+(9) line 6	Ruby Peter	translation	‘You told me to go visit.’	page 4
+(9) line 6	Lauren Schneider	citation	(RP)	the tag at the right of the translation
+(9) line 6	Lauren Schneider	citation	(Bätscher 2014:4)	the source at the right of the translation
+§1.1	Lauren Schneider	note	Halkomelem possesses three distinct nominalization constructions: lexical nominalization, predicate nominalization, and clausal nominalization (Thompson 2011:1). Hul’q’umi’num’ uses nominalized clauses for a wide variety of purposes. One of these purposes is negation. Negation in Hul’q’umi’num’ can take the form of two different constructions. The first involves a negator, a determiner/nominalizer, and a nominalized clause, such as in (10), and the second involves a negator, a subject clitic, and a conjunctive clause, such as in (11) (cf. Davis 2005).	page 4
+(10) line 1	Hul’q’umi’num’	transcription	’uwu kws ’ikw’s tthu sqwul’qwul’.	page 4, engine language
+(10) line 2	Hul’q’umi’num’	segmentation	ʔəwə kʷs [ʔik̓ʷ=s tᶿə sqʷəl̓qʷəl̓]	page 4, engine language
+(10) line 3	Hul’q’umi’num’	gloss	NEG DT.N lost=3POS DT story	page 4, engine english
+(10) line 4	Manson George	translation	‘And stories never get lost.’	page 4, engine english, cited MG 1374
+(10) line 4	Lauren Schneider	citation	(MG 1374)	the tag or source at the right of the translation
+(11) line 1	Hul’q’umi’num’	transcription	’uwu niis tus ’u tthu stth’am’s.	page 5, engine residue
+(11) line 2	Hul’q’umi’num’	segmentation	ʔəwə [niʔ=əs tus ʔə tᶿə st̓ᶿam̓s]	page 5, engine language
+(11) line 3	Hul’q’umi’num’	gloss	NEG AUX=3SUB arrive OBL DT bone	page 5, engine english
+(11) line 4	Manson George	translation	‘And it didn’t penetrate to the bone.’	page 5, engine english, cited MG 1715
+(11) line 4	Lauren Schneider	citation	(MG 1715)	the tag or source at the right of the translation
+§1.1	Hul’q’umi’num’	phonemic	/kʷs/	page 5
+§1.1	Hul’q’umi’num’	cited form	/ʔik̓ʷ	page 5
+§1.1	Lauren Schneider	note	In (10), /kʷs/ introduces a nominalized clause and the corresponding nominalizing enclitic /=s/ (third person) occurs on the first available predicational element of that clause, in this case /ʔik̓ʷ / ‘lost’. In (11), the second-position third-person subject clitic attaches to the first available host in its clause, in this case the distal auxiliary, forming the contraction niis.	page 5
+§1.1	Lauren Schneider	note	Examples (6) and (7) demonstrate one of the syntactic means in which Hul’q’umi’num’ encodes sequential and simultaneous event order, respectively. Section 2 addresses the manner in which simultaneous event order can also be encoded using motion serial verbs. Section 3 addresses the manner in which sequential event order is encoded with motion serial verbs. In addition, the discussion of negation is reemerging in Section 3.1. The following section provides an overview of the types of motion SVCs found in Hul’q’umi’num’.	page 5
+§1.2	Lauren Schneider	heading	1.2 Motion SVCs in Hul’q’umi’num’	page 5
+§1.2	Lauren Schneider	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+§1.2	Lauren Schneider	note	Typologically, motion SVCs can be divided into two overarching types: directional motion and associated motion (Lovestrand & Ross 2021). Directional SVCs consist of two motion verbs, where at least one contributes path information. Hul’q’umi’num’ exhibits three subtypes: (i) SVCs consisting of a manner and a path verb (12), (ii) SVCs consisting of multiple path verbs (13), and (iii) an asymmetrical SVC made up of huye’ ‘leave’ preceding another motion verb, either manner (14) or path (15) (Schneider in press).	page 5
+(12) line 1	Lauren Schneider	note	TYPE I: MANNER + PATH	page 5, engine english
+(12) line 2	Hul’q’umi’num’	transcription	ni’ tsun ’ushul t’akw’.	page 5, engine residue
+(12) line 3	Hul’q’umi’num’	segmentation	niʔ cən ʔəšəl t̓ak̓ʷ	page 5, engine language
+(12) line 4	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB paddle go.home	page 5, engine english
+(12) line 5	Delores Louie	translation	‘I paddled home.’	page 5, engine english
+(12) line 5	Lauren Schneider	citation	(DL 26.04.22)	the tag or source at the right of the translation
+(13) line 1	Lauren Schneider	note	TYPE II: PATH + PATH	page 5, engine english
+(13) line 2	Hul’q’umi’num’	transcription	sis m’iw’ t’ahw ’ewu ’utl’ Oakville.	page 5, engine language
+(13) line 3	Hul’q’umi’num’	segmentation	sis m̓iw̓ t̓axʷ ʔewə ʔəƛ̓ Oakville	page 5, engine language
+(13) line 4	Hul’q’umi’num’	gloss	N.AUX.3POS AUX.come.CN go.downhill come OBL.DT Oakville	page 5, engine english
+(13) line 5	Samuel Tom	translation	‘And they came down to Oakville.’	page 5, engine english, cited ST 8040
+(13) line 5	Lauren Schneider	citation	(ST 8040)	the tag or source at the right of the translation
+(14) line 1	Lauren Schneider	note	TYPE III: huye’ + MANNER	page 5, engine english
+(14) line 2	Hul’q’umi’num’	transcription	’i tsun huye’ ’imush.	page 5, engine residue
+(14) line 3	Hul’q’umi’num’	segmentation	ʔi cən həyeʔ ʔiməš	page 5, engine language
+(14) line 4	Hul’q’umi’num’	gloss	AUX.PROX 1SG.SUB leave walk	page 5, engine english
+(14) line 5	Ruby Peter	translation	‘I’m going for a walk.’	page 5, engine english
+(14) line 5	Lauren Schneider	citation	(RP 13.09.19)	the tag or source at the right of the translation
+(15) line 1	Lauren Schneider	note	TYPE III: huye’ + PATH	page 6, engine english
+(15) line 2	Hul’q’umi’num’	transcription	si.i.is ’uw’ huye’ shaqwul.	page 6, engine language
+(15) line 3	Hul’q’umi’num’	segmentation	sis ʔəw̓ həyeʔ šaqʷəl	page 6, engine language
+(15) line 4	Hul’q’umi’num’	gloss	N.AUX.3POS(RL) CN leave go.across	page 6, engine english
+(15) line 5	Cecelia Leo Alphonse	translation	‘And they set out across (the lake).’	page 6, engine english, cited CA 19609
+(15) line 5	Lauren Schneider	citation	(CA 19609)	the tag or source at the right of the translation
+§1.2	Lauren Schneider	note	In the first type, illustrated in (12), one of the verbs indicates the direction of motion and the other usually indicates the manner. While certain verbs exhibit more flexibility than others, most often the manner verb occurs first, and the path verb typically occurs second.4 In the second type, (13), both verbs indicate direction; each of the verbs may encode the starting point, general trajectory, or endpoint. The ordering of these verb components is flexible with a tendency towards a logical ordering such as iconicity and specificity. For example, in (13) above, the trajectory ‘downhill’ precedes the destination ‘come to Oakville’. The final type, (14) and (15), utilizes the verb huye’ ‘leave’. This is both the most frequently serialized verb in the text corpus, occurring over twice as often as the next most frequent, and is also the only verb that exhibits a strong preference for occurring as the first verb component when serialized.5 Both the frequency and inflexibility of ordering indicates that a process of grammaticalization is ongoing. The verb huye’ is beginning to take on a more auxiliary-like function.6 While directional SVCs consist of two (or more) motion verbs, AM SVCs consist of one motion verb, and another from a different class of verbs. In recent literature, the label ‘associated motion’ is being used to refer to morphemes which add motion to a (typically) non-motion event (Ross 2021:31). A similar label, ‘associative motion’, has been used in Hul’q’umi’num’ literature and I will digress very briefly to distinguish these two concepts.	page 6
+§1.2	Lauren Schneider	note	Gerdts and Hukari (2006, 2011) refer to ‘associative’ meaning in their typology of causatives. Hul’q’umi’num’ has a large class of motion verbs that form causatives, which can have either a causative meaning (16), or an associative meaning (17), which is more the more common use.	page 6
+(16) line 1	Hul’q’umi’num’	transcription	ni’ tst huye’stuhw kwthu John.	page 6, engine residue
+(16) line 2	Hul’q’umi’num’	segmentation	niʔ ct həyeʔ-stəxʷ kʷθə John	page 6, engine language
+(16) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1PL.SUB leave-CS DT John	page 6, engine english
+(16) line 4	Gerdts & Hukari 2006:133	translation	‘We made John leave.’	page 6, engine english, cited Gerdts & Hukari 2006:133
+(16) line 4	Lauren Schneider	citation	(Gerdts & Hukari 2006:133)	the tag or source at the right of the translation
+(17) line 1	Hul’q’umi’num’	transcription	ni’ tsun huye’stuhw kwthu sqwumey’.	page 6, engine residue
+(17) line 2	Hul’q’umi’num’	segmentation	niʔ cən həyeʔ-stəxʷ kʷθə sqʷəmey̓	page 6, engine language
+(17) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB leave-CS DT dog	page 6, engine english
+(17) line 4	Gerdts & Hukari 2006:134	translation	‘I took the dog along.’	page 6, engine english, cited Gerdts & Hukari 2006:134
+(17) line 4	Lauren Schneider	citation	(Gerdts & Hukari 2006:134)	the tag or source at the right of the translation
+footnote 4	Lauren Schneider	note	4 In two-verb MANNER+PATH SVCs in the text corpus, excluding huye’ ‘leave’, which behaves differently, the manner verb preceded the path verb approximately 89.4% of the time.	page 6, footnote
+footnote 5	Lauren Schneider	note	5 The verb huye’ ‘leave’ occurs in 46 two-verb SVCs in the text corpus, the next three most common directional verbs each occur in about 20 two-verb SVCs. In addition, huye’ occurs as the first of two serialized verbs in 45 of the 46 cases.	page 6, footnote
+footnote 6	Lauren Schneider	note	6 The evidence and rationale for the division of directional SVCs into the three categories as well as additional evidence for the current status of the verb huye’ ‘leave’ is discussed at length in Schneider (in press).	page 6, footnote
+§1.2	Lauren Schneider	language	Cavineña	Cavineña, a Takanan language, the language of (18)
+§1.2	Lauren Schneider	note	Here, the label ‘associative motion’ refers to when the object of the causative expresses that the person or thing is taken or brought along during the doing of the motion. The effect of the causative morpheme is to indicate that both the causee and the causer move together along the trajectory of the motion event and are therefore associated. ‘Associated motion’ (AM), on the other hand, is defined “as a verbal grammatical category, separate from tense, aspect, mood, and direction, whose function is to associate… different kinds of translational motion to a verb event” (Guillaume & Koch 2021:3). Cavineña (ISO 639-3: cav), for example, has seven suffixes expressing different AM values:	page 6
+(18)	Lauren Schneider	language	Cavineña	page 7, a Takanan language, the language of (18)
+(18)	Lauren Schneider	citation	Guillaume & Koch 2021:4	page 7, the source of (18)
+(18) line 1	Cavineña	transcription	ba-	page 7
+(18) line 1	Lauren Schneider	translation	‘see O’	page 7
+(18) line 2	Cavineña	transcription	ba-ti-	page 7
+(18) line 2	Lauren Schneider	translation	‘go and see O’	page 7
+(18) line 3	Cavineña	transcription	ba-na-	page 7
+(18) line 3	Lauren Schneider	translation	‘come and see O’	page 7
+(18) line 4	Cavineña	transcription	ba-aje-	page 7
+(18) line 4	Lauren Schneider	translation	‘see O while going’	page 7
+(18) line 5	Cavineña	transcription	ba-be-	page 7
+(18) line 5	Lauren Schneider	translation	‘see O while coming’	page 7
+(18) line 6	Cavineña	transcription	ba-kena-	page 7
+(18) line 6	Lauren Schneider	translation	‘see O and go’	page 7
+(18) line 7	Cavineña	transcription	ba-dadi-	page 7
+(18) line 7	Lauren Schneider	translation	‘see O while O is moving away’	page 7
+(18) line 8	Cavineña	transcription	ba-tsa-	page 7
+(18) line 8	Lauren Schneider	translation	‘see O while O is approaching’	page 7
+(19) line 1	Lauren Schneider	note	Concurrent motion	page 7, a type, bulleted
+(19) line 2	Lauren Schneider	rule	MOTION + ACTION (simultaneous, flexible order)	page 7, its event order, bulleted under it
+(19) line 3	Lauren Schneider	note	Prior/purposive motion	page 7, a type, bulleted
+(19) line 4	Lauren Schneider	rule	MOTION → ACTION COMPLETED/INTENDED (sequential, iconic order)	page 7, its event order, bulleted under it
+(19) line 5	Lauren Schneider	note	Subsequent motion	page 7, a type, bulleted
+(19) line 6	Lauren Schneider	rule	ACTION → MOTION (sequential, iconic order)	page 7, its event order, bulleted under it
+§2	Lauren Schneider	heading	2 Simultaneous Subevents	page 7
+§2	Lauren Schneider	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+§2	Lauren Schneider	note	Concurrent motion SVCs consist of a motion verb and a non-motion verb with a simultaneous reading (Lovestrand & Ross 2021:101). One common pattern in Hul’q’umi’num’ is that imperfective aspect is used to give SVCs a concurrent reading. Below are two examples in which the motion verb is sisuxwum’ ‘wading out’.	page 7
+(20) line 1	Hul’q’umi’num’	transcription	sus ’uw’ nem’ tst ’uw’ sisuxwum’ lhilhuts’ut.	page 8, engine language
+(20) line 2	Hul’q’umi’num’	segmentation	səs ʔəw̓ nem̓ ct ʔəw̓ sisəx̌ʷəm̓ łiłəc̓-ət	page 8, engine language
+(20) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS CN go.AUX 2PL.SUB CN wade<IPFV> cut-TR<IPFV>	page 8, engine english
+(20) line 4	Eva Thomas	translation	‘And we would wade into the water and cut (the bulrushes).’	page 8, engine english, cited ET 28247
+(20) line 4	Lauren Schneider	citation	(ET 28247)	the tag or source at the right of the translation
+(21) line 1	Hul’q’umi’num’	transcription	ni’ tsun ’uw’ ni’ ’ul’ ’u tthu tsetsuw’ kwunus hiiw’a’lum’ sisuxwum’.	page 8, engine language
+(21) line 2	Hul’q’umi’num’	segmentation	niʔ cən ʔəw̓ niʔ ʔəl̓ ʔə tθə cecəw̓	page 8, engine language
+(21) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB CN AUX.DIST just OBL DT beach	page 8, engine english
+(21) line 4	Hul’q’umi’num’	segmentation	kʷənəs hi:w̓al̓um̓ sisəx̌ʷəm̓	page 8, engine language
+(21) line 5	Hul’q’umi’num’	gloss	DT.1POS play<IPFV> wade<IPFV>	page 8, engine english
+(21) line 6	Basil Alphonse	translation	‘So, I just stayed at the beach and just played, waded in the water.’	page 8, engine english
+(21) line 6	Lauren Schneider	citation	(BA 109)	the tag or source at the right of the translation
+§2	Hul’q’umi’num’	cited form	lhilhuts’ut	page 8, ‘slicing, cutting it’
+§2	Lauren Schneider	note	In example (20), sisuxwum’ ‘wading’ and lhilhuts’ut ‘slicing, cutting it’ are happening at the same time. Similarly, in (21), the speaker is in the water while playing.	page 8
+§2	Hul’q’umi’num’	phonemic	/yə=/	page 8
+§2	Lauren Schneider	note	The dynamic proclitic /yə=/ often co-occurs with imperfective aspect.	page 8
+(22) line 1	Hul’q’umi’num’	transcription	yu ’i-i-imush ts’u tthu xeel’s, ’uw’ yath ’uw’ yu ’i’mush yu le’lum’utus tthu mustimuhw	page 8, engine residue
+(22) line 2	Hul’q’umi’num’	transcription	ni’ulh yu lhelhuq’utus …	page 8, engine language
+(22) line 3	Hul’q’umi’num’	segmentation	yə=ʔiməš c̓ə tθə x̌e:l̓s	page 8, engine language
+(22) line 4	Hul’q’umi’num’	gloss	DYN=walk HS DT Xeel’s	page 8, engine english
+(22) line 5	Hul’q’umi’num’	segmentation	ʔəw̓ yaθ ʔəw̓ yə=ʔim̓əš yə=lel̓əm̓-ət-əs	page 8, engine language
+(22) line 6	Hul’q’umi’num’	gloss	CN always CN DYN=walk DYN=look-TR-3SUB< IPFV>	page 8, engine english
+(22) line 7	Hul’q’umi’num’	segmentation	tθə məstiməxʷ niʔ=ʔəł yə=łełəq̓-ət-əs	page 8, engine language
+(22) line 8	Hul’q’umi’num’	gloss	DT people AUX=PST DYN=lay.down-TR-3SUB<IPFV>	page 8, engine english
+(22) line 9	Ellen White	translation	‘Xeel’s was walking along, always walking and looking at the people that he had put down on earth…’	page 8, engine english, cited EW 10290
+(22) line 10	Lauren Schneider	citation	(EW 10290)	page 8, engine residue
+§2	Lauren Schneider	note	In this example, the creator Xeel’s is doing the walking and looking, and these actions are continuously happening at the same time.	page 8
+§2	Lauren Schneider	note	To see how the meaning was impacted, I changed the verbs in the corpus examples in (20) to perfective in (23) below.7	page 8
+(23) line 1	Hul’q’umi’num’	transcription	nem’ tst sixwum lhits’ut tthu stth’e’qun.	page 8, engine residue
+(23) line 2	Hul’q’umi’num’	segmentation	nem̓ ct six̌ʷəm łic̓-ət tᶿə st̓ᶿeʔqən	page 8, engine language
+(23) line 3	Hul’q’umi’num’	gloss	go.AUX 2PL.SUB wade(PFV) cut-TR(PFV) DT bulrush	page 8, engine english
+(23) line 4	Delores Louie	translation	‘We go into the water and cut the bulrushes.’	page 8, engine english
+(23) line 4	Lauren Schneider	citation	(DL 06.12.21)	the tag or source at the right of the translation
+footnote 7	Lauren Schneider	note	7 Perfective aspect is encoded by the plain form of the verb and thus is unmarked. It has been made explicit in (23) using ‘(PFV)’ for clarity but elsewhere in the paper it should be assumed that the verb is perfective unless otherwise indicated by the gloss.	page 8, footnote
+§2	Lauren Schneider	note	When these verbs are used in the perfective, the default reading is sequential. The sequential versus simultaneous reading when the verbs are perfective seems to be flexible based on the semantics of the verb and the discourse context of the sentence. In discussing (23) with DL (21.10.21), a simultaneous reading is possible if the action of cutting the bulrushes is conceptualized as taking place while you are standing in the water. The following example provides another case where the sequential versus simultaneous reading is context dependent. In the example below, a man has shot a seal and swims out to get it. When he reaches the seal, there is a lot of splashing and struggling and the man disappears from view, getting taken away:	page 8
+(24) line 1	Hul’q’umi’num’	transcription	nem’ huya’stum tl’uyq’ustum sus ’uw’ thuhw.	page 9, engine residue
+(24) line 2	Hul’q’umi’num’	segmentation	nem̓ həyaʔ-st-əm ƛ̓əyq̓-əst-əm səs ʔəw̓ θəxʷ	page 9, engine language
+(24) line 3	Hul’q’umi’num’	gloss	go.AUX leave-CS-PAS pin.down-CS-PAS N.AUX.3POS CN disappear	page 9, engine english
+(24) line 4	Wilfred Sampson	translation	‘He (the man) was taken away, pinned down, and he disappeared.’	page 9, engine english
+(24) line 4	Lauren Schneider	citation	(WSa 410)	the tag or source at the right of the translation
+§2	Lauren Schneider	note	In context, these verbs are understood as simultaneous; V2 describes the manner in which the man was taken away. Outside of the specific context where the subject argument is struggling to get free, this perfective verb combination defaults to a sequential reading (DL 01.10.21). The three-verb example in (25a) below has a sequential reading: the subjects left (V1), walked (V2), and then searched for food (V3).	page 9
+(25a) line 1	Hul’q’umi’num’	transcription	sus ’uw’ huye’ ’imush suwq’ ’u kw’ s’ulhtuns tse’…	page 9, engine residue
+(25a) line 2	Hul’q’umi’num’	segmentation	səs ʔəw̓ həyeʔ ʔiməš səwq̓ ʔə k̓ʷ sʔəłtəns ceʔ	page 9, engine language
+(25a) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS CN leave walk search OBL DT food FUT	page 9, engine english
+(25a) line 4	Wilfred Sampson	translation	‘and they started out to hunt for their food…’	page 9, engine english, cited WSa 21054
+(25a) line 4	Lauren Schneider	citation	(WSa 21054)	the tag or source at the right of the translation
+(25b) line 1	Hul’q’umi’num’	transcription	sus ’uw’ yu hu.u.u.y’u yu ’i’mush yu sew’q’ ’u kw’ s’ulhtuns tse’…	page 9, engine language
+(25b) line 2	Hul’q’umi’num’	segmentation	səs ʔəw̓ yə=həyeʔ yə=ʔim̓əš yə=sew̓q̓	page 9, engine language
+(25b) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS CN DYN=leave.IPFV DYN=walk.IPFV DYN=search.IPFV	page 9, engine english
+(25b) line 4	Hul’q’umi’num’	segmentation	ʔə k̓ʷ sʔəłtəns ceʔ	page 9, engine language
+(25b) line 5	Hul’q’umi’num’	gloss	OBL DT food FUT	page 9, engine english
+(25b) line 6	Delores Louie	translation	‘and they were leaving, walking and hunting for their food,’	page 9, engine english
+(25b) line 6	Lauren Schneider	citation	(DL 07.10.21)	the tag or source at the right of the translation
+(25c) line 1	Hul’q’umi’num’	transcription	sus ’uw’ huye’ yu ’i’mush yu sew’q’ ’u kw’ s’ulhtuns tse’…	page 9, engine language
+(25c) line 2	Hul’q’umi’num’	segmentation	səs ʔəw̓ həyeʔ yə=ʔim̓əš yə=sew̓q̓	page 9, engine language
+(25c) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS CN leave DYN=walk.IPFV DYN=search.IPFV	page 9, engine english
+(25c) line 4	Hul’q’umi’num’	segmentation	ʔə k̓ʷ sʔəłtəns ceʔ	page 9, engine language
+(25c) line 5	Hul’q’umi’num’	gloss	OBL DT food FUT	page 9, engine english
+(25c) line 6	Delores Louie	translation	‘and they started out walking and hunting for their food…’	page 9, engine english
+(25c) line 6	Lauren Schneider	citation	(DL 07.10.21)	the tag or source at the right of the translation
+§2	Hul’q’umi’num’	cited form	yu-’i’mush	page 9
+§2	Hul’q’umi’num’	cited form	sew’q’	page 9
+footnote 8	Lauren Schneider	note	8 A multi-verb construction exhibiting mismatched clausal categories, such as aspect, across the verb components (see Schneider 2021).	page 9, footnote
+footnote 9	Lauren Schneider	note	9 Due to the fact that SVCs are monoclausal (Aikhenvald 2018; Cleary-Kemp 2015; Haspelmath 2016), the component verbs of an SVC are expected to share clausal categories.	page 9, footnote
+§2	Lauren Schneider	note	In (25a) there are three actions in a row. In (25b), all three actions are simultaneous. DL described this as an exaggerated, story-telling manner, saying “you can almost see them leaving, walking, and looking”. Finally, in (25c) there are two events: first, they leave, and second, they are walking and looking around for where the food might be. Both (25a) and (25b) can be described as SVCs consisting of three verbs. In contrast, perfective huye’ forms a verb chain8 with the imperfective SVC yu-’i’mush yu sew’q’. Component verbs of an SVC are expected to share clausal categories, such as aspect, and so huye’ is not part of the SVC in (25).9 This section dealt with concurrent AM SVCs, where the motion event is understood to be simultaneous with the non-motion action or event. There are two means of accomplishing a concurrent reading:	page 9
+§2	Lauren Schneider	note	(i) imperfective aspect (optionally with the dynamic clitic /yə=/), and (ii) the discourse context, where the setting may influence the interpretation (e.g., (24). The function of the dynamic clitic /yə=/ has not been given any dedicated attention in the literature and so presents an opportunity for further work. The next section goes into greater detail about SVCs where the order of events is not simultaneous but are instead considered sequential subevents.	page 10
+§3	Lauren Schneider	heading	3 Sequential subevents	page 10
+§3	Lauren Schneider	note	Typologically, when an SVC expresses a sequential event, then the order of the two verbs is expected to be temporally iconic. The action, event or state named by the first verb typically precedes that of the second verb (Lord 1993:237).	page 10
+(26) line 1	Hul’q’umi’num’	transcription	sis ’uw’ qw’im ’aalhstum ’u tthu snuhwulh kwis wulh p’ukw.	page 10, engine language
+(26) line 2	Hul’q’umi’num’	segmentation	sis ʔəw̓ q̓ʷim ʔa:ł-st-əm ʔə tᶿə snəxʷəł	page 10, engine language
+(26) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS CN go.from.water get.aboard-CS-PAS OBL DT canoe	page 10, engine english
+(26) line 4	Hul’q’umi’num’	segmentation	kʷis wəł p̓əkʷ	page 10, engine language
+(26) line 5	Hul’q’umi’num’	gloss	DT PRF surface	page 10, engine english
+(26) line 6	Manson George	translation	‘And they took him from the water and put him on the canoe when he surfaced.’	page 10, engine english, cited MG 1346
+(26) line 7	Lauren Schneider	citation	(MG 1346)	page 10, engine residue
+§3	Hul’q’umi’num’	cited form	qw’im	page 10, ‘get out of water’
+§3	Lauren Schneider	note	In this example, the verbs occur in the order the events occurred: the verb qw’im ‘get out of water’ precedes ’aalhstum ‘be put aboard’. Certain verb orders are considered infelicitous because doing the actions in that order does not make sense, such as (27b) below.	page 10
+(27a) line 1	Hul’q’umi’num’	transcription	ni’ ’aalh huye’ tthu swiw’lus.	page 10, engine residue
+(27a) line 2	Hul’q’umi’num’	segmentation	niʔ ʔa:ł hǝyeʔ tθǝ swiw̓lǝs	page 10, engine language
+(27a) line 3	Hul’q’umi’num’	gloss	AUX.DIST get.on leave DT boy	page 10, engine english
+(27a) line 4	Lauren Schneider	translation	‘The boy got aboard, left.’	page 10, engine english
+(27b) line 1	Hul’q’umi’num’	segmentation	#niʔ hǝyeʔ ʔa:ł tθǝ swiw̓lǝs	page 10, judged infelicitous, #
+(27b) line 2	Hul’q’umi’num’	gloss	AUX.DIST leave get.on DT boy	page 10, engine english
+(27b) line 2	Lauren Schneider	citation	(RP 20.06.19)	the tag at the right of the gloss
+§3	Lauren Schneider	note	The word order given in (25b) above is unacceptable because “you can’t get on after you already left” (RP).	page 10
+§3	Lauren Schneider	note	But there are exceptions to iconic verb order, and it seems that in the context of a narrative, it is not always required that the order be iconic, such as the text corpus examples below.	page 10
+(28) line 1	Hul’q’umi’num’	transcription	’uw’ hay tsun tse’ nem’ nuw’ilum tsam.	page 10, engine residue
+(28) line 2	Hul’q’umi’num’	segmentation	ʔəw̓ hay cən ceʔ nem̓ nəw̓iləm cam	page 10, engine language
+(28) line 3	Hul’q’umi’num’	gloss	CN 3FOC 1SG.SUB FUT go.AUX enter go.uphill	page 10, engine english
+(28) line 4	Sophie Misheal	translation	‘I will go up by myself and go inside.’	page 10, engine english, cited SM 4464
+(28) line 4	Lauren Schneider	citation	(SM 4464)	the tag or source at the right of the translation
+(29) line 1	Hul’q’umi’num’	transcription	sus hwi’ kw’lhetum ne’mustum ’u tthey’ smunmeent kw’uluqun ts’uy’hwtum.	page 11, engine residue
+(29) line 2	Hul’q’umi’num’	segmentation	səs xʷiʔ k̓ʷł-et-əm nem̓-əst-əm ʔə tθey̓ smənme:nt	page 11, engine language
+(29) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS MIR pour-TR-PAS go-CS-PAS OBL DT mountain<PL>	page 11, engine english
+(29) line 4	Hul’q’umi’num’	segmentation	k̓ʷələqən c̓əy̓xʷ-t-əm	page 11, engine language
+(29) line 5	Hul’q’umi’num’	gloss	bluff dry-TR-PAS	page 11, engine english
+(29) line 6	Ellen White	translation	‘And then they would bring it up to the bluffs and pour it on there to dry.’	page 11, engine english, cited EW 25535
+(29) line 7	Lauren Schneider	citation	(EW 25535)	page 11, engine residue
+§3	Hul’q’umi’num’	cited form	nuw’ilum	page 11, ‘enter, go inside’
+§3	Hul’q’umi’num’	cited form	tsam	page 11
+§3	Hul’q’umi’num’	cited form	kw’lhetum	page 11, ‘was poured’
+§3	Hul’q’umi’num’	cited form	ne’mustum	page 11, ‘was brought’
+§3	Lauren Schneider	note	Example (28) above consists of two verbs, nuw’ilum ‘enter, go inside’ and tsam ‘go up from water, go uphill’. The context is that the warrior Tzouhalem has traveled by canoe and is now going up from the water to go into a longhouse. Even though the verbs occur in the order ENTER+GO UPHILL, the event order is clearly GO UPHILL>ENTER. Similarly, in (29), the action kw’lhetum ‘was poured’ was completed after the motion event ne’mustum ‘was brought’, but the action verb precedes the motion verb. The context for this example is that sacks of seaweed are being brought up the bluffs and poured out to dry. In both of these examples, the motion event must occur first in order to make sense. These examples are interesting because the verbs appear to occur in the opposite order of the events, and they do not generate an ACTION>MOTION reading as one might expect if iconicity was a firm rule.	page 11
+§3	Hul’q’umi’num’	cited form	kw’uluqun	page 11, ‘the mountain bluffs’
+§3	Lauren Schneider	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+§3	Lauren Schneider	note	Example (29) also demonstrates how the syntactic context influences the order of the verbs. Here, the directional verb ne’mustum ‘was brought’ precedes an oblique endpoint tthey’ smunmeent kw’uluqun ‘the mountain bluffs’. In order to express the endpoint as a directional phrase the endpoint must be preceded by a directional element, such as ne’mustum (Gerdts 2010b).10 The following sections will demonstrate how Hul’q’umi’num’ has a productive purposive motion SVC (Section 3.1) and makes limited use of a subsequent motion SVC in a particular associative motion construction (Section 3.2).	page 11
+§3.1	Lauren Schneider	heading	3.1 Purposive Motion	page 11
+§3.1	Lauren Schneider	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+§3.1	Lauren Schneider	note	In Lovestrand and Ross’s (2021) typological study, prior motion and purposive motion are intentionally conflated but this section will demonstrate which occurs in Hul’q’umi’num’. In prior motion SVCs, the construction has a sequential reading such as ‘go and then V’. In purposive motion, the activity or event predicated by the non-motion verb is only intended, not asserted; a purposive motion SVC could be translated “go (in order) to V” (Lovestrand & Ross 2021:99). Below are examples of MOTION>ACTION constructions in Hul’q’umi’num’.	page 11
+(30) line 1	Hul’q’umi’num’	transcription	ni’ tsun huye’stuhw hwayum ’u tthu luxwtun.	page 11, engine residue
+(30) line 2	Hul’q’umi’num’	segmentation	niʔ cən həyeʔ-stəxʷ xʷayəm ʔə tᶿə ləx̌ʷtən	page 11, engine language
+(30) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB leave-CS sell OBL DT blanket	page 11, engine english
+(30) line 4	Delores Louie	translation	‘I took the blanket to sell it.’	page 11, engine english
+(30) line 4	Lauren Schneider	citation	(DL 30.05.22)	the tag or source at the right of the translation
+footnote 10	Lauren Schneider	note	10 In order to express the endpoint as a directional phrase, the endpoint must be preceded either by a directional verb or the directional applicative suffix -nus (Gerdts 2010b).	page 11, footnote
+(31) line 1	Hul’q’umi’num’	transcription	nem’ hwi’ ne’mustuhw hwi’ t’etth’ut ’u tthu s’ul’eluhw tst.	page 12, engine residue
+(31) line 2	Hul’q’umi’num’	segmentation	nem̓ xʷiʔ nem̓-əstəxʷ xʷiʔ t̓et̓ᶿ-ət ʔə tᶿə sʔəl̓eləxʷ	page 12, engine language
+(31) line 3	Hul’q’umi’num’	gloss	go.AUX MIR go-CS MIR scatter-TR OBL DT elder<PL>	page 12, engine english
+(31) line 4	Hul’q’umi’num’	transcription	ct	page 12, engine residue
+(31) line 5	Hul’q’umi’num’	gloss	1PL.SUB	page 12, engine english
+(31) line 6	Ellen White	translation	‘We brought it and scattered it before our elders.’	page 12, engine english, cited EW 25005
+(31) line 6	Lauren Schneider	citation	(EW 25005)	the tag or source at the right of the translation
+(32) line 1	Hul’q’umi’num’	transcription	ni’ ’utl’qul’ lemutus tthu sqwumey’.	page 12, engine residue
+(32) line 2	Hul’q’umi’num’	segmentation	niʔ ʔəƛ̓qəl̓ lem-ət-əs tᶿə sqʷəmey̓	page 12, engine language
+(32) line 3	Hul’q’umi’num’	gloss	AUX.DIST go.out look-TR-3SUB DT dog	page 12, engine english
+(32) line 4	Delores Louie	translation	‘He went out to look at the dog.’	page 12, engine english
+(32) line 4	Lauren Schneider	citation	(DL 06.06.22)	the tag or source at the right of the translation
+§3.1	Lauren Schneider	note	In each of these examples, the motion verb precedes the non-motion verb, and the motion event occurs before the non-motion event.	page 12
+§3.1	Lauren Schneider	note	According to Lovestrand and Ross (2021:100), a test of the cancelability of the action encoded by the non-motion verb can distinguish between prior and purposive motion. If it is possible to conjoin another clause stating that the event predicated by the non-motion verb did not take place, the construction encodes purposive motion. If conjoining a clause that cancels out the completion of the event predicated by the non-motion verb creates a contradiction, then the SVC encodes prior motion. In the next set of examples, (33a) represents the prior/purposive motion SVC while (33b) and (33c) contain conjoined clauses that predicate that the second verb (V2) in the SVC did not take place.	page 12
+(33a) line 1	Hul’q’umi’num’	transcription	nem’ tsun t’itsum kwunut tthunu shun’tsu.	page 12, engine english
+(33a) line 2	Hul’q’umi’num’	segmentation	nem̓ cən t̓icəm kʷən-ət tᶿənə šən̓cə	page 12, engine language
+(33a) line 3	Hul’q’umi’num’	gloss	go.AUX 1SG.SUB swim take-TR DT.POS catch	page 12, engine english
+(33a) line 4	Delores Louie	translation	‘I’ll swim and get my catch.’	page 12, engine english
+(33a) line 4	Lauren Schneider	citation	(DL 20.04.22)	the tag or source at the right of the translation
+(33b) line 1	Hul’q’umi’num’	transcription	nem’ tsun t’itsum kwunut tthunu shun’tsu ’i’ skw’ey.	page 12, engine residue
+(33b) line 2	Hul’q’umi’num’	segmentation	nem̓ cən t̓icəm kʷən-ət tᶿənə šən̓cə ʔiʔ sk̓ʷey	page 12, engine language
+(33b) line 3	Hul’q’umi’num’	gloss	go.AUX 1SG.SUB swim take-TR DT.POS catch CNJ impossible	page 12, engine english
+(33b) line 4	Delores Louie	translation	‘I’m going to swim to get my catch, but I couldn’t.’	page 12, engine english
+(33b) line 4	Lauren Schneider	citation	(DL 20.04.22)	the tag or source at the right of the translation
+(33c) line 1	Hul’q’umi’num’	transcription	nem’ tsun t’itsum kwunut tthunu shun’tsu ’i’ ’uwu te’.	page 12, engine residue
+(33c) line 2	Hul’q’umi’num’	segmentation	nem̓ cən t̓icəm kʷən-ət tᶿənə šən̓cə ʔiʔ ʔəwə teʔ	page 12, engine language
+(33c) line 3	Hul’q’umi’num’	gloss	go.AUX 1SG.SUB swim take-TR DT.POS catch CNJ NEG DT	page 12, engine english
+(33c) line 4	Delores Louie	translation	‘I’m going swim to get my catch, but it’s gone.’	page 12, engine english
+(33c) line 4	Lauren Schneider	citation	(DL 20.04.22)	the tag or source at the right of the translation
+§3.1	Hul’q’umi’num’	cited form	skw’ey	page 12
+§3.1	Hul’q’umi’num’	cited form	shun’tsu	page 12, ‘my catch’
+§3.1	Lauren Schneider	note	Because the conjoined clauses in (33b) and (33c) do not produce contradictions, this constitutes a purposive motion SVC. According to DL, the negative conjoined clause ’i’ skw’ey blocks whatever the subject was wanting to do. In (33), something happened or got in the way so that the subject was prevented from getting the catch. DL confirmed that the subject was able to swim out to where the catch was, but they were not able to take it. In (33c), the negative element refers to the object tthunu shun’tsu ‘my catch’, but the effect on the meaning is similar: the swimmer was unable to take hold of their catch.	page 12
+§3.1	Lauren Schneider	note	Lovestrand and Ross’ inclusion of these purposive motion constructions under the umbrella of SVC conflicts with other authors who would use the cancelability test as a reason to exclude this sort of construction from consideration. According to Aikhenvald (2018:4), negation is expected to take scope over both verbs in an SVC, meaning that each verb component should not be able to be independently negated. But “sharing polarity value in serial verb constructions is … an overwhelming tendency, rather than a foolproof feature of serial verbs across languages” (2018:33). In contrast, Haspelmath (2016:299) takes a stronger stance of “single negatability”, arguing that by definition an SVC is monoclausal and therefore there should be only one way to negate it and this negation usually takes scope over all the verbs. This analysis results in the exclusion of constructions that allow negation in different places with different meanings. In order to delve into this, I will further explore the scope of these negative constructions in Hul’q’umi’num’. In (34)–(36) below, the (a) examples illustrate clausal negation (introduced in Section 1.1), and the (b) examples illustrate the conjoining of another clause stating that the event predicated by V2 did not take place, as discussed above.	page 13
+(34a) line 1	Hul’q’umi’num’	transcription	skw’ey kws nem’s huye’ pi’atulh tthu swiw’lus.	page 13, engine residue
+(34a) line 2	Hul’q’umi’num’	segmentation	sk̓ʷey kʷs nem̓=s həyeʔ piʔatəł tθǝ swiw̓lǝs	page 13, engine language
+(34a) line 3	Hul’q’umi’num’	gloss	NEG DT.N go.AUX=3POS leave duck.hunt DT boy	page 13, engine english
+(34a) line 4	Delores Louie	translation	‘The boy couldn’t leave to go duck-hunting.	page 13, engine english
+(34a) line 4	Lauren Schneider	citation	(DL 22.04.22)	the tag or source at the right of the translation
+(34b) line 1	Hul’q’umi’num’	transcription	nem’ huye’ pi’atulh tthu swiw’lus ’i’ skw’ey.	page 13, engine residue
+(34b) line 2	Hul’q’umi’num’	segmentation	nem̓ həyeʔ piʔatəł tθǝ swiw̓lǝs ʔiʔ sk̓ʷey	page 13, engine language
+(34b) line 3	Hul’q’umi’num’	gloss	go.AUX leave duck.hunt DT boy CNJ impossible	page 13, engine english
+(34b) line 4	Delores Louie	translation	‘The boy (tried to) leave to go duck hunting, but he couldn’t.’	page 13, engine english
+(34b) line 4	Lauren Schneider	citation	(DL 22.04.22)	the tag or source at the right of the translation
+(35a) line 1	Hul’q’umi’num’	transcription	skw’ey kwunus huye’stuhw hwayum ’u tthu luxwtun.	page 13, engine residue
+(35a) line 2	Hul’q’umi’num’	segmentation	sk̓ʷey kʷənəs həyeʔ-stəxʷ xʷayəm ʔə tᶿə ləx̌ʷtən	page 13, engine language
+(35a) line 3	Hul’q’umi’num’	gloss	NEG DT.1POS leave-CS sell OBL DT blanket	page 13, engine english
+(35a) line 4	Delores Louie	translation	‘I couldn’t take the take the blanket to sell it.’	page 13, engine english
+(35a) line 4	Lauren Schneider	citation	(DL 30.05.22)	the tag or source at the right of the translation
+(35b) line 1	Hul’q’umi’num’	transcription	ni’ tsun huye’stuhw hwayum ’u tthu luxwtun ’i’ skw’ey.	page 13, engine residue
+(35b) line 2	Hul’q’umi’num’	segmentation	niʔ cən həyeʔ-stəxʷ xʷayəm ʔə tᶿə ləx̌ʷtən	page 13, engine language
+(35b) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB leave-CS sell OBL DT blanket	page 13, engine english
+(35b) line 4	Hul’q’umi’num’	segmentation	ʔiʔ sk̓ʷey	page 13, engine language
+(35b) line 5	Hul’q’umi’num’	gloss	CNJ impossible	page 13, engine english
+(35b) line 6	Delores Louie	translation	‘I took the blanket to sell, but then I couldn’t.’	page 13, engine english
+(35b) line 6	Lauren Schneider	citation	(DL 30.05.22)	the tag or source at the right of the translation
+(36a) line 1	Hul’q’umi’num’	transcription	’uwu ni’us ’utl’qul’ lemutus tthu sqwumey’.	page 13, engine residue
+(36a) line 2	Hul’q’umi’num’	segmentation	ʔəwə niʔ=əs ʔəƛ̓qəl̓ lem-ət-əs tᶿə sqʷəmey̓	page 13, engine language
+(36a) line 3	Hul’q’umi’num’	gloss	NEG AUX=3SUB go.out look-TR-3SUB DT dog	page 13, engine english
+(36a) line 4	Delores Louie	translation	‘He never came out to look at the dog.’	page 13, engine english
+(36a) line 4	Lauren Schneider	citation	(DL 06.06.22)	the tag or source at the right of the translation
+(36b) line 1	Hul’q’umi’num’	transcription	ni’ ’utl’qul’ lemutus tthu sqwumey’ ’i’ ’uwu te’.	page 14, engine residue
+(36b) line 2	Hul’q’umi’num’	segmentation	niʔ ʔəƛ̓qəl̓ lem-ət-əs tᶿə sqʷəmey̓ ʔiʔ ʔəwə teʔ	page 14, engine language
+(36b) line 3	Hul’q’umi’num’	gloss	AUX.DIST go.out look-TR-3SUB DT dog CNJ NEG DT	page 14, engine english
+(36b) line 4	Delores Louie	translation	‘He went out to look at the dog, but it wasn’t there.’	page 14, engine english
+(36b) line 4	Lauren Schneider	citation	(DL 06.06.22)	the tag or source at the right of the translation
+§3.1	Lauren Schneider	note	In each case, meanings of (a) and (b) above are often very similar. The (a) examples are considered basic negative statements while the (b) examples change the meaning of the phrase retroactively by canceling out the stated event. The question is whether or not the cancelation construction takes scope over both verb components of the SVCs. For example, in (36), the event ‘go out (in order) to look’ was completed but since the dog was not there, the subevent ‘look at the dog’ could not have happened.	page 14
+§3.1	Lauren Schneider	note	For additional comparison, I ran the test with a directional SVC (see Section 1.2 above) in order to see if it behaved similarly.	page 14
+(37a) line 1	Hul’q’umi’num’	transcription	skw’ey kws tstl’ums kw’i’ ’u tthu thqet tthu wuxus.	page 14, engine residue
+(37a) line 2	Hul’q’umi’num’	segmentation	sk̓ʷey kʷs cƛ̓əm=s k̓ʷiʔ ʔə tᶿə θqet tᶿə wəx̌əs	page 14, engine language
+(37a) line 3	Hul’q’umi’num’	gloss	NEG DT.N jump=3POS climb.rise OBL DT tree DT tree.frog	page 14, engine english
+(37a) line 4	Delores Louie	translation	‘The frog couldn’t jump climb up the tree.’	page 14, engine english
+(37a) line 4	Lauren Schneider	citation	(DL 23.05.22)	the tag or source at the right of the translation
+(37b) line 1	Hul’q’umi’num’	transcription	ni’ tstl’um kw’i’ ’u tthu thqet tthu wuxus ’i’ skw’ey.	page 14, engine residue
+(37b) line 2	Hul’q’umi’num’	segmentation	niʔ cƛ̓əm k̓ʷiʔ tᶿə wəx̌əs ʔə tᶿə θqet	page 14, engine language
+(37b) line 3	Hul’q’umi’num’	gloss	AUX.DIST jump climb.rise DT tree.frog OBL DT tree	page 14, engine english
+(37b) line 4	Hul’q’umi’num’	segmentation	ʔiʔ sk̓ʷey	page 14, engine language
+(37b) line 5	Hul’q’umi’num’	gloss	CNJ impossible	page 14, engine english
+(37b) line 6	Delores Louie	translation	‘The frog (tried to) jump climb up the tree, but couldn’t.’	page 14, engine english
+(37b) line 6	Lauren Schneider	citation	(DL 23.05.22)	the tag or source at the right of the translation
+§3.1	Lauren Schneider	note	According to DL, in example (37), the frog could not jump at all. In contrast, in (37b) the frog tries to jump but he does not make any progress. It says that he jumped but he is stuck at the bottom of the tree. She added that he must have been injured or very chubby. In this case, the motion event has begun but the completion of the path component is interrupted. In both, purposive and directional motion SVCs, clausal negation takes scope over both verbs. The (a) examples in (34)– (37) indicate that the event encoded by the entire SVC did not take place. The (b) examples, on the other hand, do seem to indicate that the event was initiated. The motion subevent encoded by V1 does begin, but the intended action (34)–(36) or path (37) encoded by V2 is not completed. Finally, there is no way to independently negate V1 while also maintaining the integrity of the SVC. When asked about this for an example like (33) above, DL would propose a construction with a single verb, such as the example below.	page 14
+(38) line 1	Hul’q’umi’num’	transcription	skw’ey kws t’itsums.	page 14, engine language
+(38) line 2	Hul’q’umi’num’	segmentation	sk̓ʷey kʷs t̓icəm-s	page 14, engine language
+(38) line 3	Hul’q’umi’num’	gloss	NEG DT.N swim-3POS	page 14, engine english
+(38) line 4	Delores Louie	translation	‘He couldn’t swim.’	page 14, engine english
+(38) line 4	Lauren Schneider	citation	(DL 06.06.22)	the tag or source at the right of the translation
+§3.1	Lauren Schneider	note	There is no way to indicate that the subject could not swim but did take hold of his catch using an SVC. This would require the negative clause above followed by a linked clause indicating that he then got his catch. I will follow Lovestrand and Ross (2021) and continue to analyze both directional and purposive motion constructions as SVCs. Additional exploration of the syntax of these constructions is warranted and is a topic of future work.	page 14
+§3.1	Lauren Schneider	note	This section addressed SVCs where the motion event precedes the non-motion event. It follows that a similar construction exists in the language where the non-motion event occurs first and the motion event second. While purposive motion is clearly a productive construction in Hul’q’umi’num’, subsequent motion is more limited. I will demonstrate that the contexts in which this sort of construction is allowable is significantly more restricted.	page 15
+§3.2	Lauren Schneider	heading	3.2 Subsequent Motion	page 15
+§3.2	Lauren Schneider	note	Another type of AM SVC in the world’s languages is subsequent motion, where the motion verb indicates a change of location by at least one of the arguments immediately following the activity or event; below is an example provided by Lovestrand and Ross (2021:103):	page 15
+(39)	Lauren Schneider	language	Kayardild	page 15, a Non-Pama-Nyungan language, the language of (39)
+(39)	Lauren Schneider	citation	Evans 1995:310	page 15, the source of (39)
+(39) line 1	Kayardild	transcription	danda-da jardi kurulu-tha mutha-ya yakuri-y, diya-a-nangku,	page 15
+(39) line 2	Kayardild	gloss	this-NOM mob kill-ACT many-LOC fish-LOC eat-M-NEG.POT	page 15
+(39) line 3	Kayardild	transcription	dathin-a narrkiri-ju dana-thu.	page 15
+(39) line 4	Kayardild	gloss	that-NOM bury-POT leave-POT	page 15
+(39) line 5	Lauren Schneider	translation	‘These people killed lots of fish, more than could be eaten, they’ll bury them there before leaving.’	page 15
+§3.2	Lauren Schneider	note	This type of AM SVC is the least common type in the world’s languages (Lovestrand & Ross 2021:90).	page 15
+§3.2	Lauren Schneider	note	When tested in elicitation, serial verbs are not typically used to express this type of eat and run meaning, as is demonstrated by the examples below. In (40) and (41), the SVC in (a) is ungrammatical and the grammatical construction in (b) involves a subordinate clause.	page 15
+(40a) line 1	Hul’q’umi’num’	transcription	*ni’ tsun xlhas huye’.	page 15, engine english
+(40a) line 2	Hul’q’umi’num’	segmentation	*niʔ cən x̌łas hǝyeʔ	page 15, engine language
+(40a) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB eat leave	page 15, engine english
+(40b) line 1	Hul’q’umi’num’	transcription	ni’ tsun xlhas nu suw’ huye’.	page 15, engine residue
+(40b) line 2	Hul’q’umi’num’	segmentation	niʔ cən x̌łas nə=səw̓ hǝyeʔ	page 15, engine language
+(40b) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB eat 1POS=N.CN leave	page 15, engine english
+(40b) line 4	Delores Louie	translation	‘I ate and then left.’	page 15, engine english
+(40b) line 4	Lauren Schneider	citation	(DL 23.05.22)	the tag or source at the right of the translation
+(41a) line 1	Hul’q’umi’num’	transcription	*ni’ tsun xlhas t’akw’.	page 15, engine residue
+(41a) line 2	Hul’q’umi’num’	segmentation	*niʔ cən x̌łas t̓ak̓ʷ	page 15, engine language
+(41a) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB eat go.home	page 15, engine english
+(41b) line 1	Hul’q’umi’num’	transcription	ni’ tsun xlhas nu suw’ t’akw’.	page 16, engine residue
+(41b) line 2	Hul’q’umi’num’	segmentation	niʔ cən x̌łas nə=səw̓ t̓ak̓ʷ	page 16, engine language
+(41b) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB eat 1POS=N.CN go.home	page 16, engine english
+(41b) line 4	Delores Louie	translation	‘I ate and then went home.’	page 16, engine english
+(41b) line 4	Lauren Schneider	citation	(DL 23.05.22)	the tag or source at the right of the translation
+§3.2	Lauren Schneider	note	In examples (40) and (41), the non-motion event precedes the motion event. In each of these examples, the serialized verb version is ungrammatical, and it is corrected using a subordinate clause. In addition, constructions like those in the (a) examples do not occur in the text corpus. In contrast with the above data, when V2 is causative, subsequent motion seems to be allowed. In (42) and (43) causative morphology is present on V2.11	page 16
+(42) line 1	Hul’q’umi’num’	transcription	ni’ tsun ts’uy’hwt tthu stseelhtun t’ukw’stuhw.	page 16, engine residue
+(42) line 2	Hul’q’umi’num’	segmentation	niʔ cən c̓əy̓xʷ-t tθǝ sce:łtən t̓ək̓ʷ-stəxʷ	page 16, engine language
+(42) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB dry-TR DT salmon go.home-CS	page 16, engine english
+(42) line 4	Delores Louie	translation	‘I dried the salmon and brought it home.’	page 16, engine english
+(42) line 4	Lauren Schneider	citation	(DL 22.04.22)	the tag or source at the right of the translation
+(43) line 1	Hul’q’umi’num’	transcription	ni’ tsun lhumts’t tthu stth’oom huye’stuhw.	page 16, engine residue
+(43) line 2	Hul’q’umi’num’	segmentation	niʔ cən łəmc̓-t tθǝ st̓θu:m həyeʔ-stəxʷ	page 16, engine language
+(43) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB pick-TR DT berry leave-CS	page 16, engine english
+(43) line 4	Delores Louie	translation	‘I picked the berries and took them away.’	page 16, engine english
+(43) line 4	Lauren Schneider	citation	(DL 23.05.22)	the tag or source at the right of the translation
+§3.2	Lauren Schneider	note	In these examples, both V1 and V2 are transitive; they share the same subject (1SG) and the same object (the salmon and the berries, respectively). The preferred location for the shared object is between the two verbs, but it may also occur after both verbs, such as in (44).	page 16
+(44) line 1	Hul’q’umi’num’	transcription	ni’ tsun lhumts’t huye’stuhw tthu stth’oom.	page 16, engine residue
+(44) line 2	Hul’q’umi’num’	segmentation	niʔ cən łəmc̓-t həyeʔ-stəxʷ tθǝ st̓θu:m	page 16, engine language
+(44) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB pick-TR leave-CS DT berry	page 16, engine english
+(44) line 4	Delores Louie	translation	‘I picked the berries and took them away.’	page 16, engine english
+(44) line 4	Lauren Schneider	citation	(DL 23.05.22)	the tag or source at the right of the translation
+§3.2	Lauren Schneider	note	Examples such as these are also found occurring in the text corpus.	page 16
+(45) line 1	Hul’q’umi’num’	transcription	ni.i.i’ ch nem’ muqw’muqw’ut ne’mustuhw ’u tthun’ s’ulhtun.	page 16, engine residue
+(45) line 2	Hul’q’umi’num’	segmentation	niʔ č nem̓ məq̓ʷməq̓ʷ-ət nem̓-əstəxʷ	page 16, engine language
+(45) line 3	Hul’q’umi’num’	gloss	AUX(RL) 2SG.SUB go.AUX squish<RDP>-TR go-CS	page 16, engine english
+(45) line 4	Hul’q’umi’num’	segmentation	ʔə tᶿən̓ sʔəłtən	page 16, engine language
+(45) line 5	Hul’q’umi’num’	gloss	OBL DT.POS food	page 16, engine english
+(45) line 6	Ellen White	translation	‘You can squish it (repeatedly) and put it on your food.’	page 16, engine english, cited EW 25673
+(45) line 6	Lauren Schneider	citation	(EW 25673)	the tag or source at the right of the translation
+footnote 11	Lauren Schneider	note	11 See the associative motion construction discussed in Section 1.2.	page 16, footnote
+(46) line 1	Hul’q’umi’num’	transcription	suw’ q’uynuhwus tthey’ smuyuth tsum’utus t’ukw’stuhwus.	page 17, engine residue
+(46) line 2	Hul’q’umi’num’	segmentation	səw̓ q̓əy-nəxʷ tey̓ sməyəθ cəm̓-ət-əs t̓ək̓ʷ-stəxʷ-əs	page 17, engine language
+(46) line 3	Hul’q’umi’num’	gloss	N.CN kill-LCTR DT deer pack.on.back-TR-3SUB go.home-CS-3SUB	page 17, engine english
+(46) line 4	Wilfred Sampson	translation	‘He killed that deer, put it on his back and took it home.’	page 17, engine english, cited WSa 21656
+(46) line 4	Lauren Schneider	citation	(WSa 21656)	the tag or source at the right of the translation
+§3.2	Hul’q’umi’num’	cited form	muqw’muqw’ut	page 17, ‘squish it up’
+§3.2	Hul’q’umi’num’	cited form	ne’mustuhw	page 17, ‘bring it’
+§3.2	Hul’q’umi’num’	cited form	q’uynuhw	page 17, ‘manage to kill it’
+§3.2	Hul’q’umi’num’	cited form	tsum’ut	page 17, ‘pack it on one’
+§3.2	Hul’q’umi’num’	cited form	t’ukw’stuhw	page 17, ‘take it home’
+§3.2	Lauren Schneider	note	In (45), the two verbs are transitive, and they share the same subject and same object. In this example, the verb muqw’muqw’ut ‘squish it up’ precedes the motion verb ne’mustuhw ‘bring it’. The context for this line is that the speaker is discussing how they would eat grape kelp. The combination of the two verbs results in the meaning to ‘squish it up and put it on the food’, where the non-motion event precedes the motion event. Similarly, in (46), all three transitive verbs — q’uynuhw ‘manage to kill it’, tsum’ut ‘pack it on one’s back’, and t’ukw’stuhw ‘take it home’ — share the same subject and the same object. Like the previous example, their order is temporally iconic.	page 17
+§3.2	Lauren Schneider	note	The examples in (40) and (41) show that a subsequent motion SVC cannot be made up of two intransitive verbs. But the allowability of subsequent motion does not seem to be simply a matter of transitivity. If V2 is transitive using the transitivizer -t, the construction is also ungrammatical, such as the (a) examples in (47)–(49) below.12	page 17
+(47a) line 1	Hul’q’umi’num’	transcription	*ni’ tsun kwe’t tthu stseelhtun tstl’umut.	page 17, engine english
+(47a) line 2	Hul’q’umi’num’	segmentation	*niʔ cən kʷeʔ-t tθǝ sce:łtən cƛ̓əm-ət	page 17, engine language
+(47a) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB let.go-TR DT salmon jump-TR	page 17, engine english
+(47b) line 1	Hul’q’umi’num’	transcription	ni’ tsun kwe’t tthu stseelhtun nu suw’ tstl’umut.	page 17, engine residue
+(47b) line 2	Hul’q’umi’num’	segmentation	niʔ cən kʷeʔ-t tθǝ sce:łtən nə=səw̓ cƛ̓əm-ət	page 17, engine language
+(47b) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB let.go-TR DT salmon 1POS=N.CN jump-TR	page 17, engine english
+(47b) line 4	Delores Louie	translation	‘I let go of the salmon and then jumped after it.’	page 17, engine english
+(47b) line 4	Lauren Schneider	citation	(DL 30.05.22)	the tag or source at the right of the translation
+(48a) line 1	Hul’q’umi’num’	transcription	*ni’ tsun ’ukw’nuhw tthunu sqwumey’ suwq’t.	page 17, engine residue
+(48a) line 2	Hul’q’umi’num’	segmentation	*niʔ cən ʔək̓ʷ-nəxʷ tθǝnə sqʷəmey̓ səwq̓-t	page 17, engine language
+(48a) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB lose-LCTR DT.1POS dog search-TR	page 17, engine english
+(48b) line 1	Hul’q’umi’num’	transcription	ni’ tsun ’ukw’nuhw tthunu sqwumey’ nu suw’ suwq’t.	page 17, engine residue
+(48b) line 2	Hul’q’umi’num’	segmentation	niʔ cən ʔək̓ʷ-nəxʷ tθǝnə sqʷəmey̓	page 17, engine language
+(48b) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB lose-LCTR DT.1POS dog	page 17, engine english
+(48b) line 4	Hul’q’umi’num’	segmentation	nə=səw̓ səwq̓-t	page 17, engine language
+(48b) line 5	Hul’q’umi’num’	gloss	1POS=N.CN search-TR	page 17, engine english
+(48b) line 6	Delores Louie	translation	‘I lost my dog and so I looked (went looking) for it.’	page 17, engine english
+(48b) line 6	Lauren Schneider	citation	(DL 30.05.22)	the tag or source at the right of the translation
+footnote 12	Lauren Schneider	note	12 Gerdts & Hukari (2011) demonstrate that certain classes of verbs can only take certain valence-changing suffixes. For example, a motion unergative like /łakʷ/ ‘fly’ can take the causative /łakʷ-stəxʷ/ ‘make it fly/send it by air’ but not transitive /*łakʷ-ət/; a motion unaccusative like /seʔ/ ‘rise’ can take transitive /seʔ- t/ ‘raise it’ but not causative /*seʔ-stəxʷ/.	page 17, footnote
+§3.2	Hul’q’umi’num’	phonemic	/łakʷ/	page 17, ‘fly’
+§3.2	Hul’q’umi’num’	phonemic	/łakʷ-stəxʷ/	page 17
+§3.2	Hul’q’umi’num’	phonemic	/*łakʷ-ət/	page 17
+§3.2	Hul’q’umi’num’	phonemic	/seʔ/	page 17, ‘rise’
+§3.2	Hul’q’umi’num’	cited form	/seʔ-	page 17
+§3.2	Hul’q’umi’num’	phonemic	/*seʔ-stəxʷ/	page 17
+(49a) line 1	Hul’q’umi’num’	transcription	*ni’ tsun wensh tthu smem’nut xwchenumut.	page 18, engine english
+(49a) line 2	Hul’q’umi’num’	segmentation	*niʔ cən wenš tθǝ smem̓nət x̌ʷčenəm-ət	page 18, engine language
+(49a) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB throw.it DT rock<DIM> run-TR	page 18, engine english
+(49b) line 1	Hul’q’umi’num’	transcription	ni’ tsun wensh tthu smem’nut nu suw’ xwchenumut.	page 18, engine english
+(49b) line 2	Hul’q’umi’num’	segmentation	niʔ cən wenš tθǝ smem̓nət nə=səw̓ x̌ʷčenəm-ət	page 18, engine language
+(49b) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB throw.it DT rock<DIM> 1POS=N.CN run-TR	page 18, engine english
+(49b) line 4	Delores Louie	translation	‘I threw the little rock and ran after it.’	page 18, engine english
+(49b) line 4	Lauren Schneider	citation	(DL 06.06.22)	the tag or source at the right of the translation
+§3.2	Lauren Schneider	note	Finally, (50) demonstrates an intransitive V1 and a causative V2.	page 18
+(50a) line 1	Hul’q’umi’num’	transcription	?ni’ tsun xlhas t’ukw’stuhw tthu ’ukw’mun.	page 18, engine residue
+(50a) line 2	Hul’q’umi’num’	segmentation	?niʔ cən x̌łas t̓ək̓ʷ-stəxʷ tθǝ ʔək̓ʷmən	page 18, engine language
+(50a) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB eat go.home-CS DT leftovers.trash	page 18, engine english
+(50a) line 4	Delores Louie	translation	‘I ate and took home the leftovers.’	page 18, engine english
+(50a) line 4	Lauren Schneider	citation	(DL 22.04.22)	the tag or source at the right of the translation
+(50b) line 1	Hul’q’umi’num’	transcription	ni’ tsun xlhas t’ukw’stuhw nu suw’ tthu ’ukw’mun.	page 18, engine residue
+(50b) line 2	Hul’q’umi’num’	segmentation	niʔ cən x̌łas nə=səw̓ t̓ək̓ʷ-stəxʷ tθǝ ʔək̓ʷmən	page 18, engine language
+(50b) line 3	Hul’q’umi’num’	gloss	AUX.DIST 1SG.SUB eat 1POS=N.CN go.home-CS DT leftovers.trash	page 18, engine english
+(50b) line 4	Delores Louie	translation	‘I ate and then took home the leftovers.’	page 18, engine english
+(50b) line 4	Lauren Schneider	citation	(DL 22.04.22)	the tag or source at the right of the translation
+§3.2	Lauren Schneider	note	DL said that she would understand what was intended if (50a) above was said to her but that she prefers (50b). There are no examples of this naturally occurring in the text corpus. What the data above show is that subsequent motion SVCs are only allowed when both verbs are transitive and more specifically, when V2 expresses an associative causative.	page 18
+§3.3	Lauren Schneider	heading	3.3 Summary	page 18
+§3.3	Lauren Schneider	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+§3.3	Lauren Schneider	note	Hul’q’umi’num’ makes use of a productive purposive motion SVC and a restricted subsequent motion SVC. The findings have been summed up in the table below.	page 18
+Table 2	Lauren Schneider	note	Table 2: Summary of sequential SVCs	page 18, the caption
+Table 2	Lauren Schneider	note	Type Verb order Event order Context	page 18, the column heads
+Table 2	Lauren Schneider	note	Purposive VMOT + VACT = MOTION > ACTION	page 18, the first Purposive row, the subscripts set in line
+Table 2	Lauren Schneider	note	VACT + VMOT = MOTION > ACTION certain discourse contexts	page 18, the second Purposive row, the subscripts set in line
+Table 2	Lauren Schneider	note	Subsequent VACT + VCS.MOT = ACTION > MOTION V2 is causative	page 18, the first Subsequent row, the subscripts set in line
+Table 2	Lauren Schneider	note	*VINT + VINT.MOT = ACTION > MOTION both verbs intransitive	page 18, a Subsequent row, starred, the subscripts set in line
+Table 2	Lauren Schneider	note	*VACT + VTR.MOT = ACTION > MOTION V2 is transitive /-(ə)t/	page 18, a Subsequent row, starred, the subscripts set in line
+Table 2	Lauren Schneider	note	*VMOT + VACT = ACTION > MOTION	page 18, the last Subsequent row, starred, the subscripts set in line
+§3.3	Hul’q’umi’num’	phonemic	/-(ə)t/	page 18
+§3.3	Lauren Schneider	note	Isolated elicited examples are expected to be temporally iconic (e.g., (27), and this is most often the case within narrative texts as well. Certain discourse contexts allow for non-iconic verb order (e.g., (28) and (29)) in purposive motion SVCs. Subsequent motion SVCs require a causative V2, which has an associative motion reading. The arguments are shared by both verbs and the resulting meaning is that ‘X did something to Y and then X took Y somewhere’. This construction entails that both X and Y moved in some direction together after the non-motion event took place. Intransitive, e.g., (40) and (41), subsequent motion SVCs are disallowed. Finally, there are no cases where a motion verb (with causative morphology or otherwise) preceding a non-motion verb is interpreted as subsequent motion.	page 18, runs on to page 19
+§4	Lauren Schneider	heading	4 Conclusion	page 19
+§4	Lauren Schneider	language	Hul’q’umi’num’	Hul’q’umi’num’, Island Halkomelem
+§4	Lauren Schneider	note	This paper outlined three types of motion SVCs in Hul’q’umi’num’, which have been summed up in the table below.	page 19
+Table 3	Lauren Schneider	note	Table 3: Hul’q’umi’num’ associated motion SVCs13	page 19, the caption, carries footnote 13
+Table 3	Lauren Schneider	note	Type Verb order Event order	page 19, the column heads
+Table 3	Lauren Schneider	note	Concurrent motion VMOT + VACT (IPFV) VACT + VMOT (IPFV) (PFV certain discourse contexts) simultaneous	page 19, the Concurrent row, its three verb orders stacked in one cell, the subscripts set in line
+Table 3	Lauren Schneider	note	Purposive motion VMOT + VACT (VACT + VMOT certain discourse contexts) MOTION > ACTION	page 19, the Purposive row, its two verb orders stacked in one cell, the subscripts set in line
+Table 3	Lauren Schneider	note	Subsequent motion VACT + VMOT.CAUS ACTION > ASSOCIATIVE MOTION	page 19, the Subsequent row, the subscripts set in line
+§4	Hul’q’umi’num’	phonemic	/yə=/	page 19
+§4	Lauren Schneider	note	Imperfective aspect on both verb components (optionally with the dynamic clitic /yə=/) indicates that the motion and non-motion actions occur concurrently.	page 19
+(51) line 1	Hul’q’umi’num’	transcription	sus ’uw’ nem’ tst ’uw’ sisuxwum’ lhilhuts’ut.	page 19, engine language
+(51) line 2	Hul’q’umi’num’	segmentation	səs ʔəw̓ nem̓ ct ʔəw̓ sisəx̌ʷəm̓ łiłəc̓-ət	page 19, engine language
+(51) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS CN go.AUX 2PL.SUB CN wade<IPFV> cut-TR<IPFV>	page 19, engine english
+(51) line 4	Eva Thomas	translation	‘And we would wade into the water and cut (the bulrushes).’	page 19, engine english, cited ET 28247
+(51) line 4	Lauren Schneider	citation	(ET 28247)	the tag or source at the right of the translation
+§4	Lauren Schneider	note	In addition, certain discourse contexts can set the stage for serialized perfective verbs to have a simultaneous reading, such as the example below.	page 19
+(52) line 1	Hul’q’umi’num’	transcription	nem’ huya’stum tl’uyq’ustum sus ’uw’ thuhw.	page 19, engine residue
+(52) line 2	Hul’q’umi’num’	segmentation	nem̓ həyaʔ-st-əm ƛ̓əyq̓-əst-əm səs ʔəw̓ θəxʷ	page 19, engine language
+(52) line 3	Hul’q’umi’num’	gloss	go.AUX leave-CS-PAS pin.down-CS-PAS N.AUX.3POS CN disappear	page 19, engine english
+(52) line 4	Wilfred Sampson	translation	‘He (the man) was taken away, pinned down, and he disappeared.’	page 19, engine english
+(52) line 4	Lauren Schneider	citation	(WSa 410)	the tag or source at the right of the translation
+§4	Lauren Schneider	note	Outside of the specific context where the subject argument is struggling to get free, this perfective verb combination defaults to a sequential reading (DL 01.10.21).	page 19
+§4	Lauren Schneider	note	The first type of sequential AM SVCs are purposive motion SVCs where a motion event precedes an intended non-motion event.	page 19
+footnote 13	Lauren Schneider	note	13 Types following Lovestrand and Ross (2021).	page 19, footnote
+(53) line 1	Hul’q’umi’num’	transcription	nem’ tsun t’itsum kwunut tthunu shun’tsu.	page 20, engine residue
+(53) line 2	Hul’q’umi’num’	segmentation	nem̓ cən t̓icəm kʷən-ət tᶿənə šən̓cə	page 20, engine language
+(53) line 3	Hul’q’umi’num’	gloss	go.AUX 1SG.SUB swim take-TR DT.POS catch	page 20, engine english
+(53) line 4	Delores Louie	translation	‘I’ll swim and get my catch.’	page 20, engine english
+(53) line 4	Lauren Schneider	citation	(DL 20.04.22)	the tag or source at the right of the translation
+§4	Lauren Schneider	note	We know this is an intended action because the completion of the event can be cancelled using a conjoined clause.	page 20
+(54) line 1	Hul’q’umi’num’	transcription	nem’ tsun t’itsum kwunut tthunu shun’tsu ’i’ ’uwu te’.	page 20, engine residue
+(54) line 2	Hul’q’umi’num’	segmentation	nem̓ cən t̓icəm kʷən-ət tᶿənə šən̓cə ʔiʔ ʔəwə teʔ	page 20, engine language
+(54) line 3	Hul’q’umi’num’	gloss	go.AUX 1SG.SUB swim take-TR DT.POS catch CNJ NEG DT	page 20, engine english
+(54) line 4	Delores Louie	translation	‘I’m going swim to get my catch, but it’s gone.’	page 20, engine english
+(54) line 4	Lauren Schneider	citation	(DL 20.04.22)	the tag or source at the right of the translation
+§4	Lauren Schneider	note	When an SVC expresses a sequential event, then the order of the two verbs is expected to be temporally iconic. As mentioned above, the default reading of a serialized perfective verb is a sequential, temporally iconic one. Out-of-context examples are treated this way automatically, which exposes a limitation of isolated elicitation. Certain discourse contexts allow for non-iconic verb order in purposive motion SVCs.	page 20
+(55) line 1	Hul’q’umi’num’	transcription	’uw’ hay tsun tse’ nem’ nuw’ilum tsam.	page 20, engine residue
+(55) line 2	Hul’q’umi’num’	segmentation	ʔəw̓ hay cən ceʔ nem̓ nəw̓iləm cam	page 20, engine language
+(55) line 3	Hul’q’umi’num’	gloss	CN 3FOC 1SG.SUB FUT go.AUX enter go.uphill	page 20, engine english
+(55) line 4	Sophie Misheal	translation	‘I will go up by myself and go inside.’	page 20, engine english, cited SM 4464
+(55) line 4	Lauren Schneider	citation	(SM 4464)	the tag or source at the right of the translation
+§4	Lauren Schneider	note	Use of the text corpus to guide the understanding of these constructions is essential. Certain verb orders only occur because of the context around them.	page 20
+§4	Lauren Schneider	note	The second type of AM SVC found in Hul’q’umi’num’ is a subsequent motion SVC made up of a non-motion verb and a causative motion verb.	page 20
+(56) line 1	Hul’q’umi’num’	transcription	ni’ tsun lhumts’t tthu stth’oom huye’stuhw.	page 20, engine residue
+(56) line 2	Hul’q’umi’num’	segmentation	niʔ cən łəmc̓-t tθǝ st̓θu:m həyeʔ-stəxʷ	page 20, engine language
+(56) line 3	Hul’q’umi’num’	gloss	AUX 1SG.SUB pick-TR DT berry leave-CS	page 20, engine english
+(56) line 4	Delores Louie	translation	‘I picked the berries and took them away.’	page 20, engine english
+(56) line 4	Lauren Schneider	citation	(DL 23.05.22)	the tag or source at the right of the translation
+§4	Lauren Schneider	note	The arguments are shared by both verbs and the resulting meaning is that ‘X did V to Y and then X took Y (somewhere)’. In this case, the first-person subject picks the berries and both the subject and the berries left their current location. This construction entails that both the subject and object moved in some direction together after the non-motion event took place.	page 20
+§4	Lauren Schneider	note	In sum, this paper addressed three types of motion constructions: one SVC with a simultaneous event order and two with sequential event order. Most often simultaneous event order is conveyed using imperfective aspect while sequential order exhibits plain perfective aspect. Sequential motion SVCs most frequently have a purposive meaning ‘go (in order to) V’. There is also a construction that has the meaning ‘do V to Y and take Y’, where the motion event happens after the non-motion event. Having addressed associated motion SVCs, I look forward to pursing other future avenues such as constructions consisting of multiple non-(translational)-motion verbs.	page 20
+references	Lauren Schneider	heading	References	page 21
+references	Lauren Schneider	reference	Aikhenvald, Alexandra Y. 2018. Serial verbs. Oxford, UK: Oxford University Press.	
+references	Lauren Schneider	reference	Bätscher, Kevin. 2014. Interclausal and intraclausal linking elements in Hul’q’umi’num’ Salish. MA thesis, Simon Fraser University.	
+references	Lauren Schneider	reference	Cleary-Kemp, Jessica. 2015. Serial verb constructions revisited: A case study from Koro. Ph.D. thesis, University of California Berkeley.	
+references	Lauren Schneider	reference	Davis, Henry. 2005. On the syntax and semantics of negation in Salish. International Journal of American Linguistics 71(1):1–55.	
+references	Lauren Schneider	language	Hulʼqʼumiʼnumʼ	Hul’q’umi’num’, Island Halkomelem, with modifier apostrophes
+references	Lauren Schneider	reference	Gerdts, Donna B. 2016. In-subordination and un-coordination in Hulʼqʼumiʼnumʼ (with some special attention to temporal adjectives). Presented at Syntax of World Languages 7, Mexico City, Mexico.	
+references	Lauren Schneider	reference	Gerdts, Donna B. 2010a. Ditransitive constructions in Halkomelem Salish: a direct object/oblique object language. In A. Malchukov, M. Haspelmath, and B. Comrie (eds.), Studies in Ditransitive Constructions: A Comparative Handbook. Berlin: De Gruyter, 563–610.	
+references	Lauren Schneider	reference	Gerdts, Donna B. 2010b. Semantic effects in Halkomelem directional applicatives. Northwest Journal of Linguistics 4(3):1–17.	
+references	Lauren Schneider	reference	Gerdts, Donna B. 1988. Object and absolutive in Halkomelem Salish. New York, NY: Garland Publishing.	
+references	Lauren Schneider	reference	Gerdts, Donna B., and Thomas E. Hukari. 2011. The dual structure of Halkomelem motion verbs. Northwest Journal of Linguistics 5(4):1–20.	
+references	Lauren Schneider	reference	Gerdts, Donna B., and Thomas E. Hukari. 2006. Classifying Halkomelem causatives. Papers for ICSNL 41, 129–145.	
+references	Lauren Schneider	reference	Gerdts, Donna B., and Thomas E. Hukari. 2003. The expression of NPs in Halkomelem texts. Papers for ICSNL 38, 91–126.	
+references	Lauren Schneider	reference	Gerdts, Donna B., and Adam Werle. 2014. Halkomelem clitic types. Morphology 24:245–281.	
+references	Lauren Schneider	reference	Guillaume, Antoine, and Harold Koch. 2021. Introduction: associated motion as a grammatical category in linguistic typology. In Antoine Guillaume and Harold Koch (eds.), Associated motion. Berlin: De Gruyter, 1–30.	
+references	Lauren Schneider	reference	Haspelmath, Martin. 2016. The serial verb construction: Comparative concept and cross-linguistic generalization. Language and Linguistics 17(3):291–319.	
+references	Lauren Schneider	reference	Hukari, Thomas E. (ed), and Ruby Peter (assoc. ed). 1995. Hul’qumin’um’ dictionary. Duncan, BC: Cowichan Tribes.	
+references	Lauren Schneider	reference	Kiyosawa, Kaoru, and Donna B. Gerdts. 2010. Benefactive and malefactive uses of Salish applicatives. In Fernando Zúñiga & Seppo Kittilä (eds.), Benefactives and Malefactives: Typological perspectives and case studies. John Benjamins Publishing Company, 147–184.	
+references	Lauren Schneider	reference	Lord, Carol. 1993. Historical change in serial verb constructions. Typological studies in language 26. John Benjamins, Amsterdam/Philadelphia: John Benjamins.	
+references	Lauren Schneider	reference	Lovestrand, Joseph, and & Daniel Ross. 2021. Serial verb constructions and motion semantics. In Antoine Guillaume and Harold Koch (eds.), Associated motion. Berlin: De Gruyter, 87–128.	
+references	Lauren Schneider	reference	Montler, Timothy. 2008. Serial verbs and complex paths in Klallam. Northwest Journal of Linguistics 2(2):1–26.	
+references	Lauren Schneider	reference	Ross, Daniel. 2021. A cross-linguistic survey of associated motion and directionals. In Antoine Guillaume and Harold Koch (eds.), Associated motion. Berlin: De Gruyter 31–86.	
+references	Lauren Schneider	reference	Schneider, Lauren. 2021. Classifying multi-verb constructions in Hulʼqʼumiʼnumʼ Salish. Papers for ICSNL 56, 392–409.	
+references	Lauren Schneider	reference	Schneider, Lauren. In press. Using Hul’q’umi’num’ directional SVCs to express path and manner. Working Papers of the Linguistics Circle of the University of Victoria.	
+references	Lauren Schneider	reference	Thompson, James J. 2011. Syntactic nominalization in Halkomelem Salish. Ph.D. thesis, University of British Columbia.	

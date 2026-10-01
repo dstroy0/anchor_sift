@@ -1,0 +1,1182 @@
+where	who	kind	form	gloss
+front	John Lyon	title	Nominal modification in Upper Nicola Okanagan: A working paper1	page 1
+front	John Lyon	name	John Lyon	author
+front	John Lyon	note	University of British Columbia	page 1, under John Lyon
+front	John Lyon	note	The goals of this paper are to examine patterns of nominal modification in Upper Nicola Okanagan, to determine what constraints there are on well-formedness, and to distinguish relative clauses and attributive modification as distinct classes of nominal modification. I suggest that these two classes may be distinguished on the basis of differences between (a) permissible head-modifier orderings; (b) restrictions on the semantic type of the modifier; and (c) the distribution of determiner iʔ and oblique/attributive marker t.	page 1, the abstract
+front	John Lyon	language	Okanagan	Southern Interior Salish, the language of the paper, its Upper Nicola dialect
+footnote 1	John Lyon	note	I wish to acknowledge my language consultants Hank Charters, Lottie Lindley, Sarah McLeod, Nancy Saddleman, Rita Stewart, Theresa Tom, and Wilford Tom for their patience and understanding, and for their dedication to the Nsyilxcn language; and the Jacobs Research Fund, which has generously supported my linguistic work.	page 1, footnote 1, on the title
+footnote 1	John Lyon	name	Hank Charters	a language consultant, footnote 1; HC after an example
+footnote 1	John Lyon	name	Lottie Lindley	a language consultant, footnote 1; LL after an example
+footnote 1	John Lyon	name	Sarah McLeod	a language consultant, footnote 1; SM after an example
+footnote 1	John Lyon	name	Nancy Saddleman	a language consultant, footnote 1; NS after an example
+footnote 1	John Lyon	name	Rita Stewart	a language consultant, footnote 1; RS after an example
+footnote 1	John Lyon	name	Theresa Tom	a language consultant, footnote 1
+footnote 1	John Lyon	name	Wilford Tom	a language consultant, footnote 1
+footnote 1	John Lyon	language	Nsyilxcn	the language's own name, footnote 1
+§1	John Lyon	heading	1 Introduction	page 1
+§1	John Lyon	note	This paper focuses on data I have elicited and tested on the topic of nominal modification in the Upper Nicola dialect of Okanagan, spoken in the vicinity of Quilchena and Douglas Lake, British Columbia.	page 1
+§1	John Lyon	note	Okanagan, Coeur d'Alene, Moses-Columbian, and Spokane-Kalispel- Flathead, comprise the Southern Interior sub-branch of the Salish language family. Systematic studies of relative clauses have been carried out for the Northern Interior languages of Thompson (Kroeber 1997,1999; Koch 2004, 2006) and Lillooet (Matthewson & Davis 1995; Davis 2002, 2004). Related work on attributive modification exists for Lillooet (Davis, Lai & Matthewson 1997), Thompson (Koch 2006), and Saanich (Montler 1993), but a detailed analysis of these related areas in Okanagan has yet to be undertaken. The empirical generalizations made here will serve as the foundation for a more rigorous semantic and syntactic analysis of this area of the grammar.	page 1
+§1	John Lyon	name	Kroeber	Paul Kroeber, relativization in Thompson (1997) and The Salish Language Family (1999)
+§1	John Lyon	name	Koch	Karsten Koch, predicate modification (2004) and nominal modification (2006) in Thompson
+§1	John Lyon	name	Matthewson & Davis	Lisa Matthewson and Henry Davis, the structure of DP in St'át'imcets (1995)
+§1	John Lyon	name	Davis, Lai & Matthewson	Henry Davis, Irene Lai and Lisa Matthewson (1997), attributive modification in Lillooet and Shuswap
+§1	John Lyon	name	Davis	Henry Davis, restrictions on modification (2002) and locative relative clauses (2004) in St'at'imcets
+§1	John Lyon	name	Matthewson	Lisa Matthewson, determiner systems and quantificational strategies (1999)
+§1	John Lyon	name	Montler	Timothy Montler, attributive constructions in Saanich (1993)
+§1	John Lyon	language	Thompson	Northern Interior Salish
+§1	John Lyon	language	Lillooet	Northern Interior Salish
+§1	John Lyon	language	Saanich	Central Salish, Montler's attributive constructions
+§1	John Lyon	language	Coeur d'Alene	Southern Interior Salish
+§1	John Lyon	language	Moses-Columbian	Southern Interior Salish
+§1	John Lyon	note	The structure of the paper is as follows:	page 1
+§1	John Lyon	note	In section 2, by way of background, I will discuss basic clause structure in Okanagan, followed by an overview discussion of subordination strategies in the language, the aim of which is to show that relative clauses and attributive modification structures are distinct from other types of subordinate clauses.	page 1
+§1	John Lyon	note	In section 3, I will introduce nominal modification in Okanagan, and draw some comparisons with the Northern Interior languages. I then begin to discuss the problem of distinguishing relative clauses from cases of attributive modification.	page 1
+§1	John Lyon	note	In section 4, I conduct a detailed investigation of the types of modification introduced in section 3, by examining major patterns displayed by the determiner iʔ and oblique marker t, in their capacity of introducing heads and modifiers within nominal modification structures. To illustrate, consider the following three similar sentences, focusing on the bracketed strings:	page 2
+(1a) line 1	Okanagan	segmentation	wik-ən [iʔ k̕ʷəck̕ʷáct t ylmíxʷum].	page 2, the form over its gloss
+(1a) line 2	John Lyon	citation	(JL)	page 2, the speaker's initials at the right
+(1a) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG DET strong t chief.	page 2, the gloss
+(1a) line 4	John Lyon	translation	I saw the strong chief.	page 2, the translation
+(1a) line 5	John Lyon	note	(volunteered gloss)	page 2, set after the translation
+(1b) line 1	Okanagan	segmentation	wík-ən [iʔ k̕ʷəck̕ʷáct iʔ tkɬmílxʷ].	page 2, the form over its gloss
+(1b) line 2	John Lyon	citation	(LL)	page 2, the speaker's initials at the right
+(1b) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG DET strong DET woman	page 2, the gloss
+(1b) line 4	John Lyon	translation	I saw the strong woman.	page 2, the translation
+(1c) line 1	Okanagan	segmentation	kn wík-əm [t k̕ʷəck̕ʷáct t tkɬmílxʷ].	page 2, the form over its gloss
+(1c) line 2	John Lyon	citation	(LL)	page 2, the speaker's initials at the right
+(1c) line 3	Okanagan	gloss	1SG.ABS see-MID t strong t woman	page 2, the gloss
+(1c) line 4	John Lyon	translation	I saw a strong woman.	page 2, the translation
+§1	John Lyon	note	In (1a), the determiner iʔ introduces the modifier k̕ʷəck̕ʷáct 'strong', while the oblique marker t introduces the nominal head ylmíxʷum 'chief'. In (1b), the determiner introduces both the modifier and the nominal head, and in (1c), the oblique marker introduces both the modifier and the head. These 3 sentences exemplify 3 distinct patterns of nominal modification in Okanagan. The question I seek to answer is whether sentences like (1a-c) also differ structurally.	page 2
+§1	John Lyon	note	It will be seen that only certain patterns allow free ordering of the head and modifier, and that in other cases, there are apparently selectional restrictions on the semantic type of the modifier. I will argue that these facts constitute evidence for a pattern being characteristic of either a relative clause, or attributive modification.	page 2
+§1	John Lyon	note	Section 5 is a summary and discussion of the main empirical observations. I address some unanswered questions that follow from these observations. Section 6 concludes.	page 2
+§2	John Lyon	heading	2 Basic Clause Structure and Clausal Subordination	page 2
+§2	John Lyon	note	Okanagan, like other Salish languages, is fundamentally predicate initial, although word order is flexible (N. Mattina 1996). (2a) shows a simple intransitive predicate/argument structure, with basic VS ordering. (2b) shows an equally acceptable SV-ordering of the same sentence.	page 2
+§2	John Lyon	name	N. Mattina	Nancy Mattina, aspect and category in Okanagan word formation (1996) and Moses-Columbian DPs (2006)
+(2a) line 1	Okanagan	segmentation	xʷ-xʷís-t iʔ tkɬmílxʷ.	page 2, the form over its gloss
+(2a) line 2	John Lyon	citation	(HC)	page 2, the speaker's initials at the right
+(2a) line 3	Okanagan	gloss	IRED-walk-STAT DET woman	page 2, the gloss
+(2a) line 4	John Lyon	translation	The woman started walking.	page 2, the translation
+(2b) line 1	Okanagan	transcription	iʔ tkɬmílxʷ xʷxʷíst.	page 2, the form, given with no gloss
+(2b) line 2	John Lyon	citation	(LL)	page 2, the speaker's initials at the right
+§2	John Lyon	note	For transitive predicates with two overt nominal DP arguments, SVO is the preferred word order. as in (3a). VSO is equally acceptable (3b). While a VOS interpretation of (3b) is not possible, VOS interpretations are possible in cases where the subject is animate and the object inanimate (A. Mattina 2004). An OVS interpretation of (3a) is not possible.	page 3
+§2	John Lyon	name	A. Mattina	Anthony Mattina, Colville grammar (1973), The Golden Woman (1985), Okanagan aspect (1993), to-be and intentional forms (1996), sandhi (2000), the transitive sentence (2004)
+(3a) line 1	Okanagan	segmentation	iʔ sámaʔ wik-s iʔ xíxwtəm	page 3, the form over its gloss
+(3a) line 2	John Lyon	citation	(JL)	page 3, the speaker's initials at the right
+(3a) line 3	Okanagan	gloss	DET white.person see-(DIR)-3SG.ERG DET little.girl	page 3, the gloss
+(3a) line 4	John Lyon	translation	The white person saw the girl. / *The girl saw the white person.	page 3, the translation
+(3b) line 1	Okanagan	segmentation	wik-s iʔ xíxwtəm iʔ sámaʔ	page 3, the form over its gloss
+(3b) line 2	John Lyon	citation	(JL)	page 3, the speaker's initials at the right
+(3b) line 3	Okanagan	gloss	see-(DIR)-3SG.ERG DET little.girl DET white.person	page 3, the gloss
+(3b) line 4	John Lyon	translation	The little girl saw the white person / *The white person saw the girl.	page 3, the translation
+§2	John Lyon	note	Topicalized, object-initial structures are permissible if the subject is pronominal (cf Gardiner 1993 for discussion of similar cases in Shuswap):	page 3
+§2	John Lyon	name	Gardiner	Dwight Gardiner, preverbal positions in Shuswap (1993)
+§2	John Lyon	language	Shuswap	Northern Interior Salish
+(4) line 1	Okanagan	segmentation	iʔ sámaʔ wík-ən.	page 3, the form over its gloss
+(4) line 2	John Lyon	citation	(SM,LL)	page 3, the speaker's initials at the right
+(4) line 3	Okanagan	gloss	DET white person see-(DIR)-1SG.ERG	page 3, the gloss
+(4) line 4	John Lyon	translation	I saw a white person.	page 3, the translation
+§2	John Lyon	note	Arguments of transitive and intransitive predicates require an introductory particle, usually the determiner iʔ, as in (2-4). Oblique arguments of intransitive predicates are introduced by the oblique marker t, as in (5a,b) (cf N. Mattina 1996:45).	page 3
+(5a) line 1	Okanagan	segmentation	kn k’ʷúl̕-əm t latáp.	page 3, the form over its gloss
+(5a) line 2	John Lyon	citation	(RS)	page 3, the speaker's initials at the right
+(5a) line 3	Okanagan	gloss	1SG.ABS make-MID t table	page 3, the gloss
+(5a) line 4	John Lyon	translation	I'm making a table.	page 3, the translation
+(5b) line 1	Okanagan	segmentation	kn s-c-ƛ̕aʔ-ƛ̕aʔ-míxaʔx t k̕íwlx-íɬxʷ.	page 3, the form over its gloss
+(5b) line 2	John Lyon	citation	(LL)	page 3, the speaker's initials at the right
+(5b) line 3	Okanagan	gloss	1SG.ABS NOM-CUST-look.for-INCEPT t old-house	page 3, the gloss
+(5b) line 4	John Lyon	translation	I’m looking for an old house.	page 3, the translation
+§2	John Lyon	note	Patients of ditransitives (6a), adverbial adjuncts (6b), agents of passive predicates (6c), and nominals marked as instrumental (6d) are also introduced by t. The determiner iʔ sometimes co-occurs with t before a passive agent and before a nominal marked as instrumental.2	page 3
+footnote 2	John Lyon	note	t is not a determiner, since it may co-occur with iʔ. t-oblique nominals do, however, seem to share certain semantic commonalities with narrow-scope k-type DPs in the Northern Interior languages (cf Matthewson 1999), but a detailed investigation of these similarities is beyond the scope of this paper.	page 3, footnote 2
+(6a) line 1	Okanagan	segmentation	cuʔkʷ-xt-m-ən t ʔaʔúsaʔ.	page 4, the form over its gloss
+(6a) line 2	John Lyon	citation	(LL)	page 4, the speaker's initials at the right
+(6a) line 3	Okanagan	gloss	bring-DITR-2SG.ACC-1SG.ERG t egg	page 4, the gloss
+(6a) line 4	John Lyon	translation	I brought you an egg.	page 4, the translation
+(6b) line 1	Okanagan	segmentation	n-ʔíys-ɬt-ən Mary iʔ automobile-s t spiʔsc̕íɬt.	page 4, the form over its gloss
+(6b) line 2	John Lyon	citation	(LL)	page 4, the speaker's initials at the right
+(6b) line 3	Okanagan	gloss	n-buy-DITR-1SG.ERG Mary DET automobile-3SG.GEN t yesterday	page 4, the gloss
+(6b) line 4	John Lyon	translation	I bought Mary’s car yesterday.	page 4, the translation
+(6c) line 1	Okanagan	segmentation	kíl-nt-əm iʔ t skmxíst.	page 4, the form over its gloss
+(6c) line 2	John Lyon	citation	(LL)	page 4, the speaker's initials at the right
+(6c) line 3	Okanagan	gloss	chase-DIR-PASS DET t bear	page 4, the gloss
+(6c) line 4	John Lyon	translation	He was chased by the bear.	page 4, the translation
+(6d) line 1	Okanagan	segmentation	t̕ʕáp-nt-ís iʔ t s-wl-wlm-ínk.	page 4, the form over its gloss
+(6d) line 2	John Lyon	citation	(JL)	page 4, the speaker's initials at the right
+(6d) line 3	Okanagan	gloss	shoot-DIR-3SG.ERG DET t NOM-IRED-metal-stomach	page 4, the gloss
+(6d) line 4	John Lyon	translation	He shot it with a gun.	page 4, the translation
+§2	John Lyon	note	Subordination in Okanagan takes a variety of forms, only some of which I discuss here. My goal is simply to show that the determiner iʔ and oblique marker t do not play the role of complementizer. This fact contrasts with neighboring Thompson, where the present e and irrealis k determiners, as well as the oblique marker t, may all occur in complementizer positions (cf Kroeber 1999:207-211).	page 4
+§2	John Lyon	note	Complementizers in Okanagan are largely optional, unlike in Northern Interior languages (cf Kroeber 1999). One sometimes finds ɬ or ɬaʔ, which A. Mattina (1973:114) describes as being 'sequential complement particles'. (7a) was volunteered without a complementizer. (7b), with complementizer ɬ, was judged good by my speaker.	page 4
+§2	Okanagan	cited form	ɬ	page 4, in italics
+(7a) line 1	Okanagan	segmentation	nɬíp-t-m-ən i-ks-kʷan-ím in-qʷácqn.	page 4, the form over its gloss
+(7a) line 2	John Lyon	citation	(LL)	page 4, the speaker's initials at the right
+(7a) line 3	Okanagan	gloss	forget-DIR-MID-1SG.ERG 1SG.GEN-FUT-take-MID 1SG.GEN-hat	page 4, the gloss
+(7a) line 4	John Lyon	translation	I forgot to get my hat.	page 4, the translation
+(7b) line 1	Okanagan	transcription	nɬíptmən ɬ ikskʷaním inqʷácqn.	page 4, the form, given with no gloss
+(7b) line 2	John Lyon	citation	(JL)	page 4, the speaker's initials at the right
+§2	John Lyon	note	Factive complements allow but do not require a ɬ complementizer, as in (8) below.3 (8a) does not have a complementizer, while (8b) shows the complementizer ɬ intervening between the 1st plural absolutive subject kʷu, and the predicate to which the pronoun would otherwise procliticize, acpapaʔsílx.4	page 4
+footnote 3	John Lyon	note	There may be a regular phonological reduction of ɬ in certain environments. This question merits further investigation.	page 4, footnote 3
+footnote 4	John Lyon	note	When the complementizer intervenes between a proclitic and its host predicate, the proclitic subject apparently has a focused reading (A. Mattina 1973:114).	page 4, footnote 4
+(8a) line 1	Okanagan	segmentation	x̌ast nʕiyp kʷu k-swit-mí-st (iʔ) l nqʷlqʷíltn-tət.	page 4, the form over its gloss
+(8a) line 2	John Lyon	citation	(SM)	page 4, the speaker's initials at the right
+(8a) line 3	Okanagan	gloss	good always 1PL.ABS FUT-try-APPL-CAUS (DET) LOC language-1PL.GEN	page 4, the gloss
+(8a) line 4	John Lyon	translation	It is good that we are trying to do our best at the language.	page 4, the translation
+(8b) line 1	Okanagan	segmentation	x̌ast kʷu ɬ/*iʔ ac-paʔpaʔsílx iʔ k̕l ks-c-xʷuy-tət.	page 5, the form over its gloss
+(8b) line 2	John Lyon	citation	(SM)	page 5, the speaker's initials at the right
+(8b) line 3	Okanagan	gloss	good 1PL.ABS COMP CUST-feel bad DET LOC FUT-CUST-go-1PL.GEN	page 5, the gloss
+(8b) line 4	John Lyon	translation	It's good that we are thinking about where we will be going.	page 5, the translation
+§2	John Lyon	note	We might have expected iʔ to be grammatical as a complementizer in (8b) given that Thompson allows a determiner in this position, but this is ungrammatical.	page 5
+§2	John Lyon	note	Complements to negative predicates do not have ɬ complementizers, as shown in (9). Neither the negative complement clause, nor the complement to the embedded perception predicate nstíls, are introduced by a complementizer.5	page 5
+footnote 5	John Lyon	note	See A. Mattina (2000) for a discussion the emphatic particle t̕(a)/t̕(i), which often introduces a negative complement clause, but is absent in (9). Also, A. Mattina (1996:239) discusses "negative request verb forms" in Okanagan, which take ks- future: e.g. lut aksʔíɬən "Don't eat". Subsequent discussion (p. 246) introduces similar Shuswap forms, e.g. táʔwəs k skɬékst "Don't let go!", where the complement of the negative predicate táʔwəs is introduced by irrealis determiner k. A. Mattina seems to imply that there may be a historical connection between k-type determiners in the Northern Interior and /k/ in Okanagan future ks-.	page 5, footnote 5
+§2	Okanagan	cited form	nstíls	page 5, in italics
+(9) line 1	Okanagan	segmentation	lut [kn nstils [ixíʔ t k̕ʷúl̕-s Norman.]]	page 5, the form over its gloss
+(9) line 2	John Lyon	citation	(LL)	page 5, the speaker's initials at the right
+(9) line 3	Okanagan	gloss	NEG 1SG.ABS think DEM t make-3SG.GEN Norman	page 5, the gloss
+(9) line 4	John Lyon	translation	I don't think that Norman made that.6	page 5, the translation
+footnote 6	John Lyon	note	¬[I think [That is Norman's making.]	page 5, footnote 6
+§2	John Lyon	note	Complements of perception predicates disallow the complementizer ɬ (10a,b). These sentences also illustrate how the oblique particle t does not function as a complementizer in Upper Nicola Okanagan, unlike in Thompson.	page 5
+(10a) line 1	Okanagan	segmentation	kn nstíls-əm (*iʔ,*ɬ, *t) x̌mínk-əm t kɬ-citxʷ-s.	page 5, the form over its gloss
+(10a) line 2	John Lyon	citation	(LL)	page 5, the speaker's initials at the right
+(10a) line 3	Okanagan	gloss	1SG.ABS think-MID want-MID t UNR.POSS-house-3SG.GEN	page 5, the gloss
+(10a) line 4	John Lyon	translation	I thought he wanted a house.	page 5, the translation
+(10b) line 1	Okanagan	segmentation	kn nstíls (*iʔ *ɬ, *t) ks-məqʷ-qʷ-míxaʔx.	page 5, the form over its gloss
+(10b) line 2	John Lyon	citation	(LL)	page 5, the speaker's initials at the right
+(10b) line 3	Okanagan	gloss	1SG.ABS think FUT-snow-FRED-INCEPT	page 5, the gloss
+(10b) line 4	John Lyon	translation	I think it's going to snow.	page 5, the translation
+§2	John Lyon	note	Kroeber (1999:233) states that t sometimes introduces perception complements in Okanagan, but Upper Nicola speakers evidently do not use this strategy. Causal complements7 (11) and complements of conditionals (12) are often introduced by the locative tl ‘from’ (cf Kroeber 1999:236).8 Unlike locative case DPs, a determiner may not precede the locative (11a). Also, for conditional complements at least, tl is optional (12a).	page 5
+footnote 7	John Lyon	note	Thompson introduces causal complements with oblique t and determiner e (Kroeber 1999:210).	page 5, footnote 7
+footnote 8	John Lyon	note	(11) also illustrates how subordinate clause predicates may either take possessor (genitive) subject morphology (11a) or ergative morphology (11b). (cf Kroeber 1999:239)	page 5, footnote 8
+(11a) line 1	Okanagan	segmentation	kn t̕uk̕ʷ-ncút (*iʔ) tl i-s-ʔáyx̌ʷt.	page 6, the form over its gloss
+(11a) line 2	John Lyon	citation	(LL)	page 6, the speaker's initials at the right
+(11a) line 3	Okanagan	gloss	1SG.ABS lay.down-RFLX (*DET) LOC 1SG.GEN-NOM-tired	page 6, the gloss
+(11a) line 4	John Lyon	translation	I laid down because I was tired.	page 6, the translation
+(11b) line 1	Okanagan	segmentation	x̌ast i-s-puʔús tl ɬ-xʷuy-st-s iʔ tum̓-s.	page 6, the form over its gloss
+(11b) line 2	John Lyon	citation	(LL)	page 6, the speaker's initials at the right
+(11b) line 3	Okanagan	gloss	good 1SG.GEN-NOM-heart LOC LOC-go-CAUS-3ERG DET mother-3SG.GEN	page 6, the gloss
+(11b) line 4	John Lyon	translation	I’m glad because she took her mother home.	page 6, the translation
+(12a) line 1	Okanagan	segmentation	cəm̓ ƛ̕awt iʔ scwar̓ (tl) lut kʷ ɬaʔ marúsəm.	page 6, the form over its gloss
+(12a) line 2	John Lyon	citation	(LL)	page 6, the speaker's initials at the right
+(12a) line 3	Okanagan	gloss	EPIS go.out DET fire (LOC) NEG 2SG.ABS COMP build.the.fire	page 6, the gloss
+(12a) line 4	John Lyon	translation	The fire will go out if you don’t put on more wood.	page 6, the translation
+(12b) line 1	Okanagan	segmentation	cəm̓ kʷ k̕iˑy̓t tl s-mqʷaqʷ-s.	page 6, the form over its gloss
+(12b) line 2	John Lyon	citation	(LL)	page 6, the speaker's initials at the right
+(12b) line 3	Okanagan	gloss	EPIS 2SG.ABS cold LOC NOM-snow-FRED-3SG.GEN	page 6, the gloss
+(12b) line 4	John Lyon	translation	You’ll get cold if it snows.	page 6, the translation
+§2	John Lyon	note	Upper Nicola speakers also use a form kʷaʔ as a complementizer for causal subordinate clauses (cf Kroeber 1999:354 and A. Mattina 1985:stanza421).9	page 6
+footnote 9	John Lyon	note	kʷaʔ and tl seem interchangeable in some sentences, but not in others. It is unclear to me how the two differ.	page 6, footnote 9
+(13a) line 1	Okanagan	segmentation	kn t̕uk̕ʷ-ncút kʷaʔ/*iʔ kn s-ʔáyx̌ʷ-t.	page 6, the form over its gloss
+(13a) line 2	John Lyon	citation	(LL)	page 6, the speaker's initials at the right
+(13a) line 3	Okanagan	gloss	1SG.ABS lay.down-RFLX COMP 1SG.ABS STAT-tired-STAT	page 6, the gloss
+(13a) line 4	John Lyon	translation	I laid down because I was tired.	page 6, the translation
+(13b) line 1	Okanagan	segmentation	t̕uk̕ʷ-ncút kʷaʔ ʔiɬ-s yaʔyáʕt iʔ lasup.	page 6, the form over its gloss
+(13b) line 2	John Lyon	citation	(LL)	page 6, the speaker's initials at the right
+(13b) line 3	Okanagan	gloss	lay.down-RFLX COMP eat-(TR)-3SG.ERG all DET soup	page 6, the gloss
+(13b) line 4	John Lyon	translation	She laid down because she ate all the soup.	page 6, the translation
+§2	John Lyon	note	One of the few environments where the complementizer might be required in Upper Nicola Okanagan is for interrogative complements (14).	page 6
+(14a) line 1	Okanagan	segmentation	kʷu síw-nt ɬ i-ks-xʷuy.	page 6, the form over its gloss
+(14a) line 2	John Lyon	citation	(LL)	page 6, the speaker's initials at the right
+(14a) line 3	Okanagan	gloss	1SG.ABS ask-DIR COMP 1SG.GEN-FUT-go	page 6, the gloss
+(14a) line 4	John Lyon	translation	He asked me if I was going to go.	page 6, the translation
+(14b) line 1	Okanagan	segmentation	siw-ən i-s-n-ylmíxʷm ɬ i-ks-sxʷm̓aʔm̓áyaʔm.	page 6, the form over its gloss
+(14b) line 2	John Lyon	citation	(LL)	page 6, the speaker's initials at the right
+(14b) line 3	Okanagan	gloss	ask-1SG.ERG 1SG.GEN-NOM-LOC-chief COMP 1SG.GEN-FUT-teacher	page 6, the gloss
+(14b) line 4	John Lyon	translation	I asked my boss if I could be the teacher.	page 6, the translation
+§2	John Lyon	note	It remains to be seen what the semantics of the ɬ complementizer are in Okanagan, and whether or not it contributes any meaning when it is optional.	page 6
+§2	John Lyon	note	The determiner iʔ and oblique marker t, are notably absent from the inventory of particles introducing subordinate clauses in Okanagan. N. Mattina (1996:57) lists a potential counterexample, given below as (15) with her original morpheme glosses retained:	page 6
+(15) line 1	Okanagan	segmentation	cxʷuyʔilx uɬ nʕ̕iyp c-myst-ís iʔ sqilxʷ	page 7, the form over its gloss
+(15) line 2	Okanagan	gloss	many.come and always CUST-know-3ERG DET people	page 7, the gloss
+(15) line 3	Okanagan	segmentation	iʔ s-t̕əcxʷuy-s iʔ sámaʔ	page 7, the form over its gloss
+(15) line 4	Okanagan	gloss	SB NEUT-arrive-3SG.GEN DET whiteman	page 7, the gloss
+(15) line 5	John Lyon	translation	They kept coming and the Indian people knew all along that the white people were coming.	page 7, the translation
+§2	John Lyon	note	N. Mattina glosses the bolded determiner in (15) as a 'subordinator', suggesting that iʔ here has a function similar to complementizer ɬ, but I think it is possible to analyze the determiner as introducing a complex possessed DP, which is the object argument of the main predicate, cmystís. (15) might then translate similarly as ...All along the Indian people knew the white people's coming. Here is some evidence for my analysis:	page 7
+§2	Okanagan	cited form	cmystís	page 7, in italics
+§2	Okanagan	cited form	iʔ	page 7, in italics
+§2	John Lyon	note	I gave a similar English sentence to Upper Nicola Okanagan speakers. The Okanagan form (16a) was volunteered first with a bare complement clause, and then with complementizer ɬaʔ. iʔ is not grammatical as a complementizer (16b), as shown by the infelicity of the intended reading.	page 7
+§2	John Lyon	language	English	the translations
+(16a) line 1	Okanagan	segmentation	iʔ sqilxʷ ac-my-st-ís (ɬaʔ) t̕əc-xʷuy iʔ sm-sámaʔ.	page 7, the form over its gloss
+(16a) line 2	John Lyon	citation	(LL)	page 7, the speaker's initials at the right
+(16a) line 3	Okanagan	gloss	DET people CUST-know-CAUS-3ERG (COMP) LOC-go DET IRED-white.person	page 7, the gloss
+(16a) line 4	John Lyon	translation	The Indian people knew that the white people were coming.	page 7, the translation
+(16b) line 1	Okanagan	transcription	iʔ sqilxʷ acmystís iʔ t̕əcxʷuy iʔ smsámaʔ.	page 7, the form, given with no gloss
+(16b) line 2	John Lyon	citation	(JL)	page 7, the speaker's initials at the right
+(16b) line 3	John Lyon	translation	*Intended: The Indian people knew that the white people were coming.	page 7, the intended reading
+(16b) line 4	John Lyon	translation	Actual: The Indian people knew the white men that were coming.	page 7, the actual reading
+§2	John Lyon	note	Note that the embedded predicate t̕əcxʷuy in (16a,b) is not inflected for the 3rd person possessor subject -s, as in (15). If iʔ were funtioning as a complementizer in (15), we might then expect the intended reading of (16b), with a non-inflected embedded predicate, to be felicitous, just as in (16a) with complementizer ɬaʔ. (16b) however has a different meaning: The Indian people knew the white men that were coming. In other words, (16b) is a pre- posed relative clause.	page 7
+§2	Okanagan	cited form	-s	page 7, in italics
+§2	John Lyon	note	To summarize, Okanagan differs from other Interior Salish languages such as Thompson because determiner iʔ and the oblique marker t do not function as complementizers, Both these particles are used in nominal modification structures. For the Upper Nicola dialect at least, we can use this complementary distribution as a diagnostic to distinguish relative clauses and attributive modification from other structures involving clausal subordination.	page 7
+§3	John Lyon	heading	3 Introducing Nominal Modification in Okanagan	page 7
+§3	John Lyon	note	This section introduces prototypical attributive modification and relative clause structures, and introduces the problem of formally distinguishing these as separate classes in Okanagan.	page 7
+§3.1	John Lyon	heading	3.1 Okanagan Attributive Modification Basics	page 8
+§3.1	John Lyon	note	One function of oblique t that is of immediate concern to the aims of this paper is its use as a DP-internal nominal attributive marker. Its function appears to be that of 'linking' the nominal head to an adjective-like, unaccusative modifier (cf Davis, Lai & Matthewson 1997). In (17a), the modifier q̓ʷúct 'fat' is modifying q̓ʷiʕálqs 'black-robe (priest)'. The modifier must precede the nominal, as in (17a). I refer to these structures as complex DPs. A head-initial ordering (17b) is not grammatical.	page 8
+(17a) line 1	Okanagan	segmentation	[iʔ q̓ʷuct t q̓ʷʕay-lqs]DP tali c-ʔilxʷt.	page 8, the form over its gloss, the DP after the bracket a subscript, set on the line as the text layer has it
+(17a) line 2	John Lyon	citation	(LL)	page 8, the speaker's initials at the right
+(17a) line 3	Okanagan	gloss	DET fat t black-robe very CUST-hungry	page 8, the gloss
+(17a) line 4	John Lyon	translation	The fat priest is very hungry.	page 8, the translation
+(17b) line 1	Okanagan	transcription	*[iʔ q̓ʷʕay-lqs t q̓ʷuct]DP tali cʔilxʷt.	page 8, the form, given with no gloss, the DP after the bracket a subscript, set on the line as the text layer has it
+(17b) line 2	John Lyon	citation	(JL)	page 8, the speaker's initials at the right
+§3.1	John Lyon	note	Predicate nominals may also be modified (18a). I call these structures complex nominal predicates (CNPs) (following ibid).	page 8
+(18a) line 1	Okanagan	segmentation	x̌ast t tkɬmilxʷ iʔ ylmíxʷm-tət.	page 8, the form over its gloss
+(18a) line 2	John Lyon	citation	(LL)	page 8, the speaker's initials at the right
+(18a) line 3	Okanagan	gloss	good t woman DET chief-1PL.GEN	page 8, the gloss
+(18a) line 4	John Lyon	translation	Our chief is a good woman.	page 8, the translation
+(18b) line 1	Okanagan	transcription	*tkɬmilxʷ t x̌ast iʔ ylmíxʷmtət.	page 8, the form, given with no gloss
+(18b) line 2	John Lyon	citation	(JL)	page 8, the speaker's initials at the right
+§3.1	John Lyon	note	Like complex DPs, head-final ordering is required within a CNP structure.10,11	page 8
+footnote 10	John Lyon	note	Structures analogous to (17) and (18) are found in Shuswap and Lillooet (Davis, Lai & Matthewson 1997), as well as in Thompson, where the attributive marker t may co-occur with an irrealis determiner k (Koch 2006). Lillooet contrasts with Shuswap, Thompson, and Okanagan by having no oblique marker t(ə) in this environment, but only an optional, irrealis determiner ku. Assuming that the Thompson pattern reflects an earlier stage of Interior Salish, this implies both that oblique t has been lost in this environment in Lillooet (Davis, p.c.), and that the k-determiner has been lost from this particular environment in Shuswap. Okanagan, perhaps taking a similar, localized reduction to its logical conclusion, now has no k-type determiner anywhere in its grammar.	page 8, footnote 10
+footnote 10	Okanagan	cited form	t(ə)	page 8, in italics
+footnote 11	John Lyon	note	Modifiers in CNPs must be individual-level predicates (cf ibid). In Okanagan, stage- level predicates inflected with stative ac- are also allowed in this position. I analyze these as having been coerced to an individual level status. Both stage- and individual- level modifiers are permissible within complex DP structures, however. I will return to this point in section 4.2.	page 8, footnote 11
+§3.1	John Lyon	note	Modifiers of oblique objects of intransitive predicates may either precede (19a) or follow the nominal (19b). I refer to these as complex obliques.	page 8
+(19a) line 1	Okanagan	segmentation	kn wík-əm t k̕ʷəck̕ʷáct t tkɬmílxʷ.	page 8, the form over its gloss
+(19a) line 2	John Lyon	citation	(LL)	page 8, the speaker's initials at the right
+(19a) line 3	Okanagan	gloss	1SG.ABS see-MID t strong t woman	page 8, the gloss
+(19a) line 4	John Lyon	translation	I see a strong woman.	page 8, the translation
+(19b) line 1	Okanagan	transcription	kn wíkəm t tkɬmílxʷ t k̕ʷəck̕ʷáct.	page 9, the form, given with no gloss
+(19b) line 2	John Lyon	citation	(LL)	page 9, the speaker's initials at the right
+§3.1	John Lyon	note	Variable head-modifier ordering is likewise possible for arguments of transitive predicates (20), if a determiner introduces both the head and the modifier. I refer to examples like (20) as Det-Det structures, since determiners introduce both the head and the modifier.	page 9
+(20a) line 1	Okanagan	segmentation	wík-ən iʔ sílxʷaʔ iʔ ylmíxʷum.	page 9, the form over its gloss
+(20a) line 2	John Lyon	citation	(LL)	page 9, the speaker's initials at the right
+(20a) line 3	Okanagan	gloss	see-(TR)-1SG.ERG DET big DET chief	page 9, the gloss
+(20a) line 4	John Lyon	translation	I see the big chief.	page 9, the translation
+(20b) line 1	Okanagan	transcription	wikən iʔ ylmíxʷum iʔ sílxʷaʔ.	page 9, the form, given with no gloss
+(20b) line 2	John Lyon	citation	(LL)	page 9, the speaker's initials at the right
+§3.1	John Lyon	note	(20) is clearly different than a complex DP (cf 17a), and it seems that the choice of iʔ versus t has structural implications.	page 9
+§3.1	John Lyon	note	Reviewing examples (17-20), we see an asymmetry between complex DPs and CNPs on the one hand, and complex oblique objects and Det-Det structures on the other with regards to permissible head-modifier ordering. These differences are summarized in Table 1:	page 9
+Table 1	John Lyon	note	Table 1. Permissible Head-modifier orderings for a subset of Okanagan Modificational Structures	page 9, the table's caption, under it
+Table 1	John Lyon	note	Complex DPs	page 9, a column's head
+Table 1	John Lyon	note	CNPs	page 9, a column's head
+Table 1	John Lyon	note	Complex Obliques	page 9, a column's head
+Table 1	John Lyon	note	Det-Det structures	page 9, a column's head
+Table 1	John Lyon	note	head-final	page 9, the row's head
+Table 1	John Lyon	note	√	page 9, head-final, Complex DPs
+Table 1	John Lyon	note	√	page 9, head-final, CNPs
+Table 1	John Lyon	note	√	page 9, head-final, Complex Obliques
+Table 1	John Lyon	note	√	page 9, head-final, Det-Det structures
+Table 1	John Lyon	note	head-initial	page 9, the row's head
+Table 1	John Lyon	note	*	page 9, head-initial, Complex DPs
+Table 1	John Lyon	note	*	page 9, head-initial, CNPs
+Table 1	John Lyon	note	√	page 9, head-initial, Complex Obliques
+Table 1	John Lyon	note	√	page 9, head-initial, Det-Det structures
+§3.1	John Lyon	note	All of the modifiers in the examples in this section are unaccusative. Next, I will introduce some examples of clausal modification. I assume these cases to be relative clauses, following Kroeber (1999).	page 9
+§3.2	John Lyon	heading	3.2 Okanagan Relative Clause Basics	page 9
+§3.2	John Lyon	note	I adopt the syntactic definition of a relative clause given in Kroeber (1999:252): "Relative clauses are clauses that contain gaps that are co-referent with an NP in a higher clause, and the relative clause serves to restrict the type of entity denoted by the matrix NP." In (21), the bracketed relative clause isck̕ʷúl̕ 'the thing that I made' restricts the type of shirt under discussion. (21) also shows that Okanagan allows variable ordering of the head and the relative clause, which is characteristic of Interior Salish relativization patterns.	page 9
+(21a) line 1	Okanagan	segmentation	iʔ lasmíst (iʔ) [i-s-c-k̕ʷúl̕] sl̕-mí-n.	page 9, the form over its gloss
+(21a) line 2	John Lyon	citation	(LL)	page 9, the speaker's initials at the right
+(21a) line 3	Okanagan	gloss	DET shirt (DET)1SG.GEN-NOM-CUST-make lose-APPL-(CAUS)-1SG.ERG	page 9, the gloss
+(21a) line 4	John Lyon	translation	I lost the shirt which I made.	page 9, the translation
+(21b) line 1	Okanagan	transcription	(iʔ) [isck̕ʷúl̕] iʔ lasmíst sl̕mín.	page 9, the form, given with no gloss
+(21b) line 2	John Lyon	citation	(LL)	page 9, the speaker's initials at the right
+§3.2	John Lyon	note	I will refer to (21a) and (21b) respectively as post-nominal, and pre-posed relatives following Davis (2002, 2004).	page 10
+§3.2	John Lyon	note	The clausal determiners in (21) are phonologically null as part of a regular process that deletes them before 1st and 2nd person possessive morphemes (in- and an-) (N. Mattina 2006:113). The determiner iʔ will also regularly change to a before customary/stative prefix (a)c- (A. Mattina 2000:151), as in unaccusatively modified (22a). I assume that the second determiner in (22a) has coalesced with the following prefix, since it may emerge before (a)c- in slow speech contexts (22b).	page 10
+§3.2	Okanagan	cited form	in-	page 10, in italics
+§3.2	Okanagan	cited form	an-	page 10, in italics
+§3.2	Okanagan	cited form	(a)c-	page 10, in italics
+(22a) line 1	Okanagan	segmentation	qʷəlqʷíl-st-n iʔ sqəltmíxʷ ac-ʔayx̌ʷt.	page 10, the form over its gloss
+(22a) line 2	John Lyon	citation	(LL)	page 10, the speaker's initials at the right
+(22a) line 3	Okanagan	gloss	talk to-CAUS-1SG.ERG DET man STAT-tired	page 10, the gloss
+(22a) line 4	John Lyon	translation	I talked to the man who is tired. / I talked to the tired man.	page 10, the translation
+(22b) line 1	Okanagan	transcription	qʷəlqʷílstn iʔ sqəltmíxʷ iʔ acʔayx̌ʷt.	page 10, the form, given with no gloss
+(22b) line 2	John Lyon	citation	(JL)	page 10, the speaker's initials at the right
+§3.2	John Lyon	note	Further evidence for a phonologically null determiner in this environment is the fact that post-nominal unaccusative modifiers without ac- are always ungrammatical without an introductory determiner:	page 10
+§3.2	Okanagan	cited form	ac-	page 10, in italics
+(23a) line 1	Okanagan	segmentation	*wiken iʔ ylmixʷum silxʷaʔ.	page 10, the form over its gloss
+(23a) line 2	John Lyon	citation	(JL)	page 10, the speaker's initials at the right
+(23a) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG DET chief big	page 10, the gloss
+(23a) line 4	John Lyon	translation	I saw a big chief. / I saw a chief who is big.	page 10, the translation
+(23b) line 1	Okanagan	transcription	wikən iʔ ylmíxʷum iʔ silxʷaʔ.	page 10, the form, given with no gloss
+(23b) line 2	John Lyon	citation	(LL)	page 10, the speaker's initials at the right
+§3.2	John Lyon	note	Returning to relative clauses, pre-nominal (24a) and post-posed (25a) relatives are ungrammatical in Okanagan, similarly to Thompson, but unlike Lillooet. The generalization is that either iʔ or t must introduce both the head and clausal portion of a relative. (24b) also shows that the determiner may surface before clausal modifiers prefixed with customary ac-.	page 10
+(24a) line 1	Okanagan	segmentation	*John kʷn-nú-s iʔ ac-wík-s qáqxʷəlx.	page 10, the form over its gloss
+(24a) line 2	John Lyon	citation	(JL)	page 10, the speaker's initials at the right
+(24a) line 3	Okanagan	gloss	John take-manage.to-(TR)-3ERG DET CUST-see-(DIR)-3ERG fish	page 10, the gloss
+(24a) line 4	John Lyon	translation	John caught the fish that he saw.	page 10, the translation
+(24b) line 1	Okanagan	transcription	John kʷnnús iʔ acwíks iʔ qáqxʷəlx.	page 10, the form, given with no gloss
+(24b) line 2	John Lyon	citation	(LL)	page 10, the speaker's initials at the right
+(25a) line 1	Okanagan	segmentation	*way̓ ʔíɬ-ən iʔ qáqxʷəlx p̓y̓q-nt-ís.	page 10, the form over its gloss
+(25a) line 2	John Lyon	citation	(JL)	page 10, the speaker's initials at the right
+(25a) line 3	Okanagan	gloss	AFFIRM eat-(TR)-1SG.ERG DET fish cook-DIR-3ERG	page 10, the gloss
+(25a) line 4	John Lyon	translation	I ate the fish that he cooked.	page 10, the translation
+(25b) line 1	Okanagan	transcription	way̓ ʔíɬən iʔ qáqxʷəlx iʔ p̓y̓qəntís.	page 10, the form, given with no gloss
+(25b) line 2	John Lyon	citation	(LL)	page 10, the speaker's initials at the right
+§3.2	John Lyon	note	Headless relatives are also possible in Okanagan, as in other Salish languages:	page 10
+(26a) line 1	Okanagan	segmentation	kaʔkíc-ən (iʔ) ac-sl̕-mí-st-ən (iʔ) in-kəwáp.	page 11, the form over its gloss
+(26a) line 2	John Lyon	citation	(LL)	page 11, the speaker's initials at the right
+(26a) line 3	Okanagan	gloss	find-1SG.ERG (DET) CUST-lose-APPL-CAUS-1SG.ERG (DET)1SG.GEN-horse	page 11, the gloss
+(26a) line 4	John Lyon	translation	I found my horse that I lost.	page 11, the translation
+(26b) line 1	Okanagan	segmentation	kaʔkíc-ən (iʔ) ac-sl̕-mí-st-ən ∅.	page 11, the form over its gloss
+(26b) line 2	John Lyon	citation	(LL)	page 11, the speaker's initials at the right
+(26b) line 3	Okanagan	gloss	find-1SG.ERG (DET) CUST-lose-APPL-CAUS-1SG.ERG	page 11, the gloss
+(26b) line 4	John Lyon	translation	I found (what) I lost.	page 11, the translation
+§3.2	John Lyon	note	I compare permissible head-modifier orderings for Okanagan relatives with those of Northern Interior languages Lillooet and Thompson in Table 2.	page 11
+Table 2	John Lyon	note	Table 2. Possible Relative Clause Configurations in Lillooet, Thompson, and Okanagan12	page 11, the table's caption, under it
+footnote 12	John Lyon	note	Davis (p.c.) suggests that Okanagan's pattern represents "the canonical Interior system". Lillooet is 'transitional', in the sense that particles may or may not introduce the clause and/or head. Central Salish languages disallow post-nominal and pre-posed relatives.	page 11, footnote 12
+Table 2	John Lyon	note	clause type	page 11, a column's head
+Table 2	John Lyon	note	configuration	page 11, a column's head
+Table 2	John Lyon	note	Lillooet	page 11, a column's head
+Table 2	John Lyon	note	Thompson	page 11, a column's head
+Table 2	John Lyon	note	Okanagan	page 11, a column's head
+Table 2	John Lyon	note	pre-nominal	page 11, the row's head
+Table 2	John Lyon	note	[D1 [clause NP]]	page 11, pre-nominal, configuration
+Table 2	John Lyon	note	√	page 11, pre-nominal, Lillooet
+Table 2	John Lyon	note	*	page 11, pre-nominal, Thompson
+Table 2	John Lyon	note	*	page 11, pre-nominal, Okanagan
+Table 2	John Lyon	note	post-posed	page 11, the row's head
+Table 2	John Lyon	note	[D1 [NP clause]]	page 11, post-posed, configuration
+Table 2	John Lyon	note	√	page 11, post-posed, Lillooet
+Table 2	John Lyon	note	*	page 11, post-posed, Thompson
+Table 2	John Lyon	note	*	page 11, post-posed, Okanagan
+Table 2	John Lyon	note	post-nominal	page 11, the row's head
+Table 2	John Lyon	note	[D1[NP [D2 clause]]	page 11, post-nominal, configuration
+Table 2	John Lyon	note	√	page 11, post-nominal, Lillooet
+Table 2	John Lyon	note	√	page 11, post-nominal, Thompson
+Table 2	John Lyon	note	√	page 11, post-nominal, Okanagan
+Table 2	John Lyon	note	pre-posed	page 11, the row's head
+Table 2	John Lyon	note	[D1 clause D2 NP]	page 11, pre-posed, configuration
+Table 2	John Lyon	note	*	page 11, pre-posed, Lillooet
+Table 2	John Lyon	note	√	page 11, pre-posed, Thompson
+Table 2	John Lyon	note	√	page 11, pre-posed, Okanagan
+§3.2	John Lyon	note	Finally, in contrast to Northern Interior languages, there is no distinct inflectional paradigm which is characteristic of relative clauses in Okanagan (cf Kroeber 1999:304). Either ergative subject morphology (e.g. 24-26) or nominalization with possessor (genitive) subject morphology (e.g. 21) may be used, but both of these paradigms are found in main clauses as well.13,14	page 11
+footnote 13	John Lyon	note	Sometimes minimal-pair sentences are possible, which differ only by subject inflection on the relativized predicate. Consultants comments suggest that there are differences in meaning, the nature of which seem to be primarily temporal/aspectual. I do not address these problems in this paper.	page 11, footnote 13
+footnote 14	John Lyon	note	For discussion of the different inflectional paradigms in Okanagan, see for example A. Mattina (1993) or N. Mattina (1996).	page 11, footnote 14
+§3.2	John Lyon	note	Okanagan relative clauses, and unaccusatively modified Det-Det structures, both exhibit free head-modifier orderings. So far, the only apparent difference between the two is the semantic type of the modifier. Is it possible that Det-Det structures like (20) are relative clauses, structurally speaking?	page 11
+§3.2	John Lyon	note	I follow Heim & Kratzer (1998:96) for English (and Koch (2006) for Thompson) in assuming the following semantic distinction between relative clauses and attributive modification: A relative clause by definition utilizes a rule of predicate abstraction, whereas attributive modification simply involves a rule of predicate modification (Heim & Kratzer 1998:65). After surveying a wide range of data in the next section, I will identify some morpho-syntactic evidence for motivating this semantic distinction in Okanagan, which in turn suggests that Det-Det structures may be structurally distinct from relatives.	page 11
+§3.2	John Lyon	name	Heim & Kratzer	Irene Heim and Angelika Kratzer, Semantics in Generative Grammar (1998)
+§4	John Lyon	heading	4 Examining the Distribution of iʔ and t in Nominal Modification	page 12
+§4	John Lyon	note	In Okanagan, there are six logically possible surface patterns involving determiner iʔ and oblique marker t in their capacity of introducing heads and modifiers in nominal modification structures. For two of these patterns, iʔ and t co-occur. Each pattern also varies by whether the nominal head precedes or follows the modifier: These six patterns are summarized in Table 3.	page 12
+Table 3	John Lyon	note	Table 3. Surface Patterns Displayed by Head/Modifier Introductory Particles in Okanagan Nominal Modification Structures	page 12, the table's caption, under it
+Table 3	John Lyon	note	Pattern	page 12, a column's head
+Table 3	John Lyon	note	HEAD-INITIAL	page 12, a column's head
+Table 3	John Lyon	note	HEAD-FINAL	page 12, a column's head
+Table 3	John Lyon	note	before nominal	page 12, a column's head under HEAD-INITIAL
+Table 3	John Lyon	note	before modifier	page 12, a column's head under HEAD-INITIAL
+Table 3	John Lyon	note	before modifier	page 12, a column's head under HEAD-FINAL
+Table 3	John Lyon	note	before nominal	page 12, a column's head under HEAD-FINAL
+Table 3	John Lyon	note	1	page 12, the row's head, the pattern's number
+Table 3	Okanagan	cited form	iʔ	page 12, Pattern 1, HEAD-INITIAL before nominal
+Table 3	Okanagan	cited form	iʔ	page 12, Pattern 1, HEAD-INITIAL before modifier
+Table 3	Okanagan	cited form	iʔ	page 12, Pattern 1, HEAD-FINAL before modifier
+Table 3	Okanagan	cited form	iʔ	page 12, Pattern 1, HEAD-FINAL before nominal
+Table 3	John Lyon	note	2	page 12, the row's head, the pattern's number
+Table 3	Okanagan	cited form	iʔ	page 12, Pattern 2, HEAD-INITIAL before nominal
+Table 3	Okanagan	cited form	t	page 12, Pattern 2, HEAD-INITIAL before modifier
+Table 3	Okanagan	cited form	iʔ	page 12, Pattern 2, HEAD-FINAL before modifier
+Table 3	Okanagan	cited form	t	page 12, Pattern 2, HEAD-FINAL before nominal
+Table 3	John Lyon	note	3	page 12, the row's head, the pattern's number
+Table 3	Okanagan	cited form	iʔ	page 12, Pattern 3, HEAD-INITIAL before nominal
+Table 3	Okanagan	cited form	iʔ t	page 12, Pattern 3, HEAD-INITIAL before modifier
+Table 3	John Lyon	note	iʔ t15	page 12, Pattern 3, HEAD-FINAL before modifier, the particles iʔ t and the mark of footnote 15
+footnote 15	John Lyon	note	The head-final versions of pattern 3 and 6 are not written as iʔ modifier - iʔ t nominal and t modifier - iʔ t nominal, which would otherwise follow from the general pattern in	page 12, footnote 15
+Table 3	Okanagan	cited form	iʔ	page 12, Pattern 3, HEAD-FINAL before nominal
+Table 3	John Lyon	note	4	page 12, the row's head, the pattern's number
+Table 3	Okanagan	cited form	t	page 12, Pattern 4, HEAD-INITIAL before nominal
+Table 3	Okanagan	cited form	t	page 12, Pattern 4, HEAD-INITIAL before modifier
+Table 3	Okanagan	cited form	t	page 12, Pattern 4, HEAD-FINAL before modifier
+Table 3	Okanagan	cited form	t	page 12, Pattern 4, HEAD-FINAL before nominal
+Table 3	John Lyon	note	5	page 12, the row's head, the pattern's number
+Table 3	Okanagan	cited form	t	page 12, Pattern 5, HEAD-INITIAL before nominal
+Table 3	Okanagan	cited form	iʔ	page 12, Pattern 5, HEAD-INITIAL before modifier
+Table 3	Okanagan	cited form	t	page 12, Pattern 5, HEAD-FINAL before modifier
+Table 3	Okanagan	cited form	iʔ	page 12, Pattern 5, HEAD-FINAL before nominal
+Table 3	John Lyon	note	6	page 12, the row's head, the pattern's number
+Table 3	Okanagan	cited form	t	page 12, Pattern 6, HEAD-INITIAL before nominal
+Table 3	Okanagan	cited form	iʔ t	page 12, Pattern 6, HEAD-INITIAL before modifier
+Table 3	John Lyon	note	iʔ t14	page 12, Pattern 6, HEAD-FINAL before modifier, the particles iʔ t and the mark of footnote 14
+Table 3	Okanagan	cited form	t	page 12, Pattern 6, HEAD-FINAL before nominal
+§4	John Lyon	note	The identity of the first particle depends on the transitivity of the main predicate, and so is predictable. Patterns 1-3 will surface for core arguments of formally transitive main predicates, while patterns 4-6 will surface for oblique arguments of formally intransitive main predicates. The identity of the second particle(s) is not so easily predictable, but I will show in this section that it depends in part on whether the particle is introducing a modifier or a head, but also depends on the semantic type of the modifier.	page 12
+§4	John Lyon	note	Next, I will survey data involving the patterns in Table 3 across a range of modifiers of differing semantic types. For each sub-section, I will start with simple unaccusative modifiers, and move through increasingly complex types.	page 12
+§4.1	John Lyon	heading	4.1 Determiner - Determiner (Pattern 1)	page 12
+§4.1	John Lyon	note	Despite data like (20), for non-eventive unaccusative predicates modifying a nominal head, the head normally follows the modifying predicate if a determiner introduces both components. This makes them similar to complex DPs, and constitutes evidence that not all pattern 1 structures are relative clauses: Table 1. This is because iʔ t nominal sequences indicate that the DP has specific argument status, which is a separate use of the sequence (see 6c and 6d for examples). For cases relevant to modification, t will associate with the modifier.	page 12
+(27a) line 1	Okanagan	segmentation	nʔíys-ən iʔ c̕w̓c̕iw̓t iʔ lasmíst.	page 13, the form over its gloss
+(27a) line 2	John Lyon	citation	(LL)	page 13, the speaker's initials at the right
+(27a) line 3	Okanagan	gloss	BUY-(DIR)-1SG.ERG DET clean DET shirt	page 13, the gloss
+(27a) line 4	John Lyon	translation	I bought a shirt that is clean. / I bought a clean shirt.	page 13, the translation
+(27b) line 1	Okanagan	transcription	*nʔíysən iʔ lasmíst iʔ c̕w̓c̕iw̓t.	page 13, the form, given with no gloss
+(27b) line 2	John Lyon	citation	(JL)	page 13, the speaker's initials at the right
+(28a) line 1	Okanagan	segmentation	wík-ən iʔ cəcám̓aʔt iʔ skəkʕákaʔ.	page 13, the form over its gloss
+(28a) line 2	John Lyon	citation	(JL)	page 13, the speaker's initials at the right
+(28a) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG DET small DET birds	page 13, the gloss
+(28a) line 4	John Lyon	translation	I saw the small birds. / I saw the birds that are small.	page 13, the translation
+(28b) line 1	Okanagan	transcription	*wíkən iʔ skəkʕákaʔ iʔ cəcám̓aʔt.	page 13, the form, given with no gloss
+(28b) line 2	John Lyon	citation	(JL)	page 13, the speaker's initials at the right
+(29a) line 1	Okanagan	segmentation	wík-ən iʔ sílxʷaʔ iʔ skəmxíst.	page 13, the form over its gloss
+(29a) line 2	John Lyon	citation	(SM)	page 13, the speaker's initials at the right
+(29a) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG DET big DET bear	page 13, the gloss
+(29a) line 4	John Lyon	translation	I saw a big bear. / I saw a bear that is big.	page 13, the translation
+(29b) line 1	Okanagan	transcription	*wíkən iʔ skəmxíst iʔ sílxʷaʔ.	page 13, the form, given with no gloss
+(29b) line 2	John Lyon	citation	(JL)	page 13, the speaker's initials at the right
+§4.1	John Lyon	note	There may be an animacy effect here, however. If the nominal being modified denotes a human, the modifier may follow the noun (e.g. 20). Such effects are otherwise unattested in Salish, as far as I know, and I currently have no explanation for the nature of this constraint, which is fairly consistent.16	page 13
+footnote 16	John Lyon	note	Animacy effects surface in other areas of the grammar as well: Humans often cannot be referred to as obliques in indefinite contexts, although there are exceptions.	page 13, footnote 16
+§4.1	John Lyon	note	For unergative modifiers, both head-modifier orderings are apparently grammatical, regardless of animacy:	page 13
+(30a) line 1	Okanagan	segmentation	wik-ən iʔ skəkʕákaʔ iʔ t̕əxʷt-ílx.	page 13, the form over its gloss
+(30a) line 2	John Lyon	citation	(LL)	page 13, the speaker's initials at the right
+(30a) line 3	Okanagan	gloss	see-(TR)-1SG.ERG DET birds DET fly-body	page 13, the gloss
+(30a) line 4	John Lyon	translation	I saw the flying birds. / I saw the birds that are flying.	page 13, the translation
+(30b) line 1	Okanagan	transcription	wíkən iʔ t̕əxʷtílx iʔ skəkʕákaʔ.	page 13, the form, given with no gloss
+(30b) line 2	John Lyon	citation	(LL)	page 13, the speaker's initials at the right
+(31a) line 1	Okanagan	segmentation	wík-ən iʔ tətwít (iʔ) ac-ɬat̕pm-ncút.	page 13, the form over its gloss
+(31a) line 2	John Lyon	citation	(LL)	page 13, the speaker's initials at the right
+(31a) line 3	Okanagan	gloss	see-(TR)-1SG.ERG DET boy (DET) CUST-jump-RFLX	page 13, the gloss
+(31a) line 4	John Lyon	translation	I saw the boy who jumped. / I saw the jumping boy.	page 13, the translation
+(31b) line 1	Okanagan	transcription	wíkən (iʔ) acɬat̕pmncút iʔ xíxwtəm.	page 13, the form, given with no gloss
+(31b) line 2	John Lyon	citation	(JL)	page 13, the speaker's initials at the right
+§4.1	John Lyon	note	Eventive unaccusative modifiers also display variable head-modifier orderings:	page 13
+(32a) line 1	Okanagan	segmentation	kn-xít-ən iʔ tətwít iʔ tk̕ʷak̕ʷ.	page 13, the form over its gloss
+(32a) line 2	John Lyon	citation	(LL)	page 13, the speaker's initials at the right
+(32a) line 3	Okanagan	gloss	help-DITR-1SG.ERG DET boy DET fall.down	page 13, the gloss
+(32a) line 4	John Lyon	translation	I helped the boy who fell down. / I helped the fallen boy.	page 13, the translation
+(32b) line 1	Okanagan	transcription	knxítən iʔ tk̕ʷak̕ʷ iʔ tətwít.	page 13, the form, given with no gloss
+(32b) line 2	John Lyon	citation	(JL)	page 13, the speaker's initials at the right
+(33a) line 1	Okanagan	segmentation	kn-xít-n iʔ x̌n̓númt iʔ xíxwtəm.	page 14, the form over its gloss
+(33a) line 2	John Lyon	citation	(LL)	page 14, the speaker's initials at the right
+(33a) line 3	Okanagan	gloss	help-DITR-1SG.ERG DET get.hurt DET little.girl	page 14, the gloss
+(33a) line 4	John Lyon	translation	I helped the girl who got hurt. / I helped the hurt girl.	page 14, the translation
+(33b) line 1	Okanagan	transcription	knxítn iʔ xíxwtəm iʔ x̌n̓númt.	page 14, the form, given with no gloss
+(33b) line 2	John Lyon	citation	(LL)	page 14, the speaker's initials at the right
+(33b) line 3	John Lyon	speaker comment	Consultant's Comment: Sounds better than the first.	page 14, under the part
+§4.1	John Lyon	note	For nominalized intransitives inflected with possessor subject marking (i.e. the genitive paradigm), head-modifier ordering is variable. The modifiers in examples (34-35) are inflected as perfectives by the nominalizer and customary prefixes s-c-.	page 14
+§4.1	Okanagan	cited form	s-c-	page 14, in italics
+(34a) line 1	Okanagan	segmentation	cmay ixìʔ iʔ sw̓ar̓ák̕xn (iʔ) i-s-c-wik.	page 14, the form over its gloss
+(34a) line 2	John Lyon	citation	(LL)	page 14, the speaker's initials at the right
+(34a) line 3	Okanagan	gloss	EPIS DEM DET frog (DET) 1SG.GEN-NOM-CUST-see	page 14, the gloss
+(34a) line 4	John Lyon	translation	That might be the frog that I saw.	page 14, the translation
+(34b) line 1	Okanagan	transcription	cmay ixìʔ (iʔ) iscwik iʔ sw̓ar̓ák̕xn.	page 14, the form, given with no gloss
+(34b) line 2	John Lyon	citation	(LL)	page 14, the speaker's initials at the right
+(35a) line 1	Okanagan	segmentation	wik-s iʔ lasmíst iʔ s-c-ɬkim̓-s.	page 14, the form over its gloss
+(35a) line 2	John Lyon	citation	(LL)	page 14, the speaker's initials at the right
+(35a) line 3	Okanagan	gloss	see-(DIR)-3ERG DET shirt DET NOM-CUST-sew-3SG.GEN	page 14, the gloss
+(35a) line 4	John Lyon	translation	He saw the shirt she sewed.	page 14, the translation
+(35b) line 1	Okanagan	transcription	wiks iʔ scɬkim̓s iʔ lasmíst.	page 14, the form, given with no gloss
+(35b) line 2	John Lyon	citation	(JL)	page 14, the speaker's initials at the right
+§4.1	John Lyon	note	For transitive predicate modifiers inflected for ergative subjects, head-modifier ordering is also variable:	page 14
+(36a) line 1	Okanagan	segmentation	ixìʔ wík-ən iʔ s-c-x̌áw̓-səlx iʔ qáqxʷəlx.	page 14, the form over its gloss
+(36a) line 2	John Lyon	citation	(RS)	page 14, the speaker's initials at the right
+(36a) line 3	Okanagan	gloss	DEM see-(TR)-1SG.ERG DET NOM-CUST-dry-(CAUS)-3PL.ERG DET fish	page 14, the gloss
+(36a) line 4	John Lyon	translation	I saw the fish that they were drying.	page 14, the translation
+(36b) line 1	Okanagan	transcription	ixìʔ wíkən iʔ qáqxʷəlx iʔ scx̌áw̓səlx.	page 14, the form, given with no gloss
+(36b) line 2	John Lyon	citation	(JL)	page 14, the speaker's initials at the right
+(37a) line 1	Okanagan	segmentation	wik-ən iʔ t̕ʕap-nt-ís iʔ skəkʕákaʔ.	page 14, the form over its gloss
+(37a) line 2	John Lyon	citation	(LL)	page 14, the speaker's initials at the right
+(37a) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG DET shoot-DIR-3ERG DET birds	page 14, the gloss
+(37a) line 4	John Lyon	translation	I saw the birds that he shot.	page 14, the translation
+(37b) line 1	Okanagan	segmentation	wík-ən iʔ skəkʕákaʔ iʔ t̕ʕap-nt-ísəlx.	page 14, the form over its gloss
+(37b) line 2	John Lyon	citation	(JL)	page 14, the speaker's initials at the right
+(37b) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG DET birds DET shoot-DIR-3PL.ERG	page 14, the gloss
+(37b) line 4	John Lyon	translation	I saw the birds that they shot.	page 14, the translation
+(38a) line 1	Okanagan	segmentation	i-s-c-k̕ʷul̕-əm iʔ lpot iʔ maʕ-ən.	page 14, the form over its gloss
+(38a) line 2	John Lyon	citation	(LL)	page 14, the speaker's initials at the right
+(38a) line 3	Okanagan	gloss	1SG.GEN-NOM-CUST-make-MID DET cup DET break-(TR)-1SG.ERG	page 14, the gloss
+(38a) line 4	John Lyon	translation	I'm fixing the cup I broke.	page 14, the translation
+(38b) line 1	Okanagan	transcription	isck̕ʷul̕əm iʔ maʕən iʔ lpot.	page 14, the form, given with no gloss
+(38b) line 2	John Lyon	citation	(JL)	page 14, the speaker's initials at the right
+(39a) line 1	Okanagan	segmentation	ixìʔ iʔ ylmìxʷum iʔ wík-ən.	page 15, the form over its gloss
+(39a) line 2	John Lyon	citation	(LL)	page 15, the speaker's initials at the right
+(39a) line 3	Okanagan	gloss	DEM DET chief DET see-(TR)-1SG.ERG	page 15, the gloss
+(39a) line 4	John Lyon	translation	That's the chief I saw.	page 15, the translation
+(39b) line 1	Okanagan	segmentation	ixìʔ iʔ wík-ən iʔ sw̓ar̓ák̕xn.	page 15, the form over its gloss
+(39b) line 2	John Lyon	citation	(LL)	page 15, the speaker's initials at the right
+(39b) line 3	Okanagan	gloss	DEM DET see-(TR)-1SG.ERG DET frog	page 15, the gloss
+(39b) line 4	John Lyon	translation	That's the frog I saw.17	page 15, the translation
+footnote 17	John Lyon	note	The near-minimal pair given as (39) shows that relatives with demonstrative main predicates also allow for either ordering. The demonstrative must be the main predicate in (39b), since if the demonstrative were simply the head of the relative clause, we would have to posit a null copula, since the DP iʔ sw̓ar̓ak̕xn "the frog", by hypothesis cannot also function as a predicate.	page 15, footnote 17
+§4.1	John Lyon	note	To summarize this section, both clausal, as well as non-clausal, predicate modifiers of nominal heads allow variable head-modifier ordering. The one exception is with non-eventive unaccusative modifiers and non-human heads, where the modifier must be pre-posed (27-29).	page 15
+§4.1	John Lyon	note	I suggest that this exception may be straightforwardly explained if examples like (27-29) have been re-analyzed as complex DPs. There is some supporting evidence for this analysis in the next section.	page 15
+§4.2	John Lyon	heading	4.2 Determiner - t (Pattern 2)	page 15
+§4.2	John Lyon	note	Recall that for complex DPs, an unaccusative modifier will obligatorily precede the nominal head. Recall also that iʔ predictably introduces a core argument of a transitive main predicate. As such, complex iʔ DPs cannot serve as theme arguments of absolutive-subject main predicates (40a), or ditransitives (41a). In (40b) and (41b), the speaker volunteers complex oblique forms.	page 15
+(40a) line 1	Okanagan	segmentation	*kn wík-əm iʔ qʷʕay t sw̓ar̓ak̕xn.	page 15, the form over its gloss
+(40a) line 2	John Lyon	citation	(JL)	page 15, the speaker's initials at the right
+(40a) line 3	Okanagan	gloss	1SG.ABS see-MID DET blue t frog	page 15, the gloss
+(40a) line 4	John Lyon	translation	I saw a blue frog.	page 15, the translation
+(40b) line 1	Okanagan	transcription	kn wíkəm t qʷʕay t sw̓ar̓ak̕xn.	page 15, the form, given with no gloss
+(40b) line 2	John Lyon	citation	(LL)	page 15, the speaker's initials at the right
+(41a) line 1	Okanagan	segmentation	*xʷíc̕-xt-m-ən iʔ lasmíst t c̕w̓cíw̓t.	page 15, the form over its gloss
+(41a) line 2	John Lyon	citation	(JL)	page 15, the speaker's initials at the right
+(41a) line 3	Okanagan	gloss	give-DITR-2SG.ACC-1SG.ERG DET shirt t clean	page 15, the gloss
+(41a) line 4	John Lyon	translation	I gave you a clean shirt.	page 15, the translation
+(41b) line 1	Okanagan	transcription	xʷíc̕xtmən t c̕w̓c̕íw̓t t lasmíst.	page 15, the form, given with no gloss
+(41b) line 2	John Lyon	citation	(LL)	page 15, the speaker's initials at the right
+§4.2	John Lyon	note	In stark contrast to the pattern 1 unaccusatives, unergatives are disallowed as modifiers in complex DP structures (42a,b).	page 15
+(42a) line 1	Okanagan	segmentation	*wík-ən iʔ t̕əxʷt-ílx t skəkʕákaʔ.	page 16, the form over its gloss
+(42a) line 2	John Lyon	citation	(JL)	page 16, the speaker's initials at the right
+(42a) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG DET flying t birds.	page 16, the gloss
+(42a) line 4	John Lyon	translation	I see the flying birds.	page 16, the translation
+(42a) line 5	John Lyon	note	(cf 30a,b)	page 16, set after the translation
+(42b) line 1	Okanagan	segmentation	*wík-ən (iʔ) ac-ɬat̕pm-ncút t xíxwtəm.18	page 16, the form over its gloss
+footnote 18	John Lyon	note	We will see that (a)c- permits non-eventive stage-level unaccusatives to occur within CNPs. The same is not true for (a)c- prefixed to an unergative. This is because the function of (a)c- is different with unergatives than with unaccusatives. "The prefix c- adds to Okanagan state words a notion 'get/become'. With action words it signals progressive or habitual action." (A. Mattina 1993:241).	page 16, footnote 18
+(42b) line 2	John Lyon	citation	(JL)	page 16, the speaker's initials at the right
+(42b) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG (DET) CUST-jump-RFLX t girl	page 16, the gloss
+(42b) line 4	John Lyon	translation	I see the jumping girl.	page 16, the translation
+(42b) line 5	John Lyon	note	(cf 31,a,b)	page 16, set after the translation
+§4.2	John Lyon	note	Koch (2006:149) discusses a similar finding for Thompson.	page 16
+§4.2	John Lyon	note	The examples in (43) indicate that eventive unaccusatives are also disallowed as modifiers within a complex DP structure. (43c) illustrates how for these cases, the speaker will usually correct to pattern 1.19	page 16
+footnote 19	John Lyon	note	If it is an event variable that prevents unergatives and eventive unaccusatives from occurring as modifiers in complex DP structures, then we may have a straightforward explanation for why only simple, adjectival unaccusatives are acceptable as modifiers in complex DPs. Based on similar data in Thompson, Koch (2006) argues that pre-nominal modifications (i.e. complex DPs) contain less structure than post-nominal modifications (relative clauses), since the former lack vP, TP, and AuxP.	page 16, footnote 19
+(43a) line 1	Okanagan	segmentation	*kn-xít-ən iʔ t̕k̕ʷák̕ʷ t tətwít.	page 16, the form over its gloss
+(43a) line 2	John Lyon	citation	(JL)	page 16, the speaker's initials at the right
+(43a) line 3	Okanagan	gloss	help-DITR-1SG.ERG DET fallen t boy	page 16, the gloss
+(43a) line 4	John Lyon	translation	I helped the fallen boy.	page 16, the translation
+(43a) line 5	John Lyon	note	(cf 31a,b)	page 16, set after the translation
+(43b) line 1	Okanagan	segmentation	*kn-xít-ən iʔ x̌nn̓úmt t xíxwtəm.	page 16, the form over its gloss
+(43b) line 2	John Lyon	citation	(JL)	page 16, the speaker's initials at the right
+(43b) line 3	Okanagan	gloss	help-DITR-1SG.ERG DET hurt t girl	page 16, the gloss
+(43b) line 4	John Lyon	translation	I helped the hurt girl.	page 16, the translation
+(43b) line 5	John Lyon	note	(cf 32a,b)	page 16, set after the translation
+(43c) line 1	Okanagan	segmentation	*wík-ən iʔ yaxʷt t skəkʕákaʔ.	page 16, the form over its gloss
+(43c) line 2	John Lyon	citation	(JL)	page 16, the speaker's initials at the right
+(43c) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG DET fallen t bird	page 16, the gloss
+(43c) line 4	John Lyon	translation	I see the fallen bird.	page 16, the translation
+(43c) line 5	John Lyon	speaker comment	Consultant: wíkən iʔ yaxʷt iʔ skəkʕákaʔ.	page 16, under the part
+(43c) line 6	John Lyon	citation	(LL)	page 16, the speaker's initials at the right of the comment
+§4.2	John Lyon	note	For CNPs, only individual-level unaccusatives are acceptable as modifiers (44a,45a).20 Complex DPs are less stringent, since they do allow stage-level unaccusatives as modifiers (44b,45b):	page 16
+footnote 20	John Lyon	note	See Davis, Lai & Matthewson (1997) for similar data in Lillooet and Shuswap.	page 16, footnote 20
+(44a) line 1	Okanagan	segmentation	təɬtáɬt t ylmíxʷum.	page 16, the form over its gloss
+(44a) line 2	John Lyon	citation	(JL)	page 16, the speaker's initials at the right
+(44a) line 3	John Lyon	note	(individual level)	page 16, set after the initials
+(44a) line 4	Okanagan	gloss	true/straight t chief	page 16, the gloss
+(44a) line 5	John Lyon	translation	He is a straight-forward chief.	page 16, the translation
+(44b) line 1	Okanagan	segmentation	iʔ təɬtáɬt t ylmíxʷm km̓yltəm-s iʔ pəptwínaxʷ	page 17, the form over its gloss
+(44b) line 2	John Lyon	citation	(JL)	page 17, the speaker's initials at the right
+(44b) line 3	Okanagan	gloss	DET true/straight t chief visit-(DIR)-3ERG DET old.woman	page 17, the gloss
+(44b) line 4	John Lyon	translation	The straight-forward chief visited the old woman.	page 17, the translation
+(45a) line 1	Okanagan	segmentation	*qʷím̓əm̓ t sqəltmíxʷ.	page 17, the form over its gloss
+(45a) line 2	John Lyon	citation	(JL)	page 17, the speaker's initials at the right
+(45a) line 3	John Lyon	note	(stage level)	page 17, set after the initials
+(45a) line 4	Okanagan	gloss	frightened t man	page 17, the gloss
+(45a) line 5	John Lyon	translation	He is a frightened man.	page 17, the translation
+(45b) line 1	Okanagan	segmentation	iʔ qʷím̓əm̓ t sqəltmíxʷ km̓yltəm-s iʔ pəptwínaxʷ	page 17, the form over its gloss
+(45b) line 2	John Lyon	citation	(JL)	page 17, the speaker's initials at the right
+(45b) line 3	Okanagan	gloss	DET frightened t man visit-(DIR)-3ERG DET old.woman	page 17, the gloss
+(45b) line 4	John Lyon	translation	The frightened man visited the old woman.	page 17, the translation
+§4.2	John Lyon	note	Comparing ungrammatical (45a) with (46a) below, we see that by prefixing stative ac- to the modifier, the sentence becomes grammatical.21	page 17
+footnote 21	John Lyon	note	See A. Mattina 1993 and N. Mattina 1996 for discussion of the functions of (a)c- as a "customary/habitual" marker, and as a "stative" marker.	page 17, footnote 21
+(46a) line 1	Okanagan	segmentation	ac-qʷim̓əm̓ t sqəltmíxʷ.	page 17, the form over its gloss
+(46a) line 2	John Lyon	citation	(LL)	page 17, the speaker's initials at the right
+(46a) line 3	John Lyon	note	(stage level + ac-)	page 17, set after the initials
+(46a) line 4	Okanagan	gloss	STAT-frightened t man	page 17, the gloss
+(46a) line 5	John Lyon	translation	He is (in the state of being) a frightened man.	page 17, the translation
+(46b) line 1	Okanagan	segmentation	wik-ən iʔ ac-qʷim̓əm̓ t sqəltmíxʷ.	page 17, the form over its gloss
+(46b) line 2	John Lyon	citation	(LL)	page 17, the speaker's initials at the right
+(46b) line 3	Okanagan	gloss	see-(TR)-1SG.ERG DET STAT-frighten t man	page 17, the gloss
+(46b) line 4	John Lyon	translation	I see the frightened man.	page 17, the translation
+§4.2	John Lyon	note	Adding stative ac- to a stage level unaccusative essentially allows that predicate to function as an individual level predicate,22 which in turn allows it to modify a nominal predicate within a CNP structure.	page 17
+footnote 22	John Lyon	note	I expect acqʷim̓əm̓ in (46a) to have a meaning similar to timid. In any case, I have example data from a range of stage-level predicates (in the sense of Carlson 1977) suggesting that ac- makes a class of stage-level predicates grammatical as CNP-internal modifiers.	page 17, footnote 22
+footnote 22	John Lyon	name	Carlson	Gregory Carlson, Reference to Kinds in English (1977)
+§4.2	John Lyon	note	Morphologically speaking, qʷím̓əm̓ 'frightened' (45,46) and t̕k̕ʷák̕ʷ 'fall down' (43a) both involve C2 resultative reduplication, and so by hypothesis both denote resulting states. The following question now arises: Why is it the case that qʷím̓əm̓ is allowed to modify a nominal within a complex DP structure and t̕k̕ʷák̕ʷ is not? I suggest that while stage-level predicates like qʷím̓əm̓ may be coerced into corresponding individual level states by prefixing stative ac-, stage- level predicates like t̕k̕ʷák̕ʷ may not be, since they are irreducibly eventive. This predicts that resultatives like t̕k̕ʷák̕ʷ cannot be prefixed by ac-, and so cannot be a modifier in a CNP structure. This prediction seems to be bourne out:	page 17
+(47a) line 1	Okanagan	segmentation	*kn-xít-ən iʔ ac-tk̕ʷák̕ʷ t xíxwtəm.	page 17, the form over its gloss
+(47a) line 2	John Lyon	citation	(JL)	page 17, the speaker's initials at the right
+(47a) line 3	Okanagan	gloss	help-DITR-1SG.ERG DET STAT-fallen t little.girl	page 17, the gloss
+(47a) line 4	John Lyon	translation	I helped the fallen little girl.	page 17, the translation
+(47a) line 5	John Lyon	note	(cf 43a)	page 17, set after the translation
+(47b) line 1	Okanagan	transcription	knxítən iʔ xíxwtəm iʔ tk̕ʷák̕ʷ.	page 18, the form, given with no gloss
+(47b) line 2	John Lyon	citation	(LL)	page 18, the speaker's initials at the right
+(48a) line 1	Okanagan	segmentation	*kn-xít-ən iʔ ac-x̌nn̓úmt t xíxwtəm.	page 18, the form over its gloss
+(48a) line 2	John Lyon	citation	(JL)	page 18, the speaker's initials at the right
+(48a) line 3	Okanagan	gloss	help-DITR-1SG.ERG DET STAT-hurt t little.girl	page 18, the gloss
+(48a) line 4	John Lyon	translation	I helped the hurt little girl.	page 18, the translation
+(48a) line 5	John Lyon	note	(cf 43b)	page 18, set after the translation
+(48b) line 1	Okanagan	transcription	knxítən iʔ xíxwtəm iʔ x̌nn̓úmt.	page 18, the form, given with no gloss
+(48b) line 2	John Lyon	citation	(LL)	page 18, the speaker's initials at the right
+§4.2	John Lyon	note	Based on the differences between predicates such as qʷím̓əm̓ and tk̕ʷák̕ʷ, I suggest that there are two classes of stage-level predicates in Okanagan. The distinctions are represented by Table 4.	page 18
+Table 4	John Lyon	note	Table 4. Restrictions on Unergative/Unaccusative Modifiers in CNPs and Complex DPs	page 18, the table's caption, under it
+Table 4	John Lyon	note	Unergative	page 18, a column's head
+Table 4	John Lyon	note	Unaccusative	page 18, a column's head
+Table 4	John Lyon	note	Stage Level 1: non-coercible	page 18, a column's head
+Table 4	John Lyon	note	Stage Level 2: coercible	page 18, a column's head
+Table 4	John Lyon	note	w/o ac-	page 18, a column's head
+Table 4	John Lyon	note	with ac-	page 18, a column's head
+Table 4	John Lyon	note	Individual Level	page 18, a column's head
+Table 4	John Lyon	note	CNP	page 18, the row's head
+Table 4	John Lyon	note	*	page 18, CNP, Unergative
+Table 4	John Lyon	note	*	page 18, CNP, Unaccusative, Stage Level 1
+Table 4	John Lyon	note	*	page 18, CNP, Unaccusative, Stage Level 2, w/o ac-
+Table 4	John Lyon	note	√	page 18, CNP, Unaccusative, Stage Level 2, with ac-
+Table 4	John Lyon	note	√	page 18, CNP, Unaccusative, Individual Level
+Table 4	John Lyon	note	Complex DP	page 18, the row's head
+Table 4	John Lyon	note	*	page 18, Complex DP, Unergative
+Table 4	John Lyon	note	*	page 18, Complex DP, Unaccusative, Stage Level 1
+Table 4	John Lyon	note	√	page 18, Complex DP, Unaccusative, Stage Level 2, the cell across w/o ac- and with ac-
+Table 4	John Lyon	note	√	page 18, Complex DP, Unaccusative, Individual Level
+§4.2	John Lyon	note	To summarize, complex DPs do not require that a stage-level modifier be prefixed by ac-, but do require that if the modifier is stage-level, that it is also in principle coercible to an individual level status by ac-. CNPs require ac- stage- level modifiers.23	page 18
+footnote 23	John Lyon	note	Note that individual level predicates simpliciter cannot take ac- either, so the ac- test applies only to stage-level predicates which may be coerced into individual-level states.	page 18, footnote 23
+§4.2	John Lyon	note	Example (49a,50a) show that a head-initial ordering for pattern 2 is ungrammatical. These cases are often corrected to pattern 1 (49b,50b).	page 18
+(49a) line 1	Okanagan	segmentation	*John sqʷlqʷil-t-s iʔ sqəltmíxʷ t t̕ʕap-nt-ís iʔ sƛ̕aʔcínəm.	page 18, the form over its gloss
+(49a) line 2	John Lyon	citation	(JL)	page 18, the speaker's initials at the right
+(49a) line 3	Okanagan	gloss	John talk.to-DIR-3ERG DET man t shoot-DIR-3ERG DET deer	page 18, the gloss
+(49a) line 4	John Lyon	translation	John talked to the man who shot the deer.	page 18, the translation
+(49b) line 1	Okanagan	transcription	John sqʷlqʷilts iʔ sqəltmíxʷ iʔ t̕ʕapntís iʔ ƛ̕aʔcínəm.	page 18, the form, given with no gloss
+(49b) line 2	John Lyon	citation	(LL)	page 18, the speaker's initials at the right
+(50a) line 1	Okanagan	segmentation	*k̕ʷúl̕-ən iʔ yámx̌ʷaʔ t ks-yaʔyáʔx̌aʔ-səlx	page 18, the form over its gloss
+(50a) line 2	John Lyon	citation	(JL)	page 18, the speaker's initials at the right
+(50a) line 3	Okanagan	gloss	make-(TR)-1SG.ERG DET basket t FUT-show-(CAUS)-3PL.ERG	page 18, the gloss
+(50a) line 4	John Lyon	translation	I made the basket that they will show.	page 18, the translation
+(50b) line 1	Okanagan	transcription	k̕ʷúl̕ən iʔ ksyaʔyáʔx̌aʔsəlx iʔ yámx̌ʷaʔ.	page 18, the form, given with no gloss
+(50b) line 2	John Lyon	citation	(LL)	page 18, the speaker's initials at the right
+§4.2	John Lyon	note	Finally, thematically transitive modifiers cannot occur within a complex DP structure (51-53):	page 18
+(51a) line 1	Okanagan	segmentation	*ʔiɬ-ən iʔ s-c-x̌aw̓-səlx t qáqxʷəlx.	page 19, the form over its gloss
+(51a) line 2	John Lyon	citation	(JL)	page 19, the speaker's initials at the right
+(51a) line 3	Okanagan	gloss	eat-(TR)-1SG.ERG DET NOM-CUST-dry-(CAUS)-3PL.ERG t fish	page 19, the gloss
+(51a) line 4	John Lyon	translation	I ate the fish that they are drying.	page 19, the translation
+(51b) line 1	Okanagan	transcription	ʔiɬən iʔ scx̌aw̓səlx iʔ qáqxʷəlx.	page 19, the form, given with no gloss
+(51b) line 2	John Lyon	citation	(LL)	page 19, the speaker's initials at the right
+(52a) line 1	Okanagan	segmentation	*wík-ən (iʔ) ac-k̕ʷúl̕-st-s t sqəlqəltmíxʷ.	page 19, the form over its gloss
+(52a) line 2	John Lyon	citation	(JL)	page 19, the speaker's initials at the right
+(52a) line 3	Okanagan	gloss	see-(TR)-1SG.ERG (DET) CUST-build-CAUS-3SG.ERG t men	page 19, the gloss
+(52a) line 4	John Lyon	translation	I saw what the men were building.	page 19, the translation
+(52b) line 1	Okanagan	transcription	wíkən (iʔ) ack̕ʷúl̕sts iʔ sqəlqəltmíxʷ.	page 19, the form, given with no gloss
+(52b) line 2	John Lyon	citation	(LL)	page 19, the speaker's initials at the right
+(53a) line 1	Okanagan	segmentation	*kn s-c-ƛ̕aʔƛ̕aʔ-míxaʔx iʔ t̕ʕap-nt-ísəlx t skəkʕákaʔ.	page 19, the form over its gloss
+(53a) line 2	John Lyon	citation	(JL)	page 19, the speaker's initials at the right
+(53a) line 3	Okanagan	gloss	1SG.ABS NOM-CUST-look.for-INCEPT DET shoot-DIR-3PL.ERG t birds	page 19, the gloss
+(53a) line 4	John Lyon	translation	I'm looking for some birds that they shot.	page 19, the translation
+(53b) line 1	Okanagan	segmentation	*wik-ən iʔ t̕ʕap-nt-ísəlx t skəkʕákaʔ.	page 19, the form over its gloss
+(53b) line 2	John Lyon	citation	(JL)	page 19, the speaker's initials at the right
+(53b) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG DET shoot-DIR-3PL.ERG t birds	page 19, the gloss
+(53b) line 4	John Lyon	translation	I saw some birds that they shot	page 19, the translation
+(53c) line 1	Okanagan	segmentation	i-s-c-ƛ̕aʔƛ̕aʔ-ám iʔ t̕ʕap-nt-ísəlx iʔ skəkʕákaʔ.	page 19, the form over its gloss
+(53c) line 2	John Lyon	citation	(LL)	page 19, the speaker's initials at the right
+(53c) line 3	Okanagan	gloss	1SG.GEN-NOM-CUST-look.for-MID DET shoot-DIR-3PL.ERG DET birds	page 19, the gloss
+(53c) line 4	John Lyon	translation	I'm looking for some birds that they shot.	page 19, the translation
+§4.2	John Lyon	note	The crux of this section is that pattern 2 places definite constraints on the semantic type of the modifier: Only predicates that either already are non- eventive individual-level unaccusative predicates (e.g. təɬtáɬt 'straight/true'), or may in principle be coerced into such predicates by adding stative ac- (e.g. q̓ʷím̓əm̓ 'frightened') may occur in this position. I cautiously suggest that the category of adjectives in Okanagan comprise just that class of basic and derived lexical items that may occur as modifiers in complex DP structures.	page 19
+§4.2	John Lyon	note	The ungrammaticality of eventive unaccusatives and unergatives as modifiers in complex DP structures supports an argument that says pattern 1 (Det-Det) structures, which allow these modifiers (e.g. 30-33), are structurally distinct from pattern 2 complex DPs.	page 19
+§4.2	John Lyon	note	There is also apparently a preference for head-initial ordering for pattern 1 unergatives and eventive unaccusative modifiers (cf 33b). Compare this to the preference for head-final ordering (excepting +human nominals) for pattern 1 non-eventive unaccusatives, which I have suggested may be reanalyzed as complex DPs. The overall generalization seems to be that intransitive modifiers more complex than non-eventive unaccusatives prefer to occur post-nominally.	page 19
+§4.3	John Lyon	heading	4.3 Determiner - Determiner t (Pattern 3)	page 20
+§4.3	John Lyon	note	(54a) is a typical example of a pattern 3 modification. These are similar to pattern 1, except that an optional t intervenes between the determiner and the modifier.24 They are nevertheless distinct, since pre-posed transitive modifiers (54b) are at best marginal for pattern 3 structures, but fine for pattern 1.	page 20
+footnote 24	John Lyon	note	t is optional in the sense that without it, the resulting pattern 1 is equally grammatical.	page 20, footnote 24
+(54a) line 1	Okanagan	segmentation	k̕ʷúl̕-ən iʔ yámx̌ʷaʔ iʔ (t) ks-yaʔyáʔx̌aʔ-səlx.	page 20, the form over its gloss
+(54a) line 2	John Lyon	citation	(LL)	page 20, the speaker's initials at the right
+(54a) line 3	Okanagan	gloss	make-(DIR)-1SG.ERG DET basket DET (t) FUT-show-CAUS-3PL.ERG	page 20, the gloss
+(54a) line 4	John Lyon	translation	I made a basket that they will show.	page 20, the translation
+(54b) line 1	Okanagan	transcription	#k̕ʷúl̕ən (iʔ) t ksyaʔyáʔx̌aʔsəlx iʔ yámx̌ʷaʔ.25	page 20, the form, given with no gloss
+footnote 25	John Lyon	note	Marginal sentences indicated by #, ungrammatical sentences by *.	page 20, footnote 25
+(54b) line 2	John Lyon	citation	(JL)	page 20, the speaker's initials at the right
+§4.3	John Lyon	note	My speaker suggests there is a slight difference in meaning for (54a), depending on whether t is present or not, but I have not so far been able to discover the nature of this difference.26	page 20
+footnote 26	John Lyon	note	In Thompson, oblique t introduces all relative clauses, but is phonologically deleted before certain determiners. (Koch 2006:7). It is possible that the 'optional' t, which distinguishes pattern 3 from 1, is historically related to the Thompson pattern.	page 20, footnote 26
+§4.3	John Lyon	note	Preceding a nominal, iʔ t optionally marks the agent DP of a passive sentence, as shown by (6c) in section 2. iʔ t preceding a modifier does not indicate agent extraction, however, since both agent- (55,56) and patient- (57,58) centered relatives are acceptable within this pattern.	page 20
+(55) line 1	Okanagan	segmentation	wík-ən ixìʔ iʔ s-q̓uwilx-ɬ-cásyaʔqn	page 20, the form over its gloss
+(55) line 2	Okanagan	gloss	see-(TR)-1SG.ERG DEM DET NOM-old-CONN-skull	page 20, the gloss
+(55) line 3	Okanagan	segmentation	iʔ (t) ks-kn-xít-əm-s.	page 20, the form over its gloss
+(55) line 4	John Lyon	citation	(LL)	page 20, the speaker's initials at the right
+(55) line 5	Okanagan	gloss	DET (t) FUT-help-DITR-2SG.ACC-1SG.ERG	page 20, the gloss
+(55) line 6	John Lyon	translation	I saw a skull that is going to help you	page 20, the translation
+(55) line 7	John Lyon	note	(captikʷɬ context).	page 20, set after the translation
+(56a) line 1	Okanagan	segmentation	wík-ən iʔ sqəltmíxʷ iʔ ac-kn-xít-əm-s.	page 20, the form over its gloss
+(56a) line 2	John Lyon	citation	(SM)	page 20, the speaker's initials at the right
+(56a) line 3	Okanagan	gloss	see-(TR)-1SG.ERG DET man DET CUST-help-DITR-2SG.ACC-1SG.ERG	page 20, the gloss
+(56a) line 4	John Lyon	translation	I saw the man that helps you/that is helping you.	page 20, the translation
+(56b) line 1	Okanagan	transcription	wíkən iʔ sqəltmíxʷ iʔ t acknxítəms.	page 20, the form, given with no gloss
+(56b) line 2	John Lyon	citation	(JL)	page 20, the speaker's initials at the right
+(57) line 1	Okanagan	segmentation	way̓ i-ks-k̕ʷul̕-əm iʔ pewminn	page 20, the form over its gloss
+(57) line 2	Okanagan	gloss	AFF 1SG.GEN-FUT-make-MID DET drum	page 20, the gloss
+(57) line 3	Okanagan	segmentation	iʔ (t) ks-yaʔyáʔx̌aʔ-səlx.	page 20, the form over its gloss
+(57) line 4	John Lyon	citation	(LL)	page 20, the speaker's initials at the right
+(57) line 5	Okanagan	gloss	DET (t) FUT-show-(CAUS)-3PL.ERG	page 20, the gloss
+(57) line 6	John Lyon	translation	Yes, I'm making a drum that they will show.	page 20, the translation
+(58) line 1	Okanagan	segmentation	nʔiys-ən iʔ lasmíst iʔ t ac-ɬkím̓-st-xʷ.	page 21, the form over its gloss
+(58) line 2	John Lyon	citation	(JL)	page 21, the speaker's initials at the right
+(58) line 3	Okanagan	gloss	buy-(TR)-1SG.ERG DET shirt DET t CUST-sew-CAUS-2SG.ERG	page 21, the gloss
+(58) line 4	John Lyon	translation	I bought the shirt that you are sewing.	page 21, the translation
+§4.3	John Lyon	note	There seem to be differences in the acceptability of this pattern, depending on the aspectual class of the relative clause predicate. (59) illustrates my general observation that pattern 3 is unacceptable if the relative clause predicate is inflected for past perfective sc-. By contrast, if a relative clause predicate is inflected for the future perfective ksc-, then pattern 3 is acceptable (60).	page 21
+§4.3	Okanagan	cited form	sc-	page 21, in italics
+§4.3	Okanagan	cited form	ksc-	page 21, in italics
+(59a) line 1	Okanagan	segmentation	wik-s iʔ lasmíst iʔ s-c-ɬkim̓-s.	page 21, the form over its gloss
+(59a) line 2	John Lyon	citation	(LL)	page 21, the speaker's initials at the right
+(59a) line 3	Okanagan	gloss	see-(DIR)-3SG.ERG DET shirt DET NOM-CUST-sew-3SG.GEN	page 21, the gloss
+(59a) line 4	John Lyon	translation	He saw the shirt that she made.	page 21, the translation
+(59b) line 1	Okanagan	transcription	*wik-s iʔ lasmíst iʔ t s-c-ɬkim̓-s.	page 21, the form, given with no gloss
+(59b) line 2	John Lyon	citation	(JL)	page 21, the speaker's initials at the right
+(60a) line 1	Okanagan	segmentation	wik-s iʔ lasmíst (iʔ) i-k-s-c-k̕ʷúl̕	page 21, the form over its gloss
+(60a) line 2	John Lyon	citation	(SM)	page 21, the speaker's initials at the right
+(60a) line 3	Okanagan	gloss	see-(DIR)-3SG.ERG DET shirt (DET) 1SG.GEN-FUT-NOM-CUST-make	page 21, the gloss
+(60a) line 4	John Lyon	translation	She saw the shirt that I'm going to make.	page 21, the translation
+(60a) line 5	John Lyon	note	(Context: Looking through a clothes-patterning catalogue).	page 21, the context
+(60b) line 1	Okanagan	transcription	wiks iʔ lasmíst iʔ t iksck̕ʷúl̕.	page 21, the form, given with no gloss
+(60b) line 2	John Lyon	citation	(JL)	page 21, the speaker's initials at the right
+§4.3	John Lyon	note	It remains to be seen exactly which aspectual classes may be introduced by iʔ t.	page 21
+§4.3	John Lyon	note	One thing is clear, however: pattern 3 is only felicitous if the modifier is thematically transitive. Unaccusative and unergative modifiers are not possible here (61a,62a), and will be corrected to a pattern 1 structure (61b,62b).	page 21
+(61a) line 1	Okanagan	segmentation	*qʷəlqʷíl-st-ən iʔ sqilxʷ iʔ t ac-xʷylwís.	page 21, the form over its gloss
+(61a) line 2	John Lyon	citation	(JL)	page 21, the speaker's initials at the right
+(61a) line 3	Okanagan	gloss	talk-CAUS-1SG.ERG DET people DET t STAT-travel	page 21, the gloss
+(61a) line 4	John Lyon	translation	I talked to the traveling people.	page 21, the translation
+(61b) line 1	Okanagan	transcription	qʷəlqʷílstən iʔ sqilxʷ (iʔ) acxʷylwís.	page 21, the form, given with no gloss
+(61b) line 2	John Lyon	citation	(LL)	page 21, the speaker's initials at the right
+(62a) line 1	Okanagan	segmentation	*qʷəlqʷíl-st-ən iʔ sqilxʷ iʔ t kstkʷtkʷʔút-aʔx.	page 21, the form over its gloss
+(62a) line 2	John Lyon	citation	(JL)	page 21, the speaker's initials at the right
+(62a) line 3	Okanagan	gloss	talk-CAUS-1SG.ERG DET people DET t FUT-travel-INCEPT	page 21, the gloss
+(62a) line 4	John Lyon	translation	I talked to the people who are going to travel.	page 21, the translation
+(62b) line 1	Okanagan	transcription	qʷəlqʷílstən iʔ sqilxʷ iʔ t kstkʷtkʷʔútaʔx.	page 21, the form, given with no gloss
+(62b) line 2	John Lyon	citation	(LL)	page 21, the speaker's initials at the right
+§4.3	John Lyon	note	Examples (63-65) below show a range of unaccusative modifiers, all of whom are ungrammatical as post-nominal modifiers within pattern 3, but fine within pattern 1.	page 21
+(63a) line 1	Okanagan	segmentation	*wik-ən iʔ ylmíxʷum iʔ t silxʷaʔ.	page 21, the form over its gloss
+(63a) line 2	John Lyon	citation	(JL)	page 21, the speaker's initials at the right
+(63a) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG DET chief DET t big	page 21, the gloss
+(63a) line 4	John Lyon	translation	I saw a chief that was big. / I saw a big chief.	page 21, the translation
+(63b) line 1	Okanagan	transcription	wikən iʔ ylmíxʷum iʔ silxʷaʔ.	page 22, the form, given with no gloss
+(63b) line 2	John Lyon	citation	(LL)	page 22, the speaker's initials at the right
+(64a) line 1	Okanagan	segmentation	*qʷəlqʷíl-st-ən iʔ sqəltmíxʷ iʔ t ac-ʔayx̌ʷt.	page 22, the form over its gloss
+(64a) line 2	John Lyon	citation	(JL)	page 22, the speaker's initials at the right
+(64a) line 3	Okanagan	gloss	talk-CAUS-1SG.ERG DET man DET t STAT-tired	page 22, the gloss
+(64a) line 4	John Lyon	translation	I talked to the man who is tired. / I talked to the tired man.	page 22, the translation
+(64b) line 1	Okanagan	transcription	qʷəlqʷílstən iʔ sqəltmíxʷ (iʔ) acʔayx̌ʷt.	page 22, the form, given with no gloss
+(64b) line 2	John Lyon	citation	(LL)	page 22, the speaker's initials at the right
+(65a) line 1	Okanagan	segmentation	*k̕ʷúl̕-ən iʔ citxʷ iʔ t cik̕ək̕.	page 22, the form over its gloss
+(65a) line 2	John Lyon	citation	(JL)	page 22, the speaker's initials at the right
+(65a) line 3	Okanagan	gloss	make-(DIR)-1SG.ERG DET house DET t burn.down	page 22, the gloss
+(65a) line 4	John Lyon	translation	I built the house that burned down. / I built the burned-down house.	page 22, the translation
+(65b) line 1	Okanagan	transcription	k̕ʷúl̕ən iʔ citxʷ iʔ cik̕ək̕.	page 22, the form, given with no gloss
+(65b) line 2	John Lyon	citation	(LL)	page 22, the speaker's initials at the right
+§4.3	John Lyon	note	Finally, head-final ordering is not a possibility if the sequence iʔ t introduces the head, since this marks an agent or instrumental argument of a main predicate:	page 22
+§4.3	Okanagan	cited form	iʔ t	page 22, in italics
+(66a) line 1	Okanagan	segmentation	*wik-ən iʔ ƛ̕ax̌t iʔ t stáɬəm.	page 22, the form over its gloss
+(66a) line 2	John Lyon	citation	(JL)	page 22, the speaker's initials at the right
+(66a) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG DET fast DET t boat	page 22, the gloss
+(66a) line 4	John Lyon	translation	I saw a fast boat. / I saw a boat that is fast.	page 22, the translation
+(66b) line 1	Okanagan	transcription	wíkən iʔ ƛ̕ax̌t iʔ stáɬəm.	page 22, the form, given with no gloss
+(66b) line 2	John Lyon	citation	(LL)	page 22, the speaker's initials at the right
+(67a) line 1	Okanagan	segmentation	*ʔiɬən iʔ s-c-x̌aw̓-səlx iʔ t qáqxʷəlx.	page 22, the form over its gloss
+(67a) line 2	John Lyon	citation	(JL)	page 22, the speaker's initials at the right
+(67a) line 3	Okanagan	gloss	eat-(TR)-1SG.ERG DET NOM-CUST-dry-(CAUS)-3PL.ERG DET t fish	page 22, the gloss
+(67a) line 4	John Lyon	translation	I ate the fish that they were drying.	page 22, the translation
+(67b) line 1	Okanagan	transcription	ʔiɬən iʔ scx̌aw̓səlx iʔ qáqxʷəlx.	page 22, the form, given with no gloss
+(67b) line 2	John Lyon	citation	(LL)	page 22, the speaker's initials at the right
+§4.3	John Lyon	note	In summary, it seems clear that the sequence iʔ t cannot precede any modifier that is felicitous within a complex DP structure, or indeed, any intranstive modifier, but may precede certain types of transitive predicates.	page 22
+§4.3	John Lyon	note	Before closing this section, I should clarify that one does sometimes find iʔ t preceding an unaccusative modifier, but this is restricted to cases where the main predicate is passive, and the modified nominal is also introduced by iʔ t, as in (68).	page 22
+(68) line 1	Okanagan	segmentation	ʔiɬ-nt-əm iʔ t sílxʷaʔ iʔ t kiʔláwnaʔ i-s-c-wik.	page 22, the form over its gloss
+(68) line 2	John Lyon	citation	(LL)	page 22, the speaker's initials at the right
+(68) line 3	Okanagan	gloss	eat-DIR-PASS DET t big DET t grizzly 1SG.GEN-NOM-CUST-see	page 22, the gloss
+(68) line 4	John Lyon	translation	He was eaten by the big grizzly bear that I saw.	page 22, the translation
+§4.3	John Lyon	note	The results of sections 3.1 through 3.3 are displayed in Table 5.	page 22
+Table 5	John Lyon	note	Table 5. Interim Summary: Modifier/Head introductory Particles, Head-modifier orderings, and Semantic Types of Modifiers.	page 23, the table's caption, under it
+Table 5	John Lyon	note	non-eventive unaccusative modifiers	page 23, a column's head
+Table 5	John Lyon	note	unergative modifiers	page 23, a column's head
+Table 5	John Lyon	note	genitive/transitive modifiers	page 23, a column's head
+Table 5	John Lyon	note	Pattern 1	page 23, the head of the two rows beside it
+Table 5	John Lyon	note	iʔ modifier - iʔ head	page 23, an ordering of pattern 1
+Table 5	John Lyon	note	√	page 23, pattern 1, iʔ modifier - iʔ head, non-eventive unaccusative modifiers
+Table 5	John Lyon	note	√	page 23, pattern 1, iʔ modifier - iʔ head, unergative modifiers
+Table 5	John Lyon	note	√	page 23, pattern 1, iʔ modifier - iʔ head, genitive/transitive modifiers
+Table 5	John Lyon	note	iʔ head - iʔ modifier	page 23, an ordering of pattern 1
+Table 5	John Lyon	note	√ (+human only)	page 23, pattern 1, iʔ head - iʔ modifier, non-eventive unaccusative modifiers
+Table 5	John Lyon	note	√	page 23, pattern 1, iʔ head - iʔ modifier, unergative modifiers
+Table 5	John Lyon	note	√	page 23, pattern 1, iʔ head - iʔ modifier, genitive/transitive modifiers
+Table 5	John Lyon	note	Pattern 2	page 23, the head of the two rows beside it
+Table 5	John Lyon	note	iʔ modifier - t head	page 23, an ordering of pattern 2
+Table 5	John Lyon	note	√	page 23, pattern 2, iʔ modifier - t head, non-eventive unaccusative modifiers
+Table 5	John Lyon	note	*	page 23, pattern 2, iʔ modifier - t head, unergative modifiers
+Table 5	John Lyon	note	*	page 23, pattern 2, iʔ modifier - t head, genitive/transitive modifiers
+Table 5	John Lyon	note	iʔ head - t modifier	page 23, an ordering of pattern 2
+Table 5	John Lyon	note	*	page 23, pattern 2, iʔ head - t modifier, non-eventive unaccusative modifiers
+Table 5	John Lyon	note	*	page 23, pattern 2, iʔ head - t modifier, unergative modifiers
+Table 5	John Lyon	note	*	page 23, pattern 2, iʔ head - t modifier, genitive/transitive modifiers
+Table 5	John Lyon	note	Pattern 3	page 23, the head of the two rows beside it
+Table 5	John Lyon	note	iʔ modifier - iʔ t head	page 23, an ordering of pattern 3
+Table 5	John Lyon	note	*	page 23, pattern 3, iʔ modifier - iʔ t head, non-eventive unaccusative modifiers
+Table 5	John Lyon	note	*	page 23, pattern 3, iʔ modifier - iʔ t head, unergative modifiers
+Table 5	John Lyon	note	*	page 23, pattern 3, iʔ modifier - iʔ t head, genitive/transitive modifiers
+Table 5	John Lyon	note	iʔ head - iʔ t modifier	page 23, an ordering of pattern 3
+Table 5	John Lyon	note	*	page 23, pattern 3, iʔ head - iʔ t modifier, non-eventive unaccusative modifiers
+Table 5	John Lyon	note	*	page 23, pattern 3, iʔ head - iʔ t modifier, unergative modifiers
+Table 5	John Lyon	note	√	page 23, pattern 3, iʔ head - iʔ t modifier, genitive/transitive modifiers
+§4.4	John Lyon	heading	4.4 t - t (Pattern 4)	page 23
+§4.4	John Lyon	note	Middle intransitives (69-71) are often volunteered in indefinite contexts, instead of the analogous transitive sentence. I referred to these types of structures as complex obliques in section 3, where it was shown that head-modifier ordering is variable for unaccusatively modified oblique nominals:	page 23
+(69a) line 1	Okanagan	segmentation	kn wík-əm t sw̓ar̓ák̕xn t qʷʕay.	page 23, the form over its gloss
+(69a) line 2	John Lyon	citation	(JL)	page 23, the speaker's initials at the right
+(69a) line 3	Okanagan	gloss	1SG.ABS see-MID t frog t blue	page 23, the gloss
+(69a) line 4	John Lyon	translation	I saw a frog that is blue. / I saw a blue frog.	page 23, the translation
+(69b) line 1	Okanagan	transcription	kn wíkəm t qʷʕay t sw̓ar̓ák̕xn.	page 23, the form, given with no gloss
+(69b) line 2	John Lyon	citation	(LL)	page 23, the speaker's initials at the right
+(70a) line 1	Okanagan	segmentation	kn ʔiys-əm t lasmíst t c̕w̓c̕íw̓t.	page 23, the form over its gloss
+(70a) line 2	John Lyon	citation	(LL)	page 23, the speaker's initials at the right
+(70a) line 3	Okanagan	gloss	1SG.ABS buy-MID t shirt t clean	page 23, the gloss
+(70a) line 4	John Lyon	translation	I bought a clean shirt. / I bought a shirt that is clean.	page 23, the translation
+(70b) line 1	Okanagan	transcription	kn ʔiysəm t c̕w̓c̕íw̓t t lasmíst.	page 23, the form, given with no gloss
+(70b) line 2	John Lyon	citation	(JL)	page 23, the speaker's initials at the right
+(71a) line 1	Okanagan	segmentation	kn wík-əm t cəcám̓aʔt t skəkʕákaʔ.	page 23, the form over its gloss
+(71a) line 2	John Lyon	citation	(LL)	page 23, the speaker's initials at the right
+(71a) line 3	Okanagan	gloss	1SG.ABS see-MID t small t birds	page 23, the gloss
+(71a) line 4	John Lyon	translation	I saw some small birds. / I saw some birds that are small.	page 23, the translation
+(71b) line 1	Okanagan	transcription	kn wíkəm t skəkʕákaʔ t cəcám̓aʔt.	page 23, the form, given with no gloss
+(71b) line 2	John Lyon	citation	(JL)	page 23, the speaker's initials at the right
+§4.4	John Lyon	note	Unergatives (72-73) are also available as modifiers of oblique nominals, but with a preference for ḥead initial ordering.27 While head-final (72b) was judged grammatical, head-final (73b) was not, and the speaker instead volunteered a pattern 1 structure.	page 23
+footnote 27	John Lyon	note	Note that substituting xixwtəm 'little girl' for 'rabbit' in (72) leads to a decidedly less felicitous sentence, showing the dispreference for marking h̕uman nominals as obliques. #kn wíkəm t xíxwtəm t acɬát̕pməncut. #kn wíkəm t acɬátpməncut t xíxwtəm. (JL) I saw a jumping little girl / I saw a little girl who jumped.	page 23, footnote 27
+footnote 27	Okanagan	cited form	xixwtəm	page 23, in italics
+(72a) line 1	Okanagan	segmentation	kn wík-əm t spəplínaʔ t ac-ɬát̕pm-ncut.	page 24, the form over its gloss
+(72a) line 2	John Lyon	citation	(LL)	page 24, the speaker's initials at the right
+(72a) line 3	Okanagan	gloss	1SG.ABS see-MID t rabbit t CUST-jump-RFLX.	page 24, the gloss
+(72a) line 4	John Lyon	translation	I saw a jumping rabbit. / I saw a rabbit that jumped.	page 24, the translation
+(72b) line 1	Okanagan	transcription	kn wíkəm t acɬát̕pmncut t spəplínaʔ.	page 24, the form, given with no gloss
+(72b) line 2	John Lyon	citation	(JL)	page 24, the speaker's initials at the right
+(73a) line 1	Okanagan	segmentation	kn wík-əm t skəkʕákaʔ t ac-t̕úxʷt.	page 24, the form over its gloss
+(73a) line 2	John Lyon	citation	(JL)	page 24, the speaker's initials at the right
+(73a) line 3	Okanagan	gloss	1SG.ABS see-MID t birds t CUST-fly	page 24, the gloss
+(73a) line 4	John Lyon	translation	I saw some birds that were flying. / I saw some flying birds.	page 24, the translation
+(73b) line 1	Okanagan	transcription	*kn wíkəm t act̕úxʷt t skəkʕákaʔ.	page 24, the form, given with no gloss
+(73b) line 2	John Lyon	citation	(JL)	page 24, the speaker's initials at the right
+(73b) line 3	John Lyon	speaker comment	Consultant's Comment: wiken (iʔ) act̕úxʷt iʔ skəkʕákaʔ.	page 24, under the part
+(73b) line 4	John Lyon	citation	(LL)	page 24, the speaker's initials at the right of the comment
+§4.4	John Lyon	note	Thematically transitive relative clauses with genitive subjects are also possible with pattern 4 (74-75), and variable head-modifier ordering is possible (75):	page 24
+(74a) line 1	Okanagan	segmentation	kn wík-əm t sƛ̕aʔcínəm t i-ks-c-píx̌.	page 24, the form over its gloss
+(74a) line 2	John Lyon	citation	(LL)	page 24, the speaker's initials at the right
+(74a) line 3	Okanagan	gloss	1SG.ABS see-MID t deer t 1SG.GEN-FUT-CUST-hunt	page 24, the gloss
+(74a) line 4	John Lyon	translation	I saw the deer that I'm going to hunt.	page 24, the translation
+(74b) line 1	Okanagan	segmentation	kn p̓y̓q-ám t spəplínaʔ (iʔ) t i-s-c-pix̌.	page 24, the form over its gloss
+(74b) line 2	John Lyon	citation	(LL)	page 24, the speaker's initials at the right
+(74b) line 3	Okanagan	gloss	1SG.ABS cook-MID t rabbit (DET) t 1SG.GEN-NOM-CUST-hunt	page 24, the gloss
+(74b) line 4	John Lyon	translation	I cooked the rabbit that I hunted.	page 24, the translation
+(75a) line 1	Okanagan	segmentation	John k̕ʷúl̕-əm t yámx̌ʷaʔ t k-s-nq̓ʷiɬ-tn-s.	page 24, the form over its gloss
+(75a) line 2	John Lyon	citation	(LL)	page 24, the speaker's initials at the right
+(75a) line 3	Okanagan	gloss	John make-MID t basket t UNR.POSS-NOM-pack-INSTR-3.GEN	page 24, the gloss
+(75a) line 4	John Lyon	translation	John made the basket he was going to carry.	page 24, the translation
+(75b) line 1	Okanagan	transcription	John k̕ʷul̕əm t ksnq̓ʷiɬtns t yámx̌ʷaʔ.	page 24, the form, given with no gloss
+(75b) line 2	John Lyon	citation	(LL)	page 24, the speaker's initials at the right
+§4.4	John Lyon	note	Clear cases of transitive, ergative subject relatives are less common for pattern 4, but are possible. Head-final ordering is possible (76b), but like pattern 4 unergatives (72-73), head-initial ordering is preferred (77b).	page 24
+(76a) line 1	Okanagan	segmentation	kn s-c-k̕ʷul̕-x t yámx̌ʷaʔ t ks-yaʔyáʔx̌aʔ-slx.28	page 24, the form over its gloss
+footnote 28	John Lyon	note	There is a reduced -nt- transitivizer in this form, elided before 3erg -s in the plural form -selx. (cf A.Mattina 2000:156). Strong stems do not have an overt transitivizer in the 1st singular, and 3rd singular and plural forms.	page 24, footnote 28
+footnote 28	Okanagan	cited form	-nt-	page 24, in italics
+footnote 28	Okanagan	cited form	-selx	page 24, in italics
+(76a) line 2	John Lyon	citation	(LL)	page 24, the speaker's initials at the right
+(76a) line 3	Okanagan	gloss	1SG.ABS NOM-CUST-make-INTR t basket t FUT-show-(TR)-3PL.ERG	page 24, the gloss
+(76a) line 4	John Lyon	translation	I am making a basket that they will show.	page 24, the translation
+(76b) line 1	Okanagan	transcription	kn sck̕ʷul̕x t ksyaʔyáʔx̌aʔslx t yámx̌ʷaʔ.	page 24, the form, given with no gloss
+(76b) line 2	John Lyon	citation	(JL)	page 24, the speaker's initials at the right
+(77a) line 1	Okanagan	segmentation	kn wik-əm t sqəltmíxʷ t ks-kn-xít-m-s.	page 25, the form over its gloss
+(77a) line 2	John Lyon	citation	(LL)	page 25, the speaker's initials at the right
+(77a) line 3	Okanagan	gloss	1SG.ABS see-MID t man t FUT-help-DITR-2SG.ABS-3SG.ERG	page 25, the gloss
+(77a) line 4	John Lyon	translation	I saw the man that will help you.	page 25, the translation
+(77b) line 1	Okanagan	transcription	*kn wikəm t kskənxítəms t sqəltmíxʷ.	page 25, the form, given with no gloss
+(77b) line 2	John Lyon	citation	(JL)	page 25, the speaker's initials at the right
+(77b) line 3	John Lyon	speaker comment	Consultant's Comment: wíkən iʔ sqeltmíxʷ iʔ kskənxítəms.	page 25, under the part
+(77b) line 4	John Lyon	citation	(LL)	page 25, the speaker's initials at the right of the comment
+§4.4	John Lyon	note	It is important to note that I have only been able to elicit pattern 4 structures with thematically transitive modifiers when the modifier is inflected for future k(s)- or unrealized possessive k(ɬ)-. Aspectually uninflected transitive predicates are not possible here. The speaker will normally correct to the pattern 1 in these cases, and use a transitive main predicate (78-80).	page 25
+§4.4	Okanagan	cited form	k(s)-	page 25, in italics
+(78a) line 1	Okanagan	segmentation	*kn wík-əm t skəkʕákaʔ t t̕ʕap-nt-ís.	page 25, the form over its gloss
+(78a) line 2	John Lyon	citation	(JL)	page 25, the speaker's initials at the right
+(78a) line 3	Okanagan	gloss	1SG.ABS see-MID t birds t shoot-DIR-3ERG	page 25, the gloss
+(78a) line 4	John Lyon	translation	I saw some birds that he shot.	page 25, the translation
+(78b) line 1	Okanagan	transcription	*kn wíkəm t t̕ʕap̓ntís t skəkʕákaʔ.	page 25, the form, given with no gloss
+(78b) line 2	John Lyon	citation	(JL)	page 25, the speaker's initials at the right
+(78c) line 1	Okanagan	segmentation	wik-ən iʔ t̕ʕap-nt-ís iʔ skəkʕákaʔ.	page 25, the form over its gloss
+(78c) line 2	John Lyon	citation	(LL)	page 25, the speaker's initials at the right
+(78c) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG det shoot-DIR-3ERG DET birds	page 25, the gloss
+(78c) line 4	John Lyon	translation	I saw the birds that he shot.	page 25, the translation
+(78c) line 5	John Lyon	note	(cf 28a)	page 25, set after the translation
+(79a) line 1	Okanagan	segmentation	*kn wík-əm t kəkəwáp t suxʷ-nt-xʷ	page 25, the form over its gloss
+(79a) line 2	John Lyon	citation	(LL)	page 25, the speaker's initials at the right
+(79a) line 3	Okanagan	gloss	1SG.ABS see-MID t dogs t recognize-DIR-2SG.ERG	page 25, the gloss
+(79a) line 4	John Lyon	translation	I saw some dogs that you recognize.	page 25, the translation
+(79b) line 1	Okanagan	transcription	wikən iʔ kəkəwáp iʔ suxʷntxʷ	page 25, the form, given with no gloss
+(79b) line 2	John Lyon	citation	(LL)	page 25, the speaker's initials at the right
+(80a) line 1	Okanagan	segmentation	*kn wík-əm t sqəltmíxʷ t kn-xít-əms.	page 25, the form over its gloss
+(80a) line 2	John Lyon	citation	(JL)	page 25, the speaker's initials at the right
+(80a) line 3	Okanagan	gloss	1SG.ABS see-MID t man t help-DITR-2SG.ACC-3SG.ERG	page 25, the gloss
+(80a) line 4	John Lyon	translation	I saw the man that helped you.	page 25, the translation
+(80b) line 1	Okanagan	transcription	wikən iʔ sqəltmíxʷ iʔ knxítəms.	page 25, the form, given with no gloss
+(80b) line 2	John Lyon	citation	(LL)	page 25, the speaker's initials at the right
+§4.4	John Lyon	note	The t which introduces the modifying clause within pattern 4 shares a certain commonality with t in pattern 3: it occurs before only certain aspectual classes of transitive predicates. It seems reasonable to assume that clause-introducing t in patterns 3 and 4 is sensitive to aspect.	page 25
+§4.4	John Lyon	note	In many respects pattern 4 and pattern 1 are similar, but there is a stronger-preference for a head-initial ordering in the case of pattern 4 unergative and transitive modifiers, than for corresponding cases within pattern 1.29	page 25
+footnote 29	John Lyon	note	This complements the preference for head-final unaccusatives within pattern 1.	page 25, footnote 29
+§4.5	John Lyon	heading	4.5 t - Determiner (Pattern 5)	page 26
+§4.5	John Lyon	note	The modifier of a t oblique object of a middle or ditransitive main predicate must also be introduced by t, regardless of the head-modifier ordering. This means that pattern 5 is ungrammatical. (81-82) illustrate this point with unaccusative modifiers. Pattern 5 (81a,82a) will always be corrected to pattern 4 (81b,82b):	page 26
+(81a) line 1	Okanagan	segmentation	*kn wík-əm t sw̓ar̓ák̕xn iʔ qʷʕay.	page 26, the form over its gloss
+(81a) line 2	John Lyon	citation	(JL)	page 26, the speaker's initials at the right
+(81a) line 3	Okanagan	gloss	1SG.ABS see-MID t frog DET blue	page 26, the gloss
+(81a) line 4	John Lyon	translation	I see a frog that is blue. / I see a blue frog.	page 26, the translation
+(81b) line 1	Okanagan	transcription	kn wíkəm t sw̓ar̓ák̕xn t qʷʕay.	page 26, the form, given with no gloss
+(81b) line 2	John Lyon	citation	(JL)	page 26, the speaker's initials at the right
+(82a) line 1	Okanagan	segmentation	*xʷíc̕-xt-xʷ t qʷacqn iʔ sic(t).	page 26, the form over its gloss
+(82a) line 2	John Lyon	citation	(JL)	page 26, the speaker's initials at the right
+(82a) line 3	Okanagan	gloss	give-DITR-2SG.ERG t new DET hat	page 26, the gloss
+(82a) line 4	John Lyon	translation	You gave him a new hat. / You gave him a hat that is new.	page 26, the translation
+(82b) line 1	Okanagan	transcription	xʷíc̕xtxʷ t sic t qʷacqn.	page 26, the form, given with no gloss
+(82b) line 2	John Lyon	citation	(NS)	page 26, the speaker's initials at the right
+§4.5	John Lyon	note	For transitive modifiers of oblique heads, if the transitive predicate is introduced by only the determiner iʔ, so must the nominal head, and the main predicate is also changed to a transitive. Recall that correction to the iʔ - iʔ pattern is the only possibility if the modifier is a non-future transitive (83b,84c,85b,86b).	page 26
+(83a) line 1	Okanagan	segmentation	*kn ʔiɬn t qáqxʷəlx iʔ kʷu xʷic̕-xt-xʷ.	page 26, the form over its gloss
+(83a) line 2	John Lyon	citation	(JL)	page 26, the speaker's initials at the right
+(83a) line 3	Okanagan	gloss	1SG.ABS eat(intr) t fish DET 1SG.GEN give-DITR-2SG.ERG	page 26, the gloss
+(83a) line 4	John Lyon	translation	I ate some of the fish that was given to me.	page 26, the translation
+(83b) line 1	Okanagan	segmentation	ʔiɬ-ən iʔ qáqxʷəlx iʔ kʷu xʷic̕-xt-xʷ.	page 26, the form over its gloss
+(83b) line 2	John Lyon	citation	(LL)	page 26, the speaker's initials at the right
+(83b) line 3	Okanagan	gloss	eat-(DIR)-1SG.ERG DET fish DET 1SG.GEN give-DITR-2SG.ERG	page 26, the gloss
+(83b) line 4	John Lyon	translation	I ate some of the fish that was given to me.	page 26, the translation
+(84a) line 1	Okanagan	segmentation	*kn wík-əm t kəkəwap iʔ suxʷ-nt-xʷ	page 26, the form over its gloss
+(84a) line 2	John Lyon	citation	(JL)	page 26, the speaker's initials at the right
+(84a) line 3	Okanagan	gloss	1SG.ABS see-MID t dogs DET recognize-DIR-2SG.ERG	page 26, the gloss
+(84a) line 4	John Lyon	translation	I saw some dogs that you recognize.	page 26, the translation
+(84b) line 1	Okanagan	transcription	*kn wíkəm t kəkəwap t suxʷəntxʷ.	page 26, the form, given with no gloss
+(84b) line 2	John Lyon	citation	(JL)	page 26, the speaker's initials at the right
+(84c) line 1	Okanagan	transcription	wikən iʔ kəkəwap iʔ suxʷəntxʷ.	page 26, the form, given with no gloss
+(84c) line 2	John Lyon	citation	(LL)	page 26, the speaker's initials at the right
+(85a) line 1	Okanagan	segmentation	*kn wík-əm t skəkʕákaʔ iʔ t̕ʕap-nt-ísəlx.	page 26, the form over its gloss
+(85a) line 2	John Lyon	citation	(JL)	page 26, the speaker's initials at the right
+(85a) line 3	Okanagan	gloss	1SG.ABS see-MID t birds DET shoot-DIR-3PL.ERG	page 26, the gloss
+(85a) line 4	John Lyon	translation	I saw some birds that they shot.	page 26, the translation
+(85b) line 1	Okanagan	transcription	wíkən iʔ skəkʕákaʔ iʔ t̕ʕapntísəlx.	page 26, the form, given with no gloss
+(85b) line 2	John Lyon	citation	(LL)	page 26, the speaker's initials at the right
+(86a) line 1	Okanagan	segmentation	*kn p̓y̓q-əm t spəplínaʔ (iʔ) i-s-c-kaʔkíc.	page 27, the form over its gloss
+(86a) line 2	John Lyon	citation	(JL)	page 27, the speaker's initials at the right
+(86a) line 3	Okanagan	gloss	1SG.ABS cook-MID t rabbit (DET) 1SG.GEN-NOM-CUST-find	page 27, the gloss
+(86a) line 4	John Lyon	translation	I cooked some rabbit that I found.	page 27, the translation
+(86b) line 1	Okanagan	segmentation	p̓y̓q-nt-ín iʔ spəplínaʔ (iʔ) i-s-c-kaʔkíc.	page 27, the form over its gloss
+(86b) line 2	John Lyon	citation	(LL)	page 27, the speaker's initials at the right
+(86b) line 3	Okanagan	gloss	cook-DIR-1SG.ERG DET rabbit (DET) 1SG.GEN-NOM-CUST-find	page 27, the gloss
+(86b) line 4	John Lyon	translation	I cooked the rabbit that I found.	page 27, the translation
+§4.6	John Lyon	heading	4.6 t - Determiner t (Pattern 6)	page 27
+§4.6	John Lyon	note	Similar to pattern 3, iʔ t also may introduce relative clause predicates headed by oblique objects of intransitive main predicates, as in (87a) and (88a). (87b) and (88b) show equally acceptable pattern 4 forms.	page 27
+(87a) line 1	Okanagan	segmentation	kn s-c-k̕ʷul̕-x t yámx̌ʷaʔ iʔ t ks-yaʔyáʔx̌aʔ-s-əlx.	page 27, the form over its gloss
+(87a) line 2	John Lyon	citation	(LL)	page 27, the speaker's initials at the right
+(87a) line 3	Okanagan	gloss	1SG.ABS NOM-CUST-make-INTR t basket DET t FUT-show-CAUS-3PL.ERG	page 27, the gloss
+(87a) line 4	John Lyon	translation	I'm making a basket that they will show.	page 27, the translation
+(87b) line 1	Okanagan	transcription	kn sck̕ʷul̕x t yámx̌ʷaʔ t ksyaʔyáʔx̌aʔsəlx.	page 27, the form, given with no gloss
+(87b) line 2	John Lyon	citation	(LL)	page 27, the speaker's initials at the right
+(88a) line 1	Okanagan	segmentation	kn wík-əm t cásyaʔqn iʔ t ks-kn-xít-m-s.	page 27, the form over its gloss
+(88a) line 2	John Lyon	citation	(JL)	page 27, the speaker's initials at the right
+(88a) line 3	Okanagan	gloss	1SG.ABS see-INTR t skull DET t FUT-help-DITR-2SG.ACC-3SG.ERG	page 27, the gloss
+(88a) line 4	John Lyon	translation	I saw a skull that is going to help you.	page 27, the translation
+(88b) line 1	Okanagan	transcription	kn wíkəm t casyaʔqn t kskənxítəms.	page 27, the form, given with no gloss
+(88b) line 2	John Lyon	citation	(JL)	page 27, the speaker's initials at the right
+§4.6	John Lyon	note	It was shown in 3.4 that pattern 4 relatives with transitive modifiers uninflected for future were systematically corrected to pattern 1. In these cases, however, there is also an alternate solution: the oblique head characteristic of pattern 4 may be retained in these cases by including a clause-introducing determiner iʔ, thus yielding pattern 6 (89-90). Note that for (89-90), iʔ must precede t since the relative clause predicate is not inflected for future.	page 27
+(89a) line 1	Okanagan	segmentation	kn s-c-ƛ̕aʔƛ̕aʔ-míxaʔx t skəkʕákaʔ iʔ t t̕ʕap-nt-ísəlx.	page 27, the form over its gloss
+(89a) line 2	John Lyon	citation	(LL)	page 27, the speaker's initials at the right
+(89a) line 3	Okanagan	gloss	1SG.ABS NOM-CUST-look.for-INCEPT t birds DET t shoot-DIR-3PL.ERG	page 27, the gloss
+(89a) line 4	John Lyon	translation	I'm looking for some birds that they shot.	page 27, the translation
+(89b) line 1	Okanagan	transcription	*kn scƛ̕aʔƛ̕aʔmíxaʔx t skəkʕákaʔ t t̕ʕapntísəlx.	page 27, the form, given with no gloss
+(89b) line 2	John Lyon	citation	(JL)	page 27, the speaker's initials at the right
+(89c) line 1	Okanagan	transcription	*kn scƛ̕aʔƛ̕aʔmíxaʔx iʔ t t̕ʕapəntísəlx t skəkʕákaʔ.	page 27, the form, given with no gloss
+(89c) line 2	John Lyon	citation	(JL)	page 27, the speaker's initials at the right
+(90a) line 1	Okanagan	segmentation	kn s-c-k̕ʷúl̕-x t péwminn iʔ t x̌mínk-s.	page 27, the form over its gloss
+(90a) line 2	John Lyon	citation	(LL)	page 27, the speaker's initials at the right
+(90a) line 3	Okanagan	gloss	1SG.ABS NOM-CUST-make-INTR t drum DET t want-(CAUS)-3SG.ERG	page 27, the gloss
+(90a) line 4	John Lyon	translation	I'm making a drum that he wants.	page 27, the translation
+(90b) line 1	Okanagan	transcription	*kn sck̕ʷúl̕x iʔ t x̌mínks t péwminn.	page 27, the form, given with no gloss
+(90b) line 2	John Lyon	citation	(JL)	page 27, the speaker's initials at the right
+§4.6	John Lyon	note	Unlike the marginally acceptable pre-posed cases of pattern 3, it is not possible to pre-pose the clause, as in (89c,90b), because these intransitive main predicates must always select for oblique t objects.	page 28
+§4.6	John Lyon	note	This pattern is also apparently grammatical if the relative clause is inflected for a genitive subject (91-92).	page 28
+(91a) line 1	Okanagan	segmentation	kn p̓y̓q-ám t spəplínaʔ iʔ t i-s-c-pix̌.	page 28, the form over its gloss
+(91a) line 2	John Lyon	citation	(JL)	page 28, the speaker's initials at the right
+(91a) line 3	Okanagan	gloss	1SG.ABS cook-MID t rabbit DET t 1SG.GEN-NOM-CUST-hunt	page 28, the gloss
+(91a) line 4	John Lyon	translation	I cooked the rabbit that I hunted.	page 28, the translation
+(91b) line 1	Okanagan	transcription	kn p̓y̓qám t spəplínaʔ t iscpix̌.	page 28, the form, given with no gloss
+(91b) line 2	John Lyon	citation	(LL)	page 28, the speaker's initials at the right
+(92a) line 1	Okanagan	segmentation	kn ʔiɬən t qáqxʷəlx iʔ t s-ɬəɬt̕pin-s John.	page 28, the form over its gloss
+(92a) line 2	John Lyon	citation	(LL)	page 28, the speaker's initials at the right
+(92a) line 3	Okanagan	gloss	1SG.ABS eat(intr) t fish DET t NOM-net.fish-3GEN John	page 28, the gloss
+(92a) line 4	John Lyon	translation	I ate some fish that John caught.	page 28, the translation
+(92b) line 1	Okanagan	segmentation	ʔiɬ-ən iʔ qáqxʷəlx iʔ s-ɬəɬt̕pin-s John.	page 28, the form over its gloss
+(92b) line 2	John Lyon	citation	(LL)	page 28, the speaker's initials at the right
+(92b) line 3	Okanagan	gloss	eat-(TR)-1SG.ERG DET fish DET NOM-net.fish-3GEN John	page 28, the gloss
+(92b) line 4	John Lyon	translation	I ate the fish that John caught.	page 28, the translation
+§4.6	John Lyon	note	Just as with pattern 3, unaccusative and unergative modifiers may not be introduced by iʔ t within pattern 6.	page 28
+(93) line 1	Okanagan	segmentation	*kn wík-əm t speplínaʔ iʔ t ac-ɬát̕p-m-ncut.	page 28, the form over its gloss
+(93) line 2	John Lyon	citation	(JL)	page 28, the speaker's initials at the right
+(93) line 3	Okanagan	gloss	1SG.ABS see-MID t rabbit DET t CUST-jump-RFLX	page 28, the gloss
+(93) line 4	John Lyon	translation	I saw a rabbit that jumped. / I saw a jumping rabbit.	page 28, the translation
+(93) line 5	John Lyon	note	(cf 30, 41, 69).	page 28, set after the translation
+§4.6	John Lyon	note	An intransitive modifier introduced by iʔ t may also not be pre-posed, regardless of the presence of a transitive main predicate. Note that these differ from complex DP structures only by virtue of the fact that t precedes the modifier.	page 28
+(94a) line 1	Okanagan	segmentation	*x̌mínk-s iʔ t sic t qʷacqn.	page 28, the form over its gloss
+(94a) line 2	John Lyon	citation	(JL)	page 28, the speaker's initials at the right
+(94a) line 3	Okanagan	gloss	want-(CAUS)-3.ERG DET t new t hat	page 28, the gloss
+(94a) line 4	John Lyon	translation	He wants a new hat. / He wants a hat that is new.	page 28, the translation
+(94b) line 1	Okanagan	segmentation	*nʔíys-ən iʔ t c̕w̓c̕íw̓t t lasmíst.	page 28, the form over its gloss
+(94b) line 2	John Lyon	citation	(JL)	page 28, the speaker's initials at the right
+(94b) line 3	Okanagan	gloss	buy-(DIR)-1SG.ERG DET t clean t shirt	page 28, the gloss
+(94b) line 4	John Lyon	translation	I bought a clean shirt. / I bought a shirt that is clean.	page 28, the translation
+(94c) line 1	Okanagan	segmentation	*wík-ən iʔ t sílxʷaʔ t skemxíst.	page 28, the form over its gloss
+(94c) line 2	John Lyon	citation	(JL)	page 28, the speaker's initials at the right
+(94c) line 3	Okanagan	gloss	see-(DIR)-1SG.ERG DET t big t bear.	page 28, the gloss
+(94c) line 4	John Lyon	translation	I saw a big bear. / I saw a bear that is big.	page 28, the translation
+§4.6	John Lyon	note	The data in (93-94) imply that pattern 6 and pattern 3 share the property of allowing only thematically transitive modifiers.	page 28
+§4.6	John Lyon	note	The results of this survey are shown in Table 6.	page 28
+Table 6	John Lyon	note	Table 6. Summary: Modifier/Head introductory Particles, Head-modifier orderings, and Semantic Types of Modifiers.	page 29, the table's caption, under it
+Table 6	John Lyon	note	non-eventive unaccusative modifiers	page 29, a column's head
+Table 6	John Lyon	note	unergative modifiers	page 29, a column's head
+Table 6	John Lyon	note	genitive/transitive modifiers	page 29, a column's head
+Table 6	John Lyon	note	Pattern 1	page 29, the head of the two rows beside it
+Table 6	John Lyon	note	iʔ modifier - iʔ head	page 29, an ordering of pattern 1
+Table 6	John Lyon	note	√	page 29, pattern 1, iʔ modifier - iʔ head, non-eventive unaccusative modifiers
+Table 6	John Lyon	note	√	page 29, pattern 1, iʔ modifier - iʔ head, unergative modifiers
+Table 6	John Lyon	note	√	page 29, pattern 1, iʔ modifier - iʔ head, genitive/transitive modifiers
+Table 6	John Lyon	note	iʔ head - iʔ modifier	page 29, an ordering of pattern 1
+Table 6	John Lyon	note	√ (+human only)	page 29, pattern 1, iʔ head - iʔ modifier, non-eventive unaccusative modifiers
+Table 6	John Lyon	note	√	page 29, pattern 1, iʔ head - iʔ modifier, unergative modifiers
+Table 6	John Lyon	note	√	page 29, pattern 1, iʔ head - iʔ modifier, genitive/transitive modifiers
+Table 6	John Lyon	note	Pattern 2	page 29, the head of the two rows beside it
+Table 6	John Lyon	note	iʔ modifier - t head	page 29, an ordering of pattern 2
+Table 6	John Lyon	note	√	page 29, pattern 2, iʔ modifier - t head, non-eventive unaccusative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 2, iʔ modifier - t head, unergative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 2, iʔ modifier - t head, genitive/transitive modifiers
+Table 6	John Lyon	note	iʔ head - t modifier	page 29, an ordering of pattern 2
+Table 6	John Lyon	note	*	page 29, pattern 2, iʔ head - t modifier, non-eventive unaccusative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 2, iʔ head - t modifier, unergative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 2, iʔ head - t modifier, genitive/transitive modifiers
+Table 6	John Lyon	note	Pattern 3	page 29, the head of the two rows beside it
+Table 6	John Lyon	note	iʔ t modifier - t head	page 29, an ordering of pattern 3
+Table 6	John Lyon	note	*	page 29, pattern 3, iʔ t modifier - t head, non-eventive unaccusative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 3, iʔ t modifier - t head, unergative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 3, iʔ t modifier - t head, genitive/transitive modifiers
+Table 6	John Lyon	note	iʔ head - iʔ t modifier	page 29, an ordering of pattern 3
+Table 6	John Lyon	note	*	page 29, pattern 3, iʔ head - iʔ t modifier, non-eventive unaccusative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 3, iʔ head - iʔ t modifier, unergative modifiers
+Table 6	John Lyon	note	√	page 29, pattern 3, iʔ head - iʔ t modifier, genitive/transitive modifiers
+Table 6	John Lyon	note	Pattern 4	page 29, the head of the two rows beside it
+Table 6	John Lyon	note	t modifier - t head	page 29, an ordering of pattern 4
+Table 6	John Lyon	note	√	page 29, pattern 4, t modifier - t head, non-eventive unaccusative modifiers
+Table 6	John Lyon	note	√	page 29, pattern 4, t modifier - t head, unergative modifiers
+Table 6	John Lyon	note	√ (future only)	page 29, pattern 4, t modifier - t head, genitive/transitive modifiers
+Table 6	John Lyon	note	t head - t modifier	page 29, an ordering of pattern 4
+Table 6	John Lyon	note	√	page 29, pattern 4, t head - t modifier, non-eventive unaccusative modifiers
+Table 6	John Lyon	note	√	page 29, pattern 4, t head - t modifier, unergative modifiers
+Table 6	John Lyon	note	√ (future only)	page 29, pattern 4, t head - t modifier, genitive/transitive modifiers
+Table 6	John Lyon	note	Pattern 5	page 29, the head of the two rows beside it
+Table 6	John Lyon	note	t modifier - iʔ head	page 29, an ordering of pattern 5
+Table 6	John Lyon	note	*	page 29, pattern 5, t modifier - iʔ head, non-eventive unaccusative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 5, t modifier - iʔ head, unergative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 5, t modifier - iʔ head, genitive/transitive modifiers
+Table 6	John Lyon	note	t head - iʔ modifier	page 29, an ordering of pattern 5
+Table 6	John Lyon	note	*	page 29, pattern 5, t head - iʔ modifier, non-eventive unaccusative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 5, t head - iʔ modifier, unergative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 5, t head - iʔ modifier, genitive/transitive modifiers
+Table 6	John Lyon	note	Pattern 6	page 29, the head of the two rows beside it
+Table 6	John Lyon	note	iʔ t modifier - t head	page 29, an ordering of pattern 6
+Table 6	John Lyon	note	*	page 29, pattern 6, iʔ t modifier - t head, non-eventive unaccusative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 6, iʔ t modifier - t head, unergative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 6, iʔ t modifier - t head, genitive/transitive modifiers
+Table 6	John Lyon	note	t head - iʔ t modifier	page 29, an ordering of pattern 6
+Table 6	John Lyon	note	*	page 29, pattern 6, t head - iʔ t modifier, non-eventive unaccusative modifiers
+Table 6	John Lyon	note	*	page 29, pattern 6, t head - iʔ t modifier, unergative modifiers
+Table 6	John Lyon	note	√	page 29, pattern 6, t head - iʔ t modifier, genitive/transitive modifiers
+§5	John Lyon	heading	5 Summary and Discussion	page 29
+§5	John Lyon	note	From this survey of nominal modification strategies in Okanagan, several interesting generalizations emerge:	page 29
+§5 (1)	John Lyon	note	(1) Pattern 2 is exclusively characteristic of attributive modification. This is evident from the fact that head-initial structures are disallowed, as are all unergative and transitive modifiers.	page 29, the generalization
+§5 (2)	John Lyon	note	(2) Restrictions on modificational types within pattern 2 complex DPs and CNPs provide evidence that:	page 29, the generalization
+§5 (2)	John Lyon	note	a. there is an individual- / stage-level distinction in Okanagan.	page 29, a lettered point of it
+§5 (2)	John Lyon	note	b. semantically, stative ac- ranges over stages of an individual, while customary ac- ranges over events. Pattern 2 structures disallow modifiers inflected for customary ac-. This is expected if one extends Koch's (2006) semantic analysis of pre- nominal modification in Thompson to Okanagan.	page 29, a lettered point of it
+§5 (3)	John Lyon	note	(3) Patterns 3 and 6 are exclusively characteristic of relative clauses, since only transitive modifiers are permitted.	page 29, the generalization
+§5 (4)	John Lyon	note	(4) Patterns 1 and 4 show characteristics of both attributive modification and relative clauses.	page 29, the generalization
+§5.1	John Lyon	heading	5.1 Discussion of Generalization 1	page 30
+§5.1	John Lyon	note	The exclusive use of unaccusative modifiers within pattern 2, along with the ungrammaticality of more complex types of modifiers in this position, indicates that this configuration is reserved for attributive modification. The results here match nicely with data on complex DPs from Shuswap and Lillooet (Davis, Lai & Matthewson 1997), as well as Thompson (Koch 2006), and is reflective of the common ancestry of the Northern and Southern Interior sub-branches of the Salish language family.	page 30
+§5.2	John Lyon	heading	5.2 Discussion of Generalization 2	page 30
+§5.2	John Lyon	note	Okanagan is different from Lillooet and Shuswap since modifiers within CNPs are not limited to individual level predicates. In Okanagan, certain stage level unaccusatives can also occur in this position if they are prefixed by stative ac-. Complex DPs allow both individual-level and stage-level modifiers that are not prefixed by ac-, but only stage-level modifiers that can independently host ac- in other positions (e.g. CNP modifiers30) can occur as complex DP modifiers.	page 30
+footnote 30	John Lyon	note	Or as a post-nominal modifier within a Det-Det structure.	page 30, footnote 30
+§5.2	John Lyon	note	I propose that there are two classes of stage-level predicates in Okanagan. While a CNP structure will distinguish a basic (non-derived) unaccusative modifier as being either an individual- or a stage-level predicate, a complex DP structure will distinguish both basic and ac- prefixed unaccusative modifiers as being eventive predicates or not. Only non-eventive stage-level predicates may occur prefixed by stative ac- in these positions. Together, these two structures separate unergative and eventive (non-coercible) stage-level unaccusative modifiers on the one hand, from non-eventive stage-level unaccusatives (coercible) and individual level predicates on the other, by disallowing the former class (see Table 4 above). Customary/habitual ac- can attach to unergatives, e.g. acɬát̕pməncút 'jumping', but the effect is quite different (cf A. Mattina 1993), and as we have seen, these are disallowed as modifiers within complex DP and CNP structures.	page 30
+§5.2	John Lyon	note	It follows that some C2-reduplicated, stage-level resultative forms like tk̕ʷák̕ʷ 'fall down' have event variables (similarly to unergatives), other resultative forms like qʷím̓əm̓ 'frightened' do not (similarly to individual-level predicates). If we accept that complex DPs and CNPs structures place definite restrictions, as described above, on the semantic type of the modifier, then the fact that t̕k̕ʷák̕ʷ patterns with unergatives is evidence for including an event variable in the semantic representation of the predicate.	page 30
+§5.2	John Lyon	note	Semantically speaking, stative ac- ranges over stages of an individual. It unifies those stages into something approximating an unbounded interval, and applies the argument property to the entire interval. Customary/habitual ac- ranges over events, and applies the event to successive stages of an individual. A semantics which seeks to unify the stative and customary/habitual uses of ac- must then be sensitive to the presence or absence of an event variable in the denotation of the predicate to which it attaches.	page 30
+§5.2	John Lyon	note	If stative ac- has the effect of turning a stage-level state into an individual-level state, then we can retain the cross-linguistic (Interior Salish) generalization that only individual level predicates may occur as modifiers within a CNP structure.	page 31
+§5.3	John Lyon	heading	5.3 Discussion of Generalization 3	page 31
+§5.3	John Lyon	note	The sequence iʔ t is only grammatical before transitive predicate modifiers, which is a hallmark of relative clauses. I argue that the iʔ t sequence in patterns 3 and 6 constitutes overt, morpho-syntactic evidence of extraction.	page 31
+§5.3	John Lyon	note	Patterns 3 (iʔ - iʔ t) and 6 (t - iʔ t) usually reduce to patterns 1 (iʔ - iʔ) and 4 (t - t) respectively. The only case in which the iʔ t sequence seems required is within pattern 6, where the nominal head is an oblique argument of the main predicate, and the relative clause predicate is not inflected with future ks-. The sequence iʔ t is required in this case because a reduced pattern 4 structure requires that the predicate be inflected for future ks-. If we consider the exclusive availability of future transitives as relative clause modifiers within pattern 4 along with the requirement that iʔ be retained in before non-future pattern 6 relatives, then we have intriguing evidence that the clausal determiner may be sensitive to the selectional properties of the relativized predicate.	page 31
+§5.3	Okanagan	cited form	ks-	page 31, in italics
+§5.3	John Lyon	note	This implies that relative clauses in Okanagan may be formed by movement of a clause-internal determiner to the front of the clause. Kroeber (1997) and Koch (2006) argue that this is the case for Thompson relative clauses, and Davis (2004) makes similar claims for Lillooet.	page 31
+§5.3	John Lyon	note	Locative relative clauses in Okanagan offer tantalizing evidence for such an analysis, since they pattern similarly to Thompson and Lillooet:	page 31
+(95) line 1	Okanagan	segmentation	talki in-x̌ast iʔ [səntumisten]₂ [iʔ tl t₂]₁	page 31, the form over its gloss, its indices subscripts
+(95) line 2	Okanagan	gloss	very 1SG.GEN-good DET store DET LOC	page 31, the gloss
+(95) line 3	Okanagan	segmentation	sən-ʔiys-ən t₁ axàʔ.	page 31, the form over its gloss, its index a subscript
+(95) line 4	Okanagan	gloss	buy-(TR)-1SG.ERG DEM	page 31, the gloss
+(95) line 5	John Lyon	translation	I like the store where I bought these from.	page 31, the translation
+§5.3	John Lyon	note	Kroeber suggests that for Thompson, "the preposition codes the relation of gap to relative clause predicate, not the relation of the whole relative clause to the matrix predicate…Thus, at least locative relative clauses in Thompson are formed by means of some sort of movement (1997:396-7)." Okanagan locatives, such as tl 'from' in (95), occur DP-internally and so are not technically prepositions. A locative DP such as iʔ tl səntumístən 'from the store' may nevertheless be said to be an underlying locative adjunct of the relative clause predicate sənʔiysən 'I bought', since it does match the selectional restrictions of the relative clause predicate, and not the main clause predicate.	page 31
+§5.3	John Lyon	note	It is difficult, however, to motivate extending this movement account to non-locative relatives in Okanagan. In Thompson and Lillooet, which have elaborate determiner systems, the determiner which introduces the head nominal can be different from the determiner which introduces the clause, therefore the determiner introducing the clause can show the selectional properties of the relative clause predicate, without necessarily showing the selectional properties of the main predicate. Because Okanagan has only one determiner, the result is ambiguous. In principle, we might have been able to make use of the oblique marker t to obtain the necessary contrast. Two patterns show clear mismatches: patterns 2 and 5. But unfortunately, pattern 2 does not allow for clausal modifiers, and pattern 5 is categorically ungrammatical.	page 31
+§5.3	John Lyon	note	Another issue is the fact that iʔ t cannot be said to have moved as a unit, unlike the determiner + locative in (95). This is because iʔ t nominal sequences in Okanagan are used to mark agents of passives or instrumental nominals, and are therefore ungrammatical if used to mark core arguments of main predicates in non-passive or instrumental contexts. Also, whereas t in pattern 3 is optional, the locative particle in a locative relative clause structure is never optional.31 One piece of evidence in favor of extending the movement account to non-locatives is that both Okanagan locatives and pattern 3 and 6 relatives share the property of not allowing a pre-posed structure.32,33	page 32
+footnote 31	John Lyon	note	Both locatives and the oblique t might possibly be analyzed as DP-internal case markers, but this requires further research.	page 32, footnote 31
+footnote 32	John Lyon	note	Recall that for pattern 3, a pre-posed clause is only marginally acceptable.	page 32, footnote 32
+footnote 33	John Lyon	note	This could be evidence for a raising analysis of these structures (Kayne 1994).	page 32, footnote 33
+footnote 33	John Lyon	name	Kayne	Richard Kayne, The Antisymmetry of Syntax (1994)
+§5.3	John Lyon	note	Restrictions on the uses of patterns 3 and 6 offer a promising avenue of research for eventually motivating a movement account of non-locative relatives in Okanagan. I expect that the motivating factors are semantic, rather than syntactic, however, Syntactically speaking, the fact that iʔ is required for non- future transitive relatives within pattern 6, but not for future transitives, might lead us to expect different selectional properties for future transitive versus non- future transitive predicates in main clauses, but this is not the case. All transitive main predicates will normally select for iʔ DP arguments, regardless of whether the predicate is inflected for future or not, but the choice of iʔ versus t arguments (and correspondingly, a speaker's choice of a transitive versus intransitive main predicate) does depend partially on the discourse context. Intransitive predicates with oblique objects are more likely to be used in indefinite contexts, whereas transitive predicates with iʔ DP objects are more likely to be used in definite contexts. The requirement that iʔ precede certain pattern 6 relatives is plausibly related to the definiteness of the referent of the extracted nominal within the larger discourse context, but this hypothesis needs to be tested.	page 32
+§5.4	John Lyon	heading	5.4 Discussion of Generalization 4	page 32
+§5.4	John Lyon	note	Patterns 1 and 4 share characteristics of both attributive modification and relative clauses. In contrast to pattern 2, pattern 1 permits head-initial structures. For unergative, eventive unaccusative, and transitive modifiers within pattern 1, speakers will usually volunteer a head-initial structure. The ungrammaticality of post-nominal unaccusative modification of a non-human head within pattern 1 may be straight-forwardly explained if these instances have been reanalyzed as pattern 2 complex DPs. Note that these are the only types of modifiers which show a ordering restriction within pattern 1. Not incidentally I think, they are also the only types of modifiers allowed within pattern 2. The question of why unaccusative modification of human heads does not show this same restriction has no clear answer at this time.	page 32
+§5.4	John Lyon	note	Out of all the patterns, 1 and 4 allow for the widest range of semantic modifiers, and are relatively free with regards to their head-modifier orderings. But as we have seen, there are restrictions and speaker preferences. Especially for pattern 1 and 4 unergative and clausal modifications, it seems clear that head-initial structures are preferred. Also, for clausal modifications within patterns 1 and 4, patterns 3 and 6 (with the iʔ t sequence) are usually options. If we assume that there is a covert, clausal t for unergative and clausally modified pattern 1 structures, and a covert clausal iʔ for unergative and clausally modified pattern 4 structures, then we might also say that extraction has occurred in these cases. This account seems plausible, but does not explain why pre-prosed clauses and post-nominal intransitives are acceptable for patterns 1 and 4, but not for 3 and 6. I therefore assume, for the time being, that patterns 1 and 4 are characteristic of both attributive modification and relative clauses.	page 33
+§6	John Lyon	heading	6 Conclusion	page 33
+§6	John Lyon	note	The results from this survey clearly indicate that pre- and post-nominal spheres (to use terminology from Koch 2006) differ structurally in Okanagan. Non- eventive unaccusative modification of a nominal is canonically pre-nominal, whereas semantically more complex, eventive modification is canonically post- nominal.34 The post-nominal sphere is structurally more complex than the pre- nominal sphere, since it allows clausal and eventive intransitive modification. This analysis accords with findings made by Koch (2006) for Thompson. A formal semantics which compositionally accounts for the distinction should now be possible.	page 33
+footnote 34	John Lyon	note	This does not preclude canonically post-nominal clausal modifiers from pre-posing.	page 33, footnote 34
+abbreviations	John Lyon	heading	Abbreviations	page 34
+abbreviations	John Lyon	note	ABS	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	absolutive	page 34, the meaning of ABS
+abbreviations	John Lyon	note	GEN	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	genitive	page 34, the meaning of GEN
+abbreviations	John Lyon	note	ACC	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	accusative	page 34, the meaning of ACC
+abbreviations	John Lyon	note	INCEPT	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	inceptive	page 34, the meaning of INCEPT
+abbreviations	John Lyon	note	ADV	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	adverb	page 34, the meaning of ADV
+abbreviations	John Lyon	note	INCH	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	inchoative	page 34, the meaning of INCH
+abbreviations	John Lyon	note	AFF	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	affirmative	page 34, the meaning of AFF
+abbreviations	John Lyon	note	INDEP	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	independent pronoun	page 34, the meaning of INDEP
+abbreviations	John Lyon	note	APPL	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	applicative	page 34, the meaning of APPL
+abbreviations	John Lyon	note	IRED	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	initial-reduplication	page 34, the meaning of IRED
+abbreviations	John Lyon	note	CAUS	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	causative transitivizer	page 34, the meaning of CAUS
+abbreviations	John Lyon	note	LOC	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	locative	page 34, the meaning of LOC
+abbreviations	John Lyon	note	COMP	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	complementizer	page 34, the meaning of COMP
+abbreviations	John Lyon	note	MID	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	middle intransitive	page 34, the meaning of MID
+abbreviations	John Lyon	note	CONJ	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	conjunction	page 34, the meaning of CONJ
+abbreviations	John Lyon	note	NEG	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	negative	page 34, the meaning of NEG
+abbreviations	John Lyon	note	CONN	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	connective	page 34, the meaning of CONN
+abbreviations	John Lyon	note	NOM	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	nominalizer	page 34, the meaning of NOM
+abbreviations	John Lyon	note	CUST	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	customary	page 34, the meaning of CUST
+abbreviations	John Lyon	note	PASS	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	passive	page 34, the meaning of PASS
+abbreviations	John Lyon	note	DEM	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	demonstrative	page 34, the meaning of DEM
+abbreviations	John Lyon	note	PL	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	plural	page 34, the meaning of PL
+abbreviations	John Lyon	note	DET	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	determiner	page 34, the meaning of DET
+abbreviations	John Lyon	note	PT	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	particle	page 34, the meaning of PT
+abbreviations	John Lyon	note	DIR	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	directive transitivizer	page 34, the meaning of DIR
+abbreviations	John Lyon	note	RFLX	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	reflexive	page 34, the meaning of RFLX
+abbreviations	John Lyon	note	DITR	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	ditransitivizer	page 34, the meaning of DITR
+abbreviations	John Lyon	note	RCPR	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	reciprocal	page 34, the meaning of RCPR
+abbreviations	John Lyon	note	EPIS	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	epistemic modal	page 34, the meaning of EPIS
+abbreviations	John Lyon	note	SG	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	singular	page 34, the meaning of SG
+abbreviations	John Lyon	note	ERG	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	ergative	page 34, the meaning of ERG
+abbreviations	John Lyon	note	STAT	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	stative	page 34, the meaning of STAT
+abbreviations	John Lyon	note	EVID	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	evidential	page 34, the meaning of EVID
+abbreviations	John Lyon	note	TR	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	transitivizer	page 34, the meaning of TR
+abbreviations	John Lyon	note	FRED	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	final reduplication	page 34, the meaning of FRED
+abbreviations	John Lyon	note	UNR.POSS	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	unrealized possessor	page 34, the meaning of UNR.POSS
+abbreviations	John Lyon	note	FUT	page 34, a glossing abbreviation, on the left
+abbreviations	John Lyon	note	future	page 34, the meaning of FUT
+abbreviations	John Lyon	note	YNQ	page 34, a glossing abbreviation, on the right
+abbreviations	John Lyon	note	yes-no question	page 34, the meaning of YNQ
+references	John Lyon	heading	References	page 34
+references	John Lyon	reference	Carlson, Gregory 1977. Reference to Kinds in English. Ph.D. dissertation, University of Massachusetts, Amherst.	page 34
+references	John Lyon	reference	Davis, Henry. 2002. Categorial restrictions on modification in St'at'imcets. Papers for the 37th ICSNL, Vancouver: UBC Working Papers in Linguistics 7, pp. 61–75.	page 34
+references	John Lyon	reference	Davis, Henry. 2004. Locative relative clauses in St'at'imcets (Lillooet Salish). In J.C. Brown and T. Peterson (eds.), Papers for the 39th ICSNL, Vancouver: UBC Working Papers in Linguistics 14, pp. 83–116.	page 34
+references	John Lyon	reference	Gardiner, Dwight. 1993. Structural Asymmetries and Preverbal Positions in Shuswap. PhD Dissertation. Simon Fraser University.	page 34
+references	John Lyon	reference	Heim, Irene and Angelika Kratzer. 1998. Semantics in Generative Grammar. Malden, Mass.: Blackwell.	page 34
+references	John Lyon	reference	Kayne, Richard. 1994. The Antisymmetry of Syntax. Cambridge: MIT Press.	page 34
+references	John Lyon	reference	Koch, Karsten A. 2004. On predicate modification in Nɬeʔkepmxcin (Thompson River Salish). In J.C. Brown and T. Peterson (eds.), Papers for the 39th ICSNL, Vancouver: UBC Working Papers in Linguistics 14, pp. 269–282.	page 35
+references	John Lyon	reference	Koch, Karsten. 2006. Nominal Modification in Nɬeʔkepmxcín. Papers for the 41st ICSNL, Vancouver: UBC Working Papers in Linguistics 18.	page 35
+references	John Lyon	reference	Kroeber, Paul. 1997. Relativization in Thompson River Salish. Anthropological Linguistics 39:376-422.	page 35
+references	John Lyon	reference	Kroeber, Paul. 1999. The Salish Language Family: Reconstructing Syntax. University of Nebraska Press, Lincoln.	page 35
+references	John Lyon	reference	Matthewson, Lisa and Henry Davis. 1995. Structure of DP in St'át'imcets (Lillooet Salish). Papers for the 30th ICSNL.	page 35
+references	John Lyon	reference	Matthewson, Lisa. 1999. Determiner Systems and Quantificational Strategies. PhD Dissertation. U Mass Amherst.	page 35
+references	John Lyon	reference	Mattina, Anthony, 1973. Colville Grammatical Structures. PhD Dissertation. U. Hawaii.	page 35
+references	John Lyon	reference	Mattina, Anthony. 1985. The Golden Woman: The Colville Narrative of Peter J. Seymour. University of Arizona Press, Tucson.	page 35
+references	John Lyon	reference	Mattina, Anthony. 1987. Colville-Okanagan Dictionary. UMOPL 7.	page 35
+references	John Lyon	reference	Mattina, Anthony 1993. Okanagan Aspect: A Working Paper. Papers for the 28th ICSNL, University of Washington.	page 35
+references	John Lyon	reference	Mattina, Anthony. 1996. Interior Salish to-be and intentional forms - a working paper. Papers for the 32nd ICSNL, pp. 239-248.	page 35
+references	John Lyon	reference	Mattina, Anthony 2000. Okanagan sandhi & morphophonemics. Papers for the 35th ICSNL. University of British Columbia Working Papers in Linguistics, pp. 147-158.	page 35
+references	John Lyon	reference	Mattina, Anthony. 2004. The Okanagan Transitive Sentence Prototype. Papers for the 39th ICSNL.	page 35
+references	John Lyon	reference	Mattina, Nancy. 1996. Aspect and Category in Okanagan Word Formation. PhD Dissertation, SFU.	page 35
+references	John Lyon	reference	Mattina, Nancy. 2006. Determiner Phrases in Moses-Columbian Salish. IJAL 72:1, pp. 97-134.	page 35
+references	John Lyon	reference	Montler, Timothy. 1993. Attributive Constructions in Saanich. In American Indian Linguistics and Ethnography in honor of Laurence C. Thompson, ed. Anthony Mattina and Timothy Montler. University of Montana Occasional Papers in Linguistics No. 4. Missoula, Montana.	page 35
+end	John Lyon	note	John Lyon	page 35, the author's name
+end	John Lyon	note	johnlyon@interchange.ubc.ca	page 35, an e-mail address
+end	John Lyon	note	metalinguist@gmail.com	page 35, a second e-mail address

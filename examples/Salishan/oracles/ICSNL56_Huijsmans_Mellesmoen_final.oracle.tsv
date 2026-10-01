@@ -1,0 +1,609 @@
+where	who	kind	form	gloss
+front	Marianne Huijsmans and Gloria Mellesmoen	title	An Overview of Control and Non-Control in ʔayʔaǰuθəm (Comox-Sliammon)*	page 1, carries footnote *
+front	Marianne Huijsmans and Gloria Mellesmoen	byline	Marianne Huijsmans Gloria Mellesmoen	page 1, the two authors side by side, each over University of British Columbia
+front	Marianne Huijsmans and Gloria Mellesmoen	name	Marianne Huijsmans	author, University of British Columbia
+front	Marianne Huijsmans and Gloria Mellesmoen	name	Gloria Mellesmoen	author, University of British Columbia
+front	Marianne Huijsmans and Gloria Mellesmoen	note	Abstract: A distinction between control and non-control has been described across many Salish languages (e.g., Thompson 1985; Bar-el et al. 2005). This paper builds on previous literature discussing the difference between control and non-control in ʔayʔaǰuθəm (Comox-Sliammon), a Central Salish language (e.g., Kroeber 1988; Watanabe 2003). We contribute original fieldwork that confirms previous findings while also probing the event structure of control and non-control transitives in more detail. Specifically, we confirm previous claims that predicates with the non- control transitivizer entail culmination, while predicates with the control transitivizer do not entail culmination, replicating tests for culmination from Watanabe (2003). We then probe event structure with additional tests adapted from Bar-el (2005). We find that predicates with the control transitivizer require the subject to have attempted to bring about the event described by the predicate, but that there need not be any overt result. Adverbs and negation target event initiation with this transitivizer. In contrast, predicates with the non-control transitivizer background the initiation of the event, so that adverbs and negation cannot target the initiation or process independently, but instead target the culmination of the event including any incremental change-of-state. We also present new data showing that agent animacy and prototypicality are not strict criteria for the use of control in ʔayʔaǰuθəm (as also discussed in Andreotti 2017; cf. Kroeber 1988; Bar-el et al. 2005). Finally, we discuss how control and non-control predicates combine with viewpoint aspects. Overall, this paper proposes an analysis where the semantic distinction between control and non- control is largely centered on (non-)culmination, while the other meanings attributed to these transitivizers arise pragmatically (as in Jacobs 2011).	page 1, the abstract
+front	Marianne Huijsmans and Gloria Mellesmoen	note	Keywords: control, transitive, agentivity, culmination, Comox-Sliammon	page 1
+front	Marianne Huijsmans and Gloria Mellesmoen	note	Papers for the International Conference on Salish and Neighboring Languages 56. D. K. E. Reisinger, Hannah Green, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2021.	page 1, the volume's header
+front	Marianne Huijsmans and Gloria Mellesmoen	language	ʔayʔaǰuθəm	Comox-Sliammon, a Central Salish language
+front	Marianne Huijsmans and Gloria Mellesmoen	language	Sḵwx̱wú7mesh	Squamish, cited from Bar-el (2005), Jacobs (2011) and Bar-el et al. (2005)
+front	Marianne Huijsmans and Gloria Mellesmoen	language	SENĆOŦEN	Saanich, Northern Straits Salish, cited from Kiyota (2008)
+front	Marianne Huijsmans and Gloria Mellesmoen	language	St’át’imcets	Lillooet, Northern Interior Salish, cited from Bar-el et al. (2005)
+§1	Marianne Huijsmans and Gloria Mellesmoen	heading	1 Introduction	page 1
+footnote *	Marianne Huijsmans and Gloria Mellesmoen	note	* We are deeply grateful to all who have shared their language with us so generously and patiently, especially Elsie Paul, Freddie Louie, Betty Wilson, and Randolph Timothy. This work would not be possible without their brave determination to keep their language alive. č̓ɛč̓ɛhatanapɛšt! We would also like to thank members of the ʔayʔaǰuθəm lab at UBC and Lisa Matthewson for helpful feedback. All errors are our own. Contact info: marianne.huijsmans@ubc.ca, gloria.mellesmoen@ubc.ca	page 1, footnote
+footnote *	Marianne Huijsmans and Gloria Mellesmoen	name	Elsie Paul	a consultant, EP in the tags
+footnote *	Marianne Huijsmans and Gloria Mellesmoen	name	Freddie Louie	a consultant, FL in the tags
+footnote *	Marianne Huijsmans and Gloria Mellesmoen	name	Betty Wilson	a consultant, BW in the tags
+footnote *	Marianne Huijsmans and Gloria Mellesmoen	name	Randolph Timothy	a consultant
+§1	ʔayʔaǰuθəm	cited form	č̓ɛč̓ɛhatanapɛšt	page 1
+footnote 1	Marianne Huijsmans and Gloria Mellesmoen	note	1 We follow Jacobs (2011) and Mellesmoen (2017) in assuming that the /xʷ/ found with the non-control transitive paradigm and a third person object in Central Salish languages is an overt third person object suffix -xʷ, though note that this is treated as part of the transitivizer itself in other descriptions. Additionally, we label the aspectual C1 reduplication process (discussed in Section 9) as progressive, rather than imperfective, to better reflect its semantic contribution (cf. H. Davis et al. 2020).	page 1, footnote
+§1	ʔayʔaǰuθəm	cited form	/xʷ/	page 1
+§1	ʔayʔaǰuθəm	cited affix	-xʷ	page 1
+footnote 2	Marianne Huijsmans and Gloria Mellesmoen	note	2 More rarely, the non-control occurs following the middle or causative suffix (Watanabe 2003:220, 230).	page 1, footnote
+§1	Marianne Huijsmans and Gloria Mellesmoen	note	Control and non-control in Salish have been a topic of scholarly discussion for decades (i.e., Thompson & Thompson 1971; Thompson 1985; Demirdache 1997; Bar-el et al. 2005; Gerdts & Kiyosawa 2007; Jacobs 2011; Van Eijk 2011). This is also the case for ʔayʔaǰuθəm (Comox- Sliammon) (J. Davis 1973, 1978; Kroeber 1988; Watanabe 2003; Andreotti 2017), where the morphemes associated with these two labels are both transitivizers (1).1 These combine with unaccusative roots to create transitive predicates.2 Most unaccusative roots can be transitivized with either transitivizer (Watanabe 2003:202) with corresponding (often subtle) differences of interpretation.3	page 1
+(1a) line 1	ʔayʔaǰuθəm	segmentation	təq-t	page 2, the left of two forms side by side
+(1a) line 2	ʔayʔaǰuθəm	gloss	get.closed-CTR	page 2
+(1a) line 3	Marianne Huijsmans and Gloria Mellesmoen	translation	‘close it’	page 2
+(1b) line 1	ʔayʔaǰuθəm	segmentation	təq-ə-xʷ	page 2, the right of two forms side by side
+(1b) line 2	ʔayʔaǰuθəm	gloss	get.closed-NCTR-3OBJ	page 2
+(1b) line 3	Marianne Huijsmans and Gloria Mellesmoen	translation	‘have closed it’	page 2
+(1b) line 3	Marianne Huijsmans and Gloria Mellesmoen	citation	(Watanabe 2003:213)	the source at the right of both translations
+§1	Marianne Huijsmans and Gloria Mellesmoen	note	For ʔayʔaǰuθəm, it has been claimed that predicates with the control transitivizer do not entail culmination, while non-control transitivizers do (e.g., Davis 1978:237; Watanabe 2003:204), and that, in addition, non-control transitives are often associated with events that are accidental or accomplished with difficulty, but that cases are also found where the non-control transitivizers are for events accomplished with intention and ease (e.g., Watanabe 2003:212; Andreotti 2017:3). Though the generalizations proposed in previous literature are largely descriptive, the original fieldwork we present in this paper supports these generalizations and allows us to probe the event structure involved with each of these transitivizers in more detail.	page 2
+§1.1	Marianne Huijsmans and Gloria Mellesmoen	heading	1.1 Overview of the paper	page 2
+§1.1	ʔayʔaǰuθəm	cited form	čɩgɩtəm	page 2, ‘almost’
+§1.1	Marianne Huijsmans and Gloria Mellesmoen	note	In this paper, we provide a brief summary of the literature (Section 2.1), followed by a discussion of the function of control and non-control (Section 2.2) in Comox-Sliammon. In Section 3, we first examine the two transitivizers and whether they entail culmination, replicating findings from previous literature (Watanabe 2003; Andreotti 2017). We then turn to the interpretation of control and non-control transitives in the scope of čɩgɩtəm ‘almost’ (Section 4) and under negation (Section 5). While these tests give rise to event cancellation readings for both control and non-control transitives, varying the context shows that both čɩgɩtəm ‘almost’ and negation target event initiation in combination with control transitives, while they target the entire final transition including any incremental change-of-state in combination with non-control transitives. We then turn to adverbs of rate (Section 6), which target the entire event for both control and non-control transitives. We then present data showing that the external argument does not always need to be agentive for the control transitivizer to be used felicitously (Section 7). In Section 8, we synthesize the observations from the preceding sections in order to provide a formal analysis of each transitivizer. Finally, Section 9 explores the interpretation and compatibility of the two transitivizers with progressive and perfective viewpoint aspect. Ultimately, we conclude that the distinction between the control and non-control transitivizers in Comox-Sliammon lies in their aspectual differences with respect to entailing culmination, while observations about agentivity and intentionality arise pragmatically in part through competition between the two forms.	page 2
+§1.1	Marianne Huijsmans and Gloria Mellesmoen	note	Before moving into the discussion of previous literature, we include a brief note on the terminology included in this paper.	page 2
+footnote 3	Marianne Huijsmans and Gloria Mellesmoen	note	3 The other two transitivizers found in the language, the -Vš and the causative, have quite different distributions. The -Vš transitivizer is lexically restricted to occur with only a small set of roots, while the causative is not generally used to transitivize unaccusative roots (an exception being ƛ̓əč̓tsxʷ ‘put to sleep’ from ƛ̓əč̓t ‘fall asleep’, Watanabe 2003:223), but rather to transitivize unergatives, statives and a numb er of other types of stems that are morphologically complex.	page 2, footnote
+§1.1	ʔayʔaǰuθəm	cited affix	-Vš	page 2
+§1.1	ʔayʔaǰuθəm	cited form	ƛ̓əč̓tsxʷ	page 2, ‘put to sleep’
+§1.1	ʔayʔaǰuθəm	cited form	ƛ̓əč̓t	page 2, ‘fall asleep’
+§1.2	Marianne Huijsmans and Gloria Mellesmoen	heading	1.2 Terminology	page 3
+§1.2	ʔayʔaǰuθəm	cited form	ǰɛχʷ	page 3
+§1.2	ʔayʔaǰuθəm	cited form	ǰɛǰɛχʷ	page 3, ‘melting’
+§1.2	ʔayʔaǰuθəm	cited form	č	page 3, ‘I’
+§1.2	Marianne Huijsmans and Gloria Mellesmoen	note	This paper focuses on two suffixes in ʔayʔaǰuθəm, the control and non-control transitivizers. Transitivizers take an intransitive verb and make it transitive. An intransitive verb is a verb with one participant (individual involved in the action): sleep is an intransitive verb because it has just one participant — the person sleeping. Melt can also be an intransitive verb: the ice melted. ǰɛχʷ ‘melt’ in ʔayʔaǰuθəm is also intransitive (2a). Transitive verbs are verbs with two participants, the one doing the action and the one affected by the action. Like many verbs in English, melt can be used as a transitive without any change: I melted the butter. In I melted the butter, the doer is I, the speaker, and the thing affected by the action is the butter. Unlike in English, in ʔayʔaǰuθəm, the form of a verb changes when it goes from intransitive to transitive. For instance, in (2b), the suffix -at is added to the in-progress verb ǰɛǰɛχʷ ‘melting’. This makes it transitive. For this reason, the -at suffix is known as a transitivizer. At the end of the transitive verb, č ‘I’ is added marking the subject, the doer of the action.4	page 3
+(2a) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Intransitive	page 3, engine english
+(2a) line 2	ʔayʔaǰuθəm	transcription	ǰɛǰɛχʷ tə pətə.	page 3, engine language
+(2a) line 3	ʔayʔaǰuθəm	segmentation	ǰa~ǰax̣ʷ tə=pətə	page 3, engine language
+(2a) line 4	ʔayʔaǰuθəm	gloss	PROG~get.melted DET=butter	page 3, engine english
+(2a) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘The butter is melting.’	page 3, engine english
+(2a) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2021/07/16)	the tag or source at the right of the translation
+(2b) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Transitive	page 3, engine english
+(2b) line 2	ʔayʔaǰuθəm	transcription	ǰɛǰɛχʷatč tə pətə.	page 3, engine residue
+(2b) line 3	ʔayʔaǰuθəm	segmentation	ǰa~ǰax̣ʷ-at=č tə=pətə	page 3, engine language
+(2b) line 4	ʔayʔaǰuθəm	gloss	PROG~get.melted-CTR=1SG.SBJ DET=butter	page 3, engine english
+(2b) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I am melting the butter.’	page 3, engine english
+(2b) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2021/07/16)	the tag or source at the right of the translation
+§1.2	Marianne Huijsmans and Gloria Mellesmoen	note	When the one participant of an intransitive verb is affected by the action, the verb is known as an unaccusative verb. Intransitive melt in English and ǰɛχʷ ‘melt’ in ʔayʔaǰuθəm are both unaccusative.	page 3
+§1.2	Marianne Huijsmans and Gloria Mellesmoen	note	We also frequently discuss event initiation and event culmination in this paper. Event initiation refers to the beginning of the event. With transitive verbs, the initiation occurs when the doer starts the action. Event culmination refers to the endpoint of the event. The endpoint for melt, for instance, is the point at which the affected participant, e.g., the butter, is entirely melted. Finally, the term progressive is used for the ‘in progress’ form of the verb, such as ǰɛǰɛχʷ ‘melting’, while perfective refers to the base form, such as ǰɛχʷ ‘melt’.	page 3
+footnote 4	Marianne Huijsmans and Gloria Mellesmoen	note	4 The abbreviations in this paper follow the Leipzig Glossing Rules with the additional abbreviations: AUT ‘autonomous’, CLDEM ‘clausal demosntrative’, CTR ‘control transitivizer’, CONJ ‘conjunction, DPRT ‘discourse particle’, IND ‘indirective’, INT ‘intensifier’, NCTR ‘noncontrol transitivizer’, QUEX ‘quexistential’, and STAT ‘stativizer’. Throughout this paper, the top line of examples is in the orthography, the second line shows underlying forms with morpheme breaks in APA, the third line presents the glosses, the fourth line is the translation. ‘vf’ stands for ‘volunteered form’, a form produced by the speaker, while ‘sf’ stands for ‘suggested form’, a form produced by one of the two authors and evaluated by the speaker.	page 3, footnote
+§2	Marianne Huijsmans and Gloria Mellesmoen	heading	2 Previous descriptions of control and non-control in Salish linguistics	page 4
+§2.1	Marianne Huijsmans and Gloria Mellesmoen	heading	2.1 Control and non-control in Salish	page 4
+§2.1	Marianne Huijsmans and Gloria Mellesmoen	note	The distinction between control and non-control in Salish is largely based around early work by Thompson and Thompson (1971), Carlson and Thompson (1982), and Thompson (1985). J. Davis (1973:10) follows Thompson and Thompson’s (1971) work on control in Clallam and states that control in Comox-Sliammon “implies that the action was done easily, with full control by agent”. J. Davis (1973) distinguishes the control transitivizer from a “responsibility” transitivizer, which is associated with a “lack of control”. The notion of responsibility comes from Thompson and Thompson (1971), which J. Davis (1973:11) describes as meaning “an entity is responsible in at least some measure for a situation or activity, but is not in control”. Several years later, J. Davis (1978:237) hints at the importance of culmination and its role in the non-control and control distinction (in a note in the appendix of his paper). He further refines the possible translations of control transitives to include “try to”, while emphasizing that non-control transitives describe an action that is accomplished.	page 4
+§2.1	ʔayʔaǰuθəm	cited form	kilh	page 4, ‘almost’
+§2.1	Marianne Huijsmans and Gloria Mellesmoen	note	Kroeber (1988:156–156) references unpublished work by John Davis, noting that non-control transitives tend to imply that completion has been achieved, while control transitives do not: “control may imply a failed attempt, while non[-]control tends to imply success and completion”. He highlights that the control and non-control transitivizers in Comox-Sliammon encode valency and aspect. Control marks the subject of a transitive verb as a “prototypical agent”; this subject has a desire for the event to occur and is able to undertake the event. Kroeber (1988) discusses the subject of a non-control transitive as a departure from a “prototypical agent”, noting that the event may be accidental or involve difficulty. This description fits the general tone of the literature: the control transitivizer is centred as a default, while the non-control is an alternative. This perspective is echoed by Watanabe (1996:3), who suggests that the contrast between control and non-control might be more accurately defined as a distinction between “neutral and non[-]control”. Like ʔayʔaǰuθəm, Sḵwx̱wú7mesh (Squamish) has an opposition between two transitivizers labelled control and non-control. Bar-el (2005) proposes that predicates transitivized with the control transitivizer in Sḵwx̱wú7mesh imply, but do not entail culmination. For the control transitives, an initiating event is encoded, and this initiating event leads to culmination under usual circumstances (in all inertia worlds), unless the unfolding of the event is disrupted. She treats non- control transitives as achievements (though she does not investigate these separately from other achievement predicates in the language), encoding a simple culminating event without an initiating event or process component. In arguing for these two different representations, she uses a variety of tests for event culmination, including explicit cancellation, compatibility with event continuation, and targeting the endpoint with kilh ‘almost’ and negation. We adapt a number of these tests in the following sections.	page 4
+§2.1	Marianne Huijsmans and Gloria Mellesmoen	note	Kiyota (2008) also proposes the same distinction between control and non-control transitives in SENĆOŦEN (Saanich, Northern Straits Salish), adopting the culmination cancellation and ‘almost’ test from Bar-el (2005). Bar-el et al. (2005) also take the same approach in the analysis of control transitives in both Sḵwx̱wú7mesh and St’át’imcets (Lillooet, Northern Interior Salish). Jacobs (2011) builds on Bar-el (2005) and Bar-el et al. (2005), confirming the previous findings for control transitivizers in Sḵwx̱wú7mesh and expanding the documentation of non-control transitives (as well as investigating control and non-control unergative and reflexive suffixes). He finds that non-control transitives, unlike control transitives, entail culmination. He then discusses the range of readings associated with both the control and non-control transitivizers and proposes that the opposition between the transitivizers contributes to bringing about these readings. He points out that most predicates can be transitivized with either the control or non-control transitivizer. Control transitivizers encode event initiation and assert that the event culminates given a normal course of events. Non-control transitivizers encode event culmination but nothing about whether a given course of events is normal. The contrast between control and non-control means that non- control transitivizers may be associated with a course of events that is not normal, such as when the culmination is accidental or is only managed with difficulty.	page 4
+§2.2	Marianne Huijsmans and Gloria Mellesmoen	heading	2.2 Control and non-control in ʔayʔaǰuθəm (Comox-Sliammon)	page 5
+§2.2	Marianne Huijsmans and Gloria Mellesmoen	note	Watanabe (1996) addresses the labels “control” and “non-control” in Comox-Sliammon and notes that it is not enough to appeal to a distinction between volition and non-volition, which had been done previously in the literature. He states that control refers to an action that is intentional and both under the control of the actor and within their competence to undertake. The non-control transitivizer is discussed as “opposed to the control”, and thus the non-control transitivizer is associated with unintentionality and actions that may only come to completion with difficulty (Watanabe 1996:2–3). This constellation of functions across the two transitivizers is, as Watanabe (1996) indicates, greater than just a split between volition and lack of volition. While the control transitivizer is used when an event is intentional or controlled by an agent, it does not need to reach the point of completion, and further, while the non-control entails that an event is completed, it does not need for an agent to intend for the eventual outcome or to have much control over the event (Watanabe 1994). Watanabe (2003:204–205) further specifies that the non-control requires the “completion or actualization of an event” and that it is considered contradictory to cancel this culmination. This contradiction does not arise when the culmination of a control transitive is cancelled.	page 5
+footnote 5	Marianne Huijsmans and Gloria Mellesmoen	note	5 Davis (2012:38) states that “the context disambiguates intent and degree of effort” for non-control predicates.	page 5, footnote
+§2.2	Marianne Huijsmans and Gloria Mellesmoen	note	In a more recent treatment of control and non-control transitivizers, J. Davis (2012) re-labels them as markers of “intent” and “result”, respectively, which he argues are more appropriate for their function in Comox-Sliammon. He suggests that control is “an inaccurate and misleading label” because the control transitive -t may be used for something that an agent undertakes but ends up as an unsuccessful attempt or something outside of the control of the subject (J. Davis 2012:36). In a similar vein, the non-control transitivizer does not need an event to be accidental or out of the control of the agent: it may be done intentionally and with varying degrees of effort.5 Andreotti (2017) analyzes both the control and non-control transitivizers in Comox-Sliammon, arguing that an aspectual analysis such as that proposed in Watanabe (2003) and Jacobs (2011) is not sufficient to capture all aspects of the meaning of control and non-control predicates, but that an analysis that takes control to be a semantic primitive as in Bar-el et al. (2005) is too strong for ʔayʔaǰuθəm, as it wrongly predicts that control never occurs with inanimate subjects or accidental events. Instead, he takes up the idea of “prototypical” agents from Kroeber (1988), arguing that the control transitivizer requires a “prototypical” agent and the non-control transitivizer requires a “non-prototypical” agent. Since prototypicality exists on a cline, the existence of counterexamples to agent control with the control transitivizer are not considered problematic and the general preference for volitional agents with control transitivizers and non-volitional agents with the non- control transitivizers is captured. However, as Andreotti points out, under this analysis, the relationship between control and event initiation, and also between non-control and event culmination, is purely accidental. This is reflected in the denotations in (3) and (4). Briefly, the denotation provided in (3) for the control transitive means that a control transitive predicate will encode event initiation by a prototypical agent leading to culmination in all inertia worlds — that is, if things proceed normally or stereotypically. Culmination is not entailed, however, since it is always possible that the event does not take its normal course. The denotation given in (4) means that a predicate with the non-control transitivizer encodes an initiating event by a non-prototypical agent which culminates in the actual world. The (non)prototypicality of the agent and event (non)culmination are independent components of the analysis that are not related.	page 5
+(3) line 1	Marianne Huijsmans and Gloria Mellesmoen	rule	⟦𝐶𝑇𝑅⟧w = 𝜆P⟨s, ⟨v,t⟩⟩ . 𝜆xe . 𝜆ev. ↑PAgent(e,x) in w ∧ ☐𝐼𝑛𝑟(𝑒,𝑤)	page 6, engine residue
+(3) line 2	Marianne Huijsmans and Gloria Mellesmoen	rule	𝑤′ ∃e' P(w',e') ∧ Cause(e,e') in w'	page 6, engine english
+(4) line 1	Marianne Huijsmans and Gloria Mellesmoen	rule	⟦𝑁𝐶𝑇𝑅⟧w = 𝜆P⟨v,t⟩ . 𝜆xe . 𝜆ev. ↓PAgent(e,x) in w ∧ ∃e' P(e') ∧ Cause(e,e') (Andreotti 2017:9)	page 6, engine english
+§2.2	Marianne Huijsmans and Gloria Mellesmoen	note	Andreotti’s analysis also does not predict any difference in terms of the acceptability of the progressive with control and non-control transitives, but in fact the combination of non-control transitives with the progressive is quite restricted, as shown in Watanabe (2003:206–208) and confirmed in our own fieldwork (see Section 8). In contrast, the control transitivizer can freely combine with the progressive. We therefore take a different approach to analyzing the control and non-control transitivizers where the prototypicality of the agent is not encoded but arises via implicature due to differences in the structure of the event encoded by predicates with control and non-control transitivizers.	page 6
+§2.3	Marianne Huijsmans and Gloria Mellesmoen	heading	2.3 Main claims	page 6
+§2.3	ʔayʔaǰuθəm	cited form	čɩgɩtəm	page 6, ‘almost’
+§2.3	Marianne Huijsmans and Gloria Mellesmoen	note	Following previous literature (e.g., Bar-el 2005; Bar-el et al. 2005; Kiyota 2008; Jacobs 2011), we argue that a predicate with the control transitivizer in ʔayʔaǰuθəm encodes the initiation but not completion of an event. We will show that an event must have been attempted for a control transitive to be used, but this attempt need not have had any perceivable effect. When targeted by higher semantic operators, it is the initiation rather than the completion of the event that is targeted. Under negation and čɩgɩtəm ‘almost’, we get a reading that the event has not (yet) been initiated. Because the control transitivizer foregrounds the initiation of the event, it is typically used when there is an intentional agent undertaking the event. However, since it is possible to use the control transitivizer without an agentive subject (as in Sḵwx̱wú7mesh, see Jacobs 2011:3, (3a)), we propose that the agentivity arises through implicature.	page 6
+§2.3	Marianne Huijsmans and Gloria Mellesmoen	note	Predicates with the non-control transitivizer, on the other hand, entail culmination (Watanabe 2003; Bar-el 2005; Kiyota 2008; Jacobs 2011) and background the internal structure of the event. Under negation and čɩgɩtəm ‘almost’, we get a reading that the event did not occur, either because the subject accidentally failed to realize it or did not manage to bring it about. While this result is an event cancellation reading as for the control transitives (Bar-el 2005), the contexts in which each transitivizer is felicitous with these operators differ. We propose an analysis of the non-control transitivizer where the action of the subject is backgrounded through existential closure while the entire culminating event contributed by the unaccusative predicate, including any incremental change-of-state, remains in the foreground. We then show how the analysis of the control and non- control transitivizers proposed here is consistent with the interpretation and restrictions found when these transitivizers are combined with the progressive and perfective aspects.	page 6
+§3	Marianne Huijsmans and Gloria Mellesmoen	heading	3 Culmination	page 7
+§3	Marianne Huijsmans and Gloria Mellesmoen	note	Perfective predicates with the control transitivizer in ʔayʔaǰuθəm do not require a successful completion of the event. This was discussed previously in J. Davis (1978) and Watanabe (2003) and we replicate the finding here (5–7). We find that predicates with the control transitivizer do not even require the event to have any tangible result (6–7).	page 7
+(5) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: Gloria was cooking some meat for a stir fry. When it was partially cooked, the power went out.	page 7, engine english
+(5) line 2	ʔayʔaǰuθəm	transcription	č̓ɛχatəs tə mɩǰɩθ ʔi xʷaʔ ʔot hoǰʊxʷəs. ƛ̓akʷ	page 7, engine language
+(5) line 3	ʔayʔaǰuθəm	segmentation	č̓əx̣-at-as tə=məǰəθ ʔiy xʷaʔ=ʔut huǰ-ə-xʷ-əs. ƛ̓akʷ	page 7, engine language
+(5) line 4	ʔayʔaǰuθəm	gloss	cook-CTR-3ERG DET=meat CONJ NEG=EXCL finish-NCTR-3OBJ-3ERG go.out	page 7, engine english
+(5) line 5	ʔayʔaǰuθəm	transcription	tə nɩkʷayu.	page 7, engine language
+(5) line 6	ʔayʔaǰuθəm	segmentation	tə=nikʷayu	page 7, engine language
+(5) line 7	ʔayʔaǰuθəm	gloss	DET=lights	page 7, engine english
+(5) line 8	Marianne Huijsmans and Gloria Mellesmoen	translation	‘She cooked the meat, but she wasn’t able to finish it. The lights went out.’	page 7, engine english
+(5) line 9	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/07/03)	page 7, engine residue
+(6) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: Gloria was trying to cut up some material, but her scissors turned out to be too dull and weren’t cutting it at all.	page 7, engine english
+(6) line 2	ʔayʔaǰuθəm	transcription	ɬaχnɛs šɛ k̓ɩpayɛs Gloria. k̓ɩptəs šɛ yɛwəp ʔi xʷaʔ	page 7, engine language
+(6) line 3	ʔayʔaǰuθəm	segmentation	ɬəx̣-nis šə=k̓əpaya-s Gloria k̓əp-t-as šə=yawap ʔiy xʷaʔ	page 7, engine language
+(6) line 4	ʔayʔaǰuθəm	gloss	bad-tooth DET=scissors Gloria get.cut-CTR-3ERG DET=material CONJ NEG	page 7, engine english
+(6) line 5	ʔayʔaǰuθəm	transcription	čɛməs ʔi k̓ɩp.	page 7, engine language
+(6) line 6	ʔayʔaǰuθəm	segmentation	čəm̓=as ʔiy k̓əp	page 7, engine language
+(6) line 7	ʔayʔaǰuθəm	gloss	QUEX=3SBJV CONJ get.cut	page 7, engine english
+(6) line 8	Marianne Huijsmans and Gloria Mellesmoen	translation	‘Gloria’s scissors are dull. She cut the material, but it wouldn’t cut.’	page 7, engine english
+(6) line 9	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | FL&HT.2021/07/12)	page 7, engine residue
+(7) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: Marianne was planning to rip up a cover to make a rug. She tried to rip the cover, but the material was too strong, and she couldn’t.	page 7, engine english
+(7) line 2	ʔayʔaǰuθəm	transcription	hɛhɛw χaχaƛ̓ɛtstom Malian. pəpχtəs ʔi xʷaʔ	page 7, engine language
+(7) line 3	ʔayʔaǰuθəm	segmentation	hihiw x̣a~x̣aƛ̓-it-stu-m Malian pə~pχ-t-as ʔiy xʷaʔ	page 7, engine language
+(7) line 4	ʔayʔaǰuθəm	gloss	really PROG~want-STAT-CAUS-PASS Malian PROG~rip-CTR-3ERG CONJ NEG	page 7, engine english
+(7) line 5	ʔayʔaǰuθəm	transcription	čɛmas paχ.	page 7, engine language
+(7) line 6	ʔayʔaǰuθəm	segmentation	čəm̓=as pəx̣	page 7, engine language
+(7) line 7	ʔayʔaǰuθəm	gloss	QUEX=3SBJV rip	page 7, engine english
+(7) line 8	Marianne Huijsmans and Gloria Mellesmoen	translation	‘Marianne was having difficulty. She was ripping the cover, but it wouldn’t rip.̓	page 7, engine english
+(7) line 9	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | BW.2020/07/15)	page 7, engine residue
+§3	Marianne Huijsmans and Gloria Mellesmoen	note	Preliminary evidence suggests that, though control transitive predicates do not require the attempt to have any effect, they do require the event described by the predicate to have been attempted; the event cannot be simply planned (8–9).6	page 7
+(8) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: Gloria had been busy all day, but she finally got her pot out and her package of instant noodles. Just as she was about to cook, her phone rang, and she had to take the call.	page 8, engine english
+(8) line 2	ʔayʔaǰuθəm	transcription	# č̓ɛχatəs šɛ noodles ʔi xʷaʔ č̓ɛχʊxʷəs.	page 8, engine language
+(8) line 3	ʔayʔaǰuθəm	segmentation	č̓əx̣-at-əs šə=noodles ʔi xʷaʔ č̓əx̣-ə-xʷ-as	page 8, engine language
+(8) line 4	ʔayʔaǰuθəm	gloss	cook-CTR-3ERG DET=noodles CONJ NEG cook-NCTR-3OBJ-3ERG	page 8, engine english
+(8) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘She cooked the noodles, but she didn’t cook them.̓	page 8, engine english
+(8) line 6	Marianne Huijsmans and Gloria Mellesmoen	speaker comment	Consultant’s comment: “č̓ɛχatəs indicates that she’s cooked it.”	page 8, engine english
+(8) line 6	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/07/03)	the tag or source at the right of the translation
+(8)	ʔayʔaǰuθəm	cited form	č̓ɛχatəs	in the speaker comment, page 8
+(9) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: Marianne was going to cut out some paper shapes to make a card. She had the paper and scissors ready and was about to start when visitors walked in preventing her from starting.	page 8, engine english
+(9) line 2	ʔayʔaǰuθəm	transcription	# k̓ɩptəm ʔə Malian tə pipa ʔi xʷaʔ k̓ɩpʊxʷəs.	page 8, engine language
+(9) line 3	ʔayʔaǰuθəm	segmentation	k̓əp-t-əm ʔə=Malian tə=pipa ʔiy xʷaʔ k̓əp-ə-xʷ-as	page 8, engine language
+(9) line 4	ʔayʔaǰuθəm	gloss	get.cut-CTR-PASS OBL=Malian DET=paper CONJ NEG get.cut-NCTR-3OBJ-3ERG	page 8, engine english
+(9) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘Marianne cut the paper, but she didn’t cut it.’	page 8, engine english
+(9) line 6	Marianne Huijsmans and Gloria Mellesmoen	speaker comment	Consultant’s comment: “k̓ɩptəm means that Malian is cutting it.”	page 8, engine english
+(9) line 6	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/07/03)	the tag or source at the right of the translation
+(9)	ʔayʔaǰuθəm	cited form	k̓ɩptəm	in the speaker comment, page 8
+§3	Marianne Huijsmans and Gloria Mellesmoen	note	Unlike predicates with the control transitivizer, predicates with the non-control transitivizer do require culmination of the event described by the predicate (10–11).	page 8
+(10) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: Gloria was cooking some meat for a stir fry. When it was partially cooked, the power went out.	page 8, engine english
+(10) line 2	ʔayʔaǰuθəm	transcription	# č̓ɛχʊxʷəs tə mɩǰɩθ ʔi xʷaʔ ʔot hoǰʊxʷəs.	page 8, engine language
+(10) line 3	ʔayʔaǰuθəm	segmentation	č̓əx̣-ə-xʷ-as tə=məǰəθ ʔiy xʷaʔ=ʔut huǰ-ə-xʷ-əs	page 8, engine language
+(10) line 4	ʔayʔaǰuθəm	gloss	cook-NCTR-3OBJ-3ERG DET=meat CONJ NEG=EXCL finish-NCTR-3OBJ-3ERG	page 8, engine english
+(10) line 5	ʔayʔaǰuθəm	transcription	ƛ̓akʷ tə nɩkʷayɛ.	page 8, engine language
+(10) line 6	ʔayʔaǰuθəm	segmentation	ƛ̓akʷ tə=nikʷaya	page 8, engine language
+(10) line 7	ʔayʔaǰuθəm	gloss	go.out DET=lights	page 8, engine english
+(10) line 8	Marianne Huijsmans and Gloria Mellesmoen	translation	‘She cooked the meat, but she wasn’t able to finish it. The lights went out.’	page 8, engine english
+(10) line 9	Marianne Huijsmans and Gloria Mellesmoen	speaker comment	Consultant’s comment: “č̓ɛχʊxʷəs indicates she got it cooked.”	page 8, engine english
+(10) line 9	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/07/03)	the tag or source at the right of the translation
+(10)	ʔayʔaǰuθəm	cited form	č̓ɛχʊxʷəs	in the speaker comment, page 8
+(11) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: Gloria was trying to cut up some material, but her scissors turned out to be too dull and weren’t cutting it at all.	page 8, engine english
+(11) line 2	ʔayʔaǰuθəm	transcription	# ɬaχnɛs šɛ k̓ɩpayɛs Gloria. k̓ɩpʊxʷəs šɛ yɛwəp	page 8, engine language
+(11) line 3	ʔayʔaǰuθəm	segmentation	ɬəχ-nis šə=k̓əpaya-s Gloria k̓əp-ə-xʷ-as šə=yawap	page 8, engine language
+(11) line 4	ʔayʔaǰuθəm	gloss	bad-tooth DET=scissors-3POSS Gloria get.cut-NCTR-3OBJ-3ERG DET=material	page 8, engine english
+(11) line 5	ʔayʔaǰuθəm	transcription	ʔi xʷaʔ čɛməs ʔi k̓ɩp.	page 8, engine language
+(11) line 6	ʔayʔaǰuθəm	segmentation	ʔiy xʷaʔ čəm̓=as ʔiy k̓əp	page 8, engine language
+(11) line 7	ʔayʔaǰuθəm	gloss	CONJ NEG QUEX=3SBJV CONJ get.cut	page 8, engine english
+(11) line 8	Marianne Huijsmans and Gloria Mellesmoen	translation	‘Gloria’s scissors are dull. She cut the material, but it wouldn’t cut.’	page 8, engine english
+(11) line 9	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | FL&HT.2021/07/12)	page 8, engine residue
+footnote 6	Marianne Huijsmans and Gloria Mellesmoen	note	6 To be completely parallel with the felicitous examples in (5–7) above, the examples in (8) and (9) should also be elicited with an unaccusative predicate in the second conjunct. We have no reason to think that this would improve them, however.	page 8, footnote
+§3	ʔayʔaǰuθəm	cited form	čɩgɩtəm	page 9, ‘almost’
+§3	ʔayʔaǰuθəm	cited form	xʷaʔ	page 9
+§3	Marianne Huijsmans and Gloria Mellesmoen	note	The contrast between control and non-control transitives with respect to culmination corresponds to differences in interpretation when these predicates are targeted by the adverbial čɩgɩtəm ‘almost’ and negation xʷaʔ. These contrasts are examined in the following two sections.	page 9
+§4	Marianne Huijsmans and Gloria Mellesmoen	heading	4 Interpretation with čɩgɩtəm ‘almost’	page 9
+§4	ʔayʔaǰuθəm	cited form	čɩgɩtəm	page 9, ‘almost’
+§4	ʔayʔaǰuθəm	cited form	ʔuk̓ʷ	page 9, ‘all’
+§4	ʔayʔaǰuθəm	cited form	hoǰuxʷ	page 9, ‘finish s.t.’
+§4	Marianne Huijsmans and Gloria Mellesmoen	note	Following Bar-el (2005), we adopt adverbial modification with čɩgɩtəm ‘almost’ as a test for initial and final points. čɩgɩtəm ‘almost’ targets the initiation of an event with a control transitivizer, giving rise to an interpretation where the event is about to be initiated (12). čɩgɩtəm typically targets the whole event with a non-control transitivizer, giving rise to an ‘almost accidentally did x’ or ‘almost managed to do x’ reading (13). With some predicates, it is also possible to get an ‘almost finished x’ reading, where the final stage of the transition is targeted, but this is much more restricted (14). Typically, speakers either add ʔuk̓ʷ ‘all’, giving rise to a reading where almost all of the theme has been affected/used up (15), or switch to using the predicate hoǰuxʷ ‘finish s.t.’ instead (16).	page 9
+(12) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	In a storyboard, Daniel gets a piece of paper and a pencil to start a letter to Bruno.	page 9, engine english
+(12) line 2	ʔayʔaǰuθəm	transcription	čɩgɩtəm namʔəmtəs.	page 9, engine language
+(12) line 3	ʔayʔaǰuθəm	segmentation	čəgətəm nam-ʔəm-t-əs	page 9, engine language
+(12) line 4	ʔayʔaǰuθəm	gloss	almost write-IND-CTR-3ERG	page 9, engine english
+(12) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He’s about to write to him.’	page 9, engine english
+(12) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/08/12)	the tag or source at the right of the translation
+(13) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	In a storyboard, Daniel was about to start writing a letter to Bruno when Laura asks to borrow Daniel’s pen, preventing him from writing the letter.	page 9, engine english
+(13) line 2	ʔayʔaǰuθəm	transcription	čɩgɩtəm namʔəmʊxʷəs.	page 9, engine language
+(13) line 3	ʔayʔaǰuθəm	segmentation	čəgətəm nam-ʔəm-ə-xʷ-əs	page 9, engine language
+(13) line 4	ʔayʔaǰuθəm	gloss	almost write-IND-NCTR-3OBJ-3ERG	page 9, engine english
+(13) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He almost got the chance to write to him.’	page 9, engine english
+(13) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/08/12)	the tag or source at the right of the translation
+(14) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: In a storyboard, Felipe calls Marianne for help rescuing a kitten from a tree. Marianne leaves the stove on and the soup nearly cooked. Gloria comes and turns it off, so it doesn’t finish cooking. This is said to describe the situation:	page 9, engine english
+(14) line 2	ʔayʔaǰuθəm	transcription	čɩgɩtəm č̓ɛχʊxʷəs tə qʷoqʷaɬkʷu.	page 9, engine language
+(14) line 3	ʔayʔaǰuθəm	segmentation	čəgətəm č̓əx̣-ə-xʷ-as tə=qʷuqʷaɬkʷu	page 9, engine language
+(14) line 4	ʔayʔaǰuθəm	gloss	almost cook-NCTR-3OBJ-3ERG DET=soup	page 9, engine english
+(14) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘She almost had the soup cooked.’	page 9, engine english
+(14) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/07/03)	the tag or source at the right of the translation
+(15) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: I catch my dog eating a cake we left out. There’s only a little bit left.	page 9, engine english
+(15a) line 1	ʔayʔaǰuθəm	transcription	# čɩgɩtəm mʊkʷʊxʷəs.	page 9, engine language
+(15a) line 2	ʔayʔaǰuθəm	segmentation	čəgətəm məkʷ-ə-xʷ-as	page 9, engine language
+(15a) line 3	ʔayʔaǰuθəm	gloss	almost eat-NCTR-3OBJ-3ERG	page 9, engine english
+(15a) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He almost ate it.’	page 9, engine english
+(15a) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/07/16)	the tag or source at the right of the translation
+(15b) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Volunteered instead:	page 9, engine english
+(15b) line 2	ʔayʔaǰuθəm	transcription	čɩgɩtəm ʔuk̓ʷ mʊkʷʊxʷəs.	page 9, engine language
+(15b) line 3	ʔayʔaǰuθəm	segmentation	čəgətəm ʔəwk̓ʷ məkʷ-ə-xʷ-əs	page 9, engine language
+(15b) line 4	ʔayʔaǰuθəm	gloss	almost all eat-NCTR-3OBJ-3ERG	page 9, engine english
+(15b) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He almost ate it all.’	page 9, engine english
+(15b) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2021/07/16)	the tag or source at the right of the translation
+(16) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: Gloria is almost finished painting her house.	page 10, engine english
+(16a) line 1	ʔayʔaǰuθəm	transcription	?? čɩgɩtəm ǰʊkʷʊxʷəs tə ʔayɛʔs.	page 10, engine language
+(16a) line 2	ʔayʔaǰuθəm	segmentation	čəgətəm ǰəkʷ-ə-xʷ-as tə=ʔayaʔ-s	page 10, engine language
+(16a) line 3	ʔayʔaǰuθəm	gloss	almost paint-NCTR-3OBJ-3ERG DET=house-3POSS	page 10, engine english
+(16a) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘She’s almost painted her house.’	page 10, engine english
+(16a) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2019/05/12)	the tag or source at the right of the translation
+(16b) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Volunteered instead:	page 10, engine english
+(16b) line 2	ʔayʔaǰuθəm	transcription	kʷi čɩgɩtəm hoǰuxʷəs.	page 10, engine language
+(16b) line 3	ʔayʔaǰuθəm	segmentation	kʷi čəgətəm huǰ-ə-xʷ-as	page 10, engine language
+(16b) line 4	ʔayʔaǰuθəm	gloss	CLDEM almost finish-NCTR-3OBJ-3ERG	page 10, engine english
+(16b) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘She’s almost finished it.’	page 10, engine english
+(16b) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2019/05/12)	the tag or source at the right of the translation
+§4	Marianne Huijsmans and Gloria Mellesmoen	note	With the control transitivizer, čɩgɩtəm ‘almost’ can only give rise to ‘about to start’ readings. It is not possible to get an ‘almost finished’ (17), ‘almost accidentally did x’, or ‘almost managed to’ reading (18–20) for this combination. The non-control transitivizer must be used instead for these readings.	page 10
+(17) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: In a storyboard, Felipe calls Marianne for help rescuing a kitten from a tree. Marianne leaves the stove on and the soup nearly cooked. Gloria comes and turns it off.	page 10, engine english
+(17) line 2	ʔayʔaǰuθəm	transcription	# čɩgɩtəm č̓ɛχatəs tə qʷoqʷaɬkʷu.	page 10, engine language
+(17) line 3	ʔayʔaǰuθəm	segmentation	čəgətəm č̓əx̣-at-as tə=qʷuqʷaɬkʷu	page 10, engine language
+(17) line 4	ʔayʔaǰuθəm	gloss	almost cook-CTR-3ERG DET=soup	page 10, engine english
+(17) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘She almost had the soup cooked.’	page 10, engine english
+(17) line 5	Marianne Huijsmans and Gloria Mellesmoen	note	(cf. 12 above)	a remark at the right of the translation
+(17) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/07/03)	the tag or source at the right of the translation
+(18) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: A piece of plastic somehow fell into the soup. Gloria almost accidentally ate it but noticed in time.	page 10, engine english
+(18) line 2	ʔayʔaǰuθəm	transcription	čɩgɩtəm {mʊkʷʊxʷəs / #mʊkʷtəs}.	page 10, engine language
+(18) line 3	ʔayʔaǰuθəm	segmentation	čəgətəm {məkʷ-ə-xʷ-as / #məkʷ-t-as}	page 10, engine language
+(18) line 4	ʔayʔaǰuθəm	gloss	almost {eat-NCTR-3OBJ-3ERG / eat-CTR-3ERG}	page 10, engine english
+(18) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘She almost accidentally ate it.’	page 10, engine english
+(18) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/07/16)	the tag or source at the right of the translation
+(19) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: Gloria was making a craft project using scissors and almost accidentally cut her shirt.	page 10, engine english
+(19) line 2	ʔayʔaǰuθəm	transcription	čɩgɩtəm {k̓ɩpʊxʷəs / #k̓ɩptəs}.	page 10, engine language
+(19) line 3	ʔayʔaǰuθəm	segmentation	čəgətəm {k̓əp-ə-xʷ-as / #k̓əp-t-as}	page 10, engine language
+(19) line 4	ʔayʔaǰuθəm	gloss	almost {get.cut-NCTR-3OBJ-3ERG / get.cut-CTR-3ERG}	page 10, engine english
+(19) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘She almost cut it.’	page 10, engine english
+(19) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/07/16)	the tag or source at the right of the translation
+(20) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: A bird got loose in the house, and I almost managed to catch it to put it outside, but it got away from me.	page 10, engine english
+(20) line 2	ʔayʔaǰuθəm	transcription	čɩgɩtəmč {maʔaxʷ / #mat}.	page 10, engine language
+(20) line 3	ʔayʔaǰuθəm	segmentation	čəgətəm=č {maʔ-ə-xʷ / maʔ-t}	page 10, engine language
+(20) line 4	ʔayʔaǰuθəm	gloss	almost=1SG.SBJ {get-NCTR-3OBJ / get-CTR}	page 10, engine english
+(20) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I almost got it.’	page 10, engine residue
+(20) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/07/24)	the tag or source at the right of the translation
+§4	Marianne Huijsmans and Gloria Mellesmoen	note	Similarly, it is not possible for čɩgɩtəm with a non-control transitivize to get an ‘about to start’ reading (21–22). Instead, a control transitive must be used.	page 10
+(21) line 0	Marianne Huijsmans and Gloria Mellesmoen	note	Context: My niece is about to open her gift. I tell Felipe to get his attention , qʷaga k̓ʷʊt ‘Come see...’:	page 11, the context
+(21) line 2	ʔayʔaǰuθəm	transcription	kʷi čɩgɩtəm {gəq̓təs / #gaʔq̓ʊxʷəs}.	page 11, engine language
+(21) line 3	ʔayʔaǰuθəm	segmentation	kʷi čəgətəm {gəq̓-t-as / gəq̓-ə-xʷ-as}	page 11, engine language
+(21) line 4	ʔayʔaǰuθəm	gloss	CLDEM almost {open-CTR-3ERG / open-NCTR-3OBJ-3ERG}	page 11, engine english
+(21) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘Come look, she’s about to open it.’	page 11, engine english
+(21) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/07/24)	the tag or source at the right of the translation
+(22) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: I made Freddie a cake. He sits down with a piece, and Gloria calls me over to see how he likes it.	page 11, engine english
+(22) line 2	ʔayʔaǰuθəm	transcription	čɩgɩtəm {t̓aʔatəs / t̓aʔaxʷəs} tə kiks.	page 11, engine language
+(22) line 3	ʔayʔaǰuθəm	segmentation	čəgətəm {t̓aʔ-at-as / t̓aʔ-ə-xʷ-as} tə=kiks	page 11, engine language
+(22) line 4	ʔayʔaǰuθəm	gloss	almost {try-CTR-3ERG / try-NCTR-3OBJ-3ERG DET=cake	page 11, engine english
+(22) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He’s about to try the cake.’	page 11, engine english
+(22) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/07/24)	the tag or source at the right of the translation
+§4	Marianne Huijsmans and Gloria Mellesmoen	note	These observations regarding čɩgɩtəm ‘almost’ with the control and non-control transitivizers are consistent with the finding that the control transitivizer entails only event initiation, while the non-control transitivizer entails event culmination. It is somewhat unexpected, however, that an ‘almost completed x’ reading is not freely available with the non-control transitivizer given that it encodes event completion. We return to this in Section 9.	page 11
+§5	Marianne Huijsmans and Gloria Mellesmoen	heading	5 Interpretation with negation	page 11
+§5	Marianne Huijsmans and Gloria Mellesmoen	note	Under negation, predicates with the control transitivizer give rise to an interpretation where the event has purposefully not been attempted (23). In contrast, predicates with the non-control transitivizer under negation give rise to a reading where an agent was unsuccessful in bringing about the event or accidentally forgot to attempt it (24).	page 11
+(23) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: She had planned to cook a fish but decided not to cook it after all.	page 11, engine english
+(23) line 2	ʔayʔaǰuθəm	transcription	xʷaʔ č̓ɛχatəs tə ǰɛnxʷ.	page 11, engine language
+(23) line 3	ʔayʔaǰuθəm	segmentation	xʷaʔ č̓əx̣-at-as tə=ǰanxʷ	page 11, engine language
+(23) line 4	ʔayʔaǰuθəm	gloss	NEG cook-CTR-3ERG DET=fish	page 11, engine english
+(23) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘She didn’t cook the fish.’	page 11, engine english
+(23) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/07/15)	the tag or source at the right of the translation
+(24) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: She was unable to cook the fish because the oven broke.	page 11, engine english
+(24) line 2	ʔayʔaǰuθəm	transcription	xʷaʔ č̓ɛχʊxʷəs tə ǰɛnxʷ.	page 11, engine language
+(24) line 3	ʔayʔaǰuθəm	segmentation	xʷaʔ č̓əx̣-ə-xʷ-as tə=ǰanxʷ	page 11, engine language
+(24) line 4	ʔayʔaǰuθəm	gloss	NEG cook-NCTR-3OBJ-3ERG DET=fish	page 11, engine english
+(24) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘She didn’t cook the fish.’	page 11, engine english
+(24) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/07/15)	the tag or source at the right of the translation
+§5	Marianne Huijsmans and Gloria Mellesmoen	note	Control transitivizes are felicitous with negation where the subject purposely does not attempt the event described by the predicate, but cannot be used when the event is accidentally not accomplished (25–26).	page 11
+(25) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	✓Context 1: There’s a recipe that calls for melted butter, but I decided not to melt the butter on purpose because I wanted to try the recipe that way. ✗ Context 2: I forgot to melt the butter for the recipe and my baking didn’t turn out.	page 12, engine english
+(25) line 2	ʔayʔaǰuθəm	transcription	xʷač ǰɛχʷatan̓oɬ šɛ pətə.	page 12, engine language
+(25) line 3	ʔayʔaǰuθəm	segmentation	xʷaʔ=č ǰax̣ʷ-at=an-ʔuɬ šə=pətə	page 12, engine language
+(25) line 4	ʔayʔaǰuθəm	gloss	NEG=1SG.SBJ melt-CTR=1SG.SBJV-PST DET=butter	page 12, engine english
+(25) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I didn’t melt the butter.’	page 12, engine english
+(25) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/01/29)	the tag or source at the right of the translation
+(26) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	✓Context 1: I had originally planned to cook a fish tonight, but then Felipe brought home sausages that needed to be cooked right away, so I decided to keep it for tomorrow. ✗ Context 2: I was supposed to cook a fish and make a salad tonight for a potluck tomorrow. I make the salad but forget to put the fish in the oven.	page 12, engine english
+(26) line 2	ʔayʔaǰuθəm	transcription	čkʷa xʷaʔ č̓ɛχətən šɛ ǰɛnxʷ.	page 12, engine language
+(26) line 3	ʔayʔaǰuθəm	segmentation	č=kʷa xʷaʔ č̓əx̣-at=an šə=ǰanxʷ	page 12, engine language
+(26) line 4	ʔayʔaǰuθəm	gloss	1SG.SBJ=CLDEM NEG get.cooked-CTR=1SG.SBJV DET=fish	page 12, engine english
+(26) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I didn’t cook the fish.’	page 12, engine english
+(26) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/07/16)	the tag or source at the right of the translation
+§5	Marianne Huijsmans and Gloria Mellesmoen	note	Similarly, negation with non-control transitives is felicitous where the subject accidentally fails to bring about the event because she forgot, but is infelicitous when the event is purposefully not attempted or initiated (27–28).	page 12
+(27) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	✗ Context 1: There’s a recipe that calls for melted butter, but I decided not to melt the butter on purpose because I wanted to try the recipe that way. ✓ Context 2: I forgot to melt the butter for the recipe and my baking didn’t turn out.	page 12, engine english
+(27) line 2	ʔayʔaǰuθəm	transcription	xʷač ǰɛχʷʊxʷan̓oɬ šɛ pətə.	page 12, engine language
+(27) line 3	ʔayʔaǰuθəm	segmentation	xʷaʔ=č ǰax̣ʷ-ə-xʷ=an-ʔuɬ šə=pətə	page 12, engine language
+(27) line 4	ʔayʔaǰuθəm	gloss	NEG=1S.SBJ melt-NCTR-3OBJ=1S.SBJV-PST DET=butter	page 12, engine english
+(27) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I didn’t melt the butter.’	page 12, engine english
+(27) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/01/29)	the tag or source at the right of the translation
+(28) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	✗ Context 1: I had originally planned to cook a fish tonight, but then Felipe brought home sausages that needed to be cooked right away, so I decide to keep it for tomorrow. ✓ Context 2: I was supposed to cook a fish and make a salad tonight for a potluck tomorrow. I make the salad but forget to put the fish in the oven.	page 12, engine english
+(28) line 2	ʔayʔaǰuθəm	transcription	čkʷa xʷaʔ č̓ɛχʊxʷən šɛ ǰɛnxʷ.	page 12, engine language
+(28) line 3	ʔayʔaǰuθəm	segmentation	č=kʷa xʷaʔ č̓əx̣-ə-xʷ=an šə=ǰanxʷ	page 12, engine language
+(28) line 4	ʔayʔaǰuθəm	gloss	1SG.SBJ=CLDEM NEG get.cooked-NCTR-3OBJ=1SG.SBJV DET=fish	page 12, engine english
+(28) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I didn’t cook the fish.’	page 12, engine english
+(28) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/07/16)	the tag or source at the right of the translation
+§5	Marianne Huijsmans and Gloria Mellesmoen	note	The difference between the non-control and the control transitivizers under negation also relates to the aspectual properties of the two transitivizers. Negation of a control transitive predicate results in a reading where the event was not initiated, which entails that the entire event has not occurred, but backgrounds the cancellation of the culmination. Focus on cancelling event initiation is felicitous when discussing an individual’s decision not to attempt it, but infelicitous when the focus is on the absence of the desired or expected outcome of the event which is tied to its culmination. Negation of a non-control transitive predicate results in a reading where the complete event did not occur. This is consistent with both a reading where the event was unsuccessfully attempted but not accomplished and where the subject failed to even attempt to bring about the event (e.g., because they forgot about doing it).	page 12
+§6	Marianne Huijsmans and Gloria Mellesmoen	heading	6 Adverbs of rate	page 13
+§6	Marianne Huijsmans and Gloria Mellesmoen	note	Given that control transitive predicates encode event initiation while non-control predicates encode event culmination, it is possible that adverbs of rate could target just the initiating event or process with control transitives. This is not the case, however. While both control transitives and non- control transitives are compatible with adverbs of rate, the adverbs of rate do not seem to be able to target just the process with either transitivizer (29–30).	page 13
+(29) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	✗ Context 1: There was a leak under my sink. The man who came to fix it worked quickly, but the problem was complicated, and it took a while for him to finish. ✓ Context 2: There was a leak under my sink. The man who came to fix it was rather slow, but the problem was simple, and the job was still quickly over.	page 13, engine english
+(29a) line 1	ʔayʔaǰuθəm	transcription	ƛ̓ɛmot p̓ap̓ɛʔ-ʊxʷəs.	page 13, engine language
+(29a) line 2	ʔayʔaǰuθəm	segmentation	ƛ̓i-mut p̓ap̓iʔ-ə-xʷ-əs	page 13, engine language
+(29a) line 3	ʔayʔaǰuθəm	gloss	quickly-INT fix-NCTR-3OBJ-3ERG	page 13, engine english
+(29a) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He fixed it quickly.’	page 13, engine english
+(29a) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/10/01)	the tag or source at the right of the translation
+(29b) line 1	ʔayʔaǰuθəm	transcription	ƛ̓ɛmot p̓ap̓ɛtəs.	page 13, engine language
+(29b) line 2	ʔayʔaǰuθəm	segmentation	ƛ̓i-mut p̓ap̓i-t-əs	page 13, engine language
+(29b) line 3	ʔayʔaǰuθəm	gloss	quickly-INT fix-CTR-3ERG	page 13, engine english
+(29b) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He fixed it quickly.’	page 13, engine english
+(29b) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/10/01)	the tag or source at the right of the translation
+(30) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	✗ Context 1: The mouse ate quickly, but it was a big cake, so it took the mouse a while to finish it. ✓ Context 2: Roger eats rather slowly, but it was just a small cupcake that he was eating, and it was gone quickly.	page 13, engine english
+(30a) line 1	ʔayʔaǰuθəm	transcription	ƛ̓ɛmot mʊkʷʊxʷəs kiks.	page 13, engine language
+(30a) line 2	ʔayʔaǰuθəm	segmentation	ƛ̓i-mut məkʷ-ə-xʷ-əs kiks	page 13, engine language
+(30a) line 3	ʔayʔaǰuθəm	gloss	quickly-INT eat-NCTR-3OBJ-3ERG cake	page 13, engine english
+(30a) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He ate the cake quickly.̓	page 13, engine english
+(30a) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/10/01)	the tag or source at the right of the translation
+(30b) line 1	ʔayʔaǰuθəm	transcription	ƛ̓ɛmot mʊkʷtəs kiks.	page 13, engine language
+(30b) line 2	ʔayʔaǰuθəm	segmentation	ƛ̓i-mut məkʷ-t-əs kiks	page 13, engine language
+(30b) line 3	ʔayʔaǰuθəm	gloss	quickly-INT eat-CTR-3OBJ-3ERG cake	page 13, engine english
+(30b) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He ate the cake quickly.̓	page 13, engine english
+(30b) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/10/01)	the tag or source at the right of the translation
+§6	Marianne Huijsmans and Gloria Mellesmoen	note	In these examples, the adverbs target the incremental change-of-state that leads to culmination, but cannot target the process component — the activity of the agent — on its own. This is surprising for the control transitives, since they do not entail that the final change-of-state occurs. Of course, it is difficult to tease apart the process from the change-of-state since they are typically incrementally related (Rothstein 2004), so this requires further investigation. The compatibility of the adverbs of rate with the non-control transitives suggests that non-control transitives involve a process component that can unfold quickly or slowly rather than encoding only an instant of final transition. We return to this in Section 9.	page 13
+§7	Marianne Huijsmans and Gloria Mellesmoen	heading	7 The control transitivizer and agentivity	page 14
+§7	Marianne Huijsmans and Gloria Mellesmoen	note	While control transitives are typically used with an animate and intentional agent, this is not required for felicitous use of the control transitivizer. Particularly when passivized, the control transitivizer can be used without implying participation of an agent (31–34).7	page 14
+(31) line 1	ʔayʔaǰuθəm	transcription	qaχmot qʷoɬay qʷol̓qʷəɬtəm.	page 14, engine language
+(31) line 2	ʔayʔaǰuθəm	segmentation	qəχmut qʷəɬ-ay qʷəl̓ qʷəɬ-t-əm	page 14, engine language
+(31) line 3	ʔayʔaǰuθəm	gloss	lots-INT washed.up-tree come washed.up-CTR-PASS	page 14, engine english
+(31) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘A lot of driftwood got washed up.’	page 14, engine english
+(31) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | FL.2019/04/01)	the tag or source at the right of the translation
+(32) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: I went wading in the river and the current washed my flipflop away.	page 14, engine english
+(32) line 2	ʔayʔaǰuθəm	transcription	hoč qʷoqʷɬomoɬ q̓ʷətəm. ɬušɩniyišč	page 14, engine language
+(32) line 3	ʔayʔaǰuθəm	segmentation	hu=č qʷu<qʷ>ɬ-um-ʔuɬ q̓ʷatəm ɬu-šən-iyiš=č	page 14, engine language
+(32) line 4	ʔayʔaǰuθəm	gloss	go=1SG.SBJ wade<DIM>-MD-PST river lose-foot-AUT=1SG.SBJ	page 14, engine english
+(32) line 5	ʔayʔaǰuθəm	transcription	hoy gɩq̓ʷɛtəm tə q̓ʷətəm.	page 14, engine language
+(32) line 6	ʔayʔaǰuθəm	segmentation	huy giq̓ʷ-it-əm tə=q̓ʷatəm	page 14, engine language
+(32) line 7	ʔayʔaǰuθəm	gloss	and drift-CTR-PASS DET=river	page 14, engine english
+(32) line 8	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I went wading in the river. I lost my shoe and the river washed it away.’	page 14, engine english
+(32) line 9	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | FL.2021/06/07)	page 14, engine residue
+(33) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: We had the door open to increase airflow on a hot day. The door closes suddenly with a crash. Since I saw it happen, I call out to reassure you:	page 14, engine english
+(33) line 2	ʔayʔaǰuθəm	transcription	ʔi ʔot. puhotəm tə ʔɛmɛn ʔi təq.	page 14, engine language
+(33) line 3	ʔayʔaǰuθəm	segmentation	ʔəy=ʔut puh-ut-əm tə=ʔimin ʔiy təq	page 14, engine language
+(33) line 4	ʔayʔaǰuθəm	gloss	good=EXCL blow-CTR-PASS DET=door CONJ get.closed	page 14, engine english
+(33) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘It’s ok, the door got blown and it shut.’	page 14, engine english
+(33) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2021/06/12)	the tag or source at the right of the translation
+(34) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: We had the door open to increase airflow on a hot day. The door closes suddenly with a crash.	page 14, engine english
+(34) line 2	ʔayʔaǰuθəm	transcription	kʷaʔ say puʔəm ʔi təqtəs tə ʔɛmɛn.	page 14, engine language
+(34) line 3	ʔayʔaǰuθəm	segmentation	kʷaʔ say puʔəm ʔiy təq-t-as tə=ʔimin	page 14, engine language
+(34) line 4	ʔayʔaǰuθəm	gloss	get.strong extreme wind CNJ close-CTR-3ERG DET=door	page 14, engine english
+(34) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘A strong wind came up and closed the door.’	page 14, engine english
+(34) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | FL.2021/06/07)	the tag or source at the right of the translation
+§7	Marianne Huijsmans and Gloria Mellesmoen	note	For this reason, the agentivity of the external argument cannot be hard-wired into the semantics of the control transitivizer, though the aspectual properties of the control transitivizer mean that it is typically associated with agentive external arguments.	page 14
+footnote 7	Marianne Huijsmans and Gloria Mellesmoen	note	7 We have not checked whether culmination can be cancelled with control transitives that have non-agentive subjects. The Agent Control Hypothesis (Demirdache & Martin 2015) would predict that non-culminating readings are only possible with agentive subjects. See also Martin and Schäfer (2014) for discussion of the connection between agentivity and non-culmination.	page 14, footnote
+§8	Marianne Huijsmans and Gloria Mellesmoen	heading	8 Analysis of the control and non-control transitivizers	page 15
+§8	Marianne Huijsmans and Gloria Mellesmoen	note	Having confirmed findings from literature and established some additional facts about event structure for control and non-control transitives, we now turn to an examination of the semantic contribution of the two transitivizers. As noted in the introduction, both types of transitivizer combine with unaccusative bare roots. These entail culmination (e.g., Bar-el et al. 2005, Huijsmans & Mellesmoen 2021). In what follows, we will argue for an analysis where the non-control transitivizer retains this culmination requirement, while the control transitivizer lifts it. Control transitives encode an initiating event undertaken by the subject that leads to successful culmination in all inertia worlds. We formalize this in (35) using a denotation that is slightly adapted from the one proposed by Bar-el et al. (2005:8). The control transitive combines with an unaccusative root whose argument (the internal argument) is saturated and adds an external argument. It encodes that the external argument performs an event e at the reference time t in w that causes e’, the event denoted by the unaccusative predicate, in all inertia worlds w’ with respect to the actual world w at the beginning of e. The DO predicate we employ is not meant to imply agentivity, but rather that its argument x exerts force (rather than being acted upon).	page 15
+(35) line 1	Marianne Huijsmans and Gloria Mellesmoen	rule	⟦𝐶𝑇𝑅⟧ = 𝜆𝑓 ∈ 𝐷⟨𝑙,⟨𝑠𝑡⟩⟩ . 𝜆𝑥 . 𝜆𝑒 [𝐷𝑂(𝑒)(𝑥)(𝑤) ∧ ∀𝑤′[𝑤′ 𝑖𝑠 𝑎𝑛 𝑖𝑛𝑒𝑟𝑡𝑖𝑎 𝑤𝑜𝑟𝑙𝑑	page 15, engine residue
+(35) line 2	Marianne Huijsmans and Gloria Mellesmoen	rule	𝑤. 𝑟. 𝑡 𝑤 𝑎𝑡 𝑡ℎ𝑒 𝑏𝑒𝑔𝑖𝑛𝑛𝑖𝑛𝑔𝑜𝑓 𝑒 → ∃𝑒′ [𝑓(𝑒′)(𝑤′) ∧ 𝑒 𝑐𝑎𝑢𝑠𝑒𝑠 𝑒′ 𝑖𝑛 𝑤′]]]	page 15, the second line of the denotation, cut off at the margin
+(35) line 3	Marianne Huijsmans and Gloria Mellesmoen	note	(l = events; Intensional Functional Application is used)	page 15, under the denotation
+§8	Marianne Huijsmans and Gloria Mellesmoen	note	The denotation in (35) captures the fact that control transitives do not entail culmination but do require an initiating event be performed by the subject. They also strongly implicate culmination since culmination is claimed for all inertia worlds. For this reason, predicates with the control transitive can still be used for events that culminate, particularly when the doing of the event, rather than its effect on the world, is in focus. Because the event needs to lead to successful culmination in all inertia worlds, the initiation is typically undertaken by an intentional agent with the ability to ‘control’ the outcome of the event. Since agentivity is not encoded as part of the core semantics, however, we also predict the possibility of non-agentive subjects.	page 15
+§8	Marianne Huijsmans and Gloria Mellesmoen	note	For the non-control transitivizer, we need to capture the fact that it entails culmination and is often associated with events done accidentally or with difficulty. We propose the denotation in (36) to capture this set of properties. Like the control transitivizer, the non-control transitivizer combines with an unaccusative predicate f with a saturated entity argument (the internal argument) and adds an external argument x. It then encodes that there is an event involving the external argument that causes e, the event described by the unaccusative predicate, in w. Since the unaccusative predicate is claimed to be realized in the actual world w, the denotation entails culmination. The participation of the external argument is backgrounded since the initiating event associated with the external argument is existentially closed.	page 15
+(36) line 1	Marianne Huijsmans and Gloria Mellesmoen	rule	⟦𝑁𝐶𝑇𝑅⟧ = 𝜆𝑓 ∈ 𝐷⟨𝑙,⟨𝑠𝑡⟩⟩. 𝜆𝑥. 𝜆𝑒. 𝜆𝑤. ∃𝑒′ [𝐷𝑂(𝑒′)(𝑥) ∧ 𝑓(𝑒)(𝑤) ∧ 𝑒′ 𝑐𝑎𝑢𝑠𝑒𝑠 𝑒 𝑖𝑛 𝑤]	page 15, engine english
+§8	Marianne Huijsmans and Gloria Mellesmoen	note	The association of the non-control transitivizer with accidental events or events accomplished with difficulty arises through the backgrounding of the agent and foregrounding of the culmination of the event. This results in an accompanying indirectness between the participation of the agent and the bringing about of the event described by the unaccusative root. Unlike with the control transitivizer, the event performed by the agent need not lead to the successful completion of the event described by the unaccusative predicate in all inertia worlds — it is not necessarily the prototypical outcome — but does lead to the culmination in the actual world.8 Since most unaccusative roots can be transitivized with either transitivizer, we propose that pragmatic effects associated with the choice of one of the transitivizers over the other play a role in giving rise to these implicatures (see also Jacobs 2011). The control transitivizer encodes the initiation of the event, bringing the action of the subject, typically an agent, to the foreground, and encoding that this action brings about culmination in all inertia worlds. The non-control transitive, in contrast, existentially closes the initiating event and foregrounds the culmination and (if there is one) the incremental change leading up to it. Choice of the non-control transitivizer over the control transitivizer implies that the action of the subject does not bring about the culmination in a prototypical way, while choice of the control transitivizer implies that the subject is agentive and ‘in control’ of the situation. These implicatures are easily overridden by context and never take precedence over the aspectual contribution of the transitivizers.	page 15
+§8	Marianne Huijsmans and Gloria Mellesmoen	note	In (37a–b), for instance, it does not matter how likely the agent is to have control over the outcome: because the focus is on the culmination — whether the target was hit – the non-control transitivizer is used. The non-control transitivizer is also typically used for all kinds of events accomplished in the course of daily life where the event has culminated (37c).	page 16
+(37) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	The non-control transitivizer and agent control	page 16, engine english
+(37a) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: At a shooting range, a sharpshooter hit the bullseye easily with one shot. For anyone else, it would have been really difficult. I tell you afterwards:	page 16, engine english
+(37a) line 2	ʔayʔaǰuθəm	transcription	hɛhɛw ʔaǰɛʔəq. yɛq̓aɬuxʷəs tə bullseye.	page 16, engine language
+(37a) line 3	ʔayʔaǰuθəm	segmentation	hihiw ʔaǰaʔaq yaq̓aɬ-ə-xʷ-as tə=bullseye	page 16, engine language
+(37a) line 4	ʔayʔaǰuθəm	gloss	really sharp.shooter hit.target-NCTR-3OBJ-3ERG DET=bullseye	page 16, engine english
+(37a) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He’s a sharpshooter. He hit the bullseye dead on.’	page 16, engine english
+(37a) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2021/05/09)	the tag or source at the right of the translation
+footnote 8	Marianne Huijsmans and Gloria Mellesmoen	note	8 Under the denotation we’ve proposed, the relationship between the subject’s participation and culminating event may be too loose, predicting use of non-control predicates in contexts where they do not actually occur. A certain amount of indirectness between action of the subject and the outcome is definitely allowed, however. Breaking something by bumping into the table where it is sitting can be described with the following, for instance:	page 16, footnote
+footnote 8 (i) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: I bump into a table and a delicate glass sitting on it falls off and breaks.	page 16, engine english
+footnote 8 (i) line 2	ʔayʔaǰuθəm	transcription	qʷaq̓ʷʊxʷən tə θewθɛtən ʔi yɛp̓ʊxʷən tə k̓ʷasta.	page 16, engine language
+footnote 8 (i) line 3	ʔayʔaǰuθəm	segmentation	qʷaq̓-ə-xʷ-an tə=θiwθitən ʔiy yəp̓-ə-xʷ-an tə=k̓ʷasta	page 16, engine language
+footnote 8 (i) line 4	ʔayʔaǰuθəm	gloss	bump-NCTR-3OBJ-1SG.ERG DET=table CONJ break-NCTR-3OBJ-1SG.ERG DET=cup	page 16, engine english
+footnote 8 (i) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I accidentally bumped into the table and broke the glass.’	page 16, engine english
+footnote 8 (i) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2021/07/06)	the tag or source at the right of the translation
+footnote 8	Marianne Huijsmans and Gloria Mellesmoen	note	We suspect there are limits on how indirect this relationship can be, though we have not fully tested the limits of this. One way to constrain the relationship between the action of the subject and the caused event might be to introduce an incremental relation linking the ‘doing’ of the agent with the gradual bringing about of the caused event (following Rothstein 2004 for accomplishments). We leave this for further research.	page 16
+(37b) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: My friend is learning to shoot better and practices at the shooting range. Today for the first time he manages to hit the bullseye on his first try.	page 17, the context
+(37b) line 2	ʔayʔaǰuθəm	transcription	χʷɛt ʔot yɛq̓aɬuxʷəs.	page 17
+(37b) line 3	ʔayʔaǰuθəm	segmentation	χʷit=ʔut yaq̓aɬ-ə-xʷ-as	page 17
+(37b) line 4	ʔayʔaǰuθəm	gloss	really=EXCL hit.target-NCTR-3OBJ-3ERG	page 17
+(37b) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He hit it right dead on.’	page 17
+(37b) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2021/05/09)	the tag or source at the right of the translation
+(37c) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: You and I went to see a boat, and then I bought it. Today I went to get it, and then I tell you:	page 17, the context
+(37c) line 2	ʔayʔaǰuθəm	transcription	čkʷa maʔaxʷən šɛ nuxʷɩɬ.	page 17
+(37c) line 3	ʔayʔaǰuθəm	segmentation	č=kʷa maʔ-ə-xʷ-an šə=nəxʷiɬ	page 17
+(37c) line 4	ʔayʔaǰuθəm	gloss	1SG.SBJ=CLDEM get-NCTR-3OBJ-1SG.ERG DET=boat	page 17
+(37c) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I went and got the boat.’	page 17
+(37c) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2021/07/10)	the tag or source at the right of the translation
+§8	Marianne Huijsmans and Gloria Mellesmoen	note	Similarly, in order to describe a non-culminating event, one must use a control transitivizer rather than the non-control transitivizer, even though these cases typically involve an agent that is not ‘in control’ of the event, as shown in Section 3 above.	page 17
+§8	ʔayʔaǰuθəm	cited form	čɩgɩtəm	page 17, ‘almost’
+§8	Marianne Huijsmans and Gloria Mellesmoen	note	The denotations for the control transitivizer and non-control transitivizer above predict their behaviour in combination with čɩgɩtəm ‘almost’ and negation. In the denotation for the control transitivizer, only the initiation of the event is entailed, meaning only this initiating event is available for further modification. We therefore expect this aspect of the event to be targeted by other at-issue semantic content, such as adverbs and negation. čɩgɩtəm is therefore predicted to give rise to an ‘almost initiated’ reading, while negation will specifically deny the occurrence of the initiating event with its subject participant, giving rise to readings where the subject decided not to undertake it. The denotation for the non-control transitivizer, in contrast, backgrounds the participation of the agent, but allows the event described by the unaccusative predicate it combines with to be modified. If the unaccusative predicate involves a change-of-state with an incremental process, this entire event will be targeted by other semantic operators such as negation. For this reason, negation and čɩgɩtəm typically give rise to event cancellation readings rather than cancelling only the final moment of transition.	page 17
+§8	Marianne Huijsmans and Gloria Mellesmoen	note	The reading that arises with adverbs of rate is likewise unsurprising with non-control transitives. As predicted by our analysis, the event described by the unaccusative predicate is modified, but not the participation of the agent. When the non-control transitivizer combines with unaccusative predicates involving a change of state, as in (29–30), repeated here as (38–39), the entire change-of-state is asserted to happen slowly or quickly, but whether the subject is acting quickly is irrelevant.	page 17
+(38) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	✗ Context 1: There was a leak under my sink. The man who came to fix it worked quickly, but the problem was complicated, and it took a while for him to finish. ✓ Context 2: There was a leak under my sink. The man who came to fix it was rather slow, but the problem was simple, and the job was still quickly over.	page 17, engine english
+(38a) line 1	ʔayʔaǰuθəm	transcription	ƛ̓ɛmot p̓ap̓ɛʔ-ʊxʷəs.	page 17, engine language
+(38a) line 2	ʔayʔaǰuθəm	segmentation	ƛ̓i-mut p̓ap̓iʔ-ə-xʷ-əs	page 17, engine language
+(38a) line 3	ʔayʔaǰuθəm	gloss	quickly-INT fix-NCTR-3OBJ-3ERG	page 17, engine english
+(38a) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He fixed it quickly.’	page 17, engine english
+(38a) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/10/01)	the tag or source at the right of the translation
+(38b) line 1	ʔayʔaǰuθəm	transcription	ƛ̓ɛmot p̓ap̓ɛtəs.	page 18, engine language
+(38b) line 2	ʔayʔaǰuθəm	segmentation	ƛ̓i-mut p̓ap̓i-t-əs	page 18, engine language
+(38b) line 3	ʔayʔaǰuθəm	gloss	quickly-INT fix-CTR-3ERG	page 18, engine english
+(38b) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He fixed it quickly.’	page 18, engine english
+(38b) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/10/01)	the tag or source at the right of the translation
+(39) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	✗ Context 1: The mouse ate quickly, but it was a big cake, so it took the mouse a while to finish it. ✓ Context 2: Roger eats rather slowly, but it was just a small cupcake that he was eating, and it was gone quickly.	page 18, engine english
+(39a) line 1	ʔayʔaǰuθəm	transcription	ƛ̓ɛmot mʊkʷʊxʷəs kiks.	page 18, engine language
+(39a) line 2	ʔayʔaǰuθəm	segmentation	ƛ̓i-mut məkʷ-ə-xʷ-əs kiks	page 18, engine language
+(39a) line 3	ʔayʔaǰuθəm	gloss	quickly-INT eat-NCTR-3OBJ-3ERG cake	page 18, engine english
+(39a) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He ate the cake quickly.̓	page 18, engine english
+(39a) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/10/01)	the tag or source at the right of the translation
+(39b) line 1	ʔayʔaǰuθəm	transcription	ƛ̓ɛmot mʊkʷtəs kiks.	page 18, engine language
+(39b) line 2	ʔayʔaǰuθəm	segmentation	ƛ̓i-mut məkʷ-t-əs kiks	page 18, engine language
+(39b) line 3	ʔayʔaǰuθəm	gloss	quickly-INT eat-CTR-3OBJ-3ERG cake	page 18, engine english
+(39b) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He ate the cake quickly.̓	page 18, engine english
+(39b) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/10/01)	the tag or source at the right of the translation
+§8	Marianne Huijsmans and Gloria Mellesmoen	note	The reading that arises with adverbs of rate with the control transitivizer is not straightforwardly predicted by our analysis. Here, we expect adverbs of rate to modify the participation of the agent — the ‘doing’ of the event — but examples (38–39) suggest that it is still the entire change-of-state including culmination that is targeted. Another possible interpretation is that the ‘doing’ of the event counts as quick if it takes a short amount of time, even if the motion of the subject is slow — and it counts as slow if it takes a long time, even if the motion of the subject is quick. This would give rise to the results above without requiring access to event culmination with the control transitives. Fully disentangling the interpretation of adverbs of rate will require further investigation beyond the scope of the present paper, however. We hope to undertake this in future fieldwork.	page 18
+§9	Marianne Huijsmans and Gloria Mellesmoen	heading	9 Interpretation and compatibility with viewpoint aspect	page 18
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	While up to this point, we have been focused on initial and final points within the events described by control and non-control transitive predicates, we now turn our attention to the compatibility and interpretation of the two transitivizers with viewpoint aspect. Since we have analyzed the transitivizers with a focus on aspectual differences, we might expect the two transitivizers to behave differently in combination with other morphemes contributing temporal meaning, in particular viewpoint aspect with which control and non-control predicates combine directly. This is the case; the control and non-control transitivizers contrast with each other in both compatibility and interpretation with progressive aspect. The interpretation of the control transitivizer with the perfective also exhibits important contrasts with parallel combinations in St’át’imcets and Sḵwx̱wú7mesh.	page 18
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	ʔayʔaǰuθəm has a null perfective aspect which alternates with C1 reduplication that marks progressive aspect. Both control transitives and non-control transitives appear in the perfective, but non-control transitives are quite restricted with respect to the progressive. This restriction is discussed at some length in Watanabe (2003:206–208), and we have replicated these findings in our own fieldwork (40–41).9	page 18
+(40) line 1	ʔayʔaǰuθəm	transcription	* k̓ɩk̓pʊxʷən.	page 19, engine language
+(40) line 2	ʔayʔaǰuθəm	segmentation	k̓ə~k̓p-ə-xʷ-an	page 19, engine language
+(40) line 3	ʔayʔaǰuθəm	gloss	PROG~cut-NCTR-3OBJ-1SG.ERG	page 19, engine english
+(40) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m cutting it.’	page 19, engine residue
+(40) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/07/10, FL&HT.2021/07/05)	the tag or source at the right of the translation
+(41) line 1	ʔayʔaǰuθəm	transcription	* ǰuǰuθʊxʷən.	page 19, engine language
+(41) line 2	ʔayʔaǰuθəm	segmentation	ǰu~ǰuθ-ə-xʷ-an	page 19, engine language
+(41) line 3	ʔayʔaǰuθəm	gloss	PROG~push-NCTR-3OBJ-1SG.ERG	page 19, engine english
+(41) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m pushing it.’	page 19, engine residue
+(41) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/07/10)	the tag or source at the right of the translation
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	In contrast, control transitives co-occur standardly with progressive aspect (42–43).	page 19
+(42) line 1	ʔayʔaǰuθəm	transcription	k̓ɩk̓ptčɛn.	page 19, engine language
+(42) line 2	ʔayʔaǰuθəm	segmentation	k̓ə~k̓p-t=čan	page 19, engine language
+(42) line 3	ʔayʔaǰuθəm	gloss	PROG~cut-CTR=1SG.SBJ	page 19, engine english
+(42) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m cutting it.’	page 19, engine residue
+(42) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2021/07/10)	the tag or source at the right of the translation
+(43) line 1	ʔayʔaǰuθəm	transcription	ǰuǰuθotč.	page 19, engine english
+(43) line 2	ʔayʔaǰuθəm	segmentation	ǰu~ǰuθ-ut=č	page 19, engine language
+(43) line 3	ʔayʔaǰuθəm	gloss	PROG~push-CTR=1SG.SBJ	page 19, engine english
+(43) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m pushing it.’	page 19, engine residue
+(43) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2021/07/10)	the tag or source at the right of the translation
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	Bare roots — on which both types of transitives are built — also combine quite freely with the progressive (44–45), so the restriction on the combination of the progressive and non-control transitivizer must arise from the non-control transitivizer itself.	page 19
+(44) line 1	ʔayʔaǰuθəm	transcription	qəǰi č̓ɩč̓χ.	page 19, engine language
+(44) line 2	ʔayʔaǰuθəm	segmentation	qəǰi č̓ə~č̓x̣	page 19, engine language
+(44) line 3	ʔayʔaǰuθəm	gloss	still PROG~cook	page 19, engine english
+(44) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘It’s still cooking.’	page 19, engine residue
+(44) line 4	Marianne Huijsmans and Gloria Mellesmoen	note	(cf. 5, 14)	a remark at the right of the translation
+(44) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | FL.2018/10/17)	the tag or source at the right of the translation
+(45) line 1	ʔayʔaǰuθəm	transcription	ǰɛǰɛχʷ tə pətə.	page 19, engine language
+(45) line 2	ʔayʔaǰuθəm	segmentation	ǰa~ǰax̣ʷ tə=pətə	page 19, engine language
+(45) line 3	ʔayʔaǰuθəm	gloss	PROG~melt DET=butter	page 19, engine english
+(45) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘The butter is melting.’	page 19, engine english
+(45) line 4	Marianne Huijsmans and Gloria Mellesmoen	note	(repeated from (2b))	a remark at the right of the translation
+(45) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2018/09/10)	the tag or source at the right of the translation
+footnote 9	Marianne Huijsmans and Gloria Mellesmoen	note	9 Non-control transitives frequently have ergative suffixes to realize subject agreement rather than indicative subject clitics (see also Watanabe 2003:218, fn. 186); either type of subject agreement is possible, and they can even co-occur if there is a pre-predicative element to host the indicative clitic. Ergative suffixes are otherwise restricted to object-centered relative clauses, so it is not clear why they occur on non-control transitives.	page 19, footnote
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	Though progressive non-control transitives are clearly marked in comparison to progressive control transitives, the combination of the non-control and progressive is occasionally accepted, as discussed in Watanabe (2003:208–211), and also replicated in our own fieldwork (46–48). Where accepted, these predicates are often associated with difficulty achieving the culmination of the event (46–47), but sometimes just place the focus on the final change-of-state (48).	page 19
+(46) line 1	ʔayʔaǰuθəm	transcription	tatayqʊxʷən k̓ʷaxʷa.	page 20, engine language, carries footnote 10, written here without its digit
+(46) line 2	ʔayʔaǰuθəm	segmentation	ta~tayq-ə-xʷ-an k̓ʷaxʷa	page 20, engine language
+(46) line 3	ʔayʔaǰuθəm	gloss	PROG~move-NCTR-3OBJ-1SG.ERG box	page 20, engine english
+(46) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I moved the box slowly, having difficulty.’	page 20, engine english
+(46) line 4	Marianne Huijsmans and Gloria Mellesmoen	note	(translation volunteered)	a remark at the right of the translation
+(46) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | FL&HT.2021/07/05)	page 20, engine residue
+(47) line 1	ʔayʔaǰuθəm	transcription	ǰuǰuθʊxʷən.	page 20, engine language, carries footnote 11, written here without its digit
+(47) line 2	ʔayʔaǰuθəm	segmentation	ǰu~ǰuθ-əxʷ-an	page 20, engine language
+(47) line 3	ʔayʔaǰuθəm	gloss	PROG~push-NCTR-3OBJ-1SG.ERG	page 20, engine english
+(47) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m pushing it.’	page 20, engine residue
+(47) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | FL&HT.2021/07/05)	the tag or source at the right of the translation
+(47) line 5	sf	speaker comment	Consultant’s comment: “You’re making it move a little at a time... struggling with it.”	page 20, engine english
+(48) line 1	ʔayʔaǰuθəm	transcription	hohoǰuxʷən.	page 20, engine language
+(48) line 2	ʔayʔaǰuθəm	segmentation	hu~huǰ-ə-xʷ-an	page 20, engine language
+(48) line 3	ʔayʔaǰuθəm	gloss	PROG~finish-NCTR-3OBJ-1ERG	page 20, engine english
+(48) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m finishing it.’	page 20, engine residue
+(48) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/07/10, FL&HT.2021/07/05)	the tag or source at the right of the translation
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	The fact that the non-control transitives entail culmination does not automatically predict their incompatibility with the progressive. After all, English accomplishments also entail culmination when not progressive (49a), yet standardly are compatible with progressive aspect (49b) (e.g., Dowty 1979).	page 20
+(49a) line 1	Marianne Huijsmans and Gloria Mellesmoen	cited example	#I ate a cookie, but I didn’t finish it.	page 20, English, marked infelicitous
+(49b) line 1	Marianne Huijsmans and Gloria Mellesmoen	cited example	I was eating a cookie.	page 20, English
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	One possible direction would be an analysis positing that the non-control transitivizer creates a punctual event from the root it combines with. The resulting predicates would be restricted from combining with the progressive because they do not have duration, as English achievements are (e.g., #I was/am finding my glasses.). The occasional co-occurrence of the non-control transitivizer with the progressive would then have to be explained through coercion. Non-control transitives are compatible with adverbs of rate, however, (50), also (29/38, 30/39) above.	page 20
+(50) line 1	ʔayʔaǰuθəm	transcription	hahays gaq̓ʊxʷəs tə ʔɛmɛn.	page 20, engine language
+(50) line 2	ʔayʔaǰuθəm	segmentation	hahays gəq̓-ə-xʷ-as tə=ʔimin	page 20, engine language
+(50) line 3	ʔayʔaǰuθəm	gloss	slowly open-NCTR-3OBJ-3ERG DET=door	page 20, engine english
+(50) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘He slowly managed to get the door open.’	page 20, engine english
+(50) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | BW.2020/07/01)	the tag or source at the right of the translation
+footnote 10	Marianne Huijsmans and Gloria Mellesmoen	note	10 This same form was rejected by another speaker: there seems to be interspeaker variation in terms of which of these are possible, possibly reflecting how easily speakers are able to recover a context in which the form could be used.	page 20, footnote
+footnote 11	Marianne Huijsmans and Gloria Mellesmoen	note	11 This same form was also rejected by another speaker, as shown above in (41).	page 20, footnote
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	The acceptability of these examples is not predicted if they describe a punctual event. He blinked quickly/slowly or he knocked quickly/slowly, for instance, are generally only possible if the event is repeated. The adverbs cannot easily describe the actual eye-shutting action as quick or slow, nor the action of a single knock. Other events are more coercible: I found my glasses quickly, but often only in one direction: #I found my glasses slowly. Though this still requires further investigation, we have not found similar restrictions on adverbs of rate with non-control transitives, so we do not pursue this approach for the analysis of the non-control transitivizer.	page 21
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	Instead, we maintain the analysis of the non-control transitivizer that was proposed in the preceding section (36), restated in (51). Taking this as our starting point, we can examine what happens when the progressive combines with a non-control transitive.	page 21
+(51) line 1	Marianne Huijsmans and Gloria Mellesmoen	rule	⟦𝑁𝐶𝑇𝑅⟧ = 𝜆𝑓 ∈ 𝐷⟨𝑙,⟨𝑠𝑡⟩⟩. 𝜆𝑥. 𝜆𝑒. 𝜆𝑤. ∃𝑒′ [𝐷𝑂(𝑒′)(𝑥) ∧ 𝑓(𝑒)(𝑤) ∧ 𝑒′ 𝑐𝑎𝑢𝑠𝑒𝑠 𝑒 𝑖𝑛 𝑤]	page 21, engine english
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	For simplicity, we focus only on the temporal component of the meaning of the progressive, which places the reference time within the interval during which the event unfolds (the temporal trace of the event 𝜏(𝑒)): 𝜏(𝑒) ⊂ 𝑡.12 Since the unsaturated event argument in (51) is the event described by the unaccusative predicate, the reference time will be placed within the unfolding of this event. The progressive does not target the ‘doing’ event involving the subject as its participant. An example such as (52), then, will get roughly the interpretation as in (53) where the reference time t is placed within the unaccusative ‘getting finished’ event.13	page 21
+(52) line 1	ʔayʔaǰuθəm	transcription	hohoǰuxʷən.	page 21, engine language
+(52) line 2	ʔayʔaǰuθəm	segmentation	hu~huǰ-ə-xʷ-an	page 21, engine language
+(52) line 3	ʔayʔaǰuθəm	gloss	PROG~finish-NCTR-3OBJ-1ERG	page 21, engine english
+(52) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m finishing it.’	page 21, engine residue
+(52) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/07/10, FL&HT.2021/07/05)	the tag or source at the right of the translation
+(53a) line 1	Marianne Huijsmans and Gloria Mellesmoen	rule	⟦hoǰuxʷən⟧ = 𝜆𝑒. 𝜆𝑤. ∃𝑒′ [𝐷𝑂(𝑒′)(𝐼) ∧ 𝑔𝑒𝑡. 𝑓𝑖𝑛𝑖𝑠ℎ𝑒𝑑(𝑖𝑡)(𝑒)(𝑤) ∧ 𝑒′ 𝑐𝑎𝑢𝑠𝑒𝑠 𝑒 𝑖𝑛 𝑤]	page 21, engine residue
+(53b) line 1	Marianne Huijsmans and Gloria Mellesmoen	rule	⟦PROG⟧ (⟦hoǰuxʷən⟧) = 𝜆𝑒. 𝜆𝑡. 𝜆𝑤. ∃𝑒′ [𝐷𝑂(𝑒′)(𝐼) ∧ 𝑔𝑒𝑡. 𝑓𝑖𝑛𝑖𝑠ℎ𝑒𝑑(𝑖𝑡)(𝑒)(𝑤) ∧	page 21, engine residue
+(53b) line 2	Marianne Huijsmans and Gloria Mellesmoen	rule	𝑡 ⊂ 𝜏(𝑒) ∧ 𝑒′ 𝑐𝑎𝑢𝑠𝑒𝑠 𝑒 𝑖𝑛 𝑤]	page 21, the second line of the denotation
+footnote 12	Marianne Huijsmans and Gloria Mellesmoen	note	12 We abstract away from the possible world semantics of the progressive, which has been widely adopted since Dowty (1979).	page 21, footnote
+footnote 13	Marianne Huijsmans and Gloria Mellesmoen	note	13 The denotation in (53b) is obviously an oversimplification since it would require the progressive event to culminate in the actual world, but there is always a possibility that an in-progress event will not reach culmination.	page 21, footnote
+footnote 14	Marianne Huijsmans and Gloria Mellesmoen	note	14 If a more standard version of the progressive is adopted, such as (i), adapted from Dowty (1979), another problem emerges for the combination of the progressive with a non-control transitive.	page 21, footnote
+footnote 14 (i) line 1	Marianne Huijsmans and Gloria Mellesmoen	rule	⟦PROG⟧ = λf ∈ 𝐷⟨𝑙,⟨𝑠𝑡⟩⟩. λe . λt . λw . ∀w′ [w′ is an inertia world w.r.t. w at the beginning of e →	page 21, engine english
+footnote 14 (i) line 2	Marianne Huijsmans and Gloria Mellesmoen	rule	∃e′ [f(e′)(w′) ⋀ t ⊆τ(e)]]	page 21, the second line of the denotation
+footnote 14 (i) line 2	Marianne Huijsmans and Gloria Mellesmoen	citation	(adapted from Dowty 1979:149)	the source at the right of the denotation
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	We propose that placing the reference time within the ‘getting finished’ event, rather than within the ‘doing’ event that involves the external argument gives rise to an implicature that the participation of the subject does not straightforwardly result in the culmination of the event, often giving rise to readings where difficulty is involved.14 We take the contexts supporting the use of progressive non-control transitives to be unusual contexts, however: when speaking of ongoing actions involving a subject participant, the participation of the subject in the ongoing event is generally important. Typically, if the participation of the subject is really unimportant for the conversation, a passive or bare unaccusative should be used instead. This makes the use of the progressive with the non-control transitivizer marginal.	page 21, run on to page 22 across the footnotes
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	This reading contrasts with the contribution of the control transitive in combination with the progressive, which gives rise to a more canonical event-in-progress reading where the ongoing participation of the agent is directly tied to the progress of the event. When a predicate with the control transitivizer is combined with the progressive, it is the process — involving participation by the agent — that is made ongoing, since it is the process portion of the event that is unsaturated. The denotation for the control transitivizer is repeated from (35) as (54).	page 22
+(54) line 1	Marianne Huijsmans and Gloria Mellesmoen	rule	⟦𝐶𝑇𝑅⟧ = 𝜆𝑓 ∈ 𝐷⟨𝑙,⟨𝑠𝑡⟩⟩. 𝜆𝑥 . 𝜆𝑒 [𝐷𝑂(𝑒)(𝑥)(𝑤) ∧ ∀𝑤′[𝑤′ 𝑖𝑠 𝑎𝑛 𝑖𝑛𝑒𝑟𝑡𝑖𝑎 𝑤𝑜𝑟𝑙𝑑	page 22, engine residue
+(54) line 2	Marianne Huijsmans and Gloria Mellesmoen	rule	𝑤. 𝑟. 𝑡 𝑤 𝑎𝑡 𝑡ℎ𝑒 𝑏𝑒𝑔𝑖𝑛𝑛𝑖𝑛𝑔𝑜𝑓 𝑒 → ∃𝑒′ [𝑓(𝑒′)(𝑤′) ∧ 𝑒 𝑐𝑎𝑢𝑠𝑒𝑠 𝑒′ 𝑖𝑛 𝑤′]]]	page 22, the second line of the denotation, cut off at the margin
+(54) line 3	Marianne Huijsmans and Gloria Mellesmoen	note	(l = events; Intensional Functional Application is used)	page 22, under the denotation
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	When combined with a predicate taking the control transitivizer, the progressive places the reference time t within the ‘doing’ event e initiated by the subject. This is illustrated for (55), repeated from (42), in (56b).	page 22
+(55) line 1	ʔayʔaǰuθəm	transcription	k̓ɩk̓ptčɛn.	page 22, engine language
+(55) line 2	ʔayʔaǰuθəm	segmentation	k̓ə~k̓p-t=čan	page 22, engine language
+(55) line 3	ʔayʔaǰuθəm	gloss	PROG~cut-CTR=1SG.SBJ	page 22, engine english
+(55) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m cutting it.’	page 22, engine residue
+(55) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2021/07/10)	the tag or source at the right of the translation
+(56a) line 1	Marianne Huijsmans and Gloria Mellesmoen	rule	⟦k̓ɩptčɛn⟧ = 𝜆𝑒 . 𝜆𝑤[𝐷𝑂(𝑒)(𝐼)(𝑤) ∧ ∀𝑤′[𝑤′ 𝑖𝑠 𝑎𝑛 𝑖𝑛𝑒𝑟𝑡𝑖𝑎 𝑤𝑜𝑟𝑙𝑑 𝑤. 𝑟. 𝑡. 𝑤 𝑎𝑡 𝑡ℎ𝑒	page 22, engine residue
+(56a) line 2	Marianne Huijsmans and Gloria Mellesmoen	rule	𝑏𝑒𝑔𝑖𝑛𝑛𝑖𝑛𝑔 𝑜𝑓 𝑒 → [∃𝑒′ [𝑔𝑒𝑡. 𝑐𝑢𝑡(𝑒′)(𝑤′) ∧ 𝑒 𝑐𝑎𝑢𝑠𝑒𝑠 𝑒′ 𝑖𝑛 𝑤′]]]]	page 22, the second line of the denotation
+(56b) line 1	Marianne Huijsmans and Gloria Mellesmoen	rule	⟦PROG⟧(⟦k̓ɩptčɛn⟧) = 𝜆𝑒 . 𝜆𝑡 . 𝜆𝑤[𝐷𝑂(𝑒)(𝐼)(𝑤) ∧ 𝜏(𝑒) ⊂ 𝑡 ∧ ∀𝑤′[𝑤′ 𝑖𝑠 𝑎𝑛 𝑖𝑛𝑒𝑟𝑡𝑖𝑎 𝑤𝑜𝑟𝑙𝑑 𝑤. 𝑟. 𝑡. 𝑤 𝑎𝑡 𝑡ℎ𝑒 𝑏𝑒𝑔𝑖𝑛𝑛𝑖𝑛𝑔 𝑜𝑓 𝑒 → ∃𝑒′ [𝑔𝑒𝑡. 𝑐𝑢𝑡(𝑒′)(𝑤′) ∧ 𝑒 𝑐𝑎𝑢𝑠𝑒𝑠 𝑒′ 𝑖𝑛 𝑤′]]]	page 22, the denotation over three lines
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	Since both transitivizers are available with most predicates, progressives built on control transitives are generally preferred. The competition between the control and non-control forms likely also contributes to the ‘difficulty’ readings associated with the non-control transitivizer. Before closing this section, we turn attention to the combination of control transitives with perfective aspect. While the combination of the perfective with the control transitivizer looks unremarkable, it gives rise to certain readings that are not found with English perfective accomplishments, nor with its perfective counterparts in St’át’imcets and Sḵwx̱wú7mesh. It can be used with a future translation when the subject is just beginning the action described by the predicate (57, 58a). These are not true future uses, however, since they cannot describe a future event that is not yet initiated (57, 58b). Rather, they describe the event in the moments of initiation.	page 22, run on to page 23
+footnote 14	Marianne Huijsmans and Gloria Mellesmoen	note	While combining a non-control transitive with the progressive in (i) would correctly place the reference time with the unfolding of the event described by the unaccusative predicate, it would also displace the activity of the agent into inertia worlds, which seems to be on the wrong track since this should allow the agent to not participate in the event at all. While we haven’t tested whether this is possible explicitly, it doesn’t match the readings we have found. It is beyond the scope of this paper to resolve the issue, however. We hope to take this up in future research.	page 22, footnote 14 run on from page 21
+(57) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	✓Context: You see me sitting down at a table that has a pile of roots on it and ask: tatamčxʷ ‘What are you doing?’ I reply:	page 23, the context
+(57) line 2	Marianne Huijsmans and Gloria Mellesmoen	note	✗ Context: We were at an event together, and you ask me what I’ll do when I go home: tamsəm kʷʊθ yɛθot tin̓ kʷʊtayɩtən? I tell you:	page 23, the context
+(57) line 3	ʔayʔaǰuθəm	transcription	šuʔotč tətᶿ kʷaʔamnač.	page 23
+(57) line 4	ʔayʔaǰuθəm	segmentation	šəw̓-ut=č tə=tᶿ=kʷaʔamnač	page 23
+(57) line 5	ʔayʔaǰuθəm	gloss	sort-CTR=1SG.SBJ DET=1SG.POSS=root	page 23
+(57) line 6	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m gonna sort my roots.’	page 23
+(57) line 6	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/07/10)	the tag or source at the right of the translation
+(58a) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: My friend sees me starting to move about in my kitchen and asks: tatamčxʷ ‘What are you doing?’ I tell her that I’m going to cook the fish that’s thawing in the sink.	page 23, the context
+(58a) line 2	ʔayʔaǰuθəm	transcription	č̓ɛχatč tə ǰɛnxʷ.	page 23
+(58a) line 3	ʔayʔaǰuθəm	segmentation	č̓əx̣-at=č tə=ǰanxʷ	page 23
+(58a) line 4	ʔayʔaǰuθəm	gloss	cook-CTR=1SG.ERG DET=fish	page 23
+(58a) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m going to cook the fish.’	page 23
+(58a) line 6	Marianne Huijsmans and Gloria Mellesmoen	speaker comment	Consultant’s comment: “You’re already hands on prepping the fish.”	page 23, the consultant's comment
+(58a) line 6	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2021/07/16)	the tag or source at the right of the translation
+(58b) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: I have a plan for dinner since someone gave me a fish.	page 23, the context
+(58b) line 2	ʔayʔaǰuθəm	transcription	# č̓ɛχatč tə ǰɛnxʷ snanat.	page 23
+(58b) line 3	ʔayʔaǰuθəm	segmentation	č̓əx̣-at=č tə=ǰanxʷ s=nanat	page 23
+(58b) line 4	ʔayʔaǰuθəm	gloss	cook-CTR=1SG.ERG DET=fish NMLZ=evening	page 23
+(58b) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m going to cook the fish tonight.’	page 23
+(58b) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/06/19)	the tag or source at the right of the translation
+§9	Marianne Huijsmans and Gloria Mellesmoen	cited form	səm	page 23, the future clitic
+§9	Marianne Huijsmans and Gloria Mellesmoen	cited form	tᶿəm	page 23, səm with the first person singular subject
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	Future events require the use of the future clitic səm (which is combined with the first person singular subject to become tᶿəm), as shown in (59) and (60).	page 23
+(59) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: We were at an event together and you ask me what I’ll do when I go home: tamsəm kʷʊθ yɛθot tin̓ kʷʊtayɩtən? I tell you:	page 23, engine english
+(59) line 2	ʔayʔaǰuθəm	transcription	šuʔottᶿəm tətᶿ kʷaʔamnač.	page 23, engine language
+(59) line 3	ʔayʔaǰuθəm	segmentation	šəw̓-ut=tᶿəm tə=tᶿ=kʷaʔamnač	page 23, engine language
+(59) line 4	ʔayʔaǰuθəm	gloss	sort-CTR=1SG.SBJ+FUT DET=1SG.POSS=root	page 23, engine english
+(59) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m sorting my roots.’	page 23, engine english
+(59) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(vf | EP.2021/07/10)	the tag or source at the right of the translation
+(60) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: I have a plan for dinner since someone gave me a fish.	page 23, engine english
+(60) line 2	ʔayʔaǰuθəm	transcription	č̓ɛχattᶿəm tə ǰɛnxʷ snanat.	page 23, engine language
+(60) line 3	ʔayʔaǰuθəm	segmentation	č̓əx̣-at=tᶿəm tə=ǰanxʷ s=nanat	page 23, engine language
+(60) line 4	ʔayʔaǰuθəm	gloss	cook-CTR=1SG.SBJ+FUT DET=fish NMLZ=evening	page 23, engine english
+(60) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m going to cook the fish tonight.’	page 23, engine english
+(60) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(sf | EP.2021/06/19)	the tag or source at the right of the translation
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	Perfective control transitives also lack one of the readings available to their counterparts in St’át’imcets (61) and Sḵwx̱wú7mesh (62): an ongoing action reading.	page 23
+(61) line 1	St’át’imcets	segmentation	q’wel-en-lhkán ta ts’í7-a, t’u7 cw7aoy t’u7 kw-s q’wel-s	page 24, engine language
+(61) line 2	St’át’imcets	gloss	cook-TR-1SG.SBJ DET deer-DET but NEG still DET-NMLZ cook-3POSS	page 24, engine english
+(61) line 3	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I am cooking deer meat, but it isn’t done yet.’	page 24, engine english, cited St’át’imcets
+(61) line 3	Marianne Huijsmans and Gloria Mellesmoen	citation	(St’át’imcets | Bar-el et al. 2005:5, ex. 20)	the tag or source at the right of the translation
+(62) line 1	Sḵwx̱wú7mesh	segmentation	na mikw’-int-as ta lhxenptn lha Mary 7i na7-xw wa mikw’-int-as.	page 24, engine residue
+(62) line 2	Sḵwx̱wú7mesh	gloss	RL wash-TR-3ERG DET floor DET Mary PART RL-still IPFV wash-TR-3ERG	page 24, engine english
+(62) line 3	Marianne Huijsmans and Gloria Mellesmoen	translation	‘Mary is washing the floor and she’s still washing it.’	page 24, engine english, cited Sḵwx̱wú7mesh
+(62) line 3	Marianne Huijsmans and Gloria Mellesmoen	citation	(Sḵwx̱wú7mesh | Bar-el et al. 2005:5, ex. 22)	page 24, engine english
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	The ʔayʔaǰuθəm control transitive forms cannot be used with an ongoing action reading. The progressive form must be used instead, as in (63b) and (64b).	page 24
+(63) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: I’m sitting at a table sorting my roots and you ask me: tatamčxʷ? ‘What are you doing?’ I reply:	page 24, engine english
+(63a) line 1	ʔayʔaǰuθəm	transcription	# šuʔotč tətᶿ kʷaʔamnač.	page 24, engine language
+(63a) line 2	ʔayʔaǰuθəm	segmentation	šəw̓-ut=č tə=tᶿ=kʷaʔamnač	page 24, engine language
+(63a) line 3	ʔayʔaǰuθəm	gloss	sort-CTR=1SG.SBJ DET=1SG.POSS=roots	page 24, engine english
+(63a) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m sorting my roots.’	page 24, engine english
+(63a) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(ʔayʔaǰuθəm | sf | EP.2021/07/10)	the tag or source at the right of the translation
+(63b) line 1	ʔayʔaǰuθəm	transcription	šɩšʔotč tətᶿ kʷaʔamnač.	page 24, engine language
+(63b) line 2	ʔayʔaǰuθəm	segmentation	šə~šw̓-ut=č tə=tᶿ=kʷaʔamnač	page 24, engine language
+(63b) line 3	ʔayʔaǰuθəm	gloss	PROG~sort-CTR=1SG.SBJ DET=1SG.POSS=root	page 24, engine english
+(63b) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I’m sorting my roots.’	page 24, engine english
+(63b) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(ʔayʔaǰuθəm | vf | EP.2021/07/10)	the tag or source at the right of the translation
+(64) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: I’m about halfway through cooking a fish for dinner. My friend drops in and asks me tatamčxʷ? ‘What are you doing?’ I tell her I’m cooking a fish.	page 24, engine english
+(64a) line 1	ʔayʔaǰuθəm	transcription	# č̓ɛχatč tə ǰɛnxʷ.	page 24, engine language
+(64a) line 2	ʔayʔaǰuθəm	segmentation	č̓əχ-at=č tə=ǰanxʷ	page 24, engine language
+(64a) line 3	ʔayʔaǰuθəm	gloss	get.cooked-CTR=1SG.SBJ DET=fish	page 24, engine english
+(64a) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I'm cooking a fish.’	page 24, engine english
+(64b) line 1	ʔayʔaǰuθəm	transcription	č̓ɩč̓χatč tə ǰɛnxʷ.	page 24, engine language
+(64b) line 2	ʔayʔaǰuθəm	segmentation	č̓ə~č̓x̣-at=č tə=ǰanxʷ	page 24, engine language
+(64b) line 3	ʔayʔaǰuθəm	gloss	PROG~get.cooked-CTR=1SG.SBJ DET=fish	page 24, engine english
+(64b) line 4	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I'm cooking a fish.’	page 24, engine english
+(64b) line 4	Marianne Huijsmans and Gloria Mellesmoen	citation	(ʔayʔaǰuθəm | sf | EP.2021/07/16)	the tag or source at the right of the translation
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	We propose that the contrast in the readings available for perfective control transitives in ʔayʔaǰuθəm and their counterparts in St’át’imcets and Sḵwx̱wú7mesh do not arise due to a difference in the meaning of the control transitivizer itself, but rather due to a difference between the interpretation of perfective aspect in these languages. Perfective activities in St’át’imcets (65) and Sḵwx̱wú7mesh (66) can also be interpreted as ongoing at the utterance time, whereas this is not possible in ʔayʔaǰuθəm (67); the progressive must be used instead.	page 24
+(65) line 1	St’át’imcets	segmentation	ít’-em-lhkan.	page 24, engine language
+(65) line 2	St’át’imcets	gloss	sing-MD -1SG.SBJ	page 24, engine english
+(65) line 3	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I sang. / I am singing.’	page 24, engine english, cited St’át’imcets
+(65) line 3	Marianne Huijsmans and Gloria Mellesmoen	citation	(St’át’imcets | Bar-el et al. 2005:3, ex. 7a)	the tag or source at the right of the translation
+(66) line 1	Sḵwx̱wú7mesh	segmentation	chen 7imesh.	page 25
+(66) line 2	Sḵwx̱wú7mesh	gloss	1SG.SBJ walk	page 25
+(66) line 3	Marianne Huijsmans and Gloria Mellesmoen	translation	‘I walked. / ‘I’m walking.’	page 25, cited
+(66) line 3	Marianne Huijsmans and Gloria Mellesmoen	citation	(Sḵwx̱wú7mesh | Bar-el et al. 2005:3, ex. 8a)	the tag or source at the right of the translation
+(67) line 1	Marianne Huijsmans and Gloria Mellesmoen	note	Context: Talking about our consultant’s cat.	page 25, engine english
+(67) line 2	ʔayʔaǰuθəm	transcription	k̓ʷʊt gi Patlik! {#ʔɛɬtən / ʔɛʔɛɬtən}.	page 25, engine language
+(67) line 3	ʔayʔaǰuθəm	segmentation	k̓ʷə-t=gi Patlik {#ʔiɬtən / ʔi~ʔiɬtən}	page 25, engine language
+(67) line 4	ʔayʔaǰuθəm	gloss	see-CTR=DPRT Patlik {eat / PROG~eat}	page 25, engine english
+(67) line 5	Marianne Huijsmans and Gloria Mellesmoen	translation	‘Look at Patrick. He’s eating.’	page 25, engine english
+(67) line 5	Marianne Huijsmans and Gloria Mellesmoen	citation	(ʔayʔaǰuθəm | (sf | JF.2019/06)	the tag or source at the right of the translation
+§9	Marianne Huijsmans and Gloria Mellesmoen	note	We assume a semantics for the perfective where the perfective places the time of the event (the temporal trace of the event 𝜏(𝑒)) within the reference time t: 𝜏(𝑒) ⊂ 𝑡. We propose that in ʔayʔaǰuθəm, the reference time is confined to the ‘instantaneous present’ when overlapping the utterance time — it places the event within the interval of making the utterance itself. Most events are too long to fit into this interval and so cannot be interpreted as present in the perfective aspect. English also shows this restriction, while St’át’imcets and Sḵwx̱wú7mesh do not, allowing the perfective to pick out a longer interval, even when overlapping the utterance time. It is beyond the scope of the present paper to speculate as to why the languages differ in this way.	page 25
+§10	Marianne Huijsmans and Gloria Mellesmoen	heading	10 Conclusion	page 25
+§10	Marianne Huijsmans and Gloria Mellesmoen	note	In this paper, we have examined two transitivizers in opposition in ʔayʔaǰuθəm: the control transitivizer and the non-control transitivizer. In line with previous literature on ʔayʔaǰuθəm (e.g., J. Davis 1978; Watanabe 2003) and other Salish languages (e.g., Bar-el 2005; Bar-el et al. 2005; Kiyota 2008; Jacobs 2011) we argued that predicates transitivized with the control transitivizer do not entail culmination, while predicates transitivized with the non-control transitivizer do (e.g., Watanabe 2003 for ʔayʔaǰuθəm; Bar-el 2005, Jacobs 2011 for Sḵwx̱wú7mesh).	page 25
+§10	Marianne Huijsmans and Gloria Mellesmoen	note	We presented a number of tests adopted from Bar-el (2005) which had not been previously applied in ʔayʔaǰuθəm. These tests also allowed us to gain more fine-grained information about the event structure of the two types of predicates. We find that adverbs and negation target event initiation with control transitives. For non-control transitives, these target the culmination plus any preceding incremental change-of-state, but not the initiation of the event. We propose an analysis of the control transitivizer following Bar-el (2005) and Bar-el et al. (2005) where control transitives encode that the external argument initiates the event, but it comes to completion only in all inertia worlds. For the non-control transitivizer, we proposed that the process part of the event initiated by the external argument is backgrounded (through existential closure) while the culmination and any incremental process leading up to it is entailed. We then discussed how the implicatures of agentivity arise for the control transitivizer and the implicature of difficulty or lack of intention arise for the non-control transitivizer. We proposed that these readings arise through pragmatics in part due to the opposition between these two forms. Finally, we probed the distribution and interpretation of the two transitivizers in combination with viewpoint aspect and suggested how our proposal for the semantics of the non-control transitivizer could give rise to its restricted distribution with the progressive.	page 25
+§10	Marianne Huijsmans and Gloria Mellesmoen	note	In future work, we hope to provide a more thorough investigation of adverbial modification of control and non-control transitives, as well as a more detailed analysis of the interaction between the control and non-control transitivizers and viewpoint aspect. The nature of the pragmatics involved in the implicatures that arise with the two transitivizers also merits further attention. The two transitivizers are not in competition in terms of their informativeness, since both contribute their own unique semantics to the derivation, so the implicatures cannot be arising as straightforward conversational implicatures of quantity (e.g., Grice 1975). We have not yet proposed any concrete mechanisms by which these implicatures would arise, however; this still clearly requires further investigation.	page 25
+§10	Marianne Huijsmans and Gloria Mellesmoen	note	There is a deeper question underlying this work concerning why event initiation should be associated with agentivity, while event culmination is associated with non-agentivity — a pattern found cross-linguistically, not only in Salish languages (e.g., Martin & Schäfer 2014; Demirdache & Martin 2015). Fully exploring this connection is far beyond the scope of this paper, but we hope that the findings here will provide some empirical basis for further investigation of this topic.	page 26
+references	Marianne Huijsmans and Gloria Mellesmoen	heading	References	page 26
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Andreotti, Bruno. 2017. Aspectual, Volitional and Agentive Properties of Control Marking in Comox-Sliammon. Workshop on Structure and Constituency in Languages of the Americas (Vol. 22).	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Bar-El, Leora A. 2005. Aspectual distinctions in Sḵwx̱wú7mesh (Doctoral dissertation, University of British Columbia).	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Bar-el, Leora, Henry Davis, & Lisa Matthewson. 2005. On non-culminating accomplishments. In Leah Bateman & Cherlon Ussery (Eds.), Proceedings of North East Linguistics Society (NELS) 35, 87–102. Amherst, MA: GLSA.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Carlson, Barry. F., & Laurence C. Thompson. 1982. Out of control in two (maybe more) Salish languages. Anthropological Linguistics, 51–65.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Davis, Henry, Marianne Huijsmans, & Gloria Mellesmoen. 2020. Statives in ʔayʔaǰuθəm and St’át’imcets. In D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.), Papers for the 55th ICSNL, 107–132. Vancouver: UBCWPL. Davis, John. H. 1973. Permutations of a Sliammon sentence. In Papers for the 8th International Conference on Salish Languages, 1–14. Eugene, OR.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Davis, John. H. 1978. Pronominal paradigms in Sliammon. In Papers for the 13th ICSNL, 210– 238.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Davis, John. H. 2012. The two particles “ga” in Mainland Comox. Papers for the 48th ICSNL, 34– 48.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Demirdache, Hamida. 1997. ‘Out of control’ in Salish and event (de)composition. In Amaya Mendikoetxea & Myriam Uribe-Etxebarria (eds.), Theoretical issues at the morphology- syntax interface, 97–143. Bilbao: Universidad del Pais Vasco.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Demirdache, Hamida, & Fabienne Martin. 2015. Agent control over non culminating events. In Elisa Barrajón López, José Luis Cifuentes Honrubia, & Susana Rodríguez Rosique (eds.). Verb classes and aspect, 185–217. Amsterdam: John Benjamins.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Dowty, David. 1979. Word meaning and Montague grammar. Dordrecht: Reidel.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Gerdts, Donna B., & Kaoru Kiyosawa. 2007. Combinatorial properties of Salish applicatives. In 42nd International Conference on Salish and Neighbouring Languages (pp. 176–219). Grice, Herbert Paul 1975. Logic and Conversation. In: Peter Cole and Jerry Morgan (eds.), Syntax and Semantics 3: Speech Acts. New York, NY: Academic Press, 41–58.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Huijsmans, Marianne, & Gloria Mellesmoen. 2021. How to distribute events: ʔayʔaǰuθəm pluractionals. International Journal of American Linguistics 87(3), 339–368.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Jacobs, Peter W. 2011. Control in Sḵwx̱wú7mesh (Doctoral dissertation, University of British Columbia).	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Kiyota, Masaru. 2008. Situation aspect and viewpoint aspect: From Salish to Japanese (Doctoral dissertation, University of British Columbia).	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Kroeber, Paul. D. 1988. Inceptive reduplication in Comox and interior Salishan. International Journal of American Linguistics, 54(2), 141–167.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Martin, Fabienne, & Florian Schäfer. 2014. Causation at the syntax-semantics interface. In Bridget Copley and Fabienne Martin (eds.), Causation in grammatical structures, 209–244. Oxford: OUP.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Mellesmoen, Gloria. 2017. Overt third person object agreement in ʔayʔaǰuθəm. In Andrei Anghelescu, Michael Fry, Marianne Huijsmans, and Daniel Reisinger (eds.), Papers for the 52nd ICSNL, 171–194. Vancouver: UBCWPL.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Rothstein, Susan. 2004. Structuring events. Malden: Blackwell.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Thompson, Laurence, & M. Terry Thompson. 1971. Clallam: A preview. In Jesse Sawyer (Ed.), Studies in American Indian languages 65, 251–294. Los Angeles, CA: University of California Publications Linguistics.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Thompson, Laurence C. 1985. Control in Salish grammar. In Frans Plank (ed.), Relational Typology. Trends in Linguistics 28, 391–428.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Van Eijk, Jan. P. 2011. Intransitivity, transitivity and control in Lillooet Salish. In Harm Pinkster and Inge Genee (eds.), Unity in Diversity, 47–64. Berlin: De Gruyter.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Watanabe, Honoré. 1994. A report on Sliammon (Mainland Comox) phonology and reduplication. MA thesis, Faculty of Graduate Studies, Department of Linguistics, Hokkaido University.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Watanabe, Honoré. 1996. Sliammon (Mainland Comox) transitive constructions with -ʔəm,-ni, and -mi. In Papers for the 31st ICSNL, 327–338.	
+references	Marianne Huijsmans and Gloria Mellesmoen	reference	Watanabe, Honoré. 2003. A morphological description of Sliammon, Mainland Comox Salish: With a sketch of syntax. Endangered Languages of the Pacific Rim, Faculty of Informatics, Osaka Gakuin University.	

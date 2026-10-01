@@ -1,0 +1,374 @@
+where	who	kind	form	gloss
+front	E.K. McClay, Violet Birdstone	title	Evidence for question formation by direct wh-movement in Ktunaxa	page 1, carries footnote *
+front	E.K. McClay, Violet Birdstone	name	E.K. McClay	author
+front	E.K. McClay, Violet Birdstone	name	Violet Birdstone	author
+front	E.K. McClay, Violet Birdstone	note	University of British Columbia	page 1, under Violet Birdstone
+front	E.K. McClay, Violet Birdstone	note	Abstract: This paper gives a short survey of the formation of wh-questions in Ktunaxa, concluding that they are formed by direct movement of arguments to a position on the left periphery of the (matrix) clause. Ktunaxa adheres to at least three strong island constraints as defined in Ross (1967), namely the Coordinate Structure Constraint, the Adjunct Island Constraint, and the Complex Noun Phrase Constraint; additionally, wh-words cannot be predicates, as nouns require a copula to be interpreted as predicative.	page 1, the abstract
+front	E.K. McClay, Violet Birdstone	note	Keywords: Ktunaxa, wh-questions, syntax, field work	page 1, the keywords
+front	E.K. McClay, Violet Birdstone	note	In Papers for the International Conference on Salish and Neighbouring Languages 50, University of British Columbia Working Papers in Linguistics 40, Natalie Weber, Erin Guntly, Zoe Lam, and Sihwei Chen (eds.), 2015.	page 1, the volume's header
+front	E.K. McClay, Violet Birdstone	language	Ktunaxa	isolate; British Columbia, Montana, Idaho
+footnote *	E.K. McClay, Violet Birdstone	note	We would like to thank Martina Wiltschko for enabling this project to go forward, and Henry Davis for providing direction, and giving thoughtful comments on earlier drafts. All remaining errors are our own.	page 1, footnote *, on the title
+footnote *	E.K. McClay, Violet Birdstone	name	Martina Wiltschko	thanked
+footnote *	E.K. McClay, Violet Birdstone	name	Henry Davis	thanked
+§1	E.K. McClay, Violet Birdstone	heading	1 Introduction	page 1
+§1	E.K. McClay, Violet Birdstone	note	The body of work on questions in Ktunaxa (isolate; British Columbia, Montana, Idaho) is sparse. The most thorough descriptive linguistic resources on the lan- guage in general are Boas (1927a), Morgan (1991), and Mast (1988), a Master’s thesis examining Ktunaxa morphology as it appears in Boas (1918). The thesis de- votes two sections to the broad topic of questions, the first (pp. 90–97) providing an inventory of interrogative/indefinite pronouns, and the second (pp. 108–115) examining participial/interrogative marking.	page 1
+§1	E.K. McClay, Violet Birdstone	name	Boas	Franz Boas, Kutenai Tales (1918) and notes on the language (1927a)
+§1	E.K. McClay, Violet Birdstone	name	Morgan	Lawrence R. Morgan, a description of the language (1991)
+§1	E.K. McClay, Violet Birdstone	name	Mast	Susan J. Mast, aspects of Kutenai morphology (1988)
+§1	E.K. McClay, Violet Birdstone	note	Previous work has shown several preliminary facts. First, that Ktunaxa in- terrogative pronouns share their form with indefinites—specifically, Mast (1988) translates qaⱡa to ‘who, whose, someone (for humans)’, ka·/ka to ‘how, where (as for manner or location)’, and qapsin to ‘what, why, something (for non-human nouns, both animate and inanimate)’. Second, these words may be obviative (indi- cated in Ktunaxa with a suffix -s), but cannot be marked for possession or number, and do not show any agreement morphology. Finally, there is a relevant verbal pre- fix k-/ki-/k̓- glossed by Mast as “participle/interrog,” which can mark yes-no ques- tions, as well as serving as “a style marker.” (Mast 1988:109) This paper seeks to add to the literature by exploring the status of movement islands in Ktunaxa us- ing existing Ktunaxa reference materials (Kootenai Culture Committee 1999) and original data collected in discussions between the authors. The first author takes responsibility for the theoretical linguistic material presented in this work, while the second author, a speaker of Ktunaxa, vouches for the consistency and validity of the data.	page 1
+§1	Ktunaxa	cited form	qaⱡa	page 1, in italics
+§1	Ktunaxa	cited form	ka·	page 1, in italics
+§1	Ktunaxa	cited form	-s	page 1, in italics
+§1	Ktunaxa	cited form	k-	page 1, in italics
+§1	Ktunaxa	cited form	ki-	page 1, in italics
+§1	Ktunaxa	cited form	k̓-	page 1, in italics
+§1	E.K. McClay, Violet Birdstone	name	Kootenai Culture Committee	the Kootenai dictionary (1999)
+§1	E.K. McClay, Violet Birdstone	note	This work describes how wh-questions are formed in Ktunaxa, concluding that they are instances of direct wh-movement that conform to the limits of three tradi- tional movement islands outlined in Ross (1967). Section 2 gives a general intro- duction to Ktunaxa sentence structure in several subsections focusing on declar- ative sentences (Subsection 2.1) and canonical cases of wh-questions (Subsec- tion 2.2). Following this, Subsection 3.1–3.3 illustrate that Ktunaxa abides by the restrictions on movement that were described in Ross (1967). Finally, Section 4 concludes and gives directions for future work on this topic in this language.	page 2
+§1	E.K. McClay, Violet Birdstone	name	Ross	John R. Ross, constraints on variables in syntax (1967)
+§2	E.K. McClay, Violet Birdstone	heading	2 Survey of Ktunaxa clauses	page 2
+§2.1	E.K. McClay, Violet Birdstone	heading	2.1 Declarative sentences, complementizer k	page 2
+§2.1	E.K. McClay, Violet Birdstone	note	Default Ktunaxa word order is verb-initial, with some variation permitted in word order for information structural effects (topics and foci can precede the verb, specif- ically). Verbs also agree with all of their arguments (subject and object for transi- tive verbs, subject for intransitive verbs), though not for indirect objects of ditran- sitive verbs (Mast 1988:30).	page 2
+§2.1	E.K. McClay, Violet Birdstone	note	A few notes on conventions: this squib uses the orthography from the reference dictionary, rather than a closer phonetic transcription. One consequence of this is that what Mast (1988) analyzed as subject-marking prefixes are written as separate words, which has the superficial effect of making Ktunaxa look as though it has SVO word order–however, since these morphemes are bound and do not allow free-standing words to intervene between them and the verb, the generalization that Ktunaxa is verb-initial still holds. Additionally, since the present work focuses on whole-word syntax rather than morphology or morphosyntax, morphologically complex words are provided with simplified glosses.1	page 2
+footnote 1	E.K. McClay, Violet Birdstone	note	Glosses used: 1, 2, 3 = first person, second person, third person; CONT = Boas and Mast’s “continuative”; COP = copula; COMP = complementizer; DEM = demonstrative; DUAL = dual (though this gloss may be somewhat inaccurate, as Ktunaxa can also indicate group of three, group of four, which is unusual in a system with a straightforward dual); IND = indicative; NEG = negation; PL = obviative; PL = plural; PROG = progressive; SG = singular; SUB = subordinator. A question mark indicates that no applicable gloss could be found.	page 2, footnote 1
+§2.1	E.K. McClay, Violet Birdstone	note	The following show some simple declarative sentences: (1a) and (1b) show intransitive verbs with and without a full NP argument, respectively; (2a) and (2b) demonstrate the same, but with transitive verbs.	page 2
+(1a) line 1	Ktunaxa	transcription	kumnaqaⱡqaʔni maⱡi	page 2, side by side
+(1a) line 2	Ktunaxa	segmentation	kumnaqaⱡqaʔ-ni maⱡi	page 2, side by side
+(1a) line 3	Ktunaxa	gloss	sad.face-IND Mary	page 2, side by side
+(1a) line 4	E.K. McClay, Violet Birdstone	translation	‘Mary looks sad.’	page 2, side by side
+(1b) line 1	Ktunaxa	transcription	hu ¢akunani	page 2, side by side
+(1b) line 2	Ktunaxa	segmentation	hu ¢akuna-ni	page 2, side by side
+(1b) line 3	Ktunaxa	gloss	1.SG short-IND	page 2, side by side
+(1b) line 4	E.K. McClay, Violet Birdstone	translation	‘I’m small/short.’	page 2, side by side
+(2a) line 1	Ktunaxa	transcription	wu∙kati martinas erin	page 2, side by side
+(2a) line 2	Ktunaxa	segmentation	wu∙kat-i martina-s erin	page 2, side by side
+(2a) line 3	Ktunaxa	gloss	see-IND Martina-OBV Erin	page 2, side by side
+(2a) line 4	E.K. McClay, Violet Birdstone	translation	‘Erin saw Martina.’	page 2, side by side
+(2b) line 1	Ktunaxa	transcription	hin ¢ⱡakiⱡni	page 2, side by side
+(2b) line 2	Ktunaxa	segmentation	hin ¢ⱡakiⱡ-ni	page 2, side by side
+(2b) line 3	Ktunaxa	gloss	2.SG like.3.SG-IND	page 2, side by side
+(2b) line 4	E.K. McClay, Violet Birdstone	translation	‘You like him/her.’	page 2, side by side
+§2.1	E.K. McClay, Violet Birdstone	note	Embedded clauses in Ktunaxa are distinguished by two main factors: the em- bedded verb lacks the indicative suffix, and it can be preceded by what this work glosses as a complementizer, k—note that in (3a) and (3b) the k affixes to the sub- ject morphology, deleting the h- that would be pronounced in a declarative version of this utterance. These attributes (demonstrated in (3a) through (3c) below) are shared with wh-questions.	page 3
+(3a) line 1	Ktunaxa	transcription	hu qakiʔni ku ʔuma¢	page 3
+(3a) line 2	Ktunaxa	segmentation	hu qakiʔ-ni k-hu ʔuma¢	page 3
+(3a) line 3	Ktunaxa	gloss	1.SG say-IND COMP-1.SG laugh	page 3
+(3a) line 4	E.K. McClay, Violet Birdstone	translation	‘I said I laughed.’	page 3
+(3b) line 1	Ktunaxa	transcription	hin qakiʔni kin ʔuma¢	page 3
+(3b) line 2	Ktunaxa	segmentation	hin qakiʔni k-hin ʔuma¢	page 3
+(3b) line 3	Ktunaxa	gloss	2.SG say-IND COMP-2.SG laugh	page 3
+(3b) line 4	E.K. McClay, Violet Birdstone	translation	‘You said you laughed.’	page 3
+(3c) line 1	Ktunaxa	transcription	qakiʔni ¢an kʔuma¢ maⱡis	page 3
+(3c) line 2	Ktunaxa	segmentation	qakiʔ-ni ¢an k ʔuma¢	page 3
+(3c) line 3	Ktunaxa	gloss	say-IND John COMP laugh	page 3
+(3c) line 4	E.K. McClay, Violet Birdstone	translation	‘John said that Mary laughed.’	page 3
+§2.1	E.K. McClay, Violet Birdstone	note	This k particle has a wide distribution in the language. Mast (1988:109) pro- vides a brief summary:	page 3
+§2.1	E.K. McClay, Violet Birdstone	note	First, as Canestrelli (1927:7) notes, it marks participles (verbal forms used as nouns) and interrogatives. In Kutenai Tales it is added to verbs in clauses without interrogative pronouns to indicate yes-no questions; in addition, it is optionally added to verbs which immediately follow interrogative pronouns. It marks subordinate clauses as well as participles. It is used optionally with declarative verbs, perhaps as some sort of style marker.	page 3, a block quotation of Mast (1988:109)
+§2.1	E.K. McClay, Violet Birdstone	name	Canestrelli	Philippo Canestrelli (1927), cited by Mast
+§2.1	E.K. McClay, Violet Birdstone	language	Kutenai	Ktunaxa, Boas's spelling
+§2.1	E.K. McClay, Violet Birdstone	note	It can also mark subordinate clauses without distinct overt subjects, as in (4) below.	page 3
+(4) line 1	Ktunaxa	transcription	hin ¢ⱡakiⱡni k ¢i∙katiⱡ k̓iktukⱡiⱡkaⱡ	page 3
+(4) line 2	Ktunaxa	segmentation	hin ¢ⱡakiⱡ-ni k ¢i∙katiⱡ k̓ iktuq’ⱡiⱡqaⱡ	page 3
+(4) line 3	Ktunaxa	gloss	2.SG like-IND COMP look book	page 3
+(4) line 4	E.K. McClay, Violet Birdstone	translation	‘You like to read.’	page 3
+§2.1	E.K. McClay, Violet Birdstone	note	In light of its specific (though diverse) functions, this paper assumes going forward that k is a complementizer. However, due to the limited scope of this paper, we do not investigate the consequences of this particular classification in more detail, though the topic may be a promising avenue for future research.	page 3
+§2.2	E.K. McClay, Violet Birdstone	heading	2.2 Wh-questions	page 4
+§2.2	E.K. McClay, Violet Birdstone	note	As noted above, questions in Ktunaxa follow the general template of: [interrog- ative pronoun (if a wh-question)] + k + [verb without indicative morphology]. Simple examples are given in (5a) through (5c) below. Additionally, these inter- rogative pronouns may be interpreted as indefinite when in an argument position, as in (5d) below.	page 4
+(5a) line 1	Ktunaxa	transcription	qaⱡa k ha¢aⱡaqa	page 4
+(5a) line 2	Ktunaxa	segmentation	qaⱡa k ha¢aⱡaqa	page 4
+(5a) line 3	Ktunaxa	gloss	who COMP sleepy	page 4
+(5a) line 4	E.K. McClay, Violet Birdstone	translation	‘Who’s sleepy?’	page 4
+(5b) line 1	Ktunaxa	transcription	qapsin kin wu∙kat	page 4
+(5b) line 2	Ktunaxa	segmentation	qapsin k-hin wu∙kat	page 4
+(5b) line 3	Ktunaxa	gloss	what COMP-2SG see	page 4
+(5b) line 4	E.K. McClay, Violet Birdstone	translation	‘What do you see?’	page 4
+(5c) line 1	Ktunaxa	transcription	qaⱡa k wu∙kat niʔis qukins	page 4
+(5c) line 2	Ktunaxa	segmentation	qaⱡa k wu∙kat niʔis qukin-s	page 4
+(5c) line 3	Ktunaxa	gloss	who COMP see DEM raven-OBV	page 4
+(5c) line 4	E.K. McClay, Violet Birdstone	translation	‘Who saw the ravens?’	page 4
+(5d) line 1	Ktunaxa	transcription	hu ¢ⱡakiⱡni qaⱡa ʔuk̓qna kiʔsuk	page 4
+(5d) line 2	Ktunaxa	segmentation	hu ¢ⱡakiⱡ-ni qaⱡa ʔuk̓qna k-iʔsuk	page 4
+(5d) line 3	Ktunaxa	gloss	1SG like-IND who because COMP-?-good	page 4
+(5d) line 4	E.K. McClay, Violet Birdstone	translation	‘I like someonei because theyi are so good.’	page 4
+§2.2	E.K. McClay, Violet Birdstone	note	With respect to interrogative pronouns Ktunaxa differentiates between human arguments, qaⱡa ‘who’, and non-human arguments, qapsin ‘what’. Both interrog- ative pronouns inflect for obviation with an -s suffix, though only in situations where obviation would be appropriate for the argument in the declarative coun- terpart of the interrogative sentence (for more on obviation in Ktunaxa, see Dryer 1992). The majority of the data in this paper are qaⱡa questions; though Ktunaxa is sensitive to human/non-human status (particularly in number marking), the be- haviours of the two interrogative pronouns seem identical, and the generalizations made for qaⱡa are expected to hold for qapsin as well.	page 4
+§2.2	E.K. McClay, Violet Birdstone	name	Dryer	Matthew S. Dryer, obviation in Kutenai and Algonquian (1992)
+§2.2	E.K. McClay, Violet Birdstone	note	Due to the fact that both interrogative pronouns and embedding verbs such as qakiʔni ‘say-IND ‘induce the following phrase to be “k + non-indicative verb,” it could be argued that the interrogative pronouns are themselves predicative. How- ever, nouns in Ktunaxa require an overt copula ʔin to serve a predicative function, as shown in (6a), (6b), and (7a) below.	page 4
+§2.2	Ktunaxa	cited form	qakiʔni	page 4, in italics
+§2.2	Ktunaxa	cited form	ʔin	page 4, in italics
+(6a) line 1	Ktunaxa	transcription	* hun nak̓yu	page 4, side by side
+(6a) line 2	Ktunaxa	segmentation	hun nak̓yu	page 4, side by side
+(6a) line 3	Ktunaxa	gloss	1.SG fox	page 4, side by side
+(6a) line 4	E.K. McClay, Violet Birdstone	note	(intended:)	page 4, side by side, the label before the translation
+(6a) line 5	E.K. McClay, Violet Birdstone	translation	‘I am a fox’	page 4, side by side
+(6b) line 1	Ktunaxa	transcription	hun ʔini nak̓yu	page 4, side by side
+(6b) line 2	Ktunaxa	segmentation	hun ʔin-ni nak̓yu	page 4, side by side
+(6b) line 3	Ktunaxa	gloss	1.SG COP-IND fox	page 4, side by side
+(6b) line 4	E.K. McClay, Violet Birdstone	translation	‘I am a fox.’	page 4, side by side
+(7a) line 1	Ktunaxa	transcription	qaⱡa kiʔin na	page 5, side by side
+(7a) line 2	Ktunaxa	segmentation	qaⱡa ki-ʔin na	page 5, side by side
+(7a) line 3	Ktunaxa	gloss	who COMP-COP DEM	page 5, side by side
+(7a) line 4	E.K. McClay, Violet Birdstone	translation	‘Who is this?’	page 5, side by side
+(7b) line 1	Ktunaxa	transcription	(ʔini) maⱡi	page 5, side by side
+(7b) line 2	Ktunaxa	segmentation	ʔin-ni maⱡi	page 5, side by side
+(7b) line 3	Ktunaxa	gloss	COP-IND Mary	page 5, side by side
+(7b) line 4	E.K. McClay, Violet Birdstone	translation	‘(It’s) Mary.’	page 5, side by side
+(7b) line 5	E.K. McClay, Violet Birdstone	note	(as reply to 7a)	page 5, side by side
+§2.2	E.K. McClay, Violet Birdstone	note	This copula is also used to form cleft questions such as (8)—clefts are also employed as a way to repair certain island violations, and will appear in following sections in that capacity.	page 5
+(8) line 1	Ktunaxa	transcription	qaⱡa kiʔin kin wukqa	page 5
+(8) line 2	Ktunaxa	segmentation	qaⱡa ki-ʔin k-hin wukqa	page 5
+(8) line 3	Ktunaxa	gloss	who COMP-COP COMP-2.SG find	page 5
+(8) line 4	E.K. McClay, Violet Birdstone	translation	‘Who is it you found?’	page 5
+§2.2	E.K. McClay, Violet Birdstone	note	Long-range wh-movement is permitted across bridge verbs, as in (9a) through (9c) below. The matrix clause morphology is identical to what would be expected from a local wh-move.2	page 5
+footnote 2	E.K. McClay, Violet Birdstone	note	Additionally, in example (9b), the progressive k sakiⱡ can also be written or said k skikiⱡ.	page 5, footnote 2
+footnote 2	Ktunaxa	cited form	k sakiⱡ	page 5, in italics
+footnote 2	Ktunaxa	cited form	k skikiⱡ	page 5, in italics
+(9a) line 1	Ktunaxa	transcription	qaⱡa kin qaki k ha¢’aⱡaqa	page 5
+(9a) line 2	Ktunaxa	segmentation	qaⱡa k-hin qaki k ha¢’aⱡaqa	page 5
+(9a) line 3	Ktunaxa	gloss	who COMP-2.SG say COMP sleepy	page 5
+(9a) line 4	E.K. McClay, Violet Birdstone	translation	‘Who did you say was sleepy?’	page 5
+(9b) line 1	Ktunaxa	transcription	qapsins k a∙qaki maⱡi qukins k sakiⱡ ʔiks	page 5
+(9b) line 2	Ktunaxa	segmentation	qapsin-s k a∙-qaki maⱡi qukin-s k sakiⱡ ʔik-s	page 5
+(9b) line 3	Ktunaxa	gloss	what-OBV COMP ?-say Mary raven-OBV COMP PROG eat-OBV	page 5
+(9b) line 4	E.K. McClay, Violet Birdstone	translation	‘What did Mary say the ravens were eating?’	page 5
+(9c) line 1	Ktunaxa	transcription	qapsins k qaki maⱡi k sakiⱡ ʔiks a∙quk̓ⱡiʔits	page 5
+(9c) line 2	Ktunaxa	segmentation	qapsin-s k qaki maⱡi k sakiⱡ ʔik-s a∙quk̓ⱡiʔit-s	page 5
+(9c) line 3	Ktunaxa	gloss	what-OBV COMP say Mary COMP PROG eat-OBV berry-OBV	page 5
+(9c) line 4	E.K. McClay, Violet Birdstone	translation	‘What did Mary say was eating the berries?’	page 5
+§2.2	E.K. McClay, Violet Birdstone	note	Note that the example (9b) is identified as “emphasizing” the eating event; to ask about more specifically what Mary said the ravens were eating, a question such as (10) below (employing the more general wh-word ka·) is preferred.	page 5
+(10) line 1	Ktunaxa	transcription	ka∙s k a∙qaki maⱡi qukins k sakiⱡ ʔiks	page 5
+(10) line 2	Ktunaxa	segmentation	ka∙-s k a∙-qaki maⱡi qukin-s k sakiⱡ ʔik-s	page 5
+(10) line 3	Ktunaxa	gloss	where-OBV COMP ?-say Mary raven-OBV COMP PROG eat-OBV	page 5
+(10) line 4	E.K. McClay, Violet Birdstone	translation	‘What did Mary say the ravens were eating?’	page 5
+§2.2	E.K. McClay, Violet Birdstone	note	To sum up, Ktunaxa questions are consistently introduced by an overt comple- mentizer k, to whose specifier the wh-word moves, either from the same clause, or cross-clausally given the presence of a bridge verb. When in situ, wh-words may be interpreted as indefinite. And lastly, without an overt copula, wh-words (as is the case for Ktunaxa nouns in general) cannot act as predicates.	page 6
+§3	E.K. McClay, Violet Birdstone	heading	3 Island constraints	page 6
+§3.1	E.K. McClay, Violet Birdstone	heading	3.1 Coordinate Structure Constraint	page 6
+§3.1	E.K. McClay, Violet Birdstone	note	As stated in Ross (1967), the Coordinate Structure Constraint (CSC) requires that “[i]n a coordinate structure, no conjunct may be moved, nor may any element contained in a conjunct be moved out of that conjunct.” The latter half of this constraint, specifically banning the movement of one element from a conjunct, holds in Ktunaxa.3 The conjunction operator in Ktunaxa is the particle ¢, a dental affricate; it can conjoin verb phrases and noun phrases, as in (11a) and (11b) below. (data from Kootenai Cultural Council, pp. 43)	page 6
+footnote 3	E.K. McClay, Violet Birdstone	note	Or at least, it holds enough to ban the movement of one member of a coordinate NP in sub- ject or object position. Whether Ktunaxa permits Across-the-Board movement of identical objects (as in ‘What does Mary love and John hate?’) is a topic for another time.	page 6, footnote 3
+§3.1	Ktunaxa	cited form	¢	page 6, in italics
+(11a) line 1	Ktunaxa	transcription	puⱡ nawasxu’mik ¢ naqwiⱡni	page 6
+(11a) line 2	Ktunaxa	segmentation	puⱡ nawasxu’mik ¢ naqwiⱡ-ni	page 6
+(11a) line 3	Ktunaxa	gloss	Paul sang and dance-IND	page 6
+(11a) line 4	E.K. McClay, Violet Birdstone	translation	‘Paul sang and danced.’	page 6
+(11b) line 1	Ktunaxa	transcription	piyaⱡ ¢ puⱡ qa ¢’kaxi	page 6
+(11b) line 2	Ktunaxa	segmentation	piyaⱡ ¢ puⱡ qa ¢’kaxi	page 6
+(11b) line 3	Ktunaxa	gloss	Peter and Paul NEG come	page 6
+(11b) line 4	E.K. McClay, Violet Birdstone	translation	‘Peter and Paul did not come.’	page 6
+§3.1	E.K. McClay, Violet Birdstone	note	The sentence (12) below is acceptable as an answer to a general question ‘What did I see?’ However, in a context where the speaker knows only part of the propo- sition in (12), that speaker cannot then ask about one half of the coordinated object phrase; this results in the ungrammaticality shown in (13a) and (13b).	page 6
+(12) line 1	Ktunaxa	transcription	hin wu∙kati niʔiy qukin ¢ ʔa∙quk̓ⱡiʔit	page 6
+(12) line 2	Ktunaxa	segmentation	hin wu∙kat-i niʔiy qukin ¢ ʔa∙quk̓ⱡiʔit	page 6
+(12) line 3	Ktunaxa	gloss	2.SG see-IND DET raven and berry	page 6
+(12) line 4	E.K. McClay, Violet Birdstone	translation	‘You saw the ravens and the berries.’	page 6
+(13a) line 1	Ktunaxa	transcription	* qapsin kin wu∙kat ¢ ʔa∙quk̓ⱡiʔit	page 6
+(13a) line 2	Ktunaxa	segmentation	qapsin k-hin wu∙kat ¢ ʔa∙quk̓ⱡiʔit	page 6
+(13a) line 3	Ktunaxa	gloss	what COMP-2SG see and berry	page 6
+(13a) line 4	E.K. McClay, Violet Birdstone	note	intended:	page 6, the label before the translation
+(13a) line 5	E.K. McClay, Violet Birdstone	translation	‘What did you see and berries?’	page 6
+(13b) line 1	Ktunaxa	transcription	* qapsin kin wu∙kat qukin ¢?	page 7
+(13b) line 2	Ktunaxa	segmentation	qapsin k-hin wu∙kat qukin ¢	page 7
+(13b) line 3	Ktunaxa	gloss	what COMP-2SG see raven and	page 7
+(13b) line 4	E.K. McClay, Violet Birdstone	note	Lit.	page 7, the label before the translation
+(13b) line 5	E.K. McClay, Violet Birdstone	translation	‘What did you see a raven and?’	page 7
+§3.1	E.K. McClay, Violet Birdstone	note	The sentence in (13b) can become acceptable if the speaker inserts a prosodic break; this then allows the utterance to be interpreted as a question and partial or leading answer, much the same as the English translation.	page 7
+§3.1	E.K. McClay, Violet Birdstone	language	English	echo-questions
+(14) line 1	Ktunaxa	transcription	qapsin kin wu∙kat? qukin ¢...?	page 7
+(14) line 2	E.K. McClay, Violet Birdstone	translation	‘What did you see? A raven and...?’	page 7
+§3.1	E.K. McClay, Violet Birdstone	note	The same pattern holds in subject position. The following examples show a plain declarative sentence, and a question appropriate to ask (answerable with the declarative sentence).	page 7
+(15a) line 1	Ktunaxa	transcription	kakiswisqani paⱡkiy ¢ naʔuti	page 7
+(15a) line 2	Ktunaxa	segmentation	kaki-swisqa-ni paⱡkiy ¢ naʔuti	page 7
+(15a) line 3	Ktunaxa	gloss	DUAL-stand-IND woman and girl	page 7
+(15a) line 4	E.K. McClay, Violet Birdstone	translation	‘A woman and a girl are standing there.’	page 7
+(15b) line 1	Ktunaxa	transcription	qaⱡa k sawisqa	page 7
+(15b) line 2	Ktunaxa	segmentation	qaⱡa k sawisqa	page 7
+(15b) line 3	Ktunaxa	gloss	who COMP stand	page 7
+(15b) line 4	E.K. McClay, Violet Birdstone	translation	‘Who’s standing there?’	page 7
+§3.1	E.K. McClay, Violet Birdstone	note	Questioning only one of the elements of the conjunct results in ungrammati- cality:	page 7
+(16a) line 1	Ktunaxa	transcription	* qaⱡa k sawisqa ¢ naʔuti	page 7
+(16a) line 2	Ktunaxa	segmentation	qaⱡa k sawisqa ¢ naʔuti	page 7
+(16a) line 3	Ktunaxa	gloss	who COMP stand and girl	page 7
+(16a) line 4	E.K. McClay, Violet Birdstone	note	Lit.	page 7, the label before the translation
+(16a) line 5	E.K. McClay, Violet Birdstone	translation	‘Who and a girl are standing there?’	page 7
+(16a) line 6	E.K. McClay, Violet Birdstone	note	(intended: ‘Who and a girl are standing there?’ as echo-question.)	page 7, under the translation
+(16b) line 1	Ktunaxa	transcription	* qaⱡa k sawisqa naʔuti ¢	page 7
+(16b) line 2	Ktunaxa	segmentation	qaⱡa k sawisqa naʔuti ¢	page 7
+(16b) line 3	Ktunaxa	gloss	who COMP stand girl and	page 7
+(16b) line 4	E.K. McClay, Violet Birdstone	note	Lit.	page 7, the label before the translation
+(16b) line 5	E.K. McClay, Violet Birdstone	translation	‘Who a girl and are standing there?’	page 7
+(16b) line 6	E.K. McClay, Violet Birdstone	note	(intended: ‘A girl and who are standing there?’)	page 7, under the translation
+§3.1	E.K. McClay, Violet Birdstone	note	Leaving qaⱡa in situ can usually lead to either an indefinite reading or an echo- question reading (see the following sections for examples), but in this particular instance it does not seem to be preferred. Instead, for the declarative form a dif- ferent word, ⱡaʔak̓ⱡaq ‘another’, is used; for the intended wh-in situ (echo-like) interrogative, cleft questions like (17c) are preferred.	page 7
+§3.1	Ktunaxa	cited form	ⱡaʔak̓ⱡaq	page 7, in italics, ‘another’
+(17a) line 1	Ktunaxa	transcription	*/? sawisqaʔni paⱡkiy ¢ qaⱡa	page 8
+(17a) line 2	Ktunaxa	segmentation	sawisqaʔ-ni paⱡkiy ¢ qaⱡa	page 8
+(17a) line 3	Ktunaxa	gloss	stand-IND woman and who	page 8
+(17a) line 4	E.K. McClay, Violet Birdstone	note	(intended):	page 8, the label before the translation
+(17a) line 5	E.K. McClay, Violet Birdstone	translation	‘A woman and someone are standing there.’ OR ‘A woman and who are standing there?’	page 8
+(17b) line 1	Ktunaxa	transcription	sawisqaʔni paⱡkiy ¢ ⱡaʔak̓ⱡaq	page 8
+(17b) line 2	Ktunaxa	segmentation	sawisqaʔ-ni paⱡkiy ¢ ⱡaʔak̓ⱡaq.	page 8
+(17b) line 3	Ktunaxa	gloss	stand-IND woman and another	page 8
+(17b) line 4	E.K. McClay, Violet Birdstone	translation	‘A woman and someone (else) are standing there.’	page 8
+(17c) line 1	Ktunaxa	transcription	qaⱡa kiʔin k sawisqapmaⱡ naʔutis	page 8
+(17c) line 2	Ktunaxa	segmentation	qaⱡa ki-ʔin k sawisqapmaⱡ naʔuti-s	page 8
+(17c) line 3	Ktunaxa	gloss	who COMP-COP COMP stand.with? girl-OBV	page 8
+(17c) line 4	E.K. McClay, Violet Birdstone	translation	‘Who is it standing with the girl there?’	page 8
+§3.2	E.K. McClay, Violet Birdstone	heading	3.2 Adjunct islands	page 8
+§3.2	E.K. McClay, Violet Birdstone	note	Adjuncts also form islands from which extraction is not allowed (Ross 1967). This pattern is shown to hold in Ktunaxa; though it is logically possible to seek infor- mation about arguments within an adjunct (such as the ‘because’ phrase in the following examples), a speaker cannot do it simply by applying standard question formation rules, “plugging in” a wh-word at the beginning of the sentence. To wit, given a declarative sentence such as (18a) below, a speaker can ask about the subject of the main clause VP—see (18b)—but not the subject or object of the adjunct—(19a) and (19b), respectively.	page 8
+(18a) line 1	Ktunaxa	transcription	maⱡi k̓umnaqaⱡqaʔni ʔuk̓qna ¢ans k ¢ⱡakiⱡs erins	page 8
+(18a) line 2	Ktunaxa	segmentation	maⱡi kumnaqaⱡqaʔ-ni ʔuk̓qna ¢an-s k ¢ⱡakiⱡ-s erin-s	page 8
+(18a) line 3	Ktunaxa	gloss	Mary sad.face-IND because John-OBV COMP like-OBV Erin-OBV	page 8
+(18a) line 4	E.K. McClay, Violet Birdstone	translation	‘Mary looks sad because John likes Erin.’	page 8
+(18b) line 1	Ktunaxa	transcription	qaⱡa k k̓umnaqaⱡwi∙tik ʔuk̓qna ¢ans k ¢ⱡakiⱡs	page 8
+(18b) line 2	Ktunaxa	segmentation	qaⱡa k k̓umnaqaⱡwi∙tik ʔuk̓qna ¢an-s k ¢ⱡakiⱡ-s	page 8
+(18b) line 3	Ktunaxa	gloss	who COMP sad.heart because John-OBV COMP like-OBV	page 8
+(18b) line 4	Ktunaxa	transcription	erins	page 8
+(18b) line 5	Ktunaxa	segmentation	erin-s	page 8
+(18b) line 6	Ktunaxa	gloss	Erin-OBV	page 8
+(18b) line 7	E.K. McClay, Violet Birdstone	translation	‘Who is sad because John likes Erin?’	page 8
+(19a) line 1	Ktunaxa	transcription	* qaⱡas k k̓umnaqaⱡwi∙tiks (maⱡi) ʔuk̓qna k ¢ⱡakiⱡs	page 9
+(19a) line 2	Ktunaxa	segmentation	qaⱡa-s k k̓umnaqaⱡwi∙tik-s (maⱡi) ʔuk̓qna k ¢ⱡakiⱡ-s	page 9
+(19a) line 3	Ktunaxa	gloss	who-OBV COMP sad.heart-OBV (Mary) because COMP like-OBV	page 9
+(19a) line 4	Ktunaxa	transcription	¢ans	page 9
+(19a) line 5	Ktunaxa	segmentation	¢an-s	page 9
+(19a) line 6	Ktunaxa	gloss	John-OBV	page 9
+(19a) line 7	E.K. McClay, Violet Birdstone	note	intended:	page 9, the label before the translation
+(19a) line 8	E.K. McClay, Violet Birdstone	translation	‘Who is Mary sad because (t) likes John?’	page 9
+(19a) line 9	E.K. McClay, Violet Birdstone	note	(asking about who likes John, including information that Mary is sad.)	page 9, under the translation
+(19b) line 1	Ktunaxa	transcription	* qaⱡas k k̓umnaqaⱡwi∙tiks (maⱡi) ʔuk̓qna ¢ans k	page 9
+(19b) line 2	Ktunaxa	segmentation	qaⱡa-s k k̓umnaqaⱡwi∙tik-s (maⱡi) ʔuk̓qna ¢an-s k	page 9
+(19b) line 3	Ktunaxa	gloss	who-OBV COMP sad.heart-OBV (Mary) because John-OBV COMP	page 9
+(19b) line 4	Ktunaxa	transcription	¢ⱡakiⱡs	page 9
+(19b) line 5	Ktunaxa	segmentation	¢ⱡakiⱡ-s	page 9
+(19b) line 6	Ktunaxa	gloss	like-OBV	page 9
+(19b) line 7	E.K. McClay, Violet Birdstone	note	intended:	page 9, the label before the translation
+(19b) line 8	E.K. McClay, Violet Birdstone	translation	‘Who is Mary sad because John likes (t)?’	page 9
+(19b) line 9	E.K. McClay, Violet Birdstone	note	(asking about who John likes, including information that Mary is sad.)	page 9, under the translation
+§3.2	E.K. McClay, Violet Birdstone	note	Leaving the wh-word in situ results in an indefinite reading, but can also be interpreted as a question. For instance, (20a) and (20b) are ambiguous between the two translations given; whether there are prosodic differences between the two forms is uncertain for now, but initial discussion did not result in intense prosodic variation of the sort observable in English echo-questions.	page 9
+(20a) line 1	Ktunaxa	transcription	maⱡi kumnaqaⱡqaʔni ʔuk̓qna ¢ans k ¢ⱡakiⱡs qaⱡas.	page 9
+(20a) line 2	Ktunaxa	segmentation	maⱡi kumnaqaⱡqaʔ-ni ʔuk̓qna ¢an-s k ¢ⱡakiⱡ-s qaⱡa-s	page 9
+(20a) line 3	Ktunaxa	gloss	Mary sad.face-IND because John-OBV COMP like-OBV who-OBV	page 9
+(20a) line 4	E.K. McClay, Violet Birdstone	translation	‘Mary is sad because John likes someone./who?’	page 9
+(20a) line 5	E.K. McClay, Violet Birdstone	note	(Potential reply: ¢an ¢ⱡakiⱡni erins. ‘John likes Erin,’ or simply erins. ‘Erin.’)	page 9, under the translation
+(20b) line 1	Ktunaxa	transcription	maⱡi kumnaqaⱡqaʔni ʔuk̓qna qaⱡas k ¢ⱡakiⱡs ¢ans	page 9
+(20b) line 2	Ktunaxa	segmentation	maⱡi kumnaqaⱡqaʔni ʔuk̓qna qaⱡa-s k ¢ⱡakiⱡ-s ¢an-s	page 9
+(20b) line 3	Ktunaxa	gloss	Mary sad.face-IND because who-OBV COMP like-OBV John-OBV	page 9
+(20b) line 4	E.K. McClay, Violet Birdstone	translation	‘Mary looks sad because someone/who likes John./?’	page 9
+(20b) line 5	E.K. McClay, Violet Birdstone	note	(Potential reply: erin ¢ⱡakiⱡni ¢ans. ‘Erin likes John,’ or simply erins. ‘Erin.’)	page 9, under the translation
+§3.2	E.K. McClay, Violet Birdstone	note	The precise semantics of the question interpretation of these sentences is be- yond the scope of the present work. They do not seem to necessarily be echo- questions. They might be productively analyzed as questions with declarative syntax (QDS), as they “[appear] to be wh-in-situ [… and] may carry interrogative force as a speech act, but from a syntactic perspective [are] declarative clause[s] with a wh-expression in focus” (Bobaljik & Wurmbrand 2014:1).	page 9
+§3.2	E.K. McClay, Violet Birdstone	name	Bobaljik & Wurmbrand	Jonathan Bobaljik and Susi Wurmbrand, questions with declarative syntax (2014)
+§3.3	E.K. McClay, Violet Birdstone	heading	3.3 Complex NP constraint	page 10
+§3.3	E.K. McClay, Violet Birdstone	note	The final island addressed by this squib is the Complex Noun Phrase Constraint (CNPC). Specifically, the CNPC states that “No element contained in a sentence dominated by a noun phrase with a lexical head noun may be moved out of that noun phrase by a transformation” (Ross 1967:127). Ktunaxa abides by the CNPC for noun complement clauses in both subject and object positions. Beginning with subjects (which should be the worst case, due to the separate existence of Sub- ject Islands apart from the CNPC), speakers may take a declarative sentence such as (21a) and reform it as a yes-no question, as in (21b).	page 10
+(21a) line 1	Ktunaxa	transcription	niʔi k haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa maⱡi ¢upqas siⱡ	page 10
+(21a) line 2	Ktunaxa	segmentation	niʔi k haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa maⱡi ¢upqa-s siⱡ	page 10
+(21a) line 3	Ktunaxa	gloss	DET COMP story COMP say shoot Mary deer-OBV CONT	page 10
+(21a) line 4	Ktunaxa	transcription	suʔkni	page 10
+(21a) line 5	Ktunaxa	segmentation	suʔk-ni	page 10
+(21a) line 6	Ktunaxa	gloss	good-IND	page 10
+(21a) line 7	E.K. McClay, Violet Birdstone	translation	‘The story that says how Mary shot and killed a deer is a good one.’	page 10
+(21b) line 1	Ktunaxa	transcription	niʔi k haqaⱡpaⱡniʔnam qakiⱡ iⱡwa maⱡi ¢upqas, kiʔin	page 10
+(21b) line 2	Ktunaxa	segmentation	niʔi k haqaⱡpaⱡniʔnam qakiⱡ iⱡwa maⱡi ¢upqa-s ki-ʔin	page 10
+(21b) line 3	Ktunaxa	gloss	DET COMP story say shoot Mary deer-OBV COMP-COP	page 10
+(21b) line 4	Ktunaxa	transcription	kiʔsuks?	page 10
+(21b) line 5	Ktunaxa	segmentation	kiʔ-suk-s	page 10
+(21b) line 6	Ktunaxa	gloss	COMP-good-OBV	page 10
+(21b) line 7	E.K. McClay, Violet Birdstone	translation	‘The story that says how Mary shot and killed a deer, is it a good one?’	page 10
+§3.3	E.K. McClay, Violet Birdstone	note	However, attempting to create a wh-question (by movement) which inquires about either of the arguments of the complex NP results in ungrammaticality, demonstrated in (22a) and (22b) on the following page. Note that leaving the wh-words qaⱡa and qapsin in situ in either example would result in normal indefi- nite readings for either sentence (i.e. ‘The story of how someone shot and killed a deer is a good one,’ ‘The story of how Mary shot and killed something is a good one.’) These in situ counterparts can also be interpreted as questions–be they echo questions or ‘questions with declarative syntax’ á la Bobaljik & Wurmbrand–and the addressee may reply with a fragment answer maⱡi ‘Mary’ or ¢upqas ‘deer (ob- viative)’, as appropriate.	page 10
+§3.3	Ktunaxa	cited form	maⱡi	page 10, in italics, ‘Mary’
+§3.3	Ktunaxa	cited form	¢upqas	page 10, in italics, ‘deer (ob- viative)’
+(22a) line 1	Ktunaxa	transcription	* qaⱡa, k haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa ¢upqas isiⱡ	page 10
+(22a) line 2	Ktunaxa	segmentation	qaⱡa k haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa ¢upqa-s i-siⱡ	page 10
+(22a) line 3	Ktunaxa	gloss	who COMP story COMP say shoot deer-OBV ?-CONT	page 10
+(22a) line 4	Ktunaxa	transcription	suʔkni/suk	page 10
+(22a) line 5	Ktunaxa	segmentation	suʔk(-ni)	page 10
+(22a) line 6	Ktunaxa	gloss	good(-IND)	page 10
+(22a) line 7	E.K. McClay, Violet Birdstone	note	Lit.	page 10, the label before the translation
+(22a) line 8	E.K. McClay, Violet Birdstone	translation	‘Who, the story that says t shot and killed a deer is a good one?’	page 10
+(22a) line 9	E.K. McClay, Violet Birdstone	note	(Asking about who shot and killed a deer, including information that the story is a good one.)	page 10, under the translation
+(22b) line 1	Ktunaxa	transcription	* qapsins, k haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa maⱡi isiⱡ	page 11
+(22b) line 2	Ktunaxa	segmentation	qapsin-s k haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa maⱡi i-siⱡ	page 11
+(22b) line 3	Ktunaxa	gloss	what-OBV COMP story COMP say shoot Mary ?-CONT	page 11
+(22b) line 4	Ktunaxa	transcription	suʔkni/suk	page 11
+(22b) line 5	Ktunaxa	segmentation	suʔk(-ni)	page 11
+(22b) line 6	Ktunaxa	gloss	good(-IND)	page 11
+(22b) line 7	E.K. McClay, Violet Birdstone	note	Lit.	page 11, the label before the translation
+(22b) line 8	E.K. McClay, Violet Birdstone	translation	‘What, the story that says Mary shot and killed t is a good one?’	page 11
+(22b) line 9	E.K. McClay, Violet Birdstone	note	(Asking about what Mary shot and killed, including information that the story is a good one.)	page 11, under the translation
+§3.3	E.K. McClay, Violet Birdstone	note	When the complex NP is in object position, the same generalization holds. Given a declarative such as (23a) below, speakers may pose it as the yes-no ques- tion (23b), but cannot use the wh-questions in (24a) and (24c) to ask about the arguments of the complex NP’s embedded clause.	page 11
+(23a) line 1	Ktunaxa	transcription	hun huⱡpaⱡni haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa maⱡi ¢upqas	page 11
+(23a) line 2	Ktunaxa	segmentation	hun huⱡpaⱡni haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa maⱡi ¢upqa-s	page 11
+(23a) line 3	Ktunaxa	gloss	2.SG hear-IND story COMP say shoot Mary deer-OBV	page 11
+(23a) line 4	E.K. McClay, Violet Birdstone	translation	‘I heard the story that says how Mary shot and killed a deer.’	page 11
+(23b) line 1	Ktunaxa	transcription	kin huⱡpaⱡin haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa maⱡi	page 11
+(23b) line 2	Ktunaxa	segmentation	k-hin huⱡpaⱡ-in haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa maⱡi	page 11
+(23b) line 3	Ktunaxa	gloss	COMP-2.SG hear story COMP say shoot Mary	page 11
+(23b) line 4	Ktunaxa	transcription	¢upqas	page 11
+(23b) line 5	Ktunaxa	segmentation	¢upqa-s	page 11
+(23b) line 6	Ktunaxa	gloss	deer-OBV	page 11
+(23b) line 7	E.K. McClay, Violet Birdstone	translation	‘Did you hear the story that says how Mary shot and killed a deer?’	page 11
+(24a) line 1	Ktunaxa	transcription	* qaⱡa hin huⱡpaⱡni haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa ¢upqas	page 11
+(24a) line 2	Ktunaxa	segmentation	qaⱡa hin huⱡpaⱡ-ni haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa ¢upqa-s	page 11
+(24a) line 3	Ktunaxa	gloss	who 2.SG hear-IND story COMP say shoot deer-OBV	page 11
+(24a) line 4	E.K. McClay, Violet Birdstone	note	Lit.	page 11, the label before the translation
+(24a) line 5	E.K. McClay, Violet Birdstone	translation	‘Who you heard a story that says t shot and killed a deer?’	page 11
+(24a) line 6	E.K. McClay, Violet Birdstone	note	(I know you heard a story about someone killing a deer–who was that?)	page 11, under the translation
+(24b) line 1	Ktunaxa	transcription	qaⱡa kin huⱡpaⱡin haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa	page 11
+(24b) line 2	Ktunaxa	segmentation	qaⱡa k-hin huⱡpaⱡin haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa	page 11
+(24b) line 3	Ktunaxa	gloss	who COMP-2.SG hear story COMP say shoot	page 11
+(24b) line 4	Ktunaxa	transcription	¢upqas?	page 11
+(24b) line 5	Ktunaxa	segmentation	¢upqa-s	page 11
+(24b) line 6	Ktunaxa	gloss	deer-OBV	page 11
+(24b) line 7	E.K. McClay, Violet Birdstone	translation	Who did you hear a story that says they shot and killed a deer?	page 11
+(24b) line 8	E.K. McClay, Violet Birdstone	note	(I know you heard a story about someone killing a deer–who was that?)	page 11, under the translation
+(24c) line 1	Ktunaxa	transcription	* qapsins hin huⱡpaⱡni haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa maⱡi	page 12
+(24c) line 2	Ktunaxa	segmentation	qapsin-s hin huⱡpaⱡ-ni haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa maⱡi	page 12
+(24c) line 3	Ktunaxa	gloss	what-OBV 2.SG hear-IND story COMP say shoot Mary	page 12
+(24c) line 4	E.K. McClay, Violet Birdstone	note	Lit.	page 12, the label before the translation
+(24c) line 5	E.K. McClay, Violet Birdstone	translation	What you heard a story that says how Mary shot and killed t?’	page 12
+(24c) line 6	E.K. McClay, Violet Birdstone	note	(I know you heard a story about Mary killing something–what was it?)	page 12, under the translation
+(24d) line 1	Ktunaxa	transcription	qapsins ma kin huⱡpaⱡin haqaⱡpaⱡniʔnam k qakiⱡ	page 12
+(24d) line 2	Ktunaxa	segmentation	qapsin-s ma k-hin huⱡpaⱡin haqaⱡpaⱡniʔnam k qakiⱡ	page 12
+(24d) line 3	Ktunaxa	gloss	what-OBV PAST COMP-2.SG hear story COMP say	page 12
+(24d) line 4	Ktunaxa	transcription	iⱡwa maⱡis?	page 12
+(24d) line 5	Ktunaxa	segmentation	iⱡwa maⱡi-s	page 12
+(24d) line 6	Ktunaxa	gloss	shoot Mary-OBV	page 12
+(24d) line 7	E.K. McClay, Violet Birdstone	translation	‘What did you hear a story that says how Mary shot and killed?’	page 12
+(24d) line 8	E.K. McClay, Violet Birdstone	note	(I know you heard a story about Mary killing something–what was it?)	page 12, under the translation
+§3.3	E.K. McClay, Violet Birdstone	note	More acceptable ways to ask the questions attempted above use the wh-in-situ forms given in (25a) and (25b) below. Speakers also have the option of splitting the query across two sentences (e.g. ‘I know you heard a story about someone killing a deer. Who was it?’) or using a cleft, as in (25c).	page 12
+(25a) line 1	Ktunaxa	transcription	hun huⱡpaⱡni haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa qaⱡa ¢upqas	page 12
+(25a) line 2	Ktunaxa	segmentation	hun huⱡpaⱡ-ni haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa qaⱡa ¢upqa-s	page 12
+(25a) line 3	Ktunaxa	gloss	1.SG hear-IND story COMP say kill who deer-OBV	page 12
+(25a) line 4	E.K. McClay, Violet Birdstone	translation	‘I heard the story that said how someone/who shot and killed a deer?’	page 12
+(25a) line 5	E.K. McClay, Violet Birdstone	note	Potential replies: man ʔini maⱡi. ‘It was Mary,’ or maⱡi. ‘Mary.’	page 12, under the translation
+(25b) line 1	Ktunaxa	transcription	hun huⱡpaⱡni haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa maⱡi qapsins	page 12
+(25b) line 2	Ktunaxa	segmentation	hun huⱡpaⱡ-ni haqaⱡpaⱡniʔnam k qakiⱡ iⱡwa maⱡi qapsin-s	page 12
+(25b) line 3	Ktunaxa	gloss	1.SG hear-IND story COMP say kill Mary what-OBV	page 12
+(25b) line 4	E.K. McClay, Violet Birdstone	translation	‘I heard the story of that said how Mary shot and killed something/what?’	page 12
+(25b) line 5	E.K. McClay, Violet Birdstone	note	Potential replies: man ʔini ¢upqas. ‘It was a deer,’ or ¢upqas ‘deer’.	page 12, under the translation
+(25c) line 1	Ktunaxa	transcription	qaⱡa kiʔin, niʔi haqaⱡpaⱡniʔnam k iⱡwa ¢upqas	page 12
+(25c) line 2	Ktunaxa	segmentation	qaⱡa ki-ʔin niʔi haqaⱡpaⱡniʔnam k iⱡwa ¢upqa-s	page 12
+(25c) line 3	Ktunaxa	gloss	who COMP-COP DET story COMP shoot deer-OBV	page 12
+(25c) line 4	E.K. McClay, Violet Birdstone	translation	‘Who was it in that story who killed a deer?’	page 12
+§4	E.K. McClay, Violet Birdstone	heading	4 Conclusions and future directions	page 12
+§4	E.K. McClay, Violet Birdstone	note	This work has given evidence for the existence of direct wh-movement in Ktunaxa, in contrast with its Salish neighbours, which use predicative wh-words in question formation (Kroeber 1999). The major pieces of support for this conclusion are the language’s systematic adherence to the three island constraints listed above (the Coordinate Structure Constraint, Adjunct Island Constraint, and Complex NP Constraint), as well as the fact that nouns and wh-words require a copula in order to act as predicates, and are copula-free in plain (i.e. non-cleft) wh-questions. Fur- thermore, the pattern of obviation present in questions involving two third-person arguments (namely that the object is obviated and the subject not, regardless of which is a wh-word) is consistent with wh-words being generated as arguments rather than as predicates, and triggering obviation fittingly.	page 12
+§4	E.K. McClay, Violet Birdstone	name	Kroeber	Paul D. Kroeber, Salish syntax (1999)
+§4	E.K. McClay, Violet Birdstone	language	Salish	Ktunaxa's neighbours, predicative wh-words
+§4	E.K. McClay, Violet Birdstone	note	An additional consequence of the work presented here is that there is an adjunct- argument asymmetry in Ktunaxa, evinced by the ungrammaticality of movement out of adjuncts, but not out of arguments of bridge verbs. The existence of this asymmetry points to the existence of further structural asymmetries in the clause.	page 13
+§4	E.K. McClay, Violet Birdstone	note	Throughout the earlier sections of this paper, passing reference has been made to areas where this research may be expanded. Specifically, the nature of the k particle, the viability of Across-the-Board movement, and the semantic attributes of questions with declarative syntax might all be productive lines of linguistic in- quiry. The following are three other questions and issues that arose in the writing of this work that remain unaddressed here, but may be within the scope of fu- ture research.	page 13
+§4	E.K. McClay, Violet Birdstone	note	Whether these wh-indefinites are determiners or NPs is somewhat of an open question. Mast (1988) cites data from Kutenai Tales (Boas 1918) in which the phrase qaⱡa ⱡkamu ‘some child’ appears; however, the second author’s first im- pression of sentences using qaⱡa as an indefinite determiner was that they were ungrammatical. For instance, qaⱡa paⱡkiy wu·kati niʔis qukins intended to mean ‘some woman saw the ravens’ was judged to be questionable at best. It is there- fore a possibility that qaⱡa and perhaps qapsin could be used as indefinite deter- miners in older dialects of Ktunaxa, but younger speakers use the words only as full NPs. However, we have not explored the topic in more detail and we cannot give a conclusive category for the indefinite pronouns at this time.	page 13
+§4	Ktunaxa	cited form	qaⱡa ⱡkamu	page 13, in italics, ‘some child’
+§4	Ktunaxa	cited form	qaⱡa paⱡkiy wu·kati niʔis qukins	page 13, in italics
+§4	E.K. McClay, Violet Birdstone	note	As for weak islands, we have some preliminary data on wh-islands, given in (26a) and (26b) below, but have not yet discussed the crucial ungrammatical cases. The prediction is that extraction from the embedded phrase headed by a wh-word is banned; given the rest of the data in this paper, this prediction seems likely to hold.	page 13
+(26a) line 1	Ktunaxa	transcription	hu qaⱡwini qaⱡa k wu∙kat maⱡis	page 13
+(26a) line 2	Ktunaxa	segmentation	hu qaⱡwi-ni qaⱡa k wu∙kat maⱡi-s	page 13
+(26a) line 3	Ktunaxa	gloss	1.SG think-IND who COMP see Mary-OBV	page 13
+(26a) line 4	E.K. McClay, Violet Birdstone	translation	‘I wonder who saw Mary.’	page 13
+(26b) line 1	Ktunaxa	transcription	hu qaⱡwini qaⱡas maⱡi k wu∙kat	page 13
+(26b) line 2	Ktunaxa	segmentation	hu qaⱡwi-ni qaⱡa-s maⱡi k wu∙kat	page 13
+(26b) line 3	Ktunaxa	gloss	1.SG think-IND who-OBV Mary COMP see	page 13
+(26b) line 4	E.K. McClay, Violet Birdstone	translation	‘I wonder who Mary saw.’	page 13
+§4	E.K. McClay, Violet Birdstone	note	Finally, we have not so much as scratched the surface of multiple-wh questions. Whether Ktunaxa uses multiple wh-fronting (* ‘Who what bought?’), or partial (‘Who bought what?’), or another strategy for inquiring after multiple arguments is a natural next step in its pursuit.	page 13
+references	E.K. McClay, Violet Birdstone	heading	References	page 14
+references	E.K. McClay, Violet Birdstone	reference	Boas, F. (1918). Kutenai Tales. Bureau of American Ethnology, Bulletin 59. Washington: Government Printing Office.	page 14
+references	E.K. McClay, Violet Birdstone	reference	Boas, F. (1927a). Additional Notes on the Kutenai Language. International Journal of American Linguistics 4.85–104.	page 14
+references	E.K. McClay, Violet Birdstone	reference	Bobaljik, J. & S. Wurmbrand. (2014; To appear). “Questions with Declarative Syntax tell us what about selection?” In: 50 Years Later: Reflections on Chomsky’s Aspects, ed. by A. J. Gallego and D. Ott. MITWPL. (accessed through http://ling.auf.net/lingbuzz/002266)	page 14
+references	E.K. McClay, Violet Birdstone	reference	Dryer, M. S. (1992). “A Comparison of the Obviation Systems of Kutenai and Algonquian.” In Papers of the Twenty-Third Algonquian Conference, ed. by W. Cowan. Ottawa: Carleton University, pp. 119–163.	page 14
+references	E.K. McClay, Violet Birdstone	reference	Kootenai Culture Committee. (1999). Ksanka ’A∙kⱡukaqwum: Kootenai Dictionary. Elmo, Montana: Confederated Salish and Kootenai Tribes, Kootenai Culture Committee.	page 14
+references	E.K. McClay, Violet Birdstone	reference	Kroeber, P. D. (1999). The Salish language family: Reconstructing syntax. U of Nebraska Press.	page 14
+references	E.K. McClay, Violet Birdstone	reference	Mast, S. J. (1988). “Aspects of Kutenai Morphology.” MA thesis. University of Pittsburgh, 1988.	page 14
+references	E.K. McClay, Violet Birdstone	reference	Morgan, L. R. (1991). A Description of the Kutenai Language.	page 14
+references	E.K. McClay, Violet Birdstone	reference	Ross, J. R. (1967). “Constraints on Variables in Syntax.” PhD dissertation. Massachusetts Institute of Technology, 1967.	page 14

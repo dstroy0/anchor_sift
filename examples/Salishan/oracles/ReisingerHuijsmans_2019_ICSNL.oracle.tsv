@@ -1,0 +1,704 @@
+where	who	kind	form	gloss
+front	D. K. E. Reisinger and Marianne Huijsmans	title	ǰaqa: A Generalized Exclamation Operator in ʔayʔaǰuθəm	page 1, carries footnote *
+front	D. K. E. Reisinger and Marianne Huijsmans	name	D. K. E. Reisinger	author
+front	D. K. E. Reisinger and Marianne Huijsmans	note	University of British Columbia	page 1, under D. K. E. Reisinger
+front	D. K. E. Reisinger and Marianne Huijsmans	name	Marianne Huijsmans	author
+front	D. K. E. Reisinger and Marianne Huijsmans	note	University of British Columbia	page 1, under Marianne Huijsmans
+front	D. K. E. Reisinger and Marianne Huijsmans	note	Abstract: This paper provides the first analysis of the elusive particle ǰaqa in ʔayʔaǰuθəm (also known as Comox-Sliammon; ISO 639-3: coo), an endangered Central Salish language traditionally spoken along the Northern Strait of Georgia in British Columbia. Reisinger (2018) calls attention to the puzzling banquet of meanings associated with ǰaqa, but leaves a detailed analysis of this element — which he suspects is a modal — for another time. Inspired by Grosz (2011; 2014), we propose that ǰaqa serves as an exclamation (EX) operator expressing the speaker’s emotion towards the status of a proposition on a contextually salient scale. In doing so, we provide evidence that Grosz’s EX operator, which is covert in German and English, may be realized overtly in other languages.	page 1, the abstract
+front	D. K. E. Reisinger and Marianne Huijsmans	note	Keywords: Comox-Sliammon, exclamation, optative, adversative, polar exclamative	page 1, the keywords
+front	D. K. E. Reisinger and Marianne Huijsmans	note	Papers for the International Conference on Salish and Neighbouring Languages 54. D. K. E. Reisinger & Gloria Mellesmoen (eds.). Vancouver: UBCWPL, 2019.	page 1, the volume's header
+front	D. K. E. Reisinger and Marianne Huijsmans	language	ʔayʔaǰuθəm	Central Salish, also known as Comox-Sliammon, ISO 639-3 coo
+footnote *	D. K. E. Reisinger and Marianne Huijsmans	note	We are deeply grateful to all the speakers who so patiently and generously have shared their language with us: Elsie Paul, Marion Harry, Freddie Louie, Phyllis Dominick, Margaret Vivier, Randy Timothy, and Joanne Francis. č̓ač̓ahatanapišt! We would also like to thank Lisa Matthewson as well as the members of the ʔayʔaǰuθəm Lab and the TAP Lab for their helpful feedback and ideas. Research for this project was supported through a SSHRC Insight grant (435-2016-1694) awarded to Henry Davis, a Jacobs Research Funds individual grant held by Marianne Huijsmans, and a Jacobs Research Funds group grant held by members of the UBC ʔayʔaǰuθəm Lab. Contact info: daniel.reisinger@ubc.ca | marianne.huijsmans@ubc.ca	page 1, footnote *, on the title
+footnote *	D. K. E. Reisinger and Marianne Huijsmans	name	Elsie Paul	a ʔayʔaǰuθəm speaker the authors thank
+footnote *	D. K. E. Reisinger and Marianne Huijsmans	name	Marion Harry	a ʔayʔaǰuθəm speaker
+footnote *	D. K. E. Reisinger and Marianne Huijsmans	name	Freddie Louie	a ʔayʔaǰuθəm speaker
+footnote *	D. K. E. Reisinger and Marianne Huijsmans	name	Phyllis Dominick	a ʔayʔaǰuθəm speaker
+footnote *	D. K. E. Reisinger and Marianne Huijsmans	name	Margaret Vivier	a ʔayʔaǰuθəm speaker
+footnote *	D. K. E. Reisinger and Marianne Huijsmans	name	Randy Timothy	a ʔayʔaǰuθəm speaker
+footnote *	D. K. E. Reisinger and Marianne Huijsmans	name	Joanne Francis	a ʔayʔaǰuθəm speaker
+footnote *	D. K. E. Reisinger and Marianne Huijsmans	name	Lisa Matthewson	thanked; Matthewson (2004), semantic fieldwork
+footnote *	D. K. E. Reisinger and Marianne Huijsmans	name	Henry Davis	held the SSHRC Insight grant
+§1	D. K. E. Reisinger and Marianne Huijsmans	heading	1 Introduction	page 1
+§1	D. K. E. Reisinger and Marianne Huijsmans	note	This paper provides a first analysis of the elusive auxiliary ǰaqa in ʔayʔaǰuθəm (ISO 639-3: coo), a severely endangered Coast Salish language traditionally spoken by four communities — the Tla’amin, Klahoose, Homalco, and K’ómoks — along the Northern Strait of Georgia in British Columbia. According to the most recent survey by the First Peoples’ Cultural Council, approximately 47 L1 speakers remain (FPCC 2018).	page 1
+§1	ʔayʔaǰuθəm	cited form	ǰaqa	page 1, in italics
+§1	D. K. E. Reisinger and Marianne Huijsmans	language	Coast Salish	ʔayʔaǰuθəm
+§1	D. K. E. Reisinger and Marianne Huijsmans	language	Salish	the family
+§1	D. K. E. Reisinger and Marianne Huijsmans	note	In this paper, we report on original fieldwork targeting the auxiliary ǰaqa. This auxiliary gives rise to an interesting puzzle for analysis due to the plethora of meanings associated with it (Reisinger 2018). For instance, ǰaqa can express a speaker’s surprise at an event (1), counterfactual wishes (2), signal potential consequences perceived as undesirable (often translated with ‘might’) (3), and repetitions of an event that are deemed to be ‘over the top’ or undesirable (4).1	page 1
+footnote 1	D. K. E. Reisinger and Marianne Huijsmans	note	The abbreviations used in this paper are: 1 ‘first person’, 2 ‘second person’, 3 ‘third person’, CAUS ‘causative’, CHAR ‘characteristic’, CL.DEM ‘clausal demonstrative’, CLT ‘clitic’, CNJ ‘conjunctive’, COM ‘comitative conjunction’, COMP ‘complementizer’, CONJ ‘conjunction’, CONTIN ‘continuative’, CTR ‘control transitivizer’, DEM ‘demonstrative’, DET ‘determiner’, DIM ‘diminutive’, EMPH ‘emphatic’, EPEN ‘epenthesis’, ERG ‘ergative’, EVD ‘evidential’, EXCL ‘exclusive’, FUT ‘future’, IMP ‘imperative’, INFER ‘inferential’, INFOR ‘informative’, INT ‘intensifier’, IPFV ‘imperfective’, IRR ‘irrealis’, MD ‘middle’, LNK ‘linker’, MOD ‘modal’, NCTR ‘non-control transitive’, NEG ‘negation’, NMLZ ‘nominalizer’, OBJ ‘object’, OBL ‘oblique’, OPT ‘optative’, PASS ‘passive’, PL ‘plural’, POSS ‘possessive’, PRO ‘pronoun’, PRT ‘particle’, PST ‘past’, Q ‘question marker’, QUOT ‘quotative’, RED ‘reduplication’, REQ ‘request for information’, RFLX ‘reflexive’, SBJ ‘subject’, SG ‘singular’, and STV ‘stative’. Affixes are marked by a hyphen ‘-’, clitics by an equal sign ‘=’, and reduplicated sequences by a bullet ‘•’.	page 1, footnote 1
+(1) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa ʔiy ʔa•ʔaxʷ s=kʷəǰ-uɬ.	page 2
+(1) line 2	ʔayʔaǰuθəm	gloss	J̌AQA ʔIY IPFV•snow NMLZ=morning-PST	page 2
+(1) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Oh, it’s snowing this morning!’	page 2
+(1) line 4	D. K. E. Reisinger and Marianne Huijsmans	speaker comment	Consultant’s Comment: “It’s like … something you didn’t expect.”	page 2, under the example, the consultant not named
+(2) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: We had been out on the boat, but it had been raining.	page 2, over the example
+(2) line 2	ʔayʔaǰuθəm	segmentation	ǰaqa=č̓a t̓i•t̓iχ-im s=ǰasuɬ.	page 2
+(2) line 3	ʔayʔaǰuθəm	gloss	J̌AQA=Č̓A IPFV•sunshine-MD NMLZ=yesterday	page 2
+(2) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I wish it had been sunshining yesterday.’	page 2
+(3) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: Talking about perishable food.	page 2, over the example
+(3) line 2	ʔayʔaǰuθəm	segmentation	hu=ga qəms-at. ǰaqa ɬaχaw.	page 2
+(3) line 3	ʔayʔaǰuθəm	gloss	go=IMP put.away-CTR J̌AQA spoil/break.down	page 2
+(3) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Go put it away! It might spoil.’	page 2
+(4) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=gut ma•mati kʷ=tala.	page 2
+(4) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=GUT IPFV•borrow DET =money	page 2
+(4) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘He always comes to borrow money.’	page 2
+§1	D. K. E. Reisinger and Marianne Huijsmans	note	Reisinger (2018) suggests that ǰaqa may be a circumstantial modal, but leaves a full analysis for future work. Based on more recent fieldwork, we argue that ǰaqa is not a circumstantial modal, but rather an exclamation operator in the spirit of Grosz (2011; 2014).	page 2
+§1	D. K. E. Reisinger and Marianne Huijsmans	name	Grosz	Patrick G. Grosz, optative constructions (2011) and optative markers as cues (2014)
+§1	D. K. E. Reisinger and Marianne Huijsmans	note	The data presented in this paper come from four speakers of the Tla’amin community, one speaker from Homalco, and two Vancouver-based speakers. In gathering data for this paper, we employed a variety of semantic fieldwork methodologies, including direct translation with contextual support and judgment tasks (Matthewson 2004). We also provide examples volunteered spontaneously during elicitation, and examples available in previous documentation.	page 2
+§1	D. K. E. Reisinger and Marianne Huijsmans	note	Section 2 examines the different interpretations associated with ǰaqa more closely, while Section 3 reviews the cross-Salish literature and identifies potential cognates of this auxiliary in a handful of closely related languages. In Section 4, we briefly introduce Grosz (2011; 2014)’s EX operator and illustrate how his analysis can be used to account for the data presented in this paper. Lastly, Section 5 summarizes the results and concludes this paper with an outlook on future research.	page 2
+§2	D. K. E. Reisinger and Marianne Huijsmans	heading	2 The Readings	page 2
+§2	D. K. E. Reisinger and Marianne Huijsmans	note	The following subsections will illustrate the different readings evoked by the presence of ǰaqa. Section 2.1 will explore the association of ǰaqa with wishes, hopes, and desires, while Section 2.2 is dedicated to cases that express surprise. Section 2.3 focuses on the use of ǰaqa in contexts which involve undesirable consequences. Lastly, Section 2.4 describes cases that involve the repetition of unpleasant events.	page 2
+§2.1	D. K. E. Reisinger and Marianne Huijsmans	heading	2.1 Wishes	page 2
+§2.1	D. K. E. Reisinger and Marianne Huijsmans	note	The ‘wish’ cases are usually counterfactual, either expressing: (i) a wish for something that is currently counter to fact and unlikely to be fulfilled, or (ii) a wish that has already been frustrated (e.g., wishing that something would have been different in the past). In contexts like these, ǰaqa is usually accompanied by the clitic č̓a, whose contribution will be examined more closely in Section 4.3.2. The sentences in (5) to (8) illustrate the use of ǰaqa in the ‘wish’ cases.	page 2
+§2.1	ʔayʔaǰuθəm	cited form	č̓a	page 2, in italics
+(5) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: We had been out on the boat, but it had been raining.	page 3, over the example
+(5) line 2	ʔayʔaǰuθəm	segmentation	ǰaqa=č̓a t̓i•t̓iχ-im s=ǰasuɬ.	page 3
+(5) line 3	ʔayʔaǰuθəm	gloss	J̌AQA=Č̓A IPFV•sunshine-MD NMLZ=yesterday	page 3
+(5) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I wish it had been sunshining yesterday.’	page 3
+(6) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=št=č̓a θu na yawup-am-uɬ.	page 3
+(6) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=1PL.SBJ=Č̓A go FILLER.PRT sail-MD-PST	page 3
+(6) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘We wish we had gone sailing yesterday.’	page 3
+(7) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: I want to go sailing.	page 3, over the example
+(7) line 2	ʔayʔaǰuθəm	segmentation	ǰaqa=č̓a=ʔut puh-<i>m.	page 3
+(7) line 3	ʔayʔaǰuθəm	gloss	J̌AQA=Č̓A=EXCL blow-MD<STV>	page 3
+(7) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I wish it were windy.’	page 3
+(8) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: It is summer and there are a lot of forest fires in the Interior.	page 3, over the example
+(8) line 2	ʔayʔaǰuθəm	segmentation	ǰaqa=č̓a č̓əɬ. hihiw qəχ-mut q̓a•q̓<a>t<i>xʷ kʷut=ʔuk̓ʷ čan=as.	page 3
+(8) line 3	ʔayʔaǰuθəm	gloss	J̌AQA=Č̓A rain. really lots-INT IPFV•burn<PL> CLT=all place=3CNJ	page 3
+(8) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I wish it would rain. There are a lot of fires all over.’	page 3
+§2.1	D. K. E. Reisinger and Marianne Huijsmans	note	However, wishes can also be expressed with conjunctive subject markers and the enclitic χʷəʔt, as shown in examples (9) and (10).2	page 3
+footnote 2	D. K. E. Reisinger and Marianne Huijsmans	note	The use of this enclitic with wishes and hopes has been documented by Kroeber (1999:160) and Watanabe (2003:529; 2016:312–323), without the presence of the auxiliary ǰaqa, as illustrated in (i–vi).	page 3, footnote 2
+footnote 2 (i) line 1	ʔayʔaǰuθəm	segmentation	xʷaʔ-an=χʷəʔt kʷət-əm-an.	page 3
+footnote 2 (i) line 2	ʔayʔaǰuθəm	gloss	NEG-1SG.CNJ=CLT sick-MD-1SG.CNJ	page 3
+footnote 2 (i) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I hope I don’t get sick.’	page 3
+footnote 2 (i) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Kroeber 1999:160; Watanabe 2003:529]	page 3, the tag or source at the right of the translation
+footnote 2 (ii) line 1	ʔayʔaǰuθəm	segmentation	qʷəl-as=χʷəʔt təs (ʔə=tiʔi).	page 3
+footnote 2 (ii) line 2	ʔayʔaǰuθəm	gloss	come-3SG.CNJ=CLT reach OBL=DEM	page 3
+footnote 2 (ii) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I hope he gets here.’	page 3
+footnote 2 (ii) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Kroeber 1999:160; Watanabe 2003:529]	page 3, the tag or source at the right of the translation
+footnote 2 (iii) line 1	ʔayʔaǰuθəm	segmentation	k̓ʷən-i-θ-axʷ=χʷuʔt š<iʔ>i<š>a-t=čan ša=hayšin.	page 3
+footnote 2 (iii) line 2	ʔayʔaǰuθəm	gloss	see-STV-CTR.1SG.OBJ-2SG.CNJ=CLT high<PL><DIM>-CTR=1SG.SUB DET=ladder	page 3
+footnote 2 (iii) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘You should have seen me climbing up and down the ladder.’	page 3
+footnote 2 (iii) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Watanabe 2003:529]	page 3, the tag or source at the right of the translation
+footnote 2 (iv) line 1	ʔayʔaǰuθəm	segmentation	χʷupχʷup-an̓-uɬ=χʷuʔt, huθut=k̓ʷa.	page 3
+footnote 2 (iv) line 2	ʔayʔaǰuθəm	gloss	hummingbird-1SG.CNJ.SBJ-PST=CLT say=QUOT	page 3
+footnote 2 (iv) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘“I wish I were a hummingbird,” she said.’	page 3
+footnote 2 (iv) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Watanabe 2016:322]	page 3, the tag or source at the right of the translation
+footnote 2 (v) line 1	ʔayʔaǰuθəm	segmentation	hiy-as=χʷuʔt.	page 3
+footnote 2 (v) line 2	ʔayʔaǰuθəm	gloss	it’s-3CNJ=CLT	page 3
+footnote 2 (v) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I wish!’	page 3
+footnote 2 (v) line 4	D. K. E. Reisinger and Marianne Huijsmans	note	(lit. ‘Hopefully, it would be!’)	page 3, at the right of the translation
+footnote 2 (v) line 5	D. K. E. Reisinger and Marianne Huijsmans	citation	[Watanabe 2016:323]	page 3, the tag or source at the right of the translation
+footnote 2 (vi) line 1	ʔayʔaǰuθəm	segmentation	hiy-as=χʷuʔt kʷ=χaʔa.	page 3
+footnote 2 (vi) line 2	ʔayʔaǰuθəm	gloss	it’s-3CNJ=CLT DET=clam	page 3
+footnote 2 (vi) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I’m wishing for clams!’	page 3
+footnote 2 (vi) line 4	D. K. E. Reisinger and Marianne Huijsmans	note	(lit. ‘If only there were clams!’)	page 3, at the right of the translation
+footnote 2 (vi) line 5	D. K. E. Reisinger and Marianne Huijsmans	citation	[Watanabe 2016:323]	page 3, the tag or source at the right of the translation
+§2.1	ʔayʔaǰuθəm	cited form	χʷəʔt	page 3, in italics
+(9) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=as=χʷəʔt ɬaχaw.	page 4
+(9) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=3CNJ=CLT spoil/break.down	page 4
+(9) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I wish it would spoil.’	page 4
+(10) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=as=χʷəʔt qʷə•qʷəl̓.	page 4
+(10) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=3CNJ=CLT IPFV•come	page 4
+(10) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I hope he’s coming.’	page 4
+§2.1	D. K. E. Reisinger and Marianne Huijsmans	note	Based on our data, the ‘wish’ readings are not restricted with regard to their temporal orientation, as exemplified by the paradigm in (11).	page 4
+(11a) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=č̓a xʷaʔ č̓əl=as kʷiy.	page 4
+(11a) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=Č̓A NEG rain=3CNJ tomorrow	page 4
+(11a) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I hope it doesn’t rain tomorrow.’	page 4
+(11b) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=č̓a xʷaʔ č̓ə•č̓l=as s=čaʔat.	page 4
+(11b) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=Č̓A NEG IPFV •rain=3CNJ NMLZ=now	page 4
+(11b) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I hope it is not raining right now.’	page 4
+(11c) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=č̓a xʷaʔ č̓əl=as s=ǰas-uɬ.	page 4
+(11c) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=Č̓A NEG rain=3CNJ NMLZ=yesterday-PST	page 4
+(11c) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I hope it didn’t rain yesterday.’	page 4
+§2.1	D. K. E. Reisinger and Marianne Huijsmans	note	Furthermore, it is worth noting that the holder of the wish does not necessarily have to be the subject of the clause. In example (12), for instance, it is the speaker — and not the second person subject — that holds the wish, thus giving rise to an externally bouletic interpretation. The deontic reading that seems to emerge on the surface is probably derived via a bouletic-to-deontic inference (cf. Matthewson & Truckenbrodt 2018).	page 4
+§2.1	D. K. E. Reisinger and Marianne Huijsmans	name	Truckenbrodt	Hubert Truckenbrodt; Matthewson and Truckenbrodt (2018)
+(12) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=čxʷ=č̓a=qəɬ qʷəl̓ qamin-uɬ.	page 4
+(12) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=2SG.SBJ=Č̓A=IRR come accompany-PST	page 4
+(12) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘You should have come along.’	page 4
+§2.2	D. K. E. Reisinger and Marianne Huijsmans	heading	2.2 Surprises	page 4
+§2.2	D. K. E. Reisinger and Marianne Huijsmans	note	In addition to the ‘wish’ readings outlined in Section 2.1, speakers can also use ǰaqa to mark propositions that they consider surprising, unexpected, or sudden, as illustrated by the examples in (13) to (15). Often, but not always, the particle ʔiy directly follows ǰaqa in these cases. Section 4.3.1 will take a closer look at the contribution of this particle. Kroeber (1999:160), who transcribes this clitic as χʷəʔt, concedes that he does not fully understand the meaning of this element, but proposes ‘would that…’ as a potential translation for it. Watanabe (2003:529), who transcribes this element as χʷuʔt, glosses it as a hypothetical marker that can be translated as ‘it seems that/like’, unless it appears in combination with conjunctive inflection. In this case, it adopts a bouletic meaning to express the speaker’s desires and wishes, which are inherently hypothetical as well. Watanabe (2016:321–323) refines this analysis by suggesting that the ‘wishful thinking’ cases involve insubordination, i.e., the speaker elides the matrix clause and only utters the conditional clause with the conjunctive marking (e.g., ‘[It would have been good/great/wonderful] if you had seen me!’ or ‘[I wish/I hope] that you could have seen me!’).	page 4
+§2.2	ʔayʔaǰuθəm	cited form	ʔiy	page 4, in italics
+§2.2	ʔayʔaǰuθəm	cited form	χʷuʔt	page 4, in italics
+§2.2	D. K. E. Reisinger and Marianne Huijsmans	name	Kroeber	Paul Kroeber, the Salish language family (1999) and clitics (2002)
+§2.2	D. K. E. Reisinger and Marianne Huijsmans	name	Watanabe	Honoré Watanabe, Sliammon (2003) and insubordination (2016)
+(13) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa ʔiy qʷəl̓ təs Hoss.	page 5
+(13) line 2	ʔayʔaǰuθəm	gloss	J̌AQA ʔIY come arrive Hoss	page 5
+(13) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Oh, Hoss arrived!’	page 5
+(14) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa ʔiy ʔa•ʔaxʷ s=kʷəǰ-uɬ.	page 5
+(14) line 2	ʔayʔaǰuθəm	gloss	J̌AQA ʔIY IPFV•snow NMLZ=morning-PST	page 5
+(14) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Oh, it’s snowing this morning!’	page 5
+(14) line 4	D. K. E. Reisinger and Marianne Huijsmans	speaker comment	Consultant’s comment: “It’s like … something you didn’t expect.”	page 5, under the example, the consultant not named
+(15) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=k̓ʷa niʔ šə=nəxʷiɬ.	page 5
+(15) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=QUOT be.there DET=canoe	page 5
+(15) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘All of a sudden, he saw the canoe.’	page 5
+(15) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[First Voices: “The Canoe and Menathey”]	page 5, the tag or source at the right of the translation
+§2.3	D. K. E. Reisinger and Marianne Huijsmans	heading	2.3 Undesirable Consequences	page 5
+§2.3	D. K. E. Reisinger and Marianne Huijsmans	note	Often, ǰaqa occurs in the consequent of overt or covert conditionals, where it tends to be translated as ‘might’. In these cases, the auxiliary ǰaqa encodes a future temporal orientation and the consequent expresses an undesirable outcome, as exemplified by the sentences in (16) to (20). The undesirability is judged by the speaker, not the subject of the sentence. For instance, it is the speaker, not the bear, who disapproves of the bear eating the fish in (20).	page 5
+(16) line 1	ʔayʔaǰuθəm	segmentation	hu=ga qəms-at. ǰaqa ɬaχaw.	page 5
+(16) line 2	ʔayʔaǰuθəm	gloss	go=IMP put.away-CTR J̌AQA spoil/break.down	page 5
+(16) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Go put it away! It might spoil.’	page 5
+(17) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa ɬaχaw hu=h-as niʔ k̓ʷas.	page 5
+(17) line 2	ʔayʔaǰuθəm	gloss	J̌AQA spoil/break.down go=EPEN-CNJ be.there hot	page 5
+(17) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘It might spoil if it gets hot there.’	page 5
+(18) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=čxʷ mamaqʷɬ.	page 5
+(18) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=2SG.SBJ get.hurt	page 5
+(18) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘You might get hurt.’	page 5
+(19) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa ɬaw-nu-may-əm.	page 5
+(19) line 2	ʔayʔaǰuθəm	gloss	J̌AQA left-NCTR-1SG.OBJ-PASS	page 5
+(19) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I might get left behind.’	page 5
+(20) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: A bear is coming and you think that it might go into your smokehouse and eat your fish.	page 5, over the example
+(20) line 2	ʔayʔaǰuθəm	segmentation	qʷə•qʷəl̓ tə=miχaɬ. k̓ʷən-at=čxʷ! ǰaqa qʷəl̓ məkʷ-t-as tə=ms=ǰanxʷ.	page 5
+(20) line 3	ʔayʔaǰuθəm	gloss	IPFV•come DET=bear see-CTR=2SG.SBJ J̌AQA come eat-CTR-3ERG DET=1PL.POSS=fish	page 5
+(20) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘A bear is coming. Look! It might eat our fish.’	page 5
+§2.4	D. K. E. Reisinger and Marianne Huijsmans	heading	2.4 Excessive and Undesirable Repetitions	page 5
+§2.4	D. K. E. Reisinger and Marianne Huijsmans	note	Lastly, ǰaqa may appear with the clitic gut, in which case it gets a repeated event reading, where the repetitions are undesirable or unpleasant for the speaker, as shown in (21) to (25). This reading is also sometimes signalled by ǰaqa in combination with the clitic ʔut, as highlighted in (26) and (27).	page 5
+§2.4	ʔayʔaǰuθəm	cited form	ʔut	page 5, in italics
+(21) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: Someone you don’t want to see keeps dropping by.	page 6, over the example
+(21) line 2	ʔayʔaǰuθəm	segmentation	ǰaqa=gut qʷəl̓ təs.	page 6
+(21) line 3	ʔayʔaǰuθəm	gloss	J̌AQA=GUT come arrive	page 6
+(21) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Here they are again!’	page 6
+(22) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=gut ɬəχ•ɬaχaw šə=ʔatnupil-s.	page 6
+(22) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=GUT PL•spoil/break.down DET=car-3POSS	page 6
+(22) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Her car is always breaking down.’	page 6
+(23) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=gut ma•mati kʷ=tala.	page 6
+(23) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=GUT IPFV•borrow DET=money	page 6
+(23) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘He always comes to borrow money.’	page 6
+(24) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=gut ʔuk̓ʷamiɬ.	page 6
+(24) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=GUT finish.food	page 6
+(24) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘They’re always running out of food.’	page 6
+(25) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=gut ču•čuwuɬ.	page 6
+(25) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=GUT IPFV•steal	page 6
+(25) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘He keeps stealing.’	page 6
+(26) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=ʔut θu ʔi•ʔimaš.	page 6
+(26) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=EXCL go IPFV•walk	page 6
+(26) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘There he goes walking again.’	page 6
+(27) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=ʔut ʔi•ʔiɬtin.	page 6
+(27) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=EXCL IPFV•eat	page 6
+(27) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘He’s always eating.’	page 6
+§2.4	D. K. E. Reisinger and Marianne Huijsmans	note	As highlighted by (28), ǰaqa=gut cannot be used for repetitions which are planned or desired.	page 6
+§2.4	ʔayʔaǰuθəm	cited form	ǰaqa=gut	page 6, in italics
+(28) line 1	ʔayʔaǰuθəm	segmentation	* ǰaqa=gut qʷəl̓ ǰu ʔə=kʷ=kismas.	page 6
+(28) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=GUT come home OBL=DET=Christmas	page 6
+(28) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘He always comes home for Christmas.’	page 6
+(28) line 4	D. K. E. Reisinger and Marianne Huijsmans	speaker comment	Consultant’s comment: “ǰaqa=gut ... it’s not planned, it’s almost like invasive.”	page 6, under the example, the consultant not named
+§2.5	D. K. E. Reisinger and Marianne Huijsmans	heading	2.5 Summary	page 6
+§2.5	D. K. E. Reisinger and Marianne Huijsmans	note	The preceding sections have shown that the auxiliary ǰaqa is an astonishingly versatile marker. Table 1 provides a concise summary of the different forms and functions associated with this element.	page 6
+Table 1	D. K. E. Reisinger and Marianne Huijsmans	note	Table 1: The auxiliary ǰaqa and its readings	page 7, the table's caption
+Table 1	D. K. E. Reisinger and Marianne Huijsmans	note	Wishes Surprises Undesirable Consequences Undesirable Repetitions	page 7, the column heads
+Table 1	D. K. E. Reisinger and Marianne Huijsmans	note	Form	page 7, the first row's head
+Table 1	ʔayʔaǰuθəm	cited form	ǰaqa=č̓a	page 7, Table 1, Wishes, the form
+Table 1	ʔayʔaǰuθəm	cited form	ǰaqa=as=χʷəʔt	page 7, Table 1, Wishes, the form
+Table 1	ʔayʔaǰuθəm	cited form	ǰaqa (ʔiy)	page 7, Table 1, Surprises, the form
+Table 1	ʔayʔaǰuθəm	cited form	ǰaqa	page 7, Table 1, Undesirable Consequences, the form
+Table 1	ʔayʔaǰuθəm	cited form	ǰaqa=gut	page 7, Table 1, Undesirable Repetitions, the form
+Table 1	ʔayʔaǰuθəm	cited form	ǰaqa=ʔut	page 7, Table 1, Undesirable Repetitions, the form
+Table 1	D. K. E. Reisinger and Marianne Huijsmans	note	Function	page 7, the second row's head
+Table 1	D. K. E. Reisinger and Marianne Huijsmans	note	counterfactual wishes	page 7, Table 1, Wishes, the function
+Table 1	D. K. E. Reisinger and Marianne Huijsmans	note	surprises, unexpected events, accidents	page 7, Table 1, Surprises, the function
+Table 1	D. K. E. Reisinger and Marianne Huijsmans	note	undesirable consequences in conditionals	page 7, Table 1, Undesirable Consequences, the function
+Table 1	D. K. E. Reisinger and Marianne Huijsmans	note	undesired and unpleasant repetitions	page 7, Table 1, Undesirable Repetitions, the function
+§3	D. K. E. Reisinger and Marianne Huijsmans	heading	3 Data from other Central Salish languages	page 7
+§3	D. K. E. Reisinger and Marianne Huijsmans	note	A look at the Central Salish literature reveals that many other languages spoken along the Strait of Georgia — e.g., Klallam, SENĆOŦEN, and Sechelt — contain potential cognates of ǰaqa that share some of the readings presented above.	page 7
+§3	D. K. E. Reisinger and Marianne Huijsmans	language	Central Salish	the branch
+§3	D. K. E. Reisinger and Marianne Huijsmans	language	Klallam	yəq, iq (Montler 2012, 2015)
+§3	D. K. E. Reisinger and Marianne Huijsmans	language	SENĆOŦEN	yəq, a dialect of Northern Straits
+§3	D. K. E. Reisinger and Marianne Huijsmans	language	Sechelt	-k̲a, yák̲a, yék̲á (Beaumont)
+§3.1	D. K. E. Reisinger and Marianne Huijsmans	heading	3.1 Klallam	page 7
+§3.1	D. K. E. Reisinger and Marianne Huijsmans	note	In his Klallam Dictionary, Montler (2012:165) describes the lexeme yəq (also: iq) as a “cupitive speech act enclitic” that can roughly be translated as ‘I wish’.3 In the complementary Klallam Grammar, he adds that this clitic iq (pronounced yəq in older recordings) “is used when the speaker believes the event is not true and wants the addressee to know that he or she wishes the event to be true” (Montler 2015:217). Examples for this usage can be found in (29) and (30).	page 7
+footnote 3	D. K. E. Reisinger and Marianne Huijsmans	note	The term cupitive refers to optative constructions that express wishes. In Classical Greek, cupitive optatives stand in contrast to potential optatives, which express that the realization of the denoted proposition is likely. In this paper, we use the term optative exclusively to refer to the ‘wish’ readings.	page 7, footnote 3
+footnote 3	D. K. E. Reisinger and Marianne Huijsmans	language	Classical Greek	cupitive and potential optatives
+§3.1	Klallam	cited form	yəq	page 7, in italics
+§3.1	D. K. E. Reisinger and Marianne Huijsmans	name	Montler	Timothy Montler, Saanich (1986), Straits auxiliaries (2003), Klallam (2012, 2015)
+(29) line 1	Klallam	transcription	niɬ iq nəswə́y̓gaʔ.	page 7
+(29) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I wish he was my husband.’	page 7
+(29) line 3	D. K. E. Reisinger and Marianne Huijsmans	citation	[Montler 2012:165]	page 7, the tag or source at the right of the translation
+(30) line 1	Klallam	transcription	hiyáʔ yəq cn.	page 7
+(30) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I wish I could go.’	page 7
+(30) line 3	D. K. E. Reisinger and Marianne Huijsmans	citation	[Montler 2012:165]	page 7, the tag or source at the right of the translation
+§3.2	D. K. E. Reisinger and Marianne Huijsmans	heading	3.2 SENĆOŦEN	page 7
+§3.2	D. K. E. Reisinger and Marianne Huijsmans	note	SENĆOŦEN, a dialect of Northern Straits, has a second-position clitic that also has the form yəq. Montler (1984) reports that yəq forms a sentence ‘that expresses the speaker’s hope or wish for some remote but distinct possibility’. He writes that it can be translated as “‘I wish’, ‘I hope’, and, rarely, ‘I ought’” (Montler 1984:206), as illustrated in (31) to (33).	page 7
+§3.2	D. K. E. Reisinger and Marianne Huijsmans	language	Northern Straits	SENĆOŦEN
+(31) line 1	SENĆOŦEN	segmentation	ɬew=yəq.	page 7
+(31) line 2	SENĆOŦEN	gloss	get.better=OPT	page 7
+(31) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I hope he gets better.’	page 7
+(31) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Montler 1984:206]	page 7, the tag or source at the right of the translation
+(32) line 1	SENĆOŦEN	segmentation	yéʔ=yəq=ləʔ=sən.	page 8
+(32) line 2	SENĆOŦEN	gloss	go=OPT=PST=1SG.SBJ	page 8
+(32) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I ought to go/I wish I’d gone.’4	page 8, carries footnote 4
+footnote 4	D. K. E. Reisinger and Marianne Huijsmans	note	Montler (p.c., 2019) notes that ‘I ought to have gone’ might be a better translation than ‘I ought to go’.	page 8, footnote 4
+(32) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Montler 1984:207]	page 8, the tag or source at the right of the translation
+(33) line 1	SENĆOŦEN	segmentation	yéʔ=yəq=kʷəwyəkʷ.	page 8
+(33) line 2	SENĆOŦEN	gloss	go=OPT=go.fishing	page 8
+(33) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I wish he’d go out fishing.’	page 8
+(33) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Montler 2018:845]	page 8, the tag or source at the right of the translation
+§3.2	D. K. E. Reisinger and Marianne Huijsmans	note	In a more recent description, Montler (2018:844–845) labels yəq as “optative speech situation enclitic” and highlights that (i) yəq cannot combine with the future enclitic, as shown in (34), and (ii) that the deontic reading (≈ ‘ought to’) is specifically linked to the form yəq=ləʔ, a combination of the optative enclitic and the past clitic, which might mean something like ‘I wish I had’, as shown in (35) and (36).	page 8
+§3.2	SENĆOŦEN	cited form	yəq=ləʔ	page 8, in italics
+(34) line 1	SENĆOŦEN	segmentation	* ʔiɬən=yəq=sən=səʔ.	page 8
+(34) line 2	SENĆOŦEN	gloss	eat=OPT=1SG.SBJ=FUT	page 8
+(34) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I hope I will eat.’	page 8
+(34) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Montler 2018:845]	page 8, the tag or source at the right of the translation
+(35) line 1	SENĆOŦEN	segmentation	yéʔ=yəq=ləʔ=sən=kʷəʔ.	page 8
+(35) line 2	SENĆOŦEN	gloss	go=OPT=PST=1SG.SBJ=INFOR	page 8
+(35) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I ought to go.’	page 8
+(35) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Montler 2018:845]	page 8, the tag or source at the right of the translation
+(36) line 1	SENĆOŦEN	segmentation	ʔəwə=yəq=ləʔ=sən s yéʔ.	page 8
+(36) line 2	SENĆOŦEN	gloss	NEG=OPT=PST=1SG.SBJ IRR go	page 8
+(36) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I shouldn’t have gone. / I wish I hadn’t gone.’	page 8
+(36) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Montler 2018:845]	page 8, the tag or source at the right of the translation
+§3.3	D. K. E. Reisinger and Marianne Huijsmans	heading	3.3 Sechelt	page 8
+§3.3	D. K. E. Reisinger and Marianne Huijsmans	note	While the list of potential cognate forms of ǰaqa is fairly short for Klallam and SENĆOŦEN, the picture gets significantly more complex when we look at Sechelt, the closest neighbor of ʔayʔaǰuθəm. Instead of only one cognate form, Sechelt appears to have three distinct forms that resemble ǰaqa.	page 8
+§3.3	D. K. E. Reisinger and Marianne Huijsmans	note	The first of these elements is the suffix -k̲a, which is used to convey optative concepts, such as hopes and wishes. Beaumont (2012:222) notes that this suffix often — but not always — follows negation. Example (37) presents the dictionary entry for this marker, while (38) to (40) illustrate its use.	page 8
+§3.3	Sechelt	cited form	-k̲a	page 8, in italics
+§3.3	D. K. E. Reisinger and Marianne Huijsmans	name	Beaumont	Ronald Beaumont, Sechelt dictionary (2011)
+(37) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Dictionary entry:	page 8
+(37) line 2	Sechelt	cited form	-k̲a	page 8, the entry's head
+(37) line 3	D. K. E. Reisinger and Marianne Huijsmans	note	hope (I, etc.), if only, wish (I, etc.) (if only; it is to be hoped).	page 8, the entry's definition
+(37) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Beaumont 2012:624]	page 8, the tag or source at the right
+(38) line 1	Sechelt	transcription	xwé-(ʔ)áxw-k̲a k̲él-álh-íl-em-axw.	page 8
+(38) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I hope you don’t get sick.’	page 8
+(38) line 3	D. K. E. Reisinger and Marianne Huijsmans	citation	[Beaumont 2012:221]	page 8, the tag or source at the right of the translation
+(39) line 1	Sechelt	transcription	ne ʔálish-axw-k̲a.	page 8
+(39) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I wish you were my brother.’	page 8
+(39) line 3	D. K. E. Reisinger and Marianne Huijsmans	citation	[Beaumont 2012:531]	page 8, the tag or source at the right of the translation
+(40) line 1	Sechelt	transcription	ní-(ʔ)án-k̲a...	page 9
+(40) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	‘If only I were there …’	page 9
+(40) line 3	D. K. E. Reisinger and Marianne Huijsmans	citation	[Beaumont 2012:229]	page 9, the tag or source at the right of the translation
+§3.3	D. K. E. Reisinger and Marianne Huijsmans	note	In addition, Beaumont (2012) also describes two forms, yák̲a and yék̲á, that look like as if they may involve the -k̲a suffix. In any case, these two forms appear to be closely related to the auxiliary ǰaqa in ʔayʔaǰuθəm.	page 9
+§3.3	Sechelt	cited form	yák̲a	page 9, in italics
+§3.3	Sechelt	cited form	yék̲á	page 9, in italics
+§3.3	D. K. E. Reisinger and Marianne Huijsmans	note	Yák̲a seems to appear in utterances in which the speaker calls attention to undesired consequences, thus mirroring the meaning of the ǰaqa sentences presented in Section 2.3. Beaumont’s (2012) dictionary entry for this form is given in (41), while the sentences in (42) and (43) illustrate in what contexts this form might be used.	page 9
+§3.3	Sechelt	cited form	Yák̲a	page 9, in italics
+(41) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Dictionary entry:	page 9
+(41) line 2	Sechelt	cited form	yák̲a	page 9, the entry's head
+(41) line 3	D. K. E. Reisinger and Marianne Huijsmans	note	might (could), or (if not, otherwise).	page 9, the entry's definition
+(41) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Beaumont 2012:947]	page 9, the tag or source at the right
+(42) line 1	Sechelt	transcription	kw’én-ít-tsut-chxw-la! yák̲a-chxw nána.	page 9
+(42) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Watch out! You might get hurt!’	page 9
+(42) line 3	D. K. E. Reisinger and Marianne Huijsmans	citation	[Beaumont 2012:282]	page 9, the tag or source at the right of the translation
+(43) line 1	Sechelt	transcription	hák̲w-nu-mál-em yák̲a ʔe she tákta.	page 9
+(43) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	‘The doctor might smell me (if I don’t take a bath).’	page 9
+(43) line 3	D. K. E. Reisinger and Marianne Huijsmans	citation	[Beaumont 2012:282]	page 9, the tag or source at the right of the translation
+§3.3	D. K. E. Reisinger and Marianne Huijsmans	note	In contrast, yék̲á seems to act as an expression of annoyance, disapproval, and impatience, as shown by the dictionary entry in (44). The example sentences in (45) to (47) indicate that this form matches the use of the ǰaqa=gut string in the undesirable repetition cases, as outlined in Section 2.4.	page 9
+(44) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Dictionary entry:	page 9
+(44) line 2	Sechelt	cited form	yék̲á	page 9, the entry's head
+(44) line 3	D. K. E. Reisinger and Marianne Huijsmans	note	again (expression of annoyance, disapproval, impatience, etc.), always doing s.th. (critical comment), “exclamation” (expression of disapproval, displeasure, impatience.)	page 9, the entry's definition
+(44) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Beaumont 2012:951]	page 9, the tag or source at the right
+(45) line 1	Sechelt	transcription	yék̲á k̲éyi-la!	page 9
+(45) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	‘It (engine) stopped again!’	page 9
+(45) line 3	D. K. E. Reisinger and Marianne Huijsmans	citation	[Beaumont 2012:144]	page 9, the tag or source at the right of the translation
+(46) line 1	Sechelt	transcription	yék̲á x̲ét-át-tsút-chxw-la!	page 9
+(46) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	‘You’re always doing that (the same thing)!’	page 9
+(46) line 3	D. K. E. Reisinger and Marianne Huijsmans	citation	[Beaumont 2012:144]	page 9, the tag or source at the right of the translation
+(47) line 1	Sechelt	transcription	yék̲á nílh-la! níneʔ-it-tsut téʔáx̲a.	page 9
+(47) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	‘There he goes again! He’s butting in (interrupting).’	page 9
+(47) line 3	D. K. E. Reisinger and Marianne Huijsmans	citation	[Beaumont 2012:14]	page 9, the tag or source at the right of the translation
+§3.3	D. K. E. Reisinger and Marianne Huijsmans	note	In any case, it is striking that neither yák̲a nor yék̲á appear to have the optative meaning that ǰaqa has in combination with č̓a, even though the suffix -k̲a on its own does appear to encode optativity.	page 9
+§3.4	D. K. E. Reisinger and Marianne Huijsmans	heading	3.4 Summary	page 9
+§3.4	D. K. E. Reisinger and Marianne Huijsmans	note	To sum up, all three of the examined Central Salish languages contain elements which resemble certain uses of ǰaqa in ʔayʔaǰuθəm. Both Klallam and SENĆOŦEN use the enclitic yəq to mark optative constructions. Whether this form can also be used to express the other interpretations associated with ǰaqa (i.e., surprise, undesirable consequences, undesirable repetitions) remains an open question. Without negative data, it is difficult to tell whether yəq is incompatible with these readings, or whether these uses simply have not been documented yet.	page 9
+§3.4	D. K. E. Reisinger and Marianne Huijsmans	note	In contrast to Klallam and SENĆOŦEN, the data from Sechelt is particularly puzzling. After all, the different readings that have been associated to one and the same form in ʔayʔaǰuθəm, namely ǰaqa, seem to be expressed by at least three elements listed in the dictionary, namely -k̲a, yák̲a, and yék̲á in Sechelt. The fact that there is no one-to-one mapping between the elements in these two languages poses the question whether several different forms merged to one form in ʔayʔaǰuθəm, or whether one form disintegrated into several different forms in Sechelt. Currently, we do not have any answers to this question.	page 10
+Table 2	D. K. E. Reisinger and Marianne Huijsmans	note	Table 2: The auxiliary ǰaqa and its potential cognates in some selected Central Salish languages	page 10, the table's caption
+Table 2	D. K. E. Reisinger and Marianne Huijsmans	note	Undesirable Consequences Wishes Surprises Disapproval / Unwanted Repetition	page 10, the column heads
+Table 2	ʔayʔaǰuθəm	cited form	ǰaqa	page 10, Table 2, ʔayʔaǰuθəm, Undesirable Consequences
+Table 2	ʔayʔaǰuθəm	cited form	ǰaqa=č̓a	page 10, Table 2, ʔayʔaǰuθəm, Wishes
+Table 2	ʔayʔaǰuθəm	cited form	ǰaqa=as=χʷət	page 10, Table 2, ʔayʔaǰuθəm, Wishes
+Table 2	ʔayʔaǰuθəm	cited form	ǰaqa (ʔiy)	page 10, Table 2, ʔayʔaǰuθəm, Surprises
+Table 2	ʔayʔaǰuθəm	cited form	ǰaqa=gut	page 10, Table 2, ʔayʔaǰuθəm, Disapproval / Unwanted Repetition
+Table 2	ʔayʔaǰuθəm	cited form	ǰaqa=ʔut	page 10, Table 2, ʔayʔaǰuθəm, Disapproval / Unwanted Repetition
+Table 2	Sechelt	cited form	yák̲a	page 10, Table 2, Sechelt, Undesirable Consequences
+Table 2	Sechelt	cited form	-k̲a	page 10, Table 2, Sechelt, Wishes
+Table 2	D. K. E. Reisinger and Marianne Huijsmans	note	?	page 10, Table 2, Sechelt, Surprises, no form
+Table 2	Sechelt	cited form	yék̲á	page 10, Table 2, Sechelt, Disapproval / Unwanted Repetition
+Table 2	D. K. E. Reisinger and Marianne Huijsmans	note	?	page 10, Table 2, SENĆOŦEN, Undesirable Consequences, no form
+Table 2	SENĆOŦEN	cited form	yəq	page 10, Table 2, SENĆOŦEN, Wishes
+Table 2	D. K. E. Reisinger and Marianne Huijsmans	note	?	page 10, Table 2, SENĆOŦEN, Surprises, no form
+Table 2	D. K. E. Reisinger and Marianne Huijsmans	note	?	page 10, Table 2, SENĆOŦEN, Disapproval / Unwanted Repetition, no form
+Table 2	D. K. E. Reisinger and Marianne Huijsmans	note	?	page 10, Table 2, Klallam, Undesirable Consequences, no form
+Table 2	Klallam	cited form	yəq / iq	page 10, Table 2, Klallam, Wishes
+Table 2	D. K. E. Reisinger and Marianne Huijsmans	note	?	page 10, Table 2, Klallam, Surprises, no form
+Table 2	D. K. E. Reisinger and Marianne Huijsmans	note	?	page 10, Table 2, Klallam, Disapproval / Unwanted Repetition, no form
+§4	D. K. E. Reisinger and Marianne Huijsmans	heading	4 Towards an Analysis	page 10
+§4	D. K. E. Reisinger and Marianne Huijsmans	note	In the spirit of Grosz (2011; 2014), we propose that the different and seemingly un-unifiable readings associated with ǰaqa can in fact be unified if this auxiliary is treated as an overt exclamation operator that expresses the speaker’s emotion towards the status of a proposition on a contextually salient scale. In Section 4.1, we briefly outline how Grosz (2011)’s EX operator works in English and German, while Section 4.2 sketches how Grosz (2011)’s analysis can be applied to ʔayʔaǰuθəm to account for the patterns we have observed for ǰaqa. Section 4.3 will take a closer look at the clitics and particles that tend to accompany ǰaqa, trying to shed some light on their semantic contribution. Lastly, Section 4.4 will present some supporting evidence for our analysis, including syntactic restrictions and the role of speaker-orientedness.	page 10
+§4	D. K. E. Reisinger and Marianne Huijsmans	language	English	a covert EX operator
+§4	D. K. E. Reisinger and Marianne Huijsmans	language	German	a covert EX operator
+§4.1	D. K. E. Reisinger and Marianne Huijsmans	heading	4.1 Grosz (2011) as a Blueprint	page 10
+§4.1.1	D. K. E. Reisinger and Marianne Huijsmans	heading	4.1.1 Optatives, Polar Exclamatives, and Adversatives	page 10
+§4.1.1	D. K. E. Reisinger and Marianne Huijsmans	note	In his thesis, Grosz (2011) focuses on three types of constructions — optatives, polar exclamatives, and adversatives — which resemble each other in that they all express how the speaker feels towards the denoted proposition.	page 10
+§4.1.1	D. K. E. Reisinger and Marianne Huijsmans	note	Optatives express the speaker’s wishes, hopes, or desires, without making use of an overt lexical item that means ‘wish’, ‘hope’, or ‘desire’, as illustrated by the examples from English and German in (48) below.	page 10
+(48a) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	If only I had brought an umbrella!	page 11, an English example
+(48a) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	Paraphrase: ‘I wish I had brought an umbrella.’	page 11
+(48b) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Oh, that I had never left you!	page 11, an English example
+(48b) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	Paraphrase: ‘I wish that I had never left you.’	page 11
+(48b) line 3	D. K. E. Reisinger and Marianne Huijsmans	citation	[T. S. Arthur. (1868). After the Storm. Philadelphia.]	page 11, under the translation
+(48c) line 1	German	transcription	Wenn ich nur die Zeit zurückdrehen könnte!	page 11
+(48c) line 2	German	gloss	if I only the time turn.back could	page 11
+(48c) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	Literally: ‘If only I could turn back time!’	page 11
+(48c) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	Paraphrase: ‘I wish I could turn back time.’	page 11
+§4.1.1	D. K. E. Reisinger and Marianne Huijsmans	note	Polar exclamatives, on the other hand, convey the speaker’s surprise, shock, or amazement at a fact. Just like the optative constructions, these utterances do so without containing lexical items that mean ‘surprise’, ‘shock’, or ‘amazement’, as highlighted by the examples in (49).	page 11
+(49a) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	That he should have left without asking me!	page 11, an English example
+(49a) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	Paraphrase: ‘I’m surprised that he should have left without asking me.’	page 11
+(49a) line 3	D. K. E. Reisinger and Marianne Huijsmans	citation	[Quirk et al. 1985:841; Grosz 2011:39]	page 11, under the translation
+(49b) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	That you could ever marry such a man!	page 11, an English example
+(49b) line 2	D. K. E. Reisinger and Marianne Huijsmans	translation	Paraphrase: ‘I did not expect that you could ever marry such a man.’	page 11
+(49b) line 3	D. K. E. Reisinger and Marianne Huijsmans	citation	[Quirk et al. 1985:841; Grosz 2011:39]	page 11, under the translation
+(49c) line 1	German	transcription	Dass die dort gewohnt haben!	page 11
+(49c) line 2	German	gloss	that they there lived have	page 11
+(49c) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	Literally: ‘That they lived there!’	page 11
+(49c) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	Paraphrase: ‘It amazes me that they lived there.’	page 11
+(49c) line 5	D. K. E. Reisinger and Marianne Huijsmans	citation	[Rosengren 1992:278; Grosz 2011:40]	page 11, under the translation
+§4.1.1	D. K. E. Reisinger and Marianne Huijsmans	note	Last, adversatives (or anti-optatives) express the speaker’s disapproval, disgust, or dislike — once again, without the presence of any overt lexical items that carry this meaning. While English seems to lack independent adversatives (Grosz 2011:117), such constructions can be found in German, as exemplified by the sentences in (50).	page 11
+(50a) line 1	German	transcription	Mein Gott! Der Olaf! Wenn ich den schon sehe!	page 11
+(50a) line 2	German	gloss	my God the Olaf if I him already see	page 11
+(50a) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	Literally: ‘Oh my god! Olaf! If I already see him!’	page 11
+(50a) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	Paraphrase: ‘It makes me sick if I see Olaf.’	page 11
+(50a) line 5	D. K. E. Reisinger and Marianne Huijsmans	citation	[Scholz 1991:48; Grosz 2011:62]	page 11, the tag or source at the right of the translation
+(50b) line 1	German	transcription	Dass die aber auch immer Vanilleeis mitbringt!	page 11
+(50b) line 2	German	gloss	that she but also always vanilla.ice.cream brings	page 11
+(50b) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	Literally: ‘That she always brings vanilla ice cream!’	page 11
+(50b) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	Paraphrase: ‘I find it disappointing that she always brings vanilla ice cream.’	page 11
+(50b) line 5	D. K. E. Reisinger and Marianne Huijsmans	citation	[Grosz 2011:236]	page 11, under the translation
+§4.1.2	D. K. E. Reisinger and Marianne Huijsmans	heading	4.1.2 The EX Operator	page 12
+§4.1.2	D. K. E. Reisinger and Marianne Huijsmans	note	Grosz (2011) claims that all three of these constructions contain a covert exclamation operator, which he labels EX. This operator serves to express the speaker’s emotion or evaluative attitude ε towards the fact that the denoted proposition φ exceeds a salient threshold on a contextually provided scale S. As illustrated by the overview in (51), every construction relies on a different scale. For instance, in the case of optatives, the denoted proposition is measured against a scale of speaker-preference.	page 12
+(51) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Constructions and their respective scales:	page 12
+(51) line 2	D. K. E. Reisinger and Marianne Huijsmans	note	CONSTRUCTION EMOTION SALIENT SCALE	page 12, the column heads
+(51a) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	optatives wishes, hopes, desires speaker-preference	page 12, the construction, its emotion and its scale
+(51b) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	adversatives disapproval, dislike, disgust speaker-dispreference	page 12, the construction, its emotion and its scale
+(51c) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	polar exclamatives surprise, shock, amazement speaker-unlikelihood	page 12, the construction, its emotion and its scale
+§4.1.2	D. K. E. Reisinger and Marianne Huijsmans	note	In addition to its scalar properties, the EX operator is also expressive (Grosz 2011:87). By this, Grosz means that EX combines with a proposition of the type ⟨s, t⟩ and maps it onto the felicity conditions which capture how the speaker feels towards the denoted proposition. Thus, the denotation of EX (S) (φ) yields a semantics that is not truth-conditional, but rather felicity- conditional.5	page 12
+footnote 5	D. K. E. Reisinger and Marianne Huijsmans	note	Following this argument, Grosz would consider the sentence in (i), which does not involve the EX operator, as truth-conditional. The optative construction in (ii), on the other hand, would be regarded as felicity-conditional within Grosz’s analysis due to the presence of the EX operator.	page 12, footnote 5
+footnote 5 (i) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	[I wish I had gone to Galway.] ⇒ describes my desire	page 12, an English example
+footnote 5 (ii) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	[EX [If only I had gone to Galway.] ⇒ expresses my desire	page 12, an English example
+§4.1.2	D. K. E. Reisinger and Marianne Huijsmans	note	With these points in mind, Grosz (2011:91) proposes the lexical entry in (52) for the EX operator:	page 12
+(52) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	For any scale S and proposition p, interpreted in relation to a context c and assignment function g,	page 12
+(52) line 2	D. K. E. Reisinger and Marianne Huijsmans	formula	an utterance EX (S) (p) is felicitous iff ∀q[THRESHOLD (c) >S q → p >S q]	page 12, a formula, its subscripts set inline
+(52) line 3	D. K. E. Reisinger and Marianne Huijsmans	note	“EX expresses an emotion that captures the fact that p is higher on a (speaker-related) scale S than all contextually relevant alternatives q below a contextual threshold.”	page 12, the formula's paraphrase
+(52) line 4	D. K. E. Reisinger and Marianne Huijsmans	note	where THRESHOLD (c) is a function from a context into a set of worlds / a proposition that counts as high with respect to a relevant scale S.	page 12
+§4.1.2	D. K. E. Reisinger and Marianne Huijsmans	note	To sum up, an utterance of the form EX (S) (φ) has the following properties: (i) the speaker has an emotion or evaluative attitude ε towards the proposition φ at UT, (ii) the speaker wants not just to describe, but rather to express ε, and (iii) ε is based on a scale (e.g., a scale of speaker-preference in the case of optatives).6	page 12
+footnote 6	D. K. E. Reisinger and Marianne Huijsmans	note	Grosz (2011:93) also highlights that the EX operator may combine with interjections, such as oh! man! wow! etc., to further refine the expression of ε. However, according to Grosz, such interjections do not themselves express ε.	page 12, footnote 6
+§4.1.3	D. K. E. Reisinger and Marianne Huijsmans	heading	4.1.3 The Role of Particles	page 13
+§4.1.3	D. K. E. Reisinger and Marianne Huijsmans	note	In addition to this EX operator, we also need something to help us identify the appropriate scale against which the denoted proposition will be measured. For instance, the German utterance in (53) below can be interpreted as a polar exclamative, an optative, or an adversative — depending on the context.	page 13
+(53) line 1	German	transcription	Dass die Saoirse gegangen ist!	page 13
+(53) line 2	German	gloss	that the Saoirse left is	page 13
+(53) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	Literally: ‘That Saoirse left!’	page 13
+(53) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	Most plausible paraphrase: ‘I am surprised [that Saoirse left].’	page 13
+(53) line 5	D. K. E. Reisinger and Marianne Huijsmans	translation	Conceivable paraphrase: ‘I hope [that Saoirse left].’	page 13
+(53) line 6	D. K. E. Reisinger and Marianne Huijsmans	translation	Conceivable paraphrase: ‘I am disappointed [that Saoirse left].’	page 13
+§4.1.3	D. K. E. Reisinger and Marianne Huijsmans	note	Grosz (2011:146) highlights that these three readings can be disambiguated by adding certain particles. For instance, adding the particle nur (‘only’) to the sentence above will make the optative reading salient, as shown in (54). Adding the particle auch (‘also’), on the other hand, will foreground the adversative interpretation, as shown in (55).	page 13
+(54) line 1	German	transcription	Oh, dass die Saoirse nur gegangen ist!	page 13
+(54) line 2	German	gloss	oh that the Saoirse only left is	page 13
+(54) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I hope that Saoirse left.’	page 13
+(55) line 1	German	transcription	Dass die Saoirse auch gegangen ist!	page 13
+(55) line 2	German	gloss	that the Saoirse also left is	page 13
+(55) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I am disappointed that Saoirse left.’	page 13
+§4.1.3	D. K. E. Reisinger and Marianne Huijsmans	note	Such particles, whose main purpose it is to disambiguate the different readings by eliminating competing interpretations, cannot only be found in German (e.g., nur, doch, aber, schon, auch, wenigstens …), but also in English, as illustrated by the optative constructions in (56) below.7	page 13
+footnote 7	D. K. E. Reisinger and Marianne Huijsmans	note	Grosz (2011; 2014) classifies these particles — which are often, but not always scalar — as truth- conditionally vacuous presupposition triggers.	page 13, footnote 7
+(56a) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	If I’d only listened to my parents!	page 13, an English example
+(56b) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	If I could just make them understand my point of view!	page 13, an English example
+(56c) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	If I could but explain!	page 13, an English example
+(56c) line 2	D. K. E. Reisinger and Marianne Huijsmans	citation	[Quirk et al. 1985:842; Grosz 2011:13]	page 13, the tag or source at the right
+§4.1.3	D. K. E. Reisinger and Marianne Huijsmans	note	According to Grosz (2014:93), the use of such particles is governed by a constraint he calls Utilize Cues, as given in (57).	page 13
+(57) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Utilize Cues:	page 13
+(57a) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	If a marked use of an ambiguous utterance can be made more salient by adding certain elements (e.g., particles, interjections, intonational tunes) to this utterance, the addition of one (or more than one) such element is obligatory. Such elements qualify as cues for the respective utterance use.	page 13
+(57b) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	The requirement in (55a) can be obviated if the intended utterance use is independently prominent in the utterance context.	page 13
+§4.1.3	D. K. E. Reisinger and Marianne Huijsmans	note	Essentially, this constraint posits that speakers have to make use of available cues (e.g., particles, interjections) whenever the intended reading of a given utterance is marked and not sufficiently supported by the context.	page 14
+§4.2	D. K. E. Reisinger and Marianne Huijsmans	heading	4.2 ǰaqa as an overt EX operator	page 14
+§4.2	D. K. E. Reisinger and Marianne Huijsmans	note	The alert reader will have noticed that the utterances that Grosz (2011; 2014) discusses strongly resemble the ǰaqa sentences we presented in Section 2 — both in terms of their available readings (e.g., ‘wishes’, ‘surprise’, ‘disapproval’) and their structural properties (e.g., the use of particles/clitics to disambiguate these different interpretations).	page 14
+§4.2	D. K. E. Reisinger and Marianne Huijsmans	note	With this in mind, we propose that Grosz (2011; 2014)’s analysis can also be adapted to account for the ǰaqa data which we have encountered in ʔayʔaǰuθəm. Essentially, we argue — in the spirit of Grosz — that ǰaqa is an overt EX operator which expresses that φ is higher on a speaker-related scale S than all contextually relevant alternatives ψ below a contextually determined threshold.8 In this way, ǰaqa (S) (φ) maps the descriptive content φ to expressive content, communicating an emotion or evaluative attitude toward φ.	page 14
+footnote 8	D. K. E. Reisinger and Marianne Huijsmans	note	According to Grosz (2011), English optative constructions consist of a covert EX operator which scopes over an overt complementizer, such as if or that. Deviating from this analysis, we propose that ǰaqa acts as an overt EX operator which does not require the presence of a complementizer. While it is theoretically also possible that optatives in ʔayʔaǰuθəm are structurally identical to their English equivalents — i.e., they consist of a covert EX operator and ǰaqa simply acts as a complementizer — we deem such an analysis improbable. This is mostly due to the fact that we have not encountered any instances where ǰaqa serves as a complementizer outside of exclamative constructions.	page 14, footnote 8
+§4.2	ʔayʔaǰuθəm	cited form	ψ	page 14, in italics
+(58) line 1	D. K. E. Reisinger and Marianne Huijsmans	formula	⟦ ǰaqa (S) (φ)⟧ c, g is felicitous iff φ ≥ S THRESHOLD (c)	page 14, a formula, its subscripts and superscripts set inline
+(58) line 2	D. K. E. Reisinger and Marianne Huijsmans	formula	where φ ≥ S ᴛʜʀᴇꜱʜᴏʟᴅ(c) abbreviates ∀ψ[THRESHOLD (c) > S ψ → φ ≥ Sc ψ]	page 14, a formula, its subscripts set inline
+(58) line 3	D. K. E. Reisinger and Marianne Huijsmans	note	and THRESHOLD is a function from a context into a set of worlds/a proposition that counts as high with respect to a relevant scale S.	page 14
+(58) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[adapted from Grosz 2011:91]	page 14, the tag or source at the right
+§4.2	D. K. E. Reisinger and Marianne Huijsmans	note	Adopting Grosz (2011)’s model, the ‘wish’ readings presented in Section 2.1 can be classified as optative constructions. Example (59), for instance, will only be felicitous if the denoted proposition (i.e., ‘the sun was shining yesterday’) lies above a salient threshold on the scale of speaker-preference.	page 14
+(59) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=č̓a t̓i•t̓iχ-im s=ǰasuɬ.	page 14
+(59) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=Č̓A IPFV•sunshine-MD NMLZ=yesterday	page 14
+(59) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘[It would have been good] if (only) the sun had been shining yesterday!’	page 14
+(59) line 4	D. K. E. Reisinger and Marianne Huijsmans	note	SPEAKER-PREFERENCE	page 14, the scale drawn under the example
+(59) line 5	D. K. E. Reisinger and Marianne Huijsmans	note	most desirable	page 14, the scale drawn under the example
+(59) line 6	D. K. E. Reisinger and Marianne Huijsmans	note	sunny weather	page 14, the scale drawn under the example
+(59) line 7	D. K. E. Reisinger and Marianne Huijsmans	note	-----------------------------------------------------------------------------	page 14, the scale's dashed line, the threshold
+(59) line 8	D. K. E. Reisinger and Marianne Huijsmans	note	cloudy weather (= what actually happened)	page 14, the scale drawn under the example
+(59) line 9	D. K. E. Reisinger and Marianne Huijsmans	note	rainy weather	page 14, the scale drawn under the example
+(59) line 10	D. K. E. Reisinger and Marianne Huijsmans	note	stormy weather	page 14, the scale drawn under the example
+(59) line 11	D. K. E. Reisinger and Marianne Huijsmans	note	least desirable	page 14, the scale drawn under the example
+§4.2	D. K. E. Reisinger and Marianne Huijsmans	note	The ‘surprise’ readings that we introduced in Section 2.2 can be classified as polar exclamatives. Consequently, the utterance in (60) will only meet the felicity conditions if the proposition (i.e., ‘Hoss arrived’) exceeds the salient threshold on the scale of speaker-unlikelihood.	page 15
+(60) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa ʔiy qʷəl̓ təs Hoss.	page 15
+(60) line 2	ʔayʔaǰuθəm	gloss	J̌AQA ʔIY come arrive Hoss	page 15
+(60) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘[I’m surprised that] Hoss arrived!’	page 15
+§4.2	D. K. E. Reisinger and Marianne Huijsmans	note	Last, we argue the utterances presented in Section 2.3 (≈ ‘undesirable consequences’) and Section 2.4 (≈ ‘undesirable repetitions’) can be grouped together under the label of “adversatives” as they both convey the speaker’s disapproval toward the denoted proposition. In other words, we assume that the propositions in both (61) and (62) are only felicitous if they surpass the salient threshold on an inverse scale of speaker-preference.	page 15
+(61) line 1	ʔayʔaǰuθəm	segmentation	hu=ga qəms-at. ǰaqa ɬaχaw.	page 15
+(61) line 2	ʔayʔaǰuθəm	gloss	go=IMP put.away-CTR J̌AQA spoil/break.down	page 15
+(61) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Go put it away! [I don’t want that] it spoils!’	page 15
+(62) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=gut ma•mati kʷ=tala.	page 15
+(62) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=GUT IPFV•borrow DET=money	page 15
+(62) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘[It angers me that] he always borrows money!’	page 15
+§4.3	D. K. E. Reisinger and Marianne Huijsmans	heading	4.3 The Particles and Clitics	page 15
+§4.3	D. K. E. Reisinger and Marianne Huijsmans	note	As in German (cf. Grosz 2011; 2014), additional cues may be necessary to select the appropriate scale for these utterances. In ʔayʔaǰuθəm, these cues seem to come in the form of enclitics (č̓a, gut) or the particle ʔiy. For example, the second sentence in (63) is an unmarked adversative in the given context and, consequently, does not require an additional cue. However, a polar exclamative reading can be forced for the same proposition by adding the particle ʔiy, as shown in (64). The sentence in (65), on the other hand, shows that — under the right circumstances — polar exclamatives can also be derived without the presence of this particle. This suggests that speakers of ʔayʔaǰuθəm make use of these particles when the reading they want to convey is marked or not salient enough.	page 15
+§4.3	ʔayʔaǰuθəm	cited form	č̓a, gut	page 15, in italics
+(63) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: Talking about perishable food.	page 15, over the example
+(63) line 2	ʔayʔaǰuθəm	segmentation	hu=ga qəms-at. ǰaqa ɬaχaw.	page 15
+(63) line 3	ʔayʔaǰuθəm	gloss	go=IMP put.away-CTR J̌AQA spoil/break.down	page 15
+(63) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘(Go put it away!) It might spoil!’	page 15
+(63) line 5	D. K. E. Reisinger and Marianne Huijsmans	translation	Most plausible paraphrase: ‘[I don’t want that] it spoils!’	page 15
+(64) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa ʔiy ɬaχaw.	page 15
+(64) line 2	ʔayʔaǰuθəm	gloss	J̌AQA ʔIY spoil/break.down	page 15
+(64) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Oh, it spoiled!’	page 15
+(64) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	Most plausible paraphrase: ‘[I’m surprised that] it spoiled!’	page 15
+(65) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: A story about Menathey who is walking on the beach, looking for rocks.	page 15, over the example
+(65) line 2	ʔayʔaǰuθəm	segmentation	ǰaqa=k̓ʷa niʔ šə=nəxʷiɬ.	page 15
+(65) line 3	ʔayʔaǰuθəm	gloss	J̌AQA=QUOT be.there DET=canoe	page 15
+(65) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘All of a sudden, he saw the canoe.’	page 15
+(65) line 5	D. K. E. Reisinger and Marianne Huijsmans	translation	Most plausible paraphrase: ‘[It was surprising that] he saw a canoe!’	page 15
+§4.3	D. K. E. Reisinger and Marianne Huijsmans	note	In the following subsections, we will take a closer look at the different clitics and particles that seem to serve as cues in ʔayʔaǰuθəm.	page 16
+§4.3.1	D. K. E. Reisinger and Marianne Huijsmans	heading	4.3.1 Polar Exclamatives: ʔiy	page 16
+§4.3.1	D. K. E. Reisinger and Marianne Huijsmans	note	The particle ʔiy, which often acts as a cue for polar exclamatives, appears to be the coordinating conjunction that occurs frequently and conjoins both clauses and nominals, as shown in (66a) and (66b), respectively.9	page 16
+footnote 9	D. K. E. Reisinger and Marianne Huijsmans	note	At present, it is not clear if it may also conjoin non-nominal elements smaller than a clause. While it appears to be possible to conjoin two predicates below T, allowing the tense clitic in the first conjunct to scope over both clauses, it is not possible to similarly allow the same subject clitic to scope over both conjuncts.	page 16, footnote 9
+footnote 9 (ia) line 1	ʔayʔaǰuθəm	segmentation	q̓at̓ᶿ-aθut=štəm ʔiy wuw-əm=št	page 16
+footnote 9 (ia) line 2	ʔayʔaǰuθəm	gloss	gather-RFLX=1PL.SBJ.FUT CONJ sing-ᴍᴅ=1ᴘʟ.ꜱʙᴊ	page 16
+footnote 9 (ib) line 1	ʔayʔaǰuθəm	segmentation	* q̓atᶿ-aθut=štəm ʔiy wuw-əm	page 16
+footnote 9 (ib) line 2	ʔayʔaǰuθəm	gloss	gather-RFLX=1PL.SBJ.FUT CONJ sing-ᴍᴅ	page 16
+footnote 9 (ib) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘We will gather together to sing.’	page 16
+(66a) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: We’re weaving baskets with Betty, and Betty is much more skilled than the rest of us.	page 16, over the example
+(66a) line 2	ʔayʔaǰuθəm	segmentation	kʷi huy-nu-m Betty šə=na-s ʔiy čaʔat=št=ʔut	page 16
+(66a) line 3	ʔayʔaǰuθəm	gloss	CL.DEM finish-NCTR-PASS Betty DET=own-3POSS CONJ now=1PL.SBJ=EXCL	page 16
+(66a) line 4	ʔayʔaǰuθəm	segmentation	ƛi•ƛayin.	page 16
+(66a) line 5	ʔayʔaǰuθəm	gloss	DIM•start	page 16
+(66a) line 6	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Betty has finished hers and we’re just starting.’	page 16
+(66b) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: The beginning of a storyboard about a cat and a dog.	page 16, over the example
+(66b) line 2	ʔayʔaǰuθəm	segmentation	k̓ʷən-ə-xʷ-uɬ=č šə=č̓an̓u ʔiy šə=mimaw̓.	page 16
+(66b) line 3	ʔayʔaǰuθəm	gloss	see-NCTR-3OBJ-PST=1SG.SBJ DET=dog CONJ DET=cat	page 16
+(66b) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I saw a dog and a cat.’	page 16
+§4.3.1	D. K. E. Reisinger and Marianne Huijsmans	note	Of course, it is possible that the ʔiy particle that shows up in polar exclamatives is a homophonous particle that is otherwise not well attested. However, though neither its contribution to meaning nor its syntactic function are well understood, there are reasons to believe that the ʔiy particle in polar exclamatives is in fact the conjunction ʔiy. In particular, there are similar constructions elsewhere in ʔayʔaǰuθəm and in other Coast Salish languages that involve a conjunction like ʔiy coordinating two elements that do not seem to be of the same type, or where the relationship between the two conjuncts is not straightforwardly that of two independent clauses. For instance, ʔiy occasionally occurs conjoining the modal clause xʷaʔ čam̓=as (‘will not’ or ‘not able to’) with another clause that is in the scope of the modal (Kroeber 2002, cited in Watanabe 2003:555, fn. 467).10 As indicated by the parentheses in (67), this element is frequently elided.	page 16
+footnote 10	D. K. E. Reisinger and Marianne Huijsmans	note	Some English optative constructions, as shown in (i) below, as well as some German degree exclamatives, as shown in (ii) below, also use conjunction-like elements as cues. In both of these cases, the conjunction does not seem to conjoin two syntactic elements, but rather serves to make the intended interpretation more salient.	page 16, footnote 10
+footnote 10 (i) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Oh, if I could but explain!	page 17, an English example
+footnote 10 (i) line 2	D. K. E. Reisinger and Marianne Huijsmans	citation	[Quirk et al. 1985:842]	page 17, the tag or source at the right
+footnote 10 (ii) line 1	German	transcription	Mann, bist du aber blöd!	page 17
+footnote 10 (ii) line 2	German	gloss	man are you but stupid	page 17
+footnote 10 (ii) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	Literally: ‘Man, are you stupid!’	page 17
+footnote 10 (ii) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	Paraphrase: ‘[I can’t believe] how stupid you are!’	page 17
+§4.3.1	ʔayʔaǰuθəm	cited form	xʷaʔ čam̓=as	page 16, in italics
+(67) line 1	ʔayʔaǰuθəm	segmentation	xʷaʔ čam̓=as (ʔiy) ʔiɬtən-sxʷ-as ga xʷaʔ=as čam̓=as (ʔiy) p̓ap̓im qayχ.	page 17
+(67) line 2	ʔayʔaǰuθəm	gloss	NEG MOD=3CNJ (CONJ) eat-CAUS-3ERG if NEG=3CNJ MOD=3CNJ (CONJ) work mink	page 17
+(67) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘She refused to feed him if Mink wasn’t willing to work.’	page 17
+(67) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Watanabe 2003:555]	page 17, the tag or source at the right of the translation
+§4.3.1	D. K. E. Reisinger and Marianne Huijsmans	note	Similar behavior is also found with the comitative conjunction ʔiʔ in Northern Straits. This element is able to conjoin elements like the modal auxiliary x̣ʷə́ŋ (‘be able to’) or the question word čəntéŋ (‘when’) with the main predicate, as shown in (68) and (69), respectively.	page 17
+§4.3.1	Northern Straits	cited form	ʔiʔ	page 17, in italics
+§4.3.1	Northern Straits	cited form	čəntéŋ	page 17, in italics
+(68) line 1	Northern Straits	segmentation	x̣ʷə́ŋ=sən ʔiʔ x̣tí-t=Ø.	page 17
+(68) line 2	Northern Straits	gloss	able=1SG.SBJ CONJ do-CTR=3OBJ	page 17
+(68) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I can do it.’	page 17
+(68) line 4	D. K. E. Reisinger and Marianne Huijsmans	citation	[Montler 1984:194]	page 17, the tag or source at the right of the translation
+(69) line 1	SENĆOŦEN	transcription	ĆENTÁṈ LE, OĆE I TÁĆEL SW̱.	page 17, the SENĆOŦEN orthography
+(69) line 2	SENĆOŦEN	segmentation	čəntéŋ=Ø=ləʔ=ʔačə ʔiʔ téčəl=sxʷ	page 17
+(69) line 3	SENĆOŦEN	gloss	when=3SBJ=PST=REQ CONJ arrive=2SG-SBJ	page 17
+(69) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘When did you arrive?’	page 17
+(69) line 5	D. K. E. Reisinger and Marianne Huijsmans	citation	[Leonard & Huijsmans 2018:224]	page 17, the tag or source at the right of the translation
+§4.3.1	D. K. E. Reisinger and Marianne Huijsmans	note	Montler (2003) also reports a particle ʔiʔ linking adverbial auxiliaries with main predicates in Klallam and Northern Straits. He suggests that this particle is historically related to the comitative conjunction ʔiʔ, which also exists in both languages. The examples in (70) and (71), as well as in (72) and (73) highlight the different uses of ʔiʔ in Klallam and Northern Straits.	page 17
+(70) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Klallam (Linker):	page 17, over the example
+(70) line 2	Klallam	segmentation	čəyáy=cn ʔiʔ=t̓áŋən.	page 17
+(70) line 3	Klallam	gloss	almost=1SBJ LNK=miss	page 17
+(70) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I almost missed the target.’	page 17
+(70) line 5	D. K. E. Reisinger and Marianne Huijsmans	citation	[Montler 2003:122]	page 17, the tag or source at the right of the translation
+(71) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Klallam (Conjunction):	page 17, over the example
+(71) line 2	Klallam	segmentation	x̣aɫ=cn ʔiʔ=ʔiʔ-šətəŋ=cn.	page 17
+(71) line 3	Klallam	gloss	sick=1SBJ CONJ=CONTIN-walking=1SBJ	page 17
+(71) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I’m sick and I’m walking.’	page 17
+(71) line 5	D. K. E. Reisinger and Marianne Huijsmans	citation	[Montler 2003:123]	page 17, the tag or source at the right of the translation
+(72) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Northern Straits (Linker):	page 17, over the example
+(72) line 2	Northern Straits	transcription	ĆELÁL I, ȻIL, TŦE SḰEḰEL.	page 17, the SENĆOŦEN orthography
+(72) line 3	Northern Straits	segmentation	čəlél ʔiʔ kʷil̓ tθə sqʷəqʷəl̓	page 17
+(72) line 4	Northern Straits	gloss	almost LNK appear DET sun	page 17
+(72) line 5	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Soon the sun will come out.’	page 17
+(72) line 6	D. K. E. Reisinger and Marianne Huijsmans	citation	[Montler 2018:192]	page 17, the tag or source at the right of the translation
+(73) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Northern Straits (Conjunction ‘and’, ‘but’, ‘or’, ‘with’):	page 18, over the example
+(73) line 2	Northern Straits	transcription	EN,Á SEN I, YÁ, SEN.	page 18, the SENĆOŦEN orthography
+(73) line 3	Northern Straits	segmentation	ʔənʔé=sən ʔiʔ yéʔ=sən	page 18
+(73) line 4	Northern Straits	gloss	come=1SG.SBJ CONJ go=1SG.SBJ	page 18
+(73) line 5	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I come and go.’	page 18
+(73) line 6	D. K. E. Reisinger and Marianne Huijsmans	citation	[Montler 2018:191]	page 18, the tag or source at the right of the translation
+§4.3.1	D. K. E. Reisinger and Marianne Huijsmans	note	In these adverbial constructions, ʔiʔ is linking an auxiliary with the main predicate; this is a parallel construction to the cases where the ʔayʔaǰuθəm particle ʔiy occurs between the auxiliary ǰaqa and the main predicate. This lends plausibility to an analysis of the particle ʔiy that occurs with ǰaqa in the ‘surprise’ cases (= polar exclamatives) as the conjunction ʔiy, though an analysis of the syntactic construction and semantic composition that this involves is still needed.	page 18
+§4.3.2	D. K. E. Reisinger and Marianne Huijsmans	heading	4.3.2 Optatives: č̓a	page 18
+§4.3.2	D. K. E. Reisinger and Marianne Huijsmans	note	The form č̓a, which is a cue for optative readings, has been described as ‘conjectural’ by Watanabe (2003:517) and is analyzed as an epistemic modal by Reisinger (2018). While it predominantly occurs as a second-position clitic, as in (74), it occasionally occurs preceding the main predicate, as shown in (75).	page 18
+(74) line 1	ʔayʔaǰuθəm	segmentation	oh, č̓əɬ-uɬ=č̓a s=kʷəǰuɬ. hihiw ƛəm•ƛəm tə=ʔasq̓.	page 18
+(74) line 2	ʔayʔaǰuθəm	gloss	oh rain-PST=INFER NMLZ=this.morning really wet•CHAR DET=outside	page 18
+(74) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘It must have rained this morning. It’s really wet outside.’	page 18
+(75) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: We come in and see a completed basket on the table. We know Koosen was working on a basket like that.	page 18, over the example
+(75) line 2	ʔayʔaǰuθəm	segmentation	č̓a=huǰ-ə-xʷ-as pəču-s.	page 18
+(75) line 3	ʔayʔaǰuθəm	gloss	INFER=finish-NCTR-3OBJ-3ERG basket-3POSS	page 18
+(75) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘She must have finished her basket.’	page 18
+§4.3.2	D. K. E. Reisinger and Marianne Huijsmans	note	It is typically used when the speaker is inferring the proposition based on indirect evidence (74– 75), but also when the speaker is inferring the proposition through reasoning (76).	page 18
+(76) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: We’re playing battleship. Elsie and I are against Freddie. I’m getting sure of myself and think I know where Freddie’s ship is.	page 18, over the example
+(76) line 2	ʔayʔaǰuθəm	segmentation	hiɬ=č̓a tan ʔə-xʷ niʔ-s.	page 18
+(76) line 3	ʔayʔaǰuθəm	gloss	be=INFER DEM OBL-COMP be.there-3POSS	page 18
+(76) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘It must be there.’	page 18
+§4.3.2	D. K. E. Reisinger and Marianne Huijsmans	note	How č̓a, an epistemic modal, combines with ǰaqa to disambiguate the relevant scale to a scale of speaker-preference is currently unclear, however. It is particularly puzzling since the optative readings are typically counterfactual, and it is not clear where this counterfactuality is stemming from since neither ǰaqa nor č̓a contribute counterfactuality.11 There are a few sentences in our database where č̓a does not seem to express epistemic modality, as in (79), but these are few and involve other modal elements, so that the interaction between modals may be giving rise to unexpected readings.	page 18
+footnote 11	D. K. E. Reisinger and Marianne Huijsmans	note	However, Grosz (2014) argues that unstressed doch in German is a marker of epistemicity and serves as optativity cue, disambiguating in favor of (counterfactual) optativity due to its quasi-incompatibility with competing readings. A similar argument can potentially be made for the use of ʔayʔaǰuθəm č̓a.	page 18, footnote 11
+(79) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: A man has a cat that stinks and he wants to wash it. (Tom and Mittens storyboard, Rolka & Cable 2014)	page 19, over the example
+(79) line 2	ʔayʔaǰuθəm	segmentation	θap-aθi=č=č̓a=səm.	page 19
+(79) line 3	ʔayʔaǰuθəm	gloss	bathe-CTR.2SG.OBJ=1SG.SBJ=INFER=FUT	page 19
+(79) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I’m going to bathe you.’	page 19
+§4.3.2	D. K. E. Reisinger and Marianne Huijsmans	note	This requires further investigation. It is possible that č̓a similarly interacts with ǰaqa or some covert modality in the optative exclamatives to give rise to a reading involving speaker preference. Of course, it is also possible that there is some other homophonous particle that combines with ǰaqa to produce the ‘wish’ readings and perhaps appears in examples like (79); if so, this particle is not well attested and we have no independent evidence for its existence.	page 19
+§4.3.3	D. K. E. Reisinger and Marianne Huijsmans	heading	4.3.3 Adversatives: gut	page 19
+§4.3.3	D. K. E. Reisinger and Marianne Huijsmans	note	The clitic gut, which tends to foreground the adversative reading, is potentially an amalgamation of the clitics ga and ʔut.12 While the meaning of the former is not well understood, the latter is a scalar exclusive marker (Huijsmans 2019).	page 19
+footnote 12	D. K. E. Reisinger and Marianne Huijsmans	note	Watanabe (2003:519) also notes this possibility.	page 19, footnote 12
+§4.3.3	D. K. E. Reisinger and Marianne Huijsmans	note	The particles ga and ʔut both occur in (80). The question is felicitous with just ʔut (80a), just ga (80b), with gut (80c), or ga=ʔut (80d). When asked if it would mean something different with the particles pronounced separately, as in (80d), our consultant said that it would mean the same as (80c).	page 19
+§4.3.3	ʔayʔaǰuθəm	cited form	ga=ʔut	page 19, in italics
+(80a) line 1	ʔayʔaǰuθəm	segmentation	ƛ̓um-it=a=ʔut?	page 19
+(80a) line 2	ʔayʔaǰuθəm	gloss	enough-STV=Q=EXCL	page 19
+(80b) line 1	ʔayʔaǰuθəm	segmentation	ƛ̓umit=a=ga?	page 19
+(80b) line 2	ʔayʔaǰuθəm	gloss	enough-STV=Q=GA	page 19
+(80c) line 1	ʔayʔaǰuθəm	segmentation	ƛ̓umit=a=gut?	page 19
+(80c) line 2	ʔayʔaǰuθəm	gloss	enough-STV=Q=GUT	page 19
+(80d) line 1	ʔayʔaǰuθəm	segmentation	ƛ̓umit=a=ga=ʔut?	page 19
+(80d) line 2	ʔayʔaǰuθəm	gloss	enough-STV=Q=GA=EXCL	page 19
+(80d) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Is it enough?’	page 19
+(80d) line 4	D. K. E. Reisinger and Marianne Huijsmans	speaker comment	MH: “Does [ƛumit=a=gut] mean something different than ƛumit=a=ga=ʔut?”	page 19, under the example, the consultant not named
+(80d) line 5	D. K. E. Reisinger and Marianne Huijsmans	speaker comment	Consultant: “It’s the same thing.”	page 19, under the example, the consultant not named
+§4.3.3	D. K. E. Reisinger and Marianne Huijsmans	note	While we are not aware of any regular phonological process that could account for the deletion of the vowel in ga when proceeding ʔut, this is probably a contraction specific to the clitic string which typically does not bear stress.13	page 19
+footnote 13	D. K. E. Reisinger and Marianne Huijsmans	note	A similar contraction of clitics is found with the reportative k̓ʷa in combination with ʔut, resulting in k̓ʷut (Watanabe 2003:523 also suggests that it is possible that k̓ʷut may be a combination of k̓ʷa and ʔut, but does not claim that this is the case). Here it is easier to distinguish the contribution of the individual clitics, since the meaning of k̓ʷa is better understood than ga. For instance, exclusive clefts use huy (‘finish’) as the clefting particle in combination with the exclusive clitic ʔut. Because (i) is based on what others said, the reportative k̓ʷa appears between them and the combination is pronounced k̓ʷut.	page 20, footnote 13
+footnote 13	ʔayʔaǰuθəm	cited form	k̓ʷa	page 20, in italics
+footnote 13	ʔayʔaǰuθəm	cited form	k̓ʷut	page 20, in italics
+footnote 13 (i) line 1	ʔayʔaǰuθəm	segmentation	huy=k̓ʷut (k̓ʷa=ʔut) nəgi na šəʔt qaymixʷ ni-t-əm kʷən.	page 20
+footnote 13 (i) line 2	ʔayʔaǰuθəm	gloss	finish=(QUOT=EXCL) 2SG.PRO FILLER.PRT high person say-ᴄᴛʀ-ᴘᴀꜱꜱ ᴅᴇᴍ	page 20
+footnote 13 (i) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Only you are a respected/elevated person, they say.’	page 20
+§4.3.3	D. K. E. Reisinger and Marianne Huijsmans	note	In the following two subsections, we examine the contribution of ga and ʔut separately in order to better understand their roles in combination with ǰaqa.	page 20
+§4.3.3.1	D. K. E. Reisinger and Marianne Huijsmans	heading	4.3.3.1 ga	page 20
+§4.3.3.1	D. K. E. Reisinger and Marianne Huijsmans	note	There are likely two different second-position clitics with the form ga in ʔayʔaǰuθəm (Watanabe 2003:517–518; cf. J. Davis 2012).14 There is a politeness marker that occurs frequently in imperatives and alternates with gi, as illustrated in (81).	page 20
+footnote 14	D. K. E. Reisinger and Marianne Huijsmans	note	There is also a complementizer ga that is translated ‘if’ and occurs in conditionals:	page 20, footnote 14
+footnote 14 (i) line 1	ʔayʔaǰuθəm	segmentation	qʷəl̓=səm=t qamin ga χaƛ̓-s=as.	page 20
+footnote 14 (i) line 2	ʔayʔaǰuθəm	gloss	come=FUT=EMPH accompany if desire-3POSS=3CNJ	page 20
+footnote 14 (i) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘She can come along if she wants.’	page 20
+(81a) line 1	ʔayʔaǰuθəm	segmentation	θu=ga taʔa.	page 20
+(81a) line 2	ʔayʔaǰuθəm	gloss	go=IMP DEM	page 20
+(81b) line 1	ʔayʔaǰuθəm	segmentation	θu=gi taʔa.	page 20
+(81b) line 2	ʔayʔaǰuθəm	gloss	go=IMP DEM	page 20
+(81b) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Go over there.’	page 20
+§4.3.3.1	D. K. E. Reisinger and Marianne Huijsmans	note	In addition, there is also a ga that occurs as a second-position clitic in declaratives and does not alternate with gi, as shown in (82).	page 20
+(82a) line 1	ʔayʔaǰuθəm	segmentation	hiɬ=ga ʔətᶿ=č̓ag-at.	page 20
+(82a) line 2	ʔayʔaǰuθəm	gloss	it’s=GA 1SG.POSS=help-CTR	page 20
+(82a) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘That’s why I helped him.’	page 20
+(82b) line 1	ʔayʔaǰuθəm	segmentation	* hiɬ=gi ʔətᶿ=č̓ag-at.	page 20
+§4.3.3.1	D. K. E. Reisinger and Marianne Huijsmans	note	The contribution of this ga is not well understood. It may have a meaning like ‘so’ or ‘and so’, linking the proposition with the preceding conversation. It is often found in ‘that’s why’ cleft constructions like (82) above, but also occurs in other constructions (83).15	page 20
+footnote 15	D. K. E. Reisinger and Marianne Huijsmans	note	See also Watanabe (2003:518).	page 20, footnote 15
+(83a) line 1	ʔayʔaǰuθəm	segmentation	hu=šta=ga s=t̓ᶿuk̓ʷ.	page 20
+(83a) line 2	ʔayʔaǰuθəm	gloss	go=1PL.SBJ.FUT=GA NMLZ=day	page 20
+(83a) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘We’ll leave today.’	page 20
+(83b) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: There’s a food you haven’t tasted before...	page 21, over the example
+(83b) line 2	ʔayʔaǰuθəm	segmentation	t̓aʔat=tᶿa=ga.	page 21
+(83b) line 3	ʔayʔaǰuθəm	gloss	taste/try=1SG.SBJ.FUT=GA	page 21
+(83b) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I’m going to try it.’	page 21
+(83c) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: Freddie is cooking and I’m hoping he’ll feed me.	page 21, over the example
+(83c) line 2	ʔayʔaǰuθəm	segmentation	niš=č=ga ɬaq̓-əm-ɬawum.	page 21
+(83c) line 3	ʔayʔaǰuθəm	gloss	be.here=1SG.SBJ=GA wait-MD-food	page 21
+(83c) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I’m waiting for food.’	page 21
+§4.3.3.2	D. K. E. Reisinger and Marianne Huijsmans	heading	4.3.3.2 ʔut	page 21
+§4.3.3.2	D. K. E. Reisinger and Marianne Huijsmans	note	The second-position clitic ʔut has the semantic contribution of a scalar exclusive and is frequently translated with the English scalar exclusive just (Huijsmans 2019). It excludes alternative propositions that are higher on some scale (e.g., having more than two chairs (84a), eating more types of things than flies (84b), or being sick (84c)).	page 21
+(84a) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: In response to čɛlas θukʷnačtən kʷikʷa θoʔna. ho=ga mat. ‘There are three chairs in the other room. Go get them.’	page 21, over the example
+(84a) line 1	ʔayʔaǰuθəm	transcription	čɛlas θukʷnačtən kʷikʷa θoʔna. ho=ga mat.	page 21, over the example, the sentence the context answers
+(84a) line 2	ʔayʔaǰuθəm	segmentation	xʷaʔ čalas=as. sa<s>ya=ʔut.	page 21
+(84a) line 3	ʔayʔaǰuθəm	gloss	NEG three=CNJ two<DIM>=EXCL	page 21
+(84a) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘There’s not three. There’s just two.’	page 21
+(84b) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: In a storyboard, a squirrel is trying to figure out who took his food and rules out Frog due to his diet.	page 21, over the example
+(84b) line 2	ʔayʔaǰuθəm	segmentation	huy=ʔut kʷ=χʷaχʷayəm mə•mkʷ-t-əm walθ.	page 21
+(84b) line 3	ʔayʔaǰuθəm	gloss	finish=EXCL DET=flies IPFV•eat-CTR-PASS frog	page 21
+(84b) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Frog just eats flies.’	page 21
+(84c) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: Tony’s sitting with a blanket around him. Art comes home and you tell him: He’s just cold, he’s not sick.	page 21, over the example
+(84c) line 2	ʔayʔaǰuθəm	segmentation	huy=ʔut s=č̓ə•č̓əm=s xʷaʔ kʷə•kʷt-əm=as.	page 21
+(84c) line 3	ʔayʔaǰuθəm	gloss	finish=EXCL NMLZ=IPFV•cold=3POSS NEG IPFV•sick-MD=3CNJ	page 21
+(84c) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘He’s just cold. He’s not sick.’	page 21
+§4.3.3.2	D. K. E. Reisinger and Marianne Huijsmans	note	The enclitic ʔut is also common in constructions where it does not exclude alternatives, but seems to contribute emphasis to the endpoint of a scale. In (85a) and (85b), this endpoint is contributed by the universal quantifiers ʔuwk̓ʷ (‘all’) and paya (‘always’), respectively (cf. Huijsmans 2019).	page 21
+§4.3.3.2	ʔayʔaǰuθəm	cited form	ʔuwk̓ʷ	page 21, in italics
+(85a) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: You went to the store with a shopping list. The last couple times you’ve gone, you’ve forgotten eggs. When you get home, you say:	page 21, over the example
+(85a) line 2	ʔayʔaǰuθəm	segmentation	ʔuwk̓ʷ=ʔut tam yaχ-at-an s=t̓ᶿuk̓ʷ.	page 21
+(85a) line 3	ʔayʔaǰuθəm	gloss	all=EXCL thing remember-TR-1SG.ERG.SBJ NMLZ=day	page 21
+(85a) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘I remembered everything today.’	page 21
+(85a) line 5	D. K. E. Reisinger and Marianne Huijsmans	speaker comment	Consultant’s comment: “You’re really emphasizing that you got everything.”	page 21, under the example, the consultant not named
+(85b) line 1	D. K. E. Reisinger and Marianne Huijsmans	note	Context: This sentence is from a storyboard where the main character is being described as very industrious.	page 22, over the example
+(85b) line 2	ʔayʔaǰuθəm	segmentation	paya=k̓ʷa=ʔut xʷi•xʷipumixʷ.	page 22
+(85b) line 3	ʔayʔaǰuθəm	gloss	always=QUOT=EXCL IPFV•sweep	page 22
+(85b) line 4	D. K. E. Reisinger and Marianne Huijsmans	translation	‘He was always sweeping.’	page 22
+§4.3.3.2	D. K. E. Reisinger and Marianne Huijsmans	note	Note that the scalar exclusive just in English can be used similarly, with focus on the lexical item expressing universal quantification: He was just alwaysF sweeping. Huijsmans (2019) proposes that ʔut highlights the presence of scalar alternatives in these environments, resulting in domain widening and a more emphatic statement.	page 22
+§4.3.3.2	D. K. E. Reisinger and Marianne Huijsmans	note	As noted in Section 2.4, the ‘undesirable repetition’ readings in ʔayʔaǰuθəm are sometimes volunteered with just ǰaqa and ʔut, rather than gut (86). It seems likely that the interpretation of ʔut is similar in these cases to the emphatic interpretations in (85) above.	page 22
+(86a) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=ʔut θu ʔi•ʔimaš.	page 22
+(86a) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=EXCL go IPFV•walk	page 22
+(86a) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘There he goes walking again.’	page 22
+(86b) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=ʔut ʔi•ʔiɬtin.	page 22
+(86b) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=EXCL IPFV•eat	page 22
+(86b) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘He’s always eating.’	page 22
+§4.3.3.2	D. K. E. Reisinger and Marianne Huijsmans	note	It is not clear how the repetition is being signalled, but it is possible that it is an implicature that arises as the hearer makes sense of why the proposition is considered high on a scale of speaker- dispreference. If so, it should be possible to cancel the implicature with the right context, in order to get a reading where it is dispreferred that φ occurs once. While it is possible to get non- repetitive readings with ǰaqa=ʔut, these may involve ‘surprise’ readings rather than adversative interpretations (87).16	page 22
+footnote 16	D. K. E. Reisinger and Marianne Huijsmans	note	These forms were volunteered and not elicited with controlled contexts, so further investigation is required.	page 22, footnote 16
+§4.3.3.2	ʔayʔaǰuθəm	cited form	ǰaqa=ʔut	page 22, in italics
+(87a) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=ʔut niʔ tə=q̓ʷit.	page 22
+(87a) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=EXCL be.there DET=beach	page 22
+(87a) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Oh, someone’s there on the beach.’	page 22
+(87a) line 4	D. K. E. Reisinger and Marianne Huijsmans	speaker comment	Consultant’s comment: “It’s almost like a surprise, you see someone down on the beach.”	page 22, under the example, the consultant not named
+(87b) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=ʔut qʷəl̓ χəpǰ-it.	page 22
+(87b) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=EXCL come return-STV	page 22
+(87b) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘They’ve got back!’	page 22
+§4.3.4	D. K. E. Reisinger and Marianne Huijsmans	heading	4.3.4 Summary	page 22
+§4.3.4	D. K. E. Reisinger and Marianne Huijsmans	note	To sum up, even though their exact modus operandi in EX utterances is currently not well understood, our data suggest that the elements ʔiy, č̓a, and gut act as cues that can help promote the appropriate reading in a given situation. Table 3 compares the standard use of these elements with their use in EX constructions.	page 22
+§4.3.4	ʔayʔaǰuθəm	cited form	ʔiy, č̓a	page 22, in italics
+Table 3	D. K. E. Reisinger and Marianne Huijsmans	note	Table 3: Clitics, particles, and their roles as cues	page 23, the table's caption
+Table 3	D. K. E. Reisinger and Marianne Huijsmans	note	Form Standard use Use as a cue in EX constructions	page 23, the column heads
+Table 3	ʔayʔaǰuθəm	cited form	ʔiy	page 23, Table 3, the form
+Table 3	D. K. E. Reisinger and Marianne Huijsmans	note	conjunction / linker	page 23, Table 3, the standard use of ʔiy
+Table 3	D. K. E. Reisinger and Marianne Huijsmans	note	promotes scale of speaker-unlikelihood (≈ polar exclamatives)	page 23, Table 3, the use of ʔiy as a cue
+Table 3	ʔayʔaǰuθəm	cited form	č̓a	page 23, Table 3, the form
+Table 3	D. K. E. Reisinger and Marianne Huijsmans	note	epistemic modal	page 23, Table 3, the standard use of č̓a
+Table 3	D. K. E. Reisinger and Marianne Huijsmans	note	promotes scale of speaker-preference (≈ optatives)	page 23, Table 3, the use of č̓a as a cue
+Table 3	ʔayʔaǰuθəm	cited form	gut (ʔut)	page 23, Table 3, the form
+Table 3	D. K. E. Reisinger and Marianne Huijsmans	note	ɢᴀ + scalar exclusive	page 23, Table 3, the standard use of gut (ʔut)
+Table 3	D. K. E. Reisinger and Marianne Huijsmans	note	promotes scale of speaker-dispreference (≈ adversatives)	page 23, Table 3, the use of gut (ʔut) as a cue
+§4.4	D. K. E. Reisinger and Marianne Huijsmans	heading	4.4 Supporting Evidence	page 23
+§4.4	D. K. E. Reisinger and Marianne Huijsmans	note	In addition to the surprisingly familiar set of readings associated with ǰaqa and the use of particles as cues, our EX analysis is further supported by a handful of other striking phenomena, which will be presented in the following subsections. While Section 4.4.1 focuses on some syntactic restrictions, Section 4.4.2 is dedicated to the phenomenon of speaker-orientedness.	page 23
+§4.4.1	D. K. E. Reisinger and Marianne Huijsmans	heading	4.4.1 Syntactic Restrictions	page 23
+§4.4.1	D. K. E. Reisinger and Marianne Huijsmans	note	The fact that ǰaqa is generally found in exclamative utterances suggests that this form could also simply be an interjection (e.g., English Wow! or Oh!) instead of an exclamation operator. However, certain syntactic restrictions suggest that this is not the case. For one, unlike interjections, ǰaqa cannot form a complete utterance on its own but needs to be accompanied by a clause, as illustrated by the ungrammatical utterance in (88).	page 23
+(88) line 1	ʔayʔaǰuθəm	segmentation	* ǰaqa!	page 23
+(88) line 2	ʔayʔaǰuθəm	gloss	J̌AQA	page 23
+(88) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	Intended: ‘Oh!’	page 23
+§4.4.1	D. K. E. Reisinger and Marianne Huijsmans	note	The fact that ǰaqa marks expressive content, even though it is not an interjection, is supported by the observation that this auxiliary does not seem to be embeddable, as highlighted by the examples in (89) and (90). Such a syntactic restriction is expected for expressive content (Grosz 2011:152).	page 23
+(89) line 1	ʔayʔaǰuθəm	segmentation	* hutigan=č ǰaqa ɬaχaw.	page 23
+(89) line 2	ʔayʔaǰuθəm	gloss	think=1SG.SBJ J̌AQA spoil/break.down	page 23
+(89) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	Intended: ‘I thought it might spoil.’	page 23
+(90) line 1	ʔayʔaǰuθəm	segmentation	* xʷaʔ ǰaqa=as ɬaχaw.	page 23
+(90) line 2	ʔayʔaǰuθəm	gloss	NEG J̌AQA=CNJ spoil/break.down	page 23
+(90) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	Intended: ‘It’s not the case that it might spoil.’	page 23
+§4.4.2	D. K. E. Reisinger and Marianne Huijsmans	heading	4.4.2 Speaker-Orientedness	page 24
+§4.4.2	D. K. E. Reisinger and Marianne Huijsmans	note	Given the present analysis, we would also expect ǰaqa to be speaker-oriented. That is, ǰaqa should convey how the speaker — not the agent of the clause — feels about the denoted proposition. As highlighted by examples (91) to (93), this seems to be the case.	page 24
+(91) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=čxʷ=č̓a=qəɬ qʷəl̓ qamin-uɬ.	page 24
+(91) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=2SG.SBJ=CLT=IRR come accompany-PST	page 24
+(91) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘You should have come along.’	page 24
+(92) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa=čxʷ ƛaq̓əxʷ.	page 24
+(92) line 2	ʔayʔaǰuθəm	gloss	J̌AQA=2SG.SBJ push	page 24
+(92) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘You might accidentally push her.’	page 24
+(93) line 1	ʔayʔaǰuθəm	segmentation	ǰaqa ʔiy qʷəl̓ təs Hoss.	page 24
+(93) line 2	ʔayʔaǰuθəm	gloss	J̌AQA ʔIY come arrive Hoss	page 24
+(93) line 3	D. K. E. Reisinger and Marianne Huijsmans	translation	‘Oh, Hoss arrived!’	page 24
+§4.4.2	D. K. E. Reisinger and Marianne Huijsmans	note	Example (91), for instance, expresses a wish held by the speaker, not the agent, thus giving rise to an externally bouletic reading (cf. Matthewson & Truckenbrodt 2018). Likewise, the sentence in (92) expresses the speaker’s, not the agent’s, concern towards the undesirable consequences that might result if the agent is not careful. In example (93), Hoss is the agent; yet, it is obviously not he who is surprised by his own arrival. Instead, this utterance conveys the speaker’s surprise towards the proposition.	page 24
+§5	D. K. E. Reisinger and Marianne Huijsmans	heading	5 Conclusion and Future Research	page 24
+§5	D. K. E. Reisinger and Marianne Huijsmans	note	In this paper, we argue that the remarkably varied banquet of interpretations associated with ǰaqa can be accounted for by treating this auxiliary as an exclamation operator in the spirit of Grosz (2011). More precisely, we propose that ǰaqa serves to express the speaker’s emotion towards the fact that the denoted proposition exceeds a salient threshold on a contextually provided scale. While optatives rely on a scale of speaker-preference, adversatives require a scale of speaker- dispreference and polar exclamatives are built upon a scale of speaker-unlikelihood. To disambiguate these available readings, speakers can make use of additional cues that come in the form of the clitics č̓a and gut and the conjunction-like particle ʔiy.	page 24
+§5	D. K. E. Reisinger and Marianne Huijsmans	note	Although this paper presents first evidence for the existence of an overt exclamation operator in a Salish language, several questions still remain unanswered and await a more thorough examination. Most importantly, it is currently not clear how exactly the cues that help disambiguate the different available readings work on a semantic level. Likewise, more research is needed to get a better understanding of how the EX operator interacts with modality.	page 24
+references	D. K. E. Reisinger and Marianne Huijsmans	heading	References	page 24
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Beaumont, R. 2011. Sechelt dictionary. Sechelt: Sechelt Indian Band.	page 24
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Davis, J. 2012. Two particles “ga” in Mainland Comox. In J. Dunham, J. Lyon, N. Weber (eds.), ICSNL 48, 34–48.	page 24
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	FirstVoices. 2019. ‘The Canoe and Menathey’. Sliammon stories. Retrieved July 15, 2019 from https://www.firstvoices.com/explore/FV/sections/Data/Salish/Northern%20Salishan/Sliammo n/learn/stories/e95d6a66-1d30-462f-bf1f-5327018056c5	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	FPCC. 2018. Report on the Status of B.C. First Nations Languages. Retrieved from http://www.fpcc.ca/files/PDF/FPCC-LanguageReport-180716-WEB.pdf on Jun 14, 2019.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Grosz, P. G. 2011. On the Grammar of Optative Constructions. Ph.D. thesis. Cambridge, MA: MIT.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Grosz, P. G. 2014. Optative markers as communicative cues. Natural Language Semantics 22:89–115.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Huijsmans, M. 2019. The scalar exclusive ʔut in ʔayʔaǰuθəm: ‘No more than’ and no exceptions! UBC Qualifying Papers 4. Vancouver: UBCWPL.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Kroeber, P. 1999. The Salish language family: Reconstructing syntax. Lincoln: University of Nebraska Press.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Kroeber, P. 2002. Morphological Interactions of ‘Clitics’ in Two Salish Languages. ICSNL 37. Bellingham.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Leonard, J., & M. Huijsmans. 2018. Wh-questions in SENĆOŦEN. In L. Matthewson, E. Guntly, & M. Rochemont (eds.), Wa7 xweysás i nqwal’utteníha i ucwalmícwa: He loves the people’s languages. Essays in honour of Henry Davis. Vancouver, BC: UBCOPL 6.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Matthew, R. & S. Cable. 2014. Tom and Mittens. Totem Field Storyboards. Retrieved from http://www.totemfieldstoryboards.org on Jun 14, 2019.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Matthewson, L. 2004. On the methodology of semantic fieldwork. IJAL 70(4), 369–415.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Matthewson, L., H. Davis, H., & H. Rullmann. 2007. Evidentials as epistemic modals: Evidence from St’át’imcets. Linguistic Variation Yearbook 7:201–254.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Matthewson, L. & H. Truckenbrodt. 2018. “Modal Flavour/Modal Force Interactions in German: soll, sollte, muss and müsste.” Linguistische Berichte 255:259–312.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Montler, T. 1986. An Outline of the morphology and phonology of Saanich, North Straits Salish (University of Montana Occasional Papers in Linguistics 4). Missoula, MT: University of Montana.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Montler, T. 2003. Auxiliaries and other categories in Straits Salishan. IJAL 69(2), 103–134.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Montler, T. 2012. Klallam dictionary. Seattle: University of Washington Press.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Montler, T. 2015. Klallam grammar. Seattle: University of Washington Press.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Quirk, R., S. Greenbaum, G. Leech, & J. Svartvik. 1985. A comprehensive grammar of the English language. London: Longman.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Reisinger, D. K. E. 2018. “Modality in Comox-Sliammon.” ICSNL 53:197–227.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Rosengren, I. 1992. Zur Grammatik und Pragmatik der Exklamation. In I. Rosengren (ed.), Satz und Illokution, Vol. 1. Tübingen: Niemeyer, 263–306.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Scholz, U. 1991. Wunschsätze im Deutschen: formale und funktionale Beschreibung. Satztypen mit Verberst- und Verbletztstellung. Tübingen: Niemeyer.	page 25
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Watanabe, H. 2003. A Morphological Description of Sliammon, Mainland Comox Salish, with a Sketch of Syntax. ELPR Publications Series AZ-040, Osaka Gakuin University, Osaka.	page 26
+references	D. K. E. Reisinger and Marianne Huijsmans	reference	Watanabe, H. 2016. Insubordination in Sliammon Salish. In N. Evans and H. Watanabe (eds.), Insubordination. Amsterdam: John Benjamins, 309–340.	page 26

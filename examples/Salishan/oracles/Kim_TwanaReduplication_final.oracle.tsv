@@ -1,0 +1,359 @@
+where	who	kind	form	gloss
+title	Hyung-Soo Kim	title	The truncated reduplication in Twana: Another case of synergistic weakening	the paper's title
+title	Hyung-Soo Kim	name	Hyung-Soo Kim	the author
+title	Hyung-Soo Kim	place	Hankuk University of Foreign Studies, Korea	the author's institution
+abstract	Twana	language	Twana	the language the paper is about
+abstract	Tillamook	language	Tillamook	the language the same reduction was shown for
+abstract	Hyung-Soo Kim	notation	C1C2C1	the cluster shape that reduces
+abstract	Hyung-Soo Kim	notation	C2C1	what it reduces to
+keywords	Hyung-Soo Kim	heading	CVC reduplication, synergistic weakening, dissimilation, cluster simplification, augmentatives, Tillamook, Twana, Salish	the paper's keywords
+§1	Hyung-Soo Kim	heading	Introduction	section 1
+fn*	Hyung-Soo Kim	name	Marianne Huijsmans	thanked for going through many versions of the paper
+fn*	Hyung-Soo Kim	reference	csjennykim@hanmail.net	the author's contact address
+fn1	Hyung-Soo Kim	notation	reduplicants are boldfaced	how the paper marks a reduplicant throughout
+(1)	Tillamook	root	tq	'to break', from Edel 1939:15
+(1)	Tillamook	cited form	dAc-qtEʹq-en	'they tried to break it'
+(1)	Tillamook	root	tɫ	'to tell'
+(1)	Tillamook	cited form	da s-ɫtUʹɫ-En	'they went and told him'
+(1)	Tillamook	root	dak’	'to lie'
+(1)	Tillamook	cited form	nic-kdUk’ ns-adzAgil-agăʹs	'they put her in their canoe'
+(1)	Tillamook	root	tsq-il	'to climb'
+(1)	Tillamook	cited form	qdzUʹqil	'they climb'
+(1)	Tillamook	root	gaɫ	'eye'
+(1)	Tillamook	cited form	a ns-ɫgaɫ	'my eyes'
+(1)	Tillamook	root	nica	'to be on the side'
+(1)	Tillamook	cited form	cnica-wiʹsti	'I lie on my side'
+(1)	Tillamook	root	ɫaq-il	'to sit'
+(1)	Tillamook	cited form	nc-qɫAʹq-il	'he was sitting in it'
+§1	Tillamook	cited form	ts-qep-st-és	'he habitually bandages it', showing that three consonant groups are permitted
+(2)	Tillamook	underlying	tq-en	the first step of the derivation of dAc-qtEʹq-en
+(2)	Tillamook	underlying	tq-tq-en	reduplication
+(2)	Tillamook	underlying	t-qt+q-en	dissimilation of identical consonants
+(2)	Tillamook	underlying	qt+q-en	cluster simplification
+(2)	Tillamook	cited form	qtEʹq-en	the output of the miscellaneous rules
+(2)	Tillamook	underlying	ɫaq-il	the first step of the derivation of nc-qɫAʹq-il
+(2)	Tillamook	underlying	ɫaq-ɫaq-il	reduplication
+(2)	Tillamook	underlying	ɫq-ɫaq-il	loss of the unstressed vowel in the reduplicant
+(2)	Tillamook	underlying	ɫ-qɫ+aq-il	dissimilation of identical consonants
+(2)	Tillamook	underlying	qɫ+aq-il	cluster simplification
+(2)	Tillamook	cited form	qɫAʹq-il	the output of the miscellaneous rules
+fn2	Hyung-Soo Kim	notation	−	weakening, in the derivations
+fn2	Hyung-Soo Kim	notation	+	strengthening, in the derivations
+fn3	Hyung-Soo Kim	notation	MR	miscellaneous rules, those with no direct bearing on the derivation
+§1	Hyung-Soo Kim	name	Drachman	whose 1969 Twana examples the paper reanalyzes
+§1	Hyung-Soo Kim	notation	WR	weak roots
+§1	Hyung-Soo Kim	notation	SR	strong roots
+§2	Hyung-Soo Kim	heading	The CVC reduplication in Twana augmentatives: truncation by synergy of dissimilation and cluster simplification.	section 2
+(3)	Twana	cited form	sóq̓ʷay	'elder sister', unaugmented
+(3)	Twana	cited form	q̓ʷ-sóq̓ʷay	'elder sister', augmented
+(3)	Twana	cited form	s-teqéw	'horse', unaugmented
+(3)	Twana	cited form	s-q-téqaw	'horse', augmented
+(3)	Twana	cited form	s-tə́q	'logjam', unaugmented
+(3)	Twana	cited form	s-q-tə́q	'logjam', augmented
+(3)	Twana	cited form	ʔas-báx̦	'worn out', unaugmented
+(3)	Twana	cited form	ʔəs-x̦ə-báx̦	'worn out', augmented
+(3)	Twana	cited form	bəqsə́d	'nose', unaugmented
+(3)	Twana	cited form	qə-bə́qsəd	'nose', augmented
+(3)	Twana	cited form	wəq̓ə́b	'box', unaugmented
+(3)	Twana	cited form	q̓ə-wə́q̓ab	'box', augmented
+(4)	Twana	underlying	soq̓ʷ-sóq̓ʷay	the first step of the derivation of q̓ʷ-sóq̓ʷay
+(4)	Twana	underlying	sq̓ʷ-sóq̓ʷay	unstressed reduplicant vowel loss
+(4)	Twana	underlying	ʔas-bax̦-báx̦	the first step of the derivation of ʔəs-x̦ə-báx̦
+(4)	Twana	underlying	ʔas-bx̦-báx̦	unstressed reduplicant vowel loss
+(4)	Twana	underlying	ʔas-x̦-báx̦	synergistic weakening
+(4)	Twana	underlying	ʔas-x̦ə-báx̦	anaptyxis
+(4)	Twana	notation	#C2C1	the shape anaptyxis applies to
+(4)	Twana	notation	#C2əC1	what anaptyxis gives
+fn5	Hyung-Soo Kim	reference	Drachman (1969)	the entire source of the Twana augmentative data
+fn6	Hyung-Soo Kim	notation	*	what indicates an underlying or etymological form
+fn7	Twana	cited affix	ʔas-	the prefix that appears as ʔəs- in reduplicated forms
+fn7	Twana	cited affix	ʔəs-	how the prefix ʔas- appears in reduplicated forms
+(5)	Twana	cited form	s-tə́čəd	'slave', unaugmented
+(5)	Twana	cited form	s-tč-tə́čəd	'slave', augmented
+(5)	Twana	cited form	s-pə́čo	'berry-basket', unaugmented
+(5)	Twana	cited form	s-pč-pə́čo	'berry-basket', augmented
+(5)	Twana	cited form	šóƛ̓	'grind', unaugmented
+(5)	Twana	cited form	šƛ̓-šóƛ̓	'grind', augmented
+(5)	Twana	cited form	š-čótax̦	'halibut', unaugmented
+(5)	Twana	cited form	š-čt-čótax̦	'halibut', augmented
+(6)	Twana	cited form	bə́də(h)	'child', unaugmented
+(6)	Twana	cited form	bəd-bə́də(h)	'child', augmented
+(6)	Twana	cited form	ɫób	'scar', unaugmented
+(6)	Twana	cited form	ɫəb-ɫób	'scar', augmented
+(6)	Twana	cited form	bále(h)	'roe, bait', unaugmented
+(6)	Twana	cited form	bəl-bále(h)	'roe, bait', augmented
+(6)	Twana	cited form	yəlʔə́x̦	'gather', unaugmented
+(6)	Twana	cited form	yəlˀ-yə́lʔəx̦	'gather', augmented
+(6)	Twana	cited form	q̓ʷəláde(h)	'ear', unaugmented
+(6)	Twana	cited form	q̓ʷəlˀ-q̓ʷə́lde(h)	'ear', augmented
+(6)	Twana	cited form	sélə(h)	'grandfather', unaugmented
+(6)	Twana	cited form	səlˀ-sélə(h)	'grandfather', augmented
+(6)	Twana	cited form	wədáwʔ	'horn', unaugmented
+(6)	Twana	cited form	wədˀ-wə́dawʔ	'horn', augmented
+(6)	Twana	cited form	yədes	'tooth', unaugmented
+(6)	Twana	cited form	yədˀ-yə́das	'tooth', augmented
+§2	Twana	impossible	¢də-bə́də(h)	an incorrect form, showing the schwa is not anaptyctic here
+§2	Twana	impossible	¢bə-ɫób	an incorrect form, showing the schwa is not anaptyctic here
+fn8	Hyung-Soo Kim	notation	¢	what indicates an incorrect form, against the asterisk for an underlying one
+(7)	Twana	underlying	šoƛ̓-šóƛ̓	the first step of the derivation of šƛ̓-šóƛ̓
+(7)	Twana	underlying	šəƛ̓-šóƛ̓	weakening of the unstressed reduplicant vowel
+(7)	Twana	underlying	sel-sélə(h)	the first step of the derivation of səlˀ-sélə(h)
+(7)	Twana	underlying	səl-sélə(h)	weakening of the unstressed reduplicant vowel
+fn9	Hyung-Soo Kim	name	Urbanczyk	cited on initial voiceless clusters in Puget Sound Salish
+fn9	Puget Sound Salish	phonetic	[tʰsósəd]	'punch someone in the face', showing the residual aspiration
+fn9	Puget Sound Salish	phonetic	[tə́səd]	'Punch someone!', beside [tʰsósəd]
+fn9	Moses-Columbian	language	Nxaʔamxcɪ́n	the paper's spelling of Moses-Columbian
+fn9	Moses-Columbian	phonetic	[pʰtíx̦ʷ]	'spit', one of two variants
+fn9	Moses-Columbian	phonetic	[pətíx̦ʷ]	'spit', the other variant
+fn9	Moses-Columbian	phonetic	[xƛ̓út]	one of two variants cited from Czaykowska-Higgins and Willett 1997:394
+fn9	Moses-Columbian	phonetic	[xəƛ̓út]	the other variant
+fn9	English	phonetic	[səpóʊ̯z]	'suppose', one of the two English variants showing the same schwa elision
+fn9	English	phonetic	[spóʊ̯z]	'suppose', the other English variant
+fn9	English	phonetic	[pətʰéɪ̯ɾo]	'potato', one of the two English variants
+fn9	English	phonetic	[ptʰéɪ̯ɾo]	'potato', the other English variant
+fn9	English	phonetic	[kərɛ́kt]	'correct', one of the two English variants
+fn9	English	phonetic	[krɛ́kt]	'correct', the other English variant
+fn9	English	phonetic	[pəlís]	'police', one of the two English variants
+fn9	English	phonetic	[plís]	'police', the other English variant
+fn9	English	phonetic	pa[pʰa]	the aspirated English syllable, against [pḁa]
+fn9	English	phonetic	[pḁa]	the same syllable with the voiceless vowel
+fn10	Twana	impossible	¢bəlˀ-bále(h)	an incorrect form; the resonant glottalization rule has exceptions
+fn10	Twana	cited form	bəl-bále(h)	'roe, bait (PL)', the exception to resonant glottalization
+fn11	Twana	notation	ʔ	the glottal stop where it is phonemic
+fn11	Twana	notation	ˀ	the glottal stop where it is derived by a rule such as resonant glottalization
+Table 1	Hyung-Soo Kim	heading	Types of stress patterns in Salish CVC reduplication	the caption of Table 1, after van Eijk 1998:460
+Table 1	Hyung-Soo Kim	notation	CV́C	the stress pattern of a strong root
+Table 1	Hyung-Soo Kim	notation	C(V)CV́	the stress pattern of a weak root
+Table 1	Hyung-Soo Kim	notation	CV́C-CVC	the type 1 reduplication, stress on the prefix
+Table 1	Hyung-Soo Kim	notation	CVC-CV́C	the type 2 reduplication, stress on the base
+Table 1	Hyung-Soo Kim	notation	CVC-C(V)CV́	the weak root reduplication
+Table 1	Hyung-Soo Kim	notation	CVC-CV́CV-Tw	the Twana weak root pattern
+§2	Lushootseed	language	Lushootseed	one of the type 1 languages van Eijk lists
+§2	Upper Chehalis	language	Upper Chehalis	one of the type 1 languages van Eijk lists
+§2	Coeur d'Alene	language	Coeur d’Alene	one of the type 1 languages van Eijk lists
+§2	Secwepemctsin	language	Shuswap	listed under type 3
+fn12	Hyung-Soo Kim	language	Nxaʔamzcín	the paper's spelling of Columbian in footnote 12
+(8)	Twana	notation	C1V́C2-C1VC2X	the strong root schema
+(8)	Twana	notation	C1VC2-C1V́C2X	the weak root schema
+(8)	Twana	notation	C1C2-C1V́C2X	reduplicant vowel loss
+(8)	Twana	notation	C2-C1V́C2X	the output of the cluster reduction
+(8)	Twana	notation	C1əC2-C1V́C2X	reduplicant vowel weakening
+(8)	Twana	notation	C2ə-C1V́C2X	anaptyxis
+(8)	Twana	underlying	*šóƛ̓-šoƛ̓	the underlying form of šƛ̓-šóƛ̓
+(8)	Twana	underlying	*wəq̓-wə́q̓ab	the underlying form of q̓ə-wə́q̓ab
+fn14	Hyung-Soo Kim	notation	X	whatever follows after the C1VC2
+(9)	Twana	notation	C1V̀C2-C1V́C2X	stress movement with secondary stress
+§3	Hyung-Soo Kim	heading	Rule interactions	section 3
+§3.1	Hyung-Soo Kim	heading	C1C2VC3X roots	section 3.1
+§3.1	Twana	notation	*C1əC2VC3X	the underlying root shape with an etymological schwa
+§3.1	Twana	notation	*C1C2-C1ə́C2VC3X	the strong root reduplication
+§3.1	Twana	notation	*C2-C1ə́C2VC3X	the weak root reduplication
+(10)	Twana	cited form	ʔəs-q̓ʷtáxʷ	'thin', unaugmented, a strong root
+(10)	Twana	cited form	ʔəs-q̓ʷt-q̓ʷə́taxʷ	'thin', augmented
+(10)	Twana	cited form	s-x̦p̓áb	'cockle', unaugmented, a strong root
+(10)	Twana	cited form	s-x̦p̓-x̦ə́p̓ab	'cockle', augmented
+(10)	Twana	cited form	ʔəs-pq̓ʷéqʷad	'feather in hair', unaugmented, a strong root
+(10)	Twana	cited form	ʔəs-pq̓ʷ-pə́q̓ʷqʷəd	'feather in hair', augmented
+(10)	Twana	cited form	š-č̓́táy	'pan', unaugmented, a strong root
+(10)	Twana	cited form	š-č̓̓́t-č̓́ə́tay	'pan', augmented
+(10)	Twana	cited form	s-pqálšəd	'foot', unaugmented, a strong root
+(10)	Twana	cited form	s-pq-pə́qalšəd	'foot', augmented
+(10)	Twana	cited form	kʷtábac	'husband', unaugmented, a strong root
+(10)	Twana	cited form	kʷt-kʷə́təbəc	'husband', augmented
+(10)	Twana	cited form	s-sq̓áče(h)	'finger', unaugmented, a weak root
+(10)	Twana	cited form	s-q̓-sə́q̓če(h)	'finger', augmented
+(10)	Twana	cited form	s-ɫq̓áx̦ad	'arm', unaugmented, a weak root
+(10)	Twana	cited form	s-q̓-ɫə́q̓x̦əd	'arm', augmented
+(10)	Twana	cited form	s-ɫq̓ʷə́qs	'nostril', unaugmented, a weak root
+(10)	Twana	cited form	s-q̓ʷ-ɫə́q̓ʷqs	'nostril', augmented
+(10)	Twana	cited form	ʔəs-c̓xʷálas	'steamed', unaugmented, a weak root
+(10)	Twana	cited form	ʔəs-xʷ-c̓ə́xʷəlˀəs	'steamed', augmented
+(10)	Twana	cited form	ʔəs-tqócad	'closed', unaugmented, a weak root
+(10)	Twana	cited form	ʔəs-q-tə́qcədəxʷ	'closed', augmented
+(10)	Twana	cited form	s-ckábšəd	'shin', unaugmented, a weak root
+(10)	Twana	cited form	s-k-cə́kabšəd	'shin', augmented
+(10)	Twana	cited form	tk̓ʷápšəd	'shoe', unaugmented, a weak root
+(10)	Twana	cited form	k̓ʷ-tə́k̓ʷapšəd	'shoe', augmented
+(11)	Twana	cited form	š-č̓c̓áˀesəd	'eyebrow', unaugmented, a weak root
+(11)	Twana	cited form	š-č̓ə́c̓aˀesəd	'eyebrow', augmented
+(12)	Twana	underlying	s-č̓əc̓-č̓ə́c̓aˀesəd	the first step of the derivation of š-č̓ə́c̓aˀesəd
+(12)	Twana	underlying	s-č̓c̓-č̓ə́c̓aˀesəd	loss of the reduplicant schwa
+(12)	Twana	underlying	s-c̓-č̓ə́c̓aˀesəd	synergistic weakening
+(12)	Twana	underlying	s-č̓-č̓ə́c̓aˀesəd	assimilation
+(12)	Twana	underlying	s-č̓ə́c̓aˀesəd	degemination
+(13)	PS	cited form	*pəq̓ʷ/k̓ʷ	'to scatter; powder', Kuipers 2002's reconstruction behind ʔəs-pq̓ʷéqʷad
+(13)	PS	cited form	*təq	'to obstruct', Kuipers 2002's reconstruction behind ʔəs-tqócad
+(14)	Twana	cited form	təqə́d	'close it', as Kuipers 2002 cites it with the schwa
+(14)	Twana	cited form	kʷətábac	'husband', as Kuipers 2002 cites it with the schwa
+§3.2	Hyung-Soo Kim	heading	C1VC2X roots with /w/ or /y/ as C2	section 3.2
+(15)	Twana	cited form	ɫáwalbəš	'person, Indian', unaugmented, a strong root
+(15)	Twana	cited form	ɫoˀ-ɫáwalbəš	'person, Indian', augmented
+(15)	Twana	cited form	q̓əwəʔáče(h)	'cane, walking-stick', unaugmented, a strong root
+(15)	Twana	cited form	q̓oˀ-q̓ə́ʔwače(h)	'cane, walking-stick', augmented
+(15)	Twana	cited form	də́ˀwat	'wave, surf', unaugmented, a strong root
+(15)	Twana	cited form	do-də́ˀwat	'wave, surf', augmented
+(15)	Twana	cited form	t̓áwʔ	'mussel', unaugmented, a strong root
+(15)	Twana	cited form	t̓oˀ-táw	'mussel', augmented
+(15)	Twana	cited form	šáwʔ	'bone', unaugmented, a strong root
+(15)	Twana	cited form	šoˀ-šáwʔ	'bone', augmented
+(15)	Twana	cited form	kə́yə(h)	'grand-mother', unaugmented, a strong root
+(15)	Twana	cited form	keˀ-kə́yə(h)	'grand-mother', augmented
+(15)	Twana	cited form	kʷóy	'bend', unaugmented, a strong root
+(15)	Twana	cited form	kʷeˀ-kʷóy	'bend', augmented
+(15)	Twana	cited form	k̓ʷóy	'mother', unaugmented, a strong root
+(15)	Twana	cited form	k̓ʷeˀ-k̓ʷóy	'mother', augmented
+(15)	Twana	cited form	s-c̓áʔyat	'salmon-gill', unaugmented, a strong root
+(15)	Twana	cited form	s-c̓eˀ-c̓áʔyat	'salmon-gill', augmented
+(15)	Twana	cited form	ʔas-ʔə́yʔ	'paid', unaugmented, a weak root
+(15)	Twana	cited form	ʔəs-yə-ʔə́yʔ	'paid', augmented
+(16)	Twana	underlying	ɫaw-ɫáwalbəš	the first step of Drachman's derivation of ɫoˀ-ɫáwalbəš
+(16)	Twana	underlying	ɫw-ɫáwalbəš	loss of the reduplicant vowel
+(16)	Twana	underlying	ɫo-ɫáwalbəš	vocalization of /w/ and /y/
+(16)	Twana	underlying	k̓ʷoy-k̓ʷóy	the first step of Drachman's derivation of k̓ʷeˀ-k̓ʷóy
+(16)	Twana	underlying	k̓ʷy-k̓ʷóy	loss of the reduplicant vowel
+(16)	Twana	underlying	k̓ʷe-k̓ʷóy	vocalization of /w/ and /y/
+(17)	Twana	underlying	ɫàw-ɫáwalbəš	the first step of the author's derivation of ɫoˀ-ɫáwalbəš
+(17)	Twana	underlying	ɫəw-ɫáwalbəš	vowel weakening to schwa
+(17)	Twana	underlying	ɫəwˀ-ɫáwalbəš	resonant glottalization
+(17)	Twana	underlying	k̓ʷòy-k̓ʷóy	the first step of the author's derivation of k̓ʷoˀ-k̓ʷóy
+(17)	Twana	underlying	k̓ʷəy-k̓ʷóy	vowel weakening to schwa
+(17)	Twana	underlying	k̓ʷəyˀ-k̓ʷóy	resonant glottalization
+(17)	Twana	cited form	k̓ʷoˀ-k̓ʷóy	the output of contraction
+(18)	Twana	cited form	t̓káyas	'basket', unaugmented, a weak root
+(18)	Twana	cited form	k-t̓ə́keˀəs	'basket', augmented
+§3.2	Twana	root	*tək	the root behind t̓káyas
+§3.2	Twana	cited affix	-áyas	'round object', the lexical suffix in t̓káyas
+§3.2	Twana	underlying	*t̓ək-t̓ək-áyas	the underlying form the contraction is derived from
+(19)	nɬeʔkepmxcín	cited form	ciy-kst	'five', Thompson, from van Eijk 1998:457
+(19)	Lillooet	cited form	cil-kst	'five', Lillooet
+(19)	nɬeʔkepmxcín	cited form	cíy-cikst	'five people', Thompson
+(19)	Lillooet	cited form	n-cíl-cl-əkst	'five people', Lillooet
+(19)	nɬeʔkepmxcín	cited form	ɫ’áq’-m-ekst	'six', Thompson
+(19)	Lillooet	cited form	ɫ’áq’-əm-kst	'six', Lillooet
+(19)	nɬeʔkepmxcín	cited form	ɫ’áq’-ɫ’əq-m-ekst	'six people', Thompson
+(19)	Lillooet	cited form	n-ɫ’áq’-ɫ’q’-əm-kst	'six people', Lillooet
+(20)	nɬeʔkepmxcín	underlying	ɫ’áq’-ɫ’aq-m-ekst	the first step of the Thompson derivation
+(20)	nɬeʔkepmxcín	underlying	ɫ’áq’-ɫ’əq-m-ekst	unstressed base vowel weakening
+(20)	nɬeʔkepmxcín	underlying	cíy-ciy-kst	the first step of the derivation of cíy-cikst
+(20)	nɬeʔkepmxcín	underlying	cíy-cəy-kst	unstressed base vowel weakening
+(20)	nɬeʔkepmxcín	cited form	cíy-ci-kst	the output of contraction
+§3.3	Hyung-Soo Kim	heading	C1VC2X roots with /w/ or /y/ as C1	section 3.3
+(21)	Twana	cited form	wədáwʔ	'horn', unaugmented, a strong root
+(21)	Twana	cited form	wədˀ-wə́daw	'horn', augmented
+(21)	Twana	cited form	wələp	'you', unaugmented, a strong root
+(21)	Twana	cited form	wəlˀ-wə́lap	'you', augmented
+(21)	Twana	cited form	yədés	'tooth', unaugmented, a strong root
+(21)	Twana	cited form	yədˀ-yə́das	'tooth', augmented
+(21)	Twana	cited form	s-yələ́b	'year', unaugmented, a strong root
+(21)	Twana	cited form	s-yəlˀ-yə́lab	'year', augmented
+(21)	Twana	cited form	wəq̓ə́b	'box', unaugmented, a weak root
+(21)	Twana	cited form	q̓ə-wə́q̓ab	'box', augmented
+(21)	Twana	cited form	wəq̓ʷə́təb	'drifted', unaugmented, a weak root
+(21)	Twana	cited form	q̓ʷə-wəq̓ʷə́təb	'drifted', augmented
+(21)	Twana	cited form	yášqšče	'long finger', unaugmented, a weak root
+(21)	Twana	cited form	šeˀ-yášqšče	'long finger', augmented
+(21)	Twana	cited form	ʔas-yə́xʷ	'disappeared', unaugmented, a weak root
+(21)	Twana	cited form	ʔəs-xʷeˀ-yə́xʷ	'disappeared', augmented
+(21)	Twana	cited form	ʔas-yə́x̦	'sorted', unaugmented, a weak root
+(21)	Twana	cited form	ʔəs-x̦eˀ-yə́x̦	'sorted', augmented
+(21)	Twana	cited form	ʔas-yə́q̓	'filed', unaugmented, a weak root
+(21)	Twana	cited form	ʔəs-q̓e-yə́q̓	'filed', augmented
+(21)	Twana	cited form	ʔəs-yəq̓ʷáče(h)	'washed hand', unaugmented, a weak root
+(21)	Twana	cited form	ʔəs-q̓ʷe-yə́q̓ʷče(h)	'washed hand', augmented
+(22)	Twana	cited form	yəq̓ósadəxʷ	'file', unaugmented, a weak root, from Drachman 1969:228
+(22)	Twana	cited form	q̓ə-yə́q̓sədəxʷ	'file', augmented
+(22)	Twana	cited form	yəq̓ʷáče	'wash hand', unaugmented, a weak root
+(22)	Twana	cited form	q̓ʷə-yə́q̓ʷče	'wash hand', augmented
+(22)	Twana	cited form	yóq̓ʷayʔdəxʷ	'rotten', unaugmented, a weak root
+(22)	Twana	cited form	q̓ʷə-yóq̓ʷəyəb	'rotten', augmented
+(23)	Twana	cited form	yəšə́d	'foot', unaugmented, a weak root, from Drachman 1969:37
+(23)	Twana	cited form	šeˀ-ə́šad	'foot', the first of three augmented variants
+(23)	Twana	cited form	šəˀ-yə́šad	'foot', the second augmented variant
+(23)	Twana	cited form	šeˀ-yə́šad	'foot', the third augmented variant
+(24)	Twana	cited form	ʔasə-ʔyášədəb	'carry on back', unaugmented, a weak root, from Drachman 1969:229
+(24)	Twana	cited form	ʔəš-šəˀ-yášədəb	'carry on back', one of two augmented variants
+(24)	Twana	cited form	ʔəš-šeˀ-ášədəb	'carry on back', the other augmented variant
+(25)	Twana	cited form	s-yoˀés	'wood', the first of three unaugmented variants, a strong root
+(25)	Twana	cited form	s-yəʔwés	'wood', the second unaugmented variant
+(25)	Twana	cited form	s-eʔwés	'wood', the third unaugmented variant
+(25)	Twana	cited form	s-yoˀ-yə́was	'wood', augmented
+(25)	Twana	cited form	yəq̓wólʔwəltxʷ	'washing the house', one of two unaugmented variants, a weak root
+(25)	Twana	cited form	eq̓wólʔwəltxʷ	'washing the house', the other unaugmented variant
+(25)	Twana	cited form	q̓ʷə-yə́q̓ʷče	the augmented form filled in from (23), since Drachman gave none
+fn18	Twana	root	yə́q̓ʷ	'wash', the root of the filled-in form
+§3.4	Hyung-Soo Kim	heading	C1VC2X roots with /ʔ/ or /h/ as C1	section 3.4
+(26)	Twana	cited form	ʔáx̦cəd	'bed', unaugmented, a weak root
+(26)	Twana	cited form	x̦a-ʔáx̦əd	'bed', augmented
+(26)	Twana	cited form	ʔélal	'sing', unaugmented, a weak root
+(26)	Twana	cited form	le-ʔélal	'sing', one of two augmented variants
+(26)	Twana	cited form	lə-ʔélal	'sing', the other augmented variant
+(26)	Twana	cited form	ʔaléš	'sister (male speaker)', unaugmented, a weak root
+(26)	Twana	cited form	la-ʔálaš	'sister', one of two augmented variants
+(26)	Twana	cited form	lə-ʔálaš	'sister', the other augmented variant
+(26)	Twana	cited form	ʔébac	'grandchild', unaugmented, a weak root
+(26)	Twana	cited form	be-ʔébac	'grandchild', augmented
+(26)	Twana	cited form	ʔas-hóbšəd	'red-foot', unaugmented, a weak root
+(26)	Twana	cited form	ʔəsə-bo-hóbšəd	'red-foot', augmented
+(26)	Twana	cited form	həlɛ́	'alive', unaugmented, a weak root
+(26)	Twana	cited form	ʔəs-lə-hə́le-ɫ	'we're alive', augmented
+§3.5	Hyung-Soo Kim	heading	C1VC2X roots with /ʔ/ as C2	section 3.5
+(27)	Twana	cited form	qʷɔ́ʔ	'water; river', unaugmented, a strong root
+(27)	Twana	cited form	qʷo-qʷɔ́ʔ	'water; river', augmented
+(27)	Twana	cited form	dɔ́ʔ	'rotten', unaugmented, a strong root
+(27)	Twana	cited form	do-dɔ́ʔ	'rotten', augmented
+(27)	Twana	cited form	čáʔləš	'branch', unaugmented, a strong root
+(27)	Twana	cited form	ča-čáʔləš	'branch', augmented
+(27)	Twana	cited form	dáʔšəd	'foot-print', unaugmented, a strong root
+(27)	Twana	cited form	da-dáʔšəd	'foot-print', augmented
+(27)	Twana	cited form	q̓áʔbe	'girl', unaugmented, a strong root
+(27)	Twana	cited form	q̓a-q̓áʔbe	'girl', augmented
+(28)	Twana	cited form	dášəd	'foot-print', unaugmented, a weak root, from Drachman 1969:111
+(28)	Twana	cited form	šə-dášəd	'foot-print', augmented
+§3.5	Twana	place	sqʷoqʷɔ́ʔbəš	'Skokomish', showing the same vowel change and loss of glottal stop
+§3.5	Twana	segmentation	s-qʷo-qʷɔ́ʔ-bəš	'river people', the analysis of sqʷoqʷɔ́ʔbəš
+(29)	Twana	cited form	də́ʔwat	'wave', unaugmented, a strong root
+(29)	Twana	cited form	do-də́ʔwat	'wave', augmented
+(29)	Twana	cited form	c̓áʔyat	'fish gill', unaugmented, a strong root
+(29)	Twana	cited form	c̓eʔ-c̓áʔyat	'fish gill', augmented
+(30)	Twana	underlying	*də́wʔat	'wave', the underlying unaugmented form
+(30)	Twana	underlying	*dəw-də́wʔat	'wave', the underlying augmented form
+(30)	Twana	underlying	*c̓áyʔat	'fish gill', the underlying unaugmented form
+(30)	Twana	underlying	*c̓əy-c̓áyʔat	'fish gill', the underlying augmented form
+(31)	Twana	cited form	čəʔwás	'wife', one of two unaugmented variants, a strong root
+(31)	Twana	cited form	čoʔás	'wife', the other unaugmented variant
+(31)	Twana	cited form	čoˀ-čə́waš	'wife', augmented
+(31)	Twana	cited form	šəʔwáɫ	'road', one of two unaugmented variants, a strong root
+(31)	Twana	cited form	šoʔáɫ	'road', the other unaugmented variant
+(31)	Twana	cited form	šoˀ-šə́waɫ	'road', augmented
+§4	Hyung-Soo Kim	heading	Conclusion	section 4
+§4	Hyung-Soo Kim	notation	C1C2C3	the cluster the reduction applies to in the conclusion's statement
+§4	Hyung-Soo Kim	notation	C2C3	what it reduces to
+References	Hyung-Soo Kim	heading	References	the paper's bibliography
+References	Hyung-Soo Kim	reference	Blake, Susan J. (2000). On the Distribution and Representation of Schwa in Sliammon (Salish): Descriptive and Theoretical Perspectives. Doctoral dissertation. Vancouver, BC: University of British Columbia.	cited on the schwa problem
+References	Hyung-Soo Kim	reference	Czaykowska-Higgins, E. & M. Willett. (1997). Simple syllables in Nxaʔamxin. IJAL 63.3: 385–411.	the source of the Moses-Columbian forms
+References	Hyung-Soo Kim	reference	Drachman, Gaberell (1969). Twana Phonology. OSUWPL 5. Columbus, Oh: Dept. of Linguistics, Ohio State University.	the entire source of the Twana data
+References	Hyung-Soo Kim	reference	Edel, May (1939). The Tillamook language. IJAL 10:1–57.	the source of the Tillamook data
+References	Hyung-Soo Kim	reference	Kim, Hyung-Soo & Dwight Gardiner (2016). The truncated reduplication in Tillamook and Shuswap: weakening by synergy of dissimilation and cluster simplification. Papers for the 51st International Conference on Salish and Neighboring Languages, UBCWPL 42: 93–107.	the companion analysis of Tillamook
+References	Hyung-Soo Kim	reference	Kinkade, M. Dale. (1998). How much does a schwa weigh? Salish Languages and Linguistics: Theoretical and Descriptive Perspectives, Berlin: Mouton de Gruyter	cited on the schwa problem; its page range 197–216 is broken across a line by the extraction
+References	Hyung-Soo Kim	reference	Kuipers, Aert H. (1974). Truncated reduplication in Shuswap. Dutch Contributions to the 9th International Conference on Salish Languages. Leiden: University of Leiden. 26–31.	cited on truncated reduplication
+References	Hyung-Soo Kim	reference	Kuipers, Aert H. (2002). Salish Etymological Dictionary. UMOPL 16. Missoula, MT: The University of Montana.	the source of the reconstructions
+References	Hyung-Soo Kim	reference	Nelson, Nicole (2005). Wrong side reduplication is epiphenomenal: evidence from Yoruba. Studies on Reduplication, Berlin: Mouton de Gruyter, 135–160.	cited on wrong-side reduplication
+References	Hyung-Soo Kim	reference	Parker, Aliana. (2011). It’s that schwa again! Towards a typology of Salish schwa. Working Papers of the Linguistic Circle, 21.1. Victoria, BC: University of Victoria, 9–21.	cited on excrescent schwa
+References	Hyung-Soo Kim	reference	Snyder, Warren. (1968). Southern Puget Sound Salish: Phonology and Morphology. Sacramento: Sacramento Anthropological Society, Paper 8.	the source of the Puget Sound Salish forms
+References	Hyung-Soo Kim	reference	Thompson, Laurence C. & M. Terry Thompson (1985). A Grassmann’s Law for Salish. Oceanic Linguistics Special Publications 20. Honolulu, HI: University of Hawaii Press, 134–147.	the source of the quotation on Twana and Tillamook
+References	Hyung-Soo Kim	reference	Urbanczyk, Suzanne C. (1996). Patterns of Reduplication in Lushootseed. Doctoral dissertation. Amherst, MA: University of Massachusetts.	cited on initial voiceless clusters
+References	Hyung-Soo Kim	reference	van Eijk, Jan (1998). CVC reduplication in Salish. Salish Languages and Linguistics: Theoretical and Descriptive Perspectives, Berlin: Mouton de Gruyter	the source of the stress pattern typology; its page range 453–476 is broken across a line by the extraction
+§2	Twana	damage	ʔəs-x̦əbáx̦<	the page prints ʔəs-x̦əbáx̦ and the less-than sign apart; the repair closes the space after the comma below
+(12)	Twana	notation	c̓-č̓	the input of the assimilation rule
+(12)	Twana	notation	č̓-č̓	the output of the assimilation rule and the input of degemination
+(12)	Twana	notation	č̓	the output of degemination
+(12)	Twana	notation	s-č̓	the input of the palatal assimilation rule
+(12)	Twana	notation	š-č̓	the output of the palatal assimilation rule
+§3.2	Twana	notation	əw	the sequence that contracts to /o/
+§3.2	Twana	notation	əy	the sequence that contracts to /e/
+§3.2	Twana	notation	ə	the schwa the reduplicant vowel weakens to
+§3.3	Twana	notation	yə	the sequence in free variation with /e/
+§3.5	Twana	notation	ɔ	the root vowel that changes to /o/ in the augmented form
+§3.5	Twana	notation	ʔw	the sequence before metathesis
+§3.5	Twana	notation	wʔ	the sequence after metathesis
+§4	Twana	notation	C1C2V́C3X	the root class whose etymological schwa does not surface

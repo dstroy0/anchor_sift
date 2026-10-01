@@ -1,0 +1,299 @@
+where	who	kind	form	gloss
+front	David Inman	title	The representation of predicates at the syntactic-semantic boundary in Nuuchahnulth	page 1
+front	David Inman	name	David Inman	author, printed Inman, David
+front	David Inman	note	University of Washington	page 1, under Inman, David
+front	David Inman	note	Abstract: In this paper I show that verbs, adjectives, and common nouns in Nu- uchahnulth are all syntactic predicates and minimally one-place semantic predi- cations (semantic units with at least one semantic argument). I demonstrate that proper nouns are zero-place predications, or semantic units with no arguments. This analysis is counter an analysis that would add a copula relation to account for predicate-flexibility in the language. I use evidence from sentential predication, the distribution of the article, and a predicate coordinator called the linker to make this case.	page 1, the abstract
+front	David Inman	note	Keywords: predicates, coordination, semantics, Nuuchahnulth	page 1, the keywords
+front	David Inman	language	Nuuchahnulth	Wakashan, the west coast of Vancouver Island, ISO 639-3 nuk
+§1	David Inman	heading	1 Introduction	page 1
+§1	David Inman	note	Nuuchahnulth (ISO 639-3 nuk) is a Wakashan language spoken along the west coast of Vancouver Island. I follow Werle’s (2013) division of Nuuchahnulth into four broad dialect groups. From north to south the dialects are Kyuquot-Checleseht (Q), Northern (N), Central (C), and Barkley (B). The data here is taken from my own work with speakers of the language, and I examine aspects of semantic mod- eling of words, particularly of nouns. Motivated by approaches to meaning that are based in set theory, semanticists have long given common nouns like dog an in- herent argument in their semantic models. Whether these arguments are available or meaningful at the syntax-semantics boundary is not immediately apparent from the usefulness of semantic models themselves. However, I argue in this paper that the inherent argument of common nouns is directly observable in the syntax of Nuuchahnulth. Certain facts of the language can only be explained by a syntactic- semantic model that considers common nouns such as dog something like DOG(x) directly in the lexicon. This overt semantic argument functions in tandem with Nu- uchahnulth’s flexibility around syntactic predicates, a feature that has been noticed since linguistic description began on the language, and is part of the reason why it took so long for linguists to determine whether the language even differentiated between nouns and verbs (Swadesh 1938).	page 1
+§1	David Inman	name	Werle	Adam Werle, the four dialect groups (2013)
+§1	David Inman	name	Swadesh	Morris Swadesh (1938, 1939)
+§1	David Inman	language	Wakashan	the family
+§1	David Inman	note	To show that this analysis is necessary, I will be considering evidence from the basic structure of the Nuuchahnulth clause (§2), the article =ʔiˑ (§3), and the predicate linker -(q)ḥ (§4) to examine the argument structure of lexical categories in the language. I will conclude with some thoughts for future directions, and the extensibility of this semantic representation (§5). Contact info: davinman@uw.edu In Proceedings of the International Conference on Salish and Neighbouring Languages 53, University of British Columbia Working Papers in Linguistics 47, Marianne Huijsmans, Roger Lo, Daniel Reisinger, and Oksana Tkachman (eds.), 2018.	page 1
+§1	Nuuchahnulth	cited form	=ʔiˑ	page 1, in italics
+§1	Nuuchahnulth	cited form	-(q)ḥ	page 1, in italics
+§1	David Inman	language	Salish	neighboring languages, predicate-initial and predicate-flexible
+§1	David Inman	note	Before moving on to the semantic issues brought up in this paper, it is im- portant to define some terms and my approach. I am taking a somewhat minimal and ecumenical view with my semantic representations. The basics of all systems of compositional semantics that I know of are a series of functions and variables. To associate variables from different functions with one another, some form of scoping is required. Whether this is represented via lambda calculus (Heim and Kratzer 1998), Minimal Recursion Semantics (Copestake et al. 2005), or any other schema, all these representations relate elementary predications to variables, and correlate variables through scoping. That is, the meaning of “go” is GO(x, y), where x and y are the yet-to-be-determined participants of the going event, placed in some conventional order (for example, goer first and then destination). If the goer is also running, one needs some way of variable coreferencing, often done through a quantifier of some variety; for example, ∃x, GO(x, y) & RUN(x).	page 2
+§1	David Inman	note	These meaning representations can be elaborated on in important and mean- ingful ways. We could add an event variable, GO(e, x, y), and then add tense, aspect, mood, and other special properties to the event variable e (Davidson 1967). Rather than relying on order, we could represent arguments as property-value pairs, GO(e, GOER=x, DESTINATION=y), or separate out the participants from the event label alto- gether (Parsons 1990). While all of these different ways of modeling are important, for the purposes of this paper I will leave out these and other elaborations of the semantics and only worry about the highest-level representation: the names of the atomic relations and the number of their semantic arguments, excluding the event itself.	page 2
+§1	David Inman	note	To make a clean separation between syntactic and semantic discussions, I will use the term predicate to refer to the position in the syntax where a word can un- dergo valence-filling, and predication to refer to the atomic semantic unit. For instance, in example (1) below, the predicate is the word n̓aacsiičiƛ ‘see’, while there are at least two semantic predications, the predication SEE from n̓aacsiičiƛ, and the predication MAN from čaakupiiḥ.1 When referring to the syntactic argu- ments of a predicate, I will use the term participant. For example, Nuuchahnulth has predicate-first syntax, followed by a set of syntactically-optional participants. When referring to semantic arguments of a predication, I will use the term argu- ment.	page 2
+footnote 1	David Inman	note	I could represent the predication provided by čaakupiiḥ ‘men’ somewhat more precisely by indicating the plural, e.g. MAN[PL], but I will again keep my model as simple as possible, and so simply use MAN. I will omit modeling pluralization, mood, and other details. I will also represent predications with rough English glosses, rather than the (more accurate) Nuuchahnulth form. These should be understood only as conveniences, and not a deep commitment.	page 2, footnote 1
+§1	Nuuchahnulth	cited form	n̓aacsiičiƛ	page 2, in italics, ‘see’
+§1	Nuuchahnulth	cited form	čaakupiiḥ	page 2, in italics
+§2	David Inman	heading	2 Non-verbal predicates in Nuuchahnulth	page 2
+§2	David Inman	note	Like many languages of the Pacific Northwest, Nuuchahnulth is very permissive about what words can be used predicatively. Predicates are sentence-initial, and followed by their (syntactically optional) participants. While verbs are the most common type of predicate (1), it is also possible to get adjective (2) and noun (3) predicates. I use specialized IGT throughout the paper, and elaborate on the non-standard symbols and abbreviations in Appendix A.	page 2
+(1) line 1	Nuuchahnulth	transcription	n̓aacsiičiƛʔiš hałmiiḥa quuʔas.	page 3
+(1) line 2	Nuuchahnulth	segmentation	n̓aacs-iˑčiƛ=ʔiˑš hałmiiḥa quuʔas	page 3
+(1) line 3	Nuuchahnulth	gloss	see-IN=STRG.3SG drowning person	page 3
+(1) line 4	David Inman	translation	‘He sees a drowning person.’	page 3
+(1) line 5	David Inman	citation	(N, Fidelia Haiyupis)	page 3, the dialect and speaker at the right of the translation
+(2) line 1	Nuuchahnulth	transcription	qʷac̓ałʔiš ḥaakʷaaƛʔi.	page 3
+(2) line 2	Nuuchahnulth	segmentation	qʷac̓ał=ʔiˑš ḥaakʷaaƛ=ʔiˑ	page 3
+(2) line 3	Nuuchahnulth	gloss	beautiful=STRG.3 young.girl=ART	page 3
+(2) line 4	David Inman	translation	‘The young girl is beautiful.’	page 3
+(2) line 5	David Inman	citation	(C, tupaat Julia Lucas)	page 3, the dialect and speaker at the right of the translation
+(3) line 1	Nuuchahnulth	transcription	pisatuwiłma ʔaanaḥi.	page 3
+(3) line 2	Nuuchahnulth	segmentation	pisatuwił=maˑ ʔaanaḥi	page 3
+(3) line 3	Nuuchahnulth	gloss	gym=REAL.3 only	page 3
+(3) line 4	David Inman	translation	‘It’s only a gym.’	page 3
+(3) line 5	David Inman	citation	(B, Marjorie Touchie)	page 3, the dialect and speaker at the right of the translation
+§2	David Inman	note	When modeling the predicate flexibility seen in (1–3), there are two broad ways to define the representation at the semantics-syntax interface. The represen- tation of (1) is (somewhat) straightforward. The word n̓aacsiičiƛ ‘see’ presumably is a two-place predication, relating a seer and a seen-thing. The semantic repre- sentation for the verbal predicate n̓aacsiičiƛ would then look something like (4), waiting for its seer and seen-thing arguments to be filled.	page 3
+(4) line 1	David Inman	formula	SEE(x, y)	page 3
+§2	David Inman	note	But the syntactic-semantic interface for the predicates of (2) and (3) are more troublesome. We could represent adjectives and nouns as zero-place predica- tions at the interface (regardless of their fully-worked out set-theoretic semantics), awaiting a higher-order predication to relate them to other predications. That is, we might have BEAUTIFUL for qʷac̓ał and GYM for pisatuwił. In cases like (2, 3), we would then need to insert a copula, essentially serving as a wrapper around the adjective or noun. In this schema, the syntax-semantics interface for the predicates in (2, 3) would look like (5, 6) below.	page 3
+§2	Nuuchahnulth	cited form	qʷac̓ał	page 3, in italics
+§2	Nuuchahnulth	cited form	pisatuwił	page 3, in italics
+(5) line 1	David Inman	formula	BE(BEAUTIFUL, x)	page 3
+(6) line 1	David Inman	formula	BE(GYM, x)	page 3
+§2	David Inman	note	The second option is to model either both nouns and adjectives, or perhaps only adjectives, as multi-place predications with their own arguments, and no need for the copula. In this version, the adjective qʷac̓ał would directly be modeled as BEAUTIFUL(x), and the noun pisatuwił would be GYM(x). The semantics interface for the predicates in (2, 3) would look like (7, 8).	page 3
+(7) line 1	David Inman	formula	BEAUTIFUL(x)	page 4
+(8) line 1	David Inman	formula	GYM(x)	page 4
+§2	David Inman	note	It’s not immediately clear which of these models is a better model of the syntax-semantics interface in Nuuchahnulth, or indeed if choosing one over the other says anything at all about the language outside of semantic modeling. If the model in (5, 6) is chosen, the inherent argument can always be added back in the full set-theoretic semantics, even if that argument is not visible to the syntax. But I will show that only the second option seen in (7, 8), where both noun and ad- jective predications have an explicit argument accessible to the syntax, can model the facts of the language.	page 4
+§3	David Inman	heading	3 The article	page 4
+§3	David Inman	note	One clue to the semantic modeling of nouns and adjectives is the use of the article =ʔiˑ. The article does not have any semantic definiteness attached, and is a second- position clitic with respect to a syntactic participant. When nouns or noun phrases are used as syntactic participants, they may optionally have an article attached. However, when verbs and adjectives are used as syntactic participants, the article is obligatory (Jacobsen 1979; Wojdak 2001). The way that the article discriminates between verbs, adjectives, common nouns, and proper nouns gives us evidence about the semantic arguments of these parts of speech.	page 4
+§3	David Inman	name	Jacobsen	William H. Jacobsen, noun and verb in Nootkan (1979)
+§3	David Inman	name	Wojdak	Rachel Wojdak, category neutrality (2001)
+§3.1	David Inman	heading	3.1 Verbs, adjectives, and common nouns	page 4
+§3.1	David Inman	note	It is relatively straightforward to replicate the work of Jacobsen (1979) and Woj- dak (2001) showing the optionality of article attachment on nouns (9, 10), and its obligatory attachment on adjectives (11, 12) and verbs (13, 14).2	page 4
+footnote 2	David Inman	note	I suspect there is a statistical difference between the use of the article on subject NPs and object NPs. However, it is grammatically optional and the statistical study has yet to be done.	page 4, footnote 2
+(9) line 1	Nuuchahnulth	transcription	ƛ̓amaasiƛintʔiš ḥaaw̓iłaƛʔi kiwitaana.	page 4
+(9) line 2	Nuuchahnulth	segmentation	ƛ̓amaas-iƛ=int=ʔiˑš ḥaaw̓iłaƛ=ʔiˑ kiwitaana	page 4
+(9) line 3	Nuuchahnulth	gloss	climb-MO=PST=STRG.3 young.man=ART horse	page 4
+(9) line 4	David Inman	translation	‘The young man climbed up onto the horse.’	page 4
+(9) line 5	David Inman	citation	(N, Fidelia Haiyupis)	page 4, the dialect and speaker at the right of the translation
+(10) line 1	Nuuchahnulth	transcription	ƛ̓amaasiƛintʔiš ḥaaw̓iłaƛʔi kiwitaanaʔi.	page 4
+(10) line 2	Nuuchahnulth	segmentation	ƛ̓amaas-iƛ=int=ʔiˑš ḥaaw̓iłaƛ=ʔiˑ kiwitaana=ʔi	page 4
+(10) line 3	Nuuchahnulth	gloss	climb-MO=PST=STRG.3 young.man=ART horse=ART	page 4
+(10) line 4	David Inman	translation	‘The young man climbed up onto the horse.’	page 4
+(10) line 5	David Inman	citation	(N, Fidelia Haiyupis)	page 4, the dialect and speaker at the right of the translation
+§3.1	David Inman	note	Context for (11, 12): There are two roads, a new one and an old one.	page 5
+(11) line 1	Nuuchahnulth	transcription	ƛułmaa c̓ušukʔi.	page 5
+(11) line 2	Nuuchahnulth	segmentation	ƛuł=maˑ c̓ušuk=ʔiˑ	page 5
+(11) line 3	Nuuchahnulth	gloss	good=REAL.3 new=ART	page 5
+(11) line 4	David Inman	translation	‘The new one is nice.’	page 5
+(11) line 5	David Inman	citation	(B, Bob Mundy)	page 5, the dialect and speaker at the right of the translation
+(12) line 1	Nuuchahnulth	transcription	*ƛułmaa c̓ušuk.	page 5
+(12) line 2	Nuuchahnulth	segmentation	ƛuł=maˑ c̓ušuk	page 5
+(12) line 3	Nuuchahnulth	gloss	good=REAL.3 new	page 5
+(12) line 4	David Inman	translation	Intended: ‘The new one is nice.’	page 5
+(12) line 5	David Inman	citation	(B, Bob Mundy)	page 5, the dialect and speaker at the right of the translation
+§3.1	David Inman	note	Context for (13, 14): There are two children. One is playing and the other is running.	page 5
+(13) line 1	Nuuchahnulth	transcription	ʔuḥʔiiš3 ʕiḥak kamatqukʔi.	page 5
+footnote 3	David Inman	note	The use of the verb ʔuḥ ‘be’ in both (13) and (14) is not providing the meaning of a copula, but gives focus to the following word, exactly like a clefted sentence in English. I will be omitting this focus operation in the later semantic representation of this sentence in (16).	page 5, footnote 3
+footnote 3	Nuuchahnulth	cited form	ʔuḥ	page 5, in italics, ‘be’
+(13) line 2	Nuuchahnulth	segmentation	ʔuḥ=ʔiˑš ʕiḥak kamatquk=ʔiˑ	page 5
+(13) line 3	Nuuchahnulth	gloss	be=STRG.3 cry.DR run.DR=ART	page 5
+(13) line 4	David Inman	translation	‘The running one is crying.’	page 5
+(13) line 5	David Inman	citation	(C, tupaat Julia Lucas)	page 5, the dialect and speaker at the right of the translation
+(14) line 1	Nuuchahnulth	transcription	*ʔuḥ ʕiḥak kamatquk.	page 5
+(14) line 2	Nuuchahnulth	segmentation	ʔuḥ(=∅) ʕiḥak kamatquk	page 5
+(14) line 3	Nuuchahnulth	gloss	be(=NEUT.3) cry.DR run.DR	page 5
+(14) line 4	David Inman	translation	Intended: ‘The running one is crying.’	page 5
+(14) line 5	David Inman	citation	(C, tupaat Julia Lucas)	page 5, the dialect and speaker at the right of the translation
+§3.1	David Inman	note	The obligatory presence of the article on verb and adjective participants says that there is something special about verbs and adjectives that separate them as a group from nouns. Since it is clear that verbs are semantic predications (they take arguments), it is possible that adjectives are predications as well. This would not be unique, as linguists have argued that in some languages adjectives are simply intransitive verbs (Li and Thompson 1981). A possible analysis is that the article, when applied to adjectives and verbs, is exposing an embedded semantic argument to the syntax. That is, the semantics of (11) and (13) look something like (15, 16).	page 5
+(15) line 1	David Inman	formula	∃x NEW(x) & GOOD(x)	page 5
+(16) line 1	David Inman	formula	∃x RUN(x) & CRY(x)	page 5
+§3.1	David Inman	note	The article is then the syntactic element that supplies the existential operator around the verb or adjective, making the arguments of NEW and RUN available to be coindexed with the sentential predicates GOOD and CRY. Without the article present, there is no way in (11) to affiliate the x of NEW(x) with the x of GOOD(x).	page 5
+§3.1	David Inman	note	However, the optionality of the argument on common nouns is a challenge for their semantic modeling. If they have a semantic argument, it must be exposable to the semantics with or without an article present. However if common nouns do not have a semantic argument, then the article is behaving differently when attached to nouns, as opposed to verbs and adjectives. I now turn to the difference between common and proper nouns to distinguish between the analyses.	page 6
+§3.2	David Inman	heading	3.2 Proper nouns	page 6
+§3.2	David Inman	note	Proper nouns bear a special place in Nuuchahnulth grammar. Names and proper nouns are morphologically fixed: they may not, for the most part, be morpholog- ically altered.4 Neither a personal name (17, 18) nor a place name may take the article (19, 20).	page 6
+footnote 4	David Inman	note	I have seen on a few occasions proper names take a past tense morpheme to mark that the person is deceased. This is the only morphological operation I have ever seen on a name, and an analysis of it lies beyond this paper.	page 6, footnote 4
+(17) line 1	Nuuchahnulth	transcription	kitḥšiƛints łuučm̓uupukqs Chelsea.5	page 6
+footnote 5	David Inman	note	Example (17) was elicited by me directly in conversation but I had my consultant repeat it.	page 6, footnote 5
+(17) line 2	Nuuchahnulth	segmentation	kitḥ-šiƛ=int=s łuučm̓uup=uk=qs Chelsea	page 6
+(17) line 3	Nuuchahnulth	gloss	ring-MO=PST=STRG.1SG sister=POSS=DEF.1SG NAME	page 6
+(17) line 4	David Inman	translation	‘I phoned my sister Chelsea.’	page 6
+(17) line 5	David Inman	citation	(N, Fidelia Haiyupis)	page 6, the dialect and speaker at the right of the translation
+(18) line 1	Nuuchahnulth	transcription	*kitḥšiƛints łuučm̓uupukqs Chelsea-ʔi.	page 6
+(18) line 2	Nuuchahnulth	segmentation	kitḥ-šiƛ=int=s łuučm̓uup=uk=qs Chelsea=ʔi	page 6
+(18) line 3	Nuuchahnulth	gloss	ring-MO=PST=STRG.1SG sister=POSS=DEF.1SG NAME=ART	page 6
+(18) line 4	David Inman	translation	Intended: ‘I phoned my sister Chelsea.’	page 6
+(18) line 5	David Inman	citation	(N, Fidelia Haiyupis)	page 6, the dialect and speaker at the right of the translation
+(19) line 1	Nuuchahnulth	transcription	yac̓asw̓it̓ass mituuni.	page 6
+(19) line 2	Nuuchahnulth	segmentation	yac̓as-w̓it̓as=s mituuni	page 6
+(19) line 3	Nuuchahnulth	gloss	step.foot-going.to=STRG.1SG Victoria	page 6
+(19) line 4	David Inman	translation	‘I’m going to step foot in Victoria.’	page 6
+(19) line 5	David Inman	citation	(N, Fidelia Haiyupis)	page 6, the dialect and speaker at the right of the translation
+(20) line 1	Nuuchahnulth	transcription	*yac̓asw̓it̓ass mituuniʔi.	page 6
+(20) line 2	Nuuchahnulth	segmentation	yac̓as-w̓it̓as=s mituuni=ʔiˑ	page 6
+(20) line 3	Nuuchahnulth	gloss	step.foot-going.to=STRG.1SG Victoria=ART	page 6
+(20) line 4	David Inman	translation	Intended: ‘I’m going to step foot in Victoria.’	page 6
+(20) line 5	David Inman	citation	(N, Fidelia Haiyupis)	page 6, the dialect and speaker at the right of the translation
+§3.2	David Inman	note	This is exactly opposite from the data seen in §3.1. There, the article was required on verbs and adjectives. Here, names may not take the article. If the article is exposing a bound variable in the semantics, then this phenomenon begins to make sense if we extend the model of one-place predications to common nouns, but not to proper nouns.	page 6
+§3.2	David Inman	note	If the semantics of a Nuuchahnulth common noun like ‘sister’ is actually SIS- TER(x), then exposing that argument via the article makes semantic sense. How- ever, proper nouns are not like this. “Victoria” does not mean anything like ‘there is some x such that IS-VICTORIA is true of x.’ No, Victoria is that city over on the southern tip of Vancouver Island, and we all know exactly which place is being referred to with no possible variation. The same is true for names. So the semantic representation of words like mituuni ‘Victoria’ and Chelsea are proper zero-place predications, VICTORIA and CHELSEA. This has an interesting effect on introduc- tions, where a helper verb is always required to introduce a name, as in (21).	page 7
+(21) line 1	Nuuchahnulth	transcription	siy̓aaqaḥ ʔaʔasmacy̓ak.	page 7
+(21) line 2	Nuuchahnulth	segmentation	siy̓aaq=(m)aˑḥ ʔaʔasmacy̓ak	page 7
+(21) line 3	Nuuchahnulth	gloss	be.1SG=REAL.1SG Marjorie.Touchie	page 7
+(21) line 4	David Inman	translation	‘It’s me, Marjorie Touchie.’	page 7
+(21) line 5	David Inman	citation	(B, Marjorie Touchie)	page 7, the dialect and speaker at the right of the translation
+§3.2	David Inman	note	This analysis of proper nouns as zero-place predications properly models the very strong rejection every speaker I’ve worked with has toward sentences like (18, 20). Proper nouns are direct referents without an internal semantic argument. On the other hand, common nouns do have a semantic argument, and speakers will regularly vary whether they use an article, as in (9, 10).	page 7
+§3.3	David Inman	heading	3.3 Summary	page 7
+§3.3	David Inman	note	While Nuuchahnulth is flexible with respect to syntactic predicates, it separates verbs and adjectives from nouns by requiring verbs and adjectives (but not nouns) to be marked with the article in order to be used as a syntactic participant. Proper nouns, however, may never use the article. Only common nouns and NPs headed by a common noun are optionally marked with an article.	page 7
+§3.3	David Inman	note	The cleanest explanation for this is that verbs, adjectives, and common nouns are all semantically one-place (or more) semantic predications, e.g., RUN(x), NEW(x), SISTER(x). Common nouns alone may have their internal argument exposed for ac- cess in the syntax with or without the article, but verbs and adjectives require an article in order for their semantic argument to be made available. This makes the Nuuchahnulth “article” look more like a traditional relativizer.	page 7
+§3.3	David Inman	note	Proper nouns, on the other hand, have no internal argument. They are true referents and zero-place predications, e.g., VICTORIA. Because of this, the use of the article on a proper noun is ungrammatical. Proper nouns have no semantic argument to expose. I show in §4 that this analysis of predications is required to model another phenomenon in the language, the predicate linker.	page 7
+§4	David Inman	heading	4 The predicate linker -(q)ḥ	page 8
+§4	David Inman	note	The predicate linker -(q)ḥ provides additional evidence that nouns in Nuuchah- nulth are semantically one-place predicates. The categorization of this morpheme as a “predicate linker” to my knowledge was first proposed by Adam Werle (p.c.), although the recognition of it as some kind of coordinator dates to Sapir and Swadesh (1939), where it is given in the dictionary as ‘meanwhile.’ As this section will demonstrate, ‘meanwhile’ is not quite sufficient to explain the semantics of -(q)ḥ.	page 8
+§4	David Inman	name	Adam Werle	first proposed the predicate linker; the spreadsheet of the Nootka Texts
+§4	David Inman	name	Sapir	Edward Sapir, the Nootka Texts (1939)
+§4	David Inman	note	I believe the linker morpheme links two predicates together with the semantics of AND. While it is commonly attached to verbs, it can be attached to anything that can be a predicate. In cases where the linker appears not to be attached to a predicate, I will claim it is actually attaching in a predicative second position.	page 8
+§4.1	David Inman	heading	4.1 Verbs	page 8
+§4.1	David Inman	note	A canonical example of the quantifier linking two predicates is in an utterance describing motion and manner.	page 8
+(22) line 1	Nuuchahnulth	transcription	waałšiƛw̓it̓asniš ƛiḥaaqḥ.	page 8
+(22) line 2	Nuuchahnulth	segmentation	wał-šiƛ-LS-w̓it̓as=niˑš ƛiḥ-aˑ-(q)ḥ	page 8
+(22) line 3	Nuuchahnulth	gloss	go.home-MO-GRAD-going.to=STRG.1PL drive-DR-LINK	page 8
+(22) line 4	David Inman	translation	‘We’re going to drive home.’	page 8
+(22) line 5	David Inman	citation	(C, tupaat Julia Lucas)	page 8, the dialect and speaker at the right of the translation
+§4.1	David Inman	note	It’s important that both of the verbs in (22) share the same subject, which is expressed in the clausal second-position clitic complex and scopes over both predicates. It is not possible to interpret (22) in such a way that we are going home but someone else is driving unrelatedly. The rough semantics look like:	page 8
+(23) line 1	David Inman	formula	∃x 1PL(x) & GO-HOME(x) & DRIVE(x)	page 8
+§4.1	David Inman	note	The predicate linker scopes over both verbs and identifies the first argument of each as being identical with whatever the subject is. That is, the predicate linker has a semantics (roughly) like:	page 8
+(24) line 1	David Inman	formula	∃x PRED1(x, . . .) & PRED2(x, . . .)	page 8
+§4.1	David Inman	note	This pattern can be seen again with the verb hił ‘be at a location’, which fre- quently takes the linker.	page 8
+§4.1	Nuuchahnulth	cited form	hił	page 8, in italics, ‘be at a location’
+(25) line 1	Nuuchahnulth	transcription	hiłḥʔii ḥuu wiinapuƛ.	page 8
+(25) line 2	Nuuchahnulth	segmentation	hił-(q)ḥ=!iˑ ḥuu wiinapuƛ	page 8
+(25) line 3	Nuuchahnulth	gloss	be.at-LINK=CMMD.2SG D4 stop.MO	page 8
+(25) line 4	David Inman	translation	‘Stop there.’	page 8
+(25) line 5	David Inman	citation	(N, Fidelia Haiyupis)	page 8, the dialect and speaker at the right of the translation
+§4.1	David Inman	note	The force of the command scopes over both predicates. (25) cannot mean you be there, and someone else is stopping. The rough semantics of (25) are below in (26).	page 9
+(26) line 1	David Inman	formula	∃x 2SG(x) & BE-AT(x, THERE) & STOP(x)	page 9
+§4.2	David Inman	heading	4.2 Quantifiers	page 9
+§4.2	David Inman	note	There is reason to believe that quantifiers are a sub-class of adjective in Nuuchah- nulth, but they are common enough and it is illuminating enough to treat them separately from non-quantificational adjectives (see §4.3). Quantifiers often take the linker, perhaps more frequently than any other part of speech. With a linker attached, quantifiers always refer to the subject of a clause, and can only have the objective reading without a linker (27, 28). Context: I and my family are looking for a gift for my sister’s birthday.	page 9
+(27) line 1	Nuuchahnulth	transcription	ʔuušqḥ ʔuuwaʔaƛ.	page 9
+(27) line 2	Nuuchahnulth	segmentation	ʔuuš-qḥ ʔu-L.waƛ=!aƛ	page 9
+(27) line 3	Nuuchahnulth	gloss	some-LINK X-find=NOW	page 9
+(27) line 4	David Inman	translation	‘Someone found it.’	page 9
+(27) line 5	David Inman	note	*He/she/they found something.	page 9, a reading the consultant rejects, at the right of the translation
+(27) line 6	David Inman	citation	(C, tupaat Julia Lucas)	page 9, the dialect and speaker at the right of the translation
+(28) line 1	Nuuchahnulth	transcription	ʔuuwaʔaƛ ʔuuš.	page 9
+(28) line 2	Nuuchahnulth	segmentation	ʔu-L.waƛ=!aƛ ʔuuš	page 9
+(28) line 3	Nuuchahnulth	gloss	X-find=NOW some	page 9
+(28) line 4	David Inman	translation	‘They found something.’	page 9
+(28) line 5	David Inman	note	?? Someone found it.	page 9, a reading the consultant doubts, at the right of the translation
+(28) line 6	David Inman	citation	(C, tupaat Julia Lucas)	page 9, the dialect and speaker at the right of the translation
+§4.2	David Inman	note	It is extremely difficult to force (28) to have an interpretation where the quan- tifier is the subject, and Julia Lucas rejected it.6 However, speakers will occasion- ally produce sentences like (28) that have a subjective interpretation. On another occasion, Julia Lucas produced (29), when talking about people’s ability to per- form traditional challenges.	page 9
+footnote 6	David Inman	note	The order of the quantifier with respect to the main predicate is less important in (27, 28) than it may appear. Quantifiers in Nuuchahnulth frequently (but optionally) front. I do not have a good understanding of when quantifiers front and when they fail to do so, but in all of (27, 28, 29) the quantifiers are semantically identified with an argument of the main predicate, regardless of whether they front.	page 9, footnote 6
+§4.2	David Inman	name	Julia Lucas	tupaat Julia Lucas, Nuuchahnulth speaker, Central dialect
+(29) line 1	Nuuchahnulth	transcription	ʔuušʔiišʔaał wic̓ik, ʔuuš ʕac̓ik, ʔuuš ʔum̓aaqƛ ʔuuy̓ip.	page 9
+(29) line 2	Nuuchahnulth	segmentation	ʔuuš=ʔiˑš=ʔaał wic̓ik, ʔuuš ʕac̓ik, ʔuuš ʔum̓aaqƛ	page 9
+(29) line 3	Nuuchahnulth	gloss	some=STRG.3=HABIT not.talented, some talented, some able.to	page 9
+(29) line 4	Nuuchahnulth	segmentation	ʔu-iˑy̓ip	page 9
+(29) line 5	Nuuchahnulth	gloss	X-get	page 9
+(29) line 6	David Inman	translation	‘Some are not talented, some are talented, some are able to get (the chal- lenge).’	page 9
+§4.2	David Inman	note	In (29), the quantifier ʔuuš ‘some’ is still interpreted as the subject of all the verbs, including the final transitive verb, which is very similar to the structure in (28). Clearly the syntactic parallelism in (29) is important in providing the right interpretation. This demonstrates two important things. First, that the objective interpretation of ʔuuš in (28) is a pragmatically preferred one, not an absolute grammatical requirement. And second, since only the subjective interpretation is possible with the linker, the linker is coordinating predicates below the scope of the clausal clitics, which means below the subject. So the semantics for (27) look like (30).	page 10
+§4.2	Nuuchahnulth	cited form	ʔuuš	page 10, in italics, ‘some’
+(30) line 1	David Inman	formula	∃x SOME(x) & FIND(x,y)	page 10
+§4.2	David Inman	note	And the semantics of (28) are in (31).	page 10
+(31) line 1	David Inman	formula	SOME(x) & FIND(y, z) & (x = y OR x = z)	page 10
+§4.2	David Inman	note	Because ʔuuš is in participant position in (28), it must be the subject or the object, thus the x = y or x = z. But Since ʔuuwaƛ ‘find’ is transitive, it’s not syntactically clear which argument is dropped. Pragmatically, speakers choose the objective interpretation, because if the speaker had wanted to make ʔuuš a subject, the sentence (27) is available and is unambiguous.	page 10
+§4.2	Nuuchahnulth	cited form	ʔuuwaƛ	page 10, in italics, ‘find’
+§4.2	David Inman	note	The presence or absence of the linker in the right context can affect the gram- maticality of a sentence, as in (32, 33). Context: I have landed on the beach in a canoe. While I am visiting, a wave carries it out and it sinks. One person sees it happen and I hear about it from him.	page 10
+(32) line 1	Nuuchahnulth	transcription	n̓aacsiičiƛweʔin c̓awaakḥ niiʔatu č̓apac.	page 10
+(32) line 2	Nuuchahnulth	segmentation	n̓aacs-iˑčiƛ=weˑʔin c̓awaak-ḥ niiʔatu č̓apac	page 10
+(32) line 3	Nuuchahnulth	gloss	see-IN=HRSY.3 one-LINK sink canoe	page 10
+(32) line 4	David Inman	translation	‘One person saw the canoe sink.’	page 10
+(32) line 5	David Inman	citation	(B, Bob Mundy)	page 10, the dialect and speaker at the right of the translation
+(33) line 1	Nuuchahnulth	transcription	*n̓aacsiičiƛweʔin c̓awaak niiʔatu č̓apac.	page 10
+(33) line 2	Nuuchahnulth	segmentation	n̓aacs-iˑčiƛ=weˑʔin c̓awaak niiʔatu č̓apac	page 10
+(33) line 3	Nuuchahnulth	gloss	see-IN=HRSY.3 one sink canoe	page 10
+(33) line 4	David Inman	translation	Intended: ‘One person saw the canoe sink.’	page 10
+(33) line 5	David Inman	citation	(B, Bob Mundy)	page 10, the dialect and speaker at the right of the translation
+§4.2	David Inman	note	When presented with (33), Bob said, “It sounds incomplete. One what? Which one?” The numeral c̓awaak cannot be a participant without an article (see §3), so the article-less c̓awaak ‘one’ cannot be a participant subject of ‘see’ in (33) and the sentence is ungrammatical. However, if it is linked as a co-predicate with ‘see’ (32), then both predicates share the third-person subject clitic and the sentence works with the semantics of (34).	page 10
+§4.2	Nuuchahnulth	cited form	c̓awaak	page 10, in italics
+(34) line 1	David Inman	formula	∃x 3RD(x) & ONE(x) & SEE(x, ∃y SINK(CANOE(y)))	page 10
+§4.3	David Inman	heading	4.3 Non-quantificational Adjectives	page 11
+§4.3	David Inman	note	The linker can also attach to non-quantificational adjectives, as in (35) and its semantic interpretation (36).	page 11
+(35) line 1	Nuuchahnulth	transcription	t̓ikʷaamitweʔiš čims ḥaaʔakqḥ.	page 11
+(35) line 2	Nuuchahnulth	segmentation	t̓ikʷ-aˑ=mit=weˑʔiš čims ḥaaʔak-qḥ	page 11
+(35) line 3	Nuuchahnulth	gloss	dig-DR=PST=HRSY3 bear strong-LINK	page 11
+(35) line 4	David Inman	translation	‘The bear was digging and strong.’	page 11
+(35) line 5	David Inman	citation	(C, tupaat Julia Lucas)	page 11, the dialect and speaker at the right of the translation
+(36) line 1	David Inman	formula	∃x 3(x) & DIG(x, y) & BEAR(x) & STRONG(x)	page 11
+§4.4	David Inman	heading	4.4 Nouns	page 11
+§4.4	David Inman	note	We have already seen the predicate linker on an adjective coordinating with a later noun predicate (35), but it is much rarer to get the linker occurring on the noun itself. This can be forced in linguist-created sentences, but I was fortunate enough for my consultant Julia Lucas to provide a few examples in running texts. (37) is from the start of a traditional myth. I provide the semantics in (38).	page 11
+(37) line 1	Nuuchahnulth	transcription	łuucmaqḥitqač̓aʔaał taakšiƛ p̓iišmita.	page 11
+(37) line 2	Nuuchahnulth	segmentation	łuucma-qḥ=(m)it=qač̓a=ʔaał taakšiƛ p̓iišmita	page 11
+(37) line 3	Nuuchahnulth	gloss	woman-LINK=PST=INFR=HABIT always gossip	page 11
+(37) line 4	David Inman	translation	‘There was a woman who kept gossiping.’	page 11
+(37) line 5	David Inman	citation	(C, tupaat Julia Lucas)	page 11, the dialect and speaker at the right of the translation
+(38) line 1	David Inman	formula	∃x 3RD(x) & WOMAN(x) & ALWAYS(GOSSIP(x))	page 11
+§4.4	David Inman	note	On another occasion, Julia Lucas began another story with the same construc- tion as (37). When Adam Werle asked her why she did it this way, Julia said, “Because it is the start of a story.” This is not much to go on, but it may be the case that the kind of structure seen in (37) is considered poetic or fancy Nuuchahnulth. This is not outlandish. English sentences can take on a literary air the more con- junctions they hold (sentences of a certain genre or style, such as Virginia Woolfe or William Faulkner). Ancient Greek was considered more literary the more par- ticipial phrases one could add to the sentence, thus the awkwardly long sentences in some English translations. Perhaps adding predicates to a clause has a similar effect in Nuuchahnulth.	page 11
+§4.4	David Inman	name	Virginia Woolfe	a literary style
+§4.4	David Inman	name	William Faulkner	a literary style
+§4.4	David Inman	language	English	the translations
+§4.4	David Inman	language	Ancient Greek	participial phrases as a literary style
+§4.4	David Inman	note	There seems to be a stylistic choice behind sentences like (37). The grammati- cality of it, however, fits with the understanding of nouns as one-place predication. In fact, (37) should not be a possible sentence if ‘woman’ were a zero-place pred- ication.	page 11
+§4.5	David Inman	heading	4.5 Adverbs: A counterexample?	page 12
+§4.5	David Inman	note	Somewhat surprisingly, the linker can be added to adverbs in certain contexts.7 This is present in the Nootka Texts (Sapir and Swadesh 1939), although it is rare.8 I was able to replicate one example (39) with the right context, and prompted (40) by asking if the word qiiqḥ could be used when reviewing the story that began with (37). Context for (39): My friend is going bald. I’m also going bald but I don’t look in the mirror much and haven’t noticed.	page 12
+footnote 7	David Inman	note	This is surprising because adverbs are not predicates as verbs, nouns, and adjectives are. I have kept my semantic sketches simple in this paper, but there is a sharp distinction between an argument that is an entity–such as the arguments of GO-HOME(x), SOME(x), CANOE(x)–and an argument that is an event–such as the argument of ALSO(e). A further discussion of the event/entity distinction in Nuuchahnulth must be left for another paper.	page 12, footnote 7
+footnote 8	David Inman	note	I would like to acknowledge Matthew Davidson for providing a searchable database of the Nootka Texts, and Adam Werle for putting this into a convenient spreadsheet format.	page 12, footnote 8
+footnote 8	David Inman	name	Matthew Davidson	the searchable database of the Nootka Texts
+§4.5	Nuuchahnulth	cited form	qiiqḥ	page 12, in italics
+(39) line 1	Nuuchahnulth	transcription	y̓uuqʷaaqḥs ʕasqii ʔaanaḥi wik hinʔałšiƛ.	page 12
+(39) line 2	Nuuchahnulth	segmentation	y̓uuqʷaa-qḥ=s ʕasqii ʔaanaḥi wik hinʔał-šiƛ	page 12
+(39) line 3	Nuuchahnulth	gloss	also-LINK=STRG.1SG bald only NEG realize-MO	page 12
+(39) line 4	David Inman	translation	‘I’m also bald but I don’t know it.’	page 12
+(39) line 5	David Inman	citation	(C, tupaat Julia Lucas)	page 12, the dialect and speaker at the right of the translation
+(40) line 1	Nuuchahnulth	transcription	qiiqḥʔaƛqač̓a p̓iišmita yacmaas.	page 12
+(40) line 2	Nuuchahnulth	segmentation	qii-qḥ=!aƛ=qač̓a p̓iišmita yac-maas	page 12
+(40) line 3	Nuuchahnulth	gloss	long.time-LINK=NOW=INFR.3 gossip walk-in.the.village	page 12
+(40) line 4	David Inman	translation	‘She must’ve been walking around the village gossiping for a long time.’	page 12
+(40) line 5	David Inman	citation	(C, tupaat Julia Lucas)	page 12, the dialect and speaker under the translation
+§4.5	David Inman	note	The linkers in both (39) and (40) aren’t attaching directly to predicates. In- stead they are attaching to modifying adverbs. But in each case, the entire predicate complex of adverb + predicate is in turn coordinated with a further predicate. This is evidence that the predicate linker may actually be in second position of a predi- cate complex. So the linker in (39) is still linking two predicates, ‘also bald’ and ‘only not realize’ (as in 41), and the linker in (40) is linking ‘a long time gossip’ with ‘walk around the village’ (as in 42).	page 12
+(41) line 1	David Inman	formula	∃x 1SG(x) & ALSO(BALD(x)) & ONLY(NOT(REALIZE(x)))	page 12
+(42) line 1	David Inman	formula	∃x 3RD(x) & A-LONG-TIME(GOSSIP(x)) & WALK-AROUND-VILLAGE(x)	page 12
+§4.5	David Inman	note	So cases where the linker attaches to adverbs are not in fact an example of the linker performing a different role than predicate coordination. Rather, they demonstrate that there is a predicate phrase consisting of the predicate plus any accompanying adverbs, and the predicate linker is in the second position of that phrase.	page 12
+§4.6	David Inman	heading	4.6 “Dangling” Linkers	page 13
+§4.6	David Inman	note	There are a few examples where the linker does not appear to be linking its pred- icate to anything. These look like counterexamples to the analysis so far, but I believe that the interpretation of these cases shows that there is an elided phrase. When discussing doing various things for a long time, a consultant produced (43).	page 13
+(43) line 1	Nuuchahnulth	transcription	qiiqḥʔaƛs mamuuk.	page 13
+(43) line 2	Nuuchahnulth	segmentation	qii-qḥ=!aƛ=s mamuuk	page 13
+(43) line 3	Nuuchahnulth	gloss	long.time-LINK=NOW=STRG.1SG work	page 13
+(43) line 4	David Inman	translation	‘I’ve been working a long time.’	page 13
+(43) line 5	David Inman	citation	(N, Fidelia Haiyupis)	page 13, the dialect and speaker at the right of the translation
+§4.6	David Inman	note	There is no second syntactic predicate in (43), only the solitary from mamuuk ‘work.’ My consultant also accepted the same sentence without the linker.9 Since this sentence occurred specifically in a discourse context of performing various tasks for a long time, I believe (43) is similar to beginning a sentence with “and” in English. “And here is another thing I’ve been doing a long time: working.” However, this kind of “dangling” linker in Nuuchahnulth is in my experience far rarer than a dangling, sentence-initial “and” in English.	page 13
+footnote 9	David Inman	note	She felt there was a difference though and struggled to explain it. She suggested it may have to do with time, with (43) (with the linker) indicating working for a relatively longer period, but then became unsure. I suspect there is something to do with the context here. We were already speaking about performing various tasks, using the word qii ‘long time’ quite a lot, and the linker in (43) may simply indicate that this utterance is connected to the previous discussion.	page 13, footnote 9
+§4.6	David Inman	note	There is also a formulaic farewell (44) that contains a “dangling” linker.	page 13
+(44) line 1	Nuuchahnulth	transcription	ʔuʔaałukḥʔiʔał.	page 13
+(44) line 2	Nuuchahnulth	segmentation	ʔu-!aałuk-(q)ḥ=!iˑ=ʔał	page 13
+(44) line 3	Nuuchahnulth	gloss	X-look.after-LINK=CMMD.2SG=HABIT	page 13
+(44) line 4	David Inman	translation	‘Take care!’	page 13
+(44) line 5	David Inman	citation	(N, Fidelia Haiyupis)	page 13, the dialect and speaker at the right of the translation
+§4.6	David Inman	note	I believe that there is a canonical, elided phrase in (44). The meaning is clear in context: “Good-bye, look after yourself, whatever it is you are doing.” However, “whatever it is you are doing” is dropped from the sentence, and we are left with “look after (yourself),” complete with a linker, and the rest is understood.	page 13
+§4.6	David Inman	note	As mentioned, these “dangling” linkers are rare in Nuuchahnulth, and in my experience speakers won’t accept them out of the blue, unless it is formulaic as in (44).	page 13
+§4.7	David Inman	heading	4.7 Summary	page 13
+§4.7	David Inman	note	The predicate linker -(q)ḥ coordinates two predicates beneath the scope of the second-position clausal clitics, which crucially includes the clause’s subject. Be- cause verbs, nouns, and adjectives (including quantifiers) are all predicative, all are potential sites of attachment for the predicate linker, which is free to coordinate with mix-matched syntactic categories. Importantly, the subject-sharing require- ment of linked predicates could only work with nouns if those nouns have at least one semantic argument that can be identified with the subject in the clausal clitic complex. A zero-place predication could not function in this way.	page 13
+§4.7	David Inman	note	The predicate linker can also attach to adverbs. However, in this case it is coordinating the entire adverb + predicate with a still-later predicate. This allows for an analysis where adverbs are not syntactically predicative, and also provides evidence for a predicate phrase below the level of the clause, with its own second position, which I have termed the predicate second position.	page 14
+§5	David Inman	heading	5 Conclusion	page 14
+§5	David Inman	note	I have shown that verbs, adjectives, and common nouns in Nuuchahnulth are all syntactic predicates and are also at least one-place semantic predications. These parts of speech may all be put into syntactic predicate position, directly accepting syntactic participants which fill a semantic argument. The semantic arguments of verbs and adjectives are not accessible as syntactic participants outside their predication without the use of the article, while proper nouns are zero-place pred- ications which do not have any semantic arguments and may not have an article attached. Common nouns alone may have their argument accessed by other predi- cations without the article present, suggesting that common nouns may have their argument type-raised without an overt marker in the syntax. The predicate linker is able to overtly connect any two predicates—verbs, adjectives, and nouns—in the syntax. The scoping of the predicate linker requires that the two predicates’ first semantic arguments are identified with each other and the subject of the clausal clitic complex.	page 14
+§5	David Inman	note	The combined evidence from the article and predicate linker provides a good reason to consider this semantic analysis for Nuuchahnulth. It also means that there is no need for a separate copula predication (BE or COP) when modeling non-verbal predicates, as in (2, 3).	page 14
+§5	David Inman	note	It remains an open question if this model for nouns is beneficial when looking at other languages. While we may want to scope nouns when doing set-theoretic modeling, it’s not clear that this is something the language itself is providing, or if it is something we are adding to make our mathematical semantics behave prop- erly. I’ve demonstrated that, at least for Nuuchahnulth, there are language-internal reasons to model common nouns with a semantic argument. I am not eager to as- sume that this extends to all languages. To put it generously, linguistic work in the Pacific Northwest challenges assumptions about linguistic universality. What would it mean to assume that nouns are lexically specified as having arguments in other languages? Would such an analysis make particular predictions about syntactic phenomena in those languages? Are those predictions borne out in the data? A good place to start looking for this kind of behavior is in other languages of the Pacific Northwest sprachbunde. Many of the features present in Nuuchahnulth (predicate-initial, predicate-flexible) are also true of neighboring Salish languages. It would be valuable to see if the analysis presented here translates to languages in Salishan and beyond.	page 14
+references	David Inman	heading	References	page 15
+references	David Inman	reference	Copestake, A., Flickinger, D., Pollard, C. J., and Sag, I. A. (2005). Minimal re- cursion semantics: an introduction. Research on Language and Computation, 3(4):281–332.	page 15
+references	David Inman	reference	Davidson, D. (1967). The logical form of action sentences.	page 15
+references	David Inman	reference	Heim, I. and Kratzer, A. (1998). Semantics in generative grammar. Blackwell Oxford.	page 15
+references	David Inman	reference	Jacobsen, W. H. (1979). Noun and verb in Nootkan. In The Victoria conference on Northwestern Languages, pages 83–155.	page 15
+references	David Inman	reference	Li, C. and Thompson, S. (1981). A functional reference grammar of Mandarin Chinese. University of California Press, Berkeley.	page 15
+references	David Inman	reference	Parsons, T. (1990). Events in the Semantics of English, volume 5. Cambridge, Ma: MIT Press.	page 15
+references	David Inman	reference	Sapir, E. and Swadesh, M. (1939). Nootka Texts: Tales and ethnological nar- ratives, with grammatical notes and lexical materials. Linguistic society of America, University of Pennsylvania.	page 15
+references	David Inman	reference	Swadesh, M. (1938). Nootka internal syntax. International Journal of American Linguistics, 9(2/4):77–102.	page 15
+references	David Inman	reference	Werle, A. (2010). The phonology of wakashan languages. Manuscript, University of Victoria, Victoria, British Columbia, Canada.	page 15
+references	David Inman	reference	Werle, A. (2013). A comparison of moods in four nuu-chah-nulth dialects. Uni- versity of Victoria, ms.	page 15
+references	David Inman	reference	Wojdak, R. (2001). An argument for category neutrality? In Megerdoomian, K. and Bar-el, L. A., editors, Proceedings of the West Coast Conference on Formal Linguistics, volume 20, pages 621–634.	page 15
+appendix	David Inman	heading	A IGT Conventions	page 15
+appendix	David Inman	note	Table 1 gives a list of non-standard abbreviations used in the IGT of this paper.	page 15
+appendix	David Inman	note	In addition to these abbreviations, there are certain other conventions in the representation of underlying forms. A consonant in parentheses () is typically only realized after a vowel or nasal. An exclamation point! means that the preceding segment is hardened if possible (+glottalic), and otherwise inserts a glottal stop. Similarly a degree symbol ° indicates that the preceding segment is softened if possible (-glottalic), and otherwise inserts a glottal stop. These hardening and softening rules differ slightly between suffixes and clitics (Werle 2010).	page 15
+Table 1 line 1	David Inman	note	Table 1: Non-standard abbreviations	page 16, the caption
+Table 1 line 2	David Inman	note	Abbreviation Full Name Description	page 16, heads the columns
+Table 1 line 3	David Inman	notation	IN	page 16, inceptive, the inceptive aspect
+Table 1 line 4	David Inman	notation	MO	page 16, momentaneous, the momentaneous aspect, similar to perfective but may indicate the start of an event rather than its completion
+Table 1 line 5	David Inman	notation	DR	page 16, durative, the durative aspect
+Table 1 line 6	David Inman	notation	GRAD	page 16, graduative, the graduative aspect, similar to English progressive
+Table 1 line 7	David Inman	notation	NOW	page 16, now, indicates the beginning of the next event in a sequence
+Table 1 line 8	David Inman	notation	STRG	page 16, strong mood, strong claim to factual status, non-Barkley sound
+Table 1 line 9	David Inman	notation	REAL	page 16, real mood, strong claim to factual status, Barkley sound only
+Table 1 line 10	David Inman	notation	NEUT	page 16, neutral mood, no claim to factual status or a continuation of previous factual claim
+Table 1 line 11	David Inman	notation	HRSY	page 16, hearsay mood, the status of the event is based on hearsay
+Table 1 line 12	David Inman	notation	INFR	page 16, inferential, the status of the event is inferred from other information
+Table 1 line 13	David Inman	notation	X	page 16, —, a semantically empty object (ʔu) that certain suffixes must attach to
+Table 1 line 13	Nuuchahnulth	cited form	ʔu	page 16, in italics, the empty object X
+Table 1 line 14	David Inman	notation	ART	page 16, article, the article
+Table 1 line 15	David Inman	notation	D1, D2, D3, D4	page 16, deictic (1, 2, 3, 4), a demonstrative deictic, with 1 being closest to the speaker and 4 furthest away
+appendix	David Inman	note	There are other morphemes that have effect on the realization of vowel lengths. I represent variable-length vowels with the Nuuchahnulth standard symbol ˑ. These vowels are long if they occur in the first two syllables of a word and otherwise short. Other segments affect the lengths of the first one or two syllables in a word. These segments represented with capital L and S. For instance, the graduative mor- pheme is simply a long-short vowel template, and represented in the segmentation line as LS. The suffix meaning ‘find’ contains the segment -waƛ and lengthens the first vowel in the word. It is represented in the segmentation as -L.waƛ.	page 16

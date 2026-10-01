@@ -1,0 +1,494 @@
+where	who	kind	form	gloss
+front	Gloria Mellesmoen	note	In Proceedings of the International Conference on Salish and Neighbouring Languages 60, Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2025.	page 1
+front	Gloria Mellesmoen	notation	əC-	the prefix the first stratum yields, a schwa and a copy of the second root consonant
+front	Gloria Mellesmoen	note	Abstract: Twana C1C2 reduplication poses challenges for Base-Reduplicant Correspondence Theory in Optimality Theory; the reduplicant in the “wrong side” form does not copy adjacent segments. In this squib, I show that a constraint-based analysis of plural reduplication in Twana is possible with a combination of Generalised Nonlinear Affixation and Stratal Optimality Theory. Reduplication in Twana first yields əC-, which then triggers deletion, metathesis, or additional reduplication at a subsequent stratum to ensure every syllable has an onset.	page 1, the abstract
+front	Gloria Mellesmoen	note	Keywords: Twana, reduplication, Stratal Optimality Theory, phonological repairs	page 1
+§1	Gloria Mellesmoen	heading	1 Introduction	page 1
+§1	Gloria Mellesmoen	note	Optimality Theory (OT) has proven suitable for the analysis of complex patterns, such as those that involve both triggering and blocking patterns (Zuraw 2003; McCarthy 2007: 260–262). OT can account for phonological phenomena cross-linguistically in a constrained manner: language- specific patterns emerge from how the set of universal constraints are ranked (Prince & Smolensky 2004), rather than requiring learners to posit both language-specific rules and orders. While early analyses of Salish phonology relied on ordered rules (e.g., Davis 1970), drawing on the approach laid out in Chomsky and Halle’s (1968) Sound Pattern of English, more recent analyses have shown that the same phenomena can be analysed using OT (e.g., Blake 2000). OT can capture the same empirical facts as rule-based analyses with additional advantages, such as predicting emergence of the unmarked phenomena (McCarthy & Prince 1994). However, there is one type of reduplication in Salish where even modern analyses use rules instead of constraints: “wrong side” plural reduplication in Twana and Tillamook, shown in (1).	page 1
+(1a) line 1	Twana	segmentation	s-q~téqaw	page 1, a Twana example
+(1a) line 1	Drachman 1969: 86	translation	‘horses’	page 1
+(1a) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 86, Twana)	the source at the right of the translation
+(1b) line 1	Tillamook	segmentation	s-q~ɬéqil	page 1, a Tillamook example
+(1b) line 1	Egesdal & Thompson 1998: 249	translation	‘Someone is sitting.’	page 1
+(1b) line 1	Gloria Mellesmoen	citation	(Egesdal & Thompson 1998: 249, Tillamook)	the source at the right of the translation
+footnote *	Gloria Mellesmoen	note	* Thank you to members of the Salish Working Group for helpful comments and suggestions on an early version of the analysis. I am also grateful to my committee (Henry Davis, Lisa Matthewson, and Gunnar Hansson) for their feedback on some of the ideas presented in this squib. The ungrammatical intermediate forms in this paper are further evidence for claims made in my other Salish conference paper this year.	page 1, footnote
+footnote 1	Gloria Mellesmoen	note	1 Voiceless stops are reduplicated as voiced obstruents in Tillamook (see Egesdal & Thompson 1998: 235).	page 1, footnote
+§1	Gloria Mellesmoen	note	The Twana pattern was analysed first in Drachman (1969); it was later reanalysed in Kim (2017). The Tillamook pattern has only been analysed in Kim and Gardiner (2016). The three rule- based analyses converge on the idea what “wrong side” reduplication is a reduced form of plural C1C2 reduplication, which means that the examples in (1) have the same morpheme as those in (2).1	page 1
+(2) line 1	Twana	segmentation	bəd~bə́də(h)	page 2, a Twana example
+(2) line 1	Drachman 1969: 225	translation	‘children’	page 2
+(2) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 225, Twana)	the source at the right of the translation
+(2) line 2	Tillamook	segmentation	dən~t̓ə́ni	page 2, a Tillamook example
+(2) line 2	Egesdal & Thompson 1998: 3	translation	‘ears’	page 2
+(2) line 2	Gloria Mellesmoen	citation	(Egesdal & Thompson 1998: 3, Tillamook)	the source at the right of the translation
+§1	Gloria Mellesmoen	note	Previous rule-based analyses therefore establish that a constraint-based analysis must be able to predict both “wrong side” and C1C2 reduplication from the same underlying morpheme; constraint-based analyses must be able to achieve the same empirical coverage with the added limitation that both patterns must be predicted from the same constraint ranking(s). In this squib, I present the first constraint-based analysis of “wrong side” reduplication in Twana. Section 2 introduces the data and presents a description of the pattern that shows that C1C2 and “wrong side” reduplication are phonologically conditioned allomorphs of a single morpheme. The phonological framework for the analysis is given in Section 3. I provide my analysis of C1C2 and “wrong side” reduplication in Section 4. While “wrong side” reduplication can be analysed in a constraint-based framework, it requires a combination of Generalised Nonlinear Affixation and Stratal Optimality Theory. Section 5 concludes the paper with discussion of the theoretical implications of this analysis.	page 2
+§2	Gloria Mellesmoen	heading	2 C1C2 and “Wrong Side” Reduplication in Twana	page 2
+§2	Gloria Mellesmoen	notation	ə	schwa
+§2	Gloria Mellesmoen	note	Twana is a Central Salish language; it is like Lushootseed with respect to its phonology (see descriptions of Lushootseed in Hess 1967, Urbanczyk 1996, and Kye 2023). For example, both Twana and Lushootseed have voiced stops that developed from Proto-Salish nasals (Czaykowska- Higgins & Kinkade 1998: 8). I assume that voiced obstruents in the language pattern as sonorants in Twana, following Urbanczyk’s (1996) treatment of Lushootseed. I adopt the feature [SV], which stands for sonorant voicing, to group voiced obstruents and sonorants together in Salish (Mellesmoen 2018). Examples of reduplication in this paper come from Drachman (1969). I follow Drachman (1969) and Kim (2017) by analysing “wrong side” reduplication as a type of C1C2 reduplication. Drachman (1969) does not provide translations for most examples; he marks them as “augmentative”. I include “C1C2” in the translations to mark that these are reduplicated, though it is unclear if C1C2 reduplication marks properties in addition to plurality, as in other Salish languages (see Czaykowska-Higgins 1993a and Van Eijk 1998). Examples with C1C2 reduplication are provided in (3). The first two consonants of the root are copied with an epenthetic [ə] between the two copied consonants; prefixes are outside the domain for reduplication, as shown in (3e–j).	page 2
+(3a) line 1	Twana	segmentation	xʷəd~xʷə́d	page 2, a Twana example
+(3a) line 1	Drachman 1969: 89	translation	‘tired (C1C2)’	page 2
+(3a) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 89)	the source at the right of the translation
+(3b) line 1	Twana	segmentation	təb~tə́baxʷ	page 2, a Twana example
+(3b) line 1	Drachman 1969: 39	translation	‘land, earth (C1C2)’	page 2
+(3b) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 39)	the source at the right of the translation
+(3c) line 1	Twana	segmentation	q̓ʷəl̓~q̓ʷə́lde(h)	page 2, a Twana example
+(3c) line 1	Drachman 1969: 41	translation	‘ear (C1C2)’	page 2
+(3c) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 41)	the source at the right of the translation
+(3d) line 1	Twana	segmentation	yəd̓~yə́das	page 2, a Twana example
+(3d) line 1	Drachman 1969: 41	translation	‘tooth (C1C2)’	page 2
+(3d) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 41)	the source at the right of the translation
+(3e) line 1	Twana	segmentation	ʔəs-ɬəb~ɬób	page 2, a Twana example
+(3e) line 1	Drachman 1969: 57	translation	‘scarred (C1C2)’	page 2
+(3e) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 57)	the source at the right of the translation
+(3f) line 1	Twana	segmentation	ʔəs-qəb~qə́bac	page 2, a Twana example
+(3f) line 1	Drachman 1969: 47	translation	‘shrunk (C1C2)’	page 2
+(3f) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 47)	the source at the right of the translation
+(3g) line 1	Twana	segmentation	ʔəs-cəl̓~cə́l̓as	page 2, a Twana example
+(3g) line 1	Drachman 1969: 129	translation	‘rattled (C1C2)’	page 2
+(3g) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 129)	the source at the right of the translation
+(3h) line 1	Twana	segmentation	ʔəs-x̣əl̓~x̣ə́l̓	page 2, a Twana example
+(3h) line 1	Drachman 1969: 41	translation	‘marked, written (C1C2)’	page 2
+(3h) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 41)	the source at the right of the translation
+(3i) line 1	Twana	segmentation	ʔəs-kʷəd~kʷə́dad	page 2, a Twana example
+(3i) line 1	Drachman 1969: 39	translation	‘held (C1C2)’	page 2
+(3i) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 39)	the source at the right of the translation
+(3j) line 1	Twana	segmentation	sə-bəd~báde	page 2, a Twana example
+(3j) line 1	Drachman 1969: 81	translation	‘mountain (C1C2)’	page 2
+(3j) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 81)	the source at the right of the translation
+§2	Gloria Mellesmoen	notation	Ceʔ	the surface C1C2 reduplicant before a root glide /y/
+§2	Gloria Mellesmoen	notation	Coʔ	the surface C1C2 reduplicant before a root glide /w/
+§2	Gloria Mellesmoen	notation	/Cəy/	the reduplicant that surfaces as Ceʔ
+§2	Gloria Mellesmoen	notation	/Cəw/	the reduplicant that surfaces as Coʔ
+§2	Gloria Mellesmoen	note	The examples in (3) have an epenthetic [ə] between the two copied consonants; this is present when the second consonant in the root has the feature [SV] (i.e., it is a sonorant or a voiced obstruent), unless the second consonant is a glide. If the second consonant is a /y/ or /w/, C1C2 reduplication surfaces as [Ceʔ] or [Coʔ], respectively. Examples are given in (4). I treat [Ceʔ] and [Coʔ] as surface realisations of /Cəy/ and /Cəw/ that occur as part of general processes of glide vocalisation in the language (see Drachman 1969: 113–115 for discussion of this pattern).	page 2
+(4a) line 1	Twana	segmentation	s-c̓eʔ~c̓áy̓at	page 3, a Twana example
+(4a) line 1	Drachman 1969: 41	translation	‘salmon gill (C1C2)’	page 3
+(4a) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 41)	the source at the right of the translation
+(4b) line 1	Twana	segmentation	k̓ʷeʔ~k̓ʷóy	page 3, a Twana example
+(4b) line 1	Drachman 1969: 41	translation	‘mother (C1C2)’	page 3
+(4b) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 41)	the source at the right of the translation
+(4c) line 1	Twana	segmentation	ʔəs-kʷeʔ~kʷóy	page 3, a Twana example
+(4c) line 1	Drachman 1969: 41	translation	‘bent (C1C2)’	page 3
+(4c) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 41)	the source at the right of the translation
+(4d) line 1	Twana	segmentation	ɬoʔ~ɬáwalbəš	page 3, a Twana example
+(4d) line 1	Drachman 1969: 41	translation	‘person (C1C2)’	page 3
+(4d) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 41)	the source at the right of the translation
+(4e) line 1	Twana	segmentation	šoʔ~šáw̓	page 3, a Twana example
+(4e) line 1	Drachman 1969: 37	translation	‘bone (C1C2)’	page 3
+(4e) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 37)	the source at the right of the translation
+§2	Gloria Mellesmoen	notation	CəC-	the C1C2 realisation of the reduplicant, a copied consonant, schwa and a copied consonant
+§2	Gloria Mellesmoen	note	obstruent, as in (3) and (4) above), then C1C2 reduplication is always realised as CəC-. If the second consonant is a voiceless obstruent, then C1C2 reduplication is realised as CC- or with “wrong side” reduplication. The CC- realisation is identical to CəC-, aside from the fact that [ə] is not present, as shown in (5). In my analysis, I unify the patterns by assuming that both have epenthetic [ə] at the point of reduplication; an unstressed [ə] may be omitted later in the derivation if it is not before a sonorant. In the remainder of this squib, I group the patterns under the label CəC-.	page 3
+(5a) line 1	Twana	segmentation	pk̓~pə́k̓ʷ	page 3, a Twana example
+(5a) line 1	Drachman 1969: 61	translation	‘spotted (C1C2)’	page 3
+(5a) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 61)	the source at the right of the translation
+(5b) line 1	Twana	segmentation	kʷt~kʷə́təbəc	page 3, a Twana example
+(5b) line 1	Drachman 1969: 51	translation	‘husband (C1C2)’	page 3
+(5b) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 51)	the source at the right of the translation
+(5c) line 1	Twana	segmentation	q̓ʷp~q̓ʷópaptəd	page 3, a Twana example
+(5c) line 1	Drachman 1969: 38	translation	‘cushion (C1C2)’	page 3
+(5c) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 38)	the source at the right of the translation
+(5d) line 1	Twana	segmentation	čt~čə́t	page 3, a Twana example
+(5d) line 1	Drachman 1969: 38	translation	‘older brother (C1C2)’	page 3
+(5d) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 38)	the source at the right of the translation
+(5e) line 1	Twana	segmentation	šƛ̓~šóƛ̓	page 3, a Twana example
+(5e) line 1	Drachman 1969: 37	translation	‘grind (C1C2)’	page 3
+(5e) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 37)	the source at the right of the translation
+(5f) line 1	Twana	segmentation	š-č̓t~č̓ə́tay	page 3, a Twana example
+(5f) line 1	Drachman 1969: 47	translation	‘pan (C1C2)’	page 3
+(5f) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 47)	the source at the right of the translation
+(5g) line 1	Twana	segmentation	s-pq̓ʷ~pə́q̓ʷ	page 3, a Twana example
+(5g) line 1	Drachman 1969: 54	translation	‘feather (C1C2)’	page 3
+(5g) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(5h) line 1	Twana	segmentation	s-q̓ƛ̓~q̓áƛ̓ad	page 3, a Twana example
+(5h) line 1	Drachman 1969: 38	translation	‘snail (C1C2)’	page 3
+(5h) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 38)	the source at the right of the translation
+(5i) line 1	Twana	segmentation	ʔəs-k̓ʷp~k̓ʷáp	page 3, a Twana example
+(5i) line 1	Drachman 1969: 54	translation	‘correct, straight (C1C2)’	page 3
+(5i) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(5j) line 1	Twana	segmentation	ʔəs-pq~pə́q	page 3, a Twana example
+(5j) line 1	Drachman 1969: 54	translation	‘white (C1C2)’	page 3
+(5j) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(5k) line 1	Twana	segmentation	ʔəs-q̓ʷt~q̓ʷə́taxʷ	page 3, a Twana example
+(5k) line 1	Drachman 1969: 48	translation	‘thin (C1C2)’	page 3
+(5k) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 48)	the source at the right of the translation
+(5l) line 1	Twana	segmentation	ʔəs-q̓xʷ~q̓áxʷ	page 3, a Twana example
+(5l) line 1	Drachman 1969: 38	translation	‘frozen (C1C2)’	page 3
+(5l) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 38)	the source at the right of the translation
+(5m) line 1	Twana	segmentation	ʔəs-q̓ʷƛ̓~q̓ʷóƛ̓	page 3, a Twana example
+(5m) line 1	Drachman 1969: 38	translation	‘hidden (C1C2)’	page 3
+(5m) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 38)	the source at the right of the translation
+(5n) line 1	Twana	segmentation	ʔəš-šč̓~šéč̓	page 3, a Twana example
+(5n) line 1	Drachman 1969: 38	translation	‘paid (C1C2)’	page 3
+(5n) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 38)	the source at the right of the translation
+(5o) line 1	Twana	segmentation	ʔəs-ƛ̓c̓~ƛ̓óc̓	page 3, a Twana example
+(5o) line 1	Drachman 1969: 38	translation	‘knotted (C1C2)’	page 3
+(5o) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 38)	the source at the right of the translation
+(5p) line 1	Twana	segmentation	ʔəs-t̓č̓~t̓éč̓	page 3, a Twana example
+(5p) line 1	Drachman 1969: 38	translation	‘pulled (C1C2)’	page 3
+(5p) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 38)	the source at the right of the translation
+(5q) line 1	Twana	segmentation	ʔəs-p̓c~p̓óc	page 3, a Twana example
+(5q) line 1	Drachman 1969: 38	translation	‘floating (C1C2)’	page 3
+(5q) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 38)	the source at the right of the translation
+(5r) line 1	Twana	segmentation	ʔəs-pq̓ʷ~pə́q̓ʷqʷəd	page 3, a Twana example
+(5r) line 1	Drachman 1969: 37	translation	‘feather in hair (C1C2)’	page 3
+(5r) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 37)	the source at the right of the translation
+§2	Gloria Mellesmoen	notation	Cə-	the “wrong side” realisation with schwa, the metathesis repair
+§2	Gloria Mellesmoen	note	“Wrong side” reduplication includes C- and Cə- realisations of C1C2 reduplication; this pattern is called “wrong side” reduplication because the second consonant of the root is copied and positioned on the opposite edge of the word. In other words, the reduplicated consonant surfaces at the left edge of the root but does not copy adjacent segments. Examples of the C- form are given in (6); the Cə- form is shown in (7). An epenthetic [ə] separates the reduplicated consonant from the root in words with the Cə- realisation. The C- form is attested with roots that have voiceless obstruents as both the first and second consonants; the Cə- form is used when the first consonant is a sonorant or voiced obstruent and the second is a voiceless obstruent.	page 3
+(6a) line 1	Twana	segmentation	k~t̓ə́keʔəs	page 3, a Twana example
+(6a) line 1	Drachman 1969: 37	translation	‘basket (C1C2)’	page 3
+(6a) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 37)	the source at the right of the translation
+(6b) line 1	Twana	segmentation	xʷ~sə́xʷtəd	page 3, a Twana example
+(6b) line 1	Drachman 1969: 54	translation	‘grease, fat (C1C2)’	page 3
+(6b) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6c) line 1	Twana	segmentation	k̓ʷ~tə́k̓ʷapšəd	page 3, a Twana example
+(6c) line 1	Drachman 1969: 54	translation	‘shoe (C1C2)’	page 3
+(6c) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6d) line 1	Twana	segmentation	p̓~səp̓təd	page 4, a Twana example
+(6d) line 1	Drachman 1969: 54	translation	‘stick (C1C2)’	page 4
+(6d) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6e) line 1	Twana	segmentation	p~čáp	page 4, a Twana example
+(6e) line 1	Drachman 1969: 54	translation	‘aunt (C1C2)’	page 4
+(6e) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6f) line 1	Twana	segmentation	q̓~c̓ə́q̓pe(h)	page 4, a Twana example
+(6f) line 1	Drachman 1969: 54	translation	‘fir tree (C1C2)’	page 4
+(6f) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6g) line 1	Twana	segmentation	s-k~cə́kabšəd	page 4, a Twana example
+(6g) line 1	Drachman 1969: 54	translation	‘shin (C1C2)’	page 4
+(6g) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6h) line 1	Twana	segmentation	s-q̓ʷ~ɬəq̓ʷqs	page 4, a Twana example
+(6h) line 1	Drachman 1969: 54	translation	‘nostril (C1C2)’	page 4
+(6h) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6i) line 1	Twana	segmentation	s-q̓~sə́q̓če(h)	page 4, a Twana example
+(6i) line 1	Drachman 1969: 51	translation	‘finger (C1C2)’	page 4
+(6i) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 51)	the source at the right of the translation
+(6j) line 1	Twana	segmentation	s-q̓~ɬə́q̓x̣əd	page 4, a Twana example
+(6j) line 1	Drachman 1969: 51	translation	‘arm (C1C2)’	page 4
+(6j) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 51)	the source at the right of the translation
+(6k) line 1	Twana	segmentation	s-q~tə́q	page 4, a Twana example
+(6k) line 1	Drachman 1969: 54	translation	‘log jam (C1C2)’	page 4
+(6k) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6l) line 1	Twana	segmentation	ʔəs-q̓~x̣ə́q̓	page 4, a Twana example
+(6l) line 1	Drachman 1969: 55	translation	‘landed (C1C2)’	page 4
+(6l) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 55)	the source at the right of the translation
+(6m) line 1	Twana	segmentation	ʔəs-t~xʷót	page 4, a Twana example
+(6m) line 1	Drachman 1969: 55	translation	‘soaked (C1C2)’	page 4
+(6m) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 55)	the source at the right of the translation
+(6n) line 1	Twana	segmentation	ʔəs-t̓~x̣ə́t̓	page 4, a Twana example
+(6n) line 1	Drachman 1969: 55	translation	‘flicked (C1C2)’	page 4
+(6n) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 55)	the source at the right of the translation
+(6o) line 1	Twana	segmentation	ʔəs-c̓~xʷə́c̓	page 4, a Twana example
+(6o) line 1	Drachman 1969: 55	translation	‘measured (C1C2)’	page 4
+(6o) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 55)	the source at the right of the translation
+(6p) line 1	Twana	segmentation	ʔəs-c~xʷécas	page 4, a Twana example
+(6p) line 1	Drachman 1969: 55	translation	‘fighting (C1C2)’	page 4
+(6p) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 55)	the source at the right of the translation
+(6q) line 1	Twana	segmentation	ʔəs-p̓~ɬə́p̓	page 4, a Twana example
+(6q) line 1	Drachman 1969: 54	translation	‘hung over and down (C1C2)’	page 4
+(6q) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6r) line 1	Twana	segmentation	ʔəs-p̓~c̓ə́p̓	page 4, a Twana example
+(6r) line 1	Drachman 1969: 54	translation	‘flooded (C1C2)’	page 4
+(6r) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6s) line 1	Twana	segmentation	ʔəs-x̣ʷ~céx̣ʷ	page 4, a Twana example
+(6s) line 1	Drachman 1969: 54	translation	‘boiled (C1C2)’	page 4
+(6s) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6t) line 1	Twana	segmentation	ʔəs-kʷ~t̓ə́kʷ	page 4, a Twana example
+(6t) line 1	Drachman 1969: 54	translation	‘pierced (C1C2)’	page 4
+(6t) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6u) line 1	Twana	segmentation	ʔəs-q̓ʷ~ɬə́q̓ʷ	page 4, a Twana example
+(6u) line 1	Drachman 1969: 54	translation	‘extinguished (C1C2)’	page 4
+(6u) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6v) line 1	Twana	segmentation	ʔəs-qʷ~šáqʷ	page 4, a Twana example
+(6v) line 1	Drachman 1969: 54	translation	‘smeared (C1C2)’	page 4
+(6v) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6w) line 1	Twana	segmentation	ʔəs-q~c̓éq	page 4, a Twana example
+(6w) line 1	Drachman 1969: 54	translation	‘red (C1C2)’	page 4
+(6w) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(6x) line 1	Twana	segmentation	ʔəs-q~təqcədəxʷ	page 4, a Twana example
+(6x) line 1	Drachman 1969: 51	translation	‘closed (C1C2)’	page 4
+(6x) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 51)	the source at the right of the translation
+(6y) line 1	Twana	segmentation	ʔəs-xʷ~c̓ə́xʷəl̓əs	page 4, a Twana example
+(6y) line 1	Drachman 1969: 51	translation	‘steamed (C1C2)’	page 4
+(6y) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 51)	the source at the right of the translation
+(7a) line 1	Twana	segmentation	qə~bə́qsəd	page 4, a Twana example
+(7a) line 1	Drachman 1969: 61	translation	‘nose (C1C2)’	page 4
+(7a) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 61)	the source at the right of the translation
+(7b) line 1	Twana	segmentation	q̓ʷə~wəq̓ʷátəb	page 4, a Twana example
+(7b) line 1	Drachman 1969: 37	translation	‘sunk (C1C2)’	page 4
+(7b) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 37)	the source at the right of the translation
+(7c) line 1	Twana	segmentation	q̓ə~wə́q̓ab	page 4, a Twana example
+(7c) line 1	Drachman 1969: 41	translation	‘box (C1C2)’	page 4
+(7c) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 41)	the source at the right of the translation
+(7d) line 1	Twana	segmentation	ʔəs-q̓e~yə́q̓	page 4, a Twana example
+(7d) line 1	Drachman 1969: 55	translation	‘filed (C1C2)’	page 4
+(7d) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 55)	the source at the right of the translation
+(7e) line 1	Twana	segmentation	ʔəš-č̓ə~déč̓	page 4, a Twana example
+(7e) line 1	Drachman 1969: 54	translation	‘grazed, scratched (C1C2)’	page 4
+(7e) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(7f) line 1	Twana	segmentation	ʔəs-ƛ̓ə~mə́ƛ̓	page 4, a Twana example
+(7f) line 1	Drachman 1969: 54	translation	‘proud (C1C2)’	page 4
+(7f) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(7g) line 1	Twana	segmentation	ʔəs-t̓ə~bót̓	page 4, a Twana example
+(7g) line 1	Drachman 1969: 54	translation	‘suckled (C1C2)’	page 4
+(7g) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 54)	the source at the right of the translation
+(7h) line 1	Twana	segmentation	ʔəs-q̓ə~wə́q̓cədəxʷ	page 4, a Twana example
+(7h) line 1	Drachman 1969: 51	translation	‘open (C1C2)’	page 4
+(7h) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 51)	the source at the right of the translation
+(7i) line 1	Twana	segmentation	ʔəs-x̣ə~báx̣	page 4, a Twana example
+(7i) line 1	Drachman 1969: 228	translation	‘worn out (C1C2)’	page 4
+(7i) line 1	Gloria Mellesmoen	citation	(Drachman 1969: 228)	the source at the right of the translation
+§2	Twana	cited form	qəbə́qsəd	page 4, ‘nose (C1C2)’, (7a), with its three underlined segments
+§2	Gloria Mellesmoen	note	For words with the “wrong side” realisations of C1C2 reduplication, there may be two or three segments separating the reduplicated segment from the root segment it copies. For example, there are two (underlined) segments separating the reduplicated consonant from the corresponding root segment in kt̓ə́ keʔəs ‘basket (C 1C2)’ in (6a); there are three (underlined) segments between the identical consonants in qəbə́qsəd ‘nose (C1C2)’ in (7a).	page 4
+§2	Twana	cited form	kt̓ə́keʔəs	page 4, ‘basket (C1C2)’, (6a), the text layer splitting it where the page underlines two segments
+§2	Gloria Mellesmoen	note	Table 1 shows that the choice of CəC-, C-, or Cə- reduplication is informed by the identity of the first and second consonant in the root. A sonorant or voiced obstruent in C2 position will always trigger the CəC- form. With a voiceless obstruent in C2 position, roots with an initial sonorant or voiced obstruent will take the Cə- type of “wrong side” reduplication. Roots with voiceless obstruents as the first and second consonant allow CəC- and the C- type of “wrong side” reduplication.	page 4
+Table 1	Gloria Mellesmoen	note	Table 1: Realisations of C1C2 Reduplication by First and Second Root Consonant	page 5, the caption
+Table 1	Gloria Mellesmoen	note	↓ C1 \ C2 → Sonorant/Voiced Obstruent Voiceless Obstruent	page 5, the column heads, C1 down the side and C2 across the top
+Table 1 line 1	Gloria Mellesmoen	note	Sonorant/Voiced Obstruent CəC- Cə-	page 5, a row of the table
+Table 1 line 2	Gloria Mellesmoen	note	Voiceless Obstruent CəC- CəC-/C-	page 5, a row of the table
+§2	Gloria Mellesmoen	notation	CəC-/C-	a cell of Table 1 where both realisations are attested
+§2	Gloria Mellesmoen	note	Only voiceless obstruent-voiceless obstruent roots appear to be attested with more than one realisation of C1C2 reduplication. The choice between CəC- and C- is predictable, however. Table 2 breaks the voiceless obstruents by primary place of articulation, based on major place feature. I adopt a feature geometry where the main place features are Labial, Coronal, and Dorsal (see, e.g., Halle 1995). Coronal includes dental, alveolar, and palatal sounds; dorsal includes velars and uvulars. Labial only includes /p/ and /p̓/ in Twana. The CəC- form occurs when the root has a labial in C1 position, as well as for CdorsalClabial and CcoronalCcoronal roots. The C- form occurs for CcoronalCdorsal and CcoronalClabial roots. It is only when C1 is a dorsal and C2 is either a coronal or a dorsal that both deletion and reduplication are attested. Table 3 shows that C- occurs when the C1 dorsal is a fricative; CəC- occurs when the C1 dorsal is a stop or affricate. The phonological feature responsible for this is [+/- continuant]: fricatives are [+ continuant], while stops and affricates are [-continuant].	page 5
+Table 2	Gloria Mellesmoen	note	Table 2: Realisations of C1C2 Reduplication by Place Feature of Voiceless Obstruent	page 5, the caption
+Table 2	Gloria Mellesmoen	note	↓ C1 \ C2 → Labial Coronal Dorsal	page 5, the column heads, C1 down the side and C2 across the top
+Table 2 line 1	Gloria Mellesmoen	note	Labial no examples CəC- CəC-	page 5, a row of the table
+Table 2 line 2	Gloria Mellesmoen	note	Coronal C- CəC- C-	page 5, a row of the table
+Table 2 line 3	Gloria Mellesmoen	note	Dorsal CəC- CəC-/C- CəC-/C-	page 5, a row of the table
+Table 3	Gloria Mellesmoen	note	Table 3: Realisations of C1C2 Reduplication by C1 Dorsal Manner of Articulation	page 5, the caption
+Table 3	Gloria Mellesmoen	note	↓ C1 \ C2 → Coronal/Dorsal	page 5, the column heads, C1 down the side and C2 across the top
+Table 3 line 1	Gloria Mellesmoen	note	Dorsal Fricative C-	page 5, a row of the table
+Table 3 line 2	Gloria Mellesmoen	note	Dorsal Stop/Affricate CəC-	page 5, a row of the table
+§2	Gloria Mellesmoen	note	The patterns concerning place of articulation can be reduced to a two-way distinction: [Coronal] sounds and [Labial]/[Dorsal] sounds. The findings summarised in Table 2 are informed by 56 examples from Drachman (1969) showing different C1C2 combinations in roots. There are only two labial consonants in the language (/p/ and /p̓/), which means there are fewer attested forms for combinations with [Labial] obstruents than for [Coronal] or [Dorsal] obstruents. For example, combinations with dorsal and coronal obstruents include combinations of velar and uvular fricatives, stops, and affricates; there are also rounding and laryngeal contrasts among velar and uvular consonants. If there were an example with p_p̓ or p̓_p, then the predicted form in the ClabialClabial cell in Table 2 would be CəC-. If there were voiceless labial fricatives in Twana, then C- should be a possible realisation of reduplication with a C labialClabial root. There is not sufficient data to determine whether C- would be a permitted realisation with CdorsalClabial or ClabialCdorsal roots if the first consonant were a fricative; the only example is s-x̣p̓x̣ə́p̓ab ‘cockles’ formed on the base s-x̣p̓ab ‘cockle’, which is hard to directly compare because the root-initial cluster also requires [ə] epenthesis in the reduplicated form (Drachman 1969: 61). Based on the available data, I conclude that labial, velar, and uvular segments pattern together in Twana with respect to C1C2 reduplication, which is consistent with Drachman’s (1969: 62) analysis of the pattern.	page 5
+§2	Gloria Mellesmoen	notation	/p̓/	the glottalized labial stop, one of the two labials of Twana
+§2	Gloria Mellesmoen	notation	p_p̓	a root with /p/ as C1 and /p̓/ as C2, unattested
+§2	Gloria Mellesmoen	notation	p̓_p	a root with /p̓/ as C1 and /p/ as C2, unattested
+§2	Twana	cited form	s-x̣p̓x̣ə́p̓ab	page 5, ‘cockles’, Drachman 1969: 61
+§2	Twana	cited form	s-x̣p̓ab	page 5, ‘cockle’, the base of s-x̣p̓x̣ə́p̓ab, Drachman 1969: 61
+§2	Gloria Mellesmoen	note	The choice between CəC-, C-, and Cə- reduplication is predictable based on the sonority, place specification, and manner of articulation of the first two consonants of the root, which means that they can be analysed as different surface realisations of the same morpheme.	page 6
+§3	Gloria Mellesmoen	heading	3 Theoretical Assumptions	page 6
+§3	Gloria Mellesmoen	note	A constraint-based analysis of Twana requires two components: a serial derivation and a prosodic approach to reduplication. A serial derivation is required to allow reduplication to yield an intermediate form that will trigger repair at a subsequent stratum; a prosodic approach to reduplication is needed to predict that reduplication may yield a marked output.	page 6
+§3.1	Gloria Mellesmoen	heading	3.1 Stratal Optimality Theory (Stratal OT)	page 6
+§3.1	Gloria Mellesmoen	name	Bermúdez-Otero	Ricardo Bermúdez-Otero, cited for GNLA and Stratal OT
+§3.1	Gloria Mellesmoen	note	I assume a modified version of Stratal OT (cf. Kiparsky 2015; Bermúdez-Otero 2017), as proposed in Mellesmoen (2025). Stratal OT combines the core assumptions of OT with Stratal Phonology. OT consists of an operational component (Gen) and a grammar component (Eval), as summarised in McCarthy (2007). Gen is responsible for producing an infinite set of candidates that each represent a potential output. The possible outputs are filtered by Eval, which is the constraint component of the grammar. Constraints are different priorities the grammar has for what is avoided (markedness) or retained (faithfulness), as well as where phonological material is positioned (alignment). All languages have the same set of constraints; languages vary in how these constraints are ranked (i.e., which of the constraints are prioritised over others). The ranking of constraints determines which candidate is the most optimal, such the attested form fares better than all other candidates. OT assumes that constraints are violable: an attested form may be the most optimal candidate despite violating several constraints.	page 6
+§3.1	Gloria Mellesmoen	language	Nxaʔamxcín	Moses-Columbia Salish, whose stress Czaykowska-Higgins 1993b describes
+§3.1	Gloria Mellesmoen	note	OT traditionally assumes a single global derivation, such that the phonology occurs in a single step, with evaluation in parallel (McCarthy & Prince 2001); Parallel OT uses a single ranking to derive the full word in a single pass. In contrast, Stratal Phonology assumes a serial derivation that works from the innermost domain to the outermost (Kiparsky 2015). The output of the first stratum is the input to the second, which is then the input to the third; this continues until the output of the final stratum, which corresponds to the surface form (pre-phonetic implementation). When combined with the assumptions of OT, each stratum corresponds to a phonological domain with its own constraint ranking. The strata are ordered, such that every word must go through each stratum in a fixed order. I diverge from previous work in Stratal OT by assuming that the strata correspond to strictly phonological domains following Mellesmoen (2025), rather than morphological domains like “stem” or “word” (cf. Kiparsky 2015; Bermúdez-Otero 2017). I use numbered labels for strata that correspond to their order in the derivation (i.e., “first stratum” or “second stratum”). I adopt Stratal OT because Parallel OT is not well-suited to Salish languages. Work on Salish languages has shown that there are phonological patterns that apply in certain domains, which means that not every affix will be affected by the same processes. For example, Czaykowska- Higgins (1993b) describes differences between affixes with respect to stress in Nxaʔamxcín. An analysis within Parallel OT predicts that all affixes should be subject to the same constraint ranking at the same point in the derivation. Another examples where phonological domains are pertinent is with respect to prefixes: the examples of reduplication given in Section 2 show that prefixes are outside the domain for reduplication. Stratal OT offers a straightforward account for the exclusion of prefixes: they are parsed into the phonological word at a later stratum than the reduplicative morpheme.	page 6
+§3.2	Gloria Mellesmoen	heading	3.2 Generalised Nonlinear Affixation (GNLA)	page 7
+§3.2	Gloria Mellesmoen	name	Bermúdez-Otero	Ricardo Bermúdez-Otero, cited for GNLA and Stratal OT
+§3.2	Gloria Mellesmoen	language	Nɬeʔkepmxcín	Thompson River Salish, whose reduplication Jimmie 1994 analyses
+§3.2	Gloria Mellesmoen	note	Generalised Nonlinear Affixation (GNLA) proposes that non-concatenative morphology involves the affixation of “deficient” or “empty” phonological forms that lack the appropriate segmental content (Bermúdez-Otero 2012; Bye & Svenonius 2012; Zimmermann 2013). GNLA is a prosodic approach to reduplication; prosodic approaches to reduplication, including GNLA, have been applied to other patterns in Salish (e.g., Nɬeʔkepmxcín in Jimmie 1994).	page 7
+§3.2	Gloria Mellesmoen	note	In GNLA, reduplication is seen as a repair, parallel to other repairs like epenthesis, deletion, or metathesis. Reduplication refers to the process of fission: one input segment (top line) corresponds to two output segments (bottom line). This is contrasted with epenthesis in Figure 1: reduplication creates a 1:2 input-output mapping between segments (C3), while epenthesis corresponds to a mapping between nothing (∅) and something (Cx).	page 7
+§3.2	Gloria Mellesmoen	note	Figure 1: Input-Output Mapping for Reduplication and Epenthesis	page 7, the caption of Figure 1, a drawing of the two mappings the text layer does not carry
+§3.2	Gloria Mellesmoen	note	Reduplication is the process of fission, which violates INTEGRITY, a faithfulness constraint that is violated by any 1:2 input-output mapping (McCarthy & Prince 1999); epenthesis violates DEP, a faithfulness constraint that penalises epenthesis. The constraint *FLOAT penalises any prosodic unit that is not associated with sufficient segmental content. These constraints are given in (8).	page 7
+(8a) line 1	Gloria Mellesmoen	note	INTEGRITY: No element of the input has multiple correspondents in the output.	page 7, engine english, a constraint definition
+(8b) line 1	Kager 1999: 68	note	DEP: Output segments must have input correspondents	page 7, a constraint definition
+(8b) line 1	Gloria Mellesmoen	citation	(Kager 1999: 68)	the source of the definition
+(8c) line 1	Kirchner 2010: 232	note	*FLOAT: ∀p ∈ O, where p is a prosodic unit: ∃s, where s is a segment, and p dominates s	page 7, a constraint definition
+§3.2	Gloria Mellesmoen	note	The tableau in (9) includes candidates that fill the affixed syllable with epenthesis (9a) or reduplication (9b), as well as one that leaves the affixed syllable floating in the output (9c). *FLOAT and DEP are ranked above INTEGRITY, which means that reduplication will occur to ensure that the prosodic affix is associated with segmental content. Solid lines are used to indicate crucial rankings, while dotted lines indicate that the given data does not provide conclusive evidence to establish a ranking. The pointing hand is used to indicate the winning candidate. If (9) is the first stratum, assuming Stratal OT, then (9b) would then be the input to the second stratum.	page 7
+(9) line 1	Gloria Mellesmoen	note	Reduplication: *FLOAT, DEP >> INTEGRITY	page 7, the caption of the tableau
+(9) line 2	Gloria Mellesmoen	note	/σ + C1V2C3/ *FLOAT DEP INTEGRITY	page 7, the input and the constraint columns of the tableau
+(9a) line 1	Gloria Mellesmoen	notation	(CxVx)σ.C1V2C3	page 7, a schematic candidate, C a consonant and V a vowel
+(9a) line 1	Gloria Mellesmoen	note	*!*	page 7, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(9b) line 1	Gloria Mellesmoen	notation	(C1V2)σ.C1V2C3	page 7, the winning candidate, marked on the page with a pointing hand, a schematic candidate, C a consonant and V a vowel
+(9b) line 1	Gloria Mellesmoen	note	**	page 7, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(9c) line 1	Gloria Mellesmoen	notation	σ C1V2C3	page 7, a schematic candidate, C a consonant and V a vowel
+(9c) line 1	Gloria Mellesmoen	note	*!	page 7, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+§3.2	Gloria Mellesmoen	note	Reduplicative morphemes do not have any special status in GNLA. Fission is a repair that follows from the underlying form of the morpheme (e.g., σ) and the ranking DEP (and other faithfulness constraints) >> INTEGRITY. GNLA differs from Base-Reduplicant Correspondence Theory, which is an alternate approach to reduplication. The definition of a reduplicative morpheme in Base-Reduplicant Correspondence Theory is provided in (10).	page 8
+§3.2	Twana	cited form	ʔəs-q̓x̣əq̓	page 8, ‘landed (C1C2)’, given in (6l)
+§3.2	Twana	cited form	ʔas-x̣əq̓	page 8, ‘landed’, the unreduplicated word
+(10) line 1	McCarthy & Prince 1994	note	REDk is a morpheme lexically unspecified for segmentism, but requiring a correspondence relation with its BASE, the phonological structure to which it attaches. The reduplicant is the phonological material that serves as the exponent of REDk.	page 8, the definition of a reduplicative morpheme in Base-Reduplicant Correspondence Theory, quoted
+(10) line 1	Gloria Mellesmoen	citation	(McCarthy & Prince 1994, as cited in Urbanczyk 1996: 15)	the source of the definition
+§3.2	Gloria Mellesmoen	note	A crucial assumption of Base-Reduplicant Correspondence Theory is that the base is defined as an adjacent string to the reduplicant (e.g., the Adjacent String Hypothesis in Urbanczyk 1996). McCarthy and Prince (1986: 94) state that “the Reduplicant R and the Base B must share an edge element, initial in prefixing reduplication, final in suffixing reduplication”. “Wrong side” reduplication poses a challenge for Base-Reduplicant Correspondence Theory because the reduplicant is positioned as a prefix in a word like ʔəs-q̓x̣əq̓ ‘landed (C1C2)’, which was given in (6l), despite the copied segment being on the opposite edge in the unreduplicated word ʔas-x̣əq̓ ‘landed’. This pattern is therefore better suited to an analysis using GNLA, which does not require string adjacency between a “base” and a “reduplicant”.	page 8
+§4	Gloria Mellesmoen	heading	4 Analysis of C1C2 and “Wrong Side” Reduplication in Twana	page 8
+§4	Gloria Mellesmoen	notation	σN+μ	the underlying form of plural reduplication, a syllable with a nucleus and a mora
+§4	Gloria Mellesmoen	note	The underlying form of plural reduplication in Twana is the same as elsewhere in Salish: σN+μ. The prosodic affix is a syllable with a nucleus and a mora. The structure of this affix is shown in (11): the dependent nucleus and mora are not connected to each other, which is what allows for the invariable monomoraic closed syllable (see Mellesmoen 2025: 349–351).	page 8
+(11) line 1	Gloria Mellesmoen	rule	σN+μ ⇔ PL	page 8, engine residue
+§4	Gloria Mellesmoen	notation	əC	the onsetless syllable that fills the prosodic affix σN+μ
+§4	Gloria Mellesmoen	notation	ə	schwa
+§4	Gloria Mellesmoen	notation	CəC-	the C1C2 realisation of the reduplicant, a copied consonant, schwa and a copied consonant
+§4	Gloria Mellesmoen	notation	Cə-	the “wrong side” realisation with schwa, the metathesis repair
+§4	Gloria Mellesmoen	note	I assume that σN+μ is parsed into the phonological word at the first stratum. The prosodic affix σN+μ is filled by əC, an onsetless syllable that fills the nucleus with [ə] and the mora with a reduplicated consonant. The input to the subsequent stratum starts with a vowel, which is not permitted in the language; repairs are triggered to ensure that the surface form is a well-formed prosodic word in Twana. The CəC-, Cə-, and C- realisations represent reduplication, metathesis, and deletion as repairs, respectively.	page 8
+§4.1	Gloria Mellesmoen	heading	4.1 First Stratum: Marked Intermediate Form	page 8
+§4.1	Gloria Mellesmoen	notation	σN+μ	the underlying form of plural reduplication, a syllable with a nucleus and a mora
+§4.1	Gloria Mellesmoen	notation	əC	the onsetless syllable that fills the prosodic affix σN+μ
+§4.1	Gloria Mellesmoen	note	Affixed σN+μ is filled by əC for all three realisations of C1C2. reduplication, where C is a copy of the second consonant of the root. The relevant constraints at the first stratum are *FLOAT, INTEGRITY- C, DEP-C, DEP, ONSET, and OCP. *FLOAT, INTEGRITY, and DEP were defined in Section 3.2. The C in INTEGRITY-C and DEP-C indicate that these constraints are only violated by any 1:2 mapping between consonants or epenthesis of a consonant, respectively. ONSET, defined in (12a), requires every syllable to have an onset. OCP, defined in (12b), is violated by any sequence of identical segments.	page 8
+(12a) line 1	Gloria Mellesmoen	note	OCP: Adjacent identical elements are prohibited. Assign a violation for each sequence of identical elements (modified from Myers 1997: 847)	page 8, engine english, a constraint definition
+(12b) line 1	Blake 2000: 244	note	ONSET: Syllables have onsets	page 8, a constraint definition
+(12b) line 1	Gloria Mellesmoen	citation	(Blake 2000: 244)	the source of the definition
+§4.1	Gloria Mellesmoen	note	The tableau in (13) shows the derivation of a form that lacks an onset (13a). This candidate violates INTEGRITY-C, DEP, and ONSET because vowel epenthesis fills the nucleus and consonant fission fills the mora of the prosodic affix σN+μ. Candidate (13b) avoids having an onsetless syllable by reduplicating an additional consonant, which leads to a second (and fatal) violation of INTEGRITY-C. Candidate (13c) only reduplicates a single consonant, which means the nucleus is not associated with segmental content and therefore fatally violates *FLOAT. Two candidates with consonant epenthesis instead of reduplication fatally violate Dep-C (13d,e). Candidate (13f) copies the consonant on the same side it is affixed, which incurs a fatal violation of OCP.	page 9
+(13) line 1	Gloria Mellesmoen	note	Stratum 1: šoƛ̓ ‘grind’ with C1C2. reduplication	page 9, engine english, the caption of the tableau
+(13) line 2	Gloria Mellesmoen	note	/šoƛ̓ + σN+μ/ *FLOAT DEP-C INT-C DEP ONSET OCP	page 9, the input and the constraint columns of the tableau
+(13a) line 1	Twana	transcription	əƛ̓.šóƛ̓	page 9, the winning candidate, marked on the page with a pointing hand
+(13a) line 1	Gloria Mellesmoen	note	* * *	page 9, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(13b) line 1	Twana	transcription	šəƛ̓.šóƛ̓	page 9
+(13b) line 1	Gloria Mellesmoen	note	**! *	page 9, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(13c) line 1	Twana	transcription	ƛ̓šóƛ̓	page 9
+(13c) line 1	Gloria Mellesmoen	note	*! *	page 9, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(13d) line 1	Twana	transcription	ʔəƛ̓.šóƛ̓	page 9
+(13d) line 1	Gloria Mellesmoen	note	*! * **	page 9, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(13e) line 1	Twana	transcription	əʔ.šóƛ̓	page 9
+(13e) line 1	Gloria Mellesmoen	note	*! * *	page 9, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(13f) line 1	Twana	transcription	əš.šóƛ̓	page 9
+(13f) line 1	Gloria Mellesmoen	note	* * * *!	page 9, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+§4.1	Gloria Mellesmoen	note	The crucial ranking for the first stratum is summarised in (14). OCP is not crucially ranked relative to the other constraints. Candidate (13a) and candidate (13f) violate the same constraints as each other; candidate (13f) can never be selected over candidate (13a).	page 9
+(14) line 1	Gloria Mellesmoen	note	*FLOAT, DEP-C >> INT-C, DEP >> ONSET	page 9, the crucial ranking at the first stratum
+§4.2	Gloria Mellesmoen	heading	4.2 Second Stratum: Phonological Repairs	page 9
+§4.2	Twana	cited form	əƛ̓šóƛ̓	page 9, starred on the page, the output of the first stratum for šoƛ̓ ‘grind’
+§4.2	Gloria Mellesmoen	notation	CəC-	the C1C2 realisation of the reduplicant, a copied consonant, schwa and a copied consonant
+§4.2	Gloria Mellesmoen	notation	ə	schwa
+§4.2	Gloria Mellesmoen	notation	Cə-	the “wrong side” realisation with schwa, the metathesis repair
+§4.2	Gloria Mellesmoen	note	The input to the second stratum is the output from the first, which will never be a permissible surface form in Twana if it lacks an onset (e.g., *əƛ̓šóƛ̓ from the previous section). There are three different repairs to provide an onset at the second stratum: deletion, reduplication, and metathesis. Reduplication includes forms that surface as CəC- and CC-; I assume deletion of an unstressed [ə] occurs at a later point in the derivation. The label “wrong side” reduplication includes forms with either metathesis or deletion. Repairs and surface forms are summarised in Table 4.	page 9
+Table 4	Gloria Mellesmoen	note	Table 4: Realisations of C1C2 Reduplication by Repair and Root Shape	page 9, the caption
+Table 4	Gloria Mellesmoen	note	Form Repair Root Shape	page 9, the column heads
+Table 4 line 1	Gloria Mellesmoen	note	CəC- (and CC-) Reduplication CS Roots (voiced obstruent or sonorant as C2) and Certain OO Roots (voiceless obstruent as C1 and C2)	page 9, a row of the table
+Table 4 line 2	Gloria Mellesmoen	note	C- Deletion Certain OO Roots (voiceless obstruent as C1 and C2)	page 9, a row of the table
+Table 4 line 3	Gloria Mellesmoen	note	Cə- Metathesis SO Roots (Voiced Obstruent or Sonorant as C2)	page 9, a row of the table
+§4.2	Gloria Mellesmoen	note	Each repair corresponds to a violation of a faithfulness constraint. Reduplication violates INTEGRITY-C, discussed in the previous section. Deletion of [ə] in the C- forms violates MAX, which is defined in (15a). Metathesis entails a change in linear order (i.e., segments are switched around), which violates LINEARITY, defined in (15b). S1 in (15b) refers to the input string, while S2 refers to the output string.	page 10
+(15a) line 1	McCarthy & Prince 1995: 16	note	MAX: All segments in the input have a correspondent in the output. Assign a violation mark for every segment in the input that does not have a correspondent in the output.	page 10, a constraint definition
+(15a) line 1	Gloria Mellesmoen	citation	(McCarthy & Prince 1995: 16)	the source of the definition
+(15b) line 1	McCarthy & Prince 1995: 123	note	LINEARITY: S1 is consistent with the precedence structure of S2, and vice versa.	page 10, a constraint definition
+(15b) line 1	Gloria Mellesmoen	citation	(McCarthy & Prince 1995: 123)	the source of the definition
+§4.2	Gloria Mellesmoen	note	For repairs to occur at the second stratum, INTEGRITY-C, MAX, and LINEARITY must all be ranked lower than ONSET. In the subsequent sections, I show how they must be ranked relative to other markedness and alignment constraints to account for root shape as a conditioning factor.	page 10
+§4.2.1	Gloria Mellesmoen	heading	4.2.1 Second Stratum: Obstruent-Obstruent (OO) Roots	page 10
+§4.2.1	Gloria Mellesmoen	note	For roots with voiceless obstruents as the first two consonants (OO), both reduplication and deletion are attested repairs. The choice of repair for OO roots is determined by the place of articulation and the specification of the segment for [+/- continuant].	page 10
+§4.2.1	Gloria Mellesmoen	note	With respect to place of articulation, the division is between [Labial]/[Dorsal] and [Coronal] consonants (i.e., labials/velars/uvulars vs. alveolars/palatals). I follow Drachman (1969) in adopting the feature [+/- grave] to capture this pattern. Grave was first proposed as a distinctive feature in Jakobson, Fant and Halle (1952); grave and acute were used to distinguish between sounds produced with energy concentrated in the lower vs. upper frequencies of the spectrum (Jakobson and Halle 1956). In terms of articulation, it corresponds to a difference between peripheral sounds (i.e., [+grave] includes labials, dorsals, and uvulars) and medial sounds (i.e., [- grave] includes dentals, alveolars, and palatals) (Hyman 1973).2 The availability of deletion with OO roots depends on the complex cluster that deleting the initial schwa would create. I propose two alignment constraints based on Generalised Alignment in McCarthy and Prince (1993) to account for permissible OO onset clusters: ALIGN-R-O[-GRAVE] and ALIGN-L-O[+GRAVE,-CONT]. ALIGN-R-O[-GRAVE] is violated for every coronal or palatal segment in an onset that is not immediately before the vowel (i.e., aligned to the right edge of an onset). If a complex onset cluster has two [-grave] segments, it will always incur a violation because only one of the segments can be rightmost in the onset. ALIGN-L-O[+GRAVE,-CONT] requires velar or dorsal stops or affricates to be first (leftmost) in the onset; it is violated by any complex onset with a velar or dorsal stop or affricate in a non-initial position.	page 10
+(16a) line 1	Gloria Mellesmoen	note	ALIGN-R-O[-GRAVE]: Any [-grave] segment in an onset must align with the right edge of the onset.	page 10, a constraint definition
+footnote 2	Gloria Mellesmoen	note	2 Labial, dorsal, and uvular sounds grouping together is evidence for the feature [+/- grave]. While this feature was removed in Chomsky and Halle (1968), Hyman (1973) argues that it is necessary to capture a natural class in African languages that groups labial and velar sounds in opposition to dental and palatal consonants.	page 10
+(16b) line 1	Gloria Mellesmoen	note	ALIGN-L-O[+GRAVE,-CONT]: Any [+grave] and [-continuant] segment in an onset must align with the left edge of the onset.	page 11, a constraint definition
+§4.2.1	Gloria Mellesmoen	note	The ranking ALIGN-L-O[+GRAVE,-CONT], ONSET, and MAX above INT-C is established in (17) with O[+grave,-continuant]O[+grave,-continuant] roots. I focus on the rankings of INT-C/MAX and candidates with reduplication/deletion in this section; LINEARITY and candidates with metathesis are excluded from the tableaux until Section 4.2.3. The faithful candidate in (17a) fatally violates ONSET. Reduplication provides an onset for the attested candidate in (17b), which violates INT-C. The candidate with deletion (“wrong side” reduplication) fatally violates either ALIGN-L-O[+GRAVE,- CONT] or MAX. While ranking MAX above INT-C would predict the correct output without the alignment constraint in this tableau, both constraints will prove necessary for predicting where deletion may occur.	page 11
+(17) line 1	Gloria Mellesmoen	note	Stratum 2: ʔəs-pq̓pəq̓ʷqʷəd ‘feather in hair (C1C2)’	page 11, engine language, the caption of the tableau
+(17) line 2	Gloria Mellesmoen	note	/əq̓ʷpə́q̓ʷqʷəd/ ONSET ALIGN-L-O[+GRAVE,-CONT] MAX INT-C	page 11, the input and the constraint columns of the tableau
+(17a) line 1	Twana	transcription	əq̓ʷ.pə́q̓ʷ.qʷəd	page 11
+(17a) line 1	Gloria Mellesmoen	note	*!	page 11, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(17b) line 1	Twana	transcription	pəq̓ʷ.pə́q̓ʷ.qʷəd	page 11, the winning candidate, marked on the page with a pointing hand
+(17b) line 1	Gloria Mellesmoen	note	*	page 11, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(17c) line 1	Twana	transcription	q̓ʷpə́q̓ʷ.qʷəd	page 11
+(17c) line 1	Gloria Mellesmoen	note	*! *!	page 11, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+§4.2.1	Gloria Mellesmoen	note	The constraint ALIGN-R-O[+GRAVE] must also be ranked above INT-C to predict reduplication with O[-grave]O[-grave] words, as shown in (18). The winning candidate is given in (18b); it only violates INT-C. The vowel is deleted in candidate (18c), which creates a cluster that violates ALIGN- R-O[-GRAVE].	page 11
+(18) line 1	Gloria Mellesmoen	note	Stratum 2: šƛ̓šoƛ ‘grind (C1C2)’	page 11, engine english, the caption of the tableau
+(18) line 2	Gloria Mellesmoen	note	/əƛ̓šóƛ̓/ ONSET ALIGN-L-O[+GRAVE,-CONT] ALIGN-R-O[-GRAVE] MAX INT-C	page 11, the input and the constraint columns of the tableau
+(18a) line 1	Twana	transcription	əƛ̓.šóƛ̓	page 11
+(18a) line 1	Gloria Mellesmoen	note	*!	page 11, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(18b) line 1	Twana	transcription	šəƛ̓.šóƛ̓	page 11, the winning candidate, marked on the page with a pointing hand
+(18b) line 1	Gloria Mellesmoen	note	*	page 11, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(18c) line 1	Twana	transcription	ƛ̓šóƛ̓	page 11
+(18c) line 1	Gloria Mellesmoen	note	*! *!	page 11, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+§4.2.1	Gloria Mellesmoen	note	To allow for deletion as a possible repair, MAX must be ranked lower than ONSET. The constraint *STRUC-σ must be also crucially ranked, such that it will motivate deletion of vowels if it is possible to reduce the number of syllables. The constraint in (19) is violated by every syllable in the output. *STRUC-σ must be ranked above MAX; otherwise reduplication will always be predicted because MAX is ranked above INT-C.	page 11, carries footnote 3, written here without its digit
+(19) line 1	Gloria Mellesmoen	note	*STRUC-σ: No syllables. Assign a violation mark for every syllable (modified from Zoll 1996: 170).	page 11, a constraint definition, modified from Zoll 1996
+§4.2.1	Gloria Mellesmoen	note	For OO roots where deletion does not create clusters violate either of the alignment constraints, deletion is the optimal repair because it incurs one fewer violation of * STRUC-σ than forms that retain [ə]. This is shown in (20) where candidate (20c) with deletion wins over candidate (20b) with reduplication.	page 11
+footnote 3	Gloria Mellesmoen	note	3 Higher ranked faithfulness constraints protecting moraic (non-schwa) vowels and stressed vowels combined with constraints on well-formed onsets and codas will prevent this constraint from deleting more vowels than attested to reduce the number of syllables in a word.	page 11, footnote
+(20) line 1	Gloria Mellesmoen	note	Stratum 2: s-qtéqaw ‘horses’	page 12, engine english, the caption of the tableau
+(20) line 2	Gloria Mellesmoen	note	/əqtéqaw/ ONSET ALIGN-L-O[+GRAVE,-CONT] ALIGN-R-O[-GRAVE] *STRUC-σ MAX INT-C	page 12, the input and the constraint columns of the tableau
+(20a) line 1	Twana	transcription	əq.té.qaw	page 12
+(20a) line 1	Gloria Mellesmoen	note	*! ***	page 12, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(20b) line 1	Twana	transcription	təq.té.qaw	page 12
+(20b) line 1	Gloria Mellesmoen	note	***! *	page 12, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(20c) line 1	Twana	transcription	qté.qaw	page 12, the winning candidate, marked on the page with a pointing hand
+(20c) line 1	Gloria Mellesmoen	note	** *	page 12, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+§4.2.2	Gloria Mellesmoen	heading	4.2.2 Second Stratum: Consonant-Voiced Obstuent/Sonorant (CS) Roots	page 12
+§4.2.2	Gloria Mellesmoen	notation	əSCVS	the input to the second stratum of a CS root
+§4.2.2	Gloria Mellesmoen	note	Reduplication provides an onset at the second stratum for any root with a sonorant as the second consonant (CS roots), regardless of the identity of the first consonant. For CS roots, the input to the second stratum has the shape əSCVS. If deletion were the selected repair, this would create a complex onset SC.	page 12
+§4.2.2	Gloria Mellesmoen	note	The “wrong side” candidates that satisfy ONSET via deletion can be ruled out for CS roots because SCVS would have an onset that does not rise in sonority. Syllables typically rise in sonority until the peak (nucleus) and then decline in sonority (see, e.g., Parker 2011). Voiced obstruents and sonorants in Twana have the feature [SV]; I assume that segments with the feature [SV] are the most sonorous consonants. The best complex onset will be one that rises in sonority, which means that a sonorant is closest to the vowel. There are several options that have been proposed to ensure an onset rises in sonority in Salish, such as BESTONSET (Urbanczyk 1996) or *ONSRC (Matthewson 1994).4 However, as it will be shown in the following section that Twana avoids sonorants in complex clusters even with rising sonority, I use the constraint *BRANCHINGONSET- [SV] to account for both patterns. *BRANCHINGONSET-[SV], defined in (21), is violated by any [SV] segment in a complex onset.	page 12
+(21) line 1	Gloria Mellesmoen	note	*BRANCHINGONSET-[SV]: Voiced obstruents and sonorants are not in complex (*BRANCHO-[SV]) onsets.	page 12, a constraint definition
+§4.2.2	Gloria Mellesmoen	note	The tableau in (22) shows that the candidate with reduplication wins when *BRANCHINGONSET-[SV] and ONSET are ranked above INT-C.	page 12
+(22) line 1	Gloria Mellesmoen	note	Stratum 2: ʔəs-ɬəbɬób ‘scarred (C1C2)’	page 12, engine language, the caption of the tableau
+(22) line 2	Gloria Mellesmoen	note	/əbɬób/ ONSET *BRANCHO-[SV] *STRUC-σ MAX INT-C	page 12, the input and the constraint columns of the tableau
+(22a) line 1	Twana	transcription	əb.ɬob	page 12
+(22a) line 1	Gloria Mellesmoen	note	*! **	page 12, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(22b) line 1	Twana	transcription	ɬəb.ɬób	page 12, the winning candidate, marked on the page with a pointing hand
+(22b) line 1	Gloria Mellesmoen	note	** *	page 12, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(22c) line 1	Twana	transcription	bɬób	page 12
+(22c) line 1	Gloria Mellesmoen	note	*! * *	page 12, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+§4.2.2	Gloria Mellesmoen	notation	STRUC-σ	the constraint *STRUC-σ, defined in (19)
+§4.2.2	Twana	cited form	šáw̓	page 12, ‘bone’
+§4.2.2	Twana	cited form	/əw̓šáw̓/	page 12, the output of the first stratum for šáw̓ ‘bone’
+footnote 4	Gloria Mellesmoen	note	4 R stands for resonant, which is another term for sonorant.	page 12, footnote
+§4.2.2	Twana	cited form	/šəw̓šáw̓/	page 13, the output of the second stratum for šáw̓ ‘bone’
+§4.2.2	Twana	cited form	šoʔšáw̓	page 13, the surface form after glide vocalisation, ‘bone (C1C2)’
+§4.2.2	Gloria Mellesmoen	note	Reduplication is predicted if deletion would create a cluster with a sonorant as the initial consonant because *BRANCHINGONSET-[SV] is ranked above *STRUC-σ. The roots with a glide as a second consonant follow this same pattern. For example, šáw̓ ‘bone’ has /əw̓šáw̓/ as the output of the first stratum, while the output of the second stratum is /šəw̓šáw̓/; glide vocalisation at a later point in the derivation will yield [šoʔšáw̓] on the surface.	page 12
+§4.2.3	Gloria Mellesmoen	heading	4.2.3 Second Stratum: Voiced Obstruent/Sonorant-Obstruent (SO) Roots	page 13
+§4.2.3	Gloria Mellesmoen	notation	əOSVO	the input to the second stratum of an SO root
+§4.2.3	Gloria Mellesmoen	notation	[ə]-deletion	deletion of schwa
+§4.2.3	Gloria Mellesmoen	notation	C1]σ[C2	a heterosyllabic sequence, in the definition of SYLLCON (23)
+§4.2.3	Gloria Mellesmoen	note	Metathesis provides an onset for roots with a sonorant or voiced obstruent as C1 and an obstruent as C2 (SO roots). The input to the second stratum is əOSVO; [ə]-deletion would result in a [SV] segment in a complex onset, which violates *BRANCHINGONSET[SV], introduced in the previous section. Metathesis is chosen over reduplication due to the ranking of SYLLCON relative to LINEARITY, defined in (15b) above. I adopt the definition of SYLLCON given in Urbanczyk (1996: 177), which is stated in (23). SYLLCON is violated whenever a coda consonant is followed by an onset consonant that is more sonorous (i.e., if sonority rises across an coda-onset cluster).	page 13
+(23) line 1	Urbanczyk 1996: 177	note	SYLLCON: In the heterosyllabic sequence C1]σ[C2, |C1| ≥ |C2|	page 13, a constraint definition
+(23) line 1	Gloria Mellesmoen	citation	(Urbanczyk 1996: 177)	the source of the definition
+§4.2.3	Gloria Mellesmoen	note	Ranking ONSET, *BRANCHINGONSET[SV], and SYLLCON above LINEARITY allows candidates with metathesis to win, as exemplified by candidate (24d). The candidate with reduplication in (24b) fatally violates SYLLCON because a coda obstruent is followed by a voiced obstruent . The candidate with deletion in (24c) fatally violates *BRANCHINGONSET[SV] because a voiced obstruent is part of a complex onset.	page 13
+(24) line 1	Gloria Mellesmoen	note	Stratum 2: qəbə́qsəd ‘noses’	page 13, engine language, the caption of the tableau
+(24) line 2	Gloria Mellesmoen	note	/əqbə́qsəd/ ONSET *BRANCHO [SV] SYLLCON LINEARITY *STRUC-σ MAX INT-C	page 13, the input and the constraint columns of the tableau
+(24a) line 1	Twana	transcription	əq.bə́q.səd	page 13
+(24a) line 1	Gloria Mellesmoen	note	*! * ***	page 13, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(24b) line 1	Twana	transcription	bəq.bə́q.səd	page 13
+(24b) line 1	Gloria Mellesmoen	note	*! *** *	page 13, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(24c) line 1	Twana	transcription	qbə́q.səd	page 13
+(24c) line 1	Gloria Mellesmoen	note	*! ** *	page 13, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(24d) line 1	Twana	transcription	qə.bə́q.səd	page 13, the winning candidate, marked on the page with a pointing hand
+(24d) line 1	Gloria Mellesmoen	note	* ***	page 13, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+§4.2.3	Gloria Mellesmoen	note	The analysis now can account for metathesis with SO roots, while allowing for deletion and reduplication as repairs in other contexts. Tableau (25) shows that including the constraints needed to account for metathesis with SO roots does not make incorrect predictions elsewhere (cf. OO roots in Section 4.2.1); all three patterns are derived from an intermediate form without an onset.	page 13
+(25) line 1	Gloria Mellesmoen	note	Stratum 2: šƛ̓šoƛ ‘grind (C1C2)’	page 14, engine english, the caption of the tableau
+(25) line 2	Gloria Mellesmoen	note	/əƛ̓šóƛ̓/ ONSET DEP ALIGN-L-O[+GRAVE,-CONT] SYLLCON *BRANCHO [SV] ALIGN-R-O[-GRAVE] LINEARITY *STRUC-σ MAX INT-C	page 14, the input and the constraint columns of the tableau
+(25a) line 1	Twana	transcription	əƛ̓šóƛ̓	page 14
+(25a) line 1	Gloria Mellesmoen	note	*! **	page 14, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(25b) line 1	Twana	transcription	šəƛ̓šóƛ̓	page 14, the winning candidate, marked on the page with a pointing hand
+(25b) line 1	Gloria Mellesmoen	note	** *	page 14, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(25c) line 1	Twana	transcription	ƛ̓šóƛ̓	page 14
+(25c) line 1	Gloria Mellesmoen	note	*! * *	page 14, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(25d) line 1	Twana	transcription	ƛ̓əšóƛ̓	page 14
+(25d) line 1	Gloria Mellesmoen	note	*! **	page 14, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+(25e) line 1	Twana	transcription	ʔəƛ̓šóƛ̓	page 14
+(25e) line 1	Gloria Mellesmoen	note	*! **	page 14, the violation marks of the candidate, * a violation and ! a fatal one, in the order of the columns they fall under
+§4.2.3	Gloria Mellesmoen	note	The constraint ranking for the second stratum is summarised in (26).	page 14
+(26) line 1	Gloria Mellesmoen	note	ONSET, DEP, ALIGN-L-ONSET[+GRAVE,-CONT], SYLLCON, *BRANCHINGONSET[SV], ALIGN-R-ONSET[-GRAVE] >> LINEARITY >> *STRUC-σ >> MAX >> INTEGRITY-C	page 14, the ranking at the second stratum
+§4.2.3	Gloria Mellesmoen	notation	STRUC-σ	the constraint *STRUC-σ, defined in (19)
+§4.2.3	Gloria Mellesmoen	note	One question for future work is whether the patterns involving [+/- grave] and [+/- continuant] can be integrated into a sonority scale for Twana that allows for fewer constraints to capture the same patterns. Specifically, if [+/- grave] contributes to the sonority hierarchy in Twana, it may also be the case that SYLLCON can be used to rule out candidates where * STRUC-σ is used to rule out unattested candidates. As the focus of this paper is on ungrammatical intermediate forms, I leave this line of research for future study.	page 14
+§5	Gloria Mellesmoen	heading	5 Conclusion	page 14
+§5	Gloria Mellesmoen	notation	əC	the onsetless syllable that fills the prosodic affix σN+μ
+footnote 5	Gloria Mellesmoen	note	5 This pattern provides evidence for not only a serial derivation, but also one where the constraints are ranked differently throughout the derivation. It would be challenging to predict the ungrammatical intermediate forms in a framework where the constraints where fixed, such as Harmonic Serialism (see, e.g., McCarthy 2010).	page 14, footnote
+§5	Gloria Mellesmoen	note	In this squib, I have shown that a constraint-based analysis is able to account for “wrong side” reduplication in Salish, if it integrates a prosodic approach to reduplication within a serial derivation. A strength of the Stratal OT analysis is that it allows for the benefits and restrictiveness of a constraint-based analysis, while being able to capture similar insights to the rule-based analyses proposed in previous work (cf. Drachman 1969).5 Kim (2017: 119) motivates his rule-based analysis as a simpler alternative to “Drachman’s often complex rules of cluster reduction”; he still requires up to five rules for a single word (out of a larger set relevant to pattern), which correspond to five different outputs that need to be derived. A constraint-based analysis needs only two strata to predict the correct forms (three if schwa deletion and glide vocalisation are treated as phonological, rather than phonetic, processes), which correspond to two different outputs that need to be derived. Given that research on working memory finds that humans can retain around three to five items at once (see, e.g., Cowan 2010), fewer distinct intermediate forms between underlying and surface representations is a desirable result of the Stratal OT analysis. Instead of needing to individually apply many rules to derive a single morpheme, the constraint-based analysis can be summarised in two steps, as shown in Figure 2. To reduplicate a root (represented as CVC), the first step is to prefix əC, where C is a copy of the second consonant. One of three possible forms is selected at the second step, where the root shape is matched to one of the repair strategies. A constraint-based analysis therefore offers a strong alternative to a rule-based account of “wrong side” reduplication in Salish.	page 14
+§5	Gloria Mellesmoen	note	Figure 2: Deriving Twana Reduplication at Two Strata	page 15, the caption of Figure 2, a drawing the text layer does not carry
+references	Gloria Mellesmoen	heading	References	page 15
+references	Gloria Mellesmoen	name	Bermúdez-Otero	Ricardo Bermúdez-Otero, cited for GNLA and Stratal OT
+references	Gloria Mellesmoen	reference	Bermúdez-Otero, R. (2012). The architecture of the grammar and division of labor in exponence. In J. Trommer (Ed.), The Morphology and Phonology of Exponence (pp. 8–83). Oxford: Oxford University Press.	
+references	Gloria Mellesmoen	reference	Bermúdez-Otero, R. (2017). Stratal phonology. In The Routledge Handbook of Phonological Theory, 100–134. Routledge.	
+references	Gloria Mellesmoen	reference	Blake, S. (2000). On the Distribution and Representation of Schwa in Sliammon (Salish). Doctoral dissertation, University of British Columbia.	
+references	Gloria Mellesmoen	reference	Bye, P. & Svenonius, P. (2012). Non-concatenative morphology as epiphenomenon. In J. Trommer (Ed.), The Morphology and Phonology of Exponence (pp. 427–495). Oxford: Oxford University Press.	
+references	Gloria Mellesmoen	reference	Chomsky, N. & Halle, M. (1968). The Sound Pattern of English. New York: Harper and Row.	
+references	Gloria Mellesmoen	reference	Cowan, N. (2010). The magical mystery four: How is working memory capacity limited, and why? Current Directions in Psychological Science, 19(1), 51–57.	
+references	Gloria Mellesmoen	reference	Czaykowska-Higgins, E. (1993a). The phonology and semantics of CVC-reduplication in Moses- Columbian Salish. In A. Mattina & T. Montler (Eds.), American Indian Linguistics and Ethnography in Honor of Laurence C. Thompson (pp. 47–72). Missoula: University of Montana Occasional Papers in Linguistics.	
+references	Gloria Mellesmoen	language	Nxaʔamxcin	Moses-Columbia Salish, in the title of Czaykowska-Higgins 1993b
+references	Gloria Mellesmoen	reference	Czaykowska-Higgins, E. (1993b). Cyclicity and stress in Moses-Columbia Salish (Nxaʔamxcin). Natural Language & Linguistic Theory 11(2): 197–278.	
+references	Gloria Mellesmoen	reference	Czaykowska-Higgins, E., & Kinkade, D. (1998). Salish languages and linguistics. In E. Czaykowska-Higgins & D. Kinkade (Eds.), Salish Languages and Linguistics (pp. 1–70). Berlin: Mouten de Gruyter.	
+references	Gloria Mellesmoen	language	Hutyéyu	Tillamook, in the title of Egesdal & Thompson 1998
+references	Gloria Mellesmoen	reference	Davis, J. (1970). Some Phonological Rules in Mainland Comox. MA Thesis, University of Victoria.	
+references	Gloria Mellesmoen	reference	Drachman, G. (1969). Twana Phonology. Doctoral dissertation, Ohio State University. Egesdal, S., & Thompson, M. T. (1998). A fresh look at Tillamook (Hutyéyu) inflectional morphology. In E. Czaykowska-Higgins & D. Kinkade (Eds.), Salish Languages and Linguistics (pp. 235–274). Mouten de Gruyter.	
+references	Gloria Mellesmoen	reference	Halle, M. (1995). Feature geometry and feature spreading. Linguistic Inquiry, 26(1), 1–46.	
+references	Gloria Mellesmoen	reference	Hess, T. (1967). Snohomish Grammatical Structure. Doctoral dissertation, University of Washington.	
+references	Gloria Mellesmoen	reference	Hyman, L. M. (1973). The feature [grave] in phonological theory. Journal of Phonetics, 1(4), 329– 337.	
+references	Gloria Mellesmoen	reference	Jakobson, R., Fant, C. G. M. & Halle, M. (1952). Preliminaries to Speech Analysis. Technical Report No. 13, Acoustics Laboratory, M.I.T.	
+references	Gloria Mellesmoen	reference	Jakobson, R. & Halle, M. (1956). Fundamentals of Language. The Hague: Mouton.	
+references	Gloria Mellesmoen	language	Nłek̉epmx	Thompson River Salish, in the title of Jimmie 1994
+references	Gloria Mellesmoen	reference	Jimmie, M. (1994). A prosodic analysis of Nłek̉epmx reduplication. MA thesis, University of British Columbia.	
+references	Gloria Mellesmoen	reference	Kager, R. (1999). Optimality Theory. Cambridge: Cambridge University Press.	
+references	Gloria Mellesmoen	reference	Kim, H. (2017). The truncated reduplication in Twana: Another case of synergistic weakening. In A. Anghelescu, M. Fry, M. Huijsmans, & D. Reisinger (Eds.), Papers for the 52nd International Conference on Salish and Neighbouring Languages (ICSNL 52) (pp. 119–136). Vancouver: University of British Columbia Working Papers in Linguistics.	
+references	Gloria Mellesmoen	reference	Kim, H., & Gardiner, D. (2016). The truncated reduplication in Tillamook and Shuswap: weakening by synergy of dissimilation and cluster simplification. In M. Huijsmans, T. J. Heins, O. Tkachman, & N. Weber (Eds.), Papers for the 42nd International Conference on Salish and Neighbouring Languages (ICSNL 42) (pp. 93–107). Vancouver: University of British Columbia Working Papers in Linguistics.	
+references	Gloria Mellesmoen	reference	Kiparsky, P. (2015). Stratal OT: A synopsis and FAQs. Capturing Phonological Shades Within and Across Languages 2: 1–45.	
+references	Gloria Mellesmoen	reference	Kirchner, J. S. (2010). Minimal Reduplication. Doctoral dissertation, University of California, Santa Cruz.	
+references	Gloria Mellesmoen	reference	Kisseberth, C. W. (1970). On the functional unity of phonological rules. Linguistic Inquiry, 1(3), 291–306.	
+references	Gloria Mellesmoen	reference	Kye, T. (2023). A Grammar of Lushootseed: Phonetics, Phonology, Morphology. Doctoral dissertation, University of Washington.	
+references	Gloria Mellesmoen	language	St’át’imcets	Lillooet, in the title of Matthewson 1994
+references	Gloria Mellesmoen	reference	Matthewson, L. (1994). Syllable structure in St’át’imcets. In P. Koskinen (ed.), Proceedings of the 1994 Annual Conference of the Canadian Linguistics Association (Toronto Working Papers in Linguistics). Toronto: Department of Linguistics, University of Toronto.	
+references	Gloria Mellesmoen	reference	McCarthy, J. J. (2007). What is Optimality Theory? Language and Linguistics Compass, 1(4), 260– 291.	
+references	Gloria Mellesmoen	reference	McCarthy, J. J. (2010). An introduction to Harmonic Serialism. Language and Linguistics Compass, 4(10), 1001–1018.	
+references	Gloria Mellesmoen	reference	McCarthy, J. J., & Prince, A. (1986). Prosodic Morphology. Manuscript, University of Massachusetts and Brandeis University.	
+references	Gloria Mellesmoen	reference	McCarthy, J. J., & Prince, A. (1993). Prosodic Morphology: Constraint Interaction and Satisfaction. Unpublished Manuscript, Rutgers Optimality Archive.	
+references	Gloria Mellesmoen	name	Gonzàlez	the editor of the proceedings in McCarthy & Prince 1994
+references	Gloria Mellesmoen	reference	McCarthy, J. J., & Prince, A. (1994). The emergence of the unmarked: Optimality in Prosodic Morphology. In M. Gonzàlez (Ed.), Proceedings of the North East Linguistic Society (NELS) 24 (pp. 333–379). Amherst: GLSA.	
+references	Gloria Mellesmoen	reference	McCarthy, J. J., & Prince, A. (1995). Faithfulness and reduplicative identity. In J. Beckman, L. Walsh Dickey & S. Urbanczyk (Eds.), Papers in Optimality Theory (pp. 249–384). Amherst: GLSA.	
+references	Gloria Mellesmoen	reference	McCarthy, J. J., & Prince, A. (1999). Faithfulness and identity in prosodic morphology. In R. Kager, H. van der Hulst, & W. Zonneveld (Eds.), The Prosody-Morphology Interface (pp. 218– 309). Cambridge: Cambridge University Press.	
+references	Gloria Mellesmoen	reference	Mellesmoen, G. (2018). Sonorant voicing ([SV]) in Comox-Sliammon. In M. Huijsmans, R. Lo, O. Tkachman, & D. Reisinger (Eds.), Papers for the 53rd International Conference on Salish and Neighbouring Languages (ICSNL 53) (pp. 125–141). Vancouver: University of British Columbia Working Papers in Linguistics.	
+references	Gloria Mellesmoen	reference	Mellesmoen, G. (2025). The Grammar of Salish Reduplication. Doctoral dissertation, University of British Columbia.	
+references	Gloria Mellesmoen	reference	Myers, S. (1997). OCP effects in Optimality Theory. Natural Language & Linguistic Theory, 15(4), 847–892.	
+references	Gloria Mellesmoen	reference	Parker, S. (2011). Sonority. In M. van Oostendorp, C. J. Ewen, E. Hume, & K. Rice (Eds.), The Blackwell Companion to Phonology (Vol. 2, pp. 1160–1184). Malden: Wiley-Blackwell. Prince, A., & Smolensky, P. (2004). Optimality Theory: Constraint Interaction in Generative Grammar. John Wiley & Sons.	
+references	Gloria Mellesmoen	reference	Urbanczyk, S. (1996). Patterns of Reduplication in Lushootseed. Doctoral dissertation, University of Massachusetts Amherst.	
+references	Gloria Mellesmoen	reference	Van Eijk, J. (1998). CVC reduplication in Salish. In E. Czaykowska-Higgins & D. Kinkade (Eds.), Salish Languages and Linguistics (pp. 453–476). Berlin: Mouten de Gruyter.	
+references	Gloria Mellesmoen	reference	Zimmermann, E. (2013). Non-concatenative allomorphy is generalized prosodic affixation: The case of Upriver Halkomelem. Lingua, 134, 1–26.	
+references	Gloria Mellesmoen	reference	Zoll, C. C. (1996). Parsing Below the Segment in a Constraint-Based Framework. Doctoral dissertation, University of California, Berkeley.	
+references	Gloria Mellesmoen	reference	Zuraw, K. (2003). Optimality Theory in linguistics. The Handbook of Brain Theory and Neural Networks, 2, 819–822.	
+title	Gloria Mellesmoen	title	Reduce, Reuse, Reduplicate: “Wrong Side” Reduplication in Twana	the paper's title, carrying the star of footnote *
+title	Gloria Mellesmoen	name	Gloria Mellesmoen	the author, University of British Columbia
+§1	Gloria Mellesmoen	language	Twana	the Central Salish language whose plural reduplication the paper analyses
+§1	Gloria Mellesmoen	language	Tillamook	the Salish language whose “wrong side” reduplication (1b) and (2) cite

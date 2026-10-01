@@ -1,0 +1,613 @@
+where	who	kind	form	gloss
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	title	Extracting Possessors in ʔayʔaǰuθəm (and Beyond)	page 1, carries footnote *
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	name	Henry Davis	author
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	University of British Columbia	page 1, under Henry Davis
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	name	Laura Griffin	author
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	University of British Columbia	page 1, under Laura Griffin
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	name	Marianne Huijsmans	author
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	University of British Columbia	page 1, under Marianne Huijsmans
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	name	Gloria Mellesmoen	author
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	University of British Columbia	page 1, under Gloria Mellesmoen
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Abstract: In this paper, we first examine possessor extraction strategies in ʔayʔaǰuθəm (Comox- Sliammon; ISO 639-3: coo), the northernmost Central Salish language, before comparing the ʔayʔaǰuθəm system to its five closest Salishan neighbours in the North Georgia region. We begin by showing that possessor extraction in ʔayʔaǰuθəm is highly restricted, occurring only with inalienably possessed body parts. In all other cases, in order to extract a possessor, the predicate snaʔ ‘be the owner of’, which takes the possessor as its direct (absolutive) argument, must be used. Curiously, snaʔ does not appear except in cases of possessor extraction. For all other cases of predicative possession (including extraction of the possessum), the nominal predicate naʔ ‘(one’s) own’ is used, which has an inverse argument structure: its direct (absolutive) argument is the possessum, while its possessor argument is realized in the form of a possessive affix, with or without an associated DP. While snaʔ and naʔ do not appear to be derivationally related, in other languages of the area, the counterpart of snaʔ is transparently derived from a denominal prefix with approximately the meaning of ‘have’ plus a possessive nominal predicate closely parallel to naʔ: this suggests a diachronic source for the naʔ ~ snaʔ alternation.	page 1, the abstract
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Keywords: ʔayʔaǰuθəm (Comox-Sliammon), extraction, possessor, syntax, Salish, North Georgia area	page 1, the keywords
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Papers for the International Conference on Salish and Neighboring Languages 55. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2020.	page 1, the volume's header
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	language	ʔayʔaǰuθəm	Comox-Sliammon, the northernmost Central Salish language, ISO 639-3 coo
+front	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	language	Comox-Sliammon	the paper's other name for ʔayʔaǰuθəm
+footnote *	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Our deepest gratitude goes to our generous and patient ʔayʔaǰuθəm consultants who make this work possible and so enjoyable, especially Elsie Paul, Betty Wilson, Freddie Louie, Joanne Francis, and the late Karen Galligos. Additional St’át’imcets (Lillooet) data came from Carl Alexander, to whom we are greatly indebted. We would also like to thank the other members of the ʔayʔaǰuθəm lab for comments and questions, and in particular Daniel Reisinger for first suggesting the comparison with Sechelt. We are also grateful to the Jacobs Research Funds for a group grant that supported this project, as well as SSHRC Insight grant #435- 2015-1694 to Henry Davis. Authors’ e-mail addresses: Henry.Davis@ubc.ca, laurasegriffin@gmail.com, marianne.huijsmans@ubc.ca, gloria.mellesmoen@ubc.ca.	page 1, footnote *, on the title
+footnote *	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	name	Elsie Paul	ʔayʔaǰuθəm consultant
+footnote *	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	name	Betty Wilson	ʔayʔaǰuθəm consultant
+footnote *	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	name	Freddie Louie	ʔayʔaǰuθəm consultant
+footnote *	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	name	Joanne Francis	ʔayʔaǰuθəm consultant
+footnote *	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	name	Karen Galligos	the late ʔayʔaǰuθəm consultant
+footnote *	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	name	Carl Alexander	St’át’imcets consultant
+footnote *	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	name	Daniel Reisinger	suggested the comparison with Sechelt
+footnote *	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	language	Sechelt	Central Salish, Beaumont 2011
+footnote *	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	language	Lillooet	Northern Interior Salish, St’át’imcets
+footnote *	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	language	St’át’imcets	Lillooet
+§1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	heading	1 Introduction	page 1
+§1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	In all the Salish languages where it has been investigated so far, Ā-extraction of the possessor argument of a DP seems to be either severely restricted or completely unavailable (see Kroeber 1999:282–283, 303), leading to alternative strategies for questioning, focusing, or relativizing a possessor. In this paper, we first examine possessor extraction in ʔayʔaǰuθəm (Comox-Sliammon; ISO 639-3: coo), the northernmost Central Salish language, before turning to a comparison of the ʔayʔaǰuθəm system with its Salishan neighbours in the North Georgia Strait region of British Columbia.	page 1
+§1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Watanabe (2003:134), the major grammatical reference for ʔayʔaǰuθəm, provides a single example of a relativized possessor:1	page 1
+footnote 1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	We adopt Leipzig Glossing Rules throughout, with the additions of: AUX ‘auxiliary’, CLDEM ‘clausal demonstrative’, CLF ‘cleft particle’, CONJ ‘conjunction’, CTR ‘control transitivizer’, DPRT ‘discourse particle’, EXIS ‘existential enclitic’, FRED ‘final reduplication’, INFR ‘inferential’, REM ‘remote in time’, RLT ‘relational’, STAT ‘stativizer’, MD ‘middle’, NCTR ‘noncontrol transitivizer’.	page 1, footnote 1
+§1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	name	Watanabe	Honoré Watanabe, the grammar of ʔayʔaǰuθəm (2003)
+(1) line 1	ʔayʔaǰuθəm	segmentation	k̓ʷən-əxʷ-uɬ=č šə=tumiš [tih šə=məqsən-s].	page 2
+(1) line 2	ʔayʔaǰuθəm	gloss	see-NTR-PST=1SG.SBJ DET=man [big DET=nose-3POSS]	page 2
+(1) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I saw a man whose nose is big.’	page 2
+§1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	As Watanabe (2003) points out, the morphosyntax of this example corresponds to a pattern also found in Squamish and Halkomelem, where the possessed noun retains its possessive affix, but otherwise the relative clause is identical in form to one involving extraction of the entire possessed argument.	page 2
+§1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	language	Squamish	Central Salish
+§1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	language	Halkomelem	Central Salish
+(2) line 1	Squamish	segmentation	swiʔqa [hií ta=məqsən-s]	page 2
+(2) line 2	Squamish	gloss	man [big DET=nose-3POSS]	page 2
+(2) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘(a) man whose nose is big’	page 2
+(2) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Squamish: Kuipers 1967:177)	page 2, the tag or source at the right of the translation
+(3) line 1	Downriver Halkomelem	segmentation	kʷθə=(swə́y̓qeʔ) [niʔ méʔkʷɬ kʷθə=stiqíw-s]	page 2
+(3) line 2	Downriver Halkomelem	gloss	DET=(man) [AUX get.hurt DET=horse-3POSS]	page 2
+(3) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘the man whose horse got hurt’	page 2
+(3) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Downriver Halkomelem: Suttles 2004:78)	page 2, the tag or source at the right of the translation
+(4) line 1	Island Halkomelem	segmentation	nə́wə [ni ʔá:-t-ʔe:n θə=ʔən-stáʔləs].	page 2
+(4) line 2	Island Halkomelem	gloss	2SG.INDP [AUX call-CTR-1SG.ERG DET=2SG.POSS-wife]	page 2
+(4) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘You are the one whose wife I called.’	page 2
+(4) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Island Halkomelem: Gerdts 1988:76)2	page 2, the tag or source at the right of the translation
+footnote 2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	In this example, second person possessor agreement matches the phi features of the independent pronoun in initial position, a distinctive property of Island Halkomelem. (Evidently, Downriver Halkomelem speakers judged such forms as substandard, at least according to Suttles 2004:88, preferring forms where the gap in the relative clause is zero-marked.)	page 2, footnote 2
+footnote 2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	language	Downriver Halkomelem	Suttles 2004
+§1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Similar examples are attested in Sechelt:	page 2
+(5) line 1	Sechelt	segmentation	t̕i=št kʷənam-t-at tə=s-təm~tumiš [t̕i məl	page 2
+(5) line 2	Sechelt	gloss	AUX=1PL.SBJ help-CTR-1PL.ERG DET=NMLZ-PL~man [AUX sink	page 2
+(5) line 3	Sechelt	segmentation	tə=snəxʷíɬ-it].	page 2
+(5) line 4	Sechelt	gloss	DET=boat-3PL.POSS]	page 2
+(5) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘We helped the men whose boat sank.’	page 2
+(5) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Sechelt: Beaumont 2011:528)	page 2, the tag or source at the right of the translation
+§1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	However, even when possible, the pattern illustrated in (1–5) is severely restricted. In Squamish (and Sechelt, as far as we can tell) relativization of a possessor is only possible from the subject of an intransitive predicate.3 In Island Halkomelem, it is also apparently possible from the object of a transitive verb, as in (4), but no Central Salish language permits possessor extraction from the subject of a transitive verb.4 Our findings for ʔayʔaǰuθəm are similar. For our consultants, possessor extraction of the type illustrated in (1–5) is generally disallowed, except with some inalienably possessed elements, namely body parts, as in (1). However, even here, our consultants prefer forms with somatic lexical suffixes: that is, instead of producing the equivalent of ‘the man whose nose is big’, as in (1), they will employ a construction closer to ‘the big-nosed man’.	page 2
+footnote 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Indirect evidence for the restriction of possessor extraction to intransitive subjects in Sechelt is provided by the fact that in the relevant dictionary entry in Beaumont (2011:528), potential cases of possessor extraction from an object and a transitive subject are avoided by extracting the whole possessive DP, as shown in (i) and (ii), respectively:	page 2, footnote 3
+footnote 3 (i) line 1	Sechelt	segmentation	nə́lh tə=mə́na-s ɬə́ʔácx̣a sɬánay [t̕i kʷə́nám-t-axʷ].	page 2
+footnote 3 (i) line 2	Sechelt	gloss	COP DET=child-3POSS DEM woman [AUX help-CTR-2SG.ERG]	page 2
+footnote 3 (i) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘That’s the woman whose son you helped.’	page 2
+footnote 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(Literally: ‘It is the son of that woman who you helped.’	page 2, footnote 3
+footnote 3 (ii) line 1	Sechelt	segmentation	nə́lh tə=mə́na-s ɬə́ʔáx̣a sɬánay [t̕ə kʷə́nám-t-ci].	page 3
+footnote 3 (ii) line 2	Sechelt	gloss	COP DET=child-3POSS DEM woman [AUX help-CTR-2SG.OBJ]	page 3
+footnote 3 (ii) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘That’s the woman whose son helped you.’	page 3
+footnote 3 (ii) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(Literally: ‘It is the son of that woman who helped you.’)	page 3, under the translation
+footnote 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Possessor extraction is even more restricted in the Northern Interior: it is impossible in Lillooet (Matthewson & Davis 1995) and Shuswap (Gardiner 1996), and allowed only with (a subset of) intransitive subjects in Thompson (Davis, Gardiner, & Matthewson 1993).	page 3, footnote 4
+footnote 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	language	Shuswap	Northern Interior Salish
+footnote 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	language	Thompson	Northern Interior Salish
+footnote 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	While this view of Ā-dependencies is broadly accepted and has considerable empirical support across the Salish family, it does gloss over potential differences between types of Ā-movement. With respect to possessor extraction, for example, it predicts that questioning a possessor will be exactly as hard as relativizing a possessor, since the latter forms a component of the former. This is not entirely true, however: many Salish languages (including ʔayʔaǰuθəm) have strategies for questioning possessors that are not available for relative clauses. One of the most common is to use the WH-word for ‘where’ or ‘which’, as in the example in (iii) below:	page 3, footnote 5
+footnote 5 (iii) line 1	ʔayʔaǰuθəm	transcription	hɛkʷčɛ k̓ʷastas tihayɛ [k̓ʷʊɬʊxʷoɬaxʷ]?	page 4
+footnote 5 (iii) line 2	ʔayʔaǰuθəm	segmentation	hi+kʷ+ča k̓ʷasta-s tihaya [k̓ʷəɬ-əxʷ-uɬ-axʷ]	page 4
+footnote 5 (iii) line 3	ʔayʔaǰuθəm	gloss	COP+DET+where cup-3POSS tea [spill-NCTR-PST-2SG.ERG]	page 4
+footnote 5 (iii) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Whose cup of tea did you spill?’	page 4
+footnote 5 (iii) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(Literally: ‘Where/which cup of tea is it that you spilt?’)	page 4, at the right of the translation
+footnote 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	While it is unclear how exactly to obtain a possessor interpretation for cases like these, it is clear that they do not involve Ā-movement of the possessor argument: the bracketed relative clause component in (i) has a gap in object position corresponding to the entire possessed DP, not the possessor. We set aside these cases for the purposes of this paper, though they would obviously make an interesting study in their own right.	page 3, footnote 5
+§1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	language	Island Halkomelem	Gerdts 1988, Gerdts and Hukari 2008
+§1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	In order to relativize, question, or focus a possessor in all other contexts, a different strategy is used: consultants employ the intransitive predicate snaʔ, (roughly translated as ‘be the owner (of)’) which takes a possessor argument as its subject, allowing direct extraction, with its possessum argument realized as a non-agreeing object. Curiously, however, snaʔ is only used in extraction contexts; when no extraction takes place, or when a possessum argument is extracted, possession is instead expressed with the nominal predicate naʔ ‘(one’s) own’. The two predicates show inverse argument structures: while snaʔ takes the possessor as its subject, naʔ takes the possessum, with its possessor argument realized by possessive affixes and associated DPs.	page 3
+§1	ʔayʔaǰuθəm	cited form	snaʔ	page 3, in italics
+§1	ʔayʔaǰuθəm	cited form	naʔ	page 3, in italics, ‘(one’s) own’
+§1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	The paper is structured as follows. In Section 2, we present evidence demonstrating that ʔayʔaǰuθəm largely lacks possessor extraction of the type illustrated in (1–5) above, except for marginal cases with body parts. In Section 3, we examine the syntax of snaʔ, showing that it is used uniquely in possessor extraction contexts, and in Section 4 we turn to naʔ, which is used in other possessive contexts. In Section 5, we examine the ʔayʔaǰuθəm system in a comparative context. Section 6 concludes.	page 3
+§2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	heading	2 Direct possessor extraction	page 3
+§2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	In this section, we show that at least some ʔayʔaǰuθəm speakers do permit direct extraction of the possessor argument of a DP, but only in one very restricted context. Note that though we refer to ‘direct extraction’ of the possessor, extraction here does not refer to Ā-movement of the relativized, focused, or questioned constituent itself; rather, following much previous work in Salish syntax, we assume that all Ā-dependencies involve operator movement within a relative clause which bears a predication relation to the questioned, focused, or relativized constituent.5 See Kroeber (1997, 1999), Davis (2010), Davis and Matthewson (2009), Koch (2008), Koch and Zimmermann (2009), Lyon (2013), amongst others.6	page 3
+footnote 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Davis (2010) argues that operator movement inside relative clauses is in fact determiner movement, with a pro-NP pied-piped along with the Ā-moved D. Nothing here hinges on whether or not we adopt this hypothesis.	page 4, footnote 6
+§2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	As shown in (6–7), direct possessor extraction is permitted for inalienably possessed body parts, at least by some speakers.7	page 4
+footnote 7	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	For the ʔayʔaǰuθəm examples, the first line is in the community orthography, the second line is a phonemic representation with morpheme breaks in the standard version of the NAPA used by Salishanists, the third line provides a gloss, and the fourth line is the translation; in addition, ‘vf’ marks forms volunteered by consultants, while ‘sf’ marks forms suggested by the researchers. For examples from other languages, we employ a standard three-line format, without the community orthography line.	page 4, footnote 7
+(6) line 1	ʔayʔaǰuθəm	transcription	yɛ:χátčxʷ ʔot hɛɬ šɛ ƛaqt maqɛns.	page 4
+(6) line 2	ʔayʔaǰuθəm	segmentation	yax̣-át=čxʷ=ʔut hiɬ šə=ƛaqt maqin-s	page 4
+(6) line 3	ʔayʔaǰuθəm	gloss	remember-CTR\STAT=2SG.SBJ=EXCL COP DET=long hair-3POSS	page 4
+(6) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘You remember the one that has long hair.’	page 4
+(6) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 4, at the right of the translation
+(7) line 1	ʔayʔaǰuθəm	transcription	yɛ:χátačxʷ hɛɬ šɛ tih məqsəns?	page 4
+(7) line 2	ʔayʔaǰuθəm	segmentation	yax̣-át=a=čxʷ hiɬ šə=tih məqsən-s	page 4
+(7) line 3	ʔayʔaǰuθəm	gloss	remember-CTR\STAT=Q=2SG.SBJ COP DET=big nose-3POSS	page 4
+(7) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Do you remember the one with a big nose?’	page 4
+(7) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 4, at the right of the translation
+§2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	However, even in these contexts, speakers tend to prefer using a lexical suffix, as in (8), rendering possessor extraction unnecessary: cf. (6).	page 4
+(8) line 1	ʔayʔaǰuθəm	transcription	yɛχatčxʷ ʔot hɛɬ šɛ ƛaqteqʷən tumɩš.	page 4
+(8) line 2	ʔayʔaǰuθəm	segmentation	yax̣-át=čxʷ=ʔut hiɬ šə=ƛaqt-iqʷən tumiš	page 4
+(8) line 3	ʔayʔaǰuθəm	gloss	remember-CTR\STAT =2SG.SBJ=EXCL COP DET=long-hair man	page 4
+(8) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘You remember the long-haired man.’	page 4
+(8) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 4, at the right of the translation
+§2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	For anything other than inalienably possessed body parts, possessor extraction is disallowed, as shown in (9–12).	page 4
+(9) line 1	ʔayʔaǰuθəm	transcription	* gɛt kʷ č̓ɛn̓os kʷ nɩʔɩnšɩm?	page 4
+(9) line 2	ʔayʔaǰuθəm	segmentation	gət kʷ=čan̓u-s kʷ ni<ʔi>nš-əm	page 4
+(9) line 3	ʔayʔaǰuθəm	gloss	who DET=dog-3POSS DET=swim<PL>-MD	page 4
+(9) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Whose dog is swimming?’	page 4
+(9) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 4, at the right of the translation
+(10) line 1	ʔayʔaǰuθəm	transcription	* gɛt kʷ čuy̓s kʷ ƛ̓o:χʷɛ́t?	page 5
+(10) line 2	ʔayʔaǰuθəm	segmentation	gət kʷ=čuy̓-s kʷ=ƛ̓ux̣ʷ<i>t	page 5
+(10) line 3	ʔayʔaǰuθəm	gloss	who DET=child-3POSS DET=cry<STAT>	page 5
+(10) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Whose child is crying?’	page 5
+(10) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 5, at the right of the translation
+(11) line 1	ʔayʔaǰuθəm	transcription	* hɛɬ tə saɬtxʷ kʷ guguhum tə č̓ɛn̓os.	page 5
+(11) line 2	ʔayʔaǰuθəm	segmentation	hiɬ tə=saɬtxʷ kʷ=gu~guh-um tə=č̓an̓u-s	page 5
+(11) line 3	ʔayʔaǰuθəm	gloss	COP DET=woman DET=IPFV~bark DET=dog-3POSS	page 5
+(11) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘She is the woman whose dog is barking.’	page 5
+(11) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 5, at the right of the translation
+(12) line 1	ʔayʔaǰuθəm	transcription	* yɛ:χátčxʷ ʔot hɛɬ šɛ t̓at̓ᶿɛm ʔatnopɛls.	page 5
+(12) line 2	ʔayʔaǰuθəm	segmentation	yax̣-át=čxʷ=ʔut hiɬ šə=t̓at̓ᶿim ʔatnupil-s	page 5
+(12) line 3	ʔayʔaǰuθəm	gloss	remember-CTR\STAT=2SG.SBJ=EXCL COP DET=red car-3POSS	page 5
+(12) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘You remember the one that has the red car.’	page 5
+(12) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 5, at the right of the translation
+§3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	heading	3 Possessor extraction with sna	page 5
+§3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Given that direct possessor extraction is largely ungrammatical in ʔayʔaǰuθəm, the question immediately arises as to how the language does question, focus, or relativize a possessor. This is where the possessive predicate snaʔ (roughly, ‘be the owner (of)’) comes in.	page 5
+§3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	The crucial property of snaʔ that allows extraction is that it is a (formally) intransitive predicate whose absolutive subject is a semantic possessor; since absolutive subjects may always be directly extracted, extraction of the possessor is permitted.8,9	page 5
+footnote 8	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	We have also recorded an additional form snaha. From what we have recorded, there is no clear semantic difference between snaha and snaʔ. Speakers who use snaha also accept snaʔ in the same contexts with no discernable difference in interpretation. We leave this variant aside for future investigation.	page 5, footnote 8
+footnote 9	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	It is interesting to note that snaʔ cannot be used when extracting the possessor of an inalienably possessed body part:	page 5, footnote 9
+footnote 9 (iva) line 1	ʔayʔaǰuθəm	transcription	# hɛɬ tə snaʔ tə ƛ̓aqt maqɛn.	page 5
+footnote 9 (iva) line 2	ʔayʔaǰuθəm	segmentation	hiɬ tə=snaʔ tə=ƛ̓aqt maqin	page 5
+footnote 9 (iva) line 3	ʔayʔaǰuθəm	gloss	COP DET=be.owner DET=long hair	page 5
+footnote 9 (iva) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He’s the one with long hair.’	page 5
+footnote 9 (iva) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 5, at the right of the translation
+footnote 9 (iva) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	speaker comment	Consultant’s comment: You own your hair, so [snaʔ is] not necessary, unless it’s a wig.	page 5, under the example, the consultant not named
+footnote 9 (ivb) line 1	ʔayʔaǰuθəm	transcription	hɛɬ tə ƛ̓aqt maqɛns.	page 5
+footnote 9 (ivb) line 2	ʔayʔaǰuθəm	segmentation	hiɬ tə=ƛ̓aqt maqin-s	page 5
+footnote 9 (ivb) line 3	ʔayʔaǰuθəm	gloss	COP DET=long hair-3POSS	page 5
+footnote 9 (ivb) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He’s the one with long hair.’	page 5
+footnote 9 (ivb) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 5, at the right of the translation
+footnote 9	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	It appears to give rise to an odd reading where the body part is not inalienably possessed, as indicated by the comment accompanying (iv.a).	page 5, footnote 9
+(13) line 1	ʔayʔaǰuθəm	transcription	gɛt kʷ snaʔ tə č̓ɛn̓o?	page 5
+(13) line 2	ʔayʔaǰuθəm	segmentation	gət kʷ=snaʔ tə=č̓an̓u	page 5
+(13) line 3	ʔayʔaǰuθəm	gloss	who DET=be.owner DET=dog	page 5
+(13) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Whose is the dog?’	page 5
+(13) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 5, at the right of the translation
+(14) line 1	ʔayʔaǰuθəm	transcription	hɛɬ č̓ɛ šɛ gaʔčɛqʷən tumɩš ʔə snaʔ tə č̓ɛn̓o.	page 6
+(14) line 2	ʔayʔaǰuθəm	segmentation	hiɬ=č̓a šə=gaʔčiqʷən tumiš ʔə=snaʔ tə=č̓an̓u	page 6
+(14) line 3	ʔayʔaǰuθəm	gloss	COP=INFR DET=bald man CLF=be.owner DET=dog	page 6
+(14) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘It must be the bald man who owns the dog.’	page 6
+(14) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 6, at the right of the translation
+(15) line 1	ʔayʔaǰuθəm	transcription	gɛt (kʷ) snaʔ tə t̓at̓ᶿɛm ʔatnopɛl?	page 6
+(15) line 2	ʔayʔaǰuθəm	segmentation	gət kʷ=snaʔ tə=t̓at̓ᶿim ʔatnupil	page 6
+(15) line 3	ʔayʔaǰuθəm	gloss	who DET=be.owner DET=red car	page 6
+(15) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Who owns the red car?’	page 6
+(15) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 6, at the right of the translation
+(16) line 1	ʔayʔaǰuθəm	transcription	hɛɬ θɛʔɛ saltxʷ (kʷ) snaʔ tə t̓at̓ᶿɛm ʔatnopɛl.	page 6
+(16) line 2	ʔayʔaǰuθəm	segmentation	hiɬ θiʔi saɬtxʷ kʷ=snaʔ tə=t̓at̓ᶿim ʔatnupil	page 6
+(16) line 3	ʔayʔaǰuθəm	gloss	COP DEM woman DET=be.owner DET=red car	page 6
+(16) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘It’s this woman who owns the red car.’	page 6
+(16) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 6, at the right of the translation
+§3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	As can be seen in all the examples in (13–16), an overt possessum argument can (and frequently does) appear following sna. Though this second argument is not marked as oblique,10 it does not behave as a direct (agreement-marked) argument either, since it cannot be extracted:	page 6
+footnote 10	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Oblique marking is frequently elided in ʔayʔaǰuθəm, but where it is underlyingly present, it can generally be reinserted in follow-up elicitation. The insertion of oblique marking preceding the possessum of the predicate snaʔ is judged ungrammatical, however (this judgement is stronger for some speakers than others):	page 6, footnote 10
+footnote 10 (v) line 1	ʔayʔaǰuθəm	transcription	* gɛt kʷ snaʔ ʔə tə č̓ɛn̓o?	page 6
+footnote 10 (v) line 2	ʔayʔaǰuθəm	segmentation	gət kʷ=snaʔ ʔə=tə=č̓an̓u	page 6
+footnote 10 (v) line 3	ʔayʔaǰuθəm	gloss	who DET=be.owner OBL=DET=dog	page 6
+footnote 10 (v) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Who owns the dog?’	page 6
+footnote 10 (v) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(cf. 13)	page 6, at the right of the translation
+footnote 10	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	We do not currently have an explanation for the absence of oblique marking here.	page 6, footnote 10
+(17) line 1	ʔayʔaǰuθəm	transcription	* tam snaʔ Gail?	page 6
+(17) line 2	ʔayʔaǰuθəm	segmentation	tam snaʔ Gail	page 6
+(17) line 3	ʔayʔaǰuθəm	gloss	what be.owner Gail	page 6
+(17) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘What is Gail’s?’	page 6
+(17) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 6, at the right of the translation
+(18) line 1	ʔayʔaǰuθəm	transcription	* hɛɬ tə ƛ̓əpəm kʷaɬt snaʔ Gail.	page 6
+(18) line 2	ʔayʔaǰuθəm	segmentation	hiɬ tə=ƛ̓əpəm kʷaɬt snaʔ Gail	page 6
+(18) line 3	ʔayʔaǰuθəm	gloss	COP DET=deep plate be.owner Gail	page 6
+(18) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The bowl is Gail’s.’	page 6
+(18) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 6, at the right of the translation
+§3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	It is also important to note that the initial s of snaʔ is not a nominalizer. If it were, we would expect to find the subject/possessor marked with possessive morphology. Not only is this not obligatory, as shown in (13–16) above, it is in fact ungrammatical, as illustrated in (19–20) below.	page 6
+(19) line 1	ʔayʔaǰuθəm	transcription	* gɛt (kʷ) snaʔs tə=t̓at̓ᶿɛm ʔatnopɛl?	page 6
+(19) line 2	ʔayʔaǰuθəm	segmentation	gət kʷ=snaʔ=s tə=t̓at̓ᶿim ʔatnupil	page 6
+(19) line 3	ʔayʔaǰuθəm	gloss	who DET=be.owner=3POSS DET=red car	page 6
+(19) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Who owns the red car?’	page 6
+(19) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 6, at the right of the translation
+(20) line 1	ʔayʔaǰuθəm	transcription	* hɛɬ θɛʔɛ saltxʷ (kʷ) snaʔs tə t̓at̓ᶿɛm ʔatnopɛl.	page 7
+(20) line 2	ʔayʔaǰuθəm	segmentation	hiɬ θiʔi saɬtxʷ kʷ=snaʔ=s tə=t̓at̓ᶿim ʔatnupil	page 7
+(20) line 3	ʔayʔaǰuθəm	gloss	COP DEM woman DET=be.owner=3POSS DET=red car	page 7
+(20) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘This is the woman that owns the red car.’	page 7
+(20) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 7, at the right of the translation
+§3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Finally, snaʔ cannot be used when the possessor is not extracted. As far as we know, this behaviour is unique in the language.	page 7
+(21) line 1	ʔayʔaǰuθəm	transcription	* snaʔ tə gaʔčɛqʷən tumɩš tə č̓ɛn̓o.	page 7
+(21) line 2	ʔayʔaǰuθəm	segmentation	snaʔ tə=gaʔčiqʷən tumiš tə=č̓an̓u	page 7
+(21) line 3	ʔayʔaǰuθəm	gloss	be.owner DET=bald man DET=dog	page 7
+(21) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The bald man owns the dog.’	page 7
+(21) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 7, at the right of the translation
+(22) line 1	ʔayʔaǰuθəm	transcription	* snaʔ θiθa saɬtxʷ tə t̓at̓ᶿɛm ʔatnopɛl.	page 7
+(22) line 2	ʔayʔaǰuθəm	segmentation	snaʔ θəy̓θa saɬtxʷ tə=t̓at̓ᶿim ʔatnupil	page 7
+(22) line 3	ʔayʔaǰuθəm	gloss	be.owner DEM woman DET=red car	page 7
+(22) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘This woman owns the red car.’	page 7
+(22) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 7, at the right of the translation
+§3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	The restriction of snaʔ to possessor extraction contexts naturally raises a further question: how does ʔayʔaǰuθəm handle possession in non-extraction contexts, or where the possessum is extracted? This is where the nominal predicate naʔ comes in.	page 7
+§4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	heading	4 Possession with na	page 7
+§4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	In order to express possession without possessor extraction, or where extraction of the possessum takes place, ʔayʔaǰuθəm employs the nominal predicate naʔ ‘(one’s) own’. Its argument structure is almost inverse to that of snaʔ: its absolutive subject is the possessum, with its possessor argument marked by possessive affixes and optionally by associated possessor DPs.	page 7
+(23) line 1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Ifind a coat left at the lodge. Daniel is notorious for forgetting his coat.	page 7, over the example
+(23) line 2	ʔayʔaǰuθəm	transcription	naʔs č̓ɛ Daniel.	page 7
+(23) line 3	ʔayʔaǰuθəm	segmentation	naʔ-s=č̓a Daniel	page 7
+(23) line 4	ʔayʔaǰuθəm	gloss	own-3POSS=INFR Daniel	page 7
+(23) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘It must be Daniel’s.’	page 7
+(23) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 7, at the right of the translation
+(24) line 1	ʔayʔaǰuθəm	transcription	ʔəθ naʔa?	page 7
+(24) line 2	ʔayʔaǰuθəm	segmentation	ʔəθ=naʔ=a	page 7
+(24) line 3	ʔayʔaǰuθəm	gloss	2SG.POSS=own=Q	page 7
+(24) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Is it yours?’	page 7
+(24) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 7, at the right of the translation
+(25) line 1	ʔayʔaǰuθəm	transcription	ʔətᶿ naʔ tan̓ nuxʷɛɬ.	page 7
+(25) line 2	ʔayʔaǰuθəm	segmentation	ʔətᶿ=naʔ tan̓ nəxʷiɬ	page 7
+(25) line 3	ʔayʔaǰuθəm	gloss	1SG.POSS=own DEM canoe	page 7
+(25) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘That canoe is mine.’	page 7
+(25) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 7, at the right of the translation
+(26) line 1	ʔayʔaǰuθəm	transcription	naʔs Eric šɛ xʷuǰumayɛ.	page 8
+(26) line 2	ʔayʔaǰuθəm	segmentation	naʔ-s Eric šə=xʷuǰumaya	page 8
+(26) line 3	ʔayʔaǰuθəm	gloss	own-3POSS Eric DET=store	page 8
+(26) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The store belongs to Eric.’	page 8
+(26) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 8, at the right of the translation
+(27) line 1	ʔayʔaǰuθəm	transcription	naʔs č̓ɛ tə gaʔčɛqʷən tumɩš tə č̓ɛn̓o.	page 8
+(27) line 2	ʔayʔaǰuθəm	segmentation	naʔ-s=č̓a tə=gaʔčiqʷən tumiš tə=č̓an̓u	page 8
+(27) line 3	ʔayʔaǰuθəm	gloss	own-3POSS=INFR DET=bald man DET=dog	page 8
+(27) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The dog must belong to the bald man.’	page 8
+(27) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 8, at the right of the translation
+(28) line 1	ʔayʔaǰuθəm	transcription	naʔs θiθa saɬtxʷ tə t̓at̓ᶿɛm ʔatnopɛl.	page 8
+(28) line 2	ʔayʔaǰuθəm	segmentation	naʔ-s θəy̓θa saɬtxʷ tə=t̓at̓ᶿim ʔatnupil	page 8
+(28) line 3	ʔayʔaǰuθəm	gloss	own-3POSS DEM woman DET=red car	page 8
+(28) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The red car belongs to that woman.’	page 8
+(28) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 8, at the right of the translation
+§4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Possessor marking is obligatory on naʔ; it must be accompanied by a possessive affix indicating the possessor.	page 8
+(29a) line 1	ʔayʔaǰuθəm	transcription	* naʔ tita tumɩš tə č̓ɛn̓o.	page 8
+(29a) line 2	ʔayʔaǰuθəm	segmentation	naʔ təy̓ta tumiš tə=č̓an̓u	page 8
+(29a) line 3	ʔayʔaǰuθəm	gloss	own DEM man DET=dog	page 8
+(29a) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The dog belongs to that man.’	page 8
+(29a) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 8, at the right of the translation
+(29b) line 1	ʔayʔaǰuθəm	transcription	naʔs tita tumɩš tə č̓ɛn̓o.	page 8
+(29b) line 2	ʔayʔaǰuθəm	segmentation	naʔ-s təy̓ta tumiš tə=č̓an̓u	page 8
+(29b) line 3	ʔayʔaǰuθəm	gloss	own-3POSS DEM man DET=dog	page 8
+(29b) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The dog belongs to that man.’	page 8
+(29b) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 8, at the right of the translation
+(30) line 1	ʔayʔaǰuθəm	transcription	* naʔ θiθa saɬtxʷ tə t̓at̓ᶿɛm ʔatnopɛl.	page 8
+(30) line 2	ʔayʔaǰuθəm	segmentation	naʔ θəy̓θa saɬtxʷ tə=t̓at̓ᶿim ʔatnupil	page 8
+(30) line 3	ʔayʔaǰuθəm	gloss	own DEM woman DET=red car	page 8
+(30) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The red car belongs to that woman.’	page 8
+(30) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(cf. 28)	page 8, at the right of the translation
+(30) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 8, at the right of the translation
+§4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Since the possessum is the direct argument of naʔ, it can be extracted:	page 8
+(31) line 1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Context: I’m at the store looking at different tools and I know Gail is really happy with the one she has. I want to get one like it, but I’m not sure which kind it is.	page 8, over the example
+(31) line 2	ʔayʔaǰuθəm	transcription	tam č̓ɛ ga kʷ naʔs Gail?	page 8
+(31) line 3	ʔayʔaǰuθəm	segmentation	tam=č̓a=ga kʷ=naʔ-s Gail	page 8
+(31) line 4	ʔayʔaǰuθəm	gloss	what=INFR=DPRT DET=own-3POSS Gail	page 8
+(31) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I wonder what Gail has?’	page 8
+(31) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 8, at the right of the translation
+(32) line 1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Context: There was a gathering at the gym and some cooking ware got left behind. I know some of it is Gail’s, but I’m not sure which.	page 9, over the example
+(32a) line 1	ʔayʔaǰuθəm	transcription	hɛkʷčɛ naʔs Gail?	page 9
+(32a) line 2	ʔayʔaǰuθəm	segmentation	hi+kʷ+ča naʔ-s Gail	page 9
+(32a) line 3	ʔayʔaǰuθəm	gloss	COP+DET+where own-3POSS Gail	page 9
+(32a) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Which belong to Gail?’	page 9
+(32b) line 1	ʔayʔaǰuθəm	transcription	hɛɬ tə ƛ̓əpəm kʷaɬt kʷ naʔs.	page 9
+(32b) line 2	ʔayʔaǰuθəm	segmentation	hiɬ tə=ƛ̓əpəm kʷaɬt kʷ=naʔ-s	page 9
+(32b) line 3	ʔayʔaǰuθəm	gloss	COP DET=deep plate DET=own-3POSS	page 9
+(32b) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The bowl belongs to her.’	page 9
+(32b) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 9, at the right of the translation
+§4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	In contrast, since the possessor is not a direct argument, it cannot be extracted:11	page 9
+footnote 11	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	The sentences in (33) and (34) were judged impossible, but are probably semantically anomalous rather than ungrammatical, meaning something like: ‘Who belongs to the dog?’ and ‘Who belongs to the car?’, respectively, where the extracted argument is the possessum. This is parallel to the semantically odd interpretation given for (35), for instance. The fact that such an interpretation was not offered for (33) and (34) probably reflects the fact that these odd interpretations are particularly strange in questions.	page 9, footnote 11
+(33) line 1	ʔayʔaǰuθəm	transcription	# gɛt kʷ naʔs tə č̓ɛn̓o?	page 9
+(33) line 2	ʔayʔaǰuθəm	segmentation	gət kʷ=naʔ-s tə=č̓an̓u	page 9
+(33) line 3	ʔayʔaǰuθəm	gloss	who DET=own-3POSS DET=dog	page 9
+(33) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Whose is the dog?’	page 9
+(33) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 9, at the right of the translation
+(34) line 1	ʔayʔaǰuθəm	transcription	# gɛt (kʷ) naʔs tə t̓at̓ᶿɛm ʔatnopɛl?	page 9
+(34) line 2	ʔayʔaǰuθəm	segmentation	gət kʷ=naʔ-s tə=t̓at̓ᶿim ʔatnupil	page 9
+(34) line 3	ʔayʔaǰuθəm	gloss	who DET=own-3POSS DET=red car	page 9
+(34) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Whose is the red car?’	page 9
+(34) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 9, at the right of the translation
+(35) line 1	ʔayʔaǰuθəm	transcription	# hɛɬ tɛʔɛ tumɩš (kʷ) naʔs tə č̓ɛn̓o.	page 9
+(35) line 2	ʔayʔaǰuθəm	segmentation	hiɬ tiʔi tumiš kʷ=naʔ-s tə=č̓an̓u	page 9
+(35) line 3	ʔayʔaǰuθəm	gloss	COP DEM man DET=own-3POSS DET=dog	page 9
+(35) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	Intended interpretation: ‘It’s this man that owns the dog.’	page 9
+(35) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	Actual interpretation: ‘The dog owns this man.’	page 9
+(35) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 9, at the right of the translation
+§4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	A further argument that the possessor is not the subject of a naʔ predicate comes from embedding. In a subjunctive environment, the third person subjunctive subject clitic =as may co- occur with the 3rd person possessive suffix -s on naʔ (36).	page 9
+(36) line 1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Context: We're cleaning up the gym after a gathering and I ask someone to check if a kitchen utensil belongs to Gail.	page 9, over the example
+(36) line 2	ʔayʔaǰuθəm	transcription	ho ga gayɛt Gail ga naʔsas tɛʔɛ.	page 9
+(36) line 3	ʔayʔaǰuθəm	segmentation	hu=ga gay-at Gail ga naʔ-s=as tiʔi	page 9
+(36) line 4	ʔayʔaǰuθəm	gloss	go=DPRT ask-CTR Gail if own-3POSS=3SBJV DEM	page 9
+(36) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Go ask Gail if this belongs to her.’	page 9
+(36) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 9, at the right of the translation
+§4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Two subject agreement markers cannot co-occur on the same predicate in ʔayʔaǰuθəm; subject agreement can be doubled, but only in transitive third person subordinate clauses where there is a preceding auxiliary to host the subject clitic, allowing the third person ergative suffix to surface on the main predicate (see, e.g., Kroeber 2002:20–21, Watanabe 2003:105, 107, 113, 115).12 This means that the 3rd person possessive -s in (37) is not marking clausal subject agreement, but rather forms part of the nominal predicate. A similar construction is found with x̣aƛ̓ ‘want/desire’, which patterns in a parallel fashion in embedded contexts.	page 10
+footnote 12	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Subject clitics also sometimes double ergative suffixes in main clauses where the predicate is transitivized with the noncontrol transitivizer (see Watanabe 2003:2018, fn. 186 concerning the use of ergative subject suffixes in main clauses with the noncontrol transitivizer); however, in order for this doubling to take place, the clitics must be hosted pre-predicatively by another element, usually a clausal demonstrative.	page 10, footnote 12
+§4	ʔayʔaǰuθəm	cited form	x̣aƛ̓	page 10, in italics, ‘want/desire’
+(37) line 1	ʔayʔaǰuθəm	transcription	qʷolsəmt qamɛn ga χaƛ̓səs.	page 10
+(37) line 2	ʔayʔaǰuθəm	segmentation	qʷəl̓=səm=ʔut qamin ga x̣aƛ̓-s=as	page 10
+(37) line 3	ʔayʔaǰuθəm	gloss	come=FUT=EXCL come.along COMP want-3POSS=3SBJV	page 10
+(37) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘She can come along if she wants.’	page 10
+(37) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 10, at the right of the translation
+§4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Before leaving this section, we note that naʔ also appears as a nominal modifier of arguments, meaning ‘one’s own’ (38–39), and in argument position (40).	page 10
+(38) line 1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Daniel is painting houses for a summer job. Today it’s the weekend, and you ask me what he’s up to. I tell you, ‘He’s painting his own house.’	page 10, over the example
+(38) line 2	ʔayʔaǰuθəm	transcription	ǰik̓ʷt k̓ʷa kʷ naʔs ʔay̓ɛ.	page 10
+(38) line 3	ʔayʔaǰuθəm	segmentation	ǰə~yk̓ʷ-t=k̓ʷa kʷ=naʔ-s ʔay̓a	page 10
+(38) line 4	ʔayʔaǰuθəm	gloss	IPFV~paint-CTR DET=own-3POSS house	page 10
+(38) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He’s painting his own house.’	page 10
+(38) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 10, at the right of the translation
+(39) line 1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Context: I wanted to have my own awl for weaving and Ifinally bought one.	page 10, over the example
+(39) line 2	ʔayʔaǰuθəm	transcription	čkʷa maʔamʔit ʔətᶿ naʔ χʷoχʷp̓.	page 10
+(39) line 3	ʔayʔaǰuθəm	segmentation	č=kʷa maʔ-ʔəm-ʔiyt ʔətᶿ=naʔ x̣ʷux̣ʷp̓	page 10
+(39) line 4	ʔayʔaǰuθəm	gloss	1SG.SBJ=CLDEM get-NCTR-PRF 1SG.POSS=own awl	page 10
+(39) line 5	ʔayʔaǰuθəm	segmentation	I got my own awl. (vf)	page 10
+(40) line 1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Context: We are sitting around the table and Betty finished up her basket, but we’re still getting started.	page 10, over the example
+(40) line 2	ʔayʔaǰuθəm	transcription	kʷi hoynom Betty šɛ naʔs ʔi čɛtšt ʔot	page 10
+(40) line 3	ʔayʔaǰuθəm	segmentation	kʷi huy-nu-m Betty šə=naʔ-s ʔiy čaʔat=št=ʔut	page 10
+(40) line 4	ʔayʔaǰuθəm	gloss	CLDEM finish-NCTR-PASS Betty DET=own-3POSS CONJ now=1PL.SBJ=EXCL	page 10
+(40) line 5	ʔayʔaǰuθəm	transcription	ƛ̓əƛ̓ʔayin.	page 10
+(40) line 6	ʔayʔaǰuθəm	segmentation	ƛ̓ə~ƛ̓ʔayɩn	page 10
+(40) line 7	ʔayʔaǰuθəm	gloss	IPFV~begin	page 10
+(40) line 8	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Betty already finished hers and we’re just starting.’	page 10
+(40) line 9	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 10, at the right of the translation
+§4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Where naʔ is an argument modifier, the possessive clitics attach to naʔ and cannot instead attach to the following noun.	page 10
+(41) line 1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Same as (38).	page 11, over the example
+(41) line 2	ʔayʔaǰuθəm	transcription	* ǰik̓ʷt k̓ʷa kʷ naʔ ʔay̓ɛs.	page 11
+(41) line 3	ʔayʔaǰuθəm	segmentation	ǰə~yk̓ʷ-t=k̓ʷa kʷ=naʔ ʔay̓a-s	page 11
+(41) line 4	ʔayʔaǰuθəm	gloss	IPFV~paint-CTR DET=own house-3POSS	page 11
+(41) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He’s painting his own house.’	page 11
+(41) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 11, at the right of the translation
+(42) line 1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Same as (39).	page 11, over the example
+(42) line 2	ʔayʔaǰuθəm	transcription	* čkʷa maʔamʔit naʔ ʔətᶿ χʷoχʷp̓.	page 11
+(42) line 3	ʔayʔaǰuθəm	segmentation	č=kʷa maʔ-ʔəm-ʔiyt naʔ ʔətᶿ=x̣ʷux̣ʷp̓	page 11
+(42) line 4	ʔayʔaǰuθəm	gloss	1SG.SBJ=CLDEM get-NCTR-PRF own 1SG.POSS=awl	page 11
+(42) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I got my own awl.’	page 11
+(42) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 11, at the right of the translation
+§4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	We also predict that naʔ should be possible as a predicate modifier in the complex nominal predicate construction (see Watanabe 2003:96) but have not yet had a chance to test this.	page 11
+§5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	heading	5 The comparative syntax of possession in Salish languages of the North Georgia area	page 11
+§5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	The curious division of labour between snaʔ and naʔ in ʔayʔaǰuθəm raises the issue of how the system developed, and whether it has any analogues in neighbouring languages. In this section, we compare the ʔayʔaǰuθəm system to its counterparts in Sechelt, Pentlatch, Squamish, and Halkomelem, as well as the nearest neighbouring Northern Interior language, Lillooet.	page 11
+§5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	language	Pentlatch	Central Salish, Kinkade 1980
+§5.1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	heading	5.1 Sechelt	page 11
+§5.1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Sechelt is ʔayʔaǰuθəm’s closest relative: its territory borders that of the Sliammon to the south-east, on the mainland side of the Georgia Strait.	page 11
+§5.1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	The Sechelt cognate of (s)naʔ is səná (first person singular cəná, first/second/third person plural sənán(a)). Its syntactic behaviour mirrors that of naʔ, not sna: its absolutive (direct) argument denotes the possessum, with the possessor obligatorily encoded by possessive affixes, supplemented optionally in the third person by possessor DPs. The distribution of səná also resembles that of na: it can occur in predicate position (43–44), in argument position (45–46), as a predicate modifier (47), or as an argument modifier (48):	page 11
+§5.1	ʔayʔaǰuθəm	cited form	(s)naʔ	page 11, in italics
+§5.1	Sechelt	cited form	səná	page 11, in italics
+§5.1	Sechelt	cited form	cəná	page 11, in italics
+§5.1	Sechelt	cited form	sənán(a)	page 11, in italics
+(43) line 1	Sechelt	segmentation	[səná-s] [ɬəʔáx̣a tə=sč̓ə́nu].	page 11
+(43) line 2	Sechelt	gloss	[own-3POSS] [DEM DET=dog]	page 11
+(43) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The dog is hers/her own.’	page 11
+(43) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Sechelt: Beaumont 2011:212)	page 11, the tag or source at the right of the translation
+(44) line 1	Sechelt	segmentation	[səná-s ɬən sqíx̣] [tə=píš].	page 11
+(44) line 2	Sechelt	gloss	[own-3POSS F.DET+1SG.POSS younger.sister] [DET=cat]	page 11
+(44) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The cat belongs to my younger sister.’	page 11
+(44) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Sechelt: Beaumont 2011:42)	page 11, the tag or source at the right of the translation
+(45) line 1	Sechelt	segmentation	[sɬánay píš] [ɬə=səná-s].	page 11
+(45) line 2	Sechelt	gloss	[female cat] [F.DET=own-3POSS]	page 11
+(45) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘She’s got a female cat. (A female cat is hers/her own.)’	page 11
+(45) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Sechelt: Beaumont 2011:212)	page 11, the tag or source at the right of the translation
+(46) line 1	Sechelt	segmentation	ʔút [sc̓ə́nu] [šən cə́na], xʷá=čán č̓ásx̣-ə́m=an.	page 12
+(46) line 2	Sechelt	gloss	if [dog] [DET+1SG.POSS 1SG.own] NEG=1SG.SBJ afraid-MD=1SG.SBJV	page 12
+(46) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘If I had a dog, I wouldn’t be afraid.’ (If a dog were my own...)’	page 12
+(46) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Sechelt: Beaumont 2011:206)	page 12, under the translation
+(47) line 1	Sechelt	segmentation	[səná-s s-cíciy-ím] ʔə=šə=yáw-aɬtən.	page 12
+(47) line 2	Sechelt	gloss	[own-3POSS NMLZ-work-MID] OBL=DET=wake.up-INTR	page 12
+(47) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘It’s his job to wake them up.’	page 12
+(47) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Sechelt: Beaumont 2011:508)	page 12, the tag or source at the right of the translation
+(48) line 1	Sechelt	segmentation	nə́ɬ [tə=sənán-(ʔ)ít snə́xʷíɬ]	page 12
+(48) line 2	Sechelt	gloss	COP [DET=PL.own-3PL.POSS canoe]	page 12
+(48) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘That’s their own canoe.’	page 12
+(48) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Sechelt: Beaumont 2011:5)	page 12, the tag or source at the right of the translation
+§5.1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Furthermore, just like naʔ, səná is used when a possessum is relativized:	page 12
+§5.1	ʔayʔaǰuθəm	cited form	naʔ	page 12, in italics
+§5.1	Sechelt	cited form	səná	page 12, in italics
+(49) line 1	Sechelt	segmentation	t̓i ɬə́m-nə́xʷ-as [šə=səna-s-uɬ tə=snə́xʷíɬ].	page 12
+(49) line 2	Sechelt	gloss	AUX forget-NCT-3ERG [DET=own-3POSS-PAST DET=canoe]	page 12
+(49) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He forgot whose boat it was.’	page 12
+(49) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Sechelt: Beaumont 2011:538)	page 12, the tag or source at the right of the translation
+(50) line 1	Sechelt	segmentation	hák̓ʷ-át=a=čxʷ [šə=səná-s-uɬ yə́yəƛ̓úlmixʷ t̓i	page 12
+(50) line 2	Sechelt	gloss	remember-CTR=Q=2SG.SBJ [DET=own-3POSS-PAST car AUX	page 12
+(50) line 3	Sechelt	segmentation	látsəm-át-axʷ]?	page 12
+(50) line 4	Sechelt	gloss	fix-CTR-2SG.ERG	page 12
+(50) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Do you remember whose car (it was that) you fixed?’	page 12
+(50) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Sechelt: Beaumont 2011:538)	page 12, the tag or source at the right of the translation
+§5.1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	However, Beaumont (2011) gives no examples with səná involving relativization of a possessor: this is unlikely to be an accidental gap, which means that in all probability səná is exactly like naʔ in its syntax.	page 12
+§5.1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Furthermore, Sechelt seems to lack any functional equivalent of snaʔ: where possessor extraction is possible at all, it seems to employ the direct extraction strategy, as noted in Section 1 (see in particular footnote 3).	page 12
+§5.2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	heading	5.2 Pentlatch	page 12
+§5.2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Pentlatch, the earliest Salish language to succumb to colonization in Canada, was spoken directly opposite the Georgia Strait from Sechelt and to the south of Comox territory on Vancouver Island. It is poorly documented; the information given here comes from unpublished notes by Kinkade (1980), who re-transcribed and annotated Boas’s original field notes, hand-written in German.13	page 12
+footnote 13	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Our interpretation of Boas’s transcription differs from that of Kinkade, however, and is closer to the original.	page 12, footnote 13
+§5.2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	As originally transcribed by Boas, the Pentlatch equivalent to possessive naʔ and səná is tθuwá ~ cuwá ~ c̓uwá ~ suwá, with the alternate forms depending on the person of the possessive affix which attaches to the possessive root: tθ- ~ c- in the first person, c̓- in the second, and s- in the third.14 These forms show a remarkable resemblance to the possessive predicate cúwaʔ in Lillooet: see Section 5.5 below.	page 12
+footnote 14	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	The special first person form of the possessive predicate in Sechelt (cəná versus səná) likely represents a relic form of the same stem alternation,	page 13, footnote 14
+§5.2	Pentlatch	cited form	tθuwá	page 12, in italics
+§5.2	Pentlatch	cited form	cuwá	page 12, in italics
+§5.2	Pentlatch	cited form	c̓uwá	page 12, in italics
+§5.2	Pentlatch	cited form	suwá	page 12, in italics
+§5.2	Pentlatch	cited form	tθ-	page 12, in italics
+§5.2	Pentlatch	cited form	c-	page 12, in italics
+§5.2	Pentlatch	cited form	c̓-	page 12, in italics
+§5.2	Pentlatch	cited form	s-	page 12, in italics
+§5.2	Lillooet	cited form	cúwaʔ	page 13, in italics
+(51) line 1	Pentlatch	segmentation	cuwá c-kʷiš nə Tim.	page 13
+(51) line 2	Pentlatch	gloss	1SG.POSS+own 1SG.POSS-name be Tim	page 13
+(51) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘My name is Tim.’15	page 13
+footnote 15	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	In both Boas’s original and Kinkade’s re-transcription, the c- possessive prefix at the beginning of the possessed noun is split into an unexplained -t suffix on cuwá and a nominalizing prefix on the noun, i.e. cuwá-t s-kwiš rather than cuwá c-kwiš. However, Boas gives a complete paradigm for the possessive predicate without a -t, which is also missing in the example in (53) with a third person possessor, supporting the re- analysis proposed here.	page 13, footnote 15
+footnote 15	Pentlatch	cited form	-t	page 13, in italics
+footnote 15	Pentlatch	cited form	cuwá-t s-kwiš	page 13, in italics
+footnote 15	Pentlatch	cited form	cuwá c-kwiš	page 13, in italics
+(51) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Pentlatch: Kinkade 1980)	page 13, the tag or source at the right of the translation
+(52) line 1	Pentlatch	segmentation	(ʔa)c̓uwá c̓-c̓ínu?	page 13
+(52) line 2	Pentlatch	gloss	2SG.POSS+own 2SG.POSS-dog	page 13
+(52) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Is this your dog?’	page 13
+(52) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Pentlatch: Kinkade 1980)	page 13, the tag or source at the right of the translation
+(53) line 1	Pentlatch	segmentation	suwá sc̓inu	page 13
+(53) line 2	Pentlatch	gloss	3POSS+own dog	page 13
+(53) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘his dog’	page 13
+(53) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Pentlatch: Kinkade 1980)	page 13, the tag or source at the right of the translation
+§5.2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Note in (451) and (52) that the possessive person marking on the possessive predicate is doubled in first and second person on the possessed noun. This doubling is also found in Squamish and Halkomelem: see Sections 5.3 and 5.4 below.	page 13
+§5.3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	heading	5.3 Squamish	page 13
+§5.3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Squamish territory lies adjacent to that of the Sechelt along Howe Sound. Kuipers (1967), the major source for the language, gives some information on possessive swaʔ, the equivalent of naʔ and səná. Like its ʔayʔaǰuθəm and Sechelt equivalents, swaʔ takes two arguments: its direct (absolutive) argument denotes the possessum, while obligatory possessive affixes mark the possessor. Kuipers gives data showing that swaʔ may be used as a predicate (54), an argument (55), a predicate modifier (56), and an argument modifier (57):	page 13
+§5.3	Squamish	cited form	swaʔ	page 13, in italics
+(54) line 1	Squamish	segmentation	[swáʔ-s kʷa=n-mán] [ta=lám̓].	page 13
+(54) line 2	Squamish	gloss	[own-3POSS DET=1SG.POSS-father] [DET=house]	page 13
+(54) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The house is my father’s.’	page 13
+(54) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Squamish: Kuipers 1967:145)	page 13, the tag or source at the right of the translation
+(55) line 1	Squamish	segmentation	[ʔə(s)-sə́q̓] [kʷi=ʔə-swáʔ].	page 13
+(55) line 2	Squamish	gloss	[STAT-split] [DET=2SG.POSS-own]	page 13
+(55) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Half is yours.’	page 13
+(55) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Squamish: Kuipers 1967:145)	page 13, the tag or source at the right of the translation
+(56) line 1	Squamish	segmentation	[ʔən-swáʔ ʔən-sqʷəmáy̓] tí.	page 14
+(56) line 2	Squamish	gloss	[1SG.POSS-own 1SG.POSS-dog] DEM	page 14
+(56) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘This is my (own) dog.’	page 14
+(56) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Squamish: Kuipers 1967:145)	page 14, the tag or source at the right of the translation
+(57) line 1	Squamish	segmentation	haʔɬ [ta=ʔə-swáʔ ʔ(ə)-lám̓].	page 14
+(57) line 2	Squamish	gloss	good [DET=2SG.POSS-own 2SG.POSS-house]	page 14
+(57) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Your (own) house is good.’	page 14
+(57) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Squamish: Kuipers 1967:145)	page 14, the tag or source at the right of the translation
+§5.3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	A quirk of the Squamish possessive system (shared by Pentlatch and Halkomelem) is that in cases where swaʔ acts as a modifier, as in (56) and (57), the possessor is marked both on swaʔ and on the head noun.	page 14
+§5.4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	heading	5.4 Halkomelem	page 14
+§5.4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Halkomelem was historically spoken throughout the Fraser Valley in the Lower Mainland, bordering Squamish to the north, and on the southeast coast of Vancouver Island, bordering Pentlatch to the north. The Halkomelem possessive predicate sweʔ, glossed by Suttles (2004:336) as ‘one’s own’, seems to behave very similarly to its Squamish cognate. In the examples below, it appears as a predicate (58), a predicate modifier (59), an argument (60), and an argument modifier (61):	page 14
+§5.4	Halkomelem	cited form	sweʔ	page 14, in italics
+(58) line 1	Downriver Halkomelem	segmentation	sweʔ-s ʔéɬtən.	page 14
+(58) line 2	Downriver Halkomelem	gloss	own-3POSS 3PL	page 14
+(58) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘It’s theirs.’	page 14
+(58) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Downriver Halkomelem: Suttles 2004:336)	page 14, the tag or source at the right of the translation
+(59) line 1	Downriver Halkomelem	segmentation	[nə-swéʔ nə-sqʷəméy̓].	page 14
+(59) line 2	Downriver Halkomelem	gloss	[1SG.POSS-own 1SG.POSS-dog]	page 14
+(59) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘It’s my (own) dog.’	page 14
+(59) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Downriver Halkomelem: Suttles 2004:336)	page 14, the tag or source at the right of the translation
+(60) line 1	Island Halkomelem	segmentation	ʔi c-telə ʔə=[kʷθə=sweʔ-s].	page 14
+(60) line 2	Island Halkomelem	gloss	AUX have-money OBL=[DET=own-3POSS]	page 14
+(60) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘She has her own money’.	page 14
+(60) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Island Halkomelem: Gerdts and Hukari 2008:499)	page 14, the tag or source at the right of the translation
+(61) line 1	Downriver Halkomelem	segmentation	x̣ʷəm kʷə=s=tə́l-ləxʷ=s wə=stém=əs [kʷθə=sweʔ-s	page 14
+(61) line 2	Downriver Halkomelem	gloss	fast DET=NMLZ=get.understood-NCT=3POSS COMP=what=3SJBV [DET=own-3POSS	page 14
+(61) line 3	Downriver Halkomelem	segmentation	sʔélyə] kʷθeʔ məstə́yəxʷ.	page 14
+(61) line 4	Downriver Halkomelem	gloss	vision] DEM person	page 14
+(61) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘They immediately knew what kind of vision that person had.’	page 14
+(61) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Downriver Halkomelem: Suttles 2004:400)	page 14, under the translation
+§5.4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Note the doubling of the first person singular possessive prefix on sweʔ and the head noun in (59), as in the Squamish examples in (56) and (57).	page 14
+§5.4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Suttles also gives one case of a relativized possessum with sweʔ:	page 14
+(62) line 1	Downriver Halkomelem	segmentation	tə=sƛ̓iƛ̓́qəɬ [sweʔ-s θə=sáʔsəqʷt mə́n̓ə]	page 14
+(62) line 2	Downriver Halkomelem	gloss	DET=child [own-3POSS DET=junior child]	page 14
+(62) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘the boy who was the son of the younger sister’	page 14
+(62) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Downriver Halkomelem: Suttles 2004:81)	page 14, the tag or source at the right of the translation
+§5.4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	As expected, there are no attested cases of possessor extraction with sweʔ. However, Halkomelem also uses its productive denominal prefix c- ‘have, get, make’ with sweʔ to derive a stative verb c‑weʔ meaning ‘be the owner (of)’ (the s in sweʔ deletes).16 This denominal verb resembles ʔayʔaǰuθəm snaʔ rather than na: its direct (absolutive) argument denotes the possessor, with the possessum optionally present as an oblique-marked object. Interestingly, all the cases we have been able to find involve possessor extraction, just as with ʔayʔaǰuθəm sna: we do not currently know if this is an accidental or systematic gap.	page 15
+footnote 16	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Gerdts and Hukari (2008) provide evidence from Island Halkomelem that c- is in fact a proclitic (c=): it attaches to prenominal adjectival modifiers in NP, for example:	page 15, footnote 16
+footnote 16 (vi) line 1	Island Halkomelem	segmentation	ʔi=ʔə=č ʔəw̓ c=pɬət p̓əq̓ swetə?	page 15
+footnote 16 (vi) line 2	Island Halkomelem	gloss	AUX=Q=2SG.SBJ LINK have=thick white sweater	page 15
+footnote 16 (vi) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Do you have a thick white sweater?’	page 15
+footnote 16 (vi) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Island Halkomelem: Gerdts and Hukari 2008:496)	page 15, the tag or source at the right of the translation
+footnote 16	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Since it takes scope over the entire NP, it should perhaps preferably be classified as a “phrasal affix”.	page 15, footnote 16
+§5.4	Halkomelem	cited form	c‑weʔ	page 15, in italics
+(63) line 1	Downriver Halkomelem	segmentation	c̓əxʷléʔ=c̓əʔ ʔəy̓ nem̓ hə́yeʔ tə=[c-wéʔ (ʔə)=tə=léləm̓].	page 15
+(63) line 2	Downriver Halkomelem	gloss	sometimes=QUOT and go leave DET=[have-own (OBL)=DET=house]	page 15
+(63) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Sometimes the owner of the house went away.’	page 15
+(63) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Downriver Halkomelem: Suttles 2004:420)	page 15, under the translation
+(64) line 1	Island Halkomelem	segmentation	niɬ tθə=sɬənɬeniʔ [c-weʔ c-yays kʷ=s=nem̓=s ʔəlx̣e:m	page 15
+(64) line 2	Island Halkomelem	gloss	COP DET=women [have-own have-work DET=NMLZ=go=3POSS collect	page 15
+(64) line 3	Island Halkomelem	segmentation	ʔə=tθə=spe:nxʷ.	page 15
+(64) line 4	Island Halkomelem	gloss	OBL=DET=camas	page 15
+(64) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘It’s the ladies who have the job of collecting the camas.’	page 15
+(64) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	(Island Halkomelem: Gerdts and Hukari 2008:499)	page 15, under the translation
+§5.5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	heading	5.5 Lillooet	page 15
+§5.5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Though it is a member of the Northern Interior branch, Lillooet borders on four out of the five other languages considered here (from north to south: ʔayʔaǰuθəm, Sechelt, Squamish, and Halkomelem). It has also been heavily influenced lexically and morphologically by Squamish and to a lesser extent by Halkomelem and Sechelt, so its inclusion is justified as a member of the ‘North Georgia Salish subgroup’ under discussion here. Like ʔayʔaǰuθəm and Halkomelem, Lillooet has two related possessive predicates. The more basic one is cúwaʔ, which shows the typical properties of the naʔ / cəná ~ səná / cuwá ~ c̓uwa ~ suwa / swaʔ / sweʔ group; note in particular the strong phonological resemblance to the Pentlatch forms, which is surprising but unlikely to be coincidental.	page 15
+§5.5	Pentlatch	cited form	c̓uwa	page 15, in italics
+§5.5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Like other members of this group, cúwaʔ is a nominal predicate which takes two arguments, an absolutive-marked possessum and a possessive-marked possessor. Its distribution also mirrors that of its counterparts: it occurs as a predicate (65), an argument (66), and as either a predicate (67) or an argument (68) modifier. (All examples are from Alexander et. al in prep.)	page 15
+(65) line 1	Lillooet	segmentation	[lan waʔ cúwaʔ=ɬkaɬ] l=cʔa ta=tmíxʷ=a.	page 15
+(65) line 2	Lillooet	gloss	[already IPFV own-1PL.POSS] at=here DET=land=EXIS	page 15
+(65) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘This land here is already ours.’	page 15
+(65) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(Lillooet)	page 15, at the right of the translation
+(66) line 1	Lillooet	segmentation	pq-am ta=n=kapúh=a ɬəl=[ta=cúwaʔ-sw=a].	page 16
+(66) line 2	Lillooet	gloss	white-er DET=1SG.POSS-coat=EXIS from=[DET=own-2SG.POSS=EXIS]	page 16
+(66) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘My coat is whiter than yours.’	page 16
+(66) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(Lillooet)	page 16, at the right of the translation
+(67) line 1	Lillooet	segmentation	xʷʔạz kʷásu xʷʔạz-ạ́z̓-a(m)-min	page 16
+(67) line 2	Lillooet	gloss	NEG D/C+NMLZ+IPFV+2SG.POSS NEG-pretend-MD-RLT	page 16
+(67) line 3	Lillooet	segmentation	ʔi=kən̓~n̓-alqʷ-mín-axʷ ta=kạ́h=a, [cúwaʔ-su száytən].	page 16
+(67) line 4	Lillooet	gloss	PST=bump~FRED-log-RLT-2SG.ERG DET=car=EXIS [own-2SG.POSS business]	page 16
+(67) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Don’t pretend to forget about the time you crashed the car, it was your own fault.’	page 16
+(67) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(Lillooet)	page 16, under the translation
+(68) line 1	Lillooet	segmentation	nskázaʔ (ta)=n-sqáxʔ=a, ʔạz kʷas c̓áqʷ-an̓-as	page 16
+(68) line 2	Lillooet	gloss	stuck.up (DET)=1SG.POSS-dog=EXIS NEG D/C+NMLZ+IPFV+3POSS eat-DIR-3ERG	page 16
+(68) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	[ʔi=cúwaʔ-s=a sʔíɬən].	page 16, where the translation stands
+(68) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	citation	[PL.DET=own-3POSS=EXIS food]	page 16, under the translation
+(68) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘My dog is stuck-up, he won’t eat his own food.’	page 16
+(68) line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(Lillooet)	page 16, at the right of the translation
+§5.5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Note that unlike in Pentlatch, Squamish, and Halkomelem, there is no doubling of possessive morphology on the head noun when cúwaʔ acts as a modifier: cúwaʔ alone is always marked with possessive affixes.	page 16
+§5.5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	The second Lillooet possessive predicate is ʔəs-cúwaʔ, ‘be the owner (of)’. It is derived via prefixation of denominal ʔəs-, ‘have’ to cúwaʔ. Though originally ʔəs- may have been identical to the stative prefix (ʔə)s- (as assumed by Burton & Davis 1996), it is now partially phonologically distinct and, like Halkomelem c- (see footnote 17), behaves like a proclitic rather than a prefix in attaching to the first prenominal modifier rather than the head noun of a complex NP:	page 16
+§5.5	Lillooet	cited form	ʔəs-cúwaʔ	page 16, in italics
+§5.5	Lillooet	cited form	ʔəs-	page 16, in italics
+§5.5	Lillooet	cited form	(ʔə)s-	page 16, in italics
+(69) line 1	Lillooet	segmentation	waʔ [ʔəs-xzum̓-qʷ q̓ʷəx̣q̓ʷíx̣-qʷ c̓qáx̣aʔ] kʷ=s-Pikạ́ḷa.	page 16
+(69) line 2	Lillooet	gloss	IPFV [have-big-head black-head horse DET=NMLZ-Pikạ́ḷa	page 16
+(69) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Pikáola has a big black horse.’	page 16
+(69) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(Lillooet)	page 16, at the right of the translation
+§5.5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Like ʔayʔaǰuθəm snaʔ and Halkomelem c-weʔ, the absolutive argument of ʔəs-cúwaʔ is the possessor, with the possessum generated as an optional non-agreeing object:17	page 16
+footnote 17	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Lillooet has lost oblique marking on non-agreeing objects.	page 16, footnote 17
+§5.5	Halkomelem	cited form	c-weʔ	page 16, in italics
+(70) line 1	Lillooet	segmentation	niɬ ʔayɬ s-Alexander [ta=waʔ ʔəs-cúwaʔ látiʔ ʔi=wagon=a].	page 16
+(70) line 2	Lillooet	gloss	COP then NMLZ-Alexander [DET=IPFV have-own there PL.DET=wagon=EXIS]	page 16
+(70) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Well, it was Alexander who was the owner of the wagons there.’	page 16
+(70) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(Lillooet)	page 16, at the right of the translation
+(71a) line 1	Lillooet	segmentation	ʔəs-cuwaʔ=ɬkáxʷ=ha kʷu=sqáx̣aʔ?	page 16
+(71a) line 2	Lillooet	gloss	have-own=2SG.SBJ=Q DET=dog	page 16
+(71a) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Do you own a dog?’	page 16
+(71b) line 1	Lillooet	segmentation	iy, ʔəs-cúwaʔ=ɬkan.	page 16
+(71b) line 2	Lillooet	gloss	yes have-own=1SG.SBJ	page 16
+(71b) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Yes, I do.’	page 16
+(71b) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(Literally: Yes, I own.’)	page 16, at the right of the translation
+(71b) line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(Lillooet)	page 16, at the right of the translation
+§5.5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	While ʔəs-cúwaʔ permits extraction of the possessor, as shown in (70), crucially, it does not enforce it, as shown by (71). This means that Ā-extraction is not a necessary property of possessive predicates with the argument structure of snaʔ / c-weʔ / ʔəs-cúwaʔ, but a parochial property of snaʔ (and possibly c-weʔ).	page 17
+§5.6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	heading	5.6 Summary	page 17
+§5.6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	The table in (70) summarizes our comparison of possessive predicates in the six languages we have examined:	page 17
+Table 1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Table 1: Possessive predicates in six Salish languages	page 17, the table's caption
+Table 1 line 1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm Sechelt Pentlatch Squamish Halkomelem Lillooet	page 17, the table a printed line
+Table 1 line 2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	POSS 1	page 17, the table a printed line
+Table 1 line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(noun)	page 17, the table a printed line
+Table 1 line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	na cəná~səná c-/c̓-/s-uwá swaʔ sweʔ cúwaʔ	page 17, the table a printed line
+Table 1 line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	possessum subject subject (subject) subject subject subject	page 17, the table a printed line
+Table 1 line 6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	possessor possessor possessor (possessor) possessor possessor possessor	page 17, the table a printed line
+Table 1 line 7	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	POSS 2	page 17, the table a printed line
+Table 1 line 8	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(verb)	page 17, the table a printed line
+Table 1 line 9	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	sna - - - c-weʔ ʔəs-cúwaʔ	page 17, the table a printed line
+Table 1 line 10	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	possessum (oblique) - - - oblique (oblique)	page 17, the table a printed line
+Table 1 line 11	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	possessor subject - - - subject subject	page 17, the table a printed line
+§5.6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	We can draw several conclusions from this survey, which helps to throw cross-Salishan light on the ʔayʔaǰuθəm system.	page 17
+§5.6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	First, the basic possessive predicate in every one of these languages is a dyadic noun, whose subject (absolutive) argument denotes the possessum, while its possessor argument is obligatorily represented by possessive pronominals (with or without associated DPs).	page 17
+§5.6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Second, in half of the six languages under discussion, a process of denominal verb-formation takes the basic possessive noun and yields a predicate with an inverse argument structure: the possessor is realized by its subject (absolutive) argument, while the possessum is (optionally) generated as an unregistered object, marked oblique in Halkomelem, but unmarked in ʔayʔaǰuθəm and Lillooet (at least in the latter case, for independent reasons). In Halkomelem and Lillooet, the prefix/proclitic which derives the possessive verb is found on a wide range of nouns, and the process is compositional and productive; but in ʔayʔaǰuθəm, which completely lacks prefixes, the derivation is fossilized and limited to the naʔ ~ snaʔ alternation.18	page 17
+footnote 18	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	We have not yet addressed the important question of how denominal verb formation operates. While a full treatment is beyond the scope of this paper, the proposal in Burton and Davis (1996) provides a useful starting point. The basic idea behind their analysis is that nouns in general come with two arguments, a referential external one and a possessive internal one — in other words, exactly the argument structure we have been assuming for na-type predicates. Denominal verb-formation then suppresses the external argument (perhaps by existential closure) and promotes the internal (possessive) argument to the subject position of the derived verb, deriving a sna-type predicate.	page 17, footnote 18
+§5.6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	In each case, extraction is only possible from the absolutive (subject) argument of the possessive predicate: this means that only extraction of the possessum is possible from the nominal predicate, while only extraction of the possessor is possible from the denominal verb.	page 17
+§5.6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Puzzles remain, however. One is the identity of the initial s (c in Lillooet and partially in Sechelt and Pentlatch) on the possessive nominal predicate. It is tempting to take it as the nominalizer (as Suttles 2004 and Kinkade 1980 do), in which case its absence on naʔ in ʔayʔaǰuθəm is explained by the systematic absence of prefixal nominalization in that language. However, if possessive predicates are nominalized, the question then arises as to what exactly they are nominalizations of. The most obvious answer is that the input to nominalization is the existential predicate ‘be (there)’, which has two forms in the languages under discussion: ni(ʔ)/ naʔ in ʔayʔaǰuθəm, Sechelt, Pentlatch, Halkomelem, and Squamish, and waʔ in Lillooet, as shown in (71).19	page 18
+footnote 19	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	It is worth mentioning here that nominalization does not straightforwardly derive a possessive predicate from an existential one. In fact, in Lillooet, regular nominalization of waʔ yields a nominal predicate s-waʔ meaning ‘x’s being (there)’, as in (vii):	page 18, footnote 19
+footnote 19	Lillooet	cited form	s-waʔ	page 18, in italics
+footnote 19 (vii) line 1	Lillooet	segmentation	x̣áƛ̓=kʷuʔ=tuʔ s-waʔ-s ʔi=ʔuxʷalmíxʷ=a pinániʔ.	page 18
+footnote 19 (vii) line 2	Lillooet	gloss	hard=QUOT=REM NMLZ-be.there-3POSS PL.DET=indigenous.person=EXIS around.then	page 18
+footnote 19 (vii) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The people had a hard time back then.’	page 18
+footnote 19	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Nominalization of existential ‘be’ to yield a possessive nominal predicate must involve an extra step, where the locative argument of ‘be’ (the ‘there’) is first reanalyzed as a possessor (as it is in languages such as Russian where ‘x is at y’ means ‘y has x’), and then mapped onto the possessor argument of the derived noun. It is unclear whether this is a plausible derivation, either synchronically or diachronically. It is also worth mentioning that in both ʔayʔaǰuθəm and Lillooet, transitivization of the existential predicate yields a stage- level predicate meaning ‘have’, as shown in (viii) and (ix), respectively:	page 18, footnote 19
+footnote 19	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	language	Russian	where ‘x is at y’ means ‘y has x’
+footnote 19 (viii) line 1	ʔayʔaǰuθəm	segmentation	nam-us-ʔamin niʔ-st-əm Marianne.	page 18
+footnote 19 (viii) line 2	ʔayʔaǰuθəm	gloss	be.like-face-INSTR be.there-CAUS-PASS Marianne	page 18
+footnote 19 (viii) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Marianne has a picture.’	page 18
+footnote 19 (viii) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(ʔayʔaǰuθəm)	page 18, at the right of the translation
+footnote 19 (ix) line 1	Lillooet	segmentation	wáʔ=ɬkaxʷ=ha wəʔ-án ʔi=nəklíh-s=a ta=kạ́h=a?	page 18
+footnote 19 (ix) line 2	Lillooet	gloss	IPFV=2SG.SBJ=Q be.there-DIR PL.DET=key-3POSS=EXIS DET=car=EXIS	page 18
+footnote 19 (ix) line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Do you have the car keys?’	page 18
+footnote 19 (ix) line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	(Lillooet)	page 18, at the right of the translation
+§5.6	Lillooet	cited form	waʔ	page 18, in italics
+§5.6	ʔayʔaǰuθəm	cited form	ni(ʔ)	page 18, in italics
+Table 2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Table 2: Possessive and (locative) existential predicates in six languages	page 18, the table's caption
+Table 2 line 1	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm Sechelt Pentlatch Squamish Halkomelem Lillooet	page 18, the table a printed line
+Table 2 line 2	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	existential niʔ ni nə naʔ niʔ waʔ	page 18, the table a printed line
+Table 2 line 3	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	possessive naʔ cená~səná cuwa~c̓uwa~s	page 18, the table a printed line
+Table 2 line 4	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	uwa	page 18, the table a printed line
+Table 2 line 5	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	swaʔ sweʔ cuwaʔ	page 18, the table a printed line
+§5.6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Interestingly, the input to the possessive predicate in Pentlatch, Halkomelem, and Squamish does not resemble the form which these languages employ as an existential predicate: this means that they either borrowed their possessive nominal predicates from Lillooet, or originally employed a version of waʔ as an existential predicate, before it was replaced by ni(ʔ) ~ naʔ.20	page 18
+footnote 20	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	In both Squamish and Pentlatch, wa(ʔ) is present as an imperfective auxiliary (a role which it also employs in Lillooet). This gives some support to the idea that wa(ʔ) was originally also an existential predicate in those languages, more recently supplanted (at least in Squamish) by naʔ.	page 18, footnote 20
+footnote 20	Squamish	cited form	wa(ʔ)	page 18, in italics
+footnote 20	Pentlatch	cited form	wa(ʔ)	page 18, in italics
+footnote 20	Lillooet	cited form	wa(ʔ)	page 18, in italics
+§5.6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	A couple of puzzles from ʔayʔaǰuθəm also remain unresolved. First, though we have explained why the possessive verb snaʔ only permits its possessor to be extracted (since the possessor is its only direct argument), we have not explained why it must be extracted. The fact that the equivalent Lillooet verb ʔəs-cúwaʔ does not force extraction (the Halkomelem facts are unclear) indicates that this cannot be a general property of denominal possessive verbs but must be local to ʔayʔaǰuθəm; we currently have no non-stipulative solution to this problem.	page 18
+§5.6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	Second, the shape of snaʔ remains problematic. As a general rule, ʔayʔaǰuθəm does not allow syllables with complex onsets: snaʔ is an exception. On the other hand, our analysis treats the initial s on snaʔ as a fossilized denominal prefix, rather than as the nominalizing prefix, which has been uniformly lost in the language; as pointed out by Kroeber and Watanabe (2004), there are a number of other s-initial words which violate the ban on initial consonant clusters, including skʷaq ‘the rest (of something)’, snəq ‘dear’, sk̓ʷičiy ‘bothersome’, and st̕θuk̓ʷ ‘day’. So snaʔ is not that exceptional in its exceptionality.	page 19
+§5.6	ʔayʔaǰuθəm	cited form	skʷaq	page 19, in italics, ‘the rest (of something)’
+§5.6	ʔayʔaǰuθəm	cited form	snəq	page 19, in italics, ‘dear’
+§5.6	ʔayʔaǰuθəm	cited form	sk̓ʷičiy	page 19, in italics, ‘bothersome’
+§5.6	ʔayʔaǰuθəm	cited form	st̕θuk̓ʷ	page 19, in italics, ‘day’
+§5.6	ʔayʔaǰuθəm	cited form	sk̓ʷičiy	page 19, in italics, ‘bothersome’
+§5.6	ʔayʔaǰuθəm	cited form	st̕θuk̓ʷ	page 19, in italics, ‘day’
+§6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	heading	6 Conclusion	page 19
+§6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	In this paper, we have examined possessor extraction in ʔayʔaǰuθəm, expanding on the limited documentation available in Watanabe (2003:134). We showed that ‘direct’ possessor extraction is highly restricted in the language, occurring only with inalienably possessed body parts. In all other cases, in order to extract a possessor, the predicate snaʔ ‘be the owner (of)’ must be used. Since snaʔ takes the possessor as its direct (absolutive) argument, extraction is permitted, as for other absolutive arguments in the language. Curiously, snaʔ does not appear except in cases of possessor extraction. For all other cases involving possession expressed predicatively, the nominal predicate naʔ ‘(one’s) own’ is used.	page 19
+§6	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	note	In order to further explore the relation between naʔ and snaʔ and their possible diachronic sources, we conducted a cross-linguistic survey of five other Salish languages spoken in the same North Georgia region. We found that the basic possessive predicate in each of these languages is a dyadic noun like naʔ, which takes the possessum as its absolutive argument, with the possessor obligatorily expressed by possessive pronominals, optionally supplemented in the third person by possessor DPs. Several of the surveyed languages additionally allow a process of denominal verb- formation to apply to this predicate, yielding a sna-like predicate with inverse argument structure, having the possessor as its absolutive argument and the possessum optionally expressed by a non- agreeing DP. We speculate that the naʔ ~ snaʔ alternation represents a fossilized form of this derivational operation.	page 19
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	heading	References	page 19
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Alexander, Carl, Henry Davis, Beverly Frank, Gertrude Ned, Desmond Peters Sr., Linda Redan, Rose Whitley. In preparation. Nqwal’uttenlhkálha: An English-Upper St’át’imcets Dictionary. Ms., Lillooet, BC.	page 19
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Beaumont, Ronald C. 2011. Sechelt Dictionary. Sechelt, BC.: Sechelt Indian Band.	page 19
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Burton, Strang, and Henry Davis. 1996. Stative aspect and possession in Salish. Papers for ICSNL 31, 13–22.	page 19
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Davis, Henry. 2010. A Unified Analysis of Relative Clauses in St’át’imcets. Northwest Journal of Linguistics 4.1:1–43.	page 19
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Davis, Henry, and Lisa Matthewson. 2009. Issues in Salish Syntax and Semantics. Language and Linguistics Compass 3/4: 1097–1166.	page 19
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Davis, Henry, Dwight Gardiner, and Lisa Matthewson. 1993. A Comparative Look at WH- questions in Northern Interior Salish. Papers for ICSNL 28, 79–96.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Gardiner, Dwight. 1996. Determiner Phrases in Secwepemctsin (Shuswap). Papers for ICSNL 31, 175–184.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Gerdts, Donnaʔ B. 1988. Object and Absolutive in Halkomelem Salish. New York, NY: Garland Publishing.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Gerdts, Donnaʔ B., and Thomas E. Hukari. 2008. Halkomelem Denominal Verb Constructions, International Journal ofAmerican Linguistics 74.4:489–510.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Kinkade, Dale. 1980. Unpublished notes on Pentlatch. Northwest Collection in the University of Washington archives.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Koch, Karsten. 2008. Some issues in the structure and interpretation of clefts in Nłeʔkepmxcin (Thompson River Salish). In: Christianaʔ Christodoulou and John Lyon (eds.), Papers for ICSNL 43. Vancouver, BC: UBCWPL, 97–120.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Koch, Karsten, and Malte Zimmerman. 2009. Focus-Sensitive Operators in Nɬeʔkepmxcin (Thompson River Salish). In: Martin Prinzhon, Viola Schmitt, and Sarah Zobel (eds.), Proceedings of Sinn und Bedeutung 14. Vienna, Austria: 237–255.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Kroeber, Paul. 1997. Relativization in Thompson Salish. Anthropological Linguistics 39(3):376– 422.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Kroeber, Paul. 1999. The Salish Language Family: Reconstructing Syntax. University of Nebraska Press.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Kroeber, Paul. 2002. Morphological interactions of 'clitics' in two Salish languages. ICSNL 37. Bellingham. Unpublished handout.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Kroeber, Paul, and Honoré Watanabe. 2004. Word-initial developments in Northern Central Salish. In: Donnaʔ Gerdts and Lisa Matthewson (eds.), Studies in Salish linguistics in honor ofM. Dale Kinkade. Missoula, MT: UMOPL, 257–278.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Kuipers, Alert H. 1967. The Squamish Language, Grammar, Texts, Dictionary. The Hague: Mouton.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Lyon, John. 2013. Predication and equation in Okanagan Salish: the syntax and semantics of determiner phrases. Doctoral dissertation, University of British Columbia: Vancouver, BC.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Matthewson, Lisa, and Henry Davis. 1995. The Structure of DP in St’át’imcets. Papers for ICSNL 30th, 54–68.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Suttles, Wayne. 2004. Musqueam Reference Grammar. Vancouver, BC: UBC Press.	page 20
+references	Henry Davis, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen	reference	Watanabe, Honoré. 2003. A morphological description ofSliammon, Mainland Comox Salish: With a sketch of syntax. Osaka, Japan: ELPR.	page 20

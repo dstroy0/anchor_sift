@@ -1,0 +1,754 @@
+where	who	kind	form	gloss
+front	David Inman	title	The Exponence and Development of Plurals in Nuuchahnulth *	page 1, carries footnote *
+front	David Inman	byline	David Inman Universität Zürich	page 1, the author over his university
+front	David Inman	name	David Inman	author, Universität Zürich
+front	David Inman	note	Abstract: This paper presents an overview of plurals and pluractionals in Nuuchahnulth. A full account of meanings and morphological strategies is given, including lists of which lexemes take which formatives. Finally, there is a brief investigation into the development of plural morphology in the family, in which the Nuuchahnulth formatives are compared to others in the Wakashan family.	page 1, the abstract
+front	David Inman	note	Keywords: Nuuchahnulth, Wakashan, plurals, pluractionals	page 1, the keywords
+front	David Inman	note	Papers of the International Conference on Salish and Neighbouring Languages 56, D. K. E. Reisinger, Hannah Green, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen, & Bailey Trotter (eds.). V ancouver, BC: UBCWPL, 2021.	page 1, the volume's header
+front	David Inman	language	Nuuchahnulth	Southern Wakashan
+front	David Inman	language	Makah	Southern Wakashan, compared in §6.2
+front	David Inman	language	Kwak’wala	Northern Wakashan, compared in §6.3
+front	David Inman	language	Heiltsuk	Northern Wakashan, compared in §6.4
+§1	David Inman	heading	1 Introduction	page 1
+§1	David Inman	note	This paper began with the development of teaching resources for Nuuchahnulth language learners and presenting the strategies for nominal plurals in the language. In this process, I recognized a few patterns that are of broader linguistic interest, and this developed into an account of the plural system in the language.	page 1
+§1	David Inman	note	I present here my investigation into the formation, regularity, and irregularity of both nominal plurals and verbal plurals (or pluractionals) in Nuuchahnulth, as well as some investigation into the development of this complex system within the larger language family. I will begin with a discussion on the concept of plurality and define which concepts are under consideration. Then I will document the various plural markers present in Nuuchahnulth, and finally compare Nuuchahnulth to other Wakashan languages, showing the likely historical development of the system. Data that is not cited is from my fieldwork and notes.	page 1
+§2	David Inman	heading	2 The semantic scope of “plural”	page 1
+§2	David Inman	note	There are a variety of definitions for plurality. In the nominal realm, the most basic meaning is “more than a singular entity”: One dog is singular, two or more are plural. Some languages divide the non-singular space into more than one category (dual, paucal), though this is not the case in Nuuchahnulth. However, these extra-plural categories are typically more restricted than the simple plural, and with a few complications, the existence of more specialized non-singular numbers always implies the presence of a general plural ( Corbett 2000; Cysouw 2003).	page 1
+§2	David Inman	note	The expression of plurals for non-third persons is more complicated. It is not at all immediately clear what the plural of a 1st person should be: There are not plural speakers, so it is either 1 + 3, 1 + 2, unspecified for the additional member, or something else ( Cysouw 2003). The difference between inclusive and exclusive 1st person plural can be understood as a language resolving this ambiguity of “1st person plural” by making it explicit. There is a similar problem with 2nd person: Is the plural 2 + 2 (both must be in the audience), 2 + 3, or underspecified? Interestingly, there does not appear to be any language which disambiguates 2nd person plural in the way that clusivity distinctions disambiguate 1st person plural. Nuuchahnulth has no clusivity distinctions, and so for the nominal domain I will only focus on the plurality of 3rd persons in this paper. It is also possible for plurality of a noun (or argument) to be marked on the verb or clause, rather than on the noun itself. This is sometimes called “pluractionality”, but because it refers to the plurality of participants, rather than the plurality of the event, I treat this as a kind of nominal plural marking where the locus is on the verb. The most common type of nominal plural marking on the verb is through agreement, where plurality is typically entangled with person-marking. However, this is a kind of plural-marking, and it is possible for verbal agreement to index only the number (and not the person) of one or more of its arguments.	page 1
+footnote *	David Inman	note	* I would like to acknowledge the people who contributed to the information I present in this paper. I want to thank Adam Werle who shared his language notes and expertise, Henry Kammler who shared his in-progress dictionary, Matthew Davidson who along with Adam and Henry responded to some of my initial questions, and members of the Somass V alley Language Circle who have read and reviewed the lesson material this paper came from. Last but not least, I want to acknowledge the Nuuchahnulth elders who have invested time and considerable patience in sharing their language with me. Contact info: david.inman@uzh.ch	page 1, footnote
+footnote *	David Inman	name	Adam Werle	shared his language notes
+footnote *	David Inman	name	Henry Kammler	shared his in-progress dictionary
+footnote *	David Inman	name	Matthew Davidson	answered questions
+§2	David Inman	note	Outside of the nominal domain, there is also a significant literature on the plurality of events, or pluractionality or “verbal number” (Corbett 2000: Chapter 8). Though there are different definitions of pluractionality, most involve in some way repetition of an event. A verb can contain by its very definition the idea of repetition, sometimes called a semelfactive verb ( Comrie 1976), like knock or blink. But this understanding can extend beyond semelfactives to words like walk, which presumably is a kind of repetition of a sequence of steps. Besides being part of its lexical semantics, an event can also be repeated through specific and differential aspect marking.	page 2
+§2	David Inman	note	Full repetition of an event over a particular interval of time is the most obvious kind of event repetition. In the grammatical domain, this is often called repetitive or iterative aspect. Habitual events are also plural in a similar way, only over a less fixed interval of time. If one says I walk in the evening there is no fixed interval during which the proposition is true. One may walk most evenings but not every evening, it may be true for a week or a month, or it may be true indefinitely into the future. It is also unclear how far into the past it extends. Habitual actions can also be conditionally true, either through some assumption that remains unstated (e.g., I walk in the evening —provided the weather is nice, I am not ill and do not have other plans, etc.) or through something explicit in the utterance: I walk on clear evenings. If a habitual verb is a type of pluractional, it is a more complex one than the more limited repetitive or iterative aspects because it contains more complex potential restrictions, either in time or in environmental conditions.	page 2
+§2	David Inman	note	Another potential source of event plurality is continuous or progressive actions. If an action is continuous it can be understood as repeated. For example, the most natural interpretation of the English sentence I am jumping is that the action jump is repeated over and over. However, it is possible to interpret this as a single jump event, perhaps where the speaker says I am jumping while in the air and then stops. The repeated jumps interpretation is more available in the progressive tense than in the simple past Ijumped , although it is also possible there.	page 2
+§2	David Inman	note	Finally, an event can be plural or repeated only by the condition of being a transitive event with multiple objects. I painted the boats can be understood as one extended event of painting with multiple objects, or several discrete events of painting, one for each boat. The same interpretation is much less likely in the utterance I dropped the books. The pluractional interpretation in the case of the former arises from the interaction of the particular semantics of the verb paint with its object boats. It is not always clear, if a transitive verb has multiple objects, whether a singular event or multiple events is intended.	page 2
+§2	David Inman	note	My investigation into plurality in Nuuchahnulth is restricted to grammatically-marked plurals, and so I will only consider pluractionality that is overtly marked by some distinct element in the utterance itself. Pluractionality arising from the lexical meaning of a verb is thus out of scope, as is pluractionality that is dependent on a range of possible interpretations over aspect (as with the progressive aspect in English) or the interaction between a verb and a plural direct object. These are not straightforwardly “multiplicity of actions,” but something that can be interpreted as a multiplicity of actions, under the right pragmatic conditions. Once conditional and lexical cases of pluractionality are discarded, Nuuchahnulth is left with pluractionality in the forms of the repetitive and iterative aspects, and the (differently-marked) habitual aspect.	page 2
+§3	David Inman	heading	3 Pluractionals	page 3
+§3	David Inman	note	There are two morphological aspects in Nuuchahnulth that meet the restriction on pluractionality given above: the so-called repetitive and iterative aspects. These aspects indicate repetition of an action with different degrees of regularity, and are lexically conditioned—that is, not every verb has all aspect forms. However, they are semantically compositional: When confronted with a new form, speakers can construct what the form would mean even if they do not recognize it as part of the particular verb’s regular aspects. Both repetitive and iterative aspects are indicated in part through reduplication. Nuuchahnulth also has a fully productive habitual enclitic, which will be discussed separately.	page 3
+§3.1	David Inman	heading	3.1 Repetitive	page 3
+§3.1	Nuuchahnulth	cited form	ƛ	page 3
+§3.1	David Inman	note	The repetitive aspect is most typically marked through “aspect reduplication” of the root and adding the suffix -(y)a, where the y appears following a vowel. Aspect reduplication reduplicates the full stem of monosyllabic roots that contain a coda and the onset and nucleus of polysyllabic roots, and makes the vowel of both reduplicant and base long. With CV roots, aspect reduplication supplies a coda in the form of either a ƛ or a c.1 I segment this morpheme as -LRL.(y)a, indicating the Lengthening of the Reduplicant, the Lengthening of the base, and the -(y)a suffix. This convention was first introduced at ICSNL in Inman and Werle (2016), and is a useful shorthand, although the supplication of an obligatory coda for monosyllabic CV roots is not made explicit. Examples of the morphology are given below for a CV root ( 1), a CVC+ root ( 2), and a polysyllabic root ( 3).	page 3
+(1) line 1	Nuuchahnulth	transcription	t̓iiƛt̓iiya	page 3
+(1) line 2	Nuuchahnulth	segmentation	t̓i-LRL.(y)a	page 3
+(1) line 3	Nuuchahnulth	gloss	throw-rp	page 3
+(1) line 4	David Inman	translation	‘throwing over and over’	page 3
+(2) line 1	Nuuchahnulth	transcription	hiishiisa	page 3
+(2) line 2	Nuuchahnulth	segmentation	his-LRL.(y)a	page 3
+(2) line 3	Nuuchahnulth	gloss	chop-rp	page 3
+(2) line 4	David Inman	translation	‘chopping’	page 3
+footnote 1	Nuuchahnulth	cited form	ƛƛ̓sequence	page 3
+footnote 1	Nuuchahnulth	cited affix	ƛ̓i-	page 3
+footnote 1	Nuuchahnulth	cited form	ƛ̓iicƛ̓iiya	page 3
+footnote 1	Nuuchahnulth	cited form	ƛ̓iiƛƛ̓iiya	page 3
+footnote 1	David Inman	note	1 When aspect reduplication would produce a ƛƛ̓sequence, a c is used as an alternative, as for the root ƛ̓i- ‘shoot’, which becomes ƛ̓iicƛ̓iiya, rather than *ƛ̓iiƛƛ̓iiya.	page 3, footnote
+(3) line 1	Nuuchahnulth	transcription	t̓aat̓aapata	page 4
+(3) line 2	Nuuchahnulth	segmentation	t̓apat-LRL.(y)a	page 4
+(3) line 3	Nuuchahnulth	gloss	think-rp	page 4
+(3) line 4	David Inman	translation	‘consider’	page 4
+§3.1	Nuuchahnulth	cited form	hisšiƛ	page 4
+§3.1	Nuuchahnulth	cited form	t̓iiƛt̓iiya	page 4, ‘throw(ing) (over and over)’
+§3.1	Nuuchahnulth	cited form	t̓aat̓aapata	page 4
+§3.1	David Inman	note	The repetitive aspect indicates the repetition of an event at roughly regular intervals for a partic- ular duration of time. The length of that duration is somewhat open-ended but not so much so that it becomes habitual. Perfective hisšiƛ means ‘chop once’, and hiishiisa (2) means chopping (e.g., over and over, as one chops wood), but does not mean that one habitually chops over an extended period, such as weekly. Within the given duration, the interval in which the event repeats is also somewhat open and dependent on the verb. The repetition of t̓iiƛt̓iiya ‘throw(ing) (over and over)’ is limited by what it is one is throwing: e.g., if one is throwing spears, each spear has to be picked up, pulled back, aimed, and thrown. However, the interval of repetition of t̓aat̓aapata ‘consider (think repeatedly)’ is not so limited, as one can think about a topic over and over either quickly or more leisurely.	page 4
+§3.2	David Inman	heading	3.2 Iterative	page 4
+§3.2	Nuuchahnulth	cited affix	-š	page 4
+§3.2	David Inman	note	The most typical morphology for the iterative aspect uses the same reduplication pattern (with a different form for CV , CVC+, and polysyllabic roots), but without the vowel lengthening and with a different suffix, -š. Examples of this morphology are given for CV ( 4), CVC+ (5), and polysyllabic roots (6) below.	page 4
+(4) line 1	Nuuchahnulth	transcription	n̓aƛn̓aš	page 4
+(4) line 2	Nuuchahnulth	segmentation	n̓a-R.š	page 4
+(4) line 3	Nuuchahnulth	gloss	look-it	page 4
+(4) line 4	David Inman	translation	‘look from time to time’	page 4
+(4) line 4	David Inman	citation	(Sapir and Swadesh 1939:56)	the source at the right of the translation
+(5) line 1	Nuuchahnulth	transcription	č̓itč̓itš	page 4
+(5) line 2	Nuuchahnulth	segmentation	č̓it-R.š	page 4
+(5) line 3	Nuuchahnulth	gloss	turn.sideways-it	page 4
+(5) line 4	David Inman	translation	‘turning sideways at times’	page 4
+(5) line 4	David Inman	citation	(Sapir and Swadesh 1939:27)	the source at the right of the translation
+(6) line 1	Nuuchahnulth	transcription	papawałš	page 4
+(6) line 2	Nuuchahnulth	segmentation	pawał-R.š	page 4
+(6) line 3	Nuuchahnulth	gloss	lose-it	page 4
+(6) line 4	David Inman	translation	‘always losing, lose at times’	page 4
+§3.2	Nuuchahnulth	cited form	ƛ	page 4
+§3.2	Nuuchahnulth	cited form	ł	page 4
+§3.2	David Inman	note	There is an alternative morphology for the iterative aspect, which is termed by Davidson (2002: 242–244) the “Iterative II.” In this construction, the perfective (or “momentaneous”) aspect is used as a base, 2 the first two vowels and the last vowel of the word are lengthened, all other vowels are made short, and the final ƛ is turned into a ł. Note the lack of reduplication. There is no apparent difference in meaning between the Iterative I and II. This is a much rarer form of the iterative in modern Nuuchahnulth, though it does exist—from what I can tell, most often (but not exclusively) in names, and I will not discuss it much. An example of the Iterative II, taken directly from Davidson, is given in ( 7) below.	page 4
+footnote 2	Nuuchahnulth	cited affix	-aał	page 4
+footnote 2	Nuuchahnulth	cited affix	-uuł	page 4
+footnote 2	Nuuchahnulth	cited affix	-iił	page 4
+footnote 2	Nuuchahnulth	cited form	aƛ	page 4, ‘now/then’
+footnote 2	David Inman	note	2 I believe that, in the few cases where the ending is -aał rather than a noticeably perfective-derived -uuł or -iił, the base for the Iterative II is actually verb + !aƛ ‘now/then’, rather than the verb in the perfective form.	page 4, footnote
+(7) line 1	Nuuchahnulth	transcription	kaamiitqwiʔasčiił	page 5
+(7) line 2	Nuuchahnulth	segmentation	kamitqʷ-wiiʔas-čiƛ-[IterL]	page 5
+(7) line 3	Nuuchahnulth	gloss	run-go.outside.pf-pf-it	page 5
+(7) line 4	David Inman	translation	‘run outside at intervals’	page 5
+(7) line 4	David Inman	citation	(Davidson 2002:243)	the source at the right of the translation
+§3.2	Nuuchahnulth	cited affix	mitxʷ-	page 5
+§3.2	David Inman	note	The iterative differs from the repetitive in that the repetition is at irregular intervals. In the appendix to Sapir, Swadesh, and Thomas’s 3 “Nootka Texts”, this is illustrated with the root mitxʷ- ‘turn’ (Sapir and Swadesh 1939:241):	page 5
+§3.2	Nuuchahnulth	cited form	mi·txʷmi·txʷa	page 5, ‘turning round and round’
+§3.2	Nuuchahnulth	cited form	mitxmitxš	page 5, ‘to make a circuit, turn at intervals’
+§3.2	Nuuchahnulth	cited affix	tuxʷ-	page 5, ‘jump’
+§3.2	Nuuchahnulth	cited form	tuuxtuuxʷa	page 5
+§3.2	Nuuchahnulth	cited form	tuxtuxš	page 5
+§3.2	David Inman	note	“Repetitive mi·txʷmi·txʷa ‘turning round and round’ (emphasized repetition) : : : Iterative mitxmitxš ‘to make a circuit, turn at intervals’ ” The repetitive interpretation is to turn at regular intervals, which either means spinning in place or going in a circle; the iterative interpretation is to turn at less regular intervals, which Sapir or Swadesh translate directly as “at intervals” or making a larger circle or “circuit”. There are in my experience very few verbal roots in Nuuchahnulth that have both iterative and repetitive aspect forms. The root tuxʷ- ‘jump’ has a widely used repetitive form tuuxtuuxʷa, which means ‘jumping’.4 Some speakers recognize a form tuxtuxš, which means ‘keep jumping’, presum- ably but not obviously with an emphasis on the irregularity of the action.	page 5
+§3.2	Nuuchahnulth	cited affix	ciq-	page 5, ‘speak’
+§3.2	Nuuchahnulth	cited form	ciqšiƛ	page 5, ‘speak and finish’
+§3.2	Nuuchahnulth	cited form	ciqaa	page 5, ‘speaking’
+§3.2	Nuuchahnulth	cited form	ciqciqš	page 5
+§3.2	David Inman	note	Another example of a verb with both iterative and repetitive aspects is the root ciq- ‘speak’. The repetitive form, ciiqciiqa is the normal way of referring to an ongoing, repetitive event of ‘speaking’. This is different from the perfective ciqšiƛ ‘speak and finish’ and the continuative ciqaa ‘speaking’. The repetitive form makes it clear that one speaks over and over—e.g., many sentences—while the continuative makes no mention of the speech event being part of a continuous set of speech events. In the Sapir-Thomas texts there is exactly one example of the rare iterative form of the root ciq- ‘speak’, ciqciqš (Sapir and Swadesh 1955:146), translated in the English as ‘coming to the word part (of a song)’.	page 5
+§3.2	Nuuchahnulth	cited affix	m̓iƛ-	page 5, ‘rain’
+§3.2	Nuuchahnulth	cited form	m̓iƛm̓iƛš	page 5, ‘raining off and on’
+§3.2	Nuuchahnulth	cited form	m̓iiƛm̓iiƛa	page 5
+§3.2	Nuuchahnulth	cited form	m̓iƛaa	page 5
+§3.2	Nuuchahnulth	cited affix	huł-	page 5, ‘dance’
+§3.2	Nuuchahnulth	cited form	huułhuuła	page 5
+§3.2	Nuuchahnulth	cited form	hułhułš	page 5
+§3.2	David Inman	note	Most verbs in Nuuchahnulth are unlike ciq- and tuxʷ-, and have only a repetitive or an iterative form. But these also exemplify the distinction between regular repetition and punctuated or irreg- ular repetition. The root m̓iƛ- ‘rain’ has an iterative form m̓iƛm̓iƛš ‘raining off and on’ but, to my knowledge, no repetitive form *m̓iiƛm̓iiƛa. To say that it is raining continuously one just uses the continuative form m̓iƛaa, which would mean the same thing as repetitive raining anyway. Similarly, the root huł- ‘dance’ has, in most dialects, a repetitive form huułhuuła which func- tionally behaves like a semantic continuative, but to my knowledge no dialect has an iterative form *hułhułš. This again seems to arise from the nature of the activity of dancing. If you begin to dance, stop, and begin to dance again at irregular intervals, you are doing something, but it would be hard to call it dancing. However, dancing repeatedly at regular intervals is just how dancing functions. There may be a pause in movement, but those pauses are a part of the rhythm of the dance.	page 5
+footnote 3	David Inman	note	3 Alex Thomas was Sapir and Swadesh’s main Tseshaht consultant for the data given in the Nootka Texts. Thomas is thanked extensively in the introduction to the 1939 text, and Swadesh himself calls these the “Sapir- Thomas” texts (Swadesh 1938). To acknowledge the extensive contribution of Alex Thomas in producing this important work, I have joined others in adding his name when referring to the texts, though he is not in the published list of authors.	page 5, footnote
+footnote 3	David Inman	name	Alex Thomas	Sapir and Swadesh's main Tseshaht consultant for the Nootka Texts
+footnote 4	Nuuchahnulth	cited form	tuxʷaa	page 5
+footnote 4	David Inman	note	4 Note that in this case the continuative form of the verb is not used. This is because to jump repeatedly one has to jump, land, and then jump again. The entire action is repeated, not the continuous view of a single jumping action, which is what the continuative form tuxʷaa means.	page 5, footnote
+§3.3	David Inman	heading	3.3 Habitual	page 6
+§3.3	David Inman	note	Unlike the repetitive and iterative aspects, habituality in Nuuchahnulth is marked in the second position enclitic complex, which does not necessarily fall on the verb. Possibly as a consequence of its morphosyntactic position, the habitual is therefore compatible with both the repetitive ( 8) and iterative (9) aspects.	page 6
+(8) line 1	Nuuchahnulth	transcription	sayaaʔeeʔap̓anitinʔaała n̓iiƛn̓iiƛa ʔun̓aaḥ n̓uč̓ak.	page 6
+(8) line 2	Nuuchahnulth	segmentation	sayaa-ʔii=!ap=!anit=(m)in=ʔaała	page 6
+(8) line 3	Nuuchahnulth	gloss	far-go=caus=pass.pst=real.1pl=hab	page 6
+(8) line 4	Nuuchahnulth	segmentation	n̓iƛ -LRL.(y)a	page 6, carries footnote 6
+(8) line 5	Nuuchahnulth	gloss	row/lie.supine-rp	page 6
+(8) line 6	Nuuchahnulth	segmentation	ʔu-n̓aaḥ	page 6
+(8) line 7	Nuuchahnulth	gloss	empty-look.for	page 6
+(8) line 8	Nuuchahnulth	segmentation	n̓uč̓ak	page 6
+(8) line 9	Nuuchahnulth	gloss	egg	page 6
+(8) line 10	David Inman	translation	‘He would make us row far out looking for eggs.’	page 6
+(9) line 1	Nuuchahnulth	transcription	n̓aƛn̓ašʔaƛquuweʔinʔaała c̓awaakḥ t̓aatn̓eʔis (: : :).	page 6
+(9) line 2	Nuuchahnulth	segmentation	n̓a-R.š=!aƛ=quu=weʔin=ʔaała	page 6
+(9) line 3	Nuuchahnulth	gloss	look-it=now=pssb.3=hrsy.3=hab	page 6
+(9) line 4	Nuuchahnulth	segmentation	c̓awaak-(q)ḥ	page 6
+(9) line 5	Nuuchahnulth	gloss	one-link	page 6
+(9) line 6	Nuuchahnulth	segmentation	t̓aatn̓a=ʔis	page 6
+(9) line 7	Nuuchahnulth	gloss	child.pl=dim	page 6
+(9) line 8	David Inman	translation	‘There was one little child who would go and look every now and then (: : :)’	page 6
+(9) line 8	David Inman	citation	(Sapir and Swadesh 1939:56)	the source at the right of the translation
+§3.3	David Inman	note	Also because of this position, the interpretation of the habitual distributes over coordinated pred- icates, as in ( 10).	page 6
+(10) line 1	Nuuchahnulth	transcription	nunuukšiƛnišʔaał ʔaḥʔaaʔaƛ huułhuuła tuupšiʔaƛquu.	page 6
+(10) line 2	Nuuchahnulth	segmentation	nunuuk-šiƛ=niš=ʔaał	page 6
+(10) line 3	Nuuchahnulth	gloss	sing.ct-pf=strg.1pl=hab	page 6
+(10) line 4	Nuuchahnulth	segmentation	ʔaḥʔaaʔaƛ	page 6
+(10) line 5	Nuuchahnulth	gloss	and	page 6
+(10) line 6	Nuuchahnulth	segmentation	huł-LRL.(y)a	page 6
+(10) line 7	Nuuchahnulth	gloss	dance-rp	page 6
+(10) line 8	Nuuchahnulth	segmentation	tuupšiƛ=!aƛ=quu	page 6
+(10) line 9	Nuuchahnulth	gloss	evening=now=pssb.3	page 6
+(10) line 10	David Inman	translation	‘We sing and dance when it’s evening.’	page 6
+§3.3	David Inman	note	Of course, the habitual can also be used without the repetitive or the iterative present, and in some cases the use of the habitual does not easily translate in English.	page 6
+(11) line 1	Nuuchahnulth	transcription	ʔuk̓ʷiicitʔaałʔał č̓apac.	page 6
+(11) line 2	Nuuchahnulth	segmentation	ʔukʷiic=(m)it=ʔaał=ʔał	page 6
+(11) line 3	Nuuchahnulth	gloss	own.one’s.own=pst=hab=pl	page 6
+(11) line 4	Nuuchahnulth	segmentation	č̓apac	page 6
+(11) line 5	Nuuchahnulth	gloss	canoe	page 6
+(11) line 6	David Inman	translation	‘They had their own canoe.’	page 6
+§3.3	David Inman	note	From an English perspective, the habitual in ( 11) is a bit odd: Doesn’t ownership imply the continuation of an event over a period of time? But in Nuuchahnulth, this is a more natural thing to add.	page 6
+§3.3	Nuuchahnulth	cited form	ʔukʷiic	page 7
+§3.3	David Inman	note	The habitual has the expected meaning associated with its chosen English label: It indicates that an action occurs on a regular basis or is part of a habit. Note that, as in the above examples, event repetition is much more loosely interpreted than in the repetitive and iterative aspects. In ( 8), someone would habitually make the speaker go out rowing for eggs on islands in Barkley Sound— but presumably not every day. Sometimes the person initiating the egg-hunt might be off visiting relatives, sometimes the weather would be bad, and so on. Rowing looking for eggs was clearly an on-again, off-again event. In contrast, in ( 11), the ownership of a canoe persisted over a long period of time (presumably not discrete instances of owning and losing ownership over a canoe), and this long continuation is either a fact the speaker felt was worth emphasizing by making the verb habitual or a fact not necessarily entailed by the semantics of ʔukʷiic. In any case, the interpretation of the habitual in the two sentences is quite different, showing that the pluractionality signaled by the habitual is much looser in meaning than that of the repetitive and iterative aspects.	page 6
+footnote 6	Nuuchahnulth	cited form	n̓iiƛn̓iiƛa	page 6, ‘rowing’
+footnote 6	Nuuchahnulth	cited affix	n̓iƛ-	page 6
+footnote 6	Nuuchahnulth	cited form	n̓iƛaak	page 6, ‘argue, go to war’
+footnote 6	David Inman	note	6 The word n̓iiƛn̓iiƛa ‘rowing’ very rarely occurs in other aspect forms, as this meaning of n̓iƛ- ‘lean back, row’ makes the most sense as a repetitive action. There is another word n̓iƛaak ‘argue, go to war’, which may or may not be related. I am indebted to Henry Kammler’s in-progress dictionary for this explanation of n̓iƛ-.	page 6, footnote
+§3.4	David Inman	heading	3.4 Summary of pluractionals	page 7
+§3.4	David Inman	note	With the exception of the habitual, pluractional aspect in Nuuchahnulth consistently uses some kind of reduplication, plus suffixation and possibly a change in vowel length. This use of reduplication is classically iconic: an event that recurs is indicated (partially) through the recurrence of the word. Not only is the habitual aspect not marked iconically, it is also the only pluractional which is not a part of the verb’s lexical specification. Repetitive and iterative aspects are part of the set of lexical possibilities one learns as part of a verb stem. The habitual is a syntactically free enclitic, not bound to any lexical stem.	page 7
+§4	David Inman	heading	4 Nominal plurality not marked within the noun phrase	page 7
+§4	David Inman	note	The pluractional forms all give some kind of event plurality or event repetition. It is also possible for verbs to host marking that refers to the plurality of one of their arguments, something which happens in a few cases in Nuuchahnulth.	page 7
+§4.1	David Inman	heading	4.1 Verbal suffix -!aqa	page 7
+§4.1	Nuuchahnulth	cited form	c̓iiq-a·	page 7, ‘chant’
+§4.1	Nuuchahnulth	cited form	c̓iiʕaqa	page 7, ‘several chanting’
+§4.1	Nuuchahnulth	cited form	pisat-uk	page 7, ‘play’
+§4.1	Nuuchahnulth	cited form	pisat̓aqa	page 7, ‘several playing’
+§4.1	David Inman	note	The first marker of nominal plurality outside the noun phrase is the suffix -!aqa, one of two deriva- tive plural suffixes documented as “core plural suffixes” in Davidson (2002:207–208). I have not encountered this suffix in my work on modern Nuuchahnulth, but it was noted in Sapir and Swadesh (1939:319) and occurs in both Nuuchahnulth and Makah. -!aqa refers to multiple participants of an event, as in c̓iiq-a· ‘chant’, c̓iiʕaqa ‘several chanting’, and pisat-uk ‘play’, pisat̓aqa ‘several playing’ (Davidson 2002:207).	page 7
+§4.2	David Inman	heading	4.2 Verbal -RL.yu· and nominal -L.yu·	page 7
+§4.2	Nuuchahnulth	cited form	ciciiqyu	page 7, ‘several speak’
+§4.2	Nuuchahnulth	cited affix	ciq-	page 7, ‘speak’
+§4.2	Nuuchahnulth	cited form	nuučyuu	page 7, ‘mountains’
+§4.2	Nuuchahnulth	cited affix	nuč-	page 7, ‘mountain’
+§4.2	David Inman	note	There are a very small number of words which have the suffix -yu· (Davidson 2002:207–208). Al- though I am presenting this with the verbal section, the suffix occurs on both nouns and verbs, but with a different template. On verbs, the suffix reduplicates the stem and lengthens the second vowel of the resulting word ( RL in my notation), while on nouns it only lengthens the first vowel ( L). The -yu· forms are fossilized and unproductive in the modern language. ciciiqyu ‘several speak’, from the root ciq- ‘speak’ is an example of the verbal template, while nuučyuu ‘mountains’ from the root nuč- ‘mountain’ is an example of the nominal template. In my experience, words that use the -yu· suffix are very rare, although they appear to have been more common in the Sapir-Thomas texts.	page 7
+§4.3	David Inman	heading	4.3 CV- reduplication	page 8
+§4.3	David Inman	note	CV- reduplication of the verbal stem alone can be used to indicate plurality of object. This is iden- tified by both Jacobsen (1997:16–18) and Davidson (2002:210–212) as distributive. This may be correct, but I am less convinced that there is still in modern Nuuchahnulth a clear semantic distinction between distributive and other types of plural marking.	page 8
+(12) line 1	Nuuchahnulth	transcription	hihiłʔaps n̓ačaały̓ak hiłaał tiipin.	page 8
+(12) line 2	Nuuchahnulth	segmentation	R-hił=ʔap=s	page 8
+(12) line 3	Nuuchahnulth	gloss	pl-be.at=caus=strg.1sg	page 8
+(12) line 4	Nuuchahnulth	segmentation	n̓ačaały̓ak	page 8
+(12) line 5	Nuuchahnulth	gloss	book	page 8
+(12) line 6	Nuuchahnulth	segmentation	hiłaał	page 8
+(12) line 7	Nuuchahnulth	gloss	on	page 8
+(12) line 8	Nuuchahnulth	segmentation	tiipin	page 8
+(12) line 9	Nuuchahnulth	gloss	table	page 8
+(12) line 10	David Inman	translation	‘I put the books on the table.’	page 8
+§4.3	Nuuchahnulth	cited form	<ł>	page 8
+§4.3	Nuuchahnulth	cited form	muqʷałʔič/mułmuqʷałʔič	page 8
+§4.3	Nuuchahnulth	cited form	tiič/tiłtiič	page 8, ‘alive’
+§4.3	David Inman	note	An irregularity in this pattern is the occasional use of <ł> as a coda for the reduplicant, some- thing noted in Davidson (2002:209). Davidson gives two examples of this: muqʷałʔič/mułmuqʷałʔič ‘clothed in a phosphorescent robe’ and tiič/tiłtiič ‘alive’.	page 8
+§4.4	David Inman	heading	4.4 Plural enclitic =ʔał	page 8
+§4.4	Nuuchahnulth	cited form	=ʔał	page 8
+§4.4	Nuuchahnulth	cited form	=ʔinł	page 8
+§4.4	Nuuchahnulth	cited form	ʔaała	page 8
+§4.4	Nuuchahnulth	cited form	ʔunaakitweʔinʔaałaʔał	page 8
+§4.4	David Inman	note	The enclitic =ʔał (or in the Kyuquot-Checleseht dialect, =ʔinł) is commonly thought of as the third person plural subject marker. This is probably the most frequent use of this morpheme, but it is not strictly speaking part of the person agreement paradigm: =ʔał can be split from person indexation by the intervention of the habitual morpheme ʔaała, as in the word ʔunaakitweʔinʔaałaʔał. 7 =ʔał can also refer to either the subject ( 13, 14) or the object ( 15).	page 8
+(13) line 1	Nuuchahnulth	transcription	hitasaʔaƛweʔinʔał.	page 8
+(13) line 2	Nuuchahnulth	segmentation	hitasaƛ=!aƛ=we·ʔin=ʔał	page 8
+(13) line 3	Nuuchahnulth	gloss	land.on.beach=now=hrsy.3=pl	page 8
+(13) line 4	David Inman	translation	‘They landed on the beach.’	page 8
+(14) line 1	Nuuchahnulth	transcription	hiłitʔał maʔas sumakquʔis.	page 8
+(14) line 2	Nuuchahnulth	segmentation	hił=(m)it=ʔał	page 8
+(14) line 3	Nuuchahnulth	gloss	be.at=pst=pl	page 8
+(14) line 4	Nuuchahnulth	segmentation	maʔas	page 8
+(14) line 5	Nuuchahnulth	gloss	house	page 8
+(14) line 6	Nuuchahnulth	segmentation	sumakquʔis	page 8
+(14) line 7	Nuuchahnulth	gloss	Hot.Springs.Cove	page 8
+(14) line 8	David Inman	translation	‘They were home at Hot Springs Cove.’	page 8
+footnote 7	David Inman	note	7 The glossing for which would be:	page 8, footnote
+footnote 7 (i) line 1	Nuuchahnulth	transcription	ʔunaakitweʔinʔaałaʔał	page 8
+footnote 7 (i) line 2	Nuuchahnulth	segmentation	ʔu-na·k=(m)it=we·ʔin=ʔaała=ʔał	page 8
+footnote 7 (i) line 3	Nuuchahnulth	gloss	empty-have=pst=hrsy.3=hab=pl	page 8
+footnote 7 (i) line 4	David Inman	translation	‘they had (I hear)’	page 8
+(15) line 1	Nuuchahnulth	transcription	ƛułʔaqƛ̓apʔicʔał haʔuk.	page 9
+(15) line 2	Nuuchahnulth	segmentation	ƛuł=ʔaqƛ=!ap=ʔi·c=ʔał	page 9
+(15) line 3	Nuuchahnulth	gloss	good=fut=caus=strg.2sg=pl	page 9
+(15) line 4	Nuuchahnulth	segmentation	haʔuk	page 9
+(15) line 5	Nuuchahnulth	gloss	eat.dr	page 9
+(15) line 6	David Inman	translation	‘You will make them eat well.’	page 9
+§4.4	David Inman	note	These are all modern examples, with ( 15) coming from a community-produced text, “Son of Thunderbird”—a naturally-produced example without the interference of being said to a linguist who has a history of asking funny questions about one’s native language.	page 9
+§4.5	David Inman	heading	4.5 Verbal plural suppletions	page 9
+§4.5	Nuuchahnulth	cited form	waʔič8	page 9
+§4.5	Nuuchahnulth	cited form	/huuʔič	page 9, ‘run’
+§4.5	Nuuchahnulth	cited form	kamitquk/puʔak	page 9, ‘fly’
+§4.5	Nuuchahnulth	cited form	mataa/huʔak	page 9
+§4.5	Nuuchahnulth	cited form	ʕiiḥšiƛ/ƛ̓aałyuu	page 9
+§4.5	Nuuchahnulth	cited form	susaa/č̓uyaa	page 9, ‘swim’
+§4.5	Nuuchahnulth	cited form	ƛ̓aałyuu	page 9
+§4.5	Nuuchahnulth	cited form	ʕiiḥšiƛ	page 9
+§4.5	David Inman	note	Finally, there are a small number of verbs that have different forms based on whether the subject is singular or plural. The only verbs that do this, to my knowledge, are intransitive. Listing them as singular/plural pairs, I know of four or five: ‘sleep’ waʔič8 /huuʔič, ‘run’ kamitquk/puʔak, ‘fly’ mataa/huʔak, and ‘cry’ ʕiiḥšiƛ/ƛ̓aałyuu, and maybe a fifth, susaa/č̓uyaa ‘swim’.9 It is difficult to get a perfect count of such suppletions, and the forms for ‘cry’ appear to be a relatively more recent addition to this set of pairs ( ƛ̓aałyuu seems to have the plural -yu· suffix but without the expected reduplication and lengthening template of verbal -yu·, see § 4.2), but when I asked a speaker about it, she directly said it was a group of people crying (or wailing), and I have an example of it used as a verb in natural speech. This apparently contrasts with ʕiiḥšiƛ, which describes a single person crying.	page 9
+§5	David Inman	heading	5 Nominal plurality within the noun phrase	page 9
+§5	Nuuchahnulth	cited form	maḥt̓ii	page 9, ‘house’
+§5	Nuuchahnulth	cited form	maʔas	page 9
+§5	Nuuchahnulth	cited form	ʕimtii	page 9, ‘name’
+§5	David Inman	note	Nuuchahnulth marks plurality according to an animacy hierarchy: people are always marked for singular or plural, and inanimate objects are almost never marked for plural. Animals may or may not be marked for plural, depending on how “person-like” the speaker is thinking of them. This general rule has a few prominent exceptions: some inanimate objects that are closely related to human use or are culturally important have their own plural forms, such as maḥt̓ii ‘house’, maʔas ‘village’, tupaati (a kind of ritual marriage game or test), ʕimtii ‘name’, and a few others. But aside from these cases, Nuuchahnulth speakers very rarely mark plurality for inanimate nouns, unless it is needed for emphasis or clarity.	page 9
+§5	Nuuchahnulth	cited form	ƛaʔuu	page 9
+§5	Nuuchahnulth	cited form	ʔiiḥ	page 9, ‘big’
+§5	Nuuchahnulth	cited form	big’,ƛuł	page 9, ‘good’
+§5	Nuuchahnulth	cited form	ʔiič̓im	page 9, ‘old/elder’
+§5	Nuuchahnulth	cited form	miixtuk	page 9, ‘old/elder’
+§5	David Inman	note	There are also a small number of adjectives that have plural forms. Unlike French, where ad- jectives always agree in number with their noun, not every adjective has a plural form and the plural form does not always have to be used. Some of the most common adjectives that pluralize are: ƛaʔuu ‘other’, ʔiiḥ ‘big’,ƛuł ‘good’, ʔiič̓im ‘old/elder’, and miixtuk ‘old/elder’. Adjective plural forms al- ways follow one of the strategies used for noun plural forms, and so I have included them here with the nouns.	page 9
+§5	David Inman	note	The nominal plural system is one of the most complex and irregular parts of Nuuchahnulth grammar. I have organized this section to follow what I consider to be the morphological paradigms of the plural. Most of the examples given below are in contemporary use, but a few of them are archaic. I have erred on the side of giving a complete listing of known plurals, rather than only the ones known to be used by current speakers.	page 9
+footnote 8	Nuuchahnulth	cited form	weʔič	page 9
+footnote 8	David Inman	note	8 weʔič in the Barkley Sound dialect	page 9, footnote
+footnote 9	Nuuchahnulth	cited affix	č̓u-	page 9, ‘swim, school’
+footnote 9	Nuuchahnulth	cited affix	sus-	page 9, ‘swim’
+footnote 9	David Inman	note	9 It is not clear if the root č̓u- ‘swim, school’ is properly the plural counterpart of a singular sus- ‘swim’, or if the former is a special term for schooling fish.	page 9, footnote
+§5.1	David Inman	heading	5.1 Regular plural -m̓inḥ	page 10
+§5.1	Nuuchahnulth	cited form	m̓inḥ	page 10
+§5.1	David Inman	note	The most regular way to mark plurals in Nuuchahnulth, and the one used when none of the special strategies below are present, is with the suffix - m̓inḥ. When speakers find that they need to mark plural on a word that often does not receive plural marking (for example, on an inanimate object or an animal), this is typically what is used.	page 10
+§5.1	Nuuchahnulth	cited affix	-m̓inḥ	page 10
+§5.1	Nuuchahnulth	cited form	łuučm̓uup	page 10, ‘sister’
+§5.1	Nuuchahnulth	cited form	łuučm̓uupm̓inḥ	page 10
+§5.1	Nuuchahnulth	cited form	łucsac	page 10, ‘young girl’
+§5.1	Nuuchahnulth	cited form	łucsacm̓inḥ	page 10
+§5.1	David Inman	note	However, there are a few common plural forms that use -m̓inḥ instead of one of the more complex forms. One example is the plural of łuučm̓uup ‘sister’ in the Barkley Sound and Central dialects, which is łuučm̓uupm̓inḥ, where most kinship terms have at least reduplication or some combination of forms from the plural template (§ 5.2). Similarly, the word łucsac ‘young girl’, in all dialects that preserve the word, has the plural form łucsacm̓inḥ.	page 10
+§5.2	David Inman	heading	5.2 The plural template	page 10
+§5.2	David Inman	note	Many plural forms follow one or more components of the plural template, which has three parts:	page 10
+§5.2	David Inman	note	1. Reduplication	page 10
+§5.2	David Inman	note	2. Lengthening	page 10
+§5.2	David Inman	note	3. <t> infixation after the first vowel	page 10
+§5.2	David Inman	note	Each of the three parts of the template can be combined with each other, but only reduplication can occur alone. Plural marking by reduplication alone is most frequent in words describing specific relatives or kinship terms. 10	page 10
+Table 1 line 1	David Inman	note	Table 1: Relatives with reduplication	page 10, the caption
+Table 1 line 2	David Inman	note	Singular Plural English	page 10, heads the columns
+Table 1 line 3	Nuuchahnulth	transcription	naniiqsu	page 10, the singular
+Table 1 line 3	Nuuchahnulth	transcription	nananiqsu	page 10, the plural
+Table 1 line 3	David Inman	translation	‘grandparent(s)’	page 10, the English
+Table 1 line 4	Nuuchahnulth	transcription	ḥačimsiqsu	page 10, the singular
+Table 1 line 4	Nuuchahnulth	transcription	ḥaḥačimsiqsu	page 10, the plural
+Table 1 line 4	David Inman	translation	‘brother(s)’	page 10, the English
+Table 1 line 5	Nuuchahnulth	transcription	ʔaasiiqsu	page 10, the singular
+Table 1 line 5	Nuuchahnulth	transcription	ʔaaʔaasiqsu	page 10, the plural
+Table 1 line 5	David Inman	translation	‘niece(s)’	page 10, the English
+Table 1 line 6	Nuuchahnulth	transcription	wiiʔuu	page 10, the singular
+Table 1 line 6	Nuuchahnulth	transcription	wiiwiiʔuu	page 10, the plural
+Table 1 line 6	David Inman	translation	‘nephew(s)’	page 10, the English
+Table 1 line 7	Nuuchahnulth	transcription	naʔiiqsu	page 10, the singular
+Table 1 line 7	Nuuchahnulth	transcription	nanaʔiqsu	page 10, the plural
+Table 1 line 7	David Inman	translation	‘uncle(s)/aunt(s)’	page 10, the English
+Table 1 line 8	Nuuchahnulth	transcription	m̓aam̓iiqsu	page 10, the singular
+Table 1 line 8	Nuuchahnulth	transcription	m̓aam̓aam̓iqsu	page 10, the plural
+Table 1 line 8	David Inman	translation	‘older sibling(s)’	page 10, the English
+Table 1 line 9	Nuuchahnulth	transcription	y̓ukʷiiqsu	page 10, the singular
+Table 1 line 9	Nuuchahnulth	transcription	y̓uy̓ukʷiqsu	page 10, the plural
+Table 1 line 9	David Inman	translation	‘younger sibling(s)’	page 10, the English
+Table 1 line 10	Nuuchahnulth	transcription	ƛaayicqim	page 10, the singular
+Table 1 line 10	Nuuchahnulth	transcription	ƛaaƛaayicqim	page 10, the plural
+Table 1 line 10	David Inman	translation	‘great-grandchild(ren)’	page 10, the English
+§5.2	Nuuchahnulth	cited form	ʔ	page 10
+§5.2	Nuuchahnulth	cited form	kʷaʔuuc	page 10, ‘grandchild.’
+§5.2	Nuuchahnulth	cited form	kʷakuuc	page 10
+§5.2	Nuuchahnulth	cited form	kʷakʷaʔuuc	page 11
+§5.2	Nuuchahnulth	cited form	kʷakʷuuc	page 11
+§5.2	David Inman	note	Plain reduplication can yield forms that are more opaque through subsequent application of ʔ reduction. An example is kʷaʔuuc ‘grandchild.’ The plural form kʷakuuc is derived through the application of regular phonological processes: kʷakuuc + reduplication ! *kʷakʷaʔuuc + glottal stop reduction !*kʷakʷuuc + dorsal unrounding before /u/ !kʷakuuc.	page 10
+footnote 10	David Inman	note	10 Note that most of the kinship words contain the suffix -i·qsu ‘relative’ which has a long vowel if the suffix falls on the second syllable and a short vowel if it falls on the third syllable or later.	page 10, footnote
+§5.2	David Inman	note	Glottal stop reduction will reappear in other plurals, but the only two forms I know of that have only reduplication and glottal reduction are ‘grandchild’ and ‘other’.	page 11
+Table 2 line 1	David Inman	note	Table 2: Reduplication and glottal reduction	page 11, the caption
+Table 2 line 2	David Inman	note	Singular Plural English	page 11, heads the columns
+Table 2 line 3	Nuuchahnulth	transcription	kʷaʔuuc	page 11, the singular
+Table 2 line 3	Nuuchahnulth	transcription	kʷakuuc	page 11, the plural
+Table 2 line 3	David Inman	translation	‘grandchild(ren)’	page 11, the English
+Table 2 line 4	Nuuchahnulth	transcription	ƛaʔuu	page 11, the singular
+Table 2 line 4	Nuuchahnulth	transcription	ƛaƛuu	page 11, the plural
+Table 2 line 4	David Inman	translation	‘other(s)’	page 11, the English
+§5.2	David Inman	note	The other two parts of the template, lengthening and <t> infixation, do not occur on their own and must be combined with other parts of the template. An example of such a combination is redu- plication + lengthening. Typically just the first syllable is lengthened.	page 11
+Table 3 line 1	David Inman	note	Table 3: Reduplication + first vowel long	page 11, the caption
+Table 3 line 2	David Inman	note	Singular Plural English	page 11, heads the columns
+Table 3 line 3	Nuuchahnulth	transcription	maḥt̓ii	page 11, the singular
+Table 3 line 3	Nuuchahnulth	transcription	maamaḥt̓i	page 11, the plural
+Table 3 line 3	David Inman	translation	‘house(s)’	page 11, the English
+Table 3 line 4	Nuuchahnulth	transcription	c̓aʔak	page 11, the singular
+Table 3 line 4	Nuuchahnulth	transcription	c̓aac̓aak	page 11, the plural, carries footnote 11
+Table 3 line 4	David Inman	translation	‘river(s)’	page 11, the English
+§5.2	David Inman	note	It is possible but rare for the first two vowels to be lengthened.	page 11
+Table 4 line 1	David Inman	note	Table 4: Reduplication + first two vowels long	page 11, the caption
+Table 4 line 2	David Inman	note	Singular Plural English	page 11, heads the columns
+Table 4 line 3	Nuuchahnulth	transcription	tupaati	page 11, the singular
+Table 4 line 3	Nuuchahnulth	transcription	tuutuupati	page 11, the plural
+Table 4 line 3	David Inman	translation	‘marriage test(s)’	page 11, the English
+§5.2	David Inman	note	The infixation of <t> after the first vowel, like lengthening, must occur with another element of the plural template. Both reduplication + <t> infixation and lengthening + <t> infixation are possible.	page 11
+Table 5 line 1	David Inman	note	Table 5: Reduplication + <t>	page 11, the caption
+Table 5 line 2	David Inman	note	Singular Plural English	page 11, heads the columns
+Table 5 line 3	Nuuchahnulth	transcription	ḥaakʷaaƛ	page 11, the singular
+Table 5 line 3	Nuuchahnulth	transcription	ḥaatḥaakʷaƛ	page 11, the plural
+Table 5 line 3	David Inman	translation	‘young woman (women)’	page 11, the English
+Table 5 line 4	Nuuchahnulth	transcription	quuʔas	page 11, the singular
+Table 5 line 4	Nuuchahnulth	transcription	quutquuʔas	page 11, the plural
+Table 5 line 4	David Inman	translation	‘person (people)’	page 11, the English
+Table 5 line 5	Nuuchahnulth	transcription	wiʔak	page 11, the singular
+Table 5 line 5	Nuuchahnulth	transcription	witwaak	page 11, the plural, carries footnote 12
+Table 5 line 5	David Inman	translation	‘warrior(s)’	page 11, the English
+footnote 11	Nuuchahnulth	cited form	c̓aac̓aak	page 11
+footnote 11	Nuuchahnulth	cited form	c̓aʔak	page 11
+footnote 11	Nuuchahnulth	cited form	c̓aac̓aʔak	page 11
+footnote 11	David Inman	note	11 Note that the resulting plural c̓aac̓aak from c̓aʔak also comes from glottal stop reduction: c̓aʔak !c̓aac̓aʔak !c̓aac̓aak.	page 11, footnote
+Table 6 line 1	David Inman	note	Table 6: First vowel long + <t>	page 12, the caption
+Table 6 line 2	David Inman	note	Singular Plural English	page 12, heads the columns
+Table 6 line 3	Nuuchahnulth	transcription	t̓an̓a	page 12, the singular
+Table 6 line 3	Nuuchahnulth	transcription	t̓aatn̓a	page 12, the plural
+Table 6 line 3	David Inman	translation	‘child(ren)’	page 12, the English
+Table 6 line 4	Nuuchahnulth	transcription	qay̓apta	page 12, the singular
+Table 6 line 4	Nuuchahnulth	transcription	qaaty̓apta	page 12, the plural
+Table 6 line 4	David Inman	translation	‘leg(s)’	page 12, the English
+Table 6 line 5	Nuuchahnulth	transcription	haʔum	page 12, the singular
+Table 6 line 5	Nuuchahnulth	transcription	haatʔum	page 12, the plural
+Table 6 line 5	David Inman	translation	‘food(s)’	page 12, the English
+Table 6 line 6	Nuuchahnulth	transcription	maʔas	page 12, the singular
+Table 6 line 6	Nuuchahnulth	transcription	maatmaas	page 12, the plural
+Table 6 line 6	David Inman	translation	‘village(s)’	page 12, the English
+Table 6 line 7	Nuuchahnulth	transcription	ʕiniiƛ	page 12, the singular
+Table 6 line 7	Nuuchahnulth	transcription	ʕiitniiƛ	page 12, the plural
+Table 6 line 7	David Inman	translation	‘dog(s)’	page 12, the English
+Table 6 line 8	Nuuchahnulth	transcription	nay̓aqak	page 12, the singular
+Table 6 line 8	Nuuchahnulth	transcription	naaty̓aqak	page 12, the plural
+Table 6 line 8	David Inman	translation	‘baby (babies)’	page 12, the English
+§5.2	Nuuchahnulth	cited form	ƛuł	page 12, ‘good.’
+§5.2	David Inman	note	There are two cases in the modern language where the plural template is applied a little irregu- larly. The first is a case of <t> infixation + lengthening, but where the lengthening occurs only on the second syllable and not on the first. This is the case for the word ƛuł ‘good.’	page 12
+Table 7 line 1	David Inman	note	Table 7: Second vowel long + <t>	page 12, the caption
+Table 7 line 2	David Inman	note	Singular Plural English	page 12, heads the columns
+Table 7 line 3	Nuuchahnulth	transcription	ƛuł	page 12, the singular
+Table 7 line 3	Nuuchahnulth	transcription	ƛutƛuuł	page 12, the plural
+Table 7 line 3	David Inman	translation	‘good’	page 12, the English
+§5.2	David Inman	note	And one of the plural forms for the word quuʔas ‘person’ irregularly becomes short-long (instead of the expected long-long) after it undergoes reduplication and glottal stop reduction. This plural form is only used in Eastern Barkley Sound dialects:	page 12
+Table 8 line 1	David Inman	note	Table 8: Reduplication + first vowel short, second vowel long	page 12, the caption
+Table 8 line 2	David Inman	note	Singular Plural English	page 12, heads the columns
+Table 8 line 3	Nuuchahnulth	transcription	quuʔas	page 12, the singular
+Table 8 line 3	Nuuchahnulth	transcription	quqʷaas	page 12, the plural
+Table 8 line 3	David Inman	translation	‘person (people)’	page 12, the English
+§5.3	David Inman	heading	5.3 Infix R.<ʔaa>	page 12
+§5.3	Nuuchahnulth	cited form	R.<ʔaa>	page 12
+§5.3	Nuuchahnulth	cited form	<ʔaa>	page 12
+§5.3	Nuuchahnulth	cited affix	yaqʷ-	page 12, ‘who’
+§5.3	David Inman	note	The infix R.<ʔaa> comes with a reduplicating template: The root is reduplicated and then <ʔaa> is inserted after the first vowel of the reduplicant. Like the plural formative - yu· (§4.2), it seems to be an older form and is not one I have encountered with modern speakers. However, it is present in the Sapir-Thomas texts at least for the root yaqʷ- ‘who’ and Davidson finds it in at least one word in Makah (Davidson 2002:209).	page 12
+(16) line 1	Nuuchahnulth	transcription	c̓iiqaaʔaƛ yaʔaayaqqas.	page 12
+(16) line 2	Nuuchahnulth	segmentation	c̓iiq-a·=!aƛ	page 12
+(16) line 3	Nuuchahnulth	gloss	chant-ct=now	page 12
+(16) line 4	Nuuchahnulth	segmentation	yaqʷ-R.<ʔaa>=qas	page 12
+(16) line 5	Nuuchahnulth	gloss	who-pl=defn.1sg	page 12
+(16) line 6	David Inman	translation	‘Those with me (in the crew) chanted.’	page 12
+(16) line 6	David Inman	citation	(Sapir and Swadesh 1955:134)	the source at the right of the translation
+footnote 12	Nuuchahnulth	cited form	12wiʔak	page 12
+footnote 12	Nuuchahnulth	cited form	witwiʔak	page 12
+footnote 12	David Inman	note	12wiʔak !witwiʔak !witwaak	page 12, footnote
+§5.4	David Inman	heading	5.4 Infixes <(a)ay̓>, <y̓aa>	page 13
+§5.4	Nuuchahnulth	cited form	<(a)ay̓>	page 13
+§5.4	Nuuchahnulth	cited form	<y̓aa>	page 13
+§5.4	Nuuchahnulth	cited form	<ay̓>	page 13
+§5.4	Nuuchahnulth	cited form	<aay̓>	page 13
+§5.4	David Inman	note	The infixes <(a)ay̓> and <y̓aa> occur only on their own, without the plural template. The infix <ay̓> or <aay̓> is always inserted after the first consonant. The length of the vowel appears to be unpredictable.	page 13
+Table 9 line 1	David Inman	note	Table 9: <(a)ay̓> infix	page 13, the caption
+Table 9 line 2	David Inman	note	Singular Plural English	page 13, heads the columns
+Table 9 line 3	Nuuchahnulth	transcription	ʕumtii	page 13, the singular
+Table 9 line 3	Nuuchahnulth	transcription	ʕaay̓umti	page 13, the plural
+Table 9 line 3	David Inman	translation	‘name(s)’	page 13, the English
+Table 9 line 4	Nuuchahnulth	transcription	ʔuušḥy̓ums	page 13, the singular
+Table 9 line 4	Nuuchahnulth	transcription	ʔaay̓ušḥy̓ums	page 13, the plural
+Table 9 line 4	David Inman	translation	‘relative(s)’	page 13, the English
+Table 9 line 5	Nuuchahnulth	transcription	miixtuk	page 13, the singular
+Table 9 line 5	Nuuchahnulth	transcription	may̓iixtuk	page 13, the plural
+Table 9 line 5	David Inman	translation	‘old’ (as adj), ‘old people’ (as noun)	page 13, the English
+§5.4	David Inman	note	The other plural infix <y̓aa> is always inserted after the first vowel:	page 13
+Table 10 line 1	David Inman	note	Table 10: <y̓aa> infix	page 13, the caption
+Table 10 line 2	David Inman	note	Singular Plural English	page 13, heads the columns
+Table 10 line 3	Nuuchahnulth	transcription	hicsnup	page 13, the singular
+Table 10 line 3	Nuuchahnulth	transcription	hiy̓aacsnup	page 13, the plural
+Table 10 line 3	David Inman	translation	‘couple(s)’	page 13, the English
+Table 10 line 4	Nuuchahnulth	transcription	kʷatyiik	page 13, the singular
+Table 10 line 4	Nuuchahnulth	transcription	kʷay̓aatyik	page 13, the plural
+Table 10 line 4	David Inman	translation	‘heavy’	page 13, the English
+Table 10 line 5	Nuuchahnulth	transcription	kʷiisḥii	page 13, the singular
+Table 10 line 5	Nuuchahnulth	transcription	kʷiiy̓aasḥi	page 13, the plural
+Table 10 line 5	David Inman	translation	‘different’	page 13, the English
+§5.4	Nuuchahnulth	cited form	<y̓uu>	page 13
+§5.4	David Inman	note	A few plural forms have changed the <y̓aa> to <y̓uu> under the influence of a neighboring /u/.	page 13
+Table 11 line 1	David Inman	note	Table 11: <y̓uu> infix	page 13, the caption
+Table 11 line 2	David Inman	note	Singular Plural English	page 13, heads the columns
+Table 11 line 3	Nuuchahnulth	transcription	pukmis	page 13, the singular
+Table 11 line 3	Nuuchahnulth	transcription	puy̓uukmis	page 13, the plural
+Table 11 line 3	David Inman	translation	‘cold monster(s)’	page 13, the English
+Table 11 line 4	Nuuchahnulth	transcription	c̓ušuk	page 13, the singular
+Table 11 line 4	Nuuchahnulth	transcription	c̓uy̓uušuk	page 13, the plural
+Table 11 line 4	David Inman	translation	‘new’	page 13, the English
+§5.5	David Inman	heading	5.5 The suffix -iiḥ	page 13
+§5.5	Nuuchahnulth	cited affix	-iiḥ	page 13
+§5.5	Nuuchahnulth	cited form	ł	page 13
+§5.5	David Inman	note	The -iiḥ suffix can occur alone to indicate plural. If the word it attaches to ends in a ł, the ł typically disappears:	page 13
+Table 12 line 1	David Inman	note	Table 12: -iiḥ suffix	page 13, the caption
+Table 12 line 2	David Inman	note	Singular Plural English	page 13, heads the columns
+Table 12 line 3	Nuuchahnulth	transcription	ḥaw̓ił	page 13, the singular
+Table 12 line 3	Nuuchahnulth	transcription	ḥaw̓iiḥ	page 13, the plural
+Table 12 line 3	David Inman	translation	‘chief(s), nobleman (men)’	page 13, the English
+§5.5	David Inman	note	However, this suffix can also occur with parts of the plural template, for instance lengthening or the <t> infix:	page 14
+Table 13 line 1	David Inman	note	Table 13: -iiḥ + plural template	page 14, the caption
+Table 13 line 2	David Inman	note	Singular Plural English	page 14, heads the columns
+Table 13 line 3	Nuuchahnulth	transcription	čakup	page 14, the singular
+Table 13 line 3	Nuuchahnulth	transcription	čaakupiiḥ	page 14, the plural
+Table 13 line 3	David Inman	translation	‘man (men)’	page 14, the English
+Table 13 line 4	Nuuchahnulth	transcription	maquuł	page 14, the singular
+Table 13 line 4	Nuuchahnulth	transcription	maatquuḥ	page 14, the plural
+Table 13 line 4	David Inman	translation	‘blind’	page 14, the English
+§5.5	Nuuchahnulth	cited form	łuucsma	page 14, ‘woman’
+§5.5	David Inman	note	Sometimes the -iiḥ suffix forms something more irregular, like in łuucsma ‘woman’, where the ma becomes aam:	page 14
+Table 14 line 1	David Inman	note	Table 14: Irregular -iiḥ	page 14, the caption
+Table 14 line 2	David Inman	note	Singular Plural English	page 14, heads the columns
+Table 14 line 3	Nuuchahnulth	transcription	łuucsma	page 14, the singular
+Table 14 line 3	Nuuchahnulth	transcription	łuucsaamiiḥ	page 14, the plural
+Table 14 line 3	David Inman	translation	‘woman (women)’	page 14, the English
+§5.5	Nuuchahnulth	cited form	ḥakum	page 14, ‘princess’
+§5.5	David Inman	note	The -iiḥ suffix also appears in the irregular plural for ḥakum ‘princess’ or ‘noblewoman.’ Here, the -iiḥ appears to be hardening (more on this later), it combines with the <t> from the plural tem- plate, and the u from ḥakum disappears:	page 14
+Table 15 line 1	David Inman	note	Table 15: Irregular -iiḥ + <t>	page 14, the caption
+Table 15 line 2	David Inman	note	Singular Plural English	page 14, heads the columns
+Table 15 line 3	Nuuchahnulth	transcription	ḥakum	page 14, the singular
+Table 15 line 3	Nuuchahnulth	transcription	ḥatkm̓iiḥ	page 14, the plural
+Table 15 line 3	David Inman	translation	‘princess(es)’	page 14, the English
+§5.5	Nuuchahnulth	cited affix	-(q)imł	page 14, ‘round or chunky thing’
+§5.5	Nuuchahnulth	cited affix	-(q)apiiḥ	page 14
+§5.5	David Inman	note	Finally, the -iiḥ suffix combines with the classifying suffix -(q)imł ‘round or chunky thing’ to form the irregular plural -(q)apiiḥ. There are not very many words where this can be seen, since these words tend to refer to inanimate objects, which are not typically pluralized. I found a few pairs in the Sapir-Thomas Texts.	page 14
+Table 16 line 1	David Inman	note	Table 16: -qimł + -iiḥ	page 14, the caption
+Table 16 line 2	David Inman	note	Singular Plural English	page 14, heads the columns
+Table 16 line 3	Nuuchahnulth	transcription	ƛ̓isimł	page 14, the singular
+Table 16 line 3	Nuuchahnulth	transcription	ƛ̓isapiiḥ	page 14, the plural
+Table 16 line 3	David Inman	translation	‘perch(es) (fish)’	page 14, the English
+Table 16 line 4	Nuuchahnulth	transcription	maƛimł	page 14, the singular
+Table 16 line 4	Nuuchahnulth	transcription	maƛapiiḥ	page 14, the plural
+Table 16 line 4	David Inman	translation	‘bundle(s)’	page 14, the English
+§5.6	David Inman	heading	5.6 Ca- reduplication	page 14
+§5.6	Nuuchahnulth	cited form	ʔiič̓im	page 14, ‘old’
+§5.6	Nuuchahnulth	cited form	old’,ʔiiḥ	page 14, ‘big’
+§5.6	Nuuchahnulth	cited form	andquuł	page 14, ‘slave’
+§5.6	David Inman	note	Ca- reduplication reduplicates the first consonant but uses an a vowel instead of the vowel from the word. This only occurs with the plurals for three words: ʔiič̓im ‘old’,ʔiiḥ ‘big’, andquuł ‘slave’.	page 14
+Table 17 line 1	David Inman	note	Table 17: Ca- reduplication	page 15, the caption
+Table 17 line 2	David Inman	note	Singular Plural English	page 15, heads the columns
+Table 17 line 3	Nuuchahnulth	transcription	ʔiič̓im	page 15, the singular
+Table 17 line 3	Nuuchahnulth	transcription	ʔaʔiič̓im	page 15, the plural
+Table 17 line 3	David Inman	translation	‘old’ (adj), ‘elder’ (noun)	page 15, the English
+Table 17 line 4	Nuuchahnulth	transcription	ʔiiḥ	page 15, the singular
+Table 17 line 4	Nuuchahnulth	transcription	ʔaʔiiḥ	page 15, the plural
+Table 17 line 4	David Inman	translation	‘big’	page 15, the English
+Table 17 line 5	Nuuchahnulth	transcription	quuł	page 15, the singular
+Table 17 line 5	Nuuchahnulth	transcription	qaquuł	page 15, the plural
+Table 17 line 5	David Inman	translation	‘slave(s)’	page 15, the English
+§5.7	David Inman	heading	5.7 Full reduplication	page 15
+§5.7	David Inman	note	For a few words, the whole word reduplicates instead of just the first consonant and vowel. All such words are only one syllable long:	page 15
+Table 18 line 1	David Inman	note	Table 18: Full reduplication	page 15, the caption
+Table 18 line 2	David Inman	note	Singular Plural English	page 15, heads the columns
+Table 18 line 3	Nuuchahnulth	transcription	nuuk	page 15, the singular
+Table 18 line 3	Nuuchahnulth	transcription	nuuk nuuk	page 15, the plural
+Table 18 line 3	David Inman	translation	‘song(s)’	page 15, the English
+Table 18 line 4	Nuuchahnulth	transcription	kuḥ	page 15, the singular
+Table 18 line 4	Nuuchahnulth	transcription	kuḥkuḥ	page 15, the plural
+Table 18 line 4	David Inman	translation	‘hole(s)’	page 15, the English
+Table 18 line 5	Nuuchahnulth	transcription	ƛ̓uq	page 15, the singular
+Table 18 line 5	Nuuchahnulth	transcription	ƛ̓uqƛ̓uq	page 15, the plural
+Table 18 line 5	David Inman	translation	‘wide’	page 15, the English
+§5.8	David Inman	heading	5.8 Irregular plurals	page 15
+§5.8	Nuuchahnulth	cited form	ʔanaḥʔis	page 15
+§5.8	Nuuchahnulth	cited form	ʔačknaḥʔis	page 15
+§5.8	Nuuchahnulth	cited form	ʔaʔinḥʔis	page 15
+§5.8	Nuuchahnulth	cited form	ʔeʔinḥʔis	page 15
+§5.8	Nuuchahnulth	cited form	ʔačkʔinḥʔis	page 15
+§5.8	Nuuchahnulth	cited affix	-ʔinḥ	page 15
+§5.8	Nuuchahnulth	cited form	m̓inḥ	page 15
+§5.8	David Inman	note	A small number of plurals follow none of the above patterns. First is ʔanaḥʔis or ʔačknaḥʔis, both of which mean ‘small’. They have the irregular plurals ʔaʔinḥʔis (ʔeʔinḥʔis in Barkley Sound) and ʔačkʔinḥʔis. The ending -ʔinḥ looks similar to m̓inḥ and is probably related.	page 15
+Table 19 line 1	David Inman	note	Table 19: Small	page 15, the caption
+Table 19 line 2	David Inman	note	Singular Plural English	page 15, heads the columns
+Table 19 line 3	Nuuchahnulth	transcription	ʔanaḥʔis	page 15, the singular
+Table 19 line 3	Nuuchahnulth	transcription	ʔaʔinḥʔis	page 15, the plural
+Table 19 line 3	David Inman	translation	‘small’	page 15, the English
+Table 19 line 4	Nuuchahnulth	transcription	ʔačknaḥʔis	page 15, the singular
+Table 19 line 4	Nuuchahnulth	transcription	ʔačkʔinḥʔis	page 15, the plural
+Table 19 line 4	David Inman	translation	‘small’	page 15, the English
+§5.8	Nuuchahnulth	cited form	meʔiƛqac	page 15, ‘boy’
+§5.8	Nuuchahnulth	cited form	maaƛʔitqinḥ	page 15
+§5.8	Nuuchahnulth	cited form	inḥ	page 15
+§5.8	Nuuchahnulth	cited form	maʔiƛqac	page 15
+§5.8	Nuuchahnulth	cited form	maʔiƛqacm̓inḥ	page 15
+§5.8	David Inman	note	And finally, the word meʔiƛqac ‘boy’ has an irregular plural in Barkley Sound dialects, maaƛʔitqinḥ, which also shares the - inḥ ending. Other dialects use maʔiƛqac and maʔiƛqacm̓inḥ for ‘boy’ and ‘boys’.	page 15
+Table 20 line 1	David Inman	note	Table 20: Boy (Barkley Sound dialect)	page 15, the caption
+Table 20 line 2	David Inman	note	Singular Plural English	page 15, heads the columns
+Table 20 line 3	Nuuchahnulth	transcription	meʔiƛqac	page 15, the singular
+Table 20 line 3	Nuuchahnulth	transcription	maaƛʔitqinḥ	page 15, the plural
+Table 20 line 3	David Inman	translation	‘boy(s)’	page 15, the English
+§5.9	David Inman	heading	5.9 Competing plural forms	page 16
+§5.9	David Inman	note	The preceding sections and accompanying tables may have given the impression that certain lexical items always follow certain plural formations. This is not strictly the case. Most lexical items have a dedicated plural form in Nuuchahnulth, and even more have a dedicated plural form for a given dialect of Nuuchahnulth. But some of these lexical items have competing plural forms—both between dialects and within a dialect.	page 16
+§5.9	Nuuchahnulth	cited form	quuʔas	page 16, ‘person,’
+§5.9	Nuuchahnulth	cited form	quqʷaas	page 16
+§5.9	Nuuchahnulth	cited form	quutquuʔas	page 16
+§5.9	Nuuchahnulth	cited form	quuʔasm̓inḥ	page 16
+§5.9	David Inman	note	The root with the clearest distribution of competing plurals is perhaps quuʔas ‘person,’ which has the plurals quqʷaas in the East Barkley Sound dialect, quutquuʔas in the West Barkley Sound, Central, and Northern dialects, and quuʔasm̓inḥ in the Kyuquot-Checleseht dialect. The first two forms represent variations of the plural template, while the last is fully regularized with the default plural.	page 16
+§5.9	Nuuchahnulth	cited form	ʔiič̓im	page 16, ‘old, elder’
+§5.9	Nuuchahnulth	cited form	ʔaʔiič̓im	page 16
+§5.9	Nuuchahnulth	cited form	ʔeʔiič̓im	page 16
+§5.9	Nuuchahnulth	cited form	ʔiitʔiič̓im	page 16
+§5.9	David Inman	note	Another example is the plural of ʔiič̓im ‘old, elder’, which is most typically ʔaʔiič̓im, following the Ca- reduplication pattern (ʔeʔiič̓im in Barkley Sound, following a regular ablaut rule). However, Henry Kammler has alerted me to the alternate form ʔiitʔiič̓im, which follows one of the plural templates, and is used consistently by some Barkley Sound speakers and is not present in the Sapir- Thomas texts. It is unclear whether this represents a smaller dialect variety or a type of free variation among Barkley Sound speakers.	page 16
+§5.9	Nuuchahnulth	cited form	ʕimtii	page 16
+§5.9	Nuuchahnulth	cited form	ʕumtii	page 16
+§5.9	Nuuchahnulth	cited form	<aay̓>	page 16
+§5.9	Nuuchahnulth	cited form	ʕaay̓imti	page 16
+§5.9	Nuuchahnulth	cited form	ʕaay̓umti	page 16
+§5.9	Nuuchahnulth	cited form	ʕiʕimti	page 16
+§5.9	Nuuchahnulth	cited form	ʕaaʕimti	page 16
+§5.9	Nuuchahnulth	cited form	ʕaaʕumti	page 16
+§5.9	Nuuchahnulth	cited form	naniiqsu	page 16, ‘grandparent’
+§5.9	Nuuchahnulth	cited form	Tag/Täg	page 16
+§5.9	Nuuchahnulth	cited form	Arm/Ärm	page 16
+§5.9	Nuuchahnulth	cited form	Männers	page 16
+§5.9	Nuuchahnulth	cited form	Mann/Männer	page 16
+§5.9	Nuuchahnulth	cited form	Ma/Männer	page 16, ‘man (men).’
+§5.9	David Inman	note	There is also the plural of ʕimtii or ʕumtii, 13 which often has the <aay̓> infix, yielding ʕaay̓imti or ʕaay̓umti, but alternative variants ʕiʕimti and ʕaaʕimti (or ʕaaʕumti) are also in use. Finally, I have personally noted many forms for the plural of naniiqsu ‘grandparent’. These notes span a wide period of time and I have not since confirmed where these variants occur, but I have in my notes: nananiqsu, naananiqsu, natnaniqsu, and naatnaniqsu. These all come from the plural template and contain reduplication, but vary with respect to other parts of the template: The presence or absence of <t>, and the presence or absence of first syllable lengthening. It is perhaps unsurprising that a complex plural system like Nuuchahnulth has some lexical items which float between different strategies for plural marking. German is another language with a large number of plural morphemes: suffixing with -e, -er, -n/en, only vowel umlaut, and umlaut plus -e or - er. Finally, some borrowed words have come with the -s plural, as in Pullover/Pullovers. In Standard German, each noun has its own particular plural, but if we look at related language varieties such as Swiss German, the plural strategies do not remain consistent across lexemes. Likely due to the erosion of word-final schwa, Swiss German has innovated the use of a plain umlaut where Standard German has only -e. Where Standard German has Tag/Tage ‘day(s)’, Swiss German typically uses Tag/Täg. The same pattern appears with Standard German Arm/Arme and Swiss German Arm/Ärm ‘arm(s)’. The Swiss German system has generated other innovations, such as Standard German Katze/Katzen ‘cat(s)’ corresponding to Swiss Chatz/Chatzene, the latter of which avoids final -n deletion by the addition of -e. The word Frau ‘woman’ has two possible plurals in Swiss German, both of which are in use: Fraue and Frauene. Modern Swiss German slang goes even further, adding the relatively new plural marker -s to already-existing plurals, such as Männers, from the typical Standard German Mann/Männer and Swiss German Ma/Männer ‘man (men).’ These examples simply go to show that Nuuchahnulth is not alone in having a plethora of plural formations, nor in these formations varying dialect-to-dialect or even person-to-person. There may be a link between a large inventory of plural morphemes and relative instability in those forms.	page 16
+footnote 13	David Inman	note	13 The difference stems from a regular sound change of im to um in some dialects.	page 16, footnote
+§6	David Inman	heading	6 Historical development	page 17
+§6	David Inman	note	It is natural to wonder about the historical development of this complex system, and I will attempt to give a summary of what can be inferred about it. I will start with what can be understood just from internal reconstruction inside Nuuchahnulth, then compare with Makah, and finally turn to Northern Wakashan. I will give a very rough proposal of what the plurals were in Proto-Wakashan and how they developed in Nuuchahnulth.	page 17
+§6.1	David Inman	heading	6.1 Nuuchahnulth-internal development	page 17
+§6.1	David Inman	note	Many nominal plurals have some kind of reduplication in their formation. Reduplication can occur with some other formatives (as with the plural template) or alone (as with CV- reduplciation and full reduplication), making reduplication the most common morphological process involved in nominal plurals. Lengthening of the first or second syllable is a strategy that appears throughout the lan- guage, and in all cases but one it occurs together with a suffix. 14 V owel lengthening (and elsewhere, shortening) as part of the specification of suffixes is a highly developed system in the language, and it is not surprising then that in plurals, this must cooccur with some other element, even if the origin of vowel lengthening is unknown.	page 17
+§6.1	Nuuchahnulth	cited form	R.<ʔaa>	page 17
+§6.1	Nuuchahnulth	cited form	<a(a)y̓>	page 17
+§6.1	Nuuchahnulth	cited form	<y̓aa>	page 17
+§6.1	Nuuchahnulth	cited form	y̓toʔ	page 17
+§6.1	Nuuchahnulth	cited form	<ƛ>	page 17
+§6.1	Nuuchahnulth	cited affix	-iiḥ	page 17
+§6.1	Nuuchahnulth	cited form	ʔiiḥ	page 17, ‘big’
+§6.1	Nuuchahnulth	cited form	ʔ	page 17
+§6.1	Nuuchahnulth	cited form	m̓in	page 17
+§6.1	Nuuchahnulth	cited form	hatkm̓iiḥ	page 17
+§6.1	Nuuchahnulth	cited form	theł	page 17
+§6.1	Nuuchahnulth	cited form	haw̓ił	page 17
+§6.1	Nuuchahnulth	cited form	haw̓iiḥ	page 17
+§6.1	Nuuchahnulth	cited form	čaakupiiḥ	page 17
+§6.1	Nuuchahnulth	cited form	=ʔał	page 17
+§6.1	Nuuchahnulth	cited form	=ʔaała	page 17
+§6.1	Nuuchahnulth	cited affix	-m̓inḥ	page 17
+§6.1	David Inman	note	The source of the plural infixes is obscure. There are no clear reflexes in the language for any of the infixes: the <t> of the plural template (§ 5.2), the R.<ʔaa> infix (§ 5.3), or the <a(a)y̓>, <y̓aa> infixes (§ 5.4). However, the latter two share a certain resemblance, and a y̓toʔ change is not unknown. 15 It is possible these all derive from a single original morpheme. Infixing in the verbal pluractionals appears to happen mostly for euphonious reasons. One can write down a rule that describes when the coda <ƛ> of the repetitive or iterative aspect appears and when it becomes <c>. This is unlike the <t> of the plural template, which follows no such rules. Of the remaining nominal plurals, only -iiḥ (§5.5) is internally transparent: It is almost certainly historically derived from the word ʔiiḥ ‘big’. The presence of ʔ in ‘big’ may even explain the glot- talized m̓in the plural form hatkm̓iiḥ, and why theł of haw̓ił seems to delete in haw̓iiḥ. 16 However, if ʔiiḥ ‘big’ is indeed the origin of plural -iiḥ, the reflexes of the historical *ʔ are lexically specific and unpredictable, as words like čaakupiiḥ show no trace of any glottal closure. As with the infixes, the lexical source of the nominal plurals marked on the verbs, -!aqa, -yu·, and =ʔał (§4.1) do not have any clear reflex inside Nuuchahnulth. Similarly, no modern word will illuminate the origins of habitual =ʔaała (§3.3), nor of the basic plural form -m̓inḥ (§5.1).	page 17
+§6.1	David Inman	note	With the exception of the habitual, pluractional forms all include reduplication of some type (excepting the Iterative II). Even before turning to related languages, the use of reduplication within Nuuchahnulth among both verbal pluractionals and nominal plurals is striking. In the repetitive (§3.1) and iterative aspects (§3.2), full reduplication only occurs with monosyllabic roots while CV- reduplication occurs elsewhere. It is unlikely a coincidence that full reduplication of nominals also only occurs with monosyllabic roots (§ 5.7).	page 17
+§6.1	David Inman	note	Strictly from internal reconstruction I can tentatively conclude a few things about the develop- ment of Nuuchahnulth plurals:	page 17
+footnote 14	David Inman	note	14 The graduative aspect is marked only with a Long-Short template applied to the first two syllables of a verb.	page 17, footnote
+footnote 15	Nuuchahnulth	cited form	m̓uksʔi	page 17
+footnote 15	Nuuchahnulth	cited form	m̓uksy̓i	page 17
+footnote 15	David Inman	note	15 For example, some speakers say m̓uksʔi for ‘rock’, compared with the more conservative m̓uksy̓i.	page 17, footnote
+footnote 16	Nuuchahnulth	cited form	ł	page 17
+footnote 16	Nuuchahnulth	cited form	toy̓	page 17
+footnote 16	Nuuchahnulth	cited form	ḥaw̓iy̓iiḥ	page 17
+footnote 16	David Inman	note	16 There is a tendency in Nuuchahnulth for hardening suffixes to change a ł toy̓. A simplification of a hypo- thetical *ḥaw̓iy̓iiḥ to haw̓iiḥ is phonologically reasonable, although there is no clear evidence for this.	page 17, footnote
+§6.1	David Inman	note	1. V owel-lengthening processes are unlikely to have arisen from plural formations, but as part of a larger set of grammatical changes.	page 18
+§6.1	David Inman	note	2. The -iiḥ plural likely derives from the word ʔiiḥ ‘big’.	page 18
+§6.1	David Inman	note	3. Reduplication is likely an old plural formation, including the pattern of full reduplication for monosyllables and CV- reduplication otherwise.	page 18
+§6.2	David Inman	heading	6.2 Southern Wakashan: Plurals in Makah	page 18
+§6.2	David Inman	note	Makah is perhaps the Southern Wakashan language furthest removed from Nuuchahnulth, at least in terms of continuous contact (with Ditidaht somewhere in-between, which had very intense contact with Barkley Sound Nuuchahnulth). It is surprising, then, that all of the plural strategies present in Nuuchahnulth have cognates in Makah. Almost all of the data for these claims come from Davidson (2002 205–212).	page 18
+§6.2.1	David Inman	heading	6.2.1 Makah nominal plurality within the noun phrase	page 18
+§6.2.1	Nuuchahnulth	cited affix	-m̓inḥ	page 18
+§6.2.1	Nuuchahnulth	cited form	-badax̣.17	page 18
+§6.2.1	Nuuchahnulth	cited affix	-iiḥ	page 18
+§6.2.1	Nuuchahnulth	cited form	-ix̣	page 18
+§6.2.1	Nuuchahnulth	cited form	ł	page 18
+§6.2.1	Nuuchahnulth	cited form	ʔi·x̣	page 18, ‘big’
+§6.2.1	Nuuchahnulth	cited form	qaquuł	page 18
+§6.2.1	Nuuchahnulth	cited form	quuł	page 18
+§6.2.1	David Inman	note	Makah shares all of the components of the plural template: reduplication, lengthening, and <t> infixation. It also has the equivalent of regular Nuuchahnulth -m̓inḥ, pronounced -badax̣.17 The Nuuchahnulth plural -iiḥ has its correspondence in Makah -ix̣, which as in Nuuchahnulth deletes preceding ł (and shares a resemblance to the word ʔi·x̣ ‘big’). Makah even shares irregular Ca- reduplication, also using the plural form qaquuł for quuł ‘slave’.	page 18
+§6.2.1	Nuuchahnulth	cited form	<ʔaa>	page 18
+§6.2.1	Nuuchahnulth	cited form	baččiba	page 18, ‘commoner’
+§6.2.1	Nuuchahnulth	cited form	baʔaabaččiba	page 18
+§6.2.1	Nuuchahnulth	cited form	<(a)ay̓>	page 18
+§6.2.1	Nuuchahnulth	cited form	<y̓aa>	page 18
+§6.2.1	Nuuchahnulth	cited form	ofy̓	page 18
+§6.2.1	David Inman	note	All the plural infixes in Nuuchahnulth also reappear in Makah, both the R. <ʔaa> infix, used in the plural of baččiba ‘commoner’, baʔaabaččiba, and the <(a)ay̓>, <y̓aa> infixes, which occur in Makah with a plain y instead ofy̓.	page 18
+§6.2.1	Nuuchahnulth	cited form	dade·ʔiqsu·badax̣	page 18
+§6.2.1	David Inman	note	Despite the remarkably shared morphology, the use of these strategies for particular lexemes dif- fers between Makah and Nuuchahnulth, a situation that echoes differences among the Nuuchahnulth dialects. For instance, Nuuchahnulth dialects all employ some combination of the plural template for naniiqsu, while Makah instead uses the regular plural suffix to create dade·ʔiqsu·badax̣.	page 18
+§6.2.2	David Inman	heading	6.2.2 Makah nominal plurality not marked within the noun phrase	page 18
+§6.2.2	Nuuchahnulth	cited form	=ʔał	page 18
+§6.2.2	Nuuchahnulth	cited form	=ał	page 18
+§6.2.2	David Inman	note	Makah shares both the -!aqa and -yu· suffixes, the latter of which can occur together with <t> infixation from the plural template (a situation that does not occur in Nuuchahnulth). The reflex of the plural enclitic =ʔał in Makah is the grammatically identical =ał. Makah also shares verb reduplication that indicates plurality of the subject, 18 as seen in the example taken from Jacobsen (1997), glossing mine:	page 18
+(17) line 1	Makah	transcription	t̓it̓iqʷił	page 18
+(17) line 2	Makah	segmentation	R-t̓iqʷ-°ił	page 18
+(17) line 3	Makah	gloss	pl-sit-in.house.dr	page 18
+(17) line 4	David Inman	translation	‘many to sit in house’	page 18
+§6.2.2	Nuuchahnulth	cited form	waʔic/huuʔič	page 18, ‘sleep’
+§6.2.2	David Inman	note	In the realm of suppletive plurals, Makah shares at least waʔic/huuʔič ‘sleep’.	page 18
+footnote 17	Nuuchahnulth	cited form	ḥ	page 18
+footnote 17	Nuuchahnulth	cited form	x̣	page 18
+footnote 17	Nuuchahnulth	cited form	-m̓inḥ/-badax̣	page 18
+footnote 17	David Inman	note	17 In general, Nuuchahnulth m,n correspond to Makah b,d, and Nuuchahnulth ḥ to Makah x̣. So -m̓inḥ/-badax̣ is a fairly regular correspondence.	page 18, footnote
+footnote 18	Nuuchahnulth	cited form	ł	page 18
+footnote 18	David Inman	note	18 This includes the occasional insertion of ł after an open-syllable reduplication ( Davidson 2002:209).	page 18, footnote
+§6.2.3	David Inman	heading	6.2.3 Makah pluractionality	page 19
+§6.2.3	Nuuchahnulth	cited form	=aːk	page 19
+§6.2.3	Nuuchahnulth	cited form	=ʔaała	page 19
+§6.2.3	David Inman	note	Finally, Makah shares almost the same repetitive and iterative reduplication templates as Nuuchah- nulth (Davidson 2002:237–245). The habitual aspect uses a completely different enclitic, =aːk in Makah, compared to Nuuchahnulth’s =ʔaała (Davidson 2002:318), although they serve the same function.	page 19
+§6.2.3	David Inman	note	What a comparison between Nuuchahnulth and Makah demonstrates is that the full set of strate- gies for plural marking have remained quite stable within Southern Wakashan, with the only excep- tion being that different strategies have been employed across the same set of lexical roots. Assum- ing that these similarities stem from common ancestry and not borrowing, this would push back the development of the complex plural system in Nuuchahnulth to at least Proto-Southern Wakashan.	page 19
+§6.3	David Inman	heading	6.3 Northern Wakashan: Plurals in Kwak’wala	page 19
+§6.3	Nuuchahnulth	cited form	Kwak’wala	page 19
+§6.3	David Inman	note	The plural situation in Kwak’wala appears to be less complex in terms of its morphology than in its Southern Wakashan relatives, although it has a variety of reduplicative forms. Plurality on nouns is typically optional (Rosenblum 2015:186), compared with obligatoriness of plural marking on human nouns in Nuuchahnulth. CV- reduplication on the Kwak’wala verb stem can be used both to mark the plurality of the participants ( 18) and pluractionality of the verb ( 19).	page 19
+(18) line 1	Kwak’wala	transcription	gigic̓uʔoχda də́msisGəm láχoχ básket=iχ.	page 19
+(18) line 2	Kwak’wala	segmentation	R-gəy-c̓əw=oχda	page 19
+(18) line 3	Kwak’wala	gloss	pl-be.at-in=s.dem	page 19
+(18) line 4	Kwak’wala	segmentation	də́msisGəm	page 19
+(18) line 5	Kwak’wala	gloss	bottle	page 19
+(18) line 6	Kwak’wala	segmentation	la=χoχ	page 19
+(18) line 7	Kwak’wala	gloss	prep=dem	page 19
+(18) line 8	Kwak’wala	segmentation	basket=iχ	page 19
+(18) line 9	Kwak’wala	gloss	basket=dem	page 19
+(18) line 10	David Inman	translation	‘The bottles are in the basket.’	page 19
+(18) line 10	David Inman	citation	(Rosenblum 2015:187, minor glossing changes mine)	the source at the right of the translation
+(19) line 1	Kwak’wala	transcription	ləm̓ísuχ dádaχustoloχda w̓ác̓iχ	page 19
+(19) line 2	Kwak’wala	segmentation	ləm̓ísuχ	page 19
+(19) line 3	Kwak’wala	gloss	aux	page 19
+(19) line 4	Kwak’wala	segmentation	R-dəχ-(g)usto-əla=oχda	page 19
+(19) line 5	Kwak’wala	gloss	pl-jump-up-ct=s.dem	page 19
+(19) line 6	Kwak’wala	segmentation	w̓ác̓i=χ	page 19
+(19) line 7	Kwak’wala	gloss	dog=dem	page 19
+(19) line 8	David Inman	translation	‘And the dog is jumping up and down.’	page 19
+(19) line 8	David Inman	citation	( Rosenblum 2015:340, minor glossing changes mine)	the source at the right of the translation
+§6.3	Nuuchahnulth	cited form	χaχamala	page 19, ‘orphans’
+§6.3	Nuuchahnulth	cited form	q̓aq̓eko	page 19, ‘slaves’
+§6.3	Nuuchahnulth	cited affix	Ciʔ-	page 19
+§6.3	Nuuchahnulth	cited form	siʔsásəm	page 19, ‘children’
+§6.3	Nuuchahnulth	cited form	ǧʷiʔǧʷəy̓ə́m	page 19, ‘whales’
+§6.3	Nuuchahnulth	cited form	kiʔkiƛa	page 19
+§6.3	Nuuchahnulth	cited form	giʔgə́ngənanəm	page 19, ‘children’
+§6.3	Nuuchahnulth	cited form	nəge/nəʔənge	page 19, ‘mountain(s)’
+§6.3	David Inman	note	There are also many examples of CV- reduplication used with nouns to derive plurals, as in χaχamala ‘orphans’ (Rosenblum 2015:129) and q̓aq̓eko ‘slaves’ (Rosenblum 2015:263). Littell (2016:479) gives a variety of plural formations based on a Ciʔ- pattern, which like CV- reduplication applies to both nouns and verbs: siʔsásəm ‘children’, ǧʷiʔǧʷəy̓ə́m ‘whales’, and kiʔkiƛa ‘(many people) went fishing’. This plural is so productive it can occur on nouns that are already marked irregularly for plurality, as in giʔgə́ngənanəm ‘children’ (2016:483). Presumably the same Ciʔ- form, termed Ci-, is given as a plural in Kalmar (2003:48–50). Littell also gives a further plural form he analyzes as underlyingly Ca-, as in nəge/nəʔənge ‘mountain(s)’ (2016:430). This form is only mentioned in Kalmar (2003:50–52) as a diminutive.	page 19
+§6.3	Nuuchahnulth	cited form	ł	page 19
+§6.3	Nuuchahnulth	cited form	χ	page 19
+§6.3	Nuuchahnulth	cited form	hánƛa/hánłhanƛa	page 19, ‘shoot/shoot repeatedly’
+§6.3	David Inman	note	In his section on reduplication, Boas (1947:220–223) gives the CV- reduplication patterns listed above, and includes cases where a coda consonant is added in the form of s, ł, or χ, examples for which all appear to be nouns or adjectives. He also gives some cases of full reduplication, as in hánƛa/hánłhanƛa, ‘shoot/shoot repeatedly’; however, it is not clear if this was a regular process or irregular. Doubtless, there is more to be said about the irregularities and patterns in reduplicative plurals and pluractionals in Kwak’wala.	page 19
+§6.3	Nuuchahnulth	cited affix	-χdaxʷ	page 19
+§6.3	Nuuchahnulth	cited affix	-akʷ	page 20
+§6.3	Nuuchahnulth	cited form	Kwakwaka’wakw	page 20
+§6.3	Nuuchahnulth	cited form	q’wəlsq’wəly’akw	page 20, ‘elders’
+§6.3	David Inman	note	In terms of non-reduplicating plural formations, I am only aware of two suffixes and a few sup- pletive forms. The two suffixes are -χdaxʷ, first recorded in Boas (1947:246), which is used on verbs to indicate a plural human subject and which Boas hypothesized was related to a Bella Bella suf- fix. The use of -χdaxʷ seems to parallel another suffix -akʷ, present in words like Kwakwaka’wakw ‘Kwak’wala speakers’, q’wəlsq’wəly’akw ‘elders’, although the use of this as a “plural” rather than a collective is not so clear (Littell, p.c.).	page 19
+§6.3	Nuuchahnulth	cited affix	k̓ʷa-/k̓ʷəs-	page 20, ‘sit’
+§6.3	Nuuchahnulth	cited affix	ƛaxʷ-/ƛaxʷƛəxʷ-	page 20, ‘stand’
+§6.3	David Inman	note	There are two suppletive verb forms: k̓ʷa-/k̓ʷəs- ‘sit’ and ƛaxʷ-/ƛaxʷƛəxʷ- ‘stand’.19 Not only are these roots not the same as suppletive verbal plurals in Southern Wakashan, the Southern Wakashan verbs for ‘sit’ and ‘stand’ do not have plural forms at all.	page 20
+§6.3	Nuuchahnulth	cited affix	Ci(ʔ)-	page 20
+§6.3	David Inman	note	Kwak’wala plural and pluractional forms only share reduplication in common with Nuuchah- nulth. The modern system seems to have converged on CV- reduplication, which has Ci(ʔ)- and Ca- forms. However, a larger number of reduplications are present in Boas’s materials, including reduplication with coda consonants, a pattern that is also present in Southern Wakashan. Plural sup- pletion for verbs is present, but not cognate, indicating that this was probably a development that happened separately in the two branches, after they split off from Proto-Wakashan.	page 20
+§6.4	David Inman	heading	6.4 Northern Wakashan: Plurals in Heiltsuk	page 20
+§6.4	David Inman	note	Although he nowhere addresses plurals specifically, some image of the plural system in Heiltsuk can be derived from the materials in Rath (1981). This review is by no means exhaustive, and much work remains to be done on the Heiltsuk plural system. As in the rest of the family, a large number of plurals are formed by reduplication.	page 20
+§6.4	Nuuchahnulth	cited form	cása/cácsa	page 20, ‘pour’
+§6.4	Nuuchahnulth	cited form	ǧánílha/ǧáǧnílha	page 20, ‘supper’
+§6.4	Nuuchahnulth	cited form	m̓éns’it/m̓ím̓ens’it	page 20, ‘try’
+§6.4	Nuuchahnulth	cited form	laénca/líl̓aénca	page 20, ‘go underwater’
+§6.4	Nuuchahnulth	cited form	w̓ilh/w̓isw̓lh	page 20, ‘thin’
+§6.4	Nuuchahnulth	cited form	y̓lis/y̓xylis	page 20, ‘spread out on the beach’
+§6.4	David Inman	note	First there is reduplication that copies the first consonant after the first vowel, or alternatively put, CV- reduplication followed by deletion of the second vowel. This can be seen in words such as cása/cácsa ‘pour’ and ǧánílha/ǧáǧnílha ‘supper’. Another common form of CV- reduplication is Ci- reduplication, as in m̓éns’it/m̓ím̓ens’it ‘try’ and laénca/líl̓aénca ‘go underwater’. Both of these strategies can incorporate a coda vowel following the reduplicant, as in w̓ilh/w̓isw̓lh ‘thin’ and y̓lis/y̓xylis ‘spread out on the beach’. These broad CV- reduplication strategies seem to occur on verbs, adjectives, and nouns, but when they are on verbs they are always marking the plurality of some argument, not pluractionality.	page 20
+§6.4	Nuuchahnulth	cited form	<y̓V>	page 20
+§6.4	Nuuchahnulth	cited form	mxá/miy̓émxa	page 20, ‘hit, punch,’
+§6.4	Nuuchahnulth	cited form	wísem/wiy̓ísem	page 20
+§6.4	David Inman	note	Heiltsuk appears to also have a relatively rare left-aligned infixing plural, <y̓V>, where the vowel is normally copied from its left neighbor. This is again a notionally participant plural which nevertheless occurs on both nouns and verbs, as in mxá/miy̓émxa ‘hit, punch,’ and wísem/wiy̓ísem ‘man/men’.	page 20
+§6.4	Nuuchahnulth	cited form	-k(v)asw̓	page 20
+§6.4	Nuuchahnulth	cited affix	-k(v)as’u	page 20
+§6.4	Nuuchahnulth	cited form	-k(v)as’uw̓	page 20
+§6.4	David Inman	note	There is a single set of plural suffixes which Rath (1981) gives, listed as -k(v)asw̓, -k(v)as’u, and -k(v)as’uw̓. These forms are apparently also used as honorifics.	page 20
+§6.4	Nuuchahnulth	cited form	w̓ánút/w̓ánútxw̓anutka	page 20
+§6.4	Nuuchahnulth	cited form	laénca/laénslaenca	page 20, ‘go underwater/go underwater repeatedly’
+§6.4	Nuuchahnulth	cited form	lix̣ʷ/lix̣ʷliqʷa	page 20, ‘fold/fold repeatedly’
+§6.4	David Inman	note	Finally, though there is no section on pluractional verb aspects, the dictionary reveals an appar- ently regular or semi-regular formation of verbs that mean ‘repeatedly’—somewhat analogous to the Nuuchahnulth repetitive aspect. These appear to be formed by full reduplication (possibly with some mutation on the final coda), and the suffixation of -a or -ka. Examples are: w̓ánút/w̓ánútxw̓anutka ‘trade in/trade in repeatedly’, laénca/laénslaenca ‘go underwater/go underwater repeatedly’, and lix̣ʷ/lix̣ʷliqʷa ‘fold/fold repeatedly’.	page 20
+footnote 19	Nuuchahnulth	cited affix	ƛaxʷƛəxʷ-	page 20
+footnote 19	Nuuchahnulth	cited affix	ƛaxʷƛa-	page 20
+footnote 19	Nuuchahnulth	cited affix	ƛaxʷƛo-	page 20
+footnote 19	Nuuchahnulth	cited affix	ƛiƛaxʷ-	page 20
+footnote 19	David Inman	note	19 There are actually four plural variants given in Boas and Y ampolsky (1948:420–421): ƛaxʷƛəxʷ-, ƛaxʷƛa-, ƛaxʷƛo-, and ƛiƛaxʷ-.	page 20, footnote
+§6.5	David Inman	heading	6.5 A sketch of plural development in Wakashan	page 21
+§6.5	Nuuchahnulth	cited form	Kwak’wala	page 21
+§6.5	David Inman	note	Some of the elements of plural and pluractional formation are universal within the Wakashan fam- ily. Every language has some form of CV- reduplication for marking plural participants— both by marking it on the verb and on the noun. Every language furthermore has some form of CV- redupli- cation plus an additional consonant (typically a fricative of some kind, though not every language uses the same fricatives). This basic kind of reduplication is probably an old form of plural marking dating back to Proto-Wakashan, and which underwent further development and specialization in the daughter languages. It is possible that Ca- reduplication was also present in Proto-Wakashan, given its presence in both the southern branch and in Kwak’wala. However, the evidence for this is not great, and it could be explained by independent vowel reduction in the daughter languages. North- ern Wakashan either retained or went on to develop a Ci- plural form, while Southern Wakashan elaborated on this type of reduplication with templatic vowel lengths, a system either not present or relatively less developed in the Proto-Wakashan.	page 21
+§6.5	David Inman	note	The presence of nearly identical repetitive marking in Southern Wakashan and in Heiltsuk leads me to also assume that some form of reduplication plus an - a suffix to mark repetition was likely already present in the Proto-Wakashan verbal system. If this is true, it raises a question about the extensive templatic morphology in Southern Wakashan: Was this a southern innovation or the elab- oration of a system that was already partially present in the proto-language?	page 21
+§6.5	Nuuchahnulth	cited form	<y̓aa>	page 21
+§6.5	Nuuchahnulth	cited form	<y̓V>	page 21
+§6.5	Nuuchahnulth	cited form	<y̓VV>	page 21
+§6.5	Nuuchahnulth	cited form	<aay̓>	page 21
+§6.5	Nuuchahnulth	cited form	<ʔaa>	page 21
+§6.5	Nuuchahnulth	cited form	<y̓V(V)>	page 21
+§6.5	David Inman	note	The existence of a <y̓aa> infix in Southern Wakashan, which sometimes undergoes vowel har- mony, and a much clearer <y̓V> infix in Heiltsuk leads me to believe that Proto-Wakashan also had either a *<y̓V> or *<y̓VV> plural infix. In Southern Wakashan, this morpheme is used only with nouns, while I found both nominal and verbal examples for Heiltusk in Rath (1981). It is of course not possible to know from this little data how the form was used in Proto-Wakashan, but given the much greater elaboration of plurals in the southern branch, I would not assume that its restricted use in Nuuchahnulth and Makah is reflective of the earlier stages of Wakashan. It is however con- sistently used for nominal plural marking, not pluractionality, in both Heiltsuk and Nuuchahnulth. Both Southern Wakashan infixes <aay̓> and <ʔaa> look like they may have developed from a hy- pothetically earlier <y̓aa>, itself derived from an even earlier *<y̓V(V)>.	page 21
+§6.5	Nuuchahnulth	cited form	ʔiix̣ʷ	page 21
+§6.5	Nuuchahnulth	cited form	like*m̓inx̣or*m̓inax̣	page 21
+§6.5	Nuuchahnulth	cited form	quuʔas	page 21, ‘person’
+§6.5	Nuuchahnulth	cited form	quuʔasm̓inḥ	page 21
+§6.5	Nuuchahnulth	cited form	quqʷaas	page 21
+§6.5	Nuuchahnulth	cited form	quutquuʔas	page 21
+§6.5	David Inman	note	From what seems to be a relatively restricted set of plural and pluractional forms centered around reduplication and perhaps only a single infix, Southern Wakashan developed an extremely rich and complex system of plural morphology prior to splitting into the modern languages of Nuuchahnulth, Ditidaht, and Makah. This included the suffixation of the Proto-Southern Wakashan form for ‘big’, something like *ʔiix̣ʷ, to certain nouns, perhaps originally reserved for human nouns that carried social significance (man, woman, chief, princess). Other developments proceeded along with the expansion of templatic morphology. A “regular” plural suffix, something like*m̓inx̣or*m̓inax̣, may have been introduced, or at least become more common, once the system became so complex that speakers were no longer certain which plural strategy belonged to which lexical root. This kind of motivated leveling is visible in Nuuchahnulth dialects, where Kyuquot-Checleseht has abandoned templatic morphology for quuʔas ‘person’ and gone with a regular form quuʔasm̓inḥ, while other dialects disagree about whether the appropriate plural form is quqʷaas or quutquuʔas. Though I believe this is a meaningful step toward uncovering part of the picture of the develop- ment of the Wakashan plural system, there is at this point not much more I can conclude about the earliest stages of its development. This picture would be greatly enriched by more in-depth work on the plurals and pluractionals in the northern branch of the family.	page 21
+§7	David Inman	heading	7 List of Abbreviations	page 22
+§7	David Inman	note	Many abbreviations both standard and non-standard have been used in the glossing for this paper. Where I have copied examples from authors in languages I do not know, I have kept the original glossing, but for Nuuchahnulth I have used the schema developed in Inman and Werle (2016). A list of the abbreviations which are present in this paper and their meanings are given below.	page 22
+Table 21 line 1	David Inman	note	Table 21: List of abbreviations	page 22, the caption
+Table 21 line 2	David Inman	note	Abbreviation Meaning Abbreviation Meaning	page 22, heads the columns
+Table 21 line 3	David Inman	notation	rp	page 22, repetitive
+Table 21 line 3	David Inman	notation	real	page 22, real mood, carries footnote 20
+Table 21 line 4	David Inman	notation	it	page 22, iterative
+Table 21 line 4	David Inman	notation	strg	page 22, strong mood
+Table 21 line 5	David Inman	notation	pf	page 22, perfective
+Table 21 line 5	David Inman	notation	hrsy	page 22, hearsay mood
+Table 21 line 6	David Inman	notation	ct	page 22, continuative
+Table 21 line 6	David Inman	notation	pssb	page 22, possible mood
+Table 21 line 7	David Inman	notation	dr	page 22, durative
+Table 21 line 7	David Inman	notation	defn	page 22, definite mood
+Table 21 line 8	David Inman	notation	caus	page 22, causative
+Table 21 line 8	David Inman	notation	hab	page 22, habitual
+Table 21 line 9	David Inman	notation	now	page 22, now/then, carries footnote 21
+Table 21 line 9	David Inman	notation	empty	page 22, semantically empty
+Table 21 line 10	David Inman	notation	pass	page 22, passive
+Table 21 line 10	David Inman	notation	link	page 22, linker
+Table 21 line 11	David Inman	notation	pst	page 22, past
+Table 21 line 11	David Inman	notation	dim	page 22, diminutive
+Table 21 line 12	David Inman	notation	fut	page 22, future
+Table 21 line 12	David Inman	notation	pl	page 22, plural
+footnote 20	David Inman	note	20 The real mood ( real) indicates that a proposition is strongly held to be true (or real) by the speaker. It is identical in meaning with the strong mood ( strg), but the real mood is used in the Barkley Sound dialect, while other dialects use the strong mood.	page 22, footnote
+footnote 21	David Inman	note	21 now indicates that the current clause is the next in a sequence. It is very common in Nuuchahnulth and is a way of marking the progression of events.	page 22, footnote
+references	David Inman	heading	References	page 22
+references	David Inman	reference	Boas, Franz. 1947. Kwakiutl grammar with a glossary of the suffixes. Transactions of the American Philosophical Society 37:203–377.	
+references	David Inman	reference	Boas, Franz, and Helene Boas Y ampolsky. 1948. Kwakiutl dictionary.	
+references	David Inman	reference	Comrie, Bernard. 1976. Aspect: An introduction to the study of verbal aspect and related problems, volume 2. Cambridge University Press.	
+references	David Inman	reference	Corbett, Greville G. 2000. Number. Cambridge University Press.	
+references	David Inman	reference	Cysouw, Michael. 2003. The paradigmatic structure of person marking. Oxford University Press.	
+references	David Inman	reference	Davidson, Matthew. 2002. Studies in Southern Wakashan (Nootkan) grammar. Doctoral Disserta- tion, University of New Y ork at Buffalo.	
+references	David Inman	reference	Inman, David, and Adam Werle. 2016. Westcoast (South Wakashan) glossing conventions. Presen- tation at the 51st International Conference on Salish and Neighbouring Languages.	
+references	David Inman	reference	Jacobsen, William H. 1997. Makah ablaut and reduplication patterns. Paper presented at the 32nd In- ternational Conference on Salish and Neighboring Languages, Peninsula College, Port Angeles, Washington.	
+references	David Inman	reference	Kalmar, Michele. 2003. Patterns of reduplication in Kwak’wala. Doctoral Dissertation, University of British Columbia.	
+references	David Inman	reference	Littell, Patrick. 2016. Focus, predication, and polarity in Kwak’wala. Doctoral Dissertation, Uni- versity of British Columbia.	
+references	David Inman	reference	Rath, John C. 1981. Practical Heiltsuk-English dictionary with a grammatical introduction. Uni- versity of Ottawa Press.	
+references	David Inman	reference	Rosenblum, Daisy. 2015. A grammar of space in Kʷak̓ʷala. Doctoral Dissertation, University of California, Santa Barbara.	
+references	David Inman	reference	Sapir, Edward, and Morris Swadesh. 1939. Nootka texts: Tales and ethnological narratives, with grammatical notes and lexical materials. Linguistic Society of America, University of Penn- sylvania.	
+references	David Inman	reference	Sapir, Edward, and Morris Swadesh. 1955. Native accounts of Nootka ethnography. Indiana Uni- versity, Research Center in Anthropology, Folklore, and Linguistics.	
+references	David Inman	reference	Swadesh, Morris. 1938. Nootka internal syntax. International Journal of American Linguistics 9:77–102.	

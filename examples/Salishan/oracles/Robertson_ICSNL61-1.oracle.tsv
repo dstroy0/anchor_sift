@@ -1,0 +1,448 @@
+where	who	kind	form	gloss
+front	David Douglas Robertson	name	Tk’emlúps	in Tk’emlúps te Secwépemc, the Nation named in the author's affiliation
+front	David Douglas Robertson	name	Secwépemc	in Tk’emlúps te Secwépemc, the Nation named in the author's affiliation
+front	David Douglas Robertson	note	____________________________ In Proceedings of ICSNL 61, Ella Hannon, Laura Griffin, Brent Hall, Bruce Oliver, Danica Reid, Julia Schillo, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). V ancouver, BC: UBCWPL. Good and bad news about Nicola Dene1 David Douglas Robertson, PhD Consultant linguist, Spokane, WA; Tk’emlúps te Secwépemc Abstract: An expansion of the scant known corpus of dormant Nicola Dene is presented, with the caveat that Salish influence is rampant.	page 1
+front	David Douglas Robertson	language	Nɬeʔkepmxcín	Thompson River Salish, the Interior Salish language the paper compares Nicola with
+front	David Douglas Robertson	note	Keywords: Athabaskan, language contact, Nicola Dene, Nɬeʔkepmxcín.	page 1
+§1	David Douglas Robertson	heading	1 Introduction	page 1
+§1	David Douglas Robertson	note	In 1895, as Franz Boas was putting his small collection of Nicola Dene (Athabaskan) lexical data into print (Boas 1895; reprinted 1924), Father J.M.R. Le Jeune published a similar but distinct vocabulary in his mimeographed southern BC missionary newspaper (Kamloops Wawa 1895; mentioned in passing by Wyatt 1998:222). 2 Taking up just a paragraph, this hitherto unstudied contribution was modest. But in proportion to the limited information available on Nicola, which seems already to have had only rememberers (cf. Knab 1980), not speakers, the potential for a useful contribution was high. In this study I compare Le Jeune’s piece with Boas’, noting two insights that emerge to the benefit and detriment of Nicola studies. Because “not all the Nicola material has been brought together” (Bakker and Grant 1996:1129), I further point out probable Nicola words in other sources, not previously collected into the small literature on this language.	page 1
+§2	David Douglas Robertson	heading	2 The good news: Le Jeune’s contribution	page 1
+§2	David Douglas Robertson	note	First, the good news: Kamloops Wawa (1895) increases our knowledge of Nicola lexicon by at least 10% (and additional sources still further). We quote in full for the background information supplied:	page 1
+footnote 1	David Douglas Robertson	note	1 Thanks to Linda Smith of the Linguistics Department, University of Victoria, for kindly examining the Nicola data in light of her native Tsilhqut’in (Chilcotin); to Keith Carlson of the History Department and Janet Catterall of the Libraries, University of Saskatchewan, for facilitating access to the most complete collection of Kamloops Wawa in existence; to Lisa Woodward of the John Peabody Harrington Database Project, University of California, Davis, for copies of Harrington’s Nicola data; and to Wendy Wickwire of the University of Victoria History Department for sharing a copy of James Teit’s Salish letter to Le Jeune. Responsibility for all interpretations rests solely with myself. Conventions of transcription used in this paper: angled brackets < > indicate spellings in the Roman alphabet; italics those in Chinuk pipa shorthand. Caveat: some of the shorthand material is difficult to make out. Double asterisks ** indicate hypothesized forms.	page 1, footnote
+footnote 1	David Douglas Robertson	name	Linda Smith	who examined the Nicola data in light of her native Tsilhqut’in
+footnote 1	David Douglas Robertson	name	Keith Carlson	of the History Department, thanked
+footnote 1	David Douglas Robertson	name	Janet Catterall	who gave access to the most complete collection of Kamloops Wawa
+footnote 1	David Douglas Robertson	name	Lisa Woodward	of the John Peabody Harrington Database Project, for Harrington's Nicola data
+footnote 1	David Douglas Robertson	name	Wendy Wickwire	who shared a copy of Teit's Salish letter to Le Jeune
+footnote 1	David Douglas Robertson	notation	< >	angled brackets hold spellings in the Roman alphabet, and the Nicola forms in their original nonphonetic spellings, footnote 6
+footnote 1	David Douglas Robertson	notation	italics	spellings in Chinuk pipa shorthand
+footnote 1	David Douglas Robertson	notation	**	a hypothesized form
+§2	David Douglas Robertson	language	Tsilhqut’in	Chilcotin, Linda Smith's native language, in footnote 1
+footnote 2	David Douglas Robertson	note	2 Following Canadian practice the synonym ‘Dene’ will be used herein, unless quoting sources who write 'Athabaskan' / ‘Athapaskan’.	page 1, footnote
+footnote 2	David Douglas Robertson	language	Dene	the synonym used for Athabaskan, following Canadian practice
+§2	J.M.R. Le Jeune	note	In the Nicola country, B.C., there are three old men —Temlh- skool-han,3 Haap-kan4 and Shoo -yaska5 —who are still pagans, and who have spent their early lives in the Semilkameen [Similkameen], or between the Semilkameen and the Nicola. But they are neither Semilkameen nor Nicola Indians [i.e. not Salish].	Le Jeune's words in Kamloops Wawa 1895, quoted in full, with the author's brackets, carries footnotes 3, 4 and 5
+§2	J.M.R. Le Jeune	note	They belong to another family, of which they are now the only survivors. Temelh-skool-han still remembers a few words of his old language, which he was not allowed to speak by the Nicola Indians. Here is a list of those words [see below].	Le Jeune's words in Kamloops Wawa 1895, quoted in full, with the author's brackets
+§2	David Douglas Robertson	language	Nɬeʔkepmxcín	Thompson River Salish, the Interior Salish language the paper compares Nicola with
+§2	David Douglas Robertson	language	Nsyilxcən	Okanagan, the other Salish language of the Nicola region, cited from Somday 1980
+§2	David Douglas Robertson	language	Secwepemctsín	Shuswap, one of the four Interior Salish languages of Le Jeune's district
+§2	David Douglas Robertson	language	St’át’imcets	Lillooet, cited from Van Eijk 2013
+footnote 3	David Douglas Robertson	note	3 Kamloops Wawa (1899) contains, in Chinúk Wawa, the baptism notice of <Temlh -skool-han> a.k.a. Old Man Timiɬskulhan of Shulus, 85 years old, newly named Mark Noé. A list of family members accompanies this: he was the father of 52-year-old Annie Jackson a.k.a. Kwansim; 47-year-old Kumiɬtim a.k.a. Laura; 46- year-old Irene or Helen a.k.a. Siltatko; 40-year-old Mike a.k.a. Yirpka; 37-year-old Louisa a.k.a. Mikica; 34- year-old Hwašitalšt; 31-year-old Kroikroitalks; 28-year-old Agnes a.k.a. Limtinak; Šuiltatko; Nila; and Tlalnmk’i a.k.a. George Bend or Paint. This detailed biographical information, as is that about the other two men named, is based on the summaries of English, French and Chinook Jargon sources collected by Robertson et al. (2005), and attests to Le Jeune’s ongoing relationship with the last Nicola speakers.	page 2, footnote
+footnote 3	David Douglas Robertson	name	Timiɬskulhan	Old Man Timiɬskulhan of Shulus, <Temlh-skool-han>, baptized Mark Noé
+footnote 3	David Douglas Robertson	place	Shulus	the home of Timiɬskulhan
+§2	David Douglas Robertson	language	Chinúk	Chinúk Wawa, in the title of Robertson 2014, Ethnohistorical dictionary of Kamloops Chinúk Wawa
+§2	David Douglas Robertson	name	Timiɬskulhan	Old Man Timiɬskulhan of Shulus, in footnote 3
+§2	David Douglas Robertson	name	Noé	Mark Noé, the name Timiɬskulhan took at baptism, in footnote 3
+§2	David Douglas Robertson	name	Kumiɬtim	Kumiɬtim a.k.a. Laura, 47, a daughter of Timiɬskulhan, in footnote 3
+§2	David Douglas Robertson	name	Hwašitalšt	a child of Timiɬskulhan, 34, in footnote 3
+§2	David Douglas Robertson	name	Šuiltatko	a child of Timiɬskulhan, in footnote 3
+§2	David Douglas Robertson	name	Tlalnmk’i	Tlalnmk’i a.k.a. George Bend or Paint, a child of Timiɬskulhan, in footnote 3
+footnote 4	David Douglas Robertson	note	4 Kamloops Wawa (1903) relates the story of an old man named Hāp-kren a.k.a. Haap-kan, who once had his first taste of mustard at the home of an old settler, John Gilmour, and thought he was going to die from it. At a later date, Kamloops Wawa #215 (October 1905) tells in French of his actual death at about 95 years of age.	page 2, footnote
+footnote 4	David Douglas Robertson	name	Hāp-kren	a.k.a. Haap-kan
+footnote 4	David Douglas Robertson	name	John Gilmour	the old settler at whose home Haap-kan first tasted mustard
+§2	David Douglas Robertson	name	Hāp-kren	Hāp-kren a.k.a. Haap-kan, of Kamloops Wawa 1903, in footnote 4
+footnote 5	David Douglas Robertson	note	5 Kamloops Wawa (1903) also mentions a 95- to 100-year-old man Jew-yas-ka, a.k.a. Shoo-yaska, from near Coldwater who had recently died, having been baptized with the name of Paul a few months earlier. This is apparently the man for whom the Joeyaska Indian Reserve is named.	page 2, footnote
+footnote 5	David Douglas Robertson	name	Jew-yas-ka	a.k.a. Shoo-yaska, baptized Paul
+footnote 5	David Douglas Robertson	place	Coldwater	near where Shoo-yaska lived
+footnote 5	David Douglas Robertson	place	Joeyaska Indian Reserve	apparently named for Shoo-yaska
+§2	David Douglas Robertson	note	Le Jeune’s position as a missionary is no doubt what induced him to comment on the “paganism” of these men. He was an Oblate Catholic priest, known for his unusual ability to communicate well in, among others, the four Interior Salish languages spoken in his district: Nɬeʔkepmxcín (Thompson), Nsyilxcən (Okanagan), Secwepemctsín (Shuswap) and St’át’imcets (Lillooet) (Blake 2014). In that capacity, he enjoyed a close, trusting and ongoing relationship with various important local people. Notably for our purposes, these included both Charley -Alexis Mayoos — the first Indigenous literate in, and the popularizer of, the Chinuk pipa script Le Jeune introduced — and the well-regarded Chief Celestin a.k.a. John/Johnny Chilihitsa of Nicola Lake (cf. Robertson 2014 s.v. Nikola.) These factors suggest the possibility that Le Jeune may have personally elicited his Nicola data, whether in person or from a local Aboriginal person’s notes in Chinuk pipa, which was the first literacy of many hundreds of aboriginal people. The wordlist that follows Le Jeune’s prefatory remarks is certainly not his own, however. He must have been double -checking the same quite limited lexicon that made its way into Boas’ paper from the field work of James A. Teit, George M. Dawson, and J.W. Mackay (Boas 1895:36). Contact between missionary-linguists and anthropologist-linguists would not be a rare occurrence in the Pacific Northwest (Tomalin 2011:151ff). It is known that Le Jeune and Teit, for example, communicated. There is even a friendl y letter in Nɬeʔkepmxcín Salish (!) from Teit to the priest preserved in the National Archives of Canada (Teit 1893; Robertson 2004:217-220). And Le Jeune had recently met Boas in person and been exposed to the latter’s desire and methodology for ethnographic data collection (Rohner 1969:138; Kamloops Wawa #123, December 1894). By coincidence or not, ten of the 14 items in Le Jeune (1895) are virtually identical matches for Boas’; (1) tabulates these:6	page 2
+(1) line 1	David Douglas Robertson	note	Le Jeune (1895) Boas (1895)	page 3, heads the rows below
+(1) line 2	David Douglas Robertson	note	Nicola English	page 3, heads the rows below
+(1a) line 1	Nicola	transcription	<sek-ha>	page 3, in < >
+(1a) line 1	David Douglas Robertson	translation	‘woman’	page 3
+(1a) line 1	Nicola	transcription	<tsik-hi>	page 3, in < >
+(1a) line 1	David Douglas Robertson	notation	[etc.]	slight variations of this spelling are also given in the source, footnote 6
+(1b) line 1	Nicola	transcription	<khec>	page 3, in < >
+(1b) line 1	David Douglas Robertson	translation	‘arrow’	page 3
+(1b) line 1	Nicola	transcription	<qe>	page 3, in < >
+(1c) line 1	Nicola	transcription	<nalsisi>	page 3, in < >
+(1c) line 1	David Douglas Robertson	translation	‘arrow point’	page 3
+(1c) line 1	Nicola	transcription	<naltsi΄tse>	page 3, in < >
+(1d) line 1	Nicola	transcription	<rosess>	page 3, in < >
+(1d) line 1	David Douglas Robertson	translation	‘soup olali’	page 3
+(1d) line 1	Nicola	transcription	<texo΄ztz>	page 3, in < >
+(1e) line 1	Nicola	transcription	<tenenn>	page 3, in < >
+(1e) line 1	David Douglas Robertson	translation	‘bearberry’	page 3
+(1e) line 1	Nicola	transcription	<tin-ih>	page 3, in < >
+(1e) line 1	David Douglas Robertson	notation	[etc.]	slight variations of this spelling are also given in the source, footnote 6
+(1f) line 1	Nicola	transcription	<tloolh>	page 3, in < >
+(1f) line 1	David Douglas Robertson	translation	‘strap or band for packing’	page 3
+(1f) line 1	Nicola	transcription	<tlutl>	page 3, in < >
+(1f) line 1	David Douglas Robertson	notation	[etc.]	slight variations of this spelling are also given in the source, footnote 6
+(1g) line 1	Nicola	transcription	<roroltooty>	page 3, in < >
+(1g) line 1	David Douglas Robertson	translation	‘small ’	page 3
+(1g) line 1	Nicola	transcription	<hûlhûltu΄täi>	page 3, in < >
+(1h) line 1	Nicola	transcription	<tkentkshin>	page 3, in < >
+(1h) line 1	David Douglas Robertson	translation	‘another kind of fish’	page 3
+(1h) line 1	Nicola	transcription	<taki΄nktcîn>	page 3, in < >
+(1i) line 1	Nicola	transcription	<selh-ka-ke>	page 3, in < >
+(1i) line 1	David Douglas Robertson	translation	‘ground hog’	page 3
+(1i) line 1	Nicola	transcription	<zûlke΄ke>	page 3, in < >
+(1j) line 1	Nicola	transcription	<a we k’ha>	page 3, in < >
+(1j) line 1	David Douglas Robertson	translation	‘come, child’	page 3
+(1j) line 1	Nicola	transcription	<a΄we xe>	page 3, in < >
+§2	David Douglas Robertson	note	Another item, shown in (2), matches a gloss in Boas’ paper but with a different Nicola form:	page 3
+(2) line 1	David Douglas Robertson	note	Le Jeune (1895) Boas	page 3, heads the rows below
+(2) line 2	David Douglas Robertson	note	Nicola English	page 3, heads the rows below
+(2) line 3	Nicola	transcription	<sh-ho>	page 3, in < >
+(2) line 3	David Douglas Robertson	translation	‘horns’	page 3
+(2) line 3	Nicola	transcription	(<atē>)	Boas' Nicola form for ‘horns’, parenthesized in his table of correspondences, carries footnote 8
+§2	David Douglas Robertson	note	The three remaining expressions, shown in (3), have no counterparts in Boas’ paper:	page 3
+(3) line 1	David Douglas Robertson	note	Le Jeune (1895)	page 3, the caption
+(3) line 2	David Douglas Robertson	note	Nicola English	page 3, heads the rows below
+(3a) line 1	Nicola	transcription	<shna-hle t sek-ha>	page 3, in < >
+(3a) line 1	David Douglas Robertson	translation	‘a lazy woman’	page 3
+(3b) line 1	Nicola	transcription	<rapentle’he min tle’hen>	page 3, in < >
+(3b) line 1	David Douglas Robertson	translation	‘a lazy man’	page 3
+(3c) line 1	Nicola	transcription	<skowm>	page 3, in < >
+(3c) line 1	David Douglas Robertson	translation	‘to-morrow’	page 3
+§2	David Douglas Robertson	name	Nɬeʔképmx	the Nɬeʔkepmx people, speakers of Nɬeʔkepmxcín
+§2	Nicola	cited form	petə́le(ʔ)	page 3, ‘blood’
+§2	David Douglas Robertson	language	St̓át̓imcets	Lillooet, which borrowed k̓ʷúnaʔ from Athabaskan
+§2	St̓át̓imcets	cited form	k̓ʷúnaʔ	'salmon eggs, salmon roe', Van Eijk 2013:226, probably a borrowing from Athabaskan
+§2	Athabaskan	cited form	q̓u·nʔ	'roe', Krauss 1985:485, the likely source of the St̓át̓imcets word
+footnote 6	David Douglas Robertson	note	6 Notes on the data: All Nicola forms are given in the original nonphonetic spellings, thus the angled brackets surrounding them. The notation [etc.] indicates that slight variations of a spelling are also given in the source document.	page 3, footnote
+footnote 6	David Douglas Robertson	notation	[etc.]	slight variations of this spelling are also given in the source, footnote 6
+footnote 7	David Douglas Robertson	note	7 I.e. kinnikinnik; cf. dunih ‘idem’ (Carrier Dictionary Committee 1974:91) and contrast <aik> below.	page 3, footnote
+footnote 7	Dakelh	cited form	dunih	‘idem’, kinnikinnik, Carrier Dictionary Committee 1974:91
+§2	Nicola	cited form	dunih	page 3, ‘idem’
+footnote 8	David Douglas Robertson	note	8 This item is absent from Boas’ numbered Nicola wordlist, but included parenthesized, for reasons unknown, in a table of correspondences with other Dene languages (Boas 1895:37).	page 3, footnote
+footnote 9	David Douglas Robertson	note	9 There are 30 numbered items and one unnumbered (‘horn’).	page 3, footnote
+§2	Proto-Interior-Salish	cited form	ʔak̓ʷn/l	*ʔak̓ʷn/l 'fish roe', starred in the paper, Kuipers 2002:158
+§2	Dakelh	cited form	ʔək̓un	Carrier 'fish eggs', from Nater 1977:58
+§2	Nɬeʔkepmxcín	root	ʔéyk	/ʔéyk 'kinnikinnick', Thompson and Thompson 1996:7, set with a space after its root mark
+§2	St’át’imcets	cited form	km̓us	'kinnikinnick', Van Eijk 2013:180, noncognate with /ʔéyk
+§2	Nsyilxcən	cited form	skulís	'kinnikinnick', Somday 1980:631
+§2	David Douglas Robertson	note	In summary, Le Jeune managed to expand the known Nicola lexicon as summarized in Boas (1895) by three phrases, a not inconsiderable increase of about 10% over the roughly 31 previously known items.9 More good news emerges from linguists' sporadic observations on Salish -Nicola interaction. Nɬeʔképmx speakers borrowed from “Athapaskan” — certainly from the Nicola enclave — into Nɬeʔkepmxcín, e.g. petə́le(ʔ) ‘blood’ (cf. Thompson & Thompson 1996:232). Nearby St̓át̓imcets got k̓ʷúnaʔ 'salmon eggs, salmon roe' (V an Eijk 2013:226) as “probably a borrowing from Athabaskan q̓u·nʔ 'roe' (Krauss 1985:485), with now extinct Nicola being the most likely source”. Kuipers (2002:158) dates this loan as early as Proto-Interior-Salish, giving *ʔak̓ʷn/l 'fish roe' and comparing it with Carrier ʔək̓un 'fish eggs' from Nater (1977:58). It is interesting to compare the data from the printed sources here referred to with what Harrington elicited from rememberers (1941). But since “Teit found the last person who could speak the language properly had died about 1890” (Wyatt 1998:220, citing Boas regarding a late female elder, 1895:552), little is added by Harrington’s consultants to the picture I have sketched. One additional word putatively of Nicola emerges from these people’s memories, <aik> 'kinnikinnick', cf. / ʔéyk in Nɬeʔkepmxcín Salish (Thompson and Thompson 1996:7); this is not noted by the latter as a loan but it is certainly noncognate with e.g. neighbouring St’át’imcets Salish km̓us (Van Eijk 2013:180) and Nsyilxcən skulís (Somday 1980:631).	page 3
+§2	Nɬeʔkepmxcín	cited form	/twíx=mxʷ	s-/twíx=mxʷ, its s- at the end of the line above, an ethnonym for the Nicola, built on a root with no apparent Salish cognate, Wyatt 1998:222
+§2	Nicola	cited form	s-/mələ́q=amxʷ	page 4
+§2	Secwepemctsín	cited form	ɬu•/ɬwák=amxʷ	an ethnonym for the Nicola, built on a root with no apparent Salish cognate, Wyatt 1998:222
+§2	David Douglas Robertson	note	Two further strands of research promise to identify even more Nicola lexemes. There are a number of reputedly Dene place names in the former Nicola territory of north-central Washington (Wyatt 1998:221, citing Bouchard and Kennedy 1984 [not yet seen by m e]). And the ethnonyms for the Nicola in neighbouring Salish are built on roots apparently lacking Salish cognates: s- /twíx=mxʷ in Nɬeʔkepmxcín, s-/mələ́q=amxʷ in Nsyilxcən, and ɬu•/ɬwák=amxʷ in Secwepemctsín (Wyatt 1998:222).	page 4
+§3	David Douglas Robertson	heading	3 The bad news: Nɬeʔkepmxcín Salish influence	page 4
+§3	David Douglas Robertson	language	Nɬeʔkepmxcín	Thompson River Salish, the Interior Salish language the paper compares Nicola with
+§3	David Douglas Robertson	note	Now the bad news: quite strong and well -entrenched lexical influence from (L2?) Nɬeʔkepmxcín Salish looks likely in moribund Nicola. (The only study to have noted this, in passing and without substantiation, is Bakker and Grant 1996:1129.) A general consequence of this is to complicate the already vexed question of Nicola’s place in the Dene fa mily tree (Kinkade et al. 1998:49 -51, 67, Wyatt 1998:220).	page 4
+§3	David Douglas Robertson	note	Several of the items listed in (1) -(3) are obviously cognate with words of other Dene languages. Harrington concludes that the Nicolas were a Tsilhqut'in (Chilcotin) remnant (1943). But a Dene language that is equally geographically close and is better documented is Dakelh (Carrier), which likewise borders Salish to the north (Walker 1998:2). So in (4) I compare several of Le Jeune’s with items from that language:	page 4
+(4) line 1	David Douglas Robertson	note	Nicola English Dakelh10	page 4, heads the rows below
+(4a) line 1	Nicola	transcription	<sek-ha>	page 4, in < >
+(4a) line 1	David Douglas Robertson	translation	‘woman’	page 4
+(4a) line 1	Dakelh	transcription	ts’eke	page 4, the orthography
+(4b) line 1	Nicola	transcription	<khec>	page 4, in < >
+(4b) line 1	David Douglas Robertson	translation	‘arrow’	page 4
+(4b) line 1	Dakelh	transcription	k’aza	page 4, the orthography
+(4c) line 1	Nicola	transcription	<tenenn>	page 4, in < >
+(4c) line 1	David Douglas Robertson	translation	‘bearberry’	page 4
+(4c) line 1	Dakelh	transcription	dunih	page 4, the orthography, carries footnote 11, written here without its digit
+(4d) line 1	Nicola	transcription	<tloolh>	page 4, in < >
+(4d) line 1	David Douglas Robertson	translation	‘strap or band for packing’	page 4
+(4d) line 1	Dakelh	transcription	tl’oolh	page 4, the orthography, carries footnote 12, written here without its digit
+(4e) line 1	Nicola	transcription	<nalsisi>	page 4, in < >
+(4e) line 1	David Douglas Robertson	translation	‘arrow point’	page 4
+(4e) line 1	Dakelh	transcription	noonda	page 4, the orthography, carries footnote 13, written here without its digit
+(4f) line 1	Nicola	transcription	<rosess>	page 4, in < >
+(4f) line 1	David Douglas Robertson	translation	‘soup olali’	page 4
+(4f) line 1	Dakelh	transcription	ningwus	page 4, the orthography, carries footnote 14, written here without its digit
+(4g) line 1	Nicola	transcription	<roroltooty>	page 4, in < >
+(4g) line 1	David Douglas Robertson	translation	‘small fish’	page 4
+(4h) line 1	Nicola	transcription	<tkentkshin>	page 4, in < >
+(4h) line 1	David Douglas Robertson	translation	‘another kind of fish’	page 4
+(4i) line 1	Nicola	transcription	<selh-ka-ke>	page 4, in < >
+(4i) line 1	David Douglas Robertson	translation	‘ground hog’	page 4
+(4i) line 1	David Douglas Robertson	note	dutni	page 4, between the cells
+footnote 10	David Douglas Robertson	note	10 Carrier items are cited from Carrier Dictionary Committee (1974) in the practical orthography used there.	page 4, footnote
+footnote 11	David Douglas Robertson	note	11 Carrier Dictionary Committee gloss is ‘kinnikinik berries’.	page 4, footnote
+footnote 12	David Douglas Robertson	note	12 Carrier Dictionary Committee gloss is ‘rope’.	page 4, footnote
+footnote 13	David Douglas Robertson	note	13 Carrier Dictionary Committee gloss is ‘arrowhead’.	page 4, footnote
+footnote 14	David Douglas Robertson	note	14 Carrier Dictionary Committee gloss is ‘soapberry’.	page 4, footnote
+(4j) line 1	Nicola	transcription	<a we k’ha>	page 5, in < >
+(4j) line 1	David Douglas Robertson	translation	‘come, child’	page 5
+(4k) line 1	Nicola	transcription	<sh-ho>	page 5, in < >
+(4k) line 1	David Douglas Robertson	translation	‘horns’	page 5
+(4k) line 1	Dakelh	transcription	’ude	page 5, the orthography
+(4l) line 1	Nicola	transcription	<shna-hle t sek-ha>	page 5, in < >
+(4l) line 1	David Douglas Robertson	translation	‘a lazy woman’	page 5
+(4l) line 1	Dakelh	transcription	ts’eke	page 5, the orthography
+(4m) line 1	Nicola	transcription	<rapentle’he min tle’hen>	page 5, in < >
+(4m) line 1	David Douglas Robertson	translation	‘a lazy man’	page 5
+(4m) line 1	Dakelh	transcription	tsedutní, dune	page 5, the orthography, carries footnote 15 and 16, written here without its digit
+(4n) line 1	Nicola	transcription	<skowm>	page 5, in < >
+(4n) line 1	David Douglas Robertson	translation	‘to-morrow’	page 5
+(4n) line 1	David Douglas Robertson	note	bunde	page 5, between the cells
+§3	David Douglas Robertson	note	Forms (a-d), at least, seem closely cognate, and there is no obvious reason to see most of these forms as anything but Dene.	page 5
+§3	David Douglas Robertson	language	Nsyilxcən	Okanagan, the other Salish language of the Nicola region, cited from Somday 1980
+§3	David Douglas Robertson	note	But the Salishanist examining Le Jeune’s testimony of Nicola Dene will perceive many sequences that more closely resemble morphemes of Salish. Two languages of that family are spoken in “the Nicola”, as the region is locally called: Nɬeʔkepmxcín and Nsyilxcən (Wyatt 1998:221). The latter is the latecomer (Boas 1895:553), and I will show by footnotes to selected morphemes below that the Salish -looking items below bear a greater resemblance to Nɬeʔkepmxcín.	page 5
+§3	David Douglas Robertson	note	The least compelling of such resemblances is the Salish “look” of the three elderly Nicola Dene men’s names that are quoted by Le Jeune. This observation was already made by Teit in his field work, reported by Boas (1895:553). These names are repeated and provisionally analyzed in (5): 17	page 5
+(5a) line 1	Nicola	transcription	<Temlh-skool-han>	page 5, in < >
+(5a) line 1	David Douglas Robertson	note	perhaps ~	page 5, between the cells
+(5a) line 1	David Douglas Robertson	translation	‘feet painted yellow with ochre’	page 5
+(5a) line 2	Nicola	transcription	/tə̣́mɬ	page 5, the orthography
+(5a) line 2	David Douglas Robertson	translation	‘red ochre’	page 5
+(5a) line 3	Nicola	transcription	/təm-ɬ-	page 5, the orthography
+(5a) line 3	David Douglas Robertson	translation	‘NEGATIVE-' 'LIGATURE-’	page 5
+(5a) line 4	Nicola	transcription	s-	page 5, the orthography
+(5a) line 4	David Douglas Robertson	translation	‘NOMINALIZER’	page 5
+(5a) line 5	Nicola	transcription	kw(ə)l	page 5, the orthography
+(5a) line 5	David Douglas Robertson	translation	‘brown/red’	page 5, carries footnote 18, written here without its digit
+(5a) line 6	Nicola	transcription	kw(ə)l’	page 5, the orthography
+(5a) line 6	David Douglas Robertson	translation	‘immature’	page 5
+(5a) line 7	Nicola	transcription	kw(ə)ḷ	page 5, the orthography
+(5a) line 7	David Douglas Robertson	translation	‘yellow/green’	page 5, carries footnote 19, written here without its digit
+(5a) line 8	Nicola	transcription	=xən	page 5, the orthography
+(5a) line 8	David Douglas Robertson	translation	‘foot’	page 5
+(5a) line 9	Nicola	transcription	=x̣́n(’)	page 5, the orthography
+(5a) line 9	David Douglas Robertson	translation	‘arm’	page 5
+(5a) line 9	David Douglas Robertson	note	(var. of =ex̣́ən)	page 5
+(5b) line 1	Nicola	transcription	<Haap-kan>	page 5, in < >
+(5b) line 1	David Douglas Robertson	note	perhaps ~	page 5, between the cells
+(5b) line 1	David Douglas Robertson	translation	‘tattooed head’	page 5
+(5b) line 2	Nicola	transcription	/x̣́əp	page 5, the orthography
+(5b) line 2	David Douglas Robertson	translation	‘pile-flat [things]’	page 5
+footnote 15	David Douglas Robertson	note	15 Carrier Dictionary Committee gloss is ‘he is lazy’.	page 5, footnote
+footnote 16	David Douglas Robertson	note	16 Carrier Dictionary Committee gloss is ‘man’.	page 5, footnote
+footnote 17	David Douglas Robertson	note	17 Nɬeʔkepmxcín Salish forms and their glosses are from Thompson & Thompson (1996). Notational conventions there include the following: / marks roots, = marks ‘lexical suffixes’ (historically bound roots), subscript dot on vowel marks retracted tongue root, a cute accent marks primary stress, apostrophe on resonants marks glottalization, x is velar, x̣́is uvular.	page 5, footnote
+footnote 17	David Douglas Robertson	notation	/	marks roots, in Thompson & Thompson 1996
+footnote 17	David Douglas Robertson	notation	=	marks lexical suffixes, historically bound roots
+footnote 17	David Douglas Robertson	notation	subscript dot	on a vowel, retracted tongue root
+footnote 17	David Douglas Robertson	notation	acute accent	primary stress
+footnote 17	David Douglas Robertson	notation	apostrophe	on a resonant, glottalization
+footnote 17	David Douglas Robertson	symbol note	x̣́	uvular, where x is velar
+§3	Nicola	cited form	x̣́is	page 5
+footnote 18	David Douglas Robertson	note	18 Cf. Nsyilxcən /kʷíl (Somday 1980:631).	page 5, footnote
+footnote 18	Nsyilxcən	root	/kʷíl	compared with kw(ə)l ‘brown/red’, Somday 1980:631
+§3	Nicola	cited form	/kʷíl	page 5
+footnote 19	David Douglas Robertson	note	19 Cf. Nsyilxcən /kʷríʔ (Somday 1980:899). Two further roots of related shape, but of implausibly late vintage, are the Chinook Jargon/English loans kwul ‘school’ and kwúl ‘gold’.	page 5, footnote
+footnote 19	Nsyilxcən	root	/kʷríʔ	compared with kw(ə)ḷ ‘yellow/green’, Somday 1980:899
+footnote 19	Chinuk Wawa	cited form	kwul	‘school’, a Chinook Jargon/English loan of implausibly late vintage
+footnote 19	Chinuk Wawa	cited form	kwúl	‘gold’, a Chinook Jargon/English loan of implausibly late vintage
+§3	Nicola	cited form	/kʷríʔ	page 5
+§3	Nicola	cited form	kwul	page 5, ‘school’
+§3	Nicola	cited form	kwúl	page 5, ‘gold’
+(5b) line 3	Nicola	transcription	/x̣́əp’	page 6, the orthography
+(5b) line 3	David Douglas Robertson	translation	‘[to] prick [in tattooing]’	page 6
+(5b) line 4	Nicola	transcription	=q(i)n	page 6, the orthography
+(5b) line 4	David Douglas Robertson	translation	‘head’	page 6
+(5c) line 1	Nicola	transcription	<Shoo-yaska>	page 6, in < >
+(5c) line 1	David Douglas Robertson	note	perhaps ~	page 6, between the cells
+(5c) line 1	David Douglas Robertson	translation	‘powerful song’	page 6
+(5c) line 2	Nicola	transcription	s-yuweh-=ésk’iʔ	page 6, the orthography
+(5c) line 2	David Douglas Robertson	translation	‘herbalist’s song’	page 6, carries footnote 20, written here without its digit
+(5c) line 3	Nicola	transcription	s-	page 6, the orthography
+(5c) line 3	David Douglas Robertson	translation	‘NOMINALIZER’	page 6
+(5c) line 4	Nicola	transcription	wéy	page 6, the orthography
+(5c) line 4	David Douglas Robertson	translation	‘overwhelm/disable’	page 6
+(5c) line 5	Nicola	transcription	wíy’	page 6, the orthography
+(5c) line 5	David Douglas Robertson	translation	‘enfeeble’	page 6
+(5c) line 6	Nicola	transcription	wéy’	page 6, the orthography
+(5c) line 6	David Douglas Robertson	translation	‘turn-on-side’	page 6
+(5c) line 7	Nicola	transcription	ʕwʔíy’	page 6, the orthography
+(5c) line 7	David Douglas Robertson	translation	‘listless’	page 6
+(5c) line 8	Nicola	transcription	ʕwəy	page 6, the orthography
+(5c) line 8	David Douglas Robertson	translation	‘burn’	page 6, carries footnote 21, written here without its digit
+(5c) line 9	Nicola	transcription	ʕwəy’	page 6, the orthography
+(5c) line 9	David Douglas Robertson	translation	‘bend-edge’	page 6
+(5c) line 9	David Douglas Robertson	translation	‘deep-hole’	page 6
+(5c) line 10	Nicola	transcription	ʔúy	page 6, the orthography
+(5c) line 10	David Douglas Robertson	translation	‘gather’	page 6
+(5c) line 11	Nicola	transcription	ʔúyʔ	page 6, the orthography
+(5c) line 11	David Douglas Robertson	translation	‘laugh’	page 6
+(5c) line 12	Nicola	transcription	=esk’iʔ	page 6, the orthography
+(5c) line 12	David Douglas Robertson	translation	‘song’	page 6
+§3	David Douglas Robertson	note	The main published Nɬeʔkepmxcín source (Thompson and Thompson 1996), while it catalogs virtually all documented inflectional forms of each root, explicitly omits personal names for reasons of cultural sensitivity (p.xxiii), so these proposed etymologies are hard to test. But all three of these names can be plausibly interpreted with Salish meanings, albeit with root-derivations that are otherwise unattested in the dictionary. If these have no Dene etymologies, they support the hypothesis that the Nicola people were culturally Salishanized. That claim is reported as fact by Teit (1900-1921, quoted in Wyatt 1998) and is implicit in Le Jeune’s words above. None of this, however, strongly suggests a linguistic shift to Salish.	page 6
+§3	David Douglas Robertson	note	Stronger evidence for Nɬeʔkepmxcín Salish influence comes from the word lists. One of the elicited forms for ‘elk’ (6) is pointed out by Boas (1895:36) as “probably a corruption of…Thompson”:	page 6
+(6) line 1	Nicola	transcription	<êstahi΄tz>	page 6, in < >
+(6) line 1	David Douglas Robertson	translation	‘elk’	page 6
+(6) line 1	Nicola	transcription	s-/txéc’	page 6, the orthography
+(6) line 1	David Douglas Robertson	translation	‘elk’	page 6, carries footnote 22, written here without its digit
+§3	David Douglas Robertson	note	Another zoonym (7) is noted as “[p]robably a Salish term”, presumably due to the resemblance between its ending and a frequent Salish lexical suffix (historically an incorporated noun):	page 6
+(7) line 1	Nicola	transcription	<taki΄nktcîn>	page 6, in < >
+(7) line 1	David Douglas Robertson	translation	‘[sp.] fish’	page 6
+(7) line 1	Nicola	transcription	=c(i)n	page 6, the orthography
+(7) line 1	David Douglas Robertson	translation	‘mouth’	page 6
+footnote 20	David Douglas Robertson	note	20 The root in this word refers to one type of shaman or ‘medicine’ person.	page 6, footnote
+footnote 21	David Douglas Robertson	note	21 Cf. Nsyilxcən /ʔur' (Somday 1980:159).	page 6, footnote
+footnote 21	Nsyilxcən	root	/ʔur'	compared with ʕwəy ‘burn’, Somday 1980:159
+§3	Nicola	cited form	/ʔur	page 6
+footnote 22	David Douglas Robertson	note	22 Cf. Nsyilxcən s-/ník-ɬc̓aʔ, s-/tiy-íɬc̓aʔ (Somday 1980:250).	page 6, footnote
+footnote 22	Nsyilxcən	cited form	s-/ník-ɬc̓aʔ	compared with s-/txéc’ ‘elk’, Somday 1980:250
+footnote 22	Nsyilxcən	cited form	s-/tiy-íɬc̓aʔ	compared with s-/txéc’ ‘elk’, Somday 1980:250
+§3	Nicola	cited form	s-/ník-ɬc̓aʔ	page 6
+§3	Nicola	cited form	s-/tiy-íɬc̓aʔ	page 6
+§3	Nɬeʔkepmxcín	cited form	ɬəq’=á[•q’]n’ek	‘small silvery fish with many fins, resembling herring or sardine (used as bait for sturgeon); brassy minnow? ?Hybognathus hankinsoni’, Thompson and Thompson 1996:152, set with a space after its root mark
+§3	Nɬeʔkepmxcín	root	/ɬəq’	‘wide-flat’, Thompson and Thompson 1996:152, what remains of the fish name without its DIMINUTIVE
+§3	Nɬeʔkepmxcín	cited affix	=éne(ʔ)k	the lexical suffix ‘belly’, as it is underlyingly, p.537, carries footnote 23
+§3	David Douglas Robertson	symbol note	ɬ	the barred l, which the initial t of <taki΄nktcîn> may be a typographical error for
+§3	Nɬeʔkepmxcín	cited form	eyi΄nik	Teit's spelling of the Thompson word for ‘a small fish’, not in the 1996 dictionary, perhaps literally ‘good belly’
+§3	Nicola	cited form	/y’eh	page 7
+§3	Nicola	cited form	/y’e	page 7
+§3	Nɬeʔkepmxcín	cited affix	=ének	the lexical suffix ‘belly’, shared by eyi΄nik and /ɬəq’=á[•q’]n’ek
+§3	Nɬeʔkepmxcín	cited form	/ɬəq’=á[•q’]n’ek	the fish name again, with the root /ɬəq’ and the suffix =ének
+§3	Nɬeʔkepmxcín	cited form	/ɬəq’=ének=cn	**/ɬəq’=ének=cn, a hypothesized form the paper marks **, with a second lexical suffix, carries footnote 24
+§3	Nɬeʔkepmxcín	cited form	/mn=uʔs=áqs	‘[a] saw’, two lexical suffixes on one root
+§3	Nɬeʔkepmxcín	cited form	n-/wəx̣́=enk=éks-e-s	‘to take [something] out of [someone’s] hand’, two lexical suffixes on one root
+§3	David Douglas Robertson	note	The morphological makeup of this item, elicited by Teit (Boas 1895:36), may be compared with that of modern Nɬeʔkepmxcín / ɬəq’=á[•q’]n’ek ‘small silvery fish with many fins, resembling herring or sardine (used as bait for sturgeon); brassy minnow? ?Hybognathus hankinsoni’ (Thompson and Thompson 1996:152). Factoring out the DIMINUTIVE exponences in that word, that is the posttonic reduplication of q’ and the suprasegmental glottality on n’ (Thompson and Thompson 1992:89), we get the root /ɬəq’ ‘wide-flat’ (Thompson and Thompson 1996:152) with the lexical suffix that is underlyingly =éne(ʔ)k ‘belly’ (p.537). 23 It is conceivable that the initial t of (6) is a typographical error for a “barred l”, ɬ, leading to a nearly perfect match with the 1996 form. Here Teit’s gloss is interesting: ‘a small fish called eyi΄nik in Thompson’. That Salish form, while not to be found in the 1996 dictionary, is apparently based on the root /y’eh ~ /y’e ~ /y’ ‘good’ (Thompson and Thompson 1996:450) and certainly shares the lexical suffix =ének with /ɬəq’=á[•q’]n’ek. Thus it may mean literally ‘good belly’. (The vowel a results from the influence of the nearby uvular q, Thompson and Thompson 1992:17.) The possibility cannot be ruled out that there once existed in Nɬeʔkepmxcín —at least as used by L1 Nicola speakers — an otherwise unattested form like **/ɬəq’=ének=cn24 with an additional lexical suffix as shown in (7). Certainly more than one lexical suffix can easily occur on a word, as in modern /mn=uʔs=áqs ~‘[a] saw’ and n-/wəx̣́=enk=éks-e-s ‘to take [something] out of [someone’s] hand’.	page 7
+§3	Nicola	cited form	<taki΄nktcîn>	page 7
+§3	David Douglas Robertson	language	Nētcā΄ut’in	Boas' Nētcā΄ut’in, Ulkatcho Dakelh (Carrier) per Davis 1970, carries footnote 25
+§3	David Douglas Robertson	note	In the spirit of Boas’ own hunches, we can thus suggest Nɬeʔkepmxcín etymological possibilities for at least five additional items which, like <taki΄nktcîn>, “were not understood by either Chilcotin or Nētcā΄ut’in25 when read by [Boas]” (1898:666). In (8) I show an item collected by Mackay:	page 7
+(8) line 1	Nicola	transcription	<ska-kil-ih-kane>	page 7, in < >
+(8) line 1	David Douglas Robertson	translation	‘rush mat’	page 7
+(8) line 2	Nicola	transcription	s-	page 7, the orthography
+(8) line 2	David Douglas Robertson	translation	‘NOMINALIZER’	page 7
+(8) line 3	Nicola	transcription	/x̣́əlq-	page 7, the orthography
+(8) line 3	David Douglas Robertson	translation	‘plug-gap’	page 7
+(8) line 4	Nicola	transcription	=qin	page 7, the orthography
+(8) line 4	David Douglas Robertson	translation	‘head’	page 7
+§3	Nɬeʔkepmxcín	root	/x̣́əlq-	‘plug-gap’, used in Nɬeʔkepmxcín with reference to mats
+§3	Nɬeʔkepmxcín	cited form	n/x̣́əlq=éyep-m	‘lodge, stick (s.t.) under one’s mat, bed (sleeping place)’
+§3	Nɬeʔkepmxcín	cited affix	=éyep	the lexical suffix ‘mat’, Thompson and Thompson 1996:539
+§3	Nɬeʔkepmxcín	cited form	s[x̣́a•]/xx̣́lq=qín	**s[x̣́a•]/xx̣́lq=qín, a hypothesized derivation with AFFECTIVE reduplication the paper marks **, carries footnote 26
+§3	Nɬeʔkepmxcín	cited form	s[x̣́ə•]/x̣́əlq=qín	** s[x̣́ə•]/x̣́əlq=qín, the same with the unstressed vowels reduced to schwa, marked **
+§3	David Douglas Robertson	note	The root /x̣́əlq- turns out to be, in fact, used in Nɬeʔkepmxcín with reference to mats, in modern n/x̣́əlq=éyep-m ‘lodge, stick (s.t.) under one’s mat, bed (sleeping place)’. (The lexical suffix =éyep itself means ‘mat’, Thompson and Thompson 1996:539.) Again an otherwise unattested derivation seems possible, using AFFECTIVE reduplication (Thompson and Thompson 1992:115) to give **s[x̣́a•]/xx̣́lq=qín26 (or ** s[x̣́ə•]/x̣́əlq=qín with the typical reduction of unstressed vowels to schwa). This conceivably referred to a smoke-hole cover or to mat roofing on a lodge frame, given that =qin can connote not just a literal head but also “top, on or over top; cover, lid, roof, shelter; […] animal coat, fur, pelt; […] bundle, stack of (flat) things”, among other meanings (Thompson and Thompson 1996:541-542).	page 7
+§3	David Douglas Robertson	note	Another of Mackay’s forms, in (9), may be susceptible to a Salish explanation:	page 7
+(9) line 1	Nicola	transcription	<t-haeh>	page 7, in < >
+(9) line 1	David Douglas Robertson	translation	‘man’	page 7
+(9) line 1	Nicola	transcription	t	page 7, the orthography
+(9) line 1	David Douglas Robertson	translation	‘PREPOSITION’	page 7, carries footnote 27, written here without its digit
+footnote 23	David Douglas Robertson	note	23 =ének surfaces as =ánek in proximity to a uvular (cf. Thompson and Thompson 1992:17).	page 7, footnote
+footnote 23	Nɬeʔkepmxcín	cited affix	=ánek	=ének where a uvular is near
+§3	Nicola	cited form	=ánek	page 7
+footnote 24	David Douglas Robertson	note	24 =cin regularly surfaces as =cn when unstressed.	page 7, footnote
+footnote 24	Nɬeʔkepmxcín	cited affix	=cin	surfaces as =cn when unstressed
+footnote 24	Nɬeʔkepmxcín	cited affix	=cn	=cin unstressed
+footnote 25	David Douglas Robertson	note	25 I.e. Ulkatcho Dakelh (Carrier), per Davis (1970).	page 7, footnote
+footnote 26	David Douglas Robertson	note	26 Again an underlying e surfaces as a in proximity to a uvular.	page 7, footnote
+footnote 27	David Douglas Robertson	note	27 The preposition t has very broad meaning, including ‘over, through, near’ et al.	page 7, footnote
+(9) line 2	Nicola	transcription	s-/qáyxw	page 8, the orthography
+(9) line 2	David Douglas Robertson	translation	‘man’	page 8, carries footnote 28, written here without its digit
+(9) line 3	Nicola	transcription	/qáy[eʔ]xw	page 8, the orthography
+(9) line 3	David Douglas Robertson	translation	‘beloved male’	page 8, carries footnote 29, written here without its digit
+§3	David Douglas Robertson	note	This item too is cited in an apparently English-based orthography, and along with (8) it might raise a suspicion that Mackay found manner of articulation difficult to perceive in uvulars. In any case the lack of clear resemblance to Dene forms makes a Nɬeʔkepmxcín etymology worth considering, in this case with a literal meaning like ‘some men’.	page 8
+§3	David Douglas Robertson	note	Item (10), from another collector, Teit, may lend support to the idea that Nicola speakers’ L2 Nɬeʔkepmxcín used the generic preposition and oblique -argument marker t (Thompson and Thompson 1996:340) in citation forms, here giving a literal meaning like ‘some soapberries’:	page 8
+(10) line 1	Nicola	transcription	<texo΄ztz>	page 8, in < >
+(10) line 1	David Douglas Robertson	translation	‘soapberry’	page 8
+(10) line 2	Nicola	transcription	t	page 8, the orthography
+(10) line 2	David Douglas Robertson	translation	‘PREPOSITION’	page 8
+(10) line 3	Nicola	transcription	/x̣́wús	page 8, the orthography
+(10) line 3	David Douglas Robertson	translation	‘foam’	page 8
+(10) line 4	Nicola	transcription	-z’	page 8, the orthography
+(10) line 4	David Douglas Robertson	translation	‘STEM EXTENDER’	page 8, carries footnote 30, written here without its digit
+(10) line 5	Nicola	transcription	=c	page 8, the orthography
+(10) line 5	David Douglas Robertson	translation	'mouth'	page 8
+§3	Nɬeʔkepmxcín	cited form	s/x̣́wús-m	the modern Nɬeʔkepmxcín term for ‘soapberry’
+§3	Nɬeʔkepmxcín	cited form	/x̣́wus-z’-=éks-tn	‘soapberry stirring stick’, the root and stem extender of (10), carries footnote 31
+§3	David Douglas Robertson	note	While this sequence of root and suffix does not occur in the modern Nɬeʔkepmxcín term for ‘soapberry’, s/x̣́wús-m, it occurs in fact, in /x̣́wus-z’-=éks-tn ‘soapberry stirring stick’. 31 However, stem extenders typically occur in L1 Nɬeʔkepmxcín only before lexical suffixes, so this Nicola form's analysis remains especially uncertain. One slightly different hypothesis could have this Salish root taking a Nicola suffix.	page 8
+§3	David Douglas Robertson	note	Item (11) is also from Teit (a,b), as well as from Dawson (c):	page 8
+(11a) line 1	Nicola	transcription	<notlxa΄tzi>	page 8, in < >
+(11a) line 1	David Douglas Robertson	translation	‘wild currant’	page 8
+(11b) line 1	Nicola	transcription	<xtlona΄zi>	page 8, in < >
+(11b) line 1	David Douglas Robertson	translation	'idem'	page 8
+(11c) line 1	Nicola	transcription	<notl-ta-hat΄-se>	page 8, in < >
+(11c) line 1	David Douglas Robertson	translation	'idem'	page 8
+(11c) line 2	Nicola	transcription	n	page 8, the orthography
+(11c) line 2	David Douglas Robertson	translation	‘PREPOSITION’	page 8, carries footnote 32, written here without its digit
+(11c) line 3	Nicola	transcription	/ɬaʕáse(ʔ)	page 8, the orthography
+(11c) line 3	David Douglas Robertson	translation	‘squaw currant’	page 8
+§3	David Douglas Robertson	note	If these were loaned from Nɬeʔkepmxcín , the metathesis in the second form would be notable in indicating the reanalysis of a Salish prepositional phrase into a single root morpheme. Metathesis within roots in Salish is diachronically very common (Noonan 1997) and synchronically salient (Czaykowska-Higgins and Kinkade 1998:22), but the folk -etymologizing implied here would represent a distinct phenomenon.	page 8
+§3	David Douglas Robertson	note	Finally, (12) may have a Nɬeʔkepmxcín source if we can understand the English gloss as a free translation:	page 8
+footnote 28	David Douglas Robertson	note	28 Cf. Nsyilxcən s-/ql=tmíxʷ (Somday 1980:493).	page 8, footnote
+§3	Nsyilxcən	cited form	s-/ql=tmíxʷ	compared with s-/qáyxw ‘man’ in footnote 28, Somday 1980:493
+footnote 29	David Douglas Robertson	note	29 With REPETITIVE infixation (Thompson and Thompson 1992:116-117).	page 8, footnote
+footnote 30	David Douglas Robertson	note	30 The Nɬeʔkepmxcín phoneme z corresponds to Nsyilxcən and Proto-Salish y, cf. Kuipers (2002:4).	page 8, footnote
+footnote 31	David Douglas Robertson	note	31 The hyphen after –z' indicates a bound ‘stem’ (a complex of root + affixes).	page 8, footnote
+footnote 32	David Douglas Robertson	note	32 The preposition n has meanings ‘at, in(to), on(to), with, in relation to [specific location or direction], for, because of’.	page 8, footnote
+(12) line 1	Nicola	transcription	<a΄we xe>	page 9, in < >
+(12) line 1	David Douglas Robertson	translation	‘come here, child’	page 9
+(12) line 2	Nicola	transcription	/ʔúyxwe	page 9, the orthography
+(12) line 2	David Douglas Robertson	translation	‘come! [sg.]’	page 9, carries footnote 33, written here without its digit
+(12) line 3	Nicola	transcription	/xé(ʔe)	page 9, the orthography
+(12) line 3	David Douglas Robertson	translation	‘nearby’	page 9, carries footnote 34, written here without its digit
+§3	Nɬeʔkepmxcín	cited form	néʔe	in néʔe xeʔ mèɬ (e /míceʔq uxw) ‘(you sit) right here!’, Thompson and Thompson 1996:389
+§3	Nɬeʔkepmxcín	cited form	xeʔ	in néʔe xeʔ mèɬ (e /míceʔq uxw) ‘(you sit) right here!’, Thompson and Thompson 1996:389
+§3	Nɬeʔkepmxcín	cited form	mèɬ	in néʔe xeʔ mèɬ (e /míceʔq uxw) ‘(you sit) right here!’, Thompson and Thompson 1996:389
+§3	Nɬeʔkepmxcín	cited form	/míceʔq	in néʔe xeʔ mèɬ (e /míceʔq uxw) ‘(you sit) right here!’, Thompson and Thompson 1996:389
+§3	David Douglas Robertson	name	Nɬeʔképmx	the Nɬeʔkepmx people, speakers of Nɬeʔkepmxcín
+§3	David Douglas Robertson	note	The cited word for ‘nearby’ is in fact used in Nɬeʔkepmxcín to exhort the addressee to move closer, as in néʔe xeʔ mèɬ (e /míceʔq uxw) ‘(you sit) right here!’ (Thompson and Thompson 1996:389). Because it was Teit — a Nɬeʔkepmxcín -speaker and married into the Nɬeʔképmx community—who collected (12), it can be assumed that he would have recognized and noted any obviously Nɬeʔkepmxcín material. So while this and other items above may have their ultimate sources in that Salish language, their pronunciation and their morphological treatment by Nicola Dene people suggest nonnative usage. This could include either a distinct L2 variety of Nɬeʔkepmxcín or else old borrowings into Nicola. Teit concluded that “the Nicola had a long local history” and close associations with Nɬeʔképmx speakers (Wyatt 1998:220).	page 9
+§3	David Douglas Robertson	note	Summarizing from the limited evidence, it is clear that the Nicolas experienced bilingualism in the unrelated Nɬeʔkepmxcín. There is evidence too that the historical shift from Nicola to that language was drawn -out, accompanied by phonological and morphological distortions that possibly engendered a distinct L2 version of it. This inferred scenario of language death corresponds to Thomason and Kaufman's contact outcome of “shift with normal transmission” of the target language [TL] (1988:110ff).	page 9
+§3	David Douglas Robertson	note	The question is to what extent Nicola “interfered”, that is altered any of the structural domains, in the Salish TL, an influence which should correlate with relative sizes of speaker populations, speed of shift, and group cohesion and isolation (pp. 119 -120). It is predicted that a relatively small shifting group, shifting to the TL over several generations, will generally acquire it without significant interference from their (former) language (pp. 50, 119ff). We know the Nicolas to have become gradually outnumbered by the Salish starting shortly before White contact (Wyatt 1998:221), thus generally matching the conditions for perfect acquisition. That is in fact a typical result of North American indigenous language shift to the dominant English (Thomason and Kaufman 1988:121).	page 9
+§3	David Douglas Robertson	note	But partway into the process, the outnumbering of the Nicolas accelerated suddenly with the Salish acquisition of horse culture, though the Nicolas nonetheless retained a conscious separate identity well after White contact (Wyatt ibid.). This latter consi deration likely set the stage for a somewhat greater Nicola imprint on their variety of Nɬeʔkepmxcín ; the apparent structural distortions of Salish seen above would then constitute the predicted slight (Thomason and Kaufman 1988:121-129) or moderate interference (pp. 129ff).	page 9
+§3	David Douglas Robertson	note	As for the degree or course of structural erosion in the ancestral Dene language, we can say little since we neither have nor can reconstruct usable phonological or morphosyntactic data (cf. Krauss 2005:115).	page 9
+§4	David Douglas Robertson	heading	4 Conclusion	page 9
+§4	David Douglas Robertson	note	I have shown that Le Jeune (Kamloops Wawa 1895) added a statistically significant amount of new data to the known lexicon of Nicola Dene. However, that lexicon was so sparse in any case that his data may not resolve any of the outstanding questions about Nicola.	page 9
+footnote 33	David Douglas Robertson	note	33 Cf. Nsyilxcən c-/xʷúy (Somday 1980:191).	page 9, footnote
+§4	David Douglas Robertson	language	Nsyilxcən	Okanagan, the other Salish language of the Nicola region, cited from Somday 1980
+§4	Nsyilxcən	cited form	c-/xʷúy	compared with /ʔúyxwe ‘come!’ in footnote 33, Somday 1980:191
+footnote 34	David Douglas Robertson	note	34 Cf. Nsyilxcən /ʔaxáʔ 'here' (Somday 1980:382).	page 9, footnote
+§4	Nsyilxcən	cited form	/ʔaxáʔ	'here', compared with /xé(ʔe) ‘nearby’ in footnote 34, Somday 1980:382
+§4	David Douglas Robertson	language	Nɬeʔkepmxcín	Thompson River Salish, the Interior Salish language the paper compares Nicola with
+§4	David Douglas Robertson	note	But I have expanded on Teit's hunch (in Boas 1895) that certain items in Nicola are of Nɬeʔkepmxcín Salish origin, by identifying several more candidates for etymologies specifically from Nɬeʔkepmxcín (and not Nsyilxcən, the other neighbouring Salish language). In so doing, I have developed the novel hypothesis that these Salish loans are of old vintage, not contemporaneous, and possibly attest a distinct Nicola L2 variety. Their frequency (perhaps seven of 34 data points; Golla estimates “a fe w dozen” known Nicola lexemes, 2011:319) in turn may help explain the difficulty in assigning Nicola a place in the Dene family (about which cf. Krauss 2005:115). Expanded as they may be, however, the data on this geographically isolated Dene language remain scant and, as I show, must be handled with the Salishanist’s caveats here conveyed.	page 10
+references	David Douglas Robertson	heading	References	page 10
+references	David Douglas Robertson	name	Mühlhäusler	Peter Mühlhäusler, an editor of the atlas in the entry for Bakker and Grant 1996
+references	David Douglas Robertson	reference	Bakker, Peter and Anthony P. Grant. 1996. Interethnic communication in Canada, Alaska and adjacent areas. In Wurm, Stephen Adolphe, Peter Mühlhäusler, and Darrell T. Tryon (eds.), Atlas of languages of interethnic communication in the Pacific, Asia, and the Americas (pp. 1107-1170). Berlin: Walter de Gruyter.	
+references	David Douglas Robertson	name	Jean-Marie-Raphaël	Jean-Marie-Raphaël Le Jeune, in the title of Blake 2014
+references	David Douglas Robertson	reference	Blake, Lynn. 2014. Le Jeune, Jean-Marie-Raphaël. In Dictionary of Canadian Biography (http://biographi.ca/en/bio.php?id_nbr=8237), accessed August 7, 2014.	
+references	David Douglas Robertson	reference	Boas, Franz. 1895. Fifth report on the Indians of British Columbia. In 65th annual report of the British Association for the Advancement of Science in 1895 (pp. 522-592). London: British Association for the Advancement of Science.	
+references	David Douglas Robertson	reference	Boas, Franz. 1898. Summary of the work of the Committee in British Columbia. In 68th annual report of the British Association for the Advancement of Science in 1898 (pp. 667-682). London: British Association for the Advancement of Science.	
+references	David Douglas Robertson	reference	Boas, Franz. 1924. V ocabulary of the Athabascan tribe of Nicola Valley, British Columbia. International Journal of American Linguistics 3(1):36-38.	
+references	David Douglas Robertson	reference	Bouchard, Randall T. and Dorothy I.D. Kennedy. 1984. Indian land use and occupancy in the Franklin D. Roosevelt Lake area of Washington state. (Report prepared for the Colville Confederated Tribes, Washington, and the United States Bureau of Reclamation, Seattle, WA.) Carrier Dictionary Committee. 1974. Central Carrier Bilingual Dictionary. Fort Saint James, BC: Carrier Linguistic Committee.	
+references	Chinuk Wawa	cited form	ɬaska	in the title of Chinuk Wawa Dictionary Project 2012, Chinuk Wawa: Kakwa nsayka ulman-tilixam ɬaska munk-kəmtəks nsayka / As our elders teach us to speak it
+references	Chinuk Wawa	cited form	kəmtəks	in the title of Chinuk Wawa Dictionary Project 2012, Chinuk Wawa: Kakwa nsayka ulman-tilixam ɬaska munk-kəmtəks nsayka / As our elders teach us to speak it, munk-kəmtəks broken over the line
+references	David Douglas Robertson	reference	Chinuk Wawa Dictionary Project. 2012. Chinuk Wawa: Kakwa nsayka ulman-tilixam ɬaska munk- kəmtəks nsayka / As our elders teach us to speak it. Grand Ronde, OR: Confederated Tribes of the Grand Ronde Community of Oregon.	
+references	David Douglas Robertson	language	Nētcā΄ut’in	in the title of Davis 1970, The identity of Nētcā΄ut’in
+references	David Douglas Robertson	reference	Czaykowska-Higgins, Ewa and M. Dale Kinkade. 1998. Salish languages and linguistics. In Salish languages and linguistics: Theoretical and descriptive perspectives (pp. 1-70). Berlin: Walter de Gruyter. (Trends in Linguistics: Studies and Monographs, 107.)	
+references	David Douglas Robertson	reference	Davis, Clark A. 1970. The identity of Nētcā΄ut’in. International Journal of American Linguistics 36(1):59-60.	
+references	David Douglas Robertson	reference	Golla, Victor. California Indian languages. Berkeley: University of California Press. Harrington, J.P. 1941. Nicola field notes. Manuscript in John Peabody Harrington Papers, Alaska/Northwest Coast, National Anthropological Archives, Smithsonian Institution, Washington, D.C.	
+references	David Douglas Robertson	reference	Harrington, J.P. 1943. Pacific Coast Athapaskan discovered to be Chilcotin. Journal of the Washington Academy of Sciences 33(7):203-213.	
+references	David Douglas Robertson	reference	Kamloops Wawa. 1894. Number 123 (December): page 200.	
+references	David Douglas Robertson	reference	Kamloops Wawa. 1895. Number 130 (July): page 98.	
+references	David Douglas Robertson	reference	Kamloops Wawa. 1899. Number 176 (May).	
+references	David Douglas Robertson	reference	Kamloops Wawa. 1903. Number 205 (June).	
+references	David Douglas Robertson	reference	Kamloops Wawa. 1905. Number 215 (October).	
+references	David Douglas Robertson	reference	Kinkade, M. Dale, William W. Elmendorf, Bruce Rigsby and Haruo Aoki. 1998. Languages. In Walker 1998 (pp. 49-72).	
+references	David Douglas Robertson	reference	Knab, Tim. 1980. When is a language really dead: The case of Pochutec. International Journal of American Linguistics 46(3):230-233.	
+references	Russian	cited form	ikrá	'caviar; calf of leg', in the title of Krauss 1985
+references	David Douglas Robertson	reference	Krauss, Michael E. 2005. Athabaskan tone. In Hargus, Sharon and Keren Rice (eds.), Athabaskan Prosody (pp. 51–136). Amsterdam: John Benjamins. (Current Issues in Linguistic Theory 269.)	
+references	David Douglas Robertson	reference	Krauss, Michael E. 1985. Russian ikrá 'caviar; calf of leg' and similar pairs in Athabaskan-Eyak. International Journal of American Linguistics 51:485-486.	
+references	David Douglas Robertson	reference	Kuipers, Aert H. 2002. Salish etymological dictionary. Missoula: University of Montana. (University of Montana Occasional Papers in Linguistics no. 16.)	
+references	David Douglas Robertson	reference	Nater, Henk. 1977. Stem-list of the Bella Coola language. Lisse: Peter de Ridder.	
+references	David Douglas Robertson	reference	Noonan, Michael. 1997. Inverted roots in Salish. International Journal of American Linguistics 63(4):475-515.	
+references	David Douglas Robertson	reference	Robertson, David. 2004. Early Thompson texts. Ms., SSHRC Salish Contrast Project, University of Victoria.	
+references	David Douglas Robertson	language	Chinúk	Chinúk Wawa, in the title of Robertson 2014, Ethnohistorical dictionary of Kamloops Chinúk Wawa
+references	David Douglas Robertson	reference	Robertson, David. 2014. Ethnohistorical dictionary of Kamloops Chinúk Wawa. Ms. in author's possession.	
+references	David Douglas Robertson	reference	Robertson, David, Jodi Crew and Omeasoo Butt. 2005. Kamloops Wawa index. Ms. in first author’s possession.	
+references	David Douglas Robertson	reference	Rohner, Ronald. 1969. The ethnography of Franz Boas. Chicago: University of Chicago Press. Somday, James Benjamin. 1980. Colville Indian language dictionary. PhD dissertation, University of North Dakota.	
+references	David Douglas Robertson	language	Nɬeʔkepmxcín	Thompson River Salish, the Interior Salish language the paper compares Nicola with
+references	David Douglas Robertson	reference	Teit, James A. 1893. Letter in Nɬeʔkepmxcín to J.M.R. Le Jeune, October 14. National Archives of Canada.	
+references	David Douglas Robertson	reference	Teit, James A. 1900-1921. Thompson ethnographic notes. Mss. in American Philosophical Society Library, Philadelphia.	
+references	David Douglas Robertson	reference	Thomason, Sarah G. and Terrence Kaufman. 1988. Language Contact, Creolization, and Genetic Linguistics. University of California Press, Berkeley.	
+references	David Douglas Robertson	reference	Thompson, Laurence C. and M. Terry Thompson. 1992. Thompson Salish. Missoula: University of Montana. (University of Montana Occasional Papers in Linguistics no. 8).	
+references	David Douglas Robertson	reference	Thompson, Laurence C. and M. Terry Thompson. 1996. Thompson River Salish dictionary. Missoula: University of Montana. (University of Montana Occasional Papers in Linguistics no. 11).	
+references	David Douglas Robertson	reference	Tomalin, Marcus. 2011. 'And he knew our language: Missionary linguistics on the Pacific Northwest coast. Amsterdam: John Benjamins. (Amsterdam studies in the theory and history of linguistic science, Series III, Studies in the history of the language sciences, v. 116.) Van Eijk, Jan P. 2013. Lillooet-English dictionary. Vancouver: University of British Columbia. (University of British Columbia Occasional Papers in Linguistics, V olume 2.) Walker, Deward E. Jr. 1998. Introduction. In Walker 1998 (pp. 1-7).	
+references	David Douglas Robertson	reference	Walker, Deward E. Jr. (ed.). 1998. Plateau. Washington, DC: Smithsonian Institution. (Handbook of North American Indians, volume 17.)	
+references	David Douglas Robertson	reference	Wyatt, David. 1998. Nicola. In Walker 1998 (pp. 220-222).	
+title	David Douglas Robertson	title	Good and bad news about Nicola Dene	the paper's title, carrying footnote 1
+title	David Douglas Robertson	name	David Douglas Robertson	author, PhD, consultant linguist, Spokane, WA; Tk’emlúps te Secwépemc
+title	David Douglas Robertson	place	Spokane, WA	where the author works
+front	David Douglas Robertson	language	Nicola Dene	the dormant Dene (Athabaskan) language of the Nicola Valley, the language of the paper
+§1	David Douglas Robertson	name	Franz Boas	whose Nicola lexicon appeared in 1895, reprinted 1924
+§1	David Douglas Robertson	name	J.M.R. Le Jeune	Father Jean-Marie-Raphaël Le Jeune, who published a Nicola vocabulary in Kamloops Wawa 1895
+§1	David Douglas Robertson	citation	Kamloops Wawa	Le Jeune's mimeographed southern BC missionary newspaper
+§2	David Douglas Robertson	name	Temelh-skool-han	one of the three old Nicola men Le Jeune names, also <Temlh-skool-han>, analyzed in (5a)
+§2	David Douglas Robertson	name	Haap-kan	one of the three old Nicola men Le Jeune names, analyzed in (5b)
+§2	David Douglas Robertson	name	Shoo-yaska	one of the three old Nicola men Le Jeune names, analyzed in (5c)
+§2	David Douglas Robertson	place	Similkameen	Le Jeune's Semilkameen, where the three men spent their early lives
+§2	David Douglas Robertson	language	Thompson	Nɬeʔkepmxcín
+§2	David Douglas Robertson	language	Okanagan	Nsyilxcən
+§2	David Douglas Robertson	language	Shuswap	Secwepemctsín
+§2	David Douglas Robertson	language	Lillooet	St’át’imcets
+§2	David Douglas Robertson	name	Charley-Alexis Mayoos	the first Indigenous literate in the Chinuk pipa script, and its popularizer
+§2	David Douglas Robertson	name	Chief Celestin	a.k.a. John/Johnny Chilihitsa of Nicola Lake
+§2	David Douglas Robertson	place	Nicola Lake	Chief Celestin's home
+§2	David Douglas Robertson	notation	Chinuk pipa	the shorthand script Le Jeune introduced, the first literacy of many hundreds of aboriginal people
+§2	David Douglas Robertson	name	James A. Teit	who collected Nicola words for Boas and wrote to Le Jeune in Nɬeʔkepmxcín
+§2	David Douglas Robertson	name	George M. Dawson	a collector of Boas' Nicola lexicon
+§2	David Douglas Robertson	name	J.W. Mackay	a collector of Boas' Nicola lexicon, the source of (8) and (9)
+§2	David Douglas Robertson	name	Harrington	J.P. Harrington, who elicited Nicola words from rememberers in 1941
+§2	Nicola	cited form	<aik>	'kinnikinnick', the one word Harrington's consultants add, also named in footnote 7
+§2	Nɬeʔkepmxcín	cited form	petə́le(ʔ)	‘blood’, borrowed from Athapaskan, likely from the Nicola enclave, Thompson & Thompson 1996:232
+§2	Nsyilxcən	cited form	s-/mələ́q=amxʷ	an ethnonym for the Nicola, built on a root with no apparent Salish cognate, Wyatt 1998:222
+§3	David Douglas Robertson	language	Dakelh	Carrier, the Dene language (4) compares Nicola with, cited from Carrier Dictionary Committee 1974
+§3	David Douglas Robertson	language	Tsilhqut'in	Chilcotin, which Harrington took the Nicola to be a remnant of
+§3	Nicola	cited form	<taki΄nktcîn>	the zoonym of (7), ‘[sp.] fish’, not understood by Chilcotin or Nētcā΄ut’in speakers
+§3	David Douglas Robertson	notation	?	in the Dakelh column of (4), no Dakelh counterpart found

@@ -1,0 +1,927 @@
+where	who	kind	form	gloss
+front	Gloria Mellesmoen and Marianne Huijsmans	title	Stative Allomorph Selection and Raised Pitch in ʔayʔaǰuθəm	page 1, carries footnote *
+front	Gloria Mellesmoen and Marianne Huijsmans	name	Gloria Mellesmoen	author
+front	Gloria Mellesmoen and Marianne Huijsmans	note	University of British Columbia	page 1, under Gloria Mellesmoen
+front	Gloria Mellesmoen and Marianne Huijsmans	name	Marianne Huijsmans	author
+front	Gloria Mellesmoen and Marianne Huijsmans	note	University of British Columbia	page 1, under Marianne Huijsmans
+front	Gloria Mellesmoen and Marianne Huijsmans	note	Abstract: In this paper, we examine the morphology associated with stative aspect in ʔayʔaǰuθəm (Comox-Sliammon). Stative aspect may be marked by -it, -i-, or by raised pitch alone (with no overt segmental content). The choice of allomorph is sensitive to root shape and co-occurring morphology. We propose that all allomorphs of the stative morpheme are associated with an underlying H tone, and that allomorph selection is motivated by a combination of constraints on suprasegmental content and a preference among (listed) allomorphs. If stative allomorphy in ʔayʔaǰuθəm is posited to have tonal properties associated with raised pitch, ʔayʔaǰuθəm may be characterized as a pitch accent language in the sense of Hyman (2006).	page 1, the abstract
+front	Gloria Mellesmoen and Marianne Huijsmans	note	Keywords: Comox-Sliammon, stative aspect, listed allomorphs, alignment, Salish, pitch accent	page 1, the keywords
+front	Gloria Mellesmoen and Marianne Huijsmans	language	ʔayʔaǰuθəm	Central Salish, also known as Comox-Sliammon
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	note	We are deeply grateful to the ʔayʔaǰuθəm speakers we work with: Joanne Francis, Elsie Paul, Freddie Louie, Karen Galligos, Betty Wilson, Marion Harry, Margaret Vivier, Jerry Francis, Phyllis Dominic, Mary Harry, Herman Francis, late Maggie Wilson, late Dave Dominic, and late Eva Francis. We would also like to thank the dictionary team: Betty Wilson, Randolph Timothy, Koosen Pielle for their tireless efforts documenting the language and making this documentation available. Finally, we would like to thank Suzanne Urbanczyk for helpful comments on an earlier draft, Henry Davis, and the Salish and ʔayʔaǰuθəm working groups for ongoing support and input. All errors are our own. Contact info: gloria.mellesmoen@ubc.ca, marianne.huijsmans@ubc.ca	page 1, footnote *, on the title
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Joanne Francis	a ʔayʔaǰuθəm speaker the authors work with
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Elsie Paul	a ʔayʔaǰuθəm speaker
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Freddie Louie	a ʔayʔaǰuθəm speaker
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Karen Galligos	a ʔayʔaǰuθəm speaker
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Betty Wilson	a ʔayʔaǰuθəm speaker, of the dictionary team
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Marion Harry	a ʔayʔaǰuθəm speaker
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Margaret Vivier	a ʔayʔaǰuθəm speaker
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Jerry Francis	a ʔayʔaǰuθəm speaker
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Phyllis Dominic	a ʔayʔaǰuθəm speaker
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Mary Harry	a ʔayʔaǰuθəm speaker
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Herman Francis	a ʔayʔaǰuθəm speaker
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Maggie Wilson	a ʔayʔaǰuθəm speaker, late
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Dave Dominic	a ʔayʔaǰuθəm speaker, late
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Eva Francis	a ʔayʔaǰuθəm speaker, late
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Randolph Timothy	of the dictionary team
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Koosen Pielle	of the dictionary team
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Suzanne Urbanczyk	thanked; Urbanczyk (2004)
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Henry Davis	thanked
+footnote *	Gloria Mellesmoen and Marianne Huijsmans	name	Davis	John Davis, Mainland Comox (1970)
+§1	Gloria Mellesmoen and Marianne Huijsmans	heading	1 Introduction	page 1
+§1	Gloria Mellesmoen and Marianne Huijsmans	note	In this paper, we examine stative allomorphy in ʔayʔaǰuθəm (Comox-Sliammon), providing a con- straint-based phonological analysis that accounts for allomorph selection between /i/ or /it/ and a divergent prosodic pattern where raised pitch is observed on the first two (adjacent) syllables of a stative predicate.	page 1
+§1	Gloria Mellesmoen and Marianne Huijsmans	language	Comox-Sliammon	ʔayʔaǰuθəm
+§1	Gloria Mellesmoen and Marianne Huijsmans	language	Sliammon	ʔayʔaǰuθəm, in the titles of Blake and Watanabe
+§1	Gloria Mellesmoen and Marianne Huijsmans	note	Stative aspect in ʔayʔaǰuθəm can be realized in one of three ways according to Watanabe (2003:410–449): an -it suffix, an -i- infix, or secondary stress on the second syllable. The dis- tribution of these allomorphs is summarized in Table 1.1	page 1
+footnote 1	Gloria Mellesmoen and Marianne Huijsmans	note	Primary stress falls in a fixed initial position and is unmarked. Following Watanabe (2003), the acute accent [’] is used to mark secondary stress in Table 1, but is unmarked throughout the rest of the paper. Paper of the International Conference on Salish and Neighbouring Languages 54, D. K. E. Reisinger and Gloria Mellesmoen (eds.). Vancouver, BC: UBCWPL, 2019.	page 1, footnote 1
+§1	ʔayʔaǰuθəm	cited form	-it	page 1, in italics
+§1	ʔayʔaǰuθəm	cited form	-i-	page 1, in italics
+§1	Gloria Mellesmoen and Marianne Huijsmans	name	Watanabe	Honoré Watanabe, a morphological description of Sliammon (2003)
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	note	Table 1: Examples of Stative Allomorphy from Watanabe (2003)	page 1, the table's caption
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	note	Allomorph Type Example Translation Page	page 1, the column heads
+Table 1	ʔayʔaǰuθəm	cited form	-it	page 1, Table 1, the allomorph
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	note	Intransitive (CVC Root)	page 1, Table 1, the type
+Table 1	ʔayʔaǰuθəm	cited form	təq-it	page 1, Table 1, ‘closed’
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘closed’	page 1, Table 1, the gloss of təq-it
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	citation	p. 25	page 1, Table 1, the page of Watanabe (2003)
+Table 1	ʔayʔaǰuθəm	cited form	-i-	page 1, Table 1, the allomorph
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	note	Intransitive (CVCC Root)	page 1, Table 1, the type
+Table 1	ʔayʔaǰuθəm	cited form	ƛəp<i>xʷ	page 1, Table 1, ‘broken’
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘broken’	page 1, Table 1, the gloss of ƛəp<i>xʷ
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	citation	p. 412	page 1, Table 1, the page of Watanabe (2003)
+Table 1	ʔayʔaǰuθəm	cited form	-i-	page 1, Table 1, the allomorph
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	note	Transitive (weak)	page 1, Table 1, the type
+Table 1	ʔayʔaǰuθəm	cited form	qəp-i-t	page 1, Table 1, ‘touching it’
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘touching it’	page 1, Table 1, the gloss of qəp-i-t
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	citation	p. 431	page 1, Table 1, the page of Watanabe (2003)
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	note	Secondary stress	page 1, Table 1, the allomorph
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	note	Transitive (strong)	page 1, Table 1, the type
+Table 1	ʔayʔaǰuθəm	cited form	ʔim-ìt	page 1, Table 1, ‘stepping on it’
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘stepping on it’	page 1, Table 1, the gloss of ʔim-ìt
+Table 1	Gloria Mellesmoen and Marianne Huijsmans	citation	p. 434	page 1, Table 1, the page of Watanabe (2003)
+§1	Gloria Mellesmoen and Marianne Huijsmans	note	On intransitive stems, the -it suffix is found with roots of the shape CVC.2 The -i- infix marks stative aspect with CVCC roots and is positioned between the second and third consonants. For transitive forms, stative aspect is marked by an -i- infix between the root and the transitivizer if the root is weak, or by secondary stress on the transitivizer vowel if the root is strong. The realization of each of these allomorphs often includes raised pitch, which is the main phonetic correlate of stress in the language (Watanabe 2003:22).	page 2
+footnote 2	Gloria Mellesmoen and Marianne Huijsmans	note	This is true of both strong and weak roots. Strong roots are defined as those that have a full vowel (/a, i, u/), while weak roots have /ə/.	page 2, footnote 2
+§1	Gloria Mellesmoen and Marianne Huijsmans	note	While Blake (2000:111) proposes a phonological analysis that stipulates that the stative suffix is always bimoraic, she focuses only on the -it allomorph in combination with strong CVC roots. It is not clear that positing a similarly lexically footed underlying form could account for the realization of the stative morpheme in the other environments given in Table 1. Our goal in this paper is to provide a unified account of stative marking in ʔayʔaǰuθəm that accounts for the -it, -i-, and non-segmental (raised pitch) allomorphs.	page 2
+§1	Gloria Mellesmoen and Marianne Huijsmans	name	Blake	Susan Blake (1992, 2000)
+§1	Gloria Mellesmoen and Marianne Huijsmans	note	We build on the description and analysis presented in Mellesmoen (2017) and Mellesmoen and Andreotti (2017). Departing from the accounts given in Watanabe (2003) and Blake (2000), which focus more on the position of stress, we propose that the stative allomorph in ʔayʔaǰuθəm has tonal properties. We find that raised pitch is common across all variants of the stative morpheme, which is predicted if a high tone is present in the underlying form. This tone, in combination with listed allomorphs that are sensitive to a Priority constraint (e.g., Mascaró 2007), accounts for the range of stative allomorphy.	page 2
+§1	Gloria Mellesmoen and Marianne Huijsmans	name	Mascaró	Joan Mascaró, external allomorphy (2007)
+§1	Gloria Mellesmoen and Marianne Huijsmans	name	Andreotti	Bruno Andreotti (2017, 2018)
+§1	Gloria Mellesmoen and Marianne Huijsmans	note	In Section 2, we combine original fieldwork data with previous documentation to provide a brief overview of the semantic contribution of the stative morpheme, and summarize the distribution of stative allomorphs across environments. In Section 3, a constraint-based analysis of stative allo- morph selection is given, focusing on bare (intransitive) roots and control transitive predicates. We conclude the paper in Section 4 by discussing how this analysis can be extended to account for the other documented patterns and the more general role that pitch plays in the language.	page 2
+§2	Gloria Mellesmoen and Marianne Huijsmans	heading	2 Stative Aspect in ʔayʔaǰuθəm	page 2
+§2	Gloria Mellesmoen and Marianne Huijsmans	note	Stative allomorphy in ʔayʔaǰuθəm diverges from other Salish languages. Kinkade (1996:10) recon- structs *ʔac- in Proto-Salish, which has reflexes across the family that are also described as prefixes. He notes that ʔayʔaǰuθəm is an exception to this pattern; however, the loss of the stative prefix in ʔayʔaǰuθəm is expected because the language has lost prefixes under the influence of Kwak’wala (Northern Wakashan) (Kinkade 1996:10). Instead, of the expected prefixal stative marker, ʔayʔa- ǰuθəm has developed infixed and suffixed allomorphs to serve a parallel function.	page 2
+§2	ʔayʔaǰuθəm	cited form	*ʔac-	page 2, in italics
+§2	Gloria Mellesmoen and Marianne Huijsmans	name	Kinkade	M. Dale Kinkade (1996)
+§2	Gloria Mellesmoen and Marianne Huijsmans	language	Proto-Salish	*ʔac- (Kinkade 1996)
+§2	Gloria Mellesmoen and Marianne Huijsmans	language	Kwak’wala	Northern Wakashan, whose influence lost the prefixes
+§2	Gloria Mellesmoen and Marianne Huijsmans	language	Northern Wakashan	the branch of Kwak’wala
+§2.1	Gloria Mellesmoen and Marianne Huijsmans	heading	2.1 Semantics	page 2
+§2.1	Gloria Mellesmoen and Marianne Huijsmans	note	The stative form of unaccusative roots typically describes result state, as shown in (1).	page 2
+(1)	Gloria Mellesmoen and Marianne Huijsmans	note	Root Stative	page 2, the caption
+(1) line 1	ʔayʔaǰuθəm	transcription	č̓əχ	page 2
+(1) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get cooked’	page 2
+(1) line 1	ʔayʔaǰuθəm	transcription	č̓əχit	page 2
+(1) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘cooked’	page 2
+(1) line 2	ʔayʔaǰuθəm	transcription	təq	page 2
+(1) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get closed’	page 2
+(1) line 2	ʔayʔaǰuθəm	transcription	təqit	page 2
+(1) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘closed’	page 2
+(1) line 3	ʔayʔaǰuθəm	transcription	ƛ̓akʷ	page 2
+(1) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘turn off/go out’	page 2
+(1) line 3	ʔayʔaǰuθəm	transcription	ƛ̓akʷit	page 2
+(1) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘turned off/gone out’	page 2
+§2.1	Gloria Mellesmoen and Marianne Huijsmans	note	While it is straightforward enough to see how ‘cooked’ is the resulting state of a ‘get cooked’ event, not all stative forms are obviously resultative. This is highlighted by Watanabe (2003:414–415) in relation to the examples given in (2).	page 3
+(2)	Gloria Mellesmoen and Marianne Huijsmans	note	Root Stative	page 3, the caption
+(2) line 1	ʔayʔaǰuθəm	transcription	ƛ̓uχʷt	page 3
+(2) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘cry’	page 3
+(2) line 1	ʔayʔaǰuθəm	transcription	ƛ̓uχʷit	page 3
+(2) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘crying’	page 3
+(2) line 2	ʔayʔaǰuθəm	transcription	ƛum	page 3
+(2) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘enough’	page 3
+(2) line 2	ʔayʔaǰuθəm	transcription	ƛumit	page 3
+(2) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be enough, fit’	page 3
+(2) line 3	ʔayʔaǰuθəm	transcription	qətxʷ	page 3
+(2) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘run out of’	page 3
+(2) line 3	ʔayʔaǰuθəm	transcription	qətixʷ	page 3
+(2) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be insufficient’	page 3
+§2.1	Gloria Mellesmoen and Marianne Huijsmans	note	Andreotti (2018) argues that the stative forms may also be used in contexts that are more consistent with a purely stative, rather than resultative, meaning. Furthermore, control transitive predicates in stative aspect usually do not refer to a result state, but instead to an ongoing action (where an action is initiated but not progressing to a culmination) (see also Watanabe 2003:430–434).3 A set of relevant examples are given in (3).	page 3
+footnote 3	Gloria Mellesmoen and Marianne Huijsmans	note	Suttles (2004) and Galloway (1993) distinguish durative and resultative forms in Musqueam and Upriver Halkomelem, respectively. The durative forms frequently occur with the control transitive and have parallel interpretations to the stative control transitives in ʔayʔaǰuθəm. However, in ʔayʔaǰuθəm, there is no evidence for separate morphological categories for durative and resultative.	page 3, footnote 3
+footnote 3	Gloria Mellesmoen and Marianne Huijsmans	name	Suttles	Wayne Suttles, Musqueam (2004)
+footnote 3	Gloria Mellesmoen and Marianne Huijsmans	name	Galloway	Brent Galloway, Upriver Halkomelem (1993)
+footnote 3	Gloria Mellesmoen and Marianne Huijsmans	language	Musqueam	durative and resultative (Suttles 2004)
+footnote 3	Gloria Mellesmoen and Marianne Huijsmans	language	Upriver Halkomelem	durative and resultative (Galloway 1993)
+(3)	Gloria Mellesmoen and Marianne Huijsmans	note	Transitive Transitive Stative	page 3, the caption
+(3) line 1	ʔayʔaǰuθəm	transcription	k̓ʷə-t	page 3
+(3) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘see s.t.’	page 3
+(3) line 1	ʔayʔaǰuθəm	transcription	k̓ʷənit	page 3
+(3) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be looking at s.t.’	page 3
+(3) line 2	ʔayʔaǰuθəm	transcription	qəp-t	page 3
+(3) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘touch s.t.’	page 3
+(3) line 2	ʔayʔaǰuθəm	transcription	qəpit	page 3
+(3) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be touching s.t.’	page 3
+(3) line 3	ʔayʔaǰuθəm	transcription	ǰuθ-ut	page 3
+(3) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘push s.t.’	page 3
+(3) line 3	ʔayʔaǰuθəm	transcription	ju:θut	page 3
+(3) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hold in place by pushing on s.t.’	page 3
+(3) line 4	ʔayʔaǰuθəm	transcription	ʔim-it	page 3
+(3) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘step on s.t.’	page 3
+(3) line 4	ʔayʔaǰuθəm	transcription	ʔi:mit	page 3
+(3) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hold in place by stepping on s.t.’	page 3
+§2.1	Gloria Mellesmoen and Marianne Huijsmans	note	There is more work to be done to understand the semantic contribution of the stative morpheme; this is beyond the scope of the present paper.	page 3
+§2.2	Gloria Mellesmoen and Marianne Huijsmans	heading	2.2 Morphology	page 3
+§2.2.1	Gloria Mellesmoen and Marianne Huijsmans	heading	2.2.1 Bare Roots (Instransitives)	page 3
+§2.2.1	Gloria Mellesmoen and Marianne Huijsmans	note	With weak roots, stative aspect is marked by -it. The vowel in this suffix carries a high pitch.4 This is shown in (4).5,6	page 3
+footnote 4	Gloria Mellesmoen and Marianne Huijsmans	note	The H notation corresponds to raised pitch linked to a phonological H tone, not necessarily its acoustic realization. The pitch associated with syllables marked as H is associated with a higher Hz value than would otherwize be expected.	page 3, footnote 4
+footnote 5	Gloria Mellesmoen and Marianne Huijsmans	note	If there is a glottalized consonant root finally, a glottal stop may be transcribed in the realization of the stative form. This follows the vowel in the root as a coda, while the glottalized consonant is parsed as an onset to the following syllable (see Blake 2000:236). The vowel in the root is realized as [a] in these forms due to the lowering effect of an adjacent glottal stop.	page 3, footnote 5
+footnote 6	Gloria Mellesmoen and Marianne Huijsmans	note	We only report on forms that we have also recorded ourselves and for which we have sound files to reference for accurate transcription of pitch patterns.	page 3, footnote 6
+(4)	Gloria Mellesmoen and Marianne Huijsmans	note	Bare Weak Roots with Stative Morphology	page 4, the caption
+(4) line 1	ʔayʔaǰuθəm	transcription	ƛəm̓	page 4
+(4) line 1	ʔayʔaǰuθəm	phonetic	[ƛəm̓]	page 4
+(4) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get wet’	page 4
+(4) line 2	ʔayʔaǰuθəm	transcription	ƛəm̓it	page 4
+(4) line 2	ʔayʔaǰuθəm	phonetic	[ƛaʔmit]	page 4
+(4) line 2	ʔayʔaǰuθəm	phonetic	H H	page 4, the pitch pattern
+(4) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘soaked’	page 4
+(4) line 3	ʔayʔaǰuθəm	transcription	ǰək̓ʷ-t	page 4
+(4) line 3	ʔayʔaǰuθəm	phonetic	[ǰɛk̓ʷt]	page 4
+(4) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘to paint s.t.’	page 4
+(4) line 4	ʔayʔaǰuθəm	transcription	ǰək̓ʷit	page 4
+(4) line 4	ʔayʔaǰuθəm	phonetic	[ǰɛʔk̓ʷɛt]	page 4
+(4) line 4	ʔayʔaǰuθəm	phonetic	H H	page 4, the pitch pattern
+(4) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘painted’	page 4
+(4) line 5	ʔayʔaǰuθəm	transcription	č̓əχ	page 4
+(4) line 5	ʔayʔaǰuθəm	phonetic	[č̓ɛχ]	page 4
+(4) line 5	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get ripe/cooked’	page 4
+(4) line 6	ʔayʔaǰuθəm	transcription	č̓əχit	page 4
+(4) line 6	ʔayʔaǰuθəm	phonetic	[č̓ɛχɛt]	page 4
+(4) line 6	ʔayʔaǰuθəm	phonetic	H H	page 4, the pitch pattern
+(4) line 6	Gloria Mellesmoen and Marianne Huijsmans	translation	‘cooked’	page 4
+(4) line 7	ʔayʔaǰuθəm	transcription	məq̓	page 4
+(4) line 7	ʔayʔaǰuθəm	phonetic	[məq̓]	page 4
+(4) line 7	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get full’	page 4
+(4) line 8	ʔayʔaǰuθəm	transcription	məq̓it	page 4
+(4) line 8	ʔayʔaǰuθəm	phonetic	[maq̓ɛt]	page 4
+(4) line 8	ʔayʔaǰuθəm	phonetic	H H	page 4, the pitch pattern
+(4) line 8	Gloria Mellesmoen and Marianne Huijsmans	translation	‘to be full’	page 4
+(4) line 9	ʔayʔaǰuθəm	transcription	χʷəw̓	page 4
+(4) line 9	ʔayʔaǰuθəm	phonetic	[χʷoʔ]	page 4
+(4) line 9	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get turned on’	page 4
+(4) line 10	ʔayʔaǰuθəm	transcription	χʷəw̓it	page 4
+(4) line 10	ʔayʔaǰuθəm	phonetic	[χʷaʔwɪt]	page 4
+(4) line 10	ʔayʔaǰuθəm	phonetic	H H	page 4, the pitch pattern
+(4) line 10	Gloria Mellesmoen and Marianne Huijsmans	translation	‘lit’	page 4
+(4) line 11	ʔayʔaǰuθəm	transcription	k̓ʷəq	page 4
+(4) line 11	ʔayʔaǰuθəm	phonetic	[k̓ʷʊq]	page 4
+(4) line 11	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get split’	page 4
+(4) line 12	ʔayʔaǰuθəm	transcription	k̓ʷəqit	page 4
+(4) line 12	ʔayʔaǰuθəm	phonetic	[k̓ʷaqɛt]	page 4
+(4) line 12	ʔayʔaǰuθəm	phonetic	H H	page 4, the pitch pattern
+(4) line 12	Gloria Mellesmoen and Marianne Huijsmans	translation	‘split’	page 4
+(4) line 13	ʔayʔaǰuθəm	transcription	təq	page 4
+(4) line 13	ʔayʔaǰuθəm	phonetic	[təq]	page 4
+(4) line 13	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get closed’	page 4
+(4) line 14	ʔayʔaǰuθəm	transcription	təqit	page 4
+(4) line 14	ʔayʔaǰuθəm	phonetic	[təqɛt]	page 4
+(4) line 14	ʔayʔaǰuθəm	phonetic	H H	page 4, the pitch pattern
+(4) line 14	Gloria Mellesmoen and Marianne Huijsmans	translation	‘closed’	page 4
+(4) line 15	ʔayʔaǰuθəm	transcription	k̓ʷəp̓-t	page 4
+(4) line 15	ʔayʔaǰuθəm	phonetic	[k̓ʷup̓t]	page 4
+(4) line 15	Gloria Mellesmoen and Marianne Huijsmans	translation	‘to pull out of the ground’	page 4
+(4) line 16	ʔayʔaǰuθəm	transcription	k̓ʷəp̓it	page 4
+(4) line 16	ʔayʔaǰuθəm	phonetic	[k̓ʷaʔp̓ɛt]	page 4
+(4) line 16	ʔayʔaǰuθəm	phonetic	H H	page 4, the pitch pattern
+(4) line 16	Gloria Mellesmoen and Marianne Huijsmans	translation	‘pulled out of the ground’	page 4
+(4) line 17	ʔayʔaǰuθəm	transcription	həkʷ-t	page 4
+(4) line 17	ʔayʔaǰuθəm	phonetic	[hakʷt]	page 4
+(4) line 17	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hang s.t. out’	page 4
+(4) line 18	ʔayʔaǰuθəm	transcription	həkʷit	page 4
+(4) line 18	ʔayʔaǰuθəm	phonetic	[hakʷɛt]	page 4
+(4) line 18	ʔayʔaǰuθəm	phonetic	H H	page 4, the pitch pattern
+(4) line 18	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hung out’	page 4
+(4) line 19	ʔayʔaǰuθəm	transcription	č̓ət-t	page 4
+(4) line 19	ʔayʔaǰuθəm	phonetic	[č̓ɪtt]	page 4
+(4) line 19	Gloria Mellesmoen and Marianne Huijsmans	translation	‘cut s.t. (with a knife)’	page 4
+(4) line 20	ʔayʔaǰuθəm	transcription	č̓ətit	page 4
+(4) line 20	ʔayʔaǰuθəm	phonetic	[č̓ɪtɛt]	page 4
+(4) line 20	ʔayʔaǰuθəm	phonetic	H H	page 4, the pitch pattern
+(4) line 20	Gloria Mellesmoen and Marianne Huijsmans	translation	‘cut (with a knife)’	page 4
+(4) line 21	ʔayʔaǰuθəm	transcription	k̓əp-t	page 4
+(4) line 21	ʔayʔaǰuθəm	phonetic	[k̓ɪpt]	page 4
+(4) line 21	Gloria Mellesmoen and Marianne Huijsmans	translation	‘cut s.t. (with scissors)’	page 4
+(4) line 22	ʔayʔaǰuθəm	transcription	k̓əpit	page 4
+(4) line 22	ʔayʔaǰuθəm	phonetic	[k̓ɪpɛt]	page 4
+(4) line 22	ʔayʔaǰuθəm	phonetic	H H	page 4, the pitch pattern
+(4) line 22	Gloria Mellesmoen and Marianne Huijsmans	translation	‘cut (with scissors)’	page 4
+§2.2.1	Gloria Mellesmoen and Marianne Huijsmans	note	In determining where to transcribe raised pitch, we relied on several diagnostics: (i) the pitch on one syllable relative to the pitch associated with other vowels in the word, and (ii) the pitch (F0) of a syllable relative to the pitch of a comparable syllable in a minimally different word. Initial syllables are associated with raised pitch across all lexical items and the pitch of the vowel in the stative morpheme can have a comparable F0. Even when it is lower, it is nevertheless high relatively to the pitch found on the vowel in second syllables. This is especially apparent where there are (near) minimal pairs (examples are found in (5) and (8). See Appendix A for illustrative spectograms). Strong roots also take the stative suffix -it, with raised pitch on the vowel in the suffix, as shown in (5). In addition to this, the root vowel is longer in the stative forms.	page 4
+(5)	Gloria Mellesmoen and Marianne Huijsmans	note	Bare Strong Roots with Stative Morphology	page 5, the caption
+(5) line 1	ʔayʔaǰuθəm	transcription	ƛ̓akʷ	page 5
+(5) line 1	ʔayʔaǰuθəm	phonetic	[ƛ̓ak̓ʷ]	page 5
+(5) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get turned off’	page 5
+(5) line 2	ʔayʔaǰuθəm	transcription	ƛ̓akʷit	page 5
+(5) line 2	ʔayʔaǰuθəm	phonetic	[ƛ̓a:k̓ʷit]	page 5
+(5) line 2	ʔayʔaǰuθəm	phonetic	H H	page 5, the pitch pattern
+(5) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘turned off’	page 5
+(5) line 3	ʔayʔaǰuθəm	transcription	kʷay-iš	page 5
+(5) line 3	ʔayʔaǰuθəm	phonetic	[kʷayɪš]	page 5
+(5) line 3	ʔayʔaǰuθəm	phonetic	H L	page 5, the pitch pattern
+(5) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hide s.t.’	page 5
+(5) line 4	ʔayʔaǰuθəm	transcription	kʷayit	page 5
+(5) line 4	ʔayʔaǰuθəm	phonetic	[kʷa:yɪt]	page 5
+(5) line 4	ʔayʔaǰuθəm	phonetic	H H	page 5, the pitch pattern
+(5) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hidden’	page 5
+(5) line 5	ʔayʔaǰuθəm	transcription	ǰaqʷ-aθut	page 5
+(5) line 5	ʔayʔaǰuθəm	phonetic	[ǰɛqʷaθot]	page 5
+(5) line 5	ʔayʔaǰuθəm	phonetic	H L M	page 5, the pitch pattern
+(5) line 5	Gloria Mellesmoen and Marianne Huijsmans	translation	‘warm oneself up’	page 5
+(5) line 6	ʔayʔaǰuθəm	transcription	ǰaqʷit	page 5
+(5) line 6	ʔayʔaǰuθəm	phonetic	[ǰa:qʷɛt]	page 5
+(5) line 6	ʔayʔaǰuθəm	phonetic	H H	page 5, the pitch pattern
+(5) line 6	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be warmed up’	page 5
+(5) line 7	ʔayʔaǰuθəm	transcription	ƛ̓um	page 5
+(5) line 7	ʔayʔaǰuθəm	phonetic	[ƛ̓om]	page 5
+(5) line 7	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get to be enough’	page 5
+(5) line 8	ʔayʔaǰuθəm	transcription	ƛ̓umit	page 5
+(5) line 8	ʔayʔaǰuθəm	phonetic	[ƛ̓o:mɛt]	page 5
+(5) line 8	ʔayʔaǰuθəm	phonetic	H H	page 5, the pitch pattern
+(5) line 8	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be enough/to fit’	page 5
+(5) line 9	ʔayʔaǰuθəm	transcription	χim-it	page 5
+(5) line 9	ʔayʔaǰuθəm	phonetic	[χɛmɛt]	page 5
+(5) line 9	ʔayʔaǰuθəm	phonetic	H L	page 5, the pitch pattern
+(5) line 9	Gloria Mellesmoen and Marianne Huijsmans	translation	‘scratch s.t.’	page 5
+(5) line 10	ʔayʔaǰuθəm	transcription	χimit	page 5
+(5) line 10	ʔayʔaǰuθəm	phonetic	[χɛ:mɛt]	page 5
+(5) line 10	ʔayʔaǰuθəm	phonetic	H H	page 5, the pitch pattern
+(5) line 10	Gloria Mellesmoen and Marianne Huijsmans	translation	‘scratched’	page 5
+(5) line 11	ʔayʔaǰuθəm	transcription	t̓ap	page 5
+(5) line 11	ʔayʔaǰuθəm	phonetic	[t̓ap]	page 5
+(5) line 11	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get beached’	page 5
+(5) line 12	ʔayʔaǰuθəm	transcription	t̓apit	page 5
+(5) line 12	ʔayʔaǰuθəm	phonetic	[t̓a:pɛt]	page 5
+(5) line 12	ʔayʔaǰuθəm	phonetic	H H	page 5, the pitch pattern
+(5) line 12	Gloria Mellesmoen and Marianne Huijsmans	translation	‘beached’	page 5
+(5) line 13	ʔayʔaǰuθəm	transcription	muƛ̓-ut	page 5
+(5) line 13	ʔayʔaǰuθəm	phonetic	[moƛ̓ot]	page 5
+(5) line 13	ʔayʔaǰuθəm	phonetic	H L	page 5, the pitch pattern
+(5) line 13	Gloria Mellesmoen and Marianne Huijsmans	translation	‘prop or wedge s.t.’	page 5
+(5) line 14	ʔayʔaǰuθəm	transcription	muƛ̓it	page 5
+(5) line 14	ʔayʔaǰuθəm	phonetic	[mo:ƛ̓ɛt]	page 5
+(5) line 14	ʔayʔaǰuθəm	phonetic	H H	page 5, the pitch pattern
+(5) line 14	Gloria Mellesmoen and Marianne Huijsmans	translation	‘propped/wedged’	page 5
+§2.2.1	Gloria Mellesmoen and Marianne Huijsmans	note	Roots of shape CəCC form statives with the infixation of -i- between the final two consonants. As with the previous stative forms, the second syllable bears raised pitch. This is shown in (6).	page 5
+(6)	Gloria Mellesmoen and Marianne Huijsmans	note	Bare CəCC Roots with Stative Morphology	page 5, the caption
+(6) line 1	ʔayʔaǰuθəm	transcription	č̓əyk̓	page 5
+(6) line 1	ʔayʔaǰuθəm	phonetic	[č̓ik̓]	page 5
+(6) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get fried’	page 5
+(6) line 2	ʔayʔaǰuθəm	transcription	č̓əǰ<i>k̓	page 5
+(6) line 2	ʔayʔaǰuθəm	phonetic	[č̓ɪǰɪk̓]	page 5
+(6) line 2	ʔayʔaǰuθəm	phonetic	H H	page 5, the pitch pattern
+(6) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘fried’	page 5
+(6) line 3	ʔayʔaǰuθəm	transcription	k̓əlt	page 5
+(6) line 3	ʔayʔaǰuθəm	phonetic	[k̓ɪlt]	page 5
+(6) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get hooked’	page 5
+(6) line 4	ʔayʔaǰuθəm	transcription	k̓əl<i>t	page 5
+(6) line 4	ʔayʔaǰuθəm	phonetic	[k̓ɛlɛt]	page 5
+(6) line 4	ʔayʔaǰuθəm	phonetic	H H	page 5, the pitch pattern
+(6) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hooked’	page 5
+(6) line 5	ʔayʔaǰuθəm	transcription	ƛəpxʷ	page 5
+(6) line 5	ʔayʔaǰuθəm	phonetic	[ƛəpxʷ]	page 5
+(6) line 5	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get broken’	page 5
+(6) line 6	ʔayʔaǰuθəm	transcription	ƛəp<i>xʷ	page 5
+(6) line 6	ʔayʔaǰuθəm	phonetic	[ƛəpɪxʷ]	page 5
+(6) line 6	ʔayʔaǰuθəm	phonetic	H H	page 5, the pitch pattern
+(6) line 6	Gloria Mellesmoen and Marianne Huijsmans	translation	‘broken’	page 5
+(6) line 7	ʔayʔaǰuθəm	transcription	məsq̓ʷ-at	page 5
+(6) line 7	ʔayʔaǰuθəm	phonetic	[məsq̓ʷat]	page 5
+(6) line 7	ʔayʔaǰuθəm	phonetic	H L	page 5, the pitch pattern
+(6) line 7	Gloria Mellesmoen and Marianne Huijsmans	translation	‘to soften s.t.’	page 5
+(6) line 8	ʔayʔaǰuθəm	transcription	məs<i>q̓ʷ	page 5
+(6) line 8	ʔayʔaǰuθəm	phonetic	[məsɛq̓ʷ]	page 5
+(6) line 8	ʔayʔaǰuθəm	phonetic	H H	page 5, the pitch pattern
+(6) line 8	Gloria Mellesmoen and Marianne Huijsmans	translation	‘softened’	page 5
+(6) line 9	ʔayʔaǰuθəm	transcription	p̓əƛš	page 5
+(6) line 9	ʔayʔaǰuθəm	phonetic	[p̓əƛš]	page 5
+(6) line 9	Gloria Mellesmoen and Marianne Huijsmans	translation	‘rise to the surface’	page 5
+(6) line 10	ʔayʔaǰuθəm	transcription	p̓əƛ<i>š	page 5
+(6) line 10	ʔayʔaǰuθəm	phonetic	[p̓əƛɪš]	page 5
+(6) line 10	ʔayʔaǰuθəm	phonetic	H H	page 5, the pitch pattern
+(6) line 10	Gloria Mellesmoen and Marianne Huijsmans	translation	‘floating at the surface’	page 5
+(6)	Gloria Mellesmoen and Marianne Huijsmans	note	(cont.)	page 6, the caption
+(6) line 1	ʔayʔaǰuθəm	transcription	pəqʷs	page 6
+(6) line 1	ʔayʔaǰuθəm	phonetic	[poqʷs]	page 6
+(6) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘fall into the water’	page 6
+(6) line 2	ʔayʔaǰuθəm	transcription	pəqʷ<i>s	page 6
+(6) line 2	ʔayʔaǰuθəm	phonetic	[poqʷɛs]	page 6
+(6) line 2	ʔayʔaǰuθəm	phonetic	H H	page 6, the pitch pattern
+(6) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘fallen into water’	page 6
+(6) line 3	ʔayʔaǰuθəm	transcription	mət̓k̓-at	page 6
+(6) line 3	ʔayʔaǰuθəm	phonetic	[mət̓k̓ɛt]	page 6
+(6) line 3	ʔayʔaǰuθəm	phonetic	HL	page 6, the pitch pattern
+(6) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘to squish s.t.’	page 6
+(6) line 4	ʔayʔaǰuθəm	transcription	mət̓<i>k̓	page 6
+(6) line 4	ʔayʔaǰuθəm	phonetic	[maʔt̓ɪk̓]	page 6
+(6) line 4	ʔayʔaǰuθəm	phonetic	H H	page 6, the pitch pattern
+(6) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘squished’	page 6
+§2.2.1	Gloria Mellesmoen and Marianne Huijsmans	note	Roots of the shape CVCC occur relatively less frequently in the language, and many of these roots are not eventive roots and therefore cannot be marked for stative aspect. When CVCC roots can co-occur with stative aspect, the -i- allomorph occurs between the final two consonants of the root and bears high pitch, as for CəCC roots. This is shown in (7). As with strong roots, the root vowel is lengthened.	page 6
+(7)	Gloria Mellesmoen and Marianne Huijsmans	note	Bare CVCC Roots with Stative Morphology	page 6, the caption
+(7) line 1	ʔayʔaǰuθəm	transcription	t̓ayš	page 6
+(7) line 1	ʔayʔaǰuθəm	phonetic	[t̓ayš]	page 6
+(7) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘cover with a blanket’	page 6
+(7) line 2	ʔayʔaǰuθəm	transcription	t̓ay<i>š	page 6
+(7) line 2	ʔayʔaǰuθəm	phonetic	[t̓a:yɪš]	page 6
+(7) line 2	ʔayʔaǰuθəm	phonetic	H H	page 6, the pitch pattern
+(7) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘covered with a blanket’	page 6
+(7) line 3	ʔayʔaǰuθəm	transcription	tayq	page 6
+(7) line 3	ʔayʔaǰuθəm	phonetic	[tayq]	page 6
+(7) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get moved’	page 6
+(7) line 4	ʔayʔaǰuθəm	transcription	tay<i>q	page 6
+(7) line 4	ʔayʔaǰuθəm	phonetic	[ta:yɪq]	page 6
+(7) line 4	ʔayʔaǰuθəm	phonetic	H H	page 6, the pitch pattern
+(7) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘moved’	page 6
+§2.2.2	Gloria Mellesmoen and Marianne Huijsmans	heading	2.2.2 Transitives	page 6
+§2.2.2	Gloria Mellesmoen and Marianne Huijsmans	note	When CVC roots with the control transitivizer are stativized, they are marked by raised pitch on the second syllable, as in (8). The root vowel is also longer in the stative form.	page 6
+(8)	Gloria Mellesmoen and Marianne Huijsmans	note	Strong Roots with Control Transitivizer and Stative Morphology	page 6, the caption
+(8) line 1	ʔayʔaǰuθəm	transcription	q̓ʷup-ut	page 6
+(8) line 1	ʔayʔaǰuθəm	phonetic	[q̓ʷopot]	page 6
+(8) line 1	ʔayʔaǰuθəm	phonetic	H L	page 6, the pitch pattern
+(8) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hold s.t.’	page 6
+(8) line 2	ʔayʔaǰuθəm	phonetic	[q̓ʷo:pot]	page 6, the stative of the form above
+(8) line 2	ʔayʔaǰuθəm	phonetic	H H	page 6, the pitch pattern
+(8) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘holding onto s.t.’	page 6
+(8) line 3	ʔayʔaǰuθəm	transcription	ǰuθ-ut	page 6
+(8) line 3	ʔayʔaǰuθəm	phonetic	[ǰuθot]	page 6
+(8) line 3	ʔayʔaǰuθəm	phonetic	H L	page 6, the pitch pattern
+(8) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘push s.t.’	page 6
+(8) line 4	ʔayʔaǰuθəm	phonetic	[ǰu:θot]	page 6, the stative of the form above
+(8) line 4	ʔayʔaǰuθəm	phonetic	H H	page 6, the pitch pattern
+(8) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hold s.t. in place by pushing’	page 6
+(8) line 5	ʔayʔaǰuθəm	transcription	ʔim-it	page 6
+(8) line 5	ʔayʔaǰuθəm	phonetic	[ʔɛmɛt]	page 6
+(8) line 5	ʔayʔaǰuθəm	phonetic	H L	page 6, the pitch pattern
+(8) line 5	Gloria Mellesmoen and Marianne Huijsmans	translation	‘step on s.t.’	page 6
+(8) line 6	ʔayʔaǰuθəm	phonetic	[ʔɛ:mɛt]	page 6, the stative of the form above
+(8) line 6	ʔayʔaǰuθəm	phonetic	H H	page 6, the pitch pattern
+(8) line 6	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hold s.t. in place by stepping on it’	page 6
+(8) line 7	ʔayʔaǰuθəm	transcription	ƛ̓it̓ᶿ-it	page 6
+(8) line 7	ʔayʔaǰuθəm	phonetic	[ƛ̓ɛt̓ᶿɛt]	page 6
+(8) line 7	ʔayʔaǰuθəm	phonetic	H L	page 6, the pitch pattern
+(8) line 7	Gloria Mellesmoen and Marianne Huijsmans	translation	‘push s.t. down’	page 6
+(8) line 8	ʔayʔaǰuθəm	phonetic	[ƛ̓ɛ:t̓ᶿɛt]	page 6, the stative of the form above
+(8) line 8	ʔayʔaǰuθəm	phonetic	H H	page 6, the pitch pattern
+(8) line 8	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hold s.t. down by pushing ’	page 6
+§2.2.2	Gloria Mellesmoen and Marianne Huijsmans	note	The stative form of control transitives with weak roots have -i- preceding the control transitivizer (which would not normally be preceded by a link vowel since these are weak roots). As observed with the previous stative forms, the -i- bears raised pitch, as in (9).	page 6
+(9)	Gloria Mellesmoen and Marianne Huijsmans	note	Weak Roots with Control Transitivizer and Stative Morphology	page 7, the caption
+(9) line 1	ʔayʔaǰuθəm	transcription	k̓ʷə-t	page 7
+(9) line 1	ʔayʔaǰuθəm	phonetic	[k̓ʷʊt]	page 7
+(9) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘see s.t.’	page 7
+(9) line 2	ʔayʔaǰuθəm	transcription	k̓ʷən-it	page 7
+(9) line 2	ʔayʔaǰuθəm	phonetic	[k̓ʷʊnɛt]	page 7
+(9) line 2	ʔayʔaǰuθəm	phonetic	H H	page 7, the pitch pattern
+(9) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘look at s.t.’	page 7
+(9) line 3	ʔayʔaǰuθəm	transcription	qəp-t	page 7
+(9) line 3	ʔayʔaǰuθəm	phonetic	[qəpt]	page 7
+(9) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘touch s.t.’	page 7
+(9) line 4	ʔayʔaǰuθəm	transcription	qəp-it	page 7
+(9) line 4	ʔayʔaǰuθəm	phonetic	[qəpɛt]	page 7
+(9) line 4	ʔayʔaǰuθəm	phonetic	H H	page 7, the pitch pattern
+(9) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be touching/feeling s.t.’	page 7
+(9) line 5	ʔayʔaǰuθəm	transcription	həqʷ-t	page 7
+(9) line 5	ʔayʔaǰuθəm	phonetic	[hoqʷt]	page 7
+(9) line 5	Gloria Mellesmoen and Marianne Huijsmans	translation	‘smell s.t.’	page 7
+(9) line 6	ʔayʔaǰuθəm	transcription	həqʷ-it	page 7
+(9) line 6	ʔayʔaǰuθəm	phonetic	[hoqʷɛt]	page 7
+(9) line 6	ʔayʔaǰuθəm	phonetic	H H	page 7, the pitch pattern
+(9) line 6	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be smelling s.t.’	page 7
+§2.2.2	Gloria Mellesmoen and Marianne Huijsmans	note	The stative form of non-control predicates is marked by raised pitch, as shown in (10). The vowel in the transitivizer behaves like the full vowel in the control transitive cases in (8). We follow Mellesmoen (2017) in analyzing the final xʷ as an overt third person object suffix.	page 7
+§2.2.2	ʔayʔaǰuθəm	cited form	xʷ	page 7, in italics
+(10)	Gloria Mellesmoen and Marianne Huijsmans	note	Non-Control Transitivizer and Stative Morphology	page 7, the caption
+(10) line 1	ʔayʔaǰuθəm	transcription	yəp̓-u-xʷ	page 7
+(10) line 1	ʔayʔaǰuθəm	phonetic	[yɛp̓oxʷ]	page 7
+(10) line 1	ʔayʔaǰuθəm	phonetic	H H	page 7, the pitch pattern
+(10) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	`have broken s.t. '	page 7
+(10) line 2	ʔayʔaǰuθəm	transcription	pəχ-u-xʷ	page 7
+(10) line 2	ʔayʔaǰuθəm	phonetic	[paχoxʷ]	page 7
+(10) line 2	ʔayʔaǰuθəm	phonetic	H H	page 7, the pitch pattern
+(10) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	`have ripped s.t. '	page 7
+(10) line 3	ʔayʔaǰuθəm	transcription	pən-u-xʷ	page 7
+(10) line 3	ʔayʔaǰuθəm	phonetic	[panoxʷ]	page 7
+(10) line 3	ʔayʔaǰuθəm	phonetic	H H	page 7, the pitch pattern
+(10) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	`have buried'	page 7
+(10) line 4	ʔayʔaǰuθəm	transcription	ʔaq̓-u-xʷ	page 7
+(10) line 4	ʔayʔaǰuθəm	phonetic	[ʔaq̓oxʷ]	page 7
+(10) line 4	ʔayʔaǰuθəm	phonetic	H H	page 7, the pitch pattern
+(10) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	`have caught'	page 7
+§3	Gloria Mellesmoen and Marianne Huijsmans	heading	3 Analysis	page 7
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	heading	3.1 First Pass Analysis of Allomorph Selection	page 7
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	note	One of the key components of our analysis, couched in Optimality Theory (Smolensky and Prince 1993), is the use of listed allomorphs, in the style of Mascaró (2007). In this approach, potential allomorphs can be ordered in a preference relation, such that one allomorph is ranked higher, and thus is more optimal, than others. Violation marks are assigned under a Priority constraint, given in (11), for candidates that have any allomorph other than the highest ranked one.7	page 7
+footnote 7	Gloria Mellesmoen and Marianne Huijsmans	note	Mascaró (2007) argues that this constraint is gradient, such that the Priority constraint may assign multiple violation marks if there are more than two potential allomorphs. Choosing the allomorph ranked second will result in one violation mark under this constraint, while the third ranked one will have two. The violation marks are therefore assessed as the distance of the chosen allomorph from the preferred one. In our analysis, we assume two ranked allomorphs and therefore Priority will maximally incur one violation in each form.	page 7, footnote 7
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	name	Prince	Alan Prince
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	name	Smolensky	Paul Smolensky; Smolensky and Prince (1993)
+(11)	Gloria Mellesmoen and Marianne Huijsmans	note	Priority Constraint (Mascaró 2007:726)	page 7, the caption
+(11) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	Priority Respect lexical priority (ordering)	page 7
+(11) line 2	Gloria Mellesmoen and Marianne Huijsmans	note	Given an input containing allomorphs m1, m2, ..., mn, and a candidate mi’,	page 7
+(11) line 3	Gloria Mellesmoen and Marianne Huijsmans	note	where mi’ is in correspondence with mi, Priority assigns as many violation	page 7
+(11) line 4	Gloria Mellesmoen and Marianne Huijsmans	note	marks as the depth of ordering between mi and the highest dominating morph(s).	page 7
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	note	The Priority constraint accounts for the choice between the -it suffix and the -i- infix allomorphs of the stative. This alternation is most clear in the comparison of the bare roots.8 The choice between -it and -i- appears to be phonologically conditioned, such that the -it allomorph is found with the CVC roots, while the CVCC roots take the -i- infix between the final two consonants. The difference in position (suffixal vs. infixal) is motivated by a constraint against vowel-final stems. The Final- CStem constraint in (12) plays a role in determining the choice of allomorph and position of the stative morpheme.9	page 7
+footnote 8	Gloria Mellesmoen and Marianne Huijsmans	note	See Section 3.3.2 for an explanation of the parallel situation with causative statives, which select -it with roots of shape CVC and -i- for those of shape CVCC.	page 7, footnote 8
+footnote 9	Gloria Mellesmoen and Marianne Huijsmans	note	This constraint is worded in a manner that is consistent with the other alignment constraints in this paper, which are assessed in a gradient fashion. However, all syllables in ʔayʔaǰuθəm must have an onset, meaning that adjacent vowels do not occur and therefore this constraint is never violated more than once.	page 8, footnote 9
+(12)	Gloria Mellesmoen and Marianne Huijsmans	note	Final-CStem Constraint: Align(Stem, Right, Consonant, Right)	page 8, the caption
+(12) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	Final-CStem The right edge of a stem must align with the right edge of a consonant.	page 8
+(12) line 2	Gloria Mellesmoen and Marianne Huijsmans	note	Assign a violation mark for every segment between the right edge of a	page 8
+(12) line 3	Gloria Mellesmoen and Marianne Huijsmans	note	stem and the right edge of a consonant.	page 8
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	note	This is a modification of the Final-C constraint in McCarthy and Prince (1994:22), which is an alignment constraint that states that every right edge of a prosodic word should align with the right edge of a consonant. Any prosodic word that ends in a vowel will incur a violation mark under this Final-C constraint.	page 8
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	name	McCarthy	John J. McCarthy; McCarthy and Prince (1994, 1995)
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	note	There is crosslinguistic support in the Salish literature for this type of constraint. Urbancyzk (2001:63) proposes a similar constraint to account for the phonology of Lushootseed, another Salish language. She argues that a C-Final-Root constraint is active in C2 reduplication (which yields a -VC- shaped ‘out of control’ infix, ensuring that the final segment in a root will be a consonant. Dyck (2004:71) also employs this constraint in her analysis of the basic root shape in Squamish. We adopt a similar approach in this paper, though we refer to a morphological stem instead of the root.10 Watanabe (2003:167) includes the root, reduplicative processes, lexical suffixes, indirective and relational affixes, and markers of transitivity within the stem. Given that the stative marker is often infixed into the root or into a transitivizer, we assume that stative aspect is within the morphological stem in ʔayʔaǰuθəm as well.	page 8
+footnote 10	Gloria Mellesmoen and Marianne Huijsmans	note	It is worth acknowledging that an undominated Onset constraint requires syllable onsets and means that stem-final consonants will necessarily be resyllabified as an onset proceeding a vowel-initial suffix (such as subject affixes). However, Czaykowska-Higgins (1998:154) considers object and subject morphology as part of the phonological stem in her analysis of Nxaʔamxcín, but posits that they are outside of the morphological stem. A similar assumption can be adopted for ʔayʔaǰuθəm. The Final-CStem constraint makes reference to the morphological stem, not the phonological one. Therefore, a consonant may be stem-final in the morphological word, but still be parsed as an onset with following material in the phonological word.	page 8, footnote 10
+footnote 10	Gloria Mellesmoen and Marianne Huijsmans	name	Czaykowska-Higgins	Ewa Czaykowska-Higgins (1998)
+footnote 10	Gloria Mellesmoen and Marianne Huijsmans	language	Nxaʔamxcín	the phonological stem (Czaykowska-Higgins 1998)
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	name	Dyck	Ruth Anne Dyck, Squamish stress (2004)
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	name	Urbancyzk	Urbanczyk (2001), so spelled
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	language	Lushootseed	a C-Final-Root constraint (Urbanczyk 2001)
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	language	Squamish	root shape (Dyck 2004)
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	note	The tableau in (13) shows how the combination of the Priority and the Final-CStem constraints predict the correct allomorph (13b) with (bare) CVCC roots by eliminating the candidate (13a) that selects the lower ranked stative allomorph (-it) and the one (13c) that chooses the preferred (-i-) allomorph but places it on the right edge, resulting in a vowel-final stem. The winning candidate (13b) is the one that selects the preferred stative allomorph (-i-) and positions it before the final consonant, avoiding a vowel-final stem.11	page 8
+footnote 11	Gloria Mellesmoen and Marianne Huijsmans	note	Morphological stem boundaries are unmarked in the tableaux as they align with the end of the prosodic word in the examples given in this section. The position of the boundary is discussed when considering the causative statives in Section 4.	page 8, footnote 11
+(13)	Gloria Mellesmoen and Marianne Huijsmans	note	Stative Allomorphy (-i-) with Bare CVCC Roots	page 9, the caption
+(13) line 1	ʔayʔaǰuθəm	phonemic	t̓ayš + (i1 > it2)	page 9, the input
+(13) line 2	Gloria Mellesmoen and Marianne Huijsmans	note	Priority Final-CStem	page 9, the constraint heads
+(13) line 3	ʔayʔaǰuθəm	phonemic	t̓ayšit2	page 9, candidate (13a)
+(13) line 4	Gloria Mellesmoen and Marianne Huijsmans	note	*!	page 9, the violation marks of (13a) in the order printed
+(13) line 5	ʔayʔaǰuθəm	phonemic	t̓ayiš1	page 9, candidate (13b), the winner, printed with the pointing hand ☞
+(13) line 6	ʔayʔaǰuθəm	phonemic	t̓ayši1	page 9, candidate (13c)
+(13) line 7	Gloria Mellesmoen and Marianne Huijsmans	note	*!	page 9, the violation marks of (13c) in the order printed
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	note	Migration of the stative morpheme further leftward into the root is blocked by high ranked con- straints on onsets; every syllable must have an onset and clusters may not occupy an onset position.12 The constraints on onsets are given in (14) and paired with the basic faithfulness constraints Dep and Max (McCarthy and Prince 1995), which are violated when segments are epenthesized or deleted.13	page 9
+footnote 12	Gloria Mellesmoen and Marianne Huijsmans	note	The /st/ sequence in the causative transitivizer is an exception and may sometimes form a complex onset (Blake 2000).	page 9, footnote 12
+footnote 13	Gloria Mellesmoen and Marianne Huijsmans	note	Note that the stative allomorph is considered to be present in the input, meaning that either -i- or -it can be chosen and Dep will not be violated because the output form of the stative morpheme is in correspondence with the underlying form of the selected allomorph in the input. It is, however, affected by Max if elements of the chosen morpheme are present in the input but not the output. Thus, selecting the -it allomorph and realizing it as [i] would be a Max violation.	page 9, footnote 13
+(14)	Gloria Mellesmoen and Marianne Huijsmans	note	Main Faithfulness and Onset-Related Constraints	page 9, the caption
+(14) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	Onset All syllables must have an onset. Assign a violation mark for any syllable	page 9
+(14) line 2	Gloria Mellesmoen and Marianne Huijsmans	note	that does not have an onset.	page 9
+(14) line 3	Gloria Mellesmoen and Marianne Huijsmans	note	* Complex Syllables may only have one segment in the onset position. Assign a	page 9
+(14) line 4	Gloria Mellesmoen and Marianne Huijsmans	note	violation mark for every onset consisting of two or more segments.	page 9
+(14) line 5	Gloria Mellesmoen and Marianne Huijsmans	note	Dep All segments in the output have a correspondent in the input. Assign a	page 9
+(14) line 6	Gloria Mellesmoen and Marianne Huijsmans	note	violation mark for every segment in the output that does not have a	page 9
+(14) line 7	Gloria Mellesmoen and Marianne Huijsmans	note	correspondent in the input.	page 9
+(14) line 8	Gloria Mellesmoen and Marianne Huijsmans	note	Max All segments in the input have a correspondent in the output. Assign a	page 9
+(14) line 9	Gloria Mellesmoen and Marianne Huijsmans	note	violation mark for every segment in the input that does not have a	page 9
+(14) line 10	Gloria Mellesmoen and Marianne Huijsmans	note	correspondent in the output.	page 9
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	note	The tableau in (15) demonstrates how the stative form of a bare CVC root is derived when the root vowel is full. All of the candidates that select the preferred allomorph incur fatal violations. A candidate with a final vowel is eliminated under Final-Cstem (candidate 15b) and one with vowel hiatus is eliminated under Onset (candidate 15c). While vowel hiatus and stem-final vowels are avoided, deletion of the stative morpheme results in a fatal violation of Max (candidate 15e) and epenthesis of a glottal stop results in a fatal violation of Dep (candidate 15a). Note that violations of the faithfulness constraints Max and Dep are assessed between the input form of the stative allomorph that stands in correspondence to the output candidate.	page 9
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	note	The attested candidate (15d) selects the less preferred allomorph, violating Priority, indicating that this constraint is ranked lower than the others. A preliminary ranking of the constraints is given in (16).	page 9
+(15)	Gloria Mellesmoen and Marianne Huijsmans	note	Stative Allomorphy with a strong (CVC) Root	page 10, the caption
+(15) line 1	ʔayʔaǰuθəm	phonemic	ƛ̓um + {i1 > it2}	page 10, the input
+(15) line 2	Gloria Mellesmoen and Marianne Huijsmans	note	Dep Max Onset *Complex Final-CStem Priority	page 10, the constraint heads
+(15) line 3	ʔayʔaǰuθəm	phonemic	ƛ̓uʔim1	page 10, candidate (15a)
+(15) line 4	Gloria Mellesmoen and Marianne Huijsmans	note	*!	page 10, the violation marks of (15a) in the order printed
+(15) line 5	ʔayʔaǰuθəm	phonemic	ƛ̓umi1	page 10, candidate (15b)
+(15) line 6	Gloria Mellesmoen and Marianne Huijsmans	note	*!	page 10, the violation marks of (15b) in the order printed
+(15) line 7	ʔayʔaǰuθəm	phonemic	ƛ̓uim1	page 10, candidate (15c)
+(15) line 8	Gloria Mellesmoen and Marianne Huijsmans	note	*!	page 10, the violation marks of (15c) in the order printed
+(15) line 9	ʔayʔaǰuθəm	phonemic	ƛ̓umit2	page 10, candidate (15d), the winner, printed with the pointing hand ☞
+(15) line 10	Gloria Mellesmoen and Marianne Huijsmans	note	*	page 10, the violation marks of (15d) in the order printed
+(15) line 11	ʔayʔaǰuθəm	phonemic	ƛ̓um1	page 10, candidate (15e)
+(15) line 12	Gloria Mellesmoen and Marianne Huijsmans	note	*!	page 10, the violation marks of (15e) in the order printed
+(16)	Gloria Mellesmoen and Marianne Huijsmans	note	Preliminary Constraint Ranking	page 10, the caption
+(16) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	Dep, Max, Onset, *Complex, Final-CStem » Priority	page 10
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	note	As shown in (17), the constraints and ranking given thus far do not predict the correct shape of the stative allomorph with weak roots, assuming that these roots have no vowel in the underlying form as in Blake 2000. In our approach, the /ə/ in the surface form must be taken as epenthetic, resulting in a violation of Dep. However, if the stative morpheme may be an infix and the /i/ variant is preferred, all else being equal, it is unclear why weak roots of the shape CVC do not surface as CiC, with the stative vowel surfacing instead of a schwa. In other words, the current constraints do not predict the attested form (candidate 17a) when the stative morpheme is combined with a weak root. The stative morpheme appears to provide an alternate vowel in (17b) that does not violate Dep.	page 10
+(17)	Gloria Mellesmoen and Marianne Huijsmans	note	Stative Allomorphy with a Weak (CVC) Root	page 10, the caption
+(17) line 1	ʔayʔaǰuθəm	phonemic	/k̓p + (i1 > it2)/	page 10, the input
+(17) line 2	Gloria Mellesmoen and Marianne Huijsmans	note	Dep * Complex Max Onset Final-CStem Priority	page 10, the constraint heads
+(17) line 3	ʔayʔaǰuθəm	phonemic	k̓əpit2	page 10, candidate (17a), the attested form the ranking does not choose, printed with ☹
+(17) line 4	Gloria Mellesmoen and Marianne Huijsmans	note	*! *	page 10, the violation marks of (17a) in the order printed
+(17) line 5	ʔayʔaǰuθəm	phonemic	k̓ip1	page 10, candidate (17b), the winner, printed with the pointing hand ☞
+§3.1	Gloria Mellesmoen and Marianne Huijsmans	note	This suggests that there are further generalizations that must be captured. In the next section, we incorporate suprasegmental patterns to provide a unified analysis of stative allomorphy.	page 10
+§3.2	Gloria Mellesmoen and Marianne Huijsmans	heading	3.2 Analysis of Suprasegmental Phenomena	page 10
+§3.2	Gloria Mellesmoen and Marianne Huijsmans	note	As discussed in Section 2, one of the realizations of stative aspect is exclusively raised pitch, without accompanying segmental content. In transitive predicates with strong (full vowel) roots, such as ǰuθut, stative morphology surfaces as raised pitch on both the transitivizer vowel, and the root vowel, without additional segmental content.	page 10
+§3.2	ʔayʔaǰuθəm	cited form	ǰuθut	page 10, in italics
+§3.2	Gloria Mellesmoen and Marianne Huijsmans	note	The initial syllable of any word in ʔayʔaǰuθəm receives high pitch, as stress is phonologically predictable and invariably falls on the initial syllable (Blake 2000:168). The result of this is that raised pitch occurs on adjacent syllables when a word is marked for stative aspect.14	page 10
+footnote 14	Gloria Mellesmoen and Marianne Huijsmans	note	Watanabe (2003:25) discusses secondary stress as a marker of stative aspect, resulting in contrastive pitch and “stress clash” with the control transitive predicates. Stress and pitch are not necessarily in a one-to-one relationship: Davis (1970:21) notes that raised pitch can be independent of stress. We have documented cases where raised pitch appears to be independent of other correlates of prominence. An example of this is the stative forms of weak CVC roots, which seem to be parsed as a single foot, in contrast to the stative in com- bination with strong CVC roots, which Blake (2000:111) represents with two bimoraic feet (each consisting of a single stressed syllable).	page 10, footnote 14
+§3.2	Gloria Mellesmoen and Marianne Huijsmans	note	In order to analyze this tonal pattern, first, we posit a %H boundary tone at the left edge of the prosodic word, which results in invariably raised pitch on the initial syllable in a word.15 We further observe that raised pitch is associated with the second syllable in stative predicates, including the intransitive ones, even where segmental material is also present. The alignment constraint in (18) motivates the assignment of H tone toward the left edge of the word. This is consistent with the fact that the language has fixed initial stress, given that (based on impressionistic description) raised pitch is the most salient acoustic correlate of stress (Watanabe 2003).	page 11
+footnote 15	Gloria Mellesmoen and Marianne Huijsmans	note	Additional constraints could be posited to account for the assignment of fixed-initial stress, but we omit those at present.	page 11, footnote 15
+§3.2	Gloria Mellesmoen and Marianne Huijsmans	note	The Align-LH constraint can also be used to account for high tone in stative forms, given that the first two syllables bear raised pitch. Assuming that there are two H tones in the stative forms (the default one and one introduced by the stative morpheme), it appears that H tone falls on the leftmost available syllable. This yields a situation where the leftmost two syllables bear high tone, despite being adjacent, regardless of how many other syllables are in the word.	page 11
+(18)	Gloria Mellesmoen and Marianne Huijsmans	note	High Tone Alignment Constraint: Align(σH, Left, PrWd, Left)	page 11, the caption
+(18) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	Align-LH A high tone syllable must be aligned to the left edge of a word.	page 11
+(18) line 2	Gloria Mellesmoen and Marianne Huijsmans	note	Assign a violation mark for every syllable between the left edge of a	page 11
+(18) line 3	Gloria Mellesmoen and Marianne Huijsmans	note	syllable with high tone and the left edge of a word.	page 11
+§3.2	Gloria Mellesmoen and Marianne Huijsmans	note	Together with (19), the constraints in (20) below account for the assignment of tone. The *NoFloat constraint penalizes candidates which have an unassociated (floating) tone, while MaxH assigns violation marks for any H tone in the input that is not also in the output. The combination of these constraints, when high ranked, results in a preference for candidates that retain input H tone and associate it with some syllable in the output. The constraint * Mult-Link is violated by candidates which have multiple tones associated with the same syllable. This prohibits situations where contour tones are created or where two tones both associate with the first syllable to satisfy Align-LH.	page 11
+(19)	Gloria Mellesmoen and Marianne Huijsmans	note	Tone Constraints:	page 11, the caption
+(19) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	*Float A tone must be associated with a syllable .	page 11
+(19) line 2	Gloria Mellesmoen and Marianne Huijsmans	note	(Meyers 1997)	page 11
+(19) line 3	Gloria Mellesmoen and Marianne Huijsmans	note	MaxH All high tones in the input have a correspondent	page 11
+(19) line 4	Gloria Mellesmoen and Marianne Huijsmans	note	in the output.	page 11
+(19) line 5	Gloria Mellesmoen and Marianne Huijsmans	note	Assign a violation mark for every high tone in the	page 11
+(19) line 6	Gloria Mellesmoen and Marianne Huijsmans	note	input that does not have a correspondent	page 11
+(19) line 7	Gloria Mellesmoen and Marianne Huijsmans	note	in the output.	page 11
+(19) line 8	Gloria Mellesmoen and Marianne Huijsmans	note	No-Multiple-Link (* Mult-Link) Syllables may only be linked to one tone. Assign	page 11
+(19) line 9	Gloria Mellesmoen and Marianne Huijsmans	note	a violation mark for any syllable linked to more	page 11
+(19) line 10	Gloria Mellesmoen and Marianne Huijsmans	note	than one tone. (e.g. Rubach 2000)	page 11
+§3.2	Gloria Mellesmoen and Marianne Huijsmans	note	Returning to the question of allomorph selection raised in Section 3.1 and the issue with weak bare roots, the suprasegmental generalizations regarding H tone provide a solution. The stative forms have minimally two H tones in the input: one boundary tone %H and one H tone that is associated with the stative morpheme. Though the initial constraint ranking in Section 3.1 predicted that a mono-syllabic form *k̓ip should be optimal, the suprasegmental constraints in (19) and (20) successfully rule it out.	page 12
+§3.2	ʔayʔaǰuθəm	cited form	*k̓ip	page 12, in italics
+§3.2	Gloria Mellesmoen and Marianne Huijsmans	note	The tableau in (20) shows the derivation of the weak CVC root k̓əp ‘get cut’ with stative mor- phology. The inclusion of the suprasegmental information (H tone) predicts the attested form. Can- didates (20b), (20c), and (20e) all involve the infixation of the stative allomorph into the root. The relevant constraints eliminate these candidates for having an unassociated H tone in (20b), having a single syllable linked to two H tones in (20c), and for the outright deletion of a H tone in (20d). Candidate (20e) fares well on the constraints targeting tone, as it has two H tones associated with unique syllables, but it fatally violates the Final-CStem constraint. The result is that the attested candidate (21a), which epenthesizes /ə/ into the root and selects the less preferred allomorph (vio- lating Priority) is the optimal candidate. This solves the issue regarding schwa posed by a purely segmental analysis and indicates that the raised pitch found in stative predicates plays a key role in determining allomorph selection.	page 12
+§3.2	ʔayʔaǰuθəm	cited form	k̓əp	page 12, in italics, ‘get cut’
+(20)	Gloria Mellesmoen and Marianne Huijsmans	note	Stative Allomorphy with a Weak (CVC) Root (Revised)	page 12, the caption
+(20) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	%H H H	page 12, the tones over the input
+(20) line 2	ʔayʔaǰuθəm	phonemic	k̓p+(i1>it2)	page 12, the input
+(20) line 3	Gloria Mellesmoen and Marianne Huijsmans	note	*Float, * Mult-Link, MaxH, Final-CStem, Dep, Priority, Max, Align-LH	page 12, the constraint heads, set on their side and read off the render
+(20) line 4	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 12, the tones linked over the candidate under
+(20) line 5	ʔayʔaǰuθəm	phonemic	k̓əpit2	page 12, candidate (20a), the winner, printed with the pointing hand ☞
+(20) line 6	Gloria Mellesmoen and Marianne Huijsmans	note	* * *	page 12, the violation marks of (20a) in the order printed
+(20) line 7	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 12, the tones linked over the candidate under
+(20) line 8	ʔayʔaǰuθəm	phonemic	k̓ip1	page 12, candidate (20b)
+(20) line 9	Gloria Mellesmoen and Marianne Huijsmans	note	*!	page 12, the violation marks of (20b) in the order printed
+(20) line 10	Gloria Mellesmoen and Marianne Huijsmans	note	H	page 12, the tones linked over the candidate under
+(20) line 11	ʔayʔaǰuθəm	phonemic	k̓ip1	page 12, candidate (20c)
+(20) line 12	Gloria Mellesmoen and Marianne Huijsmans	note	*!	page 12, the violation marks of (20c) in the order printed
+(20) line 13	Gloria Mellesmoen and Marianne Huijsmans	note	H	page 12, the tones linked over the candidate under
+(20) line 14	ʔayʔaǰuθəm	phonemic	k̓ip1	page 12, candidate (20d)
+(20) line 15	Gloria Mellesmoen and Marianne Huijsmans	note	*!	page 12, the violation marks of (20d) in the order printed
+(20) line 16	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 12, the tones linked over the candidate under
+(20) line 17	ʔayʔaǰuθəm	phonemic	k̓əpi1	page 12, candidate (20e)
+(20) line 18	Gloria Mellesmoen and Marianne Huijsmans	note	*! * *	page 12, the violation marks of (20e) in the order printed
+(21)	Gloria Mellesmoen and Marianne Huijsmans	note	Revized Preliminary Constraint Ranking	page 13, the caption
+(21) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	* Float, * Mult-Link, MaxH, Final-CStem » Dep » Priority » Max » Align-LH	page 13
+§3.2	Gloria Mellesmoen and Marianne Huijsmans	note	The ranking in (21) can be applied to the control transitive stative forms with weak roots, such as k̓ʷənit ‘to look at’, which also have a [HH] pitch pattern. The Priority constraint ends up being fundamental in selecting the attested form. This is demonstrated in (22). A candidate (22f) that selects the preferred allomorph and positions it as an infix, creating a single syllable, fatally violates * Float.16 The candidate with a stem-final vowel (22e) fatally violates the Final-CStem constraint. The three candidates (22a,b,d) that select the less preferred allomorph (-it) incur violation marks under Priority, leaving the attested candidate (22c) as the most optimal candidate due to the selection of -i-.	page 13
+footnote 16	Gloria Mellesmoen and Marianne Huijsmans	note	Other variations of this candidate are assume to be eliminated as well, including one that deletes the extra H tone (* under MaxH) or one that links both H tones to the single vowel (* under * Mult-Link).	page 13, footnote 16
+§3.2	ʔayʔaǰuθəm	cited form	k̓ʷənit	page 13, in italics, ‘to look at’
+(22)	Gloria Mellesmoen and Marianne Huijsmans	note	Stative Allomorphy with a Weak (CVC) Root and a Transitivizer	page 13, the caption
+(22) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	%H H H	page 13, the tones over the input
+(22) line 2	ʔayʔaǰuθəm	phonemic	k̓ʷn+(i1>it2)+t	page 13, the input
+(22) line 3	Gloria Mellesmoen and Marianne Huijsmans	note	*Float, * Mult-Link, MaxH, Final-CStem, Dep, Priority, Max, Align-LH	page 13, the constraint heads, set on their side and read off the render
+(22) line 4	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 13, the tones linked over the candidate under
+(22) line 5	ʔayʔaǰuθəm	phonemic	k̓ʷənit2	page 13, candidate (22a)
+(22) line 6	Gloria Mellesmoen and Marianne Huijsmans	note	* *! * *	page 13, the violation marks of (22a) in the order printed
+(22) line 7	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 13, the tones linked over the candidate under
+(22) line 8	ʔayʔaǰuθəm	phonemic	k̓ʷənitt2	page 13, candidate (22b)
+(22) line 9	Gloria Mellesmoen and Marianne Huijsmans	note	* *! *	page 13, the violation marks of (22b) in the order printed
+(22) line 10	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 13, the tones linked over the candidate under
+(22) line 11	ʔayʔaǰuθəm	phonemic	k̓ʷənit1	page 13, candidate (22c), the winner, printed with the pointing hand ☞
+(22) line 12	Gloria Mellesmoen and Marianne Huijsmans	note	* *	page 13, the violation marks of (22c) in the order printed
+(22) line 13	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 13, the tones linked over the candidate under
+(22) line 14	ʔayʔaǰuθəm	phonemic	k̓ʷəntit2	page 13, candidate (22d)
+(22) line 15	Gloria Mellesmoen and Marianne Huijsmans	note	* *! *	page 13, the violation marks of (22d) in the order printed
+(22) line 16	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 13, the tones linked over the candidate under
+(22) line 17	ʔayʔaǰuθəm	phonemic	k̓ʷənti1	page 13, candidate (22e)
+(22) line 18	Gloria Mellesmoen and Marianne Huijsmans	note	*! * *	page 13, the violation marks of (22e) in the order printed
+(22) line 19	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 13, the tones linked over the candidate under
+(22) line 20	ʔayʔaǰuθəm	phonemic	k̓ʷint1	page 13, candidate (22f)
+(22) line 21	Gloria Mellesmoen and Marianne Huijsmans	note	*!	page 13, the violation marks of (22f) in the order printed
+§3.2	Gloria Mellesmoen and Marianne Huijsmans	note	Our analysis thus far accounts for the choice of stative allomorph with bare roots and with control transitive statives formed from weak roots. The next step is to extend the analysis to capture the patterns described for the transitive statives built on strong roots given in Section 2, such as ǰuθut ‘to push s.t.’. In ǰuθut, there is no segmental material associated with the stative morpheme, though the raised pitch remains. The MaxH constraint indirectly ensures that a contrast is maintained between non-stative and stative control forms even when they lack segmental content. In addition, we propose the alignment constraint in (23) to account for why the vowel from the control transitivizer is retained instead of the stative -i-.17 This constraint assigns a violation mark for every segment between the left edge of the stative morpheme and the right edge of the stem. This is assessed in a gradient manner. Importantly, the constraint in (23) will be vacuously satisfied by candidates where the stative aspect is reflected only by raised pitch, because there is no segmental content separating it from the right edge of the stem.18	page 13
+footnote 17	Gloria Mellesmoen and Marianne Huijsmans	note	A possible alternative constraint is MaxTr. This would be defined as: “All segments associated with a transitivizer in the input have a correspondent in the output. Assign a violation mark for every high tone in the input that does not have a correspondent in the output.”	page 14, footnote 17
+footnote 18	Gloria Mellesmoen and Marianne Huijsmans	note	It is possible that (24), in combination with other constraints, might also be able to account for allomorph selection, since ranked allomorphs may not be needed for the examples considered so far, given that this alignment constraint penalizes the longer allomorph more harshly than the shorter one, which has a similar result to the ranking of listed allomorphs: /i/ is going to fare better under this constraint than /it/. Listed allomorphs are still necessary though and ranking them may prove crucial to derive the causative patterns.	page 14, footnote 18
+(23)	Gloria Mellesmoen and Marianne Huijsmans	note	Stative Morpheme Alignment Constraint: Align(Stative, Left, Stem, Right):	page 14, the caption
+(23) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	Align-RStative The left edge of a stative morpheme must be aligned to the right edge	page 14
+(23) line 2	Gloria Mellesmoen and Marianne Huijsmans	note	of the stem. Assign a violation mark for every segment between the left	page 14
+(23) line 3	Gloria Mellesmoen and Marianne Huijsmans	note	edge of the stative morpheme and the right edge of the stem.	page 14
+§3.2	Gloria Mellesmoen and Marianne Huijsmans	note	All these constraints can be brought together to account for strong root control transitive statives, which represent the most complicated pattern of stative allomorphy.19 The derivation of the strong root control stative ǰuθut ‘to push s.t.’ is shown in (24). The attested candidate (24a) has high tone associated with both the initial and the second syllable, which contrasts with a HL eventive form. The other candidates (24b–d), which retain segmental content for the stative morpheme, fatally violate the Align-RStative constraint.	page 14
+footnote 19	Gloria Mellesmoen and Marianne Huijsmans	note	We omit some of the high ranked constraints covered in Section 3.1. The constraints * Complex and Onset are still in effect. In addition to this, we set aside the high ranked * Float, * Mult-Link, and MaxH constraints.	page 14, footnote 19
+(24)	Gloria Mellesmoen and Marianne Huijsmans	note	Control Transitivizer with Stative Morphology	page 15, the caption
+(24) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	%H H H	page 15, the tones over the input
+(24) line 2	ʔayʔaǰuθəm	phonemic	ǰuθ+(i1>it2)+ut	page 15, the input
+(24) line 3	Gloria Mellesmoen and Marianne Huijsmans	note	Final-CStem, Align-RStative, Dep, Priority, Max, Align-LH	page 15, the constraint heads, set on their side and read off the render
+(24) line 4	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 15, the tones linked over the candidate under
+(24) line 5	ʔayʔaǰuθəm	phonemic	ǰuθut1	page 15, candidate (24a), the winner, printed with the pointing hand ☞
+(24) line 6	Gloria Mellesmoen and Marianne Huijsmans	note	* *	page 15, the violation marks of (24a) in the order printed
+(24) line 7	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 15, the tones linked over the candidate under
+(24) line 8	ʔayʔaǰuθəm	phonemic	ǰuθutit2	page 15, candidate (24b)
+(24) line 9	Gloria Mellesmoen and Marianne Huijsmans	note	*! * * * *	page 15, the violation marks of (24b) in the order printed
+(24) line 10	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 15, the tones linked over the candidate under
+(24) line 11	ʔayʔaǰuθəm	phonemic	ǰuθit1	page 15, candidate (24c)
+(24) line 12	Gloria Mellesmoen and Marianne Huijsmans	note	*! * * *	page 15, the violation marks of (24c) in the order printed
+(24) line 13	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 15, the tones linked over the candidate under
+(24) line 14	ʔayʔaǰuθəm	phonemic	ǰuθitut2	page 15, candidate (24d)
+(24) line 15	Gloria Mellesmoen and Marianne Huijsmans	note	*! * * * * * *	page 15, the violation marks of (24d) in the order printed
+§3.2	Gloria Mellesmoen and Marianne Huijsmans	note	The Align-RStative constraint has the effect of limiting the size of the stative morpheme because the left edge of the morpheme is aligned with the right edge of the stem. While this predicts the deletion of segmental content (where high tone is retained) in the strong transitive stative cases, as shown in (24), the Align-RStative constraint must be ranked below Final-CStem. The derivation of a bare weak root with stative morphology is given again in (25). The correct allomorph is selected here (candidate 25a), despite violating Align-RStative twice and Priority once. This is because the other candidates fare worse on the tone-related constraints. The assignment and maintenance of high tone is thus crucial to our analysis of stative allomorphy.20	page 15
+footnote 20	Gloria Mellesmoen and Marianne Huijsmans	note	For reasons of brevity, we do not provide tableaux for the non-control statives. However, the same raised pitch pattern is also found. Further discussion of the non-control stative can be found in Mellesmoen and Andreotti (2017). This analysis works for those cases as well.	page 15, footnote 20
+(25)	Gloria Mellesmoen and Marianne Huijsmans	note	Bare Weak Root with Stative Morphology	page 16, the caption
+(25) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	%H H H	page 16, the tones over the input
+(25) line 2	ʔayʔaǰuθəm	phonemic	k̓p+(i1>it2)	page 16, the input
+(25) line 3	Gloria Mellesmoen and Marianne Huijsmans	note	*Float, * Mult-Link, MaxH, Final-CStem, Align-RStative, Dep, Priority, Max, Align-LH	page 16, the constraint heads, set on their side and read off the render
+(25) line 4	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 16, the tones linked over the candidate under
+(25) line 5	ʔayʔaǰuθəm	phonemic	k̓əpit2	page 16, candidate (25a), the winner, printed with the pointing hand ☞
+(25) line 6	Gloria Mellesmoen and Marianne Huijsmans	note	* * * * *	page 16, the violation marks of (25a) in the order printed
+(25) line 7	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 16, the tones linked over the candidate under
+(25) line 8	ʔayʔaǰuθəm	phonemic	k̓ip1	page 16, candidate (25b)
+(25) line 9	Gloria Mellesmoen and Marianne Huijsmans	note	*! * *	page 16, the violation marks of (25b) in the order printed
+(25) line 10	Gloria Mellesmoen and Marianne Huijsmans	note	H	page 16, the tones linked over the candidate under
+(25) line 11	ʔayʔaǰuθəm	phonemic	k̓ip1	page 16, candidate (25c)
+(25) line 12	Gloria Mellesmoen and Marianne Huijsmans	note	*! * *	page 16, the violation marks of (25c) in the order printed
+(25) line 13	Gloria Mellesmoen and Marianne Huijsmans	note	H	page 16, the tones linked over the candidate under
+(25) line 14	ʔayʔaǰuθəm	phonemic	k̓ip1	page 16, candidate (25d)
+(25) line 15	Gloria Mellesmoen and Marianne Huijsmans	note	*! * *	page 16, the violation marks of (25d) in the order printed
+(25) line 16	Gloria Mellesmoen and Marianne Huijsmans	note	H H	page 16, the tones linked over the candidate under
+(25) line 17	ʔayʔaǰuθəm	phonemic	k̓əpi1	page 16, candidate (25e)
+(25) line 18	Gloria Mellesmoen and Marianne Huijsmans	note	*! * * *	page 16, the violation marks of (25e) in the order printed
+(25) line 19	Gloria Mellesmoen and Marianne Huijsmans	note	H	page 16, the tones linked over the candidate under
+(25) line 20	ʔayʔaǰuθəm	phonemic	k̓əp1	page 16, candidate (25f)
+(25) line 21	Gloria Mellesmoen and Marianne Huijsmans	note	*! * *	page 16, the violation marks of (25f) in the order printed
+§3.2	Gloria Mellesmoen and Marianne Huijsmans	note	The final ranking, including the * Complex and Onset constraints, is given in (26).	page 16
+(26)	Gloria Mellesmoen and Marianne Huijsmans	note	Final Constraint Ranking	page 16, the caption
+(26) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	* Float, * Mult-Link, MaxH, Final-CStem, * Complex, Onset » Align-RStative	page 16
+(26) line 2	Gloria Mellesmoen and Marianne Huijsmans	note	» Dep » Priority » Max » Align-LH	page 16
+§3.3	Gloria Mellesmoen and Marianne Huijsmans	heading	3.3 Extending the Analysis	page 16
+§3.3.1	Gloria Mellesmoen and Marianne Huijsmans	heading	3.3.1 Stative with Other Morphology	page 16
+§3.3.1	Gloria Mellesmoen and Marianne Huijsmans	note	In addition to the types of predicates detailed thus far (bare roots and transitive predicates), stative morphology also frequently co-occurs with the middle suffix (-Vm), as shown in (27) and with the active intransitive suffix (-ʔəm), as shown in (28).21	page 16
+footnote 21	Gloria Mellesmoen and Marianne Huijsmans	note	There are stative forms of the lexical suffixes as well; we set these aside at present. See Watanabe (2003:307– 370) for a list of relevant forms.	page 17, footnote 21
+§3.3.1	ʔayʔaǰuθəm	cited form	-Vm	page 16, in italics
+§3.3.1	ʔayʔaǰuθəm	cited form	-ʔəm	page 17, in italics
+(27)	Gloria Mellesmoen and Marianne Huijsmans	note	Stative Middle Forms (Watanabe 2003:425):	page 17, the caption
+(27) line 1	ʔayʔaǰuθəm	transcription	qəkʷ-əm	page 17
+(27) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘stop’	page 17
+(27) line 1	ʔayʔaǰuθəm	transcription	qəkʷ-<i>m	page 17
+(27) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘keep still, be still’	page 17
+(27) line 2	ʔayʔaǰuθəm	transcription	kʷət-əm	page 17
+(27) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘get sick’	page 17
+(27) line 2	ʔayʔaǰuθəm	transcription	kʷət-<i>m	page 17
+(27) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be sickly’	page 17
+(27) line 3	ʔayʔaǰuθəm	transcription	ƛ̓aɬ-əm	page 17
+(27) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘salt’	page 17
+(27) line 3	ʔayʔaǰuθəm	transcription	ƛ̓al-<i>m	page 17
+(27) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be salted’	page 17
+(27) line 4	ʔayʔaǰuθəm	transcription	nat̓ᶿus-əm	page 17
+(27) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘nod’	page 17
+(27) line 4	ʔayʔaǰuθəm	transcription	nat̓ᶿus-<i>m	page 17
+(27) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be nodding’	page 17
+(27) line 5	ʔayʔaǰuθəm	transcription	pəxʷ-əm	page 17
+(27) line 5	Gloria Mellesmoen and Marianne Huijsmans	translation	‘steam up’	page 17
+(27) line 5	ʔayʔaǰuθəm	transcription	pəxʷ-<i>m	page 17
+(27) line 5	Gloria Mellesmoen and Marianne Huijsmans	translation	‘steaming up’	page 17
+(28)	Gloria Mellesmoen and Marianne Huijsmans	note	Stative Active Intransitives (Watanabe 2003:418):	page 17, the caption
+(28) line 1	ʔayʔaǰuθəm	transcription	han-ʔəm	page 17
+(28) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘applaud (s.o.)’	page 17
+(28) line 1	ʔayʔaǰuθəm	transcription	han-ʔ<i>m	page 17
+(28) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be applauding (s.o.)’	page 17
+(28) line 2	ʔayʔaǰuθəm	transcription	hiw-ʔəm	page 17
+(28) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘burn (s.t.)’	page 17
+(28) line 2	ʔayʔaǰuθəm	transcription	hiw-ʔ<i>m	page 17
+(28) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be burning (s.t.)’	page 17
+(28) line 3	ʔayʔaǰuθəm	transcription	kʷay-ʔəm	page 17
+(28) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hide (s.t.)’	page 17
+(28) line 3	ʔayʔaǰuθəm	transcription	kʷayʔ<i>m	page 17
+(28) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be hiding (s.t.)’	page 17
+(28) line 4	ʔayʔaǰuθəm	transcription	kʷəy-ʔəm	page 17
+(28) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘flash (at s.t.)’	page 17
+(28) line 4	ʔayʔaǰuθəm	transcription	kʷəy-ʔ<i>m	page 17
+(28) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be flashing (at s.t.)’	page 17
+(28) line 5	ʔayʔaǰuθəm	transcription	ɬəq̓ʷ-ʔəm	page 17
+(28) line 5	Gloria Mellesmoen and Marianne Huijsmans	translation	‘bake (s.t.) in oven’	page 17
+(28) line 5	ʔayʔaǰuθəm	transcription	ɬəq̓ʷ-ʔ<i>m	page 17
+(28) line 5	Gloria Mellesmoen and Marianne Huijsmans	translation	‘be baking (s.t.) in oven’	page 17
+§3.3.1	Gloria Mellesmoen and Marianne Huijsmans	note	The vowel in the middle suffix is often realized as schwa (Watanabe 2003:190–191). When these forms are made stative, the allomorph of the stative is -i- in lieu of the schwa. Similarly, statives of active intransitives are formed by inserting -i- in the active intransitive suffix, resulting in /i/ in the suffix, rather than a schwa. These are similar to the weak CVC roots with a control transitivizer, where an /i/ surfaces between the roots and the transitivizer. The analysis can be extended straight- forwardly to the middle and active intransitive cases. The generalization is that the -i- associated with the stative morpheme surfaces in suffixes instead of /ə/, whereas underlying full vowel quality is retained with other suffixes.22	page 17
+footnote 22	Gloria Mellesmoen and Marianne Huijsmans	note	Blake (2000) argues that the distribution of /ə/ is predictable. Given this, it is not unsurprising that /i/ would surface rather than /ə/ where it is associated with lexical content (marking stativity).	page 17, footnote 22
+§3.3.1	Gloria Mellesmoen and Marianne Huijsmans	note	Stative predicates can also be made plural (Watanabe 2003:376–384), resulting in forms that describe the state holding of multiple participants (titqit ‘they are all closed’) or holding mutliple times for a single participant (e.g. k̓ak̓pit ‘cut multiple times’, which can describe a single object with multiple cuts). Stative weak roots form a plural with -C- infixation and ablaut (Mellesmoen to appear). The initial consonant of the root is copied inside the stem and the vowel in the root is either /i/ or /a/. Note that in previous literature this process is described as Ci- or Ca- reduplication (Blake 1992; Davis 1970; Watanabe 1994, 2000, 2003). As with the singular forms, both syllables bear high pitch.23	page 17
+footnote 23	Gloria Mellesmoen and Marianne Huijsmans	note	Urbanczyk (2004) traces *a and *i ablaut marking plurality back to Proto-Salish. She proposes that *a marked pluractionality and *i marked collective plurals. However, she notes that these seem to be merged in ʔayʔaǰuθəm and both seem to be able to mark the same types of plurality. This accords with the fact that both vowels seem to be used to express the same type of plurality in plural statives of weak roots and the choice of vowel seems to be lexically specified.	page 17, footnote 23
+§3.3.1	ʔayʔaǰuθəm	cited form	k̓ak̓pit	page 17, in italics, ‘cut multiple times’
+(29)	Gloria Mellesmoen and Marianne Huijsmans	note	Weak Roots with Stative and Plural Morphology	page 18, the caption
+(29) line 1	ʔayʔaǰuθəm	transcription	χʷiχʷwit	page 18
+(29) line 1	ʔayʔaǰuθəm	phonetic	[χʷɛχʷwɛt]	page 18
+(29) line 1	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(29) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘all lit’	page 18
+(29) line 2	ʔayʔaǰuθəm	transcription	k̓ʷik̓ʷqit	page 18
+(29) line 2	ʔayʔaǰuθəm	phonetic	[k̓ʷɪk̓ʷqɛt]	page 18
+(29) line 2	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(29) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘a bunch of things are split’	page 18
+(29) line 3	ʔayʔaǰuθəm	transcription	titqit	page 18
+(29) line 3	ʔayʔaǰuθəm	phonetic	[tɛtqɛt]	page 18
+(29) line 3	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(29) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘more than one thing is closed’	page 18
+(29) line 4	ʔayʔaǰuθəm	transcription	k̓ʷik̓ʷp̓it	page 18
+(29) line 4	ʔayʔaǰuθəm	phonetic	[k̓ʷɛk̓ʷp̓ɛt]	page 18
+(29) line 4	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(29) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘more than one pulled out of the ground’	page 18
+(29) line 5	ʔayʔaǰuθəm	transcription	hahkʷit	page 18
+(29) line 5	ʔayʔaǰuθəm	phonetic	[hahkʷɪt]	page 18
+(29) line 5	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(29) line 5	Gloria Mellesmoen and Marianne Huijsmans	translation	‘more than one thing hung out’	page 18
+(29) line 6	ʔayʔaǰuθəm	transcription	č̓ač̓tit	page 18
+(29) line 6	ʔayʔaǰuθəm	phonetic	[č̓ɛč̓tɪt]	page 18
+(29) line 6	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(29) line 6	Gloria Mellesmoen and Marianne Huijsmans	translation	‘cut multiple times (with a knife)’	page 18
+(29) line 7	ʔayʔaǰuθəm	transcription	k̓ak̓pit	page 18
+(29) line 7	ʔayʔaǰuθəm	phonetic	[k̓ɛk̓pɪt]	page 18
+(29) line 7	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(29) line 7	Gloria Mellesmoen and Marianne Huijsmans	translation	‘cut multiple times (with scissors)’	page 18
+§3.3.1	Gloria Mellesmoen and Marianne Huijsmans	note	Strong roots also form a stative plural with C infixation, but without ablaut. As with the singular forms, the second syllable bears comparatively high pitch.	page 18
+(30)	Gloria Mellesmoen and Marianne Huijsmans	note	Strong Roots with Stative and Plural Morphology:	page 18, the caption
+(30) line 1	ʔayʔaǰuθəm	transcription	kʷakʷyit	page 18
+(30) line 1	ʔayʔaǰuθəm	phonetic	[kʷakʷyɪt]	page 18
+(30) line 1	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(30) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘more than one hidden’	page 18
+(30) line 2	ʔayʔaǰuθəm	transcription	χiχmit	page 18
+(30) line 2	ʔayʔaǰuθəm	phonetic	[χɛχmɛt]	page 18
+(30) line 2	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(30) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘scratched up’	page 18
+(30) line 3	ʔayʔaǰuθəm	transcription	t̓at̓pit	page 18
+(30) line 3	ʔayʔaǰuθəm	phonetic	[t̓at̓pɛt]	page 18
+(30) line 3	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(30) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘more than one beached’	page 18
+(30) line 4	ʔayʔaǰuθəm	transcription	mumƛ̓it	page 18
+(30) line 4	ʔayʔaǰuθəm	phonetic	[momƛ̓ɛt]	page 18
+(30) line 4	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(30) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘propped up/wedged all around’	page 18
+§3.3.1	Gloria Mellesmoen and Marianne Huijsmans	note	The stative plural form of CəCC roots involves C infixation and ablaut, as in the weak CVC roots.	page 18
+(31)	Gloria Mellesmoen and Marianne Huijsmans	note	CəCC + plural:	page 18, the caption
+(31) line 1	ʔayʔaǰuθəm	transcription	ƛaƛp<i>xʷ	page 18
+(31) line 1	ʔayʔaǰuθəm	phonetic	[ƛaƛpɛxʷ]	page 18
+(31) line 1	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(31) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘more than one broken’	page 18
+(31) line 2	ʔayʔaǰuθəm	transcription	p̓ap̓ƛ<i>š	page 18
+(31) line 2	ʔayʔaǰuθəm	phonetic	[p̓ap̓ƛɪš]	page 18
+(31) line 2	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(31) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘more than one floating’	page 18
+(31) line 3	ʔayʔaǰuθəm	transcription	papqʷ<i>s	page 18
+(31) line 3	ʔayʔaǰuθəm	phonetic	[papqʷɪs]	page 18
+(31) line 3	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(31) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘more than one fallen in’	page 18
+(31) line 4	ʔayʔaǰuθəm	transcription	mamt̓<i>k̓	page 18
+(31) line 4	ʔayʔaǰuθəm	phonetic	[mamt̓ɪk̓]	page 18
+(31) line 4	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(31) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘more than one squished’	page 18
+§3.3.1	Gloria Mellesmoen and Marianne Huijsmans	note	Plural forms of stative control transitives with strong roots are similar to the plural stative forms of the strong roots in (30) and involve C infixation, as shown in (32).24	page 18
+footnote 24	Gloria Mellesmoen and Marianne Huijsmans	note	At this point, we have no clear examples of plurals of weak root statives with the control transitivizer. This is likely an accidental gap and requires further investigation. We have recorded šəšmitəm Gloria brushes ‘Gloria is drying the brushes’, with what appears to be a plural stative with the control transitivizer šəšmit, but we don’t have a corresponding singular transitive stative form. We also found k̓ʷək̓ʷʔitas ‘to be reading aloud’, which may be a plural stative form built on k̓ʷət ‘to look at’.	page 18, footnote 24
+footnote 24	ʔayʔaǰuθəm	cited form	šəšmitəm Gloria brushes	page 18, in italics, ‘Gloria is drying the brushes’
+footnote 24	ʔayʔaǰuθəm	cited form	šəšmit	page 18, in italics
+footnote 24	ʔayʔaǰuθəm	cited form	k̓ʷək̓ʷʔitas	page 18, in italics, ‘to be reading aloud’
+footnote 24	ʔayʔaǰuθəm	cited form	k̓ʷət	page 18, in italics, ‘to look at’
+(32)	Gloria Mellesmoen and Marianne Huijsmans	note	CVC + control transitive + plural:	page 18, the caption
+(32) line 1	ʔayʔaǰuθəm	transcription	q̓ʷuq̓ʷp-ut	page 18
+(32) line 1	ʔayʔaǰuθəm	phonetic	[q̓ʷoq̓ʷpot]	page 18
+(32) line 1	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(32) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hold onto multiple things’	page 18
+(32) line 2	ʔayʔaǰuθəm	transcription	ǰuyθ-ut	page 18
+(32) line 2	ʔayʔaǰuθəm	phonetic	[ǰuyθot]	page 18
+(32) line 2	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(32) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘push on s.t. repeatedly’25	page 18, carries footnote 25
+footnote 25	Gloria Mellesmoen and Marianne Huijsmans	note	ǰ in onset position alternates with y in coda position (Blake 2000; Watanabe 2003: e.g.).	page 18, footnote 25
+footnote 25	ʔayʔaǰuθəm	cited form	ǰ	page 18, in italics
+(32) line 3	ʔayʔaǰuθəm	transcription	ƛ̓iƛ̓t̓ᶿ-it	page 18
+(32) line 3	ʔayʔaǰuθəm	phonetic	[ƛ̓ɛƛ̓t̓ᶿɛt]	page 18
+(32) line 3	ʔayʔaǰuθəm	phonetic	H H	page 18, the pitch pattern
+(32) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘to push down on repeatedly’	page 18
+§3.3.2	Gloria Mellesmoen and Marianne Huijsmans	heading	3.3.2 Causative Stative Forms	page 18
+§3.3.2	Gloria Mellesmoen and Marianne Huijsmans	note	Stative allomorphy found with causative predicates is exceptional and deserves further discussion. It has previously been described as “doubly marked” (Watanabe 2003:443), where two realizations of stative aspect are present in a single word. The data in (33–35) show that roots of shape CVC occur with both the -it suffix and the -i- infix (positioned within the causative transitivizer), while roots of shape CVCC have the -i- infix in both the root and in the causative transitivizer.	page 18
+(33)	Gloria Mellesmoen and Marianne Huijsmans	note	Stative Causatives with Weak CVC Roots	page 19, the caption
+(33) line 1	ʔayʔaǰuθəm	transcription	təg̓itstixʷ	page 19
+(33) line 1	ʔayʔaǰuθəm	phonetic	[taʔgɪtstɛxʷ]	page 19
+(33) line 1	ʔayʔaǰuθəm	phonetic	H H H	page 19, the pitch pattern
+(33) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. frozen’	page 19
+(33) line 2	ʔayʔaǰuθəm	transcription	səqitstixʷ	page 19
+(33) line 2	ʔayʔaǰuθəm	phonetic	[səqɛtstɛxʷ]	page 19
+(33) line 2	ʔayʔaǰuθəm	phonetic	H H H	page 19, the pitch pattern
+(33) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. towing’	page 19
+(34)	Gloria Mellesmoen and Marianne Huijsmans	note	Stative Causatives with Strong CVC Roots	page 19, the caption
+(34) line 1	ʔayʔaǰuθəm	transcription	huǰitstixʷ	page 19
+(34) line 1	ʔayʔaǰuθəm	phonetic	[hoǰitstɛxʷ]	page 19
+(34) line 1	ʔayʔaǰuθəm	phonetic	H H H	page 19, the pitch pattern
+(34) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have it ready’	page 19
+(34) line 2	ʔayʔaǰuθəm	transcription	qʷupitstixʷ	page 19
+(34) line 2	ʔayʔaǰuθəm	phonetic	[qʷo:pɛtstɛxʷ]	page 19
+(34) line 2	ʔayʔaǰuθəm	phonetic	H H H	page 19, the pitch pattern
+(34) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘hang onto s.t.’	page 19
+(34) line 3	ʔayʔaǰuθəm	transcription	kʷayitstixʷ	page 19
+(34) line 3	ʔayʔaǰuθəm	phonetic	[kʷayɪtstɛxʷ]	page 19
+(34) line 3	ʔayʔaǰuθəm	phonetic	H H H	page 19, the pitch pattern
+(34) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. hidden’	page 19
+(34) line 4	ʔayʔaǰuθəm	transcription	šihitstixʷ	page 19
+(34) line 4	ʔayʔaǰuθəm	phonetic	[ši:hɪtstɛxʷ]	page 19
+(34) line 4	ʔayʔaǰuθəm	phonetic	H H H	page 19, the pitch pattern
+(34) line 4	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. displayed’	page 19
+(35)	Gloria Mellesmoen and Marianne Huijsmans	note	Stative Causatives with CəCC Roots	page 19, the caption
+(35) line 1	ʔayʔaǰuθəm	transcription	qəm<i>s-st<i>xʷ	page 19
+(35) line 1	ʔayʔaǰuθəm	phonetic	[qəmɛstɛxʷ]	page 19
+(35) line 1	ʔayʔaǰuθəm	phonetic	H H H	page 19, the pitch pattern
+(35) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. put away’	page 19
+(35) line 2	ʔayʔaǰuθəm	transcription	ƛəp<i>xʷ-st<i>xʷ	page 19
+(35) line 2	Gloria Mellesmoen and Marianne Huijsmans	citation	(Watanabe 2003:445)	page 19, the source in place of a phonetic form
+(35) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. broken’	page 19
+(35) line 3	ʔayʔaǰuθəm	transcription	ʔaɬt<i>xʷ-st<i>xʷ	page 19
+(35) line 3	Gloria Mellesmoen and Marianne Huijsmans	citation	(Watanabe 2003:445)	page 19, the source in place of a phonetic form
+(35) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. inside’	page 19
+§3.3.2	Gloria Mellesmoen and Marianne Huijsmans	note	In addition to what has been previously documented, we find that stative causatives are not always “doubly marked” and can also be realized with one stative marker, as in (36) and (37).	page 19
+(36)	Gloria Mellesmoen and Marianne Huijsmans	note	(Single-Marked) Causative Statives with Weak CVC Roots	page 19, the caption
+(36) line 1	ʔayʔaǰuθəm	transcription	həkʷ	page 19, the root
+(36) line 1	ʔayʔaǰuθəm	transcription	həkʷitsxʷ	page 19
+(36) line 1	ʔayʔaǰuθəm	phonetic	[hakʷɛtsxʷ]	page 19
+(36) line 1	ʔayʔaǰuθəm	phonetic	H H	page 19, the pitch pattern
+(36) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. hung up’	page 19
+(36) line 2	ʔayʔaǰuθəm	transcription	təw̓	page 19, the root
+(36) line 2	ʔayʔaǰuθəm	transcription	təg̓itsxʷ	page 19
+(36) line 2	ʔayʔaǰuθəm	phonetic	[taʔgitsxʷ]	page 19
+(36) line 2	ʔayʔaǰuθəm	phonetic	H H	page 19, the pitch pattern
+(36) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. frozen’	page 19
+(37)	Gloria Mellesmoen and Marianne Huijsmans	note	(Single-Marked) Causative Statives with Strong CVC Roots26	page 19, the caption
+footnote 26	Gloria Mellesmoen and Marianne Huijsmans	note	Vowel length differences, if they occur, appear to be more variable than in the non-causative stative forms. Further elicitation needs to be conducted on this.	page 19, footnote 26
+(37) line 1	ʔayʔaǰuθəm	transcription	ƛ̓um	page 19, the root
+(37) line 1	ʔayʔaǰuθəm	transcription	ƛ̓umitsxʷ	page 19
+(37) line 1	ʔayʔaǰuθəm	phonetic	[ƛ̓o(:)mɛtsxʷ]	page 19
+(37) line 1	ʔayʔaǰuθəm	phonetic	H H	page 19, the pitch pattern
+(37) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘make/do enough’	page 19
+(37) line 2	ʔayʔaǰuθəm	transcription	q̓at̓ᶿ	page 19, the root
+(37) line 2	ʔayʔaǰuθəm	transcription	q̓at̓ᶿitsxʷ	page 19
+(37) line 2	ʔayʔaǰuθəm	phonetic	[q̓a:t̓ᶿɛtsxʷ]	page 19
+(37) line 2	ʔayʔaǰuθəm	phonetic	H H	page 19, the pitch pattern
+(37) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘work hard at’	page 19
+(37) line 3	ʔayʔaǰuθəm	transcription	kʷay	page 19, the root
+(37) line 3	ʔayʔaǰuθəm	transcription	kʷayitsxʷ	page 19
+(37) line 3	ʔayʔaǰuθəm	phonetic	[kʷayɪtsxʷ]	page 19
+(37) line 3	ʔayʔaǰuθəm	phonetic	H H	page 19, the pitch pattern
+(37) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. hidden’	page 19
+§3.3.2	Gloria Mellesmoen and Marianne Huijsmans	note	Setting aside the issue of stative marking within the causative suffix momentarily, the analysis in this paper can straightforwardly account for the choice between -it and -i- following or within the root. In Section 3, we showed how the choice of stative allomorphy with bare roots was determined by the shape of the root. With the CVCC roots, candidates with preferred allomorph (-i-) are optimal, while the candidates that violate Priority (selecting -it) win when attached to CVC roots to avoid phonologically marked outputs. This is the same alternation seen with the causatives in (33–34) and (35). We posit that the causative transitivizer is positioned such that it does not affect the selection of the correct allomorph stativizing the root. The constraint Final-CStem, repeated in (38), refers to the right edge of a morphological stem. In order to predict the attested causative stative forms, the morphological stem boundary needs to be drawn before the causativizer in these forms. This means that the choice of allomorph proceeds parallel to the bare roots.	page 19
+(38)	Gloria Mellesmoen and Marianne Huijsmans	note	FinalCStem Constraint: Align(Stem, Right, Consonant, Right)	page 20, the caption
+(38) line 1	Gloria Mellesmoen and Marianne Huijsmans	note	*FinalCStem The right edge of a stem must align with the right edge of a consonant.	page 20
+(38) line 2	Gloria Mellesmoen and Marianne Huijsmans	note	Assign a violation mark for every segment between the right edge of a	page 20
+(38) line 3	Gloria Mellesmoen and Marianne Huijsmans	note	stem and the right edge of a consonant.	page 20
+§3.3.2	Gloria Mellesmoen and Marianne Huijsmans	note	The forms in (40) show where the stem boundaries can be drawn to predict the correct choice of allomorph.	page 20
+(39)	Gloria Mellesmoen and Marianne Huijsmans	note	Stative Causatives that are not Double Marked	page 20, the caption
+(39a) line 1	ʔayʔaǰuθəm	transcription	həkʷit]stemsxʷ	page 20, the stem boundaries marked ]stem
+(39a) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. hung up’	page 20
+(39b) line 1	ʔayʔaǰuθəm	transcription	təg̓it]stemsxʷ	page 20, the stem boundaries marked ]stem
+(39b) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. frozen’	page 20
+(40)	Gloria Mellesmoen and Marianne Huijsmans	note	Stem Boundaries for Double Marked Stative Causatives	page 20, the caption
+(40a) line 1	ʔayʔaǰuθəm	transcription	huǰit]stemstixʷ	page 20, the stem boundaries marked ]stem
+(40a) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have it ready’	page 20
+(40b) line 1	ʔayʔaǰuθəm	transcription	təg̓it]stemstixʷ	page 20, the stem boundaries marked ]stem
+(40b) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have it frozen’	page 20
+(40c) line 1	ʔayʔaǰuθəm	transcription	qəmis]stemstixʷ	page 20, the stem boundaries marked ]stem
+(40c) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. put away’	page 20
+§3.3.2	Gloria Mellesmoen and Marianne Huijsmans	note	Returning to the question of “double-marking”, it is unclear if the stative infix -i- in the causative suffix is associated with a semantic difference. If this “exponent” of the stative marking is semanti- cally vacuous, we can analyze the -i- in the causative transivizer as epenthetic.27,28	page 20
+footnote 27	Gloria Mellesmoen and Marianne Huijsmans	note	Thank you to Suzanne Urbanczyk for helpful discussion regarding this possibility.	page 20, footnote 27
+footnote 28	Gloria Mellesmoen and Marianne Huijsmans	note	A HHH pattern was documented on the “doubly marked” causatives, providing preliminary evidence that these may actually involve two exponents of the stative morpheme, rather than the second marker being a semantically-null epenthesized /i/.	page 20, footnote 28
+§3.3.2	Gloria Mellesmoen and Marianne Huijsmans	note	A preliminary look at the data suggests that this is a plausible analysis. There does not seem to be a difference in interpretation between the causative stative forms (36–37) and the stative causative stative forms (33–35)). This is clearest when comparing the minimal pairs kʷayitsxʷ with kʷayitstixʷ ‘to have s.t. hidden’ and təg̓itsxʷ and təg̓itstixʷ ‘to have s.t. frozen’.29	page 20
+footnote 29	Gloria Mellesmoen and Marianne Huijsmans	note	When asked, speakers told us the causative stative and stative causative statives were the same and we have been so far unable to find a context that would distinguish any difference in the meaning.	page 20, footnote 29
+§3.3.2	ʔayʔaǰuθəm	cited form	kʷayitsxʷ	page 20, in italics
+§3.3.2	ʔayʔaǰuθəm	cited form	kʷayitstixʷ	page 20, in italics, ‘to have s.t. hidden’
+§3.3.2	ʔayʔaǰuθəm	cited form	təg̓itsxʷ	page 20, in italics
+§3.3.2	ʔayʔaǰuθəm	cited form	təg̓itstixʷ	page 20, in italics, ‘to have s.t. frozen’
+§3.3.2	Gloria Mellesmoen and Marianne Huijsmans	note	However, there are environments where the stative of the causative, marked with the -i- infix in the causative, makes a clear semantic contribution. With stative causatives built on unergative forms,30 there is a difference in interpretation between the stative causative forms and the plain causative forms. The stative causatives are interpreted as involving a completed action with the corresponding result state already achieved, whereas the plain causatives are used when the action has not been completed. Unlike the simple causative of an unergative, the stative causatives cannot be made imperfective (*qʷəqʷəlstixʷ vs. qʷəqʷəlsxʷ ‘bringing’).31	page 20
+footnote 30	Gloria Mellesmoen and Marianne Huijsmans	note	Watanabe (2003) does not document stative causatives built on unergatives, but these were readily accepted and produced by our speakers.	page 20, footnote 30
+footnote 31	Gloria Mellesmoen and Marianne Huijsmans	note	While our eldest speaker had strong judgments about imperfective marking on stative causatives, other speakers did not outright reject these forms. However, they never volunteered them, though they would volunteer imperfective forms of the plain causative.	page 20, footnote 31
+§3.3.2	ʔayʔaǰuθəm	cited form	*qʷəqʷəlstixʷ	page 20, in italics
+§3.3.2	ʔayʔaǰuθəm	cited form	qʷəqʷəlsxʷ	page 20, in italics, ‘bringing’
+(41)	Gloria Mellesmoen and Marianne Huijsmans	note	Unergative Causatives with Stative Morphology	page 21, the caption
+(41) line 1	ʔayʔaǰuθəm	transcription	qʷəl̓	page 21
+(41) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘to come’	page 21
+(41) line 1	ʔayʔaǰuθəm	transcription	qʷəlstixʷ	page 21
+(41) line 1	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have brought s.t.’	page 21
+(41) line 2	Gloria Mellesmoen and Marianne Huijsmans	note	(cf. qʷəlsxʷ ‘bring’)	page 21, under the pair above
+(41) line 3	ʔayʔaǰuθəm	transcription	ƛ̓əq	page 21
+(41) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘to go outside’	page 21
+(41) line 3	ʔayʔaǰuθəm	transcription	ƛ̓əqstixʷ	page 21
+(41) line 3	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have brought s.t. outside’	page 21
+(41) line 4	Gloria Mellesmoen and Marianne Huijsmans	note	(cf. ƛ̓əqsxʷ ‘bring outside’)	page 21, under the pair above
+§3.3.2	Gloria Mellesmoen and Marianne Huijsmans	note	In these cases, it is the causative form that is stativized, rather than the stative form which is causativized. This contrasts with the forms in (36)–(37), but parallels the statives of other tran- sitive forms discussed in previous sections. In these cases, the stem boundary may be placed as in (42).	page 21
+(42)	Gloria Mellesmoen and Marianne Huijsmans	note	Stem Boundaries for Single Marked Causative Statives	page 21, the caption
+(42a) line 1	ʔayʔaǰuθəm	transcription	qʷəlstixʷ]stem	page 21, the stem boundaries marked ]stem
+(42a) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have brought s.t.’	page 21
+(42b) line 1	ʔayʔaǰuθəm	transcription	ƛ̓əqstixʷ]stem	page 21, the stem boundaries marked ]stem
+(42b) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have brought s.t. outside’	page 21
+§3.3.2	Gloria Mellesmoen and Marianne Huijsmans	note	Given that stative forms can be causativized and causative forms can be stativized, it is possi- ble that doubly-marked statives involve two stative markers: one stativizing the root and the other stativizing the causative. As remarked above, any difference in meaning between causatives of sta- tives and doubly-marked causatives is elusive, but such a difference would likely be quite subtle. Phonologically, this would involve two stem boundaries corresponding to the two different positions the stative takes (and associated with two different semantic scopes). Clearly, this requires detailed semantic fieldwork that is beyond the scope of this paper.	page 21
+(43)	Gloria Mellesmoen and Marianne Huijsmans	note	Stem Boundaries for Double Marked Stative Causatives	page 21, the caption
+(43a) line 1	ʔayʔaǰuθəm	transcription	huǰit]stemstixʷ]stem	page 21, the stem boundaries marked ]stem
+(43a) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have it ready’	page 21
+(43b) line 1	ʔayʔaǰuθəm	transcription	təg̓it]stemstixʷ]stem	page 21, the stem boundaries marked ]stem
+(43b) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have it frozen’	page 21
+(43c) line 1	ʔayʔaǰuθəm	transcription	qəmis]stemstixʷ]stem	page 21, the stem boundaries marked ]stem
+(43c) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘have s.t. put away’	page 21
+(43d) line 1	ʔayʔaǰuθəm	transcription	ƛəpixʷ]stemstixʷ]stem	page 21, the stem boundaries marked ]stem
+(43d) line 2	Gloria Mellesmoen and Marianne Huijsmans	translation	‘to have s.t. broken’	page 21
+§4	Gloria Mellesmoen and Marianne Huijsmans	heading	4 Further Consideration: Role of Pitch	page 21
+§4	Gloria Mellesmoen and Marianne Huijsmans	note	In this paper, we have treated pitch as largely independent of stress. However, the two are not wholly unrelated. Blake (2000) analyzes the stative marker -it in ʔayʔaǰuθəm as involving a syllable that is pre-footed in the lexicon. When this is attached to a base, a second foot is built on the root (to the left of the stative suffix). The key acoustic correlate of stress in the language is raised pitch, according to Watanabe (2003), and thus high tone is present on the first two syllables of a stative predicate due to stress clash (arising when a pre-footed and bi-moraic stative suffix is added).	page 21
+§4	Gloria Mellesmoen and Marianne Huijsmans	note	While various levels of prosodic constituency are fundamental to our understanding of ʔayʔa- ǰuθəm phonology, targeted elicitation of stative forms has revealed that raised pitch is a shared characteristic of the stative allomorphs that is more uniform than what is predicted by an account based on a single foot structure for the stative morpheme. While a bimoraic foot may be proposed for the stative -it suffix, it is unclear what the corresponding foot structure would be for the -i- infix and how these are related.32 In addition, analyzing the stative morpheme as bimoraic means that some amount of prosodic information must be stipulated in lexical entries. However, Blake (2000) argues for a predictable system of syllabification and footing, which raises the question of why the lexical entry for the stative would be exceptional. In contrast, raised pitch and stress are argued to occur independently in ʔayʔaǰuθəm by Davis (1970), and Watanabe (2003:21) notes that certain morphemes are associated with raised pitch, sometimes without being otherwize prominent.33	page 21
+footnote 32	Gloria Mellesmoen and Marianne Huijsmans	note	One further question that arises is the relationship between stative morphology, pitch, and vowel length. It is likely the stative forms with longer vowels are associated with a different foot structure than those that are not.	page 21, footnote 32
+footnote 33	Gloria Mellesmoen and Marianne Huijsmans	note	We have noted that there are many cases where the raised pitch is not particularly high. Instead, the raised pitch appears to be relative to the F0 of the initial syllable. Additionally, the position of “secondary” stress and the pitch associated with non-initial syllables, excluding the patterns found in the stative forms, is quite variable. Given that there is only evidence for high tone in the phonological grammar, the system may be best categorized as having a privative H ∼ ∅ system, which is a charactertistic often associated with pitch- accent systems (Hyman 2006:237). As discussed in this paper, raised pitch is contrastive and thus part of the phonological grammar, while other syllables may be underspecified for pitch and filled in as L or M later, in the sense of Keating (1988). This may account for variation and instability in secondary stress in the language.	page 22, footnote 33
+footnote 33	Gloria Mellesmoen and Marianne Huijsmans	name	Keating	Patricia A. Keating (1988)
+§4	Gloria Mellesmoen and Marianne Huijsmans	note	Our analysis accounts for the “stress clash” pattern documented previously in the language, though we do not consider every case to involve adjacent stressed syllables. In this sense, ʔayʔa- ǰuθəm exhibits properties of both a stress and a tonal system, which is what Hyman (2006) argues that the label “pitch-accent” denotes. In this respect, ʔayʔaǰuθəm is a pitch-accent language.	page 22
+§4	Gloria Mellesmoen and Marianne Huijsmans	name	Hyman	Larry M. Hyman, word-prosodic typology (2006)
+§5	Gloria Mellesmoen and Marianne Huijsmans	heading	5 Conclusion	page 22
+§5	Gloria Mellesmoen and Marianne Huijsmans	note	In this paper, we have argued that the stative in ʔayʔaǰuθəm involves listed allomorphs and is as- sociated with a H tone. We have provided an analysis that can account for the full range of stative allomorphy found with statives built on bare intransitive roots and stative control transitives, and discussed how the analysis can also account for statives built on stems with the middle, active in- transitive, and noncontrol transitive suffixes. Given the importance of the H tone in our analysis, we propose that ʔayʔaǰuθəm is a pitch accent language in the sense of Hyman (2006), exhibiting properties of both a stress and a tonal system.	page 22
+references	Gloria Mellesmoen and Marianne Huijsmans	heading	References	page 22
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Andreotti, Bruno. 2018. Interpreting derived stative predicates: Evidence from ʔayʔaǰuθəm. Mas- ter’s thesis, University of British Columbia, Vancouver, BC.	page 22
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Blake, Susan. 1992. Two aspects of Sliammon (ɬáʔamɩnqən) phonology: Glide/obstruent alternation and vowel length. Master’s thesis, University of British Columbia.	page 22
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Blake, Susan. 2000. On the distribution and representation of schwa in Sliammon (Salish): Descrip- tive and theoretical perspectives. Doctoral Dissertation, University of British Columbia.	page 22
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Czaykowska-Higgins, Ewa. 1998. The morphological and phonological constituent structure of words in Moses-Columbia Salish (Nxaʔamxcín). In Salish languages and linguistics, ed. Ewa Czaykowska-Higgens and Dale Kinkade, 153–196. Berlin: Mouten de Gruyter.	page 22
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Davis, John. 1970. Some phonological rules in Mainland Comox. Master’s thesis, University of Victoria.	page 22
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Dyck, Ruth Anne. 2004. Prosodic and morphological factors in Squamish (Skwxwú7mesh) stress assignment. Doctoral Dissertation, University of Victoria.	page 22
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Galloway, Brent. 1993. Grammar of Upriver Halkomelem. Berkeley, California: University of California Press.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Hyman, Larry M. 2006. Word-prosodic typology. Phonology 23:225–257.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Keating, Patricia A. 1988. Underspecification in phonetics. Phonology 5:275–292.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Kinkade, M. Dale. 1996. Reconstructing aspect in Salishan languages. In Papers for the 31st International Conference on Salish and Neighbouring Languages.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Mascaró, Joan. 2007. External allomorphy and lexical representation. Linguistic Inquiry 38:715– 735.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	McCarthy, John J., and Alan Prince. 1994. Prosodic morphology. Linguistics Department Faculty Publication Series 15.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	McCarthy, John J., and Alan Prince. 1995. Faithfulness and reduplicative identity. Linguistics Department Faculty Publication Series 10.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Mellesmoen, Gloria. 2017. Overt third person object agreement in ʔayʔaǰuθəm. In Papers for the International Conference on Salish and Neighbouring Languages 52, ed. Andrei Anghelescu, Michael Fry, Marianne Huijsmans, and Daniel Reisinger, 176–197. UBCWPL.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Mellesmoen, Gloria. to appear. A reanalysis of CV- reduplication in Comox-Sliammon. Working Papers of the Linguistics Circle of the University of Victoria.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Mellesmoen, Gloria, and Bruno Andreotti. 2017. Result state holds! Stative aspect and non-control morphology in ʔayʔaǰuθəm. In Papers for the International Conference on Salish and Neigh- bouring Languages 52, ed. Andrei Anghelescu, Michael Fry, Marianne Huijsmans, and Daniel Reisinger, 176–197. UBCWPL.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Meyers, Scott. 1997. OCP effects in Optimality Theory. Natural Language & Linguistic Theory 15:847–892.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Rubach, Jerzy. 2000. Glide and glottal stop insertion in Slavic languages: A dot analysis. Linguistic inquiry 31:271–317.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Smolensky, Paul, and A Prince. 1993. Optimality theory: Constraint interaction in generative gram- mar. Optimality Theory in phonology 3.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Suttles, Wayne. 2004. Musqueam reference grammar. Vancouver, BC: UBC Press.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Urbancyzk, Suzanne. 2001. Patterns of reduplication in Lushootseed. New York: Garland Publish- ing Inc.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Urbanczyk, Suzanne. 2004. Plurality and ablaut in Central Salish. In Studies in salish linguistics in honor of m. dale kinkade, ed. Donna Gerdts and Lisa Matthewson. Missoula, MT: UMOPL.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Watanabe, Honoré. 1994. A report on Sliammon (Mainland Comox) phonology and reduplication. Master’s thesis, Hokkaido University.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Watanabe, Honoré. 2000. A morphological description of Sliammon, Mainland Comox Salish. Doc- toral Dissertation, Kyoto University.	page 23
+references	Gloria Mellesmoen and Marianne Huijsmans	reference	Watanabe, Honoré. 2003. A morphological description of Sliammon, Mainland Comox Salish, with a sketch of syntax. ELPR Publications Series AZ-040. Osaka: Osaka Gakuin University.	page 23
+footnote 25	ʔayʔaǰuθəm	cited form	y	page 18, in italics, the coda alternant of ǰ
+Appendix A	Gloria Mellesmoen and Marianne Huijsmans	heading	Appendix A	page 24
+Appendix A	Gloria Mellesmoen and Marianne Huijsmans	note	Figures 1 and 2 illustrate the pitch found on the minimal pair consisting of eventive ǰuθut in the command ǰuθut=ga ‘Push it’ and stative ǰu:θut in the command ǰu:θut=čxʷ ‘Hold it in place’. Note that the second person clitic čxʷ and the imperative clitic ga freely alternate in imperatives and can also co-occur. In the spectograms we include the second person clitic which coalesces with the final t of ǰuθut but do not include the imperative ga which could easily be segmented out.	page 24
+Appendix A	ʔayʔaǰuθəm	cited form	ǰuθut=ga	page 24, in italics, ‘Push it’
+Appendix A	ʔayʔaǰuθəm	cited form	ǰu:θut	page 24, in italics
+Appendix A	ʔayʔaǰuθəm	cited form	ǰu:θut=čxʷ	page 24, in italics, ‘Hold it in place’
+Appendix A	ʔayʔaǰuθəm	cited form	čxʷ	page 24, in italics
+Figure 1	Gloria Mellesmoen and Marianne Huijsmans	note	0 to 5000 (Hz); Time (s) 0.5503 1.138	page 24, the axes of the pitch track, the frequency axis, Frequency (Hz), set on its side
+Figure 1	Gloria Mellesmoen and Marianne Huijsmans	note	Figure 1: Pitch track for eventive ǰuθut ‘push it’	page 24, the figure's caption
+Figure 2	Gloria Mellesmoen and Marianne Huijsmans	note	0 to 5000 (Hz); Time (s) 0.1321 0.9988	page 24, the axes of the pitch track, the frequency axis, Frequency (Hz), set on its side
+Figure 2	Gloria Mellesmoen and Marianne Huijsmans	note	Figure 2: Pitch track for stative ǰuθut ‘hold it in place (by pushing)’	page 24, the figure's caption

@@ -1,0 +1,749 @@
+where	who	kind	form	gloss
+front	Gloria Mellesmoen, Suzanne Urbanczyk	title	Mora Affixation and Halkomelem Imperfective Allomorphy	page 1, carries footnote *
+front	Gloria Mellesmoen, Suzanne Urbanczyk	name	Gloria Mellesmoen	author
+front	Gloria Mellesmoen, Suzanne Urbanczyk	note	University of British Columbia	page 1, under Gloria Mellesmoen
+front	Gloria Mellesmoen, Suzanne Urbanczyk	name	Suzanne Urbanczyk	author
+front	Gloria Mellesmoen, Suzanne Urbanczyk	note	University of Victoria	page 1, under Suzanne Urbanczyk
+front	Gloria Mellesmoen, Suzanne Urbanczyk	note	Abstract: This paper presents an extensive compilation of Hul’q’umi’num’ (Central Salish) allomorphs associated with imperfective meaning. First, we classify each of the observed patterns of allomorphy by whether they exhibit phonological, morphological, or lexical conditioning. In order to account for the allomorphy associated with the imperfective morpheme formally, we propose an analysis in which the range of phonologically conditioned allomorphs can be accounted for by prefixing a segmentally empty mora. Each allomorph, attached to a base, arises as the optimal way to fill a mora, given phonotactic patterns of the language. This result is particularly striking given that one of the allomorphs is the deletion of a schwa which appears more like reduction (rather than addition of prosodic material) on first pass. This result supports morpheme-based concatenative approaches to morphology, in particular the Minimal Reduplication (Saba Kirchner 2013) or Generalized Nonlinear Affixation (Bermúdez-Otero 2012) frameworks, in which reduplication is considered to be phonological in nature.	page 1, the abstract
+front	Gloria Mellesmoen, Suzanne Urbanczyk	note	Keywords: ablaut, allomorphy, imperfective, metathesis, prosodic morphology, reduplication	page 1, the keywords
+front	Gloria Mellesmoen, Suzanne Urbanczyk	note	Papers for the International Conference on Salish and Neighboring Languages 55. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2020.	page 1, the volume's header
+front	Gloria Mellesmoen, Suzanne Urbanczyk	language	Hul’q’umi’num’	Island Halkomelem, Central Salish
+footnote *	Gloria Mellesmoen, Suzanne Urbanczyk	note	We would like to thank those who have supported our understanding of Hul’q’umi’num’ imperfective verb forms, including audiences at WCCFL, Salish Working Group, UVic colloquium, participants of FNLG 432/830 at SFU, and in particular, we thank Ruby Peter, Tom Hukari, and Donna Gerdts who have shared their knowledge, insights, and electronic copies of the Cowichan Dictionary that facilitated this research.	page 1, footnote *, on the title
+§1	Gloria Mellesmoen, Suzanne Urbanczyk	heading	1 Introduction	page 1
+§1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Halkomelem (Central Salish) has one of the widest range of allomorphs to express imperfective aspect in the Salish language family.1 This range of patterns in the Hul’q’umi’num’ dialect (also referred to as Island Halkomelem) is presented below, and includes C1V- reduplication (1a), C1ə- reduplication (1b), ablaut (1c), metathesis (1d), a glottal stop infix (1e), C1ə- reduplication with the aspiration of a sonorant (1f), schwa deletion (1g), and schwa insertion (1h). In addition, a concurrent glottalization process, affecting sonorant consonants, accompanies the non- concatenative allomorph, as illustrated below (where the relevant portion is underlined). Unless otherwise noted, all examples given in this paper are from Hukari and Peter’s (1995) Cowichan Dictionary.	page 1
+footnote 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	We label this “imperfective”, following Hukari (1978), but remain agnostic as to whether it is more accurately defined as “progressive” (as Suttles 2004 labels it in Musqueam). It is also a cognate to the “actual” morpheme in Klallam and Northern Straits (see Montler 1986). In addition to this, we also use the term “sonorant” in lieu of “resonant” (commonly used in Salish literature).	page 1, footnote 1
+(1) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Allomorphs of the Hul’q’umi’num’ imperfective	page 1, set over the pairs
+(1) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective Allomorph	page 1, the columns' header
+(1a) line 1	Hul’q’umi’num’	transcription	ɬíc̓ət	page 1
+(1a) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘cut it’	page 1
+(1a) line 3	Hul’q’umi’num’	transcription	ɬíɬəc̓ət	page 1
+(1a) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘cutting it’	page 1
+(1a) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	C1V- reduplication	page 1, the allomorph
+(1b) line 1	Hul’q’umi’num’	transcription	té:m̓	page 1
+(1b) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘call, holler’	page 1
+(1b) line 3	Hul’q’umi’num’	transcription	təté:m̓	page 1
+(1b) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘calling, hollering’	page 1
+(1b) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	C1ə- reduplication	page 1, the allomorph
+(1c) line 1	Hul’q’umi’num’	transcription	ɬə́p̓t̓ᶿt	page 1
+(1c) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘slurp it’	page 1
+(1c) line 3	Hul’q’umi’num’	transcription	ɬép̓t̓ᶿt	page 1
+(1c) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘slurping it’	page 1
+(1c) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	ablaut	page 1, the allomorph
+(1d) line 1	Hul’q’umi’num’	transcription	pqʷát	page 2
+(1d) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘break it (substance)’	page 2
+(1d) line 3	Hul’q’umi’num’	transcription	páqᵂt	page 2
+(1d) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘breaking it’	page 2
+(1d) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	metathesis	page 2, the allomorph
+(1e) line 1	Hul’q’umi’num’	transcription	hésəm	page 2
+(1e) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘sneeze’	page 2
+(1e) line 3	Hul’q’umi’num’	transcription	héʔsəm̓	page 2
+(1e) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘sneezing’	page 2
+(1e) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	glottal stop infix	page 2, the allomorph
+(1f) line 1	Hul’q’umi’num’	transcription	lə́c̓ət	page 2
+(1f) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘fill it’	page 2
+(1f) line 3	Hul’q’umi’num’	transcription	hə́l̓c̓t	page 2
+(1f) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘filling it’	page 2
+(1f) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	sonorant aspiration	page 2, the allomorph
+(1g) line 1	Hul’q’umi’num’	transcription	ɬát̓əq̓ʷəm	page 2
+(1g) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘snore’	page 2
+(1g) line 3	Hul’q’umi’num’	transcription	ɬát̓q̓ʷəm̓	page 2
+(1g) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘snoring’	page 2
+(1g) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	schwa deletion	page 2, the allomorph
+(1h) line 1	Hul’q’umi’num’	transcription	t̓kʷəwəɫ	page 2
+(1h) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘patch a canoe’	page 2
+(1h) line 3	Hul’q’umi’num’	transcription	t̓əkʷəw̓əɫ	page 2
+(1h) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘patching a canoe’	page 2
+(1h) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	schwa insertion	page 2, the allomorph
+§1	Gloria Mellesmoen, Suzanne Urbanczyk	note	A central puzzle that arises from the data in (1), and the question of how to understand the patterns associated with the imperfective in Halkomelem, is whether or not there is a single underlying form, from which the allomorphs can arise. Following Urbanczyk’s (1998) analysis of the Upriver Halkomelem pattern, a closely related dialect, we propose that the imperfective in Hul’q’umi’num’ is a segmentally empty mora prefix /µ-/ that triggers a range of non-concatenative processes, including reduplication, ablaut, and deletion. The goal of this paper is to present a comprehensive description of the imperfective allomorphy patterns and sketch a preliminary analysis using a mora affixation approach. The first step is to present data that encapsulates the range of patterns, and classify them by the kind of conditioning that is relevant: phonological, morphological, or lexical (Section 2). We then present our analysis in Section 3, and subsequently discuss some of the outstanding issues before summarizing our findings in Section 4.	page 2
+§2	Gloria Mellesmoen, Suzanne Urbanczyk	heading	2 Hul’q’umi’num’ imperfective allomorphy	page 2
+§2	Gloria Mellesmoen, Suzanne Urbanczyk	note	For the most part, the choice of allomorph depends on the base: it is largely phonologically conditioned. Table 1 provides a preview of how this section is divided by type of conditioning. First, we outline the phonological conditions that determine the selection of allomorphs (1a–f) in Section 2.1), leaving discussion of (1g–h) for the section on morphological conditioning (Section 2.2), and other instances of schwa insertion (1h) for the section on lexical conditioning (Section 2.3). A final section summarizes our findings (Section 2.4).	page 2
+Table 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Table 1: Overview of conditions on imperfective allomorphy	page 2, the table's caption
+Table 1 line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Type of Conditioning Forms	page 2, Table 1
+Table 1 line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Phonological (Section 2.1) C1 Reduplication (1a–b,f)	page 2, Table 1
+Table 1 line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	Ablaut (1c)	page 2, Table 1
+Table 1 line 4	Gloria Mellesmoen, Suzanne Urbanczyk	note	Metathesis (1d)	page 2, Table 1
+Table 1 line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	Glottal stop infix (1e)	page 2, Table 1
+Table 1 line 6	Gloria Mellesmoen, Suzanne Urbanczyk	note	Morphological (Section 2.2) Schwa deletion (1g)	page 2, Table 1
+Table 1 line 7	Gloria Mellesmoen, Suzanne Urbanczyk	note	Schwa insertion (1h)	page 2, Table 1
+Table 1 line 8	Gloria Mellesmoen, Suzanne Urbanczyk	note	Lexical (Section 2.3) Schwa insertion (1h)	page 2, Table 1
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	heading	2.1 Phonological conditioning	page 2
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	The phonological conditions that mediate the form of the imperfective allomorph are based on several factors, including whether or not the stem begins with a consonant cluster, whether the vowel is schwa or one of the other (“full”) vowels, whether the primary place of articulation for the consonants is glottal, and whether or not the consonants are obstruent or sonorant segments. These conditions mean that not all stems with the same shape will form the imperfective in the same way. For example, consider a stem with the shape CəCəC: if the first consonant is a sonorant, it will have reduplication in addition to the aspiration of a sonorant (as was shown in 1f), but if the first consonant of the root (C1) is an obstruent and the second (C2) is a sonorant, the imperfective is realized with C1ə- reduplication, and no aspiration of sonorant segments .2 Because the type of segment is key to understanding the conditions, we adopt the following abbreviations to refer to the relevant classes of sounds: V = any full (non-schwa) vowel, C = any consonant aside from glottal consonants, H = glottal consonants, T = obstruent consonants, and R = sonorant consonants. We will use X to refer to any following segmental material (where the type of sound is not immediately relevant to the current discussion), and this may refer to multiple segments.	page 2
+footnote 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	See also Baker, Urbanczyk, & Hul’q’umi’num’ Language Academy (2019) for further discussion of the phonological conditions that have been identified for other verbal meanings: the largest number of classes occurring with imperfective verbs.	page 3, footnote 2
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	If the stem is of shape CVX, and it begins with a single consonant that is not glottal (/ʔ/ or /h/) followed by a full vowel, the imperfective is marked by a copy of the first CV sequence. Note that the copied consonant can be either an obstruent or a sonorant and that the first syllable may be open (2a) or closed (2b).	page 3
+(2) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	C1V- reduplication:	page 3, set over the pairs
+(2) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 3, the columns' header
+(2a) line 1	Hul’q’umi’num’	transcription	ɬíc̓ət	page 3
+(2a) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘cut it’	page 3
+(2a) line 3	Hul’q’umi’num’	transcription	ɬíɬəc̓ət	page 3
+(2a) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘cutting it’	page 3
+(2a) line 5	Hul’q’umi’num’	transcription	ɬímət	page 3
+(2a) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘lick it’	page 3
+(2a) line 7	Hul’q’umi’num’	transcription	ɬíɬəm̓ət	page 3
+(2a) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘licking it’	page 3
+(2a) line 9	Hul’q’umi’num’	transcription	t̓íləm	page 3
+(2a) line 10	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘sing’	page 3
+(2a) line 11	Hul’q’umi’num’	transcription	t̓ít̓ələm̓	page 3
+(2a) line 12	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘singing’	page 3
+(2a) line 13	Hul’q’umi’num’	transcription	lémət	page 3
+(2a) line 14	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘look at’	page 3
+(2a) line 15	Hul’q’umi’num’	transcription	léləm̓ət	page 3
+(2a) line 16	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘looking at’	page 3
+(2b) line 1	Hul’q’umi’num’	transcription	kʷíntəl	page 3
+(2b) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘fight’	page 3
+(2b) line 3	Hul’q’umi’num’	transcription	kʷíkʷən̓təl	page 3
+(2b) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘fighting’	page 3
+(2b) line 5	Hul’q’umi’num’	transcription	yeq̓	page 3
+(2b) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘topple down’	page 3
+(2b) line 7	Hul’q’umi’num’	transcription	yéy̓əq̓	page 3
+(2b) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘toppling down’	page 3
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	If the first consonant is a glottal stop or fricative, the imperfective allomorph is a glottal stop infix, as illustrated below with /ʔ/-initial stems (3a) and /h/-initial stems (3b).3	page 3
+footnote 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	The pattern in (3a) could alternately be analysed as the reduplication of a glottal stop.	page 3, footnote 3
+(3) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Glottal infix:	page 3, set over the pairs
+(3) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 3, the columns' header
+(3a) line 1	Hul’q’umi’num’	transcription	ʔíməš	page 3
+(3a) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘walk’	page 3
+(3a) line 3	Hul’q’umi’num’	transcription	ʔíʔməš	page 3
+(3a) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘walking’	page 3
+(3a) line 5	Hul’q’umi’num’	transcription	ʔák̓ʷət	page 3
+(3a) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘hook it’	page 3
+(3a) line 7	Hul’q’umi’num’	transcription	ʔáʔk̓ʷət	page 3
+(3a) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘hooking it’	page 3
+(3a) line 9	Hul’q’umi’num’	transcription	ʔálux̣ət	page 3
+(3a) line 10	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘collect, gather, select’	page 3
+(3a) line 11	Hul’q’umi’num’	transcription	ʔáʔləx̣ət	page 3
+(3a) line 12	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘collecting, gathering, hunting’	page 3
+(3b) line 1	Hul’q’umi’num’	transcription	hésəm	page 3
+(3b) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘sneeze’	page 3
+(3b) line 3	Hul’q’umi’num’	transcription	héʔsəm̓	page 3
+(3b) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘sneezing’	page 3
+(3b) line 5	Hul’q’umi’num’	transcription	hakʷəš	page 3
+(3b) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘use it, wear it’	page 3
+(3b) line 7	Hul’q’umi’num’	transcription	háʔkʷəš	page 3
+(3b) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘using it, wearing it’	page 3
+(3b) line 9	Hul’q’umi’num’	transcription	híkʷət	page 3
+(3b) line 10	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘rock (baby)’	page 3
+(3b) line 11	Hul’q’umi’num’	transcription	híʔkʷət	page 3
+(3b) line 12	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘rocking (a baby)’	page 3
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	When the stem does not meet either of these conditions then the choice of allomorphs depends on a combination of other factors, noted above.	page 3
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Ablaut is found in the imperfective forms of roots with a CəCTX, where the vowel is a schwa and followed by a consonant cluster with an obstruent as the second consonant of the cluster. The imperfective is formed with ablaut, and the initial consonant can be an obstruent (4a–b) or sonorant (4c).	page 3
+(4) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Ablaut:	page 4, set over the pairs
+(4) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 4, the columns' header
+(4a) line 1	Hul’q’umi’num’	transcription	ɬəp̓t̓ᶿt	page 4
+(4a) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘slurp it’	page 4
+(4a) line 3	Hul’q’umi’num’	transcription	ɬep̓t̓ᶿt	page 4
+(4a) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘slurping it’	page 4
+(4a) line 5	Hul’q’umi’num’	transcription	səwq̓	page 4
+(4a) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘look for’	page 4
+(4a) line 7	Hul’q’umi’num’	transcription	sew̓q̓	page 4
+(4a) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘looking for’	page 4
+(4b) line 1	Hul’q’umi’num’	transcription	c̓ət̓q̓ʷt	page 4
+(4b) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘grind it’	page 4
+(4b) line 3	Hul’q’umi’num’	transcription	c̓at̓q̓ʷt	page 4
+(4b) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘grinding it’	page 4
+(4c) line 1	Hul’q’umi’num’	transcription	yəm̓q̓šət	page 4
+(4c) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘scrub feet ceremoniously’	page 4
+(4c) line 3	Hul’q’umi’num’	transcription	yem̓q̓šət	page 4
+(4c) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘scrubbing feet ceremoniously’	page 4
+(4c) line 5	Hul’q’umi’num’	transcription	məlxʷt	page 4
+(4c) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘rub oil, grease on it’	page 4
+(4c) line 7	Hul’q’umi’num’	transcription	mel̓xʷt	page 4
+(4c) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘rubbing oil on it’	page 4
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	The stems that undergo the ablaut pattern in (4) are frequently formed from tri-consonantal roots: these are roots that have three consonants and lack an underlying full vowel. The quality of the vowel is phonologically predictable for the most part: it is [a] if there is a rounded consonant following it (4b), otherwise it is [e] as in (4a,c). See Jones (1976) for further discussion of this.	page 4
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	If the stem begins with an obstruent cluster, then a process of metathesis occurs.4 The vowel in the perfective forms is switched in position with the second consonant of the root (C2).	page 4
+footnote 4	Gloria Mellesmoen, Suzanne Urbanczyk	note	This is referred to as metathesis because the difference between the perfective and imperfective forms is position of the vowel, with respect to the consonants in the stem. However, this may alternately be analysed as insertion of a vowel in different positions in the stem if the roots are considered to be underlyingly without vowel.	page 4, footnote 4
+(5) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Metathesis:	page 4, set over the pairs
+(5) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 4, the columns' header
+(5a) line 1	Hul’q’umi’num’	transcription	pqʷat	page 4
+(5a) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘break it (substance)’	page 4
+(5a) line 3	Hul’q’umi’num’	transcription	paqʷt	page 4
+(5a) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘breaking it’	page 4
+(5a) line 5	Hul’q’umi’num’	transcription	t̓q̓ʷat	page 4
+(5a) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘break it’	page 4
+(5a) line 7	Hul’q’umi’num’	transcription	t̓aq̓ʷt	page 4
+(5a) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘breaking it’	page 4
+(5a) line 9	Hul’q’umi’num’	transcription	xʷk̓ʷat	page 4
+(5a) line 10	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pull it’	page 4
+(5a) line 11	Hul’q’umi’num’	transcription	xʷak̓ʷt	page 4
+(5a) line 12	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pulling it’	page 4
+(5b) line 1	Hul’q’umi’num’	transcription	sq̓et	page 4
+(5b) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘tear/split it’	page 4
+(5b) line 3	Hul’q’umi’num’	transcription	seq̓t	page 4
+(5b) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘tearing/splitting it’	page 4
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Interestingly, these stems are formed with a biconsonantal root, plus the control transitive suffix. Due to phonotactic considerations, the only stems that begin with clusters involve obstruents. The vowels are identical to the ablaut vowels found, and are thus also subject to the same conditions as stated above.	page 4
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	When the stem is RəCəX, the imperfective forms appear to have /h/ in addition to a difference in vowel position. This may be described in a number of ways, including metathesis, insertion of a schwa in roots without an underlying vowel, or deletion of a root vowel. We refer to it as sonorant “aspiration”, which refers specifically to an input sonorant segment being realized as /h/ in the output. This could alternately be treated as spirantization, debuccalization, or devoicing (or some combination of these processes).	page 4
+(6) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Reduplication and aspiration of sonorant (h-):	page 4, set over the pairs
+(6) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 4, the columns' header
+(6a) line 1	Hul’q’umi’num’	transcription	lə́m̓ət	page 4
+(6a) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘fold, hem it’	page 4
+(6a) line 3	Hul’q’umi’num’	transcription	hə́l̓mət	page 4
+(6a) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘folding it’	page 4
+(6b) line 1	Hul’q’umi’num’	transcription	mə́q̓ət	page 4
+(6b) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘swallow it’	page 4
+(6b) line 3	Hul’q’umi’num’	transcription	hə́m̓q̓ət	page 4
+(6b) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘swallowing it’	page 4
+(6c) line 1	Hul’q’umi’num’	transcription	nə́qəm	page 4
+(6c) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘dive’	page 4
+(6c) line 3	Hul’q’umi’num’	transcription	hə́n̓qəm̓	page 4
+(6c) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘diving’	page 4
+(6d) line 1	Hul’q’umi’num’	transcription	wə́ɫəθət	page 4
+(6d) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘be rough on’	page 4
+(6d) line 3	Hul’q’umi’num’	transcription	hə́w̓ɫθət	page 4
+(6d) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘being rough on’	page 4
+(6e) line 1	Hul’q’umi’num’	transcription	yə́k̓ʷət	page 4
+(6e) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘scrub, rub together’	page 4
+(6e) line 3	Hul’q’umi’num’	transcription	hə́y̓k̓ʷət	page 4
+(6e) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘scrubbing, rubbing together’	page 4
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Instead of classifying this as a case of metathesis with h- epenthesis, we follow Hukari (1977) in analyzing it as C1 reduplication in combination with sonorant aspiration. Hukari (1977:48) provides evidence that sonorant aspiration is “phonologically conditioned and not contingent upon any one morphological category, ruling out the possibility that it is simply morphologically conditioned suppletion”. He notes the condition for sonorant aspiration being when the stem begins with the sequence Rə-, leading to the intermediate structure RiəRi. He provides evidence from three reduplication patterns, including imperfective reduplication. We provide examples from reduplicated resultative (7a) and plural (7b) forms listed in Hukari (1977), as well as stems with multiple reduplication (7c) to illustrate that this is a property of reduplication in general. Note that resultatives are formed by reduplication, and the prefixing of /s-/. Resultative and plurals also co- occur with /i/ in the stressed syllable.	page 5
+(7) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Sonorant aspiration in other reduplicative contexts:	page 5, set over the pairs
+(7a) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Resultative	page 5, set over the pairs
+(7a) line 2	Hul’q’umi’num’	transcription	ləc̓	page 5
+(7a) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘get full’	page 5
+(7a) line 4	Hul’q’umi’num’	transcription	səl̓íc	page 5
+(7a) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘be full’	page 5
+(7a) line 6	Hul’q’umi’num’	transcription	məq̓	page 5
+(7a) line 7	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘get full (person)’	page 5
+(7a) line 8	Hul’q’umi’num’	transcription	səm̓íq̓	page 5
+(7a) line 9	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘be full’	page 5
+(7a) line 10	Hul’q’umi’num’	transcription	nəqʷ	page 5
+(7a) line 11	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘doze off’	page 5
+(7a) line 12	Hul’q’umi’num’	transcription	sən̓iqʷ	page 5
+(7a) line 13	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘asleep’	page 5
+(7b) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Plural	page 5, set over the pairs
+(7b) line 2	Hul’q’umi’num’	transcription	yəx̣ʷəléʔ	page 5
+(7b) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘eagle’	page 5
+(7b) line 4	Hul’q’umi’num’	transcription	həyíx̣ʷəléʔ	page 5
+(7b) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘eagles’	page 5
+(7b) line 6	Hul’q’umi’num’	transcription	lə́xʷtən	page 5
+(7b) line 7	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘blanket’	page 5
+(7b) line 8	Hul’q’umi’num’	transcription	həlíx̣ʷtən	page 5
+(7b) line 9	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘blankets’	page 5
+(7b) line 10	Hul’q’umi’num’	transcription	yə́nəs	page 5
+(7b) line 11	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘tooth’	page 5
+(7b) line 12	Hul’q’umi’num’	transcription	həyínəs	page 5
+(7b) line 13	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘teeth’	page 5
+(7b) line 14	Hul’q’umi’num’	transcription	smə́yəθ	page 5
+(7b) line 15	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘deer’	page 5
+(7b) line 16	Hul’q’umi’num’	transcription	səmíyəθ	page 5
+(7b) line 17	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘deer [PL.]’	page 5
+(7b) line 18	Hul’q’umi’num’	phonemic	/s-həmíyəθ/	page 5, in parentheses after the gloss
+(7b) line 19	Hul’q’umi’num’	transcription	snə́xʷəɫ	page 5
+(7b) line 20	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘canoe’	page 5
+(7b) line 21	Hul’q’umi’num’	transcription	səníxʷəɫ	page 5
+(7b) line 22	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘canoes’	page 5
+(7b) line 23	Hul’q’umi’num’	phonemic	/s-həníxʷəɫ/	page 5, in parentheses after the gloss
+(7c) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Diminutive & imperfective	page 5, set over the pairs
+(7c) line 2	Hul’q’umi’num’	transcription	meʔš	page 5
+(7c) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘take off something	page 5
+(7c) line 4	Hul’q’umi’num’	transcription	hiʔhəm̓əš	page 5
+(7c) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘taking off something [DIM.]’	page 5
+(7c) line 6	Hul’q’umi’num’	transcription	məq̓ət	page 5
+(7c) line 7	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘swallow	page 5
+(7c) line 8	Hul’q’umi’num’	transcription	hiʔhəm̓q̓ət	page 5
+(7c) line 9	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘swallowing [DIM.]’	page 5
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	While others have analyzed the /h/ as epenthetic in the Upriver dialect of Halkomelem (Urbanczyk 1999; Zimmermann 2013), this is unlikely given that there is good evidence that /ʔ/ is the default epenthetic consonant instead, rather than /h/. The following example illustrates that vowel hiatus can be resolved by glottal stop epenthesis elsewhere in the language (Gerdts & Werle 2014).	page 5
+(8) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Glottal stop epenthesis (Gerdts & Werle 2014:265):	page 5, over the example
+(8a) line 1	Hul’q’umi’num’	transcription	[sukʷəʔelə]	page 5
+(8a) line 2	Hul’q’umi’num’	segmentation	/sukʷə-elə/	page 5
+(8a) line 3	Hul’q’umi’num’	gloss	sugar-container	page 5
+(8a) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘sugar bowl’	page 5
+(8b) line 1	Hul’q’umi’num’	transcription	[pəlipəʔələp]	page 5
+(8b) line 2	Hul’q’umi’num’	segmentation	/pəlipə=ələp/	page 5
+(8b) line 3	Hul’q’umi’num’	gloss	paper(PL)=2PL	page 5
+(8b) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘your (pl.) paper’	page 5
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	A number of additional stem shapes retain stress on the base in the imperfective, and form the imperfective with C1ə- reduplication. All are phonologically conditioned. Some begin with /ə/ as the vowel, as shown in (9a), with bare roots, and in (9b), where the stem has the shape TəRəX. Two additional phonologically-conditioned imperfective patterns are shown in (9c), with a long vowel, and in (9d) with a vowel-glottal stop sequence.5	page 6
+footnote 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	We have only found one example in which initial stress is associated with C 1ə- reduplication, though note that this could be more wide-spread.	page 6, footnote 5
+footnote 5 (i) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	C1ə- reduplication with initial stress:	page 6, over the example
+footnote 5 (i) line 2	Hul’q’umi’num’	transcription	k̓ʷəɫ	page 6
+footnote 5 (i) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘spill’	page 6
+footnote 5 (i) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	note	(perfective)	page 6, after the gloss
+footnote 5 (i) line 5	Hul’q’umi’num’	transcription	k̓ʷə́k̓ʷəɫ	page 6
+footnote 5 (i) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘spilling’	page 6
+footnote 5 (i) line 7	Gloria Mellesmoen, Suzanne Urbanczyk	note	(imperfective)	page 6, after the gloss
+(9) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	C1ə- reduplication with non-initial stress:6	page 6, set over the pairs
+footnote 6	Gloria Mellesmoen, Suzanne Urbanczyk	note	Stress patterns are from an unpublished manuscript of the Cowichan Dictionary that was annotated with stress by Bianco (1996), as part of her MA thesis research. Many thanks to Tom Hukari for sharing this.	page 6, footnote 6
+(9) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 6, the columns' header
+(9a) line 1	Hul’q’umi’num’	transcription	tə́s	page 6
+(9a) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘arrive’	page 6
+(9a) line 3	Hul’q’umi’num’	transcription	tətə́s	page 6
+(9a) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘arriving’	page 6
+(9a) line 5	Hul’q’umi’num’	transcription	q̓əp	page 6
+(9a) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘gather’	page 6
+(9a) line 7	Hul’q’umi’num’	transcription	q̓əq̓ə́p	page 6
+(9a) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘gathering’.	page 6
+(9b) line 1	Hul’q’umi’num’	transcription	t̓ə́m̓ət	page 6
+(9b) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pound on it, beat drum’	page 6
+(9b) line 3	Hul’q’umi’num’	transcription	t̓ət̓ə́m̓ət	page 6
+(9b) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pounding on it, beating a drum’	page 6
+(9b) line 5	Hul’q’umi’num’	transcription	θə́ləqt	page 6
+(9b) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘divide in half’	page 6
+(9b) line 7	Hul’q’umi’num’	transcription	θəθə́l̓əqt	page 6
+(9b) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘dividing in half’	page 6
+(9b) line 9	Hul’q’umi’num’	transcription	xʷə́lək̓ʷt	page 6
+(9b) line 10	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘wrap it up’	page 6
+(9b) line 11	Hul’q’umi’num’	transcription	xʷəxʷə́lək̓ʷt	page 6
+(9b) line 12	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘wrapping it up’	page 6
+(9b) line 13	Hul’q’umi’num’	transcription	x̣ə́l̓əm	page 6
+(9b) line 14	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘write’	page 6
+(9b) line 15	Hul’q’umi’num’	transcription	x̣əx̣ə́l̓əm̓	page 6
+(9b) line 16	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘writing’	page 6
+(9b) line 17	Hul’q’umi’num’	transcription	cə́ləw̓t	page 6
+(9b) line 18	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘turn it over’	page 6
+(9b) line 19	Hul’q’umi’num’	transcription	cəcə́ləw̓t	page 6
+(9b) line 20	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘turning it over’	page 6
+(9b) line 21	Hul’q’umi’num’	transcription	cə́m̓ət	page 6
+(9b) line 22	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pack it on one’s back’	page 6
+(9b) line 23	Hul’q’umi’num’	transcription	cəcə́m̓ət	page 6
+(9b) line 24	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘putting it on one’s back’	page 6
+(9b) line 25	Hul’q’umi’num’	transcription	ɫə́lət	page 6
+(9b) line 26	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘bail it out’	page 6
+(9b) line 27	Hul’q’umi’num’	transcription	ɫəɫə́l̓ət	page 6
+(9b) line 28	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘bailing it out’	page 6
+(9b) line 29	Hul’q’umi’num’	transcription	xʷ-p̓ə́ləc̓t	page 6
+(9b) line 30	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘turn it inside out’	page 6
+(9b) line 31	Hul’q’umi’num’	transcription	xʷ-p̓əp̓ə́ləc̓t	page 6
+(9b) line 32	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘turning it inside out’	page 6
+(9b) line 33	Hul’q’umi’num’	transcription	q̓ʷə́ləm	page 6
+(9b) line 34	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘barbecue’	page 6
+(9b) line 35	Hul’q’umi’num’	transcription	q̓ʷəq̓ʷə́ləm̓	page 6
+(9b) line 36	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘barbecuing’	page 6
+(9b) line 37	Hul’q’umi’num’	transcription	q̓ʷə́maʔqʷt	page 6
+(9b) line 38	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pull out s.o. hair’	page 6
+(9b) line 39	Hul’q’umi’num’	transcription	q̓ʷə̀q̓ʷə́maʔqʷt	page 6
+(9b) line 40	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pulling hair out’	page 6
+(9b) line 41	Hul’q’umi’num’	transcription	q̓ʷə́məwst	page 6
+(9b) line 42	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pluck a fowl’	page 6
+(9b) line 43	Hul’q’umi’num’	transcription	q̓ʷə̀q̓ʷə́məw̓st	page 6
+(9b) line 44	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘plucking a fowl’	page 6
+(9c) line 1	Hul’q’umi’num’	transcription	té:m̓	page 6
+(9c) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘call, holler’	page 6
+(9c) line 3	Hul’q’umi’num’	transcription	təté:m̓	page 6
+(9c) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘calling, hollering’	page 6
+(9c) line 5	Hul’q’umi’num’	transcription	kʷe:l	page 6
+(9c) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘hide oneself’	page 6
+(9c) line 7	Hul’q’umi’num’	transcription	kʷəkʷé:l̓	page 6
+(9c) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘hiding’	page 6
+(9c) line 9	Hul’q’umi’num’	transcription	p̓a:m	page 6
+(9c) line 10	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘swell up’	page 6
+(9c) line 11	Hul’q’umi’num’	transcription	p̓əp̓á:m̓	page 6
+(9c) line 12	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘swelling up’	page 6
+(9d) line 1	Hul’q’umi’num’	transcription	seʔ	page 6
+(9d) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘lifted’	page 6
+(9d) line 3	Hul’q’umi’num’	transcription	səséʔ	page 6
+(9d) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘lifted’	page 6
+(9d) line 5	Hul’q’umi’num’	transcription	c̓eʔt	page 6
+(9d) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘put it on’	page 6
+(9d) line 7	Hul’q’umi’num’	transcription	c̓əc̓éʔt	page 6
+(9d) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘putting it on’	page 6
+(9d) line 9	Hul’q’umi’num’	transcription	k̓ʷiʔ	page 6
+(9d) line 10	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘rise’	page 6
+(9d) line 11	Hul’q’umi’num’	transcription	k̓ʷək̓ʷíʔ	page 6
+(9d) line 12	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘rising’	page 6
+(9d) line 13	Hul’q’umi’num’	transcription	t̓áʔt	page 6
+(9d) line 14	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pull it apart’	page 6
+(9d) line 15	Hul’q’umi’num’	transcription	t̓ət̓áʔt	page 6
+(9d) line 16	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pulling it apart’	page 6
+(9d) line 17	Hul’q’umi’num’	transcription	kʷaʔt	page 6
+(9d) line 18	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘take it apart’	page 6
+(9d) line 19	Hul’q’umi’num’	transcription	kʷəkʷáʔt	page 6
+(9d) line 20	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘taking it apart’	page 6
+(9d) line 21	Hul’q’umi’num’	transcription	q̓aʔ	page 6
+(9d) line 22	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘together’	page 6
+(9d) line 23	Hul’q’umi’num’	transcription	q̓əq̓áʔ	page 6
+(9d) line 24	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘joining together’	page 6
+§2.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Having discussed the major patterns of phonological conditioning, we now turn to morphological conditioning.	page 6
+§2.2	Gloria Mellesmoen, Suzanne Urbanczyk	heading	2.2 Morphological conditioning	page 6
+§2.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Up until now we have not discussed the schwa deletion allomorph. This occurs with a very restricted set of stems: triconsonantal roots that take the ‘middle’ suffix, as illustrated below. Urbanczyk (2011) notes that every triconsonantal root (to the exclusion of one) in the Cowichan Dictionary follows this pattern, so the pattern is quite robust. Note that there is an alternation between /ə/ and ∅, with the schwa occurring in the perfective, which has three syllables, while the imperfective lacks a schwa and has two syllables. Syllable boundaries are indicated with a period in (10).	page 6
+(10) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Schwa deletion:	page 7, set over the pairs
+(10) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 7, the columns' header
+(10) line 3	Hul’q’umi’num’	transcription	c̓á.t̓ə.q̓ʷəm	page 7
+(10) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘fall apart (from cooking)’	page 7
+(10) line 5	Hul’q’umi’num’	transcription	c̓át̓.q̓ʷəm̓	page 7
+(10) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘falling apart (from cooking)’	page 7
+(10) line 7	Hul’q’umi’num’	transcription	ƛ̓é.pə.x̌əm	page 7
+(10) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘fall (leaves)’	page 7
+(10) line 9	Hul’q’umi’num’	transcription	ƛ̓ép.x̌əm̓	page 7
+(10) line 10	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘falling (leaves)’	page 7
+(10) line 11	Hul’q’umi’num’	transcription	ɬá.t̓ə.q̓ʷəm	page 7
+(10) line 12	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘snore’	page 7
+(10) line 13	Hul’q’umi’num’	transcription	ɬát̓.q̓ʷəm̓	page 7
+(10) line 14	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘snoring’	page 7
+§2.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	The pattern is interesting for a couple of reasons. First, the perfective form has an ablaut vowel, that usually occurs only with the imperfective aspect. The sets below are minimal pairs that illustrate how the same roots have a schwa in the root for the perfective forms with a control transitive, while the imperfective forms have the ablaut vowel in the root. In (11a–c), the verbs with the control transitivizer are in (i), while those with the middle suffix are in (ii).	page 7
+(11) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Triconsonantal roots:	page 7, set over the pairs
+(11a) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	√root = ‘dry’	page 7, set over the pairs
+(11a) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 7, the columns' header
+(11ai) line 1	Hul’q’umi’num’	transcription	c̓ə́y̓xʷt	page 7
+(11ai) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘dry it’	page 7
+(11ai) line 3	Hul’q’umi’num’	transcription	c̓éy̓xʷt	page 7
+(11ai) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘drying it’	page 7
+(11aii) line 1	Hul’q’umi’num’	transcription	c̓éy̓əxʷəm	page 7
+(11aii) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘dry: get dry (weather)’	page 7
+(11aii) line 3	Hul’q’umi’num’	transcription	c̓éy̓xʷəm̓	page 7
+(11aii) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘dry: getting dry (weather)’	page 7
+(11b) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	√root = ‘whittle, gnaw away at wood”	page 7, set over the pairs
+(11b) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 7, the columns' header
+(11bi) line 1	Hul’q’umi’num’	transcription	x̌ə́t̓k̓ʷt	page 7
+(11bi) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘whittle on it’	page 7
+(11bi) line 3	Hul’q’umi’num’	transcription	x̌ét̓k̓ʷt	page 7
+(11bi) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘whittling on it’	page 7
+(11bii) line 1	Hul’q’umi’num’	transcription	x̌ét̓ək̓ʷəm	page 7
+(11bii) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘gnaw’	page 7
+(11bii) line 3	Hul’q’umi’num’	transcription	x̌ét̓k̓ʷəm̓	page 7
+(11bii) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘gnawing’	page 7
+(11c) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	√root = ‘fry’	page 7, set over the pairs
+(11c) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 7, the columns' header
+(11ci) line 1	Hul’q’umi’num’	transcription	č̓ə́kʷx̌t	page 7
+(11ci) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘fry it’	page 7
+(11ci) line 3	Hul’q’umi’num’	transcription	č̓ékʷx̌t	page 7
+(11ci) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘frying it’	page 7
+(11cii) line 1	Hul’q’umi’num’	transcription	č̓ékʷəx̌əm	page 7
+(11cii) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘spatter’	page 7
+(11cii) line 3	Hul’q’umi’num’	transcription	č̓ékʷx̌əm̓	page 7
+(11cii) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘spattering’	page 7
+§2.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	This pattern, with an ablaut vowel in the perfective, only seems to occur with the ‘middle’ suffix on triconsonantal roots. Thus, it can be treated as a case of morphological conditioning — of the perfective. As we discuss in Section 3.3 below, the mora affixation analysis we pursue in this paper can straightforwardly account for deletion.	page 7
+§2.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	In addition to the triconsonantal ablaut pattern in (10–11), morphologically complex words also show a difference in how the imperfective is formed, depending on what the following suffixes are. The words in (12) illustrate this point.	page 7
+(12) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Root = /t̓ᶿiq̓ʷ/ ‘punch, hit with jabbing motion’	page 7, set over the pairs
+(12a) line 1	Hul’q’umi’num’	phonemic	/-t/	page 7
+(12a) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘control transitive’	page 7
+(12a) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 7, the columns' header
+(12a) line 4	Hul’q’umi’num’	transcription	t̓ᶿiq̓ʷət	page 7
+(12a) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘punch, hit with a fist’	page 7
+(12a) line 6	Hul’q’umi’num’	transcription	t̓ᶿít̓ᶿəq̓ʷət	page 7
+(12a) line 7	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘punching, hitting with a fist’	page 7
+(12b) line 1	Hul’q’umi’num’	phonemic	/-els/	page 8
+(12b) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘activity’	page 8
+(12b) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 8, the columns' header
+(12b) line 4	Hul’q’umi’num’	transcription	t̓ᶿq̓ʷéls	page 8
+(12b) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘punch, stab’	page 8
+(12b) line 6	Hul’q’umi’num’	transcription	t̓ᶿít̓ᶿəq̓ʷəl̓s	page 8
+(12b) line 7	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘punching’	page 8
+(12c) line 1	Hul’q’umi’num’	phonemic	/-aləs-t/	page 8
+(12c) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘eye, control transitive’	page 8
+(12c) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 8, the columns' header
+(12c) line 4	Hul’q’umi’num’	transcription	xʷt̓ᶿq̓ʷaləst	page 8
+(12c) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘punch someone in eye’	page 8
+(12c) line 6	Hul’q’umi’num’	transcription	xʷt̓ᶿəq̓ʷələst	page 8
+(12c) line 7	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘punching s/o in eye’	page 8
+§2.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Notice that when the suffixes /-els/ ‘activity’ and /-aləs-t/ ‘eye + control transitive’ are added, the root vowel is sometimes deleted (12b–c), so both perfective stems begin with a cluster. Interestingly, the imperfective is dependent on what the root is in (12b), not what the surface form is, which begins with a cluster. In contrast, the imperfective is determined by other factors in (12c), and is formed by schwa insertion.	page 8
+§2.3	Gloria Mellesmoen, Suzanne Urbanczyk	heading	2.3 Lexical conditioning	page 8
+§2.3	Gloria Mellesmoen, Suzanne Urbanczyk	note	Finally, we discuss cases for which neither phonological nor morphological conditions appear to be sufficient to predict the form of the imperfective. There are a few sets of verbs which appear to meet the phonological conditions for the patterns outlined above, but have a different form for the imperfective form than would be expected. These we classify as lexically conditioned. The first pattern, of schwa insertion, is presented in (13).	page 8
+(13) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Schwa insertion:	page 8, set over the pairs
+(13) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 8, the columns' header
+(13a) line 1	Hul’q’umi’num’	transcription	t̓ᶿɫek̓ʷt	page 8
+(13a) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pinch’	page 8
+(13a) line 3	Hul’q’umi’num’	transcription	t̓ᶿə́ɫək̓ʷt	page 8
+(13a) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pinching’	page 8
+(13a) line 5	Hul’q’umi’num’	transcription	cɫáqʷt	page 8
+(13a) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘put it through’	page 8
+(13a) line 7	Hul’q’umi’num’	transcription	cə́ɫəqʷt	page 8
+(13a) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘putting it through’	page 8
+(13b) line 1	Hul’q’umi’num’	transcription	θx̣asəm	page 8
+(13b) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘park, come to a stop’	page 8
+(13b) line 3	Hul’q’umi’num’	transcription	θə́x̣əsəm̓	page 8
+(13b) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘parking, coming to a stop’	page 8
+(13b) line 5	Hul’q’umi’num’	transcription	qp̓asəm	page 8
+(13b) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘look down’	page 8
+(13b) line 7	Hul’q’umi’num’	transcription	qə́p̓əsəm̓	page 8
+(13b) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘putting head down’	page 8
+(13b) line 9	Hul’q’umi’num’	transcription	qp̓iləm	page 8
+(13b) line 10	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘to land’	page 8
+(13b) line 11	Hul’q’umi’num’	transcription	qə́p̓ələm̓	page 8
+(13b) line 12	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘landing’	page 8
+(13b) line 13	Hul’q’umi’num’	transcription	c̓tem	page 8
+(13b) line 14	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘crawl’	page 8
+(13b) line 15	Hul’q’umi’num’	transcription	c̓ə́təm̓	page 8
+(13b) line 16	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘crawling’	page 8
+(13b) line 17	Hul’q’umi’num’	transcription	ptém̓	page 8
+(13b) line 18	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘ask’	page 8
+(13b) line 19	Hul’q’umi’num’	transcription	pə́təm̓	page 8
+(13b) line 20	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘asking’	page 8
+(13c) line 1	Hul’q’umi’num’	transcription	t̓kʷəwəɫ	page 8
+(13c) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘patch a canoe’	page 8
+(13c) line 3	Hul’q’umi’num’	transcription	t̓əkʷəw̓əɫ	page 8
+(13c) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘patching a canoe’	page 8
+(13d) line 1	Hul’q’umi’num’	transcription	x̣ɫiləws	page 8
+(13d) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘suffer’	page 8
+(13d) line 3	Hul’q’umi’num’	transcription	x̣əɫələw̓s	page 8
+(13d) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘suffering’	page 8
+§2.3	Gloria Mellesmoen, Suzanne Urbanczyk	note	Note that the perfective forms above begin with an obstruent cluster, and thus would meet the conditions described in Section 2.1 for metathesis. However, the imperfectives in (13) are formed by schwa epenthesis. We have organized them according to their morphological structure, with the idea that some forms may also be subject to morphological conditioning. For example, in (13a), these appear to be triconsonantal roots with the control transitivizer.	page 8
+§2.3	Gloria Mellesmoen, Suzanne Urbanczyk	note	There are also a number of imperfective forms in which the consonant alternates unexpectedly. We note that some of these may be reflecting the previous form of the consonant in the reduplication pattern.	page 8
+(14) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Consonant alternations:	page 9, set over the pairs
+(14) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 9, the columns' header
+(14a) line 1	Hul’q’umi’num’	transcription	c̓əlcəs	page 9
+(14a) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘change hands (paddling)’	page 9
+(14a) line 3	Hul’q’umi’num’	transcription	c̓ak̓ʷəl̓cəs	page 9
+(14a) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘changing hands (paddling)’	page 9
+(14a) line 5	Hul’q’umi’num’	transcription	celqəm	page 9
+(14a) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘follow’	page 9
+(14a) line 7	Hul’q’umi’num’	transcription	cəkʷəl̓əl̓qəm̓	page 9
+(14a) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘following’	page 9
+(14a) line 9	Hul’q’umi’num’	transcription	cəstəxʷ	page 9
+(14a) line 10	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘do what with’	page 9
+(14a) line 11	Hul’q’umi’num’	transcription	cekʷəstəxʷ	page 9
+(14a) line 12	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘doing what with’	page 9
+(14a) line 13	Hul’q’umi’num’	transcription	ctamət	page 9
+(14a) line 14	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘what happened’	page 9
+(14a) line 15	Hul’q’umi’num’	transcription	cəkʷstam̓ət	page 9
+(14a) line 16	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘doing what’	page 9
+(14b) line 1	Hul’q’umi’num’	transcription	šak̓ʷət	page 9
+(14b) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘bathe him/her’	page 9
+(14b) line 3	Hul’q’umi’num’	transcription	šaxʷək̓ʷət	page 9
+(14b) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘bathing him/her’	page 9
+(14c) line 1	Hul’q’umi’num’	transcription	kʷələšt	page 9
+(14c) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘shoot it’	page 9
+(14c) line 3	Hul’q’umi’num’	transcription	heʔkʷəl̓əšt	page 9
+(14c) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘shooting it’	page 9
+(14c) line 5	Hul’q’umi’num’	transcription	həy̓kʷəl̓əšt	page 9
+(14c) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘shooting it’	page 9
+§2.3	Gloria Mellesmoen, Suzanne Urbanczyk	note	Finally, the imperfective forms below have the vowel /a/. Note that this vowel is different than the usual ablaut vowel /e/. Recall that a condition on /a/ is the presence of a rounded consonant. Also, ablaut tends not to occur with initial open syllables. The vowel /a/ could have an additional semantic function, as yet to be determined.	page 9
+(15) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Unexpected ablaut forms:	page 9, set over the pairs
+(15) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 9, the columns' header
+(15a) line 1	Hul’q’umi’num’	transcription	ƛ̓ələmθət	page 9
+(15a) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘drive, steer’	page 9
+(15a) line 3	Hul’q’umi’num’	transcription	ƛ̓al̓əm̓θət	page 9
+(15a) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘driving, correcting self’	page 9
+(15b) line 1	Hul’q’umi’num’	transcription	xʷ-yənəməs	page 9
+(15b) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘smile’	page 9
+(15b) line 3	Hul’q’umi’num’	transcription	xʷ-yan̓əm̓əs	page 9
+(15b) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘smiling’	page 9
+(15c) line 1	Hul’q’umi’num’	transcription	xʷčenəm	page 9
+(15c) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘run’	page 9
+(15c) line 3	Hul’q’umi’num’	transcription	xʷan̓čənəm̓	page 9
+(15c) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘running’	page 9
+§2.3	Gloria Mellesmoen, Suzanne Urbanczyk	note	Though these forms may not be predicted via the generalizations we have provided regarding choice of allomorph, note that they do all show the glottalization of sonorant segments (a process found to accompany imperfective allomorphy).	page 9
+§2.4	Gloria Mellesmoen, Suzanne Urbanczyk	heading	2.4 Summary	page 9
+§2.4	Gloria Mellesmoen, Suzanne Urbanczyk	note	For the most part, the choice of allomorph is predictable, based on the segmental content of the root in combination with other affixes. The key determinants for choice of allomorph are summarized in Table 2 below.	page 9
+Table 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Table 2: Summary of imperfective allomorphs and conditions	page 9, the table's caption
+Table 2 line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Type Allomorph Base	page 9, Table 2
+Table 2 line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Reduplication CV- Consonant-Vowel-Consonant CVC-	page 9, Table 2
+Table 2 line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	Cə- Obstruent-Schwa-Consonant	page 9, Table 2
+Table 2 line 4	Gloria Mellesmoen, Suzanne Urbanczyk	note	Obstruent-Schwa-Sonorant-Schwa	page 9, Table 2
+Table 2 line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	Obstruent-Schwa-Glottal	page 9, Table 2
+Table 2 line 6	Gloria Mellesmoen, Suzanne Urbanczyk	note	Consonant-Long Vowel	page 9, Table 2
+Table 2 line 7	Gloria Mellesmoen, Suzanne Urbanczyk	note	TəC-	page 9, Table 2
+Table 2 line 8	Gloria Mellesmoen, Suzanne Urbanczyk	note	TəRəX-	page 9, Table 2
+Table 2 line 9	Gloria Mellesmoen, Suzanne Urbanczyk	note	TəH-	page 9, Table 2
+Table 2 line 10	Gloria Mellesmoen, Suzanne Urbanczyk	note	CV:C-	page 9, Table 2
+Table 2 line 11	Gloria Mellesmoen, Suzanne Urbanczyk	note	hə́- Sonorant-Schwa Roots Rə́C-	page 9, Table 2
+Table 2 line 12	Gloria Mellesmoen, Suzanne Urbanczyk	note	Infix -ʔ- Glottal-Vowel-Consonant HVC-	page 9, Table 2
+Table 2 line 13	Gloria Mellesmoen, Suzanne Urbanczyk	note	Ablaut Ablaut Obstruent-Schwa-Cluster Tə́CC-	page 9, Table 2
+Table 2 line 14	Gloria Mellesmoen, Suzanne Urbanczyk	note	Metathesis Metathesis Triconsonantal: All Obstruents TTAT-	page 9, Table 2
+Table 2 line 15	Gloria Mellesmoen, Suzanne Urbanczyk	note	Epenthesis Epenthesis Triconsonantal: Other (Exceptions?) CCVC-	page 9, Table 2
+Table 2 line 16	Gloria Mellesmoen, Suzanne Urbanczyk	note	Schwa Deletion Schwa deletion Morphological Conditioning (-əm) TATəTəm	page 9, Table 2
+§2.4	Gloria Mellesmoen, Suzanne Urbanczyk	note	Accompanying changes include the aspiration of sonorant segments in reduplication, differing placement of stress, and the glottalization of sonorants that are in a non-initial position. Having provided an overview of the range of patterns, we now turn to our analysis.	page 10
+§3	Gloria Mellesmoen, Suzanne Urbanczyk	heading	3 Analysis	page 10
+§3	Gloria Mellesmoen, Suzanne Urbanczyk	note	Our analysis of the imperfective is couched within Optimality Theory (Prince & Smolensky 1993), in which ranked and violable constraints evaluate the well-formedness of candidates. We follow others’ approaches to this pattern in assuming that the imperfective morpheme is a segmentally empty mora (Urbanczyk 1998). This is consistent with analyses of the cognate pattern in Straits (Stonham 1994; Bye & Svenonius 2012), a closely related and neighbouring language. The mora is segmentally empty in the input and is filled by various processes in the phonological grammar, such as reduplication or ablaut, depending on what the segmental content of the base is. First, we will provide an analysis of the forms that have initial stress (Section 3.1), followed by forms with non-initial stress (Section 3.2), and then illustrate how mora affixation accounts for the forms that are morphologically conditioned (Section 3.3).	page 10
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	heading	3.1 Initial stress	page 10
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	We start by analyzing the stems that surface with C1V- reduplication. The following representation illustrates how the mora is filled by reduplication. The imperfective mora is indicated with shading to differentiate it from moras that are assigned by the phonological grammar. We assume that schwa is not moraic (Shaw et al. 1999), but codas are.7	page 10
+footnote 7	Gloria Mellesmoen, Suzanne Urbanczyk	note	See also Blake (2000) for arguments of this nature pertaining to Comox-Sliammon, another Central Salish language, as well as Dyck (2004) for evidence that schwa is not moraic in Squamish, and Leonard (2019) for arguments that schwa is not moraic in SENĆOŦEN.	page 10, footnote 7
+(16) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Mora affixation:	page 10, set as an example
+(16) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	σ σ σ	page 10, set as an example
+(16) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	µ µ	page 10, set as an example
+(16) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	note	ɫ í ɫ ə c̓ ə t	page 10, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Reduplication is accomplished via fission of an input segment into two output segments, in order to fill an empty prosodic unit (Bye & Svenonius 2012; Saba Kirchner 2013; Urbanczyk 1998; Zimmermann 2013, and others). This fission process, which creates a one-to-two mapping between the input and output forms, violates INTEGRITY (McCarthy & Prince 1999).	page 10
+(17) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	INTEGRITY: No element of the input has multiple correspondents in the output.	page 10, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	The representation of the reduplicant is provided below, with the INPUT-OUTPUT mapping to indicate the fission of segments. We assume that both the consonant and vowel undergo fission.	page 10
+(18) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Representation of reduplicated word:	page 11, set as an example
+(18) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	INPUT /µ-ɫ i c̓-ət/	page 11, set as an example
+(18) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	OUTPUT ɫ i ɫ ic̓ət	page 11, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	We include the full vowel here, as we also assume that imperfective is a stem-level process, and that vowel reduction occurs at the word-level (see the analysis in Mellesmoen & Urbanczyk to appear of multiple reduplication in Hul’q’umi’num’ for more details).	page 11
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Another way that the mora can be filled is by glottal stop insertion, which violates DEP-C.	page 11
+(19) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	DEP-C: Every consonant in the output has a correspondent in the input.	page 11, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Constraints on well-formedness determine the correct allomorph. In addition to the two Faithfulness constraints introduced so far, we also need a constraint to compel filling in the empty mora, and adopt *FLOAT, which bans unaffiliated prosodic units (Saba Kirchner 2013:232).	page 11
+(20) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	*FLOAT: ∀p ∈ O, where p is a prosodic unit: ∃s, where s is a segment, and p dominates s.	page 11, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	As illustrated in the tableau below, INTEGRITY is ranked lower than DEP-C, which demonstrates reduplication is the preferred allomorph over glottal stop insertion.	page 11
+(21) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Tableau showing imperfective reduplication:	page 11, set as an example
+(21) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	/µ-ɫic̓-ət/ *FLOAT DEP-C INTEGRITY	page 11, set as an example
+(21) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	a. µ ɫíc̓ət *!	page 11, set as an example
+(21) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	note	b. ☞ ɫíɫəc̓ət **	page 11, set as an example
+(21) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	c. ɫíʔc̓ət *!	page 11, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Candidate (21a) is ruled out because it has a segmentally empty mora in violation of *FLOAT, as represented with a mora preceding it. Candidate (21c) — with the glottal stop infix — is ruled out by DEP-C. And candidate (21b) is selected as optimal, even though it violates INTEGRITY twice, once for the consonant and once for the vowel.	page 11
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	The ablaut pattern is accounted for because full vowels are moraic, so strengthening of schwa to a full vowel fills the mora. A change in the quality of the vowel violates the faithfulness constraint IDENT-V (after McCarthy & Prince 1999:294).	page 11
+(22) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	IDENT-V: Correspondent segments have identical values for the vowel features.	page 11, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	In order to rule out candidates with glottal stop insertion, a constraint against schwa-glottal stop in coda position must be active in the language (see Bessell & Czaykowska-Higgins 1993; Blake 2000).	page 11
+(23) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	*əʔ]σ: Schwa is not permitted before a glottal stop that is in a coda.	page 11, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	The constraint in (23) is active throughout the Salish language family and is never violated in Hul’q’umi’num’, so it is ranked the highest and undominated in the present analysis.	page 12
+(24) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Tableau showing high ranking of əʔ]σ constraint:	page 12, set as an example
+(24) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	/µ-ɫəpt̓ᶿ-t/ *FLOAT *əʔ]σ DEP-C IDENT-V INTEGRITY	page 12, set as an example
+(24) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	a. µ ɫə́pt̓ᶿt *!	page 12, set as an example
+(24) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	note	b. ☞ ɫépt̓ᶿt *	page 12, set as an example
+(24) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	c. ɫə́ʔpt̓ᶿt *! *	page 12, set as an example
+(24) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	note	d. µ ɫə́ɫəpt̓ᶿt *! *	page 12, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Because schwa is not moraic, reduplication will not fill the mora, ruling out candidate (24d), as indicated by the floating mora. With this constraint ranking established, the metathesis pattern arises due to the mora being a prefix and filled by a full vowel.	page 12
+(25) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Tableau showing metathesis:	page 12, set as an example
+(25) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	/µ- pqʷ-t/ *FLOAT *əʔ]σ DEP-C IDENT-V INTEGRITY	page 12, set as an example
+(25) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	a. µ pqʷát *!	page 12, set as an example
+(25) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	note	b. ☞ páqʷt	page 12, set as an example
+(25) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	c. pəʔqʷt *! *	page 12, set as an example
+(25) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	note	d. µ pə́pqʷt *! *	page 12, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Candidate (25a) represents the perfective form, with the vowel associated with the control transitive suffix appearing on the surface. It and candidate (25d) are both ruled out because they have a floating mora. However, if (25a) were to incorporate the mora into the stressed vowel (*pqʷát), it would be ruled out by an Alignment constraint on the mora prefix, as the mora is not as close to the left edge as the mora in the (25b).	page 12
+§3.1	Hul’q’umi’num’	cited form	*pqʷát	page 12, in italics
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	In terms of understanding why reduplication is marked with stems that begin with a glottal consonant, we note that if reduplication were to occur, the form would have an intervocalic /h/ with a following schwa [Vhə]. This fits with the overall pattern in the language: an examination of the Cowichan Dictionary reveals that intervocalic /h/ only occurs before schwa in the context of sonorant aspiration and with multiple reduplication (see below). We propose the constraint in (26) to reflect this generalization.	page 12
+(26) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	*Vhə: Schwa is not permitted after /h/ when a full vowel precedes it.8	page 12, set as an example
+footnote 8	Gloria Mellesmoen, Suzanne Urbanczyk	note	We recognize that there are some interesting phonotactic restrictions between schwa and glottal consonants related to their (lack of) place specification in the phonology. We leave this for further research.	page 12, footnote 8
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Because this constraint seems to be active throughout the language, we also include it with the highest ranked (undominated) constraints in the constraint hierarchy, as illustrated below.	page 13
+(27) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Tableau showing high ranking of *Vhə constraint:	page 13, set as an example
+(27) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	/µ- hes-əm/ *FLOAT *Vhə *əʔ]σ DEP-C IDENT-V INTEGRITY	page 13, set as an example
+(27) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	a. µ hésəm *!	page 13, set as an example
+(27) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	note	b. ☞ héʔsəm *	page 13, set as an example
+(27) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	c. héhəsəm *! *	page 13, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	We now turn to the cases of sonorant aspiration. As discussed above, Hukari (1977) provides evidence that /h/ arises in some reduplicative contexts as the result of sonorant aspiration, rather than epenthesis. We simply propose a constraint *RiəRi, based on Hukari’s observation, leaving investigation of phonetic motivation for future research.	page 13
+(28) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	*RiəRi: Schwa is not permitted between a series of identical sonorants.	page 13, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	The repair to avoid this structure is to have the sonorant aspirate (or devoice) to [h]. We propose that this violates a faithfulness constraint on sonorant segments.9	page 13
+footnote 9	Gloria Mellesmoen, Suzanne Urbanczyk	note	We note that nothing in our analysis hinges on whether or not /h/ treated as a sonorant (or obstruent) segment.	page 13, footnote 9
+(29) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	IDENT-SON: Correspondent sonorant segments are identical in their features.	page 13, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Recall that all codas are moraic, so having the sonorant fill the coda position adds a mora. Having reduplication of the sonorant and schwa would not add a mora (30c), as illustrated in the tableau below.	page 13
+(30) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Tableau showing imperfective reduplication with sonorant aspiration:	page 13, set as an example
+(30) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	/µ-lə́c̓-ət/ *FLOAT *Vhə *əʔ]σ *RiəRi DEP-C IDENT-V INTEG IDENT-SON	page 13, set as an example
+(30) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	a. µ lə́c̓ət *!	page 13, set as an example
+(30) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	note	b. ☞ hə́l̓c̓ət * *	page 13, set as an example
+(30) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	c. µ lələ́c̓ət *! * *	page 13, set as an example
+(30) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	note	d. lə́l̓c̓ət *! *	page 13, set as an example
+(30) line 7	Gloria Mellesmoen, Suzanne Urbanczyk	note	e. léc̓ət *!	page 13, set as an example
+(30) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	note	f. lə́ʔc̓ət *! *	page 13, set as an example
+§3.1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Having analyzed the range of patterns that have initial stress, we turn now to the imperfective verbs that have non-initial stress.	page 14
+§3.2	Gloria Mellesmoen, Suzanne Urbanczyk	heading	3.2 Non-initial stress	page 14
+§3.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	As noted above, the class of verb stems in which the imperfective has non-initial stress utilize C1ə- reduplication. Given our assumptions above about schwa being non-moraic, these pose a potential problem for our analysis. Because schwa is not moraic, C1ə- reduplication would not fill the mora. The question then arises as to how a mora could be filled with this set of stems. There are several avenues to explore, and we present a few possible solutions here.	page 14
+§3.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	One possibility is that C1ə- is moraic somehow and does fill the mora. This would violate a constraint against schwa being non-moraic, that is otherwise obeyed in Hul’q’umi’num’. Other languages in the region have moraic schwa, such as Kwakw’ala (Bach 1978; Saba Kirchner 2013), so there must be a constraint that says moraic schwa is marked, that is violated in the languages that have it. There could be something about foot structure that permits schwa to be moraic in these situations. As typological evidence to support this, it has been proposed that languages can have variable weight for schwa, sometimes non-moraic, moraic, and even being bimoraic (Shih 2018). We leave this idea as a potential avenue for further research noting that there are several instances of moraic mismatches throughout Central Salish, and that stress is not a reliable indicator of weight, given the non-uniformity of weight hypothesis and the proposal that weight assignment is process- specific, not language-specific (Gordon 2006).	page 14
+§3.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	A second related possibility is that there is a type of minor syllable in Hul’q’umi’num’ that is related to moraic licensing and a difference between obstruents and sonorants. For example, earlier proposals about moraic structure have proposed that onsets link directly to the mora, as in the representation of the initial syllable in (31b) (see also McCarthy, Kimper, & Mullin 2012). It could be that there is a difference in how obstruents link to syllables, depending on whether there is a full vowel (31a), with direct association to the syllable or whether there is a schwa following, and that the retention of stress on the base provides a context for licensing the minor syllable, with the structure in (31b).	page 14
+(31) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Obstruent-schwa minor syllables:	page 14, set as an example
+(31) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	a. perfective b. imperfective	page 14, set as an example
+(31) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	σ σ σ	page 14, set as an example
+(31) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	note	µ µ µ µ µ	page 14, set as an example
+(31) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	k̓ʷ i ʔ ‘rise’ k̓ʷ ə k̓ʷ í ʔ ‘rising’	page 14, set as an example
+§3.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	While we note that these two approaches in which schwa is moraic are promising, there is much research on metrical and syllable structure of Hul’q’umi’num’ to be undertaken before we can determine the precise reasons why schwa might be moraic in this context (see Bianco 1996 for a discussion of stress patterns and sonority effects on permissible codas in Hul’qumi’num’).	page 14
+§3.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	We sketch a third possible approach, and outline a preliminary analysis of TəRəX stems, drawing on proposals from previous research (Kurisu 2001; Urbanczyk 1999). In this approach we look for explanation on how the mora is filled, based on the cooccurrence of sonorant glottalization. Examples from (9b) are repeated below, organized according to whether the sonorant is glottalized (32a), has a glottalized sonorant to begin with (32b), no sonorant glottalization occurs (32c), and secondary stress has been documented (32d).	page 14
+(32) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Cə- Reduplication with TəRəX Stems:	page 15, set over the pairs
+(32) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 15, the columns' header
+(32a) line 1	Hul’q’umi’num’	transcription	t̓ə́m̓ət	page 15
+(32a) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pound on it, beat drum’	page 15
+(32a) line 3	Hul’q’umi’num’	transcription	t̓ət̓ə́m̓ət	page 15
+(32a) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pounding on it, beating a drum’	page 15
+(32a) line 5	Hul’q’umi’num’	transcription	θə́ləqt	page 15
+(32a) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘divide in half’	page 15
+(32a) line 7	Hul’q’umi’num’	transcription	θəθə́l̓əqt	page 15
+(32a) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘dividing in half’	page 15
+(32a) line 9	Hul’q’umi’num’	transcription	x̣ə́l̓əm	page 15
+(32a) line 10	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘write’	page 15
+(32a) line 11	Hul’q’umi’num’	transcription	x̣əx̣ə́l̓əm̓	page 15
+(32a) line 12	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘writing’	page 15
+(32a) line 13	Hul’q’umi’num’	transcription	cə́ləw̓t	page 15
+(32a) line 14	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘turn it over’	page 15
+(32a) line 15	Hul’q’umi’num’	transcription	cəcə́ləw̓t	page 15
+(32a) line 16	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘turning it over’	page 15
+(32a) line 17	Hul’q’umi’num’	transcription	ɫə́lət	page 15
+(32a) line 18	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘bail it out’	page 15
+(32a) line 19	Hul’q’umi’num’	transcription	ɫəɫə́l̓ət	page 15
+(32a) line 20	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘bailing it out’	page 15
+(32b) line 1	Hul’q’umi’num’	transcription	cə́m̓ət	page 15
+(32b) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pack it on one’s back’	page 15
+(32b) line 3	Hul’q’umi’num’	transcription	cəcə́m̓ət	page 15
+(32b) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘putting it on one’s back’	page 15
+(32b) line 5	Hul’q’umi’num’	transcription	ɫə́n̓əm	page 15
+(32b) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘weave’	page 15
+(32b) line 7	Hul’q’umi’num’	transcription	ɫəɫə́nəm̓	page 15
+(32b) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘weaving’	page 15
+(32c) line 1	Hul’q’umi’num’	transcription	xʷə́lək̓ʷt	page 15
+(32c) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘wrap it up	page 15
+(32c) line 3	Hul’q’umi’num’	transcription	xʷəxʷə́lək̓ʷt	page 15
+(32c) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘wrapping it up’	page 15
+(32c) line 5	Hul’q’umi’num’	transcription	xʷ-p̓ə́ləc̓t	page 15
+(32c) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘turn it inside out’	page 15
+(32c) line 7	Hul’q’umi’num’	transcription	xʷ-p̓əp̓ə́ləc̓t	page 15
+(32c) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘turning it inside out	page 15
+(32c) line 9	Hul’q’umi’num’	transcription	q̓ʷə́ləm	page 15
+(32c) line 10	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘barbecue’	page 15
+(32c) line 11	Hul’q’umi’num’	transcription	q̓ʷəq̓ʷə́ləm̓	page 15
+(32c) line 12	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘barbecuing’	page 15
+(32d) line 1	Hul’q’umi’num’	transcription	q̓ʷə́maʔqʷt	page 15
+(32d) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pull out s.o. hair’	page 15
+(32d) line 3	Hul’q’umi’num’	transcription	q̓ʷə̀q̓ʷə́maʔqʷt	page 15
+(32d) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pulling hair out’	page 15
+(32d) line 5	Hul’q’umi’num’	transcription	q̓ʷə́məwst	page 15
+(32d) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘pluck a fowl’	page 15
+(32d) line 7	Hul’q’umi’num’	transcription	q̓ʷə̀q̓ʷə́məw̓st	page 15
+(32d) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘plucking a fowl’	page 15
+§3.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	When a sonorant is glottalized, it is most frequently pronounced as a sequence of sonorant and glottal stop. The order of these articulations depends on two factors: syllable position and the quality of the preceding vowel. If the preceding vowel is schwa (regardless of syllable position), a glottalized sonorant is pronounced as a sonorant followed by a glottal stop. If the preceding vowel is non-schwa, then the glottalized sonorant is pre-glottalized if it is in an open syllable, otherwise it is post-glottalized. We propose that the syllable structure for a word like ɫəɫə́l̓ət ‘bailing it out’ is as in (33a), with the sonorant in the coda and the glottal stop in the onset of the following syllable. The imperfective mora is represented with shading. This ordering of articulations is consistent with the constraint *əʔ]σ, as the reverse order would place the glottal stop in the coda of schwa-vowelled syllable.	page 15
+§3.2	Hul’q’umi’num’	cited form	ɫəɫə́l̓ət	page 15, in italics, ‘bailing it out’
+(33) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Representation of glottalized sonorants and syllabic affiliation:	page 15, set as an example
+(33) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	a. imperfective b. perfective	page 15, set as an example
+(33) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	σ σ σ σ σ	page 15, set as an example
+(33) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	note	µ µ µ	page 15, set as an example
+(33) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	ɫ ə ɫ ə́ l ʔ ə t ‘bailing it out’ ɫ ə́ l ə t ‘bail it out’	page 15, set as an example
+§3.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	This proposal is consistent with the observations that glottalized sonorants can function as two segments for syllable-based observations (Urbanczyk 1992).10 Further evidence comes from what we have learned regarding how L1 speakers of Salish languages have developed writing systems. The orthography presented in the Cowichan Dictionary represents ejectives with a single character with underlining [q, p, t,…], but glottalized sonorants as a sequence of glottal stop plus sonorant. Similarly, the SENĆOŦEN orthography developed by Dave Elliott Sr. represents ejectives with single characters, like B, D, J, while glottalized sonorants are spelled as a sequence of glottal stop and sonorant (Elliott & Poth 1990; Montler 2018). The order of sonorant-glottal stop in (33) is taken from the Cowichan Dictionary, which represents glottalized sonorants as sequences of segments, depending on the conditions noted above. Notice that in (33a) the imperfective has one more mora than the perfective, because the sonorant is in the coda position.	page 15
+footnote 10	Gloria Mellesmoen, Suzanne Urbanczyk	note	See also Blake (2000) on how the glottal stop portion of a glottalized sonorant can serve as the coda of a syllable in Comox-Sliammon.	page 15, footnote 10
+§3.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	If the sonorant coda is able to fill the mora, the question arises as to why reduplication occurs, as it would incur a violation of INTEGRITY, without being compelled by *FLOAT. We follow others’ approach to Upriver Halkomelem allomorphy, that reduplication is needed to create a distinct stem from the perfective stem (Kurisu 2001; Urbanczyk 1999).	page 16
+(34) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	/µ - ɫəl -ət/ DISTINCTSTEM INTEGRITY	page 16, set as an example
+(34) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	a. ☞ ɫəɫə́lʔət **	page 16, set as an example
+(34) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	b. ɫə́lʔət *!	page 16, set as an example
+§3.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Preliminary evidence that this could provide a possible explanation comes from two sources. First, the retention of stress on the base, may indicate that the bases may require some identity relation. Second, there are a few forms with a similar shape that do not have reduplication, indicating that Cə- reduplication does not always occur with TəRəX stems.	page 16
+(35) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	No Reduplication:	page 16, set over the pairs
+(35) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 16, the columns' header
+(35) line 3	Hul’q’umi’num’	transcription	ɫ-čəməx̣	page 16
+(35) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘chew gum’	page 16
+(35) line 5	Hul’q’umi’num’	transcription	ɫ-čəm̓əx̣	page 16
+(35) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘chewing gum’	page 16
+§3.2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Having presented an analysis of the phonologically conditioned allomorphs, we now turn our attention to the morphologically conditioned pattern.	page 16
+§3.3	Gloria Mellesmoen, Suzanne Urbanczyk	heading	3.3 Morphologically conditioned forms	page 16
+§3.3	Gloria Mellesmoen, Suzanne Urbanczyk	note	Recall that when one compares the perfective and imperfective forms of triconsonantal roots with the middle suffix, there are two interesting features: the ablaut vowel occurs with the perfective and this seems to be the only instance in which the imperfective appears to be formed by schwa deletion.	page 16
+(36) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Triconsonantal roots with middle suffix:	page 16, set over the pairs
+(36) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	Perfective Imperfective	page 16, the columns' header
+(36) line 3	Hul’q’umi’num’	transcription	c̓á.t̓ə.q̓ʷəm	page 16
+(36) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘fall apart (from cooking)’	page 16
+(36) line 5	Hul’q’umi’num’	transcription	c̓át̓.q̓ʷəm̓	page 16
+(36) line 6	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘falling apart (from cooking)’	page 16
+(36) line 7	Hul’q’umi’num’	transcription	ƛ̓é.pə.x̌əm	page 16
+(36) line 8	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘fall (leaves)’	page 16
+(36) line 9	Hul’q’umi’num’	transcription	ƛ̓ép.x̌əm̓	page 16
+(36) line 10	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘falling (leaves)’	page 16
+(36) line 11	Hul’q’umi’num’	transcription	ɬá.t̓ə.q̓ʷəm	page 16
+(36) line 12	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘snore’	page 16
+(36) line 13	Hul’q’umi’num’	transcription	ɬát̓.q̓ʷəm̓	page 16
+(36) line 14	Gloria Mellesmoen, Suzanne Urbanczyk	translation	‘snoring’	page 16
+§3.3	Gloria Mellesmoen, Suzanne Urbanczyk	note	While we do not have a full account of how the perfective word-form arises, we note that if one compares the two word-forms, schwa deletion results in C2 being in the coda, and thus adding a mora, as illustrated below.	page 16
+(37) line 1	Gloria Mellesmoen, Suzanne Urbanczyk	note	Representation of /ə/ deletion and syllabic affiliation	page 17, set as an example
+(37) line 2	Gloria Mellesmoen, Suzanne Urbanczyk	note	a. perfective b. imperfective	page 17, set as an example
+(37) line 3	Gloria Mellesmoen, Suzanne Urbanczyk	note	σ σ σ σ σ	page 17, set as an example
+(37) line 4	Gloria Mellesmoen, Suzanne Urbanczyk	note	µ µ µµ µ	page 17, set as an example
+(37) line 5	Gloria Mellesmoen, Suzanne Urbanczyk	note	ɬ á t̓ə q̓ʷ ə m ‘snore’ ɬ á t̓ q̓ʷ ə m̓ ‘snoring’	page 17, set as an example
+§3.3	Gloria Mellesmoen, Suzanne Urbanczyk	note	Notice that the perfective form on the left has two moras overall, while the imperfective on the right has three moras. The imperfective mora is filled by the coda consonant in (37b).	page 17
+§4	Gloria Mellesmoen, Suzanne Urbanczyk	heading	4 Conclusion and discussion	page 17
+§4	Gloria Mellesmoen, Suzanne Urbanczyk	note	In this paper, we have provided an extensive range of allomorphs that express imperfective meaning in Hul’q’umi’num’. These have been classified according to the phonological conditions as well as some morphological conditions. The imperfective forms with initial stress were straightforwardly analyzed as affixation of a mora, including those that are morphologically conditioned. We also observed that the imperfective forms with non-initial stress are all formed with C1ə- reduplication, and outlined a couple of approaches one can take to analyze them.	page 17
+§4	Gloria Mellesmoen, Suzanne Urbanczyk	note	This analysis fits in with other approaches to reduplication which are seen as phonological repairs, to avoid unaffiliated prosodic units (Bermúdez-Otero 2012; Bye & Svenonius 2012; Saba Kirchner 2013; Zimmermann 2013, and others). Mora affixation is consistent with an approach to morphology as completely concatenative, without reference to processes, such as actual metathesis. While we have used process-based terms to describe some of the patterns, in essence these processes are all epiphenomenal, to describe the pattern in comparison to the perfective base, which provides the phonological conditions.	page 17
+§4	Gloria Mellesmoen, Suzanne Urbanczyk	note	In developing this analysis, we also note that many of patterns that arise are due to the ability of the imperfective mora to be filled by linking to positions that moras would usually be associated with, resulting in having moraic codas and full vowels while not permitting moraic schwa. This attachment of a floating morpheme to a position it would usually occupy has been described as vacuous docking by some researchers. 11 We speculate that Hul’q’umi’num’ imperfective allomorphy is as diverse as it is, because it permits vacuous linking of moras to coda positions and full vowels. In other Central Salish languages like Squamish and Comox-Sliammon, the cognate morpheme only has reduplicative allomorphs, suggesting that vacuous docking of a mora may not be permitted.	page 17
+footnote 11	Gloria Mellesmoen, Suzanne Urbanczyk	note	The prevention of this in other languages is referred to as a ban against the vacuous association of moras with underlying segmental material. It is formalized in other approaches with the constraint NOVACUOUSDOCKING (Saba Kirchner 2013) or using Coloured Containment (Zimmermann 2013).	page 17, footnote 11
+§4	Gloria Mellesmoen, Suzanne Urbanczyk	note	While the subpattern of C1ə- reduplication is not straightforwardly analyzed with our assumptions about moraic structure, we note that this is the most comprehensive analysis presented of the allomorphy. Because much of the analysis relies on independently motivated phonotactic constraints in Salish, we are confident that a unified solution of the problematic cases can be arrived at once more research is done on moraic structure and other aspects of prosody, such as syllable and foot structure.	page 17
+references	Gloria Mellesmoen, Suzanne Urbanczyk	heading	References	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Bach, Emmon. 1975. Long vowels and stress in Kwakiutl. Texas Linguistic Forum 2: 9–19.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Baker, RaeAnne, Suzanne Urbanczyk, and Hul’q’umi’num’ Language Academy. 2019, July. Hul’q’umi’num’ verb classes: Phonological word schemas. Presentation at 54th International Conference on Salish and Neighbouring Languages, Victoria, BC.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Bermúdez-Otero, Ricardo. 2012. The architecture of the grammar and division of labor in exponence. In J. Trommer (ed). The morphology and phonology of exponence. Oxford, UK: Oxford University Press, 8–83.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Bessel, Nicola. J., and Ewa Czaykowska-Higgins. 1993. The phonetics and phonology of postvelar consonants in Moses-Columbia Salish (Nxaʔamxcin). Toronto Working Papers in Linguistics, CLA Proceedings, 35–48.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Bianco, Violet. 1996. The role of sonority in the prosody of Cowichan. MA thesis, University of Victoria.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Blake, Susan J. 2000. On the distribution and representation of schwa in Sliammon (Salish): Descriptive and theoretical perspectives. Doctoral dissertation, University of British Columbia.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Bye, Patrik, and Peter Svenonius. 2012. Non-concatenative morphology as epiphenomenon. In J. Trommer (ed). The morphology and phonology of exponence. Oxford, UK: Oxford University Press, 427–495.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Dyck, Ruth A. 2004. Prosodic and morphological factors in Squamish (Skwxwú7mesh) stress assignment. Doctoral dissertation, University of Victoria.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Elliott, David, and Jane Poth. 1990. Saltwater People. Saanich, BC: School District No. 63, Native Studies program.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Gerdts, Donna, and Adam Werle. 2014. Halkomelem clitic types. Morphology 24, 245–281.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Gordon, Matthew. 2006. Syllable weight: phonetics, phonology, typology. New York, NY: Routledge.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Hukari, Tom. 1977. Resonant devoicing in Cowichan. Canadian Journal of Linguistics 22, 47– 61.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Hukari, Tom. 1978. Halkomelem nonsegmental morphology. Proceedings of ICSNL 12, 157–209.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Hukari, Tom, and Ruby Peter. 1995. Cowichan dictionary. Duncan, BC: Cowichan Tribes.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Kurisu, Kazutaka. 2001. The phonology of morpheme realization. Doctoral dissertation, University of California Santa Cruz.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Jones, Michael. 1976. Morphophonemic properties of Cowichan actual aspect. MA thesis, University of Victoria.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Leonard, Janet. 2019. The phonological representation and distribution vowels in SENĆOŦEN (Saanich). Doctoral thesis, University of Victoria.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	McCarthy, John, Wendell Kimper, and Kevin Mullin. 2012. Reduplication in Harmonic Serialism. Morphology 22, 173–232.	page 18
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	McCarthy, John, and Alan Prince. 1999. Faithfulness and Identity in Prosodic Morphology. In: R.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Kager, H. van der Hulst, and W. Zonneveld (eds.) The prosody-morphology interface.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Cambridge, UK: Cambridge University Press, 218–309.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Mellesmoen, Gloria, and Suzanne Urbanczyk. To appear. Avoiding multiple reduplication without INTEGRITY. In: R. Soo and D. Reisinger (eds). Proceedings of the West Coast Conference on Formal Linguistics 37. Somerville, MA: Cascadilla Press.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Montler, Timothy. 1986. Morphology and phonology of Saanich. Missoula, MT: University of Montana Working Papers in Linguistics.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Montler, Timothy. 2018. SENĆOŦEN: A dictionary of the Saanich language. Seattle, WA: University of Washington Press.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Prince, Alan, and Paul Smolensky. 1993. Optimality theory: Constraint interaction in generative grammar. New Brunswick, NJ: Rutgers University Center for Cognitive Science Technical Report 2. Saba Kirchner, Jesse. 2013. Minimal reduplication and reduplicative exponence. Morphology 23, 227–243.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Shaw, Patricia., Susan J. Blake, Jill Campbell, and Codie Sheperd. 1999. Stress in hən̓q̓əmin̓əm̓ (Musqueam) Salish. Workshop on the Structure and Constituency of the Languages of the Americas 4, 131–164.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Shih, Shu-Hao. 2018. Non-moraic schwa: phonology and phonetics. Doctoral dissertation, Rutgers University.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Stonham, John. 1994. Combinatorial morphology. Amsterdam: John Benjamins.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Suttles, Wayne. 2004. Musqueam reference grammar. Vancouver, BC: UBC Press.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Urbanczyk, Suzanne. 1992. Representing glottalized sonorants. In: C. P. Canakis and G. P. Chan (eds.). Proceedings of the 28th Regional Meeting of the Chicago Linguistic Society, 530–542.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Urbanczyk, Suzanne. 1998. Segment doubling and INTEGRITY violation. West Coast Conference on Formal Linguistics 17, University of British Columbia. Vancouver, BC. m.s. UBC Urbanczyk, Suzanne. 1999. A-Templatic Reduplication in Halq'eméylem. In: K. Shahin, S. Blake, and E. S. Kim (eds.), Proceedings of West Coast Conference on Formal Linguistics XVII. Stanford: CSLI Publications, 655–669.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Urbanczyk, Suzanne. 2011. Evidence from Halkomelem for word-based morphology. In: J. Lyon and J. Dunham (eds.). Proceedings of ICSNL 46, 470–489.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Zimmermann, Eva. 2013. Non-concatenative allomorphy is generalized prosodic affixation: The case of Upriver Halkomelem. Lingua 134, 1–26.	page 19
+references	Gloria Mellesmoen, Suzanne Urbanczyk	reference	Zimmermann, Eva. 2017. Morphological length and defective morphemes. Oxford, UK: Oxford University Press.	page 19

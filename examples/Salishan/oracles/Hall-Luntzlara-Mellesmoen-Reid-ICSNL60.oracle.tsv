@@ -1,0 +1,1094 @@
+where	who	kind	form	gloss
+front	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	In Proceedings of the International Conference on Salish and Neighbouring Languages 60, Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2025.	page 1
+front	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, the language of the paper
+front	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Abstract: Stress in nɬeʔkepmxcín is sensitive to both phonological and morphological factors; schwa is predictable based on phonological factors. In this paper, we present a description and a constraint-based analysis of stress assignment that accounts for strong, ambivalent, weak, and unstressable morphemes. With the correct assumptions about the interactions between different morphemes and stress, the position of schwa in the language falls out from general constraints on well-formed prosodic structure in the language.	page 1
+front	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Keywords: nɬeʔkepmxcín, stress, schwa epenthesis, syllabification, phonological analysis	page 1
+§1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	1 Introduction	page 1
+§1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	1.1 Language Information	page 1
+§1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, the language of the paper
+footnote *	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	* We’d like to thank nɬeʔkepmxcín speakers Bev Phillips, c̓úʔsinek (Marty Aspinall), and kʷaɬtèzetkʷuʔ (Bernice Garcia) for sharing their language with us and making this project possible. kʷukʷstéyp! kʷaɬtèzetkʷuʔ wishes it to be acknowledged that she is a Kamloops Indian Residential School speaker who is relearning her language. She introduces herself thus: ʔesʔúmecms kʷaɬtèzetkʷuʔ tuɬe c̓əɬétkʷu wéʔe ncítxʷ ƛ̓uʔ wéʔec ʔéx netíyxs scwéw̓xmx ƛ̓uʔ tékm xéʔe ne nɬeʔképmx e tmíxʷs ‘My traditional name is kʷaɬtèzetkʷuʔ, my home is in Coldwater of Nicola of the nɬeʔképmx lands.’ We’d also like to thank the members of nɬab, especially Lisa Matthewson, for their continuous support. Funding for this project was provided by the Jacob’s Research Fund and the UBC Indigenous Strategic Initiatives Fund. Contact info: bhall3302@gmail.com	page 1, footnote
+footnote *	Bernice Garcia	transcription	ʔesʔúmecms kʷaɬtèzetkʷuʔ tuɬe c̓əɬétkʷu wéʔe ncítxʷ ƛ̓uʔ wéʔec ʔéx netíyxs scwéw̓xmx ƛ̓uʔ tékm xéʔe ne nɬeʔképmx e tmíxʷs	page 1, footnote *, how Bernice Garcia introduces herself in nɬeʔkepmxcín
+footnote *	Bernice Garcia	translation	‘My traditional name is kʷaɬtèzetkʷuʔ, my home is in Coldwater of Nicola of the nɬeʔképmx lands.’	page 1, footnote *, the English of her introduction
+§1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	name	c̓úʔsinek	the nɬeʔkepmxcín name of Marty Aspinall, CMA
+§1.1	nɬeʔkepmxcín	cited form	kʷukʷstéyp	‘thank you’, the thanks of footnote *
+§1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	name	nɬab	the nɬeʔkepmxcín lab at the University of British Columbia, footnote *
+§1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	This paper provides an analysis of stress assignment and schwa epenthesis including a previously unrecognized pattern of stress-induced schwa epenthesis in nɬeʔkepmxcín (Thompson River Salish, ISO 639-3: thp). nɬeʔkepmxcín is a Northern Interior Salish language spoken in South Central British Columbia along the Fraser Canyon and the Nicola and Thompson rivers. As is typical of Salish languages (Czaykowska-Higgins & Kinkade 1998:7), nɬeʔkepmxcín has a simple vowel inventory and a much larger consonant inventory. Thompson and Thompson (1992) state that the primary vowels are /i, u, e, ə/ with /ị, o, a, ə̣/1 as their retracted counterparts (see Table 1).	page 1
+§1.1	nɬeʔkepmxcín	cited form	/i, u, e, ə/	page 2, the primary vowels, after Thompson and Thompson 1992
+§1.1	nɬeʔkepmxcín	cited form	/ị, o, a, ə̣/	page 2, their retracted counterparts, after Thompson and Thompson 1992, carries footnote 1, written here without its digit
+Table 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Table 1. Thompson and Thompson’s (1992) proposed vowel system	page 2, the caption
+Table 1 line 1	nɬeʔkepmxcín	cited form	i	page 2, Table 1, front, a primary vowel
+Table 1 line 1	nɬeʔkepmxcín	cited form	ị	page 2, Table 1, front, retracted
+Table 1 line 1	nɬeʔkepmxcín	cited form	u	page 2, Table 1, back, a primary vowel
+Table 1 line 2	nɬeʔkepmxcín	cited form	e	page 2, Table 1, front, a primary vowel
+Table 1 line 2	nɬeʔkepmxcín	cited form	ə	page 2, Table 1, central, a primary vowel
+Table 1 line 2	nɬeʔkepmxcín	cited form	ə̣	page 2, Table 1, central, retracted
+Table 1 line 2	nɬeʔkepmxcín	cited form	o	page 2, Table 1, back, retracted
+Table 1 line 3	nɬeʔkepmxcín	cited form	a	page 2, Table 1, central, retracted
+§1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The retracted vowels are less common and described as “to some extent” (Thompson & Thompson 1992:11) being allophones of the primary vowels, which leaves uncertainty as to their phonemic status (see, e.g., Thompson & Thompson 1992:11; Jimmie 1994:6). Each vowel in this proposed system has variation with respect to phonetic realization (Thompson & Thompson 1992; Khalaji Pirbaluti 2023), but we assume that the primary vowels, apart from schwa, are the key set of underlying phonemes.	page 2
+§1.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	1.2 Schwa Across Salish	page 2
+§1.2	nɬeʔkepmxcín	cited form	ə	page 2
+§1.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, the language of the paper
+§1.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	St’át’imcets	a.k.a. Lillooet, Northern Interior Salish
+§1.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Schwa ([ə]) is a common vowel across Salish languages. Kinkade (1998) describes four types of schwa across Salish languages: underlying, derived, epenthetic, and excrescent. We assume that epenthetic and excrescent schwas are present in nɬeʔkepmxcín. Epenthetic schwas are inserted to ensure a well-formed prosodic word or to satisfy requirements on permissible consonant clusters (i.e., to ensure a rising or falling sonority profile within an onset or coda; see Matthewson 1994 for a discussion of nuclear but non-moraic schwa). Excrescent schwas are argued to be purely phonetic in nature and serve as a transition between two segments, often between an obstruent and following resonant (Parker 2011). Both epenthetic and excrescent schwa occur in predictable environments and are typically assumed to be absent from the underlying vowel inventory of a language (Kinkade 1998; Blake 2000; Shahin 2007). While both epenthetic and excrescent schwas may surface in predictable environments, they differ in frequency. Shahin (2007) found that excrescent schwa in St’át’imcets is variable in occurrence, whereas epenthetic schwa required by the phonology of the language is not.	page 2
+footnote 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	1 Thompson and Thompson (1992:21) suggest that unlike the other retracted vowels, retracted schwa is more often its own vowel rather than the retracted counterpart of schwa. The near-minimal pairs below are used as evidence of a contrast between schwa and retracted schwa. ʔesnk̓ə̣́ɬ ‘dirty, muddied’ : ʔeskə̣́ɬ ‘detached’ pmə̣́p ‘[canoe] gains speed’ : qmə̣́p ‘get warm, heated’	page 2, footnote
+§1.2	nɬeʔkepmxcín	cited form	ʔesnk̓ə̣́ɬ	page 2, ‘dirty, muddied’
+§1.2	nɬeʔkepmxcín	cited form	ʔeskə̣́ɬ	page 2, ‘detached’
+§1.2	nɬeʔkepmxcín	cited form	pmə̣́p	page 2, ‘[canoe] gains speed’
+§1.2	nɬeʔkepmxcín	cited form	qmə̣́p	page 2, ‘get warm, heated’
+footnote 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	2 Neither Jimmie (1994) nor Thompson and Thompson (1992) assume excrescent schwas as part of the underlying representation. Thompson and Thompson specifically state “transition vowels which are clearly predictable and do not contrast with their absence are not written” (1992:20).	page 2, footnote
+§1.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	We assume based on the predictability of schwa in nɬeʔkepmxcín that epenthetic and excrescent schwas are not part of the underlying representation. This directly contradicts previous documentation of nɬeʔkepmxcín phonology by Jimmie (1994) and Thompson and Thompson (1992) that include epenthetic schwa as underlying phonemes.2 We set aside the pattern of excrescent schwas from our analysis as we assume that their presence is governed entirely by phonetic considerations. Excrescent schwas are likely phonetically distinct from epenthetic schwas, and do not seem to interact with stress or other levels of prosodic organization. In the rest of this paper, we show that the epenthetic schwas that were previously assumed to be part of the underlying representations of nɬeʔkepmxcín are predictable based on the phonological grammar of the language; they do not need to be represented in the lexicon.	page 2
+§1.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The remainder of this paper is organized as follows. Section 2 provides background on the data and how it is presented, syllabification in nɬeʔkepmxcín, and the patterns of stress assignment, including stress-induced schwa epenthesis. Section 3 outlines the analysis and how it accounts for schwa epenthesis for syllabification, stress assignment, and stressed schwa epenthesis. Section 4 provides a discussion on deviant cases and future areas of research. Section 5 presents our conclusions.	page 3
+§2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	2 Description of the Patterns	page 3
+§2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	2.1 Data	page 3
+§2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, the language of the paper
+§2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín-to-English	the dictionary of Thompson and Thompson 1996
+§2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	There are two types of data used in the present analysis: dictionary entries and recorded speech. The dictionary entries come from the nɬeʔkepmxcín dictionary (Thompson & Thompson 1996) and grammar (Thompson & Thompson 1992). We use the abbreviated form “T&T” to mark data that comes from the dictionary and the grammar. We first identified roots from the dictionary before searching through the nɬeʔkepmxcín-to-English side of the dictionary to find specific stems and stress behaviours. Different derivations of each root provide support for stress and schwa epenthesis patterns.	page 3
+§2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	name	c̓úʔsinek	the nɬeʔkepmxcín name of Marty Aspinall, CMA
+§2.1	nɬeʔkepmxcín	cited form	xʷíʔ	in the title of Hall & Phillips 2024, xʷíʔ kʷ páq (You Will Be Sorry)
+§2.1	nɬeʔkepmxcín	cited form	kʷ	in the title of Hall & Phillips 2024, xʷíʔ kʷ páq (You Will Be Sorry)
+§2.1	nɬeʔkepmxcín	cited form	páq	in the title of Hall & Phillips 2024, xʷíʔ kʷ páq (You Will Be Sorry)
+§2.1	nɬeʔkepmxcín	cited form	ɬ	in the title of Hall & Phillips this volume, ɬ cutés us ɬ qəɬmín ɬ tmíxʷ (When Old One Created the Earth)
+§2.1	nɬeʔkepmxcín	cited form	cutés	in the title of Hall & Phillips this volume, ɬ cutés us ɬ qəɬmín ɬ tmíxʷ
+§2.1	nɬeʔkepmxcín	cited form	qəɬmín	in the title of Hall & Phillips this volume, ɬ cutés us ɬ qəɬmín ɬ tmíxʷ
+§2.1	nɬeʔkepmxcín	cited form	tmíxʷ	in the title of Hall & Phillips this volume, ɬ cutés us ɬ qəɬmín ɬ tmíxʷ
+§2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	name	nɬab	the nɬeʔkepmxcín lab at the University of British Columbia, footnote *
+§2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	In addition to the dictionary and grammar entries, we also used three main sources of recorded speech from elicitations with three fluent speakers of nɬeʔkepmxcín: Bev Phillips (BP), kʷaɬtèzetkʷuʔ (Bernice Garcia; KBG), and c̓úʔsinek (Marty Aspinall; CMA). Most of the recorded speech comes from the stories ‘xʷíʔ kʷ páq (You Will Be Sorry)’ (Hall & Phillips 2024) and ‘ɬ cutés us ɬ qəɬmín ɬ tmíxʷ (When Old One Created the Earth)’ (Hall & Phillips this volume), written and narrated by Bev Phillips. ‘xʷíʔ kʷ páq (You Will Be Sorry)’ was recorded in-person using a head- mounted microphone connected to a Zoom H6 digital recorder and ‘ɬ cutés us ɬ qəɬmín ɬ tmíxʷ (When Old One Created the Earth)’ was recorded using the video conferring program Zoom. Additional examples were taken from a recorded conversation between KBG and CMA that was facilitated and recorded using the video conferencing program Zoom. All recordings made with Zoom made use of the speakers’ built in laptop microphones. Speech from the story and conversation sources has been transcribed in the North American Phonetic Alphabet (NAPA) as employed by Thompson and Thompson (1992; 1996), translated into English with input from the speakers, and glossed using nɬeʔkepmxcín specific morpheme-by-morpheme glossing conventions established by the University of British Columbia nɬeʔkepmxcín Lab (nɬab). Additional samples of recorded speech come from targeted elicitations with all three consultants as parts of previous projects (Reid 2023) or to verify aspects of the pattern of stressed schwa epenthesis. Preliminary acoustic analyses of these three recording sources were conducted using Praat (Boersma & Weenink 2025). A small number of sample spectrograms are provided throughout the paper where relevant with additional spectrograms provided in Appendix B.	page 3
+§2.1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	2.1.1 Data Presentation	page 3
+§2.1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	We provide a gloss for each example separated into three columns. Unless otherwise specified, these columns consist of a segmented underlying representation surrounded by forward slashes / / and a gloss line in the left column; a surface representation surrounded by square brackets [ ] in the middle column; and an English translation in single quotes ‘ ’ in the right column. An example of this is shown below in (1).3	page 3
+(1) line 1	nɬeʔkepmxcín	phonemic	/cún-t-íyxs-n1-t-em/	page 4, phonemic, in / /
+(1) line 1	nɬeʔkepmxcín	phonemic	[cun.tí͜yNx.se1.tmN]	page 4, phonetic, in [ ]
+(1) line 1	Hall & Phillips this volume	translation	‘They were told by him.’	page 4
+(1) line 2	nɬeʔkepmxcín	gloss	tell-TR-3PL-CTR-TR-PASS	page 4, the morphemes of the row above
+(1) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips this volume)	page 4, the source of the row above
+§2.1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	We note the use of a few specific conventions shown in (1) that we will use throughout in our phonological representations. In underlying representations (indicated by / /):	page 4
+§2.1.1	nɬeʔkepmxcín	cited form	/cún/	page 4
+§2.1.1	nɬeʔkepmxcín	cited form	/-íyxs/	page 4
+§2.1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	i. Accent, i.e., underlying stress, is represented by an acute accent diacritic on accented vowels, e.g., /cún/ and /-íyxs/ in (1). This convention should not be understood as a claim about the phonological nature of accent, which we analyze as underlying mora structure in Section 3, but rather follows the convention of Thompson and Thompson (1992, 1996) for indicating accent.	page 4
+§2.1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	ii. Numbers in subscripts show correspondence between underlying and surface representations by giving corresponding input and output segments the same number in cases where these correspondences might be difficult to determine without prior knowledge of the language, especially in cases of resonant vocalization, e.g. /n1/ and [e1] in the example above.	page 4
+§2.1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	In surface representations (indicated by [ ]):	page 4
+§2.1.1	nɬeʔkepmxcín	cited form	í	page 4
+§2.1.1	nɬeʔkepmxcín	cited form	í͜yN	page 4
+§2.1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	i. Primary stress is represented by an acute accent diacritic on the stressed vowel, e.g. [í] in (1). (While this overlaps with the use for representing underlying accent, it is unambiguous as it exclusively occurs in surface representations.) ii. Syllable boundaries are represented by a period . between syllables. The location of these boundaries has been determined based on on a combination of typological expectations, arguments made by Jimmie (1994), and evidence from schwa epenthesis and word boundaries in the present analysis. We have also confirmed many of these syllabifications through comparison with speaker intuitions provided by the three speakers in elicitations. iii. Syllabic consonants (i.e., consonants serving as syllable nuclei) are represented with a subscript N (for nucleus), e.g., [mN] in (1). Diphthongs (i.e., nuclei comprised of vowel- glide sequences) are shown using a tie bar beneath the segments and the subscript N, e.g., [í͜yN] in the above example.	page 4
+footnote 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	3 Glossing abbreviations follow Leipzig Glossing Rules with the following additions: COS = change-of-state reduplication, CTR = control, D/C = determiner-complementizer, INCH = inchoative, INDEP = independent pronoun, INDR = indirective applicative, IMM = immediate, LC = limited control, MID = middle, RLT = relational applicative. Affix boundaries are indicated with a hyphen (-). Infix boundaries are indicated with angle brackets (< >). Reduplication is indicated with a tilde (~). Clitic boundaries are marked with an equal sign (=). All null morphemes are omitted from the data for clarity. Glossed data from published sources used in this paper has been adapted as necessary to conform with these conventions.	page 4, footnote
+§2.1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	iv. Coloured schwas (i.e., schwas which may be pronounced more like other vowels in certain consonantal environments) will always be transcribed as schwa.4 v. Schwas that we analyze as epenthetic rather than excrescent are indicated, even in cases where they may not be represented in transcriptions of a given form by Thompson and Thompson (1992; 1996).5 These decisions were informed by phonetic analysis. To verify the presence of epenthetic schwas, individual words were annotated in Praat (Boersma & Weenink 2025). Vowel epenthesis was identified auditorily and confirmed by the presence of clear formants in the spectrogram and a period pattern in the waveform.	page 5
+§2.1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Finally, we occasionally make use of following schematic representations:	page 5
+§2.1.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	• V – vowel; • C – consonant; • R – resonant (synonymous with sonorant, used here only to refer to consonants); • O – obstruent; • G – glide; • L – liquid; • N – nasal; • F – fricative; and • K – stop (which we use synonymously with plosive to exclude nasal stops, while including affricates).	page 5
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	2.2 Syllabification in nɬeʔkepmxcín	page 5
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	We first summarize the patterns about syllable structure to be shown in this section. We do not provide specific evidence for the following rules. While they are true in the language generally, we will not attempt to analyze repair processes or conditions under which exceptions are permitted (see Thompson & Thompson 1992 and Jimmie 1994 for further discussion of general phonological patterns in the language).	page 5
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	• Syllables must possess onsets.	page 5
+§2.2	nɬeʔkepmxcín	cited form	ntéwmn	page 5, ‘store’
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	o A notable exception to this involves the locative prefix /n-/, which frequently forms the nucleus of an initial syllable with no onset, e.g., in the word ntéwmn ‘store’. • Nuclei must consist of single segments.	page 5
+footnote 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	4 The environments that condition schwa colouring are listed below based on orthographic conventions used by Thompson and Thompson (1992; 1996).	page 5, footnote
+footnote 4 line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	[e] / __ʔ, h	page 5, footnote 4, a schwa colour and after the slash the consonants it comes before
+footnote 4 line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	[i] / __y, y̓	page 5, footnote 4, a schwa colour and after the slash the consonants it comes before
+footnote 4 line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	[u] / __kʷ, k̓ʷ, w, w̓, xʷ	page 5, footnote 4, a schwa colour and after the slash the consonants it comes before
+footnote 4 line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	[a] / __q, q̓, x̣, ʕ, ʕ̓	page 5, footnote 4, a schwa colour and after the slash the consonants it comes before
+footnote 4 line 5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	[o] / __qʷ, q̓ʷ, x̣ʷ, ʕʷ, ʕ̓ʷ	page 5, footnote 4, a schwa colour and after the slash the consonants it comes before
+footnote 5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	5 Thompson and Thompon’s (1992; 1996) orthography generally only includes schwas that are the second segment in a root, the nucleus of a reduplicated syllable, or the host of primary stress. For orthographical representations written in italics, we stay faithful to these conventions.	page 5, footnote
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	o Our analysis allows an exception to this rule for accented vowels, which can form a diphthongal nucleus with a following glide.	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, the language of the paper
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	We will demonstrate that the following rules apply without exception in nɬeʔkepmxcín: • Onsets clusters of three or more consonants are prohibited.	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	kɬx-	the consonant cluster [kɬx-], a hyphen standing for the rest of its syllable
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	o E.g., *[kɬx-].	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	• Onset clusters containing a resonant are prohibited, including:	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	mƛ̓-	the consonant cluster [mƛ̓-], a hyphen standing for the rest of its syllable
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	ʕʷy-	the consonant cluster [ʕʷy-], a hyphen standing for the rest of its syllable
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	o [RO-] onset clusters, e.g., *[mƛ̓-], o [OR-] onset clusters, e.g., *[py-], and o [RR-] onset clusters, e.g., *[ʕʷy-].	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	• Coda clusters containing a resonant after another consonant are prohibited, including: o [OR-] coda clusters, e.g., *[-tn], and o [RR-] coda clusters, e.g., *[-nm].	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	• Liquids in nuclei are prohibited.	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	o E.g., *[lN].	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	We will further demonstrate that the following marked structures are tolerated in nɬeʔkepmxcín:	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	• Onset clusters containing two obstruents are tolerated, including:	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	kɬ	the consonant cluster [kɬ]
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	ɬk	the consonant cluster [ɬk]
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	o [KK-] onset clusters, e.g., [pt], o [KF-] onset clusters, e.g., [kɬ], and o [FK-] onset clusters, e.g., [ɬk].	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	• Coda clusters containing one or more obstruents after another consonant are tolerated, including:	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	-ƛ̓qt	the consonant cluster [-ƛ̓qt], a hyphen standing for the rest of its syllable
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	o [-RO(O)] coda clusters, e.g., [-ns] or [-nsc] and o [-OO(O)] coda clusters, e.g. [-kp] or [-ƛ̓qt].	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	• Glides in nuclei are tolerated, including:	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	o vocalized glides, e.g., /y/ → [i] and o glides in diphthongal nuclei, e.g., [(ew)N].	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	• Nasals in nuclei are tolerated, including:	page 6
+§2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	o syllabic nasals, e.g., [nN] and o vocalized nasals, e.g., /m/ → [e].	page 6
+§2.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	2.2.1 Onset clusters of three or more consonants are prohibited	page 6
+§2.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	kɬx-	the consonant cluster [kɬx-], a hyphen standing for the rest of its syllable
+§2.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	ʔes.kɬxə́n	the illicit form *[ʔes.kɬxə́n], a syllabification the language avoids
+§2.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The example in (2) demonstrates how the onset cluster [kɬx-] in the illicit form *[ʔes.kɬxə́n] is avoided by inserting a schwa. Evidence of schwa epenthesis is provided in Figure 1.	page 6
+(2) line 1	nɬeʔkepmxcín	phonemic	/ʔes-kɬ-xn/	page 6, phonemic, in / /
+(2) line 1	nɬeʔkepmxcín	phonemic	[ʔes.kəɬ.xə́n]	page 6, phonetic, in [ ]
+(2) line 1	Bev Phillips	translation	‘have one’s shoes off’	page 6
+(2) line 2	nɬeʔkepmxcín	gloss	STAT-separate-foot	page 6, the morphemes of the row above
+(2) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	page 6, the source of the row above
+§2.2.1	Bev Phillips	cited form	ʔeskəɬxə̣́n	page 7, ‘have one’s shoes off’, Figure 1, produced by BP
+§2.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure 1. Waveform and spectrogram showing epenthetic schwas in ʔeskəɬxə̣́n ‘have one’s shoes off’ produced by BP	page 7
+§2.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	2.2.2 Onset clusters containing a resonant are prohibited	page 7
+§2.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	mƛ̓-	the consonant cluster [mƛ̓-], a hyphen standing for the rest of its syllable
+§2.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	mƛ̓ə́q̓ʷ	the illicit form *[mƛ̓ə́q̓ʷ], a syllabification the language avoids
+§2.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	ʕʷy-	the consonant cluster [ʕʷy-], a hyphen standing for the rest of its syllable
+§2.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	ʕʷyə́p	the illicit form *[ʕʷyə́p], a syllabification the language avoids
+§2.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	wméx	the illicit form *[wméx], a syllabification the language avoids
+§2.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	slə́k	the illicit form *[slə́k], a syllabification the language avoids
+§2.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	pyépst	the illicit form *[pyépst], a syllabification the language avoids
+§2.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	wm-	the consonant cluster [wm-], a hyphen standing for the rest of its syllable, page 7
+§2.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	sl-	the consonant cluster [sl-], a hyphen standing for the rest of its syllable, page 7
+§2.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	py-	the consonant cluster [py-], a hyphen standing for the rest of its syllable, page 7
+§2.2.2	Bev Phillips	cited form	slə̣́k	page 7, ‘turn’, Figure 2, produced by BP
+§2.2.2	nɬeʔkepmxcín	cited form	sə.lə́k	page 7
+§2.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The examples in (3)–(7) demonstrate that onset clusters containing a resonant are avoided by inserting a schwa. This includes [OR-] onset clusters as in *[mƛ̓-] in the illicit form *[mƛ̓ə́q̓ʷ]; [RR-] onset clusters as in *[ʕʷy-] in the illicit form *[ʕʷyə́p] and *[wm-] in the illicit form *[wméx]; and [OR-] onset clusters as in *[sl-] in the illicit form *[slə́k] and *[py-] in the illicit form *[pyépst]. Evidence of schwa epenthesis in the word slə̣́k ([sə.lə́k]) ‘turn’ is provided in Figure 2.	page 7
+(3) line 1	nɬeʔkepmxcín	phonemic	/mƛ̓q̓ʷ/	page 7, phonemic, in / /
+(3) line 1	nɬeʔkepmxcín	phonemic	[mə.ƛ̓ə́q̓ʷ]	page 7, phonetic, in [ ]
+(3) line 1	Thompson & Thompson 1996:204	translation	‘dislocated’	page 7
+(3) line 2	nɬeʔkepmxcín	gloss	dislocate	page 7, the morphemes of the row above
+(3) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:204)	page 7, the source of the row above
+(4) line 1	nɬeʔkepmxcín	phonemic	/ʕʷy-p/	page 7, phonemic, in / /
+(4) line 1	nɬeʔkepmxcín	phonemic	[ʕʷə.yə́p]	page 7, phonetic, in [ ]
+(4) line 1	Hall & Phillips 2024:150	translation	‘become burned’	page 7
+(4) line 2	nɬeʔkepmxcín	gloss	burn-INCH	page 7, the morphemes of the row above
+(4) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:150)	page 7, the source of the row above
+(5) line 1	nɬeʔkepmxcín	phonemic	/wméx/	page 7, phonemic, in / /
+(5) line 1	nɬeʔkepmxcín	phonemic	[wə.méx]	page 7, phonetic, in [ ]
+(5) line 1	Hall & Phillips 2024:151	translation	‘live’	page 7
+(5) line 2	nɬeʔkepmxcín	gloss	live	page 7, the morphemes of the row above
+(5) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:151)	page 7, the source of the row above
+(6) line 1	nɬeʔkepmxcín	phonemic	/slk/	page 7, phonemic, in / /
+(6) line 1	nɬeʔkepmxcín	phonemic	[sə.lə́k]	page 7, phonetic, in [ ]
+(6) line 1	Bev Phillips	translation	‘turn’	page 7
+(6) line 2	nɬeʔkepmxcín	gloss	turn	page 7, the morphemes of the row above
+(6) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	page 7, the source of the row above
+(7) line 1	nɬeʔkepmxcín	phonemic	/pyépst/	page 7, phonemic, in / /
+(7) line 1	nɬeʔkepmxcín	phonemic	[pə.yépst]	page 7, phonetic, in [ ]
+(7) line 1	Hall & Phillips this volume	translation	‘you (plural)’	page 7
+(7) line 2	nɬeʔkepmxcín	gloss	2PL.INDEP	page 7, the morphemes of the row above
+(7) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips this volume)	page 7, the source of the row above
+§2.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure 2. Waveform and spectrogram showing epenthetic schwas in slə̣́k ‘turn’ produced by BP	page 8
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	2.2.3 Coda clusters containing a resonant following another consonant are prohibited	page 8
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	máʕ.xetn	the illicit form *[máʕ.xetn], a syllabification the language avoids
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	-tn	the consonant cluster [-tn], a hyphen standing for the rest of its syllable, page 8
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	-nm	the consonant cluster [-nm], a hyphen standing for the rest of its syllable, page 8
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	-kʷlxʷ	the consonant cluster [-kʷlxʷ], a hyphen standing for the rest of its syllable
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	ʔíkʷlxʷ	the illicit form *[ʔíkʷlxʷ], a syllabification the language avoids
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	kénm	the illicit form *[kénm], a syllabification the language avoids
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	-ʔnxʷ	the consonant cluster [-ʔnxʷ], a hyphen standing for the rest of its syllable, carries footnote 6, written here without its digit
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	qʷúʔnxʷ	the illicit form *[qʷúʔnxʷ], a syllabification the language avoids
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Examples (8)–(11) demonstrate how coda clusters containing a resonant following another consonant are avoided through either inserting a schwa or allowing a nasal to be syllabic. This includes [-OR] coda clusters as in *[-tn] in the illicit form *[máʕ.xetn] and *[-kʷlxʷ] in the illicit form *[ʔíkʷlxʷ], and [-RR] coda clusters as in *[-nm] in the illicit form *[kénm] and *[-ʔnxʷ]6 in the illicit form *[qʷúʔnxʷ].	page 8
+(8) line 1	nɬeʔkepmxcín	phonemic	/máʕ-xn1-tn/	page 8, phonemic, in / /
+(8) line 1	nɬeʔkepmxcín	phonemic	[máʕ.xe1.tnN]	page 8, phonetic, in [ ]
+(8) line 1	Bev Phillips, Marty Aspinall and Bernice Garcia	translation	‘moon’	page 8
+(8) line 2	nɬeʔkepmxcín	gloss	light-foot-INS	page 8, the morphemes of the row above
+(8) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP, CMA, KBG	page 8, the source of the row above
+(9) line 1	nɬeʔkepmxcín	phonemic	/ʔíkʷlxʷ/	page 8, phonemic, in / /
+(9) line 1	nɬeʔkepmxcín	phonemic	[ʔíkʷ.ləxʷ]	page 8, phonetic, in [ ]
+(9) line 1	Marty Aspinall	translation	‘dream’	page 8
+(9) line 2	nɬeʔkepmxcín	gloss	dream	page 8, the morphemes of the row above
+(9) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	CMA	page 8, the source of the row above
+(10) line 1	nɬeʔkepmxcín	phonemic	/kénm/	page 8, phonemic, in / /
+(10) line 1	nɬeʔkepmxcín	phonemic	[ké.nəm]	page 8, phonetic, in [ ]
+(10) line 1	Bev Phillips, Marty Aspinall and Bernice Garcia	translation	‘what happened/why?’	page 8
+(10) line 2	nɬeʔkepmxcín	gloss	do.what	page 8, the morphemes of the row above
+(10) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP, CMA, KBG	page 8, the source of the row above
+(11) line 1	nɬeʔkepmxcín	phonemic	/qʷúʔ-n-t-exʷ/	page 8, phonemic, in / /
+(11) line 1	nɬeʔkepmxcín	phonemic	[qʷúʔ.nəxʷ]	page 8, phonetic, in [ ]
+(11) line 1	Hall & Phillips this volume	translation	‘You watered it.’	page 8
+(11) line 2	nɬeʔkepmxcín	gloss	water-CTR-TR-2SG.ERG	page 8, the morphemes of the row above
+(11) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips this volume)	page 8, the source of the row above
+§2.2.3	nɬeʔkepmxcín	cited form	ʔíkʷ.ləxʷ	page 8, ‘dream’
+§2.2.3	nɬeʔkepmxcín	cited form	qʷúʔ.nəxʷ	page 8
+§2.2.3	nɬeʔkepmxcín	cited form	ʔ	page 8
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	In [ʔíkʷ.ləxʷ] ‘dream’, there is simply no nasal present, while in [qʷúʔ.nəxʷ], if the nasal formed the nucleus of a new syllable, that syllable would need an onset, leaving a stressed open syllable and violating the weight minimality requirement discussed later in Section 3.4.1. The example 6 [ʔ] is phonologically a resonant in the Salish family (see Davis 2020).	page 8
+§2.2.3	nɬeʔkepmxcín	cited form	ké.nəm	page 9, ‘what happened/why?’
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	ké.nmN	the illicit form *[ké.nmN], a syllabification the language avoids
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	[ké.nəm] ‘what happened/why?’ is a less clear case, as the coda could be repaired as a syllabic nasal, as in the illicit form *[ké.nmN]. It seems likely that there are additional well-formedness restrictions for syllables with nasal nuclei (here, probably a prohibition on nasal onsets), but we leave an exploration of these restrictions to future work. Figure 3 shows the presence of schwa in the word kénm ‘what happened/why?’.	page 9
+§2.2.3	nɬeʔkepmxcín	cited form	zé́͜wNm	page 9
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure 3. Waveform and spectrogram showing epenthetic schwa in kénm ‘What happened? / why?’ produced by BP Glide-nasal sequences, such as [-wm] in [zé́͜wNm], seem to be an exception to the prohibition on coda clusters containing a resonant followed by another consonant. However, as we will discuss in Section 2.2.7, there is evidence that glides immediately following vowels can be analyzed as part of the nucleus in certain circumstances; they therefore do not represent genuine examples of [-RR] coda clusters.	page 9
+§2.2.3	Bev Phillips	cited form	kénm	page 9, ‘What happened? / why?’, Figure 3, produced by BP
+§2.2.3	nɬeʔkepmxcín	cited form	síƛ̓q̓t	page 9, ‘day’
+§2.2.3	nɬeʔkepmxcín	cited form	ɬək̓ʷ.míns	page 9
+§2.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	It could also be argued that the repair of these illicit coda clusters can be explained as avoidance of superheavy syllables (i.e. syllables with more than two moras, as discussed below in Section 3.2. However, comparison with examples containing non-prohibited coda clusters shows that superheavy syllables are tolerated in the analogous examples [síƛ̓q̓t] ‘day’ and [ɬək̓ʷ.míns] ‘He/she/they remembered it.’. Moreover, in the illicit form *[máʕ.xetn], we analyze the vowel [e] as non-moraic since it is a vocalized nasal, so [xetn] is not actually a superheavy syllable.	page 9
+§2.2.4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	2.2.4 Liquids in nuclei are prohibited	page 9
+§2.2.4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	slN.ke.tés	the illicit form *[slN.ke.tés], a syllabification the language avoids
+§2.2.4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Example (12) shows that liquids may not be syllabic, even when a syllabic /l/ would allow for the avoidance of schwa epenthesis and create otherwise unmarked syllable structure, as in the illicit form *[slN.ke.tés].	page 9
+(12) line 1	nɬeʔkepmxcín	phonemic	/slk-n1-t-es/	page 10, phonemic, in / /
+(12) line 1	nɬeʔkepmxcín	phonemic	[səl.ke1.tés]	page 10, phonetic, in [ ]
+(12) line 1	Thompson & Thompson 1996:321	translation	‘He/she/they turned something around.’	page 10
+(12) line 2	nɬeʔkepmxcín	gloss	turn-CTR-TR-3ERG	page 10, the morphemes of the row above
+(12) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:321)	page 10, the source of the row above
+§2.2.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	2.2.5 Onset clusters containing two obstruents are tolerated	page 10
+§2.2.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	kɬ-	the consonant cluster [kɬ-], a hyphen standing for the rest of its syllable
+§2.2.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	cx̣ʷ-	the consonant cluster [cx̣ʷ-], a hyphen standing for the rest of its syllable
+§2.2.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	ɬk-	the consonant cluster [ɬk-], a hyphen standing for the rest of its syllable
+§2.2.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	ɬx̣ʷ	the consonant cluster [ɬx̣ʷ]
+§2.2.5	Bev Phillips	cited form	ɬkép	page 10, ‘pot/pan’, Figure 4, produced by BP
+§2.2.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Examples (13)–(17) demonstrate that tolerated onset clusters include [KK-] onsets like [pt-], [KF-] onsets like [kɬ-] and [cx̣ʷ-] (note that [c] is an affricate), [FK-] onsets like [st-] and [ɬk-], and [FF] clusters like [ɬx̣ʷ]. Evidence of an obstruent-obstruent cluster in the word ɬkép ‘pot/pan’ is provided in Figure 4.	page 10
+(13) line 1	nɬeʔkepmxcín	phonemic	/pt-eyep-tn/	page 10, phonemic, in / /
+(13) line 1	nɬeʔkepmxcín	phonemic	[pté.yep.tnN]	page 10, phonetic, in [ ]
+(13) line 1	Bev Phillips	translation	‘rug’	page 10
+(13) line 2	nɬeʔkepmxcín	gloss	cover-mat-INS	page 10, the morphemes of the row above
+(13) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	page 10, the source of the row above
+(14) line 1	nɬeʔkepmxcín	phonemic	/kɬ-p/	page 10, phonemic, in / /
+(14) line 1	nɬeʔkepmxcín	phonemic	[kɬə́p]	page 10, phonetic, in [ ]
+(14) line 1	Hall & Phillips this volume	translation	‘become separated’	page 10
+(14) line 2	nɬeʔkepmxcín	gloss	separate-INCH	page 10, the morphemes of the row above
+(14) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips this volume)	page 10, the source of the row above
+(15) line 1	nɬeʔkepmxcín	phonemic	/cx̣ʷ-p/	page 10, phonemic, in / /
+(15) line 1	nɬeʔkepmxcín	phonemic	[cx̣ʷə́p]	page 10, phonetic, in [ ]
+(15) line 1	Hall & Phillips this volume	translation	‘start to drip’	page 10
+(15) line 2	nɬeʔkepmxcín	gloss	drip-INCH	page 10, the morphemes of the row above
+(15) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips this volume)	page 10, the source of the row above
+(16) line 1	nɬeʔkepmxcín	phonemic	/ɬkep/	page 10, phonemic, in / /
+(16) line 1	nɬeʔkepmxcín	phonemic	[ɬkép]	page 10, phonetic, in [ ]
+(16) line 1	Bev Phillips, Marty Aspinall and Bernice Garcia	translation	‘pot/pan’	page 10
+(16) line 2	nɬeʔkepmxcín	gloss	pan	page 10, the morphemes of the row above
+(16) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP, CMA, KBG	page 10, the source of the row above
+(17) line 1	nɬeʔkepmxcín	phonemic	/ɬx̣ʷ-p/	page 10, phonemic, in / /
+(17) line 1	nɬeʔkepmxcín	phonemic	[ɬx̣ʷə́p]	page 10, phonetic, in [ ]
+(17) line 1	Thompson & Thompson 1996:163	translation	‘escape’	page 10
+(17) line 2	nɬeʔkepmxcín	gloss	escape-INCH	page 10, the morphemes of the row above
+(17) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:163)	page 10, the source of the row above
+§2.2.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure 4. Waveform and spectrogram showing an obstruent-obstruent onset cluster in the word ɬkép ‘pot/pan’ produced by BP	page 10
+§2.2.6	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	2.2.6 Coda clusters containing one or more obstruents after another consonant are tolerated	page 11
+§2.2.6	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	cited form	-ƛ̓qt	the consonant cluster [-ƛ̓qt], a hyphen standing for the rest of its syllable
+§2.2.6	Bev Phillips	cited form	ʔustíyxs	page 11, ‘they discarded it’, Figure 5, produced by BP
+§2.2.6	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Examples (18)–(24) demonstrate that tolerated coda clusters include: [-ROO] codas like [-nsc] in (18); [-RO] codas like [-ns] in (19); [-OOO] coda clusters [-ƛ̓qt] in (20) and [-pst] in (7) earlier in this section; and [-OO] coda clusters like [-kp] in (21) and (22), [-kc] in (23) ([c] is an affricate derived from underlying /ts/ through consonant coalescence), and [-xs] in (24) ([y] is parsed into the nucleus with the preceding vowel, and therefore does not form part of the coda cluster). Evidence for these complex coda clusters is shown in Figure 5 for the word ʔustíyxs ‘They discarded it.’	page 11
+(18) line 1	nɬeʔkepmxcín	phonemic	/ʔes-ɬk̓ʷ-min-s-t-es/	page 11, phonemic, in / /
+(18) line 1	nɬeʔkepmxcín	phonemic	[ʔes.ɬək̓ʷ.mínsc]	page 11, phonetic, in [ ]
+(18) line 1	Thompson & Thompson 1996:150	translation	‘He/she/they memorized it.’	page 11
+(18) line 2	nɬeʔkepmxcín	gloss	STAT-remember-RLT-CAUS-TR-3ERG	page 11, the morphemes of the row above
+(18) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:150)	page 11, the source of the row above
+(19) line 1	nɬeʔkepmxcín	phonemic	/ɬk̓ʷ-min-t-es/	page 11, phonemic, in / /
+(19) line 1	nɬeʔkepmxcín	phonemic	[ɬək̓ʷ.míns]	page 11, phonetic, in [ ]
+(19) line 1	Thompson & Thompson 1996:150	translation	‘He/she/they remembered it.’	page 11
+(19) line 2	nɬeʔkepmxcín	gloss	remember-RLT-TR-3ERG	page 11, the morphemes of the row above
+(19) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:150)	page 11, the source of the row above
+(20) line 1	nɬeʔkepmxcín	phonemic	/síƛ̓q̓t/	page 11, phonemic, in / /
+(20) line 1	nɬeʔkepmxcín	phonemic	[síƛ̓q̓t]	page 11, phonetic, in [ ]
+(20) line 1	Bev Phillips and Marty Aspinall	translation	‘day’	page 11
+(20) line 2	nɬeʔkepmxcín	gloss	day	page 11, the morphemes of the row above
+(20) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP, CMA	page 11, the source of the row above
+(21) line 1	nɬeʔkepmxcín	phonemic	/x̣k-p-s-t-és/	page 11, phonemic, in / /
+(21) line 1	nɬeʔkepmxcín	phonemic	[x̣əkp.stés]	page 11, phonetic, in [ ]
+(21) line 1	Thompson & Thompson 1996:421	translation	‘He/she/they found out that…’	page 11
+(21) line 2	nɬeʔkepmxcín	gloss	know-INCH-CAUSE-3ERG	page 11, the morphemes of the row above
+(21) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:421)	page 11, the source of the row above
+(22) line 1	nɬeʔkepmxcín	phonemic	/sk-p-s-t-es/	page 11, phonemic, in / /
+(22) line 1	nɬeʔkepmxcín	phonemic	[səkp.stés]	page 11, phonetic, in [ ]
+(22) line 1	Thompson & Thompson 1996:320	translation	‘He/she/they managed to hit it with a club.’	page 11
+(22) line 2	nɬeʔkepmxcín	gloss	hit-INCH-CAUS-TR-3ERG	page 11, the morphemes of the row above
+(22) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:320)	page 11, the source of the row above
+(23) line 1	nɬeʔkepmxcín	phonemic	/wík-t-es/	page 11, phonemic, in / /
+(23) line 1	nɬeʔkepmxcín	phonemic	[wíkc]	page 11, phonetic, in [ ]
+(23) line 1	Hall & Phillips 2024:136	translation	‘He/she/they saw it.’	page 11
+(23) line 2	nɬeʔkepmxcín	gloss	see-TR-3ERG	page 11, the morphemes of the row above
+(23) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:136)	page 11, the source of the row above
+(24) line 1	nɬeʔkepmxcín	phonemic	/ʔús-t-íyxs/	page 11, phonemic, in / /
+(24) line 1	nɬeʔkepmxcín	phonemic	[ʔus.tí͜yNxs]	page 11, phonetic, in [ ]
+(24) line 1	Hall & Phillips 2024:141	translation	‘They discarded it.’	page 11
+(24) line 2	nɬeʔkepmxcín	gloss	discard-TR-3PL	page 11, the morphemes of the row above
+(24) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:141)	page 11, the source of the row above
+§2.2.6	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure 5. Spectogram and waveform showing complex coda in ʔustíyxs ‘they discarded it’ produced by BP	page 12
+§2.2.7	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	2.2.7 Glides in nuclei are tolerated	page 12
+§2.2.7	nɬeʔkepmxcín	cited form	é́͜yN	page 12
+§2.2.7	nɬeʔkepmxcín	cited form	é́͜wN	page 12
+§2.2.7	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Glides can be a part of nuclei in two different ways. The first way involves a glide forming a diphthong in combination with a preceding vowel, as in [é́͜yN] and [é́͜wN] in examples (25) and (26).	page 12
+(25) line 1	nɬeʔkepmxcín	phonemic	/séytkn-emx/	page 12, phonemic, in / /
+(25) line 1	nɬeʔkepmxcín	phonemic	[sé́͜yNt.knN.məx]	page 12, phonetic, in [ ]
+(25) line 1	Bev Phillips, Marty Aspinall and Bernice Garcia	translation	‘Indigenous person / people’	page 12
+(25) line 2	nɬeʔkepmxcín	gloss	Indigenous-person	page 12, the morphemes of the row above
+(25) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP, CMA, KBG	page 12, the source of the row above
+(26) line 1	nɬeʔkepmxcín	phonemic	/zéw-m/	page 12, phonemic, in / /, carries footnote 7, written here without its digit
+(26) line 1	nɬeʔkepmxcín	phonemic	[zé́͜wNm]	page 12, phonetic, in [ ]
+(26) line 1	Bev Phillips, Marty Aspinall and Bernice Garcia	translation	‘go dipnetting’	page 12
+(26) line 2	nɬeʔkepmxcín	gloss	scoop-ctr.mid	page 12, the morphemes of the row above
+(26) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP, CMA, KBG	page 12, the source of the row above
+§2.2.7	Bev Phillips	cited form	séytknmx	page 12, ‘Indigenous person/people’, Figure 6, produced by BP
+§2.2.7	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure 6 shows a nuclear glide in the word séytknmx ‘Indigenous person/people’. While there is only direct evidence of this occurring with vowels that are both underlyingly accented and stressed on the surface, it is reasonable to assume that diphthongization can occur with any underlyingly accented vowel, regardless of whether it bears stress on the surface. There is no evidence pertaining to whether diphthongization can occur with underlyingly unaccented vowels, but they cannot occur with epenthetic schwa specifically, even when it bears stress. We will discuss the evidence and reasoning behind this analysis further in the discussion of moraic structure in Section 3.1.	page 12
+footnote 7	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	7 The underlying representation of the control middle is hard to be certain of since the three allomorphs are [-m], [-ə́m], and [-me]. T&T (1992) assume the underlying representation is /-əme/, but it is not obvious that the final vowel is underlying. For the present purposes, we are only concerned with the allomorphs [-m] and [-ə́m], so we assume the underlying representation: /-m/.	page 12, footnote
+§2.2.7	nɬeʔkepmxcín	cited affix	-ə́m	page 12
+§2.2.7	nɬeʔkepmxcín	cited form	/-əme/	page 12
+§2.2.7	nɬeʔkepmxcín	cited form	/y̓/	page 13
+§2.2.7	nɬeʔkepmxcín	cited form	iʔ	page 13
+§2.2.7	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure 6. Waveform and spectrogram showing a glide as part of the nucleus in séytknmx ‘Indigenous person’ produced by BP The second way glides can be part of nuclei is when a glide itself forms the nucleus of a syllable. When this happens, the glide always surfaces as a vowel, as in /w/ → [u] in (27) and /y̓/ → [iʔ] in (28) and (29). Note that in the latter case, the glottalization which was underlyingly part of the glide is written as, and is perceptually identical to, a glottal stop immediately following the vowel. We do not take a stance on the prosodic status of this glottal stop (e.g., whether it is a separate segment, whether it is moraic, or whether it belongs to the nucleus or the coda).	page 13
+(27) line 1	nɬeʔkepmxcín	phonemic	/cw1-t-es/	page 13, phonemic, in / /
+(27) line 1	nɬeʔkepmxcín	phonemic	[cu1.tés]	page 13, phonetic, in [ ]
+(27) line 1	Hall & Phillips this volume	translation	‘He/she/they made something.’	page 13
+(27) line 2	nɬeʔkepmxcín	gloss	do-TR-3ERG	page 13, the morphemes of the row above
+(27) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips this volume)	page 13, the source of the row above
+(28) line 1	nɬeʔkepmxcín	phonemic	/ƛ̓y̓1kʷ-m/	page 13, phonemic, in / /
+(28) line 1	nɬeʔkepmxcín	phonemic	[ƛ̓i1ʔ1.kʷə́m]	page 13, phonetic, in [ ]
+(28) line 1	Thompson & Thompson 1996:178	translation	‘take something down from above’	page 13
+(28) line 2	nɬeʔkepmxcín	gloss	descend-CTR.MID	page 13, the morphemes of the row above
+(28) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:178)	page 13, the source of the row above
+(29) line 1	nɬeʔkepmxcín	phonemic	/ʕʷó<ʕʷ>y̓1t/	page 13, phonemic, in / /
+(29) line 1	nɬeʔkepmxcín	phonemic	[ʕʷó.ʕʷi1ʔ1t]	page 13, phonetic, in [ ]
+(29) line 1	Thompson & Thompson 1996:480	translation	‘take a nap’	page 13
+(29) line 2	nɬeʔkepmxcín	gloss	sleep<DIM>	page 13, the morphemes of the row above
+(29) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:480)	page 13, the source of the row above
+§2.2.8	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	2.2.8 Nasals in nuclei are tolerated	page 13
+§2.2.8	nɬeʔkepmxcín	cited form	nN.té́͜wN.mnN	page 13, ‘store’
+§2.2.8	nɬeʔkepmxcín	cited form	qéc.kep	page 13, ‘your (guys’
+§2.2.8	nɬeʔkepmxcín	cited form	/máʕ-xn1-tn/	page 14
+§2.2.8	nɬeʔkepmxcín	cited form	máʕ.xe1.tnN	page 14, ‘moon’
+§2.2.8	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Nasals can be realized as nuclei in two different ways. The first way a nasal can be a nucleus is when it is a syllabic nasal, which is demonstrated twice in [nN.té́͜wN.mnN] ‘store’ in (30). When this happens in a prefix, which is outside of the domain for stress assignment, it yields a syllable with no onset; this is one of the few exceptions to the rule that syllables always possess onsets. The second way is through nasal vocalization, where in specific conditioning environments, nasals may surface as the vowel [e], like /m/→[e] in [qéc.kep] ‘your (guys’) older brother’ in (31). The conditioning environment is between two consonants where the following consonant shares the place of articulation of the nasal (Thompson & Thompson 1992:43), like [k_p] for /m/ in (31), or [x_t] for [n] in /máʕ-xn1-tn/ → [máʕ.xe1.tnN] ‘moon’.	page 13
+(30) line 1	nɬeʔkepmxcín	phonemic	/n-téw-min/	page 14, phonemic, in / /
+(30) line 1	nɬeʔkepmxcín	phonemic	[nN.té́͜wN.mnN]	page 14, phonetic, in [ ]
+(30) line 1	Bev Phillips	translation	‘store’	page 14
+(30) line 2	nɬeʔkepmxcín	gloss	LOC-sell-INS	page 14, the morphemes of the row above
+(30) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	page 14, the source of the row above
+(31) line 1	nɬeʔkepmxcín	phonemic	/qéck-m1p/	page 14, phonemic, in / /
+(31) line 1	nɬeʔkepmxcín	phonemic	[qéc.ke1p]	page 14, phonetic, in [ ]
+(31) line 1	Thompson & Thompson 1992:43	translation	‘your (guys’) older brother’	page 14
+(31) line 2	nɬeʔkepmxcín	gloss	older.brother-2PL.POSS	page 14, the orthography
+(31) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1992:43)	page 14
+§2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	2.3 Stress Assignment in nɬeʔkepmxcín	page 14
+§2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, the language of the paper
+§2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Apart from a brief description of nɬeʔkepmxcín stress in the grammar (Thompson & Thompson 1992: 27-30), there is only one published theoretical analysis (Coelho 2002). In nɬeʔkepmxcín, stress is largely morphologically determined, such that morphemes are lexically specified with respect to whether they preferentially host stress. The accentedness, or underlying stress feature, of vowels in each morpheme determines where primary stress will fall within a word. Roots fall into two categories depending on their accentedness: “strong” and “weak”.8 Strong roots contain an accented full vowel in their underlying representation. Weak roots generally lack underlying vowels and are therefore unaccented. While there do appear to be some weak roots with full vowels in nɬeʔkepmxcín9, we set these aside since they don’t interact with stress the same way as roots composed only of consonants. Throughout the rest of the paper “weak” can be defined as any stressable morpheme whose underlying representation lacks a (full) vowel.	page 14
+footnote 8	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	8 The labels strong, weak, ambivalent, and unstressable introduced in this section are all from Thompson and Thompson (1992).	page 14, footnote
+footnote 9	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	9 Consider the example below of a weak root with full vowels. Notice that in (i) stress is on the initial vowel [i], proving that it is underlying, not an vocalized glide. Notice that in (ii) stress is on an ambivalent suffix, proving that the root is weak.	page 14, footnote
+footnote 9 (i) line 1	nɬeʔkepmxcín	phonemic	/k̓ʷinex/	page 14, footnote 9, a weak root with full vowels
+footnote 9 (i) line 1	nɬeʔkepmxcín	phonemic	[k̓ʷí.nex]	page 14, footnote 9, stress on the initial vowel
+footnote 9 (i) line 1	Thompson & Thompson 1996:133	translation	‘how many/much?’	page 14, footnote 9
+footnote 9 (i) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:133)	the source of the example
+footnote 9 (ii) line 1	nɬeʔkepmxcín	phonemic	/k̓ʷinex-esq̓t/	page 14, footnote 9
+footnote 9 (ii) line 1	nɬeʔkepmxcín	phonemic	[k̓ʷi.ne.xésq̓t]	page 14, footnote 9, stress on the ambivalent suffix
+footnote 9 (ii) line 1	Thompson & Thompson 1996:133	translation	‘how many days?’	page 14, footnote 9
+footnote 9 (ii) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:133)	the source of the example
+footnote 10	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	10 While it may be confusing to say that weak morphemes “host” stress, since they are composed only of consonants and consonants are unable to host stress, this terminology makes more sense within the analysis of Thompson and Thompson (1992) because they analyze the stress-hosting schwas as underlying. We preserve this label in our descriptions for convenience of comparison with past work, and will consider a morpheme to be hosting stress when stressed schwa surfaces immediately preceding a consonant in its exponent.	page 14, footnote
+footnote 11	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	11 Thompson and Thompson (1992) analyze unstressable suffixes as having underlying consonants only (e.g. the immeditate /-t/) or vowels with an underlying secondary stress feature that prevents them from hosting primary stress (e.g. the imperative /-e/).	page 14, footnote
+§2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Suffixes fall into four categories: “strong”, “ambivalent”, “weak”, and “unstressable”. Like strong roots, strong suffixes contain an underlying accented full vowel. Ambivalent suffixes contain an underlying full vowel which is unaccented. Weak suffixes lack full vowels and are therefore unaccented , but can host primary stress when they surface with a stressed schwa .10 Unstressable suffixes, as the name suggests, are not able to host primary stress under any circumstances, though they may have underlying full vowels or be composed only of consonants.11 Prefixes and clitics are never able to host primary stress. Table 2 summarizes these categories and their defining characteristics.	page 14
+§2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Table 2. Accentedness and stressabiity of nɬeʔkepmxcín morphemes.	page 15
+Table 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Category Morpheme Type Accented? Vowels in UR? Stressable?	page 15, the column heads: Category, Morpheme Type, Accented?, Vowels in UR?, Stressable?
+Table 2 line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Strong Roots Yes Full Yes	page 15, category Strong, morpheme type Roots, accented? Yes, vowels in UR? Full, stressable? Yes
+Table 2 line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Suffixes Yes Full Yes	page 15, category Strong, morpheme type Suffixes, accented? Yes, vowels in UR? Full, stressable? Yes
+Table 2 line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Ambivalent Suffixes No Full Yes	page 15, category Ambivalent, morpheme type Suffixes, accented? No, vowels in UR? Full, stressable? Yes
+Table 2 line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Weak Roots No None Yes	page 15, category Weak, morpheme type Roots, accented? No, vowels in UR? None, stressable? Yes
+Table 2 line 5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Suffixes No None Yes	page 15, category Weak, morpheme type Suffixes, accented? No, vowels in UR? None, stressable? Yes
+Table 2 line 6	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Unstressable Suffixes No Any No	page 15, category Unstressable, morpheme type Suffixes, accented? No, vowels in UR? Any, stressable? No
+Table 2 line 7	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Prefixes/Clitics No Any No	page 15, category Unstressable, morpheme type Prefixes/Clitics, accented? No, vowels in UR? Any, stressable? No
+§2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Between these categories, there is a hierarchy of preference for which morpheme is the best host of stress. To summarize Thompson and Thompson’s (1992:27–30) and Coelho’s (2002) descriptions of the stress pattern, strong suffixes are preferred over strong roots as the stress host. Strong roots are preferred over ambivalent suffixes. Ambivalent suffixes are preferred over weak suffixes which in turn are preferred over weak roots. Examples (32)–(35) highlight this order of preference. Recall that underlyingly stressed (accented) vowels are indicated with an acute accent in their underlying forms.12	page 15
+(32) heading	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	strong suffix preferred over strong root:	page 15, the heading over (32)
+(32) line 1	nɬeʔkepmxcín	phonemic	/wík-t-íyxs/	page 15, phonemic, in / /
+(32) line 1	nɬeʔkepmxcín	phonemic	[wik.tí͜yNxs]	page 15, phonetic, in [ ]
+(32) line 1	Hall & Phillips 2024:149	translation	‘He/she/they saw it.’	page 15
+(32) line 2	nɬeʔkepmxcín	gloss	see-TR-3PL	page 15, the morphemes of the row above
+(32) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:149)	page 15, the source of the row above
+(33) heading	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	strong root preferred over ambivalent suffix:	page 15
+(33) line 1	nɬeʔkepmxcín	phonemic	/wík-t-es/	page 15, phonemic, in / /
+(33) line 1	nɬeʔkepmxcín	phonemic	[wíkc]	page 15, phonetic, in [ ]
+(33) line 1	Hall & Phillips 2024:136	translation	‘He/she/they saw it.’	page 15
+(33) line 2	nɬeʔkepmxcín	gloss	see-TR-3ERG	page 15, the morphemes of the row above
+(33) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:136)	page 15, the source of the row above
+(34) heading	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	ambivalent suffix preferred over weak suffix:	page 15
+(34) line 1	nɬeʔkepmxcín	phonemic	/x̣k-p-s-t-es/	page 15, phonemic, in / /
+(34) line 1	nɬeʔkepmxcín	phonemic	[x̣əkp.stés]	page 15, phonetic, in [ ]
+(34) line 1	Thompson & Thompson 1996:421	translation	‘He/she/they found out that…’	page 15
+(34) line 2	nɬeʔkepmxcín	gloss	know-INCH-CAUS-3ERG	page 15, the morphemes of the row above
+(34) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:421)	page 15, the source of the row above
+(35) heading	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	weak suffix preferred over weak root:	page 15
+(35) line 1	nɬeʔkepmxcín	phonemic	/cx̣ʷ-p/	page 15, phonemic, in / /
+(35) line 1	nɬeʔkepmxcín	phonemic	[cx̣ʷə́p]	page 15, phonetic, in [ ]
+(35) line 1	Hall & Phillips this volume	translation	‘(start to) drip’	page 15
+(35) line 2	nɬeʔkepmxcín	gloss	drip-INCH	page 15, the morphemes of the row above
+(35) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips this volume)	page 15, the source of the row above
+footnote 12	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	12 Contra Thompson and Thompson (1992), we assume that the control directive /-n/, the causative /-s/, and the transitivizer /-t/ are all weak. This is a result of our assumption, explained later in this section, that unstressable suffixes are outside of the phonological domain where stress is assigned.	page 15, footnote
+§2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	When multiple suffixes of the same stress category are present and no other morpheme is present which takes preference over them, only one of them can receive primary stress. Stress will surface on either the initial or final preferred suffix, depending on the stress category. If multiple strong suffixes are present, stress surfaces on the final one. If multiple ambivalent suffixes are present, and no strong root or strong suffix is present to take preference over them, stress surfaces on the initial suffix—in other words, stress surfaces on the first underlying vowel in the absence of accented morphemes. Examples of words with multiple strong suffixes are given in (36) and (37), and examples of words with multiple ambivalent suffixes and no accented morphemes are given in (38) and (39).	page 15
+(36) line 1	nɬeʔkepmxcín	phonemic	/wík-nwén̓-t-íyxs/	page 16, phonemic, in / /
+(36) line 1	nɬeʔkepmxcín	phonemic	[wi.knN.wen̓.tí͜yNxs]	page 16, phonetic, in [ ]
+(36) line 1	Bev Phillips	translation	‘They managed to see it.’	page 16
+(36) line 2	nɬeʔkepmxcín	gloss	see-LC-TR-3PL	page 16, the morphemes of the row above
+(36) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	page 16, the source of the row above
+(37) line 1	nɬeʔkepmxcín	phonemic	/kʷénme-t-íyxs-n1-t-íyxs/	page 16, phonemic, in / /
+(37) line 1	nɬeʔkepmxcín	phonemic	[kʷen.me.tí͜yNx.se1.tí͜yNxs]	page 16, phonetic, in [ ]
+(37) line 1	Thompson & Thompson 1992:81	translation	‘They judged them.’	page 16
+(37) line 2	nɬeʔkepmxcín	gloss	judge-TR-3PL-CTR-TR-3PL	page 16, the morphemes of the row above
+(37) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1992:81)	page 16, the source of the row above
+(38) line 1	nɬeʔkepmxcín	phonemic	/kɬ-p-ekst-min-t-es/	page 16, phonemic, in / /
+(38) line 1	nɬeʔkepmxcín	phonemic	[kəɬ.pék.stmNs]	page 16, phonetic, in [ ]
+(38) line 1	Bev Phillips	translation	‘He dropped it.’	page 16
+(38) line 2	nɬeʔkepmxcín	gloss	separate-INCH-hand-RLT-TR-3ERG	page 16, the morphemes of the row above
+(38) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	page 16, the source of the row above
+(39) line 1	nɬeʔkepmxcín	phonemic	/cw1-xi-t-es/	page 16, phonemic, in / /
+(39) line 1	nɬeʔkepmxcín	phonemic	[cu1.xíc]	page 16, phonetic, in [ ]
+(39) line 1	Thompson & Thompson 1996:42	translation	‘They made it for someone.’	page 16
+(39) line 2	nɬeʔkepmxcín	gloss	do-INDR-TR-3ERG	page 16, the morphemes of the row above
+(39) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:42)	page 16, the source of the row above
+§2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Notice that in the above examples, the unstressed unaccented vowels in ambivalent suffixes are deleted while the vowels in strong morphemes surface even if they don’t host primary stress. In either case, the first underlying vowel always surfaces.13 Surprisingly, this generalization holds even when the first underlying vowel is unstressed and unaccented (e.g., when the root is weak, the first suffix is ambivalent), and a subsequent suffix is strong. Examples of this are shown in (40) and (41).	page 16
+(40) line 1	nɬeʔkepmxcín	phonemic	/ʔes-kɬ-p-ekst-min-t-íyxs/	page 16, phonemic, in / /
+(40) line 1	nɬeʔkepmxcín	phonemic	[ʔes.kəɬ.pek.stmN.tí͜yNxs]	page 16, phonetic, in [ ]
+(40) line 1	Hall & Phillips 2024:134	translation	‘They dropped it.’	page 16
+(40) line 2	nɬeʔkepmxcín	gloss	STAT-separate-INCH-hand-RLT-TR-3PL	page 16, the morphemes of the row above
+(40) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:134)	page 16, the source of the row above
+(41) line 1	nɬeʔkepmxcín	phonemic	/cw1-xi-t-íyxs-n-t-ene/	page 16, phonemic, in / /
+(41) line 1	nɬeʔkepmxcín	phonemic	[cu1.xi.tí͜yNx.sne]	page 16, phonetic, in [ ]
+(41) line 1	Hall & Phillips 2024:140	translation	‘I made it for them.’	page 16
+(41) line 2	nɬeʔkepmxcín	gloss	do-INDR-TR-3PL-CTR-TR-1SG.ERG	page 16, the morphemes of the row above
+(41) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:140)	page 16, the source of the row above
+§2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	If the root and all suffixes are weak,14 then there is no vowel present in the underlying representation which is capable of hosting stress, so one must be epenthesized. In these cases, stress always surfaces on a schwa preceding the final consonant of the word. Examples (42)–(52) demonstrate this pattern.	page 16
+(42) line 1	nɬeʔkepmxcín	phonemic	/ʔes-{kɬ}/	page 16, phonemic, in / /, carries footnote 15, written here without its digit
+(42) line 1	nɬeʔkepmxcín	phonemic	[ʔes.kə́ɬ]	page 16, phonetic, in [ ]
+(42) line 1	Bev Phillips	translation	‘separated’	page 16
+(42) line 2	nɬeʔkepmxcín	gloss	STAT-separate	page 16, the morphemes of the row above
+(42) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	page 16, the source of the row above
+footnote 13	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	13 The [u] in (39) results from vocalization of underlying /w/.	page 16, footnote
+footnote 14	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	14 Though T&T (1992) treat change-of-state (a.k.a. out-of-control) reduplication /~əC/ as a weak suffix, we omit it from the present analysis because the schwa in the reduplicant surfaces even when it is not stressed, indicating that its insertion is likely not stress-induced. See Section 4.1 for a more complete explanation.	page 16, footnote
+§2.3	nɬeʔkepmxcín	cited form	/~əC/	page 16
+footnote 15	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	15 See the paragraph preceding examples (53)–(56)(53)(56) for an explanation of the curly braces { }.	page 16, footnote
+(43) line 1	nɬeʔkepmxcín	phonemic	/kɬ-p/	page 17, phonemic, in / /
+(43) line 1	nɬeʔkepmxcín	phonemic	[kɬə́p]	page 17, phonetic, in [ ]
+(43) line 1	Hall & Phillips this volume	translation	‘become separated’	page 17
+(43) line 2	nɬeʔkepmxcín	gloss	separate-INCH	page 17, the morphemes of the row above
+(43) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips this volume)	page 17, the source of the row above
+(44) line 1	nɬeʔkepmxcín	phonemic	/ʔes-{kɬ-xn}/	page 17, phonemic, in / /
+(44) line 1	nɬeʔkepmxcín	phonemic	[ʔes.kəɬ.xə́n]	page 17, phonetic, in [ ]
+(44) line 1	Bev Phillips	translation	‘have one’s shoes off’	page 17
+(44) line 2	nɬeʔkepmxcín	gloss	STAT-separate-foot	page 17, the morphemes of the row above
+(44) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	page 17, the source of the row above
+(45) line 1	nɬeʔkepmxcín	phonemic	/kɬ-xn-m/	page 17, phonemic, in / /
+(45) line 1	nɬeʔkepmxcín	phonemic	[kəɬx.nə́m]	page 17, phonetic, in [ ]
+(45) line 1	Bev Phillips	translation	‘take off one’s shoes’	page 17
+(45) line 2	nɬeʔkepmxcín	gloss	separate-foot-CTR.MID	page 17, the morphemes of the row above
+(45) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	page 17, the source of the row above
+(46) line 1	nɬeʔkepmxcín	phonemic	/ƛ̓y̓kʷ/	page 17, phonemic, in / /
+(46) line 1	nɬeʔkepmxcín	phonemic	[ƛ̓ə.y̓ə́kʷ]	page 17, phonetic, in [ ]
+(46) line 1	Thompson & Thompson 1996:189	translation	‘descend / fall’	page 17
+(46) line 2	nɬeʔkepmxcín	gloss	descend	page 17, the morphemes of the row above
+(46) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:189)	page 17, the source of the row above
+(47) line 1	nɬeʔkepmxcín	phonemic	/ƛ̓y̓1kʷ-m/	page 17, phonemic, in / /
+(47) line 1	nɬeʔkepmxcín	phonemic	[ƛ̓i1ʔ1.kʷə́m]	page 17, phonetic, in [ ]
+(47) line 1	Thompson & Thompson 1996:178	translation	‘take something down from above’	page 17
+(47) line 2	nɬeʔkepmxcín	gloss	descend-CTR.MID	page 17, the morphemes of the row above
+(47) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:178)	page 17, the source of the row above
+(48) line 1	nɬeʔkepmxcín	phonemic	/slk/	page 17, phonemic, in / /
+(48) line 1	nɬeʔkepmxcín	phonemic	[sə.lə́k]	page 17, phonetic, in [ ]
+(48) line 1	Bev Phillips	translation	‘turn’	page 17
+(48) line 2	nɬeʔkepmxcín	gloss	turn	page 17, the morphemes of the row above
+(48) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	page 17, the source of the row above
+(49) line 1	nɬeʔkepmxcín	phonemic	/slk-p/	page 17, phonemic, in / /
+(49) line 1	nɬeʔkepmxcín	phonemic	[səl.kə́p]	page 17, phonetic, in [ ]
+(49) line 1	Thompson & Thompson 1996:321	translation	‘become turned around’	page 17
+(49) line 2	nɬeʔkepmxcín	gloss	turn-INCH	page 17, the morphemes of the row above
+(49) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:321)	page 17, the source of the row above
+(50) line 1	nɬeʔkepmxcín	phonemic	/mƛ̓q̓ʷ/	page 17, phonemic, in / /
+(50) line 1	nɬeʔkepmxcín	phonemic	[mə.ƛ̓ə́q̓ʷ]	page 17, phonetic, in [ ]
+(50) line 1	Thompson & Thompson 1996:204	translation	‘dislocate’	page 17
+(50) line 2	nɬeʔkepmxcín	gloss	dislocate	page 17, the morphemes of the row above
+(50) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:204)	page 17, the source of the row above
+(51) line 1	nɬeʔkepmxcín	phonemic	/mƛ̓q̓ʷ-xn/	page 17, phonemic, in / /
+(51) line 1	nɬeʔkepmxcín	phonemic	[məƛ̓.q̓ʷxə́n]	page 17, phonetic, in [ ]
+(51) line 1	Thompson & Thompson 1996:198	translation	‘have a dislocated ankle’	page 17
+(51) line 2	nɬeʔkepmxcín	gloss	dislocate-foot	page 17, the morphemes of the row above
+(51) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:198)	page 17, the source of the row above
+(52) line 1	nɬeʔkepmxcín	phonemic	/q̓ʷʔ-xn1-tn/	page 17, phonemic, in / /
+(52) line 1	nɬeʔkepmxcín	phonemic	[q̓ʷəʔ.xe1.tə́n]	page 17, phonetic, in [ ]
+(52) line 1	Thompson & Thompson 1996:306	translation	‘shoelace’	page 17
+(52) line 2	nɬeʔkepmxcín	gloss	lace.up-foot-INS	page 17, the morphemes of the row above
+(52) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:306)	page 17, the source of the row above
+§2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Since nearly every stressed schwa in the language is predictable, appearing immediately before the final consonant of the word, we conclude that stressed schwas are epenthetic in nɬeʔkepmxcín.16 The stress pattern, as described so far, is slightly complicated when unstressable morphology attaches to what would otherwise be a completely stressable stem. Recall that prefixes, clitics, and unstressable suffixes are all incapable of hosting primary stress regardless of their shape. For unstressable suffixes and enclitics, we show them to be unstressable using the pattern of stress- induced schwa epenthesis. Unstressable suffixes generally are the outermost suffixes in any given stem; enclitics, by definition, are closer to the edge of the word than any suffix. In a form containing both stressable and unstressable morphemes, a stressable morpheme is always the host for stress, even if an unstressable morpheme contains an underlying full vowel and all the stressable morphemes do not. In these cases, a stressed schwa is found immediately before the final consonant of the final weak morpheme, as if that consonant were the last one in the word. Examples are shown below in (53)–(56) with the stressable morphemes in curly braces { }.	page 17
+footnote 16	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	16 See Section 4.1 for cases that appear to deviate from this pattern.	page 17, footnote
+(53) line 1	nɬeʔkepmxcín	phonemic	/{x̣ʷn}-t/	page 18, phonemic, in / /
+(53) line 1	nɬeʔkepmxcín	phonemic	[x̣ʷə́nt]	page 18, phonetic, in [ ]
+(53) line 1	Hall & Phillips this volume	translation	‘fast’	page 18
+(53) line 2	nɬeʔkepmxcín	gloss	fast-IMM	page 18, the morphemes of the row above
+(53) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(not [x̣ʷə.nə́t])	page 18, the surface form the example does not have
+(53) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips this volume)	page 18, the source of the row above
+(54) line 1	nɬeʔkepmxcín	phonemic	/{x̣ʷn}-t-e/	page 18, phonemic, in / /
+(54) line 1	nɬeʔkepmxcín	phonemic	[x̣ʷə́n.te]	page 18, phonetic, in [ ]
+(54) line 1	Thompson & Thompson 1996:435	translation	‘Hurry!’	page 18
+(54) line 2	nɬeʔkepmxcín	gloss	fast-IMM-IMP	page 18, the morphemes of the row above
+(54) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(not [x̣ʷn.té] or [x̣ʷə.nə́.te])	page 18, the surface form the example does not have
+(54) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:435)	page 18, the source of the row above
+(55) line 1	nɬeʔkepmxcín	phonemic	/e={ʕʷy-p}=us/	page 18, phonemic, in / /
+(55) line 1	nɬeʔkepmxcín	phonemic	[e.ʕʷə.yə́.pus]	page 18, phonetic, in [ ]
+(55) line 1	Hall & Phillips this volume	translation	‘when it burned…’	page 18
+(55) line 2	nɬeʔkepmxcín	gloss	D/C=burn-INCH=3SBJV	page 18, the morphemes of the row above
+(55) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(not [e.ʕʷi.pús])	page 18, the surface form the example does not have
+(55) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips this volume)	page 18, the source of the row above
+(56) line 1	nɬeʔkepmxcín	phonemic	/s={ʕʷy-p}=s/	page 18, phonemic, in / /
+(56) line 1	nɬeʔkepmxcín	phonemic	[sʕʷə.yə́ps]	page 18, phonetic, in [ ]
+(56) line 1	Hall & Phillips 2024:150	translation	‘…(and) it burned.’	page 18
+(56) line 2	nɬeʔkepmxcín	gloss	NMLZ=burn-INCH=3POSS	page 18, the morphemes of the row above
+(56) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(not [sʕʷi.pə́s])	page 18, the surface form the example does not have
+(56) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:150)	page 18, the source of the row above
+§2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Prefixes, and by extension proclitics, are incapable of hosting primary stress; evidence for this comes from the position of stress when a weak root is combined with multiple ambivalent suffixes. Recall that in these cases, stress surfaces on the initial ambivalent suffix. If we assume that all weak roots lack underlying vowels, then we can generalize this pattern further by saying that in these cases, stress is assigned to the initial underlying vowel. If prefixes with underlying full vowels are added to words like this, they are “skipped” by the stress assignment. Examples of this are provided below.	page 18
+(57) line 1	nɬeʔkepmxcín	phonemic	/ʔes-{ch-s-t-exʷ}/	page 18, phonemic, in / /
+(57) line 1	nɬeʔkepmxcín	phonemic	[ʔes.cəs.téxʷ]	page 18, phonetic, in [ ]
+(57) line 1	Hall & Phillips 2024:147	translation	‘You stored it.’	page 18
+(57) line 2	nɬeʔkepmxcín	gloss	STAT-store-CAUS-TR-2SG.ERG	page 18, the morphemes of the row above
+(57) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:147)	page 18, the source of the row above
+(58) line 1	nɬeʔkepmxcín	phonemic	/ʔes-{yʕʷ-s-t-em}/	page 18, phonemic, in / /
+(58) line 1	nɬeʔkepmxcín	phonemic	[ʔes.yəʕʷ.stém]	page 18, phonetic, in [ ]
+(58) line 1	Hall & Phillips 2024:151	translation	‘He/she/they were hidden by someone.’	page 18
+(58) line 2	nɬeʔkepmxcín	gloss	STAT-hide-CAUS-TR-PASS	page 18, the morphemes of the row above
+(58) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:151)	page 18, the source of the row above
+(59) line 1	nɬeʔkepmxcín	phonemic	/ʔes-{k̓ɬʕʷ-s-t-es}/	page 18, phonemic, in / /
+(59) line 1	nɬeʔkepmxcín	phonemic	[ʔes.k̓ɬəʕʷ.stés]	page 18, phonetic, in [ ]
+(59) line 1	Thompson & Thompson 1996:111	translation	‘He/she/they made something uneven.’	page 18
+(59) line 2	nɬeʔkepmxcín	gloss	STAT-uneven-CAUS-TR-3ERG	page 18, the morphemes of the row above
+(59) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:111)	page 18, the source of the row above
+§2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Furthermore, when a prefix attaches to an otherwise vowelless stem, an epenthetic schwa in the stem bears stress, even if the prefix has an underlying full vowel as in (42) and (44) above. The combination of facts that prefixes, clitics, and unstressable suffixes are all incapable of hosting primary stress and that they are all closer to the edges of the word than any stressable morpheme, leads us to the conclusion that there is a phonological domain in which stress is assigned to stems and that weak, strong, or ambivalent morphemes are present in the input; prefixes, clitics, and unstressable suffixes are excluded from this domain. We define this as the phonological domain for stress assignment. We summarize the stressed schwa pattern as:	page 18
+§2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Stressed Schwa Pattern: In the absence of underlying full vowels in the phonological domain where stress is assigned, a stressed schwa surfaces immediately before the final consonant of that domain.	page 18
+§3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	3 Analysis	page 19
+§3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	3.1 Theoretical assumptions	page 19
+§3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, the language of the paper
+§3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The following analysis uses Optimality Theory (Prince and Smolensky 1993/2004) to analyze schwa epenthesis and stress assignment in nɬeʔkepmxcín. Syllabificiation is modeled through interactions between well-formedness constraints and restrictions on the prosodic structure of syllables. Stress-induced schwa epenthesis is modeled through interactions between preferences for rightwards-alignment of stress and maintaining underlying moraic structure.	page 19
+§3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	We adopt a Moraic Theory approach to syllabification (e.g., Hyman 1985; Hayes 1989), which we pair with some crucial assumptions needed for an account of Salish syllable structure (see, e.g., Mellesmoen 2025:109–112). We assume two prosodic units under the level of the syllable: the mora and nucleus node. While onset segments are never moraic and coda segments are always moraic, nuclear segments may be either moraic or non-moraic.	page 19
+§3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	We assume that full vowels (i.e., vowels other than schwa) always surface as moraic, except vowels that result from vocalization of resonants (see sections 2.2.7 and 2.2.8) and schwa colouring (see section 2.1.1). To achieve this, we posit that full vowels are distinguished with respect to phonological features. This could involve having an underlying specification for V-Place (vowel place), in the sense of Clements and Hume (1995), which consonants and schwas lack, as suggested by Mellesmoen (2025:161). However, we leave the theoretical details of these features to future work, and simply make use of constraints that are sensitive to the category of full vowels. Lexical accent is represented as underlying moraicity, with accented vowels linked to moras in the underlying representation and unaccented vowels not linked to moras. This assumption allows us to explain why accented vowels preferentially host stress and why unaccented vowels delete. It also allows us to use a single faithfulness constraint to explain why the first full vowel both preferentially hosts stress in words with no accent in forms like (36) and (37), and is preserved, even when unaccented and unstressed, in forms (38) and (39). Finally, it suggests a mechanism for allowing glides to be incorporated into diphthongal nuclei with accented vowels (but not unaccented vowels or schwas) by allowing the underlying mora to branch and be shared by the glide. We leave the details of this last point to future work.	page 19
+§3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	We follow Matthewson (1994) and Blake (2000) in assuming that schwas in Salish are epenthetic, such that they are never present in the underlying representations of lexical items. In contrast, all other vowels in the language may be present in the lexicon. However, we break from authors who posit that schwa is always non-moraic in Salish languages (Shaw 1993; Matthewson 1994; Shaw et al. 1999; Blake 2000). Specifically, we distinguish unstressed schwa, which is non- moraic, from stressed schwa, which we argue is moraic. This helps to resolve an apparent asymmetry where stressed schwa syllables seem less tolerant of complex structure than unstressed schwa syllables, which is a typologically implausible outcome (Dresher & van der Hulst 1998). It also leads to the useful generalization that stressed vowels are always moraic.	page 19
+§3.1	nɬeʔkepmxcín	cited form	/{qéck}-m1p/	page 20
+§3.1	nɬeʔkepmxcín	cited form	qéc.ke1p	page 20
+§3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	For the purposes of the present analysis, we assume that clitics, prefixes, and unstressable suffixes are outside the domain for stress. They may occur at a later stage in the derivation (e.g., at a different stratum as in Mellesmoen 2025), involve co-phonologies (see e.g., Downing 2008), or involve other constraints that refer to either specific domains or types of morphemes (e.g., constraints that refer to morphological classifications like root as in Urbanczyk 2001). We assume that several processes which are opaque to stress and the related pattern of vowel deletion happen either at a later stage of phonological derivation or at the level of phonetics; these include nasal vocalization and glide vocalization in syllable nuclei, schwa colouring, and excrescent schwa insertion. There is some evidence that these processes may interact with segments outside the phonological domain where stress is assigned (e.g., nasal vocalization occurring in an unstressable morpheme in (31) /{qéck}-m1p/ → [qéc.ke1p]). We will demonstrate the opacity of these phenomena but otherwise ignore them in our analysis. Specifically, we will treat vocalized consonants as identical to syllabic consonants, coloured schwas as identical to other schwas, and excrescent schwas as non-existent.	page 19
+§3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	We also do not analyze several consonantal phenomena in this paper; we consider outputs that have already undergone these processes in our candidates: deletion of the transitivizer /-t/, nasal deletion, and consonant coalescence (e.g., [ts] surfacing as the affricate [c]). We include a note when these processes occur. It is possible that some of them result from a combination of fast- speech reduction and lexicalization, though we remain agnostic as to their sequence in the derivation relative to other phenomena at present.	page 20
+§3.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	3.2 Schwa Epenthesis for Syllabification	page 20
+§3.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	In this section, we lay out phonotactic constraints that are relevant with respect to prohibited syllable structures and preferences between different tolerated marked structures in nɬeʔkepmxcín. We describe how these constraints contribute to two different repair strategies: epenthesis of unstressed schwa and syllabification of consonants.	page 20
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	3.2.1 Constraints for Syllable Structure	page 20
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	A number of constraints are required to account for the patterns of stress assignment and schwa epenthesis. We first define all the constraints used in the analysis before presenting the ranking and analysis in the following sections.	page 20
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The constraint in (60) prevents underlyingly non-moraic segments from surfacing as moraic in nuclei. It is violated both when moraic vowels are inserted, and when underlyingly non-moraic (i.e., unaccented) vowels are given moraicity. The latter case will become more relevant in sections 3.3 and 3.4 below.	page 20
+(60)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(60) DEP-µ(N): Do not insert a mora in a nuclear position.	page 20, the definition of a constraint
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Mellesmoen (2025:160) uses DEPLINK-µ(N) to prevent full vowel epenthesis to account for certain types of reduplication where a floating mora is present in the input; she adapts this constraint from one used by Prillop (2013) to model phenomena related to vowel length in Estonian. Drawing insight from these analyses, w e propose DEP-µ(N) to penalize the addition of a full vowel into a nuclear position, given that there is no underlying mora in the input; epenthesis of a stressed schwa or a full vowel will require epenthesis of a mora associated with a nucleus. This could not be achieved with the simpler constraint DEP-µ, which is violated by epenthesis of a mora generally, because it would also be violated by the predictable insertion and association of moras with coda consonants (i.e., weight-by-position assignment of moras). If DEP-µ were used, it would lead to a preference for parsing consonants into complex onsets rather than complex codas when both would be well-formed, which is not supported by the data.	page 20
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	An additional constraint pertaining to vowel weight is given in (61). Together with the constraint in (60), this constraint ensures that schwa is the default epenthetic vowel in unstressed environments by prohibiting vowels which are not schwa from surfacing as non-moraic.	page 20
+(61)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(61) FULLVOWELWEIGHT [FVWT]: Every full vowel must be linked to a mora.	page 21, the definition of a constraint
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The constraint in (61) also leads to deletion of underlyingly non-moraic (i.e. unaccented) vowels, which will be discussed in the following sections. Note that this constraint is not violated by schwa colouring, which do not count as full vowels for the purposes of this constraint. While we do not fully analyze these cases, we assume this happens through sharing of a consonant place feature and thus does not affect this constraint. (See discussion of full vowels in 3.1.)	page 21
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The constraint in (62) prohibits onset clusters of three or more consonants. It appears to be unviolated in n ɬeʔkepmxcín. It is equivalent to the constraint SEGBINMAX used by Matthewson (1994:385), based on binarity constraints proposed by Hewitt (1994).	page 21
+(62)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(62) ONSBINMAX: A syllable onset may not contain more than two consonants.	page 21, the definition of a constraint
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The constraint in (63) prohibits resonants from appearing in complex onsets. It appears to be unviolated in nɬeʔkepmxcín. Importantly, this constraint differs from the Sonority Sequencing Principle ( SSP) (Clements 1990) , because it is violated not only by [RO-] onsets with falling sonority profiles (which could be prohibited in onsets on the grounds of violating the SSP), but also by [OR-] onsets with rising sonority profiles (which do not violate the SSP) and [RR-] onsets with flat sonority profiles (which are tolerated in [OO-] onsets). This constraint is a variation on *COMPLEXONSET, though it rules out specific segments (resonants) in a complex onset.	page 21
+(63)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(63) *BRANCHONSET(RESONANT) [*BRONS(RES)]: A syllable onset with multiple segments may not contain a resonant.	page 21, the definition of a constraint
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Another constraint pertaining to clusters is given in (63); this constraint also differs from the SSP because it is not only violated by [-OR] codas with rising sonority profiles (which could be prohibited in codas on the grounds of violating the SSP), but also by [-RR] codas with flat sonority profiles (which are tolerated in [-OO] codas). However, this constraint is not completely analogous to *BRONS(RES) because it is satisfied by [-RO] clusters.	page 21
+(64)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(64) *CodaCR: A syllable coda may not contain a consonant followed by a resonant.	page 21, the definition of a constraint
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The constraint in (65) is violated by superheavy syllables, i.e., syllables with more than two moras. It accounts for the avoidance of complex codas in stressed syllables while not penalizing them in syllables with non-moraic nuclei. The effect of this constraint is roughly equivalent to that of MORBINMAX used by Matthewson (1994: 385) (also cf. *UNSTRESSEDσµµµ in Mellesmoen 2025:660).	page 21
+(65)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(65) *σµµµ: Syllables may not dominate more than two moras.	page 21, the definition of a constraint
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The nucleus-related constraints given in (66) are violated whenever a specific type of consonant becomes syllabic (McCarthy 2002; Levi 2008). Recall that we treat instances of resonant vocalization the same as other syllabic consonants, so these also incur violations of these constraints.	page 21
+(66)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(66) {*NUC/CONS}: a consonant may not form the nucleus of a syllable	page 22, the definitions of a family of constraints
+(66a)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	a. *NUC/GLIDE [*NUC/GL]: An underlying glide may not surface as the nucleus of a syllable.	page 22
+(66b)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	b. *NUC/NASAL [*NUC/NAS]: An underlying nasal may not surface as the nucleus of a syllable.	page 22
+(66c)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	c. *NUC/LIQUID [*NUC/LIQ]: An underlying liquid may not surface as the nucleus of a syllable.	page 22
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The constraint in (67) is violated by complex onsets. It is standard in Optimality Theoretic accounts of syllable structure (McCarthy & Prince 1994), and is widely used in the literature on Salish languages (Blake 2000:137; Mellesmoen 2025:149).	page 22
+(67)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(67) *COMPLEXONSET [*COMPONS]: An onset may not contain multiple consonants	page 22, the definition of a constraint
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The basic faithfulness constraints in (68) are violated when the segmental structure of the underlying representation is modified (McCarthy & Prince 1994). We will only use DEP-IO in this section to capture the avoidance of schwa epenthesis—MAX-IO is presumably ranked very high in Salish, and deletion is not a preferred repair strategy for consonant clusters.	page 22
+(68)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(68) General faithfulness constraints.	page 22, the heading of two definitions
+(68a)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	a. MAX-IO: Do not delete segments.	page 22
+(68b)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	b. DEP-IO: Do not insert segments	page 22
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Before presenting the tableaux, we give a preview of the crucial rankings to we will demonstrate in this section to derive syllable structure-related schwa epenthesis:	page 22
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• ONSBINMAX, *BRONS(RES), *NUC/LIQ, *σµµµ ≫ DEP-IO ≫ *COMPONS ≫ *NUC/NAS, *NUC/GL	page 22, a crucial ranking of Section 3.2
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• DEP-µ(N), ALIGN-R ≫ *σµµµ	page 22, a crucial ranking of Section 3.2
+§3.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Instead of building up the analysis gradually, we provide the overall ranking at the outset. We give tableaux that establish individual rankings but include other constraint rankings that will be established at a later point in the analysis. For example, we show *COMPLEXONSET with a low ranking in the first few tableaux before we have motivated its position in the overall grammar of the language. However, all crucial rankings are justified at some point in the following sections.	page 22
+§3.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	3.2.2 Onsets	page 22
+§3.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (69) shows that onsets with more than two consonants are repaired by epenthesis of a (non-moraic) schwa. Without epenthesis, ONSBINMAX would be violated because there would be an onset with three consonants (candidate (69)(69)). If a non-moraic full vowel were inserted, FVWT would be violated (candidate (69)). If a moraic vowel were inserted, DEP-µ(N) would be violated (candidates (69)(69) and (69)(69)).	page 22
+(69) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Onset clusters of more than two consonants are prohibited.	page 23, the title of the tableau
+(69) line 2	nɬeʔkepmxcín	phonemic	[təq.tés]	page 23, the attested form the tableau derives
+(69) line 2	Thompson & Thompson 1996:351	translation	‘He/she/they touched it’	page 23
+(69) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:351)	the source of the example
+(69) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	ONSBINMAX ≫ DEP-IO	page 23, a ranking the tableau establishes
+(69) line 4	nɬeʔkepmxcín	phonemic	/tq-t-es/	page 23, the input of the tableau
+(69) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	ONSBINMAX FVWT DEP-μ(N) DEP-IO	page 23, the constraints heading the columns, in ranked order: ONSBINMAX, FVWT, DEP-μ(N), DEP-IO
+(69a) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[tqtéμsμ]	page 23, candidate a; violations: ONSBINMAX *! (! marks a fatal violation)
+(69b) line 1	nɬeʔkepmxcín	phonemic	[təqµ.téµsµ]	page 23, candidate b, the optimal candidate, marked ☞; violations: DEP-IO *
+(69c) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[taqµ.téµsµ]	page 23, candidate c; violations: FVWT *!; DEP-IO * (! marks a fatal violation)
+(69d) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[taµqµ.téµsµ]	page 23, candidate d; violations: DEP-μ(N) *!; DEP-IO * (! marks a fatal violation)
+(69e) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[təµqµ.téµsµ]	page 23, candidate e; violations: DEP-μ(N) *!; DEP-IO * (! marks a fatal violation)
+§3.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (70) shows that onsets with two consonants are not repaired with schwa epenthesis (candidates (70) and (70)(70)), provided that both consonants are obstruents.	page 23
+(70) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Complex onsets are tolerated and preferred to superheavy syllables.	page 23, the title of the tableau
+(70) line 2	nɬeʔkepmxcín	phonemic	[kɬə́p]	page 23, the attested form the tableau derives
+(70) line 2	Hall & Phillips this volume	translation	‘become separated’	page 23
+(70) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips this volume)	the source of the example
+(70) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	*σμμμ, DEP-IO ≫ *COMPONS	page 23, a ranking the tableau establishes
+(70) line 4	nɬeʔkepmxcín	phonemic	/kɬ-p/	page 23, the input of the tableau
+(70) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	*σμμμ DEP-IO *COMPONS	page 23, the constraints heading the columns, in ranked order: *σμμμ, DEP-IO, *COMPONS
+(70a) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kə́µɬµpµ]	page 23, candidate a; violations: *σμμμ *!; DEP-IO * (! marks a fatal violation)
+(70b) line 1	nɬeʔkepmxcín	phonemic	[kɬə́µpµ]	page 23, candidate b, the optimal candidate, marked ☞; violations: DEP-IO *; *COMPONS *
+(70c) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kə.ɬə́µpµ]	page 23, candidate c; violations: DEP-IO **! (! marks a fatal violation)
+§3.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Tableau (71) shows that onsets which contain an obstruent are repaired by schwa epenthesis. As discussed in the following sections, a moraic schwa must be inserted to host stress. If an additional schwa were not inserted, then either a superheavy syllable would be created, violating *σµµµ (candidate (71)(71)), or the complex onset [sl-] containing a resonant would be present, violating *BRONS(RES) (candidate (71)). Note that candidate (71) is ruled out despite having a rising sonority profile, supporting the inclusion of *BRONS(RES) in our analysis; onset clusters with flat or falling sonority profiles are analyzed similarly if they contain at least one resonant.	page 23
+(71) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Onset clusters containing resonants are prohibited.	page 23, the title of the tableau
+(71) line 2	nɬeʔkepmxcín	phonemic	[sə.lə́k]	page 23, the attested form the tableau derives
+(71) line 2	Bev Phillips	translation	‘turn’	page 23
+(71) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	the source of the example
+(71) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	*BRONS(RES), *σμμμ ≫ DEP-IO	page 23, a ranking the tableau establishes
+(71) line 4	nɬeʔkepmxcín	phonemic	/slk/	page 23, the input of the tableau
+(71) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	*BRONS(RES) *σμμμ DEP-IO *COMPONS	page 23, the constraints heading the columns, in ranked order: *BRONS(RES), *σμμμ, DEP-IO, *COMPONS
+(71a) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[sə́µlµkµ]	page 23, candidate a; violations: *σμμμ *!; DEP-IO * (! marks a fatal violation)
+(71b) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[slə́µkµ]	page 23, candidate b; violations: *BRONS(RES) *!; DEP-IO *; *COMPONS * (! marks a fatal violation)
+(71c) line 1	nɬeʔkepmxcín	phonemic	[sə.lə́µkµ]	page 23, candidate c, the optimal candidate, marked ☞; violations: DEP-IO **
+§3.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (72) shows that when a schwa is inserted to break up a sequence of three or more consecutive consonants, the location is determined by a preference for avoiding complex onsets, unless it would violate other (higher ranked) markedness constraints. Note that it is only because the inserted schwa is non-moraic that the complex coda in (72)(72) does not create a superheavy syllable. The unattested form *[skəps.tés] (candidate (72)) presents a problem because it has the same violations as the attested candidate in (72). The analysis therefore does not select between the two forms. There are several analyses that could successfully eliminate (72), such as a weak preference for place agreement in consonant clusters (respected by [st-] but violated by [sk-]) or a weak dispreference for syllables like [skəps] with complex onsets and codas simultaneously.	page 23
+(72) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Complex codas are tolerated and preferred to complex onsets.	page 24, the title of the tableau
+(72) line 2	nɬeʔkepmxcín	phonemic	[səkp.stés]	page 24, the attested form the tableau derives
+(72) line 2	Thompson & Thompson 1996:320	translation	‘He/she/they managed to hit something with a club’	page 24
+(72) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:320)	the source of the example
+(72) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	ONSBINMAX ≫ DEP-IO, *COMPONSET	page 24, a ranking the tableau establishes
+(72) line 4	nɬeʔkepmxcín	phonemic	/sk-p-s-t-es/	page 24, the input of the tableau
+(72) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	ONSBINMAX DEP-IO *COMPONS	page 24, the constraints heading the columns, in ranked order: ONSBINMAX, DEP-IO, *COMPONS
+(72a) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[səkµpµ.stéµsµ]	page 24, candidate a, marked ??, one of the two candidates with the same violations the analysis does not choose between; violations: DEP-IO *; *COMPONS *
+(72b) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[skəpµ.stéµsµ]	page 24, candidate b; violations: DEP-IO *; *COMPONS **! (! marks a fatal violation)
+(72c) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[skəpµsµ.téµsµ]	page 24, candidate c, marked ??, one of the two candidates with the same violations the analysis does not choose between; violations: DEP-IO *; *COMPONS *
+(72d) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[sə.kəpµ.stéµsµ]	page 24, candidate d; violations: DEP-IO **!; *COMPONS * (! marks a fatal violation)
+(72e) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[skpstéµsµ]	page 24, candidate e; violations: ONSBINMAX *!; *COMPONS * (! marks a fatal violation)
+(72f) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[səkµ.pstéµsµ]	page 24, candidate f; violations: ONSBINMAX *!; DEP-IO *; *COMPONS * (! marks a fatal violation)
+§3.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (73) shows that underlying nasals will serve as nuclei to avoid prohibited syllable structures (in this case, a complex coda with resonant in non-initial position), as shown in candidates (73) and (73); a syllabic nasal is preferred over schwa epenthesis (candidate (73)(73) and (73)(73)). Depending on the context, these nuclei can surface as either syllabic nasals or vocalize to [e] (see Section 2.2.8).	page 24
+(73) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Both syllabic and vocalized nasals are tolerated.	page 24, the title of the tableau
+(73) line 2	nɬeʔkepmxcín	phonemic	[máʕ.xe.tn]	page 24, the attested form the tableau derives
+(73) line 2	Bev Phillips, Marty Aspinall and Bernice Garcia	translation	‘moon’	page 24
+(73) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP, CMA, KBG	the source of the example
+(73) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	*CODACR, DEP-IO ≫ *NUC/NAS	page 24, a ranking the tableau establishes
+(73) line 4	nɬeʔkepmxcín	phonemic	/máµʕ-xn-tn/	page 24, the input of the tableau
+(73) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	*CODACR *σµµµ DEP-IO *NUC/NAS	page 24, the constraints heading the columns, in ranked order: *CODACR, *σµµµ, DEP-IO, *NUC/NAS
+(73a) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[máµʕµxµnµtµnµ]	page 24, candidate a; violations: *CODACR *!; *σµµµ * (! marks a fatal violation)
+(73b) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[máµʕµ.xnNtµnµ]	page 24, candidate b; violations: *CODACR *!; *NUC/NAS * (! marks a fatal violation)
+(73c) line 1	nɬeʔkepmxcín	phonemic	[máµʕµ.xnN.tnN]	page 24, candidate c, the optimal candidate, marked ☞; violations: *NUC/NAS **
+(73d) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[máµʕµ.xnN.tənµ]	page 24, candidate d; violations: DEP-IO *!; *NUC/NAS * (! marks a fatal violation)
+(73e) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[máµʕµ.xənµ.tənµ]	page 24, candidate e; violations: DEP-IO *!* (! marks a fatal violation)
+(73) line 5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Nasal vocalization: [máʕ.xnN.tnN] → [máµʕµ.xe.tnN] (note the second syllabic nasal remains unvocalized)	page 24, the derivation from the optimal candidate to the surface form
+§3.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (74) shows a syllabic glide. However, it does not provide conclusive evidence to support the analysis that a glide has vocalized, as the form [ ƛ̓əy̓.kʷə́m] (candidate (74)) would surface as [ƛ̓iy̓.kʷə́m] through schwa colouring, which is difficult or impossible to distinguish from the surface form [ƛ̓iʔ.kʷə́m]. There is no evidence that the rimes [i y̓] and [iʔ] contrast. Therefore, this example does not provide certainty that DEP-IO crucially outranks *NUC/GL. However, more conclusive evidence is provided by reduplication, which results in [y̓] in onset position, as shown in tableau in (75).	page 24
+(74) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Syllabic glides are tolerated (limited evidence from non-reduplicative context).	page 25, the title of the tableau
+(74) line 2	nɬeʔkepmxcín	phonemic	[ƛ̓iʔ.kʷə́m]	page 25, the attested form the tableau derives, carries footnote 17, written here without its digit
+(74) line 2	Thompson & Thompson 1996:178	translation	‘take something down from above’	page 25
+(74) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:178)	the source of the example
+(74) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	{ONSBINMAX, *BRONS(RES)}, DEP-IO ≫ *NUC/GL	page 25, a ranking the tableau establishes
+(74) line 4	nɬeʔkepmxcín	phonemic	/ƛ̓y̓kʷ-m/	page 25, the input of the tableau
+(74) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	ONSBINMAX *BRONS(RES) DEP-IO *NUC/GL	page 25, the constraints heading the columns, in ranked order: ONSBINMAX, *BRONS(RES), DEP-IO, *NUC/GL
+(74a) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[ƛ̓y̓kʷə́µmµ]	page 25, candidate a; violations: ONSBINMAX *!; *BRONS(RES) *!; DEP-IO * (! marks a fatal violation)
+(74b) line 1	nɬeʔkepmxcín	phonemic	[ƛ̓y̓N.kʷə́µmµ]	page 25, candidate b, the optimal candidate, marked ☞; violations: DEP-IO *; *NUC/GL *
+(74c) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[ƛ̓əy̓µ.kʷə́µmµ]	page 25, candidate c; violations: DEP-IO **! (! marks a fatal violation)
+(74) line 5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Glide vocalization: [ƛ̓y̓N.kʷə́m] → [ƛ̓iʔ.kʷə́m]	page 25, the derivation from the optimal candidate to the surface form
+§3.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (75) shows that glide vocalization is indeed preferred to schwa epenthesis, as the candidate with schwa epenthesis (candidate (75)), is distinct from the surface form. This word exists as a cognate in St’át’imcets where it surfaces as [ʕʷə́ʕʷ.y̓ət] without glide vocalization (Davis & Mellesmoen (2023:13).	page 25
+(75) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Vocalized glides are tolerated.	page 25, the title of the tableau
+(75) line 2	nɬeʔkepmxcín	phonemic	[ʕʷó.ʕʷiʔt]	page 25, the attested form the tableau derives
+(75) line 2	Thompson & Thompson 1996:480	translation	‘take a nap’	page 25
+(75) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:480)	the source of the example
+(75) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	*σµµµ, DEP-IO ≫ *NUC/GL	page 25, a ranking the tableau establishes
+(75) line 4	nɬeʔkepmxcín	phonemic	/ʕʷoµ<ʕʷ>y̓t/	page 25, the input of the tableau
+(75) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	*σµµµ DEP-IO *NUC/GL	page 25, the constraints heading the columns, in ranked order: *σµµµ, DEP-IO, *NUC/GL
+(75a) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[ʕʷóµ<ʕʷ>µy̓µtµ]	page 25, candidate a; violations: *σµµµ *! (! marks a fatal violation)
+(75b) line 1	nɬeʔkepmxcín	phonemic	[ʕʷóµ.<ʕʷ>y̓Ntµ]	page 25, candidate b, the optimal candidate, marked ☞; violations: *NUC/GL *
+(75c) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[ʕʷóµ<ʕʷ>.y̓ətµ]	page 25, candidate c; violations: DEP-IO *! (! marks a fatal violation)
+(75) line 5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Glide vocalization: [ʕʷó.ʕʷy̓Nt] → [ʕʷó.ʕʷiʔt]	page 25, the derivation from the optimal candidate to the surface form
+§3.2.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (76) shows that liquids may not become syllabic, even if a syllabic liquid would avoid schwa epenthesis while creating an otherwise unmarked syllable structure (candidate (76)).	page 25
+(76) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Syllabic liquids are prohibited	page 25, the title of the tableau
+(76) line 2	nɬeʔkepmxcín	phonemic	[səl.kə́p]	page 25, the attested form the tableau derives
+(76) line 2	Thompson & Thompson 1996:321	translation	‘become turned around’	page 25
+(76) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:321)	the source of the example
+(76) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	ONSBINMAX, *NUC/LIQ ≫ DEP-IO	page 25, a ranking the tableau establishes
+(76) line 4	nɬeʔkepmxcín	phonemic	/slk-p/	page 25, the input of the tableau
+(76) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	ONSBINMAX *BRONS(RES) *NUC/LIQ *σµµµ DEP-IO	page 25, the constraints heading the columns, in ranked order: ONSBINMAX, *BRONS(RES), *NUC/LIQ, *σµµµ, DEP-IO
+(76a) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[sə́µlµkµpµ]	page 25, candidate a; violations: *σµµµ *!; DEP-IO * (! marks a fatal violation)
+(76b) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[slə́µkµpµ]	page 25, candidate b; violations: *BRONS(RES) *!; *σµµµ *; DEP-IO * (! marks a fatal violation)
+(76c) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[slkə́µpµ]	page 25, candidate c; violations: ONSBINMAX *!; *BRONS(RES) *!; DEP-IO * (! marks a fatal violation)
+(76d) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[slN.kə́µpµ]	page 25, candidate d; violations: *NUC/LIQ *!; DEP-IO * (! marks a fatal violation)
+(76e) line 1	nɬeʔkepmxcín	phonemic	[səlµ.kə́µpµ]	page 25, candidate e, the optimal candidate, marked ☞; violations: DEP-IO **
+§3.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	3.2.3 Codas and Syllable Weight	page 25
+footnote 17	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	17 The form [ƛ̓iʔ.kʷmN] with a syllabic nasal would be optimal in terms of syllable structure alone, but with stress would violate at least one higher-ranking stress constraint (either *HDNUC/C or ALIGN-R).	page 25, footnote
+§3.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (77) shows that superheavy syllables are tolerated when possible repairs would violate high ranked constraints related to stress. A syllable with a stressed schwa would violate DEP-µ(N), as shown in candidate (77), while an unstressed schwa would violate ALIGN-R (candidate (77)). The constraint ALIGN-R will be defined in (80) below; it is only used here to illustrate a case in which a superheavy syllable is tolerated.	page 25
+(77) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Superheavy syllables are tolerated to satisfy stress-related constraints.	page 26, the title of the tableau
+(77) line 2	nɬeʔkepmxcín	phonemic	[síƛ̓q̓t]	page 26, the attested form the tableau derives
+(77) line 2	Bev Phillips and Marty Aspinall	translation	‘day’	page 26
+(77) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP, CMA	the source of the example
+(77) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	DEP-μ(N), ALIGN-R ≫ *σµµµ	page 26, a ranking the tableau establishes
+(77) line 4	nɬeʔkepmxcín	phonemic	/siƛ̓q̓t/	page 26, the input of the tableau
+(77) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	DEP-μ(N) ALIGN-R *σµµµ DEP-IO	page 26, the constraints heading the columns, in ranked order: DEP-μ(N), ALIGN-R, *σµµµ, DEP-IO
+(77a) line 1	nɬeʔkepmxcín	phonemic	[síµƛ̓µq̓µtµ]	page 26, candidate a, the optimal candidate, marked ☞; violations: *σµµµ *
+(77b) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[siµƛ̓µ.q̓ə́µtµ]	page 26, candidate b; violations: DEP-μ(N) *!; DEP-IO * (! marks a fatal violation)
+(77c) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[síµƛ̓µ.q̓ətµ]	page 26, candidate c; violations: ALIGN-R *!; DEP-IO * (! marks a fatal violation)
+§3.2.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (78) shows that violating ALIGN-R is tolerated to avoid a complex coda with a resonant in non-initial position. The attested form, given as candidate (78), is repaired by epenthesizing a schwa. A stressed schwa is not epenthesized, as demonstrated by candidate (78). A syllabic liquid is not an option, as shown in candidate (78).	page 26
+(78) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Complex codas with resonants in non-initial position are prohibited.	page 26, the title of the tableau
+(78) line 2	nɬeʔkepmxcín	phonemic	[ʔíkʷ.ləxʷ]	page 26, the attested form the tableau derives
+(78) line 2	Marty Aspinall	translation	‘dream’	page 26
+(78) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	CMA	the source of the example
+(78) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	*CODACR, DEP-µ(N) ≫ ALIGN-R	page 26, a ranking the tableau establishes
+(78) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	*NUC/LIQ ≫ DEP-IO	page 26, a ranking the tableau establishes
+(78) line 5	nɬeʔkepmxcín	phonemic	/ʔiµkʷlxʷ/	page 26, the input of the tableau
+(78) line 5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	*CODACR *NUC/LIQ DEP- μ(N) ALIGN -R *σµµµ DEP-IO	page 26, the constraints heading the columns, in ranked order: *CODACR, *NUC/LIQ, DEP-μ(N), ALIGN-R, *σµµµ, DEP-IO
+(78a) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[ʔíµkʷµlµxʷµ]	page 26, candidate a; violations: *CODACR *!; *σµµµ * (! marks a fatal violation)
+(78b) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[ʔiµkʷµ.lə́µxʷµ]	page 26, candidate b; violations: DEP-μ(N) *!; DEP-IO * (! marks a fatal violation)
+(78c) line 1	nɬeʔkepmxcín	phonemic	[ʔíµkʷµ.ləxʷµ]	page 26, candidate c, the optimal candidate, marked ☞; violations: ALIGN-R *; DEP-IO *
+(78d) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[ʔíµ.kʷlNxʷµ]	page 26, candidate d; violations: *NUC/LIQ *!; ALIGN-R * (! marks a fatal violation)
+§3.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	3.3 Stress Assignment at Full Vowels	page 26
+§3.3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	In this subsection, we lay out constraints that explain the patterns of stress assignment at full vowels. We motivate stress assignment on the last accented vowel by integrating a gradient alignment constraint. Stress assignment to the initial full vowel in the absence of accent and deletion of non-initial unaccented vowels is modeled through the interaction of an anchoring constraint preserving the initial full vowel, minimal weight requirements for full vowels, and weight faithfulness in nuclei. We account for words where no full vowels are present in Section 3.4.	page 26
+§3.3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	3.3.1 Constraints for Stress Assignment with Full Vowels	page 26
+§3.3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The constraint in (79) ensures that there is one and only one instance of primary stress (Alderete 2001). Given that we assume that lexical accent corresponds to an underlying mora, rather than underlying stress, no stress-related faithfulness constraints are violated if a vowel with an underlying mora does not bear stress in the surface form; the vowel will remain connected to its mora in the output. This constraint ensures that there is one head syllable, which further ensures that necessary prosodic structure will be built (and one syllable will bear primary stress).	page 26
+(79)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(79) CULMINATIVITY-PRWD [CULMINATIVITY]: Every prosodic word must have exactly one head syllable.	page 27, the definition of a constraint
+§3.3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	A gradient alignment constraint (McCarthy & Prince 1993a), given in (80), prefers stress to surface on a syllable as close to the end of the word as possible. This results in stress surfacing on the rightmost vowel with an underlying mora; it will also result in epenthesis of stressed schwa in the word-final syllable. Because this constraint counts syllables, rather than segments, it does not fully account for the precise location where stressed schwa is inserted ; the constraints *σμμμ (65), HEADNUCWT (81), and HEADSYLLWT (88) account for this. While gradient alignment constraints are generally undesirable (McCarthy 2003), we require gradience to account for cases with multiple vowels with an underlying mora where the last one is not in the rightmost syllable of the word (84). While it should be possible to achieve the same result with multiple categorical constraints,18 we use the current analysis both for simplicity and to capture the generalization that rightwards stress alignment is always preferred in the language.	page 27
+(80)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(80) ALIGN-R(σh, PrWd) [ALIGN-R]: Assign one violation for each syllable which intervenes between the right edge of each head syllable and the right edge of the prosodic word.	page 27, the definition of a constraint
+§3.3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The constraint in (81) ensures stressed vowels are always moraic; it is unviolated in our analysis. This constraint forces all vowels, including schwa, to be moraic if they host stress. When combined with DEP-µ(N), this constraint serves the same purpose as *P/ə as used by Mellesmoen (2025:218).	page 27
+(81)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(81) HEADNUCLEUSWEIGHT [HDNUCWT]: The nucleus of a head syllable must dominate a mora.	page 27, the definition of a constraint
+§3.3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The constraint in (82) prevents syllabic consonants from bearing stress, including vocalized glides and nasals. This is consistent with how sonority-driven stress is modeled by De Lacy (2004). We chose to penalize candidates with syllabic consonants, rather than candidates with segments that bear more weight (i.e. linking to moras) for two reasons: (i) a blanket prohibition on inserting moras to associate with consonants (e.g., DEP-µ(C)) would not work, as it would be violated whenever a mora is inserted into a coda position; and (ii) a specific prohibition on linking moras to consonants in nuclei (e.g., DEPLINK-µ(N/C)) would be at odds with the way we seek to understand diphthongs via sharing an underlying mora with a neighbouring glide in a nucleus. Note that *HEADNUCLEUS/C is violated when stress is assigned to underlying resonants.	page 27
+(82)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(82) *HEADNUCLEUS/C [*HDNUC/C]: The nucleus of a head syllable must not dominate a consonant.	page 27, the definition of a constraint
+footnote 18	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	18 E.g., a categorical alignment constraint at the syllable level could ensure stress-induced schwa epenthesis occurs in the word-final syllable, while a right-anchoring constraint on underlying moras could ensure stress surfaces on the rightmost accented vowel.	page 27, footnote
+§3.3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The constraint in (83) preserves the leftmost full vowel in the input, forcing it to surface as moraic to avoid violating FVWT. This leads to stress assignment to the leftmost full vowel when there are no accented vowels present in order to satisfy weight faithfulness by avoiding linking more moras than necessary to nuclei (85). However, it is independent from stress; it still protects the leftmost full vowel when a following vowel has an underlying mora (86). It is a standard anchor constraint (McCarthy & Prince 1993b), except that it is sensitive to a special phonological feature that distinguishes full vowels from vocalized resonants and schwas, as discussed in Section 3.1.	page 27
+(83)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(83) L-ANCHOR(FULLVOWEL) [L-ANCH(FV)]: The first vowel in the input word must correspond to the first full vowel (vowel place node) in the output prosodic word.	page 28, the definition of a constraint
+§3.3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Before presenting the tableaux, we give a preview of the crucial rankings that we motivate in the following section to derive stress assignment involving full vowels.	page 28
+§3.3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• *HDNUC/C, HDNUCWT, FVWT, L-ANCH(FV), DEP-μ(N) ≫ ALIGN-R	page 28, a crucial ranking of Section 3.3
+§3.3.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• FVWT, L-ANCH(FV) ≫ DEP-μ(N) ≫ MAX-IO(V)	page 28, a crucial ranking of Section 3.3
+§3.3.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	3.3.2 Tableaux for Stress Assignment with Full Vowels	page 28
+§3.3.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (84) demonstrates how ALIGN-R interacts with DEP-µ(N) to ensure the rightmost vowel with an underlying mora receives stress. When the vowel that receives stress is not the rightmost vowel with an underlying mora, ALIGN-R is violated more times than necessary (candidates (84) and (84)); this crucially relies on the gradient nature of ALIGN-R. When the rightmost vowel with an underlying mora receives stress, ALIGN-R is still violated, as it is not the rightmost syllable (candidate (84)), but this is optimal because a syllable further to the right cannot bear stress without violating either DEP-µ(N) (candidates (84) and (84)) or HDNUCWT (candidates (84) and (84)).	page 28
+(84) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Rightmost vowel with an underlying mora receives stress (i.e., when there’s multiple strong morphemes).	page 28, the title of the tableau
+(84) line 2	nɬeʔkepmxcín	phonemic	[wi.kn.wen̓.tí.ye.tm]	page 28, the attested form the tableau derives
+(84) line 2	Bev Phillips	translation	‘They managed to see it.’	page 28
+(84) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	the source of the example
+(84) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	*HDNUC/C, HDNUCWT, DEP-μ(N) ≫ ALIGN-R	page 28, a ranking the tableau establishes
+(84) line 4	nɬeʔkepmxcín	phonemic	/wiµk-nweµn̓-t-iµyxs-n-t-em/	page 28, the input of the tableau
+(84) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	*HDNUC/C HDNUCWT DEP-μ(N) ALIGN-R	page 28, the constraints heading the columns, in ranked order: *HDNUC/C, HDNUCWT, DEP-μ(N), ALIGN-R
+(84a) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[wíµ.kn.weµn̓µ.tiµ.ynN.tmN]	page 28, candidate a; violations: ALIGN-R ***!** (! marks a fatal violation)
+(84b) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[wiµ.kn.wéµn̓µ.tiµ.ynN.tmN]	page 28, candidate b; violations: ALIGN-R ***! (! marks a fatal violation)
+(84c) line 1	nɬeʔkepmxcín	phonemic	[wiµ.kn.weµn̓µ.tíµ.yµnN.tmN]	page 28, candidate c, the optimal candidate, marked ☞; violations: ALIGN-R **; carries footnote 19, written here without its digit
+(84d) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[wiµ.kn.weµn̓µ.tiµ.yńNµ.tmN]	page 28, candidate d; violations: *HDNUC/C *!; DEP-μ(N) *; ALIGN-R * (! marks a fatal violation)
+(84e) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[wiµ.kn.weµn̓µ.tiµ.ynN.téµmµ]	page 28, candidate e; violations: DEP-μ(N) *! (! marks a fatal violation)
+(84f) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[wiµ.kn.weµn̓µ.tiµ.ynN.tə́µmµ]	page 28, candidate f; violations: DEP-μ(N) *! (! marks a fatal violation)
+(84g) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[wiµ.kn.weµn̓µ.tiµ.ynN.témµ]	page 28, candidate g; violations: HDNUCWT *! (! marks a fatal violation)
+(84h) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[wiµ.kn.weµn̓µ.tiµ.ynN.tə́mµ]	page 28, candidate h; violations: HDNUCWT *! (! marks a fatal violation)
+(84) line 5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Nasal vocalization: [wi.kn.wen̓.tí.ynN.tmN] → [wi.kn.wen̓.tí.ye.tmN]	page 28, the derivation from the optimal candidate to the surface form
+footnote 19	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	19 The segments /xs/ delete, but we do not attempt to determine the factors conditioning this process.	page 28, footnote
+§3.3.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Tableau (85) demonstrates how L-ANCH(FV) interacts with DEP-µ(N) to ensure stress surfaces on the leftmost full vowel in the absence of an underlying mora. Since there are no underlying moras, at least one nucleus must become moraic and receive stress to satisfy CULMINATIVITY and HDNUCWT (not shown), violating DEP-µ(N) once. Additionally, the leftmost full vowel must become moraic, violating DEP-µ(N) once, as it would otherwise have to surface as non -moraic, violating FVWT (candidate (85)), or delete, violating L-ANCH(FV) (candidate (85)). Therefore, the only way to avoid having two separate violations of DEP-µ(N) (candidates (85) and (85)) is for the leftmost full vowel to be the vowel which receives stress, resulting in only one violation of DEP-µ(N), but violating ALIGN-R (candidate (85)). Other full vowels must delete, because if they surfaced as moraic it would result in an additional violation of DEP-µ(N) (candidate (85)), and if they surfaced as non-moraic it would violate FVWT (candidate (85)).	page 28
+(85) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Leftmost input vowel without an underlying mora receives stress, others delete (i.e. in cases where the root is weak and there are multiple ambivalent suffixes).	page 29, the title of the tableau
+(85) line 2	nɬeʔkepmxcín	phonemic	[kəɬ.pék.stms]	page 29, the attested form the tableau derives
+(85) line 2	Bev Phillips	translation	‘He dropped it.’	page 29
+(85) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	the source of the example
+(85) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	FVWT, L-ANCH(FV), DEP-μ(N) ≫ ALIGN-R	page 29, a ranking the tableau establishes
+(85) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	FVWT, DEP-μ(N) ≫ MAX-IO(V)	page 29, a ranking the tableau establishes
+(85) line 5	nɬeʔkepmxcín	phonemic	/kɬ-p-ekst-min-t-es/	page 29, the input of the tableau
+(85) line 5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	FV WT L-Anch (FV) DEP- μ(N) ALIGN -R Max-IO (V) DEP-IO	page 29, the constraints heading the columns, in ranked order: FVWT, L-Anch(FV), DEP-μ(N), ALIGN-R, Max-IO(V), DEP-IO
+(85a) line 1	nɬeʔkepmxcín	phonemic	[kəɬµ.péµkµ.stmNsµ]	page 29, candidate a, the optimal candidate, marked ☞; violations: DEP-μ(N) *; ALIGN-R *; Max-IO(V) **; DEP-IO *; carries footnote 20, written here without its digit
+(85b) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kəɬµ.pekµsµ.tméµsµ]	page 29, candidate b; violations: FVWT *!; DEP-μ(N) *; Max-IO(V) *; DEP-IO * (! marks a fatal violation)
+(85c) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kəɬµ.pəkµsµ.tméµsµ]	page 29, candidate c; violations: L-Anch(FV) *!; DEP-μ(N) *; Max-IO(V) **; DEP-IO * (! marks a fatal violation)
+(85d) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kəɬµ.peµkµ.sət.méµsµ]	page 29, candidate d; violations: DEP-μ(N) **!; Max-IO(V) *; DEP-IO ** (! marks a fatal violation)
+(85e) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kəɬ.peµk.sət.mə́µsµ]	page 29, candidate e; violations: DEP-μ(N) **!; Max-IO(V) **; DEP-IO ** (! marks a fatal violation)
+(85f) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kəɬµ.péµkµ.sət.meµsµ]	page 29, candidate f; violations: DEP-μ(N) **!; ALIGN-R **; Max-IO(V) *; DEP-IO ** (! marks a fatal violation)
+(85g) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kəɬµ.péµkµ.sət.mesµ]	page 29, candidate g; violations: FVWT *!; DEP-μ(N) *; ALIGN-R **; Max-IO(V) *; DEP-IO ** (! marks a fatal violation)
+§3.3.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (85) also demonstrates that syllabic nasals pattern differently than full vowels; they do not undergo deletion. The nucleus [mN] in candidate (85a)(85) surfaces unstressed, rather than undergoing deletion like the unaccented vowels. Similar examples with vocalized nasals, e.g., (31) /qéckm1p/ → [qéc.ke1p], demonstrate that they are also opaque to unaccented vowel deletion.	page 29
+§3.3.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (86) demonstrates that L-ANCH(FV) ensures that the leftmost full vowel is preserved even when unstressed. As there is a vowel with an underlying mora to the right of the leftmost full vowel, stress cannot be assigned to the leftmost full vowel as that would violate ALIGN-R too many times (candidate (86)). As in (85) above, the leftmost full vowel must become moraic, violating DEP-µ(N), as it would otherwise surface as non -moraic, violating FVWT (candidate (86)), or delete, violating L-ANCH(FV) (candidate (86)); other unaccented vowels must delete to avoid either violating FVWT (candidate (86)) or incurring unnecessary violations of DEP-µ(N) (candidate (86)).	page 29
+(86) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Leftmost vowel does not delete when unstressed (weak root, strong suffix after ambivalent suffixes).	page 30, the title of the tableau
+(86) line 2	nɬeʔkepmxcín	phonemic	[ʔes.kəɬ.pek.stm.tí͜yNxs]	page 30, the attested form the tableau derives
+(86) line 2	Hall & Phillips 2024:134	translation	‘They dropped it.’	page 30
+(86) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:134)	the source of the example
+(86) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	FVWT, L-ANCH(FV) ≫ DEP-μ(N) ≫ MAX-IO(V)	page 30, a ranking the tableau establishes
+(86) line 4	nɬeʔkepmxcín	phonemic	/kɬ-p-ekst-min-t-iµyxs/	page 30, the input of the tableau
+(86) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	FVWT L- ANCH(FV) DEP- μ(N) ALIGN -R MAX- IO(V)	page 30, the constraints heading the columns, in ranked order: FVWT, L-ANCH(FV), DEP-μ(N), ALIGN-R, MAX-IO(V)
+(86a) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kəɬµ.péµkµ.stmN.tí͜yNµxµsµ]	page 30, candidate a; violations: DEP-μ(N) *; ALIGN-R *!*; MAX-IO(V) * (! marks a fatal violation)
+(86b) line 1	nɬeʔkepmxcín	phonemic	[kəɬµ.peµkµ.stmN.tí͜yNµxµsµ]	page 30, candidate b, the optimal candidate, marked ☞; violations: DEP-μ(N) *; MAX-IO(V) *; carries footnote 21, written here without its digit
+(86c) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kəɬµ.pekµsµ.tmN.tí͜yNµxµsµ]	page 30, candidate c; violations: FVWT *!; MAX-IO(V) * (! marks a fatal violation)
+(86d) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kəɬµ.pəkµsµ.tmN.tí͜yNµxµsµ]	page 30, candidate d; violations: L-ANCH(FV) *!; MAX-IO(V) ** (! marks a fatal violation)
+(86e) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kəɬµ.peµkµ.sətµ.mi.tí͜yNµxµsµ]	page 30, candidate e; violations: FVWT *!; DEP-μ(N) * (! marks a fatal violation)
+(86f) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kəɬµ.peµkµ.sətµ.miµ.tí͜yNµxµsµ]	page 30, candidate f; violations: DEP-μ(N) **! (! marks a fatal violation)
+(86) line 5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Unstressable morphology: /ʔes-[kəɬ.pek.stmN.tí͜yNxs]/ → [ʔes.kəɬ.pek.stm.tí͜yNxs].	page 30, the derivation from the optimal candidate to the surface form
+footnote 20	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	20 The segments /nt/ delete, but we do not attempt to determine the factors in this process.	page 29, footnote
+§3.3.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (87) demonstrates that vocalized resonants are not affected by the processes that affect full vowels without an underlying mora; vocalized glides to the left of the leftmost full vowel do not affect its preservation, even when unstressed. In candidate (87), L-ANCH(FV) is violated because the leftmost full vowel [i] is deleted, even though there is a syllabic glide [wN] (which surfaces as [u]) to its left.	page 30
+(87) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Leftmost vowel position is unaffected by vocalized resonants.	page 30, the title of the tableau
+(87) line 2	nɬeʔkepmxcín	phonemic	[cu.xi.tí͜yNx.sne]	page 30, the attested form the tableau derives
+(87) line 2	Hall & Phillips 2024:140	translation	‘I made it for them.’	page 30
+(87) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:140)	the source of the example
+(87) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	FVWT, L-ANCH(FV) ≫ DEP-µ(N)	page 30, a ranking the tableau establishes
+(87) line 4	nɬeʔkepmxcín	phonemic	/cw-xi-t-íµyxs-n-t-en(e)/	page 30, the input of the tableau, carries footnote 22, written here without its digit
+(87) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	FVWT L-ANCH(FV) DEP-μ(N) MAX-IO(V)	page 30, the constraints heading the columns, in ranked order: FVWT, L-ANCH(FV), DEP-μ(N), MAX-IO(V)
+(87a) line 1	nɬeʔkepmxcín	phonemic	[cwN.xiµ.tí͜yNµxµ.sn(e)]	page 30, candidate a, the optimal candidate, marked ☞; violations: DEP-μ(N) *; MAX-IO(V) *; carries footnote 23, written here without its digit
+(87b) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[cwN.xi.tí͜yNµxµ.sn(e)]	page 30, candidate b; violations: FVWT !*; MAX-IO(V) * (! marks a fatal violation)
+(87c) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[cwNxµ.tí͜yNµxµ.sn(e)]	page 30, candidate c; violations: L-ANCH(FV) !*; MAX-IO(V) ** (! marks a fatal violation)
+(87) line 5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Glide vocalization: [cwN.xi.tí͜yNx.sne] → [cu.xi.tí͜yNx.sne].	page 30, the derivation from the optimal candidate to the surface form
+§3.4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	3.4 Stress-Induced Schwa Epenthesis	page 30
+footnote 21	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	21 The segment /n/ deletes, but we do not attempt to determine the factors conditioning this process.	page 30, footnote
+footnote 22	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	22 The suffix /-ene/ is problematic for our analysis, as the first vowel behaves like other unaccented vowels while the second vowel fails to delete in certain circumstances.	page 30, footnote
+footnote 23	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	23 The segments /nt/ delete, but we do not attempt to determine the factors conditioning this process.	page 30, footnote
+§3.4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	In this section, we provide the constraints and crucial rankings that explain the patterns of stress- induced schwa epenthesis. We model stress-induced schwa epenthesis in the last syllable due to the right-alignment constraint introduced in the preceding section (ALIGN-R). We explain insertion before the final consonant as following from a combination of two factors: the previously introduced maximality restriction prohibiting syllables with more than two moras (*σμμμ), and a new minimality restriction for stressed syllables dispreferring stressed syllables with fewer than two moras (HDSYLLWT). Recall from Section 3.1 that we assume that clitics, prefixes, and unstressable suffixes are outside the domain for stress; we do not include them in syllables when assessing minimality or maximality requirements.	page 30
+§3.4.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	3.4.1 Constraints for Stress-Induced Schwa Epenthesis	page 31
+§3.4.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	In addition to the constraints in the previous section, we also introduce the constraint in (88). Together with HDNUCWT, which ensures that stressed syllables have a moraic nucleus, HDSYLLWT prevents stressed syllables from being open, as the absence of a coda would leave the nucleus as the only mora. This explains the fact that stressed schwa can only exist in closed syllables; it replaces the proposal by Blake (2000) that the minimal weight for stressed syllables is one mora, under the assumption that stressed schwa is non-moraic. Since we argue that stressed schwa is moraic, the minimal weight becomes two. However, this leads to a new prediction that stressed full vowels in open syllables are also dispreferred.	page 31
+(88)	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(88) HEADSYLLABLEWEIGHT [HDSYLLWT]: A head (stressed) syllable must dominate at least two moras.	page 31, the definition of a constraint
+§3.4.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	When HDSYLLWT is combined with *σµµµ, which disprefers syllables with more than two moras, it allows for the generalization that stressed syllables prefer to have exactly two moras, and a [(C)CVµCµ] structure.	page 31
+§3.4.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The crucial rankings that we will motivate in the following section include:	page 31
+§3.4.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• CULMINATIVITY, HDNUCWT ≫ DEP-μ(N)	page 31, a crucial ranking of Section 3.4
+§3.4.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• *HDNUC/C, ALIGN-R ≫ DEP-IO	page 31, a crucial ranking of Section 3.4
+§3.4.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	3.4.2 Tableaux for Stress-Induced Schwa Epenthesis	page 31
+§3.4.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (89) shows that stressed moraic schwa must be inserted to bear stress when no underlying full vowel is present in the stress domain. If there is no moraic nucleus, then either there would be no stress, violating CULMINATIVITY (candidate (89)), or a non-moraic vowel would receive stress, violating HDNUCWT (candidate (89)). A consonantal nucleus cannot receive stress because it would violate *HDNUC/C (candidate (89)). A schwa in a non-initial syllable cannot receive stress because ALIGN-R would be violated, even if one instance of schwa epenthesis could be avoided (candidate (89)). Therefore, stressed moraic schwa is inserted in the final syllable, as shown in the attested candidate (89e)(89).	page 31
+(89) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Schwa is inserted and receives stress and moraicity when there are no eligible stress hosts.	page 32, the title of the tableau
+(89) line 2	nɬeʔkepmxcín	phonemic	[ʔes.kəɬ.xə́n]	page 32, the attested form the tableau derives
+(89) line 2	Thompson & Thompson 1996:89	translation	‘have one’s shoes off’	page 32
+(89) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:89)	the source of the example
+(89) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	CULMINATIVITY, HDNUCWT ≫ DEP-µ(N)	page 32, a ranking the tableau establishes
+(89) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	CULMINATIVITY, *HDNUC/C, Align-R ≫ DEP-IO	page 32, a ranking the tableau establishes
+(89) line 5	nɬeʔkepmxcín	phonemic	/kɬ-xn/	page 32, the input of the tableau
+(89) line 5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	CULMINATIVITY HDNUCWT *HDNUC/C DEP-μ(N) ALIGN- R DEP-IO	page 32, the constraints heading the columns, in ranked order: CULMINATIVITY, HDNUCWT, *HDNUC/C, DEP-μ(N), ALIGN-R, DEP-IO
+(89a) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kəɬµ.xnN]	page 32, candidate a; violations: CULMINATIVITY !*; DEP-IO * (! marks a fatal violation)
+(89b) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kə́ɬµ.xnN]	page 32, candidate b; violations: HDNUCWT !*; DEP-IO ** (! marks a fatal violation)
+(89c) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kəɬµ.xńNµ]	page 32, candidate c; violations: *HDNUC/C !*; DEP-μ(N) *; DEP-IO * (! marks a fatal violation)
+(89d) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[kə́µɬµ.xnN]	page 32, candidate d; violations: DEP-μ(N) *; ALIGN-R !*; DEP-IO * (! marks a fatal violation)
+(89e) line 1	nɬeʔkepmxcín	phonemic	[kəɬµ.xə́µnµ]	page 32, candidate e, the optimal candidate, marked ☞; violations: DEP-μ(N) *; DEP-IO **
+(89) line 6	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Unstressable morphology: ʔes-[kəɬ.xə́n] → [ʔes.kəɬ.xə́n].	page 32, the derivation from the optimal candidate to the surface form
+§3.4.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The tableau in (90) demonstrates that stressed moraic schwa can only be inserted before the final consonant in the phonological domain where stress is assigned. If no schwa epenthesis occurs, the only option would be candidate (90), where an underlying consonant receives stress, which violates *HDNUC/C. If stressed schwa is inserted after the final consonant, it would leave an open stressed syllable, violating HDSYLLWT (candidate (90)). If stressed schwa is inserted before the last two consonants, it creates a superheavy syllable, which violates *σµµµ (candidate (90)). If only one schwa is epenthesized to receive stress, it forces the creation of an illicit onset which violates *BRONS(RES) (candidate (90)). Therefore, a second schwa must epenthesize, which yields an additional violation of DEP-IO (candidate (90)). It is also not an option for the first of two schwas to receive stress, as that would violate ALIGN-R (candidates (90) and (90)).	page 32
+(90) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Schwa is inserted exactly before the final consonant of the prosodic word.	page 32, the title of the tableau
+(90) line 2	nɬeʔkepmxcín	phonemic	[sʕʷə.yə́ps]	page 32, the attested form the tableau derives
+(90) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	translation	‘…(and) it burned.’	page 32, printed with no source
+(90) line 3	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	*HDNUC/C, HDSYLLWT, *BRONS(RES), *σµµµ, ≫ DEP-IO	page 32, a ranking the tableau establishes
+(90) line 4	nɬeʔkepmxcín	phonemic	/ʕʷy-p/	page 32, the input of the tableau
+(90) line 4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	*HDNUC/C *BRONS(RES) ALIGN-R HDSYLLWT *σµµµ DEP-IO *NUC/GL	page 32, the constraints heading the columns, in ranked order: *HDNUC/C, *BRONS(RES), ALIGN-R, HDSYLLWT, *σµµµ, DEP-IO, *NUC/GL
+(90a) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[ʕʷýNµpµ]	page 32, candidate a; violations: *HDNUC/C *!; *NUC/GL * (! marks a fatal violation)
+(90b) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[ʕʷyN.pə́µ]	page 32, candidate b; violations: HDSYLLWT *!; DEP-IO *; *NUC/GL * (! marks a fatal violation)
+(90c) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[ʕʷə́µyµpµ]	page 32, candidate c; violations: *σµµµ *!; DEP-IO * (! marks a fatal violation); carries footnote 24, written here without its digit
+(90d) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[ʕʷyə́µpµ]	page 32, candidate d; violations: *BRONS(RES) *!; DEP-IO * (! marks a fatal violation)
+(90e) line 1	nɬeʔkepmxcín	phonemic	[ʕʷə.yə́µpµ]	page 32, candidate e, the optimal candidate, marked ☞; violations: DEP-IO **
+(90f) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[ʕʷə́µyµ.pə]	page 32, candidate f; violations: ALIGN-R *!; DEP-IO ** (! marks a fatal violation)
+(90g) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	phonemic	[ʕʷə́µ.yəpµ]	page 32, candidate g; violations: ALIGN-R *!; HDSYLLWT *!; DEP-IO ** (! marks a fatal violation)
+(90) line 5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Unstressable morphology: s=[ʕʷə.yə́p]=s → [sʕʷə.yə́ps].	page 32, the derivation from the optimal candidate to the surface form
+footnote 24	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	24 Note that candidate c. looks very similar to cases we have analyzed as diphthongs. Although we do not model the restrictions against it in the present analysis, the fact that candidate c. is not selected provides direct evidence that diphthongization is not an option when a glide follows stressed schwa. We posit that this is because the mora is not underlying, and only underlying moras are permitted to branch, but it may also be the case that /y/ in underlying forms is already associated with the mora accompanying an accented vowel in some way. We do not see evidence for diphthongization of VG sequences across morpheme boundaries, as morpheme-final accented vowels are rare	page 32, footnote
+§3.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	3.5 Total Ranking	page 33
+§3.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The ranking required to derive all elements of stress epenthesis and schwa assignment covered in this paper is:	page 33
+§3.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	{Unviolated constraints} ≫ DEP-µ(N) ≫ MAX-IO(V)†, Align-R ≫ *σµµµ ≫ DEP-IO ≫ *NUC/NAS†, *NUC/GL†, *COMPONSet	page 33, the total ranking
+§3.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	(† indicates no crucial rankings below)	page 33, under the total ranking
+§3.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Unviolated constraints	page 33, the heading of the list below
+§3.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• ONSBINMAX	page 33, an unviolated constraint
+§3.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• *BRONS(RES)	page 33, an unviolated constraint
+§3.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• *NUC/LIQ	page 33, an unviolated constraint
+§3.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• CULMINATIVITY	page 33, an unviolated constraint
+§3.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• *HDNUC/C	page 33, an unviolated constraint
+§3.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• HDNUCWT	page 33, an unviolated constraint
+§3.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• FVWT	page 33, an unviolated constraint
+§3.5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	notation	• L-ANCH(FV)	page 33, an unviolated constraint
+§4	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	4 Discussion	page 33
+§4.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	4.1 Deviant and Lexicalized Cases	page 33
+§4.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, the language of the paper
+§4.1	nɬeʔkepmxcín	cited form	petə̣́leʔ	page 33, ‘blood’
+§4.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	While the patterns of syllabification and stress-induced epenthesis described above account for most stressed schwas in nɬeʔkepmxcín, there are some roots which deviate from this pattern. Some cases are loanwords, which may include lexicalized patterns (see discussion of “differential importation” in Kang 2011), or tolerate other exceptional patterns (see, e.g., Pons-Moll 2012). For example, petə̣́leʔ ‘blood’ is a loanword from Athapaskan (T&T 1996:232) in which the stressed schwa is not found immediately before the final consonant of the stem, as would be predicted based on the analysis in Section 3.	page 33
+§4.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	There are additional lexicalized cases where there is no clear source for the pattern. These stems surface with a stressed schwa that is not immediately preceding the final consonant of the stem. Some of these stems have roots behave as strong roots but surface with stressed schwas, typically retracted. We can tell these roots pattern with strong roots not only because of the underlying representations provided by Thompson and Thompson (1996) but also because of the derivations provided in their dictionary entries. As explained in Section 2.3, strong roots will have primary stress unless a strong suffix attaches to them, so if an unaccented stressable suffix (i.e. a weak or an ambivalent suffix) attaches to a root and the result is a word with stress on the root, then the root is strong. For each root in this list, at least one such derivation was found, confirming that these roots pattern with strong roots. An exhaustive list is provided below organized alphabetically with the relevant derivations.	page 33
+(91) line 1	nɬeʔkepmxcín	root	√ʔə̣́sxe	page 33, the orthography
+(91) line 1	nɬeʔkepmxcín	phonemic	/ʔə̣́sxe-xi-t-sem-es/	page 33, phonemic, in / /
+(91) line 1	nɬeʔkepmxcín	phonemic	[ʔə̣́s.xex.cms]	page 33, phonetic, in [ ]
+(91) line 1	Bev Phillips	translation	‘It made me sneeze.’	page 33
+(91) line 2	nɬeʔkepmxcín	gloss	sneeze-INDR-TR-1SG.OBJ-3ERG	page 33, the morphemes of the row above
+(91) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	page 33, the source of the row above
+(92) line 1	nɬeʔkepmxcín	root	√k̓ə̣́k̓aɬweʔ	page 34, the orthography
+(92) line 1	nɬeʔkepmxcín	phonemic	/k̓ə̣́k̓aɬweʔ-m/	page 34, phonemic, in / /
+(92) line 1	nɬeʔkepmxcín	phonemic	[k̓ə̣́.k̓aɬ.weʔ.me]	page 34, phonetic, in [ ]
+(92) line 1	Thompson & Thompson 1996:107	translation	‘weevils infest something’	page 34
+(92) line 2	nɬeʔkepmxcín	gloss	weevil-CTR.MID	page 34, the morphemes of the row above
+(92) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:107)	page 34, the source of the row above
+(93) line 1	nɬeʔkepmxcín	root	√mxə́c̓xn̓	page 34, the orthography
+(93) line 1	nɬeʔkepmxcín	phonemic	/mxə́c̓xn̓-m/	page 34, phonemic, in / /
+(93) line 1	nɬeʔkepmxcín	phonemic	[mə.xə́c̓.xn̓.me]	page 34, phonetic, in [ ]
+(93) line 1	Thompson & Thompson 1996:208	translation	‘visit berry patch’	page 34
+(93) line 2	nɬeʔkepmxcín	gloss	purple.huckleberry-CTR.MID	page 34, the morphemes of the row above
+(93) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:208)	page 34, the source of the row above
+(94) line 1	nɬeʔkepmxcín	root	√mə̣́ze	page 34, the orthography
+(94) line 1	nɬeʔkepmxcín	phonemic	/mə̣́ze-n-t-em/	page 34, phonemic, in / /
+(94) line 1	nɬeʔkepmxcín	phonemic	[mə̣́.zen.tm]	page 34, phonetic, in [ ]
+(94) line 1	Thompson & Thompson 1996:200	translation	‘infested with flies’	page 34
+(94) line 2	nɬeʔkepmxcín	gloss	fly-CTR-TR-PASS	page 34, the morphemes of the row above
+(94) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:200)	page 34, the source of the row above
+(95) line 1	nɬeʔkepmxcín	root	√pcə́kɬ	page 34, the orthography
+(95) line 1	nɬeʔkepmxcín	phonemic	/pcə́kɬ-m/	page 34, phonemic, in / /
+(95) line 1	nɬeʔkepmxcín	phonemic	[pcə́k.ɬm]	page 34, phonetic, in [ ]
+(95) line 1	Bev Phillips	translation	‘The leaves are forming’	page 34
+(95) line 2	nɬeʔkepmxcín	gloss	leaf-CTR.MID	page 34, the morphemes of the row above
+(95) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	page 34, the source of the row above
+(96) line 1	nɬeʔkepmxcín	root	√tə̣́l	page 34, the orthography
+(96) line 1	nɬeʔkepmxcín	phonemic	/tə̣l-n1-t-es/	page 34, phonemic, in / /
+(96) line 1	nɬeʔkepmxcín	phonemic	[tə̣́.le1s]	page 34, phonetic, in [ ]
+(96) line 1	Thompson & Thompson 1996:353	translation	‘They unraveled something’	page 34
+(96) line 2	nɬeʔkepmxcín	gloss	unravel-CTR-TR-3ERG	page 34, the morphemes of the row above
+(96) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:353)	page 34, the source of the row above
+(97) line 1	nɬeʔkepmxcín	root	√tə̣́z	page 34, the orthography
+(97) line 1	nɬeʔkepmxcín	phonemic	/tə̣́z-n1-t-es/	page 34, phonemic, in / /
+(97) line 1	nɬeʔkepmxcín	phonemic	[tə̣́.ze1s]	page 34, phonetic, in [ ]
+(97) line 1	Thompson & Thompson 1996:354	translation	‘They pushed it so it protruded’	page 34
+(97) line 2	nɬeʔkepmxcín	gloss	protrude-CTR-TR-3ERG	page 34, the morphemes of the row above
+(97) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:354)	page 34, the source of the row above
+§4.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	There are also some roots that cannot be confirmed to be strong, either due to a lack of available derivations or the existence of derivations which prove the root to be weak, but still surface with a stressed schwa that isn’t immediately followed by the final consonant of the stem. An exhaustive list of such cases is provided in (98)–(111), again organized alphabetically by surface realizations of the root.25	page 34
+(98) line 1	nɬeʔkepmxcín	phonemic	[kʷə́.ƛ̓uʔ]	page 34, phonetic, in [ ]
+(98) line 1	Thompson & Thompson 1996:118	translation	‘therefore’	page 34
+(98) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:118)	the source of the example
+(99) line 1	nɬeʔkepmxcín	phonemic	[lə́.q̓ʷiʔ]	page 34, phonetic, in [ ]
+(99) line 1	Thompson & Thompson 1996:139	translation	‘cedar bark’	page 34
+(99) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:139)	the source of the example
+(100) line 1	nɬeʔkepmxcín	phonemic	[mə́.cəkʷ]	page 34, phonetic, in [ ]
+(100) line 1	Bev Phillips	translation	‘blackcap berry’	page 34
+(100) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	BP	the source of the example
+(101) line 1	nɬeʔkepmxcín	phonemic	[nə́st]	page 34, phonetic, in [ ]
+(101) line 1	Marty Aspinall	translation	‘right?’	page 34
+(101) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	CMA	the source of the example
+(102) line 1	nɬeʔkepmxcín	phonemic	[pə̣́l.qeʔ]	page 34, phonetic, in [ ]
+(102) line 1	Thompson & Thompson 1996:238	translation	‘penis’	page 34
+(102) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:238)	the source of the example
+(103) line 1	nɬeʔkepmxcín	phonemic	[p̓ə́c̓.z̓eʔ]	page 34, phonetic, in [ ]
+(103) line 1	Thompson & Thompson 1996:255	translation	‘rags/old clothes’	page 34
+(103) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:255)	the source of the example
+(104) line 1	nɬeʔkepmxcín	phonemic	[p̓ə̣́ṣ.k̓eʔ]	page 34, phonetic, in [ ]
+(104) line 1	Thompson & Thompson 1996:257	translation	‘hummingbird’	page 34
+(104) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:257)	the source of the example
+(105) line 1	nɬeʔkepmxcín	phonemic	[qʷə́.seʔqʷ]	page 34, phonetic, in [ ]
+(105) line 1	Thompson & Thompson 1996:293	translation	‘make a bed platform’	page 34
+(105) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:293)	the source of the example
+(106) line 1	nɬeʔkepmxcín	phonemic	[sə́.niʔ]	page 34, phonetic, in [ ]
+(106) line 1	Thompson & Thompson 1996:322	translation	‘oregon grape’	page 34
+(106) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:322)	the source of the example
+(107) line 1	nɬeʔkepmxcín	phonemic	[stə́n.wnN]	page 34, phonetic, in [ ]
+(107) line 1	Thompson & Thompson 1996:350	translation	‘withe’	page 34
+(107) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:350)	the source of the example
+footnote 25	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	25 According to their respective dictionary entries, stə̣́nwn, sxʷə̣́seʔ, sxʷsə̣́l̓ec, and sx̣ə̣́k̓iʔt all have a lexical nominalizer /s-/. We omit a full morpheme gloss for (98)-(111) since these four are the only ones that are not monomorphemic.	page 34, footnote
+§4.1	nɬeʔkepmxcín	cited form	stə̣́nwn	page 34
+§4.1	nɬeʔkepmxcín	cited form	sxʷə̣́seʔ	page 34
+§4.1	nɬeʔkepmxcín	cited form	sxʷsə̣́l̓ec	page 34
+§4.1	nɬeʔkepmxcín	cited form	sx̣ə̣́k̓iʔt	page 34
+(108) line 1	nɬeʔkepmxcín	phonemic	[w.lə́k̓.ze]	page 35, phonetic, in [ ], carries footnote 26, written here without its digit
+(108) line 1	Thompson & Thompson 1996:382	translation	‘tree toad’	page 35
+(108) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:382)	the source of the example
+(109) line 1	nɬeʔkepmxcín	phonemic	[sxʷə́.seʔ]	page 35, phonetic, in [ ]
+(109) line 1	Thompson & Thompson 1996:407	translation	‘red flowering currant’	page 35
+(109) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:407)	the source of the example
+(110) line 1	nɬeʔkepmxcín	phonemic	[sxʷsə́.l̓ec]	page 35, phonetic, in [ ]
+(110) line 1	Thompson & Thompson 1996:411	translation	‘tree fungus’	page 35
+(110) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:411)	the source of the example
+(111) line 1	nɬeʔkepmxcín	phonemic	[sx̣ə́.k̓iʔt]	page 35, phonetic, in [ ]
+(111) line 1	Thompson & Thompson 1996:421	translation	‘fireweed’	page 35
+(111) line 1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1996:421)	the source of the example
+§4.1	nɬeʔkepmxcín	cited form	nə̣́st	page 35
+§4.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Since nə̣́st in (101) belongs to a functional category of words, it is perhaps possible that it was once an immediate stem that eventually became grammaticalized, thus providing a diachronic explanation for the position of the stressed schwa. For the rest of the roots though, there is no apparent reason for them to deviate from the pattern described above, so they are not accounted for in the analysis.	page 35
+§4.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	4.2 Future Schwa Research	page 35
+§4.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, the language of the paper
+§4.2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	As stated, the primary goal of this paper is to provide a preliminary analysis of stress assignment and schwa epenthesis in nɬeʔkepmxcín. While we have accounted for schwas that host stress and schwas that repair illicit consonant clusters, we have not accounted for schwas that surface in reduplicative morphemes. This means that future research will be needed to account for this kind of schwa epenthesis in the language.	page 35
+§4.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	4.2.1 Reduplication	page 35
+§4.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, the language of the paper
+§4.2.1	nɬeʔkepmxcín	cited form	/Cə~/	page 35
+§4.2.1	nɬeʔkepmxcín	cited form	/CəC~/	page 35
+§4.2.1	nɬeʔkepmxcín	cited form	/~əC/	page 35
+§4.2.1	nɬeʔkepmxcín	cited form	/<Cə>/	page 35
+§4.2.1	nɬeʔkepmxcín	cited form	/~CəC/	page 35
+§4.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	In nɬeʔkepmxcín, there are four reduplication patterns that produce reduplicants containing schwas: initial (a.k.a. affective) reduplication /Cə~/, augmentative (a.k.a. plural/pluractional) reduplication /CəC~/, change-of-state (a.k.a. out-of-control) reduplication /~əC/ (or /<Cə>/), and characteristic reduplication /~CəC/.	page 35
+§4.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	It may be possible to explain some of the schwas in reduplicated morphemes by positing that they are inserted to host stress or repair illicit consonant clusters. However, in each of these reduplication patterns, the schwa appears regardless of whether it is stressed or required to repair an illicit consonant cluster. The change-of-state reduplicant, for example, is similar to non- reduplicative weak suffixes because a schwa can surface just before the final consonant and host stress in either case. However, this reduplication is different from non-reduplicative weak suffixation because the schwa is always inserted; it is present even if the reduplicant does not host stress. Compare (112) and (113) where the schwas host stress to (114) and (115) where they surface without stress. Intermediate forms are given in slashes (/ /). Evidence of schwas in reduplicated words are provided in Appendix B.	page 35
+(112) line 1	nɬeʔkepmxcín	phonemic	/ʔes-{qʷz~əz}/	page 35, phonemic, in / /
+(112) line 1	nɬeʔkepmxcín	phonemic	[ʔes.qʷə.zə́z]	page 35, phonetic, in [ ]
+(112) line 1	Hall & Phillips this volume	translation	‘get used’	page 35
+(112) line 2	nɬeʔkepmxcín	gloss	STAT-use~COS	page 35, the morphemes of the row above
+(112) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips this volume)	page 35, the source of the row above
+(113) line 1	nɬeʔkepmxcín	phonemic	/cw~əw/	page 35, phonemic, in / /
+(113) line 1	nɬeʔkepmxcín	phonemic	[cə.wə́w]	page 35, phonetic, in [ ]
+(113) line 1	Hall & Phillips 2024:138	translation	‘get made/grow’	page 35
+(113) line 2	nɬeʔkepmxcín	gloss	do~COS	page 35, the morphemes of the row above
+(113) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:138)	page 35, the source of the row above
+footnote 26	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	26 In their orthography, Thompson and Thompson (1992:42) write word-initial glides as glides even if they vocalize, so the /w/ in wlə̣́k̓ze may represent [wə], [wu], or [ʔu].	page 35, footnote
+§4.2.1	nɬeʔkepmxcín	cited form	wlə̣́k̓ze	page 35
+§4.2.1	nɬeʔkepmxcín	cited form	wə	page 35
+§4.2.1	nɬeʔkepmxcín	cited form	ʔu	page 35
+(114) line 1	nɬeʔkepmxcín	phonemic	/méƛ̓~əƛ̓/	page 36, phonemic, in / /
+(114) line 1	nɬeʔkepmxcín	phonemic	[mé.ƛ̓əƛ̓]	page 36, phonetic, in [ ]
+(114) line 1	Hall & Phillips 2024:135	translation	‘get mixed’	page 36
+(114) line 2	nɬeʔkepmxcín	gloss	mix~COS	page 36, the morphemes of the row above
+(114) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:135)	page 36, the source of the row above
+(115) line 1	nɬeʔkepmxcín	phonemic	/ʔús~əs/	page 36, phonemic, in / /
+(115) line 1	nɬeʔkepmxcín	phonemic	[ʔú.səs]	page 36, phonetic, in [ ]
+(115) line 1	Hall & Phillips 2024:135	translation	‘get discarded’	page 36
+(115) line 2	nɬeʔkepmxcín	gloss	discard~COS	page 36, the morphemes of the row above
+(115) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:135)	page 36, the source of the row above
+§4.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	If the schwas found in change-of-state reduplicants were only inserted to host stress, there would be no way to explain the presence of the schwas in (114) and (115). It is also important to note that schwas in (114) and (115) do not surface to repair an illicit consonant cluster since /ss/ sequences outside of reduplication either simplify to [s] as in (116) or the latter /s/ fortifies to [c] as in (117).	page 36
+(116) line 1	nɬeʔkepmxcín	phonemic	/t=e=s=suxʷnéʔm=s/	page 36, phonemic, in / /
+(116) line 1	nɬeʔkepmxcín	phonemic	[te.suxʷ.né.ʔms]	page 36, phonetic, in [ ]
+(116) line 1	Hall & Phillips 2024:137	translation	‘Because he was the medicine man...’	page 36
+(116) line 2	nɬeʔkepmxcín	gloss	OBL=D/C=NMLZ=medicine.man=3POSS	page 36, the morphemes of the row above
+(116) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(Hall & Phillips 2024:137)	page 36, the source of the row above
+(117) line 1	nɬeʔkepmxcín	phonemic	/seʔlís-s/	page 36, phonemic, in / /
+(117) line 1	nɬeʔkepmxcín	phonemic	[seʔ.lísc]	page 36, phonetic, in [ ]
+(117) line 1	Thompson & Thompson 1992:59	translation	‘their knife’	page 36
+(117) line 2	nɬeʔkepmxcín	gloss	knife-3POSS	page 36, the morphemes of the row above
+(117) line 2	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	citation	(T&T 1992:59)	page 36, the source of the row above
+§4.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	St’át’imcets	a.k.a. Lillooet, Northern Interior Salish
+§4.2.1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Since schwa surfaces in reduplicants without hosting stress or repairing illicit consonant clusters, it is reasonable to conclude that they are inserted to fill the nucleus of a syllable. See Mellesmoen (2025:193-263) for analyses along these lines of the reduplication patterns in closely related St’át’imcets. For descriptions of each reduplication pattern in nɬeʔkepmxcín see Thompson and Thompson (1992:81-85, 88-92, 99-101, 115-116) and Mellesmoen (2025:494-501).27 More work is required to fully account for the reduplication patterns in nɬeʔkepmxcín.	page 36
+§5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	5 Conclusion	page 36
+§5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, the language of the paper
+§5	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	We have presented a comprehensive overview of primary stress and schwa epenthesis in nɬeʔkepmxcín. Our constraint-based analysis predicts the correct position of stress across words with accented, ambivalent, and weak morphemes. We propose an innovative approach to lexical stress in Salish: underlying “accented” vowels are full vowels with an underlying mora. The presence of a mora distinguishes a vowel in an accented root from an ambivalent one, which does not come pre-associated with a mora in the lexicon. Weak morphemes do not have an underlying vowel or a mora. Another finding of this investigation is that schwas may be moraic when they bear stress, which is a divergence from previous accounts of Salish syllables that propose that schwas can never license a mora on their own. Proposing underlying moras and moraic stressed schwa allows us to derive the correct positions of stress and schwas, which supports our claim that all schwas in nɬeʔkepmxcín are epenthetic and that the position of stress is predictable and phonologically derived.	page 36
+footnote 27	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	27 For analyses of these patterns in which schwas are assumed to be underlying, see Jimmie (1994).	page 36, footnote
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	References	page 37
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	Cupeño	in the title of Alderete 2001, a Uto-Aztecan language
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Alderete, J. D. (2001). Root-controlled accent in Cupeño. Natural Language & Linguistic Theory, 19(3), 455–502.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Blake, S. J. (2000). On the distribution and representation of schwa in Sliammon (Salish): Descriptive and theoretical perspectives (Unpublished doctoral dissertation). University of British Columbia.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Boersma, P. & Weenink, D. (2025). Praat: doing phonetics by computer. URL: http://www.praat.org/	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Clements, G. N. (1990). The role of the sonority cycle in core syllabification. Papers in laboratory phonology, 283–333.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Clements, G. N., & Hume, E. V. (1995). The internal organization of speech sounds. In J. A. Goldsmith (Ed.), The handbook of phonological theory, 245–306. Blackwell.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Coelho, G. (2002). Conflicting directionality in Thompson River Salish. In A. A. Augustine & H. Park (Eds.), Proceedings of the 2002 Texas Linguistics Society Conference.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Czaykowska-Higgins, E., & Kinkade, D. (1998). Salish languages and linguistics: theoretical and descriptive perspectives. Mouton de Gruyter.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Davis, H. (2020). Salish Languages. In D. Siddiqi, M. Barrie, C.Gillon, J. D. Hauge, & E. Mathieu (Eds.) The Routledge Handbook of North American Languages, 452–472.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Routledge.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	St’át’imcets	a.k.a. Lillooet, Northern Interior Salish
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Davis, H. & Mellesmoen, G. (2023). A newly discovered reduplication pattern in St’át’imcets and its implications. In D. K. E. Reisinger, L. Griffin, G. Mellesmoen, S. Nederveen, J. Schillo, & B. Trotter (Eds.), Papers for the 58th International Conference on Salish and Neighbouring Languages (ICSNL 58), 10–46. Vancouver: University of British Columbia Working Papers in Linguistics.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	De Lacy, P. (2004). Markedness conflation in optimality theory. Phonology, 21(2), 145–199.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Downing, L. J. (2008). Co-phonologies and morphological exponence in OT [Conference Handout]. (3rd Exponence Network meeting and Workshop on Theoretical Morphology). Dresher, B. E., & van der Hulst, H. (1998). Head–dependent asymmetries in phonology: complexity and visibility. Phonology, 15(3), 317–352.	
+references	nɬeʔkepmxcín	cited form	xʷíʔ	in the title of Hall & Phillips 2024, xʷíʔ kʷ páq (You Will Be Sorry)
+references	nɬeʔkepmxcín	cited form	kʷ	in the title of Hall & Phillips 2024, xʷíʔ kʷ páq (You Will Be Sorry)
+references	nɬeʔkepmxcín	cited form	páq	in the title of Hall & Phillips 2024, xʷíʔ kʷ páq (You Will Be Sorry)
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Hall, B. & Phillips, B. (2024). xʷíʔ kʷ páq (You Will Be Sorry). In D. K. E. Reisinger, L. Griffin, E. Hannon, G. Mellesmoen, S. Nederveen, B. Oliver, J. Schillo, L. Schneider, & B. Trotter (Eds.), Papers for the 59th International Conference on Salish and Neighbouring Languages (ICSNL 59), 128–156. Vancouver: University of British Columbia Working Papers in Linguistics.	
+references	nɬeʔkepmxcín	cited form	ɬ	in the title of Hall & Phillips this volume, ɬ cutés us ɬ qəɬmín ɬ tmíxʷ (When Old One Created the Earth)
+references	nɬeʔkepmxcín	cited form	cutés	in the title of Hall & Phillips this volume, ɬ cutés us ɬ qəɬmín ɬ tmíxʷ
+references	nɬeʔkepmxcín	cited form	qəɬmín	in the title of Hall & Phillips this volume, ɬ cutés us ɬ qəɬmín ɬ tmíxʷ
+references	nɬeʔkepmxcín	cited form	tmíxʷ	in the title of Hall & Phillips this volume, ɬ cutés us ɬ qəɬmín ɬ tmíxʷ
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Hall, B. & Phillips, B. (this volume). ɬ cutés us ɬ qəɬmín ɬ tmíxʷ (When Old One Created the Earth) Papers for the 59th International Conference on Salish and Neighbouring Languages (ICSNL 60).	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Hayes, B. (1989). Compensatory lengthening in moraic phonology. Linguistic Inquiry, 20(2), 253–306.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Hewitt, M. (1994). Deconstructing foot binarity in Koniag Alutiiq. ms, University of British Columbia. Available as ROA-12 from the Rutgers Optimality Archive.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Hyman, L. M. (1985). Word domains and downstep in Bamileke-Dschang. Phonology, 2(1), 47– 83.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	Nɬeʔkepmx	in the title of Jimmie 1994
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Jimmie, M. (1994). A prosodic analysis of Nɬeʔkepmx reduplication. Master’s thesis, University of British Columbia.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Kang, Y. (2011). Loanword phonology. In M. Van Oostendorp, C. J. Ewen, E. Hume, & K. Rice (Eds.) The Blackwell companion to phonology, 4, 1003–1026.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	Nɬeʔkepmxcín	in the title of Khalaji Pirbaluti 2023
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Khalaji Pirbaluti, Z. (2023) Vowel Variation in Nɬeʔkepmxcín: An Acoustic Study of Coarticulation. In D. K. E. Reisinger, L. Griffin, G. Mellesmoen, S. Nederveen, J. Schillo, & B. Trotter (Eds.), Papers for the 58th International Conference on Salish and Neighbouring Languages (ICSNL 58), 199–218. Vancouver: University of British Columbia Working Papers in Linguistics.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Kinkade, M. D. (1998). How much does a schwa weigh? In E. Czaykowska-Higgins & M. D. Kinkade (Eds). Salish languages and linguistics, 197–216. Berlin: De Gruyter Mouton.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Levi, S. V. (2008). Phonemic vs. derived glides. Lingua, 118(12), 1956–1978.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Matthewson, L. (1994). Syllable structure in St’át’imcets. In Proceedings of the 1994 Annual Conference of the Canadian Linguistics Association, 381–392.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	McCarthy, J. J. (2002). A Thematic Guide to Optimality Theory. Cambridge University Press, Cambridge.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	McCarthy, J. J. (2003). OT constraints are categorical. Phonology, 20(1), 75–138. McCarthy, J. J., & Prince, A. (1993a). Generalized alignment. In G. Booij & J. Marle (Eds.) Yearbook of morphology 1993, 79–153. Dordrecht: Springer Netherlands.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	McCarthy, J. J., & Prince, A. (1993b). Prosodic Morphology: Constraint Interaction and Satisfaction.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	McCarthy, J., & Prince, A. (1994). The emergence of the unmarked: Optimality in Prosodic Morphology. In M. Gonzalez (Ed.), Proceedings of the North East Linguistic Society (NELS) 24, 333–379. Amherst: GLSA.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Mellesmoen, G. (2025). The Grammar of Salish Reduplication. PhD Dissertation, University of British Columbia.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Parker, A. (2011). It’s that schwa again! Towards a typology of Salish schwa. In M. Richards, T. Magnuson, T.M. Young, J. Lancaster, & S. Saunders (Eds.) Working Papers of the Linguistics Circle of the University of Victoria, 21, 9–22.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Pons-Moll, C. (2012). Loanword phonology, lexical exceptions, morphologically driven underapplication, and the nature of positionally biased constraints. Catalan journal of linguistics, 11, 127–166.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Prillop, K. (2013). Feet, syllables, moras and the Estonian quantity system. Linguistica Uralica, 49(1), 1–29.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Prince, A., & Smolensky, P. (1993/2004). Optimality Theory: Constraint interaction in generative grammar. Optimality Theory in phonology: A reader, 1–71.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, the language of the paper
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Reid, D. (2023). An acoustic analysis of aspiration in nɬeʔkepmxcín. In D. K. E. Reisinger, L. Griffin, G. Mellesmoen, S. Nederveen, J. Schillo, & B. Trotter (Eds.), Papers for the 58th International Conference on Salish and Neighbouring Languages (ICSNL 58), 368–383. Vancouver: University of British Columbia Working Papers in Linguistics.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	name	Jóhannsdóttir	K. Jóhannsdóttir, an editor in Shahin 2007
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Shahin, K. (2007). An acoustic study of schwa production in two St’át’imcets varieties. In K. Jóhannsdóttir & M. Oberg (Eds.) Papers for the 42nd International Conference on Salish and Neighbouring Languages (ICSNL 42), 383–390.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	hən’q’əmin’əm	hən’q’əmin’əm’ (Musqueam) Salish, in the title of Shaw et al. 1999
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Shaw, P. (1993). The prosodic constituency of minor syllables. In E. Duncan, D. Farkas, & P. Spaelti (Eds.), Proceedings of the 12th West Coast Conference on Formal Linguistics (WCCFL 12), 117–132. Chicago: University of Chicago Press Shaw, P. A., Blake, S. J., Campbell J., & Sheperd, C. (1999). Stress in hən’q’əmin’əm’ (Musqueam) Salish. Proceedings of WSCLA 4,131–163.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Thompson, L. C., & Thompson, M. T. (1992). The Thompson Language. Missoula: University of Montana Occassional Papers in Linguistics.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Thompson, L. C., & Thompson, M. T. (1996). Thompson River Salish Dictionary. Missoula: University of Montana Occassional Papers in Linguistics.	
+references	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	reference	Urbanczyk, S. (2001). Patterns of Reduplication in Lushootseed. London: Garland Publishing.	
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	Appendix A Table of suffixes based on their stress category	page 40
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, the language of the paper
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Table A1: sample of nɬeʔkepmxcín suffixes based on their stress category	page 40
+Table A1	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Stressable Unstressable Strong Ambivalent Weak	page 40, the column heads: Strong, Ambivalent and Weak under Stressable, and Unstressable
+Table A1 line 1	nɬeʔkepmxcín	cited affix	/-íyxs/	page 40, Table A1, strong, ‘3rd persion plural’
+Table A1 line 1	nɬeʔkepmxcín	cited affix	/-es/	page 40, Table A1, ambivalent, ‘3rd person ergative’
+Table A1 line 1	nɬeʔkepmxcín	cited affix	/-m/	page 40, Table A1, weak, ‘control middle’
+Table A1 line 1	nɬeʔkepmxcín	cited affix	/-t/	page 40, Table A1, unstressable, ‘immediate’
+Table A1 line 2	nɬeʔkepmxcín	cited affix	/-nwéɬn/	page 40, Table A1, strong, ‘limited ctr. middle’
+Table A1 line 2	nɬeʔkepmxcín	cited affix	/-si/	page 40, Table A1, ambivalent, ‘2nd person sing. object’
+Table A1 line 2	nɬeʔkepmxcín	cited affix	/-tn/	page 40, Table A1, weak, ‘instrumental’
+Table A1 line 2	nɬeʔkepmxcín	cited affix	/-e/	page 40, Table A1, unstressable, ‘imperative’
+Table A1 line 3	nɬeʔkepmxcín	cited affix	/-nwén̓/	page 40, Table A1, strong, ‘limited ctr. directive’
+Table A1 line 3	nɬeʔkepmxcín	cited affix	/-min/	page 40, Table A1, ambivalent, ‘relational’
+Table A1 line 3	nɬeʔkepmxcín	cited affix	/-p/	page 40, Table A1, weak, ‘inchoative’
+Table A1 line 3	nɬeʔkepmxcín	cited affix	/-uz/	page 40, Table A1, unstressable, ‘plural (imperative)’
+Table A1 line 4	nɬeʔkepmxcín	cited affix	/-ʔúy/	page 40, Table A1, strong, ‘reaffirmative’
+Table A1 line 4	nɬeʔkepmxcín	cited affix	/-xi/	page 40, Table A1, ambivalent, ‘indirective’
+Table A1 line 4	nɬeʔkepmxcín	cited affix	/-xn/	page 40, Table A1, weak, ‘“foot” (lex. suffix)’
+Table A1 line 4	nɬeʔkepmxcín	cited affix	/-s/	page 40, Table A1, unstressable, ‘3rd person possessive’
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	heading	Appendix B Supplemental phonetic evidence	page 40
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The following graphics provide acoustic evidence schwa epenthesis in words with only weak morphemes. Examples are provided for each speaker.	page 40
+appendix	Bev Phillips	cited form	sqʷə̣́m	page 40, ‘mountain’, e sqʷə̣́m, Figure B1, produced by BP
+appendix	Bev Phillips	cited form	sʕʷəsʕʷə̣́sts	page 41, ‘…and it shined’, ʔe sʕʷəsʕʷə̣́sts, Figure B2, produced by BP
+appendix	Bev Phillips	cited form	xʷə̣́st	page 41, ‘return home’, Figure B3 produced by BP and Figure B6 by CMA
+appendix	Marty Aspinall	cited form	cwə̣́m	page 42, ‘do/make’, Figure B4, produced by CMA
+appendix	Marty Aspinall	cited form	scúw	page 42, ‘task/work’, tk scúw, Figure B5, produced by CMA
+appendix	Bernice Garcia	cited form	nsc̓óqʷ	page 43, ‘my paper’, Figure B7, produced by KBG
+appendix	Bernice Garcia	cited form	səxsə̣́x	page 44, ‘mistaken’, Figure B8, produced by KBG
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure B1. Waveform and spectrogram showing schwa epenthesis in e sqʷə̣́m ‘mountain’ produced by BP	page 40
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure B2. Waveform and spectrogram showing schwa epenthesis in ʔe sʕʷəsʕʷə̣́sts ‘…and it shined’ produced by BP	page 40
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure B3. Waveform and spectrogram showing schwa epenthesis in xʷə̣́st ‘return home’ produced by BP	page 40
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure B4. Waveform and spectrogram showing schwa epenthesis in cwə̣́m ‘do/make’ produced by CMA	page 42
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure B5. Waveform and spectrogram showing schwa epenthesis in tk scúw ‘task/work’ produced by CMA	page 42
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure B6. Waveform and spectrogram showing schwa epenthesis in xʷə̣́st ‘return home’ produced by CMA	page 43
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure B7. Waveform and spectrogram showing schwa epenthesis in nsc̓óqʷ ‘my paper’ produced by KBG	page 43
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure B8. Waveform and spectrogram showing schwa epenthesis in səxsə̣́x ‘mistaken’ produced by KBG	page 44
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	The following graphics show acoustic evidence of schwas with change-of-state reduplication. These examples all come from BP.	page 44
+appendix	Bev Phillips	cited form	qʷzə̣́z	page 44, ‘get used’, change-of-state reduplication, Figure B9
+appendix	Bev Phillips	cited form	cwúw	page 45, ‘get made/grow’, change-of-state reduplication, Figure B10
+appendix	Bev Phillips	cited form	méƛ̓əƛ̓	page 45, ‘get mixed’, change-of-state reduplication, Figure B11
+appendix	Bev Phillips	cited form	ʔúsəs	page 46, ‘get discarded’, change-of-state reduplication, the second Figure B10
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure B9. Waveform and spectrogram showing the presence of schwa in change-of-state reduplication for the word qʷzə̣́z ‘get used’	page 44
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure B10. Waveform and spectrogram showing the presence of schwa in change-of-state reduplication for the word cwúw ‘get made/grow’	page 45
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure B11. Waveform and spectrogram showing the presence of schwa in change-of-state reduplication for the word méƛ̓əƛ̓ ‘get mixed’	page 45
+appendix	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	note	Figure B10. Waveform and spectrogram showing the presence of schwa in change-of-state reduplication for the word ʔúsəs ‘get discarded’	page 46, numbered B10 a second time
+title	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	title	The Long Schwa Paper: Stressed Schwa Epenthesis in nɬeʔkepmxcín	the paper's title, which carries footnote *
+title	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	name	Brent Hall	an author, University of British Columbia
+title	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	name	Noah Luntzlara	an author, University of British Columbia
+title	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	name	Gloria Mellesmoen	an author, University of British Columbia
+title	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	name	Danica Reid	an author, Simon Fraser University
+footnote *	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	name	Bev Phillips	a speaker of nɬeʔkepmxcín, BP
+footnote *	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	name	Marty Aspinall	c̓úʔsinek, a speaker of nɬeʔkepmxcín, CMA
+footnote *	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	name	Bernice Garcia	kʷaɬtèzetkʷuʔ, a Kamloops Indian Residential School speaker of nɬeʔkepmxcín who is relearning her language, KBG
+footnote *	Brent Hall, Noah Luntzlara, Gloria Mellesmoen and Danica Reid	name	Lisa Matthewson	a member of nɬab, thanked in footnote *

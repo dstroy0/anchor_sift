@@ -1,0 +1,757 @@
+where	who	kind	form	gloss
+front	Henry Davis	note	In Papers for the International Conference on Salish and Neighbouring Languages 60, University of British Columbia Working Papers in Linguistics, Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.)., 2025.	page 1
+front	Henry Davis	language	St’át’imcets	the language of the paper, a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish
+front	St’át’imcets	cited form	(ʔə)s-kas	page 1, ‘how’
+front	Henry Davis	note	Abstract: This paper is a sequel to Davis (2020), which introduced the three main classes of infinitives in St’át’imcets and examined the first class (raising infinitives) in detail. Here I turn to the second class, which comprises complements to epistemic verbs, including verbs of knowing, learning, and teaching. The infinitival complements of these verbs are invariably interpreted as ‘how-to’ questions; in the first part of the paper, I consider the hypothesis that rather than being directly selected by epistemic verbs, they are in fact complements to the WH- predicate (ʔə)s-kas ‘how’, which is selected by an epistemic verb and then optionally undergoes ellipsis. In the second part of the paper, I focus on the null subject of the infinitival clause: I argue that it should be treated uniformly as obligatorily control PRO, in spite of cases of apparent arbitrary control, which I ascribe to the presence of an implicit generic or modal operator.	page 1
+front	Henry Davis	note	Keywords: St’át’imcets, Salish, infinitives, ‘how-to’ questions, obligatory control, PRO	page 1
+§1	Henry Davis	heading	1 Introduction	page 1
+§1	Henry Davis	language	St’át’imcets	the language of the paper, a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish
+§1	Henry Davis	language	nɬeʔkepmxcín	a.k.a. Thompson (River) Salish, ISO 639-3 thp, the other Northern Interior Salish language with infinitives
+§1	Henry Davis	language	ʔayʔaǰuθəm	a.k.a. Comox-Sliammon, ISO 639-3 coo, Central Salish, where infinitives were found recently
+§1	Henry Davis	note	Infinitival clauses are not common in Salish; in fact, for the last quarter of a century, it has been assumed that they were a strictly local development, confined to the two Northern Interior Salish languages St’át’imcets (a.k.a. Lillooet: ISO 639-3 lil) and nɬeʔkepmxcín (a.k.a. Thompson (River) Salish: ISO 639-3 thr): see Kroeber (1999:220-223). However, very recent work on ʔayʔaǰuθəm (a.k.a. Comox-Sliammon: ISO 639-3 coo) has revealed for the first time that infinitives also exist in Central Salish, with a remarkably similar distribution to that in the Interior languages. 1 It is possible that now we know where to look, they will turn out to be more widespread across the family than we had previously thought, though steadily shrinking fieldwork opportunities may also mean that for many languages we will never find out.	page 1
+footnote *	Henry Davis	note	*As ever, my deepest debt is to the St’át’imcets speakers, past and present, whose wisdom pervades this work. I am particularly grateful to Carl Alexander (Qwa7yán’ak) for his continuing dedication to the documentation of his first language; without his deep knowledge and sharp insights, this work would be literally impossible. All unattributed St’át’imcets examples and judgements in this paper come from him. I would also like to thank Betty Wilson and Molly Harry for providing data from ʔayʔaǰuθəm, and Daniel Reisinger and Marianne Huijsmans for eliciting it on my behalf. Lisa Matthewson and the members of the Salish Working Group provided valuable feedback at various stages of this paper; of course, all errors of fact and interpretation remain my very own. This work has been supported by SSHRC Insight grant #435-2015-1694 to the author. Author’s e-mail: henry.davis@ubc.ca.	page 1, footnote
+§1	Henry Davis	name	Qwa7yán’ak	the St’át’imcets name of Carl Alexander, the consultant
+footnote 1	Henry Davis	note	1 Marianne Huijsmans and Daniel Reisinger, p.c. (2024, 2025).	page 1, footnote
+§1	St’át’imcets	cited form	kʷ(u)=	page 2
+§1	St’át’imcets	cited form	c̓íla	page 2
+§1	St’át’imcets	cited form	(ʔə)s-kas	page 2, ‘how’
+§1	Henry Davis	note	Infinitival clauses in St’át’imcets were first identified as such in Davis and Matthewson (1996), subsequently featured in Matthewson (2005a), and more systematically investigated in Davis (2020). As discussed in the last of these papers, they are related to and probably historically derived from nominalized complement clauses: in particular, they are invariably introduced by kʷ(u)=, one of the two ‘determiner-complementizer’ (D/C) elements which also introduce finite (nominalized) complement clauses in the language.2 In contrast to nominalized clauses, however, infinitives lack the two criterial ingredients of finiteness: the nominalizer s= and an associated possessive subject clitic.3 As shown in Davis (2020), predicates which take infinitival complements fall into three classes (there are no infinitival adjuncts). The first of these contains a single raising predicate, c̓íla ‘(be) like, resemble’, discussed in detail in Davis (2020). The second consists of epistemic verbs, including the St’át’imcets equivalents of ‘know’, teach’, ‘show’, etc., and the third consists of evaluative adjectives including the equivalents of ‘good’, ‘fun’, ‘hard’, etc. The present paper focuses on the second of these classes; I plan to investigate the third in a future ICSNL paper. The paper is structured as follows. Section 2 introduces and exemplifies infinitival complements to epistemic verbs. Section 3 considers in detail the hypothesis that in fact these infinitival complements are selected by the WH-predicate (ʔə)s-kas ‘how’, which undergoes optional ellipsis. Section 4 turns to an examination of the null subject of the embedded infinitival clause, paying particular attention to the distinction between obligatory and non-obligatory control. Section 5 concludes.	page 1
+§2	Henry Davis	heading	2 Infinitival complements to epistemic predicates	page 2
+§2	Henry Davis	note	I begin by enumerating and exemplifying the class of infinitival-selecting epistemic verbs; note that each of these verbs also occurs freely with finite (nominalized or subjunctive) complements, and – significantly in light of the analysis to follow – all of them select embedded questions as well as declarative complements.	page 2
+§2	St’át’imcets	root	√zəwat	page 2, ‘be/get known’
+§2	St’át’imcets	root	√ɬik	page 2, ‘get clear/apparent’
+§2	St’át’imcets	root	√zəwát	page 2
+§2	St’át’imcets	cited form	zəwát-ən	page 2, ‘know something/somebody’
+§2	St’át’imcets	cited affix	(ʔə)s-	page 2
+§2	St’át’imcets	cited form	(ʔe)s-ɬik-s	page 2
+§2	St’át’imcets	cited form	kʷ(u)=	page 2
+§2	St’át’imcets	cited form	waʔ	page 2
+§2	St’át’imcets	cited form	kʷa	page 2
+footnote 2	Henry Davis	note	2 The other D/C element, t(a)=, is only used in factive clauses, which are always nominalized. St’át’imcets contrasts in this respect with nɬeʔkepmxcín, which does allow (h)e=, the equivalent of t(a)=, to introduce infinitives (Kroeber 1999, Hall 2023).	page 2, footnote
+§2	Henry Davis	language	St’át’imcets	the language of the paper, a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish
+§2	Henry Davis	language	nɬeʔkepmxcín	a.k.a. Thompson (River) Salish, ISO 639-3 thp, the other Northern Interior Salish language with infinitives
+footnote 3	Henry Davis	note	3 A possessive clitic is not always present in nominalized clauses. In nominalized transitive clauses with no auxiliary, possessive clitics are replaced by subject suffixes (though only optionally so in the first person singular). When an auxiliary is present, either a possessive subject clitic attaches to the auxiliary or a subject suffix attaches to the main predicate, with a preference for the former in Lower St’át’imcets and for the latter in Upper St’át’imcets. In cases without a possessive clitic, the nominalizer itself is the only persistent morphological clue which differentiates finite from infinitival clauses.	page 2, footnote
+footnote 4	Henry Davis	note	4 Since D/C kʷ(u)= is homophonous with the polarity determiner kʷu=, (and both contract with waʔ to yield kʷa), I refer to it in the rest of this paper simply as kʷu=. It remains an open question (which I will not tackle here) as to whether the two are one and the same element semantically: see Arregui and Matthewson (2001) for a unified analysis of D and D/C elements.	page 2, footnote
+§2	St’át’imcets	cited form	kʷu=	page 2
+§2	Henry Davis	note	The most common members of the class are verbs meaning ‘know’, derived from the two roots √zəwat ‘be/get known’ and √ɬik ‘get clear/apparent’. Together with the directive/full control transitivizer (-Vn), √zəwát yields the transitive verb zəwát-ən ‘know something/somebody’, shown in (1) with an infinitival complement clause (bracketed for ease of reference). The same meaning is obtained by adding the stative prefix (ʔə)s- and the causative transitivizer -s to the root √ɬik to yield the transitive verb (ʔe)s-ɬik-s, shown in (2) with an infinitival complement. Note that in both examples, the D/C element kʷ(u)= is contracted with the imperfective auxiliary waʔ to yield kʷa; this combination is extremely frequent in infinitive clauses.4	page 2
+(1) line 1	St’át’imcets	segmentation	wáʔ=ɬkan zəwát-ən-Ø [kʷa mays-ən-Ø-táli	page 3, engine language
+(1) line 2	St’át’imcets	gloss	IPFV=1SG.SUBJ get.known-DIR-3OBJ [D/C+IPFV fix-DIR-3OBJ-NTS	page 3, engine english
+(1) line 3	St’át’imcets	segmentation	kʷu=n-qtás-tən]	page 3, engine language
+(1) line 4	St’át’imcets	gloss	DET=LOC-pitcook-INS]	page 3, engine english
+(1) line 5	Davis et al. in prep.	translation	‘I know how to make cooking pits.’5 (Davis et al. in prep.)	page 3, engine english, cited Davis et al. in prep.
+(2) line 1	St’át’imcets	segmentation	ʔạz=Ø n-sxʷákʷəkʷ kʷas	page 3, engine language
+(2) line 2	St’át’imcets	gloss	NEG=3SUBJ 1SG.POSS-heart D/C+NMLZ+IPFV+3POSS	page 3, engine english
+(2) line 3	St’át’imcets	segmentation	s-ɬik-s-Ø-twítas [kʷa kʷukʷ] ʔi=núkʷ=a,	page 3, engine language
+(2) line 4	St’át’imcets	gloss	STAT-be.clear-CAUS-3OBJ-3PL.ERG [D/C+IPFV cook] PL.DET=some=EXIS	page 3, engine english
+(2) line 5	St’át’imcets	segmentation	waʔ=Ø cunam̓-ən-túmuɬ-as sə́naʔ	page 3, engine language
+(2) line 6	St’át’imcets	gloss	IPFV=3SUBJ teach-DIR-1PL.OBJ-3ERG CNTR	page 3, engine english
+(2) line 7	Matthewson 2005b:475	translation	‘I don’t think some of them knew how to cook, but they taught us all the same.’	page 3, engine english, cited Matthewson 2005b:475
+(2) line 8	Henry Davis	citation	(Matthewson 2005b:475)	page 3, engine english
+§2	St’át’imcets	cited form	zəwát	page 3, ‘be/get known’
+§2	Henry Davis	note	The bare-root unaccusative verb zəwát ‘be/get known’, also shows up with infinitival complements, yielding a meaning approximately equivalent to an English impersonal passive (‘it is known how to…’):	page 3
+(3) line 1	St’át’imcets	segmentation	plan=Ø ʔayɬ ʔạz kʷas zəwát [kʷa	page 3, engine language
+(3) line 2	St’át’imcets	gloss	already=3SUBJ now NEG D/C+NMLZ+IPFV+3POSS get.known [D/C+IPFV	page 3, engine english
+(3) line 3	St’át’imcets	segmentation	mays-ən-Ø-táli kʷu=sqʷəl̕íp]	page 3, engine language
+(3) line 4	St’át’imcets	gloss	fix-DIR-3OBJ-NTS DET=black.tree.moss]	page 3, engine english
+(3) line 5	Davis et al. in prep.	translation	‘It’s no longer known how to prepare black tree moss (for consumption).’	page 3, engine english, cited Davis et al. in prep.
+(3) line 6	Henry Davis	citation	(Davis et al. in prep.)	page 3, engine english
+§2	Henry Davis	note	Verbs meaning ‘learn’ are derived from √zəwát and √ɬik via change-of-state (C2) reduplication plus either the active intransitive suffix -xal or the causative transitive suffix -s; both take infinitival complements, as shown in (4) and (5)-(6), respectively.	page 3
+footnote 5	Henry Davis	note	5 Examples are given in the variant of the North American Phonetic Alphabet standardly used in work on Salish. All unattributed examples are from original fieldwork by the author. Unless explicitly mentioned, all examples are from the Upper (Northern) dialect of the language. Glossing abbreviations are as follows: ABSN = absent, ACT = active intransitive, ANTI = antithetical, AUT = autonomous (lexical reflexive) intransitive, CAUS = causative transitivizer, CHA = characteristic, CIRC = circumstantial modal, CNTR = counter-to- expectation, COMP = complementizer, COP = (equational) copula, COS = change-of-state (C2) reduplication, D/C = determiner-complementizer, DEM = demonstrative, DET = determiner, DIM = diminutive (C1) reduplication, DIR = directive (full control) transitivizer, EMPH = emphatic, EPIS = epistemic modal, ERG = ergative (transitive subject suffix), EXCL = exclusive, EXIS = existential enclitic, INCH = inchoative, INS = instrument, INT = intensifier, IPFV = imperfective, LOC = locative, MID = middle, NEG = negation, NMLZ = nominalizer, NTS = non-topical subject marker, OBJ = object suffix, OOC = out of control, PASS = passive, PL = plural inflection, PLU = plural/pluractional (C or C1C2) reduplication, PN = proper name, POSS = possessive, PROS = prospective aspect, POSS = possessive, PROG = progressive aspect, PRSP = presupposed knowledge, Q = yes-no question, QUOT = quotative, RDR = redirective (applicative) transitivizer, REC = reciprocal, REM = remote in time, RLT = relational (applicative) transitivizer, SJV = subjunctive (“conjunctive”) subject clitic, SUBJ = indicative subject clitic. An affix is marked with a dash (-), a clitic with an equals sign (=), a prefixal reduplicant with a tilde (~), an infix (including reduplicated infixes) with angled brackets (<…>), unsegmentable morpheme combinations with a plus sign (+), and segments deleted by regular phonological processes with curly brackets ({..}).	page 3, footnote
+(4) line 1	St’át’imcets	segmentation	xʷúz̓=ɬkan zəwát~ət-xal [kʷa c̓áw̓-xal kʷu=sqlaw̓]	page 4, engine language
+(4) line 2	St’át’imcets	gloss	PROS=1SG.SUBJ get.known-DIR~COS-ACT [D/C+IPFV wash-ACT DET=gold]	page 4, engine english
+(4) line 3	Davis et al. in prep.	translation	‘I’m going to learn how to pan for gold.’	page 4, engine english, cited Davis et al. in prep.
+(4) line 3	Henry Davis	citation	(Davis et al. in prep.)	the tag or source at the right of the translation
+(5) line 1	St’át’imcets	segmentation	zəwát~ət-s-Ø-as [kʷa píx̌əm̓]	page 4, engine language
+(5) line 2	St’át’imcets	gloss	get.known-DIR~COS-CAUS-3OBJ-3ERG [D/C+IPFV hunt]	page 4, engine english
+(5) line 3	Davis et al. in prep.	translation	‘S/he has learned how to hunt.’	page 4, engine english, cited Davis et al. in prep.
+(5) line 3	Henry Davis	citation	(Davis et al. in prep.)	the tag or source at the right of the translation
+(6) line 1	St’át’imcets	segmentation	ɬík~ək-s-Ø=kan [kʷa sámʔa-c]	page 4, engine language
+(6) line 2	St’át’imcets	gloss	be.clear~COS-CAUS-3OBJ=1SG.SUBJ [D/C+IPFV white.person-mouth]	page 4, engine english
+(6) line 3	Davis et al. in prep.	translation	‘I learned how to speak English.’	page 4, engine english, cited Davis et al. in prep.
+(6) line 3	Henry Davis	citation	(Davis et al. in prep.)	the tag or source at the right of the translation
+§2	St’át’imcets	cited affix	-ən	page 4
+§2	Henry Davis	note	Ditransitive verbs meaning ‘show’, ‘instruct’, and ‘teach’ comprise a semantically related set of infinitive-taking predicates; like other ditransitives, they are either suffixed with the redirective transitivizer -xit, as in (7)-(8) or more exceptionally with the directive transitivizer -ən (9).	page 4
+(7) line 1	St’át’imcets	segmentation	hal̕a-xí{t}-c-as [kʷa ɬk̓ʷ-ál̕us] na=n-kʷə́kʷʔ=a]	page 4, engine language
+(7) line 2	St’át’imcets	gloss	show-RDR-1SG.OBJ-3ERG [D/C+IPFV poke-eye] ABSN.DET=1SG.POSS-grandmother=EXIS]	page 4, engine english
+(7) line 3	Davis et al. in prep.	translation	‘My grandmother showed me how to make baskets.’	page 4, engine english, cited Davis et al. in prep.
+(7) line 3	Henry Davis	citation	(Davis et al. in prep.)	the tag or source at the right of the translation
+(8) line 1	St’át’imcets	segmentation	x̌ək-xít-Ø látiʔ [kʷa qʷəc-ən-Ø-táli	page 4, engine language
+(8) line 2	St’át’imcets	gloss	instruct-RDR-3OBJthere[D/C+IPFV move-DIR-3-OBJ-NTS	page 4, engine english
+(8) line 3	St’át’imcets	segmentation	ta=n-q̓ʷíc̓-mən=a]	page 4, engine language
+(8) line 4	St’át’imcets	gloss	DET=LOC-wash.clothes-INS=EXIS]	page 4, engine english
+(8) line 5	Davis et al. in prep.	translation	‘Instruct him/her how to start the washing machine.’	page 4, engine english, cited Davis et al. in prep.
+(8) line 5	Henry Davis	citation	(Davis et al. in prep.)	the tag or source at the right of the translation
+(9) line 1	St’át’imcets	segmentation	xʷuz̓=Ø cunám̓-ən-c-as [kʷa sítk-əm]	page 4, engine language
+(9) line 2	St’át’imcets	gloss	PROS=3SUBJ teach-DIR-1SG.OBJ-3ERG [D/C+IPFV mesh-MID]	page 4, engine english
+(9) line 3	Henry Davis	translation	‘S/he is going to teach me how to make a net.’	page 4, engine english
+§2	Henry Davis	note	And finally, verbs for ‘remember’ and ‘forget’ complete the class:	page 4
+(10) line 1	St’át’imcets	segmentation	tqíɬ=Ø=ƛ̓uʔ xʷʔạz kʷənswá ləx̌láx̌-s -Ø	page 4, engine language
+(10) line 2	St’át’imcets	gloss	almost=3SUBJ=EXCL NEG D/C+1SG.POSS+NMLZ+IPFV remember-CAUS-3OBJ	page 4, engine english
+(10) line 3	St’át’imcets	segmentation	[kʷa ʔuxʷalmíxʷ-c]	page 4, engine language
+(10) line 4	St’át’imcets	gloss	[D/C+IPFV indigenous-mouth]	page 4, engine english
+(10) line 5	Henry Davis	translation	‘I just barely remember how to talk ucwalmícwts (the language of the people).’	page 4, engine english
+(11) line 1	St’át’imcets	segmentation	tqíɬ=kan=ƛ̓uʔ ɬáp-ən-Ø [kʷa ʔuxʷalmíxʷ-c]	page 4, engine language
+(11) line 2	St’át’imcets	gloss	almost=1SG.SUBJ=EXCL get.forgotten-DIR-3OBJ [D/C+IPFV indigenous-mouth]	page 4, engine english
+(11) line 3	Henry Davis	translation	‘I’ve almost forgotten how to speak ucwalmícwts (the language of the people).’	page 4, engine english
+§2	St’át’imcets	cited form	ɬap	page 4, ‘get forgotten’
+§2	Henry Davis	note	The bare-root unaccusative alternant ɬap ‘get forgotten’ also surfaces with infinitival complements, yielding an impersonal meaning parallel to that of zəwát get known’:	page 4
+(12) line 1	St’át’imcets	segmentation	tqíɬ=Ø=ƛ̓uʔ ɬap [kʷa ʔuxʷalmíxʷ-c]	page 5, engine language
+(12) line 2	St’át’imcets	gloss	almost=3SUBJ=EXCL get.forgotten [D/C+IPFV indigenous-mouth]	page 5, engine english
+(12) line 3	Henry Davis	translation	‘It’s almost been forgotten how to speak ucwalmícwts (the language of the people).’	page 5, engine english
+§2	Henry Davis	note	The reader will no doubt have noticed by now that these examples show a striking common characteristic: they are all translated into English as embedded ‘how to’ questions. This raises the possibility that they are in fact concealed WH-questions: I explore this possibility in the next section.	page 5
+§3	Henry Davis	heading	3 Infinitival complements to epistemic predicates as concealed questions	page 5
+§3	St’át’imcets	cited form	(ʔə)s-kas	page 5
+§3	Henry Davis	note	In this section, I consider the hypothesis that infinitival complements to epistemic predicates (henceforth ‘how-to infinitives’) are in fact complements to the WH-question predicate (ʔə)s-kas ‘how (to)’, which is itself selected by a matrix epistemic predicate and may be elided just in case it takes an infinitival complement. The argument runs as follows:	page 5
+§3	Henry Davis	note	1. While all adjunct WH-predicates select for finite complement clauses, (ʔə)s-kas is the only WH-predicate which can also take an infinitival complement clause.	page 5
+§3	Henry Davis	note	2. Since WH-predicates occur in both matrix and embedded contexts, (ʔə)s-kas may take an infinitival complement in main clauses (in which case there is no higher selecting verb).	page 5
+§3	Henry Davis	note	3. All epistemic predicates select for embedded questions, including those headed by (ʔə)s-kas.	page 5
+§3	Henry Davis	note	4. This means that while (ʔə)s-kas directly selects for an infinitival complement, epistemic verbs only do so indirectly, via the selection of (ʔə)s-kas.	page 5
+§3	Henry Davis	note	5. Optional elision of (ʔə)s-kas makes it appear that selection is direct.	page 5
+§3	Henry Davis	note	6. Elision may take place only when (ʔə)s-kas takes an infinitival complement in an embedded clause, because only in this environment is its meaning fully recoverable. Section 3.1 introduces (ʔə)s-kas questions; 3.2 shows that they take infinitival complements in both matrix and embedded contexts; 3.3 introduces the hypothesis that apparent how-to infinitival complements to epistemic verbs are actually complements of an elided version of (ʔə)s-kas; and 3.4 points out various problems with the concealed question hypothesis.	page 5
+§3.1	Henry Davis	heading	3.1 WH-questions with (ʔə)s-kas ‘how’	page 5
+§3.1	Henry Davis	language	St’át’imcets	the language of the paper, a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish
+§3.1	St’át’imcets	cited form	ɬ=	page 5
+§3.1	St’át’imcets	cited form	kʷu=	page 5
+§3.1	Henry Davis	note	In St’át’imcets, as in other Salish languages, WH-questions are formed using a WH-predicate whose range is restricted by its complement: see Kroeber (1999, Chapter 7) for a general overview of WH-questions in Salish, and Davis (2008) for a more detailed examination of WH-questions in St’át’imcets. In the case of WH-phrases linked to argument positions, the complement is a DP, typically containing a subject- or object-centred relative clause. In the case of adjunct WH-phrases (including locative, temporal, instrumental, and reason adjuncts) the complement is a CP, either subjunctive-marked (introduced by the proclitic complementizer ɬ=), or nominalized (and usually introduced by the determiner-complementizer kʷu=).	page 5
+§3.1	St’át’imcets	cited affix	(ʔə)s-	page 6
+§3.1	St’át’imcets	cited form	(ʔə)s-kas	page 6
+§3.1	Henry Davis	note	‘How’ questions are formed with the WH-predicate kas, which is usually prefixed with the stative marker (ʔə)s-, and takes either a subjunctive or a nominalized complement clause. Typically, (ʔə)s-kas questions have an instrumental (“means”) reading, as shown in the main clause questions in (13)-(15) below.	page 6
+(13) line 1	St’át’imcets	segmentation	s-kas=Ø [ɬ=xʷúz̓=an máys-ən-Ø	page 6, engine language
+(13) line 2	St’át’imcets	gloss	STAT-how=3SUBJ [COMP=PROSP=1SG.SJV fix-DIR-3OBJ	page 6, engine english
+(13) line 3	St’át’imcets	segmentation	ti=n-pə̣m-p-sút=a]	page 6, engine language
+(13) line 4	St’át’imcets	gloss	DET=1SG.POSS-fast-INCH-OOC-EXIS]	page 6, engine english
+(13) line 5	Henry Davis	translation	‘How am I going to fix my car?’	page 6, engine english
+(14) line 1	St’át’imcets	segmentation	s-kas=Ø [kʷ=s=x̌áƛ̓-min̓-c-axʷ	page 6, engine language
+(14) line 2	St’át’imcets	gloss	STAT-how=3SUBJ [D/C=NMLZ=want-RLT-1SG.OBJ-2SG.ERG	page 6, engine english
+(14) line 3	St’át’imcets	segmentation	[kʷ=s=máys-n=Ø-an]]	page 6, engine language
+(14) line 4	St’át’imcets	gloss	[D/C=NMLZ=fix-DIR-3OBJ-1SG.ERG]]	page 6, engine english
+(14) line 5	Henry Davis	translation	‘How did you want me to fix it?’	page 6, engine english
+(15) line 1	St’át’imcets	segmentation	s-kas=Ø [kʷasu cut (e=)tsʔa	page 6, engine residue
+(15) line 2	St’át’imcets	gloss	STAT-how=3SUBJ [D/C+NMLZ+IPFV+2SG.POSS say (to=)this	page 6, engine english
+(15) line 3	St’át’imcets	segmentation	l=ta=ʔuxʷalmíxʷ-c=a]	page 6, engine language
+(15) line 4	St’át’imcets	gloss	in=DET=indigenous-mouth=EXIS]	page 6, engine english
+(15) line 5	Henry Davis	translation	‘How do you say this in ucwalmícwts (‘the language of the people of the land’)?’	page 6, engine english
+§3.1	St’át’imcets	cited form	zəwát-ən	page 6
+§3.1	St’át’imcets	cited form	waʔ	page 6
+§3.1	St’át’imcets	cited form	ɬwas	page 6
+§3.1	St’át’imcets	cited form	ɬus	page 6
+§3.1	St’át’imcets	cited form	ɬ=wáʔ=as	page 6
+§3.1	Henry Davis	note	A textual example of an (ʔə)s-kas question embedded under the epistemic predicate zəwát-ən ‘know’ is given in (16). (Note that (ʔə)s-kas questions are often preceded by the imperfective auxiliary waʔ, which when unstressed contracts with the complementizer ɬ= and subjunctive subject enclitics to yield e.g., ɬwas or ɬus from ɬ=wáʔ=as.)	page 6
+(16) line 1	St’át’imcets	segmentation	niɬ s=was kəns-zəwat-ən-Ø-ítas [ɬ=us	page 6, engine language
+(16) line 2	St’át’imcets	gloss	COP NMLZ=IPFV+3POSS try-know-DIR-3OBJ-3PL.ERG [COMP=IPFV+3SJV	page 6, engine english
+(16) line 3	St’át’imcets	segmentation	ʔəs-kás [ɬ=was xʷuz̓ x̌aƛ̓əm-s-Ø-twítas	page 6, engine language
+(16) line 4	St’át’imcets	gloss	STAT-how [COMP=IPFV+3SJV PROS go.uphill-CAUS-3OBJ-3PL.ERG	page 6, engine english
+(16) line 5	St’át’imcets	segmentation	ʔákʷuʔ ʔi=k̓ʷul̕-lakʔ-íh=a mútaʔ	page 6, engine language
+(16) line 6	St’át’imcets	gloss	to.there PL.DET=make-tool-3PL.POSS=EXIS and	page 6, engine english
+(16) line 7	St’át’imcets	segmentation	ʔi=sʔiɬən-íh=a]]	page 6, engine language
+(16) line 8	St’át’imcets	gloss	PL.DET=food-3PL.POSS=EXIS]]	page 6, engine english
+(16) line 9	Alexander 2016:88	translation	‘So then they wanted to know how they could get their tools and their food up there.’	page 6, engine english, cited Alexander 2016:88
+(16) line 10	Henry Davis	citation	(Alexander 2016:88)	page 6, engine english
+§3.2	Henry Davis	heading	3.2 The WH-predicate (ʔə)s-kas with infinitival complements	page 6
+§3.2	St’át’imcets	cited form	(ʔə)s-kas	page 6
+footnote 6	Henry Davis	note	6 The example in (18) forms a minimal pair with (8) above, where the intermediate clause with (ʔə)s-kas is absent; by hypothesis, the latter is a reduced version of the former.	page 6, footnote
+§3.2	Henry Davis	note	Crucially, besides subjunctive and nominalized complement clauses, (ʔə)s-kas also frequently takes infinitival complements, which, as to be expected, yield how-to meanings. Examples of embedded (ʔə)s-kas with infinitival complements are given in (17)-(18):6	page 6
+(17) line 1	St’át’imcets	segmentation	ʔạ=Ø kʷ=n=s=zəwát-ən-Ø pinániʔ [ɬ=us	page 7, engine language
+(17) line 2	St’át’imcets	gloss	NEG=3SUBJ D/C=1SG.POSS=NMLZ=know-DIR-3OBJ around.then [COMP=IPFV+3SJV	page 7, engine english
+(17) line 3	St’át’imcets	segmentation	(s-)kas [kʷa=súq̓ʷ-əm]]	page 7, engine language
+(17) line 4	St’át’imcets	gloss	(STAT-)how [D/C+IPFV=skin-MID]]	page 7, engine english
+(17) line 5	Alexander 2016:166	translation	‘I didn’t know how to skin an animal back then.’	page 7, engine english, cited Alexander 2016:166
+(17) line 5	Henry Davis	citation	(Alexander 2016:166)	the tag or source at the right of the translation
+(18) line 1	St’át’imcets	segmentation	x̌ək-cít-Ø látiʔ [ɬ=us (s-)kas [kʷa	page 7, engine language
+(18) line 2	St’át’imcets	gloss	instruct-RDR-3OBJ there [COMP=IPFV+3SJV (STAT-)how [D/C+IPFV	page 7, engine english
+(18) line 3	St’át’imcets	segmentation	qʷəc-ən-Ø-táli ta=n-q̓ʷíc̓-mən-tən=a]]	page 7, engine language
+(18) line 4	St’át’imcets	gloss	move-DIR-3OBJ-NTS DET=LOC-wash.clothes-INS-LOC=EXIS]]	page 7, engine english
+(18) line 5	Davis et al. in prep.	translation	‘Instruct him how to start the washing machine.’	page 7, engine english, cited Davis et al. in prep.
+(18) line 5	Henry Davis	citation	(Davis et al. in prep.)	the tag or source at the right of the translation
+§3.2	Henry Davis	note	However, infinitival complements to (ʔə)s-kas are not confined to embedded clauses: they also occur in main clause how-to questions. Compare (19) below to (13) above:	page 7
+(19a) line 1	St’át’imcets	segmentation	waʔ=Ø s-kas [kʷa mays-ən-Ø-táli	page 7, engine language
+(19a) line 2	St’át’imcets	gloss	IPFV=3SUBJ STAT-how [D/C+IPFV fix-DIR-3OBJ-NTS	page 7, engine english
+(19a) line 3	St’át’imcets	segmentation	ti=n-pə̣m-p-sút=a]	page 7, engine language
+(19a) line 4	St’át’imcets	gloss	DET=1SG.POSS-fast-INCH-OOC=EXIS]	page 7, engine english
+(19a) line 5	Henry Davis	translation	‘How do I fix my car?’ (More literally, ‘How is it to fix my car?’)	page 7, engine english
+(19b) line 1	St’át’imcets	segmentation	s-kás=as=k̓a [kʷa mays-ən-Ø-táli	page 7, engine language
+(19b) line 2	St’át’imcets	gloss	STAT-how=3SJV=EPIS [D/C+IPFV fix-DIR-3OBJ-NTS	page 7, engine english
+(19b) line 3	St’át’imcets	segmentation	ti=n-pə̣m-p-sút=a]	page 7, engine language
+(19b) line 4	St’át’imcets	gloss	DET=1SG.POSS-fast-INCH-OOC=EXIS]	page 7, engine english
+(19b) line 5	Henry Davis	translation	‘I wonder how to fix my car?’ (More literally, ‘How might it be to fix my car?’)	page 7, engine english
+§3.2	Henry Davis	note	(Note the example in (b) involves a “conjectural” question: see Matthewson 2010.) Of course, in main clause (ʔə)s-kas questions, there is no question of a higher epistemic verb selecting for an infinitival complement: the WH-predicate itself is responsible. But if so, that should also be the case for the embedded infinitives illustrated in (17)-(18) above. In other words, the relation between the higher epistemic predicates and the infinitives in embedded cases is indirect: the higher predicates select for (ʔə)s-kas, and (ʔə)s-kas selects for an infinitival complement. It is now but a short step to the claim that in cases of apparent direct selection of an infinitival complement by an epistemic verb (i.e., all the cases in Section 2), the relation is also mediated by (ʔə)s-kas; the only difference is that in these cases, (ʔə)s-kas has been elided. An immediate prediction of this hypothesis is that we expect all epistemic predicates which take how-to infinitives to select for embedded questions. This is indeed the case, as shown in the examples below in (20)-(25).7	page 7
+(20) line 1	St’át’imcets	segmentation	wáʔ=ɬkaxʷ=ha zəwát-ən-Ø [ɬ=kánmas=as [ɬ=xʷúz̓=as cʔas]]	page 7, engine language
+(20) line 2	St’át’imcets	gloss	IPFV=2SG.SUBJ=Q know-DIR-3OBJ[COMP=when=3SJV [COMP=PROS=3SJV come]]	page 7, engine english
+(20) line 3	Henry Davis	translation	‘Do you know when he will come?’	page 7, engine english
+footnote 7	Henry Davis	note	7 This also predicts that the converse is true: i.e., that every predicate that selects an embedded question will also take a how-to infinitive. See 3.4 below for discussion.	page 7, footnote
+(21) line 1	St’át’imcets	segmentation	ʔạ́z=Ø=ƛ̓uʔ kʷ=s=zəwát=s [(ɬ=)nkáʔ=as=tuʔ	page 8, engine language
+(21) line 2	St’át’imcets	gloss	NEG=3SUBJ=EXCL D/C=NMLZ=get.known=3POSS [(COMP=)where=3SJV=REM	page 8, engine english
+(21) line 3	St’át’imcets	segmentation	[ɬ=as wáʔ=wit]]	page 8, engine residue
+(21) line 4	St’át’imcets	gloss	[COMP=IPFV+3SJV be=3PL]]	page 8, engine english
+(21) line 5	Henry Davis	translation	‘Their whereabouts was unknown.’ (More literally: ‘It was not known where they were.’)	page 8, engine english
+(22) line 1	St’át’imcets	segmentation	ʔạ́y=s=ƛ̓uʔ s=zəwát<ət>-s-Ø-an [(ɬ=)stám̓=as	page 8, engine language
+(22) line 2	St’át’imcets	gloss	NEG=3POSS=EXCL NMLZ=get.known<COS>-CAUS-3OBJ-1SG.ERG [(COMP=)what=3SJV	page 8, engine english
+(22) line 3	St’át’imcets	segmentation	[l=kʷas qʷəz kʷu=məlạ́mən	page 8, engine language
+(22) line 4	St’át’imcets	gloss	[at=D/C+NMLZ+IPFV+3POSS get.used D/C=medicine	page 8, engine english
+(22) line 5	St’át’imcets	segmentation	(ʔi=)nmáx̌ʷtən=a]]	page 8, engine language
+(22) line 6	St’át’imcets	gloss	(PL.DET=)false.solomon’s.seal=EXIS]]	page 8, engine english
+(22) line 7	Davis et al. in prep.	translation	‘I still haven’t learned what False Solomon’s Seal is used as medicine for.’	page 8, engine english, cited Davis et al. in prep.
+(22) line 8	Henry Davis	citation	(Davis et al. in prep.)	page 8, engine english
+(23) line 1	St’át’imcets	segmentation	cixʷ=Ø hal̕a-xí{t}-c-as s-xaʔxʔálus [(ɬ=)stám̓=as	page 8, engine language
+(23) line 2	St’át’imcets	gloss	get.there=3SUBJ show-IND-1SG.OBJ-3ERG NMLZ-Ca7c7álus [(COMP=)what=3SJV	page 8, engine english
+(23) line 3	St’át’imcets	segmentation	[kʷa cəkláw̓sxən]]	page 8, engine language
+(23) line 4	St’át’imcets	gloss	[DET+IPFV edible.thistle]]	page 8, engine english
+(23) line 5	Davis et al. in prep.	translation	‘Ca7c7álus went to show me what a tsekláw’scen (a kind of edible thistle) was.’	page 8, engine english, cited Davis et al. in prep.
+(23) line 6	Henry Davis	citation	(Davis et al. in prep.)	page 8, engine english
+(24) line 1	St’át’imcets	segmentation	cún-c-as=tuʔ kʷ=s=xʷʔạy=s kʷənswá	page 8, engine language
+(24) line 2	St’át’imcets	gloss	tell+DIR-1SG.OBJ-3ERG=REM D/C=NMLZ=NEG=3POSS D/C+1SG.POSS+NMLZ+IPFV	page 8, engine english
+(24) line 3	St’át’imcets	segmentation	ɬáp-ən-Ø [ɬəl=(ɬ=)nkáʔ=as [ta=n=s=cʔás=a]]	page 8, engine language
+(24) line 4	St’át’imcets	gloss	forget-DIR-3OBJ [from=(COMP=)where=3SJV [DET=1SG.POSS=NMLZ=come=EXIS]]	page 8, engine english
+(24) line 5	Matthewson 2005b:359	translation	‘She told me not to forget where I came from.’	page 8, engine english, cited Matthewson 2005b:359
+(24) line 5	Henry Davis	citation	(Matthewson 2005b:359)	the tag or source at the right of the translation
+(25) line 1	St’át’imcets	segmentation	xʷʔạz kʷənwá ləx̌láx̌-s-Ø	page 8, engine language
+(25) line 2	St’át’imcets	gloss	NEG=EXCL D/C+1SG.POSS+NMLZ+IPFV remember-CAUS-3OBJ	page 8, engine english
+(25) line 3	St’át’imcets	segmentation	[(ɬ=)kənkán=as [ʔi=wáʔ s-x̌aq̓-s	page 8, engine language
+(25) line 4	St’át’imcets	gloss	[(COMP=)how.much=3SJV [ PL.DET=IPFV NMLZ-pay-3POSS	page 8, engine english
+(25) line 5	St’át’imcets	segmentation	ʔi=sámʔ=a	page 8, engine language
+(25) line 6	St’át’imcets	gloss	PL.DET=white.person=EXIS	page 8, engine english
+(25) line 7	Matthewson 2005b:77	translation	‘I don’t remember how much the white people paid.’	page 8, engine english, cited Matthewson 2005b:77
+(25) line 7	Henry Davis	citation	(Matthewson 2005b:77)	the tag or source at the right of the translation
+§3.2	St’át’imcets	cited form	nkaʔ	page 8, ‘where’
+§3.2	St’át’imcets	cited form	kánmas	page 8, ‘when’
+§3.2	Henry Davis	note	On the other hand, no other WH-predicate besides (ʔə)s-kas can take an infinitival complement, as shown in (26) and (27) below for nkaʔ ‘where’ and kánmas ‘when’.	page 8
+(26a) line 1	St’át’imcets	segmentation	sqʷál̕-ən-Ø [(ɬ=)nkáʔ=as [ɬ=xʷúz̓=as nas]]	page 8, engine language
+(26a) line 2	St’át’imcets	gloss	inform-DIR-3OBJ [(COMP=)where=3SJV [COMP=PROS=3SJV go]]	page 8, engine english
+(26a) line 3	Henry Davis	translation	‘Tell him where to go.’	page 8, engine english
+(26b) line 1	St’át’imcets	segmentation	* sqʷál̕-ən-Ø [(ɬ=)nkáʔ=as [kʷa nas]]	page 8, engine language
+(26b) line 2	St’át’imcets	gloss	inform-DIR-3OBJ [(COMP=)where=3SJV [D/C+IPFV go]]	page 8, engine english
+(26b) line 3	Henry Davis	translation	(Intended meaning: ‘Tell him where to go.’)	page 8, engine english
+(27a) line 1	St’át’imcets	segmentation	cun-Ø [ɬ=kánmas=as [kʷ=s=qʷacác=s]]	page 9, engine language
+(27a) line 2	St’át’imcets	gloss	tell+DIR-3OBJ [COMP=when=3SJV [D/C=NMLZ=leave=3POSS]]	page 9, engine english
+(27a) line 3	Henry Davis	translation	‘Tell him when to leave.’	page 9, engine english
+(27b) line 1	St’át’imcets	segmentation	* cun-Ø [ɬ=kánmas=as [kʷa qʷacác]]	page 9, engine language
+(27b) line 2	St’át’imcets	gloss	tell+DIR-3OBJ [COMP=when=3SJV [D/C+IPFV leave]]	page 9, engine english
+(27b) line 3	Henry Davis	translation	(Intended meaning: ‘Tell him when to leave.’)	page 9, engine english
+§3.3	Henry Davis	heading	3.3 How-to infinitives as elided (ʔə)s-kas questions	page 9
+§3.3	St’át’imcets	cited form	(ʔə)s-kas	page 9
+§3.3	Henry Davis	note	The existence of questions like those in (19) above suggests that the how-to infinitival clauses seen in (1)-(12) above can be analyzed as elided versions of embedded (ʔə)s-kas questions with infinitival complements. And indeed, it is possible to construct minimal pairs of infinitival complement clauses with and without (ʔə)s-kas, with no detectable difference in meaning, as shown in (28) and (29) below.	page 9
+(28a) line 1	St’át’imcets	segmentation	zəwát<ət>-s-Ø=kan [kʷa s<us>q̓ʷ-en-Ø-táli	page 9, engine language
+(28a) line 2	St’át’imcets	gloss	get.known<COS>-CAUS-3OBJ=1SG.SUBJ [D/C+IPFV skin<PLU>-DIR-3OBJ-NTS	page 9, engine english
+(28a) line 3	St’át’imcets	segmentation	ʔi=x̌ʷíx̌ʷm̓əs=a]	page 9, engine language
+(28a) line 4	St’át’imcets	gloss	PL.DET=marten=EXIS	page 9, engine english
+(28a) line 5	Henry Davis	translation	‘I learned how to skin martens.’	page 9, engine english
+(28b) line 1	St’át’imcets	segmentation	zəwát<ət>-s-Ø=kan [ɬ=us s-kas [kʷa	page 9, engine language
+(28b) line 2	St’át’imcets	gloss	get.known<COS>-CAUS-3OBJ=1SG.SUBJ [COMP=IPFV+3SJV STAT-how [D/C+IPFV	page 9, engine english
+(28b) line 3	St’át’imcets	segmentation	s<us>q̓ʷ-en-Ø-táli ʔi=x̌ʷíx̌ʷm̓əs=a]]	page 9, engine language
+(28b) line 4	St’át’imcets	gloss	skin<PLU>-DIR-3OBJ-NTS PL.DET=marten=EXIS	page 9, engine english
+(28b) line 5	Henry Davis	translation	‘I learned how to skin martens.’	page 9, engine english
+(29a) line 1	St’át’imcets	segmentation	hal̕a-xí{t}c-as [kʷa cəq-ən-Ø-táli	page 9, engine language
+(29a) line 2	St’át’imcets	gloss	appear-RDR-1SG.OBJ-3ERG [D/C+IPFV get.set.down-DIR-3OBJ-NTS	page 9, engine english
+(29a) line 3	St’át’imcets	segmentation	ʔi=sq̓ʷúʔ=a]	page 9, engine language
+(29a) line 4	St’át’imcets	gloss	PL.DET=trap=EXIS]	page 9, engine english
+(29a) line 5	Henry Davis	translation	‘He showed me how to set the traps.’	page 9, engine english
+(29b) line 1	St’át’imcets	segmentation	hal̕a-xí{t}c-as [ɬ=us s-kas [kʷa	page 9, engine language
+(29b) line 2	St’át’imcets	gloss	appear-RDR-1SG.OBJ-3ERG [COMP=IPFV+3SJV STAT-how [D/C+IPFV	page 9, engine english
+(29b) line 3	St’át’imcets	segmentation	cəq-ən-Ø-táli ʔi=sq̓ʷúʔ=a]]	page 9, engine language
+(29b) line 4	St’át’imcets	gloss	get.set.down-DIR-3OBJ-NTS PL.DET=trap=EXIS	page 9, engine english
+(29b) line 5	Henry Davis	translation	‘He showed me how to set the traps.’	page 9, engine english
+§3.3	Henry Davis	note	Since (ʔə)s-kas is the only WH-predicate which selects for an infinitival complement, its meaning is fully recoverable when elided in cases like the (a) examples above. In contrast, ellipsis of an embedded WH-phrase with a subjunctive or nominalized complement would be unrecoverable, because the elided string could contain any WH-predicate; and in fact, such ellipsis is impossible, as shown in (30) and (31):	page 9
+(30a) line 1	St’át’imcets	segmentation	xʷʔạz=Ø kʷ=s=zəwát-ən-Ø-an [ɬ=nkáʔ=as	page 10, engine language
+(30a) line 2	St’át’imcets	gloss	NEG=3SUBJ D/C=NMLZ=get.known-DIR-3OBJ-1SG.ERG [COMP=where=3SJV	page 10, engine english
+(30a) line 3	St’át’imcets	segmentation	[ɬ=ləp̓=ás niʔ kʷu=snúk̓ʷaʔ-s]]	page 10, engine language
+(30a) line 4	St’át’imcets	gloss	[COMP=get.buried=3SJVABSN.DEM DET=relative-3POSS]]	page 10, engine english
+(30a) line 5	St’át’imcets	segmentation	ta=n-skíxəzʔ=a]]	page 10, engine language
+(30a) line 6	St’át’imcets	gloss	DET=1SG.POSS-mother=EXIS]]	page 10, engine english
+(30a) line 7	Matthewson 2005b:65	translation	‘I don’t know where that relative of my mother was buried.’	page 10, engine english, cited Matthewson 2005b:65
+(30a) line 7	Henry Davis	citation	(Matthewson 2005b:65)	the tag or source at the right of the translation
+(30b) line 1	St’át’imcets	segmentation	xʷʔạz=Ø kʷ=s=zəwát-ən-Ø-an [ɬ=ləp̓=ás	page 10, engine language
+(30b) line 2	St’át’imcets	gloss	NEG=3SUBJ D/C=NMLZ=get.known-DIR-3OBJ-1SG.ERG [COMP=get.buried=3SJV	page 10, engine english
+(30b) line 3	St’át’imcets	segmentation	niʔ kʷu=snúk̓ʷaʔ-s ta=n-skíxəzʔ=a]	page 10, engine language
+(30b) line 4	St’át’imcets	gloss	ABSN.DEMDET=relative-3POSS DET=1SG.POSS-mother=EXIS]	page 10, engine english
+(30b) line 5	Henry Davis	translation	‘I don’t know if that relative of my mother was buried.’	page 10, engine english
+(31a) line 1	St’át’imcets	segmentation	ʔạz=Ø kʷənswá zəwát-ən-Ø	page 10, engine language
+(31a) line 2	St’át’imcets	gloss	NEG=3SUBJ D/C+1SG.POSS+NMLZ+IPFV get.known-DIR-3OBJ	page 10, engine english
+(31a) line 3	St’át’imcets	segmentation	[ɬ=kánəm=as [ɬ=was ʔilal]]	page 10, engine residue
+(31a) line 4	St’át’imcets	gloss	[COMP=how.come=3SJV [COMP=IPFV+3SJV cry]]	page 10, engine english
+(31a) line 5	Henry Davis	translation	‘I don’t know why s/he is crying.’	page 10, engine english
+(31b) line 1	St’át’imcets	segmentation	ʔạz=Ø kʷənswá zəwát-ən-Ø	page 10, engine language
+(31b) line 2	St’át’imcets	gloss	NEG=3SUBJ D/C+1SG.POSS+NMLZ+IPFV get.known-DIR-3OBJ	page 10, engine english
+(31b) line 3	St’át’imcets	segmentation	[ɬ=was ʔilal]	page 10, engine language
+(31b) line 4	St’át’imcets	gloss	[COMP=IPFV+3SJV cry]	page 10, engine english
+(31b) line 5	Henry Davis	translation	‘I don’t know if s/he is crying..’	page 10, engine english
+§3.3	Henry Davis	note	Both these examples involve subjunctive complements (to ‘where’ in (30a), and to ‘why’ in (31a)). And in both cases, ellipsis of the WH-phrase fails, as shown in the (b) examples, where only the default ‘if’ (polar question) reading of the subjunctive complement is available. The concealed question analysis thus successfully accounts for a number of connected generalizations: first, (ʔə)s-kas independently selects for an infinitival clause; second, all epistemic verbs select for embedded questions, and therefore for clauses headed by (ʔə)s-kas; third, the meaning of how-to infinitives is identical with or without (ʔə)s-kas; and fourth, only (ʔə)s-kas is recoverable under deletion in embedded questions.	page 10
+§3.4	Henry Davis	heading	3.4 Problems with the concealed question analysis	page 10
+§3.4	Henry Davis	note	In spite of these advantages, the concealed question account is not without problems. The most serious of these is that the ellipsis process needed to make it work is unusual and otherwise unmotivated, as can be seen in (32), which is a schematic representation of the putative ellipsis structure in (28a), with the elided string marked by strike-through.	page 10
+(32) line 1	St’át’imcets	segmentation	zəwát<ət>-s-Ø=kan [ɬ=us s-kas [kʷa	page 10, engine residue
+(32) line 2	St’át’imcets	gloss	get.known<COS>-CAUS-3OBJ=1SG.SUBJ [COMP=IPFV+3SJV STAT-how [D/C+IPFV	page 10, engine english
+(32) line 3	St’át’imcets	segmentation	s<us>q̓ʷ-en-Ø-táli ʔi=x̌ʷíx̌ʷm̓əs=a]]	page 10, engine language
+(32) line 4	St’át’imcets	gloss	skin<PLU>-DIR-3OBJ-NTS PL.DET=marten=EXIS	page 10, engine english
+(32) line 5	Henry Davis	translation	‘I learned how to skin martens.’	page 10, engine english
+§3.4	St’át’imcets	cited form	(ʔə)s-kas	page 11
+§3.4	Henry Davis	note	What is elided here is not just (ʔə)s-kas itself, but the entire clause of which it is the main predicate, with the exception of its infinitival complement. The elided string is not a constituent, and therefore violates a basic syntactic condition on ellipsis. There are ways to fix this, in particular by moving the infinitival clause out of its base-generated position: but I do not know of any independent evidence to support such a move.	page 11
+§3.4	St’át’imcets	cited form	sáwɬən	page 11
+§3.4	St’át’imcets	cited form	sáw-ən	page 11
+§3.4	Henry Davis	note	A second problem concerns the selectional properties of epistemic verbs. As I have indicated, all verbs which take infinitival complements independently select for embedded questions, supporting the concealed question analysis. However, it is not clear whether the converse is true: that is, whether all verbs that select for embedded questions take infinitival complements. In particular, the two verbs for ‘ask (a question)’, sáwɬən (intransitive) and sáw-ən (transitive), seem to be at least somewhat resistant to taking infinitival how-to complements. Both verbs canonically select for embedded questions, including those headed by (ʔə)s-kas as shown in (33) and (34):	page 11
+(33) line 1	St’át’imcets	segmentation	sáwɬən=ɬkan [ɬ=us s-kas [kʷa mays-ən-Ø-táli	page 11, engine language
+(33) line 2	St’át’imcets	gloss	ask=1SG.SUBJ [COMP=IPFV+3SJV STAT-how [D/C+IPFV fix-DIR-3OBJ-NTS	page 11, engine english
+(33) line 3	St’át’imcets	segmentation	ta=n-kạ́h=a]]	page 11, engine language
+(33) line 4	St’át’imcets	gloss	DET=car=EXIS	page 11, engine english
+(33) line 5	Henry Davis	translation	‘I asked how to fix my car.’	page 11, engine english
+(34) line 1	St’át’imcets	segmentation	sáw-ən-Ø=ɬkan (ta=)n-snúk̓ʷʔ=a [ɬ=us	page 11, engine language
+(34) line 2	St’át’imcets	gloss	ask-DIR-3OBJ=1SG.SUBJ(DET=)1SG.POSS-friend=EXIS [COMP+IPFV+3SJV	page 11, engine english
+(34) line 3	St’át’imcets	segmentation	s-kas [kʷa mays-ən-Ø-táli ta=n-kạ́h=a]].	page 11, engine language
+(34) line 4	St’át’imcets	gloss	STAT-how [D/C+IPFV fix-DIR-3OBJ-NTS DET=1SG.POSS-car=EXIS]]	page 11, engine english
+(34) line 5	Henry Davis	translation	‘I asked my friend how to fix my car.’	page 11, engine english
+§3.4	St’át’imcets	cited affix	(ʔə)s-	page 11
+§3.4	Henry Davis	note	However, when first presented with reduced versions of these sentences with the intermediate (ʔə)s- kas clause removed, my consultant initially rejected the how-to interpretation, as shown in (35) and (36).	page 11
+(35) line 1	St’át’imcets	segmentation	sáwɬən=ɬkan [kʷa mays-ən-Ø-táli ta=n-kạ́h=a]	page 11, engine language
+(35) line 2	St’át’imcets	gloss	ask=1SG.SUBJ [DET+IPFV fix-DIR-3OBJ-NTS DET=car=EXIS	page 11, engine english
+(35) line 3	Henry Davis	translation	(i) # ‘I asked how to fix my car.’	page 11, engine english
+(35) line 4	Henry Davis	translation	(ii) ‘I asked who can fix my car.’ (more literally: ‘…(for someone) to fix my car’)	page 11, engine english
+(36a) line 1	St’át’imcets	segmentation	* sáw-ən-Ø=ɬkan (ta=)n-snúk̓ʷʔ=a [kʷa	page 11, engine language
+(36a) line 2	St’át’imcets	gloss	ask-DIR-3OBJ=1SG.SUBJ (DET=)1SG.POSS-friend=EXIS [D/C+IPFV	page 11, engine english
+(36a) line 3	St’át’imcets	segmentation	mays-ən-Ø-táli ta=n-kạ́h=a]	page 11, engine language
+(36a) line 4	St’át’imcets	gloss	fix-DIR-3OBJ-NTS DET=1SG.POSS-car=EXIS]	page 11, engine english
+(36a) line 5	Henry Davis	translation	Intended: ‘I asked how to fix my car.’	page 11, engine english
+(36a) line 6	Carl Alexander	speaker comment	Consultant: ‘One little word missing.’	page 11, engine english
+(36b) line 1	St’át’imcets	segmentation	sáw-ən-Ø=ɬkan (ta=)n-snúk̓ʷʔ=a [ɬ=swát=as	page 11, engine language
+(36b) line 2	St’át’imcets	gloss	ask-DIR-3OBJ=1SG.SUBJ (DET=)1SG.POSS-friend=EXIS [COMP=who=3SJV	page 11, engine english
+(36b) line 3	St’át’imcets	segmentation	[kʷa mays-ən-Ø-táli ta=n-kạ́h=a]]	page 11, engine language
+(36b) line 4	St’át’imcets	gloss	[DET+IPFV fix-DIR-3OBJ-NTS DET=1SG.POSS-car=EXIS]]	page 11, engine english
+(36b) line 5	Henry Davis	translation	‘I asked my friend who could fix my car.’ (more literally: ‘…if there was anyone to fix my car’)	page 12, engine english
+§3.4	St’át’imcets	cited form	ɬ=	page 12
+§3.4	St’át’imcets	cited form	swat	page 12, ‘who’
+§3.4	Henry Davis	note	With the intransitive example in (35), the consultant reanalyzed the complement as an indefinite headless relative clause, and with the transitive case in (36), he converted the infinitival complement to an indirect question introduced by ɬ=, containing the WH-predicate swat ‘who’ plus a subject-centred relative clause.	page 12
+§3.4	Henry Davis	note	In subsequent elicitation, however, the same consultant variably accepts infinitival complements of both verbs with how-to readings, as shown in (37) and (38):	page 12
+(37a) line 1	St’át’imcets	segmentation	sáwɬən=ɬkan [ɬ=s-kás=as [kʷa cəq-ən-Ø-táli	page 12, engine language
+(37a) line 2	St’át’imcets	gloss	ask=1SG.SUBJ [COMP=STAT-how=3SJV [D/C+IPFV put.down-DIR-3OBJ-NTS	page 12, engine english
+(37a) line 3	St’át’imcets	segmentation	ta=sq̓ʷúʔ=a]]	page 12, engine language
+(37a) line 4	St’át’imcets	gloss	DET=trap=EXIS]]	page 12, engine english
+(37a) line 5	Henry Davis	translation	‘I asked how to set a trap.’	page 12, engine english
+(37b) line 1	St’át’imcets	segmentation	sáwɬən=ɬkan [kʷa cəq-ən-Ø-táli ta=sq̓ʷúʔ=a]]	page 12, engine language
+(37b) line 2	St’át’imcets	gloss	ask=1SG.SUBJ [D/C+IPFV put.down-DIR-3OBJ-NTSDET=trap=EXIS]]	page 12, engine english
+(37b) line 3	Henry Davis	speaker comment	Interviewer’s question: “Is that the same?”	page 12, engine english
+(37b) line 4	Carl Alexander	speaker comment	Consultant: “Yeah. I asked how do you set a trap.”	page 12, engine english
+(38a) line 1	St’át’imcets	segmentation	sáw-ən-Ø=ɬkan (ta=)n-sqácəzʔ=a [ɬ=s-kás=as	page 12, engine language
+(38a) line 2	St’át’imcets	gloss	ask-DIR-3OBJ=1SG.SUBJ(DET=)1SG.POSS-father=EXIS [COMP=STAT-how=3SJV	page 12, engine english
+(38a) line 3	St’át’imcets	segmentation	[kʷa cəq-ən-Ø-táli ta=sq̓ʷúʔ=a]]	page 12, engine language
+(38a) line 4	St’át’imcets	gloss	[D/C+IPFV put.down-DIR-3OBJ-NTSDET=trap=EXIS]]	page 12, engine english
+(38a) line 5	Henry Davis	translation	‘I asked my father how to set the trap.’	page 12, engine english
+(38b) line 1	St’át’imcets	segmentation	sáw-ən-Ø=ɬkan (ta=)n-sqácəzʔ=a [kʷa	page 12, engine language
+(38b) line 2	St’át’imcets	gloss	ask-DIR-3OBJ=1SG.SUBJ (DET=)SG.POSS-father=EXIS [D/C+IPFV	page 12, engine english
+(38b) line 3	St’át’imcets	segmentation	cəq-ən-Ø-táli ta=sq̓ʷúʔ=a]]	page 12, engine language
+(38b) line 4	St’át’imcets	gloss	put.down-DIR-3OBJ-NTS DET=trap=EXIS]]	page 12, engine english
+(38b) line 5	Henry Davis	translation	‘I asked my father how to set the trap.’	page 12, engine english
+§3.4	Henry Davis	note	The status of how-to infinitival complements with these verbs is thus not entirely clear, though it does appear that they are at least somewhat degraded compared to other verbs which take how-to infinitival complements. The issue is important because under the concealed question analysis, epistemic verbs do not directly select for infinitival complements: the WH-predicate (ʔə)s-kas does. This means that we do not expect variation in whether a particular epistemic verb can appear with a how-to infinitive: as long as the verb selects for an embedded question, then it should automatically select for a how-to infinitive.	page 12
+§3.4	Henry Davis	note	In this respect, it is worth noting that English how-to infinitives pose the same problem. There is variation amongst epistemic verbs as to whether they allow reduced infinitival how-to questions, as show in (39):	page 12
+(39a) line 1	Henry Davis	cited example	??I knew to play chess. (≠ I knew how to play chess.)	page 12, an English example, the author's: the verb with to, and after it the same verb with how to, ≠ where the two differ
+(39b) line 1	Henry Davis	cited example	I learned to play chess. (= I learned how to play chess.)	page 12, an English example, the author's: the verb with to, and after it the same verb with how to, ≠ where the two differ
+(39c) line 1	Henry Davis	cited example	I taught him to play chess. (= I taught him how to play chess.)	page 12, an English example, the author's: the verb with to, and after it the same verb with how to, ≠ where the two differ
+(39d) line 1	Henry Davis	cited example	I instructed him to play chess. (≠ I instructed him how to play chess.)	page 13, an English example, the author's: the verb with to, and after it the same verb with how to, ≠ where the two differ
+(39e) line 1	Henry Davis	cited example	* I showed him to play chess. (≠ I showed him how to play chess.)	page 13, an English example, the author's: the verb with to, and after it the same verb with how to, ≠ where the two differ
+(39f) line 1	Henry Davis	cited example	I remembered to play chess. (≠ I remembered how to play chess.)	page 13, an English example, the author's: the verb with to, and after it the same verb with how to, ≠ where the two differ
+(39g) line 1	Henry Davis	cited example	I forgot to play chess. (≠ I forgot how to play chess.)	page 13, an English example, the author's: the verb with to, and after it the same verb with how to, ≠ where the two differ
+(39h) line 1	Henry Davis	cited example	I asked her to play chess. (≠ I asked her how to play chess.)	page 13, an English example, the author's: the verb with to, and after it the same verb with how to, ≠ where the two differ
+§3.4	Henry Davis	language	St’át’imcets	the language of the paper, a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish
+§3.4	Henry Davis	note	All of these verbs select for embedded questions, and since in English all embedded questions may appear in finite or infinitival form, all of them automatically allow infinitival complements with ‘how (to)’. But the availability of reduced infinitival how-to questions is lexically restricted: of the eight verbs in (39), only ‘learn’ and ‘teach’ permit this option. There is no obvious semantic basis for this restriction: it must presumably therefore be encoded in the lexical entries of individual epistemic verbs. If St’át’imcets parallels English in this respect (i.e., there are epistemic verbs that do not permit how-to infinitives), this counts as an argument against the concealed question hypothesis.	page 12
+§3.4	Henry Davis	language	ʔayʔaǰuθəm	a.k.a. Comox-Sliammon, ISO 639-3 coo, Central Salish, where infinitives were found recently
+§3.4	Henry Davis	note	A final problem does not come from St’át’imcets, but from the Central Salish language ʔayʔaǰuθəm. Recall from the introduction that – remarkably – ʔayʔaǰuθəm has recently been observed to have infinitives which closely resemble those in St’át’imcets. This includes how-to infinitives, as shown below.8	page 13
+(40) line 1	ʔayʔaǰuθəm	segmentation	hihiw təx̌ʷ-n<i>xʷ-mut-Ø-as [kʷ=kʷu~kʷukʷ]	page 13, engine language, the language of the example, footnote 8
+(40) line 2	ʔayʔaǰuθəm	gloss	really know-LCT<STAT>-INT-3OBJ-3ERG [D/C=PROG~cook]	page 13, engine english, the language of the example, footnote 8
+(40) line 3	Henry Davis	translation	‘He really knows how to cook.’	page 13, engine english
+(41) line 1	ʔayʔaǰuθəm	segmentation	tiwš-əm=štəm [kʷ=x̌ʷu~x̌ʷupiʔič] st̓ᶿuk̓ʷ	page 13, engine language, the language of the example, footnote 8
+(41) line 2	ʔayʔaǰuθəm	gloss	learn-MID=1PL.SUBJ+FUT [D/C=PROG~weave] today	page 13, engine english, the language of the example, footnote 8
+(41) line 3	Henry Davis	translation	‘We will learn how to weave today.’	page 13, engine english
+footnote 8	Henry Davis	note	8 Thanks to Betty Wilson and Molly Harry for providing these examples, and to Daniel Reisinger and Marianne Huijsmans for eliciting them.	page 13, footnote
+footnote 9	Henry Davis	note	9 Having said this, there is a potential candidate for ellipsis in ʔayʔaǰuθəm how-to infinitives, though it is not a WH-predicate: several cases have come to light introduced by the approximative predicate nam̓ ‘be like, resemble’, as in (i)-(ii):	page 13, footnote
+§3.4	St’át’imcets	cited form	nam̓	page 13
+§3.4	Henry Davis	note	The problem for the concealed question hypothesis here is quite simple: ʔayʔaǰuθəm has no equivalent of (ʔə)s-kas, so there is no source for the putative ellipsis. (The language uses various workarounds to convey the meaning of ‘how’ questions, such as resorting to polar questions.) Again, there are ways to rescue the hypothesis (for example, by positing a null version of (ʔə)s- kas): but in the absence of independent evidence, these have the feel of ad-hoc fixes.9	page 13
+footnote 9 (i) line 1	ʔayʔaǰuθəm	segmentation	tiwš-əm-stu-mš=čxʷ (s=)nam̓=s [kʷ=hə~həy-t-Ø	page 13, engine language, the language of the example, footnote 8
+footnote 9 (i) line 2	ʔayʔaǰuθəm	gloss	learn-MID-CAUS-1SG.OBJ=2SG.SUBJ (NMLZ=)be.like=3POSS [D/C=PROG~make-CTR-3OBJ	page 13, engine english, the language of the example, footnote 8
+footnote 9 (i) line 3	ʔayʔaǰuθəm	segmentation	(kʷ=)tək~takin]	page 13, engine language, the language of the example, footnote 8
+footnote 9 (i) line 4	ʔayʔaǰuθəm	gloss	(DET=)PLU~sock]	page 13, engine english, the language of the example, footnote 8
+footnote 9 (i) line 5	Henry Davis	translation	‘You teach me how to make socks.’	page 13, engine english
+footnote 9 (ii) line 1	ʔayʔaǰuθəm	segmentation	ti~tiwš-əm=č (s=)nam̓=s [kʷ=ʔuwuɬ-it kʷ=ti<t>qiw]	page 13, engine language, the language of the example, footnote 8
+footnote 9 (ii) line 2	ʔayʔaǰuθəm	gloss	PROG~learn-MID=1SG.SUBJ (NMLZ=)be.like=3POSS [D/C=make-STAT DET=horse<DIM>]	page 13, engine english, the language of the example, footnote 8
+§3.4	Henry Davis	note	These are not inconsiderable problems. Nevertheless, it is worth considering what giving up the concealed question account would lose. In particular, the apparently identical interpretation of how-to infinitives in main clause questions with (ʔə)s-kas, embedded questions with (ʔə)s-kas, and embedded questions without (ʔə)s-kas would no longer follow automatically; for example, the synonymy between the pairs of examples in (28) and (29) would be accidental.	page 14
+§3.4	Henry Davis	note	In light of these considerations, and in spite of the problems laid out in this section, I will therefore adopt the concealed question analysis as a working hypothesis for the rest of this paper, with the proviso that much more work is needed to establish it firmly (or provide a viable alternative). I now turn to a different set of problems, centred on the infinitival clause itself, and more specifically, on its PRO subject.	page 14
+§4	Henry Davis	heading	4 How-to infinitives and obligatory control PRO	page 14
+§4	Henry Davis	language	St’át’imcets	the language of the paper, a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish
+§4	Henry Davis	note	In this section, I investigate the structure of how-to infinitival clauses in more detail, focusing on their subject, which I identify as (obligatory) control PRO. In 4.1, I review evidence that how-to infinitives are full clauses, before turning in 4.2 to contrasts between how-to and raising infinitives. I then show in 4.3 that the empty subject of how-to infinitives shows the behaviour of a bound variable, as diagnosed by sloppy identity contexts; in addition, the bound variable analysis provides a unified aaccount of the non-topical subject marker tal(’)i as invariably triggering A'-extraction of a transitive subject. On this basis, I identify the subject of how-to infinitives as obligatory control PRO. In 4.4, I compare the very restricted distribution of PRO in St’át’imcets (and Salish more generally) to its much wider distribution in more familiar (largely European) languages. In 4.5 I turn to the nature of the control relation, arguing that apparent cases of arbitrary control in how-to infinitives involve an implicit controller for PRO.	page 14
+§4.1	Henry Davis	heading	4.1 How-to infinitives are clauses	page 14
+§4.1	Henry Davis	language	St’át’imcets	the language of the paper, a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish
+§4.1	Henry Davis	note	First, let us briefly review the evidence that how-to infinitives are clausal in St’át’imcets, rather than consisting of just a predicate phrase (a possibility raised by the fact that they appear at least superficially to lack a subject, like their counterparts in English).	page 14
+§4.1	St’át’imcets	cited form	kʷu=	page 14
+§4.1	St’át’imcets	cited form	waʔ	page 14
+§4.1	Henry Davis	note	An obvious piece of evidence for clausal status is that how-to infinitives are obligatorily introduced by the D/C element kʷu=: by definition, a complementizer introduces a clause. In addition, they may (and usually do) contain imperfective waʔ, an aspectual auxiliary which I have argued elsewhere (Davis 2011) is diagnostic of clausal status.	page 14
+§4.1	St’át’imcets	cited form	nam̓	page 14
+§4.1	Henry Davis	language	ʔayʔaǰuθəm	a.k.a. Comox-Sliammon, ISO 639-3 coo, Central Salish, where infinitives were found recently
+§4.1	Henry Davis	note	A third argument can be constructed on the basis of the presence in most transitive how-to infinitives of the non-topical subject marker -tal(’)i. 10 As documented in Davis (1994), -tal(’)i is normally only licensed when a transitive subject is A'-extracted, either in relative clauses, WH-	page 14
+footnote 9 (ii) line 3	Henry Davis	translation	‘I’m learning how to ride a pony.’	page 14, at the foot of the page, the translation of footnote 9's (ii) carried over from page 13
+footnote 9	Henry Davis	note	If a covert version of nam̓ is present in apparent direct infinitival complements to epistemic verbs, there is the potential to maintain some version of the concealed question hypothesis for ʔayʔaǰuθəm (though of course, the intermediate elided predicate here is not a WH-predicate).	page 14, the end of footnote 9, carried over from page 13
+footnote 10	Henry Davis	note	10 The [l] in -tal(’)i is glottalized when the preceding [a] is unstressed: see van Eijk (1997:159).	page 14, footnote
+§4.1	Henry Davis	note	questions, or clefts (all of which share the same basic structure: see Davis 2010).11 Some typical examples are given in (42)-(44):	page 15
+(42) line 1	St’át’imcets	segmentation	sámaʔ=Ø=k̓a [kʷu=sqʷal̕-ən-Ø-táli]	page 15, engine language
+(42) line 2	St’át’imcets	gloss	white.person=3SUBJ=EPIS [DET=inform-DIR-3OBJ-NTS]	page 15, engine english
+(42) line 3	Henry Davis	translation	‘It seems that it was a white person who reported it.’ (van Eijk and Williams 1981:70)	page 15, engine english
+(43) line 1	St’át’imcets	segmentation	swat=Ø [kʷu=məc-ən-Ø-táli cʔa]	page 15, engine language
+(43) line 2	St’át’imcets	gloss	who=3SUBJ [DET=mark-DIR-3OBJ-NTS this]	page 15, engine english
+(43) line 3	Davis et al. in prep.	translation	‘Who wrote this?’	page 15, engine english, cited Davis et al. in prep.
+(43) line 3	Henry Davis	citation	(Davis et al. in prep.)	the tag or source at the right of the translation
+(44) line 1	St’át’imcets	segmentation	niɬ=Ø ʔiz̓ ʔi=naplít=a [ʔull̕us-ən-Ø-táli	page 15, engine language
+(44) line 2	St’át’imcets	gloss	COP=3SUBJ PL.DEM PL.DET=priest=EXIS [gather-DIR-3OBJ-NTS	page 15, engine english
+(44) line 3	St’át’imcets	segmentation	ʔi=ʔuxʷalmíxʷ=a]	page 15, engine language
+(44) line 4	St’át’imcets	gloss	PL.DET=Indigenous.person=EXIS]	page 15, engine english
+(44) line 5	Mitchell 2022:471	translation	‘It was those priests who gathered the people together.’	page 15, engine english, cited Mitchell 2022:471
+(44) line 5	Henry Davis	citation	(Mitchell 2022:471)	the tag or source at the right of the translation
+§4.1	Henry Davis	note	Assuming (as is standard) that A'-extraction involves movement to the left periphery of the clause, the presence of -tal(’)i is diagnostic for clausal status. (Of course, this doesn’t explain why -tal(’)i is present in how-to infinitives: I return to that issue in 4.3 below.) Overall, then the case for the clausal status of how-to infinitives is very strong. And given that clauses must by definition contain subjects, this means that there is a null subject present in how- to infinitives. The next question is: what is it?	page 15
+§4.2	Henry Davis	heading	4.2 How-to infinitives versus raising infinitives	page 15
+§4.2	Henry Davis	language	St’át’imcets	the language of the paper, a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish
+§4.2	St’át’imcets	cited form	c̓íla	page 15, ‘(be) like, resemble’
+§4.2	Henry Davis	note	There is a very long line of syntactic and semantic work on the nature of infinitive subjects: in fact, it has been one the principal preoccupations of syntactic theory almost since the dawn of generative grammar. I have no intention of even attempting to summarize the relevant literature here; instead, I will simply cut straight to the question of whether the subject of how-to infinitives is best characterized in terms of raising or control (the latter term of course referring to the standard syntactic notion of control, rather than the Salish-specific semantic notion of agent control). In a raising construction, the null subject of the infinitive will be a trace/deleted copy of the matrix subject; in a control construction, the subject will be the empty pronominal PRO. Since St’át’imcets has a raising construction, discussed in Davis (2020), one way we can frame this question is in terms of the comparison between raising infinitives and how-to infinitives. Raising infinitives are confined to the predicate c̓íla ‘(be) like, resemble’, as exemplified below:	page 15
+(45) line 1	St’át’imcets	segmentation	c̓ila=ɬkán=ƛ̓uʔ [kʷa matq l=kʷu=sx̌ə́t<x̌ət>q x.waɬ]	page 15, engine language
+footnote 11	Henry Davis	note	11 A'-extraction of a transitive subject is a necessary but not sufficient condition for the use of -tal(’)i: as its gloss indicates, it is typically employed in contexts where the subject of a transitive clause does not represent the continuing topic of a discourse. If we assume that a continuing topic is represented syntactically as pro and semantically as a free variable, we can construct a plausible account of the connection between the A'- extraction and discourse properties of -tal(’)i: A'-extraction leaves a bound variable, which is incompatible with the status of a continuing topic as a free variable; therefore, by forcing A'-extraction, -tali(’) indirectly disqualifies the subject from acting as a continuing topic. See Roberts (1994), Davis (1994) for relevant discussion.	page 15, footnote
+(45) line 2	St’át’imcets	gloss	like=1SG.SUBJ=EXCL [D/C+IPFV walk on=DET=hole<PLU> road]	page 16, engine english
+(45) line 3	Davis et al. in prep.	translation	‘It was like I was walking along a road full of potholes’.	page 16, engine english, cited Davis et al. in prep.
+(45) line 3	Henry Davis	citation	(Davis et al. in prep.)	the tag or source at the right of the translation
+(46) line 1	St’át’imcets	segmentation	c̓íla=ƛ̓uʔ kʷu=n-məzác=a [kʷu=qʷə́ts-p]	page 16, engine language
+(46) line 2	St’át’imcets	gloss	like=EXCL DET=1SG.POSS-body=EXIS [D/C=shake-INCH]	page 16, engine english
+(46) line 3	Mitchell 2022:293	translation	‘My body felt like it was shaking.’	page 16, engine english, cited Mitchell 2022:293
+(46) line 3	Henry Davis	citation	(Mitchell 2022:293)	the tag or source at the right of the translation
+§4.2	Henry Davis	note	In each of these examples, the external argument of the embedded infinitival surfaces in the matrix clause, as a subject clitic in (45) and a DP subject in (46).	page 16
+§4.2	St’át’imcets	cited form	(ʔə)s-kas	page 16
+§4.2	St’át’imcets	cited form	c̓ila	page 16
+§4.2	St’át’imcets	cited form	zəwát	page 16, ‘get known’
+§4.2	St’át’imcets	cited form	zəwát-ən	‘know’, transitive, which the consultant corrected (47a) and (48a) to, carries footnote 13, written here without its digit
+footnote 12	Henry Davis	note	12 Follow-up elicitation, however, has yielded mixed results: my consultant is at least sometimes willing to accept -tal(’)i in the infinitival complement to c̓íla, though he has never produced it spontaneously. Further work is needed here.	page 16, footnote
+footnote 13	Henry Davis	note	13 There is more to say here, though. It turns out if we leave an overt subject inside the infinitival clause in examples parallel to the (a) cases in (47) and (48), the results are unexpectedly grammatical, as shown in	page 16, footnote
+§4.2	Henry Davis	note	To this, we can another characteristic: raising structures with c̓íla do not trigger non-topical subject marking with -tal(’)i. A search of spontaneous production of -tal(’)i in five volumes of texts (Matthewson 2005, Alexander 2016, Edwards et al. 2017, Mitchell 2022 and Alexander 2025), plus the example sentences in two dictionaries (van Eijk 2013 and Davis et al. in prep.) turned up 23 instances of -tal(’)i in infinitives: of these, 11 were complements of epistemic verbs (with or without intermediate (ʔə)s-kas), and the other 12 were complements to evaluative adjectives: none were found in infinitival complements to c̓ila, in spite of the fact that the latter are amongst the most common infinitival structures in the language.12 How-to infinitives, in contrast, do not tolerate raising and do trigger -tal(’)i. Putative raising cases are given in (47a) and (48a) with a pronoun and a lexical subject, respectively. I have used the unaccusative epistemic verb zəwát ‘get known’ here as the closest notional equivalent to the raiusing predicate c̓íla; in each case, the consultant corrected the sentence to one with transitive zəwát-ən.13 (i) and (ii), respectively:	page 16
+footnote 13 (i) line 1	St’át’imcets	segmentation	ʔạz kʷas zəwát [kʷa mə́c-ən-Ø-an	page 16, engine language
+footnote 13 (i) line 2	St’át’imcets	gloss	NEG D/C+NMLZ+IPFV+3POSS get.known [D/C+IPFV write-DIR-3OBJ-1SG.ERG	page 16, engine english
+footnote 13 (i) line 3	St’át’imcets	segmentation	ta=ʔuxʷalmíxʷ-c=a]	page 16, engine language
+footnote 13 (i) line 4	St’át’imcets	gloss	DET=Indigenous.person-mouth=EXIS]	page 16, engine english
+footnote 13 (i) line 5	Henry Davis	translation	‘I don’t know how to write ucwalmícwts (‘the language of the people of the land’).’	page 16, engine english
+footnote 13 (ii) line 1	St’át’imcets	segmentation	ƛ̓uʔ wáʔ=Ø=həm̓=ƛ̓uʔ zəwát [kʷa məc-xál	page 16, engine language
+footnote 13 (ii) line 2	St’át’imcets	gloss	but IPFV=3SUBJ=ANTI=EXCL get.known [D/C+IPFV write-ACT]	page 16, engine english
+footnote 13 (ii) line 3	St’át’imcets	segmentation	ʔi=n-səq̓ʷ~s<ə́s>q̓ʷəz̓=a]	page 16, engine language
+footnote 13 (ii) line 4	St’át’imcets	gloss	PL.DET=1SG.POSS-PLU~younger.sibling<DIM>=EXIS]	page 16, engine english
+footnote 13 (ii) line 5	Henry Davis	translation	‘But my younger siblings know to write.’	page 16, engine english
+footnote 13	Henry Davis	language	ucwalmícwts	the language of the people of the land, St’át’imcets, as the translations write it
+footnote 13	Henry Davis	note	These cases are extremely puzzling. Notably, they cannot be analyzed either as cases of backwards control (Polinsky and Potsdam 2002), or of backwards raising (Potsdam and Polinsky 2012). Backwards control is out because the matrix epistemic verb is unaccusative: there is no position in in the matrix clause for a controller. Backwards raising is out because the interpretation is wrong: under a raising interpretation, (i) would mean ‘It is not known how I am able to write ucwalmícwts’ and (ii) would mean ‘It is known how my siblings are able to write’, contrary to fact. At present, I have no clue how to analyze these cases, but I do	page 16
+(47a) line 1	St’át’imcets	segmentation	* ʔạz kʷənswá zəwát [kʷa mə́c-ən-Ø	page 17, engine language
+(47a) line 2	St’át’imcets	gloss	NEG D/C+1SG.POSS+NMLZ+IPFV get.known [D/C+IPFV write-DIR-3OBJ	page 17, engine english
+(47a) line 3	St’át’imcets	segmentation	ta=ʔuxʷalmíxʷ-c=a]	page 17, engine language
+(47a) line 4	St’át’imcets	gloss	DET=Indigenous.person-mouth=EXIS]	page 17, engine english
+§4.2	Henry Davis	note	Corrected to:	page 17
+(47b) line 1	St’át’imcets	segmentation	ʔạz kʷənswá zəwát-ən-Ø [kʷa məc-ən-Ø-táli	page 17, engine language
+(47b) line 2	St’át’imcets	gloss	NEG D/C+1SG.POSS+NMLZ+IPFVget.known-DIR-3OBJ [D/C+IPFV write-DIR-3OBJ-NTS	page 17, engine english
+(47b) line 3	St’át’imcets	segmentation	ta=ʔuxʷalmíxʷ-c=a]	page 17, engine language
+(47b) line 4	St’át’imcets	gloss	DET=Indigenous.person-mouth=EXIS]	page 17, engine english
+(47b) line 5	Henry Davis	translation	‘I don’t know how to write ucwalmícwts (‘the language of the people of the land’).’	page 17, engine english
+(48a) line 1	St’át’imcets	segmentation	* ƛ̓uʔ wáʔ=Ø=həm̓=ƛ̓uʔ	page 17, engine language
+(48a) line 2	St’át’imcets	gloss	butIPFV=3SUBJ=ANTI=EXCL	page 17, engine english
+(48a) line 3	St’át’imcets	segmentation	ʔi=n-səq̓ʷ~s<ə́s>q̓ʷəz̓=a	page 17, engine language
+(48a) line 4	St’át’imcets	gloss	PL.DET=1SG.POSS-PLU~younger.sibling<DIM>=EXIS	page 17, engine english
+(48a) line 5	St’át’imcets	segmentation	zəwát [kʷa məc-xál]	page 17, engine language
+(48a) line 6	St’át’imcets	gloss	get.known [D/C+IPFV write-ACT]	page 17, engine english
+§4.2	Henry Davis	note	Corrected to:	page 17
+(48b) line 1	St’át’imcets	segmentation	ƛ̓uʔ wáʔ=Ø=həm̓=ƛ̓uʔ zəwat-ən-Ø-ítas [kʷa məc-xál]	page 17, engine language
+(48b) line 2	St’át’imcets	gloss	but IPFV=3SUBJ=ANTI=EXCL get.known-DIR-3OBJ-3PL.ERG [D/C+IPFV write-ACT]	page 17, engine english
+(48b) line 3	St’át’imcets	segmentation	ʔi=n-səq̓ʷ~s<ə́s>q̓ʷəz̓=a	page 17, engine language
+(48b) line 4	St’át’imcets	gloss	PL.DET=1SG.POSS-PLU~younger.sibling<DIM>=EXIS	page 17, engine english
+(48b) line 5	Henry Davis	translation	‘But my younger siblings know to write.’	page 17, engine english
+§4.2	Henry Davis	note	As for -tal(’)i we have already seen plenty of evidence that it is freely permitted in transitive how-to infinitives: see e.g. (1), (3), (8), (18) and (19).	page 17
+§4.2	Henry Davis	note	The profile of how-to infinitives is therefore distinct from that of raising infinitives. However, this does not yet provide direct evidence for PRO as the subject of how-to infinitives: for that, we must take a closer look at -tal(’)i.	page 17
+§4.3	Henry Davis	heading	4.3 PRO and -tal(’)i	page 17
+§4.3	Henry Davis	note	know they are not tied to infinitives per se, because they have also surfaced in finite (nominalized complements) like (iii):	page 17
+footnote 13 (iii) line 1	St’át’imcets	segmentation	ɬap [kʷ=s=ɬáp-an̓-Ø-an ʔi=sc̓ák̓ʷ=a	page 17, engine language
+footnote 13 (iii) line 2	St’át’imcets	gloss	get.forgotten [D/C=NMLZ=get.extinguished-IR-3OBJ-1SG.ERG PL.DET=light=EXIS]	page 17, engine english
+footnote 13 (iii) line 3	Henry Davis	translation	‘I forgot to turn the lights out.’ (Literally: ‘It was forgotten that I turned the lights out.’)	page 17, engine english
+footnote 13	Henry Davis	note	More investigation is obviously needed here!	page 17
+§4.3	Henry Davis	note	Recall the two environments where -tal(’)i is found: in contexts of A'-extraction, and in how-to infinitives. It thus appears at first sight to have a curiously disjoint distribution, which invites a unified analysis.	page 18
+§4.3	Henry Davis	note	It turns out one is readily available, but only if the subject of a how-to infinitive is PRO. The argument is simple: if PRO is actually an A'-bound variable, then -tal(’)i uniformly marks A'- extraction. And in fact, there is strong evidence in the theoretical literature for the claim that (obligatory control) PRO is interpreted as a variable, based on the phenomenon of sloppy identity. This is illustrated in (55) below (based on Landau 2013:30).	page 18
+(49a) line 1	Henry Davis	cited example	Only Peteri claimed [that hei was the winner].	page 18, an English example, the author's, a finite complement
+(49a) line 2	Henry Davis	notation	(i) Only Peter λx[x claimed x is the winner]	page 18, the sloppy reading
+(49a) line 3	Henry Davis	notation	(ii) Only Peter λx[x claimed Peter is the winner].	page 18, the strict reading
+(49b) line 1	Henry Davis	cited example	Only Peteri claimed [PROi to be the winner].	page 18, an English example, the author's, an infinitive
+(49b) line 2	Henry Davis	notation	(i) Only Peter λx[x claimed x is the winner]	page 18, the sloppy reading
+(49b) line 3	Henry Davis	notation	(ii) # Only Peter λx[x claimed Peter is the winner].	page 18, the strict reading, marked # as unavailable
+§4.3	St’át’imcets	note	The (a) case with a finite complement clause is ambiguous between readings (i) and (ii). Reading	page 18, the first line of a paragraph, its rest in the next row
+§4.3	Henry Davis	note	(i) (the sloppy reading) is true for example in a scenario where in a race, the only person that declared themself to be the winner was Peter: everyone else could also declare Peter to be the winner, and the sentence would still be true. On reading (ii) (the strict reading), however, Peter is the only one that declared Peter to be the winner: on this reading, if anyone else declared Peter to be the winner, the sentence would be false. Crucially, however, the sentence in (b) with an infinitival complement containing a PRO subject is unambiguous: it only has the sloppy reading in (i), indicating that PRO must be a bound variable.	page 18
+§4.3	Henry Davis	language	St’át’imcets	the language of the paper, a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish
+§4.3	Henry Davis	note	A similar contrast can be constructed for how-to infinitives in St’át’imcets. Consider the following discourse context (given in St’át’imcets and checked with the consultant):	page 18
+(50a) line 1	St’át’imcets	segmentation	waʔ pəl̕p ʔi=nkəkaʔɬás=a ʔúxʷalmixʷ cixʷ píx̌əm̓	page 18, engine language
+(50a) line 2	St’át’imcets	gloss	IPFV get.lost PL.DET=three.human=EXIS Indigenous.person get.there hunt	page 18, engine english
+(50a) line 3	St’át’imcets	segmentation	l=ki=s-qʷə́m<qʷəm>=a	page 18, engine language
+(50a) line 4	St’át’imcets	gloss	in=PL.DET=NMLZ-mountain<PLU>=EXIS	page 18, engine english
+(50a) line 5	Henry Davis	translation	‘Three hunters are lost in the mountains.’	page 18, engine english
+(50b) line 1	St’át’imcets	segmentation	waʔ qʷəl̕~qʷal̕<əl̕>t-s-twál̕=wit ɬ=swát=as kʷu=xʷúz̓	page 18, engine language
+(50b) line 2	St’át’imcets	gloss	IPFV PLU~speak<PLU>-CAUS-REC=3PL COMP=who=3SJV DET=PROS	page 18, engine english
+(50b) line 3	St’át’imcets	segmentation	pún-Ø-tal̕i ta=xw<ə́w̓>ɬ=a	page 18, engine language
+(50b) line 4	St’át’imcets	gloss	get.found+DIR-3OBJ-NTS DET=road<DIM>=EXIS	page 18, engine english
+(50b) line 5	Henry Davis	translation	‘They’re discussing who will be able to find the trail.’	page 18, engine english
+(50c) line 1	St’át’imcets	segmentation	wáʔ=wiʔ zəwat-ən-Ø-ítas ta=xw<ə́w̓>ɬ=a wi=s-Albert	page 18, engine language
+(50c) line 2	St’át’imcets	gloss	IPFV=EMPH get.known-DIR-3OBJ-3PL.ERG DET=road<DIM>=EXIS PL=NMLZ-Albert	page 18, engine english
+(50c) line 3	St’át’imcets	segmentation	mútaʔ s-Kenny, ƛ̓uʔ ptínus-əm=wit kʷ=s=xʷʔạy=s	page 18, engine language
+(50c) line 4	St’át’imcets	gloss	and NMLZ-Kenny but think-MID=3PL D/C=NMLZ=NEG=3POSS	page 18, engine english
+(50c) line 5	St’át’imcets	segmentation	kʷas zəwát-ən-Ø-əm ʔə=s-Carl	page 18, engine language
+(50c) line 6	St’át’imcets	gloss	D/C+NMLZ+IPFV+3POSS get.known-DIR-3OBJ-3PASS by=NMLZ-Carl	page 18, engine english
+(50c) line 7	Henry Davis	translation	‘Albert and Kenny know the trail, but they don’t think Carl does.’	page 19, engine english
+(50d) line 1	St’át’imcets	segmentation	wáʔ=həm̓=ƛ̓uʔ cut kʷ=s-Carl:	page 19, engine language
+(50d) line 2	St’át’imcets	gloss	IPFV=ANTI=EXCL say PN.DET=NMLZ-Carl	page 19, engine english
+(50d) line 3	Henry Davis	translation	‘But Carl says:’	page 19, engine english
+(50e) line 1	St’át’imcets	segmentation	“waʔ=ɬkan=á=qaʔ ƛ̓it zəwát-ən-Ø ɬ=nkáʔ=as	page 19, engine language
+(50e) line 2	St’át’imcets	gloss	IPFV=1SG.SUBJ=A=PSRP also get.known-DIR-3OBJ COMP=where=3SJV	page 19, engine english
+(50e) line 3	St’át’imcets	segmentation	ɬ=lák=as ta=xw<ə́w̓>ɬ=a!”	page 19, engine language
+(50e) line 4	St’át’imcets	gloss	COMP=be.situated=3SJVDET=road<DIM>=EXIS	page 19, engine english
+(50e) line 5	Henry Davis	translation	“I know where the trail is too!”	page 19, engine english
+§4.3	Henry Davis	note	This context strongly favours strict identity, since Carl is the only hunter who thinks Carl knows the trail (the other two know the trail too, but that is not relevant). The strict and sloppy readings can then be tested using the following sentences, the first with a finite (nominalized) complement clause, the second with a how-to infinitival clause.	page 19
+(51a) line 1	Henry Davis	note	finite clause	page 19, engine english
+(51a) line 2	St’át’imcets	segmentation	cúkʷ=ƛ̓uʔ s-Carl ta=waʔ zəwat-ən-Ø-táli	page 19, engine language
+(51a) line 3	St’át’imcets	gloss	finish=EXCL NMLZ-Carl DET=IPFV get.known-DIR-3OBJ-NTS	page 19, engine english
+(51a) line 4	St’át’imcets	segmentation	[kwas waʔ ƛ̓it ka-pún-s-Ø-as-a	page 19, engine language
+(51a) line 5	St’át’imcets	gloss	[D/C+NMLZ+IPFV+3POSS IPFV also CIRC-get.found-CAUS-3OBJ-3ERG-CIRC	page 19, engine english
+(51a) line 6	St’át’imcets	segmentation	ta=xw<ə́w̓>ɬ=a]	page 19, engine language
+(51a) line 7	St’át’imcets	gloss	DET=road<DIM>=EXIS]	page 19, engine english
+(51a) line 8	Henry Davis	translation	‘Only Carl knows that he can find the trail too.’	page 19, engine english
+(51a) line 9	Carl Alexander	speaker comment	Consultant: “Good.” (i.e., true: strict reading)	page 19, engine english
+(51b) line 1	Henry Davis	note	infinitival clause	page 19, engine english
+(51b) line 2	St’át’imcets	segmentation	#cúkʷ=ƛ̓uʔ s-Carl ta=waʔ zəwat-ən-Ø-táli [kwa	page 19, engine language
+(51b) line 3	St’át’imcets	gloss	finish=EXCL NMLZ-Carl DET=IPFV get.known-DIR-3OBJ-NTS [D/C+ IPFV	page 19, engine english
+(51b) line 4	St’át’imcets	segmentation	pún-Ø-tal̕i ta xw<ə́w̓>ɬa]	page 19, engine language
+(51b) line 5	St’át’imcets	gloss	get.found+DIR-3OBJ-NTS DET=road<DIM>=EXIS]	page 19, engine english
+(51b) line 6	Henry Davis	translation	‘Only Carl knows how to find the trail.’	page 19, engine english
+(51b) line 7	Carl Alexander	speaker comment	Consultant: “No: Albert and Kenny know it too!” (i.e., false: sloppy reading only)	page 19, engine english
+§4.3	Henry Davis	note	The results here show that strict identity is available for the finite but not for the infinitival clause, which only has a sloppy reading and is therefore false in context.	page 19
+§4.3	Henry Davis	note	Next, by minimally altering the context, we create a scenario where the sloppy reading is strongly favoured, as in (52).	page 19
+(52a) line 1	St’át’imcets	segmentation	waʔ pəl̕p ʔi=nkəkaʔɬás=a ʔúxʷalmixʷ cixʷ píx̌əm̓	page 19, engine language
+(52a) line 2	St’át’imcets	gloss	IPFV get.lost PL.DET=three.human=EXIS Indigenous.person get.there hunt	page 19, engine english
+(52a) line 3	St’át’imcets	segmentation	l=ki=s-qʷə́m<qʷəm>=a	page 19, engine language
+(52a) line 4	St’át’imcets	gloss	in=PL.DET=NMLZ-mountain<PLU>=EXIS	page 19, engine english
+(52a) line 5	Henry Davis	translation	‘Three hunters are lost in the mountains.’	page 19, engine english
+(52b) line 1	St’át’imcets	segmentation	waʔ qʷəl̕~qʷal̕<əl̕>t-s-twál̕=wit ɬ=swát=as kʷu=xʷúz̓	page 20, engine language
+(52b) line 2	St’át’imcets	gloss	IPFV PLU~speak<PLU>-CAUS-REC=3PL COMP=who=3SJV DET=PROS	page 20, engine english
+(52b) line 3	St’át’imcets	segmentation	pún-Ø-tal̕i ta=xw<ə́w̓>ɬ=a	page 20, engine language
+(52b) line 4	St’át’imcets	gloss	get.found+DIR-3OBJ-NTS DET=road<DIM>=EXIS	page 20, engine english
+(52b) line 5	Henry Davis	translation	‘They’re discussing who will be able to find the trail.’	page 20, engine english
+(52c) line 1	St’át’imcets	segmentation	xʷʔạz kʷ=s=zəwat-ən-Ø-ítas ta=xw<ə́w̓>ɬ=a	page 20, engine language
+(52c) line 2	St’át’imcets	gloss	NEG D/C=NMLZ=get.known-DIR-3OBJ-3PL.ERG DET=road<DIM>=EXIS	page 20, engine english
+(52c) line 3	St’át’imcets	segmentation	wi=s-Albert mútaʔ s-Kenny, ƛ̓uʔ waʔ sə́naʔ	page 20, engine language
+(52c) line 4	St’át’imcets	gloss	PL=NMLZ-Albert and NMLZ-Kenny but IPFV CNTR	page 20, engine english
+(52c) line 5	St’át’imcets	segmentation	zəwát-ən-Ø-əm ʔə=s-Carl	page 20, engine language
+(52c) line 6	St’át’imcets	gloss	get.known-DIR-3OBJ-3PASS by=NMLZ-Carl	page 20, engine english
+(52c) line 7	Henry Davis	translation	‘Albert and Kenny don’t know the trail, but Carl does.’	page 20, engine english
+§4.3	Henry Davis	note	Here, Carl is the only hunter who believes himself to know the trail (Albert and Kenny crucially do not). The same test sentences can then be given in this second context:	page 20
+(53a) line 1	Henry Davis	note	finite clause:	page 20, engine english
+(53a) line 2	St’át’imcets	segmentation	cúkʷ=ƛ̓uʔ s-Carl ta=waʔ zewat-en-Ø-táli [kwas	page 20, engine language
+(53a) line 3	St’át’imcets	gloss	finish=EXCL NMLZ-Carl DET=IPFV get.known-DIR-3OBJ-NTS [D/C+NMLZ+IPFV+3POSS	page 20, engine english
+(53a) line 4	St’át’imcets	segmentation	waʔ ƛ̓it ka-pún-s-Ø-as-a ta=xw<ə́w̓>ɬ=a]	page 20, engine language
+(53a) line 5	St’át’imcets	gloss	IPFV also CIRC-get.found-CAUS-3OBJ-3ERG-CIRC DET=road<DIM>=EXIS]	page 20, engine english
+(53a) line 6	Henry Davis	translation	‘Only Carl knows that he can find the trail.’	page 20, engine english
+(53a) line 7	Carl Alexander	speaker comment	Consultant: “I guess so, yes.” (i.e., true: sloppy reading)	page 20, engine english
+(53b) line 1	Henry Davis	note	infinitive:	page 20, engine english
+(53b) line 2	St’át’imcets	segmentation	cúkʷ=ƛ̓uʔ s-Carl ta=waʔ zewat-en-Ø-táli [kwa	page 20, engine language
+(53b) line 3	St’át’imcets	gloss	finish=EXCL NMLZ-Carl DET=IPFV get.known-DIR-3OBJ-NTS [D/C+ IPFV	page 20, engine english
+(53b) line 4	St’át’imcets	segmentation	pún-Ø-tal̕i ta xw<ə́w̓>ɬa=]	page 20, engine language
+(53b) line 5	St’át’imcets	gloss	get.found+DIR-3OBJ-NTS DET=road<DIM>=EXIS]	page 20, engine english
+(53b) line 6	Henry Davis	translation	‘Only Carl knows how to find the trail.’	page 20, engine english
+(53b) line 7	Carl Alexander	speaker comment	Consultant: “That’s a little better than the other one.” (i.e., true: sloppy reading)	page 20, engine english
+§4.3	Henry Davis	note	Here, the sloppy reading is available with both finite and infinitival clauses, with the infinitive preferred, as indicated by the speaker’s comments.	page 20
+Table 1	Henry Davis	note	Table 1: Strict and sloppy identity in finite and non-finite clause	page 20, the caption
+Table 1	Henry Davis	note	finite clause Infinitival clause	page 20, the column heads
+Table 1	Henry Davis	note	strict √ *	page 20, the strict reading: available with a finite clause, not with an infinitive
+Table 1	Henry Davis	note	sloppy √ √	page 20, the sloppy reading: available with both
+§4.3	Henry Davis	note	This pattern of data is summarized in Table 1.	page 20
+§4.3	Henry Davis	note	This is exactly the same contrast as is found between English finite and infinitival clauses (see (54) above), thereby providing indirect evidence that the subject of how-to infinitives in St’át’imcets has the same properties as (obligatory control) PRO in English: it must be interpreted as a bound variable.	page 20
+§4.3	Henry Davis	note	We now have the evidence we need for a unified analysis of the non-topical subject marker -tal(’)i: in both transitive subject extraction contexts and how-to infinitives, -tal(’)i marks an A'- bound variable. And furthermore, since by hypothesis obligatory control PRO in infinitives must be interpreted as a variable, we also have the evidence we need to identify the subject of a how-to infinitive as PRO.14 Notice, however, that I have so far failed to follow up on one important detail. The bound variable analysis of PRO specifically refers to obligatory control (henceforth OC). In fact, it forms the second part of what Landau (2013:29) refers to as the OC signature, given in (54) below.	page 21
+(54) line 1	Landau 2013:29	note	The OC signature	page 21, the caption, Landau's term
+(54) line 2	Landau 2013:29	note	In a control construction [ . . . Xi . . . [S PROi . . . ] . . . ], where X controls the PRO subject of the clause S:	page 21, the definition, set over two lines
+(54a) line 1	Landau 2013:29	note	The controller(s) X must be (a) co-dependent(s) of S.	page 21, the first part of the signature
+(54b) line 1	Landau 2013:29	note	PRO (or part of it) must be interpreted as a bound variable.	page 21, the second part of the signature, carries footnote 15, written here without its digit
+§4.3	St’át’imcets	note	Under this definition, non-obligatory control (NOC) is really just the converse of OC: NOC PRO	page 21, the first line of a paragraph, its rest in the next row
+§4.3	Henry Davis	note	need not be interpreted as a bound variable, and in fact does not even need a linguistic antecedent; furthermore, if an antecedent is present, it need not be a co-dependent of the S containing PRO (Landau 2013:232).	page 21
+§4.3	Henry Davis	note	Since we have established that the PRO subject of how-to infinitives is obligatorily interpreted as a bound variable, the prediction is that it will show the other properties of OC. However, before turning directly to this prediction, it is worth taking a slight detour in order to look at where control structures are not found in St’át’imcets.	page 21
+footnote 14	Henry Davis	note	14 Of course, this does not explain why obligatory control (OC) PRO invariably takes the form of a bound variable, nor what its binder is. In answer to the latter question, I assume that PRO is bound by a λ-operator, thereby creating a derived predicate out of the infinitival clause (it is important that this operation is syntactically visible, in order to provide a unified account for the distribution of -tal(’i) as marking A'- extraction). The controller of PRO then saturates the abstracted argument in the higher clause. This way of thinking about OC suggests that infinitive-taking predicates select for properties (as originally argued by e.g., Chierchia 1984), rather than propositions. However, on the reduced question analysis, the WH-predicate (ʔə)s-kas presumably selects for a set of propositions with existential quantification over an instrumental adjunct (as in standard semantic representations dating back to Hamblin 1973 and Kartunnen 1977). This apparent contradiction can be resolved if it is assumed that when (ʔə)s-kas takes an infinitival complement, it syntactically selects for a CP, but semantically selects for (a set of) properties. The first assumption is supported by the syntactic argumentation given above that an infinitival complement is a full clause (contra Chierchia, who assumes that OC constructions involve bare VPs); the second is supported by the behaviour of PRO (e.g., with respect to sloppy identity). Together, they conspire to force lambda abstraction over the subject of the infinitive, creating a derived predicate – or more accurately, set of predicates, each of which must be saturated by the controller of PRO by pointwise functional application. It is also important to point out that there is no interaction between the PRO-binding mechanism outlined here and the separate A'- dependency induced by the WH-predicate in its clausal complement; even though both are types of A'- dependency, they do not interfere with each other with respect to minimality, for example.	page 21, footnote
+§4.3	Henry Davis	notation	λ-operator	the operator that binds PRO, footnote 14; the Symbol font's lambda, U+F06C in the text layer
+§4.3	St’át’imcets	cited form	(ʔə)s-kas	page 21
+footnote 15	Henry Davis	note	15 The reason that the definition here refers to “part” of PRO is to cover cases of partial and split control; these have yet to be systematically checked in St’át’imcets.	page 21, footnote
+§4.4	Henry Davis	heading	4.4 The landscape of control in St’át’imcets	page 22
+§4.4	Henry Davis	language	St’át’imcets	the language of the paper, a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish
+§4.4	Henry Davis	note	The landscape of control constructions in St’át’imcets is very different from that of better-described (mainly Standard Average European) control systems. In particular, the limited distribution of infinitives overall means that most canonical SAE control constructions are simply missing. For example, all the major classes of OC verbs in English take finite (nominalized) complements in St’át’imcets, rather than infinitives.16 Examples with ‘want’, ‘try’, and ‘tell’ are given in (55)-(57):	page 22
+(55) line 1	St’át’imcets	segmentation	x̌áƛ̓-min̓-Ø=ɬkan [kʷənswá qʷic-wíl̕x]	page 22, engine language
+(55) line 2	St’át’imcets	gloss	want-RLT-3OBJ=1SG.SUBJ D/C+1SG.POSS+NMLZ+IPFV rich-become]	page 22, engine english
+(55) line 3	Henry Davis	translation	‘I want to get rich!’ (‘I want that I become rich.’)	page 22, engine english
+(56) line 1	St’át’imcets	segmentation	ƛ̓anam̓-ílx [kʷ=s=sək̓ʷ-ən-Ø-áxʷ ta=k̓ə́ƛ̓h=a]	page 22, engine language
+(56) line 2	St’át’imcets	gloss	try-AUT [D/C=NMLZ=break-DIR-3OBJ-2SG.ERG DET=rock=EXIS]	page 22, engine english
+(56) line 3	Henry Davis	translation	‘Try to break the rock.’ (‘Try that you break the rock.’)	page 22, engine english
+(57) line 1	St’át’imcets	segmentation	cún-c-as na=skíxzaʔ-sw=a	page 22, engine language
+(57) line 2	St’át’imcets	gloss	tell+DIR-1SG.OBJ-3ERG ABSN.DET=mother-2SG.POSS=EXIS	page 22, engine english
+(57) line 3	St’át’imcets	segmentation	[kʷ=n=(s=)xʷíl̕-ən-cin]	page 22, engine language
+(57) line 4	St’át’imcets	gloss	[D/C=1SG.POSS=(NMLZ=)look.for-2SG.OBJ	page 22, engine english
+(57) line 5	Henry Davis	translation	‘Your mother told me to look for you.’ (‘Your mother told me that I look for you.’)	page 22, engine english
+footnote 16	Henry Davis	note	16 Of course, the notion of control is in principle separable from the grammar of infinitives, and therefore from PRO, since it is also hypothetically possible for the overt pronominal subjects of finite clauses to be obligatorily covalued with a syntactic antecedent (i.e., controlled). This possibility has in fact been mooted for Upriver Halkomelem by Thompson (2008); however, it does not seem to be realized in St’át’imcets, where not only do the equivalents of canonical control verbs like ‘try’ and ‘force’ take finite complement clauses rather than infinitives, but their subjects need not necessarily be covalued with a matrix argument. This is shown in (i)-(ii).	page 22, footnote
+§4.4	Henry Davis	note	While infinitival complements are severely restricted in St’át’imcets, infinitival subjects and most infinitival adjuncts appear to be missing altogether. Sentential subjects are generally unavailable, whether finite or infinitival, and typical cases of infinitival adjuncts in English,	page 22
+footnote 16 (i) line 1	St’át’imcets	segmentation	ƛ̓anam̓-ílx ta=n-sqácəzʔ=a [kʷ=n=s=nas ʔátaʔ skʷúl=a]	page 22, engine language
+footnote 16 (i) line 2	St’át’imcets	gloss	try-AUT DET=1SG.POSS-father=EXIS [D/C=1SG.POSS=NMLZ=go to.there school=EXIS]	page 22, engine english
+footnote 16 (i) line 3	Henry Davis	translation	‘My father tried to get me to go to school.’ (Literally: ‘My father tried that I go to school.’)	page 22, engine english
+footnote 16 (ii) line 1	St’át’imcets	segmentation	x̌ʷəc̓-ən-cí=ɬkan [kʷ=s=nas=c skʷul	page 22, engine language
+footnote 16 (ii) line 2	St’át’imcets	gloss	force-DIR-2SG.OBJ=1SG.SUBJ [D/C=NMLZ=go=3POSS school	page 22, engine english
+footnote 16 (ii) line 3	St’át’imcets	segmentation	ta=skʷúzaʔ-sw=a]	page 22, engine language
+footnote 16 (ii) line 4	St’át’imcets	gloss	DET=offspring-2SG.POSS=EXIS]	page 22, engine english
+footnote 16 (ii) line 5	Henry Davis	translation	‘I forced you to send your child to school.’ (Literally: ‘I forced you that your child went to school.’)	page 22, engine english
+footnote 16	Henry Davis	note	In other words, OC seems to be missing in complements to the St’át’imcets equivalents of canonical English control verbs, irrespective of finiteness.	page 22
+§4.4	Henry Davis	note	including purpose clauses (58), temporal adjunct clauses (59), and clausal complements to prepositions (66) are all realized as finite clauses in St’át’imcets:	page 23
+(58) line 1	St’át’imcets	segmentation	n-q̓əlx-anaʔ-mín-Ø=ɬkan ta=szík=a [niɬ	page 23, engine language
+(58) line 2	St’át’imcets	gloss	LOC-jump-ear-RLT-3OBJ=1SG.SUBJ DET=log=EXIS [COP	page 23, engine english
+(58) line 3	St’át’imcets	segmentation	[kʷ=s=kʷán<ən>-s-Ø-an ta=n-ƛ̓amín=a]]	page 23, engine language
+(58) line 4	St’át’imcets	gloss	[D/C=NMLZ=get.taken<COS>-CAUS-3OBJ-1SG.ERGDET=1SG.POSS-axe=EXIS]]	page 23, engine english
+(58) line 5	Henry Davis	translation	‘I jumped over the log in order to get my axe.’ (More literally: ‘I jumped over the log so that I could get my axe.’	page 23, engine english
+(58) line 5	Henry Davis	citation	(Davis et al. in prep.)	the tag or source at the right of the translation
+(59) line 1	St’át’imcets	segmentation	waʔ ɬuq̓ʷ-usaʔ-ən-Ø-ítas ʔi=ptạ́k=a	page 23, engine language
+(59) line 2	St’át’imcets	gloss	IPFV peel-round.thing-DIR-3OBJ-3PL.ERG PL.DET=potato=EXIS	page 23, engine english
+(59) line 3	St’át’imcets	segmentation	[ʔəɬ puɬ-un̓-Ø-ítas]	page 23, engine language
+(59) line 4	St’át’imcets	gloss	[and.then boil-DIR-3OBJ-3PL.ERG]	page 23, engine english
+(59) line 5	Henry Davis	translation	‘They peel the potatoes before boiling them.’ (More literally: ‘I peeled the potatoes and then I boiled them.’) (Davis et al. in prep.)	page 23, engine english
+(60) line 1	St’át’imcets	segmentation	xʷʔạ́z=ƛ̓uʔ kʷas ka-ƛ̓ə́l-a, plán=s=a=ƛ̓uʔ	page 23, engine language
+(60) line 2	St’át’imcets	gloss	NEG=EXCL D/C+NMLZ+IPFV+3POSS CIRC-still-CIRC already=3POSS=EXIS=EXCL	page 23, engine english
+(60) line 3	St’át’imcets	segmentation	ʔəs-xʷəlát [ɬəl=na=s=ɬwal-ən-ə́m=a=tuʔ]	page 23, engine language
+(60) line 4	St’át’imcets	gloss	STAT-messed.up [from=ABSN.DET=NMLZ=get.abandoned-DIR-3PASS=EXIS=REM]	page 23, engine english
+(60) line 5	Davis et al. in prep.	translation	‘She can’t keep still, she’s so depressed from getting abandoned.’ (More literally: ‘She can’t keep still, she’s so depressed from (the fact) that she got abandoned.’)	page 23, engine english, cited Davis et al. in prep.
+(60) line 6	Henry Davis	citation	(Davis et al. in prep.)	page 23, engine english
+§4.4	Henry Davis	language	nɬeʔkepmxcín	a.k.a. Thompson (River) Salish, ISO 639-3 thp, the other Northern Interior Salish language with infinitives
+§4.4	Henry Davis	language	ʔayʔaǰuθəm	a.k.a. Comox-Sliammon, ISO 639-3 coo, Central Salish, where infinitives were found recently
+§4.4	Henry Davis	note	It is unclear exactly why control is so restricted in St’át’imcets (and more broadly, why it is also either highly restricted or entirely absent in other Salish languages). Furthermore, the attested cases have a peculiar distribution: as far as I can see, they are limited to how-to infinitives and the complements to evaluative adjectives (the latter comprising the other main class of control infinitives in St’át’imcets, which I do not discuss in this paper). What is even more striking is that this distribution does not appear to be arbitrary: both of the other two Salish languages where infinitives have been positively identified, nɬeʔkepmxcín and ʔayʔaǰuθəm, have the same two classes of control infinitive (for nɬeʔkepmxcín, this is perhaps unsurprising, since it is a neighbour and close relative of St’át’imcets, but for ʔayʔaǰuθəm, which is not even in the same branch of the family, it is quite startling.) I do not know what if anything unites these two classes, or why control infinitives are systematically absent in other environments where we would expect them to appear: this is a topic for future research.	page 23
+§4.5	Henry Davis	heading	4.5 Control in how-to infinitives	page 23
+§4.5	Henry Davis	note	Turning back now to the question of control in how-to infinitives, recall that we have already seen that they test positively for one half of the OC signature given in (54) above: PRO (or part of it) must be interpreted as a bound variable. What about the other half? Here we are interested in the locality of the relation between PRO and its controller: The controller(s) X must be (a) co- dependent(s) of S. This means that the controller must either be an argument or an adjunct in the clause immediately dominating the infinitival clause containing PRO.	page 23
+§4.5	Henry Davis	note	With how-to infinitives, either the subject or object of the matrix verb typically controls PRO: see for example (1)-(2) versus (7)-(8) above. When a potential alternative (non-local) controller is provided, only local control is possible, as shown in the (a) cases in (61)-(62) below. In contrast, with a finite (nominalized) clause, either a local or a non-local antecedent is available, as shown in the (b) cases.	page 24
+(61a) line 1	St’át’imcets	segmentation	ka-x̌ə́k-s-Ø-as-a s-Mary kʷ=s=plan=s	page 24, engine language
+(61a) line 2	St’át’imcets	gloss	CIRC-reckon-CAUS-3OBJ-3ERG-CIRC NMLZ-Mary D/C=NMLZ=already=3POSS	page 24, engine english
+(61a) line 3	St’át’imcets	segmentation	zəwát-ən-Ø-as s-John [kʷa pumákʔ-am]	page 24, engine language
+(61a) line 4	St’át’imcets	gloss	know-DIR-3OBJ-3ERG NMLZ-John [D/C+IPFV drum-MID]	page 24, engine english
+(61a) line 5	Henry Davis	translation	(i) ‘Mary figured out that John already knew how to drum.’	page 24, engine english
+(61a) line 6	Henry Davis	translation	(ii)# ‘Mary figured out that John already knew she could drum.’	page 24, engine english
+(61b) line 1	St’át’imcets	segmentation	ka-x̌ə́k-s-Ø-as-a s-Mary kʷ=s=plan=s	page 24, engine language
+(61b) line 2	St’át’imcets	gloss	CIRC-reckon-CAUS-3OBJ-3ERG-CIRC NMLZ-Mary D/C=NMLZ=already=3POSS	page 24, engine english
+(61b) line 3	St’át’imcets	segmentation	zəwát-ən-Ø-as s-John [kʷas	page 24, engine language
+(61b) line 4	St’át’imcets	gloss	know-DIR-3OBJ-3ERG NMLZ-John [D/C+NMLZ+IPFV+3POSS	page 24, engine english
+(61b) line 5	St’át’imcets	segmentation	ka-pumákʔ-am-a]	page 24, engine language
+(61b) line 6	St’át’imcets	gloss	CIRC-drum-MID-CIRC]	page 24, engine english
+(61b) line 7	Henry Davis	translation	(i) ‘Mary figured out that John already knew how to drum.’	page 24, engine english
+(61b) line 8	Henry Davis	translation	(ii) ‘Mary figured out that John already knew she could drum.’	page 24, engine english
+(62a) line 1	St’át’imcets	segmentation	cún-Ø=ɬkan ʔi=təw~tw<ə́w>w̓t=a	page 24, engine language
+(62a) line 2	St’át’imcets	gloss	tell+DIR-3OBJ=1SG.SUBJ PL.DET=PLU~boy<DIM>=EXIS	page 24, engine english
+(62a) line 3	St’át’imcets	segmentation	kʷ=n=s=xʷuz̓ cunám̓-ən-Ø ʔi=sməɬ~m<ə́m̓>ɬac=a	page 24, engine language
+(62a) line 4	St’át’imcets	gloss	D/C=1SG.POSS=NMLZ=PROS teach-DIR-3OBJ PL.DET=PLU~girl<DIM>=EXIS	page 24, engine english
+(62a) line 5	St’át’imcets	segmentation	ɬus kas [kʷa sítk-əm]	page 24, engine language
+(62a) line 6	St’át’imcets	gloss	COMP+IPFV+3SJV be.how [D/C+IPFV net-MID]	page 24, engine english
+(62a) line 7	Henry Davis	translation	(i) ‘I told the boys that I would show the girls how to make nets.’	page 24, engine english
+(62a) line 8	Henry Davis	translation	(ii)# ‘I told the boys that I would show the girls how they (the boys) made nets.’	page 24, engine english
+(62b) line 1	St’át’imcets	segmentation	cún-Ø=ɬkan ʔi=təw~tw<ə́w>w̓t=a	page 24, engine language
+(62b) line 2	St’át’imcets	gloss	tell+DIR-3OBJ=1SG.SUBJ PL.DET=PLU~boy<DIM>=EXIS	page 24, engine english
+(62b) line 3	St’át’imcets	segmentation	kʷ=n=s=xʷuz̓ cunám̓-ən-Ø ʔi=sməɬ~m<ə́m̓>ɬac=a	page 24, engine language
+(62b) line 4	St’át’imcets	gloss	D/C=1SG.POSS=NMLZ=PROS teach-DIR-3OBJ PL.DET=PLU~girl<DIM>=EXIS	page 24, engine english
+(62b) line 5	St’át’imcets	segmentation	ɬus kas [ɬas sítk-əm=wit]	page 24, engine residue
+(62b) line 6	St’át’imcets	gloss	COMP+IPFV+3SJV be.how [COMP+IPFV+3SJV net-MID=3PL]	page 24, engine english
+(62b) line 7	Henry Davis	translation	(i) ‘I told the boys that I would show the girls how to make nets.’	page 24, engine english
+(62b) line 8	Henry Davis	translation	(ii) ‘I told the boys that I would show the girls how they (the boys) make nets.’	page 24, engine english
+footnote 17	Henry Davis	note	17 There is technical problem here, however. On the concealed question analysis, there is an elided intermediate (ʔə)s-kas clause between the controller in the matrix clause and PRO in the infinitival clause even in cases where it does not appear overtly, as in (61a). This means that none of the cases of OC given	page 24, footnote
+§4.5	St’át’imcets	cited form	(ʔə)s-kas	page 24
+§4.5	Henry Davis	note	This contrast is in line with the treatment of how-to infinitives as cases of OC, since only local control is possible in the infinitival cases.17 Two sets of how-to infinitives, however, clearly challenge the OC analysis. The reason is obvious: they appear to have no controller at all. The first consists of main clause questions with (ʔə)s-kas ‘how’, as in (19) above, exemplified again in (63) below:	page 24
+(63a) line 1	St’át’imcets	segmentation	(ʔə)s-kas [kʷa cəq cʔa kʷu=sq̓ʷuʔ]	page 25, engine language
+(63a) line 2	St’át’imcets	gloss	STAT-how [D/C get.put.down DEM DET=trap	page 25, engine english
+(63a) line 3	Henry Davis	translation	‘How do you set this trap?’ (More literally: ‘How is it for this trap to be set?’)	page 25, engine english
+(63b) line 1	St’át’imcets	segmentation	(ʔə)s-kas [kʷa cəq-ən-Ø-táli cʔa kʷu=sq̓ʷuʔ]	page 25, engine language
+(63b) line 2	St’át’imcets	gloss	STAT-how [D/C get.put.down-DIR-3OBJ-NTS DEM DET=trap	page 25, engine english
+(63b) line 3	Henry Davis	translation	‘How do you set this trap?’ (More literally: ‘How is it to set this trap?’)	page 25, engine english
+(63b) line 4	Carl Alexander	speaker comment	Consultant: ‘Yeah, just a little different’ (than the previous).	page 25, engine english
+§4.5	Henry Davis	note	The PRO in these cases is clearly interpreted as arbitrary (as indicated by the ‘you’ paraphrase in the English translations, equivalent to arbitrary ‘one’).	page 25
+§4.5	St’át’imcets	cited form	zəwát	page 25
+§4.5	St’át’imcets	cited form	ɬap	page 25, ‘get forgotten’
+§4.5	Henry Davis	note	The second case comprises the “impersonal” (unaccusative) epistemic verbs zəwát ‘be/get known’ and ɬap ‘get forgotten’, illustrated once more in (64) and (65), respectively.	page 25
+(64) line 1	St’át’imcets	segmentation	waʔ zəwát [kʷa ka-ʕʷə́l-s-Ø-as-a ʔi=sc̓ák̓ʷ=a	page 25, engine language
+(64) line 2	St’át’imcets	gloss	IPFV be.known [D/C+IPFV CIRC-burn-CAUS-3OBJ-3ERG-CIRC PL.DET=light=EXIS	page 25, engine english
+(64) line 3	St’át’imcets	segmentation	ɬəl=ti=snə́qʷəm=a] ɬkúnsa	page 25, engine language
+(64) line 4	St’át’imcets	gloss	from=DET=sun=EXIS] now	page 25, engine english
+(64) line 5	Henry Davis	translation	‘It’s known how to make electricity from the sun these days.’	page 25, engine english
+(65) line 1	St’át’imcets	segmentation	lán=tuʔ ɬap [kʷa mays-ən-Ø-táli ʔi=k̓ʷəlcáz̓ʔ=a]	page 25, engine language
+(65) line 2	St’át’imcets	gloss	already=REM get.forgotten [D/C+IPFV get.fixed-DIR-3OBJ-NTS PL.DET=fish.trap=EXIS]	page 25, engine english
+(65) line 3	Henry Davis	translation	‘It’s been forgotten how to make fish traps.’	page 25, engine english
+§4.5	Henry Davis	language	St’át’imcets	the language of the paper, a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish
+§4.5	Henry Davis	note	The typical move for an OC analysis of parallel cases in English (e.g., ‘It is not allowed to walk on the grass’, ‘It is required to keep your dog on a leash’) is to appeal to the implicit agent of the passive as a controller. But such an analysis is not tenable for bare root epistemic verbs in St’át’imcets: as first detailed in Davis (1997), bare root unaccusatives (including those which semantically entail an agent) do not have a syntactically represented external argument, explicit or implicit (and contrast in this respect with passives, which do). The same argument is made by Bhatt and Pancheva (2017:4) for Hindi, which also has unaccusative verbs with a semantic entailment of agency but no syntactically represented external argument.	page 25
+§4.5	Henry Davis	note	This leaves two options. One is to abandon the idea that PRO in St’át’imcets is always subject to OC, and assume instead that these are cases of NOC. I am reluctant to do so, for reasons both internal and external to St’át’imcets. Internally, we would end up with contradictory diagnostics for OC in St’át’imcets, since, as we have seen, PRO in how-to infinitives behaves like a bound variable and shows local control effects with overt antecedents, as shown in (61)-(62) above. here technically involve local control (at least according to the OC signature given in (60) above). However, notice that an overt (ʔə)s-kas clause intervening between an epistemic predicate and an infinitival clause containing OC PRO, as in (61b), makes no difference to control possibilities: this means that the locality condition on OC will in any case have to be modified so that the (ʔə)s-kas clause is invisible for the purposes of the locality condition.	page 25
+§4.5	Henry Davis	note	Externally to St’át’imcets, it is notable that the PRO subjects of embedded infinitival questions in English and other languages (including how-to questions) also have an ambivalent status: though they are not necessarily “theta-controlled” (that is, by an explicit or implicit argument of the higher predicate), they do not show the referential freedom of NOC PRO. For example, Landau (2013:159) points out that “genuine” arbitrary PRO in NOC contexts is insensitive to the presence of a potential local controller, as shown in (66):	page 26
+(66) line 1	Landau 2013:159	cited example	It is dangerous for babiesi [PROarb to smoke around themi].	page 26, an English example, from Landau (2013:159)
+§4.5	Henry Davis	note	Here, PROarb gets its reference independently of ‘babies’, which can consequently be coreferent with an overt pronoun in the infinitival clause without violating Condition B of the Binding Theory. Landau points out that this is not true of PRO in infinitival questions, as shown by the paradigm in (67).	page 26
+(67a) line 1	Landau 2013	cited example	* Maryi didn’t know [where PROi+ to hide heri].	page 26, an English example, Landau's paradigm, carries footnote 18, written here without its digit
+(67b) line 1	Landau 2013	cited example	* Suei asked [what PROi+ to buy heri in Rome].	page 26, an English example, Landau's paradigm
+(67c) line 1	Landau 2013	cited example	Maryi didn’t know [where one should hide heri].	page 26, an English example, Landau's paradigm
+(67d) line 1	Landau 2013	cited example	Suei asked [what one should buy heri in Rome].	page 26, an English example, Landau's paradigm
+§4.5	Henry Davis	note	The infinitival cases in (a) and (b) above contrast with (66) in that local control is obligatory (as in the St’át’imcets how-to infinitive cases in (61)-(62) above). This means that coreference with an overt pronoun in the infinitival clause induces a Condition B violation. On the other hand, the parallel finite WH-complement cases in (c) and (d), with an overt arbitrary pronoun (‘one’) in the subject position of the embedded clause, show no such effect: hence, coreference between a matrix antecedent and a pronoun in the embedded clause is fine.	page 26
+§4.5	Henry Davis	note	For these reasons, I choose the only other available option, and assume that there must be a covert controller in the apparently arbitrary cases of control in (63)-(65). Of course, this then raises the pressing question of what that controller is. Answering that question unfortunately goes well beyond the scope of this article. I can offer here only a few speculative remarks: see Constantini and Laskova (2009) for an overview of approaches to PROarb as a type of implicit control (including in how-to infinitives).	page 26
+footnote 18	Henry Davis	note	18 The subscript notation i+ is used by Landau to indicate partial control: that is, the overt antecedent to PRO does not necessarily exhaustively control its reference, since other antecedents (explicit or implicit) may also be implicated.	page 26, footnote
+footnote 19	Henry Davis	note	19 Notice that the parallel English impersonal passive cases also have generic interpretations: ‘It is not allowed to walk on the grass’ means that walking on the grass is forbidden in general, and ‘It is required to keep your dog on a leash’ means that everyone must keep their dog on a leash, not just someone or other. Interestingly, Bhatt and Izvorski (1998) have also proposed that a generic operator binds PRO with evaluative adjectives such as ‘fun’ and ‘difficult’ (as in e.g., ‘It is fun PRO to swim’ and ‘It is difficult PRO to solve this problem’); evaluative adjectives form the other main class of control predicates in St’át’imcets, suggesting that a generic operator is more generally available in control contexts in the language.	page 26, footnote
+§4.5	Henry Davis	note	I suspect the most likely candidate for an implicit controller is a generic operator: see Moltmann (2006) for the claim that arbitrary ‘one’ and PROarb are both bound by a generic operator in [Spec, CP] of the matrix clause. A generic operator seems to capture the quasi-universal interpretation of bare root epistemic verbs: zəwát means ‘it is generally known’, rather than ‘somebody knows’ and ɬap means ‘it has generally been forgotten’, rather than ‘somebody forgot it’.19 A different but related approach is suggested by Bhatt and Izvorski (1998), who make the important observation that embedded infinitival questions in English contain an implicit circumstantial modal. More specifically, how-to infinitives seem to contain dispositional ability modals: ‘know how to’ can be paraphrased as ‘have the (cognitive) capacity to’, ‘learn how to’ as ‘acquire the (cognitive) capacity to’, ‘teach how to’ as ‘cause someone to acquire the (cognitive) capacity to’, ‘forget how to’ as ‘lose the (cognitive) capacity to’, and so on. This suggests the WH- predicate (ʔə)s-kas contains an ability modal component, which potentially supplies an implicit antecedent for control PROarb (since dispositional ability modals require an ‘ability holder’). Which of these two approaches to choose (and whether they might be compatible) is a task for the future, however: I leave the issue open here.	page 26
+§5	Henry Davis	heading	5 Conclusion	page 27
+§5	Henry Davis	language	St’át’imcets	the language of the paper, a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish
+§5	St’át’imcets	cited form	(ʔə)s-kas	page 27, ‘how (to)’
+§5	Henry Davis	note	In this paper, I have undertaken a detailed investigation of the infinitival complements of a set of predicates in St’át’imcets which I term epistemic verbs. In the first part of the paper I argued – though not without reservations – that epistemic verbs only indirectly select for infinitives, via the WH-predicate (ʔə)s-kas ‘how (to)’, which alone amongst question predicates directly takes an infinitival complement; optional ellipsis leads to the appearance of direct selection by a higher question-embedding epistemic verb.	page 27
+§5	Henry Davis	note	In the second part of the paper, I examined the subject of ‘how-to’ infinitives in some detail, showing that it behaves like a bound variable, and therefore can be identified as (OC) PRO: this is the first time, to my knowledge, that OC PRO has been positively identified in a Salish language. Finally, I proposed that in cases where a controller appears to be lacking, a generic operator is inserted to yield an “arbitrary” interpretation for PRO.	page 27
+§5	Henry Davis	note	This is the second of what I have always intended to be a trilogy of ICSNL papers on infinitives in St’át’imcets. It has taken me five years to follow up on Part I, which dealt with raising infinitives; I hope to complete Part III, on the infinitival complements of evaluative adjective, in a more timely fashion. Though I confess that the more I investigate the grammar of infinitives, the more challenging it becomes, that is also, of course, why this corner of the grammar of St’át’imcets remains so fascinating.	page 27
+references	Henry Davis	heading	References	page 27
+references	St’át’imcets	cited form	Sqwéqwel	‘stories’, Sqwéqwel’ in the title of Alexander 2016, the page's apostrophe after it cut by the text layer
+references	St’át’imcets	cited form	múta7	‘and’, in the title of Alexander 2016
+references	Henry Davis	language	St’át’imcets	the language of the paper, a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish
+references	Henry Davis	name	Qwa7yán’ak	the St’át’imcets name of Carl Alexander, the consultant
+references	Henry Davis	reference	Alexander, Carl. 2016. Sqwéqwel’ múta7 Sptakwlh (‘Stories and Legends’): St’át’imcets Narratives by Qwa7yán’ak (Carl Alexander), edited, transcribed and translated by Elliot Callahan, Henry Davis, John Lyon and Lisa Matthewson. University of British Columbia Occasional Papers in Linguistics 3.	
+references	St’át’imcets	cited form	Múta7	‘and’, in the title of Alexander 2025
+references	Henry Davis	reference	Alexander, Carl. 2025. Sptakwlh Múta7 Sqwéqwel’ (‘Legends and Stories’): St’át’imcets Narratives by Qwa7yán’ak, Volume II, ), edited, transcribed and translated by Henry Davis and John Lyon. Vancouver: PNWLL Press.	
+references	Henry Davis	reference	Arregui, Ana, and Lisa Matthewson. 2001. A cross-linguistic perspective on the expression of manner. Proceedings of Semantics and Linguistics Theory X. Ithaca, NY: Cornell Linguistics Publications.	
+references	Henry Davis	reference	Bhatt, Rajesh and Roumyana Izvorski. 1998. Genericity, Implicit Arguments and Control. Proceedings of SCIL 7: MIT: MITWPL.	
+references	Henry Davis	reference	Bhatt, Rajesh and Roumyana Pancheva. 2017. Implicit arguments. In Martin Everaert and Henk C. van Riemsdijk (eds.), The Wiley Blackwell Companion to Syntax (2nd Edition online). John Wiley and Sons. Accessed at https://doi.org/10.1002/9781118358733.wbsyncom118.	
+references	Henry Davis	reference	Chierchia, Gennaro. 1984. Topic in the semantics of infinitives and gerunds. Ph.D. dissertation, University of Massachusetts at Amherst.	
+references	Henry Davis	name	Brugè	Laura Brugè, an editor in Constantini and Laskova 2009
+references	Henry Davis	reference	Constantini, Francesco and Vasselina Laskova. 2009. Remarks on PROarb. In University of Venice Working Papers in Linguistics 19, edited by Laura Brugè, 61-79. University of Venice.	
+references	Henry Davis	reference	Davis, Henry. 1994. Tali-ho! Papers for the 29th International Conference on Salish and Neighboring Languages, 117-144. Pablo, Montana: Salish-Kutenai College.	
+references	Henry Davis	reference	Davis, Henry. 1997. Deep Unaccusativity and Zero syntax in St’át’imcets. In Amelia Mendikoetxea and Miriam Uribe-Etxebarria (eds.), Theoretical Issues at the Morphology-Syntax Interface. Bilbao: Supplements of the International Journal of Basque Linguistics and Philology, 55-96.	
+references	Henry Davis	reference	Davis, Henry. 2008. WH-in-situ: Japanese meets Salish. In Michiko Takeuchi (ed.) Kanagawa University Studies in Language Special Issue: Individual Languages and Language Variation: 17-58. Yokohama: Kanagawa University Center for Language Studies.	
+references	Henry Davis	reference	Davis, Henry. 2010. A Unified Analysis of Relative Clauses in St’át’imcets. Northwest Journal of Linguistics 4.1: 1-43.	
+references	Henry Davis	reference	Davis, Henry. 2011. Stalking the Adjective in St’át’imcets. Northwest Journal of Linguistics 5.2: 1-60.	
+references	Henry Davis	reference	Davis, Henry. 2020. Infinitives and raising in St’át’imcets. Papers for the 55th International Conference on Salish and Neighbouring Languages, 41-61. Vancouver: UBCWPL.	
+references	Henry Davis	name	St’át’imc	the Upper St’át’imc Language Authority, an author of the dictionary Davis et al. in prep.
+references	St’át’imcets	cited form	Nqwal’uttenlhkálha	the title of the dictionary Davis et al. in prep.
+references	Henry Davis	note	English-St’át’imcets	in the title of the dictionary Davis et al. in prep.
+references	Henry Davis	note	St’át’imcets-	St’át’imcets-English, in the title of the dictionary Davis et al. in prep., broken at the hyphen
+references	Henry Davis	reference	Davis, Henry, Beverley Frank, Rose Agnes Whitley and the Upper St’át’imc Language Authority. In preparation. Nqwal’uttenlhkálha: An English-St’át’imcets Dictionary, with St’át’imcets- English Index and Grammatical Appendices. Lillooet, BC: Upper St’át’imc Language, Culture and Education Society.	
+references	Henry Davis	reference	Davis, Henry and Lisa Matthewson. 1996. Subordinate clauses and functional projections in St’át’imcets. Papers for the 41st International Conference on Salish and Neighbouring Languages, 59-73. Vancouver: UBC Department of Linguistics.	
+references	St’át’imcets	cited form	Sqwéqwel’s	in the title of Edwards et al. 2017
+references	St’át’imcets	cited form	Skelkekla7lhálha	in the title of Edwards et al. 2017
+references	Henry Davis	reference	Edwards, Bill, Sam Mitchell, and Martina LaRochelle. 2017. Sqwéqwel’s nelh Skelkekla7lhálha (‘Tales of our Elders’), edited, transcribed and translated by Henry Davis John Lyon, Jan van Eijk and Rose Whitley. Vancouver, BC: UBCOPL.	
+references	Henry Davis	language	Nɬeʔkepmxcín	in the title of Hall 2023
+references	Henry Davis	reference	Hall, Brent. 2023. A brief look at infinitives in Nɬeʔkepmxcín. Papers for the 58th International Conference on Salish and Neighboring Languages, 85-93. Vancouver: UBCWPL.	
+references	Henry Davis	reference	Hamblin, Charles L. 1973. Questions in Montague English. Foundations of Language 10: 41-53.	
+references	Henry Davis	reference	Kartunnen, Lauri. 1977. Syntax and semantics of questions. Linguistics and Philosophy 1:3-44.	
+references	Henry Davis	reference	Kroeber, Paul. 1999. The Salish Language Family: Reconstructing Syntax. Lincoln, NE: University of Nebraska Press.	
+references	Henry Davis	reference	Landau, Idan. 2013. Control in Generative Grammar: A Research Companion. Cambridge: Cambridge University Press.	
+references	Henry Davis	reference	Matthewson, Lisa. 2005a. On the absence of tense on determiners. Lingua 115(12):1697-1735.	
+references	Henry Davis	reference	Matthewson, Lisa. 2005b. Iwan Kwikws (‘When I was Small’). Vancouver: University of British Columbia Press.	
+references	Henry Davis	reference	Matthewson, Lisa. 2010. Crosslinguistic variation in modality systems: the role of mood. Semantics and Pragmatics 3.1-74.	
+references	Henry Davis	reference	Mitchell, Sam. 2022. Wa7 Sqwéqwel’ sSam: St’át’imcets Stories from Sam Mitchell. Recorded by Randy Bouchard, transcribed, translated and edited by John Lyon and Henry Davis. Vancouver: UBCOPL.	
+references	Henry Davis	reference	Moltmann, Friederike, 2006. Generic one, arbitrary PRO, and the first person. Natural Language Semantics 14:257-281.	
+references	Henry Davis	reference	Polinsky, Maria, and Eric Potsdam. 2002. Backward control. Linguistic Inquiry 33:245-282.	
+references	Henry Davis	reference	Potsdam, Eric and Maria Polinsky. 2012. Backward raising. Syntax 15(1):75-108.	
+references	Henry Davis	language	St’átimcets	in the title of Roberts 1994, printed without its second apostrophe
+references	Henry Davis	reference	Roberts, Taylor. 1994. Subject and topic in St’átimcets (Lillooet Salish). MA thesis, University of British Columbia.	
+references	Henry Davis	reference	Thompson, James. 2008. Control constructions as a sub-class of nominalized clauses in Upriver Halkomelem. Papers for the 43rd International Conference on Salish and Neighbouring Languages, edited by C. Christodoulou and J. Lyon, 151-162. Vancouver: UBCWPL 23. van Eijk, Jan. 1997. The Lillooet Language: Phonology, Morphology, Syntax. Vancouver: University of British Columbia Press.	
+references	Henry Davis	reference	Van Eijk, Jan. 2013/in preparation. Lillooet English Dictionary. Vancouver: UBCOPL/PNWLL Press.	
+references	Henry Davis	reference	Van Eijk, Jan and Lorna Williams (eds.). 1981. Lillooet Legends and Stories. Mount Currie, B.C.: Ts’zil Publishing House.	
+title	Henry Davis	title	A How-To Guide to Control Infinitives in St’át’imcets	the paper's title
+title	Henry Davis	name	Henry Davis	the author, The University of British Columbia
+footnote *	Henry Davis	name	Carl Alexander	Qwa7yán’ak, the consultant, whose are all unattributed St’át’imcets examples and judgements; Alexander 2016 and 2025
+footnote *	Henry Davis	name	Betty Wilson	provided the ʔayʔaǰuθəm data
+footnote *	Henry Davis	name	Molly Harry	provided the ʔayʔaǰuθəm data
+footnote *	Henry Davis	name	Daniel Reisinger	elicited the ʔayʔaǰuθəm data
+footnote *	Henry Davis	name	Marianne Huijsmans	elicited the ʔayʔaǰuθəm data
+footnote *	Henry Davis	name	Lisa Matthewson	gave feedback
+footnote *	Henry Davis	name	Salish Working Group	gave feedback
+§1	Henry Davis	language	Lillooet	another name for St’át’imcets
+§1	Henry Davis	language	Thompson (River) Salish	another name for nɬeʔkepmxcín
+§1	Henry Davis	language	Comox-Sliammon	another name for ʔayʔaǰuθəm
+§1	Henry Davis	language	Salish	the family, where infinitives are not common
+all	Henry Davis	notation	Ø	the null third person object, U+00D8, in the segmentations, zəwát-ən-Ø
+all	Henry Davis	notation	gloss labels	the page draws the gloss labels as small capitals, and the text layer holds them as ASCII capitals, IPFV. The table keeps the text layer
+all	Henry Davis	notation	subscripts	the indices of the English examples, Peteri, PROi+, are set as subscripts on the page and written on the line here

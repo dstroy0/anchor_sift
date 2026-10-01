@@ -1,0 +1,415 @@
+where	who	kind	form	gloss
+front	David Beck	title	Lushootseed Numerals	page 1, carries footnote *
+front	David Beck	name	David Beck	author
+front	David Beck	note	University of Alberta	page 1, the author's affiliation
+front	David Beck	note	Abstract: This paper presents a synthesis of what we currently know about numerals and counting in Lushootseed, gleaned from existing descriptions and texts. Lushootseed has three numeral series — a plain series for general counting, a reduplicated human series for counting people, and a temporal-iterative series for counting time and repetitions. Numerals are used both to quantify nouns and as sentence predicates, and combine with lexical suffixes to form numeral classifier constructions.	page 1, the abstract
+front	David Beck	note	Keywords: Salishan, Lushootseed, numerals	page 1, the keywords
+front	David Beck	note	Papers for the International Conference on Salish and Neighboring Languages 55. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2020.	page 1, the volume's header
+front	David Beck	language	Lushootseed	Central Salish, of Puget Sound
+front	David Beck	language	Northern Lushootseed	NL in the tables
+front	David Beck	language	Southern Lushootseed	SL in the tables
+footnote *	David Beck	note	Numberless thanks go to Thom Hess, Vi Hilbert, and to the Lushootseed speakers and Elders who gave their time and their words to make this work possible.	page 1, footnote *, on the title
+footnote *	David Beck	name	Thom Hess	Thomas M. Hess, thanked on the title; Hess & Hilbert 1976, Beck & Hess 2014, 2015
+footnote *	David Beck	name	Vi Hilbert	Vi Taqʷšəblu Hilbert, thanked on the title; her recordings are in the corpus
+§1	David Beck	heading	1 Introduction	page 1
+§1	David Beck	note	Aside from lists of forms in dictionaries, passing mention in grammars, and practical lessons in counting elaborated for teaching, there is very little in the literature on Salishan numerals and counting — hence, the modest goal of this paper, which is to synthesize what we know about numerals and numeral phrases in Lushootseed and make it available in a single place. In what follows, I present whatever can be gleaned from the existing descriptive and pedagogical grammars (Hess & Hilbert 1976; Hess 1995, 1998, 2006; Cort 1998), a brief technical sketch (Tweddell 1950), the Lushootseed Dictionary (Bates et al. 1994), extant published texts (Hilbert & Hess 1977; Beck & Hess 2014, 2015), and a few forms from as-yet unpublished recordings collected by Vi Hilbert, Thom Hess, and Leon Metcalf (transcribed by Hilbert and Hess) in the current Lushootseed corpus. What emerges is a surprisingly complete picture, a tribute to the quality of earlier documentation of the language, but there are nevertheless some unanswered questions, particularly with regards to the productivity of certain derivational patterns and ordering restrictions in numeral phrases. It is hoped that as work progresses, we will find answers to some of these questions, and the search for answers will be advanced by having what we do know consolidated and synthesized in the pages below. I will begin the discussion by reviewing the three numeral series — plain, human, and temporal-iterative — and discussing how the units for digits, decades, and centuries are combined to form complex numerals. Following this, I will draw on sentences in the corpus to illustrate the uses of numbers and the structure of the numeral phrase, including the attested use of lexical suffixes as numeral classifiers.	page 1
+§1	David Beck	name	Leon Metcalf	collected recordings in the Lushootseed corpus
+§2	David Beck	heading	2 Numeral series	page 1
+§2	David Beck	note	Lushootseed has three series of words used for counting. The first of these are the general, plain- series numerals for counting non-humans given in Table 1.1 Several of the forms here are analyzable as consisting of a radical (√) plus the lexical suffix -ačiʔ ‘hand’. In both Northern Lushootseed (NL) and Southern Lushootseed (SL), this suffix is used to indicate decades (that is, the interval corresponding to the number of fingers on both hands). The word for 100, sbək’ʷačiʔ, appears to contain the radical √bək’ʷ ‘all’, suggesting an etymological source in an expression meaning ‘all hands’. The word for eight, təqačiʔ, is based on the radical √tq ‘closed’, and means ‘closed hands’. According to Hess and Hilbert (1976:28), this is derived from the practice of counting on one’s fingers by folding them down over the palm, eight being when all the fingers are closed, leaving only the thumbs. The Southern Lushootseed word for six, dᶻəlačiʔ, is based on the bound (º) radical º√dᶻəl ‘turned, changed’, which probably derives from the fact that, when counting on one’s fingers, six requires the use of the fingers on the next hand. Of the two forms for ‘ten’, the Southern Lushootseed padac appears to be the reflex of the Proto-Salishan *ʔupán- akis(t) proposed by Kinkade (2002); the origin of the Northern Lushootseed ʔulub is unknown. The words for 30, 40, 50, and 100 begin with the nominalizing prefix s-.	page 1
+footnote 1	David Beck	note	Forms in the table are drawn from the full range of sources listed in the references; forms taken from Tweddell (1950) (Southern Lushootseed forms greater than 20) are given in what is now the standardized Lushootseed orthography.	page 1, footnote 1
+§2	Lushootseed	cited form	-ačiʔ	page 1, in italics, ‘hand’
+§2	Lushootseed	cited form	sbək’ʷačiʔ	page 1, in italics
+§2	Lushootseed	cited form	√bək’ʷ	page 2, in italics, ‘all’
+§2	Lushootseed	cited form	təqačiʔ	page 2, in italics
+§2	Lushootseed	cited form	√tq	page 2, in italics, ‘closed’
+§2	Lushootseed	cited form	dᶻəlačiʔ	page 2, in italics
+§2	Lushootseed	cited form	º√dᶻəl	page 2, in italics, ‘turned, changed’
+§2	Lushootseed	cited form	ʔulub	page 2, in italics
+§2	Lushootseed	cited form	s-	page 2, in italics
+§2	David Beck	language	Proto-Salishan	the reconstructed ancestor; *ʔupán-akis(t) ‘ten’ (Kinkade 2002)
+Table 1	David Beck	note	Table 1: Cardinal numerals — plain series	page 2, the table's caption
+Table 1 line 2	Lushootseed	transcription	dəč’uʔ	page 2, 1, the plain series
+Table 1 line 2	Lushootseed	transcription	x̌ʷəlačiʔ	page 2, 90, the plain series
+Table 1 line 3	Lushootseed	transcription	saliʔ	page 2, 2, the plain series
+Table 1 line 3	Lushootseed	transcription	dəč’uʔ sbək’ʷačiʔ	page 2, 100, the plain series
+Table 1 line 4	Lushootseed	transcription	ɬixʷ	page 2, 3, the plain series
+Table 1 line 4	Lushootseed	transcription	dəč’uʔ sbək’ʷačiʔ ʔi kʷi dč’uʔ	page 2, 101, the plain series
+Table 1 line 5	Lushootseed	transcription	buus	page 2, 4, the plain series
+Table 1 line 5	Lushootseed	transcription	dəč’uʔ sbək’ʷačiʔ ʔi kʷi saliʔ	page 2, 102, the plain series
+Table 1 line 6	Lushootseed	transcription	cəlac	page 2, 5, the plain series
+Table 1 line 6	Lushootseed	transcription	dəč’uʔ sbək’ʷačiʔ ʔi kʷi ʔulub (NL)	page 2, 110, the plain series
+Table 1 line 7	Lushootseed	transcription	yəlaʔc (NL), dᶻəlačiʔ (SL)	page 2, 6, the plain series
+Table 1 line 7	Lushootseed	transcription	dəč’uʔ sbək’ʷačiʔ ʔi kʷi ʔulub ʔi kʷi dč’uʔ (NL)	page 2, 111, the plain series
+Table 1 line 8	Lushootseed	transcription	c’ukʷs	page 2, 7, the plain series
+Table 1 line 8	Lushootseed	transcription	dəč’uʔ sbək’ʷačiʔ ʔi kʷi saliʔačiʔ	page 2, 120, the plain series
+Table 1 line 9	Lushootseed	transcription	təqačiʔ	page 2, 8, the plain series
+Table 1 line 9	Lushootseed	transcription	saliʔ sbək’ʷačiʔ	page 2, 200, the plain series
+Table 1 line 10	Lushootseed	transcription	x̌ʷəl	page 2, 9, the plain series
+Table 1 line 10	Lushootseed	transcription	ɬixʷ sbək’ʷačiʔ	page 2, 300, the plain series
+Table 1 line 11	Lushootseed	transcription	ʔulub (NL), padac (SL)	page 2, 10, the plain series
+Table 1 line 11	Lushootseed	transcription	buus sbək’ʷačiʔ	page 2, 400, the plain series
+Table 1 line 12	Lushootseed	transcription	ʔulub ʔi kʷi dč’uʔ (NL)*	page 2, 11, the plain series
+Table 1 line 12	Lushootseed	transcription	cəlac sbək’ʷačiʔ	page 2, 500, the plain series
+Table 1 line 13	Lushootseed	transcription	ʔulub ʔi kʷi saliʔ (NL)	page 2, 12, the plain series
+Table 1 line 13	Lushootseed	transcription	yəlaʔc sbək’ʷačiʔ (NL), dᶻəlačiʔ sbək’ʷačiʔ (SL)	page 2, 600, the plain series
+Table 1 line 14	Lushootseed	transcription	saliʔačiʔ	page 2, 20, the plain series
+Table 1 line 14	Lushootseed	transcription	c’ukʷs sbək’ʷačiʔ	page 2, 700, the plain series
+Table 1 line 15	Lushootseed	transcription	saliʔačiʔ ʔi kʷi dč’uʔ	page 2, 21, the plain series
+Table 1 line 15	Lushootseed	transcription	təqačiʔ sbək’ʷačiʔ	page 2, 800, the plain series
+Table 1 line 16	Lushootseed	transcription	saliʔačiʔ ʔi kʷi saliʔ	page 2, 22, the plain series
+Table 1 line 16	Lushootseed	transcription	x̌̌əl sbək’ʷačiʔ	page 2, 900, the plain series
+Table 1 line 17	Lushootseed	transcription	sɬixʷačiʔ	page 2, 30, the plain series
+Table 1 line 17	Lushootseed	transcription	ʔulub sbək’ʷačiʔ (NL), padac sbək’ʷačiʔ (SL)	page 2, 1000, the plain series
+Table 1 line 18	Lushootseed	transcription	sbuusačiʔ	page 2, 40, the plain series
+Table 1 line 18	Lushootseed	transcription	ʔulub sbək’ʷčiʔ ʔi kʷi dč’uʔ (NL)	page 2, 1001, the plain series
+Table 1 line 19	Lushootseed	transcription	scəlacačiʔ	page 2, 50, the plain series
+Table 1 line 19	Lushootseed	transcription	ʔulub ʔi kʷi dč’uʔ sbək’ʷačiʔ (NL)†	page 2, 1100, the plain series
+Table 1 line 20	Lushootseed	transcription	yəlaʔcačiʔ (NL), dᶻəlačiʔačiʔ (SL)	page 2, 60, the plain series
+Table 1 line 20	Lushootseed	transcription	ʔulub ʔi kʷi x̌ʷəl sbək’ʷačiʔ (NL)	page 2, 1900, the plain series
+Table 1 line 21	Lushootseed	transcription	c’ukʷsačiʔ	page 2, 70, the plain series
+Table 1 line 21	Lushootseed	transcription	saliʔačiʔ sbək’ʷačiʔ	page 2, 2000, the plain series
+Table 1 line 22	Lushootseed	transcription	təqačiʔačiʔ	page 2, 80, the plain series
+Table 1 line 22	Lushootseed	transcription	sɬixʷačiʔ sbək’ʷačiʔ	page 2, 3000, the plain series
+Table 1 note *	David Beck	note	* Literally, ‘ten and one (thing)’. The SL form for eleven is padac yəxʷ kʷi dəč’uʔ (Hess & Hilbert 1976), which would have the same literal gloss.	page 2, the note to the table's *
+Table 1 note *	Lushootseed	cited form	dəč’uʔ	page 2, in italics
+Table 1 note *	Lushootseed	cited form	padac yəxʷ kʷi dəč’uʔ	page 2, in italics
+Table 1 note *	Lushootseed	cited form	yəxʷ	page 2, in italics
+Table 1 note *	Lushootseed	cited form	kʷi	page 2, in italics
+Table 1 note †	David Beck	note	† Tweddell (1950) reports SL 1,100 as padac sbək’ʷačiʔ yəxʷ kʷi dč’uʔ sbək’ʷačiʔ; however, this form does not follow the pattern for the other thousand-hundred forms found in the same work and in Hess and Hilbert (1976).	page 2, the note to the table's †
+Table 1 note †	Lushootseed	cited form	padac sbək’ʷačiʔ	page 2, in italics
+Table 1 note †	Lushootseed	cited form	padac sbək’ʷačiʔ yəxʷ kʷi dč’uʔ sbək’ʷačiʔ	page 2, in italics
+§2	David Beck	note	Numbers that combine decades or centuries with digits such as the Northern Lushootseed words for 11 (ʔulub ʔi kʷi dč’uʔ), 21 (saliʔačiʔ ʔi kʷi dč’uʔ), or 101 (dəč’uʔ sbək’ʷačiʔ ʔi kʷi dč’uʔ) use the conjunction ʔi ‘and’ (yəxʷ ‘and’ is used in the Southern Lushootseed equivalents) and a determiner to connect the digits to the remainder of the expression. The choice of determiner is governed by the same considerations of specificity, uniqueness, and deixis that govern determiner choice in other contexts, kʷi ‘remote/hypothetical’ being used as a default when one is counting in the abstract and not enumerating concrete objects. Orders of centuries are specified by combining words for digits and decades with sbək’ʷačiʔ ‘100’, making the Lushootseed numerals between 100 and 10,000 the equivalent of those used in spoken English for numbers (e.g., cəlac sbək’ʷačiʔ = five hundred, ʔulub ʔi kʷi x̌ʷəl sbək’ʷačiʔ = nineteen hundred), although in Lushootseed — but not in English — this pattern is extended to the millennia (ʔulub sbək’ʷačiʔ ‘one thousand’ [lit. ‘ten hundred’]).2	page 2
+footnote 2	David Beck	note	Tweddell (1950:72) also reports the borrowing ta’wowsəd [sic] ‘thousand’.	page 3, footnote 2
+footnote 2	Lushootseed	cited form	ta’wowsəd	page 3, in italics
+§2	Lushootseed	cited form	dəč’uʔ sbək’ʷačiʔ	page 2, in italics
+§2	Lushootseed	cited form	dəč’uʔ sbək’ʷačiʔ ʔi kʷi dč’uʔ	page 2, in italics
+§2	Lushootseed	cited form	cəlac	page 2, in italics
+§2	Lushootseed	cited form	x̌ʷəl	page 2, in italics
+§2	Lushootseed	cited form	ʔulub ʔi kʷi dč’uʔ	page 2, in italics
+§2	Lushootseed	cited form	cəlac sbək’ʷačiʔ	page 2, in italics
+§2	Lushootseed	cited form	saliʔačiʔ	page 2, in italics
+§2	Lushootseed	cited form	saliʔačiʔ ʔi kʷi dč’uʔ	page 2, in italics
+§2	Lushootseed	cited form	ʔulub sbək’ʷačiʔ	page 2, in italics, ‘one thousand’
+§2	Lushootseed	cited form	ʔulub ʔi kʷi x̌ʷəl sbək’ʷačiʔ	page 2, in italics
+§2	Lushootseed	cited form	ʔi	page 2, in italics, ‘and’
+§2	David Beck	language	English	compared in the numerals for centuries
+§2	David Beck	note	Lushootseed has a special human series of numerals used specifically for counting people, given in Table 2. With the exception of the words for one, two, and four people, this series is formed from the plain-series numerals by Type III (-V1C2- infixal) reduplication.3 For numerals between 10 and 20 that combine the first decade with a digit, both numerals are taken from the human series:4	page 3
+footnote 3	David Beck	note	See Anderson (1999) for a survey of reduplicated numeral forms across the Salishan family.	page 3, footnote 3
+footnote 4	David Beck	note	The abbreviations used in this paper are as follows: 1, 2, 3 first, second, third person; ADD additive; ADNM adjunctive nominalizer; ATTN attenuative; CNTRPT centripetal; CNN connective; DAT dative applicative; DC diminished control; DIST distal; DMA demonstrative adverbial; DSTR distributive; ECS external causative; FEM feminine; FOC focus; HAB habitual; HMN human classifier; ICS internal causative; INCH inchoative; INT interrogative; IRR irrealis; MAP middle applicative; NM nominalizer; PASS passive; PAST past tense; PFV perfective aspect; PL plural; PO possessive; PR preposition; PROG progressive aspect; PROP propriative; PROX proximal; REFL reflexive; REM remote; SBJ subjunctive; SCONJ sentential conjunction; SG singular; SPEC specific; STAT stative aspect; SUB subject. Sentences drawn from texts are cited by the name of the speaker and, where available, a published source.	page 3, footnote 4
+(1) line 1	Lushootseed	transcription	ʔululub ʔi diič’uʔ	page 3
+(1) line 2	Lushootseed	segmentation	ʔululub ʔi diič’uʔ	page 3
+(1) line 3	Lushootseed	gloss	tenHMN and oneHMN	page 3
+(1) line 4	David Beck	translation	‘eleven people’	page 3
+(1) line 5	David Beck	citation	(Louise Anderson from Beck & Hess 2015:356, line 56)	page 3, the tag or source at the right of the translation
+(1) line 5	David Beck	name	Louise Anderson	speaker of example (1)
+§2	David Beck	note	In Northern Lushootseed, the human series of numerals is only used up to 20, after which plain- series numerals are used. In Southern Lushootseed, the complex numerals for 100 and 1000 people are given in Tweddell (1950:72) with the initial numerals in the corresponding human form, diič’uʔ bəkʷ’ačiʔ ‘100 people’ and padadac bəkʷ’ačiʔ ‘1,000 people’ (lit. ‘ten hundred people’); the higher thousands such as 2,000 and 5,000 use only the plain cardinal forms (i.e., saliʔačiʔ sbək’ʷačiʔ ‘2,000 people’ [lit. ‘twenty-hundred people’] and cəlacačiʔ sbək’ʷačiʔ ‘5,000 people’ [lit. ‘fifty-hundred people’]).	page 3
+§2	Lushootseed	cited form	diič’uʔ bəkʷ’ačiʔ	page 3, in italics, ‘100 people’
+§2	Lushootseed	cited form	padadac bəkʷ’ačiʔ	page 3, in italics, ‘1,000 people’
+§2	Lushootseed	cited form	saliʔačiʔ sbək’ʷačiʔ	page 3, in italics, ‘2,000 people’
+§2	Lushootseed	cited form	cəlacačiʔ sbək’ʷačiʔ	page 3, in italics, ‘5,000 people’
+§2	Lushootseed	cited form	diič’uʔ	page 3, in italics
+Table 2	David Beck	note	Table 2: Cardinal numerals — human series	page 3, the table's caption
+Table 2 line 2	Lushootseed	transcription	diič’uʔ	page 3, 1, the human series
+Table 2 line 2	Lushootseed	transcription	təqqačiʔ	page 3, 8, the human series
+Table 2 line 3	Lushootseed	transcription	səsaʔliʔ	page 3, 2, the human series
+Table 2 line 3	Lushootseed	transcription	x̌ʷələl	page 3, 9, the human series
+Table 2 line 4	Lushootseed	transcription	ɬixʷixʷ	page 3, 3, the human series
+Table 2 line 4	Lushootseed	transcription	ʔululub (NL), padadac (SL)	page 3, 10, the human series
+Table 2 line 5	Lushootseed	transcription	bəbuʔs	page 3, 4, the human series
+Table 2 line 5	Lushootseed	transcription	ʔululub ʔi diič’uʔ (NL)*	page 3, 11, the human series
+Table 2 line 6	Lushootseed	transcription	cələlac	page 3, 5, the human series
+Table 2 line 6	Lushootseed	transcription	salaʔačiʔiʔ (SL)	page 3, 20, the human series
+Table 2 line 7	Lushootseed	transcription	yələlaʔc (NL), dᶻəlalačiʔ (SL)	page 3, 6, the human series
+Table 2 line 7	Lushootseed	transcription	diič’uʔ bəkʷ’ačiʔ (SL)	page 3, 100, the human series
+Table 2 line 8	Lushootseed	transcription	c’ukʷukʷs	page 3, 7, the human series
+Table 2 line 8	Lushootseed	transcription	padadac bəkʷ’ačiʔ (SL)	page 3, 1000, the human series
+Table 2 note *	David Beck	note	*The form padadačiʔ yəxʷ kʷi diič’uʔ is given for SL by Tweddell (1950: 72), who reports the form padadačiʔ ‘ten’ as being used in compound numbers from 11–19. The form padadac is used for 10 and as the initial member of compounds based thereon — e.g., padadac bəkʷ’ačiʔ ‘1000’.	page 3, the note to the table's *
+Table 2 note *	Lushootseed	cited form	padadačiʔ yəxʷ kʷi diič’uʔ	page 3, in italics
+Table 2 note *	Lushootseed	cited form	padadačiʔ	page 3, in italics, ‘ten’
+§2	David Beck	note	A third series of numerals, given in Table 3, is used for counting time or iterations. The first of forms in this table, dəč’axʷ ‘once’, is commonly truncated to č’əʔaxʷ. The second form cəbab ‘twice’ is based on a bound suppletive form of the radical √saliʔ ‘two’. It usually appears in combination with certain lexical suffixes. The remainder of the temporal-iterative numerals are formed by combining the plain-series numeral with the lexical suffix -aɬ ‘times’. For simple numerals, this suffix is simply added to the stem; for complex numerals, it appears as a suffix on the decade or century (or the century if both are present) rather than on the digits. The same lexical suffix is also used to form the expressions qahaɬ ‘many (qah) times’ and dᶻixʷaɬ ‘first (dᶻixʷ) time’.	page 4
+§2	Lushootseed	cited form	dəč’axʷ	page 4, in italics, ‘once’
+§2	Lushootseed	cited form	č’əʔaxʷ	page 4, in italics
+§2	Lushootseed	cited form	cəbab	page 4, in italics, ‘twice’
+§2	Lushootseed	cited form	√saliʔ	page 4, in italics, ‘two’
+§2	Lushootseed	cited form	-aɬ	page 4, in italics, ‘times’
+§2	Lushootseed	cited form	qahaɬ	page 4, in italics, ‘many (qah) times’
+§2	Lushootseed	cited form	dᶻixʷaɬ	page 4, in italics, ‘first (dᶻixʷ) time’
+§2	Lushootseed	cited form	dᶻixʷ	page 4, in italics
+Table 3	David Beck	note	Table 3: Cardinal numerals — temporal-iterative series5	page 4, the table's caption
+footnote 5	David Beck	note	The forms higher than 20 in this table ar e Snoqualmie-Duwamish forms taken from Tweddell (1950:72) and given here in standardized transcription; “SL” is used in the table where these forms are predicted to be different from the Northern Lushootseed forms, which are so far unattested.	page 4, footnote 5
+footnote 5	David Beck	language	Snoqualmie-Duwamish	the Southern Lushootseed forms of Tweddell 1950
+Table 3 line 2	Lushootseed	transcription	dəč’axʷ	page 4, 1, the temporal-iterative series
+Table 3 line 2	Lushootseed	transcription	sɬixʷačiʔaɬ	page 4, 30, the temporal-iterative series
+Table 3 line 3	Lushootseed	transcription	cəbab	page 4, 2, the temporal-iterative series
+Table 3 line 3	Lushootseed	transcription	sbuusačiʔaɬ	page 4, 40, the temporal-iterative series
+Table 3 line 4	Lushootseed	transcription	ɬixʷaɬ	page 4, 3, the temporal-iterative series
+Table 3 line 4	Lushootseed	transcription	scəlacačiʔaɬ	page 4, 50, the temporal-iterative series
+Table 3 line 5	Lushootseed	transcription	buusaɬ	page 4, 4, the temporal-iterative series
+Table 3 line 5	Lushootseed	transcription	dᶻəlačiʔačiʔaɬ (SL)	page 4, 60, the temporal-iterative series
+Table 3 line 6	Lushootseed	transcription	cəlacaɬ	page 4, 5, the temporal-iterative series
+Table 3 line 6	Lushootseed	transcription	c’ukʷsačiʔaɬ	page 4, 70, the temporal-iterative series
+Table 3 line 7	Lushootseed	transcription	yəlaʔcaɬ (NL), dᶻəlačiʔaɬ (SL)	page 4, 6, the temporal-iterative series
+Table 3 line 7	Lushootseed	transcription	təqačiʔačiʔaɬ	page 4, 80, the temporal-iterative series
+Table 3 line 8	Lushootseed	transcription	c’ukʷaɬ	page 4, 7, the temporal-iterative series
+Table 3 line 8	Lushootseed	transcription	x̌ʷəlačiʔaɬ	page 4, 90, the temporal-iterative series
+Table 3 line 9	Lushootseed	transcription	təqačiʔaɬ	page 4, 8, the temporal-iterative series
+Table 3 line 9	Lushootseed	transcription	dəč’uʔ sbək’ʷačiʔaɬ	page 4, 100, the temporal-iterative series
+Table 3 line 10	Lushootseed	transcription	x̌ʷəɬaɬ	page 4, 9, the temporal-iterative series
+Table 3 line 10	Lushootseed	transcription	dəč’uʔ sbək’ʷačiʔaɬ yəxʷ kʷi dč’uʔ	page 4, 101, the temporal-iterative series
+Table 3 line 11	Lushootseed	transcription	ʔulubaɬ (NL), padacaɬ (SL)	page 4, 10, the temporal-iterative series
+Table 3 line 11	Lushootseed	transcription	saliʔ sbək’ʷačiʔaɬ	page 4, 200, the temporal-iterative series
+Table 3 line 12	Lushootseed	transcription	ʔulubaɬ ʔi kʷi dč’uʔ (NL)	page 4, 11, the temporal-iterative series
+Table 3 line 12	Lushootseed	transcription	cukʷs sbək’ʷačiʔaɬ	page 4, 700, the temporal-iterative series
+Table 3 line 13	Lushootseed	transcription	ʔulubaɬ ʔi kʷi saliʔ (NL)	page 4, 12, the temporal-iterative series
+Table 3 line 13	Lushootseed	transcription	padac sbək’ʷačiʔaɬ (SL)	page 4, 1000, the temporal-iterative series
+Table 3 line 14	Lushootseed	transcription	saliʔačiʔaɬ	page 4, 20, the temporal-iterative series
+Table 3 line 14	Lushootseed	transcription	padac sbək’ʷčiʔaɬ yəxʷ kʷi dč’uʔ (SL)	page 4, 1001, the temporal-iterative series
+Table 3 line 15	Lushootseed	transcription	saliʔačiʔaɬ ʔi kʷi dč’uʔ	page 4, 21, the temporal-iterative series
+Table 3 line 15	Lushootseed	transcription	padac yəxʷ kʷi dč’uʔ sbək’ʷačiʔaɬ (SL)	page 4, 1100, the temporal-iterative series
+Table 3 line 16	Lushootseed	transcription	saliʔačiʔaɬ ʔi kʷi saliʔ	page 4, 22, the temporal-iterative series
+Table 3 line 16	Lushootseed	transcription	saliʔačiʔ sbək’ʷačiʔ	page 4, 2000, the temporal-iterative series
+§2	David Beck	note	The temporal-iterative numeral series is also the basis of a few complex temporal expressions derived using the inchoative suffix -il to create verbs indicating the completion of an action a specified number of times:	page 4
+(2) line 1	Lushootseed	transcription	x̌ʷul’ ʔubuusaɬil tiʔiɬ shuyuds …	page 4
+(2) line 2	Lushootseed	segmentation	x̌ʷul’ ʔu-buus•aɬ-il tiʔiɬ s=huyu-d=s	page 4
+(2) line 3	Lushootseed	gloss	only PFV-four•times-INCH DIST NM=be.done-ICS=3PO	page 4
+(2) line 4	David Beck	translation	‘just four times she does that …’	page 4
+(2) line 5	David Beck	citation	(Mary Sampson Willup from Beck & Hess 2015:289, line 131)	page 4, under the translation
+(2) line 5	David Beck	name	Mary Sampson Willup	speaker of example (2)
+(3) line 1	Lushootseed	transcription	ʔal kʷi sɬixʷaɬils, huy, kʷədabacdubutəxʷ tiʔəʔ ʔəskikəwič	page 4
+(3) line 2	Lushootseed	segmentation	ʔal kʷi s=ɬixʷ•aɬ-il=s huy kʷəd•abac-dxʷ-but=əxʷ	page 4
+(3) line 3	Lushootseed	gloss	PR REM NM=three•times-INCH=3PO SCONJ take•body-DC-REFL=now	page 4
+(3) line 4	Lushootseed	segmentation	tiʔəʔ ʔəs-C1i-kəwič	page 4
+(3) line 5	Lushootseed	gloss	DIST STAT-ATTN-hunchbacked	page 4
+(3) line 6	David Beck	translation	‘on the third time, well, the little hunchbacked one caught his body [on the snags]’	page 4
+(3) line 7	David Beck	citation	(Agnes James from Beck & Hess 2014:578, line 59)	page 4, under the translation
+(3) line 7	David Beck	name	Agnes James	speaker of example (3)
+§2	David Beck	note	It may be, however, that this particular type of derivation is not limited to temporal-iterative numerals as there are two examples from texts, given in (4) and (5), of inchoative verbs formed with a numeral and a different lexical suffix, -gʷiɬ ‘canoe’:	page 5
+§2	Lushootseed	cited form	-gʷiɬ	page 5, in italics, ‘canoe’
+(4) line 1	Lushootseed	transcription	ləcəbagʷiɬil tiʔəʔ ʔəsx̌ək’ʷtxʷ əlgʷəʔ ƛ’əlayʔ	page 5
+(4) line 2	Lushootseed	segmentation	lə=cəb•a•gʷiɬ-il tiʔəʔ ʔəs-x̌ək’ʷ-txʷ əlgʷəʔ ƛ’əlayʔ	page 5
+(4) line 3	Lushootseed	gloss	PROG=two•CNN•canoe-INCH PROX STAT-overturned-ECS PL canoe	page 5
+(4) line 4	David Beck	translation	‘it was coming to be that they had two canoes overturned’	page 5
+(5) line 1	Lushootseed	transcription	ləɬixʷalgʷiɬil tiʔəʔ tasx̌ək’ʷtxʷ həlgʷəʔ ƛ’əlayʔ dəxʷəsax̌ʷəbabac	page 5
+(5) line 2	Lushootseed	segmentation	lə=ɬixʷ•al•gʷiɬ-il tiʔəʔ tu=ʔas-x̌ək’ʷ-txʷ həlgʷəʔ ƛ’əlayʔ	page 5
+(5) line 3	Lushootseed	gloss	PROG=three•CNN•canoe-INCH PROX PAST=STAT-overturned-ECS PL canoe	page 5
+(5) line 4	Lushootseed	segmentation	dəxʷ=lə=sax̌ʷəb•abac	page 5
+(5) line 5	Lushootseed	gloss	ADNM=PROG=jump•body	page 5
+(5) line 6	David Beck	translation	‘it was coming to be they had three canoes overturned that they were jumping over’	page 5
+(5) line 7	David Beck	citation	(Harry Moses from Hilbert & Hess 1977:15)	page 5, under the translation
+(5) line 7	David Beck	name	Harry Moses	speaker of examples (5), (8), (16), (27), (28)
+§2	David Beck	note	This suggests that the numeral+lexical suffix+inchoative expression may be more productive than its frequency in the corpus indicates, but this will have to remain an open question until further textual analysis brings more examples to light.	page 5
+§2	David Beck	note	Otherwise, numerals in all three series are surprisingly inert in morphological terms. Beyond expressions of the type shown above, numerals seem only to appear as stems in two related sets of compound words formed from the temporal-iterative numerals and the lexical suffix -dat ‘day’, shown in Table 4. These seem likely to be recent formations introduced along with the European calendar. The fact that there are a maximum of four forms in each set follows from the naming practices for the days of the week, the remainder of which are č’itabac ‘Saturday’ (from √č’it ‘near’ + -abac ‘body’), x̌aʔx̌aʔaɬdat ‘Sunday’ (√x̌aʔx̌aʔ ‘sacred, taboo’), and bəlx̌ʷəɬdat ‘Monday’ (√bəlx̌ʷ ‘pass by, come after’). Furthermore, it seems possible that the words in the left-hand column of Table 4 are backformations from the (more morphologically complex) words in the righthand column, given the absence of potential forms for expressing periods of time in days that do not correspond to the Lushootseed names for days of the week that happen to be based on numerals. It should be noted, however, that there are two verbs — ɬixʷəɬdacut ‘become three days’ and buusaɬdalicut ‘become four days’ (each attested only once in the corpus) — which appear to be derived from sɬixʷəɬdat ‘three days, third day’ and buusəɬdat ‘four days, fourth day’, respectively. These two verbs are formed through a rather non-transparent use of reflexive morphology (-cut consisting of the event-internal causative -t and the reflexive marker -sut), and it remains to be seen whether they are representative of a more extensive set of older forms or if they are recent coinages.	page 5
+§2	Lushootseed	cited form	č’itabac	page 5, in italics, ‘Saturday’
+§2	Lushootseed	cited form	√č’it	page 5, in italics, ‘near’
+§2	Lushootseed	cited form	-abac	page 5, in italics, ‘body’
+§2	Lushootseed	cited form	x̌aʔx̌aʔaɬdat	page 5, in italics, ‘Sunday’
+§2	Lushootseed	cited form	√x̌aʔx̌aʔ	page 5, in italics, ‘sacred, taboo’
+§2	Lushootseed	cited form	bəlx̌ʷəɬdat	page 5, in italics, ‘Monday’
+§2	Lushootseed	cited form	√bəlx̌ʷ	page 5, in italics, ‘pass by, come after’
+§2	Lushootseed	cited form	ɬixʷəɬdacut	page 5, in italics, ‘become three days’
+§2	Lushootseed	cited form	buusaɬdalicut	page 5, in italics, ‘become four days’
+§2	Lushootseed	cited form	sɬixʷəɬdat	page 5, in italics, ‘three days, third day’
+§2	Lushootseed	cited form	buusəɬdat	page 5, in italics, ‘four days, fourth day’
+§2	Lushootseed	cited form	-cut	page 5, in italics
+§2	Lushootseed	cited form	-t	page 5, in italics
+§2	Lushootseed	cited form	-sut	page 5, in italics
+Table 4	David Beck	note	Table 4: Compound numeral expressions for days and days of the week	page 5, the table's caption
+Table 4 line 2	Lushootseed	transcription	cəbdat	page 5, the count of days
+Table 4 line 2	David Beck	translation	‘two days, second day’	page 5
+Table 4 line 2	Lushootseed	transcription	scəbdatil	page 5, the day of the week
+Table 4 line 2	David Beck	translation	‘Tuesday’	page 5
+Table 4 line 3	Lushootseed	transcription	sɬixʷəɬdat	page 5, the count of days
+Table 4 line 3	David Beck	translation	‘three days, third day’*	page 5
+Table 4 line 3	Lushootseed	transcription	sɬixʷəɬdatil	page 5, the day of the week
+Table 4 line 3	David Beck	translation	‘Wednesday’	page 5
+Table 4 line 4	Lushootseed	transcription	buusəɬdat	page 5, the count of days
+Table 4 line 4	David Beck	translation	‘four days, fourth day’	page 5
+Table 4 line 4	Lushootseed	transcription	buusəɬdatil	page 5, the day of the week
+Table 4 line 4	David Beck	translation	‘Thursday’ (NL)	page 5
+Table 4 line 5	Lushootseed	transcription	scəlacəɬdatil	page 5, the day of the week
+Table 4 line 5	David Beck	translation	‘Friday’ (NL)†	page 5
+Table 4 note *	David Beck	note	*This form is also glossed as ‘Wednesday’ in Bates et al. (1994:147).	page 5, the note to the table's *
+Table 4 note †	David Beck	note	†Bates et al. (1994:45) records this form as scəlacəɬdat(il), indicating it is also attested without the inchoative suffix but with the same gloss.	page 5, the note to the table's †
+Table 4 note †	Lushootseed	cited form	scəlacəɬdat(il)	page 5, in italics
+§3	David Beck	heading	3 Numerals and numeral phrases	page 6
+§3	David Beck	note	All three series of numerals are used both as adnominal quantifiers and as clausal predicates. The former use is illustrated in (6)–(8):	page 6
+(6) line 1	Lushootseed	transcription	hay gʷəl, tusulayitəbəxʷ ʔə tiʔiɬ saliʔ sq’ʷiq’ʷəlaƛ’əd	page 6
+(6) line 2	Lushootseed	segmentation	hay gʷəl tu=sula-yi-t-b=əxʷ ʔə tiʔiɬ saliʔ sC1i-q’ʷəlaƛ’əd	page 6
+(6) line 3	Lushootseed	gloss	SCONJ SCONJ PAST=centred-DAT-ICS-PASS=now PR DIST two ATTN-berry	page 6
+(6) line 4	David Beck	translation	‘and then he set before him two little berries’	page 6
+(6) line 5	David Beck	citation	(Edward Sam from Beck & Hess 2014:536, line 21)	page 6, under the translation
+(6) line 5	David Beck	name	Edward Sam	speaker of examples (6), (15), (17)
+(7) line 1	Lushootseed	transcription	xʷuʔələʔ ʔəsʔəx̌id cəlac sləx̌il kʷədiʔ tusaxʷəbtubs	page 6
+(7) line 2	Lushootseed	segmentation	xʷuʔələʔ ʔəs-ʔəx̌id cəlac sləx̌il kʷədiʔ tu=s=saxʷəb-txʷ-b=s	page 6
+(7) line 3	Lushootseed	gloss	maybe STAT-transpire five day REM.DMA PAST=NM=run-ECS-PASS=3PO	page 6
+(7) line 4	David Beck	translation	‘maybe it was five days (since) they had been run off with (i.e., kidnapped)’	page 6
+(7) line 5	David Beck	citation	(Martha Lamont from Beck & Hess 2014:108, line 265)	page 6, under the translation
+(7) line 5	David Beck	name	Martha Lamont	speaker of many of the examples
+(8) line 1	Lushootseed	transcription	gʷəl ʔahəxʷ tiʔəʔ səsaliʔ sɬəɬadəyʔ ləqaladibid	page 6
+(8) line 2	Lushootseed	segmentation	gʷəl ʔah=əxʷ tiʔəʔ səsaliʔ sC1ə-ɬadəyʔ ləq•al•adiʔ-bi-d	page 6
+(8) line 3	Lushootseed	gloss	SCONJ be.there=now PROX twoHMN PL-woman hear•CNN•ear-MAP-ICS	page 6
+(8) line 4	David Beck	translation	‘and there are two women who overhear it’	page 6
+(8) line 5	David Beck	citation	(Harry Moses from Beck & Hess 2015:298, line 27)	page 6, under the translation
+§3	David Beck	note	Numerals are most frequently used with the singular form of nouns, as in (6) and (7), although the plural form is an option, particularly when referring to numbers of people, as in (8). Numerals may be used in argument phrases, as in (6) and (8), as well as in predicate complements (7).	page 6
+§3	David Beck	note	The numeral ‘one’, dəč’uʔ, can be used to convey a sense of specificity or particularity:	page 6
+(9) line 1	Lushootseed	transcription	gʷəl huy bəʔəy’ədxʷəxʷ tiʔəʔ qa tiʔiɬ sʔuladxʷ ʔal tiʔiɬ cədiɬ dəč’uʔ stuləkʷ	page 6
+(9) line 2	Lushootseed	segmentation	gʷəl huy bə=ʔəy’-dxʷ=əxʷ tiʔəʔ qa tiʔiɬ sʔuladxʷ ʔal tiʔiɬ	page 6
+(9) line 3	Lushootseed	gloss	SCONJ SCONJ ADD=found-DC=now PROX many DIST salmon at DIST	page 6
+(9) line 4	Lushootseed	segmentation	cədiɬ dəč’uʔ stuləkʷ	page 6
+(9) line 5	Lushootseed	gloss	s/he one river	page 6
+(9) line 6	David Beck	translation	‘and then he found a lot of salmon in this one river’	page 6
+(9) line 7	David Beck	citation	(Martha Lamont from Beck & Hess 2014:202, line 23)	page 6, under the translation
+(10) line 1	Lushootseed	transcription	gʷəl diɬ xʷuʔələʔ tušac’s tiʔiɬ dəč’uʔ syəyəhub	page 6
+(10) line 2	Lushootseed	segmentation	gʷəl diɬ xʷuʔələʔ tu=s=šac’=s tiʔiɬ dəč’uʔ syəyəhub	page 6
+(10) line 3	Lushootseed	gloss	SCONJ FOC maybe PAST=NM=end=3PO PROX one story	page 6
+(10) line 4	David Beck	translation	‘and I guess that is the end of this one traditional story’	page 6
+(10) line 5	David Beck	citation	(Martha Lamont from Beck & Hess 2014:236, line 279)	page 6, under the translation
+(11) line 1	Lushootseed	transcription	ʔaləxʷ tiʔəʔ sʔahilsəxʷ tiʔəʔ sɬčils dxʷʔal tiʔəʔ dəč’uʔ swətixʷtəd	page 6
+(11) line 2	Lushootseed	segmentation	ʔal=əxʷ tiʔəʔ s=ʔah-il=s=əxʷ tiʔəʔ s=ɬč-il=s	page 6
+(11) line 3	Lushootseed	gloss	at=now PROX NM=be.there-INCH=3PO=now PROX NM=arrive-INCH=3PO	page 6
+(11) line 4	Lushootseed	segmentation	dxʷ-ʔal tiʔəʔ dəč’uʔ swətixʷtəd	page 6
+(11) line 5	Lushootseed	gloss	CNTRPT-at PROX one tree	page 6
+(11) line 6	David Beck	translation	‘when (she) got to this one tree’	page 6
+(11) line 7	David Beck	citation	(Martin Sampson from Beck & Hess 2015:379, line 41)	page 6, the tag or source at the right of the translation
+(11) line 7	David Beck	name	Martin Sampson	speaker of example (11)
+(12) line 1	Lushootseed	transcription	gʷəl ƛ’ubəkʷədad tiʔiɬ bədəč’uʔ qʷɬayʔ	page 7
+(12) line 2	Lushootseed	segmentation	gʷəl ƛ’u=bə=kʷəda-d tiʔiɬ bə=dəč’uʔ qʷɬayʔ	page 7
+(12) line 3	Lushootseed	gloss	SCONJ HAB=ADD=taken-ECS DIST ADD=one stick	page 7
+(12) line 4	David Beck	translation	‘then she would take another one of her scratching sticks’	page 7
+(12) line 5	David Beck	citation	(Alice Williams from Beck & Hess 2015:424, line 123)	page 7, under the translation
+(12) line 5	David Beck	name	Alice Williams	speaker of examples (12), (20)
+§3	David Beck	note	This use of the numeral is not textually infrequent and finds a very close parallel in its literal English gloss.	page 7
+§3	David Beck	note	Like other adnominal modifiers, numerals have some flexibility as to whether they precede the noun they modify, as in (6) and (8) above, or follow it, as in (13) and (14):	page 7
+(13) line 1	Lushootseed	transcription	təɬ čəd ʔuʔəy’dxʷ tiʔiɬ dsqa cəxʷsqatəd səsaʔliʔ ʔal tudiʔ	page 7
+(13) line 2	Lushootseed	segmentation	təɬ čəd ʔu-ʔəy’-dxʷ tiʔiɬ d-sqa	page 7
+(13) line 3	Lushootseed	gloss	truly 1SG.SUB PFV-found-DC DIST 1SG.PO-older.sibling	page 7
+(13) line 4	Lushootseed	segmentation	d=dəxʷ=sqatəd səsaʔliʔ ʔal tudiʔ	page 7
+(13) line 5	Lushootseed	gloss	1SG.PO=ADNM=older.siblings twoHMN at DIST.DMA	page 7
+(13) line 6	David Beck	translation	‘I truly did find my older brothers, my two older brothers over there’	page 7
+(13) line 7	David Beck	citation	(Martha Lamont from Beck & Hess 2014:172, line 739)	page 7, under the translation
+(14) line 1	Lushootseed	transcription	sx̌aʔhus tsiʔəʔ čəgʷas diič’uʔ	page 7
+(14) line 2	Lushootseed	segmentation	sx̌aʔhus tsiʔəʔ čəgʷas diič’uʔ	page 7
+(14) line 3	Lushootseed	gloss	sawbill PROX:FEM wife oneHMN	page 7
+(14) line 4	David Beck	translation	‘one wife [was] Sawbill’	page 7
+(14) line 5	David Beck	citation	(Martha Lamont from Beck & Hess 2014:447, line 5)	page 7, the tag or source at the right of the translation
+§3	David Beck	note	Post-nominal position for numerals is rare (these are the only two examples in the current corpus) and it is not clear what conditions may apply to this ordering.	page 7
+§3	David Beck	note	Also like other modifiers, numerals can be combined with additional adnominal elements in a single noun phrase:	page 7
+(15) line 1	Lushootseed	transcription	saʔ saliʔ sq’ʷəlaɬəd	page 7
+(15) line 2	Lushootseed	segmentation	saʔ saliʔ sq’ʷəlaɬəd	page 7
+(15) line 3	Lushootseed	gloss	bad two berry	page 7
+(15) line 4	David Beck	translation	‘[there were] two measly berries’	page 7
+(15) line 5	David Beck	citation	(Edward Sam from Beck & Hess 2014:537, line 25)	page 7, the tag or source at the right of the translation
+(16) line 1	Lushootseed	transcription	dəč’uʔ haʔɬ syəyəhub	page 7
+(16) line 2	Lushootseed	segmentation	dəč’uʔ haʔɬ syəyəhub	page 7
+(16) line 3	Lushootseed	gloss	one good story	page 7
+(16) line 4	David Beck	translation	‘[it is] a good story’	page 7
+(16) line 5	David Beck	citation	(Harry Moses from Hilbert & Hess 1977:32)	page 7, the tag or source at the right of the translation
+§3	David Beck	note	The relative ordering of the numeral with respect to other adnominal modifiers appears to be relatively free, determined by considerations of style or communicative structure.	page 7
+§3	David Beck	note	Numerals are often found as the heads of anaphoric nominal expressions:	page 7
+(17) line 1	Lushootseed	transcription	kʷədad tiʔəʔ dəč’uʔ	page 7
+(17) line 2	Lushootseed	segmentation	kʷəda-d tiʔəʔ dəč’uʔ	page 7
+(17) line 3	Lushootseed	gloss	taken-ICS PROX one	page 7
+(17) line 4	David Beck	translation	‘he took one (berry)’	page 7
+(17) line 5	David Beck	citation	(Edward Sam from Beck & Hess 2014:537, line 28)	page 7, the tag or source at the right of the translation
+(18) line 1	Lushootseed	transcription	gʷəl bəʔəsgʷədil tsiʔiɬ dəč’uʔ ʔal kʷi xʷqʷəq’ʷus	page 8
+(18) line 2	Lushootseed	segmentation	gʷəl bə=ʔəs-gʷəd-il tsiʔiɬ dəč’uʔ ʔal kʷi xʷqʷəq’ʷus	page 8
+(18) line 3	Lushootseed	gloss	SCONJ ADD=STAT-down-INCH DIST.FEM one at REM cliff	page 8
+(18) line 4	David Beck	translation	‘and one (sister) was sitting on the cliff’	page 8
+(18) line 5	David Beck	citation	[Julia Siddle Basket Ogress, line 74]	page 8, the tag or source at the right of the translation
+(18) line 5	David Beck	name	Julia Siddle	speaker of example (18), Basket Ogress
+§3	David Beck	note	These expressions only occur in contexts where the identity of the item(s) being counted is recoverable from discourse. Numerals also head NPs in constructions such as that in (19):	page 8
+(19) line 1	Lushootseed	transcription	gʷəl ʔəbsqʷəbqʷəbayʔ ʔə tiʔəʔ bəsaliʔ	page 8
+(19) line 2	Lushootseed	segmentation	gʷəl ʔəs-bəs-sC1V1C2-qʷəbayʔ ʔə tiʔəʔ bə=saliʔ	page 8
+(19) line 3	Lushootseed	gloss	SCONJ STAT-PROP-DSTR-dog PR PROX ADD=two	page 8
+(19) line 4	David Beck	translation	‘and (they) had two dogs, too’	page 8
+(19) line 5	David Beck	citation	(Martha Lamont from Beck & Hess 2014:35, line 24)	page 8, the tag or source at the right of the translation
+§3	David Beck	note	This is a usual way of expressing the notion ‘X has a certain number of Y’ when the fact of possession, rather than the number possessed, is the focus of the utterance.	page 8
+§3	David Beck	note	Perhaps even more frequently than they are found as part of NPs, numerals occur in predicate position as the heads of clauses:	page 8
+(20) line 1	Lushootseed	transcription	saliʔ kʷi ɬuʔəƛ’txʷ čəxʷ č’ƛ’aʔ	page 8
+(20) line 2	Lushootseed	segmentation	saliʔ kʷi ɬu=ʔəƛ’-txʷ čəxʷ č’ƛ’aʔ	page 8
+(20) line 3	Lushootseed	gloss	two REM IRR=come-ECS 2SG.SUB stone	page 8
+(20) line 4	David Beck	translation	‘the stones that you will bring [will be] two’	page 8
+(20) line 5	David Beck	citation	(Alice Williams from Beck & Hess 2015:418, line 85)	page 8, under the translation
+(21) line 1	Lushootseed	transcription	saliʔ tiʔiɬ ʔəskʷədad	page 8
+(21) line 2	Lushootseed	segmentation	saliʔ tiʔiɬ ʔəs-kʷəda-d	page 8
+(21) line 3	Lushootseed	gloss	two DIST STAT-taken-ICS	page 8
+(21) line 4	David Beck	translation	‘what he is holding [are] two (halibut)’	page 8
+(21) line 5	David Beck	citation	(Martha Lamont from Beck & Hess 2014:116, line 329)	page 8, under the translation
+(22) line 1	Lushootseed	transcription	ɬixʷixʷ tiʔəʔ caadiɬ təlixʷ suq’ʷaʔ	page 8
+(22) line 2	Lushootseed	segmentation	ɬixʷixʷ tiʔəʔ caadiɬ təlixʷ suq’ʷaʔ	page 8
+(22) line 3	Lushootseed	gloss	threeHMN PROX they blood.brother younger.sibling	page 8
+(22) line 4	David Beck	translation	‘these full-blood brothers [were] three’	page 8
+(22) line 5	David Beck	citation	(Martha Lamont from Beck & Hess 2014:226, line 204)	page 8, under the translation
+§3	David Beck	note	Like other non-verbal predicates, numerals in this context take clitics for mood and tense:	page 8
+(23) line 1	Lushootseed	transcription	gʷəl gʷətusəsaliʔ əlgʷəʔ	page 8
+(23) line 2	Lushootseed	segmentation	gʷəl gʷə=tu=səsaliʔ əlgʷəʔ	page 8
+(23) line 3	Lushootseed	gloss	SCONJ SBJ=PAST=twoHMN PL	page 8
+(23) line 4	David Beck	translation	‘and there would have been two of them’	page 8
+(23) line 5	David Beck	citation	(Martha Lamont from Beck & Hess 2014:281, line 151)	page 8, under the translation
+§3	David Beck	note	There is also one example in the corpus of a numeral taking an aspectual prefix:	page 8
+(24) line 1	Lushootseed	transcription	ʔəsbuus kʷi tuhuyud əlgʷəʔ	page 9
+(24) line 2	Lushootseed	segmentation	ʔəs-buus kʷi tu=huyu-d əlgʷəʔ	page 9
+(24) line 3	Lushootseed	gloss	STAT-four REM PAST=make-ICS PL	page 9
+(24) line 4	David Beck	translation	‘what they made [was] four [moccasins]’	page 9
+(24) line 5	David Beck	citation	(Dora Solomon from Beck & Hess 2015:258, line 373)	page 9, under the translation
+(24) line 5	David Beck	name	Dora Solomon	speaker of example (24)
+§3	David Beck	note	However, the fact that there is a single occurrence of an aspect marker on a numeral in the corpus suggests that this is a rather marginal construction. That it occurs on the numeral buus ‘four’ may not be coincidental, given that four is a culturally important numeral in Northern Lushootseed (Hess 1995),6 suggesting perhaps that buus might be a prime candidate for conversion to a verb expressing the notion of making/doing something in fours.	page 9
+footnote 6	David Beck	note	The number four is also culturally important in a number of neighbouring but unrelated languages, and the form *moos proposed by Edward Sapir is a plausible early areal borrowing (Lushootseed having changed *m to /b/ in the mid-nineteenth century). Among the Southern Lushootseed, the numeral is five (Hess 1995).	page 9, footnote 6
+footnote 6	David Beck	name	Edward Sapir	proposed the areal form *moos ‘four’
+§3	David Beck	note	Like any other predicate, numerals can head yes/no interrogatives and can take ordinary matrix-clause subject markers:	page 9
+(25) line 1	Lushootseed	transcription	səsaliʔ ʔu	page 9
+(25) line 2	Lushootseed	segmentation	səsaliʔ ʔu	page 9
+(25) line 3	Lushootseed	gloss	twoHMN INT	page 9
+(25) line 4	David Beck	translation	‘were there two (children)?’	page 9
+(25) line 5	David Beck	citation	(Martha Lamont from Beck & Hess 2014:77, line 37)	page 9, the tag or source at the right of the translation
+(26) line 1	Lushootseed	transcription	ɬixʷačiʔəxʷ čəd ʔi kʷi yəlaʔc	page 9
+(26) line 2	Lushootseed	segmentation	ɬixʷačiʔ=əxʷ čəd ʔi kʷi yəlaʔc	page 9
+(26) line 3	Lushootseed	gloss	thirty=now 1SG.SUB and REM six	page 9
+(26) line 4	David Beck	translation	‘I’m thirty-six now’	page 9
+(26) line 5	David Beck	citation	(Bates et al. 1994:277)	page 9, the tag or source at the right of the translation
+§3	David Beck	note	As shown in (26), complex numerals in predicate position are treated like other multi-word predicate phrases in terms of the placement of subject-markers and other sentence-second clitics.	page 9
+§3	David Beck	note	Numerals in both argument and predicate phrases may be combined with lexical suffixes acting as numeral classifiers:	page 9
+(27) line 1	Lushootseed	transcription	… tusaxʷəbabacəd tiʔəʔ buusalgʷiɬ ƛ’əlayʔ	page 9
+(27) line 2	Lushootseed	segmentation	tu=saxʷəb•abac-əd tiʔəʔ buus•al•gʷiɬ ƛ’əlayʔ	page 9
+(27) line 3	Lushootseed	gloss	PAST=run•body-ICS PROX four•CNN•canoe shovel.nose.canoe	page 9
+(27) line 4	David Beck	translation	‘… [they] jumped over the four shovel-nosed canoes’	page 9
+(27) line 5	David Beck	citation	(Harry Moses from Hilbert & Hess 1977:16)	page 9, under the translation
+(28) line 1	Lushootseed	transcription	cəbagʷiɬəxʷ kʷi ɬudəxʷsaxʷəbabacəds əlgʷəʔ	page 9
+(28) line 2	Lushootseed	segmentation	cəb•a•gʷiɬ=əxʷ kʷi ɬu=dəxʷ=saxʷəb•abac-əd=s əlgʷəʔ	page 9
+(28) line 3	Lushootseed	gloss	two•CNN•canoe=now REM IRR=ADNM=jump•body-ICS=3PO PL	page 9
+(28) line 4	David Beck	translation	‘now what they were jumping over [was] two canoes’	page 9
+(28) line 5	David Beck	citation	(Harry Moses from Hilbert & Hess 1977:15)	page 9, under the translation
+(29) line 1	Lushootseed	transcription	č’əʔilc ti dtalə	page 10
+(29) line 2	Lushootseed	segmentation	č’əʔ•ilc ti d-talə	page 10
+(29) line 3	Lushootseed	gloss	one•round SPEC 1SG.PO-dollar	page 10
+(29) line 4	David Beck	translation	‘I have one dollar’	page 10
+(29) line 5	David Beck	citation	(Hess & Hilbert 1976:I, 68)	page 10, the tag or source at the right of the translation
+(30) line 1	Lushootseed	transcription	ʔəsɬixʷulč ti dsʔax̌ʷuʔ	page 10
+(30) line 2	Lushootseed	segmentation	ʔəs-ɬixʷ•ulč ti d-sʔax̌ʷuʔ	page 10
+(30) line 3	Lushootseed	gloss	STAT-three•container SPEC 1SG.PO-clam	page 10
+(30) line 4	David Beck	translation	‘I have three clams’	page 10
+(30) line 5	David Beck	citation	(Hess 1995:20)	page 10, the tag or source at the right of the translation
+§3	David Beck	note	The choice of suffix is largely semantic: lexical suffixes with very concrete, specific meanings are used in counting those objects which they designate, as in (27) and (28), while others are used when counting objects that fit into the general class (in either shape or function) of things expressed by the suffix, as in (29) and (30). Also illustrated by (28) and (30) are the alternate combining forms for the numerals one and two, č’əʔ- and ‘one’ cəb- ‘two’, mentioned above in the context of the temporal-iterative series of numerals in Table 3. These forms seem to be in free variation with the regular stems, dəč’uʔ ‘one’ and saliʔ ‘two’ in enumerative constructions.	page 10
+§3	Lushootseed	cited form	č’əʔ-	page 10, in italics
+§3	Lushootseed	cited form	cəb-	page 10, in italics, ‘two’
+§3	Lushootseed	cited form	saliʔ	page 10, in italics, ‘two’
+§4	David Beck	heading	4 Some final thoughts	page 10
+§4	David Beck	note	Although the coverage of numerals and numeral phrases in the existing descriptive materials on Lushootseed is quite good, making it possible to know the way that large complex numbers were formed and how numerals functioned in syntax, the fact remains that the analyzed corpus is relatively small and there are still some gaps in our knowledge of how numbers work in Lushootseed. One particularly striking thing I noted from the corpus (the 26 texts in Beck & Hess 2014, 2015 and a half dozen others we have digitized so far) is dearth of numeral classifier constructions used in counting/enumeration. Given the richness of the system described for the Halkomelem languages (Gerdts et al. 2002; Shaw et al. 2002), which use about 30 different lexical suffixes for counting objects, the paucity of examples from the texts (there are only four, all using -gʷiɬ ‘canoe’) is surprising, as is the lack of diversity in the suffixes themselves (there are only seven other suffixes attested with numerals in the descriptive literature). It is hard to know if this an accidental gap, if it is because the system in Lushootseed is simply less elaborate than that of many of its congener languages, or if it is the result of the kind of language attrition Shaw et al. (2002) observe in hən’q’əmin’əm’ — although the last option seems unlikely given that the analyzed corpus contains speech from very fluent, Lushootseed-dominant Elders. If this were the case, it would have had to have been a long-standing process, more contact-induced language change than language loss.	page 10
+§4	David Beck	language	Halkomelem	Central Salish, whose numeral classifiers are compared
+§4	David Beck	language	hən’q’əmin’əm’	Downriver Halkomelem, as printed
+§4	David Beck	note	The fact that there are marked differences in numeral forms between the two main dialectal divisions of Lushootseed is also interesting, and hints at early sociolinguistic patterns and the possible borrowing of forms from neighbouring languages. Further comparison with the numeral systems in other languages of the broader family is also in order, and it is to be hoped that in the coming years, a little more attention can be paid to Salishan numerals. They have a complex history, with a surprising heterogeneity of forms and etymologies, and numerals in the three “Mosan” language families of the Central Northwest Coast show the effects of intense language contact and borrowing (see, for example, Kinkade 2002). Their continued study is sure to provide deeper insight into the early Northwest Coast linguistic landscape.	page 10
+references	David Beck	heading	References	page 11
+references	David Beck	reference	Anderson, Gregory D. S. 1999. Reduplicated numerals in Salish. International Journal of American Linguistics 65, 407–481.	page 11
+references	David Beck	reference	Bates, Dawn, Thomas M. Hess, and Vi Taqwšəblu Hilbert. 1994. Lushootseed Dictionary. Seattle: University of Washington Press.	page 11
+references	David Beck	reference	Beck, David, and Thom Hess. 2014. Tellings from Our Elders: Lushootseed syəyəhub. Volume 1, Snohomish texts. Vancouver: UBC Press.	page 11
+references	David Beck	reference	Beck, David, and Thom Hess. 2015. Tellings from Our Elders: Lushootseed syəyəhub. Volume 2, Tales from the Skagit Valley. Vancouver: UBC Press.	page 11
+references	David Beck	reference	Cort, David. 1998. Teaching Lushootseed math. In: Papers for the 33rd International Conference on Salish and Neighboring Languages, 85–90. [http://lingpapers.sites.olt.ubc.ca/files/2018/03/1998_Cort.pdf]	page 11
+references	David Beck	reference	Gerdts, Donna B., Mercedes Q. Hinkson, and Thomas E. Hukari. 2002. Numeral Classifiers in Halkomelem. In: Papers for the 37th International Conference on Salish and Neighboring Languages, UBCWPL 9, 147–180. [http://lingpapers.sites.olt.ubc.ca/files/2018/03/2002_Gerdts_Hinkson_Hukari.pdf]	page 11
+references	David Beck	reference	Hess, Thom. 1995. Lushootseed reader with introductory grammar, Volume I: Four Stories from Edward Sam. Missoula: University of Montana Occasional Papers in Linguistics.	page 11
+references	David Beck	reference	Hess, Thom. 1998. Lushootseed reader with intermediate grammar, Volume II: Four Stories from Martha Lamont. Missoula: University of Montana Occasional Papers in Linguistics.	page 11
+references	David Beck	reference	Hess, Thom. 2006. Lushootseed reader with English Translations, Volume III: Four More Stories from Martha Lamont. Missoula: University of Montana Occasional Papers in Linguistics.	page 11
+references	David Beck	reference	Hess, Thomas M., and Vi Taqʷšəblu Hilbert. 1976. Lushootseed: An introduction, Books 1 and 2. Seattle: American Indian Studies, University of Washington.	page 11
+references	David Beck	reference	Hilbert, Vi Taqʷšəblu, and Thomas M. Hess. 1977. Lushootseed. In Barry F. Carlson (ed.), Northwest Coast texts: Stealing light, 4–32. Chicago: University of Chicago Press.	page 11
+references	David Beck	reference	Kinkade, M. Dale. 2002. Salish numerals in “Old” Nitinaht, In: Papers for the 37th International Conference on Salish and Neighboring Languages, UBCWPL 9. [http://lingpapers.sites.olt.ubc.ca/files/2018/03/2002_Kinkade.pdf]	page 11
+references	David Beck	reference	Shaw, Patricia A., Susan J. Blake, and Jill Campbell. 2002. Numerals and lexical suffixes in hən̓q̓əmin̓əm̓, In: Papers for the 37th International Conference on Salish and Neighboring Languages, UBCWPL 9. [http://lingpapers.sites.olt.ubc.ca/files/2018/03/2002_Shaw_Blake_Campbell.pdf]	page 11
+references	David Beck	reference	Tweddell, Colin Ellidge. 1950. The Snoqualmie-Duwamish dialects of Puget Sound Salish: An outline of phonemics and morphology. University of Washington Publications in Anthropology 12. Seattle, University of Washington Press.	page 11

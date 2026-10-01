@@ -1,0 +1,442 @@
+where	who	kind	form	gloss
+title	Henry Davis	title	A Newly Discovered Reduplication Pattern in St’át’imcets and its Implications*	the paper's title, with the footnote marker the page prints on it
+title	Henry Davis	name	Henry Davis	the first author
+title	Gloria Mellesmoen	name	Gloria Mellesmoen	the second author
+abstract	St'át'imcets	language	St’át’imcets	the language the paper is about
+abstract	St'át'imcets	language	Lillooet Salish	the other name the paper gives its language
+§1	St'át'imcets	language	St’	the first piece the extraction leaves of the language name, where a space fell after the apostrophe
+§1	St'át'imcets	language	át’imcets	the second piece the extraction leaves of the language name
+§1	St'át'imcets	reference	lil	the ISO 639-3 code the paper gives for the language
+§1	Squamish	language	Skwxwú7mesh	the neighbouring language whose terminology Kuipers devised
+§1	St'át'imcets	cited form	snək̓ʷnúk̓ʷaʔ	'cousins, relatives, friends', a plural noun with C1C2 reduplication
+§1	St'át'imcets	cited form	sɣəpɣáp	'trees, forest', a plural noun with C1C2 reduplication
+§1	St'át'imcets	cited form	sqʷə́mqʷəm	'mountains, mountain range', a plural noun with C1C2 reduplication
+§1	St'át'imcets	cited form	səq̓ʷsáq̓ʷ	'fly many times and/or of many things', a pluractional verb
+§1	St'át'imcets	cited form	məl̓məl̓t-xál	'be contagious, of disease', a pluractional verb
+§1	St'át'imcets	cited form	x̌ətx̌ətʔílx	'limp repeatedly and/or of many people or animals', a pluractional verb
+§1	St'át'imcets	cited form	k̓ínk̓ənt	'dangerous', a property-denoting C1C2 reduplication
+§1	St'át'imcets	cited form	lə́x̌ləx̌	'intelligent', a property-denoting C1C2 reduplication
+§1	St'át'imcets	cited form	nəsnús	'damp', a property-denoting C1C2 reduplication
+fn*	Qwa7yán'ak	name	Qwa7y	the first piece the extraction leaves of Carl Alexander's name
+fn*	Qwa7yán'ak	name	án’ak	the second piece the extraction leaves of Carl Alexander's name
+fn*	Qwa7yán'ak	place	Nxw	the first piece the extraction leaves of Nxwísten
+fn*	Qwa7yán'ak	place	ísten	the second piece the extraction leaves of Nxwísten
+fn*	St'át'imcets	language	Upper	the dialect Carl Alexander speaks, as the footnote names it
+fn1	Nxaʔamxcín	language	Nxa	the first piece the extraction leaves of Nxaʔamxcín
+fn1	Nxaʔamxcín	language	ʔamxcín	the second piece the extraction leaves of Nxaʔamxcín
+fn1	Nxaʔamxcín	language	Moses Columbia Salish	the other name the paper gives that language
+fn2	Henry Davis	reference	NAPA	the North American Phonetic Alphabet, which the paper transcribes in
+fn2	St'át'imcets	notation	(U)	what the paper marks a form specific to Upper St'át'imcets with
+fn2	St'át'imcets	notation	(L)	what the paper marks a form specific to Lower St'át'imcets with
+§1	St'át'imcets	cited form	sqʷəqʷyíc	'rabbits', a plural noun with initial C1 reduplication
+§1	St'át'imcets	cited form	qʷəqʷlít-az̓	'lodgepole pines', a plural noun with initial C1 reduplication
+§1	St'át'imcets	cited form	x̌əx̌zúm	'big, plural', a plural adjective with initial C1 reduplication
+§1	St'át'imcets	cited form	kʷəkʷíkʷs	'small, plural', a plural adjective with initial C1 reduplication
+§1	St'át'imcets	cited form	xʷíxʷitən	'whistle continuously', a continuative verb
+§1	St'át'imcets	cited form	(ʔə)státaɬləx	'stand continuously', a continuative verb
+§1	St'át'imcets	cited form	nkəkaɬ(ʔ)ás	'three humans', a numeral with initial C1 reduplication
+§1	St'át'imcets	cited form	nx̌ʷəx̌ʷʔúcin	'four people', a numeral with initial C1 reduplication
+§1	St'át'imcets	cited form	lə́p̓əp̓	'get buried', a verb with final C2 reduplication
+§1	St'át'imcets	cited form	qáxʷəxʷ	'get broken', a verb with final C2 reduplication
+§1	St'át'imcets	cited form	púɬəɬ	'come to a boil', a verb with final C2 reduplication
+§1	St'át'imcets	cited affix	-ʔ-/-p	the inchoative marking C2 reduplication competes with
+fn3	Sechelt	language	shashishalhem	one of the neighbouring languages with the progressive prefix
+fn3	Comox	language	ʔayʔaǰuθəm	one of the neighbouring languages with the progressive prefix
+fn3	Comox	language	Comox -Sliammon	the other name the paper gives that language, as the extraction spaces it
+Table 1	St'át'imcets	notation	V́	the stressed full vowel the diminutive replaces
+Table 1	St'át'imcets	notation	ə́	the stressed schwa the diminutive replaces it with
+(1a)	St'át'imcets	cited form	smúɬac	'woman', the base form
+(1a)	Upper St'át'imcets	cited form	smə́<m̓>ɬac	'girl', the diminutive form, marked (U)
+(1b)	St'át'imcets	cited form	c̓úqʷaz̓	'fish, salmon', the base form
+(1b)	St'át'imcets	cited form	c̓ə́<c̓>qʷaz̓	'little fish, trout', the diminutive form
+(1c)	St'át'imcets	cited form	citxʷ	'house', the base form
+(1c)	St'át'imcets	cited form	cə́<c>təxʷ	'little house, outhouse', the diminutive form
+(1d)	St'át'imcets	cited form	nax̌ʷít	'snake', the base form
+(1d)	St'át'imcets	cited form	nax̌ʷə́<x̌ʷ>t	'worm', the diminutive form
+(1e)	St'át'imcets	cited form	sqʷəm	'mountain, pile', the base form
+(1e)	St'át'imcets	cited form	sqʷə́<qʷ>əm̓	'hill', the diminutive form
+(1f)	St'át'imcets	cited form	scwaw̓x(ʷ)	'creek', the base form
+(1f)	St'át'imcets	cited form	scwə́<w̓>w̓əx(ʷ)	'little creek', the diminutive form
+(1g)	St'át'imcets	cited form	sɣap	'tree', the base form
+(1g)	St'át'imcets	cited form	sɣə<ɣ̓>p	'little tree, sapling', the diminutive form
+(1h)	St'át'imcets	cited form	maw	'cat', the base form
+(1h)	St'át'imcets	cited form	mə́<m>əw̓	'kitten', the diminutive form
+(1j)	St'át'imcets	cited form	típəḷ	'table', the base form, read off page 13 because the text scrambles the acute
+(1j)	Upper St'át'imcets	cited form	tə́<t>pəḷ	'little table, desk', the diminutive form, marked (U), read off page 13
+(1k)	St'át'imcets	cited form	xwaɬ	'road', the base form
+(1k)	St'át'imcets	cited form	xwə<w̓>ɬ	'little road, trail', the diminutive form
+(2a)	St'át'imcets	cited form	tayt	'hungry', the base form
+(2a)	Upper St'át'imcets	cited form	tə́<t>y̓ət	'a bit hungry, hungrier', the diminutive form, marked (U)
+(2b)	St'át'imcets	cited form	qʷənúx̌ʷ	'sick', the base form
+(2b)	Upper St'át'imcets	cited form	qʷənə́<n̓>x̌ʷ	'a bit sick, sicker', the diminutive form, marked (U)
+(2c)	St'át'imcets	cited form	(ʔəs)qyax̌	'drunk', the base form
+(2c)	St'át'imcets	cited form	(ʔəs)qyə<y̓>x̌	'a bit more drunk', the diminutive form
+(2d)	St'át'imcets	cited form	xʷʔit	'much, many', the base form
+(2d)	St'át'imcets	cited form	xʷʔi<ʔ>t	'a little, a few more', the diminutive form
+(2e)	St'át'imcets	cited form	x̌zum	'big', the base form
+(2e)	St'át'imcets	cited form	x̌zə́<z>əm̓	'a bit bigger', the diminutive form
+(2f)	St'át'imcets	cited form	kəkáw̓	'far', the base form
+(2f)	St'át'imcets	cited form	kəkə́<k>əw̓	'a bit further', the diminutive form
+(2g)	St'át'imcets	cited form	huʔ	'more', the base form
+(2g)	St'át'imcets	cited form	hú<h>uʔ	'a bit more', the diminutive form
+(2h)	St'át'imcets	cited form	zaxt	'long', the base form
+(2h)	St'át'imcets	cited form	zə́<z̓>xət	'a bit longer', the diminutive form
+(2i)	St'át'imcets	cited form	ʕə́lʕəl	'strong', the base form
+(2i)	St'át'imcets	cited form	ʕə́<ʕ>əlʕəl	'a bit stronger', the diminutive form
+(2j)	St'át'imcets	cited form	xaʔ	'high', the base form
+(2j)	St'át'imcets	cited form	xə́<x>aʔ	'a bit higher', the diminutive form
+(3a)	St'át'imcets	cited form	ʕʷuy̓t	'sleep', the base form
+(3a)	St'át'imcets	cited form	ʕʷə́<ʕʷ>y̓ət	'sleep a bit, nap', the diminutive form
+(3b)	St'át'imcets	cited form	ʔíɬən	'eat', the base form
+(3b)	Upper St'át'imcets	cited form	ʔí<ʔ>ɬən̓	'eat a bit', the diminutive form, marked (U)
+(3c)	St'át'imcets	cited form	ʔúqʷaʔ	'drink', the base form
+(3c)	St'át'imcets	cited form	ʔú<ʔ>qʷaʔ	'drink a bit', the diminutive form
+(3d)	St'át'imcets	cited form	mícaʔq	'sit', the base form
+(3d)	St'át'imcets	cited form	mə́<m̓>caʔq	'sit for a bit', the diminutive form
+(3e)	St'át'imcets	cited form	sáy̓səz̓	'play', the base form
+(3e)	St'át'imcets	cited form	sə́<s>əy̓səz̓	'play a bit', the diminutive form
+(3f)	St'át'imcets	cited form	záxtan	'lengthen s.t.', the base form
+(3f)	St'át'imcets	cited form	zə<z̓>xtán	'lengthen s.t. a bit', the diminutive form
+(3g)	St'át'imcets	cited form	k̓ə́ḷən	'score/scratch s.t.', the base form, read off page 13
+(3g)	St'át'imcets	cited form	k̓ə́<k̓>ḷən	'score/scratch s.t. a bit', the diminutive form, read off page 13
+(3h)	St'át'imcets	cited form	cə́kʷən	'pull s.t.', the base form
+(3h)	St'át'imcets	cited form	cə́<c>kʷən̓	'pull s.t. a bit', the diminutive form
+(3i)	St'át'imcets	cited form	túpun̓	'punch s.o.', the base form
+(3i)	St'át'imcets	cited form	tə́<t>pən̓	'punch s.o. lightly', the diminutive form
+(3j)	St'át'imcets	cited form	qʷíwin	'stick s.t. out', the base form
+(3j)	St'át'imcets	cited form	qʷə́<qʷ>w̓ən	'stick s.t out a bit', the diminutive form
+fn4	Henry Davis	reference	van Eijk	whose dictionary the first of the three data sources is
+fn5	Proto-Interior Salish	underlying	*√cwax	the root scwaw̓x(ʷ) is historically derived from, from Kuipers 2002:161
+fn5	St'át'imcets	notation	[w̓]	the segment whose influence rounds the final velar fricative
+§2.1.1	St'át'imcets	cited form	sməm̓ɬac	'girl', as the prose of section 2.1.1 writes it
+§2.1.1	St'át'imcets	derivation step	smúmɬac	after the consonant is copied, step 1
+§2.1.1	St'át'imcets	derivation step	smə́mɬac	after the stressed vowel is replaced by a stressed schwa, step 2
+§2.1.1	St'át'imcets	cited form	smə́m̓ɬac	'girl', after the final resonant is glottalized, step 3
+§2.1.1	St'át'imcets	derivation step	xzəzm	after schwa replacement, in the epenthesis example
+§2.1.1	St'át'imcets	derivation step	xzəzm̓	after glottalization, in the epenthesis example
+§2.1.1	St'át'imcets	cited form	xzə́zəm̓	'a bit bigger', the end of the epenthesis example
+§2.1.1	St'át'imcets	cited form	xʔiʔt	'a little, a few more', where reduplication targets a glottal stop
+§2.1.1	St'át'imcets	cited form	ʔáma	'good', the base form
+§2.1.1	St'át'imcets	cited form	ʔáʔma	'cute, pretty', where reduplication targets a glottal stop
+§2.1.1	St'át'imcets	cited form	húhuʔ	'a bit more', where reduplication targets an h
+(4a)	Upper St'át'imcets	cited form	s-pəq-m̓íx	'swan', the base form, marked (U)
+(4a)	Upper St'át'imcets	cited form	s-pəq-m̓ə́<m̓>x	'little swan', the diminutive form
+(4b)	St'át'imcets	cited form	s-k̓əḷ-íc̓aʔ	'an item of buckskin clothing', the base form, read off page 14
+(4b)	St'át'imcets	cited form	s-k̓əḷ-ə́<ḷ̓>c̓aʔ	'a small item of buckskin clothing', the diminutive form, read off page 14
+(4c)	St'át'imcets	cited form	paqʷʔ-úɬ	'always afraid', the base form
+(4c)	St'át'imcets	cited form	paqʷʔ-ú<ʔ>ɬ	'scaredy-cat', the diminutive form
+(4d)	St'át'imcets	cited form	qḷ-ákaʔ	'clumsy', the base form, read off page 14
+(4d)	St'át'imcets	cited form	qḷ-ə́<ḷ̓>kaʔ	'a bit clumsy', the diminutive form, read off page 14
+fn6	St'át'imcets	cited affix	-(V)n	the directive transitivizer, sometimes glottalized after the infix
+fn6	St'át'imcets	cited affix	-min	the relation transitivizer, sometimes glottalized after the infix
+(5a)	St'át'imcets	cited form	kapú	'coat', a loanword base form
+(5a)	St'át'imcets	cited form	kapə́<p>əw̓	'light jacket', the diminutive form
+(5b)	Upper St'át'imcets	cited form	ṣtụ	'store', a loanword base form, marked (U)
+(5b)	Upper St'át'imcets	cited form	ṣtə́<t>əw̓	'little store', the diminutive form, read off page 15
+(5c)	St'át'imcets	cited form	lapḷás	'plank or board', a loanword base form, read off page 15
+(5c)	St'át'imcets	cited form	lapḷə́<ḷ̓>s	'little plank or board', the diminutive form, read off page 15
+(5d)	Lower St'át'imcets	cited form	kḷísi	'crazy', a loanword base form, marked (L), read off page 15
+(5d)	Lower St'át'imcets	cited form	kḷə́<ḷ̓>si	'a little crazy', the diminutive form, read off page 15
+(6a)	St'át'imcets	cited example	x̌an̓  ta=s-mə́<m̓>ɬac=a	'The girl got hurt.'
+(6b)	St'át'imcets	cited example	x̌ə́<x̌>ən̓  ta=s-mə́<m̓>ɬac=a	'The girl got a bit hurt.'
+(7a)	St'át'imcets	cited example	ka-múl-a ta=n-kapúh=a	'My coat got dipped in the water.'
+(7b)	St'át'imcets	cited example	ka-mə́<m>l̓-a ta=n-kapúh=a	'A bit of my coat got dipped in the water.'
+(7b)	St'át'imcets	cited form	ka-mə́<m>l̓-a	'a bit got immersed', the form as page 15 prints it, with the glottalized l
+(8a)	St'át'imcets	cited example	cəs-p  tiʔ kʷu=cəs-p-íc̓aʔ	'That sweater stretched.'
+(8b)	St'át'imcets	cited example	cə́<c>s-əp  tiʔ kʷu=cəs-p-íc̓aʔ	'That sweater stretched a bit.'
+(9a)	St'át'imcets	cited example	nəm̓-p ʔayɬ tiʔ  kʷu=qəɬmə́<m>ən̓	'That old person has gone blind.'
+(9b)	St'át'imcets	cited example	nə́<n̓>əm̓-p ʔayɬ tiʔ kʷu=qəɬmə́<m>ən̓	'That old person has gone a little blind.'
+§2.1.2	St'át'imcets	cited affix	-p	the inchoative the diminutive applies freely to
+§2.1.2	St'át'imcets	cited affix	-ləx	the autonomous marker, one of the few the diminutive is recorded with
+§2.1.2	St'át'imcets	cited affix	-ílx	the other form of the autonomous marker
+§2.1.2	St'át'imcets	cited affix	-xal	the active intransitive suffix the diminutive is rejected with
+§2.1.2	St'át'imcets	cited form	kʷu=kʷíkʷs/ta=kʷíkʷs=a	'a little', the paraphrase used instead
+fn7	St'át'imcets	cited form	ta=kapúh=a	'the coat, a coat', where a following vowel triggers h epenthesis
+fn7	Upper St'át'imcets	cited form	ta=ṣtụ́h=a	'the store, a store', as page 15 prints it
+fn7	St'át'imcets	cited form	ta=kapə́pw̓=a	'a little coat, the little coat'
+fn7	Upper St'át'imcets	cited form	ta=ṣtə́tw̓=a	'a little store, the little store'
+fn7	St'át'imcets	impossible	*ta=kapə́p(h)=a	the form the paper says does not occur
+fn7	Upper St'át'imcets	impossible	*ta=ṣtə́t(h)=a	the other form the paper says does not occur
+(10a)	St'át'imcets	cited example	məc-xál=ɬkan	'I wrote.'
+(10b)	St'át'imcets	impossible	mə<m̓>c-xál=ɬkan	'I wrote a bit.', starred as unacceptable
+(10c)	St'át'imcets	impossible	məc-xə<x>əl̓=ɬkán	'I wrote a bit.', starred as unacceptable
+(10d)	St'át'imcets	cited example	məc-xál=ɬkan ta=kʷíkʷs=a	'I wrote a bit.', the periphrastic paraphrase
+§2.1.2	St'át'imcets	cited affix	-əm̓	the middle suffix that replaces -xal for some weak roots
+(11a)	St'át'imcets	cited example	pəkʷ-xál=ɬkan  ʔi=c̓x̌ʷút=a	'I poured out the gravel.'
+(11b)	St'át'imcets	cited example	pə<p>kʷ-əm̓=ɬkán  ʔi=k̓ʷík̓ʷənʔ=a  c̓x̌ʷut	'I poured out a bit of the gravel.', the translation volunteered
+fn8	St'át'imcets	cited form	qʷəcə́-<c>l̓əx	'wriggle', one of four diminutives with the autonomous suffix
+fn8	St'át'imcets	cited form	qʷəc-ílx	'move oneself', the base of qʷəcə́-<c>l̓əx
+fn8	St'át'imcets	cited form	cá<c>əy-l̓əx	'crawl, of a child'
+fn8	St'át'imcets	cited form	cáy-ləx	'crawl', the base of cá<c>əy-l̓əx
+fn8	St'át'imcets	cited form	x̌ʷəmí-<m>l̓əx	'hurry a bit more'
+fn8	St'át'imcets	cited form	x̌ʷəm-ílx	'hurry', the base of x̌ʷəmí-<m>l̓əx
+fn8	St'át'imcets	cited form	pəmí-<m>l̓əx	'go a bit faster', with the mark put back from page 16
+fn8	St'át'imcets	cited form	pəm-ílx	'go fast', the base of pəmí-<m>l̓əx
+(12a)	St'át'imcets	cited example	pəʕʷ-xál=ɬkan  l=ta=sə́ps=a	'I knocked on the door.'
+(12b)	St'át'imcets	cited example	pə<p>ʕʷ-əm̓=ɬkán  l=ta=sə́ps=a	'I knocked a little bit on the door.', the translation volunteered
+(13a)	St'át'imcets	cited form	xʷík̓-əm	'cut fish', the base form
+(13a)	St'át'imcets	cited form	xʷə́<xʷ>k̓-əm̓	'cut a bit of fish, cut small fish, small people cut fish'
+(13b)	St'át'imcets	cited form	ʔíq̓-əm	'scrape, for example hair', the base form
+(13b)	St'át'imcets	cited form	ʔí<ʔ>q̓-əm̓	'scrape hair off a bit', the diminutive form
+(14a)	St'át'imcets	cited example	túp-un̓=ɬkan	'I hit him.'
+(14b)	St'át'imcets	cited example	tə́<t>p-ən̓=ɬkan	'I hit him lightly.', the translation volunteered
+(15a)	St'át'imcets	cited example	xʷuz̓  q̓ʷəl-ən-ás  ta=smúɬac=a  ta=c̓íʔ=a	'The woman is going to cook the meat.'
+(15b)	St'át'imcets	cited example	xʷuz̓  q̓ʷə<q̓ʷ>l̓-ən-ás  ta=smúɬac=a  ta=c̓íʔ=a	'The woman's gonna cook the meat a little bit.', with the mark put back from page 18
+§2.1.2	St'át'imcets	cited form	kʷikʷs	'a bit', the periphrastic diminutive
+§2.1.2	St'át'imcets	cited form	k̓ʷík̓ʷənaʔ	'a few', the other periphrastic diminutive
+(16a)	St'át'imcets	cited example	xʷuz̓  q̓ʷəláw̓-ən-as  ta=smúɬac=a  ʔi=scáqʷəm=a	'The woman is going to pick the saskatoon berries.'
+(16b)	St'át'imcets	impossible	xʷuz̓    q̓ʷələ<l>w̓-ən-ás  ta=smúɬac=a  ʔi=scáqʷəm=a	starred as unacceptable
+(16c)	St'át'imcets	cited example	xʷuz̓  q̓ʷəláw̓-ən-as  kʷu=k̓ʷík̓ʷənaʔ  scáqʷəm	'She's going to pick a few saskatoons.', volunteered instead of 16b
+§2.1.3	St'át'imcets	cited form	s-qə́<q>x̌aʔ	'puppy, small dog', a conventionalized diminutive
+§2.1.3	St'át'imcets	cited form	s-qáx̌aʔ	'dog', the base of s-qə́<q>x̌aʔ
+(17a)	St'át'imcets	cited example	ʔúm̓-ən-c kʷu=k̓ʷík̓ʷənaʔ ḷạys	'Give me a little rice.', volunteered
+(17a)	St'át'imcets	cited form	ḷạys	'rice'
+(17b)	St'át'imcets	impossible	ʔúm̓-ən-c  kʷu=ḷə́<ḷ>ạy̓s	starred as unacceptable, read off page 18
+(18a)	St'át'imcets	cited example	ʔúm̓-ən-c kʷu=k̓ʷík̓ʷənaʔ x̌ʷəl-mín	'Give me a little bit of sawdust.', volunteered
+(18a)	St'át'imcets	cited form	x̌ʷəl-mín	'sawdust'
+(18b)	St'át'imcets	impossible	ʔúm̓-ən-c kʷu=x̌ʷəl-mə́<m>ən̓	starred as unacceptable
+§2.1.3	St'át'imcets	cited form	xzum	'big', as the prose of section 2.1.3 writes it without the caron
+§2.2	St'át'imcets	cited form	s-k̓ʷú<k̓ʷ>miʔt	'little baby', the diminutive of 'child'
+(19a)	St'át'imcets	cited example	ʕʷə<ʕʷ>y̓ət=kán	'I slept a little bit.'
+(19b)	St'át'imcets	cited example	ʕʷə́<ʕʷ>y̓ət ta=sk̓ʷú<k̓ʷ>miʔt=a	'The little baby slept.'
+(20a)	St'át'imcets	cited example	mə́<m̓>caʔq=ɬkan ʔəɬ xʷúz̓=ɬkan ʔayɬ ʔalkst	'I sat for a while before going back to work.'
+(20b)	St'át'imcets	cited example	mə́<m̓>caʔq ta=sk̓ʷú<k̓ʷ>miʔt=a níɬ=ƛ̓uʔ s=záp̓un[-n]-an	the first line of 'The child sat down and I buckled them in their seat.'
+(20b)	St'át'imcets	cited example	l=ta=q̓ílq-s=a	'in their seat', the second line
+(21a)	St'át'imcets	cited form	n-kám̓-xal	'pick s.t. up', the base form
+(21a)	St'át'imcets	cited form	n-ká<k>əm̓-xal	'pick things up here and there', the pluractional form
+(21b)	Upper St'át'imcets	cited form	súq̓ʷ-ən	'skin an animal', the base form
+(21b)	Upper St'át'imcets	cited form	sú<s>q̓ʷ-ən̓	'skin plural animals', the pluractional form, marked (U)
+(21c)	Upper St'át'imcets	cited form	ɬuq̓ʷ-usáʔ-ən	'peel a fruit or vegetable', the base form
+(21c)	Upper St'át'imcets	cited form	ɬu<ɬ>q̓ʷ-usáʔ-ən̓	'peel plural fruits or vegetables', marked (U)
+(21d)	St'át'imcets	cited form	n-kál-xal	'follow s.o. or s.t.', the base form
+(21d)	St'át'imcets	cited form	n-ká<k>əl̓-xal	'follow s.o. around', read off page 20, where the text loses the mark on l
+(21e)	St'át'imcets	cited form	pákʷ-an̓	'cut or slice s.t.', the base form
+(21e)	St'át'imcets	cited form	pá<p>kʷ-ən̓	'cut or slice s.t. up', the pluractional form
+(21f)	St'át'imcets	cited form	q̓íɬil	'run', the base form
+(21f)	St'át'imcets	cited form	q̓í<q̓>ɬil̓	'run around', read off page 20, where the text loses the mark on l
+(21g)	St'át'imcets	cited form	tíx̌-in̓	'lay s.t. out', the base form
+(21g)	St'át'imcets	cited form	tí<t>x̌-ən̓	'line things up', the pluractional form
+(21h)	St'át'imcets	cited form	ƛ̓úqʷ-un̓	'suck s.t.', the base form
+(21h)	St'át'imcets	cited form	ƛ̓ú<ƛ̓>qʷ-ən̓	'suck s.t. out of s.t.', the pluractional form
+(21i)	St'át'imcets	cited form	síx̌-xal	'move s.t.', the base form
+(21i)	St'át'imcets	cited form	n-sí<s>x̌-əm̓	'move things from one container to another', the pluractional form
+(21j)	St'át'imcets	cited form	ʕíƛ̓-xal	'take a bite', the base form
+(21j)	St'át'imcets	cited form	ʕí<ʕ̓>ƛ̓-əm̓	'gnaw a hole', with the mark put back from page 20
+(21k)	St'át'imcets	cited form	c̓áq-an̓	'pull s.t. out', the base form
+(21k)	St'át'imcets	cited form	c̓á<c̓>q-ən̓	'pluck s.t., a bird', the pluractional form
+(21l)	St'át'imcets	cited form	ƛ̓áḷ-ạn	'bite s.t.', the base form, read off page 20
+(21l)	St'át'imcets	cited form	ƛ̓á<ƛ̓>ḷ-ən̓	'gnaw s.t.', the pluractional form, read off page 20
+(22a)	St'át'imcets	cited form	n-mí<m>l̓-ən	'share things out', read off page 20
+(22a)	St'át'imcets	cited form	mil̓	'get shared out or divided', the related form, read off page 20
+(22b)	St'át'imcets	cited form	q̓á<q̓>ɬaʔ	'braid hair', a pluractional with no plain alternant
+(22b)	St'át'imcets	cited form	q̓əɬʔ-álxən	'braided rope', the related form, read off page 20
+(22c)	St'át'imcets	cited form	sí<s>q-əm̓	'split wood', a pluractional with no plain alternant
+(22c)	St'át'imcets	cited form	səq-xál	'split s.t.', the related form
+(22d)	St'át'imcets	cited form	qí<q>c̓-əm̓	'chew gum', a pluractional with no plain alternant
+(22e)	St'át'imcets	cited form	ƛ̓u<ƛ̓>k̓ʷ	'do things separately', a pluractional with no plain alternant
+(22f)	St'át'imcets	cited form	ns-ná<n>aʔ	'sneeze', a pluractional with no plain alternant
+(22g)	Upper St'át'imcets	cited form	mi<m̓>x	'move house', marked (U)
+(23a)	St'át'imcets	cited form	xʷəlp-ílx	'turn around', the base form
+(23a)	St'át'imcets	cited form	xʷəlp-í<p>l̓əx	'turn around and around', read by symbol_sift from the paper's own second printing
+(23b)	St'át'imcets	cited form	ɬəʕʷ-ílx	'jump', the base form
+(23b)	St'át'imcets	cited form	ɬəʕʷ-í<ʕ>l̓əx	'jump up and down', with the mark put back from page 23
+(23c)	St'át'imcets	root	√k̓ʷs	'singe', not attested without reduplication
+(23c)	St'át'imcets	cited affix	-alic̓aʔ	'outer cover', the lexical suffix
+(23c)	St'át'imcets	cited form	k̓ʷs-á<s>l̓ic̓aʔ	'burn hair or feathers off an animal or bird', with the mark put back from page 23
+(23d)	St'át'imcets	root	√cw̓	'kick', not attested without reduplication
+(23d)	St'át'imcets	cited affix	-usaʔ	'round thing', the lexical suffix
+(23d)	St'át'imcets	cited form	cw̓-ú<w̓>saʔ	'play soccer'
+§2.2.1	St'át'imcets	cited form	páplaʔ	'one', the form van Eijk contrasts
+§2.2.1	St'át'imcets	cited form	pə́plaʔ	'one', the other form van Eijk contrasts
+fn12	St'át'imcets	cited form	x̌ʷá<x̌ʷ>y̓ət	'many people die', which van Eijk calls formally a diminutive
+fn12	St'át'imcets	cited form	x̌ʷayt	'die or perish', the base of x̌ʷá<x̌ʷ>y̓ət
+§2.2.2	St'át'imcets	cited form	sú<s>q̓ʷən̓	'skin animals', as section 2.2.2 writes it without the hyphen
+§2.2.2	St'át'imcets	root	√suq̓ʷ	'skin animals'
+§2.2.2	St'át'imcets	cited form	qʷú<qʷ>səm̓	'shoot', as section 2.2.2 writes it without the hyphen
+§2.2.2	St'át'imcets	root	√qʷus	'shoot'
+(24)	St'át'imcets	cited example	xʷuz̓   sú<s>q̓ʷ-ən̓-əm  látiʔ  ʔi=s-kʷam<əm>-ɬkáɬ=a  c̓iʔ	'We're going to skin the deer we caught.'
+(25)	St'át'imcets	cited example	cíxʷ=kaɬ  píx̌əm̓, qʷú<qʷ>s-əm̓=ɬkaɬ  látiʔ [kʷu=]cə́<c>l̓əkst	the first line of 'We went hunting, shot five mountain goats...'
+(25)	St'át'imcets	cited example	x̌ʷiƛ̓áz̓,    záy̓-ɬc̓aʔ=ɬkaɬ    ʔayɬ  ʔəɬ    xʷúy̓=ɬkaɬ	the second line of the same sentence
+(25)	St'át'imcets	cited form	zaxən-sqáx̌aʔ	'packed them on horseback', the third line
+(26a)	St'át'imcets	cited form	záq̓il	'peek', the base form
+(26a)	St'át'imcets	cited form	zəq̓-zə́<z>q̓il	'peeking around', a double pluractional
+(26b)	St'át'imcets	cited form	sáw-en	'ask s.o. s.t.', the base form
+(26b)	St'át'imcets	cited form	səw-sə́<s>w̓-ən	'ask s.o. a lot of questions', a double pluractional
+(26c)	St'át'imcets	cited form	q̓áy-ləx	'jump', the base form
+(26c)	St'át'imcets	cited form	q̓əy-q̓ə́<q̓>əy-l̓əx	'jump up and down, plural', a double pluractional
+(26d)	St'át'imcets	cited form	cúɬ-xal	'point', the base form
+(26d)	St'át'imcets	cited form	cəɬ-cə́<c>ɬ-xal	'make all kinds of signs', a double pluractional
+§2.2.2	St'át'imcets	cited form	q̓ʷəm-q̓ʷm-í<m>l̓əx	'curl up ready to pounce', a double pluractional with vowel retention
+§2.2.2	St'át'imcets	cited form	n-cəs-cəs-p-á<p>lusəm	'squint, stretch one's eyes', a double pluractional
+(27a)	St'át'imcets	impossible	n-kə<k>əm̓-xál	the diminutive doublet the elicitation failed to produce
+(27b)	St'át'imcets	impossible	sə́<s>q̓ʷ-ən̓	the diminutive doublet the elicitation failed to produce
+(27c)	St'át'imcets	impossible	ɬə<ɬ>q̓ʷ-usáʔ-ən̓	the diminutive doublet the elicitation failed to produce
+§2.2.2	St'át'imcets	cited form	kam̓-xal	'pick things up', the base of n-ká<k>əm̓-xal
+§2.2.2	St'át'imcets	cited form	ʔəx̌ʷ-ʔú<ʔ>x̌ʷ-xal	'whittle', a double pluractional, printed across a line break
+§2.2.2	St'át'imcets	cited form	ʔúx̌ʷ-xal	'carve', the base of ʔəx̌ʷ-ʔú<ʔ>x̌ʷ-xal
+(28a)	St'át'imcets	cited form	cás-xal	'feel for s.t.', the base form
+(28a)	St'át'imcets	cited form	cá<c>s-əm̓	'feel around for s.t.', the pluractional form
+(28b)	St'át'imcets	cited form	ʕí<ʕ>ƛ̓-əm̓	'gnaw', the pluractional form as section 2.2.2 writes it
+(28c)	St'át'imcets	cited form	pəqʷ-xál	'split wood', the base form
+(28c)	St'át'imcets	cited form	pə́<p>qʷ-əm̓	'make shakes for roofing', the pluractional form
+(28d)	St'át'imcets	cited form	ʔúx̌ʷ-xal	'carve wood', the base form
+(28d)	St'át'imcets	cited form	ʔú<ʔ>x̌ʷ-əm̓	'whittle', the pluractional form
+§2.2.2	St'át'imcets	cited form	ɬəʕʷ-í<ʕʷ>l̓əx	'jump up and down', with the labialized pharyngeal
+§2.2.2	St'át'imcets	cited form	n-sí<s>x̌-l̓əx	'move from one conveyance to another'
+§2.2.2	St'át'imcets	cited form	síx̌-ləx	'move oneself', the base of n-sí<s>x̌-l̓əx
+§2.2.2	St'át'imcets	cited form	xʷəlp-í<p>l̓əx	'turn round and around', printed here with the mark intact
+§2.2.3	Comox	language	ʔayʔaǰuθəm	the language Huijsmans and Mellesmoen compare against
+(29a)	St'át'imcets	cited example	waʔ  ɬəʕʷ-ɬʕʷ-í<ʕʷ>l̓əx   ʔi=s-qʷəyíc=a	'The rabbits are jumping up and down.'
+(29b)	St'át'imcets	cited example	waʔ  ɬəʕʷ-ɬʕʷí-<ʕʷ>l̓əx  ta=qlíl=a  s-k̓ʷú<k̓ʷ>miʔt	'The angry child is throwing a tantrum by jumping up and down.'
+(30a)	St'át'imcets	cited example	ʔác̓x̌-ən, waʔ   q̓əy-q̓ə́<q̓>əy-l̓əx ʔi=p̓əʕ ʷp̓íʕ ʷɬh=a	'See, the frogs are jumping up and down.'
+(30b)	St'át'imcets	cited example	kán=as   kʷ=s=q̓əy-q̓ə́<q̓>əy-l̓əx=s	'Maybe he's having a tantrum.'
+(31a)	St'át'imcets	root	√c̓aq̓	'throw', the root of the neologism
+(31a)	St'át'imcets	cited form	c̓aq̓ʷ-ú<q̓ʷ>saʔ	'juggle', an obvious neologism
+(31b)	St'át'imcets	root	√táwən	'visit', from English 'town', read off page 25
+(31b)	St'át'imcets	cited form	təw-tə́<t>wən̓	'go visiting', a double pluractional on a loanword, read off page 25
+(31c)	St'át'imcets	root	√pạyt	'fight', from English 'fight', read off page 25
+(31c)	St'át'imcets	cited form	pə́y-pə́<p>y̓ət	'quarrel, squabble', a double pluractional on a loanword, read off page 25
+§2.3	St'át'imcets	cited form	cw̓ú<w̓>saʔ	'play soccer', as section 2.3 writes it
+§3.1	St'át'imcets	notation	STEM	the stratum the root sits at
+§3.1	St'át'imcets	notation	WORD	the stratum both stress-aligned infixes apply at
+(32a)	St'át'imcets	cited form	xʷí-xʷitən	'keep whistling', initial C1 reduplication with stress on the initial vowel
+(32b)	St'át'imcets	cited form	ná-n̓atxʷ	'morning', initial C1 reduplication
+(32c)	St'át'imcets	cited form	q̓á-q̓aw-am̓	'howl', initial C1 reduplication
+(33a)	St'át'imcets	cited form	qʷə-qʷal̓út	'talk plural, speak all the time', read by symbol_sift from qʷəqʷal̓út
+(33b)	St'át'imcets	cited form	la-líl̓təm	'adults', initial C1 reduplication with non-initial stress
+(33c)	St'át'imcets	cited form	kə-káw̓	'far', initial C1 reduplication with non-initial stress
+(34)	St'át'imcets	cited example	ɬə  mx̌ʷ-ə́<x̌ʷ>s  tiʔ  kʷu=s-k̓ʷú<k̓ʷ>miʔt	'That child's face is a little dirty.', as the extraction spaces it
+(35)	St'át'imcets	cited example	waʔ  p̓kʷ-í<kʷ>l̓əx  ta=n-c̓qáx̌ʔ=a  l=ta=s-q̓áq̓pʔ=a	'My horse is whirling up dust by rolling around in the sand.'
+fn17	St'át'imcets	root	√ ɬə mx̌	'dirty', as the extraction spaces it, with a gap after the root sign
+fn17	St'át'imcets	cited form	ɬə mx̌ʷ-ús	'dirty face', as the extraction spaces it
+fn17	St'át'imcets	cited affix	-us	'face', the lexical suffix
+fn18	St'át'imcets	cited form	p̓kʷí<kʷ>l̓əx	'whirl up dust', the Upper consultant's form
+fn18	St'át'imcets	cited form	pəlkʷí<kʷ>l̓əx	'whirl up dust', van Eijk's equivalent verb
+fn18	St'át'imcets	root	√pəl̓kʷ	'dusty', the root pəlkʷí<kʷ>l̓əx derives from
+fn18	St'át'imcets	root	√p̓əkʷ	the otherwise unattested root p̓kʷí<kʷ>l̓əx derives from
+fn18	St'át'imcets	root	√p̓ukʷ	'pour or spill solids', possibly related to √p̓əkʷ
+fn18	St'át'imcets	cited form	s-q̓á<q̓>paʔ	'sand', a lexicalized vowel retaining infix
+(36a)	St'át'imcets	cited form	x̌ə-x̌zúm	'big, plural', initial reduplication
+(36a)	St'át'imcets	cited form	x̌ə-x̌zə́<z>əm̓	'a bit bigger, plural', initial plus diminutive
+(36b)	St'át'imcets	cited form	s-qʷyic	'rabbit', the base form
+(36b)	St'át'imcets	cited form	s-qʷə-qʷyíc	'rabbits', initial reduplication
+(36b)	St'át'imcets	cited form	s-qʷyə́<y̓>əc	'little rabbit', the diminutive
+(36b)	St'át'imcets	cited form	s-qʷə-qʷyə́<y̓>əc	'little rabbits', initial plus diminutive
+(36c)	St'át'imcets	cited form	qʷal̓út	'speak', the base form, read by symbol_sift from qʷəqʷal̓út
+(36c)	St'át'imcets	cited form	qʷal̓ə́<l̓>t	'converse', the infixed form, as page 28 prints it
+(36c)	St'át'imcets	cited form	qʷə-qʷal̓ə́<l̓>t	'converse, plural', initial plus infix
+(36d)	St'át'imcets	cited form	p̓akʷ	'surface', the base form
+(36d)	St'át'imcets	cited form	p̓a<p̓>kʷ	'float', the infixed form
+(36d)	St'át'imcets	cited form	p̓a-p̓á<p̓>kʷ	'float, plural', initial plus infix
+fn19	St'át'imcets	cited form	qʷəqʷal̓út	'to talk loudly, bawl someone out', van Eijk's meaning
+fn20	St'át'imcets	cited form	p̓á-p̓akʷ	the form with initial but not pluractional reduplication, not yet recorded
+(37a)	St'át'imcets	cited form	ʔəs-táɬ-ləx	'standing up', the base form
+(37a)	St'át'imcets	cited form	ʔəs-tá-taɬ-ləx	'standing up continuously', initial reduplication
+(37a)	St'át'imcets	cited form	ʔəs-təɬ-táɬ-ləx	'standing up, plural', total reduplication
+(37a)	St'át'imcets	impossible	ʔəs-ta-təɬ-táɬ-ləx	starred: initial and total may not co-occur
+(37a)	St'át'imcets	impossible	ʔəs-təɬ-tá-taɬ-ləx	starred: total and initial may not co-occur
+(37b)	St'át'imcets	cited form	qʷəl̓-qʷal̓út	'speak, plural', total reduplication, read by symbol_sift
+(37b)	St'át'imcets	impossible	qʷə-qʷəl̓-qʷal̓út	starred: initial and total may not co-occur
+(37b)	St'át'imcets	impossible	qʷəl̓-qʷə-qʷal̓út	starred: total and initial may not co-occur
+(38a)	St'át'imcets	cited form	s-kʷúzaʔ	'someone's child', the base form
+(38a)	St'át'imcets	cited form	s-kʷəz-kʷúzaʔ	'someone's children', total reduplication
+(38a)	St'át'imcets	cited form	s-kʷə́<kʷ>zaʔ	'someone's small child', the diminutive
+(38a)	St'át'imcets	cited form	s-kʷəz-kʷə́<kʷ>zaʔ	'someone's small children', total plus diminutive
+(38b)	St'át'imcets	cited form	s-ɣap	'tree', the base form
+(38b)	St'át'imcets	cited form	s-ɣəp-ɣáp	'trees', total reduplication
+(38b)	St'át'imcets	cited form	s-ɣəp-ɣə́<ɣ̓>p	'little trees', total plus diminutive
+(38c)	Upper St'át'imcets	cited form	qʷən-qʷənúx̌ʷ	'sick, plural', total reduplication
+(38c)	Upper St'át'imcets	cited form	qʷənə́<n̓>xʷ	'a little sick', the diminutive as section 3.2 writes it
+(38c)	Upper St'át'imcets	cited form	qʷən-qʷənə́<n̓>xʷ	'a little sick, plural', total plus diminutive
+(38d)	St'át'imcets	cited form	zəx-záxt	'long, plural', total reduplication
+(38d)	St'át'imcets	cited form	zəx-zə́<z̓>xət	'a little longer, plural', total plus diminutive
+(39)	St'át'imcets	cited form	x̌zúm<əm>	'get bigger', change of state infix
+(39)	St'át'imcets	cited form	x̌ə-x̌zúm<əm>	'get bigger, plural', initial plus change of state
+(40a)	St'át'imcets	root	√ƛ̓up	'twist'
+(40a)	St'át'imcets	cited form	ƛ̓úp<əp>	'get twisted', change of state
+(40a)	St'át'imcets	impossible	ƛ̓ə́<ƛ̓>p<əp>	starred: diminutive and change of state may not co-occur
+(40b)	St'át'imcets	root	√ɬil	'sprinkle'
+(40b)	St'át'imcets	cited form	ɬíl<əl>	'sprinkle, of rain', change of state
+(40b)	St'át'imcets	impossible	ɬə́<ɬ>l<əl >	starred, as the extraction spaces it
+(40c)	St'át'imcets	root	√nus	'damp'
+(40c)	St'át'imcets	cited form	nús<əs>	'get damp', change of state
+(40c)	St'át'imcets	impossible	nə́<n̓>s<əs>	starred: diminutive and change of state may not co-occur
+(40d)	St'át'imcets	root	√kən̓	'bump'
+(40d)	St'át'imcets	cited form	kə́n̓<ən̓>	'get bumped', change of state
+(40d)	St'át'imcets	impossible	kə́<k>n̓<ən̓>	starred: diminutive and change of state may not co-occur
+§3.3	nɬeʔkepmxcín	language	Nłeʔkepmxcín	the language Jimmie 1994 describes, written here with ł
+§3.3	Secwepemctsin	language	Secwepemctsín	the language Nakamura 2000 describes
+§3.3	St'át'imcets	notation	/ə́/	the marked stressed schwa the diminutive needs extra specification to motivate
+Figure 1	St'át'imcets	cited form	púɬ<əɬ>	'come to a boil', the change of state derivation in Figure 1
+Figure 1	St'át'imcets	root	√puɬ	'boil', the root of púɬ<əɬ>
+§3.3.2	St'át'imcets	notation	/ə/	the nuclear but non-moraic schwa
+§3.3.2	St'át'imcets	notation	CəC	a closed monomoraic syllable with a schwa nucleus
+§3.3.2	St'át'imcets	notation	CəCC	a closed bimoraic syllable with a schwa nucleus and complex coda
+(41)	St'át'imcets	rule	µ ⇔ <PLU>	the lexical entry for the pluractional infix, an affixed mora
+Figure 4	St'át'imcets	cited form	mi<m̓>x	'move house', the derivation Figure 4 works through
+Figure 4	St'át'imcets	root	√mix	'move house', the root of mi<m̓>x
+(42)	St'át'imcets	rule	µ[stress] ⇔ <DIM>	the lexical entry for the diminutive, a lexically stressed mora
+fn25	St'át'imcets	notation	ə́change	the stressed schwa, run into the following word by the extraction
+(46)	St'át'imcets	underlying	µ + √míx	the input to the word-level derivation in tableau (46)
+(46)	St'át'imcets	impossible	míʔx	candidate (46a), which epenthesizes a consonant and fatally violates DEP
+(46)	St'át'imcets	cited form	mím̓x	candidate (46b), the winner, violating only INTEGRITY
+(46)	St'át'imcets	impossible	µ míx	candidate (46c), which leaves the mora floating
+(46)	St'át'imcets	impossible	míx	candidate (46d), which deletes the mora
+(49)	St'át'imcets	rule	PARSE-µ	the constraint violated by every mora not parsed into a foot
+§3.3.4	Upper Chehalis	language	Upper Chehalis	the Tsamosan language whose diminutive is also an affixed mora
+fn27	Halkomelem	language	hul’q’umi’num’	Island Halkomelem, whose data Mellesmoen and Urbanczyk argue from
+(50)	St'át'imcets	cited form	súsq̓ʷən̓	'skin animals', the form tableau (50) derives
+(50)	St'át'imcets	root	√súq̓ʷ	'skin', the root of súsq̓ʷən̓
+(50)	St'át'imcets	cited affix	-ən	the directive transitivizer on súsq̓ʷən̓
+(50)	St'át'imcets	underlying	µ + (súq̓ʷən)	the input to tableau (50)
+(50)	St'át'imcets	impossible	(súq̓ʷəq̓ʷn̓)	candidate (50a), fatally violating *-△FT > △FT
+(50)	St'át'imcets	impossible	suq̓ʷəq̓ʷn̓	candidate (50b), fatally violating ANCHORFOOT
+(50)	St'át'imcets	impossible	su(súq̓ʷən̓)	candidate (50c), fatally violating PARSE-µ
+(50)	St'át'imcets	impossible	(súsu)(q̓ʷə̀n̓)	candidate (50d), fatally violating *STRUC-FT
+(50)	St'át'imcets	cited form	(súsq̓ʷən̓)	candidate (50e), the winner
+(53)	Upper St'át'imcets	cited form	spəqm̓ə́m̓x	'little swan', the form tableau (53) derives
+(53)	Upper St'át'imcets	underlying	s-√pəq-m̓íx	the input to tableau (53), before reduplication
+(53)	Upper St'át'imcets	underlying	spəq(m̓íµ+x)	the footed input to tableau (53)
+(53)	Upper St'át'imcets	cited form	spəq(m̓ə́m̓µ+x)	candidate (53a), the winner
+(53)	Upper St'át'imcets	impossible	spəq(m̓íµ+m̓x)	candidate (53b), fatally violating STRESSSTRESS
+(53)	Upper St'át'imcets	impossible	spəq(m̓íµ+m̓µ+x)	candidate (53c), fatally violating CULMINATIVITY
+(53)	Upper St'át'imcets	impossible	(spə́pµ+q)(m̓íµ+x)	candidate (53d), fatally violating CULMINATIVITY
+(53)	Upper St'át'imcets	impossible	spəq(m̓áµ+x)	candidate (53e), fatally violating DEP-FV
+(54)	St'át'imcets	rule	*əCʔ/h]σ	the constraint banning a glottal stop or h in the coda of a schwa syllable
+(54)	St'át'imcets	rule	*əʔ]σ	the abbreviation the paper uses for that constraint
+§3.3.4.2	St'át'imcets	notation	[əʔ]	the tautosyllabic sequence the language bans
+(55)	St'át'imcets	cited form	ʔúʔqʷaʔ	'drink a bit', the form tableau (55) derives
+(55)	St'át'imcets	root	√ʔúqʷaʔ	'drink', the root of ʔúʔqʷaʔ
+(55)	St'át'imcets	underlying	(ʔúqʷaʔ)	the footed input to tableau (55)
+(55)	St'át'imcets	cited form	(ʔúµ+ʔqʷaʔ)	candidate (55a), the winner
+(55)	St'át'imcets	impossible	(ʔə́ʔµ+qʷaʔ)	candidate (55b), fatally violating *əʔ]σ
+(55)	St'át'imcets	impossible	(ʔúµ+ʔµ+qʷaʔ)	candidate (55c), fatally violating CULMINATIVITY
+fn34	St'át'imcets	impossible	(ʔə́ʔə)(qʷàʔ)	a further candidate ruled out by *STRUC-σ
+fn34	St'át'imcets	notation	[ə]	the epenthetic vowel found after the copied consonant
+§4.2	St'át'imcets	notation	/ə/	the stressed schwa the diminutive yields, marked within the grammar
+§4.3	St'át'imcets	notation	/ə/	the vowel arguably absent from underlying representations
+References	Nxaʔamxcín	language	Nxa'amxcin	Moses-Columbia Salish, as Czaykowska-Higgins 1993b writes it
+References	nɬeʔkepmxcín	language	Nłek̉epmx	the language Jimmie 1994 analyzes, with ł and a hooked k
+References	Squamish	language	Skwxwú7mesh	the language Dyck 2004 analyzes
+References	St'át'imcets	title	Nqwal’uttenlhkálha	the Davis, Frank, Whitley and Language Authority dictionary title
+References	St'át'imcets	name	St’at’imc	the Upper St'at'imc Language, Culture and Education Society
+References	St'át'imcets	name	St’át’imc	the Upper St'át'imc Language Authority
+References	Straits	language	SENĆOŦEN	Saanich, the language Leonard 2019 analyzes
+References	Halkomelem	language	hən’q’əmin’əm’	Musqueam, the language Shaw and colleagues analyze
+References	Secwepemctsin	language	Secwepemctsín	Shuswap, the language Nakamura 2000 analyzes, split by the extraction and read back by symbol_sift
+References	Comox	language	ʔayʔaǰuθəm	the language Huijsmans and Mellesmoen 2021 analyze
+§2.1.3	St'át'imcets	cited form	xzə́<z>əm̓	'a bit bigger', as section 2.1.3 writes it with the infix marked
+(38b)	St'át'imcets	cited form	s-ɣə<ɣ̓>p	'little tree', the diminutive as example (38b) writes it
+§2.2.2	St'át'imcets	cited form	kál-xal	'follow s.o.', the base of n-ká<k>əl̓-xal
+(23c)	Henry Davis	gloss	√singe	the English gloss set under the root sign in example (23c)
+(23d)	Henry Davis	gloss	kick	the English gloss under √cw̓, which the paper sets without the root sign
+(31a)	Henry Davis	gloss	√throw	the English gloss set under the root sign in example (31a)
+(31b)	Henry Davis	gloss	√visit	the English gloss set under the root sign in example (31b)
+(31c)	Henry Davis	gloss	√fight	the English gloss set under the root sign in example (31c)
+§3.1	Henry Davis	name	Bermúdez-Otero	Bermúdez-Otero, cited for stratal phonology
+fn15	Henry Davis	name	Bermúdez	the same name, split across a line break by the extraction
+§3.3.4.1	St'át'imcets	notation	q̓ʷ	the segment candidate (50a) doubles
+(54)	St'át'imcets	notation	əh	the other sequence the constraint bans
+§2.1.1	St'át'imcets	fragment	C1ə-	the prefix as footnote 3 writes it, which the check reads as a form
+(5a)	Henry Davis	gloss	jacket’7	'light jacket' with the footnote marker welded on by the extraction
+§3.1.2	St'át'imcets	fragment	ʔ	the glottal stop standing alone where the extraction split a form

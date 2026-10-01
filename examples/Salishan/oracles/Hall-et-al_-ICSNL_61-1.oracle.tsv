@@ -1,0 +1,495 @@
+where	who	kind	form	gloss
+title	Brent Hall	title	Ctrl-Alt-Delete: The Control Directive and Associated /t/ Deletion in nɬeʔkepmxcín*	the paper's title, with the footnote marker the page prints on it
+title	Brent Hall	title	Ctrl-Alt-Delete: The Control Directive and Associated /t/ Deletion in nɬeʔkepmxcín	the paper's title without the footnote marker
+title	Brent Hall	name	Brent Hall	the first author
+title	Noah Luntzlara	name	Noah Luntzlara	the second author
+title	Gloria Mellesmoen	name	Gloria Mellesmoen	the third author
+title	Danica Reid	name	Danica Reid	the fourth author
+title	Brent Hall	place	University of British Columbia	the first two authors' institution
+title	Gloria Mellesmoen	place	University of Victoria	the third author's institution
+title	Danica Reid	place	Simon Fraser University	the fourth author's institution
+front	Brent Hall	reference	In Proceedings of ICSNL 61	where the paper appeared
+abstract	nɬeʔkepmxcín	language	nɬeʔkepmxcín	the language the paper is about
+abstract	nɬeʔkepmxcín	cited affix	-t	the transitive suffix the paper is about
+abstract	nɬeʔkepmxcín	cited affix	-n	the control directive, which vocalizes to [e]
+abstract	nɬeʔkepmxcín	cited affix	-min	the relational applicative, whose /n/ deletes
+§1	nɬeʔkepmxcín	language	Thompson River Salish	the other name the paper gives its language
+§1	nɬeʔkepmxcín	reference	thp	the ISO 639-3 code the paper gives for the language
+§1	nɬeʔkepmxcín	cited affix	-exʷ	the second person singular ergative suffix
+§1	Brent Hall	reference	Thompson and Thompson (1992)	whose underlying forms the paper argues against
+fn*	Bev Phillips	name	Bev Phillips	a nɬeʔkepmxcín speaker the authors thank
+fn*	c̓úʔsinek	name	c̓úʔsinek	a nɬeʔkepmxcín speaker the authors thank, Marty Aspinall
+fn*	kʷaɬtèzetkʷ	name	kʷaɬtèzetkʷ	a nɬeʔkepmxcín speaker the authors thank, Bernice Garcia
+fn*	kʷaɬtèzetkʷ	name	kʷaɬtezètkʷ	the same name as the footnote spells it inside her own sentence
+fn*	kʷaɬtèzetkʷ	running speech	ʔesʔúmecms kʷaɬtezètkʷ tuɬe c̓əɬétkʷu wéʔe ncítxʷ ƛ̓uʔ wéʔec ʔéx netíyxs scwéw̓xmx ƛ̓uʔ tékm xéʔe ne nɬeʔképmx e tmíxʷs	'My traditional name is kʷaɬtezètkʷ, my home is in Coldwater of Nicola of the nɬeʔképmx lands.'
+fn*	kʷaɬtèzetkʷ	place	nɬeʔképmx	the lands her introduction names
+fn*	Brent Hall	name	nɬeʔkepmxcín lab	the lab the authors thank
+fn*	Henry Davis	name	Henry Davis	thanked for comments on Interior Salish object suffixes
+fn*	Brent Hall	reference	Jacobs Research Fund	who funded the project
+§1.1	ƛ̓q̓əmcín	language	ƛ̓q̓əmcín	the Lytton speech area and dialect
+§1.1	scw̓exmxcín	language	scw̓exmxcín	the Nicola Valley speech area and dialect
+§1.1	nkəm̓cinmxcín	language	nkəm̓cinmxcín	the Spences Bridge speech area and dialect
+§1.1	sp̓ezm̓mxcín	language	sp̓ezm̓mxcín	the Spuzzum speech area and dialect
+§1.1	nɬeʔkepmxcín	place	nɬeʔképmx	the territory the revitalization organizations work across
+§1.1	nɬeʔkepmxcín	name	Snk’y’peplhxw	the Coyote House Language and Culture Society, in the practical orthography
+§1.1	nɬeʔkepmxcín	name	Citxw Nlaka’pamux	the Assembly, in the practical orthography
+§1.2	nɬeʔkepmxcín	cited affix	-n-t	the control directive and transitive sequence
+§1.2	nɬeʔkepmxcín	root	wec̓e-	'bark', the root of example (1)
+§1.2	nɬeʔkepmxcín	cited affix	-ey	the first person plural object suffix
+§1.2	nɬeʔkepmxcín	cited affix	-es	the third person ergative suffix
+(1)	nɬeʔkepmxcín	cited form	[wéc̓entis]	'He barks at us.', the surface form, from Thompson and Thompson 1996:373
+(1)	nɬeʔkepmxcín	underlying	/wéc̓e-n-t-ey-es/	the underlying form the paper gives for [wéc̓entis]
+(2)	nɬeʔkepmxcín	root	ʔél̓-	'deep', the root of example (2)
+(2)	nɬeʔkepmxcín	cited form	[ʔəl̓ʔél̓kse1c2əms]	'Someone gave me a lot of stuff.', from Thompson and Thompson 1996:3
+(2)	nɬeʔkepmxcín	underlying	/ʔəl̓~ʔél̓-ekst-n1-t2-s2em-es/	the underlying form the paper gives for [ʔəl̓ʔél̓kse1c2əms]
+(3)	nɬeʔkepmxcín	cited form	[ník̓e1s]	'He cuts it.', from Thompson and Thompson 1996:218
+(3)	nɬeʔkepmxcín	underlying	/ník̓-n1-t-∅-es/	the underlying form the paper gives for [ník̓e1s]
+(4)	nɬeʔkepmxcín	root	wík	'see', the root that takes no pretransitivizer
+(4)	nɬeʔkepmxcín	impossible	*[wíkes]	the surface form example (4) would have if the control directive were present
+(4)	nɬeʔkepmxcín	cited form	[ník̓es]	the form example (4) is compared with
+(4)	nɬeʔkepmxcín	cited form	[wíkc1]	'He sees it.', from Thompson and Thompson 1996:380
+(4)	nɬeʔkepmxcín	underlying	/wík-t1-∅-es1/	the underlying form the paper gives for [wíkc1]
+§2.1.1	nɬeʔkepmxcín	cited form	[ʔeskəɬxə́n]	'have one's shoes off', from Hall et al. 2025:99
+§2.1.1	nɬeʔkepmxcín	underlying	/ʔes-kəɬ-xə́n/	the underlying form the paper gives for [ʔeskəɬxə́n]
+§2.1.1	nɬeʔkepmxcín	cited form	[máʕxetən]	'moon', from Thompson and Thompson 1996:192
+§2.1.1	nɬeʔkepmxcín	underlying	/máʕ-xn-tn/	the underlying form the paper gives for [máʕxetən]
+(7)	nɬeʔkepmxcín	cited form	[ʔú.ʔe.ne]	'I sing a lullaby to him/her/it.', from Thompson and Thompson 1992:65
+(7)	nɬeʔkepmxcín	underlying	/ʔúʔe-n-t-∅-ene/	the underlying form the paper gives for [ʔú.ʔe.ne]
+(8)	nɬeʔkepmxcín	cited form	[kícnəxʷ]	'You reach him/her/it.', from Thompson and Thompson 1992:65
+(8)	nɬeʔkepmxcín	underlying	/kíc-n-t-∅-exʷ/	the underlying form the paper gives for [kícnəxʷ]
+(8)	nɬeʔkepmxcín	impossible	[*kícexʷ]	what n-vocalization would give if it applied to [kícnəxʷ]
+(8)	nɬeʔkepmxcín	cited form	[kícne]	'I reach him/her/it.', from Thompson and Thompson 1992:65
+(8)	nɬeʔkepmxcín	underlying	/kíc-n-t-∅-ene/	the underlying form the paper gives for [kícne]
+(8)	nɬeʔkepmxcín	impossible	[*kícene]	what n-vocalization would give if it applied to [kícne]
+(8)	nɬeʔkepmxcín	cited form	[kíces]	'He/she/it reaches him/her/it.', from Thompson and Thompson 1992:65
+(8)	nɬeʔkepmxcín	underlying	/kíc-n-t-∅-es/	the underlying form the paper gives for [kíces]
+(8)	nɬeʔkepmxcín	underlying	/kíc-n-t-es/	the underlying form as the prose of section 2.1.1 writes it
+(8)	nɬeʔkepmxcín	cited form	[kí.ces]	the surface form as the prose of section 2.1.1 writes it
+(8)	nɬeʔkepmxcín	underlying	/kíc-n-t-ene/	the other underlying form the prose of section 2.1.1 writes
+(9)	nɬeʔkepmxcín	cited form	[kən.té.ne]	'I helped him/her/them.', from Thompson and Thompson 1992:65
+(9)	nɬeʔkepmxcín	underlying	/kn-t-∅-ene/	the underlying form the paper gives for [kən.té.ne]
+(10)	Bev Phillips	cited form	[kəns.xʷúy̓]	'... what I'm gonna...', from Hall and Phillips 2025
+(10)	Bev Phillips	underlying	/k=n=s=xʷuy̓/	the underlying form the paper gives for [kəns.xʷúy̓]
+(11)	Bev Phillips	cited form	[ʔe.sən.ɬém̓s.ne]	'I store it.', from Hall and Phillips 2025
+(11)	Bev Phillips	underlying	/ʔes-n-ɬém̓-s-t-∅-ene/	the underlying form the paper gives for [ʔe.sən.ɬém̓s.ne]
+(12)	nɬeʔkepmxcín	cited form	[kíc.n2e]	'I reached it.'
+(12)	nɬeʔkepmxcín	underlying	/kíc-n1-t-∅-en2e/	the underlying form the paper gives for [kíc.n2e]
+(13)	nɬeʔkepmxcín	cited form	[pú.nəms]	'He/she/they found it.', from Thompson and Thompson 1992:73
+(13)	nɬeʔkepmxcín	underlying	/pún-min-t-∅-es/	the underlying form the paper gives for [pú.nəms]
+(14)	nɬeʔkepmxcín	cited form	[sú.mes]	'He/she/they sniffs him/her/them/it.', from Thompson and Thompson 1996:334
+(14)	nɬeʔkepmxcín	underlying	/súm-n-t-∅-es/	the underlying form the paper gives for [sú.mes]
+§2.1.3	nɬeʔkepmxcín	notation	/n̓/	the glottalized nasal, which patterns with /n/ but does not vocalize
+§2.1.3	nɬeʔkepmxcín	notation	/xʷ/	the consonant that breaks the natural class in Thompson and Thompson's rule
+(15)	nɬeʔkepmxcín	cited form	[ʔú.ʔe.ne]	'I sing a lullaby to him/her/them.', from Thompson and Thompson 1992:65
+(16)	nɬeʔkepmxcín	cited form	[máʕ.xe.tən]	'moon', from Thompson and Thompson 1996:192
+(16)	nɬeʔkepmxcín	underlying	/máʕ-xn-tn/	the underlying form the paper gives for [máʕ.xe.tən]
+(18)	nɬeʔkepmxcín	notation	[w̓tk]	the sequence that results when the lexical suffix loses its vowel
+(17)	nɬeʔkepmxcín	cited form	[n.xʷe.sí.tən]	'conveyance', from Thompson and Thompson 1992:38
+(17)	nɬeʔkepmxcín	underlying	/n-xʷesít-tn/	the underlying form the paper gives for [n.xʷe.sí.tən]
+(18)	nɬeʔkepmxcín	cited form	[n.páw̓.kʷu]	'The water is frozen.', from Thompson and Thompson 1992:38
+(18)	nɬeʔkepmxcín	underlying	/n-páw̓-etkw/	the underlying form the paper gives for [n.páw̓.kʷu]
+(19)	nɬeʔkepmxcín	cited form	[wíkc1]	'He/she/they see(s) it/him/her/them.', example (4) repeated
+(20)	nɬeʔkepmxcín	cited form	[sé.we.cəms]	'He/she/they ask me.', from Hall et al. this volume
+(20)	nɬeʔkepmxcín	underlying	/séw-n-t-sem-es/	the underlying form the paper gives for [sé.we.cəms]
+(21)	nɬeʔkepmxcín	cited form	[ník̓e1s]	'He/she/they cut(s) it.', example (3) repeated
+§3.1	nɬeʔkepmxcín	cited affix	-sem/-sey	the first person singular object suffix as Thompson and Thompson give it
+§3.1	nɬeʔkepmxcín	cited affix	-si	the second person singular object suffix as Thompson and Thompson give it
+§3.1	nɬeʔkepmxcín	cited affix	-cem/-cey	the first person singular object suffix as this paper reanalyzes it
+§3.1	nɬeʔkepmxcín	cited affix	-ci	the second person singular object suffix as this paper reanalyzes it
+§3.1	nɬeʔkepmxcín	cited affix	-nxʷ	the second person ergative allomorph this paper proposes
+§3.1.1	nɬeʔkepmxcín	cited affix	-sem	the first person singular object suffix, Thompson and Thompson's form
+§3.1.1	nɬeʔkepmxcín	cited affix	-sey	the first person singular object variant, Thompson and Thompson's form
+§3.1.1	nɬeʔkepmxcín	cited affix	-cem	the first person singular object suffix, this paper's form
+§3.1.1	nɬeʔkepmxcín	cited affix	-cey	the first person singular object variant, this paper's form
+§3.1.1	PS	underlying	*c	the proto-Salish first person object Newman reconstructs
+§3.1.1	PS	underlying	*t-s	what Newman derives *c from
+§3.1.1	PS	underlying	*ci	the proto-Salish second person object Newman reconstructs
+§3.1.1	PS	underlying	*t-si	what Newman derives *ci from
+§3.1.1	Comox	language	ʔayʔaǰuθəm	the language whose object suffix cannot hold an underlying /s/
+§3.1.1	Comox	cited affix	-θi	'second person object with the control transitive', from Watanabe 2003
+§3.1.1	Comox	notation	θ	the segment that comes from proto-Salish *c in this language
+§3.1.1	Comox	notation	/θ/	the same segment as the paper writes it between slashes
+§3.1.1	St'át'imcets	language	St’át’imcets	the language whose -ci must hold /c/ underlyingly
+§3.1.1	St'át'imcets	cited affix	-ci	'second person object', from Van Eijk 1997
+§3.1.1	nɬeʔkepmxcín	notation	/ts/	the sequence that coalesces to [c]
+§3.1.1	nɬeʔkepmxcín	notation	/t-si/	the analysis the paper considers and rejects
+(22)	nɬeʔkepmxcín	rule	ts > c	the coalescence rule
+(22)	nɬeʔkepmxcín	rule	t > ∅ / n_C[COR]	t-deletion I
+Table 1	nɬeʔkepmxcín	root	ʔúʔe-	'sing a lullaby', the root of the Table 1 forms
+Table 1	nɬeʔkepmxcín	underlying	ʔúʔe-n-t-es	the underlying form Table 1 lists, printed without slashes
+Table 1	nɬeʔkepmxcín	cited form	[ʔú.ʔens]	the surface form of ʔúʔe-n-t-es
+Table 1	nɬeʔkepmxcín	underlying	ʔúʔe-n-t-si-es	the underlying form Table 1 lists on Thompson and Thompson's analysis
+Table 1	nɬeʔkepmxcín	cited form	[ʔú.ʔenc]	the surface form of ʔúʔe-n-t-si-es
+Table 1	nɬeʔkepmxcín	underlying	/ʔúʔe-n-t-si-es/	the same underlying form as the prose writes it
+Table 1	nɬeʔkepmxcín	underlying	/ʔúʔe-n-t-es/	the same underlying form as the prose writes it
+Table 1	nɬeʔkepmxcín	cited form	[nésc]	the surface form the t-type root gives
+Table 1	nɬeʔkepmxcín	underlying	/nés-t-es/	the underlying form the paper gives for [nésc]
+Table 2	nɬeʔkepmxcín	underlying	ʔúʔe-n-t-ci-es	the underlying form Table 2 lists on this paper's analysis
+§3.1.2	nɬeʔkepmxcín	underlying	/kic-n-t-exʷ/	the underlying form section 3.1.2 opens with
+§3.1.2	nɬeʔkepmxcín	cited form	kicnəxʷ	the surface form of /kic-n-t-exʷ/, printed without brackets
+§3.1.2	nɬeʔkepmxcín	underlying	/kíc-n-t-ep/	the underlying form section 3.1.2 compares with
+§3.1.2	nɬeʔkepmxcín	cited form	kícetp	the surface form of /kíc-n-t-ep/, printed without brackets
+§3.1.2	nɬeʔkepmxcín	underlying	/kíc-n-t-em/	the third underlying form section 3.1.2 compares
+§3.1.2	nɬeʔkepmxcín	cited form	kícetəm	the surface form of /kíc-n-t-em/, printed without brackets
+(23)	nɬeʔkepmxcín	rule	n > ∅ / n_	n-deletion I
+(23)	nɬeʔkepmxcín	rule	n > e / C_C[COR]	n-vocalization
+Table 3	nɬeʔkepmxcín	root	/kic/	'reach', the root Table 3 is built on
+Table 3	nɬeʔkepmxcín	underlying	kic-n-t-ene	the underlying form Table 3 lists
+Table 3	nɬeʔkepmxcín	cited form	[kicne]	the surface form of kic-n-t-ene
+Table 3	nɬeʔkepmxcín	underlying	kic-n-t-exʷ	the underlying form Table 3 lists
+Table 3	nɬeʔkepmxcín	cited form	[kicnəxʷ]	the surface form of kic-n-t-exʷ
+Table 3	nɬeʔkepmxcín	underlying	kic-n-t-ep	the underlying form Table 3 lists
+Table 3	nɬeʔkepmxcín	cited form	[kicetp]	the surface form of kic-n-t-ep
+Table 3	nɬeʔkepmxcín	underlying	kic-n-t-em	the underlying form Table 3 lists
+Table 3	nɬeʔkepmxcín	cited form	[kicetəm]	the surface form of kic-n-t-em
+§3.1.2	nɬeʔkepmxcín	notation	/-txʷ/	a sequence the paper says is attested elsewhere in the language
+§3.1.2	nɬeʔkepmxcín	notation	/-təxʷ/	the other sequence the paper says is attested elsewhere
+§3.1.2	nɬeʔkepmxcín	cited form	wíktxʷ	'you see him/her/it/them', the attested example of that sequence
+(24)	nɬeʔkepmxcín	underlying	/kic-n-t-nxʷ/	the underlying form derivation (24) starts from
+(24)	nɬeʔkepmxcín	derivation step	kícntxʷ	after vowel deletion in (24a)
+(24)	nɬeʔkepmxcín	derivation step	kicntnxʷ	after vowel deletion in (24b)
+(24)	nɬeʔkepmxcín	derivation step	kicntne	after vowel deletion in (24c)
+(24)	nɬeʔkepmxcín	derivation step	kicnnxʷ	after t-deletion in (24b)
+(24)	nɬeʔkepmxcín	derivation step	kicnne	after t-deletion in (24c)
+(24)	nɬeʔkepmxcín	derivation step	kicnxʷ	after n-deletion in (24b)
+(24)	nɬeʔkepmxcín	derivation step	kicne	after n-deletion in (24c)
+(24)	nɬeʔkepmxcín	derivation step	kícetxʷ	after n-vocalization in (24a)
+(24)	nɬeʔkepmxcín	impossible	*[kícetxʷ]	what the -exʷ underlying form wrongly predicts
+(25)	nɬeʔkepmxcín	cited form	[kʷú.cenxʷ]	'You take s.o or s.t. down toward water.', from Thompson and Thompson 1992:69
+(25)	nɬeʔkepmxcín	underlying	/kʷúceh-t-∅-nxʷ/	the underlying form the paper gives for [kʷú.cenxʷ]
+(25)	nɬeʔkepmxcín	cited form	[n.k̓e.múy̓.qən.menxʷ]	'You dive after s.o. or s.t.', from Thompson and Thompson 1992:74
+(25)	nɬeʔkepmxcín	underlying	/n-k̓emúy̓-qin-meh-t-∅-nxʷ/	the underlying form the paper gives for [n.k̓e.múy̓.qən.menxʷ]
+§3.1.2	nɬeʔkepmxcín	cited affix	-meh	the relational the -nxʷ allomorph is attested after
+§3.1.2	nɬeʔkepmxcín	cited affix	-min-t	one of the sequences -nxʷ follows
+§3.1.2	nɬeʔkepmxcín	cited affix	-nwén̓-t	one of the sequences -nxʷ follows
+§3.1.2	nɬeʔkepmxcín	cited affix	-me(h)-t	one of the sequences -nxʷ follows
+§3.1.2	nɬeʔkepmxcín	cited affix	-xi-t	a sequence that takes -exʷ instead
+§3.1.2	nɬeʔkepmxcín	notation	n-t-cem-	the sequence after which -exʷ is chosen
+(26)	nɬeʔkepmxcín	rule	{nxʷ1, exʷ2} / …{n, n̓, h, ʔ}]morpheme-t-___	the lexical entry for the second person singular ergative
+(27)	nɬeʔkepmxcín	rule	t > ∅ / C_{n,c}	t-deletion II
+(27)	nɬeʔkepmxcín	rule	n > ∅ / (n)pretransitivizer_	n-deletion I restated
+(27)	nɬeʔkepmxcín	rule	n > ∅ / (m)pretransitivizer_C[COR]	n-deletion II
+§3.2	nɬeʔkepmxcín	cited affix	-nwén̓	the suffix whose glottalized nasal is retained
+(29)	nɬeʔkepmxcín	cited form	kícetp	'you all visit him/her/them', the first form derivation (29) reaches
+(29)	nɬeʔkepmxcín	cited form	səlkecémxʷ	'you turn me around', the second form derivation (29) reaches
+(29)	nɬeʔkepmxcín	cited form	kícetimes	'he/she/they visit you all', the third form derivation (29) reaches
+(29)	nɬeʔkepmxcín	underlying	/slk-n-t-cem-exʷ/	the underlying form of səlkecémxʷ
+(29)	nɬeʔkepmxcín	underlying	/kic-n-t-uym-es/	the underlying form of kícetimes
+(29)	nɬeʔkepmxcín	derivation step	kícntep	after stress assignment in (29a)
+(29)	nɬeʔkepmxcín	derivation step	slkntcémexʷ	after stress assignment in (29b)
+(29)	nɬeʔkepmxcín	derivation step	kícntuymes	after stress assignment in (29c)
+(29)	nɬeʔkepmxcín	derivation step	kícntp	after vowel deletion in (29a)
+(29)	nɬeʔkepmxcín	derivation step	slkntcémxʷ	after vowel deletion in (29b)
+(29)	nɬeʔkepmxcín	derivation step	kícntymes	after vowel deletion in (29c)
+(29)	nɬeʔkepmxcín	derivation step	slkncémxʷ	after t-deletion I in (29b)
+(29)	nɬeʔkepmxcín	derivation step	kícetymes	after n-vocalization in (29c)
+(29)	nɬeʔkepmxcín	derivation step	slkecémxʷ	after n-vocalization in (29b)
+(29)	nɬeʔkepmxcín	cited form	[kí.cetp]	the surface form derivation (29a) reaches
+(29)	nɬeʔkepmxcín	cited form	[səl.ke.cémxʷ]	the surface form derivation (29b) reaches
+(29)	nɬeʔkepmxcín	cited form	[kí.ce.ti.mes]	the surface form derivation (29c) reaches
+(30)	nɬeʔkepmxcín	cited form	kícne	'I visit him/her/them', the first form derivation (30) reaches
+(30)	nɬeʔkepmxcín	cited form	ʔúʔenxʷ	'you sing him/her/them a lullaby', the second form derivation (30) reaches
+(30)	nɬeʔkepmxcín	cited form	púnəmcəmxʷ	'you found me', the third form derivation (30) reaches
+(30)	nɬeʔkepmxcín	underlying	/ʔuʔe-n-t-nxʷ/	the underlying form of ʔúʔenxʷ
+(30)	nɬeʔkepmxcín	underlying	/pun-min-t-cem-exʷ/	the underlying form of púnəmcəmxʷ
+(30)	nɬeʔkepmxcín	derivation step	kícntene	after stress assignment in (30a)
+(30)	nɬeʔkepmxcín	derivation step	ʔúʔentnxʷ	after stress assignment in (30b)
+(30)	nɬeʔkepmxcín	derivation step	púnmintcemexʷ	after stress assignment in (30c)
+(30)	nɬeʔkepmxcín	derivation step	kícntne	after vowel deletion in (30a)
+(30)	nɬeʔkepmxcín	derivation step	púnmntcmxʷ	after vowel deletion in (30c)
+(30)	nɬeʔkepmxcín	derivation step	kícnne	after t-deletion I in (30a)
+(30)	nɬeʔkepmxcín	derivation step	ʔúʔennxʷ	after t-deletion I in (30b)
+(30)	nɬeʔkepmxcín	derivation step	púnmncmxʷ	after t-deletion I in (30c)
+(30)	nɬeʔkepmxcín	derivation step	púnmcmxʷ	after n-deletion II in (30c)
+(30)	nɬeʔkepmxcín	cited form	[kíc.ne]	the surface form derivation (30a) reaches
+(30)	nɬeʔkepmxcín	cited form	[ʔú.ʔenxʷ]	the surface form derivation (30b) reaches
+(30)	nɬeʔkepmxcín	cited form	[pú.nəm.cəmxʷ]	the surface form derivation (30c) reaches
+(31)	nɬeʔkepmxcín	cited form	néxne	'I gave something to him/her/them', the first form derivation (31) reaches
+(31)	nɬeʔkepmxcín	cited form	néscəmxʷ	'you took me somewhere', the second form derivation (31) reaches
+(31)	nɬeʔkepmxcín	cited form	cunwén̓xʷ	'you managed to do it', the third form derivation (31) reaches
+(31)	nɬeʔkepmxcín	underlying	/né-xi-t-ene/	the underlying form of néxne
+(31)	nɬeʔkepmxcín	underlying	/nés-t-cem-exʷ/	the underlying form of néscəmxʷ
+(31)	nɬeʔkepmxcín	underlying	/cw-nwén̓-t-nxʷ	the underlying form of cunwén̓xʷ, printed with no closing slash
+(31)	nɬeʔkepmxcín	derivation step	néxitene	after stress assignment in (31a)
+(31)	nɬeʔkepmxcín	derivation step	néstcemexʷ	after stress assignment in (31b)
+(31)	nɬeʔkepmxcín	derivation step	cwnwén̓tnxʷ	after stress assignment in (31c)
+(31)	nɬeʔkepmxcín	derivation step	néxtne	after vowel deletion in (31a)
+(31)	nɬeʔkepmxcín	derivation step	néstcmxʷ	after vowel deletion in (31b)
+(31)	nɬeʔkepmxcín	derivation step	cwnwén̓nxʷ	after t-deletion I in (31c)
+(31)	nɬeʔkepmxcín	derivation step	néxne	after t-deletion II in (31a)
+(31)	nɬeʔkepmxcín	derivation step	néscmxʷ	after t-deletion II in (31b)
+(31)	nɬeʔkepmxcín	derivation step	cwnwén̓xʷ	after n-deletion I in (31c)
+(31)	nɬeʔkepmxcín	cited form	[néx.ne]	the surface form derivation (31a) reaches
+(31)	nɬeʔkepmxcín	cited form	[nés.cəmxʷ]	the surface form derivation (31b) reaches
+(31)	nɬeʔkepmxcín	cited form	[cun.wén̓xʷ]	the surface form derivation (31c) reaches
+§3.3	nɬeʔkepmxcín	root	mén-	'shade', an nt-type strong root
+§3.3	nɬeʔkepmxcín	root	y̓én-	'sense, feel', a t-type strong root
+§3.3	nɬeʔkepmxcín	root	xík-	'grease', an nt-type strong root
+§3.3	nɬeʔkepmxcín	root	wík-	'see', a t-type strong root
+§3.3	nɬeʔkepmxcín	root	kíɬ-	'detach', an nt-type strong root
+§3.3	nɬeʔkepmxcín	root	x̣íɬ-	'act, do', a t-type strong root
+(32)	nɬeʔkepmxcín	cited form	[méne1s]	'He shades him/her/them.', from Thompson and Thompson 1996:195
+(32)	nɬeʔkepmxcín	underlying	/mén-n1-t-∅-es/	the underlying form the paper gives for [méne1s]
+(32)	nɬeʔkepmxcín	cited form	[y̓éns]	'He feels or senses it.', from Thompson and Thompson 1996:450
+(32)	nɬeʔkepmxcín	underlying	/y̓én-t-∅-es/	the underlying form the paper gives for [y̓éns]
+(33)	nɬeʔkepmxcín	cited form	[xíke1s]	'He greases it.', from Thompson and Thompson 1996:218
+(33)	nɬeʔkepmxcín	underlying	/xík-n1-t-∅-es/	the underlying form the paper gives for [xíke1s]
+(34)	nɬeʔkepmxcín	cited form	[kíɬe1s]	'He/she/they detach(es) it.', from Thompson and Thompson 1996:218
+(34)	nɬeʔkepmxcín	underlying	/kíɬ-n1-t-∅-es/	the underlying form the paper gives for [kíɬe1s]
+(34)	nɬeʔkepmxcín	cited form	[x̣íɬc1]	'He/she/they do(es) it.', from Thompson and Thompson 1996:425
+(34)	nɬeʔkepmxcín	underlying	/x̣íɬ-t1-∅-es1/	the underlying form the paper gives for [x̣íɬc1]
+§3.3	nɬeʔkepmxcín	root	x̣lq-	'stick s.t. in gap', a weak root with three consonants
+§3.3	nɬeʔkepmxcín	root	cq-	'place s.t.', a weak root with two consonants
+§3.3	nɬeʔkepmxcín	root	n-	'affect, bother', a weak root with one consonant
+§3.3	nɬeʔkepmxcín	root	n̓-	'give', the other weak root with one consonant
+§3.3	nɬeʔkepmxcín	root	qʷyn-	'speak', a three-consonant weak root that is unexpectedly t-type
+§3.3	nɬeʔkepmxcín	root	ʔys-	'please, tease', the other unexpected t-type weak root
+§3.3	nɬeʔkepmxcín	cited affix	-s	the causative the paper says ʔys- incorporated
+§3.3	nɬeʔkepmxcín	root	súxʷt-	'recognize', the nt-type alternate root
+§3.3	nɬeʔkepmxcín	root	sóx̣ʷest-	'take down', the nt-type alternate root
+§3.3	nɬeʔkepmxcín	root	súxʷ-	'recognize', the t-type alternate root
+§3.3	nɬeʔkepmxcín	root	sóx̣ʷes-	'take down', the t-type alternate root
+§3.3	nɬeʔkepmxcín	root	/pílex̣/	'inform', the one strong root whose variation the paper cannot explain
+§3.3	nɬeʔkepmxcín	cited affix	-sut	the reflexive, after which weak roots keep their /n/
+§3.3	nɬeʔkepmxcín	cited affix	-wáxʷ	the reciprocal, after which weak roots keep their /n/
+§3.3	nɬeʔkepmxcín	root	/cw/	'do, make', a weak root whose /w/ can vocalize
+§3.3	nɬeʔkepmxcín	root	/n̓/	'give', as section 3.3 writes it between slashes
+(37)	nɬeʔkepmxcín	derivation step	kə	the first syllable of the t-type variant in the moraicity diagram
+(37)	nɬeʔkepmxcín	derivation step	ne	the second syllable of the t-type variant in the moraicity diagram
+(37)	nɬeʔkepmxcín	derivation step	tés	the last syllable of both variants in the moraicity diagram
+(37)	nɬeʔkepmxcín	derivation step	kən	the first syllable of the nt-type variant in the moraicity diagram
+(39)	nɬeʔkepmxcín	derivation step	səl	the first syllable of the three-consonant weak root diagram
+(39)	nɬeʔkepmxcín	derivation step	ke	the second syllable of the three-consonant weak root diagram
+fn9	nɬeʔkepmxcín	cited form	[ʔúʔenc]	the same form as footnote 9 writes it, without the syllable dots
+§1.2	Brent Hall	reference	B7	Table B7, whose page number the check reads as language because 7 is a letter here
+§3.1.2	nɬeʔkepmxcín	notation	n-t-n	a consonant sequence section 3.1.2 names
+§3.1.2	nɬeʔkepmxcín	notation	n-t-xʷ	a consonant sequence section 3.1.2 names
+§3.1.2	nɬeʔkepmxcín	notation	n-t-p	a consonant sequence section 3.1.2 names
+§3.1.2	nɬeʔkepmxcín	notation	n-t-m	a consonant sequence section 3.1.2 names
+§3.1.2	nɬeʔkepmxcín	notation	n-t-p/m	the two sequences section 3.1.2 treats together
+§3.1.2	nɬeʔkepmxcín	notation	n-t-n-xʷ	the sequence the -nxʷ allomorph gives
+§3.1.2	nɬeʔkepmxcín	cited affix	-tp	a sequence section 3.1.2 compares -txʷ with
+§3.1.2	nɬeʔkepmxcín	cited affix	-təm	the other sequence section 3.1.2 compares -txʷ with
+§3.1.2	nɬeʔkepmxcín	cited affix	exʷ	the default allomorph as the lexical entry (26) writes it, without a hyphen
+§3.1.2	nɬeʔkepmxcín	cited affix	nxʷ1	the first listed allomorph in the lexical entry (26)
+§3.1.2	nɬeʔkepmxcín	cited affix	exʷ2	the second listed allomorph in the lexical entry (26)
+§3.1.2	nɬeʔkepmxcín	notation	ʔ	the glottal stop, in the list of segments that select -nxʷ
+§3.1.2	nɬeʔkepmxcín	notation	n̓	the glottalized nasal, in the list of segments that select -nxʷ
+§3.1.2	Brent Hall	name	Mascaró	Mascaró 2007, on listed allomorphy
+§3.3	nɬeʔkepmxcín	notation	CəC	the shape Thompson and Thompson give for a two-consonant weak root
+§3.3	nɬeʔkepmxcín	notation	/n/	the nasal that surfaces with the reflexive and reciprocal
+References	nɬeʔkepmxcín	language	nłeʔképmxcín	the language name as the Egesdal, Thompson and Jimmie title writes it, with ł
+References	Bev Phillips	title	ɬ cutés us ɬ qəɬmín ɬ tmíxʷ	'When Old One Created the Earth', the Hall and Phillips 2025 title
+References	nɬeʔkepmxcín	title	e sqʷincútkt	'Our Speech', the title of Hall, Matthewson, Phillips and Reid, this volume
+Table A4	nɬeʔkepmxcín	root	/kíc/	'reach', a strong nt-type root
+Table A4	nɬeʔkepmxcín	root	/xík/	'grease', a strong nt-type root
+Table A4	nɬeʔkepmxcín	root	/ník̓/	'cut', a strong nt-type root
+Table A4	nɬeʔkepmxcín	root	/kíɬ/	'separate', a strong nt-type root
+Table A4	nɬeʔkepmxcín	root	/k̓ı̣́l/	'cut into pieces', a strong nt-type root written with a dotless i
+Table A4	nɬeʔkepmxcín	root	/núm/	'accuse, jealous', a strong nt-type root
+Table A4	nɬeʔkepmxcín	root	/súm̓/	'sniff', a strong nt-type root
+Table A4	nɬeʔkepmxcín	root	/mén/	'shade', a strong nt-type root
+Table A4	nɬeʔkepmxcín	root	/k̓ʷén̓/	'watch, look at', a strong nt-type root
+Table A4	nɬeʔkepmxcín	root	/súxʷt/	'recognize', a strong nt-type root
+Table A4	nɬeʔkepmxcín	root	/sóx̣ʷest/	'take down', a strong nt-type root
+Table A4	nɬeʔkepmxcín	root	/ʔáz/	'buy', a strong nt-type root
+Table A4	nɬeʔkepmxcín	root	/ɬwéy/	'leave behind', a strong nt-type root
+Table A4	nɬeʔkepmxcín	root	/ʔúʔe/	'lullaby', a strong vowel-final nt-type root
+Table A4	nɬeʔkepmxcín	root	/wéc̓e/	'bark at', a strong vowel-final nt-type root
+Table A4	nɬeʔkepmxcín	root	/qʷtíxaʔ/	'give s.o. lice', a strong t-type root
+Table A4	nɬeʔkepmxcín	root	/wík/	'see', a strong t-type root
+Table A4	nɬeʔkepmxcín	root	/x̣íɬ/	'act, do', a strong t-type root
+Table A4	nɬeʔkepmxcín	root	/y̓én/	'sense, feel', a strong t-type root
+Table A4	nɬeʔkepmxcín	root	/cún/	'tell', a strong t-type root
+Table A4	nɬeʔkepmxcín	root	/cʔés/	'come, bring', a strong t-type root
+Table A4	nɬeʔkepmxcín	root	/nés/	'convey', a strong t-type root
+Table A4	nɬeʔkepmxcín	root	/ʔúcs/	'abuse', a strong t-type root
+Table A4	nɬeʔkepmxcín	root	/púys/	'kill', a strong t-type root
+Table A4	nɬeʔkepmxcín	root	/k̓ʷlc̓/	'make crooked', a weak nt-type root
+Table A4	nɬeʔkepmxcín	root	/c̓y̓h/	'give s.o. basket', a weak nt-type root
+Table A4	nɬeʔkepmxcín	root	/slk/	'turn', a weak nt-type root
+Table A4	nɬeʔkepmxcín	root	/c̓yp̓/	'pinch', a weak nt-type root
+Table A4	nɬeʔkepmxcín	root	/x̣lq/	'stick s.t. in gap', a weak nt-type root
+Table A4	nɬeʔkepmxcín	root	/c̓mq̓/	'break off', a weak nt-type root
+Table A4	nɬeʔkepmxcín	root	/p̓yq̓/	'turn opposite', a weak nt-type root
+Table A4	nɬeʔkepmxcín	root	/c̓lxʷ/	'erect, install', a weak nt-type root
+Table A4	nɬeʔkepmxcín	root	/tlxʷ/	'try in vain', a weak nt-type root
+Table A4	nɬeʔkepmxcín	root	/q̓lx̣/	'stick s.t. between', a weak nt-type root
+Table A4	nɬeʔkepmxcín	root	/q̓y̓x̣/	'pour oil on s.t.', a weak nt-type root
+Table A4	nɬeʔkepmxcín	root	/c̓yʕ̓ʷ/	'claw, scratch', a weak nt-type root
+Table A4	nɬeʔkepmxcín	root	/nh/	'say s.o.'s name', a weak t-type root
+Table A4	nɬeʔkepmxcín	root	/x̣ʷl/	'grind', a weak t-type root
+Table A4	nɬeʔkepmxcín	root	/n/	'affect, bother', a weak t-type root
+Table A4	nɬeʔkepmxcín	root	/tn/	'pull s.t. tight', a weak t-type root
+Table A4	nɬeʔkepmxcín	root	/n̓/	'give', a weak t-type root
+Table A4	nɬeʔkepmxcín	root	/qʷyn/	'speak', a weak t-type root
+Table A4	nɬeʔkepmxcín	root	/km̓/	'dig up (roots)', a weak t-type root
+Table A4	nɬeʔkepmxcín	root	/cq/	'place s.t.', a weak t-type root
+Table A4	nɬeʔkepmxcín	root	/ʔys/	'please, tease', a weak t-type root
+Table A4	nɬeʔkepmxcín	root	/ct/	'place s.t. narrow', a weak t-type root
+Table A4	nɬeʔkepmxcín	root	/c̓x̣ʷ/	'allow', a weak t-type root
+Table A5	nɬeʔkepmxcín	root	/súxʷ(t)/	'recognize', a strong root varying between the two types
+Table A5	nɬeʔkepmxcín	underlying	/súxʷ-t-es/	the t-type underlying form of súxʷ
+Table A5	nɬeʔkepmxcín	underlying	/súxʷt-n-t-es/	the nt-type underlying form of súxʷ
+Table A5	nɬeʔkepmxcín	cited form	[súxʷc]	the t-type surface form of súxʷ
+Table A5	nɬeʔkepmxcín	cited form	[súxʷtes]	the nt-type surface form of súxʷ
+Table A5	nɬeʔkepmxcín	underlying	/súxʷ-t-exʷ/	the t-type underlying form of súxʷ with the second person ergative
+Table A5	nɬeʔkepmxcín	underlying	/súxʷt-n-t-exʷ/	the nt-type underlying form of súxʷ with the second person ergative
+Table A5	nɬeʔkepmxcín	cited form	[súxʷtəxʷ]	the t-type surface form of súxʷ with the second person ergative
+Table A5	nɬeʔkepmxcín	cited form	[súxʷtnəxʷ]	the nt-type surface form of súxʷ with the second person ergative
+Table A5	nɬeʔkepmxcín	root	/sóx̣ʷes(t)/	'take down', a strong root varying between the two types
+Table A5	nɬeʔkepmxcín	underlying	/sóx̣ʷes-t-es/	the t-type underlying form of sóx̣ʷes
+Table A5	nɬeʔkepmxcín	underlying	/sóx̣ʷes-n-t-es/	the nt-type underlying form of sóx̣ʷes
+Table A5	nɬeʔkepmxcín	cited form	[sóx̣ʷesc]	the t-type surface form of sóx̣ʷes
+Table A5	nɬeʔkepmxcín	cited form	[sóx̣ʷestes]	the nt-type surface form of sóx̣ʷes
+Table A5	nɬeʔkepmxcín	underlying	/sóx̣ʷes-t-exʷ/	the t-type underlying form with the second person ergative
+Table A5	nɬeʔkepmxcín	underlying	/sóx̣ʷest-n-exʷ/	the nt-type underlying form with the second person ergative
+Table A5	nɬeʔkepmxcín	cited form	[sóx̣ʷestəxʷ]	the t-type surface form with the second person ergative
+Table A5	nɬeʔkepmxcín	cited form	[sóx̣ʷestnəxʷ]	the nt-type surface form with the second person ergative
+Table A5	nɬeʔkepmxcín	underlying	/píləx̣-t-es/	the t-type underlying form of píləx̣
+Table A5	nɬeʔkepmxcín	underlying	/píləx̣-n-t-es/	the nt-type underlying form of píləx̣
+Table A5	nɬeʔkepmxcín	cited form	[píləx̣c]	the t-type surface form of píləx̣
+Table A5	nɬeʔkepmxcín	cited form	[píləx̣es]	the nt-type surface form of píləx̣
+Table A5	nɬeʔkepmxcín	root	/x̣c/	'bet with s.o.', a weak root varying between the two types
+Table A5	nɬeʔkepmxcín	underlying	/x̣c-t-es/	the t-type underlying form of x̣c
+Table A5	nɬeʔkepmxcín	underlying	/x̣c-n-t-es/	the nt-type underlying form of x̣c
+Table A5	nɬeʔkepmxcín	cited form	[x̣əcetés]	the nt-type surface form of x̣c
+Table A5	nɬeʔkepmxcín	cited form	[x̣əctés]	the t-type surface form of x̣c
+Table A5	nɬeʔkepmxcín	root	/sk/	'hit with stick', a weak root varying between the two types
+Table A5	nɬeʔkepmxcín	underlying	/sk-t-es/	the t-type underlying form of sk
+Table A5	nɬeʔkepmxcín	underlying	/sk-n-t-es/	the nt-type underlying form of sk
+Table A5	nɬeʔkepmxcín	cited form	[səketés]	the nt-type surface form of sk
+Table A5	nɬeʔkepmxcín	cited form	[səktés]	the t-type surface form of sk
+Table A5	nɬeʔkepmxcín	root	/kɬ/	'detach', a weak root varying between the two types
+Table A5	nɬeʔkepmxcín	underlying	/kɬ-t-es/	the t-type underlying form of kɬ
+Table A5	nɬeʔkepmxcín	underlying	/kɬ-n-t-es/	the nt-type underlying form of kɬ
+Table A5	nɬeʔkepmxcín	cited form	[kəɬtés]	the t-type surface form of kɬ
+Table A5	nɬeʔkepmxcín	cited form	[kəɬetés]	the nt-type surface form of kɬ
+Table A5	nɬeʔkepmxcín	root	/kn/	'help', a weak root varying between the two types
+Table A5	nɬeʔkepmxcín	underlying	/kn-t-es/	the t-type underlying form of kn
+Table A5	nɬeʔkepmxcín	underlying	/kn-n-t-es/	the nt-type underlying form of kn
+Table A5	nɬeʔkepmxcín	cited form	[kəntés]	the t-type surface form of kn
+Table A5	nɬeʔkepmxcín	cited form	[kənetés]	the nt-type surface form of kn
+Table A5	nɬeʔkepmxcín	root	/k̓t/	'wedge s.t. in', a weak root varying between the two types
+Table A5	nɬeʔkepmxcín	underlying	/k̓t-t-es/	the t-type underlying form of k̓t
+Table A5	nɬeʔkepmxcín	underlying	/k̓t-n-t-es/	the nt-type underlying form of k̓t
+Table A5	nɬeʔkepmxcín	cited form	[k̓ə(t)tés]	the t-type surface form of k̓t
+Table A5	nɬeʔkepmxcín	cited form	[k̓ətetés]	the nt-type surface form of k̓t
+Table A5	nɬeʔkepmxcín	underlying	/cw-t-es/	the t-type underlying form of cw
+Table A5	nɬeʔkepmxcín	underlying	/cw-n-t-es/	the nt-type underlying form of cw
+Table A5	nɬeʔkepmxcín	cited form	[cuwetés]	the nt-type surface form of cw
+Table A5	nɬeʔkepmxcín	cited form	[cutés]	the t-type surface form of cw
+Table A5	nɬeʔkepmxcín	root	/c̓x̣/	'clean', a weak root varying between the two types
+Table A5	nɬeʔkepmxcín	underlying	/c̓x̣-t-es/	the t-type underlying form of c̓x̣
+Table A5	nɬeʔkepmxcín	underlying	/c̓x̣-n-t-es/	the nt-type underlying form of c̓x̣
+Table A5	nɬeʔkepmxcín	cited form	[c̓əx̣etés]	the nt-type surface form of c̓x̣
+Table A5	nɬeʔkepmxcín	cited form	[c̓əx̣tés]	the t-type surface form of c̓x̣
+Table A5	nɬeʔkepmxcín	root	/kʷy̓/	'expose to heat', a weak root varying between the two types
+Table A5	nɬeʔkepmxcín	underlying	/kʷy̓-t-es/	the t-type underlying form of kʷy̓
+Table A5	nɬeʔkepmxcín	underlying	/kʷy̓-n-t-es/	the nt-type underlying form of kʷy̓
+Table A5	nɬeʔkepmxcín	cited form	[kʷiʔtés]	the t-type surface form of kʷy̓
+Table A5	nɬeʔkepmxcín	cited form	[kʷiʔetés]	the nt-type surface form of kʷy̓
+Table B6	nɬeʔkepmxcín	underlying	/slk-n-t…/	'turn', the first paradigm's stem
+Table B6	nɬeʔkepmxcín	underlying	/kíc-n-t…/	'reach', the second paradigm's stem
+Table B6	nɬeʔkepmxcín	cited affix	/-∅-ene/	the third person object and first person singular ergative row
+Table B6	nɬeʔkepmxcín	cited affix	/-∅-exʷ/	the third person object and second person singular ergative row
+Table B6	nɬeʔkepmxcín	cited affix	/-∅-es/	the third person object and third person ergative row
+Table B6	nɬeʔkepmxcín	cited affix	/-∅-em/	the third person object and passive row
+Table B6	nɬeʔkepmxcín	cited affix	/-∅-ep/	the third person object and second person plural ergative row
+Table B6	nɬeʔkepmxcín	cited affix	/-si-es/	the second person object and third person ergative row
+Table B6	nɬeʔkepmxcín	cited affix	/-sem-exʷ/	the first person object and second person singular ergative row
+Table B6	nɬeʔkepmxcín	cited affix	/-uym-es/	the second person plural object and third person ergative row
+Table B6	nɬeʔkepmxcín	cited affix	/-ey-es/	the first person plural object and third person ergative row
+Table B6	nɬeʔkepmxcín	underlying	/slk-n-t-ene/	'I turn him/her/it'
+Table B6	nɬeʔkepmxcín	cited form	[səl.ke.té.ne]	the surface form of /slk-n-t-ene/
+Table B6	nɬeʔkepmxcín	underlying	/slk-n-t-exʷ/	'You turn him/her/it'
+Table B6	nɬeʔkepmxcín	cited form	[səl.ke.téxʷ]	the surface form of /slk-n-t-exʷ/
+Table B6	nɬeʔkepmxcín	underlying	/slk-n-t-es/	'He/she/it turns him/her/it'
+Table B6	nɬeʔkepmxcín	cited form	[səl.ke.tés]	the surface form of /slk-n-t-es/
+Table B6	nɬeʔkepmxcín	underlying	/slk-n-t-em/	'We or someone turns him/her/it'
+Table B6	nɬeʔkepmxcín	cited form	[səl.ke.tém]	the surface form of /slk-n-t-em/
+Table B6	nɬeʔkepmxcín	underlying	/slk-n-t-ep/	'You all turn him/her/it'
+Table B6	nɬeʔkepmxcín	cited form	[səl.ke.tép]	the surface form of /slk-n-t-ep/
+Table B6	nɬeʔkepmxcín	underlying	/slk-n-t-si-es/	'He/she/it turns you'
+Table B6	nɬeʔkepmxcín	cited form	[səl.ke.cís]	the surface form of /slk-n-t-si-es/
+Table B6	nɬeʔkepmxcín	cited form	[səl.ke.cémxʷ]	the surface form of /slk-n-t-sem-exʷ/
+Table B6	nɬeʔkepmxcín	underlying	/slk-n-t-uym-es/	'He/she/it turns you all'
+Table B6	nɬeʔkepmxcín	cited form	[səl.ke.túy.mes]	the surface form of /slk-n-t-uym-es/
+Table B6	nɬeʔkepmxcín	underlying	/slk-n-t-ey-es/	'He/she/it turns us all'
+Table B6	nɬeʔkepmxcín	cited form	[səl.ke.téys]	the surface form of /slk-n-t-ey-es/
+Table B6	nɬeʔkepmxcín	cited form	[kíc.nəxʷ]	the surface form of /kíc-n-t-exʷ/ as the paradigm writes it
+Table B6	nɬeʔkepmxcín	underlying	/kíc-n-t-si-es/	'He/she/it reaches you'
+Table B6	nɬeʔkepmxcín	cited form	[kí.cec]	the surface form of /kíc-n-t-si-es/
+Table B6	nɬeʔkepmxcín	underlying	/kíc-n-t-sem-exʷ/	'You reach me'
+Table B6	nɬeʔkepmxcín	cited form	[kí.ce.cəmxʷ]	the surface form of /kíc-n-t-sem-exʷ/
+Table B6	nɬeʔkepmxcín	underlying	/kíc-n-t-uym-es/	'He/she/it reaches you all'
+Table B6	nɬeʔkepmxcín	underlying	/kíc-n-t-ey-es/	'He/she/it reaches us all'
+Table B6	nɬeʔkepmxcín	cited form	[kí.ce.tis]	the surface form of /kíc-n-t-ey-es/
+Table B6	nɬeʔkepmxcín	underlying	/ʔúʔe-n-t-exʷ/	'You sing him/her/it a lullaby'
+Table B6	nɬeʔkepmxcín	underlying	/ʔúʔe-n-t-em/	'We or someone sings him/her/it a lullaby'
+Table B6	nɬeʔkepmxcín	cited form	[ʔú.ʔen.təm]	the surface form of /ʔúʔe-n-t-em/
+Table B6	nɬeʔkepmxcín	underlying	/ʔúʔe-n-t-ep/	'You all sing him/her/it a lullaby'
+Table B6	nɬeʔkepmxcín	cited form	[ʔú.ʔen.təp]	the surface form of /ʔúʔe-n-t-ep/
+Table B6	nɬeʔkepmxcín	underlying	/ʔúʔe-n-t-sem-exʷ/	'You sing me a lullaby'
+Table B6	nɬeʔkepmxcín	cited form	[ʔú.ʔen.cəmxʷ]	the surface form of /ʔúʔe-n-t-sem-exʷ/
+Table B6	nɬeʔkepmxcín	underlying	/ʔúʔe-n-t-uym-es/	'He/she/it sings you all a lullaby'
+Table B6	nɬeʔkepmxcín	cited form	[ʔú.ʔen.ti.mes]	the surface form of /ʔúʔe-n-t-uym-es/
+Table B6	nɬeʔkepmxcín	underlying	/ʔúʔe-n-t-ey-es/	'He/she/it sings us all a lullaby'
+Table B6	nɬeʔkepmxcín	cited form	[ʔú.ʔen.tis]	the surface form of /ʔúʔe-n-t-ey-es/
+Table B6	nɬeʔkepmxcín	cited form	[kí.ce.təm]	the surface form of /kíc-n-t-em/ as the paradigm writes it
+Table B7	nɬeʔkepmxcín	underlying	/kn-t…/	'help', the first t-type paradigm's stem
+Table B7	nɬeʔkepmxcín	underlying	/nés-t…/	'convey', the second t-type paradigm's stem
+Table B7	nɬeʔkepmxcín	underlying	/kn-t-ene/	'I help him/her/it'
+Table B7	nɬeʔkepmxcín	underlying	/nés-t-ene/	'I convey him/her/it'
+Table B7	nɬeʔkepmxcín	cited form	[nés.ne]	the surface form of /nés-t-ene/
+Table B7	nɬeʔkepmxcín	underlying	/kn-t-exʷ/	'You help him/her/it'
+Table B7	nɬeʔkepmxcín	cited form	[kən.téxʷ]	the surface form of /kn-t-exʷ/
+Table B7	nɬeʔkepmxcín	underlying	/nés-t-exʷ/	'You convey him/her/it'
+Table B7	nɬeʔkepmxcín	cited form	[néstxʷ]	the surface form of /nés-t-exʷ/
+Table B7	nɬeʔkepmxcín	cited form	[kən.tés]	the surface form of /kn-t-es/
+Table B7	nɬeʔkepmxcín	underlying	/kn-t-em/	'We or someone helps him/her/it'
+Table B7	nɬeʔkepmxcín	cited form	[kən.tém]	the surface form of /kn-t-em/
+Table B7	nɬeʔkepmxcín	underlying	/nés-t-em/	'We or someone conveys him/her/it'
+Table B7	nɬeʔkepmxcín	cited form	[nés.təm]	the surface form of /nés-t-em/
+Table B7	nɬeʔkepmxcín	underlying	/kn-t-ep/	'You all help him/her/it'
+Table B7	nɬeʔkepmxcín	cited form	[kən.tép]	the surface form of /kn-t-ep/
+Table B7	nɬeʔkepmxcín	underlying	/nés-t-ep/	'You all convey him/her/it'
+Table B7	nɬeʔkepmxcín	cited form	[néstp]	the surface form of /nés-t-ep/
+Table B7	nɬeʔkepmxcín	underlying	/kn-t-si-es/	'He/she/it helps you'
+Table B7	nɬeʔkepmxcín	cited form	[kən.cís]	the surface form of /kn-t-si-es/
+Table B7	nɬeʔkepmxcín	underlying	/nés-t-si-es/	'He/she/it conveys you'
+Table B7	nɬeʔkepmxcín	underlying	/kn-t-sem-exʷ/	'You help me'
+Table B7	nɬeʔkepmxcín	cited form	[kən.cémxʷ]	the surface form of /kn-t-sem-exʷ/
+Table B7	nɬeʔkepmxcín	underlying	/nés-t-sem-exʷ/	'You convey me'
+Table B7	nɬeʔkepmxcín	cited form	[nés.cəmxʷ]	the surface form of /nés-t-sem-exʷ/
+Table B7	nɬeʔkepmxcín	underlying	/kn-t-uym-es/	'He/she/it helps you all'
+Table B7	nɬeʔkepmxcín	cited form	[kən.túy.mes]	the surface form of /kn-t-uym-es/
+Table B7	nɬeʔkepmxcín	underlying	/nés-t-uym-es/	'He/she/it conveys you all'
+Table B7	nɬeʔkepmxcín	cited form	[nés.ti.mes]	the surface form of /nés-t-uym-es/
+Table B7	nɬeʔkepmxcín	underlying	/kn-t-ey-es/	'He/she/it helps us all'
+Table B7	nɬeʔkepmxcín	cited form	[kən.téys]	the surface form of /kn-t-ey-es/
+Table B7	nɬeʔkepmxcín	underlying	/nés-t-ey-es/	'He/she/it conveys us all'
+Table B7	nɬeʔkepmxcín	cited form	[nés.tis]	the surface form of /nés-t-ey-es/
+Table C8	nɬeʔkepmxcín	cited affix	/-∅-exʷ~	the second person ergative row head, printed across two lines
+Table C8	nɬeʔkepmxcín	cited affix	-nxʷ/	the rest of that row head on the line below
+Table C8	nɬeʔkepmxcín	cited affix	/-ci-es/	the reanalyzed second person object and third person ergative row
+Table C8	nɬeʔkepmxcín	cited affix	/-cem-exʷ/	the reanalyzed first person object and second person singular ergative row
+Table C8	nɬeʔkepmxcín	underlying	/slk-n-t-ci-es/	'He/she/it turns you', with the reanalyzed object suffix
+Table C8	nɬeʔkepmxcín	underlying	/kíc-n-t-ci-es/	'He/she/it reaches you', with the reanalyzed object suffix
+Table C8	nɬeʔkepmxcín	underlying	/ʔúʔe-n-t-ci-es/	'He/she/it sings you a lullaby', with the reanalyzed object suffix
+Table C8	nɬeʔkepmxcín	underlying	/kíc-n-t-cem-exʷ/	'You reach me', with the reanalyzed object suffix
+Table C8	nɬeʔkepmxcín	underlying	/ʔúʔe-n-t-cem-exʷ/	'You sing me a lullaby', with the reanalyzed object suffix
+Table C9	nɬeʔkepmxcín	underlying	/kn-t-ci-es/	'He/she/it helps you', with the reanalyzed object suffix
+Table C9	nɬeʔkepmxcín	underlying	/nés-t-ci-es/	'He/she/it conveys you', with the reanalyzed object suffix
+Table C9	nɬeʔkepmxcín	underlying	/kn-t-cem-exʷ/	'You help me', with the reanalyzed object suffix
+Table C9	nɬeʔkepmxcín	underlying	/nés-t-cem-exʷ/	'You convey me', with the reanalyzed object suffix
+Table B6	nɬeʔkepmxcín	notation	/ts/	the sequence the legend says fuses to [c]
+Table A4	nɬeʔkepmxcín	root	súxʷ	'recognize', the t-type alternate root, which the table prints between slashes
+Table A4	nɬeʔkepmxcín	root	sóx̣ʷes	'take down', the t-type alternate root, which the table prints between slashes
+Table A5	nɬeʔkepmxcín	root	píləx̣	'inform', which the table prints between slashes and section 3.3 spells pílex̣
+§3.3	nɬeʔkepmxcín	root	/pílex̣/	'inform', the same root as section 3.3 spells it, with e where the table has ə
+Table B6	nɬeʔkepmxcín	underlying	ʔúʔe-n-t-ene	'I sing him/her/it a lullaby', which the paradigm prints between slashes
+Table B6	nɬeʔkepmxcín	underlying	kíc-n-t-exʷ	'You reach him/her/it', which the paradigm prints between slashes
+Table B6	nɬeʔkepmxcín	underlying	slk-n-t-sem-exʷ	'You turn me', which the paradigm prints between slashes
+Table C8	nɬeʔkepmxcín	underlying	kíc-n-t-nxʷ	'You reach him/her/it', reanalyzed, which the paradigm prints between slashes
+Table C8	nɬeʔkepmxcín	underlying	ʔúʔe-n-t-nxʷ	'You sing him/her/it a lullaby', reanalyzed, printed between slashes

@@ -1,0 +1,273 @@
+where	who	kind	form	gloss
+title	John Hamilton Davis	note	In Proceedings of ICSNL 61, Ella Hannon, Laura Griffin, Brent Hall, Bruce Oliver, Danica Reid, Julia Schillo, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL.	the foot of the first page, naming the volume and its editors, Proceedings of ICSNL 61 in italics
+title	John Hamilton Davis	title	Slit versus Groove Fricative in ʔayʔaǰuθəm Comox With a Note on Long Vowels at the Phonetic Level	the paper's title, set on two lines; the text layer splits Vowels as V owels
+title	John Hamilton Davis	language	ʔayʔaǰuθəm Comox	the language of the paper, as the title names it
+title	John Hamilton Davis	name	John Hamilton Davis	the author
+title	John Hamilton Davis	place	Bellingham, Washington	the place under the author's name
+abstract	John Hamilton Davis	note	Comparative data show that in ʔayʔaǰuθəm the historical groove affricate [ʦ] has developed into the present-day slit fricative [θ] and the historical ejective groove affricate [ʦ̀] has developed into the present-day ejective slit affricate [t̀ᶿ].	the abstract's first sentence, which carries its four sounds
+abstract	ʔayʔaǰuθəm	segment	[ʦ]	the historical groove affricate. ʦ is the ts digraph, U+02A6, here and throughout
+abstract	ʔayʔaǰuθəm	segment	[θ]	the present-day slit fricative
+abstract	ʔayʔaǰuθəm	segment	[ʦ̀]	the historical ejective groove affricate, the digraph with the grave accent, U+0300, that marks an ejective in §1-§9
+abstract	ʔayʔaǰuθəm	segment	[t̀ᶿ]	the present-day ejective slit affricate, a t with the grave ejective mark and a raised theta, U+1DBF; the text layer holds the theta on the line
+abstract	John Hamilton Davis	note	A discussion of the function of vowel length and stød as acoustic clues to the grammar of a word is also presented.	the abstract's last sentence
+keywords	John Hamilton Davis	note	groove fricative, slit fricative, articulation, articulatory settings, vowel length, stød.	the keywords
+§1	John Hamilton Davis	heading	1 Introduction	the first section heading
+§1	John Hamilton Davis	name	Thomas Hess	the UVic professor who sent the author to Sliammon in the summer of 1969
+§1	John Hamilton Davis	place	Sliammon	where the author went in 1969 to describe the phonology of ʔayʔaǰuθəm
+§1	John Hamilton Davis	name	Bill Galligos (born 1908)	the speaker the author worked with from 1969, who described some words as having “two and a half” syllables
+§1	Bill Galligos	note	two and a half	Bill Galligos's count of the syllables of some words, which the author calls a good description of Sapir's transcriptions; §9 gives it again for the word for ‘dog’
+§1	John Hamilton Davis	citation	Edward Sapir (1915)	the transcriptions the “two and a half” syllables describe; §9 quotes them
+§1	John Hamilton Davis	name	Noel George Harry	Bill Galligos's father-in-law, born circa 1888 at Church House, bedridden, blind and toothless, living in a house facing the beach in Sliammon
+§1	John Hamilton Davis	place	Church House	where Noel George Harry was born
+§1	John Hamilton Davis	name	Mowheyalas	Noel George Harry's Indian name, as the paper spells it in English letters
+§1	ʔayʔaǰuθəm	cited form	[moçʷiyᴧlᴧs]	Mowheyalas in phonetic letters. The text layer holds the raised w on the line; the two turned v are U+1D27
+§1	ʔayʔaǰuθəm	segment	[θ]	the slit fricative, which Noel George Harry articulated at his alveolar ridge and distinguished from [s]
+§1	ʔayʔaǰuθəm	segment	[s]	the groove fricative, which Noel George Harry articulated at the same place
+§1	English	segment	[θ]	the author's own English [θ], articulated at the alveolar ridge like [s]
+§1	John Hamilton Davis	damage	In ayʔaǰuθəm the distinction between [s] and [θ] is not point of articulation, but manner of articulation.	the language name lacks its first glottal stop here, where the paper prints ʔayʔaǰuθəm elsewhere
+§1	John Hamilton Davis	language	Homalco	one of the three dialects of ʔayʔaǰuθəm named to Noel George Harry
+§1	John Hamilton Davis	language	Klahoose	one of the three dialects of ʔayʔaǰuθəm named to Noel George Harry
+§1	John Hamilton Davis	language	Sliammon	one of the three dialects of ʔayʔaǰuθəm named to Noel George Harry
+§1	ʔayʔaǰuθəm	cited form	[θaɬoɬtçʷ]	what Noel George Harry said when asked for any other dialect of ʔayʔaǰuθəm. The text layer holds the raised w on the line
+§1	John Hamilton Davis	language	Thalholhtwh	the author's transcription of [θaɬoɬtçʷ]
+§1	English	cited form	which	not said the same as ‘witch’ in the New England dialect of English
+§1	English	cited form	witch	not said the same as ‘which’ in the New England dialect of English
+§1	ʔayʔaǰuθəm	cited form	/qʷəl’am/	‘the near side of something’. The text layer holds the raised w on the line
+§1	ʔayʔaǰuθəm	cited form	/θaham/	‘the far side of something’
+§1	ʔayʔaǰuθəm	cited form	/θahams/	‘the other side of it’
+§1	John Hamilton Davis	cited affix	-olhtwh	the last letters of Thalholhtwh, similar to the word for ‘enter a house’
+§1	ʔayʔaǰuθəm	cited form	/ʔuɬtçʷ/	‘enter a house’. The text layer holds the raised w on the line
+§2	John Hamilton Davis	heading	2 Articulatory setting	the second section heading
+§2	John Hamilton Davis	citation	Honikman’s 1964 thirteen-page essay	Honikman (1964), which the author calls extremely relevant to Salish pronunciation and to language teaching
+§2	B. Honikman	note	All languages do not have identical articulatory settings: whereas one language may resemble another in this respect, others may differ considerably. Where two languages are disparate in articulatory setting, it is not possible completely to master the pronunciation of one whilst maintaining the articulatory setting of the other. In this connection, it is enlightening to observe the characteristic movements and lineaments about the lips and jaws of different peoples during utterance of their own language. … … So far reference has been sketchily made to the ‘external setting’, but intimately bound up with this, and to a considerable extent governing it, is the internal articulatory setting, i.e. the overall positioning of the internal mobile organs of the mouth for natural utterance.	the extract from Honikman (1964), set as a block quote; during utterance and internal articulatory setting are in italics
+§2	John Hamilton Davis	note	Jimi Wilson (born 1944), son of Ambrose Wilson, made the observation that when he spoke ʔayʔaǰuθəm the feeling was that the tongue was further back in the mouth and his jaw moved less than when he spoke English.	Jimi Wilson's observation, as the author reports it
+§2	John Hamilton Davis	name	Jimi Wilson (born 1944)	son of Ambrose Wilson, of the Homalco Band (§9)
+§2	John Hamilton Davis	name	Ambrose Wilson	Jimi Wilson's father
+§2	John Hamilton Davis	name	Mary George	a speaker the author watched without ever seeing the tongue become visible
+§2	English	segment	[θ]	the English variety, pronounced at the teeth, where the tongue is sometimes visible
+§3	John Hamilton Davis	heading	3 Grooved versus slit fricatives and affricates	the third section heading
+§3	John Hamilton Davis	segment	/s/	a grooved fricative (sibilant), the air channeled through a groove in the surface of the tongue
+§3	John Hamilton Davis	segment	/š/	a grooved fricative (sibilant)
+§3	John Hamilton Davis	segment	/θ/	a slit fricative (non-sibilant), the air spread over a larger area of the tongue, producing less intense friction
+§3	John Hamilton Davis	segment	/ʦ/	the affricate counterpart of the grooved fricatives
+§3	John Hamilton Davis	segment	/tᶿ/	the affricate counterpart of the slit fricative, a t with a raised theta; the text layer holds the theta on the line
+§3	John Hamilton Davis	damage	The same distinction is true for their afficate counterparts /ʦ/ and /tᶿ/.	afficate for affricate, as printed
+§4	John Hamilton Davis	heading	4 The historical change from grooved affricate to slit fricative	the fourth section heading
+§4	ʔayʔaǰuθəm	segment	/ʦ/	the historical sound, illustrated by comparison with Sechelt
+§4	ʔayʔaǰuθəm	segment	/θ/	the present-day sound
+§4	John Hamilton Davis	language	Sechelt	the language ʔayʔaǰuθəm is compared with throughout; §10 says its data come from Beaumont's Sechelt Dictionary
+(1)	Sechelt	cited form	/ʦu/	‘go’
+(1)	ʔayʔaǰuθəm	cited form	/θu/	‘go’
+(1)	Sechelt	cited form	/ʦuʦin/	‘mouth’
+(1)	ʔayʔaǰuθəm	cited form	/θuθin/	‘mouth’
+(1)	Sechelt	cited form	/ʦilačis/	‘five’
+(1)	ʔayʔaǰuθəm	cited form	/θiyačis/	‘five’
+(1)	Sechelt	cited form	/ʔimaʦ/	‘grandchild’
+(1)	ʔayʔaǰuθəm	cited form	/ʔimaθ/	‘grandchild’
+(1)	Sechelt	cited form	/sqawʦ/	‘potato’
+(1)	ʔayʔaǰuθəm	cited form	/qawθ/	‘potato’
+(1)	Sechelt	cited form	/yuʦut/	‘push’
+(1)	ʔayʔaǰuθəm	cited form	/ǰuθut/	‘push’
+§4	John Hamilton Davis	note	This change did not involve a change in place of articulation, only in manner of articulation. English dominant speakers tend to pronounce with a change in place of articulation.	the sentences after (1)
+§5	John Hamilton Davis	heading	5 The historical change from ejective groove affricate to ejective slit affricate	the fifth section heading
+§5	ʔayʔaǰuθəm	segment	/ʦ̀/	the historical sound, illustrated by comparison with Sechelt
+§5	ʔayʔaǰuθəm	segment	/t̀ᶿ/	the present-day sound; the text layer holds the theta on the line
+(2)	Sechelt	cited form	/ʦ̀əmχ/	‘disappear’
+(2)	ʔayʔaǰuθəm	cited form	/t̀ᶿəmχ/	‘disappear’; the text layer holds the theta on the line
+(2)	ʔayʔaǰuθəm	cited form	[t̀ᶿʌ́mχ]	‘disappear’, the phonetic form; the text layer holds the theta on the line
+(2)	Sechelt	cited form	/ʦ̀əlč̀at/	‘twist it along its axis’
+(2)	ʔayʔaǰuθəm	cited form	/t̀ᶿəyč̀/	‘twist (intransitive)’; the text layer holds the theta on the line
+(2)	ʔayʔaǰuθəm	cited form	[t̀ᶿiɪč̀]	(long vowel), the phonetic form of /t̀ᶿəyč̀/; the text layer holds the theta on the line
+(2)	ʔayʔaǰuθəm	cited form	/t̀ᶿəyič̀/	‘cedar bark rope’, the gloss carrying footnote 1, whose digit the form leaves out; the text layer holds the theta on the line
+(2)	ʔayʔaǰuθəm	cited form	[t̀ᶿiyič̀]	(two syllables), the phonetic form of /t̀ᶿəyič̀/; the text layer holds the theta on the line
+§5	John Hamilton Davis	damage	Again, this change did not involve a change in place of articulation, but in manner of articulation	the sentence after (2), printed with no closing period
+footnote 1	John Hamilton Davis	note	/t̀ᶿəyič̀/ is the stative aspect of /t̀ᶿəyč̀/.	the footnote's first sentence; the text layer holds each theta on the line
+footnote 1	John Hamilton Davis	damage	Noel George Harry pronounced the /i/ with a slghtly higher pitch.	slghtly for slightly, as printed. The pitch is Noel George Harry's pronunciation, as the author reports it
+footnote 1	John Hamilton Davis	citation	Mellesmoen and Andreotti (2017)	where raised pitch is described as one marker of the stative aspect
+footnote 1	John Hamilton Davis	citation	Mellesmoen and Huijsmans (2019)	where raised pitch is described as one marker of the stative aspect
+§6	John Hamilton Davis	heading	6 The historical development of the first person slit fricative	the sixth section heading
+(3)	ʔayʔaǰuθəm	cited form	/tᶿ χaƛ̀/	‘I want (my desire is …)’, with a space after the raised theta as printed; the text layer holds the theta on the line
+(3)	Sechelt	cited form	/nə sχaƛ̀/	‘I want (my desire is …)’
+§6	John Hamilton Davis	note	The ejective /t̀ᶿ/ comes from historical /ʦ̀/ but the plain /tᶿ/ comes from historical /n/ + /s/ which is historical first person singular suffix /n/ plus /s/ historical /s/ nominalizer: /ns/→/dˢ/→/tᶿ/.	the sentence after (3). The text layer's first letter here is a Greek capital tau, U+03A4, and it holds the raised theta and the raised s on the line
+§6	ʔayʔaǰuθəm	cited affix	/n/	the historical first person singular suffix
+§6	ʔayʔaǰuθəm	cited affix	/s/	the historical nominalizer
+§6	ʔayʔaǰuθəm	segment	/ns/→/dˢ/→/tᶿ/	the development of the plain /tᶿ/, with a raised s, U+02E2, after the d; the text layer holds the s and the theta on the line
+§6	English	cited form	pizza	its ‘z’ is a groove affricate, the sound the author compares with /tᶿ/
+§6	John Hamilton Davis	segment	[n]→[d]	the shift from nasal to stop, an areal tendency
+§6	ʔayʔaǰuθəm	cited form	/məǰəθ/	‘meat’
+§6	ʔayʔaǰuθəm	cited form	/bəǰəθ/	‘meat’, as Noel George Harry sometimes pronounced it for emphasis, /m/ as /b/
+§6	ʔayʔaǰuθəm	cited form	/ǰənis/	‘tooth’
+§6	ʔayʔaǰuθəm	cited form	/ǰədis/	‘tooth’, as Noel George Harry sometimes pronounced it for emphasis, /n/ as /d/
+§7	John Hamilton Davis	heading	7 Long vowels involve alternation between stop and glide	the seventh section heading
+§7	John Hamilton Davis	note	Although ʔayʔaǰuθəm lacks a distinction of vowel length at the phonemic level, at the phonetic level vowel length signals grammatical information.	the section's first sentence, phonemic in italics
+§7	ʔayʔaǰuθəm	segment	/y/	the historical sound, which has changed to /ǰ/ before a vowel and reverts where no vowel follows, combining with the preceding schwa
+§7	ʔayʔaǰuθəm	segment	/ǰ/	the present-day sound before a vowel, from historical /y/
+(4)	John Hamilton Davis	notation	C ₁V₁-	the reduplicative prefix of (4)-(6), a copy of the first consonant and vowel. The page sets the C small with a space before the subscript 1, and the text layer holds both digits on the line as C 1V1-
+(4)	ʔayʔaǰuθəm	cited form	/ǰəƛ̀/	‘run’
+(4)	ʔayʔaǰuθəm	cited form	[ǰɪƛ̀]	(short vowel) ‘run’
+(4)	ʔayʔaǰuθəm	cited form	/ǰəǰəƛ̀/	the first step after the prefix, starred on the page; the star stands before the slash
+(4)	ʔayʔaǰuθəm	cited form	/ǰəǰƛ̀/	the second step, starred on the page
+(4)	ʔayʔaǰuθəm	cited form	/ǰəyƛ̀/	‘running’
+(4)	ʔayʔaǰuθəm	cited form	[ǰiɪƛ̀]	(long vowel) ‘running’
+§7	ʔayʔaǰuθəm	cited form	[ǰiɪƛ̀mεtəm]	‘they are running to him’, one of the Homalco ancestral names. A short vowel in the name would indicate a completed action
+§7	ʔayʔaǰuθəm	segment	/w/	the historical sound, which has changed to /g/ before a vowel and reverts where no vowel follows
+§7	ʔayʔaǰuθəm	segment	/g/	the present-day sound before a vowel, from historical /w/
+(5)	ʔayʔaǰuθəm	cited form	/gəq̀tas/	‘(s)he opens it’
+(5)	ʔayʔaǰuθəm	cited form	[gʌ́q̀tᴧs]	‘(s)he opens it’, the phonetic form. The accented turned v is U+028C and the unaccented one U+1D27, as in the text layer
+(5)	ʔayʔaǰuθəm	cited form	/gəgəq̀tas/	the first step after the prefix, starred on the page
+(5)	ʔayʔaǰuθəm	cited form	/gəgq̀tas/	the second step, starred on the page
+(5)	ʔayʔaǰuθəm	cited form	/gəwq̀tas/	‘(s)he is opening it’
+(5)	ʔayʔaǰuθəm	cited form	[guʊq̀tᴧs]	‘(s)he is opening it’, the phonetic form
+§7	Sechelt	cited form	/wəq̀/	‘come open’ (intransitive)
+§7	Sechelt	cited form	/wəwəq̀/	‘coming open’ (intransitive)
+§7	ʔayʔaǰuθəm	segment	/l/	the historical sound, which has changed to /w/ in the environment of a rounded consonant and to /y/ elsewhere
+§7	Sechelt	cited form	/pəlkʷ/	‘round’. The text layer holds the raised w on the line
+§7	ʔayʔaǰuθəm	cited form	/pəwkʷ/	‘round like a ball’. The text layer holds the raised w on the line
+§7	ʔayʔaǰuθəm	cited form	[puʊkʷ]	(long vowel) ‘round like a ball’. The text layer holds the raised w on the line
+§7	John Hamilton Davis	place	Bartlett Island	the island in front of Church House
+§7	ʔayʔaǰuθəm	cited form	/ʔuwp/	the name of Bartlett Island, as Bill Galligos said it
+§7	ʔayʔaǰuθəm	cited form	[ʔoʊp]	(long vowel), the phonetic form of /ʔuwp/
+§7	John Hamilton Davis	place	Aupe	the spelling of /ʔuwp/ on a street sign at Sliammon in the 1970s
+(6)	ʔayʔaǰuθəm	cited form	/yəmtas/	‘(s)he kicks it’
+(6)	ʔayʔaǰuθəm	cited form	[yɪmtᴧs]	‘(s)he kicks it’, the phonetic form
+(6)	ʔayʔaǰuθəm	cited form	/yəyəmtas/	the first step after the prefix, starred on the page
+(6)	ʔayʔaǰuθəm	cited form	/yəymtas/	the second step, starred on the page, with its phonetic form and ‘(s)he is kicking it’ after it
+(6)	ʔayʔaǰuθəm	cited form	[yiɪmtᴧs]	(long vowel) ‘(s)he is kicking it’, the gloss set in a larger size on the page
+§7	Sechelt	cited form	/ləmt/	‘kick it’
+§7	Sechelt	cited form	/lələmt/	the Sechelt form where both C ₁V₁- syllables are maintained
+§7	Sechelt	cited affix	/-ali/	‘person’, from which the /y/ of the word for ‘elder’ comes
+(7)	ʔayʔaǰuθəm	cited form	/ƛ̀aχay/	‘elder’
+(7)	ʔayʔaǰuθəm	cited form	/ƛ̀aχaya čçʷ/	‘Are you an elder?’. The text layer holds the raised w on the line
+(7)	ʔayʔaǰuθəm	cited form	/nəm’ ʔəyt/	‘Yes!!!’
+§8	John Hamilton Davis	heading	8 Sechelt cognates for ʔayʔaǰuθəm nonejective /ƛ/	the eighth section heading
+§8	ʔayʔaǰuθəm	segment	/ƛ/	the nonejective lateral affricate, rare in Coast Salish languages; its few Sechelt cognates have the lateral fricative
+(8)	Sechelt	cited form	/swaɬa/	the Sechelt word the two spellings after it write
+(8)	Sechelt	cited form	te s-wálha	‘boyfriend’
+(8)	Sechelt	cited form	lhe s-wálha	‘girlfriend’
+(8)	ʔayʔaǰuθəm	cited form	[waƛa]	‘sweetheart’
+(8)	Sechelt	cited form	/p̉əɬš/	‘come to the surface, float’. The ejective mark on the p is a hook above, U+0309, where §1-§7 use the grave
+(8)	ʔayʔaǰuθəm	cited form	[p̉ʌ́ƛɪš]	‘afloat’ (stative aspect), the p with the hook above
+§8	John Hamilton Davis	note	In February 1970 Noel George Harry gave the following words:	the sentence before (9); the ʔayʔaǰuθəm words of (9) are his
+(9)	Sechelt	cited form	/sɬiqʷ/	‘flesh, meat’. The text layer holds the raised w on the line
+(9)	ʔayʔaǰuθəm	cited form	[ƛεqʷ]	‘fish meat’. The text layer holds the raised w on the line
+(9)	Sechelt	cited form	/ɬiqʷayas/	‘cheek(s) of animal or fish’. The text layer holds the raised w on the line
+(9)	ʔayʔaǰuθəm	cited form	[ƛεqʷaǰεs]	‘cheek’ “not meat”. The text layer holds the raised w on the line
+§9	John Hamilton Davis	heading	9 Stød	the ninth section heading
+§9	John Hamilton Davis	citation	Noun Reduplication in Comox	Sapir (1915), quoted below
+§9	Edward Sapir	note	(p. 7) Final m and n are etymologically distinct from final glottally affected m and n, which are written m’ and n’ (sometimes breath release is heard after glottal release, when they are written m’‘ and n’‘).	the passage quoted from Sapir (1915), page 7, the letters in italics
+§9	Comox	cited form	m’	Sapir's final glottally affected m
+§9	Comox	cited form	n’	Sapir's final glottally affected n
+§9	Comox	cited form	m’‘	Sapir's glottally affected m with breath release after the glottal release
+§9	Comox	cited form	n’‘	Sapir's glottally affected n with breath release after the glottal release
+§9	Comox	cited form	sā́ᵃ’ba‘	mussel, Sapir (1915) p. 13. The raised a is U+1D43; the text layer holds it on the line
+§9	Comox	cited form	máᵃtc!in‘	louse, Sapir (1915) p. 13. The text layer holds the raised a on the line
+§9	Comox	cited form	xāᵃp!	baby basket, Sapir (1915) p. 14. The text layer holds the raised a on the line
+§9	Comox	cited form	qṓᵘ’mai‘	snow on ground, Sapir (1915) p. 16. The raised u is U+1D58; the text layer holds it on the line
+§9	Comox	cited form	gʸı̄́ⁱgʸīⁱ	panther, Sapir (1915) p. 19. Raised y, U+02B8, after each g and a raised i, U+2071, after each long i. The first long i is a dotless i, U+0131, under its macron and acute, as in the text layer; the text layer holds the raised letters on the line
+§9	John Hamilton Davis	note	In 1970 Jimi Wilson (born 1944) of the Homalco Band visited me in Victoria.	the author's report of the visit where Jimi Wilson gave the word for mussel
+§9	John Hamilton Davis	place	Victoria	where Jimi Wilson visited the author in 1970
+§9	John Hamilton Davis	name	Professor James Hoard	who asked Jimi Wilson the word for mussel and heard it as an example of stød
+(10)	ʔayʔaǰuθəm	cited form	/sa’ma/	‘mussel’, as Jimi Wilson gave it
+(10)	ʔayʔaǰuθəm	cited form	[sáᵃma]	‘mussel’, the phonetic form. The text layer holds the raised a on the line
+§9	Wikipedia	note	“a suprasegmental unit of Danish phonology (represented in nonstandard IPA as ⟨◌ˀ⟩), which in its most common form is a kind of creaky voice (laryngealization), but it may also be realized as a glottal stop, especially in emphatic pronunciation. … it is a form of laryngealization or creaky voice, that affects the phonation of a syllable by dividing it into two phases. The first phase has a relatively high intensity and a high pitch (measured as F0), whereas the second phase sees a drop in intensity and pitch.”	Wikipedia's definition of stød, set as a block quote
+§9	Wikipedia	symbol note	⟨◌ˀ⟩	the angle brackets are U+27E8 and U+27E9, the dotted circle U+25CC and the raised glottal stop U+02C0
+§9	John Hamilton Davis	language	Danish	whose phonology Wikipedia's stød belongs to
+§9	John Hamilton Davis	note	This describes stød in ʔayʔaǰuθəm as well.	the sentence after the definition
+§9	Bill Galligos	note	“two and a half”	Bill Galligos's answer in 1969 when the author asked how many syllables are in the word for ‘dog’
+(11)	ʔayʔaǰuθəm	cited form	[č̀εᵋnoʊ]	‘dog’. The raised open e is U+1D4B; the text layer holds it on the line
+§9	Marilyn Harry	note	“dragged their vowels”	Marilyn Harry of the Homalco Band, in 2023, of the elders; the author calls it a good way to describe both stød and long vowels
+§9	John Hamilton Davis	name	Marilyn Harry	of the Homalco Band
+(12)	ʔayʔaǰuθəm	cited form	[qεᵋnqεn]	‘mallard’. The text layer holds the raised open e on the line
+(12)	ʔayʔaǰuθəm	cited form	[mʌ́ƛ̀]	‘calm wind and water’
+(12)	ʔayʔaǰuθəm	cited affix	-am	‘place’
+(12)	ʔayʔaǰuθəm	cited form	[maᵃƛ̀ᴧm]	‘calm spot on the water’. The text layer holds the raised a on the line
+(12)	ʔayʔaǰuθəm	cited form	[p̀ʌ́q̀]	‘smoke’
+(12)	ʔayʔaǰuθəm	cited form	[p̀aᵃq̀εm]	‘emitting smoke’ (raised pitch on [ε]), ‘smoke’ with the stative aspect. The text layer holds the raised a on the line
+(12)	ʔayʔaǰuθəm	cited form	[maᵃnᴧ]	‘son’ or ‘daughter’. The text layer holds the raised a on the line
+(12)	ʔayʔaǰuθəm	cited form	/nəm’/	‘correct’
+(12)	ʔayʔaǰuθəm	cited form	[nʌ́mʔ]	‘correct’, the phonetic form
+(12)	ʔayʔaǰuθəm	cited affix	-a	(question suffix)
+(12)	ʔayʔaǰuθəm	cited form	/na’ma/	‘is that right?’
+(12)	ʔayʔaǰuθəm	cited form	[naᵃma]	‘is that right?’, the phonetic form. The text layer holds the raised a on the line
+(12)	ʔayʔaǰuθəm	cited form	nauma	how some speakers write /na’ma/ in eMail messages, with the <u> as in English “but”
+(12)	ʔayʔaǰuθəm	cited form	/ʔəy’/	‘good’
+(12)	ʔayʔaǰuθəm	cited form	[ʔiɪʔ]	‘good’, the phonetic form
+(12)	ʔayʔaǰuθəm	cited form	/ʔa’ja/	‘is it good?’
+(12)	ʔayʔaǰuθəm	cited form	[ʔaᵃǰε]	‘is it good?’, the phonetic form. The text layer holds the raised a on the line
+§9	ʔayʔaǰuθəm	cited affix	/-mut/	‘really’
+§9	ʔayʔaǰuθəm	cited form	[ʔiɪmot]	/ʔəy’/ with /-mut/, pronounced with a long vowel taking the accent
+§9	English	cited form	emote	how some younger speakers write [ʔiɪmot]; the page sets short in italics where it says the English word has a short vowel
+§9	ʔayʔaǰuθəm	cited form	/ʔəy’mut/	the word an English dominant speaker pronounced as [ʔimət] in November 2025
+§9	ʔayʔaǰuθəm	cited form	[ʔimət]	the English dominant speaker's pronunciation of /ʔəy’mut/, a short [i] and phonetic [ə] for phonemic /u/, an English spelling pronunciation
+§9	ʔayʔaǰuθəm	segment	[iɪ]	the long vowel the English dominant speaker did not say
+§9	ʔayʔaǰuθəm	segment	[ə]	the English dominant speaker's second vowel, phonemic /u/
+§9	John Hamilton Davis	name	Erik Ogle	a linguist and language teacher living in North Bend, who says the oldest speakers of Lushootseed on the internet have audible stød
+§9	John Hamilton Davis	place	North Bend	where Erik Ogle lives
+§9	John Hamilton Davis	language	Lushootseed	whose oldest speakers on the internet have audible stød, as Erik Ogle says
+§9	John Hamilton Davis	damage	In the handwritten notes available at the Smithsonian, Franz Boas write āa in some vocabulary entries for the Pentlatch language, indicating the pronunciation of stød.	write for wrote, as printed
+§9	Pentlatch	cited form	āa	Boas's writing of stød in some Pentlatch vocabulary entries
+§9	John Hamilton Davis	name	Franz Boas	who documented Pentlatch and Comox in November 1886
+§9	John Hamilton Davis	language	Pentlatch	the language of Boas's notes and of the 2016 word list
+§10	John Hamilton Davis	heading	10 This is the introductory page to the Pentlatch word list distributed at the 51st ICSNL in 2016:	section 10 has no heading line; its number, in bold, opens this sentence
+§10	John Hamilton Davis	title	Pentlatch word list (preliminary)	the title of the 2016 word list, with John Hamilton Davis to its right
+§10	John Hamilton Davis	note	Franz Boas documented the Pentlatch and the Comox [θaɬoɬtçʷ] languages in November 1886.	the word list's first sentence; the text layer holds the raised w on the line
+§10	ʔayʔaǰuθəm	cited form	[θaɬoɬtçʷ]	the name of the Comox language here, the word of §1
+§10	John Hamilton Davis	name	American Philosophical Library	in Philadelphia, which holds many of Boas's materials
+§10	John Hamilton Davis	place	Philadelphia	where the American Philosophical Library is
+§10	John Hamilton Davis	name	Smithsonian Institution	in Washington DC, which has some of Boas's early notes
+§10	John Hamilton Davis	note	Document 740 — six Pentlatch texts	the first of the two Smithsonian documents
+§10	John Hamilton Davis	note	Document 711-a — Pentlatch vocabulary, each word on a separate file slip.	the second of the two Smithsonian documents
+§10	Pentlatch	segment	[çʷ]	the rounded ich-laut, which Boas seems to take for a variation of [χʷ]. The text layer holds the raised w on the line
+§10	Pentlatch	segment	[χʷ]	the rounded ach-laut. The text layer holds the raised w on the line
+§10	John Hamilton Davis	notation	a = [ᴧ]	the first of Boas's letters, each with the sounds the author reads it as, set in rows of three or four
+§10	John Hamilton Davis	notation	ā = [a]	one of Boas's letters with its reading
+§10	John Hamilton Davis	notation	āa = [aᵃ] (stød)	one of Boas's letters with its reading. The text layer holds the raised a on the line
+§10	John Hamilton Davis	notation	ĕ = [ə]	one of Boas's letters with its reading
+§10	John Hamilton Davis	notation	e = [ε]	one of Boas's letters with its reading
+§10	John Hamilton Davis	notation	ē = [e]	one of Boas's letters with its reading
+§10	John Hamilton Davis	notation	i = [ɪ]	one of Boas's letters with its reading
+§10	John Hamilton Davis	notation	ī = [i]	one of Boas's letters with its reading
+§10	John Hamilton Davis	notation	ō = [o] or [ʷ]	one of Boas's letters with its readings. The text layer holds the raised w on the line
+§10	John Hamilton Davis	notation	u = [ʊ]	one of Boas's letters with its reading
+§10	John Hamilton Davis	notation	g, q = [ç] or [χ] or [çʷ] or [χʷ]	two of Boas's letters with their readings. The text layer holds each raised w on the line
+§10	John Hamilton Davis	notation	ç = [θ]	one of Boas's letters with its reading
+§10	John Hamilton Davis	notation	c = [š]	one of Boas's letters with its reading
+§10	John Hamilton Davis	notation	q̲u = [çʷ] (rounded ich-laut)	one of Boas's letter pairs with its reading. The q is underlined on the page, U+0332 here, and the text layer has no underline and holds the raised w on the line
+§10	John Hamilton Davis	notation	l‘ = [ɬ] or [ƛ] or [ƛ̉]	one of Boas's letters with its readings, the ejective marked by a hook above, U+0309
+§10	John Hamilton Davis	notation	p = [p] or [p̉]	one of Boas's letters with its readings, the ejective marked by a hook above
+§10	John Hamilton Davis	notation	t = [t] or [t̉]	one of Boas's letters with its readings, the ejective marked by a hook above
+§10	John Hamilton Davis	notation	tc = [č] or [č̉]	one of Boas's letter pairs with its readings, the ejective marked by a hook above
+§10	John Hamilton Davis	notation	koā = [kʷa] or [qʷa]	one of Boas's letter groups with its readings. The text layer holds each raised w on the line
+§10	John Hamilton Davis	notation	k̲ = [kʷ] or [q] or [qʷ] or the ejective counterparts of these obstruents	one of Boas's letters with its readings. The k is underlined on the page, and the text layer has no underline and holds each raised w on the line
+§10	John Hamilton Davis	note	Comox data from field notes obtained by John H Davis from 1969 to 1980.	where the word list's Comox data come from
+§10	John Hamilton Davis	note	Sechelt data from Ronald C Beaumont’s Sechelt Dictionary © 2011 Sechelt Indian Band	where the Sechelt data come from, printed with no closing period
+§10	John Hamilton Davis	note	This is probable evidence that the sounds in Pentlatch included not only θ but also t̉ᶿ.	after Boas could not decide between ç and ts in several words. The ejective mark is a hook above and the theta is raised; the text layer holds it on the line
+§10	Pentlatch	segment	ç	one of the two letters Boas could not decide between
+§10	Pentlatch	segment	t̉ᶿ	the ejective slit affricate the author finds probable in Pentlatch
+§10	John Hamilton Davis	note	My present use of the letter z’ to represent this sound can be considered to leave open the possibility that some of these instances were actually ʦ̉, although the evidence seems to argue against that hypothesis.	the word list's letter for t̉ᶿ
+§10	Pentlatch	segment	z’	the author's letter for the sound in the word list
+§10	Pentlatch	segment	ʦ̉	the ejective groove affricate, the digraph with the hook above
+§10	John Hamilton Davis	note	In addition, there were some instances where Boas wrote k̲ for [χ] and ku for [çʷ] as shown by comparative evidence, showing that sometimes the native speaker may have enunciated these continuants so slowly that they seemed to be obstruents.	the word list's last sentence. The k is underlined on the page, and the text layer has no underline and holds the raised w on the line
+references	John Hamilton Davis	heading	References	the heading of the reference list
+references	John Hamilton Davis	reference	Beaumont, Ronald C. 2011. Sechelt Dictionary. © Sechelt Indian Band, Sechelt, B.C.	the source of the Sechelt data
+references	John Hamilton Davis	reference	Boas, Franz. 1890?. Pentlatch texts, Document 740, Smithsonian Archives, Washington, D.C.	Document 740 of §10
+references	John Hamilton Davis	reference	Boas, Franz. 1890?. Pentlatch vocabulary, Document 711-a, Smithsonian Archives, Washington, D.C.	Document 711-a of §10
+references	John Hamilton Davis	reference	Colantoni, Laura; Kochetov, Alexei; Jeffrey Steele. 2025. Articulatory Methods for the Study of Second Language Speech. Language and Speech 2025, Vol. 68(4) 725-730.	not cited in the text. The text layer splits Vol. as V ol.
+references	John Hamilton Davis	reference	Davis, Henry; Huijsmans, Marianne; Mellesmoen, Gloria. 2020. Statives in ʔayʔaǰuθəm and St’át’imcets. Papers for the International Conference on Salish and Neighboring Languages 55.	not cited in the text
+references	John Hamilton Davis	reference	Honikman, B. 1964. Articulatory Settings. In Abercrombie D., Fry D.B., MacCarthy P.A.D., Scott N.C., Trim J.L.M. (Eds.), In Honour of Daniel Jones: Papers contributed on the occasion of his eightieth birthday 12 September 1964 (pp. 73-84). Longmans, Green & Co.	the essay §2 quotes
+references	John Hamilton Davis	reference	Lowie, Wander; Sybrine Bultena. 2007. Articulatory Settings and the Dynamics of Second Language Speech Production. University of Groningen, Netherlands.	not cited in the text
+references	John Hamilton Davis	reference	Mellesmoen, Gloria; Andreotti, Bruno. 2017. Result state holds! Stative aspect and non-control morphology in ʔayʔaǰuθəm. Papers for the International Conference on Salish and Neighbouring Languages 52.	cited in footnote 1
+references	John Hamilton Davis	reference	Mellesmoen, Gloria. 2019. A Fricative-First Path from Proto-Salish *c to /s/ and /θ/ in Central Salish. Papers for the International Conference on Salish and Neighbouring Languages 54.	not cited in the text
+references	John Hamilton Davis	reference	Mellesmoen, Gloria; Huijsmans, Marianne. 2019. Stative Allomorph Selection and Raised Pitch in ʔayʔaǰuθəm. Papers for the International Conference on Salish and Neighbouring Languages 54.	cited in footnote 1
+references	John Hamilton Davis	reference	Mellesmoen, Gloria; Urbanczyk, Suzanne. 2021. Some Remarks on the Distribution and Representation of Glottalized Resonants in Salish. Papers for the International Conference on Salish and Neighbouring Languages 56.	not cited in the text
+references	John Hamilton Davis	reference	Sapir, Edward. 1915. Noun Reduplication in Comox, a Salish Language of Vancouver Island. Canada Department of Mines Geological Survey, Memoir 63, No. 6, Anthropological Series.	the monograph §9 quotes
+references	John Hamilton Davis	reference	Wikipedia. Stød. https://en.wikipedia.org/wiki/Stød Last edited 5 May 2026, at 07:15 (UTC).	the definition §9 quotes
+all	John Hamilton Davis	notation	ʷ ᶿ ˢ ᵃ ᵋ ᵘ ⁱ ʸ	the page raises the w of labialized consonants, the theta of tᶿ, the s of dˢ, and the second vowel of stød and of Sapir's forms; the table writes each with its modifier letter, and the text layer holds every one on the line
+all	John Hamilton Davis	notation	⇒	the double arrow of (4)-(6) and (12), which the text layer holds as a capital thorn, Þ, U+00DE, twelve times
+all	John Hamilton Davis	notation	*	the star before the intermediate steps of (4)-(6) marks them unattested; the table puts it in the gloss column and leaves it out of the form
+all	John Hamilton Davis	notation	/ / [ ]	slashes enclose phonemic forms and square brackets phonetic forms; the table keeps both in the form
+all	John Hamilton Davis	notation	Sechelt ʔayʔaǰuθəm	the tables of (1), (2), (8) and (9) set Sechelt in the left column and ʔayʔaǰuθəm in the right, and the text layer reads them row by row
+all	John Hamilton Davis	symbol note	ʌ ᴧ	the page prints one turned v; the text layer has U+028C where it carries an acute and U+1D27 where it does not, and the table keeps each code point
+all	John Hamilton Davis	symbol note	ε χ ʦ	the open e is Greek epsilon, U+03B5, the uvular fricative Greek chi, U+03C7, and ts the digraph U+02A6, as in the text layer
+all	John Hamilton Davis	symbol note	̀ ̉	an ejective is marked by a grave accent, U+0300, in the abstract and §1-§9 outside (8), and by a hook above, U+0309, in (8) and §10
+all	John Hamilton Davis	notation	seven pages, all read	every page was read off a 300 dpi render, each form checked against the text layer in NFC and each marked word of the text layer looked up in this table

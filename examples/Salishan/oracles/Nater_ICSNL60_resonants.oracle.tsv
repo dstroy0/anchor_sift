@@ -1,0 +1,362 @@
+where	who	kind	form	gloss
+front	Hank Nater	note	In Proceedings of the International Conference on Salish and Neighbouring Languages 60. Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2025.	page 1
+front	Interior Salish	cited form	ɣ	a sound of the argument, the velar resonant of northern Interior Salish, [ɰ]
+front	Interior Salish	cited form	ʕ	a sound of the argument, the pharyngeal resonant of Interior Salish, [ʕ̞]
+front	Interior Salish	cited form	ʕʷ	a sound of the argument, the rounded pharyngeal resonant of Interior Salish, [ʕ̞ʷ]
+front	Interior Salish	phonetic	ɰ	the pronunciation of ɣ, a velar approximant
+front	Interior Salish	phonetic	ʕ̞	the pronunciation of ʕ, a pharyngeal approximant
+front	Interior Salish	phonetic	ʕ̞ʷ	the pronunciation of ʕʷ
+front	Proto-Athabascan	cited form	ɣy	a sound of the argument, *ɣy, the voiced palatal continuant of PA and pre-Interior Salish, [ʝ]
+front	Proto-Athabascan	cited form	ɣ̌	a sound of the argument, *ɣ̌, the voiced uvular continuant of PA and pre-Interior Salish, [ʁ]
+front	Proto-Athabascan	cited form	ɣ̌ʷ	a sound of the argument, *ɣ̌ʷ, the rounded voiced uvular continuant of PA and pre-Interior Salish, [ʁʷ]
+front	Proto-Athabascan	phonetic	ʝ	the pronunciation of *ɣy, a voiced palatal fricative
+front	Proto-Athabascan	phonetic	ʁ	the pronunciation of *ɣ̌, a voiced uvular fricative
+front	Proto-Athabascan	phonetic	ʁʷ	the pronunciation of *ɣ̌ʷ
+front	Columbian	cited form	ḥ	a sound of the argument, the Columbian reflex of *ɣ̌ alongside ʕ
+front	Columbian	cited form	ḥʷ	a sound of the argument, the Columbian reflex of *ɣ̌ʷ alongside ʕʷ
+front	Hank Nater	note	Abstract: In this report, a few claims made by Van Eijk & Nater (2020) are revisited. I now propose that the velar and pharyngeal resonants ɣ ʕ ʕʷ [ɰ ʕ̞ ʕ̞ʷ] of Interior Salish continue older palatal and uvular continuants, to wit *ɣy *ɣ̌ *ɣ̌ʷ [ʝ ʁ ʁʷ]. Of these, palatal *ɣy was velarized and lowered, and became the velar resonant ɣ in northern Interior Salish languages, while uvular *ɣ̌ *ɣ̌ʷ shifted to pharyngeal ʕ ʕʷ in all Interior Salish (also ḥ ḥʷ in Columbian). These shifts may be linked with an old “darkening” feature found in all Interior Salish, while prolonged Salish-Athabascan interaction first triggered the emergence of *ɣy *ɣ̌ *ɣ̌ʷ.	page 1, the abstract
+front	Hank Nater	note	Keywords: Salish, phonetic change, language contact, areal features, migratory patterns	page 1
+§1	Hank Nater	heading	1 Introduction	page 1
+§1	Hank Nater	note	First off, we should recall once again that the Salish language stock is deeply divided into Coast (cismontane) Salish and Interior (transmontane) Salish. Coast Salish in turn consists of Bella Coola, Tsamosan, Central, and Oregon Salish, while Interior Salish comprises southeastern Interior, Colville-Okanagan, northern Interior, and Columbian Salish:	page 1
+Figure 1 line 1	Hank Nater	note	interior southeast: Spokane-Kalispel-Flathead, Coeur d’Alene	page 1, a line of the tree of Figure 1
+Figure 1 line 2	Hank Nater	note	interior central: Colville-Okanagan	page 1, a line of the tree of Figure 1
+Figure 1 line 3	Hank Nater	note	interior north: Shuswap, Lillooet, Thompson	page 1, a line of the tree of Figure 1
+Figure 1 line 4	Hank Nater	note	interior southwest: Columbian	page 1, a line of the tree of Figure 1
+Figure 1 line 5	Hank Nater	note	proto-Salish	page 1, a line of the tree of Figure 1
+Figure 1 line 6	Hank Nater	note	northwest: Bella Coola	page 1, a line of the tree of Figure 1
+Figure 1 line 7	Hank Nater	note	Tsamosan: Lower Chehalis, Quinault, Upper Chehalis, Cowlitz	page 1, a line of the tree of Figure 1
+Figure 1 line 8	Hank Nater	note	Central Salish: (3 branches, 10 languages)	page 1, a line of the tree of Figure 1
+Figure 1 line 9	Hank Nater	note	Oregon Salish: Tillamook-Siletz-Nehalem	page 1, a line of the tree of Figure 1
+§1	Salish	cited form	/č/	page 1, the /č/ series that */ky/ became in SE Interior and most non-Bella Coola Coast Salish
+§1	Proto-Salish	cited form	*y *w	page 1, the glides whose reflexes the four languages share
+§1	Coeur d’Alene	cited form	d gʷ	page 1, the reflexes of *y *w, Kuipers 2002:3
+§1	Comox	cited form	ǯ g	page 1, the reflexes of *y *w, Kuipers 2002:3
+§1	Lushootseed	cited form	ǯ~ʒ gʷ	page 1, the reflexes of *y *w, Kuipers 2002:3
+§1	Tillamook	cited form	y gʷ~g	page 1, the reflexes of *y *w, Kuipers 2002:3
+footnote 1	Hank Nater	note	1 Rather than */k/, see Section 4.	page 1, footnote
+§1	Hank Nater	note	Figure 1: Salish divisions, branches, languages	page 1, the caption of Figure 1, the tree of Salish divisions, branches and languages above it
+§1	Hank Nater	note	For Central Salish branches and languages see Davis (2024:26). This model is commensurate with the intra-Salish distribution (16.4% proto-Salish, 7.4% Coast Salish, 4.9% Interior Salish) of the Salish portion (28.7%) of Bella Coola lexicon (Nater 2013:124), and accounts for the fact that the proto-Salish */ky/1 series > /č/ series shift has affected only SE Interior and most non -Bella Coola Coast Salish (due to contact on the Common Salish level). Note further that Coeur d’Alene *y *w > d gʷ parallels Comox *y *w > ǯ g, Lushootseed *y *w > ǯ~ʒ gʷ, and Tillamook *y *w > y gʷ~g (Kuipers 2002:3). Common Salish was a dialect continuum at the time when some Salish-speaking groups began to migrate towards, into, and beyond the Cascade Range, while other populations moved in opposite directions.2 For a likely Urheimat of proto-Salish, consider Kinkade (1990):	page 1 and 2, carries footnotes 1 and 2, the digits kept as printed
+front	Hank Nater	note	Contact info: hanknater@gmail.com	page 1, the author's contact line at the foot of the page
+§1	Kinkade 1990	note	… The homeland thus delimited for the Proto-Salish would extend from the Fraser River southward at least to the Skagit River, and possibly as far south as the Stillaguamish or Skykomish River. Expansion to the south would probably have been rapid in any case, since the country is relatively open and accessible. From west to east, their territory would have extended from the Strait of Georgia and Admiralty Inlet to the Cascade Mountains. A tongue of the family probably extended up the Fraser River through the Fraser Canyon; this is the most likely route of expansion into the interior (via the Thompson River), although Indians certainly knew a number of routes through the Cascades further south.	page 2, a quotation, Kinkade 1990:10
+§1	Interior Salish	cited form	ɣ	a sound of the argument, the velar resonant of northern Interior Salish, [ɰ]
+§1	Interior Salish	cited form	ʕ	a sound of the argument, the pharyngeal resonant of Interior Salish, [ʕ̞]
+§1	Interior Salish	cited form	ʕʷ	a sound of the argument, the rounded pharyngeal resonant of Interior Salish, [ʕ̞ʷ]
+§1	Interior Salish	phonetic	ɰ	the pronunciation of ɣ, a velar approximant
+§1	Interior Salish	phonetic	ʕ̞	the pronunciation of ʕ, a pharyngeal approximant
+§1	Interior Salish	phonetic	ʕ̞ʷ	the pronunciation of ʕʷ
+§1	Proto-Athabascan	cited form	ɣy	a sound of the argument, *ɣy, the voiced palatal continuant of PA and pre-Interior Salish, [ʝ]
+§1	Proto-Athabascan	cited form	ɣ̌	a sound of the argument, *ɣ̌, the voiced uvular continuant of PA and pre-Interior Salish, [ʁ]
+§1	Proto-Athabascan	cited form	ɣ̌ʷ	a sound of the argument, *ɣ̌ʷ, the rounded voiced uvular continuant of PA and pre-Interior Salish, [ʁʷ]
+§1	Proto-Athabascan	phonetic	ʝ	the pronunciation of *ɣy, a voiced palatal fricative
+§1	Columbian	cited form	ḥ	a sound of the argument, the Columbian reflex of *ɣ̌ alongside ʕ
+§1	Columbian	cited form	ḥʷ	a sound of the argument, the Columbian reflex of *ɣ̌ʷ alongside ʕʷ
+footnote 2	Hank Nater	note	2 A few Common Salish words survive only in Bella Coola and Coeur d’Alene: Bella Coola cipsx ‘fisher’ = Coeur d’Alene cišps, Bella Coola milixʷ ‘kinnickinnick’ (dried leaves were smoked) = Coeur d’Alene mil’xʷ ‘tobacco’, Bella Coola x̌m ‘to bite’ = Coeur d’Alene x̌em ‘id.’ (Kuipers 2002); Bella Coola t’kʷ ‘to bleed’ = Coeur d’Alene t’ekʷ-s, Bella Coola x̌m ‘dead, decayed’ = Coeur d’Alene ʕem ‘melt, dissolve, waste away’ (Reichard 1938).	page 2, footnote
+footnote 2	Bella Coola	cited form	cipsx	page 2, footnote 2, ‘fisher’, a Common Salish word, = Coeur d’Alene cišps
+footnote 2	Coeur d’Alene	cited form	cišps	page 2, footnote 2, ‘fisher’, Kuipers 2002
+footnote 2	Bella Coola	cited form	milixʷ	page 2, footnote 2, ‘kinnickinnick’, whose dried leaves were smoked
+footnote 2	Coeur d’Alene	cited form	mil’xʷ	page 2, footnote 2, ‘tobacco’, Kuipers 2002
+footnote 2	Bella Coola	cited form	x̌m	page 2, footnote 2, ‘to bite’ = Coeur d’Alene x̌em, and ‘dead, decayed’ = Coeur d’Alene ʕem
+footnote 2	Coeur d’Alene	cited form	x̌em	page 2, footnote 2, ‘id.’, ‘to bite’, Kuipers 2002
+footnote 2	Bella Coola	cited form	t’kʷ	page 2, footnote 2, ‘to bleed’
+footnote 2	Coeur d’Alene	cited form	t’ekʷ-s	page 2, footnote 2, ‘to bleed’
+footnote 2	Coeur d’Alene	cited form	ʕem	‘melt, dissolve, waste away’, Reichard 1938:103; = Bella Coola x̌m ‘dead, decayed’ in footnote 2, and PA *√ɣ̌eˑn ‘melt’ in (a)
+§1	Hank Nater	citation	(Kinkade 1990:10)	the source of the quotation above
+§1	Hank Nater	note	Figure 2: Salish language area (Kuipers 2002)	page 2, the caption of Figure 2, a map the text layer does not carry
+§1	Hank Nater	note	A striking feature of Interior Salish is the presence of velar and pharyngeal resonants (ɣ ʕ ʕʷ [ɰ ʕ̞ ʕ̞ʷ]), which are lacking in Coast Salish. In this paper, I submit that these resonants continue older voiced palatal and uvular continuants, to wit *ɣy *ɣ̌ *ɣ̌ʷ [ʝ ʁ ʁʷ]. Of these, palatal * ɣy became, via retraction and lowering, the velar resonant ɣ in northern Interior Salish (including northern Okanagan dialects), while uvular *ɣ̌ *ɣ̌ʷ shifted to pharyngeal ʕ ʕʷ in all Interior Salish (alongside ḥ ḥʷ in Columbian). I conclude that *ɣy *ɣ̌ *ɣ̌ʷ, rather than having appeared EX NIHILO, evolved due to interaction with Athabascan through the ages: PA *ɣy *ɣ̌ *ɣ̌ʷ (Krauss & Leer 1981) were copied (and retracted + lowered in IS except where *ɣy merged with *y) into IS as shown in Table 1.3	page 2 and 3
+Table 1	Hank Nater	note	Table 1: Proto-Athabascan voiced fricatives > Interior Salish resonants	page 3, the caption
+Table 1	Hank Nater	note	PA PIS IS	page 3, the column heads
+Table 1 line 1	Hank Nater	note	*ɣy *ɣy / *ɣ y / ɣ [ɰ]	page 3, a line of the table
+Table 1 line 2	Hank Nater	note	*ɣ̌ *ɣ̌ ʕ	page 3, a line of the table
+Table 1 line 3	Hank Nater	note	*ɣ̌ʷ *ɣ̌ʷ ʕʷ	page 3, a line of the table
+§2	Hank Nater	heading	2 Contact with PA	page 3
+§2	Hank Nater	note	Environmental disruptions in the Pacific Northwest (such as wildfires, droughts, floods, tsunamis, landslides, earthquakes, volcanic eruptions) occasioned population displacements now and then. One such event, the White River ash fall caused by an eruption of Mount Churchill (852–853 CE (https://en.wikipedia.org/wiki/Mount_Churchill)), apparently prompted the southbound exodus a portion of which is detailed by Seymour (2012):	page 3
+§2	Proto-Athabascan	cited form	ɣy	a sound of the argument, *ɣy, the voiced palatal continuant of PA and pre-Interior Salish, [ʝ]
+footnote 3	Hank Nater	note	3 *ɣy *ɣ̌ *ɣ̌ʷ may have been marginal in PA; see Krauss (1964:129) for PA voiced fricatives in general. Krauss (1964:122) reconstructs PA rounded uvulars, while Krauss & Leer (1981:196–197) list only a few instances of such phonemes, and Leer (1979:4) excludes rounded uvulars altogether (cf. footnote 7). Abbreviations used in this report are: CS = Coast Salish, IS = Interior Salish, PA = proto-Athabascan, PIS = pre-Interior Salish, PS = proto-Salish.	page 3, footnote
+§2	Proto-Athabascan	cited form	ɣ̌	a sound of the argument, *ɣ̌, the voiced uvular continuant of PA and pre-Interior Salish, [ʁ]
+§2	Proto-Athabascan	cited form	ɣ̌ʷ	a sound of the argument, *ɣ̌ʷ, the rounded voiced uvular continuant of PA and pre-Interior Salish, [ʁʷ]
+footnote 4	Hank Nater	note	4 “Small projectile points with contracting stems are basically similar to those from Klo -kut in the northern Yukon, and to Stott points from the southwest Yukon; they may represent a characteristic Athabaskan form. … The presence of trade goods in most of the structures indicates the Chilcotin components at Anahim probably do not date much earlier than 1750; trade goods were absent in one unit which dates A.D. 1670 (GSC-1371), which might represent late prehistoric Chilcotin.” (Wilmeth 1970:42–43)	page 3, footnote
+footnote 5	Hank Nater	note	5 Here, geographic proximity of post-PA [ʁ, ɣ] speakers blocked the *ɣy > *y shift (that had been completed in all other Salish) in favor of *ɣy > *ɣ, while post-PA [z̪, ð] engendered z [ð̞] in Lillooet and Thompson (see Nater 2020:185 for Athabascan sound shifts).	page 3, footnote
+§2	Interior Salish	cited form	ɣ	a sound of the argument, the velar resonant of northern Interior Salish, [ɰ]
+footnote 5	Proto-Athabascan	phonetic	z̪	page 3, footnote 5, a post-PA sound, with ð
+footnote 5	Proto-Athabascan	phonetic	ð	page 3, footnote 5, a post-PA sound, with z̪
+footnote 5	Lillooet	phonetic	ð̞	page 3, footnote 5, the pronunciation of z in Lillooet and Thompson
+(a) line 1	Proto-Athabascan	root	√ɣ̌eˑn	page 4, (a), *√ɣ̌eˑn ‘melt’, Krauss & Leer 1981:197
+(a) line 1	Coeur d’Alene	cited form	ʕem	‘melt, dissolve, waste away’, Reichard 1938:103; = Bella Coola x̌m ‘dead, decayed’ in footnote 2, and PA *√ɣ̌eˑn ‘melt’ in (a)
+(b) line 1	Lillooet	cited form	k’ʷunaʔ	page 4, (b), ‘salmon eggs’, Van Eijk 2013: 26
+(b) line 1	Proto-Athabascan	cited form	q’uˑn’	page 4, (b), *q’uˑn’ ‘roe’, Krauss & Leer 1981:196
+(b) line 1	Shuswap	cited form	q’ʷúne	page 4, (b), ‘soup made of fish eggs with sceqʷm’, Kuipers 1974:249
+(b) line 1	Shuswap	cited form	sceqʷm	page 4, (b), in the gloss of q’ʷúne
+(b) line 1	Kalispel	cited form	ʔek’ʷn	page 4, (b), ‘fisheggs’, Speck 1977:175, from post-PA
+(b) line 1	Southern Carrier	cited form	ʔək’un	page 4, (b), ‘fish eggs’, the author's 1974 field notes
+(c) line 1	Carrier	root	√k’ʷaʔ	page 4, (c), ‘burp’, Story 1984:66
+(c) line 1	Sarcee	root	√k’ʷàk’	page 4, (c), ‘to make a choking noise’, Cook 1972:3
+(c) line 1	Bella Coola	cited form	nu(-)q’ʷaat	page 4, (c), ‘to burp’, not in Nater 1994
+(d) line 1	Carrier	cited form	łic’e	page 4, (d), ‘female dog’
+(d) line 1	Lillooet	cited form	łic’	page 4, (d), ‘type of dog’, Van Eijk 2013:156
+§2	Seymour 2012	note	For decades archaeologists have thought of the Plains as the initial source of mountain Athabascan groups, with a far southern Plains loop into the Southwest. Regrettably, many researchers continue to defend this outdated notion, apparently unaware of this new evidence (e.g., Carrillo 2008). This old Plains-route-only view, however, is not sustained by evidence for a much earlier ancestral Athabascan presence in the mountains. Rather, it seems that mountain groups followed their own route south, and, as is typical of later Athabascan groups, people dispersed by the White River ash fall may have coalesced at a predetermined location. This volcanic eruption occurred around A.D. 800 in northwestern Canada and is thought by many to be the impetus for Athabascan groups migrating out of the area and beginning their trip south …	page 3, a quotation, Seymour 2012:156–157
+§2	Hank Nater	citation	(Seymour 2012:156–157)	the source of the quotation above
+§2	Hank Nater	note	It is thus quite likely that frequent interaction with Athabascan began near the Salish homeland (possibly with Athabascans crossing the Cascade Range on their way to Pacific coastal regions), then continued closer to current locations (Nicola, Chilcotin 4, Carrier (MacKenzie 1801:164–165, Nater 2020:183 –185))5. However, while PA voiced uvular (plain and rounded) fricatives were easily copied into some Common Salish (and *ɣy, which usually merged with *y, occasionally so), Athabascan-to-Salish lexical copies are scarce6 (but for Bella Coola loans from PA, see Nater 1994). The few that I have so far been able to identify for non-Bella Coola Salish are:	page 3 and 4
+(a) line 1	Hank Nater	note	(a) PA *√ɣ̌eˑn ‘melt’ (Krauss & Leer 1981:197) = Coeur d’Alene ʕem ‘melt, dissolve, waste away’ (Reichard 1938:103) (for current m < PA *n see Nater 1994:180);	page 4, a lexical copy from Athabascan into Salish
+(b) line 1	Hank Nater	note	(b) PA *q’uˑn’ ‘roe’ (Krauss & Leer 1981:196) = Lillooet k’ʷunaʔ ‘salmon eggs’ (Van Eijk 2013: 26), Shuswap q’ʷúne ‘soup made of fish eggs with sceqʷm’ (Kuipers 1974:249), Kalispel ʔek’ʷn ‘fisheggs’ (Speck 1977:175 — this is from post-PA, cf. Southern Carrier ʔək’un ‘fish eggs’ (my 1974 field notes));	page 4, a lexical copy from Athabascan into Salish
+(c) line 1	Hank Nater	note	(c) Carrier √k’ʷaʔ ‘burp’ (Story 1984:66), Sarcee √k’ʷàk’ ‘to make a choking noise’ (Cook 1972:3) = Bella Coola nu(-)q’ʷaat ‘to burp’ (not in Nater 1994);	page 4, a lexical copy from Athabascan into Salish
+(d) line 1	Hank Nater	note	(d) Carrier łic’e ‘female dog’ = Lillooet łic’ ‘type of dog’ (Van Eijk 2013:156).	page 4, a lexical copy from Athabascan into Salish
+§2	Hank Nater	note	For another possible lexical copy, see Section 3.	page 4
+§3	Hank Nater	heading	3 Salish and PA details	page 4
+§3	Hank Nater	note	Van Eijk & Nater (2020) cite the following PS and PIS forms with velar and pharyngeal resonants as reconstructed by Kuipers (2002):	page 4
+(1) line 1	Proto-Salish	cited form	*s-mɣaw	page 4, a reconstruction of Kuipers 2002
+(1) line 1	Kuipers 2002	translation	‘a large feline or canine’	page 4
+(1) line 1	Hank Nater	citation	(p. 70)	the page of Kuipers 2002
+(2) line 1	Proto-Salish	cited form	*ɣap/*ʕap	page 4, a reconstruction of Kuipers 2002
+(2) line 1	Kuipers 2002	translation	‘to stand upright; tree’	page 4
+(2) line 1	Hank Nater	citation	(p. 134)	the page of Kuipers 2002
+(3) line 1	Proto-Salish	cited form	*ləɣ	page 4, a reconstruction of Kuipers 2002
+(3) line 1	Kuipers 2002	translation	‘to insert’	page 4
+(3) line 1	Hank Nater	citation	(p. 169)	the page of Kuipers 2002
+(4) line 1	Proto-Salish	cited form	*saɣ/*saʕ	page 4, a reconstruction of Kuipers 2002
+(4) line 1	Kuipers 2002	translation	‘to shake (off)’	page 4
+(4) line 1	Hank Nater	citation	(p. 187)	the page of Kuipers 2002
+(5) line 1	Proto-Salish	cited form	*ɣac	page 4, a reconstruction of Kuipers 2002, (only in reduplicated form)
+(5) line 1	Kuipers 2002	translation	‘sparrowhawk’	page 4
+(5) line 1	Hank Nater	citation	(p. 201)	the page of Kuipers 2002
+(6) line 1	Proto-Salish	cited form	*ɣə̣l	page 4, a reconstruction of Kuipers 2002
+(6) line 1	Kuipers 2002	translation	‘strong, vigorous’	page 4
+(6) line 1	Hank Nater	citation	(p. 201)	the page of Kuipers 2002
+(7) line 1	Proto-Salish	cited form	*c’əʕ-tin	page 4, a reconstruction of Kuipers 2002
+(7) line 1	Kuipers 2002	translation	‘poison, rattlesnake’	page 4
+(7) line 1	Hank Nater	citation	(p. 34)	the page of Kuipers 2002
+(8) line 1	Proto-Salish	cited form	*q’əʕ	page 4, a reconstruction of Kuipers 2002
+(8) line 1	Kuipers 2002	translation	‘to stir, move’	page 4
+(8) line 1	Hank Nater	citation	(p. 90)	the page of Kuipers 2002
+(9) line 1	Proto-Salish	cited form	*yəʕ/*Ɂiʕ	page 4, a reconstruction of Kuipers 2002
+(9) line 1	Kuipers 2002	translation	‘to grind, scratch, scrape’	page 4
+(9) line 1	Hank Nater	citation	(p. 133)	the page of Kuipers 2002
+(10) line 1	Proto-Salish	cited form	*ʕəl	page 4, a reconstruction of Kuipers 2002
+(10) line 1	Kuipers 2002	translation	‘to lose (ability, object, contest)’	page 4
+(10) line 1	Hank Nater	citation	(p. 134)	the page of Kuipers 2002
+(11) line 1	Proto-Salish	cited form	*ʕi/al	page 4, a reconstruction of Kuipers 2002
+(11) line 1	Kuipers 2002	translation	‘to cut (as, hair)’	page 4
+(11) line 1	Hank Nater	citation	(p. 134)	the page of Kuipers 2002
+(12) line 1	Proto-Salish	cited form	*ʕis	page 4, a reconstruction of Kuipers 2002
+(12) line 1	Kuipers 2002	translation	‘to shrink’	page 4
+(12) line 1	Hank Nater	citation	(p. 134)	the page of Kuipers 2002
+(13) line 1	Proto-Salish	cited form	*ʕəy/*ʕin	page 4, a reconstruction of Kuipers 2002
+(13) line 1	Kuipers 2002	translation	‘hot, angry, growl’	page 4
+(13) line 1	Hank Nater	citation	(p. 134)	the page of Kuipers 2002
+(14) line 1	Proto-Salish	cited form	*paʕ	page 4, a reconstruction of Kuipers 2002
+(14) line 1	Kuipers 2002	translation	‘faded, grey’	page 4
+(14) line 1	Hank Nater	citation	(p. 178)	the page of Kuipers 2002
+(15) line 1	Proto-Salish	cited form	*p’əʕ	page 4, a reconstruction of Kuipers 2002
+(15) line 1	Kuipers 2002	translation	‘to burn’	page 4
+(15) line 1	Hank Nater	citation	(p. 179)	the page of Kuipers 2002
+(16) line 1	Proto-Salish	cited form	*x̌əʕ	page 4, a reconstruction of Kuipers 2002
+(16) line 1	Kuipers 2002	translation	‘breeze, draught’	page 4
+(16) line 1	Hank Nater	citation	(p. 198)	the page of Kuipers 2002
+(17) line 1	Proto-Salish	cited form	*yəʕ	page 4, a reconstruction of Kuipers 2002
+(17) line 1	Kuipers 2002	translation	‘to gather (esp. of people); many, all’	page 4
+(17) line 1	Hank Nater	citation	(p. 200)	the page of Kuipers 2002
+(18) line 1	Proto-Salish	cited form	*yəʕ	page 4, a reconstruction of Kuipers 2002
+(18) line 1	Kuipers 2002	translation	‘war spear’	page 4
+(18) line 1	Hank Nater	citation	(p. 200)	the page of Kuipers 2002
+(19) line 1	Proto-Salish	cited form	*ʕat	page 4, a reconstruction of Kuipers 2002, (only in reduplicated form)
+(19) line 1	Kuipers 2002	translation	‘unid. bird of prey’	page 4
+(19) line 1	Hank Nater	citation	(p. 201)	the page of Kuipers 2002
+(20) line 1	Proto-Salish	cited form	*ʕəc	page 4, a reconstruction of Kuipers 2002
+(20) line 1	Kuipers 2002	translation	‘to tie, knot’	page 4
+(20) line 1	Hank Nater	citation	(p. 201)	the page of Kuipers 2002
+(21) line 1	Proto-Salish	cited form	*ʕələxʷ	page 4, a reconstruction of Kuipers 2002
+(21) line 1	Kuipers 2002	translation	‘stiff, frozen’	page 4
+(21) line 1	Hank Nater	citation	(p. 201)	the page of Kuipers 2002
+(22) line 1	Proto-Salish	cited form	*ʕiƛ’	page 4, a reconstruction of Kuipers 2002
+(22) line 1	Kuipers 2002	translation	‘to take a bite’	page 4
+(22) line 1	Hank Nater	citation	(p. 201)	the page of Kuipers 2002
+(23) line 1	Proto-Salish	cited form	*ʕiʕʷ/*ʕiw	page 4, a reconstruction of Kuipers 2002
+(23) line 1	Kuipers 2002	translation	‘to pile up by throwing, dump’	page 4
+(23) line 1	Hank Nater	citation	(p. 201)	the page of Kuipers 2002
+(24) line 1	Proto-Salish	cited form	*ʕəx̌ /*ʕʷəx̌ʷ/*wəx̌ʷ	page 4, a reconstruction of Kuipers 2002
+(24) line 1	Kuipers 2002	translation	‘to lace up’	page 4
+(24) line 1	Hank Nater	citation	(pp. 201, 202)	the page of Kuipers 2002
+(25) line 1	Proto-Salish	cited form	*ʕəx̌	page 4, a reconstruction of Kuipers 2002
+(25) line 1	Kuipers 2002	translation	‘to scratch’	page 4
+(25) line 1	Hank Nater	citation	(p. 201)	the page of Kuipers 2002
+(26) line 1	Proto-Salish	cited form	*Ɂaʕʷ/*Ɂaw	page 4, a reconstruction of Kuipers 2002
+(26) line 1	Kuipers 2002	translation	‘to call, howl’	page 4
+(26) line 1	Hank Nater	citation	(p. 23)	the page of Kuipers 2002
+(27) line 1	Proto-Salish	cited form	*ciʕʷ	page 5, a reconstruction of Kuipers 2002
+(27) line 1	Kuipers 2002	translation	‘to bleed’	page 5
+(27) line 1	Hank Nater	citation	(p. 26)	the page of Kuipers 2002
+(28) line 1	Proto-Salish	cited form	*caʕʷ/*caw	page 5, a reconstruction of Kuipers 2002
+(28) line 1	Kuipers 2002	translation	‘to reach for, stick out; fringe, stripe’	page 5
+(28) line 1	Hank Nater	citation	(p. 27)	the page of Kuipers 2002
+(29) line 1	Proto-Salish	cited form	*c’aʕʷ/*c’aw	page 5, a reconstruction of Kuipers 2002
+(29) line 1	Kuipers 2002	translation	‘to wash, clean’	page 5
+(29) line 1	Hank Nater	citation	(p. 35)	the page of Kuipers 2002
+(30) line 1	Proto-Salish	cited form	*c’uʕʷ	page 5, a reconstruction of Kuipers 2002
+(30) line 1	Kuipers 2002	translation	‘sore’	page 5
+(30) line 1	Hank Nater	citation	(p. 35)	the page of Kuipers 2002
+(31) line 1	Proto-Salish	cited form	*ləʕʷ/*ləw	page 5, a reconstruction of Kuipers 2002
+(31) line 1	Kuipers 2002	translation	‘to come off (as skin, bark)’	page 5
+(31) line 1	Hank Nater	citation	(p. 53)	the page of Kuipers 2002
+(32) line 1	Proto-Salish	cited form	*liʕʷ	page 5, a reconstruction of Kuipers 2002
+(32) line 1	Kuipers 2002	translation	‘loose, free’	page 5
+(32) line 1	Hank Nater	citation	(p. 55)	the page of Kuipers 2002
+(33) line 1	Proto-Salish	cited form	*li/aʕʷ	page 5, a reconstruction of Kuipers 2002
+(33) line 1	Kuipers 2002	translation	‘to melt, thaw, open up (of ice)’	page 5
+(33) line 1	Hank Nater	citation	(p. 56)	the page of Kuipers 2002
+(34) line 1	Proto-Salish	cited form	*ƛ’əʕʷ	page 5, a reconstruction of Kuipers 2002
+(34) line 1	Kuipers 2002	translation	‘hard (substance)’	page 5
+(34) line 1	Hank Nater	citation	(p. 65)	the page of Kuipers 2002
+(35) line 1	Proto-Salish	cited form	*pəʕʷ/*pəw	page 5, a reconstruction of Kuipers 2002
+(35) line 1	Kuipers 2002	translation	‘to prod, knock, drum’	page 5
+(35) line 1	Hank Nater	citation	(p. 78)	the page of Kuipers 2002
+(36) line 1	Proto-Salish	cited form	*səʕʷ/*səw	page 5, a reconstruction of Kuipers 2002
+(36) line 1	Kuipers 2002	translation	‘to flow; wetness, dew’	page 5
+(36) line 1	Hank Nater	citation	(p. 102)	the page of Kuipers 2002
+(37) line 1	Proto-Salish	cited form	*ʕʷəl/*wə̣l	page 5, a reconstruction of Kuipers 2002
+(37) line 1	Kuipers 2002	translation	‘to burn, shiny, bright’	page 5
+(37) line 1	Hank Nater	citation	(p. 114)	the page of Kuipers 2002
+(38) line 1	Proto-Salish	cited form	*ʕʷal’	page 5, a reconstruction of Kuipers 2002
+(38) line 1	Kuipers 2002	translation	‘to become weak, tired, faint, sleep’	page 5
+(38) line 1	Hank Nater	citation	(p. 135)	the page of Kuipers 2002
+(39) line 1	Proto-Salish	cited form	*ʕʷəɬqʷ/*wəɬqʷ	page 5, a reconstruction of Kuipers 2002
+(39) line 1	Kuipers 2002	translation	‘to boil, cook’	page 5
+(39) line 1	Hank Nater	citation	(p. 135)	the page of Kuipers 2002
+(40) line 1	Proto-Salish	cited form	*ʕʷəy	page 5, a reconstruction of Kuipers 2002
+(40) line 1	Kuipers 2002	translation	‘to play, joke, make fun, laugh’	page 5
+(40) line 1	Hank Nater	citation	(p. 135)	the page of Kuipers 2002
+(41) line 1	Proto-Salish	cited form	*cəʕʷ	page 5, a reconstruction of Kuipers 2002
+(41) line 1	Kuipers 2002	translation	‘stripe; fringe’	page 5
+(41) line 1	Hank Nater	citation	(p. 161)	the page of Kuipers 2002
+(42) line 1	Proto-Salish	cited form	*c’ələʕʷ	page 5, a reconstruction of Kuipers 2002
+(42) line 1	Kuipers 2002	translation	‘to scratch, claw’	page 5
+(42) line 1	Hank Nater	citation	(p. 162)	the page of Kuipers 2002
+(43) line 1	Proto-Salish	cited form	*kʷəw/*qʷəʕʷ	page 5, a reconstruction of Kuipers 2002
+(43) line 1	Kuipers 2002	translation	‘to slide, crawl’	page 5
+(43) line 1	Hank Nater	citation	(p. 168)	the page of Kuipers 2002
+(44) line 1	Proto-Salish	cited form	*k’ʷʕʷəy/*q’ʷʕʷəy	page 5, a reconstruction of Kuipers 2002
+(44) line 1	Kuipers 2002	translation	‘small’	page 5
+(44) line 1	Hank Nater	citation	(p. 169)	the page of Kuipers 2002
+(45) line 1	Proto-Salish	cited form	*ləʕʷ	page 5, a reconstruction of Kuipers 2002
+(45) line 1	Kuipers 2002	translation	‘to rumble’	page 5
+(45) line 1	Hank Nater	citation	(p. 170)	the page of Kuipers 2002
+(46) line 1	Proto-Salish	cited form	*laʕʷ	page 5, a reconstruction of Kuipers 2002
+(46) line 1	Kuipers 2002	translation	‘to plunge’	page 5
+(46) line 1	Hank Nater	citation	(p. 170)	the page of Kuipers 2002
+(47) line 1	Proto-Salish	cited form	*maʕʷ/*maʕ	page 5, a reconstruction of Kuipers 2002
+(47) line 1	Kuipers 2002	translation	‘to break, smash’	page 5
+(47) line 1	Hank Nater	citation	(p. 175)	the page of Kuipers 2002
+(48) line 1	Proto-Salish	cited form	*qʷaʕʷ/*qʷaw/*qʷaʕ	page 5, a reconstruction of Kuipers 2002
+(48) line 1	Kuipers 2002	translation	‘silly, crazy, drunk’	page 5
+(48) line 1	Hank Nater	citation	(p. 184)	the page of Kuipers 2002
+(49) line 1	Proto-Salish	cited form	*səʕʷ/*səw	page 5, a reconstruction of Kuipers 2002, the same as (36)
+(49) line 1	Kuipers 2002	translation	‘to flow; wetness, dew’	page 5
+(49) line 1	Hank Nater	citation	(p. 102),	the page of Kuipers 2002
+(49) line 1	Proto-Salish	cited form	*səʕʷ/*səʕ	page 5, a reconstruction of Kuipers 2002
+(49) line 1	Kuipers 2002	translation	‘to drain, strain’ (a liquid)’	page 5, printed with a closing quote inside and after the bracket
+(49) line 1	Hank Nater	citation	(p. 187)	the page of Kuipers 2002
+(50) line 1	Proto-Salish	cited form	*tiʕʷaɁ	page 5, a reconstruction of Kuipers 2002
+(50) line 1	Kuipers 2002	translation	‘mint’	page 5
+(50) line 1	Hank Nater	citation	(p. 189)	the page of Kuipers 2002
+(51) line 1	Proto-Salish	cited form	*(s-)x̌ʷəʕʷ(-al-mxʷ)	page 5, a reconstruction of Kuipers 2002
+(51) line 1	Kuipers 2002	translation	‘fox’	page 5
+(51) line 1	Hank Nater	citation	(p. 199)	the page of Kuipers 2002
+(52) line 1	Proto-Salish	cited form	*yəʕʷ	page 5, a reconstruction of Kuipers 2002
+(52) line 1	Kuipers 2002	translation	‘strong, intensive, violent’	page 5
+(52) line 1	Hank Nater	citation	(p. 200)	the page of Kuipers 2002
+(53) line 1	Proto-Salish	cited form	*ʕiʕʷ/*ʕiw	page 5, a reconstruction of Kuipers 2002
+(53) line 1	Kuipers 2002	translation	‘to pile up by throwing, dump’	page 5
+(53) line 1	Hank Nater	citation	(p. 201)	the page of Kuipers 2002
+(54) line 1	Proto-Salish	cited form	*ʕʷis/*wis	page 5, a reconstruction of Kuipers 2002
+(54) line 1	Kuipers 2002	translation	‘robin’	page 5
+(54) line 1	Hank Nater	citation	(p. 202)	the page of Kuipers 2002
+footnote 6	Hank Nater	note	6 Structural unfamiliarity (e.g. with PA verb stems) and/or cultural bias may have played a role here.	page 4, footnote
+§3	Proto-Athabascan	cited form	ɣy	a sound of the argument, *ɣy, the voiced palatal continuant of PA and pre-Interior Salish, [ʝ]
+§3	Proto-Athabascan	cited form	ɣ̌	a sound of the argument, *ɣ̌, the voiced uvular continuant of PA and pre-Interior Salish, [ʁ]
+§3	Proto-Athabascan	cited form	ɣ̌ʷ	a sound of the argument, *ɣ̌ʷ, the rounded voiced uvular continuant of PA and pre-Interior Salish, [ʁʷ]
+§3	Coast Salish	cited form	x̌	a sound of the argument, the voiceless uvular that absorbed *ɣ̌ in Coast Salish, and whose voiced allophone *ɣ̌ may have been
+§3	Coast Salish	cited form	x̌ʷ	a sound of the argument, the rounded voiceless uvular that absorbed *ɣ̌ʷ
+§3	Hank Nater	note	None of these have been copied from Athabascan, with the possible exception of (13) *ʕəy/*ʕin ‘hot, angry, growl’; the second member of this doublet resembles PA *√ɣ̌an ‘growl’ (Krauss & Leer 1981:197). *ɣy *ɣ̌ *ɣ̌ʷ may originally have had special register status (for instance, as marking the speech of those with an intimate knowledge of strangers, cf. Van Eijk & Nater 2020:336–337) while patterning as allophones of *xy *x̌ *x̌ʷ.	page 5
+§3	Proto-Athabascan	root	√ɣ̌an	page 5, *√ɣ̌an ‘growl’, Krauss & Leer 1981:197, which the second member of (13) resembles
+§3	Interior Salish	cited form	ʕʷ	a sound of the argument, the rounded pharyngeal resonant of Interior Salish, [ʕ̞ʷ]
+§3	Interior Salish	cited form	ʕ	a sound of the argument, the pharyngeal resonant of Interior Salish, [ʕ̞]
+§3	Hank Nater	note	The low profile of IS syllable-initial ʕʷ (as compared with ʕ) parallels that of PA *ɣ̌ʷ which — as a voiced fricative (Krauss 1964:129) and rounded uvular (Krauss & Leer 1981:190) — appears to have been marginal. Krauss & Leer (1981) list only four entries with *ɣ̌ʷ:	page 5
+(e) line 1	Proto-Athabascan	cited form	*√ǯəɣ̌ʷəƛ’	page 5, a reconstruction of Krauss & Leer 1981
+(e) line 1	Krauss & Leer 1981	translation	‘round, ball, play, catch’	page 5
+(e) line 1	Hank Nater	citation	(pp. 108, 193, 204–205)	the page of Krauss & Leer 1981
+(f) line 1	Proto-Athabascan	cited form	*čʷəɣ̌ʷəs(ł)	page 5, a reconstruction of Krauss & Leer 1981
+(f) line 1	Krauss & Leer 1981	translation	‘merganser’	page 5
+(f) line 1	Hank Nater	citation	(pp. 102, 107, 194)	the page of Krauss & Leer 1981
+(g) line 1	Proto-Athabascan	cited form	*√ɣ̌ʷəǯ	page 5, a reconstruction of Krauss & Leer 1981
+(g) line 1	Krauss & Leer 1981	translation	‘tickle’	page 5
+(g) line 1	Hank Nater	citation	(pp. 106, 197)	the page of Krauss & Leer 1981
+(h) line 1	Proto-Athabascan	cited form	*√ɣ̌ʷə/aˑn	page 5, a reconstruction of Krauss & Leer 1981, cf. entry 13 above
+(h) line 1	Krauss & Leer 1981	translation	‘growl’	page 5
+(h) line 1	Hank Nater	citation	(pp. 71, 93, 141, 197)	the page of Krauss & Leer 1981
+§4	Hank Nater	heading	4 Summary and conclusions	page 5
+§4	Interior Salish	cited form	ʕ	a sound of the argument, the pharyngeal resonant of Interior Salish, [ʕ̞]
+§4	Interior Salish	cited form	ʕw	a sound of the argument, ʕʷ as Van Eijk & Nater 2020 write it, in the quotation of §4
+§4	Coast Salish	cited form	x̌	a sound of the argument, the voiceless uvular that absorbed *ɣ̌ in Coast Salish, and whose voiced allophone *ɣ̌ may have been
+§4	Coast Salish	cited form	x̌ʷ	a sound of the argument, the rounded voiceless uvular that absorbed *ɣ̌ʷ
+§4	Columbian	cited form	ḥ	a sound of the argument, the Columbian reflex of *ɣ̌ alongside ʕ
+§4	Columbian	cited form	ḥw	a sound of the argument, ḥʷ as Van Eijk & Nater 2020 write it
+§4	Interior Salish	cited form	γ	a sound of the argument, ɣ as Van Eijk & Nater 2020 write it, with Greek gamma, in the quotation of §4
+§4	Hank Nater	note	The aim of this paper has been to test Van Eijk & Nater’s (2020) findings. I now take into account certain areal-typological properties as well, and posit a realistic time line for the emergence of velar and pharyngeal resonants in Interior Salish. Van Eijk & Nater (2020) assert that:	page 5
+§4	Van Eijk & Nater 2020	note	While the shifts ʕ ʕw to x̌ x̌ʷ (and to ḥ ḥw in Columbian) post-date the PS stage, within PS the correspondences between γ, y and ʕ, and between w and ʕw raise the question whether γ ʕ ʕw were originally part of the phonemic stock of PS and developed into y or w in a number of etyma, or whether they generally developed out of y and w, which have a much wider distribution and a much higher rate of occurrence throughout Salish, and γ ʕ ʕw therefore were not part of the PS phoneme system in its earliest stage.	page 6, a quotation, Van Eijk & Nater 2020:332
+§4	Interior Salish	cited form	ɣ	a sound of the argument, the velar resonant of northern Interior Salish, [ɰ]
+§4	Proto-Athabascan	cited form	ɣy	a sound of the argument, *ɣy, the voiced palatal continuant of PA and pre-Interior Salish, [ʝ]
+§4	Proto-Athabascan	cited form	ɣ̌ʷ	a sound of the argument, *ɣ̌ʷ, the rounded voiced uvular continuant of PA and pre-Interior Salish, [ʁʷ]
+§4	Interior Salish	cited form	ʕʷ	a sound of the argument, the rounded pharyngeal resonant of Interior Salish, [ʕ̞ʷ]
+§4	Hank Nater	citation	(Van Eijk & Nater 2020:332)	the source of the quotation above
+§4	Hank Nater	note	On the basis of the evidence presented in this paper, I conclude that ɣ ʕ ʕw were indeed absent from PS. I speculate as well that the IS “vowel darkening feature” (= lowering, cf. Chilcotin “flattening” (Cook 1983)) underlies the *ɣy > ɣ (and palatal > velar in general),*ɣ̌ > ʕ and *ɣ̌ʷ > ʕʷ shifts, and therefore predates ɣ ʕ ʕʷ.	page 6
+§4	Proto-Athabascan	cited form	ɣ̌	a sound of the argument, *ɣ̌, the voiced uvular continuant of PA and pre-Interior Salish, [ʁ]
+§4	Coast Salish	cited form	x̌ʷ/w	a sound of the argument, the Coast Salish reflex of *ɣ̌ʷ
+§4	Salish	cited form	š	page 6, the reflex of *xy in Interior southeast and other Coast Salish
+footnote 7	Hank Nater	note	7 In re voiced and voiceless rows of fricatives, Krauss (1964:129) states: “it is very doubtful that a phonemic opposition between these complete rows existed as such in PA”. This is in conflict with more recent (Krauss & Leer 1981) findings.	page 6, footnote
+footnote 8	Hank Nater	note	8 Cowlitz has preserved *ky *ky’ *xy as both č č’ š and k k’ x (Kinkade 1972). Like Columbian, this language was certainly influenced by Sahaptin (see Figure 3), and bilingualism prevailed here as well: “The Cowlitz people were originally two distinct tribes: the Lower Cowlitz and the Upper Cowlitz, sometimes called the Taidnapam. Only the Lower Cowlitz originally spoke Cowlitz Salish. The Upper Cowlitz spoke a Sahaptin language” (https://en.wikipedia.org/wiki/Cowlitz_language). Chilliwack and Musqueam have xy rather than š found in other Halkomelem dialects (Kuipers (2002:3,36). In some Coast Salish, w (both w < *w and w < *ɣ̌ʷ) has been replaced by g and/or gʷ (Kuipers (2002:3).	page 6, footnote
+footnote 8	Cowlitz	cited form	č	page 6, footnote 8, the reflex of *ky in Cowlitz, beside k
+footnote 8	Coast Salish	cited form	gʷ	page 6, footnote 8, which replaced w in some Coast Salish
+§4	Hank Nater	note	As to what prompted the emergence of ɣ ʕ ʕʷ to begin with, I have determined that Common Salish dialects were influenced by PA and post-PA dialects at different points in time and space. Krauss & Leer (1981) reconstruct “front velar” and “back velar” series for PA; these include the voiced fricatives *ɣy *ɣ̌ *ɣ̌ʷ (Krauss & Leer 1981:195 –197) which perfectly match pre-IS *ɣy *ɣ̌ *ɣ̌ʷ.7	page 6
+§4	Hank Nater	note	I summarize my conclusions as tabulated below. PA *ɣy *ɣ̌ *ɣ̌ʷ were copied in Common Salish, but absorbed by y x̌ x̌ʷ/w in CS. *ɣy merged early with *y in all non-northern Salish.	page 6
+Table 2	Hank Nater	note	Table 2: Reflexes of Common Salish *xy, *ɣy, *ɣ̌, *ɣ̌ʷ	page 6, the caption
+Table 2	Hank Nater	note	Common Salish Interior/Coast split Current reflexes Branches	page 6, the column heads
+Table 2 line 1	Hank Nater	note	*xy, *ɣy, *ɣ̌, *ɣ̌ʷ	page 6, a line of the table
+Table 2 line 2	Hank Nater	note	*xy/*x, *ɣy/*ɣ, *ɣ̌, *ɣ̌ʷ	page 6, a line of the table
+Table 2 line 3	Hank Nater	note	š, y/ǯ, ʕ, ʕʷ Interior southeast	page 6, a line of the table
+Table 2 line 4	Hank Nater	note	x, ɣ/y, ʕ, ʕʷ Interior central	page 6, a line of the table
+Table 2 line 5	Hank Nater	note	x, ɣ, ʕ, ʕʷ Interior north	page 6, a line of the table
+Table 2 line 6	Hank Nater	note	x, y, ʕ/ḥ, ʕʷ/ḥʷ Columbian	page 6, a line of the table
+Table 2 line 7	Hank Nater	note	*xy/*x, *y, *x̌, *x̌ʷ	page 6, a line of the table
+Table 2 line 8	Hank Nater	note	xy, y, x̌, x̌ʷ/w Bella Coola	page 6, a line of the table
+Table 2 line 9	Hank Nater	note	š /xy/x, y, x̌, x̌ʷ/w Other Coast Salish8	page 6, a line of the table
+§4	Hank Nater	note	Reconstruction of a Common Salish (and PS) palatal, rather than velar, series is a corollary of my claim that PA *ɣy > Common Salish *ɣy. It is also compatible with the location of the PS homeland in the area as defined by Kinkade (1990:10), which was in close proximity to North Wakashan (which has a palatal series). The * ɣy > *ɣ shift — and velarization of all PS palatals in general (which had also occurred in Columbian 9 and Colville -Okanagan) — then, is a northern IS innovation that was driven by exposure to post-PA that started ca 275 years B.P. Pharyngeals have an older origin, as they were originally inspired by PA *ɣ̌ and *ɣ̌ʷ ca 1170 years B.P., while IS “darkening” goes back even further.	page 6 and 7
+§4	Hank Nater	note	Figure 3: Traditional trade centers and networks (Walker 1997:72)	page 7, the caption of Figure 3, a map the text layer does not carry
+references	Hank Nater	heading	References	page 7
+references	Hank Nater	language	Ichishkíin	Yakama Sahaptin's own name, in the title of Beavert & Hargus 2009
+references	Hank Nater	language	Sínwit	in Ichishkíin Sínwit, the title of Beavert & Hargus 2009
+references	Hank Nater	reference	Beavert, Virginia & Sharon Hargus. 2009. Ichishkíin Sínwit Yakama / Yakima Sahaptin Dictionary. University of Washington Press.	
+references	Hank Nater	reference	Cook, Eung-Do. 1972. Sarcee Verb Paradigms. National Museum of Man.	
+references	Hank Nater	reference	Cook, Eung-Do. 1983. Chilcotin Flattening. Canadian Journal of Linguistics 28:123–132.	
+references	Hank Nater	reference	Davis, Henry. 2024. Central Salish from a Nooksack Perspective. Papers for ICSNL 59, 24–51.	
+references	Hank Nater	reference	Kinkade, M. Dale. 1972. The Alveopalatal Shift in Cowlitz. ICSNL VII.	
+references	Hank Nater	reference	Kinkade, M. Dale. 1990. Prehistory of Salish languages. ICSNL XXV.	
+references	Hank Nater	reference	Krauss, Michael E. 1964. Proto-Athapaskan-Eyak and the Problem of Na-Dene: the Phonology. IJAL 30:118–128.	
+references	Hank Nater	reference	Krauss, Michael E. & Jeff Leer. 1981. Athapaskan, Eyak, and Tlingit Resonants. Alaska Native Language Center Research Papers No. 5.	
+references	Hank Nater	reference	Kuipers, Aert H. 1974. The Shuswap Language. Mouton.	
+references	Hank Nater	reference	Kuipers, Aert H. 2002. Salish Etymological Dictionary. UMOPL 16.	
+footnote 9	Hank Nater	note	9 There does not appear to have been any interaction with Athabascans here, but trade-related contact — as detailed by Walker (1997) — with speakers of Sahaptin (where k k’ x = [k k’ x]) was very frequent (see Figure 3). Beavert & Hargus (2009:xxv) mention widespread bilingualism.	page 7, footnote
+references	Hank Nater	reference	Leer, Jeff. 1979. Proto-Athabaskan Verb Stem Variation Part One: Phonology. Alaska Native Language Center Research Papers No. 1.	
+references	Hank Nater	reference	Mackenzie, Alexander. 1801. Voyages from Montreal, on the River St. Laurence, through the Continent of North America, to the Frozen and Pacific Oceans, in the Years 1789 and 1793: with a Preliminary Account of the Rise, Progress, and Present State of the Fur Trade of that Country. London: R. Noble.	
+references	Hank Nater	reference	Nater, H. F. 1974. Southern Carrier field notes.	
+references	Hank Nater	reference	Nater, Hank. 1994. The Athapaskan Component of Nuxalk. IJAL 60:177–190.	
+references	Hank Nater	reference	Nater, Hank. 2013. How Salish is Bella Coola? In Papers for ICSNL 48, Joel Dunham, Patrick Littell, and John Lyon (eds.), 92–143.	
+references	Hank Nater	reference	Nater, Hank. 2020. Old Records of Three Contiguous Pacific Northwest Languages: Bella Coola, Carrier, Shuswap. Anthropological Linguistics 62:183–191.	
+references	Hank Nater	reference	Reichard, Gladys A. 1938. Stem-List of the Coeur d’Alene Language. IJAL 10:92–108.	
+references	Hank Nater	reference	Seymour, Deni. 2012. Gateways for Athabascan Migration to the American Southwest. Plains Anthropology 57:149–161.	
+references	Hank Nater	reference	Speck, Brenda J. 1977. An Edition of Father Post’s Kalispel Grammar. MA thesis. University of Montana.	
+references	Hank Nater	reference	Story, Gillian L. 1984. Babine & Carrier Phonology: A Historically Oriented Study. SIL.	
+references	Hank Nater	reference	Van Eijk, Jan P. 2013. Lillooet–English Dictionary. UBCOPL 2.	
+references	Hank Nater	reference	Van Eijk, Jan P. & Hank Nater. 2020. Some Notes on Proto-Salish Phonology. In Papers for ICSNL 55, D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.), 326–345.	
+references	Hank Nater	reference	Walker, Deward E., Jr. 1997. The Yakama System of Trade and Exchange. Northwest Anthropological Research Notes 31, 71–95.	
+references	Hank Nater	reference	Wilmeth, Roscoe. 1970. Chilcotin Archaeology. Bulletin No. 2. Canadian Archaeological Association.	
+title	Hank Nater	title	Origins of Velar and Pharyngeal Resonants in Interior Salish: Chains of Events	the paper's title
+title	Hank Nater	name	Hank Nater	the author, Independent Linguist
+§1	Hank Nater	language	Interior Salish	the branch of Salish whose resonants the paper traces

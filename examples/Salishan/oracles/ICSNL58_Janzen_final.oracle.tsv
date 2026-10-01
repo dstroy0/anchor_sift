@@ -1,0 +1,375 @@
+where	who	kind	form	gloss
+front	Jonathan Janzen	note	Papers for the International Conference on Salish and Neighbouring Languages 58. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Julia Schillo, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2023.	page 1
+front	Jonathan Janzen	language	x̄a’iselak̓ala	x̄a’iselak̓ala, Haisla
+front	Jonathan Janzen	title	The Predictability of Word-Stress in Haisla	page 1
+front	Jonathan Janzen	byline	Jonathan Janzen, ALDR	page 1
+front	Jonathan Janzen	note	Abstract: In this paper, I explain the overlooked, complicated, yet systematic system used to determine stress in x̄a’iselak̓ala (Haisla). This analysis shows that word -stress in this language is fully predictable. As in all other North Wakashan languages, there is a strong preference for assigning word-stress to the leftmost syllable. Complicating this, however, is the presence of long vowels in x̄a’iselak̓ala: /aa, uu, ii, ai, au/. A further complication to the stress system is a limited number of suffixes which seem to attract stress regardless of the syllable composition throughout the rest of the word. I assume that these suffixes are lexically stressed.	page 1
+front	Jonathan Janzen	note	Keywords: Haisla, word-stress, Wakashan, prosody	page 1
+front	Jonathan Janzen	name	Jonathan Janzen	author, ALDR
+§1	Jonathan Janzen	heading	1 Outline	page 1
+§1	Jonathan Janzen	note	In Section 2 of this paper, I first explore the word-stress interactions with the long vowels. Long vowels are heavy syllables which override the leftmost rule regardless of syllable position. In Section 3, I disambiguate an orthographic convention which obscures stress placement when words are written with two-vowel sequences, aside from long vowels. In Section 4, I present three suffixes which seem to supersede other stress rules, which I assume to be lexically stressed. Section 5 concludes.	page 1
+§2	Jonathan Janzen	heading	2 General stress rules of x̄a’iselak̓ala	page 1
+§2	Jonathan Janzen	language	x̄a’iselak̓ala	x̄a’iselak̓ala, Haisla
+§2	Jonathan Janzen	note	I break the following rules into their own sections. Section 2.1 shows the normal cross-North Wakashan leftmost syllable rule ,1 without the interference of heavy syllables. Section 2.2 shows the disruptive effect of heavy syllables on word-stress assignment. Section 2.3 shows the default- to-opposite rule in effect. All x̄a’iselak̓ala data and analysis provided here are original and taken from field work conducted in Kitamaat, BC during language workshops during the summers of 2020–2022 under the cooperation of the First Nations Education Foundation and the Haisla First Nation.2 A part of this work incorporated an online corpus of data from Emmon Bach .3 I present all data in the chosen orthography of the Haisla First Nation, and provide IPA transcriptions when appropriate in [square brackets].	page 1
+footnote 1	Jonathan Janzen	note	1 See Kwak̕wala (Janzen 2015), Oowekyala (Howe 2000), Heiltsuk (Kortlandt 1973; Rath 1974), and Haisla (Lincoln & Rath 1986).	page 1, footnote
+§2	Jonathan Janzen	language	Kwak̕wala	Kwak̕wala, a North Wakashan language
+footnote 2	Jonathan Janzen	note	2 All data represented here are done so with the foreknowledge and consent of the Haisla First Nation.	page 1, footnote
+footnote 3	Jonathan Janzen	note	3 Find Emmon Bach’s corpus here: https://web.archive.org/web/20160129043139/http:/people.umass.edu/ebach/haisdict.htm.	page 1, footnote
+footnote 3	Jonathan Janzen	name	Emmon Bach	whose Haisla corpus the data draw on
+§2	Jonathan Janzen	note	There is an interesting trait in the nature of how stress is signalled in x̄a’iselak̓ala not found in other North Wakashan languages. The stressed syllable appears with greater intensity than in other languages, but as low pitch instead of high in most contexts. In natural speech during dialogue or a narrative, the stressed syllable is lower in pitch than the surrounding syllables. In a focus context, such as in one-word citation, phrasal emphasis, or dialogue within a narrative, the stressed syllable appears with high pitch. There is no change in the location of the stressed syllable within a word in any context, so this distinction in pitch does not affect the stress-system in x̄a’iselak̓ala on the whole, only in how stress is signalled.	page 1
+§2.1	Jonathan Janzen	heading	2.1 Stress leftmost moraic (µ) syllable	page 2
+§2.1	Jonathan Janzen	language	x̄a’iselak̓ala	x̄a’iselak̓ala, Haisla
+§2.1	Jonathan Janzen	notation	µ	a mora
+§2.1	Jonathan Janzen	notation	ən	page 2, schwa and a coda resonant, a moraic pair
+§2.1	Jonathan Janzen	notation	əm	page 2, schwa and a coda resonant, a moraic pair
+§2.1	Jonathan Janzen	notation	əl	page 2, schwa and a coda resonant, a moraic pair
+§2.1	Jonathan Janzen	notation	əy	page 2, schwa and a coda resonant, a moraic pair
+§2.1	Jonathan Janzen	notation	əw	page 2, schwa and a coda resonant, a moraic pair
+§2.1	Jonathan Janzen	note	As a North Wakashan language, x̄a’iselak̓ala shows a strong tendency to stress the initial syllable. I analyse this language as being moraic based, that is, syllables with morae attract stress. The underlying vowels /a, u, i/ are moraic (µ). A schwa vowel followed by a resonant syllable coda /ən., əm., əl., əy., əw./ are also moraic. Schwa alone as a syllable nucleus is not moraic at all. The leftmost of these are assigned word-stress.	page 2
+(1) line 1	Jonathan Janzen	note	Examples of leftmost moraic syllable /#µ/	page 2, the caption
+(1a) line 1	Haisla	transcription	’úkʷiyax̄si	page 2, words
+(1a) line 1	Jonathan Janzen	translation	‘riverbank’	page 2, words
+(1b) line 1	Haisla	transcription	gʷedáx̄ud	page 2, words
+(1b) line 1	Jonathan Janzen	translation	‘loosen; untie’	page 2, words
+(1c) line 1	Haisla	transcription	ḡecemála	page 2, words
+(1c) line 1	Jonathan Janzen	translation	‘rope for going around a bentwood box’	page 2, words
+(1d) line 1	Haisla	transcription	meḡʷecí	page 2, words
+(1d) line 1	Jonathan Janzen	translation	‘onions’	page 2, words
+(1e) line 1	Haisla	transcription	dexdexús	page 2, words
+(1e) line 1	Jonathan Janzen	translation	‘rabbit’	page 2, words
+§2.1	Jonathan Janzen	note	These examples show that the regular leftmost preference for stress assignment in North Wakashan languages holds true for x̄a’iselak̓ala as well. Each example in (1) shows stress on the leftmost moraic syllable, but not necessarily the leftmost syllable of the word. When a syllable has a non-moraic schwa rhyme without a resonant coda, stress will appear on the next syllable to the right which satisfies the correct moraic conditions.	page 2
+§2.2	Jonathan Janzen	heading	2.2 Stress leftmost heavy syllable (µµ)	page 2
+§2.2	Jonathan Janzen	notation	µµ	two morae, a heavy syllable
+§2.2	Jonathan Janzen	language	x̄a’iselak̓ala	x̄a’iselak̓ala, Haisla
+§2.2	Jonathan Janzen	note	I treat long vowels as heavy syllables, or as bimoraic (µµ). The following examples show the effect of heavy syllables on word -stress assignment in x̄a’iselak̓ala. In each case , the heavy syllable will supersede the more regular leftmost stress rule pervasive in North Wakashan languages.	page 2
+(2) line 1	Jonathan Janzen	note	Examples of long /aa/	page 2, the caption
+(2a) line 1	Haisla	transcription	ƛáasa	page 2, words
+(2a) line 1	Jonathan Janzen	translation	‘slap’	page 2, words
+(2b) line 1	Haisla	transcription	x̄ʷeɫáap	page 2, words
+(2b) line 1	Jonathan Janzen	translation	‘uncle’	page 2, words
+(2c) line 1	Haisla	transcription	ƛ̓aƛ̓agáas	page 2, words
+(2c) line 1	Jonathan Janzen	translation	‘hinge/elbow’	page 2, words
+(2d) line 1	Haisla	transcription	ḡenemḡáanu	page 2, words
+(2d) line 1	Jonathan Janzen	translation	‘young female (little girl)’	page 2, words
+(2e) line 1	Haisla	transcription	ḡʷikenx̄eláa	page 2, words
+(2e) line 1	Jonathan Janzen	translation	‘how pretty; looking that beautiful; beautiful like that’	page 2, words
+§2.2	Jonathan Janzen	notation	<ḡáa>	the syllable of a long vowel that takes the stress
+§2.2	Haisla	cited form	ḡʷikenx̄eláa	page 3, ‘how pretty’
+§2.2	Jonathan Janzen	notation	<ḡʷi>	a syllable of ḡʷikenx̄eláa
+§2.2	Jonathan Janzen	notation	<láa>	the syllable of a long vowel that takes the stress
+§2.2	Jonathan Janzen	note	Here, the heavy syllables override possible stress-bearing syllables which appear to the left of it: the <a> in the first two syllables of ƛ̓aƛ̓agáas ‘hinge/elbow’ do not show stress, despite being left of the heavy syllable. Likewise, the <nem> syllable in ḡenemḡáanu ‘young female’ is the leftmost stress-bearing candidate, yet stress falls on the heavy syllable <ḡáa>. Likewise, ḡʷikenx̄eláa ‘how pretty’ shows two stress-bearing syllables to the left of the heavy syllable in <ḡʷi> and <ken>, yet the heavy syllable <láa> at the end of the word houses word-stress.	page 2
+(3) line 1	Jonathan Janzen	note	Examples of long /ii/	page 3, the caption
+(3a) line 1	Haisla	transcription	ƛ̓iis	page 3, words
+(3a) line 1	Jonathan Janzen	translation	‘skin’	page 3, words
+(3b) line 1	Haisla	transcription	xadíiɫ	page 3, words
+(3b) line 1	Jonathan Janzen	translation	‘peek into house’	page 3, words
+(3c) line 1	Haisla	transcription	yaxyaxgeníis	page 3, words
+(3c) line 1	Jonathan Janzen	translation	‘sickly’	page 3, words
+§2.2	Jonathan Janzen	notation	<díiɫ>	the syllable of a long vowel that takes the stress
+§2.2	Jonathan Janzen	notation	<níis>	the syllable of a long vowel that takes the stress
+§2.2	Jonathan Janzen	note	As in example set (2) above, the heavy syllables <díiɫ> and <níis> supersede moraic syllables with an <a> vowel to the left of them.	page 3
+(4) line 1	Jonathan Janzen	note	Examples of long /uu/	page 3, the caption
+(4a) line 1	Haisla	transcription	muukʷ	page 3, words
+(4a) line 1	Jonathan Janzen	translation	‘four people’	page 3, words
+(4b) line 1	Haisla	transcription	k̓uunugʷa	page 3, words
+(4b) line 1	Jonathan Janzen	translation	‘I don’t’	page 3, words
+(4c) line 1	Haisla	transcription	yiyuut	page 3, words
+(4c) line 1	Jonathan Janzen	translation	‘get used to something’	page 3, words
+(4d) line 1	Haisla	transcription	yudúuxʷala	page 3, words
+(4d) line 1	Jonathan Janzen	translation	‘triplets’	page 3, words
+§2.2	Jonathan Janzen	notation	<dúu>	the syllable of a long vowel that takes the stress
+§2.2	Haisla	cited form	yudúuxʷala	page 3, ‘triplets’
+§2.2	Jonathan Janzen	note	Again, in the above examples, the heavy syllable <dúu> houses stress over the previous moraic syllable <yu> in yudúuxʷala ‘triplets’.	page 3
+(5) line 1	Jonathan Janzen	note	Examples of long /ai/	page 3, the caption
+(5a) line 1	Haisla	transcription	yáicisda	page 3, words
+(5a) line 1	Jonathan Janzen	translation	‘change your life; repent; apologize’	page 3, words
+(5b) line 1	Haisla	transcription	xuláis	page 3, words
+(5b) line 1	Jonathan Janzen	translation	‘fermented’	page 3, words
+(5c) line 1	Haisla	transcription	bekʷáiguɫ	page 3, words
+(5c) line 1	Jonathan Janzen	translation	‘dead body’	page 3, words
+(5d) line 1	Haisla	transcription	ḡaḡabelái	page 3, words
+(5d) line 1	Jonathan Janzen	translation	‘tickle’	page 3, words
+§2.2	Jonathan Janzen	notation	<lái>	the syllable of a long vowel that takes the stress
+§2.2	Haisla	cited form	ḡaḡabelái	page 3, ‘tickle’
+§2.2	Jonathan Janzen	notation	<ḡaḡa>	the syllables before the long vowel
+§2.2	Haisla	cited form	’áqiala	page 3, ‘uncovered’
+§2.2	Jonathan Janzen	notation	<’á>	the first syllable of ’áqiala
+§2.2	Jonathan Janzen	note	Here, the final heavy <lái> syllable in ḡaḡabelái ‘tickle’ houses word-stress over two moraic syllables to its left in <ḡaḡa>. Of note here is a phonological occurrence in x̄a’iselak̓ala whereby an underlying high vowel /i, u/ will surface phonetically as [ai, au] respectively when preceded by a uvular or glottal consonant, e.g., ’áqiala ‘uncovered’. This quality of the language becomes an important aspect of the stress system in Section 3. I highlight it here only to state that in an example like ’áqiala ‘uncovered’, the second syllable <qi> which surfaces as [qai] does not underlyingly contain a heavy vowel (that is, only has one mora), and so does not draw stress away from the initial syllable <’á>.	page 3
+(6) line 1	Jonathan Janzen	note	Examples of long /au/	page 3, the caption
+(6a) line 1	Haisla	transcription	yáuxʷaci	page 3, words
+(6a) line 1	Jonathan Janzen	translation	‘place for invited guests’	page 3, words
+(6b) line 1	Haisla	transcription	x̄ʷayáu	page 3, words
+(6b) line 1	Jonathan Janzen	translation	‘sap of tree’	page 3, words
+(6c) line 1	Haisla	transcription	papáudaḡema	page 3, words
+(6c) line 1	Jonathan Janzen	translation	‘face powder’	page 3, words
+(6d) line 1	Haisla	transcription	babelgáuɫ	page 3, words
+(6d) line 1	Jonathan Janzen	translation	‘bleeding that cannot stop’	page 3, words
+§2.2	Jonathan Janzen	notation	<áu>	a long /au/
+§2.2	Haisla	cited form	papáudaḡema	page 4, ‘face powder’
+§2.2	Haisla	cited form	babelgáuɫ	page 4, ‘bleeding that cannot stop’
+§2.2	Jonathan Janzen	note	Again, the heavy syllables with <áu> take stress over moraic syllables with <a> to their left in papáudaḡema ‘face powder’ and babelgáuɫ ‘bleeding that cannot stop’.	page 4
+(7a) line 1	Haisla	transcription	dáa’aiƛa	page 4, words
+(7a) line 1	Jonathan Janzen	translation	‘take into house’	page 4, words
+(7b) line 1	Haisla	transcription	wáiƛilaux̄ʷ	page 4, words
+(7b) line 1	Jonathan Janzen	translation	‘sex abuse’	page 4, words
+(7c) line 1	Haisla	transcription	háiɫahaus	page 4, words
+(7c) line 1	Jonathan Janzen	translation	‘house cleaning’	page 4, words
+§2.2	Jonathan Janzen	notation	<laux̄ʷ>	the last syllable of wáiƛilaux̄ʷ
+§2.2	Haisla	cited form	háiɫahaus	page 4, ‘house cleaning’
+§2.2	Jonathan Janzen	note	Finally, examples in (7) show that when there is more than one heavy syllable within the same word, the leftmost of them receives word-stress. dáa’aiƛa ‘take into house’ shows stress on the first syllable <daa>, even though the second syllable <’ai> is also heavy. Similarly, wáiƛilaux̄ʷ ‘sex abuse’ shows stress on the leftmost syllable <wai>, while the third and final syllable <laux̄ʷ> is also heavy. The third example is the same, where the first syllable of háiɫahaus ‘house cleaning’ (<hai>) is stressed, although the final syllable is also heavy (<haus>).	page 4
+§2.3	Jonathan Janzen	heading	2.3 Stress rightmost syllable (no µ)	page 4
+§2.3	Jonathan Janzen	language	x̄a’iselak̓ala	x̄a’iselak̓ala, Haisla
+§2.3	Jonathan Janzen	note	The default-to-opposite rule is one found across all North Wakashan languages, with x̄a’iselak̓ala being no exception. If a word has no moraic syllables, the final syllable holds stress.	page 4
+(8) line 1	Jonathan Janzen	note	Examples of default-to-opposite (rightmost) stress	page 4, the caption
+(8a) line 1	Haisla	transcription	ḡeḡés	page 4, words
+(8a) line 1	Jonathan Janzen	translation	‘eye’	page 4, words
+(8b) line 1	Haisla	transcription	leḡéxʷ	page 4, words
+(8b) line 1	Jonathan Janzen	translation	‘dried berries’	page 4, words
+(8c) line 1	Haisla	transcription	λexéx̄s	page 4, words
+(8c) line 1	Jonathan Janzen	translation	‘crosspiece in a canoe’	page 4, words
+(8d) line 1	Haisla	transcription	tex̄teḡékʷ	page 4, words
+(8d) line 1	Jonathan Janzen	translation	‘flashlight’	page 4, words
+(8e) line 1	Haisla	transcription	meqebewéɫ	page 4, words
+(8e) line 1	Jonathan Janzen	translation	‘sheet’	page 4, words
+§2.3	Jonathan Janzen	note	Here are examples of the cross-North Wakashan default-to-opposite rule. The rhyme of each syllable in every example is a schwa, without a resonant coda. None are moraic, and so stress falls on the rightmost syllable.	page 4
+§3	Jonathan Janzen	heading	3 Orthographically adjacent vowels	page 4
+§3	Jonathan Janzen	language	x̄a’iselak̓ala	x̄a’iselak̓ala, Haisla
+footnote 4	Jonathan Janzen	note	4 My thanks to Chuck Murphey, Brenden Yoder, and Grace Baleno for their insights on this trait.	page 4, footnote
+footnote 4	Jonathan Janzen	name	Chuck Murphey	thanked for insight on the trait
+footnote 4	Jonathan Janzen	name	Brenden Yoder	thanked for insight on the trait
+footnote 4	Jonathan Janzen	name	Grace Baleno	thanked for insight on the trait
+§3	Jonathan Janzen	note	A potentially confusing trait o f the stress system in x̄a’iselak̓ala is shown when two adjacent vowels orthographically occur, always with stress on the second of the pair.4 These orthographically adjacent vowels do not coalesce to form long vowels as in Section 2.2 above. On the surface, the difference appears to be the quality and order of the vowels themselves. If the vowels are the same, they surface as: [aa, ii, uu]. If the first of the two vowels is low /a/, they also surface as a heavy syllable: [ai, au]. If the first of the two vowels is high /i, u/ and the following vowel is not the same as the first, they do not form a long vowel: *[ia], *[iu], *[ua], *[ui]. (This is assuming that there are two underlying vowels in every case which then coalesce on the surface, though I do not really intend to make any such claim.) I first present the data with the current writing convention, which indeed shows adjacent vowels with the second bearing stress. However, I argue that there is good phonological evidence that these sequences are in fact not serial vowels, but regular CVCV syllables. These then easily conform to the stress rules outlined in Section 2 above.	page 4
+§3.1	Jonathan Janzen	heading	3.1 Examples of VV́	page 5
+§3.1	Jonathan Janzen	notation	iá	a two-vowel sequence
+§3.1	Jonathan Janzen	notation	iú	a two-vowel sequence
+§3.1	Jonathan Janzen	note	Each word in the following example set shows stress on the second of the two adjacent vowels. I have provided examples of these pairs appearing word initially and finally, and showing both [iá] and [iú] sequences.	page 5
+(9) line 1	Jonathan Janzen	note	Examples of second adjacent stress	page 5, the caption
+(9a) line 1	Haisla	transcription	miá	page 5, words
+(9a) line 1	Jonathan Janzen	translation	‘fish’	page 5, words
+(9b) line 1	Haisla	transcription	huán̓iq̓ela	page 5, words
+(9b) line 1	Jonathan Janzen	translation	‘tease/annoy’	page 5, words
+(9c) line 1	Haisla	transcription	peciúd	page 5, words
+(9c) line 1	Jonathan Janzen	translation	‘split dried oolichans in two’	page 5, words
+(9d) line 1	Haisla	transcription	meɫegiú	page 5, words
+(9d) line 1	Jonathan Janzen	translation	‘twelve’	page 5, words
+(9e) line 1	Haisla	transcription	yuísda	page 5, words
+(9e) line 1	Jonathan Janzen	translation	‘windstorm’	page 5, words
+§3.1	Jonathan Janzen	notation	VV́	two vowels, the second stressed
+§3.1	Jonathan Janzen	notation	ə.RV́	schwa, a resonant and a stressed vowel
+§3.1	Jonathan Janzen	language	x̄a’iselak̓ala	x̄a’iselak̓ala, Haisla
+§3.1	Jonathan Janzen	notation	χ	a uvular that lowers a high vowel
+§3.1	Jonathan Janzen	notation	ʔ	a glottal stop that lowers a high vowel
+§3.1	Jonathan Janzen	notation	t̓	a glottalized stop
+§3.1	Jonathan Janzen	notation	t̕s	a glottalized affricate
+§3.1	Jonathan Janzen	notation	p̓	a glottalized stop
+§3.1	Jonathan Janzen	notation	m̓	a glottalized resonant
+§3.1	Jonathan Janzen	notation	n̓	a glottalized resonant
+§3.1	Jonathan Janzen	notation	t̕ł	page 5, a glottalized lateral affricate
+§3.1	Jonathan Janzen	note	It is very likely that these adjacent vowel (VV́) sequences are in reality a syllable with a schwa nucleus, followed by a resonant onset and a full (and stressed) vowel (ə.RV́). This can be determined without the need for an acoustic analysis because of an interesting phonotactic effect. In x̄a’iselak̓ala, the high vowels /i/ and /u/ are phonetically retracted when they follow uvular [ χ, q, ɢ] or glottal [ ʔ, h] consonants, including ejective consonants [ t̓, t̕s, p̓, m̓, n̓, t̕ł].5 I discuss this briefly above in Section 2.2 when disambiguating long vowels from full (but not long) vowels that are acoustically homophonous. Crucially, this high vowel retraction does not occur on a mid- vowel like schwa [e] or the low vowel [a] in any context. There is, therefore, a phonotactic difference between /ey/ and /i/, or /ew/ and /u/, that can be preserved in the orthography, and tested for.	page 5
+§3.1	Jonathan Janzen	notation	CVV́	a word shape
+§3.1	Jonathan Janzen	notation	CVCVV́	a word shape
+§3.1	Jonathan Janzen	note	The examples of word-initial CVV́ do not show retraction of the first vowel when that vowel is a high one and the initial consonant is either uvular or glottal. Examples of CVCVV́ (unstressed initial high vowel /i, u/) always show the retraction effect when preceded by uvular or glottal consonants. Therefore, if there truly were VV́ sequences, we would expect to see retraction on the first (unstressed) vowel when there is a high /i, u/. Since there is no retraction on any of these CVV́ sequences, I assume that the initial vowel is in fact schwa, which does not trigger retraction, and is instead followed by either a [j] (<y>) or [w] (<w>) glide consonant. For this reason I assume all cases of VV́ sequences are actually ə.RV́. Acoustic testing would, however, be needed to verify this claim in contexts where the orthographic VV́ sequence is not preceded by a uvular or glottal consonant.	page 5
+§3.1	Jonathan Janzen	notation	k̓	a velar that does not lower a high vowel, footnote 5
+§3.1	Jonathan Janzen	notation	q̓	a glottalized uvular
+footnote 5	Jonathan Janzen	note	5 [k̓] does not trigger the high vowel lowering effect. This is likely because the North Wakashan velars are articulated partially on the hard palate, giving all vowels following velar consonants a palatal feature. This raises the initial pitch of the following vowel, instead of lowering it. [q̓] causes lowering, just as its non- ejective counterpart does.	page 5
+§3.2	Jonathan Janzen	heading	3.2 Examples of əRV́	page 6
+§3.2	Jonathan Janzen	note	The following examples show the same data as in example set (9), but I adjust the orthography to preserve the predictability of the stress system, and what I argue is a more accurate description of how the language behaves in the minds of speakers.	page 6
+(10) line 1	Jonathan Janzen	note	Alternative orthographic representation	page 6, the caption
+(10a) line 1	Haisla	transcription	meyá	page 6, words
+(10a) line 1	Jonathan Janzen	translation	‘fish’	page 6, words
+(10b) line 1	Haisla	transcription	hewán̓iq̓ela	page 6, words
+(10b) line 1	Jonathan Janzen	translation	‘tease/annoy’	page 6, words
+(10c) line 1	Haisla	transcription	peceyúd	page 6, words
+(10c) line 1	Jonathan Janzen	translation	‘split dried oolichans in two’	page 6, words
+(10d) line 1	Haisla	transcription	meɫegeyú	page 6, words
+(10d) line 1	Jonathan Janzen	translation	‘twelve’	page 6, words
+(10e) line 1	Haisla	transcription	yewísda	page 6, words
+(10e) line 1	Jonathan Janzen	translation	‘windstorm’	page 6, words
+§3.2	Jonathan Janzen	note	In each case I have replaced the first of two-vowel sequences of <i> and <u> with either an <ey> or <ew>, respectively. This double vowel stress sequence was initially borne of an orthographic quirk, and so its solution could also be an orthographic one, as I have presented here.	page 6
+§3.2	Jonathan Janzen	notation	VV́	two vowels, the second stressed
+§3.2	Jonathan Janzen	language	x̄a’iselak̓ala	x̄a’iselak̓ala, Haisla
+§3.2	Jonathan Janzen	note	In any analysis, these orthographic vowel pairs constitute separate syllables: the second being stressed. Were the original VV́ sequence to be argued for, one would have to prove somehow that this second stressed vowel is the only syllable in the language that has no onset. In fact, it would probably be the only instance in the entire language family where a syllable was open. It is, therefore, far simpler to argue that the strict onset-vowel-optional coda (cluster) CV(CC) is preserved here in x̄a’iselak̓ala, as in all other Wakashan languages. One would also have to account for stress appearing on the second of two moraic syllables, contrary to the rules outlined in Section 2.	page 6
+§3.2	Jonathan Janzen	note	The following example set shows more orthographic VV́ sequences, with my proposed schwa-resonant analysis and orthographic revision. These examples all have a word-initial glottal stop, which would cause high-vowel retraction if the initial vowel was indeed either /i/ or /u/.	page 6
+(11) line 1	Jonathan Janzen	note	Examples of VV́ ~ əRV́	page 6, the caption
+(11a) line 1	Haisla	transcription	’iála	page 6, words
+(11a) line 1	Haisla	variant spelling	’eyála	page 6, the other spelling, in brackets
+(11a) line 1	Jonathan Janzen	translation	‘keep something raised with hands’	page 6, words
+(11b) line 1	Haisla	transcription	’iása	page 6, words
+(11b) line 1	Haisla	variant spelling	’eyása	page 6, the other spelling, in brackets
+(11b) line 1	Jonathan Janzen	translation	‘urinate (woman)’	page 6, words
+(11c) line 1	Haisla	transcription	’uábuiɫ	page 6, words
+(11c) line 1	Haisla	variant spelling	’ewábuiɫ	page 6, the other spelling, in brackets
+(11c) line 1	Jonathan Janzen	translation	‘under something in house’	page 6, words
+(11d) line 1	Haisla	transcription	’uákʷeƛela	page 6, words
+(11d) line 1	Haisla	variant spelling	’ewákʷeƛela	page 6, the other spelling, in brackets
+(11d) line 1	Jonathan Janzen	translation	‘chew tobacco’	page 6, words
+(11e) line 1	Haisla	transcription	’uálazkʷíƛ	page 6, words
+(11e) line 1	Haisla	variant spelling	’ewálazkʷíƛ	page 6, the other spelling, in brackets
+(11e) line 1	Jonathan Janzen	translation	‘thank you’	page 6, words
+(11f) line 1	Haisla	transcription	’uíqa	page 6, words
+(11f) line 1	Haisla	variant spelling	’ewíqa	page 6, the other spelling, in brackets
+(11f) line 1	Jonathan Janzen	translation	‘get devil’s club’	page 6, words
+(11g) line 1	Haisla	transcription	’uísda	page 6, words
+(11g) line 1	Haisla	variant spelling	’ewísda	page 6, the other spelling, in brackets
+(11g) line 1	Jonathan Janzen	translation	‘surroundings’	page 6, words
+(11h) line 1	Haisla	transcription	’uzuá	page 6, words
+(11h) line 1	Haisla	variant spelling	’ewzewá	page 6, the other spelling, in brackets
+(11h) line 1	Jonathan Janzen	translation	‘flat surface’	page 6, words
+§3.2	Haisla	cited form	’uzuá	page 7, ‘flat surface’
+§3.2	Haisla	cited form	’ewzewá	page 7, ’uzuá respelled, ‘flat surface’
+§3.2	Jonathan Janzen	note	In this example set, I present first each word with a VV́ sequence in the current orthographic convention. I then give each example with my proposed orthographic revision, preserving the schwa vowel in each initial syllable. In each case, the initial vowel does not undergo vowel retraction, and therefore must be a schwa followed by a glide consonant. Note in the final example ’uzuá ‘flat surface’, I have made changes to the first two vowels, changing them both from <u> to <ew>: ’ewzewá. The first instance I can prove by citing the absence of the phonetic retraction, the second is an assumption of mine given the prevalence of the historical mis- transcription between these two vowel expressions, and an effort to preserve the otherwise robustly predictable stress system.	page 6
+§4	Jonathan Janzen	heading	4 Lexical stress in x̄a’iselak̓ala	page 7
+§4	Jonathan Janzen	language	x̄a’iselak̓ala	x̄a’iselak̓ala, Haisla
+§4	Jonathan Janzen	language	Kwak̕wala	Kwak̕wala, a North Wakashan language
+§4	Jonathan Janzen	note	Further complicating the x̄a’iselak̓ala word-stress system is lexical stress. There is some strong evidence that a few suffixes appear to consistently house word-stress, superseding the moraic word-stress rules explained above. In each case, these show stress on the first syllable of the suffix instead of the predicted syllable in the root. This was first noted by Bach (1990:12–13), where he states, “It appears to me that Haisla has a system of accented and unaccented suffixes overlaid on a system perhaps of the same general sort as that posited for Kwak̕wala in Bach (1975)”. This is exactly what I find here: a general North Wakashan stress system with heavy syllables (as above) and a limited number of suffixes with lexical stress.	page 7
+§4	Haisla	cited affix	-(l)ás	page 7, ‘place’
+§4	Haisla	cited affix	-áyu	page 7, ‘tool’
+§4	Haisla	cited affix	-(x)íd	page 7, ‘PAST’
+§4	Jonathan Janzen	note	The following are examples containing three x̄a’iselak̓ala suffixes which consistently house stress. These suffixes are -(l)ás ‘place’, -áyu ‘tool’, and -(x)íd ‘PAST’. The following example pairs show the bare root first, then with the suffix. Note the change in the stressed syllable, highlighted in bold.	page 7
+(12) line 1	Haisla	cited affix	-(l)ás	page 7, what the list shows
+(12) line 1	Jonathan Janzen	translation	‘place’	page 7
+(12a) line 1	Haisla	transcription	dénxisa	page 7, words
+(12a) line 1	Jonathan Janzen	translation	‘drag net along shore’	page 7, words
+(12b) line 1	Haisla	transcription	denxay-ás	page 7, words
+(12b) line 1	Jonathan Janzen	translation	‘place where you drag net along shore’	page 7, words
+(12c) line 1	Haisla	transcription	wáuyala	page 7, words
+(12c) line 1	Jonathan Janzen	translation	‘water falling’	page 7, words
+(12d) line 1	Haisla	transcription	wauy-ás	page 7, words
+(12d) line 1	Jonathan Janzen	translation	‘place where the water starts falling down’	page 7, words
+(12e) line 1	Haisla	transcription	háya	page 7, words
+(12e) line 1	Jonathan Janzen	translation	‘hide ourself’	page 7, words
+(12f) line 1	Haisla	transcription	haya’-ás	page 7, words
+(12f) line 1	Jonathan Janzen	translation	‘hiding place’	page 7, words
+(12g) line 1	Haisla	transcription	qélḡʷiɫ	page 7, words
+(12g) line 1	Jonathan Janzen	translation	‘stay in bed (sick)’	page 7, words
+(12h) line 1	Haisla	transcription	qelḡʷil-ás	page 7, words
+(12h) line 1	Jonathan Janzen	translation	‘hospital’	page 7, words
+§4	Jonathan Janzen	note	In each of the example pairs above, the stress first appears on the leftmost moraic syllable of the root. When the -(l)ás ‘place’ suffix is added, the stress appears on that suffix instead of the root. Note this shift occurs even in the presence of a heavy syllable in the root, as seen in wáuyala ‘water falling’ ~ wauyás ‘place where water falls’. To note, -(l)ás is a hardening suffix (Boas 1947), as seen in the <ɫ> ~ <l> change in the final example pair qélḡʷiɫ ‘stay in bed’ and qelḡʷilás ‘hospital’. As far as the data available to me, the -(l)ás suffix takes stress away from the root without exception.	page 7
+§4	Jonathan Janzen	notation	<ɫ>	the <ɫ> of the <ɫ> ~ <l> change
+§4	Haisla	cited form	qélḡʷiɫ	page 7, ‘stay in bed’
+§4	Haisla	cited form	qelḡʷilás	‘hospital’, qélḡʷiɫ with -(l)ás
+(13) line 1	Haisla	cited affix	-áyu	page 8, what the list shows
+(13) line 1	Jonathan Janzen	translation	‘tool’	page 8
+(13a) line 1	Haisla	transcription	diḡʷem	page 8, words
+(13a) line 1	Jonathan Janzen	translation	‘pile, stake’	page 8, words
+(13b) line 1	Haisla	transcription	diḡʷ-áyu	page 8, words
+(13b) line 1	Jonathan Janzen	translation	‘hammer’	page 8, words
+(13c) line 1	Haisla	transcription	ʼáqela	page 8, words
+(13c) line 1	Jonathan Janzen	translation	‘open’	page 8, words
+(13d) line 1	Haisla	transcription	’aḡ-áyu	page 8, words
+(13d) line 1	Jonathan Janzen	translation	‘key’	page 8, words
+(13e) line 1	Haisla	transcription	ɫéndex̄ʷ	page 8, words
+(13e) line 1	Jonathan Janzen	translation	‘snot’	page 8, words
+(13f) line 1	Haisla	transcription	ɫend-áyu	page 8, words
+(13f) line 1	Jonathan Janzen	translation	‘handkerchief’	page 8, words
+(13g) line 1	Haisla	transcription	páinta	page 8, words
+(13g) line 1	Jonathan Janzen	translation	‘to paint’	page 8, words
+(13h) line 1	Haisla	transcription	pepaintm-áyu	page 8, words
+(13h) line 1	Jonathan Janzen	translation	‘makeup’	page 8, words
+§4	Jonathan Janzen	note	Here again, each example pair shows a shift in stress from the leftmost syllable in the root, to the first syllable in the suffix -áyu ‘tool’. To note, -áyu is also a weakening suffix (Boas 1947), which accounts for the phonological change in the root in ’áqela ‘open’ to ’aḡáyu ‘key’ (<q> ~ <ḡ>). There are a few exceptions to this stress shift, which are detailed in the appendix, and account for around 7% of all recorded instances.	page 8
+(14) line 1	Haisla	cited affix	-(x)íd	page 8, what the list shows
+(14) line 1	Jonathan Janzen	translation	‘PAST’	page 8
+(14a) line 1	Haisla	transcription	hawán̓iq̓ela	page 8, words
+(14a) line 1	Jonathan Janzen	translation	‘bother, get on someone’s nerves’	page 8, words
+(14b) line 1	Haisla	transcription	hawaɫíd	page 8, words
+(14b) line 1	Jonathan Janzen	translation	‘pranked’	page 8, words
+(14c) line 1	Haisla	transcription	ʼesíx̄ʷsduiɫ	page 8, words
+(14c) line 1	Jonathan Janzen	translation	‘opposite side of doorway’	page 8, words
+(14d) line 1	Haisla	transcription	’esixíd	page 8, words
+(14d) line 1	Jonathan Janzen	translation	‘moved (over)’	page 8, words
+(14e) line 1	Haisla	transcription	λú’el̓a	page 8, words
+(14e) line 1	Jonathan Janzen	translation	‘do again’	page 8, words
+(14f) line 1	Haisla	transcription	λu’elxíd	page 8, words
+(14f) line 1	Jonathan Janzen	translation	‘did something again’	page 8, words
+§4	Jonathan Janzen	note	The example pairs in (14) are morphologically complex, yet each still shows stress in the root, which shifts to the suffix -(x)íd ‘PAST’ when it appears in the second of each example pair. This suffix has relatively few instances of stress shift. Only 13% of recorded instances showed this stress shift, while the remaining data conformed to predictable stress rules outlined above. The -(x)íd suffix might in fact include one (or more than one) different yet homophonous suffix in other words that do not show the stress shift. More research into this particular suffix is needed. This is only a preliminary analysis of this stress shift in x̄a’iselak̓ala, as there are many exceptions where the stress does not shift onto the suffix. My assumption is that these three suffixes have historical lexical stress. Diachronically, often used words likely became less productive, that is, speakers stopped analyzing them as morphologically complex and treated them as entire roots. This would explain the discrepancy between some suffixes drawing stress, and others conforming to the established stress rules. I plan to more thoroughly investigate lexical stress in North Wakashan stress systems in a forthcoming paper.	page 8
+§5	Jonathan Janzen	heading	5 Conclusion	page 9
+§5	Jonathan Janzen	language	x̄a’iselak̓ala	x̄a’iselak̓ala, Haisla
+§5	Jonathan Janzen	note	x̄a’iselak̓ala shares basic word -stress system traits with other North Wakashan languages. It also shows its own unique twist on how stress is assigned within a word. As in all North Wakashan languages, x̄a’iselak̓ala stress is signalled on the rhyme of a syllable by a rise 6 in pitch (tone) and greater intensity of that rhyme. Duration is not a good acoustic correlate of stress, likely to preserve the vowel length distinction in this language. The leftmost stress-bearing syllable is, more often than not, assigned stress. I assume all moraic syllables to attract stress, the leftmost of which receives it.	page 9
+(15) line 1	Jonathan Janzen	rule	stress leftmost moraic syllable	page 9, the display
+§5	Jonathan Janzen	note	In x̄a’iselak̓ala, moracity is defined as an underlying v owel, or schwa and coda resonant pair. Heavy syllables, which I claim contain two morae, are also present in x̄a’iselak̓ala. These syllables attract stress over syllables with one or no mora as the most moraic syllables, regardless of their position in the word. If there are two heavy syllables within the same word, the leftmost of them holds word-stress.	page 9
+§5	Haisla	cited affix	-(l)ás	page 9, ‘place’
+§5	Haisla	cited affix	-áyu	page 9, ‘tool’
+§5	Haisla	cited affix	-(x)íd	page 9, ‘PAST’
+(16) line 1	Jonathan Janzen	rule	stress the leftmost heavy (bimoraic) syllable	page 9, the display
+§5	Jonathan Janzen	note	If there is no good candidate, that is, no moraic syllable for word-stress assignment, the final (rightmost) syllable receives stress. This is called a default-to-opposite stress-system.	page 9
+(17) line 1	Jonathan Janzen	rule	stress the rightmost syllable if none are moraic	page 9, the display
+§5	Jonathan Janzen	note	This system is disrupted in x̄a’iselak̓ala by a measure of lexical stress, constrained to a few suffixes. These suffixes are -(l)ás ‘place’, -áyu ‘tool’, and -(x)íd ‘PAST’. These suffixes draw stress to them, regardless of any syllable composition within the word root.	page 9
+(18) line 1	Jonathan Janzen	rule	stress appears on lexical-stress suffixes	page 9, the display
+§5	Jonathan Janzen	note	The crucial hierarchy in applying these four rules is as follows:	page 9
+§5	Jonathan Janzen	language	Haíɫzaqvḷa	Haíɫzaqvḷa, Heiltsuk
+(19) line 1	Jonathan Janzen	rule	lexical-stress > leftmost heavy syllable > leftmost moraic syllable > rightmost syllable	page 9, the display
+§5	Jonathan Janzen	note	The lexical stress suffixes might be a borrowing from neighbouring Haíɫzaqvḷa which may have lexical stress of its own, or a relic from some ancient proto-North-Wakashan ancestor. In either case, these languages offer much for the interested researcher to discover. Personally, it is my hope that this research will inform the Haisla orthography to make learning this beautiful language simpler for learners. It is also my great hope that such research might create more interest in x̄a’iselak̓ala, Wakashan languages generally, or any indigenous language. 6 Or lowering (see Section 2).	page 9
+references	Jonathan Janzen	heading	References	page 10
+references	Jonathan Janzen	reference	Bach, Emmon. 1975. Long vowels and stress in Kwakiutl. Texas Linguistic Forum 2. 9–19.	
+references	Jonathan Janzen	reference	Bach, Emmon. 1990. Stem Extensions in Haisla. Papers for the 25th International Conference on Salish and Neighbouring Languages. University of British Columbia ms. 1–15.	
+references	Jonathan Janzen	reference	Boas, Franz. 1947. Kwakiutl grammar, with a glossary of the suffixes. Transactions of the American Philosophical Society 37:203–377.	
+references	Jonathan Janzen	reference	First Nations Education Foundation. 2023. https://www.fnef.ca/	
+references	Jonathan Janzen	reference	Howe, Darin M. 2000. Oowekyala segmental phonology. Doctoral Dissertation. University of British Columbia, Vancouver, BC.	
+references	Kwak̕wala	cited form	Wałda̱mas	in the title of Janzen 2015
+references	Jonathan Janzen	language	Kwak̕wala	Kwak̕wala, a North Wakashan language
+references	Jonathan Janzen	reference	Janzen, Jonathan. 2015. Wałda̱mas? An exploration into the phonological-word in Kwak̕wala. M.A. Thesis. Trinity Western University, Langley, BC.	
+references	Jonathan Janzen	reference	Kortlandt, Frederik H. H. 1973. Tones in Wakashan. Papers for ICSNL 8.	
+references	Jonathan Janzen	reference	Lincoln, Neville J. & John C. Rath. 1986. Phonology, dictionary and listing of roots and lexical derivates of the Haisla language of Kitlope and Kitimaat, B.C. Ottawa, ON: National Museums of Canada.	
+references	Jonathan Janzen	reference	Rath, John. 1974. On the phonological description of the Heiltsuk language. Papers for ICSNL 9.	
+appendix	Jonathan Janzen	heading	Appendix	page 11
+appendix	Jonathan Janzen	note	Words with unpredictable stress	page 11
+(20a) line 1	Haisla	transcription	λikú	page 11, words
+(20a) line 1	Jonathan Janzen	translation	‘borrow’	page 11, words
+(20b) line 1	Haisla	transcription	sawatiḡawá	page 11, words
+(20b) line 1	Jonathan Janzen	translation	‘useless/worn out’	page 11, words
+(20c) line 1	Haisla	transcription	puyás	page 11, words
+(20c) line 1	Jonathan Janzen	translation	‘Labrador tea’	page 11, words
+(20d) line 1	Haisla	transcription	’uḡʷeméls	page 11, words
+(20d) line 1	Jonathan Janzen	translation	‘front of house’	page 11, words
+(20e) line 1	Haisla	transcription	ḡuláli	page 11, words
+(20e) line 1	Jonathan Janzen	translation	‘salmon berry’	page 11, words
+(20f) line 1	Haisla	transcription	’ibísbi	page 11, words
+(20f) line 1	Jonathan Janzen	translation	‘hold nose’	page 11, words
+appendix	Haisla	cited affix	-áyu	page 11
+appendix	Jonathan Janzen	note	Exceptions to -áyu lexical stress (12 exceptions out of 85 total examples of -áyu)	page 11
+(21a) line 1	Haisla	transcription	húx̄ʷex̄ʷayu	page 11, words
+(21a) line 1	Jonathan Janzen	translation	‘horn of car’	page 11, words
+(21b) line 1	Haisla	transcription	ƛíx̄ela	page 11, words
+(21b) line 1	Jonathan Janzen	translation	‘beat drum’	page 11, words
+(21c) line 1	Haisla	transcription	ƛíx̄elayu	page 11, words
+(21c) line 1	Jonathan Janzen	translation	‘drumstick’	page 11, words
+(21d) line 1	Haisla	transcription	dayáax̄dayu	page 11, words
+(21d) line 1	Jonathan Janzen	translation	‘napkin’	page 11, words
+(21e) line 1	Haisla	transcription	ḡʷálemx̄λayu	page 11, words
+(21e) line 1	Jonathan Janzen	translation	‘last will, obligation’	page 11, words
+(21f) line 1	Haisla	transcription	cúcax̄sia	page 11, words
+(21f) line 1	Jonathan Janzen	translation	‘brush teeth’	page 11, words
+(21g) line 1	Haisla	transcription	cúcax̄siayu	page 11, words
+(21g) line 1	Jonathan Janzen	translation	‘toothbrush’	page 11, words
+(21h) line 1	Haisla	transcription	báxʷa	page 11, words
+(21h) line 1	Jonathan Janzen	translation	‘rise’	page 11, words
+(21i) line 1	Haisla	transcription	báxʷidayu	page 11, words
+(21i) line 1	Jonathan Janzen	translation	‘puff up’	page 11, words
+(21j) line 1	Haisla	transcription	sísax̄sia	page 11, words
+(21j) line 1	Jonathan Janzen	translation	‘have a good snack’	page 11, words
+(21k) line 1	Haisla	transcription	sísax̄siayu	page 11, words
+(21k) line 1	Jonathan Janzen	translation	‘toothpick’	page 11, words
+(21l) line 1	Haisla	transcription	ɫemálud	page 11, words
+(21l) line 1	Jonathan Janzen	translation	‘moored up’	page 11, words
+(21m) line 1	Haisla	transcription	ɫemálayu	page 11, words
+(21m) line 1	Jonathan Janzen	translation	‘mooring rope’	page 11, words
+(21n) line 1	Haisla	transcription	ciá	page 11, words
+(21n) line 1	Haisla	variant spelling	ceyá	page 11, the other spelling, in brackets
+(21n) line 1	Jonathan Janzen	translation	‘draw water’	page 11, words
+(21o) line 1	Haisla	transcription	ciálayu	page 11, words
+(21o) line 1	Haisla	variant spelling	ceyálu	page 11, the other spelling, in brackets
+(21o) line 1	Jonathan Janzen	translation	‘bucket’	page 11, words
+(21p) line 1	Haisla	transcription	ḡáḡina	page 11, words
+(21p) line 1	Jonathan Janzen	translation	‘look for lice’	page 11, words
+(21q) line 1	Haisla	transcription	ḡáḡinayu	page 11, words
+(21q) line 1	Jonathan Janzen	translation	‘fine toothed comb’	page 11, words
+(21r) line 1	Haisla	transcription	humáx̄di	page 11, words
+(21r) line 1	Haisla	variant spelling	humáx̄di	page 11, the other spelling, in brackets
+(21r) line 1	Jonathan Janzen	translation	‘ask for blessing (to marry a woman)’	page 11, words
+(21s) line 1	Haisla	transcription	humáx̄diayu	page 11, words
+(21s) line 1	Haisla	variant spelling	humáx̄diayu	page 11, the other spelling, in brackets
+(21s) line 1	Jonathan Janzen	translation	‘engagement ring’	page 11, words
+(21t) line 1	Haisla	transcription	híɫax̄aud	page 11, words
+(21t) line 1	Jonathan Janzen	translation	‘clean up’	page 11, words
+(21v) line 1	Haisla	transcription	híɫax̄audayu	page 11, words
+(21v) line 1	Jonathan Janzen	translation	‘cleaning tool’	page 11, words

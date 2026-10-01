@@ -1,0 +1,225 @@
+where	who	kind	form	gloss
+front	Kate (Yangshuying) Zhou	note	Papers for the International Conference on Salish and Neighboring Languages 57.	page 1
+front	Kate (Yangshuying) Zhou	note	D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2022.	page 1
+front	Ktunaxa	cited form	paⱡ	page 1
+front	Ktunaxa	cited form	ⱡin	page 1
+front	Kate (Yangshuying) Zhou	language	St’át’imcets	St’át’imcets, Lillooet, the Salish language of Matthewson et al. (2007)
+front	Kate (Yangshuying) Zhou	title	Ktunaxa Evidentials are Evidently Modal	page 1, carries the acknowledgments footnote
+front	Kate (Yangshuying) Zhou	byline	Kate (Yangshuying) Zhou, University of British Columbia	page 1
+front	Kate (Yangshuying) Zhou	note	Abstract: This project presents preliminary work on the Ktunaxa evidentials paⱡ and ⱡin and provides the diagnostics that account for their epistemic modality. Existing works on Ktunaxa evidentiality and modality are few, and despite identifying paⱡ and ⱡin as evidentials or modals, none have explored their semantics or provided analyses to support such classification. Using original data from elicited from three native speakers, the current project identifies paⱡ and ⱡin as indirect eivdentials, with paⱡ being a hearsay evidential and ⱡin an inferential evidential. I further argue that Ktunaxa paⱡ and ⱡin fall under the modal analysis, modeling my analysis after Matthewson et al. (2007) that supplied an epistemic modal analysis for the St’át’imcets evidentials. By applying eight diagnostic tests (adopted from Matthewson et al. 2007 and Faller 2002), I show that, like the St’át’imcets evidentials, paⱡ and ⱡin also pattern with modals, and cannot be analyzed as illocutionary operators.	page 1, the abstract
+front	Kate (Yangshuying) Zhou	note	Keywords: Ktunaxa, evidentiality, indirect evidentials, modality, epistemic	page 1
+front	Kate (Yangshuying) Zhou	name	Kate (Yangshuying) Zhou	author, University of British Columbia
+footnote *	Kate (Yangshuying) Zhou	note	My deepest gratitude to my Ktunaxa consultant Dorothy Alpine, who worked with me with much patience and kindness. I would like to also thank Violet Birdstone, Laura Birdstone, and Alfred Joseph, without whom this paper would not have been possible. They kindly shared their Ktunaxa knowledge and experiences with me, as well as with the entire 2021/22 LING 531/532 Field Methods classes. Additional thanks to Ryan Bochnak for leading our class and Irene Appelbaum for her invaluable advice. Lastly, many thanks to the Ktunaxa Lab for the discussions and feedback.	page 1, the acknowledgments footnote, its mark not in the text layer
+footnote *	Kate (Yangshuying) Zhou	name	Dorothy Alpine	the author's Ktunaxa consultant, DA
+footnote *	Kate (Yangshuying) Zhou	name	Violet Birdstone	a Ktunaxa speaker who worked with the field methods class
+footnote *	Kate (Yangshuying) Zhou	name	Laura Birdstone	a Ktunaxa speaker who worked with the field methods class
+footnote *	Kate (Yangshuying) Zhou	name	Alfred Joseph	a Ktunaxa speaker who worked with the field methods class
+§1	Kate (Yangshuying) Zhou	heading	1 Introduction	page 1
+§1.1	Kate (Yangshuying) Zhou	heading	1.1 Background and Objectives	page 1
+§1.1	Ktunaxa	cited form	paⱡ	page 1
+§1.1	Ktunaxa	cited form	ⱡin	page 1
+§1.1	Kate (Yangshuying) Zhou	place	ʔaq̓am	ʔaq̓am, a Ktunaxa band in British Columbia, home of the author's consultants
+§1.1	Kate (Yangshuying) Zhou	place	ʔakisq̓nuk	ʔakisq̓nuk, a Ktunaxa band in British Columbia, home of the author's consultants
+§1.1	Kate (Yangshuying) Zhou	note	The objective of this paper is to present preliminary work on the Ktunaxa evidentials, specifically paⱡ and ⱡin, and to provide evidence for their modal analysis. Ktunaxa (alternatively Kootenai, Kootenay, or Kutenai; ISO 639-3: kut) is a language isolate, spoken by the Ktunaxa people in British Columbia in Canada, and Montana and Idaho in the United States. There are seven bands of the Ktunaxa nation, two located in the United States and five located in British Columbia, among which are ʔaq̓am and ʔakisq̓nuk, where our Ktunaxa consultants are from.	page 1
+§1.1	Kate (Yangshuying) Zhou	note	Existing works on Ktunaxa evidentials and modals are few, yet they have provided crucial background for this paper. Morgan glosses paⱡ as an evidential in his 1991 thesis, and Garvin (1948) classifies ⱡin as a suppositional morpheme. Burge (2016) built upon the previous records of Ktunaxa functional words and proposed the semantic and syntactic distribution of Ktunaxa modals. In her proposal, both paⱡ and ⱡin are categorized as epistemic modals with variable necessity and possibility modal strengths. Despite the previous works identifying paⱡ and ⱡin, none have explored their semantics or provided evidence to support such classifications. The current paper intends to identify the specific types of evidentiality of paⱡ and ⱡin and to provide diagnostics that support a modal analysis for Ktunaxa evidentials.	page 1
+§1.1	Kate (Yangshuying) Zhou	note	The paper is structured as follows. In Section 2, I will examine the evidence that supports the evidentiality of paⱡ and ⱡin, and identify the different types of evidentiality they each encode. Then  My deepest gratitude to my Ktunaxa consultant Dorothy Alpine, who worked with me with much patience and kindness. I would like to also thank Violet Birdstone, Laura Birdstone, and Alfred Joseph, without whom this paper would not have been possible. They kindly shared their Ktunaxa knowledge and experiences with me, as well as with the entire 2021/22 LING 531/532 Field Methods classes. Additional thanks to Ryan Bochnak for leading our class and Irene Appelbaum for her invaluable advice. Lastly, many thanks to the Ktunaxa Lab for the discussions and feedback. in Section 3, I test paⱡ and ⱡin against Matthewson et al. (2007)’s modal analysis of St’át’imcets evidentials and provide evidence for the claim that Ktunaxa evidentials are also modals. Section 4 concludes. Lastly, I discuss the next steps to this ongoing project (Section 5).	page 1
+§1.1	Kate (Yangshuying) Zhou	language	St’át’imcets	St’át’imcets, Lillooet, the Salish language of Matthewson et al. (2007)
+§1.2	Kate (Yangshuying) Zhou	heading	1.2 Methodology	page 2
+§1.2	Ktunaxa	cited form	paⱡ	page 2
+§1.2	Ktunaxa	cited form	ⱡin	page 2
+§1.2	Kate (Yangshuying) Zhou	note	The data in this paper were collected through various methods, namely elicitations and text collections. Novel data were collected through individual elicitations with native speakers of Ktunaxa as well as class elicitations. The elicitation sessions were all conducted virtually over Zoom, a video-conferencing software. For these elicitations, a range of tasks were designed to best collect semantic information, including translation tasks, judgement tasks, and narrating storyboards (Bochnak 2020; Cover 2015). Since the consultants are all speakers of English, the translation tasks involved having consultants translate English sentences into Ktunaxa, and especially from Ktunaxa into English. Asking consultants to translate the Ktunaxa sentences they offered back into English was immensely helpful, considering the information that is “lost in translation” might be uncovered through this extra step. Judgement tasks involved creating a Ktunaxa sentence based on a specific context and asking the consultants about their judgement on the grammaticality and felicity of the sentence. The use of storyboards was another crucial method in elicitations. The storyboards used during elicitations were short stories with a clear narrative. I told the stories in English while showing each storyboard to the consultants, then asked them to tell the story back to me in Ktunaxa. The use of storyboards provided a setting for more naturalistic Ktunaxa narrative. Apart from the three types of tasks, my elicitations crucially included dialogue with the consultants. This means that the elicitations did not end at getting the “desired” sentences but extended further into discussing the context and sentences themselves. Due to the complex nature of modality and evidentiality, “engaging in dialogue”, as Cover (2015) puts it, about the sentences and contexts allowed me to better dissect the meanings of each data point. Text collection and analysis was another method used in the data collection process, especially when paⱡ is ubiquitous in documented Ktunaxa tales and storytelling (cf. Boas 1918). Compared to elicitations, text analysis posed greater difficulties, given that many of the old Ktunaxa texts utilize a different orthography. Moreover, information such as evidentiality is often not reflected by the English translation. To deal with such an issue, I engaged the consultants into the analysis process, and combined the pros of elicitations and text analysis. Having the consultants read parts of the texts and discuss the use of functional particles (e.g., paⱡ and ⱡin) in the texts offered significant insight into the texts.	page 2
+§2	Kate (Yangshuying) Zhou	heading	2 Ktunaxa Evidentials	page 2
+§2.1	Kate (Yangshuying) Zhou	heading	2.1 Evidentiality	page 2
+§2.1	Kate (Yangshuying) Zhou	language	St’át’imcets	St’át’imcets, Lillooet, the Salish language of Matthewson et al. (2007)
+§2.1	Kate (Yangshuying) Zhou	note	Evidentiality marks the source of information a speaker has for their utterance (de Haan 2012). In general, evidentiality can be categorized into two broad types, namely direct and indirect evidentiality. Direct evidentiality denotes the speaker’s first-hand access to the event in the utterance, such as visual or auditory perception, whereas indirect evidentiality refers to the speaker’s lack of presence at the described event. Indirect evidentiality further branches into inferential evidentiality and hearsay, with inferential marking the speaker’s utterance is based on reasoning and inference, while hearsay refers to the speaker reporting second-hand, third-hand, or general hearsay (de Haan 2012; Willett 1988). Though there is a clear taxonomy of evidentiality, not all languages have a grammatical category that encodes evidentiality, nor do individual languages with such a structure distinguish evidentiality in these exact partitions. For example, Quechuan languages and St’át’imcets distinguish three types of evidentiality: direct access, reportative, and inference, while Turkish only distinguishes between direct and indirect source of information for past events (see Faller 2002 for Quechua, Matthewson et al. 2007 for St’át’imcets, and Aksu-Koç 1986 for Turkish).	page 2
+§2.1	Ktunaxa	cited form	ⱡin	page 3
+§2.1	Ktunaxa	cited form	paⱡ	page 3
+§2.1	Kate (Yangshuying) Zhou	note	In Ktunaxa, two types of evidentiality are identified, namely inferential evidentiality and hearsay, both belonging under the indirect umbrella. The two types of evidentiality are denoted by the particles ⱡin and paⱡ, respectively. Consider the following two examples:1	page 3
+(1) line 1	Kate (Yangshuying) Zhou	note	Context: It was snowing hard when Dorothy went to bed in her windowless bedroom. However, when she wakes up and checks the weather on her phone, it’s 15 °C (60 °F) outside! She says:	page 3, engine english
+(1) line 2	Ktunaxa	transcription	Ⱡin huq̓kuni ʔa·kⱡu.	page 3, engine language
+(1) line 3	Ktunaxa	segmentation	ⱡin huq̓ku-ni ʔa·kⱡu	page 3, engine language
+(1) line 4	Ktunaxa	gloss	EVID to.melt.from.heat-IND snow	page 3, engine english
+(1) line 5	Kate (Yangshuying) Zhou	translation	‘The snow must’ve melted.’	page 3, engine english
+(2) line 1	Kate (Yangshuying) Zhou	note	Context: It was snowing hard when Dorothy went to bed in her windowless bedroom. When she wakes up and checks her phone, her friend has texted her: “The snow has melted!” When her sister walks into the bedroom, Dorothy says:	page 3, engine english
+(2) line 2	Ktunaxa	transcription	Paⱡ huq̓kuni ʔa·kⱡu.	page 3, engine language
+(2) line 3	Ktunaxa	segmentation	paⱡ huq̓ku-ni ʔa·kⱡu	page 3, engine language
+(2) line 4	Ktunaxa	gloss	EVID to.melt.from.heat-IND snow	page 3, engine english
+(2) line 5	Kate (Yangshuying) Zhou	translation	‘Apparently, the snow has melted.’	page 3, engine english, carries footnote 2 after Apparently,
+§2.1	Ktunaxa	cited form	Ⱡin	page 3
+§2.1	Kate (Yangshuying) Zhou	note	The premises of the two contexts in (1) and (2) are similar: Dorothy waking up in her windowless bedroom, where she has no access to directly perceive the weather outside. In (1), the only piece of evidence Dorothy can base her utterance upon is the fact that the weather app says the temperature is significantly above freezing. Ⱡin is used in this sentence to denote the inference that Dorothy makes based on the information she acquires from her phone’s weather app, namely that the snow has melted.	page 3
+§2.1	Kate (Yangshuying) Zhou	note	In contrast, Dorothy does not have any evidence in (2) except for her friend’s words. Thus, when her sister enters the room, Dorothy relays the information to her, using the particle paⱡ. While (1) demonstrates evidentiality of inference and reason, (2) exhibits a reportative or hearsay evidential.	page 3
+footnote 1	Kate (Yangshuying) Zhou	note	1 The examples in this paper are novel data from elicitations conducted by me unless indicated otherwise. Morpheme glosses are as follows: ADV = adverbial suffix; COMP = complementizer; COP = copular; EVID = evidential; IND = indicative suffix; OBV = obviation; PASS = passive; POSS = possessive; PRE = preverbal suffix; PROG = progressive, SBJ = subject.	page 3, footnote
+footnote 2	Kate (Yangshuying) Zhou	note	2 It is difficult to translate evidential sentence s, especially to English, since the English translations could easily be interpreted in a way that suggests the evidential’s lack of contribution to the propositional content. In this paper, I have opted to use apparently for all the paⱡ sentences. However, it is worth noting that this is not an exact translation of the Ktunaxa evidential.	page 3, footnote
+§2.1	Kate (Yangshuying) Zhou	note	In the remainder of this section, I explore in detail the two types of evidentials in Ktunaxa.	page 3
+§2.2	Kate (Yangshuying) Zhou	heading	2.2 Ⱡin	page 4
+§2.2	Ktunaxa	cited form	ⱡin	page 4
+§2.2	Kate (Yangshuying) Zhou	name	ʔamlu	ʔamlu, the dog of the examples
+§2.2	Kate (Yangshuying) Zhou	note	The Ktunaxa particle ⱡin is used to mark information that the speaker acquired through inference, deduction, or reasoning. Take example (3): Ana does not know for a fact who ate the piece of cake that she saved for herself, yet when she sees ʔamlu walking around with cake crumbs on his shirt, she infers that ʔamlu is the person that is guilty of the crime.	page 4
+(3) line 1	Kate (Yangshuying) Zhou	note	Context: Ana saved a delicious piece of cake in the fridge to eat for breakfast. Next morning, she opens the fridge and finds the cake gone! She then sees one of her roommates, ʔamlu, walk out of his bedroom with cake crumbs on his shirt. She would say:	page 4, engine english
+(3) line 2	Ktunaxa	transcription	Ⱡin ʔikni ka quqciⱡ ʔikiⱡs ʔamlu.	page 4, engine language
+(3) line 3	Ktunaxa	segmentation	ⱡin ʔik-ni ka quqci-ⱡ ʔik-iⱡ-s ʔamlu	page 4, engine residue
+(3) line 4	Ktunaxa	gloss	EVID to.eat-IND 1st.POSS sweet-PRE to.eat-PASS-OBV ʔamlu	page 4, engine english
+(3) line 5	Kate (Yangshuying) Zhou	translation	‘It must be ʔamlu that ate my cake.’	page 4, engine english
+§2.2	Ktunaxa	cited form	ⱡin-sentences	page 4
+§2.2	Kate (Yangshuying) Zhou	note	Though the utterance in (3) is made based on visual evidence (i.e., Ana seeing the cake crumbs), the context for ⱡin-sentences is not limited to physical evidence but includes the speaker reasoning or inferring with the information she already knows. Consider (4):	page 4
+(4) line 1	Kate (Yangshuying) Zhou	note	Context: Ana saved a delicious piece of cake in the fridge to eat for breakfast. Next morning, she opens the fridge and finds the cake gone! Ana lives with Maⱡi and ʔamlu, but she knows that Maⱡi is allergic to cake. She says about the culprit:	page 4, engine english
+(4) line 2	Ktunaxa	transcription	ʔamlu ⱡin ʔikni ka quqȼiⱡ ʔikiⱡ.	page 4, engine language
+(4) line 3	Ktunaxa	segmentation	ʔamlu ⱡin ʔik-ni ka quqȼi-ⱡ ʔik-iⱡ	page 4, engine residue
+(4) line 4	Ktunaxa	gloss	ʔamlu EVID to.eat-IND 1st.POSS sweet-PRE to.eat-PASS	page 4, engine english
+(4) line 5	Kate (Yangshuying) Zhou	translation	‘ʔamlu must have eaten my cake.’	page 4, engine english
+§2.2	Kate (Yangshuying) Zhou	name	Maⱡi’s	Maⱡi, Mary, a person of the examples, with the possessive ’s
+§2.2	Kate (Yangshuying) Zhou	note	In (4), as Ana finds her cake missing, the only ground for reasoning she has is her knowledge of the roommate Maⱡi’s allergy, and she makes a logical inference based on this information and reaches the conclusion that the most probable culprit is the other roommate, ʔamlu, who is not allergic to cake. Though Maⱡi’s allergy is not physical evidence or newly acquired information, an inference is made considering it, licensing the use of ⱡin in this utterance.	page 4
+§2.3	Kate (Yangshuying) Zhou	heading	2.3 Paⱡ	page 4
+§2.3	Ktunaxa	cited form	paⱡ	page 4
+§2.3	Ktunaxa	cited form	ⱡin	page 4
+§2.3	Ktunaxa	cited form	paⱡ-sentence	page 4
+§2.3	Kate (Yangshuying) Zhou	note	Though Morgan (1991) first glossed paⱡ as an evidential, he did not identify the specific type of information source paⱡ denotes. The major difference between paⱡ and ⱡin is that there is no inference made in a paⱡ-sentence. Consider the juxtaposition between the two evidentials using the same context as (3):	page 4
+(5) line 1	Kate (Yangshuying) Zhou	note	Context: Ana saved a delicious piece of cake in the fridge to eat for breakfast. Next morning, she opens the fridge and finds the cake gone! She then sees one of her room- mates, ʔamlu, walk out of his bedroom with cake crumbs on his shirt. She would say:	page 5, engine english
+(5a) line 1	Ktunaxa	transcription	✓ Ⱡin ʔikni ka quqciⱡ ʔikiⱡs ʔamlu.	page 5, engine language
+(5a) line 2	Ktunaxa	segmentation	ⱡin ʔik-ni ka quqci-ⱡ ʔik-iⱡ-s ʔamlu	page 5, engine residue
+(5a) line 3	Ktunaxa	gloss	EVID to.eat-IND 1st.POSS sweet-PRE to.eat-PASS-OBV ʔamlu	page 5, engine english
+(5a) line 4	Kate (Yangshuying) Zhou	translation	‘It must be ʔamlu that ate my cake.’	page 5, engine english
+(5b) line 1	Ktunaxa	transcription	# Paⱡ ʔikni ka quqciⱡ ʔikiⱡs ʔamlu.	page 5, engine residue
+(5b) line 2	Ktunaxa	segmentation	paⱡ ʔik-ni ka quqci-ⱡ ʔik-iⱡ-s ʔamlu	page 5, engine residue
+(5b) line 3	Ktunaxa	gloss	EVID to.eat-IND 1st.POSS sweet-PRE to.eat-PASS-OBV ʔamlu	page 5, engine english
+(5b) line 4	Kate (Yangshuying) Zhou	translation	Intended: ‘Apparently, ʔamlu ate my cake.’	page 5, engine english
+§2.3	Ktunaxa	cited form	Paⱡ	page 5
+§2.3	Kate (Yangshuying) Zhou	note	The use of paⱡ is not licensed in (5b) as it yields an infelicitous sentence. The contrast between (5a) and (5b) sufficiently differentiates paⱡ from ⱡin as they are not the same type of evidential. Paⱡ is used when the information in the utterance is obtained through second-hand, third-hand, or general hearsay.	page 5
+§2.3	Kate (Yangshuying) Zhou	note	The utterance in (6) is the beginning sentence of a consultant’s telling of the storyboard “Animal Party” (Littell 2010).	page 5
+(6) line 1	Ktunaxa	transcription	Kyakxuȼ nupquȼ ʔa·knuⱡam̓ qakiʔni paⱡ ȼxaⱡ su·knikits.	page 5, engine language
+(6) line 2	Ktunaxa	segmentation	kyakxu-ȼ nupqu-ȼ ʔa·knuⱡam̓ qakiʔ-ni paⱡ ȼxaⱡ su·knikit-s	page 5, engine language
+(6) line 3	Ktunaxa	gloss	fish-and bear-and snake to.say-IND EVID FUT party-OBV	page 5, engine english
+(6) line 4	Kate (Yangshuying) Zhou	translation	‘The fish, the bear, and the snake said that apparently there is going to be a party.’	page 5, engine english
+§2.3	Kate (Yangshuying) Zhou	note	As I revisited the consultant’s narrative of “Animal Party” in elicitation, the consultant commented that the particular use of paⱡ indicates that there were rumors of a party going around; should the speaker use ⱡin instead, it would mean that the animals saw decorations that indicated there might be a party starting soon. The consultant’s notes confirm that paⱡ denotes information that is obtained through rumors, in other words, hearsay.	page 5
+§2.4	Kate (Yangshuying) Zhou	heading	2.4 Two Approaches to Analyzing Evidentials	page 5
+§2.4	Kate (Yangshuying) Zhou	note	There are generally two main approaches linguists employ to analyze evidentiality, one being the speech act approach and the other the modality approach. The speech act approach analyzes evidentials as illocutionary operators that do not contribute to the propositional content of the utterance. For example, Faller (2002) argues that two of the three evidentials in Quechua, namely the reportative and direct evidentials, do not contribute to the propositional content, but instead affect the sincerity conditions of a speech act.	page 5
+§2.4	Kate (Yangshuying) Zhou	note	The modal analysis differs from the illocutionary one in that modals do contribute to the propositional content of an utterance. Under this analysis, evidentials quantify over possible worlds that are compatible with the evidence in the actual world (Matthewson 2007).	page 5
+§2.4	Ktunaxa	cited form	paⱡ	page 6
+§2.4	Kate (Yangshuying) Zhou	language	St’át’imcets	St’át’imcets, Lillooet, the Salish language of Matthewson et al. (2007)
+§2.4	Kate (Yangshuying) Zhou	note	The two approaches are not mutually exclusive: Faller (2002) argues that, though direct and reportative evidentials in Quechua are illocutionary operators, the inferential evidentials should be analyzed as epistemic modals. Though Faller has shown that Quechua reportative evidentials should not be considered epistemic modals, I argue that Ktunaxa paⱡ should be analyzed as such. Much like what Matthewson et al. (2007) have shown for St’át’imcets, both of the so-far-identified Ktunaxa evidentials behave like epistemic modals. In the next section, I will elaborate on the modal analysis of Ktunaxa evidentials.	page 5
+§3	Kate (Yangshuying) Zhou	heading	3 Modal Diagnostics	page 6
+§3	Kate (Yangshuying) Zhou	language	St’át’imcets	St’át’imcets, Lillooet, the Salish language of Matthewson et al. (2007)
+§3	Kate (Yangshuying) Zhou	note	In this section, I model my analysis after the diagnostics in Matthewson et al. (2007) that provided grounds for an epistemic modal analysis of the St’át’imcets evidentials. Matthewson et al. employed eight tests (some adopted from Faller 2002) to explore the modality of evidentials. The tests are listed in (7):	page 6
+(7a)	Kate (Yangshuying) Zhou	note	(In)felicity if embedded proposition is known to be false	page 6, a diagnostic test
+(7b)	Kate (Yangshuying) Zhou	note	(In)felicity if embedded proposition is known to be true	page 6, a diagnostic test
+(7c)	Kate (Yangshuying) Zhou	note	Indirect evidence requirement uncancellable	page 6, a diagnostic test
+(7d)	Kate (Yangshuying) Zhou	note	Indirect evidence requirement not blocked by negation	page 6, a diagnostic test
+(7e)	Kate (Yangshuying) Zhou	note	Embedding	page 6, a diagnostic test
+(7f)	Kate (Yangshuying) Zhou	note	Assent/dissent	page 6, a diagnostic test
+(7g)	Kate (Yangshuying) Zhou	note	Readings in Interrogatives	page 6, a diagnostic test
+(7h)	Kate (Yangshuying) Zhou	note	(In)ability to raise assertive strength	page 6, a diagnostic test
+§3	Ktunaxa	cited form	ⱡin	page 6
+§3	Ktunaxa	cited form	paⱡ	page 6
+§3	Kate (Yangshuying) Zhou	note	The results of these eight tests distinguish between a speech act analysis and an epistemic modal analysis of evidentials. In the following subsections, I test ⱡin and paⱡ against four of the eight tests, namely tests (7a), (7b), (7e), and (7f), and analyze the significance of the test results. The first two diagnostics hinge on the semantics of an epistemic modal such that it means a proposition is necessarily or possibly true in a set of worlds compatible with the speaker’s knowledge, while the latter two center around a modal’s contribution to propositional content.	page 6
+§3.1	Kate (Yangshuying) Zhou	heading	3.1 Embedded Proposition Known to Be False	page 6
+§3.1	Kate (Yangshuying) Zhou	note	I begin by testing the felicity of an utterance when the embedded proposition is known by the speaker to be false. An illocutionary operator analysis of evidentials allows a sentence to be felicitous even when the speaker knows that the proposition of the utterance is untrue. However, a modal would yield an infelicitous reading if the speaker knows that the proposition is false.	page 6
+(8) line 1	Kate (Yangshuying) Zhou	note	Context: Dorothy heard rumors that Maⱡi might be pregnant and tells you the rumors, but you know Maⱡi’s pregnancy test came back negative. When you see me later in the day, you want to tell me about the gossip:	page 6, engine english
+(8) line 2	Ktunaxa	transcription	#Paⱡ ʔupswumni Maⱡi.	page 6, engine residue
+(8) line 3	Ktunaxa	segmentation	paⱡ ʔupswum-ni Maⱡi.	page 6, engine english
+(8) line 4	Ktunaxa	gloss	EVID to.be.pregnant-IND Maⱡi.	page 6, engine english
+(8) line 5	Kate (Yangshuying) Zhou	translation	Intended: ‘Apparently, Mary might be pregnant.’	page 6, engine english
+(9) line 1	Kate (Yangshuying) Zhou	note	Context: You work by a window, so you know for a fact that it didn’t rain. You walk outside and see that the ground is wet and comment:	page 7, engine english
+(9) line 2	Ktunaxa	transcription	#Ⱡin waⱡuq̓ukukutni.	page 7, engine language
+(9) line 3	Ktunaxa	segmentation	Ⱡin waⱡuq̓ukukut-ni	page 7, engine language
+(9) line 4	Ktunaxa	gloss	EVID to.rain-IND	page 7, engine english
+(9) line 5	Kate (Yangshuying) Zhou	translation	Intended: ‘It must’ve rained.’	page 7, engine english
+§3.1	Kate (Yangshuying) Zhou	note	In both (8) and (9), the use of Ktunaxa evidentials is infelicitous when the context supposes that the speaker already possesses the knowledge that the embedded proposition is false. The consultant commented after offering (8) that “I would just say she is not pregnant” and also supplemented (9) by adding “I can’t use this if I know for sure it didn’t rain”. The infelicity of these two sentences illustrates that Ktunaxa evidentials pattern with modals under this test.	page 7
+§3.2	Kate (Yangshuying) Zhou	heading	3.2 Embedded Proposition Known to Be True	page 7
+§3.2	Kate (Yangshuying) Zhou	note	The second test is like the first one, with the exception that the embedded proposition is known by the speaker to be true. If Ktunaxa evidentials are epistemic modals, they should not be felicitous when the speaker already knows the truth condition of the proposition in the utterance. Such a claim is possible because modal sentences are weaker than assertions. Making a weaker statement when the assertion is known to be true does not agree with principles such as Grice’s Quantity Maxim, and thus should be infelicitous. This is verified by (10) and (11).	page 7
+(10) line 1	Kate (Yangshuying) Zhou	note	Context: Dorothy heard rumors that Maⱡi might be pregnant and tells you the rumors, but you know Maⱡi’s pregnancy test came back positive. Later when you see me, you want to tell me about the gossip:	page 7, engine english
+(10) line 2	Ktunaxa	transcription	#Paⱡ ʔupswumni Maⱡi.	page 7, engine residue
+(10) line 3	Ktunaxa	segmentation	paⱡ ʔupswum-ni Maⱡi	page 7, engine english
+(10) line 4	Ktunaxa	gloss	EVID to.be.pregnant-IND Maⱡi	page 7, engine english
+(10) line 5	Kate (Yangshuying) Zhou	translation	Intended: ‘Apparently, Mary might be pregnant.’	page 7, engine english
+(11) line 1	Kate (Yangshuying) Zhou	note	Context: I saved a piece of cake for breakfast, but when I opened the fridge, it was gone. All my siblings, Maⱡi, Ȼa·n, and ʔamlu, had breakfast together before I woke up. I ask my sister Maⱡi who ate my cake since she was there when someone ate it. She says:	page 7, engine english
+(11) line 2	Ktunaxa	transcription	#Ȼa·n ⱡin ʔikni ninkunismiⱡ quqȼiⱡ ʔikiⱡs.	page 7, engine language
+(11) line 3	Ktunaxa	segmentation	ȼa·n ⱡin ʔik-ni ninku-nis-miⱡ quqȼi-ⱡ ʔik-iⱡ-s	page 7, engine residue
+(11) line 4	Ktunaxa	gloss	Ȼa·n EVID to.eat-IND 2-POSS-OBV to.be.sweet-ADV to.eat-PASS-OBV	page 7, engine english
+(11) line 5	Kate (Yangshuying) Zhou	translation	Intended: ‘It must be John who ate your cake.’	page 7, engine english
+§3.2	Kate (Yangshuying) Zhou	note	Both above examples yield infelicitous readings, confirming the result of the first test that Ktunaxa evidentials should be analyzed as epistemic modals. For each of the examples, the consultant judged the sentences infelicitous, and immediately offered the respective assertion counterparts, and commented “I would just say this”.	page 7
+§3.3	Kate (Yangshuying) Zhou	heading	3.3 Embeddability	page 8
+§3.3	Ktunaxa	cited form	ⱡin	page 8
+§3.3	Ktunaxa	cited form	paⱡ	page 8
+§3.3	Kate (Yangshuying) Zhou	note	The embeddability test states that an element contributes to the propositional content if it can be embedded under a factive attitude verb, verbs of saying, or an antecedent of a conditional (Matthewson et al. 2007). This means that if ⱡin and paⱡ can be embedded under any of these environments, they cannot be considered illocutionary operators. Examples (12) and (13) confirm that Ktunaxa evidentials are embeddable under at least some of these environments.	page 8
+(12) line 1	Kate (Yangshuying) Zhou	note	Context: Vi heard some rumors that Maⱡi is pregnant, and she tells you the gossip. Neither of you has seen Maⱡi. You pass along the gossip to me:	page 8, engine english
+(12) line 2	Ktunaxa	transcription	Huⱡpaⱡnititni Vi paⱡ k̓upswums Maⱡis.	page 8, engine residue
+(12) line 3	Ktunaxa	segmentation	Huⱡpaⱡnitit-ni Vi paⱡ k̓-ʔupswum-s Maⱡi-s	page 8, engine residue
+(12) line 4	Ktunaxa	gloss	to.hear-IND Vi EVID COMP-to.be.pregnant-OBV Maⱡi-OBV	page 8, engine english
+(12) line 5	Kate (Yangshuying) Zhou	translation	‘I heard from Vi that Mary might be pregnant.’	page 8, engine english
+(13) line 1	Kate (Yangshuying) Zhou	note	Context: I’m looking for my dog ʔamlu in the yard, and I see his footprints leading into the house. I say:	page 8, engine english
+(13) line 2	Ktunaxa	transcription	Hu qaⱡwiyni ⱡin tinaxamni ʔamlu.	page 8, engine residue
+(13) line 3	Ktunaxa	segmentation	Hu qaⱡwiy-ni ⱡin tinaxam-ni ʔamlu	page 8, engine english
+(13) line 4	Ktunaxa	gloss	1.SBJ to.think-IND EVID to.return-IND ʔamlu	page 8, engine english
+(13) line 5	Kate (Yangshuying) Zhou	translation	‘I think that ʔamlu must’ve gone inside.’	page 8, engine english
+§3.3	Kate (Yangshuying) Zhou	note	The embeddability of ⱡin and paⱡ shown above acts as another test that confirms the modal analysis of Ktunaxa evidentials.	page 8
+§3.4	Kate (Yangshuying) Zhou	heading	3.4 Assent/Dissent Test	page 8
+§3.4	Kate (Yangshuying) Zhou	note	The assent/dissent test hinges on the property that illocutionary operators do not contribute to the propositional content and therefore cannot be agreed or disagreed with in a conversation. Epistemic modals, however, should pass the assent/dissent test since they are part of the propositional content. This property is illustrated in a conversation between A and B in (14) and (15).	page 8
+(14A) line 1	Kate (Yangshuying) Zhou	note	Context: I’m playing with my dog ʔamlu in the yard but suddenly can’t find him, so I ask my brother if he has seen ʔamlu. My brother hasn’t but sees some pawprints leading into the house. So, he thinks ʔamlu is inside. He points to the pawprints and says:	page 9, engine english
+(14A) line 2	Ktunaxa	transcription	Ⱡin taxamni ʔamlu.	page 9, engine residue
+(14A) line 3	Ktunaxa	segmentation	ⱡin taxam-ni ʔamlu	page 9, engine english
+(14A) line 4	Ktunaxa	gloss	EVID to.return-IND ʔamlu	page 9, engine english
+(14A) line 5	Kate (Yangshuying) Zhou	translation	‘ʔamlu must’ve returned home.’	page 9, engine english
+(14B) line 1	Kate (Yangshuying) Zhou	note	Context: My father came out of the house, and he saw ʔamlu inside. He also knows that those pawprints were from when he walked ʔamlu in the morning and not from just now, so he says:	page 9, engine english
+(14B) line 2	Ktunaxa	transcription	Waha, ʔinsi nis wiⱡnams. ʔaqⱡaʔs sawsaqaʔni ʔamlu.	page 9, engine language
+(14B) line 3	Ktunaxa	segmentation	waha ʔin-s-i ni-s wiⱡnam-s ʔaqⱡa-s sawsaqa-ni	page 9, engine language
+(14B) line 4	Ktunaxa	gloss	no to.be-OBV-IND DET-OBV morning-OBV indoors-OBV still.be.there-IND	page 9, engine english
+(14B) line 5	Ktunaxa	segmentation	ʔamlu	page 9, engine language
+(14B) line 6	Ktunaxa	gloss	ʔamlu	page 9, engine language
+(14B) line 7	Kate (Yangshuying) Zhou	translation	‘No, it is (those are) from this morning. ʔamlu is inside.’	page 9, engine english
+(15A) line 1	Kate (Yangshuying) Zhou	note	Context: Dorothy heard rumors that Maⱡi might be pregnant and tells you the rumors:	page 9, engine english
+(15A) line 2	Ktunaxa	transcription	Paⱡ ʔupswumni Maⱡi.	page 9, engine residue
+(15A) line 3	Ktunaxa	segmentation	paⱡ ʔupswum-ni Maⱡi	page 9, engine english
+(15A) line 4	Ktunaxa	gloss	EVID to.be.pregnant-IND Maⱡi	page 9, engine english
+(15A) line 5	Kate (Yangshuying) Zhou	translation	‘Apparently, Mary is pregnant.’	page 9, engine english
+(15B) line 1	Kate (Yangshuying) Zhou	note	Context: But you know for a fact that Maⱡi’s test came up positive.	page 9, engine english
+(15B) line 2	Ktunaxa	transcription	Hiyi, siⱡ ʔupswumni Maⱡi.	page 9, engine residue
+(15B) line 3	Ktunaxa	segmentation	hiyi s-iⱡ ʔupswum-ni Maⱡi	page 9, engine residue
+(15B) line 4	Ktunaxa	gloss	yes PROG-ADV to.be.pregnant-IND Maⱡi	page 9, engine english
+(15B) line 5	Kate (Yangshuying) Zhou	translation	‘Yes, Mary is pregnant.’	page 9, engine english
+§3.4	Ktunaxa	cited form	waha	page 9, ‘no’
+§3.4	Kate (Yangshuying) Zhou	name	ʔamlu	ʔamlu, the dog of the examples
+§3.4	Ktunaxa	cited form	paⱡ	page 9
+§3.4	Ktunaxa	cited form	ⱡin	page 9
+§3.4	Kate (Yangshuying) Zhou	note	In (14B), my father explicit says waha ‘no’ to my brother’s utterance in (14A). By saying no, he does not mean that ʔamlu is not home, but rather objects to the inference my brother makes. What’s more, (14B) explicitly states that ʔamlu is home, agreeing with the proposition of (14A). Similarly, the speaker of (15B) comments on the source of information in (15A) and affirms the validity of the rumor. Thus, both paⱡ and ⱡin pass the assent/dissent test.	page 9
+§3.5	Kate (Yangshuying) Zhou	heading	3.5 Diagnostic Results	page 9
+§3.5	Kate (Yangshuying) Zhou	note	To conclude this section, I revisit the eight diagnostic tests and summarize the test results in the table below.	page 9
+Table 1	Kate (Yangshuying) Zhou	note	Table 1: Diagnostic test results	page 10, the caption
+Table 1	Kate (Yangshuying) Zhou	note	Illoc.op. Analysis Modal Analysis Ktunaxa Evidentials	page 10, the column heads
+Table 1	Kate (Yangshuying) Zhou	note	(In)felicity if embedded proposition is known to be false ✓ ✗ ✗	page 10, a row, the three cells under Illoc.op. Analysis, Modal Analysis and Ktunaxa Evidentials
+Table 1	Kate (Yangshuying) Zhou	note	(In)felicity if embedded proposition is known to be true ✓ ✗ ✗	page 10, a row, the three cells under Illoc.op. Analysis, Modal Analysis and Ktunaxa Evidentials
+Table 1	Kate (Yangshuying) Zhou	note	Indirect evidence requirement not cancellable ✗ ✗ Not tested	page 10, a row, the three cells under Illoc.op. Analysis, Modal Analysis and Ktunaxa Evidentials
+Table 1	Kate (Yangshuying) Zhou	note	Indirect evidence requirement not blocked by negation ✗ ✗ Not tested	page 10, a row, the three cells under Illoc.op. Analysis, Modal Analysis and Ktunaxa Evidentials
+Table 1	Kate (Yangshuying) Zhou	note	Embedding ✗ ✓ ✓	page 10, a row, the three cells under Illoc.op. Analysis, Modal Analysis and Ktunaxa Evidentials
+Table 1	Kate (Yangshuying) Zhou	note	Assent/dissent ✗ ✓ ✓	page 10, a row, the three cells under Illoc.op. Analysis, Modal Analysis and Ktunaxa Evidentials
+Table 1	Kate (Yangshuying) Zhou	note	Readings in Interrogatives ✓ ✗ Not tested	page 10, a row, the three cells under Illoc.op. Analysis, Modal Analysis and Ktunaxa Evidentials
+Table 1	Kate (Yangshuying) Zhou	note	(In)ability to raise assertive strength Unknown Unknown Not tested	page 10, a row, the three cells under Illoc.op. Analysis, Modal Analysis and Ktunaxa Evidentials
+§3.5	Ktunaxa	cited form	ⱡin	page 10
+§3.5	Ktunaxa	cited form	paⱡ	page 10
+§3.5	Kate (Yangshuying) Zhou	note	As shown above, illocutionary operators and modals differ in at least five out of eight behaviors, with one of the properties, namely the ability or inability to raise assertive strength, being unknown. Out of the five differing categories, readings in interrogatives were not tested, as it has been rare to encounter ⱡin and paⱡ in interrogatives. In elicitations, interrogatives with ⱡin and paⱡ have also been rejected by the consultants, though it is yet unknown whether the interrogatives are infelicitous or ungrammatical. In terms of the remaining four tests that yield differing results for illocutionary operators and epistemic modals, Ktunaxa evidentials pattern with the epistemic modals.	page 10
+§4	Kate (Yangshuying) Zhou	heading	4 Results	page 10
+§4	Kate (Yangshuying) Zhou	language	St’át’imcets	St’át’imcets, Lillooet, the Salish language of Matthewson et al. (2007)
+§4	Kate (Yangshuying) Zhou	note	This paper surveyed the evidentials in Ktunaxa and identified the types of evidentiality each Ktunaxa evidential possesses for the first time. Furthermore, it laid out evidence that suggests that, like St’át’imcets, Ktunaxa evidentials also pattern like epistemic modals, instead of illocutionary operators.	page 10
+§5	Kate (Yangshuying) Zhou	heading	5 Future Directions	page 10
+§5	Ktunaxa	cited form	paⱡ	page 10
+§5	Ktunaxa	cited form	ⱡin	page 10
+§5	Kate (Yangshuying) Zhou	note	The rudimentary understanding of Ktunaxa evidentials paⱡ and ⱡin summarized in this paper lays the foundation for further explorations in the matter.	page 10
+§5	Kate (Yangshuying) Zhou	note	The four tests detailed in Section 3 allowed for preliminary comparisons between the illocutionary operator analysis and the modal analysis of Ktunaxa evidentials and provided convincing evidence to support the epistemic modal reading for paⱡ and ⱡin. To further bolster such a claim, testing the remaining four diagnostics would be a natural extension to the work done so far. Although three of the remaining four tests would not help us distinguish between the two analyses, applying them would aid in our understanding of the behavior of paⱡ and ⱡin. Furthermore, during elicitations and text collections, interrogative readings of paⱡ and ⱡin are extremely rare to come by. Thus, exploring their compatibility with or behavior in interrogatives is essential to better grasp the semantics of Ktunaxa evidentials.	page 10
+§5	Kate (Yangshuying) Zhou	language	St’át’imcets	St’át’imcets, Lillooet, the Salish language of Matthewson et al. (2007)
+§5	Kate (Yangshuying) Zhou	note	The next step after solidifying the epistemic modal analysis of Ktunaxa evidentials is to understand their modal strength. Burge (2016) claims that paⱡ and ⱡin have variable strengths, meaning that they can have both universal and existential quantificational forces. Modals quantify over possible worlds with existential (i.e., possibility) or universal (i.e., necessity) strengths. However, salient distinctions in modality are identified cross-linguistically.For example, English modals have a fixed modal strength with variable modal bases, while many Salish languages such as St’át’imcets (Matthewson et al. 2006) and Comox-Sliammon (Reisinger 2018) have a fixed modal base with varying strengths. If Burge’s proposal is confirmed, Ktunaxa modals possibly pattern like Salish modals, with a fixed modal base but variable quantificational forces. Surveying the modal strengths of paⱡ and ⱡin will not only further uncover the meaning of Ktunaxa evidentials, but it will also allow us to draw crucial cross-linguistic connections with languages in the Salish family.	page 11
+§5	Kate (Yangshuying) Zhou	note	Lastly, to understand more about the syntactic properties of Ktunaxa evidentials is tantamount to exploring its semantic properties. As modals, Ktunaxa evidentials scope high in the syntax, yet their exact position is to be confirmed. Moreover, uncovering the syntax of Ktunaxa evidentials can potentially start untangling the unsolved puzzles of their behaviors in interrogatives as well as their interactions with complementizers.	page 11
+references	Kate (Yangshuying) Zhou	heading	References	page 11
+references	Kate (Yangshuying) Zhou	reference	Aksu-Koç, Ayhan A., and Dan I. Slobin. 1986. A psychological account of the development and use of evidentials in turkish. In Wallace Chafe and Johanna Nichols (eds.), Evidentiality: the linguistic coding of epistemology. Norwood, NJ: Ablex, 159–167.	
+references	Kate (Yangshuying) Zhou	reference	Boas, Franz. 1918. Kutenai tales by Franz Boas, together with texts collected by Alexander Francis Chamberlain. Washington, DC: Government Printing Office.	
+references	Kate (Yangshuying) Zhou	reference	Bochnak, M. Ryan, and Lisa Matthewson. 2020. Techniques in complex semantic fieldwork. Annual Review of Linguistics 6: 261–283.	
+references	Kate (Yangshuying) Zhou	reference	Burge, Heather. 2016. Modality in Ktunaxa. In Proceedings of the Ninth Conference on the Semantics of Under-represented Languages in the Americas.	
+references	Kate (Yangshuying) Zhou	reference	Cover, Rebecca T. 2015. Semantic fieldwork on TAM. In M. Ryan Bochnak and Lisa Matthewson (eds.), Methodologies in Semantic Fieldwork. New York, NY: Oxford University Press, 233– 268.	
+references	Kate (Yangshuying) Zhou	reference	Faller, Martina. 2002. Semantics and Pragmatics of Evidentials in Cuzco Quechua. Doctoral dissertation, Stanford.	
+references	Kate (Yangshuying) Zhou	reference	Garvin, Paul L. 1948. Kutenai iii: Morpheme distributions (prefix, theme, suffix). International Journal of American Linguistics 14(3):171–187.	
+references	Kate (Yangshuying) Zhou	reference	de Haan, Ferdinand. 2012. Evidentiality and Mirativity. In Robert I. Binnick (ed.), The Oxford Handbook of Tense and Aspect. Oxford, UK: Oxford University Press, 1020–1045.	
+references	Kate (Yangshuying) Zhou	language	St’át’imcets	St’át’imcets, Lillooet, the Salish language of Matthewson et al. (2007)
+references	Kate (Yangshuying) Zhou	reference	Littell, Patrick. 2010. Animal party. <http://www.totemfieldstoryboards.org>	
+references	Kate (Yangshuying) Zhou	reference	Matthewson, Lisa, Henry Davis, and Hotze Rullmann. 2007. Evidentials as epistemic modals: Evidence from St’át’imcets. Linguistic Variation Yearbook 7:201–254.	
+references	Kate (Yangshuying) Zhou	reference	Matthewson, Lisa, Hotze Rullmann, and Henry Davis. 2006. Modality in St’át’imcets. In Papers for ICSNL 40, 93–112.	
+references	Kate (Yangshuying) Zhou	reference	Morgan, Lawrence. 1991. A Description of the Kutenai language. Doctoral dissertation, University of California, Berkeley.	
+references	Kate (Yangshuying) Zhou	reference	Reisinger, D. K. E. 2018. Modality in Comox-Sliammon. In Papers for ICSNL 53, 197–227.	
+references	Kate (Yangshuying) Zhou	reference	Willett, Thomas. 1988. A Cross-linguistic survey of the Grammaticization of Evidentiality. Studies in Language. International Journal sponsored by the Foundation “Foundations of Language” 12(3):51–97.	

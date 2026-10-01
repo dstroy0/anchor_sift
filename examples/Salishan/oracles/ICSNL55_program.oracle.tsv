@@ -1,0 +1,64 @@
+where	who	kind	form	gloss
+front	ICSNL 55 organizers	title	International Conference on Salish and Neighbouring Languages (ICSNL) 55	page 1, the schedule's heading line
+front	ICSNL 55 organizers	notation	the schedule of a conference, not a paper	the talks of ICSNL 55, August 13 to 15, 2020
+front	ICSNL 55 organizers	note	August 13-15, 2020	page 1, the dates
+Thursday	ICSNL 55 organizers	heading	Thursday, August 13th	page 1, the day
+Thursday	ICSNL 55 organizers	heading	Session 1 - Chair: Nico Baier (13th - 12:30-14:30)	page 1, the session, its chair and its hours
+Thursday 12:30	ICSNL 55 organizers	note	12:30 – Opening Remarks and Prayer	page 1, a talk: its time, the presenters and the title
+Thursday 13:00	ICSNL 55 organizers	note	13:00 – Henry Davis, Marianne Huijsmans, and Gloria Mellesmoen: Statives in ʔayʔaǰuθəm and St’át’imcets	page 1, a talk: its time, the presenters and the title
+Thursday 13:00	ICSNL 55 organizers	language	ʔayʔaǰuθəm	Comox-Sliammon, a language of the talk
+Thursday 13:00	ICSNL 55 organizers	language	St’át’imcets	Lillooet, a language of the talk
+Thursday 13:30	ICSNL 55 organizers	note	13:30 – Katie Sardinha: Aspectual /-x’id/ in Modern Kwak̓wala	page 1, a talk: its time, the presenters and the title
+Thursday 13:30	ICSNL 55 organizers	language	Kwak̓wala	Kwakw'ala, a language of the talk
+Thursday 14:00	ICSNL 55 organizers	note	14:00 – Adam Werle: Nuuchahnulth Dialectisms in Nootka Jargon	page 1, a talk: its time, the presenters and the title
+Thursday 14:00	ICSNL 55 organizers	language	Nuuchahnulth	Nuu-chah-nulth, a language of the talk
+Thursday 14:00	ICSNL 55 organizers	language	Nootka Jargon	a pidgin of the Nuu-chah-nulth coast, a language of the talk
+Thursday	ICSNL 55 organizers	heading	Session 2 - Chair: Hannah Green (13th - 15:00-17:00)	page 1, the session, its chair and its hours
+Thursday 15:00	ICSNL 55 organizers	note	15:00 – John Lyon answering questions on behalf of Jan P. van Eijk and Hank Nater: Some Notes on Proto-Salish Phonology	page 1, a talk: its time, the presenters and the title
+Thursday 15:00	ICSNL 55 organizers	language	Proto-Salish	the reconstructed ancestor, a language of the talk
+Thursday 15:30	ICSNL 55 organizers	note	15:30 – Henry Davis: Infinitives and Raising in St’át’imcets	page 1, a talk: its time, the presenters and the title
+Thursday 15:30	ICSNL 55 organizers	language	St’át’imcets	Lillooet, a language of the talk
+Thursday 16:00	ICSNL 55 organizers	note	16:00 – Zack Gilkinson, Donna Gerdts, and Tara Morris: Dialogue in Hul’q’umi’num’ stories	page 1, a talk: its time, the presenters and the title
+Thursday 16:00	ICSNL 55 organizers	language	Hul’q’umi’num’	Island Halkomelem, a language of the talk
+Thursday 16:30	ICSNL 55 organizers	note	16:30 – Donna Gerdts: ’aaa, si’em’, ’aaa: Vocatives in Hul’q’umi’num’ Stories	page 1, a talk: its time, the presenters and the title
+Thursday 16:30	ICSNL 55 organizers	language	Hul’q’umi’num’	Island Halkomelem, a language of the talk
+Friday	ICSNL 55 organizers	heading	Friday, August 14th	page 1, the day
+Friday	ICSNL 55 organizers	heading	Session 2 – Chair: TBA (14th 10:00-12:00)	page 1, the session, its chair and its hours
+Friday 10:00	ICSNL 55 organizers	note	10:00 - Language Program reports	page 1, a talk: its time, the presenters and the title
+Friday	ICSNL 55 organizers	heading	Session 3 - Chair: Lisa Matthewson (14th - 13:00-14:30)	page 1, the session, its chair and its hours
+Friday 13:00	ICSNL 55 organizers	note	13:00 – Colin Brown, Clarissa Forbes, and Michael David Schwan: Clause-type, Transitivity, and the Transitive Vowel in Tsimshianic	page 1, a talk: its time, the presenters and the title
+Friday 13:00	ICSNL 55 organizers	language	Tsimshianic	the family of Gitksan and its sisters, a language of the talk
+Friday 13:30	ICSNL 55 organizers	note	13:30 – Gloria Mellesmoen and Suzanne Urbanczyk: Mora Affixation and Halkomelem Imperfective Allomorphy	page 1, a talk: its time, the presenters and the title
+Friday 13:30	ICSNL 55 organizers	language	Halkomelem	Central Salish, a language of the talk
+Friday 14:00	ICSNL 55 organizers	note	14:00 – Chris Alphonse, Martina Joe, Janet Leonard, Tess Nolan, Maida Percival, et al. (representing the Hul’q’umi’num’ Language Academy): Fixing up our Hul’q’umi’num’ Pronunciation	page 1, a talk: its time, the presenters and the title
+Friday 14:00	ICSNL 55 organizers	language	Hul’q’umi’num’	Island Halkomelem, a language of the talk
+Friday	ICSNL 55 organizers	heading	Session 4 - Chair: Suzanne Urbanczyk (14th - 15:00-17:00)	page 1, the session, its chair and its hours
+Friday 15:00	ICSNL 55 organizers	note	15:00 –- Marianne Huijsmans, D. K. E. Reisinger, and Lisa Matthewson: Evidential Determiners in ʔayʔaǰuθəm	page 1, a talk: its time, the presenters and the title
+Friday 15:00	ICSNL 55 organizers	language	ʔayʔaǰuθəm	Comox-Sliammon, a language of the talk
+Friday 15:30	ICSNL 55 organizers	note	15:30 – Donna Gerdts and Nancy Hedberg: Discourse Functions of Hul’q’umi’num’ demonstratives	page 1, a talk: its time, the presenters and the title
+Friday 15:30	ICSNL 55 organizers	language	Hul’q’umi’num’	Island Halkomelem, a language of the talk
+Friday 16:00	ICSNL 55 organizers	note	16:00 – Adam Werle: The Kyuquot-Checleseht Nuuchahnulth Sound System	page 1, a talk: its time, the presenters and the title
+Friday 16:00	ICSNL 55 organizers	language	Nuuchahnulth	Nuu-chah-nulth, a language of the talk
+Friday 16:30	ICSNL 55 organizers	note	16:30 – John Lyon and Ewa Czaykowska-Higgins: Orbital Clitics in Nxaʔamxčín	page 1, a talk: its time, the presenters and the title
+Friday 16:30	ICSNL 55 organizers	language	Nxaʔamxčín	Columbia-Moses, a language of the talk
+Friday 17:00	ICSNL 55 organizers	note	17:00 Business Meeting (followed by Dinner)	page 1, a talk: its time, the presenters and the title
+Saturday	ICSNL 55 organizers	heading	Saturday, August 15th	page 2, the day
+Saturday	ICSNL 55 organizers	heading	Session 5 - Chair: Susan Blake (15th - 10:00-11:30)	page 2, the session, its chair and its hours
+Saturday 10:00	ICSNL 55 organizers	note	10:00 – Olga Ikonnikova: The Southern Interior Salish Languages and the Problem of Origin of Nominals: Diachronic View	page 2, a talk: its time, the presenters and the title
+Saturday 10:30	ICSNL 55 organizers	note	10:30 – Henry Davis, Laura Griffin, Marianne Huijsmans, and Gloria Mellesmoen: Extracting Possessors in ʔayʔaǰuθəm	page 2, a talk: its time, the presenters and the title
+Saturday 10:30	ICSNL 55 organizers	language	ʔayʔaǰuθəm	Comox-Sliammon, a language of the talk
+Saturday 11:00	ICSNL 55 organizers	note	11:00 - Katie Sardinha: The Grammar of Body-Directed Action Verbs in Kwak̕ wala"	page 2, a talk: its time, the presenters and the title
+Saturday 11:00	ICSNL 55 organizers	language	Kwak̕ wala	Kwakw'ala, as printed, a language of the talk
+Saturday	ICSNL 55 organizers	heading	Session 6 - Chair: John Lyon (15th - 13:00-14:30)	page 2, the session, its chair and its hours
+Saturday 13:00	ICSNL 55 organizers	note	13:00 – Sʔímlaʔxw Michele Johnson, K̓ninm̓tm̓ taʔ n̓q̓wic̓tn̓ Grouse Barnes, and Q̓ʷłtal'qs Christina Hardwick: sisp̓ lk̓ iʔ sʕax̌wíptət — Seven Generations: An N̓ syilxčn̓ Literary Contribution	page 2, a talk: its time, the presenters and the title
+Saturday 13:00	ICSNL 55 organizers	language	N̓ syilxčn̓	nsyilxcən, Okanagan, as printed, a language of the talk
+Saturday 13:30	ICSNL 55 organizers	note	13:30 – Henry Davis: The Burning Church at Shalalth: Two Eyewitness Accounts in St’át’imcets	page 2, a talk: its time, the presenters and the title
+Saturday 13:30	ICSNL 55 organizers	language	St’át’imcets	Lillooet, a language of the talk
+Saturday 14:00	ICSNL 55 organizers	note	14:00 – Rae Anne Claxton Baker: ni’ st’e ’ukw’ stal’uw’ ’u kwun’s tatul’ut tthu sxwi’em’: Learning to tell Hul’q’umi’num’ stories from an Indigenous perspective	page 2, a talk: its time, the presenters and the title
+Saturday 14:00	ICSNL 55 organizers	language	Hul’q’umi’num’	Island Halkomelem, a language of the talk
+Saturday	ICSNL 55 organizers	heading	Session 7 - Chair: Amanda Cardoso (15th - 15:00-16:30)	page 2, the session, its chair and its hours
+Saturday 15:00	ICSNL 55 organizers	note	15:00 – Neyooxet Greymorning: Accelerated Second Language Acquisition (ASLA): A Pathway for Effective Native Language Instruction and Rejuvenation	page 2, a talk: its time, the presenters and the title
+Saturday 15:30	ICSNL 55 organizers	note	15:30 – Madeleine Shek: Accelerated Second Language Acquisition (ASLA): A History and Perspective on Practices and Theories of Language Acquisition	page 2, a talk: its time, the presenters and the title
+Saturday 16:00	ICSNL 55 organizers	note	16:00 – Clark Webb: A Language Community Perspective on Adopting Accelerated Second Language Acquisition (ASLA) as the Primary Teaching Method of Gumbaynggirr	page 2, a talk: its time, the presenters and the title
+Saturday 16:00	ICSNL 55 organizers	language	Gumbaynggirr	Australian, New South Wales, a language of the talk
+Saturday 16:30	ICSNL 55 organizers	note	16:30 - Closing Remarks and Farewell	page 2, a talk: its time, the presenters and the title

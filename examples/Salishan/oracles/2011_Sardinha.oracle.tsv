@@ -1,0 +1,665 @@
+where	who	kind	form	gloss
+front	Katie Sardinha	title	Prepositional his and the development of morphological case in Northern Wakashan1	page 1
+front	Katie Sardinha	name	Katie Sardinha	author
+front	Katie Sardinha	note	University of British Columbia	page 1, under Katie Sardinha
+front	Katie Sardinha	note	This paper will present evidence for the historical development of “oblique” and “genitive” case-marking clitics in the Northern Wakashan language family from the Proto- North Wakashan preposition *his and an associated set of person-marking enclitics. The three Upper Northern Wakashan languages (Haisla, Heiltsuk, Oowekyala) are at intermediate stages of a process whereby a remnant of the preposition his/yis together with its associated person- marking enclitics is becoming enclitic to the prosodic word prior to the noun phrase it introduces or replaces; this can be taken as evidence that these languages are moving towards developing case-marking such as that which exists in Kwak’wala. Correspondences between the synchronic distribution and phonology of the Kwak’wala oblique and third-person possessive clitics and that of his/yis prepositional constructions in the Upper Northern Wakashan languages provide additional evidence for an historical relationship. Prior to the development of morphological case, prepositions themselves seem to have been innovated in the Northern Wakashan language branch from verbal and demonstrative roots. This situation indicates a deep syntactic divide, and significant time depth, between the Northern and Southern branches of Wakashan.	page 1, the abstract
+front	Katie Sardinha	language	Kwak’wala	Northern Wakashan
+footnote 1	Katie Sardinha	note	I would like to thank my Kwak’wala consultant Ruby Dawson Cranmer for sharing her language with me, my supervisor Henry Davis, and the members of the 2009-2010 UBC Field Methods class. The work presented here has been made possible by Jacobs Grant funding and an SSHRC grant #410-2008-2535 awarded to Henry Davis. All errors are my responsibility.	page 1, footnote 1, on the title
+footnote 1	Katie Sardinha	name	Ruby Dawson Cranmer	the author's Kwak’wala consultant, thanked in the note on the title
+footnote 1	Katie Sardinha	name	Henry Davis	the author's supervisor, thanked in the note on the title
+footnote 1	Katie Sardinha	name	Davis	Henry Davis (2010), lexical suffixes and the Mosan hypothesis
+§1	Katie Sardinha	heading	1 Introduction	page 1
+§1	Katie Sardinha	note	The aim of this paper is to develop an historical hypothesis to account for the innovation of two Northern Wakashan syntactic features which are conspicuously absent in the Southern Wakashan branch: the presence of prepositions, and the occurrence of varying degrees of morphological case- marking. More specifically, I will be presenting evidence for two historical innovations in Northern Wakashan: 1) the development of Northern Wakashan prepositions from verbal and demonstrative origins; and 2) the innovation of “oblique” and “genitive” case-markers from prepositional constructions involving Proto-Northern Wakashan *his. I will begin by briefly introducing the Wakashan language family and providing some background regarding the absence of prepositions and case-marking in the Southern branch of Wakashan; this discussion will serve to highlight the large degree to which the two branches of the family differ from each other syntactically (Section 2). I will then shift my focus onto the Northern branch, beginning with a presentation of two lines of evidence for the development of oblique and genitive case markers in the Northern languages from prepositional *his constructions (Section 3). The first line of evidence will focus on data illustrating that the Upper Northern Wakashan languages are at an intermediate stage of developing case-marking like that which is already fully developed in Kwak’wala; the second line of evidence will focus on showing that the function and distribution of certain Kwak’wala case-markers both overlaps with that of *his constructions in the Upper Northern Wakashan languages and is phonologically derived from these older constructions. Following this, I will attempt to trace the origins of Northern Wakashan prepositions back to verbal and demonstrative roots in Proto-Northern Wakashan and Proto-Wakashan (Section 4). In the final section of the paper (Section 5) I will summarize several implications of the data presented for the internal grouping of the Northern Wakashan branch and for the Wakashan language family as a whole. I will finish by highlighting several avenues for future research.	page 1
+§1	Katie Sardinha	language	Wakashan	the family
+§1	Katie Sardinha	language	Proto-Northern Wakashan	the reconstructed ancestor of the branch
+§1	Katie Sardinha	language	Proto-Wakashan	the reconstructed ancestor of the family
+§2	Katie Sardinha	heading	2 The Wakashan language family	page 2
+§2	Katie Sardinha	note	The Wakashan language family consists of seven languages spoken along the central coast of British Columbia, the northern and western sections of Vancouver Island, and the northwestern tip of the Olympic Peninsula. The family is further divided into two branches, Northern and Southern, which are believed to have diverged very long ago, given the large degree of linguistic divergence between them (Fortescue 2007).	page 2
+§2	Katie Sardinha	name	Fortescue	Michael Fortescue (2006, 2007), the grammaticalization divide and the Wakashan dictionary
+§2	Katie Sardinha	note	The Northern branch includes four languages: Haisla (Ha), Heiltsuk (He), Oowekyala (Oo), and Kwak’wala (Kw). In terms of internal similarity, this branch can be further subdivided into Upper Northern Wakashan including Haisla, Heiltsuk, and Oowekyala on the one hand, and Kwak’wala on the other. This distinction arises from the observation that the Upper Northern Wakashan languages are “structurally very similar and mutually intelligible” (Rath 1984: 318). Internal to this grouping, Oowekyala and Heiltsuk are considered to be very closely related, to the extent that their division into two languages was disputed until relatively recently; see Howe (2000: 4) for a discussion on differences between the two languages. Kwak’wala, on the other hand, is noted to have diverged more significantly from its Northern neighbours.	page 2
+§2	Katie Sardinha	name	Rath	John C. Rath (1981, 1984), the Heiltsuk dictionary and the word classes of Upper North Wakashan
+§2	Katie Sardinha	name	Howe	Darin Howe (2000), Oowekyala segmental phonology
+§2	Katie Sardinha	language	Haisla	Upper Northern Wakashan
+§2	Katie Sardinha	language	Heiltsuk	Upper Northern Wakashan
+§2	Katie Sardinha	language	Oowekyala	Upper Northern Wakashan
+§2	Katie Sardinha	note	The Southern branch of the family consists of three languages: Nuu- Chah-Nulth (NCN), Ditidaht (Di), and Makah (Ma); within this branch, Ditidaht and Makah are generally considered to be somewhat more closely related (see Jacobsen 2007 for a discussion of relations within Southern Wakashan and for lexical evidence supporting this sub-classification; also Nakayama 2001, Fortescue 2007).	page 2
+§2	Katie Sardinha	name	Jacobsen	William Jacobsen (2007), the subclassification of Southern Wakashan
+§2	Katie Sardinha	name	Nakayama	Toshihide Nakayama (2001), Nuuchahnulth morphosyntax
+§2	Katie Sardinha	language	Ditidaht	Southern Wakashan
+§2	Katie Sardinha	language	Makah	Southern Wakashan
+§2	Katie Sardinha	note	One major syntactic difference between the Northern and Southern branches is that only the former branch possesses a distinct grammatical class that is straightforwardly labeled “preposition”. In the Northern languages, prepositions can be identified on the basis of occupying particular syntactic configurations. More specifically, they head prepositional phrases at the right periphery of clauses, and modifier phrases at the right-periphery of noun- phrases (see Section 3.2). Semantically, prepositional constructions as a class carry a large functional load in these languages, introducing locative, benefactive, instrumental, and genitive DPs. Prepositional phrases are very frequently employed both in texts and speech.	page 3
+§2	Katie Sardinha	note	Given the apparent importance of prepositions in the Northern Wakashan languages, one might wonder at how the Southern languages encode the same types of meaning. In fact, three construction types are used in the Southern languages to express prepositional concepts, the first two of which are also employed in the Northern languages: lexical suffixes, locative predicates, and preposition-like ‘verbals’.	page 3
+§2	Katie Sardinha	note	Lexical suffixes are used extensively throughout the Wakashan languages to convey various locative meanings; indeed, the existence of many cognate lexical suffixes is a major source of evidence for the Wakashan grouping. Lexical suffixes are affixes and thus cannot occur in the absence of a host root, though they carry semantic content which may influence the argument structure of the sentence.	page 3
+§2	Katie Sardinha	note	Whether or not all lexical suffixes are capable of influencing argument structure has, however, been an issue of debate within the Wakashan literature. This debate concerns a division, originally proposed by Sapir & Swadesh (1939), between “governing” and “restrictive” lexical suffixes. According to this proposal, governing lexical suffixes are considered to be ‘root-like’ (i.e. predicative) while restrictive lexical suffixes are considered to be modificational but not predicative. On this analysis, only governing lexical suffixes are capable of influencing argument structure. Wojdak (2004) has argued against this distinction, arguing that all lexical suffixes are in fact predicative but differ with regards to their underlying argument structure. I will briefly touch upon these two types of analysis here.	page 3
+§2	Katie Sardinha	name	Sapir	Edward Sapir (1939, with Morris Swadesh), governing and restrictive suffixes
+§2	Katie Sardinha	name	Swadesh	Morris Swadesh (1939, with Edward Sapir), governing and restrictive suffixes
+§2	Katie Sardinha	name	Wojdak	Rachel Wojdak (2004), the classification of Wakashan lexical suffixes
+§2	Katie Sardinha	note	Davidson (2002: 183) accepts that there is a basic division between governing (which he terms ‘nuclear’) suffixes and restrictive suffixes. Suffixes such as –či ‘in’ are nuclear suffixes, which become “the head of the resultant word” (ibid. 182). The majority of locative lexical suffixes are, however, of the restrictive variety, and serve only to modify “the meaning of its base without fundamentally altering its semantic category or word class.” (ibid.) Davidson outlines three such classes of restrictive locative lexical suffixes in Nuu-Chah- Nulth and Makah: path-orientation suffixes, locale suffixes, and site suffixes. According to Davidson, path-orientation suffixes “express various notions of physical orientation and spatial relation, particularly the motion or location of an entity with respect to a certain path”. These suffixes may specify such concepts such as movement away from a speaker or movement in a certain direction, such as in the following Nuu-Chah-Nulth example, where the meaning of ‘fly’ is modified by a path-orientation suffix meaning ‘move.down’:2	page 3
+footnote 2	Katie Sardinha	note	Vowels in examples from (Davidson 2002) have been represented with the diacritics ‘`’ (‘long’) and ‘:’ (‘persistently long’). See Appendix I for a list of glossing abbreviations.	page 4, footnote 2
+§2	Kwak’wala	cited form	–či	page 3, in italics, ‘in’
+§2	Katie Sardinha	name	Davidson	Matthew Davidson (2002), Southern Wakashan grammar, the source of the Nuu-Chah-Nulth and Makah examples
+§2	Katie Sardinha	language	Nuu-Chah-Nulth	Southern Wakashan
+(1) line 1	Nuu-Chah-Nulth	transcription	matʕa`ʔataƛ ma`ma`tiʔi	page 4
+(1) line 2	Katie Sardinha	citation	(Davidson 2002: 198)	page 4, the tag at the right of the line
+(1) line 3	Nuu-Chah-Nulth	segmentation	mat-ʕa`ʔatu=’aƛ ma`ma`ti=ʔi`	page 4
+(1) line 4	Nuu-Chah-Nulth	gloss	fly-move.down.PERF=TEMP bird=ART	page 4
+(1) line 5	Katie Sardinha	translation	‘The bird flew down.’	page 4
+§2	Katie Sardinha	note	Whereas path-orientation suffixes depict directional movement, other locative suffixes depict location on or at a place. The four “locale” suffixes and numerous “site” suffixes (which are differentiated formally from each other) encode various meanings such as location at a place (e.g. NCN/Ma -iɬ ‘in the house, on the floor’), location at or on specific body parts (e.g. NCN –(w)inɬ and M –adiɬ [L] ‘on the neck’), locations in nature, or abstract location-related notions like ‘behind’ (see Davidson 2002: 200). Though many lexical suffixes can attach to different roots, it is very common for all types of lexical suffixes to be attached to the semantically “empty” locative root hita-, hina-, hin- (NCN), hita-, hida- (M), hit-, hida- (Di) as in the following Makah example:	page 4
+§2	Kwak’wala	cited form	-iɬ	page 4, in italics, ‘in the house, on the floor’
+§2	Kwak’wala	cited form	–(w)inɬ	page 4, in italics
+§2	Kwak’wala	cited form	–adiɬ	page 4, in italics
+§2	Kwak’wala	cited form	hita-, hina-, hin-	page 4, in italics
+§2	Kwak’wala	cited form	hita-, hida-	page 4, in italics
+§2	Kwak’wala	cited form	hit-, hida-	page 4, in italics
+(2) line 1	Makah	transcription	hidaɬc’	page 4
+(2) line 2	Katie Sardinha	citation	(Davidson 2002: 85)	page 4, the tag at the right of the line
+(2) line 3	Makah	segmentation	hida-aɬc’a	page 4
+(2) line 4	Makah	gloss	empty.root–at.vertical.surface	page 4
+(2) line 5	Katie Sardinha	translation	‘on the wall’	page 4
+§2	Katie Sardinha	note	Wojdak (2004) rejects the underlying division between governing and restrictive suffixes and argues instead that all locative lexical affixes are predicative. A syntactic division then exists between ‘locatum’ and ‘location’ predicates. Locatum predicates (e.g. –u(u) – ‘inside container’) are those which have as their direct object a locatum (theme) argument, while location predicates (e.g. –či –‘in’) have as their direct object a location argument. On this analysis, it is underlying differences in the argument structure of locative lexical predicates, and not a fundamental difference in word class, which accounts for the syntactic differences seen between two kinds of locative lexical suffixes (also see Wojdak & Woo 2004).	page 4
+§2	Katie Sardinha	name	Woo	Florence Woo (2004, 2007), Nuu-chah-nulth locatives and the object marker
+§2	Katie Sardinha	note	While all Wakashan languages utilize a large number of lexical suffixes, a greater number is employed in the languages of the Southern branch. In Kwak’wala, many concepts that can be conveyed with lexical suffixes can alternatively be conveyed using prepositions (see Boas 1947: 285), so that there is often a redundancy in expressive potential in this language. The Southern languages, in contrast, must make greater use of locative lexical suffixes.	page 4
+§2	Katie Sardinha	name	Boas	Franz Boas (1947), the Kwakiutl grammar
+§2	Katie Sardinha	note	In addition to lexical suffixes, a small number of locative predicates exist in all three Southern Wakashan languages. In many cases, locative lexical suffixes may attach to these locative predicate heads in order to further specify location. In Makah, for example, the locative verb ʔiyaχa ‘(be) at’ (also present in Ditidaht, where Klokeid 1978: 213 names it a ‘locative preposition’) is transitive, such that the specified location is the direct object (Davidson 2002: 115). In the following example, the locative verb occurs without any lexical suffixes:	page 4
+§2	Kwak’wala	cited form	ʔiyaχa	page 5, in italics, ‘(be) at’
+§2	Katie Sardinha	name	Klokeid	Terry Klokeid (1978), encliticization in Nitinaht
+(3) line 1	Makah	transcription	ʔiyaχʔiɬ waʔač’	page 5
+(3) line 2	Katie Sardinha	citation	(Davidson 2002: 115)	page 5, the tag at the right of the line
+(3) line 3	Makah	segmentation	ʔiyaχa=°i=aɬ waʔač’	page 5
+(3) line 4	Makah	gloss	at=INDIC.3sg=3pl Waatch	page 5
+(3) line 5	Katie Sardinha	translation	‘They are at Waatch.’	page 5
+§2	Katie Sardinha	note	Intransitive deictic verbs are also used, such as Nuu-Chah-Nulth hiɬ ‘there, at this place’ (Note the resemblance between hiɬ and the ‘empty locative root’ hita-, hina-, hin-) and yaɬ ‘yonder’. The following example from Nuu-Chah- Nulth includes a locative lexical suffix affixed to its host, a locative intransitive verb:	page 5
+§2	Kwak’wala	cited form	hiɬ	page 5, in italics, ‘there, at this place’
+§2	Kwak’wala	cited form	yaɬ	page 5, in italics, ‘yonder’
+(4) line 1	Nuu-Chah-Nulth	transcription	hi’ya ħsʔaƛ č’apacʔi	page 5
+(4) line 2	Katie Sardinha	citation	(Davidson 2002: 116)	page 5, the tag at the right of the line
+(4) line 3	Nuu-Chah-Nulth	segmentation	hiɬ-’aħs=ʔaƛ č’apac=ʔi	page 5
+(4) line 4	Nuu-Chah-Nulth	gloss	there–in.vessel=TEMP canoe=ART	page 5
+(4) line 5	Katie Sardinha	translation	‘They were in the canoe.’	page 5
+§2	Katie Sardinha	note	Stonham (2004) additionally defines the previously mentioned semantically empty root hita- as a locative root in Nuu-Chah-Nulth. This stem is similar to but differentiated from the semantically empty root ʔu- which Stonham describes as a referential root (due to the fact that it occurs with affixal predicates that select for a referential argument).	page 5
+§2	Kwak’wala	cited form	ʔu-	page 5, in italics
+§2	Katie Sardinha	name	Stonham	John Stonham (2004), Nuuchahnulth word formation
+§2	Katie Sardinha	note	It should be noted that forms which are analogous (and in some cases probably directly related) to these ‘locative predicates’ also exist in the Northern Wakashan languages, where they are more typically referred to as ‘demonstrative predicates’.	page 5
+§2	Katie Sardinha	note	In addition to locative lexical suffixes and locative predicates, a small number of what Nakayama (2004: 53) has termed ‘verbals’ have been examined in Nuu-Chah-Nulth. These are elements, which seem to serve some but not all of the same functions as English prepositions and resemble case-markers. For instance, the notorious Nuu-Chah-Nulth ʔuukʷił ‘do.to’, which functions primarily to place an object in its own clause, has received numerous analyses – as an auxiliary element, a preposition, and as a light verb (Woo 2007) – in large part because its properties seem to cut across categories. Nakayama (2001: 54) comments on how constructions with this verbal (and similarly for constructions with ʔuuʔatup ‘doing.for’) may represent a “functional/structural focal point” with the “potential for grammaticalization” in this language; by this, he means that these ‘verbals’ may exist as a potential grammatical class (“prepositions”) which has yet to fully develop.	page 5
+§2	Kwak’wala	cited form	ʔuukʷił	page 5, in italics, ‘do.to’
+§2	Kwak’wala	cited form	ʔuuʔatup	page 5, in italics, ‘doing.for’
+§2	Katie Sardinha	language	English	the translations
+§2	Katie Sardinha	note	What is most interesting about NCN constructions with ʔuukʷił and ʔuuʔatup in relation to understanding the historical development of prepositions in Wakashan, is that they seem to be satisfying a similar grammatical function as prepositions in Northern Wakashan. In Kwak’wala at least, there is a strong preference against having more than one direct internal argument per clause. In Kwak’wala ditransitives for instance, one subcategorized argument is placed in the main clause while the other argument is placed in a phrase headed by a preposition (e.g. see (5)); any additional arguments beyond these are placed in subordinate clauses or additional phrases headed by prepositions (see Boas 1947: 284; also my own data). Ditransitive sentences in which both internal arguments represented by DPs are positioned in the main clause, on the other hand, are judged to be marginally grammatical at best and are not spontaneously volunteered, a point which is illustrated by the following Kwak’wala examples.3 With two internal arguments in the main clause, examples (6) (without a preposition) and (7) (without a preposition and with the order of arguments shifted) can be understood by a speaker but are not preferred forms.	page 5
+footnote 3	Katie Sardinha	note	Kwak’wala data presented in this paper have been obtained in elicitation with Ruby Dawson Cranmer, of the Gwa’i dialect, between Sept. 2009 and May. 2011.	page 6, footnote 3
+(5) line 1	Kwak’wala	transcription	nusoχda GaGəmpesa nu’yəm laχʷa c’ic’uxƛəmeʔ	page 6
+(5) line 2	Kwak’wala	segmentation	nusa=oχda GaGəmp=sa nu’yəm la=χʷa c’ic’uxƛəm=eʔ	page 6
+(5) line 3	Kwak’wala	gloss	tell.story=D2.D grandpa=OBL story PREP=ACC grandchildren=VIS	page 6
+(5) line 4	Katie Sardinha	translation	‘Grandpa is telling a story to the grandchildren.’	page 6
+(6) line 1	Kwak’wala	transcription	? nusoχda GaGəmpesa nu’yəmeχʷa c’ic’uxƛəmeʔ	page 6
+(6) line 2	Kwak’wala	segmentation	nusa=oχda GaGəmp=sa nu’yəme=χʷa c’ic’uxƛəm=eʔ	page 6
+(6) line 3	Kwak’wala	gloss	tell.story=D2.D grandpa=OBL story=ACC grandchildren=VIS	page 6
+(6) line 4	Katie Sardinha	translation	‘Grandpa is telling a story to the grandchildren.’	page 6
+(7) line 1	Kwak’wala	transcription	? nusoχda GaGəmpeχʷa c’ic’uxƛəmeʔesa nu’yəm	page 6
+(7) line 2	Kwak’wala	segmentation	nusa=oχda GaGəmpe=χʷa c’ic’uxƛəm=eʔ=sa nu’yəm	page 6
+(7) line 3	Kwak’wala	gloss	tell.story=D2.D grandpa=ACC grandchildren=VIS=OBL story	page 6
+(7) line 4	Katie Sardinha	translation	‘Grandpa is telling a story to the grandchildren.’	page 6
+§2	Katie Sardinha	note	Similar preferences exist in the Southern Wakashan languages for reducing the number of arguments in a clause (e.g. see Davidson 2002) and are common across the NW Coast sprachbund more generally.	page 6
+§2	Katie Sardinha	note	Prepositional phrases, then, seem to be one major strategy for satisfying a preference in Kwak’wala (likely to be found in the other Northern languages) for having at most one direct internal argument per clause, and it appears that constructions like ʔuukʷiɬ (NCN), as well as similar and perhaps cognate constructions in Makah and Ditidaht, might represent a similar strategy in the Southern languages for reducing the number of direct internal arguments per clause. In turn, the development of Southern Wakashan ‘verbals’ might tell us something about the potential within Proto-Wakashan grammar to develop preposition-like constructions. In that case, we could say that this potential has been fully realized in the Northern languages, whereas it has only been partially realized in, for instance, in Nuu-Chah-Nulth ʔuukʷił and similar constructions	page 6
+§2	Kwak’wala	cited form	ʔuukʷiɬ	page 6, in italics
+§2	Katie Sardinha	note	In addition to the presence vs. absence of prepositions, a second grammatical feature that differentiates the Northern and Southern Wakashan branches is that only the former has developed a morphological case system to differentially mark arguments. Of the Northern languages, only Kwak’wala has developed this system fully – that is, to the point where all non-subject arguments in the sentence must be case-marked. In this language, case marking is achieved by a set of enclitics, which attach to the prosodic word preceding the argument they introduce. The other Northern Wakashan languages represent an intermediate stage of case marking (as discussed below in Section 3.2; also mentioned in Fortescue 2006: 306). In contrast, the Southern languages do not consistently differentiate arguments through overt morphological case. Instead they rely on devices such as word order, passive-inverse voice constructions, non-obligatory elements such as ʔuukʷiɬ and ʔuuʔatup, and context to disambiguate argument type (Davidson 2002).	page 7
+§2	Katie Sardinha	note	The presence of prepositions and morphological case in the Northern branch compared with their absence in the Southern Wakashan languages thus highlights a significant syntactic rift in the family, and invites us to explore the origins of this difference. I will now go on to propose how these grammatical features were innovated in the Northern branch using internal evidence from the four Northern languages.	page 7
+§3	Katie Sardinha	heading	3 Prepositions and the development of case-marking in Upper Northern Wakashan	page 7
+§3.1	Katie Sardinha	heading	3.1 Prepositions: form and meaning	page 7
+§3.1	Katie Sardinha	note	The basic forms of prepositions found in the Northern Wakashan languages and the proposed Proto-Northern Wakashan reconstructions are summarized in Table 1:	page 7
+Table 1	Katie Sardinha	note	Table 1: Northern Wakashan prepositions	page 7, the table's caption, under it
+Table 1	Katie Sardinha	note	*Proto-Northern Wakashan	page 7, the row's head
+Table 1	Proto-Northern Wakashan	transcription	*la-	page 7, *Proto-Northern Wakashan, column 2
+Table 1	Proto-Northern Wakashan	transcription	*q-	page 7, *Proto-Northern Wakashan, column 3
+Table 1	Proto-Northern Wakashan	transcription	*his-	page 7, *Proto-Northern Wakashan, column 4
+Table 1	Katie Sardinha	note	____	page 7, *Proto-Northern Wakashan, a rule in column 5
+Table 1	Katie Sardinha	note	Haisla	page 7, the row's head
+Table 1	Haisla	transcription	la-	page 7, Haisla, column 2
+Table 1	Haisla	transcription	q-	page 7, Haisla, column 3
+Table 1	Haisla	transcription	his-	page 7, Haisla, column 4
+Table 1	Katie Sardinha	note	____	page 7, Haisla, a rule in column 5
+Table 1	Katie Sardinha	note	Heiltsuk	page 7, the row's head
+Table 1	Heiltsuk	transcription	la-	page 7, Heiltsuk, column 2
+Table 1	Heiltsuk	transcription	q-	page 7, Heiltsuk, column 3
+Table 1	Heiltsuk	transcription	yis-	page 7, Heiltsuk, column 4
+Table 1	Katie Sardinha	note	____	page 7, Heiltsuk, a rule in column 5
+Table 1	Katie Sardinha	note	Oowekyala	page 7, the row's head
+Table 1	Oowekyala	transcription	la-	page 7, Oowekyala, column 2
+Table 1	Oowekyala	transcription	q-	page 7, Oowekyala, column 3
+Table 1	Oowekyala	transcription	yis-	page 7, Oowekyala, column 4
+Table 1	Katie Sardinha	note	____	page 7, Oowekyala, a rule in column 5
+Table 1	Katie Sardinha	note	Kwak’wala4	page 7, the row's head, carrying footnote 4
+footnote 4	Katie Sardinha	note	There is another preposition-like element in Kwak’wala, λu – ‘with, accompanying’, which behaves much like the other prepositions (e.g. occurs in adjunct phrases adjoined to the right clausal periphery in phrases such as ‘λuwən’ – ‘with me’, as in The woman walked with me.); it also plays a role in conjunction. Anderson (1984) questions whether it is a preposition or an independent verb, while Lincoln & Rath (1980: 179) analyze it as a proclitic. I have not included it in the analysis here, as more data are needed on it.	page 7, footnote 4
+footnote 4	Kwak’wala	cited form	λu	page 7, in italics
+Table 1	Kwak’wala	transcription	la-	page 7, Kwak’wala4, column 2
+Table 1	Kwak’wala	transcription	q-	page 7, Kwak’wala4, column 3
+Table 1	Katie Sardinha	note	____	page 7, Kwak’wala4, a rule in column 4
+Table 1	Kwak’wala	transcription	ga-	page 7, Kwak’wala4, column 5
+§3.1	Katie Sardinha	note	Correspondences hold in the basic meaning of the prepositions la- and q-, which occur in all four languages (Lincoln & Rath 1980). The preposition la- can be translated with a great variety of locative meanings in different contexts, such as ‘at x’, ‘to x’, ‘in x’, ‘on x’, and ‘towards x’. The preposition q- heads phrases that have a benefactive meaning and can be translated as ‘for the benefit of x’, or ‘concerning x’.	page 8
+§3.1	Kwak’wala	cited form	q-	page 8, in italics
+§3.1	Kwak’wala	cited form	la-	page 8, in italics
+§3.1	Katie Sardinha	name	Lincoln	Neville J. Lincoln (1980, 1986, with John C. Rath), the North Wakashan root list and the Haisla dictionary
+§3.1	Katie Sardinha	note	The preposition his-/yis-, which is present in the three Upper Northern Wakashan languages but not in Kwak’wala, can have various meanings including ‘with x’ and ‘by x’ (instrumental), and ‘of x’ (genitive). Note that genitive constructions with his/yis are not the only devices capable of expressing possession in these languages.	page 8
+§3.1	Kwak’wala	cited form	his-/yis-	page 8, in italics
+§3.1	Katie Sardinha	note	It is evident from Table 1 that Kwak’wala has diverged somewhat from the Upper Northern Wakashan languages in terms of its inventory of prepositions. The preposition ga- is uniquely used in this language, where it is most likely a relatively recent innovation. Its distribution is restricted to the first person singular and plural object forms gaχən – ‘to me’, gaχəns – ‘to us (incl)’, gaχənoxʷ - ‘to us (excl)’ while object forms in 2nd and 3rd person in this language are rendered by phrases introduced by prepositional la-, as in laχa bəgʷanəm – ‘to the man’.	page 8
+§3.1	Kwak’wala	cited form	ga-	page 8, in italics
+§3.1	Kwak’wala	cited form	gaχən – ‘to me’, gaχəns – ‘to us (incl)’, gaχənoxʷ - ‘to us (excl)	page 8, in italics
+§3.1	Kwak’wala	cited form	laχa bəgʷanəm	page 8, in italics
+§3.1	Katie Sardinha	note	The basic meanings of these four prepositions are thus summarized in Table 2:	page 8
+Table 2	Katie Sardinha	note	Table 2: Basic meanings of Northern Wakashan prepositions	page 8, the table's caption, under it
+Table 2	Northern Wakashan	transcription	la-	page 8, the row's head
+Table 2	Katie Sardinha	translation	‘at x’, ‘to x’, ‘in x’, ‘on x’, ‘towards x’	page 8, beside la-
+Table 2	Northern Wakashan	transcription	q-	page 8, the row's head
+Table 2	Katie Sardinha	translation	‘for the benefit of x’, ‘concerning x’	page 8, beside q-
+Table 2	Northern Wakashan	transcription	his-/yis-	page 8, the row's head
+Table 2	Katie Sardinha	translation	‘with x’, ‘by x’, ‘of x’	page 8, beside his-/yis-
+Table 2	Northern Wakashan	transcription	ga-	page 8, the row's head
+Table 2	Katie Sardinha	translation	‘to (the speaker), towards (the speaker)’	page 8, beside ga-
+§3.2	Katie Sardinha	heading	3.2 Intermediate case-marking in the Upper Northern Wakashan languages	page 8
+§3.2	Katie Sardinha	note	In order to demonstrate that case-marking is at an intermediate stage of development in the Upper Northern Wakashan languages Haisla, Heiltsuk, and Oowekyala, it is important first to understand the syntactic configuration of prepositions in these languages. Because Heiltsuk is the only one of these	page 8
+§3.2	Katie Sardinha	note	languages for which a comprehensive syntactic description has been published (Rath 1981), I will rely most heavily on materials for this language, supplementing my exposition wherever possible with published materials on the other languages or with data taken from published texts. I will follow Rath (1981) in using the spelling of Heiltsuk his- with initial h-, even though phonemically this segment may be /y-/ (see Section 4 for related discussion).	page 8
+§3.2	Kwak’wala	cited form	h-	page 8, in italics
+§3.2	Kwak’wala	cited form	y-	page 8, in italics
+§3.2	Katie Sardinha	note	Heiltsuk prepositional phrases, as described in Rath (1981), occur in two types of syntactic configurations, as illustrated in (8) and (9). Thus in (8) the PP is attached at the level of the VP, whereas in (9) the PP is inside the subject DP.5	page 8
+footnote 5	Katie Sardinha	note	Note: The two types of phrases in (8) and (9) are disambiguated from each other by different usages of primary (D1) and secondary (D2) deictic enclitics referring to ‘wisəm’ (‘man’), as outlined in the following examples (Rath 1981: 89-90): • With both D1 and D2 referring to ‘wisəm’ – [[ The diligent man works][on the roof]] (as in (8)) • With neither D1 nor D2 referring to ‘wisəm’ – [[The diligent man on the roof][works]] (as in (9)) • With only D1 referring to ‘wisəm’ – ambiguous between the two meanings (as in (8) if D2 was removed)	page 9, footnote 5
+(8) line 1	Heiltsuk	transcription	p’ala p’ac’uayas wisəmχi la uxʷƛiasaχ	page 9
+(8) line 2	Katie Sardinha	citation	(p. 90)	page 9, the tag at the right of the line
+(8) line 3	Heiltsuk	segmentation	p’ala p’ac’ua-ya-s wisəm-χi la uxʷƛias-a-χi	page 9
+(8) line 4	Heiltsuk	gloss	work diligent-D1-LHAS6 man-D2 PREP roof-D1-D2	page 9
+footnote 6	Katie Sardinha	note	LHAS – ‘left-hand-adjunct suffix’; occurs on most pre-nominal modifiers	page 9, footnote 6
+(8) line 5	Katie Sardinha	note	With the following meaning: [[The diligent man works][on the roof]]	page 9, Rath's reading, under the tiers
+(9) line 1	Heiltsuk	transcription	p’ala p’ac’uas wisəm la uxʷƛiasaχi	page 9
+(9) line 2	Katie Sardinha	citation	(p. 89)	page 9, the tag at the right of the line
+(9) line 3	Heiltsuk	segmentation	p’ala p’ac’ua-s wisəm la uxʷƛias-a-χi	page 9
+(9) line 4	Heiltsuk	gloss	work diligent-LHAS man PREP roof-D1-D2	page 9
+(9) line 5	Katie Sardinha	note	With the following meaning: [[The diligent man on the roof][works]]	page 9, Rath's reading, under the tiers
+§3.2	Katie Sardinha	note	This rest of this paper will deal exclusively with VP-level constructions (such as that in (8)), which are most relevant for the argument being developed.7	page 9
+footnote 7	Katie Sardinha	note	See Rath (1981) and (1984) for data regarding the unique properties of PPs that are located within the DP (as in (9)).	page 9, footnote 7
+§3.2	Katie Sardinha	note	As the heads of prepositional phrases attached to at the level of the VP (e.g. (8)), prepositions introduce prepositional phrases at the right periphery of the sentence that encode various types of meanings, as described previously (e.g. ‘to the man’, ‘for the kids’, ‘with his hands’). Where multiple prepositional phrases occur in a single sentence, they are re-orderable in relation to each other. In regard to prepositional phrases specifically introduced by la- and q-, these phrases can have the following two types of structures:	page 9
+(S.1)	Katie Sardinha	note	[ PREP + NP ]	page 9, the structure
+(S.1)	Katie Sardinha	note	e.g.	page 9, before the example
+(S.1)	Heiltsuk	transcription	la uxʷƛiasaχi	page 9, an example of the structure
+(S.1)	Katie Sardinha	translation	‘on the roof’	page 9, after a dash
+(S.1)	Katie Sardinha	note	e.g.	page 9, before the example
+(S.1)	Heiltsuk	transcription	qən him’asaχi	page 9, an example of the structure
+(S.1)	Katie Sardinha	translation	‘for the chief’	page 9, after a dash
+(S.2)	Katie Sardinha	note	[ √PREP + person enclitic ]	page 9, the structure
+(S.2)	Katie Sardinha	note	e.g.	page 9, before the example
+(S.2)	Heiltsuk	transcription	la=χi	page 9, an example of the structure
+(S.2)	Katie Sardinha	translation	‘to him/her/it/they’	page 9, after a dash
+(S.2)	Katie Sardinha	note	(vis)	page 9, after the meaning
+(S.2)	Katie Sardinha	note	e.g.	page 9, before the example
+(S.2)	Heiltsuk	transcription	q=ənn’i	page 9, an example of the structure
+(S.2)	Katie Sardinha	translation	‘for him/her/it/they’	page 9, after a dash
+(S.2)	Katie Sardinha	note	(vis)	page 9, after the meaning
+§3.2	Katie Sardinha	note	In S.2 type structures there exists a distinct set of person-marking enclitics (also described as “personal deictics”) for each preposition. These sets are referred to as “la”-Suffixes, and “q”-Suffixes in Rath (1981), though they are acknowledged to be enclitics so I will refer to them as “la”-enclitics, and “q”- enclitics. There are also sets of pronominal subject enclitics and object enclitics, as well as a set of “his”- enclitics which will be discussed in what follows. Below I have included a table adapted from Rath (1981: 77-78) which shows these five sets of person-marking enclitics. Phonological alternations have been placed in brackets, and some simplifications have been made for expository purposes:8	page 9
+footnote 8	Katie Sardinha	note	In particular, I have not marked contrastive tone and have not included a phonological alternation where s- initial “his” – enclitics become c- initial when they attach to a final ɬ- segment.	page 10, footnote 8
+Table 3	Katie Sardinha	note	Table 3: Heiltsuk "Personal Deictics" from Rath (1981)	page 10, the table's caption
+Table 3	Katie Sardinha	note	Subject Enclitics	page 10, a column's head
+Table 3	Katie Sardinha	note	Object Enclitics	page 10, a column's head
+Table 3	Katie Sardinha	note	“his” - Enclitics	page 10, a column's head
+Table 3	Katie Sardinha	note	“la” - Enclitics	page 10, a column's head
+Table 3	Katie Sardinha	note	“q”- Enclitics	page 10, a column's head
+Table 3	Katie Sardinha	note	1 sg.	page 10, the row's head
+Table 3	Heiltsuk	transcription	=nugʷ(a)	page 10, 1 sg., under Subject Enclitics
+Table 3	Heiltsuk	transcription	=ənƛ(a)	page 10, 1 sg., under Object Enclitics
+Table 3	Katie Sardinha	note	----	page 10, 1 sg., under “his” - Enclitics, the cell empty
+Table 3	Heiltsuk	transcription	=ənƛ(a)	page 10, 1 sg., under “la” - Enclitics
+Table 3	Heiltsuk	transcription	=ənńugʷ(a)	page 10, 1 sg., under “q”- Enclitics
+Table 3	Katie Sardinha	note	1 pl. incl.	page 10, the row's head
+Table 3	Heiltsuk	transcription	=ənc	page 10, 1 pl. incl., under Subject Enclitics
+Table 3	Heiltsuk	transcription	=ənƛənc	page 10, 1 pl. incl., under Object Enclitics
+Table 3	Katie Sardinha	note	----	page 10, 1 pl. incl., under “his” - Enclitics, the cell empty
+Table 3	Heiltsuk	transcription	=ənƛənc	page 10, 1 pl. incl., under “la” - Enclitics
+Table 3	Heiltsuk	transcription	=a’aənc	page 10, 1 pl. incl., under “q”- Enclitics
+Table 3	Katie Sardinha	note	1 pl. excl.	page 10, the row's head
+Table 3	Heiltsuk	transcription	=əntkʷ (=əntxʷ)	page 10, 1 pl. excl., under Subject Enclitics
+Table 3	Heiltsuk	transcription	=ənƛəntkʷ (=ənƛəntxʷ)	page 10, 1 pl. excl., under Object Enclitics
+Table 3	Katie Sardinha	note	----	page 10, 1 pl. excl., under “his” - Enclitics, the cell empty
+Table 3	Heiltsuk	transcription	=ənƛəntkʷ (=ənƛəntxʷ)	page 10, 1 pl. excl., under “la” - Enclitics
+Table 3	Heiltsuk	transcription	=a’aəntkʷ (=a’aəntxʷ)	page 10, 1 pl. excl., under “q”- Enclitics
+Table 3	Katie Sardinha	note	2 sg./pl.	page 10, the row's head
+Table 3	Heiltsuk	transcription	=su (=cu)	page 10, 2 sg./pl., under Subject Enclitics
+Table 3	Heiltsuk	transcription	=uƛ(a)	page 10, 2 sg./pl., under Object Enclitics
+Table 3	Heiltsuk	transcription	=us	page 10, 2 sg./pl., under “his” - Enclitics
+Table 3	Heiltsuk	transcription	=uƛ(a)	page 10, 2 sg./pl., under “la” - Enclitics
+Table 3	Heiltsuk	transcription	=əncu	page 10, 2 sg./pl., under “q”- Enclitics
+Table 3	Katie Sardinha	note	3I9 sg./pl.	page 10, the row's head, carrying footnote 9 after 3I
+footnote 9	Katie Sardinha	note	The Roman numerals in the third person indicate degrees of distance from the speaker and visibility/invisibility as follows: I (near speaker, visible); II (near speaker, invisible); III (middle distance from speaker, visible); IV (middle distance from speaker, invisible); V (distanced from speaker, visible); VI (distanced from speaker, invisible); VII (absent).	page 10, footnote 9
+Table 3	Heiltsuk	transcription	=k(ʷ) (=x(ʷ))	page 10, 3I9 sg./pl., under Subject Enclitics
+Table 3	Heiltsuk	transcription	=qk (=qx)	page 10, 3I9 sg./pl., under Object Enclitics
+Table 3	Heiltsuk	transcription	=sk (=sx)	page 10, 3I9 sg./pl., under “his” - Enclitics
+Table 3	Heiltsuk	transcription	=χk (=χx)	page 10, 3I9 sg./pl., under “la” - Enclitics
+Table 3	Heiltsuk	transcription	=a’aənk (=a’aənx)	page 10, 3I9 sg./pl., under “q”- Enclitics
+Table 3	Katie Sardinha	note	3II sg./pl.	page 10, the row's head
+Table 3	Heiltsuk	transcription	=k(ʷ)c (=x(ʷ)c)	page 10, 3II sg./pl., under Subject Enclitics
+Table 3	Heiltsuk	transcription	=qkc (=qxc)	page 10, 3II sg./pl., under Object Enclitics
+Table 3	Heiltsuk	transcription	=skc (=sxc)	page 10, 3II sg./pl., under “his” - Enclitics
+Table 3	Heiltsuk	transcription	=χkc (=χxc)	page 10, 3II sg./pl., under “la” - Enclitics
+Table 3	Heiltsuk	transcription	=a’aənkc (=a’aənxc)	page 10, 3II sg./pl., under “q”- Enclitics
+Table 3	Katie Sardinha	note	3III sg./pl.	page 10, the row's head
+Table 3	Heiltsuk	transcription	=uqʷ (=uχʷ) (=u)	page 10, 3III sg./pl., under Subject Enclitics
+Table 3	Heiltsuk	transcription	=qʷ	page 10, 3III sg./pl., under Object Enclitics
+Table 3	Heiltsuk	transcription	=sqʷ (=sχʷ)	page 10, 3III sg./pl., under “his” - Enclitics
+Table 3	Heiltsuk	transcription	=χʷ	page 10, 3III sg./pl., under “la” - Enclitics
+Table 3	Heiltsuk	transcription	=ənńuqʷ (=ənńuχʷ) (=ənńu)	page 10, 3III sg./pl., under “q”- Enclitics
+Table 3	Katie Sardinha	note	3IV sg./pl.	page 10, the row's head
+Table 3	Heiltsuk	transcription	(=uχʷc)	page 10, 3IV sg./pl., under Subject Enclitics
+Table 3	Heiltsuk	transcription	=qʷc	page 10, 3IV sg./pl., under Object Enclitics
+Table 3	Heiltsuk	transcription	(=sχʷc)	page 10, 3IV sg./pl., under “his” - Enclitics
+Table 3	Heiltsuk	transcription	=χcχʷ	page 10, 3IV sg./pl., under “la” - Enclitics
+Table 3	Heiltsuk	transcription	=ənnuχʷc	page 10, 3IV sg./pl., under “q”- Enclitics
+Table 3	Katie Sardinha	note	3V sg./pl.	page 10, the row's head
+Table 3	Heiltsuk	transcription	=i	page 10, 3V sg./pl., under Subject Enclitics
+Table 3	Heiltsuk	transcription	=qi	page 10, 3V sg./pl., under Object Enclitics
+Table 3	Heiltsuk	transcription	=si	page 10, 3V sg./pl., under “his” - Enclitics
+Table 3	Heiltsuk	transcription	=χi	page 10, 3V sg./pl., under “la” - Enclitics
+Table 3	Heiltsuk	transcription	=ənńi	page 10, 3V sg./pl., under “q”- Enclitics
+Table 3	Katie Sardinha	note	3VI sg./pl.	page 10, the row's head
+Table 3	Heiltsuk	transcription	=ic	page 10, 3VI sg./pl., under Subject Enclitics
+Table 3	Heiltsuk	transcription	=qic	page 10, 3VI sg./pl., under Object Enclitics
+Table 3	Heiltsuk	transcription	=sic	page 10, 3VI sg./pl., under “his” - Enclitics
+Table 3	Heiltsuk	transcription	=χic	page 10, 3VI sg./pl., under “la” - Enclitics
+Table 3	Heiltsuk	transcription	=ənńic	page 10, 3VI sg./pl., under “q”- Enclitics
+Table 3	Katie Sardinha	note	3VII (absent)	page 10, the row's head
+Table 3	Heiltsuk	transcription	=k(ʷ)i	page 10, 3VII (absent), under Subject Enclitics
+Table 3	Heiltsuk	transcription	=qki	page 10, 3VII (absent), under Object Enclitics
+Table 3	Heiltsuk	transcription	=ski	page 10, 3VII (absent), under “his” - Enclitics
+Table 3	Heiltsuk	transcription	=χki	page 10, 3VII (absent), under “la” - Enclitics
+Table 3	Heiltsuk	transcription	=a’aənki	page 10, 3VII (absent), under “q”- Enclitics
+§3.2	Katie Sardinha	note	So, for example, the “la” – enclitics in Table 3 are those which may attach to the preposition la- in place of a noun (i.e. in S.2 type structures). Notice how this series appears to be a spiranticized version of the pronominal object forms, the object enclitics. The “q”- enclitics can be used similarly to stand in for noun phrases in S.2-type prepositional phrases headed by prepositional q-.	page 10
+§3.2	Katie Sardinha	note	The preposition his- patterns in the same way as la- and q- when a preposition introduces an overt noun phrase (S.1-type structure). An example from Haisla shows this configuration:	page 11
+§3.2	Kwak’wala	cited form	his-	page 11, in italics
+(10) line 1	Katie Sardinha	note	[ PREP + NP ]:	page 11, over the example
+(10) line 2	Katie Sardinha	citation	(Lincoln, Rath, & Windsor 1986: 21-2, line 89)	page 11, the tag at the right of the caption
+(10) line 3	Haisla	transcription	…his qi baxʷbakʷalanusiwayaχi	page 11
+(10) line 4	Haisla	segmentation	…his qi baxʷbakʷalanusiwa=ya=χi	page 11
+(10) line 5	Haisla	gloss	…PREP DEM.3 Baxʷbakʷalanusiwa=D1=D2	page 11
+(10) line 6	Katie Sardinha	translation	[who had been spoken to]…by Baxʷbakʷalanusiwa	page 11, printed without quotes
+§3.2	Katie Sardinha	note	In S.2-type constructions in the third person where pronominal “his” – enclitics replace overt noun phrases, constructions with his- differ from analogous S.2-type structures with the prepositions la- and q-. Rather than attaching to the right periphery of the preposition his- itself, the “his” – enclitics in these constructions attach directly to the prosodic word immediately preceding the argument they replace or introduce, regardless of whether or not the preceding argument they attach to is an object or a subject (note that in sentences with both subject and object, the object will be the second argument). The first two segments of the preposition, namely hi-, drop out entirely in these constructions. For example:	page 11
+§3.2	Kwak’wala	cited form	hi-	page 11, in italics
+(11) line 1	Katie Sardinha	note	Structure with a “his”- enclitic:	page 11, over the example
+(11) line 2	Heiltsuk	transcription	daduqʷəla wisəmaχi wac’iaχisi	page 11
+(11) line 3	Katie Sardinha	citation	(Rath 1981: 94)	page 11, the tag at the right of the line
+(11) line 4	Heiltsuk	segmentation	daduqʷəla wisəm-a-χi wac’i-a-χi-si	page 11
+(11) line 5	Heiltsuk	gloss	watch man-D1-D2 dog-D1-D2-“his” – enclitic[3rd, vis]	page 11
+(11) line 6	Katie Sardinha	translation	‘The man watched the dog with him/her/it/they’	page 11
+§3.2	Katie Sardinha	note	Note that we do not get the form that we would expect by analogy with the S.2. structures for la- and q-, namely *daduqʷəla wisəmaχi wac’iaχi hisi.	page 11
+§3.2	Kwak’wala	cited form	*daduqʷəla wisəmaχi wac’iaχi hisi	page 11, in italics
+§3.2	Katie Sardinha	note	For second-person constructions (shown in examples (12) and (13) below), speakers have the option of using either type of his- construction already illustrated in (10) and (11). These second-person examples are interesting because they show that second-person pronouns do not need to be encoded by “his” – enclitics; it is possible for the pronominal elements to exist as noun phrases in full [PREP + NP] constructions:	page 11
+(12) line 1	Heiltsuk	transcription	wausi his qəsu	page 11
+(12) line 2	Katie Sardinha	citation	(Rath 1981: 96)	page 11, the tag at the right of the line
+(12) line 3	Heiltsuk	segmentation	waus=i his qəsu	page 11
+(12) line 4	Heiltsuk	gloss	afraid=3V PREP you	page 11
+(12) line 5	Katie Sardinha	translation	‘He/She is afraid of you’	page 11
+(13) line 1	Heiltsuk	transcription	wausius	page 11
+(13) line 2	Katie Sardinha	citation	(ibid.)	page 11, the tag at the right of the line
+(13) line 3	Heiltsuk	segmentation	waus=i=us	page 11
+(13) line 4	Heiltsuk	gloss	afraid=3V= “his” – enclitic[2nd]	page 11
+(13) line 5	Katie Sardinha	translation	‘He/She is afraid of you’	page 11
+§3.2	Katie Sardinha	note	Thus, (12) and (13) show that in the second person, constructions with “his” – enclitics are in free variation with full [PREP + NP] constructions.	page 12
+§3.2	Katie Sardinha	note	For first person constructions there are no “his”- enclitics presented in Table 3; in these cases one may only use a full [PREP + NP] construction, such as in his nugʷa – ‘with/of/by me’. his nugʷaənc – ‘with/of/by us (incl)’ and his nugʷaəntkʷ/nugʷaəntxʷ - ‘with/of/by us (excl)’.	page 12
+§3.2	Kwak’wala	cited form	his nugʷa	page 12, in italics
+§3.2	Kwak’wala	cited form	his nugʷaənc	page 12, in italics
+§3.2	Kwak’wala	cited form	his nugʷaəntkʷ/nugʷaəntxʷ	page 12, in italics
+§3.2	Katie Sardinha	note	Looking back at the third-person “his” – enclitic forms in Table 3, we can see that these forms are very nearly the same as the subject enclitics plus an initial =s. I would like to argue that this initial segment is a remnant from his-. Thus, we can imagine the following process existing within the past or present mental grammars of Heiltsuk speakers:	page 12
+§3.2	Katie Sardinha	note	(i) …wac’iaχi hisi → (ii) …wac’iaχi h̶i̶si → (iii) …wac’iaχi=si The idea that this process may represent an ongoing change in the	page 12
+§3.2	Kwak’wala	cited form	wac’iaχi hisi	page 12, in italics
+§3.2	Kwak’wala	cited form	wac’iaχi=si	page 12, in italics
+§3.2	Katie Sardinha	note	grammar of speakers and not just a stable, distributional difference among speakers is suggested by Rath (1981: 202-3) in his dictionary definition of Heiltsuk his-. He writes: “[his] Can be used as a proclitic, i.e., run together with the word directly following. Very frequently, however, initial ‘hi’ is dropped while remaining ‘s’ is attached to the word directly preceding to the effect that it is phonetically indistinguishable from the left-hand adjunct suffix.”. Whether or not forms like hisi with a [PREP + enclitic] ((i) above) are ever used in the modern-day language in free distribution with “his” – enclitics, I do not know. While no such forms are attested in Rath (1981), his comment on his- seems to suggest that this form may in fact be a possibility for speakers.	page 12
+§3.2	Katie Sardinha	note	In summary of what has been discussed so far, prepositional his- constructions in the second person in Heiltsuk occur in free variation between full [PREP + NP] adjuncts and a series of enclitics which are phonologically derived from these full adjuncts. In the third person, a set of “his” – enclitics exists which appears to be phonologically related to an older set of [his + person enclitic] constructions but which has since replaced these constructions entirely; evidence for the existence of these now obsolete constructions rests in the fact that analogous constructions do exist for the prepositions la- and q- (i.e. examples in S.2.). In the first person, there has been no development of enclitic forms, and only the full [his + NP] forms are in use. On the whole, this pattern can be taken as evidence that Heiltsuk is at an intermediate stage of developing case-marking such as that which is realized by the oblique case in Kwak’wala (to be shown in Section 3.3). This case-marking originates from the preposition his- and its associated person-marking enclitics (Table 3). More specifically, by analogy with the prepositions la- and q-, it can be hypothesized that [√PREP + person enclitic] constructions were once used with the preposition his- as well, so that constructions like hisi in (i) above were attested. Then, speakers began dropping out initial hi- and attaching the =s and its person enclitic to the previous prosodic word. The change has gone to completion in the third person, where the “his” – enclitics are identical to the subject enclitics with the initial =s, derived from his- itself. A summary of this process in the third person is presented here:	page 12
+Table 4	Katie Sardinha	note	Table 4: Development of case in Heiltsuk from his constructions in the third-person	page 13, the table's caption
+Table 4	Katie Sardinha	note	Prep + Subject Enclitics (Unattested but hypothesized to be present historically)	page 13, a column's head
+Table 4	Katie Sardinha	note	Deletion of initial segments of preposition	page 13, a column's head
+Table 4	Katie Sardinha	note	“his” Enclitics in use today	page 13, a column's head
+Table 4	Heiltsuk	transcription	hisk	page 13, under Prep + Subject Enclitics
+Table 4	Heiltsuk	transcription	h̶i̶ sk	page 13, under Deletion of initial segments of preposition, hi struck through
+Table 4	Heiltsuk	transcription	=sk (=sx)	page 13, under “his” Enclitics in use today
+Table 4	Heiltsuk	transcription	hiskc	page 13, under Prep + Subject Enclitics
+Table 4	Heiltsuk	transcription	h̶i̶ skc	page 13, under Deletion of initial segments of preposition, hi struck through
+Table 4	Heiltsuk	transcription	=skc (=sxc)	page 13, under “his” Enclitics in use today
+Table 4	Heiltsuk	transcription	hisqʷ	page 13, under Prep + Subject Enclitics
+Table 4	Heiltsuk	transcription	h̶i̶ sqʷ	page 13, under Deletion of initial segments of preposition, hi struck through
+Table 4	Heiltsuk	transcription	=sqʷ (=sχʷ)	page 13, under “his” Enclitics in use today
+Table 4	Heiltsuk	transcription	hisqʷc	page 13, under Prep + Subject Enclitics
+Table 4	Heiltsuk	transcription	h̶i̶ sqʷc	page 13, under Deletion of initial segments of preposition, hi struck through
+Table 4	Heiltsuk	transcription	=sqʷc (=sχʷc)	page 13, under “his” Enclitics in use today
+Table 4	Heiltsuk	transcription	hisi	page 13, under Prep + Subject Enclitics
+Table 4	Heiltsuk	transcription	h̶i̶ si	page 13, under Deletion of initial segments of preposition, hi struck through
+Table 4	Heiltsuk	transcription	=si	page 13, under “his” Enclitics in use today
+Table 4	Heiltsuk	transcription	hisic	page 13, under Prep + Subject Enclitics
+Table 4	Heiltsuk	transcription	h̶i̶ sic	page 13, under Deletion of initial segments of preposition, hi struck through
+Table 4	Heiltsuk	transcription	=sic	page 13, under “his” Enclitics in use today
+Table 4	Heiltsuk	transcription	hiski	page 13, under Prep + Subject Enclitics
+Table 4	Heiltsuk	transcription	h̶i̶ ski	page 13, under Deletion of initial segments of preposition, hi struck through
+Table 4	Heiltsuk	transcription	=ski	page 13, under “his” Enclitics in use today
+§3.2	Katie Sardinha	note	In the second person, the “his” – enclitic =us contrasts with the second person subject enclitic =su (Table 3). These two forms do not correspond as they do in third person; however, =su may derive from second person forms elsewhere in the language, such as the independent pronoun qəsu ‘you’ as illustrated in (12) (in which the initial qə- may be a proclitic demonstrative). It also stands to be mentioned that =us is used analogously in Haisla, and that Kwak’wala has a second person possessive clitic =us. In the first person, on the other hand, there is no indication that case-marking is under development in Heiltsuk. This situation is comparable to Kwak’wala, where the oblique case is used to encode a possessor in the third person but not in the first or second person, and where a different set of clitics exists for this latter purpose. The fact that the development of case-marking for possessive constructions in Heiltsuk exists only in the third person, a fact which mirrors the use of the oblique case in Kwak’wala, is another piece of evidence for an historical relationship between these constructions.	page 13
+§3.2	Kwak’wala	cited form	qəsu	page 13, in italics, ‘you’
+§3.2	Kwak’wala	cited form	qə-	page 13, in italics
+§3.2	Katie Sardinha	note	Though this exposition has been based almost entirely on data from Heiltsuk, it appears from the fragmentary evidence available for Oowekyala that the same case-development process is ongoing in this language as in closely- related Heiltsuk. Thus in a discussion on Boas’ Bella Bella Texts by Rath & Windsor (1989: vii), it is noted that Boas knew about the idiosyncratic initial [hʸi] sound (“strongly voiced and strongly palatalized, so that it closely resembles the phonetic palatal glide [y]”) at the beginning of his, a sound which distinguished Heiltsuk and Oowekyala from neighbouring languages. When Boas includes a short section on “the Bella Bella dialect” in his 1947 grammar, he is actually referring to generalizations made about Oowekyala, Heiltsuk, and Haisla10 which he considered at the time to be dialects of the same language (Rath & Windsor 1989: ii-iii). Thus, Boas reports about the “Bella Bella dialect”, including Oowekyala, that “the instrumental is generally expressed by [yis] or by a suffixed [s]…when the object is a pronoun the instrumental is generally expressed by the suffix [s].” (1947: 298-9). The instrumental pronominal suffixes that he gives for this language are also described as consisting of =s followed by attached independent pronouns (Boas, 1947: 296). These, of course, correspond to the “his” – enclitics we have already seen described for Heiltsuk. Lastly, Rath (1984: 321) lists Oowekyala yis forms in a table alongside those of the Upper Northern Wakashan languages; the Oowekyala forms provided in the table are identical to those provided for Heiltsuk.	page 13
+footnote 10	Katie Sardinha	note	Boas is probably referring less to Haisla here than to the other two languages, given that he was relatively less experienced with this language.	page 14, footnote 10
+§3.2	Katie Sardinha	name	Windsor	Evelyn Windsor (1986, 1989), the Haisla story and the Bella Bella texts
+§3.2	Katie Sardinha	note	Interestingly, the process of case development at work in Heiltsuk and Oowekyala also appears to be occurring in the Haisla language. Lincoln & Rath (1986) describe how the Haisla prepositional elements la-, qən-, and his- are able to occur as the heads of right-hand adjuncts of the form [ la + NP ], [qən + NP ] and [ his + NP ]. Nonetheless, only the former two prepositions can occur in a configuration in which “short personal forms” (enclitics) attach to the preposition in place of an overt NP. In Haisla as in Heiltsuk, constructions with his- phrases can be substituted by a series of “oblique enclitics” (analogous to the “his” – enclitics of Heiltsuk) in place of hi- and overt NPs, as shown in the following table (Lincoln & Rath 1986: 50):	page 14
+Table 5	Katie Sardinha	note	Table 5: Oblique Enclitics (Kitlope Dialect)	page 14, the table's caption, under it
+Table 5	Katie Sardinha	note	1 sg.	page 14, the row's head
+Table 5	Haisla	transcription	{ =ńd.s } / his nugʷa	page 14, beside 1 sg.
+Table 5	Katie Sardinha	note	1 pl. (incl.)	page 14, the row's head
+Table 5	Haisla	transcription	{ =nis, =ńis } / his nugʷanis	page 14, beside 1 pl. (incl.)
+Table 5	Katie Sardinha	note	1 pl. (excl.)	page 14, the row's head
+Table 5	Haisla	transcription	{ =nikʷ, -ńukʷ } / his nugʷanukʷ	page 14, beside 1 pl. (excl.)
+Table 5	Katie Sardinha	note	2 sg./pl.	page 14, the row's head
+Table 5	Haisla	transcription	{ =us }	page 14, beside 2 sg./pl.
+Table 5	Katie Sardinha	note	3I sg./pl.	page 14, the row's head
+Table 5	Haisla	transcription	{ =sik }	page 14, beside 3I sg./pl.
+Table 5	Katie Sardinha	note	3II sg./pl.	page 14, the row's head
+Table 5	Haisla	transcription	{ =su }	page 14, beside 3II sg./pl.
+Table 5	Katie Sardinha	note	3III sg./pl.	page 14, the row's head
+Table 5	Haisla	transcription	{ =si }	page 14, beside 3III sg./pl.
+Table 5	Katie Sardinha	note	3(absent)	page 14, the row's head
+Table 5	Haisla	transcription	{ = sgi }	page 14, beside 3(absent)
+§3.2	Katie Sardinha	note	As Table 5 shows, Haisla has actually progressed further than Heiltsuk/Oowekyala towards having a full case system in that it has developed a full set of “oblique enclitics” in the first person which are in free variation with the (older) full his- phrases. While the 1.sg. form =ńd.s does not itself appear to be clearly phonologically related to the corresponding full his- phrase his nugʷa, the 1 pl. (incl) =nis/=ńis does match the final segments in the corresponding phrase his nugʷanis, and the 1.pl. (excl) =nikʷ/-ńukʷ similarly matches its final segments with the corresponding phrase his nugʷanukʷ. Similarly in the second person, Haisla exclusively uses enclitics rather than constructions with [ his + 2nd person overt NP ]. The situation with third person forms is the same as already seen in Heiltsuk.	page 14
+§3.2	Kwak’wala	cited form	=ńd.s	page 14, in italics
+§3.2	Kwak’wala	cited form	=nis/=ńis	page 14, in italics
+§3.2	Kwak’wala	cited form	his nugʷanis	page 14, in italics
+§3.2	Kwak’wala	cited form	=nikʷ/-ńukʷ	page 14, in italics
+§3.2	Kwak’wala	cited form	his nugʷanukʷ	page 15, in italics
+§3.2	Katie Sardinha	note	Additional data for Haisla can be found in Bach, Robinson & Robinson’s (2010) online Haisla lessons, wherein “-s” is described as being “best thought of as a short form of the word his, a little word with many uses”. One of the uses of his/-s is in “connecting a word referring to a thing possessed and a word for a possessor”, such as in: guxʷ s ’wi’wialhisi – ‘house of her parents’. It is also used as a connective in phrases such as wisəm s xʷənuxʷ - ‘son’ (lit. male child), a use which seems to parallel that of the LHAS (left- hand adjunct suffix) seen in Heiltsuk examples (8) and (9) above, described more fully in Rath (1981). As well, Haisla his/-s is also used in by-phrases, such as in Gu’atlasui his/-s qi gukʷəlatsi – ‘he was helped by his fellow villagers’. The interchangeability of his/-s implied by the lessons provides additional evidence for the ongoing development of oblique case in Haisla.	page 15
+§3.2	Kwak’wala	cited form	-s	page 15, in italics
+§3.2	Kwak’wala	cited form	guxʷ s ’wi’wialhisi	page 15, in italics
+§3.2	Kwak’wala	cited form	wisəm s xʷənuxʷ	page 15, in italics
+§3.2	Kwak’wala	cited form	Gu’atlasui his/-s qi gukʷəlatsi	page 15, in italics
+§3.2	Katie Sardinha	name	Bach	Emmon Bach (1970, 2010, with Dora and Rose Robinson), the Haisla lessons
+§3.2	Katie Sardinha	name	Robinson	Dora Robinson and Rose Robinson (2010), the Haisla lessons
+§3.2	Katie Sardinha	note	Thus in all three Upper Northern Wakashan languages we find some degree of alternation between full prepositional his- phrases with overt NPs, and enclitics which are derived from his- and an associated set of person-marking enclitics; significantly, these enclitics closely resemble the grammatical case constructions of Kwak’wala (to be shown in Section 3.3). The fact that full prepositional phrases and case-marked forms are in free variation with each other (for particular person paradigms) thus constitutes one piece of evidence that these languages are moving towards a Kwak’wala-like case marking system. I will now turn to Kwak’wala data in order to show that the distribution and function of oblique case and the third person possessive clitic in this language corresponds to that of the his- constructions in the Upper Northern Wakashan languages phonologically, distributionally, and semantically; this correspondence is significant because it shows that these Kwak’wala case constructions can be understood as being historically derived from formerly present his- constructions.	page 15
+§3.3	Katie Sardinha	heading	3.3 The development of case-marking in Kwak’wala	page 15
+§3.3	Katie Sardinha	note	In order to argue that Kwak’wala’s oblique and third-person possessive case-markers originated from his constructions, it will be necessary to demonstrate that the distribution and function of the Kwak’wala case marking and possessive enclitics we are concerned with overlap with that of his constructions in the Upper Northern Wakashan languages. The syntax of Kwak’wala differs from the other Northern languages in a few notable ways. The first of these is that case marking on arguments is obligatory in Kwak’wala. There are two cases, both consisting of enclitics that attach to the prosodic word immediately preceding the argument they introduce.11 Thus in example (14), the phrase [=χa qʷəʔsta] forms a syntactic (though not a prosodic) unit. The accusative case takes the form =χ(a) (or sometimes =χʷ(a)) and introduces an argument which is usually a direct object, as in the following example:	page 15
+footnote 11	Katie Sardinha	note	A case-marked argument need not be expressed as an overt nominal if it is known from context. For example, cf. (14) with the sentence təp’ídida bábaGʷəmeχ - ‘The man broke it’ (where =χ is the accusative case marker and the nature of ‘it’ is known from context).	page 15, footnote 11
+footnote 11	Kwak’wala	cited form	təp’ídida bábaGʷəmeχ	page 15, in italics
+footnote 11	Kwak’wala	cited form	=χ	page 16, in italics
+§3.3	Kwak’wala	cited form	=χa qʷəʔsta	page 16, in italics
+§3.3	Kwak’wala	cited form	=χ(a)	page 16, in italics
+§3.3	Kwak’wala	cited form	=χʷ(a)	page 16, in italics
+(14) line 1	Kwak’wala	transcription	təp’idida babaGʷəmeχa qʷəʔsta	page 16
+(14) line 2	Kwak’wala	segmentation	təp’-xʔid=ida babaGʷəme=χa qʷəʔsta	page 16
+(14) line 3	Kwak’wala	gloss	break-INCH=D3.D boy=ACC cup	page 16
+(14) line 4	Katie Sardinha	translation	‘The boy broke the cup’	page 16
+§3.3	Katie Sardinha	note	The oblique case-marker takes the form of =s(a). It introduces various types of phrases that correspond closely with the types of phrases his constructions introduce in the Upper Northern Wakashan languages. In the following examples, the oblique case-marker introduces an oblique agent phrase ((15) ‘by x’) and an instrumental phrase ((16), ‘with x’):	page 16
+(15) line 1	Kwak’wala	transcription	təp’idsuwida qʷəstesa c’ədaq	page 16
+(15) line 2	Kwak’wala	segmentation	təp-xʔid-suʔ=ida qʷəste=sa c’ədaq	page 16
+(15) line 3	Kwak’wala	gloss	break-INCH-PASS=D3.D cup=OBL woman	page 16
+(15) line 4	Katie Sardinha	translation	‘The cup was broken by the woman.’	page 16
+(16) line 1	Kwak’wala	transcription	təp’idsuwida qʷəstesada dzigayu	page 16
+(16) line 2	Kwak’wala	segmentation	təp-xʔid-suʔ=ida qʷəste=sada dzigayu	page 16
+(16) line 3	Kwak’wala	gloss	break-INCH-PASS=D3.D cup=OBL.D digging.stick	page 16
+(16) line 4	Katie Sardinha	translation	‘The cup was broken with the digging stick’	page 16
+§3.3	Katie Sardinha	note	Another place where the oblique marker =s(a) occurs is in a group of ditransitive verbs (e.g. c’o – ‘give’, nəp’a – ‘throw at’, ʔəχʔátɬəla – ‘to put down (on)’) which take an oblique-marked argument where in English we might expect an accusative-marked argument. Boas (1947: 285) remarks that it is very common for the “object used in an action” to be marked in the oblique case rather than in the accusative case. This type of marking occurs in the example (17) with the verb laχala – ‘to sell’:	page 16
+§3.3	Kwak’wala	cited form	nəp’a	page 16, in italics
+§3.3	Kwak’wala	cited form	ʔəχʔátɬəla	page 16, in italics
+§3.3	Kwak’wala	cited form	laχala	page 16, in italics
+(17) line 1	Kwak’wala	transcription	laχalida bəgʷanəmesa kʷənikʷ laχa c’ədaq	page 16
+(17) line 2	Kwak’wala	segmentation	laχala=ida bəgʷanəme=sa kʷənikʷ la=χa c’ədaq	page 16
+(17) line 3	Kwak’wala	gloss	sell=D3.D man=OBL bread PREP=ACC woman	page 16
+(17) line 4	Katie Sardinha	translation	‘The man is selling bread to the woman.’	page 16
+§3.3	Katie Sardinha	note	I assume that the particular case with which an arguments is marked in a clause is determined by verbal subcategorization.	page 16
+§3.3	Katie Sardinha	note	In addition to its use introducing instrumental phrases and certain subcategorized arguments, the oblique case marker =s is also used to introduce certain arguments with possessive meaning. Thus when a possessor is third person and is not coreferential with the subject of its clause, this possessor appears after the possessed NP and is expressed using the oblique case (Anderson, 1984):	page 16
+§3.3	Katie Sardinha	name	Anderson	Stephen R. Anderson (1984), Kwak’wala syntax
+(18) line 1	Kwak’wala	transcription	gəldiƛəla wənaɬdəmsa gʷaʔsəla	page 17
+(18) line 2	Katie Sardinha	citation	(Anderson 1984: 29)	page 17, the tag at the right of the line
+(18) line 3	Kwak’wala	segmentation	gəldiƛəla wənaɬdəm=sa gʷaʔsəla	page 17
+(18) line 4	Kwak’wala	gloss	long inlet=OBL gʷaʔsəla	page 17
+(18) line 5	Katie Sardinha	translation	‘…the long inlet of the Gwa’sila [tribe]’	page 17
+§3.3	Katie Sardinha	note	If the possessor is known from context, the oblique case =s may appear on its own. Anderson describes the difference between postnominal possessor phrases as in (18) and oblique phrases as in (16) as being “that ordinary instrumental marking is assigned by reference to the properties of a governing verb (taking instrumental complements), whereas possessor marking is assigned simply by virtue of the structural configuration” (1984: 30).	page 17
+§3.3	Katie Sardinha	note	In cases where a third-person possessor is coreferential with the subject of its clause, the enclitic element =is “replaces the deictic part of the determiner of the possessed NP, and there is no overt expression of the possessor” (ibid: 30). In the following example, the accusative case is used together with this third-person possessive clitic:	page 17
+(19) line 1	Kwak’wala	transcription	Gəlsoχda bəgʷanəmeχis gukʷ	page 17
+(19) line 2	Kwak’wala	segmentation	Gəls=oχda bəgʷanəme=χ=is gukʷ	page 17
+(19) line 3	Kwak’wala	gloss	paint=D2.D man=ACC=POSS.3 house	page 17
+(19) line 4	Katie Sardinha	translation	‘The man is painting his house.’	page 17
+§3.3	Katie Sardinha	note	It is also possible to combine the third-person possessive clitic =is with the oblique =s in instrumental phrases involving a third-person possessor that is coreferential with the subject (e.g. (20)), or with the oblique =s in phrases containing a subcategorized oblique argument and a third-person possessor who is coreferential with the subject (e.g. (21)):	page 17
+(20) line 1	Kwak’wala	transcription	təp’idida babaGʷəmeχa qʷəʔsta ʔəχalasis dzigayu	page 17
+(20) line 2	Kwak’wala	segmentation	təp’-xʔid=ida babaGʷəm=χa qʷəʔsta ʔəχ-ala=s=is dzigayu	page 17
+(20) line 3	Kwak’wala	gloss	break-INCH=D3.D boy=ACC cup ø-use=OBL=POSS.3 d.stick	page 17
+(20) line 4	Katie Sardinha	translation	‘The boy broke the cup with his digging stick’	page 17
+(21) line 1	Kwak’wala	transcription	lə’misida gənanəm c’əχisis ləχa	page 17
+(21) line 2	Kwak’wala	segmentation	lə-’mis=ida gənanəm c’əχ-xʔid=s=is ləχa	page 17
+(21) line 3	Kwak’wala	gloss	AUX-DISC=D3.D boy throw-INCH=OBL=POSS.3 basket	page 17
+(21) line 4	Katie Sardinha	translation	“So then the boy threw his basket…	page 17, the translation's first part, over the second set of tiers
+(21) line 5	Kwak’wala	transcription	laχa ’wac’i	page 17
+(21) line 6	Kwak’wala	segmentation	la=χa ’wac’i	page 17
+(21) line 7	Kwak’wala	gloss	PREP=ACC dog	page 17
+(21) line 8	Katie Sardinha	translation	…at the dog”	page 17, the translation's second part
+§3.3	Katie Sardinha	note	When the possessor is in first or second person, special determiners take the place of the deictic marking that normally precedes the noun phrase referring to the thing possessed. This set of “special determiners” includes the first person singular possessive =ən, the first person plural (inclusive) possessive =əns, the first person plural (exclusive) possessive =ənuxʷ, and the second person possessive =us. These first and second person possessive clitics are identical to the first and second personal pronouns in this language and are not easily relatable to his constructions. With regard to the second person possessive clitic, Kwak’wala =us is also identical to the second person “his” – enclitic in Heiltsuk (and the analogous form in the Bella Bella dialect including Oowekyala, Boas 1947: 297) as well as the analogous oblique enclitic in Haisla. The fact that this =us form is common across all four Northern Wakashan languages means that it was likely present at some stage in Proto-Northern Wakashan.	page 18
+§3.3	Kwak’wala	cited form	=ən	page 18, in italics
+§3.3	Kwak’wala	cited form	=əns	page 18, in italics
+§3.3	Kwak’wala	cited form	=ənuxʷ	page 18, in italics
+§3.3	Katie Sardinha	note	In addition to immediately preceding overt (or assumed but unexpressed) noun phrases, Kwak’wala case-markers may have pronominal enclitics attached at their right edge. These deictic enclitics, which are related to Heiltsuk primary deictics (Rath 1981: 77), encode information about where a referent exists in terms of three degrees of distance from the speaker: that is, near the speaker, at an intermediate distance from the speaker (or within the immediate discourse context), or distant (or outside of the discourse context). Thus, for instance, the oblique case marker may combine with a deictic enclitic (=oχ) in order to refer to a man who is within the immediate discourse context, making =s=oχ – ‘by him’ (as in ‘the blanket was made by him [the man is nearby, within discourse context]’). This is just to say that the oblique case marker has been fully re- analyzed as an enclitic in Kwak’wala; thus, as a bona fide enclitic it may pattern along with other clitics, within the limits of particular ordering constraints.	page 18
+§3.3	Kwak’wala	cited form	=oχ	page 18, in italics
+§3.3	Kwak’wala	cited form	=s=oχ	page 18, in italics
+§3.3	Katie Sardinha	note	What the above data have shown is that arguments introduced by oblique =s in Kwak’wala correspond in terms of meaning with the phrases introduced by his or by “his” – enclitics in the Upper Northern Wakashan languages. That is, phrases which can be represented using his constructions in the Upper Northern Wakashan languages and can be translated as ‘by x’ (oblique agent phrases), ‘with x’ (instrumental phrases), and ‘of x’ (genitive/possessive phrases) can be expressed in Kwak’wala using the oblique marker =s, the third person coferential-with-subject possessive marker =is, or a combination of these two markers. What remains to be shown is that the distribution of these constructions overlaps between the Upper Northern Wakashan languages and Kwak’wala, as well as the phonological plausibility of these constructions being historically related to each other.	page 18
+§3.3	Katie Sardinha	note	With regard to the syntax of its prepositions, Kwak’wala operates very similarly to the Upper North Wakashan languages; it too permits both VP-level attachment of PPs and constructions where prepositions are embedded within DPs. The use of prepositions in Kwak’wala does nonetheless display some differences from the other Northern Wakashan languages. Notably, the preposition la is used much more frequently in Kwak’wala than in the other Northern Wakashan languages, acting as a sort of default construction for carrying extra arguments in a sentence. Recall that there is a preference throughout Wakashan for not including more than one internal argument within a clause, and that any extra arguments become positioned in additional phrases of various types. In Kwak’wala, this tendency is manifested as a strong preference against having two case-marked internal arguments in the same clause (Boas 1947: 281). If more than one argument is subcategorized for, one of the arguments becomes positioned in a la- headed prepositional phrase (or less frequently in a q- headed phrase when this is semantically appropriate). Therefore, la- phrases end up having a large functional load in this language. Note the following examples:	page 18
+(22) line 1	Kwak’wala	transcription	c’owida c’edaqesa ƛatəmɬ laχa bəgʷanəm	page 19
+(22) line 2	Kwak’wala	segmentation	c’əw=ida c’edaqe=sa ƛatəmɬ la=χa bəgʷanəm	page 19
+(22) line 3	Kwak’wala	gloss	give=D3.D woman=OBL hat PREP=ACC man	page 19
+(22) line 4	Katie Sardinha	translation	‘The woman gave a hat to the man’	page 19
+(23) line 1	Kwak’wala	transcription	giluɬida c’edaqeχa ƛatəmɬ laχa bəgʷanəm	page 19
+(23) line 2	Kwak’wala	segmentation	giluɬi=ida c’edaqe=χa ƛatəmɬ la=χa bəgʷanəm	page 19
+(23) line 3	Kwak’wala	gloss	steal=D3.D woman=ACC hat PREP=ACC man	page 19
+(23) line 4	Katie Sardinha	translation	‘The woman stole a hat from the man’	page 19
+(24) line 1	Kwak’wala	transcription	Gəlsida c’ədaqesa ƛi’na laχis GuGaʔme	page 19
+(24) line 2	Kwak’wala	segmentation	Gəls=ida c’ədaqe=sa ƛi’na la=χ=is GuGaʔme	page 19
+(24) line 3	Kwak’wala	gloss	Paint=D3.D woman=OBL eulachon.grease PREP=ACC=3.POSS face	page 19
+(24) line 4	Katie Sardinha	translation	‘The lady is painting her face with eulachon grease’	page 19
+§3.3	Katie Sardinha	note	Comparing the prepositional phrases in these three examples, we can see that the semantic interpretation of each la- headed phrase is determined by the subcategorization frame of the predicate and that the range of interpretations these phrases can acquire is quite broad: in (22) the la- phrase indicates movement towards an argument; in (23) it implies movement away from an argument; and in (24) it implies movement onto a possessed argument. Sentence (24) is particularly interesting as it shows a la- phrase carrying two meanings: the meaning of ‘on’, and the possessive clitic =is. Notice that this clitic is doing the semantic work of his in the other Northern Wakashan languages, apparently without any help, other than purely structural, from prepositional la-.	page 19
+§3.3	Katie Sardinha	note	Interestingly, a conspicuous distributional overlap exists between his constructions in the θern Wakashan languages and oblique-case marked phrases in Kwak’wala at the site of arguments which are subcategorized by ditransitive verbs as obliques (recall (21); also see (22) and (24)). Indeed, Boas (1947) notes difficulties with respect to the semantic difference between accusative and oblique marked arguments, noting that while the accusative case most regularly introduces semantic objects, the oblique case also seems to introduce many arguments that are intuitively (at least in terms of English) direct objects themselves. Thus in (22), the verb c’əw – ‘to give’ subcategorizes for a =χ marked object corresponding to what in English would be the indirect object, while the =s marked argument corresponds to what in English would be the direct object. Considering this pattern, the following note in Lincoln, Rath, & Windsor (1986) regarding Haisla provides additional evidence for the overlapping distribution of his constructions in this language and oblique- subcategorized arguments in Kwak’wala:	page 19
+§3.3	Katie Sardinha	note	“If the predicate of the sentence has ditransitive meaning, the Haisla	page 20
+§3.3	Katie Sardinha	note	grammatical object corresponds to an English indirect object while a	page 20
+§3.3	Katie Sardinha	note	Haisla right-hand adjunct beginning in /hs-/ corresponds to the English	page 20
+§3.3	Katie Sardinha	note	direct object.” (p. 255) Thus, there seems to be a distributional correspondence between arguments subcategorized as oblique and assigned oblique case in Kwak’wala (e.g. ƛatəmɬ - ‘hat’ in (22)) and right-hand his adjuncts in Haisla; likewise a correspondence occurs between the accusative-marked recipient argument in Kwak’wala la- phrases and Haisla direct objects. That is, the distribution of his constructions in Haisla ditransitives correspond to that of oblique case-marked arguments in certain Kwak’wala ditransitives, and the distribution of Haisla direct objects corresponds with Kwak’wala direct objects positioned in la- headed phrases, even while the linear and syntactic placement of these arguments (within the clause vs. in a prepositional phrase) has been reversed. This correspondence constitutes a convincing piece of evidence that these constructions are related to each other historically. Considered historically, the rather opaque semantics of oblique-marked subcategorized arguments in Kwak’wala also makes more sense when we see that this oblique marking derives from an older set of prepositional constructions involving his.	page 20
+§3.3	Katie Sardinha	note	To summarize the distributional evidence for a historical connection between his constructions and the Kwak’wala oblique case/third-person possessive enclitics, note that in the places that we find preposition his constructions in the Upper Northern Wakashan languages, we find in Kwak’wala one of the following constructions:	page 20
+§3.3	Katie Sardinha	note	1. A noun phrase introduced by the oblique case-marker =s, which is	page 20
+§3.3	Katie Sardinha	note	interpreted as an oblique agent phrase (e.g. (15))	page 20
+§3.3	Katie Sardinha	note	2. A noun phrase introduced by the oblique case-marker =s, which gets	page 20
+§3.3	Katie Sardinha	note	an instrumental meaning (e.g. (16), (20), (24))	page 20
+§3.3	Katie Sardinha	note	3. A noun phrase introduced by the oblique case-marker =s denoting a	page 20
+§3.3	Katie Sardinha	note	possessor (when the possessor is not coreferential with the subject of	page 20
+§3.3	Katie Sardinha	note	its clause) (e.g. (17))	page 20
+§3.3	Katie Sardinha	note	4. A noun phrase introduced by the possessive clitic =is (when the	page 20
+§3.3	Katie Sardinha	note	possessor is coferential with the subject of its clause) (e.g. (19)),	page 20
+§3.3	Katie Sardinha	note	possibly contained within a prepositional phrase introduced with la-	page 20
+§3.3	Katie Sardinha	note	(e.g. (24))	page 20
+§3.3	Katie Sardinha	note	5. An instrumental phrase involving a third person possessor that is	page 20
+§3.3	Katie Sardinha	note	coreferential with the subject (e.g. (20)) or a phrase containing a	page 20
+§3.3	Katie Sardinha	note	subcategorized oblique argument and third-person possessor who is	page 20
+§3.3	Katie Sardinha	note	coreferential with the subject of the clause, in either case involving a	page 20
+§3.3	Katie Sardinha	note	combination of the oblique case-marker =s and an attached possessive	page 21
+§3.3	Katie Sardinha	note	clitic to make =s=is (e.g. (20), (21))	page 21
+§3.3	Katie Sardinha	note	6. In ditransitives, an argument subcategorized as an oblique and case-	page 21
+§3.3	Katie Sardinha	note	marked with =s, often corresponding to a direct object in English (e.g.	page 21
+§3.3	Katie Sardinha	note	(17), (20), (21), (22), (24)) Thus, the distribution and function of “oblique case” and the third-person possessive clitic corresponds with distribution and function of his constructions in the three Upper Northern Wakashan languages.	page 21
+§3.3	Katie Sardinha	note	The hypothesis that Kwak’wala oblique case and third person possessive enclitics are historically derived from his constructions is, moreover, phonologically as well as distributionally plausible. The Kwak’wala oblique- case marker =s should be seen as a remnant from the Proto-Northern Wakashan preposition *his which was lost in this language through a process that is similar to what is happening in the other Northern Wakashan languages today. Thus we can imagine a process whereby the phonologically-weak initial segments of his started being dropped and speakers began encliticizing the final =s to the preceding word. Over time, =s became re-analyzed as an enclitic in its own right, and thus took on the capacity to pattern with other enclitics. Arguments that previously had been subcategorized to occur in his prepositional phrases became oblique-case marked; due to the constraint on more than one argument in the main clause, Kwak’wala la phrases have became default carriers of extra arguments where these existed. Instrumental and oblique agent phrases, which also used to be expressed with his constructions, became oblique-marked adjunct phrases when the initial segments of the preposition his dropped out. The third-person possessive use of oblique =s developed on the same line from his constructions which previously carried a genitive meaning. This historical hypothesis helps us to account for the many ways in which the Kwak’wala oblique marker is used synchronically. Though the oblique marker seems to be doing a lot at once by introducing a wide array of argument and adjunct phrases, this situation is accounted for by its origins out of a prepositional construction which encoded a fairly wide range of instrumental, genitive, and oblique meanings and which in fact continues to encode these types of meanings in the other Northern Wakashan languages today.	page 21
+§3.3	Katie Sardinha	note	With regard to the third-person possessive clitic =is in Kwak’wala, it is possible that this form derives directly from the final segments of his itself being re-analyzed as an enclitic. The process by which this re-analysis would have occurred is in need of more investigation.	page 21
+§3.3	Katie Sardinha	note	In summary, Kwak’wala oblique case and third-person possessive clitics correspond in distribution and function with his constructions in the Upper Northern Wakashan languages. This observation, combined with the fact that the Upper Northern Wakashan languages are in an intermediate stage of developing Kwak’wala-like case marking, constitutes evidence for the hypothesis that Northern Wakashan case developed (and is developing) out of constructions involving the Proto-Northern Wakashan preposition *his.	page 21
+§4	Katie Sardinha	heading	4 Northern Wakashan prepositions: verbal and demonstrative origins	page 22
+§4	Katie Sardinha	note	Given the evidence for the innovation of case from prepositional constructions in the Northern Wakashan language branch, we can begin to explain one of two major syntactic differences between the Northern and Southern Wakashan language branches – namely, the presence vs. absence of grammatical case. The second major difference between the Northern and Southern branches – the presence of prepositions in the Northern languages – brings up the question of where these prepositions themselves came from. I will now discuss the hypothesis that prepositions were innovated in the Northern Wakashan language branch prior to the types of innovations I have explored with relation to case-marking. The idea that Northern Wakashan prepositions are related to or derived from verbs has been discussed in the literature previously (e.g. Boas 1947, Anderson 1984, Fortescue 2006). Although an attempt at explaining the exact stages of this grammaticalization process is beyond the scope of this paper, evidence for verbal and demonstrative origins of the prepositions listed in Table 1will be presented.	page 22
+§4.1	Katie Sardinha	heading	4.1 Prepositional la	page 22
+§4.1	Katie Sardinha	note	The preposition la appears to be historically derived from the Proto- Northern Wakashan verbal root *la/ɬə - ‘to be in a position’, ‘to change position’, ‘to go’, ‘to move towards’ (Lincoln & Rath 1980: 218). In addition to being used as a preposition, this root also functions as an independent verb and as an auxiliary element in these languages. As an independent verb, the root la takes on the meaning ‘to go’, as in the following Kwak’wala examples:	page 22
+§4.1	Kwak’wala	cited form	*la/ɬə	page 22, in italics
+(25) line 1	Kwak’wala	transcription	lalaʔoχ laχa səkul	page 22
+(25) line 2	Kwak’wala	segmentation	lala12=oχ la=χa səkul	page 22
+footnote 12	Katie Sardinha	note	The form lala – ‘going’ in (25) and (26) includes either a reduplicated form or a continuative suffix (-(a)la) attached to the root. The context in which (25) and (26) were elicited (where a specific boy/specific girl is heading to school on one particular day) favors the continuative suffix reading. Levine (1980: 243) glosses lala as including a reduplicated form, but this is in a context of going to a place more generally (i.e. lalaʔoχda bəgʷanəmχ laχʷa ʔəwińagʷis – ‘The man goes to this village’).	page 22, footnote 12
+footnote 12	Kwak’wala	cited form	lalaʔoχda bəgʷanəmχ laχʷa ʔəwińagʷis	page 22, in italics
+footnote 12	Katie Sardinha	name	Levine	Robert Levine (1980), the lexical origin of the Kwak’wala passive
+(25) line 3	Kwak’wala	gloss	going=D2 PREP=ACC school	page 22
+(25) line 4	Katie Sardinha	translation	‘He is going to school’	page 22
+(26) line 1	Kwak’wala	transcription	lə’moχ dalaχʷada bukʷ lala ʔəχ laχ səkuʔlac’i	page 22
+(26) line 2	Kwak’wala	segmentation	lə-’m=oχ dala=χʷada bukʷ lala ʔəχ la=χ səkuʔlac’i	page 22
+(26) line 3	Kwak’wala	gloss	AUX-DISC=D2 carry=ACC.D book going ø PREP=ACC school	page 22
+(26) line 4	Katie Sardinha	translation	‘She is carrying the books to school’	page 22
+§4.1	Katie Sardinha	note	The verb root la occurs also occurs with a multitude of lexical suffixes that help to constrain the meaning of the predicate (e.g. Haisla: làatus – ‘to go downstream to go down to a place’, làatusa – ‘to take downstream’ (Lincoln & Rath 1986: 242)). Its behaviour is thus comparable to the ‘empty locative roots’ we have already discussed in relation to Southern Wakashan, even though la may be less ‘empty’ than these roots by contributing its own meaning, ‘to go’ in many instances. When used as an auxiliary, however, la- is meaningless.	page 23
+§4.1	Kwak’wala	cited form	làatus	page 23, in italics
+§4.1	Kwak’wala	cited form	làatusa	page 23, in italics
+§4.1	Katie Sardinha	note	Example (26) also shows one use of la as an auxiliary element; here, the discourse particle –’m and the middle-distance locative deictic =oχ referring to the subject are attached to the auxiliary instead of the main verb ‘dala’ – ‘to carry’ which follows it. Auxiliary constructions like this one function in tying discourses together and are extremely common in connected speech and texts. Such constructions, if they are to be translated, can be read as ‘and then…’ or ‘and so…’.	page 23
+§4.1	Kwak’wala	cited form	=oχ	page 23, in italics
+§4.1	Katie Sardinha	note	The root in question is listed as la- in Haisla, ɬ- Heiltsuk and Oowekyala, and la- in Kwak’wala, though in a prepositional context, all four languages use the form la- (Lincoln & Rath 1980: 218). As an example, the following shapes are given for the meaning ‘down, to go down, etc.’: laaχa (Ha), laχa (Heiltsuk), laaχa (Oowekyala), and laχa (Kwak’wala) (ibid.). As prepositional la is common to all four languages, *la can be taken to be the Proto-Northern Wakashan form. Interestingly, this form does not appear to correspond with any particular Southern Wakashan roots (Fortescue 2007). Concepts of ‘going’ in Nuu-Chah-Nulth are expressed in a great many ways using various roots (e.g. (27)) and lexical suffixes either attached to an empty root (e.g. (28)) or to a content-carrying root (e.g. (29)):	page 23
+§4.1	Kwak’wala	cited form	ɬ-	page 23, in italics
+§4.1	Kwak’wala	cited form	laaχa	page 23, in italics
+§4.1	Kwak’wala	cited form	laχa	page 23, in italics
+(27) line 1	Nuu-Chah-Nulth	transcription	waha`k’aƛaħ	page 23
+(27) line 2	Katie Sardinha	citation	(Davidson 2002: 99)	page 23, the tag at the right of the line
+(27) line 3	Nuu-Chah-Nulth	segmentation	waha`kʷ=’aƛ=(m)a`=aħ	page 23
+(27) line 4	Nuu-Chah-Nulth	gloss	go.PERF=TEMP=INDIC=1sg	page 23
+(27) line 5	Katie Sardinha	translation	‘I went.’	page 23
+(28) line 1	Nuu-Chah-Nulth	transcription	hina`čiƛ	page 23
+(28) line 2	Katie Sardinha	citation	(Davidson 2002: 38)	page 23, the tag at the right of the line
+(28) line 3	Nuu-Chah-Nulth	segmentation	hina-a`-čiƛ	page 23
+(28) line 4	Nuu-Chah-Nulth	gloss	empty.root-go.out.to.sea-PERF	page 23
+(28) line 5	Katie Sardinha	translation	‘go out to sea’	page 23
+(29) line 1	Nuu-Chah-Nulth	transcription	haɬi`ɬʔas	page 23
+(29) line 2	Katie Sardinha	citation	(Davidson 2002: 57)	page 23, the tag at the right of the line
+(29) line 3	Nuu-Chah-Nulth	segmentation	haɬi`ɬ-ʔas	page 23
+(29) line 4	Nuu-Chah-Nulth	gloss	invite.to.participate-go.in.order.to	page 23
+(29) line 5	Katie Sardinha	translation	‘go to invite’	page 23
+§4.1	Katie Sardinha	note	While Northern and Southern Wakashan do not share the form la, the fact that both branches possess a class of elements (e.g. semantically-empty roots in both branches, la in the Northern branch) that is used in both preposition-like ways and auxiliary-like ways is striking. This similarity invites further investigation.	page 23
+§4.2	Katie Sardinha	heading	4.2 Prepositional q-	page 24
+§4.2	Katie Sardinha	note	The preposition q- occurring in all four Northern Wakashan languages appears to be historically derived from the Proto-Northern Wakashan root *q- which is listed as meaning “for, for the benefit of, for the sake of, about, pertaining to, because, etc.” (Lincoln & Rath 1980: 350). The segments following the initial [q] of this preposition vary somewhat even within a single language (e.g. qa-, qən- in Heiltsuk; see Table 3 above), so I have not included these segments in Table 1 or in the Proto form.	page 24
+§4.2	Kwak’wala	cited form	qa-, qən-	page 24, in italics
+§4.2	Katie Sardinha	note	Going back further to Proto-Wakashan, Fortescue (2007: 96) reconstructs Proto-Wakashan *qa ‘because or for (that)’ and remarks that this form was “perhaps originally a (subordinate) demonstrative”. For the Southern Wakashan languages, he lists a group of cognate suffixes beginning with -q acting as subordinative mood markers in all three languages. For the Northern Wakashan languages, the forms given are q- initial roots which are said to introduce benefactive and subordinate clauses and to be the basis of various demonstratives (in Oo, He, Ha) and object-marking forms (in Kw, Oo, He, Ha). A reconstruction of how these Northern and Southern forms are related to each other would have to account for how suffixes in the Southern branch are related to roots in the Northern branch. In general, Wakashan lexical suffixes are known for having no necessary resemblances with independent morphemes of the same meaning (Davis 2010). On the other hand, the –q mood markers in Southern Wakashan are ‘peripheral suffixes’ (Davidson 2002: 169) which only attach to bases that can also occur as words (i.e. free roots or bases with suffixes), and thus are different from ‘core lexical suffixes’ which attach to bound roots, free roots, and bases with suffixes. It is possible that peripheral suffixes are more likely to be historically related to independent morphemes than core lexical suffixes are; however, this can only be speculated upon.	page 24
+§4.2	Katie Sardinha	note	In the Northern Wakashan languages there is additionally a q- initial complementizer (frequently spirantized to χ- in natural speech) that introduces various types of subordinate clauses such as conditional clauses and complement clauses in raising constructions. This complementizer is likely to have derived from preposition q- constructions, a very common cross-linguistic development (e.g. consider English ‘for’). See Bach, Robinson & Robinson (2010: lesson 9) for a discussion of these forms and their relationship in Haisla, and Rath (1981: 103) for a discussion of these forms in Heiltsuk.	page 24
+§4.2	Kwak’wala	cited form	χ-	page 24, in italics
+§4.2	Katie Sardinha	note	I suspect that the ‘demonstrative’ q- initial forms in the Upper Northern Wakashan languages are distinct from the q- initial preposition and/or complementizer. These demonstratives may even be the origin of Kwak’wala accusative case marking in much the same way as I have argued that his constructions are the origin of the oblique case forms. Thus, note the following description of qi= and q=- demonstratives in Haisla in Lincoln & Rath (1986: 49): “…/qi=/ and /qu=/ seem to contribute immediacy or vividness in the same way that English ‘this’ can do. Note that /qi-/ and /qu-/ are proclitics in dictations, but that often in conversation they behave like enclitics attached to the word directly preceding. In the Kitlope dialect this can sometimes be confusing because there are also object enclitics /=qi/ and /=qu/.” Thus we see that a set of proclitic demonstratives exists which is phonologically indistinguishable from third-person object enclitics in the Kitlope dialect (in the Kitimaat dialect, the corresponding object enclitics are /=’hi/ and /=’hu/). These demonstratives occur in the same linear position as the object enclitics, and are only distinguished prosodically from the object enclitics by the fact that they are (often, though not always) proclitics. Given that they attach to the left border of noun phrases, /qi=/ and /qu=/ demonstratives probably occur in complementary distribution with object enclitics (which replace noun phrases), though this remains to be confirmed by actual data. Ultimately, more work is needed to examine this accusative-case hypothesis.	page 24
+§4.2	Kwak’wala	cited form	q=-	page 24, in italics
+§4.2	Katie Sardinha	note	For our purposes here, I will reconstruct a Proto-Northern Wakashan preposition *q-, and leave open the question whether this form is ultimately relatable to forms in the Southern Wakashan languages.	page 25
+§4.3	Katie Sardinha	heading	4.3 Prepositional ga	page 25
+§4.3	Katie Sardinha	note	The preposition ga is unique to Kwak’wala and probably represents a relatively recent innovation within this language. As stated earlier, its distribution is restricted to the first person singular and plural object forms gaχən – ‘to me’, gaχəns – ‘to us (incl)’, gaχənoxʷ - ‘to us (excl)’. This form appears to be historically derived from the Proto-North Wakashan root *gaχ – ‘to come’, ‘to move towards the speaker’ (Lincoln & Rath 1980: pg. 229). It is likely that this verbal root is itself historically related to the Northern Wakashan demonstrative root *ga ‘this (near speaker)’, a deictic root common to all Northern Wakashan languages (ibid: 228) with which it shares a core deictic aspect of its meaning. The question of whether the verbal root developed from the demonstrative root or vice versa is an interesting one, but one I cannot at this time answer. Moreover, the form ga does not appear to be related to any particular forms in Southern Wakashan (Fortescue 2007).	page 25
+§4.3	Kwak’wala	cited form	*gaχ	page 25, in italics
+§4.4	Katie Sardinha	heading	4.4 Prepositional his	page 25
+§4.4	Katie Sardinha	note	In order to reconstruct the Proto-Northern Wakashan form of the preposition his discussed at length in this paper, we will need to account for phonetic variation in the preposition’s initial segment, a topic of some complication in the literature. The following alternation between initial h- and initial y- exists in the three Upper Northern Wakashan languages:	page 25
+§4.4	Katie Sardinha	note	Haisla:	page 25, before the form
+§4.4	Haisla	transcription	his	page 25, the preposition his
+§4.4	Katie Sardinha	note	Heiltsuk:	page 25, before the form
+§4.4	Heiltsuk	transcription	yis	page 25, the preposition his
+§4.4	Katie Sardinha	note	Oowekyala:	page 25, before the form
+§4.4	Oowekyala	transcription	yis	page 25, the preposition his
+§4.4	Katie Sardinha	note	For Haisla, the form his shows up uncontroversially in published materials. In Heiltsuk and Oowekyala on the other hand, determining the initial segment of the preposition even synchronically is a more complicated matter. For Heiltsuk, Rath (1981: 23-26) posits the form yis at the phonemic level with a phonetic realization of hʸis: this pronunciation is arrived at through a rule whereby phonemic /y-/ followed by a high vowel /-i-/ is realized as the combination [hʲi-] when occurring before a consonant. Thus, for instance, all words with initial y- that undergo reduplication in the plural (where the word- initial C is reduplicated along with a high-front vowel) end up with an initial h- and glottalization of the y (i.e. ‘ya..’ → ‘hiýa…’). This rule appears to be strictly followed as there no words listed in Rath’s Heiltsuk dictionary (ibid.) beginning with the combination yi-. Rath orthographically represents the preposition as his in his (1981) work to reflect the form’s phonetic character, whereas in Rath (1984) it is represents as yis. A similar situation in regards to the phonetics of the preposition’s initial segment apparently occurs in Boas’ “Bella Bella dialect” (including Oowekyala), as Boas (1947: 298) writes of initial y- as having “strong aspiration and slight sonancy” in this language. Thus, the Heiltsuk and Oowekyala forms of this preposition, while being represented as yis in Rath (1984), may be more accurately described phonetically as hʸis.	page 25
+§4.4	Kwak’wala	cited form	hʸis	page 26, in italics
+§4.4	Kwak’wala	cited form	hiýa	page 26, in italics
+§4.4	Kwak’wala	cited form	yi-	page 26, in italics
+§4.4	Katie Sardinha	note	Since the segment h is restricted in Northern Wakashan languages to word-initial environments (where it is pronounced [hʸ] prior to a high front vowels), this is the only phonetic environment where this segment interacts with the segment y. The question then becomes: what is the nature of the phonetic interaction between these two segments, taking a historical view? Considering the logic of sound changes and internal evidence from these languages, the most likely historical scenario to account for the synchronic distribution of this initial segment of the preposition under discussion is to posit the existence of a Proto- Northern Wakashan segment *h, thus allowing us to reconstruct the preposition as *his. That the segment *h goes back to Proto-Wakashan is evidenced by the existence of pan-Wakashan correspondences which have h- as an initial segment (see Fortescue 2007). In the Southern Wakashan languages, however, this segment is not limited to word-initial position. The limited distribution of this segment (word-initially) in the Northern branch is thus likely to be due to the segment’s loss or change in non-word-initial environments.	page 26
+§4.4	Katie Sardinha	note	To account for the presence of word-initial y in Heiltsuk and Oowekyala, consider that the segment h, when pronounced before a high vowel, has a tendency to be palatalized and to take on a phonetic character of [hʸi]. Given a pan-Wakashan constraint against complex onsets, we might expect this word-initial combination of [h + y] to be relatively unstable. In Heiltsuk and Oowekyala, we could say that this instability has given way to a situation whereby the initial segment derived from *h and occurring prior to a high-front vowel is pronounced roughly as [hʸi], though it has in at least in some cases (with some speakers) been phonemically simplified to /yi/. The distinctively voiced/sonant [hʸi] sound characteristic of these languages is thus due to a sound change from *h → hʸ/_i with [hʸi] being potentially reanalyzed as /yi/. This scenario explains how the h/y alternation can exist between Haisla (which has conserved initial h before a high-front vowel) on the one hand and Heiltsuk/Oowekyala (where initial h has become a distinct flavour of y before a high-front vowel) on the other.	page 26
+§4.4	Katie Sardinha	note	Evidence supporting the alternate hypothesis is lacking: that is, the hypothesis wherein we posit Proto-Northern Wakashan *y and show that this segment has been preserved in Heiltsuk/Oowekyala while a *y → h sound change has occurred in Haisla. There do not appear to be y- initial words in Heiltsuk corresponding to h- initial cognates in Haisla; indeed, it is possible to locate many cognates in Haisla and Heiltsuk which share the same initial segment whether it be h or y, thus suggesting that no systematic sound changes have taken place (Rath 1981, Lincoln & Rath 1986). The only exception to this statement is that the initial combination yi- is absent in Heiltsuk entries (Rath 1981), which is just to repeat the fact that [hʸi] is always phonetically realized in this particular environment. In conclusion, then, there is no evidence to support this counter-hypothesis.	page 27
+§4.4	Katie Sardinha	note	Adopting the Proto-Northern Wakashan form *his as a solid hypothesis, we can begin to investigate this form’s origin from a Proto- Wakashan demonstrative root *hi. Indeed, the form hi- (yi- in Heiltsuk and Oowekyala) exists in all four of the Northern Wakashan languages as a demonstrative root and also appears to relate to semantically-empty “locative” roots in the Southern Wakashan languages, mentioned in Section 2. Across the Wakashan family, basic examples of this form are listed in Fortescue’s (2007: 43) dictionary as follows: hita-, hida- ‘empty root’ (Ma and Di); hita, hin(a)- ‘empty root’ (NCN); hi- ‘that yonder’ (demonstrative) (Kw); yi- ‘be the case, exist’ (Oo); yi- ‘be the one that (focal)’ (He); hi- ‘be the case, exist, that’ (Ha). Fortescue (2007) reconstructs a Proto-Wakashan candidate form *hi: ‘that (empty root)’ and mentions that there is possibly “conflation” with the form *yi: ‘that yonder’ in Ha, He, and Oo. Given the alternation between word-initial h/y already discussed, the forms *hi: and *yi: are likely derived from a single form, Proto-Wakashan *hi:, which has a tendency to become palatalized and therefore unstable in light of a constraint against complex onsets. As argued above for Proto-Northern Wakashan, the Proto-Wakashan form is thus likely h initial, becoming *hi:.	page 27
+§4.4	Kwak’wala	cited form	hita, hin(a)-	page 27, in italics, ‘empty root’
+§4.4	Katie Sardinha	note	Determining the most likely origin of -s in Proto-Northern Wakashan *his is especially difficult given that s is a common segment, making the probability of finding chance resemblances very high. Fortescue (2007: 405) proposes the Proto-Wakashan lexical suffix *-ay(c)s/-ayzs ‘belonging to or with’ as a potential candidate. The data given to support this reconstruction include –i:c ‘belonging to’ (Ma), -ac, -i:c ‘belonging to’ (NCN), -s ‘with, by, belonging to’ (Kw), and –s ‘with, by, belonging to’ (He). Yet the two Northern Wakashan examples differ from the Southern Wakashan examples in that they are clitics, while the Southern Wakashan forms are lexical suffixes. As there is little or no evidence historically linking lexical suffixes and clitics elsewhere in the language, the plausibility of this correspondence is weakened. A more likely candidate for the historical antecedent of –s in his is the attributive marker –s in the Upper Northern Wakashan languages; this marker appears on most adjectives that precede and modify nouns; it is the “left-hand adjunct suffix” (LHAS) mentioned in Rath (1981) and seen in examples (8) and (9) above. An analogous attributive use of –s is mentioned with regards to Haisla by Bach, Robinson & Robinson (2010). In Heiltsuk at least, -s is not a lexical suffix, but rather falls into a class of suffixes including mood and tense suffixes. It is also possible, of course, that the antecedent of the –s in his has itself disappeared or been transformed, and I can do little more than speculate on its whereabouts at this time.	page 27
+§4.4	Kwak’wala	cited form	*-ay(c)s/-ayzs	page 27, in italics, ‘belonging to or with’
+§4.4	Kwak’wala	cited form	-ac, -i:c	page 27, in italics, ‘belonging to’
+§4.4	Katie Sardinha	note	In summary, prepositions in Northern Wakashan can plausibly be derived from verbal and demonstrative forms present in Proto-Northern Wakashan. In the case of his, the form can probably be taken back further and derived from a Proto-Wakashan demonstrative root. Altogether, this evidence thus suggests that prepositions were innovated in the Northern Wakashan languages. With regard to his constructions, the innovation of prepositions ultimately paved the way for the development of case as is seen today in the Northern Wakashan languages.	page 28
+§5	Katie Sardinha	heading	5 Conclusion	page 28
+§5	Katie Sardinha	note	This paper has explored a historical hypothesis to account for the presence of prepositions and morphological case in the Northern Wakashan languages as compared with the Southern branch of the Wakashan family, in which these syntactic features are lacking. This historical hypothesis has centered on the presentation of two types of evidence: 1) the development of morphological case marking from a particular prepositional construction; and 2) evidence for the earlier innovation of prepositions from verbal and demonstrative roots in Proto-Northern Wakashan and beyond. The development of an oblique case from constructions involving the preposition his is an ongoing process in the Upper Northern Wakashan languages, where it has continued to completion only in Kwak’wala, the relative outlier of the Northern Wakashan language branch. These findings have implications for the Wakashan language family as a whole, and help to raise several important questions regarding language change more generally.	page 28
+§5	Katie Sardinha	note	Regarding the internal classification of the Northern branch of the Wakashan language family, the evidence presented in this paper provides one qualification to a common assumption about Haisla. Thus we have seen how Haisla, which is generally assumed to be the most conservative language of the Northern branch, has in fact progressed farther towards developing morphological oblique case than has Heiltsuk and Oowekyala by developing a set of forms in the first person where none exists in Heiltsuk/Oowekyala; this is even true despite the geographical discontinuity between Haisla and Kwak’wala. Heiltsuk and Oowekyala, which have been more conservative with regard to this change, are as expected extremely similar to each other and have both undergone the same sound change – namely, hi →hʸi in word-initial environments. Kwak’wala is, as expected, the outlier of the bunch. Given this situation and the fact that the Upper Northern Wakashan languages are otherwise quite similar to each other (Rath 1984), we could imagine an historical scenario where Kwak’wala split off from Proto-Northern Wakashan first, followed by a split between Haisla and Heiltsuk/Oowekyala. In this case, Haisla’s first-person forms could be explained as language-internal innovations. Evidence for this language-internal innovation in Haisla comes from the fact that Haisla’s first-person oblique-enclitic forms (see Table 5) are not themselves found in Kwak’wala. As mentioned previously, the first-person plural forms in Haisla do in fact appear to be phonologically related to, and are in fact in free variation with, his constructions still present in that language. Therefore, their language-internal innovation is likely. This historical scenario would thus explain the closeness of the Upper Northern Wakashan languages while still allowing for the development of first-person oblique forms in Haisla.	page 28
+§5	Kwak’wala	cited form	hʸi	page 28, in italics
+§5	Katie Sardinha	note	Regarding the issue of time depth for the Wakashan language family, the development of both prepositions and case marking in Northern Wakashan provides some additional evidence that the Northern and Southern branches of Wakashan diverged a very long time ago. This is not surprising give what we already know about these languages. Nevertheless, it is interesting to consider why, given the time depth between the two branches, the Northern branch has innovated so much while the Southern branch has been conservative by comparison. Indeed, much of the inflectional material of the Northern branch, including its elaborate system of deictic reference, has been innovated (Fortescue 2006); this, combined with the innovation of prepositions, has made the Northern languages notoriously complex in terms of the way they represent concepts of space and location. Why, then, have the Northern languages innovated so much in this regard?	page 29
+§5	Katie Sardinha	note	One possible answer to this question relates to the role that argument structure plays in language change. Thus in Wakashan, preferences for reducing the number of (non oblique) internal arguments per clause seem to have provided an important impetus for grammatical innovation throughout the family. In the Northern languages, the problem of where to put extra arguments has been largely resolved by the innovation of prepositional constructions. In the Southern languages, various puzzling ‘verbal’ constructions (e.g. those involving ʔuukʷił and ʔuuʔatup) accomplish the same goal. Thus, it is interesting from a historical point of view to ask questions such as the following: how have argument structure constraints influenced the historical trajectory of the Wakashan languages? More generally, to what extent are these types of constraints important in terms of language change?	page 29
+§5	Katie Sardinha	note	In addition to these more general questions, many more specific questions remain to be answered. I will raise several such questions here, as topics for future research:	page 29
+§5	Katie Sardinha	note	1. What is the origin of the accusative case marker =χ in Kwak’wala? Is	page 29
+§5	Katie Sardinha	note	this marker related to the object enclitics of Heiltsuk? How about to	page 29
+§5	Katie Sardinha	note	the set of “optional demonstrative clitics” in Haisla, qu- and qi-	page 29
+§5	Katie Sardinha	note	(Lincoln & Rath 1986: 49) that were mentioned in Section 4.2?	page 29
+§5	Katie Sardinha	note	2. What are the details surrounding prepositional phrases occurring	page 29
+§5	Katie Sardinha	note	within DPs in the Northern languages?	page 29
+§5	Katie Sardinha	note	3. Why has the preposition hi- been subject to loss while the other Proto-	page 30
+§5	Katie Sardinha	note	Northern Wakashan prepositions have retained their form and function	page 30
+§5	Katie Sardinha	note	in all of the Northern languages? Is this an accident of history, or does	page 30
+§5	Katie Sardinha	note	the phonological instability of this form’s initial segments make it	page 30
+§5	Katie Sardinha	note	particularly vulnerable to being lost? Does the fact that a root may	page 30
+§5	Katie Sardinha	note	have little or no semantic content of its own make it particularly	page 30
+§5	Katie Sardinha	note	vulnerable?	page 30
+§5	Katie Sardinha	note	4. Does the “connective –s” on attributive adjectives in Haisla (Bach	page 30
+§5	Katie Sardinha	note	1970: 6; Bach, Robinson & Robinson 2010), Heiltsuk (Rath 1981),	page 30
+§5	Katie Sardinha	note	and Oowekyala (Boas 1947: 299) relate to the =s in his and thus to the	page 30
+§5	Katie Sardinha	note	oblique case marker in Kwak’wala?	page 30
+§5	Katie Sardinha	note	5. How can we account historically for the fact that there are certain	page 30
+§5	Katie Sardinha	note	elements in these languages (e.g. la- in the Northern Wakashan	page 30
+§5	Katie Sardinha	note	branch) which serve as both as auxiliaries and as prepositions? Answering these questions will contribute to an understanding of the syntactic history of the Wakashan language family, while also contributing to a fuller understanding of how language change occurs at the level of syntax.	page 30
+§Appendix I	Katie Sardinha	heading	Appendix I: Glossing	page 30
+§Appendix I	Katie Sardinha	note	The following glossing abbreviations are used for data in Kwak’wala:	page 30
+§Appendix I	Katie Sardinha	note	ACC	page 30, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	accusative	page 30, the meaning of ACC
+§Appendix I	Katie Sardinha	note	DISC	page 30, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	discourse particle	page 30, the meaning of DISC
+§Appendix I	Katie Sardinha	note	ACC.D	page 30, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	accusative (definite)	page 30, the meaning of ACC.D
+§Appendix I	Katie Sardinha	note	INCH	page 30, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	inchoative	page 30, the meaning of INCH
+§Appendix I	Katie Sardinha	note	AUX	page 30, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	auxiliary	page 30, the meaning of AUX
+§Appendix I	Katie Sardinha	note	OBL	page 30, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	oblique case	page 30, the meaning of OBL
+§Appendix I	Katie Sardinha	note	D1	page 30, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	here	page 30, the meaning of D1
+§Appendix I	Katie Sardinha	note	OBL.D	page 30, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	oblique case (definite)	page 30, the meaning of OBL.D
+§Appendix I	Katie Sardinha	note	D2	page 30, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	around	page 30, the meaning of D2
+§Appendix I	Katie Sardinha	note	PASS	page 30, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	passive	page 30, the meaning of PASS
+§Appendix I	Katie Sardinha	note	D3	page 30, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	not around	page 30, the meaning of D3
+§Appendix I	Katie Sardinha	note	POSS.3	page 30, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	3rd-person possessive	page 30, the meaning of POSS.3
+§Appendix I	Katie Sardinha	note	D1.D	page 30, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	here (definite)	page 30, the meaning of D1.D
+§Appendix I	Katie Sardinha	note	PREP	page 30, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	preposition	page 30, the meaning of PREP
+§Appendix I	Katie Sardinha	note	D2.D	page 30, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	around (definite)	page 30, the meaning of D2.D
+§Appendix I	Katie Sardinha	note	VIS	page 30, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	visibility marker	page 30, the meaning of VIS
+§Appendix I	Katie Sardinha	note	D3.D	page 30, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	not around (definite)	page 30, the meaning of D3.D
+§Appendix I	Katie Sardinha	note	ø	page 30, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	empty root	page 30, the meaning of ø
+§Appendix I	Katie Sardinha	note	Glosses for the examples from published works in languages other than Kwak’wala have been kept consistent with the original published works; refer to original works for conventions regarding specific segments and diacritics (also see footnote 1). The following glossing abbreviations are used for Nuu-Chah- Nulth and Makah data obtained from Davidson (2002):	page 30
+§Appendix I	Katie Sardinha	note	ART	page 30, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	article	page 30, the meaning of ART
+§Appendix I	Katie Sardinha	note	PERF	page 30, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	perfective	page 30, the meaning of PERF
+§Appendix I	Katie Sardinha	note	INDIC	page 30, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	indicative	page 30, the meaning of INDIC
+§Appendix I	Katie Sardinha	note	TEMP	page 30, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	temporal specifier	page 30, the meaning of TEMP
+§Appendix I	Katie Sardinha	note	The following glossing abbreviations are used for Haisla (Lincoln, Rath, & Windsor 1986) and Heiltsuk (Rath 1981):	page 30
+§Appendix I	Katie Sardinha	note	3V	page 31, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	3rd person, visible	page 31, the meaning of 3V
+§Appendix I	Katie Sardinha	note	DEM.3	page 31, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	demonstrative, over there	page 31, the meaning of DEM.3
+§Appendix I	Katie Sardinha	note	D1	page 31, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	primary deictic	page 31, the meaning of D1
+§Appendix I	Katie Sardinha	note	LHAS	page 31, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	left-hand adjunct suffix	page 31, the meaning of LHAS
+§Appendix I	Katie Sardinha	note	D2	page 31, a glossing abbreviation, on the left
+§Appendix I	Katie Sardinha	note	secondary deictic	page 31, the meaning of D2
+§Appendix I	Katie Sardinha	note	PREP	page 31, a glossing abbreviation, on the right
+§Appendix I	Katie Sardinha	note	preposition	page 31, the meaning of PREP
+references	Katie Sardinha	heading	References	page 31
+references	Katie Sardinha	reference	Anderson, Stephen R. 1984. Kwak’wala Syntax and the Government-Binding Theory. Eung-Do Cook & Donna B. Gerdts, eds. The Syntax of Native American Languages. Stephen R. Anderson, ed. Syntax and Semantics, vol. 16. Orlando: Academic Press: 21-75.	page 31
+references	Katie Sardinha	reference	Bach, Emmon, Dora Robinson and Rose Robinson. 2010. Beginning Haisla Lessons 1-10. University of Massachusetts. Retrieved from http://www.people.umass.edu/ebach/evoc.htm.	page 31
+references	Katie Sardinha	reference	Boas, Franz. 1947. Kwakiutl Grammar with a Glossary of the Suffixes. Helene Boas Yampolsky, ed. Transactions of the American Philosophical Society 37: 202-377.	page 31
+references	Katie Sardinha	reference	Davidson, Matthew. 2002. Studies in Southern Wakashan (Nootkan) Grammar (Ph.D Dissertation). University of New York at Buffalo.	page 31
+references	Katie Sardinha	reference	Davis, Henry. 2010. Lexical Suffixes and the Mosan Hypothesis. Linguistics 447 Lecture Notes. UBC.	page 31
+references	Katie Sardinha	reference	Fortescue, Michael. 2006. Drift and the Grammaticalization Divide Between Northern and Southern Wakashan. International Journal of American Linguistics 72(3): 295 – 324.	page 31
+references	Katie Sardinha	reference	Fortescue, Michael. 2007. Comparative Wakashan Dictionary. Munich: LINCOM Europa.	page 31
+references	Katie Sardinha	reference	Howe, Darin. 2000. Oowekyala Segmental Phonology (Ph.D. dissertation). University of British Columbia: Department of Linguistics.	page 31
+references	Katie Sardinha	reference	Jacobsen, William. 2007. The Subclassification of Southern Wakashan. The Canadian Journal of Linguistics 52(1): 19 – 41.	page 31
+references	Katie Sardinha	reference	Klokeid, Terry. 1978. Encliticization in Nitinaht. ICSNL – 13: 211-246.	page 31
+references	Katie Sardinha	reference	Levine, Robert. 1980. On the Lexical Origin of the Kwak’wala Passive. International Journal of American Linguistics 46(4): 240 – 258.	page 31
+references	Katie Sardinha	reference	Lincoln, Neville J. & John C. Rath. 1980. North Wakashan Comparative Root List. National Museum of Man Mercury Series, Canadian Ethnology Service Paper no. 68. Ottawa: National Museums of Canada.	page 31
+references	Katie Sardinha	reference	Lincoln, Neville J. and John C. Rath. 1986. Phonology, Dictionary and Listing of Roots and Lexical Derivates of the Haisla Language of Kitlope and Kitimaat. Canadian Ethnology Service Paper 103. Ottawa, ON: National Museums of Canada.	page 31
+references	Katie Sardinha	reference	Lincoln, Neville J.; Rath, John C.; Windsor, Evelyn. 1986. ‘The story of Baxʷbakʷalanusiwa' as told by Kitlope elder Gordon Robertson. ICSNL – 21: 214-261.	page 31
+references	Katie Sardinha	reference	Nakayama, Toshihide. 2001. Nuuchahnulth (Nootka) Morphosyntax. Berkeley, CA: University of California Press.	page 31
+references	Katie Sardinha	reference	Rath, John C. 1981. A Practical Heiltsuk-English Dictionary: with a Grammatical Introduction. Canadian Ethnology Service Paper 75. Ottawa, ON: National Museums of Canada.	page 32
+references	Katie Sardinha	reference	Rath, John C. 1984. The Word-Classes of Upper North Wakashan. Papers for the 19th International Conference on Salish and Neighbouring Languages. Victoria, BC: Working Papers of the Linguistic Circle of the University of Victoria 4(2): 318-323.	page 32
+references	Katie Sardinha	reference	Rath, John C. & Evelyn Windsor née Walkus. 1989. The Texts Published by Franz Boas Under the Title of Bella Bella Texts. Heiltsuk Cultural Education Centre: Waglisla.	page 32
+references	Katie Sardinha	reference	Sapir, Edward & Morris Swadesh. 1939. Nootka Texts: Tales and Ethnological Narratives. Philadelphia: Linguistic Society of America.	page 32
+references	Katie Sardinha	reference	Stonham, John. 2004. Linguistic Theory and Complex Words: Nuuchahnulth Word Formation. London: Palgrave MacMillan.	page 32
+references	Katie Sardinha	reference	Wojdak, Rachel. 2004. On the classification of Wakashan lexical suffixes. Paper to be presented at the 30th Meeting of the Berkeley Linguistics Society, Feb 13-16, 2004.	page 32, the raised th of 30th set flat
+references	Katie Sardinha	reference	Wojdak, Rachel & Florence Woo. 2004. Deriving the definiteness effects in Nuu-chah-nulth locaties. In Yunhee Chung and Christine Ravinski (eds.), Proceedings of WSCLA 9. UBCWPL 14.	page 32
+references	Katie Sardinha	reference	Woo, Florence. 2007. What to do to 'do-to...': Notes on an Object Marker in Nuu-chah-nulth. Canadian Journal of Linguistics 52(1/2): 131-166.	page 32
+end	Katie Sardinha	note	Katie Sardinha katie.sardinha@gmail.com	page 32, the author's name and e-mail address

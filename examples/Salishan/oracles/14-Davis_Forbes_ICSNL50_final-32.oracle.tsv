@@ -1,0 +1,659 @@
+where	who	kind	form	gloss
+front	Henry Davis, Clarissa Forbes	title	Connect Four! The morphosyntax of argument marking in Tsimshianic	page 1
+front	Henry Davis, Clarissa Forbes	name	Henry Davis	author
+front	Henry Davis, Clarissa Forbes	note	University of British Columbia	page 1, under Henry Davis
+front	Henry Davis, Clarissa Forbes	name	Clarissa Forbes	author
+front	Henry Davis, Clarissa Forbes	note	University of Toronto	page 1, under Clarissa Forbes
+front	Henry Davis, Clarissa Forbes	note	Abstract: The NP-introducing connective morphemes are an enduring puzzle in Tsimshianic linguistics, their distribution obscured by opaque morphophonology and considerable homophony. We present a novel account of the Gitksan connective paradigm which reduces the distinction between t and =s to a matter of morphophonology, in contrast to the case-related analysis proposed by Hunt (1993). As a result, the connective system is simplified so as to only reference the distinction between common and proper/determinate nouns. We then extend the analysis to Coast Tsimshian, demonstrating the fundamental similarity of the two systems while exploring some points of variation which indicate interesting differences in agreement patterns between the Coast and Interior varieties.	page 1, the abstract
+front	Henry Davis, Clarissa Forbes	note	Keywords: Gitksan, Tsimshianic, connectives, pronouns, agreement, case	page 1, the keywords
+front	Henry Davis, Clarissa Forbes	note	In Papers for the International Conference on Salish and Neighbouring Languages 50, University of British Columbia Working Papers in Linguistics 40, Natalie Weber, Erin Guntly, Zoe Lam, and Sihwei Chen (eds.), 2015.	page 1, the volume's header
+front	Henry Davis, Clarissa Forbes	language	Gitksan	Tsimshianic, Interior branch
+§1	Henry Davis, Clarissa Forbes	heading	1 Introduction1	page 1
+footnote 1	Henry Davis, Clarissa Forbes	note	We extend our deepest thanks to the Gitksan speakers we have worked with (the wonderful Barbara Sennott (nee Harris), Vince Gogag, Hector Hill, BM, and many others); all unreferenced examples are attributed to them. Ha'miiyaa! We also acknowledge Lisa Matthewson and Margaret Anderson for their valuable contributions and comments on this work, and are grateful for the support and collaborative environment provided by the UBC Gitksan Research Lab.	page 1, footnote 1
+footnote 1	Henry Davis, Clarissa Forbes	name	Barbara Sennott	Gitksan speaker, nee Harris, thanked; BS in the examples
+footnote 1	Henry Davis, Clarissa Forbes	name	Vince Gogag	Gitksan speaker, thanked
+footnote 1	Henry Davis, Clarissa Forbes	name	Hector Hill	Gitksan speaker, thanked
+footnote 1	Henry Davis, Clarissa Forbes	name	Lisa Matthewson	thanked for contributions and comments
+footnote 1	Henry Davis, Clarissa Forbes	name	Margaret Anderson	thanked, the Coast Tsimshian data; Visible Grammar with Ignace (2008)
+§1	Henry Davis, Clarissa Forbes	note	In the Tsimshianic literature, the term ‘connective’ has been used since Boas (1911) to identify a set of article-like morphemes which precede noun phrases. The distribution of these morphemes shows a basic distinction between ‘determinate’ and ‘common’ (non-determinate) NPs (Rigsby 1986): determinates include proper names, demonstrative pronouns, and ascending kinship terms,2 while non-determinates include all other NPs. In both Coast Tsimshian (CT) and Interior Tsimshianic (IT), the connective for non-determinates is invariant (a in the former and hl in the latter); however, within the class of determinates, there are two apparently competing elements (t and s) whose distribution is sensitive to clause type and grammatical function. In IT, the situation is further complicated by a number marking distinction within the determinates, which partially neutralizes the distinction between s and t.	page 1
+footnote 2	Henry Davis, Clarissa Forbes	note	Ascending kinship terms mark kin above the level of the ego, such as parents, parents’ siblings, grandparents, and so on.	page 1, footnote 2
+§1	Gitksan	cited form	t	page 1, in italics
+§1	Gitksan	cited form	hl	page 1, in italics
+§1	Gitksan	cited form	s	page 1, in italics
+§1	Henry Davis, Clarissa Forbes	name	Boas	Franz Boas, Tsimshian (1911)
+§1	Henry Davis, Clarissa Forbes	name	Rigsby	Bruce Rigsby, Gitxsan grammar (1986)
+§1	Henry Davis, Clarissa Forbes	language	Tsimshianic	the family
+§1	Henry Davis, Clarissa Forbes	language	Coast Tsimshian	Tsimshianic; CT; (50) to (56a)
+§1	Henry Davis, Clarissa Forbes	language	Interior Tsimshianic	Gitksan and Nisga'a; IT
+§1	Henry Davis, Clarissa Forbes	note	This paper focuses on the connective system of Gitksan, one of the two members of the IT branch (that of the other member, Nisga’a, is basically identical, at least on the evidence presented in Tarpent 1987b, 1988). We develop an analysis of the Gitksan connective system that considerably simplifies its surface complexity, reducing the pattern from one which relies on common/determinate, singular/plural, and syntactic role contrasts, to one which only references the determinate/non-determinate distinction. We argue that the difference in number marking for determinate NPs is best recognized as an independent contrast, and that the difference in connective usage for NPs with different syntactic roles is ultimately morphophonological in nature. Consequently, our analysis of the connective paradigm posits only two members: determinate t and non-determinate hl. We then extend our findings on IT to the connective system of CT: we show that in spite of apparent surface differences the two systems are nearly identical, and our account of IT can be extended to CT with minimal adjustments.	page 1
+§1	Henry Davis, Clarissa Forbes	name	Tarpent	Marie-Lucie Tarpent, a grammar of Nisgha (1987b)
+§1	Henry Davis, Clarissa Forbes	language	Nisga’a	Tsimshianic, Interior branch
+§1	Henry Davis, Clarissa Forbes	note	The paper is structured as follows. In the rest of Section 1, we provide some background information on the syntax and inflectional morphology of Gitksan. In Section 2, we give an overview of the Gitksan connective system, exemplifying each different connective pattern, before introducing the two major analytical approaches that have been proposed in the previous literature on IT, those of Rigsby (1986) and Tarpent (1987b). In Section 3 we explore Hunt’s (1993) analysis (itself partly based on Tarpent 1987b), which is the most detailed and successful of previous accounts. We then present our own alternative in Section 4, before extending it in Section 5 to the CT connective system. Section 6 concludes.	page 2
+§1	Henry Davis, Clarissa Forbes	name	Hunt	Katharine Hunt, clause structure, agreement and case in Gitksan (1993)
+§1.1	Henry Davis, Clarissa Forbes	heading	1.1 Brief background on Interior Tsimshianic syntax and morphosyntax	page 2
+§1.1	Henry Davis, Clarissa Forbes	note	Here we provide a skeletal outline of certain key features of IT syntax that will be relevant to the argumentation in following sections. We make no attempt to be comprehensive: for detailed descriptions see Rigsby (1986) (Gitksan) and Tarpent (1987b) (Nisga’a).	page 2
+§1.1	Henry Davis, Clarissa Forbes	note	Clausal morphosyntax in all Tsimshianic languages is organized around a clause-typing distinction, variously characterized as ‘indicative’ versus ‘subjunctive’ (Boas 1911), ‘independent’ versus ‘dependent’ (Rigsby 1986), and ‘predicate focused’ versus ‘regular’ (Tarpent 1987b, 1988). We will adopt Rigsby’s Gitksan-based terminology here. The distinction is particularly important in regulating the function of the three pronominal series (named prosaically but efficiently Series I, II and III by Rigsby 1986). All subordinate clauses are dependent, but not all main clauses are independent: a set of pre- predicative ‘dependent markers’, including certain aspectual operators, negation, and clausal coordination, also induce dependent inflection. See Rigsby (1986), Tarpent (1987b), and Hunt (1993) for details of the IT system. The CT system is very similar, differing only in which elements trigger dependent inflection: see Dunn (1979a), Mulder (1994), Bach (2004), and Anderson and Ignace (2008).	page 2
+§1.1	Henry Davis, Clarissa Forbes	name	Dunn	John Asher Dunn, Coast Tsimshian (1979a, b, c)
+§1.1	Henry Davis, Clarissa Forbes	name	Mulder	Jean Gail Mulder, ergativity in Coast Tsimshian (1994)
+§1.1	Henry Davis, Clarissa Forbes	name	Bach	Emmon Bach, argument marking in Riverine Tsimshian (2004)
+§1.1	Henry Davis, Clarissa Forbes	name	Ignace	Marianne Ignace, Visible Grammar with Anderson (2008)
+§1.1	Henry Davis, Clarissa Forbes	note	The three pronominal series are most easily distinguished on morphological grounds, as shown in Table 1:	page 2
+Table 1	Henry Davis, Clarissa Forbes	note	Table 1: Morphological type and position of pronouns	page 3, the table's caption
+Table 1 line 1	Henry Davis, Clarissa Forbes	note	TYPE POSITION	page 3, a row of the table
+Table 1 line 2	Henry Davis, Clarissa Forbes	note	SERIES I clitic pre-predicative	page 3, a row of the table
+Table 1 line 3	Henry Davis, Clarissa Forbes	note	SERIES II affix post-predicative	page 3, a row of the table
+Table 1 line 4	Henry Davis, Clarissa Forbes	note	SERIES III independent word post-predicative	page 3, a row of the table
+§1.1	Henry Davis, Clarissa Forbes	note	Their distribution is complex, but can be roughly characterized as ‘pivoting ergative’, with the Series II pronouns acting as the pivot.3 The basic distribution of the three pronominal series is shown in Table 2, with A, S and O standing for subject of a transitive clause, subject of an intransitive clause, and object, respectively, as is standard practice in the literature on ergativity.4	page 3
+footnote 3	Henry Davis, Clarissa Forbes	note	These affixes also mark possessors and the complements of prepositions; we discuss the latter function in Section 4.3.	page 3, footnote 3
+footnote 4	Henry Davis, Clarissa Forbes	note	Transitivity (obviously, crucial to ergative systems such as those of Tsimshanic languages) is not systematically marked on verbs, though various transitivizing and intransitivizing affixes are quite common. However, in transitive independent clauses, a ‘transitive’ suffix (glossed -TR here) appears immediately before the Series II suffix which marks the A argument (although sometimes it is obscured for phonological reasons). As noted by Hunt (1993), this suffix (which also appears in O extraction contexts) is in strict complementary distribution with Series I pronouns, and as such is never found in dependent clauses.	page 3, footnote 4
+Table 2	Henry Davis, Clarissa Forbes	note	Table 2: Basic distribution of pronominal series	page 3, the table's caption
+Table 2 line 1	Henry Davis, Clarissa Forbes	note	INDEPENDENT DEPENDENT	page 3, a row of the table
+Table 2 line 2	Henry Davis, Clarissa Forbes	note	ERG A II I	page 3, a row of the table
+Table 2 line 3	Henry Davis, Clarissa Forbes	note	ABS	page 3, a row of the table
+Table 2 line 4	Henry Davis, Clarissa Forbes	note	S III II	page 3, a row of the table
+Table 2 line 5	Henry Davis, Clarissa Forbes	note	O III II	page 3, a row of the table
+§1.1	Henry Davis, Clarissa Forbes	note	Both Series I and Series II pronouns co-occur with lexical (NP) arguments (and on occasion with each other, as we will see); however, Series III pronouns (whose syntax is closest to that of NPs) never co-occur either with lexical NPs or other pronouns.	page 3
+§1.1	Henry Davis, Clarissa Forbes	note	Lexical arguments in all Tsimshianic languages follow the predicate, except in contexts of A'-extraction;5 word order is strictly VSOX.6 All arguments aside from A, S and O must be introduced either by the general oblique preposition a= or the specialized locative preposition go(')o=.	page 4
+footnote 5	Henry Davis, Clarissa Forbes	note	A'-extraction contexts include relativization, WH-question formation, and focus movement. In each case, a constituent (sometimes null in the case of relativization) moves to a pre-predicative A'-position, leaving a distinct morphological signature which differs between A, S, and O functions, as well as between arguments and adjuncts. For details, see Davis and Brown (2011) and references therein.	page 4, footnote 5
+footnote 5	Henry Davis, Clarissa Forbes	name	Brown	Jason Brown, A'-dependencies in Gitksan with Davis (2011)
+footnote 6	Henry Davis, Clarissa Forbes	note	The one exception to this, discussed by Rigsby (1989:250) involves an alternative VOS ordering limited to cases with a pronominal (Series III) object, as shown in (i). Even in the 1970s and 1980s, this ‘right-extraposed’ order was apparently confined to older speakers, and now seems to have been replaced by the ‘regular’ VSO order for all speakers (ii).	page 4, footnote 6
+footnote 6 (i) line 1	Gitksan	segmentation	hlimooyit 'nuu'm t Mary	page 4
+footnote 6 (i) line 2	Gitksan	gloss	help-TR-3.II 1PL.III DM Mary	page 4
+footnote 6 (i) line 3	Henry Davis, Clarissa Forbes	translation	‘Mary helped us.’	page 4
+footnote 6 (ii) line 1	Gitksan	segmentation	hlimooyis Mary 'nuu'm	page 4
+footnote 6 (ii) line 2	Gitksan	gloss	help-TR=PN Mary 1PL.III	page 4
+footnote 6 (ii) line 3	Henry Davis, Clarissa Forbes	translation	‘Mary helped us.’	page 4
+§1.1	Gitksan	cited form	a=	page 4, in italics
+§1.1	Gitksan	cited form	go(')o=	page 4, in italics
+§2	Henry Davis, Clarissa Forbes	heading	2 The Gitksan connective system	page 4
+§2	Henry Davis, Clarissa Forbes	note	The basic elements of the Gitksan connective paradigm are presented in Table 1. Connectives are obligatory before noun phrases in argument positions, including those introduced by prepositions.7	page 4
+footnote 7	Henry Davis, Clarissa Forbes	note	The common noun connective =hl (or a homophonous morpheme) is also used to introduce certain clausal complements, following for example imperfective yukw. We set aside these uses here.	page 4, footnote 7
+footnote 7	Gitksan	cited form	yukw	page 4, in italics
+Table 3	Henry Davis, Clarissa Forbes	note	Table 3: The Gitksan connective paradigm, version 1	page 4, the table's caption
+Table 3 line 1	Henry Davis, Clarissa Forbes	note	SG PL	page 4, a row of the table
+Table 3 line 2	Henry Davis, Clarissa Forbes	note	Common hl	page 4, a row of the table
+Table 3 line 3	Henry Davis, Clarissa Forbes	note	Determinate 1 t dip	page 4, a row of the table
+Table 3 line 4	Henry Davis, Clarissa Forbes	note	Determinate 2 s s dip	page 4, a row of the table
+§2	Henry Davis, Clarissa Forbes	note	NPs headed by common (non-determinate) nouns are uniformly introduced by the morpheme =hl, which appears as an enclitic on the previous prosodic word. This connective shows no sensitivity to linear position, grammatical function, or clause type.8	page 4
+footnote 8	Henry Davis, Clarissa Forbes	note	The orthography used here is a variant of the Gitxsan orthography established by Hindle and Rigsby (1973), with minor changes to the representation of palatovelars (e.g. gya rather than ga). Sm’algyax (Coast Tsimishian) examples are presented in the standard community orthography, which differs from that used in IT mainly in using ɬ rather than hl for the lateral fricative. Glossing abbreviations used in examples are as follows: ASSOC = associative; CAUS = causative; CN = common noun connective; DM = determinate noun marker/connective; EMPH = emphatic; EPIS = epistemic modal; FOC = focus; I/II/III = person marker series; INTR = intransitive; LOC = locative; NEG = negation; NMZ = nominalizer; PASS = passive; PFV = perfective; PH.CNJ = phrasal conjunction; PL = plural; PN = proper noun connective; POSS = possessive; PREP = preposition; REPORT = reportative; SG = singular; TR = transitive.	page 4, footnote 8
+footnote 8	Gitksan	cited form	gya	page 4, in italics
+footnote 8	Gitksan	cited form	ga	page 5, in italics
+footnote 8	Coast Tsimshian	cited form	ɬ	page 5, in italics
+footnote 8	Henry Davis, Clarissa Forbes	name	Hindle	Lonnie Hindle, the practical dictionary with Rigsby (1973)
+footnote 8	Henry Davis, Clarissa Forbes	language	Sm’algyax	Coast Tsimshian
+§2	Gitksan	cited form	=hl	page 4, in italics
+(1a) line 1	Gitksan	segmentation	baxhl hanak̲'	page 5
+(1a) line 2	Gitksan	gloss	run=CN woman	page 5
+(1a) line 3	Henry Davis, Clarissa Forbes	translation	‘The woman ran.’	page 5
+(1b) line 1	Gitksan	segmentation	needii baxhl hanak̲'	page 5
+(1b) line 2	Gitksan	gloss	NEG=FOC run=CN woman	page 5
+(1b) line 3	Henry Davis, Clarissa Forbes	translation	‘The woman didn’t run.’	page 5
+(2a) line 1	Gitksan	segmentation	gya'ahl hanak̲'hl gyat	page 5
+(2a) line 2	Gitksan	gloss	see[TR]=CN woman=CN man	page 5
+(2a) line 3	Henry Davis, Clarissa Forbes	translation	‘The woman saw the man.‘	page 5
+(2a) line 4	Henry Davis, Clarissa Forbes	citation	(Hunt 1993:200)	page 5, the tag or source at the right of the translation
+(2b) line 1	Gitksan	segmentation	neediit gya'ahl hanak̲'hl gyat	page 5
+(2b) line 2	Gitksan	gloss	NEG=FOC=3.I see=CN woman=CN man	page 5
+(2b) line 3	Henry Davis, Clarissa Forbes	translation	‘The woman didn’t see the man.’	page 5
+§2	Henry Davis, Clarissa Forbes	note	The examples in (1) contain an intransitive subject (S), those in (2) a transitive subject (A) and an object (O): all are introduced by =hl. The (a) cases also differ from the (b) cases by clause type: the (a) examples involve independent clauses, while the (b) examples involve dependent clauses; again, this has no effect on the form of the connective.	page 5
+§2	Henry Davis, Clarissa Forbes	note	In contrast, determinate NPs (personal names, demonstrative pronouns, and ascending kinship terms) are introduced by the morphemes =s and t, as well as dip when plural or coordinated.9 The distribution of these morphemes is complex, and is governed by three factors: the distinction between independent and dependent clauses, the linear position of noun phrases relative to the verb, and the distribution of agreement morphology. Below, we lay out the possibilities for the determinate connectives systematically, beginning with independent clauses.	page 5
+footnote 9	Henry Davis, Clarissa Forbes	note	The morphophonological properties of these elements differ from each other as well as from =hl. Determinate =s (glossed =PN for ‘proper noun’ here) is a bound morpheme which only ever surfaces at the right edge of the predicate (usually, but not always, a verb). It is given the status of an enclitic rather than a suffix here only because of its linear position following other elements which are themselves clearly enclitic, notably the reportative marker =gat and the modal =ima(')a (Tarpent 1987 b, Hunt 1993, Peterson 2010). In contrast the determinate marker t (glossed DM) is a ‘floating’ clitic which can either dock to a preceding or following host, or even remain ‘unmoored’ as a stray consonant. And finally, the plural marker dip is prosodically independent, and as such has the status of a ‘particle’, rather than a clitic. See Stebbins (2003), Mulder and Sellers (2010) for remarks on the morphophonological properties of various closed-class elements in CT.	page 5, footnote 9
+footnote 9	Henry Davis, Clarissa Forbes	name	Sellers	Holly Sellers, clitics in Sm’algyax with Mulder (2010)
+§2	Gitksan	cited form	=s	page 5, in italics
+§2	Gitksan	cited form	dip	page 5, in italics
+(3) line 1	Henry Davis, Clarissa Forbes	note	singular determinate S in independent clause	page 6, over the example
+(3) line 2	Gitksan	segmentation	bax t Gidi	page 6
+(3) line 3	Gitksan	gloss	run DM Katie	page 6
+(3) line 4	Henry Davis, Clarissa Forbes	translation	‘Katie ran.’	page 6
+(4) line 1	Henry Davis, Clarissa Forbes	note	plural determinate S in independent clause	page 6, over the example
+(4) line 2	Gitksan	segmentation	gol dip [Michael gan t Aidan]10	page 6
+footnote 10	Henry Davis, Clarissa Forbes	note	The determinate t marking the second conjunct of the coordinated noun phrase here is used for non-initial determinate conjuncts by speakers from the Eastern (Gigyeenix) dialects; Western dialect (Geets) speakers use =s, which is also employed by Nisga’a speakers.	page 6, footnote 10
+(4) line 3	Gitksan	gloss	run.PL ASSOC [Michael PH.CNJ DM Aidan]	page 6
+(4) line 4	Henry Davis, Clarissa Forbes	translation	‘Michael and Aidan ran.’	page 6
+(5) line 1	Henry Davis, Clarissa Forbes	note	singular determinate A in independent clause	page 6, over the example
+(5a) line 1	Gitksan	segmentation	gya'as Michael t Gidi	page 6
+(5a) line 2	Gitksan	gloss	see[TR]=PN Michael DM Katie	page 6
+(5a) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael saw Katie.’	page 6
+(5b) line 1	Gitksan	segmentation	gya'as Michael ('nit)	page 6
+(5b) line 2	Gitksan	gloss	see[TR]=PN Michael (3.III)	page 6
+(5b) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael saw him/her.’	page 6
+(6) line 1	Henry Davis, Clarissa Forbes	note	plural determinate A in independent clause	page 6, over the example
+(6a) line 1	Gitksan	segmentation	gya'as dip [Michael gan t Aidan] t Gidi	page 6
+(6a) line 2	Gitksan	gloss	see[TR]=PN ASSOC [Michael PH.CNJ DM Aidan] DM Katie	page 6
+(6a) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael and Aidan saw Katie.’	page 6
+(6b) line 1	Gitksan	segmentation	gya'as dip [Michael gan t Aidan] ('nit)	page 6
+(6b) line 2	Gitksan	gloss	see[TR]=PN ASSOC [Michael PH.CNJ DM Aidan] (3.III)	page 6
+(6b) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael and Aidan saw him/her.’	page 6
+(7) line 1	Henry Davis, Clarissa Forbes	note	singular determinate O in independent clause	page 6, over the example
+(7a) line 1	Gitksan	segmentation	gya'as Gidi t Michael	page 6
+(7a) line 2	Gitksan	gloss	see[TR]=PN Katie DM Michael	page 6
+(7a) line 3	Henry Davis, Clarissa Forbes	translation	‘Katie saw Michael.’	page 6
+(7b) line 1	Gitksan	segmentation	gya'at t Michael	page 6
+(7b) line 2	Gitksan	gloss	see[TR]-3.II DM Michael	page 6
+(7b) line 3	Henry Davis, Clarissa Forbes	translation	‘S/he saw Michael.’	page 6
+(8) line 1	Henry Davis, Clarissa Forbes	note	plural determinate O in independent clause	page 7, over the example
+(8a) line 1	Gitksan	segmentation	gya'as Gidi dip [Michael gan t Aidan]	page 7
+(8a) line 2	Gitksan	gloss	see[TR]=PN Katie ASSOC [Michael PH.CNJ DM Aidan]	page 7
+(8a) line 3	Henry Davis, Clarissa Forbes	translation	‘Katie saw Michael and Aidan.’	page 7
+(8b) line 1	Gitksan	segmentation	gya'at dip [Michael gan t Aidan]	page 7
+(8b) line 2	Gitksan	gloss	see[TR]-3.II ASSOC [Michael PH.CNJ DM Aidan]	page 7
+(8b) line 3	Henry Davis, Clarissa Forbes	translation	‘S/he saw Michael and Aidan.’	page 7
+(9) line 1	Henry Davis, Clarissa Forbes	note	singular determinate S in dependent clause	page 7, over the example
+(9) line 2	Gitksan	segmentation	needii baxs Michael	page 7
+(9) line 3	Gitksan	gloss	NEG=FOC run=PN Michael	page 7
+(9) line 4	Henry Davis, Clarissa Forbes	translation	‘Michael didn’t run.’	page 7
+(10) line 1	Henry Davis, Clarissa Forbes	note	plural determinate S in dependent clause	page 7, over the example
+(10) line 2	Gitksan	segmentation	needii gols dip [Michael gan t Gidi]	page 7
+(10) line 3	Gitksan	gloss	NEG=FOC run.PL=PN ASSOC [Michael PH.CNJ DM Katie]	page 7
+(10) line 4	Henry Davis, Clarissa Forbes	translation	‘Michael and Katie didn’t run.’	page 7
+(11) line 1	Henry Davis, Clarissa Forbes	note	singular determinate A in dependent clause	page 7, over the example
+(11a) line 1	Gitksan	segmentation	neediit gya'as Michael t Aidan	page 7
+(11a) line 2	Gitksan	gloss	NEG=FOC=3.I see=PN Michael DM Aidan	page 7
+(11a) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael didn’t see Aidan.’	page 7
+(11b) line 1	Gitksan	segmentation	neediit gya'as Michael ('nit)	page 7
+(11b) line 2	Gitksan	gloss	NEG=FOC=3.I see=PN Michael (3.III)	page 7
+(11b) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael didn’t see him.’	page 7
+(12) line 1	Henry Davis, Clarissa Forbes	note	plural determinate A in dependent clause	page 7, over the example
+(12a) line 1	Gitksan	segmentation	neediit gya'as dip [Michael gan t Gidi] t Aidan	page 7
+(12a) line 2	Gitksan	gloss	NEG=FOC=3.I see=PN ASSOC [Michael PH.CNJ DM Katie] DM Aidan	page 7
+(12a) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael and Katie didn’t see Aidan.’	page 7
+(12b) line 1	Gitksan	segmentation	neediit gya'as dip [Michael gan t Gidi] ('nit)	page 7
+(12b) line 2	Gitksan	gloss	NEG=FOC=3.I see=PN ASSOC [Michael PH.CNJ DM Katie] (3.III)	page 7
+(12b) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael and Katie didn’t see him/her.’	page 7
+(13) line 1	Henry Davis, Clarissa Forbes	note	singular determinate O in dependent clause	page 7, over the example
+(13a) line 1	Gitksan	segmentation	neediit gya'as Michael	page 7
+(13a) line 2	Gitksan	gloss	NEG=FOC=3.I see=PN Michael	page 7
+(13a) line 3	Henry Davis, Clarissa Forbes	translation	‘S/he didn’t see Michael.’	page 7
+(13b) line 1	Gitksan	segmentation	neediit gya'as Gidi t Michael	page 7
+(13b) line 2	Gitksan	gloss	NEG=FOC=3.I see=PN Katie DM Michael	page 7
+(13b) line 3	Henry Davis, Clarissa Forbes	translation	‘Katie didn’t see Michael.’	page 7
+(14) line 1	Henry Davis, Clarissa Forbes	note	plural determinate O in dependent clause	page 8, over the example
+(14a) line 1	Gitksan	segmentation	neediit gya'as dip [Michael gan t Gidi]	page 8
+(14a) line 2	Gitksan	gloss	NEG=FOC=3.I see=PN ASSOC [Michael PH.CNJ DM Katie]	page 8
+(14a) line 3	Henry Davis, Clarissa Forbes	translation	‘S/he didn’t see Michael and Katie.’	page 8
+(14b) line 1	Gitksan	segmentation	neediit gya'as Gidi dip [Michael gan t Aidan]	page 8
+(14b) line 2	Gitksan	gloss	NEG=FOC=3.I see=PN Katie ASSOC [Michael PH.CNJ DM Aidan]	page 8
+(14b) line 3	Henry Davis, Clarissa Forbes	translation	‘Katie didn’t see Aidan and Michael.’	page 8
+§2	Henry Davis, Clarissa Forbes	note	Table 4 summarizes the distribution of both determinate (DM) and common (CN) NPs.	page 8
+Table 4	Henry Davis, Clarissa Forbes	note	Table 4: Gitksan connectives by clause and argument type	page 8, the table's caption
+Table 4 line 1	Henry Davis, Clarissa Forbes	note	S A O	page 8, a row of the table
+Table 4 line 2	Henry Davis, Clarissa Forbes	note	IND DEP IND DEP IND DEP	page 8, a row of the table
+Table 4 line 3	Henry Davis, Clarissa Forbes	note	V-SCN =hl =hl	page 8, a row of the table
+Table 4 line 4	Henry Davis, Clarissa Forbes	note	V-SDM t/dip =s/=s dip	page 8, a row of the table
+Table 4 line 5	Henry Davis, Clarissa Forbes	note	V-ACN-OCN =hl =hl =hl =hl	page 8, a row of the table
+Table 4 line 6	Henry Davis, Clarissa Forbes	note	V-ACN-ODM =hl =hl t/dip t/dip	page 8, a row of the table
+Table 4 line 7	Henry Davis, Clarissa Forbes	note	V-ACN =hl =hl	page 8, a row of the table
+Table 4 line 8	Henry Davis, Clarissa Forbes	note	V-ADM =s/=s dip =s/=s dip	page 8, a row of the table
+Table 4 line 9	Henry Davis, Clarissa Forbes	note	V-ADM-OCN =s/=s dip =s/=s dip =hl =hl	page 8, a row of the table
+Table 4 line 10	Henry Davis, Clarissa Forbes	note	V-ADM-ODM =s/=s dip =s/=s dip t/dip t/dip	page 8, a row of the table
+Table 4 line 11	Henry Davis, Clarissa Forbes	note	V-OCN =hl =hl	page 8, a row of the table
+Table 4 line 12	Henry Davis, Clarissa Forbes	note	V-ODM t/dip =s/=s dip	page 8, a row of the table
+§2	Henry Davis, Clarissa Forbes	note	How to read the table:	page 8
+§2	Henry Davis, Clarissa Forbes	note	i. As specified in the left-hand column, connectives are classified according to their distribution in clauses with S, A, and O arguments headed either by common nouns (CN) or determinates (DM).	page 8, an item of the list
+§2	Henry Davis, Clarissa Forbes	note	ii. Clauses listed with a single A or O (e.g. V-ACN, V-ODM) have no overt O and A argument, respectively; however, a covert argument is present, recoverable via pronominal morphology and/or the discourse context.	page 8, an item of the list
+§2	Henry Davis, Clarissa Forbes	note	iii. For each grammatical function (top row), clauses are cross-classified (second row) as independent (IND) or dependent (DEP).	page 8, an item of the list
+§2	Henry Davis, Clarissa Forbes	note	iv. For determinates, both singular and plural values are given, with the singular preceding the plural (sg/pl).	page 9, an item of the list
+§2.1	Henry Davis, Clarissa Forbes	heading	2.1 Four generalizations and two potential analyses	page 9
+§2.1	Henry Davis, Clarissa Forbes	note	The following generalizations immediately emerge from an inspection of Table 4.	page 9
+§2.1	Henry Davis, Clarissa Forbes	note	A. The distribution of the common noun connective =hl is completely uniform across clause type and grammatical function.	page 9, an item of the list
+§2.1	Henry Davis, Clarissa Forbes	note	B. The singular determinate connectives t and =s are in complementary distribution.	page 9, an item of the list
+§2.1	Henry Davis, Clarissa Forbes	note	C. The plural marker dip is in complementary distribution with t, but co- occurs with =s.	page 9, an item of the list
+§2.1	Henry Davis, Clarissa Forbes	note	D. =s only occurs on an argument immediately left-adjacent to the verb.	page 9, an item of the list
+§2.1	Henry Davis, Clarissa Forbes	note	Since =hl poses no morphosyntactic challenges, we will set it aside here, focusing on the interaction of =s, t and dip. There are two basic ways to understand this interaction:	page 9
+§2.1	Henry Davis, Clarissa Forbes	note	I. t and =s are allomorphs, and dip is a separate marker of plurality	page 9, an item of the list
+§2.1	Henry Davis, Clarissa Forbes	note	II. dip is the plural allomorph of t, and =s marks something else	page 9, an item of the list
+§2.1	Henry Davis, Clarissa Forbes	note	Analyses based on both interpretations have been proposed previously in the IT literature. An analysis based on (I) and schematized in Table 5 was assumed in early work by Rigsby and Tarpent (Tarpent 1982, Rigsby 1986), but later abandoned in favour of an analysis based on (II), developed by Tarpent (1987b, 1988) and later modified by Hunt (1993). Tarpent’s version is schematized in Table 6 (see also Rigsby 1989, note 1).	page 9
+Table 5	Henry Davis, Clarissa Forbes	note	Table 5: A type I analysis of the connective paradigm	page 9, the table's caption
+Table 5 line 1	Henry Davis, Clarissa Forbes	note	CONTEXT 1 CONTEXT 2	page 9, a row of the table
+Table 5 line 2	Henry Davis, Clarissa Forbes	note	CN connective hl	page 9, a row of the table
+Table 5 line 3	Henry Davis, Clarissa Forbes	note	DM connective t s	page 9, a row of the table
+Table 5 line 4	Henry Davis, Clarissa Forbes	note	DM PL (t → ø) dip s dip	page 9, a row of the table
+Table 6	Henry Davis, Clarissa Forbes	note	Table 6: A type II analysis of the connective paradigm	page 10, the table's caption
+Table 6 line 1	Henry Davis, Clarissa Forbes	note	SG PL	page 10, a row of the table
+Table 6 line 2	Henry Davis, Clarissa Forbes	note	CN connective hl	page 10, a row of the table
+Table 6 line 3	Henry Davis, Clarissa Forbes	note	PN connective s	page 10, a row of the table
+Table 6 line 4	Henry Davis, Clarissa Forbes	note	DM marker t dip	page 10, a row of the table
+§2.1	Henry Davis, Clarissa Forbes	note	In Table 5, there are two sets of connectives, common noun and determinate; the latter may be pluralized by a separate plural marker. In Table 6, there are common noun and proper noun connectives, with separate singular and plural ‘determinate markers’.	page 10
+§2.1	Henry Davis, Clarissa Forbes	note	Both proposals face analytical challenges. For Type I analyses, there are two: (a) specifying the contexts in which the allomorphs t and =s surface, and (b) explaining the failure of t to co-occur with dip. For Type II analyses, the main challenges both involve the restricted distribution of =s: (a) explaining the failure of t to co-occur with =s, and (b) explaining the failure of =s to occur anywhere except immediately adjacent to the predicate.	page 10
+§2.1	Henry Davis, Clarissa Forbes	note	In the following sections we will explore these analyses in more detail. We will begin with Type II analyses, since these have been favoured recently, either in Tarpent’s original version or the modified account given by Hunt (1993). We will then return to Type I analyses, ultimately arguing for a greatly modified version of Rigsby’s original account.	page 10
+§3	Henry Davis, Clarissa Forbes	heading	3 Type II analyses: Tarpent (1987b) and Hunt (1993)	page 10
+§3	Henry Davis, Clarissa Forbes	note	Of the two challenges faced by Type II analyses, the first (accounting for the complementary distribution of =s and t) admits of a fairly straightforward solution: a morphophonological rule which deletes t immediately after =s and before a following consonant.	page 10
+(15) line 1	Henry Davis, Clarissa Forbes	note	Cluster Simplification (Tarpent 1986:31 note 3b)	page 10, set as an example
+(15) line 2	Henry Davis, Clarissa Forbes	note	t → Ø / =s __ C	page 10, set as an example
+(15) line 3	Henry Davis, Clarissa Forbes	note	DM PN	page 10, set as an example
+§3	Henry Davis, Clarissa Forbes	note	Hunt (1993) observes that this rule must be morphologically conditioned, because clusters of [stC] occur not infrequently elsewhere in the language, as in the following examples:	page 10
+(16) line 1	Gitksan	segmentation	aksthl gudaksi'y	page 10
+(16) line 2	Gitksan	gloss	wet-INTR=CN coat-1SG.II	page 10
+(16) line 3	Henry Davis, Clarissa Forbes	translation	‘My coat is wet.’	page 10
+(16) line 4	Henry Davis, Clarissa Forbes	citation	(Hunt 1993:17)	page 10, the tag or source at the right of the translation
+(17) line 1	Gitksan	segmentation	ama'mas t Mary	page 11
+(17) line 2	Gitksan	gloss	beautiful DM Mary	page 11
+(17) line 3	Henry Davis, Clarissa Forbes	translation	‘Mary is beautiful.’	page 11
+(17) line 4	Henry Davis, Clarissa Forbes	citation	(Hunt 1993:17)	page 11, the tag or source at the right of the translation
+§3	Henry Davis, Clarissa Forbes	note	The second problem, the limited distribution of =s, is more problematic for the Type II analysis. Recall that unlike t or =hl, =s only ever shows up immediately to the right of the predicate. As far as we can tell, Tarpent offers no explanation for this restriction.	page 11
+§3	Henry Davis, Clarissa Forbes	note	Hunt (1993), however, does. Hunt adopts the outlines of Tarpent’s account, but rather than treating =s as a connective, she proposes that it is a case marker. As such, it is not expected to act as the determinate counterpart of =hl, which appears uniformly on common noun arguments (that function is assumed by t and dip); rather, as a case marker, it should be sensitive to grammatical function. Hunt’s system is schematized in Table 7.	page 11
+Table 7	Henry Davis, Clarissa Forbes	note	Table 7: Hunt’s (1993) connective paradigm	page 11, the table's caption
+Table 7 line 1	Henry Davis, Clarissa Forbes	note	SG PL	page 11, a row of the table
+Table 7 line 2	Henry Davis, Clarissa Forbes	note	CN connective hl	page 11, a row of the table
+Table 7 line 3	Henry Davis, Clarissa Forbes	note	DM connective t dip	page 11, a row of the table
+Table 7 line 4	Henry Davis, Clarissa Forbes	note	(in s-case context) s (t → ø) s dip	page 11, a row of the table
+§3	Henry Davis, Clarissa Forbes	note	Like Tarpent, Hunt appeals to cluster simplification (15) to account for the absence of the =s t combination, but otherwise her system is rather different. In particular, t and dip are restored to their original roles as connectives rather than being treated as a separate set of determinate markers, accounting for their relatively unrestricted distribution (like =hl but unlike =s, they appear on objects in V-A-ODM clauses, for example). The anomalous element in Hunt’s system is clearly =s.	page 11
+§3	Gitksan	cited form	=s t	page 11, in italics
+§3.1	Henry Davis, Clarissa Forbes	heading	3.1 Generalizations on the distribution of =s	page 11
+§3.1	Henry Davis, Clarissa Forbes	note	There is good justification for Hunt’s breakdown of the paradigm this way: =s is the only one of the four connective elements to be restricted to immediately post- predicative position, and the only one to show sensitivity to the particular form of agreement on the predicate. These two unique properties are combined in what Hunt refers to as the ‘/s/-case-assignment condition’:	page 11
+(18) line 1	Henry Davis, Clarissa Forbes	note	/s/ case-assignment condition	page 11, set as an example
+(18) line 2	Henry Davis, Clarissa Forbes	note	/s/-case is assigned to an NP if and only if	page 11, set as an example
+(18) line 3	Henry Davis, Clarissa Forbes	note	a. it is adjacent to a lexical head and	page 11, set as an example
+(18) line 4	Henry Davis, Clarissa Forbes	note	b. it is coreferent with the Series II suffix on that head (Hunt 1993:200)	page 11, set as an example
+§3.1	Henry Davis, Clarissa Forbes	note	A glance back at examples (5)–(14) above will reveal that part (b) of this condition is almost never motivated on the surface, because =s actually appears to be in complementary distribution with Series II -t. However, Tarpent (1987b, 1988) makes the crucial observation that if the adjacency relation between =s and Series II -t is disrupted, both show up. This happens specifically when one of two evidential enclitics, =gat ‘reportative’ and =ima(')a ‘epistemic’ intervenes between the suffixal pronoun and the connective, as shown in the (b) examples in (19)and (20).	page 12
+§3.1	Gitksan	cited form	-t	page 12, in italics
+§3.1	Gitksan	cited form	=gat	page 12, in italics, ‘reportative’
+§3.1	Gitksan	cited form	=ima(')a	page 12, in italics, ‘epistemic’
+(19a) line 1	Gitksan	segmentation	hlimooyis Kathy t John	page 12
+(19a) line 2	Gitksan	gloss	help-TR=PN Kathy DM John	page 12
+(19a) line 3	Henry Davis, Clarissa Forbes	translation	‘Kathy helped John.’	page 12
+(19b) line 1	Gitksan	segmentation	hlimooyitgas Kathy t John11	page 12
+footnote 11	Henry Davis, Clarissa Forbes	note	The final t in gat is deleted here by the deaffrication rule (21), which deletes t before =s or =hl.	page 12, footnote 11
+(19b) line 2	Gitksan	gloss	help-TR-3.II=REPORT=PN Kathy DM John	page 12
+(19b) line 3	Henry Davis, Clarissa Forbes	translation	‘I heard that Kathy helped John.’	page 12
+(19b) line 4	Henry Davis, Clarissa Forbes	citation	(Hunt 1993:19)	page 12, the tag or source at the right of the translation
+(20a) line 1	Gitksan	segmentation	needii yees John go'ohl Vancouver	page 12
+(20a) line 2	Gitksan	gloss	NEG=FOC go=PN John LOC=CN Vancouver	page 12
+(20a) line 3	Henry Davis, Clarissa Forbes	translation	‘John didn’t go to Vancouver.’	page 12
+(20b) line 1	Gitksan	segmentation	needii yeedimaas12 John go'ohl Vancouver	page 12
+footnote 12	Henry Davis, Clarissa Forbes	note	The d which surfaces here is underlyingly -t, changed by the pervasive rule of Tsimshianic obstruent voicing which affects all stops and affricates before a vowel: see e.g. Rigsby (1986).	page 12, footnote 12
+(20b) line 2	Gitksan	gloss	NEG=FOC go-3.II=EPIS=PN John LOC=CN Vancouver	page 12
+(20b) line 3	Henry Davis, Clarissa Forbes	translation	‘John apparently didn’t go to Vancouver.’	page 12
+(20b) line 4	Henry Davis, Clarissa Forbes	citation	(Hunt 1993:115)	page 12, the tag or source at the right of the translation
+§3.1	Henry Davis, Clarissa Forbes	note	Hunt follows Tarpent in concluding that third person Series II -t is always underlyingly present, irrespective of the presence of a following overt argument, but is deleted under adjacency with a following =s. This second t-deletion rule, termed deaffrication by Tarpent (1988), also applies before the common noun connective =hl, and is formulated as in (21):13	page 12
+footnote 13	Henry Davis, Clarissa Forbes	note	Though Hunt (1993:116, note 63) points out that ‘deaffrication’ is a misnomer, because the rule applies to a sequence of t +fricative, not to an affricate, we retain it here for reasons of continuity with earlier work.	page 12, footnote 13
+(21) line 1	Henry Davis, Clarissa Forbes	note	Deaffrication	page 12, set as an example
+(21) line 2	Henry Davis, Clarissa Forbes	note	-t → Ø/__ {=s, =hl}	page 12, set as an example
+(21) line 3	Henry Davis, Clarissa Forbes	note	3.II PN, CN	page 12, set as an example
+§3.1	Henry Davis, Clarissa Forbes	note	Like the cluster simplification rule in (15), rule (21) is limited to specific morphological contexts: for example, it fails to apply when suffixes beginning with s (e.g., -si'm ‘2PL Series II’) are added to stems ending in t. Thus, we get lit-si'm ‘your (pl.) wedge’, not *lisi'm (Rigsby 1986:147). However, we observe that counterexamples to both of these rules involve the lexical root as part of the relevant environment for deletion. Turning this observation around, we see that a /t/ or /s/ in a lexical root may serve neither as a valid trigger nor target of any deletion process. This is suggestive of a larger phonological generalization: lexical roots are protected from reduction processes like (15) and (21) (cf. work on Root Faithfulness, e.g. McCarthy and Prince 1995). We therefore expect reduction processes to occur only amongst inflectional elements like the person suffixes and connectives, as attested, without requiring reference to specific morphemes.	page 12
+§3.1	Gitksan	cited form	-si'm	page 12, in italics, ‘2PL Series II’
+§3.1	Gitksan	cited form	lit-si'm	page 12, in italics, ‘your (pl.) wedge’
+§3.1	Gitksan	cited form	*lisi'm	page 12, in italics
+§3.1	Henry Davis, Clarissa Forbes	name	McCarthy	John J. McCarthy, faithfulness with Prince (1995)
+§3.1	Henry Davis, Clarissa Forbes	name	Prince	Alan Prince, faithfulness with McCarthy (1995)
+§3.1	Henry Davis, Clarissa Forbes	note	Adoption of the above establishes that =s always co-occurs with Series II -t. But what about the /s/-case condition’s coreference requirement? At first sight, this appears counter-intuitive, since =s may introduce arguments bearing any of the three grammatical functions: determinate A in both independent and dependent clauses, determinate S in dependent clauses, and determinate O in dependent clauses without a lexical subject. The coreference condition therefore entails that third person Series II -t can switch allegiance between A, S and O functions, not only between but also within clause types.	page 13
+§3.1	Henry Davis, Clarissa Forbes	note	However counter-intuitive it might seem, there is in fact strong evidence that the coreference condition is correct. Switching functions between clause types is a hallmark of Series II pronouns, which are employed as ergatives (i.e., in A function) in independent clauses, and (usually) as absolutives (i.e., in S an O functions) in dependent clauses (as shown in Table 2 above). Since in independent transitive clauses Series II is always linked to the A argument, and A arguments are always immediately adjacent to the right edge of the predicate, (18) correctly predicts that =s will occur on all and only overt A arguments in transitive independent clauses.	page 13
+§3.1	Henry Davis, Clarissa Forbes	note	The situation is more complicated in dependent clauses, where Series II pronouns normally mark the S and O arguments (i.e., they show an absolutive distribution), but sometimes unexpectedly mark the A argument instead, contrary to the basic pattern shown in Table 2.	page 13
+§3.1	Henry Davis, Clarissa Forbes	note	The exceptional cases all involve a third person Series II pronoun ‘doubling’ the third person Series I clitic pronoun t, which uniformly marks the A function in dependent transitive clauses. The most obvious such case involves the third person plural Series II suffix -diit, which marks the A rather than the O argument in dependent clauses with a third person plural subject and a lexical object.14	page 13
+footnote 14	Henry Davis, Clarissa Forbes	note	Since the language simply lacks a third person plural Series I clitic, the exceptional use of the Series II third person plural suffix here seems to be a way of circumventing a lexical gap in the Series I paradigm, with ‘knock on’ effects elsewhere in the pronoun system.	page 13, footnote 14
+§3.1	Gitksan	cited form	-diit	page 13, in italics
+(22) line 1	Gitksan	segmentation	neediit gya'adiit t Michael	page 13
+(22) line 2	Gitksan	gloss	NEG=FOC=3.I see-3PL.II DM Michael	page 13
+(22) line 3	Henry Davis, Clarissa Forbes	translation	‘They didn’t see Michael.’	page 13
+§3.1	Henry Davis, Clarissa Forbes	note	The A function is marked overtly here both by the Series I pre-predicative third person (number neutral) clitic t and by the Series II suffix -diit.15 In order to express a third person singular A with a third person plural O, the language resorts to using the Series III (independent) plural pronoun 'nidiit, which occupies the regular post-predicative object argument slot, as shown in (23):	page 14
+footnote 15	Henry Davis, Clarissa Forbes	note	In the absence of a lexical (NP) object, -diit is able to mark either the object or the subject in dependent clauses:	page 14, footnote 15
+footnote 15 (iii) line 1	Gitksan	segmentation	Neediit t'isdiit	page 14
+footnote 15 (iii) line 2	Gitksan	gloss	NEG=FOC=3.I hit.with.fist-3PL.II	page 14
+footnote 15 (iii) line 3	Henry Davis, Clarissa Forbes	note	(a)	page 14, the translation's label
+footnote 15 (iii) line 4	Henry Davis, Clarissa Forbes	translation	‘They hit him/her.’	page 14
+footnote 15 (iii) line 5	Henry Davis, Clarissa Forbes	note	(b)	page 14, the translation's label
+footnote 15 (iii) line 6	Henry Davis, Clarissa Forbes	translation	‘S/he hit them.’	page 14
+footnote 15	Henry Davis, Clarissa Forbes	note	This ambiguity can be resolved either contextually or grammatically. In the latter case, a Series III pronoun is employed in object position: since Series III pronouns cannot be cross-referenced with any other pronominal marking, a subject interpretation for -diit is forced (iv).	page 14, footnote 15
+footnote 15 (iv) line 1	Gitksan	segmentation	Neediit t'isdiit 'nit	page 14
+footnote 15 (iv) line 2	Gitksan	gloss	NEG=FOC=3.I hit.with.fist-3PL.II 3SG.III	page 14
+footnote 15 (iv) line 3	Henry Davis, Clarissa Forbes	translation	‘They hit him/her.’	page 14
+footnote 15 (iv) line 4	Henry Davis, Clarissa Forbes	note	(unambiguous)	page 14, at the right of the translation
+§3.1	Gitksan	cited form	'nidiit	page 14, in italics
+(23) line 1	Gitksan	segmentation	neediit gya'as Michael 'nidiit	page 14
+(23) line 2	Gitksan	gloss	NEG=FOC=3.I see=PN Michael 3PL.III	page 14
+(23) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael didn’t see them.’	page 14
+§3.1	Henry Davis, Clarissa Forbes	note	By hypothesis, the appearance of =s above in (23) forces deletion of an underlying third person singular Series II suffix -t (via the deaffrication rule in (23). This predicts that if an evidential enclitic is inserted between -t and =s, -t will surface. It does:	page 14
+(24) line 1	Gitksan	segmentation	neediit gya'adimaas Michael 'nidiit	page 14
+(24) line 2	Gitksan	gloss	NEG=FOC=3.I see-3.II=EPIS=PN Michael 3PL.III	page 14
+(24) line 3	Henry Davis, Clarissa Forbes	translation	‘Perhaps Michael didn’t see them.’16	page 14
+footnote 16	Henry Davis, Clarissa Forbes	note	Unlike Series II -t, 3rd plural Series II -diit never co-occurs with a lexical DP (Tarpent 1988, Hunt 1993:182), as shown in (vi) below. In contexts where a Series II pronoun doubles a plural argument, the third person singular (or rather, number-neutral) suffix -t appears instead (v).	page 14, footnote 16
+footnote 16 (v) line 1	Gitksan	segmentation	hlisxwhl simimnaksdimaas dip John gan t Mary	page 14
+footnote 16 (v) line 2	Gitksan	gloss	finish=CN together-marry-3.II=EPIS=PN ASSOC John PH.CNJ DM Mary	page 14
+footnote 16 (v) line 3	Henry Davis, Clarissa Forbes	translation	‘John and Mary apparently just got married.’	page 14
+footnote 16 (vi) line 1	Gitksan	segmentation	*hlisxwhl simimnaksdiidimaas dip John gan t Mary	page 14
+footnote 16 (vi) line 2	Gitksan	gloss	finish=CN together-marry-3PL.II=EPIS=PN ASSOC John PH.CNJ DM Mary	page 14
+§3.1	Henry Davis, Clarissa Forbes	note	But in this case, what is the Series II suffix -t marking? It cannot be the O, because Series III pronouns (unlike Series I clitics) never double other arguments, either lexical or pronominal (see Section 1.1 above). This leaves only one possibility: both Series I and Series II pronouns mark the A function in dependent clauses such as (23) and (24).	page 14
+§3.1	Henry Davis, Clarissa Forbes	note	This finding extends to non-plural contexts. A sentence such as (25) with a single overt argument is surface ambiguous:17	page 15
+footnote 17	Henry Davis, Clarissa Forbes	note	See Tarpent (1988:114) who gives similarly ambiguous cases from Nisga'a. Tarpent (1987a:155) had earlier attempted to argue that interpretation (i) of these cases is disfavoured, due to her claim that Nisga'a is ‘syntactically ergative’ and more specifically that it has an absolutive rather than a nominative ‘pivot’ in discourse contexts. Furthermore, she claims that sentence-level stress systematically distinguishes between the two interpretations, since the A always has weaker prominence than the O. We have found neither of these claims to be true in Gitksan. There is no preference for interpretation (ii) over (i) – in fact, if anything, the contrary is true, since speakers prefer to insert an overt Series III pronoun in object position for (ii) – and in a pilot phonetic study of examples such as (25), elicited with the help of storyboards, McClay (2015) found no prosodic difference between the two cases. See also note 18 immediately below, and Hunt (1993:42–44), who comes to the same conclusion.	page 15, footnote 17
+footnote 17	Henry Davis, Clarissa Forbes	name	McClay	Elise McClay, a field methods poster (2015)
+(25) line 1	Gitksan	segmentation	neediit gya'as Michael	page 15
+(25) line 2	Gitksan	gloss	NEG=FOC=3.I see=PN Michael	page 15
+(25) line 3	Henry Davis, Clarissa Forbes	note	(i)	page 15, the reading's label
+(25) line 4	Henry Davis, Clarissa Forbes	translation	‘S/he didn’t see Michael.’	page 15
+(25) line 5	Henry Davis, Clarissa Forbes	note	(ii)	page 15, the reading's label
+(25) line 6	Henry Davis, Clarissa Forbes	translation	‘Michael didn’t see him/her/it.’	page 15
+§3.1	Henry Davis, Clarissa Forbes	note	On reading (i), the underlying Series II -t refers to the O function, and is coindexed with the lexical argument Michael, just as it would, for example, in a parallel sentence with a first person Series I (ergative) clitic:	page 15
+(26) line 1	Gitksan	segmentation	neediin gya'as Michael	page 15
+(26) line 2	Gitksan	gloss	NEG=FOC=1SG.I see=PN Michael	page 15
+(26) line 3	Henry Davis, Clarissa Forbes	translation	‘I didn’t see Michael.’	page 15
+§3.1	Henry Davis, Clarissa Forbes	note	But on reading (ii) of (25), the Series II -t refers to the A function, just as in (23) and (24). We can see this if we replace the null object with a third person singular Series III pronoun:18	page 15
+footnote 18	Henry Davis, Clarissa Forbes	note	The variant in (27) with an overt object pronoun is actually more common than the version without (interpretation (ii) of (25)), at least in elicitation contexts where a discourse antecedent is not provided for the null object.	page 15, footnote 18
+(27) line 1	Gitksan	segmentation	neediit gya'as Michael 'nit	page 15
+(27) line 2	Gitksan	gloss	NEG=FOC=3.I see=PN Michael 3SG.III	page 15
+(27) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael didn’t see him/her.’	page 15
+(27) line 4	Henry Davis, Clarissa Forbes	note	(unambiguous)	page 15, at the right of the translation
+§3.1	Henry Davis, Clarissa Forbes	note	And just as in the plural case, insertion of an evidential clitic leads to the re- emergence of the covert -t:	page 15
+(28) line 1	Gitksan	segmentation	neediit gya'adimaas Michael 'nit	page 15
+(28) line 2	Gitksan	gloss	NEG=FOC=3.I see-3.I=EPIS=PN Michael 3SG.III	page 15
+(28) line 3	Henry Davis, Clarissa Forbes	translation	‘Perhaps Michael didn’t see him/her.’	page 15
+(28) line 4	Henry Davis, Clarissa Forbes	note	(unambiguous)	page 15, at the right of the translation
+§3.1	Henry Davis, Clarissa Forbes	note	Notice that in (28), as in its plural counterpart in (24), all three pronoun series are represented: the Series I pre-predicative clitic t and the Series II suffix -t both mark the A function, while the Series III independent argument pronoun 'nit marks the O function.	page 16
+§3.1	Gitksan	cited form	'nit	page 16, in italics
+§3.1	Henry Davis, Clarissa Forbes	note	In fact, this configuration is not even restricted to cases with third person objects. It is also possible to employ other Series III pronouns in O function in dependent clauses, as in (29), which is an acceptable alternative to the more standard agreement configuration in (29). Just as elsewhere with a covert Series II -t, insertion of an evidential enclitic blocks deletion and allows the -t to surface (29).	page 16
+(29a) line 1	Gitksan	segmentation	neediit gya'a'y t Michael	page 16
+(29a) line 2	Gitksan	gloss	NEG=FOC=3.I see=1SG.II DM Michael	page 16
+(29a) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael didn’t see me.’	page 16
+(29b) line 1	Gitksan	segmentation	neediit gya'as Michael 'nii'y	page 16
+(29b) line 2	Gitksan	gloss	NEG=FOC=3.I see=PN Michael 1SG.III	page 16
+(29b) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael didn’t see me.’	page 16
+(29c) line 1	Gitksan	segmentation	neediit gya'adimaas Michael 'nii'y	page 16
+(29c) line 2	Gitksan	gloss	NEG=FOC=3.I see=3.II=EPIS=PN Michael 1SG.III	page 16
+(29c) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael didn’t see me.’	page 16
+§3.1	Henry Davis, Clarissa Forbes	note	In all of these cases, =s appears if and only if an overt or covert Series II -t suffix is present on the predicate, and is coindexed with an immediately adjacent determinate argument. In short, Hunt’s /s/-case condition in (18) is an accurate description of the facts.	page 16
+§3.2	Henry Davis, Clarissa Forbes	heading	3.2 Is =s a case-marker?	page 16
+§3.2	Henry Davis, Clarissa Forbes	note	Having provided evidence for Hunt’s generalization, let us now, however, ask whether it supports her contention that =s is a case marker. This is not a simple question to answer, since ‘case’ covers a multitude of theoretically heterogeneous notions. Hunt, furthermore, never attempts to justify her claim, but is content to label =s as ‘/s/-case’ and leave it at that.	page 16
+§3.2	Henry Davis, Clarissa Forbes	note	Most approaches to case, however, agree on some version of the following basic properties:19	page 16
+footnote 19	Henry Davis, Clarissa Forbes	note	These properties are characteristic of ‘structural case’, as opposed to ‘inherent’ or ‘semantic’ case, which is tied to specific thematic roles; the latter is clearly not relevant to =s.	page 16, footnote 19
+§3.2	Henry Davis, Clarissa Forbes	note	A. Case is a form of dependent marking (i.e., it marks an argument rather than a predicate)	page 16, an item of the list
+§3.2	Henry Davis, Clarissa Forbes	note	B. Case at least partially reflects a hierarchy of grammatical functions which may or may not be instantiated in phrase structural terms.	page 16, an item of the list
+§3.2	Henry Davis, Clarissa Forbes	note	C. Case is relational: that is, within a grammar, cases are only defined relative to each other.	page 17, an item of the list
+§3.2	Henry Davis, Clarissa Forbes	note	We can now ask to what extent /s/-case meets these criteria.	page 17
+§3.2	Henry Davis, Clarissa Forbes	note	Concerning A.: Since =s is always prosodically attached to the (immediately left-adjacent) predicate, and not to an argument, it is not surface obvious that it meets the dependent marking criterion. A case-based analysis must come up with a supplemental explanation for its distribution.	page 17
+§3.2	Henry Davis, Clarissa Forbes	note	Concerning B.: Because it tracks agreement so closely, =s shares the idiosyncratic behaviour of third person Series II -t. In particular, while it is associated with A function in independent clauses, and (usually) S and O functions in dependent clauses (see Table 2), in cases of doubling =s may also mark A in dependent clauses. Thus, while =s must presumably ultimately be linked to a functional hierarchy, the mapping is indirect, via agreement. Furthermore, there is no evidence that =s-marked arguments occupy a unique syntactic position, since, as far as we know, there are no structural tests in IT which pick out just the class of nominals which are linked to Series II agreement (for a survey of structural tests in Gitksan, see Hunt 1993: Chapters 3 and 4).	page 17
+§3.2	Henry Davis, Clarissa Forbes	note	Concerning C.: To the extent that it marks case at all, the basic distinction in IT is between ‘direct’ and ‘oblique’ arguments; the former are unmarked, while the latter are introduced by a preposition. Direct arguments include S, A, and O, but =s does not mark any of them consistently, and there is no evidence of a second (unmarked) case to which it is opposed.	page 17
+§3.2	Henry Davis, Clarissa Forbes	note	We conclude that though it is difficult to produce knock-down arguments against a case-based analysis of =s, simply because the notion ‘case’ can be interpreted so variably, =s clearly does not fit the typological profile of a case- marker: it forms a prosodic constituent with the predicate, marks all three grammatical functions, and does not form part of a standard case opposition. In short: /s/-case is not case.	page 17
+§4	Henry Davis, Clarissa Forbes	heading	4 A new Type I analysis of the connective system	page 17
+§4	Henry Davis, Clarissa Forbes	note	In view of the problems with treating =s as a case marker, we would like to suggest a new approach – or rather, a new variant of the older Type I approach to the connective system – containing the following core claims: (i) =s is in fact an allomorph of connective t, with its appearance conditioned by adjacency to a predicate containing a coindexed Series II -t suffix; and (ii) dip is not part of the connective system at all, but is a separate associative marker (Forbes 2013a).	page 17
+§4	Henry Davis, Clarissa Forbes	note	In Table 8, we schematize our version of the Type I analysis (cf. Table 5 above).	page 17
+Table 8	Henry Davis, Clarissa Forbes	note	Table 8: A new Type I analysis of the connective paradigm	page 18, the table's caption
+Table 8 line 1	Henry Davis, Clarissa Forbes	note	CONTEXT 1 CONTEXT 2	page 18, a row of the table
+Table 8 line 2	Henry Davis, Clarissa Forbes	note	CN connective hl	page 18, a row of the table
+Table 8 line 3	Henry Davis, Clarissa Forbes	note	DM connective t t (→ s)	page 18, a row of the table
+Table 8 line 4	Henry Davis, Clarissa Forbes	note	Associative PL dip	page 18, a row of the table
+§4	Henry Davis, Clarissa Forbes	note	The basic ingredients of this analysis are as follows:	page 18
+§4	Henry Davis, Clarissa Forbes	note	A. =s is derived from determinate t by a softening rule which applies under adjacency with the right edge of the predicate, with the additional condition that the argument introduced by t be coindexed with a third person Series II -t on the predicate.	page 18, an item of the list
+§4	Henry Davis, Clarissa Forbes	note	B. The softening rule is crucially ordered before a degemination rule that deletes t before the associative marker dip.20	page 18, an item of the list
+footnote 20	Henry Davis, Clarissa Forbes	note	The d in dip is itself derived from a phonemic t by obstruent voicing, as mentioned in note 12.	page 18, footnote 20
+§4	Henry Davis, Clarissa Forbes	note	C. The softening rule is also crucially ordered before the deaffrication rule (21), which deletes Series II -t before =s or =hl.	page 18, an item of the list
+§4	Henry Davis, Clarissa Forbes	note	We assume softening takes the form in (30), and degemination the form in (31). Deaffrication is repeated here as (32).	page 18
+(30) line 1	Henry Davis, Clarissa Forbes	note	Softening	page 18, set as an example
+(30) line 2	Henry Davis, Clarissa Forbes	note	t → =s / -ti ] __ [NP]i	page 18, set as an example
+(30) line 3	Henry Davis, Clarissa Forbes	note	DM PN 3.II	page 18, set as an example
+(31) line 1	Henry Davis, Clarissa Forbes	note	Degemination	page 18, set as an example
+(31) line 2	Henry Davis, Clarissa Forbes	note	t → Ø /__ dip	page 18, set as an example
+(31) line 3	Henry Davis, Clarissa Forbes	note	DM ASSOC	page 18, set as an example
+(32) line 1	Henry Davis, Clarissa Forbes	note	Deaffrication (=21)	page 18, set as an example
+(32) line 2	Henry Davis, Clarissa Forbes	note	-t → Ø/__{=s, =hl}	page 18, set as an example
+(32) line 3	Henry Davis, Clarissa Forbes	note	3.II PN, CN	page 18, set as an example
+§4	Henry Davis, Clarissa Forbes	note	The rules operate as follows. Determinate t is softened to =s when following a coindexed Series II suffix -t. The suffix that triggered this change is then deleted before the =s it has produced via deaffrication, in a classic case of feeding order opacity. Otherwise, t remains t. In environments where dip follows this t, the t dip sequence is degeminated to simply dip.	page 18
+§4	Gitksan	cited form	t dip	page 18, in italics
+§4	Henry Davis, Clarissa Forbes	note	To illustrate this rule interaction, let us work through a couple of the example sentences given above. We begin with (6a), repeated below as (33):	page 18
+(33) line 1	Gitksan	segmentation	gya'as dip [Michael gan t Aidan] t Gidi	page 19
+(33) line 2	Gitksan	gloss	see[TR]=PN ASSOC [Michael PH.CNJ DM Aidan] DM Katie	page 19
+(33) line 3	Henry Davis, Clarissa Forbes	translation	‘Michael and Aidan saw Katie.’	page 19
+§4	Henry Davis, Clarissa Forbes	note	By hypothesis the underlying form is as in (34).	page 19
+(34) line 1	Gitksan	segmentation	gya'at t dip [Michael gan t Aidan] t Gidi	page 19, the underlying form
+(34) line 2	Gitksan	gloss	[see[TR]-3.IIi] DM ASSOC [Michael PH.CNJ DM Aidan]i DM Katie	page 19
+§4	Henry Davis, Clarissa Forbes	note	The environment for softening is met, so the DM following the verb becomes =s:	page 19
+(35) line 1	Gitksan	segmentation	gya'ats dip [Michael gan t Aidan] t Gidi	page 19, the underlying form
+(35) line 2	Gitksan	gloss	[see[TR]-3.IIi]=PN ASSOC [Michael PH.CNJ DM Aidan]i DM Katie	page 19
+§4	Henry Davis, Clarissa Forbes	note	Now deaffrication (21) applies to delete the Series II -t, yielding (33).	page 19
+§4	Henry Davis, Clarissa Forbes	note	Next, let us take a case where softening fails to apply. One such case is (8b), repeated as (36):	page 19
+(36) line 1	Gitksan	segmentation	gya'at dip [Michael gan t Aidan]	page 19
+(36) line 2	Gitksan	gloss	see[TR]-3.II ASSOC [Michael PH.CNJ DM Aidan]	page 19
+(36) line 3	Henry Davis, Clarissa Forbes	translation	‘S/he saw Michael and Aidan.’	page 19
+§4	Henry Davis, Clarissa Forbes	note	The underlying form here is (37):	page 19
+(37) line 1	Gitksan	segmentation	gya’at t dip [Michael gan t Aidan]]	page 19, the underlying form
+(37) line 2	Gitksan	gloss	see[TR]-3.IIi DM ASSOC [Michael PH.CNJ DM Aidan]]i	page 19
+§4	Henry Davis, Clarissa Forbes	note	The Series II -t on the verb is contra-indexed with the adjacent nominal, so softening is blocked, and since softening feeds deaffrication, the latter also fails to apply. However, the environment for degemination is met, and therefore DM t deletes before dip, yielding the surface form (36).	page 19
+§4.1	Henry Davis, Clarissa Forbes	heading	4.1 Consequences	page 19
+§4.1	Henry Davis, Clarissa Forbes	note	The analysis outlined above has the following consequences.	page 19
+§4.1	Henry Davis, Clarissa Forbes	note	A. The determinate connective t and its plural counterpart dip are no longer part of the same paradigm: dip is a separate associative marker, as independently argued by Forbes (2013a,b).	page 19, an item of the list
+§4.1	Henry Davis, Clarissa Forbes	note	B. There is no longer a number distinction in any part of the connective system.	page 19, an item of the list
+§4.1	Henry Davis, Clarissa Forbes	note	C. DM t is now present underlyingly with all determinates, mirroring the behavior of CN =hl.	page 19, an item of the list
+§4.1	Henry Davis, Clarissa Forbes	note	D. PN =s has been reduced to a reflex of t: hence it is just an allomorph of the determinate connective. There is no ‘/s/-case’.	page 19, an item of the list
+§4.1	Henry Davis, Clarissa Forbes	note	E. Since determinate noun phrases always show up with =s when they are complements to the prepositions a and go(')o, we must assume that prepositions are themselves inflected for third person Series II -t agreement.	page 19, an item of the list
+§4.1	Gitksan	cited form	go(')o	page 19, in italics
+§4.1	Henry Davis, Clarissa Forbes	note	Of these consequences, we take (B), (C) and (D) to be both self-evident and to constitute clear advantages of our analysis over previous accounts; (A) and (E), however, merit more discussion, and are further elucidated in Sections 4.2 and 4.3 below, respectively.	page 20
+§4.2	Henry Davis, Clarissa Forbes	heading	4.2 Dip as an associative marker	page 20
+§4.2	Henry Davis, Clarissa Forbes	note	Consequence (A) of our analysis concerns the ‘determinate plural’ particle dip, which we propose need not be considered a counterpart of the connective morpheme t with which it appears to alternate. Instead, we argue following Forbes (2013a,b) that it independently marks an associative or group interpretation for determinate nouns, and co-occurs underlyingly with a number-neutral t. The lack of surface co-occurrence with t is explained by morphophonological means (specifically, the degemination rule in (31)).	page 20
+§4.2	Henry Davis, Clarissa Forbes	note	As remarked by all who have discussed this morpheme (e.g. Rigsby 1986; Tarpent 1981, 1987b), dip introduces a “group” interpretation when used with a determinate noun. The noun in a dip NP sequence serves as the representative member of a group whose other members are identified contextually.	page 20
+(38) line 1	Gitksan	segmentation	dip nigwood'y	page 20
+(38) line 2	Gitksan	gloss	ASSOC father-1SG.II	page 20
+(38) line 3	Henry Davis, Clarissa Forbes	translation	‘my parents’ or ‘my dad and his friends’	page 20
+(39) line 1	Gitksan	segmentation	jabis dip ts'iits' ahl jam miyup	page 20
+(39) line 2	Gitksan	gloss	make-TR=CN ASSOC grandmother OBL=CN cook rice	page 20
+(39) line 3	Henry Davis, Clarissa Forbes	translation	‘The grandmothers made rice.’	page 20
+(39) line 4	Henry Davis, Clarissa Forbes	speaker comment	BS: There could be grandfathers there too, and only one ts'iits'.	page 20, under the example, the consultant's remark
+§4.2	Henry Davis, Clarissa Forbes	note	Corbett’s (2001) crosslinguistic discussion of number identifies this as a specific associative subset of plurality, which sometimes overlaps with a more familiar additive interpretation. The terminological distinction between additive and associative plurals is important to make in Gitksan, however, as dip is crucially restricted to an associative interpretation, contrasting semantically with numerous other morphological plurals in the language.21	page 20
+footnote 21	Henry Davis, Clarissa Forbes	note	Other subsets of the general ‘plural’ notion are similarly marked in Gitksan; Rigsby (1986) notes distributive and collective plural morphemes (ga- and -(t)xw respectively). The specifically distributive vs. collective usage of these morphemes, in contrast to other plural interpretations, merits further investigation.	page 20, footnote 21
+footnote 21	Gitksan	cited form	ga-	page 20, in italics
+footnote 21	Gitksan	cited form	-(t)xw	page 20, in italics
+§4.2	Henry Davis, Clarissa Forbes	name	Corbett	Greville G. Corbett, Number (2001)
+§4.2	Henry Davis, Clarissa Forbes	note	As shown in (40), reduplicative plural morphology is not able to perform this semantic function:	page 20
+(40) line 1	Gitksan	segmentation	dox̲hl sipsip goohl lax̲yip	page 21
+(40) line 2	Gitksan	gloss	lie.PL PL~bone LOC=CN on-earth	page 21
+(40) line 3	Henry Davis, Clarissa Forbes	translation	‘There are bones on the ground.’	page 21
+(40) line 4	Henry Davis, Clarissa Forbes	note	Researcher: Could there be one bone, and other dog toys on the ground, like balls (hlit')?	page 21, under the example, the researcher's question
+(40) line 5	Henry Davis, Clarissa Forbes	speaker comment	Consultant: No.	page 21, under the example, the consultant not named
+§4.2	Henry Davis, Clarissa Forbes	note	Further, as demonstrated by native speaker judgements to (41)–(42), it does not seem to be possible for dip to function as a traditional additive plural, as is for example possible when names are pluralized in English.	page 21
+§4.2	Henry Davis, Clarissa Forbes	language	English	the translations
+(41) line 1	Gitksan	segmentation	saksins dip Michaels hla g̲a'windiit	page 21
+(41) line 2	Gitksan	gloss	clean-CAUS=CN ASSOC Michael-PL NMZ PL-teeth-3PL.II	page 21
+(41) line 3	Henry Davis, Clarissa Forbes	translation	‘The Michaels (= Michael and his reflections in the mirror) cleaned their teeth.’	page 21
+(41) line 4	Henry Davis, Clarissa Forbes	speaker comment	Consultant: I’m not sure if “Michaels” is right, but it seems like there should be something there.	page 21, under the example, the consultant not named
+(42) line 1	Gitksan	segmentation	k̲'ap lukw'il wilix wila ky'uulst Michaelhl	page 21
+(42) line 2	Gitksan	gloss	EMPH very smart how one.hum-PASS=CN Michael=CN	page 21
+(42) line 3	Gitksan	segmentation	wilaa'y	page 21
+(42) line 4	Gitksan	gloss	know-1SG.II	page 21
+(42) line 5	Henry Davis, Clarissa Forbes	translation	‘The Michaels I know are very smart.’	page 21
+(42) line 6	Henry Davis, Clarissa Forbes	speaker comment	Consultant: How do I say a plural for Michaels?	page 21, under the example, the consultant not named
+(42) line 7	Henry Davis, Clarissa Forbes	note	Researcher: Could you say dip Michael?	page 21, under the example, the researcher's question
+(42) line 8	Henry Davis, Clarissa Forbes	speaker comment	Consultant: No, not in Gyaanimx̲.	page 21, under the example, the consultant not named
+§4.2	Henry Davis, Clarissa Forbes	note	The absence of an additive interpretation for determinate nouns suggests that dip is strictly associative.22	page 21
+footnote 22	Henry Davis, Clarissa Forbes	note	An additive interpretation is possible for kinship terms, though this is usually accomplished with the distributive. Dip may co-occur with this morpheme.	page 21, footnote 22
+footnote 22 (vii) line 1	Gitksan	segmentation	(dip) g̲anits'iits'xw'm	page 21
+footnote 22 (vii) line 2	Gitksan	gloss	(ASSOC) DISTR-grandmother-PASS-1PL.II	page 21
+footnote 22 (vii) line 3	Henry Davis, Clarissa Forbes	translation	‘our grandmothers’	page 21
+footnote 22	Henry Davis, Clarissa Forbes	note	Gitksan generally allows different types of plural markers to co-occur in this fashion, e.g. simultaneous prefixation and reduplication on common nouns. We therefore do not take the co-occurrence facts as evidence against an analysis of dip as a plural marker.	page 21, footnote 22
+§4.2	Henry Davis, Clarissa Forbes	note	With the semantic interpretation of dip clarified, we now consider some motivation for removing this morpheme from the connective system.	page 21
+§4.2	Henry Davis, Clarissa Forbes	note	First, to our knowledge there is no previously identified case of an article sensitive to this semantic category (though this is not to say such a thing would not be possible). Instead, associatives crosslinguistically tend to be linked to other types of plural markers, whether by sharing their form or other properties of their distribution. We note that in Tsimshianic, dip is homophonous with the 1st plural Series I clitic, which appears pre-predicatively rather than pre-nominally. Given the inherent associativity of first person plurals (which mark the self and a group of others, rather than multiple selves), it seems that these two morphemes are likely diachronically linked, though we do not speculate which usage might have been derived from the other.	page 21
+§4.2	Henry Davis, Clarissa Forbes	note	Second, we note some optionality in the distribution of dip that goes unexplained under an analysis of this morpheme as a connective. Tarpent (1981:400) notes that dip may co-occur with Series III independent pronouns as a way of emphasizing a group interpretation.	page 22
+(43a) line 1	Gitksan	segmentation	(dip) 'nuu'm	page 22
+(43a) line 2	Gitksan	gloss	(ASSOC) 1PL.III	page 22
+(43a) line 3	Henry Davis, Clarissa Forbes	translation	‘us (guys)’	page 22
+(43b) line 1	Gitksan	segmentation	(dip) 'nisi'm	page 22
+(43b) line 2	Gitksan	gloss	(ASSOC) 2PL.III	page 22
+(43b) line 3	Henry Davis, Clarissa Forbes	translation	‘you guys’	page 22
+(43c) line 1	Gitksan	segmentation	(dip) 'nidiit	page 22
+(43c) line 2	Gitksan	gloss	(ASSOC) 3PL.III	page 22
+(43c) line 3	Henry Davis, Clarissa Forbes	translation	‘them (guys)’	page 22
+§4.2	Henry Davis, Clarissa Forbes	note	The use of dip with coordinated determinate nouns is also optional, as shown in (44) below:	page 22
+(44) line 1	Gitksan	segmentation	si'anaax (dip) Henry g̲ans Lisa	page 22
+(44) line 2	Gitksan	gloss	CAUS-bread (ASSOC) Henry PH.CNJ=CN Lisa	page 22
+(44) line 3	Henry Davis, Clarissa Forbes	translation	‘Henry and Lisa baked bread.’	page 22
+§4.2	Henry Davis, Clarissa Forbes	note	Such a pattern more closely resembles that of nominal plural marking, which is often required to achieve a plural interpretation, but is not strictly obligatory; speakers we have worked with occasionally omit it, and when asked comment that an added plural marker makes a sentence “more correct.”	page 22
+§4.2	Henry Davis, Clarissa Forbes	note	In light of these facts, it is clear that the inclusion of dip in the connective system does not simply introduce a distinction on the basis of number. Rather, it introduces optionality on a semantic basis into a system which otherwise obligatorily marks a noun class distinction, and obligatorily alternates for grammatical function. The connective system without dip can be described cleanly in terms of agreement with syntactic properties. Given that dip can be understood equally well as an independent marker of associativity, we argue that this added simplicity is worth the cost of removing it from the connective system.	page 22
+§4.2	Henry Davis, Clarissa Forbes	note	We now consider the precise nature of this cost: the mechanisms required to explain why, of all three of the connectives, dip only co-occurs with =s.	page 22
+§4.2	Henry Davis, Clarissa Forbes	note	Its inability to co-occur with =hl is easy to explain: all accounts of dip require that it be restricted to the class of determinate nouns. This clashes with the strictly non-determinate properties of =hl. Such a distribution is even more restricted than is crosslinguistically common for associatives, usually restricted to use only with human or animate nouns, and is illustrated in (45).	page 22
+(45a) line 1	Gitksan	segmentation	bakw dip John (g̲anhl hliguutxwt)	page 23
+(45a) line 2	Gitksan	gloss	come.PL ASSOC John (PH.CNJ=CN family-3SG.II)	page 23
+(45a) line 3	Gitksan	segmentation	g̲oohl li'ligit	page 23
+(45a) line 4	Gitksan	gloss	LOC=CN feast	page 23
+(45a) line 5	Henry Davis, Clarissa Forbes	translation	‘John and his family arrived at the feast.’	page 23
+(45b) line 6	Gitksan	segmentation	*bakwhl dip sim'oogit (g̲anhl hliguutxwt)	page 23
+(45b) line 7	Gitksan	gloss	come.PL=CN ASSOC chief (PH.CNJ=CN family-3.II)	page 23
+(45b) line 8	Gitksan	segmentation	g̲oohl li'ligit	page 23
+(45b) line 9	Gitksan	gloss	LOC=CN feast	page 23
+(45b) line 10	Henry Davis, Clarissa Forbes	note	intended:	page 23, the translation's label
+(45b) line 11	Henry Davis, Clarissa Forbes	translation	‘The chief and his family arrived at the feast.’	page 23
+§4.2	Henry Davis, Clarissa Forbes	note	Dip also fails to co-occur overtly with t. We accomplish this by assuming that they appear together underlyingly (as presented in (36) and (37) above), but that t procliticizes to dip,23 and is deleted via the degemination rule presented in (31) and repeated below as (46).	page 23
+footnote 23	Henry Davis, Clarissa Forbes	note	For more on the proclitic properties of t, refer to note 9.	page 23, footnote 23
+§4.2	Gitksan	cited form	Dip	page 23, in italics
+(46) line 1	Henry Davis, Clarissa Forbes	note	Degemination	page 23, set as an example
+(46) line 2	Henry Davis, Clarissa Forbes	note	t → Ø /__ dip	page 23, set as an example
+(46) line 3	Henry Davis, Clarissa Forbes	note	DM ASSOC	page 23, set as an example
+§4.2	Henry Davis, Clarissa Forbes	note	As this rule is phonologically motivated, with the effect of deleting two adjacent coronal stops in onset position,24 we are of the view that the cost incurred is relatively minor compared to the simplification of the overall system afforded by shifting dip from ‘connective’ to ‘associative marker’.	page 23
+footnote 24	Henry Davis, Clarissa Forbes	note	We further note that the only other instances of adjacent coronal stops in onset position are those involving names, such as t Tom; we have already noted that phonemes within roots tend to be immune to processes of deletion. If names were to be considered as roots, then the degemination rule in (46) could potentially be reformulated as a more general phonological rule which did not refer to dip in particular.	page 23, footnote 24
+footnote 24	Gitksan	cited form	t Tom	page 23, in italics
+§4.3	Henry Davis, Clarissa Forbes	heading	4.3 The morphosyntax of PPs	page 23
+§4.3	Henry Davis, Clarissa Forbes	note	We now turn to consequence (E) of our analysis, which concerns the connective system in prepositional phrases. IT has only two prepositions (or oblique markers): the general purpose preposition a, and the specifically locative preposition go(')o.25 Both induce =s when their complement is a determinate noun phrase:	page 23
+footnote 25	Henry Davis, Clarissa Forbes	note	This statement has to be slightly qualified: a has a suppletive alternate loo which is used with Series II suffixes to yield oblique forms of pronouns (e.g., loo-t P-3.II, loo-n P-2SG.II). We set these forms aside, since they are not directly relevant to the issue at hand.	page 23, footnote 25
+footnote 25	Gitksan	cited form	loo	page 23, in italics
+footnote 25	Gitksan	cited form	loo-t	page 23, in italics
+footnote 25	Gitksan	cited form	loo-n	page 23, in italics
+(47) line 1	Gitksan	segmentation	gi'namis Johnhl anaax as Mary	page 23
+(47) line 2	Gitksan	gloss	give-TR=PN John=CN bread PREP=PN Mary	page 23
+(47) line 3	Henry Davis, Clarissa Forbes	translation	‘John gave the bread to Mary.’	page 23
+(47) line 4	Henry Davis, Clarissa Forbes	citation	(Hunt 1993:113)	page 23, the tag or source at the right of the translation
+(48) line 1	Gitksan	segmentation	'witxw t John go'os Mary	page 24
+(48) line 2	Gitksan	gloss	come DM John LOC=PN Mary	page 24
+(48) line 3	Henry Davis, Clarissa Forbes	translation	‘John went to Mary’s place’	page 24
+(48) line 4	Henry Davis, Clarissa Forbes	citation	(Hunt 1993:113)	page 24, the tag or source at the right of the translation
+§4.3	Henry Davis, Clarissa Forbes	note	By hypothesis, this means that the underlying representation for a preposition with a determinate noun phrase complement must include Series II -t, which induces softening of determinate t to =s and then deletes by deaffrication, as shown in the schematic derivation in (49).26	page 24
+footnote 26	Henry Davis, Clarissa Forbes	note	Series III pronouns can also optionally be preceded by as (yielding e.g. as 'niin ‘to you’, as 'nidiit ‘to them’, etc.) as an alternative to the specialized oblique pronominals beginning with loo (see note 25). There is an added complication here in that Series III pronouns do not normally occur with DM t: however, cases where the two do co-occur are reported in Davis and Brown (2011), along with the suggestive comment that “today, they’d leave it out”. It seems that independent pronouns used to conform to the general determinate pattern, but have recently lost their initial t in IT (it is retained after the phrasal coordinator gan, and is still present in CT). For present purposes, we will assume a late local t-deletion rule for Series III pronouns only, ordered after softening.	page 24, footnote 26
+footnote 26	Gitksan	cited form	as 'niin	page 24, in italics, ‘to you’
+footnote 26	Gitksan	cited form	as 'nidiit	page 24, in italics, ‘to them’
+footnote 26	Gitksan	cited form	gan	page 24, in italics
+§4.3	Gitksan	cited form	as	page 24, in italics
+(49) line 1	Henry Davis, Clarissa Forbes	note	a-t t Mary → a-t=s Mary → a=s Mary	page 24, set as an example
+(49) line 2	Henry Davis, Clarissa Forbes	note	(softening) (deaffrication)	page 24, set as an example
+§4.3	Henry Davis, Clarissa Forbes	note	This means in turn that we must effectively treat all prepositions in IT as inflected. We see no objection to this move, either empirically or theoretically, though it must also be admitted we have no independent evidence to support it.	page 24
+§5	Henry Davis, Clarissa Forbes	heading	5 Extending the analysis to Coast Tsimshian	page 24
+§5	Henry Davis, Clarissa Forbes	note	On any analysis, the IT connective system and its relation to the pronominal system raises questions as to how it arose, and which of its components are shared by its CT relatives. In this section, we therefore compare the IT system with what we can deduce of the CT system from Dunn (1979a,b), Mulder (1994), Stebbins (2003), Bach (2004), and Anderson and Ignace (2008). This is not the first time the comparison has been made: Peterson (2004) is an earlier attempt, though with somewhat different analytical assumptions (in particular, he adopts Hunt’s /s/-case analysis).	page 24
+§5	Henry Davis, Clarissa Forbes	name	Stebbins	Tonya Stebbins, adjectives in Coast Tsimshian (2003)
+§5	Henry Davis, Clarissa Forbes	name	Peterson	Tyler Peterson, Tsimshian connectives (2004), evidentiality in Gitksan (2010)
+§5	Henry Davis, Clarissa Forbes	note	In Tables 9 and 10, we compare the two systems systematically, first in independent and then in dependent clauses. Differences between the CT and IT systems are bolded.	page 24
+§5	Henry Davis, Clarissa Forbes	note	Several comments are in order involving the CT forms. First of all, we have confined ourselves to the ‘plain’ connective system, eschewing an analysis of the more complex formal or ‘elaborate’ system first recorded by Boas (1911) and discussed in detail by Mulder (1994).27 Second, we have glossed over certain phonological complications: in particular, the common noun =a connective is deleted systematically before vowels and resonants, and the vowel that we have given as simply ‘V’ (which we treat as epenthetic, following Bach 2004) varies between a and i under conditions which we do not understand. And third, following Bach (2004) and Peterson (2004) but contra Dunn (1979a,b,c), Mulder (1994), and Anderson and Ignace (2008), all of whom follow	page 24
+footnote 27	Henry Davis, Clarissa Forbes	note	It is worth mentioning here Tarpent’s interesting take on the CT elaborated system, presented in an unpublished 1998 paper using mostly Southern Tsimshian (Sgüüxs) data. She segments the ‘complex’ forms into the simple forms plus two ‘optional postclitics’ =da'a and =ga'a with deictic meanings (absent/proximal and remote/distal, respectively). She then claims that because the postclitics appear in phrase- as well as sentence-final position (unlike their IT counterparts) they end up adjacent to connectives, and various phonological processes then obscure their status as separate morphemes, leading Boas and others following him to misanalyze them as ‘complex connectives’.	page 24, footnote 27
+footnote 27	Southern Tsimshian	cited form	=da'a	page 24, in italics
+footnote 27	Southern Tsimshian	cited form	=ga'a	page 24, in italics
+footnote 27	Henry Davis, Clarissa Forbes	language	Southern Tsimshian	Sgüüxs, Tarpent (1998)
+§5	Coast Tsimshian	cited form	=a	page 25, in italics
+Table 9	Henry Davis, Clarissa Forbes	note	Table 9: CT-IT connective comparison: Independent clauses	page 25, the table's caption
+Table 9 line 1	Henry Davis, Clarissa Forbes	note	S A O	page 25, a row of the table
+Table 9 line 2	Henry Davis, Clarissa Forbes	note	CT IT CT IT CT IT	page 25, a row of the table
+Table 9 line 3	Henry Davis, Clarissa Forbes	note	SCN =a =hl	page 25, a row of the table
+Table 9 line 4	Henry Davis, Clarissa Forbes	note	SDM =(V)s/t t	page 25, a row of the table
+Table 9 line 5	Henry Davis, Clarissa Forbes	note	ACN-OCN =a =hl =a =hl	page 25, a row of the table
+Table 9 line 6	Henry Davis, Clarissa Forbes	note	ACN-ODM =a =hl =(V)t t	page 25, a row of the table
+Table 9 line 7	Henry Davis, Clarissa Forbes	note	CAN =a =hl	page 25, a row of the table
+Table 9 line 8	Henry Davis, Clarissa Forbes	note	ADM =(V)s =s	page 25, a row of the table
+Table 9 line 9	Henry Davis, Clarissa Forbes	note	ADM-OCN =(V)s =s =a =hl	page 25, a row of the table
+Table 9 line 10	Henry Davis, Clarissa Forbes	note	ADM-ODM =(V)s =s =(V)t t	page 25, a row of the table
+Table 9 line 11	Henry Davis, Clarissa Forbes	note	OCN =a =hl	page 25, a row of the table
+Table 9 line 12	Henry Davis, Clarissa Forbes	note	ODM =(V)t t	page 25, a row of the table
+Table 10	Henry Davis, Clarissa Forbes	note	Table 10: CT-IT connective comparison: Dependent clauses	page 26, the table's caption
+Table 10 line 1	Henry Davis, Clarissa Forbes	note	S A O	page 26, a row of the table
+Table 10 line 2	Henry Davis, Clarissa Forbes	note	CT IT CT IT CT IT	page 26, a row of the table
+Table 10 line 3	Henry Davis, Clarissa Forbes	note	SCN =a =hl	page 26, a row of the table
+Table 10 line 4	Henry Davis, Clarissa Forbes	note	SDM =(V)s =s	page 26, a row of the table
+Table 10 line 5	Henry Davis, Clarissa Forbes	note	ACN-OCN =a =hl =a =hl	page 26, a row of the table
+Table 10 line 6	Henry Davis, Clarissa Forbes	note	ACN-ODM =a =hl =(V)t t	page 26, a row of the table
+Table 10 line 7	Henry Davis, Clarissa Forbes	note	ACN =a =hl	page 26, a row of the table
+Table 10 line 8	Henry Davis, Clarissa Forbes	note	ADM =(V)t =s	page 26, a row of the table
+Table 10 line 9	Henry Davis, Clarissa Forbes	note	ADM-OCN =(V)t =s =a =hl	page 26, a row of the table
+Table 10 line 10	Henry Davis, Clarissa Forbes	note	ADM-ODM =(V)t =s =(V)t t	page 26, a row of the table
+Table 10 line 11	Henry Davis, Clarissa Forbes	note	OCN =a =hl	page 26, a row of the table
+Table 10 line 12	Henry Davis, Clarissa Forbes	note	ODM =(V)s =s	page 26, a row of the table
+§5	Henry Davis, Clarissa Forbes	note	Boas’s original (1911) analysis, we treat the A connectives as simply =a and =(V)t, rather than =da and =dVt, with the initial t (voiced to d) actually representing the very same Series II third singular suffix -t that much of our analysis of the IT system has revolved around.	page 26
+§5	Coast Tsimshian	cited form	=(V)t	page 26, in italics
+§5	Coast Tsimshian	cited form	=da	page 26, in italics
+§5	Coast Tsimshian	cited form	=dVt	page 26, in italics
+§5	Gitksan	cited form	d	page 26, in italics
+§5	Henry Davis, Clarissa Forbes	note	Once we have ‘cleaned up’ the CT connective system in this way, it is clear that it is very close to the IT system. The common noun connectives have different forms (CT has =a where IT has =hl), but there are traces of =hl in the CT system (it replaces =a in certain irrealis environments, including under negation and in questions and conditionals: Dunn 1979a, Tarpent 1998, Bach 2004). 28 The likelihood is that both =hl and =a originated from a Proto-Tsimshianic *=ahl connective.29	page 26
+footnote 28	Henry Davis, Clarissa Forbes	note	Peterson (2004:336) points out that the correspondence between IT =hl and CT =a extends to non-standard uses of the CN connective: in particular, where the IT imperfective marker yukw selects =hl before its complement, its CT cognate yagwa can be analyzed as consisting of a root yakw plus the common noun connective =a.	page 26, footnote 28
+footnote 28	Coast Tsimshian	cited form	yakw	page 26, in italics
+footnote 29	Henry Davis, Clarissa Forbes	note	A fluent speaker whom we have worked with from Gitsegukla, but with extensive family connections further west in CT territory, systematically uses =ahl instead of =hl as the common noun connective in Gitksan. We do not know if this represents a hitherto undocumented ‘interlanguage’ between IT and CT or if her dialect represents a throwback to an earlier form of IT.	page 26, footnote 29
+§5	Proto-Tsimshianic	cited form	*=ahl	page 26, in italics
+§5	Gitksan	cited form	*=ahl	page 26, in italics
+§5	Henry Davis, Clarissa Forbes	language	Proto-Tsimshianic	the reconstructed ancestor, *=ahl
+§5	Henry Davis, Clarissa Forbes	note	As far as the determinate connectives are concerned, the first point to make is that the same elements (t and =s) appear in more or less the same environments in both systems. Of note is the limited distribution of =s in CT: just as in IT, it only ever appears immediately adjacent to the predicate.	page 26
+§5	Henry Davis, Clarissa Forbes	note	In fact, there are only two significant differences between the two systems. The first is in intransitive independent clauses with determinate subjects: whereas t is consistently used in IT (see (3) above), Dunn (1979b) and Mulder (1994) report that =s is used in CT, as shown in (50) and (51).	page 27
+(50) line 1	Coast Tsimshian	segmentation	ada nah manyaas üünalda ɬa huupḷ	page 27
+(50) line 2	Coast Tsimshian	gloss	then PFV walk.up=PN Arnold=PREP INCEP dark	page 27
+(50) line 3	Henry Davis, Clarissa Forbes	translation	‘Arnold used to walk up from the shore in the dark.’	page 27
+(50) line 4	Henry Davis, Clarissa Forbes	citation	(Dunn 1979b:133)	page 27, the tag or source at the right of the translation
+(51) line 1	Coast Tsimshian	segmentation	nah ts'lm'wiihawtgas Mardzi da nawaabu	page 27
+(51) line 2	Coast Tsimshian	gloss	PFV into.from-cry=PN Margie PREP POSS-house-1SG.II	page 27
+(51) line 3	Henry Davis, Clarissa Forbes	translation	‘Margie came into my house crying.’	page 27
+(51) line 4	Henry Davis, Clarissa Forbes	citation	(Mulder 1994:57)	page 27, the tag or source at the right of the translation
+§5	Henry Davis, Clarissa Forbes	note	This CT pattern suggests that there should be a Series II -t suffix present in intransitive independent clauses, which triggers softening of the determinate marker t to =s and then undergoes deletion via deaffrication. Interestingly, there is evidence that this is indeed the case, offering rather striking support for our account. Unlike in IT, in CT Series III independent pronouns are not used in absolutive contexts in independent intransitive clauses: instead, a fourth suffixal paradigm consisting of reduced variants of the independent pronouns is employed, termed the ‘definite objective’ paradigm by Dunn (1979c), and the ‘marked absolutive’ paradigm in Dunn (1979a). Significantly, this paradigm overlaps in first person singular and third person with the Series II paradigm: in particular, the third person form is simply -t. Assuming, then, that this ‘marked absolutive’ -t acts exactly like Series II -t for the purposes of softening and deaffrication, the difference between CT and IT falls out without stipulation.	page 27
+§5	Henry Davis, Clarissa Forbes	note	However, there is a further interesting wrinkle in the CT data.30 Anderson and Ignace (2008) (see also Sasama 1995:7, note 8) give a number of examples of intransitive clauses introduced by perfective nah with subjects introduced not by =s but by the determinate marker t (with epenthetic vowel insertion):	page 27
+footnote 30	Henry Davis, Clarissa Forbes	note	We are grateful to Margaret Anderson for help with the CT data here.	page 27, footnote 30
+§5	Coast Tsimshian	cited form	nah	page 27, in italics
+§5	Henry Davis, Clarissa Forbes	name	Sasama	Fumiko Sasama, Coast Tsimshian plurals (1995)
+(52) line 1	Coast Tsimshian	segmentation	nah yaawxgat Meli	page 27
+(52) line 2	Coast Tsimshian	gloss	PFV eat[INTR]=DM Mary	page 27
+(52) line 3	Henry Davis, Clarissa Forbes	translation	‘Mary has eaten.’	page 27
+(53) line 1	Coast Tsimshian	segmentation	nah hadiksat Sally	page 27
+(53) line 2	Coast Tsimshian	gloss	PFV swim=DM Sally	page 27
+(53) line 3	Henry Davis, Clarissa Forbes	translation	‘Sally has swum.’	page 27
+(54) line 1	Coast Tsimshian	segmentation	nah sisaaxsat Doug	page 27
+(54) line 2	Coast Tsimshian	gloss	PFV laugh=DM Doug	page 27
+(54) line 3	Henry Davis, Clarissa Forbes	translation	‘Doug has laughed.’	page 27
+§5	Henry Davis, Clarissa Forbes	note	This is, of course, identical (except in phonetic detail) to the IT system. There are two possible explanations. The first is that the cases in (50) and (51) are actually dependent clauses, introduced exceptionally by nah. Dunn (1979a) raises this possibility by claiming that in CT – unlike in IT – the dependent-independent clause distinction is not categorically induced by a set of designated ‘dependent markers’, but is clinal, with certain tense-aspect markers (yagwa) most likely to induce dependent inflection, others (dm) least likely, and still others (ɬa and nah) intermediate in status.	page 28
+§5	Coast Tsimshian	cited form	yagwa	page 28, in italics
+§5	Coast Tsimshian	cited form	dm	page 28, in italics
+§5	Coast Tsimshian	cited form	ɬa	page 28, in italics
+§5	Henry Davis, Clarissa Forbes	note	The other alternative is that there is a language shift taking place, with older speakers preferring =s and younger speakers shifting to t. The shift would involve a change in the pronominal paradigm used by CT speakers in independent intransitive clauses, with the ‘definite objective’ or ‘marked absolutive’ -t being eliminated altogether, thus bringing CT in line with IT in these contexts. Interestingly, the paradigms for this pronoun series in Dunn (1979c:226) and in Anderson and Ignace (2008:303) differ in exactly this way: Dunn gives -t, where Anderson and Ignace have Ø.	page 28
+§5	Henry Davis, Clarissa Forbes	note	The second difference between the connective systems of CT and IT is found in transitive dependent clauses, where the A argument is marked with t in CT, but =s in IT. This is shown in (55) and (56):	page 28
+(55) line 1	Henry Davis, Clarissa Forbes	note	Coast Tsimshian	page 28, over the part under it
+(55a) line 2	Coast Tsimshian	segmentation	yagwat łmoomdit Meli	page 28
+(55a) line 3	Coast Tsimshian	gloss	IPFV=3.I help-3.II=DM Mary	page 28
+(55a) line 4	Henry Davis, Clarissa Forbes	translation	‘Mary is helping him.’	page 28
+(55a) line 5	Henry Davis, Clarissa Forbes	citation	(Bach 2004)	page 28, at the right of the translation
+(55) line 6	Henry Davis, Clarissa Forbes	note	Interior Tsimshian (Gitksan)	page 28, over the part under it
+(55b) line 7	Gitksan	segmentation	yukwt hlimoos Mary ('nit)	page 28
+(55b) line 8	Gitksan	gloss	IPFV=3.I help=PN Mary (3.III)	page 28
+(55b) line 9	Henry Davis, Clarissa Forbes	translation	‘Mary is helping him.’	page 28
+(56) line 1	Henry Davis, Clarissa Forbes	note	Coast Tsimshian	page 28, over the part under it
+(56a) line 2	Coast Tsimshian	segmentation	yagwat łmoomdit Melit31 Dzon	page 28
+footnote 31	Henry Davis, Clarissa Forbes	note	The determinate connective t is usually written together with the preceding word in CT, unlike in most work on IT. This possibly signifies that it is more closely bound to the preceding prosodic word (like the common noun connectives =hl/=a), although given that t may front together with its NP complement in focusing constructions in CT (as is also possible for more conservative IT speakers), the difference is more likely to be simply orthographic.	page 28, footnote 31
+(56a) line 3	Coast Tsimshian	gloss	IPFV=3.I help-3.II=DM Mary=DM John	page 28
+(56a) line 4	Henry Davis, Clarissa Forbes	translation	‘Mary is helping John.’	page 28
+(56a) line 5	Henry Davis, Clarissa Forbes	citation	(Bach 2004)	page 28, at the right of the translation
+(56) line 6	Henry Davis, Clarissa Forbes	note	Interior Tsimshian (Gitksan)	page 28, over the part under it
+(56b) line 7	Gitksan	segmentation	yukwt hlimoos Mary t John	page 28
+(56b) line 8	Gitksan	gloss	IPFV=3.I help=PN Mary DM John	page 28
+(56b) line 9	Henry Davis, Clarissa Forbes	translation	‘Mary is helping John.’	page 28
+§5	Henry Davis, Clarissa Forbes	note	Note that in CT, both the third person Series II suffix -t and the determinate connective t surface overtly in the sequence -d=it, separated by what we assume to be an epenthetic vowel [i], which triggers voicing on the immediately preceding -t. Softening fails in this environment: but why?	page 29
+§5	Coast Tsimshian	cited form	-d=it	page 29, in italics
+§5	Henry Davis, Clarissa Forbes	note	There is an obvious answer to this question: in CT, the third person Series II suffix -t is not coindexed with the subject, but with the object, and therefore the coindexation condition on softening is not met. This means that the difference between the languages falls out from the lack of ‘double A’ marking in CT, whose Series II -t shows a straightforward absolutive pattern in dependent clauses, just as in Table 2 above.	page 29
+§5	Henry Davis, Clarissa Forbes	note	We take it as a significant advantage of the analysis we have provided for the IT connective system that it extends so straightforwardly to the CT system, with two truly ‘micro-’parametric adjustments. Otherwise, exactly the same set of morphophonological rules, operating in the same order, accounts for both systems.	page 29
+§6	Henry Davis, Clarissa Forbes	heading	6 Conclusion	page 29
+§6	Henry Davis, Clarissa Forbes	note	We believe the account we have given of the Tsimshianic connective system, which has drawn on the important contributions of Tarpent, Hunt, Dunn, Bach, and Peterson, is the most successful description yet. Even so, our analysis is far from simple: it appeals to three morphophonological rules (softening, deaffrication and degemination) which are not only specific to particular morphological environments, but in the case of softening, also subject to a syntactic condition on coindexing. We welcome suggestions on how to simplify the analysis we have provided without losing its empirical coverage.	page 29
+§6	Henry Davis, Clarissa Forbes	note	Beyond the details of our analysis, however, we also think it is important to point out that any analysis will have to confront the fact that the Tsimshianic connective system is both quite regular and remarkably opaque. Generally, morphological complexity is measured in terms of the sheer number of morphemes per word, leading both Rigsby and Tarpent to comment that IT is less morphologically complex than e.g., Wakashan and Salish. However, the combination of rampant homophony within the inflectional system (how many t morphemes can a language tolerate?) and significant morphophonological opacity (with complex rule-ordering necessary to derive the surface forms) would appear to make Tsimshianic uniquely difficult from the viewpoint of language acquisition. And yet the same system in its essentials characterizes both IT and CT, suggesting a surprising degree of diachronic stability, and therefore learnability. Not for the first time, we are struck with wonder at the human capacity for learning complex grammar.	page 29
+§6	Henry Davis, Clarissa Forbes	language	Wakashan	compared for complexity
+§6	Henry Davis, Clarissa Forbes	language	Salish	compared for complexity
+references	Henry Davis, Clarissa Forbes	heading	References	page 29
+references	Henry Davis, Clarissa Forbes	reference	Anderson, Margaret Seguin and Marianne Ignace 2008. Visible Grammar: Twenty User Friendly Grammar Modules for Sm’algyax. Prince Rupert, B.C.: Wap Sigatgyet, School District 52.	page 29
+references	Henry Davis, Clarissa Forbes	reference	Bach, Emmon. 2004. Argument marking in Riverine Tsimshian. Handout, available at http://people.umass.edu/ebach/papers/argmrk.htm	page 30
+references	Henry Davis, Clarissa Forbes	reference	Boas, Franz. 1911. Tsimshian. In Handbook of American Indian Languages, ed. Franz Boas: 283–422. Washington, D.C.: Smithsonian Institution, Bureau of American Ethnology, Bulletin 40, vol. 1. (Reprinted 1969: Humanities Press/Anthropological Publications, Oosterhout, NB.)	page 30
+references	Henry Davis, Clarissa Forbes	reference	Corbett, Greville G. 2001. Number. Cambridge: Cambridge University Press.	page 30
+references	Henry Davis, Clarissa Forbes	reference	Davis, Henry, and Jason Brown. 2011. On A'-dependencies in Gitksan. In Papers for the 46th ICSNL: 43–80. Vancouver: UBC Working Papers in Linguistics 30.	page 30
+references	Henry Davis, Clarissa Forbes	reference	Dunn, John Asher. 1979a. A Reference Grammar for the Coast Tsimshian Language. Ottawa: National Museum of Canada. Canadian Ethnology Service. Paper No. 55.	page 30
+references	Henry Davis, Clarissa Forbes	reference	Dunn, John Asher. 1979b. Tsimshian connectives. International Journal of American Linguistics 45:131–40.	page 30
+references	Henry Davis, Clarissa Forbes	reference	Dunn, John Asher. 1979c. Pronominal concord in Coast Tsimshian. International Journal of American Linguistics 45:224–31.	page 30
+references	Henry Davis, Clarissa Forbes	reference	Forbes, Clarissa. 2013a. Associative plurality in the Gitksan nominal domain. In Proceedings of the 2013 CLA. Victoria: University of Victoria.	page 30
+references	Henry Davis, Clarissa Forbes	reference	Forbes, Clarissa. 2013b. Coordination and number in the Gitksan nominal domain. Master’s thesis, University of Toronto.	page 30
+references	Henry Davis, Clarissa Forbes	reference	Hindle, Lonnie and Bruce Rigsby. 1973. A short, practical dictionary of the Gitksan language. Northwest Anthropological Research Notes 7. 1–60.	page 30
+references	Henry Davis, Clarissa Forbes	reference	Hunt, Katharine. 1993. Clause structure, agreement and case in Gitksan. Ph.D. Dissertation, University of British Columbia.	page 30
+references	Henry Davis, Clarissa Forbes	reference	McCarthy, John J. & Alan Prince. 1995. Faithfulness and reduplicative identity. University of Massachusetts Occasional Papers in Linguistics 18: Papers in Optimality Theory, ed. Jill Beckman, Suzanne Urbanczyk and Laura Walsh Dickey: 249–384.	page 30
+references	Henry Davis, Clarissa Forbes	reference	McClay, Elise. 2015. Poster given at final Field Methods presentation (Gitksan): UBC, Vancouver.	page 30
+references	Henry Davis, Clarissa Forbes	reference	Mulder, Jean Gail. 1994. Ergativity in Coast Tsimshian (Sm'alga̱x). Berkeley / Los Angeles / London: University of California Press. (= University of California Publications: LINGUISTICS Volume 124)	page 30
+references	Henry Davis, Clarissa Forbes	reference	Mulder, Jean and Holly Sellers 2010. Classifying clitics in Sm’algyax: Approaching theory from the field. Fieldwork and Linguistic Documentation in Indigenous Languages of the Americas, ed. by Andrea L. Berez, Jean Mulder, and Daisy Rosenblum: 33–56. Language Documentation and Conservation Special Publication No.2: available at http://nflrc.hawaii.edu/ldc/	page 30
+references	Henry Davis, Clarissa Forbes	reference	Peterson, Tyler. 2004. Case and the (re)organization of semantic roles in Tsimshian connectives. Papers for the 46th ICSNL: 323–340. Vancouver: UBC Working Papers in Linguistics 14.	page 31
+references	Henry Davis, Clarissa Forbes	reference	Peterson, Tyler. 2010. Epistemic modality and evidentiality in Gitksan at the semantics-pragmatics interface. Ph.D. Dissertation, University of British Columbia.	page 31
+references	Henry Davis, Clarissa Forbes	reference	Rigsby, Bruce. 1975. Nass-Gitksan: an analytic ergative syntax. International Journal of American Linguistics 41:346–354.	page 31
+references	Henry Davis, Clarissa Forbes	reference	Rigsby, Bruce. 1986. Gitxsan grammar. Ms., University of Queensland, Australia.	page 31
+references	Henry Davis, Clarissa Forbes	reference	Rigsby, Bruce. 1989. A later view of Gitksan syntax. In General and Amerindian Ethnolinguistics: In Remembrance of Stanley Newman, ed. M. Key and H. Hoenigswald: 245–259. Berlin: Mouton de Gruyter.	page 31
+references	Henry Davis, Clarissa Forbes	reference	Sasama, Fumiko. 1995. Coast Tsimshian plural formation with phonological introduction. Master’s thesis, Hokkaido University.	page 31
+references	Henry Davis, Clarissa Forbes	reference	Stebbins, Tonya. 2003. On the class of adjectives in Coast Tsimshian. Linguistic Typology 7:383–415.	page 31
+references	Henry Davis, Clarissa Forbes	reference	Tarpent, Marie-Lucie. 1981. Them Fred: Factors in the evolution of a Tsimshianism. In Papers for the 16th ICSNL: 397–401. Missoula, Montana: University of Montana.	page 31
+references	Henry Davis, Clarissa Forbes	reference	Tarpent, Marie-Lucie. 1982. Ergative and accusative: a single representation of grammatical categories based on evidence from Nisgha. Victoria: Working Papers of the Linguistics Circle of Victoria.	page 31
+references	Henry Davis, Clarissa Forbes	reference	Tarpent, Marie-Lucie. 1986. Nisgha possessives. Papers for the 21st ICSNL: 18–34. Seattle: University of Washington.	page 31
+references	Henry Davis, Clarissa Forbes	reference	Tarpent, Marie-Lucie. 1987a. Between ergative and accusative syntax: lessons from Nisgha/English syntactic interference. Papers for the 22nd ICSNL: 149–172. Victoria: University of Victoria.	page 31
+references	Henry Davis, Clarissa Forbes	reference	Tarpent, Marie-Lucie. 1987b. A grammar of the Nisgha language. Ph.D. dissertation: University of Victoria.	page 31
+references	Henry Davis, Clarissa Forbes	reference	Tarpent, Marie-Lucie. 1988. Below the surface of Nisgha syntax: arguments and adjuncts. Papers for the 23rd ICSNL: 43–80. Eugene, Oregon: University of Oregon.	page 31
+references	Henry Davis, Clarissa Forbes	reference	Tarpent, Marie-Lucie. 1998. The function of the Southern Tsimshian elements ==ga and ==kaʔ and the nature of the Tsimshian “connectives”. Handout for paper given at CAIL XXXVII, AAA meeting, Philadelphia, Pennsylvania.	page 31

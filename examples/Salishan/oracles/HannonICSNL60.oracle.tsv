@@ -1,0 +1,537 @@
+where	who	kind	form	gloss
+front	Ella Hannon	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, northern Interior Salish, the language of the paper
+front	nɬeʔkepmxcín	cited form	xʷúy̓	page 1
+front	Ella Hannon	name	Todoróvić	Neda Todoróvić, an author of Matthewson et al. 2022
+front	Ella Hannon	note	Abstract: Previous literature on nɬeʔkepmxcín (Thompson and Thompson 1992, Thompson and Thompson 1996, Kroeber 1997, Kroeber 1999, Koch 2008) calls the auxiliary predicate xʷúy̓ a “future tense”; in this paper, I argue that xʷúy̓ is a prospective aspect. I claim that xʷúy̓ entails that the given eventuality occurs in the future of a contextually salient reference time. In main clauses, the contextually salient reference time is most often the utterance time. In subordinate clauses, the contextually salient reference time is provided by the main clause. xʷúy̓ is better analyzed as a prospective aspect as it allows for future-in-the-past readings. Secondly, I propose that xʷúy̓ is not modal, following Matthewson (2013) and Matthewson, Todoróvić, and Schwan (2022). Like Gitksan dim, the nɬeʔkepmxcín prospective aspect xʷúy̓ provides both epistemic and circumstantial modals with their future temporal orientation Condoravdi (2002).	page 1
+front	Ella Hannon	note	Keywords: prospective aspect, modality, nɬeʔkepmxcín	page 1
+§1	Ella Hannon	heading	1 Introduction	page 1
+§1.1	Ella Hannon	heading	1.1 Overview	page 1
+§1.1	nɬeʔkepmxcín	cited form	xʷúy̓	page 1
+§1.1	Ella Hannon	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, northern Interior Salish, the language of the paper
+§1.1	nɬeʔkepmxcín	cited form	ném	‘very’, in ném kʷukʷstéyp, the thanks of footnote *
+§1.1	nɬeʔkepmxcín	cited form	kʷukʷstéyp	‘thank you’, the thanks of footnote *
+§1.1	Ella Hannon	name	kʷaɬtèzetkʷuʔ	the nɬeʔkepmxcín name of Bernice Garcia, KBG, footnote *
+§1.1	Ella Hannon	name	c̓úʔsinek	the nɬeʔkepmxcín name of Marty Aspinall, CMA, footnote *
+§1.1	Ella Hannon	language	scw̓éxmx	the Nicola Valley dialect of nɬeʔkepmxcín, NV in the tags, footnote *
+§1.1	Bernice Garcia	name	nlaka’pamux	the Nlaka’pamux people, whose lands the English of Bernice Garcia's introduction names, footnote *
+§1.1	Ella Hannon	language	ƛ̓q̓mcín	the Lytton dialect of nɬeʔkepmxcín, Ly in the tags, footnote *
+§1.1	Ella Hannon	note	This paper focuses on the semantics of the auxiliary predicate xʷúy̓ in nɬeʔkepmxcín. nɬeʔkepmxcín is a northern Interior Salish language with an estimated 100 speakers (Gessner, Herbert, and Parker 2022). Previous literature on nɬeʔkepmxcín — Thompson and Thompson (1992) Thompson and Thompson (1996), Kroeber (1997), Kroeber (1999) and Koch (2008) — calls xʷúy̓ a ‘future tense’. If xʷúy̓ were a future tense, it should entail that the reference time of the clause it marks follows utterance time, following Klein (1994). I argue instead that xʷúy̓ is a prospective aspect. Under my analysis, xʷúy̓ entails that the time of the event follows a contextually salient ref- erence time. When xʷúy̓ appears in a main clause, the reference time most often coincides with utterance time. In subordinate clauses, xʷúy̓ takes the time of the main clause event as its reference time. I demonstrate that xʷúy̓ is compatible with reference times that precede utterance time (i) in main clauses, if the context is sufficiently rich and (ii) in subordinate clauses where the event in the subordinate clause follows the time of the event in the main clause, even if both the subordinate event and the main event precede utterance time.	page 1, the paragraph runs on to page 2 over footnote *
+footnote *	Ella Hannon	note	* ném kʷukʷstéyp to the speakers I work with, kʷaɬtèzetkʷuʔ Bernice Garcia, c̓úʔsinek Marty Aspinall, and Bev Phillips. Thank you also to my funding source, an ISI grant awarded to P.I. Professor Lisa Matthewson. Lastly, thanks to Lisa Matthewson, Sander Nederveen, and Brent Hall for extremely helpful comments. kʷaɬtèzetkʷuʔ wishes it to be acknowledged that she is a Kamloops Indian Residential School (KIRS) survivor who is re- learning her language. She introduces herself thus:	page 1, footnote *
+footnote *	Bernice Garcia	transcription	ʔes ʔúmәcms kʷaɬtèzetkʷuʔ tәw ɬe c̓әɬétkʷu wéʔe ncitxʷ. ƛ̓uʔ wéʔec ʔex netíyxs scw̓éxmx, ƛ̓uʔ tékm xéʔe ne nɬeʔképmx e tmíxʷs	page 1, footnote *, how Bernice Garcia introduces herself in nɬeʔkepmxcín
+footnote *	Bernice Garcia	translation	‘My traditional name is kʷaɬtèzetkʷuʔ, my home is in Coldwater of ‘Nicola’ of nlaka’pamux lands.’	page 1, footnote *, the English of her introduction
+footnote *	Ella Hannon	note	Alongside each example elicited by me, I include abbreviated speaker initials, dialect information, and whether the form was suggested or volunteered, separated from each other with | marks for the format (XX | YY | ZZ). Speaker initials (XX) are abbreviated thus: KBG = kʷaɬtèzetkʷuʔ Bernice Garcia; CMA = c̓úʔsinek Marty Aspinall; BP = Bev Phillips. Dialect information (YY) is abbreviated as NV for the Nicola Valley / scw̓éxmx dialect and Ly for the Lytton / ƛ̓q̓mcín dialect, respectively. The final abbreviation, ZZ, specifies whether the form was suggested to the consultant (SF, standing for suggested form), or volunteered by the consultant (VF, standing for volunteered form).	page 1, footnote *
+footnote *	Ella Hannon	name	Bernice Garcia	kʷaɬtèzetkʷuʔ, a speaker of the Nicola Valley dialect, KBG, a Kamloops Indian Residential School survivor relearning her language
+footnote *	Ella Hannon	name	Marty Aspinall	c̓úʔsinek, a speaker of the Nicola Valley dialect, CMA
+footnote *	Ella Hannon	name	Bev Phillips	a speaker of the Lytton dialect, BP
+footnote *	Ella Hannon	name	Lisa Matthewson	P.I. of the ISI grant that funded the work, and thanked for comments
+footnote *	Ella Hannon	name	Sander Nederveen	thanked for comments
+footnote *	Ella Hannon	name	Brent Hall	thanked for comments
+footnote *	Ella Hannon	name	Kamloops Indian Residential School	KIRS, of which Bernice Garcia is a survivor
+footnote *	Bernice Garcia	place	Coldwater	her home, in her introduction, of ‘Nicola’
+footnote *	Ella Hannon	place	Nicola Valley	where the NV dialect, scw̓éxmx, is spoken
+footnote *	Ella Hannon	place	Lytton	where the Ly dialect, ƛ̓q̓mcín, is spoken
+front	Ella Hannon	note	Contact info: ella.hannon@ubc.ca	page 1, at the foot of the first page
+front	Ella Hannon	note	In Proceedings of the International Conference in Salish and Neighbouring Languages 60, University of British Columbia Working Papers in Linguistics, Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2025.	page 1, the volume, at the foot of the first page
+front	Gitksan	cited form	dim	the Gitksan prospective aspect, after Matthewson 2013 and Matthewson et al. 2022
+§1.1	Ella Hannon	note	Previous cross-linguistic literature on future markers has proposed that there are two compo- nents to future event time reference: modality and prospective aspect (Werner 2006, Matthewson 2006, a.o.). In this paper, I argue that xʷúy̓ is not itself a modal, but may co-occur with overt epis- temic and circumstantial modals. Following Matthewson et al. (2022), I propose that, when xʷúy̓ co-occurs with overt modals, xʷúy̓ provides the temporal orientation of the modal claim (in the sense of Condoravdi 2002). Also following what Matthewson (2013) and Matthewson et al. (2022) pro- pose for Gitksan dim, I will argue that, in the absence of an overt modal, xʷúy̓ semantically composes with a null modal.	page 2
+§1.1	Ella Hannon	language	Interior Salish	the branch of Salish nɬeʔkepmxcín belongs to, northern Interior Salish, with an estimated 100 speakers
+§1.1	Gitksan	cited form	dim	page 2, the Gitksan prospective aspect
+§1.2	Ella Hannon	heading	1.2 Methodology	page 2
+§1.2	Ella Hannon	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, northern Interior Salish, the language of the paper
+§1.2	Ella Hannon	note	The data elicited by me in this paper was elicited according to standard practices in semantic field- work (see Matthewson 2004, Bochnak and Matthewson 2020). Consultants were provided with a context, and then asked to either translate a sentence from English into nɬeʔkepmxcín (translation tasks), or were provided with an nɬeʔkepmxcín sentence and asked to judge how appropriate it is in the given context (acceptability judgment tasks). Some data comes from conversation sessions (recordings of spontaneous conversation between two speakers, KBG and CMA) — if data comes from a conversation session, it is presented with a “Conversational context” that briefly describes what was being discussed at the time of the consultant’s utterance. Data from sources other than the author’s fieldwork is cited accordingly.	page 2
+§1.3	Ella Hannon	heading	1.3 Structure	page 2
+§1.3	nɬeʔkepmxcín	cited form	xʷúy̓	page 2
+§1.3	Ella Hannon	note	Section 2 presents xʷúy̓ data. Section 3 proposes a semantics for xʷúy̓ whereby xʷúy̓ is a prospective aspect, not a future tense. In Section 4, I argue against the notion that xʷúy̓ is a modal (as in, for example, Werner 2006 analysis of English future marker will). Section 5 concludes.	page 2
+§2	Ella Hannon	heading	2 Data	page 2
+§2.1	Ella Hannon	heading	2.1 Future of utterance time	page 2
+§2.1	Ella Hannon	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, northern Interior Salish, the language of the paper
+footnote 1	Ella Hannon	note	1 There are two subject positions available in nɬeʔkepmxcín. In each of the nłeʔkepmxcín examples presented in this paper, there is a null expletive subject clitic that co-occurs with the ergative subject suffix. I have chosen to overtly indicate this null expletive subject clitic when the predicate in question is intransitive, but I have chosen to omit the third-person subject from clauses containing transitive predicates for the sake of clarity. See (Davis 2000) for a detailed description of subject positions in Salish.	page 2, footnote
+§2.1	Ella Hannon	language	nłeʔkepmxcín	page 2, footnote 1, nɬeʔkepmxcín as the page spells it there, with ł for ɬ
+§2.1	Ella Hannon	note	Main clauses in nɬeʔkepmxcín are superficially tenseless; that is, nɬeʔkepmxcín main clauses do not contain overt tense morphology (Thompson & Thompson 1992:50). Tenseless clauses are felicitous in contexts that provide either a present or a past reference time, regardless of whether the predicate in the clause is stative or eventive. The compatibility of a stative predicate with a present and a past reference time, respectively, is shown in (1).1 The compatibility of an eventive predicate with a present and a past reference time, respectively, is shown in (2).2	page 2
+(1a) line 1	Ella Hannon	note	Conversational context: CMA is talking about a drink she regularly makes.	page 3, engine english
+(1a) line 2	nɬeʔkepmxcín	transcription	ném y̓é	page 3, engine language
+(1a) line 3	nɬeʔkepmxcín	segmentation	ném=∅ y̓é	page 3, engine language
+(1a) line 4	nɬeʔkepmxcín	gloss	very=3SBJ good	page 3, engine english
+(1a) line 5	Marty Aspinall	translation	‘It is really good.’	page 3, engine english
+(1a) line 5	Ella Hannon	citation	(CMA | NV | VF)	the tag or source at the right of the translation
+(1b) line 1	Ella Hannon	note	Context: You went to a concert last night to watch your friend perform. You had a really great time. Today, your sister asks you how the concert was. You say:	page 3, engine english
+(1b) line 2	nɬeʔkepmxcín	transcription	ném y̓é	page 3, engine language
+(1b) line 3	nɬeʔkepmxcín	segmentation	ném=∅ y̓é	page 3, engine language
+(1b) line 4	nɬeʔkepmxcín	gloss	very=3SBJ good	page 3, engine english
+(1b) line 5	Marty Aspinall	translation	‘It was really good.’	page 3, engine english
+(1b) line 5	Ella Hannon	citation	(CMA | NV | VF)	the tag or source at the right of the translation
+(2a) line 1	Ella Hannon	note	Conversational context: CMA and KBG are discussing family terms.	page 3, engine english
+(2a) line 2	nɬeʔkepmxcín	transcription	sәxsә́xt kn xʷúy̓ceʔ	page 3, engine language
+(2a) line 3	nɬeʔkepmxcín	segmentation	sәx∼sә́x-t=kn xʷúy̓ceʔ	page 3, engine language
+(2a) line 4	nɬeʔkepmxcín	gloss	AUG∼make.mistake-IMM=1SG.SBJ again	page 3, engine english
+(2a) line 5	Marty Aspinall	translation	‘I get mixed up yet/still.’	page 3, engine english
+(2a) line 5	Ella Hannon	citation	(CMA | NV | VF)	the tag or source at the right of the translation
+(2b) line 1	Ella Hannon	note	Conversational context: CMA accidentally logged out of the Zoom session and is now logging back on.	page 3, engine english
+(2b) line 2	nɬeʔkepmxcín	transcription	sәxsә́xt kn	page 3, engine language
+(2b) line 3	nɬeʔkepmxcín	segmentation	sәx∼sә́x-t=kn	page 3, engine language
+(2b) line 4	nɬeʔkepmxcín	gloss	AUG∼make.mistake-IMM=1SG.SBJ	page 3, engine english
+(2b) line 5	Marty Aspinall	translation	‘I made a mistake (I pressed the wrong button).’	page 3, engine english
+(2b) line 5	Ella Hannon	citation	(CMA | NV | VF)	the tag or source at the right of the translation
+§2.1	nɬeʔkepmxcín	cited form	xʷúy̓	page 3
+§2.1	Ella Hannon	note	When the time of the event denoted by the predicate follows utterance time, xʷúy̓ is required. Consider the rejections of the utterances that do not contain xʷúy̓, and their accompanying comments, in (3)–(5).	page 3
+footnote 2	Ella Hannon	note	2 Glossing abbreviations follow the Leipzig Glossing Conventions (Comrie, Haspelmath, and Bickel 2015); glosses that deviate from the Leipzig Conventions are: 2CL= second-position clitic, AUG = augmentative reduplication, AUT = autonomous, COP = copula, CTR = control transitivizer, CTR.MID = control middle, D/C = determiner/complementizer, D/C.REM = remote determiner/complementizer, DET.REM = remote determiner, EMPH = emphatic prefix, IMM = immediate, INDEP = independent pronoun, INFER = inferential evidential, PROSP = prospective aspect, RPRT = reportative evidential, SENSE = sensory evidential. All errors in glossing and transcription are my own.	page 3, footnote
+(3) line 1	Ella Hannon	note	Context: Your cousin is visiting you for a few days, but he leaves tomorrow. Your friend comes by and asks how long your cousin is staying. You say:	page 4, engine english
+(3) line 2	nɬeʔkepmxcín	transcription	# qʷcíyx tk spiʔx̣éwt	page 4, engine language
+(3) line 3	nɬeʔkepmxcín	segmentation	# qʷc-íyx=∅ t=k=s-piʔx̣éwt	page 4, engine language
+(3) line 4	nɬeʔkepmxcín	gloss	leave-AUT=3SBJ OBL=DET=NMLZ-day.away	page 4, engine english
+(3) line 5	Ella Hannon	translation	Intended: ‘He’s leaving tomorrow / He will leave tomorrow.’	page 4, engine english
+(3) line 6	Marty Aspinall	speaker comment	Consultant comment: ‘[That’s] not a full sentence. [Say] xʷúy̓ qʷcíyx tk spiʔx̣éwt.’	page 4, engine residue
+(3)	nɬeʔkepmxcín	cited form	xʷúy̓	in the speaker comment, page 4
+(3)	nɬeʔkepmxcín	cited form	qʷcíyx	in the speaker comment, page 4
+(3)	nɬeʔkepmxcín	cited form	spiʔx̣éwt	in the speaker comment, page 4
+(3) line 7	Ella Hannon	citation	(CMA | NV | SF)	page 4, engine english
+(4) line 1	Ella Hannon	note	Context: You walk into your friend’s house and smell her cooking your favourite meal. You think:	page 4, engine english
+(4) line 2	nɬeʔkepmxcín	transcription	# kʷukʷscút kn	page 4, engine language
+(4) line 3	nɬeʔkepmxcín	segmentation	# kʷukʷ-s-t-sút=kn	page 4, engine language
+(4) line 4	nɬeʔkepmxcín	gloss	save-CAUS-TR-REFL=1SG.SBJ	page 4, engine english
+(4) line 5	Ella Hannon	translation	Intended: ‘I will enjoy it.’	page 4, engine english
+(4) line 5	Ella Hannon	citation	(KBG | NV | SF)	the tag or source at the right of the translation
+(4) line 6	Bernice Garcia	speaker comment	Comment: ‘I think you need a xʷúy̓ in there.’	page 4, engine english
+(4)	nɬeʔkepmxcín	cited form	xʷúy̓	in the speaker comment, page 4
+(5) line 1	Ella Hannon	note	Context: Your friends are trying to organize a get together tomorrow, but you have to work tomorrow. You say:	page 4, engine english
+(5) line 2	nɬeʔkepmxcín	transcription	# cwә́m kn tk spiʔx̣éwt	page 4, engine language
+(5) line 3	nɬeʔkepmxcín	segmentation	# cw-ә́m=kn t=k=s-piʔx̣éwt	page 4, engine language
+(5) line 4	nɬeʔkepmxcín	gloss	do-CTR.MID=1SG.SBJ OBL=DET=NMLZ-day.away	page 4, engine english
+(5) line 5	Ella Hannon	translation	Intended: ‘I’m working tomorrow.’	page 4, engine english
+(5) line 5	Ella Hannon	citation	(BP | Ly | SF)	the tag or source at the right of the translation
+(5) line 6	Bev Phillips	speaker comment	Comment: ‘That doesn’t sound correct. I would have said xʷúy̓ kn cwә́m tk spiʔx̣éwt.’	page 4, engine english
+(5)	nɬeʔkepmxcín	cited form	xʷúy̓	in the speaker comment, page 4
+(5)	nɬeʔkepmxcín	cited form	cwә́m	in the speaker comment, page 4
+(5)	nɬeʔkepmxcín	cited form	spiʔx̣éwt	in the speaker comment, page 4
+§2.1	Ella Hannon	note	As well as the above more ‘typical’ future notions, the auxiliary predicate xʷúy̓ is compatible with circumstantial necessity contexts. xʷúy̓ can be used to make an offer (6), to give a command (7), and to express (strong) goal-oriented modality (8).	page 4
+(6) line 1	Ella Hannon	note	Context: Your friend is looking for a ride to a meeting you both have today. You say:	page 4, engine english
+(6) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ néscn	page 4, engine language
+(6) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓ nés-[n]-[t]-si-n	page 4, engine language
+(6) line 4	nɬeʔkepmxcín	gloss	xʷúy̓ go-CTR-TR-2SG.OBJ-1SG.ERG	page 4, engine english
+(6) line 5	Bev Phillips	translation	‘I’ll bring you.’	page 4, engine english
+(6) line 5	Ella Hannon	citation	(BP | Ly | VF)	the tag or source at the right of the translation
+(7) line 1	Ella Hannon	note	Context: You’re in a café where the seating time is limited to one hour. You’ve been there for an hour already, so a worker comes over to you and says:	page 4, engine english
+(7) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ kʷ qʷcíyx	page 4, engine language
+(7) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓=kʷ qʷc-íyx	page 4, engine language
+(7) line 4	nɬeʔkepmxcín	gloss	xʷúy̓=2SG.SBJ leave-AUT	page 4, engine english
+(7) line 5	Bev Phillips	translation	‘You have to leave.’	page 4, engine english
+(7) line 5	Ella Hannon	citation	(BP | Ly | VF)	the tag or source at the right of the translation
+(7) line 6	Bev Phillips	speaker comment	Consultant comment: ‘That’s sort of like saying you are to go.’	page 4, engine english
+(8) line 1	Ella Hannon	note	Context: There’s only one way to get from town to the mountains: the road that passes the lake. A tourist asks you how to get to the mountains from the town. You say:	page 5, engine english
+(8) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ kʷ nés ne xw̓éɬ k sptéknxʷ wәɬ péɬuskʷu	page 5, engine language
+(8) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓=kʷ nés n=e=xw̓éɬ k=s=pték-n-[t]-∅-[e]xʷ wә=ɬ=péɬuskʷu	page 5, engine language
+(8) line 4	nɬeʔkepmxcín	gloss	xʷúy̓=2SG.SBJ go at=DET=road DET=NMLZ=pass-CTR-TR-3OBJ-2SG.ERG to=DET.REM=lake	page 5, engine english
+(8) line 5	Bernice Garcia	translation	‘You have to take the road that passes the lake.’	page 5, engine english
+(8) line 5	Ella Hannon	citation	(KBG | NV | VF)	the tag or source at the right of the translation
+§2.1	nɬeʔkepmxcín	cited form	ʔe	page 5
+§2.1	nɬeʔkepmxcín	cited form	stx̣ә́pe	page 5
+§2.1	nɬeʔkepmxcín	cited form	neʔ	page 5
+§2.1	Ella Hannon	note	The prospective aspect xʷúy̓ may co-occur with overt epistemic modals ʔe stx̣ә́pe neʔ ‘(it) might’ and nke ‘inferential evidential (INFER)’. Consultants comment that a proposition contain- ing xʷúy̓ is more ‘definite’ than a proposition containing an epistemic modal. The context in (9) establishes that there is uncertainty about the speaker’s ability to attend an upcoming dinner — in this context, a form containing the epistemic modal ʔe stx̣ә́pe neʔ was accepted. The context in (10) establishes that the speaker will definitely be able to attend the upcoming dinner — in this context, a form containing xʷúy̓ is preferred to a form containing ʔe stx̣ә́pe neʔ. Consider the consultant comments for xʷúy̓ vs. epistemic ʔe stx̣ә́pe neʔ in (9) and (10).	page 5
+(9) line 1	Ella Hannon	note	Context: Your friend asks you to come for dinner at their house. You think you might have another commitment at that time. You say to your friend:	page 5, engine english
+(9) line 2	nɬeʔkepmxcín	transcription	ʔe stx̣ә́pe neʔ k nsƛ̓ʔék	page 5, engine language
+(9) line 3	nɬeʔkepmxcín	segmentation	ʔe stx̣ә́pe neʔ k=n=s=ƛ̓ʔék	page 5, engine language
+(9) line 4	nɬeʔkepmxcín	gloss	might DEM D/C=1SG.POSS=NMLZ=arrive	page 5, engine english
+(9) line 5	Bernice Garcia	translation	‘I might be able to come.’	page 5, engine english
+(9) line 5	Ella Hannon	citation	(KBG | NV | SF)	the tag or source at the right of the translation
+(10) line 1	Ella Hannon	note	Context: Your friend asks you to come for dinner at their house. You know you have no other commitments at that time. You say to your friend:	page 5, engine english
+(10) line 2	nɬeʔkepmxcín	transcription	#ʔe stx̣ә́pe neʔ k nsƛ̓ʔék	page 5, engine language
+(10) line 3	nɬeʔkepmxcín	segmentation	# ʔe stx̣ә́pe neʔ k=n=s=ƛ̓ʔék	page 5, engine language
+(10) line 4	nɬeʔkepmxcín	gloss	might DEM D/C=1SG.POSS=NMLZ=arrive	page 5, engine english
+(10) line 5	Ella Hannon	translation	Intended: ‘I will come.’	page 5, engine english
+(10) line 5	Ella Hannon	citation	(KBG | NV | SF)	the tag or source at the right of the translation
+(10) line 6	Bernice Garcia	speaker comment	Consultant comment: ‘If you’re definite[ly able to go], you would say xʷúy̓ kn xéʔe ƛ̓ʔék.’	page 5, engine english
+(10)	nɬeʔkepmxcín	cited form	xʷúy̓	in the speaker comment, page 5
+(10)	nɬeʔkepmxcín	cited form	xéʔe	in the speaker comment, page 5
+(10)	nɬeʔkepmxcín	cited form	ƛ̓ʔék	in the speaker comment, page 5
+§2.1	Ella Hannon	language	St’at’imcets	St’át’imcets, a.k.a. Lillooet, northern Interior Salish, spelled here without its accent
+footnote 3	Ella Hannon	note	3 Glougie compares cuz’ and the St’at’imcets future modal kelh, observing that “cuz’ is associated with cer- tainty in a way that kelh is not” (2007:220).	page 5, footnote
+footnote 3	St’át’imcets	cited form	cuz’	page 5, footnote 3
+footnote 3	St’át’imcets	cited form	kelh	page 5, footnote 3, the St’át’imcets future modal
+§2.1	Ella Hannon	note	The context in (11) (which is identical to the context in (12)) establishes that, based on the available evidence, rain is very likely. The consultant was presented with two options: a form containing xʷúy̓ and the epistemic modal clitic nke, and a form containing only xʷúy̓. Consider the consultant’s comments for xʷúy̓ nke in (11), compared to comments for xʷúy̓ with no nke in (12). Consultant comments about xʷúy̓ contributing certainty mirror consultant comments on St’at’imcets cuz’, which Glougie (2007) analyses as a prospective aspect.3	page 5
+(11) line 1	Ella Hannon	note	Context: You go outside and see dark clouds gathering in the sky. You think:	page 6, engine english
+(11) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ nke tékɬ	page 6, engine language
+(11) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓=∅=nke tékɬ	page 6, engine language
+(11) line 4	nɬeʔkepmxcín	gloss	xʷúy̓=3SBJ=INFER rain	page 6, engine english
+(11) line 5	Marty Aspinall	translation	‘It must be going to rain.’	page 6, engine english
+(11) line 5	Ella Hannon	citation	(CMA | NV | SF)	the tag or source at the right of the translation
+(11) line 6	Marty Aspinall	speaker comment	Consultant comment: ‘It seems like it’s going to rain because you’re looking at the clouds and it’s getting dark.’	page 6, engine english, the comment runs on to a second line
+(12) line 1	Ella Hannon	note	Context: As above.	page 6, engine english
+(12) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ tékɬ	page 6, engine language
+(12) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓=∅ tékɬ	page 6, engine language
+(12) line 4	nɬeʔkepmxcín	gloss	xʷúy̓=3SBJ rain	page 6, engine english
+(12) line 5	Marty Aspinall	translation	‘It’s going to rain.’	page 6, engine english
+(12) line 5	Ella Hannon	citation	(CMA | NV | SF)	the tag or source at the right of the translation
+(12) line 6	Marty Aspinall	speaker comment	Consultant comment: ‘xʷúy̓ tekɬ, it’s definitely going to rain.’	page 6, engine english
+(12)	nɬeʔkepmxcín	cited form	xʷúy̓	in the speaker comment, page 6
+(12)	nɬeʔkepmxcín	cited form	tekɬ	in the speaker comment, page 6
+§2.1	Ella Hannon	note	I will argue that modal readings of xʷúy̓ when there is no overt modal present in the clause arise due to the presence of a phonologically null modal (following Matthewson et al. 2022). Since reference to future event times always involves modality, I assume that the phonologically null modal surfaces wherever xʷúy̓ surfaces, save for when there is already an overt modal in the same clause as xʷúy̓. In other words, xʷúy̓ must compose with a modal — the modal that xʷúy̓ composes with may be covert or overt (Matthewson 2013 and Matthewson et al. 2022 propose the same analysis for the Gitksan prospective aspect dim). Therefore, I propose, contra previous literature on nɬeʔkepmxcín (Thompson and Thompson 1992, Thompson and Thompson 1996, Kroeber 1997, Kroeber 1999, Koch 2008), that xʷúy̓ is a prospective aspect, not a future tense. Under my analysis, xʷúy̓ entails only that the eventuality time of the clause xʷúy̓ appears in follows a salient, contextually provided reference time.	page 6
+§2.1	Ella Hannon	note	In most main clauses, the contextually provided reference time is simultaneous with the utter- ance time. However, when the context provides a sufficiently rich discourse that specifies a past ref- erence time, xʷúy̓ situates the eventuality time in the future of that salient past reference time, giving rise to future-in-the-past readings. In subordinate clauses, xʷúy̓ situates the subordinate eventuality time in the future of the reference time, provided by the main clause. In subordinate clauses, both future-of-UT and future-of-RT (future of the reference time) readings are attested. If the eventuality time in the main clause precedes utterance time, then it is possible for the eventuality time of the subordinate clause containing xʷúy̓ to precede utterance time. If the event time in the main clause follows utterance time, then the eventuality time in the subordinate clause containing xʷúy̓ must also follow utterance time. The next subsection discusses future-of-RT readings of xʷúy̓, both in main clauses and in subordinate clauses. I begin by discusssing future-in-the-past readings of xʷúy̓, and then move to discussing future-of-RT xʷúy̓ readings in subordinate clauses.	page 6
+§2.1	Gitksan	cited form	dim	page 6, the Gitksan prospective aspect
+§2.1	Ella Hannon	language	Gitksan	Interior Tsimshianic, the language of dim
+§2.1	St’át’imcets	cited form	cuz’	page 5, the St’át’imcets prospective aspect of Glougie 2007
+§2.1	nɬeʔkepmxcín	cited form	ʔe stx̣ә́pe neʔ	page 5, ‘(it) might’, the complex epistemic possibility modal
+§2.2	Ella Hannon	heading	2.2 Future-of-RT readings	page 6
+§2.2	nɬeʔkepmxcín	cited form	xʷúy̓	page 6
+§2.2	Ella Hannon	note	The prospective aspect xʷúy̓ is compatible with non-future reference times when the time of the event in the clause containing xʷúy̓ follows a salient reference time, established either by a sufficiently rich discourse context or by a matrix clause with a past reference time. Consider (13), where a sufficiently rich discourse context licenses a future-in-the-past reading of xʷúy̓ in a main clause.	page 6
+(13) line 1	Ella Hannon	note	Context: My friends got together last night. I was going to join them, but my boss called me into work at the last minute. I call my friend today and tell her:	page 7, engine english
+(13) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ kn wéʔe nés ƛ̓uʔ wéwecms ncwә́m	page 7, engine language
+(13) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓=kn wéʔe nés ƛ̓uʔ wéw-n-t-s[e]m-[e]s n-cw-ә́m	page 7, engine language
+(13) line 4	nɬeʔkepmxcín	gloss	xʷúy̓=1SG.SBJ DEM go but call-CTR-TR-1SG.OBJ-3ERG 1SG.POSS-work-CTR.MID	page 7, engine english
+(13) line 5	Bernice Garcia	translation	‘I was going to go (there), but my work called (me).’	page 7, engine english
+(13) line 5	Ella Hannon	citation	(KBG | NV | VF)	the tag or source at the right of the translation
+§2.2	Ella Hannon	note	There are no operators in (13) that provide any ‘back-shifting’ temporal semantics — that is, there is no overt past tense, no past temporal adverbial, nor any overt perfect or perfective aspect. The absence of back-shifting operators suggests that xʷúy̓ is compatible with a future-in-the-past reading if the context is sufficiently rich and provides a past reference time.	page 7
+§2.2	Ella Hannon	note	I now consider subordinate clause readings of xʷúy̓ where the matrix predicate establishes a reference time that is in the past of utterance time. When the matrix clause has a past reference time, the subordinate clause containing xʷúy̓ may refer to an event that was going to happen in the future of the past reference time established by the matrix clause, as in (14) and (15).	page 7
+(14) line 1	Ella Hannon	note	Context: My uncle doesn’t usually come to family events, but he shows up when my dad’s whole family is there. I hosted a family dinner yesterday — my dad’s whole family came, apart from my uncle. I think:	page 7, engine english
+(14) line 2	nɬeʔkepmxcín	transcription	cút kn k sxʷúy̓s ƛ̓ʔék nsísqeʔ	page 7, engine language
+(14) line 3	nɬeʔkepmxcín	segmentation	cút=kn k=s=xʷúy̓=s ƛ̓ʔék n-sísqeʔ	page 7, engine language
+(14) line 4	nɬeʔkepmxcín	gloss	think=1SG.SBJ D/C=NMLZ=xʷúy̓=3POSS arrive 1SG.POSS-uncle	page 7, engine english
+(14) line 5	Bev Phillips	translation	‘I thought my uncle would come.’	page 7, engine english
+(14) line 5	Ella Hannon	citation	(BP | Ly | VF)	the tag or source at the right of the translation
+(15) line 1	Ella Hannon	note	Context: Your neighbour walks every day, even when the weather is terrible. Today it’s really snowing, but you can still see him out walking from your window. You think:	page 7, engine english
+(15) line 2	nɬeʔkepmxcín	transcription	nsxʷáwkʷ k sxʷúy̓s ʔéx ne sʔúɬxʷs k̓ém̓eɬ ʔéx wә ʔéyc̓q̓eʔ	page 7, engine language
+(15) line 3	nɬeʔkepmxcín	segmentation	n-s-xʷáwkʷ k=s=xʷúy̓=s ʔéx n=e=s=ʔúɬxʷ=s k̓ém̓eɬ	page 7, engine language
+(15) line 4	nɬeʔkepmxcín	gloss	1SG.POSS-NMLZ-heart D/C=NMLZ=xʷúy̓=3POSS be at=DET=NMLZ=enter=3POSS but	page 7, engine english
+(15) line 5	nɬeʔkepmxcín	segmentation	ʔéx=∅ wә=ʔéyc̓q̓eʔ	page 7, engine language
+(15) line 6	nɬeʔkepmxcín	gloss	be=3SBJ to=outside	page 7, engine english
+(15) line 7	Bev Phillips	translation	‘I thought he would stay inside, but he’s outside.’	page 7, engine english
+(15) line 7	Ella Hannon	citation	(BP | Ly | VF)	the tag or source at the right of the translation
+§2.2	Ella Hannon	note	The event in the clause containing xʷúy̓, that was going to happen in the future of the past reference time established by the matrix clause, need not have actually happened. The actualization of the event in a clause with a past reference time that also contains xʷúy̓ may be overtly cancelled (as in (15), (16), and (17)) or overtly asserted (as in (18) and (19)). Under the assumption that there is a modal in the same clause as xʷúy̓, the examples in (16)–(19) demonstrate that the null modal does not have an actuality entailment (Bhatt 1999, Hacquard 2014).	page 7
+(16) line 1	Ella Hannon	note	Context: The weather forecast for yesterday said it was going to rain. I saw the forecast and cancelled my plans for yesterday. It didn’t end up raining — the forecast was wrong! Today, I think:	page 8, engine english
+(16) line 2	nɬeʔkepmxcín	transcription	y̓éne xʷúy̓ nukʷ tékɬ ƛ̓uʔ tetéʔ k stékɬs	page 8, engine language
+(16) line 3	nɬeʔkepmxcín	segmentation	y̓én-[n]-[t]-∅-[en]e xʷúy̓=∅=nukʷ tékɬ ƛ̓uʔ tetéʔ=∅ k=s=tékɬ=s	page 8, engine language
+(16) line 4	nɬeʔkepmxcín	gloss	sense-CTR-TR-3OBJ-1SG.ERG xʷúy̓=3SBJ=SENSE rain but NEG=3SBJ D/C=NMLZ=rain=3POSS	page 8, engine english
+(16) line 5	Bernice Garcia	translation	‘I felt it was going to rain, but it didn’t rain.’	page 8, engine english
+(16) line 5	Ella Hannon	citation	(KBG | NV | VF)	the tag or source at the right of the translation
+(17) line 1	Ella Hannon	note	Context: My uncle doesn’t usually come to family events, but he shows up when my dad’s whole family is there. I hosted a family dinner yesterday — my dad’s whole family came, apart from my uncle. I think:	page 8, engine english
+(17) line 2	nɬeʔkepmxcín	transcription	nscút xʷúy̓ ƛ̓ʔék nsísqeʔ ƛ̓uʔ tetéʔ k sƛ̓ʔéks	page 8, engine language
+(17) line 3	nɬeʔkepmxcín	segmentation	n-s-cut xʷúy̓=∅ ƛ̓ʔék n-sísqeʔ ƛ̓uʔ tetéʔ=∅	page 8, engine language
+(17) line 4	nɬeʔkepmxcín	gloss	1SG.POSS-NMLZ-think xʷúy̓=3SBJ arrive 1SG.POSS-uncle but NEG=3SBJ	page 8, engine english
+(17) line 5	nɬeʔkepmxcín	segmentation	k=s=ƛ̓ʔék=s	page 8, engine language
+(17) line 6	nɬeʔkepmxcín	gloss	D/C=NMLZ=arrive=3POSS	page 8, engine english
+(17) line 7	Bernice Garcia	translation	‘I thought my uncle would come, but he didn’t.’	page 8, engine english
+(17) line 7	Ella Hannon	citation	(KBG | NV | VF)	the tag or source at the right of the translation
+(18) line 1	Ella Hannon	note	Context: Earlier, you were on a walk when you saw some dark clouds. You decided to hurry home. An hour after you get home, you hear rain falling. You think:	page 8, engine english
+(18) line 2	nɬeʔkepmxcín	transcription	nsxʷáwkʷ nukʷ k sxʷúy̓s tékɬ ʔe stékɬc	page 8, engine language
+(18) line 3	nɬeʔkepmxcín	segmentation	n-s-xʷáwkʷ=nukʷ k=s=xʷúy̓=s tékɬ ʔe=∅	page 8, engine language
+(18) line 4	nɬeʔkepmxcín	gloss	1SG.POSS-NMLZ-heart=SENSE D/C=NMLZ=xʷúy̓=3POSS rain COP=3SBJ	page 8, engine english
+(18) line 5	nɬeʔkepmxcín	segmentation	[e]=s=tékɬ=s	page 8, engine language
+(18) line 6	nɬeʔkepmxcín	gloss	D/C=NMLZ=rain=3POSS	page 8, engine english
+(18) line 7	Bev Phillips	translation	‘I thought it was going to rain, and it rained.’	page 8, engine english
+(18) line 7	Ella Hannon	citation	(BP | Ly | VF)	the tag or source at the right of the translation
+(19) line 1	Ella Hannon	note	Context: Your friend has been badgering you to come to a big party. She told you it would be a really good party. You both go, and you have a great time. The day after the party, you tell your friend:	page 8, engine english
+(19) line 2	nɬeʔkepmxcín	transcription	cút kʷ k sxʷúy̓s y̓é tk party ʔe sy̓és	page 8, engine language
+(19) line 3	nɬeʔkepmxcín	segmentation	cút=kʷ k=s=xʷúy̓=s y̓é t=k=party ʔe=∅	page 8, engine language
+(19) line 4	nɬeʔkepmxcín	gloss	say=2SG.SBJ D/C=NMLZ=xʷúy̓=3POSS good OBL=DET=party COP=3SBJ	page 8, engine english
+(19) line 5	nɬeʔkepmxcín	segmentation	[e]=s=y̓é=s	page 8, engine residue
+(19) line 6	nɬeʔkepmxcín	gloss	D/C=NMLZ=good=3POSS	page 8, engine english
+(19) line 7	Bev Phillips	translation	‘You said that the party was going to be good, and it was good.’	page 8, engine english
+(19) line 7	Ella Hannon	citation	(BP | Ly | VF)	the tag or source at the right of the translation
+§2.2	Ella Hannon	note	Future-in-the-past readings are not predicted to be possible under an analysis of xʷúy̓ as a future tense, as proposed in previous literature (Thompson and Thompson 1992, Thompson and Thomp- son 1996, Kroeber 1997, Kroeber 1999, Koch 2008) — an absolute future tense, in the sense of Reichenbach (1947) and Klein (1994), entails that the reference time follows utterance time. The availability of future-in-the-past readings of xʷúy̓ supports my analysis of xʷúy̓ as a prospective aspect, as a prospective aspect does not entail that the time of the eventuality is in the future of utterance time.	page 8
+§2.2	Ella Hannon	note	When a matrix clause provides a reference time that is in the future of utterance time, the subordinate clause may bear a xʷúy̓. Consider the complement of the attitude predicate, cut ‘say / think’, in (20). Note that both the matrix clause and the complement clause require marking with xʷúy̓ — consider the infelicity of the complement clause that does not contain xʷúy̓ in (21). The context specifies that both the event time in the main clause and the event time in the subordinate clause follow utterance time; at utterance time, the party organizers have no idea whether the speaker is going to go.	page 9
+(20) line 1	Ella Hannon	note	Context: There’s a gathering coming up that I really don’t want to go to. Guests are asked to fill in whether they have any dietary restrictions, but they don’t have to RSVP. I get home, and my partner tells me he’s told the organizers that I don’t eat meat. I say:	page 9, engine english
+(20) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ cúyet k sxʷúy̓kt nés	page 9, engine language
+(20) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓=Ø cú<ʔi>et k=s=xʷúy̓=kt nés	page 9, engine language
+(20) line 4	nɬeʔkepmxcín	gloss	xʷúy̓=3SBJ think<PL> D/C=NMLZ=xʷúy̓=1PL.POSS go	page 9, engine english
+(20) line 5	Bev Phillips	translation	‘They’re going to think that we are coming (lit. they’re going to think that we are going to come).’	page 9, engine english
+(20) line 5	Ella Hannon	citation	(BP | Ly | SF)	the tag or source at the right of the translation
+(21) line 1	Ella Hannon	note	Context: As in (20).	page 9, engine english
+(21) line 2	nɬeʔkepmxcín	transcription	#xʷúy̓ cúyet k snéskt	page 9, engine language
+(21) line 3	nɬeʔkepmxcín	segmentation	# xʷúy̓=Ø cú<ʔi>et k=s=nés=kt	page 9, engine language
+(21) line 4	nɬeʔkepmxcín	gloss	xʷúy̓=3SBJ think<PL> D/C=NMLZ=go=1PL.POSS	page 9, engine english
+(21) line 5	Ella Hannon	translation	Intended: ‘They are going to think that we are coming.’	page 9, engine english
+(21) line 5	Ella Hannon	citation	(BP | Ly | SF)	the tag or source at the right of the translation
+§2.2	Ella Hannon	note	In sum, matrix clause and embedded xʷúy̓ is compatible past and present reference times, as long as the eventuality time in the clause marked by xʷúy̓ is in the (relative) future of the past or present reference time provided by the context (or the matrix clause, when xʷúy̓ is embedded). The event time in the clause marked with xʷúy̓ need not follow utterance time, but must follow the reference time. As spelled out further in Section 3, the observation that xʷúy̓ does not entail that the reference time follows utterance time leads me to propose that xʷúy̓ is a prospective aspect, rather than a future tense.	page 9
+§3	Ella Hannon	heading	3 Analysis	page 9
+§3	nɬeʔkepmxcín	cited form	xʷúy̓	page 9
+§3	Ella Hannon	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, northern Interior Salish, the language of the paper
+§3	Ella Hannon	note	I follow the semantic literature on tense (Reichenbach 1947, Klein 1994, a.o.) in assuming that every utterance contains reference to three times: a reference time, an event time, and the utterance time. Section 2.2 showed that main clause xʷúy̓ may refer to an eventuality that occurred in the past of utterance time when the discourse context is sufficiently rich, and that subordinate clause xʷúy̓ is also compatible with future-in-the-past interpretations. An absolute future tense would encode that the reference time follows utterance time (Klein 1994); if xʷúy̓ were an absolute future tense, then xʷúy̓ should be incompatible with future-in-the-past readings4 My proposal that xʷúy̓ is a prospective aspect is consistent with recent literature (Matthewson 2006, Cable 2017, a.o.), which contends that ‘future’ does not exist as a true tense category cross-linguistically. To translate this idea to nɬeʔkepmxcín, I assume that a main clause containing xʷúy̓ has a present reference time, but a future event time.	page 9
+§3	Ella Hannon	note	I propose the following denotation for xʷúy̓, identical to Matthewson et al. (2022)’s denotation of the Gitksan prospective aspect dim:	page 10
+(22) line 1	Ella Hannon	note	⟦xʷúy̓⟧ g = λP < l,st > λt λe λw.τ(e) = t & ∃eʹ ∃tʹ [t < tʹ & e ≫ eʹ & τ(eʹ) = tʹ & P(eʹ)(w)]	page 10, the denotation of xʷúy̓, Matthewson et al.'s of the Gitksan prospective aspect dim
+(22) line 2	Ella Hannon	citation	Matthewson et al. (2022:19)	the source of the denotation
+§3	Ella Hannon	note	According to the denotation in (22), xʷúy̓ applies to a predicate of events P and outputs a predicate of events and times. For any event e and reference time t, e holds at t and e causes a P- event, e’. The P-event, e’ happens at a time following t, namely, t’. The event e is a precursor to the later P-event. The denotation in (22) correctly predicts the availability of both ‘future-of-UT’ and ‘future-in-the-past’ readings of xʷúy̓. I argue that the availability of future-in-the-past readings of xʷúy̓ do not support an analysis of xʷúy̓ as an absolute future tense; following Klein (1994), an absolute future tense would entail that the reference time follows utterance time. In the future-in- the-past contexts where xʷúy̓ is accepted, the reference time precedes utterance time. An element that is an absolute future tense would be infelicitous in future-in-the-past contexts; therefore, xʷúy̓ cannot be an absolute future tense.	page 10
+§3	Ella Hannon	language	St’at’imcets	St’át’imcets, a.k.a. Lillooet, northern Interior Salish, spelled here without its accent
+§3	Ella Hannon	note	In adopting the denotation in (22), I am assuming that a covert morpheme provides a non-future reference time, in order for the t argument t in (22) to be saturated. Matthewson (2006) proposes that a null non-future tense (i.e., a null tense morpheme that is defined only if the time provided by the context does not follow utterance time) provides the t argument in St’at’imcets. The t argument could alternatively be filled by a null non-restricted tense (i.e., a null tense morpheme that does not have a restriction to at or before utterance time), as Chen, Vander Klok, Matthewson, and Rullmann (2021) propose for Javanese. For the purposes of this paper, I assume that nɬeʔkepmxcín has covert semantic tense; whether this covert tense is restricted or unrestricted is a matter I leave to further research.	page 10
+§3	Ella Hannon	note	Turning to the link between modality and future time reference, I do not propose that xʷúy̓ is itself a modal. Instead, I propose that xʷúy̓, the prospective aspect, co-occurs with a null modal, as (Matthewson et al. 2022) propose in their analysis of the Gitksan prospective aspect dim. This null modal is likely circumstantial, as evidenced by the ‘modal’ readings of xʷúy̓ mentioned in Section 2. I propose that xʷúy̓ provides the null modal with its temporal orientation (in the sense of Condoravdi 2002), as is the case when xʷúy̓ composes with overt epistemic and circumstantial modals —xʷúy̓ is not itself modal. Section 4 expands further on the proposal that xʷúy̓ is not modal. From this point on, I gloss xʷúy̓ as PROSP, given my analysis of xʷúy̓ as a prospective aspect.	page 10
+§3	Ella Hannon	language	Javanese	for which Chen et al. 2021 propose a null non-restricted tense
+§3	Gitksan	cited form	dim	page 10, the Gitksan prospective aspect
+footnote 4	Ella Hannon	note	4 At present, empirical differences between posterior tenses (also known as relative future tenses) and prospec- tive aspects are not well understood; both a prospective aspect and a posterior tense place the event(uality) time after the reference time. Many of the arguments presented in (Bohnemeyer 2014) differentiating perfect aspects from anterior tenses do not appear to apply to posterior tenses vs. prospective aspects; for instance, Bohnemeyer (2014: fn10) observes that both prospective aspects and posterior tenses are compatible with event time adverbials. Since it is unclear at the time of writing whether an analysis of xʷúy̓ as a posterior tense, as opposed to an anlysis of xʷúy̓ as a prospective aspect, would make any different predictions as to the(in)felicity of xʷúy̓, I propose an analysis of xʷúy̓ as a prospective aspect for simplicity.	page 10, footnote
+§4	Ella Hannon	heading	4 xʷúy̓ is not modal	page 11
+§4	nɬeʔkepmxcín	cited form	xʷúy̓	page 11
+§4	Ella Hannon	note	In this section, I propose that xʷúy̓ is not modal. While utterances containing xʷúy̓ are compatible with modal readings, as demonstrated by the felicity of xʷúy̓ in goal-oriented (i.e., teleological) and deontic modal contexts, I follow Matthewson (2013) and Matthewson et al. (2022) in proposing that these apparently modal readings arise due to the presence of a null modal.	page 11
+§4	Gitksan	cited form	dim	page 11, the Gitksan prospective aspect
+§4.1	Ella Hannon	heading	4.1 xʷúy̓ and circumstantial modals	page 11
+§4.1	nɬeʔkepmxcín	cited form	xʷúy̓	page 11
+§4.1	nɬeʔkepmxcín	cited form	seʔ	page 11
+§4.1	Ella Hannon	note	This subsection focuses specifically on the temporal interactions between xʷúy̓ and the weak neces- sity modal ske. The weak necessity modal ske is compatible with both epistemic and circumstantial modal bases; for the purposes of this section, I focus particularly on circumstantial ske. The prospective aspect xʷúy̓ may optionally co-occur with circumstantial modal ske (ske has the allomorph seʔ when the main predicate is intransitive). Note that circumstantial ske is compatible with a future event time even when xʷúy̓ is not in the same clause. Consider the identical contexts in (23) and (24): (23) does not contain xʷúy̓ while (24) contains both xʷúy̓ and circumstantial ske.5 In the context in both (23) and (24), the circumstantial modal claim has a present temporal per- spective and a future temporal orientation. I propose, again following what Matthewson (2013) and Matthewson et al. (2022) propose for the Gitksan prospective aspect dim, that xʷúy̓ overtly provides the circumstantial modal ske with its future temporal orientation.	page 11
+(23) line 1	Ella Hannon	note	Context: My partner and I have a big dog. My little cousin is coming over tomorrow, so we think our dog should stay outside tomorrow. I say to my partner:	page 11, engine english
+(23) line 2	nɬeʔkepmxcín	transcription	púƛ̓mstm ske e sqáqx̣aʔ tk spiʔx̣éwt	page 11, engine language
+(23) line 3	nɬeʔkepmxcín	segmentation	púƛ̓m-s-t-Ø-[e]m=ske e=s-qáqx̣aʔ t=k=s-piʔx̣éwt	page 11, engine language
+(23) line 4	nɬeʔkepmxcín	gloss	exit-CAUS-TR-3OBJ-1PL.ERG=ske DET=NMLZ-dog OBL=DET=NMLZ-day.away	page 11, engine english
+(23) line 5	Marty Aspinall	translation	‘We should put the dog outside tomorrow.’	page 11, engine english
+(23) line 5	Ella Hannon	citation	(CMA | NV | VF)	the tag or source at the right of the translation
+(24) line 1	Ella Hannon	note	Context: As above.	page 11, engine english
+(24) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ púƛ̓mstm ske e sqáqx̣aʔ tk spiʔx̣éwt	page 11, engine language
+(24) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓ púƛ̓m-s-t-Ø-[e]m=ske e=s-qáqx̣aʔ t=k-s-piʔx̣éwt	page 11, engine language
+(24) line 4	nɬeʔkepmxcín	gloss	PROSP exit-CAUS-TR-3OBJ-1PL.ERG=ske DET=NMLZ-dog OBL=DET=NMLZ-day.away	page 11, engine english
+(24) line 5	Marty Aspinall	translation	‘We should put the dog outside tomorrow.’	page 11, engine english
+(24) line 5	Ella Hannon	citation	(CMA | NV | SF)	the tag or source at the right of the translation
+footnote 5	Ella Hannon	note	5 Note that the circumstantial modal ske surfaces in (24) after the second word in the clause, the main predicate púƛ̓mstm. In later examples (26), (27), and (28), ske attaches to xʷúy̓, the first word in the clause. That ske surfaces after the second word in the clause is potentially ‘abnormal’ behaviour for second-position clitics theroetically, but occurs in other places in nɬeʔkepmxcín — particularly in cases of clausal nominalization with an auxiliary and a third-person possessive subject, where the possessive subject can attach to the main predicate while the nominalizer attaches to the auxiliary.	page 11, footnote
+§4.1	nɬeʔkepmxcín	cited form	púƛ̓mstm	page 11
+§4.1	Ella Hannon	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, northern Interior Salish, the language of the paper
+§4.1	Ella Hannon	note	Notice the same pattern in the sentences below. The context in (25) mirrors the context in (23), in that both involve circumstantial modal claims with a present temporal perspective and a future temporal orientation. The context in (25) establishes that the trying-of-the-berry event has not occurred prior to utterance time; note the felicity of solely ske in (25), and of xʷúy̓ and ske in (26).	page 11
+(25) line 1	Ella Hannon	note	Context: You’re bringing your granddaughter out on the land to pick saskatoons. She can be a bit of a picky eater, so you’re always encouraging her to try new things. You hold a saskatoon out to her and say …	page 12, engine english
+(25) line 2	nɬeʔkepmxcín	transcription	mәsténxʷ ske xeʔé tk scéqʷm	page 12, engine language
+(25) line 3	nɬeʔkepmxcín	segmentation	mәstén-[n]-[t]-∅-[e]xʷ=ske xeʔé t=k=s-céqʷm	page 12, engine language
+(25) line 4	nɬeʔkepmxcín	gloss	try-CTR-TR-3OBJ-2SG.ERG=ske DEM OBL=DET=NMLZ-saskatoon	page 12, engine english
+(25) line 5	Bev Phillips	translation	‘You should try this saskatoon.’	page 12, engine english
+(25) line 5	Ella Hannon	citation	(BP | Ly | VF)	the tag or source at the right of the translation
+(26) line 1	Ella Hannon	note	Context: As above.	page 12, engine english
+(26) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ seʔ kʷ mәsténm xéʔe tk scéqʷm	page 12, engine language
+(26) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓=seʔ=kʷ mәstén-m xéʔe t=k=s-céqʷm	page 12, engine language
+(26) line 4	nɬeʔkepmxcín	gloss	PROSP=seʔ=2SG.SBJ try-CTR.MID DEM OBL=DET=NMLZ-saskatoon	page 12, engine english
+(26) line 5	Bev Phillips	translation	‘You should try this saskatoon.’	page 12, engine english
+(26) line 5	Ella Hannon	citation	(BP | Ly | SF)	the tag or source at the right of the translation
+§4.1	Ella Hannon	note	When the context provides a past temporal perspective, xʷúy̓ is also judged felicitous. Con- sider (27) and (28) — the context in (27) establishes that the event that the modal claim concerns, the snowing event, should have happened prior to utterance time, but in the relative future of the reference time, last night. Note the felicity of xʷúy̓.	page 12
+(27) line 1	Ella Hannon	note	Context: It was really cold last night. You saw a lot of clouds gathering when you were going to bed. This morning, you wake up and immediately think:	page 12, engine english
+(27) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ ske wúxʷt ɬ sʕáp us	page 12, engine language
+(27) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓=∅=ske wúxʷt ɬ=s-ʕáp=us	page 12, engine language
+(27) line 4	nɬeʔkepmxcín	gloss	PROSP=3SBJ=ske snow D/C.REM=NMLZ-night=3SBJV	page 12, engine english
+(27) line 5	Bev Phillips and Bernice Garcia	translation	‘It should have snowed last night.’	page 12, engine english
+(27) line 5	Ella Hannon	citation	(BP, KBG | Ly, NV | SF)	the tag or source at the right of the translation
+§4.1	Ella Hannon	note	Similarly to in (27), the context in (28) establishes that the eventuality time of the circumstan- tial modal claim (i.e., the time of the singing eventuality) precedes utterance time. The temporal perspective of the circumstantial modal is past, since it concerns an event prior to utterance time. The temporal orientation of the circumstantial modal is future, since the singing event should have occurred in the relative future of the reference time (i.e., after the party started last night). Note the felicity of xʷúy̓ in (28) despite the eventuality time preceding utterance time.	page 12
+(28) line 1	Ella Hannon	note	Your daughter has a lovely voice. She sings all the time around the house and is part of a choir. Unfortunately, she gets bad stage fright. You’re at a gathering where her and her friends are up on stage singing, but you can see she’s just mouthing the words. Later, you tell her:	page 12, engine english
+(28) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ seʔ kʷ ʔíƛ̓m wә ɬ móqʷix tetéʔ k sqeʔnímecn	page 12, engine language
+(28) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓=seʔ=kʷ ʔíƛ̓-m wә=ɬ=móqʷix tetéʔ=∅	page 12, engine language
+(28) line 4	nɬeʔkepmxcín	gloss	PROSP=seʔ=2SG.SBJ sing-CTR.MID at=DET.REM=gathering NEG=3SBJ	page 12, engine english
+(28) line 5	nɬeʔkepmxcín	segmentation	k=s=qeʔním-n-[t]-s[i]-[e]n[e]	page 12, engine language
+(28) line 6	nɬeʔkepmxcín	gloss	D/C=NMLZ=hear-CTR-TR-2SG.OBJ-1SG.ERG	page 12, engine english
+(28) line 7	Bernice Garcia	translation	‘You should have sung at the gathering — I didn’t hear you!’	page 12, engine english
+(28) line 7	Ella Hannon	citation	(KBG | NV | SF)	the tag or source at the right of the translation
+§4.1	nɬeʔkepmxcín	cited form	ske/seʔ	page 13
+§4.1	Ella Hannon	note	Although the circumstantial modal ske / seʔ need not co-occur with the prospective aspect xʷúy̓, I argue that when xʷúy̓ is present, it contributes the circumstantial modal’s future temporal orientation (as Matthewson 2013 and Matthewson et al. 2022 propose for the Gitksan prospective aspect dim). The fact that circumstantial ske/seʔ may refer to a future event time when there is no xʷúy̓ in the same clause is an issue I leave to further research.	page 13
+§4.1	Gitksan	cited form	dim	page 13, the Gitksan prospective aspect
+§4.2	Ella Hannon	heading	4.2 xʷúy̓ and epistemic modals	page 13
+§4.2	Ella Hannon	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, northern Interior Salish, the language of the paper
+§4.2	nɬeʔkepmxcín	cited form	nukʷ	page 13
+§4.2	nɬeʔkepmxcín	cited form	x̣ә́kus	page 13
+§4.2	nɬeʔkepmxcín	cited form	ʔe	page 13
+§4.2	nɬeʔkepmxcín	cited form	stx̣ә́pe	page 13
+§4.2	nɬeʔkepmxcín	cited form	neʔ	page 13
+§4.2	nɬeʔkepmxcín	cited form	xʷúy̓	page 13
+§4.2	Ella Hannon	note	To my knowledge, there are four overt epistemic modals in nɬeʔkepmxcín: the inferential evidential second-position clitic nke (Hannon 2024), the sensory evidential second-position clitic nukʷ (Han- non and Smith 2023; Smith, p.c.), the possibility modal x̣ә́kus, and the complex possibility modal expression ʔe stx̣ә́pe neʔ. I set the sensory evidential nukʷ aside for the purposes of the present discus- sion, for reasons of space. This subsection concerns the temporal interaction between nɬeʔkepmxcín epistemic modals and xʷúy̓.	page 13
+§4.2	Ella Hannon	name	Cayla Smith	Smith, p.c., on the sensory evidential nukʷ; an author of Hannon and Smith 2023
+§4.2.1	Ella Hannon	heading	4.2.1 xʷúy̓ and nke	page 13
+§4.2.1	nɬeʔkepmxcín	cited form	xʷúy̓	page 13
+§4.2.1	Ella Hannon	note	The prospective aspect xʷúy̓ is felicitous in epistemic modal claims when the prejacent is in the future of a contextually salient reference time, and is rejected when the time of the event in the prejacent precedes the reference time. Consider (29) and (30), where the reference time is simultaneous with utterance time. Note the felicity of xʷúy̓ in (29), where the time of the fishing event follows the reference time, and the rejection of xʷúy̓ in (30), where the time of the fishing event precedes the reference time.	page 13
+(29) line 1	Ella Hannon	note	Context: You’re in town, and you see your friend walking in the direction of the water, car- rying bait and a fishing rod. You think:	page 13, engine english
+(29) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ nke wéw̓ɬm	page 13, engine language
+(29) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓=Ø=nke wéw̓ɬ-m	page 13, engine language
+(29) line 4	nɬeʔkepmxcín	gloss	PROSP=3SBJ=INFER fish-CTR.MID	page 13, engine english
+(29) line 5	Bernice Garcia and Bev Phillips	translation	‘He must be going (to go) fishing.’	page 13, engine english
+(29) line 5	Ella Hannon	citation	(KBG, BP | NV, Ly | VF)	the tag or source at the right of the translation
+(30) line 1	Ella Hannon	note	Context: You see your friend walking back from the water carrying a fishing rod and a cooler. You think:	page 13, engine english
+(30) line 2	nɬeʔkepmxcín	transcription	#xʷúy̓ nke wéw̓ɬm	page 13, engine language
+(30) line 3	nɬeʔkepmxcín	segmentation	# xʷúy̓=Ø=nke wéw̓ɬ-m	page 13, engine language
+(30) line 4	nɬeʔkepmxcín	gloss	PROSP=3SBJ=INFER fish-CTR.MID	page 13, engine english
+(30) line 5	Ella Hannon	translation	Intended: ‘He must have gone fishing.’	page 13, engine english
+(30) line 5	Ella Hannon	citation	(KBG, BP | NV, Ly | SF)	the tag or source at the right of the translation
+(30) line 6	Bev Phillips	speaker comment	Consultant comment (BP): ‘No, ’cos he’s already done it.’	page 13, printed under the example as the first line of the paragraph after it
+§4.2.1	Ella Hannon	note	Epistemic modals marked with nke cannot have future time reference without a clausemate xʷúy̓. This is demonstrated in (31) and (32).	page 13
+(31) line 1	Ella Hannon	note	Context: You wake up one morning and look outside your window. You see a few dark clouds, so you think:	page 14, engine english
+(31) line 2	nɬeʔkepmxcín	transcription	# tékɬ nke	page 14, engine language
+(31) line 3	nɬeʔkepmxcín	segmentation	# tékɬ=∅=nke	page 14, engine language
+(31) line 4	nɬeʔkepmxcín	gloss	rain=3SBJ=INFER	page 14, engine english
+(31) line 5	Ella Hannon	translation	Intended: ‘It must be going to rain.’	page 14, engine english
+(31) line 5	Ella Hannon	citation	(KBG | NV | SF)	the tag or source at the right of the translation
+(32) line 1	Ella Hannon	note	Context: You see your friend walking in the direction of the creek carrying a bait box and a fishing rod:	page 14, engine english
+(32) line 2	nɬeʔkepmxcín	transcription	# wéwɬm nke	page 14, engine language
+(32) line 3	nɬeʔkepmxcín	segmentation	# wéwɬ-m=∅=nke	page 14, engine language
+(32) line 4	nɬeʔkepmxcín	gloss	fish-CTR.MID=3SBJ=INFER	page 14, engine english
+(32) line 5	Ella Hannon	translation	Intended: ‘He must be going to go fishing.’	page 14, engine english
+(32) line 5	Ella Hannon	citation	(BP | Ly | SF)	the tag or source at the right of the translation
+§4.2.1	Ella Hannon	note	The interaction between xʷúy̓ and nke supports the hypothesis that xʷúy̓ provides the epistemic modal nke with its temporal orientation. When the temporal orientation of the epistemic nke is future, xʷúy̓ is required. When the temporal orientation of the epistemic modal nke is non-future, xʷúy̓ is infelicitous.	page 14
+§4.2.2	Ella Hannon	heading	4.2.2 xʷúy̓ and ʔe stx̣ә́pe neʔ	page 14
+§4.2.2	nɬeʔkepmxcín	cited form	ʔe	page 14
+§4.2.2	nɬeʔkepmxcín	cited form	stx̣ә́pe	page 14
+§4.2.2	nɬeʔkepmxcín	cited form	neʔ	page 14
+§4.2.2	nɬeʔkepmxcín	cited form	xʷúy̓	page 14
+§4.2.2	Ella Hannon	note	The complex epistemic possibility modal expression ʔe stx̣ә́pe néʔ(e), meaning ‘it might’, takes a clausal complement.6 The complement of ʔe stx̣ә́pe neʔ permits interpretations whereby the time of the event in the complement clause occurs in the future of the contextually supplied reference time, with no xʷúy̓ required in the complement. It is nonetheless equally felicitous for the complement to bear xʷúy̓.	page 14
+§4.2.2	Ella Hannon	note	I argue that, when xʷúy̓ appears on the complement of ʔe stx̣ә́pe neʔ, xʷúy̓ provides the future temporal orientation for the epistemic modal claim. Complements of ʔe stx̣ә́pe neʔ that do not contain xʷúy̓ may also have future temporal orientation. I leave the felicity of unmarked complements of ʔe stx̣ә́pe neʔ in contexts that provide an event time in the future of utterance time to future research. Consider (33) and (34): identical contexts specify that the complement of ʔe stx̣ә́pe neʔ, namely my younger sister returning home, is to occur in the future of utterance time. Note the felicity of the complement clause that does not contain xʷúy̓ in (33), and the felicity of the complement that does contain xʷúy̓ in (34).	page 14
+footnote 6	Ella Hannon	note	6 Thompson & Thompson (1996:423) propose the following morphological breakdown of ʔe stx̣ә́pe neʔ — copula ʔe, followed by s nominalizer and t prefix of uncertain semantic content, a predicate x̣ә́pe ‘wonder’, and a demonstrative, often neʔ. I choose to leave ʔe stx̣ә́pe unsegmented, glossing it instead as ‘might’. I segment out the demonstrative néʔ(e), as other demonstratives téʔ(e) and xéʔ(e) are also felicitous after ʔe stx̣ә́pe, in the same contexts. It is worth noting here that, perceptually, the vowel in x̣ә́pe does not sound like a retracted stressed schwa. It is possible that my transcription is a mistranscription — further research is needed.	page 14, footnote
+footnote 6	nɬeʔkepmxcín	cited form	néʔ(e)	page 14, footnote 6, the demonstrative the author segments out of ʔe stx̣ә́pe neʔ
+footnote 6	nɬeʔkepmxcín	cited form	téʔ(e)	page 14, footnote 6, a demonstrative also felicitous after ʔe stx̣ә́pe
+footnote 6	nɬeʔkepmxcín	cited form	xéʔ(e)	page 14, footnote 6, a demonstrative also felicitous after ʔe stx̣ә́pe
+§4.2.2	nɬeʔkepmxcín	cited form	x̣ә́pe	page 14, footnote 6, ‘wonder’, the predicate of ʔe stx̣ә́pe neʔ in Thompson & Thompson 1996:423
+(33) line 1	Ella Hannon	note	Context: My mother is planning a small get together for our dad’s birthday. My younger sister likes to come to our family get-togethers, but she lives really far so it’s very expensive for her to come back. I think:	page 15, engine english
+(33) line 2	nɬeʔkepmxcín	transcription	ʔe stx̣ә́pe neʔ k sƛ̓ʔéks ncéceʔ	page 15, engine language
+(33) line 3	nɬeʔkepmxcín	segmentation	ʔe stx̣ә́pe neʔ k=s=ƛ̓ʔék=s n-céceʔ	page 15, engine language
+(33) line 4	nɬeʔkepmxcín	gloss	might DEM D/C=NMLZ=arrive=3POSS 1SG.POSS-younger. sister	page 15, engine english
+(33) line 5	Bernice Garcia	translation	‘My younger sister might come.’	page 15, engine english
+(33) line 5	Ella Hannon	citation	(KBG | NV | SF)	the tag or source at the right of the translation
+(34) line 1	Ella Hannon	note	Context: As above.	page 15, engine english
+(34) line 2	nɬeʔkepmxcín	transcription	ʔe stx̣ә́pe neʔ k sxʷúy̓s ƛ̓ʔék ncéceʔ	page 15, engine language
+(34) line 3	nɬeʔkepmxcín	segmentation	ʔe stx̣ә́pe neʔ k=s=xʷúy̓=s ƛ̓ʔék n-céceʔ	page 15, engine language
+(34) line 4	nɬeʔkepmxcín	gloss	might DEM D/C=NMLZ=xʷúy̓=3POSS arrive 1SG.POSS-younger. sister	page 15, engine english
+(34) line 5	Bernice Garcia	translation	‘My younger sister might come.’	page 15, engine english
+(34) line 5	Ella Hannon	citation	(KBG | NV | SF)	the tag or source at the right of the translation
+§4.2.2	Ella Hannon	note	Notice the same pattern in the context below, where the complement of ʔe stx̣ә́pe neʔ need not contain an overt prospective aspect xʷúy̓ in order for the event in the complement to be understood as occurring in the future of the utterance time. Consider (35), where the complement does not contain a xʷúy̓ despite the raining event in the complement not yet having occurred at utterance time. Note that it is again felicitous to insert a xʷúy̓ into the complement clause, as demonstrated in (36).	page 15
+(35) line 1	Ella Hannon	note	Context: You walk outside and look up. You see a few dark clouds gathering. You think:	page 15, engine english
+(35) line 2	nɬeʔkepmxcín	transcription	ʔe stx̣ә́pe néʔe k stékɬc	page 15, engine language
+(35) line 3	nɬeʔkepmxcín	segmentation	ʔe stx̣ә́pe néʔe k=s=tékɬ=s	page 15, engine language
+(35) line 4	nɬeʔkepmxcín	gloss	might DEM D/C=NMLZ=rain=3POSS	page 15, engine english
+(35) line 5	Marty Aspinall	translation	‘It might be going to rain.’	page 15, engine english
+(35) line 5	Ella Hannon	citation	(CMA | NV | VF)	the tag or source at the right of the translation
+(36) line 1	Ella Hannon	note	Context: As above:	page 15, engine english
+(36) line 2	nɬeʔkepmxcín	transcription	ʔe stx̣ә́pe néʔe k sxʷúy̓s tékɬ	page 15, engine language
+(36) line 3	nɬeʔkepmxcín	segmentation	ʔe stx̣ә́pe néʔe k=s=xʷúy̓=s tékɬ	page 15, engine language
+(36) line 4	nɬeʔkepmxcín	gloss	might DEM D/C=NMLZ=xʷúy̓=3POSS rain	page 15, engine english
+(36) line 5	Bernice Garcia	translation	‘It might be going to rain.’	page 15, engine english
+(36) line 5	Ella Hannon	citation	(KBG | NV | SF)	the tag or source at the right of the translation
+§4.2.2	nɬeʔkepmxcín	cited form	néʔe	page 15
+§4.2.2	Ella Hannon	note	When the context provides a past temporal perspective but a future temporal orientation, xʷúy̓ remains felicitous on the complement of ʔe stx̣ә́pe néʔe. Consider (37), in which the context specifies a past temporal perspective, but a future temporal orientation — the log might have been going to fall (i.e., at some time prior to utterance time, it was possible that the log was going to fall). Note the felicity of xʷúy̓ on the complement of ʔe stx̣ә́pe néʔe.	page 15
+(37) line 1	Ella Hannon	note	Context: A man is teaching his son how to build a fence. The boy sees his father moving a log that had been leaning up against a tree, and he asks his father why he’s moving the log. His father replies:	page 16, engine english
+(37) line 2	nɬeʔkepmxcín	transcription	ʔe stx̣ә́pe néʔe k sxʷúy̓s kʷís xéʔe tk ɬqáyqʷ	page 16, engine language
+(37) line 3	nɬeʔkepmxcín	segmentation	ʔe stx̣ә́pe néʔe k=s=xʷúy̓=s kʷís xéʔe t=k=ɬqáyqʷ	page 16, engine language
+(37) line 4	nɬeʔkepmxcín	gloss	might DEM D/C=NMLZ=xʷúy̓=3POSS fall DEM PBL=DET=log	page 16, engine english
+(37) line 5	Bernice Garcia	translation	‘That log might have been going to fall.’	page 16, engine english
+(37) line 5	Ella Hannon	citation	(KBG | NV | SF)	the tag or source at the right of the translation
+§4.2.2	Ella Hannon	note	When the eventuality time in the complement of ʔe stx̣ә́pe neʔ is not in the future of the reference time, xʷúy̓ is infelicitous. Consider the context in (38), an epistemic modal with present temporal perspective and past temporal orientation. Notice the infelicity of xʷúy̓ on the complement of ʔe stx̣ә́pe néʔe.	page 16
+(38) line 1	Ella Hannon	note	Context: You walk outside and notice that the ground is wet. This time of year, it could have been either snow or rain that made the ground wet. You think:	page 16, engine english
+(38) line 2	nɬeʔkepmxcín	transcription	#ʔe stx̣ә́pe néʔe k sxʷúy̓s tékɬ	page 16, engine language
+(38) line 3	nɬeʔkepmxcín	segmentation	# ʔe stx̣ә́pe néʔe k=s=xʷúy̓=s tékɬ	page 16, engine language
+(38) line 4	nɬeʔkepmxcín	gloss	might DEM D/C=NMLZ=xʷúy̓=3POSS rain	page 16, engine english
+(38) line 5	Bernice Garcia	translation	‘It might be going to rain.’	page 16, engine english
+(38) line 5	Ella Hannon	citation	(KBG | NV | SF)	the tag or source at the right of the translation
+(38) line 6	Bernice Garcia	speaker comment	Consultant comment (KBG): ‘Sounds like it’s in the future.’	page 16, printed under the example as the first line of the paragraph after it
+§4.2.2	Ella Hannon	note	Consider also the example in (39), another epistemic modal with past temporal perspective and past temporal orientation. Notice again the infelicity of xʷúy̓ on the complement of ʔe stx̣ә́pe néʔe. If xʷúy̓ is removed from the complement clause, then (39) is felicitous.	page 16
+(39) line 1	Ella Hannon	note	Context: You were on a walk this morning and you heard what sounded like a chickadee. However, the bird only called once and you didn’t see it. Later, you think:	page 16, engine english
+(39) line 2	nɬeʔkepmxcín	transcription	#ʔe stx̣ә́pe néʔe k sxʷúy̓s c̓ә̣ṣkíkik e sqeʔnímne	page 16, engine language
+(39) line 3	nɬeʔkepmxcín	segmentation	# ʔe stx̣ә́pe néʔe k=s=xʷúy̓=s c̓ә̣ṣkíkik e=s=qeʔním-[n]-[t]-∅-[e]ne	page 16, engine language
+(39) line 4	nɬeʔkepmxcín	gloss	might DEM D/C=NMLZ=xʷúy̓=3POSS chickadee DET=NMLZ=hear-CTR-TR-3OBJ-1SG.ERG	page 16, engine english
+(39) line 5	Bernice Garcia	translation	‘It might have been a chickadee that I heard.’	page 16, engine english
+(39) line 5	Ella Hannon	citation	(KBG | NV | SF)	the tag or source at the right of the translation
+(39) line 6	Bernice Garcia	speaker comment	Consultant comment: ‘That xʷúy̓ doesn’t seem to fit there.’	page 16, engine english
+(39)	nɬeʔkepmxcín	cited form	xʷúy̓	in the speaker comment, page 16
+§4.2.2	Ella Hannon	note	This subsection has shown that xʷúy̓ is felicitous in the complement of epistemic modal ʔe stx̣ә́pe neʔ only when the modal claim has future temporal orientation. The temporal perspective of the modal claim may be past or present. When the modal claim marked by ʔe stx̣ә́pe néʔ(e) has a non-future temporal orientation, xʷúy̓ is infelicitous.	page 16
+§4.2.2	nɬeʔkepmxcín	cited form	ʔe stx̣ә́pe néʔ(e)	page 14, ‘it might’, with the demonstrative néʔ(e)
+§4.2.3	Ella Hannon	heading	4.2.3 xʷúy̓ and x̣ә́kus	page 16
+§4.2.3	nɬeʔkepmxcín	cited form	xʷúy̓	page 16
+§4.2.3	nɬeʔkepmxcín	cited form	x̣ә́kus	page 16, ‘maybe’
+§4.2.3	nɬeʔkepmxcín	cited form	ʔe	page 16
+§4.2.3	nɬeʔkepmxcín	cited form	stx̣ә́pe	page 16
+§4.2.3	nɬeʔkepmxcín	cited form	neʔ	page 16
+§4.2.3	Ella Hannon	note	In this subsection, I discuss the interaction between the prospective aspect xʷúy̓ and the epistemic possibility modal x̣ә́kus ‘maybe’ (lit. ‘know=3SBJV’). Similarly to ʔe stx̣ә́pe neʔ, the epistemic possibility modal x̣ә́kus takes a clausal complement. Also similarly to ʔe stx̣ә́pe neʔ, the complement of the epistemic possibility modal x̣ә́kus may be interpreted as occurring in the future of utterance time even when there is no xʷúy̓ in the complement clause. Consider (40) and (41).	page 16
+(40) line 1	Ella Hannon	note	Context: You wake up and see a few dark clouds gathering in the sky. You think:	page 17, engine english
+(40) line 2	nɬeʔkepmxcín	transcription	x̣ә́kus k stékɬc	page 17, engine language
+(40) line 3	nɬeʔkepmxcín	segmentation	x̣ә́kus k=s=tékɬ=s	page 17, engine language
+(40) line 4	nɬeʔkepmxcín	gloss	maybe D/C=NMLZ=rain=3POSS	page 17, engine english
+(40) line 5	Bernice Garcia	translation	‘It might rain.’	page 17, engine english
+(40) line 5	Ella Hannon	citation	(KBG | NV | SF)	the tag or source at the right of the translation
+(41) line 1	Ella Hannon	note	Context: It’s winter. You want to go for a walk, but the ground looks icy. You think:	page 17, engine english
+(41) line 2	nɬeʔkepmxcín	transcription	x̣ә́kus k nsɬәtxә́n ʔe xʷesít wn	page 17, engine language
+(41) line 3	nɬeʔkepmxcín	segmentation	x̣ә́kus k=n=s=ɬәt-xә́n ʔe=xʷesít=wn	page 17, engine language
+(41) line 4	nɬeʔkepmxcín	gloss	maybe D/C=1SG.POSS=NMLZ=slippery-foot COMP=walk=1SG.SBJV	page 17, engine english
+(41) line 5	Bev Phillips	translation	‘I might slip if I go for a walk.’	page 17, engine english
+(41) line 5	Ella Hannon	citation	(BP | Ly | VF)	the tag or source at the right of the translation
+§4.2.3	Ella Hannon	note	The prospective aspect is accepted on the complement of x̣ә́kus when the eventuality time in the complement clause follows the reference time. Consider (42), where the reference time is si- multaneous with utterance time, and (43), where the reference time precedes utterance time. The epistemic modal claims in (42) and (43) both have future temporal orientation, but differ in their temporal perspectives: (42) has a present temporal perspective, while (43) has a past temporal per- spective. Both of (42) and (43) have future temporal orientation; note the felicity of xʷúy̓ in (42) and (43).	page 17
+(42) line 1	Ella Hannon	note	Context: You’re walking downtown and you see one of your friends. He’s carrying a cooler and going in the direction of the water. You think:	page 17, engine english
+(42) line 2	nɬeʔkepmxcín	transcription	x̣ә́kus k sxʷúy̓s nés k̓әtním̓	page 17, engine language
+(42) line 3	nɬeʔkepmxcín	segmentation	x̣ә́kus k=s=xʷúy̓=s nés k̓әtní-m̓	page 17, engine language
+(42) line 4	nɬeʔkepmxcín	gloss	maybe D/C=NMLZ=xʷúy̓=3POSS go fish-CTR.MID	page 17, engine english
+(42) line 5	Bev Phillips	translation	‘Maybe he’s going to fish.’	page 17, engine english
+(42) line 5	Ella Hannon	citation	(BP | Ly | VF)	the tag or source at the right of the translation
+(43) line 1	Ella Hannon	note	Context: A man is teaching his son how to build a fence. The boy sees his father moving a log that had been leaning up against a tree, and he asks his father why he’s moving the log. His father replies:	page 17, engine english
+(43) line 2	nɬeʔkepmxcín	transcription	x̣ә́kus nke k sxʷúy̓s zík-t xéʔe tk ɬqáyqʷ	page 17, engine language
+(43) line 3	nɬeʔkepmxcín	segmentation	x̣ә́kus=nke k=s=xʷúy̓=s zík-t xéʔe t=k=ɬqáyqʷ	page 17, engine language
+(43) line 4	nɬeʔkepmxcín	gloss	maybe=INFER D/C=NMLZ=xʷúy̓=3POSS fall-IMM DEM OBL=DET=log	page 17, engine english
+(43) line 5	Bernice Garcia and Bev Phillips	translation	‘That log might have been going to fall.’	page 17, engine english
+(43) line 5	Ella Hannon	citation	(KBG, BP | NV, Ly | SF)	the tag or source at the right of the translation
+§4.2.3	Ella Hannon	note	If the eventuality time of the complement of x̣ә́kus precedes utterance time, xʷúy̓ is infelicitous. Consider the rejection of xʷúy̓ in (44), where the context establishes that the speaker’s evidence for the epistemic modal was acquired prior to utterance time, and the epistemic modal claim is about a time prior to utterance time.	page 17
+(44) line 1	Ella Hannon	note	Context: Your friend has a dog who barks any time someone comes into her garden. You went to visit your friend yesterday, but her dog didn’t bark. Today, you think:	page 18, engine english
+(44) line 2	nɬeʔkepmxcín	transcription	#x̣ә́kus k sxʷúy̓s ʕʷóy̓t e sqáqx̣aʔ	page 18, engine language
+(44) line 3	nɬeʔkepmxcín	segmentation	# x̣ә́kus k=s=xʷúy̓=s ʕʷóy̓t e=sqáqx̣aʔ	page 18, engine language
+(44) line 4	nɬeʔkepmxcín	gloss	maybe D/C=NMLZ=xʷúy̓=3POSS sleep DET=dog	page 18, engine english
+(44) line 5	Bernice Garcia and Bev Phillips	translation	‘The dog might have been asleep.’	page 18, engine english
+(44) line 5	Ella Hannon	citation	(KBG, BP | NV, Ly | SF)	the tag or source at the right of the translation
+§4.2.3	nɬeʔkepmxcín	cited form	seʔ	page 18
+(44) line 6	Bev Phillips	speaker comment	Consultant comment (BP): ‘Sort of like saying maybe the dog is going to fall asleep. Doesn’t fit here.’	page 18, printed under the example as the first line of the paragraph after it
+§4.2.3	Ella Hannon	note	To summarize, in this section I have proposed that xʷúy̓ provides epistemic and circumstantial modals with a future temporal orientation. I have also demonstrated that it is not necessary for xʷúy̓ to overtly occur with the circumstantial modal ske / seʔ in order for the circumstantial modal claim marked by ske / seʔ to be future-oriented. xʷúy̓ is nonetheless felicitous on circumstantial modal claims marked by ske / seʔ regardless of the temporal perspective (present or past) of the circumstantial modal claim. Epistemic modals x̣ә́kus and ʔe stx̣ә́pe neʔ pattern like ske / seʔ in that xʷúy̓ contributes their future temporal orientation. Also similarly to ske / seʔ, neither x̣ә́kus nor ʔe stx̣ә́pe neʔ require overt marking with xʷúy̓ in order for the epistemic modal claim to have a future temporal orientation. It is infelicitous for xʷúy̓ to mark an epistemic modal utterance with a non-future temporal orientation. Lastly, the epistemic modal clitic nke appears to be an outlier in that epistemic modal claims marked by nke require a xʷúy̓ in order to be compatible with a future temporal orientation.	page 18
+§4.3	Ella Hannon	heading	4.3 Modal readings of xʷúy̓	page 18
+§4.3	nɬeʔkepmxcín	cited form	xʷúy̓	page 18
+§4.3	Ella Hannon	note	Recall from Section 2 that a main clause containing xʷúy̓ may have a modal reading, even when there is no overt modal in the clause. Following Matthewson (2013) and Matthewson et al. (2022), I argue that modal readings of xʷúy̓ arise due to the presence of a phonologically null modal. I reiterate relevant examples (6)–(8) as (45)–(47), respectively.	page 18
+(45) line 1	Ella Hannon	note	Context: Your friend is looking for a ride to a meeting you both have today. You say:	page 18, engine english
+(45) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ néscn	page 18, engine language
+(45) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓ nes-[n]-[t]-si-[e]n[e]	page 18, engine language
+(45) line 4	nɬeʔkepmxcín	gloss	xʷúy̓ go-CTR-TR-2SG.OBJ-1SG.ERG	page 18, engine english
+(45) line 5	Bev Phillips	translation	‘I’ll bring you.’	page 18, engine english
+(45) line 5	Ella Hannon	citation	(BP | Ly | VF)	the tag or source at the right of the translation
+(46) line 1	Ella Hannon	note	Context: You’re in a café where the seating time is limited to one hour. You’ve been there for an hour already, so a worker comes over to you and says:	page 18, engine english
+(46) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ kʷ qʷcíyx	page 18, engine language
+(46) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓=kʷ qʷc-íyx	page 18, engine language
+(46) line 4	nɬeʔkepmxcín	gloss	xʷúy̓=2SG.SBJ leave-AUT	page 18, engine english
+(46) line 5	Bev Phillips	translation	‘You have to leave.’	page 18, engine english
+(46) line 5	Ella Hannon	citation	(BP | Ly | VF)	the tag or source at the right of the translation
+(46) line 6	Bev Phillips	speaker comment	Consultant comment: ‘That’s sort of like saying you are to go.’	page 18, engine english
+(47) line 1	Ella Hannon	note	Context: There’s only one way to get from town to the mountains: the road that passes the lake. A tourist asks you how to get to the mountains from the town. You say:	page 19, engine english
+(47) line 2	nɬeʔkepmxcín	transcription	xʷúy̓ kʷ nés ne xw̓éɬ k sptéknxʷ wәɬ péɬuskʷu	page 19, engine language
+(47) line 3	nɬeʔkepmxcín	segmentation	xʷúy̓=kʷ nés n=e=xw̓éɬ k=s=pték-n-[t]-∅-[e]xʷ wә=ɬ=péɬuskʷu	page 19, engine language
+(47) line 4	nɬeʔkepmxcín	gloss	xʷúy̓=2SG.SBJ go at=DET=-road DET=NMLZ=pass-CTR-TR-3OBJ-2SG.ERG to=DET.REM=lake	page 19, engine english
+(47) line 5	Bernice Garcia	translation	‘You have to take the road that passes the lake.’	page 19, engine english
+(47) line 5	Ella Hannon	citation	(KBG | NV | VF)	the tag or source at the right of the translation
+§4.3	Ella Hannon	note	An utterance containing only a xʷúy̓ cannot be interpreted epistemically. In order for an epis- temic interpretation to be allowed, an overt epistemic modal must be in the same clause. Consider the rejection in (48).	page 19
+(48) line 1	Ella Hannon	note	Context: Your older brother has a habit of waking up very late. You want to call him this morning, but you think:	page 19, engine english
+(48) line 2	nɬeʔkepmxcín	transcription	#xʷúy̓ ʕʷóy̓t cʔéyɬ ɬ nqéck	page 19, engine language
+(48) line 3	nɬeʔkepmxcín	segmentation	# xʷúy̓=∅ ʕʷóy̓t c-ʔéyɬ ɬ=n-qéck	page 19, engine language
+(48) line 4	nɬeʔkepmxcín	gloss	xʷúy̓=3SBJ sleep EMPH-now DET.REM=1SG.POSS-older.brother	page 19, engine english
+(48) line 5	Ella Hannon	translation	Intended: ‘My older brother will be asleep now.’	page 19, engine english
+(48) line 5	Ella Hannon	citation	(KBG, BP | NV, Ly | SF)	the tag or source at the right of the translation
+§4.3	Ella Hannon	note	I follow Matthewson et al. (2022) in assuming that the null modal appearing in clauses where no overt modal is present is a circumstantial modal. I adopt the denotation of the null modal proposed in Matthewson et al. (2022), stated in (49).	page 19
+(49) line 1	Ella Hannon	note	⟦MOD⟧ g,f,h is defined only if f is a circumstantial modal base that is familiar in the discourse and h is a stereotypical ordering source.	page 19, the condition the null modal MOD is defined under, after Matthewson et al. 2022
+(49) line 2	Ella Hannon	note	If defined, ⟦MOD⟧ g,f,h = λQ < i, < l,st > > λt λe λw.∀wʹ [wʹ ∈ BESTh (w,t) (∩(f(w,t)) → Q(t)(e)(wʹ)]	page 19, the denotation of the null modal MOD, after Matthewson et al. 2022
+(49) line 3	Ella Hannon	citation	Matthewson et al. (2022):21	the source of the denotation
+§4.3	Ella Hannon	note	Reference to future event times involves both modality and prospective aspectual semantics. I propose that xʷúy̓ encodes the latter, prospective aspect. The former, modality, is provided by the null circumstantial modal.	page 19
+§5	Ella Hannon	heading	5 Conclusion	page 19
+§5	Ella Hannon	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, northern Interior Salish, the language of the paper
+§5	nɬeʔkepmxcín	cited form	xʷúy̓	page 19
+§5	Ella Hannon	language	St’at’imcets	St’át’imcets, a.k.a. Lillooet, northern Interior Salish, spelled here without its accent
+§5	Ella Hannon	note	In this paper, I have proposed that the nɬeʔkepmxcín auxiliary predicate xʷúy̓ is a prospective aspect, not a future tense. I have demonstrated that the nɬeʔkepmxcín prospective aspect xʷúy̓ is compatible with future-of-UT readings, readings whereby the eventuality time in the clause containing xʷúy̓ occurs in the future of utterance time. I have also demonstrated that xʷúy̓ is compatible with contexts that specify that the eventuality time is in the future of some established reference time, but in the past of utterance time. These latter readings, future-in-the-past readings, would not be predicted under an analysis of xʷúy̓ as an absolute future tense, but are predicted under my analysis of xʷúy̓ as a prospective aspect. I have claimed that xʷúy̓ is not itself a modal; rather, in plain future utterances, xʷúy̓ co-occurs with a null modal. I have demonstrated that xʷúy̓ can make a modal claim more ‘definite’, as Glougie (2007) observes for St’at’imcets cuz’. As in Gitksan, xʷúy̓ provides epistemic and circumstantial modals with their temporal orientation. My analysis presupposes that there is a null tense in nɬeʔkepmxcín; further research will reveal whether this presupposition holds.	page 19
+§5	St’át’imcets	cited form	cuz’	page 19
+references	Ella Hannon	heading	References	page 20
+references	Ella Hannon	reference	Bhatt, Rajesh. 1999. Covert modality in non-finite contexts. Doctoral Dissertation, University of Pennsylvania.	
+references	Ella Hannon	reference	Bochnak, M. Ryan, and Lisa Matthewson. 2020. Techniques in complex semantic fieldwork. Annual Review of Linguistics 6:261–283.	
+references	Ella Hannon	reference	Bohnemeyer, Jurgen. 2014. Aspect vs relative tense: The case reopened. Natural Language and Linguistic Theory 32:917–954.	
+references	Ella Hannon	reference	Cable, Seth. 2017. The implicatures of optional past tense in tlingit and the implications for ‘dis- continuous past’. Natural Language and Linguistic Theory 35:635–681.	
+references	Ella Hannon	reference	Chen, Sihwei, Jozina Vander Klok, Lisa Matthewson, and Hotze Rullmann. 2021. The ‘experiential’ as an existential past: Evidence from javanese and atayal. Natural Language and Linguistic Theory 39:709–758.	
+references	Ella Hannon	reference	Comrie, Bernard, Martin Haspelmath, and Balthazar Bickel. 2015. Leipzig glossing conventions.	
+references	Ella Hannon	reference	Condoravdi, Cleo. 2002. Temporal interpretation of modals: modals for the present and the past. In The construction of meaning, ed. David Beaver, Stefan Kaufmann, Brady Clark, and Luis Casillas, 59–88. Cambridge, MA: Springer Science and Business Media LLC.	
+references	Ella Hannon	reference	Davis, Henry. 2000. Remarks on Proto-Salish Subject Inflection. International Journal of American Linguistics 66:499–520.	
+references	Ella Hannon	reference	Gessner, Suzanne, Tracey Herbert, and Aliana Parker. 2022. Report on the status of B. C. First Nations Languages. First Peoples’ Cultural Council.	
+references	Ella Hannon	language	St’át’imcets	a.k.a. Lillooet, northern Interior Salish, in the title of Glougie 2007
+references	Ella Hannon	name	Jóhannsdóttir	K. Jóhannsdóttir, an editor of the volume Glougie 2007 appears in
+references	Ella Hannon	reference	Glougie, Jennifer. 2007. Aspect in St’át’imcets future expressions. In Proceedings of the 42nd ICSNL [International Conference on Salish and Neighbouring Languages], ed. Kristin M. Jóhannsdóttir and Martin A. Oberg, 220–235. Vancouver, BC: UBCWPL.	
+references	Ella Hannon	name	Cécile	Cécile Meier, an editor in the entry of Hacquard 2014
+references	Ella Hannon	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, northern Interior Salish, the language of the paper
+references	Ella Hannon	reference	Hacquard, Valentine. 2014. Actuality entailments. In A companion to semantics, ed. Lisa Matthew- son, Cécile Meier, Hotze Rullmann, and Thomas Ede Zimmermann, 1–26. Oxford: Wiley.	
+references	Ella Hannon	reference	Hannon, Ella. 2024. A modal evidential in nɬeʔkepmxcín. Qualifying paper, the University of British Columbia.	
+references	Ella Hannon	reference	Hannon, Ella, and Cayla Smith. 2023. A brief comparison of two evidentials in nɬeʔkepmxcín. vol- ume Proceedings of the 58th International Conference on Salish and Neighbouring Languages (ICSNL), 94–116. Vancouver, Canada: University of British Columbia Working Papers in Lin- guistics.	
+references	Ella Hannon	reference	Klein, Wolfgang. 1994. Time in language. London: Routledge Publications.	
+references	Ella Hannon	reference	Koch, Karsten. 2008. Intonation and focus in nɬeʔkepmxcín (Thompson River Salish). Doctoral Dissertation, The University of British Columbia.	
+references	Ella Hannon	reference	Kroeber, Paul D. 1997. Relativization in Thompson River Salish. Anthropological Linguistics 39:376–422.	
+references	Ella Hannon	reference	Kroeber, Paul D. 1999. The Salish Language Family: Reconstructing Syntax. Lincoln/London: University of Nebraska Press.	
+references	Ella Hannon	reference	Matthewson, Lisa. 2004. On the methodology of semantic fieldwork. International Journal of American Linguistics 70:369–415.	
+references	Ella Hannon	reference	Matthewson, Lisa. 2006. Temporal semantics in a superficially tenseless language. Linguistics and Philosophy 29:673–713.	
+references	Ella Hannon	reference	Matthewson, Lisa. 2013. Gitksan modals. International Journal of American Linguistics 79:349– 394.	
+references	Ella Hannon	name	Todoróvić	Neda Todoróvić, an author of Matthewson et al. 2022
+references	Ella Hannon	reference	Matthewson, Lisa, Neda Todoróvić, and Michael Schwan. 2022. Future time reference and view- point aspect: Evidence from gitksan. Glossa: a journal of general linguistics 7:1–37.	
+references	Ella Hannon	reference	Reichenbach, Hans. 1947. Elements of symbolic logic. New York: Macmillan & Co.	
+references	Ella Hannon	reference	Thompson, Laurence C., and M. Terry Thompson. 1992. The thompson language: nɬeʔkepmxcín. Missoula, MT: University of Montana Occasional Papers in Linguistics 8.	
+references	Ella Hannon	reference	Thompson, Laurence C., and M. Terry Thompson. 1996. Thompson river salish dictionary. Mis- soula, MT: University of Montana Occasional Publications in Linguistics 11.	
+references	Ella Hannon	reference	Werner, Thomas. 2006. Future and non-future modal sentences. Natural Language Semantics 14:235–255.	
+references	Ella Hannon	language	tlingit	Tlingit, in the title of Cable 2017, printed in lower case
+title	Ella Hannon	title	Prospective aspect in nɬeʔkepmxcín	the paper's title, which carries footnote *
+title	Ella Hannon	name	Ella Hannon	the author, University of British Columbia
+all	Ella Hannon	symbol note	⟦ ⟧	the denotation brackets of (22) and (49), typed J and K in the text layer
+all	Ella Hannon	symbol note	#	marks a sentence the speaker judged infelicitous in its context
+all	Ella Hannon	symbol note	∅	the null third-person subject and object, typed 0/ in the text layer; (20), (21), (23), (24), (29) and (30) print the letter Ø
+all	Ella Hannon	symbol note	[ ]	in a segmentation, the segments of a morpheme the surface form does not pronounce, nés-[n]-[t]-si-n
+all	Ella Hannon	notation	(XX | YY | ZZ)	the tag of an example: the speaker's initials, KBG, CMA or BP, the dialect, NV or Ly, and SF for a suggested form or VF for a volunteered one

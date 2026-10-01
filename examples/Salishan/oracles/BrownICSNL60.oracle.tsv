@@ -1,0 +1,533 @@
+where	who	kind	form	gloss
+front	Colin Brown	note	Abstract: Gitksan, like all Tsimshianic languages, distinguishes between independent and dependent clauses, a contrast that broadly corresponds to the matrix/embedded clause distinction. However, cer- tain matrix clauses — those introduced by dependent markers such as negation or aspectual markers — exhibit the morphosyntactic profile of dependent clauses. I present novel evidence from clitic lin- earization, linear ordering paradoxes, aspectual and irrealis doubling, and other reflexes, arguing that a subset of these clauses is biclausal. I propose a more fine-grained distinction between two types of dependent clause trigger: those that appear within dependent clauses (including complementiz- ers, subordinators, and coordinators) and those that select dependent clause complements (including negation and aspectual markers).	page 1
+front	Colin Brown	note	Keywords: clause typing, linearization, aspect, negation, clitics, Tsimshianic	page 1
+§1	Colin Brown	heading	1 Introduction	page 1
+§1	Colin Brown	note	In this paper, I provide a novel analysis of linearization paradoxes in Gitksan (ISO 639-3: git; Interior Tsimshianic; British Columbia) that arise from the interaction of certain functional elements in the clausal left periphery. I illustrate the puzzle with the prospective aspectual element dim, which surfaces in clause-initial position in examples like (1), preceding the predicate:1	page 1
+(1) line 1	Colin Brown	note	Preverbal dim:	page 1, engine english
+(1) line 2	Gitksan	transcription	Dim hadiks ’nii’y.	page 1, engine residue
+(1) line 3	Gitksan	segmentation	dim hadiks ’nii’y	page 1, engine english
+(1) line 4	Gitksan	gloss	PROSP swim 1SG.PRON	page 1, engine english
+(1) line 5	Colin Brown	translation	‘I will swim.’	page 1, engine english
+(1) line 5	Colin Brown	citation	(HH)	the tag or source at the right of the translation
+footnote *	Colin Brown	note	* I would like to thank my consultants, Barbara Sennott, Jeanne Harris, Vincent Gogag, and Hector Hill, for their invaluable insights. I am also grateful for feedback from Michael Schwan, Clarissa Forbes, Henry Davis, and the UBC Gitksan Lab. Additionally, I appreciate the helpful comments from audiences at AIS at UCLA. Contact info: colin.brown@ubc.ca	page 1, footnote
+footnote 1	Colin Brown	note	1 1 = first person, 2 = second person, 3 = third person, ATTR = attributive, AX = agent extraction morpheme, CAUS = causative, CCNJ = clausal coordinator, CN = common noun connective, COMP = complementizer, DEM = demonstrative, DIST = distal, DUR = durative, DWID = domain widener, FOC = focus, I = series I clitic, II = series II suffix, INCEP = inceptive, IRR = irrealis, LOC = locative, MANR = manner clause subordinator, NEG = negative, PFV = perfective, PL = plural, PN = proper noun connective, PREP = preposition, PROG = progressive, PRON = independent pronoun, PROSP = prospective, PROX = proximal, Q = question particle, REAS = reason clause sub- ordinator, SG = singular, SX = subject extraction morpheme, T = transitive control suffix, TR = transitive, VAL = valency changing suffix, VER = verum.	page 1, footnote
+front	Colin Brown	note	In Proceedings of the International Conference on Salish and Neighbouring Languages 60, University of British Columbia Working Papers in Linguistics, Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2025.	page 1, the volume, at the foot of the first page
+§1	Colin Brown	note	Prospective dim also linearizes before a number of left-peripheral functional elements, including the complementizer wil. The linearization of an aspectual element before a complementizer is typo- logically rare for a language such as Gitksan, which otherwise generally exhibits head-initial syntax (Hunt 1993).2	page 1
+(2) line 1	Colin Brown	note	dim precedes complementizer wil:	page 2, engine english
+(2) line 2	Gitksan	transcription	Luu amhl goodi’y dim wil wis.	page 2, engine english
+(2) line 3	Gitksan	segmentation	luu am =hl goot-’y [dim wil wis]	page 2, engine english
+(2) line 4	Gitksan	gloss	in good =CN heart-1SG.II PROSP COMP rain	page 2, engine english
+(2) line 5	Colin Brown	translation	‘I am happy that it will rain.’	page 2, engine english
+(2) line 5	Colin Brown	citation	(BS)	the tag or source at the right of the translation
+§1	Colin Brown	note	However, this ordering of dim before wil is not categorical. The presence of certain elements in the preverbal field, such as progressive aspectual yukw, appears to block dim’s ability to precede wil.	page 2
+(3) line 1	Colin Brown	note	wil precedes progressive yukw, which precedes dim:	page 2, engine english
+(3) line 2	Gitksan	transcription	Luu amhl goodi’y wil yukwhl dim wis.	page 2, engine english
+(3) line 3	Gitksan	segmentation	luu am =hl goot-’y [wil yukw =hl dim wis]	page 2, engine english
+(3) line 4	Gitksan	gloss	in good =CN heart-1SG.II COMP PROG =CN PROSP rain	page 2, engine english
+(3) line 5	Colin Brown	translation	‘I am happy that it will be raining.’	page 2, engine english
+(3) line 5	Colin Brown	citation	(BS)	the tag or source at the right of the translation
+§1	Colin Brown	note	The linearization paradox is as follows:	page 2
+§1	Colin Brown	note	1. dim precedes wil, 2. wil precedes yukw, but 3. yukw precedes dim	page 2, the paradox, three numbered lines
+§1	Colin Brown	note	In the discussion that follows, I show that this paradox falls out from the interaction of two inde- pendent grammatical processes. The first concerns the Tsimshianic-internal clause type distinction between independent and dependent clauses (Rigsby 1986). While independent clauses function as matrix clauses, dependent clauses may function as matrix or embedded clauses and are typically associated with a closed class of elements, which includes both progressive yukw and the comple- mentizer wil, known in the Tsimshianic literature as dependent markers (Rigsby 1986). I propose that these markers fall into two distinct types. Type 1 dependent markers (DEP1), which include pro- gressive yukw, introduce a biclausal structure by selecting a dependent clause complement. Type 2 dependent markers (DEP2), which include the complementizer wil, appear internal to the dependent clause and yield a monoclausal structure.	page 2
+(4) line 1	Colin Brown	note	Two kinds of dependent marker	page 2, the caption
+(4a) line 1	Colin Brown	note	Type 1 (e.g. yukw) selects dependent clause complement:	page 2, the first kind
+(4a) line 2	Colin Brown	notation	[DEP1 [DepP …]] → biclausal	page 2, the bracketing of the first kind
+(4b) line 1	Colin Brown	note	Type 2 (e.g. wil) restricted to occurring within dependent clause:	page 2, the second kind
+(4b) line 2	Colin Brown	notation	[DepP DEP2 …] → monoclausal	page 2, the bracketing of the second kind
+§1	Colin Brown	note	The second process involves the behaviour of a class of clitics (CL), including dim, that prepose to the clause-initial position, but whose movement is clause-bounded.	page 2
+footnote 2	Colin Brown	note	2 E.g., head nouns precede relative clause complements, determiners precede NPs, the presence of preposi- tions (rather than postpositions), declarative VO ordering, etc.	page 2, footnote
+(5a) line 1	Colin Brown	note	CL movement: CL (e.g., dim) base generated below α, but linearly precedes it.	page 3, the first ingredient
+(5a) line 2	Colin Brown	notation	[CP CL α β]	page 3, the bracketing
+(5b) line 1	Colin Brown	note	CL movement cannot cross clause boundary.	page 3, the second ingredient
+(5b) line 2	Colin Brown	notation	[YP CL α [CP β]	page 3, the bracketing, printed with one bracket unclosed
+§1	Colin Brown	note	These two ingredients — biclausality introduced by some dependent markers, and clause-bounded clitic fronting — together account for the apparent paradoxes in preverbal linearization introduced above. A broader implication of this analysis is that all dependent clauses in Gitksan — whether embedded or matrix — can be reduced to subordination.	page 3
+§1	Colin Brown	note	The remainder of this paper is organized as follows. Section 2 provides background on inde- pendent and dependent clauses and argues for a division between two types of dependent marker. Section 3 turns to the linear ordering of elements in the preverbal field, focusing primarily on the behaviour of the prospective marker dim, whose position is argued to result from movement to the clausal periphery. Section 4 addresses the doubling of certain elements in the preverbal field, and argues that these phenomena fall out from the proposal that some dependent clauses have biclausal structure. Section 5 concludes.	page 3
+§2	Colin Brown	heading	2 Gitksan clauses and dependent markers	page 3
+§2	Colin Brown	note	Gitksan is a predicate-initial, ergative, head-marking language (Rigsby 1986; Hunt 1993; Forbes 2018, 2023). This section outlines the independent/dependent clause distinction and the morphosyn- tactic triggers of dependent clauses. I argue that what appear to be matrix dependent clauses are in fact subordinated structures (cf. Rigsby 1986:273).	page 3
+§2.1	Colin Brown	heading	2.1 Independent vs. dependent clauses	page 3
+§2.1	Colin Brown	note	Gitksan distinguishes between independent and dependent clauses — a feature shared across Tsimshi- anic languages (Forbes 2023). While independent clauses function as matrix clauses, dependent clauses may surface in both embedded and matrix environments.3 In matrix contexts, dependent clauses are marked by a dependent marker such as yukw (‘progressive’) or nee (‘negation’); inde- pendent clauses lack such markers.4 The following examples show the characteristic morphology that distinguishes between these clause types. Starting with clauses featuring intransitive predicates, independent clauses are char- acterized by the lack of overt person agreement, while dependent clauses feature suffixal (Series II) agreement marking the intransitive subject (S-argument). The dependent clauses below are triggered by the propositional negation marker nee, a dependent maker.	page 3
+footnote 3	Colin Brown	note	3 Ā-constructions targeting direct objects exhibit independent clause-like morphology (Rigsby 1986; Davis and Brown 2011; Brown 2016; Forbes 2018); these are excluded from the present discussion.	page 3, footnote
+footnote 4	Colin Brown	note	4 Gitksan exhibits a type of insubordination where dependent clauses appear without an overt dependent marker (Rigsby 1986:273). While intriguing, these cases appear to be discourse-conditioned and will not be the focus of this paper.	page 3, footnote
+(6a) line 1	Colin Brown	note	Independent intransitive: no agreement	page 4, engine english
+(6a) line 2	Gitksan	transcription	Bax ’nii’y.	page 4, engine language
+(6a) line 3	Gitksan	segmentation	bax ’nii’y	page 4, engine language
+(6a) line 4	Gitksan	gloss	run 1SG.PRON	page 4, engine english
+(6a) line 5	Hunt 1993:130	translation	‘I ran.’	page 4, engine residue, cited Hunt 1993:130
+(6a) line 5	Colin Brown	citation	(Hunt 1993:130)	the tag or source at the right of the translation
+(6b) line 1	Colin Brown	note	Dependent intransitive: Series II marks S	page 4, engine english
+(6b) line 2	Gitksan	transcription	Nee dii baha’y.	page 4, engine english
+(6b) line 3	Gitksan	segmentation	nee dii bax-’y	page 4, engine english
+(6b) line 4	Gitksan	gloss	NEG FOC run-1SG.II	page 4, engine english
+(6b) line 5	Hunt 1993:152	translation	‘I didn’t run.’	page 4, engine residue, cited Hunt 1993:152
+(6b) line 5	Colin Brown	citation	(Hunt 1993:152)	the tag or source at the right of the translation
+§2.1	Colin Brown	note	Turning to clauses featuring a transitive predicate, independent clauses have a Series II suffix marking the transitive subject (A-argument), as in (7a). Dependent clauses have a (Series I) clitic marking the A-argument, and a Series II suffix marking the object (O-argument), as in (7b). Inde- pendent clauses additionally feature the transitive suffix -@, as in (8a). Dependent clauses lack the transitive suffix, as in (8b).5	page 4
+(7a) line 1	Colin Brown	note	Independent transitive: Series II marks A	page 4, engine english
+(7a) line 2	Gitksan	transcription	T’isi’yt Henry.	page 4, engine english
+(7a) line 3	Gitksan	segmentation	t’is-@-’y =t Henry	page 4, engine english
+(7a) line 4	Gitksan	gloss	hit-TR-1.II =PN Henry	page 4, engine english
+(7a) line 5	Brown et al. 2020:15	translation	‘I hit Henry.’	page 4, engine english, cited Brown et al. 2020:15
+(7a) line 5	Colin Brown	citation	(Brown et al. 2020:15)	the tag or source at the right of the translation
+(7b) line 1	Colin Brown	note	Dependent transitive: Series I marks A; Series II marks O	page 4, engine english
+(7b) line 2	Gitksan	transcription	Nee diit t’isi’yt Henry.	page 4, engine english
+(7b) line 3	Gitksan	segmentation	nee dii=t t’is-’y =t Henry	page 4, engine english
+(7b) line 4	Gitksan	gloss	NEG FOC=3.I hit-1.II =PN Henry	page 4, engine english
+(7b) line 5	Brown et al. 2020:15	translation	‘Henry didn’t hit me.’	page 4, engine english, cited Brown et al. 2020:15
+(7b) line 5	Colin Brown	citation	(Brown et al. 2020:15)	the tag or source at the right of the translation
+(8a) line 1	Colin Brown	note	Independent clause: transitive suffix -@	page 4, engine english
+(8a) line 2	Gitksan	transcription	Jebis Cindyhl ha’niit’aa.	page 4, engine english
+(8a) line 3	Gitksan	segmentation	jep-@-t =s Cindy =hl ha’niit’aa	page 4, engine english
+(8a) line 4	Gitksan	gloss	make-TR-3.II =PN Cindy =CN chair	page 4, engine english
+(8a) line 5	Brown et al. 2020:16	translation	‘Cindy made a chair.’	page 4, engine english, cited Brown et al. 2020:16
+(8a) line 5	Colin Brown	citation	(Brown et al. 2020:16)	the tag or source at the right of the translation
+(8b) line 1	Colin Brown	note	Dependent clause: no transitive suffix	page 4, engine english
+(8b) line 2	Gitksan	transcription	Nee diit jeps Cindyhl ha’niit’aa.	page 4, engine english
+(8b) line 3	Gitksan	segmentation	nee dii=t jep-t =s Cindy =hl ha’niit’aa	page 4, engine english
+(8b) line 4	Gitksan	gloss	NEG FOC=3.I make-3.II =PN Cindy =CN chair	page 4, engine english
+(8b) line 5	Brown et al. 2020:16	translation	‘Cindy didn’t make a chair.’	page 4, engine english, cited Brown et al. 2020:16
+(8b) line 5	Colin Brown	citation	(Brown et al. 2020:16)	the tag or source at the right of the translation
+footnote 5	Colin Brown	note	5 The presence or absence of the transitive suffix is often difficult to diagnose, due to a number of mor- phophonological processes; see Brown et al. (2020).	page 4, footnote
+footnote 6	Colin Brown	note	6 Both clause types show ergative alignment (S- and O-arguments pattern together to the exclusion of A- arguments). See Hunt (1993); Forbes (2018) for analysis.	page 4, footnote
+§2.1	Colin Brown	note	The morphological reflexes of both clause types are given below, adapted from Brown et al. (2020).6	page 4
+(9) line 1	Colin Brown	note	Independent clause	page 5, the caption
+(9a) line 1	Colin Brown	notation	Intransitive: V [prefixes-Root-suffixes]	page 5, the template
+(9b) line 1	Colin Brown	notation	Transitive: V [prefixes-Root-suffixes]-@-Agr.IIA	page 5, the template
+(10) line 1	Colin Brown	note	Dependent clause	page 5, the caption
+(10a) line 1	Colin Brown	notation	Intransitive: V [prefixes-Root-suffixes]-Agr.IIS	page 5, the template
+(10b) line 1	Colin Brown	notation	Transitive: Agr.IA V [prefixes-Root-suffixes]-Agr.IIO	page 5, the template
+§2.1	Colin Brown	note	There are multiple ways to trigger a dependent clause. A non-exhaustive list of triggers, includ- ing complementizers and subordinators, aspectual elements, and negation is given in Table 1.	page 5
+Table 1	Colin Brown	note	Type Examples	page 5, a row of Table 1, its type and then its examples
+Table 1	Colin Brown	note	Clausal subordination wil/win ‘COMP’, wila ‘MANR’, gan ‘REAS’	page 5, a row of Table 1, its type and then its examples
+Table 1	Colin Brown	note	Aspectual markers yukw ‘PROG’, hlaa ‘INCEP’, hlis ‘PFV’	page 5, a row of Table 1, its type and then its examples
+Table 1	Colin Brown	note	Other nee ‘NEG, Q’, ii, ‘and/then, CCNJ’	page 5, a row of Table 1, its type and then its examples
+Table 1	Colin Brown	note	Syntactically determined embedding, imperatives, focus	page 5, a row of Table 1, its type and then its examples
+Table 1 line 1	Colin Brown	note	Dependent clause triggers (Rigsby 1986; Tarpent 1987; Brown et al. 2020)	page 5, the caption
+§2.1	Colin Brown	note	The next section argues that some dependent markers select clausal complements, while others are restricted to appearing within dependent clauses.	page 5
+§2.2	Colin Brown	heading	2.2 Two kinds of dependent marker	page 5
+§2.2	Colin Brown	note	This section examines four preverbal dependent markers in Gitksan — yukw ‘PROG’, nee ‘NEG’, wil/win (henceforth wil) ‘COMP’, and the clausal coordinator ii ‘and/then/so, CCNJ’ — and argues for a fundamental split in their syntactic behaviour.7 I propose, building upon intuitions in Rigsby (1986:273), that yukw and nee are predicative elements that select dependent-clause complements.8 Supporting evidence for this analysis comes from the fact that these markers are synchronically de- rived from intransitive predicates, and retain core predicative properties in their grammaticalized forms.9 Yukw and nee contrast with wil and ii, which lack such predicative properties and are better analyzed as clause-internal elements. For expository purposes, I refer to yukw and nee as Type 1 markers and wil and ii as Type 2 markers. The core syntactic distinction between Type 1 and Type 2 markers is given in (11).	page 5
+(11) line 1	Colin Brown	note	Two kinds of dependent marker:	page 5, the caption
+(11a) line 1	Colin Brown	notation	Type 1 selects dependent clause complement: [yukw/nee [Dep …]]	page 5, the first kind, with its bracketing
+(11b) line 1	Colin Brown	notation	Type 2 restricted to occurring within dependent clause: [Dep wil/ii …]	page 5, the second kind, with its bracketing
+footnote 7	Colin Brown	note	7 See (Schwan 2019) and Matthewson et al. (2022) for analysis of the semantics of yukw.	page 5, footnote
+footnote 8	Colin Brown	note	8 Rigsby (1986:273), in his descriptive grammar of Gitksan, asserts that yukw and nee are intransitive predi- cates that select sentential complements. This intuition is considered and ultimately rejected in later theoretical work; see footnote 9.	page 5, footnote
+footnote 9	Colin Brown	note	9 Hunt (1993) and Forbes (2018) both note the similarities between clauses with dependent markers such as yukw and clear-cut clausal embedding contexts. However, both ultimately opt for monoclausal analyses of these matrix dependent clause constructions.	page 5, footnote
+§2.2	Colin Brown	note	Rigsby (1986) and Hunt (1993) show that a subset of dependent markers are derived from in- transitive predicates; these elements have functional uses as dependent markers and lexical uses as intransitive predicates. The following examples show yukw and nee functioning as intransitive predicates, selecting DP arguments:	page 5
+(12) line 1	Colin Brown	note	Intransitive predicate yukw ‘to work/be busy’	page 6, engine english
+(12) line 2	Gitksan	transcription	Hiyukwt Mary ahl jamhun.	page 6, engine english
+(12) line 3	Gitksan	segmentation	hi-yukw =t Mary a-t =hl jam-hun	page 6, engine english
+(12) line 4	Gitksan	gloss	DUR-work =PN Mary PREP-3.II =CN cook-fish	page 6, engine english
+(12) line 5	Hunt 1993:138	translation	‘Mary is busy cooking fish.’	page 6, engine english, cited Hunt 1993:138
+(12) line 5	Colin Brown	citation	(Hunt 1993:138)	the tag or source at the right of the translation
+(13) line 1	Colin Brown	note	Intransitive predicate nee ‘to not exist’	page 6, engine english
+(13) line 2	Gitksan	transcription	Neehl hun.	page 6, engine english
+(13) line 3	Gitksan	segmentation	nee =hl hun	page 6, engine english
+(13) line 4	Gitksan	gloss	not.exist =CN fish	page 6, engine english
+(13) line 5	Hunt 1993:139	translation	‘There’s no fish.’	page 6, engine english, cited Hunt 1993:139
+(13) line 5	Colin Brown	citation	(Hunt 1993:139)	the tag or source at the right of the translation
+§2.2	Colin Brown	note	In the following examples, yukw and nee function as dependent markers. In this functional role, they retain predicate-like characteristics. As we see in (14) and (15), complements of dependent yukw and nee are often introduced by the connective determiner =hl.10	page 6
+(14) line 1	Colin Brown	note	Yukw selects complement headed by =hl	page 6, engine english
+(14) line 2	Gitksan	transcription	Yukwhl dim wis.	page 6, engine english
+(14) line 3	Gitksan	segmentation	yukw [=hl dim wis]	page 6, engine english
+(14) line 4	Gitksan	gloss	PROG =CN PROSP rain	page 6, engine english
+(14) line 5	Colin Brown	translation	‘It’s going to rain.’	page 6, engine english
+(14) line 5	Colin Brown	citation	(BS)	the tag or source at the right of the translation
+(15) line 1	Colin Brown	note	Nee selects complement headed by =hl	page 6, engine english
+(15) line 2	Gitksan	transcription	Neehl ama ’masdaa?	page 6, engine english
+(15) line 3	Gitksan	segmentation	nee [=hl ama ’mas-t]=aa	page 6, engine residue
+(15) line 4	Gitksan	gloss	NEG =CN good grow-3.II=Q	page 6, engine english
+(15) line 5	Matthewson 2024	translation	‘Is he good looking?’	page 6, engine english, cited Matthewson 2024
+(15) line 5	Colin Brown	citation	(Matthewson 2024)	the tag or source at the right of the translation
+§2.2	Colin Brown	note	This is structurally parallel to the use of =hl in complements of embedding predicates such as aam ‘to be good’:	page 6
+(16) line 1	Colin Brown	note	Connective =hl introducing clausal complement	page 6, engine english
+(16) line 2	Gitksan	transcription	Amhl dim t’aan.	page 6, engine english
+(16) line 3	Gitksan	segmentation	aam [=hl dim t’aa-n]	page 6, engine english
+(16) line 4	Gitksan	gloss	good =CN PROSP sit-2SG.II	page 6, engine english
+(16) line 5	Hunt 1993:148	translation	‘You better sit down.’	page 6, engine english, the example is Hunt's, 1993:148, with its Nisga’a counterpart in Tarpent 1987:219
+(16) line 6	Hunt 1993:148	translation	lit. ‘It is good that you will sit down.’	page 6, engine english, cited Hunt 1993:148; Gitksan; Tarpent 1987:219; Nisga’a, the example is Hunt's, 1993:148, with its Nisga’a counterpart in Tarpent 1987:219
+(16) line 6	Colin Brown	citation	(Hunt 1993:148; Gitksan; Tarpent 1987:219; Nisga’a)	the tag or source at the right of the translation
+footnote 10	Colin Brown	note	10 In embedding contexts, the connective only surfaces with intransitive complements; with transitive comple- ments the connective is replaced by a Series I ergative clitic (Rigsby 1986; Tarpent 1987; Hunt 1993).	page 6, footnote
+§2.2	Colin Brown	note	Type 2 elements do not select complements headed by the connective =hl, as shown in (17), where the variation with the complementizer co-occuring with the connective =hl was rejected:	page 6
+(17) line 1	Colin Brown	note	Wil does not introduce complement headed by =hl	page 7, engine english
+(17) line 2	Gitksan	transcription	Luu aam goodi’y win(*hl) wis.	page 7, engine english
+(17) line 3	Gitksan	segmentation	luu aam goot-’y wil (*=hl) wis	page 7, engine english
+(17) line 4	Gitksan	gloss	in good heart-1SG.II COMP (*=CN) rain	page 7, engine english
+(17) line 5	Colin Brown	translation	‘I’m happy that it rained.’	page 7, engine english
+(17) line 5	Colin Brown	citation	(VG)	the tag or source at the right of the translation
+§2.2	Colin Brown	note	Further predicate-like behaviour of Type 1 dependent markers occurs in extraction configura- tions. Previous work on long-distance extraction in Gitksan (Davis and Brown 2011; Brown 2016, 2018; Forbes 2017) shows that dedicated extraction morphology appears in every clause along the path of movement. As noted in Forbes (2018), some dependent markers, including yukw, may host extraction morphology, mirroring the behaviour of long-distance extraction over intransitive predi- cates. In the examples below, both the intransitive predicate aam ‘to be good’, and progressive yukw bear the same intransitive extraction suffix -@t.11, 12	page 7
+(18) line 1	Colin Brown	note	Long-distance movement over aam triggers subject extraction suffix -@t	page 7, engine english
+(18) line 2	Gitksan	transcription	Guhl aamit ji japxwit?	page 7, engine english
+(18) line 3	Gitksan	segmentation	gu =hl aam-@t [ji jap-xw-@t ]	page 7, engine english
+(18) line 4	Gitksan	gloss	what =CN good-SX IRR make-VAL-SX	page 7, engine english
+(18) line 5	Forbes 2018:118	translation	‘What would be good if it were made?’	page 7, engine english, cited Forbes 2018:118
+(18) line 5	Colin Brown	citation	(Forbes 2018:118)	the tag or source at the right of the translation
+(19) line 1	Colin Brown	note	Extraction over yukw triggers subject extraction suffix -@t	page 7, engine english
+(19) line 2	Gitksan	transcription	Guhl yugwit jebin?	page 7, engine english
+(19) line 3	Gitksan	segmentation	gu =hl yukw-@t [jep-@-n ]	page 7, engine english
+(19) line 4	Gitksan	gloss	what =CN PROG-SX make-TR-2SG.II	page 7, engine english
+(19) line 5	Forbes 2018:118	translation	‘What are you making?’	page 7, engine english, cited Forbes 2018:118
+(19) line 5	Colin Brown	citation	(Forbes 2018:118)	the tag or source at the right of the translation
+§2.2	Colin Brown	note	Type 2 elements do not bear extraction morphology. The following example shows that wil, which appears in oblique extraction configurations, cannot host the subject extraction suffix -@t:	page 7
+(20) line 1	Colin Brown	note	Wil does not host extraction morphology	page 7, engine english
+(20) line 2	Gitksan	transcription	Naa win(*it) na gi’namhl hlit?	page 7, engine english
+(20) line 3	Gitksan	segmentation	naa wil(*-@t) n gi’nam-t =hl hlit	page 7, engine english
+(20) line 4	Gitksan	gloss	who COMP(*-SX) 2.I give-3.II =CN ball	page 7, engine english
+(20) line 5	Colin Brown	translation	‘Who did you give the ball to?’	page 7, engine english
+(20) line 5	Colin Brown	citation	(VG)	the tag or source at the right of the translation
+footnote 11	Colin Brown	note	11 The structurally lower predicates, by hypothesis occupying an embedded clause, bear the subject extraction suffix -@t (18) and the transitive suffix -@, which is characteristic of O-argument extraction (19).	page 7, footnote
+footnote 12	Colin Brown	note	12 More work is needed to determine whether extraction over the negation marker nee also triggers subject extraction morphology, or whether it is permitted at all. However, extraction across other proposed Type 1 markers, such as the perfective hlis(xw), patterns like yukw in triggering subject extraction morphology:	page 7, footnote
+footnote 12 (i) line 1	Gitksan	transcription	Sdi’monhl honhl hlisxwit k’ohlin.	page 7, engine english
+footnote 12 (i) line 2	Gitksan	segmentation	sdi’mon=hl hon=hl hlisxw-@t [k’ohl-@-n ]	page 7, engine english
+footnote 12 (i) line 3	Gitksan	gloss	humpback.salmon=CN fish=CN PFV-SX cut-TR-2SG.II	page 7, engine english
+footnote 12 (i) line 4	Colin Brown	translation	‘The fish that you dressed is a humpback salmon.’	page 7, engine english
+footnote 12 (i) line 4	Colin Brown	citation	(VG)	the tag or source at the right of the translation
+§2.2	Colin Brown	note	These data support the analysis presented here: yukw, like aam, selects a clausal complement. Extraction out of that complement proceeds cyclically, registering extraction morphology in every clause along the path of movement. This cyclic movement is sketched below in (21) and (22), with extraction morphology given in bold (see Davis and Brown 2011; Brown 2016, 2024; Forbes 2017, 2018 for data and analysis of extraction morphosyntax in Tsimshianic).	page 8
+(21) line 1	Colin Brown	note	Cyclic movement over intransitive aam ‘to be good’ (=example (18))	page 8, the caption
+(21) line 2	Colin Brown	notation	gu =hl aamit [< gu > ji japxwit < gu >]?	page 8, the sentence of (18) with the copies of gu the movement leaves in angle brackets and the extraction morphology in bold
+(22) line 1	Colin Brown	note	Cyclic movement over progressive yukw (=example (19))	page 8, the caption
+(22) line 2	Colin Brown	notation	gu =hl yugwit [< gu > jebin < gu >]?	page 8, the sentence of (19) with the copies of gu the movement leaves in angle brackets and the extraction morphology in bold
+§2.2	Colin Brown	note	To conclude this section, Type 1 dependent markers are synchronically derived from intransitive predicates, and even in their functional uses, retain predicative behaviours. These facts are com- patible with the analysis in (11) that Type 1 markers select clausal complements, yielding biclausal structures (cf. Rigsby 1986:273). Type 2 dependent markers, on the other hand, do not exhibit these predicative behaviours, and are better analyzed as being dependent clause internal elements. In addition to accounting for the morphosyntactic differences discussed in this section, adopting this two-way distinction between dependent markers also resolves the linearization and doubling puzzles in Sections 3 and 4, respectively.	page 8
+§3	Colin Brown	heading	3 Linear order and the preverbal field	page 8
+§3	Colin Brown	note	This section introduces a class of elements — including the future marker dim, irrealis marker ji and first- and second-person ergative agreement markers — which I analyze as special clitics (Zwicky 1977; Zwicky and Pullum 1983). That is, they undergo displacement to a distinct linear position in the clause.13 I suggest these clitics (CL) shift postsyntactically from their base-generated position to a high, clause-peripheral position. This is sketched in (23).	page 8
+(23) line 1	Colin Brown	note	CL movement:	page 8, the caption
+(23) line 2	Colin Brown	notation	[CP CL α β]	page 8, the bracketing
+footnote 13	Colin Brown	note	13 Special clitics contrast with simple clitics, which surface in their base-generated position; i.e., they do not undergo displacement.	page 8, footnote
+§3	Colin Brown	note	Interestingly, these clitics linearize to the right of Type 1 dependent markers such as yukw and nee, but to the left of Type 2 dependent markers like wil and ii. This contrast follows from the proposal developed here: Type 1 markers select clausal complements; clitics are trapped within the clausal complement. This is schematized in (24). Type 2 markers, on the other hand, occur within the dependent clause; clitics freely shift past these elements. This is schematized in (25).	page 8
+(24) line 1	Colin Brown	note	CL movement with Type 1 dependent markers (DEP1)	page 9, the caption
+(24) line 2	Colin Brown	notation	[DEP1 [CP CL α β]]	page 9, the bracketing
+(25) line 1	Colin Brown	note	CL movement with Type 2 dependent markers (DEP2)	page 9, the caption
+(25) line 2	Colin Brown	notation	[CP CL DEP2 α β]	page 9, the bracketing
+§3	Colin Brown	note	In the discussion that follows, I illustrate these linearization facts primarily using prospective dim as a case study. However, I also show that other elements — specifically the irrealis marker ji and the ergative clitics — exhibit similar behaviour.	page 9
+§3.1	Colin Brown	heading	3.1 Ordering in the preverbal field: dim observations	page 9
+§3.1	Colin Brown	note	Strong evidence for the proposal that at least some dependent clauses are biclausal comes from the unexpected linearization of the prospective aspect marker dim.14 Unlike other preverbal aspectual elements in Gitksan, dim is not a dependent marker, and freely occurs in both independent and dependent clauses.	page 9
+(26) line 1	Colin Brown	note	Independent clause:	page 9, engine english
+(26) line 2	Gitksan	transcription	Dim didalga’yt Lisa	page 9, engine english
+(26) line 3	Gitksan	segmentation	dim didalk-@-’y =t Lisa	page 9, engine english
+(26) line 4	Gitksan	gloss	PROSP talk.to-TR-1SG.II =PN Lisa	page 9, engine english
+(26) line 5	Colin Brown	translation	‘I will talk to Lisa.’	page 9, engine english
+(26) line 5	Colin Brown	citation	(BS)	the tag or source at the right of the translation
+(27) line 1	Colin Brown	note	Dependent clause:	page 9, engine english
+(27) line 2	Gitksan	transcription	Ha’niigood’iy dim wis.	page 9, engine english
+(27) line 3	Gitksan	segmentation	ha’niigoot-’y [dim wis]	page 9, engine english
+(27) line 4	Gitksan	gloss	think-1SG.II PROSP rain	page 9, engine english
+(27) line 5	Colin Brown	translation	‘I think that it will rain.’	page 9, engine english
+(27) line 5	Colin Brown	citation	(BS)	the tag or source at the right of the translation
+§3.1	Colin Brown	note	Prior work on Gitksan shows that dim occupies a high linear position (Rigsby 1986:279), lin- earizing before elements like the complementizer wil and the clausal coordinator ii. Progressive yukw and negative nee, on the other hand, must follow those functional elements. That is, we observe the following orderings:	page 9
+(28a) line 1	Colin Brown	notation	dim > {wil, ii}	page 9, the first ordering
+(28b) line 1	Colin Brown	notation	{wil, ii} > {yukw, nee}	page 9, the second ordering
+§3.1	Colin Brown	note	The following examples show that dim linearly precedes the complementizer wil (29) and clausal coordinator ii (30).	page 9
+footnote 14	Colin Brown	note	14 The majority of work on dim has focused on its semantics (e.g., Matthewson 2013; Matthewson and Todor- ovic 2018; Rullmann and Matthewson 2018; Aonuki 2021; Matthewson et al. 2022), rather than its lineariza- tion.	page 9, footnote
+(29) line 1	Colin Brown	note	dim > wil	page 10, engine english
+(29) line 2	Gitksan	transcription	Luu amhl goodi’y dim wil wis.	page 10, engine english
+(29) line 3	Gitksan	segmentation	luu am =hl goot-’y [dim wil wis]	page 10, engine english
+(29) line 4	Gitksan	gloss	in good =CN heart-1SG.II PROSP COMP rain	page 10, engine english
+(29) line 5	Colin Brown	translation	‘I am happy that it will rain.’	page 10, engine english
+(29) line 5	Colin Brown	citation	(BS)	the tag or source at the right of the translation
+(30) line 1	Colin Brown	note	dim > ii	page 10, engine english
+(30) line 2	Gitksan	transcription	Dim yets’indi’yt Michael dim iit jephl gyemgm aks.	page 10, engine english
+(30) line 3	Gitksan	segmentation	dim yets’n-t-@-’y =t Michael [dim ii=t jep-t =hl gyemk-m aks]	page 10, engine english
+(30) line 4	Gitksan	gloss	PROSP call/hit-T-TR-1SG.II =PN Michael PROSP CCNJ make-3.II =CN hot-ATTR water	page 10, engine english
+(30) line 5	Colin Brown	translation	‘I will call Michael and he will make coffee.’	page 10, engine english
+(30) line 5	Colin Brown	citation	(HH)	the tag or source at the right of the translation
+§3.1	Colin Brown	note	Unlike dim, progressive yukw must follow wil and ii:	page 10
+(31) line 1	Colin Brown	note	wil > yukw	page 10, engine english
+(31) line 2	Gitksan	transcription	Luu amhl goodi’y win yukwt jeps Michaelhl gyemgm aks.	page 10, engine english
+(31) line 3	Gitksan	segmentation	luu am =hl goot-’y [wil yukw=t jep-t =s Michael =hl gyemk-m aks]	page 10, engine english
+(31) line 4	Gitksan	gloss	in good =CN heart-1SG.II COMP PROG=3.I make-3.II =PN Michael =CN hot-ATTR water	page 10, engine english
+(31) line 5	Colin Brown	translation	‘I am happy that Michael is making coffee.’	page 10, engine english
+(31) line 5	Colin Brown	citation	(HH)	the tag or source at the right of the translation
+(32) line 1	Colin Brown	note	ii > yukw	page 10, engine english
+(32) line 2	Gitksan	transcription	Yets’indi’yt Michael ii yukwt jephl gyemgm aks.	page 10, engine english
+(32) line 3	Gitksan	segmentation	yets’n-t-@-’y =t Michael ii yukw=t jep-t =hl gyemk-m aks	page 10, engine english
+(32) line 4	Gitksan	gloss	call/hit-T-TR-1SG.II =PN Michael CCNJ PROG=3.I make-3.II =CN hot-ATTR water	page 10, engine english
+(32) line 5	Colin Brown	translation	‘I called Michael and he’s making coffee.’	page 10, engine english
+(32) line 5	Colin Brown	citation	(HH)	the tag or source at the right of the translation
+§3.1	Colin Brown	note	Like yukw, and unlike dim, propositional negation nee also follows wil and ii:	page 10
+(33) line 1	Colin Brown	note	wil > nee	page 10, engine english
+(33) line 2	Gitksan	transcription	Wilaayi’y win nee dii wis.	page 10, engine english
+(33) line 3	Gitksan	segmentation	wilaax-@-’y [wil nee dii wis]	page 10, engine english
+(33) line 4	Gitksan	gloss	know-TR-1.SG.II COMP NEG FOC rain	page 10, engine english
+(33) line 5	Colin Brown	translation	‘I know that it didn’t rain.’	page 10, engine english
+(33) line 5	Colin Brown	citation	(VG)	the tag or source at the right of the translation
+(34) line 1	Colin Brown	note	ii > nee	page 10, engine english
+(34) line 2	Gitksan	transcription	Yets’indi’yt Michael ii nee diit jephl gyemgm aks.	page 10, engine english
+(34) line 3	Gitksan	segmentation	yets’n-t-@-’y =t Michael ii nee dii=t jep-t =hl gyemk-m aks	page 10, engine english
+(34) line 4	Gitksan	gloss	call/hit-T-TR-1SG.II =PN Michael CCNJ NEG FOC=3.I make-3.II =CN hot-ATTR water	page 10, engine english
+(34) line 5	Colin Brown	translation	‘I called Michael and he didn’t make coffee.’	page 10, engine english
+(34) line 5	Colin Brown	citation	(HH)	the tag or source at the right of the translation
+§3.1	Colin Brown	note	These data, taken in isolation, might point to dim occupying a surprisingly high structural posi- tion in the clausal periphery, while yukw and nee are positioned lower, under wil and ii:	page 10
+(35) line 1	Colin Brown	note	Hypothetical structure of Gitksan left-periphery (to be rejected)	page 11, the caption
+(35) line 2	Colin Brown	notation	Asp1P	page 11, a tree, the nodes at depth 1 read left to right
+(35) line 3	Colin Brown	notation	Asp1 CoordP	page 11, a tree, the nodes at depth 2 read left to right
+(35) line 4	Colin Brown	notation	dim Coord CP	page 11, a tree, the nodes at depth 3 read left to right
+(35) line 5	Colin Brown	notation	ii C NegP	page 11, a tree, the nodes at depth 4 read left to right
+(35) line 6	Colin Brown	notation	wil Neg Asp2P	page 11, a tree, the nodes at depth 5 read left to right
+(35) line 7	Colin Brown	notation	nee Asp2 vP	page 11, a tree, the nodes at depth 6 read left to right
+(35) line 8	Colin Brown	notation	yukw …	page 11, a tree, the nodes at depth 7 read left to right
+§3.1	Colin Brown	note	If (35) is correct, and dim is structurally higher than {wil, ii}, and {yukw, nee} are structurally lower than {wil, ii}, then by transitivity we expect dim to precede {yukw, nee}. This is not borne out: when these elements co-occur, dim must follow {yukw, nee}. This is illustrated in the following examples:	page 11
+(36) line 1	Colin Brown	note	yukw > dim	page 11, engine english
+(36a) line 1	Gitksan	transcription	Yukw dim baxt.	page 11, engine english
+(36a) line 2	Gitksan	segmentation	yukw dim bax-t	page 11, engine english
+(36a) line 3	Gitksan	gloss	PROG PROSP run-3.II	page 11, engine english
+(36a) line 4	Matthewson et al. 2022:31	translation	‘S/he’s going to run.’	page 11, engine english, the pair (36a) and (36b) is theirs
+(36b) line 1	Gitksan	transcription	*Dim yukw baxt.	page 11, engine english
+(36b) line 2	Gitksan	segmentation	dim yukw bax-t	page 11, engine english
+(36b) line 3	Gitksan	gloss	PROSP PROG run-3.II	page 11, engine english
+(36b) line 4	Matthewson et al. 2022:31	translation	Intended: ’S/he’s going to run.’	page 11, engine english, cited Matthewson et al. 2022:31
+(36b) line 4	Colin Brown	citation	(Matthewson et al. 2022:31)	the tag or source at the right of the translation
+(37) line 1	Colin Brown	note	yukw > dim	page 11, engine english
+(37a) line 1	Gitksan	transcription	Hlaa yukw dim hlisxwi’y.	page 11, engine residue
+(37a) line 2	Gitksan	segmentation	hlaa yukw dim hlis-xw-’y	page 11, engine english
+(37a) line 3	Gitksan	gloss	INCEP PROG PROSP finish-VAL-1SG.II	page 11, engine english
+(37a) line 4	Hunt 1993:147	translation	‘I’m very close to finishing.’	page 11, engine english, the pair (37a) and (37b) is Hunt's
+(37b) line 1	Gitksan	transcription	*Hlaa dim yukw hlisxwi’y.	page 11, engine residue
+(37b) line 2	Gitksan	segmentation	hlaa dim yukw hlis-xw-’y	page 11, engine english
+(37b) line 3	Gitksan	gloss	INCEP PROSP PROG finish-VAL-1SG.II	page 11, engine english
+(37b) line 4	Hunt 1993:147	translation	Intended: ‘I’m very close to finishing’	page 11, engine english, cited Hunt 1993:147
+(37b) line 4	Colin Brown	citation	(Hunt 1993:147)	the tag or source at the right of the translation
+(38) line 1	Colin Brown	note	nee > dim	page 12, engine english
+(38a) line 1	Gitksan	transcription	Nee dim diin yeexs Betty.	page 12, engine english
+(38a) line 2	Gitksan	segmentation	nee dim dii=n yeexs-t=s Betty	page 12, engine english
+(38a) line 3	Gitksan	gloss	NEG PROSP FOC=1.I visit-3.II=PN Betty	page 12, engine english
+(38a) line 4	Colin Brown	translation	‘I didn’t visit Betty.’	page 12, engine english
+(38a) line 4	Colin Brown	citation	(VG)	the tag or source at the right of the translation
+(38b) line 1	Gitksan	transcription	*Dim nee diin yeexs Betty.	page 12, engine english
+(38b) line 2	Gitksan	segmentation	dim nee dii=n yeexs-t=s Betty	page 12, engine english
+(38b) line 3	Gitksan	gloss	PROSP NEG FOC=1.I visit-3.II=PN Betty	page 12, engine english
+(38b) line 4	Colin Brown	translation	Intended: ‘I didn’t visit Betty’	page 12, engine english
+(38b) line 4	Colin Brown	citation	(VG)	the tag or source at the right of the translation
+§3.1	Colin Brown	note	We additionally see that in clauses that contain wil or ii, alongside yukw or nee, there is a fixed order of {wil, ii} > {yukw, nee} > dim:	page 12
+(39) line 1	Colin Brown	note	wil > yukw > dim	page 12, engine english
+(39) line 2	Gitksan	transcription	Luu amhl goodi’y wil yukw dim wis.	page 12, engine english
+(39) line 3	Gitksan	segmentation	luu am=hl goot-’y [wil yukw dim wis]	page 12, engine english
+(39) line 4	Gitksan	gloss	in good=CN heart-1SG.II COMP PROG PROSP rain	page 12, engine english
+(39) line 5	Colin Brown	translation	‘I am happy that it is going to rain.’	page 12, engine english
+(39) line 5	Colin Brown	citation	(BS)	the tag or source at the right of the translation
+(40) line 1	Colin Brown	note	ii > yukw > dim	page 12, engine english
+(40) line 2	Gitksan	transcription	Didalga’yt Henlii, ii yukw dim sikofiit.	page 12, engine english
+(40) line 3	Gitksan	segmentation	didalk-@-’y=t Henlii, [ii yukw dim si-kofii-t]	page 12, engine english
+(40) line 4	Gitksan	gloss	speak.with-TR-1SG.II=PN Henry CCNJ PROG PROSP make-coffee-3.II	page 12, engine english
+(40) line 5	Colin Brown	translation	‘I talked to Henry and he’s going to make coffee.’	page 12, engine english
+(40) line 5	Colin Brown	citation	(BS)	the tag or source at the right of the translation
+(41) line 1	Colin Brown	note	wil > nee > dim	page 12, engine english
+(41) line 2	Gitksan	transcription	Wilaayi’y wil nee dim dii wis.	page 12, engine english
+(41) line 3	Gitksan	segmentation	wilaax-@-’y [wil nee dim dii wis]	page 12, engine english
+(41) line 4	Gitksan	gloss	know-TR-1SG.II COMP NEG PROSP FOC rain	page 12, engine english
+(41) line 5	Colin Brown	translation	‘I know that it won’t rain.’	page 12, engine english
+(41) line 5	Colin Brown	citation	(BS)	the tag or source at the right of the translation
+(42) line 1	Colin Brown	note	ii > nee > dim	page 12, engine english
+(42) line 2	Gitksan	transcription	Ii nem dii bekwhl get.	page 12, engine english
+(42) line 3	Gitksan	segmentation	ii nee=dim dii bekw-t=hl get	page 12, engine english
+(42) line 4	Gitksan	gloss	CCNJ NEG=PROSP FOC arrive.PL-3.II=CN people	page 12, engine english
+(42) line 5	Forbes et al. in prep.	translation	‘And the people won’t come.’	page 12, engine english, cited Forbes et al. in prep.:HH: Before the people die, from a story in Forbes et al. in prep., told by the speaker the tag names
+(42) line 5	Colin Brown	citation	(Forbes et al. in prep.:HH: Before the people die)	the tag or source at the right of the translation
+§3.1	Colin Brown	note	The linearization paradoxes that arise in the positioning of dim with respect to {wil, ii} and {yukw, nee} are schematized below:	page 12
+(43a) line 1	Colin Brown	notation	dim > {wil, ii}	page 12, the first ordering
+(43a) line 2	Colin Brown	note	See examples (29), (30)	page 12, the examples of the first ordering
+(43b) line 1	Colin Brown	notation	{wil, ii} > {yukw, nee}	page 12, the second ordering
+(43b) line 2	Colin Brown	note	See examples (31), (32), (33), (34)	page 12, the examples of the second ordering
+(43c) line 1	Colin Brown	notation	{yukw, nee} > dim	page 12, the third ordering
+(43c) line 2	Colin Brown	note	See examples (36), (37), (38), (39), (40), (41), (42)	page 12, the examples of the third ordering
+§3.2	Colin Brown	heading	3.2 Dim moves to its clausal periphery	page 13
+§3.2	Colin Brown	note	In this section I propose that dim moves to a clause-peripheral position. This analysis accounts for the ability of dim to precede a number of high, functional elements (including the dependent markers wil and ii). The fact that yukw and nee always precede dim arises from those elements selecting (dependent) clausal complements which dim occurs within. These two processes taken together account for the linearization paradoxes schematized in (43).	page 13
+§3.2	Colin Brown	note	Matthewson et al. (2022) argues that dim is generated in a relatively low syntactic position in the scope of a (null or overt) modal operator and a (null) tense operator:	page 13
+(44) line 1	Colin Brown	note	Position of dim in the preverbal field (Matthewson et al. 2022:22)	page 13, the caption
+(44) line 2	Colin Brown	notation	TP	page 13, a tree, the nodes at depth 1 read left to right
+(44) line 3	Colin Brown	notation	NON-FUT ModP	page 13, a tree, the nodes at depth 2 read left to right
+(44) line 4	Colin Brown	notation	MOD dimP	page 13, a tree, the nodes at depth 3 read left to right
+(44) line 5	Colin Brown	notation	dim vP	page 13, a tree, the nodes at depth 4 read left to right
+§3.2	Colin Brown	note	If dim’s base position in (44) is correct, dim must be displaced to a higher linear position to account for cases such as (45), where dim linearly precedes the complementizer wil (by hypothesis above TP in CP). The placement of dim therefore exhibits a mismatch between syntax and linear order.15	page 13
+(45) line 1	Gitksan	transcription	Luu amhl goodi’y dim wil wis.	page 13, engine english
+(45) line 2	Gitksan	segmentation	luu am =hl goot-’y [dim wil wis]	page 13, engine english
+(45) line 3	Gitksan	gloss	in good =CN heart-1SG.II PROSP COMP rain	page 13, engine english
+(45) line 4	Colin Brown	translation	‘I am happy that it will rain.’	page 13, engine english
+(45) line 4	Colin Brown	citation	(BS)	the tag or source at the right of the translation
+footnote 15	Colin Brown	note	15 The proposal that dim moves from a lower position is supported by the fact that this movement is not cat- egorical: in rare cases, dim surfaces in a lower linear position, as seen in the following example, where dim follows wil.	page 13, footnote
+§3.2	Colin Brown	note	I model this displacement as postsyntactic movement to the clausal periphery. For concreteness, I adopt the analysis in Davis and Huijsmans (2024) and Huijsmans (2023), which assumes that the lexical entry for morphemes can include a morphological clitic feature. This feature encodes the direction of cliticization (pro- vs. en-cliticization), and in Brown and Davis (2024a); Davis and Brown (2024); Brown and Davis (2024b), this is extended to also specify the category of the host. The proposed lexical entry for dim given in (46) states that the prospective element PROSP has the phonological form dim and includes a feature specifying that it is proclitic to C0.	page 13
+(46) line 1	Colin Brown	note	Lexical entry for dim:	page 14, the caption
+(46) line 2	Colin Brown	notation	[PROSP] ⇐⇒ { =C0}	page 14, the vocabulary item: the feature PROSP, the arrow and the host it is proclitic to
+(46) line 3	Colin Brown	notation	/dim/	page 14, the phonological form, set over the arrow
+footnote 15 (ii) line 1	Gitksan	transcription	Nem dii giihlt goohl gat, wagayt wil dim nakst.	page 13, engine english
+footnote 15 (ii) line 2	Gitksan	segmentation	nee=dim dii giihl-t goo-t=hl gat [wagayt wil dim naks-t]	page 13, engine english
+footnote 15 (ii) line 3	Gitksan	gloss	NEG=PROSP FOC lie.down-3.II LOC-3.II=CN man all.the.way COMP PROSP spouse-3.II	page 13, engine english
+footnote 15 (ii) line 4	Forbes et al. in prep.	translation	‘She should not lie with men until she gets married.’	page 13, engine english, cited Forbes et al. in prep.:BS: Siipxum Hloxs, from a story in Forbes et al. in prep., told by the speaker the tag names
+footnote 15 (ii) line 4	Colin Brown	citation	(Forbes et al. in prep.:BS: Siipxum Hloxs)	the tag or source at the right of the translation
+§3.2	Colin Brown	note	I assume that the complementizer wil, the clausal coordinator ii, alongside other Type 2 dependent markers such as the manner subordinator wila and the reason subordinator gan occupy the C pro- jection, and are thus possible hosts for dim.16 I additionally assume that matrix clauses, as well as some embedded clauses (i.e. those that merge as clausal arguments rather than as adjuncts) feature a null C0 that can still act as a morphological host for dim cliticization.	page 14
+§3.2	Colin Brown	note	The derivation for dim linearization proceeds as follows, using the embedded clause in (45) as a baseline. The syntax generates a structure that acts as an input for clitic linearization (47). Ac- cording to dim’s lexical requirements in (46), it must linearize before C0 before spell-out (modelled as morphological procliticization); this step of linearization is sketched in (48), which provides the surface ordering where dim precedes wil. I assume, following Davis and Huijsmans (2024) and Hui- jsmans (2023) that the linearized string in (48) is then shipped off to the phonological component of the grammar where processes such as allomorph selection take place.	page 14
+(47) line 1	Colin Brown	note	Structure provided by the syntax	page 14, the caption
+(47) line 2	Colin Brown	notation	CP	page 14, a tree, the nodes at depth 1 read left to right
+(47) line 3	Colin Brown	notation	wil …	page 14, a tree, the nodes at depth 2 read left to right
+(47) line 4	Colin Brown	notation	… AspP	page 14, a tree, the nodes at depth 3 read left to right
+(47) line 5	Colin Brown	notation	dim= vP	page 14, a tree, the nodes at depth 4 read left to right
+(47) line 6	Colin Brown	notation	/wis/	page 14, a tree, the nodes at depth 5 read left to right
+(47) line 7	Colin Brown	notation	‘rain’	page 14, a tree, the nodes at depth 6 read left to right
+footnote 16	Colin Brown	note	16 While it may seem surprising to analyze the clausal coordinator ii as occupying the C projection — typi- cally associated with complementizers — this analysis is motivated by several empirical facts. First, ii does not appear to co-occur with complementizers like wil, which is consistent with the idea that they compete for the same structural position. Second, the presence of ii systematically correlates with dependent clause morphosyntax. Finally, ii coordinates full clauses, not DPs, the latter requiring a distinct coordinator, gan (Forbes 2013).	page 14, footnote
+(48) line 1	Colin Brown	note	Postsyntactic clitic linearization	page 15, the caption
+(48) line 2	Colin Brown	notation	CP	page 15, a tree, the nodes at depth 1 read left to right
+(48) line 3	Colin Brown	notation	dim=wil …	page 15, a tree, the nodes at depth 2 read left to right
+(48) line 4	Colin Brown	notation	… vP	page 15, a tree, the nodes at depth 3 read left to right
+(48) line 5	Colin Brown	notation	/wis/	page 15, a tree, the nodes at depth 4 read left to right
+(48) line 6	Colin Brown	notation	‘rain’	page 15, a tree, the nodes at depth 5 read left to right
+§3.2	Colin Brown	note	This process of dim displacement accounts for the fact that dim, generated in a relatively low position, linearly precedes higher functional elements like wil (classified as Type 2 dependent markers). Dim’s inability to shift past Type 1 dependent elements follows if those elements select clausal complements, as proposed in Section 2. The derivation for the example featuring yukw in (49) proceeds as follows: first, the syntax generates the embedded clausal structure that serves as the input to clitic linearization (50); then dim procliticizes to the null C0 (51). The CP [CP dim wis], taken to be a phase (Chomsky 2000, 2001) and thus inaccessible to further (post)syntactic process, functions as the argument selected by yukw (52).	page 15
+(49) line 1	Gitksan	transcription	Yukw dim wis.	page 15, engine english
+(49) line 2	Gitksan	segmentation	yukw dim wis	page 15, engine english
+(49) line 3	Gitksan	gloss	PROG PROSP rain	page 15, engine english
+(49) line 4	Colin Brown	translation	‘It’s going to rain.’	page 15, engine english
+(49) line 4	Colin Brown	citation	(BS)	the tag or source at the right of the translation
+(50) line 1	Colin Brown	note	Structure provided by the syntax	page 15, the caption
+(50) line 2	Colin Brown	notation	CP	page 15, a tree, the nodes at depth 1 read left to right
+(50) line 3	Colin Brown	notation	∅ …	page 15, a tree, the nodes at depth 2 read left to right
+(50) line 4	Colin Brown	notation	… AspP	page 15, a tree, the nodes at depth 3 read left to right
+(50) line 5	Colin Brown	notation	dim= vP	page 15, a tree, the nodes at depth 4 read left to right
+(50) line 6	Colin Brown	notation	/wis/	page 15, a tree, the nodes at depth 5 read left to right
+(50) line 7	Colin Brown	notation	‘rain’	page 15, a tree, the nodes at depth 6 read left to right
+(51) line 1	Colin Brown	note	Postsyntactic clitic linearization (vacuous)	page 16, the caption
+(51) line 2	Colin Brown	notation	CP	page 16, a tree, the nodes at depth 1 read left to right
+(51) line 3	Colin Brown	notation	dim=∅ …	page 16, a tree, the nodes at depth 2 read left to right
+(51) line 4	Colin Brown	notation	… vP	page 16, a tree, the nodes at depth 3 read left to right
+(51) line 5	Colin Brown	notation	/wis/	page 16, a tree, the nodes at depth 4 read left to right
+(51) line 6	Colin Brown	notation	‘rain’	page 16, a tree, the nodes at depth 5 read left to right
+(52) line 1	Colin Brown	note	Yukw selects CP complement	page 16, the caption
+(52) line 2	Colin Brown	notation	YukwP	page 16, a tree, the nodes at depth 1 read left to right
+(52) line 3	Colin Brown	notation	yukw CP	page 16, a tree, the nodes at depth 2 read left to right
+(52) line 4	Colin Brown	notation	/dim wis/	page 16, a tree, the nodes at depth 3 read left to right
+(52) line 5	Colin Brown	notation	‘it will rain’	page 16, a tree, the nodes at depth 4 read left to right
+§3.2	Colin Brown	note	The analysis sketched here captures the mismatch between dim’s syntax and linear positioning, as well as the linearization paradoxes exhibited by dim when combining with Type 1 dependent marking elements.	page 16
+§3.2	Colin Brown	note	Before turning to doubling behaviour, I quickly note here that dim is not the only functional head that exhibits these linearization properties. First- and second-person ergative clitics (Series I) also linearize before Type 2 dependent markers (53), and after Type 1 dependent markers (54):17	page 16
+(53) line 1	Colin Brown	note	Series I 1st/2nd > wil	page 16, engine english
+(53) line 2	Gitksan	transcription	Luu amhl goodi’y mi dim wil ts’ilaayxws Michael.	page 16, engine english
+(53) line 3	Gitksan	segmentation	luu am =hl goot-’y [mi dim wil ts’ilaayxw-t =s Michael]	page 16, engine english
+(53) line 4	Gitksan	gloss	in good =CN heart-1SG.II 2.I PROSP COMP visit-3.II =PN Michael	page 16, engine english
+(53) line 5	Colin Brown	translation	‘I am happy that you will visit Michael.’	page 16, engine english
+(53) line 5	Colin Brown	citation	(BS)	the tag or source at the right of the translation
+(54) line 1	Colin Brown	note	yukw > Series I 1st/2nd	page 16, engine english
+(54) line 2	Gitksan	transcription	Yukw na japhl kofii.	page 16, engine english
+(54) line 3	Gitksan	segmentation	yukw [n jap-t=hl kofii]	page 16, engine english
+(54) line 4	Gitksan	gloss	PROG 1.I make-3.II=CN coffee	page 16, engine english
+(54) line 5	Colin Brown	translation	‘I am making coffee.’	page 16, engine english
+(54) line 5	Colin Brown	citation	(BS)	the tag or source at the right of the translation
+footnote 17	Colin Brown	note	17 This shifting of Series I clitics does not hold for all speakers. For instance, in the following example, dim linearizes before ii (as expected, given the discussion in the previous section), while the Series I clitic na follows ii.	page 16, footnote
+footnote 17 (iii) line 1	Gitksan	transcription	Dim yets’indis Michael ’nii’y, dim ii na jephl gyemgyem aks.	page 16, engine english
+footnote 17 (iii) line 2	Gitksan	segmentation	dim yets-’n-t-@-t =s Michael ’nii’y dim ii n jep-t =hl gyemk-m aks.	page 16, engine english
+footnote 17 (iii) line 3	Gitksan	gloss	PROSP hit-CAUS-T-TR-3.II =PN Michael 1SG.PRON PROSP CCNJ 1.I make-3.II =CN hot-ATTR water	page 16, engine english
+footnote 17 (iii) line 4	Colin Brown	translation	‘I will talk to Michael and he will make coffee.’	page 16, engine english
+footnote 17 (iii) line 4	Colin Brown	citation	(HH)	the tag or source at the right of the translation
+§3.2	Colin Brown	note	The irrealis marker ji also appears to exhibit similar linearization behaviours. In (55) ji pre- cedes two Type 2 dependent markers: an, the A-argument extraction particle, and wila, the manner subordinator.18 In (56), ji follows the Type 1 marker yukw.	page 17
+(55) line 1	Colin Brown	note	ji > {an, wila}	page 17, engine english
+(55) line 2	Gitksan	transcription	Nee diit naa ji ant wilaaxhl ji wila daa’wihlt.	page 17, engine english
+(55) line 3	Gitksan	segmentation	nee dii=t naa [ji an=t wilaax [=hl ji wila daa’whl-t]]	page 17, engine english
+(55) line 4	Gitksan	gloss	NEG FOC=3.I who IRR AX=3.I know =CN IRR MANR leave-3.II	page 17, engine english
+(55) line 5	Forbes et al. in prep.	translation	‘No one knew where it went.’	page 17, engine english, cited Forbes et al. in prep.:VG: Raven’s Nest, from a story in Forbes et al. in prep., told by the speaker the tag names
+(55) line 5	Colin Brown	citation	(Forbes et al. in prep.:VG: Raven’s Nest)	the tag or source at the right of the translation
+(56) line 1	Colin Brown	note	yukw > ji	page 17, engine english
+(56) line 2	Gitksan	transcription	Yukw ji algax̱an, nee diin xa’nin.	page 17, engine residue
+(56) line 3	Gitksan	segmentation	yukw [ji algax-n] nee dii=n xa’ni-n	page 17, engine english
+(56) line 4	Gitksan	gloss	PROG IRR speak-2SG.II NEG FOC-2.I hear-2SG.II	page 17, engine english
+(56) line 5	Colin Brown	translation	‘If you’re speaking, I can’t hear you.’	page 17, engine english
+(56) line 5	Colin Brown	citation	(HH)	the tag or source at the right of the translation
+§3.2	Colin Brown	note	Pending future work, I suggest that these elements, prospective dim, participant Series I person markers, and irrealis ji, form a class of clitics that move to a clause-initial position.	page 17
+§4	Colin Brown	heading	4 Doubling and the preverbal field	page 17
+§4	Colin Brown	note	The previous sections argued that by appealing to a split between Type 1 and Type 2 dependent markers, and assuming a mechanism for clitic movement to a clause-peripheral position, we can resolve apparent linearization paradoxes in the preverbal field. This section considers an additional empirical puzzle — the doubling of prospective dim and irrealis ji — that is explained if we assume that Type 1, and not Type 2, markers create biclausal structures.	page 17
+§4	Colin Brown	note	In certain dependent clauses, prospective dim and irrealis ji may be doubled. This doubling occurs exclusively in contexts with Type 1 markers like yukw or nee. In such cases, the doubled elements bookend the Type 1 marker: one instance linearizes above it and another below it. This is illustrated in the following examples, with the (relevant) proposed clausal boundaries indicated in the second line.	page 17
+(57) line 1	Colin Brown	note	ji-doubling with yukw:	page 17, engine english
+(57) line 2	Gitksan	transcription	Ji yukw ji algyaxin ii nee diin ’nax’nin.	page 17, engine residue
+(57) line 3	Gitksan	segmentation	[ji yukw [ji algyax-n]] ii nee dii=n ’nax’ni-n	page 17, engine english
+(57) line 4	Gitksan	gloss	IRR PROG IRR speak-2SG.II CCNJ NEG FOC=2.I hear-2SG.II	page 17, engine english
+(57) line 5	Colin Brown	translation	‘If you’re speaking, I can’t hear you.’	page 17, engine english
+(57) line 5	Colin Brown	citation	(VG)	the tag or source at the right of the translation
+(58) line 1	Colin Brown	note	ji-doubling with nee:	page 17, engine english
+(58) line 2	Gitksan	transcription	Ji neem ji yo’okshl gwila dim ii ’nii’y dim an yo’okst.	page 17, engine english
+(58) line 3	Gitksan	segmentation	[ji nee [m ji yo’oks-t=hl gwila]] dim ii ’nii’y dim an yo’oks-t	page 17, engine english
+(58) line 4	Gitksan	gloss	IRR NEG 2.I IRR wash-TR-3.II=CN blanket PROSP CCNJ 1SG.PRON PROSP AX wash-3.II	page 17, engine english
+(58) line 5	Colin Brown	translation	‘If you don’t wash the blankets, I’ll wash them.’	page 17, engine english
+(58) line 5	Colin Brown	citation	(HH)	the tag or source at the right of the translation
+footnote 18	Colin Brown	note	18 Irrealis ji does not seem to co-occur with the complementizer wil.	page 17, footnote
+(59) line 1	Colin Brown	note	dim-doubling with nee:	page 18, engine english
+(59) line 2	Gitksan	transcription	Ii hes ’Niigyemkshl g̲ahliguutxw, “Dim nee ma dim dii sim jegwihl ligit naa g̲o’osun, hlaa k̲’ap ’niiwin jog̲o’y. g̲o’osun.”	page 18, the sentence of the story, set over two lines
+(59) line 3	Gitksan	segmentation	ii he-t =s ’Niigyemks =hl g̲a-hliguu-xw [dim nee [m dim dii	page 18, engine english
+(59) line 4	Gitksan	gloss	CCNJ say-3.II =PN ’Niigyemks =CN DIST-relative-VAL PROSP NEG 2.I PROSP FOC	page 18, engine english
+(59) line 5	Gitksan	segmentation	sim jekw-T-t =hl ligi =t naa g̲o’o=s=un]] hlaa k̲’ap ’nii-win	page 18, engine residue
+(59) line 6	Gitksan	gloss	2PL/I kill-T-3.II =CN DWID =PN who LOC-3.II=PN=DEM.PROX INCEP VER on-COMP	page 18, engine english
+(59) line 7	Gitksan	segmentation	jok̲-’y g̲o’o=s=un	page 18, engine language
+(59) line 8	Gitksan	gloss	dwell-1SG.II LOC-3.II=PN=DEM.PROX	page 18, engine english
+(59) line 9	Forbes et al. in prep.	translation	‘And ’Niigyemks said to all her relatives to not kill anyone here. “This is where I live now.”’	page 18, engine english, cited Forbes et al. in prep.:VG: Frog Phratry, from a story in Forbes et al. in prep., told by the speaker the tag names
+(59) line 10	Colin Brown	citation	(Forbes et al. in prep.:VG: Frog Phratry)	page 18, engine english
+§4	Colin Brown	note	Doubling is not possible with a Type 2 dependent marker alone:	page 18
+(60) line 1	Gitksan	transcription	*Luu amhl g̱oodi’y dim win dim wis.	page 18, engine english
+(60) line 2	Gitksan	segmentation	luu am-t =hl goot-’y [dim wil dim wis]	page 18, engine english
+(60) line 3	Gitksan	gloss	in goot-3.II =CN heart-1SG.II PROSP COMP PROSP rain	page 18, engine english
+(60) line 4	Colin Brown	translation	Intended: I’m happy that it will rain.	page 18, engine english
+(60) line 4	Colin Brown	citation	(VG)	the tag or source at the right of the translation
+(60) line 5	Vincent Gogag	speaker comment	Comment: Too many dims!	page 18, engine english
+§4	Colin Brown	note	The restricted distribution of doubling — occurring only with Type 1 markers — aligns directly with the biclausal analysis developed in Section 2. Each instance of the doubled element occupies a distinct syntactic domain; this is schematized in (61).	page 18
+(61) line 1	Colin Brown	note	Dim/ji doubling in biclausal structures:	page 18, the caption
+(61) line 2	Colin Brown	notation	[CP ji/dim DEP1 [CP ji/dim …]]	page 18, the bracketing
+§5	Colin Brown	heading	5 Conclusion	page 18
+§5	Colin Brown	note	This paper examined two empirical puzzles in the Gitksan preverbal field: apparent linearization paradoxes and doubling phenomena. I argued that both puzzles can be explained by the proposal that certain dependent clauses — specifically those introduced by a Type 1 dependent marker — are in fact biclausal. I also outlined a preliminary analysis addressing the mismatch between the syntactic position and surface linearization of prospective dim and related functional elements, proposing that this mismatch results from movement to the edge of a phrasal domain.	page 18
+§5	Colin Brown	note	Future work should include a closer examination of dependent markers not discussed in this paper. Preliminary evidence suggests that additional markers derived from intransitive predicates, such as hlis(xw) ‘to be finished, perfective’, can also be classified as Type 1. For instance, like yukw and nee, hlis(xw) consistently precedes the prospective marker dim, as illustrated in (62).	page 18
+(62) line 1	Gitksan	transcription	Hlis dim dip amajebihl jixts’ik, dim yeexsi’m Lisa.	page 18, engine english
+(62) line 2	Gitksan	segmentation	hlis dim dip ama=jep-@-t=hl jixts’ik dim yeexs-@-’m (t) Lisa	page 18, engine english
+(62) line 3	Gitksan	gloss	PFV PROSP 1PL.I good=do/fix-T-3.II=CN car PROSP visit-TR-1PL.II PN Lisa	page 18, engine english
+(62) line 4	Colin Brown	translation	‘After we’ve fixed the car, we’ll visit Lisa.’	page 18, engine english
+(62) line 4	Colin Brown	citation	(VG)	the tag or source at the right of the translation
+§5	Gitksan	cited form	k’ay	‘still, just’, a predicative particle in Rigsby (1986:273), with hlaa ‘now, inceptive aspect’
+§5	Colin Brown	note	Another subgroup of dependent markers, including hlaa ‘now, inceptive aspect’ and k’ay ‘still, just’ (referred to as predicative particles in Rigsby (1986:273)) are more adverbial in nature, and require further investigation to determine whether they can also be unified with Type 1. While they lack the intransitive-verb-like properties of markers like yukw and nee (see Section 3), like yukw and nee, they consistently precede prospective dim, as shown in (63). This behaviour suggests, if the analyses presented here are correct, that hlaa, like, yukw and nee, triggers a biclausal structure.	page 19
+(63) line 1	Gitksan	transcription	Hlaa dim maadim.	page 19, engine english
+(63) line 2	Gitksan	segmentation	hlaa [dim maadim]	page 19, engine english
+(63) line 3	Gitksan	gloss	INCEP PROSP snow	page 19, engine english
+(63) line 4	Rigsby 1986:276	translation	‘It’s going to snow soon.’	page 19, engine english, cited Rigsby 1986:276; bracketing my own, the bracketing of the segmentation is Brown's
+(63) line 4	Colin Brown	citation	(Rigsby 1986:276; bracketing my own)	the tag or source at the right of the translation
+§5	Colin Brown	note	While this work is preliminary and ongoing, the analysis presented here supports the view that most, if not all, matrix dependent clauses can be analyzed as involving subordination.	page 19
+references	Colin Brown	heading	References	page 19
+references	Colin Brown	reference	Aonuki, Yurika. 2021. Relative pronominal tense: Evidence from Gitksan, Japanese, and English. Master’s thesis, University of British Columbia.	
+references	Colin Brown	reference	Brown, Colin. 2016. Extraction restrictions in Gitksan. Master’s thesis, McGill University.	
+references	Colin Brown	reference	Brown, Colin. 2018. Revisiting syntactic ergativity in Gitksan. In Proceedings of the Workshop on Structure and Constituency in the Languages of the Americas 21, ed. Megan Keough, Natalie Weber, Andrei Anghelescu, Sihwei Chen, Erin Guntly, Khia Johnson, Daniel Reisinger, and Oksana Tkachman. University of British Columbia Working Papers in Linguistics.	
+references	Colin Brown	reference	Brown, Colin. 2024. The form and function of interrogatives in Sm’algyax. Doctoral Dissertation, University of California, Los Angeles.	
+references	Colin Brown	reference	Brown, Colin, and Henry Davis. 2024a. A second-last position clitic in Sm’algyax: A puzzle. In The title of this volume is shorter than its contributions are allowed to be: Papers in honour of Hotze Rullmann, ed. M. Ryan Bochnak, Eva Csipak, Lisa Matthewson, Marcin Morzycki, and Daniel K. E. Reisinger, volume 9. Vancouver, BC: UBC Occasional Papers in Linguistics.	
+references	Colin Brown	reference	Brown, Colin, and Henry Davis. 2024b. A second-last position clitic in Smalgyax (Coast Tsimshian). In Proceedings of NELS 54.	
+references	Colin Brown	reference	Brown, Colin, Clarissa Forbes, and Michael David Schwan. 2020. Clause-type, transitivity, and the transitive vowel in Tsimshianic. In Papers for the 55th International Conference on Salish and Neighbouring Languages, ed. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter., 12–40. UBC Working Papers in Linguistics.	
+references	Colin Brown	reference	Chomsky, Noam. 2000. Minimalist inquiries: The framework. In Step by step: Essays on Minimalist syntax in honour of Howard Lasnik. Cambridge: MIT Press.	
+references	Colin Brown	reference	Chomsky, Noam. 2001. Derivation by phase. In Ken Hale: A life in language, 1–52. MIT Press.	
+references	Colin Brown	reference	Davis, Henry, and Colin Brown. 2024. A second-last position clitic in Sm’algyax: A solution. In The title of this volume is shorter than its contributions are allowed to be: Papers in honour of Hotze Rullmann, ed. M. Ryan Bochnak, Eva Csipak, Lisa Matthewson, Marcin Morzycki, and Daniel K. E. Reisinger, volume 9. Vancouver, BC: UBC Occasional Papers in Linguistics.	
+references	Colin Brown	reference	Davis, Henry, and Jason Brown. 2011. On Ā-dependencies in Gitksan. In Papers for the 46th International Conference on Salish and Neighbouring Languages, 43–80. UBC Working Papers in Linguistics.	
+references	Colin Brown	reference	Davis, Henry, and Marianne Huijsmans. 2024. Clitics and coordination in two Salish languages. In Proceedings of the West Coast Conference on Formal Linguistics (WCCFL) 39.	
+references	Colin Brown	reference	Forbes, Clarissa. 2013. Coordination and number in the Gitksan nominal domain. Master’s thesis, University of Toronto.	
+references	Colin Brown	reference	Forbes, Clarissa. 2017. Extraction morphosyntax and wh-agreement in Gitksan: The case for ac- cusativity. In Proceedings of the 2017 Canadian Linguistic Association. Ryerson University.	
+references	Colin Brown	reference	Forbes, Clarissa. 2018. Persistent ergativity: Agreement and splits in Tsimshianic. Doctoral Disser- tation, University of Toronto, Toronto, ON.	
+references	Colin Brown	reference	Forbes, Clarissa. 2023. Tsimshianic. In The languages and linguistics of Indigenous North America: A comprehensive guide, ed. Carmen Jany, Marianne Mithun, and Keren Rice, volume 1. De Gruyter Mouton.	
+references	Colin Brown	reference	Forbes, Clarissa, Henry Davis, Michael David Schwan, the UBC Gitksan, and Research Lab. in prep. ’Nit ganwilt (that’s how it was): Thirty-six Gitksan stories.	
+references	Colin Brown	language	ʔayʔajuθəm	in the title of Huijsmans 2023, (Comox-Sliammon); the text layer holds it as PayPajuθəm, the TIPA glottal stop on the code of P
+references	Colin Brown	reference	Huijsmans, Marianne. 2023. Second-position clitics, from morphosyntax to semantics: The ʔayʔajuθəm (Comox-Sliammon) perspective. Doctoral Dissertation, University of British Columbia.	
+references	Colin Brown	reference	Hunt, Katharine. 1993. Clause structure, agreement and case in Gitksan. Doctoral Dissertation, University of British Columbia.	
+references	Colin Brown	reference	Matthewson, Lisa. 2013. Gitksan modals. International Journal of American Linguistics 79:349– 394.	
+references	Colin Brown	reference	Matthewson, Lisa. 2024. Aren’t Gitksan polar questions biased? UBC.	
+references	Colin Brown	reference	Matthewson, Lisa, and Neda Todorovic. 2018. Temporal properties of attitude complements: The Serbian-Gitksan connection. In Proceedings of the Tenth Conference on the Semantics of Under- Represented Languages in the Americas. GLSA, Amherst, MA.	
+references	Colin Brown	reference	Matthewson, Lisa, Neda Todorovic, and Michael David Schwan. 2022. Future time reference and viewpoint aspect: Evidence from Gitksan. Glossa: a journal of general linguistics 7.	
+references	Colin Brown	reference	Rigsby, Bruce. 1986. Gitxsan grammar.	
+references	Colin Brown	reference	Rullmann, Hotze, and Lisa Matthewson. 2018. Towards a theory of modal-temporal interaction. Language 94:281–331.	
+references	Colin Brown	reference	Schwan, Michael David. 2019. Yukw-ing in Gitksan. University of British Columbia.	
+references	Colin Brown	reference	Tarpent, Marie-Lucie. 1987. A grammar of the Nisgha language. Doctoral Dissertation, University of Victoria.	
+references	Colin Brown	reference	Zwicky, Arnold. 1977. On clitics. Bloomington: Indiana University Linguistics Club.	
+references	Colin Brown	reference	Zwicky, Arnold, and Geoffrey Pullum. 1983. Cliticization vs. inflection: English n’t. Language 59:502–513.	
+title	Colin Brown	title	Clause typing and clitic linearization in Gitksan	the paper's title, carrying the star of the acknowledgement footnote
+title	Colin Brown	name	Colin Brown	the author, University of British Columbia
+footnote *	Colin Brown	name	Barbara Sennott	a consultant, BS in the tags
+footnote *	Colin Brown	name	Jeanne Harris	a consultant
+footnote *	Colin Brown	name	Vincent Gogag	a consultant, VG in the tags
+footnote *	Colin Brown	name	Hector Hill	a consultant, HH in the tags
+footnote *	Colin Brown	name	Michael Schwan	thanked for feedback; Michael David Schwan in the references
+footnote *	Colin Brown	name	Clarissa Forbes	thanked for feedback
+footnote *	Colin Brown	name	Henry Davis	thanked for feedback
+footnote *	Colin Brown	name	UBC Gitksan Lab	thanked for feedback
+§1	Colin Brown	language	Gitksan	the language of the paper, ISO 639-3 git, Interior Tsimshianic, British Columbia
+§1	Colin Brown	language	Tsimshianic	the family Gitksan belongs to
+§1	Colin Brown	place	British Columbia	where Gitksan is spoken
+(16)	Colin Brown	language	Nisga’a	whose counterpart of (16) is cited from Tarpent 1987:219
+references	Colin Brown	language	Sm’algyax	in the titles of Brown 2024 and of Brown and Davis 2024a and Davis and Brown 2024
+references	Colin Brown	language	Smalgyax	Coast Tsimshian, in the title of Brown and Davis 2024b
+(42)	Colin Brown	cited title	Before the people die	the story (42) comes from, told by HH, in Forbes et al. in prep.
+footnote 15 (ii)	Colin Brown	cited title	Siipxum Hloxs	the story (ii) comes from, told by BS, in Forbes et al. in prep.
+(55)	Colin Brown	cited title	Raven’s Nest	the story (55) comes from, told by VG, in Forbes et al. in prep.
+(59)	Colin Brown	cited title	Frog Phratry	the story (59) comes from, told by VG, in Forbes et al. in prep.
+(59)	Colin Brown	name	’Niigyemks	a person in the story of (59), glossed as a proper noun
+all	Colin Brown	notation	@	the transitive vowel and the schwa of the extraction suffix -@t are written @ in the segmentations, t’is-@-’y
+all	Colin Brown	notation	bold	the page sets the extraction morphology of (21) and (22) in bold, and the table does not mark it
+all	Colin Brown	notation	gloss labels	the page draws the gloss labels as small capitals, and the text layer holds them as ASCII capitals, PROSP. The table keeps the text layer

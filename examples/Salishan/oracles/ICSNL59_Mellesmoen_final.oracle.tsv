@@ -1,0 +1,422 @@
+where	who	kind	form	gloss
+front	Gloria Mellesmoen	note	Papers for the International Conference on Salish and Neighbouring Languages 59. D. K. E. Reisinger, Laura Griffin, Ella Hannon, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, Julia Schillo, Lauren Schneider, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2024.	page 1
+title	Gloria Mellesmoen	title	Phonetic, Phonological, and Morphological Sources of Vowel Reduplication:	page 1, the title, its first line
+front	Gloria Mellesmoen	notation	Vː	a reduplication shape, a long vowel
+front	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+front	Salish	cited affix	-ʔ-	page 1, the infixed glottal stop
+title	Gloria Mellesmoen	title	The Innovation of V1 Reduplication in Salish*	page 1, the title, its second line, its star the acknowledgement footnote's
+title	Gloria Mellesmoen	note	Gloria Mellesmoen University of British Columbia	page 1, the author and affiliation
+title	Gloria Mellesmoen	name	Gloria Mellesmoen	author, University of British Columbia
+front	Gloria Mellesmoen	note	Abstract: Examination of Salish reduplication often focuses on three core patterns: C1C2, C1, and C2 reduplication. Descriptions of individual languages also include vowel (V1) reduplication, though little is known about the synchronic status and diachronic development of V1 reduplication in Salish. In this paper, I provide an overview of attested V1 reduplication patterns in Salish and evaluate the synchronic and diachronic status of this fourth reduplicant shape in the language family. Previously described V1 reduplication patterns fall into three categories: (i) Vː patterns (vowel length), (ii) V…V patterns (non-adjacent copies), and (iii) VʔV patterns (near-adjacent copies). I detail a diachronic trajectory that results in the innovation of V1 reduplication. I argue that V1 reduplication is an innovation that has emerged due to a combination of certain phonetic (echo vowels), phonological (translaryngeal harmony), and morphological (presence of -ʔ-) properties found across the family. Differences between languages with V1 patterns reflect different stages of the trajectory. Keywords: vowel (V1) reduplication, historical Salish, innovation, non-concatenative morphology	page 1, the abstract
+§1	Gloria Mellesmoen	heading	1 Introduction	page 1
+§1	Salish	cited form	d’Alene	page 1
+§1	Gloria Mellesmoen	note	Reduplication is present in all 23 Salish languages. Vowel (V1) reduplication is attested in certain Salish languages, including Comox-Sliammon (e.g., Mellesmoen et al. 2020) and Coeur d’Alene (e.g., Reichard 1938).1 Despite reports of V1 reduplication in twelve languages, across different branches of the family, it has not featured in typological overviews (e.g., Kinkade & Czaykowska- Higgins 1998). Based on available descriptions of individual languages, little can be said about the synchronic typology or diachronic status of V1 reduplication in Salish.	page 1
+§1	Gloria Mellesmoen	notation	Vː	a reduplication shape, a long vowel
+§1	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§1	Gloria Mellesmoen	note	I outline the broad typology of reduplicative morphemes in Salish in Section 2 before establishing the synchronic distribution of V1 reduplication in Section 3. Patterns that fall under the umbrella of V1 reduplication in Salish include (i) Vː patterns (vowel length), (ii) V…V patterns (non-adjacent copies), and (iii) VʔV patterns (near-adjacent copies). In Section 4, I consider the possible origin of the VʔV patterns which connects the innovation of V1 reduplication to other phonetic, phonological, and morphological properties of Salish languages. Section 5 concludes.	page 1
+§2	Gloria Mellesmoen	heading	2 Reduplication in Salish	page 1
+footnote *	Gloria Mellesmoen	note	* Thank you to Suzanne Urbanczyk for encouraging me to finish this paper. I also thank Henry Davis for helpful conversations related to vowel reduplication in the context of my dissertation. Contact info: gloria.mellesmoen@ubc.ca	page 1, footnote
+footnote 1	Gloria Mellesmoen	note	1 To facilitate cross-linguistic comparison across dialects and different sources, I use the exonyms standard in Salish historical linguistics.	page 1, footnote
+footnote 2	Gloria Mellesmoen	note	2 As shown in Table 1, V1 reduplication always occurs in combination with another type of reduplication. Examples in this table come from fieldwork with Elsie Paul and Freddie Louie. I am very grateful to them for their time and patience, as well as for teaching me about their language.	page 1, footnote
+§2	Gloria Mellesmoen	note	There are four main reduplication types in Salish: C1C2 reduplication, C1 reduplication, C2 reduplication, and V1 reduplication. Examples of each type of reduplication in Comox-Sliammon are provided in Table 1.2	page 1
+Table 1 line 1	Gloria Mellesmoen	note	Four reduplicant shapes in Comox-Sliammon	page 2, the caption
+Table 1 line 2	Gloria Mellesmoen	note	Word C1C2 C1 C2 V1	page 2, heads the rows below
+Table 1 line 3	Gloria Mellesmoen	note	supayu	page 2, heads the rows below
+Table 1 line 4	Gloria Mellesmoen	translation	‘axe’	page 2
+Table 1 line 5	Comox-Sliammon	gloss	səpsupayu	page 2, engine language
+Table 1 line 6	Gloria Mellesmoen	translation	‘axes’	page 2
+Table 1 line 7	Comox-Sliammon	gloss	suspayu	page 2, engine residue
+Table 1 line 8	Gloria Mellesmoen	translation	‘little axe’	page 2
+Table 1 line 9	Comox-Sliammon	gloss	suʔuspayu	page 2, engine language
+Table 1 line 10	Gloria Mellesmoen	translation	‘little axes’	page 2
+Table 1 line 11	Comox-Sliammon	gloss	tih	page 2, engine residue
+Table 1 line 12	Gloria Mellesmoen	translation	‘big’	page 2
+Table 1 line 13	Comox-Sliammon	gloss	tihtih	page 2, engine residue
+Table 1 line 14	Gloria Mellesmoen	translation	‘big (PL)’	page 2
+Table 1 line 15	Comox-Sliammon	gloss	tihih	page 2, engine residue
+Table 1 line 16	Gloria Mellesmoen	translation	‘got big’	page 2
+Table 1 line 17	Comox-Sliammon	gloss	ʔimaš	page 2, engine language
+Table 1 line 18	Gloria Mellesmoen	translation	‘walk’	page 2
+Table 1 line 19	Comox-Sliammon	gloss	ʔəmʔimaš	page 2, engine language
+Table 1 line 20	Gloria Mellesmoen	translation	‘walking (around)’	page 2
+Table 1 line 21	Comox-Sliammon	gloss	ʔiʔimaš	page 2, engine language
+Table 1 line 22	Gloria Mellesmoen	translation	‘walking’	page 2
+§2	Salish	cited form	suspayu	page 2, ‘little axe’
+§2	Salish	cited form	ʔiʔimaš	page 2, ‘walking’
+§2	Salish	cited form	ʔaʔmut	page 2
+§2	Gloria Mellesmoen	note	The labels refer to which segments are copied and abstract away from cross-Salish variation in vowel presence and quality (with C1C2, C1, and C2 reduplication), or with epenthetic consonants (with V1 reduplication). Languages can have more than one morpheme within each category. For example, Comox-Sliammon has three types of C1 reduplication (see, e.g., Watanabe 2003): diminutive (e.g., suspayu ‘little axe’), imperfective (e.g., ʔiʔimaš ‘walking’), and plural (ʔaʔmut ‘they are at home’). The total number of distinct reduplicative morphemes in any given Salish language, as well as across Salish, is therefore not limited to four. In fact, Kirkham (1993) used a similar four-way distinction to classify seven unique reduplicative morphemes in Lushootseed.3 While Kirkham (1993) recognizes vowel reduplication as part of the typology of reduplicative patterns, the inclusion of V1 reduplication is a departure from most other descriptions of Salish reduplication; only C1C2 reduplication, C1 reduplication, and C2 reduplication processes are typically included (e.g., Kroeber 1999).	page 2
+§2	Gloria Mellesmoen	note	I define vowel reduplication patterns in this paper as instances where a vowel is copied independent of any copied consonants (i.e., any consonant associated with the reduplication is a fixed or epenthetic segment). V1 reduplication is more marginal than the other three types of reduplication; its presence versus absence (within a language), inclusion in different language descriptions, and apparent productivity are more variable. Previous descriptions of V1 reduplication are summarized in the next section.	page 2
+§3	Gloria Mellesmoen	heading	3 V1 reduplication in Salish from a synchronic perspective	page 2
+footnote 3	Gloria Mellesmoen	note	3 I diverge from Kirkham (1993) in notation and use the labels C1 reduplication, C 1C2 reduplication, C 2 reduplication, and V1 reduplication instead of CV, CVC, VC, and V to better capture the similarities and abstract over differences to facilitate cross-Salish comparison.	page 2, footnote
+footnote 4	Gloria Mellesmoen	note	4 Galloway (1984) includes an entry “?//-ʔV//” which he speculates may refer to plural actors. He provides a single example, given in (i). Compare this with the Lushootseed word in (ii), which has a similar form but lacks reduplication.	page 2, footnote
+§3	Salish	cited form	//-ʔV//	page 2
+§3	Gloria Mellesmoen	note	V1 reduplication occurs in fewer Salish languages than the other three types of reduplication (C1C2, C1, and C2). It has been described in twelve languages (three Southern Interior languages, five Central Salish languages, two Tsamosan languages, Bella Coola, and Tillamook). The distribution of V1 reduplication across different sources is summarized in Table 2. I set Nooksack aside because it is restricted to a single lexical item.4	page 2
+footnote 4 (i) line 1	Nooksack	segmentation	č̓ǽ<ʔæ>ƛ̓ (cf. č̓æƛ̓ ‘play’)	page 2, engine language
+footnote 4 (i) line 2	Galloway 1984:83	translation	‘in a bunch playing’	page 2, engine english, cited Galloway 1984:83
+footnote 4 (i) line 2	Gloria Mellesmoen	citation	(Galloway 1984:83)	the tag or source at the right of the translation
+footnote 4 (ii) line 1	Lushootseed	transcription	c̓áʔa	page 2, engine language
+footnote 4 (ii) line 2	Bates et al. 1994:339	translation	‘play(ing)’	page 2, engine english, cited Bates et al. 1994:339
+footnote 4 (ii) line 2	Gloria Mellesmoen	citation	(Bates et al. 1994:339)	the tag or source at the right of the translation
+§3	Salish	cited form	d’Alene	page 3
+§3	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§3	Gloria Mellesmoen	notation	Vː	a reduplication shape, a long vowel
+§3	Gloria Mellesmoen	note	Table 2: Summary of V1 reduplication patterns in the literature Language Source Function Interior Salish Coeur d’Alene Reichard (1938) Inchoative Okanagan Watkins (1970) Inchoative Kalispel-Spokane- Montana Salish Vogt (1940) / Thomason (1997) Inchoative, Plural Central Salish Lushootseed Hess (1967) Plural Comox-Sliammon Watanabe (2003) / fieldwork Plural Twana Drachman (1969) unclear Northern Straits Raffo (1972) Aspectual Nooksack Galloway (1984) unclear Tsamosan Quinault Modrow (1971) Comparative Lower Chehalis Robertson (2014) Plural Bella Coola Nater (1984) Diminutive Tillamook Edel (1939) unclear V1 reduplication in Salish can be categorized into three major types based on their surface form: (i) VʔV patterns (adjacent copies), (ii) Vː (non-adjacent copies), and (iii) V…V patterns (near- adjacent copies). The three types are summarized in (1).	page 3
+§3	Gloria Mellesmoen	note	(1) Type Realization VʔV vowel and copy separated with a glottal stop that would not otherwise be present Vː long vowel VCV vowel and copy separated by a segment that does not participate in reduplication Table 3 provides an overview of which types are present in each of the languages, based on previous descriptions. Eight of the ten vowel reduplication patterns proposed in Salish fall into the VʔV pattern. There are two examples of Vː reduplication and one example of V…V reduplication. Table 3: Categorization of V1 reduplication patterns in the literature Language Function Category Interior Salish Coeur d’Alene Inchoative VʔV Okanagan Inchoative VʔV Kalispel-Spokane-Montana Salish Inchoative, Plural VʔV Central Salish Lushootseed Plural Vː Comox-Sliammon Plural VʔV Twana unclear VʔV Straits (Songish) Aspectual VʔV Tsamosan Quinault Comparative VʔV Lower Chehalis Plural V…V Bella Coola Diminutive Vː Tillamook unclear VʔV In the sections 3.1 to 3.3, I summarise each subtype with illustrative examples and discuss other morphemes that belong in that category, in addition to the ones explicitly labeled as reduplication in previous descriptions.	page 3
+§3.1	Gloria Mellesmoen	heading	3.1 Adjacent copies (Vː): vowel length	page 4
+§3.1	Gloria Mellesmoen	notation	Vː	a reduplication shape, a long vowel
+§3.1	Gloria Mellesmoen	note	V1 reduplication may result in two adjacent copies of the vowel; however, two adjacent vowels may be realized as a long vowel (Vː). The Vː pattern is found in Bella Coola, as described by Nater (1984) and Lushootseed, as described by Hess (1967) and Bates et al. (1994). I provide examples from Lushootseed in (2), where V1 reduplication is associated with plurality.5	page 4
+(2) line 1	Gloria Mellesmoen	note	Lushootseed plural V1 reduplication	page 4, the caption
+(2a) line 1	Lushootseed	transcription	stúutubš	page 4, the orthography
+(2a) line 1	Gloria Mellesmoen	translation	‘boys’	page 4
+(2a) line 1	Gloria Mellesmoen	note	(cf. stubš ‘man’)	page 4
+(2a) line 1	Gloria Mellesmoen	note	(pg. 229)	page 4
+(2b) line 1	Lushootseed	transcription	tiiʔiɬ	page 4, the orthography
+(2b) line 1	Gloria Mellesmoen	translation	‘those’	page 4
+(2b) line 1	Gloria Mellesmoen	note	(cf. tiʔiɬ ‘that’)	page 4
+(2b) line 1	Gloria Mellesmoen	note	(pg. 228)	page 4
+(2c) line 1	Lushootseed	transcription	šáadᶻal	page 4, the orthography
+(2c) line 1	Gloria Mellesmoen	translation	‘several go outside’	page 4
+(2c) line 1	Gloria Mellesmoen	note	(cf. šədᶻál ‘go outside’)	page 4
+(2c) line 1	Gloria Mellesmoen	note	(pg. 210)	page 4
+(2d) line 1	Lushootseed	transcription	sɬáaɬədəyʔ	page 4, the orthography
+(2d) line 1	Gloria Mellesmoen	translation	‘girls’	page 4
+(2d) line 1	Gloria Mellesmoen	note	(cf. sɬádəyʔ ‘woman’)	page 4
+(2d) line 1	Gloria Mellesmoen	note	(pg. 141)	page 4
+(2e) line 1	Lushootseed	transcription	gʷáadgʷad	page 4, the orthography
+(2e) line 1	Gloria Mellesmoen	translation	‘talk, converse’	page 4
+(2e) line 1	Gloria Mellesmoen	note	(cf. gʷəgʷá(d)txʷ ‘berate/scold someone’)	page 4
+(2e) line 1	Gloria Mellesmoen	note	(pg. 96)	page 4
+(2f) line 1	Lushootseed	transcription	háadᶻ-adiʔ	page 4, the orthography
+(2f) line 1	Gloria Mellesmoen	translation	‘long(sided house)’	page 4
+(2f) line 1	Gloria Mellesmoen	note	(cf. ʔiɬs(h)ádᶻəb ‘taller’)	page 4
+(2f) line 1	Gloria Mellesmoen	note	(pg. 106)	page 4
+(2f) line 2	Gloria Mellesmoen	note	(Bates et al. 1994)	page 4
+§3.1	Gloria Mellesmoen	note	The Vː pattern of V1 reduplication can also be described as vowel lengthening, which is part of the grammar of certain Salish languages. For example, the Vː pattern in Lushootseed bears resemblance to the lengthening that marks diminutive in Tsamosan (see Mellesmoen 2022 for an analysis of Upper Chehalis diminutives). Examples from Upper Chehalis and one from Cowlitz are provided in (3a) and (3b), respectively.	page 4
+(3) line 1	Gloria Mellesmoen	note	Tsamosan diminutive Vː	page 4, the caption
+(3a) line 1	Upper Chehalis	transcription	latáːm	page 4, the orthography
+(3a) line 1	Gloria Mellesmoen	note	(cf. latám)	page 4
+(3a) line 1	Gloria Mellesmoen	translation	‘little table’	page 4
+(3a) line 1	Gloria Mellesmoen	note	Upper Chehalis	page 4, between the cells
+(3b) line 1	Cowlitz	transcription	ʔéːmx̣kʷu	page 4, the orthography
+(3b) line 1	Gloria Mellesmoen	note	(cf. ʔə́mx̣kʷu)	page 4
+(3b) line 1	Gloria Mellesmoen	translation	‘little cedar-basket’	page 4
+(3b) line 1	Gloria Mellesmoen	note	Cowlitz	page 4, between the cells
+(3b) line 1	Gloria Mellesmoen	note	(Kinkade 1993a:15)	page 4
+§3.1	Gloria Mellesmoen	note	The fact that the pattern in Lushootseed in (2) is labelled as reduplication and the one in Tsamosan in (3) is labelled as vowel lengthening raises the following question: do these patterns involve different phonological processes and, if so, is there a structural difference between a doubled and a lengthened vowel? Assuming that reduplication is triggered by prosodic affixation (e.g., McCarthy & Prince 1994), vowel reduplication and lengthening each are analyzed as the addition of a mora. Cross-linguistic work on reduplication has included both consonant gemination and vowel lengthening as examples of reduplication (Rubino 2005), which supports the inclusion of Vː patterns in this overview of patterns of vowel reduplication in Salish. Future work on vowel reduplication should explore lengthening processes across Salish languages.	page 4
+footnote 5	Gloria Mellesmoen	note	5 The vowel is doubled in the examples, which is identical to how long vowels are transcribed for the language. As there is no evidence for another analysis (e.g., an intervening glottal stop), I analyze this as a doubled vowel realized as a long vowel (/VV/ > [Vː]). Urbanczyk (1996:31) chooses to set this type of reduplication aside in her dissertation, highlighting similar questions about its realization that make it unclear if it should be considered as reduplication or the addition of a mora. Crucially, her theoretical approach does not assume the affixation of prosodic units triggers reduplication. Both options can be classified as reduplication in my approach because the addition of a mora can trigger reduplication.	page 4, footnote
+§3.2	Gloria Mellesmoen	heading	3.2 Non-adjacent copies (V…V): copies separated by other segments	page 5
+§3.2	Gloria Mellesmoen	note	A copied vowel may appear in a non-adjacent position relative to a base, such that at least one segment stands between a vowel and its copy V…V, excluding cases where the intervening segment is a glottal stop that is part of the same morpheme as the reduplication or if the reduplication of the vowel triggers epenthesis (see Section 3.3).	page 5
+§3.2	Salish	cited form	/ɬ/	page 5
+§3.2	Gloria Mellesmoen	note	Plural V1 reduplication in Lower Chehalis is an example of non-adjacent vowel reduplication. The examples in (4) from Robertson (2014) show the root vowel is reduplicated and positioned after the second consonant of the root. Infixation occurs with longer roots, as shown in (4c). A glottal stop follows the reduplicated vowel.6 This is a V…V pattern because the vowel and its copy are separated by segmental content that does not participate in reduplication (e.g., /ɬ/ in 5a).	page 5
+(4) line 1	Gloria Mellesmoen	note	Lower Chehalis plural V1 reduplication	page 5, engine english
+(4a) line 1	Lower Chehalis	segmentation	cúɬ~uʔ	page 5, engine language
+(4a) line 2	Lower Chehalis	gloss	foot~PL	page 5, engine english
+(4a) line 3	Gloria Mellesmoen	translation	‘feet’	page 5, engine residue
+(4b) line 1	Lower Chehalis	segmentation	x̣á<ʔ>q~aʔ	page 5, engine language
+(4b) line 2	Lower Chehalis	gloss	child<PL>~PL	page 5, engine english
+(4b) line 3	Gloria Mellesmoen	translation	‘children’	page 5, engine english
+(4c) line 1	Lower Chehalis	segmentation	c̓í<ʔ>k̓ʷ<iʔ>t	page 5, engine language
+(4c) line 2	Lower Chehalis	gloss	light<PL><PL>	page 5, engine english
+(4c) line 3	Robertson 2014:119	translation	‘lamps, lights’	page 5, engine english, cited Robertson 2014:119
+(4c) line 3	Gloria Mellesmoen	citation	(Robertson 2014:119)	the tag or source at the right of the translation
+§3.2	Gloria Mellesmoen	note	Robertson (2014:118–119) considers whether this pattern is best categorized as vowel harmony or reduplication, concluding that reduplication is the better analysis, even though vowel reduplication is “very rare crosslinguistically and not previously described in Salish”. Potential ambiguity between patterns of vowel harmony and reduplication also extend to another widespread pattern in Salish: transitivizer vowels. Across many Salish languages, the quality of the vowel in a transitivizing suffix is determined by the vowel in the stem. Examples from Comox-Sliammon (Watanabe 2003), Squamish (Jacobs 2012), and Lillooet (Van Eijk 1997) are provided in (5) to (7).7 The vowel associated with the transitivizing suffix in each of these examples is a copy of the root vowel.8	page 5
+(5) line 1	Gloria Mellesmoen	note	Comox-Sliammon transitive -Vt (V…V pattern)	page 5, the caption
+(5a) line 1	Comox-Sliammon	transcription	θap-at	page 5, the orthography
+(5a) line 1	Gloria Mellesmoen	translation	‘bathe it’	page 5
+(5b) line 1	Comox-Sliammon	transcription	hig-it	page 5, the orthography
+(5b) line 1	Gloria Mellesmoen	translation	‘burn in’	page 5
+(5c) line 1	Comox-Sliammon	transcription	wut-ut	page 5, the orthography
+(5c) line 1	Gloria Mellesmoen	translation	‘bend it’	page 5
+(5c) line 1	Gloria Mellesmoen	note	(Watanabe 2003:214–215)	page 5
+footnote 6	Gloria Mellesmoen	note	6 An additional infixed glottal stop is also present in (4b,c).	page 5, footnote
+footnote 7	Gloria Mellesmoen	note	7 While translations in (6) do not suggest transitivity, these forms are transitive. The translations given here come directly from Dyck (2004:290).	page 5, footnote
+footnote 8	Gloria Mellesmoen	note	8 The full pattern is more complicated: for example, the transitivizer may have no vowel, rather than a copy, when added to a schwa-based root in Squamish (Dyck 2004:290).	page 5, footnote
+(6) line 1	Gloria Mellesmoen	note	Squamish transitive -Vt (V…V pattern)	page 6, the caption
+(6a) line 1	Squamish	transcription	čáw-at	page 6, the orthography
+(6a) line 1	Gloria Mellesmoen	translation	‘help’	page 6
+(6b) line 1	Squamish	transcription	cíxʷ-it	page 6, the orthography
+(6b) line 1	Gloria Mellesmoen	translation	‘reach’	page 6
+(6c) line 1	Squamish	transcription	šúk̓ʷut	page 6, the orthography
+(6c) line 1	Gloria Mellesmoen	translation	‘bathe’	page 6
+(6c) line 1	Gloria Mellesmoen	note	(Dyck 2004:290)	page 6
+(7) line 1	Gloria Mellesmoen	note	Lillooet transitive -Vn/-Vn̓ (V…V pattern)	page 6, heads the rows below
+(7a) line 1	Lillooet	transcription	k̓áx-an̓	page 6, the orthography
+(7a) line 1	Gloria Mellesmoen	translation	‘to dry smth.’	page 6
+(7b) line 1	Lillooet	transcription	ník̓-in̓	page 6, the orthography
+(7b) line 1	Gloria Mellesmoen	translation	‘to cut smth.’	page 6
+(7c) line 1	Lillooet	transcription	púɬ-un̓	page 6, the orthography
+(7c) line 1	Gloria Mellesmoen	translation	‘to boil smth.’	page 6
+(7c) line 1	Gloria Mellesmoen	note	(Van Eijk 1997:110)	page 6
+§3.2	Salish	cited form	non-[ə	page 6
+§3.2	Gloria Mellesmoen	note	Link vowels have not typically been labelled as reduplication in previous work. For example, Jacobs (2012) describes the process as vowel harmony. The difference between vowel harmony and reduplication relies on phonological analysis. If the transitivizer has an underlying vowel that receives place features from the root vowel, harmony is the better analysis. However, if the vowel associated with the transitivizer is not present underlyingly, it must be either epenthetic or reduplicated. Epenthesis of a vowel with the same quality as the root vowel or the reduplication of the root vowel yields the same surface form. Given that epenthesis of non-[ə] vowels is typically more restricted (e.g., [u] would be unexpected as an epenthetic vowel across the family), the reduplication analysis is more consistent with the grammar of epenthesis (relative to reduplication) in Salish. Future work on vowel reduplication should explore morpheme-triggered vowel harmony processes across Salish languages.	page 6
+§3.3	Gloria Mellesmoen	heading	3.3 Near-adjacent copies (VʔV): copies separated by other Segments	page 6
+§3.3	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§3.3	Gloria Mellesmoen	note	The most common type of V1 reduplication in the literature involves a near-adjacent copy of the vowel, such that the two identical vowels that are only separated by a glottal stop (VʔV). Glottal stops in VʔV reduplication are either epenthetic to avoid vowel hiatus or are present in the input as part of the morpheme triggering reduplication. VʔV reduplication differs from V…V reduplication with respect to the source of the intervening vowel: the glottal stop in VʔV reduplication is only present because a morpheme was added, while an intervening glottal stop in V…V reduplication would be present without the reduplicative morpheme.	page 6
+§3.3	Salish	cited form	d’Alene	page 6
+§3.3	Gloria Mellesmoen	note	The VʔV pattern of V1 reduplication has been described in eight languages, including three Southern Interior Salish languages (Okanagan, Kalispel-Spokane-Montana Salish, Coeur d’Alene), three Central Salish languages (Comox-Sliammon, Twana, and Northern Straits), one Tsamosan language (Quinault), and Tillamook. I discuss Interior Salish in Section 3.3.1 and Central Salish in 3.3.2. I set Tillamook, Quinault, and Twana aside because the available data are quite limited and further work would be needed to explore the V1 reduplication in each of the languages.9	page 6
+§3.3.1	Gloria Mellesmoen	heading	3.3.1 VʔV in Southern Interior Salish	page 6
+footnote 9	Gloria Mellesmoen	note	9 Drachman (1969) states that V1 reduplication in Twana is associated with a diminutive. However, a copied vowel also appears following roots of shape CVʔ- (i.e., a V…V pattern) without diminutive marking, so Drachman’s (1969) examples do not provide enough context or a translation to determine when and where a diminutive is present.	page 6, footnote
+§3.3.1	Gloria Mellesmoen	notation	CVʔ-	a reduplicant shape
+§3.3.1	Gloria Mellesmoen	note	V1 reduplication is associated with an inchoative function in three Southern Interior Salish languages. The Kalispel-Spokane-Montana Salish varieties have both an inchoative V1 and a plural V1 reduplication process marking plurality, shown in (8) and (9), respectively. Vogt (1940) distinguishes them by reference to stress: the inchoative copies a stem vowel, while the plural copies a stressed vowel.	page 6
+(8) line 1	Gloria Mellesmoen	note	Kalispel (Kalispel-Spokane-Montana Salish) inchoative V1	page 7, the caption
+(8a) line 1	Kalispel	transcription	naʔás	page 7, the orthography
+(8a) line 1	Gloria Mellesmoen	translation	‘He gets wet’	page 7
+(8a) line 1	Gloria Mellesmoen	note	(cf. nas ‘wet’)	page 7
+(8b) line 1	Kalispel	transcription	qʷuʔúɬ	page 7, the orthography
+(8b) line 1	Gloria Mellesmoen	translation	‘He gets dusty.’	page 7
+(8b) line 1	Gloria Mellesmoen	note	(cf. qʷuɬ ‘dusty’)	page 7
+(8b) line 1	Gloria Mellesmoen	note	(Vogt 1940:64)	page 7
+(9) line 1	Gloria Mellesmoen	note	Montana Salish (Kalispel-Spokane-Montana Salish) plural V1	page 7, the caption
+(9a) line 1	Montana Salish	transcription	čɬíʔip	page 7, the orthography
+(9a) line 1	Gloria Mellesmoen	translation	‘They hunted something.’	page 7
+(9b) line 1	Montana Salish	transcription	čɬpʔntéʔes	page 7, the orthography
+(9b) line 1	Gloria Mellesmoen	translation	‘They hunted it.’	page 7
+(9c) line 1	Montana Salish	transcription	cíʔitxʷs	page 7, the orthography
+(9c) line 1	Gloria Mellesmoen	translation	‘Their house.’	page 7
+(9d) line 1	Montana Salish	transcription	nx̣éʔesls	page 7, the orthography
+(9d) line 1	Gloria Mellesmoen	translation	‘They’re happy.’	page 7
+(9d) line 1	Gloria Mellesmoen	note	(Thomason 1997:354)	page 7
+§3.3.1	Salish	cited form	-ʔ-	page 7
+§3.3.1	Salish	cited form	čɬíʔip	page 7
+§3.3.1	Salish	cited form	čɬíʔp	page 7
+§3.3.1	Gloria Mellesmoen	notation	V́ʔ	a stressed vowel and a glottal stop
+§3.3.1	Gloria Mellesmoen	note	V1 reduplication shown in (8) and (9) corresponds to an infixed -ʔ- in Carlson and Flett’s (1989) Spokane dictionary in the same position, but without a copied vowel. For example, the word čɬíʔip in (9a) corresponds to čɬíʔp in Carlson and Flett (1989:204). It is possible that dialect differences may play a role, as Thomason (1997) is describing Montana Salish and Carlson and Flett (1989) are describing Spokane. However, while Carlson (1972:10) does not transcribe plurals or inchoatives with an extra vowel, he acknowledges that there is an “aspirated release[, which] is heard of as a voiceless vowel of the same quality” as the stressed vowel in a V́ʔ sequence. Therefore, the accounts do converge on a surface vowel following a glottal stop, even if this vowel is not transcribed in the dictionary forms.	page 7
+§3.3.1	Gloria Mellesmoen	note	Watkins (1970) includes V1 reduplication in his account of Okanagan. Though V1 reduplication is transcribed as two adjacent vowels, Watkins (1970:35–36) clarifies that all VV sequences “are separated in articulation by [a glottal closure] when the second member [bears primary stress]”.	page 7
+(10) line 1	Gloria Mellesmoen	note	Okanagan inchoative V1	page 7, the caption
+(10a) line 1	Okanagan	transcription	knɬaʔát̓	page 7, the orthography
+(10a) line 1	Gloria Mellesmoen	translation	‘I got wet.’	page 7
+(10a) line 1	Gloria Mellesmoen	note	(cf. ɬat̓ ‘It is wet.’)	page 7
+(10a) line 1	Gloria Mellesmoen	note	(pg. 107)	page 7
+(10b) line 1	Okanagan	transcription	qʷaʔác	page 7, the orthography
+(10b) line 1	Gloria Mellesmoen	translation	‘It is getting warm.’	page 7
+(10b) line 1	Gloria Mellesmoen	note	(cf. qʷacqʷəct ‘warm weather’)	page 7
+(10b) line 1	Gloria Mellesmoen	note	(pg. 100)	page 7
+(10c) line 1	Okanagan	transcription	q̓ʷuʔúc	page 7, the orthography
+(10c) line 1	Gloria Mellesmoen	translation	‘He’s getting fat.’	page 7
+(10c) line 1	Gloria Mellesmoen	note	(cf. sq̓ʷuct ‘fat’)	page 7
+(10c) line 1	Gloria Mellesmoen	note	(pg. 65)	page 7
+(10c) line 2	Gloria Mellesmoen	note	(Watkins 1970)	page 7
+§3.3.1	Salish	cited form	-Vʔ-	page 7
+§3.3.1	Gloria Mellesmoen	note	While V1 reduplication is not explicitly described in other sources, the Colville-Okanagan dictionary records two forms for some inchoatives, one with just an infixed -ʔ- and one with an infixed -Vʔ- sequence where the vowel has the same quality as the stressed vowel (Mattina 1987). Examples are given in (11).	page 7
+(11) line 1	Gloria Mellesmoen	note	Variable forms of Okanagan inchoatives	page 7, the caption
+(11a) line 1	Okanagan	transcription	ciʔíx ~ cʔix	page 7, the orthography
+(11a) line 1	Gloria Mellesmoen	translation	‘it gets warm’	page 7
+(11b) line 1	Okanagan	transcription	spuʔúl̓~ spʔul̓	page 7, the orthography
+(11b) line 1	Gloria Mellesmoen	translation	‘smoke from a fire’	page 7
+(11b) line 1	Gloria Mellesmoen	note	(Mattina 1987:12,134)	page 7
+§3.3.1	Salish	cited form	d’Alene	page 7
+§3.3.1	Gloria Mellesmoen	note	Reichard (1938) also describes V1 reduplication in Coeur d’Alene, which marks an inchoative, as in Kalispel-Spokane-Montana Salish and Okanagan. Examples are given in (12).	page 7
+(12) line 1	Gloria Mellesmoen	note	Coeur d’Alene inchoative V1	page 8, the caption
+(12a) line 1	Coeur d’Alene	transcription	həntaʔax̣álp	page 8, the orthography
+(12a) line 1	Gloria Mellesmoen	translation	‘I felt pungency.’	page 8
+(12b) line 1	Coeur d’Alene	transcription	hənt̓aʔašálp	page 8, the orthography
+(12b) line 1	Gloria Mellesmoen	translation	‘I felt sweetness.’	page 8
+(12b) line 2	Gloria Mellesmoen	note	(Reichard 1938, as cited/transcribed in Barthmaier 1996:22)	page 8
+§3.3.1	Gloria Mellesmoen	notation	V’V	a reduplication shape
+§3.3.1	Gloria Mellesmoen	notation	V’v	a reduplication shape
+§3.3.1	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§3.3.1	Gloria Mellesmoen	note	The transcription and vowel system used by Reichard (1938) has been a point of debate among researchers. Sloat (1968) notes that her decision to write down echo vowels is misguided, because they are predictable. He concludes that the small, raised vowels she includes “may be omitted from her transcriptions without loss of information” (Sloat 1968:10). Additionally, he suggests that Reichard “has quite misrepresented the inceptive morpheme of certain roots” and further proposes that “the repeated vowel should be omitted from all such forms” (Sloat 1968:11). However, Reichard (1938) transcribes the inchoative vowels differently than typical echo vowels in her transcription (V’V vs. V’v) and distinguishes them in labels (echo vowel vs. medial reduplication). Overall, V1 reduplication in these three Southern Interior Salish languages are similar in form (VʔV) and meaning (inchoative), with Kalispel-Spokane-Montana Salish having a second V1 process marking a plural. For each language, there is also uncertainty regarding the status of the vowel associated with the inchoative: does it have a phonetic, phonological, or morphological source? The uncertainty surrounding the status of the vowel in Southern Interior Salish will be a central part of the diachronic discussion in Section 4.	page 8
+§3.3.2	Gloria Mellesmoen	heading	3.3.2 VʔV in Central Salish	page 8
+§3.3.2	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§3.3.2	Gloria Mellesmoen	notation	CVʔV	a reduplicant shape
+§3.3.2	Gloria Mellesmoen	notation	Vʔ	a vowel and a glottal stop
+§3.3.2	Gloria Mellesmoen	note	VʔV reduplication has been found in Comox-Sliammon and Songish. It marks plurality in Comox- Sliammon and “actual” (imperfective) aspect in Songish. Examples from Comox-Sliammon are provided in (13). It is typically found in combination with another type of reduplication. Unlike in other languages, there is consensus across descriptions of Comox-Sliammon: the forms in (13) involve a reduplicated vowel (CVʔV reduplication in Watanabe 2003, C reduplication + a misaligned L’- prefix which surfaces as a Vʔ sequence in Blake 2000, and C1 + V1 reduplication in Mellesmoen et al. 2020).	page 8
+(13) line 1	Gloria Mellesmoen	note	Comox-Sliammon plural V1 reduplication	page 8, the caption
+(13a) line 1	Comox-Sliammon	transcription	paʔapyaʔ	page 8, the orthography
+(13a) line 1	Gloria Mellesmoen	translation	‘one by one’	page 8
+(13a) line 1	Gloria Mellesmoen	note	(cf. papyaʔ ‘just one’)	page 8
+(13b) line 1	Comox-Sliammon	transcription	saʔasyaʔ	page 8, the orthography
+(13b) line 1	Gloria Mellesmoen	translation	‘two by two’	page 8
+(13b) line 1	Gloria Mellesmoen	note	(cf. sasyaʔ ‘just two’)	page 8
+(13c) line 1	Comox-Sliammon	transcription	ƛ̓aʔaƛ̓k̓ʷ	page 8, the orthography
+(13c) line 1	Gloria Mellesmoen	translation	‘flickering on and off’	page 8
+(13c) line 1	Gloria Mellesmoen	note	(cf. ƛ̓ak̓ʷit ‘extinguished’)	page 8
+(13c) line 2	Gloria Mellesmoen	note	(Mellesmoen et al. 2020:75,79)	page 8
+§3.3.2	Salish	cited form	-ʔ-	page 8
+§3.3.2	Gloria Mellesmoen	note	Raffo (1972) includes vowel reduplication in her description of the actual aspect in the Songish dialect of Straits, as shown in (14). Vowel reduplication can accompany an infixed -ʔ-, which is one of the allomorphs of the actual.	page 8
+(14) line 1	Gloria Mellesmoen	note	Northern Straits (Songish) aspectual V1 reduplication	page 8, the caption
+(14a) line 1	Northern Straits (Songish)	transcription	x̣éʔec̓-	page 8, the orthography
+(14a) line 1	Gloria Mellesmoen	translation	‘weighing’	page 8
+(14b) line 1	Northern Straits (Songish)	transcription	héʔek̓ʷ-	page 8, the orthography
+(14b) line 1	Gloria Mellesmoen	translation	‘remembering’	page 8
+(14c) line 1	Northern Straits (Songish)	transcription	x̣áʔa-	page 8, the orthography
+(14c) line 1	Gloria Mellesmoen	translation	‘crying’	page 8
+(14c) line 1	Gloria Mellesmoen	note	(Raffo 1972:22)	page 8
+§3.3.2	Gloria Mellesmoen	note	It is hard to draw conclusions about whether the vowel is phonologically or lexically conditioned in the Songish variety of Northern Straits, as the given examples are provided are not full words. This potential type of reduplication has not been described for other dialects of Northern Straits, where this allomorph of the actual would just be analyzed as a fixed segmental affix (-ʔ-). This pattern resembles the Southern Interior inchoatives, where the status of the vowel (phonetic, phonological, morphological) is unclear, rather than Comox-Sliammon, where the status of the vowel is quite clear.	page 9
+§3.4	Gloria Mellesmoen	heading	3.4 Summary: types of V1 reduplication	page 9
+§3.4	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§3.4	Gloria Mellesmoen	notation	Vː	a reduplication shape, a long vowel
+§3.4	Gloria Mellesmoen	note	Patterns previously described as vowel reduplication fall into three categories determined by surface realization (VʔV, Vː, and V…V). The Vː and V…V patterns raise questions about the relationship between reduplication and other phonological processes, such as lengthening and harmony. If we accept that length is a potential realization of reduplicated vowels, for example, there are other instances of vowel length across the family that could be labelled as V1 reduplication. Further phonological analysis and exploration of reduplication-adjacent processes is needed. In the next section, I focus on the VʔV patterns in greater detail and use them to sketch out a potential diachronic trajectory that would lead to the innovation of V1 reduplication in Salish.	page 9
+§4	Gloria Mellesmoen	heading	4 V1 reduplication in Salish from a diachronic perspective	page 9
+§4	Gloria Mellesmoen	note	V1 reduplication in Salish is attested across all major branches of the family. When something is found scattered across different branches of a language family, this is often taken as evidence for an old process that descends from an earlier ancestor language (Campbell 2013). In Section 3, I summarized the widespread nature of V1 reduplication and highlighted how these processes vary across descriptions and how they are associated with different meanings, including aspect, plurality, and diminutivity. The lack of a consistent meaning and differences in surface form suggests that there is no single Proto-Salish morpheme that would correspond to V1 reduplication. While V1 reduplication is widespread enough to warrant inclusion in the typology of Salish reduplication, the facts do not support reconstructing V1 reduplication to Proto-Salish.	page 9
+§4	Gloria Mellesmoen	note	V1 reduplication in Salish is best analyzed as an independent innovation across the family. The fact that V1 reduplication has emerged in different parts of the family does not support the reconstruction of a Proto-Salish reduplicative morpheme, but instead reflects a combination of certain phonetic, phonological, and morphological properties found across Salish. In fact, some of these factors may be traced back to Proto-Salish.	page 9
+§4	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§4	Gloria Mellesmoen	note	In this section, I argue that the innovation of V1 reduplication reflects a common trajectory of diachronic change driven by shared linguistic (phonetic, phonological, and morphological) factors. In sections 4.1 and 4.2, I outline my assumptions about the life cycle of phonological change and propose a trajectory that would allow for the shared innovation of the VʔV pattern of V1 reduplication across Salish. I detail a phonetic source (echo vowels) in Section 4.3, a phonological source (translaryngeal harmony) in Section 4.4, and a morphological source (glottal stop infix) in Section 4.5. A possible diachronic trajectory is summarized in section 4.6.	page 9
+§4.1	Gloria Mellesmoen	heading	4.1 The life cycle of phonological processes	page 9
+§4.1	Gloria Mellesmoen	note	The life cycle of phonological processes connects synchronic processes to diachronic changes (Ramsammy 2015). The life cycle of phonological changes is well-suited to investigations of closely related languages because microvariation between synchronic grammars can provide insight into diachronic trajectories that have shaped that variation. In fact, one of the central claims of the life cycle of phonological processes is that “the synchronic phonology of one variety may reflect a historical stage of a more advanced dialect or a potential future stage of a more conservative dialect” (Ramsammy 2015:34).	page 9
+§4.1	Gloria Mellesmoen	note	Phonological processes originate as non-cognitively controlled phonetic effects, before undergoing phonologization and becoming cognitively controlled phonetic effects (Bermúdez- Otero 2007).10 Cognitively controlled phonetic implementation rules may show language-specific patterns. The next step is stabilization, where the new phonological process applies as a phonological rule at the phrase level. There are two stages of domain narrowing: the phonological rule first begins to apply at the word level before eventually applying at the stem level. The final step is either lexicalization or morphologization, where the phonological process is no longer active in the phonology but may become a morphological operation or be crystalized in lexical items. The life cycle is summarized in Table 4.	page 10
+§4.1	Gloria Mellesmoen	note	Table 4: Cycle of change for sound patterns (adapted from Bermúdez-Otero 2007:504) Stages Process Change Phase I Phonologization Cognitively controlled pattern of phonetic implementation emerges from some physical or physiological phenomenon Phase II Stabilization Categorical phonological process emerges (corresponding to Phase I phonetic rule) Phase III Domain Narrowing Reanalysis of categorical phonological pattern (e.g., sensitivity to morphosyntactic structure emerges and domain of application narrows) Phrase IV Lexicalization/ Morphologization Patterns no longer phonologically controlled: become morphological operation or lexicalized Prior to stabilization, the emerging process is gradient and may show varying sensitivity to linguistic and extra-linguistic factors (Ramsammy 2015). Following stabilization, the gradient phonetic process becomes a discrete phonological process, which applies at the phrase domain (i.e., the process behaves like a postlexical rule and may show some degree of variable application). It is only following domain narrowing that the innovated process enters the word and stem domains (and then behaves like a lexical rule). With each instance of domain narrowing, the phonological process is evaluated in a smaller domain, and can interact with morphological edges and structure at or beneath the level of the word.	page 10
+§4.1	Gloria Mellesmoen	note	The process driving domain narrowing is input restructuring (Bermúdez-Otero 2007): the output of a phrase-level phonological grammar can eventually be reinterpreted as the output of the word-level phonological grammar, which drives a reanalysis of the order of phonological processes (and their domain of application). The different stages of the life cycle and the corresponding domains are summarized in Table 5.	page 10
+footnote 10	Gloria Mellesmoen	note	10 The terms “phonologization” and “stabilization” are used to distinguish the emergence of gradient phonetic rules from categorical phonological ones. Phonologization here refers specifically to the phonetic rules.	page 10, footnote
+§4.1	Gloria Mellesmoen	note	Table 5: Phonetic and phonological domains (Gradient) Phonetic Rules (Categorical) Phonological Rules Lexical Representation Automatic Phonetic Patterns Phonetic Implementation Phrase- Level Phonologic al Grammar Word-Level Phonologica l Grammar Stem-Level Phonological Grammar Underlying Form of Lexical Item/Morpheme Phonologization (Stage I) Stabilization (Stage II) Domain Narrowing I (Stage III) Domain Narrowing (Stage III) Lexicalization/ Morphologization (Stage IV)	page 11
+§4.2	Gloria Mellesmoen	heading	4.2 The life cycle of V1 reduplication in Salish	page 11
+§4.2	Gloria Mellesmoen	note	Adopting the model of phonological change described by Bermúdez-Otero (2007) and Ramsammy (2015), I analyze the emergence of V1 reduplication involving the reanalysis and restructuring of phonological patterns that have originated in automatic phonetic patterns.	page 11
+§4.2	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§4.2	Salish	cited form	-ʔ-	page 11
+§4.2	Salish	cited form	ʔV	page 11
+§4.2	Salish	cited form	ʔ	page 11
+§4.2	Salish	cited form	d’Alene	page 11
+§4.2	Gloria Mellesmoen	note	The descriptions of VʔV reduplication in Section 3.3 describe synchronic microvariation that provides insight into diachronic trajectories. For example, compare vowel reduplication in Comox- Sliammon V1 reduplication with Songish: aspectual V1 reduplication in Songish alternates with an infixed -ʔ- (alternating between [ʔV] and [ʔ]), while no alternation is observed in Comox-Sliammon (always [ʔV]). The Southern Interior Salish languages show yet another pattern: the realization of a second vowel after the glottal stop may be briefer in its acoustic realization, ranging from an aspirated release/voiceless vowel in Kalispel-Spokane-Montana Salish described by Carlson (1972) to fuller echo vowel in Coeur d’Alene described by Barthmeier (1996). Using microvariation between varieties of Salish languages as a starting point, the life cycle of phonological processes provides insight into the innovation of V1 reduplication.	page 11
+§4.2	Gloria Mellesmoen	note	The patterns described as V1 reduplication represent patterns in stages II to IV of the life cycle of phonological processes. Accordingly, I posit that the availability of reanalysis as an innovation is mediated by the general grammar of the language. The innovation of V1 reduplication is linked to an infixed glottal stop (Section 4.3), which creates the environment for the phonetic and phonological factors to apply. I propose that V1 reduplication first emerges as echo vowels (Section 4.4), which are variable in occurrence. Echo vowels emerge from non-controlled transitory phonetic patterns as a variable phonetic implementation rule in Stage I (phonologization) before undergoing stabilization to result in a categorical (predictable) epenthetic vowel in these environments in Stage II. A second precursor is a phonological process of translaryngeal harmony (at Stage II or III), which allows for an epenthetic vowel to take on the qualities of the vowel on the other side of a laryngeal segment (Section 4.5). The presence of an infixed glottal stop (-ʔ-) marking a morphological contrast in combination with either of the two phonological processes mentioned allows for domain narrowing and eventual reanalysis of the morpheme as one that triggers reduplication (Stage IV). Assuming a prosodic affixation approach to reduplication, the restructured input at Stage IV includes a prosodic unit.	page 11
+§4.3	Gloria Mellesmoen	heading	4.3 Morphological precursor: presence of an infixed glottal stop	page 12
+§4.3	Gloria Mellesmoen	note	V1 reduplication in Salish is predominantly associated with an inchoative or plural function. Each of these functions can be linked to a morpheme involving the affixation of a glottal stop (or a general process of glottalization).	page 12
+§4.3	Salish	cited form	-ʔ-	page 12
+§4.3	Gloria Mellesmoen	note	A clear source for V1 reduplication in Southern Interior Salish is the inchoative -ʔ-, which is seen across the Interior Salish languages (e.g., Van Eijk 1987). Given that V1 reduplication has emerged in three of the four Southern Interior Salish languages, it is pertinent to consider its absence in Moses-Columbia Salish. Willett (2003) provides the examples in (15), which show the infixed inchoative -ʔ-. For some, but not all examples, she includes an additional vowel, which resembles V1 reduplication. Compare the lack of a second vowel in (15a) with the presence of one in (15b).	page 12
+(15a) line 1	Nxa’amxcin	segmentation	p̓i<ʔ>q ‘It’s cooked.’ (cf. kn p̓iqm t ntitiyáx ‘I cooked some salmon.’)	page 12, engine residue
+(15b) line 1	Nxa’amxcin	segmentation	kn ṣ-ɬạ<ʔ>ạt̓-míx ‘I’m getting wet.’ (cf. kckmnánaʔn ɬə̣́t̓ ‘I dumped smth. wet on it.’)	page 12, engine language
+(15b) line 2	Nxa’amxcin	gloss	(Willett 2003:127,164,448)	page 12, engine residue
+§4.3	Gloria Mellesmoen	note	While Moses Columbia Salish is not reported to have V1 reduplication, there are some cases where an additional vowel is present, which suggests that vowel reduplication could emerge over time. The source of plural V1 reduplication in Kalispel-Spokane-Montana Salish is also an -ʔ- infix, though the position is different (stress-aligned). There is not a clear connection between Kalispel- Spokane-Montana Salish and the Central Salish languages, but the aspectual V1 reduplication in Songish is a surface form of the -ʔ- allomorph of the actual (see, e.g., Montler 1986). The Comox- Sliammon pattern does not have a clear synchronic source, which reflects its later stage in the life cycle of phonological processes. This is discussed further in Section 4.5.3.	page 12
+§4.3	Gloria Mellesmoen	note	The presence of an infixed glottal stop in the language is a precursor to the innovation of V1 reduplication as it yields the environment where the phonetic (Section 4.3) and phonological factors (Section 4.4) apply.	page 12
+§4.4	Gloria Mellesmoen	heading	4.4 Phonetic precursor: echo vowels	page 12
+§4.4	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§4.4	Gloria Mellesmoen	notation	Vʔ	a vowel and a glottal stop
+§4.4	Salish	cited form	ʔV	page 12
+§4.4	Gloria Mellesmoen	note	Changes to the phonological grammar of a language often have phonetic origins (Ohala 1993; Garrett & Johnson 2013; Sóskuthy 2013). I propose that the existence of echo vowels in a language may contribute to the development of VʔV patterns. Echo vowels have been described for a number of languages of the Americas, including in Tsimshian and Salish languages (Bessell 1993:337). Echo vowels may follow a Vʔ sequence, or sometimes Vh, and are “a brief ‘echo’ of a preceding vowel following the release of the glottal constriction” (Bessell 1993:337). Echo vowels are sometimes transcribed as V ʔV. The V in V ʔV mirrors the vowel quality of the V, but these are sometimes described as “aspirated”, “devoiced”, or “brief” (e.g., Carlson 1972). Echo vowels are not required by the phonology, but instead are often produced to aid the transition between consonants (Kinkade 1993b; Barthmaier 1998). As echo vowels are surface- level phonetic transitions, they are subject to variability. For example, Egelhoff and Babel (2018) describe the phonetics of echo vowels in Gitksan, a Tsimshianic language, and find considerable variation in their realization between speakers, which cannot be divided neatly by dialect.11 While they note that there is no single conclusive explanation for their results, individual factors pertaining to whether a consultant is producing a citation form or their physiological state (e.g., fatigue) are possible explanations. This description suggests that echo vowels in Gitksan are gradient phonetic patterns. I assume that the same is true for echo vowels in Salish, though I assume that the phonologization of echo vowels is the first stage of developing the VʔV variety of V1 reduplication.	page 12
+§4.4.1	Gloria Mellesmoen	heading	4.4.1 Stage I: phonologization of echo vowels (Okanagan and Kalispel-Spokane-Montana	page 13
+§4.4.1	Salish	cited form	ʔC	page 13
+§4.4.1	Salish	cited form	/ʔ/	page 13
+§4.4.1	Gloria Mellesmoen	note	Salish) The first stage of the phonological life cycle, phonologization, requires an automatic phonetic pattern to become a phonetic implementation rule. At Stage I, echo vowels would graduate from being a more universal automatic phonetic transition to part of a language-specific phonetic implementation, which may differ between languages as it is no longer driven purely by universal phonetic factors. Moses-Columbia Salish provides a good point of comparison for Southern Interior Salish because it is the only one without V1 reduplication. Bird and Czaykowska-Higgins (2016) analyze consonant clusters and the presence vs. absence of a voiced or voiceless schwa, as well as the duration of these epenthetic or transitional elements. Counter to their hypotheses, they find that transitional schwas are not required for sonorant-obstruent sequences. The sonorant-obstruent sequence may have an epenthetic (voiced) vowel, but this is optional. This suggests that epenthetic vowels or transitory vocalic units are not required in these positions for sonority. However, they note that when the sonorant segment is a glottal stop, an echo vowel is recorded. The striking finding of this acoustic study is that a sonorant-obstruent coda is a perfectly licit combination and does not trigger any phonetic transitional element or obligatory phonological repair. There is something specific about ʔC sequences that results in an echo vowel after the /ʔ/. This suggests that phonologization has occurred in Moses-Columbia Salish: an echo vowel is obligatory with a glottal stop, but not in other environments where a transitional vowel would be expected. This establishes that echo vowels are present in Moses-Columbia Salish and that these show some language-specific patterns in phonetic implementation. I take this as evidence that the precursor to developing vowel reduplication is present in Southern Interior Salish, even if the pattern has not developed past Stage I in most of the languages.	page 13
+§4.4.1	Gloria Mellesmoen	notation	Vʔ	a vowel and a glottal stop
+§4.4.1	Salish	cited form	-ʔ-	page 13
+§4.4.1	Gloria Mellesmoen	note	While Carlson (1972) does not include V1 reduplication in his description of Spokane (Kalispel-Spokane-Montana Salish), he acknowledges that there is an “aspirated release[, which] is heard of as a voiceless vowel of the same quality” as a stressed vowel in a Vʔ sequence. This corresponds to Vogt’s (1940:16) observation that when a glottal stop is in a coda position, there is frequently a very brief “unvoiced echo-vowel” that follows, which may be absent in word-final position. The description of this echo vowel suggests that it is variably present, which provides a potential explanation for differences between sources: the inchoative -ʔ- infix may be accompanied by an echo vowel.	page 13
+footnote 11	Gloria Mellesmoen	note	11 The Gitksan pattern is different in distribution, however: there are no minimal pairs contrasting a VʔV and a Vʔ sequence (Egelhoff & Babel 2018), whereas this contrast is possible in Salish.	page 13, footnote
+§4.4.1	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§4.4.1	Gloria Mellesmoen	note	Cross-dialectal and individual variation, as Egelhoff and Babel (2018) describe for Gitksan, would contribute to how prominent a second vowel component is following a glottal stop in a coda position, which would further affect how it would be perceived by those listening. This also effects how they would be recorded, depending on how regular and strong the acoustic correlates of the echo vowel are for a particular dialect of the language, or for an individual. For Okanagan and Kalispel-Spokane-Montana Salish, where reports regarding the presence or absence of a vowel vary, it seems as though V1 reduplication represents the phonologization of a transient vowel, which now is a phonetic implementation rule (Stage I).	page 13
+§4.4.2	Gloria Mellesmoen	heading	4.4.2 Stage II: stabilization of echo vowels (Coeur d’Alene)	page 14
+§4.4.2	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§4.4.2	Gloria Mellesmoen	note	Echo vowels often sound like two vowels separated by a glottal stop. For example, de Jong Boudreault (2009) notes that echo vowels in the Mixe-Zoque language Sierra Popoluca are often perceived as a VʔV sequence. The fact that researchers describe vowel reduplication in Kalispel- Spokane-Montana Salish and Okanagan as VʔV patterns suggests that echo vowels associated with the inchoative are perceived similarly. This highlights a route for reanalysis: if echo vowels often sound like VʔV sequences, they may eventually be learned as such, which in turn contributes to the actuation of the change, in the sense of Ohala (1981). This provides the conditions for stabilization in Stage II, where a pattern enters the phonological grammar. At Stage II, the vowel will be slightly more robust than a transient echo vowel.	page 14
+§4.4.2	Coeur d’Alene	cited form	d’Alene	page 14
+§4.4.2	Gloria Mellesmoen	notation	V’V	a reduplication shape
+§4.4.2	Gloria Mellesmoen	notation	V’v	a reduplication shape
+§4.4.2	Gloria Mellesmoen	note	The Coeur d’Alene pattern represents a Stage II pattern, Reichard (1938) distinguishes echo vowels from inchoative V1 reduplication. She uses V’V to mark VʔV and V’v for VʔV. This suggests that the vowel associated with the inchoative is qualitatively distinct from a transitory echo vowel. Further, Barthmaier (1996:4) revisits Reichard’s description of Coeur d’Alene, noting the existence of echo vowels, which occur “usually but not always, after a glottal stop”, and similarly differentiates between brief echo vowels and full echo vowels. Barthmaier (1996:6) excludes the true (brief) echo vowels in his transliteration, but retains the full vowels, which are the ones found in V1 reduplication. This suggests that Reichard’s cases of medial reduplication do involve a full vowel component, rather than just a transitory or brief vocalic portion. This suggests that the vowel in Coeur d’Alene is not just a phonetic echo vowel, but instead may reflect a categorical phonological rule. Coeur d’Alene is further in the life cycle than the other Southern Interior Salish languages, such that V1 reduplication is driven by the phonology. Coeur d’Alene has a Stage II VʔV pattern.	page 14
+§4.5	Gloria Mellesmoen	heading	4.5 Phonological precursor: translaryngeal harmony	page 14
+§4.5	Salish	cited form	/ʔ/	page 14
+§4.5	Gloria Mellesmoen	note	Translaryngeal harmony is a phonological process which may contribute to the innovation of V1 reduplication. Complete vowel harmony across a segment is common cross-linguistically, including across laryngeal segments (Rose & Walker 2011). Vowel harmony across a /ʔ/ or /h/ is called translaryngeal harmony; this type of harmony has been described as a constraint on morpheme shape in languages, including Kashaya (Buckley 1992), but also applies across morpheme boundaries in other languages, including Nenets (Odden 2005:234).	page 14
+§4.5	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§4.5	Gloria Mellesmoen	note	In the previous section, the contribution of echo vowels to the development of V1 reduplication was considered. The echo vowels match the quality of the vowel before the glottal closure, so they may be perceived as two separate, though identical, vowels. Translaryngeal harmony across a glottal stop yields a similar surface form. A VʔV sequence could arise from an echo vowel, translaryngeal harmony, or V1 reduplication triggered by the affixation of a morpheme. In fact, Borroff (2007:110) describes a general process of “echo-epenthesis” that results in VʔV sequences and proposes that this arises from a translaryngeal harmony process, where “two underlying vowels coalesce but may retain both moras”. If there are two moras, this means that the second vowel is a full vowel, rather than just a brief echo vowel. Translaryngeal harmony in these circumstances is a phonological process, not a phonetic one.	page 14
+§4.5	Salish	cited form	-ʔ-	page 15
+§4.5	Salish	cited form	ə	page 15
+§4.5	Gloria Mellesmoen	note	The presence and application of translaryngeal vowel harmony is variable across Salish languages. For example, there are examples where the inchoative -ʔ- in Lillooet triggers vowel epenthesis, but this vowel is [ə], as shown in (16). The quality of the vowel does not match or assimilate to the vowel on the other side of the glottal stop; translaryngeal harmony is not a regular phonological process in the language.	page 15
+(16) line 1	Gloria Mellesmoen	note	Lillooet: no translaryngeal harmony qʷaʔəz̓ ‘to get blue’ (Van Eijk 1997:67) If the inchoative -ʔ- is affixed and a vowel is epenthesized for sonority purposes, a grammar with a translaryngeal harmony rule makes different predictions than one without. Specifically, if Lillooet had a process of translaryngeal harmony, then the [ə] in (16) would be under pressure to take on the quality of the [a]. This would resemble the VʔV pattern found in Coeur d’Alene. However, Coeur d’Alene does not appear to have translaryngeal harmony: for example, Reichard (1938:542) reports that VʔV sequences without matching vowels are possible in the language, including [aʔi] and [iʔa], for example. Translaryngeal harmony does not appear to be a conditioning factor for Coeur d’Alene. As I argue in Section 4.3.2, echo vowels are the precursor to Coeur d’Alene (and Southern Interior Salish) reduplication.	page 15, engine english
+§4.5.1	Gloria Mellesmoen	heading	4.5.1 Stage I: phonologization (Northern Straits – Saanich)	page 15
+§4.5.1	Northern Straits (Saanich)	cited form	ə	page 15
+§4.5.1	Gloria Mellesmoen	note	Leonard (2019) also discusses translaryngeal vowel harmony as an optional process in the Saanich dialect of Northern Straits (citing Montler 1986 who shows that translaryngeal harmony is optional), which suggests that it is a more variable phonetic process, rather than a regular phonological rule. Examples from Saanich given in (17) correspond to ones with vowel reduplication in the Songish dialect of Northern Straits described in Section 3, restated in (18). The Saanich forms do have an additional vowel following the glottal stop, but it has [ə], rather than a copied vowel.	page 15
+(17) line 1	Gloria Mellesmoen	note	Northern Straits (Saanich): no translaryngeal harmony (or reduplication)	page 15, the caption
+(17a) line 1	Northern Straits (Saanich)	transcription	x̣éʔət̓ᶿt	page 15, the orthography
+(17a) line 1	Gloria Mellesmoen	translation	‘to measure, weigh something’	page 15
+(17b) line 1	Northern Straits (Saanich)	transcription	héʔək̕ʷ	page 15, the orthography
+(17b) line 1	Gloria Mellesmoen	translation	‘remembering’	page 15
+(17b) line 1	Gloria Mellesmoen	note	(Montler 2018:883,1226)	page 15
+(18) line 1	Gloria Mellesmoen	note	Northern Straits (Songish) aspectual V1 reduplication	page 15, the caption
+(18a) line 1	Northern Straits (Songish)	transcription	x̣éʔec̓-	page 15, the orthography
+(18a) line 1	Gloria Mellesmoen	translation	‘weighing’	page 15
+(18b) line 1	Northern Straits (Songish)	transcription	héʔek̓ʷ-	page 15, the orthography
+(18b) line 1	Gloria Mellesmoen	translation	‘remembering’	page 15
+(18b) line 1	Gloria Mellesmoen	note	(Raffo 1972:22)	page 15
+§4.5.1	Gloria Mellesmoen	note	The forms in (17) show that the infixed glottal stop triggers epenthesis, but there is no translaryngeal harmony between the vowels. This suggests that epenthesis is phonologically motivated, but translaryngeal harmony remains a gradient phonetic process and therefore the vowel is realized as [ə] in most cases. Given that the harmony is optional and variable in application (Montler 1986), this is a Stage I pattern.	page 15
+§4.5.2	Gloria Mellesmoen	heading	4.5.2 Stage II-III: stabilization (Northern Straits – Songish)	page 16
+§4.5.2	Northern Straits (Songish)	cited form	[ə]-epenthesis	page 16
+§4.5.2	Northern Straits (Songish)	cited form	ə	page 16
+§4.5.2	Northern Straits (Songish)	cited form	/ə/	page 16
+§4.5.2	Gloria Mellesmoen	note	Vowel reduplication in Songish likely has a similar motivation to [ə]-epenthesis in Saanich: the infixation of a glottal stop triggers a phonological repair to supply a vowel. In Saanich, [ə] is inserted. In Songish, the fact that the vowels match suggests two possible analyses: (i) epenthetic [ə] and subsequent feature sharing across a glottal stop (translaryngeal harmony), or (ii) reduplication of a full vowel. Raffo (1970) notes that the reduplication of a vowel can be accompanied by vowel reduction (to /ə/), which is in line with the general reduction of unstressed vowels in the language. Nolan (2017) describes a process of assimilation of /ə/ across a glottal stop in the Songish dialect, though states that this is not full assimilation (acoustic values are in the vicinity of the full vowel but do not quite match) and is restricted to /e/ and /a/. Processes of translaryngeal harmony and unstressed vowel reduction may be in competition in Songish, such that translaryngeal harmony may occur but be subsequently reduced to [ə], which limits the number of forms that surface with V1 reduplication. There is acoustic evidence of some degree of assimilation in these environments in Nolan (2017), which correspond to where Raffo (1970) describes V1 reduplication.	page 16
+§4.5.2	Gloria Mellesmoen	note	Translaryngeal harmony in Songish appears to be a phonological process that applies earlier in the derivation, prior to vowel reduction, while Saanich only has an optional process of harmony that applies as a gradient phonetic process. The V1 reduplication process that Raffo (1970) describes involves translaryngeal harmony across a glottal stop, but the actual morpheme has not yet undergone reanalysis as a reduplicative morpheme (e.g., a mora).	page 16
+§4.5.3	Gloria Mellesmoen	heading	4.5.3 Stage IV: morphologization (Comox-Sliammon)	page 16
+§4.5.3	Comox-Sliammon	cited form	/ʔ/	page 16
+§4.5.3	Gloria Mellesmoen	note	Comox-Sliammon has productive translaryngeal harmony across both /ʔ/ and /h/ (Blake 2000). A schwa is epenthesized in both (19a) and (19b), but it is realized as [o] because it assimilates the following /u/.	page 16
+(19) line 1	Gloria Mellesmoen	note	Comox-Sliammon translaryngeal harmony (root: č̓ʔ- ‘be on top of’)	page 16, the caption
+(19a) line 1	Comox-Sliammon	phonemic	[č̓oʔomɩxʷtən]	page 16, phonetic, in [ ]
+(19a) line 1	Gloria Mellesmoen	translation	‘rug on floor’	page 16
+(19b) line 1	Comox-Sliammon	phonemic	[č̓ɛʔnʌčtɩn]	page 16, phonetic, in [ ]
+(19b) line 1	Gloria Mellesmoen	translation	‘small blanket to sit on’	page 16
+(19b) line 1	Gloria Mellesmoen	note	(Blake 2000:94)	page 16
+§4.5.3	Comox-Sliammon	cited form	ʔC	page 16
+§4.5.3	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§4.5.3	Comox-Sliammon	cited form	w̓	page 16
+§4.5.3	Comox-Sliammon	cited form	y̓	page 16
+§4.5.3	Comox-Sliammon	cited form	ʔ	page 16
+§4.5.3	Gloria Mellesmoen	note	An epenthetic vowel adjacent to a glottal stop will take on the properties of the vowel on the other side. This means that if a vowel is epenthesized to break up a coda ʔC cluster, this vowel will always be a copy of the preceding vowel. A phonological grammar with translaryngeal harmony can then produce VʔV sequences with an infixed glottal stop. There is no synchronic glottal stop infix in Comox-Sliammon, however, though Blake (2000) suggests that it is a misaligned L’- affix, where L stands for an archiphoneme that is related to Proto-Salish *l and may be realized as a [w̓], [y̓], or [ʔ]. It surfaces as an infix due to the phonological grammar. This affix can be linked to other markers of plurality in Central Salish languages, which often use a -l- (or -y-) infix to mark plurality (e.g., -1- in Halkomelem in Hukari 1984).	page 16
+§4.5.3	Gloria Mellesmoen	note	There is no infix in Comox-Sliammon independent of reduplication and a vowel is always copied. Descriptions agree that both vowels are full nuclear vowels. I analyze Comox-Sliammon as a Stage IV language: an older affix of some kind (likely an infixed glottal) was reanalyzed as an affixed mora, in addition to a glottal stop or a floating laryngeal feature. The reduplication of a vowel in Comox-Sliammon follows from the fact that the lexical entry for plural V1 reduplication contains an empty prosodic unit that needs segmental content.	page 16
+§4.6	Gloria Mellesmoen	heading	4.6 The innovation of V1 reduplication	page 17
+§4.6	Salish	cited form	-ʔ-	page 17
+§4.6	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§4.6	Gloria Mellesmoen	note	I propose that a combination of phonetic, phonological, and morphological factors contribute to the likelihood a language will innovate V1 reduplication. The relevant factors include echo vowels (phonetic), translaryngeal harmony (phonological), and a glottal stop infix (morphological). The existence of an infixed glottal stop alone does not guarantee the innovation of V1 reduplication, as is evident from the Northern Interior languages, which retain an infixed -ʔ- to mark the inchoative without V1 reduplication, in contrast to the Southern Interior languages, which have V1 reduplication processes. Patterns of V1 reduplication in different languages reflect different stages in a diachronic trajectory, and mark different synchronic outcomes of similar innovations. While the V1 reduplication processes cannot be traced back to any single source, I propose that all the VʔV patterns originate from a glottal infix.	page 17
+§4.6	Gloria Mellesmoen	note	The glottal stop infix yields the surface conditions where other phonetic and phonological processes will motivate an echo or epenthetic vowel, which then may agree with the preceding vowel in quality. Having either an echo vowel that can be misperceived as a full vowel or an epenthetic vowel that undergoes harmony creates conditions that are ambiguous on the surface between vowel reduplication or regular phonological processes. This ambiguity allows for restructuring and the reanalysis of the input. In the Southern Interior languages, V1 reduplication is a Stage I (phonetic implementation rule) or Stage II (phrase-level phonological process). In the Central Salish languages, V1 reduplication is Stage II and III (phonological process applying at the phrase or word) or Stage IV (morphologized). Comox-Sliammon represents the final stage in the development of V1 reduplication: a reanalysis of the input from a fixed segment to a morpheme that triggers reduplication.	page 17
+§5	Gloria Mellesmoen	heading	5 Conclusion: V1 reduplication and the typology of Salish reduplication	page 17
+§5	Gloria Mellesmoen	notation	VʔV	a reduplication shape, vowel and copy separated by a glottal stop
+§5	Salish	cited form	-ʔ-	page 17
+§5	Gloria Mellesmoen	notation	Vː	a reduplication shape, a long vowel
+§5	Salish	cited form	/ə/	page 17
+§5	Gloria Mellesmoen	note	While V1 reduplication cannot be reconstructed to Proto-Salish, the VʔV type is an innovation that can be connected to phonetic, phonological, and morphological properties of Salish languages. VʔV patterns include identical vowels with three sources, which also reflect stages of the proposed life cycle. At the first stage, there is phonetic variability in the presence of echo vowels. Next, the pattern is phonologized and there are predictable epenthetic vowels (with harmony) or reduplication as a repair. Then, the lexical entry of a morpheme is restructured, such that it is always marked by vowel reduplication. The innovation of V1 reduplication is therefore supported by pre-existing phonetic biases (echo vowels), phonological processes (translaryngeal harmony), and the morpheme inventory (-ʔ-): the likelihood a language will innovate V1 reduplication depends on whether they have the right combination of precursors and pressures in their grammar. The VʔV patterns, as well as the Vː and V…V patterns described in Section 3, deserve further consideration as a part of the typology of Salish reduplication. While V1 reduplication has a marginal status in documentation and description, this reflects different phonological analyses. The three V1 reduplication patterns overlap with what others may label as feature sharing, vowel epenthesis, link vowels, or harmony processes. As analyses under these labels may correspond to V1 reduplication itself, or earlier stages in its innovation (e.g., translaryngeal harmony affecting an epenthesized /ə/), future phonological descriptions should consider the possibility that V1 reduplication may be an appropriate label for some of these phenomena.	page 17
+§5	Gloria Mellesmoen	note	A further motivation for reassessing the role of V1 reduplication in Salish on documentation is how its inclusion might help learners, or how its absence may hinder them. Depending on the phonological grammar of the language, it may also be beneficial to consider which type of label (and corresponding analysis) would be more useful in documentation and descriptive materials aimed at learners and teachers. If V1 reduplication is excluded from documentation, this means that learners will not have explicit description or instruction related to when and where an extra vowel is needed, and when it might be important for identifying a meaningful morpheme. Considerations related to the teaching and learning of reduplication more generally deserve further study.	page 17
+references	Gloria Mellesmoen	heading	References	page 18
+references	Gloria Mellesmoen	reference	Barthmaier, P. T. (1996). A dictionary of Coeur d’Alene Salish from Gladys Reichard’s file slips. (MA thesis, University of Montana).	
+references	Gloria Mellesmoen	reference	Barthmaier, P. (1998). Lushootseed vowels: A preliminary phonetic study. Papers for ICSNL 33:1– 11.	
+references	Gloria Mellesmoen	reference	Bates, D., Hess, T., & Hilbert, V. (1994). Lushootseed dictionary. Seattle, WA: University of Washington Press.	
+references	Gloria Mellesmoen	reference	Bermúdez-Otero, R. (2007). Diachronic phonology. In P. de Lacy: The Cambridge handbook of phonology, Cambridge, UK: Cambridge University Press, 497–517.	
+references	Gloria Mellesmoen	reference	Bessell, N. J. (1993). Towards a phonetic and phonological typology of post-velar articulation. (Doctoral dissertation, University of British Columbia).	
+references	Gloria Mellesmoen	reference	Bird, S., & Czaykowska-Higgins, E. (2016). Parsing Salish consonant clusters. In M. Ball & N. Müller (eds.), Challenging Sonority: Cross-linguistic evidence. Sheffield: Equinox, 159–199.	
+references	Gloria Mellesmoen	reference	Blake, S. J. (2000). On the distribution and representation of schwa in Sliammon (Salish): Descriptive and theoretical perspectives. (Doctoral dissertation, University of British Columbia).	
+references	Gloria Mellesmoen	reference	Borroff, M. (2007). A landmark underspecification account of the patterning of glottal stop. (Doctoral dissertation, State University of New York, Stony Brook).	
+references	Gloria Mellesmoen	reference	Buckley, E. (1992). Kashaya laryngeal increments, contour segments, and the moraic tier. Linguistic Inquiry 23(3):487–496.	
+references	Gloria Mellesmoen	reference	Campbell, L. (2013). Historical linguistics. Edinburgh, UK: Edinburgh University Press.	
+references	Gloria Mellesmoen	reference	Carlson, B. F. (1972). A grammar of Spokan: A Salish language of Eastern Washington. (Doctoral dissertation, University of Hawai’i at Manoa).	
+references	Gloria Mellesmoen	reference	Carlson, B. F., & Flett, P. (1989). Spokane dictionary. Missoula, MT: University of Montana Occasional Working Papers in Linguistics.	
+references	Gloria Mellesmoen	reference	Czaykowska-Higgins, E., & Kinkade, M. D. (1998). Salish languages and linguistics. In E. Czaykowska-Higgins & M. D. Kinkade (eds.), Salish languages and linguistics: Theoretical and descriptive perspectives. Berlin, Germany: Walter de Gruyter, 1–68.	
+references	Gloria Mellesmoen	reference	de Jong Boudreault, L. J. (2009). A grammar of Sierra Popoluca (Soteapanec, a Mixe-Zoquean language). (Doctoral dissertation, University of Texas at Austin).	
+references	Gloria Mellesmoen	language	Skwxwú7mesh	Skwxwú7mesh, Squamish
+references	Gloria Mellesmoen	reference	Drachman, G. (1969). Twana phonology. (Doctoral dissertation, Ohio State University).	
+references	Gloria Mellesmoen	reference	Dyck, R. A. (2004). Prosodic and morphological factors in Squamish (Skwxwú7mesh) stress assignment. (Doctoral dissertation, University of Victoria).	
+references	Gloria Mellesmoen	reference	Edel, M. M. (1939). The Tillamook language. International Journal of American Linguistics 10(1):1–57.	
+references	Salish	cited form	xweysás	page 19
+references	Salish	cited form	nqwal’utteníha	page 19
+references	Salish	cited form	ucwalmícwa	page 19
+references	Gloria Mellesmoen	reference	Egelhoff, M., & Babel, M. (2018). Phonetics of Gitksan echo vowels. In L. Matthewson, E. Guntly, & M. Rochemont (eds.), Wa7 xweysás i nqwal’utteníha i ucwalmícwa: He loves the people’s languages. Vancouver, BC: UBCWPL.	
+references	Gloria Mellesmoen	reference	Galloway, B. (1984). Nooksack reduplication. Working Papers of the Linguistics Circle 4(2):81– 100.	
+references	Gloria Mellesmoen	reference	Garrett, A., & Johnson, K. (2013). Phonetic bias in sound change. Origins of sound change: Approaches to phonologization 1:51–97.	
+references	Gloria Mellesmoen	reference	Hess, T. (1967). Snohomish grammatical structure. (Doctoral dissertation, University of Washington).	
+references	Gloria Mellesmoen	reference	Hukari, T. E. (1984). The truth about Cowichan imperfectives. Working Papers of the Linguistics Circle 4(2):147–161.	
+references	Gloria Mellesmoen	reference	Jacobs, P. (2012). Vowel harmony and schwa strengthening in Skwxwu7mesh. Papers for ICSNL 47:99–146.	
+references	Gloria Mellesmoen	reference	Kinkade, M. D. (1993a). The non-lexical basis for a Tsamosan branch of Salish. Papers for ICSNL 28:175–204.	
+references	Gloria Mellesmoen	reference	Kinkade, M. D. (1993b). The Chimerical Schwas of Salish. Paper presented at 32nd Conference on American Indian Languages, Ninety-second annual meeting, American Anthropological Association, Washington, D.C.	
+references	Gloria Mellesmoen	reference	Kirkham, S. P. (1993). Reduplication in Lushootseed: a prosodic analysis (Unpublished ms, University of Victoria).	
+references	Gloria Mellesmoen	reference	Kroeber, P. D. (1999). The Salish language family: Reconstructing syntax. Lincoln, NE: University of Nebraska Press.	
+references	Gloria Mellesmoen	language	SENĆOŦEN	SENĆOŦEN, Saanich, Northern Straits
+references	Gloria Mellesmoen	reference	Leonard, J. (2019). The phonological representation and distribution of vowel in SENĆOŦEN (Saanich). (Doctoral dissertation, University of Victoria).	
+references	Gloria Mellesmoen	reference	Mattina, A. (1987). Colville-Okanagan Dictionary. Missoula, MT: University of Montana Working Papers.	
+references	Gloria Mellesmoen	reference	McCarthy, J. J., & Prince, A. (1994). Prosodic morphology. Linguistics Department Faculty Publication Series 15.	
+references	Salish	cited form	ʔayʔaǰuθəm	page 19
+references	Gloria Mellesmoen	reference	Mellesmoen, G. (2022) DIG Reconstruction and the Secret Life of Proto-Salish Diminutives: An Amphichronic Analysis of Diminutives in Upper Chehalis. Papers for ICSNL 57:67–86. Mellesmoen, G., Davis, H., & Matthewson, L. (2020). Decomposing distributive numerals in ʔayʔaǰuθəm (Comox-Sliammon Salish). Proceedings of Sinn und Bedeutung 24(2):72–89.	
+references	Gloria Mellesmoen	reference	Modrow, R. H. (1971). The Quinault Dictionary. Quinault Indian Tribe.	
+references	Gloria Mellesmoen	reference	Montler, T. (1986). An outline of the morphology and phonology of Saanich, North Straits Salish. Missoula, MT: University of Montana Press.	
+references	Gloria Mellesmoen	reference	Montler, T. (2018). SENĆOŦEN: A dictionary of the Saanich language. Seattle, WA: University of Washington Press.	
+references	Gloria Mellesmoen	reference	Nater, H. (1984). The Bella Coola language. Ottawa, QC: National Museums of Canada.	
+references	Gloria Mellesmoen	reference	Nolan, T. (2017). A phonetic investigation of vowel variation in Lekwungen. (MA thesis, University of Victoria).	
+references	Gloria Mellesmoen	reference	Odden, D. (2005). Introducing phonology. Cambridge, UK: Cambridge University Press.	
+references	Gloria Mellesmoen	reference	Ohala, J. J. (1981). The listener as a source of sound change. In C. S. Masek, R. A. Hendrick, & M. F. Miller (eds.), Papers from the Parasession on Language and Behavior. Chicago: Chicago Linguistics Society, 178–203.	
+references	Gloria Mellesmoen	reference	Ohala, J. J. (1993). Sound change as nature's speech perception experiment. Speech Communication 13(1–2):155–161.	
+references	Gloria Mellesmoen	reference	Raffo, Y. A. (1972). A phonology and morphology of Songish, a dialect of Straits Salish. (Doctoral dissertation, University of Kansas).	
+references	Gloria Mellesmoen	reference	Ramsammy, M. (2015). The life cycle of phonological processes: Accounting for dialectal microtypologies. Language and Linguistics Compass 9(1):33–54.	
+references	Gloria Mellesmoen	reference	Reichard, G.A. (1938). Coeur d’Alene. In F. Boas (ed.), Handbook of American Indian languages 3. Washington, DC: Smithsonian Institute, 515–707.	
+references	Salish	cited form	ɬəw̓ál̓məš	page 20
+references	Gloria Mellesmoen	reference	Robertson, D. (2014). ɬəw̓ál̓məš (Lower Chehalis) morphosyntax. Papers for ICSNL 49:89–153. Rose, S., & Walker, R. (2011). Harmony systems. In J. Goldsmith, J. Riggle, A. C. L. Yu (eds.), The handbook of phonological theory. London, UK: Blackwell, 240–290.	
+references	Gloria Mellesmoen	reference	Rubino, C. (2005). Reduplication: Form, function and distribution. Studies on Reduplication 28: 11–29.	
+references	Gloria Mellesmoen	reference	Sloat, C. (1968). A skeleton key to Reichard's Coeur d'Alene transcriptions. Anthropological Linguistics 10(5):8–11.	
+references	Gloria Mellesmoen	reference	Sóskuthy, M. (2013). Phonetic biases and systemic effects in the actuation of sound change. (Doctoral dissertation, University of Edinburgh).	
+references	Gloria Mellesmoen	reference	Thomason, S. G. (1997). Plurals and transitivity in Montana Salish. Papers for ICSNL 32:352–362.	
+references	Gloria Mellesmoen	reference	Urbanczyk, S. (1996). Patterns of reduplication in Lushootseed. (Doctoral dissertation, University of Massachusetts).	
+references	Gloria Mellesmoen	reference	Van Eijk, J. (1987). Interior Glottalization and the Suffix -(V)p in Lillooet, Shuswap and Thompson. ICSNL 22:41–48.	
+references	Gloria Mellesmoen	reference	Van Eijk, J. (1997). The Lillooet language: Phonology, morphology, syntax. Vancouver, BC: UBC Press.	
+references	Gloria Mellesmoen	reference	Vogt, H. (1940). The Kalispel language, An outline of the grammar with texts, translations, and dictionary. Oslo, Norway: Norske Videnskaps-Akademi.	
+references	Gloria Mellesmoen	reference	Watanabe, H. (2003). A morphological description of Sliammon, Mainland Comox Salish: With a sketch of syntax. Osaka, Japan: Gakuin University.	
+references	Gloria Mellesmoen	reference	Watkins, D. (1970). A description of the phonemes and position classes in the morphology of Head of the Lake Okanogan Salish. (Doctoral dissertation, University of Alberta).	
+references	Gloria Mellesmoen	reference	Willett, M. L. (2003). A grammatical sketch of Nxa’amxcin (Moses-Columbia Salish). (Doctoral dissertation, University of Victoria).	

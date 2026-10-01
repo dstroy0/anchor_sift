@@ -1,0 +1,269 @@
+where	who	kind	form	gloss
+front	Jason Brown	title	Heavy syllables in Gitksan	page 1, carries footnote *
+front	Jason Brown	name	Jason Brown	author
+front	Jason Brown	note	University of Auckland	page 1, under Jason Brown
+front	Jason Brown	note	Abstract: Very little attention in the existing literature has been devoted to the prosodic structure of Gitksan. Recent work on stress, however, has opened a productive discussion about syllable weight. This paper uses these insights to further the discussion about possible moraic structures, and isolates a difference in how weight is assigned to consonants in stress vs. in other types of prosodic morphology, such as reduplication and word minimality. The patterns that emerge are similar to the behavior of heavy syllables in other languages, but with some key differences.	page 1, the abstract
+front	Jason Brown	note	Keywords: Gitksan, phonology, stress, prosodic morphology	page 1, the keywords
+front	Jason Brown	note	In Papers for the International Conference on Salish and Neighbouring Languages 50, University of British Columbia Working Papers in Linguistics 40, Natalie Weber, Erin Guntly, Zoe Lam, and Sihwei Chen (eds.), 2015.	page 1, the volume's header
+front	Jason Brown	language	Gitksan	Interior Tsimshianic
+footnote *	Jason Brown	note	I would like to thank my primary Gitxsanimx teachers, Barbara Sennott and the late Doreen Jensen. Thanks are also due to Henry Davis, Clarissa Forbes, Forrest Panther, Tyler Peterson, and Michael Schwan for reading and commenting on earlier drafts of this paper, as well as to the UBC Gitksan Research Lab for general academic stimulation and support, which contributed to the ideas presented here. I would also like to thank the editors for many helpful comments and corrections. All errors are my own. Contact info: jason.brown@auckland.ac.nz	page 1, footnote *, on the title
+footnote *	Jason Brown	name	Barbara Sennott	the author's Gitxsanimx teacher
+footnote *	Jason Brown	name	Doreen Jensen	the author's Gitxsanimx teacher, late
+footnote *	Jason Brown	name	Henry Davis	read and commented on earlier drafts
+footnote *	Jason Brown	name	Clarissa Forbes	read and commented on earlier drafts; Forbes 2015 on Gitksan stress
+footnote *	Jason Brown	name	Forrest Panther	read and commented on earlier drafts
+footnote *	Jason Brown	name	Tyler Peterson	read and commented on earlier drafts
+footnote *	Jason Brown	name	Michael Schwan	read and commented on earlier drafts, pointed out the offglide
+footnote *	Jason Brown	language	Gitxsanimx	the Gitksan name of Gitksan
+§1	Jason Brown	heading	1 Introduction	page 1
+§1	Jason Brown	note	The status of prosodic units in Gitksan is a topic that has received little recent attention in the literature on the language. Despite the potentially complex syllables in the language, and the range of prosodic morphological operations that are present, aside from recent works such as Brown (to appear) and Schwan and Anghelescu (2013), there has been little discussion as to what the internal prosodic structure of syllables in the language is.	page 1
+§1	Jason Brown	note	In recent work, Forbes (2015) has shown that the stress system of Gitksan is weight-sensitive, in that stress preferentially falls on heavy syllables that are not in the default position for stress assignment (i.e. in root-final position). While CVV1 syllables count as heavy, CVC syllables do not seem to behave in the same way, as far as stress assignment is concerned. This work intends to expand on Forbes’ important study, and to investigate the role that syllable weight plays in other facets of the language beyond word-level stress.	page 1
+footnote 1	Jason Brown	note	“CVV” here is used as shorthand for syllables with phonetically long vowels [CVː], or for syllables with diphthongs that are bimoraic [CV1V2]. The “C” is intended to reflect an optional syllable onset across languages, and is not intended to be limited to a single consonant, as these structures generally do not contribute to syllable weight cross- linguistically.	page 1, footnote 1
+§1	Jason Brown	note	In short, this paper is a brief note intended to highlight a contrast between the syllables that count as heavy for metrical reasons, and those that count as heavy for prosodic morphological operations, including reduplication and word minimality. While the evidence indicates that coda consonants are moraic for prosodic morphology, this finding still lends support to Forbes’ claim that stress is weight-sensitive, as the minimal word equals the stress foot (Hayes 1995) insofar as it is a heavy syllable. While this short note is not intended to provide an in-depth and unified analysis of the syllabic and sub-syllabic units in the language, it does aim to isolate a pocket of problematic data. The paper is structured as follows: Section 2 provides a brief overview of stress in Gitksan (as presented by Forbes 2015), and draws out the implications for prosodic structure. Section 3 expands the study into the area of reduplication, where it will be shown that coda consonants must be moraic, and section 4 continues this thread in an exploration of the minimal prosodic word. Section 5 provides a brief discussion, and relates the observations to larger theoretical issues.	page 1
+§2	Jason Brown	heading	2 Word stress	page 2
+§2	Jason Brown	note	Rigsby (1986), Forbes (2015), and Brown, Davis, Schwan & Sennott (to appear) draw the generalisation that lexical stress in Gitksan falls on the final syllable of the morphological root. This is exemplified below2 (data from Forbes 2015: 81–82):	page 2
+footnote 2	Jason Brown	note	Syllable breaks are not indicated in these forms. While syllable divisions are unambiguous in many words (e.g. [ɡɪ.bá] ‘wait.for’, syllabification in other words is much less clear, due to the fact that Gitksan allows fairly extensive clustering of obstruents, and where the ordering of stops and fricatives in a cluster is relatively free. See Brown (to appear) for a discussion of syllable structure in the language.	page 2, footnote 2
+(1) line 1	Gitksan	transcription	ɡɪbá	page 2
+(1) line 2	Jason Brown	translation	‘wait.for’	page 2
+(1) line 3	Gitksan	transcription	ɡʷɪlá	page 2
+(1) line 4	Jason Brown	translation	‘blanket’	page 2
+(1) line 5	Gitksan	transcription	laχ‘ní	page 2
+(1) line 6	Jason Brown	translation	‘hear’	page 2
+(1) line 7	Gitksan	transcription	mijúxʷs	page 2
+(1) line 8	Jason Brown	translation	‘good smell’	page 2
+(1) line 9	Gitksan	transcription	Ɂamxsiwáː	page 2
+(1) line 10	Jason Brown	translation	‘white person’	page 2
+(1) line 11	Gitksan	transcription	sdɪk’éːkʷ	page 2
+(1) line 12	Jason Brown	translation	‘sibling’	page 2
+§2	Jason Brown	note	Forbes (2015) notes that this is a default iambic stress pattern. Forbes further illustrates the fact that despite this default pattern, lexical stress is weight-sensitive. That is, if a syllable with a long vowel precedes the root-final syllable, this syllable will instead be stressed, as exemplified in (2):	page 2
+(2) line 1	Gitksan	transcription	náːsɪk’	page 2
+(2) line 2	Jason Brown	translation	‘raspberry’	page 2
+(2) line 3	Gitksan	transcription	láːɢal	page 2
+(2) line 4	Jason Brown	translation	‘examine’	page 2
+(2) line 5	Gitksan	transcription	Ɂóːʦ’ɪn	page 2
+(2) line 6	Jason Brown	translation	‘soul, spirit’	page 2
+(2) line 7	Gitksan	transcription	naq’éːda	page 2
+(2) line 8	Jason Brown	translation	‘muskrat’	page 2
+(2) line 9	Gitksan	transcription	ɢawaɡʲáːni	page 2
+(2) line 10	Jason Brown	translation	‘make peace’	page 2
+(2) line 11	Gitksan	transcription	hóːbɪxʲ	page 2
+(2) line 12	Jason Brown	translation	‘spoon’	page 2
+§2	Jason Brown	note	Thus, stress is sensitive to syllable weight, with long vowels attracting stress away from the default root-final position. The same pattern, however, does not hold for syllables with a short vowel and closed by a coda consonant3:	page 3
+footnote 3	Jason Brown	note	Forbes (2015) actually lists some forms that appear to have this pattern on the surface: [ɢójp’aχ] ‘bright’, [námq’ap] ‘bank of stream’. She notes, though, that the vowel of the second syllable is epenthetic in these cases, motivated by breaking up consonant clusters either (a) after a long vowel, or (b) when the first member of the cluster is glottalized, with the underlying forms of the words above being /qojp’χ/ and /namq’p/, respectively. The dynamic introduced by this sub-pattern has obvious implications for a constraint- based approach to stress assignment; however, I will not treat these cases further.	page 3, footnote 3
+(3) line 1	Gitksan	transcription	laχ‘ní	page 3
+(3) line 2	Jason Brown	translation	‘hear’	page 3
+(3) line 3	Gitksan	transcription	bɪsdá’j	page 3
+(3) line 4	Jason Brown	translation	‘grouse’	page 3
+(3) line 5	Gitksan	transcription	ɡɪmxʲdí	page 3
+(3) line 6	Jason Brown	translation	‘sibling of opposite gender’	page 3
+(3) line 7	Gitksan	transcription	hɪndá	page 3
+(3) line 8	Jason Brown	translation	‘where’	page 3
+§2	Jason Brown	note	The generalization is thus that the default for stress placement is the root-final syllable, but a heavy syllable in the root can attract stress away from the right- hand position. As defined by the patterns in (2) and (3), a heavy syllable is one with a long vowel (i.e. CVV), and not one with a short vowel plus a coda consonant (CVC). In Optimality-theoretic terms, this would be the result of ranking of WEIGHT-TO-STRESS » RIGHTMOST, such that primary stress is aligned rightmost in the prosodic word, all else being equal, and where this condition can be over-ridden by the presence of a syllable with a long vowel.	page 3
+§2.1	Jason Brown	heading	2.1 Implications	page 3
+§2.1	Jason Brown	note	As the data above illustrates, the stress patterns in Gitksan have implications for the prosodic representations of the language below the level of the syllable. As noted above, the patterns lead Forbes to the sensible conclusion that coda consonants are not moraic in Gitksan, and for the purposes of stress, only long vowels count as heavy. Thus, the representations of the Gitksan syllable are as in Figure 1:	page 3
+Figure 1 line 1	Jason Brown	note	σ	page 3, the figure
+Figure 1 line 2	Jason Brown	note	μ μ	page 3, the figure
+Figure 1 line 3	Jason Brown	note	C V V	page 3, the figure
+Figure 1 line 4	Jason Brown	note	σ	page 3, the figure
+Figure 1 line 5	Jason Brown	note	μ	page 3, the figure
+Figure 1 line 6	Jason Brown	note	C V C	page 3, the figure
+Figure 1	Jason Brown	note	Figure 1 Syllable weight in Gitksan	page 3, the figure's caption
+§2.1	Jason Brown	note	As Figure 1 illustrates, long vowels are bimoraic, but coda consonants are not moraic. This amounts to one of the options available to languages cross- linguistically, the other option in a system with contrastive vowel length being that coda consonants contribute to syllable weight (i.e., are moraic) (Zec 1995, 2011). In the following sections, data will be presented which supports the view that coda consonants are moraic for some phonological processes in Gitksan. This raises the problem whereby certain structures count as heavy for one phenomenon, and as light for others. This problem will be touched on in Section 5.	page 3
+§3	Jason Brown	heading	3 Reduplication	page 4
+§3	Jason Brown	note	One aspect of prosodic morphology that requires a distinction between light and heavy syllables in the language is reduplication. Reduplication marks plural number, plural agreement, or durative aspect (Rigsby 1986, Brown 2007). Gitksan exhibits two basic reduplicative templates (plus one more with a fixed palatal fricative, which won’t be discussed at length here). One template is a CV- reduplicant, with the vowel surfacing as an allophone of /ə/4:	page 4
+footnote 4	Jason Brown	note	Most of the [i]s in these forms are more accurately [ɪ]. Vowel quality has been abstracted over in these cases.	page 4, footnote 4
+(4) line 1	Jason Brown	note	CV- reduplication	page 4, the name of the list
+(4) line 2	Gitksan	transcription	ʦ’ak’	page 4
+(4) line 3	Gitksan	transcription	ʣi~ʦ’ak’	page 4
+(4) line 4	Jason Brown	translation	‘dish’	page 4
+(4) line 5	Gitksan	transcription	doɁo	page 4
+(4) line 6	Gitksan	transcription	di~doɁo	page 4
+(4) line 7	Jason Brown	translation	‘cheek’	page 4
+(4) line 8	Gitksan	transcription	baɁa	page 4
+(4) line 9	Gitksan	transcription	bi~baɁa	page 4
+(4) line 10	Jason Brown	translation	‘thigh’	page 4
+(4) line 11	Gitksan	transcription	lit	page 4
+(4) line 12	Gitksan	transcription	li~lit	page 4
+(4) line 13	Jason Brown	translation	‘wedge’	page 4
+(4) line 14	Gitksan	transcription	ɡin	page 4
+(4) line 15	Gitksan	transcription	ɡi~ɡin	page 4
+(4) line 16	Jason Brown	translation	‘to feed someone’	page 4
+(4) line 17	Gitksan	transcription	ɡidaχ	page 4
+(4) line 18	Gitksan	transcription	ɡi~ɡidaχ	page 4
+(4) line 19	Jason Brown	translation	‘to ask’	page 4
+§3	Jason Brown	note	This template amounts to a light syllable (σμ) in the reduplicant. The following illustrates the other template, a CVC- reduplicant, where the vowel quality effects are the same as in the pattern above:	page 4
+(5) line 1	Jason Brown	note	CVC- reduplication	page 4, the name of the list
+(5) line 2	Gitksan	transcription	Ɂisxʷ	page 4
+(5) line 3	Gitksan	transcription	Ɂas~Ɂisxʷ	page 4
+(5) line 4	Jason Brown	translation	‘stink, smell’	page 4
+(5) line 5	Gitksan	transcription	ʣap	page 4
+(5) line 6	Gitksan	transcription	ʣip~ʣap	page 4
+(5) line 7	Jason Brown	translation	‘make, do’	page 4
+(5) line 8	Gitksan	transcription	jim	page 4
+(5) line 9	Gitksan	transcription	jim~jim	page 4
+(5) line 10	Jason Brown	translation	‘smell (VT)’	page 4
+(5) line 11	Gitksan	transcription	t’eː‘lt	page 4
+(5) line 12	Gitksan	transcription	dil~t’eː‘lt	page 4
+(5) line 13	Jason Brown	translation	‘be fast, quick’	page 4
+(5) line 14	Gitksan	transcription	ɢaʦ	page 4
+(5) line 15	Gitksan	transcription	ɢas~ɢaʦ	page 4
+(5) line 16	Jason Brown	translation	‘pour’	page 4
+(5) line 17	Gitksan	transcription	dulpxʷ	page 4
+(5) line 18	Gitksan	transcription	dil~dulpxʷ	page 4
+(5) line 19	Jason Brown	translation	‘to be short’	page 4
+(5) line 20	Gitksan	transcription	masxʷ	page 4
+(5) line 21	Gitksan	transcription	mis~masxʷ	page 4
+(5) line 22	Jason Brown	translation	‘to be red (ochre-coloured)’	page 4
+§3	Jason Brown	note	Given that there is a contrast between the light syllable template and the template in (5), it’s safe to say that the latter is a heavy syllable (σμμ).	page 4
+§3	Jason Brown	note	Assuming that reduplicative templates are derived from genuine units of prosody and not consonantal and vocalic slots (McCarthy & Prince 1986), the surface CV- and CVC- templates employed in (4)–(5) must be encoded in the grammar in prosodic terms. As argued extensively in Brown (2008), there is no sense in which these reduplicants can fall out of a generalized template; i.e., the reduplicant templates are not shaped by other independent forces in the grammar. Instead, the constraints regulating the reduplicant shape must be stipulated in the form of templatic constraints such as RED=σμ (“reduplicants equal a light syllable”) and RED=σμμ (“reduplicants equal a heavy syllable”). This is in part because there are no properties of the base that will predict when a given template is used (cf. the similar bases but different templates in ɡi~ɡin ‘to feed someone’ vs. jim~jim ‘smell (TRANS)’), and that there is inter-speaker variation such that some bases will surface with different reduplicants, depending on the speaker, as well as intra-speaker variation such that there is some degree of free variation in reduplicant shape, depending on a given base (for details of the variation associated with plurals, including reduplication, cf. Brown 2007).	page 4
+§3	Gitksan	cited form	ɡi~ɡin	page 5, in italics, ‘to feed someone’
+§3	Gitksan	cited form	jim~jim	page 5, in italics, ‘smell (TRANS)’
+§4	Jason Brown	heading	4 Minimal words	page 5
+§4	Jason Brown	note	One other aspect of the prosodic morphology of Gitksan that is worth investigating is the minimal prosodic word. This aspect of the language has not previously been discussed; however, when the possible free-standing words in the language are observed, some clear patterns begin to emerge. The following is only a brief summary; more work in this area is required. The following discussion, however, can perhaps be taken as indicative of the types of constraints on word structure that must be at play. Data from this section is taken from the database collected in Brown (2008, 2010), which subsumes a published dictionary of the language (Hindle & Rigsby 1973), and includes other forms collected during fieldwork.	page 5
+§4	Jason Brown	note	According to Hayes (1995), the minimal prosodic word in a language corresponds to the minimal stressed foot. As predicted by the account of stress outlined above, this equals a CVV prosodic word. 5 Aside from the loan [diː]/[tʰiː] ‘tea’, the following constitutes the set of lexical words that are CVV from the database:6	page 5
+footnote 5	Jason Brown	note	As mentioned in footnote 1, “C” is intended to represent a consonantal onset, and not necessarily a single consonant. Onset clusters exist in the language, and can include lengthy strings of obstruents. See Brown (to appear) for a treatment of onsets in the language.	page 5, footnote 5
+footnote 6	Jason Brown	note	There is also a word xʷdaː ‘mattress’, which, according to the analysis provided by Schwan and Anghelescu (2013), could be interpreted as disyllabic due to the nuclear status of the labialised velar fricative; i.e., [xʷ.daː].	page 5, footnote 6
+(6) line 1	Jason Brown	note	CVV words	page 6, the name of the list
+(6) line 2	Gitksan	transcription	ɡʲoː	page 6
+(6) line 3	Jason Brown	translation	‘to move in water, to swim (of fish)’7	page 6
+footnote 7	Jason Brown	note	The suppletive plural for this form is also CVV: [loː].	page 6, footnote 7
+(6) line 4	Gitksan	transcription	ɡʲuː	page 6
+(6) line 5	Jason Brown	translation	‘beads’	page 6
+(6) line 6	Gitksan	transcription	‘naː	page 6
+(6) line 7	Jason Brown	translation	‘out of the woods, into view, against a background’	page 6
+(6) line 8	Gitksan	transcription	t’aː	page 6
+(6) line 9	Jason Brown	translation	‘to sit’	page 6
+(6) line 10	Gitksan	transcription	χsdaː	page 6
+(6) line 11	Jason Brown	translation	‘to win’	page 6
+(6) line 12	Gitksan	transcription	jeː	page 6
+(6) line 13	Jason Brown	translation	‘to go’	page 6
+(6) line 14	Gitksan	transcription	neː	page 6
+(6) line 15	Jason Brown	translation	‘no, negative’	page 6
+§4	Jason Brown	note	Surprisingly, as far as the database in Brown (2008) is concerned, this list is exhaustive.8 There are actually just as many, if not more forms that consist of only a syllable with a long vowel, but which are proclitics9 (Gitksan makes use of both prenominal and preverbal proclitics, which will be discussed in more detail below):	page 6
+footnote 8	Jason Brown	note	There is one additional verbal root ɡuː ‘take, get, catch’; however, as a transitive verb, this root is presumed to never surface without inflectional affixes.	page 6, footnote 8
+footnote 8	Gitksan	cited form	ɡuː	page 6, in italics, ‘take, get, catch’
+footnote 9	Jason Brown	note	The clitic status of these morphemes is currently under debate, and further investigation into their prosodic characteristics is likely to yield interesting results; however, for the moment, these structures will be termed clitics, consistent with Rigsby (1986).	page 6, footnote 9
+(7) line 1	Jason Brown	note	CVV proclitics	page 6, the name of the list
+(7) line 2	Gitksan	transcription	‘niː	page 6
+(7) line 3	Jason Brown	translation	‘on’	page 6
+(7) line 4	Gitksan	transcription	luː	page 6
+(7) line 5	Jason Brown	translation	‘inside’	page 6
+(7) line 6	Gitksan	transcription	saː	page 6
+(7) line 7	Jason Brown	translation	‘away, off’	page 6
+(7) line 8	Gitksan	transcription	saː	page 6
+(7) line 9	Jason Brown	translation	‘suddenly’	page 6
+(7) line 10	Gitksan	transcription	siː	page 6
+(7) line 11	Jason Brown	translation	‘new, fresh’	page 6
+(7) line 12	Gitksan	transcription	‘wiː	page 6
+(7) line 13	Jason Brown	translation	‘big, large, great’	page 6
+(7) line 14	Gitksan	transcription	ɡuː	page 6
+(7) line 15	Jason Brown	translation	‘one who habitually does (something)’	page 6
+§4	Jason Brown	note	The prediction made above in Section 2 with respect to stress is that CVC should not count as heavy. There are, however, many more free-standing lexical CVC words that exist in the language than CVV words. In fact, CVC appears to be the canonical, or at least preferred, root shape in the language. (8) illustrates this with only a sampling of those words:	page 6
+(8) line 1	Jason Brown	note	CVC words	page 6, the name of the list
+(8) line 2	Gitksan	transcription	baχ	page 6
+(8) line 3	Jason Brown	translation	‘to run’	page 6
+(8) line 4	Gitksan	transcription	ban	page 6
+(8) line 5	Jason Brown	translation	‘to ache’	page 6
+(8) line 6	Gitksan	transcription	dap	page 6
+(8) line 7	Jason Brown	translation	‘liver’	page 6
+(8) line 8	Gitksan	transcription	‘mal	page 6
+(8) line 9	Jason Brown	translation	‘canoe’	page 6
+(8) line 10	Gitksan	transcription	diɬ	page 6
+(8) line 11	Jason Brown	translation	‘bag’	page 6
+(8) line 12	Gitksan	transcription	ɡat	page 6
+(8) line 13	Jason Brown	translation	‘to be born, to hatch’	page 6
+(8) line 14	Gitksan	transcription	Ɂam	page 6
+(8) line 15	Jason Brown	translation	‘be good’	page 6
+§4	Jason Brown	note	If both CVV and CVC count as heavy in the language (i.e. are bimoraic), then the prediction is that the minimal word must be a bimoraic foot. Ito and Mester (2003) state this as a condition on binary branching, such that the prosodic word must either branch, or the level below it (i.e., the foot) must branch. What is not predicted is a mono-moraic CV minimal word, as this does not constitute a licit stressed foot in the language, and is not a bimoraic structure. For the most part, this prediction holds. There are, however, more than a handful of forms that require some discussion. One set of morphemes is CV, as in (9); however, the forms in (9) are all proclitics (either prenominals or preverbals):	page 6
+(9) line 1	Jason Brown	note	CV proclitics	page 7, the name of the list
+(9) line 2	Gitksan	transcription	tk’i	page 7
+(9) line 3	Jason Brown	translation	‘down’	page 7
+(9) line 4	Gitksan	transcription	Ɂa	page 7
+(9) line 5	Gitksan	transcription	q’a	page 7
+(9) line 6	Jason Brown	translation	‘anew, again’	page 7
+(9) line 7	Gitksan	transcription	xsa	page 7
+(9) line 8	Gitksan	transcription	xsaχ	page 7
+(9) line 9	Jason Brown	translation	‘only’10	page 7
+footnote 10	Jason Brown	note	Dialectally this form is [ksa(χ)].	page 7, footnote 10
+(9) line 10	Gitksan	transcription	sbi	page 7
+(9) line 11	Gitksan	transcription	sba	page 7
+(9) line 12	Jason Brown	translation	‘lair, den’	page 7
+(9) line 13	Gitksan	transcription	xsi	page 7
+(9) line 14	Jason Brown	translation	‘fresh’	page 7
+(9) line 15	Gitksan	transcription	ɬɡu	page 7
+(9) line 16	Gitksan	transcription	ɬɡwa	page 7
+(9) line 17	Jason Brown	translation	‘small, little’	page 7
+(9) line 18	Gitksan	transcription	sɢa	page 7
+(9) line 19	Jason Brown	translation	‘across the way’	page 7
+§4	Jason Brown	note	Rigsby (1986:58–59) discusses the prosodic status of preverbals. Rigsby notes that prenominals are not free-standing words and are prosodically bound compounding forms, which often have free-standing lexical counterparts. The preverbal clitics, on the other hand, have slightly different properties. Rigsby notes that they are isolable, take secondary stress, and have the distributional properties of words, rather than affixes (such as the property of having full, rather than reduced, vowels). This argues strongly in favor of the preverbals being prosodic words; however, Rigsby (1986:59) states that “They seem to me to be not unlike English prepositions, determiners, and auxiliary verbs […] and they too don’t bear the primary phrasal stress.” Likening the preverbals to English function words sheds much light on the issue: while the preverbals are not affixes per se, they behave like function words in other languages, which typically escape minimality restrictions in languages and are often incorporated into higher-level prosodic structure (cf. Selkirk 1995). Thus these forms do not constitute true exceptions to a ban on CV lexical words, as that ban is assumed to hold on free-standing forms. The behavior of these proclitics is an interesting one, especially the difference between the prenominals and preverbals; however, a more in-depth investigation is still needed in this area.	page 7
+§4	Jason Brown	language	English	its function words
+§4	Jason Brown	note	Finally, there exists a very small set of lexical items that do in fact violate this minimality condition. There are seven lexical items in total, listed in (10):	page 7
+(10) line 1	Jason Brown	note	CV words	page 8, the name of the list
+(10) line 2	Gitksan	transcription	ha	page 8
+(10) line 3	Jason Brown	translation	‘air’11	page 8
+footnote 11	Jason Brown	note	Clarissa Forbes (personal communication) notes that this form almost always occurs with the prenominal laχ ‘on, in’, yielding the disyllabic laχha.	page 8, footnote 11
+footnote 11	Gitksan	cited form	laχ	page 8, in italics, ‘on, in’
+footnote 11	Gitksan	cited form	laχha	page 8, in italics
+(10) line 4	Gitksan	transcription	psa	page 8
+(10) line 5	Jason Brown	translation	‘grey clay’	page 8
+(10) line 6	Gitksan	transcription	sa	page 8
+(10) line 7	Jason Brown	translation	‘day’	page 8
+(10) line 8	Gitksan	transcription	sɡa	page 8
+(10) line 9	Jason Brown	translation	‘herring’	page 8
+(10) line 10	Gitksan	transcription	t’a	page 8
+(10) line 11	Jason Brown	translation	‘louse’	page 8
+(10) line 12	Gitksan	transcription	tqa	page 8
+(10) line 13	Jason Brown	translation	‘skin, hide’	page 8
+(10) line 14	Gitksan	transcription	wa	page 8
+(10) line 15	Jason Brown	translation	‘name’	page 8
+§4	Jason Brown	note	This exhausts the list of lexical words in the database from Brown (2008). The fact that these vowels are short is demonstrated by measurements from the recordings in Brown et al. (to appear), where the minimal pair [t’a] ‘louse’ and [t’aː] ‘to sit’ can be compared. In unpublished measurements over the tokens from that paper, [t’aː] had an average duration (measured over two productions in isolation) that was more than twice that of [t’a]. It is likely no accident that the vowel in each of these words is the low vowel [a]. No explanation is available at present for this fact, however, and these forms will stand as a list of patterned exceptions. There are three additional forms, the verbal roots he ‘to tell (trans)’, sɡi ‘to be on’, and ‘wa ‘to find, to get to someplace’. However, these forms are transitive verb roots, and as such, obligatorily take inflectional affixes. Occasionally trained consultants may produce these as citation forms, but most consultants reject these as free-standing prosodic words.	page 8
+§4	Gitksan	cited form	sɡi	page 8, in italics, ‘to be on’
+§4	Jason Brown	note	Finally, there is a piece of supporting evidence in the offglides accompanying short vowels in certain contexts. Rigsby (1986:183–184) notes that in unstressed syllables with short vowels, a resonant [h] offglide follows the vowel. When morphology is added to these roots, the offglide no longer surfaces:	page 8
+(11) line 1	Gitksan	transcription	Di!	page 8
+(11) line 2	Gitksan	phonetic	[dɪʰ]	page 8
+(11) line 3	Jason Brown	translation	‘Move! (SG)’12	page 8
+footnote 12	Jason Brown	note	Note that the first form di ‘move’ is not in the Brown 2008 database, and thus not listed in example (10) above.	page 8, footnote 12
+(11) line 4	Gitksan	transcription	sa	page 8
+(11) line 5	Gitksan	phonetic	[saʰ]	page 8
+(11) line 6	Jason Brown	translation	‘day’	page 8
+(11) line 7	Gitksan	transcription	sɡa	page 8
+(11) line 8	Gitksan	phonetic	[sɡʲɛʰ]	page 8
+(11) line 9	Jason Brown	translation	‘herring’	page 8
+§4	Jason Brown	note	Assuming that the minimal word in Gitksan is CVC, the presence of this offglide in all of the relevant environments such as in (11) suggests that some extra prosodic weight is desired in these sub-minimal forms.13	page 8
+footnote 13	Jason Brown	note	Thanks to Michael Schwan for bringing this pattern to my attention. He also points out that some consultants will put an apostrophe at the end of these sub-minimal roots to indicate this offglide, and that the offglide is actually orthographically indicated in the Coast Tsimshian language.	page 8, footnote 13
+footnote 13	Jason Brown	language	Coast Tsimshian	Maritime Tsimshianic, writes the offglide
+§5	Jason Brown	heading	5 Discussion	page 9
+§5	Jason Brown	note	As this paper has shown, while certain syllables count as heavy for the assignment of stress, other syllables count as heavy for other morphological operations. This state of affairs is not as unusual as it seems at first blush. Take, for instance, the case of Maori (Austronesian): long vowels are preferentially stressed, and if no long vowels are present in a word, then diphthongs will count as heavy. Finally, if there are no other “heavy” syllables, the default strategy is to stress a light syllable in initial position (cf. Bauer 1993). In that particular case, both CViVi and CViVj count as heavy, but the grammar makes a distinction when targeting a syllable for stress. The same is true for Kashmiri (Indo- European), where closed syllables will be stressed only if they are the optimal syllable type that is present which can be stressed; i.e., if there are no CVV syllables present (Morén 2000). Mam (Mayan) presents another, similar case: In Mam, CVV syllables are preferentially stressed; if these are not present, then syllables closed with a glottal stop will count as heavy, and will be stressed (England 1983). There are also cases of systems that make a distinction between what counts as heavy for the assignment of primary vs. secondary stress (Rosenthall and van der Hulst 1999). The primary difference between Gitksan and the cases cited above is that Gitksan doesn’t preferentially treat CVV over CVC as heavy in the computation of stress. Instead, CVC appears to be uniformly light with respect to stress. Where Gitksan displays similarities with these other systems is in the treatment of CVC as heavy for other types of prosodic morphology. It is in this respect that the inconsistent status of CVC syllables poses an interesting challenge.	page 9
+§5	Jason Brown	language	Maori	Austronesian
+§5	Jason Brown	language	Kashmiri	Indo-European
+§5	Jason Brown	language	Mam	Mayan
+§5	Jason Brown	note	These types of weight-inconsistencies across phonological processes have been reported for various other languages, such as Latin, Kiowa, and Lhasa Tibetan (cf. Hayes 1995, Gordon 2006, Zec 2011). It is important to specify that the inconsistency is across processes, and not contexts, because single contexts such as word-final position, which will be relevant for both the process of stress assignment and the minimal word effect in Gitksan, will yield inconsistencies with respect to the weight of CVC.	page 9
+§5	Jason Brown	language	Latin	a language with weight inconsistencies
+§5	Jason Brown	language	Kiowa	a language with weight inconsistencies
+§5	Jason Brown	language	Lhasa Tibetan	a language with weight inconsistencies
+§5	Jason Brown	note	While it was noted above that the stressed foot in the language equalled the minimal word, there are still some wrinkles. While the heavy syllable template (i.e. σμμ) seemed to be necessary to account for the behaviors of CVC, whatever the reason ultimately may be, CVC does not seem to be the minimal metrical foot in the language, but yet it constitutes a legal minimal word. While there remains much work to be done in this particular area, for the moment we can cite Garrett’s (1999) typological work illustrating the point that minimal words, while the smallest legal lexical structures in a language, do not always equal the stressed foot, and that stressed feet and minimal words can coexist in a single system as different prosodic structures.	page 9
+§5	Jason Brown	note	Finally, Shaw (1992) has presented evidence that sonorants are moraic in the related Nisgha language, where some of the phenomena above, namely, stress assignment and reduplication, exhibit slightly different patterns. If the same types of patterns and behaviours are identified in Gitksan, then this would present a substantially more complex situation, one worthy of deeper investigation.	page 9
+§5	Jason Brown	language	Nisgha	Interior Tsimshianic, related to Gitksan
+references	Jason Brown	heading	References	page 10
+references	Jason Brown	reference	Bauer, W. (1993). Maori. Routledge.	page 10
+references	Jason Brown	reference	Brown, J. (2007). Doubled plurals and the syntax of words in Gitksan. Paper presented at the Workshop on Parts and Quantities, University of British Columbia.	page 10
+references	Jason Brown	reference	Brown, J. (2008). Theoretical aspects of Gitksan phonology. Ph.D. dissertation, UBC.	page 10
+references	Jason Brown	reference	Brown, J. (2010). Gitksan phonotactics. Munich: Lincom Europa.	page 10
+references	Jason Brown	reference	Brown, J. (To appear). Sonority in Gitksan. In M. J. Ball (ed.), Sonority across languages. Equinox Publishing Ltd.	page 10
+references	Jason Brown	reference	Brown, J., Davis, H., Schwan, M. and Sennott, B. (To appear). Gitksan. Journal of the International Phonetic Association.	page 10
+references	Jason Brown	reference	England, N. C. (1983). A grammar of Mam, a Mayan language. Austin: University of Texas Press.	page 10
+references	Jason Brown	reference	Forbes, C. (2015). Root-stress in Gitksan: Modelling the path to lexical accent. In N. Weber and S. Chen (eds.), Proceedings of the workshop on structure and constituency of the languages of the Americas 18 & 19. UBCWPL 39, pp. 79–93.	page 10
+references	Jason Brown	reference	Garrett, E. (1999). Minimal words aren’t minimal feet. In M. Gordon (ed.), UCLA Working Papers in Linguistics 1: Papers in Phonology 2, pp. 68–105.	page 10
+references	Jason Brown	reference	Gordon, M. (2006). Syllable weight: Phonetics, phonology, typology. London: Routledge.	page 10
+references	Jason Brown	reference	Hayes, B. (1995). Metrical stress theory. Chicago: University of Chicago Press.	page 10
+references	Jason Brown	reference	Hindle, L. and Rigsby, B. (1973). A short practical dictionary of the Gitksan language. Northwest Anthropological Research Notes 7:1–60.	page 10
+references	Jason Brown	reference	Ito, J. and Mester, A. (2003). Weak layering and word binarity. In T. Honma, M. Okazaki, T. Tabata, and S. Tanaka (eds.), A new century of phonology and phonological theory. Tokyo: Kaitakusha, pp. 26–65.	page 10
+references	Jason Brown	reference	McCarthy, J. J. and A. Prince. (1986). Prosodic morphology. Ms, University of Massachusetts and Brandeis University.	page 10
+references	Jason Brown	reference	Morén, B. (2000). The puzzle of Kashmiri stress: Implications for weight theory. Phonology 17:365–396.	page 10
+references	Jason Brown	reference	Rigsby, B. (1986). Gitksan grammar. Ms., University of Queensland.	page 10
+references	Jason Brown	reference	Rosenthall, S. and van der Hulst, H. (1999). Weight-by-position by position. Natural Language and Linguistic Theory 17:499–540.	page 11
+references	Jason Brown	reference	Schwan, M. D. and Anghelescu, A. (2013). Nuclear consonants in Gitksan. Poster presented at the Canadian Linguistic Association, Victoria, BC.	page 11
+references	Jason Brown	reference	Selkirk, E. (1995). The prosodic structure of function words. In J. Beckman, L. Walsh-Dickey, and S. Urbanczyk (eds.), Papers in Optimality Theory. Amherst: GLSA, pp. 439–469.	page 11
+references	Jason Brown	reference	Shaw, P. A. (1992). Templatic evidence for the syllable nucleus. In A. J. Shafer (ed.), Proceedings of the Northeast Linguistics Society 23. Amherst: GLSA, pp. 463–477.	page 11
+references	Jason Brown	reference	Zec, D. (1995). Sonority constraints on syllable structure. Phonology 12:85–129.	page 11
+references	Jason Brown	reference	Zec, D. (2011). Quantity-sensitivity. In M. van Oostendorp, C. J. Ewen, E. Hume and K. Rice (eds.), The Blackwell companion to phonology. Blackwell, pp. 1335–1362.	page 11

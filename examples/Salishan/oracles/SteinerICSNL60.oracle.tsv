@@ -1,0 +1,967 @@
+where	who	kind	form	gloss
+front	Reed Steiner	note	In Proceedings of the International Conference on Salish and Neighbouring Languages 60, Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2025.	page 1
+front	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+front	Reed Steiner	note	Abstract: Like all Salish languages, nɬeʔkepmxcín (ISO 639-3: thr) has about 100 noun-like suffixes (e.g. -inek ‘star’ and -aqs ‘nose’), which refer to concrete entities, but don’t necessarily resemble freestanding nouns with similar meanings. In the literature on Salish languages, these suffixes are called lexical suffixes (Kinkade 1998, Hinkson 1999). Lexical suffixes are often divided into two subclasses: non-somatic suffixes, which typically refer to common objects, and somatic suffixes, which always refer to body parts inalienably possessed by an argument of the verb (Kuipers 1967, Davis 1997). This paper provides a novel analysis of somatic suffixes in which they compose with an intransitive or transitive suffix prior to combining with the predicate.	page 1, the abstract
+front	Reed Steiner	note	Keywords: nɬeʔkepmxcín, lexical suffix, non-somatic, somatic, medio-reflexive, autonomous	page 1, the keywords
+front	nɬeʔkepmxcín	cited affix	-inek	page 1, the abstract, ‘star’
+front	nɬeʔkepmxcín	cited affix	-aqs	page 1, the abstract, ‘nose’
+§1	Reed Steiner	heading	1 Introduction	page 1
+§1.1	Reed Steiner	heading	1.1 About the language	page 1
+§1.1	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+§1.1	Reed Steiner	language	nlaka’pamux	another name for nɬeʔkepmxcín
+§1.1	Reed Steiner	note	nɬeʔkepmxcín (aka nlaka’pamux, Thompson River Salish, ISO 639-3: thp) is a Northern Interior Salish language spoken in the lower part of the Thompson River Gorge, the Fraser River Canyon, and the Nicola River Valley (Thompson & Thompson 1996: ix). The most recent First People’s Cultural Council (FPCC) Report on the Status of BC First Nations Languages estimates there are about 100 fluent first-language speakers (Gessner, Herbert, and Parker 2022), most of whom are elderly.	page 1
+§1.1	Reed Steiner	name	c̓úʔsinek	Marty Aspinall's name, CMA in the tags, one of the three consultants
+§1.1	Reed Steiner	name	kʷaɬtèzetkʷuʔ	Bernice Garcia's traditional name, KBG in the tags, one of the three consultants
+§1.1	Reed Steiner	language	ƛ̓q̕əmcín	the Lytton dialect, Bev Phillips's
+§1.1	Reed Steiner	language	scw̕exmxcín	the Nicola Valley dialect, c̓úʔsinek's, in the spelling of Thompson and Thompson 1996:45
+§1.1	Reed Steiner	language	Stó꞉lō	the Stó꞉lō dialect of Halkomelem, Coast Salish, on c̓úʔsinek's father's side
+footnote *	Reed Steiner	note	* I extend my sincerest gratitude to my language consultants: Bev Phillips, kʷaɬtèzetkʷuʔ Bernice Garcia, and c̓úʔsinek Marty Aspinall, whose judgements and support make this research possible. kʷaɬtèzetkʷuʔ wishes it to be acknowledged that she is a Kamloops Indian Residential School speaker, who is re-learning her language. She introduces herself thus: ʔes ʔúməcms kʷaɬtèzetkʷuʔ təw ɬe c̓əɬétkʷu wéʔe ncitxʷ. ƛ̓uʔ wéʔec ʔex netíyxs scwew̓xmx, ƛ̓uʔ tékm xéʔe ne nɬeʔképmx e tmixʷs, ‘My traditional name is kʷaɬtèzetkʷuʔ, my home is in Coldwater of ‘Nicola’ of nlaka’pamux lands.’ Thank you to the members of the Salish Working Group, nɬeʔkepmxcín Lab (nɬab), and UBC Semantics Discussion Group for the support and feedback, especially Ella Hannon and Brent Hall. I would especially like to thank Henry Davis for his many comments and generous feedback at all stages of this project, Lisa Matthewson for introducing me to the language and guiding my methodology, and Marcin Morzycki for slicing apart my denotations. Research on nɬeʔkepmxcín was supported by the UBC Department of Linguistics, the Jacobs Research Fund and the Kinkade Language and Culture Foundation (PIs Reed Steiner 2023, Danica Reid 2024), and the UBC Indigenous Strategic Initiative (PI: Lisa Matthewson). Any errors in this paper are my own. ném kʷukʷstéyp nsnuk̓ʷnúk̓ʷeʔ. Author’s email: reed.steiner@ubc.ca	page 1, footnote
+footnote *	kʷaɬtèzetkʷuʔ (Bernice Garcia)	running speech	ʔes ʔúməcms kʷaɬtèzetkʷuʔ təw ɬe c̓əɬétkʷu wéʔe ncitxʷ. ƛ̓uʔ wéʔec ʔex netíyxs scwew̓xmx, ƛ̓uʔ tékm xéʔe ne nɬeʔképmx e tmixʷs	page 1, kʷaɬtèzetkʷuʔ introducing herself
+footnote *	Reed Steiner	translation	‘My traditional name is kʷaɬtèzetkʷuʔ, my home is in Coldwater of ‘Nicola’ of nlaka’pamux lands.’	page 1, the translation printed with it
+footnote *	nɬeʔkepmxcín	cited form	ʔes	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	cited form	ʔúməcms	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	cited form	təw	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	cited form	ɬe	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	place	c̓əɬétkʷu	Coldwater, in kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	cited form	wéʔe	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	cited form	ncitxʷ	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	cited form	ƛ̓uʔ	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	cited form	wéʔec	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	cited form	ʔex	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	cited form	netíyxs	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	place	scwew̓xmx	Nicola, in kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	cited form	tékm	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	cited form	xéʔe	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	cited form	nɬeʔképmx	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	nɬeʔkepmxcín	cited form	tmixʷs	a word of kʷaɬtèzetkʷuʔ's self-introduction, footnote *
+footnote *	Reed Steiner	name	nɬab	the nɬeʔkepmxcín Lab, thanked in footnote *
+footnote *	nɬeʔkepmxcín	cited form	ném	from the thanks ném kʷukʷstéyp nsnuk̓ʷnúk̓ʷeʔ closing footnote *, left untranslated
+footnote *	nɬeʔkepmxcín	cited form	kʷukʷstéyp	from the thanks ném kʷukʷstéyp nsnuk̓ʷnúk̓ʷeʔ closing footnote *, left untranslated
+footnote *	nɬeʔkepmxcín	cited form	nsnuk̓ʷnúk̓ʷeʔ	from the thanks ném kʷukʷstéyp nsnuk̓ʷnúk̓ʷeʔ closing footnote *, left untranslated
+§1.1	Reed Steiner	language	c̓eɬétkʷu	the Coldwater dialect, kʷaɬtèzetkʷuʔ's
+§1.1	Reed Steiner	note	Over the past three years, I have been working with three first-language speakers of nɬeʔkepmxcín: Bev Phillips (BP), c̓úʔsinek Marty Aspinall (CMA), and kʷaɬtèzetkʷuʔ Bernice Garcia (KBG). Bev speaks the ƛ̓q̕əmcín (Lytton) dialect. c̓úʔsinek speaks the scw̕exmxcín (Nicola Valley) dialect, with influence on her father's side from the Stó꞉lō dialect of Halkomelem (Coast Salish, iso 639-3: hur).1 kʷaɬtèzetkʷuʔ speaks the c̓eɬétkʷu (Coldwater) dialect. All three dialects are mutually intelligible.	page 1
+§1.2	Reed Steiner	heading	1.2 Lexical suffixes (LS)	page 2
+§1.2	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+§1.2	Reed Steiner	note	Like all Salish languages, nɬeʔkepmxcín has about 100 suffixes with lexical as opposed to grammatical content. In the literature on Salish, Wakashan, and Chemakuan languages, these suffixes are appropriately called lexical suffixes (LS’s): the term originates with Kinkade (1963: 352).	page 2
+§1.2	nɬeʔkepmxcín	cited affix	-éwíɬ	page 2, ‘canoe’
+§1.2	nɬeʔkepmxcín	cited affix	-eɬp	page 2, ‘plant’
+§1.2	nɬeʔkepmxcín	cited affix	-eyeqʷ	page 2, ‘tree’
+§1.2	nɬeʔkepmxcín	cited form	sɣép	page 2, ‘tree’
+§1.2	nɬeʔkepmxcín	cited affix	-eɬxʷ	page 2
+§1.2	nɬeʔkepmxcín	cited form	cítxʷ	page 2, ‘house’
+§1.2	Reed Steiner	note	Prior literature on Salish observes that lexical suffixes have semantic content similar to nouns (e.g. Sapir 1911: 251, Reichard 1938: 608, Kinkade 1998, Hinkson 1999). Many lexical suffixes refer to body parts (e.g. nɬeʔkepmxcín -us ‘face’ and -xn ‘foot’) while others refer to common objects (e.g. -éwíɬ ‘canoe’ and -eɬp ‘plant’).2 However, unlike typical cases of noun incorporation and noun-verb compounding (see Mithun 1984), lexical suffixes need not resemble free-standing words with the same meanings (compare LS -eyeqʷ ‘tree’ to sɣép ‘tree’, or LS -eɬxʷ ‘house’ to cítxʷ ‘house’).	page 2
+§1.2	Reed Steiner	note	In diachronic terms, lexical suffixes are old: many can be reconstructed to V(erb)+N(oun) and N+N compounds in Proto Salish (Kinkade 1998). The semantic extensions of each suffix vary cross-linguistically (Hinkson 1999), but the compositional grammar is largely consistent across the family.	page 2
+§1.2	Reed Steiner	note	In contemporary speech, lexical suffixes have become less productive; similar meanings are usually expressed syntactically, with obliques or prepositional phrases (PPs) (Thompson & Thompson 1992: 112). However, conservative speakers will often prefer lexical suffixed forms when they are available, judging them "more correct" or "more advanced" than analytic alternatives. When a supplied word contains a lexical suffix, speakers have consistent and reliable judgements about how that word behaves.	page 2
+§1.2	Reed Steiner	note	A comprehensive list of lexical suffixes in nɬeʔkepmxcín can be found in Appendix B of the Thompson & Thompson (T&T) dictionary (1996: 531-543).	page 2
+§1.2	nɬeʔkepmxcín	cited affix	-us	page 2, ‘face’
+§1.2	nɬeʔkepmxcín	cited affix	-xn	page 2, ‘foot’
+§1.3	Reed Steiner	heading	1.3 Somatic and non-somatic suffixes	page 2
+§1.3	Reed Steiner	note	In much of the literature on Salish, lexical suffixes are divided into two groups: non-somatic suffixes and somatic suffixes. The first to make this distinction is Kuipers (1967: 110, 118-119), who observes that lexical suffixes that refer to body parts often pattern differently than those that do not. He calls the non-body-part lexical suffixes non-somatic and calls the body-part lexical suffixes somatic.	page 2
+footnote 1	Reed Steiner	note	1 I use the spelling from Thompson and Thompson (1996: 45), but c̓úʔsinek spells it scew̕exmxcín and others spell it scwexmxcín.	page 2, footnote
+footnote 1	Reed Steiner	name	c̓úʔsinek	Marty Aspinall's name, CMA in the tags, one of the three consultants
+footnote 1	Reed Steiner	language	scew̕exmxcín	the Nicola Valley dialect as c̓úʔsinek spells it, footnote 1
+footnote 1	Reed Steiner	language	scwexmxcín	the Nicola Valley dialect as others spell it, footnote 1
+footnote 2	Reed Steiner	note	2 In the literature on Salish, lexical suffixes are often written with a double hyphen, e.g. =us and =eɬp (e.g. Kinkade 1998, Thompson & Thompson 1992). I do not adopt this convention, since the double hyphen is standardly reserved for clitics (Comrie et al 2008). When referencing lexical suffixes in text, I do not mark stress unless Thompson & Thompson (1996) include it in the underlying representation.	page 2, footnote
+footnote 2	nɬeʔkepmxcín	cited affix	=eɬp	page 2, footnote 2, -eɬp ‘plant’ with the double hyphen the literature writes
+§1.3	Reed Steiner	note	Davis uses these terms in a slightly different way (1997: 58). A somatic suffix is strictly a body-part suffix with a medio-reflexive (self-directed) reading (discussed in more detail in Section 2). A non-somatic suffix is any lexical suffix without this reading. This distinction is small, but significant: it predicts that non-somatic suffixes can refer to body parts, too, so long as the predicate doesn’t have a medio-reflexive reading. Under this definition, all lexical suffixes can be non- somatic, but only certain body-part suffixes can access a somatic reading.	page 2
+§2	Reed Steiner	heading	2 Differentiating somatic suffixes	page 3
+§2	Reed Steiner	note	A somatic suffix can be distinguished from a non-somatic suffix based on its relationship with the predicate that hosts it. Non-somatic suffixes modify their host. Somatic suffixes are inalienably possessed by one of the predicate’s arguments.	page 3
+§2	Reed Steiner	note	The inalienable possessor of the body part depends on the formal (in)transitive morphology of the predicate. With unaccusative predicates, which are marked by a variety of intransitive morphemes, somatic suffixes are possessed by the internal argument of the predicate (2.1). With unergative predicates, which are marked by the middle suffix -m, somatic suffixes are possessed by the external argument of the predicate (2.2). With control transitives, which are marked by -n-t-, somatic suffixes are typically possessed by the internal argument; with relational transitives, which are marked by -min-t-, somatic suffixes are typically possessed by the external argument (2.3). All somatic suffixes can also be used non-somatically (2.4).	page 3
+§2	nɬeʔkepmxcín	cited affix	-m	page 3, the middle suffix of unergative predicates
+§2	nɬeʔkepmxcín	cited affix	-n-t-	page 3, the control transitive
+§2	nɬeʔkepmxcín	cited affix	-min-t-	page 3, the relational transitive
+§2.1	Reed Steiner	heading	2.1 Differentiating somatic suffixes on unaccusative predicates	page 3
+§2.1	Reed Steiner	note	Somatic and non-somatic suffixes pattern differently in unaccusative predicates: non-somatic suffixes are modifiers; somatic suffixes refer to a body part inalienably possessed by the internal argument.	page 3
+§2.1	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+§2.1	nɬeʔkepmxcín	cited affix	ʔes-	page 3
+§2.1	nɬeʔkepmxcín	cited affix	<ʔ>	page 3, the inchoative infix of strong roots
+§2.1	Reed Steiner	note	Unaccusative predicates have one internal argument, usually a theme/patient (the undergoer of an event) or an experiencer (the undergoer of a mental or sensory state), but never the agent (the causer of an event). In nɬeʔkepmxcín, unaccusative verbs are marked with one of several morphemes: change-of-state COS (‘out of control’) reduplication (1) (T&T 1992: 99); the ‘immediate’ IMM suffix -t (2) (T&T 1992: 92); the stative prefix ʔes- STAT (3) (T&T 1992: 94); or the inchoative INCH morpheme, which is realized as an infix <ʔ> on strong (full vowel) roots (4) and a suffix -p on weak (schwa-only) roots (5) (T&T 1992: 97).3 Non-somatic suffixes on unaccusative predicates modify the verb. In (1-5), a non-somatic suffix affixes to an unaccusative predicate, and the relationship between the verb and its argument does not change. In the (a) examples, the subject is the patient or experiencer of the predicate. In the (b) examples, a non-somatic suffix is added, and the thematic role of the subject does not change.4	page 3
+(1) line 1	Reed Steiner	note	Change-of-state predicate with non-somatic suffix	page 3, the caption
+(1a) line 1	nɬeʔkepmxcín	transcription	ʔéx nukʷ x̣ʷúsəs heʔpíyə nɬə típəl	page 4, read off the page
+(1a) line 2	nɬeʔkepmxcín	segmentation	ʔéx=∅=nukʷ x̣ʷús~əs [e]=eʔ-píyə n=ɬə=típəl	page 4, read off the page
+(1a) line 3	nɬeʔkepmxcín	gloss	IPFV=3SBJ=SENSE foam~COS DET=2SG.POSS-beer on=DET=table	page 4, read off the page
+(1a) line 4	Reed Steiner	translation	‘Your beer is foaming on the table.’	page 4
+(1a) line 4	Reed Steiner	citation	(sf | KBG 14 Jan 2024)	the tag or source at the right of the translation
+(1b) line 1	nɬeʔkepmxcín	transcription	ʔéx nukʷ x̣ʷúsəsetkʷuʔ heʔpíyə nɬə típəl	page 4, read off the page
+(1b) line 2	nɬeʔkepmxcín	segmentation	ʔéx=∅=nukʷ x̣ʷús~əs-etkʷu [e]=eʔ-píyə n=ɬə=típəl	page 4, read off the page
+(1b) line 3	nɬeʔkepmxcín	gloss	IPFV=3SBJ=SENSE foam~COS-water DET=2SG.POSS-be on=DET=table	page 4, read off the page
+(1b) line 4	Reed Steiner	translation	‘Your beer is foaming on the table.’	page 4
+(1b) line 4	Reed Steiner	citation	(sf | KBG 14 Jan 2024)	the tag or source at the right of the translation
+footnote 3	Reed Steiner	note	3 It may be more accurate to call strong roots 'accented' and weak roots 'unaccent', but I use 'full vowel' and 'schwa only' here to account for cases like (9).	page 3, footnote
+footnote 4	Reed Steiner	note	4 Abbreviations: BP Bev Phillips, CMA c̓úʔsinek Marty Aspinall, KBG kʷaɬtèzetkʷuʔ Bernice Garcia, sf supplied form, vf volunteered form. Glossing abbreviations not found in the Leipzig Glossing Rules (Comrie et al. 2008): AUG = augmentative, CHR = characteristic reduplication, COMPL = completive, COS = change of state, CTR = control pre-transitivizer, CTR.MID = control middle, D/C = determiner/complementizer, INCH = inchoative, INS = instrumental IMM = immediate, ITJ = interjection, LC.MID = limited control middle, PROSP = prospective aspect, RDR = redirective applicative, RLT = relational applicative, RPRT = reportative evidential, SENSE = sensory evidential, STAT = stative, WN = weak necessity modal. The first line of the gloss is intended to represent how the sentence is pronounced, and so it may contain epenthesized segments that do not appear in the second line.	page 3, footnote
+footnote 4	Reed Steiner	name	c̓úʔsinek	Marty Aspinall's name, CMA in the tags, one of the three consultants
+footnote 4	Reed Steiner	name	kʷaɬtèzetkʷuʔ	Bernice Garcia's traditional name, KBG in the tags, one of the three consultants
+(2) line 1	Reed Steiner	note	Immediate-marked predicate with non-somatic suffix5	page 4, engine english
+(2a) line 1	nɬeʔkepmxcín	transcription	ník̓t e sɣə́p	page 4, engine language
+(2a) line 2	nɬeʔkepmxcín	segmentation	ník̓-t=∅ e=sɣə́p	page 4, engine language
+(2a) line 3	nɬeʔkepmxcín	gloss	cut-IMM=3SBJ DET=tree	page 4, engine english
+(2a) line 4	Reed Steiner	translation	‘The tree got cut.’	page 4, engine english
+(2a) line 4	Reed Steiner	citation	(sf | KBG 18 Dec 2024)	the tag or source at the right of the translation
+(2b) line 1	nɬeʔkepmxcín	transcription	ník̓eyqʷ e sɣə́p	page 4, engine language
+(2b) line 2	nɬeʔkepmxcín	segmentation	ník̓-∅-eyqʷ=∅ e=sɣə́p	page 4, engine language
+(2b) line 3	nɬeʔkepmxcín	gloss	cut-IMM-tree=3SBJ DET=tree	page 4, engine english
+(2b) line 4	Reed Steiner	translation	‘The tree got cut.’	page 4, engine english
+(2b) line 4	Reed Steiner	citation	(sf | KBG 7 Jan 2024)	the tag or source at the right of the translation
+(3) line 1	Reed Steiner	note	Stative predicate with non-somatic suffix	page 4, engine english
+(3a) line 1	nɬeʔkepmxcín	transcription	ʔescáqʷ ɬ kéwəc	page 4, engine language, carries footnote 6, written here without its digit
+(3a) line 2	nɬeʔkepmxcín	segmentation	ʔes-cáqʷ=∅ ɬ=kéwəc	page 4, engine language
+(3a) line 3	nɬeʔkepmxcín	gloss	STAT-red=3SBJ DET=carrot	page 4, engine english
+(3a) line 4	Reed Steiner	translation	‘The carrots are red.’	page 4, engine english
+(3a) line 4	Reed Steiner	citation	(sf | KBG 18 Dec 2024)	the tag or source at the right of the translation
+(3b) line 1	nɬeʔkepmxcín	transcription	ʔescáqʷseʔ ɬ zelkʷúʔ	page 4, engine language
+(3b) line 2	nɬeʔkepmxcín	segmentation	ʔes-cáqʷ-[u]seʔ=∅ ɬ=zəlkʷúʔ	page 4, engine language
+(3b) line 3	nɬeʔkepmxcín	gloss	STAT-red-berry=3SBJ DET=chokecherry	page 4, engine english
+(3b) line 4	Reed Steiner	translation	‘The chokecherries are red.’	page 4, engine english
+(3b) line 4	Reed Steiner	citation	(sf | KBG 18 Dec 2024)	the tag or source at the right of the translation
+(4) line 1	Reed Steiner	note	Inchoative-infixed predicate with non-somatic suffix	page 4, engine english
+(4a) line 1	nɬeʔkepmxcín	transcription	k̓ʔéx e kéwəc	page 4, engine language
+(4a) line 2	nɬeʔkepmxcín	segmentation	k̓<ʔ>éx=∅ e=kéwəc	page 4, engine language
+(4a) line 3	nɬeʔkepmxcín	gloss	dry<INCH>=3SBJ DET=carrot	page 4, engine english
+(4a) line 4	Reed Steiner	translation	‘The carrots have dried.’	page 4, engine english
+(4a) line 4	Reed Steiner	citation	(sf | KBG 18 Dec 2024)	the tag or source at the right of the translation
+footnote 5	Reed Steiner	note	5 For unknown reasons, the immediate suffix is not pronounced in lexical-suffixed predicates, although I assume it remains interpretable in the semantics. The null allomorph of the immediate is discussed in more detail in Section 4.3.	page 4, footnote
+footnote 6	Reed Steiner	note	6 Here, I follow KBG's pronunciation kéwəc. Thompson & Thompson (1992: 82) spell it káləc.	page 4, footnote
+footnote 6	nɬeʔkepmxcín	cited form	kéwəc	page 4
+footnote 6	nɬeʔkepmxcín	cited form	káləc	page 4
+(4b) line 1	nɬeʔkepmxcín	transcription	k̓eʔxúseʔ e spəqpáq	page 5, engine language
+(4b) line 2	nɬeʔkepmxcín	segmentation	k̓e<ʔ>x-úseʔ=∅ e=s-pəq~páq	page 5, engine language
+(4b) line 3	nɬeʔkepmxcín	gloss	dry<INCH>-berry=3SBJ DET=NMLZ-AUG~white	page 5, engine english
+(4b) line 4	Reed Steiner	translation	‘The saskatoons have dried.’	page 5, engine english
+(4b) line 4	Reed Steiner	citation	(sf | KBG 18 Dec 2024)	the tag or source at the right of the translation
+(5) line 1	Reed Steiner	note	Inchoative-suffixed predicate with non-somatic suffix	page 5, engine english
+(5a) line 1	nɬeʔkepmxcín	transcription	cʕə́p eʔnƛ̓píc̓eʔ	page 5, engine language
+(5a) line 2	nɬeʔkepmxcín	segmentation	cʕ-ə́p=∅ [e]=eʔ-nƛ̓píc̓eʔ	page 5, engine language
+(5a) line 3	nɬeʔkepmxcín	gloss	rip-INCH=3SBJ DET=2SG.POSS-shirt	page 5, engine english
+(5a) line 4	Reed Steiner	translation	‘Your shirt is torn.’	page 5, engine english
+(5a) line 4	Reed Steiner	citation	(sf | KBG 21 Jan 2025)	the tag or source at the right of the translation
+(5b) line 1	nɬeʔkepmxcín	transcription	caʕpíc̓eʔ xéʔe tk kepú	page 5, engine language
+(5b) line 2	nɬeʔkepmxcín	segmentation	cəʕ-p-íc̓eʔ=∅ xéʔe t=k=kepú	page 5, engine language
+(5b) line 3	nɬeʔkepmxcín	gloss	rip-INCH-covering=3SBJ DEM OBL=DET=coat	page 5, engine english
+(5b) line 4	Reed Steiner	translation	‘That coat is torn.’	page 5, engine english
+(5b) line 4	Reed Steiner	citation	(sf | KBG 21 Jan 2025)	the tag or source at the right of the translation
+§2.1	Reed Steiner	note	In contrast, somatic suffixes on unaccusative predicates must be inalienably possessed by the internal argument. In (6)-(10), the body part belongs to the subject, which is marked by intransitive subject agreement clitics.	page 5
+(6) line 1	Reed Steiner	note	Change-of-state predicate with somatic suffix	page 5, engine english
+(6) line 2	nɬeʔkepmxcín	transcription	tíʕ̕ʷʕ̕ʷxn kʷ	page 5, engine language
+(6) line 3	nɬeʔkepmxcín	segmentation	tíʕ̕ʷ~ʕ̕ʷ-xn=kʷ	page 5, engine language
+(6) line 4	nɬeʔkepmxcín	gloss	free~COS-foot=2SG.SBJ	page 5, engine english
+(6) line 5	Reed Steiner	translation	‘Your shoe is untied.’	page 5, engine english
+(6) line 6	Reed Steiner	translation	Lit. ‘Your feet are free (from being bound).’	page 5, the literal translation
+(6) line 6	Reed Steiner	citation	(sf | KBG 5 March 2025)	the tag or source at the right of the translation
+(7) line 1	Reed Steiner	note	Immediate-marked predicate with somatic suffix	page 5, engine english
+(7) line 2	nɬeʔkepmxcín	transcription	p̓aʕcín kn tɬə kápi	page 5, engine language
+(7) line 3	nɬeʔkepmxcín	segmentation	p̓aʕ-∅-cín=kn tu=ɬ=kápi	page 5, engine language
+(7) line 4	nɬeʔkepmxcín	gloss	burn.flesh-IMM-mouth=1SG.SBJ from=DET=coffee	page 5, engine english
+(7) line 5	Reed Steiner	translation	‘My mouth got burned by the coffee.’	page 5, engine english
+(7) line 5	Reed Steiner	citation	(sf | KBG 4 Dec 2024)	the tag or source at the right of the translation
+(8) line 1	Reed Steiner	note	Stative predicate with somatic suffix	page 5, engine english
+(8) line 2	nɬeʔkepmxcín	transcription	ʔeskəɬkəɬxə́n	page 5, engine language
+(8) line 3	nɬeʔkepmxcín	segmentation	ʔes-kəɬ~kəɬ-xə́n=∅	page 5, engine language
+(8) line 4	nɬeʔkepmxcín	gloss	STAT-AUG~remove-foot=3SBJ	page 5, engine english
+(8) line 5	Reed Steiner	translation	‘She has her shoes off.’	page 5, engine english
+(8) line 6	T&T1992:83	translation	Lit. ‘Her feet are removed.’	page 5, the literal translation
+(8) line 6	Reed Steiner	citation	(T&T1992:83)	the tag or source at the right of the translation
+(9) line 1	Reed Steiner	note	Inchoative-infixed predicate with somatic suffix7	page 5, engine english
+footnote 7	Reed Steiner	note	7 Brent Hall (p.c.) notes that the inchoative infix may have been reanalyzed as a weak root in this example.	page 5, footnote
+(9) line 2	nɬeʔkepmxcín	transcription	c̓éɬkstme wɬe qʷúʔ ʔe keʔs ceʔkékst	page 6, engine language
+(9) line 3	nɬeʔkepmxcín	segmentation	c̓éɬ-[e]kst-m-e=∅ w=ɬ=qʷúʔ ʔe=∅	page 6, engine language
+(9) line 4	nɬeʔkepmxcín	gloss	cold-hand-CTR.MID-IMP=3SBJ to=DET=water COP=3SBJ	page 6, engine english
+(9) line 5	nɬeʔkepmxcín	segmentation	k=eʔ=s=ce<ʔ>k-ékst	page 6, engine language
+(9) line 6	nɬeʔkepmxcín	gloss	D/C=2SG.POSS=NMLZ=cool<INCH>-hand	page 6, engine english
+(9) line 7	T&T1996:18	translation	‘Put your hands in cool water so that your hands will cool off.’	page 6, engine english, cited T&T1996:18
+(9) line 7	Reed Steiner	citation	(T&T1996:18)	the tag or source at the right of the translation
+(10) line 1	Reed Steiner	note	Inchoative-suffixed predicate with somatic suffix	page 6, engine english
+(10) line 2	nɬeʔkepmxcín	transcription	nq̓uʔpékst kʷ n̓	page 6, engine language
+(10) line 3	nɬeʔkepmxcín	segmentation	n-q̕w̕-p-ékst=kʷ=n̕	page 6, engine language
+(10) line 4	nɬeʔkepmxcín	gloss	LOC-break-INCH-hand-2SG.SBJ=Q	page 6, engine english
+(10) line 5	Reed Steiner	translation	‘Did you break your arm?’	page 6, engine english
+(10) line 5	Reed Steiner	citation	(vf | BP 20 Feb 2025)	the tag or source at the right of the translation
+§2.1	Reed Steiner	note	This relation of inalienable possession is unique to somatic suffixes; it does not occur in the non- somatic examples (1-5).	page 6
+§2.1	nɬeʔkepmxcín	cited affix	-t	page 3, the immediate IMM suffix, after T&T 1992:92
+§2.1	nɬeʔkepmxcín	cited affix	-p	page 3, the inchoative INCH suffix of weak roots, after T&T 1992:97
+§2.2	Reed Steiner	heading	2.2 Differentiating somatic suffixes on unergative predicates	page 6
+§2.2	Reed Steiner	note	A similar pattern holds of unergative predicates: non-somatic suffixes are modifiers, whereas somatic suffixes refer to a body part possessed by the external argument.	page 6
+§2.2	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+§2.2	Reed Steiner	note	Unergative predicates are morphological intransitives (i.e. they take intransitive subject clitics) whose subject is the agent of the event. In nɬeʔkepmxcín, unergative predicates are marked with the control middle CTR.MID suffix -m (T&T 1992: 102).8 Although middle-marked predicates are morphologically intransitive, they do have an internal (patient) argument. This argument is not accompanied by object agreement, which only appears on formally transitive predicates. If the internal argument is unspecified, the patient is implied (11a). If the internal argument is specified, it is preceded by an oblique marker t= (Kroeber 1997: 380) (11b). In the literature on Salish, this oblique-marked patient is often referred to as an oblique object (from Hukari 1979: 158).	page 6
+(11) line 1	Reed Steiner	note	Unergative predicate (no lexical suffixes)	page 6, engine english
+(11a) line 1	nɬeʔkepmxcín	transcription	cwə́m seʔ kn	page 6, engine language
+(11a) line 2	nɬeʔkepmxcín	segmentation	cw-ə́m=seʔ=kn	page 6, engine language
+(11a) line 3	nɬeʔkepmxcín	gloss	make-CTR.MID=WN=1SG.SBJ	page 6, engine english
+(11a) line 4	Reed Steiner	translation	‘I should work.’	page 6, engine english
+footnote 8	Reed Steiner	note	8 Thompson & Thompson also describe a limited control middle -nwéɬn LC.MID (T&T 1992: 106); see Nederveen (2022) on the cognate -nwelln in Secwepemctsín (aka 'Shuswap', ISO 639-3: shs). However, -nwéɬn occasionally occurs after the control middle, which would be unexpected if both morphemes were middles, e.g. cw-əm-nwéɬn ‘manage to get a job, manage to work’ (T&T 1996: 42), pun-m-nwéɬn ‘find s.t. that was lost’ (T&T 1996: 247). I leave the status of the limited control middle to future research.	page 6, footnote
+footnote 8	Secwepemctsín	cited affix	-nwelln	page 6, footnote 8, the cognate of the limited control middle -nwéɬn, after Nederveen 2022
+footnote 8	nɬeʔkepmxcín	cited affix	-nwéɬn	page 6
+footnote 8	Reed Steiner	language	Secwepemctsín	Shuswap, Northern Interior Salish, ISO 639-3 shs
+footnote 8	nɬeʔkepmxcín	cited affix	nwéɬn	page 6, footnote 8, the limited control middle -nwéɬn, its hyphen closing the line above
+footnote 8	nɬeʔkepmxcín	cited form	cw-əm-nwéɬn	page 6, ‘manage to get a job, manage to work’
+footnote 8	nɬeʔkepmxcín	cited form	pun-m-nwéɬn	page 6
+(11a) line 5	T&T1992:141	translation	Lit. ‘I should be making (things).’	page 6, the literal translation
+(11a) line 5	Reed Steiner	citation	(T&T1992:141)	the tag or source at the right of the translation
+(11b) line 1	nɬeʔkepmxcín	transcription	cwə́m ekʷu te stéʔ teʔ	page 7, engine language
+(11b) line 2	nɬeʔkepmxcín	segmentation	cw-m=∅=ekʷu t=e=s-téʔ teʔ	page 7, engine language
+(11b) line 3	nɬeʔkepmxcín	gloss	make-CTR.MID=3SBJ=RPRT OBL=DET=NMLZ-what DEM	page 7, engine english
+(11b) line 4	T&T1992:217	translation	‘They said he made something there.’	page 7, engine english, cited T&T1992:217
+(11b) line 5	Reed Steiner	citation	(T&T1992:217)	page 7, engine residue
+§2.2	Reed Steiner	note	Non-somatic suffixes in unergative predicates modify the verb. They do not change the relationship between the predicate and its external argument (12a), nor do they change the relationship between the predicate and its internal argument (12b).	page 7
+§2.2	Reed Steiner	note	Note that lexical suffixes in nɬeʔkepmxcín always precede the middle. This is evidence that lexical suffixes attach to predicates before an agent is introduced.	page 7
+(12) line 1	Reed Steiner	note	Unergative predicate with non-somatic suffix	page 7, engine english
+(12a) line 1	nɬeʔkepmxcín	transcription	xʷúy̓ kʷn̓ cwétkʷume	page 7, engine language, carries footnote 9, written here without its digit
+(12a) line 2	nɬeʔkepmxcín	segmentation	xʷúy̓=kʷ=n̓ cw-étkʷu-m	page 7, engine language
+(12a) line 3	nɬeʔkepmxcín	gloss	PROSP=2SG.SBJ=Q make-water-CTR.MID	page 7, engine english
+(12a) line 4	Reed Steiner	translation	‘Are you gonna make homebrew?’	page 7, engine english
+(12a) line 4	Reed Steiner	citation	(sf | KBG 7 Jan 2024)	the tag or source at the right of the translation
+(12b) line 1	nɬeʔkepmxcín	transcription	xʷúy̓ kʷn̓ cwétkʷuʔme te scáqʷm	page 7, engine language
+(12b) line 2	nɬeʔkepmxcín	segmentation	xʷúy̓=kʷ=n̓ cw-étkʷuʔ-m t=e=s-cáqʷm	page 7, engine language
+(12b) line 3	nɬeʔkepmxcín	gloss	PROSP=2SG.SBJ=Q make-water-CTR.MID OBL=DET=NMLZ-saskatoon	page 7, engine english
+(12b) line 4	Reed Steiner	translation	‘Are you gonna homebrew saskatoons?’	page 7, engine english
+(12b) line 4	Reed Steiner	citation	(sf | KBG 7 Jan 2024)	the tag or source at the right of the translation
+§2.2	Reed Steiner	note	By contrast, somatic suffixes on unergative predicates refer to a body part that must be possessed by the external argument (the agent) (see Kuipers 1967: 119, Davis 1997: 65, 70). This results in a medio-reflexive reading, in which the agent directs the action toward their own body (Davis 1997: 70).	page 7
+(13) line 1	Reed Steiner	note	Unergative predicates with somatic suffixes	page 7, engine english
+(13a) line 1	nɬeʔkepmxcín	transcription	ʔéx kn c̓éw̓kstm	page 7, engine language
+(13a) line 2	nɬeʔkepmxcín	segmentation	ʔéx=kn c̓éw̓-[e]kst-m	page 7, engine language
+(13a) line 3	nɬeʔkepmxcín	gloss	IPFV=1SG.SBJ wash-hand-CTR.MID	page 7, engine english
+(13a) line 4	Reed Steiner	translation	‘I’m washing my (own) hands.’	page 7, engine english
+(13a) line 4	Reed Steiner	citation	(sf | BP 21 Nov 2024)	the tag or source at the right of the translation
+(13b) line 1	nɬeʔkepmxcín	transcription	xʷélkstme	page 7, engine language
+(13b) line 2	nɬeʔkepmxcín	segmentation	xʷél-[e]kst-m-e	page 7, engine language
+(13b) line 3	nɬeʔkepmxcín	gloss	raise-hand-CTR.MID-IMP	page 7, engine english
+(13b) line 4	Reed Steiner	translation	‘Lift your (own) arm up.’	page 7, engine english
+(13b) line 4	Reed Steiner	citation	(sf | CMA 14 Aug 2024)	the tag or source at the right of the translation
+(13c) line 1	nɬeʔkepmxcín	transcription	xʷúy̓ kʷ n̓ ʔíq̕ʷcnme	page 7, engine language
+(13c) line 2	nɬeʔkepmxcín	segmentation	xʷúy̓=kʷ=n̓ ʔíq̕ʷ-c[i]n-m	page 7, engine language
+(13c) line 3	nɬeʔkepmxcín	gloss	PROSP=2SG.SBJ=Q scrape-mouth-CTR.MID	page 7, engine english
+(13c) line 4	Reed Steiner	translation	‘Are you gonna shave?’	page 7, engine english
+footnote 9	Reed Steiner	note	9 The control middle suffix may surface as -me after a posttonic open syllable ending in a resonant or laryngeal, or one without a coda (T&T 1992: 102).	page 7, footnote
+footnote 9	nɬeʔkepmxcín	cited affix	-me	page 7, footnote 9, the control middle after a posttonic open syllable, after T&T 1992:102
+(13c) line 5	Reed Steiner	translation	Lit. ‘Are you gonna scrape your (own) mouth?’	page 7, the literal translation
+(13c) line 5	Reed Steiner	citation	(sf | KBG 13 Nov 2024)	the tag or source at the right of the translation
+§2.2	Reed Steiner	note	Crucially, the medio-reflexive reading is not pragmatically determined: it is strictly entailed by the predicate. If context demands that the body part belongs to someone other than the agent, the sentence is rejected.	page 7
+(14) line 1	Reed Steiner	note	Context: A parent calls their kid to dinner from the other side of the house, but the kid is busy washing the baby’s face.	page 8, engine english
+(14) line 2	nɬeʔkepmxcín	transcription	# ʔéx kn c̓éw̓usm	page 8, engine language
+(14) line 3	nɬeʔkepmxcín	segmentation	# ʔéx=kn c̓éw̓-[u]s-m	page 8, engine language
+(14) line 4	nɬeʔkepmxcín	gloss	IPFV=1SG.SBJ wash-face-CTR.MID	page 8, engine english
+(14) line 5	Reed Steiner	translation	Intended: ‘I’m face-washing (them)’	page 8, engine english
+(14) line 5	Reed Steiner	citation	(sf | CMA 2024 Aug 21)	the tag or source at the right of the translation
+(14) line 6	c̓úʔsinek (Marty Aspinall)	speaker comment	CMA: ‘Whose face are they washing?’	page 8, engine english
+§2.2	Reed Steiner	note	Judgements like the one in (14) are unique to somatic suffixes. Non-somatic suffixes don’t entail inalienable possession on unergative predicates (see 11-12).	page 8
+§2.3	Reed Steiner	heading	2.3 Differentiating somatic suffixes on transitive predicates	page 8
+§2.3	Reed Steiner	note	On transitive predicates, non-somatic suffixes are modifiers, whereas somatic suffixes refer to body parts inalienably possessed by an argument of the verb. The exact argument that inalienably possesses the body part depends on the transitivizing morphology, and varies somewhat between dialects.	page 8
+§2.3	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+§2.3	Reed Steiner	note	Transitive predicates agree with two arguments: an object argument and an ergative (transitive subject) argument. In nɬeʔkepmxcín, transitives are derived via the transitivizing TR suffix -t (T&T 1992: 61) and one of several pre-transitivizers, which define the relationship between the transitive verb and its arguments: these include the control CTR suffix -n (15) (T&T 1992: 62, 65), the causative CAUS suffix -s (16) (T&T 1992: 70), the redirective RDR suffix -xi (17) (T&T 1992: 71), and the relational RLT suffix -min (18) (T&T 1992: 73).	page 8
+§2.3	Reed Steiner	note	Non-somatic suffixes are not sensitive to the transitive morphology of the predicate. Irrespective of the pre-transitivizer, a non-somatic suffix modifies the verb without changing its relationship to its arguments. In (15a-18a), the pre-transitivizer specifies the semantic role of each argument. In (15b-18b), a non-somatic suffix is added, and the role of each argument does not change.	page 8
+§2.3	Reed Steiner	note	Note that lexical suffixes in nɬeʔkepmxcín always precede transitivizing morphology. This is further evidence that lexical suffixes attach to predicates before an agent is introduced.	page 8
+(15) line 1	Reed Steiner	note	Control transitive predicate with non-somatic suffix10	page 8, engine english
+(15a) line 1	nɬeʔkepmxcín	transcription	ʔécqʷes e páy te zelkʷúʔ	page 8, engine language
+(15a) line 2	nɬeʔkepmxcín	segmentation	ʔécqʷ-n-[t]-∅-[e]s=∅ e=páy	page 8, engine language
+(15a) line 3	nɬeʔkepmxcín	gloss	bake-CTR-TR-3OBJ-3ERG=3SBJ DET=pie	page 8, engine english
+(15a) line 4	nɬeʔkepmxcín	segmentation	t=e=zəlkʷúʔ	page 8, engine language
+(15a) line 5	nɬeʔkepmxcín	gloss	OBL=DET=chokecherry	page 8, engine english
+(15a) line 6	Reed Steiner	translation	‘She baked a pie with (unpitted) chokecherries.’	page 8, engine english
+(15a) line 6	Reed Steiner	citation	(sf | KBG 24 Jan 2025)	the tag or source at the right of the translation
+footnote 10	Reed Steiner	note	10 Transitives in nɬeʔkepmxcín take an expletive third-person subject enclitic, in addition to subject and object agreement suffixes (see Davis 1998). In the possessive and subjunctive paradigms, the third-person subject clitic is overt. In the indicative paradigm, the third-person subject clitic is phonologically null.	page 8, footnote
+(15b) line 1	nɬeʔkepmxcín	transcription	ʔecqʷúseʔs e scáqʷm	page 9, engine language
+(15b) line 2	nɬeʔkepmxcín	segmentation	ʔecqʷ-úseʔ-n-[t]-∅-[e]s=∅ e=s-cáqʷm	page 9, engine language
+(15b) line 3	nɬeʔkepmxcín	gloss	bake-berry-CTR-TR-3OBJ-3ERG=3SBJ DET-NMLZ-saskatoon	page 9, engine english
+(15b) line 4	Reed Steiner	translation	‘She baked saskatoons.’	page 9, engine english
+(15b) line 4	Reed Steiner	citation	(sf | KBG 24 Jan 2025)	the tag or source at the right of the translation
+(16) line 1	Reed Steiner	note	Causative transitive predicate with non-somatic suffix	page 9, engine english
+(16a) line 1	nɬeʔkepmxcín	transcription	c̓aʔq̓ʷstés	page 9, engine language
+(16a) line 2	nɬeʔkepmxcín	segmentation	c̓a<ʔ>q̓ʷ-s-t-∅-és=∅	page 9, engine residue
+(16a) line 3	nɬeʔkepmxcín	gloss	get.wet<INCH>-CAUS-TR-3OBJ-3ERG=3SBJ	page 9, engine english
+(16a) line 4	T&T1996:48	translation	‘They get it wet.’	page 9, engine english, cited T&T1996:48
+(16a) line 4	Reed Steiner	citation	(T&T1996:48)	the tag or source at the right of the translation
+(16b) line 1	nɬeʔkepmxcín	transcription	c̓aʔq̓ʷéytxʷstxʷ eʔqəpqín	page 9, engine language
+(16b) line 2	nɬeʔkepmxcín	segmentation	c̓a<ʔ>q̕ʷ-éytxʷ-s-t-∅-[e]xʷ=∅ e=[e]ʔ-qəpqín	page 9, engine language
+(16b) line 3	nɬeʔkepmxcín	gloss	get.wet<INCH>-fur-CAUS-TR-3OBJ-2SG.ERG=3SBJ DET=2SG.POSS-kerchief	page 9, engine english
+(16b) line 4	T&T1996:48	translation	‘You got your kerchief wet.’	page 9, engine english, cited T&T1996:48
+(16b) line 4	Reed Steiner	citation	(T&T1996:48)	the tag or source at the right of the translation
+(17) line 1	Reed Steiner	note	Redirective transitive predicate with non-somatic suffix	page 9, engine english
+(17a) line 1	nɬeʔkepmxcín	transcription	ník̓xcn tk eʔ súypm	page 9, engine language
+(17a) line 2	nɬeʔkepmxcín	segmentation	ník̓-x[i]-t-s[i]-n=∅ t=k=eʔ-súypm	page 9, engine language
+(17a) line 3	nɬeʔkepmxcín	gloss	cut-RDR-TR-2SG.OBJ-1SG.ERG=3SBJ OBL=DET=2SG.POSS-Firewood	page 9, engine english
+(17a) line 4	Reed Steiner	translation	‘I cut some firewood for you.’	page 9, engine english
+(17a) line 4	Reed Steiner	citation	(vf | KBG 22 Jan 2025)	the tag or source at the right of the translation
+(17b) line 1	nɬeʔkepmxcín	transcription	nwén̓ ʔesník̓syp̕xcn tk eʔ súypm	page 9, engine language
+(17b) line 2	nɬeʔkepmxcín	segmentation	nwén̓=∅ ʔes-ník̓-úsyep̓-x[i]-t-s[i]-n	page 9, engine language
+(17b) line 3	nɬeʔkepmxcín	gloss	already=3SBJ STAT-cut-firewood-RDR-TR-2SG.OBJ-1SG.ERG	page 9, engine english
+(17b) line 4	nɬeʔkepmxcín	segmentation	t=k=eʔ-súypm	page 9, engine language
+(17b) line 5	nɬeʔkepmxcín	gloss	OBL=DET=2SG.POSS-firewood	page 9, engine english
+(17b) line 6	Reed Steiner	translation	‘I cut some firewood for you.’	page 9, engine english
+(17b) line 6	Reed Steiner	citation	(vf | KBG 22 Jan 2025)	the tag or source at the right of the translation
+(18) line 1	Reed Steiner	note	Relational transitive predicate with non-somatic suffix	page 9, engine english
+(18a) line 1	nɬeʔkepmxcín	transcription	ʔu níɬm̓ ʔesʔep̓míns e kás tuɬə nƛ̓píc̓eʔs	page 9, engine language
+(18a) line 2	nɬeʔkepmxcín	segmentation	ʔu níɬm̓ ʔes-ʔep̓-mín-[t]-∅-[e]s=∅ e=ká-s	page 9, engine language
+(18a) line 3	nɬeʔkepmxcín	gloss	oh ITJ STAT-wipe-RLT-TR-3OBJ-3ERG=3SBJ DET=car-3POSS	page 9, engine english
+(18a) line 4	nɬeʔkepmxcín	segmentation	tu=ɬ=nƛ̓píc̓eʔ-s	page 9, engine language
+(18a) line 5	nɬeʔkepmxcín	gloss	from=DET=Shirt-3POSS	page 9, engine english
+(18a) line 6	Reed Steiner	translation	‘Oh níɬm̓!11 He’s wiping his car with his shirt!’	page 9, engine english
+(18a) line 6	Reed Steiner	citation	(vf | KBG 22 Jan 2025)	the tag or source at the right of the translation
+(18b) line 1	nɬeʔkepmxcín	transcription	ʔep̓yetxʷmínsn̓ e ká tuɬə nƛ̓píc̓eʔs	page 9, engine language
+(18b) line 2	nɬeʔkepmxcín	segmentation	ʔep̓-yetxʷ-mín-[t]-∅-[e]s=∅=n̓ e=ká	page 9, engine language
+(18b) line 3	nɬeʔkepmxcín	gloss	wipe-fabric-RLT-TR-3OBJ-3ERG=3SBJ=Q DET=car	page 9, engine english
+(18b) line 4	nɬeʔkepmxcín	segmentation	tu=ɬ=nƛ̓píc̓eʔ-s	page 9, engine language
+(18b) line 5	nɬeʔkepmxcín	gloss	from=DET=shirt-3POSS	page 9, engine english
+(18b) line 6	Reed Steiner	translation	‘Is he wiping the car with his shirt?’	page 9, engine english
+(18b) line 6	Reed Steiner	citation	(sf | KBG 21 Jan 2025)	the tag or source at the right of the translation
+footnote 11	nɬeʔkepmxcín	cited form	níɬm̓	page 9, footnote 11, an interjection of surprise and recognition, after T&T 1992:219
+footnote 11	Reed Steiner	note	11 níɬm̓ indicates “surprise and recognition of a situation” (T&T 1992: 219).	page 9
+§2.3	Reed Steiner	note	By contrast, somatic suffixes are sensitive to the predicate’s pre-transitivizer, which determines which argument inalienably possesses the body part. The exact alternations vary between dialects.	page 10
+§2.3	Reed Steiner	language	ƛ̓q̓əmcín	the Lytton dialect, written with q̓ where §1.1 writes q̕
+§2.3	Reed Steiner	language	St̕át̕imcets	Lillooet, Northern Interior Salish
+§2.3	Reed Steiner	note	In the ƛ̓q̓əmcín dialect, somatic suffixes on control transitive predicates are inalienably possessed by the object (19), and somatic suffixes in relational transitive predicates are inalienably possessed by the subject (20). This is the same pattern that occurs in St̕át̕imcets (Van Eijk 1985: 118-120).	page 10
+(19) line 1	Reed Steiner	note	Control transitive predicates with somatic suffixes	page 10, engine english
+(19a) line 1	nɬeʔkepmxcín	transcription	c̓éw̓kstne ƛ̓əm̓ Sander	page 10, engine language
+(19a) line 2	nɬeʔkepmxcín	segmentation	c̓éw̓-[e]kst-[n]-[t]-∅-[e]ne=∅=ƛ̓əm̓ [e]=Sander	page 10, engine residue
+(19a) line 3	nɬeʔkepmxcín	gloss	wash-hand-CTR-TR-3OBJ-1SG.ERG=3SBJ=2CL DET=Sander	page 10, engine english
+(19a) line 4	Reed Steiner	translation	‘I washed Sander’s hands.’	page 10, engine english
+(19a) line 4	Reed Steiner	citation	(vf | BP 29 May 2025)	the tag or source at the right of the translation
+(19b) line 1	nɬeʔkepmxcín	transcription	c̓éw̓kstne e Sander	page 10, engine residue
+(19b) line 2	nɬeʔkepmxcín	segmentation	c̓ew̓-[e]kst-[n]-[t]-∅-[e]ne=∅ e=Sander	page 10, engine language
+(19b) line 3	nɬeʔkepmxcín	gloss	wash-hand-CTR-TR-3OBJ-1SG.ERG=3SBJ DET=Sander	page 10, engine english
+(19b) line 4	Reed Steiner	translation	‘I washed Sander’s hands.’	page 10, engine english
+(19b) line 4	Reed Steiner	citation	(sf | CMA 3 Feb 2025)	the tag or source at the right of the translation
+(19c) line 1	nɬeʔkepmxcín	transcription	ʔeɬ naʕʔíp neʔ ʔesntəqcínne xéʔe tk rúm ʔéy	page 10, engine language
+(19c) line 2	nɬeʔkepmxcín	segmentation	ʔeɬ naʕʔíp=Ø neʔ ʔes-n-təq-cín-[n]-[t]-Ø-[e]ne	page 10, engine language
+(19c) line 3	nɬeʔkepmxcín	gloss	and always=3SBJ DEM STAT-LOC-close-mouth-CTR-TR-3OBJ-1SG.ERG	page 10, engine english
+(19c) line 4	nɬeʔkepmxcín	segmentation	xéʔe t=k=rúm ʔéy	page 10, engine language
+(19c) line 5	nɬeʔkepmxcín	gloss	DEM OBL=DET=room yes	page 10, engine english
+(19c) line 6	Reed Steiner	translation	‘I always close that room.’	page 10, engine english
+(19c) line 6	Reed Steiner	citation	(vf | CMA 29 Sep 2023)	the tag or source at the right of the translation
+(19c) line 7	Reed Steiner	translation	Lit. ‘I always close that room's mouth.’	page 10, the literal translation
+(20) line 1	Reed Steiner	note	Relational transitive predicates with somatic suffixes	page 10, engine english
+(20a) line 1	nɬeʔkepmxcín	transcription	cukʷ us k skɬékstmnxʷ	page 10, engine language
+(20a) line 2	nɬeʔkepmxcín	segmentation	cukʷ=us k=s=kɬ-ékst-m[i]n-[t]-∅-[e]xʷ	page 10, engine language
+(20a) line 3	nɬeʔkepmxcín	gloss	finish=3SBJV D/C=NMLZ=remove-hand-RLT-TR-3OBJ-2SG.ERG	page 10, engine english
+(20a) line 4	Reed Steiner	translation	‘Don’t let go of it.’	page 10, engine english
+(20a) line 4	Reed Steiner	citation	(vf | BP 27 Feb 2025)	the tag or source at the right of the translation
+(20b) line 1	nɬeʔkepmxcín	transcription	ʔuu gee teʔ k sqʷnekstmtíyxs nke	page 10, engine language
+(20b) line 2	nɬeʔkepmxcín	segmentation	ʔuu gee teʔ=∅	page 10, engine language
+(20b) line 3	nɬeʔkepmxcín	gloss	oh gee NEG=3SBJ	page 10, engine english
+(20b) line 4	nɬeʔkepmxcín	segmentation	k=s=qʷn-ekst-m[in]-t-Ø-íyxs=nke	page 10, engine language
+(20b) line 5	nɬeʔkepmxcín	gloss	D/C=NMLZ=poor-hand-RLT-TR-3OBJ-3PL=3SBJ=INFER	page 10, engine english
+(20b) line 6	Reed Steiner	translation	‘They didn’t have pity on her.’	page 10, engine english
+§2.3	Reed Steiner	language	ƛ̓q̕əmcín	the Lytton dialect, Bev Phillips's
+(20b) line 7	Reed Steiner	translation	Lit. ‘Their hands weren’t poor for her.’	page 10, the literal translation
+(20b) line 7	Reed Steiner	citation	(vf | KBG 29 Sep 2023)	the tag or source at the right of the translation
+§2.3	Reed Steiner	note	The readings in (19) -(20) are the only ones available in the ƛ̓q̕əmcín dialect. Somatic suffixes in control transitives cannot be inalienably possessed by the subject (21b), and somatic suffixes in relational transitives cannot be inalienably possessed by the object (22b).	page 10
+(21) line 1	Reed Steiner	note	Context: I hand my friend a rope, and I don’t want him to let go. I say:	page 10, engine english
+(21a) line 1	nɬeʔkepmxcín	transcription	cukʷ us k skɬékstmnxʷ e x̣ʷíʔləm	page 11, engine language
+(21a) line 2	nɬeʔkepmxcín	segmentation	cukʷ=us k=s=kɬ-ékst-m[i]n-[t]-∅-[e]xʷ	page 11, engine language
+(21a) line 3	nɬeʔkepmxcín	gloss	finish=3SBJV D/C=NMLZ=remove-hand-RLT-TR-3OBJ-2SG.ERG	page 11, engine english
+(21a) line 4	nɬeʔkepmxcín	segmentation	e=x̣ʷíʔləm	page 11, engine language
+(21a) line 5	nɬeʔkepmxcín	gloss	DET=rope	page 11, engine english
+(21a) line 6	Reed Steiner	translation	‘Don't let go of the rope.’	page 11, engine english
+(21a) line 7	Reed Steiner	translation	Lit. ‘Don't release your hand from the rope.’	page 11, the literal translation
+(21a) line 7	Reed Steiner	citation	(sf | BP 29 May 2025)	the tag or source at the right of the translation
+(21b) line 1	nɬeʔkepmxcín	transcription	# cukʷ us k skɬékstnxʷ e x̣ʷíʔləm	page 11, engine language
+(21b) line 2	nɬeʔkepmxcín	segmentation	# cukʷ=us k=s=kɬ-ékst-n-[t]-∅-[e]xʷ	page 11, engine language
+(21b) line 3	nɬeʔkepmxcín	gloss	finish=3SBJV D/C=NMLZ=remove-hand-CTR-TR-3OBJ-2SG.ERG	page 11, engine english
+(21b) line 4	nɬeʔkepmxcín	segmentation	e=x̣ʷíʔləm	page 11, engine language
+(21b) line 5	nɬeʔkepmxcín	gloss	DET=rope	page 11, engine english
+(21b) line 6	Bev Phillips	speaker comment	BP: “No.” (sf | 29 May 2025)	page 11, engine residue
+(22) line 1	Reed Steiner	note	Context: Sander is sick, and so I wash his hands for him.	page 11, engine english
+(22a) line 1	nɬeʔkepmxcín	transcription	c̓éw̓kstne ɬ Sander	page 11, engine language
+(22a) line 2	nɬeʔkepmxcín	segmentation	c̓éw̓-[e]kst-[n]-[t]-∅-[e]ne=∅ ɬ=Sander	page 11, engine language
+(22a) line 3	nɬeʔkepmxcín	gloss	wash-hand-CTR-TR-3OBJ-1SG.ERG=3SBJ DET=Sander	page 11, engine english
+(22a) line 4	Reed Steiner	translation	‘I washed Sander’s hands.’	page 11, engine english
+(22a) line 4	Reed Steiner	citation	(vf | BP 20 Feb 2025)	the tag or source at the right of the translation
+(22b) line 1	nɬeʔkepmxcín	transcription	# c̓éw̓kstmne ɬ Sander	page 11, engine language
+(22b) line 2	nɬeʔkepmxcín	segmentation	# c̓éw̓-[e]kst-m[i]n-[t]-∅-[e]ne=∅ ɬ=Sander	page 11, engine language
+(22b) line 3	nɬeʔkepmxcín	gloss	wash-hand-RLT-TR-3OBJ-1SG.ERG=3SBJ DET=Sander	page 11, engine english
+(22b) line 4	Bev Phillips	speaker comment	BP: “I don’t know if you’d go with that. c̓éw̓kstne.” (sf | BP 20 Feb 2025)	page 11, engine english
+(22b)	nɬeʔkepmxcín	cited form	c̓éw̓kstne	in the speaker comment, page 11
+§2.3	Reed Steiner	language	scw̕exmxcín	the Nicola Valley dialect, c̓úʔsinek's, in the spelling of Thompson and Thompson 1996:45
+§2.3	Reed Steiner	note	The scw̕exmxcín dialect allows additional readings. In (23), the context demands that the body part belongs to the subject, and both relational and control marking are permitted. In (24), the context demands that the body part belongs to the object, and the relational is volunteered.	page 11
+(23) line 1	Reed Steiner	note	Context: A mother hands her kid something fragile, and wants to warn him not to drop it.	page 11, engine english
+(23a) line 1	nɬeʔkepmxcín	transcription	cukʷ us k skɬékstmnxʷ	page 11, engine language
+(23a) line 2	nɬeʔkepmxcín	segmentation	cukʷ=us k=s=kɬ-ékst-m[i]n-[t]-∅-[e]xʷ	page 11, engine language
+(23a) line 3	nɬeʔkepmxcín	gloss	finish=3SBJV D/C=NMLZ=release-hand-RLT-TR-3OBJ-2SG.ERG	page 11, engine english
+(23a) line 4	Reed Steiner	translation	‘Don't let go of it.’	page 11, engine english
+(23a) line 4	Reed Steiner	citation	(sf | KBG 4 Jun 2025)	the tag or source at the right of the translation
+(23a) line 5	kʷaɬtèzetkʷuʔ (Bernice Garcia)	speaker comment	KBG: “ʔey ‘yes’.”	page 11, engine language
+(23a)	nɬeʔkepmxcín	cited form	ʔey	in the speaker comment, page 11
+(23b) line 1	nɬeʔkepmxcín	transcription	cukʷ us k skɬékstnxʷ	page 11, engine language
+(23b) line 2	nɬeʔkepmxcín	segmentation	cukʷ=us k=s=kɬ-ékst-n-[t]-∅-[e]xʷ	page 11, engine language
+(23b) line 3	nɬeʔkepmxcín	gloss	finish=3SBJV D/C=NMLZ=release-hand-CTR-TR-3OBJ-2SG.ERG	page 11, engine english
+(23b) line 4	Reed Steiner	translation	‘Don't let go of it.’	page 11, engine english
+(23b) line 4	Reed Steiner	citation	(sf | KBG 4 Jun 2025)	the tag or source at the right of the translation
+(23b) line 5	kʷaɬtèzetkʷuʔ (Bernice Garcia)	speaker comment	KBG: “Yep, that's better.”	page 11, engine english
+(24) line 1	nɬeʔkepmxcín	transcription	qʷnóx̣ʷ Sander ʔe meɬ neʔ sc̓éw̓kstmne	page 12, engine language
+(24) line 2	nɬeʔkepmxcín	segmentation	qʷnóx̣ʷ=∅ [e]=Sander ʔe=∅=meɬ neʔ	page 12, engine language
+(24) line 3	nɬeʔkepmxcín	gloss	sick=3SBJ DET=Sander COP=3SBJ=2CL DEM	page 12, engine english
+(24) line 4	nɬeʔkepmxcín	segmentation	[e]=s=c̓éw̓-[e]kst-m[in]-[t]-∅-[e]ne	page 12, engine residue
+(24) line 5	nɬeʔkepmxcín	gloss	D/C=NMLZ=wash-hand-RLT-TR-3OBJ-1SG.ERG	page 12, engine english
+(24) line 6	Reed Steiner	translation	‘Sander is sick and so I wash his hands.’	page 12, engine english
+(24) line 6	Reed Steiner	citation	(vf | CMA 2 Jun 2025)	the tag or source at the right of the translation
+§2.3	nɬeʔkepmxcín	cited affix	-x(í)-t	page 12
+§2.3	Reed Steiner	note	Somatic suffixes on redirective predicates with -x(í)-t pattern like somatic suffixes on control transitives: the body part is inalienably possessed by the object argument, which denotes the goal/recipient.	page 12
+(25) line 1	nɬeʔkepmxcín	transcription	c̓éw̓kstxne ɬ Sander	page 12, engine language
+(25) line 2	nɬeʔkepmxcín	segmentation	c̓éw̓-[e]kst-x[i]-t-∅-[e]ne ɬ=Sander	page 12, engine language
+(25) line 3	nɬeʔkepmxcín	gloss	wash-hand-RDR-TR-3OBJ-1SG.ERG DET=Sander	page 12, engine english
+(25) line 4	Reed Steiner	translation	‘I washed Sander’s hands.’	page 12, engine english
+(25) line 4	Reed Steiner	citation	(sf | BP 20 Feb 2025)	the tag or source at the right of the translation
+(26) line 1	nɬeʔkepmxcín	transcription	kɬékn̓xcme	page 12, engine language
+(26) line 2	nɬeʔkepmxcín	segmentation	kɬ-ékn̓-x[i]-t-s[e]m-e	page 12, engine language
+(26) line 3	nɬeʔkepmxcín	gloss	remove-back-RDR-TR-1SG.OBJ-IMP	page 12, engine english
+(26) line 4	T&T1996:95	translation	‘Take my pack off!’	page 12, engine english, cited T&T1996:95
+(26) line 4	Reed Steiner	citation	(T&T1996:95)	the tag or source at the right of the translation
+(26) line 5	T&T1996:95	translation	Lit. ‘Remove (it) from my back!’	page 12, the literal translation
+§2.3	Reed Steiner	note	Across unaccusative, unergative, and transitive predicates, somatic suffixes can be consistently distinguished from non-somatic suffixes. In all three predicate types, non-somatic suffixes modify the verb without regard for the predicate’s (in)transitive morphology. By contrast, somatic suffixes are sensitive to the predicate’s (in)transitive morphology, which determines the body part’s inalienable possessor.	page 12
+§2.3	nɬeʔkepmxcín	cited affix	-t	page 8, the transitivizing TR suffix, after T&T 1992:61
+§2.3	nɬeʔkepmxcín	cited affix	-n	page 8, the control CTR suffix, after T&T 1992:62, 65
+§2.3	nɬeʔkepmxcín	cited affix	-s	page 8, the causative CAUS suffix, after T&T 1992:70
+§2.3	nɬeʔkepmxcín	cited affix	-xi	page 8, the redirective RDR suffix, after T&T 1992:71
+§2.3	nɬeʔkepmxcín	cited affix	-min	page 8, the relational RLT suffix, after T&T 1992:73
+§2.4	Reed Steiner	heading	2.4 Non-somatic and somatic body-part suffixes	page 12
+§2.4	Reed Steiner	note	Although all somatic suffixes refer to body parts, not all body-part lexical suffixes are somatic. Non-somatic body-part suffixes can be found on unaccusative predicates (27), unergative predicates (28) and transitive predicates (29).	page 12
+footnote 12	nɬeʔkepmxcín	cited affix	-éleʔ	page 12
+footnote 12	nɬeʔkepmxcín	cited affix	-ɬ-	page 12, footnote 12, the compound connective CONN
+footnote 12	nɬeʔkepmxcín	cited affix	-éleʔ+xn	page 12
+footnote 12	Reed Steiner	language	St̕at̕imcets	Lillooet, Northern Interior Salish, written without its accent
+footnote 12	St̕át̕imcets	cited affix	-ala+kaʔ	page 12, footnote 12, ‘tool’ from CONN+hand, after Henry Davis (p.c.)
+footnote 12	nɬeʔkepmxcín	cited form	ch-éleʔ-xn-me	page 12
+footnote 12	nɬeʔkepmxcín	cited form	siʔh-éleʔ-xn	page 12, ‘right foot’
+§2.4	Reed Steiner	note	Non-somatic body-part suffixes differ from somatic suffixes in three ways: (i) they refer to indefinite body parts, not inalienably possessed body parts; (ii) they may refer to a location or instrument instead of a core argument of the verb; and (iii) they often undergo semantic broadening via metaphorical extension (see Hinkson 1999). All three differences are exemplified in (27-29). In (27b), the lexical suffix -xn ‘foot’ undergoes metaphorical extension from ‘foot’ to ‘shoe’. 12 In (28b), the lexical suffix -ekst ‘hand’ refers to an instrument. In (29b), the lexical suffix -aqs ‘nose’ undergoes metaphorical extension from ‘nose’ to ‘pointed object’ to ‘gun’ and refers to an instrument. None of these three examples entail inalienable possession.	pages 12 and 13, the paragraph footnote 12 broke
+footnote 12	Reed Steiner	note	12 The suffix -éleʔ is likely a vestigial compound connective left over from Proto Salish, when lexical suffixes were full nouns productively compounded with predicates (see Kinkade 1998). Thompson and Thompson gloss it as a ‘formative’ or ‘stem extender’ (1996: 553); however, I use the same label as the compound connective -ɬ- CONN for clarity. Henry Davis (p.c.) suggests that -éleʔ+xn could have specialized to mean ‘shoe’, similar to St̕at̕imcets -al+us 'eye' from CONN+face, or -ala+kaʔ ‘tool’ from CONN+hand. However, there are certainly cases where the connective is meaningless, e.g. ch-éleʔ-xn-me ‘arange one's own feet or legs'’(T&T 1996: 28), siʔh-éleʔ-xn ‘right foot’ (T&T 1996: 80).	page 12, footnote
+footnote 12	St̕át̕imcets	cited affix	-al+us	page 12, footnote 12, 'eye' from CONN+face, after Henry Davis (p.c.)
+(27) line 1	Reed Steiner	note	Unaccusative	page 13, engine english
+(27a) line 1	nɬeʔkepmxcín	transcription	cíyci e máʔxetn	page 13, engine language
+(27a) line 2	nɬeʔkepmxcín	segmentation	cíy~ci=∅ e=máʔxetn	page 13, engine language
+(27a) line 3	nɬeʔkepmxcín	gloss	new~CHR=3SBJ DET=moon	page 13, engine english
+(27a) line 4	T&T1996:33	translation	‘The moon is new.’	page 13, engine english, cited T&T1996:33
+(27a) line 4	Reed Steiner	citation	(T&T1996:33)	the tag or source at the right of the translation
+(27b) line 1	nɬeʔkepmxcín	transcription	cicyéleʔxn e síɬc̓uʔs	page 13, engine language
+(27b) line 2	nɬeʔkepmxcín	segmentation	ciy~cy-éleʔ-xn e=síɬc̓uʔ-s	page 13, engine language
+(27b) line 3	nɬeʔkepmxcín	gloss	new~CHAR-CONN-foot DET=shoe-3POSS	page 13, engine english
+(27b) line 4	T&T 1996: 30	translation	‘His shoes are new.’	page 13, engine english, cited T&T 1996: 30
+(27b) line 4	Reed Steiner	citation	(T&T 1996: 30)	the tag or source at the right of the translation
+(28) line 1	Reed Steiner	note	Unergative	page 13, engine english
+(28a) line 1	nɬeʔkepmxcín	transcription	ʔéx kʷn̓ cwə́m tn nzéwmn	page 13, engine language, carries footnote 13, written here without its digit
+(28a) line 2	nɬeʔkepmxcín	segmentation	ʔéx=kʷ=n̓ cw-m	page 13, engine language
+(28a) line 3	nɬeʔkepmxcín	gloss	IPFV=2SG.SBJ=Q make-CTR.MID	page 13, engine english
+(28a) line 4	nɬeʔkepmxcín	segmentation	t=[e]=n-zéw-m[i]n	page 13, engine language
+(28a) line 5	nɬeʔkepmxcín	gloss	OBL=DET =LOC-fish.with.dipnet-INS	page 13, engine english
+(28a) line 6	Reed Steiner	translation	‘Are you making a dipnet?’	page 13, engine english
+(28a) line 6	Reed Steiner	citation	(vf | KBG 17 Dec 2024)	the tag or source at the right of the translation
+(28b) line 1	nɬeʔkepmxcín	transcription	cwékstm nukʷ n̓ te c̓y̓é	page 13, engine language
+(28b) line 2	nɬeʔkepmxcín	segmentation	cw-ékst-m=∅=nukʷ=n̓ t=e=c̓y̓é	page 13, engine language
+(28b) line 3	nɬeʔkepmxcín	gloss	make-hand-CTR.MID=3SBJ=SENSE=Q OBL=DET=basket	page 13, engine english
+(28b) line 4	Reed Steiner	translation	‘Was the basket made by hand?	page 13, engine english
+(28b) line 4	Reed Steiner	citation	(vf | KBG 13 Nov 2024)	the tag or source at the right of the translation
+(29) line 1	Reed Steiner	note	Transitive	page 13, engine english
+(29a) line 1	nɬeʔkepmxcín	transcription	nés cúɬxc kʷə́ ƛ̓uʔ wɬe sɣép ɬ nk̓əm̓qíns	page 13, engine language
+(29a) line 2	nɬeʔkepmxcín	segmentation	nés=∅ cúɬ-x[i]-t-∅-[e]s kʷə́ƛ̓uʔ w=ɬe=sɣə́p	page 13, engine language
+(29a) line 3	nɬeʔkepmxcín	gloss	go=3SBJ point-RDR-TR-3OBJ-3ERG that’s.why to=DET=tree	page 13, engine english
+(29a) line 4	nɬeʔkepmxcín	segmentation	ɬ=n-k̓əm̓-qín-s	page 13, engine language
+(29a) line 5	nɬeʔkepmxcín	gloss	DET=LOC-surface-head-3POSS	page 13, engine english
+(29a) line 6	T&T1996:40	translation	‘He pointed it over to the tree top.’	page 13, engine english, cited T&T1996:40
+(29a) line 6	Reed Steiner	citation	(T&T1996:40)	the tag or source at the right of the translation
+(29b) line 1	nɬeʔkepmxcín	transcription	cúɬqsxtxʷ	page 13, engine language
+(29b) line 2	nɬeʔkepmxcín	segmentation	cúɬ-[a]qs-x[i]-t-∅-[e]xʷ=∅	page 13, engine residue
+(29b) line 3	nɬeʔkepmxcín	gloss	point-nose-RDR-TR-3OBJ-2SG.ERG=3SBJ	page 13, engine english
+(29b) line 4	Reed Steiner	translation	‘You point a gun at him.’	page 13, engine english
+footnote 13	Reed Steiner	note	13 What I have transcribed as tn nzéwmn is pronounced with a double n. It could be the case that KBG volunteered it with a first person singular possessive proclitic n= which precedes the locative, but this is not reflected in the translation and is not included in the gloss.	page 13, footnote
+footnote 13	nɬeʔkepmxcín	cited form	nzéwmn	page 13
+(29b) line 5	T&T 1992:22	translation	Lit. ‘You point a nose at him.’	page 13, the literal translation
+(29b) line 5	Reed Steiner	citation	(T&T 1992:22)	the tag or source at the right of the translation
+§2.4	Reed Steiner	note	All somatic suffixes can access non-somatic readings, sometimes on the same predicate. In (30), the lexical suffix is ambiguous between a non-somatic reading (30a) and two somatic readings (30b-c). In the non-somatic reading (30a), the lexical suffix refers to an indefinite body part, undergoing metaphorical extension from ‘head’ to a classifier for grain. In the somatic readings (30b-c), the body part must be inalienably possessed.	page 13
+(30) line 1	nɬeʔkepmxcín	transcription	ƛ̓əxʷqínm	page 14, engine language
+(30) line 2	nɬeʔkepmxcín	segmentation	ƛ̓əxʷ-qín-m=∅	page 14, engine language
+(30) line 3	nɬeʔkepmxcín	gloss	shake-head-CTR.MID=3SBJ	page 14, engine english
+(30a) line 1	T&T1996:177	translation	‘thresh wheat’	page 14, the non-somatic reading
+(30a) line 2	T&T1996:177	translation	Lit. ‘shake a head’	page 14, the literal translation
+(30a) line 2	Reed Steiner	citation	(T&T1996:177)	the tag or source at the right of the translation
+(30b) line 1	T&T1996:177	translation	‘[of a horse] shake [its own] head’	page 14, a somatic reading
+(30b) line 1	Reed Steiner	citation	(ibid:177)	the tag or source at the right of the translation
+(30c) line 1	T&T1996:177	translation	‘[of a person] brush [one’s own] hair’	page 14, a somatic reading
+(30c) line 1	Reed Steiner	citation	(ibid:177)	the tag or source at the right of the translation
+§2.4	Reed Steiner	note	Typically, when an ambiguous lexical suffix can have non-somatic and somatic readings on the same predicate, the non-somatic reading is lexicalized. In (31a), the non-somatic reading has lexicalized to refer to a specific cultural practice of adjusting a baby’s nose shortly after birth. In this case, a somatic reading is still accessible in a clear enough context (31b), but is outcompeted by the lexicalized non-somatic reading (see consultant’s comment).	page 14
+(31a) line 1	Reed Steiner	note	Context: A father asks an elder if they fixed the baby’s nose yet:	page 14, engine english
+(31a) line 2	nɬeʔkepmxcín	transcription	nwén̓ ncwáqsm kʷn̓	page 14, engine language
+(31a) line 3	nɬeʔkepmxcín	segmentation	nwén̓ n-cw-áqs-m=kʷ=n̓	page 14, engine language
+(31a) line 4	nɬeʔkepmxcín	gloss	already LOC-fix-nose-CTR.MID=2SG.SBJ=Q	page 14, engine english
+(31a) line 5	Reed Steiner	translation	‘Did you already fix the nose?’	page 14, engine english
+(31a) line 5	Reed Steiner	citation	(sf | BP 31 Oct 2024)	the tag or source at the right of the translation
+(31b) line 1	Reed Steiner	note	Context: An action-movie hero breaks their nose, but snaps it in place:	page 14, engine english
+(31b) line 2	nɬeʔkepmxcín	transcription	? c̓q̓áqs ʔiɬ cwáqsm us	page 14, engine language
+(31b) line 3	nɬeʔkepmxcín	segmentation	? c̓q̓-∅-áqs=∅ ʔiɬ cw-áqs-m=us	page 14, engine language
+(31b) line 4	nɬeʔkepmxcín	gloss	get.hit-IMM-nose=3SBJ before fix-nose-CTR.MID=3SBJV	page 14, engine english
+(31b) line 5	Reed Steiner	translation	‘He got hit on the nose, and then he fixed it.’	page 14, engine english
+(31b) line 5	Reed Steiner	citation	(sf | BP 31 Oct 2024)	the tag or source at the right of the translation
+(31b) line 6	Bev Phillips	speaker comment	BP: “Is that term for babies or for everybody? I guess if it’s a term usable for everything, then you probably could say that. But if it’s a specific term for fixing a baby’s nose, then no you can’t.”	page 14, engine english
+§2.4	Reed Steiner	note	The ambiguity between somatic and non-somatic body-part suffixes results in regular, productive alternations like (32), where the lexical-suffixed predicate can select either an inalienable possessor or a more specific version of the body part denoted by the lexical suffix. In (32a) and (33a), the lexical suffix -ekst ‘hand’ is somatic, so the first or second-person subject is interpreted as the inalienable possessor. In (32b) and (33b), the same lexical suffix is non-somatic, so the third-person subject is not interpreted as the inalienable possessor. The non-somatic pattern is only permissible when the lexical suffix is vague on its own (see comments on 33b).	page 14
+(32a) line 1	nɬeʔkepmxcín	transcription	ném péwkst kn	page 15, engine language
+(32a) line 2	nɬeʔkepmxcín	segmentation	ném péw-∅-ekst=kn	page 15, engine language
+(32a) line 3	nɬeʔkepmxcín	gloss	very swell-IMM-hand=1SG.SBJ	page 15, engine english
+(32a) line 4	Reed Steiner	translation	‘My hand is very swollen.’	page 15, engine english
+(32a) line 4	Reed Steiner	citation	(sf | KBG 4 Dec 2024)	the tag or source at the right of the translation
+(32b) line 1	nɬeʔkepmxcín	transcription	ném péwkst nkéykix	page 15, engine language
+(32b) line 2	nɬeʔkepmxcín	segmentation	ném péw-∅-ekst=∅ n-kéykix	page 15, engine language
+(32b) line 3	nɬeʔkepmxcín	gloss	very swell-IMM-hand=3SBJ 1SG.POSS-hands	page 15, engine english
+(32b) line 4	Reed Steiner	translation	‘My hands are very swollen.’	page 15, engine english
+(32b) line 4	Reed Steiner	citation	(sf | KBG 4 Dec 2024)	the tag or source at the right of the translation
+(33a) line 1	nɬeʔkepmxcín	transcription	ník̓ekst kʷ	page 15, engine language
+(33a) line 2	nɬeʔkepmxcín	segmentation	ník̓-∅-ekst=kʷ	page 15, engine language
+(33a) line 3	nɬeʔkepmxcín	gloss	cut-IMM-hand=2SG.SBJ	page 15, engine english
+(33a) line 4	Reed Steiner	translation	‘Your hand got cut.’	page 15, engine english
+(33a) line 4	Reed Steiner	citation	(sf | BP 29 May 2025)	the tag or source at the right of the translation
+(33b) line 1	nɬeʔkepmxcín	transcription	ník̓ekst eʔkéykiyx	page 15, engine language
+(33b) line 2	nɬeʔkepmxcín	segmentation	ník̓-∅-ekst=∅ eʔ-kéykix	page 15, engine language
+(33b) line 3	nɬeʔkepmxcín	gloss	cut-IMM-hand=3.SBJ 2SG.POSS-hands	page 15, engine english
+(33b) line 4	Reed Steiner	translation	‘Your hands got cut.’	page 15, engine english
+(33b) line 4	Reed Steiner	citation	(sf | BP 29 May 2025)	the tag or source at the right of the translation
+(33b) line 5	Bev Phillips	speaker comment	BP: “I don't know if you'd have to say kéykix, because -ekst is already about your hand, but you could, I guess.”	page 15, engine english
+(33b)	nɬeʔkepmxcín	cited form	kéykix	in the speaker comment, page 15
+(33b) line 6	Reed Steiner	speaker comment	RS: “If you wanted to specify your hand from your arm , could you say ník̓ekst eʔkéykiyx?”	page 15, engine english
+(33b)	nɬeʔkepmxcín	cited form	ník̓ekst	in the speaker comment, page 15
+(33b) line 7	Bev Phillips	speaker comment	BP: “ník̓ekst eʔkéykiyx. Yes.”	page 15, engine language
+(33b)	nɬeʔkepmxcín	cited form	eʔkéykiyx	in the speaker comment, page 15
+§2.4	Reed Steiner	note	This is strong evidence that somatic suffixes are only a subset of body-part-denoting lexical suffixes. All somatic suffixes refer to body parts, but not all body-part-denoting lexical suffixes are somatic.	page 15
+§2.4	Reed Steiner	note	To summarize this section, there are necessarily two subclasses of lexical suffixes: somatic suffixes and non-somatic suffixes. Somatic suffixes refer to a body part inalienably possessed by an argument of the verb, as determined by the predicate’s (in)transitive morphology. By contrast, non-somatic suffixes are predicate modifiers, which need not be inalienably possessed. All lexical suffixes can access non-somatic readings; only some body-part lexical suffixes can access somatic readings.	page 15
+§2.4	nɬeʔkepmxcín	cited affix	-ekst	page 12, ‘hand’
+§3	Reed Steiner	heading	3. Existing approaches to somatic suffixes	page 15
+§3	Reed Steiner	note	In the literature on Salish, there are two main approaches to modeling the semantics of somatic suffixes. One approach argues that somatic suffixes select an inalienable possessor argument (Wiltschko 2009). For ease of reference, I call this the inalienable possession hypothesis (Section 3.2.1). The other approach argues that the possessive semantics come from reflexive allomorphs of the (in)transitive morpheme (Gerdts & Hukari 1998, Gerdts 2000b, 2003). I call this the reflexive middle hypothesis.	page 15
+§3	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+§3	Reed Steiner	note	Both approaches make significant contributions to the literature on lexical suffixes, and my proposal borrows from both of them. However, as written, neither approach can generalize to all environments in nɬeʔkepmxcín.	page 15
+§3.1	Reed Steiner	heading	3.1 Inalienable possession hypothesis	page 16
+§3.1	Reed Steiner	note	In her treatment of Halkomelem (ISO 639-3: hur), Wiltschko suggests somatic suffixes select an inalienable possessor argument (2009: 215). I formalize this as a function of type <e,et> (i.e. a relation between two individuals), as in (34). The function selects two arguments: an individual x, which is a hand, and an individual y, which inalienably possesses x.	page 16
+(34) line 1	Reed Steiner	rule	⟦-ekst⟧ = λxeλye.Hand(x)∧InalPoss(x)(y)	page 16, the author's denotation, read off the page
+(34) line 2	Reed Steiner	translation	‘Take an individual x and an individual y. Return TRUE iff x is a hand inalienably possessed by y’	page 16, the paraphrase of the denotation above it
+§3.1	Reed Steiner	note	The challenge with a denotation like (34) is composing the somatic suffix with the predicate. Wiltschko (2009: 213-214) suggests that somatic suffixes compose via an operation called Predicate Restriction, or simply Restrict (Chung & Ladusaw 2004). In formal terms, Restrict works by intersecting a function of type <e,t> with a predicate such that the internal argument of the predicate is a member of the characteristic function of that set (Chung & Ladusaw 2004: 6, 18). This approach does work for many non-somatic suffixes, e.g. (5b), repeated here as (35).	page 16
+(35) line 1	nɬeʔkepmxcín	transcription	caʕpíc̓eʔ xéʔe tk kepú	page 16, engine language
+(35) line 2	nɬeʔkepmxcín	segmentation	cəʕ-p-íc̓eʔ=∅ xéʔe t=k=kepú	page 16, engine language
+(35) line 3	nɬeʔkepmxcín	gloss	rip-INCH-covering=3SBJ DEM OBL=DET=coat	page 16, engine english
+(35) line 4	Reed Steiner	translation	‘That coat is torn.’	page 16, engine english
+(35) line 4	Reed Steiner	citation	(sf | KBG 21 Jan 2025)	the tag or source at the right of the translation
+§3.1	nɬeʔkepmxcín	cited form	caʕp	page 16, ‘get ripped’
+§3.1	nɬeʔkepmxcín	cited affix	-íc̓eʔ	page 16, ‘outer covering’
+§3.1	Reed Steiner	note	The semantics of (35) can be formalized as in (36). Step (i) introduces the stem caʕp ‘get ripped’ represented as a function of type <e,vt>, where v is the type of events. Step (ii) introduces the non- somatic suffix -íc̓eʔ ‘outer covering’ represented as a function of type <e,t>. Step (iii) combines the non-somatic suffix with the predicate via Restrict.	page 16
+(36) line 1	Reed Steiner	note	Patient modifier reading via Restrict	page 16, the caption
+(36i) line 1	Reed Steiner	rule	⟦caʕp⟧ = λxeλev.Rip(e)∧Patient(x)(e)	page 16, the author's denotation, read off the page
+(36i) line 2	Reed Steiner	translation	‘A ripping event e has a patient x.’	page 16, the paraphrase of the denotation above it
+(36ii) line 1	Reed Steiner	rule	⟦-íc̓eʔ⟧ = λxe.Covering(x)	page 16, the author's denotation, read off the page
+(36ii) line 2	Reed Steiner	translation	‘x is an outer covering.’	page 16, the paraphrase of the denotation above it
+(36iii) line 1	Reed Steiner	rule	Restrict (⟦caʕp⟧,⟦-íc̓eʔ⟧) = λxeλev.Rip(e)∧Patient(x)(e)Covering(x)	page 16, the author's denotation, read off the page
+(36iii) line 2	Reed Steiner	translation	‘A ripping event e has a patient x which is an outer covering’	page 16, the paraphrase of the denotation above it
+§3.1	nɬeʔkepmxcín	cited form	ník	page 17
+§3.1	Reed Steiner	note	However, Restrict cannot generalize to somatic suffixes under the inalienable possession hypothesis. As formalized in (34), somatic suffixes are of type <e,et>. But Restrict is defined as “a binary operation that composes a predicate directly with a property to yield a predicate without changing the degree of unsaturation” (Chung & Ladusaw 2004: 6), with a ‘property’ treated as a function of type <e,t> (e.g. Chung & Laduslaw 2004: 5, 18, 19, 21). Restrict is formulated to compose predicates with functions of type <e,t>, not with functions of type <e,et>. One solution, which this paper does not adopt, would be to use an alternative mode of composition that does composes predicates with functions of type <e,et>. This mode of composition would equate the internal argument of the predicate to the internal argument of the somatic suffix, leaving the inalienable possessor argument of the somatic suffix available for saturation. This hypothetical mode of composition is formalized as "Restrict2" in (37a). Applying Restrict2 to the somatic suffix in (34) would yield a denotation like (37b), and applying that denotation to ník 'get cut', the predicate in (33a), would yield a denotation like (37c).14	page 16
+(37) line 1	Reed Steiner	note	“Restrict2” for functions of type <e,et> (for illustrative purposes only)	page 17, the caption
+(37a) line 1	Reed Steiner	rule	Restrict2 = λQ<e,et>λP<e,vt>λyeλev.∃xe[P(x)(e)∧Q(x)(y)]	page 17, the author's denotation, read off the page
+(37a) line 2	Reed Steiner	translation	‘Take a function Q of type <e,et>, a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that P applied to x and e is true, and Q applied to x and y are true.’	page 17, the paraphrase of the denotation above it
+(37b) line 1	Reed Steiner	rule	Restrict2(⟦-ekst⟧) = λP<e,vt>λyeλev.∃xe[P(x)(e)∧Hand(x)∧InalPoss(x)(y)]	page 17, the author's denotation, read off the page
+(37b) line 2	Reed Steiner	translation	‘Take a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that P applied to x and e is true, and x is a hand inalienably possessed by y.’	page 17, the paraphrase of the denotation above it
+(37c) line 1	Reed Steiner	rule	Restrict2(⟦ník̓⟧, ⟦ekst⟧) = λyeλev.∃xe[Cut(e)∧Patient(x)(e)∧Hand(x) InalPoss(x)(y)]	page 17, the author's denotation, read off the page
+(37c) line 2	Reed Steiner	translation	‘Take an individual y and an event e. Return TRUE iff there exists an individual x such that e is a cutting event whose patient is x, and x is a hand inalienably possessed by y.’	page 17, the paraphrase of the denotation above it
+§3.1	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+§3.1	Reed Steiner	note	While a function like Restrict2 may be independently useful for instances of Type II (case- manipulating) noun incorporation in other languages (Mithun 1984), it cannot generalize to all predicates in nɬeʔkepmxcín. If all somatic suffixes compose with the predicate via the same mode of composition (e.g. Restrict2), and if this mode of composition always has the same denotation (e.g. 37a), then the inalienable possessor argument should consistently correspond to the next argument introduced.	page 17
+§3.1	Reed Steiner	language	nɬeʔkpemxcín	nɬeʔkepmxcín, as page 17 prints it
+§3.1	Reed Steiner	language	ƛ̓q̕əmcín	the Lytton dialect, Bev Phillips's
+§3.1	Reed Steiner	note	But this is not the case in nɬeʔkpemxcín: recall that in the ƛ̓q̕əmcín dialect, somatic suffixes are inalienably possessed by the transitive object in control transitives, and by the transitive subject in relational transitives. Restrict2, or a similar mode of composition, cannot account for these alternations: it occurs before the control middle and transitive suffixes are introduced, and so it's blind to the argument structure of the predicate. To account for all predicate types, the semantics of the relevant (in)transitive morphology must be taken into account.	page 17
+footnote 14	Reed Steiner	note	14 The semantics of Restrict2 could alternatively be formalized as part of the lexical suffix itself, as in (i). Note that the denotation is identical to (37b).	page 17, footnote
+footnote 14 (i) line 1	Reed Steiner	rule	⟦-ekst⟧ = λP<e,vt>λyeλev.∃xe[P(x)(e)∧Hand(x)∧InalPoss(x)(y)]	page 17, engine english
+§3.2	Reed Steiner	heading	3.2 Reflexive (in)transitivizer hypothesis	page 18
+§3.2	Halkomelem	cited affix	-əm	page 18, the middle suffix, after Gerdts and Hukari 1998:173
+§3.2	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+§3.2	Reed Steiner	note	The reflexive (in)transitivizer hypothesis derives somatic readings from the semantics of the (in)transitive morphology rather than the somatic suffix itself. The formalization here draws from Gerdts and Hukari (Gerdts & Hukari 1998, Gerdts 2000b, 2003).15 In their work on Halkomelem, Gerdts and Hukari treat the middle suffix -əm as a reflexive suffix (Gerdts & Hukari 1998: 173). This is based in part on the observation that predicates with somatic suffixes are not reflexivized in the same way as other predicates. In all Salish languages, reflexives are derived from transitive stems using a reflexive suffix descended from Proto-Salish *-sut REFL (Kroeber 1999: 32). The resulting predicate is intransitive: its subject is both the agent and the patient, as in the nɬeʔkepmxcín data below.	page 18
+(39) line 1	nɬeʔkepmxcín	transcription	ɬíƛ̓est kn	page 18, engine language
+(39) line 2	nɬeʔkepmxcín	segmentation	ɬíƛ̓-n-t-s[u]t=kn	page 18, engine language
+(39) line 3	nɬeʔkepmxcín	gloss	sprinkle.water-CTR-TR-REFL=1SG.SBJ	page 18, engine english
+(39) line 4	T&T1992:77	translation	‘I sprinkle water on myself.’	page 18, engine english, cited T&T1992:77
+(39) line 4	Reed Steiner	citation	(T&T1992:77)	the tag or source at the right of the translation
+(40) line 1	nɬeʔkepmxcín	transcription	miʔxecút	page 18, engine language
+(40) line 2	nɬeʔkepmxcín	segmentation	miʔx-n-t-sút=∅	page 18, engine language
+(40) line 3	nɬeʔkepmxcín	gloss	kick-CTR-TR-REFL=3SBJ	page 18, engine english
+(40) line 4	T&T1996:201	translation	‘She kicks herself.’	page 18, engine english, cited T&T1996:201
+(40) line 4	Reed Steiner	citation	(T&T1996:201)	the tag or source at the right of the translation
+footnote 15	Reed Steiner	note	15 The exact approach employed by Gerdts (2003) treats somatic suffixes as instances of saturating noun incorporation, in which the somatic suffix is a DP argument incorporated into an underlyingly transitive verb root. I’ve adapted the phrasing in this paper to make the analysis compatible with other theories of Salish verb roots (e.g. Davis 1997, Davis & Demirdache 2000).	page 18, footnote
+footnote 16	Reed Steiner	note	16 Contrary to Gerdts' findings for Halkomelem (2003), somatic-suffixed transitive reflexives aren't strictly ill-formed for all speakers of nɬeʔkepmxcín, although they're always dispreferred. In a contrastive context like (ii), some speakers can marginally accept both a somatic medio-reflexive (iia) and a somatic transitive- reflexive (iib). These examples suggest that the reason somatic transitive reflexives are rejected is that they're outcompeted by the medio-reflexive constructions.	page 18, footnote
+§3.2	Reed Steiner	note	However, predicates with somatic suffixes are typically incompatible with the reflexive marker, as shown by Gerdts and Hukari for Halkomelm; this is also the case in nɬeʔkepmxcín, as shown in (41-42).16	page 18
+footnote 16 (ii) line 1	Reed Steiner	note	Context: Sander has been sick and needed help washing his hands, but now I see Sander washing his own hands without help:	page 18, engine english
+footnote 16 (iia) line 1	nɬeʔkepmxcín	transcription	cunwéɬn e sc̓éw̓kstms nsnúk̓ʷeʔ	page 18, engine language, the text layer set the letter of the example before it
+footnote 16 (iia) line 2	nɬeʔkepmxcín	segmentation	cw-nwéɬn=∅ e=s=c̓éw̓-[e]kst-m=s	page 18, engine language
+footnote 16 (iia) line 3	nɬeʔkepmxcín	gloss	do-LC.MID=3SG.SBJ D/C=NMLZ=wash-hand-CTR.MID=3POSS	page 18, engine english
+footnote 16 (iia) line 4	nɬeʔkepmxcín	segmentation	n-s-núk̓ʷeʔ	page 18, engine language
+footnote 16 (iia) line 5	nɬeʔkepmxcín	gloss	1SG.POSS-NMLZ-friend	page 18, engine english
+footnote 16 (iia) line 6	Reed Steiner	translation	‘My friend can wash his own hands.’	page 18, engine english
+footnote 16 (iia) line 6	Reed Steiner	citation	(vf | KBG 5 March 2025)	the tag or source at the right of the translation
+footnote 16 (iib) line 1	nɬeʔkepmxcín	transcription	? cunwéɬn e sc̓éw̓kstecuts nsnúk̓ʷeʔ	page 18, engine language, the text layer set the letter of the example before it
+footnote 16 (iib) line 2	nɬeʔkepmxcín	segmentation	? cw-nwéɬn=∅ e=s=c̓éw̓-[e]kst-n-t-sut=s	page 18, engine language
+footnote 16 (iib) line 3	nɬeʔkepmxcín	gloss	do-LC.MID=3SG.SBJ D/C=NMLZ=wash-hand-CTR-TR-REFL=3POSS	page 18, engine english
+footnote 16 (iib) line 4	nɬeʔkepmxcín	segmentation	n-s-núk̓ʷeʔ	page 18, engine language
+footnote 16 (iib) line 5	nɬeʔkepmxcín	gloss	1SG.POSS-NMLZ-friend	page 18, engine english
+footnote 16 (iib) line 6	Reed Steiner	translation	‘My friend can wash his own hands.’	page 18, engine english
+footnote 16 (iib) line 6	Reed Steiner	citation	(sf | KBG 5 March 2025)	the tag or source at the right of the translation
+(41a) line 1	nɬeʔkepmxcín	transcription	c̓éw̓kstm kʷ	page 19, engine language
+(41a) line 2	nɬeʔkepmxcín	segmentation	c̓éw̓-[e]kst-m=kʷ	page 19, engine language
+(41a) line 3	nɬeʔkepmxcín	gloss	wash-hand-CTR.MID=2SG.SBJ	page 19, engine english
+(41a) line 4	Reed Steiner	translation	‘You're washing your own hands.’	page 19, engine english
+(41a) line 4	Reed Steiner	citation	(vf | BP 27 Feb 2025)	the tag or source at the right of the translation
+(41b) line 1	nɬeʔkepmxcín	transcription	?/* c̓ewkstecút kʷ	page 19, engine language
+(41b) line 2	nɬeʔkepmxcín	segmentation	?/* c̓ew̓-[e]kst-n-t-sút=kʷ	page 19, engine language
+(41b) line 3	nɬeʔkepmxcín	gloss	wash-hand-CTR-TR-REFL=2SG.SBJ	page 19, engine english
+(41b) line 4	Reed Steiner	translation	Intended: ‘You're washing your own hands.’	page 19, engine english
+(41b) line 4	Reed Steiner	citation	(sf | BP 27 Feb 2025)	the tag or source at the right of the translation
+(41b) line 5	Bev Phillips	speaker comment	BP: “I don't know. I've never heard anyone say that, but if you had to say it that’s how you’d say that.”	page 19, engine english
+(42a) line 1	nɬeʔkepmxcín	transcription	ʔép̓sm kʷ	page 19, engine language
+(42a) line 2	nɬeʔkepmxcín	segmentation	ʔép-[u]s-m=kʷ	page 19, engine language
+(42a) line 3	nɬeʔkepmxcín	gloss	wipe-face-CTR.MID=2SG.SBJ	page 19, engine english
+(42a) line 4	Reed Steiner	translation	‘You're wiping your own face.’	page 19, engine english
+(42a) line 4	Reed Steiner	citation	(vf | BP 27 Feb 2025)	the tag or source at the right of the translation
+(42b) line 1	nɬeʔkepmxcín	transcription	?/* ʔép̓secut kʷ	page 19, engine language
+(42b) line 2	nɬeʔkepmxcín	segmentation	?/* ʔép-[u]s-n-t-sut=kʷ	page 19, engine language
+(42b) line 3	nɬeʔkepmxcín	gloss	wipe-face-CTR-TR-REFL=2SG.SBJ	page 19, engine english
+(42b) line 4	Reed Steiner	translation	Intended: 'You're wiping your own face.'	page 19, engine english
+(42b) line 4	Reed Steiner	citation	(sf | BP 27 Feb 2025)	the tag or source at the right of the translation
+(42b) line 5	Bev Phillips	speaker comment	BP: “I’d know what you meant, but I don’t know if it’s correct.”	page 19, engine english
+§3.2	Halkomelem	cited affix	-θət	page 19, the reflexive suffix, after Gerdts 2003:355
+§3.2	Reed Steiner	note	Gerdts argues that the middle in somatic-suffixed unergatives is an allomorph of the reflexive suffix -θət (2003: 355). The transitive-reflexive allomorph -θət would surface on predicates without lexical suffixes, and the middle allomorph -əm would surface on predicates with lexical suffixes.17 A reflexive denotation of the middle is independently supported in predicates without lexical suffixes. Many Salish languages, including nɬeʔkepmxcín, have a small class of middle- suffixed unergative predicates with a medio-reflexive reading, in which the agent acts upon themselves (Davis 1997: 68-71). Examples from nɬeʔkepmxcín are provided in (44)-(46).	page 19
+(44) line 1	nɬeʔkepmxcín	transcription	séxʷm kt	page 19, engine language
+(44) line 2	nɬeʔkepmxcín	segmentation	séxʷ-m=kt	page 19, engine language
+(44) line 3	nɬeʔkepmxcín	gloss	bathe-CTR.MID=1PL.SBJ	page 19, engine english
+(44) line 4	T&T1992:103	translation	‘We bathe (ourselves), take a bath.’	page 19, engine english, cited T&T1992:103
+(44) line 4	Reed Steiner	citation	(T&T1992:103)	the tag or source at the right of the translation
+(45) line 1	nɬeʔkepmxcín	transcription	twépm kn	page 19, engine residue
+(45) line 2	nɬeʔkepmxcín	segmentation	twép-m=kn	page 19, engine language
+(45) line 3	nɬeʔkepmxcín	gloss	back.up-CTR.MID=1SG.SBJ	page 19, engine english
+(45) line 4	T&T1992:103	translation	‘I go backwards, back up.’	page 19, engine english, cited T&T1992:103
+(45) line 4	Reed Steiner	citation	(T&T1992:103)	the tag or source at the right of the translation
+footnote 17	Reed Steiner	note	17 Gerdts says -əm surfaces on predicates whose derived object is coreferent with the subject (2003: 355); however, this phrasing is based on the assumption (which this paper does not adopt) that lexical suffixes are underlying objects of transitive roots. I have adapted the phrasing above to make it compatible with other theories of Salish roots (e.g. Davis 2024, Nederveen 2024, etc.).	page 19, footnote
+(46) line 1	nɬeʔkepmxcín	transcription	c̓k̓ʷə́m	page 20, engine residue
+(46) line 2	nɬeʔkepmxcín	segmentation	c̓k̓ʷ-m=∅	page 20, engine residue
+(46) line 3	nɬeʔkepmxcín	gloss	propel-CTR.MID=3SG.SBJ	page 20, engine english
+(46) line 4	T&T1992:103	translation	‘He pushes, propels himself.’	page 20, engine english, cited T&T1992:103
+(46) line 4	Reed Steiner	citation	(T&T1992:103)	the tag or source at the right of the translation
+§3.2	Reed Steiner	note	If all Salish roots are intransitive and patient-oriented (following Davis 1997, Davis 2024), then the self-directed reading cannot come from the root. Instead, the self-directed reading must come from the middle.	page 20
+§3.2	Reed Steiner	note	Contra Gerdts (2003), however, the medio-reflexive middle cannot be an exact allomorph of the transitive reflexive. If it were, then the medio-reflexive middle and the transitive reflexive suffix would differ only in phonological form. However, they do not have the same semantics. The transitive reflexive entails that the external argument refers to the same individual as the internal argument. If this were true of the medio-reflexive middle, then the lexical suffix would refer to both arguments, which incorrectly predicts readings like *‘a face washes itself’ or *‘a mouth scrapes itself’.	page 20
+§3.2	Reed Steiner	note	Instead, the medio-reflexive middle needs it own semantic representation. One possible representation is provided in (47). The function entails that the internal argument of the predicate P is inalienably possessed by the external argument (the agent). This function can only select a predicate that bears a [+somatic] feature.	page 20
+(47) line 1	Reed Steiner	note	Medio-reflexive middle with inalienable possession (for illustrative purposes only):	page 20, the caption
+(47) line 2	Reed Steiner	rule	⟦-m⟧ = λP[+somatic]λyeλev.∃xe[P(x)(e)∧InalPoss(x)(y)]∧Agent(y)(e)	page 20, the author's denotation, read off the page
+(47) line 3	Reed Steiner	translation	‘Take a somatic-suffixed predicate P, an individual y, and an event e. Return TRUE iff there exists an individual x such that P applies to x and e is true, and x is inalienably possessed by y, and y is the agent of e.’	page 20, the paraphrase of the denotation above it
+§3.2	nɬeʔkepmxcín	cited form	c̓éw̓-kst	page 20, ‘wash-hand’
+§3.2	Reed Steiner	note	Encoding inalienable possession in the middle rather than the somatic suffix does predict the correct semantics, as shown in (48). Step (i) introduces a lexical-suffixed predicate c̓éw̓-kst ‘wash-hand’. Step (ii) introduces the denotation in (47). Step (iii) combines the predicate with the middle via function application.	page 20
+(48) line 1	Reed Steiner	note	(for illustrative purposes only)	page 20, the caption
+(48i) line 1	Reed Steiner	rule	⟦c̓ew̓kst⟧ = λxeλev.Wash(e)∧Patient(x)(e)∧Hand(x)	page 20, the author's denotation, read off the page
+(48i) line 2	Reed Steiner	translation	‘Take an individual x and an event e. Return TRUE iff x is e is a washing event whose patient is x, and x is a hand.’	page 20, the paraphrase of the denotation above it
+(48ii) line 1	Reed Steiner	rule	⟦-m⟧ = λP[+somatic]λyeλev.∃xe[P(x)(e) ∧InalPoss(x)(y)] ∧ Agent(y)(e)	page 20, the author's denotation, read off the page
+(48ii) line 2	Reed Steiner	translation	‘Take a somatic-suffixed predicate P, an individual y, and an event e. Return TRUE iff there exists an individual x such that P applied to x and e is true, and x is inalienably possessed by y, and y is the agent of e.’	page 20, the paraphrase of the denotation above it
+(48iii) line 1	Reed Steiner	rule	⟦-m⟧(⟦c̓ew̓kst⟧) = λyeλev.∃xe[Wash(e) ∧ Patient(x)(e) ∧Hand(x) ∧ InalPoss(x)(y)] ∧ Agent(y)(e)	page 20, the author's denotation, read off the page, printed (ii) again where the prose names step (iii)
+(48iii) line 2	Reed Steiner	translation	‘Take an individual y and an event e. Return TRUE iff there exists an individual x such that e is a washing event whose patient is x, and x is a hand inalienably possessed by y, and y is the agent of e.’	page 20, the paraphrase of the denotation above it
+§3.2	Reed Steiner	note	Medio-reflexive predicates without somatic suffixes (e.g. (44)-(46)) can be derived using an unpronounced somatic suffix meaning 'body'.	page 20
+(49) line 1	Reed Steiner	note	Medio-reflexive middle with inalienable possession without a lexical suffix (for illustrative purposes only)	page 21, the caption
+(49) line 2	Reed Steiner	rule	⟦-m⟧(⟦sexʷ-∅⟧) = λP<e,vt>λyeλev.∃xe[Bathe(e)∧Patient(x)(e)∧Body(x)∧InalPoss(x)(y)] ∧Agent(y)(e)	page 21, the author's denotation, read off the page
+(49) line 3	Reed Steiner	translation	‘Take a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that e is a bathing event whose patient is x, and x is a body that is inalienably possessed by y, and y is the agent of e.’	page 21, the paraphrase of the denotation above it
+§3.2	Reed Steiner	note	Although this approach does predict the correct semantics, it doesn’t explain where the inalienable possession comes from. Under the inalienable possession hypothesis, inalienable possession stems from the semantics of body parts. But under the formalization in (47), inalienable possession is entirely encoded in the middle with no independent justification.	page 21
+§3.2	Reed Steiner	note	Another drawback to this approach is that there is very little difference between somatic and non-somatic suffixes. The only difference between a somatic-suffixed predicate and a non- somatic suffixed predicate is an arbitrary [± somatic] feature, which does little to explain why all somatic suffixes are body parts, and why all non-body lexical suffixes are non-somatic. Both these drawbacks are inherent to a middle that itself entails inalienable possession. The proposal outlined in Section 4 resolves these issues by combining the somatic suffix with the middle prior to composing the resulting combination with the predicate.	page 21
+§3.2	Proto-Salish	cited affix	-sut	page 18, *-sut REFL, after Kroeber 1999:32
+§4	Reed Steiner	heading	4. Proposal: Somatic suffixes combine with (in)transitive affixes	page 21
+§4	Reed Steiner	note	This section combines the two approaches outlined in section 3. I argue that somatic suffixes do not combine directly with the predicate itself; they first combine with the relevant (in)transitive morpheme.18 Following the inalienable possession hypothesis (Section 3.1), I model somatic suffixes as nouns that select an inalienable possessor, as in (33), repeated here as (50).	page 21
+(50) line 1	Reed Steiner	rule	⟦-ekst⟧ = λxeλye.Hand(x)∧InalPoss(x)(y)	page 21, the author's denotation, read off the page
+(50) line 2	Reed Steiner	translation	‘Take an individual x and an individual y. Return TRUE iff x is a hand inalienably possessed by y.’	page 21, the paraphrase of the denotation above it
+§4	Reed Steiner	note	Because somatic suffixes are of type <e,et>, they cannot combine with the predicate via Restrict (see 3.1). Instead, an (in)transitive affix determines how the arguments of the somatic suffix relate to the rest of the predicate. I begin with unergative predicates, since this is where the proposal has the most independent support (4.1). I extend this analysis to transitive predicates (4.2), and indicate the complications that would arise if this analysis were extended to unaccusative predicates (4.3).	page 21
+§4.1	Reed Steiner	heading	4.1 Somatic suffixes combine with the middle	page 21
+footnote 18	Reed Steiner	note	18 This proposal stems from Henry Davis’ (p.c.) suggestion that somatic suffixes form a constituent with the middle.	page 21, footnote
+§4.1	Reed Steiner	note	In unergative predicates, it is the medio-reflexive middle that determines how the somatic suffix relates to the predicate. I formalize the medio-reflexive middle as in (51a): it equates the internal argument of the somatic suffix to the predicate, and the external argument of the somatic suffix to the agent. Note that the middle itself does not entail inalienable possession; it only relates the somatic suffix to the predicate, as in (51c).	page 21
+(51a) line 1	Reed Steiner	rule	⟦-m⟧ = λLS<e,et>λP<e,vt>λyeλev.∃xe[P(x)(e)∧LS(x)(y)]∧Agent(y)(e)	page 22, the author's denotation, read off the page
+(51a) line 2	Reed Steiner	translation	‘Take a lexical suffix LS of type <e,et>, a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that P applied to x and e is true, and LS applied to x and y is true, and y is an agent of e.’	page 22, the paraphrase of the denotation above it
+(51b) line 1	Reed Steiner	rule	⟦-ekst⟧ = λxeλye.Hand(x)∧InalPoss(x)(y)	page 22, the author's denotation, read off the page
+(51b) line 2	Reed Steiner	translation	‘Take an individual x and an individual y. Return TRUE iff x is a hand inalienably possessed by y.’	page 22, the paraphrase of the denotation above it
+(51c) line 1	Reed Steiner	rule	⟦-m⟧(⟦-ekst⟧) = λP<e,vt>λyeλev.∃xe[P(x)(e)∧Hand(x)∧InalPoss(x)(y)]∧ Agent(y)(e)	page 22, the author's denotation, read off the page
+(51c) line 2	Reed Steiner	translation	‘Take a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that P applied to x and e is true, and x is a hand, and y is the inalienable possessor of x and the agent of e.'	page 22, the paraphrase of the denotation above it
+§4.1	Reed Steiner	note	Non-somatic suffixes won't compose in this manner if they are of type <e,t>, which is independently necessary if they compose with the predicate via Restrict (Chung & Ladusaw 2004) as suggested by Wiltschko (2009). This means no [± somatic] feature is necessary. Assuming there are no other nouns of type <e,et> available to compose with the verb at this stage in the derivation, no [± LexicalSuffix] feature is necessary, either.	page 22
+§4.1	Reed Steiner	note	Recall that a medio-reflexive denotation of the middle is independently supported by a small class of medio-reflexive unergative predicates, e.g. (44)-(46), repeated here as (52)-(54).	page 22
+(52) line 1	nɬeʔkepmxcín	transcription	séxʷm kt	page 22, engine language
+(52) line 2	nɬeʔkepmxcín	segmentation	séxʷ-m=kt	page 22, engine language
+(52) line 3	nɬeʔkepmxcín	gloss	bathe-CTR.MID=1PL.SBJ	page 22, engine english
+(52) line 4	T&T1992:103	translation	‘We bathe (ourselves), take a bath.’	page 22, engine english, cited T&T1992:103
+(52) line 4	Reed Steiner	citation	(T&T1992:103)	the tag or source at the right of the translation
+(53) line 1	nɬeʔkepmxcín	transcription	twépm kn	page 22, engine residue
+(53) line 2	nɬeʔkepmxcín	segmentation	twep-m=kn	page 22, engine language
+(53) line 3	nɬeʔkepmxcín	gloss	back.up-CTR.MID=1SG.SBJ	page 22, engine english
+(53) line 4	T&T1992:103	translation	‘I go backwards, back up.’	page 22, engine english, cited T&T1992:103
+(53) line 4	Reed Steiner	citation	(T&T1992:103)	the tag or source at the right of the translation
+(54) line 1	nɬeʔkepmxcín	transcription	c̓k̓ʷə́m	page 22, engine residue
+(54) line 2	nɬeʔkepmxcín	segmentation	c̓k̓ʷ-m=∅	page 22, engine residue
+(54) line 3	nɬeʔkepmxcín	gloss	propel-CTR.MID=3SBJ	page 22, engine english
+(54) line 4	T&T1992:103	translation	'He pushes, propels himself.'	page 22, engine english, cited T&T1992:103
+(54) line 4	Reed Steiner	citation	(T&T1992:103)	the tag or source at the right of the translation
+§4.1	Reed Steiner	note	The denotation in (51) can be extended to these predicates by assuming an unpronounced somatic suffix meaning 'body', which combines with the middle as in (55a). This derives reflexive-like semantics, in which the agent acts upon their own body (55b).	page 22
+(55a) line 1	Reed Steiner	rule	⟦-m⟧(⟦-∅⟧)= λP<e,vt>λyeλev.∃xe[P(x)(e)∧Body(x)∧InalPoss(x)(y)]∧Agent(y)(e)	page 23, the author's denotation, read off the page
+(55a) line 2	Reed Steiner	translation	'Take a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that P applies to x and e is true, and x is a body inalienably possessed by y, and y is the agent of e.'	page 23, the paraphrase of the denotation above it
+(55b) line 1	Reed Steiner	rule	⟦-∅-m⟧(⟦sexʷ⟧) = λyeλev.∃xe[Bathe(e)∧Patient(x)(e)∧Body(x)∧InalPoss(y)] ∧Agent(y)(e)	page 23, the author's denotation, read off the page
+(55b) line 2	Reed Steiner	translation	'Take an individual y and an event e. Return TRUE iff there exists an individual x such that e is a bathing event whose patient is x, and x is a body inalienably possessed by y, and y is the agent of e.'	page 23, the paraphrase of the denotation above it
+§4.1	Reed Steiner	note	Independent support for this approach comes from the autonomous suffix -iyx AUT (T&T 1992: 101). The autonomous suffix has nearly identical semantics to the medio-reflexive middle in (55): it derives a self-directed unergative predicate. Typically, it occurs in intransitive predicates of bodily posture or motion.	page 23
+(56a) line 1	nɬeʔkepmxcín	transcription	q̕əmx̣ʷə́m	page 23, engine language
+(56a) line 2	nɬeʔkepmxcín	segmentation	q̕əmxʷ-m	page 23, engine language
+(56a) line 3	nɬeʔkepmxcín	gloss	sphere-CTR.MID	page 23, engine english
+(56a) line 4	T&T1996:280	translation	‘make (s.t.) into a ball’	page 23, engine english, cited T&T1996:280
+(56a) line 4	Reed Steiner	citation	(T&T1996:280)	the tag or source at the right of the translation
+(56b) line 1	nɬeʔkepmxcín	transcription	q̕əmx̣ʷíyx	page 23, engine language
+(56b) line 2	nɬeʔkepmxcín	segmentation	q̕əmx̣ʷ-íyx	page 23, engine language
+(56b) line 3	nɬeʔkepmxcín	gloss	sphere-AUT	page 23, engine english
+(56b) line 4	T&T1996:280	translation	‘(of person, animal) make one’s self into a ball’	page 23, engine english, cited T&T1996:280
+(56b) line 4	Reed Steiner	citation	(T&T1996:280)	the tag or source at the right of the translation
+(57) line 1	nɬeʔkepmxcín	transcription	qʷécyx e nsqáqx̣aʔ	page 23, engine language
+(57) line 2	nɬeʔkepmxcín	segmentation	qʷec-[i]yx=∅ e=n-s-qáqx̣aʔ	page 23, engine language
+(57) line 3	nɬeʔkepmxcín	gloss	warm-AUT=3SBJ DET=1SG.POSS-NMLZ-dog	page 23, engine english
+(57) line 4	Reed Steiner	translation	‘My dog is warming herself.’	page 23, engine english
+(57) line 4	Reed Steiner	citation	(sf | KBG 18 Dec 2024)	the tag or source at the right of the translation
+§4.1	Reed Steiner	language	Secwepemctsín	Shuswap, Northern Interior Salish, ISO 639-3 shs
+§4.1	Reed Steiner	language	St̕at̕imcets	Lillooet, Northern Interior Salish, written without its accent
+§4.1	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+§4.1	Reed Steiner	language	ƛ̓q̕əmcín	the Lytton dialect, Bev Phillips's
+§4.1	Reed Steiner	note	In the literature on Northern Interior Salish, the autonomous suffix has been treated both as a lexical suffix and as an intransitive suffix. In Kuipers' work on Secwepemctsín (1974: 66) and van Eijk’s work on St̕at̕imcets (1985: 248, 2013: 434), the autonomous is treated as a somatic suffix meaning ‘body’. In Thompson & Thompson's work on nɬeʔkepmxcín (1992: 101) and Davis' work on St̕at̕imcets (1997: 66) the autonomous gets treated as a medio-reflexive suffix. The latter approach is well-supported in St̕at̕imcets, since the autonomous suffix -ilx is incompatible with other intransitive suffixes (Davis 1997: 66). The same facts hold for the ƛ̓q̕əmcín dialect of nɬeʔkepmxcín. When a control middle is introduced after the autonomous, the sentence is rejected.	page 23
+(58a) line 1	nɬeʔkepmxcín	transcription	p̓ik̓íyx e sk̓ʷúk̓ʷmiʔt	page 23, engine language
+(58a) line 2	nɬeʔkepmxcín	segmentation	p̓yk̓-íyx=∅ e=s-k̓ʷú<k̓ʷ>m-[e]y̕t	page 23, engine language
+(58a) line 3	nɬeʔkepmxcín	gloss	roll-AUT=3SBJ DET=NMLZ-small<DIM>-person	page 23, engine english
+(58a) line 4	Reed Steiner	translation	'The baby rolled around.'	page 23, engine english
+(58a) line 4	Reed Steiner	citation	(vf | BP 27 Feb 2025)	the tag or source at the right of the translation
+(58b) line 1	nɬeʔkepmxcín	transcription	*p̓ik̓íyxm e sk̓ʷúk̓ʷmiʔt	page 24, engine language
+(58b) line 2	nɬeʔkepmxcín	segmentation	*p̓yk̓-íyx-m=∅ e=s-k̓ʷú<k̓ʷ>m-iʔt	page 24, engine language
+(58b) line 3	nɬeʔkepmxcín	gloss	roll-AUT-CTR.MID=3SBJ DET=NMLZ-small<DIM>-person	page 24, engine english
+(58b) line 4	Reed Steiner	translation	Intended: 'The baby rolled around.'	page 24, engine english
+(58b) line 5	Bev Phillips	speaker comment	BP: “I don't know. Never used or heard it.” (sf | BP 27 Feb 2025)	page 24, engine english
+(59a) line 1	nɬeʔkepmxcín	transcription	qʷecíyx e nsqáqx̣aʔ	page 24, engine language
+(59a) line 2	nɬeʔkepmxcín	segmentation	qʷec-íyx=∅ e=n-s-qáqx̣aʔ	page 24, engine language
+(59a) line 3	nɬeʔkepmxcín	gloss	warm-AUT=3SBJ DET=1SG.POSS-NMLZ-dog	page 24, engine english
+(59a) line 4	Reed Steiner	translation	'My dog warmed herself.'	page 24, engine english
+(59a) line 4	Reed Steiner	citation	(vf | BP 27 Feb 2025)	the tag or source at the right of the translation
+(59b) line 1	nɬeʔkepmxcín	transcription	*qʷecíyxm e nsqáqx̣aʔ	page 24, engine language, the text layer set the letter of the example before it
+(59b) line 2	nɬeʔkepmxcín	segmentation	*qʷec-íyx-m=∅ e=n-s-qáqx̣aʔ	page 24, engine language
+(59b) line 3	nɬeʔkepmxcín	gloss	warm-AUT-CTR.MID=3SBJ DET=1SG.POSS-NMLZ-dog	page 24, engine english
+(59b) line 4	Reed Steiner	translation	Intended: 'My dog warmed herself.'	page 24, engine english
+(59b) line 4	Reed Steiner	citation	(vf | BP 27 Feb 2025)	the tag or source at the right of the translation
+§4.1	Reed Steiner	language	c̓eɬétkʷu	the Coldwater dialect, kʷaɬtèzetkʷuʔ's
+§4.1	Reed Steiner	note	However in the c̓eɬétkʷu dialect it is marginally possible to elicit the autonomous suffix before the medio-reflexive middle, in the same position as a somatic suffix. Such cases are virtually absent from volunteered speech; aside from (60c), I have never heard the autonomous spontaneously volunteered in the same predicate as the middle.	page 24
+(60a) line 1	nɬeʔkepmxcín	transcription	p̓ik̓íyx e élowis	page 24, engine language
+(60a) line 2	nɬeʔkepmxcín	segmentation	p̓ik̓-íyx=∅ e=ʔélowiz	page 24, engine language
+(60a) line 3	nɬeʔkepmxcín	gloss	roll-AUT=3SBJ DET=Eloise	page 24, engine english
+(60a) line 4	Reed Steiner	translation	‘Eloise (my dog) is rolling.’	page 24, engine english
+(60a) line 4	Reed Steiner	citation	(sf | KBG 18 Dec 2024)	the tag or source at the right of the translation
+(60b) line 1	nɬeʔkepmxcín	transcription	p̓ik̓íyxm e élowis	page 24, engine language
+(60b) line 2	nɬeʔkepmxcín	segmentation	p̓ik̓-íyx-m=∅ e=ʔélowiz	page 24, engine language
+(60b) line 3	nɬeʔkepmxcín	gloss	roll-AUT-CTR.MID=3SBJ DET=Eloise	page 24, engine english
+(60b) line 4	Reed Steiner	translation	‘Eloise is rolling.’	page 24, engine english
+(60b) line 4	Reed Steiner	citation	(sf | KBG 18 Dec 2024)	the tag or source at the right of the translation
+(60c) line 1	nɬeʔkepmxcín	transcription	p̓ik̓íyxm	page 24, engine language
+(60c) line 2	nɬeʔkepmxcín	segmentation	p̓ik̓-íyx-m=∅	page 24, engine language
+(60c) line 3	nɬeʔkepmxcín	gloss	roll-AUT-CTR.MID=3SBJ	page 24, engine english
+(60c) line 4	Reed Steiner	translation	‘(of a tiny baby) rolling in his sleep’	page 24, engine english
+(60c) line 4	Reed Steiner	citation	(vf | KBG 18 Dec 2024)	the tag or source at the right of the translation
+(61a) line 1	nɬeʔkepmxcín	transcription	qʷecíyx e nsqáqx̣aʔ	page 24, engine language
+(61a) line 2	nɬeʔkepmxcín	segmentation	qʷec-íyx=∅ e=n-s-qáqx̣aʔ	page 24, engine language
+(61a) line 3	nɬeʔkepmxcín	gloss	warm-AUT=3SBJ DET=1SG.POSS-NMLZ-dog	page 24, engine english
+(61a) line 4	Reed Steiner	translation	‘My dog is warming herself.’	page 24, engine english
+(61a) line 4	Reed Steiner	citation	(sf | KBG 18 Dec 2024)	the tag or source at the right of the translation
+(61b) line 1	nɬeʔkepmxcín	transcription	qʷecíyxm e nsqáqx̣aʔ	page 24, engine language
+(61b) line 2	nɬeʔkepmxcín	segmentation	qʷec-íyx-m=∅ e=n-s-qáqx̣aʔ	page 24, engine language
+(61b) line 3	nɬeʔkepmxcín	gloss	warm-AUT-CTR.MID=3SBJ DET=1SG.POSS-NMLZ-dog	page 24, engine english
+(61b) line 4	Reed Steiner	translation	‘My dog is warming herself.’	page 24, engine english
+(61b) line 4	Reed Steiner	citation	(sf | KBG 18 Dec 2024)	the tag or source at the right of the translation
+§4.1	Reed Steiner	language	ƛ̓əq̕mcín	the Lytton dialect, as page 24 spells it
+§4.1	Reed Steiner	note	This difference between the ƛ̓əq̕mcín and c̓eɬétkʷu dialects can be explained by first assuming that the autonomous suffix is formed from a somatic suffix -iyx meaning 'body' and a phonologically null medio-reflexive middle. In the ƛ̓q̕əmcín dialect, the somatic suffix and the null medio-reflexive are analyzed as a single autonomous suffix. This explains why it cannot co-occur with a medio- reflexive middle.	page 24
+(62) line 1	Reed Steiner	note	ƛ̓əq̕mcín autonomous suffix:	page 25, the caption
+(62) line 2	Reed Steiner	rule	⟦-iyx⟧ = λP<e,vt>λyeλev.∃xe[P(x)(e)∧Body(x)∧InalPoss(x)(y)]∧Agent(y)(e)	page 25, the author's denotation, read off the page
+(62) line 3	Reed Steiner	translation	'Take a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that P applied to x and e are true, and x is a body inalienably possessed by y, and y is the agent of e.'	page 25, the paraphrase of the denotation above it
+§4.1	Reed Steiner	note	In the c̓eɬétkʷu dialect, however, -iyx is analyzable separate from the null medio-reflexive. It typically combines with a null medio-reflexive middle (63a), but is not barred from combining with an overt middle (63b). In any case, the semantics are the same.	page 25
+(63a) line 1	Reed Steiner	rule	⟦-∅⟧ (⟦-iyx⟧) = λP<e,vt>λyeλev.∃xe[P(x)(e)∧Body(x)∧InalPoss(x)(y)]∧ Agent(y)(e)	page 25, the author's denotation, read off the page
+(63a) line 2	Reed Steiner	translation	‘'Take a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that x and e are arguments of P, and x is a body inalienably possessed by y, and y is the agent of e.'	page 25, the paraphrase of the denotation above it
+(63b) line 1	Reed Steiner	rule	⟦-m⟧(⟦-iyx⟧) = λP<e,vt>λyeλev.∃xe[P(x)(e)∧Body(x)∧InalPoss(x)(y)]∧ Agent(y)(e)	page 25, the author's denotation, read off the page
+(63b) line 2	Reed Steiner	translation	‘'Take a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that x and e are arguments of P, and x is a body inalienably possessed by y, and y is the agent of e.'	page 25, the paraphrase of the denotation above it
+§4.1	Reed Steiner	note	Under this approach, all medio-reflexives are composed of two parts: a somatic suffix and a medio- reflexive middle. Somatic medio-reflexives (64) are composed of any overt somatic suffix and an overt medio-reflexive middle. Unmarked medio-reflexives (65) are composed of a covert somatic suffix and an overt medio-reflexive middle. Autonomous medio-reflexives (66) are composed of an overt somatic suffix -iyx 'body' and a covert medio-reflexive middle.	page 25
+(64) line 1	Reed Steiner	note	Somatic Medio-Reflexive	page 25, the caption
+(64) line 2	Reed Steiner	rule	⟦-m⟧(⟦-ekst⟧) = λP<e,vt>λyeλev∃xe[P(x)(e)∧Hand(x)∧InalPoss(x)(y)]∧Agent(y)(e)	page 25, the author's denotation, read off the page
+(64) line 3	Reed Steiner	translation	‘'Take a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that P applied to x and e is true, and x is a hand inalienably possessed by y, and y is the agent of e.'	page 25, the paraphrase of the denotation above it
+(65) line 1	Reed Steiner	note	Unmarked Medio-Reflexive	page 26, the caption
+(65) line 2	Reed Steiner	rule	⟦-m⟧ (⟦∅⟧) = λP<e,vt>λyeλev∃xe[P(x)(e)∧Body(x)∧InalPoss(x)(y)]∧Agent(y)(e)	page 26, the author's denotation, read off the page
+(65) line 3	Reed Steiner	translation	‘'Take a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that P applied to x and e is true, and x is a body inalienably possessed by y, and y is the agent of e.'	page 26, the paraphrase of the denotation above it
+(66) line 1	Reed Steiner	note	Autonomous Medio-Reflexive	page 26, the caption
+(66) line 2	Reed Steiner	rule	⟦∅⟧ (⟦-iyx⟧) = λP<e,vt>λyeλev∃xe[P(x)(e)∧Body(x)∧InalPoss(x)(y)]∧Agent(y)(e)	page 26, the author's denotation, read off the page
+(66) line 3	Reed Steiner	translation	‘'Take a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that P applied to x and e is true, and x is a body inalienably possessed by y, and y is the agent of e.'	page 26, the paraphrase of the denotation above it
+§4.1	Reed Steiner	note	Not only does this approach explain how somatic suffixes work, but it unites all medio-reflexive predicates under a single semantic representation.	page 26
+§4.1	nɬeʔkepmxcín	cited affix	-iyx	page 23, the autonomous suffix AUT, after T&T 1992:101
+§4.1	St̕át̕imcets	cited affix	-ilx	page 23, the autonomous suffix, after Davis 1997:66
+§4.2	Reed Steiner	heading	4.2 Somatic suffixes combine with transitivizers	page 27
+§4.2	Reed Steiner	note	To extend the proposal in 4.1 to transitives, the control transitivizer and the relational transitivizer each must have two denotations. The first denotation is a standard non-somatic one, which occurs in predicates without somatic suffixes. The non-somatic denotation of pre-transitivizing morphology will not be explored further in this paper. The second denotation is a somatic one. The somatic control transitive is formalized in (67a). It entails that the internal argument of the somatic suffix corresponds to the internal argument of the predicate (the patient), and that the external argument of the somatic suffix corresponds to the object of the transitive (67b).	page 27
+(67) line 1	Reed Steiner	note	Somatic Control Transitive	page 27, the caption
+(67a) line 1	Reed Steiner	rule	⟦-n-t-⟧ = λLS<e,et>λP<e,vt>λxeλyeλev.∃ze[P(z)(e)∧LS(z)(x)]∧Agent(y)(e)	page 27, the author's denotation, read off the page
+(67a) line 2	Reed Steiner	translation	'Take a lexical suffix LS of type <e,et>, a predicate P of type <e,vt>, an individual x, an individual y, and an event e. Return TRUE iff there exists an individual z such that P applied to z and e is true, and z and x are arguments of LS, and y is the agent of e.'	page 27, the paraphrase of the denotation above it
+(67b) line 1	Reed Steiner	rule	⟦-n-t-⟧(⟦-ekst⟧) = λLS<e,et>λP<e,vt>λxeλyeλev.∃ze[P(z)(e)∧Hand(z) InalPoss(z)(x)] ∧Agent(y)(e)	page 27, the author's denotation, read off the page
+(67b) line 2	Reed Steiner	translation	'Take a predicate P of type <e,vt>, an individual x, an individual y, and an event e. Return TRUE iff there exists an individual z such that P applied to z and e is true, and z is a hand inalienably possessed by x, and y is the agent of e.'	page 27, the paraphrase of the denotation above it
+§4.2	Reed Steiner	note	The somatic relational transitive is formalized in (68a). It entails that the internal argument of the somatic suffix corresponds to the internal argument of the root. The external argument of the somatic suffix corresponds to the external argument of the predicate.	page 27
+(68) line 1	Reed Steiner	note	Somatic Relational Transitive	page 27, the caption
+(68a) line 1	Reed Steiner	rule	⟦-min-t-⟧ = λLS<e,et>λP<e,vt>λxeλyeλev.∃ze[P(z)(e) ∧ LS(z)(y)] ∧Agent(y)(e)∧Relat(x)(e)	page 27, the author's denotation, read off the page
+(68a) line 2	Reed Steiner	translation	'Take a lexical suffix LS of type <e,et>, a predicate P of type <e,vt>, an individual x, an individual y, and an event e. Return TRUE iff there exists an individual z such that P applied to z and e is true, and z and y are arguments of LS, and x is related to e.'	page 27, the paraphrase of the denotation above it
+(68b) line 1	Reed Steiner	rule	⟦-min-t-⟧(⟦-ekst⟧) = λLS<e,et>λP<e,vt>λxeλyeλev.∃ze[P(z)(e)∧Hand(z) ∧InalPoss(z)(y)]∧Agent(y)(e) ∧Relat(x)(e)	page 28, the author's denotation, read off the page
+(68b) line 2	Reed Steiner	translation	'Take a lexical suffix LS of type <e,et>, a predicate P of type <e,vt>, an individual x, an individual y, and an event e. Return TRUE iff there exists an individual z such that P applied to z and e is true, z is a hand inalienably possessed by y, and x is related to e.'	page 28, the paraphrase of the denotation above it
+§4.2	Reed Steiner	language	scw̕exmxcín	the Nicola Valley dialect, c̓úʔsinek's, in the spelling of Thompson and Thompson 1996:45
+§4.2	Reed Steiner	note	These denotations are necessary for the inalienable possessor argument of a somatic suffix to correspond the external argument of a relational transitive. But these denotations alone do not explain the additional alternations in the scw̕exmxcín dialect.	page 27
+§4.2	Reed Steiner	note	There are several possible explanations for these additional alternations, which I leave to future testing. One possible explanation is that the scw̕exmxcín dialect has additional lexical entries: a control transitivizer which entails that the inalienable possessor corresponds to the transitive subject argument, and a relational transitivizer which entails that the inalienable possessor corresponds to the object argument. Another possible explanation is that the unexpected cases are non-somatic, such that they refer to a location, kind, or manner, but get approximated into English as possessives. Locative non-somatic body-part suffixes exist independently in the language, but there is not yet independent evidence that these cases are non-somatic. Further research is needed to explain the scw̕exmxcín alternations.	page 28
+§4.3	Reed Steiner	heading	4.3 Unsolved puzzle: Somatic suffixes on unaccusative predicates	page 28
+§4.3	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+§4.3	Reed Steiner	note	Although this proposal accounts for somatic-suffixed unergatives and transitives, as well as medio- reflexives and the autonomous suffix, there is significant morphophonological evidence that it does not extend to unaccusative predicates. For this proposal to extend to unaccusative predicates, nɬeʔkepmxcín would need a somatic version of each unaccusative morpheme: a somatic immediate suffix, a somatic stative prefix, and somatic inchoative morpheme, and somatic change-of-state reduplication.	page 28
+§4.3	Reed Steiner	note	There is no barrier to this in the semantics: all these morphemes have the same basic argument structure, exemplified here by the inchoative suffix.	page 28
+(69) line 1	Reed Steiner	note	A somatic inchoative suffix (for illustrative purposes only)	page 28, the caption
+(69a) line 1	Reed Steiner	rule	⟦-p⟧ = λLS<e,et>λP<e,vt>λyeλev.∃xe[P(x)(e)∧LS(x)(y)]	page 28, the author's denotation, read off the page
+(69a) line 2	Reed Steiner	translation	‘Take a lexical suffix LS of type <e,et>, a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that P applied to x is true, and LS applied to x and y is true.	page 28, the paraphrase of the denotation above it
+(69b) line 1	Reed Steiner	rule	⟦-p⟧(⟦-ekst⟧) = λP<e,vt>λyeλev.∃xe[P(x)(e)∧Hand(x)∧InalPoss(x)(y)]	page 28, the author's denotation, read off the page
+(69b) line 2	Reed Steiner	translation	‘Take a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that P applied to x and e is true, and x is a hand inalienably possessed by y.	page 28, the paraphrase of the denotation above it
+§4.3	Reed Steiner	note	Although the semantics work, this approach comes with numerous morphophonological complications involving lexical-suffixed bare roots, the stative prefix, the inchoative infix, and change-of-state reduplication.	page 29
+§4.3	Reed Steiner	note	The most apparent complication is that somatic suffixes routinely appear on roots that have no apparent unaccusative morphology. If there is no unaccusative morpheme to combine with the somatic suffix, then somatic readings should not be possible.	page 29
+§4.3	Reed Steiner	note	Although lexical-suffixed bare roots seem to be a counter-example to this paper's proposal, they can be explained simply by stipulating a phonologically null allomorph of the immediate suffix, which only surfaces on lexical-suffixed stems. There is some independent support for this: bare roots are otherwise not attested in nɬeʔkepmxcín (Nederveen 2024), and some speakers routinely reject overt immediate marking on lexical-suffixed stems.19	page 29
+(70a) line 1	nɬeʔkepmxcín	transcription	ník̓t kʷ	page 29, engine language
+(70a) line 2	nɬeʔkepmxcín	segmentation	ník̓-t=kʷ	page 29, engine language
+(70a) line 3	nɬeʔkepmxcín	gloss	get.cut-IMM=2SG.SBJ	page 29, engine english
+(70a) line 4	Reed Steiner	translation	‘You got cut.’	page 29, engine english
+(70a) line 4	Reed Steiner	citation	(sf | BP 3 Oct 2024)	the tag or source at the right of the translation
+(70b) line 1	nɬeʔkepmxcín	transcription	ník̓xn kʷ	page 29, engine language
+(70b) line 2	nɬeʔkepmxcín	segmentation	ník̓-∅-xn=kʷ	page 29, engine language
+(70b) line 3	nɬeʔkepmxcín	gloss	get.cut-IMM-foot=2SG.SBJ	page 29, engine english
+(70b) line 4	Reed Steiner	translation	‘Your foot got cut.’	page 29, engine english
+(70b) line 4	Reed Steiner	citation	(sf | BP 3 Oct 2024)	the tag or source at the right of the translation
+(70c) line 1	nɬeʔkepmxcín	transcription	*ník̓txn kʷ	page 29, engine language
+(70c) line 2	nɬeʔkepmxcín	segmentation	*ník̓-t-xn=kʷ	page 29, engine language
+(70c) line 3	nɬeʔkepmxcín	gloss	get.cut-IMM-foot=2SG.SBJ	page 29, engine english
+(70c) line 4	Reed Steiner	translation	Intended: ‘Your foot got cut.’	page 29, engine english
+(70c) line 4	Reed Steiner	citation	(sf | BP 3 Oct 2024)	the tag or source at the right of the translation
+§4.3	Reed Steiner	note	However, lexical-suffixed bare roots are not the only morphophonological complication; there are also complications involving linear adjacency. If somatic suffixes combine with unaccusative morphemes, they should appear linearly adjacent to them. Lexical suffixes are indeed adjacent to the inchoative suffix, but they are not adjacent to the stative prefix (e.g. (8), repeated here as (71)) or the inchoative infix (e.g. (9), repeated here as (72)).	page 29
+(71) line 1	nɬeʔkepmxcín	transcription	ʔeskəɬkəɬxə́n	page 29, engine language
+(71) line 2	nɬeʔkepmxcín	segmentation	ʔes-kəɬ~kəɬ-xə́n=∅	page 29, engine language
+(71) line 3	nɬeʔkepmxcín	gloss	STAT-AUG~remove-foot=3SBJ	page 29, engine english
+(71) line 4	Reed Steiner	translation	‘She has her shoes off.’	page 29, engine english
+footnote 19	Reed Steiner	note	19 Although BP usually rejects lexical-suffixed immediate stems, she has volunteered one on exactly one occasion.	page 29, footnote
+(71) line 5	T&T1992:83	translation	Lit. ‘Her feet are removed.’	page 29, the literal translation
+(71) line 5	Reed Steiner	citation	(T&T1992:83)	the tag or source at the right of the translation
+footnote 19 (i) line 1	nɬeʔkepmxcín	transcription	pewtékst kn	page 29, engine language
+footnote 19 (i) line 2	nɬeʔkepmxcín	segmentation	pew-t-ékst=kn	page 29, engine language
+footnote 19 (i) line 3	nɬeʔkepmxcín	gloss	swell-IMM-hand=1SG.SBJ	page 29, engine english
+footnote 19 (i) line 4	Reed Steiner	translation	'My hand is swollen.'	page 29, engine english
+footnote 19 (i) line 4	Reed Steiner	citation	(vf | BP 29 May 2025)	the tag or source at the right of the translation
+footnote 19	Reed Steiner	note	Further testing is needed to determine how much variation there is across dialects.	page 29
+(72) line 1	Reed Steiner	note	Inchoative-infixed predicate with somatic suffix:	page 30, engine english
+(72) line 2	nɬeʔkepmxcín	transcription	c̓éɬkstme wɬe qʷúʔ ʔe keʔsceʔkékst	page 30, engine language
+(72) line 3	nɬeʔkepmxcín	segmentation	c̓éɬ-[e]kst-m-e w=ɬ=qʷúʔ ʔe=∅	page 30, engine language
+(72) line 4	nɬeʔkepmxcín	gloss	cold-hand-CTR.MID-IMP to=DET=water COP=3SBJ	page 30, engine english
+(72) line 5	nɬeʔkepmxcín	segmentation	k=eʔ=s=ce<ʔ>k-ékst	page 30, engine language
+(72) line 6	nɬeʔkepmxcín	gloss	D/C=2SG.POSS=NMLZ=cool<INCH>-hand	page 30, engine english
+(72) line 7	T&T1996:18	translation	‘Put your hands in cool water so that your hands will cool off.’	page 30, engine english, cited T&T1996:18
+(72) line 7	Reed Steiner	citation	(T&T1996:18)	the tag or source at the right of the translation
+§4.3	Reed Steiner	language	St̕át̕imcets	Lillooet, Northern Interior Salish
+§4.3	Reed Steiner	note	Change-of-state reduplication poses a similar analytical challenge. Change-of-state reduplication is sensitive to the predicate's phonology: it copies the vowel with primary stress and the immediately following consonant, and inserts the copy after that consonant (T&T 1992: 99). If primary stress falls on the root, the root undergoes reduplication (73a). If primary stress falls on the lexical suffix, however, the lexical suffix undergoes reduplication (73b). See Mellesmoen (2025: 210-212) on similar variation in St̕át̕imcets.	page 30
+(73a) line 1	nɬeʔkepmxcín	transcription	qʷúpəpqn	page 30, engine language
+(73a) line 2	nɬeʔkepmxcín	segmentation	qʷúp~əp-qin=∅	page 30, engine language
+(73a) line 3	nɬeʔkepmxcín	gloss	fluffy~COS-head=3SBJ	page 30, engine english
+(73a) line 4	T&T1996:301	translation	‘[One’s] hair braids come apart.’	page 30, engine english, cited T&T1996:301
+(73a) line 4	Reed Steiner	citation	(T&T1996:301)	the tag or source at the right of the translation
+(73b) line 1	nɬeʔkepmxcín	transcription	sp̓iyq̓qínn	page 30, engine language
+(73b) line 2	nɬeʔkepmxcín	segmentation	s-p̓yq̓-qín~n	page 30, engine language
+(73b) line 3	nɬeʔkepmxcín	gloss	NMLZ-turn.opposite-head<COS>	page 30, engine english
+(73b) line 4	T&T1996:259	translation	'Generation.'	page 30, engine residue, cited T&T1996:259
+(73b) line 4	Reed Steiner	citation	(T&T1996:259)	the tag or source at the right of the translation
+§4.3	Reed Steiner	note	These morphophonological complications might be explainable under a two-step lexical insertion process (e.g. Mellesmoen 2025, Svenonius 2012). The stative prefix, inchoative infix, or change- of-state reduplication would form a constituent with the lexical suffix in the syntax, but be realized in a different linear position after lexical insertion. However, pursuing such an account would be far beyond the scope of this paper.	page 30
+§4.3	Reed Steiner	note	The number and complexity of morphological complications strongly suggest that somatic suffixes do not combine with unaccusative morphemes in the manner outlined for unergative and transitive predicates. The obvious question, then, is how somatic readings in unaccusative predicates are possible. This paper does not offer a definite solution, but makes two suggestions for future research.	page 30
+§4.3	Reed Steiner	note	One hypothesis stipulates that unaccusative predicates allow composition via the modified version of Restrict entertained in (36), repeated here as (74). As discussed in Section 3, Restrict2 cannot generalize to all predicates, but it does predict the correct results for unaccusative predicates.	page 30
+(74) line 1	Reed Steiner	note	Somatic unaccusatives using Restrict2 (for illustrative purposes only)	page 30, the caption
+(74a) line 1	Reed Steiner	rule	Restrict2 = λQ<e,et>λP<e,vt>λyeλev.∃xe[P(x)(e) ∧ Q(x)(y)]	page 30, the author's denotation, read off the page
+(74a) line 2	Reed Steiner	translation	'Take a function Q of type <e,et>, a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that x and e are arguments of P, and x and y are arguments of Q.'	page 30, the paraphrase of the denotation above it
+(74b) line 1	Reed Steiner	rule	Restrict2(⟦-xn⟧) = λP<e,vt>λyeλev.∃xe[P(x)(e) ∧ Foot(x) ∧ InalPoss(x)(y)]	page 31, the author's denotation, read off the page
+(74b) line 2	Reed Steiner	translation	'Take a predicate P of type <e,vt>, an individual y, and an event e. Return TRUE iff there exists an individual x such that x and e are arguments of P, and x is a hand inalienably possessed by y.	page 31, the paraphrase of the denotation above it
+(74c) line 1	Reed Steiner	rule	Restrict2(⟦ník̓-xn⟧) = λyeλev.∃xe[Cut(e) ∧ Patient(x)(e) ∧ Foot(x) ∧ InalPoss(x)(y)]	page 31, the author's denotation, read off the page
+(74c) line 2	Reed Steiner	translation	'Take an individual y and an event e. Return TRUE iff there exists an individual x such that e is a cutting event whose patient is x, and x is a hand inalienably possessed by y.	page 31, the paraphrase of the denotation above it
+§4.3	Reed Steiner	language	scw̕exmxcín	the Nicola Valley dialect, c̓úʔsinek's, in the spelling of Thompson and Thompson 1996:45
+§4.3	Reed Steiner	language	ƛ̓q̕əmcín	the Lytton dialect, Bev Phillips's
+§4.3	Reed Steiner	note	If this hypothesis is correct, we would expect Restrict2 to be independently available in transitive predicates. This predicts that somatic suffixes in relational transitives can be inalienably possessed by either (a) the subject argument via the somatic relational transitivizer, or (b) the object argument via Restrict 2. This prediction does hold in the scw̕exmxcín dialect, but it does not hold in the ƛ̓q̕əmcín dialect, which has fewer argument structure alternations (see 2.3). Another hypothesis stipulates that unaccusative predicates don't take somatic suffixes at all. This stipulation makes it more complicated to explain the alternations in (32), repeated here as (75). In (75a), the lexical suffix refers to a body part inalienably possessed by the subject. In (75b), the lexical suffix refers to the same individual as the subject. If both cases involve non-somatic suffixes, why is this alternation so robust?	page 31
+(75a) line 1	nɬeʔkepmxcín	transcription	ném péwkst kn	page 31, engine language
+(75a) line 2	nɬeʔkepmxcín	segmentation	ném péw-∅-[e]kst=kn	page 31, engine language
+(75a) line 3	nɬeʔkepmxcín	gloss	very swell-IMM-hand=1SG.SBJ	page 31, engine english
+(75a) line 4	Reed Steiner	translation	‘My hand is very swollen.’	page 31, engine english
+(75a) line 4	Reed Steiner	citation	(sf | KBG 4 Dec 2024)	the tag or source at the right of the translation
+(75b) line 1	nɬeʔkepmxcín	transcription	ném péwkst nkéykix	page 31, engine language
+(75b) line 2	nɬeʔkepmxcín	segmentation	ném péw-∅-[e]kst=∅ n-kéykix	page 31, engine language
+(75b) line 3	nɬeʔkepmxcín	gloss	very swell-IMM-hand=3SBJ 1SG.POSS-hands	page 31, engine english
+(75b) line 4	Reed Steiner	translation	‘My hands are very swollen.’	page 31, engine english
+(75b) line 4	Reed Steiner	citation	(sf | KBG 4 Dec 2024)	the tag or source at the right of the translation
+§4.3	Reed Steiner	note	My untested hypothesis is that the lexical suffix in cases like (75a) might not involve inalienable possession at all, and only get translated that way in English. It remains to be tested if the lexical suffix in (75a) could refer to a bodily location (literally ‘I'm swollen on the hand’), or a kind or manner of event (lit. ‘I'm hand-swelling’ or ‘I'm swelling hand-ly’). To my knowledge, there is no conclusive evidence that lexical suffixes can refer to kinds or manners, but locative non- somatic body-part suffixes are independently attested across Salish (Kinkade 1998). More research on the semantics of non-somatic suffixes is necessary to determine whether this hypothesis is plausible or empirically supported. Until then, I offer no conclusive explanation for somatic-like readings in unaccusative predicates.	page 31
+§5	Reed Steiner	heading	5 Conclusion	page 31
+§5	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+§5	Reed Steiner	note	To summarize, this paper offers a formal treatment of nɬeʔkepmxcín somatic suffixes in unergative and transitive predicates. I distinguish two kinds of lexical suffixes: somatic suffixes and non- somatic suffixes (following Kuipers 1967, Davis 1997, van Eijk 2013). Somatic suffixes are a subclass of lexical suffixes that refer to a body part inalienably possessed by an argument of the predicate. The argument that inalienably possesses the body part is determined by the (in)transitive morphology: in unaccusative predicates, the inalienable possessor is always the subject (Section 2.1); in unergative predicates, the inalienable possessor is always the subject (the agent) (Section 2.2); in control transitive predicates, the inalienable possessor is the object, and in relational transitive predicates, the inalienable possessor is the subject (the agent), with some dialect variation (Section 2.3). Non-somatic suffixes are predicate modifiers, which do not require inalienable possession. All lexical suffixes, including those that refer to body parts, can be non-somatic (Section 2.4).	page 31
+§5	Reed Steiner	note	Somatic suffixes pose an analytical challenge because they refer to a body part that must be inalienably possessed by an argument of the predicate, which may not be the nearest syntactic argument. Some approaches encode inalienable possession entirely from the somatic suffix itself (Section 3.1). Other approaches encode it in the (in)transitive morphology (Section 3.2). Each approach has analytical drawbacks.	page 32
+§5	Reed Steiner	note	This paper argues that the semantics of somatic suffixes arise from the combination of these components, i.e. somatic suffixes form a constituent with the relevant (in)transitive morpheme. This approach is independently supported in unergative predicates (Section 4.1) and generalizes to transitive predicates (Section 4.2). It does not generalize to unaccusative predicates, which present morphophonological complications (Section 4.3).	page 32
+§5	Reed Steiner	note	This proposal has consequences for the treatment of somatic suffixes in other Salish languages and more broadly for the treatment of reflexives and compounds in linguistic theory.	page 32
+§5.1	Reed Steiner	heading	5.1 Consequences for Salish	page 32
+§5.1	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+§5.1	Reed Steiner	note	Although this paper is specific to nɬeʔkepmxcín, the proposed approach can likely extend to any Salish language. Somatic and non-somatic suffixes can be reconstructed to Proto Salish with the same basic alternations described in this paper (Kinkade 1998, Hinkson 1999).	page 32
+§5.1	Reed Steiner	note	The most direct impact of this paper is that lexical suffixes do not require transitive roots. In some of the literature on Salish (e.g. Gerdts 2003), lexical suffixes are treated as syntactic arguments. This approach predicts that lexical suffixes reduce the valency of their host predicate. Lexical suffixed intransitives, then, would require transitive roots. However, this paper provides direct evidence against such an approach: I show that non-somatic suffixes do not reduce the valency of their host predicate, and that somatic suffixes need not saturate a syntactic argument to change the predicate's argument structure. This supports the hypothesis that all Salish verb roots are unaccusative (Davis 1997, Davis 2024).	page 32
+§5.1	Reed Steiner	note	Beyond the root, the approach outlined in this paper requires that many (in)transitive morphemes have two semantic representations: one for predicates without somatic suffixes and one for predicates with somatic suffixes (see section 4). In many Salish languages, there is independent support for two semantic representations of the middle: an implied-object middle and a medio- reflexive middle (Davis 1997). The only major change that I have proposed to the middle is that its medio-reflexive reading is preceded by an unpronounced somatic suffix meaning ‘body.’ For this proposal to extend to transitives, there must also be two versions of the control and relational pre- transitivizers, respectively: one for predicates without somatic suffixes and one for predicates with somatic suffixes. Extending this proposal to unaccusative predicates, however, opens several morphophonological complications, and requires that each unaccusative suffix has two lexical entries. This is hardly parsimonious, and may indicate that body-part suffixes in unaccusative predicates differ from those in unergative and transitive predicates in ways that have yet to be explored in existing literature.	page 32
+§5.1	Proto Northern Interior Salish	cited affix	-∅+m	page 33, *-∅+m -body+MID, an unmarked medio-reflexive
+§5.1	Proto Northern Interior Salish	cited affix	-ilx+∅	page 33, *-ilx+∅ -body+MID, an autonomous medio-reflexive
+§5.1	Reed Steiner	note	Another consequence of this proposal is that in Northern Interior languages, all medio- reflexive morphemes have the same underlying structure of a somatic suffix combined with a middle. In somatic medio-reflexives, any somatic suffix can be productively combined with the medio-reflexive middle (e.g. Proto NIS *-us-m -face-MID). Unmarked medio-reflexives (i.e. medio reflexives without an overt somatic suffix) are the combination of an unpronounced somatic suffix and a medio-reflexive middle (i.e. *-∅+m -body+MID). Autonomous medio-reflexives are the combination of an overt somatic suffix and an unpronounced medio-reflexive middle (i.e. *-ilx+∅ -body+MID).	page 33
+§5.1	Proto Northern Interior Salish	cited affix	-us-m	page 33, *-us-m -face-MID, a somatic medio-reflexive
+§5.2	Reed Steiner	heading	5.2 Consequences for linguistic theory	page 33
+§5.2	Reed Steiner	note	This approach to somatic suffixes is relevant to theories of reflexivity, compounds, and noun incorporation.	page 33
+§5.2	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+§5.2	Reed Steiner	note	Cross linguistically, semantic reflexives often grammaticalize from body parts possessed by the agent of the event (Kouteva et al. 2019). nɬeʔkepmxcín might help explain why. If a body- part morpheme needs a possessor to be semantically interpretable (as in Vergnaud and Zubizarreta 1992), and if it occurs adjacent to a morpheme that introduces a new argument, then it is easy for a speaker to interpret the new (semantic) argument as the body part’s missing possessor. Over time, speakers reanalyze the body part and the argument structure morpheme as constituents, which results in medio-reflexive semantics. This sketches a path for the grammaticalization of semantic (medio-)reflexives without the use of anaphoric binding (in the sense of Chomsky 1981). Most importantly, nɬeʔkepmxcín presents possible evidence against a “possessor stranding” account of Type II noun incorporation (Baker et al. 2005). In many languages with Type II (case-manipulating) noun incorporation, a predicate with an incorporated patient may select a possessor as its object argument (Mithun 1984).	page 33
+(74) line 1	Reed Steiner	note	Nahuatl Type II Noun Incorporation:	page 33, engine english
+(74) line 2	Nahuatl	segmentation	neč-ikši-wite'-ki	page 33, engine language, after Mithun 1984:860
+(74) line 3	nɬeʔkepmxcín	gloss	(it)me-foot-hit-PST	page 33, engine english
+(74) line 4	Mithun 1984: 860	translation	'It hit me on the foot.'	page 33, engine english, cited Mithun 1984: 860
+(74) line 4	Reed Steiner	citation	(Mithun 1984: 860)	the tag or source at the right of the translation
+§5.2	Reed Steiner	note	Standard syntactic approaches to noun incorporation argue that the incorporated noun moves from its in-situ position to adjoin to the verbal head, which leaves the possessor argument stranded in the object position (e.g. Baker et al 2005). However, there is little synchronic evidence of this in Salish, since lexical suffixes often bear no phonological resemblance to free-standing nouns with similar meanings (Kinkade 1998). This paper provides an alternative account which makes no use of head movement.	page 33
+§5.2	Reed Steiner	note	Are lexical suffixes (non-saturating) incorporated nouns? This question has been debated since Kroeber (1908) and Sapir (1911), and continues to this day (Kinkade 1998, Gerdts 2003, Wiltschko 2009). On the one hand, lexical suffixes do meet many of the typological criteria described by Mithun (1984). On the other hand, lexical suffixes do not need to correspond to a free- standing nominal, which makes them distinct lexical items. The unsatisfying answer is that it depends on how incorporated nouns are defined. If incorporated nouns are defined broadly as conjuncts in a V+N compound, then lexical suffixes are incorporated nouns. If incorporated nouns are defined by a specific mode of composition, then non-somatic suffixes may be incorporated nouns, but somatic suffixes are not. If incorporated nouns are defined by head movement from an argument position to the verb, then no lexical suffix is an incorporated noun.	page 33
+references	Reed Steiner	heading	References	page 34
+references	Reed Steiner	reference	Baker, Mark C., Aranovich, Roberto, and Golluscio, Lucía A. 2005. Two types of syntactic noun incorporation: Noun incorporation in Mapudungun and its typological implications. Language 81, pp. 138–176.	page 34
+references	Reed Steiner	reference	Comrie, Bernard, Martin Haspelmath, & Balthasar Bickel. 2008. The Leipzig Glossing Rules: Conventions for Interlinear Morpheme-by-Morpheme Glosses. Max Planck Institute for Evolutional Anthropology. https://www.eva.mpg.de/lingua/pdf/Glossing-Rules.pdf.	page 34
+references	Reed Steiner	reference	Davis, Henry. 1997. Deep Unaccusativity and Zero Syntax in St'át'imcets. Theoretical Issues at the Morphology-Syntax Interface (Supplements of the International Journal of Basque Linguistics and Philology), Amaya Mendikoetxea and Myriam Uribe-Etxebarria (eds.), pp. 55–96. Bilbao, Spain: Universidad del País Vasco https://doi.org/10.1387/asju.9552.	page 34
+references	Reed Steiner	reference	Davis, Henry. 1998. Remarks on Proto-Salish Subject Inflection. International Journal of American Linguistics, 66(4), 499–520. http://www.jstor.org/stable/1265847.	page 34
+references	Reed Steiner	reference	Davis, Henry. 2024. Going Radical in Salish. In Proceedings of the West Coast Conference on Formal Linguistics 39, R. Autry, G. de la Cruz Sanchez, L.A. Irizzary Figueroa, K. Mijhailovic, T. Ni, R. Smith and H. Harley (eds.). Somerville, MD: Cascadilla Press, 303-312.	page 34
+references	Reed Steiner	reference	Davis, Henry and Demirdache, Hamida. 2000. On lexical verb meanings: evidence from Salish. Events as Grammatical Objects, C. Tenny and J. Pustejovsky (eds.), pp. 95–142. Stanford: CSLI Publications.	page 34
+references	Reed Steiner	reference	Davis, Henry & Huijsmans, Marianne. 2024. Clitics and Coordination in Two Salish Languages. In Proceedings of the 39th West Coast Conference on Formal Linguistics, pp. 504–511. Somerville, MA: Cascadilla Proceedings Project.	page 34
+references	Reed Steiner	reference	Gerdts, Donna B. 2000b. Combinatory restrictions on Halkomelem reflexives and reciprocals. Reciprocals: Forms and Functions, Zygmunt Frajzyngier and Traci S. Curl (eds.), pp. 133–60. Amsterdam: John Benjamins.	page 34
+references	Reed Steiner	reference	Gerdts, Donna B. 2003. The Morphosyntax of Halkomelem Lexical Suffixes. International Journal of American Linguistics, 69(4), pp. 345–356. https://doi.org/10.1086/382736.	page 34
+references	Reed Steiner	reference	Gerdts, Donna B. and Hukari, Thomas E.. 1998. Inside and outside the middle. Papers for the Thirty-third International Conference on Salish and Neighboring Languages, pp. 166– 220. Seattle: University of Washington.	page 34
+references	Reed Steiner	reference	Gessner, Suzanne, Tracey Herbert, & Aliana Parker. 2022. Report on the Status of BC First Nations Languages. First Peoples’ Cultural Council.	page 34
+references	Reed Steiner	reference	Hinkson, Mercedes Q. 1999. Salishan Lexical Suffixes: A Study in the Conceptualization of Space. Dissertation.	page 34
+references	Reed Steiner	reference	Huijsmans, Marianne. 2023. Second-position clitics, from morphosyntax to semantics: The ʔayʔaǰuθəm (Comox-Sliammon) perspective. Dissertation. University of British Columbia.	page 34
+references	Reed Steiner	reference	Hukari, Thomas E. 1979. Oblique Objects in Halkomelem. Papers for the Fourteenth International Conference on Salish and Neighboring Languages, pp. 158-172.	page 34
+references	Reed Steiner	reference	Kinkade, M. Dale. 1963. Phonology and morphology of Upper Chehalis: II. International Journal of American Linguistics 29(4), pp. 345-356.	page 35
+references	Reed Steiner	reference	Kinkade, M. Dale. 1998. Origins of Salishan Lexical Suffixes. Papers for the Thirtieth International Conference on Salish and Neighboring Languages, pp. 266-295. https://lingpapers.sites.olt.ubc.ca/files/2018/03/1998_Kinkade.pdf.	page 35
+references	Reed Steiner	reference	Kouteva, Tania, Heine, Bernd, Hong, Bo, Long, Haiping, Narrog, Heiko, & Rhee, Seongha. 2019. Source–Target Lexicon. In World Lexicon of Grammaticalization pp. 34–462. Cambridge University Press.	page 35
+references	Reed Steiner	reference	Kroeber, Paul D. 1997. Relativization in Thompson River Salish. Anthropological Linguistics, 39(3), 376–422. http://www.jstor.org/stable/30028996.	page 35
+references	Reed Steiner	reference	Kroeber, Paul D. 1999. The Salish Language Family: Reconstructing Syntax. University of Nebraska Press in Cooperation with the American Indian Studies Research Institute, Indiana University, Bloomington.	page 35
+references	Reed Steiner	reference	Kuipers, Aert H. 1967. The Squamish Language: Grammar, Texts, Dictionary. (Janua Linguarum, Series Practica 73.) The Hague: Mouton & Co.	page 35
+references	Reed Steiner	reference	Mellesmoen, Gloria Madeleine. 2025. The grammar of Salish reduplication. Ph.D Dissertation, University of British Columbia. https://open.library.ubc.ca/collections/ubctheses/24/items/1.0448511.	page 35
+references	Reed Steiner	reference	Mithun, Marianne. 1984. The Evolution of Noun Incorporation. Language, 60(4), pp. 847–894. https://doi.org/10.2307/413800.	page 35
+references	Reed Steiner	reference	Nederveen, Sander. 2024. Bare Roots or a Lack Thereof in Interior Salish. Papers for the 59th International Conference on Salish and Neighbouring Languages, pp. 423 – 433. https://lingpapers.sites.olt.ubc.ca/files/2024/07/ICSNL59_Nederveen_final.pdf.	page 35
+references	Reed Steiner	reference	Olsen, Susan. 2004. Coordination in Morphology and Syntax: The Case of Copulative Compounds. In The Composition of Meaning: from Lexeme to Discourse, Alice G. B. ter Meulen & Werner Abraham (eds.), pp. 17-37. Amsterdam / Philadelphia, PA: John Benjamins.	page 35
+references	Reed Steiner	reference	Reichard, Gladys A. 1938. Coeur d'Alene. In Handbook of American Indian Languages, Franz Boas (ed.), 3, pp. 517-707. J. J. Augustin.	page 35
+references	Reed Steiner	reference	Sapir, Edward. 1911. The Problem of Noun Incorporation in American Languages. American Anthropologist, 13, pp. 250-282. https://doi.org/10.1525/aa.1911.13.2.02a00060 .	page 35
+references	Reed Steiner	reference	Suttles, Wayne. 2004. Musqueam Reference Grammar. UBC Press, Vancouver.	page 35
+references	Reed Steiner	reference	Svenonius, Peter. 2012. Spanning. CASTL, University of Tromsø. Retrieved from https://ling.auf.net/lingbuzz/001501.	page 35
+references	Reed Steiner	reference	Thompson, Laurence C. and M. Terry Thompson. 1992. The Thompson Language. University of Montana Occasional Papers in Linguistics.	page 35
+references	Reed Steiner	reference	Thompson, Laurence C. and M. Terry Thompson. 1996. Thompson River Salish Dictionary (nɬeʔkepmxcín). University of Montana Occasional Papers in Linguistics. https://open.library.ubc.ca/soa/cIRcle/collections/ubccommunityandpartnerspublicati/523 87/items/1.0423560.	page 35
+references	Reed Steiner	reference	van Eijk, Jan P. 1997. The Lillooet Language: Phonology, Morphology, Syntax. UBC Press.	page 36
+references	Reed Steiner	reference	van Eijk, Jan P. 2013. Lillooet-English Dictionary. Vancouver, BC: Pacific Northwest Languages and Literatures (PNWLL) Press. https://pnwllpress.sites.olt.ubc.ca/files/2023/03/Van_Eijk_Lillooet-English-Dictionary1- 1.pdf.	page 36
+references	Reed Steiner	reference	Vergnaud, Jean-Roger & Zubizarreta, Maria Luisa. 1992. The definite determiner and the inalienable constructions in French and English. Linguistic Inquiry 23, 203–238.	page 36
+references	Reed Steiner	reference	Wiltschko, Martina. 2009. √Root Incorporation: Evidence from Lexical Suffixes in Halkomelem Salish, Lingua, 119(2), pp. 199-223. https://doi.org/10.1016/j.lingua.2007.10.012.	page 36
+references	Reed Steiner	name	Lucía	Lucía A. Golluscio, in a reference entry
+references	Reed Steiner	language	St'át'imcets	Lillooet, in the title of Davis 1997
+references	Reed Steiner	name	País	the Universidad del País Vasco, in a reference entry
+references	Reed Steiner	language	ʔayʔaǰuθəm	Comox-Sliammon, in the title of Huijsmans 2023
+references	Reed Steiner	place	Tromsø	the University of Tromsø, in a reference entry
+references	Reed Steiner	language	nɬeʔkepmxcín	the language of this paper, a.k.a. nlaka’pamux or Thompson River Salish, Northern Interior Salish, ISO 639-3 thp
+title	Reed Steiner	title	nɬeʔkepmxcín Somatic Suffixes	the paper's title, carrying the star of the acknowledgement footnote
+title	Reed Steiner	name	Reed Steiner	author, University of British Columbia
+footnote *	Reed Steiner	name	Bev Phillips	consultant, BP in the tags, speaker of the ƛ̓q̕əmcín (Lytton) dialect
+footnote *	Reed Steiner	name	Marty Aspinall	consultant, CMA in the tags, c̓úʔsinek, speaker of the scw̕exmxcín (Nicola Valley) dialect
+footnote *	Reed Steiner	name	Bernice Garcia	consultant, KBG in the tags, kʷaɬtèzetkʷuʔ, speaker of the c̓eɬétkʷu (Coldwater) dialect
+footnote *	Reed Steiner	name	Henry Davis	thanked for comments and feedback
+footnote *	Reed Steiner	name	Lisa Matthewson	thanked for introducing the author to the language
+footnote *	Reed Steiner	name	Marcin Morzycki	thanked for reading the denotations
+footnote *	Reed Steiner	name	Ella Hannon	thanked
+footnote *	Reed Steiner	name	Brent Hall	thanked. Footnote 7 cites him
+all	Reed Steiner	notation	sf	supplied form, footnote 4
+all	Reed Steiner	notation	vf	volunteered form, footnote 4
+all	Reed Steiner	notation	*	judged ill-formed
+all	Reed Steiner	notation	#	judged infelicitous in the given context
+all	Reed Steiner	notation	?	an uncertain judgement
+all	Reed Steiner	notation	?/*	judged uncertain to ill-formed
+all	Reed Steiner	notation	Restrict	Predicate Restriction of Chung and Ladusaw 2004
+all	Reed Steiner	notation	Restrict2	the hypothetical mode of composition of (37a), for functions of type <e,et>

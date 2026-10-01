@@ -1,0 +1,665 @@
+where	who	kind	form	gloss
+front	Charles Murphey	note	Papers for the International Conference on Salish and Neighbouring Languages 59. D. K. E. Reisinger, Laura Griffin, Ella Hannon, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, Julia Schillo, Lauren Schneider, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2024.	page 1
+title	Charles Murphey	title	‘I Ran From Him Because He Was a Sasquatch’:	page 1, the title, its first line
+title	Charles Murphey	title	A Look at Complex Syntactic Structure in Haisla*	page 1, the title, its second line, its star the acknowledgement footnote's
+title	Charles Murphey	note	Charles Murphey SIL International	page 1, the author and affiliation
+title	Charles Murphey	name	Charles Murphey	author, SIL International
+front	Charles Murphey	note	Abstract: This article provides an overview of complex syntactic structure in Haisla, an Upper North Wakashan language spoken primarily in and around Kitamaat Village, BC, by members of the Haisla Nation. To date, no work on Haisla syntactic structure has been accomplished beyond analyses of simple one-clause utterances, and so this paper hopes to shed light on some of the more complex aspects of how Haisla sentences are constructed by describing the language’s clause subordination strategies. The focus of this work is specifically on Haisla’s complementizing and relativizing strategies. Complementation is accomplished using a complementizing enclitic =i(d) plus additional oblique marking; according to some analyses, there also exists a ‘locative complementizing suffix’, -tem, which may be nothing more than one more type of nominalizing suffix. Relativization is done both with and without a relativizer, and in this latter case, both with and without co-referential (= common argument) marking for the head noun.	page 1, the abstract
+front	Charles Murphey	note	Keywords: Haisla, North Wakashan, complementation, relativization, subordination	page 1
+§1	Charles Murphey	heading	1 Introduction	page 1
+§1	Haisla	cited form	Báxʷbakʷalanusiwa	page 1
+footnote *	Charles Murphey	note	* I would like to extend my gratitude first and foremost to those elders, living and passed, whose work towards preserving their language has made it possible to study Haisla in the first place. I would also like to thank the Haisla Nation and First Nations Education Foundation for providing me with the opportunities to work closely with speakers and have access to published work on the language. Finally, I would like to thank my generous readers who have looked at this article and provided helpful feedback — ’anáɫzaqʷnugʷuƛa! Contact info: murpheypatrick@gmail.com, charles_murphey@sil.org	page 1, footnote
+§1	Haisla	cited form	’anáɫzaqʷnugʷuƛa	page 1
+§1	Charles Murphey	note	This article provides an overview of complex syntactic structure in Haisla (ISO 639-3: has, glottocode: hais1244) from a typological-functional perspective, taking a special look at two significantly understudied aspects of the language: complementation and relativization, together taken to both be forms of ‘clause subordination’ or ‘clausal embedding’. Prior research, such as Lincoln and Rath (1986), has provided only a brief sketch of Haisla syntax, while Bach (1990, 2006) similarly mentions only general features of how to build sentences in Haisla; all three authors’ work primarily focused on phonological, morphological, and lexical aspects of the language, resulting in numerous phonologies, dictionaries, and shorter works on stem- and word- formation, many of which touch only briefly on the issue of both simple and complex syntactic structure. While these works provide an essential foundation for understanding Haisla morphosyntactic structure at the level of one-clause (= ‘simplex’) utterances, neither goes deep enough to truly understand anything more than basic aspects of Haisla syntax. This article seeks to provide greater understanding in this key area of Haisla language study by analysing examples taken from both Lincoln and Rath’s (henceforth LR) and Emmon Bach’s work on the language from the prior century, as well as other resources as applicable. The key resources for this publication include LR’s (1986) Haisla dictionary, which includes many example sentences throughout as well as a brief sketch of (basic) Haisla syntax; their publication of the Haisla story surrounding Báxʷbakʷalanusiwa — a mythical figure of some note within the mythologies of each of the Northern Wakashan languages — done in conjunction with Evelyn Windsor (1990); and Bach’s (1992, 1995, 1998) informally published collections of Haisla stories and lessons, which provide a rich database of both simple and complex utterances for analysis. Additional research includes that of Hein Vink’s (n.d., 1974, 1977, 1980) lessons on Haisla grammar, Tero Vattukumpu’s (2018, 2019, 2020a, 2020b)) papers on special topics in Haisla grammar, and more recent research completed by myself and others who have been working with the Haisla Nation on their efforts at language revitalization.	page 1
+§1	Charles Murphey	language	x̄á’islak̓ala	X̄a’islak̓ala, Haisla, in its own name
+§1	Haisla	cited form	x̄enáksialak̓ala	page 2
+§1	Charles Murphey	note	Haisla is a critically endangered North Wakashan language spoken in northern British Columbia in and around Kitamaat Village; per official estimates, speakers number less than 100 (Gessner et al. 2018), and per informal conversation and personal observation, the number of fluent speakers is very likely significantly fewer.1 The language can be further subdivided into two dialects — Haislakala ( x̄á’islak̓ala, glottocode: kiti1241) and Henaksialakala ( x̄enáksialak̓ala, glottocode: hena1234) — and although very few speakers remain of this latter, it is well-represented in prior research, particularly in LR’s 1986 dictionary of the language and their 1990 publication of a narrative in this dialect by a prominent speaker. Ultimately, though, there is little time to continue working with native speakers of either variety of the language, although thankfully much work has been previously done on the language in the form of the phonological descriptions, dictionaries cited earlier, and the language learning courses cited earlier. Additionally, descriptive work has continued into the 21st century based in large part on the foundation laid by these earlier authors, to whom I am also deeply obliged. Ultimately, the opportunity to continue working with native speakers is dwindling rapidly, and so to provide a greater understanding of Haisla for those who are still able to work with native Haisla-speaking elders, this work hopes to provide some insight into the nature of complex syntactic structure in Haisla in the form of a more detailed examination of Haisla complementation and relativization.	page 2
+§1.1	Charles Murphey	heading	1.1 A note on terminology	page 2
+footnote 1	Charles Murphey	note	1 There may be as few as a dozen fluent speakers left, although there remain several dozen semi-fluent speakers; many younger community members are working to revitalize the language through documentation and learning programs.	page 2, footnote
+footnote 2	Charles Murphey	note	2 Abbreviations: -◌ ‘suffix’; =◌ ‘enclitic’; -!◌ ‘hardening’; -°◌ ‘softening’; ◌¹ ‘proximal’; ◌² ‘medial’; ◌³ ‘distal’; ◌⁴ ‘absental’; ◌₁ ‘primary (deictic) or ‘first (connective)’; ◌₂ ‘secondary (deictic)’ or ‘second (connective)’; 1 ‘first person’; 2 ‘second person’; 3 ‘third person’; / ‘either/or’; [] ‘main clause’; {} ‘morph set’ or ‘relative clause’; AUX ‘auxiliary’; CA ‘common argument’; CONN ‘connective’; CMPZ ‘complementizing (enclitic)’; D ‘deictic (determiner)’; FV ‘final vowel’; GL ‘glottalizing juncture’; INCH ‘inchoative’; INST ‘instrumental’; LHA ‘left-hand adjunct marker’; NEG ‘negative’; NMZ ‘nominalizer’; OBJ ‘object’; OBL ‘oblique’; PASS ‘passive’; PERF ‘perfect’; PL ‘plural’; PN ‘personal name’; PREP ‘preposition’; PROPN ‘proper name’; Q ‘question’; RC ‘relative clause’ RDP ‘reduplicant’; RECIP ‘reciprocal’; REP ‘reportative’; SBJ ‘subject’; SG ‘singular’.	page 2, footnote
+§1.1	Charles Murphey	note	By ‘complex syntactic structure’, I am referring to ways that Haisla creates subordinated clauses, thus resulting in a two- or multi-clause (= complex) utterance; to this end, I will examine both complement and relative clauses. Example (1) below from LR (1986:123) is an example of a complex Haisla sentence with a complement clause (CC, marked in bold and underlined), which is mirrored in the English translation with a clause beginning with ‘that…’:2	page 2
+§1.1 (1) line 1	Haisla	transcription	hidái [CC bek̓ʷesáisi ]CC k̓íx̄ʷelsgiɫenc.	page 3, engine language
+§1.1 (1) line 2	Haisla	segmentation	hidai bk̓ʷsa=i=si k̓ix̄ʷ-l̩s-giɫ=Ø=n̩c	page 3, engine language
+§1.1 (1) line 3	Haisla	gloss	COP.3 be_sasquatch=CMPZ=3³.OBL run-OUTSIDE-REASON=D₁³=1SG.OBL	page 3, engine english
+§1.1 (1) line 4	Charles Murphey	translation	‘It is the fact [CC that 3³ was a sasquatch ]CC which constitutes the reason I ran away.’ 3	page 3, engine english
+§1.1	Haisla	cited form	hidái	page 3, ‘it is’
+§1.1	Haisla	cited form	bek̓ʷesáisi	page 3
+§1.1	Haisla	cited form	bek̓ʷesá	page 3, ‘to be a sasquatch’
+§1.1	Charles Murphey	note	In this example, the predicate head is hidái ‘it is’ (a copula for 3rd person referents), while the subject is a complement clause bek̓ʷesáisi. This latter form is complementized and possessed form of bek̓ʷesá ‘to be a sasquatch’ . It is marked with the complementizing enclitic = i (one of two allomorphs for this enclitic; see Section 3.1.1) and the possessive enclitic =si ‘3rd person distal oblique (= 3³.OBL)’, the latter of which indicates the (thematic) subject of the complement clause. For an example of a relative clause (RC), consider the following:	page 3
+§1.1 (2) line 1	Haisla	transcription	dúqʷelan [DP wísemax̄i {RC ƛ̓i’á }RC ]DP	page 3, engine language, bracketed
+§1.1 (2) line 2	Haisla	segmentation	duqʷl̩a=n wism̩=a=x̄i ƛ̓i̓a	page 3, engine language
+§1.1 (2) line 3	Haisla	gloss	see=1.SBJ man=D₁³=D₂³ buy	page 3, engine english
+§1.1 (2) line 4	Charles Murphey	translation	‘I see the man³ that buys.’	page 3, engine english
+§1.1 (2) line 4	Charles Murphey	citation	(VW)	the tag or source at the right of the translation
+§1.1	Haisla	cited form	ƛ̓i’á	page 3, ‘buy’
+§1.1	Haisla	cited form	wísemax̄i	page 3, ‘man³’
+§1.1	Charles Murphey	note	In (2), there is no overt relativizer; rather, the understanding of ƛ̓i’á ‘buy’ as an RC is based purely on the placement of the verb in relation to the head noun, wísemax̄i ‘man³’. Simple juxtaposition — or the ‘gap strategy’ (Section 3.2.2) — is one of Haisla’s three methods for indicating relative clauses, while the other two are to use an overt relativizer (Section 3.2.1) or a co-referential subject enclitic (Section 3.2.3), both of which must agree in deixis with the head noun. The data would suggest that the use of a relativizer and the presence of the CA in the RC are mutually exclusive, i.e., is not possible for both a relativizer and a CA to co-occur in the relative clause, although this is not conclusive and may require further testing.	page 3
+§1.1	Haisla	cited affix	gukʷ-	page 3, ‘HOUSE’
+§1.1	Haisla	cited form	gukʷ	page 3, ‘house’
+§1.1	Charles Murphey	note	With a few exceptions to be discussed, complementation is always accomplished through a combination of either a complementizing enclitic or a nominalizing suffix followed by oblique (= possessive) marking, while relativization is more complicated and can surface as any of the three strategies described in the previous paragraph. In what follows, I will first make some notes on Haisla orthography as used in this work, then present an overview of Haisla syntactic structure I use SMALL CAPS for concepts which in English correspond to a single word but in Haisla are conveyed through a lexical suffix, as well for in-line citation of Haisla roots, such as gukʷ- ‘HOUSE’ (as opposed to the stem/word form gukʷ ‘house’). Square brackets ‘[]’ will be used generally for most phrasal constituents, including complement clauses, while curly brackets ‘{}’ will be used specifically for relative clauses in particular; labels for these constituents will be placed in small caps, e.g., DP ‘determiner phrase’, at the beginning and end of all brackets. The first line of all examples is in the community orthography, while the second line is based on the Lincoln and Rath orthography with some modifications (see Section 1.2 for further discussion).	page 3
+§1.1	Charles Murphey	note	Finally, throughout this work, I have tried to note the speaker who gave the utterance wherever possible using the following abbreviations: CP – Cecil Price; GR – Gordon Robertson; FA – Franklin ‘Jack’ Albert; EG – Ella Grant; JL – Jeffrey Legaik; NG – Nelson Grant; VW – Vera Wilson. (Of these, only Gordon Robertson is a Henaksiala speaker; the others are all at least primarily Haislakala speakers, although some may have influence from Henaksiala, such as Franklin Albert, whose mother was a Henaksiala speaker.) Question marks ‘?’ indicate that a speaker’s exact identity is unknown.	page 3
+footnote 3	Charles Murphey	note	3 The translation given by LR (containing ‘which…’) would suggest the existence of a relative clause as well, but in discussion with one of the authors (Rath, p.c., 2023) this was to render the translation as exact as possible, not to suggest the existence of an RC in this particular utterance; an example of a true RC is given in example (2).	page 3, footnote
+§1.1	Charles Murphey	note	(Section 2), explore complex structure (Section 3), and conclude with a few final thoughts (Section 4). Appendices are provided which detail the Haisla orthography (Appendix A) and a number of enclitics relevant to this paper (Appendix B), and there is a final appendix (Appendix C) which provides a non-technical description of the contents of this paper.	page 4
+§1.2	Charles Murphey	heading	1.2 A note on orthography	page 4
+§1.2	Haisla	notation	⟨i̓⟩	page 4
+§1.2	Haisla	notation	⟨a̓⟩	page 4
+§1.2	Haisla	notation	⟨u̓⟩	page 4
+§1.2	Haisla	notation	/Vˀ/	page 4
+§1.2	Haisla	notation	/Vʔ/	page 4
+§1.2	Haisla	notation	/m̩	page 4
+§1.2	Haisla	cited form	n̩	page 4
+§1.2	Haisla	notation	l̩/	page 4
+§1.2	Charles Murphey	note	The Haisla Nation has adopted the ‘modern hybrid orthography’, a new standard developed within the past several years that attempts to take elements from all prior orthographies to best represent the Haisla language. This standard draws especially on work done by LR and Bach (who themselves drew from Vink, among other researchers working in the Pacific Northwest), and this work will follow it as closely as possible. Where necessary, modifications will be made to the data provided by LR, Bach, Vink, and others to fit the modern orthography as it is currently being used by the community; some ambiguities may remain from the source data, but these will be largely ignored, as they present no impediment to understanding clause structure. The reader should note that capitalization is not used in Haisla, so native Haisla words (even at the beginning of a sentence) will not be capitalized, while borrowed words (such as proper names) will be placed in SMALL CAPS in the vernacular to distinguish them from the surrounding material. (The pronunciation of borrowings is usually identical to that of the source language, usually English.) The hybrid orthography is used the represent Haisla in both in-line citation and on the first line of all interlinearized examples. For underlying forms, a few special graphemes are used, notably: ⟨i̓⟩, ⟨a̓⟩, and ⟨u̓⟩, each of which represents a ‘vocalic glottalized resonant’, as described by LR (1986:24–28). Phonetically, these are equivalent to a sequence /Vˀ/ (a brief closure of the glottis following a vocalic resonant, i.e., ‘vowel’, potentially resulting in creaky voice on the resonant itself), which is distinct from /Vʔ/ (a vowel followed by a glottal stop), for phonological reasons not discussed here. Schwa is never represented in underlying form, and so resonants that are vocalic in surface form (⟨em, en, el⟩) are presented as syllabic in underlying form (/m̩, n̩, l̩/). For a full list of Haisla phonemes and their corresponding orthographic representation (not including the special symbols used here), please see Appendix A.	page 4
+§2	Charles Murphey	heading	2 Basic concepts	page 4
+§2	Charles Murphey	note	Before discussing complex structure, it is necessary to discuss basic morphosyntactic structure in Haisla, i.e., simple (one-clause) sentences. In particular, three issues in Haisla syntax will be important later on in discussing complement and relative clauses: predication (Section 2.1), deixis (Section 2.2), and possession (Section 2.3). Each of these will be dealt with in turn.	page 4
+§2.1	Charles Murphey	heading	2.1 Predication	page 4
+footnote 4	Charles Murphey	note	4 Also called relata (sg. relatum) in earlier work on Haisla and related languages.	page 4, footnote
+§2.1	Charles Murphey	note	Haisla syntax consists of three primary elements: the obligatory predicate, following arguments,4 and optional adjuncts. The first two of these correspond to the more modern terms ‘verb phrase’ (VP) and ‘determiner phrase’ (DP), while the latter includes both the terms ‘adjective phrase’ (AP) and ‘prepositional phrase’ (PP) according to position: Haisla APs are exclusively pre-verbal/- nominal, and so are called ‘left-hand adjuncts’ (LHAs) in the literature, while Haisla PPs are exclusively post-verbal/-nominal, and so are labeled as ‘right-hand adjuncts’ (RHAs). In keeping with prior research on Haisla syntax, I will preferentially use the labels ‘predicate’, ‘argument’, and ‘left-/right-hand adjunct’, although in interlinearization I will make use of more modern abbreviations like DP ‘determiner phrase’.	page 4
+§2.1	Haisla	cited form	ɫánsλac	page 5
+§2.1	Haisla	cited form	’úx̄ʷa	page 5, ‘also’
+§2.1	Charles Murphey	note	Arguments are further subdivided into subjects, objects, and obliques, which must occur in that order within the clause. Strictly speaking, obliques only include those arguments preceded by the preposition his/hes/=s ‘oblique’ (the latter of these being a reduced enclitic form of the former) and not those marked by la ‘preposition’ or qen ‘for’, nor any time or manner adverbs (ɫánsλac ‘tomorrow’, ’úx̄ʷa ‘also’, etc.) — these latter three are best understood as RHAs. Arguments may be DPs or enclitics, while predicates are strictly VPs; however, the predicate head is not always the main verb, and may be an auxiliary. Indeed, the main verb is always the last element within the predicate while the head is the first, and there can be several words intervening between them. The predicate head is always (minimally) host to the subject ending if there is one. It may also host a wide variety of additional enclitics — some before and some after the subject enclitic — including tense, aspect, mood, object, and oblique marking. These first three may appear before while the last two appear after the subject ending. Thus, Haisla sentences may consist of just one verb with all of the necessary endings or maximally be a predicate with following arguments plus one or more RHAs.	page 5
+§2.1 (3) line 1	Haisla	transcription	dáduqʷeli’isi.	page 5, engine residue
+§2.1 (3) line 2	Haisla	segmentation	daduqʷil=i=’i=si	page 5, engine language
+§2.1 (3) line 3	Haisla	gloss	watch=3³.SBJ=3³.OBJ=3³.OBL	page 5, engine english
+§2.1 (3) line 4	Charles Murphey	translation	‘3³ watch(es/ed) 3³ with 3³.’ (?EG; Bach 1990:74))	page 5, engine residue
+§2.1 (4) line 1	Haisla	transcription	dáduqʷila wísemax̄i w̓ác̓iax̄i his dáduq̓ʷayuax̄i la ’úxʷƛi’asax̄i qen hím̓asax̄i.	page 5, engine language
+§2.1 (4) line 2	Haisla	segmentation	daduqʷila wism̩=a=x̄i w̓ac̓i=a=x̄i his daduq̓ʷayu=a=x̄i la	page 5, engine language
+§2.1 (4) line 3	Haisla	gloss	watch man=D₁³=D₂³ dog=D₁³=D₂³ OBL binoculars=D₁³=D₂³ PREP	page 5, engine english
+§2.1 (4) line 4	Haisla	segmentation	’uxʷƛi̓as=a=x̄i qn him̓as=a=x̄i	page 5, engine language
+§2.1 (4) line 5	Haisla	gloss	roof=D₁³=D₂³ for chief=D₁³=D₂³	page 5, engine english
+§2.1 (4) line 6	Charles Murphey	translation	‘man³ watch(es/ed) dog³ with binoculars³ on roof³ for chief³.’	page 5, engine english
+§2.1 (4) line 6	Charles Murphey	citation	(NG)	the tag or source at the right of the translation
+§2.1	Haisla	cited form	dáduqʷila	page 5, ‘to watch’
+§2.1	Haisla	cited form	wísemax̄i	page 5, ‘man³’
+§2.1	Haisla	cited form	w̓ác̓iax̄i	page 5, ‘dog³’
+§2.1	Haisla	cited form	dáduq̓ʷayuax̄i	page 5, ‘with binoculars³’
+§2.1	Charles Murphey	note	In (3), verb dáduqʷila ‘to watch’ is followed by several enclitics — =i ‘3³ subject’, =’i ‘3³ object’, and =si ‘3³ oblique’ — while in (4), the verb is followed by a subject wísemax̄i ‘man³’, an object w̓ác̓iax̄i ‘dog³’, and several RHAs, one of which (his dáduq̓ʷayuax̄i ‘with binoculars³’) is an oblique argument (and hence reducible to an enclitic). The superscript ‘³’ in both interlinearization and translation indicates an argument that is DISTAL, i.e., neither near the speaker nor the listener (= ‘over there’).	page 5
+§2.2	Charles Murphey	heading	2.2 Deixis	page 5
+§2.2	Charles Murphey	note	Argument heads can consist of just a noun but are often preceded by one of several deictic demonstratives and are commonly followed by a series of up to two deictic enclitics: both a primary and a secondary deictic in the case of unpossessed nouns, and a primary deictic and an oblique enclitic in the case of possessed ones. The subscripts ◌₁ and ◌₂ will be used to mark the ‘PRIMARY’ and ‘SECONDARY’ deictics (among other uses; see Footnote 2), respectively, while independent deictics (i.e., determiners) will be left as merely ‘D’ with corresponding superscript.	page 5
+§2.2 (5) line 1	Haisla	transcription	qi begʷánemax̄i	page 6, engine residue
+§2.2 (5) line 2	Haisla	segmentation	qi bgʷanm̩=a=x̄i	page 6, engine language
+§2.2 (5) line 3	Haisla	gloss	D³ person=D₁³=D₂³	page 6, engine english
+§2.2 (5) line 4	Charles Murphey	translation	‘that³ man³’ (?GR)	page 6, engine english
+§2.2 (6) line 1	Haisla	transcription	ɫáw̓anemasi	page 6, engine language
+§2.2 (6) line 2	Haisla	segmentation	ɫaw̓anm̩=a=si	page 6, engine language
+§2.2 (6) line 3	Haisla	gloss	husband=D₁³=3³.OBL	page 6, engine english
+§2.2 (6) line 4	Charles Murphey	translation	‘3³’s husband’	page 6, engine english
+§2.2	Haisla	cited form	begʷánem	page 6, ‘person’
+§2.2	Haisla	cited affix	=x̄i	page 6
+§2.2	Haisla	cited form	begánemax̄i	page 6
+§2.2	Haisla	cited form	gúkʷgasi	page 6, ‘3³’
+§2.2	Haisla	cited form	ɫáw̓anemasi	page 6
+§2.2	Charles Murphey	note	In (5), the noun begʷánem ‘person’ (or ‘man’) is preceded by a deictic demonstrative qi ‘that³’ and proceeded by both a primary deictic =a and a secondary deictic =x̄i, both of which indicate a distal argument and which combine to form a deictic complex at the end of the noun; both the independent and bound deictics must agree, thus a mismatched phrase like *qik begánemax̄i ‘this¹ man³’ is not possible. In (6), meanwhile, only the primary deictic =a occurs, which is then followed by an oblique enclitic indicating the possessor. On a possessed noun, the primary deictic and following oblique marker need not agree in deixis, and indeed can frequently differ; see, for example, gúkʷgasi ‘3³’s house¹’, wherein =ga ‘D₁¹’ refers to the possessum, which is near the speaker, and =si refers to the possessor, who is further away. Independent deictics may also proceeded possessed nouns, i.e., qi ɫáw̓anemasi (lit. ‘that³ 3³’s husband’), in which case the determiner agrees with the possessum. Additional notes on Haisla possession are given in the following section.	page 6
+§2.2	Charles Murphey	note	Finally, it is important to note that both primary and secondary deictics behave differently in the presence of an LHA: when preceded by an adjective marked with =s ‘LHA marker’, the primary deictic ‘drops out’, leaving only the secondary deictic. (This is one means of distinguishing an LHA from an RHA even though they are both formally identical.)	page 6
+§2.2 (7) line 1	Haisla	transcription	wísems x̄a’ebekʷax̄i	page 6, engine language
+§2.2 (7) line 2	Haisla	segmentation	wism̩=s x̄a’bkʷ=a=x̄i	page 6, engine language
+§2.2 (7) line 3	Haisla	gloss	man=OBL child=D₁³=D₂³	page 6, engine english
+§2.2 (7) line 4	Charles Murphey	translation	‘man’s child³’	page 6, engine english
+§2.2 (7) line 4	Charles Murphey	citation	(VW)	the tag or source at the right of the translation
+§2.2 (8) line 1	Haisla	transcription	wísems x̄a’ebekʷx̄i	page 6, engine language, carries footnote 5, written here without its digit
+§2.2 (8) line 2	Haisla	segmentation	wism̩=s x̄a’bkʷ=x̄i	page 6, engine language
+§2.2 (8) line 3	Haisla	gloss	man=LHA child=D₂³	page 6, engine english
+§2.2 (8) line 4	Charles Murphey	translation	‘male child³’ (i.e., ‘son’) (VW)	page 6, engine english
+§2.2	Haisla	cited form	x̄a’ebekʷax̄i	page 6, ‘child³’
+§2.2	Haisla	cited form	wísem	page 6, ‘man’
+§2.2	Haisla	cited form	x̄a’ebekʷx̄i	page 6, ‘child³’
+§2.2	Haisla	cited form	wísems	page 6, ‘male’
+footnote 5	Charles Murphey	note	5 If preceded by a velar or uvular consonant, the / x̄/ found in all secondary deictics commonly disappears, although it may occasionally be preceded by an epenthetic schwa [ə] ⟨e⟩. Thus, x̄a’ebekʷ(e)x̄i and x̄a’ebekʷi are both possible renderings here.	page 6, footnote
+§2.2	Haisla	notation	x̄/	page 6
+§2.2	Haisla	notation	ə	page 6
+§2.2	Haisla	cited form	x̄a’ebekʷ(e)x̄i	page 6
+§2.2	Haisla	cited form	x̄a’ebekʷi	page 6
+§2.2	Charles Murphey	note	In (7), the argument x̄a’ebekʷax̄i ‘child³’ is the complement to a RHA headed by =s, which attaches enclitically to the preceding argument wísem ‘man’, creating a complex DP; this is an example of a possessive construction. In (8), meanwhile, x̄a’ebekʷx̄i ‘child³’ is preceded by a left-hand adjunct wísems ‘male’, which is marked by an enclitic =s (formally indistinct from the oblique marker, but functionally different); the presence of this enclitic, and hence of an LHA, seemingly results in the disappearance of the primary deictic =a. The same phenomenon occurs with all primary deictics at each level of deixis in both unpossessed and possessed nominal arguments. Notably, this does not happen with complementized arguments, which seemingly retain their primary deictics (if they are present) even in the presence of an LHA, a phenomenon that is discussed more fully in Section 3.1.3.	page 6
+§2.3	Charles Murphey	heading	2.3 Possession	page 7
+§2.3	Charles Murphey	note	The full range of behaviours and meanings of the independent, primary, and secondary deictics — and indeed deixis and other morphosyntactic categories affecting word formation in general — as well as their involvement in indicating possession, will not be discussed here, and are only mentioned in this is section to prepare the reader for their involvement in both complement and relative clauses. It is only necessary to recognize that the primary deictic marks the possessum, while the oblique enclitic marks the possessor — I will return to this topic in Section 3.1.3, where I will discuss what I will conveniently call ‘possessive’ marking in complement clauses.	page 7
+§3	Charles Murphey	heading	3 Complex structure	page 7
+§3	Charles Murphey	note	Having now outlined the basics of Haisla morphology and syntax, I now turn my attention to complex syntactic structure in Haisla; specifically, I will look at ‘complementation’ (Section 3.1) and ‘relativization’ (Section 3.2). Haisla relative clauses are always post-nominal, while complement clauses can occur in argument position as subjects, objects, or obliques (as the complement to the preposition qen ‘for, in order to’ or, more rarely, as a complement to the oblique marker his). There are seemingly two complementizing endings: one for complement clauses more generally, =i(d) (Section 3.1.1), and another for specifically locative complement clauses, -tem (Section 3.1.2), as argued for by Lincoln et al. (1990). For this second item, the term ‘locative’ is used only very generally, as this suffix encodes not only the spatial but also temporal setting, possibly among other semantic categories; indeed, it will be questioned whether the suffix -tem is a complementizer at all or in fact just another nominalizer.	page 7
+§3	Haisla	cited form	látem	page 7
+§3	Haisla	cited form	m̓áasdem	page 7
+§3	Charles Murphey	note	Both =i(d) and -tem are used in a few lexical and one semi-lexical item that function very similarly to conjunctions: the former is found in li(d)-, translated roughly as ‘when’, ‘as’, or ‘at that time’ (Section 3.1.1.3), and the latter in látem and m̓áasdem, translated roughly as ‘where’ (Section 3.1.2.1) and ‘why’ (Section 3.1.2.2), respectively. Complement clauses are always marked using oblique marking (Section 3.1.3 that corresponds to the agent (or ‘doer’) of the complement clause, while the complement clause itself can be considered a form of nominal argument with certain verbal characteristics.	page 7
+§3	Charles Murphey	note	Finally, relative clauses can appear with a relativizer (= ‘gap strategy’; Section 3.2.2) or without one (Section 3.2.2); the common argument may surface as an enclitic on the verb (Section 3.2.3), although its occurrence seems mutually exclusive with relativizers. When a relativizer is present, it always takes the form of a deictic determiner that agrees in deixis with the relativized noun.	page 7
+§3.1	Charles Murphey	heading	3.1 Complementation	page 7
+§3.1	Charles Murphey	note	Complementation is achieved through use of one or both of the following endings: the enclitic =i(d) ‘complementizing enclitic’ (Section 3.1.1), which is by far the most common of the two, and -tem ‘locative complementizing suffix’ (Section 3.1.2), which is used less often and may in fact be nothing more than a nominalizing suffix (Sections 3.1.1 and 3.1.2). I will first discuss the complementizing enclitic, as it is not only more common but also presents a wider range of associated morphological and syntactic structures, then discuss the locative complementizing suffix, as well as discuss its potential status as a nominalizing suffix.	page 7
+§3.1	Haisla	cited affix	=ƛ	page 8
+§3.1	Haisla	cited affix	=guɫ	page 8
+§3.1	Charles Murphey	note	3.1.1 =i(d) ‘complementizing enclitic’ Complementation is most often achieved through the complementizing enclitic =i(d). (I do not refer to this a ‘complementizer’, as this term is better left for the preposition qen ‘for’, which commonly introduces a complement clause.) This enclitic always occurs in second position directly after the stem to which it attaches, and it is almost always followed by oblique marking corresponding to the thematic subject (but grammatical possessor) of the complement, although a few other possibilities exist; notably, no TAM-marking is possible before or after this enclitic, and indeed it appears to occupy the same slot in the morphology as the future tense (=ƛ), recent past (=t(et)), distant past (=guɫ), and perfective (=’ina) enclitics. The complementizing enclitic =i(d) has been previously referred to as the ‘factualizing suffix’ in discussions of Heiltsuk grammar (Rath 1981:70–1) and Haisla narrative (Lincoln et al. 1990:39), and examples of it can also be found in Oowekyala texts (Hilton & Rath 1982)6 as well, being in most of these works translated as “the fact that…” (hence ‘factualizing’). This description, however, appears altogether too rigid and unnecessarily complicated (let alone inaccurate for its referencing a ‘suffix’ instead of ‘enclitic’), as what is accomplished by this marker is clearly a form of complementation. Example (1) — repeated below as (9) — shows both the form =i and a following marker =si on the stem and is given a more colloquial translation that matches the Haisla more closely.	page 8
+§3.1 (9) line 1	Haisla	transcription	hidái bek̓ʷesáisi k̓íx̄ʷelsgiɫenc.	page 8, engine language
+§3.1 (9) line 2	Haisla	segmentation	hidai bk̓ʷsa=i=si k̓ix̄ʷ-l̩s-giɫ=Ø=n̩c	page 8, engine language
+§3.1 (9) line 3	Haisla	gloss	COP.3 be_sasquatch=CMPZ=3³.OBL run-OUTSIDE-REASON=D₁³=1SG.OBL	page 8, engine english
+§3.1 (9) line 4	Charles Murphey	translation	‘That 3³ was a sasquatch is the reason I ran away from him³.’	page 8, engine english
+§3.1	Haisla	cited form	hidái	page 8
+§3.1	Charles Murphey	note	Once the enclitic is attached to a verb stem, the resulting (incomplete) stem lies somewhere between a noun and a verb. A comparison may be made to the status of English gerunds, such as ‘running’ and ‘cooking’, which are built from verbal stems but feature many of the same qualities of nouns. In favour of a noun-like interpretation for complement clauses such as (9), there are the following pieces of evidence: (i) the subject must always be a nominal argument that directly follows the predicate (in the example above, hidái); (ii) the resultant stem is possessed like other nominals (as above with the enclitic =si); and (iii) the complement clause commonly follows a preposition (often qen, or more rarely, his), a property normally reserved for nouns. Despite this, however, complementized forms of verbal stems also show evidence of more verb-like characteristics, namely that: (i) they always receive a verbal or ‘action-oriented’ interpretation, i.e., they are never translated using nominal phrases; (ii) they are nearly always built from verb stems (although a few exceptions do exist); and (iii) they can be followed by object/oblique enclitics, full NPs, additional RHAs, and even further VPs, as the examples below will demonstrate.	page 8
+footnote 6	Charles Murphey	note	6 For example, consider ǧùlhqlh’idisi ‘that they could eat tallow’ (Hilton & Rath 1982:82), with a similar enclitic complex =isi attached to the verb ǧùlhqlh’id ‘to eat tallow’; presumably a very similar form could be constructed in Haisla, although I have yet to test this.	page 8, footnote
+§3.1	Haisla	cited form	ǧùlhqlh’idisi	page 8, ‘that they could eat tallow’
+§3.1	Haisla	cited form	ǧùlhqlh’id	page 8, ‘to eat tallow’
+§3.1 (10) line 1	Haisla	transcription	hidái (’úm̓ac) ɫaw̓ináinukʷigencus hémgilagiɫenc qéncu.	page 9, engine language
+§3.1 (10) line 2	Haisla	segmentation	hidai (’um̓as=s) ɫaw̓inai-nukʷ=i=gn̩c=us hmgila-giɫ=Ø=nc	page 9, engine language
+§3.1 (10) line 3	Haisla	gloss	COP.3 (big=LHA) love-HAVE=CMPZ=1SG.OBL=2.OBL cook-REASON=D₁³=1SG.OBL	page 9, engine english
+§3.1 (10) line 4	Haisla	segmentation	qn̩=su	page 9, engine language
+§3.1 (10) line 5	Haisla	gloss	for=2.SBJ	page 9, engine english
+§3.1 (10) line 6	Charles Murphey	translation	‘It is because I love you (a lot) that I cook for you.’	page 9, engine english
+§3.1 (10) line 6	Charles Murphey	citation	(NG)	the tag or source at the right of the translation
+§3.1 (11) line 1	Haisla	transcription	kútan qen dúdeqʷeliganuxʷ’i la geldálix̄i.	page 9, engine language
+§3.1 (11) line 2	Haisla	segmentation	kuta=n qn̩du<d>qʷl̩=i=ganukʷ=’i la gl̩dal=i=x̄i	page 9, engine language
+§3.1 (11) line 3	Haisla	gloss	think=1.SBJ for <RDP>see=CMPZ=1PL.EXCL.OBL=3³.OBJ PREP Kildala=D₁³=D₂³	page 9, engine english
+§3.1 (11) line 4	Ella Grant	translation	‘I think that we (excl.) saw it³ at Kildala³.’	page 9, engine english, cited EG?; Bach 1995:59
+§3.1 (11) line 4	Charles Murphey	citation	(EG?; Bach 1995:59)	the tag or source at the right of the translation
+§3.1 (12) line 1	Haisla	transcription	sax̄gi qen w̓anudisi lanƛanukʷ qi zaxʷenasi du qi ƛ̓ati.	page 9, engine language
+§3.1 (12) line 2	Haisla	segmentation	sax̄g=i qn̩w̓anud=i=si la=n̩ƛa=nukʷ qi	page 9, engine language
+§3.1 (12) line 3	Haisla	gloss	want=3³.SBJ for trade=CMPZ=3³.OBL PREP=1.OBJ=EXCL D³	page 9, engine english
+§3.1 (12) line 4	Haisla	segmentation	zaxʷn̩=a=si du qi ƛ̓ati	page 9, engine language
+§3.1 (12) line 5	Haisla	gloss	oolichan=D₁³=3³.OBL and D³ oolichan_grease	page 9, engine english
+§3.1 (12) line 6	Ella Grant	translation	‘They want to trade with us for oulichans [sic] and [oolichan] grease.’	page 9, engine english, cited EG?; Bach 1995:57
+§3.1 (12) line 7	Charles Murphey	citation	(EG?; Bach 1995:57)	page 9, engine residue
+§3.1 (13) line 1	Haisla	transcription	sax̄genuxʷ qen λu’eli’ex̄ʷs ’aqa lanƛanukʷ.	page 9, engine language
+§3.1 (13) line 2	Haisla	segmentation	sax̄g=nukʷ qn̩λu̓l̩=i=’x̄ʷs ’aqa la=n̩ƛa=nukʷ	page 9, engine language
+§3.1 (13) line 3	Haisla	gloss	want=EXCL for again=CMPZ=2.OBL come PREP=1.OBJ=EXCL	page 9, engine english
+§3.1 (13) line 4	Ella Grant	translation	‘We (EXCL.) want you to come again to us (excl.).’	page 9, engine english, cited EG?; Bach 1995:59
+§3.1 (13) line 4	Charles Murphey	citation	(EG?; Bach 1995:59)	the tag or source at the right of the translation
+§3.1	Haisla	cited affix	=ganuxʷ	page 9
+§3.1	Haisla	cited form	geldálix̄i	page 9, ‘at Kildala³’
+§3.1	Haisla	cited form	zaxʷenasi	page 9
+§3.1	Haisla	cited form	ƛ̓ati	page 9, ‘the oolichans³ and oolichan grease’
+§3.1	Haisla	cited form	’áqa	page 9, ‘come’
+§3.1	Charles Murphey	note	The utterance in (10) contains an oblique argument =us ‘you (OBL)’ following the oblique marker =genc (indicating the thematic subject ‘I’), while the one in (11) contains a direct object =’i following =ganuxʷ (indicating the thematic subject ‘we (EXCL.)’). In this latter example, there is additionally an RHA, la geldálix̄i ‘at Kildala³’, as part of the complement clause in the second utterance, denoting the place of the action described. Finally, (12) contains an example of a coordinated NP, qi zaxʷenasi du qi ƛ̓ati ‘the oolichans³ and oolichan grease’, while (13) contains an additional verb ’áqa ‘come’. Taken together, each of these examples demonstrate that complementized stems share some of the same features as verbs, indicating that complement clauses are likewise complete predicates in their own right rather than simply nominal arguments. Complement clauses very commonly appear after the preposition qen ‘for’, which acts as a complementizer, often with a purposive meaning (either ‘so’ or ‘in order to’):	page 9
+§3.1 (14) line 1	Haisla	transcription	qi n̓aukʷs t̓et̓eqiláyu’enc qi ḡáḡapenc qen ’úq̓ʷigenc bek̓ʷex̄dí.	page 9, engine language
+§3.1 (14) line 2	Haisla	segmentation	qi n̓aukʷ=s t̓t̓qila-yu=nc=s qi ḡaḡap=Ø=nc qn̩	page 9, engine language
+§3.1 (14) line 3	Haisla	gloss	D³ one=LHA teach-INST=1.OBL=OBL D³ grandparent=D₁³=1.OBL for	page 9, engine english
+§3.1 (14) line 4	Haisla	segmentation	’uq̓ʷ=i=gn̩c bk̓ʷx̄di	page 9, engine language
+§3.1 (14) line 5	Haisla	gloss	believe=CMPZ=1SG.OBL God	page 9, engine english
+§3.1 (14) line 6	Gordon Robertson	translation	‘This is one thing taught to me by my grandfather, so I would believe in God.’	page 9, engine english, cited GR; Bach 1992:24
+§3.1 (14) line 7	Charles Murphey	citation	(GR; Bach 1992:24)	page 9, engine residue
+§3.1	Charles Murphey	note	The use of qen (or any of the cognates in other North Wakashan languages) to create benefactive and purposive complement clauses is well-attested (Sardinha 2011; Fortescue 2007) and presents a common genetic feature of the family going back to Proto-Wakashan *q-. The main contribution I make here is in detailing the mechanisms by which these clauses are created and ordered within Haisla syntax specifically. Notably, this complementizer is not always necessary.	page 9
+§3.1 (15) line 1	Haisla	transcription	gu’áƛaƛnugʷuƛa gu’áƛiqʷs qi nuáqelix̄i.	page 10, engine language
+§3.1 (15) line 2	Haisla	segmentation	gu̓aƛa=ƛ=nugʷ=uƛa gu̓aƛ=i=qʷs qi nuaql̩=i=x̄i	page 10, engine language
+§3.1 (15) line 3	Haisla	gloss	help=FUT=1.SBJ=2.OBJ help=CMPZ=2.OBL D³ elder=D₁³=D₂³	page 10, engine english
+§3.1 (15) line 4	Gordon Robertson	translation	‘I am going to help you because you helped the old man.’	page 10, engine english, cited GR; Lincoln et al. 1990:72
+§3.1 (15) line 4	Charles Murphey	citation	(GR; Lincoln et al. 1990:72)	the tag or source at the right of the translation
+§3.1	Haisla	cited form	gu’áƛiqʷs	page 10
+§3.1	Haisla	cited form	nuáqelix̄i	page 10, ‘that you helped the old man³’
+§3.1	Haisla	cited form	gu’áƛaƛnugʷuƛa	page 10, ‘I will help you’
+§3.1	Charles Murphey	note	In (15) above, the complement clause, gu’áƛiqʷs qi nuáqelix̄i ‘that you helped the old man³’, is given without the need to be introduced by qen; nevertheless, the interpretation is construed as indicating the reason for the action in the main clause, gu’áƛaƛnugʷuƛa ‘I will help you’. The difference between this utterance and ones like (14) appears to be one of reason vs. result: when an action is taken to achieve some end or result, then qen is preferred, but when the action is the reason for some other action, then the complement clause may be merely stated without any introductive material.	page 10
+§3.1	Charles Murphey	note	Nevertheless, it appears to be possible that reasons like that in (15) may optionally be introduced with his, though such examples do not appear to be common:	page 10
+§3.1 (16) line 1	Haisla	transcription	k̓úusi ’íkuya dúqʷela qi begʷánemax̄i gúgʷi’asi (his) tek̓sáisi	page 10, engine language
+§3.1 (16) line 2	Haisla	segmentation	k̓uus=i ’ikuya duqʷl̩a qi bgʷanm̩=a=x̄i gugʷi-’=a=si (his)	page 10, engine language
+§3.1 (16) line 3	Haisla	gloss	NEG=3³.SBJ can see D³ human=D₁³=D₂³ foot-GL=D₁³=3³.OBL OBL	page 10, engine english
+§3.1 (16) line 4	Haisla	segmentation	tk̓sa=i=si	page 10, engine language
+§3.1 (16) line 5	Haisla	gloss	be_pot_bellied=CMPZ=3³.OBL	page 10, engine english
+§3.1 (16) line 6	Gordon Robertson	translation	‘The man³ cannot see his³ feet because he³ is pot-bellied.’	page 10, engine english, cited GR; Lincoln & Rath 1986:137
+§3.1 (16) line 6	Charles Murphey	citation	(GR; Lincoln & Rath 1986:137)	the tag or source at the right of the translation
+§3.1	Haisla	cited form	la’áiƛ	page 10
+§3.1	Haisla	cited form	gúkʷasi	page 10
+§3.1	Haisla	cited form	y̓úgʷex’idisi	page 10
+§3.1	Haisla	cited form	y̓úgʷex’id	page 10
+§3.1	Charles Murphey	note	As indicated by the parentheses in (16) above, the element his is optional, perhaps even merely facultative, i.e., it can be easily omitted without changing the meaning of the utterance. It should be noted, however, that LR record only one other instance of this type of construction: la’áiƛ JOHN- a la gúkʷasi (his) y̓úgʷex’idisi ‘John³ went inside his³ house because it³ ([=]si) started to rain (y̓úgʷex’id)’ (Lincoln & Rath 1986:137). I have been unable to find any additional instances of this type of construction, and so it is either marginal or indeed no longer present in the modern form of the language. (As always, LR’s examples come from a now deceased speaker of Haisla’s minority dialect, Gordon Robertson. Attempts to recreate or otherwise reconstruct his speech often prove unfruitful).	page 10
+§3.1	Charles Murphey	note	Finally, complement clauses can also be introduced by qi ‘that³’:7	page 10
+§3.1 (17) line 1	Haisla	transcription	lal̓i ’anáɫzax̄ʷ’in bibí’uenc qi ’áigisi ma’eláukʷax̄i.	page 10, engine language
+§3.1 (17) line 2	Haisla	segmentation	la=l̓=i ’anaɫzaqʷ=’in bibi’u=Ø=nc qi ’aig=i=si	page 10, engine language
+§3.1 (17) line 3	Haisla	gloss	AUX=REP=3³.SBJ say_thanks=PERF uncle=D₁³=1.OBL D³ rescue=CMPZ=3³.OBL	page 10, engine english
+§3.1 (17) line 4	Haisla	segmentation	ma’laukʷ=a=x̄i	page 10, engine language
+§3.1 (17) line 5	Haisla	gloss	two=D₁³=D₂³	page 10, engine residue
+§3.1 (17) line 6	Charles Murphey	translation	‘Apparently they³ said thanks to my uncle³ because he³ saved the two³ [of them].’	page 10, engine english
+§3.1 (17) line 6	Charles Murphey	citation	(FA)	the tag or source at the right of the translation
+footnote 7	Charles Murphey	note	7 It may be that this phenomenon is more general in that any of Haisla’s demonstratives can introduce a complement clause, presumably on the basis of the CC’s ‘distance’ relative to the speaker (see Section 3.1.3), but thus far I have only found examples with qi.	page 10, footnote
+§3.1	Haisla	cited form	’áigisi	page 11, ‘that he³ saved’
+§3.1	Haisla	cited form	conceptually	page 11, ‘over there’
+§3.1	Charles Murphey	note	Instead of the more usual qen, the complement clause ’áigisi ‘that he³ saved’ is introduced by qi; that the distal deictic determiner is used may be because complement clauses with 3rd person possessors are conceptually ‘over there’ (= distal), as discussed in Section 3.1.3. (It’s unknown what would happen with 1st and 2nd person possessors — to date, such instances have never been recorded.) There is additionally one single example with both qen and qi:	page 11
+§3.1 (18) line 1	Charles Murphey	note	li p̓ála’in qen qi ’íkui’ex̄ʷs dáax̄ud.	page 11, the caption
+§3.1 (18) line 2	Charles Murphey	note	l=i p̓ala=’in qn qi ’iku=i=’x̄ʷs daax̄ud	page 11, heads the rows below
+§3.1	Haisla	cited form	p̓ala=’in	page 11
+§3.1	Haisla	cited form	’iku=i=’x̄ʷs	page 11
+§3.1	Haisla	cited form	daax̄ud	page 11
+§3.1 (18) line 3	Charles Murphey	note	AUX=3³.SBJ work=PERF for D³ can=CMPZ=2.OBL take_down	page 11, heads the rows below
+§3.1 (18) line 4	Charles Murphey	translation	‘She³ makes [it] so that³ you can take [it] off.’	page 11
+§3.1 (18) line 4	Charles Murphey	note	(VW)	page 11
+§3.1	Charles Murphey	note	have some nominal features as discussed previously, is not out of the question.) From the context in which it was given, however, it is not clear if this utterance was what the speaker truly intended to say, or if it represents a disfluency.	page 11
+§3.1	Charles Murphey	note	As a final note, complement clauses can function as the heads of LHAs; such examples are rare, but they can be found modifying both NPs and, somewhat more commonly, VPs.	page 11
+§3.1 (19) line 1	Haisla	transcription	q̓álagiɫc gʷítelix̄i qu ’íkisus hémsa.	page 11, engine language
+§3.1 (19) line 2	Haisla	segmentation	q̓ala-giɫ=s gʷitl̩=i=x̄i qu ’ik=i=su=s hm̩sa	page 11, engine language
+§3.1 (19) line 3	Haisla	gloss	know-REASON=OBL Tsimshian=D₁³=D₂³ D² good=CMPZ=3².OBL=OBL food	page 11, engine english
+§3.1 (19) line 4	Gordon Robertson	translation	‘That’s how it’s known by the Tsimshian that [it] is good to eat.’	page 11, engine english, cited GR; Bach 1992:23
+§3.1 (19) line 4	Charles Murphey	citation	(GR; Bach 1992:23)	the tag or source at the right of the translation
+§3.1 (20) line 1	Haisla	transcription	lidsis λu’él ’esénx̄…	page 11, engine residue
+§3.1 (20) line 2	Haisla	segmentation	l=id=si=s λu̓l̩’sn̩x̄	page 11, engine language
+§3.1 (20) line 3	Haisla	gloss	AUX=CMPZ=3³.OBL=OBL again year	page 11, engine english
+§3.1 (20) line 4	Gordon Robertson	translation	‘When again after a year…’ (or ‘When again it had been a year…’) (GR; Bach 1992:60)	page 11, engine english, cited GR; Bach 1992:60
+§3.1	Haisla	cited form	’íkisu	page 11, ‘that 3² is good’
+§3.1	Haisla	cited form	hémsa	page 11, ‘food’
+§3.1	Haisla	cited form	λu’el	page 11, ‘again’
+§3.1	Charles Murphey	note	In (19), the complement clause ’íkisu ‘that 3² is good’ appears to be modifying hémsa ‘food’, while in (20), lidsis (roughly ‘when it³…’) is modifying λu’el ‘again’. The exact meaning/function of the complement clause as an LHA is unclear: its function in the first utterance is closer to an argument, being both the object of the clause and preceded by qu ‘that²’, while in the second, it is clearly modifying the head of the predicate. In any case, this usage of complement clauses appears to be marginal at best or may even represent a type of marking as yet unidentified.	page 11
+§3.1.1.1	Charles Murphey	heading	3.1.1.1 Complement clauses without possessive enclitics	page 11
+§3.1.1.1	Charles Murphey	note	Although almost always followed by an oblique enclitic that indicates the doer of the action described in the complement clause (i.e., the ‘thematic subject’), two other possibilities exist: (i) the complementized stem ends in =s ‘oblique’, in which case what follows is a full NP or sometimes VP, or (ii) the stem ends merely in = i,8 in which case the doer of the action is either known from the main clause or otherwise unspecified.	page 11
+footnote 8	Charles Murphey	note	8 No instance has been found of this type with the augmented form =id, but this possibility should not be ruled out.	page 11, footnote
+§3.1.1.1 (21) line 1	Haisla	transcription	wáx̄’id hím̓asax̄i qen hidáis qi begʷánemax̄i.	page 12, engine language
+§3.1.1.1 (21) line 2	Haisla	segmentation	wax̄-’id him̓as=a=x̄i qn̩hida=i=s qi begʷanm̩=a=x̄i	page 12, engine language
+§3.1.1.1 (21) line 3	Haisla	gloss	tell-INCH chief=D₁³=D₂³ for COP.3=CMPZ=OBL D³ person=D₁³=D₂³	page 12, engine english
+§3.1.1.1 (21) line 4	Lincoln & Rath 1986:123	translation	‘Chief³ told that this³ man³ should be the one.’	page 12, engine english, cited Lincoln & Rath 1986:123
+§3.1.1.1 (21) line 4	Charles Murphey	citation	(Lincoln & Rath 1986:123)	the tag or source at the right of the translation
+§3.1.1.1 (22) line 1	Haisla	transcription	k̓uun q̓ála qen ḡʷáili.	page 12, engine language
+§3.1.1.1 (22) line 2	Haisla	segmentation	k̓uu=n q̓ala qn̩ḡʷail=i	page 12, engine language
+§3.1.1.1 (22) line 3	Haisla	gloss	NEG=1.SBJ know for do=CMPZ	page 12, engine english
+§3.1.1.1 (22) line 4	Gordon Robertson	translation	‘I don’t know what to do.’	page 12, engine english, cited GR; Lincoln & Rath 1986:303
+§3.1.1.1 (22) line 4	Charles Murphey	citation	(GR; Lincoln & Rath 1986:303)	the tag or source at the right of the translation
+§3.1.1.1	Haisla	cited form	hidá	page 12, ‘3rd person copula’
+§3.1.1.1	Haisla	cited form	begʷánemax̄i	page 12
+§3.1.1.1	Haisla	cited form	ḡʷáil	page 12, ‘do’
+§3.1.1.1	Charles Murphey	note	In (21), the head of the complement clause, hidá ‘3rd person copula’, only has the complementizing enclitic =i and the oblique enclitic =s because it is followed by the full noun phrase, qi begʷánemax̄i ‘that³ man³’, which serves as the clause’s possessor and thus thematic subject of the clause. Similarly, in (22), the head of the complement clause, ḡʷáil ‘do’, features only the complementizing suffix and no oblique marking, which may have two motivations: (i) because the thematic subject of the complement clause is the same as that of the main clause — namely =n ‘1st person subject (=I)’ — thus rendering double-marking redundant and unnecessary, or (ii) because there is no following argument that can serve as either subject or object, thus negating the need for even the oblique enclitic =s. This last observation is made based on the existence of utterances like the following:	page 12
+§3.1.1.1 (23) line 1	Haisla	transcription	gu’aƛáp̓ina w̓aukʷs begʷánemx̄i qen q̓ínemis láqiy̓asi…	page 12, engine language
+§3.1.1.1 (23) line 2	Haisla	segmentation	gu̓aƛ-áp̓=ina [ w̓aukʷ=s bgʷanm̩=x̄i ] qn̩q̓inm̩=i=s	page 12, engine language
+§3.1.1.1 (23) line 3	Haisla	gloss	help-RECIP=PERF [ some=LHA person=D₂³ for much=CMPZ=OBL	page 12, engine english
+§3.1.1.1 (23) line 4	Haisla	segmentation	laqi-’=a=si	page 12, engine language
+§3.1.1.1 (23) line 5	Haisla	gloss	get-GL=D₁³=3³.OBL	page 12, engine english
+§3.1.1.1 (23) line 6	Ella Grant	translation	‘[Some people] helped each other to get a lot…’	page 12, engine english, cited EG; Bach 1995:60
+§3.1.1.1 (23) line 6	Charles Murphey	citation	(EG; Bach 1995:60)	the tag or source at the right of the translation
+§3.1.1.1	Haisla	cited form	q̓ínemis	page 12
+§3.1.1.1	Haisla	cited form	q̓ínemisi	page 12
+§3.1.1.1	Haisla	cited form	láqiy̓asi	page 12
+§3.1.1.1	Haisla	cited form	q̓ínem	page 12
+§3.1.1.1	Charles Murphey	note	Example (23) above presents an interesting instance where the thematic subjects of the main and subordinate clause are identical, and yet oblique marking is present in a reduced form: q̓ínemis ‘in order to (get) a lot’ with oblique marker =s instead of the expected q̓ínemisi with =si to indicate the 3rd person distal subject. This seems to occur because of the presence of the following argument, láqiy̓asi (roughly ‘their³ getting³’), which serves as the thematic object of the complement clause. That this blocks the appearance of the expected oblique marker to indicate the possessor of the complement head q̓ínem may suggest that láqiy̓asi is in fact the grammatical (although not thematic) possessor/subject of the clause.	page 12
+§3.1.1.1	Charles Murphey	note	In general, the absence of the possessive marker in favour of the oblique marker =s seems to be a response to whether there is a following 3 rd person object or not: when there is a 3rd person object, regardless of whether it is the thematic subject, the oblique enclitic =s must be used. The same appears to not be true of complement clauses where the subject is 1st or 2nd person.	page 12
+§3.1.1.1 (24) line 1	Haisla	transcription	li bélk̓udsu’ina qen ’íkuiganis xʷíɫa la qi ’áupasi, qi hím̓ac ’ík̓iax̄i.	page 12, engine language
+§3.1.1.1 (24) line 2	Haisla	segmentation	l=i bl̩k-!ud-su=’ina qn̩’iku=i=ganis xʷiɫa la	page 12, engine language
+§3.1.1.1 (24) line 3	Haisla	gloss	AUX=3³.SBJ bleed-TR-PASS=PERF for can=CMPZ=1PL.INCL.OBL return PREP	page 12, engine english
+§3.1.1.1 (24) line 4	Haisla	segmentation	qi ’aup=a=si qi him̓as=s ’ik̓i=a=x̄i	page 12, engine language
+§3.1.1.1 (24) line 5	Haisla	gloss	D³ father=D₁³=3³.OBL D³ chief=OBL heaven=D₁³=D₂³	page 12, engine english
+§3.1.1.1 (24) line 6	Charles Murphey	translation	‘He³ was bled so that we (incl.) could return to his³ Father³, the Chief³ of Heaven³.’	page 12, engine english
+§3.1.1.1 (24) line 6	Charles Murphey	citation	(CP)	the tag or source at the right of the translation
+§3.1.1.1	Haisla	cited form	xʷíɫa	page 13, ‘to return’
+§3.1.1.1	Charles Murphey	note	In (24) above, even though there is following material, xʷíɫa ‘to return’, that is not the thematic subject, the subject remains as it is, i.e., not 3rd but 1st person: =ganis ‘1st person exclusive plural oblique’. There is additionally no oblique enclitic =s following the possessive enclitic. 3.1.1.2 =i vs. =id Thus far, no forms have been presented with the allomorph =id; indeed, this form of the suffix appears to be overall less common than =i. Nevertheless, many examples can still be found of this allomorph.	page 13
+§3.1.1.1 (25) line 1	Haisla	transcription	…lal̓i wela’in qi x̄ʷenúkʷs wawaláis qen k̓esidsi láwels.	page 13, engine language
+§3.1.1.1 (25) line 2	Haisla	segmentation	la=l̓=i wl̩a=’in qi x̄ʷn̩ukʷ=s wawalais qn̩k̓s=id=si	page 13, engine language
+§3.1.1.1 (25) line 3	Haisla	gloss	AUX=REP=3³.SBJ keep=PERF D³ child=OBL PROPN for NEG=CMPZ=3³.OBL	page 13, engine english
+§3.1.1.1 (25) line 4	Haisla	transcription	lawl̩s	page 13, engine language
+§3.1.1.1 (25) line 5	Haisla	transcription	go_outside	page 13, engine english
+§3.1.1.1 (25) line 6	Jeffrey Legaik	translation	‘…[it is said 3³] kept wawaláis’s child…so she couldn’t go out.’	page 13, engine english, cited JL; Bach 1998:77
+§3.1.1.1 (25) line 6	Charles Murphey	citation	(JL; Bach 1998:77)	the tag or source at the right of the translation
+§3.1.1.1 (26) line 1	Haisla	transcription	k̓u nuáqigil w̓ígeta qen w̓anudáp̓idsi…	page 13, engine language
+§3.1.1.1 (26) line 2	Haisla	segmentation	k̓u nuaqi-gil w̓igt=a qn̩w̓anud-áp̓=id=si	page 13, engine language
+§3.1.1.1 (26) line 3	Haisla	gloss	NEG idea-MAKE PROPN=PN for trade-RECIP=CMPZ=3³.OBL	page 13, engine english
+§3.1.1.1 (26) line 4	Jeffrey Legaik	translation	‘Wigit didn’t get any idea about how he could trade…’	page 13, engine english, cited JL; Bach 1998:92, 102
+§3.1.1.1 (26) line 4	Charles Murphey	citation	(JL; Bach 1998:92, 102)	the tag or source at the right of the translation
+§3.1.1.1	Haisla	cited affix	k̓es-	page 13
+§3.1.1.1	Haisla	cited form	w̓anudáp̓	page 13, ‘to trade together’
+§3.1.1.1	Charles Murphey	note	Both (25) and (26) above feature = id on, respectively, the negative auxiliary k̓es- and the verb w̓anudáp̓ ‘to trade together’; it may be there is a slight preference for placing =id on auxiliary verbs — e.g., k̓es- ‘no, not’, l(a)- ‘auxiliary’, etc. — but this tendency is far from absolute.	page 13
+§3.1.1.3	Charles Murphey	heading	3.1.1.3 li(d)- ‘when, as’	page 13
+§3.1.1.3	Charles Murphey	note	There exists a complementized form of the auxiliary verb la, which takes the form li(d)- and means roughly ‘when’ or ‘as’; it is used to subordinate one clause to another, functioning essentially as a subordinating conjunction ‘when/as’. Both forms li- and lid- appear to be used interchangeably, although care should be taken that this latter is not confused with lid, a separate element that commonly appears at the beginning of clauses (not discussed here). Example (27) presents a typical instance of this form to serve as the head of a complement clause following the main clause to indicate when the action in the main clause takes place.	page 13
+§3.1.1.3 (27) line 1	Haisla	transcription	núsaƛens núyems qi ’áasganiax̄i lisi ’ex̄ʷ k̓úx̄ʷ’is qi m̓énc̓eḡis xuláis.	page 13, engine language
+§3.1.1.3 (27) line 2	Haisla	segmentation	nusa=ƛ=n̩=s nuym̩=s qi ’aasgani=a=x̄i l=i=si	page 13, engine language
+§3.1.1.3 (27) line 3	Haisla	gloss	tell_story=FUT=1.SBJ=OBL story=OBL D³ mouse=D₁³=D₂³ AUX=CMPZ=3³.OBL	page 13, engine english
+§3.1.1.3 (27) line 4	Haisla	segmentation	’x̄ʷ k̓uqʷ-’is qi m̓n̩-c̓q-ºis xulais	page 13, engine language
+§3.1.1.3 (27) line 5	Haisla	gloss	in_vain drag-BEACH D³ one-LONG-BEACH salmon_eggs	page 13, engine english
+§3.1.1.3 (27) line 6	Charles Murphey	translation	‘I’m going to tell the story of the³ mouse³ when he³ was trying [in vain] to drag onto the beach a bunch of salmon eggs.’	page 13, engine english
+§3.1.1.3 (27) line 6	Charles Murphey	citation	(GR; Bach 1992:11)	the tag or source at the right of the translation
+§3.1.1.3	Haisla	cited form	núsaƛens	page 13
+§3.1.1.3	Haisla	cited form	núyems	page 13
+§3.1.1.3	Haisla	cited form	’áasganiax̄i	page 13
+§3.1.1.3	Charles Murphey	note	In (27) above, the main clause is núsaƛens núyems qi ’áasganiax̄i; the following complement clause is headed by lisi — in this case meaning ‘when’ — with the thematic subject being the same as that in the main clause (and thus reduced to an enclitic =si).	page 13
+§3.1.1.3	Charles Murphey	note	Occasionally, a clause beginning with li(d)- can be fronted to the beginning of an utterance, i.e., before even the predicate (which in most cases cannot be preceded by anything but an LHA; see Section 2.1). Such examples are not rare per se, but are certainly less common, and seem to only be possible with li(d)-. When found, they typically contain an enclitic =s ‘oblique’ attached to the end of the connective, possibly marking them as an LHA (as indicated in the interlinear below).	page 14
+§3.1.1.3 (28) line 1	Haisla	transcription	lidsis λu’él ’esénx̄, m̓enx̄sá’ins ’esénx̄…	page 14, engine language
+§3.1.1.3 (28) line 2	Haisla	segmentation	l=id=si=s λu̓l̩’sn̩x̄ m̓n̩-x̄sa=’in=s ’sn̩x̄	page 14, engine language
+§3.1.1.3 (28) line 3	Haisla	gloss	AUX=CMPZ=3³.OBL=LHA again year one-FLAT=PERF=OBL year	page 14, engine english
+§3.1.1.3 (28) line 4	Gordon Robertson	translation	‘When again after a year, one year…’	page 14, engine english, cited GR; Bach 1992:60
+§3.1.1.3 (28) line 4	Charles Murphey	citation	(GR; Bach 1992:60)	the tag or source at the right of the translation
+§3.1.1.3	Haisla	cited form	m̓enx̄sá’ins	page 14
+§3.1.1.3	Haisla	cited form	’esénx̄	page 14, ‘one year’
+§3.1.1.3	Haisla	cited form	λu’el	page 14
+§3.1.1.3	Charles Murphey	note	In (28), the main clause, m̓enx̄sá’ins ’esénx̄ ‘one year’, is preceded by a complement clause, lidsis λu’el ’esénx̄ ‘when again after a year’, that introduces the time of the main action. These examples, which can be found in the speech of both Haislakala and Henaksialakala speakers, present an interesting deviation from an otherwise inviolable rule in Haisla syntax: the predicate must come first. It is currently unknown if this is an innovation in Haisla — possibly due to prolonged contact with English — or if the same structure can or could be found in the other North Wakashan languages. This last point may prove fruitful for comparison by looking at text collections of Heiltsuk and Oowekyala.	page 14
+§3.1.1.3	Charles Murphey	note	3.1.2 -tem ‘locative complementizer’ In addition to the enclitic =i(d), there is what Lincoln and Rath (1990:111) describe as a complementizing suffix, -tem, that is specifically for ‘locative complements’, i.e., those which express an action done at some place (or time), as opposed to more generally as with =i(d). Unlike =i(d), which is only used in complement clauses, -tem may be used either in a complement clause (29) or on independent words (30). The existence of such independent words may indicate that - tem is closer to a nominalizing than a strictly complementizing suffix.	page 14
+§3.1.1.3 (29) line 1	Haisla	transcription	k̓usi λu’el ’áqatem.	page 14, engine language
+§3.1.1.3 (29) line 2	Haisla	segmentation	k̓us=i λu̓l̩’aqa-tm̩	page 14, engine language
+§3.1.1.3 (29) line 3	Haisla	gloss	NEG=3³.SBJ again come-LOC.NMZ	page 14, engine english
+§3.1.1.3 (29) line 4	Bach 1992:8	translation	‘They would not come there again.’	page 14, engine english, cited Bach 1992:8
+§3.1.1.3 (29) line 4	Charles Murphey	citation	(Bach 1992:8)	the tag or source at the right of the translation
+§3.1.1.3 (30) line 1	Haisla	transcription	k̓ʷá’iɫ w̓ác̓iax̄u la látem his wísemax̄i.	page 14, engine language
+§3.1.1.3 (30) line 2	Haisla	segmentation	k̓ʷa-’iɫ w̓ac̓-i=aq=x̄u la la-tm̩his wism̩=a=x̄i	page 14, engine language
+§3.1.1.3 (30) line 3	Haisla	gloss	sit-INDOORS dog-EP=D₁²=D₂² PREP go-LOC.NMZ OBL man=D₁³=D₂³	page 14, engine english
+§3.1.1.3 (30) line 4	Lincoln & Rath 1986:249	translation	‘The dog³ is [sitting] where the man³ is.’	page 14, engine english, cited Lincoln & Rath 1986:249
+§3.1.1.3 (30) line 4	Charles Murphey	citation	(Lincoln & Rath 1986:249)	the tag or source at the right of the translation
+§3.1.1.3	Haisla	cited form	látem	page 14
+§3.1.1.3	Haisla	cited form	m̓áasdem	page 14
+§3.1.1.3	Haisla	cited form	wáɫdem	page 14, ‘word’
+§3.1.1.3	Haisla	root	√waɫ-	page 14, ‘SPEAK, UTTER’
+§3.1.1.3	Haisla	cited form	ḡísdem	page 14, ‘cow parsnip’
+§3.1.1.3	Haisla	root	√ḡis-	page 14
+§3.1.1.3	Charles Murphey	note	The word látem is often used as a single item (Section 3.1.2.1) and can be understood as a nominal stem that often translates to ‘where’ . There is also a noun m̓áasdem (Section 3.1.2.2)9, which mean roughly ‘why’ or ‘reason’, as well as several other nominal stems built with {-tem, - dem}, such as wáɫdem ‘word’ (√waɫ- ‘SPEAK, UTTER’) and ḡísdem ‘cow parsnip’ (√ḡis- ‘COW PARSNIP’). The existence of such items casts doubt as to whether -tem really denotes complement clauses at all, as opposed to being one of Haisla’s many nominalizing suffixes.	page 14
+footnote 9	Charles Murphey	note	9 The allomorph -dem appears after fricatives for phonological reasons.	page 14, footnote
+§3.1.1.3	Charles Murphey	note	Regardless, the notion of ‘location’ in this suffix cannot in many cases be interpreted literally; in many examples, no location is meant, rather a reference to time.	page 15
+§3.1.1.3 (31) line 1	Haisla	transcription	k̓uu, ḡiala’in qi latemasi k̓es q̓ʷiq̓ʷela.	page 15, engine language
+§3.1.1.3 (31) line 2	Haisla	segmentation	k̓uu ḡiala=’in qi la-tm̩=a=si k̓s q̓ʷ<iqʷ>l̩a	page 15, engine language
+§3.1.1.3 (31) line 3	Haisla	gloss	NEG long_time=PERF D³ go-LOC.NMZ=D₁³=3³.OBL NEG <RDP.PL>live	page 15, engine english
+§3.1.1.3 (31) line 4	Ella Grant	translation	‘No, they have not been alive for a long time.’	page 15, engine english, cited EG?; Bach 1995:43
+§3.1.1.3 (31) line 4	Charles Murphey	citation	(EG?; Bach 1995:43)	the tag or source at the right of the translation
+§3.1.1.3 (32) line 1	Haisla	transcription	ḡiala’in látemenc wál̓ax̄λi dúqʷeluƛ.	page 15, engine language
+§3.1.1.3 (32) line 2	Haisla	segmentation	ḡiala=’in la-tm̩=n̩c wal̓ax̄λi duqʷl̩=uƛ	page 15, engine language
+§3.1.1.3 (32) line 3	Haisla	gloss	long_time=PERF go-LOC.NMZ=1.OBL last see=2.OBL	page 15, engine english
+§3.1.1.3 (32) line 4	Charles Murphey	translation	‘It’s been a while since last I saw you.’	page 15, engine english
+§3.1.1.3 (32) line 4	Charles Murphey	citation	(VW)	the tag or source at the right of the translation
+§3.1.1.3	Haisla	cited form	ḡiala’in	page 15
+§3.1.1.3	Haisla	cited form	látemasi	page 15
+§3.1.1.3	Charles Murphey	note	In both (31) and (32) above, there is no reference to an actual place, but rather to a time, ḡiala’in ‘(a) long time (ago)’; such use does not appear to be unusual for Haisla, and indeed words like látem ‘where’ may better translated as ‘when’ or ‘at that time’ depending on the context. (Note also that in the first of these two examples, látemasi is preceded by a deictic, qi ‘D³’, which also suggests its status as a noun.) Additionally, Lincoln et al. (1990:111) note that use of -tem does not preclude the use of =i(d); indeed, they record an instance where both appear on the same word:	page 15
+§3.1.1.3 (33) line 1	Haisla	transcription	…k̓úul̓i n̓ik qen tísax̄atemis qi bélx̄λemax̄i.	page 15, engine language
+§3.1.1.3 (33) line 2	Haisla	segmentation	k̓uu=l̓=i n̓ik qn̩tisax̄a-tm̩=i=s qi bl̩x̄λm̩=a=x̄i	page 15, engine language
+§3.1.1.3 (33) line 3	Haisla	gloss	NEG=REP=3³.SBJ say for drip_down-LOC.NMZ=CMPZ=OBL D³ blood=D₁³=D₂³	page 15, engine english
+§3.1.1.3 (33) line 4	Gordon Robertson	translation	‘…according to the story, he did not allow dripping off of blood to occur.’	page 15, engine english, cited GR; Lincoln et al. 1990:64
+§3.1.1.3 (33) line 5	Charles Murphey	citation	(GR; Lincoln et al. 1990:64)	page 15, engine english
+§3.1.1.3	Haisla	cited form	tísax̄a	page 15, ‘to drip down’
+§3.1.1.3	Haisla	cited form	tísax̄atemis	page 15
+§3.1.1.3	Haisla	cited form	bélx̄λemax̄i	page 15
+§3.1.1.3	Charles Murphey	note	In (33), the verb tísax̄a ‘to drip down’ is first complementized (or nominalized; see following section), then complementized again as the complement of qen; the resulting translation of the whole phrase — qen tísax̄atemis qi bélx̄λemax̄i — may perhaps be best rendered as ‘for when the dripping down of the blood occur(s/ed)’.	page 15
+§3.1.2.1	Charles Murphey	heading	3.1.2.1 látem ‘where’	page 15
+§3.1.2.1	Haisla	cited form	látem	page 15
+§3.1.2.1	Charles Murphey	note	Much like how the auxiliary la + =i(d) produces a connective li(d)- with the meaning of ‘when’, ‘as’, or ‘at that time’, the verb la ‘go, be at a place’ can combine with the suffix -tem to produce a stem látem, whose meaning is roughly ‘where’ (or as discussed earlier, ‘when’ in the appropriate context). This word can be used independent of any use within a complement clause, and in such cases can often be translated as ‘place’, as I have done previously in this paper.	page 15
+§3.1.2.1 (34) line 1	Haisla	transcription	sas látemnukʷà?	page 15, engine language
+§3.1.2.1 (34) line 2	Haisla	segmentation	s=as latm̩-nukʷ=a	page 15, engine language
+§3.1.2.1 (34) line 3	Haisla	gloss	AUX.Q=Q.2 where-HAVE=Q.TAG	page 15, engine english
+§3.1.2.1 (34) line 4	Lincoln & Rath 1986:249	translation	‘Do you have a place to stay?’	page 15, engine english, cited Lincoln & Rath 1986:249
+§3.1.2.1 (34) line 4	Charles Murphey	citation	(Lincoln & Rath 1986:249)	the tag or source at the right of the translation
+§3.1.2.1	Haisla	cited form	m̓áasdem	page 15
+§3.1.2.1	Haisla	cited affix	-nukʷ	page 16, ‘have’
+§3.1.2.1	Haisla	cited form	sásemnukʷ	page 16, ‘to have children’
+§3.1.2.1	Haisla	cited form	sásem	page 16
+§3.1.2.1	Haisla	cited form	látemenc	page 16, ‘my place³’
+§3.1.2.1	Haisla	cited form	látemanukʷ	page 16, ‘our place³’
+§3.1.2.1	Haisla	cited form	látemasi	page 16, ‘3³’
+§3.1.2.1	Charles Murphey	note	Both látem and m̓áasdem (discussed in Section 3.1.2.2) can be used outside of complement clauses, which may suggest that they are in fact fully lexical stems, not merely inflected forms. Indeed, as mentioned in the previous section, látem bears many of the same characteristics as a regular nominal stem, particularly in regards to possession; not only can it feature a suffix like -nukʷ ‘have’ (cf. sásemnukʷ ‘to have children’, from sásem ‘children’) as above, but a possessed form of látem will always have both the primary deictic (indicating the location of the possessum) and the following oblique marker (indicating location of the possessor), e.g., látemenc ‘my place³’, látemanukʷ ‘our place³’, látemasi ‘3³’s place³’, etc.	page 15
+§3.1.2.1 (35) line 1	Haisla	transcription	…lanukʷ láala’ina l qi wiagiwam̓iási látemanukʷ gúkʷela…	page 16, engine language
+§3.1.2.1 (35) line 2	Haisla	segmentation	la=nukʷ laala=’ina l qi wiagiwam̓iás=i latm̩-a=Ø=nukʷ	page 16, engine language
+§3.1.2.1 (35) line 3	Haisla	gloss	AUX=EXCL go_upriver=PERF PREP D³ Spring_Village=D₂³ where-FV=D₁³=EXCL	page 16, engine english
+§3.1.2.1 (35) line 4	Haisla	transcription	gukʷl̩a	page 16, engine language
+§3.1.2.1 (35) line 5	Haisla	transcription	dwell	page 16, engine english
+§3.1.2.1 (35) line 6	Ella Grant	translation	‘…we (excl.) went upriver to the Spring Village where we lived.’	page 16, engine english, cited EG; Bach 1995:60
+§3.1.2.1 (35) line 6	Charles Murphey	citation	(EG; Bach 1995:60)	the tag or source at the right of the translation
+§3.1.2.1	Haisla	cited affix	=Ø	page 16
+§3.1.2.1	Haisla	cited affix	=nukʷ	page 16, ‘we (EXCL.)’
+§3.1.2.1	Charles Murphey	note	In (35) above, látem is followed by the necessary possessive marking: a primary deictic (=i in the first and a null allomorph =Ø in the second, both indicating a distal object) and an oblique marker (=si in the first, =nukʷ ‘we (EXCL.)’ in the second). Such marking is typical of nominal stems, and as will be discussed in Section 3.1.3, differs noticeably from complementized forms in which the space occupied by a primary deictic is taken by the complementizing enclitic =i(d).	page 16
+§3.1.2.2	Charles Murphey	heading	3.1.2.2 m̓áasdem ‘why’	page 16
+§3.1.2.2	Haisla	cited form	m̓áasdem	page 16
+§3.1.2.2	Haisla	cited form	m̓ásdem	page 16
+§3.1.2.2	Haisla	cited form	m̓aas	page 16, ‘what’
+§3.1.2.2	Charles Murphey	note	Lincoln et al. (1990) suggest that -tem is also a component in the word m̓áasdem (sometimes m̓ásdem with short /a/), meaning roughly ‘why’, ‘reason (for)’, or simply ‘what’; they provide the following analysis, which posits this word is composed of m̓aas ‘what’ and the allomorph -dem:10	page 16
+§3.1.2.2 (36) line 1	Haisla	transcription	li q̓iq̓ála’in m̓áasdemasi, báxʷbakʷalanusiwisi…	page 16, engine language
+§3.1.2.2 (36) line 2	Haisla	segmentation	l=i q̓<iq̓>ala=’in m̓aas-dm̩=a=si	page 16, engine language
+§3.1.2.2 (36) line 3	Haisla	gloss	AUX=3³.SBJ <RDP.PL>know=PERF what-LOC.NMZ=D₁³=3³.OBL	page 16, engine english
+§3.1.2.2 (36) line 4	Haisla	segmentation	baxʷbakʷalanusiw=i=si	page 16, engine language
+§3.1.2.2 (36) line 5	Haisla	gloss	PROPN=CMPZ=3³.OBL	page 16, engine english
+§3.1.2.2 (36) line 6	Gordon Robertson	translation	‘They realized what it was, namely that it was Báxʷbakʷalanusiwa…’	page 16, engine english, cited GR; Bach 1995:69–70
+§3.1.2.2 (36) line 7	Charles Murphey	citation	(GR; Bach 1995:69–70)	page 16, engine residue
+§3.1.2.2	Haisla	cited form	wáɫdem	page 16, ‘word’
+§3.1.2.2	Haisla	root	√waɫ-	page 16, ‘SPEAK, UTTER’
+§3.1.2.2	Haisla	cited form	ḡísdem	page 16, ‘cow parsnip’
+§3.1.2.2	Haisla	root	√gis-	page 16
+§3.1.2.2	Haisla	cited form	látemsi	page 16
+§3.1.2.2	Haisla	cited form	látemasi	page 16, ‘3³’
+footnote 10	Charles Murphey	note	10 The change /t/ → [d] is part of a regular morphophonological rule whereby plosives are deaspirated following a fricative, resulting in a pronunciation (in extremely narrow transcription) ⟦t̬⟧ that is virtually indistinguishable from /d/.	page 16, footnote
+§3.1.2.2	Haisla	notation	⟦t̬⟧	page 16
+footnote 11	Charles Murphey	note	11 Presumably unless it is preceded by an LHA — a construction which may be difficult to elicit on semantic grounds.	page 16, footnote
+§3.1.2.2	Haisla	cited form	lá	page 17, ‘go’
+§3.1.2.2	Haisla	cited form	láxdm	page 17, ‘where’
+§3.1.2.2	Haisla	cited form	látem	page 17
+§3.1.2.2	Charles Murphey	note	This use of the suffix in such a context as (36) may mean that {-tem, -dem} is closer to a simple nominalizer rather than complementizer. Indeed, as mentioned earlier, -dem also seems to be part of words like wáɫdem ‘word’ (from √waɫ- ‘SPEAK, UTTER’), ḡísdem ‘cow parsnip’ (√gis- ‘COW PARSNHIP’), and many others, and it both co-occurs with =i(d) in some cases and receives the same marking as a regular possessed noun. Thus, a form such as *látemsi is ungrammatical11 and must instead be látemasi ‘3³’s place’ or ‘where 3³’ with the expected primary deictic =a. 3.1.2.3 -tem as a nominalizing suffix — a comparison to Heiltsuk Additional evidence that -tem constitutes a nominalizing suffix and not a complementizing one comes from the closely related language, Heiltsuk. In his grammar of Heiltsuk, Rath (1981) identifies an evidently cognate suffix, -xdm. (Interestingly, this suffix is probably cognate not only with Haisla {-tem, -dem}, but also a separate lexical suffix, -xdema ‘site, location’, which may have formed the basis for the first, or vice-versa.) For the suffix as found in in Heiltsuk, Rath notes that it only attaches to lá ‘go’ with high tone (and not its allomorph la with low tone); the result is an item láxdm ‘where’, which ends up being the Heiltsuk cognate for Haisla látem (same meaning). Indeed, both láxdm and látem can and frequently do feature the exact same post-nominal possessive marking (minus the differences in tonality):	page 16
+§3.1.2.2 (37) line 1	Haisla	transcription	Lálín̓ak̓va wísmáx̌i la láxdmási gvúkvlá.	page 17, engine language
+§3.1.2.2 (37) line 2	Haisla	segmentation	Lálín̓ak̓va wísm=á=x̌i la láxdm=á=si gvúkvlá	page 17, engine language
+§3.1.2.2 (37) line 3	Haisla	gloss	go_home man³=D₁³=D₂³ PREP where=D₁³=3³.OBL dwell	page 17, engine english
+§3.1.2.2 (37) line 4	Rath 1980: 109	translation	‘Man[³] is/was heading for his residence[³] [=where he lives/dwells].’	page 17, engine english, cited Rath 1980: 109
+§3.1.2.2 (37) line 4	Charles Murphey	citation	(Rath 1980: 109)	the tag or source at the right of the translation
+§3.1.2.2 (38) line 1	Haisla	transcription	…weli xʷíɫa’in l látemasi leqʷelá.	page 17, engine language
+§3.1.2.2 (38) line 2	Haisla	segmentation	w=l̩=i l latm̩=a=si lqʷl̩a	page 17, engine language
+§3.1.2.2 (38) line 3	Haisla	gloss	CONN₂=AUX=3³.SBJ PREP where= D₁³=3³.OBL fire	page 17, engine english
+§3.1.2.2 (38) line 4	Ella Grant	translation	‘…then he³ returned to where there was a fire.’	page 17, engine english, cited EG; Bach 1995: 62
+§3.1.2.2 (38) line 4	Charles Murphey	citation	(EG; Bach 1995: 62)	the tag or source at the right of the translation
+§3.1.2.2	Charles Murphey	note	In (37) and (38), both láxdm and látem feature the same enclitic complex =asi.12 This would indicate that in both Haisla and Heiltsuk, {-tem, -dem} and -xdm do not, in fact, function as complementizing suffixes but rather as nominalizing ones, permitting the speaker to include possessive marking (both a primary deictic and oblique enclitic) after the stem. This behaviour is notably different from complement clauses, which only allow an oblique enclitic and not the primary deictic, as discussed in the next section. Accordingly, I ultimately settle on the analysis that -tem is, in fact, a nominalizing suffix, albeit one that does feature reference to a ‘spatiotemporal setting’ which I indicate in glossing through use of the abbreviation ‘LOC.NMZ’.	page 17
+§3.1.3	Charles Murphey	heading	3.1.3 Oblique marking in complement clauses	page 17
+§3.1.3	Charles Murphey	note	The complementizing enclitic is always followed by an oblique enclitic (with some exceptions already mentioned in Section 3.1.1.1). This oblique marker always refers to the subject of the complement clause, and since oblique marking and possessive marking are identical in Haisla, one can think of the subject as the ‘owner’ of the newly nominalized verbal stem, at least historically. Note, however, that the range of possible oblique (= possessive) marking is more limited in Haisla subordinate clauses than in other cases: indeed, the possible collocations of a primary deictic and the following oblique marking are severely restricted.	page 17
+§3.1.3 (39) line 1	Haisla	transcription	gu’áƛigenc	page 17, engine english
+§3.1.3 (39) line 2	Haisla	segmentation	gu̓aƛ=i=gn̩c	page 17, engine language
+§3.1.3 (39) line 3	Haisla	gloss	help=CMPZ=1SG.OBL	page 17, engine english
+§3.1.3 (39) line 4	Charles Murphey	translation	‘that I helped’ or ‘my helping¹’	page 17, engine english
+footnote 12	Charles Murphey	note	12 The only difference is that the Heiltsuk form features a high tone on the first vowel, i.e., =ási.	page 17, footnote
+§3.1.3	Haisla	cited affix	=ási	page 17
+§3.1.3 (40) line 1	Haisla	transcription	*gu’áƛia’enc / *gu’áƛienc / *gu’áƛitienc	page 18, engine residue
+§3.1.3 (40) line 2	Haisla	segmentation	gu̓aƛ=i=a’=n̩c gu̓aƛ=i=Ø=n̩c gu̓aƛ=i=ti=n̩c	page 18, engine language
+§3.1.3 (40) line 3	Haisla	gloss	help=CMPZ=D₁²=1.OBL help=CMPZ=D₁³=1.OBL help=CMPZ=D₁⁴=1.OBL	page 18, engine english
+§3.1.3 (40) line 4	Charles Murphey	translation	‘*my helping² / *my helping³ / *my helping⁴’	page 18, engine english
+§3.1.3	Haisla	cited affix	=ganukʷ	page 18, ‘1PL.EXCL.OBL’
+§3.1.3	Charles Murphey	note	Example (39) presents the only possible means of complementizing a verb with a 1st person subject; the primary deictic =g is here assumed to form part of a special 1st person singular oblique enclitic that is only found in complement clauses, just as with the other possible oblique markers for other persons. Example (40), meanwhile, presents forms that are not possible: primary deictics other than the proximal =g are not permitted, thus providing some evidence that the deictic =g is in fact not separate from the oblique marker that follows, but rather forms a compound ending. Indeed, all complement clauses with a 1st person thematic subject must always have the primary deictic =g(a) following the complementing suffix. For this reason, I have chosen to treat the forms =genc ‘1SG.OBL’, =ganis ‘1PL.INCL.OBL’, and =ganukʷ ‘1PL.EXCL.OBL’ as their own forms without separating the primary deictic; for all intents and purposes, they act as single units, and the surrounding context will disambiguate whether the compound is being used or if in fact there is a sequence of ‘primary deictic + 1st person oblique enclitic’. (A similar analysis is possible for 2nd person forms, discussed in the following paragraph.) As additional support of this analysis, these compound forms do not lose their primary deictic when the complemented form is preceded by an LHA, as in (41):	page 18
+§3.1.3 (41) line 1	Haisla	transcription	sáx̄gen qen ’iks bek̓ʷáligenc.	page 18, engine residue
+§3.1.3 (41) line 2	Haisla	segmentation	sax̄g=n̩qn̩’ik=s bk̓ʷal=i=gn̩c	page 18, engine language
+§3.1.3 (41) line 3	Haisla	gloss	want=1.SBJ for good=LHA speak=CMPZ=1SG.OBL	page 18, engine english
+§3.1.3 (41) line 4	Charles Murphey	translation	‘I want to speak well.’	page 18, engine english
+§3.1.3 (41) line 4	Charles Murphey	citation	(NG)	the tag or source at the right of the translation
+§3.1.3	Haisla	cited affix	=’ex̄ʷs	page 18
+§3.1.3	Haisla	cited affix	=’eqʷs	page 18
+§3.1.3	Haisla	cited affix	=qʷs/=x̄ʷs	page 18
+§3.1.3	Haisla	cited affix	=ex̄ʷs	page 18
+§3.1.3	Haisla	cited affix	=qʷs	page 18
+§3.1.3	Charles Murphey	note	In example (41), the primary deictic remains despite the presence of an LHA, ’iks ‘good’ (or ‘well’), which in other cases would cause the deictic to drop out, as discussed earlier in Section 2.2. Those with a 2nd person thematic subject must always have the complementizing suffix =i13 be followed by =’ex̄ʷs (sometimes =’eqʷs with unspirantized /q/, or =qʷs/=x̄ʷs without the suffix-initial glottal stop; for this latter). Historically, this is a combined form of the primary deictic =aq, indicating a medial argument, followed by the oblique possessive ending =us ‘your’. The addition of glottal stop /’/ is due to a difference in Haislakala vs. Henaksialakala: the form =aq at some point became =a’ in Haislakala as both dialects diverged. As a result of this change, the form =’ex̄ʷs (or =’eqʷs) is only found in the speech of Haislakala speakers, while =ex̄ʷs (or =qʷs) is the form used by Henaksialakala speakers.	page 18
+§3.1.3 (42) line 1	Haisla	transcription	m̓aasi p̓ali’ex̄ʷs ’isλam? [x̄á’islak̓ala]	page 18, engine language
+§3.1.3 (42) line 2	Haisla	segmentation	m̓aas=i p̓al=i=’qʷs ’isλam	page 18, engine language
+§3.1.3 (42) line 3	Haisla	gloss	what=Q.1/3 work=CMPZ=2.OBL today	page 18, engine english
+§3.1.3 (42) line 4	Ella Grant	translation	‘What are you working at today?’	page 18, engine english, cited EG; Bach 1995:35
+§3.1.3 (42) line 4	Charles Murphey	citation	(EG; Bach 1995:35)	the tag or source at the right of the translation
+footnote 13	Charles Murphey	note	13 It should be noted that no example of the allomorph =id has been found preceding the 2nd person oblique forms; thus, the forms =id(’)eqʷs/=id(’)ex̄ʷs, while hypothetically possible, have been observed. This may be for articulatory purposes, or simply because it is not the usual way to construct complementized forms for the 1st and 2nd person.	page 18, footnote
+§3.1.3	Haisla	cited affix	=id(’)eqʷs/=id(’)ex̄ʷs	page 18
+§3.1.3 (43) line 1	Haisla	transcription	sáx̄gesu qen p̓áliqʷs. [x̄enáksialak̓ala]	page 19, engine language
+§3.1.3 (43) line 2	Haisla	segmentation	sax̄g=su qn̩p̓al=i=qʷs	page 19, engine language
+§3.1.3 (43) line 3	Haisla	gloss	want=2.SBJ for work=CMPZ=2.OBL	page 19, engine english
+§3.1.3 (43) line 4	Gordon Robertson	translation	‘You want to work.’	page 19, engine english, cited GR; Lincoln & Rath 1986:328
+§3.1.3 (43) line 4	Charles Murphey	citation	(GR; Lincoln & Rath 1986:328)	the tag or source at the right of the translation
+§3.1.3	Haisla	notation	ə	page 19
+§3.1.3	Haisla	notation	/x̄~q/	page 19
+§3.1.3	Haisla	cited affix	=x̄ʷs	page 19
+§3.1.3	Charles Murphey	note	Example (42) is taken from a Haislakala speaker, while (43) is from Gordon Robertson, a Henaksialakala speaker; the form =’ex̄ʷs with glottal stop and epenthetic [ə] is seen in the first, while the second contains =qʷs (no glottal stop and hence no epenthetic schwa). In both cases, the alternation /x̄~q/ is assumed to be merely allophonic. Notably, LR record both =x̄ʷs and =qʷs at different points in their data.	page 19
+§3.1.3	Charles Murphey	note	Finally, complement clauses with 3rd person subjects feature no primary deictic at all and instead merely have the appropriate possessive ending following =i(d). It may be that for these forms specifically, the complementizing enclitic occupies the same morphological slot as the primary deictic, thereby preventing their co-occurrence with one another.	page 19
+§3.1.3 (44) line 1	Haisla	transcription	ḡʷáḡʷeɫc̓ualiɫ’ina qen dexʷ’ídisi.	page 19, engine language
+§3.1.3 (44) line 2	Haisla	segmentation	ḡʷaḡʷɫc̓ualiɫ=’ina qn̩dxʷ’id=i=si	page 19, engine language
+§3.1.3 (44) line 3	Haisla	gloss	ready=PERF for jump=CMPZ=3³.OBL	page 19, engine english
+§3.1.3 (44) line 4	Gordon Robertson	translation	‘3³ is now ready to jump.’	page 19, engine english, cited GR; Lincoln & Rath 1986:115
+§3.1.3 (44) line 4	Charles Murphey	citation	(GR; Lincoln & Rath 1986:115)	the tag or source at the right of the translation
+§3.1.3	Haisla	cited affix	=Ø	page 19
+§3.1.3	Haisla	cited form	gúkʷenc	page 19, ‘my house³’
+§3.1.3	Haisla	cited form	ḡúkʷus	page 19, ‘your house³’
+§3.1.3	Haisla	cited form	gukʷ=Ø=nc	page 19
+§3.1.3	Haisla	cited form	gukʷ=Ø=us	page 19
+§3.1.3	Charles Murphey	note	In (44), there appears to be no primary deictic preceding the oblique marker =si. It is possible that there is a ‘null enclitic’ =Ø as the primary deictic, as occurs in forms with 1st and 2nd person possessive marking, like in the forms gúkʷenc ‘my house³’ and ḡúkʷus ‘your house³’ (gukʷ=Ø=nc and gukʷ=Ø=us, respectively), wherein distal possessed arguments do not contain the expected primary deictic =a (cf. (8) in Section 2.2) but rather a null allomorph. However, positing the existence of such an allomorph in complement clauses is at best unnecessary and at worst inaccurate: it is far easier to simply say that =i(d) occupies this slot in the morphological structure, a fact which may additionally be explainable by an appeal to semantics.	page 19
+§3.1.3	Haisla	cited affix	=guɫ	page 19, ‘distant past’
+§3.1.3	Charles Murphey	note	This more limited range of oblique marking is perhaps explained by appealing to the location of the subordinated action: what one does is always near oneself, so what ‘I’ (or ‘we’) do is always ‘near me’ (or ‘us’), what ‘you’ do is always ‘near you’, and what anyone else does is ‘over there’ (neither ‘near me’ nor ‘near you’). As such, the seeming absence of a form like *=gasi (=ga + =si) in a complement clause with a 3rd person referent would seem to make plenty of sense: if the action is ‘someone else’s’, then naturally it could not be near the speaker, and this understanding may possibly be extended to instances where the referent is near the speaker, yet the action is not considered to be. (It is noteworthy that even a form such as *=gasik is also not possible, despite the enclitic =sik referring to a 3rd person proximal referent — this implies the existence of a calcified grammatical construction.) Additionally, that complement clauses seemingly cannot take tense/aspect markers may explain the absence of a ‘absent, just gone’ category, which obligatorily features either =guɫ ‘distant past’, or more commonly =t(et) ‘recent past’ before the primary and secondary deictics. The reader will notice that glosses for the 2nd and 3rd person ‘complement oblique’ enclitics remain the same as in regular possessed items. In such cases, context (i.e., the presence/absence of the complementizing enclitic) will disambiguate whether a possessed argument or a complement clause is meant.	page 19
+§3.2	Charles Murphey	heading	3.2 Relativization	page 20
+§3.2	Charles Murphey	note	Relative clauses (RCs) may either contain (Section 3.2.1Fehler! Verweisquelle konnte nicht gefunden werden.) or lack (Section 3.2.2) an overt relativizer; those without a relativizer employ a ‘gap strategy’, whereby the relative clause is merely placed after the noun. When a relativizer is used, it takes the form of a deictic determiner that agrees in deixis with the head noun. Whether the RC does or does not have a relativizer, there may additionally be an agreement marker that marks the common argument (CA) within the relative clause that likewise agrees in deixis (Section 3.2.3). Whether overt or not, the CA must always be the subject of the RC, a fact which leads to many instances where passivization (using one of Haisla’s many ‘voice’ suffixes — not discussed in this paper) is employed on the verb within the RC to permit modification of the head noun. There is no formal distinction in form between restrictive and non-restrictive relative clauses.	page 20
+§3.2.1	Charles Murphey	heading	3.2.1 Relative clauses with relativizers	page 20
+§3.2.1	Charles Murphey	note	Relative clauses with relativizers always feature one of the following determiners, which are used to introduce the RC: qik, qu, qi, or qiki, referencing the proximal, medial, distal, and absental levels of deixis, respectively. The determiner is always in agreement with the deixis of the head noun in the main clause, seemingly even when this is not made explicit on the noun, as in example (45).	page 20
+§3.2.1 (45) line 1	Haisla	transcription	begʷánem {RC qi p̓ála }RC	page 20, engine residue
+§3.2.1 (45) line 2	Haisla	segmentation	bgʷanm̩qi p̓ala	page 20, engine language
+§3.2.1 (45) line 3	Haisla	gloss	person D³ work	page 20
+§3.2.1 (45) line 4	Lincoln et al. 1990:115	translation	‘(the) person who[³] works’	page 20, cited Lincoln et al. 1990:115
+§3.2.1 (45) line 4	Charles Murphey	citation	(Lincoln et al. 1990:115)	the tag or source at the right of the translation
+§3.2.1	Haisla	cited form	p̓ála	page 20, ‘who³ works’
+§3.2.1	Haisla	cited form	begʷánem	page 20, ‘person’
+§3.2.1	Charles Murphey	note	Here qi introduces the relative clause, qi p̓ála ‘who³ works’, which serves to modify the noun begʷánem ‘person’. It is of course possible, if not vastly more common, to create an example with full deictic marking (46).	page 20
+§3.2.1 (46) line 1	Haisla	transcription	hidái wísemax̄i qi gu’áƛenƛa his pa’ináienc.	page 20, engine residue
+§3.2.1 (46) line 2	Haisla	segmentation	hidai wism̩=a=x̄i qi gu̓aƛ=n̩ƛa his pa̓inai=Ø=n̩c	page 20, engine language
+§3.2.1 (46) line 3	Haisla	gloss	COP.3 man=D₁³=D₂³ D³ help=1.OBJ OBL work=D₁³=1.OBJ	page 20, engine english
+§3.2.1 (46) line 4	Charles Murphey	translation	‘He³’s the man³ who³ helped me with my work.’	page 20, engine english
+§3.2.1 (46) line 4	Charles Murphey	citation	(NG)	the tag or source at the right of the translation
+§3.2.1	Haisla	cited form	wísemax̄i	page 20, ‘man³’
+§3.2.1	Charles Murphey	note	Example (46) is far more typical of relative clauses with relativizers in Haisla: the deixis is clearly marked on the head noun, wísemax̄i ‘man³’, which in turn agrees with the relativizer qi. This clause is also typical in that the head noun is left unexpressed in the RC and is also the subject of the relative clause; to express an idea such as, ‘the man who I helped’, the RC would need to be rendered as, ‘the man who is/was helped (by me)’.	page 20
+§3.2.2	Charles Murphey	heading	3.2.2 Relative clauses without relativizers	page 20
+§3.2.2	Charles Murphey	note	Relative clauses without relativizers employ a ‘gap strategy’ whereby an RC is placed after the head noun without any other morphosyntactic element to introduce it. Because the common argument in a relative clause must be the subject, passive constructions are very common in RCs, particularly the passivizing suffix -su (47) (although others are possible but seemingly less common); RCs containing a passivized verb commonly lack a relativizer, as indicated in the following utterance recorded by Vattukumpu:	page 20
+§3.2.2	Haisla	cited form	k̓us	page 21
+§3.2.2	Haisla	cited form	sásemnukʷ	page 21
+§3.2.2	Haisla	cited form	sáaki	page 21
+§3.2.2	Haisla	cited form	ketásus	page 21
+§3.2.2	Haisla	cited form	sasm̩-nukʷ	page 21
+§3.2.2	Haisla	cited form	sáakax̄i	page 21, ‘grizzly³’
+§3.2.2	Haisla	cited form	ketá	page 21, ‘shoot (a gun)’
+§3.2.2	Charles Murphey	note	(47) k̓us sásemnukʷ [DP sáaki {RC ketásus JOHN-a }RC ]DP k̓us sasm̩-nukʷ saak=i kta-su=s JOHN=a=a NEG children-HAVE grizzly=D₂³ shoot-PASS=OBL PROPN=D₁³=PN ‘The grizzly³ that was shot by John had no cubs.’ (Vattukumpu 2020b:259)14 This example presents a relative clause, ketásus JOHN-a ‘shot by John’, which modifies the noun sáakax̄i ‘grizzly³’ within the DP; note that the verb is a passivized form of ketá ‘shoot (a gun)’. The following DP, JOHN-a ‘John³’, is preceded by the oblique =s, which marks it as the (now demoted and hence optional) agent.	page 21
+§3.2.3	Charles Murphey	heading	3.2.3 The common argument in RCs	page 21
+§3.2.3	Charles Murphey	note	Normally, Haisla RCs lack a common argument that is co-referential with the head noun in the main clause, and indeed no examples of any co-referential elements have been found for RCs with overt relativizers. However, for RCs that lack relativizers, it is possible to include a subject enclitic which is co-referential with the subject of the relative clause.	page 21
+§3.2.3	Haisla	cited form	x̄ʷáƛasu’ina	page 21
+§3.2.3	Haisla	cited form	wísemax̄i	page 21
+§3.2.3	Haisla	cited form	c̓ísi}RC	page 21
+§3.2.3	Haisla	cited form	ƛ̓úpasu	page 21
+§3.2.3	Charles Murphey	note	(48) x̄ʷáƛasu’ina his [DP qi wísemax̄i {RC c̓ísi}RC ]DP gi ƛ̓úpasu.	page 21
+§3.2.3	Haisla	cited form	x̄ʷaƛa-su=’ina	page 21
+§3.2.3	Haisla	cited form	wism̩=a=x̄i	page 21
+§3.2.3	Haisla	cited form	c̓is=i	page 21
+§3.2.3	Haisla	cited form	ƛ̓upa-su	page 21
+§3.2.3	Haisla	cited form	c̓isi	page 21
+§3.2.3	Charles Murphey	note	x̄ʷaƛa-su=’ina his qi wism̩=a=x̄i c̓is=i g=i ƛ̓upa-su clean-PASS=PERF OBL D³ man=D₁³=D₂³ care=3³.SBJ CONN₁=3³.SBJ roast-PASS ‘It was cleaned and dressed by the caretaker man and barbecued.’ (JL; Bach 1998:4) In (48), the subject enclitic =i on the end of c̓isi is evidently co-referential with the noun phrase qi wísemax̄i ‘that³ (or the³) man³’. Thus, the phrase translated as ‘caretaker man’ can be taken to mean something closer to ‘the man who takes care’. Such instances of a CA being expressed in the RC are not common and indeed never occur when a relativizer is present. When the relativizer is absent, however, the preference in Haisla still seems to be that the CA is left unexpressed, perhaps to avoid ‘double-marking’ of the deixis on both the relativizer and the subject enclitic. There also happen to be no instances recorded where an RC that contains a passivized verb also contains an overt CA, but this may be merely coincidental and not otherwise indicative of anything.	page 21
+§4	Charles Murphey	heading	4 Conclusion	page 21
+footnote 14	Charles Murphey	note	14 Vattukumpu’s reference lacks both qi and the enclitic complex =ax̄i, which are otherwise expected. He does include an enclitic =i on the end of saak, although there is nothing in the utterance to motivate the lack of the primary deictic. Arguments without either the primary deictic or the /x̄/ of the secondary, e.g., begʷánemi ‘person³’ and ságʷemi ‘seal³’ (both of which have been elicited), are somewhat rare but do seem to occur occasionally and await investigation. As a final note, much like =i, the medial deictic =u can also be used without additional phonetic material, i.e., ságʷemu ‘seal²’; the proximal deictic complex, meanwhile, commonly reduces to =gax̄, as it ságʷemgax̄ ‘seal¹’.	page 21, footnote
+§4	Haisla	cited affix	=ax̄i	page 21
+§4	Haisla	notation	/x̄/	page 21
+§4	Haisla	cited form	begʷánemi	page 21, ‘person³’
+§4	Haisla	cited form	ságʷemi	page 21, ‘seal³’
+§4	Haisla	cited form	ságʷemu	page 21, ‘seal²’
+§4	Haisla	cited affix	=gax̄	page 21
+§4	Haisla	cited form	ságʷemgax̄	page 21, ‘seal¹’
+§4	Charles Murphey	note	This article has explored complex syntactic structure in Haisla, an Upper North Wakashan language spoken primarily in and around Kitamaat Village, BC, by members of the Haisla Nation. This aspect of the language is by far the hitherto least examined and therefore least understood, and so presents the opportunity for fruitful research that may, eventually, serve to improve Haisla language curricula in and around Kitamaat Village. To this end, I have presented an analysis that has sought to better understand the strategies that Haisla speakers employ in order to combine clauses to create complex utterances beyond simple sentences, focusing especially on both complementizing and relativizing strategies in Haisla. It is hoped that by providing a detailed analysis of each for Haisla, further work may be accomplished in the other Upper North Wakashan languages, particularly Heiltsuk and Oowekyala; very likely, complementation and relativization will be very similar, if not nearly identical, in both languages.	page 21
+§4	Charles Murphey	note	After describing the general characteristics of the language, including basic morphological and syntactic concepts, I described the complementizing enclitic =i(d), which in most cases is necessarily followed by the appropriate possessive (or ‘oblique’) enclitic to indicate the doer of the complementized action. I also explored the suffix -tem, which has previously been argued to create a ‘locative’ complement clause, i.e., one that has spatiotemporal reference for when/where an action occurs. However, -tem seems to be nothing more than another one of Haisla’s many nominalizers, albeit one with special reference to the ‘spatiotemporal setting’ of an action; accordingly, it has been glossed as ‘LOC.NMZ’ throughout this work in favour of my (re-)analysis. Finally, in exploring relative clauses, I noted that there are three strategies: (i) RCs that feature a relativizer that agrees in deixis with the head noun and is homophonous with the prenominal deictics: qik, qu, qi, and qiki; (ii) RCs that utilize simple juxtaposition of a noun with a following verb with no additional marking; and (iii) RCs that contain a co-referential subject enclitic that serves as the common argument within the RC. Passivization is extremely common in Haisla RCs, as the head noun must be the subject of the RC.	page 22
+§4	Charles Murphey	note	There are two additional appendices added to the end of this paper: Appendix B, which contains a full list of all Haisla primary and secondary deictics and oblique (possessive) enclitics as mentioned in Section 2, as well as a listing complement enclitics mentioned in Section 3 and the subsequent forms by combining them with =i(d). Appendix C presents a short, less technical description of Haisla complementation — focusing specifically on =i(d) and the various relativization strategies, while ignoring the questionable -tem — that, it is hoped, will provide the non-specialist language learner with a clear and easy understanding of how to create their own complex clauses in Haisla.	page 22
+references	Charles Murphey	heading	References	page 22
+references	Charles Murphey	reference	Bach, Emmon. 1990. A Haisla Book. Unpublished manuscript. Kitamaat Village, ms.	
+references	Haisla	cited form	x̄enaksiala	page 22
+references	Charles Murphey	reference	Bach, Emmon. 1992. Ninuyems x̄enaksiala: Stories from Kitlope and Kemano. Unpublished manuscript. Kitimat, BC, ms.	
+references	Charles Murphey	reference	Bach, Emmon. 1995. Wisenis Xa’islak’ala! Unpublished manuscript.	
+references	Charles Murphey	reference	Bach, Emmon. 1998. Haisla texts and stories: Stories from Kitamaat. Unpublished manuscript. Kitimat, BC, ms.	
+references	Haisla	cited form	ʼEwiksisdaudsiʼu	page 22
+references	Charles Murphey	reference	Bach, Emmon. 2006. ʼEwiksisdaudsiʼu! Put it into Haisla! English to Haisla Wordlist . Kitamaat Village, BC.	
+references	Charles Murphey	reference	Fortescue, Michael. 2007. Comparative Wakashan Dictionary (Lincom Studies in Native American Linguistics 57). Vol. 57. Munich: Lincom Europa.	
+references	Charles Murphey	reference	Gessner, Suzanne, Britt Dunlop, Tracy Herbert & Alliana Parker. 2018. Report on the Status of B.C. First Nations Languages 2018. Third Edition. Brentwood Bay, BC: First Peoples’ Cultural Council.	
+references	Charles Murphey	reference	Hilton, Susanne & John Rath. 1982. Oowekeeno oral traditions as told by the late Chief Simon Walkus Sr. (The Mercury Series). Ottawa, ON: Canadian Ethnology Service: National Museums of Canada.	
+references	Charles Murphey	reference	Lincoln, Neville J. & John C. Rath. 1986. Phonology, dictionary and listing of roots and lexical derivates of the Haisla language of Kitlope and Kitimaat, B.C. Ottawa, ON: University of Ottawa Press.	
+references	Charles Murphey	reference	Lincoln, Neville J., John C. Rath & Evelyn Windsor. 1990. Baxwbakwalanusiwa: Un Récit Haisla / A Haisla Story. Vol. 14. Amerindia.	
+references	Charles Murphey	reference	Rath, John C. 1981. A Practical Heiltsuk-English Dictionary with a Grammatical Introduction (Mercury Series). Ottawa, ON: University of Ottawa Press.	
+references	Charles Murphey	reference	Sardinha, Katie. 2011. Prepositional *his and the development of morphological case in Northern Wakashan. International Conference on Salishan and Neighboring Languages 46:366–397.	
+references	Charles Murphey	reference	Vattukumpu, Tero. 2018. Notes on reduplication in the Haisla language － Partial reduplication of the negative auxiliary verb. Kyoto University Linguistic Research 37:41–60.	
+references	Charles Murphey	reference	Vattukumpu, Tero. 2019. Notes on reflexive and reciprocal expressions in the Haisla language. Journal of Kijutsuken 11:163–179.	
+references	Charles Murphey	reference	Vattukumpu, Tero. 2020a. Notes on lexical suffixes in the Haisla language － Observations of the usage of body part suffixes. Journal of Kijutsuken 12:205–222.	
+references	Charles Murphey	reference	Vattukumpu, Tero. 2020b. On Possessive, Existential and Locative Clause Types in the Haisla Language. Northern Language Studies 10:255–274.	
+references	Charles Murphey	reference	Vink, Hein [Henry]. 1974. A first course in Haisla. Unpublished manuscript.	
+references	Charles Murphey	reference	Vink, Hein [Henry]. 1977. A Haisla phonology. Proceedings of the International Conference on Salish and Neighboring Languages 12:1–20.	
+references	Charles Murphey	reference	Vink, Hein [Henry]. 1980. Dictionary of Haisla. Unpublished manuscript.	
+references	Charles Murphey	reference	Vink, Hein [Henry]. n.d. An advanced course in Haisla. Unpublished manuscript.	
+appendix	Charles Murphey	heading	Appendix A: Haisla orthography	page 24
+appendix	Haisla	notation	/pʼ/	page 24
+appendix	Haisla	notation	‹p̓›	page 24
+appendix	Haisla	notation	/ˀm/	page 24
+appendix	Haisla	notation	‹m̓›	page 24
+appendix	Haisla	notation	/tʼ/	page 24
+appendix	Haisla	notation	‹t̓›	page 24
+appendix	Haisla	notation	/ˀn/	page 24
+appendix	Haisla	notation	‹n̓›	page 24
+appendix	Haisla	notation	/d͡z/	page 24
+appendix	Haisla	notation	/t͡s/	page 24
+appendix	Haisla	notation	/t͡sʼ/	page 24
+appendix	Haisla	notation	‹c̓›	page 24
+appendix	Haisla	notation	/d͡l/	page 24
+appendix	Haisla	notation	‹λ›	page 24
+appendix	Haisla	notation	/t͡ɬ/	page 24
+appendix	Haisla	notation	‹ƛ›	page 24
+appendix	Haisla	notation	/t͡ɬʼ/	page 24
+appendix	Haisla	notation	‹ƛ̓›	page 24
+appendix	Haisla	notation	/ɬ/	page 24
+appendix	Haisla	notation	‹ɫ›	page 24
+appendix	Haisla	notation	/ˀl/	page 24
+appendix	Haisla	notation	‹l̓›	page 24
+appendix	Haisla	notation	/kʼ/	page 24
+appendix	Haisla	notation	‹k̓›	page 24
+appendix	Haisla	notation	/ˀj/	page 24
+appendix	Haisla	notation	‹y̓›	page 24
+appendix	Haisla	notation	/gʷ/	page 24
+appendix	Haisla	notation	‹gʷ›	page 24
+appendix	Haisla	notation	/kʷ/	page 24
+appendix	Haisla	notation	‹kʷ›	page 24
+appendix	Haisla	notation	/kʼʷ/	page 24
+appendix	Haisla	notation	‹k̓ʷ›	page 24
+appendix	Haisla	notation	/xʷ/	page 24
+appendix	Haisla	notation	‹xʷ›	page 24
+appendix	Haisla	notation	/ˀw/	page 24
+appendix	Haisla	notation	‹w̓›	page 24
+appendix	Haisla	notation	‹ḡʷ›	page 24
+appendix	Haisla	notation	/qʼ/	page 24
+appendix	Haisla	notation	‹q̓›	page 24
+appendix	Haisla	notation	/χ/	page 24
+appendix	Haisla	notation	‹x̄ʷ›	page 24
+appendix	Haisla	notation	/qʷ/	page 24
+appendix	Haisla	notation	‹qʷ›	page 24
+appendix	Haisla	notation	/qʼʷ/	page 24
+appendix	Haisla	notation	‹q̓ʷ›	page 24
+appendix	Haisla	notation	/χʷ/	page 24
+appendix	Haisla	notation	/ʔ/	page 24
+appendix	Haisla	notation	/ɦ/	page 24
+appendix	Haisla	notation	/i(ː)/	page 24
+appendix	Haisla	notation	/u(ː)/	page 24
+appendix	Haisla	notation	/a(ː)/	page 24
+appendix	Haisla	notation	=[ɛː	page 24
+appendix	Haisla	notation	=[ɔː	page 24
+appendix	Haisla	notation	◌ʷ	page 24
+appendix	Haisla	cited form	ɛː	page 24
+appendix	Haisla	cited form	ɔː	page 24
+appendix	Charles Murphey	note	Table A.1 Chart of Haisla phonemic consonants with orthographic representation OBSTRUENTS (O) RESONANTS (R) PLOSIVES FRICATIVES VOICED VOICELESS EJECTIVE PLAIN GLOTTALIZED LABIAL /b/ ‹b› /p/ ‹p› /pʼ/ ‹p̓› /m/ ‹m› /ˀm/ ‹m̓› ALVEOLAR /d/ ‹d› /t/ ‹t› /tʼ/ ‹t̓› /n/ ‹n› /ˀn/ ‹n̓› /d͡z/ ‹z› /t͡s/ ‹c› /t͡sʼ/ ‹c̓› /s/ ‹s› /d͡l/ ‹λ› /t͡ɬ/ ‹ƛ› /t͡ɬʼ/ ‹ƛ̓› /ɬ/ ‹ɫ› /l/ ‹l› /ˀl/ ‹l̓› VELAR /g/ ‹g› /k/ ‹k› /kʼ/ ‹k̓› /x/ ‹x› /j/ ‹y› /ˀj/ ‹y̓› /gʷ/ ‹gʷ› /kʷ/ ‹kʷ› /kʼʷ/ ‹k̓ʷ› /xʷ/ ‹xʷ› /w/ ‹w› /ˀw/ ‹w̓› UVULAR /ɢ/ ‹ḡʷ› /q/ ‹q› /qʼ/ ‹q̓› /χ/ ‹x̄ʷ› /ɢʷ/ ‹ḡʷ› /qʷ/ ‹qʷ› /qʼʷ/ ‹q̓ʷ› /χʷ/ ‹x̄ʷ› GLOTTAL /ʔ/ ‹’› /ɦ/ ‹h› Table A.2 Chart of Haisla phonemic vowels and diphthongs with orthographic representation FRONT CENTRAL BACK HIGH /i(ː)/ ‹i(i)› /u(ː)/ ‹u(u)› LOW /a(ː)/ ‹a(a)› DIPHTHONGS: /ai/ (=[ɛː]) ‹ai›, /au/ (=[ɔː]) ‹au› The above describes the standard orthography as used by the community. Haisla contains 42 consonants, divided into ‘obstruents’ and ‘resonants’, both of which may be ‘plain’ (unaccented) or ‘glottalized’ (◌̓), while dorsal consonants can also be labialized (◌ʷ). There are 3 vowels, /i, a, u/; there are also two diphthongs /ai, au/, which surface as long vowels [ɛː, ɔː], and a contrast between long and short vowels, all of which is marked in the orthography. Stress is either a HIGH or a LOW tone depending on if the word is in citation/focus form or not and is marked using an acute accent ‹◌́› in the orthography; schwa ‹e› is often epenthesized in consonant clusters and is not represented in this article in underlying forms.	page 24
+appendix	Charles Murphey	heading	Appendix B: Haisla primary/secondary deictics & oblique enclitics	page 25
+appendix	Haisla	cited affix	=x̄ga	page 25
+appendix	Haisla	cited affix	=gax̄ga	page 25
+appendix	Haisla	cited affix	=(x̄)u	page 25
+appendix	Haisla	cited affix	=(ax̄)u	page 25
+appendix	Haisla	cited affix	=(x̄)i	page 25
+appendix	Haisla	cited affix	=(ax̄)i	page 25
+appendix	Haisla	cited affix	=tix̄ga	page 25
+appendix	Haisla	cited affix	=nukʷ	page 25
+appendix	Haisla	cited affix	=su/=qʷs	page 25
+appendix	Haisla	cited affix	=ganukʷ	page 25
+appendix	Haisla	cited affix	=qʷs	page 25
+appendix	Haisla	cited affix	=’qʷs	page 25
+appendix	Haisla	cited affix	=i(d)ganukʷ	page 25
+appendix	Haisla	cited affix	=i(d)qʷs	page 25
+appendix	Haisla	cited affix	=i(d)’qʷs	page 25
+appendix	Charles Murphey	note	Table B.1 Primary and secondary deictics DEIXIS PRIMARY DEICTIC SECONDARY DEICTIC PRIMARY + SECONDARY PROXIMAL =ga =x̄ga =gax̄ga MEDIAL =a(q/’) =(x̄)u =(ax̄)u DISTAL =a =(x̄)i =(ax̄)i ABSENTAL =ti =x̄ga =tix̄ga Table B.2 Oblique (possessive) enclitics 1SG 1PL.INCL 1PL.EXCL 2 =nc =nis =nukʷ =su/=qʷs 3¹ 3² 3³ 3⁴ =sik =su =si =i(d)sgi Table B.3 Compound complement enclitics 1SG 1PL.INCL 1PL.EXCL HA HN =gnc =ganis =ganukʷ =qʷs =’qʷs 3¹ 3² 3³ 3⁴ =sik =su =si =sgi Table B.4 Combined forms of complementizing enclitic =i(d) with oblique enclitics 1SG 1PL.INCL 1PL.EXCL HA HN =i(d)gnc =i(d)ganis =i(d)ganukʷ =i(d)qʷs =i(d)’qʷs 3¹ 3² 3³ 3⁴ =i(d)sik =i(d)su =i(d)si =i(d)sgi	page 25
+appendix	Charles Murphey	heading	Appendix C: Non-technical description of Haisla complex clauses	page 26
+appendix	Charles Murphey	note	In any language, it often becomes necessary to talk about a ‘sentence-within-a-sentence’, such as the following example from English: I knew that John went to the store. In this example, we can see a ‘main clause’ (MC) that itself contains a ‘subordinate’ clause (SC), both of which are marked using square brackets ‘[]’:	page 26
+appendix (1) line 1	Charles Murphey	note	[I knew [that John went to the store]SC]MC	page 26, the caption
+appendix	Charles Murphey	note	In this example, the main clause is ‘I knew…’; the word ‘that’ introduces the second sentence, which is ‘John went to the store’. Taken together, examples like this are called complex clauses because while they are a clause on their own, they additionally contain one or more additional clauses (contrasted with simple clauses, which contain just one clause, e.g., ‘John went to the store’). The example above specifically contains what’s known as a ‘complement clause’ (CC) because it ‘completes’ the idea introduced by the main clause: the verb ‘know’ in English requires that one ‘know something’, and that something can be an entire sentence on its own. Another type of complex clause is a ‘relative clause’ (RC), e.g., ‘John is the man who went to the store’. The relative clause in this sentence is marked below using curly braces ‘{}’:	page 26
+appendix (2) line 1	Charles Murphey	note	John is [the man {who went to the store}RC].	page 26, the English sentence
+appendix	Charles Murphey	note	RCs also contain an entire sentence, but they often look a little different: they are often ‘incomplete’, in that they often do not contain a subject, because they are actually modifying a noun in the main clause. In (2) above, for example, ‘the man’ is modified by ‘…who went to the store’; taken together, they form a complete unit.	page 26
+appendix	Charles Murphey	note	Both CCs and RCs are possible in Haisla as well. Below is an example first of a CC (3) and then an RC (4):	page 26
+appendix (3) line 1	Haisla	transcription	hidái bek̓ʷesáisi k̓íx̄ʷelsgiɫenc.	page 26, engine language
+appendix (3) line 2	Charles Murphey	translation	‘I ran from him because he was a sasquatch.’	page 26, engine english
+appendix (4) line 1	Haisla	transcription	dúqʷelan wísemax̄i ƛ̓i’á.	page 26, engine language
+appendix (4) line 2	Charles Murphey	translation	‘I see the man who buys.’	page 26, engine english
+appendix	Haisla	cited form	bek̓ʷesáisi	page 26, ‘…that he is a sasquatch’
+appendix	Haisla	cited form	hidái…k̓íx̄ʷelsgiɫenc	page 26, ‘the reason I ran away is…’
+appendix	Haisla	cited form	hidái	page 26
+appendix	Haisla	cited form	[bek̓ʷesáisi]SC	page 26
+appendix	Haisla	cited form	k̓íx̄ʷelsgiɫenc]MC	page 26
+appendix	Haisla	cited form	ƛ̓i’á	page 26, ‘(who) buys’
+appendix	Haisla	cited form	wísemax̄i	page 26, ‘man (over there)’
+appendix	Haisla	cited form	dúqʷelan	page 26
+appendix	Charles Murphey	note	In (3), the CC is bek̓ʷesáisi ‘…that he is a sasquatch’, which is placed within the main clause hidái…k̓íx̄ʷelsgiɫenc ‘the reason I ran away is…’ — i.e., [hidái [bek̓ʷesáisi]SC k̓íx̄ʷelsgiɫenc]MC — while in (4), the RC is ƛ̓i’á ‘(who) buys’, which modifies wísemax̄i ‘man (over there)’ — i.e., dúqʷelan [wísemax̄i {ƛ̓i’á}].	page 26
+appendix	Charles Murphey	note	To form CC’s in Haisla, the following steps must be taken:	page 26
+appendix	Haisla	cited form	bek̓ʷesá	page 26, ‘to be a sasquatch’
+appendix	Haisla	cited affix	bek̓ʷesái-	page 26
+appendix	Haisla	cited form	λu’elá	page 26
+appendix	Haisla	cited affix	λu’elái-	page 26
+appendix	Haisla	cited form	k̓íx̄ʷela	page 27, ‘run’
+appendix	Haisla	cited affix	k̓íx̄ʷeli-	page 27
+appendix	Haisla	cited affix	ƛ̓i’ái-	page 27
+appendix	Haisla	cited form	ƛ̓i’áigenc	page 27
+appendix	Haisla	cited form	’émɫa	page 27
+appendix	Haisla	cited affix	’émɫai-	page 27
+appendix	Haisla	cited form	’émɫi’eqʷs	page 27
+appendix	Haisla	cited form	’émɫiqʷs	page 27
+appendix	Charles Murphey	language	x̄á’islak̓ala	X̄a’islak̓ala, Haisla, in its own name
+appendix	Haisla	cited form	x̄enáksialak̓ala	page 27
+appendix	Haisla	cited form	qiki	page 27, ‘that (just gone / absent)’
+appendix	Charles Murphey	note	i. Find your verb, e.g., bek̓ʷesá ‘to be a sasquatch’; ii. Place the ending =i (sometimes =id instead) at the end of the verb; a. If the only vowel in the verb is /a/, or if /a/ is the only stressed vowel, then =i will be added after, as in bek̓ʷesá → bek̓ʷesái- and λu’elá → λu’elái- b. If the verb ends in /a/ but there is another vowel in the verb that is stressed, then replace /a/ with =i, e.g., k̓íx̄ʷela ‘run’ → k̓íx̄ʷeli- iii. Place the appropriate ending at the end, which will indicate the one who is doing the action in the CC; please see Table B.3 in Appendix B for a list of these endings, and see Table B.4 in the same section for how they are combined with =i(d) in different configurations. As an example, here is how one would say ‘…that I buy’ in Haisla: ƛ̓i’á → ƛ̓i’ái- → ƛ̓i’áigenc; and here is how one would say ‘…that you play’: ’émɫa → ’émɫai- → ’émɫi’eqʷs or ’émɫiqʷs. (Note that there is a difference if one is speaking x̄á’islak̓ala or x̄enáksialak̓ala — the difference is minor, but important!) In order to make an RC, a few things need to be kept in mind: (i) first, Haisla RCs always come after the noun they modify (much like in English); (ii) unlike in English, Haisla RCs may be left implicit, i.e., they do not need anything to introduce them (as in (4) above); (iii) if one wishes, it is possible to introduce the RC more overtly using one of Haisla’s deictic determiners: qik ‘this (here)’, qu ‘that (there)’, qi ‘that (over there)’, qiki ‘that (just gone / absent)’; (iv) occasionally, extra material is needed, which will be discussed shortly. Before that, though, let’s look at a few examples:	page 26
+appendix (5) line 1	Haisla	segmentation	k̓us sásemnukʷ [sáaki {ketásus JOHN-a}RC].	page 27, engine language
+appendix (5) line 2	Charles Murphey	translation	‘[The grizzly {that was shot by John}] had no cubs.’	page 27, engine english
+appendix (6) line 1	Haisla	transcription	[begʷánem {qi p̓ála}RC]	page 27, engine language, bracketed
+appendix (6) line 2	Charles Murphey	translation	‘[man {who works}]’	page 27, engine english
+appendix (7) line 1	Haisla	transcription	x̄ʷáƛasu’ina his [qi wísemax̄i {c̓ísi}RC].	page 27, engine language
+appendix (7) line 2	Charles Murphey	translation	‘It was cleaned and dressed by [the man {who takes care}].’	page 27, engine english
+appendix	Charles Murphey	note	In each of these examples, both the noun and RC have been noted in the Haisla and corresponding English translation. Example (5) demonstrates an instance where nothing is needed to introduce the relative clause: it is simply placed directly after the noun. Example (6), meanwhile, demonstrates an instance where the relative clauses is introduced by a determiner — in this case, qi — much like how English would use ‘who’, ‘which’, or ‘that’. Finally, example (7) shows an instance where the relative clause has something extra: the ending =i, which refers to an entity that is both the subject of the clause and ‘over there’, has been added to the verb in the RC. It appears as though Haisla does not allow for this type of construction to occur with a determiner — thus, one can (seemingly) not have a sentence like the following:	page 27
+appendix (8) line 1	Haisla	transcription	*[wísem {qi p̓áli}]	page 27, engine language
+appendix (8) line 2	Charles Murphey	translation	‘[man {who works}]’	page 27, engine english
+appendix	Haisla	cited form	wísem	page 27
+appendix	Charles Murphey	note	In this hypothetical example, both qi and =i have been employed in the RC, but it is unclear in talking to speakers if such an example as (8) could actually exist. It may be that since both qi and =i contain roughly the same information — they both refer to wísem, for instance, and they both indicate that the man in question is ‘over there’ (away from the speaker) — then this ‘doubling-up’ of elements is unnecessary. In that sense, it may not be strictly ‘wrong’, but it certainly appears to be dispreferred by speakers and is probably best avoided.	page 27

@@ -1,0 +1,286 @@
+where	who	kind	form	gloss
+front	Emily Blamire	title	The ordering of preverb strings in Ktunaxa	page 1
+front	Emily Blamire	name	Emily Blamire	author
+front	Emily Blamire	note	University of British Columbia	page 1, under Emily Blamire
+front	Emily Blamire	note	This paper looks at the order of preverb strings in Ktunaxa, a language isolate spoken in south-eastern British Columbia, northern Idaho and north-western Montana. Many preverbs can appear in variable orders relative to each other in the same verbal complex. Template morphology, the functional head theory by Cinque (1999), and a theory based on the scope sys- tem of Rice (2000) are all examined as possible explanations. This paper will show that Rice (2000) offers the best explana- tion, though the presence or absence of pronominal clitics may also affect the perceived acceptability of a preverb string, like- ly due to the prosodic effects of the clitics.	page 1, the abstract
+front	Emily Blamire	language	Ktunaxa	a language isolate of south-eastern British Columbia, northern Idaho and north-western Montana
+§1	Emily Blamire	heading	1 What are preverbs?	page 1
+§1	Emily Blamire	note	Preverbs in Ktunaxa are roughly comparable to English adverbs, but with a much wider range of meanings and functions1. They can modify other preverbs as well as the verb, and there seems to be no upward limit to how many preverbs can be found in one verbal complex. Strings of at least five are attested to in the literature (Dryer 2002). There can even be multiple instances of the same preverb in a verbal complex.	page 1
+footnote 1	Emily Blamire	note	There are at least several dozen preverbs in Ktunaxa. This paper presents an analysis of only a small handful of these preverbs.	page 1, footnote 1
+§1	Emily Blamire	name	Dryer	Matthew S. Dryer, preverbs in Kutenai and Algonquian (2002)
+§1	Emily Blamire	language	English	its adverbs roughly comparable to Ktunaxa preverbs
+§1	Emily Blamire	note	If preverbs are present they always appear directly before the verb base, regardless of what other morphemes may be present in the verbal com- plex. Dryer (2002) asserts that the position of preverbs is fifth in the verbal complex, directly before the verb base:	page 1
+§1	Emily Blamire	note	V.C.= (Early Particles) + (Subord) + (Pro) + (Indic Proclitic) + (Preverbs)* + Verb (Dryer 2002; 1)	page 1, set as a display
+§1	Emily Blamire	note	Most preverbs are made from a verbal stem plus the preverb suffix -iɬ. qa (‘not’) is a notable exception.	page 1
+§1	Ktunaxa	cited form	-iɬ	page 1, in italics
+§1	Emily Blamire	note	Dryer (2002) classified preverbs into several semantic categories based on their meanings and functions. So far, data collected tentatively shows that preverbs may pattern with their semantic class, though little data of this type has been collected.	page 1
+§2	Emily Blamire	heading	2 The issue	page 2
+§2	Emily Blamire	note	The order of multiple preverbs within a string in a verbal complex is not yet understood in the literature (cf. Dryer (2002), Morgan (1991)). Preverbs sometimes seem to be able to appear in free variation relative to each other in the verbal complex, without any change in meaning.	page 2
+§2	Emily Blamire	name	Morgan	Lawrence Morgan, a description of the Kutenai language (1991)
+(1) line 1	Ktunaxa	transcription	na xaʔɬsin qa isiɬ sukiɬqani	page 2
+(1) line 2	Ktunaxa	segmentation	na xaʔɬsin qa is-iɬ sukiɬqa-ni	page 2
+(1) line 3	Ktunaxa	gloss	DEM dog not(PRVB) very-PRVB good.looking-IND	page 2
+(1) line 4	Emily Blamire	translation	‘This dog is not really good-looking.’	page 2
+(2) line 1	Ktunaxa	transcription	na xaʔɬsin isiɬ qa sukiɬqani	page 2
+(2) line 2	Ktunaxa	segmentation	na xaʔɬsin is-iɬ qa sukiɬqa-ni	page 2
+(2) line 3	Ktunaxa	gloss	DEM dog very-PRVB not(PRVB) good.looking-IND	page 2
+(2) line 4	Emily Blamire	translation	‘This dog is not really good-looking.’	page 2
+§3	Emily Blamire	heading	3 Theories that do not account for preverb variability	page 2
+§3	Emily Blamire	note	Several different theories were explored when trying to account for preverb variability. This section explains why neither template morphology nor Cinque’s theory of functional heads can account for preverb variability.	page 2
+§3	Emily Blamire	name	Cinque	Guglielmo Cinque, adverbs and functional heads (1999)
+§3.1	Emily Blamire	heading	3.1 Template Morphology	page 2
+§3.1	Emily Blamire	note	Preverbs seem to have a ‘slot’ into which they fit relative to other mor- phemes in the verbal template, so I explored whether there was some way pre- verb variability could be due to template morphology. If preverb order is due to template morphology, one would expect to find variation one of two ways, either variation would only be seen between different dialects, or preverb order in strings would be completely free (as preverbs would all be placed into one large ‘slot’ in the template, and their order within would thus be unconstrained.)	page 2
+§3.1	Emily Blamire	note	When the data is examined however, neither of these possibilities seems to be what is happening with Ktunaxa preverbs. (3) and (4) are from the same dialect, and have preverbs in free variation, and (5) and (6) are examples of non-variable preverb order. Since variation occurs within the same dialect, and preverb order is not entirely free, template morphology cannot be the an- swer.	page 2
+(3) line 1	Ktunaxa	transcription	Qapsqaqapsi qa tsxaɬ hanan kiniʔni	page 2
+(3) line 2	Ktunaxa	segmentation	Qapsqaqaps-i qa tsxa-ɬ hanan k-iniʔ-ni	page 2
+(3) line 3	Ktunaxa	gloss	seems-IND not(PRVB) FUT-PRVB slow SUB-be-IND	page 2
+(3) line 4	Ktunaxa	transcription	Martina	page 2
+(3) line 5	Ktunaxa	segmentation	Martina	page 2
+(3) line 6	Ktunaxa	gloss	Martina	page 2
+(3) line 7	Emily Blamire	translation	‘Martina is not likely to be late.’	page 2
+(4) line 1	Ktunaxa	transcription	Qapsqaqapsi tsxaɬ qa hanan kiniʔni	page 3
+(4) line 2	Ktunaxa	segmentation	Qapsqaqaps-i tsxa-ɬ qa hanan k-iniʔ-ni	page 3
+(4) line 3	Ktunaxa	gloss	seems-IND FUT-PRVB not(PRVB) slow SUB-be-IND	page 3
+(4) line 4	Ktunaxa	transcription	Martina	page 3
+(4) line 5	Ktunaxa	segmentation	Martina	page 3
+(4) line 6	Ktunaxa	gloss	Martina	page 3
+(4) line 7	Emily Blamire	translation	‘Martina is not likely to be late.’	page 3
+(5) line 1	Ktunaxa	transcription	isiɬ ts’iɬ tsxani	page 3
+(5) line 2	Ktunaxa	segmentation	is-iɬ ts’-iɬ tsxa-ni	page 3
+(5) line 3	Ktunaxa	gloss	very-PRVB rapid-PRVB speak-IND	page 3
+(5) line 4	Emily Blamire	translation	‘He spoke very rapidly.’	page 3
+(6) line 1	Ktunaxa	transcription	*ts’iɬ isiɬ tsxani	page 3
+(6) line 2	Ktunaxa	segmentation	ts’-iɬ is-iɬ tsxa-ni	page 3
+(6) line 3	Ktunaxa	gloss	rapid-PRVB very-PRVB speak-IND	page 3
+(6) line 4	Emily Blamire	translation	‘He spoke very rapidly.’	page 3
+§3.2	Emily Blamire	heading	3.2 Cinque (1999)	page 3
+§3.2	Emily Blamire	note	Another theory that I explored was Cinque’s (1999) theory of function- al heads. Cinque proposed that adverbs have fixed positions in the clausal hier- archy, and that verbal elements (words such as auxiliaries, finite verbs, and past participles) can move to different landing sites below, between, and above ad- verbs. If you had two adverbs, A and B, then they would have a fixed order, for example: A>B. However, if you add a verbal element (C) you could get three possible orders: A>B>C, A>C>B, C>A>B, as the verbal element has no fixed order relative to the adverbs.	page 3
+§3.2	Emily Blamire	note	Is it possible that there are two types of preverbs? One type like Cinque’s adverbs (many preverbs do have adverbial-like functions) and another type of preverb like Cinque’s verbal elements (there are preverbs that have similar meanings and functions to those of auxiliary-type elements in other languages, for example, tsxaɬ (Future) and siɬ (Durative).)	page 3
+§3.2	Ktunaxa	cited form	tsxaɬ	page 3, in italics
+§3.2	Ktunaxa	cited form	siɬ	page 3, in italics
+§3.2	Emily Blamire	note	If Cinque (1999) is the appropriate model for Ktunaxa preverbs, the following would have to be true: if preverbs are in free variation, then at least one of the preverbs (possibly both) must be a verbal element, and if a preverb does act as a verbal element it will be in free variation with every other preverb with which it can be paired.	page 3
+§3.2	Emily Blamire	note	Given (3) and (4) above, either tsxaɬ or qa (‘not’) must be a verbal el- ement since they are in free variation. However (7) and (8) show that qa cannot be the verbal element as it is not in free variation with saniɬ (‘badly’), and (9) and (10) below show that tsxaɬ cannot be the verbal element, as it is not in free variation either with saniɬ. Since neither of the elements that are in free varia- tion in (3) and (4) (tsxal and qa) are in free variation in all situations, Cinque’s (1999) theory cannot be the answer. Any explanation of Ktunaxa preverbs must be able to account for how preverbs can be in free variation in some environ- ments but have fixed orders in other environments.	page 3
+§3.2	Ktunaxa	cited form	saniɬ	page 3, in italics
+(7) line 1	Ktunaxa	transcription	huqa saniɬ qumnini	page 4
+(7) line 2	Ktunaxa	segmentation	hu- qa san-iɬ qumni-ni	page 4
+(7) line 3	Ktunaxa	gloss	1.sg- not(PRVB) bad-PRVB sleep-IND	page 4
+(7) line 4	Emily Blamire	translation	‘I did not sleep badly.’	page 4
+(8) line 1	Ktunaxa	transcription	*husaniɬ qa qumnini	page 4
+(8) line 2	Ktunaxa	segmentation	hu- san-iɬ qa qumni-ni	page 4
+(8) line 3	Ktunaxa	gloss	1.sg- bad-PRVB not(PRVB) sleep-IN	page 4
+(8) line 4	Emily Blamire	translation	‘I did not sleep badly.’	page 4
+(9) line 1	Ktunaxa	transcription	hutsxaɬ saniɬ qumnini	page 4
+(9) line 2	Ktunaxa	segmentation	hu- tsxa-ɬ san-iɬ qumni-ni	page 4
+(9) line 3	Ktunaxa	gloss	1.sg- FUT-PRVB bad-PRVB sleep-IND	page 4
+(9) line 4	Emily Blamire	translation	‘I will sleep badly.’	page 4
+(10) line 1	Ktunaxa	transcription	*husaniɬ tsxaɬ qumnini	page 4
+(10) line 2	Ktunaxa	segmentation	hu- san-iɬ tsxa-ɬ qumni-ni	page 4
+(10) line 3	Ktunaxa	gloss	1.sg- bad-PRVB FUT-PRVB sleep-IND	page 4
+(10) line 4	Emily Blamire	translation	‘I will sleep badly.’	page 4
+§4	Emily Blamire	heading	4 Proposal	page 4
+§4	Emily Blamire	note	I propose that the order of preverb strings can be explained using a sys- tem based on the one outlined by Rice (2000). Rice proposed a system for Athabaskan verbs that orders morphemes by requiring “morphemes of greater scope to occur in fixed positions with respect to morphemes within their scope” (Rice 2000; 4). She further explained that variable morpheme order is also possible, and is due to either morphemes that are immune to the scope of other morphemes, or specific instances that make morphemes immune to the scope of other morphemes. Right away this theory offers the ability for preverbs to be in variable order with some preverbs but not others, a requirement for explaining Ktunaxa preverbs.	page 4
+§4	Emily Blamire	name	Rice	Karen Rice, morpheme order and semantic scope in the Athapaskan verb (2000)
+§4	Emily Blamire	language	Athabaskan	Rice's scope system for its verbs
+§4	Emily Blamire	note	Structurally, these scopal relationships are represented by a morpheme with greater scope c-commanding the morphemes in its scope. A morpheme able to have scope over others will be further away from the verb base than the morpheme within its scope (Rice 2000).	page 4
+§4	Emily Blamire	note	Based on this, 2-PRVB strings with fixed order would have the right- most preverb within the scope of the leftmost preverb. 2-PRVB strings that do have variable order would be composed of preverbs that are immune to the scope of each other.	page 4
+§4	Emily Blamire	note	Based on the scopal relationships present in 2-PRVB strings, the scopal relationships and thus possible orders of 3-PRVB strings should be predictable. Consider (11) and (12) below (repeated from (3) and (4).) Given that tsxaɬ and qa are in variation there should be at least two possible orders to preverb strings containing them.	page 4
+(tsxaɬ ~ qa)	Emily Blamire	note	(tsxaɬ ~ qa)	page 5, the label over the pair of examples under it, the preverbs they order
+(11) line 1	Ktunaxa	transcription	Qapsqaqapsi qa tsxaɬ hanan kiniʔni	page 5
+(11) line 2	Ktunaxa	segmentation	Qapsqaqaps-i qa tsxa-ɬ hanan k-iniʔ-ni	page 5
+(11) line 3	Ktunaxa	gloss	seems-IND not(PRVB) FUT-PRVB slow SUB-be-IND	page 5
+(11) line 4	Ktunaxa	transcription	Martina	page 5
+(11) line 5	Ktunaxa	segmentation	Martina	page 5
+(11) line 6	Ktunaxa	gloss	Martina	page 5
+(11) line 7	Emily Blamire	translation	‘Martina is not likely to be late.’	page 5
+(12) line 1	Ktunaxa	transcription	Qapsqaqapsi tsxaɬ qa hanan kiniʔni	page 5
+(12) line 2	Ktunaxa	segmentation	Qapsqaqaps-i tsxa-ɬ qa hanan k-iniʔ-ni	page 5
+(12) line 3	Ktunaxa	gloss	seems-IND FUT-PRVB not(PRVB) slow SUB-be-IND	page 5
+(12) line 4	Ktunaxa	transcription	Martina	page 5
+(12) line 5	Ktunaxa	segmentation	Martina	page 5
+(12) line 6	Ktunaxa	gloss	Martina	page 5
+(12) line 7	Emily Blamire	translation	‘Martina is not likely to be late.’	page 5
+§4	Emily Blamire	note	When saniɬ is added to tsxaɬ and qa to create a 3-PRVB string, the or- der should be dependent on the order of saniɬ in 2-PRVB strings. (13)-(16) below (repeated from (7)-(10)) show that saniɬ is not in variation with either qa or tsxaɬ and that saniɬ must always come after these two preverbs. This means that there are only two expected, acceptable orders for 3-PRVB strings: tsxaɬ qa saniɬ and qa tsxaɬ saniɬ. As it turns out these two orders are the only two ac- cepted by the language consultant, as can be seen in table 1.	page 5
+§4	Ktunaxa	cited form	tsxaɬ qa saniɬ	page 5, in italics
+§4	Ktunaxa	cited form	qa tsxaɬ saniɬ	page 5, in italics
+(qa > saniɬ)	Emily Blamire	note	(qa > saniɬ)	page 5, the label over the pair of examples under it, the preverbs they order
+(13) line 1	Ktunaxa	transcription	huqa saniɬ qumnini	page 5
+(13) line 2	Ktunaxa	segmentation	hu- qa san-iɬ qumni-ni	page 5
+(13) line 3	Ktunaxa	gloss	1.sg- not(PRVB) bad-PRVB sleep-IND	page 5
+(13) line 4	Emily Blamire	translation	‘I did not sleep badly.’	page 5
+(14) line 1	Ktunaxa	transcription	*husaniɬ qa qumnini	page 5
+(14) line 2	Ktunaxa	segmentation	hu- san-iɬ qa qumni-ni	page 5
+(14) line 3	Ktunaxa	gloss	1.sg- bad-PRVB not(PRVB) sleep-IN	page 5
+(14) line 4	Emily Blamire	translation	‘I did not sleep badly.’	page 5
+(tsxaɬ > saniɬ)	Emily Blamire	note	(tsxaɬ > saniɬ)	page 5, the label over the pair of examples under it, the preverbs they order
+(15) line 1	Ktunaxa	transcription	hutsxaɬ saniɬ qumnini	page 5
+(15) line 2	Ktunaxa	segmentation	hu- tsxa-ɬ san-iɬ qumni-ni	page 5
+(15) line 3	Ktunaxa	gloss	1.sg- FUT-PRVB bad-PRVB sleep-IND	page 5
+(15) line 4	Emily Blamire	translation	‘I will sleep badly.’	page 5
+(16) line 1	Ktunaxa	transcription	*husaniɬ tsxaɬ qumnini	page 5
+(16) line 2	Ktunaxa	segmentation	hu- san-iɬ tsxa-ɬ qumni-ni	page 5
+(16) line 3	Ktunaxa	gloss	1.sg- bad-PRVB FUT-PRVB sleep-IND	page 5
+(16) line 4	Emily Blamire	translation	‘I will sleep badly.’	page 5
+Table 1	Emily Blamire	note	PRVB order Acceptable Prediction	page 6, the table's header
+Table 1	Ktunaxa	cited form	tsxaɬ qa saniɬ	page 6, row a), Acceptable Y, Prediction Expected
+Table 1	Emily Blamire	note	Y Expected	page 6, row a), the cells Acceptable and Prediction
+Table 1	Ktunaxa	cited form	tsxaɬ saniɬ qa	page 6, row b), Acceptable N, Prediction Expected
+Table 1	Emily Blamire	note	N Expected	page 6, row b), the cells Acceptable and Prediction
+Table 1	Ktunaxa	cited form	qa tsxaɬ saniɬ	page 6, row c), Acceptable Y, Prediction Expected
+Table 1	Emily Blamire	note	Y Expected	page 6, row c), the cells Acceptable and Prediction
+Table 1	Ktunaxa	cited form	saniɬ tsxaɬ qa	page 6, row d), Acceptable N, Prediction Expected
+Table 1	Emily Blamire	note	N Expected	page 6, row d), the cells Acceptable and Prediction
+Table 1	Ktunaxa	cited form	qa saniɬ tsxaɬ	page 6, row e), Acceptable N, Prediction Expected
+Table 1	Emily Blamire	note	N Expected	page 6, row e), the cells Acceptable and Prediction
+Table 1	Ktunaxa	cited form	saniɬ qa tsxaɬ	page 6, row f), Acceptable N, Prediction Expected
+Table 1	Emily Blamire	note	N Expected	page 6, row f), the cells Acceptable and Prediction
+Table 1	Emily Blamire	note	Table 1.	page 6, the table's caption, over the sentence its rows order
+Table 1 line 1	Ktunaxa	transcription	hutsxaɬ qa saniɬ qumnini.	page 6
+Table 1 line 2	Ktunaxa	segmentation	hu-tsxa-ɬ qa san-iɬ qumni-ni.	page 6
+Table 1 line 3	Ktunaxa	gloss	1.sg-FUT-PRVB not(PRVB) bad-PRVB sleep-IND	page 6
+Table 1 line 4	Emily Blamire	translation	‘I will not sleep badly.’	page 6
+§4	Emily Blamire	note	However, the order of Ktunaxa preverbs is not always quite so straight forward. Consider the preverbs tsxaɬ, isiɬ (‘very’), and saniɬ. As already shown in (15) and (16) tsxaɬ and saniɬ do not have variable order, and (17) and (18) below show that tsxal and isiɬ also do not have variable order, nor do isiɬ and saniɬ as shown by (19) and (20). This means there is only one expected order: tsxaɬ isiɬ saniɬ. Table 2 shows that this was not the only order accepted, though. Instead, the language consultant also accepted the order: isiɬ tsxaɬ saniɬ.	page 6
+§4	Ktunaxa	cited form	isiɬ	page 6, in italics, ‘very’
+§4	Ktunaxa	cited form	tsxaɬ isiɬ saniɬ	page 6, in italics
+§4	Ktunaxa	cited form	isiɬ tsxaɬ saniɬ	page 6, in italics
+(tsxaɬ > isiɬ)	Emily Blamire	note	(tsxaɬ > isiɬ)	page 6, the label over the pair of examples under it, the preverbs they order
+(17) line 1	Ktunaxa	transcription	*Qapsqaqapsi isiɬ tsxaɬ hanan kiniʔni	page 6
+(17) line 2	Ktunaxa	segmentation	Qapsqaqaps-i is-iɬ tsxa-ɬ hanan k-iniʔ-ni	page 6
+(17) line 3	Ktunaxa	gloss	seems-IND very-PRVB FUT-PRVB slow SUB-be-IND	page 6
+(17) line 4	Ktunaxa	transcription	Martina	page 6
+(17) line 5	Ktunaxa	segmentation	Martina	page 6
+(17) line 6	Ktunaxa	gloss	Martina	page 6
+(17) line 7	Emily Blamire	translation	‘It is likely that Martina will be late.’	page 6
+(18) line 1	Ktunaxa	transcription	Qapsqaqapsi tsxaɬ isiɬ hanan kiniʔni	page 6
+(18) line 2	Ktunaxa	segmentation	Qapsqaqaps-i tsxa-ɬ is-iɬ hanan k-iniʔ-ni	page 6
+(18) line 3	Ktunaxa	gloss	seems-IND FUT-PRVB very-PRVB slow SUB-be-IND	page 6
+(18) line 4	Ktunaxa	transcription	Martina	page 6
+(18) line 5	Ktunaxa	segmentation	Martina	page 6
+(18) line 6	Ktunaxa	gloss	Martina	page 6
+(18) line 7	Emily Blamire	translation	‘It is likely that Martina will be late.’	page 6
+(isiɬ > saniɬ)	Emily Blamire	note	(isiɬ > saniɬ)	page 7, the label over the pair of examples under it, the preverbs they order
+(19) line 1	Ktunaxa	transcription	*husaniɬ isiɬ qumnini	page 7
+(19) line 2	Ktunaxa	segmentation	hu- san-iɬ is-iɬ qumni-ni	page 7
+(19) line 3	Ktunaxa	gloss	1.sg- bad-PRVB very-PRVB sleep-IND	page 7
+(19) line 4	Emily Blamire	translation	"I slept very badly“	page 7
+(20) line 1	Ktunaxa	transcription	huʔisiɬ saniɬ qumnini	page 7
+(20) line 2	Ktunaxa	segmentation	hu- is-iɬ san-iɬ qumni-ni	page 7
+(20) line 3	Ktunaxa	gloss	1.sg- very-PRVB bad-PRVB sleep-IND	page 7
+(20) line 4	Emily Blamire	translation	‘I slept very badly.’	page 7
+Table 2	Emily Blamire	note	PRVB order Acceptable Prediction	page 7, the table's header
+Table 2	Ktunaxa	cited form	tsxaɬ isiɬ saniɬ	page 7, row a), Acceptable Y, Prediction Expected
+Table 2	Emily Blamire	note	Y Expected	page 7, row a), the cells Acceptable and Prediction
+Table 2	Ktunaxa	cited form	tsxaɬ saniɬ isiɬ	page 7, row b), Acceptable N, Prediction Expected
+Table 2	Emily Blamire	note	N Expected	page 7, row b), the cells Acceptable and Prediction
+Table 2	Ktunaxa	cited form	isiɬ tsxaɬ saniɬ	page 7, row c), Acceptable Y, Prediction Not expected
+Table 2	Emily Blamire	note	Y Not expected	page 7, row c), the cells Acceptable and Prediction
+Table 2	Ktunaxa	cited form	saniɬ tsxaɬ isiɬ	page 7, row d), Acceptable N, Prediction Expected
+Table 2	Emily Blamire	note	N Expected	page 7, row d), the cells Acceptable and Prediction
+Table 2	Ktunaxa	cited form	isiɬ saniɬ tsxaɬ	page 7, row e), Acceptable N, Prediction Expected
+Table 2	Emily Blamire	note	N Expected	page 7, row e), the cells Acceptable and Prediction
+Table 2	Ktunaxa	cited form	saniɬ isiɬ tsxaɬ	page 7, row f), Acceptable N, Prediction Expected
+Table 2	Emily Blamire	note	N Expected	page 7, row f), the cells Acceptable and Prediction
+Table 2	Emily Blamire	note	Table 2.	page 7, the table's caption, over the sentence its rows order
+Table 2 line 1	Ktunaxa	transcription	hutsxaɬ isiɬ saniɬ qumnini.	page 7
+Table 2 line 2	Ktunaxa	segmentation	hu-tsxa-ɬ isi-ɬ san-iɬ qumni-ni	page 7
+Table 2 line 3	Ktunaxa	gloss	1.sg-FUT-PRVB very-PRVB bad-PRVB sleep-IND	page 7
+Table 2 line 4	Emily Blamire	translation	‘I will sleep very badly.’	page 7
+§4	Emily Blamire	note	The order isiɬ tsxaɬ saniɬ violates the 2-PRVB string order of tsxaɬ> isiɬ. These results, however, can be accounted for by revising the analysis of the scope system to include the following: The two preverbs closest to the verb base (rightmost) formed one constituent before the third preverb applied. This third preverb only sees the rightmost preverb and is blind to the intervening preverb. This is represented by figure 1.	page 7
+Figure 1	Emily Blamire	note	Figure 1. Revised analysis of 3-PRVB strings.	page 7, the figure's caption; the figure is a tree drawing
+§4	Emily Blamire	note	tsxaɬ can precede saniɬ and it applies first by forming a constituent with saniɬ. Once this first constituent is formed isiɬ applies after. Since tsxaɬ is al- ready part of a constituent isiɬ cannot “see” it and only “sees” saniɬ, which it is able to precede. This allows isiɬ the ability to precede tsxaɬ and form the second constituent.	page 7
+Figure 2	Emily Blamire	note	Figure 2. Constituents of preverb string: isiɬ tsxaɬ saniɬ	page 8, the figure's caption; the figure is a tree drawing
+§5	Emily Blamire	heading	5 Further complications	page 8
+§5	Emily Blamire	note	This may still not be the whole story. The presence or absence of pro- nominal clitic markers may also have an effect on which preverb orders are allowed in a string. The reason for this is not yet known, but may be caused by prosody. When asked, the language consultant asserted that the rhythm of the preverb string often affected whether or not the string sounded acceptable to her. If you refer back to table 1 and table 2, notice that both of the 3-PRVB string sentences begin with the pronominal clitic hu- (first person singular), but when there is no pronominal clitic with a 3-PRVB string, different results seem to arise.	page 8
+§5	Emily Blamire	note	Consider the preverbs tsxaɬ, isiɬ, and ts’iɬ (‘rapidly’). As shown above in (17) and (18) tsxaɬ must precede isiɬ and cannot appear in the opposite order. (21) and (22) below show that tsxaɬ must precede ts’iɬ, and (23) and (24) (re- peated from (5) and (6)) show that isiɬ must also precede ts’iɬ. This leads to one expected order: tsxaɬ isiɬ ts’iɬ.	page 8
+§5	Ktunaxa	cited form	ts’iɬ	page 8, in italics
+§5	Ktunaxa	cited form	tsxaɬ isiɬ ts’iɬ	page 8, in italics
+(21) line 1	Ktunaxa	transcription	tsxaɬ ts’iɬ tsxani	page 8
+(21) line 2	Ktunaxa	segmentation	tsxa-ɬ ts’-iɬ tsxa-ni	page 8
+(21) line 3	Ktunaxa	gloss	FUT-PRVB rapid-PRVB speak-IND	page 8
+(21) line 4	Emily Blamire	translation	“He will speak rapidly.”	page 8
+(22) line 1	Ktunaxa	transcription	*ts’iɬ tsxaɬ tsxani	page 8
+(22) line 2	Ktunaxa	segmentation	ts’-iɬ tsxa-ɬ tsxa-ni	page 8
+(22) line 3	Ktunaxa	gloss	rapid-PRVB FUT-PRVB speak-IND	page 8
+(22) line 4	Emily Blamire	translation	‘He will speak rapidly.’	page 8
+(23) line 1	Ktunaxa	transcription	isiɬ ts’iɬ tsxani	page 8
+(23) line 2	Ktunaxa	segmentation	is-iɬ ts’-iɬ tsxa-ni	page 8
+(23) line 3	Ktunaxa	gloss	very-PRVB rapid-PRVB speak-IND	page 8
+(23) line 4	Emily Blamire	translation	‘He spoke very rapidly.’	page 8
+(24) line 1	Ktunaxa	transcription	*ts’-iɬ is-iɬ tsxa-ni	page 8
+(24) line 2	Ktunaxa	segmentation	ts’-iɬ is-iɬ tsxa-ni	page 8
+(24) line 3	Ktunaxa	gloss	rapid-PRVB very-PRVB speak-IND	page 8
+(24) line 4	Emily Blamire	translation	‘He spoke very rapidly.’	page 8
+§5	Emily Blamire	note	With the revised analysis, though, there are actually two expected or- ders, as it is also possible for tsxaɬ and ts’iɬ to form one constituent before isiɬ can apply. Thus the two expected orders are: tsxaɬ isiɬ ts’il and isiɬ tsxaɬ ts’iɬ. Table 3 shows an unexpected result however:	page 9
+§5	Ktunaxa	cited form	tsxaɬ isiɬ ts’il	page 9, in italics
+§5	Ktunaxa	cited form	isiɬ tsxaɬ ts’iɬ	page 9, in italics
+Table 3	Emily Blamire	note	PRVB order Acceptable Prediction	page 9, the table's header
+Table 3	Ktunaxa	cited form	tsxaɬ isiɬ ts'iɬ	page 9, row a), Acceptable Y, Prediction Expected
+Table 3	Emily Blamire	note	Y Expected	page 9, row a), the cells Acceptable and Prediction
+Table 3	Ktunaxa	cited form	tsxaɬ ts'iɬ isiɬ	page 9, row b), Acceptable N, Prediction Expected
+Table 3	Emily Blamire	note	N Expected	page 9, row b), the cells Acceptable and Prediction
+Table 3	Ktunaxa	cited form	isiɬ tsxaɬ ts'iɬ	page 9, row c), Acceptable N, Prediction Not expected
+Table 3	Emily Blamire	note	N Not expected	page 9, row c), the cells Acceptable and Prediction
+Table 3	Ktunaxa	cited form	ts'iɬ tsxaɬ isiɬ	page 9, row d), Acceptable N, Prediction Expected
+Table 3	Emily Blamire	note	N Expected	page 9, row d), the cells Acceptable and Prediction
+Table 3	Ktunaxa	cited form	isiɬ ts'iɬ tsxaɬ	page 9, row e), Acceptable N, Prediction Expected
+Table 3	Emily Blamire	note	N Expected	page 9, row e), the cells Acceptable and Prediction
+Table 3	Ktunaxa	cited form	ts'iɬ isiɬ tsxaɬ	page 9, row f), Acceptable N, Prediction Expected
+Table 3	Emily Blamire	note	N Expected	page 9, row f), the cells Acceptable and Prediction
+Table 3	Emily Blamire	note	Table 3.	page 9, the table's caption, over the sentence its rows order
+Table 3 line 1	Ktunaxa	transcription	tsxaɬ isiɬ ts’iɬ tsxani	page 9
+Table 3 line 2	Ktunaxa	segmentation	tsxa-ɬ isi-ɬ ts’i-ɬ tsxa-ni	page 9
+Table 3 line 3	Ktunaxa	gloss	FUT-PRVB very-PRVB fast-PRVB speak-IND	page 9
+Table 3 line 4	Emily Blamire	translation	‘He will speak very rapidly.’	page 9
+§5	Emily Blamire	note	In table 3 it appears that the two preverbs closest to the verb base are not forming a constituent (as they do in table 2) before the third preverb applies. This could be a result of the lack of the pronominal clitic in the table 3 sentence.	page 9
+§5	Emily Blamire	note	The following two sentences give some support for this theory. Both are identical except for whether they have a third person or first person subject:	page 9
+(25) line 1	Ktunaxa	transcription	Adam tsxaɬ qa sakiɬ ikni kanahusnanas	page 9
+(25) line 2	Ktunaxa	segmentation	Adam tsxa-ɬ qa sak-iɬ ik-ni kanahusnana-s	page 9
+(25) line 3	Ktunaxa	gloss	Adam FUT-PRVB not(PRVB) still-PRVB eat-IND apple-OBV	page 9
+(25) line 4	Ktunaxa	transcription	kyukyits	page 9
+(25) line 5	Ktunaxa	segmentation	kyukyits	page 9
+(25) line 6	Ktunaxa	gloss	noon	page 9
+(25) line 7	Emily Blamire	translation	‘Adam will not still be eating the apple at noon.’	page 9
+(26) line 1	Ktunaxa	transcription	hutsxaɬ qa sakiɬ ikni kanahusnanas	page 9
+(26) line 2	Ktunaxa	segmentation	hu-tsxa-ɬ qa sak-iɬ ik-ni kanahusnana-s	page 9
+(26) line 3	Ktunaxa	gloss	hu-FUT-PRVB not(PRVB) still-PRVB eat-IND apple-OBV	page 9
+(26) line 4	Ktunaxa	transcription	kyukyits	page 9
+(26) line 5	Ktunaxa	segmentation	kyukyits	page 9
+(26) line 6	Ktunaxa	gloss	noon	page 9
+(26) line 7	Emily Blamire	translation	‘I will not still be eating the apple at noon.’	page 9
+§5	Emily Blamire	note	Table 4 shows however, that there is some variation between these two sentences as to what preverb orders are acceptable:	page 9
+Table 4	Emily Blamire	note	Preverb order 1st Person (Hu-) 3rd Person (Adam)	page 10, the table's header
+Table 4	Ktunaxa	cited form	tsxal qa sakil	page 10, row a), 1st Person (Hu-) Y, 3rd Person (Adam) Y
+Table 4	Emily Blamire	note	Y Y	page 10, row a), the cells 1st Person (Hu-) and 3rd Person (Adam)
+Table 4	Ktunaxa	cited form	tsxal sakil qa	page 10, row b), 1st Person (Hu-) Y, 3rd Person (Adam) Y
+Table 4	Emily Blamire	note	Y Y	page 10, row b), the cells 1st Person (Hu-) and 3rd Person (Adam)
+Table 4	Ktunaxa	cited form	sakil tsxal qa	page 10, row c), 1st Person (Hu-) Y (awkward), 3rd Person (Adam) Y (awkward)
+Table 4	Emily Blamire	note	Y (awkward) Y (awkward)	page 10, row c), the cells 1st Person (Hu-) and 3rd Person (Adam)
+Table 4	Ktunaxa	cited form	qa tsxal sakil	page 10, row d), 1st Person (Hu-) N, 3rd Person (Adam) Y
+Table 4	Emily Blamire	note	N Y	page 10, row d), the cells 1st Person (Hu-) and 3rd Person (Adam)
+Table 4	Ktunaxa	cited form	sakil qa tsxal	page 10, row e), 1st Person (Hu-) N, 3rd Person (Adam) Y (awkward)
+Table 4	Emily Blamire	note	N Y (awkward)	page 10, row e), the cells 1st Person (Hu-) and 3rd Person (Adam)
+Table 4	Ktunaxa	cited form	qa sakil tsxal	page 10, row f), 1st Person (Hu-) N, 3rd Person (Adam) Y (awkward)
+Table 4	Emily Blamire	note	N Y (awkward)	page 10, row f), the cells 1st Person (Hu-) and 3rd Person (Adam)
+Table 4	Emily Blamire	note	Table 4.	page 10, the table's caption, over the sentence its rows order
+Table 4 line 1	Ktunaxa	transcription	(hu/Adam) tsxaɬ qa sakiɬ ikni	page 10
+Table 4 line 2	Ktunaxa	segmentation	(hu/Adam) tsxa-ɬ qa sak-iɬ ik-ni	page 10
+Table 4 line 3	Ktunaxa	gloss	I/Adam FUT-PRVB not(PRVB) still-PRVB eat-INDIC	page 10
+Table 4 line 4	Ktunaxa	transcription	kanahusnanas kyukyits	page 10
+Table 4 line 5	Ktunaxa	segmentation	kanahusnana-s kyukyits	page 10
+Table 4 line 6	Ktunaxa	gloss	apple-OBV noon	page 10
+Table 4 line 7	Emily Blamire	translation	‘I/Adam will not still be eating an apple at noon.’	page 10
+§5	Emily Blamire	note	Since the only difference between these sentences is whether a pro- nominal clitic or proper name is present as the subject, it seems clear that there are differences between what is deemed acceptable based on whether or not a pronominal clitic is used.	page 10
+§6	Emily Blamire	heading	6 Conclusion	page 10
+§6	Emily Blamire	note	Preverb strings in Ktunaxa show that preverbs may have variable order in some environments but not others. To date, the only theory that has been able to account for this is one based on the scopal system outlined by Karen Rice (2000) for Athabaskan verbs. This theory has been modified to include two preverbs forming a constituent before a third applies, which allows for possible orders that would not be predicted by 2-PRVB strings. This forming of constituents seems like it may only happen when a pronominal clitic is present, and furthermore, there are differences in the possible preverb orders in any given sentence depending on whether or not a pronominal clitic is present. This is likely caused by prosodic effects.	page 10
+§7	Emily Blamire	heading	7 Acknowledgements	page 10
+§7	Emily Blamire	note	I would like to thank Vi Birdstone and the Ktunaxa Nation for allowing me to work on their language and present this data.	page 10
+§7	Emily Blamire	name	Vi Birdstone	the author's consultant, thanked
+§7	Emily Blamire	note	I would also like to thank Martina Wiltschko for her guidance and advice, and Rebecca Laturnus and my peers in UBC’s LING 532 for their sug- gestions and support.	page 10
+§7	Emily Blamire	name	Martina	the subject of (3), (4), (11), (12), (17) and (18)
+§7	Emily Blamire	name	Martina Wiltschko	thanked for guidance and advice
+§7	Emily Blamire	name	Rebecca Laturnus	thanked
+references	Emily Blamire	heading	References	page 11
+references	Emily Blamire	reference	Cinque, Guglielmo. Adverbs and Functional Heads: A Cross-Linguistic Perspective. New York: Oxford University Press, 1999.	page 11
+references	Emily Blamire	reference	Dryer, Matthew S. “A Comparison of Preverbs in Kutenai and Algonquian.” Edited by David Pentland. Proceedings of the Thirtieth Algonquian Confer- ence. Winnipeg: University of Manitoba, 2002. 63-94.	page 11
+references	Emily Blamire	reference	Dryer, Matthew S. “Kutenai, Algonquian, and the Pacific Northwest from an areal perspective.” Edited by H. C. Wolfart. Proceedings of the Thirty-Eighth Algonquian Conference. Winnipeg: University of Manitoba, 2007. 155-206.	page 11
+references	Emily Blamire	reference	Morgan, Lawrence. A Description of the Kutenai Language. PhD Thesis, Berkeley: University of California, 1991.	page 11
+references	Emily Blamire	reference	Rice, Karen. Morpheme Order and Semantic Scope: Word Formation in the Athapaskan Verb. Cambridge Studies in Linguistics 90. Cambridge: Cam- bridge University Press, 2000. Emily Blamire emily.blamire@gmail.com	page 11

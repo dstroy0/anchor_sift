@@ -1,0 +1,708 @@
+where	who	kind	form	gloss
+front	Henry Davis and Gloria Mellesmoen	title	Degree Constructions in Two Salish Languages	page 1, carries footnote *
+front	Henry Davis and Gloria Mellesmoen	name	Henry Davis	author
+front	Henry Davis and Gloria Mellesmoen	note	University of British Columbia	page 1, under Henry Davis
+front	Henry Davis and Gloria Mellesmoen	name	Gloria Mellesmoen	author
+front	Henry Davis and Gloria Mellesmoen	note	University of British Columbia	page 1, under Gloria Mellesmoen
+front	Henry Davis and Gloria Mellesmoen	note	Abstract: In this paper we undertake a systematic comparison of degree-related constructions in St’át’imcets (a.k.a. Lillooet: Northern Interior Salish) and ʔayʔaǰuθəm (a.k.a. Comox-Sliammon: Central Salish). We conclude that both languages instantiate the positive setting of all three degree parameters in Beck et al. (2009): the Degree Semantics Parameter, which introduces degree arguments into the syntax via gradable property-denoting predicates of type ⟨d, ⟨e, t⟩⟩; the Degree Abstraction Parameter, which allows abstraction over the degree argument; and the Degree Phrase Parameter, which allows a degree phrase to be overtly expressed. We provide a preliminary compositional semantics for degree-related constructions in the two languages. Finally, we examine one speaker’s use of conjoined comparatives in ʔayʔajuθəm: we show that in spite of surface appearances, they too must be given a semantic treatment which makes crucial use of degrees.	page 1, the abstract
+front	Henry Davis and Gloria Mellesmoen	note	Keywords: Salish, St’át’imcets/Lillooet, ʔayʔaǰuθəm/Comox-Sliammon, syntax, semantics, degree constructions, conjoined comparatives	page 1, the keywords
+front	Henry Davis and Gloria Mellesmoen	note	Papers for the International Conference on Salish and Neighbouring Languages 54. D. K. E. Reisinger and Gloria Mellesmoen (eds.). Vancouver, BC: UBCWPL, 2019.	page 1, the volume's header
+front	Henry Davis and Gloria Mellesmoen	language	ʔayʔaǰuθəm	Central Salish, also known as Comox-Sliammon, ISO 639-3 coo
+footnote *	Henry Davis and Gloria Mellesmoen	note	We are deeply grateful to our St’át’imcets and ʔayʔaǰuθəm consultants for sharing their language with us. For St’át’imcets, these include Carl Alexander and the late Laura Thevarge, as well as all the speakers who contributed to the Upper St’át’imcets Dictionary (Nqwal’uttenlhkálha) and the Upper St’át’imcets Teaching Grammar, from which we have taken examples: kʷukʷstum̓úɬkal̕ap! For ʔayʔaǰuθəm, we thank Joanne Francis, Karen Galligos, Marion Harry, Freddie Louie, Elsie Paul, Randy Timothy, Margaret Vivier, and Betty Wilson: č̓ač̓ahatanapišt! In addition, we would like to thank audiences at the Salish Working Group, WSCLA 2019 at the University of Maryland, and the 2019 McGill Workshop on Parameters in Honor of Lisa Travis, as well as Vera Hohaus, Lisa Matthewson, and Marcin Morzycki for helpful feedback and encouragement. Our work has been financially supported by grants from the Jacobs Research Funds and by SSHRC Insight grant #435-2015-1694 to Henry Davis. Authors’ e-mail addresses: Henry.Davis@ubc.ca (Davis); Gloria.mellesmoen@ubc.ca (Mellesmoen).	page 1, footnote *, on the title
+footnote *	St’át’imcets	cited form	Nqwal’uttenlhkálha	page 1, in italics
+footnote *	Henry Davis and Gloria Mellesmoen	name	Carl Alexander	a St’át’imcets speaker the authors thank
+footnote *	Henry Davis and Gloria Mellesmoen	name	Laura Thevarge	a St’át’imcets speaker
+footnote *	Henry Davis and Gloria Mellesmoen	name	Joanne Francis	a ʔayʔaǰuθəm speaker
+footnote *	Henry Davis and Gloria Mellesmoen	name	Karen Galligos	a ʔayʔaǰuθəm speaker
+footnote *	Henry Davis and Gloria Mellesmoen	name	Marion Harry	a ʔayʔaǰuθəm speaker
+footnote *	Henry Davis and Gloria Mellesmoen	name	Freddie Louie	a ʔayʔaǰuθəm speaker
+footnote *	Henry Davis and Gloria Mellesmoen	name	Elsie Paul	a ʔayʔaǰuθəm speaker
+footnote *	Henry Davis and Gloria Mellesmoen	name	Randy Timothy	a ʔayʔaǰuθəm speaker
+footnote *	Henry Davis and Gloria Mellesmoen	name	Margaret Vivier	a ʔayʔaǰuθəm speaker
+footnote *	Henry Davis and Gloria Mellesmoen	name	Betty Wilson	a ʔayʔaǰuθəm speaker
+footnote *	Henry Davis and Gloria Mellesmoen	name	Lisa Travis	thanked
+footnote *	Henry Davis and Gloria Mellesmoen	name	Vera Hohaus	thanked; Hohaus and Deal (2019), Hohaus (2018)
+footnote *	Henry Davis and Gloria Mellesmoen	name	Lisa Matthewson	thanked; Matthewson (1998, 2008)
+footnote *	Henry Davis and Gloria Mellesmoen	name	Marcin Morzycki	thanked
+footnote *	Henry Davis and Gloria Mellesmoen	language	St’át’imcets	Northern Interior Salish, also known as Lillooet, ISO 639-3 lil
+footnote *	Henry Davis and Gloria Mellesmoen	language	Salish	the family
+§1	Henry Davis and Gloria Mellesmoen	heading	1 Introduction	page 1
+§1	Henry Davis and Gloria Mellesmoen	note	Until very recently, there has been no work explicitly addressing comparative constructions in Salish; what little we knew had to be gleaned from descriptive grammars and dictionaries, which provide no detailed syntactic or semantic information, or extracted from textual materials, which give us at best a fragmentary picture of the relevant constructions. This is an unfortunate gap in documentation, which needs to be remedied, both for linguistic and pedagogical reasons, while we still have the opportunity to work with fluent first language speakers.	page 1
+§1	Henry Davis and Gloria Mellesmoen	note	Lo and Reisinger (2018; henceforth L&R) have made a promising start to this endeavor. Their work on comparatives in the Central Salish language ʔayʔaǰuθəm (Comox-Sliammon) follows a line of cross-linguistic research initiated by the parametrization of degree semantics in Beck et al. (2009). More specifically, L&R claim that ʔayʔaǰuθəm exemplifies the negative setting of the Degree Semantics Parameter (DSP), meaning that the language lacks property- denoting predicates of type ⟨d, ⟨e, t⟩⟩, where d is the semantic type of degrees.	page 1
+§1	Henry Davis and Gloria Mellesmoen	name	Beck	Sigrid Beck et al., comparison constructions (2009) and phrasal comparatives (2012)
+§1	Henry Davis and Gloria Mellesmoen	language	Comox-Sliammon	ʔayʔaǰuθəm
+§1	Henry Davis and Gloria Mellesmoen	language	Central Salish	ʔayʔaǰuθəm
+§1	Henry Davis and Gloria Mellesmoen	note	However, L&R also acknowledge that the negative setting of the DSP may not hold for all Salish languages. In particular, they suggest that St’át’imcets (Northern Interior Salish) exemplifies the positive setting of the parameter. This entails that two related and geographically adjacent Salish languages have different settings of a rather radical semantic parameter. While such a situation is logically possible, it invites closer examination.	page 1
+§1	Henry Davis and Gloria Mellesmoen	language	Northern Interior Salish	St’át’imcets
+§1	Henry Davis and Gloria Mellesmoen	note	Accordingly, in this paper, we re-evaluate the claim that ʔayʔaǰuθəm is degreeless. We show that once morphosyntactic properties of the language are taken into account and methodological difficulties are overcome, the grammar of ʔayʔaǰuθəm comparatives is very close to that of the St’át’imcets system. In fact, both are not only [+DSP] languages, but also test positively for the two other degree parameters proposed by Beck et al. (2009): the Degree Abstraction Parameter (DAP), which regulates quantification over the degree argument, and the Degree Phrase Parameter (DegPP), which regulates overt expression of a degree phrase. In addition, we explore one particularly interesting pattern in ʔayʔaǰuθəm, involving conjoined comparatives, which have previously been assumed to be diagnostic for [-DSP] status. We show that in spite of surface appearances, this pattern also tests as [+DSP] in ʔayʔaǰuθəm.	page 2
+§1	Henry Davis and Gloria Mellesmoen	note	The paper is organized as follows. We begin in Section 2 by briefly introducing relevant aspects of the literature on degree semantics, focusing on the parametric approach in Beck et al. (2009) which serves as a framework for our investigation. We then turn in Section 3 to a description of degree-related morphology in the two languages under investigation, before undertaking a systematic comparison of degree-related syntactic constructions in Section 4. Section 5 provides an outline of the degree semantics we propose for both languages. Section 6 explores the grammar of conjoined comparatives in ʔayʔaǰuθəm, and Section 7 concludes.	page 2
+§2	Henry Davis and Gloria Mellesmoen	heading	2 The Semantics of Degree and Comparison	page 2
+§2	Henry Davis and Gloria Mellesmoen	note	The grammar of comparatives has been of interest to compositional theories of the syntax- semantics interface for nearly half a century. Central to most approaches has been the postulation of degrees — intervals on a scale. The basic idea behind the degree-based analysis of gradable predicates and comparatives (as first proposed by Cresswell 1976, and then developed by von Stechow 1984, Heim 1985, 2000, Kennedy 1997, inter alia, employing syntactic generalizations first discovered by Bresnan 1973), is that gradable predicates contain an extra degree argument of type d, and are therefore of type ⟨d, ⟨e, t⟩⟩. This argument may be quantified over or modified by degree operators such as measure phrases, comparative ‘-er/ more’, superlative ‘-est/ most’, and equative ‘as’, as in (1)–(4):	page 2
+§2	Henry Davis and Gloria Mellesmoen	name	Heim	Irene Heim, comparatives (1985) and degree operators (2000)
+§2	Henry Davis and Gloria Mellesmoen	name	Kennedy	Christopher Kennedy (1997, 2007); Alrenga and Kennedy (2014)
+(1) line 1	Henry Davis and Gloria Mellesmoen	note	Marianne is nearly six feet tall.	page 2, an English example
+(2) line 1	Henry Davis and Gloria Mellesmoen	note	Marianne is taller than Henry.	page 2, an English example
+(3) line 1	Henry Davis and Gloria Mellesmoen	note	Marianne is the tallest of us.	page 2, an English example
+(4) line 1	Henry Davis and Gloria Mellesmoen	note	Gloria is not as tall as Henry.	page 2, an English example
+§2	Henry Davis and Gloria Mellesmoen	note	To give an idea of the degree-based approach, an example like (2) can be paraphrased as ‘The maximum degree on the scale of tallness which characterizes Marianne is greater than the degree of tallness which characterizes Henry.’	page 2
+§2	Henry Davis and Gloria Mellesmoen	note	Not all approaches to comparison have been degree-based: there are competing analyses which treat gradable predicates as vague and context-dependent. These theories, of which the best known is that of Klein (1980, 1991), work by partitioning the domain of discourse so that in a given context a gradable predicate is true of one set of individuals and false of another. Under such an approach, (2) could be paraphrased as ‘In the context under consideration, Marianne is tall and Henry is not tall’.	page 2
+§2	Henry Davis and Gloria Mellesmoen	note	Though arguably more economical, the pragmatic analysis has problems with difference or differential comparatives such as ‘three feet taller’, which do not simply partition individuals into comparison classes, but need an arithmetical operation of subtraction over degrees, as famously pointed out by von Stechow (1984).	page 3
+§2	Henry Davis and Gloria Mellesmoen	note	However, in a cross-linguistic context, the pragmatic approach has recently undergone a revival due to the possibility that there may be a parametric difference between “degreeful” and “degreeless” languages. Under this view, both types of theory may be correct, but for different types of languages: degreeful languages have property-denoting predicates containing a degree argument and operators which range over it, while degreeless languages treat property-denoting predicates as vague and have operators which manipulate comparison classes of individuals rather than degrees. Languages which have been claimed to be degreeless in this sense include Motu (Beck et. al. 2009), Fijian (Pearson 2009), Washo (Bochnak 2013; 2015), Warlpiri (Bowler 2016), and Nez Perce (Hohaus and Deal 2019).	page 3
+§2	Henry Davis and Gloria Mellesmoen	name	Bochnak	M. Ryan Bochnak (2013, 2015), Washo
+§2	Henry Davis and Gloria Mellesmoen	language	Nez Perce	a [-DSP] language with a comparative morpheme
+§2	Henry Davis and Gloria Mellesmoen	language	Motu	conjoined comparatives
+§2	Henry Davis and Gloria Mellesmoen	language	Fijian	conjoined comparatives
+§2	Henry Davis and Gloria Mellesmoen	language	Washo	conjoined comparatives
+§2	Henry Davis and Gloria Mellesmoen	language	Warlpiri	conjoined comparatives
+§2.1	Henry Davis and Gloria Mellesmoen	heading	2.1 Degree Parameters	page 3
+§2.1	Henry Davis and Gloria Mellesmoen	note	Like L&R, for the purposes of this paper we will assume the framework set forth in Beck et al. (2009), who propose three parameters that determine the presence of degree arguments and how they are expressed in the grammar. The first of these is the DSP (5), which specifies whether a language has lexical items that introduce degree arguments, and in particular gradable predicates of type ⟨d, ⟨e, t⟩⟩. The second parameter is the DAP (6), which either allows or prohibits degree variables from being bound in the syntax (e.g., by WH-operators, as in ‘how tall’). The final parameter is the DegPP (7), which determines the possibility of overt material in the degree argument position of a gradable predicate (e.g., ‘three feet tall’, ‘that wide’).	page 3
+(5) line 1	Henry Davis and Gloria Mellesmoen	note	The Degree Semantics Parameter (DSP)	page 3, the parameter's name
+(5) line 2	Henry Davis and Gloria Mellesmoen	note	A language {does/does not} have gradable predicates (type 〈d,〈e,t〉〉 and related), i.e. lexical items that introduce degree arguments.	page 3, the parameter
+(5) line 3	Henry Davis and Gloria Mellesmoen	citation	(Beck et al. 2009:19)	page 3, the tag or source at the right
+(6) line 1	Henry Davis and Gloria Mellesmoen	note	The Degree Abstraction Parameter (DAP)	page 3, the parameter's name
+(6) line 2	Henry Davis and Gloria Mellesmoen	note	A language {does/does not} have binding of degree variables in the syntax.	page 3, the parameter
+(6) line 3	Henry Davis and Gloria Mellesmoen	citation	(Beck et al. 2009:11)	page 3, the tag or source at the right
+(7) line 1	Henry Davis and Gloria Mellesmoen	note	The Degree Phrase Parameter (DegPP)	page 3, the parameter's name
+(7) line 2	Henry Davis and Gloria Mellesmoen	note	The degree argument position of a gradable predicate {may/may not} be overtly filled.	page 3, the parameter
+(7) line 3	Henry Davis and Gloria Mellesmoen	citation	(Beck et al. 2009:24)	page 3, the tag or source at the right
+§2.1	Henry Davis and Gloria Mellesmoen	note	Of these three parameters, the most radical (and the one we will focus on here) is the DSP, which is a classic macroparameter, in the sense that it constitutes a single “switch” set on the basis of positive evidence during the process of language acquisition, with multiple ensuing effects on the grammar. The DSP is what distinguishes a degreeless (i.e., [-DSP]) language from a degreeful (i.e., [+DSP]) language, while the settings of the DAP and the DegPP subsequently constrain the syntactic instantiation of degree expressions in a [+DSP] grammar. A [-DSP] language is expected to lack both morphological and syntactic exponents of degrees. The former include comparative, superlative, and equative morphemes, as well as items meaning ‘too’ and ‘enough’; the latter include measure phrases, comparisons with degrees, differential comparatives, degree questions, and degree equatives.	page 3
+§2.1	Henry Davis and Gloria Mellesmoen	note	It is worth noting that the morphological and syntactic reflexes of the DSP have a somewhat different status. The presence of a dedicated comparative morpheme, for example, does not preclude a degreeless analysis, as emphasized by Hohaus and Deal (2019), who provide a pragmatic analysis of the Nez Perce comparative morpheme qetu ‘more’, while treating the language as a whole as a [-DSP] system. Conversely, nothing forbids a [+DSP] language from lacking degree morphology, as long as the syntax can support the compositional mechanisms which will derive degree semantics. In fact, it is not uncommon for languages to lack degree morphology outright (Kennedy 2007), and cross-linguistically, dedicated degree morphemes like English -er and -est are far more common in European languages than elsewhere (Stassen 2013). In other words, neither the presence nor absence of dedicated degree morphology constitutes sufficient evidence for either a negative or positive setting of the DSP.	page 4
+§2.1	English	cited form	-er	page 4, in italics
+§2.1	English	cited form	-est	page 4, in italics
+§2.1	Henry Davis and Gloria Mellesmoen	name	Stassen	Leon Stassen, comparison (1985, 2013)
+§2.1	Henry Davis and Gloria Mellesmoen	language	English	degree constructions compared
+§2.1	Henry Davis and Gloria Mellesmoen	note	While many of the syntactic reflexes of a [+DSP] system can also be successfully modeled in a [-DSP] system using a pragmatic theory, at least one syntactic diagnostic, the existence of differential comparatives, appears to be a sufficient condition for [+DSP] status. Accordingly, we will place special emphasis on this construction in the following discussion.	page 4
+§3	Henry Davis and Gloria Mellesmoen	heading	3 The DSP in ʔayʔaǰuθəm and St’át’imcets	page 4
+§3	Henry Davis and Gloria Mellesmoen	note	ʔayʔaǰuθəm (a.k.a. Comox-Sliammon; ISO 363-3: coo) is the northernmost Central Salish language, traditionally spoken by the K’ómoks, Tla’amin, Klahoose, and Homalco communities in southwestern coastal British Columbia. There are approximately 47 L1 speakers. St’át’imcets (a.k.a. Lillooet; ISO 363-3: lil) is a Northern Interior Salish language spoken in southwestern interior British Columbia by fewer than 50 remaining L1 speakers.	page 4
+§3	Henry Davis and Gloria Mellesmoen	language	Lillooet	St’át’imcets
+§3	Henry Davis and Gloria Mellesmoen	note	In their investigation of comparative structures in the two languages, L&R run through a subset of the diagnostic tests in Beck et al. (2009) for ʔayʔaǰuθəm, and then compare them to parallel structures in St’át’imcets. Their conclusions are summarized in the table in (8). Their claim is that while all the relevant structures are possible in St’át’imcets, they are either impossible or questionable in ʔayʔaǰuθəm.	page 4
+(8)	Henry Davis and Gloria Mellesmoen	note	Degree semantics in Salish according to Lo and Reisinger (2018)	page 4, the table's caption
+(8)	Henry Davis and Gloria Mellesmoen	note	ʔayʔaǰuθəm St’át’imcets	page 4, the column heads
+(8)	Henry Davis and Gloria Mellesmoen	note	Measure phrase constructions	page 4, the row's head
+(8)	Henry Davis and Gloria Mellesmoen	note	No	page 4, Measure phrase constructions, ʔayʔaǰuθəm
+(8)	Henry Davis and Gloria Mellesmoen	note	Yes	page 4, Measure phrase constructions, St’át’imcets
+(8)	Henry Davis and Gloria Mellesmoen	note	Comparison with degrees	page 4, the row's head
+(8)	Henry Davis and Gloria Mellesmoen	note	?	page 4, Comparison with degrees, ʔayʔaǰuθəm
+(8)	Henry Davis and Gloria Mellesmoen	note	Yes	page 4, Comparison with degrees, St’át’imcets
+(8)	Henry Davis and Gloria Mellesmoen	note	Differential comparatives	page 4, the row's head
+(8)	Henry Davis and Gloria Mellesmoen	note	?	page 4, Differential comparatives, ʔayʔaǰuθəm
+(8)	Henry Davis and Gloria Mellesmoen	note	Yes	page 4, Differential comparatives, St’át’imcets
+(8)	Henry Davis and Gloria Mellesmoen	note	Degree Questions	page 4, the row's head
+(8)	Henry Davis and Gloria Mellesmoen	note	No	page 4, Degree Questions, ʔayʔaǰuθəm
+(8)	Henry Davis and Gloria Mellesmoen	note	Yes	page 4, Degree Questions, St’át’imcets
+(8)	Henry Davis and Gloria Mellesmoen	note	Subcomparatives	page 4, the row's head
+(8)	Henry Davis and Gloria Mellesmoen	note	No	page 4, Subcomparatives, ʔayʔaǰuθəm
+(8)	Henry Davis and Gloria Mellesmoen	note	Yes	page 4, Subcomparatives, St’át’imcets
+(8)	Henry Davis and Gloria Mellesmoen	note	Degree Equatives	page 4, the row's head
+(8)	Henry Davis and Gloria Mellesmoen	note	No	page 4, Degree Equatives, ʔayʔaǰuθəm
+(8)	Henry Davis and Gloria Mellesmoen	note	Yes	page 4, Degree Equatives, St’át’imcets
+§3	Henry Davis and Gloria Mellesmoen	note	They conclude that ʔayʔaǰuθəm is best characterized as instantiating the negative setting of the [DSP], in contrast to St’át’imcets, which is a [+DSP] language.	page 4
+§3	Henry Davis and Gloria Mellesmoen	note	In the following sections, we revisit this conclusion. We begin in 3.1 with an examination of the morphology of degrees in the two languages, pointing out some significant differences which make the two grammars look rather different. However, these differences turn out to be superficial: in Section 4, we provide a systematic comparison of degree constructions in the two languages, showing that they behave virtually identically in the syntax.	page 4
+§3.1	Henry Davis and Gloria Mellesmoen	heading	3.1 Degree Morphology	page 5
+§3.1	Henry Davis and Gloria Mellesmoen	note	In this section, we provide a survey of degree morphology in the two languages, beginning in 3.1.1 with St’át’imcets, which shows a more extensive inventory of degree-related morphemes, and then turning to ʔayʔaǰuθəm in 3.1.2.	page 5
+§3.1.1	Henry Davis and Gloria Mellesmoen	heading	3.1.1 Degree-related morphology in St’át’imcets	page 5
+§3.1.1	Henry Davis and Gloria Mellesmoen	note	St’át’imcets has free and bound morphemes marking both comparatives and superlatives (though the bound form of the comparative is confined to a few lexical items).	page 5
+§3.1.1	Henry Davis and Gloria Mellesmoen	note	The comparative is usually expressed by the predicate p̓aʔxʷ ‘more’ followed by a nominalized subordinate clause, which is optionally introduced by the determiner/complementizer (D/C) kʷ(u) =. 1 Comparison with p̓aʔxʷ is not limited to gradable adjectives: it may be over any gradable property, including amounts (usually with xʷʔit ‘much, many’), times, distances, and even desires.2	page 5
+footnote 1	Henry Davis and Gloria Mellesmoen	note	St’át’imcets examples are taken from an unpublished English-Upper St’át’imcets dictionary (Nqwal’uttenlhkálha: Davis et al. 2019) and an unpublished Upper St’át’imcets Teaching Grammar (Davis in prep.), as well as via direct elicitation by the first author. Unless otherwise indicated, ʔayʔaǰuθəm examples are from original fieldwork by both authors. Examples are given in the ‘northwestern’ version of the APA used traditionally in the literature on Salish languages. We use the following abbreviations: ABSN = absent, ACT = active intransitive marker, ADHORT = adhortative, AUT = autonomous intransitive marker, CAUS = causative transitivizer, CHAR = characteristic, COMP = complementizer, COP = copula, CTR = control transitivizer, D/C = determiner/complementizer, DEM = demonstrative, DET = determiner, DIR = directive (full control) transitivizer, EPIS = epistemic modal, ERG = ergative (transitive subject), EXCL = exclusive, EXIS = existential, FEM = feminine, INCH = inchoative, INDP = independent pronoun, INS = instrument, INTS = intensifier, INV = invisible, IPFV = imperfective, LOC = locative, MID = middle, NCT = non-control (limited control) transitivizer, NMLZ = nominalizer, OBL = oblique, PASS = passive, PL = plural, PN = proper noun, POSS = possessive, PST = past tense, REC = reciprocal, RFLX = reflexive, RLT = relational transitivizer, SG = singular, SJV = subjunctive subject, STAT = stative, SUP = superlative, VIS = visible. A hyphen (-) is used to mark an affix, an equals sign (=) a clitic, a bullet (•) a reduplicant, and angle brackets (< >) for infixation into the root; + is used where two or more morphemes are fused and cannot be linearly separated, as with e.g., D/C+NMLZ+IPFV+3POSS.	page 5, footnote 1
+footnote 2	Henry Davis and Gloria Mellesmoen	note	The Upper dialect of St’át’imcets also has a comparative predicate huʔ which is confined to amounts, as in (i):	page 5, footnote 2
+footnote 2	St’át’imcets	cited form	huʔ	page 5, in italics
+footnote 2 (i) line 1	St’át’imcets	segmentation	waʔ sáwɬen=wit ʔi=wáʔ cunám̓-xal kʷu=húʔ sqlaw̓.	page 5
+footnote 2 (i) line 2	St’át’imcets	gloss	IPFV ask=3PL PL.DET=IPFV teach-ACT DET=more money	page 5
+footnote 2 (i) line 3	Henry Davis and Gloria Mellesmoen	translation	‘The teachers are asking for more money.’	page 5
+§3.1.1	St’át’imcets	cited form	p̓aʔxʷ	page 5, in italics, ‘more’
+§3.1.1	St’át’imcets	cited form	xʷʔit	page 5, in italics, ‘much, many’
+(9) line 1	St’át’imcets	segmentation	p̓aʔxʷ s=záx-alq̕ʷəm̓=s ta=sqáyxʷ=a ɬəl=ta=smúɬac=a.	page 5
+(9) line 2	St’át’imcets	gloss	more NMLZ=long-appearance=3POSS DET=man=EXIS from=DET=woman=EXIS	page 5
+(9) line 3	Henry Davis and Gloria Mellesmoen	translation	‘The man is taller than the woman.’	page 5
+(10) line 1	St’át’imcets	segmentation	xʷuy, lhum-un-í=maɬ kʷu=p̓áʔxʷ səl l=ki=kʷíkʷs=a pátkʷa.	page 5
+(10) line 2	St’át’imcets	gloss	okay attach-DIR-PL.IMP=ADHORT DET=more string on=PL.DET=small=EXIS needle	page 5
+(10) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Okay, put some more string on the little needles.’	page 5
+(11) line 1	St’át’imcets	segmentation	p̓aʔxʷ=ƛ̓uʔ s=xʷʔit=s ʔi=sc̓úqʷaz̓ =a s-ʔústək-s s-John	page 6
+(11) line 2	St’át’imcets	gloss	more=EXCL NMLZ=many=3POSS PL.DET=fish=EXIS NMLZ-catch-3POSS NMLZ-John	page 6
+(11) line 3	St’át’imcets	segmentation	ɬəl=s-Bill.	page 6
+(11) line 4	St’át’imcets	gloss	from=NMLZ-Bill	page 6
+(11) line 5	Henry Davis and Gloria Mellesmoen	translation	‘John caught more fish than Bill.’	page 6
+(12) line 1	St’át’imcets	segmentation	p̓aʔxʷ kʷənswá cixʷ ʔákʷuʔ sáƛ̓=a	page 6
+(12) line 2	St’át’imcets	gloss	more D/C+1SG.POSS+NMLZ+IPFV get.there to.there.INV Lillooet=EXIS	page 6
+(12) line 3	St’át’imcets	segmentation	ɬəl=ta=n-səmʔám=a.	page 6
+(12) line 4	St’át’imcets	gloss	from=DET=1SG.POSS-wife=EXIS	page 6
+(12) line 5	Henry Davis and Gloria Mellesmoen	translation	‘I go to Lillooet more (often) than my wife.’	page 6
+(13) line 1	St’át’imcets	segmentation	ʔáo=tiʔ ɬlátiʔ kʷas p̓aʔxʷ ɬəlkʷʔú	page 6
+(13) line 2	St’át’imcets	gloss	NEG=DEM from.there.VIS D/C+NMLZ+IPFV+3POSS more from.there.INVIS	page 6
+(13) line 3	St’át’imcets	segmentation	two mile=k̓a ɬlátiʔ Clinton=a.	page 6
+(13) line 4	St’át’imcets	gloss	two miles=EPIS from.there.VIS Clinton=EXIS	page 6
+(13) line 5	Henry Davis and Gloria Mellesmoen	translation	‘It can’t be more than about two miles from Clinton!’	page 6
+(14) line 1	St’át’imcets	segmentation	p̓aʔxʷ kʷənswá x̌áƛ̓-min̓ kʷənswá ləp̓-xál	page 6
+(14) line 2	St’át’imcets	gloss	more D/C+1SG.POSS+NMLZ+IPFV desire-RLT D/C+1SG.POSS+NMLZ+IPFV bury-ACT	page 6
+(14) line 3	St’át’imcets	segmentation	ɬəl=kʷənswá mays-áwɬ.	page 6
+(14) line 4	St’át’imcets	gloss	from=D/C+1SG.POSS+NMLZ+IPFV fix-vehicle	page 6
+(14) line 5	Henry Davis and Gloria Mellesmoen	translation	‘I like gardening more than fixing cars.’	page 6
+§3.1.1	Henry Davis and Gloria Mellesmoen	note	The examples above also serve to illustrate the standard of comparison in St’át’imcets, which is introduced by a proclitic preposition, usually ɬəɬ= ‘from’, though l= ‘at’ is also sometimes used, with ʔə= ‘to’ being preferred in equatives. The standard may be either phrasal, as in (9), (10), and (11), or clausal, as in (12), and generally appears in the surface string following the target or associate of the comparison, as in English.	page 6
+§3.1.1	St’át’imcets	cited form	ɬəɬ=	page 6, in italics, ‘from’
+§3.1.1	St’át’imcets	cited form	l=	page 6, in italics, ‘at’
+§3.1.1	St’át’imcets	cited form	ʔə=	page 6, in italics, ‘to’
+§3.1.1	Henry Davis and Gloria Mellesmoen	note	With gradable adjectives (including those which specify quantity, such as xʷʔit ‘much, many’), the standard of comparison alone can induce a comparative reading, as in (15)–(17).	page 6
+(15) line 1	St’át’imcets	segmentation	záx-al̕qʷəm̓ kʷ=s-Fred ɬəl=s-Bill.	page 6
+(15) line 2	St’át’imcets	gloss	long-appearance PN.DET=NMLZ-Fred from=NMLZ-Bill	page 6
+(15) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Fred is taller than Bill.’	page 6
+(16) line 1	St’át’imcets	segmentation	x̌áw̓ən̓ ɬus ɣi<ʔ>p ʔi=mə̣̣ḷínɬəp=a	page 6
+(16) line 2	St’át’imcets	gloss	low COMP+IPFV+3SJV grow<INCH> PL.DET=subalpine.fir=EXIS	page 6
+(16) line 3	St’át’imcets	segmentation	ɬəl=ki=c̓k̓áz̓=a.	page 6
+(16) line 4	St’át’imcets	gloss	from=PL.DET=whitebark.pine=EXIS	page 6
+(16) line 5	Henry Davis and Gloria Mellesmoen	translation	‘Subalpine fir trees grow lower down than whitebark pine trees.’	page 6
+(17) line 1	St’át’imcets	segmentation	xʷʔit ʔi=kʷúkʷpiʔ=a ɬəl=ki=ʔuxʷalmíxʷ=a kəncʔá-wna!	page 6
+(17) line 2	St’át’imcets	gloss	many PL.DET=chief=EXIS from=PL.DET=indigenous.person=EXIS around.here-exactly	page 6
+(17) line 3	Henry Davis and Gloria Mellesmoen	translation	‘There are more chiefs than Indians around here!’	page 6
+§3.1.1	Henry Davis and Gloria Mellesmoen	note	This possibility is only available for gradable adjectives, however, and thus acts as a sufficient though not necessary condition for identifying the syntactic category Adj(ective): see H. Davis (2011). Compare for example (14a) and (14b), both based on the root √zax̌ʷ ‘melt’, the first with an adjective derived via reduplication, the second with a verb derived by infixation of the inchoative marker -ʔ-.	page 6
+§3.1.1	St’át’imcets	cited form	√zax̌ʷ	page 6, in italics, ‘melt’
+§3.1.1	St’át’imcets	cited form	-ʔ-	page 7, in italics
+(18a) line 1	St’át’imcets	segmentation	zəx̌ʷ•záx̌ʷ ta=sqʷiqʷənt-átkʷʔ=a ɬəl=ta=miχaɬ-átkʷʔ=a.	page 7
+(18a) line 2	St’át’imcets	gloss	melt•CHAR DET=whistler-liquid=EXIS from=DET=bear-liquid=EXIS	page 7
+(18a) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Whistler (hoary marmot) grease is more runny (‘melty’) than bear grease.’	page 7
+(18b) line 1	St’át’imcets	segmentation	* za<ʔ>x̌ʷ ta=sqʷiqʷənt-átkʷʔ=a ɬəl=ta=mix̌aɬ-átkʷʔ=a.	page 7
+(18b) line 2	St’át’imcets	gloss	melt<INCH> DET=whistler-liquid=EXIS from=DET=bear-liquid=EXIS	page 7
+§3.1.1	Henry Davis and Gloria Mellesmoen	note	Aside from comparatives formed with p̓aʔxʷ, St’át’imcets also has a suffixal comparative morpheme -ám which is restricted to a few lexical items such as kʷikʷs-ám ‘smaller’ and twiw̓t- ám ‘younger, more youthful’.	page 7
+§3.1.1	St’át’imcets	cited form	-ám	page 7, in italics
+§3.1.1	St’át’imcets	cited form	kʷikʷs-ám	page 7, in italics, ‘smaller’
+(19) line 1	St’át’imcets	segmentation	kʷikʷs-ám ta=kạ́h=a waʔ s-tqálk̓-s-as s-Carl	page 7
+(19) line 2	St’át’imcets	gloss	small-er DET=car=EXIS IPFV STAT-drive-CAUS-3ERG NMLZ-Carl	page 7
+(19) line 3	St’át’imcets	segmentation	ɬəl=s-Teresa.	page 7
+(19) line 4	St’át’imcets	gloss	from=NMLZ-Teresa	page 7
+(19) line 5	Henry Davis and Gloria Mellesmoen	translation	‘Carl drives a smaller car than Teresa.’	page 7
+(20) line 1	St’át’imcets	segmentation	plán=ƛ̓əɬ s=zaxt=s cʔa kʷu=sɣáp ɬəl=ta=núkʷ=a,	page 7
+(20) line 2	St’át’imcets	gloss	already=now NMLZ=long=3POSS this DET=tree from=DET=other=EXIS	page 7
+(20) line 3	St’át’imcets	segmentation	ƛ̓uʔ twiw̓t-ám.	page 7
+(20) line 4	St’át’imcets	gloss	but young-er	page 7
+(20) line 5	Henry Davis and Gloria Mellesmoen	translation	‘This tree is already taller than that one, even though it’s younger.’	page 7
+§3.1.1	Henry Davis and Gloria Mellesmoen	note	Turning to superlatives, St’át’imcets employs two main strategies, one of which involves the general purpose intensifier -ʔúl ‘real, authentic, truly, too (much)’, and the other the dedicated superlative morpheme combination n-...-tən ‘-est’.	page 7
+§3.1.1	St’át’imcets	cited form	-ʔúl	page 7, in italics, ‘real, authentic, truly, too (much)’
+§3.1.1	St’át’imcets	cited form	n-...-tən	page 7, in italics, ‘-est’
+§3.1.1	Henry Davis and Gloria Mellesmoen	note	The general purpose strategy is more common. Typical examples are given below.	page 7
+(21) line 1	St’át’imcets	segmentation	snúwa ta=kəlʔa-mx-ʔúl=a qátsk-kaɬ.	page 7
+(21) line 2	St’át’imcets	gloss	2SG.INDP DET=first-person-INTS=EXIS older.brother-1PL.POSS	page 7
+(21) line 3	Henry Davis and Gloria Mellesmoen	translation	‘You are our oldest brother.’	page 7
+(21) line 4	Henry Davis and Gloria Mellesmoen	note	(Literally: ‘You are truly the first amongst our older brothers.’)	page 7, under the translation
+(22) line 1	St’át’imcets	segmentation	swat kʷu=ʕəl•ʕəl-ʔúl ɬəl=wi=snuláp?	page 7
+(22) line 2	St’át’imcets	gloss	who DET=strong•CHAR-INTS from=PL=2PL.INDP	page 7
+(22) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Who is the strongest of you folks?’	page 7
+(22) line 4	Henry Davis and Gloria Mellesmoen	note	(Literally: ‘Who is the truly strong one from among you folks?’)	page 7, under the translation
+§3.1.1	Henry Davis and Gloria Mellesmoen	note	Notice there is nothing specifically superlative about -ʔúl in these cases: its usual intensifying function yields a quasi-superlative reading when combined with a gradable adjective and an optional standard of comparison.3	page 7
+footnote 3	Henry Davis and Gloria Mellesmoen	note	One of our St’át’imcets consultants, however, does use a variant of -ʔúl which appears to be a dedicated superlative morpheme, namely -ʔúlaʔɬ, which consists of -ʔúl plus an -aʔɬ accretion of uncertain origin. Examples are given below:	page 7, footnote 3
+footnote 3	St’át’imcets	cited form	-ʔúlaʔɬ	page 7, in italics
+footnote 3	St’át’imcets	cited form	-aʔɬ	page 7, in italics
+footnote 3 (i) line 1	St’át’imcets	segmentation	sʔə́nca ta=ɬəq̓iq̓-al̕qʷəm̓-ʔúlaʔɬ=a ɬəl=ki=tákəm=a n-k̓sáytkən.	page 8
+footnote 3 (i) line 2	St’át’imcets	gloss	1SG.INDP DET=short-appearance-SUP=EXIS from=PL.DET=all=EXIS 1SG.POSS-relative	page 8
+footnote 3 (i) line 3	Henry Davis and Gloria Mellesmoen	translation	‘I am the shortest one amongst my relatives.’	page 8
+footnote 3 (ii) line 1	St’át’imcets	segmentation	niɬ cʔa ta=xzum-ʔúlaʔɬ=a zúmak kʷu=n-s-ʔústək cʔa	page 8
+footnote 3 (ii) line 2	St’át’imcets	gloss	COP this DET=big-SUP=EXIS spring.salmon DET=1SG.POSS-NMLZ-catch this	page 8
+footnote 3 (ii) line 3	St’át’imcets	segmentation	kʷu=spipáncək.	page 8
+footnote 3 (ii) line 4	St’át’imcets	gloss	DET=summer	page 8
+footnote 3 (ii) line 5	Henry Davis and Gloria Mellesmoen	translation	‘This is the biggest spring salmon I’ve caught this summer.’	page 8
+§3.1.1	Henry Davis and Gloria Mellesmoen	note	In contrast, the dedicated morphological superlative n-...-tən only attaches to gradable adjectives, and only yields superlative meanings. Morphosyntactically, it is also distinctive in that it is noun-creating, with the target of comparison marked as the possessor of the derived noun. Examples are given in (23)–(25):	page 8
+§3.1.1	St’át’imcets	cited form	n-...-tən	page 8, in italics, the italics running on over only
+(23) line 1	St’át’imcets	segmentation	niɬ tiʔ n-cáʔ-tən-s (kʷ=s=záx-alq̕ʷəm̓=s) kʷu=sɣáp.	page 8
+(23) line 2	St’át’imcets	gloss	COP that SUP-high-SUP-3POSS (DET=NMLZ=long-appearance=3POSS) DET=tree	page 8
+(23) line 3	Henry Davis and Gloria Mellesmoen	translation	‘That is the tallest tree around here.’	page 8
+(24) line 1	St’át’imcets	segmentation	niɬ s-Bill ta=n-lə́x̌•ləx̌-tən-s=a ɬəl=ki=tákəm=a	page 8
+(24) line 2	St’át’imcets	gloss	COP NMLZ-Bill DET=SUP-smart•CHAR-SUP-3POSS=EXIS from=PL.DET=all=EXIS	page 8
+(24) line 3	St’át’imcets	segmentation	l=ta=n-cunám̓-xal-tən=a.	page 8
+(24) line 4	St’át’imcets	gloss	in=DET=LOC-teach-ACT-INS=EXIS	page 8
+(24) line 5	Henry Davis and Gloria Mellesmoen	translation	‘Bill is the smartest kid in the school.’	page 8
+(25) line 1	St’át’imcets	segmentation	ɬkʷúnsa kákʷuʔ n-qə́mp-tən-s ta=sq̓ít=a l=ta=spipánck=a.	page 8
+(25) line 2	St’át’imcets	gloss	now around.INV SUP-hot-SUP-3POSS DET=day=EXIS in=DET=summer=EXIS	page 8
+(25) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Today is the hottest day of the summer.’	page 8
+§3.1.1	Henry Davis and Gloria Mellesmoen	note	The productivity of this construction seems to vary: some speakers use it with only a few lexical items, whereas others employ it with any gradable adjective. The provenance of superlative n-... -ten is something of a mystery: it is homophonous with a locative combination meaning ‘setting’, as in n-lám-xal-tən ‘church’ (LOC-pray-ACT-INS), n-ɬám̓-tən ‘container’ (LOC- contain-INS) (see also ‘school’ in (24)), but this seems to be an accident; more likely, it is related to Squamish -tan, which also yields a superlative nominal with possessive morphology, according to Kuipers (1967:125).4	page 8
+footnote 4	Henry Davis and Gloria Mellesmoen	note	There are reports of superlative constructions in other Salish languages, though these are mostly given as isolated forms and it is therefore unclear if they function in a parallel manner to superlative n-... -tən in St’át’imcets or -est in English. These include: C1C2 reduplication applied to the predicate hičim ‘more’ in Sechelt (Beaumont 2011:287); the word t̓im ‘most’ in Cowlitz (Kinkade 2004:264), and the suffix -wins ‘superlative’ in Tillamook (Edel 1939).	page 8, footnote 4
+footnote 4	Sechelt	cited form	hičim	page 8, in italics, ‘more’
+footnote 4	Cowlitz	cited form	t̓im	page 8, in italics, ‘most’
+footnote 4	Tillamook	cited form	-wins	page 8, in italics, ‘superlative’
+footnote 4	Henry Davis and Gloria Mellesmoen	name	Beaumont	Ronald Beaumont, Sechelt dictionary (2011)
+footnote 4	Henry Davis and Gloria Mellesmoen	language	Cowlitz	superlatives
+footnote 4	Henry Davis and Gloria Mellesmoen	language	Tillamook	superlatives
+§3.1.1	St’át’imcets	cited form	n-... -ten	page 8, in italics
+§3.1.1	St’át’imcets	cited form	n-lám-xal-tən	page 8, in italics, ‘church’
+§3.1.1	St’át’imcets	cited form	n-ɬám̓-tən	page 8, in italics, ‘container’
+§3.1.1	Squamish	cited form	-tan	page 8, in italics
+§3.1.1	Henry Davis and Gloria Mellesmoen	language	Squamish	superlatives
+§3.1.2	Henry Davis and Gloria Mellesmoen	heading	3.1.2 Degree-related morphology in ʔayʔaǰuθəm	page 8
+§3.1.2	Henry Davis and Gloria Mellesmoen	note	Before presenting the morphological exponents of comparison in ʔayʔaǰuθəm, we begin by providing some more general remarks about its morphology, which at least superficially looks rather different from that of its Salish neighbours and relatives.	page 8
+§3.1.2	Henry Davis and Gloria Mellesmoen	note	More specifically, ʔayʔaǰuθəm has lost non-reduplicative prefixes, and has a strong tendency to omit proclitics.5 The result is that some important pan-Salish morphemes have either been lost or obscured. Most strikingly, the nominalizing prefix s- has gone, and its proclitic analogue s= is either fused with possessive subjects (in first and second person) or omitted altogether (in third person).	page 9
+footnote 5	Henry Davis and Gloria Mellesmoen	note	This is almost certainly due to influence from the neighbouring Northern Wakashan language Kwakw’ala (J. Davis 1970), which, like other members of its family, differs from all Salish languages except ʔayʔaǰuθəm in two relevant respects: first, it lacks complex onsets; and second, it has no non-reduplicative prefixes. Both of these traits now also characterize ʔayʔaǰuθəm; however, it remains unclear in individual cases how the Kwak’wala influence played out, since, for example, a consonantal prefix like the nominalizer s- could either have been eliminated indirectly by the phonology (since it forms complex onsets with a following C-initial stem) or directly by the morphology (since it is prefixal).	page 9, footnote 5
+footnote 5	Henry Davis and Gloria Mellesmoen	language	Kwakw’ala	Northern Wakashan, a neighbor of ʔayʔaǰuθəm
+footnote 5	Henry Davis and Gloria Mellesmoen	language	Northern Wakashan	Kwakw’ala
+§3.1.2	ʔayʔaǰuθəm	cited form	s-	page 9, in italics
+§3.1.2	Henry Davis and Gloria Mellesmoen	note	Proclitic determiners are also more frequently dropped in ʔayʔaǰuθəm than in neighbouring languages, though for the most part they can be restored in elicitation contexts (Huijsmans et al. 2018, Mellesmoen 2018). And finally, the single proclitic preposition/oblique marker ʔə= typical of Central Salish languages of the Georgia Strait region (including Halkomelem, Northern Straits, and Sechelt) has either been obscured or lost altogether, depending on the speaker. The overall result is that ʔayʔaǰuθəm often looks superficially distinct from other Salish languages, even when its underlying syntax is largely identical.	page 9
+§3.1.2	Henry Davis and Gloria Mellesmoen	language	Sechelt	hičim, c(ə)xʷin (Beaumont 2011)
+§3.1.2	Henry Davis and Gloria Mellesmoen	language	Halkomelem	superlatives
+§3.1.2	Henry Davis and Gloria Mellesmoen	language	Northern Straits	superlatives
+§3.1.2	Henry Davis and Gloria Mellesmoen	note	Turning to explicitly degree-related morphology, we note first of all that ʔayʔaǰuθəm, like St’át’imcets, has a predicate meaning ‘more’ (kʷihit). Examples are given below.	page 9
+§3.1.2	ʔayʔaǰuθəm	cited form	kʷihit	page 9, in italics
+(26) line 1	ʔayʔaǰuθəm	segmentation	kʷihit x̌ax̌aɬ Tony hu Gloria.	page 9
+(26) line 2	ʔayʔaǰuθəm	gloss	more tall Tony go Gloria	page 9
+(26) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Tony is taller than Gloria.’	page 9
+(27) line 1	ʔayʔaǰuθəm	segmentation	kʷihit tih tə kʷakʷaǰu θu tə qʷisqʷis.	page 9
+(27) line 2	ʔayʔaǰuθəm	gloss	more big DET squirrel go DET Stellar’s.Jay	page 9
+(27) line 3	Henry Davis and Gloria Mellesmoen	translation	‘The squirrel is bigger than the Stellar’s Jay.’	page 9
+(27) line 4	Henry Davis and Gloria Mellesmoen	citation	(L&R:121)	page 9, the tag or source at the right of the translation
+(28) line 1	ʔayʔaǰuθəm	segmentation	kʷihit saʔa t̓ᶿuk̓ʷ niʔ-uɬ=s nəpət.	page 9
+(28) line 2	ʔayʔaǰuθəm	gloss	more two day be-PST=3POSS lie	page 9
+(28) line 3	Henry Davis and Gloria Mellesmoen	translation	‘It’s been there for more than two days.’	page 9
+(29) line 1	ʔayʔaǰuθəm	segmentation	kʷihit qəx̌ max-əxʷ-axʷ.	page 9
+(29) line 2	ʔayʔaǰuθəm	gloss	more many get-NCT-2SG.ERG	page 9
+(29) line 3	Henry Davis and Gloria Mellesmoen	translation	‘You got more.’	page 9
+§3.1.2	Henry Davis and Gloria Mellesmoen	note	Like St’át’imcets p̓aʔxʷ, kʷihit can be used for comparison over any scalar property, including amounts (usually with qəx̌ ‘much, many’), times, and distances.	page 9
+§3.1.2	ʔayʔaǰuθəm	cited form	qəx̌	page 9, in italics, ‘much, many’
+§3.1.2	Henry Davis and Gloria Mellesmoen	note	Morphosyntactically, ʔayʔajuθəm comparatives show two obvious differences from those in St’át’imcets. First, subordinating morphology, including the D/C element, the proclitic nominalizer, and the enclitic third person possessive subject =s are more often than not missing on the complement to kʷihit. As we will see below, all three do sporadically show up, indicating that they are underlyingly present, though the D/C element is noticeably less common than the other two.6	page 9
+footnote 6	Henry Davis and Gloria Mellesmoen	note	Neighbouring and closely related Sechelt, whose inflectional morphology has not undergone the same kind of erosion as in ʔayʔaǰuθəm, also has a lexical item meaning ‘more’, hičim (Beaumont 2011:286). Interestingly, there appear to be two ways to use hičim syntactically: one resembles the St’át’imcets pattern, with a nominalized complement introduced by a D/C element, as in (i), and the other looks like the ʔayʔaǰuθəm pattern, with a bare complement, as in (ii):	page 10, footnote 6
+footnote 6 (i) line 1	Sechelt	segmentation	hičim tə=s=ʔiy=s ɬə=Stella cuʔt ƛ̓ə=caliyu.	page 10
+footnote 6 (i) line 2	Sechelt	gloss	more DET=NMLZ=good=3POSS FEM.DET=Stella go OBL.DET=1SG.INDP	page 10
+footnote 6 (i) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Stella is better than me.’	page 10
+footnote 6 (ii) line 1	Sechelt	segmentation	čəwat čə=n-man ʔə=šə=hiyay,	page 10
+footnote 6 (ii) line 2	Sechelt	gloss	smart ABSN.DET=1SG.POSS-father OBL=INV.DET=make.canoes	page 10
+footnote 6 (ii) line 3	Sechelt	segmentation	qəm hičim čəwat čə=n-čičt.	page 10
+footnote 6 (ii) line 4	Sechelt	gloss	but more smart ABSN.DET=1SG.POSS-older.brother	page 10
+footnote 6 (ii) line 5	Henry Davis and Gloria Mellesmoen	translation	‘My father is good at making canoes, but my older brother is better.’	page 10
+footnote 6	Henry Davis and Gloria Mellesmoen	note	This indicates that ʔayʔaǰuθəm examples such as (26)–(29) could have two sources: one with phonologically elided nominalization and associated possessive morphology, and one without. In the latter case, kʷihit could either be acting as an auxiliary or forming a hitherto unattested form of complex predicate with an adjectival head.	page 10, footnote 6
+§3.1.2	Henry Davis and Gloria Mellesmoen	note	The second difference is in the standard of comparison. In contrast to St’át’imcets, which uses prepositions to mark the standard, ʔayʔaǰuθəm employs the predicate hu~θu ‘go’, thus qualifying as an “exceed-type” comparative language (Stassen 2013). There are language-internal reasons for this. Because it only has a single, evanescent preposition ʔə=, ʔayʔaǰuθəm employs verb serialization in locative constructions with hu~θu, as in (30):	page 10
+§3.1.2	ʔayʔaǰuθəm	cited form	hu~θu	page 10, in italics, ‘go’
+(30) line 1	ʔayʔaǰuθəm	segmentation	ƛ̓əč̓-t-as θu ʔ=tə=qaya.	page 10
+(30) line 2	ʔayʔaǰuθəm	gloss	push-CTR-3ERG go OBL=DET=water	page 10
+(30) line 3	Henry Davis and Gloria Mellesmoen	translation	‘He pushed it into the water.’	page 10
+(30) line 4	Henry Davis and Gloria Mellesmoen	citation	(Kroeber 1999:46)	page 10, the tag or source at the right of the translation
+§3.1.2	Henry Davis and Gloria Mellesmoen	note	Given that elsewhere in Salish (e.g., in St’át’imcets) locative prepositions mark the standard of comparison, the replacement of prepositions by motion verbs in locative contexts naturally extends to comparatives, accounting for the development of exceed-type standards with hu~θu.	page 10
+§3.1.2	Henry Davis and Gloria Mellesmoen	note	As observed by L&R, ʔayʔaǰuθəm lacks affixal morphology relating to degrees, including both comparatives and superlatives.7 English superlatives are translated into ʔayʔaǰuθəm in a number of ways, sometimes without any explicit marking at all (31), sometimes with kʷihit ‘more’ (32), and sometimes with the intensifier -mut, with or without kʷihit (33). A standard of comparison containing the universal quantifier ʔuk̓ʷ ‘all/any’ may also be supplied to limit the contextually defined partition imposed by kʷihit to a unique individual (34).	page 10
+footnote 7	Henry Davis and Gloria Mellesmoen	note	One of our ʔayʔaǰuθəm consultants (JF) also produces and recognizes a prosodic contrast associated with superlative semantics, in the form of a glottal stop infixed into gradable adjectives such as titul ‘small’, to yield ti<ʔ>tul ‘really small/the smallest’. The same pattern is found with tihmut ‘big’ and x̌ax̌aɬ ‘tall’. The contrast manifests itself acoustically as a sudden drop of pitch in the initial syllable of the word, resulting in a very strong HL contour. However, it is currently unclear if the meaning associated with this process is specific to superlatives, as opposed to being a general-purpose strategy of emphasis.	page 10, footnote 7
+footnote 7	ʔayʔaǰuθəm	cited form	ti<ʔ>tul	page 10, in italics, ‘really small/the smallest’
+footnote 7	ʔayʔaǰuθəm	cited form	x̌ax̌aɬ	page 10, in italics, ‘tall’
+§3.1.2	ʔayʔaǰuθəm	cited form	-mut	page 10, in italics
+§3.1.2	ʔayʔaǰuθəm	cited form	ʔuk̓ʷ	page 10, in italics, ‘all/any’
+(31) line 1	ʔayʔaǰuθəm	segmentation	hiɬ kʷəsim ǰaʔǰa titul.	page 11
+(31) line 2	ʔayʔaǰuθəm	gloss	COP blue tree small	page 11
+(31) line 3	Henry Davis and Gloria Mellesmoen	translation	‘The blue tree is the smallest.’	page 11
+(31) line 4	Henry Davis and Gloria Mellesmoen	note	(Literally: ‘It’s the blue tree which is small.’)	page 11, at the right of the translation
+(32) line 1	ʔayʔaǰuθəm	segmentation	hiɬ tə kʷəsim ǰaʔǰa kʷihit titul.	page 11
+(32) line 2	ʔayʔaǰuθəm	gloss	COP DET blue tree more small	page 11
+(32) line 3	Henry Davis and Gloria Mellesmoen	translation	‘The blue tree is the smallest.’	page 11
+(32) line 4	Henry Davis and Gloria Mellesmoen	note	(Literally: ‘It’s the blue tree which is smaller.’)	page 11, at the right of the translation
+(33) line 1	ʔayʔaǰuθəm	segmentation	hihaw t̓ᶿit̓ᶿay-mut Henry.	page 11
+(33) line 2	ʔayʔaǰuθəm	gloss	very loud-INTS Henry	page 11
+(33) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Henry is the loudest.’	page 11
+(34) line 1	ʔayʔaǰuθəm	segmentation	kʷihit x̌ax̌aɬ paʔa ǰaʔǰaʔəm hu ʔuk̓ʷ ǰaʔǰaʔəm.	page 11
+(34) line 2	ʔayʔaǰuθəm	gloss	more tall one tree go all tree	page 11
+(34) line 3	Henry Davis and Gloria Mellesmoen	translation	‘One tree is the tallest.’	page 11
+(34) line 4	Henry Davis and Gloria Mellesmoen	note	(Literally: ‘One tree is taller than all the trees.’)8	page 11, at the right of the translation, carries footnote 8
+footnote 8	Henry Davis and Gloria Mellesmoen	note	For most speakers, ǰaǰaʔəm is the plural of ǰaǰa ‘tree’; however, the consultant (JF) who produced (34) uses both forms indiscriminately to refer to either ‘tree’ or ‘trees’.	page 11, footnote 8
+footnote 8	ʔayʔaǰuθəm	cited form	ǰaǰaʔəm	page 11, in italics
+footnote 8	ʔayʔaǰuθəm	cited form	ǰaǰa	page 11, in italics, ‘tree’
+§4	Henry Davis and Gloria Mellesmoen	heading	4 Degree Constructions	page 11
+§4	Henry Davis and Gloria Mellesmoen	note	In this section we turn to a systematic inventory of degree constructions in the two Salish languages under consideration, more or less following L&R, who in turn base their survey on Beck et al. (2009). For each construction, we first give an English equivalent by way of introducing the relevant syntactic characteristics, and then compare its St’át’imcets and ʔayʔaǰuθəm counterparts.	page 11
+§4.1	Henry Davis and Gloria Mellesmoen	heading	4.1 Measure Phrase Constructions	page 11
+§4.1	Henry Davis and Gloria Mellesmoen	note	The English example in (35) shows a measure phrase construction. It has three parts: a number, a unit of measurement, and a gradable predicate.	page 11
+(35) line 1	Henry Davis and Gloria Mellesmoen	note	The lake is six feet deep.	page 11, an English example
+§4.1	Henry Davis and Gloria Mellesmoen	note	Note that a language with measure phrases must not only be valued [+DSP], but also [+DegPP], since the DegP Parameter (8) specifically refers to the expression of an overt measure phrase (which is impossible in, e.g., Russian and Japanese, even though these are [+DSP] languages).	page 11
+§4.1	Henry Davis and Gloria Mellesmoen	language	Japanese	[+DSP] but [-DAP]
+§4.1	Henry Davis and Gloria Mellesmoen	language	Russian	genitive comparatives
+§4.1	Henry Davis and Gloria Mellesmoen	note	Measure phrases are attested in both St’át’imcets and ʔayʔaǰuθəm. In St’át’imcets, the unit of measurement may either be a traditional one based on dimensions of the body, such as tɬ-áx̌an- am, literally ‘stretched out arm’, a direct translation from English (e.g., sq̓ʷax̌t, literally ‘foot’), or a borrowing (e.g., English ‘miles’).	page 11
+§4.1	St’át’imcets	cited form	sq̓ʷax̌t	page 11, in italics
+(36) line 1	St’át’imcets	segmentation	ʔán̓was tɬ-áx̌an-am s=zaxt=s ta=sp̓ac̓ən-ɬkáɬ=a.	page 12
+(36) line 2	St’át’imcets	gloss	two stretch-arm-MID NMLZ=long=3POSS DET=net-1PL.POSS=EXIS	page 12
+(36) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Our net is two arm lengths long.’	page 12
+(37) line 1	St’át’imcets	segmentation	kaʔɬás s=q̓əm̓p=s sq̓ʷax̌t s=xáʔ=s=a ta=sɣáp=a.	page 12
+(37) line 2	St’át’imcets	gloss	three NMLZ=ten=3POSS foot NMLZ=high=3POSS=EXIS DET=tree=EXIS	page 12
+(37) line 3	Henry Davis and Gloria Mellesmoen	translation	‘The tree is thirty feet high.’	page 12
+(38) line 1	St’át’imcets	segmentation	ʔán̓was s=q̓əm̓p=s wi=cílkst miles=k̓a s=zaxt=s	page 12
+(38) line 2	St’át’imcets	gloss	two NMLZ=ten=3POSS PL=five miles=EPIS NMLZ=long=3POSS	page 12
+(38) line 3	St’át’imcets	segmentation	na=n-q̓ʷʔ-úm-tən-s=a s-x̌óƛ̓a.	page 12
+(38) line 4	St’át’imcets	gloss	ABSN.DET=LOC-trap-MID-INS-3POSS=EXIS NMLZ-x̌óƛ̓a.	page 12
+(38) line 5	Henry Davis and Gloria Mellesmoen	translation	‘Xót’a’s trapline must have been twenty five miles long.’	page 12
+§4.1	Henry Davis and Gloria Mellesmoen	note	In terms of syntax, the number and the unit of measurement together form a complex nominal predicate, which then takes a nominalized subordinate clause containing the gradable adjective and its argument.	page 12
+§4.1	Henry Davis and Gloria Mellesmoen	note	The ʔayʔaǰuθəm measure phrase construction is similar (after making allowances for missing morphology). Nominalization of the adjectival complement may be signaled by the presence of the third person possessive enclitic =s on its adjectival head, as in (39) and (41).	page 12
+(39) line 1	ʔayʔaǰuθəm	segmentation	saʔa čayiš ƛ̓aqt=s paʔa yawup.	page 12
+(39) line 2	ʔayʔaǰuθəm	gloss	two hand long=3POSS one fabric	page 12
+(39) line 3	Henry Davis and Gloria Mellesmoen	translation	‘One piece of fabric is two hands long.’	page 12
+(40) line 1	ʔayʔaǰuθəm	segmentation	saʔa laplaš p̓iq̓ tə=q̓ʷətəm.	page 12
+(40) line 2	ʔayʔaǰuθəm	gloss	two plank wide DET=river	page 12
+(40) line 3	Henry Davis and Gloria Mellesmoen	translation	‘The river is two planks wide.’	page 12
+(41) line 1	ʔayʔaǰuθəm	segmentation	čaləs məm•mimaw x̌ax̌aɬ=s Marianne.	page 12
+(41) line 2	ʔayʔaǰuθəm	gloss	three PL•cat tall=3POSS Marianne	page 12
+(41) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Marianne is three cats tall.’	page 12
+§4.1	Henry Davis and Gloria Mellesmoen	note	Notice that none of the units of measurement used here (with the possible exception of ‘hands’) are conventionalized. Unlike St’át’imcets speakers, more conservative ʔayʔaǰuθəm speakers resist using unassimilated English terms such as ‘miles’ or ‘pounds’ in their measure phrase constructions, and since traditional measures seem to have largely dropped out of the language, the result is a lexical semantic gap in the domain of measure words. This is undoubtedly one of the reasons L&R concluded that ʔayʔaǰuθəm lacked measure phrase constructions altogether, particularly since they were working with the oldest of our consultants, who are particularly resistant to employing non-traditional terms.	page 12
+§4.1	Henry Davis and Gloria Mellesmoen	note	Younger and more innovative speakers, however, do readily accept nonce measure terms such as ‘planks’, and even ‘cats’ in elicitation contexts; an analogy can be made to the use of measure functions with mass nouns, as in ‘piles of dirt’, ‘pots of water’, or ‘handfuls of gold’. Furthermore, even the oldest of our ʔayʔaǰuθəm consultants is able to use measure phrase constructions with demonstratives such as tiʔi ‘this (much)’, even though she generally rejects measure phrases containing English borrowings or nonce measure words:	page 12
+§4.1	ʔayʔaǰuθəm	cited form	tiʔi	page 12, in italics, ‘this (much)’
+(42) line 1	ʔayʔaǰuθəm	segmentation	θəxʷin tiʔi s=ƛ̓aqt=s.	page 13
+(42) line 2	ʔayʔaǰuθəm	gloss	how this NMLZ=long=3POSS	page 13
+(42) line 3	Henry Davis and Gloria Mellesmoen	translation	‘This is how long it is.’	page 13
+(42) line 4	Henry Davis and Gloria Mellesmoen	note	(‘This is how the length of it is.’ — speaker’s translation, accompanied by a hand gesture)9	page 13, under the translation, the speaker's translation, carries footnote 9
+footnote 9	Henry Davis and Gloria Mellesmoen	note	It is important to emphasize that the nominalization in (42) is not noun-creating (in spite of the speaker’s translation): rather, it yields a nominalized subordinate clause. We can tell this because lexical nominalization (which marks nouns and NPs, as opposed to clauses) is completely absent in ʔayʔaǰuθəm, due to the elimination of all prefixes in the language. The s= here is therefore a proclitic, which is used generally in Salish to introduce a clause-level nominalization (see, e.g., Kroeber 1999).	page 13, footnote 9
+§4.1	Henry Davis and Gloria Mellesmoen	note	The construction in (42) is syntactically parallel to the cases in (39)–(41), with the gradable property term in a nominalized subordinate clause, and the degree predicate θəxʷin ‘how (much)’ in main predicate position.10	page 13
+footnote 10	Henry Davis and Gloria Mellesmoen	note	Thanks to Daniel Reisinger for this example.	page 13, footnote 10
+footnote 10	Henry Davis and Gloria Mellesmoen	name	Daniel Reisinger	D. K. E. Reisinger; Lo and Reisinger (2018), L&R
+§4.1	ʔayʔaǰuθəm	cited form	θəxʷin	page 13, in italics, ‘how (much)’
+§4.2	Henry Davis and Gloria Mellesmoen	heading	4.2 Comparison with Degrees	page 13
+§4.2	Henry Davis and Gloria Mellesmoen	note	In this construction, the standard of comparison is a degree rather than an entity, as illustrated by the English example in (43), where the degree to which the lake is deep exceeds the degree of depth denoted by ‘six feet’.	page 13
+(43) line 1	Henry Davis and Gloria Mellesmoen	note	The lake is more than six feet deep.	page 13, an English example
+§4.2	Henry Davis and Gloria Mellesmoen	note	Comparison with degrees is possible in both St’át’imcets and ʔayʔaǰuθəm. St’át’imcets examples are given in (44)–(45).	page 13
+(44) line 1	St’át’imcets	segmentation	p̓aʔxʷ ɬəl=kʷu=x̌ʷʔúcin sq̓ʷax̌t s=zaxt=s tiʔ kʷu=sc̓úqʷaz̓.	page 13
+(44) line 2	St’át’imcets	gloss	more from=DET=four foot NMLZ=long=3POSS that DET=fish	page 13
+(44) line 3	Henry Davis and Gloria Mellesmoen	translation	‘That fish is more than four feet long.’	page 13
+(45) line 1	St’át’imcets	segmentation	p̓áʔxʷ=k̓’a l=kʷu=pálaʔ sq̓ʷax̌t s=zaxt=s ʔi=sxʷák̓ʷt=a	page 13
+(45) line 2	St’át’imcets	gloss	more=EPIS at=DET=one foot NMLZ=long=3POSS PL.DET=hoar.frost=EXIS	page 13
+(45) line 3	St’át’imcets	segmentation	waʔ s-tax̌ʷ l=ki=sɣráp=a k̓ík̓taʔ-s=a ʔi=calá̕ɬ=a.	page 13
+(45) line 4	St’át’imcets	gloss	IPFV STAT-hang at=PL.DET=tree=EXIS near-3POSS=EXIS PL.DET=lake=EXIS	page 13
+(45) line 5	Henry Davis and Gloria Mellesmoen	translation	‘The hoar frost hanging from the trees next to the lakes must have been more than a foot long.’	page 13
+§4.2	Henry Davis and Gloria Mellesmoen	note	Notice that the standard of comparison immediately follows p̓aʔxʷ when it directly denotes a degree, in contrast to examples where it does so indirectly via an entity, in which case it is extraposed (cf., e.g., (9), (12), and (14) above).	page 13
+§4.2	Henry Davis and Gloria Mellesmoen	note	Parallel examples from ʔayʔaǰuθəm are given in (46)–(47):	page 13
+(46) line 1	ʔayʔaǰuθəm	segmentation	kʷihit θiyačis miles niǰi Maple Ridge.	page 13
+(46) line 2	ʔayʔaǰuθəm	gloss	more five miles far Maple Ridge	page 13
+(46) line 3	Henry Davis and Gloria Mellesmoen	translation	‘It is more than five miles to Maple Ridge.’	page 13
+(47) line 1	ʔayʔaǰuθəm	segmentation	kʷihit saʔa tintin ƛ̓əct Daniel.	page 14
+(47) line 2	ʔayʔaǰuθəm	gloss	more two bell sleep Daniel	page 14
+(47) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Daniel slept for more than two hours.’	page 14
+§4.2	Henry Davis and Gloria Mellesmoen	note	Once again, missing morphology here belies the fundamental similarity of the ʔayʔaǰuθəm degree system to its St’át’imcets counterpart: word order, for example, is identical in the two languages, though both nominalization and the standard marker hu~θu are absent in the ʔayʔaǰuθəm examples.	page 14
+§4.3	Henry Davis and Gloria Mellesmoen	heading	4.3 Differential Comparatives	page 14
+§4.3	Henry Davis and Gloria Mellesmoen	note	Differential (or difference) comparatives involve a comparison of degrees, whereby two or more sets of degrees are compared along the same scalar dimension. An English example is given in (48), where the (degree of) depth of a lake is compared to the (degree of) depth of a creek. The difference between the two totals is six feet.	page 14
+(48) line 1	Henry Davis and Gloria Mellesmoen	note	The lake is six feet deeper than the creek.	page 14, an English example
+§4.3	Henry Davis and Gloria Mellesmoen	note	As mentioned above, differential comparatives provide crucial evidence for a degree-based semantics, since they do not simply partition the domain of gradable properties, but specify the difference between them via an explicit operation of subtraction over degrees.	page 14
+§4.3	Henry Davis and Gloria Mellesmoen	note	Differential comparatives are found in both St’át’imcets and ʔayʔaǰuθəm. The examples in (49)–(51) illustrate the construction in St’át’imcets.	page 14
+(49) line 1	St’át’imcets	segmentation	kaɬás sq̓ʷax̌t s=p̓aʔxʷ=s s=zaxt=s cʔa kʷu=laplạ́s	page 14
+(49) line 2	St’át’imcets	gloss	three foot NMLZ=more=3POSS NMLZ=long=3POSS this DET=plank	page 14
+(49) line 3	St’át’imcets	segmentation	ɬəl=ti=núkʷ=a.	page 14
+(49) line 4	St’át’imcets	gloss	from=DET=other=EXIS	page 14
+(49) line 5	Henry Davis and Gloria Mellesmoen	translation	‘This plank is three feet longer than the other one.’	page 14
+(50) line 1	St’át’imcets	segmentation	pálaʔ sq̓ʷax̌t s=záx-al̕qʷəm̓=s s-Tony ɬəl=s-Mary.	page 14
+(50) line 2	St’át’imcets	gloss	one foot NMLZ=long-appearance=3POSS NMLZ-Tony from=NMLZ-Mary	page 14
+(50) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Tony is a foot taller than Mary.’	page 14
+(51) line 1	St’át’imcets	segmentation	ʔán̓was s=zánuxʷ=s s=kəlʔá-mx=s s-Mary ɬəl=s-Peter.	page 14
+(51) line 2	St’át’imcets	gloss	two NMLZ=year=3POSS NMLZ=first-person=3POSS NMLZ-Mary from=NMLZ-Peter	page 14
+(51) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Mary is two years older than Peter.’	page 14
+§4.3	Henry Davis and Gloria Mellesmoen	note	As in examples with simple measure phrases (4.1) the number and the unit of measurement together form a complex nominal predicate, followed optionally by a nominalized clause headed by p̓aʔxʷ ‘more’, which in turn takes another nominalized clause containing the gradable adjective, the target, and the standard of comparison. As (50) and (51) show, p̓aʔxʷ is more often than not omitted in these cases, with the standard of comparison alone inducing a comparative meaning, just as in ordinary comparisons with gradable adjectives.	page 14
+§4.3	Henry Davis and Gloria Mellesmoen	note	Examples of differential comparatives in ʔayʔaǰuθəm are given in (52)–(54):	page 14
+(52) line 1	ʔayʔaǰuθəm	segmentation	paʔa ǰəšin kʷihit=s x̌ax̌aɬ Marianne higa Daniel θu Gloria.	page 15
+(52) line 2	ʔayʔaǰuθəm	gloss	one foot more=3POSS tall Marianne CNJ Daniel go Gloria	page 15
+(52) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Marianne and Daniel are one foot taller than Gloria.’	page 15
+(53) line 1	ʔayʔaǰuθəm	segmentation	paʔa mimaw kʷihit=s x̌ax̌aɬ Marianne θu Gloria.	page 15
+(53) line 2	ʔayʔaǰuθəm	gloss	one cat more=3POSS tall Marianne go Gloria	page 15
+(53) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Marianne is one cat taller than Gloria.’	page 15
+(54) line 1	ʔayʔaǰuθəm	segmentation	paʔa qʷumay tᶿ=kʷihit s=ƛ̓ax̌ay θu nəgi.	page 15
+(54) line 2	ʔayʔaǰuθəm	gloss	one snow 1SG.POSS=more NMLZ=old go you	page 15
+(54) line 3	Henry Davis and Gloria Mellesmoen	translation	‘I am one year older than you.’	page 15
+§4.3	Henry Davis and Gloria Mellesmoen	note	These cases parallel those in St’át’imcets, and furthermore all show relics of nominalization, including the third person possessive enclitic =s on kʷihit in (52)–(53), and the first person possessive proclitic tᶿ= on kʷihit in (54), as well as the nominalizer s= introducing its complement.	page 15
+§4.3	ʔayʔaǰuθəm	cited form	tᶿ=	page 15, in italics
+§4.4	Henry Davis and Gloria Mellesmoen	heading	4.4 Degree Questions	page 15
+§4.4	Henry Davis and Gloria Mellesmoen	note	Degree questions involve explicit quantification over the degree argument of a gradable predicate, and are thus relevant not only to the DSP but also to the Degree Abstraction Parameter (DAP) given in (6) above. Languages like Japanese and Mandarin, which are [+DSP] but [-DAP], do not permit genuine degree questions, though some care must be taken to distinguish them from look-alike constructions involving e.g., degree-denoting nouns. The distinction can be illustrated with the English examples in (55):	page 15
+§4.4	Henry Davis and Gloria Mellesmoen	language	Mandarin	[+DSP] but [-DAP]
+(55a) line 1	Henry Davis and Gloria Mellesmoen	note	How (many feet) deep is the lake?	page 15, an English example
+(55b) line 1	Henry Davis and Gloria Mellesmoen	note	What is the depth (in feet) of the lake?	page 15, an English example
+§4.4	Henry Davis and Gloria Mellesmoen	note	According to the DAP, (55a) is a genuine degree question, while (55b) is not. Accordingly, Japanese and Mandarin lack type (a) questions, and employ variants of the strategy in (b).	page 15
+§4.4	Henry Davis and Gloria Mellesmoen	note	Degree questions can be formed in St’át’imcets in two ways. The first involves the “approximative” adverb c̓íla ‘(be) like, resembling’ together with the general purpose WH- predicate nkaʔ ‘(be) where, which’, with the adjectival complement of the predicate nominalized.	page 15
+§4.4	St’át’imcets	cited form	c̓íla	page 15, in italics, ‘(be) like, resembling’
+§4.4	ʔayʔaǰuθəm	cited form	nkaʔ	page 15, in italics, ‘(be) where, which’
+(56) line 1	St’át’imcets	segmentation	c̓íla nkaʔ s=ƛ̓pam̓=s ta=sx̌ə́tq=a?	page 15
+(56) line 2	St’át’imcets	gloss	like which NMLZ=deep=3POSS DET=hole=EXIS	page 15
+(56) line 3	Henry Davis and Gloria Mellesmoen	translation	‘How deep is the hole?’	page 15
+(57) line 1	St’át’imcets	segmentation	cwas-ən-ítas ta=Rex Mountain c̓íla s=nkaʔ s=xaʔ=s.	page 15
+(57) line 2	St’át’imcets	gloss	measure-DIR-3PL.ERG DET=Rex Mountain like NMLZ=which NMLZ=high=3POSS	page 15
+(57) line 3	Henry Davis and Gloria Mellesmoen	translation	‘They measured Rex Mountain to see how high it was.’	page 15
+§4.4	Henry Davis and Gloria Mellesmoen	note	The likelihood is that this is not a genuine case of quantification over the degree argument of a gradable adjective, but an “extent” question of a type also attested in Japanese (Beck et al. 2009): i.e., ‘To what extent is the hole deep?’ rather than ‘How deep is the hole?’.	page 15
+§4.4	Henry Davis and Gloria Mellesmoen	note	The second type of St’át’imcets degree question is a better candidate for genuine WH- quantification over degrees. It involves the WH-word skənkán ‘how (much)’ which also quantifies over portions of mass nouns.11 As usual with degrees expressions, the complement of the WH-predicate is nominalized, and may optionally also be preceded by the D/C element kʷ(u) =.	page 16
+footnote 11	Henry Davis and Gloria Mellesmoen	note	More generally, the syntax and semantics of gradable properties is very similar to that of mass nouns in both St’át’imcets and ʔayʔaǰuθəm. This is unlikely to be an accident, and invites more detailed investigation: see Schwarzschild (2005) for observations on this relationship in English.	page 16, footnote 11
+§4.4	St’át’imcets	cited form	skənkán	page 16, in italics, ‘how (much)’
+(58) line 1	St’át’imcets	segmentation	skənkán kʷ=s=xin̓=s kʷála̕p mamáw̓s?	page 16
+(58) line 2	St’át’imcets	gloss	how D/C=NMLZ=long=3POSS D/C+NMLZ+IPFV+2PL.POSS couple	page 16
+(58) line 3	Henry Davis and Gloria Mellesmoen	translation	‘How long have you been a couple/married?’	page 16
+(59) line 1	St’át’imcets	segmentation	skənkán s=pə̣m-p=s ɬ=as n-q̓áy-ləx	page 16
+(59) line 2	St’át’imcets	gloss	how NMLZ=fast-INCH=3POSS COMP=IPFV+3SJV LOC-jump-AUT	page 16
+(59) line 3	St’át’imcets	gloss	NMLZ-Mary?	page 16
+(59) line 4	St’át’imcets	segmentation	s-Mary	page 16
+(59) line 5	Henry Davis and Gloria Mellesmoen	translation	‘How fast does Mary swim?’	page 16
+(59) line 6	Henry Davis and Gloria Mellesmoen	note	(Literally ‘How fast is Mary when she swims?’)	page 16, at the right of the translation
+§4.4	Henry Davis and Gloria Mellesmoen	note	There are also two ways of expressing degree questions in ʔayʔaǰuθəm. The first employs the question word θəxʷin, ‘(be) how’. This word is not a typical Salish WH-predicate: it has a basic meaning of ‘be like this, be this way’, and appears in equatives with this meaning (see 4.6 below).12 Its use as a WH-word therefore appears to be an innovation. When used as a degree quantifier, it takes a nominalized complement clause (signaled by both the nominalizer and possessive morphology) containing the gradable predicate whose degree argument it quantifies over.	page 16
+footnote 12	Henry Davis and Gloria Mellesmoen	note	Sechelt has a direct cognate of θəxʷin: c(ə)xʷin, glossed by Beaumont (2011:286) as ‘equal, identical, similar to s.o./s.th., including the way s.th.is done, is supposed to be, etc.’. However, Beaumont gives no indication that the Sechelt term can be used as a WH-predicate.	page 16, footnote 12
+footnote 12	Sechelt	cited form	c(ə)xʷin	page 16, in italics
+(60) line 1	ʔayʔaǰuθəm	segmentation	θəxʷin s=ƛ̓əp=s tə qaya?	page 16
+(60) line 2	ʔayʔaǰuθəm	gloss	how NMLZ=deep=3POSS DET water	page 16
+(60) line 3	Henry Davis and Gloria Mellesmoen	translation	‘How deep is the water?’	page 16
+(61) line 1	ʔayʔaǰuθəm	segmentation	θəxʷin s=p̓iq̓=s θ=χaƛ̓?	page 16
+(61) line 2	ʔayʔaǰuθəm	gloss	how NMLZ=wide=3POSS 2SG.POSS=want	page 16
+(61) line 3	Henry Davis and Gloria Mellesmoen	translation	‘How wide do you want it?’	page 16
+§4.4	Henry Davis and Gloria Mellesmoen	note	The second type of ʔayʔaǰuθəm degree question employs the pan-Salish WH-quantifier k̓ʷin ‘how many’, which is also present in St’át’imcets. Questions with k̓ʷin in ʔayʔaǰuθəm always contain a measure phrase as well as a gradable property, which is unsurprising if k̓’ʷin only quantifies over countable entities (including degrees).	page 16
+§4.4	ʔayʔaǰuθəm	cited form	k̓ʷin	page 16, in italics, ‘how many’
+§4.4	ʔayʔaǰuθəm	cited form	k̓’ʷin	page 16, in italics
+(62) line 1	ʔayʔaǰuθəm	segmentation	k̓ʷin čayiš p̓iq̓=s tə yawup?	page 16
+(62) line 2	ʔayʔaǰuθəm	gloss	how.many hand wide=3POSS DET fabric	page 16
+(62) line 3	Henry Davis and Gloria Mellesmoen	translation	‘How many hands wide is the fabric?’	page 16
+(63) line 1	ʔayʔaǰuθəm	segmentation	k̓ʷin tə miles kʷihit=s niǰi?	page 17
+(63) line 2	ʔayʔaǰuθəm	gloss	how.many DET miles more=3POSS far	page 17
+(63) line 3	Henry Davis and Gloria Mellesmoen	translation	‘How many miles further is it?’	page 17
+§4.5	Henry Davis and Gloria Mellesmoen	heading	4.5 Subcomparatives	page 17
+§4.5	Henry Davis and Gloria Mellesmoen	note	Subcomparative constructions involve the explicit comparison of two different dimensions: the degree to which one thing is X is compared to the degree to which another is Y. An example from English is given in (64), where the degree to which the lake is deep is compared to the degree to which the creek is wide. The parenthesized measure phrase shows that it is also possible to create a differential subcomparative.	page 17
+(64) line 1	Henry Davis and Gloria Mellesmoen	note	The lake is (six feet) deeper than the creek is wide.	page 17, an English example
+§4.5	Henry Davis and Gloria Mellesmoen	note	Subcomparatives are only possible in languages where the standard of comparison may be clausal. For example, Nez Perce, which only allows phrasal comparatives, disallows subcomparatives altogether (Hohaus and Deal 2019).	page 17
+§4.5	Henry Davis and Gloria Mellesmoen	note	Both Salish languages under investigation permit subcomparatives. St’át’imcets examples are given in (65)–(66).	page 17
+(65) line 1	St’át’imcets	segmentation	p̓aʔxʷ s=zaxt=s ta=sɣáp=a ɬəl=ta=s=ɬə́q̓=s=a	page 17
+(65) line 2	St’át’imcets	gloss	more NMLZ=long=3POSS DET=tree=EXIS from=D/C=NMLZ=wide=3POSS=EXIS	page 17
+(65) line 3	St’át’imcets	segmentation	ta=scwáw̓x=a.	page 17
+(65) line 4	St’át’imcets	gloss	DET=creek=EXIS	page 17
+(65) line 5	Henry Davis and Gloria Mellesmoen	translation	‘The tree is taller than the creek is wide.’	page 17
+(66) line 1	St’át’imcets	segmentation	p̓aʔxʷ s=xzum=s ta=x̌ə́cəm=a ɬəl=ta=s=ƛ̓pám̓=s=a	page 17
+(66) line 2	St’át’imcets	gloss	more NMLZ=big=3POSS DET=box=EXIS from=D/C=NMLZ=deep=3POSS=EXIS	page 17
+(66) line 3	St’át’imcets	segmentation	ta=sx̌ə́tq=a.	page 17
+(66) line 4	St’át’imcets	gloss	DET=hole=EXIS	page 17
+(66) line 5	Henry Davis and Gloria Mellesmoen	translation	‘The box is bigger than the hole is deep.’	page 17
+§4.5	Henry Davis and Gloria Mellesmoen	note	It is typical in St’át’imcets for the clausal standard of a subcomparative to be overtly introduced by a D/C element (here, ta=... =a) as well as the nominalizer.	page 17
+§4.5	Henry Davis and Gloria Mellesmoen	note	The same is partially true of ʔayʔaǰuθəm; as shown in (67), the clausal standard of subcomparatives is one of the few places (along with degree equatives) where we have recorded an initial D/C element in ʔayʔaǰuθəm degree constructions. In addition, remnants of nominalization may appear both on the target and the standard.	page 17
+(67) line 1	ʔayʔaǰuθəm	segmentation	kʷihit ƛ̓aqt=s θiwθitan θu kʷ=p̓iq̓=s.	page 17
+(67) line 2	ʔayʔaǰuθəm	gloss	more long=3POSS table go D/C=wide=3POSS	page 17
+(67) line 3	Henry Davis and Gloria Mellesmoen	translation	‘The table is longer than it is wide.’	page 17
+(68) line 1	ʔayʔaǰuθəm	segmentation	kʷihit p̓iq̓ θiwθitən hu tih=s θəkʷnačtən.	page 17
+(68) line 2	ʔayʔaǰuθəm	gloss	more wide table go big=3POSS chair	page 17
+(68) line 3	Henry Davis and Gloria Mellesmoen	translation	‘The table is wider than the chair is tall.’	page 17
+§4.6	Henry Davis and Gloria Mellesmoen	heading	4.6 Degree Equatives	page 18
+§4.6	Henry Davis and Gloria Mellesmoen	note	Degree equatives are constructions that assert that two measurements are the same. The English example in (69) can be paraphrased as ‘the degree to which the creek is deep is the same as the degree to which the lake is deep’.	page 18
+(69) line 1	Henry Davis and Gloria Mellesmoen	note	The creek is as deep as the lake.	page 18, an English example
+§4.6	Henry Davis and Gloria Mellesmoen	note	As with degree questions, it is important to distinguish degree equatives from vague similarity predicates (‘like’, ‘the same as’) which do not specifically refer to degrees, and provide no evidence for or against a positive setting of the DSP. It is not easy, however, to tell them apart; here we rely on syntactic parallels with other clearly degree-related constructions to diagnose degree-related equatives, without excluding the possibility that they can be as easily analyzed without invoking degrees.	page 18
+§4.6	Henry Davis and Gloria Mellesmoen	note	Equatives in St’át’imcets employ the predicate c̓íla ‘(be) like, resembling’, which we have already seen in the formation of degree questions in 4.4. In equatives, c̓íla (usually accompanied by the exclusive enclitic =ƛ̓uʔ ‘just’) takes a nominalized complement clause, with the standard of comparison introduced by the proclitic preposition ʔə= ‘to’.	page 18
+§4.6	St’át’imcets	cited form	=ƛ̓uʔ	page 18, in italics, ‘just’
+(70) line 1	St’át’imcets	segmentation	c̓íla=ƛ̓uʔ s=zax-alq̕ʷəm̓=s s-Peter ʔə=s-Tony.	page 18
+(70) line 2	St’át’imcets	gloss	like=EXCL NMLZ=long-appearance=3POSS NMLZ-Peter to=NMLZ-Tony	page 18
+(70) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Peter is as tall as Tony.’	page 18
+(71) line 1	St’át’imcets	segmentation	c̓íla=ƛ̓uʔ s=pə̣m-p=s n-q̓áy-ləx=s=a s-Peter	page 18
+(71) line 2	St’át’imcets	gloss	like=EXCL NMLZ=fast-INCH=3POSS LOC-jump-AUT=3POSS=EXIS NMLZ-Peter	page 18
+(71) line 3	St’át’imcets	segmentation	ʔə=s-Tony.	page 18
+(71) line 4	St’át’imcets	gloss	to=NMLZ-Tony	page 18
+(71) line 5	Henry Davis and Gloria Mellesmoen	translation	‘Peter swims as fast as Tony.’	page 18
+§4.6	Henry Davis and Gloria Mellesmoen	note	Equative constructions in ʔayʔaǰuθəm are based on the predicate θəxʷin ‘same, alike’, which is also found in degree questions (see 4.4).13 In equatives, θəxʷin usually undergoes plural C1 reduplication and ablaut to yield θaθxʷin, which may either then take a nominalized subordinate clause, as in (72), or be further suffixed with the non-control transitivizer -(n)xʷ followed by the non-control reciprocal suffix -igas to yield the derived predicate ‘like each other’, as in (73).14 Note, however, that (73) contains no gradable predicate, and is thus most likely to represent a vague (non-degree) equative.	page 18
+footnote 13	Henry Davis and Gloria Mellesmoen	note	It is surely not an accident that degree questions in both St’át’imcets and ʔayʔaǰuθəm use “approximative” predicates with a basic meaning of ‘like’ or ‘same’ (c̓íla nkaʔ and θəxʷin, respectively), though the reason is far from obvious. Further investigation is warranted.	page 18, footnote 13
+footnote 13	St’át’imcets	cited form	c̓íla nkaʔ	page 18, in italics
+footnote 14	Henry Davis and Gloria Mellesmoen	note	Alternatively, under the analysis of Mellesmoen (2017:192) the non-control transitivizer is simply -n and the non-control reciprocal is -xʷigas.	page 18, footnote 14
+footnote 14	ʔayʔaǰuθəm	cited form	-n	page 18, in italics
+footnote 14	ʔayʔaǰuθəm	cited form	-xʷigas	page 18, in italics
+§4.6	ʔayʔaǰuθəm	cited form	θaθxʷin	page 18, in italics
+§4.6	ʔayʔaǰuθəm	cited form	-(n)xʷ	page 18, in italics
+§4.6	ʔayʔaǰuθəm	cited form	-igas	page 18, in italics
+(72) line 1	ʔayʔaǰuθəm	segmentation	x̌ʷit=št=ʔut tə=ʔəms=θa<θ>xʷin tams=x̌ax̌aɬ.	page 18
+(72) line 2	ʔayʔaǰuθəm	gloss	really=1PL.SUBJ=EXCL DET=1PL.POSS=alike<PL> DET+1PL.POSS=tall	page 18
+(72) line 3	Henry Davis and Gloria Mellesmoen	translation	‘We are the same height.’15	page 18, carries footnote 15
+footnote 15	Henry Davis and Gloria Mellesmoen	note	This example is additionally interesting because it appears to involve copy raising of the first person plural possessive subject of the nominalized complement clause into the matrix clause, whose predicate is impersonal x̌ʷit ‘really’.	page 18, footnote 15
+footnote 15	ʔayʔaǰuθəm	cited form	x̌ʷit	page 19, in italics, ‘really’
+(73) line 1	ʔayʔaǰuθəm	segmentation	θa<θ>xʷin-(n)xʷ-igas ǰaʔǰaʔəm.	page 19
+(73) line 2	ʔayʔaǰuθəm	gloss	alike<PL>-NCT-REC tree	page 19
+(73) line 3	Henry Davis and Gloria Mellesmoen	translation	‘The trees are the same (height).’	page 19
+§4.7	Henry Davis and Gloria Mellesmoen	heading	4.7 Conclusion: Degree constructions in St’át’imcets and ʔayʔaǰuθəm	page 19
+§4.7	Henry Davis and Gloria Mellesmoen	note	Our re-examination of degree constructions in St’át’imcets confirms L&R’s conclusion: it tests unequivocally as [+DSP] (and also as [+DAP] and [+DegPP]).	page 19
+§4.7	Henry Davis and Gloria Mellesmoen	note	However, our results for ʔayʔaǰuθəm differ from those of L&R: we find that once the relative morphological opacity of the language is taken into account, and methodological issues with eliciting measure phrases are dealt with, ʔayʔaǰuθəm also tests positively for the DSP, DAP, and DegPP. Our conclusions are summarized in the table in (74): compare table (4) above.	page 19
+(74)	Henry Davis and Gloria Mellesmoen	note	Degree semantics in two Salish languages (revised)	page 19, the table's caption
+(74)	Henry Davis and Gloria Mellesmoen	note	ʔayʔaǰuθəm St’át’imcets	page 19, the column heads
+(74)	Henry Davis and Gloria Mellesmoen	note	Measure phrase constructions	page 19, the row's head
+(74)	Henry Davis and Gloria Mellesmoen	note	Yes	page 19, Measure phrase constructions, ʔayʔaǰuθəm
+(74)	Henry Davis and Gloria Mellesmoen	note	Yes	page 19, Measure phrase constructions, St’át’imcets
+(74)	Henry Davis and Gloria Mellesmoen	note	Comparison with degrees	page 19, the row's head
+(74)	Henry Davis and Gloria Mellesmoen	note	Yes	page 19, Comparison with degrees, ʔayʔaǰuθəm
+(74)	Henry Davis and Gloria Mellesmoen	note	Yes	page 19, Comparison with degrees, St’át’imcets
+(74)	Henry Davis and Gloria Mellesmoen	note	Differential comparatives	page 19, the row's head
+(74)	Henry Davis and Gloria Mellesmoen	note	Yes	page 19, Differential comparatives, ʔayʔaǰuθəm
+(74)	Henry Davis and Gloria Mellesmoen	note	Yes	page 19, Differential comparatives, St’át’imcets
+(74)	Henry Davis and Gloria Mellesmoen	note	Degree Questions	page 19, the row's head
+(74)	Henry Davis and Gloria Mellesmoen	note	Yes	page 19, Degree Questions, ʔayʔaǰuθəm
+(74)	Henry Davis and Gloria Mellesmoen	note	Yes	page 19, Degree Questions, St’át’imcets
+(74)	Henry Davis and Gloria Mellesmoen	note	Subcomparatives	page 19, the row's head
+(74)	Henry Davis and Gloria Mellesmoen	note	Yes	page 19, Subcomparatives, ʔayʔaǰuθəm
+(74)	Henry Davis and Gloria Mellesmoen	note	Yes	page 19, Subcomparatives, St’át’imcets
+(74)	Henry Davis and Gloria Mellesmoen	note	Degree Equatives	page 19, the row's head
+(74)	Henry Davis and Gloria Mellesmoen	note	Yes	page 19, Degree Equatives, ʔayʔaǰuθəm
+(74)	Henry Davis and Gloria Mellesmoen	note	Yes	page 19, Degree Equatives, St’át’imcets
+§4.7	Henry Davis and Gloria Mellesmoen	note	In terms of the DSP, this is probably good news. While it is not logically impossible for closely related languages to differ along macroparametric lines, a macroparametric split raises the issue of triggering evidence: in particular, how can a language learner set the parameter, if two syntactically similar languages differ radically on an abstract semantic level? This problem obviously does not arise if both systems have the same parameter setting.	page 19
+§4.7	Henry Davis and Gloria Mellesmoen	note	With the basic facts established, we now turn to analysis: Section 5 provides a preliminary sketch of degree semantics in the two languages, focusing on measure phrases and subcomparatives.	page 19
+§5	Henry Davis and Gloria Mellesmoen	heading	5 Degree Semantics	page 19
+§5	Henry Davis and Gloria Mellesmoen	note	Given what we have established in the preceding sections, we begin here with two assumptions: first, in spite of superficial morphological differences, the grammar of comparison in St’át’imcets and ʔayʔaǰuθəm is fundamentally similar in both syntactic design and semantic interpretation; and second, since both exemplify the positive value of the DSP, comparison in both languages involves degrees of semantic type d, and more specifically, gradable predicates of type ⟨d, ⟨e, t⟩⟩.	page 19
+§5	Henry Davis and Gloria Mellesmoen	note	Before proposing an explicit analysis, however, we need to make one more empirical point. It is usual in the literature on degree semantics to distinguish between clausal and phrasal standards of comparison; as their names indicate, clausal standards involve an embedded CP constituent, while phrasal standards simply contain a DP. English examples of both are given in (75):	page 19
+(75a) line 1	Henry Davis and Gloria Mellesmoen	note	Carl drives a smaller car than Teresa does.	page 20, an English example
+(75b) line 1	Henry Davis and Gloria Mellesmoen	note	Carl drives a smaller car than Teresa.	page 20, an English example
+§5	Henry Davis and Gloria Mellesmoen	note	The example in (75a) is obviously clausal (with the auxiliary do controlling an obligatory VP ellipsis site). The usual assumption in such cases is that the comparative operator takes two arguments, the first of type d (a degree), the second of type ⟨d, t⟩ (i.e., a set of degrees). A lexical entry for the clausal comparative morpheme is given in (76), from Heim (2000):	page 20
+(76) line 1	Henry Davis and Gloria Mellesmoen	formula	[[-er(clausal)]] = λdd. λD⟨d,t⟩. MAX(D) > d	page 20, a formula, its subscripts set inline
+§5	Henry Davis and Gloria Mellesmoen	note	Applied to (75a), this says that the comparative morpheme -er takes a degree (the value of the standard = the degree to which the car that Teresa drives is small) and a set of degrees (the value of the gradable predicate = the set of degrees of smallness of the car that Carl drives) and yields a value of true iff the maximal degree in the set of degrees denoted by the predicate exceeds the degree denoted by the standard.	page 20
+§5	Henry Davis and Gloria Mellesmoen	note	Both Salish languages under consideration clearly permit clausal standards, as evidenced, for example, by the existence of subcomparatives (4.5), so some variant of (76) will be necessary: we return to clausal comparatives in 5.2.	page 20
+§5	Henry Davis and Gloria Mellesmoen	note	The question as to how to characterize phrasal standards such as that in (75b) is more complex, since there are several possible analyses, distinguished by quite subtle tests that are not always easy to apply cross-linguistically. One possibility (argued by Lechner 2004 and Bhatt and Takahashi 2011 for English) is that phrasal standards are disguised clauses, with ellipsis responsible for the missing material. An obvious advantage of this analysis is that the comparative operator will have a single lexical entry, though obviously, much of the empirical force of the analysis depends on independent motivation for the ellipsis processes which drive it.	page 20
+§5	Henry Davis and Gloria Mellesmoen	name	Bhatt	Rajesh Bhatt and Shoichi Takahashi, phrasal comparatives (2011)
+§5	Henry Davis and Gloria Mellesmoen	note	Alternatively, several different non-clausal analyses have been proposed for phrasal comparatives. All of them involve a comparative operator which takes two individual arguments of type e and a gradable predicate over degrees of type ⟨d, ⟨e, t⟩⟩, but they differ in the order of composition, with non-trivial empirical consequences, as detailed in Beck et al. (2012). Of particular relevance is the distinction between internal and external readings of the phrasal standard. For example, (75b) has both an (absurd) internal and an external reading: on its internal reading, Carl’s car is smaller than Teresa; on its external reading, Carl’s car is smaller than the one that Teresa drives. Under a phrasal analysis, the external reading must be derived by LF raising of the target (‘Carl’) followed by “parasitic” raising of the standard ‘than Teresa’ to create a derived predicate of degrees (Bhatt and Takahashi 2011). This cannot be achieved (at least under normal assumptions about LF movement) via a comparative operator which takes the gradable predicate as its first argument, such as that proposed by Kennedy (1997), shown in (77). However, a Heim-style analysis which takes the standard of comparison as its first argument, as in (78), does combine the arguments in the required order.	page 20
+(77) line 1	Henry Davis and Gloria Mellesmoen	formula	[[-er(Kennedy)]] = λAdj ⟨d, ⟨e, t⟩⟩. λxe. λye. MAX (λd.Adj (d) (x)) > MAX (λd’.Adj (d’) (y))	page 20, a formula, its subscripts set inline
+(78) line 1	Henry Davis and Gloria Mellesmoen	formula	[[-er(Heim)]] = λxe. λAdj ⟨d, ⟨e, t⟩⟩. λye. MAX (λd.Adj (d) (x)) > MAX (λd’.Adj (d’) (y))	page 20, a formula, its subscripts set inline
+§5	Henry Davis and Gloria Mellesmoen	note	This means that if phrasal standards yield only internal readings (as reported for e.g., Greek and Russian genitive comparatives: see Beck et al. 2012), an analysis like (77) is appropriate, but if external readings are possible, (77) is out, and either a clausal analysis like (76) with ellipsis or a non-clausal analysis like (78) is required.	page 20
+§5	Henry Davis and Gloria Mellesmoen	language	Greek	genitive comparatives
+§5	Henry Davis and Gloria Mellesmoen	note	As it turns out, both St’át’imcets and ʔayʔaǰuθəm allow external readings of phrasal standards. This is shown for St’át’imcets in (79), repeated from (19) above, which is a direct equivalent of the English example in (75):	page 21
+(79) line 1	St’át’imcets	segmentation	kʷikʷs-ám ta=kạ́h=a waʔ s-tqálk̓-s-as s-Carl	page 21
+(79) line 2	St’át’imcets	gloss	small-er DET=car=EXIS IPFV STAT-drive-CAUS-3ERG NMLZ-Carl	page 21
+(79) line 3	St’át’imcets	segmentation	ɬəl=s-Teresa.	page 21
+(79) line 4	St’át’imcets	gloss	from=NMLZ-Teresa	page 21
+(79) line 5	Henry Davis and Gloria Mellesmoen	translation	‘Carl drives a smaller car than Teresa.’	page 21
+(79) line 6	Henry Davis and Gloria Mellesmoen	note	(i) Carl drives a smaller car than Teresa does.	page 21, a reading under the example, an English example
+(79) line 7	Henry Davis and Gloria Mellesmoen	note	(ii) Carl drives a smaller car than Teresa (is).	page 21, a reading under the example, an English example
+§5	Henry Davis and Gloria Mellesmoen	note	An ʔayʔaǰuθəm example is given in (80).	page 21
+(80) line 1	ʔayʔaǰuθəm	segmentation	kʷihit tih č̓anu k̓ʷən-[n]əxʷ-əm-uɬ Marianne hu Gloria.	page 21
+(80) line 2	ʔayʔaǰuθəm	gloss	more big dog see-NCT-PASS-PST Marianne go Gloria	page 21
+(80) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Marianne saw a bigger dog than Gloria.’	page 21
+(80) line 4	Henry Davis and Gloria Mellesmoen	note	(i) Marianne saw a bigger dog than Gloria did.	page 21, a reading under the example, an English example
+(80) line 5	Henry Davis and Gloria Mellesmoen	note	(ii) Marianne saw a bigger dog than Gloria (is).	page 21, a reading under the example, an English example
+§5	Henry Davis and Gloria Mellesmoen	note	The existence of external readings eliminates a phrasal analysis like that in (77), but not one like that in (78). In order to choose between (78) and a reduced clausal analysis based on (76), we then need to find other tests to distinguish clausal and non-clausal comparatives, such as the arguments based on binding and scope in Bhatt and Takahashi (2011). We have not yet found a way to adapt their tests to the languages under investigation; pending further research, we will therefore sidestep these questions for now and assume a uniformly clausal analysis.	page 21
+§5	Henry Davis and Gloria Mellesmoen	note	In the following two subsections we give a brief sketch of what a degree semantics might look like for the two Salish languages under investigation, using measure phrases (5.1) and subcomparatives (5.2) to exemplify our approach. For reasons of exposition, we use data from St’át’imcets to illustrate the analysis; however, as argued above, ʔayʔaǰuθəm behaves in exactly the same way once superficial morphological differences are taken into account.	page 21
+§5.1	Henry Davis and Gloria Mellesmoen	heading	5.1 Composition of a Measure Phrase Construction	page 21
+§5.1	Henry Davis and Gloria Mellesmoen	note	Consider the St’át’imcets measure phrase construction in (37), repeated below as (81):	page 21
+(81) line 1	St’át’imcets	segmentation	kaʔɬás s=q̓əm̓p=s sq̓ʷaχt s=xáʔ=s=a ta=sɣáp=a.	page 21
+(81) line 2	St’át’imcets	gloss	three NMLZ=ten=3POSS foot NMLZ=high=3POSS=EXIS DET=tree=EXIS	page 21
+(81) line 3	Henry Davis and Gloria Mellesmoen	translation	‘The tree is thirty feet high.’	page 21
+§5.1	Henry Davis and Gloria Mellesmoen	note	We assume the standard account of gradable adjectives (here xaʔ ‘high’) as functions from degrees to predicates of individuals, of type ⟨d, ⟨e, t⟩⟩, and treat measure phrases (here, kaʔɬás sq̓əm̓ps sq̓ʷax̌t ‘thirty feet’) as predicates of degrees, of type ⟨d, t⟩.	page 21
+§5.1	St’át’imcets	cited form	xaʔ	page 21, in italics, ‘high’
+§5.1	St’át’imcets	cited form	kaʔɬás sq̓əm̓ps sq̓ʷax̌t	page 21, in italics, ‘thirty feet’
+§5.1	Henry Davis and Gloria Mellesmoen	note	Next, we propose that nominalization of a clausal constituent containing a gradable predicate creates an abstraction over its degree argument: therefore [s=xaʔ=s ta=sɣáp=a] ‘NMLZ=high=3POSS DET=tree=EXIS’ = λdi [the tree is di high], also of type ⟨d, t⟩.16 This gives us two predicates of degrees.	page 21
+footnote 16	Henry Davis and Gloria Mellesmoen	note	More broadly, we make the assumption that syntactic nominalization always marks abstraction, but can differ in the argument that is abstracted over (including at least situations, degrees, and entities). This is — we suspect — the likeliest route to provide a unified analysis of nominalization in Salish.	page 22, footnote 16
+§5.1	St’át’imcets	cited form	s=xaʔ=s ta=sɣáp=a	page 21, in italics
+§5.1	Henry Davis and Gloria Mellesmoen	note	We then convert the second of these predicates to an argument (of type d) via a determiner (which is elided in (81), but detectably present via the existential enclitic =a on s-xaʔ=s=a).17 We propose that determiners be allowed to range over predicates of degrees as well as predicates of individuals, in which case they are of type ⟨⟨d, t⟩,d⟩. On the analysis of Matthewson (2008), Salish determiners pick out the unique/maximal individual in a local context: this analysis will extend to determiners of degrees, whose effect will be then equivalent to von Stechow’s (1984) Max operator, defined here in the form used by Alrenga and Kennedy (2014:11).	page 22
+footnote 17	Henry Davis and Gloria Mellesmoen	note	‘Assertion-of-existence’ determiners such as ta= are always accompanied by the existential enclitic =a in St’át’imcets (Matthewson 1998), which attaches to the end of the first prosodic word in the DP.	page 22, footnote 17
+§5.1	St’át’imcets	cited form	s-xaʔ=s=a	page 22, in italics
+(82) line 1	Henry Davis and Gloria Mellesmoen	formula	For any degree property C, max(C) = ιd[C(d) ∧ ¬ ∃d’ [C(d’) ∧ d’ > d]]	page 22, a formula, its subscripts set inline
+§5.1	Henry Davis and Gloria Mellesmoen	note	We can now represent the LF of (81) as in (83):	page 22
+(83) tree line 1	Henry Davis and Gloria Mellesmoen	note	t	page 22, a line of the tree as the text layer reads it, its subscripts set inline
+(83) tree line 2	Henry Davis and Gloria Mellesmoen	note	⟨d, t⟩ d	page 22, a line of the tree as the text layer reads it, its subscripts set inline
+(83) tree line 3	Henry Davis and Gloria Mellesmoen	note	kaʔɬás sq̓əm̓ps sq̓ʷaχt ta=...=a ⟨d, t⟩	page 22, a line of the tree as the text layer reads it, its subscripts set inline
+(83) tree line 4	Henry Davis and Gloria Mellesmoen	note	s= λd t	page 22, a line of the tree as the text layer reads it, its subscripts set inline
+(83) tree line 5	Henry Davis and Gloria Mellesmoen	note	⟨e, t⟩ ta sɣáp=a	page 22, a line of the tree as the text layer reads it, its subscripts set inline
+(83) tree line 6	Henry Davis and Gloria Mellesmoen	note	d xaʔ=s	page 22, a line of the tree as the text layer reads it, its subscripts set inline
+§5.1	Henry Davis and Gloria Mellesmoen	note	This will allow us to derive the correct meaning, which can be paraphrased as ‘the degree to which the tree is high is equal to thirty feet’.	page 22
+§5.2	Henry Davis and Gloria Mellesmoen	heading	5.2 Composition of a Subcomparative	page 22
+§5.2	Henry Davis and Gloria Mellesmoen	note	Next, we turn to subcomparatives, illustrated by the St’át’imcets example in (84), repeated from (65) above.	page 22
+(84) line 1	St’át’imcets	segmentation	p̓aʔxʷ s=zaxt=s ta=sɣáp=a ɬəl=ta=s=ɬə́q̓=s=a	page 22
+(84) line 2	St’át’imcets	gloss	more NMLZ=long=3POSS DET=tree=EXIS from=D/C=NMLZ=wide=3POSS=EXIS	page 22
+(84) line 3	St’át’imcets	segmentation	ta=scwáw̓x=a.	page 22
+(84) line 4	St’át’imcets	gloss	DET=creek=EXIS	page 22
+(84) line 5	Henry Davis and Gloria Mellesmoen	translation	‘The tree is taller than the creek is wide.’	page 22
+§5.2	Henry Davis and Gloria Mellesmoen	note	Following Heim’s analysis of clausal comparatives in (76), we treat the comparative morpheme p̓aʔxʷ ‘more’ as a predicate of type ⟨d, ⟨⟨d, t⟩, t⟩⟩ taking two arguments, the first (the clausal standard of comparison) of type d, the second (the nominalized clause containing the gradable predicate) of type ⟨d, t⟩. (We treat the preposition that introduces the standard as semantically vacuous, in line with most work on comparative than.) This gives us the lexical entry in (85).	page 22
+(85) line 1	Henry Davis and Gloria Mellesmoen	formula	[[p̓aʔxʷ]] = λdd. λD⟨d,t⟩. MAX(D) > d	page 23, a formula, its subscripts set inline
+§5.2	Henry Davis and Gloria Mellesmoen	note	As with measure phrases, we will assume nominalization marks lambda abstraction over the degree argument in both clauses to yield derived predicates of type ⟨d, t⟩, and a determiner on the first argument (the standard of comparison) then saturates the resulting derived predicate to yield an argument of type d.18 The result will be an LF such as (86); note that as in English, the standard of comparison will extrapose to yield surface word order.	page 23
+footnote 18	Henry Davis and Gloria Mellesmoen	note	The distribution of determiners in subcomparatives in both St’át’imcets and ʔayʔaǰuθəm supports the proposed analysis, in which the first (standard) argument of the comparative morpheme denotes an individual degree (d), but the second (target) argument denotes a set of degrees (⟨d, t⟩). As noted in 4.5, a referential (assertion of existence) determiner (ta=... =a) marks the standard in St’át’imcets, whereas the target either lacks a determiner altogether, as in (84), or (more marginally) takes the non-referential D/C element kʷ=. In ʔayʔaǰuθəm, the standard is one of the few places where an overt determiner (kʷ=) is volunteered, as in (67); the target is never introduced by a determiner.	page 23, footnote 18
+footnote 18	St’át’imcets	cited form	kʷ=	page 23, in italics
+(86) tree line 1	Henry Davis and Gloria Mellesmoen	note	t	page 23, a line of the tree as the text layer reads it, its subscripts set inline
+(86) tree line 2	Henry Davis and Gloria Mellesmoen	note	⟨⟨d, t⟩, t⟩ ⟨d, t⟩	page 23, a line of the tree as the text layer reads it, its subscripts set inline
+(86) tree line 3	Henry Davis and Gloria Mellesmoen	note	p̓aʔxʷ d s= λd' t	page 23, a line of the tree as the text layer reads it, its subscripts set inline
+(86) tree line 4	Henry Davis and Gloria Mellesmoen	note	(ɬəl=)ta=...=a ⟨d, t⟩ ⟨e, t⟩ ta=sɣáp=a	page 23, a line of the tree as the text layer reads it, its subscripts set inline
+(86) tree line 5	Henry Davis and Gloria Mellesmoen	note	s= λd t zaxt=s d’	page 23, a line of the tree as the text layer reads it, its subscripts set inline
+(86) tree line 6	Henry Davis and Gloria Mellesmoen	note	⟨e, t⟩ ta=scwáw̓x=a	page 23, a line of the tree as the text layer reads it, its subscripts set inline
+(86) tree line 7	Henry Davis and Gloria Mellesmoen	note	ɬəq̓=s d	page 23, a line of the tree as the text layer reads it, its subscripts set inline
+§5.2	Henry Davis and Gloria Mellesmoen	note	The resulting meaning can be paraphrased as ‘the maximum degree in the set of degrees to which the tree is tall is greater than the degree to which the creek is wide’.	page 23
+§6	Henry Davis and Gloria Mellesmoen	heading	6 Conjoined Comparatives in ʔayʔaǰuθəm	page 23
+§6	Henry Davis and Gloria Mellesmoen	note	One of our ʔayʔaǰuθəm consultants, JF, shows a particularly interesting grammatical pattern in comparatives, as first reported by L&R. In addition to using regular structures with kʷihit ‘more’ and a standard of comparison introduced by hu ‘go’, she also frequently employs conjoined comparatives, as shown in (87)–(88).19	page 23
+footnote 19	Henry Davis and Gloria Mellesmoen	note	It is important to emphasize that though JF is one of our younger consultants, her conjoined comparatives are not the result of language attrition or disuse; she is a fully fluent L1 speaker who still uses the language every day at home. In fact, her grammar is noticeably distinct from that of other contemporary ʔayʔaǰuθəm speakers in ways which lead us to suspect that her conjoined comparatives are an archaism rather than an innovation.	page 23, footnote 19
+§6	Henry Davis and Gloria Mellesmoen	name	JF	a ʔayʔaǰuθəm consultant, the speaker of the conjoined comparatives
+(87) line 1	ʔayʔaǰuθəm	segmentation	x̌ax̌aɬ Tony, titul Laura.	page 24
+(87) line 2	ʔayʔaǰuθəm	gloss	tall Tony small Laura	page 24
+(87) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Tony is taller than Laura.’	page 24
+(87) line 4	Henry Davis and Gloria Mellesmoen	note	(Literally: ‘Tony is tall, Laura is small.’)	page 24, at the right of the translation
+(87) line 5	Henry Davis and Gloria Mellesmoen	citation	(JF)	page 24, the tag or source at the right of the translation
+(88) line 1	ʔayʔaǰuθəm	segmentation	č̓ič̓iƛ̓ ǰaʔǰa, x̌ax̌aɬ paʔa ǰaʔǰaʔəm.	page 24
+(88) line 2	ʔayʔaǰuθəm	gloss	short tree tall one tree	page 24
+(88) line 3	Henry Davis and Gloria Mellesmoen	translation	‘This tree is shorter than the other.’	page 24
+(88) line 4	Henry Davis and Gloria Mellesmoen	note	(Literally: ‘The tree is short, one tree is tall.’)	page 24, at the right of the translation
+(88) line 5	Henry Davis and Gloria Mellesmoen	citation	(JF)	page 24, the tag or source at the right of the translation
+§6	Henry Davis and Gloria Mellesmoen	note	As these examples show, conjoined comparatives consist of two clauses in apposition, with or without an overt conjunction. The first clause contains the positive value of a gradable adjective, the second either its antonym or its negation (both are possible for JF).	page 24
+§6	Henry Davis and Gloria Mellesmoen	note	Conjoined comparatives were first identified in the typological literature by Stassen (1985). They have a wide cross-linguistic distribution, with a geographical concentration along the Pacific rim; in the WALS survey, about a fifth (34/167) of the languages sampled employ conjoined comparatives (Stassen 2013).	page 24
+§6	Henry Davis and Gloria Mellesmoen	note	Of particular interest to us is the fact that all previous detailed descriptions of conjoined comparatives have argued that they represent a negative setting of the [DSP] parameter. These include studies of Motu (Beck et al. 2009), Fijian (Pearson 2009), Washo (Bochnak 2015), Warlpiri (Bowler 2016), and (old) Samoan (Hohaus 2018). This body of work suggests that the availability of a conjoined comparative construction may be a sufficient diagnostic for identifying a [-DSP] language.	page 24
+§6	Henry Davis and Gloria Mellesmoen	language	Samoan	conjoined comparatives, old Samoan
+§6	Henry Davis and Gloria Mellesmoen	note	Such a conclusion raises immediate questions for the comparative system of ʔayʔaǰuθəm, which we have argued above must be analyzed as [+DSP]. Logically, three possibilities arise for a speaker like JF:	page 24
+§6	Henry Davis and Gloria Mellesmoen	note	(i) She has a uniformly [-DSP] system, in which case her grammar differs radically from those of other ʔayʔaǰuθəm speakers.	page 24
+§6	Henry Davis and Gloria Mellesmoen	note	(ii) She has a uniformly [+DSP] system, in which case her conjoined comparatives, in spite of appearances, must be analyzed as involving degrees.	page 24
+§6	Henry Davis and Gloria Mellesmoen	note	(iii) She has two grammars, one [+DSP], for regular comparatives, one [-DSP], for conjoined comparatives.	page 24
+§6	Henry Davis and Gloria Mellesmoen	note	As far as (i) is concerned, we have already come to the general conclusion that ʔayʔaǰuθəm comparatives with kʷihit involve degree semantics; but more specifically, JF herself produces structures which are diagnostic of degrees, including measure phrases (89), differential comparatives (90), and subcomparatives (91).	page 24
+(89) line 1	ʔayʔaǰuθəm	segmentation	čaləs məm•mimaw x̌ax̌aɬ=s Marianne.	page 24
+(89) line 2	ʔayʔaǰuθəm	gloss	three PL•cat tall=3POSS Marianne	page 24
+(89) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Marianne is three cats tall.’	page 24
+(89) line 4	Henry Davis and Gloria Mellesmoen	citation	(JF)	page 24, the tag or source at the right of the translation
+(90) line 1	ʔayʔaǰuθəm	segmentation	(kʷihit) paʔa mimaw x̌ax̌aɬ Marianne hu Gloria.	page 25
+(90) line 2	ʔayʔaǰuθəm	gloss	(more) one cat tall Marianne go Gloria	page 25
+(90) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Marianne is one cat taller than Gloria.’	page 25
+(90) line 4	Henry Davis and Gloria Mellesmoen	citation	(JF)	page 25, the tag or source at the right of the translation
+(91) line 1	ʔayʔaǰuθəm	segmentation	(kʷihit) ƛ̓əp-mut q̓ʷətəm hu p̓iq̓.	page 25
+(91) line 2	ʔayʔaǰuθəm	gloss	(more) deep-INTS river go wide	page 25
+(91) line 3	Henry Davis and Gloria Mellesmoen	translation	‘The river is deeper than it is wide.’	page 25
+(91) line 4	Henry Davis and Gloria Mellesmoen	citation	(JF)	page 25, the tag or source at the right of the translation
+§6	Henry Davis and Gloria Mellesmoen	note	We can therefore dismiss the possibility that JF’s grammar is just [-DSP].	page 25
+§6	Henry Davis and Gloria Mellesmoen	note	This leaves possibilities (ii) and (iii), which require further examination of JF’s conjoined comparatives. As a first step, we observe that in addition to producing conjoined comparatives and standard degree comparatives, she regularly produces hybrid structures between them, with kʷihit in the first conjunct of a conjoined structure and an antonym in the second, as shown in (92) and (93).20	page 25
+footnote 20	Henry Davis and Gloria Mellesmoen	note	A negated form of the first predicate is also possible in the second conjunct.	page 25, footnote 20
+(92) line 1	Henry Davis and Gloria Mellesmoen	note	Context: picture of two bonsai trees	page 25, over the example
+(92) line 2	ʔayʔaǰuθəm	segmentation	kʷihit x̌ax̌aɬ paʔa ǰaʔǰa, titul paʔa ǰaʔǰa.	page 25
+(92) line 3	ʔayʔaǰuθəm	gloss	more tall one tree small one tree	page 25
+(92) line 4	Henry Davis and Gloria Mellesmoen	translation	‘This tree is bigger than that one.’	page 25
+(92) line 5	Henry Davis and Gloria Mellesmoen	note	(Literally, ‘One tree is taller, one tree is small.’)	page 25, at the right of the translation
+(92) line 6	Henry Davis and Gloria Mellesmoen	citation	(JF)	page 25, the tag or source at the right of the translation
+(93) line 1	Henry Davis and Gloria Mellesmoen	note	Context: picture of two tall trees	page 25, over the example
+(93) line 2	ʔayʔaǰuθəm	segmentation	kʷihit titul paʔa ǰaʔǰaʔəm, x̌ax̌aɬ paʔa ǰaʔǰaʔəm.	page 25
+(93) line 3	ʔayʔaǰuθəm	gloss	more small one tree tall one tree	page 25
+(93) line 4	Henry Davis and Gloria Mellesmoen	translation	‘This tree is shorter than that one.’	page 25
+(93) line 5	Henry Davis and Gloria Mellesmoen	note	(Literally, ‘One tree is smaller, one tree is tall.’)	page 25, at the right of the translation
+(93) line 6	Henry Davis and Gloria Mellesmoen	citation	(JF)	page 25, the tag or source at the right of the translation
+§6	Henry Davis and Gloria Mellesmoen	note	Furthermore, we find the same structure with measure phrases, as in (89).	page 25
+(94) line 1	Henry Davis and Gloria Mellesmoen	note	Context: picture showing Marianne as three cats tall, Gloria as two cats tall	page 25, over the example
+(94a) line 1	ʔayʔaǰuθəm	segmentation	paʔa mimaw x̌ax̌aɬ=s Marianne, titul Gloria.	page 25
+(94a) line 2	ʔayʔaǰuθəm	gloss	one cat big=3POSS Marianne small Gloria	page 25
+(94a) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Marianne is one cat taller than Gloria.’	page 25
+(94a) line 4	Henry Davis and Gloria Mellesmoen	citation	(JF)	page 25, the tag or source at the right of the translation
+(94a) line 5	Henry Davis and Gloria Mellesmoen	speaker comment	Consultant’s comment (to Gloria): ‘Marianne is one cat bigger and you are smaller.’	page 25, under the example, the consultant the tag names
+(94b) line 1	ʔayʔaǰuθəm	segmentation	paʔa mimaw x̌ax̌aɬ=s Marianne, xʷa x̌ax̌aɬ=as Gloria.	page 25
+(94b) line 2	ʔayʔaǰuθəm	gloss	one cat big=3POSS Marianne NEG big=3SJV Gloria	page 25
+(94b) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Marianne is one cat taller than Gloria.’	page 25
+(94b) line 4	Henry Davis and Gloria Mellesmoen	citation	(JF)	page 25, the tag or source at the right of the translation
+(94b) line 5	Henry Davis and Gloria Mellesmoen	speaker comment	Consultant’s comment (to Gloria): ‘Marianne is still taller by one cat, Gloria is still small.’	page 25, under the example, the consultant the tag names
+§6	Henry Davis and Gloria Mellesmoen	note	Note that without the first conjunct, the second conjuncts in (94a) and (94b) would be translated simply as ‘Gloria is small’ and ‘Gloria is not big’, respectively, with normative (positive form) readings; and without the second conjuncts, the first conjunct in both cases would mean ‘Marianne is one cat tall’, without a comparative reading. In fact, the two halves of the conjoined comparative can be elicited in isolation with exactly these interpretations, as shown in (95) and (96).	page 25
+(95) line 1	ʔayʔaǰuθəm	segmentation	paʔa mimaw x̌ax̌aɬ=s Marianne.	page 26
+(95) line 2	ʔayʔaǰuθəm	gloss	one cat big=3POSS Marianne	page 26
+(95) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Marianne is one cat tall.’	page 26
+(95) line 4	Henry Davis and Gloria Mellesmoen	citation	(JF)	page 26, the tag or source at the right of the translation
+(96) line 1	ʔayʔaǰuθəm	segmentation	titul Gloria.	page 26
+(96) line 2	ʔayʔaǰuθəm	gloss	small Gloria	page 26
+(96) line 3	Henry Davis and Gloria Mellesmoen	translation	‘Gloria is small.’	page 26
+(96) line 4	Henry Davis and Gloria Mellesmoen	citation	(JF)	page 26, the tag or source at the right of the translation
+§6	Henry Davis and Gloria Mellesmoen	note	This provides clear evidence that the conjoined comparative structures employed by JF are more than just the conjunction of two independent clauses. In fact, the examples in (94) are conjoined versions of differential comparatives, which are diagnostic for degree semantics (see 4.3 above).	page 26
+§6	Henry Davis and Gloria Mellesmoen	note	We conclude that JF’s grammar (including conjoined as well as ordinary comparatives) is uniformly [+DSP], just like that of other ʔayʔaǰuθəm speakers, and therefore that possibility (ii) above is the correct option. This has implications for the status of conjoined comparatives in the wider cross-linguistic context: in particular, it is no longer possible to automatically assume that conjoined comparatives are a sufficient diagnostic for [-DSP] status.	page 26
+§6	Henry Davis and Gloria Mellesmoen	note	It also sets an agenda for future work on the syntax-semantics interface of conjoined comparatives. In particular, how can a standard degree semantics be derived from what looks on the surface to be a simple conjunction of two clauses? We will not attempt to pursue an answer to this question here, though we do note that previous syntactic work on comparatives has identified certain properties of clausal standards that are characteristic of coordination rather than subordination: for example, they tolerate operations such as gapping and right node raising that are otherwise confined to coordinate structures, and they allow across-the-board movement in order to avoid apparent Coordinate Structure Constraint violations (Lechner 2004).	page 26
+§7	Henry Davis and Gloria Mellesmoen	heading	7 Conclusion	page 26
+§7	Henry Davis and Gloria Mellesmoen	note	We conclude that both Salish languages investigated here (St’át’imcets of the Northern Interior sub-branch and ʔayʔaǰuθəm of the Central branch) instantiate the positive values of the Degree Semantics Parameter, the Degree Abstraction Parameter, and the Degree Phrase Parameter of Beck et al. (2009). In addition to comparatives with subordinate syntax, conjoined comparatives also test as [+DSP] in ʔayʔaǰuθəm, showing that the language is uniformly degreeful, in spite of having two separate types of comparative construction.	page 26
+§7	Henry Davis and Gloria Mellesmoen	note	These conclusions are important both in a Salish context and more broadly for the cross- linguistic typology of degree constructions. As far as Salish is concerned, the current study establishes for the first time that two languages from separate branches of the family show similar degree-based syntax and semantics, in spite of superficial morphological differences.	page 26
+§7	Henry Davis and Gloria Mellesmoen	note	In cross-linguistic terms, our work adds to the growing body of research on parametric variation in the expression of comparatives and other degree expressions. Of particular interest in this respect are our conclusions regarding the degreeful status of conjoined comparatives in ʔayʔaǰuθəm. since conjoined comparatives have often implicitly assumed to be diagnostic for [‑DSP] status in the typological literature.	page 26
+references	Henry Davis and Gloria Mellesmoen	heading	References	page 26
+references	Henry Davis and Gloria Mellesmoen	reference	Alrenga, P. and Kennedy, C. 2014. No more shall we part: Quantifiers in English comparatives. Natural Language Semantics 22: 1–53.	page 26
+references	Henry Davis and Gloria Mellesmoen	reference	Beaumont, R. C. 2011. Sechelt Dictionary. Sechelt, British Columbia: Sechelt Indian Band.	page 26
+references	Henry Davis and Gloria Mellesmoen	reference	Beck, S., Hohaus, V. and Tiemann, S. 2012. A note on phrasal comparatives. Proceedings of the 22nd Semantics and Linguistic Theory Conference (SALT): 146–165.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Beck, S., Krasikova, S., Fleischer, D., Gergel, R., Hofstetter, S., Savelsberg, C., Vanderelst, J., and Villalta, E. 2009. Crosslinguistic variation in comparison constructions. Linguistic Variation Yearbook 9:1–66.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Bhatt, R. and Takahashi, S. 2011. Reduced and unreduced phrasal comparatives. Natural Language and Linguistic Theory 29:581–620.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Bochnak, R. M. 2013. Crosslinguistic variation in the semantics of comparatives. Ph.D. dissertation, University of Chicago.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Bochnak, R. M. 2015. The degree semantics parameter and cross-linguistic variation. Semantics and Pragmatics 8:1–48.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Bowler, M. 2016. The status of degrees in Warlpiri. In Proceedings of the Semantics of African, Asian and Austronesian Languages (TripleA) 2, ed. M. Grubic and A. Mucha, 1–17. Potsdam: Universitätsverlag Potsdam.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Bresnan, J. 1973. Syntax of the comparative clause construction in English. Linguistic Inquiry (4): 275–343.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Cresswell, M. J. 1976. The semantics of degree. In Montague Grammar, ed. B. Partee, 261–292. New York: Academic Press.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Davis, H. 2011. Stalking the adjective in St’át’imcets. Northwest Journal of Linguistics 5:1–60.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Davis, H. in prep. A teaching grammar of Upper St’át’imcets. Ms., UBC and the Upper St’átimc Language, Culture and Education Society., Lillooet, BC.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Davis, H., Frank, B., Whitley, R. and The Upper St’át’imc Language Authority. 2019. Nqwal’uttenlhkálha: an English-Upper St’át’imcets dictionary. Ms., The Upper St’átimc Language, Culture and Education Society, Lillooet, BC.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Davis, J. 1970. Notes on Mainland Comox phonology. In Papers for the 5th International Conference on Salish Languages: 1–13.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Edel, M. 1939. The Tillamook language.’ International Journal of American Linguistics 10:1–57.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Heim, I. 1985. Notes on comparatives and related matters. Manuscript.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Heim, I. 2000. Degree operators and scope. In Proceedings of the 10th Semantics and Linguistic Theory Conference (SALT), ed. Jackson, B. and Matthews, T. Volume 10, 40–64. Fort Washington, PA: CLC Publications.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Hohaus, V. 2018. How do degrees enter the grammar? Language change in Samoan from [-DSP] to [+DSP]. To appear in Proceedings of the Semantics of African, Asian and Austronesian Languages (TripleA) 4.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Hohaus, V. and Deal, A. R. 2019. Vague predicates, crisp judgments. To appear in Proceedings of Sinn und Bedeutung 23.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Huijsmans, M., Reisinger, D., Lo, R., and Xu, K.. 2018. A preliminary sketch of determiners in ʔayʔaǰuθəm. In Wa7 Xweysás i Nqwal’úttensa i Ucwalmícwa (He Loves the People’s Languages): Essays in Honour of Henry Davis, ed. Matthewson, L., Huijsmans, M., and Rochemont, M. 329–341. Vancouver: University of British Columbia Occasional Papers in Linguistics 6.	page 27
+references	Henry Davis and Gloria Mellesmoen	reference	Kennedy, C. 1997. Projecting the adjective: The syntax and semantics of gradability and comparison. Ph.D. dissertation, University of California at Santa Cruz.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Kennedy, C. 2007. Modes of comparison. Proceedings of the Chicago Linguistics Society 43, ed. Elliott, M., Kirby, J., Sawada, O., Staraki, E., and Yoon, S.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Kinkade, M.D. 2004. Cowlitz Dictionary and Grammatical Sketch. Missoula, MT: UMOPL 18.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Klein, E. 1980. A semantics for positive and comparative adjectives. Linguistics and Philosophy 4:1–45.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Klein, E. 1991. Comparatives. In Semantics: An International Handbook of Contemporary Research, ed. Arnim von Stechow and Dieter Wunderlich, 673–691. Berlin: Mouton de Gruyter.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Kroeber, P. 1999. Reconstructing Syntax: the Salish Language Family. Lincoln, NE: University of Nebraska Press.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Kuipers, A. 1967. The Squamish Language: Grammar, Texts, Dictionary. Janua Linguarum, Series Practica 73. The Hague: Mouton.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Lechner, W. 2004. Ellipsis in Comparatives. Berlin/New York: Mouton de Gruyter.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Lo, R. and Reisinger. D. 2018. Exploring the status of degrees in Comox. In Proceedings of Semantics of Under-Represented Languages of the Americas (SULA) 10, ed. By K. Johnson and A. Göbel: 116–131. Amherst, MA,: GLSA.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Matthewson, L. 1998. Determiner Systems and Quantificational Strategies: Evidence from Salish. The Hague: Holland Academic Graphics.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Matthewson, L. 2008. Pronouns, presuppositions and semantic variation. In Proceedings of the 18th Semantics and Linguistic Theory Conference (SALT).	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Mellesmoen, G. 2017. Overt third person object agreement in ʔayʔaǰuθəm. In Papers for the 52nd International Conference on Salish and Neighbouring Languages, 171–194.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Mellesmoen, G. 2018. A one (morpheme) by one (morpheme) approach to paʔapyaʔ: - Vʔ- as a temporal pluractional in infix in Comox-Sliammon. In Papers for the 53rd International Conference on Salish and Neighbouring Languages, 143–160.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Mellesmoen, G. and Huijsmans, M. 2019. Stative Allomorph Selection and Raised Pitch in ʔayʔaǰuθəm. In Papers for the 54th International Conference on Salish and Neighbouring Languages (this volume).	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Pearson, H. 2009. How to do comparison in a language without degrees: A semantics for the comparative in Fijian. In Proceedings of Sinn und Bedeutung 14, ed. Prinzhorn, M., Schmitt, V., and Zobel, S.. Vienna: Universität Wien.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Schwarzschild, R. 2005. Measure phrases as modifiers of adjectives. In L’Adjectif: Recherches Linguistiques de Vincennes 34. Paris: Presses Universitaires de Vincennes.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Stassen, L. 1985. Comparison and Universal Grammar. Oxford: Basil Blackwell.	page 28
+references	Henry Davis and Gloria Mellesmoen	reference	Stassen, L. 2013. Comparative constructions. In The World Atlas of Language Structures Online, ed. Dryer, M. S. and Haspelmath, M. Leipzig: Max Planck Institute for Evolutionary Anthropology. URL http://wals.info/chapter/121.	page 29
+references	Henry Davis and Gloria Mellesmoen	reference	Stechow, A. von 1984. Comparing semantic theories of comparison. Journal of Semantics 3:1– 77.	page 29

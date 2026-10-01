@@ -1,0 +1,272 @@
+where	who	kind	form	gloss
+front	Jan P. van Eijk	title	Non-concatenative morphology and interlinear translations: A Lillooet example	page 1
+front	Jan P. van Eijk	name	Jan P. van Eijk	author
+front	Jan P. van Eijk	note	First Nations University of Canada	page 1, under Jan P. van Eijk
+front	Jan P. van Eijk	note	A common way of presenting bilingual Salish-English texts, employed in a number of publications, is the interlinear format, with morpheme-by-morpheme or word-by-word glosses given below the Salish originals. While this format ideally provides an immediate read-off between the Salish forms and their English equivalents, it is not without certain problems, especially where non-concatenative morphology is involved. However, once these problems are recognized, they can be easily resolved with sufficient and consistent attention to grammatical detail.	page 1, the abstract
+front	Jan P. van Eijk	language	Lillooet	Northern Interior Salish, spoken in British Columbia
+§1	Jan P. van Eijk	heading	1 Introduction	page 1
+§1	Jan P. van Eijk	note	Over the years, the Salishanist community (comprising both speakers and linguists, including linguists who have acquired a measure of fluency in the language of their study) has produced a large number of bilingual Salish- English texts. From a rich crop we select the following sample: Davis and Saunders 1980 on Bella Coola (Nuxalk), Kuipers 1967 and 1969 on Squamish (Sḵwx̱wu7mesh), Bierwert 1996, and Hess 1995, 1998 and 2006 on Lushootseed, Kuipers 1974 and 1989, and Dixon and Palmantier 1982 on Shuswap (Secwepemctsín), Matthewson 2005 and 2008, and Van Eijk and Williams 1981 on Lillooet (St’át’imcets), Mattina 1985, Mattina and DeSautel 2002, and Lindley and Lyon 2012 on Okanagan, and Vogt 1940 on Kalispel.	page 1
+§1	Jan P. van Eijk	name	Van Eijk	Jan P. van Eijk, the author, cited for his grammar of Lillooet (1997), CVC reduplication (1993), locus and ordering (2004) and The Two Coyotes (2008)
+§1	Jan P. van Eijk	name	Matthewson	Lisa Matthewson, St’át’imc oral narratives (2005) and texts (2008)
+§1	Jan P. van Eijk	name	Kuipers	Aert H. Kuipers, Squamish (1967, 1969), Shuswap (1974, 1989) and the Salish etymological dictionary (2002)
+§1	Jan P. van Eijk	name	Lindley and Lyon	Lottie Lindley and John Lyon, Upper Nicola Okanagan texts (2012)
+§1	Jan P. van Eijk	name	Mattina and DeSautel	Anthony Mattina and Dora Noyes DeSautel, Okanagan texts (2002)
+§1	Jan P. van Eijk	language	St’át’imcets	the language's own name, given with Lillooet
+§1	Jan P. van Eijk	language	Bella Coola	Nuxalk, one of the languages with bilingual texts
+§1	Jan P. van Eijk	language	Squamish	Sḵwx̱wu7mesh, one of the languages with bilingual texts
+§1	Jan P. van Eijk	language	Lushootseed	one of the languages with bilingual texts
+§1	Jan P. van Eijk	language	Shuswap	Secwepemctsín, one of the languages with bilingual texts
+§1	Jan P. van Eijk	language	Okanagan	one of the languages with bilingual texts
+§1	Jan P. van Eijk	language	Kalispel	one of the languages with bilingual texts
+§1	Jan P. van Eijk	language	English	the language of (3) and (4) and of the translations
+§1	Jan P. van Eijk	note	Unfortunately, not all Salish languages are so well represented, and for some, especially extinct or near-extinct languages like Pentlatch, Tillamook- Siletz or Quinault, the textual resources are skimpy. Another problem is that of linguistic reliability. While the collections above were all taken down by trained linguists and delivered in either the mostly standardized Amerindianist transcription or in a phonemic orthography based on the 26-letter Latin stock (or, in the case of Matthewson 2005, in both types of transcription), in other cases we are not so lucky. For example, around 1900 Charles Hill-Tout published a large number of texts in about a dozen Salish languages and dialects, but in a woeful transcription that reflects his lack of proper phonetic training. (The English versions of these texts are available in Maud 1978. Davis 2001, in a remarkable display of linguistic sleuthing, resurrects a Lillooet text collected by Hill-Tout by retranscribing it in the Amerindianist symbols, together with a detailed grammatical analysis and comments on the narrative structure.)	page 1
+§1	Jan P. van Eijk	name	Charles Hill-Tout	published texts in about a dozen Salish languages around 1900
+§1	Jan P. van Eijk	note	Finally, there is a certain variety in the ways in which these texts, and those in other collections, are presented. While, for example, Vogt 1940, and Van Eijk and Williams 1981, present the texts in both the original languages and their English translations, on opposing pages or on the top vs. bottom of the same page, but without interlinear translations, many if not most sources provide an interlinear morpheme-by-morpheme or word-by-word translation. Although this technique ideally provides an immediate read-off between Salish morphemes or words and their English translations, it is not without its own challenges, which we address in the next two sections.	page 2
+§2	Jan P. van Eijk	heading	2 Problems in interlinear translations	page 2
+§2	Jan P. van Eijk	note	Providing a morpheme-by-morpheme translation of the targeted text poses no problem when the morphemes are entered serially from left to right, so that there is no conflict between locus and ordering. A Dutch example will suffice here (PL = plural):	page 2
+§2	Jan P. van Eijk	language	Dutch	the language of (1)
+(1) line 1	Dutch	transcription	arbeid-er-s	page 2
+(1) line 2	Dutch	gloss	labour (verb)-person-PL	page 2
+(1) line 3	Jan P. van Eijk	translation	‘Labourers’	page 2
+§2	Jan P. van Eijk	note	However, three issues may complicate this picture. In the first place, morphophonemic changes may obscure the morphological make-up of a word to the point that the underlying morphemes are not, or only barely, recognizable. This problem can be addressed by having the surface forms and the underlying forms on separate lines, right above each other. Taking a Thompson (Nlaka’pamux) example from Thompson and Thompson 1992 and putting it in the following four-line format we get:	page 2
+§2	Jan P. van Eijk	language	Thompson	Nlaka’pamux, the language of (2)
+(2) line 1	Thompson	transcription	púnmcip	page 3
+(2) line 2	Thompson	segmentation	pún-min-t-sey-ep	page 3
+(2) line 3	Thompson	gloss	find-RLT-TR-1SG/O-2PL/S	page 3
+(2) line 4	Jan P. van Eijk	translation	‘You folks find me’	page 3
+§2	Jan P. van Eijk	note	(RLT = relational (transitive) maker, TR = transitivizer, 1 = 1st	page 3
+§2	Jan P. van Eijk	note	person, SG = singular, O = object, 2 = 2nd person, S = subject).	page 3
+§2	Jan P. van Eijk	note	In the second place, locus and order of morphemes may get out of synch with each order, in which case we have conflicting IC (= Immediate Constituent) structures. An English example would be ‘unfriendly’ with ‘un-’ added to the adjective ‘friendly,’ vs. ‘unkindly,’ with ‘-ly’ added to adjective ‘unkind.’ This problem can be easily addressed by using square brackets to indicate the different IC structures, viz.:	page 3
+(3) line 1	English	transcription	un-friend-ly	page 3
+(3) line 2	English	gloss	[NEG-[friend-ADJ]]	page 3
+(3) line 3	Jan P. van Eijk	translation	‘Unfriendly’	page 3
+(4) line 1	English	transcription	un-kind-ly	page 3
+(4) line 2	English	gloss	[[NEG-kind]-ADV]	page 3
+(4) line 3	Jan P. van Eijk	translation	‘Unkindly’	page 3
+§2	Jan P. van Eijk	note	In the third place, non-concatenative morphology (such as ablaut, infixation, or reduplication) may interfere with a linear morpheme-by- morpheme read-off in that in these cases a morphological operation takes place inside a morpheme, rather than at the periphery of a morpheme. English examples are ‘ran’ and ‘took,’ which are marked as past tenses by ablaut of the vowel of the base stems ‘run’ and ‘take.’ (Hockett 1954 discusses this particular problem in a classic study to which I refer the interested reader.)	page 3
+§2	Jan P. van Eijk	name	Hockett	Charles F. Hockett, two models of grammatical description (1954)
+§2	Jan P. van Eijk	note	Lillooet, with a morphology that is far more complex than English, poses its own problems with regard to concatenative and non-concatenative operations. It is to this issue that we turn next.	page 4
+§3	Jan P. van Eijk	heading	3 Lillooet morphological operations	page 4
+§3	Jan P. van Eijk	note	Concatenative operations in Lillooet include first of all prefixation, marked with a period after the prefix when part of a word, but with a following hyphen in isolated quotations, as in n.s.Ɂíɬǝn ‘my food’ (n- 1SG/POSS = 1st singular possessive, Ɂíɬǝn ‘to eat,’ s- NOM = nominalizer). Another productive operation is suffixation, marked with a hyphen preceding the suffix, as in cɁas-min̓-cíh-as ‘s/he is coming for you’ (cɁas ‘to come,’ -min̓ RLT, -cih 2SG/O, -as 3SG/S).	page 4
+§3	Lillooet	cited form	n.s.Ɂíɬǝn	page 4, in italics, ‘my food’
+§3	Lillooet	cited form	n-	page 4, in italics
+§3	Lillooet	cited form	Ɂíɬǝn	page 4, in italics, ‘to eat,’
+§3	Lillooet	cited form	s-	page 4, in italics
+§3	Lillooet	cited form	cɁas-min̓-cíh-as	page 4, in italics, ‘s/he is coming for you’
+§3	Lillooet	cited form	cɁas	page 4, in italics, ‘to come,’
+§3	Lillooet	cited form	-min̓	page 4, in italics
+§3	Lillooet	cited form	-cih	page 4, in italics
+§3	Lillooet	cited form	-as	page 4, in italics
+§3	Jan P. van Eijk	note	Where concatenative morphemes are applied serially from right to left (prefixes) or left to right (suffixes), as in n.s.Ɂíɬǝn and cɁas-min̓-cíh-as above, the IC structure does not need to be indicated with the use of square brackets or other devices. However, we do have contrastive IC structures here as well, as in -l-akaɁ ‘instrument’ (-l- connective,’ -akaɁ ‘hand’), which is added in its entirety to k̓ʷzús-ǝm ‘to work’ (√k̓ʷzus ‘work,’ -ǝm INTR = intransitivizer) to form k̓ʷzus-ǝm[-l-akaɁ] ‘tool.’ (In order to avoid notational clutter, from here on I omit square brackets that enclasp an entire form.)	page 4
+§3	Lillooet	cited form	k̓ʷzus-ǝm[-l-akaɁ]	page 4, in italics, ‘tool.’
+§3	Lillooet	cited form	-l-	page 4, in italics
+§3	Lillooet	cited form	-akaɁ	page 4, in italics, ‘hand’
+§3	Lillooet	cited form	k̓ʷzús-ǝm	page 4, in italics, ‘to work’
+§3	Lillooet	cited form	√k̓ʷzus	page 4, in italics, ‘work,’
+§3	Lillooet	cited form	-ǝm	page 4, in italics
+§3	Jan P. van Eijk	note	As for non-concatenative morphology, Lillooet has cases like pálaɁ ‘one’ > pá<p>laɁ ‘one person,’ where we have the consonant before the stressed vowel reduplicated and then placed after that vowel, and pálaɁ > pǝ́<p>laɁ ‘one animal,’ with the above reduplication (which generally marks the diminutive) and a change á > ǝ́. Another example is √nuqʷ ‘warm (atmosphere)’ > nu{Ɂ}qʷ ‘to get warm,’ with infixation of Ɂ (after the root vowel) as the inchoative marker. (As the examples show, I use angular brackets to mark the diminutive reduplication, and swing brackets to mark the inchoative interior reduplication.)	page 4
+§3	Lillooet	cited form	pálaɁ	page 4, in italics, ‘one’
+§3	Lillooet	cited form	pá<p>laɁ	page 4, in italics, ‘one person,’
+§3	Lillooet	cited form	pǝ́<p>laɁ	page 4, in italics, ‘one animal,’
+§3	Lillooet	cited form	√nuqʷ	page 4, in italics, ‘warm (atmosphere)’
+§3	Lillooet	cited form	nu{Ɂ}qʷ	page 4, in italics, ‘to get warm,’
+§3	Jan P. van Eijk	note	To complicate matters further, we may have non-concatenative morphology combined with contrastive IC structures and morphophonemic adjustments, as in √kaw ‘away’ > ká{Ɂǝ}w̓ ‘to go far away (on land),’ with inchoative interior glottalization which, as in this case, may trigger ǝ- epenthesis and glottalization of a following resonant, ká{Ɂǝ}w̓ > kǝ́<k>{Ɂa}w̓ ‘to go a bit further’ (with diminutive reduplication, change of á to ǝ́, and regular change of ǝ > a in the final syllable). On the other hand, we have √x̌iw̓ ‘raw’ > x̌í{Ɂ}<x̌ǝ>w̓ ‘raw (but something that should be cooked),’ with interior glottalization following the diminutive reduplication in terms of rule ordering, in contrast to kǝ́<k>{Ɂa}w̓, where we have the opposite ordering.	page 4
+§3	Lillooet	cited form	√kaw	page 4, in italics, ‘away’
+§3	Lillooet	cited form	ká{Ɂǝ}w̓	page 4, in italics, ‘to go far away (on land),’
+§3	Lillooet	cited form	kǝ́<k>{Ɂa}w̓	page 4, in italics, ‘to go a bit further’
+§3	Lillooet	cited form	a	page 5, in italics
+§3	Lillooet	cited form	√x̌iw̓	page 5, in italics, ‘raw’
+§3	Lillooet	cited form	x̌í{Ɂ}<x̌ǝ>w̓	page 5, in italics, ‘raw (but something that should be cooked),’
+§3	Jan P. van Eijk	note	In order to deal with problems like these, Van Eijk 2004 suggests a three-line format, with underlying form on one line, the English translations of the morphemes and processes in the underlying form on the next line, and the surface form and its English translation on the third line. Applying that solution to kǝ́<k>{Ɂa}w̓ and x̌í{Ɂ}<x̌ǝ>w̓, but with the surface form on the first line and its English translation on the third line, and some other adjustments as explained below, we get:	page 5
+(5) line 1	Lillooet	transcription	kǝ́<k>{Ɂa}w̓	page 5
+(5) line 2	Lillooet	gloss	away{INCH}<DIM/a>	page 5
+(5) line 3	Jan P. van Eijk	translation	‘To go far away (on land)’	page 5
+(6) line 1	Lillooet	transcription	x̌í{Ɂ}<x̌ǝ>w̓	page 5
+(6) line 2	Lillooet	gloss	raw<DIM>{INCH}	page 5
+(6) line 3	Jan P. van Eijk	translation	‘Raw (but should be cooked)’	page 5
+§3	Jan P. van Eijk	note	Van Eijk 2004 uses angular brackets for both diminutive reduplication and interior glottalization when marked inside the morpheme, but swing brackets for both operations in the underlying form, a practice that is abandoned here in favour of standardized marking throughout. The location of the translated morphemes in the second line with regard to the root shows which one is applied first and which one second (with, of course, the result that they show up in the reverse order in the surface form.) The code <DIM/a> indicates that the vowel that precedes the consonant that results from reduplication is underlyingly a, not ǝ.	page 5
+§3	Jan P. van Eijk	note	In addition to diminutive reduplication and interior glottalization, Lillooet also employs augmentative (AUG) reduplication, which repeats the first CVC of the root and places this copy to the left side of the root, with stress falling on either the copy or the root or a suffix, following a set of largely regular rules. The CVC copy is marked with a colon following it, as in s.ɣap ‘tree’ > s.ɣǝp:ɣáp ‘trees,’ s.qʷǝm ‘mountain’ > s.qʷǝ́m:qʷǝm ‘mountain range,’ mǝc-xál ‘to write’ > mǝc:mǝc-xál ‘to write a lot.’ (See below for the derivational ordering of the prefix s- and augmentative reduplication.) A less productive operation is CV reduplication which serves various functions, reduplicates the first C of the root, and either copies the first V of the root as well or has a prespecified vowel. It is also marked with a following colon, as in pálaɁ ‘one’ > pi:pálaɁ ‘one at a time.’ Finally there is continuative reduplication, which signals a continuative (CONT) aspect, with an out-of- control function as well, and reduplicates the stressed vowel of the targeted word, plus the following consonant. The VC copy is marked with a preceding equal sign when at the periphery of a targeted morpheme, but with a combination of angular brackets and the equal sign when inside a morpheme, as in √puɬ ‘get boiled’ > púɬ=ǝɬ ‘to be boiling,’ pálaɁ ‘one’ > pál<=l>aɁ ‘to come together.’	page 5
+§3	Lillooet	cited form	s.ɣap	page 5, in italics, ‘tree’
+§3	Lillooet	cited form	s.ɣǝp:ɣáp	page 6, in italics, ‘trees,’
+§3	Lillooet	cited form	s.qʷǝm	page 6, in italics, ‘mountain’
+§3	Lillooet	cited form	s.qʷǝ́m:qʷǝm	page 6, in italics, ‘mountain range,’
+§3	Lillooet	cited form	mǝc-xál	page 6, in italics, ‘to write’
+§3	Lillooet	cited form	mǝc:mǝc-xál	page 6, in italics, ‘to write a lot.’
+§3	Lillooet	cited form	pi:pálaɁ	page 6, in italics, ‘one at a time.’
+§3	Lillooet	cited form	√puɬ	page 6, in italics, ‘get boiled’
+§3	Lillooet	cited form	púɬ=ǝɬ	page 6, in italics, ‘to be boiling,’
+§3	Lillooet	cited form	pál<=l>aɁ	page 6, in italics, ‘to come together.’
+§3	Jan P. van Eijk	note	Of course, the picture gets more complicated where we have concatenative and non-concatenative morphology applied in the same word, as in s.ɣǝp:ɣáp above, where s- is applied before the augmentative reduplication, but still appears farther from the root, in contrast to n.s.Ɂíɬǝn, where locus and order of the morphemes are not out of synch with each other. As is mentioned above, in n.s.Ɂíɬǝn we do not need to indicate the IC structure, since we have the unmarked order of operations here, but the IC structure of s.ɣǝp:ɣáp is captured as s.[ɣǝp:]ɣáp. A more complex case is c̓aɁ:c̓a{Ɂ}x-ú<x>ɬ ‘always, shy, really shy,’ with √c̓ax ‘shy, ashamed,’ interior/inchoative glottalization, augmentative reduplication, -úɬ (inherently stressed) ‘always,’ and diminutive reduplication, all to be presented as:	page 6
+§3	Lillooet	cited form	s.[ɣǝp:]ɣáp	page 6, in italics
+§3	Lillooet	cited form	c̓aɁ:c̓a{Ɂ}x-ú<x>ɬ	page 6, in italics, ‘always, shy, really shy,’
+§3	Lillooet	cited form	√c̓ax	page 6, in italics, ‘shy, ashamed,’
+§3	Lillooet	cited form	-úɬ	page 6, in italics
+(7) line 1	Lillooet	transcription	c̓aɁ:c̓a{Ɂ}x-ú<x>ɬ	page 6
+(7) line 2	Lillooet	gloss	[AUG:[shy{INCH}]-always]<DIM>	page 6
+(7) line 3	Jan P. van Eijk	translation	‘Always shy, really shy’	page 6
+§3	Jan P. van Eijk	note	There is not enough evidence to decide whether the augmentative reduplication or the interior glottalization are applied first, which is why they are presented here as a combined operation, but since the form c̓aɁ:c̓a{Ɂ}x-úɬ (without diminutive reduplication) was also recorded, it is clear that diminutive reduplication comes last in the derivation of this form. (Note also that the Ɂ that results from interior glottalization is read off by the CVC augment, an issue explored in greater depth in Van Eijk 1993.)	page 6
+§3	Lillooet	cited form	c̓aɁ:c̓a{Ɂ}x-úɬ	page 6, in italics
+§3	Jan P. van Eijk	note	In addition to reduplication, infixation and affixation, Lillooet also employs compounding, with the interfix +aɬ+ linking the two members of the compound as in lǝp̓+aɬ+k̓ʷúnaɁ ‘buried (√lǝp̓) salmon roe (k̓ʷúnaɁ)’ (the traditional way of curing and preserving salmon roe, sometimes referred to as “Indian Limburger cheese”).	page 7
+§3	Lillooet	cited form	lǝp̓+aɬ+k̓ʷúnaɁ	page 7, in italics, ‘buried (√lǝp̓) salmon roe (k̓ʷúnaɁ)’
+§3	Lillooet	cited form	√lǝp̓	page 7, in italics
+§3	Lillooet	cited form	k̓ʷúnaɁ	page 7, in italics
+§3	Jan P. van Eijk	note	Clitics are indicated with the underloop (ˬ) which follows proclitics and precedes enclitics, as in tiˬtmíxʷˬa ‘the land (tmixʷ)’ (tiˬ ‘present/known/ singular’ article, which always requires the reinforcing element ˬa).	page 7
+§3	Lillooet	cited form	tiˬtmíxʷˬa	page 7, in italics, ‘the land (tmixʷ)’
+§3	Lillooet	cited form	tmixʷ	page 7, in italics
+§3	Lillooet	cited form	tiˬ	page 7, in italics, ‘present/known/ singular’
+§3	Lillooet	cited form	ˬa	page 7, in italics
+§4	Jan P. van Eijk	heading	4 A Lillooet text: The two coyotes	page 7
+§4	Jan P. van Eijk	note	The following text, which was recorded from Bill Edwards in 1973, will serve as an illustration of the points made in the preceding sections. The English version of the text is also available as Van Eijk 2008 and as part of a set of Lillooet tales in Elliott 1931. Both the Lillooet and English versions are also available as pp. 3-4 of Van Eijk and Williams 1981. As per the discussion above, the first line gives the surface forms, the second line the underlying form with the translations or codes of the morphemes or processes, plus the IC structure where this is not strictly linear, and the third line gives the running translation. As Lillooet morphophonemics are relatively simple, in contrast to, for example, Nlaka’pamux, a separate line for the forms after morphophonemic adjustments is not necessary. Abbreviations that are not explained in the preceding sections are explained in section 5. An underlined polymorphemic form is translated in its entirety in the next line, but analyzed in section 5.	page 7
+§4	Jan P. van Eijk	name	Bill Edwards	the storyteller of The two coyotes, recorded in 1973
+(8) line 1	Lillooet	transcription	ƛ̓ákˬkʷuɁ ká.tiɁ Ɂiˬn.k̓yápˬa, Ɂá<Ɂǝ>n̓was.	page 7
+(8) line 2	Lillooet	gloss	goˬREP around.DEM ART/PLˬcoyoteˬREIN, two<DIM>	page 7
+(8) line 3	Jan P. van Eijk	translation	‘Two coyotes were going there.’	page 7
+(9) line 1	Lillooet	transcription	níɬˬkʷuɁˬƛ̓uɁ s.cut-s taˬpǝ́<pǝ>lɁˬa	page 8
+(9) line 2	Lillooet	gloss	KATˬREPˬso NOM.say-3SG/POSS ARTˬone<DIM/a>ˬREIN	page 8
+(9) line 3	Lillooet	transcription	ɬlákˬɁiz̓: “n.k̓yáp-ɬkan, tákǝmˬƛ̓uɁ s.wat	page 8
+(9) line 4	Lillooet	gloss	be fromˬthose: coyote-1SG/S, allˬso NOM.who	page 8
+(9) line 5	Lillooet	transcription	waɁ zǝwat-ǝn-c-ál-it-as kʷǝnswaˬn.k̓yáp,	page 8
+(9) line 6	Lillooet	gloss	busy know-TR-1SG/O-3PL/S 1SG/S/FACTˬcoyote,	page 8
+(9) line 7	Lillooet	transcription	k̓áˬmaɬ xʷɁạz s.núwa kʷasuˬn.k̓yáp,	page 8
+(9) line 8	Lillooet	gloss	but not NOM.2SG 2SG/S/FACTˬcoyote,	page 8
+(9) line 9	Lillooet	transcription	pǝ<p>laɁ-ɬkáxʷ.”	page 8
+(9) line 10	Lillooet	gloss	one<DIM/a>-2SG/S.”	page 8
+(9) line 11	Jan P. van Eijk	translation	‘Then one of them said: “I am a coyote. Everybody knows that I am a coyote, but you are not a coyote, you are ‘another one.’”’	page 8
+(10) line 1	Lillooet	transcription	“xʷɁạ́z ká.tiɁ, n.k̓yáp-kanˬƛ̓uɁ ƛ̓it,” cútˬkʷuɁ.	page 8
+(10) line 2	Lillooet	gloss	“not around.DEM, coyote-1SG/Sˬso also,” sayˬREP.	page 8
+(10) line 3	Jan P. van Eijk	translation	‘“Not at all, I am also a coyote,” he said.’	page 8
+(11) line 1	Lillooet	transcription	“xʷɁạz ká.tiɁ, pǝ<p>laɁ-ɬkáxʷ, xʷúyˬmaɬ zam̓,	page 8
+(11) line 2	Lillooet	gloss	“not around.DEM, one<DIM/a>-1SG/S, do!ˬADH thus	page 8
+(11) line 3	Lillooet	transcription	húy̓-ɬkaxʷ zǝwát-ǝn ɬkʷún-sˬa.	page 8
+(11) line 4	Lillooet	gloss	shall-2SG/S know-TR now	page 8
+(11) line 5	Jan P. van Eijk	translation	‘“Not at all, you are ‘another one.’ O.k., you will know it right now!”’	page 8
+(12) line 1	Lillooet	transcription	húy̓-ɬkan ƛ̓aq̓ l.cɁá-wna lˬtaˬn.lǝp̓-xál-tnˬa,	page 8
+(12) line 2	Lillooet	gloss	shall-1SG/S cross [at.this]-right onˬARTˬgardenˬREIN,	page 8
+(12) line 3	Lillooet	transcription	k̓al̓an̓-min̓-ɬkáxʷˬƛ̓uɁ ɁiˬɁuxʷalmíxʷˬa.”	page 8
+(12) line 4	Lillooet	gloss	listen-RLT-2SG/Sˬso ART/PLˬpersonˬREIN.”	page 8
+(12) line 5	Jan P. van Eijk	translation	‘“I am going to go across this garden here, you listen to the people!”’	page 8
+(13) line 1	Lillooet	transcription	ƛ̓áq̓ˬkʷuɁ Ɂayɬ, ƛ̓áq̓ˬkʷuɁ Ɂá.tiɁ,	page 9
+(13) line 2	Lillooet	gloss	crossˬREP next, crossˬREP thither.DEM,	page 9
+(13) line 3	Lillooet	transcription	Ɂac̓x̌-n-ǝ́mˬkʷuɁ ɁǝˬkiˬɁuxʷalmíxʷˬa	page 9
+(13) line 4	Lillooet	gloss	seen-TR-PASSˬREP byˬART/PLˬpersonˬREIN.	page 9
+(13) line 5	Jan P. van Eijk	translation	‘Well, he went across, he went across that way, he was seen by the people.’	page 9
+(14) line 1	Lillooet	transcription	“tay, ƛ̓ak kǝn.tɁú taˬn.k̓yápˬa, n.k̓yap	page 9
+(14) line 2	Lillooet	gloss	“hey, go around.DEM ARTˬcoyoteˬREIN, coyote	page 9
+(14) line 3	Lillooet	transcription	ká.tiɁ taˬƛ̓ákˬa.”	page 9
+(14) line 4	Lillooet	gloss	around.DEM ARTˬgoˬREIN.”	page 9
+(14) line 5	Jan P. van Eijk	translation	‘“Hey, there’s a coyote going there, it is a coyote that is going there.”’	page 9
+(15) line 1	Lillooet	transcription	ƛ̓ákˬkʷuɁ, ka.xim̓ˬaˬkʷúɁˬtuɁ.	page 9
+(15) line 2	Lillooet	gloss	goˬREP, RES.disappearˬREINFˬREPˬFIN.	page 9
+(15) line 3	Jan P. van Eijk	translation	‘He carried on, and he went out of sight.’	page 9
+(16) line 1	Lillooet	transcription	qʷacác ɬǝl.kʷɁú niɁˬnaˬnúkʷˬa,	page 9
+(16) line 2	Lillooet	gloss	take off from.DEM DEMˬARTˬotherˬREIN,	page 9
+(16) line 3	Lillooet	transcription	ka.ɬǝx̌ʷˬaˬkʷúɁˬƛ̓uɁ, qʷax̌t-min-it-ásˬkʷuɁ.	page 9
+(16) line 4	Lillooet	gloss	RES.appearˬREINˬREPˬso, notice-RLT-3PL/SˬREP.	page 9
+(16) line 5	Jan P. van Eijk	translation	‘Then the other one took off, he suddenly appeared, and they noticed him.’	page 9
+(17) line 1	Lillooet	transcription	“ƛ̓ak mútaɁ taˬpǝ́<pǝ>lɁˬa, pǝ́<p>laɁ	page 9
+(17) line 2	Lillooet	gloss	“go again ARTˬone<DIM/a>ˬREIN, one<DIM/a>	page 9
+(17) line 3	Lillooet	transcription	ká.tiɁ taˬƛ̓ákˬa mútaɁ.”	page 9
+(17) line 4	Lillooet	gloss	around.DEM ARTˬgoˬREIN again.”	page 9
+(17) line 5	Jan P. van Eijk	translation	‘“There goes another one, it’s another one that’s going there.”’	page 9
+(18) line 1	Lillooet	transcription	ƛ̓ákˬkʷuɁ, cíxʷˬkʷuɁ Ɂayɬ, pzán-asˬkʷuɁ	page 10
+(18) line 2	Lillooet	gloss	goˬREP, get thereˬREP next, meet-3SG/SˬREP	page 10
+(18) line 3	Lillooet	transcription	naˬs.núk̓ʷaɁ-sˬa.	page 10
+(18) line 4	Lillooet	gloss	ARTˬ[NOM.friend]-3SG/POSSˬREIN.	page 10
+(18) line 5	Jan P. van Eijk	translation	‘He went on, and he got to the other spot, where he met his friend.’	page 10
+(19) line 1	Lillooet	transcription	“ɁáɁhan-cu,” cún-ǝmˬkʷuɁ, “ɁáɁhan-cu,	page 10
+(19) line 2	Lillooet	gloss	“see?-2SG/POSS(?),” tell-PASSˬREP, “see?-2SG/POSS(?),”	page 10
+(19) line 3	Lillooet	transcription	qan̓im-ǝn-s-wít-kaxʷˬha,” n.k̓yáp-ɬkan,	page 10
+(19) line 4	Lillooet	gloss	hear-TR-TR-3PL/OˬINT,” coyote-1SG/S	page 10
+(19) line 5	Lillooet	transcription	pǝ<p>laɁ-ɬkáxʷ s.núwa.	page 10
+(19) line 6	Lillooet	gloss	one<DIM/a>-2SG/S NOM.2SG.	page 10
+(19) line 7	Jan P. van Eijk	translation	‘“See?,” he was told, “See? Did you hear them? I am a coyote, but you are ‘another one.’”’	page 10
+§5	Jan P. van Eijk	heading	5 Grammatical comments	page 10
+§5	Jan P. van Eijk	note	Abbreviations used in the text and not explained previously are: REP = reportative, used to indicate that the speaker did not witness the described events him/herself; it is used with great frequency in legends, like the present one. DEM = demonstrative pronoun; Lillooet distinguishes 12 of these, marking three degrees of distance, visible vs. non-visible, and singular vs. plural; tiɁ marks ‘that (middle distance, singular, visible);’ ká.tiɁ ‘around there’ expresses ‘at all’ when in combination with xʷɁạz ‘not.’ ART = article; Lillooet distinguishes eleven of these, including Ɂiˬ ‘present, known, plural,’ taˬ (tiˬ in the Mount Currie dialect) ‘present, known, singular,’ naˬ (niˬ in the Mount Currie dialect) ‘absent, known, singular,’ all three of which are used in the text; after proclitic prepositions, Ɂiˬ is kiˬ, as in sentence (13). REIN = reinforcing enclitic required by a number of articles and by RES = the resultative marker ka-, as in sentences (15) and (16). KAT = kataphoric pronoun “it is the one who...;’ the kataphoric pronoun niɬ is often combined with the discourse particle ˬƛ̓uɁ (broadly translated as ‘so’) into a construction that generally translates as ‘and so, and then’ and requires the following verbal construction to be in the factual (FACT) form (marked with the nominalizer s-), as in s.cut-s in sentence (9). ADH = adhortative, used mostly in commands, but also in non-imperative constructions to put a certain emphasis on the utterance. PASS = passive marker. FIN = final state marker, used mainly to indicate that something is over and done with. POSS = possessive; in ɁáɁhan-cu (19), the suffix -cu is probably an allomorph of -su 2SG/POSS, although this cannot be proven with complete certainty.	page 10
+§5	Lillooet	cited form	ɁáɁhan-cu	page 10, in italics
+§5	Lillooet	cited form	tiɁ	page 10, in italics
+§5	Lillooet	cited form	ká.tiɁ	page 10, in italics, ‘around there’
+§5	Lillooet	cited form	xʷɁạz	page 10, in italics, ‘not.’
+§5	Lillooet	cited form	Ɂiˬ	page 10, in italics, ‘present, known, plural,’
+§5	Lillooet	cited form	taˬ	page 10, in italics
+§5	Lillooet	cited form	naˬ	page 10, in italics
+§5	Lillooet	cited form	niˬ	page 10, in italics
+§5	Lillooet	cited form	kiˬ	page 10, in italics
+§5	Lillooet	cited form	ka-	page 10, in italics
+§5	Lillooet	cited form	niɬ	page 10, in italics
+§5	Lillooet	cited form	ˬƛ̓uɁ	page 10, in italics
+§5	Lillooet	cited form	s.cut-s	page 11, in italics
+§5	Lillooet	cited form	-cu	page 11, in italics
+§5	Lillooet	cited form	-su	page 11, in italics
+§5	Jan P. van Eijk	note	As for the underlined forms, translated as a whole, n.k̓yap ‘coyote’ (sentence 8) contains the root k̓yap ‘coyote,’ and the (here semantically empty) prefix n- ‘referent of root is located in a larger setting.’ The suffix combination -c-al (9) contains -c 1SG/O and the connective -al, required when -c is followed by -it-as which itself consists of -it 3PL and -as 3SG/S. The form k̓áˬmaɬ (9) is here interpreted as containing k̓aˬ ‘apparently’ and the adhortative enclitic ˬmaɬ, but Kuipers 2002:41 reconstructs a monomorphemic Proto-Salish root *k̓i/amǝl for this form. The form ɬkʷún-sˬa ‘now’ (11) contains ɬkʷun ‘now,’ which is often extended with -s 3SG/POSS and the reinforcing enclitic ˬa. In n.lǝp̓-xál-tǝn ‘garden’ (12) we have the locative prefix n-, here forming an ambifix (circumfix) with -tǝn ‘instrument, implement’ to express ‘setting,’ the root lǝp̓ ‘to plant, and the intransitivizer -xal; the IC structure of this word is thus n.[lǝp̓-xál]-tǝn. The forms Ɂá<Ɂǝ>n̓was (8) and pǝ́<p>laɁ (passim) show the diminutive reduplication that typically marks the category ‘animals’ in numerals. The form pǝ́<p>laɁ is here translated as ‘another one’ rather than ‘one animal’ to better capture the meaning of the Lillooet form in the context of the story.	page 11
+§5	Lillooet	cited form	n.k̓yap	page 11, in italics, ‘coyote’
+§5	Lillooet	cited form	k̓yap	page 11, in italics, ‘coyote,’
+§5	Lillooet	cited form	-c-al	page 11, in italics
+§5	Lillooet	cited form	-c	page 11, in italics
+§5	Lillooet	cited form	-al	page 11, in italics
+§5	Lillooet	cited form	-it-as	page 11, in italics
+§5	Lillooet	cited form	-it	page 11, in italics
+§5	Lillooet	cited form	k̓áˬmaɬ	page 11, in italics
+§5	Lillooet	cited form	k̓aˬ	page 11, in italics, ‘apparently’
+§5	Lillooet	cited form	ˬmaɬ	page 11, in italics
+§5	Proto-Salish	cited form	*k̓i/amǝl	page 11, in italics
+§5	Lillooet	cited form	ɬkʷún-sˬa	page 11, in italics, ‘now’
+§5	Lillooet	cited form	ɬkʷun	page 11, in italics, ‘now,’
+§5	Lillooet	cited form	-s	page 11, in italics
+§5	Lillooet	cited form	n.lǝp̓-xál-tǝn	page 11, in italics, ‘garden’
+§5	Lillooet	cited form	n.[lǝp̓-xál]-tǝn	page 11, in italics
+§5	Lillooet	cited form	lǝp̓	page 11, in italics, ‘to plant, a quote the paper never closes
+§5	Lillooet	cited form	-xal	page 11, in italics
+§5	Lillooet	cited form	Ɂá<Ɂǝ>n̓was	page 11, in italics
+§5	Jan P. van Eijk	note	Further details on the morphological operations that are employed in this text are provided in Van Eijk 1997.	page 11
+§6	Jan P. van Eijk	heading	6 Conclusions	page 11
+§6	Jan P. van Eijk	note	As should be clear from the above, non-concatenative morphology, IC structure and morphophonemic changes may conspire to complicate a one-on- one read-off between (in this case) Salish morphemes or processes and their English glosses. This has of course been recognized in a number of text editions. For example, Thompson and Thompson 1992:226 (sentence 309) code /k[Ɂ]éw ‘to go far’ (with the root kew ‘far,’ indicated by the slash /, and with the inchoative infix Ɂ, indicated by the square brackets [..]) as ‘/far[INC].’ Also, on p. 217 (sentence 199) they code /q̓á[•q̓]y̓-m̓ ‘to go hunting’ (with diminutive reduplication that patterns like that in Lillooet, on the root /q̓ay̓ ‘to shoot’) as ‘/shoot[•DIM]-MDL’ (MDL = middle voice).	page 11
+§6	Thompson	cited form	/k[Ɂ]éw	page 11, in italics, ‘to go far’
+§6	Lillooet	cited form	kew	page 11, in italics, ‘far,’
+§6	Lillooet	cited form	/	page 11, in italics
+§6	Thompson	cited form	/q̓á[•q̓]y̓-m̓	page 12, in italics, ‘to go hunting’
+§6	Thompson	cited form	/q̓ay̓	page 12, in italics, ‘to shoot’
+§6	Jan P. van Eijk	note	The problem of matching non-concatenative morphology with morpheme-by-morpheme interlinear translations is of course not limited to Salish. For example, Pustet 2002:386 codes Lakota na-ma-ya-x’ų ‘you hear me,’ where ma- ‘me’ and ya- ‘you (subject)’ are infixed in the stem nax’ų, as ‘S-1SG.P-2SGA-hear’ (P = patient, A = agent), with S (= stem) indicating that the first part of the inflected form (na) is part of a larger stem.	page 12
+§6	Lakota	cited form	na-ma-ya-x’ų	page 12, in italics, ‘you hear me,’
+§6	Lakota	cited form	ma-	page 12, in italics, ‘me’
+§6	Lakota	cited form	ya-	page 12, in italics, ‘you (subject)’
+§6	Lakota	cited form	nax’ų	page 12, in italics
+§6	Lillooet	cited form	na	page 12, in italics
+§6	Jan P. van Eijk	name	Pustet	Regina Pustet, split intransitivity in Lakota and Osage (2002)
+§6	Jan P. van Eijk	language	Lakota	its infixed person markers, from Pustet 2002
+§6	Jan P. van Eijk	note	An additional problem is that where the over-all meaning of a form cannot be easily predicted from the constituent parts of that form, at least not from an English point of view (or that of any language into which the target language is translated). A case in point is n.lǝp̓-xál-tǝn ‘garden,’ the constituent parts of which are analyzed above. Interestingly, Matthewson 2005:99 (sentence 250) codes this form as ‘LOC-plant-ACT-thing’ (ACT = active intransitivizer). On the other hand, Matthewson 2005:71 (sentence 112) lists nx̌ʷǝx̌ʷɁúcin ‘four people’ without a morphemic break-down and codes it ‘four(human),’ while I would list this form as n.x̌ʷǝ:x̌ʷɁúcin and code it as ‘[LOC.CV:]four,’ with the square brackets indicating that n- and CV: operate in tandem to indicate the category ‘people,’ and with the translation ‘four people’ appearing in the running translation. Thus, it is also up to the individual editor of the texts to decide what should be presented in terms of constituent morphemes or as a global translation.	page 12
+§6	Lillooet	cited form	nx̌ʷǝx̌ʷɁúcin	page 12, in italics, ‘four people’
+§6	Lillooet	cited form	n.x̌ʷǝ:x̌ʷɁúcin	page 12, in italics
+§6	Jan P. van Eijk	note	In summary, there is, or there should be, a great deal of freedom as to how one wishes to present bilingual texts, as long as consistency in coding is maintained, and enough grammatical information is provided, either through an introduction or through footnotes, to allow the reader to gain an in-depth understanding of the texts. For example, Mattina and DeSautel 2002 present a number of Okanagan texts in a four-line format (surface phonetics, segmentation of the line into stem and inflectional affixes, morpheme gloss line, and free translation line), while Lindley and Lyon 2012 present their Okanagan texts in a three-line format (phonemic transcription with morphemic segmentation, morpheme glosses, and free translation). It is up to the individual readers to decide what they prefer, but both sets of texts are edited and presented in what I consider an exemplary manner. (Both Mattina and DeSautel and Lindley and Lyon also add an unbroken English translation, while Lindley and Lyon also add an unbroken transcription of the Okanagan texts.)	page 12
+§6	Jan P. van Eijk	note	Finally, one may argue that an interlinear presentation is not always necessary when a large enough grammatical commentary is provided. For example, Kuipers 1974 contains eight texts in their original Shuswap form followed by their unbroken English translations, and with the first two analyzed word by word in a section that follows the Shuswap original but without interlinear glossing. Even so, Kuiper’s detailed analysis provides the reader with enough information to understand the Shuswap words and sentences in the remaining six texts, and I would therefore strongly argue for a vive la différence approach when it comes to editing and presenting Salish texts, as long as the grammatical information provided is detailed enough to gain an in-depth insight into these texts.	page 13
+§7	Jan P. van Eijk	heading	7 Acknowledgements	page 13
+§7	Jan P. van Eijk	note	The collection, translation, analysis and presentation of the St’át’imcets text in this article would not have been possible without the invaluable assistance of Bill Edwards, a man who is to be remembered as much for his courage, strength of character and moral rectitude as for his widely recognized talents as a St’át’imc speaker and story teller. My Salishanist colleagues, who over many years have made me the benefit of their insights, are hereby thanked collectively. As always, the intellectual, financial and logistic support of the First Nations University of Canada is gratefully acknowledged.	page 13
+references	Jan P. van Eijk	heading	References	page 13
+references	Jan P. van Eijk	reference	Bierwert, Crisca (ed.). 1996. Lushootseed Texts: An Introduction to Puget Salish Narrative Aesthetics. Lincoln and London: University of Nebraska Press.	page 13
+references	Jan P. van Eijk	reference	Davis, Henry. 2001. ‘Kayám: An Early St’át’imcets Text.’ Anthropological Linguistics 43:288-347.	page 13
+references	Jan P. van Eijk	reference	Davis, Philip W., and Ross Saunders. 1980. Bella Coola Texts: Eighteen Narratives in Bella Coola with Grammatical Analyses, Glossary and English Translation. Victoria, B.C.: British Columbia Provincial Museum Heritage Record No. 10.	page 14
+references	Jan P. van Eijk	reference	Dixon, May, and Mary Palmantier (eds.), with the assistance of Aert H. Kuipers. 1982. A Western Shuswap Reader. Leiden, The Netherlands: Mimeograph.	page 14
+references	Jan P. van Eijk	reference	Elliott, William. 1931. ‘Lake Lillooet Tales.’ Journal of American Folklore 44:166-181.	page 14
+references	Jan P. van Eijk	reference	Hess, Thom. 1995. Lushootseed Reader with Introductory Grammar, Vol. I: Four Stories from Edward Sam. University of Montana Occasional Papers in Linguistics No. 11.	page 14
+references	Jan P. van Eijk	reference	—. 1998. Lushootseed Reader with Introductory Grammar, Vol. II: Four Stories from Martha Lamont. University of Montana Occasional Papers in Linguistics No. 14.	page 14
+references	Jan P. van Eijk	reference	—. 2006. Lushootseed Reader with English Translations, Vol. III: Four More Stories from Martha Lamont. University of Montana Occasional Papers in Linguistics No. 19.	page 14
+references	Jan P. van Eijk	reference	Hockett, Charles F. 1954. ‘Two Models of Grammatical Description.’ Word 10:210-231. (Reprinted as pp. 386-399 of Joos, Martin (ed.), Readings in Linguistics I. Chicago: University of Chicago Press. 1957.)	page 14
+references	Jan P. van Eijk	reference	Kuipers, Aert H. 1967. The Squamish Language: Grammar, Texts, Dictionary. The Hague: Mouton.	page 14
+references	Jan P. van Eijk	reference	—. 1969. The Squamish Language, II. The Hague: Mouton.	page 14
+references	Jan P. van Eijk	reference	—. 1974. The Shuswap Language: Grammar, Texts, Dictionary. The Hague: Mouton.	page 14
+references	Jan P. van Eijk	reference	—. 1989. A Report on Shuswap with a Squamish Lexical Appendix. Paris: Peeters/SELAF.	page 14
+references	Jan P. van Eijk	reference	—. 2002. Salish Etymological Dictionary. University of Montana Occasional Papers in Linguistics No. 16.	page 14
+references	Jan P. van Eijk	reference	Lindley, Lottie, and John Lyon. 2012. ‘12 Upper Nicola Okanagan Texts.’ Pp. 173-246 of Dunham, Joel, John Lyon and Natalie Weber (eds.), Papers for ICSNL XL VII. University of British Columbia Working Papers in Linguistics Vol. 32.	page 14
+references	Jan P. van Eijk	reference	Matthewson, Lisa. 2005. When I Was Small – I Wan Kwikws: A Grammatical Analysis of St’át’imc Oral Narratives. Vancouver, B.C.: UBC Press.	page 15
+references	Jan P. van Eijk	reference	Matthewson, Lisa (ed.). 2008. Wenácw Iz̓: Sqwéqwel’s sLaura (True Stories by Laura Thevarge). University of British Columbia Working Papers in Linguistics Vol. 22.	page 15
+references	Jan P. van Eijk	reference	Mattina, Anthony. 1985. The Golden Woman: The Colville Narrative of Peter J. Seymour. Tucson, Arizona: University of Arizona Press.	page 15
+references	Jan P. van Eijk	reference	Mattina, Anthony, and Dora Noyes DeSautel (eds.). 2002. Dora Noyes DeSautel łaʔ kłcaptíkʷł. University of Montana Occasional Papers in Linguistics No. 15.	page 15
+references	Jan P. van Eijk	reference	Maud, Ralph (ed.). 1978. The Salish People: The Local Contribution of Charles Hill-Tout, vols. I-IV. Vancouver, B.C.: Talonbooks.	page 15
+references	Jan P. van Eijk	reference	Pustet, Regina. 2002. ‘Split Intransitivity Revisited: Comparing Lakota and Osage.’ IJAL 68:381-427.	page 15
+references	Jan P. van Eijk	reference	Thompson, Laurence C., and M. Terry Thompson. 1992. The Thompson Language. University of Montana Occasional Papers in Linguistics No. 8.	page 15
+references	Jan P. van Eijk	reference	Van Eijk, Jan P. 1993. ‘CVC Reduplication and Infixation in Lillooet.’ Pp. 317-326 of Mattina, Anthony, and Timothy Montler (eds.), American Indian Languages in Honor of Laurence C. Thompson. University of Montana Occasional Papers in Linguistics No. 10.	page 15
+references	Jan P. van Eijk	reference	—. 1997. The Lillooet Language: Phonology, Morphology, Syntax. Vancouver, B.C.: UBC Press.	page 15
+references	Jan P. van Eijk	reference	—. 2004. ‘Locus and Ordering in Lillooet Morphology.’ Pp. 454-467 of Gerdts, Donna B., and Lisa Matthewson (eds.), Studies in Salish Linguistics in Honor of M. Dale Kinkade. University of Montana Occasional Papers in Linguistics No. 8.	page 15
+references	Jan P. van Eijk	reference	—. 2008. ‘The Two Coyotes: A Humorous Lillooet Story’ [Story provided by Bill Edwards, and edited by Van Eijk]. Pp. 305-306 of M. Terry Thompson and Steven M. Egesdal (eds.), Salish Myths and Legends: One People’s Stories. Lincoln and London: University of Nebraska Press.	page 15
+references	Jan P. van Eijk	reference	Van Eijk, Jan [P.], and Lorna Williams (eds.). 1981. Lillooet Legends and Stories. Mount Currie: The Ts’zil Publishing House.	page 15
+references	Jan P. van Eijk	reference	Vogt, Hans. 1940. The Kalispel Language: An Outline of the Grammar with Texts, Translations and Dictionary. Oslo: Det Norske Videnskaps-Akademi.	page 16
+end	Jan P. van Eijk	note	jvaneijk@fnuniv.ca	page 16, the author's e-mail, under the references

@@ -1,0 +1,844 @@
+where	who	kind	form	gloss
+title	Henry Davis	note	In Proceedings of ICSNL 61, Ella Hannon, Laura Griffin, Brent Hall, Bruce Oliver, Danica Reid, Julia Schillo, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL.	the running head on the first page, naming the volume and its editors
+title	Henry Davis	title	Evaluative Infinitives in St’át’imcets	the paper's title, with a footnote asterisk the form leaves out
+title	Henry Davis	name	Henry Davis	the author
+title	Henry Davis	name	The University of British Columbia	the author's affiliation
+abstract	Henry Davis	note	This is the third in a trilogy of ICSNL articles on infinitives in St’át’imcets. Each deals with one of the three main classes of infinitives found in the language: Davis (2020) examines raising infinitives with c̓íla ‘seem, (be) like, resemble’, Davis (2025) investigates control infinitives with epistemic verbs such as zəwátən ‘know’ and x̌əkxít ‘instruct’, and here in the third I turn to infinitival complements to evaluative adjectives such as ̣x̌aƛ̓ ‘hard’, qʷámqʷmət ‘fun’, and k̓ínk̓ənt dangerous’.	the abstract's first sentences, which carry its forms
+abstract	St’át’imcets	cited form	c̓íla	‘seem, (be) like, resemble’, the raising predicate of Davis (2020)
+abstract	St’át’imcets	cited form	zəwátən	‘know’, an epistemic verb taking control infinitives
+abstract	St’át’imcets	cited form	x̌əkxít	‘instruct’, an epistemic verb taking control infinitives
+abstract	St’át’imcets	cited form	x̌aƛ̓	‘hard’, an evaluative adjective
+abstract	St’át’imcets	cited form	qʷámqʷmət	‘fun’, an evaluative adjective
+abstract	St’át’imcets	cited form	k̓ínk̓ənt	dangerous’, an evaluative adjective; the gloss has no opening quote
+abstract	Henry Davis	damage	k̓ínk̓ənt dangerous’	the gloss is printed without its opening quote
+abstract	Henry Davis	symbol note	̣x̌aƛ̓	a combining dot below, U+0323, stands alone before x̌aƛ̓ with no letter under it
+keywords	Henry Davis	note	St’át’imcets, Salish, syntax, infinitives, evaluative adjectives, control, raising	the keywords
+§1	Henry Davis	heading	1 Introduction
+§1	Henry Davis	language	nɬeʔkepmxcín	a.k.a. Thompson (River) Salish: ISO 639-3 thp
+§1	Henry Davis	language	Thompson (River) Salish	another name for nɬeʔkepmxcín
+§1	Henry Davis	language	St’át’imcets	a.k.a. Lillooet: ISO 639-3 lil
+§1	Henry Davis	language	Lillooet	another name for St’át’imcets
+§1	Henry Davis	language	Halq’eméylem	the Upriver dialect of Halkomelem, which Wiltschko (2003) says has no infinitives
+§1	Henry Davis	language	Halkomelem	the language Halq’eméylem is a dialect of
+§1	Henry Davis	language	ʔayʔaǰuθəm	a.k.a. Comox-Sliammon: ISO 639-3 coo
+§1	Henry Davis	language	Comox-Sliammon	another name for ʔayʔaǰuθəm
+§1	Henry Davis	name	Marianne Huijsmans	did the ʔayʔaǰuθəm fieldwork with Daniel Reisinger
+§1	Henry Davis	name	Daniel Reisinger	did the ʔayʔaǰuθəm fieldwork with Marianne Huijsmans
+§1	St’át’imcets	cited form	c̓íla	‘(be) like, resemble’, the raising predicate of Davis (2020)
+§1	St’át’imcets	cited form	zəwátən	‘know’
+§1	St’át’imcets	cited form	cunám̓ən	‘teach’
+§1	St’át’imcets	cited form	hál̕axit	‘show’
+§1	St’át’imcets	cited form	x̌áƛ̓min̓	‘want’, a classic obligatory control verb that takes no infinitive
+§1	St’át’imcets	cited form	ƛ̓anam̓ílx	‘try’, a classic obligatory control verb that takes no infinitive
+§1	St’át’imcets	cited form	x̌ʷə́c̓ən	‘force’, a classic obligatory control verb that takes no infinitive
+§1	St’át’imcets	cited form	ʔáma	‘good (to)’
+§1	St’át’imcets	cited form	x̌aƛ̓	‘hard, difficult (to)’
+§1	St’át’imcets	cited form	qʷámqʷmət	‘fun (to)’
+§1	St’át’imcets	cited form	ʔáma-s	‘like’, the causativized counterpart of ʔáma
+§1	St’át’imcets	cited form	x̌aƛ̓-s	‘have a hard time with’
+§1	St’át’imcets	cited form	qʷámqʷmət-s	‘enjoy’
+§1	St’át’imcets	cited form	lil̕q sʔalkst	‘easy work (to)’, a complex nominal predicate
+§1	St’át’imcets	cited form	xʷʔit sptínusəm	‘a lot of planning (to)’, a complex nominal predicate
+§1	St’át’imcets	cited affix	kʷ(u)=	the proclitic determiner-complementizer (D/C) that introduces every infinitive
+§1	St’át’imcets	cited affix	s=	the nominalizer, one of the two ingredients of finiteness
+footnote *	Henry Davis	name	Carl Alexander (Qwa7yán’ak)	the principal source for the data presented in the paper
+footnote *	Henry Davis	note	This work has been supported by SSHRC Insight grant #435-2015-1694 to the author.
+footnote *	Henry Davis	note	Author’s e-mail: henry.davis@ubc.ca.
+footnote 2	Henry Davis	damage	’how to’	the opening quote is printed as a closing quote
+footnote 2	Henry Davis	language	nɬeʔkepmxcín	where Hall (2023) examines ’how to’ and evaluative infinitives
+footnote 4	St’át’imcets	cited affix	kʷ(u)=	one of the two D/C elements
+footnote 4	St’át’imcets	cited affix	t(a)=…=a	the other D/C element, which introduces factive clauses and is never found with infinitives
+footnote 4	St’át’imcets	cited form	wa(ʔ)	the imperfective auxiliary, which fuses with kʷ(u)= in infinitives
+footnote 4	St’át’imcets	cited form	kʷa	the contracted form of kʷ(u)= and wa(ʔ)
+footnote 6	St’át’imcets	cited affix	=k(əɬ)	the future modal, which Matthewson (2006) argues spells out WOLL
+footnote 6	St’át’imcets	cited form	c̓íla	the raising predicate, where =k(əɬ) is variably acceptable
+footnote 6	Henry Davis	damage	‘how to” infinitives	the opening single quote closes with a double quote
+§1	Henry Davis	transcription	Yesterday I planned that I would leave tomorrow.	(1a), an English example
+§1	Henry Davis	transcription	Yesterday I planned to leave tomorrow.	(1b), an English example
+§1	Henry Davis	transcription	Yesterday I believed that he would leave tomorrow.	(2a), an English example
+§1	Henry Davis	transcription	Yesterday I believed him to leave tomorrow.	(2b), an English example, starred
+§1	Henry Davis	transcription	Yesterday I claimed that I would leave tomorrow.	(3a), an English example
+§1	Henry Davis	transcription	Yesterday I claimed to leave tomorrow.	(3b), an English example, starred
+§1	Henry Davis	transcription	Yesterday I expected that he would leave tomorrow.	(4a), an English example
+§1	Henry Davis	transcription	Yesterday I expected him to leave tomorrow.	(4b), an English example
+§1	Henry Davis	damage	two related contructions	contructions for constructions, in the outline of the paper
+§2	Henry Davis	heading	2 Infinitival complements to evaluative predicates
+§2	St’át’imcets	cited form	x̌aƛ̓	‘hard, difficult’
+§2	St’át’imcets	cited form	ʔáma	good’; the gloss has no opening quote
+§2	Henry Davis	damage	ʔáma good’	the gloss is printed without its opening quote
+§2	St’át’imcets	cited form	qə̣ḷ	‘bad’
+§2	St’át’imcets	cited form	qʷámqʷmət	‘fun’
+§2	St’át’imcets	cited form	qíl̕qəl̕t	‘fun’ (Upper dialect)
+§2	St’át’imcets	cited form	k̓ínk̓ənt	‘dangerous’
+§2	St’át’imcets	cited form	c̓ə́zc̓əzk̓ət	‘scary, dangerous’
+§2	Henry Davis	title	Upper St’át’imcets Dictionary	the source of (5)-(9), Davis et al. in prep.
+§2	Henry Davis	note	Examples from the Upper St’át’imcets Dictionary (Davis et al in prep.) are given in (5)-(9) below.
+(5)	St’át’imcets	transcription	Xat’ k’a ku mayt ku túlhkis.
+(5)	St’át’imcets	segmentation	x̌áƛ̓=Ø=k̓a [kʷu=máyt kʷu=túɬkis]
+(5)	St’át’imcets	gloss	hard=3SUBJ=EPIS [D/C=make DET=stone.hammer]
+(5)	Davis et al. in prep.	translation	‘It must be hard to make stone hammers.’	(Davis et al. in prep.)
+(6)	St’át’imcets	transcription	Cw7aoz kwas áma kwa lhíq’tsam’.
+(6)	St’át’imcets	segmentation	xʷʔạz=Ø kʷas ʔáma [kʷa ɬíq̓-c-am̓]
+(6)	St’át’imcets	gloss	NEG=3SUBJ D/C+NMLZ+IPFV+3POSS good [D/C+IPFV take.away-mouth-MID]
+(6)	Davis et al. in prep.	translation	‘It is not good to interrupt.’	(Davis et al. in prep.); footnote 7 hangs on it
+(7)	St’át’imcets	transcription	Qvl ku7 kwa tsaqwan’táli i xweyxwyáqsa.
+(7)	St’át’imcets	segmentation	qə̣́ḷ=Ø=kʷuʔ [kʷa c̓́aqʷ-an̓-Ø-táli ʔi=x̌ʷəy̓x̌ʷy̓áqs=a]
+(7)	St’át’imcets	gloss	bad=3SUBJ=QUOT [D/C+IPFV eat-DIR-3OBJ-NTS PL.DET=deer.maggot=EXIS]
+(7)	Davis et al. in prep.	translation	‘They say it’s bad to eat deer maggots.’	(Davis et al. in prep.)
+(7)	Henry Davis	damage	tsaqwan’táli	the transcription has ts where the segmentation has c̓; (72a) writes ts’aqwan’táli
+(7)	Henry Davis	symbol note	c̓́aqʷ	the acute accent is set over the c̓, where stress falls on the vowel after it
+footnote 7	Henry Davis	note	Examples are given in a four line format. The top line employs the van Eijk orthography employed throughout St’át’imc territory; the second line gives a morpheme-by morpheme breakdown using the North American Phonetic Alphabet (NAPA) standardly used in cross-linguistic work on Salish; the third line consist of morpheme glosses; and the fourth is an English translation.
+footnote 7	Henry Davis	place	St’át’imc territory	where the van Eijk orthography is used
+footnote 7	Henry Davis	damage	morpheme-by morpheme	the second hyphen is missing
+footnote 7	Henry Davis	damage	the third line consist of	consist for consists
+footnote 7	Henry Davis	note	All unattributed examples are from original fieldwork with Qa7yán’ak (CA). I have noted where sentences and/or translations are directly supplied by CA; otherwise, they are constructed by me and evaluated for grammaticality and meaning by CA.
+footnote 7	Henry Davis	damage	Qa7yán’ak	the name as footnote 7 prints it; the acknowledgment footnote writes Qwa7yán’ak
+footnote 7	Henry Davis	notation	ABSN	absent
+footnote 7	Henry Davis	notation	ACT	active intransitive
+footnote 7	Henry Davis	notation	AUT	autonomous (lexical reflexive) intransitive
+footnote 7	Henry Davis	notation	CAUS	causative transitivizer
+footnote 7	Henry Davis	notation	CHA	characteristic
+footnote 7	Henry Davis	notation	CIRC	circumstantial modal
+footnote 7	Henry Davis	notation	COMP	complementizer
+footnote 7	Henry Davis	notation	COP	(equational) copula
+footnote 7	Henry Davis	notation	COS	change-of-state (C2) reduplication
+footnote 7	Henry Davis	notation	D/C	determiner-complementizer
+footnote 7	Henry Davis	notation	DET	determiner
+footnote 7	Henry Davis	notation	DIM	diminutive (C1) reduplication
+footnote 7	Henry Davis	notation	DIR	directive (full control) transitivizer
+footnote 7	Henry Davis	notation	DIST	distal (demonstrative)
+footnote 7	Henry Davis	notation	EPIS	epistemic modal
+footnote 7	Henry Davis	notation	ERG	ergative (transitive subject suffix)
+footnote 7	Henry Davis	notation	EXCL	exclusive
+footnote 7	Henry Davis	notation	EXIS	existential enclitic
+footnote 7	Henry Davis	notation	IPFV	imperfective
+footnote 7	Henry Davis	notation	LOC	locative
+footnote 7	Henry Davis	notation	MID	middle
+footnote 7	Henry Davis	notation	NEG	negation
+footnote 7	Henry Davis	notation	NMLZ	nominalizer
+footnote 7	Henry Davis	notation	NTS	non-topical subject marker
+footnote 7	Henry Davis	notation	OBJ	object suffix
+footnote 7	Henry Davis	notation	PASS	passive
+footnote 7	Henry Davis	notation	PDEN	property denoting (adjectival)
+footnote 7	Henry Davis	notation	PL	plural inflection
+footnote 7	Henry Davis	notation	PLU	plural/pluractional (C or C1C2) reduplication
+footnote 7	Henry Davis	notation	POSS	possessive
+footnote 7	Henry Davis	notation	PROS	prospective aspect
+footnote 7	Henry Davis	notation	PROG	progressive
+footnote 7	Henry Davis	notation	Q	yes-no question
+footnote 7	Henry Davis	notation	QUOT	quotative
+footnote 7	Henry Davis	notation	RDR	redirective (applicative) transitivizer
+footnote 7	Henry Davis	notation	RLT	relational (applicative) transitivizer
+footnote 7	Henry Davis	notation	SBJV	subjunctive (“conjunctive”) subject clitic
+footnote 7	Henry Davis	notation	SUBJ	indicative subject clitic
+footnote 7	Henry Davis	notation	-	an affix
+footnote 7	Henry Davis	notation	=	a clitic
+footnote 7	Henry Davis	notation	~	a reduplicative prefix
+footnote 7	Henry Davis	notation	<…>	an infix, including reduplicated infixes
+footnote 7	Henry Davis	notation	+	unsegmentable morpheme combinations
+footnote 7	Henry Davis	notation	{..}	segments deleted by regular phonological processes
+(8)	St’át’imcets	transcription	Qwámqwmet k’a kwa saq’w.
+(8)	St’át’imcets	segmentation	qʷám<qʷm>-ət=Ø=k̓a [kʷa saq̓ʷ]
+(8)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ=EPIS [D/C+IPFV fly]
+(8)	Davis et al. in prep.	translation	‘It must be fun to fly.’	(Davis et al. in prep.)
+(9)	St’át’imcets	transcription	Ts’ézts’ezk’et áta7 kwa t’ak.
+(9)	St’át’imcets	segmentation	c̓ə́z<c̓əz>k̓-ət=Ø ʔátaʔ [kʷa ƛ̓ak]
+(9)	St’át’imcets	gloss	scary< PDEN >-CHA=3SUBJ to.there.DIST [D/C+IPFV go.along]
+(9)	Davis et al. in prep.	translation	‘It is dangerous/scary to go there.’	(Davis et al. in prep.)
+(10)	St’át’imcets	transcription	Nka7 ku spzu7 xat’ kwa kwánen?
+(10)	St’át’imcets	segmentation	nkaʔ=Ø kʷu=spzúʔ x̌aƛ̓ [kʷa kʷán<ən>]
+(10)	St’át’imcets	gloss	which=3SUBJ DET=animal hard [D/C+IPFV caught<COS>]
+(10)	Henry Davis	translation	‘Which animal is hard to catch?’ [‘Which animal is (it) hard to get caught’]
+(11)	St’át’imcets	transcription	Nka7 ku kaoh k’ínk’ent kwa tqalk’?
+(11)	St’át’imcets	segmentation	nkaʔ=Ø kʷu=kạ́h k̓ín<k̓ən>-t=Ø [kʷa tq-alk̓]
+(11)	St’át’imcets	gloss	which=3SUBJ DET=car dangerous<PDEN>-CHA=3SUBJ [D/C+IPFV touch-string]
+(11)	Henry Davis	translation	‘Which car is (it) dangerous to drive?’	footnote 8 hangs on it
+§2	St’át’imcets	cited affix	-s ~ -c	the causative transitivizer, which adds an experiencer subject
+§2	St’át’imcets	cited form	x̌aƛ̓-s	‘have a hard time with something/find something difficult’
+§2	St’át’imcets	cited form	ʔáma-s	‘like something’
+§2	St’át’imcets	cited form	qə̣ḷ-s	‘dislike something’
+§2	St’át’imcets	cited form	qʷámqʷmət-s	‘enjoy something, find something fun’
+(12)	St’át’imcets	transcription	Xát’skacw ha kwa matq lhas k’ímal’ts ta c.wálha?
+(12)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø=kaxʷ=ha [kʷa matq ɬ=as k̓ímal̕c ta=xwáɬ=a]
+(12)	St’át’imcets	gloss	hard-CAUS-3OBJ=2SG.SUBJ=Q [D/C+IPFV walk] COMP=IPFV+3SBJV frozen DET=road=EXIS]
+(12)	Henry Davis	translation	‘Do you have a hard time walking when the road is icy?’
+footnote 8	St’át’imcets	cited form	kʷánən	the unaccusative verb of (10)
+footnote 8	St’át’imcets	cited form	tqalk̓	‘drive’, the unergative verb of (11)
+footnote 9	St’át’imcets	cited affix	-min	the relational transitivizer, occasionally used the same way as -s ~ -c
+footnote 9	St’át’imcets	cited form	ʔáma-min	‘to like somebody/something’
+footnote 9	St’át’imcets	cited form	qə̣ḷ-mín	‘to dislike somebody/something
+footnote 9	Henry Davis	damage	‘to dislike somebody/something as alternatives	the gloss has no closing quote
+footnote 9	St’át’imcets	cited form	ʔáma-s	the form ʔáma-min alternates with
+footnote 9	St’át’imcets	cited form	qə̣ḷ-s	the form qə̣ḷ-mín alternates with
+(13)	St’át’imcets	transcription	Stexwkán t’u7 ámas ku wa7 tsunám’tscal.
+(13)	St’át’imcets	segmentation	stəx̌ʷ=kán=ƛ̓uʔ ʔáma-s-Ø [kʷu=waʔ cunám̓-c-xal]
+(13)	St’át’imcets	gloss	really=1SG.SUBJ=EXCL good-CAUS-3OBJ [D/C=IPFV teach-mouth-ACT]
+(13)	Davis et al. in prep.	translation	‘I really like teaching language.’	(Davis et al. in prep.)
+(14)	St’át’imcets	transcription	Xwístsam’ aylh láti7 ta p’egp’íg’lhha, qwámqwmetsas ku pvpíilao7.
+(14)	St’át’imcets	segmentation	x̌ʷís-c-am̓=Ø ʔayɬ látiʔ ta=p̓əʕʷp̓íʕ̕ʷɬh=a, qʷám<qʷm>ət-s-Ø-as [kʷu=pə̣pı̣́lạʔ]
+(14)	St’át’imcets	gloss	smile-mouth-MID=3SUBJ then there DET=frog=EXIS fun< PDEN >-CHA-CAUS-3OBJ-3ERG [D/C=swing]
+(14)	Davis et al. in prep.	translation	‘Now the frog is grinning, he’s having fun swinging!’	(Davis et al. in prep.)
+§2	St’át’imcets	cited form	ƛ̓əx	‘sweet, tasty’, an adjective that takes no clausal complement
+§2	St’át’imcets	cited form	ƛ̓əx-s	‘find something tasty’
+§2	St’át’imcets	cited affix	kʷu=	the determiner that often links the modifiers of a complex nominal predicate to its head
+(15)	St’át’imcets	transcription	Lil’q s7alkst ku k’úl’em ku zézew’men’.
+(15)	St’át’imcets	segmentation	[lil̕q=Ø sʔalkst] [kʷu=k̓ʷúl̕-əm kʷu=zə́<zə>w̓-mən̓]
+(15)	St’át’imcets	gloss	[easy=3SUBJ work] [D/C=make-MID DET=scoop<DIM>-thing]
+(15)	Davis et al. in prep.	translation	‘It’s easy work making small water scoops.’	(Davis et al. in prep.)
+(16)	St’át’imcets	transcription	Xat’ s7alkst kwa xalentáli i sip’áoz’a wa7 eslha7úl i sxétqa lta k’mánisa, nilh slil’qs kw skats’méq’a.
+(16)	St’át’imcets	segmentation	[x̌aƛ̓=Ø sʔalkst] [kʷa=x̌al-ən-Ø=táli ʔi=sip̓ạ́z̓=a waʔ ʔəs-ɬaʔ-{ʔ}úl ʔi=sx̌ə́tq=a l=ta=k̓ḿanis=a], niɬ=Ø s=lil̕q=s kʷ=s=ka-c̓mə́q̓-a
+(16)	St’át’imcets	gloss	[hard=3SUBJ work] [D/C=stretch.on.frame-DIR-3OBJ-NTS DET=skin=EXIS IPFV STAT-close-too PL.DET=hole=EXIS at=DET=edge=EXIS] COP=3SUBJ NMLZ=easy=3POSS D/C=NMLZ=CIRC-break-CIRC
+(16)	Davis et al. in prep.	translation	‘It’s hard work to put up a hide on a frame when the holes are too close to the edge, because they break easily.’	(Davis et al. in prep.)
+(16)	Henry Davis	damage	kʷa=x̌al-ən-Ø=táli	the segmentation joins kʷa and -táli with = where every other example has kʷa and -táli
+(16)	Henry Davis	symbol note	k̓ḿanis	the acute accent is set over the m
+(17)	St’át’imcets	transcription	Cw7it sptínusem kwa maysentáli ku cuz’ kitslum’cwálts.
+(17)	St’át’imcets	segmentation	[xʷʔit=Ø sptínusəm] [kʷa mays-ən-Ø-táli kʷu=xʷúz̓ kic-lum̓xʷ-álc]
+(17)	St’át’imcets	gloss	[much=3SUBJ thought] [D/C+IPFV fix-DIR-3OBJ-NTS DET=PROS lay-ground-house]
+(17)	Davis et al. in prep.	translation	‘It takes a lot of planning to lay the bottom log of a wall in a loghouse.’	(Davis et al. in prep.), printed at the top of the next page
+§2	St’át’imcets	cited form	sʔalkst	‘work’, the head of the complex nominal predicates in (15)-(16)
+§2	St’át’imcets	cited form	sptínusəm	‘thought’, the head of the complex nominal predicate in (17)
+§2	St’át’imcets	cited form	lil̕q	‘easy’
+§2	St’át’imcets	cited form	xʷʔit	‘many, much’, a non-evaluative quantifier
+§2	St’át’imcets	cited form	xʷʔit sptínusəm	the combination that licenses an infinitival
+§3	Henry Davis	heading	3 Agreement in infinitival complements to evaluative predicates
+§3	St’át’imcets	cited affix	-tali	the non-topical subject marker, which may replace third person ergative marking under A'-extraction
+§3.1	Henry Davis	heading	3.1 Missing subject suffixes in infinitival complements
+§3.1	Henry Davis	note	Matthewson (2005) reports the following examples of transitive verbs missing subjects in the infinitival complements to evaluative predicates:	the source of (18) and (19)
+(18)	St’át’imcets	transcription	Qwámqwmet kwa tsgwáymintsin.
+(18)	St’át’imcets	segmentation	qʷám<qʷm>ət=Ø [kʷa cʕʷáy-min-cin]
+(18)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ [D/C+IPFV tease-RLT-2SG.OBJ]
+(18)	Lisa Matthewson	translation	‘It is fun to tease you.’	reported in Matthewson (2005)
+(19)	St’át’imcets	transcription	Wá7lhkan ámamin kwa sekentsín.
+(19)	St’át’imcets	segmentation	wáʔ=ɬkan ʔáma-min-Ø [kʷa sək-ən-cín]
+(19)	St’át’imcets	gloss	IPFV=1SG.SUBJ good-RLT-3OBJ [D/C+IPFV hit-DIR-2SG.OBJ]
+(19)	Lisa Matthewson	translation	‘I want to hit you.’	reported in Matthewson (2005)
+§3.1	St’át’imcets	cited affix	-cin/-tumin	the second person singular object suffix, a portmanteau with the first person singular ergative in nominalized clauses
+§3.1	St’át’imcets	cited affix	-an	the first person singular ergative suffix
+§3.1	St’át’imcets	cited affix	-cin/tumin	the same suffix, printed the second time without the hyphen before tumin
+§3.1	St’át’imcets	cited form	-cin-an	the double ergative marking CA rejects
+(20a)	St’át’imcets	transcription	Kan qwámqwmet kwa xixlhtstúmin.	volunteered by CA
+(20a)	St’át’imcets	segmentation	kan qʷám<qʷm>-ət-s-Ø [kʷa x̌i<x̌>ɬ-c-túmin]
+(20a)	St’át’imcets	gloss	1SG.SUBJ fun<PDEN>-CHA-CAUS-3OBJ [D/C+IPFV tease<DIM>-CAUS-2SG.OBJ+1SG.ERG]
+(20a)	Carl Alexander (Qwa7yán’ak)	translation	‘It’s fun to tease you.’ [‘I find it fun to tease you.’]	(volunteered)
+(20b)	St’át’imcets	transcription	Qwámqwmet kwa xixlhtstúmin.	starred
+(20b)	St’át’imcets	segmentation	qʷám<qʷm>-ət=Ø [kʷa x̌i<x̌>ɬ-c-túmin]
+(20b)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ [ D/C+IPFV tease<DIM>-CAUS-2SG.OBJ+1SG.ERG]
+(20b)	Henry Davis	translation	‘It’s fun to tease you.’	the intended meaning
+(20b)	Carl Alexander (Qwa7yán’ak)	note	“Better with -m [i.e., passive marking: see (35) below]. If you want to change that word, change to lhwá7an xixlhtstúmin ‘when I tease you.’.”	CA's comment, with Davis's bracketed note inside it
+(20b)	St’át’imcets	cited form	lhwá7an xixlhtstúmin	‘when I tease you.’, CA's finite alternative
+(20b)	Henry Davis	damage	see (35) below	(35) has -tali; the passive examples are (39)-(42)
+(21a)	St’át’imcets	transcription	Qwámqwmet kwa xixlhtstúminan.	starred
+(21a)	St’át’imcets	segmentation	qʷám<qʷm>-ət=Ø [kʷa x̌i<x̌>ɬ-c-túmin-an]
+(21a)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ [D/C+IPFV tease<DIM>-CAUS-2SG.OBJ+1SG.ERG-1SG.ERG]
+(21a)	Henry Davis	translation	‘It’s fun (for me) to tease you.’	the intended meaning
+(21b)	St’át’imcets	transcription	Qwámqwmetskan kwa xixlhtstúminan.	starred
+(21b)	St’át’imcets	segmentation	qʷám<qʷm>-ət-s=kan [kʷa x̌i<x̌>ɬ-c-túmin-an]
+(21b)	St’át’imcets	gloss	fun<PDEN>-CHA-CAUS=1SG.SUBJ [D/C+IPFV tease<DIM>-CAUS-2SG.OBJ+1SG.ERG-1SG.ERG]
+(21b)	Henry Davis	translation	‘I have fun teasing you.’	the intended meaning
+(21b)	Carl Alexander (Qwa7yán’ak)	note	“No: that extra -an doesn’t go.”	CA's comment
+footnote 13	St’át’imcets	cited affix	-tumi(n)	the object suffix after transitivizers ending in [s] ~ [c]
+footnote 13	St’át’imcets	cited affix	-ci(n)	the object suffix elsewhere
+footnote 13	St’át’imcets	cited affix	-əns	a transitivizer ending in [s]
+(22a)	St’át’imcets	transcription	Xat’ ha kwa qan’imenstúmc?	starred
+(22a)	St’át’imcets	segmentation	x̌áƛ̓=Ø=ha [kʷa qan̓ím-əns-túmx]
+(22a)	St’át’imcets	gloss	hard=3SUBJ=Q [D/C+IPFV hear-DIR-1SG.OBJ]
+(22a)	Henry Davis	translation	‘Is it hard to hear me?’	the intended meaning
+(22b)	St’át’imcets	transcription	Xat’ ha kwasu qan’imenstúmc?	volunteered by CA
+(22b)	St’át’imcets	segmentation	x̌áƛ̓=Ø=ha [kʷasu qan̓ím-əns-túmx]
+(22b)	St’át’imcets	gloss	hard=3SUBJ=Q [D/C+NMLZ+IPFV+2SG.POSS hear-DIR-1SG.OBJ]
+(22b)	Carl Alexander (Qwa7yán’ak)	translation	‘Is it hard for you to hear me?’	(volunteered)
+(23a)	St’át’imcets	transcription	Xat’ ha kwa k’ul’ún’ i lhk’wál’usa?	starred
+(23a)	St’át’imcets	segmentation	x̌áƛ̓=Ø=ha [kʷa k̓ʷul̕-ún̓-Ø ʔi=ɬk̓ʷál̕us=a]
+(23a)	St’át’imcets	gloss	hard=3SUBJ=Q [D/C+IPFV make-DIR-3OBJ PL.DET=basket=EXIS]
+(23a)	Henry Davis	translation	‘Is it hard to make baskets?’	the intended meaning
+(23b)	St’át’imcets	transcription	Xat’ ha kwa k’úl’em i lhk’wál’usa?	volunteered by CA
+(23b)	St’át’imcets	segmentation	x̌áƛ̓=Ø=ha [kʷa k̓ʷúl̕-əm ʔi=ɬk̓ʷál̕us=a]
+(23b)	St’át’imcets	gloss	hard=3SUBJ=Q [D/C+IPFV make-MID PL.DET=basket=EXIS]
+(23b)	Carl Alexander (Qwa7yán’ak)	translation	‘Is it hard to make baskets?’	(volunteered)
+(24a)	St’át’imcets	transcription	Xát’skacw ha kwa k’ul’ún’ i lhk’wál’usa?	starred
+(24a)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø=kaxʷ=ha [kʷa k̓ʷul̕-ún̓-Ø ʔi=ɬk̓ʷál̕us=a]
+(24a)	St’át’imcets	gloss	hard-CAUS-3OBJ=32SG.SUBJ=Q [D/C+IPFV make-DIR-3OBJ PL.DET=basket=EXIS]
+(24a)	Henry Davis	translation	‘Do you find it hard to make baskets?’	the intended meaning
+(24a)	Henry Davis	damage	hard-CAUS-3OBJ=32SG.SUBJ=Q	32SG for 2SG in the gloss tier
+(24b)	St’át’imcets	transcription	Xát’skacw ha kwa k’ul’əntáli i lhk’wál’usa?	volunteered by CA; footnote 14 hangs on it
+(24b)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø=kaxʷ=ha [kʷa k̓ʷul̕-ən-Ø-táli ʔi=ɬk̓ʷál̕us=a]
+(24b)	St’át’imcets	gloss	hard-CAUS-3OBJ=2SG.SUBJ=Q [D/C+IPFV make-DIR-3OBJ-NTS PL.DET=basket=EXIS]
+(24b)	Carl Alexander (Qwa7yán’ak)	translation	‘Do you find it hard to make baskets?’	(volunteered)
+(24b)	Henry Davis	damage	k’ul’əntáli	the van Eijk line has the NAPA schwa ə where van Eijk writes e
+footnote 14	St’át’imcets	root	√k̓ʷul̕	‘make, create’
+footnote 14	St’át’imcets	cited form	k̓ʷul̕-ún̓	‘make, create something’, the usual directive form
+footnote 14	St’át’imcets	cited affix	-ən	the transitivizer CA switches to before -tali
+footnote 14	St’át’imcets	cited form	k̓úl̕-ən	the form with -ən and its stress shift
+footnote 14	Henry Davis	damage	as in in	in is printed twice
+(25)	St’át’imcets	transcription	Xát’skacw ha kwa qan’ímenstumc?
+(25)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø=kaxʷ=ha [kʷa qan̓ím-əns-tumx]
+(25)	St’át’imcets	gloss	hard-CAUS-3OBJ=2SG.SUBJ=Q [D/C+IPFV hear-DIR-1SG.OBJ]
+(25)	Henry Davis	translation	‘Are you having a hard time hearing me?’
+(25)	Carl Alexander (Qwa7yán’ak)	note	“That’s a good one — that’s how I’d say it.”	CA's comment
+§3.2	Henry Davis	heading	3.2 Ergative suffixes in infinitival complements
+(26a)	St’át’imcets	transcription	Xat’ ha kwa qan’imenstúmcacw?	starred
+(26a)	St’át’imcets	segmentation	x̌áƛ̓=Ø=ha [kʷa qan̓ím-əns-túmx-axʷ]
+(26a)	St’át’imcets	gloss	hard=3SUBJ=Q [D/C+IPFV hear-DIR-1SG.OBJ-2SG.ERG]
+(26a)	Henry Davis	translation	‘Is it hard for you to hear me?’	the intended meaning
+(26a)	Carl Alexander (Qwa7yán’ak)	note	“Not quite.”	CA's comment
+(26b)	St’át’imcets	transcription	Xát’skacw ha kwa qan’imenstúmcacw?	starred
+(26b)	St’át’imcets	segmentation	x̌áƛ̓-s=kaxʷ=ha [kʷa qan̓ím-əns-túmx-axʷ]
+(26b)	St’át’imcets	gloss	hard-CAUS=2SG.SUBJ=Q [D/C+IPFV hear-DIR-1SG.OBJ-2SG.ERG]
+(26b)	Henry Davis	translation	‘Are you having a hard time hearing me?’	the intended meaning
+(27a)	St’át’imcets	transcription	Qwámqwmet ha kwa xixlhtstúmulhacw?
+(27a)	St’át’imcets	segmentation	qʷám<qʷm>-ət=Ø=ha [kʷa x̌i<x̌>ɬ-c-túmuɬ-axʷ]
+(27a)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ=Q [D/C+IPFV tease<DIM>-CAUS-1P.OBJ-2SG.ERG]
+(27a)	Carl Alexander (Qwa7yán’ak)	translation	‘Is it funny for you to bother us?’	(volunteered translation)
+(27a)	Henry Davis	damage	tease<DIM>-CAUS-1P.OBJ-2SG.ERG	1P for 1PL in the gloss tier; (27b) has 1PL.OBJ
+(27b)	St’át’imcets	transcription	Qwamqwmet.skácw ha kwa xixlhtstúmulhacw?
+(27b)	St’át’imcets	segmentation	qʷam<qʷm>-ət-s-Ø=káxʷ=ha [kʷa x̌i<x̌>ɬ-c-túmuɬ-axʷ]
+(27b)	St’át’imcets	gloss	fun<PDEN>-CHA-CAUS-3OBJ=2SG.SUBJ=Q [D/C+IPFV tease<DIM>-CAUS-1PL.OBJ-2SG.ERG]
+(27b)	Henry Davis	translation	‘Is it funny for you to bother us?’
+(27b)	Carl Alexander (Qwa7yán’ak)	note	“That’s the same.”	CA's comment
+(28a)	St’át’imcets	transcription	Qwámqwmet ha kwa spáqwsal’ap i wa7 k’écwa7?
+(28a)	St’át’imcets	segmentation	qʷám<qʷm>ət=Ø=ha [kʷa s-páqʷ-s-Ø-al̕ap ʔi=waʔ k̓ə́xʷaʔ]
+(28a)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ=Q [D/C+IPFV STAT-watch-CAUS-3OBJ-2PL.ERG PL.DET=IPFV+EXIS play.hockey
+(28a)	Henry Davis	translation	‘It is fun for you guys to watch hockey?’
+(28a)	St’át’imcets	transcription	Plan wa7 tsem’p. Iy, qwámqwmet!	CA's comment on (28a), quoted
+(28a)	Carl Alexander (Qwa7yán’ak)	translation	‘It’s already over. Yes, it’s fun.’	the translation of CA's comment, in square brackets
+(28b)	St’át’imcets	transcription	Qwamqwmet.skálap ha kwa spáqwsal’ap i wa7 k’écwa7?
+(28b)	St’át’imcets	segmentation	qʷam<qʷm>ət-s-Ø=kál̕ap=ha [kʷa s-páqʷ-s-Ø-al̕ap ʔi=waʔ k̓ə́xʷaʔ]
+(28b)	St’át’imcets	gloss	fun<PDEN>-CHA-CAUS=2pl.SUBJ=Q [D/C+IPFV STAT-watch-CAUS-3OBJ-2PL.ERG PL.DET=IPFV+EXIS play.hockey
+(28b)	Henry Davis	translation	‘Do you guys have fun watching hockey?’
+(28b)	St’át’imcets	transcription	Iy, wa7 qwámqwmet!	CA's comment on (28b), quoted
+(28b)	Carl Alexander (Qwa7yán’ak)	translation	‘Yes, it’s fun!’	the translation of CA's comment
+(28b)	Henry Davis	damage	‘[‘Yes, it’s fun!’]	a stray opening quote stands before the square bracket
+(29a)	St’át’imcets	transcription	Xat’ ha kwa k’ul’ún’acw i lhk’wál’usa?	marked */√, rejected the first time and accepted the second
+(29a)	St’át’imcets	segmentation	x̌áƛ̓=Ø=ha [kʷa k̓ʷul̕-ún̓-Ø-axʷ ʔi=ɬk̓ʷál̕us=a]
+(29a)	St’át’imcets	gloss	hard=3SUBJ=Q [D/C+IPFV make-DIR-3OBJ-2SG.ERG PL.DET=basket=EXIS
+(29a)	Henry Davis	translation	‘Is it hard for you to make baskets?’	the intended meaning
+(29a)	Carl Alexander (Qwa7yán’ak)	note	“That k̓ʷul̕ún̓axʷ is a little bit out.”	CA's comment the first time
+(29a)	St’át’imcets	cited form	k̓ʷul̕ún̓axʷ	the verb of (29a), in CA's comment
+(29a)	St’át’imcets	transcription	Iy , wa7 xat’!	CA's comment the second time, quoted, with a space before the comma
+(29a)	Carl Alexander (Qwa7yán’ak)	translation	‘Yes, it’s hard.’	the translation of CA's second comment, in square brackets
+(29b)	St’át’imcets	transcription	Xát’skacw ha kwa k’ul’ún’acw i lhk’wál’usa?
+(29b)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø=kaxʷ=ha [kʷa k̓ʷul̕-ún̓-Ø-axʷ ʔi=ɬk̓ʷál̕us=a]
+(29b)	St’át’imcets	gloss	hard-CAUS-3OBJ=2SG.SUBJ=Q [D/C+IPFV hear-DIR-3OBJ-2SG.ERG] PL.DET=basket=EXIS]
+(29b)	Henry Davis	translation	‘Do you have a hard time making baskets?’
+(29b)	Henry Davis	damage	hear-DIR-3OBJ-2SG.ERG]	the gloss tier has hear for k̓ʷul̕ ‘make’
+§3.2	St’át’imcets	cited affix	-as	the third person ergative suffix
+§3.2	St’át’imcets	cited affix	-itas ~ -twitas	the third person plural ergative suffix
+(30a)	St’át’imcets	transcription	Qwámqwmet kwa xixlhtstúmihas.
+(30a)	St’át’imcets	segmentation	qʷám<qʷm>-ət=Ø [kʷa x̌i<x̌>ɬ-c-túmih-as]
+(30a)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ [D/C+IPFV tease<DIM>-CAUS-2SG.OBJ-3ERG]
+(30a)	Henry Davis	translation	‘It’s fun (for him/her) to tease you.’
+(30a)	Carl Alexander (Qwa7yán’ak)	note	“Yeah. I guess they have fun when they tease you, when you’re talking about someone else that was teasing you.”	CA's comment
+(30b)	St’át’imcets	transcription	Qwámqwmet.sas kwa xixlhtstúmihas.
+(30b)	St’át’imcets	segmentation	qʷám<qʷm>-ət-s-Ø-as [kʷa x̌i<x̌>ɬ-c-túmih-as]
+(30b)	St’át’imcets	gloss	fun<PDEN>-CHA-CAUS-3OBJ-3ERG [D/C+IPFV tease<DIM>-CAUS-2SG.OBJ-3ERG]
+(30b)	Henry Davis	translation	‘S/he has fun teasing you.’
+(31a)	St’át’imcets	transcription	Xat’ ha kwa qan’imenstúmcas?
+(31a)	St’át’imcets	segmentation	x̌áƛ̓=Ø=ha [kʷa qan̓ím-əns-túmx-as]
+(31a)	St’át’imcets	gloss	hard=3SUBJ=Q [D/C+IPFV hear-DIR-1SG.OBJ-3ERG]
+(31a)	Carl Alexander (Qwa7yán’ak)	translation	‘Is it hard for people to hear me?’	(volunteered translation)
+(31b)	St’át’imcets	transcription	Xát’sas ha kwa qan’imenstúmcas?
+(31b)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø-as=ha [kʷa qan̓ím-əns-túmx-as]
+(31b)	St’át’imcets	gloss	hard-CAUS-3OBJ-3ERG=Q [D/C+IPFV hear-DIR-1SG.OBJ-3ERG]
+(31b)	Henry Davis	translation	‘Are they having a hard time hearing me?’
+(32a)	St’át’imcets	transcription	Qwámqwmet ha kwa spáqwstwitas i wa7 k’écwa7 i snek’wnúk’wa7swa?
+(32a)	St’át’imcets	segmentation	qʷám<qʷm>ət=Ø=ha [kʷa s-páqʷ-s-Ø-twitas ʔi=waʔ k̓ə́xʷaʔ ʔi=s<nək̓ʷ>núk̓ʷaʔ-sw=a]
+(32a)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ=Q [D/C+IPFV STAT-watch-CAUS-3OBJ-3PL.ERG PL.DET=IPFV+EXIS play.hockey PL.DET=friend<PLU>-2SG.POSS=EXIS]
+(32a)	Henry Davis	translation	‘It is fun for your friends to watch hockey?’
+(32b)	St’át’imcets	transcription	Qwamqwmet.stwítas ha kwa spáqwstwitas i wa7 k’écwa7 i snek’wnúk’wa7swa?
+(32b)	St’át’imcets	segmentation	qʷám<qʷm>ət-s-Ø-twítas=ha [kʷa s-páqʷ-s-Ø-twitas ʔi=waʔ k̓ə́xʷaʔ] ʔi=s<nək̓ʷ>núk̓ʷaʔ-sw=a
+(32b)	St’át’imcets	gloss	fun<PDEN>-CHA-3OBJ-3PL.ERG=Q [D/C+IPFV STAT-watch-CAUS-3OBJ-3PL.ERG PL.DET=IPFV+EXIS play.hockey] PL.DET=friend<PLU>-2SG.POSS=EXIS
+(32b)	Henry Davis	translation	‘Do your friends have fun watching hockey?’
+(32b)	Henry Davis	damage	fun<PDEN>-CHA-3OBJ-3PL.ERG=Q	the gloss tier has no CAUS for the -s of the segmentation
+(33a)	St’át’imcets	transcription	Xat’ ha kwa k’ul’ún’as i lhk’wál’usa ta sem7ámswa?
+(33a)	St’át’imcets	segmentation	x̌áƛ̓=Ø=ha [kʷa k̓ʷul̕-ún̓-Ø-as ʔi=ɬk̓ʷál̕us=a ta=səmʔám-sw=a]
+(33a)	St’át’imcets	gloss	hard=3SUBJ=Q [D/C+IPFV make-DIR-3OBJ-3ERG PL.DET=basket=EXIS DET=wife-2SG.POSS=EXIS]
+(33a)	Henry Davis	translation	‘Is it hard for your wife to make baskets?’
+(33b)	St’át’imcets	transcription	Xát’sas ha kwa k’ul’ún’as i lhk’wál’usa ta sem7ámswa?
+(33b)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø-as=ha [kʷa k̓ʷul̕-ún̓-Ø-as ʔi=ɬk̓ʷál̕us=a] ta=səmʔám-sw=a
+(33b)	St’át’imcets	gloss	hard-CAUS-3OBJ-3ERG=Q [D/C+IPFV hear-DIR-3OBJ-3ERG] PL.DET=basket=EXIS] DET=wife-2SG.POSS=EXIS
+(33b)	Henry Davis	translation	‘Does your wife have a hard time making baskets?’
+(33b)	Henry Davis	damage	hear-DIR-3OBJ-3ERG]	the gloss tier has hear for k̓ʷul̕ ‘make’
+(34a)	St’át’imcets	transcription	Qwámqwmet ha kwa spáqwstal’i i wa7 k’écwa7?
+(34a)	St’át’imcets	segmentation	qʷám<qʷm>ət=Ø=ha [kʷa s-páqʷ-s-Ø-tal̕i ʔi=waʔ k̓ə́xʷaʔ]
+(34a)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ=Q [D/C+IPFV STAT-watch-CAUS-3OBJ-NTS PL.DET=IPFV+EXIS play.hockey ]
+(34a)	Henry Davis	translation	‘It is fun to watch hockey?’
+(34b)	St’át’imcets	transcription	Qwamqwmet.stwítas ha kwa spáqwstal’i i wa7 k’écwa7?
+(34b)	St’át’imcets	segmentation	qʷám<qʷm>ət-s-Ø-twítas=ha [kʷa s-páqʷ-s-Ø-tal̕i ʔi=waʔ k̓ə́xʷaʔ]
+(34b)	St’át’imcets	gloss	fun<PDEN>-CHA=3OBJ-3PL.ERG=Q [D/C+IPFV STAT-watch-CAUS-3OBJ-NTS PL.DET=IPFV+EXIS play.hockey]
+(34b)	Henry Davis	translation	‘Do they have fun watching hockey?’
+(34b)	Henry Davis	damage	fun<PDEN>-CHA=3OBJ-3PL.ERG=Q	the gloss tier has = before 3OBJ and no CAUS
+(35a)	St’át’imcets	transcription	Xat’ ha kwa k’ul’ún’tal’i i lhk’wál’usa?	volunteered by CA
+(35a)	St’át’imcets	segmentation	x̌áƛ̓=Ø=ha [kʷa k̓ʷul̕-ún̓-Ø-tal̕i ʔi=ɬk̓ʷál̕us=a]
+(35a)	St’át’imcets	gloss	hard=3SUBJ=Q [D/C+IPFV make-DIR-3OBJ-NTS PL.DET=basket=EXIS]
+(35a)	Carl Alexander (Qwa7yán’ak)	translation	‘Is it hard to make baskets?’	(volunteered)
+(35b)	St’át’imcets	transcription	Xát’sas ha ta sem7ámswa kwa k’ul’ún’tal’i i lhk’wál’usa?
+(35b)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø-as=ha ta=səmʔám-sw=a [kʷa k̓ʷul̕-ún̓-Ø-tal̕i ʔi=ɬk̓ʷál̕us=a]
+(35b)	St’át’imcets	gloss	hard-CAUS-3OBJ-3ERG=Q DET=wife-2SG.POSS=EXIS [D/C+IPFV make-DIR-3OBJ-NTS PL.DET=basket=EXIS]
+(35b)	Henry Davis	translation	‘Does your wife have a hard time making baskets?’
+(36)	St’át’imcets	transcription	Qwamqwmet.skál’ap ha kwa spáqwstali i wa7 k’écwa7?
+(36)	St’át’imcets	segmentation	qʷam<qʷm>ət-s-Ø=kál̕ap=ha [kʷa s-páqʷ-s-Ø-tal̕i ʔi=waʔ k̓ə́xʷaʔ]
+(36)	St’át’imcets	gloss	fun<PDEN >-CHA-CAUS-3OBJ=2PL.SUBJ=Q [D/C+IPFV STAT-watch-CAUS-3OBJ-NTS PL.DET=IPFV+EXIS play.hockey
+(36)	Henry Davis	translation	‘Do you guys have fun watching hockey?’
+(37)	St’át’imcets	transcription	Xát’skacw ha kwa k’ul’ún’tal’i i lhk’wál’usa?
+(37)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø=kaxʷ=ha [kʷa k̓ʷul̕-ún̓-Ø-tal̕i ʔi=ɬk̓ʷál̕us=a]
+(37)	St’át’imcets	gloss	hard-CAUS-3OBJ=2SG.SUBJ=Q [D/C+IPFV make-DIR-3OBJ-NTS PL.DET=basket=EXIS]
+(37)	Henry Davis	translation	‘Do you have a hard time making baskets?’
+(38)	St’át’imcets	transcription	Xát’skan kwa kwanenstáli i xwit’áz’a.	marked ??
+(38)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø=kan [kʷa kʷan<ən>-s-Ø-tali ʔi=x̌ʷiƛ̓áz̓ =a
+(38)	St’át’imcets	gloss	hard-CAUS-3OBJ=2SG.SUBJ=Q [D/C+IPFV caught<COS>-CAUS-3OBJ-NTS PL.DET=mountain.goat=EXIS]
+(38)	Henry Davis	translation	‘I have a hard time catching mountain goats.’	the intended meaning
+(38)	Henry Davis	damage	x̌áƛ̓-s-Ø=kan [kwa kʷan<ən>-s-Ø-tali hard-CAUS-3OBJ=2SG.SUBJ=Q	the gloss tier has 2SG.SUBJ=Q where the segmentation has =kan and no =ha
+(38)	Carl Alexander (Qwa7yán’ak)	note	“For some people, I guess.”	CA's comment
+(38)	Henry Davis	note	“Not for you?”	HD's question to CA
+(38)	Carl Alexander (Qwa7yán’ak)	note	“No.”	CA's answer
+§3.3	Henry Davis	heading	3.3 Passive morphology in infinitival complements
+(39a)	St’át’imcets	transcription	Xat’ ha k’a kwa qan’imenstúmcalem?	volunteered by CA
+(39a)	St’át’imcets	segmentation	x̌áƛ̓=Ø=ha=k̓a [kʷa qan̓im-əns-túmxal-əm]
+(39a)	St’át’imcets	gloss	hard=3SUBJ=Q=EPIS [D/C+IPFV hear-DIR-1SG.OBJ-PASS]
+(39a)	Carl Alexander (Qwa7yán’ak)	translation	‘Is it hard to hear me?’ [‘Is it hard for me to get heard?’]	(volunteered)
+(39b)	St’át’imcets	transcription	Xat’skan ha k’a kwa qan’imenstúmcalem.
+(39b)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø=kan [kʷa qan̓im-əns-túmxal-əm]
+(39b)	St’át’imcets	gloss	hard-CAUS-3OBJ=1SG.SUBJ [D/C+IPFV hear-DIR-1SG.OBJ-PASS]
+(39b)	Carl Alexander (Qwa7yán’ak)	translation	‘I have a hard time with being heard.’	(translation volunteered)
+(40a)	St’át’imcets	transcription	Qwámqwmet kwa xixlhtstúmim.
+(40a)	St’át’imcets	segmentation	qʷám<qʷm>-ət=Ø [kʷa x̌i<x̌>ɬ-c-túmi-m]
+(40a)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ [D/C+IPFV tease<DIM>-CAUS-2SG.OBJ-PASS]
+(40a)	Henry Davis	translation	‘It’s fun to tease you.’ [‘It’s fun for you to be teased.’]
+(40b)	St’át’imcets	transcription	Qwámqwmet.stum kwa xixlhtstúmim.
+(40b)	St’át’imcets	segmentation	qʷám<qʷm>-ət-s-Ø+tum [kʷa x̌i<x̌>ɬ-c-túmi-m]
+(40b)	St’át’imcets	gloss	fun<PDEN>-CHA-CAUS-3OBJ+PASS [D/C+IPFV tease<DIM>-CAUS-2SG.OBJ-PASS]
+(40b)	Henry Davis	translation	‘We have fun teasing you.’ [‘We find it fun for you to be teased.’]	footnote 15 hangs on it
+(41a)	St’át’imcets	transcription	Qwámqwmet kwa xíxlhtstum.
+(41a)	St’át’imcets	segmentation	qʷám<qʷm>-ət=Ø [kʷa x̌í<x̌>ɬ-c-Ø+tum]
+(41a)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ [D/C+IPFV tease<DIM>-CAUS-3OBJ+PASS]
+(41a)	Henry Davis	translation	‘It’s fun to tease somebody.’ [‘It’s fun for him/her to be teased.’]
+(41b)	St’át’imcets	transcription	Qwámqwmet.stum kwa xíxlhtstum.
+(41b)	St’át’imcets	segmentation	qʷám<qʷm>-ət-s-Ø+tum [kʷa x̌í<x̌>ɬ-c-Ø+tum]
+(41b)	St’át’imcets	gloss	fun<PDEN>-CHA-CAUS-3OBJ+PASS [D/C+IPFV tease<DIM>-CAUS-3OBJ+PASS]
+(41b)	Henry Davis	translation	‘We find it funny to tease somebody.’ [‘We find it funny for somebody to be teased.’]	printed at the top of the next page
+(42a)	St’át’imcets	transcription	Xat’ ha kwa kwánenstum i xwit’áz’a?
+(42a)	St’át’imcets	segmentation	x̌áƛ̓=Ø [kʷa kʷán<ən>-s-Ø+tum ʔi=x̌ʷiƛ̓áz̓=a]
+(42a)	St’át’imcets	gloss	hard=3SUBJ [D/C+IPFV caught<COS>-CAUS-3OBJ+PASS PL.DET=mountain.goat=EXIS]
+(42a)	Henry Davis	translation	‘It’s hard for us to catch mountain goats.’[‘It is hard for mountain goats to get caught.’]
+(42b)	St’át’imcets	transcription	Xat’stwítas i wa7 píxem’ kwa kwánenstum i xwit’áz’a.
+(42b)	St’át’imcets	segmentation	x̌aƛ̓-s-Ø-twítas ʔi=waʔ píx̌əm̓ [kʷa kʷán<ən>-s-Ø+tum ʔi=x̌ʷiƛ̓áz̓=a]
+(42b)	St’át’imcets	gloss	hard-CAUS-3OBJ-3PL.ERG PL.DET=IPFV+EXIS hunt [D/C+IPFV caught<COS>-CAUS-3OBJ+PASS PL.DET=mountain.goat=EXIS]
+(42b)	Henry Davis	translation	‘Hunters have a hard time catching mountain goats.’ [‘Hunters find it hard for mountain goats to get caught.’]
+§3.4	Henry Davis	heading	3.4 Summary: agreement in infinitival complements to evaluative predicates
+(43)	Henry Davis	note	Subject marking in infinitival complements to evaluative predicates	the title of the scale
+(43)	Henry Davis	note	Passive > (3obj+3erg) > (1/2obj+3erg) > (3obj+1/2erg) > (1/2obj+1/2erg) > no agreement	the scale, from most acceptable to least acceptable; -tali is set under Passive
+(43)	St’át’imcets	cited affix	-tali	set under Passive at the most acceptable end of the scale
+§3.4	St’át’imcets	cited affix	ʔi=	‘when.PST’, the complementizer that takes a subjunctive complement clause
+(44a)	St’át’imcets	transcription	Cw7aoz ha kw sqan’imenstúmcacw?
+(44a)	St’át’imcets	segmentation	xʷʔạ́z=Ø=ha kʷ=s=qan̓im-əns-túmx-axʷ
+(44a)	St’át’imcets	gloss	NEG=3SUBJ=Q D/C=NMLZ=hear-DIR-1SG.OBJ-2SG.ERG
+(44a)	Henry Davis	translation	‘Did you not hear me?’
+(44b)	St’át’imcets	transcription	Cw7aoz kw sqan’imenstúmin.
+(44b)	St’át’imcets	segmentation	xʷʔạz=Ø kʷ=s=qan̓im-əns-túmin
+(44b)	St’át’imcets	gloss	NEG=3SUBJ D/C=NMLZ=hear-DIR-2SG.OBJ+1SG.ERG
+(44b)	Henry Davis	translation	‘I did not hear you.’	footnote 16 hangs on it
+(45a)	St’át’imcets	transcription	Záw’tlhkacw ha i qan’imenstúmcacw?
+(45a)	St’át’imcets	segmentation	záw̓t=ɬkaxʷ=ha ʔi=qan̓im-əns-túmx-axʷ
+(45a)	St’át’imcets	gloss	annoyed=2SG.SUBJ=Q when.PST=hear-DIR-1SG.OBJ-2SG.ERG
+(45a)	Henry Davis	translation	‘Did you get annoyed when you heard me?’
+(45b)	St’át’imcets	transcription	Záw’tkan i qan’imenstúminan.
+(45b)	St’át’imcets	segmentation	záw̓t=kan ʔi=qan̓im-əns-túmin-an
+(45b)	St’át’imcets	gloss	annoyed=1SG.SUBJ when.PST=hear-DIR-2SG.OBJ-1SG.ERG
+(45b)	Henry Davis	translation	‘I got annoyed when I heard you.’	footnote 17 hangs on it
+footnote 16	St’át’imcets	cited affix	-cin	a portmanteau in nominalized clauses, second person singular object and first person subject
+footnote 17	St’át’imcets	cited affix	=an	the homophonous subjunctive clitic
+footnote 17	St’át’imcets	cited affix	-an	the first person ergative suffix, as Davis treats it in (45b)
+footnote 17	St’át’imcets	cited affix	-aswit	the third person plural ergative suffix that shows up in examples parallel to (45b)
+footnote 17	St’át’imcets	cited affix	=wit=as	the subjunctive clitic combination that does not show up
+§4	Henry Davis	heading	4 Control and implicit arguments with evaluative predicates
+(46)	St’át’imcets	transcription	K’ínk’ent kwa nq’áylec lta nxwemátkw7a.
+(46)	St’át’imcets	segmentation	k̓ín<k̓ən>-t=Ø [kʷa n-q̓áy-ləx l=ta=n-x̌ʷəm-átkʷʔ=a]
+(46)	St’át’imcets	gloss	dangerous<PDEN>-CHA=3SUBJ [D/C+IPFV LOC-jump-AUT in=DET=LOC-fast-water =EXIS]
+(46)	Davis et al. in prep.	translation	‘It is dangerous to swim in the swift water.’	(Davis et al. in prep.)
+(47)	St’át’imcets	transcription	Xat’ kwa cwíl’em ku álas estélh skáts’alts.
+(47)	St’át’imcets	segmentation	x̌áƛ̓=Ø [kʷa xʷíl̕-əm kʷu=ʔálas ʔəs-tə́ɬ s-k̓ác̓-alc]
+(47)	St’át’imcets	gloss	hard=3SUBJ [D/C+IPFV look.for-MID DET=really STAT-stretch NMLZ-cross-house]
+(47)	Davis et al. in prep.	translation	‘It’s hard to find really straight horizontal struts.’	(Davis et al. in prep.)
+(48)	St’át’imcets	transcription	Qvl kwa uqw7anstáli ku lam.
+(48)	St’át’imcets	segmentation	qə̣ḷ=Ø [kʷa ʔuqʷʔ-ans-Ø-táli kʷu=lám]
+(48)	St’át’imcets	gloss	bad=3SUBJ [D/C+IPFV drink-DIR-3OBJ-NTS DET=rum]
+(48)	Davis et al. in prep.	translation	‘It’s bad to drink rum.’	(Davis et al. in prep.)
+§4	St’át’imcets	cited form	waʔ	the imperfective auxiliary, which Davis (2011) argues is a clausal diagnostic
+§4	St’át’imcets	cited affix	-tali	marks a bound variable in the subject position of a transitive clause, and so diagnoses PRO
+§4.1	Henry Davis	heading	4.1 Control in evaluative infinitives
+(49)	Idan Landau	note	Configurational effects on control Complement clauses fall under OC; subject and adjoined (extraposed) clauses fall under NOC.	Landau's generalization (2013: 38), heading and text; footnote 18 hangs on it
+(50a)	St’át’imcets	transcription	K’ínk’ent áti7 kwa tqalk’.
+(50a)	St’át’imcets	segmentation	k̓ín<k̓ən>-t=Ø [ʔátiʔ kʷa tq-alk̓]
+(50a)	St’át’imcets	gloss	dangerous<PDEN>-CHA=3SUBJ [to.there [D/C+IPFV touch-string]
+(50a)	Henry Davis	translation	‘It is dangerous to drive through there.’
+(50b)	St’át’imcets	transcription	K’ínk’ent.skan áti7 kwa tqalk’.
+(50b)	St’át’imcets	segmentation	k̓ín<k̓ən>-t-s-Ø=kan [ʔátiʔ kʷa tq-alk̓]
+(50b)	St’át’imcets	gloss	dangerous<PDEN>-CHA-CAUS-3OBJ=1SG.SUBJ [to.there D/C+IPFV touch-string]
+(50b)	Henry Davis	translation	‘It is dangerous for me to drive through there.’
+§4.1	St’át’imcets	cited form	x̌aƛ̓	‘hard’
+§4.1	St’át’imcets	cited form	x̌aƛ̓-s	‘find something hard’
+§4.1	St’át’imcets	cited form	qʷámqʷmət	‘fun(ny)’
+§4.1	St’át’imcets	cited form	qʷámqʷmət-s	‘find something fun(ny)’
+§4.1	St’át’imcets	cited form	k̓ínk̓ənt	‘dangerous’, whose causative has not been documented before
+§4.1	St’át’imcets	cited form	kʷis-c	drop something’; the gloss has no opening quote
+§4.1	Henry Davis	damage	kʷis-c drop something’	the gloss is printed without its opening quote
+§4.1	St’át’imcets	cited form	kʷis	‘fall’
+§4.1	St’át’imcets	cited form	qam̓t-s	‘hit someone/something’
+§4.1	St’át’imcets	cited form	qam̓t	‘get hit’
+§4.1	St’át’imcets	cited form	ʔúx̌ʷal̕-s	‘take someone/something home’
+§4.1	St’át’imcets	cited form	ʔúx̌ʷal̕	‘go home’
+§4.1	Henry Davis	damage	(As far, as I know	a stray comma after far
+(51)	St’át’imcets	transcription	K’ínk’ent ls7ents áti7 kwa tqalk’.
+(51)	St’át’imcets	segmentation	k̓ín<k̓ən>-t=Ø l=sʔənc ʔátiʔ [kʷa tq-alk̓]
+(51)	St’át’imcets	gloss	dangerous<PDEN>-CHA=3SUBJ OBL=1SG.IND to.there [D/C+IPFV touch-string]
+(51)	Carl Alexander (Qwa7yán’ak)	translation	‘It’s dangerous to me to drive through there.’	(translation volunteered); footnote 19 hangs on it
+(52)	St’át’imcets	transcription	K’ínk’ent lsHenry kwa stqalk’ i káoha.	volunteered by CA
+(52)	St’át’imcets	segmentation	k̓ín<k̓ən>-t=Ø l=s-Henry [kʷa s-tq-alk̓ ʔi=kạ́h=a]
+(52)	St’át’imcets	gloss	dangerous<PDEN>-CHA=3SUBJ OBL=NMLZ-Henry [D/C+IPFV STAT-touch-string PL.DET=car=EXIS]
+(52)	Carl Alexander (Qwa7yán’ak)	translation	‘It’s dangerous for Henry to drive trucks.’	(volunteered)
+(53)	St’át’imcets	transcription	Xat’ ha esnúwa kwa matq lhas k’ímal’ts ta c.wálha?	volunteered by CA
+(53)	St’át’imcets	segmentation	x̌áƛ̓=Ø=ha ʔə=snúwa [kʷa matq ɬ=as k̓ímal̕c ta=xwáɬ=a]
+(53)	St’át’imcets	gloss	hard= 3SUBJ=Q OBL=2SG.IND [D/C+IPFV walk] COMP=IPFV+3SBJV frozen DET=road=EXIS]
+(53)	Carl Alexander (Qwa7yán’ak)	translation	‘Is it hard for you to walk when the road is icy?’	(volunteered); (Cf. (12)) follows it
+§4.1	St’át’imcets	cited affix	l=	‘at’, an oblique-marking preposition
+§4.1	St’át’imcets	cited affix	ʔə=	‘to’, an oblique-marking preposition interchangeable with l=
+(54)	Henry Davis	transcription	It is fun [PROarb to play basketball].	an English example, after Epstein (1984)
+(54)	Henry Davis	formula	∀x It is fun for x [for x to play basketball]	reading (i), glossed (For everyone it is the case that if they play basketball, it is fun for them.)
+(54)	Henry Davis	formula	It is fun ∀x [x to play basketball]	reading (ii), marked #, glossed (If everyone plays basketball, it is fun.)
+footnote 19	St’át’imcets	cited form	ʔátiʔ	the demonstrative adverb of (51), which precedes the D/C element
+footnote 19	St’át’imcets	cited affix	kʷ(u)=	the D/C element ʔátiʔ precedes
+(55)	St’át’imcets	transcription	Qíl’qel’t kwa nq’áylec.
+(55)	St’át’imcets	segmentation	qíl̕<qəl̕>-t=Ø [kʷa n-q̓áy-ləx]
+(55)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ [D/C+IPFV LOC-jump-AUT
+(55)	Henry Davis	translation	‘It is fun to swim.’
+(55)	Henry Davis	formula	∀x It is fun for x [for x to swim]	reading (i), glossed (For everyone it is the case that if they swim, it is fun for them.)
+(55)	Henry Davis	formula	It is fun ∀x [x to swim]	reading (ii), marked #, glossed (If everyone swims, it is fun.)
+(56)	St’át’imcets	transcription	Xat’ kwa tqálk’em kents7á lhas sútik.
+(56)	St’át’imcets	segmentation	x̌aƛ̓=Ø [kʷa tq-álk̓-əm kən-cʔá ɬ=as sútik
+(56)	St’át’imcets	gloss	hard=3SUBJ [D/C+IPFV touch-string-MID] around-this COMP=IPFV+3SBJV winter
+(56)	Henry Davis	translation	‘It’s hard to drive around here in winter.’
+§4.1	St’át’imcets	cited affix	=kʷuʔ	the quotative evidential enclitic
+§4.1	St’át’imcets	cited affix	=k̓a	the inferential evidential enclitic
+(57a)	St’át’imcets	transcription	Xat’ ku7 kwa tqálk’em kents7á lhas sútik.
+(57a)	St’át’imcets	segmentation	x̌áƛ̓=Ø=kʷuʔ [kʷa tq-álk̓-əm kən-cʔá ɬ=as sútik]
+(57a)	St’át’imcets	gloss	hard=3SUBJ=QUOT [D/C+IPFV touch-string-MID around-this COMP=IPFV+3SBJV winter]
+(57a)	Carl Alexander (Qwa7yán’ak)	translation	‘I heard it’s hard to drive around here when it’s winter.’	(translation volunteered)
+(57b)	St’át’imcets	transcription	Xat’ k’a kwa tqálk’em kents7á lhas sútik.
+(57b)	St’át’imcets	segmentation	x̌áƛ̓=Ø=k̓a [kʷa tq-álk̓-əm kən-cʔá ɬ=as sútik]
+(57b)	St’át’imcets	gloss	hard=3SUBJ=EPIS [D/C+IPFV touch-string-MID around-this COMP=IPFV+3SBJV winter]
+(57b)	Henry Davis	translation	‘It must be hard to drive around here when it’s winter.’
+(58)	St’át’imcets	transcription	Xát’skan kwa tqálk’em kents7á lhas sútik.
+(58)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø=kan [kʷa tq-álk̓-əm kən-cʔá ɬ=as sútik]
+(58)	St’át’imcets	gloss	hard-CAUS-3OBJ=1SG.SUBJ [D/C+IPFV touch-string-MID around-this COMP=IPFV+3SBJV winter]
+(58)	Henry Davis	translation	‘I have a hard time driving around here in winter.’
+§4.1	Henry Davis	damage	the resulting sentences becomes anomalous	becomes for become
+(59a)	St’át’imcets	transcription	Xát’skan ku7 kwa tqálk’em kents7á lhas sútik.	marked #
+(59a)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø=kan=kʷuʔ [kʷa tq-álk̓-əm kən-cʔá ɬ=as sútik]
+(59a)	St’át’imcets	gloss	hard-CAUS-3OBJ=1SG.SUBJ=QUOT [D/C+IPFV touch-string-MID around-this COMP=IPFV+3SBJV winter]
+(59a)	Carl Alexander (Qwa7yán’ak)	note	“I think you can take that kʷuʔ out.”	CA's comment
+(59a)	St’át’imcets	cited form	kʷuʔ	the quotative CA would take out
+(59b)	St’át’imcets	transcription	Xát’skan k’a kwa tqálk’em kents7á lhas sútik.	marked #
+(59b)	St’át’imcets	segmentation	x̌áƛ̓-s-Ø=kan=k̓a [kʷa tq-álk̓-əm kən-cʔá ɬ=as sútik]
+(59b)	St’át’imcets	gloss	hard-CAUS-3OBJ=1SG.SUBJ=EPIS [D/C+IPFV touch-string-MID around-this COMP=IPFV+3SBJV winter]
+(59b)	Carl Alexander (Qwa7yán’ak)	note	“He’s wondering if he’s having a hard time driving!”	CA's comment
+§4.1	Friederike Moltmann	note	“Generic one involves ‘generic simulation’, roughly ‘putting oneself into the shoes of anyone meeting relevant conditions’.” (Moltmann 2006: 257).	quoted by Davis
+§5	Henry Davis	heading	5 Evaluative adjective raising
+(60)	St’át’imcets	transcription	Áma kwa gwel láti7 i szíka.
+(60)	St’át’imcets	segmentation	ʔáma=Ø [kʷa ʕʷəl látiʔ ʔi=szík=a]
+(60)	St’át’imcets	gloss	good=3SUBJ [D/C+IPFV burned there PL.DET=log=EXIS]
+(60)	Davis et al. in prep.	translation	‘It would be good if those logs there got burned.’	(Davis et al. in prep.)
+(61)	St’át’imcets	transcription	Áma kwa nik’ i száq’a.
+(61)	St’át’imcets	segmentation	ʔáma=Ø [kʷa nik̓ ʔi=száq̓=a]
+(61)	St’át’imcets	gloss	good=3SUBJ [D/C+IPFV cut PL.DET=bread=EXIS]
+(61)	Davis et al. in prep.	translation	‘It’d be good if the bread got cut.’	(Davis et al. in prep.)
+(62)	St’át’imcets	transcription	Xat’ kwa kwánen i xwit’áz’a.	volunteered by CA
+(62)	St’át’imcets	segmentation	x̌aƛ̓=Ø [kʷa kʷán<ən> ʔi=x̌ʷiƛ̓áz̓=a]
+(62)	St’át’imcets	gloss	hard=3SUBJ [D/C+IPFV caught<COS> PL.DET=mountain.goat=EXIS]
+(62)	Carl Alexander (Qwa7yán’ak)	translation	‘It is hard to catch mountain goats.’ [‘It is hard for mountain goats to get caught.’]	(volunteered)
+(63)	St’át’imcets	transcription	Cuz’ xat’ ku wa7 zácen tákem iz’ i sts’úqwaz’a.
+(63)	St’át’imcets	segmentation	xʷuz̓=Ø x̌aƛ̓ [kʷu waʔ záxən tákəm ʔiz̓ ʔi=sc̓úqʷáz̓=a]
+(63)	St’át’imcets	gloss	PROS=3SUBJ hard [D/C IPFV packed.on.back all those PL.DET=fish=EXIS]
+(63)	Davis et al. in prep.	translation	‘It’s going to be difficult to pack all those fish.’ [‘It’s going to be hard for all those fish to get packed.’]	(Davis et al. in prep.)
+(64)	St’át’imcets	transcription	Áma i szíka kwa gwel láti7.
+(64)	St’át’imcets	segmentation	ʔáma=Ø ʔi=szík=a [kʷa ʕʷəl látiʔ]
+(64)	St’át’imcets	gloss	good=3SUBJ PL.DET=log=EXIS [D/C+IPFV burned there]
+(64)	Henry Davis	translation	‘Those logs there would be good to burn.’ [‘Those logs there would be good to get burned.’]
+(65)	St’át’imcets	transcription	Áma i száq’a kwa nik’.
+(65)	St’át’imcets	segmentation	ʔáma=Ø ʔi=száq̓=a [kʷa nik̓]
+(65)	St’át’imcets	gloss	good=3SUBJ PL.DET=bread=EXIS [D/C+IPFV cut]
+(65)	Henry Davis	translation	‘The bread would be good to cut.’ [‘The bread would be good to get cut.’]
+(66)	St’át’imcets	transcription	Xat’ i xwit’áz’a kwa kwánen.
+(66)	St’át’imcets	segmentation	x̌aƛ̓=Ø ʔi=x̌ʷiƛ̓áz̓=a [kʷa kʷán<ən>]
+(66)	St’át’imcets	gloss	hard=3SUBJ PL.DET=mountain.goat=EXIS [D/C+IPFV caught<COS>]
+(66)	Henry Davis	translation	‘Mountain goats are hard to catch.’ [‘Mountain goats are hard to get caught.’]
+§5	St’át’imcets	cited form	c̓íla	‘seem, like, resemble’, the predicate of subject-subject raising in Davis (2020)
+(67)	St’át’imcets	transcription	Xát’lhkan kwa lhek’w, kan páqu7min i pátkwha.
+(67)	St’át’imcets	segmentation	x̌áƛ̓=ɬkan [kʷa ɬək̓ʷ], kan páqʷuʔ-min-Ø ʔi=pátkʷh=a
+(67)	St’át’imcets	gloss	hard=1SG.SUBJ [D/C+IPFV poke] 1SG.SUBJ afraid-RLT-3OBJ PL.DET=needle=EXIS
+(67)	Henry Davis	translation	‘I’m hard to inject: I’m scared of needles.’ [‘I’m hard to get poked: I’m scared of needles’]
+(68a)	St’át’imcets	transcription	Xat’ kwa kwánenstum i xwit’áz’a.
+(68a)	St’át’imcets	segmentation	x̌aƛ̓=Ø [kʷa kʷán<ən>-s-Ø+tum ʔi=x̌ʷiƛ̓áz̓=a]
+(68a)	St’át’imcets	gloss	hard=3SUBJ [D/C+IPFV caught<COS>-CAUS-3OBJ+PASS PL.DET=mountain.goat=EXIS]
+(68a)	Henry Davis	translation	‘It is hard to catch mountain goats.’ [‘It is hard for mountain goats to get caught.’]
+(68b)	St’át’imcets	transcription	Xat’ i xwit’áz’a kwa kwánenstum.
+(68b)	St’át’imcets	segmentation	x̌aƛ̓=Ø ʔi=x̌ʷiƛ̓áz̓=a [kʷa kʷán<ən>-s-Ø+tum]
+(68b)	St’át’imcets	gloss	hard=3SUBJ PL.DET=mountain.goat=EXIS [D/C+IPFV caught<COS>-CAUS-3OBJ+PASS]
+(68b)	Henry Davis	translation	‘Mountain goats are hard to catch.’ [‘Mountain goats are hard to get caught.’]
+(69a)	St’át’imcets	transcription	K’ínk’ent kwa ts’áqwan’em i qwenálhpa.
+(69a)	St’át’imcets	segmentation	k̓ín<k̓ən>-t=Ø [kʷa c̓áqʷ-an̓-Ø-əm ʔi=qʷənáɬp=a]
+(69a)	St’át’imcets	gloss	dangerous<PDEN>-CHA=3SUBJ [D/C+IPFV eat-DIR-3OBJ-PASS PL.DET=false.hellebore=EXIS]
+(69a)	Henry Davis	translation	‘It is dangerous to eat false hellebore.’ [‘It is dangerous for false hellebore to get eaten.’]
+(69b)	St’át’imcets	transcription	K’ínk’ent i qwenálhpa kwa ts’áqwan’em.
+(69b)	St’át’imcets	segmentation	k̓ín<k̓ən>-t=Ø ʔi=qʷənáɬp=a [kʷa c̓áqʷ-an̓-Ø-əm]
+(69b)	St’át’imcets	gloss	dangerous<PDEN >-CHA=3SUBJ PL.DET=false.hellebore=EXIS [D/C+IPFV eat-DIR-3OBJ-PASS]
+(69b)	Henry Davis	translation	‘False hellebore is dangerous to eat.’ [‘False hellebore is dangerous to get eaten.’]
+(70)	St’át’imcets	transcription	Xát’lhkan kwa lhek’wentsálem, kan páqu7min i pátkwha.
+(70)	St’át’imcets	segmentation	x̌áƛ̓=ɬkan [kʷa ɬək̓ʷ-ən-cál-əm], kan páqʷuʔ-min-Ø ʔi=pátkʷh=a
+(70)	St’át’imcets	gloss	hard=1SG.SUBJ [D/C+IPFV poke-DIR-1SG.OBJ-PASS] 1SG.SUBJ afraid-RLT-3OB PL.DET=needle=EXIS
+(70)	Carl Alexander (Qwa7yán’ak)	translation	‘I’m hard to get poked: I’m afraid of needles.’	(volunteered translation); (Cf. (67)) follows it
+(70)	Henry Davis	damage	afraid-RLT-3OB	3OB for 3OBJ in the gloss tier
+(71a)	St’át’imcets	transcription	Xat’ kwa kwanenstáli i xwit’áz’a.	volunteered by CA
+(71a)	St’át’imcets	segmentation	x̌aƛ̓=Ø [kʷa kʷan<ən>-s-Ø-táli ʔi=x̌ʷiƛ̓áz̓=a]
+(71a)	St’át’imcets	gloss	hard=3SUBJ [D/C+IPFV caught<COS>-CAUS-3OBJ-NTS PL.DET=mountain.goat=EXIS]
+(71a)	Carl Alexander (Qwa7yán’ak)	translation	‘It is hard to catch mountain goats.’	(volunteered)
+(71b)	Henry Davis	damage	Xat’ kwa kwanenstáli i xwit’áz’a.	starred; the transcription repeats (71a) word for word, while the segmentation puts the DP before kʷa
+(71b)	St’át’imcets	segmentation	x̌aƛ̓=Ø ʔi=x̌ʷiƛ̓áz̓=a [kʷa kʷan<ən>-s-Ø-táli]
+(71b)	St’át’imcets	gloss	hard=3SUBJ PL.DET=mountain.goat=EXIS [D/C+IPFV caught<COS>-CAUS-3OBJ-NTS]
+(71b)	Henry Davis	translation	‘It is hard to catch mountain goats.’	the intended meaning; (corrected to (71a)) follows it
+(72a)	St’át’imcets	transcription	K’ínk’ent kwa ts’aqwan’táli i qwenálhpa.
+(72a)	St’át’imcets	segmentation	k̓ín<k̓ən>-t=Ø [kʷa c̓áqʷ-an̓-Ø-tali ʔi=qʷənáɬp=a]
+(72a)	St’át’imcets	gloss	dangerous<PDEN>-CHA=3SUBJ [D/C+IPFV eat-DIR-3OBJ-NTS PL.DET=false.hellebore=EXIS]
+(72a)	Henry Davis	translation	‘It is dangerous to eat false hellebore.’
+(72b)	St’át’imcets	transcription	K’ínk’ent i qwenálhpa kwa ts’aqwan’táli.	starred
+(72b)	St’át’imcets	segmentation	k̓ín<k̓ən>-t=Ø ʔi=qʷənáɬp=a [kʷa c̓áqʷ-an̓-Ø-tali
+(72b)	St’át’imcets	gloss	dangerous<PDEN>-CHA=3SUBJ PL.DET=false.hellebore=EXIS] [D/C+IPFV eat-DIR-3OBJ-NTS
+(72b)	Henry Davis	translation	‘It is dangerous to eat false hellebore.’	the intended meaning
+(72b)	Carl Alexander (Qwa7yán’ak)	note	“No, I don’t think so.”	CA's comment
+(73a)	St’át’imcets	transcription	Xat’ kwa ats’xentáli i st’enwína lhas sit.st.
+(73a)	St’át’imcets	segmentation	x̌aƛ̓=Ø [kʷa ʔac̓x̌-ən-Ø-táli ʔi=sƛ̓ənwín=a ɬ=as sitst]
+(73a)	St’át’imcets	gloss	hard=3SUBJ [D/C+IPFV see-DIR-3OBJ-NTS PL.DET=bat=EXIS COMP=IPFV+3SBJV night]
+(73a)	Henry Davis	translation	‘It is hard to see bats at night.’
+(73b)	St’át’imcets	transcription	Xat’ i st’enwína kwa ats’xentáli lhas sit.st.
+(73b)	St’át’imcets	segmentation	x̌aƛ̓=Ø ʔi=sƛ̓ənwín=a [kʷa ʔac̓x̌-ən-Ø-táli ɬ=as sitst]
+(73b)	St’át’imcets	gloss	hard=3SUBJ PL.DET=bat=EXIS [D/C+IPFV see-DIR-3OBJ-NTS COMP=IPFV+3SBJV night]
+(73b)	Henry Davis	translation	‘Bats are hard to see at night.’
+(73b)	Carl Alexander (Qwa7yán’ak)	note	“Yeah, that’s okay: it’s kind of hard to see the bats at night.”	CA's comment
+(74a)	St’át’imcets	transcription	Qwamqwmet ha kwa spáqwstwitas i wa7 k’écwa7 i snek’wnúk’wa7swa?
+(74a)	St’át’imcets	segmentation	qʷám<qʷm>ət=Ø=ha [kʷu=waʔ s-páqʷ-s-Ø-twitas ʔi=waʔ k̓ə́xʷaʔ ʔi=s<nək̓ʷ>núk̓ʷaʔ-sw=a]
+(74a)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ=Q [D/C=IPFV STAT-watch-CAUS-3OBJ-3PL.ERG PL.DET=IPFV+EXIS play.hockey PL.DET=friend<PLU>-2SG.POSS=EXIS]
+(74a)	Henry Davis	translation	‘Do your friends have fun watching hockey?’
+(74b)	St’át’imcets	transcription	Qwamqwmet ha i wa7 k’écwa7 kwa spáqwstwitas i snek’wnúk’wa7swa?
+(74b)	St’át’imcets	segmentation	qʷám<qʷm>ət=Ø=ha ʔi=waʔ k̓ə́xʷaʔ [kʷu=waʔ s-páqʷ-s-Ø-twitas ʔi=s<nək̓ʷ>núk̓ʷaʔ-sw=a]
+(74b)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ=Q PL.DET=IPFV+EXIS play.hockey [D/C=IPFV STAT-watch-CAUS-3OBJ-3PL.ERG PL.DET=friend<PLU>-2SG.POSS=EXIS]
+(74b)	Henry Davis	translation	‘Do your friends have fun watching hockey?’
+(74b)	Carl Alexander (Qwa7yán’ak)	note	“Yeah, that’s about the same as the other one”	CA's comment; (i.e., (74a)) follows it
+(75a)	St’át’imcets	transcription	Qíl’qel’t i sk’wemk’úk’wmi7ta kwa nq’áylec	starred
+(75a)	St’át’imcets	segmentation	qíl̕<qəl̕>-t=Ø ʔi=s<k̓ʷəm>k̓ʷúk̓ʷmiʔt=a [kʷa n-q̓áy-ləx]
+(75a)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ PL.DET=child<PLU>=EXIS [D/C+IPFV LOC-jump-AUT
+(75a)	Henry Davis	translation	‘It is fun for the children to swim.’	the intended meaning; (corrected to (75b)) follows it
+(75b)	St’át’imcets	transcription	Qil’qel’t.stwítas i sk’wemk’úk’wmi7ta kwa nq’áylec
+(75b)	St’át’imcets	segmentation	qil̕<qəl̕>-t-s-Ø-twítas ʔi=s<k̓ʷəm>k̓ʷúk̓ʷmiʔt=a [kʷa n-q̓áy-ləx]
+(75b)	St’át’imcets	gloss	fun<PDEN>-CHA-CAUS-3OBJ-3PL.ERG PL.DET=child<PLU>=EXIS [D/C+IPFV LOC-jump-AUT
+(75b)	Henry Davis	translation	‘The children find it fun to swim.’
+(75b)	Henry Davis	damage	‘The children find it fun to swim.’.	a period follows the closing quote
+(76)	St’át’imcets	transcription	Xat’ i wa7 píxem’ kwa kwanenstáli i xwit’áz’a.	starred
+(76)	St’át’imcets	segmentation	x̌aƛ̓=Ø ʔi=waʔ píx̌əm̓ [kʷa kʷan<ən>-s-Ø-táli ʔi=x̌ʷiƛ̓áz̓=a]
+(76)	St’át’imcets	gloss	hard=3SUBJ PL.DET=IPFV+EXIS hunt [D/C+IPFV caught<COS>-CAUS-3OBJ-NTS PL.DET=mountain.goat=EXIS]
+(76)	Henry Davis	translation	‘It is hard for hunters to catch mountain goats.’	the intended meaning; Cf. (71). follows it
+(76)	Carl Alexander (Qwa7yán’ak)	note	“That’s the hunters are hard!”	CA's comment
+(77a)	St’át’imcets	transcription	Qwámqwmet ha i snek’wnúk’wa7swa ku wa7 spáqwstwitas i wa7 k’écwa7?	starred
+(77a)	St’át’imcets	segmentation	qʷám<qʷm>ət=Ø=ha ʔi=s<nək̓ʷ>núk̓ʷaʔ-sw=a [kʷu=waʔ s-páqʷ-s-Ø-twitas ʔi=waʔ k̓ə́xʷaʔ]
+(77a)	St’át’imcets	gloss	fun<PDEN>-CHA=3SUBJ=Q PL.DET=friend<PLU>-2SG.POSS=EXIS [D/C=IPFV STAT-watch-CAUS-3OBJ-3PL.ERG PL.DET=IPFV+EXIS play.hockey]
+(77a)	Henry Davis	translation	‘Do your friends have fun watching hockey?’	the intended meaning; Cf. (74)(Corrected to (77b)) follows it
+(77a)	St’át’imcets	transcription	Kanemás k’a ses qwámqwmet i snek’wnúk’wa7swa?!	CA's comment on (77a), quoted
+(77a)	Carl Alexander (Qwa7yán’ak)	translation	‘I wonder why your friends are funny?!’	the translation of CA's comment, in square brackets; footnote 21 hangs on it
+footnote 21	St’át’imcets	cited form	qʷámqʷmət	ambiguous between ‘(have) fun’ and ‘(be) funny’
+footnote 21	St’át’imcets	cited form	qíl̕qəl̕t	the same ambiguity, confined to Upper St’át’imcets
+footnote 21	Henry Davis	language	Upper St’át’imcets	the dialect qíl̕qəl̕t is confined to
+footnote 21	St’át’imcets	cited form	ʔi snək̓ʷnúk̓waʔswa	‘your friends’; the second k̓ has a plain w where the first has ʷ
+(77b)	St’át’imcets	transcription	Qwamqwmet.stwítas ha i snek’wnúk’wa7swa ku wa7 spáqwstwitas i wa7 k’écwa7?
+(77b)	St’át’imcets	segmentation	qʷám<qʷm>ət-s-Ø-twítas=ha ʔi=s<nək̓ʷ>núk̓ʷaʔ-sw=a [kʷu=waʔ s-páqʷ-s-Ø-twitas ʔi=waʔ k̓ə́xʷaʔ]
+(77b)	St’át’imcets	gloss	fun<PDEN>-CHA-CAUS-3OBJ-3PL.ERG=Q PL.DET=friend<PLU>-2SG.POSS=EXIS [D/C=IPFV STAT-watch-CAUS-3OBJ-3PL.ERG PL.DET=IPFV+EXIS play.hockey]
+(77b)	Henry Davis	translation	‘Do your friends find it fun to watch hockey?’
+(78a)	St’át’imcets	transcription	Xat’ i wa7 píxem’ kwa kwánenstum i xwit’áz’a.	starred
+(78a)	St’át’imcets	segmentation	x̌aƛ̓=Ø ʔi=waʔ píx̌əm̓ [kʷa kʷan<ən>-s-Ø+tum ʔi=x̌ʷiƛ̓áz̓=a]
+(78a)	St’át’imcets	gloss	hard=3SUBJ PL.DET=IPFV+EXIS hunt [D/C+IPFV caught<COS>-CAUS-3OBJ+PASS PL.DET=mountain.goat=EXIS]
+(78a)	Henry Davis	translation	‘It is hard for mountain goats to be caught by hunters.’	the intended meaning; Corrected to (78b) follows it
+(78b)	St’át’imcets	transcription	Xat’stwítas i wa7 píxem’ kwa kwánenstum i xwit’áz’a.	volunteered by CA
+(78b)	St’át’imcets	segmentation	x̌aƛ̓-s-Ø-twítas ʔi=waʔ píx̌əm̓ [kʷa kʷan<ən>-s-Ø+tum ʔi=x̌ʷiƛ̓áz̓=a]
+(78b)	St’át’imcets	gloss	hard-CAUS-3OBJ-3PL.ERG PL.DET=IPFV+EXIS hunt [D/C+IPFV caught<COS>-CAUS-3OBJ+PASS PL.DET=mountain.goat=EXIS]
+(78b)	Carl Alexander (Qwa7yán’ak)	translation	‘Hunters find it hard to catch mountain goats.’	(volunteered)
+§5.1	Henry Davis	heading	5.1 Analysis
+(79)	Henry Davis	note	Unaccusative patient Passive patient > Transitive patient > Agent	the scale, from most acceptable to least acceptable; Unaccusative patient is set above Passive patient
+§5.1	Henry Davis	damage	see 5.3 below	the paper has no section 5.3
+(80)	St’át’imcets	transcription	Áma i száq’a kwa nik’.	(65) repeated
+(80)	St’át’imcets	segmentation	ʔáma ʔi=száq̓=a [kʷa nik̓]
+(80)	St’át’imcets	gloss	good PL.DET=bread=EXIS [D/C+IPFV cut]
+(80)	Henry Davis	translation	‘The bread would be good to cut.’ [‘The bread would be good to get cut.’]
+(81)	Henry Davis	notation	(81)	a syntax tree of (80); its node labels are MoodP, [indic], Mood, DP, SagrP, Sagr, AP, A, PROARB, D/CP, D/C, [-fin], AspP, Asp, vP, [cos], v, VP and V, and solid and dotted arrows mark the movements
+(81)	St’át’imcets	cited form	ʔi=száq̓=a	the raised DP, set at each of its seven positions in the tree
+(81)	St’át’imcets	cited form	ʔáma	the head A
+(81)	St’át’imcets	cited form	kʷu	the head D/C
+(81)	St’át’imcets	cited form	waʔ	the head Asp
+(81)	St’át’imcets	cited form	nik̓	the head V
+§5.1	St’át’imcets	cited form	i száq̓a	‘the bread’, the internal argument of nik̓
+§5.1	St’át’imcets	cited form	nik̓	‘(get) cut’, the unaccusative verb
+§5.1	St’át’imcets	cited affix	Ø	page 29, assumption (i): the zero third person subject agreement of the indicative, (Ø in the third person indicative, as here)
+§5.2	Henry Davis	heading	5.2 Evaluative adjective raising and tough movement
+(82)	Henry Davis	transcription	It would be good (for us) to burn this wood.	(82a), an English example
+(82)	Henry Davis	transcription	It is hard (for me) to catch mountain goats.	(82b), an English example
+(83)	Henry Davis	transcription	This wood would be good (for us) to burn.	(83a), an English example
+(83)	Henry Davis	transcription	Mountain goats are hard (for me) to catch.	(83b), an English example
+(84)	Henry Davis	transcription	We would be good to burn this wood.	(84a), an English example, marked #
+(84)	Henry Davis	transcription	I am hard to catch mountain goats.	(84b), an English example, starred
+(85)	Henry Davis	transcription	This wood would be good to get burned.	(85a), an English example, starred
+(85)	Henry Davis	transcription	Mountain goats are hard to get caught.	(85b), an English example, starred
+(86)	Henry Davis	transcription	This wood would be good to tell Carl that Jerry burned.	(86a), an English example
+(86)	Henry Davis	transcription	Mountain goats are hard to teach people how to hunt.	(86b), an English example
+footnote 23	Henry Davis	name	Hagit Borer	made the observation to Davis (p.c. 2018)
+§6	Henry Davis	heading	6 Further extensions
+§6.1	Henry Davis	heading	6.1 Evaluative-adjacent infinitive constructions in St’át’imcets
+(87)	St’át’imcets	transcription	Xat’7úl ti7 ku s7ít’em kwa t’ákstal’i.	volunteered by CA
+(87)	St’át’imcets	segmentation	x̌aƛ̓-ʔúl=Ø tiʔ kʷu=sʔíƛ̓əm [kʷa ƛ̓ák-s-Ø-tal̕i]
+(87)	St’át’imcets	gloss	hard-too=3SUBJ that DET=song [D/C+IPFV go.along-CAUS-3OBJ-NTS]
+(87)	Carl Alexander (Qwa7yán’ak)	translation	‘That song is too hard to play.’	(volunteered)
+(88)	St’át’imcets	transcription	Qemp7úl ti7 ku káopi ku úqwa7.	volunteered by CA
+(88)	St’át’imcets	segmentation	qəmp-ʔúl=Ø tiʔ kʷu=kạ́pi [kʷu=ʔúqʷaʔ]
+(88)	St’át’imcets	gloss	hot-too=3SUBJ that DET=coffee [D/C=drink ]
+(88)	Carl Alexander (Qwa7yán’ak)	translation	‘That coffee is too hot to drink.’	(volunteered)
+(89a)	St’át’imcets	transcription	Xmank7úl ta tíipvla kwa cat.	volunteered by CA
+(89a)	St’át’imcets	segmentation	x̌mank-ʔúl=Ø ta=tı̣́pə̣ḷ=a [kʷa xat]
+(89a)	St’át’imcets	gloss	heavy-too=3SUBJ DET=table=EXIS [D/C+IPFV lift]
+(89a)	Carl Alexander (Qwa7yán’ak)	translation	‘The table is too heavy to lift.’ [‘The table is too heavy to get lifted.’]	(volunteered)
+(89b)	St’át’imcets	transcription	Xmank7úl ta tíipvla kwa cátan’em.
+(89b)	St’át’imcets	segmentation	x̌mank-ʔúl=Ø ta=tı̣́pə̣ḷ=a [kʷa xát-an̓-Ø-əm]
+(89b)	St’át’imcets	gloss	heavy-too=3SUBJ DET=table=EXIS [D/C+IPFV lift-DIR-3OBJ-PASS]
+(89b)	Carl Alexander (Qwa7yán’ak)	translation	‘The table is too heavy for us to lift.’ [‘The table is too heavy to get lifted.’]	(volunteered translation); footnote 24 hangs on it
+(89c)	St’át’imcets	transcription	Xmank7úl ta tíipvla kwa cátan’as.
+(89c)	St’át’imcets	segmentation	x̌mank-ʔúl=Ø ta=tı̣́pə̣ḷ=a [kʷa xát-an̓-Ø-as]
+(89c)	St’át’imcets	gloss	heavy-too=3SUBJ DET=table=EXIS [D/C+IPFV lift-DIR-3OBJ-3ERG]
+(89c)	Henry Davis	translation	‘The table is too heavy for him to lift.’
+(89c)	Carl Alexander (Qwa7yán’ak)	note	“Yeah, if there’s just one guy that wants to lift it — cátan’as is just one guy.”	CA's comment
+(89c)	St’át’imcets	cited form	cátan’as	the verb of (89c), in CA's comment
+(89d)	St’át’imcets	transcription	Xmank7úl ta tíipvla kwa catan’táli.
+(89d)	St’át’imcets	segmentation	x̌mank-ʔúl=Ø ta=tı̣́pə̣ḷ=a [kʷa xat-an̓-Ø-táli]
+(89d)	St’át’imcets	gloss	heavy-too=3SUBJ DET=table=EXIS [D/C+IPFV lift-DIR-3OBJ-NTS]
+(89d)	Henry Davis	translation	‘The table is too heavy to lift.’
+§6.1	St’át’imcets	cited affix	-ʔúl	‘too (much), really, real, authentic’, the suffix of the too-construction
+§6.1	Henry Davis	damage	structures which identical	are is missing after which
+§6.1	Henry Davis	damage	in (85) qəmpʔúl	the example meant is (88); (85) is an English example
+§6.1	St’át’imcets	cited form	qəmpʔúl	‘too hot’
+§6.1	St’át’imcets	cited form	tiʔ kʷu kạ́pi	‘that coffee’
+§6.1	St’át’imcets	cited form	qəmpʔúl tiʔ kʷu kạ́pi	‘that coffee is too hot’, with the infinitival clause omitted
+(90)	St’át’imcets	transcription	Áxa7 ti7 kwa píxem’.
+(90)	St’át’imcets	segmentation	ʔáx̌aʔ=Ø tiʔ [kʷa píx̌əm̓]
+(90)	St’át’imcets	gloss	powerful=3SUBJ that [D/C+IPFV hunt]
+(90)	Davis et al. in prep.	translation	‘He is skilful at hunting/as a hunter.’	(Davis et al in prep.)
+(91)	St’át’imcets	transcription	Qvláoka7lhkan kwa íq’em.
+(91)	St’át’imcets	segmentation	qə̣ḷ̣-ạ́kaʔ=ɬkan [kʷa ʔíq̓-əm]
+(91)	St’át’imcets	gloss	bad-hand=1SG.SUBJ [D/C+IPFV scrape-MID]
+(91)	Davis et al. in prep.	translation	‘I am careless when I scrape hides/I am careless at scraping hides.’	(Davis et al in prep.)
+(91)	Henry Davis	symbol note	qə̣ḷ̣	the l carries two combining dots below, U+0323 twice
+(92)	St’át’imcets	transcription	P’a7cw sgélgels i zacaná7a lhelki ts’qáx7a kwa tsekwcál.
+(92)	St’át’imcets	segmentation	p̓aʔxʷ=Ø s=ʕə́l<ʕəl>=s ʔi=zax-anáʔ=a ɬəl=ki=c̓qáx̌ʔ=a [kʷa cəkʷ-xál]
+(92)	St’át’imcets	gloss	more=3SUBJ NMLZ=strong<PDEN>=3POSS PL.DET=long-ear=EXIS from=PL.DET=horse=EXIS [D/C+IPFV pull-ACT]
+(92)	Davis et al. in prep.	translation	‘Donkeys are stronger than horses at pulling.’	(Davis et al in prep.)
+§6.1	St’át’imcets	cited affix	kʷu=	the D/C element that introduces the attributive infinitives
+(93)	Henry Davis	note	There are no cases of NOC in St’át’imcets (or Salish more generally)	Davis's modified claim
+§6.2	Henry Davis	heading	6.2 Evaluative infinitives in ʔayʔaǰuθəm
+§6.2	Henry Davis	name	Marianne Huijsmans	first made the discovery with Daniel Reisinger
+§6.2	Henry Davis	name	Daniel Reisinger	first made the discovery with Marianne Huijsmans
+(94)	ʔayʔaǰuθəm	transcription	hɛhəw ʔɛʔaǰus kʷ niʔɩnšɩm.
+(94)	ʔayʔaǰuθəm	segmentation	hihiw=Ø ʔiʔaǰus [kʷ=n<iʔ>i<n>šəm]
+(94)	ʔayʔaǰuθəm	gloss	really=3SUBJ fun [D/C=swim<PLU><DIM>]
+(94)	Elsie Paul	translation	‘It’s fun to swim.’	(EP)
+(95)	ʔayʔaǰuθəm	transcription	hɛhəwč ʔɛʔaǰustɛxʷ kʷ hahǰɛʔəm kʷ pɩču.	volunteered by EP
+(95)	ʔayʔaǰuθəm	segmentation	hihiw=č ʔiʔaǰus-st<i>xʷ-Ø [kʷ=h~əhǰ-aʔəm kʷ=pəču]
+(95)	ʔayʔaǰuθəm	gloss	really=1SG.SUBJ fun-CAUS<STAT>-3OBJ [D/C=PROG~make-ACT DET=basket]
+(95)	Elsie Paul	translation	‘I really enjoy making baskets.’	(EP) (volunteered)
+(96)	ʔayʔaǰuθəm	transcription	ɬaχ hɛw kʷ ʔasq̓ nanatas.	volunteered by MH
+(96)	ʔayʔaǰuθəm	segmentation	ɬəx̌=Ø hiw [kʷ=ʔasq̓ nanat=as]
+(96)	ʔayʔaǰuθəm	gloss	bad=3SUBJ really [D/C=outside evening=3SBJV]
+(96)	Molly Harry	translation	‘It is bad to go out when it is night.’	(MH) (volunteered)
+(97)	ʔayʔaǰuθəm	transcription	χaχaƛ̓ɛt kʷ gagawt̓ma.
+(97)	ʔayʔaǰuθəm	segmentation	x̌a-x̌aƛ̓-it=Ø [kʷ=ga~gawt̓-ma]
+(97)	ʔayʔaǰuθəm	gloss	PROG-hard-STAT=3SUBJ [D/C=PROG~row-go.by]
+(97)	Betty Wilson	translation	‘Rowing is difficult.	(BW)
+(97)	Henry Davis	damage	‘Rowing is difficult. (BW)	the translation has no closing quote
+footnote 26	St’át’imcets	cited form	c̓íla	‘(be) like, seem’, the raising predicate
+footnote 26	nɬeʔkepmxcín	cited form	c̓iy(e)	the cognate of c̓íla
+footnote 26	Henry Davis	language	nɬeʔkepmxcín	where c̓iy(e) apparently also takes infinitives
+footnote 27	Henry Davis	note	ʔayʔaǰuθəm data were elicited from Betty Wilson (BW) by Daniel Reisinger, from Elsie Paul (EP) by Marianne Huijsmans, and from Molly Harry (MH) by Marianne Huismans and Bailey Trotter.
+footnote 27	Henry Davis	name	Betty Wilson	BW, a speaker of ʔayʔaǰuθəm, the source of (97)
+footnote 27	Henry Davis	name	Elsie Paul	EP, a speaker of ʔayʔaǰuθəm, the source of (94) and (95)
+footnote 27	Henry Davis	name	Molly Harry	MH, a speaker of ʔayʔaǰuθəm, the source of (96)
+footnote 27	Henry Davis	name	Bailey Trotter	elicited from Molly Harry with Marianne Huijsmans
+footnote 27	Henry Davis	damage	Marianne Huismans	the surname without the j the paper gives it elsewhere
+footnote 27	Henry Davis	note	As with St’át’imcets, the examples are given in a four-line format: the top line is in the community orthography, the second a NAPA representation with morpheme breaks, the third a morpheme-by-morpheme gloss, and the fourth the English translation. I have adapted the glosses where necessary in order to allow direct comparison with St’át’imcets.	the format of (94)-(97)
+footnote 28	Henry Davis	place	St’át’imc territory	where the historical trading route began
+footnote 28	Henry Davis	place	Pemberton Valley	the St’át’imc end of the trading route
+footnote 28	Henry Davis	place	Jervis Inlet	the coastal end of the trading route
+footnote 29	Henry Davis	language	nɬeʔkepmxcín	where simultaneous propositional attitude verbs have not been recorded with infinitives
+footnote 29	Henry Davis	language	ʔayʔaǰuθəm	likewise
+§7	Henry Davis	heading	7 Conclusion: The never-ending story
+§7	Henry Davis	damage	one of three major class of infinitives in in St’át’imcets	class for classes, and in printed twice
+§7	Henry Davis	note	In particular, while I have for the sake of expedience distinguished between finite (nominalized) and infinitival clauses by appealing to a [±finite] feature, in semantic terms this involves labeling the problem rather than solving it.	the feature the tree in (81) writes [-fin]
+§7	St’át’imcets	transcription	Nilh ti7!	the paper's closing words, untranslated on the page
+References	Henry Davis	heading	References
+References	Henry Davis	reference	Abusch, Dorit. 1988. Sequence of tense, intensionality, and scope. In Proceedings of the 7th West Coast Conference on Formal Linguistics, ed. by Hagit Borer: 1–14. Stanford, CA: CSLI Publications.
+References	Henry Davis	reference	Arregui, Ana, and Lisa Matthewson. 2001. A cross-linguistic perspective on the expression of manner. Proceedings of Semantics and Linguistics Theory X. Ithaca, NY: Cornell Linguistics Publications.
+References	Henry Davis	reference	Bhatt, Rajesh and Roumyana Izvorski. 1998. Genericity, implicit arguments and control. Proceedings of SCIL 7. MIT: MITWPL.
+References	Henry Davis	reference	Bhatt, Rajesh and Roumyana Pancheva. 2017. Implicit arguments. In Martin Everaert and Henk C. van Riemsdijk (eds.), The Wiley Blackwell Companion to Syntax (2nd Edition online). John Wiley and Sons. Accessed at https://doi.org/10.1002/9781118358733.wbsyncom118.
+References	Henry Davis	reference	Davis, Henry. 1994. Tali-ho! Papers for the 29th International Conference on Salish and Neighboring Languages, 117-144. Pablo, Montana: Salish-Kutenai College.
+References	Henry Davis	reference	Davis, Henry. 1997. Deep unaccusativity and zero syntax in St’át’imcets. In Amelia Mendikoetxea and Miriam Uribe-Etxebarria (eds.), Theoretical Issues at the Morphology-Syntax Interface. Bilbao: Supplements of the International Journal of Basque Linguistics and Philology, 55-96.
+References	Henry Davis	reference	Davis, Henry. 1999. Subject inflection in Salish. In M. Caldecott, S. Gessner, and E. Kim (eds.), Current Research on Languages and Linguistics: 181-239. UBC Working Papers in Linguistics 1.
+References	Henry Davis	reference	Davis, Henry. 2000. Remarks on Proto-Salish subject inflection. International Journal of American Linguistics 66: 499-520.
+References	Henry Davis	reference	Davis, Henry. 2011. Stalking the adjective in St’át’imcets. Northwest Journal of Linguistics 5.2: 1-60.
+References	Henry Davis	reference	Davis, Henry. 2019. St’at’imcets and the nonexistence of T-S-V-O languages. Ms., University of British Columbia.
+References	Henry Davis	reference	Davis, Henry. 2020. Infinitives and raising in St’át’imcets. Papers for the 55th International Conference on Salish and Neighbouring Languages, 41-61. Vancouver: UBCWPL.
+References	Henry Davis	reference	Davis, Henry. 2023. Edge asymmetries in St’át’imcets. Paper given at the Workshop on Structure and Constituency in Languages of the Americas, McGill University, April 2023.
+References	Henry Davis	reference	Davis, Henry. 2024. Going radical in Salish. In Proceedings of the West Coast Conference on Formal Linguistics 39, ed. by R. Autry, G. de la Cruz Sanchez, L.A. Irizzary Figueroa, K. Mijhailovic, T. Ni, R. Smith and H. Harley, 303-312. Somerville, MD: Cascadilla Press.
+References	Henry Davis	reference	Davis, Henry. 2025. A how-to guide to control infinitives in St’át’imcets. Papers for the 60th International Conference on Salish and Neighbouring Languages. Vancouver, B.C.: UBC Working Papers in Linguistics: 38-66.
+References	Henry Davis	reference	Davis, Henry, Beverley Frank, Rose Agnes Whitley and the Upper St’át’imc Language Authority. In preparation. Nqwal’uttenlhkálha: An English-St’át’imcets Dictionary, with St’át’imcets-English Index and Grammatical Appendices. Lillooet, BC: Upper St’át’imc Language, Culture and Education Society.	the source the paper cites as Davis et al. in prep.; St’át’imcets-English is joined across its line break
+References	Henry Davis	title	Nqwal’uttenlhkálha	the St’át’imcets title of the dictionary in preparation
+References	Henry Davis	reference	Davis, Henry, I-Ju Sandra Lai and Lisa Matthewson. 1997. Cedar roots and singing detectives: Attributive modification in Salish and English. Papers for the 32nd International Conference on Salish and Neighboring Languages, 291-316. Port Angeles, Washington: Peninsula College.
+References	Henry Davis	reference	Davis, Henry and Lisa Matthewson. 1996. Subordinate clauses and functional projections in St’át’imcets. Papers for the 31st International Conference on Salish and Neighbouring Languages, 59-73. Vancouver: UBC Department of Linguistics.
+References	Henry Davis	reference	Davis, Henry and Lisa Matthewson. 2009. Issues in Salish syntax and semantics. Language and Linguistics Compass 3/4: 1097-1166.
+References	Henry Davis	reference	Davis, Henry and Sander Nederveen. 2025. Intransitive -t in Salish. Papers for the 60th International Conference on Salish and Neighbouring Languages: 67-93. Vancouver, B.C.: UBC Working Papers in Linguistics.
+References	Henry Davis	reference	Epstein, Samuel. 1984, Quantifier-pro and the LF Representation of PROarb. Linguistic Inquiry 15:499–505.
+References	Henry Davis	damage	Epstein, Samuel. 1984,	a comma after the year where every other entry has a period
+References	Henry Davis	reference	Gluckman, John. 2021. The meaning of the tough-construction. Natural Language Semantics 29:453–499.
+References	Henry Davis	reference	Hall, Brent. 2023. A brief look at infinitives in Nɬeʔkepmxcín. Papers for the 58th International Conference on Salish and Neighboring Languages: 85-93. Vancouver: UBCWPL.
+References	Henry Davis	language	Nɬeʔkepmxcín	in the title of Hall (2023), capitalized
+References	Henry Davis	reference	Jelinek, Eloise and Richard A. Demers. 1994. Predicates and pronominal arguments in Straits Salish. Language 70:697-736.
+References	Henry Davis	reference	Kroeber, Paul. 1994. Infinitives in Thompson Salish. Paper given at the Salish Working Conference, University of Victoria.
+References	Henry Davis	reference	Kroeber, Paul. 1999. The Salish Language Family: Reconstructing Syntax. Lincoln, NE: University of Nebraska Press.
+References	Henry Davis	reference	Landau, Idan. 2013. Control in Generative Grammar: A Research Companion. Cambridge: Cambridge University Press.
+References	Henry Davis	reference	Lasersohn, Peter. 2005. Context dependence, disagreement, and predicates of personal taste. Linguistics and Philosophy 28:643–686.
+References	Henry Davis	reference	Lyon, John. 2025. Change-of-state in Nsyilxcn roots and beyond. Papers for the 60th International Conference on Salish and Neighbouring Languages: 268–303. Vancouver: UBCWPL.
+References	Henry Davis	language	Nsyilxcn	in the title of Lyon (2025)
+References	Henry Davis	reference	Matthewson, Lisa. 2005. On the absence of tense on determiners. Lingua 115(12):1697-1735.
+References	Henry Davis	reference	Matthewson, Lisa. 2006. Temporal semantics in a superficially tenseless language. Linguistics and Philosophy 29(6):673–713.
+References	Henry Davis	reference	Moltmann, Friederike, 2006. Generic one, arbitrary PRO, and the first person. Natural Language Semantics 14:257-281.
+References	Henry Davis	damage	Moltmann, Friederike, 2006.	a comma after the given name where every other entry has a period
+References	Henry Davis	reference	Pearson, Hazel. 2013. A judge-free semantics for predicates of personal taste. Journal of Semantics 30:103–154.
+References	Henry Davis	reference	Rizzi, Luigi. 1990. Relativized Minimality. Cambridge, MA: MIT Press.
+References	Henry Davis	reference	Stephenson, Tamina. 2007. Judge dependence, epistemic modals, and predicates of personal taste. Linguistics and Philosophy 30:487–525.
+References	Henry Davis	reference	Stowell, Timothy. 1982. The tense of infinitives. Linguistic Inquiry 13:561–570.
+References	Henry Davis	reference	Van Eijk, Jan. 1997. The Lillooet Language: Phonology, Morphology, Syntax. Vancouver: University of British Columbia Press.
+References	Henry Davis	reference	Wiltschko, Martina. 2003. On the interpretability of Tense on D and its consequences for Case theory. Lingua 113:659–696.
+References	Henry Davis	reference	Wurmbrand, Susi. 2014. Tense and aspect in English infinitives. Linguistic Inquiry 45:403–447.
+all	Henry Davis	notation	kʷ	in every NAPA segmentation line the page prints kʷ, in kʷa, kʷu=waʔ and kʷasu, where the text layer at (18)-(42), (47)-(48), (74) and (77) has kw after the opening bracket; the table transcribes kʷ
+(20a)	Henry Davis	notation	<qʷm>	the page prints qʷám<qʷm>; the text layer has <qwm>
+(54)	Henry Davis	notation	∀x	the page prints the universal quantifier; the text layer has a straight double quote before x, here and in (55)
+(55)	Henry Davis	notation	(55)	the text layer has a space inside the number, (55 )
+(43)	Henry Davis	notation	→	the page draws a long arrow from most acceptable on its left to least acceptable on its right, over the scales of (43) and (79); the text layer renders each as a run of hyphens ending in →
+References	Henry Davis	notation	St’át’imcets-English	the page breaks the line after the hyphen, and the text layer holds a space there; the table joins it
+(78b)	Henry Davis	notation	x̌aƛ̓-s-Ø-twítas	the text layer has a space before -twítas that the page does not have
+all	Henry Davis	notation	Qvl	the van Eijk v and l of Qvl in (7) and (48) and of Qvláoka7lhkan in (91) are underlined on the page, marking the retracted letters; the text layer has no underline
+all	Henry Davis	notation	bold	the page sets some forms in bold, among them the infinitival clauses of (90)-(92), and the text layer carries no bold
+all	Henry Davis	notation	< PDEN >	the gloss tiers of (9) and (14) have < PDEN >, and those of (36) and (69b) have <PDEN >, spaces as printed
+all	Henry Davis	notation	ət	the segmentation of (18), (28), (32), (34), (74), (77) and others writes <qʷm>ət with no hyphen where the gloss tier has -CHA
+all	Henry Davis	notation	* # ?? */√	judgment marks stand before the van Eijk line on the page; the table puts them in the gloss column and leaves them out of the form
+all	Henry Davis	notation	segmentation	where a segmentation runs to a second line the text layer interleaves its lines with the gloss lines; the table joins each tier
+all	Henry Davis	notation	(Davis et al in prep.)	(90)-(92) and the introduction to (5)-(9) print et al without its period

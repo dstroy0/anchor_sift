@@ -1,0 +1,354 @@
+where	who	kind	form	gloss
+front	Laura Tammpere	title	Independent pronouns in Ktunaxa	page 1
+front	Laura Tammpere	name	Laura Tammpere	author
+front	Laura Tammpere	note	University of British Columbia	page 1, under Laura Tammpere
+front	Laura Tammpere	name	Violet Birdstone	author
+front	Laura Tammpere	note	St. Mary’s Band	page 1, under Violet Birdstone
+front	Laura Tammpere	name	Martina Wiltschko	author
+front	Laura Tammpere	note	University of British Columbia	page 1, under Martina Wiltschko
+front	Laura Tammpere	note	Ktunaxa is a head-marking language which indicates pronominal argu- ments with agreement morphology on the verb. However, the language retains a set of independent pronouns which are separate from the verb and express pronominal reference in environments where agreement morphology is unable to do so alone. In this paper, we examine these independent pronouns in the framework developed in Déchaine and Wiltschko (2002). Based on their internal and external syntax as well as their referential and pragmatic properties, we argue that these in- dependent pronouns align most closely with the characterization of a pro-ɸP, as opposed to a pro-DP or pro-NP.	page 1, the abstract
+front	Laura Tammpere	language	Ktunaxa	a language isolate, the language of the paper
+§1	Laura Tammpere	heading	1 Introduction	page 1
+§1	Laura Tammpere	note	Ktunaxa is a head-marking language, which means that the arguments of a verb are encoded directly on the verb by means of agreement marking. Overt third person nominal arguments in the form of DPs are fully optional for the production of a well-formed sentence. However, Ktunaxa has a set of pronouns for all person features which are independent from the verbal agreement marking. These pronouns serve a number of purposes which cannot be fulfilled by verbal agreement marking alone. For example, independent pronouns are used to coordinate pronominal argu- ments with third person full nominal arguments, as in (1a). Since full DP arguments cannot be directly coordinated with verbal agreement morphology, as shown in (1b), it is indeed necessary to use independent pronouns in this environment.	page 1
+(1a) line 1	Ktunaxa	transcription	kamint͡s t͡san hu qaɬwinaɬani kiyaku	page 1
+(1a) line 2	Ktunaxa	segmentation	ka-min=t͡s t͡san hu qaɬwin-aɬa-ni kiyaku	page 1
+(1a) line 3	Laura Tammpere	gloss	1POSS-1IP=CONJ John SUBJ.1 want-SUBJ.1.PL-IND fish	page 1
+(1a) line 4	Ktunaxa	transcription	nakpuk	page 1
+(1a) line 5	Ktunaxa	segmentation	nakpuk	page 1
+(1a) line 6	Laura Tammpere	gloss	soup	page 1
+(1a) line 7	Laura Tammpere	translation	‘John and I want fish soup.’	page 1
+(1b) line 1	Ktunaxa	transcription	* t͡sant͡s hu qaɬwinaɬani kiyaku nakpuk	page 2
+(1b) line 2	Ktunaxa	segmentation	t͡san=t͡s hu qaɬwin-aɬa-ni kiyaku nakpuk	page 2
+(1b) line 3	Laura Tammpere	gloss	John=CONJ SUBJ.1 want-SUBJ.1.PL-IND fish soup	page 2
+(1b) line 4	Laura Tammpere	translation	‘John and I want fish soup.’	page 2
+§1	Laura Tammpere	note	Other functions of these independent pronouns include the following, which we will explore in the course of this paper:	page 2
+§1	Laura Tammpere	note	i Certain verbs require oblique arguments, which are not referenced with verbal agreement marking. Pronominal reference must therefore be achieved using an independent pronoun.	page 2, an item of the list of functions
+§1	Laura Tammpere	note	ii Independent pronouns can be used to refer to nominals which are possessed	page 2, an item of the list of functions
+§1	Laura Tammpere	note	iii Certain nominalized forms which cannot take the typical possessive morphol- ogy use independent pronouns to indicate that they are possessed.	page 2, an item of the list of functions
+§1	Laura Tammpere	note	iv Pronominal reference in dislocated phrases is achieved using independent pro- nouns, which in turn has an information-structural effect.	page 2, an item of the list of functions
+§1	Laura Tammpere	note	v Finally, independent pronouns serve certain pragmatic functions, such as con- trasting or emphasizing arguments in a sentence.	page 2, an item of the list of functions
+§1	Laura Tammpere	note	These functions confirm the role of independent pronouns in the grammar of Ktunaxa. Although this is a pronominal argument language, independent pronouns are nevertheless indispensable. In this paper, we explore the behaviour and classi- fication of these independent pronouns in the framework developed in Déchaine and Wiltschko (2002). In this framework, pro-forms can be divided into three separate categories, based on their syntactic and semantic properties: pro-DP, pro-ɸP, and pro- NP. The properties of each of these categorizations is summarized in Table 1.	page 2
+§1	Laura Tammpere	name	Déchaine and Wiltschko	Rose-Marie Déchaine and Martina Wiltschko, Decomposing pronouns (2002)
+§1	Laura Tammpere	name	Wiltschko	Martina Wiltschko, The syntax of pronouns: Evidence from Halkomelem Salish (2002)
+Table 1	Laura Tammpere	note	Pro-DP Pro-ɸP Pro-NP	page 2, the table's column heads
+Table 1	Laura Tammpere	note	Internal Syntax	page 2, the row's head
+Table 1	Laura Tammpere	note	D syntax; morphologically complex	page 2, Internal Syntax, Pro-DP
+Table 1	Laura Tammpere	note	neither D nor N syntax	page 2, Internal Syntax, Pro-ɸP
+Table 1	Laura Tammpere	note	N syntax	page 2, Internal Syntax, Pro-NP
+Table 1	Laura Tammpere	note	Distribution	page 2, the row's head
+Table 1	Laura Tammpere	note	argument	page 2, Distribution, Pro-DP
+Table 1	Laura Tammpere	note	argument or predicate	page 2, Distribution, Pro-ɸP
+Table 1	Laura Tammpere	note	predicate	page 2, Distribution, Pro-NP
+Table 1	Laura Tammpere	note	Semantics	page 2, the row's head
+Table 1	Laura Tammpere	note	definite	page 2, Semantics, Pro-DP
+Table 1	Laura Tammpere	note	–	page 2, Semantics, Pro-ɸP
+Table 1	Laura Tammpere	note	constant	page 2, Semantics, Pro-NP
+Table 1	Laura Tammpere	note	Binding-theoretic status	page 2, the row's head
+Table 1	Laura Tammpere	note	R-expression	page 2, Binding-theoretic status, Pro-DP
+Table 1	Laura Tammpere	note	variable	page 2, Binding-theoretic status, Pro-ɸP
+Table 1	Laura Tammpere	note	–	page 2, Binding-theoretic status, Pro-NP
+Table 1	Laura Tammpere	note	Table 1: Nominal pro-form typology (Déchaine and Wiltschko 2002)	page 2, the table's caption
+§1	Laura Tammpere	note	We argue that the independent pronouns in Ktunaxa align most closely with the characterization of a pro-ɸP, as opposed to a pro-DP or pro-NP. To support this proposal, we will look at the internal syntax, the external syntax, and the referential properties of independent pronouns in Ktunaxa. We will also look at the pragmatic properties of these pronouns, as they are somewhat restricted in their usage.	page 2
+§2	Laura Tammpere	heading	2 Internal syntax	page 3
+§2	Laura Tammpere	note	The paradigm of independent pronouns in Ktunaxa is provided in Table 2.	page 3
+Table 2	Laura Tammpere	note	Singular Plural	page 3, the table's column heads
+Table 2	Laura Tammpere	note	1st Person	page 3, the row's head
+Table 2	Ktunaxa	cited form	ka-min	page 3, 1st Person Singular
+Table 2	Laura Tammpere	gloss	1POSS-1IP	page 3, the gloss of ka-min
+Table 2	Ktunaxa	cited form	ka-mn-aɬa	page 3, 1st Person Plural
+Table 2	Laura Tammpere	gloss	1POSS-1IP-1PL	page 3, the gloss of ka-mn-aɬa
+Table 2	Laura Tammpere	note	2nd Person	page 3, the row's head
+Table 2	Ktunaxa	cited form	ninku-(nis)	page 3, 2nd Person Singular
+Table 2	Laura Tammpere	gloss	2,3IP-(2POSS)	page 3, the gloss of ninku-(nis)
+Table 2	Ktunaxa	cited form	ninku-nis-kiɬ	page 3, 2nd Person Plural
+Table 2	Laura Tammpere	gloss	2,3IP-2POSS-2PL	page 3, the gloss of ninku-nis-kiɬ
+Table 2	Laura Tammpere	note	3rd Person	page 3, the row's head
+Table 2	Ktunaxa	cited form	ninku-ʔis	page 3, 3rd Person Singular
+Table 2	Laura Tammpere	gloss	2,3IP-3POSS	page 3, the gloss of ninku-ʔis
+Table 2	Laura Tammpere	note	Table 2: Ktunaxa independent pronouns	page 3, the table's caption
+§2	Laura Tammpere	note	Each pronoun is composed of a stem, which is -m(i)n for first person pro- nouns and ninku- for second and third person pronouns, and in most cases additional morphology which is common to nominal stems in the language. Note that the first- person pronominal stem is unable to be bare, while the bare stem ninku may be used as a second person pronoun. This bare independent pronoun is used when it refers to a second person referent directly, while reference to a nominal which is possessed by a second person referent requires possessive morphology. With the exception of this alternation, the independent pronouns contain possessive morphology which is required to maintain its person feature distinction. The possessive affixes which ap- pear in these independent pronouns are the same affixes that are used to express pos- session of nominal stems in general. The first and second person plural pronouns also contain plural affixation, which are the same affixes used in the pluralization of other possessed nominals. Both the possessive and pluralizing affixes of first and second- person possessed nominals are illustrated in (2).	page 3
+§2	Ktunaxa	cited form	-m(i)n	page 3, in italics
+§2	Ktunaxa	cited form	ninku-	page 3, in italics
+(2a) line 1	Ktunaxa	transcription	ka xaɬt͡sin	page 3
+(2a) line 2	Ktunaxa	segmentation	ka xaɬt͡sin	page 3
+(2a) line 3	Laura Tammpere	gloss	1POSS dog	page 3
+(2a) line 4	Laura Tammpere	translation	‘My dog’	page 3
+(2b) line 1	Ktunaxa	transcription	ka xaɬt͡sinnaɬa	page 3
+(2b) line 2	Ktunaxa	segmentation	ka xaɬt͡sin-naɬa	page 3
+(2b) line 3	Laura Tammpere	gloss	1POSS dog-1PL	page 3
+(2b) line 4	Laura Tammpere	translation	‘Our dog(s)’	page 3
+(2c) line 1	Ktunaxa	transcription	xaɬt͡sinnis	page 3
+(2c) line 2	Ktunaxa	segmentation	xaɬt͡sin-nis	page 3
+(2c) line 3	Laura Tammpere	gloss	dog-2POSS	page 3
+(2c) line 4	Laura Tammpere	translation	‘Your dog’	page 3
+(2d) line 1	Ktunaxa	transcription	xaɬt͡sinniskiɬ	page 4
+(2d) line 2	Ktunaxa	segmentation	xaɬt͡sin-nis-kiɬ	page 4
+(2d) line 3	Laura Tammpere	gloss	dog-2POSS-2PL	page 4
+(2d) line 4	Laura Tammpere	translation	‘Your (pl) dogs’	page 4
+§2	Laura Tammpere	note	In summary, the independent pronouns in Ktunaxa contain a stem, which can only appear bare when used to indicate a second person singular referent. The other pieces of morphlogy found in the paradigm are not dedicated to independent pronouns, but are also found in possessed full noun phrases. This suggests that in- dependent pronouns behave like other nouns in the language. The fact that these stems cannot be bare aligns them with other relational nouns in Ktunaxa, such as kinship terms, which cannot be expressed without possessive morphology, even when the pos- sessor is unknown or generic. This is illustrated by the necessary inclusion of the gen- eral possessive morpheme -nam to discuss mothers in general, as in (3).1	page 4
+footnote 1	Laura Tammpere	note	Morgan (1991) includes a generic third-person independent pronoun ninkuʔnam in the paradigm of independent pronouns, but this form was not explored in this present study. It would be illuminating to investigate whether the generic third-person independent pronoun behaves similarly to nominals possessed by an unknown or generic possessor.	page 4, footnote 1
+footnote 1	Ktunaxa	cited form	ninkuʔnam	page 4, in italics
+footnote 1	Laura Tammpere	name	Morgan	L. R. Morgan, A description of the Kutenai language (1991)
+§2	Ktunaxa	cited form	-nam	page 4, in italics
+(3a) line 1	Ktunaxa	transcription	manam ʔat wiɬiɬ t͡sɬakiɬni ʔa:qaɬtʔis	page 4
+(3a) line 2	Ktunaxa	segmentation	ma-nam ʔat wiɬ-iɬ t͡sɬakiɬ-ni ʔa:qaɬt-ʔis	page 4
+(3a) line 3	Laura Tammpere	gloss	mother-POSS HAB big-ADV love-IND child-3POSS	page 4
+(3a) line 4	Laura Tammpere	translation	‘Mothers love their children.’	page 4
+(3b) line 1	Ktunaxa	transcription	* ma ʔat wiɬiɬ t͡sɬakiɬni ʔa:qaɬtʔis	page 4
+(3b) line 2	Ktunaxa	segmentation	ma ʔat wiɬ-iɬ t͡sɬakiɬ-ni ʔa:qaɬt-ʔis	page 4
+(3b) line 3	Laura Tammpere	gloss	mother HAB big-ADV love-IND child-3POSS	page 4
+(3b) line 4	Laura Tammpere	translation	‘Mothers love their children.’	page 4
+§2	Laura Tammpere	note	In light of this morphological similarity, we propose that the independent pronoun stems are of a nominal type which are dominated by a ɸP containing pos- sesive morphology. This ɸP interacts with the syntax, which results in the syntac- tic behaviour we discuss below. Our proposed structures are provided in (4).	page 4
+(4) line 1	Laura Tammpere	note	Proposed structure of independent pronouns in Ktunaxa	page 4, the title of the tree
+(4) line 2	Laura Tammpere	note	ɸP ɸP	page 4, a row of the two trees, ka-min's and ninku-ʔis's
+(4) line 3	Laura Tammpere	note	ɸ NP NP ɸ	page 4, a row of the two trees, ka-min's and ninku-ʔis's
+(4) line 4	Laura Tammpere	note	ka- N N -ʔis/-nis	page 4, a row of the two trees, ka-min's and ninku-ʔis's
+(4) line 5	Laura Tammpere	note	min ninku	page 4, a row of the two trees, ka-min's and ninku-ʔis's
+§2	Laura Tammpere	note	Déchaine and Wiltschko (2002) predict that a pro-ɸP would not behave syn- tactically as a determiner or a nominal. Indeed, the independent pronouns do not dis- play determiner-like syntax. For example, in (5a), the entire possessed noun phrase can take the deictic marker na, while this same marker cannot appear with another determiner, as in (5b). Niʔ and na are in complementary distribution with each other, but not with the independent pronouns. If the independent pronoun is behaving as a pro-DP, the pronoun should fill the “slot” of the determiner, and using both would be infelicitous. The fact that (5a) is acceptable suggests that the independent pronouns belong to a separate category. Furthermore, determiners can be used with other pos- sessed nominals, as in (6), which contributes to the evidence suggesting that the pos- sessive morphology is interacting with the syntax.	page 5
+§2	Ktunaxa	cited form	Niʔ	page 5, in italics
+(5a) line 1	Ktunaxa	transcription	sukaxnini (na) ninkunis kquqt͡siɬʔikiɬ	page 5
+(5a) line 2	Ktunaxa	segmentation	sukaxni-ni (na) ninku-nis kquqt͡si-ɬ-ʔik-iɬ	page 5
+(5a) line 3	Laura Tammpere	gloss	taste.good-IND DEI 2,3IP-2POSS sugar-ADV?-eat-PSV	page 5
+(5a) line 4	Laura Tammpere	translation	‘This cake of yours tastes good.’	page 5
+(5b) line 1	Ktunaxa	transcription	* sukaxnini niʔ na kquqt͡siɬʔikiɬ	page 5
+(5b) line 2	Ktunaxa	segmentation	sukaxni-ni niʔ na kquqt͡si-ɬ-ʔik-iɬ	page 5
+(5b) line 3	Laura Tammpere	gloss	taste.good-IND DET DEI sugar-ADV?-eat-PSV	page 5
+(5b) line 4	Laura Tammpere	translation	‘This cake tastes good.’	page 5
+(6) line 1	Ktunaxa	transcription	(niʔ) ka ma ʔikni t͡sans kquqt͡siɬʔikiɬs	page 5
+(6) line 2	Ktunaxa	segmentation	(niʔ) ka ma ʔik-ni t͡san-s kquqt͡si-ɬ-ʔik-iɬ-s	page 5
+(6) line 3	Laura Tammpere	gloss	DET 1POSS mother eat-IND John-OBV sugar-ADV?-eat-PSV-OBV	page 5
+(6) line 4	Laura Tammpere	translation	‘That mother of mine ate John’s cake.’	page 5
+§2	Laura Tammpere	note	This is a marked construction, and the determiners are not mandatory in this environment. This is not unexpected, because determiner provision in general ap- pears to be optional in Ktunaxa, despite any definite or indefinite reading. For ex- ample, the determiner is entirely optional in (7).	page 5
+(7) line 1	Ktunaxa	transcription	q’api (niʔ) titqat’ xaɬxuxamik	page 5
+(7) line 2	Ktunaxa	segmentation	q’api (niʔ) titqat’ xaɬxuxam-ik	page 5
+(7) line 3	Laura Tammpere	gloss	all DET man carry.lunch-RFLX	page 5
+(7) line 4	Laura Tammpere	translation	‘Every man carried their lunch.’	page 5
+§2	Laura Tammpere	note	However, the syntactic and semantic properties of these determiners are not well understood, so how the presence of the determiner affects the meaning of a par- ticular sentence has yet to be investigated.	page 5
+§2	Laura Tammpere	note	The fact that nominal phrases containing independent pronouns are able to take a determiner suggests that independent pronouns in Ktunaxa are not behaving as pro-DPs themselves. Although they appear to align closely with other nominal phrases, their external syntax as well as their binding status are more indicative of a pro-ɸP than a pro-NP.	page 5
+§3	Laura Tammpere	heading	3 External syntax	page 6
+§3	Laura Tammpere	note	Nominal phrases in Ktunaxa can behave as licensed arguments, predicates, obliques, possessors, and as dislocated phrases. Independent pronouns can also fill all of these positions, with the exception of licensed arguments.	page 6
+§3.1	Laura Tammpere	heading	3.1 Independent pronouns as licensed arguments	page 6
+§3.1	Laura Tammpere	note	Independent pronouns are not able to appear as licensed arguments, as il- lustrated by the ungrammaticality of (8). Pronouns which are used in the possessive sense appear in the same position as nominal arguments, but in these cases they are not acting as arguments themselves. Rather, they are standing in for a covert possessed nominal which is behaving as the argument. In (9a), the licensed argument is ka a:ksak ‘my leg’, not the first person referent itself, which is apparent when the possessed nominal is overt, as in (9b).	page 6
+§3.1	Ktunaxa	cited form	ka a:ksak	page 6, in italics, ‘my leg’
+(8) line 1	Ktunaxa	transcription	* man isniɬ kqanakɬikxuni ninkuʔis	page 6
+(8) line 2	Ktunaxa	segmentation	ma-hin isn-iɬ kqanakɬik-xu-ni ninku-ʔis	page 6
+(8) line 3	Laura Tammpere	gloss	PST-SUBJ.2 one.who-ADV kick-by.body-IND 2,3IP-3POSS	page 6
+(8) line 4	Laura Tammpere	translation	‘You kicked him.’	page 6
+(9a) line 1	Ktunaxa	transcription	a:ksaknis qa t͡smakanit͡s kamin t͡smakani	page 6
+(9a) line 2	Ktunaxa	segmentation	a:ksak-nis qa t͡smaka-ni=t͡s ka-min t͡smaka-ni	page 6
+(9a) line 3	Laura Tammpere	gloss	leg-2PL NEG strong-IND=CONJ 1POSS-1IP strong-IND	page 6
+(9a) line 4	Laura Tammpere	translation	‘Your legs aren’t strong and mine are.’	page 6
+(9b) line 1	Ktunaxa	transcription	a:ksaknis qa t͡smakanit͡s ka ʔa:ksak t͡smakani	page 6
+(9b) line 2	Ktunaxa	segmentation	a:ksak-nis qa t͡smaka-ni=t͡s ka ʔa:ksak t͡smaka-ni	page 6
+(9b) line 3	Laura Tammpere	gloss	leg-2PL NEG strong-IND=CONJ 1POSS leg strong-IND	page 6
+(9b) line 4	Laura Tammpere	translation	‘Your legs aren’t strong and my legs are strong.’	page 6
+§3.1	Laura Tammpere	note	Déchaine and Wiltschko (2002) predict that both a pro-DP and a pro-ɸP would be able to serve as licensed arguments. However, there are potential semantic or prag- matic reasons for this inability to use independent pronouns as arguments in Ktunaxa. When referring to a pronominal argument, they do not provide new information about the arguments of the verb, since they are already encoded on the verb with agreement marking.	page 6
+§3.2	Laura Tammpere	heading	3.2 Independent pronouns as predicates	page 6
+§3.2	Laura Tammpere	note	Independent pronouns are able to appear in predicate position when they are used to identify the possessor of some object, as in (10). An independent pronoun cannot appear in this position, however, when used to denote a person, as in (11). This suggests that there may be a morpho-syntactic disparity between independent pro- nouns which are used to express the possession of a nominal, and independent pro- nouns which are used to refer directly to their referent, the latter being much more restricted. When referring to a pronominal possessor, the independent pronoun is per- haps behaving more as a modifier than a pronominal referent, which is linking an ar- gument to a predicative trait as opposed to equating two separate DPs, which is the case in sentences such as (11b) and (12).	page 6
+(10) line 1	Laura Tammpere	note	Context: “Whose feather is this?”	page 7, the context
+(10a) line 1	Ktunaxa	transcription	ʔini [kamin]PRED	page 7
+(10a) line 2	Ktunaxa	segmentation	ʔi-ni ka-min	page 7
+(10a) line 3	Laura Tammpere	gloss	be-IND 1POSS-1IP	page 7
+(10a) line 4	Laura Tammpere	translation	‘It’s mine.’	page 7
+(10b) line 1	Ktunaxa	transcription	ʔisni [tuqʔt͡samna]PRED	page 7
+(10b) line 2	Ktunaxa	segmentation	ʔi-s-ni tuqʔt͡samna	page 7
+(10b) line 3	Laura Tammpere	gloss	be-SUBJ.OBV-IND bird	page 7
+(10b) line 4	Laura Tammpere	translation	‘It’s the bird’s.’	page 7
+(11) line 1	Laura Tammpere	note	Context: "Is that Mary?"	page 7, the context
+(11a) line 1	Ktunaxa	transcription	* hiy ʔini [ninkuʔis]PRED	page 7
+(11a) line 2	Ktunaxa	segmentation	hiy ʔi-ni ninku-ʔis	page 7
+(11a) line 3	Laura Tammpere	gloss	yes be-IND 2,3IP-3POSS	page 7
+(11a) line 4	Laura Tammpere	translation	‘Yes, that’s her.’	page 7
+(11b) line 1	Ktunaxa	transcription	hiy ʔini [maɬi]PRED	page 7
+(11b) line 2	Ktunaxa	segmentation	hiy ʔi-ni maɬi	page 7
+(11b) line 3	Laura Tammpere	gloss	yes be-IND Mary	page 7
+(11b) line 4	Laura Tammpere	translation	‘Yes, that’s Mary.’	page 7
+(12) line 1	Ktunaxa	transcription	nasukin ʔini [paɬkiys]PRED	page 7
+(12) line 2	Ktunaxa	segmentation	nasukin ʔi-ni paɬkiy-s	page 7
+(12) line 3	Laura Tammpere	gloss	chief be-IND woman-OBV	page 7
+(12) line 4	Laura Tammpere	translation	‘The chief is a woman.’	page 7
+§3.2	Laura Tammpere	note	While non-possessive pronominal predicates are ungrammatical, the same meaning can be expressed by using the subject clitics with the copular verb ʔi. The fact that it is obligatory for the second person pronoun in (13) to be the subject of the copular construction reflects an apparent preference for expressing pronominal referents as subjects as opposed to predicates in copular constructions.	page 7
+§3.2	Ktunaxa	cited form	ʔi	page 7, in italics
+(13) line 1	Laura Tammpere	note	Context: “That man is a hunter”	page 8, the context
+(13a) line 1	Ktunaxa	transcription	* waha ʔini ninku	page 8
+(13a) line 2	Ktunaxa	segmentation	waha ʔi-ni ninku	page 8
+(13a) line 3	Laura Tammpere	gloss	no be-IND 2,3IP	page 8
+(13a) line 4	Laura Tammpere	translation	’No, he’s you!’	page 8
+(13b) line 1	Ktunaxa	transcription	waha hin ʔini	page 8
+(13b) line 2	Ktunaxa	segmentation	waha hin ʔi-ni	page 8
+(13b) line 3	Laura Tammpere	gloss	no SUBJ.2 be-IND	page 8
+(13b) line 4	Laura Tammpere	translation	’No, he’s you!’	page 8
+§3.3	Laura Tammpere	heading	3.3 Independent pronouns as obliques	page 8
+§3.3	Laura Tammpere	note	Independent pronouns can be used to express pronominal oblique arguments for certain verbs, which is a syntactic role that is unable to be marked on the verb it- self with agreement morphology. In this context, the independent pronouns behave as other third person nominal arguments. For example, the independent pronoun in (14) is in the same position as the oblique nominal nasukin in (15).	page 8
+(14) line 1	Ktunaxa	transcription	nasukin t͡sxaɬ qa sukmunapsi	page 8
+(14) line 2	Ktunaxa	segmentation	nasukin t͡sxa-ɬ qa suk-mu-n-aps-i	page 8
+(14) line 3	Laura Tammpere	gloss	chief FUT-ADV NEG good-INST-BP-INV-IND	page 8
+(14) line 4	Ktunaxa	transcription	kɬuʔsi ninkuʔis	page 8
+(14) line 5	Ktunaxa	segmentation	k=ɬuʔ-s-i ninku-ʔis	page 8
+(14) line 6	Laura Tammpere	gloss	SUB=be.absent-OBV-IND 2,3IP-3POSS	page 8
+(14) line 7	Laura Tammpere	translation	‘The chief won’t be very happy that there is none for him.’	page 8
+(15) line 1	Ktunaxa	transcription	t͡sukatiɬni taxas ɬuʔsi nasukin	page 8
+(15) line 2	Ktunaxa	segmentation	t͡sukat-iɬ-ni taxa-s ɬuʔ-s-i nasukin	page 8
+(15) line 3	Laura Tammpere	gloss	take-PASV-IND then-OBV be.absent-OBV-IND chief	page 8
+(15) line 4	Laura Tammpere	translation	‘Someone took them, so now there is none for the chief.’	page 8
+§3.4	Laura Tammpere	heading	3.4 Independent pronouns as possessors	page 8
+§3.4	Laura Tammpere	note	As outlined in §3.1, independent pronouns can be used to indicate posses- sion of a covert possessed nominal argument. Generally speaking, this independent pronoun is ungrammatical when the possessed nominal is overt, as in (16c), as the person features of the possessor are encoded in the possessive affix.	page 8
+(16a) line 1	Ktunaxa	transcription	t͡sɬakiɬni pusnis	page 9
+(16a) line 2	Ktunaxa	segmentation	t͡sɬakiɬ-ni pus-nis	page 9
+(16a) line 3	Laura Tammpere	gloss	love-IND cat-2POSS	page 9
+(16a) line 4	Laura Tammpere	translation	‘He loves your cat.’	page 9
+(16b) line 1	Ktunaxa	transcription	t͡sɬakiɬni ninkunis	page 9
+(16b) line 2	Ktunaxa	segmentation	t͡sɬakiɬ-ni ninku-nis	page 9
+(16b) line 3	Laura Tammpere	gloss	love-IND 2,3IP-2POSS	page 9
+(16b) line 4	Laura Tammpere	translation	‘He loves yours.’	page 9
+(16c) line 1	Ktunaxa	transcription	* t͡sɬakiɬni ninkunis pus	page 9
+(16c) line 2	Ktunaxa	segmentation	t͡sɬakiɬ-ni ninku-nis pus	page 9
+(16c) line 3	Laura Tammpere	gloss	love-IND 2,3IP-2POSS cat	page 9
+(16c) line 4	Laura Tammpere	translation	‘He loves your cat.’	page 9
+§3.4	Laura Tammpere	note	In some cases, however, independent pronouns are used to indicate posses- sion of overt nominal forms. Specifically, independent pronouns are used to express possession on some forms which have been nominalized with the subordinating marker k-, as in (17a).2	page 9
+footnote 2	Laura Tammpere	note	Morgan (1991) briefly distinguishes between lexicalized nominalizations and ad-hoc nominalizations which are formed using the subordinating marker k-. While this dis- tinction has not been explored in great detail, it appears that lexicalized k-forms take independent pronouns as possession markers, while ad-hoc k-forms express possession by subordinating the entire verb phrase:	page 9, footnote 2
+footnote 2 (i) line 1	Ktunaxa	transcription	hun t͡sxawit͡skini kin xaɬxuxamik	page 9
+footnote 2 (i) line 2	Ktunaxa	segmentation	hun t͡sxawit͡ski-ni k=hin xaɬxuxam-ik	page 9
+footnote 2 (i) line 3	Ktunaxa	gloss	SUBJ.1 hold.on-IND SUB=SUBJ.2 carry.lunch-RFLX	page 9
+footnote 2 (i) line 4	Laura Tammpere	translation	“I have your lunch.”	page 9
+§3.4	Ktunaxa	cited form	k-	page 9, in italics
+§3.4	Laura Tammpere	note	The usual possessive affixes on one of these nominalized forms, as in (17b) was judged questionable at best, and ungrammatical at worst.	page 9
+(17a) line 1	Ktunaxa	transcription	t͡san ʔikni ninkuʔis kyukiyats	page 9
+(17a) line 2	Ktunaxa	segmentation	t͡san ʔik-ni ninku-ʔis k-yukiyat-s	page 9
+(17a) line 3	Laura Tammpere	gloss	John eat-IND 2,3IP-3POSS SUB-noon-OBV	page 9
+(17a) line 4	Laura Tammpere	translation	‘John ate his lunch.’	page 9
+(17b) line 1	Ktunaxa	transcription	?t͡san ʔikni kyukiyatʔis	page 9
+(17b) line 2	Ktunaxa	segmentation	t͡san ʔik-ni k-yukiyat-ʔis	page 9
+(17b) line 3	Laura Tammpere	gloss	John eat-IND SUB-noon-3POSS	page 9
+(17b) line 4	Laura Tammpere	translation	‘John ate his lunch.’	page 9
+§3.4	Laura Tammpere	note	Full DPs can also act as possessors, as in (18). When it comes to posses- sion, the independent pronouns are behaving as full nominals, although they are re- stricted to expressing the possession of certain nominalized forms which cannot take the usual possessive affixation.	page 9
+(18) line 1	Laura Tammpere	note	From Dryer (1996)	page 10, the example's source
+(18) line 2	Ktunaxa	transcription	wukatapsi maʔis misaɬ	page 10
+(18) line 3	Ktunaxa	segmentation	wukat-aps-i ma-ʔis misaɬ	page 10
+(18) line 4	Laura Tammpere	gloss	see-INV-IND mother-3POSS Mike	page 10
+(18) line 5	Laura Tammpere	translation	‘Mike’s mother saw him.’	page 10
+§3.5	Laura Tammpere	heading	3.5 Independent pronouns as dislocated phrases	page 10
+§3.5	Laura Tammpere	note	Independent pronouns can appear in dislocated phrases where there is no verb for agreement morphology to attach to. For example, they are used as one-word pronominal answers to questions. Verbal agreement morphology cannot be used in the absence of a verb, as evidenced by the ungrammaticality of (19b). The use of in- dependent pronouns as one-word answers parallels other third person nominals, which can also be supplied as one-word answers to questions (19c).	page 10
+(19) line 1	Laura Tammpere	note	Who has a cat?	page 10, the question the answers answer
+(19a) line 1	Ktunaxa	transcription	kamnaɬa	page 10
+(19a) line 2	Ktunaxa	segmentation	ka-min-aɬa	page 10
+(19a) line 3	Laura Tammpere	gloss	1POSS-1IP-1PL	page 10
+(19a) line 4	Laura Tammpere	translation	‘Us!’	page 10
+(19b) line 1	Ktunaxa	transcription	* hu	page 10
+(19b) line 2	Ktunaxa	segmentation	hu	page 10
+(19b) line 3	Laura Tammpere	gloss	SUBJ.1	page 10
+(19b) line 4	Laura Tammpere	translation	‘Me!’	page 10
+(19c) line 1	Ktunaxa	transcription	ʔin titqat’	page 10
+(19c) line 2	Ktunaxa	segmentation	ʔin titqat’	page 10
+(19c) line 3	Laura Tammpere	gloss	DET man	page 10
+(19c) line 4	Laura Tammpere	translation	‘The man does.’	page 10
+§3.5	Laura Tammpere	note	Independent pronouns can also appear disjointed from the verb phrase. For example, they can be used at the beginning of a sentence to emphasize or topical- ize one of the upcoming arguments. In these cases, the independent pronouns co-refer with one of the arguments in the sentence it precedes. In (20a), ninku co-refers with the second person object marking on the verb. It is not itself a full nominal argument, as shifting the word order in (20b) results in an ungrammatical sentence. True nom- inal arguments can also appear in this position, but can have flexible ordering with respect to the verb, as in (21).	page 10
+(20a) line 1	Ktunaxa	transcription	ninku pik’aks mu ʔupxnisni	page 10
+(20a) line 2	Ktunaxa	segmentation	ninku pik’ak-s ma=hu ʔupx-nis-ni	page 10
+(20a) line 3	Laura Tammpere	gloss	2,3IP already-OBV PST=SUBJ.1 see-OBJ.2.SG-IND	page 10
+(20a) line 4	Laura Tammpere	translation	‘You, I already saw you.’	page 10
+(20b) line 1	Ktunaxa	transcription	* pik’aks mu ʔupxnisni ninku	page 11
+(20b) line 2	Ktunaxa	segmentation	pik’ak-s ma=hu ʔupx-nis-ni ninku	page 11
+(20b) line 3	Laura Tammpere	gloss	already-OBV PST=SUBJ.1 see-OBJ.2.SG-IND 2,3IP	page 11
+(20b) line 4	Laura Tammpere	translation	‘You, I already saw you.’	page 11
+(21a) line 1	Ktunaxa	transcription	ʔin titqatʔ pik’aks mu ʔupxni	page 11
+(21a) line 2	Ktunaxa	segmentation	ʔin titqatʔ pik’ak-s ma=hu ʔupx-ni	page 11
+(21a) line 3	Laura Tammpere	gloss	DET man already-OBV PST=SUBJ.1 see-IND	page 11
+(21a) line 4	Laura Tammpere	translation	‘That man, I already saw him.’	page 11
+(21b) line 1	Ktunaxa	transcription	pik’aks mu ʔupxni ʔin titqatʔ	page 11
+(21b) line 2	Ktunaxa	segmentation	pik’ak-s ma=hu ʔupx-ni ʔin titqatʔ	page 11
+(21b) line 3	Laura Tammpere	gloss	already-OBV PST=SUBJ.1 see-IND DET man	page 11
+(21b) line 4	Laura Tammpere	translation	‘I already saw that man.’	page 11
+§3.5	Laura Tammpere	note	Independent pronouns can also be modified with particles such as the pro- hibitive maʔt͡s in order to contrast the pronominal referent with an arguments in the main verb phrase. Likewise, it is possible to contrast other third person nominal ar- guments, such as ʔin titqat’ in (22).	page 11
+§3.5	Ktunaxa	cited form	maʔt͡s	page 11, in italics
+§3.5	Ktunaxa	cited form	ʔin titqat’	page 11, in italics
+(22a) line 1	Ktunaxa	transcription	mun ʔisniɬ nuqaqani maʔt͡s ninku	page 11
+(22a) line 2	Ktunaxa	segmentation	ma=hun ʔisni-ɬ n=huqa-qa-ni maʔt͡s ninku	page 11
+(22a) line 3	Laura Tammpere	gloss	PST=SUBJ.1 be.the.one-ADV PM-defeat-STV-IND PROHIB 2,3IP	page 11
+(22a) line 4	Laura Tammpere	translation	‘I won, not you.’	page 11
+(22b) line 1	Ktunaxa	transcription	mun ʔisniɬ nuqaqani maʔt͡s ʔin	page 11
+(22b) line 2	Ktunaxa	segmentation	ma=hun ʔisni-ɬ n-huqa-qa-ni maʔt͡s ʔin	page 11
+(22b) line 3	Laura Tammpere	gloss	PST=SUBJ.1 be.the.one-ADV PM-defeat-STV-IND PROHIB DET	page 11
+(22b) line 4	Ktunaxa	transcription	titqat’	page 11
+(22b) line 5	Ktunaxa	segmentation	titqat’	page 11
+(22b) line 6	Laura Tammpere	gloss	man	page 11
+(22b) line 7	Laura Tammpere	translation	‘I won, not the man.’	page 11
+§3.5	Laura Tammpere	note	In summary, independent pronouns are used in cases where pronominal ref- erence cannot be indicated with agreement morphology on the verb. This results in a very marked distribution for independent pronouns which refer directly to a per- son. In these cases, the pronouns are restricted to oblique argument position and dis- located phrases. When used to indicate possession, the independent pronouns are able to be predicated, stand in for covert possessed nominals in argument position, and mark possession on some nominalized forms which cannot take the typical posses- sive morphology. This description aligns with the reported distribution of indepen- dent pronouns in other head-marking languages. For example, Fox (Algonquian) con- tains two series of independent pronouns: one reserved for discourse functions, such as contrast and focus, and the other for expressing syntactic relationships that can- not be expressed through pronominal marking on the verb (Dahlstrom 1988).	page 11
+§3.5	Laura Tammpere	name	Dahlstrom	Amy Dahlstrom, Independent pronouns in Fox (1988)
+§3.5	Laura Tammpere	language	Fox	Algonquian, Dahlstrom's two series of independent pronouns
+§3.5	Laura Tammpere	note	Regarding the structure of independent pronouns in Ktunaxa, we have al- ready shown above that they do not behave as pro-DPs. Based on their external syn- tax, they seem to pattern like other full nominal arguments in the language, although it is difficult to determine due to their marked usage. It is the referential properties of the third person pronouns, and the third person possessive suffix in general, that is most suggestive of an analysis of independent pronouns as pro-ɸPs.	page 12
+§4	Laura Tammpere	heading	4 Referential properties	page 12
+§4	Laura Tammpere	note	Since DPs, and consequently pro-DPs, are referential expressions, it fol- lows that they cannot be bound outside of their binding domain (Wiltschko 2002). Independent pronouns in Ktunaxa, however, can be bound to antecedents in the lo- cal clause (23a) or in the matrix clause (23b). The ability for independent pronouns to be bound outside of their binding domain suggests that they are not behaving as pro-DPs.	page 12
+§4	Laura Tammpere	note	The referents of the independent pronouns can also be determined from the context (23c) or by deixis; referents can be disambiguated by pointing if the context is not clear from the linguistic environment, as in (24).	page 12
+(23a) line 1	Ktunaxa	transcription	t͡san q’apxni ninkuʔis kquqt͡siɬʔikiɬ	page 12
+(23a) line 2	Ktunaxa	segmentation	t͡san q’apx-ni ninku-ʔis kquqt͡si-ɬ-ʔik-iɬ	page 12
+(23a) line 3	Laura Tammpere	gloss	JOHN eat.all-IND 2,3IP-3POSS sugar-ADV?-eat-PSV	page 12
+(23a) line 4	Laura Tammpere	translation	‘Johni ate hisi cake.’	page 12
+(23b) line 1	Ktunaxa	transcription	qakiʔni t͡san kupxanaps ninkuʔis	page 12
+(23b) line 2	Ktunaxa	segmentation	qaki-ʔ-ni t͡san k=upxa-n-aps ninku-ʔis	page 12
+(23b) line 3	Laura Tammpere	gloss	say-TV-IND John SUB-eat-BP-INV 2,3IP-3POSS	page 12
+(23b) line 4	Ktunaxa	transcription	kquqt͡siɬʔikiɬ	page 12
+(23b) line 5	Ktunaxa	segmentation	kquqt͡si-ɬ-ʔik-iɬ	page 12
+(23b) line 6	Laura Tammpere	gloss	sugar-ADV?-eat-PSV	page 12
+(23b) line 7	Laura Tammpere	translation	‘Johni said that hej ate hisi cake.’	page 12
+(23c) line 1	Laura Tammpere	note	Context: “Why does John look so upset?”	page 12, the context
+(23c) line 2	Ktunaxa	transcription	maɬi qakiʔni paɬkiys kupxanaps ninkuʔis	page 12
+(23c) line 3	Ktunaxa	segmentation	maɬi qaki-ʔ-ni paɬkiy-s k=upxa-n-aps ninku-ʔis	page 12
+(23c) line 4	Laura Tammpere	gloss	Mary say-TV-IND woman-OBV SUB-eat-BP-INV 2,3IP-3POSS	page 12
+(23c) line 5	Ktunaxa	transcription	kquqt͡siɬʔikiɬ	page 12
+(23c) line 6	Ktunaxa	segmentation	kquqt͡si-ɬ-ʔik-iɬ	page 12
+(23c) line 7	Laura Tammpere	gloss	sugar-ADV?-eat-PSV	page 12
+(23c) line 8	Laura Tammpere	translation	‘Mary said that a woman ate his cake.’	page 12
+(24) line 1	Laura Tammpere	note	Context: Pointing out one boy in a group	page 13, the context
+(24) line 2	Ktunaxa	transcription	ninkuʔis ʔini ka tat	page 13
+(24) line 3	Ktunaxa	segmentation	ninku-ʔis ʔi-ni ka tat	page 13
+(24) line 4	Laura Tammpere	gloss	2,3IP-3POSS be-IND 1POSS older.brother	page 13
+(24) line 5	Laura Tammpere	translation	‘Him, that’s my brother.’	page 13
+§4	Laura Tammpere	note	When they are used to indicate possession, the independent pronouns can also be bound by a quantifier. For example, (25) is ambiguous as to whether every man is eating their own cake or one particular man’s cake. The third person posses- sive suffix on other nominals can similarly be variable, as in (26). With regard to their referential properties, independent pronouns behave as other possessed nominals in Ktunaxa. This suggests that the possessive morphology is interacting with the syn- tax. The fact that the possessive morphology can be bound by a quantifier indicates that they are not behaving as referential expressions, which suggests that they are not classifiable as pro-DPs. Rather, their variable status provides evidence for the cat- egorization of independent pronouns as pro-ɸPs (Déchaine and Wiltschko 2002).	page 13
+(25) line 1	Ktunaxa	transcription	t͡san qakiʔni [q’apis titqat’s]i kʔiks	page 13
+(25) line 2	Ktunaxa	segmentation	t͡san qaki-ʔ-ni q’api-s titqat’-s k=ʔik-s	page 13
+(25) line 3	Laura Tammpere	gloss	John say-TV-IND all-OBV man-OBV SUB=eat-OBV	page 13
+(25) line 4	Ktunaxa	transcription	ninkuʔisi kquqt͡siɬʔikiɬ	page 13
+(25) line 5	Ktunaxa	segmentation	ninku-ʔis kquqt͡si-ɬ-ʔik-iɬ	page 13
+(25) line 6	Laura Tammpere	gloss	2,3IP-3POSS sugar-ADV?-eat-PSV	page 13
+(25) line 7	Laura Tammpere	translation	‘Johni said that [every man] j ate hisi/ j cake.’	page 13
+(26) line 1	Ktunaxa	transcription	[q’api titqat’]i wukqni tiɬnamuʔisi ɬikaʔpuʔis	page 13
+(26) line 2	Ktunaxa	segmentation	q’api titqat’ wukq-ni tiɬnamu-ʔis ɬikaʔpu-ʔis	page 13
+(26) line 3	Laura Tammpere	gloss	all man find-IND wife-3POSS coat-3POSS	page 13
+(26) line 4	Laura Tammpere	translation	‘[Every man]i found hisi/ j wife’s coat.’	page 13
+§5	Laura Tammpere	heading	5 Pragmatics	page 13
+§5	Laura Tammpere	note	Independent pronouns are provided when there is a need to express some kind of contrast or focus. When referring to a person directly, these pronouns are pri- marily used for discourse functions, as they do not generally provide any extra syn- tactic information about the participants of a verb. In (27) and (28), the independent pronouns co-refer with one of the arguments in the verb phrase to focus on or top- icalize it somehow. As is evident in (27), these pronouns can be modified with fo- cus particles, such as t͡sin “only”.	page 13
+§5	Ktunaxa	cited form	t͡sin	page 13, in italics
+(27) line 1	Laura Tammpere	note	Context: “Did you kick anyone else?”	page 14, the context
+(27) line 2	Ktunaxa	transcription	t͡sin ninkuʔis hu kqanakɬikxuni	page 14
+(27) line 3	Ktunaxa	segmentation	t͡sin ninku-ʔis hu kqanakɬik-xu-ni	page 14
+(27) line 4	Laura Tammpere	gloss	only 2,3IP-3POSS SUBJ.1 kick-by.body-IND	page 14
+(27) line 5	Laura Tammpere	translation	‘I only kicked him.’	page 14
+(28) line 1	Ktunaxa	transcription	ninku kin waɬkin kiyaku	page 14
+(28) line 2	Ktunaxa	segmentation	ninku k=hin waɬkin kiyaku	page 14
+(28) line 3	Laura Tammpere	gloss	2,3IP SUB=SUBJ.2 bring fish	page 14
+(28) line 4	Laura Tammpere	translation	‘You, you brought fish.’	page 14
+§5	Laura Tammpere	note	The independent pronouns also appear to be pragmatically restricted when they are used to express possession. For example, in (29) the independent pronoun is superfluous because it is assumed that the cake under discussion belongs to the ad- dressee. In (30), the fact that “he” has his own (as opposed to someone else’s) ap- ple was emphasized by the speaker. Independent pronouns play a role of contrast or emphasis that is distinct from merely coding for possession. The pronoun is only used when possession is not inferred, or when contrast is necessary. It adds emphasis to the argument, which arguably aligns them with other overt nominal arguments. Fur- ther work into the usage of independent pronouns, as well as the general discourse- pragmatic features of the language, is needed to elucidate the more specific restric- tions on independent pronoun usage in Ktunaxa.	page 14
+(29) line 1	Laura Tammpere	note	Context: Speaking to the baker of the cake under discussion	page 14, the context
+(29) line 2	Ktunaxa	transcription	?hun upxni qaɬa ksakiɬ ʔik ninkunis	page 14
+(29) line 3	Ktunaxa	segmentation	hun upx-ni qaɬa k=sak-iɬ ʔik ninku-nis	page 14
+(29) line 4	Laura Tammpere	gloss	SUBJ.1 see-IND who SUB-still-ADV eat 2,3IP-2POSS	page 14
+(29) line 5	Ktunaxa	transcription	kquqt͡siɬʔikiɬ	page 14
+(29) line 6	Ktunaxa	segmentation	kquqt͡siɬʔikiɬ	page 14
+(29) line 7	Laura Tammpere	gloss	cake	page 14
+(29) line 8	Laura Tammpere	translation	‘I saw someone eating your cake.’	page 14
+(30) line 1	Ktunaxa	transcription	haqapsi ninkuʔis kanuhusnana	page 14
+(30) line 2	Ktunaxa	segmentation	ha-qa-aps-i ninku-ʔis kanuhus-nana	page 14
+(30) line 3	Laura Tammpere	gloss	have-STV-OBV-IND 2,3IP-3POSS red-DIM	page 14
+(30) line 4	Laura Tammpere	translation	‘He has an apple, he has his own apple.’	page 14
+§6	Laura Tammpere	heading	6 Conclusion	page 14
+§6	Laura Tammpere	note	In this paper, we present data which suggests that independent pronouns in Ktunaxa align most closely with the categorization of pro-ɸP when considering the pro-form typology developed in Déchaine and Wiltschko (2002). Specifically, we argue that the independent pronouns contain a nominal stem dominated by a ɸP, which interacts with the syntax. The internal syntax of the pronouns seems to align with other nominal forms which have been marked with possessive morphology. This is especially apparent when comparing the pronouns to kinship terms, which consist of nominal stems obligatorily marked with possessive morphology. In this vein, Mor- gan (1991) suggests that the first person pronoun originated as a nominal phrase mean- ing “my self”, citing comparative data between Ktunaxa and Salishan languages, as well as the possessive meaning that tends to emerge in free translations of sentences involving these pronouns.	page 14
+§6	Laura Tammpere	language	Salishan	the languages Morgan compares with Ktunaxa
+§6	Laura Tammpere	note	The distribution of the independent pronouns is marked, but in the environ- ments where it is permitted it largely aligns with other nominal arguments in Ktu- naxa. Their ability to be bound by a quantifier is indicative of a pro-ɸP classifica- tion, suggesting that it is a variable as opposed to a referential expression which refers to a specific entity.	page 15
+§6	Laura Tammpere	note	This paper represents a first look at the structure and usage of the indepen- dent pronouns in Ktunaxa. Further research into this set of pronouns, as well as the language’s general syntax, will be necessary to refine this analysis. In particular, more work on the structure of copular constructions in Ktunaxa will help refine this anal- ysis with regards to the their ability to appear in argument and predicate positions. Further research is also necessary to determine the specific semantic and pragmatic characteristics of these pro-forms.	page 15
+references	Laura Tammpere	heading	References	page 15
+references	Laura Tammpere	reference	Dahlstrom, A. (1988). Independent pronouns in Fox. In Shipley, W., editor, In Honor of Mary Haas: From the Haas Fesitval Conference on Native American Linguistics, pages 165–194. Mouton de Gruyter.	page 15
+references	Laura Tammpere	reference	Déchaine, R.-M. and Wiltschko, M. (2002). Decomposing pronouns. Linguistic Inquiry, 33:409–422.	page 15
+references	Laura Tammpere	reference	Dryer, M. (1996). Grammatical relations in Ktunaxa (Kutenai): the Belcourt Lecture delivered before the University of Manitoba on 24 February 1995. Winnipeg: Voices of Rupert’s Land.	page 15
+references	Laura Tammpere	reference	Morgan, L. R. (1991). A description of the Kutenai language. Unpublished doc- toral dissertation.	page 15
+references	Laura Tammpere	reference	Wiltschko, M. (2002). The syntax of pronouns: Evidence from Halkomelem Sal- ish. Natural Language & Linguistic Theory, 20:157–195.	page 15

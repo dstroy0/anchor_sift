@@ -1,0 +1,325 @@
+where	who	kind	form	gloss
+front	Gloria Mellesmoen	title	A Fricative-First Path from Proto-Salish *c to /s/ and /θ/ in Central Salish	page 1, carries footnote *
+front	Gloria Mellesmoen	name	Gloria Mellesmoen	author
+front	Gloria Mellesmoen	note	University of British Columbia	page 1, under Gloria Mellesmoen
+front	Gloria Mellesmoen	note	Abstract: Proto-Salish (PS) *c has developed into /θ/ and /s/ in certain dialects of Central Salish languages. This paper proposes a fricative-first trajectory of change from PS *c to /θ/ and /s/ in Pentlatch, Comox-Sliammon, Northern Straits, and Halkomelem. The fricative-first path is motivated by impressionistic descriptions of ambiguity and variation in the pronunciation and distribution of the reflexes of PS *c. The fricative-first trajectory is better able to account for the patterns in Central Salish as a whole than the fronting-first one Thompson, Thompson, and Efrat (1974) propose for Saanich.	page 1, the abstract
+front	Gloria Mellesmoen	note	Keywords: fricatives, sound change, Pentlatch, Comox-Sliammon, Halkomelem, Northern Straits	page 1, the keywords
+front	Gloria Mellesmoen	note	Papers for the International Conference on Salish and Neighbouring Languages 54. D. K. E. Reisinger & Gloria Mellesmoen (eds.). Vancouver: UBCWPL, 2019.	page 1, the volume's header
+front	Gloria Mellesmoen	language	Central Salish	the branch of Salish with /s/ or /θ/ from Proto-Salish *c
+footnote *	Gloria Mellesmoen	note	This paper is largely an off-shoot of my first qualifying paper. I thank my committee for that paper (Douglas Pulleyblank, Molly Babel, and Henry Davis) for their support and feedback. In addition, I would like to thank the ʔayʔaǰuθəm language consultants who I had the opportunity to work with on that paper (Joanne Francis, Elsie Paul, Phyllis Dominic, Freddie Louie, Maggie Wilson, and Hoss Timothy). In addition, I thank the audience at the 5th Workshop on Sound Change in Davis, California, for their feedback. Contact info: gloria.mellesmoen@ubc.ca	page 1, footnote *, on the title
+footnote *	Gloria Mellesmoen	name	Pulleyblank	Douglas Pulleyblank, on the author's qualifying paper committee
+footnote *	Gloria Mellesmoen	name	Babel	Molly Babel, on the committee; McGuire & Babel (2012), /θ/ cross-linguistically unstable
+footnote *	Gloria Mellesmoen	name	Henry Davis	on the committee
+footnote *	Gloria Mellesmoen	name	Joanne Francis	ʔayʔaǰuθəm language consultant
+footnote *	Gloria Mellesmoen	name	Elsie Paul	ʔayʔaǰuθəm language consultant
+footnote *	Gloria Mellesmoen	name	Phyllis Dominic	ʔayʔaǰuθəm language consultant
+footnote *	Gloria Mellesmoen	name	Freddie Louie	ʔayʔaǰuθəm language consultant
+footnote *	Gloria Mellesmoen	name	Maggie Wilson	ʔayʔaǰuθəm language consultant
+footnote *	Gloria Mellesmoen	name	Hoss Timothy	ʔayʔaǰuθəm language consultant
+footnote *	Gloria Mellesmoen	name	Davis	H. Davis (2017, with Huijsmans); J. Davis, Sliammon pronominal paradigms (1978)
+§1	Gloria Mellesmoen	heading	1 Introduction	page 1
+§1	Gloria Mellesmoen	note	The interdental fricative /θ/ is not only cross-linguistically rare (Maddieson 1984:45), but is also a shared innovation across several Coast Salish languages. Kuipers (2002) proposes that Proto- Salish (PS) *c developed into either /s/ or /θ/ across Central Salish languages, while PS *s remained /s/ (Kuipers 2002). The progression of this change from alveolar affricate to (alveolar or interdental) fricative, as well as the factors mediating its actuation, have not been explored in detail.	page 1
+§1	Gloria Mellesmoen	name	Kuipers	A. H. Kuipers, Salish etymological dictionary (2002)
+§1	Gloria Mellesmoen	name	Maddieson	I. Maddieson, patterns of sounds (1984)
+§1	Gloria Mellesmoen	language	Coast Salish	the languages sharing /θ/
+§1	Gloria Mellesmoen	note	Impressionistic descriptions of these languages suggest articulatory similarity and perceptual ambiguity between /θ/ and /s/. This is documented for Halkomelem (Suttles 2004), Northern Straits (Thompson, Thompson, & Efrat 1974), and Comox-Sliammon (Blake 2000). Reports of ambiguity and similarity, coupled with the fact that a phonemic contrast has been lost between PS *c and *s in a handful of the dialects, suggest that synchronic and diachronic instability surround reflexes of PS *c. This instability, along with the variation that arises from it, is crucial to understanding the developmental trajectory of PS *c across different languages.	page 1
+§1	Gloria Mellesmoen	name	Suttles	W. P. Suttles, Musqueam (2004); Elmendorf & Suttles (1960)
+§1	Gloria Mellesmoen	name	Thompson	L. C. Thompson and M. T. Thompson, with B. S. Efrat, Straits Salish (1974)
+§1	Gloria Mellesmoen	name	Efrat	B. S. Efrat (1974)
+§1	Gloria Mellesmoen	name	Blake	S. J. Blake, schwa in Sliammon (2000)
+§1	Gloria Mellesmoen	language	Comox-Sliammon	Central Salish, ʔayʔaǰuθəm
+§1	Gloria Mellesmoen	language	Halkomelem	Central Salish, *c > /θ/
+§1	Gloria Mellesmoen	language	Northern Straits	Central Salish
+§1	Gloria Mellesmoen	note	This brief paper proposes a FRICATIVE-FIRST trajectory from PS *c > /s/ and /θ/ in Central Salish, drawing upon previous documentation and description. In Section 2, I provide an overview of the distribution of PS *c reflexes in the languages that have undergone the sound change. This includes the impressionistic descriptions of the sounds and variation in their pronunciation across the languages. Section 3 outlines the proposed FRICATIVE-FIRST trajectory, explicating where each of the described Central Salish dialects fits. Acoustic motivation and phonetic bias underlying the actuation of changes from PS *c are detailed in Section 4. Section 5 concludes the paper with a brief summary of an alternate (FRONTING-FIRST) path of change and its disadvantages when compared to the FRICATIVE-FIRST trajectory proposed in this paper.	page 1
+§2	Gloria Mellesmoen	heading	2 Distribution and Description of PS *c Reflexes	page 2
+§2	Gloria Mellesmoen	note	Galloway (1988) and Kuipers (2002) propose that PS *c became /s/ or /θ/ in some dialects of the Central Salish languages, while PS *s is realized as /s/ across all these languages.1 The languages shown in Table 1 are the ones that have developed /θ/ or /s/ from PS *c. PS *c became /θ/ and *s remained /s/ in Mainland Comox, Pentlatch, and Halkomelem, while PS *s and *c merged in the Island dialect of Comox and the Lummi, Songish, Samish, and Sooke dialects of Northern Straits. The situation is more complicated in Saanich, where PS *c split into /θ/ and /s/.	page 2
+footnote 1	Gloria Mellesmoen	note	In addition to Galloway (1988) and Kuipers (2002), the correspondences in Table 1 are informed by my own work with archival materials (Island Comox and Pentlatch), fieldwork (Mainland Comox), and Galloway’s (1986) description of Samish.	page 2, footnote 1
+§2	Gloria Mellesmoen	name	Galloway	B. D. Galloway, Chilliwack Halkomelem (1977), Nooksack (1982), Samish (1986, 1990), Proto-Central Salish sound correspondences (1988)
+§2	Gloria Mellesmoen	language	Pentlatch	Central Salish, *c > /θ/
+§2	Gloria Mellesmoen	language	Mainland Comox	Comox-Sliammon, *c > /θ/
+§2	Gloria Mellesmoen	language	Saanich	Northern Straits, *c split into /θ/ and /s/
+§2	Gloria Mellesmoen	language	Samish	Northern Straits
+§2	Gloria Mellesmoen	language	Songish	Northern Straits, *c > /s/
+§2	Gloria Mellesmoen	language	Sooke	Northern Straits, *c > /s/
+§2	Gloria Mellesmoen	language	Lummi	Northern Straits, *c > /s/ with coda [ʔs]
+Table 1	Gloria Mellesmoen	note	Table 1: Reflexes of Proto-Salish *s and *c in (some) Central Salish languages	page 2, the caption
+Table 1 line 1	Gloria Mellesmoen	note	Language Dialect Proto-Salish *s Proto-Salish *c	page 2, a line of the table as the text layer reads it
+Table 1 line 2	Gloria Mellesmoen	note	Pentlatch – s θ	page 2, a line of the table as the text layer reads it
+Table 1 line 3	Gloria Mellesmoen	note	Halkomelem Musqueam s θ	page 2, a line of the table as the text layer reads it
+Table 1 line 4	Gloria Mellesmoen	note	Island Halkomelem s θ	page 2, a line of the table as the text layer reads it
+Table 1 line 5	Gloria Mellesmoen	note	Upriver Halkomelem s θ	page 2, a line of the table as the text layer reads it
+Table 1 line 6	Gloria Mellesmoen	note	Comox-Sliammon Mainland Comox s θ	page 2, a line of the table as the text layer reads it
+Table 1 line 7	Gloria Mellesmoen	note	Island Comox s s	page 2, a line of the table as the text layer reads it
+Table 1 line 8	Gloria Mellesmoen	note	Northern Straits Saanich s s, θ	page 2, a line of the table as the text layer reads it
+Table 1 line 9	Gloria Mellesmoen	note	Samish s s	page 2, a line of the table as the text layer reads it
+Table 1 line 10	Gloria Mellesmoen	note	Songish s s	page 2, a line of the table as the text layer reads it
+Table 1 line 11	Gloria Mellesmoen	note	Sooke s s	page 2, a line of the table as the text layer reads it
+Table 1	Gloria Mellesmoen	language	Proto-Salish	the reconstruction, PS
+Table 1	Gloria Mellesmoen	language	Island Comox	Comox-Sliammon, *c > /s/
+Table 1	Gloria Mellesmoen	language	Musqueam	a dialect of Halkomelem
+Table 1	Gloria Mellesmoen	language	Island Halkomelem	a dialect of Halkomelem
+Table 1	Gloria Mellesmoen	language	Upriver Halkomelem	a dialect of Halkomelem
+§2	Gloria Mellesmoen	note	Taken together, Table 1 suggests that PS *c developed from an affricate into either an alveolar or an interdental fricative in each of the languages, with synchronic variation between the two documented in the Saanich dialect of Northern Straits.	page 2
+§2	Gloria Mellesmoen	note	Halkomelem (and Straits) differ from Comox-Sliammon and Pentlatch in having a more complicated set of interacting sound changes that have resulted in the /s/ and /θ/ in their present- day phonemic inventories. In Halkomelem, PS *k and *k’ have become /c/ and /c̓/, while they have become /s/ and /c̓/ across dialects of Northern Straits, with the exception of Saanich, where PS *k has developed into /s/ and /θ/ , and *k̓ has become /t̓ᶿ/. These additional changes, though relevant to the overall picture, are set aside at present. I focus predominantly on reflexes of PS *c.	page 2
+§2.1	Gloria Mellesmoen	heading	2.1 Pentlatch	page 2
+§2.1	Gloria Mellesmoen	note	Very little has been said about Pentlatch in the literature, including description of its phonemic inventory. Boas (1890) transcribes ç ([θ]) in places that correspond to a [θ] in Mainland Comox and a [c] in Sechelt, suggesting that PS *c became /θ/ in Pentlatch. An s ([s]) is found in places where Mainland Comox and Sechelt each have [s], suggesting that PS *s remained /s/ in Pentlatch. As shown in (1), this is true of initial, final, and medial segments.2 Galloway (1988) reaches a similar conclusion in his summary of sound correspondences in Proto-Salish, connecting PS *c to /θ/ and PS *s to /s/ for Pentlatch.	page 2
+footnote 2	Gloria Mellesmoen	note	The first column of the transcriptions (in italics) is the one given by Boas (1890). The phonemic representation of the Pentlatch is my own. The Mainland Comox data come from fieldwork I conducted, and the Sechelt examples come from Beaumont (2011) and are translated from the orthography for comparison.	page 2, footnote 2
+footnote 2	Gloria Mellesmoen	name	Beaumont	R. C. Beaumont, Sechelt dictionary (2011)
+§2.1	Central Salish	cited form	ç	page 2, in italics
+§2.1	Gloria Mellesmoen	name	Boas	F. Boas, the Pentlatch materials (1890)
+§2.1	Gloria Mellesmoen	language	Sechelt	Central Salish, *c kept as /c/
+(1)	Gloria Mellesmoen	note	Boas Phonemic Translation Mainland Comox Sechelt	page 3, the column heads
+(1a) line 1	Pentlatch	transcription	sisā’e	page 3, Boas (1890), italic in the paper (footnote 2)
+(1a) line 2	Pentlatch	phonemic	/səysáy/	page 3, the author's phonemic form
+(1a) line 3	Gloria Mellesmoen	translation	‘to be afraid’	page 3
+(1a) line 4	Mainland Comox	cited form	sə́ysay	page 3, Mainland Comox
+(1a) line 5	Gloria Mellesmoen	note	–	page 3, no Sechelt form
+(1b) line 1	Pentlatch	transcription	kō’poçĕn	page 3, Boas (1890), italic in the paper (footnote 2), the k underlined
+(1b) line 2	Pentlatch	phonemic	/qʷúpuθin/	page 3, the author's phonemic form
+(1b) line 3	Gloria Mellesmoen	translation	‘beard’	page 3
+(1b) line 4	Mainland Comox	cited form	qʷúpuθin	page 3, Mainland Comox
+(1b) line 5	Sechelt	cited form	sqʷúpúcín	page 3, Sechelt
+(1c) line 1	Pentlatch	transcription	hē’wos	page 3, Boas (1890), italic in the paper (footnote 2)
+(1c) line 2	Pentlatch	phonemic	/híwus/	page 3, the author's phonemic form
+(1c) line 3	Gloria Mellesmoen	translation	‘chief’	page 3
+(1c) line 4	Mainland Comox	cited form	hígus	page 3, Mainland Comox
+(1c) line 5	Sechelt	cited form	híwus	page 3, Sechelt
+(1d) line 1	Pentlatch	transcription	ço	page 3, Boas (1890), italic in the paper (footnote 2)
+(1d) line 2	Pentlatch	phonemic	/θu/	page 3, the author's phonemic form
+(1d) line 3	Gloria Mellesmoen	translation	‘go’	page 3
+(1d) line 4	Mainland Comox	cited form	θu/hu	page 3, Mainland Comox
+(1d) line 5	Sechelt	cited form	cu	page 3, Sechelt
+(1e) line 1	Pentlatch	transcription	ē’maç	page 3, Boas (1890), italic in the paper (footnote 2)
+(1e) line 2	Pentlatch	phonemic	/ʔímaθ/	page 3, the author's phonemic form
+(1e) line 3	Gloria Mellesmoen	translation	‘grandchild’	page 3
+(1e) line 4	Mainland Comox	cited form	ʔímaθ	page 3, Mainland Comox
+(1e) line 5	Sechelt	cited form	ʔimac	page 3, Sechelt
+(1f) line 1	Pentlatch	transcription	koā’san	page 3, Boas (1890), italic in the paper (footnote 2), the k underlined
+(1f) line 2	Pentlatch	phonemic	/qʷásan/	page 3, the author's phonemic form
+(1f) line 3	Gloria Mellesmoen	translation	‘flower’	page 3
+(1f) line 4	Mainland Comox	cited form	qʷásəm	page 3, Mainland Comox
+(1f) line 5	Sechelt	cited form	sqʷásam	page 3, Sechelt
+(1g) line 1	Pentlatch	transcription	çō’man	page 3, Boas (1890), italic in the paper (footnote 2)
+(1g) line 2	Pentlatch	phonemic	/θúman/	page 3, the author's phonemic form
+(1g) line 3	Gloria Mellesmoen	translation	‘eyebrow’	page 3
+(1g) line 4	Mainland Comox	cited form	θúmin	page 3, Mainland Comox
+(1g) line 5	Sechelt	cited form	cácúmin	page 3, Sechelt
+(1h) line 1	Pentlatch	transcription	mĕ’qsĕn	page 3, Boas (1890), italic in the paper (footnote 2)
+(1h) line 2	Pentlatch	phonemic	/mə́qsən/	page 3, the author's phonemic form
+(1h) line 3	Gloria Mellesmoen	translation	‘nose’	page 3
+(1h) line 4	Mainland Comox	cited form	məqsən	page 3, Mainland Comox
+(1h) line 5	Sechelt	cited form	mə́qsə́n	page 3, Sechelt
+(1i) line 1	Pentlatch	transcription	çō’çin	page 3, Boas (1890), italic in the paper (footnote 2)
+(1i) line 2	Pentlatch	phonemic	/θúθin/	page 3, the author's phonemic form
+(1i) line 3	Gloria Mellesmoen	translation	‘mouth’	page 3
+(1i) line 4	Mainland Comox	cited form	θúθin	page 3, Mainland Comox
+(1i) line 5	Sechelt	cited form	cúcin	page 3, Sechelt
+§2.1	Gloria Mellesmoen	note	The ç ([θ]) is reliably found in lexical items expected to have had PS *c, suggesting that the shift from PS *c to /θ/ was relatively complete at the time of documentation. Though little can be conclusively concluded about the acoustic or articulatory properties of the Pentlatch /θ/, it is worth noting that it is transcribed fairly reliably as ç in the Boas materials, which cannot be said of other sounds that reflect, minimally, some amount of variability from either difficulty in discrimination or the result of language change. For example, the uvular and velar contrast in place of articulation and the difference between ejective and plain segments are more difficult for L2 speakers to reliably perceive. Impressionistically, this difficulty is reflected to a certain extent in early transcription, including the Boas (1890) archival materials. In contrast, the Pentlatch fricatives /θ/ and /s/ appear to be relatively stable in their distribution across lexical items and are consistent with what would be anticipated for words which had PS *c or *s originally.3	page 3
+footnote 3	Gloria Mellesmoen	note	It is worth pointing out that little is known about dialect variation that may have existed in Pentlatch previously, or whether neighbouring dialects would have influenced the distribution of fricatives in the language.	page 3, footnote 3
+§2.2	Gloria Mellesmoen	heading	2.2 Comox-Sliammon	page 3
+§2.2.1	Gloria Mellesmoen	heading	2.2.1 Mainland Comox	page 3
+§2.2.1	Gloria Mellesmoen	note	While the diachronic development results in a one-to-one mapping between PS *c and *s and Mainland Comox /θ/ and /s/, respectively, there is variation in synchronic data in the articulation of /θ/. A single speaker of Mainland Comox will variably produce something like [θayəɬ] or [sayəɬ] for ‘lake’, as shown in (2). This is only true of words that have an underlying /θ/ (from PS *c). Words with an underlying /s/ (from PS *s) are unambiguously realized with [s]. This pattern holds across the lexicon and is not restricted to any lexicalized subset of words and is only moderately influenced by other phonological factors; a more dental [s] pronunciation of /θ/ is recorded adjacent to back vowels (Blake 2000).	page 3
+(2a) line 1	Gloria Mellesmoen	note	Initial, word with reflex of PS *c	page 4, the part's description
+(2a) line 2	Mainland Comox	phonetic	[θayəɬ ~ sayəɬ]	page 4, the forms a speaker gives
+(2a) line 3	Gloria Mellesmoen	translation	‘lake’	page 4
+(2b) line 1	Gloria Mellesmoen	note	Medial, word with reflex of PS *c	page 4, the part's description
+(2b) line 2	Mainland Comox	phonetic	[θuθin ~ susin ~ θusin ~ suθin]	page 4, the forms a speaker gives
+(2b) line 3	Gloria Mellesmoen	translation	‘mouth’	page 4
+(2c) line 1	Gloria Mellesmoen	note	Final, word with reflex of PS *c	page 4, the part's description
+(2c) line 2	Mainland Comox	phonetic	[gaqəθ ~ gaqəs]	page 4, the forms a speaker gives
+(2c) line 3	Gloria Mellesmoen	translation	‘husband’	page 4
+(2d) line 1	Gloria Mellesmoen	note	Initial, word with reflex of PS *s	page 4, the part's description
+(2d) line 2	Mainland Comox	phonetic	[sayǰa]	page 4, the forms a speaker gives
+(2d) line 3	Mainland Comox	phonetic	*[θayǰa]	page 4, starred in parentheses, the form not given
+(2d) line 4	Gloria Mellesmoen	translation	‘leaf’	page 4
+(2e) line 1	Gloria Mellesmoen	note	Medial, word with reflex of PS *s	page 4, the part's description
+(2e) line 2	Mainland Comox	phonetic	[qʷasəm]	page 4, the forms a speaker gives
+(2e) line 3	Mainland Comox	phonetic	*[qʷaθəm]	page 4, starred in parentheses, the form not given
+(2e) line 4	Gloria Mellesmoen	translation	‘flower’	page 4
+(2f) line 1	Gloria Mellesmoen	note	Final, word with reflex of PS *s	page 4, the part's description
+(2f) line 2	Mainland Comox	phonetic	[χawgus]	page 4, the forms a speaker gives
+(2f) line 3	Mainland Comox	phonetic	*[χawguθ]	page 4, starred in parentheses, the form not given
+(2f) line 4	Gloria Mellesmoen	translation	‘grizzly’	page 4
+§2.2.1	Gloria Mellesmoen	note	Blake (2000) stated that /θ/ may easily be misperceived as /s/ and speculated that [θ] may have a grooved tongue shape, which makes it sound more similar to [s]. Taken together, an [s]-like tongue shape and phonological conditioning related to whether a vowel is specified as [+/- back] suggest that one of the main distinctions between /s/ and /θ/ is the frontness of the constriction.	page 4
+§2.2.2	Gloria Mellesmoen	heading	2.2.2 Island Comox	page 4
+§2.2.2	Gloria Mellesmoen	note	One of the characteristics of the Island dialect of Comox that sets it apart from the Mainland dialect is that it does not have /θ/. Instead, PS *c corresponds to /s/. As PS *s has remained /s/, this indicates that the contrast between words with PS *c and *s is no longer maintained and that a merger between the two took place at some point in the history of the language. Given that a contrast is maintained in the Mainland dialect, the merger between PS *c and *s likely reflects a relatively recent change that came after the two dialects split.	page 4
+§2.2.2	Gloria Mellesmoen	note	In an overview of previous work on Comox, Harris (1981) found that the distribution of [θ] and [s] was hard to reconcile. There was no neat separation between a θ-dialect and s-dialect. As shown in Table 2, Boas (as cited in Harris 1981) reported [θ] in words where modern Mainland Comox consultants (and Harris’ Island consultant) use [s], and [s] in words where Mainland Comox consultants use [θ].4 Harris (1981:24) speculated that Boas transcribed forms incorrectly, arguing against bidirectional dialect borrowing. Even if Boas (1890) did make some errors, Harris (1981) also describes differences in the distributions reported by Sapir (1914), Gibbs (1877), and Barnett (1955). Given the relative consistency across the documented words in Pentlatch and that synchronic ambiguity is reported for the Mainland dialect between /θ/ and /s/, the “inconsistency” in Boas might actually reflect phonetic variation or similarity between the sounds, rather than mistakes in transcription.	page 4
+footnote 4	Gloria Mellesmoen	note	Interestingly, Harris (1981) reports [θ] for ‘go’ in Boas’ transcription. In the Pentlatch materials (Boas 1890), there is a single page of Comox sentences where one of the words is hōstōmut, built with the root ho ‘go’, suggesting that an alternation between [h] and [θ] in this word is not just a modern idiosyncrasy.	page 4, footnote 4
+footnote 4	Central Salish	cited form	hōstōmut	page 4, in italics
+§2.2.2	Gloria Mellesmoen	name	Harris	H. R. Harris, a grammatical sketch of Comox (1981); J. Harris, segmental complexity (1990)
+§2.2.2	Gloria Mellesmoen	name	Sapir	E. Sapir (1914)
+§2.2.2	Gloria Mellesmoen	name	Gibbs	G. Gibbs, vocabulary of the Ko-mookhs (1877)
+§2.2.2	Gloria Mellesmoen	name	Barnett	H. Barnett, the Coast Salish of British Columbia (1955)
+Table 2	Gloria Mellesmoen	note	Table 2: s/θ distribution in Boas (1890) and Harris (1981), compared to modern Mainland Comox	page 4, the caption
+Table 2 line 1	Gloria Mellesmoen	note	English Boas Harris Modern Mainland Comox	page 4, the header
+Table 2 row 1	Comox-Sliammon	cited form	-oːs	page 4, ‘head (suffix)’, Boas (1890)
+Table 2 row 1	Comox-Sliammon	cited form	-os	page 4, ‘head (suffix)’, Harris (1981)
+Table 2 row 1	Comox-Sliammon	cited form	-os	page 4, ‘head (suffix)’, modern Mainland Comox
+Table 2 row 2	Comox-Sliammon	cited form	moʔoθ	page 4, ‘head’, Boas (1890)
+Table 2 row 2	Comox-Sliammon	cited form	moʔos	page 4, ‘head’, Harris (1981)
+Table 2 row 2	Comox-Sliammon	cited form	moʔos	page 4, ‘head’, modern Mainland Comox
+Table 2 row 3	Comox-Sliammon	cited form	θoː	page 4, ‘go’, Boas (1890)
+Table 2 row 3	Comox-Sliammon	cited form	so	page 4, ‘go’, Harris (1981)
+Table 2 row 3	Comox-Sliammon	cited form	θo/ho	page 4, ‘go’, modern Mainland Comox
+Table 2 row 4	Comox-Sliammon	cited form	gʸaːqas	page 4, ‘husband’, Boas (1890)
+Table 2 row 4	Comox-Sliammon	cited form	gʸaːqas	page 4, ‘husband’, Harris (1981)
+Table 2 row 4	Comox-Sliammon	cited form	gaqəθ	page 4, ‘husband’, modern Mainland Comox
+§2.3	Gloria Mellesmoen	heading	2.3 Halkomelem	page 5
+§2.3.1	Gloria Mellesmoen	heading	2.3.1 Upriver Halkomelem	page 5
+§2.3.1	Gloria Mellesmoen	note	The /θ/ in Upriver Halkomelem is described as interdental, such that “the air is released in the spaces between the upper teeth [and] the tongue rests on the back of the upper teeth, not between the upper and lower teeth” (Galloway 1977:5). This suggests a slightly more retracted articulation than would be the case for an English [θ]. While the tongue would be between the top and bottom teeth in the production of English [θ], the pronunciation associated with the Upriver Halkomelem /θ/ is described in a manner that suggests it is produced with the tongue slightly higher and further back than an English [θ].	page 5
+§2.3.1	Gloria Mellesmoen	language	English	[θ] and the Liverpool dialect
+§2.3.1	Gloria Mellesmoen	note	Galloway (1977) does not suggest that the further back articulation of /θ/ results in any ambiguity or confusion with /s/, as has been documented for other languages with /θ/. In fact, he states that /s/ in Upriver Halkomelem may be realized as [š] in certain environments, rather than [s]. However, Elmendorf and Suttles (1960) describe [s] as a back allophone of /θ/ in this dialect, suggesting that some confusion may be possible in this environment.	page 5
+§2.3.1	Gloria Mellesmoen	name	Elmendorf	W. W. Elmendorf (1960)
+§2.3.2	Gloria Mellesmoen	heading	2.3.2 Island Halkomelem	page 5
+§2.3.2	Gloria Mellesmoen	note	Not much has been said about the reflex of PS *c in Island Halkomelem. As in the other dialects of the language, PS *c developed into /θ/. Elmendorf and Suttles (1960) describe /θ/ across Halkomelem dialects, including Island Halkomelem, as interdental, while Kava (1969) labels it as a “voiceless dental slit fricative”. However, despite Kava’s (1969:27) description suggesting a less anterior constriction for /θ/, the contrast between /s/ and /θ/ is retained.	page 5
+§2.3.2	Gloria Mellesmoen	name	Kava	Tiiu Kava, a phonology of Cowichan (1969)
+§2.3.3	Gloria Mellesmoen	heading	2.3.3 Musqueam	page 5
+§2.3.3	Gloria Mellesmoen	note	Articulatory similarity between /θ/ and /s/ is reported in the Musqueam dialect of Halkomelem, as in the Mainland dialect of Comox-Sliammon. /θ/ is described as “usually a dental or interdental spirant somewhat like English ‘th’ in thin” (Suttles 2004:4).	page 5
+§2.3.3	Gloria Mellesmoen	note	Suttles (2004:4) reports difficulty transcribing the sonorants, where [s] was transcribed instead of /θ/, suggesting perceptual ambiguity between the two. He further indicates that “some speakers … articulate /θ/ further back, reducing the difference” from /s/ (Suttles 2004:4). In addition to this, Suttles (2004:4) notes that in earlier spellings of names, s is used for /θ/, suggesting that the tongue was further back when producing the sound at this earlier point. Suttles (2004) speculates that the development of /θ/ in Musqueam might be a more recent, and unstable, innovation.	page 5
+§2.3.3	Gloria Mellesmoen	note	It is worth noting that PS *s corresponds to /s/ in Musqueam and the articulation of /s/ is described as being “somewhat more retracted than /t/ or /t̓/” (Suttles 2004:5). This suggests that /s/ in Musqueam may be produced with the tongue further back than the alveolar ridge.	page 5
+§2.4	Gloria Mellesmoen	heading	2.4 Northern Straits	page 5
+§2.4.1	Gloria Mellesmoen	heading	2.4.1 Saanich	page 5
+§2.4.1	Gloria Mellesmoen	note	In the Saanich dialect of Northern Straits, PS *c split into /θ/ and /s/. Thompson et al. (1974:185– 187) suggest that the irregular distribution of /s/ and /θ/ forms results from contact with Halkomelem and describe a subset of lexical items where /θ/ alternates with /s/, such as the word for ‘mouth’ (θaθən ~ sasən) or ‘sockeye salmon’ (θəqiʔ ~ səqiʔ).	page 5
+§2.4.1	Gloria Mellesmoen	note	Unlike in Mainland Comox, where variation is observed across the lexicon and is heightened in certain phonological environments (adjacent to a back vowel), this variation is reported to be restricted to a subset of lexical items that would have had PS *c. Though influence with Halkomelem has been suggested as a source of the [θ] ~ [s] alternation, it is not clear whether this distribution could also reflect a change in progress, where some words have undergone a shift and others have not followed yet. Within the set of words where [θ] ~ [s] may alternate, there is little evidence for any kind of conditioning. This suggests that the alternation might be a case of free variation, where these segments vary in their pronunciation between [θ] and [s], which differ only minimally depending on how front the tongue (and resultant constriction) is at the time of articulation.	page 6
+§2.4.1	Gloria Mellesmoen	note	Montler (1986) describes /θ/ as dental, rather than interdental. He reports that this sound is unlike English /θ/ and difficult for L2 speakers to discriminate, partially due to it having a grooved (not slit) tongue shape.	page 6
+§2.4.1	Gloria Mellesmoen	name	Montler	T. Montler, Saanich (1986), Straits Salishan dialects (1999)
+§2.4.2	Gloria Mellesmoen	heading	2.4.2 Samish	page 6
+§2.4.2	Gloria Mellesmoen	note	Thompson, Thompson, and Efrat (1974) speculate that the PS *c > s change had not reached Samish, suggesting that Samish retained the affricate /c/ from PS *c, resembling Klallam in that respect. They recognize limited available data as a challenge in discussing Samish and set it aside in their comparison of phonological developments in Straits. Accordingly, Kuipers (2002:5) does not include a PS *c change for Samish in his summary of sound changes across the language family.	page 6
+§2.4.2	Gloria Mellesmoen	language	Klallam	Central Salish, *c kept as /c/
+§2.4.2	Gloria Mellesmoen	note	In contrast to this, Galloway (1986) states that PS *c is most often /s/ in Samish, but speakers will occasionally produce a [θ]-like sound. The speech of one speaker revealed a dental [s] in places where speakers of Saanich and Island Halkomelem would have /θ/, while another consistently used an alveolar [s] (Galloway 1990). These descriptions suggest that PS *c had undergone a shift in Samish, though this may have been far from complete. In general, Galloway’s (1986) description suggests that the Samish system resembles the Sooke, Lummi, and Songish ones, where PS *c had become a fricative /s/.5 The actual articulation of this sound may have varied with respect to frontness of constriction, such that it was more retracted (alveolar) or anterior (dental) in certain productions.	page 6
+footnote 5	Gloria Mellesmoen	note	Undoubtably, there would have been language contact between different dialects, which would account for some of the alternation.	page 6, footnote 5
+§2.4.2	Gloria Mellesmoen	note	Montler (1999) lays out sound correspondences between different dialects of Straits Salishan, noting that all of the Northern Straits dialects have at least partially undergone the shift from PS *c to /s/, with the possible exception of Samish.	page 6
+§2.4.3	Gloria Mellesmoen	heading	2.4.3 Lummi, Sooke, and Songish	page 6
+§2.4.3	Gloria Mellesmoen	note	The reflex of PS *c in the Lummi, Sooke, and Songish dialects is /s/. Raffo (1972:29) describes /s/ in Songish as an alveolar fricative that is pronounced as [s] across all environments, though it is realized with some palatalization when before a velar consonant. The merger between PS *c and the /s/ from *s is not quite complete in Lummi; in positions where PS *c would be a coda following a stressed vowel, it is realized as [ʔs]. Though it is no longer a homorganic affricate, there is still stop occlusion before the frication (Thompson, Thompson, & Efrat 1974:185). This is shown in (3), where Klallam, with /c/, is compared to Lummi.	page 6
+§2.4.3	Gloria Mellesmoen	name	Raffo	Y. A. Raffo, Songish (cited 1972; the references list 2003)
+(3)	Gloria Mellesmoen	note	Klallam Lummi Translation	page 7, the column heads
+(3) row 1	Klallam	cited form	ʔə́ŋac	page 7, Klallam
+(3) row 1	Lummi	cited form	ʔə́ŋəʔs	page 7, Lummi
+(3) row 1	Gloria Mellesmoen	translation	‘give it to me’	page 7
+(3) row 2	Klallam	cited form	stáckʷɬ	page 7, Klallam
+(3) row 2	Lummi	cited form	stéʔskʷɬ	page 7, Lummi
+(3) row 2	Gloria Mellesmoen	translation	‘back’	page 7
+(3) row 2	Gloria Mellesmoen	citation	(Thompson, Thompson, & Efrat 1974:185)	page 7, the source of the example
+§2.4.3	Gloria Mellesmoen	note	This pattern is reported across Northern Straits dialects, but is only consistent in Lummi (Thompson, Thompson, & Efrat 1974). The retention of a phonologically-conditioned alternation between [s] and [ʔs] suggests that PS *c has not completely merged with the /s/ from PS *s in Lummi.	page 7
+§2.4.3	Gloria Mellesmoen	note	Though Kuipers (2002) indicates that PS *c has developed into /s/ in the Lummi, Sooke, and Songish dialects, there is virtually no description of this specific to Sooke. Further, Montler’s (1999) description of the reflex of PS *c in Songish includes both [s] and [θ]. As his interest is primarily in sketching out dialectal differences, he focuses on “narrow phonetic differences” (Montler 1999:471). It may be that this reflects a more anterior or dental [s] that could occasionally be mistaken for a [θ]. This is speculative, though, as there is not much description of the pronunciation of /s/ in Songish aside from Raffo’s (1972) description of phonemes in the language. She notes that Songish /s/ corresponds to /c/, /θ/, /s/, and /xʸ/ in Musqueam and Island Halkomelem and characterizes /s/ as being pronounced as an alveolar fricative that is realized as [s] generally, with a slightly more palatalized variant when adjacent to a velar consonant. There is no mention of a [θ] allophone. Similarly, Thompson, Thompson, and Efrat (1974:40) report /s/ as the reflex of PS *c (and PS *k, *x, and *s) in Songish and only record variation between /s/ and /θ/ in the Saanich dialect. It is possible to conclude that PS *c became /s/ in Songish, but there may be some synchronic acoustic variation in the realization of /s/ that leads to a more front pronunciation that could be associated with a more dental or interdental point of constriction.	page 7
+§3	Gloria Mellesmoen	heading	3 FRICATIVE-FIRST Trajectory	page 7
+§3	Gloria Mellesmoen	note	The historical trajectory proposed in this paper is a FRICATIVE-FIRST path from PS *c to Central Salish /s/ and /θ/. This establishes a two-step process in the development of /θ/ from PS *c. PS *c first underwent spirantization (or, more accurately, the loss of the stop component of the affricate), resulting in a fricative. This fricative would be produced at a similar (alveolar) place of articulation as *c, meaning that the resulting intermediate fricative would bear articulatory and acoustic similarity to /s/, which exists in the system already from PS *s (and other sources). This is exemplified in (4).	page 7
+(4) line 1	Gloria Mellesmoen	note	Stage I – /c/ > Stage II – /~s/ > Stage IIIa – /θ/	page 7, set as an example
+(4) line 2	Gloria Mellesmoen	note	> Stage IIIb – /s/	page 7, set as an example
+§3	Gloria Mellesmoen	note	The /c/ at Stage I corresponds to the original phoneme in PS, as well as the sound found in languages that did not undergo the changes described in this paper. This includes languages like Sechelt and Squamish, where PS *c has remained /c/ (Kuipers 2002).	page 7
+§3	Gloria Mellesmoen	language	Squamish	Central Salish, *c kept as /c/
+§3	Gloria Mellesmoen	note	Languages that have not retained PS *c have either /s/ or /θ/, suggesting a common development from affricate to fricative. This is Stage II in (4). The FRICATIVE-FIRST analysis provides an explanation for the development of /θ/ in some dialects and /s/ in others. For each language and dialect where PS *c corresponds to /θ/ or /s/, I propose that there was a shared intermediate stage (Stage II) where PS *c had shifted to a fricative that is similar in place to [s]. This [s]-like form may have been slightly more dental or forward than the pronunciation associated with /s/. This is consistent with descriptions of /s/ and /θ/ in present languages, such as the more retracted /s/ in Musqueam (Suttles 2004), or the more dental pronunciation of /th/ in Upriver Halkomelem and the Mainland dialect of Comox-Sliammon (Galloway 1977; Blake 2000).	page 7
+§3	Gloria Mellesmoen	note	The proposed Stage II marks a point between *c and either /θ/ or /s/ where the sound was realized as a [s]-like form. Given that /s/ would also be present in the phonemic inventory from PS *s, the Stage II realization is likely to have been ambiguous. Subsequent fronting of this ambiguous form to /θ/ would preserve the contrast between PS *s and *c, reaching Stage IIIa. A failure to front this [s]-like form could result in a merger between PS *s and *c, resulting in the Stage IIIb pattern.	page 8
+§3	Gloria Mellesmoen	note	The divergent outcome between the dialects in Comox-Sliammon exemplifies how the ambiguity in Stage II could be resolved to result in /θ/ (Stage IIIa) or /s/ (Stage IIIb). The two dialects must have diverged at a point of instability where PS *c had already begun to spirantize (Stage II), but each dialect reconciled the instability in a different way. If Mainland Comox /θ/ developed from an intermediate [s]-like form, we may expect greater variability in words with an underlying /θ/, rather than /s/, reflecting a period of uncertainty where its status was unclear. Blake (2000) describes ambiguity between /θ/ and /s/ in words with /θ/, not /s/, consistent with this hypothesis. If fronting occurred to prevent a merger between PS *s and an intermediate (Stage II) Proto-Comox [s]-like form, derived from *c, /θ/ and /s/ should differ most on acoustic measures correlated with front cavity size or frontness. This is supported by the impressionistic description given in Blake (2000), which suggests that /θ/ and /s/ have a similar tongue shape that contributes to their perceptual ambiguity. Further, it is hardest to differentiate the two in the environment of a back vowel. A similar tongue shape and phonological conditioning related to the frontness of adjacent segments suggests that frontness of the constriction is one of the main differences between /θ/ and /s/ in the Mainland dialect of Comox-Sliammon.	page 8
+§3	Gloria Mellesmoen	note	In a subset of lexical items in Saanich, there is an alternation between /s/ and /θ/. Where variation in Mainland Comox and Musqueam was not reported to be lexically restricted, Thompson, Thompson, and Efrat (1974) argue that the alternation in Saanich is limited to a subset of lexical items. This places Saanich in the middle of the Stage II /s/ and the Stage III /θ/, such that the alternation between the two reflects an incomplete sound change. Unlike languages that have progressed to Stage III, the fricative is not yet fully fronted to /θ/ or merged with /s/.	page 8
+§3	Gloria Mellesmoen	note	If the Saanich pattern is somewhere between Stage II and Stage III, the Lummi pattern may be between Stage I and Stage II. In Section 2, it was shown that the /s/ from PS *c in Lummi had not completely merged with PS *s because there was a [ʔs] pronunciation when in a coda position and following a stressed vowel. This represents an intermediate point between affricate and fricative, where an occlusion is retained in a certain environment. This conditioned [ʔs] sequence makes sense in a FRICATIVE-FIRST trajectory.	page 8
+§3	Gloria Mellesmoen	note	One concern is that there is no clear evidence of a language in Stage II of the proposed trajectory. While languages are found at each of the end points, and some fall in the middle, there are no clear examples of the proposed intermediate Stage II form. While I leave this question open for future exploration, it is also worth highlighting that there are several reasons that this situation could arise. First, it is possible that gaps in documentation obscure the existence of a Stage II language. There is little description of Samish, which may have had /c/ or /s/, depending on the description. Montler (1999) summarizes this as “s/θ” for three speakers (from Galloway 1986) and “c” in one description with unspecified speaker(s) (from Thompson, Thompson, & Efrat 1974). This inconsistency may be the influence of nearby dialects, or may represent a highly unstable stage between PS *c and /θ/, potentially the missing Stage II. Another potential explanation for the absence of the proposed [s]-like form is speaker variation. The Lummi data illustrates this, but this is even clearer in considering Galloway’s (1982) description of speaker variation in Nooksack. It is possible that this [s]-like form might resemble idiolect variation he reported, where one speaker realized /s/ and /c/ closer to [θ] and [θs], respectively. In fact, the Nooksack pronunciation [θs] might be roughly equivalent to the intermediate s-like form (from *c) proposed for Stage II. Table 3 shows the distribution of Central Salish languages across the proposed stages, with Nooksack tentatively placed under Stage II.	page 8
+§3	Gloria Mellesmoen	language	Nooksack	Central Salish, tentatively Stage II
+Table 3	Gloria Mellesmoen	note	Table 3: Distribution of Central Salish languages across proposed stages	page 9, the caption
+Table 3 line 1	Gloria Mellesmoen	note	Stage I – /c/ > Stage II – /~s/ > Stage IIIa – /θ/	page 9, a line of the table as the text layer reads it
+Table 3 line 2	Gloria Mellesmoen	note	Sechelt	page 9, a line of the table as the text layer reads it
+Table 3 line 3	Gloria Mellesmoen	note	Twana	page 9, a line of the table as the text layer reads it
+Table 3 line 4	Gloria Mellesmoen	note	Lushootseed	page 9, a line of the table as the text layer reads it
+Table 3 line 5	Gloria Mellesmoen	note	Klallam	page 9, a line of the table as the text layer reads it
+Table 3 line 6	Gloria Mellesmoen	note	Squamish	page 9, a line of the table as the text layer reads it
+Table 3 line 7	Gloria Mellesmoen	note	Lummi Nooksack (?) Saanich	page 9, a line of the table as the text layer reads it
+Table 3 line 8	Gloria Mellesmoen	note	Mainland Comox	page 9, a line of the table as the text layer reads it
+Table 3 line 9	Gloria Mellesmoen	note	Pentlatch	page 9, a line of the table as the text layer reads it
+Table 3 line 10	Gloria Mellesmoen	note	Halkomelem (all	page 9, a line of the table as the text layer reads it
+Table 3 line 11	Gloria Mellesmoen	note	dialects)	page 9, a line of the table as the text layer reads it
+Table 3 line 12	Gloria Mellesmoen	note	Stage IIIb – /s/	page 9, a line of the table as the text layer reads it
+Table 3 line 13	Gloria Mellesmoen	note	Island Comox	page 9, a line of the table as the text layer reads it
+Table 3 line 14	Gloria Mellesmoen	note	Sooke	page 9, a line of the table as the text layer reads it
+Table 3 line 15	Gloria Mellesmoen	note	Songish	page 9, a line of the table as the text layer reads it
+Table 3	Gloria Mellesmoen	language	Twana	Central Salish, Stage I
+Table 3	Gloria Mellesmoen	language	Lushootseed	Central Salish, Stage I
+§3	Gloria Mellesmoen	note	While gaps in documentation and speaker variation are potential reasons for the absence of a Stage II state in any language, another possibility is that this intermediate stage is highly unstable and thus does not persist very long as learners regularize and shift toward Stage III (either /s/ or /θ/) and that the languages that have retained PS *c may have been moving toward Stage II if transmission had not been interrupted, but did not fully reach it, while other languages accelerated quicker toward Stage III given the language situation (see Davis & Huijsmans 2017 for discussion of accelerated change in the syntax of Comox-Sliammon).	page 9
+§3	Gloria Mellesmoen	name	Huijsmans	M. Huijsmans; Davis & Huijsmans (2017)
+§4	Gloria Mellesmoen	heading	4 Phonetic Motivation for Changes from PS *c	page 9
+§4.1	Gloria Mellesmoen	heading	4.1 Phonetic In/stability and Ambiguity	page 9
+§4.1	Gloria Mellesmoen	note	The documentation suggests ambiguity and variation that is unidirectional: though [s] and [θ] are both implicated, it is lexical items with /θ/ (from PS *c) that are highly confusable, rather than those with /s/. This suggests that /s/ is the more stable of the two sounds. On the one hand, this is not surprising because /θ/ is cross-linguistically unstable (McGuire & Babel 2012). On the other hand, this is predicted under the fricative-first trajectory: if PS *c became a fricative before fronting, the fronting would be a way to maintain contrast with the pre-existing phoneme /s/ (from PS *s and other sources).	page 9
+§4.1	Gloria Mellesmoen	name	McGuire	G. McGuire (2012)
+§4.1	Gloria Mellesmoen	note	Gick, Stavness, Chiu, and Fels (2011) found that speech production favours quantal regions, which are stable states that tolerate variability in muscle activation while requiring little active control. The consistency of PS *s across the Central Salish languages suggests that /s/ is relatively stable, while the realizations of /θ/ are highly variable. The stability of /s/ across most of the Central Salish languages seems to suggest it involves a quantal region, such that there would be less motivation for it to shift. In contrast, /θ/ is variable across each of the languages that have it, suggesting that it is less stable in production. With this in mind, it is unsurprising that it (and the precursor PS *c) would be susceptible to change, particularly where it might cause ambiguity with the existing /s/ from PS *s.	page 9
+§4.1	Gloria Mellesmoen	name	Gick	B. Gick et al., quantal relations (2011)
+§4.1	Gloria Mellesmoen	name	Stavness	I. Stavness (2011)
+§4.1	Gloria Mellesmoen	name	Chiu	C. Chiu (2011)
+§4.1	Gloria Mellesmoen	name	Fels	S. Fels (2011)
+§4.2	Gloria Mellesmoen	heading	4.2 Evidence for Fronting from Debuccalization and Phonetic Biases	page 10
+§4.2	Gloria Mellesmoen	note	The presence of a glottal stop before the [s] in coda position in Lummi serves as further evidence for *c becoming a fricative before fronting, and presents the possibility that the affricate-to fricative-change was multi-faceted. The decomposition of the affricate (from *c to /t+s/) may have occurred prior to debuccalization, where the stop portion lost its specification for place and became a glottal stop in coda positions before being lost.	page 10
+§4.2	Gloria Mellesmoen	note	There is good evidence for positing debuccalization in a coda position: for example, the Liverpool dialect of English has debuccalization of /t/ and /k/ to glottal segments following a stressed vowel (Harris 1990:266), obstruent segments in Spanish are often realized as [ʔ] and [h] in coda positions (Hall & Żygis 2010), Icelandic has processes of “half-debuccalization” and stops are realized as [hp] in similar environments (Kirchner 1998:143). 6,7 Further, Hayes (1986) describes a similar process of debuccalization in Toba Batak, where a stop is realized as a [ʔ] before another consonant, including as a sandhi process across word boundaries. This is parallel to the position of the [ʔs] in Lummi, as codas will proceed other consonants (as well as word boundaries).	page 10
+footnote 6	Gloria Mellesmoen	note	Kirchner (1998) also describes half-spirantization as a possible process cross-linguistically.	page 10, footnote 6
+footnote 7	Gloria Mellesmoen	note	The Icelandic “half-debuccalization” process is more commonly labeled “preaspiration”; however, there is reason to treat these as proper clusters instead of complex segments (see Árnason 2011).	page 10, footnote 7
+footnote 7	Gloria Mellesmoen	name	Árnason	K. Árnason, Icelandic and Faroese (2011)
+§4.2	Gloria Mellesmoen	name	Hall	T. A. Hall (2010)
+§4.2	Gloria Mellesmoen	name	Żygis	M. Żygis (2010)
+§4.2	Gloria Mellesmoen	name	Kirchner	R. M. Kirchner, consonant lenition (1998)
+§4.2	Gloria Mellesmoen	name	Hayes	B. Hayes, Toba Batak (1986)
+§4.2	Gloria Mellesmoen	language	Spanish	coda debuccalization
+§4.2	Gloria Mellesmoen	language	Icelandic	half-debuccalization
+§4.2	Gloria Mellesmoen	language	Toba Batak	debuccalization before a consonant
+§4.2	Gloria Mellesmoen	note	These patterns suggest that perhaps an additional stage should be posited in the development of /θ/, where the affricate was first decomposed into a stop-fricative sequence and then the stop underwent debuccalization, as shown in (5).	page 10
+(5) line 1	Gloria Mellesmoen	note	Stage I Stage II Stage III Stage IV Stage V	page 10, set as an example
+(5) line 2	Gloria Mellesmoen	note	Affricate > Decomposition > Debuccalization > Deletion > Fronting	page 10, set as an example
+(5) line 3	Gloria Mellesmoen	note	/c/ /t+s/ /ʔs/ /s/ /θ/	page 10, set as an example
+§4.2	Gloria Mellesmoen	note	Garrett and Johnson (2013:22) argue that phonetic bias, “the phonetic force that introduces variability and determines the direction of the change”, is implicated in debuccalization changes, such that they result from gestural overlap which contributes to hypocorrection, in the sense of Ohala (1989).8 This could account for the actuation of this change in Northern Straits, and potentially other Central Salish languages.	page 10
+footnote 8	Gloria Mellesmoen	note	Garrett and Johnson (2013) clarify that hypocorrection itself is not rooted in any specific phonetic bias, and that debuccalizaton in a coda position has gestural motivation.	page 10, footnote 8
+§4.2	Gloria Mellesmoen	name	Garrett	A. Garrett, phonetic bias in sound change (2013)
+§4.2	Gloria Mellesmoen	name	Johnson	K. Johnson (2013)
+§4.2	Gloria Mellesmoen	name	Ohala	J. J. Ohala, hypocorrection (1989)
+§4.2	Gloria Mellesmoen	note	Phonetic bias and motivation for change can also be inferred from descriptions of the Musqueam dialect of Halkomelem. The pronunciation of /s/ in Musqueam is reported to be a retracted variant of [s] (Suttles 2004), suggesting that the tongue is further back in articulation than usual for an alveolar consonant. Assuming that the place of articulation for /s/ was further back, the change from affricate to fricative at an alveolar place of articulation would result in a slightly more anterior version of /s/. This could act as a precursor to fronting, providing the articulatory motivation for why change might occur (see discussion of /s/-retraction and actuation in Baker, Archangeli, & Mielke 2011). This leads to a testable prediction: the articulation of /s/ in dialects of Central Salish languages with a merger between PS *c and *s may be more anterior, or closer to the alveolar ridge, than that of dialects without the merger.9	page 10
+footnote 9	Gloria Mellesmoen	note	A preliminary examination of spectral moments in Mainland (fieldwork) and Island (recordings made by Harris 1981) Comox suggests differences in the acoustic realization of [s] between the two dialects. This prediction will eventually be tested in a more systematic comparison to see if /s/ production is a predictor of how PS *c developed.	page 10, footnote 9
+§4.2	Gloria Mellesmoen	name	Baker	A. Baker et al., s-retraction (2011)
+§4.2	Gloria Mellesmoen	name	Archangeli	D. Archangeli (2011)
+§4.2	Gloria Mellesmoen	name	Mielke	J. Mielke (2011)
+§5	Gloria Mellesmoen	heading	5 Why FRICATIVE-FIRST? (And not FRONTING-FIRST?)	page 11
+§5	Gloria Mellesmoen	note	A counterargument to the FRICATIVE-FIRST analysis is that the PS *c > /θ/ change underwent a shift that was in parallel with *c̓ > /t̓ᶿ/, such that there would have been an intermediate affricate *tᶿ between PS *c and /θ/ in the present-day phonemic inventories. This is the trajectory that Thompson, Thompson, and Efrat (1974) describe for /θ/ in Saanich. They suggest that it developed in a two-stage process; PS *c first fronted to *tᶿ before becoming a fricative. The FRONTING-FIRST analysis presented by Thompson et al. (1974) for Saanich is attractive to account for the changes across the Central Salish languages because it provides a parallel to a PS *c̓ → /t̓ᶿ/ change that occurs in most of the languages with /θ/. While both *c and *c̓ could have been targeted by the same fronting process, and then the plain affricate later evolved into /θ/, it is not necessary to treat these changes in parallel. Elmendorf and Suttles (1960) describe the development of /θ/ across Halkomelem dialects as part of the general fronting that occurred from Proto-Salish, which also includes shifts affecting PS *k, *k̓, and *x. The fronting of PS *k and *k̓ provide an example of parallel fronting, when one is fronted in a language, the other generally is as well. For example, in Comox-Sliammon, PS *k corresponds to /č/ and *k̓ corresponds to /č̓/, while *k corresponds to /c/ and *k̓ to /c̓/ in Halkomelem (Kuipers 2002). Here, there is clear motivation for analysing the two as parallel as they share a place of articulation in each language. The same is not true for PS *c and *c̓. The patterns in Pentlatch show that the two changes are not necessarily occurring in tandem.10 While the words documented in Boas (1890) suggest a relatively complete shift from PS *c to /θ/, the language still has /c̓/ in lexical items that would have had PS *c̓. This is illustrated in (6), where words that have /t̓ᶿ/ in the Mainland dialect of Comox-Sliammon have a /c̓/ in Pentlatch. While changes from PS *c and *c̓ may be linked to a more general fronting process, the conclusion that may be drawn is that *k and *k̓ shift in parallel while *c and *c̓ do not necessarily show the same symmetry.	page 11
+footnote 10	Gloria Mellesmoen	note	Galloway (1986) gives /t̓ᶿ/ in the Samish phonemic inventory, but does not give /θ/. This may be the opposite of Pentlatch, where the change affecting PS *c’ occurred before the PS *c one. However, given the limited documentation of both languages and the fact that I am relying on descriptions of Samish rather than my own examination of the data, this is speculative.	page 11, footnote 10
+(6)	Gloria Mellesmoen	note	Boas Phonemic Translation Mainland Comox	page 11, the column heads
+(6a) line 1	Pentlatch	transcription	ē’ts’amēn	page 11, Boas (1890), italic in the paper
+(6a) line 2	Pentlatch	phonemic	ʔíc̓amin	page 11, the author's phonemic form
+(6a) line 3	Gloria Mellesmoen	translation	‘blanket’	page 11
+(6a) line 4	Mainland Comox	cited form	ʔit̓ᶿəm	page 11, Mainland Comox
+(6b) line 1	Pentlatch	transcription	ts’āmkl’	page 11, Boas (1890), italic in the paper, the k underlined
+(6b) line 2	Pentlatch	phonemic	c̓amqɬ	page 11, the author's phonemic form
+(6b) line 3	Gloria Mellesmoen	translation	‘cloud’	page 11
+(6b) line 4	Mainland Comox	cited form	t̓ᶿamqʷɬ	page 11, Mainland Comox
+§5	Gloria Mellesmoen	note	Kuipers (2002) notes that PS *c is occasionally realized as /s/ in Bella Coola, while there has been no documentation of /θ/. This occasional [c] ~ [s] alternation is consistent with the fricative- first analysis, rather than the fronting-first one, because it suggests synchronic alternation between the affricate /c/ and the fricative /s/. If the trajectory were fronting-first, the predicted variant would be a more front version of /c/, such as /tᶿ/. One thing that stands out in the comparison of reflexes of PS *c across the Central Salish languages is that they are uniformly either the affricate /c/, such as in Sechelt or Squamish (Kuipers 2002), or they are a fricative, as in the languages discussed in Section 2. If the trajectory of change was FRONTING-FIRST, as proposed by Thompson, Thompson, and Efrat (1974), alternations involving /tᶿ/ would be predicted in at least some languages.	page 11
+§5	Central Salish	cited form	tᶿ	page 12, in italics
+§5	Gloria Mellesmoen	language	Bella Coola	Salish, occasional *c as /s/
+§5	Gloria Mellesmoen	note	The FRONTING-FIRST analysis reconstructs an intermediate *tᶿ between PS *c and /θ/ in the /θ/-languages. Despite this being a midpoint in the change, there is no language where PS *c is realized as /tᶿ/. With the broad range of languages at different stages in the changes involving PS *c, it would be reasonable to expect that /tᶿ/ might be recorded in at least one of the languages with /t̓ᶿ/. However, the few places it occurs are said to be marginal and limited to particular grammatical morphemes, such as tᶿ for the first person possessive in Comox-Sliammon. It is relevant to note that this developed historically from a cluster (Davis 1978), rather than from a single affricate like in the PS *c > /θ/ shift. It is not necessarily an issue that this would have developed in a separate process at a different point, given that it comes from a distinct source and does not end up merged with PS *c. In addition, the recorded alternations are not between /tᶿ/ and /s/ or /tᶿ/ and /c/, which might be expected under the fronting-first analysis.	page 12
+§5	Gloria Mellesmoen	note	Further, it is not immediately clear why /tᶿ/ would undergo further change and become a plain fricative, while /t̓ᶿ/ remains. Though it is possible that the difference in glottalization of the two segments is enough to result in markedly different perceptual salience or articulatory ease, motivating change at a different rate, this requires further argumentation. The fronting-first analysis does not straightforwardly connect the developments of /s/ and /θ/ from PS *c as cohesively as the FRICATIVE-FIRST analysis.	page 12
+§6	Gloria Mellesmoen	heading	6 Conclusion	page 12
+§6	Gloria Mellesmoen	note	A cross-linguistic comparison of Central Salish languages provides support for a FRICATIVE- FIRST trajectory between PS *c and /θ/. This analysis accounts for the development of /θ/ in Comox-Sliammon, Northern Straits, and Halkomelem. The FRICATIVE-FIRST analysis is more consistent with the distributional patterns, ambiguity, and reported variation in pronunciations across realizations of /s/ and /θ/ in the Central Salish languages than a FRONTING-FIRST one, such as proposed by Thompson, Thompson, and Efrat (1974) for Saanich.	page 12
+references	Gloria Mellesmoen	heading	References	page 12
+references	Gloria Mellesmoen	reference	Árnason, K. 2011. The phonology of Icelandic and Faroese. Oxford University Press.	page 12
+references	Gloria Mellesmoen	reference	Baker, A., Archangeli, D., & Mielke, J. 2011. Variability in American English s-retraction suggests a solution to the actuation problem. Language variation and change, 23(3), 347– 374.	page 12
+references	Gloria Mellesmoen	reference	Barnett, H. 1955. The Coast Salish of British Columbia. University of Oregon Monographs. Studies in Anthropology IV. Eugene: University of Oregon.	page 12
+references	Gloria Mellesmoen	reference	Beaumont, R. C. 2011. Sechelt dictionary. Sechelt: Sechelt Indian Band.	page 12
+references	Gloria Mellesmoen	reference	Blake, S. J. 2000. On the distribution and representation of schwa in Sliammon (Salish): descriptive and theoretical perspectives. Ph.D. thesis, Vancouver, BC: University of British Columbia.	page 12
+references	Gloria Mellesmoen	reference	Boas, F. 1890. Pentlatch materials (Mss.497.4.B63c). American Council of Learned Societies Committee on Native American Languages, American Philosophical Society, Philidelphia, PA.	page 12
+references	Gloria Mellesmoen	reference	Davis, J. 1978. Pronomial Paradigms in Sliammon. International Conference on Salish and Neighbouring Languages 13, 208–236	page 13
+references	Gloria Mellesmoen	reference	Davis, H., & Huijsmans, M. 2017. Changes in the alignment of arguments in transitive clauses in ʔayʔaǰuθəm (Comox-Sliammon). International Conference on Salish and Neighbouring Languages 52, 13–46.	page 13
+references	Gloria Mellesmoen	reference	Elmendorf, W. W., & Suttles, W. 1960. Pattern and change in Halkomelem Salish dialects. Anthropological Linguistics, 1–32.	page 13
+references	Gloria Mellesmoen	reference	Galloway, B. 1977. A grammar of Chilliwack Halkomelem. Ph.D. thesis, Berkeley, CA: University of California.	page 13
+references	Gloria Mellesmoen	reference	Galloway, B. 1986. Samish Phonology. International Conference on Salish and Neighbouring Languages 21.	page 13
+references	Gloria Mellesmoen	reference	Galloway, B. D. 1988. Some Proto-Central Salish sound correspondences. In W. Shipley (ed)., In honor of Mary Haas, from the Haas Festival Conference on Native American Linguistics, 293–343.	page 13
+references	Gloria Mellesmoen	reference	Galloway, B. D. 1990. A phonology, morphology, and classified word list for the Samish dialect of Straits Salish (No. 116). Canadian Museum of Civilization.	page 13
+references	Gloria Mellesmoen	reference	Garrett, A., & Johnson, K. 2013. Phonetic bias in sound change. Origins of sound change: Approaches to phonologization, 51–97.	page 13
+references	Gloria Mellesmoen	reference	Gibbs, G. 1877. Vocabulary of the Ko-mookhs. Contributions to North American Ethnology, Vol. 1. Washington: Department of the Interior, 269–283.	page 13
+references	Gloria Mellesmoen	reference	Gick, B., Stavness, I., Chiu, C., & Fels, S. 2011. Categorical variation in lip posture is determined by quantal biomechanical-articulatory relations. Canadian Acoustics, 39(3), 178–179.	page 13
+references	Gloria Mellesmoen	reference	Hall, T. A., & Żygis, M. 2010. An overview of the phonology of obstruents. In S. Fuchs & M. Żygis (eds.), Turbulent sounds: An interdisciplinary guide, 1–36.	page 13
+references	Gloria Mellesmoen	reference	Harris, H. R. 1981. A grammatical sketch of Comox. Ph.D. thesis, Lawrence, KS: University of Kansas.	page 13
+references	Gloria Mellesmoen	reference	Harris, J. 1990. Segmental complexity and phonological government. Phonology, 7(2), 255–300.	page 13
+references	Gloria Mellesmoen	reference	Hayes, B. 1986. Assimilation as spreading in Toba Batak. Linguistic Inquiry, 17(3), 467–499.	page 13
+references	Gloria Mellesmoen	reference	Kava, Tiiu. 1969. A phonology of Cowichan. (MA thesis, University of Victoria; 89pp.)	page 13
+references	Gloria Mellesmoen	reference	Kirchner, R. M. 1998. An Effort-Based Approach to Consonant Lenition. Ph.D. thesis, Los Angeles, CA: University of California.	page 13
+references	Gloria Mellesmoen	reference	Kuipers, A. H. 2002. Salish etymological dictionary (No. 16). Linguistics Laboratory University of Montana.	page 13
+references	Gloria Mellesmoen	reference	Maddieson, I. 1984. Patterns of sounds. Cambridge: Cambridge University Press.	page 13
+references	Gloria Mellesmoen	reference	McGuire, G., & Babel, M. 2012. A cross-modal account for synchronic and diachronic patterns of /f/ and /θ/ in English. Laboratory Phonology, 3(2), 251–272.	page 13
+references	Gloria Mellesmoen	reference	Montler, T. 1986. An outline of the morphology and phonology of Saanich, North Straits Salish. Department of Anthropology, University of Montana.	page 13
+references	Gloria Mellesmoen	reference	Montler, T. 1999. Language and dialect variation in Straits Salishan. Anthropological linguistics, 462–502.	page 14
+references	Gloria Mellesmoen	reference	Ohala, J. J. 1989. Sound change is drawn from a pool of synchronic variation. Language change: Contributions to the study of its causes, 173–198.	page 14
+references	Gloria Mellesmoen	reference	Raffo, Y. A. 2003. A phonology and morphology of Songish, a dialect of Straits Salish. Ph.D. thesis, Ann Arbor, MI: UMI.	page 14
+references	Gloria Mellesmoen	reference	Sapir, E. 1914. Indian Tribes of the Coast. In A. Shortt & A. G. Doughty (eds.), Canada and Its Provinces. Toronto, 315–346.	page 14
+references	Gloria Mellesmoen	reference	Suttles, W. P. 2004. Musqueam reference grammar (Vol. 2). Vancouver, BC: UBC Press.	page 14
+references	Gloria Mellesmoen	reference	Thompson, L. C., Thompson, M. T., Efrat, B. S. (1974). Some phonological developments in Straits Salish. International Journal of American Linguistics, 40(3): 182–196.	page 14

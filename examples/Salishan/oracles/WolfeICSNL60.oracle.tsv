@@ -1,0 +1,773 @@
+where	who	kind	form	gloss
+title	Julie Wolfe	title	Lexical Suffixes and Connectives in Proto-Central Salish and Beyond	the paper's title
+title	Julie Wolfe	name	Julie Wolfe	the author
+title	Julie Wolfe	place	University of Victoria	the author's institution
+abstract	Julie Wolfe	language	Proto-Central Salish	the reconstructed ancestor the paper reconstructs suffixes for
+abstract	PCS	cited affix	*lʸ	the PCS resonant Galloway 1988 reconstructs
+abstract	PCS	cited affix	*-ay-	a PCS connective whose meaning the paper discusses
+abstract	PCS	cited affix	*-alʸ-	a PCS connective whose meaning the paper discusses
+abstract	Julie Wolfe	language	Tillamook	a branch outside Central Salish where reflexes are found
+abstract	Julie Wolfe	language	Tsamosan	a branch outside Central Salish where reflexes are found
+keywords	Julie Wolfe	heading	Central Salish, lexical suffix, connective, historical Salish	the paper's keywords
+§1	Julie Wolfe	heading	Introduction	section 1
+§1	Julie Wolfe	language	Proto-Salish	the reconstructed ancestor of the whole family
+§1	PS	cited affix	*-al-	a PS connective Kinkade 1998 reconstructs
+§1	PS	cited affix	*-ay-	a PS connective Kinkade 1998 reconstructs
+§1	PS	cited affix	*-ul-	a PS connective Kinkade 1998 reconstructs
+§1	PS	cited affix	ɬ	the lateral fricative Kinkade suggests a further connective included
+§1	PCS	cited affix	*-al-	a connective Pincott 2021 proposes PCS used productively
+§1	PCS	cited affix	*-aɬ-	a connective Pincott 2021 proposes PCS used productively
+§1	PCS	cited affix	*-aw-	a connective Pincott 2021 proposes PCS used productively
+§1	PCS	cited affix	*-ay-	a connective Pincott 2021 proposes PCS used productively
+§1	PCS	cited affix	*-úl-	a connective Pincott 2021 proposes PCS used productively
+§1	PCS	cited affix	*-alʸ-	what the author proposes PS *-al- became in PCS
+fn*	Julie Wolfe	name	Su Urbanczyk	thanked for feedback, insight and guidance
+fn*	Julie Wolfe	name	Sharon Hargus	thanked for support and encouragement
+fn*	Julie Wolfe	name	Zev Handel	thanked for support and encouragement
+fn*	Julie Wolfe	reference	jvwolfe@uvic.ca	the author's contact address
+fn1	Julie Wolfe	notation	c	the Americanist symbol the paper writes ʦ with
+fn1	Julie Wolfe	notation	č	the Americanist symbol the paper writes ʧ with
+fn1	Julie Wolfe	notation	ǰ	the Americanist symbol the paper writes ʤ with
+fn1	Julie Wolfe	notation	š	the Americanist symbol the paper writes ʃ with
+fn1	Julie Wolfe	notation	y	the Americanist symbol the paper writes j with
+fn1	Julie Wolfe	notation	x̌	the Americanist symbol the paper writes χ with
+fn1	Julie Wolfe	notation	ʦ	the IPA value of Americanist c
+fn1	Julie Wolfe	notation	ʧ	the IPA value of Americanist č
+fn1	Julie Wolfe	notation	ʤ	the IPA value of Americanist ǰ
+fn1	Julie Wolfe	notation	ʃ	the IPA value of Americanist š
+fn1	Julie Wolfe	notation	j	the IPA value of Americanist y
+fn1	Julie Wolfe	notation	χ	the IPA value of Americanist x̌
+fn2	Julie Wolfe	language	Upper Chehalis	what Ch abbreviates
+fn2	Julie Wolfe	language	Chilliwack	what Ck abbreviates, Upriver Halkomelem
+fn2	Julie Wolfe	language	Cowichan	what Cw abbreviates, Island Halkomelem
+fn2	Julie Wolfe	language	Cowlitz	what Cz abbreviates
+fn2	Julie Wolfe	language	Klallam	what Kl abbreviates
+fn2	Julie Wolfe	language	Lushootseed	what Ld abbreviates
+fn2	Julie Wolfe	language	Musqueam	what Ms abbreviates, Downriver Halkomelem
+fn2	Julie Wolfe	language	Quinault	what Qu abbreviates
+fn2	Julie Wolfe	language	Sechelt	what Se abbreviates
+fn2	Julie Wolfe	language	Songish	what Sg abbreviates
+fn2	Julie Wolfe	language	Sliammon	what Sl abbreviates
+fn2	Julie Wolfe	language	Samish	what Sm abbreviates
+fn2	Julie Wolfe	language	Saanich	what Sn abbreviates
+fn2	Julie Wolfe	language	Squamish	what Sq abbreviates
+fn2	Julie Wolfe	language	Tillamook	what Ti abbreviates, the language and not the branch
+fn2	Julie Wolfe	language	Twana	what Tw abbreviates
+fn2	Julie Wolfe	notation	=	the double hyphen lexical suffixes are marked with
+fn2	Julie Wolfe	notation	-	the single hyphen other grammatical affixes are marked with
+Table 1	Julie Wolfe	heading	Lexical suffix reconstructions for PCS	the caption of Table 1
+Table 1	PCS	cited affix	*=ús	'face'
+Table 1	PCS	cited affix	*-ál̓ʸ=us	'eye', derived as 'on the face'
+Table 1	PCS	cited affix	*-áy̓=us	'cheek', in Sl and Se only, derived as 'side of the face'
+Table 1	PCS	cited affix	*=an̓áʔ	'ear, side of the head'
+Table 1	PCS	cited affix	*-ál̓ʸ=an̓aʔ	'ear', derived as 'on the side of the head'
+Table 1	PCS	cited affix	*=áx̌an	'arm, side'
+Table 1	PCS	cited affix	*-alʸ=áx̌an	'arm', derived as 'on the side'
+Table 1	PCS	cited affix	*=áp	'bottom, base'
+Table 1	PCS	cited affix	*-ál=ap	'thigh, hip', derived as 'at the base'
+Table 1	PCS	cited affix	*=qin	'head, voice, language'
+Table 1	PCS	cited affix	*-ál(ʸ)=qin	'hair, fur, feather', derived as 'on the head'
+Table 1	PCS	cited affix	*=álʸa=qin	'inside of head or throat', derived as 'inside the head'
+Table 1	PCS	cited affix	*=áĺʸa	'place for, container'
+Table 1	PCS	cited affix	*=án̓axʷ	'salmon, fish run'
+Table 1	PCS	cited affix	*-al(ʸ)=ánaxʷ	'season, weather', derived as 'reason for fish runs'
+Table 1	PCS	cited affix	*-áw̓=anaxʷ	'year'
+Table 1	PCS	cited affix	*=ánum	'year, time'
+Table 1	PCS	cited affix	*=áĺaq	'wave'
+Table 1	PCS	cited affix	*=čup	'fire, firewood'
+Table 1	PCS	cited affix	*-alʸ=čup	'fire, firewood'
+Table 1	PCS	cited affix	*=íc̓aʔ	'clothes, blanket'
+Table 1	PCS	cited affix	*-ál̓ʸ=ic̓aʔ	'clothes, blanket'
+Table 1	PCS	cited affix	*=aqap	'smell, taste'
+Table 1	PCS	cited affix	*-ál̓ʸ=aqap	'smell, taste'
+Table 1	PCS	cited affix	*=áčən	'testicle(s)'
+Table 1	PCS	cited affix	*-ál(ʸ)=ačən	'testicle(s)'
+Table 1	PCS	cited affix	*=txʷ	'house, building'
+Table 1	PCS	cited affix	*-áw̓=txʷ	'house, building'
+Table 1	PCS	cited affix	*=úcin	'mouth'
+Table 1	PCS	cited affix	*-áý=ucin	'lips, jaw, chin, edge', derived as 'edge of the mouth'
+Table 1	PCS	cited affix	*=mixʷ	'people, living being, life force'
+Table 1	PCS	cited affix	*-álʸ=mixʷ	'breast, milk', derived as 'source of life'
+fn3	Julie Wolfe	reference	Watanabe (2003)	the source of the Sl data
+fn3	Julie Wolfe	reference	Beaumont (2011)	the source of the Se data
+fn3	Julie Wolfe	reference	Pincott (2021)	the source of the Sq and Sg data
+fn3	Julie Wolfe	reference	Kuipers (2002)	the source of the Cw, Sm, Tw and Ti data
+fn3	Julie Wolfe	reference	Suttles (2004)	the source of the Ms data
+fn3	Julie Wolfe	reference	Galloway (2009)	the source of the Ck data
+fn3	Julie Wolfe	reference	Montler (2018)	the source of the Sn data
+fn3	Julie Wolfe	reference	Montler (2012)	the source of the Kl data
+fn3	Julie Wolfe	reference	Bates et. al. (1994)	the source of the Ld data
+fn3	Julie Wolfe	reference	Modrow (1971)	the source of the Qu data
+fn3	Julie Wolfe	reference	Kinkade (1991)	the source of the Ch data
+fn3	Julie Wolfe	reference	Kinkade (2004)	the source of the Cz data
+fn4	PCS	notation	l(ʸ)	the notation for insufficient data to differentiate *l and *lʸ
+fn4	PCS	cited affix	*l	one of the two resonants the notation stands between
+fn4	PCS	cited affix	*lʸ	the other of the two resonants the notation stands between
+§2	Julie Wolfe	heading	Suffixes for 'face' and 'eye'	section 2
+(1)	PS	cited affix	*=us	'face', from Kuipers
+(1)	PS	cited affix	ʔm*=us	'face, eye', from Kinkade
+(1)	PS	cited affix	*=alus	'colour', from Kinkade
+(1)	PCS	cited affix	*=us	'face', from Pincott
+(1)	PCS	cited affix	*-al=us	'eye', from Pincott
+(1)	PCS	cited affix	*=ús	'face', the author's reconstruction
+(1)	PCS	cited affix	*-ál̓ʸ=us	'eye', the author's reconstruction
+(1)	Sliammon	cited affix	=us	'head, face'
+(1)	Sliammon	cited affix	=awus	'eye'
+(1)	Sechelt	cited affix	=us	'face, eye, dollar'
+(1)	Sechelt	cited affix	=álus	'eye'
+(1)	Squamish	cited affix	=us	'face'
+(1)	Squamish	cited affix	-ay̓=us	'eye'
+(1)	Squamish	cited affix	-ay=us	'eye'
+(1)	Cowichan	cited affix	=as	'face'
+(1)	Cowichan	cited affix	-al=əs	'eye'
+(1)	Musqueam	cited affix	=ás	'face, round object'
+(1)	Musqueam	cited affix	=əs	'face, round object'
+(1)	Musqueam	cited affix	=ál̓əs	'eye, appearance'
+(1)	Musqueam	cited affix	=ələs	'eye, appearance'
+(1)	Chilliwack	cited affix	=áːs	'on the face'
+(1)	Chilliwack	cited affix	=ás	'on the face'
+(1)	Chilliwack	cited affix	=əs	'on the face'
+(1)	Chilliwack	cited affix	=áːləs	'on the eye(s)'
+(1)	Saanich	cited affix	=as	'face'
+(1)	Saanich	cited affix	=əs	'face'
+(1)	Saanich	cited affix	=aləs	'eye, colour, stone'
+(1)	Saanich	cited affix	=al̓əs	'eye, colour, stone'
+(1)	Samish	cited affix	=as	'face'
+(1)	Samish	cited affix	=aːs	'face'
+(1)	Songish	cited affix	=áləs	'eye'
+(1)	Klallam	cited affix	=us	'face'
+(1)	Klallam	cited affix	=ayus	'eye'
+(1)	Klallam	cited affix	=ay̓əs	'eye'
+(1)	Lushootseed	cited affix	=us	'face, head, upper part'
+(1)	Lushootseed	cited affix	=alus	'eye, colour'
+(1)	Lushootseed	cited affix	=əlus	'eye, colour'
+(1)	Twana	cited affix	=us	'face'
+(1)	Twana	cited affix	=ay̓as	'eye', from N. Thompson 1979:168
+(1)	Twana	cited affix	=ayas	'eye', from N. Thompson 1979:168
+fn5	Julie Wolfe	notation	(Ku)	how Kuipers 2002 is indicated when cited in examples
+fn5	Julie Wolfe	notation	(Ki)	how Kinkade 1998 is indicated when cited in examples
+fn5	Julie Wolfe	notation	(P)	how Pincott 2021 is indicated when cited in examples
+fn6	PS	cited form	*ʔmus	the noun Kinkade's ʔm*=us notation reconstructs alongside the suffix
+fn6	PS	cited affix	*=us	the lexical suffix Kinkade's ʔm*=us notation reconstructs alongside the noun
+fn6	PS	notation	ʔm*=us	Kinkade's notation for a reconstructed noun and lexical suffix together
+§1	PCS	cited affix	*l̓ʸ	the glottalized resonant section 2 focuses on
+(2)	Tillamook	cited affix	=us	'face'
+(2)	Tillamook	cited affix	=ayis	'eye'
+(2)	Tillamook	cited affix	=ays	'eye'
+(2)	Quinault	cited affix	=uːs	'face'
+(2)	Quinault	cited affix	=os	'face'
+(2)	Quinault	cited affix	=áːləs	'eye'
+(2)	Upper Chehalis	cited affix	=usi-	'face, eye, round object'
+(2)	Upper Chehalis	cited affix	-ál=us	'eye'
+(2)	Cowlitz	cited affix	=úsi-	'face'
+(2)	Cowlitz	cited affix	=ál̓as	'eyes'
+§2.1	Julie Wolfe	heading	The resonant *lʸ	section 2.1
+§2.1	PCS	cited affix	*lʸ	the phoneme Galloway 1988 reconstructs, a palatalized lateral
+§2.1	PCS	cited affix	*xʸ	the other reconstructed phoneme Galloway parallels it with
+§2.1	PCS	cited affix	*l	one half of the *l ~ *y alternation Galloway allows may replace it
+§2.1	PCS	cited affix	*y	the other half of the *l ~ *y alternation
+Table 2	Julie Wolfe	heading	PCS *l and *lʸ	the caption of Table 2, reproduced from Galloway 1988:299
+Table 2	PCS	notation	*l	reflexes L l l l l l l l l y l l in Sl Se Sq Cw Ms Ck Sn Sm Sg Kl Ld Tw
+Table 2	PCS	notation	*lʸ	reflexes L l y l l l l l l y l l in Sl Se Sq Cw Ms Ck Sn Sm Sg Kl Ld Tw
+§2.1	Sliammon	cited form	/L/	the Sl phoneme Blake 2000 describes
+§2.1	Sliammon	cited form	/L’/	the glottalized Sl phoneme Blake 2000 describes
+(3a)	Sliammon	cited form	[ɬ]	what /L/ becomes word-finally
+(3a)	Sliammon	cited form	[w]	what /L/ becomes next to u
+(3a)	Sliammon	cited form	[y]	what /L/ becomes elsewhere
+(3b)	Sliammon	cited form	[ɬ]	what /L’/ becomes word-finally
+(3b)	Sliammon	cited form	[w̓]	what /L’/ becomes next to u
+(3b)	Sliammon	cited form	[ʔ]	what /L’/ becomes between a and a
+(3b)	Sliammon	cited form	[y̓]	what /L’/ becomes elsewhere, from Blake 2000:49-50
+fn7	Julie Wolfe	language	Pentlatch	a language Galloway includes and this paper omits
+fn7	Julie Wolfe	language	Nooksack	a language Galloway includes and this paper omits
+fn7	Julie Wolfe	language	Lummi	a language Galloway includes and this paper omits
+fn7	Julie Wolfe	language	Sooke	a language Galloway includes and this paper omits
+§2.1	Squamish	cited affix	-al-	the connective Sq largely lacks in CN + LS forms
+§2.1	Squamish	cited affix	-ay-	the connective PCS *-alʸ- would have split into alongside -al-
+§2.1	Julie Wolfe	language	Twana	the one Central Salish language whose 'eye' resonant does not align with *lʸ
+§2.1	Julie Wolfe	place	Oregon Coast	where the ancestors of the Tillamook migrated to, per L. Thompson 1979:695
+(4)	PCS	cited form	*lʸə́č̓	'full', from Galloway 1988:305
+(4)	Upper Chehalis	cited form	lə́č̓	'full'
+(4)	Cowlitz	cited form	lə́k̓	'full'
+(5)	PCS	cited form	*qʷálʸʔ	'to speak, talk', from Galloway 1988:315
+(5)	Tillamook	cited form	qʷay-	'lie, prevaricate'
+(5)	Upper Chehalis	cited form	qʷə́lam-	'think'
+(5)	Upper Chehalis	cited form	sqʷə́lm	'heart, thought, constitution, mind'
+(5)	Cowlitz	cited form	qʷələ́m-	'heart'
+fn8	Julie Wolfe	cited affix	-aɬ-	the linking morpheme used for compounding, from Kinkade 1998:284
+fn8	PCS	cited affix	*-aɬ=kʷu	'water', a fossilized example, from Pincott 2021:65
+fn9	PS	cited form	*qʷal	'to speak, think', from Kuipers 2002:91-2
+fn9	PS	cited form	*qʷil	'to cheat', from Kuipers 2002:91-2
+§2.1	PS	cited affix	*l	the resonant whose shift to y is attested for Thompson, from Galloway 1988:326
+§2.1	Julie Wolfe	language	Thompson	the Interior language PS *l > y is attested for
+Table 3	Julie Wolfe	heading	Sound correspondences for *lʸ in PCS, Tillamook, and Tsamosan	the caption of Table 3
+Table 3	PCS	notation	*lʸ	reflexes l ~ y in Ti and l in Qu, Ch and Cz
+§2.2	Julie Wolfe	heading	Glottalization	section 2.2
+§2.2	Julie Wolfe	language	Moses-Columbian	the language Czaykowska-Higgins 2004 shows phonological reduction in
+Table 4	Julie Wolfe	heading	PCS glottalized resonants	the caption of Table 4, reproduced from Galloway 1988:301
+Table 4	PCS	notation	*ʔR	a PCS glottalized resonant in the environment / V́_V
+Table 4	PCS	notation	*Rʔ	a PCS glottalized resonant in the environments / V́_C, # and / V_#, _V́
+Table 4	PCS	notation	R	the plain resonant reflex, in Sl and in Tw before a stressed vowel
+Table 4	PCS	notation	Rʔ	the reflex writing the glottal stop after the resonant
+Table 4	PCS	notation	ʔR	the reflex writing the glottal stop before the resonant
+Table 4	PCS	notation	ːR	the Ck reflex, a lengthened vowel before a plain resonant
+Table 4	PCS	notation	(ː)Rʔ	the Cw and Ms reflex, optional length before a glottalized resonant
+Table 4	PCS	notation	R(ʔ)	the Ld reflex, a resonant with optional glottalization
+Table 4	PCS	notation	/ V́_V	the environment of the first row of Table 4
+Table 4	PCS	notation	/ V́_C, #	the environment of the second row of Table 4
+Table 4	PCS	notation	/ V_#, _V́	the environment of the third row of Table 4
+Table 4	Julie Wolfe	notation	R	what stands for resonant in Table 4
+§2.3	Julie Wolfe	heading	Stress and vowel quality	section 2.3
+§2.3	Julie Wolfe	language	Halkomelem	the group whose vowel quality the stress inference rests on
+§2.3	Julie Wolfe	language	Northern Straits	the other group whose vowel quality the stress inference rests on
+Table 5	Julie Wolfe	heading	PCS *ú and *u	the caption of Table 5, reproduced from Galloway 1988:301
+Table 5	PCS	notation	*ú	reflexes ú ú ú á á á á á á ú ú ú in Sl Se Sq Cw Ms Ck Sn Sm Sg Kl Ld Tw
+Table 5	PCS	notation	*u	reflexes u u u,ə ə ə ə ə ə ə ə u u in Sl Se Sq Cw Ms Ck Sn Sm Sg Kl Ld Tw
+Table 5	Julie Wolfe	notation	ú	a reflex cell of Table 5, the stressed high back vowel
+Table 5	Julie Wolfe	notation	u	a reflex cell of Table 5, the plain high back vowel
+Table 5	Julie Wolfe	notation	á	a reflex cell of Table 5, the stressed low vowel
+Table 5	Julie Wolfe	notation	ə	a reflex cell of Table 5, schwa
+Table 6	Julie Wolfe	heading	Predicted and actual reflexes of 'face'	the caption of Table 6
+Table 6	Julie Wolfe	predicted	=ús	expected in Sl, Se, Sq, Kl, Ld and Tw if PCS *=ús
+Table 6	Julie Wolfe	predicted	=ás	expected in Cw, Ms, Ck, Sn and Sm if PCS *=ús
+Table 6	Julie Wolfe	predicted	=us	expected in Sl, Se, Sq, Kl, Ld and Tw if PCS *=us
+Table 6	Julie Wolfe	predicted	=əs	expected in Cw, Ms, Ck, Sn and Sm if PCS *=us
+§2.3	Musqueam	predicted	=ə́s	the variant Ms would have if it had inherited an unstressed form of the suffix
+Table 7	Julie Wolfe	heading	PCS *á and *a	the caption of Table 7, reproduced from Galloway 1988:301
+Table 7	PCS	notation	*á	reflexes á á á έ έ έ é é é á á á in Sl Se Sq Cw Ms Ck Sn Sm Sg Kl Ld Tw
+Table 7	Julie Wolfe	notation	έ	a reflex cell of Table 7, the Cw, Ms and Ck reflex of PCS *á
+Table 7	Julie Wolfe	notation	é	a reflex cell of Table 7, the Sn, Sm and Sg reflex of PCS *á
+Table 7	PCS	notation	*a	reflexes a a a ə ə ə ə ə ə ə a a in Sl Se Sq Cw Ms Ck Sn Sm Sg Kl Ld Tw
+Table 8	Julie Wolfe	heading	Predicted and actual reflexes of ‘ear, side’	the caption of Table 8
+Table 8	PCS	cited affix	*=án̓aʔ	the initially stressed reconstruction whose predicted reflexes the table lists
+Table 8	PCS	cited affix	*=an̓áʔ	the finally stressed reconstruction whose predicted reflexes the table lists
+Table 8	Sliammon	predicted	=ánaʔ	expected in Sl if PCS *=án̓aʔ
+Table 8	Sliammon	predicted	=an̓áʔ	expected in Sl if PCS *=an̓áʔ
+Table 8	Sliammon	cited affix	=an̓a	the actual Sl reflex
+Table 8	Sechelt	predicted	=án̓a	expected in Se if PCS *=án̓aʔ
+Table 8	Sechelt	predicted	=aná	expected in Se if PCS *=an̓áʔ
+Table 8	Sechelt	cited affix	=ana	the actual Se reflex
+Table 8	Squamish	predicted	=án̓aʔ	expected in Sq if PCS *=án̓aʔ
+Table 8	Squamish	predicted	=an̓aʔ	expected in Sq if PCS *=an̓áʔ
+Table 8	Squamish	cited affix	=aʔan	the actual Sq reflex
+Table 8	Squamish	cited affix	=aʔn	the actual Sq reflex
+Table 8	Cowichan	predicted	=ɛ́n̓əʔ	expected in Cw if PCS *=án̓aʔ
+Table 8	Cowichan	predicted	=ən̓έʔ	expected in Cw if PCS *=an̓áʔ
+Table 8	Cowichan	cited affix	=ən̓ə	the actual Cw reflex
+Table 8	Musqueam	predicted	=ɛ́n̓əʔ	expected in Ms if PCS *=án̓aʔ
+Table 8	Musqueam	predicted	=ən̓έʔ	expected in Ms if PCS *=an̓áʔ
+Table 8	Musqueam	cited affix	=ə́nə	the actual Ms reflex, from synchronic stress
+Table 8	Musqueam	cited affix	=əneʔ	the actual Ms reflex, from synchronic stress
+Table 8	Chilliwack	predicted	=ɛ́ːlə	expected in Ck if PCS *=án̓aʔ
+Table 8	Chilliwack	predicted	=əlέ	expected in Ck if PCS *=an̓áʔ
+Table 8	Chilliwack	cited affix	=ə́lɛ	the actual Ck reflex
+Table 8	Saanich	predicted	=én̓əʔ	expected in Sn if PCS *=án̓aʔ
+Table 8	Saanich	predicted	=ən̓éʔ	expected in Sn if PCS *=an̓áʔ
+Table 8	Saanich	cited affix	=eːn	the actual Sn reflex
+Table 8	Saanich	cited affix	=en̓	the actual Sn reflex
+Table 8	Saanich	cited affix	=enə	the actual Sn reflex
+Table 8	Saanich	cited affix	=əneʔ	the actual Sn reflex
+Table 8	Samish	predicted	=én̓əʔ	expected in Sm if PCS *=án̓aʔ
+Table 8	Samish	predicted	=ən̓éʔ	expected in Sm if PCS *=an̓áʔ
+Table 8	Samish	cited affix	=ənéʔ	the actual Sm reflex
+Table 8	Samish	cited affix	=ən̓	the actual Sm reflex
+Table 8	Klallam	predicted	=án̓əʔ	expected in Kl if PCS *=án̓aʔ
+Table 8	Klallam	predicted	=ən̓áʔ	expected in Kl if PCS *=an̓áʔ
+Table 8	Klallam	cited affix	=an̓	the actual Kl reflex
+Table 8	Lushootseed	predicted	=ádaʔ	expected in Ld if PCS *=án̓aʔ
+Table 8	Lushootseed	predicted	=adáʔ	expected in Ld if PCS *=an̓áʔ
+Table 8	Lushootseed	cited affix	=adiʔ	the actual Ld reflex
+Table 8	Twana	predicted	=áda	expected in Tw if PCS *=án̓aʔ
+Table 8	Twana	predicted	=adá	expected in Tw if PCS *=an̓áʔ
+Table 8	Twana	cited affix	=adi	the actual Tw reflex
+§2.3	Julie Wolfe	reference	Montler 2018:1091	where additional Sn variants are listed
+§2.3	PCS	cited affix	*-alʸ=čup	'fire, firewood', whose Ck reflex shows no initial stress
+§2.3	Chilliwack	cited affix	-ə́lcəp	'fire, firewood', the Ck reflex of PCS *-alʸ=čup
+§2.3	PCS	cited affix	*-ál̓ʸ=aqap	'smell, taste', whose Ck reflex shows initial stress
+§2.3	Chilliwack	cited affix	=ɛ́ːləqəp	the Ck reflex of PCS *-ál̓ʸ=aqap
+§2.3	Julie Wolfe	notation	ɛ́	the vowel Ck shifted to under initial stress
+Table 9	Julie Wolfe	heading	PCS *á in rounded environments	the caption of Table 9, reproduced from Galloway 1988:301
+Table 9	PCS	notation	*á	reflexes (á) á á έ έ έ á á á ú á á in Sl Se Sq Cw Ms Ck Sn Sm Sg Kl Ld Tw
+Table 9	Julie Wolfe	notation	(á)	the parenthesized Sl cell of Table 9
+Table 9	Julie Wolfe	notation	/ Clab, w_; _Cu, Qlab, w	the environment of Table 9
+Table 9	Julie Wolfe	notation	Q	what stands for post-velar consonant in Table 9
+§2.3	Julie Wolfe	notation	ə́	the stressed schwa Cw, Ms, Ck and Sm have as an initial vowel
+§2.3	Julie Wolfe	notation	_w	the environment of the one cognate set showing PCS *á > Ms, Sg, Kl á
+§2.3	Julie Wolfe	notation	_Cu	the environment no cognate set includes
+Table 10	Julie Wolfe	heading	PCS *á / _Cu	the caption of Table 10
+Table 10	PCS	notation	*á	reflexes (á) á á á á á á á á á á á in Sl Se Sq Cw Ms Ck Sn Sm Sg Kl Ld Tw
+Table 10	Julie Wolfe	notation	/ _Cu	the environment of Table 10
+§2.3	PCS	cited affix	*-ál̓ʸ=us	'eye', whose reduction would have preceded the vowel shift
+§2.3	Julie Wolfe	predicted	ˣ-ál̓ʸ=əs	the reduced form that did not occur before the vowel shift
+§2.4	Julie Wolfe	heading	Summary	section 2.4
+§3	Julie Wolfe	heading	Additional reconstructions	section 3
+§3.1	Julie Wolfe	heading	Somatic CN + LS forms with semantic shifts	section 3.1
+fn11	Julie Wolfe	reference	Galloway (1988)	the cognate sets #8, #17, #20, #22, #24, #28, #32, #34 and #45 referred to
+(6)	PS	cited affix	*=áni/aʔ	'ear (side)', from Kuipers
+(6)	PS	cited affix	t̓*=ani/aʔ	'ear, side of head', from Kinkade
+(6)	PCS	cited affix	*=anaʔ	'ear, side', from Pincott
+(6)	PCS	cited affix	*-al=anaʔ	'side of the head, ear', from Pincott
+(6)	PCS	cited affix	*=an̓áʔ	'ear, side of the head', the author's reconstruction
+(6)	PCS	cited affix	*-ál̓ʸ=an̓aʔ	'ear', the author's reconstruction
+(6)	Sliammon	cited affix	=an̓a	'neck'
+(6)	Sliammon	cited affix	=aʔana	'ear'
+(6)	Sechelt	cited affix	=ana	'ear'
+(6)	Sechelt	cited affix	-ál=ana	'ear'
+(6)	Squamish	cited affix	=aʔan	'cheek, side'
+(6)	Squamish	cited affix	=aʔn	'cheek, side'
+(6)	Squamish	cited affix	=ayan	'ear'
+(6)	Squamish	cited affix	=ay̓aʔn	'ear'
+(6)	Cowichan	cited affix	=ən̓ə	'ear (side)'
+(6)	Musqueam	cited affix	=ə́nə	'ear, side'
+(6)	Musqueam	cited affix	=əneʔ	'ear, side'
+(6)	Chilliwack	cited affix	=ə́lɛ	'on the side of the head'
+(6)	Chilliwack	cited affix	=έːlíːyε	'on/in the ear'
+(6)	Saanich	cited affix	=eːn	'ear, angle, corner, side of the face'
+(6)	Saanich	cited affix	=en̓	'ear, angle, corner, side of the face'
+(6)	Saanich	cited affix	=enə	'ear, angle, corner, side of the face'
+(6)	Saanich	cited affix	=əneʔ	'ear, angle, corner, side of the face'
+(6)	Samish	cited affix	=ənéʔ	'ear (side)'
+(6)	Samish	cited affix	=ən̓	'ear (side)'
+(6)	Klallam	cited affix	=an̓	'ear, corner, angle'
+(6)	Klallam	cited affix	-ay=n	'ear (side)', from Kuipers
+(6)	Lushootseed	cited affix	=adiʔ	'ear, side, sound'
+(6)	Lushootseed	cited affix	=ə́ldiʔ	'ear, side of the head'
+(6)	Twana	cited affix	=adi	'(exterior) ear, side of head', from N. Thompson 1979:1
+§3.1	Julie Wolfe	notation	a_a	the environment /L’/ surfaces as ʔ in
+(7)	PS	cited affix	*=áx̌an	'arm (side)', from Kuipers
+(7)	PS	cited affix	*=ax̌an	'upper arm, shoulder', from Kinkade
+(7)	PCS	cited affix	*-al=ax̌an	'arm', from Pincott
+(7)	PCS	cited affix	*=áx̌an	'arm, side', the author's reconstruction
+(7)	PCS	cited affix	*-alʸ=áx̌an	'arm', the author's reconstruction
+(7)	Sliammon	cited affix	=ax̌an	'corner'
+(7)	Sliammon	cited affix	=ay̓ax̌an	'upper arm, elbow'
+(7)	Sechelt	cited affix	=ax̌an	'end? side?'
+(7)	Sechelt	cited affix	=láx̌an	'arm, front leg of animal, sleeve, upper arm'
+(7)	Sechelt	cited affix	=láx̌a	'arm, front leg of animal, sleeve, upper arm'
+(7)	Squamish	cited affix	=ax̌an	'side'
+(7)	Squamish	cited affix	-ay=áx̌aʔn	'arm'
+fn12	Julie Wolfe	notation	/	the forward slash Kuipers 2002:12 uses for alternative forms
+(7)	Squamish	cited affix	-iy̓=áx̌aʔn	'arm'
+(7)	Squamish	cited affix	-iy̓=ax̌an	'arm'
+(7)	Cowichan	cited affix	=əx̌n	'side'
+(7)	Cowichan	cited affix	=ex̌n	'side'
+(7)	Cowichan	cited affix	-əl=ex̌n	'side'
+(7)	Musqueam	cited affix	=éx̌ən	'arm, side, branch perimeter'
+(7)	Musqueam	cited affix	=əx̌ən	'arm, side, branch perimeter'
+(7)	Musqueam	cited affix	=əléx̌ən	'arm'
+(7)	Chilliwack	cited affix	=έx̌əl	'side; end or side of a house; angular or perpendicular extension'
+(7)	Chilliwack	cited affix	=əx̌əl	'side; end or side of a house; angular or perpendicular extension'
+(7)	Chilliwack	cited affix	=əlέx̌əl	'on/in the arm/wing'
+(7)	Saanich	cited affix	=ex̌ən	'arm, periphery, border'
+(7)	Saanich	cited affix	=eləx̌ən	'hip'
+(7)	Samish	cited affix	=ex̌n	'arm (side)'
+(7)	Klallam	cited affix	=ax̌an	'arm'
+(7)	Klallam	cited affix	-iʔ=ax̌n	'arm (side)', from Kuipers
+(7)	Lushootseed	cited affix	=ax̌ad	'at the side, edge, side appendage'
+(7)	Lushootseed	cited affix	-əl=ax̌ad	'arm, wing'
+(7)	Lushootseed	cited affix	-l=ax̌ad	'arm, wing'
+(7)	Twana	cited affix	=ax̌ad	'arm (side)'
+§3.1	Sliammon	cited form	y̓	the glottalized resonant the Sl variant contains
+§3.1	Saanich	cited affix	=eləx̌ən	'hip', the outlier Sn suffix, formally and semantically
+(8)	PS	cited affix	*=ap	'bottom, base, rear', from Kuipers
+(8)	PS	cited affix	*=ap	'bottom, rear, base', from Kinkade
+(8)	PCS	cited affix	*=ap	'base', from Pincott
+(8)	PCS	cited affix	*-al=ap	'side of leg?, thigh?', from Pincott
+(8)	PCS	cited affix	*-ay=ap	'side of leg?, thigh?', from Pincott
+(8)	PCS	cited affix	*=áp	'bottom, base, rear, back', the author's reconstruction
+(8)	PCS	cited affix	*-ál=ap	'thigh, hip', the author's reconstruction
+(8)	Sliammon	cited affix	=ap	'heel'
+(8)	Sliammon	cited affix	=amap	'hip'
+(8)	Sechelt	cited affix	=ap	'end (lower or upper, slope), slope'
+(8)	Sechelt	cited affix	=álap	'end (lower or upper); slope'
+(8)	Squamish	cited affix	=ap	'base?'
+(8)	Squamish	cited affix	=alap	'thigh'
+(8)	Musqueam	cited affix	=ép	'base, bottom'
+(8)	Musqueam	cited affix	=əp	'base, bottom'
+(8)	Chilliwack	cited affix	=əp	'ground, earth, dirt on the ground'
+(8)	Chilliwack	cited affix	=ə́p	'ground, earth, dirt on the ground'
+(8)	Saanich	cited affix	=ečəč	'hip', from Pincott
+(8)	Saanich	cited affix	=ey̓əč	'hip', from Pincott
+(8)	Klallam	cited affix	=ač	'back, usually the bottom or lower back'
+(8)	Klallam	cited affix	=ay̓č	'hip', from Pincott
+(8)	Lushootseed	cited affix	=ap	'bottom, base, buttocks'
+(8)	Lushootseed	cited affix	=əp	'bottom, base, buttocks'
+(8)	Lushootseed	cited affix	=álap	'leg, hip'
+(8)	Twana	cited affix	=ap	'rear end, behind, tail'
+§3.2	Julie Wolfe	heading	Suffixes formed from ‘head’	section 3.2
+(9)	PS	cited affix	*=qin	'head (hair, top; throat, voice, language', from Kuipers
+(9)	PS	cited affix	ʔm*=aqin	'head', from Kinkade
+(9)	PCS	cited affix	*-al=qin	'integument', from Pincott
+(9)	PCS	cited affix	*=qin	'head, voice, language', the author's reconstruction
+(9)	PCS	cited affix	*-ál(ʸ)=qin	'hair, fur, feather', the author's reconstruction
+(9)	Sliammon	cited affix	=qin	'mouth (inside)'
+(9)	Sliammon	cited affix	=iyqin̓	'hair'
+(9)	Sechelt	cited affix	=qin	'head, language, mouth, opening, speech, throat, top, voice'
+(9)	Sechelt	cited affix	-əl=qin	'hair'
+(9)	Sechelt	cited affix	-əl=qi	'hair'
+(9)	Sechelt	cited affix	-l=qin	'hair'
+(9)	Squamish	cited affix	=qin	'hair, throat, language'
+(9)	Squamish	cited affix	=qn	'hair, throat, language'
+(9)	Squamish	cited affix	-ál̓=qən	'feather'
+(9)	Squamish	cited affix	-l=qn	'feather'
+(9)	Squamish	cited affix	-iʔ=qin	'integument of animal'
+(9)	Cowichan	cited affix	=qen	'throat, voice'
+(9)	Cowichan	cited affix	=qən	'throat, voice'
+(9)	Musqueam	cited affix	=qən	'head, end, bow of canoe'
+(9)	Musqueam	cited affix	=qín	'head, end, bow of canoe'
+(9)	Musqueam	cited affix	=ə́l̓qən	'pelt, fur, hide'
+(9)	Chilliwack	cited affix	=qəl	'in the head'
+(9)	Chilliwack	cited affix	=έlqəl	'wool, feather'
+(9)	Chilliwack	cited affix	=ə́lqəl	'wool, feather'
+(9)	Saanich	cited affix	=qin	'voice, throat, language'
+(9)	Saanich	cited affix	=el̓qən	'hair, fur, feather'
+(9)	Saanich	cited affix	=əlqən	'hair, fur, feather'
+(9)	Samish	cited affix	=qin̓	'on top'
+(9)	Songish	cited affix	=qən	'wool, feather, skin growth'
+(9)	Songish	cited affix	=elqən	'wool, feather, skin growth'
+(9)	Songish	cited affix	=lqən	'wool, feather, skin growth'
+(9)	Klallam	cited affix	=qin	'voice'
+(9)	Klallam	cited affix	=ayqən	'fur'
+(9)	Lushootseed	cited affix	=qid	'head; top, summit; voice'
+(9)	Lushootseed	cited affix	-əl=qid	'wool, hair'
+(9)	Twana	cited affix	=qid	'head'
+(9)	Twana	cited affix	-al=qəd	'hair'
+§3.2	PCS	notation	*ʔR	the glottalized resonant whose shift to Ck ːR may have followed the loss of glottalization
+§3.2	Squamish	cited affix	-iʔ-	the Sq variant Pincott 2021:54 says appears more frequently
+§3.2	Squamish	cited affix	-ál̓-	the Sq variant whose forms typically mean 'feather'
+fn13	Squamish	cited form	iʔ	the sequence that might be əy̓ phonemically, per Suzanne Urbanczyk p.c.
+fn13	Squamish	cited form	əy̓	what the sequence recorded as iʔ might be phonemically
+fn13	Julie Wolfe	name	Suzanne Urbanczyk	who suggested the phonemic reading, p.c. May 8, 2025
+§3.2	PCS	cited affix	*-ál=qin	'feather', under the two-connective analysis
+§3.2	PCS	cited affix	*-álʸ=qin	'hair, fur', under the two-connective analysis
+§3.2	Squamish	cited affix	-iʔ=qən	'integument of animal', possibly the reflex of the PCS suffix
+§3.2	Squamish	cited affix	-ál̓=qən	'feather', possibly a more recent loan from Ck
+§3.2	PCS	cited affix	*-ál=qin	'hair, fur, feather', under the one-phoneme analysis
+(10)	Upper Chehalis	cited affix	=aqi-	'voice, talking, language'
+(10)	Upper Chehalis	cited affix	=alaqn	'feather'
+(10)	Cowlitz	cited affix	=aqan	'hair'
+(10)	Cowlitz	cited affix	-al-aqan	in 'wool'
+(11)	PCS	cited affix	*=ali	'place for', from Pincott
+(11)	PCS	cited affix	*=ala	'place for', from Pincott
+(11)	PCS	cited affix	*=ala=qin	'inside of head or throat', from Pincott
+(11)	PCS	cited affix	*=áĺʸa	'place for, container', the author's reconstruction
+(11)	PCS	cited affix	*=álʸa=qin	'inside of head or throat', the author's reconstruction
+(11)	Sliammon	cited affix	=aya	'place'
+(11)	Sechelt	cited affix	=ála	'inside'
+(11)	Sechelt	cited affix	=áli	'container, place where something is or occurs'
+(11)	Sechelt	cited affix	=ála=qin	'head (inside), throat (inside)'
+(11)	Squamish	cited affix	=ay	'place for, container'
+(11)	Squamish	cited affix	=ay̓	'place for, container'
+(11)	Squamish	cited affix	=ay̓aqin	'insides, guts'
+(11)	Musqueam	cited affix	=élə	'place for, container for'
+(11)	Musqueam	cited affix	=ələ	'place for, container for'
+(11)	Chilliwack	cited affix	=ɛ́ːlɛ́	'container, receptacle for'
+(11)	Chilliwack	cited affix	=əlɛ	'container, receptacle for'
+(11)	Chilliwack	cited affix	=ɛ́lə́qəl	'(in) the head'
+(11)	Saanich	cited affix	=elə	'container'
+(11)	Songish	cited affix	=élə	'container'
+(11)	Songish	cited affix	=hélə	'container'
+(11)	Klallam	cited affix	=ayə	'container'
+(11)	Lushootseed	cited affix	=ali	'place where something is typically kept or located'
+(11)	Lushootseed	cited affix	=áliqid	in 'he wrapped a (ceremonial) band around his head'
+§3.3	Julie Wolfe	heading	Suffixes formed from ‘salmon, fish run’	section 3.3
+§3.3	PS	cited affix	*=anaxʷ	the suffix that underwent multiple semantic extensions
+§3.3	PS	cited affix	*=anuxʷ	the variant of the same suffix
+(12)	PS	cited affix	*=ánaxʷ	'season, salmon, year, weather', from Kuipers
+(12)	PS	cited affix	*=anaxʷ	'salmon', from Kinkade
+(12)	PS	cited affix	*=anuxʷ	'weather, season, year', from Kinkade
+(12)	PCS	cited affix	*=án̓axʷ	'salmon, fish run', the author's reconstruction
+(12)	PCS	cited affix	*-al(ʸ)=ánaxʷ	'season, weather', the author's reconstruction
+(12)	Sliammon	cited affix	=anxʷ	'fish runs (?)'
+(12)	Sechelt	cited affix	=ánxʷ	'fish'
+(12)	Sechelt	cited affix	-ál=ánxʷ	'fish, weather on the sea'
+(12)	Musqueam	cited affix	=éːnxʷ	'fish, food, fish run, season, (bad) weather'
+(12)	Musqueam	cited affix	=éːnəxʷ	'fish, food, fish run, season, (bad) weather'
+(12)	Musqueam	cited affix	=énəxʷ	'fish, food, fish run, season, (bad) weather'
+(12)	Musqueam	cited affix	=əlénəxʷ	'season'
+(12)	Musqueam	cited affix	=lénəxʷ	'season'
+(12)	Saanich	cited affix	=eːn̓əxʷ	'salmon'
+(12)	Saanich	cited affix	=enəxʷ	'season, weather, time of year'
+(12)	Klallam	cited affix	=aynəxʷ	'sky, weather'
+(12)	Upper Chehalis	cited affix	=anxʷ	'salmon'
+(12)	Upper Chehalis	cited affix	=anuxʷ	'years, weather'
+(12)	Upper Chehalis	cited affix	=alaxʷ	'sky, weather'
+(12)	Cowlitz	cited affix	=panxʷ	'year'
+§3.3	PCS	cited affix	*-al(ʸ)-	the connective that tends to correlate with suffixes for 'weather'
+§3.3	PCS	cited affix	*-áw̓-	the connective that tends to correlate with suffixes for 'year'
+(13)	Julie Wolfe	heading	a. CN + LS form	the left column of example 13
+(13)	Julie Wolfe	heading	b. unrelated suffix	the right column of example 13
+(13)	PCS	cited affix	*=anum	'measurement of time', from Pincott
+(13)	PCS	cited affix	*-áw̓=anaxʷ	'year', the author's reconstruction
+(13)	PCS	cited affix	*=ánum	'year, time', the author's reconstruction
+(13)	Sechelt	cited affix	-áw=nəxʷ	in 'season, year'
+(13)	Sechelt	cited affix	=ánum	'year'
+(13)	Squamish	cited affix	-aw=anəxʷ	'year'
+(13)	Squamish	cited affix	=anam	'measure, time'
+(13)	Squamish	cited affix	=anəm	'measure, time'
+(13)	Cowichan	cited affix	=əwuːnxʷ	'years'
+(13)	Musqueam	cited affix	=wíːnxʷ	'year'
+(13)	Musqueam	cited affix	=íːnxʷ	'year'
+(13)	Musqueam	cited affix	=ánəm	in 'year'
+(13)	Chilliwack	cited affix	=áːləm	in 'year'
+(13)	Chilliwack	cited affix	=áləm	in 'year'
+(13)	Klallam	cited affix	=aʔwin̓əxʷ	'year'
+(13)	Klallam	cited affix	=anŋ	'season, year'
+(13)	Lushootseed	cited affix	=aladxʷ	'year'
+(13)	Upper Chehalis	cited affix	-ál=anuxʷ	'years'
+§3.3	Julie Wolfe	root	yəl	'be over, turn, pass', the only root Se -áw=nəxʷ, Ms =ánəm and Ck =áləm appear with
+§3.3	PCS	cited affix	*-aw=anaxʷ	the first step of the route to the 'wave' suffix, from Pincott 2021:69
+§3.3	PCS	cited affix	*-əw=ənaxʷ	the second step of the route to the 'wave' suffix
+§3.3	PCS	cited affix	*-əw=naxʷ	the third step of the route to the 'wave' suffix
+§3.3	PCS	cited affix	*=unaxʷ	the end of the route to the 'wave' suffix
+(14)	Julie Wolfe	heading	a. CN + LS form	the left column of example 14
+(14)	Julie Wolfe	heading	b. unrelated suffix	the right column of example 14
+(14)	PS	cited affix	*=alaq	'wind, weather'
+(14)	PCS	cited affix	*-aw=anaxʷ	'wave', from Pincott
+(14)	PCS	cited affix	*=áĺaq	'wave', the author's reconstruction
+(14)	Sliammon	cited affix	=unaxʷ	'wave', from Pincott
+(14)	Sliammon	cited affix	=aʔaq	'wind'
+(14)	Sechelt	cited affix	=únaxʷ	'wave(s)'
+(14)	Sechelt	cited affix	=álaq	'air (moving air, moving through air), wind'
+(14)	Squamish	cited affix	=unəxʷ	'wave'
+(14)	Squamish	cited affix	=aʔlq	'wave', fossilized
+(14)	Cowichan	cited affix	=eləq	'wave', from Hukari et. al. 2013:35, 173, 229
+(14)	Cowichan	cited affix	=ələq	'wave', from Hukari et. al. 2013:35, 173, 229
+(14)	Cowichan	cited affix	=əl̓əq	'wave', from Hukari et. al. 2013:35, 173, 229
+(14)	Musqueam	cited affix	=éləq	'wave'
+(14)	Chilliwack	cited affix	=ɛ́ːləq	'waves'
+(14)	Chilliwack	cited affix	=ələq	'waves'
+(14)	Saanich	cited affix	=eləq	'wave'
+(14)	Saanich	cited affix	=əleq	'wave'
+(14)	Saanich	cited affix	=ələq	'wave'
+(14)	Klallam	cited affix	=əy̓əʔq	'wave, splash'
+(14)	Klallam	cited affix	=iyəq	'wave, splash'
+§3.4	Julie Wolfe	heading	CN + LS forms without semantic shifts	section 3.4
+(15)	PS	cited affix	*=kʷup	'fire(wood)', from Kuipers
+(15)	PS	cited affix	ʔm*=ikup	'fire(wood)', from Kinkade
+(15)	PCS	cited affix	*=čup	'fire(wood)', the author's reconstruction
+(15)	PCS	cited affix	*-al(ʸ)=čup	'fire(wood)', the author's reconstruction
+(15)	Sliammon	cited affix	=akʷup	'fire(wood)'
+(15)	Sechelt	cited affix	=íčúp	'firewood'
+(15)	Sechelt	cited affix	-ál=kʷup	'fire(wood)'
+(15)	Squamish	cited affix	=ikʷup	'fire(wood)'
+(15)	Squamish	cited affix	=čəp	'fire(wood)'
+(15)	Squamish	cited affix	-ay=ikʷup	'fire(wood)'
+(15)	Squamish	cited affix	-əl=čəp	'fire(wood)'
+(15)	Cowichan	cited affix	-əl=cəp	'fire(wood)'
+(15)	Musqueam	cited affix	=cəp	'fire(wood)'
+(15)	Musqueam	cited affix	=əlcəp	'fire(wood)'
+(15)	Musqueam	cited affix	=ə́l̓cəp	'fire(wood)'
+(15)	Chilliwack	cited affix	=ə́lcəp	'firewood'
+(15)	Saanich	cited affix	=čəp	'fire(wood)', from Kuipers
+(15)	Samish	cited affix	=ečəp	a Sm suffix for fire or firewood, given without a gloss
+(15)	Lushootseed	cited affix	=čup	'cooking fire, campfire, firewood'
+(15)	Lushootseed	cited affix	=aličup	'of the fire'
+(15)	Twana	cited affix	=čup	'fire(wood)'
+(15)	Twana	cited affix	-ay=qʷp	'wood'
+§3.4	Lushootseed	cited affix	=ali	'place where something is typically kept or located', the suffix the Ld form may compound with
+(16)	PS	cited affix	*=íc̓aʔ	'hide, blanket, clothes', from Kuipers
+(16)	PS	cited affix	ʔ*=ic̓aʔ	'hide, surface, blanket', from Kinkade
+(16)	PCS	cited affix	*=íc̓aʔ	'clothes, cloth, blanket', the author's reconstruction
+(16)	PCS	cited affix	*-ál̓ʸ=ic̓aʔ	'clothes, blanket', the author's reconstruction
+(16)	Sliammon	cited affix	=it̓ᶿa	'clothes'
+(16)	Sechelt	cited affix	=ic̓a	'animal, blanket, clothes, skin'
+(16)	Sechelt	cited affix	-ál=ic̓a	'clothes'
+(16)	Squamish	cited affix	=ic̓a	'clothes'
+(16)	Squamish	cited affix	=c̓a	'clothes'
+(16)	Squamish	cited affix	-ay=c̓a	'clothes'
+(16)	Squamish	cited affix	-ay=c̓aʔ	'clothes'
+(16)	Cowichan	cited affix	=et̓ᶿeʔ	'strands of fibre, cloth'
+(16)	Cowichan	cited affix	=it̓ᶿeʔ	'strands of fibre, cloth'
+(16)	Musqueam	cited affix	=ít̓ᶿeʔ	'blanket, wealth'
+(16)	Musqueam	cited affix	=éːlt̓ᶿeʔ	'blanket, wealth'
+(16)	Chilliwack	cited affix	=ít̓ᶿɛ	'clothing, material'
+(16)	Chilliwack	cited affix	=ít̓ᶿə	'clothing, material'
+(16)	Saanich	cited affix	=it̓ᶿəʔ	'cloth'
+(16)	Klallam	cited affix	=ic̓aʔ	'clothing (fabric)'
+(16)	Lushootseed	cited affix	=ic̓aʔ	'clothe, wear'
+(16)	Lushootseed	cited affix	=alic̓aʔ	'clothes, clothing'
+(16)	Twana	cited affix	=ic̓a	'blanket, garment'
+(16)	Twana	cited affix	-al=ic̓a	in 'ripped clothes'
+(17)	PS	cited affix	*(-al)=aqap	'smell, taste', Central Salish and Tsamosan only, from Kinkade
+(17)	PCS	cited affix	*=aqap	'smell, taste', the author's reconstruction
+(17)	PCS	cited affix	*-ál̓ʸ=aqap	'smell, taste', the author's reconstruction
+(17)	Sliammon	cited affix	=aqap	'smell'
+(17)	Sechelt	cited affix	=álaq=ap	'(have a kind of) smell'
+(17)	Squamish	cited affix	=áy̓aqap	'smell; taste'
+(17)	Musqueam	cited affix	=éləqəp	'smell, taste, sound'
+(17)	Chilliwack	cited affix	=ɛ́ːləqəp	'fragrance, smell, odour'
+(17)	Saanich	cited affix	=eləqəč	'smell'
+(17)	Klallam	cited affix	=aqač	'taste, odour'
+(17)	Lushootseed	cited affix	=qəp	'smell'
+(17)	Lushootseed	cited affix	=aləqəp	'odour'
+(18)	PS	cited form	*makn	'testicle', from Kuipers
+(18)	PCS	cited affix	*=áčən	'testicle(s)', the author's reconstruction
+(18)	PCS	cited affix	*-ál(ʸ)=ačən	'testicle(s)', the author's reconstruction
+(18)	Musqueam	cited affix	=écən	'testicle(s)'
+(18)	Musqueam	cited affix	=éləcən	'testicle(s)'
+(18)	Musqueam	cited affix	=ə́ləcən	'testicle(s)'
+(18)	Chilliwack	cited affix	=ɛ́cəl	'on the testicles'
+(18)	Chilliwack	cited affix	=ələ́cəl	'on the testicles'
+(18)	Saanich	cited affix	=eləs	'testicle'
+(18)	Lushootseed	cited affix	=alačəd	'testicles'
+(19)	PS	cited affix	*=txʷ	'lodging', from Kuipers
+(19)	PS	cited affix	c*=txʷ	'lodging', from Kinkade
+(19)	PCS	cited affix	*-aw̓=txʷ	'house, building', from Pincott
+(19)	PCS	cited affix	*=txʷ	'house, building', the author's reconstruction
+(19)	PCS	cited affix	*-áw̓=txʷ	'house, building', the author's reconstruction
+(19)	Sliammon	cited affix	=txʷ	'roof'
+(19)	Sliammon	cited affix	=aw̓txʷ	'house'
+(19)	Sechelt	cited affix	=txʷ	'inside (building, shelter, vehicle)'
+(19)	Sechelt	cited affix	təw	'inside (building, shelter, vehicle)'
+(19)	Sechelt	cited affix	=awtxʷ	'building, house, room, shelter'
+(19)	Squamish	cited affix	=txʷ	'house'
+(19)	Squamish	cited affix	-aw̓=txʷ	'house'
+(19)	Cowichan	cited affix	-ew̓=txʷ	'lodging'
+(19)	Cowichan	cited affix	-əw̓=txʷ	'lodging'
+(19)	Musqueam	cited affix	=txʷ	'house'
+(19)	Musqueam	cited affix	=éwtxʷ	'house'
+(19)	Musqueam	cited affix	=ə́w̓txʷ	'house'
+(19)	Chilliwack	cited affix	=txʷ	'building, house'
+(19)	Chilliwack	cited affix	=ɛ́ːwtxʷ	'building, house'
+(19)	Chilliwack	cited affix	=ɛ́wtxʷ	'building, house'
+(19)	Saanich	cited affix	=ew̓txʷ	'house, building, room, campsite'
+(19)	Saanich	cited affix	=əw̓txʷ	'house, building, room, campsite'
+(19)	Samish	cited affix	=ew̓txʷ	'house, dwelling'
+(19)	Klallam	cited affix	=aw̓txʷ	'house, building, room'
+(19)	Lushootseed	cited affix	=txʷ	'building'
+§3.5	Julie Wolfe	heading	Summary	section 3.5
+§4	Julie Wolfe	heading	Reconstructing the meanings of connectives	section 4
+§4	PCS	cited affix	*-ay-	'tip, extremity, edge', the reconstruction discussed in section 4.1
+§4	PCS	cited affix	*-alʸ-	'in, on, source of', the reconstruction discussed in section 4.2
+§4.1	Julie Wolfe	heading	The connective *-ay-	section 4.1
+§4.1	Moses-Columbian	cited affix	=ayaʔ	'head, top', which Kinkade 1998:283 suggests *-ay- could be related to
+§4.1	Julie Wolfe	cited affix	-ay-	the connective used to refer to extremities in two Tsamosan languages
+(20)	Upper Chehalis	cited affix	=ača	'hand, finger, forearm'
+(20)	Upper Chehalis	cited affix	-áy=ača	'finger, elongated instrument'
+(20)	Upper Chehalis	cited affix	=šani-	'foot, toe, leg'
+(20)	Upper Chehalis	cited affix	-áy=šn	'toe'
+(20)	Cowlitz	cited affix	=ákaʔ	'hand, arm, finger'
+(20)	Cowlitz	cited affix	-áy=akaʔ	'finger'
+(20)	Cowlitz	cited affix	=xán	'foot, leg'
+(20)	Cowlitz	cited affix	-áy=xan	'toe'
+§4.1	Lushootseed	cited affix	-y-	the other connective in Ld showing the same tendency
+(21)	Lushootseed	cited affix	=ucid	'mouth'
+(21)	Lushootseed	cited affix	-ay=ucid	in words for 'chin' and 'jaw'
+(21)	Lushootseed	cited affix	=qs	'nose, point'
+(21)	Lushootseed	cited affix	-ay=qs	in words for 'chin' or 'beard'
+(21)	Lushootseed	cited affix	=alus	'eye'
+(21)	Lushootseed	cited affix	-y=alus	'end, edge'
+(21)	Lushootseed	cited affix	=qid	'head; summit'
+(21)	Lushootseed	cited affix	-y=aqid	'the very top'
+(21)	Lushootseed	cited affix	=ax̌ad	'at the side'
+(21)	Lushootseed	cited affix	-y=ax̌ad	'door'
+§4.1	Julie Wolfe	reference	Beaumont 2011:557	where Se suffixes starting with -ay- are said to refer to an outside surface
+(22)	PS	cited affix	*=cin	'mouth', from Kuipers
+(22)	PS	cited affix	c*=ucin	'mouth', from Kinkade
+(22)	PCS	cited affix	*=úcin	'mouth', the author's reconstruction
+(22)	PCS	cited affix	*-áy̓=ucin	'lips, jaw, chin'; printed here with a glottalized y where Table 1 prints an acute
+(22)	Sechelt	cited affix	=uc	'language, mouth, speech'
+(22)	Sechelt	cited affix	-áy=uc	'lips, mouth'
+(22)	Cowichan	cited affix	=ayθin	'mouth, lips'
+(22)	Musqueam	cited affix	=aθən	'mouth, lip, margin, edge'
+(22)	Musqueam	cited affix	=áʔθ	'mouth, lip, margin, edge'
+(22)	Musqueam	cited affix	=áːyθən	'mouth, lip, margin, edge'
+(22)	Musqueam	cited affix	=áyəθən	'mouth, lip, margin, edge'
+(22)	Chilliwack	cited affix	=áθəl	'in the mouth'
+(22)	Chilliwack	cited affix	=áːθəl	'in the mouth'
+(22)	Chilliwack	cited affix	=áyəθəl	'on the lip, jaw, or mouth'
+(22)	Chilliwack	cited affix	=áːyθəl	'on the lip, jaw, or mouth'
+(22)	Lushootseed	cited affix	=ucid	'mouth'
+(22)	Lushootseed	cited affix	-ay=ucid	'chin, jaw, path, road'
+(23)	Upper Chehalis	cited affix	=ɬnali-	'mouth, lips, jaw'
+(23)	Upper Chehalis	cited affix	-áy̓=ɬnɬ	'jaw'
+§4.1	PCS	cited affix	-áy̓-	the connective combined with 'face' to form a suffix for 'cheek' in Sl and Se
+(24)	Sliammon	cited affix	=us	'head, face'
+(24)	Sliammon	cited affix	=aǰ́is	'cheek'
+(24)	Sechelt	cited affix	=us	'face, eye'
+(24)	Sechelt	cited affix	-áy=us	'cheek, head (side of)'
+(24)	Sechelt	cited affix	-áy=as	'cheek, side or half of face or head'
+§4.1	PCS	cited form	*y	the phoneme whose shift to Sl ǰ is attested, from Galloway 1988:300
+§4.1	Sliammon	cited form	ǰ	what PCS *y shifted to in Sl
+§4.2	Julie Wolfe	heading	The connective *-alʸ-	section 4.2
+(25)	Julie Wolfe	heading	*-alʸ=LS	the right column heading of example 25
+(25)	PCS	cited affix	*=ús	'face'
+(25)	PCS	cited affix	*-ál̓ʸ=us	'on the face', giving 'eye'
+(25)	PCS	cited affix	*=an̓áʔ	'side of the head'
+(25)	PCS	cited affix	*-ál̓ʸ=an̓aʔ	'on the side of the head', giving 'ear'
+(25)	PCS	cited affix	*=áx̌an	'arm, side'
+(25)	PCS	cited affix	*-alʸ=áx̌an	'on the side', giving 'arm'
+(25)	PCS	cited affix	*=áp	'bottom, base, rear'
+(25)	PCS	cited affix	*-al=ap	'at the base', giving 'thigh, hip'
+(25)	PCS	cited affix	*=qin	'head'
+(25)	PCS	cited affix	*-ál(ʸ)=qin	'on the head', giving 'hair'
+§4.2	PCS	cited affix	*-ál̓(ʸ)=anaxʷ	'season, weather', where the meaning added by *-alʸ- is not obvious
+(26)	PS	cited affix	*=mixʷ	'life force, "mana", person(s), animals, world, land river; woman's breast, milk', from Kuipers
+(26)	PS	cited affix	*=mix	'life force, "mana", person(s), animals, world, land river; woman's breast, milk', from Kuipers
+(26)	PS	cited affix	t*=(a)mixʷ	'people, group, residents', from Kinkade
+(26)	PS	cited affix	*-al=amixʷ	'female breast', from Kinkade
+(26)	PS	cited affix	ʔt*=mix	'person, individual', from Kinkade
+(26)	PCS	cited affix	*-al=mixʷ	'breast', from Pincott
+(26)	PCS	cited affix	*=mixʷ	'people', the author's reconstruction
+(26)	PCS	cited affix	*-álʸ=mixʷ	'breast, breast milk', the author's reconstruction
+(26)	Sliammon	cited affix	=mixʷ	'house'
+(26)	Sliammon	cited affix	=aymixʷ	'breast'
+(26)	Sechelt	cited affix	=mixʷ	'floor; people, person(s); place'
+(26)	Sechelt	cited affix	=məxʷ	'floor; people, person(s); place'
+(26)	Sechelt	cited affix	-ál=mixʷ	'breast(s), (group of) people'
+(26)	Squamish	cited affix	=mixʷ	'people'
+(26)	Squamish	cited affix	=məxʷ	'people'
+(26)	Squamish	cited affix	-ay̓=amixʷ	'breast'
+(26)	Cowichan	cited affix	=məxʷ	'group, people, breast, milk'
+(26)	Cowichan	cited affix	-əl=məxʷ	'group, people; breast, milk'
+(26)	Musqueam	cited affix	=məxʷ	'place, people, (cluster?)'
+(26)	Musqueam	cited affix	=ə́lməxʷ	'breast, milk, spring (of water'
+(26)	Chilliwack	cited affix	=məxʷ	'people, person'
+(26)	Chilliwack	cited affix	=ɛ́lməxʷ	'(on the) breast'
+(26)	Chilliwack	cited affix	=əlmə́xʷ	'(on the) breast'
+(26)	Saanich	cited affix	=ŋixʷ	'being'
+(26)	Saanich	cited affix	=ŋəxʷ	'being'
+(26)	Saanich	cited affix	=elŋəxʷ	'breast'
+(26)	Samish	cited affix	=ŋəxʷ	'being, living, thing, person'
+(26)	Samish	cited affix	-el=ŋəxʷ	'being, living, thing, person'
+(26)	Klallam	cited affix	=ŋixʷ	'being; breast'
+(26)	Klallam	cited affix	-ay=ŋəxʷ	in 'milk a cow', from Kuipers
+(26)	Lushootseed	cited affix	=bixʷ	'homogenous group or cluster'
+(26)	Lushootseed	cited affix	-al=bixʷ	'earth, land, milk, teat, suckle', from Kuipers
+(26)	Twana	cited affix	=bixʷ	'people'
+(26)	Twana	cited affix	-al=bəš	'milk', non-productive
+§4.2	PS	cited affix	*-alʸ=mixʷ	'source of life', the interpretation Kuipers' 'life force' gloss allows
+§4.2	Upper Chehalis	cited affix	=anuxʷ	'years'
+§4.2	Upper Chehalis	cited affix	-al=anuxʷ	the same suffix with the connective, attaching to different numbers
+§5	Julie Wolfe	heading	Conclusion	section 5
+§5	PCS	cited affix	*-ay-	'on, at', the meaning section 4 concludes for this connective
+§5	PCS	cited affix	*-alʸ-	'reason for, source of', the meaning section 4 concludes for this connective
+References	Julie Wolfe	heading	References	the paper's bibliography
+References	Julie Wolfe	reference	Bates, Dawn, Hess, Thom, & Hilbert, Vi. 1994. Lushootseed dictionary. Seattle, WA: University of Washington Press.	the source of the Ld data
+References	Julie Wolfe	reference	Beaumont, Ronald C. 1985. She Shashishalhem, the Sechelt Language: Language, Stories and Sayings of the Sechelt Indian People of British Columbia. Penticton, BC: Theytus Books.	cited on Se glottalization
+References	Sechelt	cited title	Shashishalhem	the Sechelt language, in Beaumont's 1985 title
+References	Julie Wolfe	reference	Beaumont, Ronald C. 2011. Sechelt dictionary. Sechelt, BC: Sechelt Indian Band.	the source of the Se data
+References	Julie Wolfe	reference	Blake, Susan J. 2000. On the distribution and representation of shwa in Sliammon (Salish). Ph.D. dissertation. University of British Columbia, Vancouver, BC.	the source of the Sl phoneme description
+References	Julie Wolfe	reference	Czaykowska-Higgins, Ewa. 2004. The morphological and phonological status of Nxaʔamxcín lexical suffixes. In Gerdts, Donna & Matthewson, Lisa (eds.), Studies in Salish Linguistics in Honor of M. Dale Kinkade, 72–99. Missoula, MN: University of Montana.	cited on phonological reduction
+References	Moses-Columbian	cited title	Nxaʔamxcín	the language name in Czaykowska-Higgins' title, the autonym of Moses-Columbian
+References	Julie Wolfe	reference	Galloway, Brent D. 1988. Some proto-Central Salish sound correspondences. In Shipley, William (ed.) In Honor of Mary Haas: From the Haas Festival Conference on Native American Linguistics, 293–343. Berlin: Mouton de Gruyter.	the source of the sound correspondences
+References	Julie Wolfe	reference	Galloway, Brent D. 2009. Dictionary of Upriver Halkomelem, Volume I. Berkeley, CA: University of California Press.	the source of the Ck data
+References	Julie Wolfe	reference	Gerdts, Donna. 1998. Incorporation. In Spencer, Andrew & Zwicky, Arnold (eds.), The handbook of morphology, 84–100. Oxford: Blackwell Publishing Ltd.	cited on the origin of lexical suffixes
+References	Julie Wolfe	reference	Hukari, Thomas E., Peter, Ruby, & Gerdts, Donna (eds.). 2013. Hul’q’umi’num’ to English dictionary. BC: Cowichan Valley School District.	the source of the Cw 'wave' forms
+References	Cowichan	cited title	Hul’q’umi’num’	the Cowichan language name in Hukari et. al.'s title
+References	Julie Wolfe	reference	Kinkade, M. Dale. 1991. Upper Chehalis dictionary. Missoula, MN: UMOPL.	the source of the Ch data
+References	Julie Wolfe	reference	Kinkade, M. Dale. 1998. Origins of Salishan lexical suffixes. Papers for ICSNL 33:266–295.	the source of the PS reconstructions marked (Ki)
+References	Julie Wolfe	reference	Kinkade, M. Dale. 2004. Cowlitz dictionary and grammatical sketch. Missoula, MT: UMOPL.	the source of the Cz data
+References	Julie Wolfe	reference	Kuipers, Aert H. 2002. Salish etymological dictionary. Missoula, MT: UMOPL.	the source of the reconstructions marked (Ku)
+References	Julie Wolfe	reference	Modrow, Ruth H. 1971. The Quinault dictionary. Quinault, WA: Quinault Indian Tribe.	the source of the Qu data
+References	Julie Wolfe	reference	Montler, Timothy. 2012. Klallam dictionary. Seattle, WA: University of Washington Press.	the source of the Kl data
+References	Julie Wolfe	reference	Montler, Timothy. 2018. SENĆOŦEN: a dictionary of the Saanich Language. Seattle, WA: University of Washington Press.	the source of the Sn data
+References	Saanich	cited title	SENĆOŦEN	the Saanich language name in Montler's 2018 title
+References	Julie Wolfe	reference	Pincott, Ethan. 2021. The past and present of lexical suffixes in the Sk̲wx̲wmú7mesh language. MA thesis. Simon Fraser University, Burnaby, BC.	the source of the reconstructions marked (P)
+References	Squamish	cited title	Sk̲wx̲wmú7mesh	the Squamish language name in Pincott's title
+References	Julie Wolfe	reference	Suttles, Wayne. 2004. Musqueam reference grammar. Vancouver, BC: University of British Columbia Press.	the source of the Ms data
+References	Julie Wolfe	reference	Thompson, Laurence C. 1979. Salishan and the Northwest. In Campbell, Lyle and Mithun, Marianne (eds.) The Languages of Native America: Historical and Comparative Assessment, 692–765. Austin, TX: University of Texas Press.	cited on the Tillamook migration
+References	Julie Wolfe	reference	Thompson, Nile. 1979. Twana dictionary: student version. Shelton, WA: Skokomish Indian Tribe.	the source of the Tw 'eye' and 'ear' forms
+References	Julie Wolfe	reference	Watanabe, Honoré. 2003. A morphological description of Sliammon, Mainland Comox Salish with a sketch of syntax. ELPR Publications Series A2-040. Osaka: Osaka Gakuin University.	the source of the Sl data
+References	Julie Wolfe	name	Honoré	the given name of Watanabe, the author of the Sliammon description

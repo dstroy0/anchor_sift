@@ -1,0 +1,113 @@
+where	who	kind	form	gloss
+front	Jonathan Janzen	title	Phrase- and word-level prosody in Kwak’wala	page 1
+front	Jonathan Janzen	name	Jonathan Janzen	author
+front	Jonathan Janzen	note	University of British Columbia	page 1, under Jonathan Janzen
+front	Jonathan Janzen	note	This paper explores definitions for categorizing word- and phrase-level prosody in Kwak̓wala. Defining prosodic domains may help to determine where written word boundaries should be in community orthographies. This will help reflect the underlying assumptions that Kwak̓wala speakers in the written language. This paper shows that word-level prosody can best be observed in terms of the domain of stress. That is to say, if a morphologically bound group has one nucleus with a marked stress prominence, it should constitute one word. This paper also shows that pitch and intensity resets indicate phrase-level prosody.	page 1, the abstract
+front	Jonathan Janzen	language	Kwak̓wala	Wakashan, North Wakashan branch, the language of the paper
+§1	Jonathan Janzen	heading	1 Background	page 1
+§1	Jonathan Janzen	note	It is necessary to is to create a working definition of what “word” means in a morphological sense in order to set boundaries for intonation. Boas gives a starting basis of analysis by arguing that pronouns, conjunctional, and adverbial terms (which express tense and mode) are attached as suffixes to roots to create complete words. These terms appear often in combination and are applied in most cases in definite order (Boas 1947, p234). Under this polysynthetic analysis of Kwak̓wala, a definition of word-level prosody would require a close look at the prosodic relationship of these suffixes to their affixing stems, juxtaposed to the prosody of the following root.	page 1
+§1	Jonathan Janzen	name	Boas	Franz Boas, the Kwakiutl grammar (1947)
+§1	Jonathan Janzen	note	Prosodic boundaries may be more difficult to find when segmented by morphology or syntax. An important conflict arises from the competing assumptions that the division of sentences into smaller prosodic phrases will reflect syntactic constituency. Much of the literature on this issue are attempts to explain ‘mismatches’ between prosodic structure and syntactic/semantic constituency, (Ladd, 2008) which becomes one of this paperʼs questions in relation to Kwak̓wala which this paper also seeks to address.	page 1
+§1	Jonathan Janzen	name	Ladd	Robert D. Ladd, Intonational Phonology (2008)
+§1	Jonathan Janzen	note	If Boas’ polysynthetic analysis as described above is applied (stems + pronouns, conjunctional and adverbial terms), there would in many cases, cease to be any distinction between phrase- and word-level prosodic domains. Additionally, enclitics behave in a way that create a mismatch between the prosody of these phrases and the syntax, in the way Ladd described as potentially problematic. These enclitics denote Case, Location, Determiners, Visibility, and Temporal features (Chung 2007)	page 1
+§1	Jonathan Janzen	name	Chung	Yunhee Chung, the Kwak'wala nominal domain (2007)
+§1	Jonathan Janzen	note	Prosodic phrases are frequently assumed to have an internal prosodic structure of some sort (Ladd, 2008), often defined systematically as: syllable > foot > mora > prosodic word > prosodic phrase > intonation phrase. This paper focuses on the prosodic word > prosodic phrase relationship of this hierarchy.	page 2
+§2	Jonathan Janzen	heading	2 Data	page 2
+§2	Jonathan Janzen	note	All data was collected from 2010 fieldwork as part of the Field Methods course at the University of British Columbia, taught by Henry Davis. Two strategies are employed to attempt to accurately observe world-level prosodic constituencies. One is by passively observing natural speech in the form of narratives, and the other through constructed sentences of roots + ‘affixesʼ, growing in length.	page 2
+§2	Jonathan Janzen	name	Henry Davis	taught the 2010 Field Methods course at the University of British Columbia
+§2	Jonathan Janzen	note	In an attempt to define prosodic words against prosodic phrases, stress domain is used to signal word boundaries. This means that all morphology which appears to submit to a stem in terms of stress prominence will be considered a prosodic word, and other pieces of morphology containing their own stress prominence will be considered a separate prosodic word. The criteria for word stress are most efficiently determined by a rigorous phonetic study in change of pitch, duration and intensity. This paper, however, relied on human ear, consultant intuition and negative feedback to define these prosodic boundaries.	page 2
+§3	Jonathan Janzen	heading	3 Prosodic phrases	page 2
+§3	Jonathan Janzen	note	Prosodic constituents are in round brackets, and a syntactic constituent is in square brackets:	page 2
+(1) line 1	Kwak̓wala	transcription	([ʔump-w̓əɬə -q̓ən] [-oχ) (ʔek̓ak̓-ala ʔaχ]	page 2, the constituents in brackets
+(1) line 2	Jonathan Janzen	gloss	father-late -Comp -Loc take care-Cont Dummy	page 2
+(1) line 3	Kwak̓wala	transcription	[- ənoχ) (n̓ə-n̓əge)]	page 2, the constituents in brackets
+(1) line 4	Jonathan Janzen	gloss	-1plPoss Red-mountain	page 2
+(1) line 5	Jonathan Janzen	translation	‘Our late father was taking care of our mountain’	page 2
+(2) line 1	Kwak̓wala	transcription	([naχe-c̓imas] [-a-χ-a) (w̓ap])	page 2, the constituents in brackets
+(2) line 2	Jonathan Janzen	gloss	drink-should -Acc-Det water	page 2
+(2) line 3	Jonathan Janzen	translation	‘You’re supposed to drink the water’	page 2
+(3) line 1	Kwak̓wala	transcription	([ləmis) (gaχu’i][-da) (ʔixpoʔom-a] [-laχ-ənoχ) (gukʷ])	page 2, the constituents in brackets
+(3) line 2	Jonathan Janzen	gloss	then come-Det fruit-Obj Prep-1pPL house	page 2
+(3) line 3	Jonathan Janzen	translation	‘Then the fruit was brought up to our house’	page 2
+(4) line 1	Kwak̓wala	transcription	([ʔik̓ak̓-ala ʔaχ]-[-ənoχ) (n̓i-n̓əge]) ([(ɬawis n̓əge])	page 3, the constituents in brackets
+(4) line 2	Jonathan Janzen	gloss	mind-Cont Dummy-1pPL Red-mountain angry mountain	page 3
+(4) line 3	Jonathan Janzen	translation	‘To look after our mountains, Angry Mountain’	page 3
+(5) line 1	Kwak̓wala	transcription	([ʔaχ cu’i][-da) (dzupcud][-q-ənoχ) (dzupeda-χ-a-da)	page 3, the constituents in brackets
+(5) line 2	Jonathan Janzen	gloss	Dummyput-Det canning -Comp-1pPL can-Case-Obl-Det	page 3
+(5) line 3	Kwak̓wala	transcription	(ʔixpoʔomas])	page 3, the constituents in brackets
+(5) line 4	Jonathan Janzen	gloss	fruit	page 3
+(5) line 5	Jonathan Janzen	translation	‘Everyone was told to can the fruit’	page 3
+§4	Jonathan Janzen	heading	4 Placement of pauses	page 3
+§4	Jonathan Janzen	note	A pause is marked by //:	page 3
+(6) line 1	Kwak̓wala	transcription	([n̓aχ-əs laχ]-[a-da) (xʷak̓ʷene]) ([la-la laχ-a-daχ] //	page 3, the constituents in brackets
+(6) line 2	Jonathan Janzen	gloss	drink-2p Prep-Acc-Det canoe when-go Prep-Acc-Det	page 3
+(6) line 3	Kwak̓wala	transcription	[χo-da) (gukʷ])	page 3, the constituents in brackets
+(6) line 4	Jonathan Janzen	gloss	Case-Det house	page 3
+(6) line 5	Jonathan Janzen	translation	‘You drink when you're on the canoe going to the house’	page 3
+(7) line 1	Kwak̓wala	transcription	([naχ]-[a-da // -χ (w̓ap]-[q̓e-ʔe) (n̓əge] // -[χa)	page 3, the constituents in brackets
+(7) line 2	Jonathan Janzen	gloss	drink-obj-Det-Acc water-Comp-Obj mountain-Det	page 3
+(7) line 3	Kwak̓wala	transcription	(ʔike-s-oχ)	page 3, the constituents in brackets
+(7) line 4	Jonathan Janzen	gloss	good-Obj-Loc	page 3
+(7) line 5	Jonathan Janzen	translation	‘Drink the water so Mountain is happy’	page 3
+(8) line 1	Kwak̓wala	transcription	([qəyuɬ-wəɬeʔ] // [-χ -ən) (ʔump-weɬ -ən]) ...	page 3, the constituents in brackets
+(8) line 2	Jonathan Janzen	gloss	long -Past -Case-1p father-former -1p	page 3
+(8) line 3	Jonathan Janzen	translation	‘Long ago my late father...’	page 3
+(9) line 1	Kwak̓wala	transcription	([gaχ-i][-noχ) (ʔump] // [-qe) ([w̓ik̓e] [-laχ -is)	page 3, the constituents in brackets
+(9) line 2	Jonathan Janzen	gloss	come-Vis-Acc father-Comp happened -LocP-ReflexivePoss	page 3
+(9) line 3	Kwak̓wala	transcription	(bot-es])	page 3, the constituents in brackets
+(9) line 4	Jonathan Janzen	gloss	boat-Obj	page 3
+(9) line 5	Jonathan Janzen	translation	‘Our father came, he went by his own boat’	page 3
+§5	Jonathan Janzen	heading	5 Prosodic Words	page 4, carries footnote 1
+footnote 1	Jonathan Janzen	note	Note, data (1)-(9) were passively recorded narratives, and (10) to (20) were contrived sentences.	page 4, footnote 1
+§5	Jonathan Janzen	note	A stress domain is indicated by round brackets, and a syntactic constituent is in square brackets. Stressed syllables are marked with an acute accent.	page 4
+(10) line 1	Kwak̓wala	transcription	([míc-a]) ([gáχən])	page 4, the constituents in brackets
+(10) line 2	Jonathan Janzen	gloss	kiss-3p 1pIndP	page 4
+(10) line 3	Jonathan Janzen	translation	‘She kissed me’	page 4
+(11) line 1	Kwak̓wala	transcription	([míc-a]-[χa) (bəgʷánəm])	page 4, the constituents in brackets
+(11) line 2	Jonathan Janzen	gloss	kiss-3p -Det man	page 4
+(11) line 3	Jonathan Janzen	translation	‘She kissed a man’	page 4
+(12) line 1	Kwak̓wala	transcription	([míc-a) (gánəm]-[χa) (bəgʷánəm])	page 4, the constituents in brackets
+(12) line 2	Jonathan Janzen	gloss	kiss-3p probably-Det man	page 4
+(12) line 3	Jonathan Janzen	translation	‘She probably kissed a man’	page 4
+(13) line 1	Kwak̓wala	transcription	([míca) (gánəm) (kás]-[χa) (bəgʷánəm])	page 4, the constituents in brackets
+(13) line 2	Jonathan Janzen	gloss	kiss-3p probably Quant.-Det man	page 4
+(13) line 3	Jonathan Janzen	translation	‘She probably really kissed a man’	page 4
+(14) line 1	Kwak̓wala	transcription	([míc-a)(gánəm) (kás-dzi] -[χa) (bəgʷánəm])	page 4, the constituents in brackets
+(14) line 2	Jonathan Janzen	gloss	kiss-3p probably Quant.-Grand. -Det man	page 4
+(14) line 3	Jonathan Janzen	translation	‘She probably gave the man a really big kiss’	page 4
+(15) line 1	Kwak̓wala	transcription	([míca) (gánəm) (kás-dzi)(ƛ̓í] -[χa) (bəgʷánəm])	page 4, the constituents in brackets
+(15) line 2	Jonathan Janzen	gloss	kiss-3p probably Quant.-Grand.Fut -Det man	page 4
+(15) line 3	Jonathan Janzen	translation	‘She'll probably give the man a really big kiss’	page 4
+(16) line 1	Kwak̓wala	transcription	([həm̓-xʔíd-ən])	page 4, the constituents in brackets
+(16) line 2	Jonathan Janzen	gloss	eat-Past-1ps	page 4
+(16) line 3	Jonathan Janzen	translation	‘I ate’	page 4
+(17) line 1	Kwak̓wala	transcription	([həm̓-xʔíd-ən]-[χa) (ʔábəls])	page 4, the constituents in brackets
+(17) line 2	Jonathan Janzen	gloss	eat-Past-1ps-Det apple	page 4
+(17) line 3	Jonathan Janzen	translation	‘I ate an apple’	page 4
+(18) line 1	Kwak̓wala	transcription	([həm̓-xʔíd-ən]-[χa) (ƛ̓aχʷstu) (ʔábəls])	page 5, the constituents in brackets
+(18) line 2	Jonathan Janzen	gloss	eat-Past-1ps-Det red apple	page 5
+(18) line 3	Jonathan Janzen	translation	‘I ate a red apple’	page 5
+(19) line 1	Kwak̓wala	transcription	(həm̓-xʔíd-ən]-[χa) (ʔíxp̓ala) (ƛ̓aχʷstu) (ʔábəls])	page 5, the constituents in brackets
+(19) line 2	Jonathan Janzen	gloss	eat-Past-1ps-Det delicious red apple	page 5
+(19) line 3	Jonathan Janzen	translation	‘I ate a delicious red apple’	page 5
+(20) line 1	Kwak̓wala	transcription	([həm̓-xʔíd-ən]-[χa) (ʔíxp̓ala) (ƛ̓áχʷstu) (dzì-kas)	page 5, the constituents in brackets
+(20) line 2	Jonathan Janzen	gloss	eat-Past-1ps-Det delicious red Grand-Quant	page 5
+(20) line 3	Kwak̓wala	transcription	(ʔábəls])	page 5, the constituents in brackets
+(20) line 4	Jonathan Janzen	gloss	apple	page 5
+(20) line 5	Jonathan Janzen	translation	‘I ate a really big delicious red apple’	page 5
+§6	Jonathan Janzen	heading	6 Analysis	page 5
+§6	Jonathan Janzen	note	The striking occurrence observed in the above sentences was the mismatched distribution of the enclitics (Case, Det, and person suffixes) between the prosody and syntax/semantics (Anderson 1984, p25). (1) through (5) show this mismatch explicitly in the suffixes “-oχ”, “-aχa”, “-da”, and “-ənoχ,” where each is prosodically dependant on a previous root, but is involved in the syntactic constituent of the following root.	page 5
+§6	Jonathan Janzen	name	Anderson	Stephen R. Anderson, Kwakwala syntax and Government-Binding theory (1984)
+§6	Jonathan Janzen	note	Examples (6) through (9) show that the consultant was able to insert a thoughtful pause exactly at the syntactic break, before the enclitics. Crucially this pause could only occur in this position, or directly before the root (at the beginning of the utterance) where a pause would be expected. These pauses disrupted the prosodic word directly before the enclitics, but never resulted in a pitch or intensity reset on the enclitic. Much less, pausing within the syntactic constituency did not seem to interfere with the normal pitch and intensity declination observed in examples (1) to (5). This appears to indicate that Kwak̓wala speakers are able to maintain two levels of overlapping constituency, one prosodic and one syntactic, without confusing or disrupting each other.	page 5
+§6	Jonathan Janzen	note	The examples (10) to (20) show that enclitics “-χa” may never take stress, even when an otherwise trochaic foot pattern might allow it to. This sometimes leaves yet another unstressed syllable in the beginning of the following root. In example (14), “-χa” appears after the prosodic word “kás- dzi” and before the word “bəgʷánəm.” It would be prosodically possible for “-χa” to take stress (as shown below) but never does.	page 5
+display line 1	Kwak̓wala	transcription	*(kás dzi) -(χá be) (gʷá nəm)	page 5, the starred parse, the enclitic stressed
+display line 2	Jonathan Janzen	note	σ σ -σ σ σ σ	page 5, its syllables
+§6	Jonathan Janzen	note	In (11) to (15), the determiner “-χa” is dependent on previous prosodic words for stress, never taking stress itself. (16) to (20) show that prosodic words, as defined by stress domain, incorporate the enclitics as dependant on the stress of the stem: (həm̓-xʔídən-χa) where “-ən-χa” are enclitics, and “həm̓-xʔíd” is the stem. The examples (10) through (20) also show that some morphemes which Boas assumed to be suffixes in fact have prominent stress. Under the analysis that prosodic words are defined by their ability to be uttered with prominent stress, such morphemes as gánəm, kás- dzi/dzi-kás (Boas 1947, p234), must be considered as words.	page 6
+§6	Jonathan Janzen	note	What remains to be further explored is the exceptional way in which the enclitics behave in Kwak̓wala. These clitics are the units which create the mismatch in prosody and syntax, at both the word and phrase level. Theoretically, enclitics may be forced into this mismatch in order to place prosodic prominence on lexical roots. Prosodic phrases are marked with initial pitch and intensity resets, and Kwak̓wala might want to highlight lexical items by making them always sentence initial in order to give emphasis to lexical items over functional categories. This may be a strategy to counter the semantic richness of functional categories denoting: Case, Location, Determiners, Visibility, and Temporal features (Chung 2007). However, making up for semantic richness by giving prosodic richness is not something found in the literature, but may be a provocative idea. Also, if words are defined by stressed units, as is shown, then such things as modals and temporal markers must be considered as words in their own right. Further research on the nature of word stress is needed in Kwak̓wala to shed more light on prosodic constituencies.	page 6
+references	Jonathan Janzen	heading	References	page 6
+references	Jonathan Janzen	reference	Anderson, Stephen R. 1984. Kwakwala Syntax and the Government-Binding Theory. Eung-Do Cook and Donna B. Gerdts, eds. Syntax and Semantics, vol. 16: The Syntax of Native American Languages. Orlando, FL: Academic Press. 21-75.	page 6
+references	Jonathan Janzen	reference	Boas, Franz (Helene Boas Yampolsky, ed.). 1947. Kwakiutl Grammar with a Glossary of the Suffixes. Transactions of the American Philosophical Society 37. 202-377. Republished 1976. New York, NY: AMS Press Inc.	page 6
+references	Jonathan Janzen	reference	Chung, Yunhee. 2007. The internal structure of the Kwak'wala nominal domain. Kristín M. Johannsdóttir and Martin A. Oberg, eds. Papers for the 42nd International Conference on Salish and Neighbouring Languages. Vancouver, BC: University of British Columbia Working Papers in Linguistics. 101-118.	page 6
+references	Jonathan Janzen	reference	Ladd, Robert D. 2008 “Intonational Phonology” Cambridge University Press UK	page 7
+end	Jonathan Janzen	note	Jonathan Janzen	page 7, the author's address, under the references
+end	Jonathan Janzen	note	jonathanarthurjanzen@gmail.com	page 7, the author's address, under the references

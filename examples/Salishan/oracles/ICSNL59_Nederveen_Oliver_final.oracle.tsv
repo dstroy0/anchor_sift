@@ -1,0 +1,522 @@
+where	who	kind	form	gloss
+front	Sander Nederveen and Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+title	Sander Nederveen and Bruce Oliver	title	Ways of Expressing Ability in Secwepemctsín *	page 1, the title, its star the acknowledgement footnote's
+title	Sander Nederveen and Bruce Oliver	note	Sander Nederveen University of British Columbia Bruce Oliver University of British Columbia	page 1, the authors and their affiliations
+title	Sander Nederveen and Bruce Oliver	name	Sander Nederveen	author, University of British Columbia
+title	Sander Nederveen and Bruce Oliver	name	Bruce Oliver	author, University of British Columbia
+front	Sander Nederveen and Bruce Oliver	note	Abstract: This paper presents a discussion of two separate modals in Secwepemctsín: xwent and xil. We show that in many contexts they appear semantically identical and express ability. We then present how the modal forms are constrained and how they differ, reflecting on the challenges the empirical facts present for our understanding of ability modals, as well as for composition with (in)transitivizing morphology.	page 1, the abstract
+front	Sander Nederveen and Bruce Oliver	note	Keywords: modality, limited control, semantics, actuality entailment, Secwepemctsín	page 1
+§1	Sander Nederveen and Bruce Oliver	heading	1 Introduction	page 1
+§1	Sander Nederveen and Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+§1	Secwepemctsín	cited form	Kukwstsétselp	page 1
+§1	Sander Nederveen and Bruce Oliver	language	Nłeʔkepmxcín	Nłeʔkepmxcín, Thompson River Salish
+§1	Sander Nederveen and Bruce Oliver	note	In this paper we describe an interesting and puzzling pattern in Secwepemctsín at the intersection of modality, aspect, and the Salishan limited control system. We present various data concerning the expression of ability — that someone is or is not capable of some action — in Secwepemctsín. There are two ways of expressing ability in Secwepemctsín. The first is the modal predicate xwent, and the second one is various manifestations of xil:1 * This work would not have been possible without elders who have shared their language with us: the late Daniel Calhoun (DC), Leona Calhoun (LC), Garlene Dodson (GD), Ron Ignace (RI), Julie Antoine (JA), and the late Mona Jules (MJ). Kukwstsétselp! We moreover would like to thank Henry Davis, Lisa Matthewson, Ryan Bochnak, Marianne Ignace, the Secwepemctsín Research Group, and the Salish Working Group for feedback and discussions. This research was funded by the Jacobs Research Fund Group Grant Secwepemctsín Grammar and Use (Nederveen, PI), and the Phillips Fund for Native American Research Agent Control, Aspect and Transitivity in Secwepemctsín and Nłeʔkepmxcín (Nederveen, PI). All errors are ours. Contact info: sander.nederveen@ubc.ca, bruce.oliver@ubc.ca 1 1 = first person, 2 = second person, 3 = third person, CIRC = circumstantial modal, COMP = complementizer, COND = conditional, CTR = control, D/C = determiner/complementizer, DEM = demonstrative, DET = determiner, DIM = diminutive, DIST = distal, EMPH = emphatic, ERG = ergative, FUT = future, IMM = immediate, INCH = inchoative, IRR = irrealis, LC = limited control, LC.MID = limited control intransitive, LOC = locative, MID = middle, NEC = necessity, NEG = negative, NMLZ = nominalizer, OBJ = object, OBL = oblique, PL = plural, POSS = possessive, PST = past, Q = question particle, RPRT = reportative, SBJV = subjunctive, SG = singular, STAT = stativizer, TR = transitive. In the Secwepemctsín examples, we use practical orthography of the language in the top line, which results in some clitics being presented as free morphemes. The gloss line includes detailed morpheme boundaries. Material which is underlyingly present but has been deleted by a regular phonological process is marked by square brackets [...] in the gloss line. Clitics are indicated with equal signs (=), and suffixes with hyphens (-). Furthermore, ‘vf’ stands for volunteered form by the consultant, ‘sf’ stands for suggested or supplied form by the elicitor. Examples that have been elicited by the author are marked with (i) the date that these data points were elicited, and (ii) the initials of the consultant who provided the example. In Proceedings of the International Conference on Salish and Neighbouring Languages 59, D. K. E. Reisinger, Laura Griffin, Ella Hannon, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, Julia Schillo, Lauren Schneider, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2024.	page 1
+§1	Sander Nederveen and Bruce Oliver	name	Mona Jules	page 1, a speaker, MJ
+§1	Sander Nederveen and Bruce Oliver	name	Ron Ignace	page 1, a speaker, RI
+§1	Sander Nederveen and Bruce Oliver	name	Garlene Dodson	page 1, a speaker, GD
+§1	Sander Nederveen and Bruce Oliver	name	Daniel Calhoun	page 1, a speaker, DC
+§1	Sander Nederveen and Bruce Oliver	name	Julie Antoine	page 1, a speaker, JA
+§1	Sander Nederveen and Bruce Oliver	name	Leona Calhoun	page 1, a speaker, LC
+(1) line 1	Sander Nederveen and Bruce Oliver	note	Context: Asking someone who knows about the climate of California if a soapberry bush could grow there.	page 2, engine english
+(1) line 2	Secwepemctsín	transcription	xwénten	page 2, engine language
+(1) line 3	Secwepemctsín	segmentation	xwént=en	page 2, engine language
+(1) line 4	Secwepemctsín	gloss	CIRC=Q	page 2, engine english
+(1) line 5	Secwepemctsín	transcription	k sk̓ults	page 2, engine language
+(1) line 6	Secwepemctsín	segmentation	k=s-k̓ult-s	page 2, engine language
+(1) line 7	Secwepemctsín	gloss	D/C=NMLZ-grow-3POSS	page 2, engine english
+(1) line 8	Secwepemctsín	transcription	re sxúsem	page 2, engine language
+(1) line 9	Secwepemctsín	segmentation	re=sxúsem	page 2, engine language
+(1) line 10	Secwepemctsín	gloss	DET=soapberry	page 2, engine english
+(1) line 11	Secwepemctsín	transcription	ne California?	page 2, engine english
+(1) line 12	Secwepemctsín	segmentation	ne=California	page 2, engine english
+(1) line 13	Secwepemctsín	gloss	LOC=California	page 2, engine english
+(1) line 14	Oliver 2021:297	translation	‘Can soapberry grow in California?’	page 2, engine english, cited Oliver 2021:297
+(1) line 14	Sander Nederveen and Bruce Oliver	citation	(Oliver 2021:297)	the tag or source at the right of the translation
+(2) line 1	Sander Nederveen and Bruce Oliver	note	Context: Bruce never smoked and dried sockeye before, so he had to work for a long time to master it and to have the ability to do it.	page 2, engine english
+(2) line 2	Secwepemctsín	transcription	q̓7es	page 2, engine language
+(2) line 3	Secwepemctsín	segmentation	q̓7es	page 2, engine language
+(2) line 4	Secwepemctsín	gloss	long.time	page 2, engine english
+(2) line 5	Secwepemctsín	transcription	re Bruce	page 2, engine english
+(2) line 6	Secwepemctsín	segmentation	re=Bruce	page 2, engine english
+(2) line 7	Secwepemctsín	gloss	DET=Bruce	page 2, engine english
+(2) line 8	Secwepemctsín	transcription	eystéll	page 2, engine language
+(2) line 9	Secwepemctsín	segmentation	eystéll	page 2, engine language
+(2) line 10	Secwepemctsín	gloss	finally	page 2, engine english
+(2) line 11	Secwepemctsín	transcription	sxelenwélln̓s	page 2, engine language
+(2) line 12	Secwepemctsín	segmentation	s-xel-nwélln̓-s	page 2, engine language
+(2) line 13	Secwepemctsín	gloss	NMLZ-xil-LC.MID-3POSS	page 2, engine english
+(2) line 14	Secwepemctsín	transcription	es k̓écens	page 2, engine language
+(2) line 15	Secwepemctsín	segmentation	e=s-k̓éc-en[-t]-s	page 2, engine language
+(2) line 16	Secwepemctsín	gloss	COMP=NMLZ-dry-CTR[-TR]-3ERG	page 2, engine english
+(2) line 17	Secwepemctsín	transcription	re sqlelten7úw̓i.	page 2, engine language
+(2) line 18	Secwepemctsín	segmentation	re=sqlelten-7ú7y	page 2, engine language
+(2) line 19	Secwepemctsín	gloss	DET=salmon-real	page 2, engine english
+(2) line 20	Garlene Dodson	translation	‘After a long time Bruce was able to smoke the sockeye salmon.’	page 2, engine english, cited GD | sf | 12.06.2021, GD | sf | 12.06.2021
+(2) line 20	Sander Nederveen and Bruce Oliver	citation	(GD | sf | 12.06.2021)	the tag or source at the right of the translation
+§1	Sander Nederveen and Bruce Oliver	note	In this paper, we show how modal xwent is puzzling since it is a modal that cannot be embedded. We then show how modal xil, combined with several suffixes, is puzzling in its relationship with different types of (in)transitivizing morphology — such as limited control middle morphology in (2), because xil behaves like a modal with some (in)transitivizing morphology but not with other. At the same time, the same (in)transitivizing morphology is never modal except with xil. With this paper, we aim to comprehensively present this puzzle of Secwepemctsín ability modals, articulate questions it poses for the extant literature, and propose new avenues for future research. Finally, by presenting these empirical facts in a clear and concise way, we hope to further efforts of language retention, documentation, and revitalization.	page 2
+§1.1	Sander Nederveen and Bruce Oliver	heading	1.1 Language and methodology	page 2
+§1.1	Sander Nederveen and Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+§1.1	Sander Nederveen and Bruce Oliver	note	The main language of study is Secwepemctsín, an Interior Salish language. It had at most 160 fluent L1 speakers remaining at the time of writing of Ignace and Ignace (2017) and Gessner et al. (2022), although that number is now considerably lower and the language is critically endangered. Secwepemctsín comprises two main dialects (Western and Eastern; Ignace and Ignace 2017; Kuipers 1974) encompassing speech communities in the Central and Southern Interior of British Columbia between the Fraser River and the Rocky Mountains. There is urgency to continue and increase the level of documentation of Secwepemctsín, as to support the active community efforts to retain and revitalize these languages.	page 2
+§1.1	Sander Nederveen and Bruce Oliver	note	Unless otherwise indicated, the data from Secwepemctsín are drawn from fieldwork by the au- thors. Data collection took place both virtually through Zoom and through face-to-face elicitations, and employed standard fieldwork methodologies (Bochnak and Matthewson 2020; Matthewson 2004). The vast majority of elicitation tasks involved setting up a relevant context of use. Sporad- ically, visual aids such as pictures were used to support context tracking (Burton and Matthewson 2015).	page 2
+§2	Sander Nederveen and Bruce Oliver	heading	2 Different modals, overlapping use	page 3
+§2.1	Sander Nederveen and Bruce Oliver	heading	2.1 The versatility of modal xwent	page 3
+§2.1	Sander Nederveen and Bruce Oliver	language	Secwepemctsín.2	Secwepemctsín, carrying footnote 2
+§2.1	Sander Nederveen and Bruce Oliver	note	The predicate xwent, when followed by an ‘irrealis’ k or e=s subordinate clause, is one of the primary ways of expressing ability in Secwepemctsín.2	page 3
+(3a) line 1	Secwepemctsín	transcription	xwent	page 3, engine english
+(3a) line 2	Secwepemctsín	transcription	xwent	page 3, engine english
+(3a) line 3	Secwepemctsín	gloss	CIRC	page 3, engine english
+(3a) line 4	Secwepemctsín	transcription	(ri7)	page 3, engine residue
+(3a) line 5	Secwepemctsín	transcription	(ri7)	page 3, engine residue
+(3a) line 6	Secwepemctsín	gloss	(EMPH)	page 3, engine english
+(3a) line 7	Secwepemctsín	transcription	k scwentés.	page 3, engine language
+(3a) line 8	Secwepemctsín	segmentation	k=s-cwe-n-t-és	page 3, engine language
+(3a) line 9	Secwepemctsín	gloss	D/C.IRR=NMLZ-lift-CTR-TR-3POSS	page 3, engine english
+(3a) line 10	Mona Jules	translation	‘He or she can lift it.’	page 3, engine english, cited MJ | sf | 2.16.2022, MJ | sf | 2.16.2022
+(3a) line 10	Sander Nederveen and Bruce Oliver	citation	(MJ | sf | 2.16.2022)	the tag or source at the right of the translation
+(3b) line 1	Secwepemctsín	transcription	xwent	page 3, engine english
+(3b) line 2	Secwepemctsín	transcription	xwent	page 3, engine english
+(3b) line 3	Secwepemctsín	gloss	CIRC	page 3, engine english
+(3b) line 4	Secwepemctsín	transcription	(ri7)	page 3, engine residue
+(3b) line 5	Secwepemctsín	transcription	(ri7)	page 3, engine residue
+(3b) line 6	Secwepemctsín	gloss	(EMPH)	page 3, engine english
+(3b) line 7	Secwepemctsín	transcription	es cwentés.	page 3, engine language
+(3b) line 8	Secwepemctsín	segmentation	e=s-cwe-n-t-és	page 3, engine language
+(3b) line 9	Secwepemctsín	gloss	COMP=NMLZ-lift-CTR-TR-3ERG	page 3, engine english
+(3b) line 10	Mona Jules	translation	‘He or she can lift that.’	page 3, engine english, cited MJ | sf | 2.16.2022, MJ | sf | 2.16.2022
+(3b) line 10	Sander Nederveen and Bruce Oliver	citation	(MJ | sf | 2.16.2022)	the tag or source at the right of the translation
+§2.1	Sander Nederveen and Bruce Oliver	note	The uses of modal xwent extend beyond ability, however: it is used as a general marker for circumstantial possibility. This includes deontic possibility (permission) or pure circumstantial pos- sibility.	page 3
+(4) line 1	Sander Nederveen and Bruce Oliver	note	Context: You are going for a job interview and you are not sure what to do with your bag. The receptionist outside the office tells you that it is fine to take your bag into the interview with you, but you can also leave it in the waiting room.	page 3, engine english
+(4) line 2	Secwepemctsín	transcription	xwent	page 3, engine english
+(4) line 3	Secwepemctsín	transcription	xwent	page 3, engine english
+(4) line 4	Secwepemctsín	gloss	CIRC	page 3, engine english
+(4) line 5	Secwepemctsín	transcription	k skwenc	page 3, engine residue
+(4) line 6	Secwepemctsín	segmentation	k=s-kwen[-n-t]-c	page 3, engine language
+(4) line 7	Secwepemctsín	gloss	D/C.IRR=NMLZ-take[-CTR-TR]-2SG.ERG	page 3, engine english
+(4) line 8	Secwepemctsín	transcription	re7 ctécken̓ten,	page 3, engine language
+(4) line 9	Secwepemctsín	segmentation	re=7-ctécken̓ten	page 3, engine language
+(4) line 10	Secwepemctsín	gloss	DET=2SG.POSS-backpack	page 3, engine english
+§2.1	Secwepemctsín	cited form	sllwélenc	page 3
+§2.1	Secwepemctsín	cited form	k=s-llwél-en[-t]-c	page 3
+§2.1	Secwepemctsín	cited form	ne7élye	page 3
+§2.1	Sander Nederveen and Bruce Oliver	note	ell ell and xwent xwent CIRC k sllwélenc k=s-llwél-en[-t]-c D/C.IRR=NMLZ-leave.behind-CTR[-TR]-2SG.ERG ne7élye.	page 3
+§2.1	Sander Nederveen and Bruce Oliver	note	ne7élye here ‘You can take your backpack, and/but you can leave it here.’ (RI | vf | 8.21.2021)	page 3
+(5) line 1	Sander Nederveen and Bruce Oliver	note	Context: A child is playing with a ball near a strong river, and you want to warn them that the river could take the ball away.	page 3, engine english
+(5) line 2	Secwepemctsín	transcription	crelralétkwe	page 3, engine residue
+(5) line 3	Secwepemctsín	segmentation	c-relral-étkwe	page 3, engine language
+(5) line 4	Secwepemctsín	gloss	LOC-strong-water	page 3, engine english
+(5) line 5	Secwepemctsín	transcription	re setétkwe.	page 3, engine language
+(5) line 6	Secwepemctsín	segmentation	re=setétkwe	page 3, engine language
+(5) line 7	Secwepemctsín	gloss	DET=river	page 3, engine english
+§2.1	Secwepemctsín	cited form	st’eqwméke7	page 3
+§2.1	Sander Nederveen and Bruce Oliver	note	xwent xwent CIRC k skwewts k=s-kwewt-s D/C.IRR=NMLZ-float-3POSS re7 st’eqwméke7.	page 3
+§2.1	Secwepemctsín	cited form	re=7-st’eqwméke7	page 3
+footnote 2	Sander Nederveen and Bruce Oliver	note	2 The modal use of xwent is not described in Kuipers (1974).	page 3, footnote
+footnote 3	Sander Nederveen and Bruce Oliver	note	3 x̌ʷәm in St’át’imcets ( Van Eijk 2013:317), x̌ʷәŋ in Saanich ( Montler 2018:832), and x̌ʷәm in Hul’q’umi’num’ (Bätscher 2014:23) and Downriver Halkomelem (Suttles 2004:456). Kuipers (2002:199) traces the root √x̌ʷәn ‘fast’ to Proto-Interior Salish, but the forms found in Coast Salish suggest a Proto-Salish connection.	page 3, footnote
+§2.1	Secwepemctsín	cited form	x̌ʷәm	page 3
+§2.1	Sander Nederveen and Bruce Oliver	language	St’át’imcets	St’át’imcets, Lillooet
+§2.1	Secwepemctsín	cited form	x̌ʷәŋ	page 3
+§2.1	Sander Nederveen and Bruce Oliver	language	Hul’q’umi’num’	Hul’q’umi’num’
+§2.1	Secwepemctsín	root	√x̌ʷәn	page 3
+§2.1	Sander Nederveen and Bruce Oliver	note	re=7-st’eqwméke7 DET=2SG.POSS-ball ‘The river is rough/swift. Your ball could float away.’ (MJ | sf | 3.16.2022) However, xwent cannot be used with a modal meaning under negation or in the antecedent of a conditional. Rather than being ungrammatical, xwent in these constructions simply means ‘fast’. ‘Fast’ is the other meaning of the predicate xwent, and the meaning shared by its cognates across Salish.3	page 3
+(6) line 1	Sander Nederveen and Bruce Oliver	note	Context: Watching a rock-lifting competition, expressing disbelief that the current competitor will be able to lift that rock.	page 4, engine english
+(6a) line 1	Secwepemctsín	transcription	#ta7	page 4, engine language
+(6a) line 2	Secwepemctsín	segmentation	ta7	page 4, engine language
+(6a) line 3	Secwepemctsín	gloss	NEG	page 4, engine english
+(6a) line 4	Secwepemctsín	transcription	k sxwents	page 4, engine residue
+(6a) line 5	Secwepemctsín	segmentation	k=s-xwent-s	page 4, engine language
+(6a) line 6	Secwepemctsín	gloss	D/C.IRR=NMLZ-fast–3POSS	page 4, engine english
+(6a) line 7	Secwepemctsín	transcription	k scwentés.	page 4, engine language
+(6a) line 8	Secwepemctsín	segmentation	k=s-cwe-n-t-és	page 4, engine language
+(6a) line 9	Secwepemctsín	gloss	D/C.IRR=NMLZ-lift-CTR-TR-3ERG	page 4, engine english
+(6a) line 10	Secwepemctsín	gloss	# ‘He didn’t lift it fast.’ (MJ | sf | 02.16.2022)	page 4, engine english
+(6a) line 11	Sander Nederveen and Bruce Oliver	translation	Intended meaning: ‘He can’t lift it.’	page 4, engine english
+(6b) line 1	Secwepemctsín	transcription	ta7	page 4, engine language
+(6b) line 2	Secwepemctsín	transcription	ta7	page 4, engine language
+(6b) line 3	Secwepemctsín	gloss	NEG	page 4, engine english
+(6b) line 4	Secwepemctsín	transcription	k sxenwén̓s	page 4, engine language
+(6b) line 5	Secwepemctsín	segmentation	k=s-xe[l]-nwén̓[-t]-s	page 4, engine language
+(6b) line 6	Secwepemctsín	gloss	D/C.IRR=NMLZ-xil-LC[-TR]–3POSS	page 4, engine english
+(6b) line 7	Secwepemctsín	transcription	es cwentés.	page 4, engine language
+(6b) line 8	Secwepemctsín	segmentation	e=s-cwe-n-t-és	page 4, engine language
+(6b) line 9	Secwepemctsín	gloss	COMP=NMLZ-lift-CTR-TR-3ERG	page 4, engine english
+(6b) line 10	Mona Jules	translation	‘He is unable to lift it.’	page 4, engine english, cited MJ | sf | 02.16.2022, MJ | sf | 02.16.2022
+(6b) line 10	Sander Nederveen and Bruce Oliver	citation	(MJ | sf | 02.16.2022)	the tag or source at the right of the translation
+(7) line 1	Sander Nederveen and Bruce Oliver	note	Context: Your friend mentions that she needs help with something tomorrow. You want to help her, but you are busy tomorrow and you don’t know if you’ll be able to go.	page 4, engine english
+(7) line 2	Secwepemctsín	transcription	#e	page 4, engine residue
+(7) line 3	Secwepemctsín	transcription	e	page 4, engine residue
+(7) line 4	Secwepemctsín	gloss	COND	page 4, engine english
+§2.1	Secwepemctsín	cited form	knúcwentsen	page 4
+§2.1	Sander Nederveen and Bruce Oliver	note	xwent xwent fast ken snens, k=n-s-ne<n>s D/C.IRR=1SG.POSS-NMLZ-go<DIM> me7 me7 CIRC.NEC knúcwentsen.	page 4
+§2.1	Secwepemctsín	cited form	knúcw-en[-t]-ts-en	page 4
+§2.1	Sander Nederveen and Bruce Oliver	note	knúcw-en[-t]-ts-en help-CTR[-TR]-2SG.OBJ-1SG.ERG # ‘If I should go quickly, I will help you.’ Intended meaning: ‘If I can go, I will help you.’ Consultant’s comment: “With the e [conditional marker] there, it means ‘If I should go quickly.’ If you take the e away, it means ‘I can go.’” (MJ | sf | 04.06.2022) The consultant’s comment in (7) makes it clear that the modal meaning of xwent is incompatible with the presence of the conditional marker. It remains unclear why exactly xwent loses its modal meaning in these environments.	page 4
+§2.2	Sander Nederveen and Bruce Oliver	heading	2.2 Single-purpose modal xil	page 4
+§2.2	Secwepemctsín	cited form	xelnwén̓	page 4
+§2.2	Secwepemctsín	cited form	xelnwélln̓—	page 4
+§2.2	Sander Nederveen and Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+§2.2	Sander Nederveen and Bruce Oliver	note	Three forms of the root xil — xilt, xelnwén̓, and xelnwélln̓— can be used to express ability in Secwepemctsín.	page 4
+(8) line 1	Sander Nederveen and Bruce Oliver	note	Context: You hear a noise in the middle of the night, so you go out of the house to investigate with someone. It is pitch black outside, and you can’t see anything at all, so you ask the other person if she can see at all.	page 4, engine english
+(8) line 2	Secwepemctsín	transcription	xenwélln̓en-k	page 4, engine language
+(8) line 3	Secwepemctsín	segmentation	xe[l]-nwélln̓=en=k	page 4, engine language
+(8) line 4	Secwepemctsín	gloss	xil-LC.MID=Q=2SG.SBJV	page 4, engine english
+(8) line 5	Secwepemctsín	transcription	te7 swíkem?	page 4, engine language
+(8) line 6	Secwepemctsín	segmentation	te=7-s-wík-em	page 4, engine language
+(8) line 7	Secwepemctsín	gloss	COMP=2SG.POSS-NMLZ-see-MID	page 4, engine english
+(8) line 8	Ron Ignace	translation	‘Are you able to see?’	page 4, engine english, cited RI | vf | 04.12.2021, RI | vf | 04.12.2021
+(8) line 8	Sander Nederveen and Bruce Oliver	citation	(RI | vf | 04.12.2021)	the tag or source at the right of the translation
+§2.2	Secwepemctsín	cited affix	-nwen̓[-t	page 5
+§2.2	Secwepemctsín	cited affix	-nwelln̓is	page 5
+§2.2	Sander Nederveen and Bruce Oliver	note	The status of the -t suffix on xil-t is unclear, but -nwen̓[-t] is the limited control transitive suffix, and -nwelln̓is the limited control middle suffix.	page 5
+§2.2	Sander Nederveen and Bruce Oliver	note	These forms can occur under negation with their modal meanings intact, unlike xwent. This is the canonical way of expressing inability in Secwepemctsín.	page 5
+(9a) line 1	Secwepemctsín	transcription	ta7	page 5, engine residue
+(9a) line 2	Secwepemctsín	transcription	ta7	page 5, engine language
+(9a) line 3	Secwepemctsín	gloss	NEG	page 5, engine english
+(9a) line 4	Secwepemctsín	transcription	k sxilts	page 5, engine language
+(9a) line 5	Secwepemctsín	segmentation	k=s-xil-t-s	page 5, engine language
+(9a) line 6	Secwepemctsín	gloss	D/C.IRR=NMLZ-xil-IMM–3POSS	page 5, engine english
+(9a) line 7	Secwepemctsín	transcription	es cw7ims	page 5, engine language
+(9a) line 8	Secwepemctsín	segmentation	e=s-cw<7>-ím-s	page 5, engine language
+(9a) line 9	Secwepemctsín	gloss	COMP=NMLZ-lift<INCH>-MID-3POSS	page 5, engine english
+(9a) line 10	Secwepemctsín	transcription	tek scencénc.	page 5, engine residue
+(9a) line 11	Secwepemctsín	segmentation	te-k=s<cen>cénc	page 5, engine language
+(9a) line 12	Secwepemctsín	gloss	DET.OBL-IRR=rock<PL>	page 5, engine english
+(9a) line 13	Mona Jules	translation	‘He cannot lift rocks.’	page 5, engine english, cited MJ | vf | 03.09.2022, MJ | vf | 03.09.2022
+(9a) line 13	Sander Nederveen and Bruce Oliver	citation	(MJ | vf | 03.09.2022)	the tag or source at the right of the translation
+(9b) line 1	Secwepemctsín	transcription	ta7	page 5, engine language
+(9b) line 2	Secwepemctsín	transcription	ta7	page 5, engine language
+(9b) line 3	Secwepemctsín	gloss	NEG	page 5, engine english
+(9b) line 4	Secwepemctsín	transcription	k sxenwén̓s	page 5, engine language
+(9b) line 5	Secwepemctsín	segmentation	k=s-xe[l]-nwén̓[-t]-s	page 5, engine language
+(9b) line 6	Secwepemctsín	gloss	D/C.IRR=NMLZ-xil-LC[-TR]-3POSS	page 5, engine english
+(9b) line 7	Secwepemctsín	transcription	es cwentés.	page 5, engine language
+(9b) line 8	Secwepemctsín	segmentation	e=s-cwe-n-t-és	page 5, engine language
+(9b) line 9	Secwepemctsín	gloss	COMP=NMLZ-lift-CTR-TR-3ERG	page 5, engine english
+(9b) line 10	Mona Jules	translation	‘He is unable to lift it/them.’	page 5, engine english, cited MJ | sf | 02.16.2022, MJ | sf | 02.16.2022
+(9b) line 10	Sander Nederveen and Bruce Oliver	citation	(MJ | sf | 02.16.2022)	the tag or source at the right of the translation
+(9c) line 1	Secwepemctsín	transcription	ta7	page 5, engine language
+(9c) line 2	Secwepemctsín	transcription	ta7	page 5, engine language
+(9c) line 3	Secwepemctsín	gloss	NEG	page 5, engine english
+(9c) line 4	Secwepemctsín	transcription	k sxenwélln̓s	page 5, engine language
+(9c) line 5	Secwepemctsín	segmentation	k=s-xe[l]-nwélln̓-s	page 5, engine language
+(9c) line 6	Secwepemctsín	gloss	D/C.IRR=NMLZ-xil-LC.MID-3POSS	page 5, engine english
+(9c) line 7	Secwepemctsín	transcription	es cwentés.	page 5, engine language
+(9c) line 8	Secwepemctsín	segmentation	e=s-cwe-n-t-és	page 5, engine language
+(9c) line 9	Secwepemctsín	gloss	COMP=NMLZ-lift-CTR-TR-3ERG	page 5, engine english
+(9c) line 10	Ron Ignace	translation	‘He is incapable of lifting it/them.’	page 5, engine english, cited RI | vf | 05.28.2021, RI | vf | 05.28.2021
+(9c) line 10	Sander Nederveen and Bruce Oliver	citation	(RI | vf | 05.28.2021)	the tag or source at the right of the translation
+§2.2	Sander Nederveen and Bruce Oliver	note	Unlike xwent, however, the forms of xil can only be used to express (in)ability, not other forms of possibility.	page 5
+(10) line 1	Sander Nederveen and Bruce Oliver	note	Context: A group of children are eyeing some sxusem (soapberry ice cream) at a party, and you want to tell them they’re allowed to have some.	page 5, engine english
+(10) line 2	Secwepemctsín	transcription	# re skwimé7melt	page 5, engine residue
+(10) line 3	Secwepemctsín	segmentation	re=skwimé7melt	page 5, engine language
+(10) line 4	Secwepemctsín	gloss	DET=child(ren)	page 5, engine english
+(10) line 5	Secwepemctsín	transcription	xenwén̓s	page 5, engine language
+(10) line 6	Secwepemctsín	segmentation	xe[l]-nwén̓[-t]-s	page 5, engine language
+(10) line 7	Secwepemctsín	gloss	xil-LC-TR-3.ERG	page 5, engine english
+(10) line 8	Secwepemctsín	transcription	es íllens	page 5, engine residue
+(10) line 9	Secwepemctsín	segmentation	e=s=7íllens	page 5, engine language
+(10) line 10	Secwepemctsín	gloss	COMP=NMLZ=eat-3.POSS	page 5, engine english
+(10) line 11	Secwepemctsín	transcription	re sxúsem.	page 5, engine language
+(10) line 12	Secwepemctsín	segmentation	re=sxúsem	page 5, engine language
+(10) line 13	Secwepemctsín	gloss	DET=soapberry	page 5, engine english
+(10) line 14	Ron Ignace	translation	Intended meaning: ‘The children can eat the sxusem.’	page 5, engine english, cited RI | sf | 11.21.2021, RI | sf | 11.21.2021
+(10) line 15	Ron Ignace	speaker comment	Consultant’s comment: “You’re saying ‘the child was capable of eating the sxusem.”’	page 5, engine english, the tag of the example, RI
+(10) line 16	Sander Nederveen and Bruce Oliver	citation	(RI | sf | 11.21.2021)	page 5, engine residue
+(11) line 1	Sander Nederveen and Bruce Oliver	note	Context: Sander is going for a run, but it’s storming outside. I am trying to warn him of the dangers.	page 5, engine english
+(11) line 2	Secwepemctsín	transcription	#xenwén̓s	page 5, engine language
+(11) line 3	Secwepemctsín	segmentation	xe[l]-nwén̓[-t]-s	page 5, engine language
+(11) line 4	Secwepemctsín	gloss	xil-LC-TR-3.ERG	page 5, engine english
+(11) line 5	Secwepemctsín	transcription	es csep̓úlecws	page 5, engine language
+(11) line 6	Secwepemctsín	segmentation	e=s-csep̓úlecw-s	page 5, engine language
+(11) line 7	Secwepemctsín	gloss	COMP=NMLZ-fall-3.POSS	page 5, engine english
+(11) line 8	Secwepemctsín	transcription	te tskts̓us!	page 5, engine language
+(11) line 9	Secwepemctsín	segmentation	te=tskts̓us	page 5, engine language
+(11) line 10	Secwepemctsín	gloss	DET.OBL=cliff	page 5, engine english
+(11) line 11	Ron Ignace	translation	Intended meaning: ’You could fall off a cliff!’	page 5, engine english, cited RI | sf | 11.21.2023, RI | sf | 11.21.2023
+(11) line 12	Ron Ignace	speaker comment	Consultant’s comment: “[You’re saying] he’s able to fall off a cliff. Kind of weird.”	page 5, engine english, the tag of the example, RI
+(11) line 13	Sander Nederveen and Bruce Oliver	citation	(RI | sf | 11.21.2023)	page 5, engine residue
+§3	Sander Nederveen and Bruce Oliver	heading	3 New questions	page 6
+§3.1	Sander Nederveen and Bruce Oliver	heading	3.1 Limited control on xil vs. lexical verbs	page 6
+§3.1	Sander Nederveen and Bruce Oliver	note	An interesting fact about the modal use of xil is the lack of an actuality entailment in all of its manifestations. Particularly, when xil composes with limited control marking, both transitive and middle, event actualization is not required:	page 6
+(12) line 1	Sander Nederveen and Bruce Oliver	note	xil and limited control transitive — no event actualization	page 6, engine english
+(12a) line 1	Secwepemctsín	transcription	re Henry	page 6, engine english
+(12a) line 2	Secwepemctsín	segmentation	re=Henry	page 6, engine english
+(12a) line 3	Secwepemctsín	gloss	DET=Henry	page 6, engine english
+(12a) line 4	Secwepemctsín	transcription	xenwén̓s	page 6, engine language
+(12a) line 5	Secwepemctsín	segmentation	xel-nwén̓[-t]-s	page 6, engine language
+(12a) line 6	Secwepemctsín	gloss	xil-LC[-TR]-3ERG	page 6, engine english
+(12a) line 7	Secwepemctsín	transcription	es ctsíqens	page 6, engine language
+(12a) line 8	Secwepemctsín	segmentation	e=s-c-tsíq-en-[t]-s	page 6, engine language
+(12a) line 9	Secwepemctsín	gloss	COMP=NMLZ-LOC-dig-CTR[-TR]-3ERG	page 6, engine english
+(12a) line 10	Secwepemctsín	transcription	re ctsipwens.	page 6, engine english
+(12a) line 11	Secwepemctsín	segmentation	re=c-tsipwen-s	page 6, engine residue
+(12a) line 12	Secwepemctsín	gloss	DET=LOC-root.cellar-3POSS	page 6, engine english
+(12a) line 13	Ron Ignace	translation	‘Henry is able to dig his cache pit/root cellar.’	page 6, engine english, cited RI | sf | 11.21.2023, RI | sf | 11.21.2023
+(12a) line 14	Ron Ignace	speaker comment	Consultant’s comment: “He’s capable but we don’t know if he has done it yet.”	page 6, engine english, the tag of the example, RI
+(12a) line 15	Sander Nederveen and Bruce Oliver	citation	(RI | sf | 11.21.2023)	page 6, engine residue
+(12b) line 1	Secwepemctsín	transcription	re Julia	page 6, engine english
+(12b) line 2	Secwepemctsín	segmentation	re=Julia	page 6, engine english
+(12b) line 3	Secwepemctsín	gloss	DET=Julia	page 6, engine english
+(12b) line 4	Secwepemctsín	transcription	xelenwén̓s	page 6, engine language
+(12b) line 5	Secwepemctsín	segmentation	xel-nwén̓[-t]-s	page 6, engine language
+(12b) line 6	Secwepemctsín	gloss	xil-LC[-TR]-3ERG	page 6, engine english
+(12b) line 7	Secwepemctsín	transcription	es ctsíqens	page 6, engine language
+(12b) line 8	Secwepemctsín	segmentation	e=s-c-tsíq-en-[t]-s	page 6, engine language
+(12b) line 9	Secwepemctsín	gloss	COMP=NMLZ-LOC-dig-CTR[-TR]-3ERG	page 6, engine english
+(12b) line 10	Secwepemctsín	transcription	re ctsípwen	page 6, engine residue
+(12b) line 11	Secwepemctsín	segmentation	re=c-tsípwen	page 6, engine language
+(12b) line 12	Secwepemctsín	gloss	DET-LOC-root.cellar	page 6, engine english
+(12b) line 13	Secwepemctsín	transcription	k̓émell	page 6, engine language
+(12b) line 14	Secwepemctsín	segmentation	k̓émell	page 6, engine language
+(12b) line 15	Secwepemctsín	gloss	however	page 6, engine english
+(12b) line 16	Secwepemctsín	transcription	ta7	page 6, engine language
+(12b) line 17	Secwepemctsín	transcription	ta7	page 6, engine language
+(12b) line 18	Secwepemctsín	gloss	NEG	page 6, engine english
+(12b) line 19	Secwepemctsín	transcription	k swi7s	page 6, engine language
+(12b) line 20	Secwepemctsín	segmentation	k=s-wi7-s	page 6, engine language
+(12b) line 21	Secwepemctsín	gloss	DET.IRR=NMLZ-finish-3POSS	page 6, engine english
+§3.1	Sander Nederveen and Bruce Oliver	note	ey.	page 6
+§3.1	Sander Nederveen and Bruce Oliver	note	ey yet ‘Julia is able to dig a root cellar but she hasn’t finished yet.’ (JA | sf | 11.20.2023)	page 6
+(13) line 1	Sander Nederveen and Bruce Oliver	note	xil and limited control middle — no event actualization	page 6, engine english
+(13) line 2	Secwepemctsín	transcription	re Henry	page 6, engine english
+(13) line 3	Secwepemctsín	segmentation	re=Henry	page 6, engine english
+(13) line 4	Secwepemctsín	gloss	DET=Henry	page 6, engine english
+(13) line 5	Secwepemctsín	transcription	xenwélln̓	page 6, engine language
+(13) line 6	Secwepemctsín	segmentation	xel-nwélln̓	page 6, engine language
+(13) line 7	Secwepemctsín	gloss	xil-LC.MID	page 6, engine english
+(13) line 8	Secwepemctsín	transcription	es ctsíqens	page 6, engine language
+(13) line 9	Secwepemctsín	segmentation	e=s-c-tsíq-en[-t]-s	page 6, engine language
+(13) line 10	Secwepemctsín	gloss	COMP=NMLZ-LOC-dig-CTR[-TR]-3ERG	page 6, engine english
+(13) line 11	Secwepemctsín	transcription	re ctsipwens.	page 6, engine english
+(13) line 12	Secwepemctsín	segmentation	re=c-tsipwen-s	page 6, engine residue
+(13) line 13	Secwepemctsín	gloss	DET=LOC-root.cellar-3POSS	page 6, engine english
+(13) line 14	Ron Ignace	translation	‘Henry is able to dig his cache pit/root cellar.’	page 6, engine english, cited RI | sf | 11.21.2023, RI | sf | 11.21.2023
+(13) line 15	Ron Ignace	speaker comment	Consultant’s comment: “Same as the other one [we don’t know if the event has taken place].”	page 6, engine english, the tag of the example, RI
+(13) line 16	Sander Nederveen and Bruce Oliver	citation	(RI | sf | 11.21.2023)	page 6, engine residue
+§3.1	Sander Nederveen and Bruce Oliver	note	On lexical verbs, however, some form of event actualization is entailed with limited control marking, such that the limited control transitive entails event culmination and the limited control entails a partial change of state (Nederveen 2024), which is illustrated in (14) and (15):	page 6
+(14) line 1	Sander Nederveen and Bruce Oliver	note	Limited control transitive — culmination entailed	page 7, engine english
+(14a) line 1	Secwepemctsín	transcription	# re Henry	page 7, engine english
+(14a) line 2	Secwepemctsín	segmentation	re=Henry	page 7, engine english
+(14a) line 3	Secwepemctsín	gloss	DET=Henry	page 7, engine english
+(14a) line 4	Secwepemctsín	transcription	ctsiqenwén̓s	page 7, engine language
+(14a) line 5	Secwepemctsín	segmentation	c-tsiq-nwén̓[-t]-s	page 7, engine language
+(14a) line 6	Secwepemctsín	gloss	LOC-dig-LC[-TR]-3ERG	page 7, engine english
+(14a) line 7	Secwepemctsín	transcription	re tsípwen,	page 7, engine residue
+(14a) line 8	Secwepemctsín	segmentation	re=tsípwen	page 7, engine language
+(14a) line 9	Secwepemctsín	gloss	DET=earthen.cellar	page 7, engine english
+(14a) line 10	Secwepemctsín	transcription	k̓émell	page 7, engine language
+(14a) line 11	Secwepemctsín	segmentation	k̓émell	page 7, engine language
+(14a) line 12	Secwepemctsín	gloss	however	page 7, engine english
+(14a) line 13	Secwepemctsín	transcription	ta7	page 7, engine language
+(14a) line 14	Secwepemctsín	transcription	ta7	page 7, engine language
+(14a) line 15	Secwepemctsín	gloss	NEG	page 7, engine english
+(14a) line 16	Secwepemctsín	transcription	k swi7s.	page 7, engine language
+(14a) line 17	Secwepemctsín	segmentation	k=s-wi7-s	page 7, engine language
+(14a) line 18	Secwepemctsín	gloss	D/C.IRR=NMLZ-finish-3POSS	page 7, engine english
+(14a) line 19	Mona Jules	translation	Intended meaning: ‘Henry dug an earthen cellar but has not finished.’	page 7, engine english, cited MJ | sf | 02.23.2022, MJ | sf | 02.23.2022
+(14a) line 20	Mona Jules	speaker comment	Consultant’s comment: “You can’t say ctsiqenwén̓s if he’s not finished yet.”	page 7, engine english, the tag of the example, MJ
+(14a)	Secwepemctsín	cited form	ctsiqenwén̓s	in the speaker comment, page 7
+(14a) line 21	Sander Nederveen and Bruce Oliver	citation	(MJ | sf | 02.23.2022)	page 7, engine residue
+(14b) line 1	Sander Nederveen and Bruce Oliver	note	Context: Bruce hunted deer and froze the meat. The freezer broke before it was fully frozen. #Bruce Bruce Bruce	page 7, engine english
+(14b) line 2	Secwepemctsín	transcription	sulenwén̓s	page 7, engine language
+(14b) line 3	Secwepemctsín	segmentation	sul-nwén̓[-t]-s	page 7, engine language
+(14b) line 4	Secwepemctsín	gloss	freeze-LC[-TR]-3ERG	page 7, engine english
+(14b) line 5	Secwepemctsín	transcription	re ts̓i7,	page 7, engine language
+(14b) line 6	Secwepemctsín	segmentation	re=ts̓i7	page 7, engine language
+(14b) line 7	Secwepemctsín	gloss	DET=deer	page 7, engine english
+(14b) line 8	Secwepemctsín	transcription	k̓émell	page 7, engine language
+(14b) line 9	Secwepemctsín	segmentation	k̓émell	page 7, engine language
+(14b) line 10	Secwepemctsín	gloss	however	page 7, engine english
+(14b) line 11	Secwepemctsín	transcription	ta7	page 7, engine language
+(14b) line 12	Secwepemctsín	transcription	ta7	page 7, engine language
+(14b) line 13	Secwepemctsín	gloss	NEG	page 7, engine english
+(14b) line 14	Secwepemctsín	transcription	k stsult.s	page 7, engine residue
+(14b) line 15	Secwepemctsín	segmentation	k=s-t-sul-t-s	page 7, engine language
+(14b) line 16	Secwepemctsín	gloss	DET=NMLZ-STAT-freeze-IMM-3POSS	page 7, engine english
+§3.1	Sander Nederveen and Bruce Oliver	note	ey.	page 7
+§3.1	Secwepemctsín	cited form	sulenwén̓s	page 7
+§3.1	Secwepemctsín	cited form	ts̓i7	page 7
+§3.1	Secwepemctsín	cited form	mekwmékw	page 7
+§3.1	Secwepemctsín	cited form	sek̓wmín̓s	page 7
+§3.1	Sander Nederveen and Bruce Oliver	note	ey still Intended meaning: ‘Bruce froze the meat but it wasn’t yet frozen.’ Consultant’s comment: “Something is going on here...You can’t put sulenwén̓s re ts̓i7, because it says [the meat] froze.” (GD | sf | 10.27.2021) (15) Limited control middle — partial change of state entailed a. #Henry Henry Henry mekwmékw mekwmékw dull re sek̓wmín̓s.	page 7
+§3.1	Secwepemctsín	cited form	re=sek̓wmín̓-s	page 7
+§3.1	Secwepemctsín	cited form	nik̓enwélln̓	page 7
+§3.1	Secwepemctsín	cited form	nik̓-nwélln̓	page 7
+§3.1	Secwepemctsín	cited form	tetétxmen	page 7
+§3.1	Secwepemctsín	cited form	te=te∼tétxmen	page 7
+§3.1	Secwepemctsín	cited form	k̓émell	page 7
+§3.1	Secwepemctsín	cited form	stsnikník̓s	page 7
+§3.1	Secwepemctsín	cited form	k=s-ts-<nik>ník̓-s	page 7
+§3.1	Sander Nederveen and Bruce Oliver	note	re=sek̓wmín̓-s DET=knife-3POSS Henry Henry Henry nik̓enwélln̓ nik̓-nwélln̓ cut-LC.MID te tetétxmen te=te∼tétxmen DET.OBL=PL∼fin k̓émell k̓émell however ta7 ta7 NEG k stsnikník̓s k=s-ts-<nik>ník̓-s D/C.IRR=NMLZ-STAT-cut-3POSS re tetétxmen.	page 7
+§3.1	Secwepemctsín	cited form	re=te∼tétxmen	page 7
+§3.1	Secwepemctsín	cited form	q̓wlenwélln̓	page 7
+§3.1	Secwepemctsín	cited form	q̓wl-nwélln̓	page 7
+§3.1	Secwepemctsín	cited form	peták	page 7
+§3.1	Secwepemctsín	cited form	te=peták	page 7
+§3.1	Secwepemctsín	cited form	ck̓weltsentéltens	page 7
+§3.1	Secwepemctsín	cited form	re=c-k̓weltsenélten-s	page 7
+§3.1	Secwepemctsín	cited form	q̓uwúp-uke	page 7
+§3.1	Sander Nederveen and Bruce Oliver	note	re=te∼tétxmen DET=PL∼fin Intended meaning: ‘Henry’s knife is dull. Henry was cutting some but none of the fins got cut.’ Consultant’s comment: “You are contradicting yourself here, because you are saying that some fins got cut.” (MJ | sf | 02.16.2022) b. # Sander Sander Sander q̓wlenwélln̓ q̓wl-nwélln̓ roast-LC.MID te peták, te=peták DET.OBL=potato k̓émell k̓émell however re ck̓weltsentéltens re=c-k̓weltsenélten-s DET=LOC-stove-3POSS q̓uwúp-uke.	page 7
+§3.1	Secwepemctsín	cited form	q̓uwúp=ekwe	page 7
+§3.1	Secwepemctsín	cited form	Yerí7	page 7
+§3.1	Secwepemctsín	cited form	ye-rí7	page 7
+§3.1	Sander Nederveen and Bruce Oliver	note	q̓uwúp=ekwe broken=RPRT Yerí7 ye-rí7 DEM-DIST ul ul so peták peták potato stsixw s[t]-tsixw STAT-raw ey.	page 7
+§3.1	Sander Nederveen and Bruce Oliver	note	ey still Intended meaning: ‘Sander roasted some potatoes, but his stove was broken. That’s why the potatoes are still raw.’ Consultant’s comment: “No, they cannot all be raw still, because you say he was able to.” (GD | sf | 08.24.2022) The contrasting findings between xil and lexical verbs in their composition with limited control marking poses interesting questions for our understanding of both the nature of limited control and the nature of xil.	page 7
+§3.1	Sander Nederveen and Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+§3.1	Sander Nederveen and Bruce Oliver	note	In previous literature on limited control in Secwepemctsín (Nederveen 2024), limited control is analyzed and understood as purely aspectual and void of any modal meaning. The data above suggest that there may be at least some modal meaning associated with limited control. Alternatively, if limited control is not modal, we would have to adopt the view that xil is a modal verb scoping over limited control morphology, cancelling its aspectual contribution. This is an appealing option, since the only environment in which limited control gets a modal meaning is when it composes with xil. Moreover, based on example (9a), which shows that xil with marking other than limited control is modal, we have some evidence that points in the direction of xil being modal, and limited control scoping lower. However, this is not the complete picture, because xil with the middle marker seems to have no modal semantics at all:	page 8
+(16) line 1	Secwepemctsín	transcription	tá7wes	page 8, engine language
+(16) line 2	Secwepemctsín	segmentation	tá7=wes	page 8, engine language
+(16) line 3	Secwepemctsín	gloss	NEG=3.SBJV	page 8, engine english
+(16) line 4	Secwepemctsín	transcription	t̓ri7	page 8, engine language
+(16) line 5	Secwepemctsín	segmentation	t̓ri7	page 8, engine language
+(16) line 6	Secwepemctsín	gloss	EMPH	page 8, engine english
+(16) line 7	Secwepemctsín	transcription	ke7 sxilem!	page 8, engine residue
+(16) line 8	Secwepemctsín	segmentation	k=e7-s-xil-em	page 8, engine language
+(16) line 9	Secwepemctsín	gloss	D/C.IRR=2SG.POSS-NMLZ-xil-MID	page 8, engine english
+(16) line 10	Kuipers 1974:82	translation	‘Don’t do it!’	page 8, engine english, cited Kuipers 1974:82
+(16) line 10	Sander Nederveen and Bruce Oliver	citation	(Kuipers 1974:82)	the tag or source at the right of the translation
+§3.1	Sander Nederveen and Bruce Oliver	note	With control transitive marking on xil, the root appears to change to xill (no xil-n or xil-t with tran- sitive morphology is attested), and we once again get no modal meaning:	page 8
+(17) line 1	Secwepemctsín	transcription	tá7wes	page 8, engine language
+(17) line 2	Secwepemctsín	segmentation	tá7=wes	page 8, engine language
+(17) line 3	Secwepemctsín	gloss	NEG=3.SBJV	page 8, engine english
+(17) line 4	Secwepemctsín	transcription	t̓ri7	page 8, engine language
+(17) line 5	Secwepemctsín	segmentation	t̓ri7	page 8, engine language
+(17) line 6	Secwepemctsín	gloss	EMPH	page 8, engine english
+(17) line 7	Secwepemctsín	transcription	k sxilltc!	page 8, engine residue
+(17) line 8	Secwepemctsín	segmentation	k=s-xill[-n]-t-c	page 8, engine language
+(17) line 9	Secwepemctsín	gloss	D/C.IRR=NMLZ-xil[-CTR]-TR-2SG.ERG	page 8, engine english
+(17) line 10	Kuipers 1974:82	translation	‘Don’t do it that way!’	page 8, engine english, cited Kuipers 1974:82
+(17) line 10	Sander Nederveen and Bruce Oliver	citation	(Kuipers 1974:82)	the tag or source at the right of the translation
+(18) line 1	Secwepemctsín	transcription	m- xíxllten	page 8, engine residue
+(18) line 2	Secwepemctsín	segmentation	m-xí<x>ll[-n]-t-n	page 8, engine language
+(18) line 3	Secwepemctsín	gloss	PST-xil<DIM>[-CTR]-TR-1SG.ERG	page 8, engine english
+§3.1	Sander Nederveen and Bruce Oliver	note	mell.	page 8
+§3.1	Sander Nederveen and Bruce Oliver	note	mell already ’I’ve done this before.’ (MJ | vf | 03.02.2022) Given the forms above, it is difficult to argue that the root xil is contributing modal semantics by itself, otherwise we would expect xil-em to be modal as well.	page 8
+§3.1	Sander Nederveen and Bruce Oliver	note	Looking at all these facts, we are presented with a conundrum in which it is unclear how the aspectual and modal components of the limited control forms of xil interact precisely. We leave this question for future work.	page 8
+§3.2	Sander Nederveen and Bruce Oliver	heading	3.2 What’s the difference between xil forms?	page 8
+§3.2	Sander Nederveen and Bruce Oliver	note	As shown above, there are contexts where limited control marking is merely aspectual, determining the aspectual properties of its predicate. Within the category of limited control, there is the distinction between the limited control transitive, and the limited control middle. On lexical (non-modal) verbs, this distinction plays out as follows, according to Nederveen (2024):	page 8
+§3.2	Sander Nederveen and Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+§3.2	Secwepemctsín	cited form	xelnwén̓	page 9
+§3.2	Secwepemctsín	cited form	xelnwelln̓	page 9
+§3.2	Sander Nederveen and Bruce Oliver	note	Transitive Middle Limited Control Entail Culmination Entail Partial Change of State Table 1: Aspectual contrast of limited control forms in Secwepemctsín Essentially, the two different limited control forms have two different aspectual entailments. Transitive limited control entails culmination, whereas intransitive (middle) limited control entails a partial change of state (without culmination), which is illustrated in (14) and (15) above. When limited control morphology composes with xil, it appears that the aspectual contrasts between the transitive and middle forms is neutralized because neither form carries an actuality entailment, which was shown in (12) and (13). Given that it was the varying extents to which event actualization was entailed by each form, it has become increasingly difficult to detect any aspectual differences on xil-forms, if there are any. In our findings so far, xilt, xelnwén̓, and xelnwelln̓ appear largely interchangeable: they express ability unembedded and inability under negation. The translations given in (9) (repeated below as (19)) give rise to very similar interpretations.	page 9
+(19a) line 1	Secwepemctsín	transcription	ta7	page 9, engine residue
+(19a) line 2	Secwepemctsín	transcription	ta7	page 9, engine language
+(19a) line 3	Secwepemctsín	gloss	NEG	page 9, engine english
+(19a) line 4	Secwepemctsín	transcription	k sxilts	page 9, engine language
+(19a) line 5	Secwepemctsín	segmentation	k=s-xil-t-s	page 9, engine language
+(19a) line 6	Secwepemctsín	gloss	D/C.IRR=NMLZ-xil-IMM–3POSS	page 9, engine english
+(19a) line 7	Secwepemctsín	transcription	es cw7ims	page 9, engine language
+(19a) line 8	Secwepemctsín	segmentation	e=s-cw<7>-ím-s	page 9, engine language
+(19a) line 9	Secwepemctsín	gloss	COMP=NMLZ-lift<INCH>-MID-3POSS	page 9, engine english
+(19a) line 10	Secwepemctsín	transcription	tek scencénc.	page 9, engine residue
+(19a) line 11	Secwepemctsín	segmentation	te-k=s<cen>cénc	page 9, engine language
+(19a) line 12	Secwepemctsín	gloss	DET.OBL-IRR=rock<PL>	page 9, engine english
+(19a) line 13	Mona Jules	translation	‘He cannot lift rocks.’	page 9, engine english, cited MJ | vf | 03.09.2022, MJ | vf | 03.09.2022
+(19a) line 13	Sander Nederveen and Bruce Oliver	citation	(MJ | vf | 03.09.2022)	the tag or source at the right of the translation
+(19b) line 1	Secwepemctsín	transcription	ta7	page 9, engine language
+(19b) line 2	Secwepemctsín	transcription	ta7	page 9, engine language
+(19b) line 3	Secwepemctsín	gloss	NEG	page 9, engine english
+(19b) line 4	Secwepemctsín	transcription	k sxenwén̓s	page 9, engine language
+(19b) line 5	Secwepemctsín	segmentation	k=s-xe[l]-nwén̓[-t]-s	page 9, engine language
+(19b) line 6	Secwepemctsín	gloss	D/C.IRR=NMLZ-xil-LC[-TR]-3POSS	page 9, engine english
+(19b) line 7	Secwepemctsín	transcription	es cwentés.	page 9, engine language
+(19b) line 8	Secwepemctsín	segmentation	e=s-cwe-n-t-és	page 9, engine language
+(19b) line 9	Secwepemctsín	gloss	COMP=NMLZ-lift-CTR-TR-3ERG	page 9, engine english
+(19b) line 10	Mona Jules	translation	‘He is unable to lift it/them.’	page 9, engine english, cited MJ | sf | 02.16.2022, MJ | sf | 02.16.2022
+(19b) line 10	Sander Nederveen and Bruce Oliver	citation	(MJ | sf | 02.16.2022)	the tag or source at the right of the translation
+(19c) line 1	Secwepemctsín	transcription	ta7	page 9, engine language
+(19c) line 2	Secwepemctsín	transcription	ta7	page 9, engine language
+(19c) line 3	Secwepemctsín	gloss	NEG	page 9, engine english
+(19c) line 4	Secwepemctsín	transcription	k sxenwélln̓s	page 9, engine language
+(19c) line 5	Secwepemctsín	segmentation	k=s-xe[l]-nwélln̓-s	page 9, engine language
+(19c) line 6	Secwepemctsín	gloss	D/C.IRR=NMLZ-xil-LC.MID-3POSS	page 9, engine english
+(19c) line 7	Secwepemctsín	transcription	es cwentés.	page 9, engine language
+(19c) line 8	Secwepemctsín	segmentation	e=s-cwe-n-t-és	page 9, engine language
+(19c) line 9	Secwepemctsín	gloss	COMP=NMLZ-lift-CTR-TR-3ERG	page 9, engine english
+(19c) line 10	Ron Ignace	translation	‘He is incapable of lifting it/them.’	page 9, engine english, cited RI | vf | 05.28.2021, RI | vf | 05.28.2021
+(19c) line 10	Sander Nederveen and Bruce Oliver	citation	(RI | vf | 05.28.2021)	the tag or source at the right of the translation
+§3.2	Secwepemctsín	cited form	xelnwén̓and	page 9
+§3.2	Secwepemctsín	cited form	xelnwélln̓hinted	page 9
+§3.2	Sander Nederveen and Bruce Oliver	note	The slight difference in translation between xelnwén̓and xelnwélln̓hinted at a difference in duration of inability (for instance, temporary inability vs. permanent inability), but we found no such difference in our testing: both forms are consistent with temporary inability, as (20) shows below.	page 9
+(20a) line 1	Secwepemctsín	transcription	re pexyéwt	page 9, engine english
+(20a) line 2	Secwepemctsín	segmentation	re=pexyéwt	page 9, engine residue
+(20a) line 3	Secwepemctsín	gloss	DET=tomorrow	page 9, engine english
+§3.2	Secwepemctsín	cited form	ctsíqenses	page 9
+§3.2	Secwepemctsín	cited form	c-tsíq-en[-t]-s=es	page 9
+§3.2	Secwepemctsín	cited form	ctsípwens	page 9
+§3.2	Secwepemctsín	cited form	re=c-tsípwen-s	page 9
+§3.2	Secwepemctsín	cited form	k̓émell	page 9
+§3.2	Secwepemctsín	cited form	k=s=sxenwén̓s	page 9
+§3.2	Secwepemctsín	cited form	k=s-xe[l]-nwén̓[-t]-s	page 9
+§3.2	Secwepemctsín	cited form	sitq̓t	page 9
+§3.2	Sander Nederveen and Bruce Oliver	note	me7 me7 FUT ctsíqenses c-tsíq-en[-t]-s=es LOC-dig-CTR-TR-3ERG=3SBJV re ctsípwens re=c-tsípwen-s DET=LOC-root.cellar-3POSS re Henry re=Henry DET=Henry k̓émell k̓émell however ta7 ta7 NEG k=s=sxenwén̓s k=s-xe[l]-nwén̓[-t]-s DET.IRR=NMLZ-xil-LC[-TR]-3ERG pyin pyin now te sitq̓t.	page 9
+§3.2	Secwepemctsín	cited form	te=sitq̓t	page 9
+§3.2	Sander Nederveen and Bruce Oliver	note	te=sitq̓t DET.OBL=day ‘Henry will dig his root cellar tomorrow but he is not able to do it today.’ (RI | sf | 11.21.2023)	page 9
+(20b) line 1	Secwepemctsín	transcription	re pexyéwt	page 10, engine english
+(20b) line 2	Secwepemctsín	segmentation	re=pexyéwt	page 10, engine residue
+(20b) line 3	Secwepemctsín	gloss	DET=tomorrow	page 10, engine english
+§3.2	Secwepemctsín	cited form	sxenwélln̓s	page 10
+§3.2	Secwepemctsín	cited form	k=s-xe[l]-nwélln̓-s	page 10
+§3.2	Sander Nederveen and Bruce Oliver	note	me7 me7 FUT ctsíqenses c-tsíq-en[-t]-s=es LOC-dig-CTR-TR-3ERG=3SBJV re ctsípwens re=c-tsípwen-s DET=LOC-root.cellar-3POSS re Henry re=Henry DET=Henry k̓émell k̓émell however ta7 ta7 NEG k sxenwélln̓s k=s-xe[l]-nwélln̓-s DET.IRR=NMLZ-xil-LC.MID-3POSS pyin pyin now te sitq̓t.	page 10
+§3.2	Secwepemctsín	cited form	xelnwélln̓cannot	page 10
+§3.2	Secwepemctsín	cited form	xelnwén̓can	page 10
+§3.2	Sander Nederveen and Bruce Oliver	note	te=sitq̓t DET.OBL=day ‘Henry will dig his root cellar tomorrow but he is not able to do it today.’ (RI | sf | 11.21.2023) However, even though the aspectual differences between the limited control transitive and mid- dle are neutralized when they compose with xil, we are aware of one difference in distributional restrictions. Namely, we found that xelnwélln̓cannot appear under the future marker me7, 4 while xelnwén̓can.	page 10
+(21a) line 1	Sander Nederveen and Bruce Oliver	note	* Henry Henry Henry	page 10, engine english
+(21a) line 2	Secwepemctsín	transcription	me7	page 10, engine english
+(21a) line 3	Secwepemctsín	transcription	me7	page 10, engine english
+(21a) line 4	Secwepemctsín	gloss	FUT	page 10, engine english
+(21a) line 5	Secwepemctsín	transcription	xenwélln̓	page 10, engine language
+(21a) line 6	Secwepemctsín	segmentation	xe[l]-nwélln̓	page 10, engine language
+(21a) line 7	Secwepemctsín	gloss	xil-LC.MID	page 10, engine english
+(21a) line 8	Secwepemctsín	transcription	es ctsíqens	page 10, engine language
+(21a) line 9	Secwepemctsín	segmentation	e=s-ctsíq-n[-t]-s	page 10, engine language
+(21a) line 10	Secwepemctsín	gloss	COMP=NMLZ-dig-CTR-TR-3.ERG	page 10, engine english
+(21a) line 11	Secwepemctsín	transcription	re tsípwen.	page 10, engine language
+(21a) line 12	Secwepemctsín	segmentation	re=tsípwen	page 10, engine language
+(21a) line 13	Secwepemctsín	gloss	DET=root.cellar	page 10, engine english
+(21a) line 14	Ron Ignace	translation	Intended meaning: ‘Henry will be able to dig a root cellar.’	page 10, engine english, cited RI | sf | 11.21.2023, RI | sf | 11.21.2023
+(21a) line 14	Sander Nederveen and Bruce Oliver	citation	(RI | sf | 11.21.2023)	the tag or source at the right of the translation
+(21b) line 1	Sander Nederveen and Bruce Oliver	note	Henry Henry Henry	page 10, engine english
+(21b) line 2	Secwepemctsín	transcription	me7	page 10, engine english
+(21b) line 3	Secwepemctsín	transcription	me7	page 10, engine english
+(21b) line 4	Secwepemctsín	gloss	FUT	page 10, engine english
+(21b) line 5	Secwepemctsín	transcription	xenwén̓s	page 10, engine language
+(21b) line 6	Secwepemctsín	segmentation	xe[l]-nwén̓[-t]-s	page 10, engine language
+(21b) line 7	Secwepemctsín	gloss	xil-LC-TR-3.ERG	page 10, engine english
+(21b) line 8	Secwepemctsín	transcription	es ctsíqens	page 10, engine language
+(21b) line 9	Secwepemctsín	segmentation	e=s-ctsíq-n[-t]-s	page 10, engine language
+(21b) line 10	Secwepemctsín	gloss	COMP=NMLZ-dig-CTR-TR-3.ERG	page 10, engine english
+(21b) line 11	Secwepemctsín	transcription	re tsípwen.	page 10, engine language
+(21b) line 12	Secwepemctsín	segmentation	re=tsípwen	page 10, engine language
+(21b) line 13	Secwepemctsín	gloss	DET=root.cellar	page 10, engine english
+(21b) line 14	Ron Ignace	translation	‘Henry will be able to dig a root cellar.’	page 10, engine english, cited RI | sf | 11.21.2023, RI | sf | 11.21.2023
+(21b) line 14	Sander Nederveen and Bruce Oliver	citation	(RI | sf | 11.21.2023)	the tag or source at the right of the translation
+§3.2	Sander Nederveen and Bruce Oliver	note	At this point, we lack sufficient evidence to conclude whether this difference is driven by the aspectual difference, or by something else. Whether there are any other syntactic differences, or any semantic differences at all is also unclear at this point.	page 10
+§3.2	Sander Nederveen and Bruce Oliver	note	The precise way in which the two different manifestations of limited control differ when com- posing with xil presents an interesting area for future work. Understanding where the contrasts lie in this area would not only shed light on xil-forms, it would also contribute to a more thorough understanding of control and limited control (cf. Nederveen 2024).	page 10
+§4	Sander Nederveen and Bruce Oliver	heading	4 Implications and conclusions	page 10
+§4	Sander Nederveen and Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+§4	Sander Nederveen and Bruce Oliver	note	This paper is part of an ongoing investigation on the syntax and semantics of ability and limited control in Secwepemctsín. We have discussed several ways of expressing ability in Secwepemctsín and described the analytical puzzle as it stands. Moreover, we have added more empirical knowledge related to the use of Secwepemctsín and the expression of ability in the language, and we hope to answer the remaining questions in the future. Specifically, we have identified the following pressing questions:	page 10
+§4	Sander Nederveen and Bruce Oliver	note	1. What differentiates xwent and xil in their modal uses, if anything?	page 10
+§4	Secwepemctsín	cited form	xelnwén̓may	page 10
+§4	Secwepemctsín	cited form	xelnwélln̓may	page 10
+footnote 4	Sander Nederveen and Bruce Oliver	note	4 Oliver (2023) argues that me7 is actually a more general circumstantial necessity modal, as it has deontic readings in addition to marking future. Whether this plays a role in how xelnwén̓may scope under me7, while xelnwélln̓may not, remains to be seen.	page 10
+§4	Sander Nederveen and Bruce Oliver	note	2. What is the source of the modal meaning of xil-modals?	page 11
+§4	Sander Nederveen and Bruce Oliver	note	3. Is limited control contributing any modal meaning to xil-modals, and how does that affect our understanding of limited control on lexical verbs?	page 11
+§4	Sander Nederveen and Bruce Oliver	note	Answering these questions, or any part of them, will have important implications not only for our understanding of Secwepemctsín, but also the semantics of modality and limited control from a cross-Salish perspective and the semantics of ability modality from a cross-linguistic perspective.	page 11
+references	Sander Nederveen and Bruce Oliver	heading	References	page 11
+references	Sander Nederveen and Bruce Oliver	reference	Bätscher, Kevin Mark. 2014. Interclausal and intraclausal linking elements in Hul’q’umi’num’ Sal- ish. Master’s thesis, Simon Fraser University.	
+references	Sander Nederveen and Bruce Oliver	reference	Bochnak, M. Ryan, and Lisa Matthewson. 2020. Techniques in complex semantic fieldwork. Annual Review of Linguistics 6:261–283.	
+references	Sander Nederveen and Bruce Oliver	reference	Burton, Strang, and Lisa Matthewson. 2015. Targeted construction storyboards in semantic field- work. Methodologies in Semantic Fieldwork 135–156.	
+references	Sander Nederveen and Bruce Oliver	reference	Gessner, Suzanne, Tracey Herbert, and Aliana Parker. 2022. Report on the status of B. C. First Nations languages. First Peoples’ Cultural Council.	
+references	Sander Nederveen and Bruce Oliver	name	Secwépemc	the Secwépemc people
+references	Secwepemctsín	cited form	Yerí7	page 11
+references	Sander Nederveen and Bruce Oliver	reference	Ignace, Marianne, and Ronald Ignace. 2017. Secwépemc people, land, and laws: Yerí7 re stsq’ey’s- kucw, volume 90. McGill-Queen’s UP.	
+references	Sander Nederveen and Bruce Oliver	reference	Kuipers, Aert Hendrik. 1974. The Shuswap language: Grammar, texts, dictionary, volume 225. Hague: Mouton.	
+references	Sander Nederveen and Bruce Oliver	reference	Kuipers, Aert Hendrik. 2002. Salish etymological dictionary. 16. Linguistics Laboratory University of Montana.	
+references	Sander Nederveen and Bruce Oliver	reference	Matthewson, Lisa. 2004. On the methodology of semantic fieldwork. International journal of American linguistics 70:369–415.	
+references	Sander Nederveen and Bruce Oliver	language	SENĆOŦEN	SENĆOŦEN, Saanich
+references	Sander Nederveen and Bruce Oliver	reference	Montler, Timothy. 2018. SENĆOŦEN: A dictionary of the Saanich language. University of Wash- ington Press.	
+references	Sander Nederveen and Bruce Oliver	reference	Nederveen, Sander. 2024. Maximal and non-minimal change in Salish event structure. In Proceed- ings of Semantics of Under-represented Languages of the Americas 13, ed. Polina Kasyanova Mariana Calderón-Corona and Eva Neu.	
+references	Sander Nederveen and Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+references	Sander Nederveen and Bruce Oliver	reference	Oliver, Bruce. 2021. A preliminary account of circumstantial xwent in Secwepemctsín. In Papers for the 56th Conference on Salish and Neighbouring Languages, ed. Daniel Reisinger, 294–304.	
+references	Sander Nederveen and Bruce Oliver	reference	Oliver, Bruce. 2023. An analysis of circumstantial xwent in Secwepemctsín. UBC Linguistics Qualifying Papers 1–21.	
+references	Sander Nederveen and Bruce Oliver	reference	Suttles, Wayne P. 2004. Musqueam reference grammar, volume 2. UBC Press.	
+references	Sander Nederveen and Bruce Oliver	reference	Van Eijk, Jan. 2013. Lillooet-English dictionary. University of British Columbia Occasional Papers in Linguistics.	

@@ -1,0 +1,422 @@
+where	who	kind	form	gloss
+front	Hank Nater	title	Old Records of Three Contiguous Pacific Northwest Languages: Bella Coola (Nuxalk), Carrier (Dakelh), Shuswap (Secwepmc)	page 1
+front	Hank Nater	name	Hank Nater	author
+front	Hank Nater	note	Conklin, Alberta	page 1, under Hank Nater
+front	Hank Nater	note	Abstract: In this brief report, I contemplate northern Salish and Carrier language samples as recorded by the Scottish explorer Alexander Mackenzie, who first made contact with local people in the Shuswap–Carrier–Bella Coola macro-region in 1793. The first short word list presented in his log affords proof of two developments (drag chain sound shifts in Carrier and extinction of a Shuswap dialect), and the second one confirms the *…an# → …a# shift in Bella Coola. In combination with Mackenzie’s Carrier data, Daniel Harmon’s word list (1820:403–413) provides a time line for completion of the /k̭/ series → /č/ series and /q/ series → /k/ series shifts in older stages of Carrier. It is also noted that, whereas the Shuswap dialect observed by Mackenzie appears to have differed from current Shuswap dialects on the lexical level, Bella Coola lexicon may have remained virtually unchanged over the past 226 years.	page 1, the abstract
+front	Hank Nater	note	Keywords: Bella Coola, Shuswap, Carrier, sound shifts, dialect extinction, language contact	page 1, the keywords
+front	Hank Nater	note	Papers for the International Conference on Salish and Neighbouring Languages 54. D. K. E. Reisinger & Gloria Mellesmoen (eds.). Vancouver: UBCWPL, 2019.	page 1, the volume's header
+front	Hank Nater	language	Bella Coola	Nuxalk, the northernmost Salish language, its words from Mackenzie's list of 1793
+front	Hank Nater	note	Contact info: hanknater@gmail.com	page 1, the note at the foot of the page with no mark
+§1	Hank Nater	heading	1 Introduction	page 1
+§1	Hank Nater	note	The first European to establish contact with speakers of the northernmost Salish languages Bella Coola and Shuswap, as well as with Carrier Athabascans, is the Scottish explorer Alexander Mackenzie. In 1793, he documented some Carrier, Shuswap, and Bella Coola words which he listed in his journal. Although his rendition of the native terms is, as expected, inadequate and inconsistent, we can decipher these word lists easily if we are familiar with, and/or have access to printed sources for, the languages they represent. We then detect three points of interest: (1) drag chain sound shifts in Carrier; (2) disparities between current Shuswap and the now extinct “Chin- Indian” dialect recorded by Mackenzie; (3) confirmation of the *…an# → …a# shift in Bella Coola. Note that Mackenzie’s journals have been published at least twice: a comprehensive edition in 1801, and a shorter one in 1911. In this paper, I quote from the latter version, except in one footnote where reference is made to old Chipewyan words for ‘hair’ and ‘wood’.	page 1
+§1	Hank Nater	name	Alexander Mackenzie	the Scottish explorer whose journal of 1793 lists the words
+§1	Hank Nater	name	Mackenzie	Alexander Mackenzie, Voyages from Montreal (1793, published 1801 and 1911)
+§1	Hank Nater	language	Carrier	Dakelh, Athabascan, Mackenzie's “Nagailer”
+§1	Hank Nater	language	Shuswap	Secwepmc, Interior Salish, Mackenzie's “Atnah”
+§1	Hank Nater	language	Salish	the family of Bella Coola and Shuswap
+§1	Hank Nater	language	Athabascan	the family of Carrier
+§1	Hank Nater	language	Chipewyan	Athabascan, with the same shifts
+§1	Hank Nater	note	The data are presented and examined in Section 2, while in Section 3, a few remaining topics are addressed: rapid phonological changes in Carrier; lexical copying in Shuswap; lexical history and prehistory of Bella Coola.	page 1
+§2	Hank Nater	heading	2 The data	page 1
+§2	Hank Nater	note	Mackenzie lists Carrier (“Nagailer or Carrier-Indians”) and Shuswap (“Atnah or Chin-Indians”) words side by side (preceded by the English gloss) on pages 164–165, while on page 315, he presents a similar list for Bella Coola, but with a different choice of vocabulary (and with an English gloss following each entry).1	page 1
+footnote 1	Hank Nater	note	“Nagailer” may be related with Carrier naʔigéł ‘he is packing’. “Atnah” is probably Carrier ʔətna which, however, now means ‘Indians of west coast’.	page 1, footnote 1
+footnote 1	Bella Coola	cited form	naʔigéł	page 1, in italics, ‘he is packing’
+footnote 1	Bella Coola	cited form	ʔətna	page 1, in italics
+§2	Hank Nater	language	English	Mackenzie's spellings
+§2.1	Hank Nater	heading	2.1 The Carrier word list	page 2
+§2.1	Hank Nater	note	Below, current Carrier forms in parentheses are as recreated by myself. Carrier data are from Antoine F. et al. (1974), and PA reconstructions (*…) from Kari (1990), Krauss and Leer (1981), and Leer (2008).2	page 2
+footnote 2	Hank Nater	note	As a rule, Mackenzie’s “ch” = /x, χ/ (except in “chiquoi” ‘woman’), “z” = /ʒ, c, c’, s, z/, “eh” = /ix̭, e, ε/, “ei, ey” = /i/. PA = proto-Athabascan.	page 2, footnote 2
+footnote 2	Hank Nater	language	proto-Athabascan	the reconstructed ancestor of Carrier
+§2.1	Hank Nater	name	Antoine	F. Antoine et al., the Carrier bilingual dictionary (1974)
+§2.1	Hank Nater	name	Kari	James Kari, the Ahtna Athabaskan dictionary (1990)
+§2.1	Hank Nater	name	Krauss	Michael E. Krauss, Na-Dene (1976), and with Jeff Leer, Athabaskan, Eyak and Tlingit sonorants (1981)
+§2.1	Hank Nater	name	Kraus	Michael E. Krauss, spelled Kraus in footnote 4
+§2.1	Hank Nater	name	Leer	Jeff Leer, recent advances in AET comparison (2008)
+§2.1	Hank Nater	language	PA	proto-Athabascan
+Table 1	Hank Nater	note	Table 1: Mackenzie’s Carrier word list	page 2, the table's caption
+Table 1	Hank Nater	note	Gloss Carrier Gloss Carrier	page 2, the table's header
+Table 1	Bella Coola	cited form	nah	page 2, Table 1, Mackenzie's spelling of ‘eye’
+Table 1	Bella Coola	cited form	ʔəna	page 2, Table 1, the form under Mackenzie's “nah”
+Table 1	Bella Coola	cited form	yezey	page 2, Table 1, Mackenzie's spelling of ‘elk’
+Table 1	Bella Coola	cited form	yəzi	page 2, Table 1, the form under Mackenzie's “yezey”
+Table 1	Bella Coola	cited form	thigah	page 2, Table 1, Mackenzie's spelling of ‘hair’
+Table 1	Bella Coola	cited form	ʔəc̭i-ɣaʔ	page 2, Table 1, the form under Mackenzie's “thigah”, ‘head-hair’
+Table 1	Bella Coola	cited form	sleing	page 2, Table 1, Mackenzie's spelling of ‘dog’
+Table 1	Bella Coola	cited form	łi	page 2, Table 1, the form under Mackenzie's “sleing”
+Table 1	Bella Coola	cited form	*łəŋ	page 2, Table 1, a reconstruction under Mackenzie's “sleing”
+Table 1	Bella Coola	cited form	gough	page 2, Table 1, Mackenzie's spelling of ‘teeth’
+Table 1	Bella Coola	cited form	ʔəɣu	page 2, Table 1, the form under Mackenzie's “gough”
+Table 1	Bella Coola	cited form	thidnu	page 2, Table 1, Mackenzie's spelling of ‘groundhog’
+Table 1	Bella Coola	cited form	dətni	page 2, Table 1, a form compared under Mackenzie's “thidnu”, ‘id.’
+Table 1	Bella Coola	cited form	nenzeh	page 2, Table 1, Mackenzie's spelling of ‘nose’
+Table 1	Bella Coola	cited form	ʔənincis	page 2, Table 1, the form under Mackenzie's “nenzeh”
+Table 1	Bella Coola	cited form	*-nə-čiⁿˑx̭	page 2, Table 1, a reconstruction under Mackenzie's “nenzeh”
+Table 1	Hank Nater	note	‘iron’ thilisitch3 (łəztih ‘knife’)	page 2, Table 1, the entry that carries footnote 3
+footnote 3	Hank Nater	note	“…tch” (rather than “…teh”) must be a typesetting error (Carrier does not have word-final affricates).	page 2, footnote 3
+Table 1	Bella Coola	cited form	thilisitch	page 2, Table 1, Mackenzie's spelling of ‘iron’
+Table 1	Bella Coola	cited form	łəztih	page 2, Table 1, the form under Mackenzie's “thilisitch”, ‘knife’
+Table 1	Bella Coola	cited form	thie	page 2, Table 1, Mackenzie's spelling of ‘head’
+Table 1	Bella Coola	cited form	ʔəc̭i	page 2, Table 1, the form under Mackenzie's “thie”
+Table 1	Bella Coola	cited form	*ciʔ	page 2, Table 1, a reconstruction under Mackenzie's “thie”
+Table 1	Bella Coola	cited form	coun	page 2, Table 1, Mackenzie's spelling of ‘fire’
+Table 1	Bella Coola	cited form	kʷən	page 2, Table 1, the form under Mackenzie's “coun”
+Table 1	Bella Coola	cited form	dekin	page 2, Table 1, Mackenzie's spelling of ‘wood’
+Table 1	Bella Coola	cited form	dəčən	page 2, Table 1, the form under Mackenzie's “dekin”
+Table 1	Bella Coola	cited form	*də-k̭ən	page 2, Table 1, a reconstruction under Mackenzie's “dekin”
+Table 1	Bella Coola	cited form	tou	page 2, Table 1, Mackenzie's spelling of ‘water’
+Table 1	Bella Coola	cited form	tu	page 2, Table 1, the form under Mackenzie's “tou”
+Table 1	Bella Coola	cited form	lah	page 2, Table 1, Mackenzie's spelling of ‘hand’
+Table 1	Bella Coola	cited form	ʔəla	page 2, Table 1, the form under Mackenzie's “lah”
+Table 1	Bella Coola	cited form	zeh	page 2, Table 1, Mackenzie's spelling of ‘stone’
+Table 1	Bella Coola	cited form	c̭e	page 2, Table 1, the form under Mackenzie's “zeh”
+Table 1	Bella Coola	cited form	*ceˑ	page 2, Table 1, a reconstruction under Mackenzie's “zeh”
+Table 1	Bella Coola	cited form	kin	page 2, Table 1, Mackenzie's spelling of ‘leg’
+Table 1	Bella Coola	cited form	ʔəkečən	page 2, Table 1, the form under Mackenzie's “kin”
+Table 1	Bella Coola	cited form	*-qeʔ-k̭ən	page 2, Table 1, a reconstruction under Mackenzie's “kin”
+Table 1	Hank Nater	note	‘bow’ nettuny (n-əłtiʔ ‘your rifle’)4	page 2, Table 1, the entry that carries footnote 4
+footnote 4	Hank Nater	note	Harmon (1820) cites both “al-tung” ‘bow’ and “al-tee” ‘gun’ (a doublet, see Kraus and Leer 1981:50).	page 2, footnote 4
+Table 1	Bella Coola	cited form	nettuny	page 2, Table 1, Mackenzie's spelling of ‘bow’
+Table 1	Bella Coola	cited form	n-əłtiʔ	page 2, Table 1, the form under Mackenzie's “nettuny”, ‘your rifle’
+Table 1	Bella Coola	cited form	thoula	page 2, Table 1, Mackenzie's spelling of ‘tongue’
+Table 1	Bella Coola	cited form	ʔəc̭ula	page 2, Table 1, the form under Mackenzie's “thoula”
+Table 1	Bella Coola	cited form	*culaʔ	page 2, Table 1, a reconstruction under Mackenzie's “thoula”
+Table 1	Hank Nater	note	‘arrow’ igah (k’a ‘bullet’, k’az̭a ‘arrow’)5	page 2, Table 1, the entry that carries footnote 5
+footnote 5	Hank Nater	note	‘Arrow’ is the original meaning of k’a (see Morice 1932:25), (-)z̭a ‘only’.	page 2, footnote 5
+footnote 5	Bella Coola	cited form	(-)z̭a	page 2, in italics, ‘only’
+footnote 5	Hank Nater	name	Morice	A. G. Morice, the Carrier language (1932)
+Table 1	Bella Coola	cited form	igah	page 2, Table 1, Mackenzie's spelling of ‘arrow’
+Table 1	Bella Coola	cited form	k’a	page 2, Table 1, the form under Mackenzie's “igah”, ‘bullet’
+Table 1	Bella Coola	cited form	k’az̭a	page 2, Table 1, the form under Mackenzie's “igah”, ‘arrow’
+Table 1	Bella Coola	cited form	zach	page 2, Table 1, Mackenzie's spelling of ‘ear’
+Table 1	Bella Coola	cited form	ʔəʒeh	page 2, Table 1, the form under Mackenzie's “zach”
+Table 1	Bella Coola	cited form	*√ǯaχ	page 2, Table 1, a reconstruction under Mackenzie's “zach”
+Table 1	Hank Nater	note	‘yes’ nesi (?)6	page 2, Table 1, the entry that carries footnote 6
+footnote 6	Hank Nater	note	Could this be ‘I (have) see(n it)’, cf. Tahltan nesʔíˑn ‘id.’ (my field notes)?	page 2, footnote 6
+footnote 6	Bella Coola	cited form	nesʔíˑn	page 2, in italics, ‘id.’
+Table 1	Bella Coola	cited form	nesi	page 2, Table 1, Mackenzie's spelling of ‘yes’
+Table 1	Hank Nater	note	(?)	page 2, Table 1, the word “nesi” records is unknown
+Table 1	Bella Coola	cited form	dinay	page 2, Table 1, Mackenzie's spelling of ‘man’
+Table 1	Bella Coola	cited form	dəne	page 2, Table 1, the form under Mackenzie's “dinay”
+Table 1	Bella Coola	cited form	thoughoud	page 2, Table 1, Mackenzie's spelling of ‘plains’
+Table 1	Bella Coola	cited form	ƛ’ok’ət	page 2, Table 1, the form under Mackenzie's “thoughoud”, ‘meadow’
+Table 1	Bella Coola	cited form	chiquoi	page 2, Table 1, Mackenzie's spelling of ‘woman’
+Table 1	Bella Coola	cited form	c’eku	page 2, Table 1, the form under Mackenzie's “chiquoi”, ‘id. pl.’
+Table 1	Bella Coola	cited form	*č’	page 2, Table 1, a reconstruction under Mackenzie's “chiquoi”
+Table 1	Bella Coola	cited form	andezei	page 2, Table 1, Mackenzie's spelling of ‘come here’
+Table 1	Bella Coola	cited form	ʔandit	page 2, Table 1, a form compared under Mackenzie's “andezei”, ‘now’, with a query
+Table 1	Bella Coola	cited form	zah	page 2, Table 1, Mackenzie's spelling of ‘beaver’
+Table 1	Bella Coola	cited form	ca	page 2, Table 1, the form under Mackenzie's “zah”
+Table 1	Bella Coola	cited form	*čaʔ	page 2, Table 1, a reconstruction under Mackenzie's “zah”
+§2.1	Hank Nater	note	From a few entries it appears that the Carrier variant represented in this list was at the time more archaic than it would be some twenty years later (after Harmon’s arrival in BC). These entries, to wit “nenzeh” = *(ʔə)nəncix̭ ‘nose’, “dekin” = *dək̭ən ‘wood’, “kin” = *…k̭ən ‘leg’, “zach” = *(ʔə)ʒaχ ‘ear’, and “sleing” = *łiŋ < PA *łəŋ ‘dog’, had changed little since the PA phase (see Section 3 for further details). Sound shifts are of the drag chain type: (1) fronting of the /c₁/ and /č₁/ series and unrounding of the /čʷ/ series, (2) fronting of the /č₂/, /k/, and /q/ series.7	page 2
+footnote 7	Hank Nater	note	Similar shifts took place in other Athabascan, e.g. Chipewyan, which appears to once have had “thiegah” ‘hair’ and “dethkin” ‘wood’ (the latter with odd “…th…”) (Mackenzie 1801:cxxx–cxxxi).	page 2, footnote 7
+§2.1	Bella Coola	cited form	*łəŋ	page 2, in italics, ‘dog’
+§2.1	Bella Coola	cited form	*(ʔə)nəncix̭	page 2, in italics, ‘nose’
+§2.1	Bella Coola	cited form	*dək̭ən	page 2, in italics, ‘wood’
+§2.1	Bella Coola	cited form	*…k̭ən	page 2, in italics, ‘leg’
+§2.1	Bella Coola	cited form	*(ʔə)ʒaχ	page 2, in italics, ‘ear’
+§2.1	Bella Coola	cited form	*łiŋ	page 2, in italics
+§2.1	Hank Nater	name	Harmon	Daniel W. Harmon, A journal of voyages and travels (1820)
+Table 2	Hank Nater	note	Table 2: Sound shift progression from proto-Athabascan to Carrier	page 3, the table's caption; a dotted empty box in a stage stands where a series has shifted out
+Table 2	Hank Nater	note	PA /q/ /k̭/ /čʷ/ /č₁/ /c₁/	page 3, a stage
+Table 2	Hank Nater	note	↘	page 3, a row of arrows, the shifts between the stages
+Table 2	Hank Nater	note	↓ /q/ /k̭/ /čʷ/ /č₁/ /c̭/	page 3, a stage
+Table 2	Hank Nater	note	↘	page 3, a row of arrows, the shifts between the stages
+Table 2	Hank Nater	note	↓ /q/ /k̭/ /čʷ/ /c₂/ /c̭/	page 3, a stage
+Table 2	Hank Nater	note	↘	page 3, a row of arrows, the shifts between the stages
+Table 2	Hank Nater	note	1793 /q/ /k̭/ /č₂/ /c₂/ /c̭/	page 3, a stage
+Table 2	Hank Nater	note	↘ ↘	page 3, a row of arrows, the shifts between the stages
+Table 2	Hank Nater	note	↓ /q/ /č₃/ /c₃/ /c̭/	page 3, a stage
+Table 2	Hank Nater	note	↘	page 3, a row of arrows, the shifts between the stages
+Table 2	Hank Nater	note	Carrier /k/ /č₃/ /c₃/ /c̭/	page 3, a stage
+§2.2	Hank Nater	heading	2.2 The Shuswap word list	page 3
+§2.2	Hank Nater	note	Below, parenthetic forms (current Shuswap) are as reconstructed by myself (and quoted from Kuipers 1974), and proto-Salish *smułac is from Kuipers (2002).	page 3
+§2.2	Bella Coola	cited form	*smułac	page 3, in italics
+§2.2	Hank Nater	name	Kuipers	Aert H. Kuipers, the Shuswap language (1974) and the Salish etymological dictionary (2002)
+§2.2	Hank Nater	language	proto-Salish	*smułac ‘woman’
+Table 3	Hank Nater	note	Table 3: Mackenzie’s “Chin-Indian” word list	page 3, the table's caption
+Table 3	Hank Nater	note	Gloss “Chin-Indian” Gloss “Chin-Indian”	page 3, the table's header
+Table 3	Bella Coola	cited form	thloustin	page 3, Table 3, Mackenzie's spelling of ‘eye’
+Table 3	Bella Coola	cited form	xkʷt’ustn	page 3, Table 3, the form under Mackenzie's “thloustin”
+Table 3	Hank Nater	note	‘elk’ ookoy-beh8	page 3, Table 3, the entry that carries footnote 8
+footnote 8	Hank Nater	note	This may have been a taboo term, possibly *χʷə~χʷey-upeʔ ‘bereft of one’s tail’.	page 3, footnote 8
+footnote 8	Bella Coola	cited form	*χʷə~χʷey-upeʔ	page 3, in italics, ‘bereft of one’s tail’
+Table 3	Bella Coola	cited form	ookoy-beh	page 3, Table 3, Mackenzie's spelling of ‘elk’
+Table 3	Bella Coola	cited form	cahowdin	page 3, Table 3, Mackenzie's spelling of ‘hair’
+Table 3	Bella Coola	cited form	qewtn	page 3, Table 3, the form under Mackenzie's “cahowdin”
+Table 3	Bella Coola	cited form	scacah	page 3, Table 3, Mackenzie's spelling of ‘dog’
+Table 3	Bella Coola	cited form	sqéχe	page 3, Table 3, the form under Mackenzie's “scacah”
+Table 3	Bella Coola	cited form	chliough	page 3, Table 3, Mackenzie's spelling of ‘teeth’
+Table 3	Bella Coola	cited form	χlexʷ	page 3, Table 3, the form under Mackenzie's “chliough”
+Table 3	Bella Coola	cited form	squaisquais	page 3, Table 3, Mackenzie's spelling of ‘groundhog’
+Table 3	Bella Coola	cited form	sqʷíʔqʷe	page 3, Table 3, the form under Mackenzie's “squaisquais”
+Table 3	Bella Coola	cited form	pisax	page 3, Table 3, Mackenzie's spelling of ‘nose’
+Table 3	Bella Coola	cited form	sp’seqs	page 3, Table 3, the form under Mackenzie's “pisax”
+Table 3	Bella Coola	cited form	soucoumang	page 3, Table 3, Mackenzie's spelling of ‘iron’
+Table 3	Bella Coola	cited form	sək’ʷmin’	page 3, Table 3, the form under Mackenzie's “soucoumang”, ‘knife’
+Table 3	Bella Coola	cited form	scapacay	page 3, Table 3, Mackenzie's spelling of ‘head’
+Table 3	Bella Coola	cited form	sk’pqin	page 3, Table 3, the form under Mackenzie's “scapacay”
+Table 3	Bella Coola	cited form	teuck	page 3, Table 3, Mackenzie's spelling of ‘fire’
+Table 3	Bella Coola	cited form	tʔikʷ	page 3, Table 3, the form under Mackenzie's “teuck”
+Table 3	Bella Coola	cited form	shedzay	page 3, Table 3, Mackenzie's spelling of ‘wood’
+Table 3	Bella Coola	cited form	sχc’ey	page 3, Table 3, the form under Mackenzie's “shedzay”
+Table 3	Bella Coola	cited form	shaweliquoih	page 3, Table 3, Mackenzie's spelling of ‘water’
+Table 3	Bella Coola	cited form	séwłkʷe	page 3, Table 3, the form under Mackenzie's “shaweliquoih”
+Table 3	Bella Coola	cited form	calietha	page 3, Table 3, Mackenzie's spelling of ‘hand’
+Table 3	Bella Coola	cited form	kelx	page 3, Table 3, the form under Mackenzie's “calietha”
+Table 3	Bella Coola	cited form	ishehoinah	page 3, Table 3, Mackenzie's spelling of ‘stone’
+Table 3	Bella Coola	cited form	sxenx	page 3, Table 3, the form under Mackenzie's “ishehoinah”
+Table 3	Bella Coola	cited form	squacht	page 3, Table 3, Mackenzie's spelling of ‘leg’
+Table 3	Bella Coola	cited form	sq’ʷeχt	page 3, Table 3, the form under Mackenzie's “squacht”, ‘foot’
+Table 3	Bella Coola	cited form	isquoinah	page 3, Table 3, Mackenzie's spelling of ‘bow’
+Table 3	Bella Coola	cited form	ckʷinək	page 3, Table 3, the form under Mackenzie's “isquoinah”
+Table 3	Bella Coola	cited form	dewhasjisk	page 3, Table 3, Mackenzie's spelling of ‘tongue’
+Table 3	Bella Coola	cited form	tíxʷeʔck	page 3, Table 3, the form under Mackenzie's “dewhasjisk”
+Table 3	Bella Coola	cited form	squailai	page 3, Table 3, Mackenzie's spelling of ‘arrow’
+Table 3	Bella Coola	cited form	sckʷil	page 3, Table 3, the form under Mackenzie's “squailai”
+Table 3	Bella Coola	cited form	ithlinah	page 3, Table 3, Mackenzie's spelling of ‘ear’
+Table 3	Bella Coola	cited form	t’éne	page 3, Table 3, the form under Mackenzie's “ithlinah”
+Table 3	Bella Coola	cited form	amaig	page 3, Table 3, Mackenzie's spelling of ‘yes’
+Table 3	Bella Coola	cited form	méʔe	page 3, Table 3, the form under Mackenzie's “amaig”
+Table 3	Bella Coola	cited form	scuyloch	page 3, Table 3, Mackenzie's spelling of ‘man’
+Table 3	Bella Coola	cited form	√sqeləxʷ	page 3, Table 3, the form under Mackenzie's “scuyloch”
+Table 3	Bella Coola	cited form	spilela	page 3, Table 3, Mackenzie's spelling of ‘plains’
+Table 3	Bella Coola	cited form	spelm	page 3, Table 3, the form under Mackenzie's “spilela”, ‘prairie’
+Table 3	Bella Coola	cited form	smosledgensk	page 3, Table 3, Mackenzie's spelling of ‘woman’
+Table 3	Bella Coola	cited form	*smułac	page 3, Table 3, a reconstruction under Mackenzie's “smosledgensk”
+Table 3	Bella Coola	cited form	thla-elyeh	page 3, Table 3, Mackenzie's spelling of ‘come here’
+Table 3	Bella Coola	cited form	ʔst’íle	page 3, Table 3, a form compared under Mackenzie's “thla-elyeh”, ‘stop!’
+Table 3	Bella Coola	cited form	schugh	page 3, Table 3, Mackenzie's spelling of ‘beaver’
+Table 3	Bella Coola	cited form	sqlew’	page 3, Table 3, the form under Mackenzie's “schugh”
+§2.2	Hank Nater	note	Although Mackenzie’s “Chin-Indian” words are unquestionably Shuswap, there are a few discrepancies: (1) a phoneme, or phoneme sequence, is absent in the 1793 words for ‘eye’, ‘nose’, ‘beaver’, ‘bow’; (2) a phoneme, or phoneme sequence, is absent in the current words for ‘hand’, ‘ear’, ‘groundhog’, ‘stone’, ‘bow’, ‘arrow’, ‘yes’; (3) “scapacay” ‘head’ was probably *sk’əpqin = [sk’əpqéˑn ~ sk’əpqéˑ(n)], while “spilela” ‘plains’ must be *spəl~eləm (where […ləm] may have alternated with […lɑⁿ]); (4) “smosledgensk” ‘woman’ certainly derives from proto-Salish *smułac ‘id.’ (Lillooet smúłac, Tillamook swiłéc (Kuipers 2002:68)),9 whereas the current Shuswap word for ‘woman’ is nuχʷ~nχʷ (from proto-Interior Salish *nəχʷ ‘female’ (Kuipers 2002:176)); (5) “scuyloch” ‘man’ (*sqayləxʷ?) resembles words for ‘man’ in other Interior Salish (Kuipers 2002:83), but current Shuswap √sqeləxʷ is found only in s-t’l’-sqéləxʷ ‘soul’ (Kuipers 1974:162). In view of these differences, I gather that the “Chin-Indians” spoke a Shuswap dialect, now extinct, that was lexically close to Lillooet.	page 4
+footnote 9	Hank Nater	note	“…ensk” unidentified sequence (cf. -enk ‘belly, curved surface’?).	page 4, footnote 9
+§2.2	Bella Coola	cited form	*sk’əpqin	page 4, in italics
+§2.2	Bella Coola	cited form	*spəl~eləm	page 4, in italics
+§2.2	Bella Coola	cited form	smúłac	page 4, in italics
+§2.2	Bella Coola	cited form	swiłéc	page 4, in italics
+§2.2	Bella Coola	cited form	nuχʷ~nχʷ	page 4, in italics
+§2.2	Bella Coola	cited form	*nəχʷ	page 4, in italics, ‘female’
+§2.2	Bella Coola	cited form	*sqayləxʷ	page 4, in italics
+§2.2	Bella Coola	cited form	√sqeləxʷ	page 4, in italics
+§2.2	Bella Coola	cited form	s-t’l’-sqéləxʷ	page 4, in italics, ‘soul’
+§2.2	Hank Nater	language	Lillooet	Interior Salish
+§2.2	Hank Nater	language	Tillamook	Salish
+§2.2	Hank Nater	language	proto-Interior Salish	*nəχʷ ‘female’
+§2.2	Hank Nater	language	Interior Salish	the branch of Shuswap
+§2.3	Hank Nater	heading	2.3 The Bella Coola word list	page 4
+§2.3	Hank Nater	note	Of the entries listed below, Mackenzie glossed “dilly” as ‘a fish of the size of a salmon, with canine teeth’ and “nochasky” as ‘a dish composed of berries and salmon roes’. Forms in italics are from my field notes.	page 4
+Table 4	Hank Nater	note	Table 4: Mackenzie’s Bella Coola word list	page 4, the table's caption
+Table 4	Hank Nater	note	zimilk = smłk ‘fish, salmon’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	zimilk	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	smłk	page 4, Table 4, the Bella Coola form of Mackenzie's “zimilk”, ‘fish, salmon’
+Table 4	Hank Nater	note	dichts = t’χt(-s) ‘(it is a) stone’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	dichts	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	t’χt(-s)	page 4, Table 4, the Bella Coola form of Mackenzie's “dichts”, ‘(it is a) stone’
+Table 4	Hank Nater	note	dilly = t’li ‘dog salmon’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	dilly	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	t’li	page 4, Table 4, the Bella Coola form of Mackenzie's “dilly”, ‘dog salmon’
+Table 4	Hank Nater	note	neach = niiχʷ ‘fire’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	neach	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	niiχʷ	page 4, Table 4, the Bella Coola form of Mackenzie's “neach”, ‘fire’
+Table 4	Hank Nater	note	sepnas ‘hair of the head’10	page 4, Table 4, an entry, carrying footnote 10
+footnote 10	Hank Nater	note	This may be cptˬnas ‘wipe it!’ or sp’tˬnas ‘hit it!’ (‘hair of the head’ is mnłkʷa).	page 4, footnote 10
+footnote 10	Bella Coola	cited form	cptˬnas	page 4, in italics, ‘wipe it!’
+footnote 10	Bella Coola	cited form	sp’tˬnas	page 4, in italics, ‘hit it!’
+footnote 10	Bella Coola	cited form	mnłkʷa	page 4, in italics
+Table 4	Bella Coola	cited form	sepnas	page 4, Table 4, Mackenzie's spelling, his gloss ‘hair of the head’
+Table 4	Hank Nater	note	ulkan ‘water’ = ʔułqn ‘bucket’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	ulkan	page 4, Table 4, Mackenzie's spelling, his gloss ‘water’
+Table 4	Bella Coola	cited form	ʔułqn	page 4, Table 4, the Bella Coola form of Mackenzie's “ulkan”, ‘bucket’
+Table 4	Hank Nater	note	kietis = χic’ ‘axe’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	kietis	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	χic’	page 4, Table 4, the Bella Coola form of Mackenzie's “kietis”, ‘axe’
+Table 4	Hank Nater	note	gits com = st’xʷm, kałst’xʷmta ‘mat, mattress’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	gits com	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	st’xʷm	page 4, Table 4, the Bella Coola form of Mackenzie's “gits com”, ‘mat, mattress’
+Table 4	Bella Coola	cited form	kałst’xʷmta	page 4, Table 4, the Bella Coola form of Mackenzie's “gits com”, ‘mat, mattress’
+Table 4	Hank Nater	note	clougus = qluq’s ‘eye’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	clougus	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	qluq’s	page 4, Table 4, the Bella Coola form of Mackenzie's “clougus”, ‘eye’
+Table 4	Hank Nater	note	shiggimia = sak’ima ‘thread, string’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	shiggimia	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	sak’ima	page 4, Table 4, the Bella Coola form of Mackenzie's “shiggimia”, ‘thread, string’
+Table 4	Hank Nater	note	itzas = ʔica(-s) ‘(it is a) tooth’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	itzas	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	ʔica(-s)	page 4, Table 4, the Bella Coola form of Mackenzie's “itzas”, ‘(it is a) tooth’
+Table 4	Hank Nater	note	till-kewan ‘chest or box’ = plkiʔwa ‘cedar storage box’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	till-kewan	page 4, Table 4, Mackenzie's spelling, his gloss ‘chest or box’
+Table 4	Bella Coola	cited form	plkiʔwa	page 4, Table 4, the Bella Coola form of Mackenzie's “till-kewan”, ‘cedar storage box’
+Table 4	Hank Nater	note	ma-acza = maaχsa ‘nose’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	ma-acza	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	maaχsa	page 4, Table 4, the Bella Coola form of Mackenzie's “ma-acza”, ‘nose’
+Table 4	Hank Nater	note	thlogatt = łuq’ałt ‘inner bark of red cedar’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	thlogatt	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	łuq’ałt	page 4, Table 4, the Bella Coola form of Mackenzie's “thlogatt”, ‘inner bark of red cedar’
+Table 4	Hank Nater	note	ich-yeh = ʔixa ‘lower leg, foot’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	ich-yeh	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	ʔixa	page 4, Table 4, the Bella Coola form of Mackenzie's “ich-yeh”, ‘lower leg, foot’
+Table 4	Hank Nater	note	achimoul = ʔałmuł ‘beads’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	achimoul	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	ʔałmuł	page 4, Table 4, the Bella Coola form of Mackenzie's “achimoul”, ‘beads’
+Table 4	Hank Nater	note	shous-shey = suxa ‘lower arm, hand’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	shous-shey	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	suxa	page 4, Table 4, the Bella Coola form of Mackenzie's “shous-shey”, ‘lower arm, hand’
+Table 4	Hank Nater	note	il-caiette ‘a bonnet’ = (ʔiłˬ)qayt ‘(a woman’s) hat’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	il-caiette	page 4, Table 4, Mackenzie's spelling, his gloss ‘a bonnet’
+Table 4	Bella Coola	cited form	(ʔiłˬ)qayt	page 4, Table 4, the Bella Coola form of Mackenzie's “il-caiette”, ‘(a woman’s) hat’
+Table 4	Hank Nater	note	watts = wac’ ‘dog’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	watts	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	wac’	page 4, Table 4, the Bella Coola form of Mackenzie's “watts”, ‘dog’
+Table 4	Hank Nater	note	couny ‘a clam shell’ = k’ʷuxani ‘butter clam’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	couny	page 4, Table 4, Mackenzie's spelling, his gloss ‘a clam shell’
+Table 4	Bella Coola	cited form	k’ʷuxani	page 4, Table 4, the Bella Coola form of Mackenzie's “couny”, ‘butter clam’
+Table 4	Hank Nater	note	zla-achle ‘house’ = sc’laaχłł ‘boards’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	zla-achle	page 4, Table 4, Mackenzie's spelling, his gloss ‘house’
+Table 4	Bella Coola	cited form	sc’laaχłł	page 4, Table 4, the Bella Coola form of Mackenzie's “zla-achle”, ‘boards’
+Table 4	Hank Nater	note	nochasky = nuχʷski ‘soapberries’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	nochasky	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	nuχʷski	page 4, Table 4, the Bella Coola form of Mackenzie's “nochasky”, ‘soapberries’
+Table 4	Hank Nater	note	zimnez ‘bark mat robe’11	page 4, Table 4, an entry, carrying footnote 11
+footnote 11	Hank Nater	note	This looks like ciˬmnac ‘my daughter’ (whose robe was being discussed?).	page 4, footnote 11
+footnote 11	Bella Coola	cited form	ciˬmnac	page 4, in italics, ‘my daughter’
+Table 4	Bella Coola	cited form	zimnez	page 4, Table 4, Mackenzie's spelling, his gloss ‘bark mat robe’
+Table 4	Hank Nater	note	caiffre ‘what?’ (cf. ka(ˬks) ‘which?’)	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	caiffre	page 4, Table 4, Mackenzie's spelling, his gloss ‘what?’
+Table 4	Bella Coola	cited form	ka(ˬks)	page 4, Table 4, compared with Mackenzie's “caiffre”, ‘which?’
+Table 4	Hank Nater	note	couloun = qʷulun ‘beaver’	page 4, Table 4, an entry
+Table 4	Bella Coola	cited form	couloun	page 4, Table 4, Mackenzie's spelling
+Table 4	Bella Coola	cited form	qʷulun	page 4, Table 4, the Bella Coola form of Mackenzie's “couloun”, ‘beaver’
+§2.3	Hank Nater	note	I equate Mackenzie’s “till-kewan” with plkiʔwa ‘cedar storage box’ on the assumption that “t…” must be due to a misrecording or labret use. Apart from this *t… vs. p… disparity, “till-kewan” looks older than plkiʔwa insofar as Bella Coola … (i)wa often continues *-(i)wan ‘spirit, essence, principle’ (see Nater 2013:123).12 The isolability of …wa(n) in this case is also implied by the formal and semantic resemblance between Bella Coola plkiʔwa ‘cedar storage box’, Kwakwala pkuʔ ‘coiled Salish basket’ (Lincoln & Rath 1980:62), and Quileute píˑkʷoʔ ‘basket (watertight)’ (Powell & Woodruff 1976:393). We may hence infer that plkiʔwa likely continues *pəkyuʔ-wan (via *pəlkyuʔwan → *plkiʔwan → plkiʔwa).	page 5
+footnote 12	Hank Nater	note	The related suffix -liwa (*-l-iwan) ‘-like, -ish’ compares with Lillooet -aliwán’ ‘size, hulk’ (also ‘-ish’, as in e.g. qʷəqʷs-aliwán’ ‘smallish’) (Van Eijk 2013:435) and Upper Chehalis -aliwan ‘appearance, looks’ (Kinkade 1991:344).	page 5, footnote 12
+footnote 12	Bella Coola	cited form	*-l-iwan	page 5, in italics
+footnote 12	Bella Coola	cited form	-aliwán’	page 5, in italics, ‘size, hulk’
+footnote 12	Bella Coola	cited form	qʷəqʷs-aliwán’	page 5, in italics, ‘smallish’
+footnote 12	Hank Nater	name	Van Eijk	Jan P. van Eijk, the Lillooet language (1997) and the Lillooet-English dictionary (2013)
+footnote 12	Hank Nater	name	Kinkade	M. Dale Kinkade, the Upper Chehalis dictionary (1991)
+footnote 12	Hank Nater	language	Upper Chehalis	Tsamosan
+§2.3	Bella Coola	cited form	plkiʔwa	page 5, in italics, ‘cedar storage box’
+§2.3	Bella Coola	cited form	pkuʔ	page 5, in italics, ‘coiled Salish basket’
+§2.3	Bella Coola	cited form	píˑkʷoʔ	page 5, in italics, ‘basket (watertight)’
+§2.3	Bella Coola	cited form	*pəkyuʔ-wan	page 5, in italics
+§2.3	Bella Coola	cited form	*pəlkyuʔwan	page 5, in italics
+§2.3	Bella Coola	cited form	*plkiʔwan	page 5, in italics
+§2.3	Hank Nater	name	Lincoln & Rath	Neville J. Lincoln and John Rath, the North Wakashan comparative root list (1980)
+§2.3	Hank Nater	name	Powell & Woodruff	J. V. Powell and Fred Woodruff, Sr., the Quileute dictionary (1976)
+§2.3	Hank Nater	name	Nater	the author's earlier work, 1994, 2013, 2014 and 2018
+§2.3	Hank Nater	language	Kwakwala	North Wakashan
+§2.3	Hank Nater	language	Quileute	Chimakuan
+§2.3	Hank Nater	note	Mackenzie’s “caiffre” ‘what?’ remains enigmatic. Even though “cai…” can be plausibly identified as ka(ˬks) ‘which?’, “…ffre” is not recognizable.	page 5
+§2.3	Bella Coola	cited form	ka(ˬks)	page 5, in italics
+§3	Hank Nater	heading	3 Remaining issues and preliminary conclusions	page 5
+§3	Hank Nater	note	Fronting of the PA /c/ series is widespread in Alaska and northern Canada, and Krauss (1976:324) considers the possibility that a /c/ series → /c̭/ series shifting tendency already existed in PA.	page 5
+§3	Hank Nater	note	Note that, whereas the /k̭/ and /q/ series were still intact in Carrier in 1793, the /k̭/ series → /č/ series and /q/ series → /k/ series shifts had been completed before 1820 (Harmon 1820:403, 404, 406):	page 5
+Table 5	Hank Nater	note	Table 5: /k̭/ series → /č/ series and /q/ series → /k/ series shifts	page 5, the table's caption
+Table 5	Hank Nater	note	Gloss Mackenzie (/q/ and /k̭/ series) Harmon (/k/ and /č/ series)	page 5, the table's header
+Table 5	Bella Coola	cited form	dekin	page 5, Table 5, Mackenzie's spelling of ‘tree, wood’
+Table 5	Bella Coola	cited form	*dək̭ən	page 5, Table 5, the form Mackenzie's “dekin” stands for
+Table 5	Bella Coola	cited form	tuch-in	page 5, Table 5, Harmon's spelling of ‘tree, wood’
+Table 5	Bella Coola	cited form	dəčən	page 5, Table 5, the form Harmon's “tuch-in” stands for
+Table 5	Bella Coola	cited form	kin	page 5, Table 5, Mackenzie's spelling of ‘leg’
+Table 5	Bella Coola	cited form	*(ʔəqe)k̭ən	page 5, Table 5, the form Mackenzie's “kin” stands for
+Table 5	Bella Coola	cited form	O-ca-chin	page 5, Table 5, Harmon's spelling of ‘leg’
+Table 5	Bella Coola	cited form	ʔəkečən	page 5, Table 5, the form Harmon's “O-ca-chin” stands for
+Table 5	Hank Nater	note	‘nose’ “nenzeh” *(ʔə)nəncix̭ “pa-nin-chis” ʔənincis13	page 5, Table 5, the entry that carries footnote 13
+footnote 13	Hank Nater	note	“pa-” = Southern Carrier /bə-/ ‘his’, Central Carrier /bə-/ ‘their’. Here, */x̭/ → /š/ (fronting) was followed by /c…š/ → /c…s/ (progressive assimilation).	page 5, footnote 13
+Table 5	Bella Coola	cited form	nenzeh	page 5, Table 5, Mackenzie's spelling of ‘nose’
+Table 5	Bella Coola	cited form	*(ʔə)nəncix̭	page 5, Table 5, the form Mackenzie's “nenzeh” stands for
+Table 5	Bella Coola	cited form	pa-nin-chis	page 5, Table 5, Harmon's spelling of ‘nose’
+Table 5	Bella Coola	cited form	ʔənincis	page 5, Table 5, the form Harmon's “pa-nin-chis” stands for
+§3	Hank Nater	note	Note as well that Harmon’s “ch” is /č, č’, c, c’/, while his “ts” is /c̭, c̭’/. This suggests that Harmon must have had difficulty perceiving such “un-English” syllable-initial sequences as [tˢ…] and [tˢ’…]: “paninchis” ‘nose’ = bənincis ‘his nose’, “chaka” ‘woman’ = c’eke. Occasionally, he even writes “ch” for /c̭, c̭’/: “chakate” ‘muskrat’ = c̭ek’et, “tchâ” ‘hat’ = c̭’oh.14	page 5
+footnote 14	Hank Nater	note	In Southern Carrier, the /c̭/ and /c/ series have merged into one /c/ series (and here, ‘hat’ is c’ah). This merger, which may have begun in the early nineteenth century, may have been another factor in Harmon’s apparent confusion in re /č/ vs. /c/ vs. /c̭/.	page 5, footnote 14
+§3	Bella Coola	cited form	bənincis	page 5, in italics, ‘his nose’
+§3	Bella Coola	cited form	c̭ek’et	page 5, in italics
+§3	Bella Coola	cited form	c̭’oh	page 5, in italics
+§3	Hank Nater	note	While Mackenzie may have recorded words from a homogeneous variant of Athabascan, Harmon’s list may contain either a collection of words from two different dialects (Central vs. Southern Carrier) or words from a dialect that was intermediate between (or a blend of) what are now Central Carrier (Antoine et al. 1974) and Southern Carrier (my field notes):	page 5
+§3	Hank Nater	language	Southern Carrier	a Carrier dialect
+§3	Hank Nater	language	Central Carrier	a Carrier dialect
+Table 6	Hank Nater	note	Table 6: Uniformity vs. dialectal diversity in Carrier	page 6, the table's caption
+Table 6	Hank Nater	note	Gloss Harmon (1820) Southern Carrier Central Carrier	page 6, the table's header
+Table 6	Bella Coola	cited form	ting-kay	page 6, Table 6, Harmon's spelling of ‘four’
+Table 6	Bella Coola	cited form	diŋk’i	page 6, Table 6, the Southern Carrier form of ‘four’
+Table 6	Bella Coola	cited form	(dənɣi)	page 6, Table 6, the Central Carrier form of ‘four’
+Table 6	Bella Coola	cited form	skoon-e-ly	page 6, Table 6, Harmon's spelling of ‘five’
+Table 6	Bella Coola	cited form	skʷənlai	page 6, Table 6, the Southern Carrier form of ‘five’
+Table 6	Bella Coola	cited form	(kʷəlaiʔ)	page 6, Table 6, the Central Carrier form of ‘five’
+Table 6	Bella Coola	cited form	lân-ne-zy	page 6, Table 6, Harmon's spelling of ‘ten’
+Table 6	Bella Coola	cited form	lanezi	page 6, Table 6, the Southern Carrier form of ‘ten’
+Table 6	Bella Coola	cited form	(xʷəniz̭yai)	page 6, Table 6, the Central Carrier form of ‘ten’
+Table 6	Bella Coola	cited form	un-nung-cool	page 6, Table 6, Harmon's spelling of ‘mother’
+Table 6	Bella Coola	cited form	n-aŋgʷəl	page 6, Table 6, the Southern Carrier form of ‘mother’, ‘your …’
+Table 6	Bella Coola	cited form	(ʔəlu)	page 6, Table 6, the Central Carrier form of ‘mother’
+Table 6	Bella Coola	cited form	nong-ki	page 6, Table 6, Harmon's spelling of ‘two’
+Table 6	Bella Coola	cited form	(naŋkoh)	page 6, Table 6, the Southern Carrier form of ‘two’
+Table 6	Bella Coola	cited form	nanki	page 6, Table 6, the Central Carrier form of ‘two’
+Table 6	Bella Coola	cited form	toy	page 6, Table 6, Harmon's spelling of ‘three’
+Table 6	Bella Coola	cited form	(tak’i)	page 6, Table 6, the Southern Carrier form of ‘three’
+Table 6	Bella Coola	cited form	ta	page 6, Table 6, the Central Carrier form of ‘three’
+Table 6	Bella Coola	cited form	clo-hoo-ly	page 6, Table 6, Harmon's spelling of ‘nine’
+Table 6	Bella Coola	cited form	(łək’ihulah)	page 6, Table 6, the Southern Carrier form of ‘nine’
+Table 6	Bella Coola	cited form	ʔiłohúloh	page 6, Table 6, the Central Carrier form of ‘nine’
+Table 6	Bella Coola	cited form	tâl-loo	page 6, Table 6, Harmon's spelling of ‘salmon’
+Table 6	Bella Coola	cited form	(taluk)	page 6, Table 6, the Southern Carrier form of ‘salmon’
+Table 6	Bella Coola	cited form	talo	page 6, Table 6, the Central Carrier form of ‘salmon’
+§3	Hank Nater	note	Northern Interior Salish groups have interacted with Athabascan neighbors and transients for centuries, possibly since as early as 800 AD (cf. Seymour 2012:156–157). This protracted intermingling fostered, among other things, vocabulary copying.15 The following samples illustrate the Athabascan-to-Interior Salish copying direction: Shuswap təníye ‘moose’ (cf. Carrier dəni), Shuswap q’ʷúne ‘soup made of fish-eggs with sceqʷm’ and Lillooet k’ʷúnaʔ ‘salmon roe’ (cf. PA *q’uˑn’ ‘roe’), Shuswap ʕn-em ‘to growl’ (cf. PA *-ʁan ‘id.’), Shuswap qm~qem-t ‘lukewarm’ and Lillooet qə́~qm’-əp ‘id.’ (cf. PA *-ɢəŋ’₂ = -ɢəm’ ‘id.’), Lillooet łic’ ‘type of dog’ (cf. Carrier łic’e ‘female dog’, i.e. /łi-c’e/ ‘dog-female’), Lillooet kʷụ́sạʔ ‘to urinate (men or animals)’ (cf. Tahltan kós̭a ‘urine odor’).16	page 6
+footnote 15	Hank Nater	note	Thompson-Lillooet /z z’/ (which resemble Athabascan /z̭/, and – along with /c̱ s̱/ – pattern as “pharyngealized postdentals”) and vowel retraction in /_z, _z’/ in a Lillooet dialect (Van Eijk 1997:8), too, may have evolved as a consequence of contact with Athabascan (Chilcotin: Cook 1987).	page 6, footnote 15
+footnote 15	Hank Nater	name	Cook	Eung-Do Cook, Shuswap vowels and proto-Salish (1987)
+footnote 15	Hank Nater	language	Chilcotin	Athabascan
+footnote 15	Hank Nater	language	Thompson-Lillooet	Interior Salish, the pair with /z z’/
+footnote 16	Hank Nater	note	Shuswap data are from Kuipers (1974), Lillooet data from Van Eijk (2013), Carrier data from Antoine et al. (1974), Tahltan data from my field notes, PA data from Krauss and Leer (1981).	page 6, footnote 16
+§3	Bella Coola	cited form	təníye	page 6, in italics, ‘moose’
+§3	Bella Coola	cited form	dəni	page 6, in italics
+§3	Bella Coola	cited form	q’ʷúne	page 6, in italics, ‘soup made of fish-eggs with sceqʷm’
+§3	Bella Coola	cited form	sceqʷm’	page 6, in italics
+§3	Bella Coola	cited form	k’ʷúnaʔ	page 6, in italics, ‘salmon roe’
+§3	Bella Coola	cited form	*q’uˑn’	page 6, in italics, ‘roe’
+§3	Bella Coola	cited form	ʕn-em	page 6, in italics, ‘to growl’
+§3	Bella Coola	cited form	-ʁan	page 6, in italics, ‘id.’
+§3	Bella Coola	cited form	qm~qem-t	page 6, in italics, ‘lukewarm’
+§3	Bella Coola	cited form	qə́~qm’-əp	page 6, in italics, ‘id.’
+§3	Bella Coola	cited form	*-ɢəŋ’₂	page 6, in italics, a Proto-Athabascan reconstruction, its homophone index subscript
+§3	Bella Coola	cited form	-ɢəm’	page 6, in italics, ‘id.’
+§3	Bella Coola	cited form	łic’	page 6, in italics, ‘type of dog’
+§3	Bella Coola	cited form	łic’e	page 6, in italics, ‘female dog’
+§3	Bella Coola	cited form	kʷụ́sạʔ	page 6, in italics, ‘to urinate (men or animals)’
+§3	Bella Coola	cited form	kós̭a	page 6, in italics, ‘urine odor’
+§3	Hank Nater	name	Seymour	Deni J. Seymour, gateways for Athabascan migration (2012)
+§3	Hank Nater	language	Tahltan	Athabascan, the author's field notes
+§3	Hank Nater	note	Subsequent to Mackenzie’s visit to Bella Coola, the Bella Coola language would barely change over the following two centuries. Earlier, however, there had been a significant lexical and structural influx from non-Salish languages, mainly North Wakashan (Nater 2013) and Tsimshianic (Nater 2018). Note further that a number of morphemes (two prepositions and various verbal suffixes) link Bella Coola more closely with Tsamosan than with Central Salish, while others have been copied directly from Nootkan, Quileute, and Chinookan: as inferred earlier (Nater 2014 and 2018), this indicates that the post-proto-Salish dialect that underlies contemporary Bella Coola was spoken on and around the Olympic peninsula. The position of Bella Coola within Salish is as illustrated in Figure 1 below.	page 6
+§3	Hank Nater	language	North Wakashan	a source of loans
+§3	Hank Nater	language	Tsimshianic	a source of loans
+§3	Hank Nater	language	Tsamosan	a branch of Salish
+§3	Hank Nater	language	Central Salish	a branch of Salish
+§3	Hank Nater	language	Nootkan	Wakashan
+§3	Hank Nater	language	Chinookan	a source of loans
+Figure 1	Hank Nater	note	Salish / Oregon–Central Tsamosan Bella Coola Interior	page 6, the figure, a tree: Salish over its branches
+Figure 1	Hank Nater	note	Figure 1: The position of Bella Coola within Salish	page 6, the figure's caption
+§3	Hank Nater	note	In re Bella Coola-Athabascan interaction, note that the Na-Dene portion of the Bella Coola lexicon includes words of PA-Eyak, pre-PA, PA, and more recent Athabascan descent (Nater 1994). The archaic forms shown in Table 1, recentness of an Athabascan presence east of Bella Coola,17 and Nater (1994:181–182) suggest that Athabascan bands migrating through or near Bella Coola territory (around 1700 AD or so) spoke a form of PA that had retained some PA- Eyak and pre-PA vocabulary.	page 7
+footnote 17	Hank Nater	note	“The presence of trade goods in most of the structures indicates the Chilcotin components at Anahim probably do not date much earlier than 1750; trade goods were absent in one unit which dated A.D. 1670 (GSC-1371), which might represent late prehistoric Chilcotin” (Wilmeth 1970:43). It appears that the Chilcotin arrived in Anahim Lake prior to being replaced in that area by Ulkatcho Carrier (Wilmeth 1970:42) about one century later.	page 7, footnote 17
+footnote 17	Hank Nater	name	Wilmeth	Roscoe Wilmeth, Chilcotin archaeology (1970)
+§3	Hank Nater	language	Eyak	PA-Eyak
+§3	Hank Nater	language	Na-Dene	Athabascan-Eyak-Tlingit
+references	Hank Nater	heading	References	page 7
+references	Hank Nater	reference	Antoine, F. et al. 1974. Carrier Bilingual Dictionary. Fort St. James, B.C. Carrier Dictionary Committee.	page 7
+references	Hank Nater	reference	Cook, Eung-Do. 1987. Shuswap vowels and proto-Salish: from an Athapaskan point of view. 22nd ICSNL:29–38. Victoria.	page 7
+references	Hank Nater	reference	Harmon, Daniel W. 1820. A Journal of Voyages and Travels in the Interiour of North America. Andover: printed by Flagg and Gould.	page 7
+references	Hank Nater	reference	Kari, James. 1990. Ahtna Athabaskan Dictionary. Alaska Native Language Center. University of Alaska Fairbanks.	page 7
+references	Hank Nater	reference	Kinkade, M. Dale. 1991. Upper Chehalis Dictionary. UMOPL No. 7.	page 7
+references	Hank Nater	reference	Krauss, Michael E. 1976. Na-Dene. Native Languages of the Americas, Vol. 1. Plenum Press. New York and London.	page 7
+references	Hank Nater	reference	Krauss, Michael E. and Jeff Leer. 1981. Athabaskan, Eyak, and Tlingit Sonorants. ANLC Research Paper 5.	page 7
+references	Hank Nater	reference	Kuipers, Aert H. 1974. The Shuswap Language. Mouton & Co. The Hague.	page 7
+references	Hank Nater	reference	Kuipers, Aert H. 2002. Salish Etymological Dictionary. UMOPL No. 16.	page 7
+references	Hank Nater	reference	Leer, Jeff. 2008. Recent Advances in AET Comparison. ANLC, draft of 1/28/2008.	page 7
+references	Hank Nater	reference	Lincoln, Neville J. & John Rath. 1980. North Wakashan Comparative Root List. Canadian Ethnology Service Paper No. 68. Canadian Museum of Civilization Mercury Series.	page 7
+references	Hank Nater	reference	Mackenzie, Alexander. 1793. Voyages from Montreal through the Continent of North America to the Frozen and Pacific Oceans in 1789 and 1793 with an Account of the Rise and State of the Fur Trade, Vol. II. Published in 1911 by The Courier Press Ltd. Toronto.18	page 7
+footnote 18	Hank Nater	note	A more comprehensive version of this book (which includes a list of Chipewyan words two of which are mentioned in fn. 7) was published in 1801 by R. Noble (London), with the even lengthier title Voyages from Montreal, on the River St. Laurence, through the Continent of North America, to the Frozen and Pacific Oceans; in the Years 1789 and 1793. With a Preliminary Account of the Rise, Progress, and Present State of the Fur Trade of that Country.	page 7, footnote 18
+references	Hank Nater	reference	Morice, A. G. 1932. The Carrier Language. Bibliothèque Linguistique Anthropos, vol. 9. Mödling bei Wien, St. Gabriel, Austria.	page 8
+references	Hank Nater	reference	Nater, Hank. Field notes: Bella Coola, Southern Carrier (Anahim Lake), Tahltan.	page 8
+references	Hank Nater	reference	Nater, Hank. 1994. The Athapaskan component of Nuxalk. IJAL 60, 177–190.	page 8
+references	Hank Nater	reference	Nater, Hank. 2013. How Salish is Bella Coola? Papers for the 48th International Conference on Salish and Neighbouring Languages. UBCWPL 35.	page 8
+references	Hank Nater	reference	Nater, Hank. 2014. The position of Bella Coola within Salish: bound morphemes. Papers for the 49th International Conference on Salish and Neighbouring Languages. UBCWPL 37.	page 8
+references	Hank Nater	reference	Nater, Hank. 2018. Vestiges of Tsimshianic and other Penutian in Bella Coola. Papers for the 53rd International Conference on Salish and Neighbouring Languages. UBCWPL 47.	page 8
+references	Hank Nater	reference	Powell, J. V. & Fred Woodruff, Sr. 1976. Quileute Dictionary. Northwest Anthropological Research Notes, Memoir No. 3.	page 8
+references	Hank Nater	reference	Seymour, Deni J. 2012. Gateways for Athabascan migration to the American Southwest. Plains Anthropologist, Vol. 57, No. 222:149–161. Van Eijk, Jan P. 1997. The Lillooet Language: Phonology, Morphology, Syntax. UBC Press. Van Eijk, Jan P. 2013. Lillooet-English Dictionary. UBCOPL Vol. 2.	page 8
+references	Hank Nater	reference	Wilmeth, Roscoe. 1970. Chilcotin archaeology. Bulletin No. 2. Canadian Archaeological Association.	page 8

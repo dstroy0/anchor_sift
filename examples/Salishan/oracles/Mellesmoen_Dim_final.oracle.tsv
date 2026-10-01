@@ -1,0 +1,515 @@
+where	who	kind	form	gloss
+front	Gloria Mellesmoen	title	All the small things: Diminutive reduplication as infixation in ʔayʔaǰuθəm	page 1, carries footnote *
+front	Gloria Mellesmoen	name	Gloria Mellesmoen	author
+front	Gloria Mellesmoen	note	University of British Columbia	page 1, under Gloria Mellesmoen
+front	Gloria Mellesmoen	note	Abstract: There are three reduplicative processes in ʔayʔaǰuθəm previously categorized as C1V- prefixation (Davis, 1971; Blake, 2000; Watanabe, 2003). The treatment of the root vowel and the position of glottalization vary between them, despite the claim that their reduplicants are all C1V- prefixes. Plural and diminutive reduplication pattern together, with the deletion of a root vowel and rightward glottalization, while the root vowel is retained in imperfective reduplication and glottalization is assigned leftward. The deletion of a root vowel in C1V- reduplication is highly unusual in ʔayʔaǰuθəm and is problematic for Base-Reduplicant Correspondence Theory (McCarthy and Prince, 1995). This paper revisits diminutive reduplication in ʔayʔaǰuθəm and reanalyzes it as -C1- infixation. I follow Riggle (2006) and adopt a gradient alignment constraint that motivates the infixation of a single consonant. This analysis is more compatible with the overall grammar of the language and accounts for the differences between diminutive and imperfective reduplication.	page 1, the abstract
+front	Gloria Mellesmoen	note	Keywords: diminutive, reduplication, Comox, infix, alignment constraints, imperfective	page 1, the keywords
+front	Gloria Mellesmoen	note	In Papers for the International Conference on Salish and Neighbouring Languages 52, University of British Columbia Working Papers in Linguistics 45, Andrei Anghelescu, Michael Fry, Marianne Huijsmans, and Daniel Reisinger (eds.), 2017.	page 1, the volume's header
+front	Gloria Mellesmoen	language	ʔayʔaǰuθəm	Central Salish, also known as Comox-Sliammon
+footnote *	Gloria Mellesmoen	note	Thank you to Joanne Francis for sharing her language. I would also like to acknowledge my LING 530 classmates, Gunnar Hansson, and Douglas Pulleyblank for their feedback and support. Contact Information: gloria.mellesmoen@alumni.ubc.ca	page 1, footnote *, on the title
+footnote *	Gloria Mellesmoen	name	Joanne Francis	the author's consultant, thanked in the note on the title
+footnote *	Gloria Mellesmoen	name	Gunnar Hansson	thanked in the note on the title
+footnote *	Gloria Mellesmoen	name	Douglas Pulleyblank	thanked in the note on the title
+§1	Gloria Mellesmoen	heading	1 Introduction	page 1
+§1	Gloria Mellesmoen	note	Reduplication is a common morphological process in the Salish language family. ʔayʔaǰuθəm is no exception, having nine different reduplicative processes (Watanabe, 2003). Three of these have previously been analyzed as C1V- prefixing reduplication. This type of reduplication can denote imperfective aspect, plurality with stative predicates, or the diminutive. Despite the argument that these reduplicative processes result from the same prefixed position and a C1V shape, the surface forms differ, suggesting that they are subject to different phonological processes.	page 1
+§1	Gloria Mellesmoen	name	Watanabe	Honoré Watanabe, a morphological description of Sliammon (2003)
+§1	Gloria Mellesmoen	language	Salish	the family
+§1	Gloria Mellesmoen	note	Table 1 summarizes surface forms described for roots under each type of C1V- reduplication. The three reduplicative processes can be divided into two categories, based on the treatment of the root vowel in strong roots1 and the position of glottalization. The stative plural and diminutive C1V- pattern together, deleting the root vowel in most strong roots and displacing, or assigning, glottalization to the right-edge of the word or on the rightmost resonant. An example of this is found in forming the diminutive for dog, č̓an̓o2, where deletion of the root vowel and rightward displacement of glottalization result in č̓ač̓noʔ for ‘puppy’. However, in imperfective C1V- reduplication, the root vowel is categorically retained in strong roots and glottalization is assigned toward the left edge of the word, on the stem-initial consonant, or to a resonant. For example, gayətan means ‘I asked him’, while the imperfective form gag̓ayətas means ‘she is asking him’. In the imperfective example, the first resonant in the stem receives glottalization and the stem vowel in gay-, ‘to ask’, is retained. The treatment of root vowels and placement of glottalization associated with imperfective reduplication is different from the plural stative and diminutive reduplicative processes, despite the fact that they are all traditionally analyzed as instances of C1V- prefixing reduplication.	page 1
+footnote 1	Gloria Mellesmoen	note	Strong roots are roots with a full, moraic, vowel in the underlying form.	page 1, footnote 1
+footnote 2	Gloria Mellesmoen	note	Examples in-text are transcribed in APA. I mark glottalization in this paragraph following the literature. However, my consultant does not produce glottalized resonants as frequently as might be expected, given previous descriptions of the language. Therefore, I have not marked glottalization elsewhere in this paper.	page 2, footnote 2
+§1	ʔayʔaǰuθəm	cited form	č̓an̓o	page 2, in italics
+§1	ʔayʔaǰuθəm	cited form	č̓ač̓noʔ	page 2, in italics
+§1	ʔayʔaǰuθəm	cited form	gayətan	page 2, in italics
+§1	ʔayʔaǰuθəm	cited form	gag̓ayətas	page 2, in italics
+§1	ʔayʔaǰuθəm	cited form	gay-	page 2, in italics
+Table 1	Gloria Mellesmoen	note	Table 1: Summary of C1V- reduplication in Watanabe (2003)	page 2, the table's caption
+Table 1	Gloria Mellesmoen	note	Diminutive	page 2, a column's head, in bold
+Table 1	Gloria Mellesmoen	note	Stative Plural	page 2, a column's head, in bold
+Table 1	Gloria Mellesmoen	note	Imperfective	page 2, a column's head, in bold
+Table 1	Gloria Mellesmoen	note	Shape of Reduplicant	page 2, a row's head, in bold
+Table 1	Gloria Mellesmoen	note	C1V- for most strong roots, C1i- for CVC roots and stems with schwa as the first vowel	page 2, Shape of Reduplicant under Diminutive
+Table 1	Gloria Mellesmoen	note	C1V- for strong roots, C1a- or C1i- for weak roots	page 2, Shape of Reduplicant under Stative Plural
+Table 1	Gloria Mellesmoen	note	C1V-	page 2, Shape of Reduplicant under Imperfective
+Table 1	Gloria Mellesmoen	note	Root Vowel Deletion	page 2, a row's head, in bold
+Table 1	Gloria Mellesmoen	note	Yes, excluding in strong mono- syllabic roots or if deletion creates a CCC cluster	page 2, Root Vowel Deletion under Diminutive
+Table 1	Gloria Mellesmoen	note	Yes	page 2, Root Vowel Deletion under Stative Plural
+Table 1	Gloria Mellesmoen	note	Only for weak roots	page 2, Root Vowel Deletion under Imperfective
+Table 1	Gloria Mellesmoen	note	Glottalization Direction	page 2, a row's head, in bold
+Table 1	Gloria Mellesmoen	note	Rightward	page 2, Glottalization Direction under Diminutive
+Table 1	Gloria Mellesmoen	note	Rightward	page 2, Glottalization Direction under Stative Plural
+Table 1	Gloria Mellesmoen	note	Leftward (or on one of the resonants)	page 2, Glottalization Direction under Imperfective
+§1	Gloria Mellesmoen	note	Though the assignment and displacement of glottalization is an intriguing dissimilarity between the reduplication patterns characterized as C1V- prefixing, it appears to have some lexically specified properties (Watanabe, 2003: 389, 394). It deserves a more careful analysis than can be levelled in the present paper. The present analysis focuses exclusively on the treatment of the root and reduplicant segments, leaving the glottalization for future research. In the present paper, I focus specifically on the shape and position of diminutive reduplicants in ʔayʔaǰuθəm, challenging their previous characterization as C1V- prefixes. In Section 2, I provide an analysis of diminutive reduplication as infixation. In Section 3, I outline language-internal and theory-based motivation for reanalysis. Following this, in Section 4, I consider a possible alternate, contrast-motivated, source of variation between C1V- reduplicants, proposed in Urbanczyk (2005). As a whole, this paper argues that the diminutive reduplicant in ʔayʔaǰuθəm is best characterized as a -C1- infix.	page 2
+§1	Gloria Mellesmoen	name	Urbanczyk	S. Urbanczyk, enhancing contrast in reduplication (2005)
+§2	Gloria Mellesmoen	heading	2 Diminutive Reduplication as Infixation in ʔayʔaǰuθəm	page 3
+§2	Gloria Mellesmoen	note	The data in (1) represent the majority of reduplicated diminutive forms in ʔayʔaǰuθəm. All of the non-reduplicated words in (1) begin with a CVCV- pattern. In some cases, the CVCV shape is the entire word, such as (1b) niǰɛ ‘far’, and in others the CVCV shape is the beginning of a longer word, such as (1h) qʷoɬayšɪn ‘shoe’. Out of a total of 72 diminutive forms elicited, 48 were formed on bases starting with CVCV. The corresponding diminutive forms begin with the shape CVCC, where the first two consonants are identical and match the first consonant in the base form. The vowel in the first syllable of a diminutive form matches the first vowel in its non-reduplicated equivalent. For example, the diminutive form tatmɛqʷɛtən ‘small scarf’ in (1a) comes from tamɛqʷɛtən ‘scarf’. The first two consonants in the diminutive form are t and the first vowel is a, while the first consonant and vowel of the base are ta.	page 3
+§2	ʔayʔaǰuθəm	cited form	niǰɛ	page 3, in italics, ‘far’
+§2	ʔayʔaǰuθəm	cited form	qʷoɬayšɪn	page 3, in italics, ‘shoe’
+§2	ʔayʔaǰuθəm	cited form	tatmɛqʷɛtən	page 3, in italics, ‘small scarf’
+§2	ʔayʔaǰuθəm	cited form	tamɛqʷɛtən	page 3, in italics, ‘scarf’
+(1)	Gloria Mellesmoen	note	Diminutive reduplication with CVCV- bases	page 3, the caption
+(1a) line 1	ʔayʔaǰuθəm	transcription	tamɛqʷɛtən	page 3, the base form
+(1a) line 2	Gloria Mellesmoen	translation	‘scarf’	page 3, the gloss of the base
+(1a) line 3	ʔayʔaǰuθəm	transcription	tatmɛqʷɛtən	page 3, the diminutive
+(1a) line 4	Gloria Mellesmoen	translation	‘small scarf’	page 3, the gloss of the diminutive
+(1b) line 1	ʔayʔaǰuθəm	transcription	niǰɛ	page 3, the base form
+(1b) line 2	Gloria Mellesmoen	translation	‘far’	page 3, the gloss of the base
+(1b) line 3	ʔayʔaǰuθəm	transcription	ninǰɛ	page 3, the diminutive
+(1b) line 4	Gloria Mellesmoen	translation	‘a little far’	page 3, the gloss of the diminutive
+(1c) line 1	ʔayʔaǰuθəm	transcription	tala	page 3, the base form
+(1c) line 2	Gloria Mellesmoen	translation	‘money’	page 3, the gloss of the base
+(1c) line 3	ʔayʔaǰuθəm	transcription	tatla	page 3, the diminutive
+(1c) line 4	Gloria Mellesmoen	translation	‘a little bit of money’	page 3, the gloss of the diminutive
+(1d) line 1	ʔayʔaǰuθəm	transcription	tuɬəɬ	page 3, the base form
+(1d) line 2	Gloria Mellesmoen	translation	‘bed’	page 3, the gloss of the base
+(1d) line 3	ʔayʔaǰuθəm	transcription	tutɬəɬ	page 3, the diminutive
+(1d) line 4	Gloria Mellesmoen	translation	‘small bed’	page 3, the gloss of the diminutive
+(1e) line 1	ʔayʔaǰuθəm	transcription	sopayɛ	page 3, the base form
+(1e) line 2	Gloria Mellesmoen	translation	‘axe’	page 3, the gloss of the base
+(1e) line 3	ʔayʔaǰuθəm	transcription	sospayɛ	page 3, the diminutive
+(1e) line 4	Gloria Mellesmoen	translation	‘small axe’	page 3, the gloss of the diminutive
+(1f) line 1	ʔayʔaǰuθəm	transcription	kɪpəm	page 3, the base form
+(1f) line 2	Gloria Mellesmoen	translation	‘button’	page 3, the gloss of the base
+(1f) line 3	ʔayʔaǰuθəm	transcription	kɪkpəm	page 3, the diminutive
+(1f) line 4	Gloria Mellesmoen	translation	‘small button’	page 3, the gloss of the diminutive
+(1g) line 1	ʔayʔaǰuθəm	transcription	memo	page 3, the base form
+(1g) line 2	Gloria Mellesmoen	translation	‘cat’	page 3, the gloss of the base
+(1g) line 3	ʔayʔaǰuθəm	transcription	memmoʔ	page 3, the diminutive
+(1g) line 4	Gloria Mellesmoen	translation	‘kitten’	page 3, the gloss of the diminutive
+(1h) line 1	ʔayʔaǰuθəm	transcription	qʷoɬayšɪn	page 3, the base form
+(1h) line 2	Gloria Mellesmoen	translation	‘shoe’	page 3, the gloss of the base
+(1h) line 3	ʔayʔaǰuθəm	transcription	qʷoqʷɬayšɪn	page 3, the diminutive
+(1h) line 4	Gloria Mellesmoen	translation	‘small shoe’	page 3, the gloss of the diminutive
+(1i) line 1	ʔayʔaǰuθəm	transcription	ʔayaʔ	page 3, the base form
+(1i) line 2	Gloria Mellesmoen	translation	‘house’	page 3, the gloss of the base
+(1i) line 3	ʔayʔaǰuθəm	transcription	ʔaʔyaʔ	page 3, the diminutive
+(1i) line 4	Gloria Mellesmoen	translation	‘small house’	page 3, the gloss of the diminutive
+(1j) line 1	ʔayʔaǰuθəm	transcription	qʷasəm	page 3, the base form
+(1j) line 2	Gloria Mellesmoen	translation	‘flower’	page 3, the gloss of the base
+(1j) line 3	ʔayʔaǰuθəm	transcription	qʷaqʷsəm	page 3, the diminutive
+(1j) line 4	Gloria Mellesmoen	translation	‘small flower‘	page 3, the gloss of the diminutive, closed with ‘ as printed
+(1k) line 1	ʔayʔaǰuθəm	transcription	kʷoθayɪs	page 3, the base form
+(1k) line 2	Gloria Mellesmoen	translation	‘island’	page 3, the gloss of the base
+(1k) line 3	ʔayʔaǰuθəm	transcription	kʷokʷθayɪs	page 3, the diminutive
+(1k) line 4	Gloria Mellesmoen	translation	‘small island’	page 3, the gloss of the diminutive
+(1l) line 1	ʔayʔaǰuθəm	transcription	ǰɛnɪs	page 3, the base form
+(1l) line 2	Gloria Mellesmoen	translation	‘tooth’	page 3, the gloss of the base
+(1l) line 3	ʔayʔaǰuθəm	transcription	ǰɛǰnɪs	page 3, the diminutive
+(1l) line 4	Gloria Mellesmoen	translation	‘small tooth’	page 3, the gloss of the diminutive
+(1m) line 1	ʔayʔaǰuθəm	transcription	nikʷayɛ	page 3, the base form
+(1m) line 2	Gloria Mellesmoen	translation	‘lamp’	page 3, the gloss of the base
+(1m) line 3	ʔayʔaǰuθəm	transcription	ninkʷayɛ	page 3, the diminutive
+(1m) line 4	Gloria Mellesmoen	translation	‘small lamp’	page 3, the gloss of the diminutive
+(1n) line 1	ʔayʔaǰuθəm	transcription	šukʷa	page 3, the base form
+(1n) line 2	Gloria Mellesmoen	translation	‘sugar’	page 3, the gloss of the base
+(1n) line 3	ʔayʔaǰuθəm	transcription	šuškʷa	page 3, the diminutive
+(1n) line 4	Gloria Mellesmoen	translation	‘little bit of sugar’	page 3, the gloss of the diminutive
+(1o) line 1	ʔayʔaǰuθəm	transcription	talaʔostən	page 3, the base form
+(1o) line 2	Gloria Mellesmoen	translation	‘eyeglasses’	page 3, the gloss of the base
+(1o) line 3	ʔayʔaǰuθəm	transcription	tatlaʔostən	page 3, the diminutive
+(1o) line 4	Gloria Mellesmoen	translation	‘small eyeglasses’	page 3, the gloss of the diminutive
+(1p) line 1	ʔayʔaǰuθəm	transcription	pata	page 3, the base form
+(1p) line 2	Gloria Mellesmoen	translation	‘butter’	page 3, the gloss of the base
+(1p) line 3	ʔayʔaǰuθəm	transcription	papta	page 3, the diminutive
+(1p) line 4	Gloria Mellesmoen	translation	‘little bit of butter’	page 3, the gloss of the diminutive
+(1q) line 1	ʔayʔaǰuθəm	transcription	kɛpu	page 3, the base form
+(1q) line 2	Gloria Mellesmoen	translation	‘coat’	page 3, the gloss of the base
+(1q) line 3	ʔayʔaǰuθəm	transcription	kɛkpu	page 3, the diminutive
+(1q) line 4	Gloria Mellesmoen	translation	‘small coat’	page 3, the gloss of the diminutive
+(1r) line 1	ʔayʔaǰuθəm	transcription	talahayɛ	page 3, the base form
+(1r) line 2	Gloria Mellesmoen	translation	‘purse’	page 3, the gloss of the base
+(1r) line 3	ʔayʔaǰuθəm	transcription	tatlahayɛ	page 3, the diminutive
+(1r) line 4	Gloria Mellesmoen	translation	‘small purse’	page 3, the gloss of the diminutive
+(1s) line 1	ʔayʔaǰuθəm	transcription	č̓ɛɬokʷt	page 3, the base form
+(1s) line 2	Gloria Mellesmoen	translation	‘raincoat’	page 3, the gloss of the base
+(1s) line 3	ʔayʔaǰuθəm	transcription	č̓ɛč̓ɬokʷt	page 3, the diminutive
+(1s) line 4	Gloria Mellesmoen	translation	‘small raincoat’	page 3, the gloss of the diminutive
+(1t) line 1	ʔayʔaǰuθəm	transcription	qegaθ	page 3, the base form
+(1t) line 2	Gloria Mellesmoen	translation	‘deer’	page 3, the gloss of the base
+(1t) line 3	ʔayʔaǰuθəm	transcription	qeqgaθ	page 3, the diminutive
+(1t) line 4	Gloria Mellesmoen	translation	‘small deer’	page 3, the gloss of the diminutive
+(1u) line 1	ʔayʔaǰuθəm	transcription	qaya	page 3, the base form
+(1u) line 2	Gloria Mellesmoen	translation	‘water’	page 3, the gloss of the base
+(1u) line 3	ʔayʔaǰuθəm	transcription	qaqya	page 3, the diminutive
+(1u) line 4	Gloria Mellesmoen	translation	‘a little bit of water’	page 3, the gloss of the diminutive
+(1v) line 1	ʔayʔaǰuθəm	transcription	maqɪn	page 3, the base form
+(1v) line 2	Gloria Mellesmoen	translation	‘hair’	page 3, the gloss of the base
+(1v) line 3	ʔayʔaǰuθəm	transcription	mamqɪn	page 3, the diminutive
+(1v) line 4	Gloria Mellesmoen	translation	‘a little bit of hair’	page 3, the gloss of the diminutive
+(1w) line 1	ʔayʔaǰuθəm	transcription	pipa	page 3, the base form
+(1w) line 2	Gloria Mellesmoen	translation	‘paper’	page 3, the gloss of the base
+(1w) line 3	ʔayʔaǰuθəm	transcription	pippa	page 3, the diminutive
+(1w) line 4	Gloria Mellesmoen	translation	‘a small piece of paper’	page 3, the gloss of the diminutive
+(1x) line 1	ʔayʔaǰuθəm	transcription	ɬəkamɪn	page 4, the base form
+(1x) line 2	Gloria Mellesmoen	translation	‘spear’	page 4, the gloss of the base
+(1x) line 3	ʔayʔaǰuθəm	transcription	ɬəɬkamɪn	page 4, the diminutive
+(1x) line 4	Gloria Mellesmoen	translation	‘small spear’	page 4, the gloss of the diminutive
+(1y) line 1	ʔayʔaǰuθəm	transcription	kʷaxʷa	page 4, the base form
+(1y) line 2	Gloria Mellesmoen	translation	‘box’	page 4, the gloss of the base
+(1y) line 3	ʔayʔaǰuθəm	transcription	kʷakʷxʷa	page 4, the diminutive
+(1y) line 4	Gloria Mellesmoen	translation	‘small box’	page 4, the gloss of the diminutive
+(1z) line 1	ʔayʔaǰuθəm	transcription	ʔɛt̓ᶿəm	page 4, the base form
+(1z) line 2	Gloria Mellesmoen	translation	‘blanket’	page 4, the gloss of the base
+(1z) line 3	ʔayʔaǰuθəm	transcription	ʔɛʔt̓ᶿəm	page 4, the diminutive
+(1z) line 4	Gloria Mellesmoen	translation	‘small blanket’	page 4, the gloss of the diminutive
+§2	Gloria Mellesmoen	note	Under the traditional prefixing analysis, the forms in (1) represent the basic C1V- reduplication pattern where the root vowel deletes. This means that the initial CV sequence in a diminutive form is treated as the reduplicant, such that šu- is analyzed as a prefixed reduplicant in (1n) šuškʷa ‘little bit of sugar’. This analysis requires stipulating that the vowel in the root deletes to account for why the diminutive form of šukʷa ‘sugar’ is šuškʷa and not *šušukʷa, where the vowel would be retained in both the base and the reduplicant. Though it is a necessary claim in the prefixing analysis, it is unclear what would motivate the deletion of a root vowel.	page 4
+§2	ʔayʔaǰuθəm	cited form	šu-	page 4, in italics
+§2	ʔayʔaǰuθəm	cited form	šuškʷa	page 4, in italics, ‘little bit of sugar’
+§2	ʔayʔaǰuθəm	cited form	šukʷa	page 4, in italics, ‘sugar’
+§2	ʔayʔaǰuθəm	cited form	*šušukʷa	page 4, in italics
+§2	Gloria Mellesmoen	note	The data can be accounted for in much simpler manner by redefining the proposed identity of the diminutive reduplicant and its position relative to the base. Instead of treating diminutive reduplication as prefixing reduplication, I analyze it as -C1- infixation into the root. Assuming an infixation analysis, the reduplicants in (1) can be analyzed as aligning with the right edge of the root vowel. In (1n) šuškʷa ‘little bit of sugar’, the initial C1V sequence šu is part of the base and is followed by the -C1- diminutive infix, the word-medial -š-. The reduplicant consists of a single segment that becomes the coda of the first syllable. This results in a perfect root input-output correspondence, because no root segments are deleted. Therefore, unlike the prefixing analysis, the infixation account of diminutive reduplication does not require finding motivation for root vowel deletion in addition to accounting for the reduplicative process itself. Treating diminutive reduplication as infixation allows for an analysis that is much tidier, given the data in (1). Further, the infixation analysis has the additional advantage of providing a concrete reason for why root vowel retention and glottalization would apply differently in imperfective reduplication as, unlike the literature, this analysis suggests that diminutive reduplication is not C1V- prefixing.3 Therefore, the reduplicative processes are distinct and it is unsurprising that they might result in different surface forms.	page 4
+footnote 3	Gloria Mellesmoen	note	The stative plural reduplication behaves like the diminutive. I believe, by extension, that my infixation argument would apply to the stative plural as well, though I have not elicited enough data to confirm that at this time.	page 4, footnote 3
+§2	ʔayʔaǰuθəm	cited form	-š-	page 4, in italics
+§2	Gloria Mellesmoen	note	Diminutive infixation can be accounted for in Parallel OT with the combination of alignment, general faithfulness, and markedness constraints (McCarthy & Prince, 1993), as shown in (2). I follow Riggle (2006) and adopt a gradient alignment constraint that penalizes segments between the reduplicant and the left edge of the word. However, the ALIGN-Lred constraint used in the present analysis penalizes segments between the right edge of the reduplicant and the left edge of the word. Though it belongs to the class of alignment constraints, ALIGN-Lred has the desired effect of restricting the size of the reduplicant, which results in single consonant reduplicants, as proposed for the data in (1). However, this effect is limited by higher-ranked alignment, faithfulness, and markedness constraints. MAX-M ensures that every morpheme in the input has a correspondent in the output (Yu, 2016). This protects against EVAL selecting candidates where the reduplicant is not expressed in the output, though they vacuously satisfy ALIGN-Lred. The position of the infix depends on higher-ranked constraints, such *COMPLEXONSET and ALIGN-Lroot,4 the former ruling out infixation on the left edge of root vowel, which would create a complex onset, and the latter motivating infixed reduplicants rather than prefixes. Finally, MAX protects segments in the input against deletion and DEP penalizes segments in the output that are not in the input (McCarthy & Prince, 1995). Neither constraint applies to the reduplicant, as it has no concrete phonological shape in the input and is comprised of segments copied from the base in the output, such that the reduplicant C1 and base C1 both correspond to the same input C1.	page 4
+footnote 4	Gloria Mellesmoen	note	This could also be ALIGN-Lbase, symmetrical to the ALIGN-Lred constraint. I use ALIGN- Lroot instead because it is highly motivated by the language. There is a categorical lack of prefixes, with the exception of some reduplicants, meaning that ALIGN-Lroot > ALIGN- Laffix. The exceptional cases of reduplication, such as C1əC2- plural, are so few that they can be captured by some morpheme-specific constraints that force these reduplicants to the left, despite the overall dispreference for prefixation. Further, given that words can have a root and a lexical suffix (bound root), this constraint stipulates that word edges should coincide with a root edge to avoid unwanted infixation of roots into other roots. I also assess this constraint as categorical in the present analysis as it is ranked highly, such that even one violation is fatal.	page 5, footnote 4
+§2	Gloria Mellesmoen	name	McCarthy	J. J. McCarthy; McCarthy and Prince (1993, 1995)
+§2	Gloria Mellesmoen	name	Prince	A. Prince
+§2	Gloria Mellesmoen	name	Riggle	J. Riggle, infixing reduplication in Pima (2006)
+§2	Gloria Mellesmoen	name	Yu	A. C. L. Yu, global optimization in allomorph selection (2016, listed 2017)
+(2)	Gloria Mellesmoen	note	Constraints	page 5, the caption
+(2) line 1	Gloria Mellesmoen	note	ALIGN(RED, R, WD, L): The right edge of every reduplicant	page 5
+(2) line 2	Gloria Mellesmoen	note	(ALIGN-Lred) should align with the left edge of a	page 5
+(2) line 3	Gloria Mellesmoen	note	word. Assign a violation mark for	page 5
+(2) line 4	Gloria Mellesmoen	note	every segment between the right	page 5
+(2) line 5	Gloria Mellesmoen	note	edge of a reduplicant and the left	page 5
+(2) line 6	Gloria Mellesmoen	note	edge of the word.	page 5
+(2) line 7	Gloria Mellesmoen	note	ALIGN(WD, L, RT, L): The left edge of every word	page 5
+(2) line 8	Gloria Mellesmoen	note	(ALIGN-Lroot) should align with the left edge of a	page 5
+(2) line 9	Gloria Mellesmoen	note	root. Assign a violation mark for	page 5
+(2) line 10	Gloria Mellesmoen	note	every left edge of word that is not	page 5
+(2) line 11	Gloria Mellesmoen	note	aligned with the left edge of a root.	page 5
+(2) line 12	Gloria Mellesmoen	note	MAX-M(ORPHEME): All morphemes in the input must	page 5
+(2) line 13	Gloria Mellesmoen	note	have a correspondent in the output	page 5
+(2) line 14	Gloria Mellesmoen	note	(Yu, 2016).	page 5
+(2) line 15	Gloria Mellesmoen	note	*COMPLEX(ONSET): Onsets should be maximally one	page 5
+(2) line 16	Gloria Mellesmoen	note	segment. Assign a violation mark	page 5
+(2) line 17	Gloria Mellesmoen	note	for any consonant cluster in an	page 5
+(2) line 18	Gloria Mellesmoen	note	onset position of a syllable.	page 5
+(2) line 19	Gloria Mellesmoen	note	MAX: All segments in the input have a	page 6
+(2) line 20	Gloria Mellesmoen	note	correspondent in the output. Assign	page 6
+(2) line 21	Gloria Mellesmoen	note	a violation mark for every segment	page 6
+(2) line 22	Gloria Mellesmoen	note	in the input that does not have a	page 6
+(2) line 23	Gloria Mellesmoen	note	correspondent in the output.	page 6
+(2) line 24	Gloria Mellesmoen	note	DEP: All segments in the output have a	page 6
+(2) line 25	Gloria Mellesmoen	note	correspondent in the input. Assign	page 6
+(2) line 26	Gloria Mellesmoen	note	a violation mark for every segment	page 6
+(2) line 27	Gloria Mellesmoen	note	in the output that does not have a	page 6
+(2) line 28	Gloria Mellesmoen	note	correspondent in the input.	page 6
+§2	Gloria Mellesmoen	note	In order to derive the correct surface forms, ALIGN-Lred must be ranked below the other constraints. This is shown in the derivation of θoθmɪn ‘small eyebrow’ in (3). Candidate (3a), which outright deletes the reduplicant, fatally violates MAX-M. The candidates which have the reduplicant aligned with the left edge of the word, (3c,d,g), are eliminated for violating ALIGN-Lbase. Candidate (3f), which has the reduplicant aligned with the left edge of the root vowel, incurs a violation under *COMPLEX and Candidate (3h), which has vowel epenthesis, violates DEP. The final two candidates satisfy all of the higher- ranked constraints and are thus are ultimately discriminated by their respective violations of the reduplicant alignment constraint. Candidate (3e) incurs four violation marks, as there are four segments between the right edge of the -C1V- reduplicant and the left edge of the word. Candidate (3b), the attested candidate with the -C1- infix, only receives three violation marks under ALIGN-Lred and therefore is selected as the winner by EVAL.	page 6
+§2	ʔayʔaǰuθəm	cited form	θoθmɪn	page 6, in italics, ‘small eyebrow’
+(3) line 1	ʔayʔaǰuθəm	phonemic	RED + θomɪn	page 6, the input, RED in bold
+(3) line 2	Gloria Mellesmoen	note	ALIGN-Lroot MAX-M *COMPLEX MAX DEP ALIGN-Lred	page 6, the constraint heads, set on their side, in small capitals
+(3) line 3	ʔayʔaǰuθəm	phonemic	θomɪn	page 6, candidate (3a), no reduplicant
+(3) line 4	Gloria Mellesmoen	note	*!	page 6, the violation marks of (3a) under MAX-M
+(3) line 5	ʔayʔaǰuθəm	phonemic	θoθmɪn	page 6, candidate (3b), the reduplicant θ in bold, the winner, printed with the pointing hand ☞
+(3) line 6	Gloria Mellesmoen	note	***	page 6, the violation marks of (3b) under ALIGN-Lred
+(3) line 7	ʔayʔaǰuθəm	phonemic	θoθmɪn	page 6, candidate (3c), the reduplicant θo in bold
+(3) line 8	Gloria Mellesmoen	note	*!	page 6, the violation marks of (3c) under ALIGN-Lroot
+(3) line 9	Gloria Mellesmoen	note	*!	page 6, the violation marks of (3c) under MAX
+(3) line 10	Gloria Mellesmoen	note	**	page 6, the violation marks of (3c) under ALIGN-Lred
+(3) line 11	ʔayʔaǰuθəm	phonemic	θoθomɪn	page 6, candidate (3d), the reduplicant θo in bold
+(3) line 12	Gloria Mellesmoen	note	*!	page 6, the violation marks of (3d) under ALIGN-Lroot
+(3) line 13	Gloria Mellesmoen	note	**	page 6, the violation marks of (3d) under ALIGN-Lred
+(3) line 14	ʔayʔaǰuθəm	phonemic	θoθomɪn	page 6, candidate (3e), the reduplicant θo in bold
+(3) line 15	Gloria Mellesmoen	note	****!	page 6, the violation marks of (3e) under ALIGN-Lred
+(3) line 16	ʔayʔaǰuθəm	phonemic	θθomɪn	page 6, candidate (3f), the reduplicant θ in bold
+(3) line 17	Gloria Mellesmoen	note	*!	page 6, the violation marks of (3f) under *COMPLEX
+(3) line 18	Gloria Mellesmoen	note	**	page 6, the violation marks of (3f) under ALIGN-Lred
+(3) line 19	ʔayʔaǰuθəm	phonemic	θeθomɪn	page 6, candidate (3g), the reduplicant θ in bold
+(3) line 20	Gloria Mellesmoen	note	*!	page 6, the violation marks of (3g) under ALIGN-Lroot
+(3) line 21	Gloria Mellesmoen	note	*!	page 6, the violation marks of (3g) under DEP
+(3) line 22	Gloria Mellesmoen	note	*	page 6, the violation marks of (3g) under ALIGN-Lred
+(3) line 23	ʔayʔaǰuθəm	phonemic	θeθomɪn	page 6, candidate (3h), the reduplicant θ in bold
+(3) line 24	Gloria Mellesmoen	note	*!	page 6, the violation marks of (3h) under DEP
+(3) line 25	Gloria Mellesmoen	note	***	page 6, the violation marks of (3h) under ALIGN-Lred
+§2	Gloria Mellesmoen	note	The constraints in (2) and the ranking in (3) can account for the -C1- infixation diminutives formed on a CVCV- base, which comprise the majority of forms. However, they cannot capture all the data. As shown in (4), there are diminutives formed with CVCC- bases. In these cases, the reduplicated forms start with a CVCV- pattern where the first two consonants and first two vowels match. For example, the first two segments in the non-reduplicated form in (4c) ʔasxʷ ‘seal’ appear twice in a CVCV pattern at the beginning of the reduplicated form ʔaʔasxʷ ‘small seal’.	page 7
+§2	ʔayʔaǰuθəm	cited form	ʔasxʷ	page 7, in italics, ‘seal’
+§2	ʔayʔaǰuθəm	cited form	ʔaʔasxʷ	page 7, in italics, ‘small seal’
+(4)	Gloria Mellesmoen	note	-C1V- diminutive reduplication with CVCC- bases	page 7, the caption
+(4a) line 1	ʔayʔaǰuθəm	transcription	ʔuɬqay	page 7, the base form
+(4a) line 2	Gloria Mellesmoen	translation	‘snake’	page 7, the gloss of the base
+(4a) line 3	ʔayʔaǰuθəm	transcription	ʔuʔuɬqay	page 7, the diminutive
+(4a) line 4	Gloria Mellesmoen	translation	‘small snake’	page 7, the gloss of the diminutive
+(4b) line 1	ʔayʔaǰuθəm	transcription	sayǰɛ	page 7, the base form
+(4b) line 2	Gloria Mellesmoen	translation	‘leaf’	page 7, the gloss of the base
+(4b) line 3	ʔayʔaǰuθəm	transcription	sasayǰɛ	page 7, the diminutive
+(4b) line 4	Gloria Mellesmoen	translation	‘small leaf’	page 7, the gloss of the diminutive
+(4c) line 1	ʔayʔaǰuθəm	transcription	ʔasxʷ	page 7, the base form
+(4c) line 2	Gloria Mellesmoen	translation	‘seal’	page 7, the gloss of the base
+(4c) line 3	ʔayʔaǰuθəm	transcription	ʔaʔasxʷ	page 7, the diminutive
+(4c) line 4	Gloria Mellesmoen	translation	‘small seal’	page 7, the gloss of the diminutive
+(4d) line 1	ʔayʔaǰuθəm	transcription	hayšɪn	page 7, the base form
+(4d) line 2	Gloria Mellesmoen	translation	‘ladder’	page 7, the gloss of the base
+(4d) line 3	ʔayʔaǰuθəm	transcription	hahayšɪn	page 7, the diminutive
+(4d) line 4	Gloria Mellesmoen	translation	‘small ladder’	page 7, the gloss of the diminutive
+(4e) line 1	ʔayʔaǰuθəm	transcription	walθ	page 7, the base form
+(4e) line 2	Gloria Mellesmoen	translation	‘frog’	page 7, the gloss of the base
+(4e) line 3	ʔayʔaǰuθəm	transcription	wawalθ	page 7, the diminutive
+(4e) line 4	Gloria Mellesmoen	translation	‘small frog’	page 7, the gloss of the diminutive
+(4f) line 1	ʔayʔaǰuθəm	transcription	gaʔwut	page 7, the base form
+(4f) line 2	Gloria Mellesmoen	translation	‘paddle’	page 7, the gloss of the base
+(4f) line 3	ʔayʔaǰuθəm	transcription	gagaʔwut	page 7, the diminutive
+(4f) line 4	Gloria Mellesmoen	translation	‘small paddle’	page 7, the gloss of the diminutive
+(4g) line 1	ʔayʔaǰuθəm	transcription	x̣awgus	page 7, the base form
+(4g) line 2	Gloria Mellesmoen	translation	‘grizzly bear’	page 7, the gloss of the base
+(4g) line 3	ʔayʔaǰuθəm	transcription	x̣ax̣awgus	page 7, the diminutive
+(4g) line 4	Gloria Mellesmoen	translation	‘grizzly bear’	page 7, the gloss of the diminutive
+§2	Gloria Mellesmoen	note	Under a prefixing analysis, these would be described as C1V- reduplication without root vowel deletion. The deletion of the root vowel would create a CCC cluster, which is relatively rare in a word-medial position in ʔayʔaǰuθəm. Retaining the vowel prevents CCC clusters, which is preferred by the grammar. The avoidance of tri-consonant clusters in reduplication is also relevant in the infixation analysis. Given the CVCC- base shape, the infixation of a single consonant would create a CCC cluster. Therefore, the reduplicant copies the first vowel in the base along with the initial consonant, resulting in a -C1V- infix. This results in x̣ax̣awgus, instead of *x̣ax̣wgus, as the diminutive form of x̣awgus ‘grizzly bear’ in (4g). Out of 72 elicited diminutives, there are only seven CVCC- forms that take a -C1V- infix.	page 7
+§2	ʔayʔaǰuθəm	cited form	x̣ax̣awgus	page 7, in italics
+§2	ʔayʔaǰuθəm	cited form	*x̣ax̣wgus	page 7, in italics
+§2	ʔayʔaǰuθəm	cited form	x̣awgus	page 7, in italics, ‘grizzly bear’
+§2	Gloria Mellesmoen	note	In order to account for -C1V- infixes in (4), another markedness constraint is needed to limit the number of adjacent consonants. This constraint, *CCC, is given in (5) and has motivations elsewhere in the language.5 First, the phonological grammar of ʔayʔaǰuθəm has a strong preference for bimoraic and binary feet (Blake, 2000: 202). This results in an ideal foot having a (CəC.CəC), (CV.CV), (CəC.CV), or (Cə.CVC) structure. Therefore, the situations where CCC clusters arise are generally considered less ideal. Further, across the 72 diminutive forms in this paper, there are only three examples with tri- consonantal clusters. Of these, all have [s], which is notably one of the only segments that appears in complex onsets for a very limited set of words (Watanabe 2003:16). Therefore, assuming violable constraints, *CCC does not pose problems for the phonological grammar of ʔayʔaǰuθəm.	page 7
+footnote 5	Gloria Mellesmoen	note	It is possible that syllable structure constraints, *COMPLEXONSET and *COMPLEXCODA, could derive the same effects needed to ban CCC clusters. However, a constraint against branching codas would prove problematic with any CVCC root, such as ʔasxʷ ‘seal’. Despite being less elegant, *CCC is less problematic for the language.	page 7, footnote 5
+§2	Gloria Mellesmoen	name	Blake	S. J. Blake, schwa in Sliammon Salish (2000)
+(5)	Gloria Mellesmoen	note	Tri-consonant cluster constraint	page 8, the caption
+(5) line 1	Gloria Mellesmoen	note	*CCC: There should not be three adjacent consonants word-medially.	page 8
+(5) line 2	Gloria Mellesmoen	note	Assign a violation mark for every three consonants in a row	page 8
+(5) line 3	Gloria Mellesmoen	note	that are not on the word edge.	page 8
+§2	Gloria Mellesmoen	note	The tableau in (6) shows how the *CCC constraint allows the candidate with -C1V- reduplication to win over the -C1- one, which has three adjacent consonants in a word-medial position. Candidate (6c) does not have a reduplicant in the output and violates MAX-M. Candidate (6d) deletes a root segment and candidates (6e) and (6f) epenthesize a vowel, all incurring fatal violations under the faithfulness constraints. Candidate (6g) aligns the reduplicant with the left edge, rather than the base, and therefore incurs a violation under the high-ranked ALIGN-Lroot constraint. Candidate (6a) fatally violates *CCC, which results in Candidate (6b), the attested one, winning. In this tableau, it is evident that a markedness constraint, like *CCC, is needed to predict the correct surface form. Without it, the alignment constraint would force an infixed -C1- reduplicant.	page 8
+(6) line 1	ʔayʔaǰuθəm	phonemic	RED + ʔuɬqay	page 8, the input, RED in bold
+(6) line 2	Gloria Mellesmoen	note	MAX-M ALIGN-Lroot *CCC *COMPLEX MAX DEP ALIGN-Lred	page 8, the constraint heads, set on their side, in small capitals
+(6) line 3	ʔayʔaǰuθəm	phonemic	ʔuʔɬqay	page 8, candidate (6a), the reduplicant ʔ in bold
+(6) line 4	Gloria Mellesmoen	note	*!	page 8, the violation marks of (6a) under *CCC
+(6) line 5	Gloria Mellesmoen	note	***	page 8, the violation marks of (6a) under ALIGN-Lred
+(6) line 6	ʔayʔaǰuθəm	phonemic	ʔuʔuɬqay	page 8, candidate (6b), the reduplicant ʔu in bold, the winner, printed with the pointing hand ☞
+(6) line 7	Gloria Mellesmoen	note	****	page 8, the violation marks of (6b) under ALIGN-Lred
+(6) line 8	ʔayʔaǰuθəm	phonemic	ʔuɬqay	page 8, candidate (6c), no reduplicant
+(6) line 9	Gloria Mellesmoen	note	*!	page 8, the violation marks of (6c) under MAX-M
+(6) line 10	ʔayʔaǰuθəm	phonemic	ʔuʔqay	page 8, candidate (6d), the reduplicant ʔ in bold
+(6) line 11	Gloria Mellesmoen	note	*!	page 8, the violation marks of (6d) under MAX
+(6) line 12	Gloria Mellesmoen	note	***	page 8, the violation marks of (6d) under ALIGN-Lred
+(6) line 13	ʔayʔaǰuθəm	phonemic	ʔuʔəɬqay	page 8, candidate (6e), the reduplicant ʔ in bold
+(6) line 14	Gloria Mellesmoen	note	*!	page 8, the violation marks of (6e) under DEP
+(6) line 15	Gloria Mellesmoen	note	***	page 8, the violation marks of (6e) under ALIGN-Lred
+(6) line 16	ʔayʔaǰuθəm	phonemic	ʔeʔuɬqay	page 8, candidate (6f), the reduplicant ʔ in bold
+(6) line 17	Gloria Mellesmoen	note	*!	page 8, the violation marks of (6f) under DEP
+(6) line 18	Gloria Mellesmoen	note	***	page 8, the violation marks of (6f) under ALIGN-Lred
+(6) line 19	ʔayʔaǰuθəm	phonemic	ʔuʔuɬqay	page 8, candidate (6g), the reduplicant ʔu in bold
+(6) line 20	Gloria Mellesmoen	note	*!	page 8, the violation marks of (6g) under ALIGN-Lroot
+(6) line 21	Gloria Mellesmoen	note	**	page 8, the violation marks of (6g) under ALIGN-Lred
+§2	Gloria Mellesmoen	note	Though the analysis thus far can account for most of the data, it does not explain the diminutive reduplication of the three CVC monosyllabic roots in (7). The non-reduplicated word toʔ ‘ice’ in (7b) corresponds to the diminutive form tetoʔ, which has an epenthetic vowel /i/ in the first syllable. This differs from the first two patterns, where we might expect forms like *totʔ or *totoʔ, which have no epenthetic vowel. In the prefixing analysis, these reduplicants are characterized as taking a C1i- shape and occurring with nouns that have schwa as a first vowel and strong roots of the shape CAC, where A represents a full vowel (Watanabe 2003: 386). In the present analysis, these nouns are best characterized as having -C1- infixation, though the reduplicant is aligned with the left edge of the root vowel. /i/-epenthesis occurs between the stem C1 and the reduplicant C1 and the vowel surfaces as [e] in accordance with regular allophonic rules (Watanabe, 2003:11).	page 8
+§2	ʔayʔaǰuθəm	cited form	toʔ	page 8, in italics, ‘ice’
+§2	ʔayʔaǰuθəm	cited form	tetoʔ	page 8, in italics
+§2	ʔayʔaǰuθəm	cited form	*totʔ	page 8, in italics
+§2	ʔayʔaǰuθəm	cited form	*totoʔ	page 8, in italics
+(7)	Gloria Mellesmoen	note	-[i]C1- diminutive reduplication with CVC# bases	page 9, the caption
+(7a) line 1	ʔayʔaǰuθəm	transcription	toʔ	page 9, the base form
+(7a) line 2	Gloria Mellesmoen	translation	‘ice’	page 9, the gloss of the base
+(7a) line 3	ʔayʔaǰuθəm	transcription	tetoʔ	page 9, the diminutive
+(7a) line 4	Gloria Mellesmoen	translation	‘small amount of ice’	page 9, the gloss of the diminutive
+(7b) line 1	ʔayʔaǰuθəm	transcription	puk	page 9, the base form
+(7b) line 2	Gloria Mellesmoen	translation	‘book’	page 9, the gloss of the base
+(7b) line 3	ʔayʔaǰuθəm	transcription	pepuk	page 9, the diminutive
+(7b) line 4	Gloria Mellesmoen	translation	‘small book’	page 9, the gloss of the diminutive
+(7c) line 1	ʔayʔaǰuθəm	transcription	pun	page 9, the base form
+(7c) line 2	Gloria Mellesmoen	translation	‘spoon’	page 9, the gloss of the base
+(7c) line 3	ʔayʔaǰuθəm	transcription	pepun	page 9, the diminutive
+(7c) line 4	Gloria Mellesmoen	translation	‘small spoon’	page 9, the gloss of the diminutive
+§2	Gloria Mellesmoen	note	The strong roots in (7), such as puk ‘book’, cannot be accounted for by the present analysis. The constraints presented so far and their relative ranking would predict a -C1- infix with no epenthesis, *pupk, such as in (8). This results from ranking DEP above ALIGN-Lred, such that the /i/-insertion in the attested candidate results in a fatal violation of DEP. The winning candidate, *pupk, is further problematic because it inevitably forms a foot that is not binary on either the level of the mora or syllable. Therefore, this candidate can be ruled out with the inclusion of a FT-BIN constraint,6 given in (9), which is highly motivated in the language (Blake, 2000) and ranked above the reduplicant alignment constraint.	page 9
+footnote 6	Gloria Mellesmoen	note	I assume a GRWD = PRWD constraint to necessitate building a foot.	page 9, footnote 6
+(8) line 1	ʔayʔaǰuθəm	phonemic	RED + puk	page 9, the input, RED in bold
+(8) line 2	Gloria Mellesmoen	note	MAX-M ALIGN-Lroot *CCC *COMPLEX MAX DEP ALIGN-Lred	page 9, the constraint heads, set on their side, in small capitals
+(8) line 3	ʔayʔaǰuθəm	phonemic	pupuk	page 9, candidate (8a), the reduplicant pu in bold
+(8) line 4	Gloria Mellesmoen	note	****!	page 9, the violation marks of (8a) under ALIGN-Lred
+(8) line 5	ʔayʔaǰuθəm	phonemic	pupk	page 9, candidate (8b), the reduplicant p in bold, the winner, printed with the pointing hand ☞
+(8) line 6	Gloria Mellesmoen	note	***	page 9, the violation marks of (8b) under ALIGN-Lred
+(8) line 7	ʔayʔaǰuθəm	phonemic	pepuk	page 9, candidate (8c), the reduplicant p in bold, the attested form the ranking does not choose, printed with ☹
+(8) line 8	Gloria Mellesmoen	note	*!	page 9, the violation marks of (8c) under DEP
+(8) line 9	Gloria Mellesmoen	note	***	page 9, the violation marks of (8c) under ALIGN-Lred
+(8) line 10	ʔayʔaǰuθəm	phonemic	puk	page 9, candidate (8d), no reduplicant
+(8) line 11	Gloria Mellesmoen	note	*!	page 9, the violation marks of (8d) under MAX-M
+(8) line 12	Gloria Mellesmoen	note	***	page 9, the violation marks of (8d) under ALIGN-Lred
+(8) line 13	ʔayʔaǰuθəm	phonemic	pepuk	page 9, candidate (8e), the reduplicant p in bold
+(8) line 14	Gloria Mellesmoen	note	*!	page 9, the violation marks of (8e) under ALIGN-Lroot
+(8) line 15	Gloria Mellesmoen	note	*!	page 9, the violation marks of (8e) under DEP
+(9)	Gloria Mellesmoen	note	Binary feet constraint	page 10, the caption
+(9) line 1	Gloria Mellesmoen	note	FT-BIN: Feet should be binary at either the level of the	page 10
+(9) line 2	Gloria Mellesmoen	note	syllable or the mora. Assign a violation mark for any	page 10
+(9) line 3	Gloria Mellesmoen	note	foot that is not binary on some level.	page 10
+§2	Gloria Mellesmoen	note	Though FT-BIN can successfully eliminate the candidate with a -C1- reduplicant and no epenthesis, the -C1V- candidate, *pupuk, fares better on DEP. This suggests that ALIGN-Lred must be ranked above DEP, as shown with the partial ranking in (10). Candidate (10c) fatally violates FT-BIN because it does not have a binary foot at the level of the syllable or the mora7. Candidate (10a), with the -C1V- infix, is eliminating for violating ALIGN-Lred four times. The attested candidate, (10b), violates the alignment constraint three times and the lower ranked DEP constraint once. This ranking predicts the correct winner.	page 10
+footnote 7	Gloria Mellesmoen	note	As in Blake (2000), I assume that full vowels and coda consonants are moraic.	page 10, footnote 7
+(10) line 1	ʔayʔaǰuθəm	phonemic	RED + puk	page 10, the input, RED in bold
+(10) line 2	Gloria Mellesmoen	note	FT-BIN ALIGN-Lred DEP	page 10, the constraint heads, set on their side, in small capitals
+(10) line 3	ʔayʔaǰuθəm	phonemic	(puμ.puμkμ)	page 10, candidate (10a), the reduplicant pu in bold
+(10) line 4	Gloria Mellesmoen	note	****!	page 10, the violation marks of (10a) under ALIGN-Lred
+(10) line 5	ʔayʔaǰuθəm	phonemic	(peμ.puμkμ)	page 10, candidate (10b), the reduplicant p in bold, the winner, printed with the pointing hand ☞
+(10) line 6	Gloria Mellesmoen	note	***	page 10, the violation marks of (10b) under ALIGN-Lred
+(10) line 7	Gloria Mellesmoen	note	*	page 10, the violation marks of (10b) under DEP
+(10) line 8	ʔayʔaǰuθəm	phonemic	(puμpμkμ)	page 10, candidate (10c), the reduplicant p in bold, its cells under ALIGN-Lred and DEP shaded
+(10) line 9	Gloria Mellesmoen	note	*!	page 10, the violation marks of (10c) under FT-BIN
+§2	Gloria Mellesmoen	note	However, this introduces a ranking paradox because the -[i]C1- diminutives, such as puk in (10), require ALIGN-Lred to be above DEP and the -C1V- ones, such as ʔuɬqay in (6), require the reverse. This is immediately apparent when considering the form in (11), which shows nanat as the diminutive form of nat ‘night’. This is the one example where a -C1V- infix is found with a CVC# root. The ranking paradox is shown in (12), where the partial ranking needed to derive pepuk in (10) predicts the wrong diminutive form of nat. Candidate (12c), which builds a mono-syllabic tri-moraic foot, fatally violates FT-BIN. The attested candidate, (12a), incurs four violation marks under ALIGN-Lred and subsequently loses to the -[i]C1- diminutive candidate, (12b). In order to predict the correct winner, DEP would need to be ranked above ALIGN-Lred.	page 10
+§2	ʔayʔaǰuθəm	cited form	ʔuɬqay	page 10, in italics
+(11)	Gloria Mellesmoen	note	-C1V- diminutive reduplication with a CVC# base	page 11, the caption
+(11a) line 1	ʔayʔaǰuθəm	transcription	nat	page 11, the base form
+(11a) line 2	Gloria Mellesmoen	translation	‘night’	page 11, the gloss of the base
+(11a) line 3	ʔayʔaǰuθəm	transcription	nanat	page 11, the diminutive
+(11a) line 4	Gloria Mellesmoen	translation	‘a short night (like in summer)’	page 11, the gloss of the diminutive
+(12) line 1	ʔayʔaǰuθəm	phonemic	RED + nat	page 11, the input, RED in bold
+(12) line 2	Gloria Mellesmoen	note	FT-BIN ALIGN-Lred DEP	page 11, the constraint heads, set on their side, in small capitals
+(12) line 3	ʔayʔaǰuθəm	phonemic	(naμ.naμtμ)	page 11, candidate (12a), the reduplicant na in bold, the attested form the ranking does not choose, printed with ☹
+(12) line 4	Gloria Mellesmoen	note	****!	page 11, the violation marks of (12a) under ALIGN-Lred
+(12) line 5	ʔayʔaǰuθəm	phonemic	(neμ.naμtμ)	page 11, candidate (12b), the reduplicant n in bold, the winner, printed with the pointing hand ☞
+(12) line 6	Gloria Mellesmoen	note	***	page 11, the violation marks of (12b) under ALIGN-Lred
+(12) line 7	Gloria Mellesmoen	note	*	page 11, the violation marks of (12b) under DEP
+(12) line 8	ʔayʔaǰuθəm	phonemic	(naμnμtμ)	page 11, candidate (12c), the reduplicant n in bold, its cells under ALIGN-Lred and DEP shaded
+(12) line 9	Gloria Mellesmoen	note	*!	page 11, the violation marks of (12c) under FT-BIN
+§2	Gloria Mellesmoen	note	There is no clear way to resolve the ranking paradox through the reranking or addition of constraints. The base forms given in (7) and (11) differ minimally because they are all of a CVC# shape. Similarly, there are nouns that start with a CVCC- pattern but do not take a -C1V- infix as in (4). Of the 72 diminutive forms, the two in (13) are formed with an -[i]C1- infix. As -C1V- and -[i]C1- infixes are found in the diminutive forms of both the CVCC- and CVC# nouns, there is no clear phonological motivation for the choice of one over the other. Therefore, I do not propose any strict ranking of the two in the present analysis though and leave this open as an avenue of future examination. Out of the 72 diminutives considered in this paper, only five unambiguously take an -[i]C1- infix. All four of the five diminutives that take a -[i]C1- have an underlying /u/. In contrast, seven of the eight -C1V- nouns have an underlying /a/, with only [ʔuɬqaj], snake, having an underlying /u/. Given the small number of -C1V- and -[i]C1- diminutive forms overall and that they were only provided with CVCC- and CVC# bases, -C1- infixation seems to be the default reduplication strategy, with the other two arising in particular phonological environments where -C1- infixation would result in worse surface forms. Based on preliminary data, it appears that -C1V- infixes are preferred with roots with an underlying /a/ and -[i]C1- infixes are preferred with /u/ roots. Additionally, given the relatively small number of nouns, it is possible that the relative ranking of DEP and ALIGN- Lred is lexically specified in the formation of the diminutive.	page 11
+(13)	Gloria Mellesmoen	note	-[i]C1- diminutive reduplication with CVCC- bases	page 11, the caption
+(13a) line 1	ʔayʔaǰuθəm	transcription	mušmuš	page 11, the base form
+(13a) line 2	Gloria Mellesmoen	translation	‘cow’	page 11, the gloss of the base
+(13a) line 3	ʔayʔaǰuθəm	transcription	memušmuš	page 11, the diminutive
+(13a) line 4	Gloria Mellesmoen	translation	‘small cow’	page 11, the gloss of the diminutive
+(13b) line 1	ʔayʔaǰuθəm	transcription	t̓aqt	page 11, the base form
+(13b) line 2	Gloria Mellesmoen	translation	‘mountain’	page 11, the gloss of the base
+(13b) line 3	ʔayʔaǰuθəm	transcription	t̓et̓aqt	page 11, the diminutive
+(13b) line 4	Gloria Mellesmoen	translation	‘small mountain’	page 11, the gloss of the diminutive
+§2	Gloria Mellesmoen	note	The low number of -C1V- and -[i]C1- diminutives may suggest a lower frequency of CVCC- or CVC# nouns in the language. However, this is not necessarily true. Out of a total of 19 nouns that my consultant could not make diminutive through reduplication,8 11 were CVCC or CVC#. There is also an additional set of CVCC- nouns given in (14) that take a -C1- infix in diminutive reduplication. These reduplicated forms also offer evidence for the *CCC constraint as the only tri-consonant clusters include s, which behaves exceptionally in clusters in ʔayʔaǰuθəm (Watanabe 2003: 16). Otherwise, clusters are simplified by deletion or epenthesis. This is seen with the loss of y in the diminutive form of x̣ayǰɪs ‘rock’ in (14f), x̣əx̣ǰɪs, and the addition of a schwa in the diminutive form of qatxʷ ‘fire’ in (14e), qaqtəxʷ. Further, with the exception of (14b) saplin ‘bread’, all of the non-reduplicated nouns in (14) have an underlying schwa in the first syllable. In Watanabe (2003: 386), stems with a schwa as the first vowel are shown to take an epenthetic /i/ in diminutive reduplication. The form kʷekʷaʔsta ‘small cup’ is reported in both Blake (2000:344) and Watanabe (2003: 390). Under the present analysis, this form has -[i]C1- infix. However, in the present data, the same diminutive form was given as kʷokʷsta, with a -C1- infix. While this minimally suggests interspeaker differences, it also indicates that changes may have occurred in the ʔayʔaǰuθəm reduplication system that have resulted in fewer -[i]C1- diminutives.	page 11
+footnote 8	Gloria Mellesmoen	note	These words were given following the word titul ‘small’.	page 11, footnote 8
+§2	ʔayʔaǰuθəm	cited form	x̣ayǰɪs	page 12, in italics, ‘rock’
+§2	ʔayʔaǰuθəm	cited form	x̣əx̣ǰɪs	page 12, in italics
+§2	ʔayʔaǰuθəm	cited form	qatxʷ	page 12, in italics, ‘fire’
+§2	ʔayʔaǰuθəm	cited form	qaqtəxʷ	page 12, in italics
+§2	ʔayʔaǰuθəm	cited form	kʷekʷaʔsta	page 12, in italics, ‘small cup’
+§2	ʔayʔaǰuθəm	cited form	kʷokʷsta	page 12, in italics
+(14)	Gloria Mellesmoen	note	-C1- diminutive reduplication with CVCC- bases	page 12, the caption
+(14a) line 1	ʔayʔaǰuθəm	transcription	qəsnay	page 12, the base form
+(14a) line 2	Gloria Mellesmoen	translation	‘shirt’	page 12, the gloss of the base
+(14a) line 3	ʔayʔaǰuθəm	transcription	qəqsnay	page 12, the diminutive
+(14a) line 4	Gloria Mellesmoen	translation	‘small shirt’	page 12, the gloss of the diminutive
+(14b) line 1	ʔayʔaǰuθəm	transcription	saplɪn	page 12, the base form
+(14b) line 2	Gloria Mellesmoen	translation	‘bread’	page 12, the gloss of the base
+(14b) line 3	ʔayʔaǰuθəm	transcription	sasplɪn	page 12, the diminutive
+(14b) line 4	Gloria Mellesmoen	translation	‘small bread’	page 12, the gloss of the diminutive
+(14c) line 1	ʔayʔaǰuθəm	transcription	kʷasta	page 12, the base form
+(14c) line 2	Gloria Mellesmoen	translation	‘cup’	page 12, the gloss of the base
+(14c) line 3	ʔayʔaǰuθəm	transcription	kʷokʷsta	page 12, the diminutive
+(14c) line 4	Gloria Mellesmoen	translation	‘small cup’	page 12, the gloss of the diminutive
+(14d) line 1	ʔayʔaǰuθəm	transcription	čɪtkamɪn	page 12, the base form
+(14d) line 2	Gloria Mellesmoen	translation	‘knife’	page 12, the gloss of the base
+(14d) line 3	ʔayʔaǰuθəm	transcription	čɪčkamɪn	page 12, the diminutive
+(14d) line 4	Gloria Mellesmoen	translation	‘small knife’	page 12, the gloss of the diminutive
+(14e) line 1	ʔayʔaǰuθəm	transcription	qatxʷ	page 12, the base form
+(14e) line 2	Gloria Mellesmoen	translation	‘fire’	page 12, the gloss of the base
+(14e) line 3	ʔayʔaǰuθəm	transcription	qaqtəxʷ	page 12, the diminutive
+(14e) line 4	Gloria Mellesmoen	translation	‘small fire’	page 12, the gloss of the diminutive
+(14f) line 1	ʔayʔaǰuθəm	transcription	x̣ayǰɪs	page 12, the base form
+(14f) line 2	Gloria Mellesmoen	translation	‘rock’	page 12, the gloss of the base
+(14f) line 3	ʔayʔaǰuθəm	transcription	x̣əx̣ǰɪs	page 12, the diminutive
+(14f) line 4	Gloria Mellesmoen	translation	‘small rock’	page 12, the gloss of the diminutive
+(14g) line 1	ʔayʔaǰuθəm	transcription	nʌpnač	page 12, the base form
+(14g) line 2	Gloria Mellesmoen	translation	‘pants’	page 12, the gloss of the base
+(14g) line 3	ʔayʔaǰuθəm	transcription	nanpɪnač	page 12, the diminutive
+(14g) line 4	Gloria Mellesmoen	translation	‘small (child’s) pants’	page 12, the gloss of the diminutive
+(14h) line 1	ʔayʔaǰuθəm	transcription	ǰɛnxʷ	page 12, the base form
+(14h) line 2	Gloria Mellesmoen	translation	‘fish’	page 12, the gloss of the base
+(14h) line 3	ʔayʔaǰuθəm	transcription	ǰɪǰnəxʷ	page 12, the diminutive
+(14h) line 4	Gloria Mellesmoen	translation	‘small fish’	page 12, the gloss of the diminutive
+(14i) line 1	ʔayʔaǰuθəm	transcription	θʊkʷnačten	page 12, the base form
+(14i) line 2	Gloria Mellesmoen	translation	‘chair’	page 12, the gloss of the base
+(14i) line 3	ʔayʔaǰuθəm	transcription	θɪθkʷənačtən	page 12, the diminutive
+(14i) line 4	Gloria Mellesmoen	translation	‘small chair’	page 12, the gloss of the diminutive
+§2	Gloria Mellesmoen	note	Harris (1981: 4) described difficulties eliciting plural or diminutive reduplicated forms in his dissertation on the Island dialect of ʔayʔaǰuθəm. He suggests that a possible explanation for this is that the reduplicative processes fall out of use with the decline of the language. While the sparse number of - C1V- and -[i]C1- diminutives may suggest a similar situation for the Mainland dialect of ʔayʔaǰuθəm, the considerable number of -C1- diminutives reflect a more positive reality. While there may be erosion in the breadth of reduplicative processes available to form diminutives, this does not necessarily reflect the vitality of diminutive reduplication or the state of the language as a whole. Sapir (1915) lists a considerable number of diminutive forms, which pattern in unique ways, further than the three types described in the present paper. Some of the listed nouns that would fall into the -[i]C1- infix category, or a modified version of it with a different epenthetic vowel, correspond to nouns given with -C1- diminutives in the present paper or those that could not be diminutivized in any of the three manners. While the variety of Sapir’s (1915) reduplicated forms suggest lexically encoded reduplication strategies, the data in the present paper presents a phonologically regular division where -C1V- and -[i]C1- diminutives only occur where -C1- creates phonologically worse candidates. Therefore, the changes in diminutive reduplication in ʔayʔaǰuθəm may be analyzed as the extension of the -C1- infixation strategy to a broader set of words. There may be some lexical properties of diminutive formation retained in the selection of - C1V- and -[i]C1- diminutives, which are only separable if the root vowel is /u/ or /a/. Given the lower frequency of these forms and that the major difference is limited to the choice between candidates with /i/-epenthesis or reduplication of the root vowel, I conclude that the ranking of ALIGN-Lred and DEP is variable and highly lexicalized, but can account for the data presented in this paper. However, overall, -C1- infixing diminutive reduplication appears to be a productive and largely phonologically regular process in ʔayʔaǰuθəm.	page 12
+§2	Gloria Mellesmoen	name	Harris	H. R. Harris, a grammatical sketch of Comox (1981)
+§2	Gloria Mellesmoen	name	Sapir	E. Sapir, noun reduplication in Comox (1915)
+§3	Gloria Mellesmoen	heading	3 Motivations for Reanalysis	page 13
+§3	Gloria Mellesmoen	note	A straightforward analysis of diminutive reduplication in ʔayʔaǰuθəm is possible when the reduplicant is treated as an infix, rather than a prefix. However, there are further reasons to re-evaluate the traditional prefixing analysis. For example, the clearly divisible behaviour between root vowel retaining (imperfective) and root vowel deleting (diminutive and stative plural) C1V- types of reduplication provides a straightforward argument for reanalysis. If the reduplication is C1V- for each of these processes, than it is unclear why the vowel would delete in some circumstances and not others. These differences are not an issue under the proposed infixation analysis as imperfective C1V- prefix is inherently different from the diminutive -C1- infix. Therefore, the divergent behaviour is expected, rather than challenging to account for. Additionally, the diminutive infix analysis does not require stipulating that the root vowel deletes, which fits better with the language overall. Deletion of a root segment, which is purported to happen to the root vowel in prefixing C1V- reduplication, is an extremely uncommon phonological process in ʔayʔaǰuθəm. Further, there are instances where an analysis that proposes root vowel deletion must also propose that this deletion results in surface forms that are inconsistent with sound patterns elsewhere in the language.	page 13
+§3	Gloria Mellesmoen	note	There is strong evidence that the phonological grammar of ʔayʔaǰuθəm protects root segments from deletion. Every syllable in ʔayʔaǰuθəm must have an onset, suggesting that there is a high-ranked ONSET constraint and there is no evidence that this constraint is ever violated (Blake, 2000: 126). Following from this, a morphological process that results in two adjacent vowels, such as affixation, will motivate the resolution of hiatus by either epenthesis or deletion to ensure that every syllable has an onset. Both strategies are found in ʔayʔaǰuθəm. Deletion is found as a way of reconciling vowel hiatus between affixes. For example, when the second person plural object suffix -anapi is followed by the third person ergative subject suffix -as, the second vowel is deleted, such as in [ʔaq̓nampɪs]9, meaning ‘he chases you all’. Thus, the deletion of an affix vowel is permitted when two vowels are adjacent. However, deletion is not found in the resolution of vowel hiatus between a root and a lexical suffix. When a vowel-final root and a vowel-initial lexical suffix are combined, epenthesis occurs, avoiding any violation of the high-ranked ONSET constraint. This is shown in (15) with data from Blake (2000) for the lexical suffix -aya in (15a–b), ‘container’, -aȷ̌̓a in (15c), ‘leaves’, and -uɬ in (15d–f), ‘young of a species’. For -aya, [h]-epenthesis resolves the vowel hiatus resulting from the combination of the two morphemes. A similar effect is seen with -uɬ, where [ʔ]- epenthesis occurs. Deletion does not appear to occur between a vowel-final root and a vowel-initial lexical suffix.	page 13
+footnote 9	Gloria Mellesmoen	note	There seems to be something else going on in this particular example, with the loss of one of the object suffix vowels and place assimilation within the suffix. However, this fits with an assumption that deleting affix vowels is largely permissible.	page 13, footnote 9
+§3	ʔayʔaǰuθəm	cited form	-anapi	page 13, in italics
+§3	ʔayʔaǰuθəm	cited form	-as	page 13, in italics
+§3	ʔayʔaǰuθəm	cited form	-aȷ̌̓a	page 14, in italics
+§3	ʔayʔaǰuθəm	cited form	-uɬ	page 14, in italics
+§3	ʔayʔaǰuθəm	cited form	-aya	page 14, in italics
+(15)	Gloria Mellesmoen	note	Vowel-final roots and vowel-initial lexical suffixes in Blake (2000)	page 14, the caption
+(15a) line 1	ʔayʔaǰuθəm	transcription	talahayɛ	page 14
+(15a) line 2	ʔayʔaǰuθəm	segmentation	tala=aya	page 14, the root and the lexical suffix
+(15a) line 3	Gloria Mellesmoen	translation	‘purse’	page 14
+(15b) line 1	ʔayʔaǰuθəm	transcription	q̓ʌnayohayɛ	page 14
+(15b) line 2	ʔayʔaǰuθəm	segmentation	q̓’n=ayu=aya	page 14, the root and the lexical suffix
+(15b) line 3	Gloria Mellesmoen	translation	‘sewing needle case’	page 14
+(15c) line 1	ʔayʔaǰuθəm	transcription	ʔosahaʔǰɛ	page 14
+(15c) line 2	ʔayʔaǰuθəm	segmentation	ʔusa=aȷ̌̓a	page 14, the root and the lexical suffix
+(15c) line 3	Gloria Mellesmoen	translation	‘blueberry leaves’	page 14
+(15d) line 1	ʔayʔaǰuθəm	transcription	sɪsm̓aʔoɬ	page 14
+(15d) line 2	ʔayʔaǰuθəm	segmentation	DIM+sm’a=uɬ	page 14, the root and the lexical suffix, DIM+ the diminutive
+(15d) line 3	Gloria Mellesmoen	translation	‘small blue mussel’	page 14
+(15e) line 1	ʔayʔaǰuθəm	transcription	p̓ip̓x̣ʷuʔuɬ	page 14
+(15e) line 2	ʔayʔaǰuθəm	segmentation	DIM+p̓ux̣u=uɬ	page 14, the root and the lexical suffix, DIM+ the diminutive
+(15e) line 3	Gloria Mellesmoen	translation	‘small raven’	page 14
+(15f) line 1	ʔayʔaǰuθəm	transcription	t̓ᶿot̓ᶿᵊmaǰuʔoɬ	page 14
+(15f) line 2	ʔayʔaǰuθəm	segmentation	DIM+t̓ᶿumaȷ̌̓u=uɬ	page 14, the root and the lexical suffix, DIM+ the diminutive
+(15f) line 3	Gloria Mellesmoen	translation	‘small barnacle’	page 14
+§3	Gloria Mellesmoen	note	Blake (2000: 127) treats lexical suffixes as bound roots, which means that they are directly evaluated under the constraints targeting roots, rather than affixes. Therefore, the resolution of vowel hiatus provides a clearer picture regarding the status of root vowels. When the combination of roots and lexical suffixes results in adjacent vowels, the grammar prefers epenthesis. This satisfies the high-ranked ONSET constraint, while simultaneously protecting vowels with root-status in the input. This same retention is not seen when the combination of two grammatical affixes yields vowel hiatus. This suggests that root faithfulness is prioritized over affix faithfulness. This is further supported in Blake’s (2000) partial rankings where ROOT FAITH constraints are undominated, while AFFIX FAITH is dominated by *COMPLEX ONSET. ʔayʔaǰuθəm’s strong preference for input-output root faithfulness is consistent with cross-linguistic literature, which argues that the ranking ROOT FAITH >> AFFIX FAITH is universal (McCarthy & Prince, 1995; Alderete, 2001). The deletion of a root vowel in ʔayʔaǰuθəm, as posited in the diminutive reduplication process, is extremely marked.	page 14
+§3	Gloria Mellesmoen	name	Alderete	J. Alderete, morphologically governed accent (2001)
+§3	Gloria Mellesmoen	note	Diminutive C1V- prefixing reduplication is further problematic under Base- Reduplicant Correspondence Theory (BRCT) as described in McCarthy and Prince (1995). Some ʔayʔaǰuθəm diminutives are given in (16), with the reduplicant marked in bold following the traditional prefixing account. In (16b), the reduplicant is tu- from an underlying tuɬəɬ. However, not all of the reduplicant segments correspond to ones present in the surface form of the base. The vowel in the root tuɬəɬ is deleted in the surface form, meaning that the base- reduplicant relationship is inverted. This cannot be captured in the basic BRCT model, but requires appealing the full model, which includes an input- reduplicant correspondence relationship in addition to the input-base and base- reduplicant ones (McCarthy & Prince, 1995: 110). While Blake (2000: 198) does not give a formal account of reduplication in ʔayʔaǰuθəm, she reaches a similar conclusion, hypothesizing the deletion of the root vowel in diminutive reduplication requires comparing the vowel in the reduplicant to the vowel in the input, to ensure that they match. However, McCarthy and Prince’s (1995) inclusion of input-reduplicant faithfulness constraints comes with the caveats that it has limited benefit and that it cannot be ranked above input-base faithfulness. This presents a significant problem in accounting for the ʔayʔaǰuθəm data in (16).	page 15
+§3	ʔayʔaǰuθəm	cited form	tu-	page 15, in italics
+§3	ʔayʔaǰuθəm	cited form	tuɬəɬ	page 15, in italics
+(16)	Gloria Mellesmoen	note	ʔayʔaǰuθəm diminutive reduplicants under C1V- prefixing analysis	page 15, the caption
+(16a) line 1	ʔayʔaǰuθəm	transcription	tala	page 15, the base form
+(16a) line 2	Gloria Mellesmoen	translation	‘money’	page 15, the gloss of the base
+(16a) line 3	ʔayʔaǰuθəm	transcription	tatla	page 15, the diminutive, the reduplicant ta in bold
+(16a) line 4	Gloria Mellesmoen	translation	‘a little bit of money’	page 15, the gloss of the diminutive
+(16b) line 1	ʔayʔaǰuθəm	transcription	tuɬəɬ	page 15, the base form
+(16b) line 2	Gloria Mellesmoen	translation	‘bed’	page 15, the gloss of the base
+(16b) line 3	ʔayʔaǰuθəm	transcription	tutɬəɬ	page 15, the diminutive, the reduplicant tu in bold
+(16b) line 4	Gloria Mellesmoen	translation	‘small bed’	page 15, the gloss of the diminutive
+(16c) line 1	ʔayʔaǰuθəm	transcription	ʔayaʔ	page 15, the base form
+(16c) line 2	Gloria Mellesmoen	translation	‘house’	page 15, the gloss of the base
+(16c) line 3	ʔayʔaǰuθəm	transcription	ʔaʔyaʔ	page 15, the diminutive, the reduplicant ʔa in bold
+(16c) line 4	Gloria Mellesmoen	translation	‘small house’	page 15, the gloss of the diminutive
+(16d) line 1	ʔayʔaǰuθəm	transcription	memo	page 15, the base form
+(16d) line 2	Gloria Mellesmoen	translation	‘cat’	page 15, the gloss of the base
+(16d) line 3	ʔayʔaǰuθəm	transcription	memmoʔ	page 15, the diminutive, the reduplicant me in bold
+(16d) line 4	Gloria Mellesmoen	translation	‘kitten’	page 15, the gloss of the diminutive
+§3	Gloria Mellesmoen	note	In the full model of BRCT, the inclusion of an input-reduplicant correspondence relationship is crucial for accounting for languages where other markedness constraints interfere with the base-reduplicant correspondence. This accounts for cases, such as in (3), where the reduplicant has stem material from the input that is omitted from the base in the surface form. McCarthy and Prince (1995) argue for the inclusion of this additional correspondence relationship to account for distributive reduplication in Klamath, where markedness constraints motivate syncope of a base segment, while the reduplicant retains it. However, the reduction of the base is motivated by other constraints that are active in the general phonological grammar, rather than as an effect associated with a specific reduplicative process. A similar analysis cannot be extended to ʔayʔaǰuθəm, as the deletion of root vowels is extremely marked and not generally motivated by other constraints in the language. The diminutive root vowel deletion can only be explained as a part of the specific reduplicative process, as is evident in a comparison with the imperfective C1V- reduplication where the root vowel is retained. While input-reduplicant correspondence could potentially account for the diminutive patterns in ʔayʔaǰuθəm in concert with other markedness constraints, this would require demoting the input-base reduplicant correspondence constraints in the assessment of diminutive and plural stative reduplication, which violates universal assumption that input-base constraints dominate input-reduplicant ones.	page 15
+§3	Gloria Mellesmoen	language	Klamath	distributive reduplication (McCarthy and Prince 1995)
+§3	Gloria Mellesmoen	note	As established above, there is little evidence for high ranked constraints that would motivate the deletion of a root vowel in the root vowel deleting (diminutive and stative plural) reduplicative processes but not in root vowel retaining (imperfective) ones. The deletion of the root vowel in diminutive reduplication does not appear to ameliorate candidate performance on any other markedness constraint, but it does result in a greater number of violations to other high-ranked constraints that would otherwise be satisfied. A substantial number of phonological processes in ʔayʔaǰuθəm apply to improve prosodic structure, with high-ranking constraints militating for binary feet at the level of the mora and, just beneath that, the level of the syllable (Blake, 2000). In (17), I show examples of C1V- diminutive reduplicants in words with three syllables, where the retention of the root vowel would result in better forms than the attested ones. For example, retention of the root vowel in (17a) would result a form like *susupayɛ. This unattested form perfectly meets the requirement of foot binarity at the level of the mora and the syllable. Whereas, sospayɛ, the actual diminutive form, does not have binary feet at the level of the syllable and thus incurs further violation marks under both foot structure and FAITH ROOT constraints. Similarly, *θɪθɪčapoq would fare better on prosodic constraints than the form in (17d). The unattested candidate with the root vowel retained can be segmented into two bi-syllabic feet, where the last one incurs a single violation mark for being a tri-moraic foot. The actual form, θɪθčapoq, fares the same on the moraic foot binarity constraint and additionally violates the syllable-level binarity constraint. It is unclear what would motivate the choice of a candidate that deletes the root vowel, violating several high-ranked constraints, over other potential candidates that are better prosodically.	page 16
+§3	ʔayʔaǰuθəm	cited form	*susupayɛ	page 16, in italics
+§3	ʔayʔaǰuθəm	cited form	sospayɛ	page 16, in italics
+§3	ʔayʔaǰuθəm	cited form	*θɪθɪčapoq	page 16, in italics
+§3	ʔayʔaǰuθəm	cited form	θɪθčapoq	page 16, in italics
+(17)	Gloria Mellesmoen	note	Diminutive reduplication applied to 3 syllable bases in ʔayʔaǰuθəm	page 16, the caption
+(17a) line 1	ʔayʔaǰuθəm	transcription	supayɛ	page 16, the base form
+(17a) line 2	Gloria Mellesmoen	translation	‘axe’	page 16, the gloss of the base
+(17a) line 3	ʔayʔaǰuθəm	transcription	sospayɛ	page 16, the diminutive, the reduplicant so in bold
+(17a) line 4	Gloria Mellesmoen	translation	‘small axe’	page 16, the gloss of the diminutive
+(17b) line 1	ʔayʔaǰuθəm	transcription	x̣ax̣čmɪn	page 16, the base form
+(17b) line 2	Gloria Mellesmoen	translation	‘fork’	page 16, the gloss of the base
+(17b) line 3	ʔayʔaǰuθəm	transcription	x̣ax̣čamɪn	page 16, the diminutive, the reduplicant x̣a in bold, carries footnote 10
+footnote 10	Gloria Mellesmoen	note	I also have this transcribed elsewhere as x̣əx̣čamɪn, where vowel reduction improves foot binarity at the level of the mora because schwa is non-moraic.	page 16, footnote 10
+footnote 10	ʔayʔaǰuθəm	cited form	x̣əx̣čamɪn	page 16, in italics
+(17b) line 4	Gloria Mellesmoen	translation	‘small fork’	page 16, the gloss of the diminutive
+(17c) line 1	ʔayʔaǰuθəm	transcription	tihayɛ	page 16, the base form
+(17c) line 2	Gloria Mellesmoen	translation	‘tea’	page 16, the gloss of the base
+(17c) line 3	ʔayʔaǰuθəm	transcription	tithayɛ	page 16, the diminutive, the reduplicant ti in bold
+(17c) line 4	Gloria Mellesmoen	translation	‘a little bit of tea’	page 16, the gloss of the diminutive
+(17d) line 1	ʔayʔaǰuθəm	transcription	θɪčapoq	page 16, the base form
+(17d) line 2	Gloria Mellesmoen	translation	‘hat’	page 16, the gloss of the base
+(17d) line 3	ʔayʔaǰuθəm	transcription	θɪθčapoq	page 16, the diminutive, the reduplicant θɪ in bold
+(17d) line 4	Gloria Mellesmoen	translation	‘small hat’	page 16, the gloss of the diminutive
+§3	Gloria Mellesmoen	note	Given the language-internal and theoretical issues with treating diminutive reduplication as C1V- prefixing, there is good reason to re-evaluate the shape and position of the reduplicant in ʔayʔaǰuθəm. The infixation analysis laid out in Section 2 does not stipulate root vowel deletion and therefore avoids the problems that arise with the deletion of the root vowel. For this reason, the infixation analysis is a better fit for the data and the language.	page 16
+§4	Gloria Mellesmoen	heading	4 The Cross-Salish Reduplication Contrast Enhancement Argument	page 17
+§4	Gloria Mellesmoen	note	The curious differences between the imperfective and diminutive “C1V- prefixing” reduplicative processes in ʔayʔaǰuθəm have been previously highlighted in the study of contrast in reduplication. Though the present analysis shows that positing a different reduplicant shape and position can easily account for the divergent behaviour, there is an alternate explanation that merits consideration. Urbanczyk (2005) argues that the differences between diminutive and imperfective reduplication in ʔayʔaǰuθəm, with respect to root vowel deletion, arise to enhance contrast between similar surface forms. In this analysis, she retains the traditional C1V- prefixing analysis and uses it as evidence for contrast enhancement in reduplication. She concludes the paper by noting that ʔayʔaǰuθəm might not be the best example, as diminutive reduplication occurs with nouns and the imperfective with verbs, meaning that the reduplicants may maintain contrast due the identity of the base. However, she points out the third type of C1V- reduplication, plural C1V-, can also occur on verbs and therefore further study may find minimal pairs with the imperfective.	page 17
+§4	Gloria Mellesmoen	note	While contrast enhancement is undoubtedly important in language, it is highly unlikely that this is the reason for the differences described in ʔayʔaǰuθəm. The contrast argument largely only pertains to strong roots, where root vowel deletion is apparent. Root vowel deletion is documented for weak roots in all three types of C1V- reduplication, meaning contrast is not enhanced or only barely amplified in some forms by glottalization. Further, the diminutive and plural stative reduplication processes are almost identical, as laid out in Table 1 (in Section 1 above). Therefore, if the differences are the result of contrast enhancement, the extent of its helpfulness in acquisition and communication is questionable. It is also unclear why ʔayʔaǰuθəm would require an enhancement of contrast between these three particular types of reduplication, as they are used in considerably different contexts and constructions. Plural CV- reduplication occurs solely with stative predicates (Watanabe, 2003: 376). Therefore, this type of reduplication is accompanied by other aspectual marking that disambiguates it from the imperfective. Even more conclusively, the imperfective and the stative aspect cannot co-occur (Watanabe, 2003: 414), meaning a form marked for stative aspect which also bears CV- reduplication will necessarily denote plurality. Further, Urbanczyk’s (2005: 232) observation that the diminutive does not occur with the same roots as the imperfective is largely correct. Imperfective reduplication is associated with verbs and the diminutive generally applies to nouns. The motivation for developing different surface forms in ʔayʔaǰuθəm for the same reduplicative process as a method of contrast enhancement is unclear as there are other cues to distinguish the imperfective from the stative plural and the diminutive.	page 17
+§4	Gloria Mellesmoen	note	The contrast enhancement analysis only solves the issue of the surface forms and does not address the deeper implications of CV- prefixing for the grammar, as laid out in Section 2. While contrast is important for communication, it is doubtful that enhancement alone is reason to force violations of or demote multiple high-ranked faithfulness and prosodic constraints. Positing that diminutive reduplication is infixation is not only cohesive with the phonological grammar, it also fits with the morphological patterns in the language and with cross-Salish patterns. ʔayʔaǰuθəm has other affixes which are infixed into a root, such as the possessive affix /-hV-/ (Blake, 2000: 269) and a stative marker /-ʔ-/ (Watanabe 2003: 328). It is also pertinent to highlight that [ʔ]-infixation, following a root vowel, has been attested marginally to mark the diminutive in previous literature, though this fourth type of diminutive was only attested in one form (Watanabe 2003: 389). Further, -C1- reduplication is not only attested elsewhere in Salish, but also is used to mark the diminutive in Shuswap (Bell, 1983). This provides support for the validity of such an analysis in ʔayʔaǰuθəm. Further, Haynes (2007) reanalyzes a type of reduplication, associated with the suffix -mút, in Kwak’wala as prefixing or infixing reduplication of a single consonant.11 Though it is a Wakashan language, not Salish, Kwak’wala and ʔayʔaǰuθəm are traditionally spoken in neighbouring areas (Blake, 2000: 314). Therefore, proposing infixing reduplication for the diminutive is cohesive with the structure of ʔayʔaǰuθəm while fitting with familial and areal patterns.	page 17
+footnote 11	Gloria Mellesmoen	note	Though I came across this article after my analysis was complete, it is worth noting that Haynes (2007) identifies similar issues with Kwak’wala reduplication in a BRCT approach and uses them to motivate her reanalysis.	page 18, footnote 11
+§4	Gloria Mellesmoen	name	Haynes	E. F. Haynes, base TETU effects in Kwak’wala (2007)
+§4	Gloria Mellesmoen	name	Bell	S. J. Bell, internal C reduplication in Shuswap (1983)
+§4	Gloria Mellesmoen	language	Shuswap	Interior Salish, its -C1- diminutive (Bell 1983)
+§4	Gloria Mellesmoen	language	Kwak’wala	Wakashan, a neighbor, single-consonant reduplication (Haynes 2007)
+§4	Gloria Mellesmoen	language	Wakashan	the family of Kwak’wala
+§5	Gloria Mellesmoen	heading	5 Conclusion	page 18
+§5	Gloria Mellesmoen	note	Diminutive reduplication in ʔayʔaǰuθəm is best characterized as -C1- infixation. This analysis addresses and resolves several key issues with the previous C1V- prefixing analyses. It fits with language internal and external influences, appeases threats to well-established universals in phonological grammar, provides a more descriptively intuitive account of how surface forms are derived, and tidily accounts for the differences between diminutive and imperfective reduplication. While there are still open questions regarding the state and vitality of diminutive reduplication in ʔayʔaǰuθəm and the assignment of glottalization, which are crucial to a more complete formal analysis, there is strong evidence to treat diminutive reduplication as -C1- infixation.	page 18
+references	Gloria Mellesmoen	heading	References	page 18
+references	Gloria Mellesmoen	reference	Alderete, J. (2001). Morphologically governed accent in Optimality Theory. Routledge, New York, NY.	page 18
+references	Gloria Mellesmoen	reference	Bell, S. J. (1983). Internal C reduplication in Shuswap. Linguistic Inquiry, 14(2):332–338.	page 18
+references	Gloria Mellesmoen	reference	Blake, S. J. (2000). On the distribution and representation of schwa in Sliammon Salish: Descriptive and theoretical perspectives. PhD thesis, University of British Columbia, Vancouver.	page 19
+references	Gloria Mellesmoen	reference	Davis, J. H. (1971). Four forms of the verb in Sliammon. Paper presented at the Sixth International Conference on Salish Languages, Victoria, B.C.	page 19
+references	Gloria Mellesmoen	reference	Harris, H. R. (1981). A grammatical sketch of Comox. PhD thesis, University of Kansas, Lawrence, KS.	page 19
+references	Gloria Mellesmoen	reference	Haynes, E. F. (2007). An explanation of base TETU effects in Kwak’wala and Cupeño. Annual Meeting of the Berkeley Linguistics Society, 33(1):191– 202.	page 19
+references	Gloria Mellesmoen	reference	McCarthy, J. J. and Prince, A. (1993). Generalized alignment. In Booij, G. and van Marle, J., editors, Yearbook of morphology 1993, pages 79–153. Kluwer Academic Publishers, Dordrecht.	page 19
+references	Gloria Mellesmoen	reference	McCarthy, J. J. and Prince, A. (1995). Faithfulness and reduplicative identity. In Beckman, J. N., Dickey, L. W., and Urbanczyk, S., editors, University of Massachusetts Occasional Papers in Linguistics 18: Papers in Optimality Theory, pages 249–384. Graduate Linguistic Student Association, Amherst, MA.	page 19
+references	Gloria Mellesmoen	reference	Riggle, J. (2006). Infixing reduplication in Pima and its theoretical consequences. Natural Language & Linguistic Theory, 24(3):857–891.	page 19
+references	Gloria Mellesmoen	reference	Sapir, E. (1915). Noun reduplication in Comox, a Salish language of Vancouver Island. Goverment Printing Bureau, Ottawa.	page 19
+references	Gloria Mellesmoen	reference	Urbanczyk, S. (2005). Enhancing contrast in reduplication. In Hurch, B., editor, Studies on reduplication, pages 431–454. Mouton de Gruyter, Berlin.	page 19
+references	Gloria Mellesmoen	reference	Watanabe, H. (2003). A morphological description of Sliammon, Mainland Comox Salish: With a sketch of syntax. Endangered Languages of the Pacific Rim A2-040. Nakanishi Printing Co. Ltd., Kyoto.	page 19
+references	Gloria Mellesmoen	reference	Yu, A. C. L. (2017). Global optimization in allomorph selection: Two case studies. In Gribanova, V. and Shih, S. S., editors, The morphosyntax- phonology connection: Locality and directionality at the interface, pages 3– 27. Oxford University Press, Oxford.	page 19

@@ -1,0 +1,854 @@
+where	who	kind	form	gloss
+front	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+front	Ethan Pincott	note	In Proceedings of ICSNL 61, Ella Hannon, Laura Griffin, Brent Hall, Bruce Oliver, Danica Reid, Julia Schillo, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL. Philology of Secwepemctsín: The Phonology of Studies on Shuswap* Ethan Pincott Simon Fraser University Abstract: In this paper, I examine the earliest monograph on Secwepemctsín, Studies on Shuswap (1925) by Father Le Jeune, to determine what the phonology of the language was like at that time and how it may have changed in the last hundred years. Taking a philological approach, I transcribe the words of the text, including those written in the Chinook Shorthand, and attempt to reconstruct their pronunciation based on Le Jeune’s orthographies. The results show that some important Secwepemctsín sound shifts had taken place by 1925, while others were still in progress. Keywords: Secwepemctsín, historical linguistics, phonology, orthography, wordlists, Chinook Shorthand	page 1
+§1	Ethan Pincott	heading	1 Introduction	page 1
+§1	Ethan Pincott	note	In this paper, I examine the materials contained in Father Le Jeune’s 1925 publication Studies on Shuswap. Although earlier records of the language exist, beginning with a wordlist from Alexander Mackenzie’s arrival in the territory in 1793 (Nater 2019), and including wordlists from Gibbs (1877), Tolmie (1877), place names and sporadic vocabulary from Dawson (1891), and various materials from Teit’s The Shuswap (1909), Studies represents the first monograph specifically on the language, and therefore is of great interest in analyzing how the language may have changed (or not) over the last hundred years. It is also of historical interest for Le Jeune’s use of the Chinook Shorthand system to write the language.	page 1
+§1	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+§1	Ethan Pincott	language	nsyilxcən	Okanagan. Ok
+§1	Ethan Pincott	language	ʔayʔaǰuθəm	the language of Reisinger and Griffin 2022
+§1	Ethan Pincott	note	I began by transcribing all the words contained within, in both the Latin and Shorthand forms, along with Le Jeune’s translation, a phonetic reconstruction of the implied pronunciation, and the equivalent word and meaning in modern Secwepemctsín. This resulted in a corpus of over 1100 words. I then noted for each word whether it was identical in form and meaning to the modern language, if it differed in phonetics, morphology, or semantics, or if it was otherwise unattested in the language. This philological approach, the analysis of texts to better understand the history of the language, has been applied to Salish languages before, including Doak (1983) for nsyilxcən, Mattina and Taylor (1984) for Flathead, Nater (2019) for Secwepemctsín and Nuxalk, and Reisinger and Griffin (2022) for ʔayʔaǰuθəm, and remains an important avenue for future research into the development of the languages.	page 1
+footnote *	Ethan Pincott	note	* Thank you to all my Secwepemctsín mentors, instructors, students, and fellow learners who have been so generous with their knowledge, and in turn allowing me to share what little I know. Thanks especially to the Elders of the Wumecwílc re Secwepemctsín group for putting up with my unending questions with a sense of humour. I also appreciate the feedback from the Salish Working Group on some of the earlier research for this paper, and the assistance of David Robertson in interpreting some of the Chinook Shorthand materials. Xyum re skukwstsétselp!	page 1, footnote
+§1	Ethan Pincott	name	Wumecwílc	the Wumecwílc re Secwepemctsín group, whose Elders footnote * thanks
+§1	Secwepemctsín	cited form	skukwstsétselp	in Xyum re skukwstsétselp!, the thanks that closes footnote *
+§1	Ethan Pincott	note	This paper is concerned specifically with what we can know about the phonology of the language in 1925 at the time of the writing of Studies. In order to understand the phonology, I first explain the orthographies used by Le Jeune to write the language. This is followed by a description of known Secwepemctsín sound shifts that are attested in the data. Then I examine certain archaic features of the phonology in Studies that are lacking in modern Secwepemctsín, as well as miscellaneous sound patterns that are more difficult to classify.	page 1
+§2	Ethan Pincott	heading	2 Background	page 2
+§2.1	Ethan Pincott	heading	2.1 Secwepemctsín	page 2
+§2.1	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+§2.1	Ethan Pincott	language	nɬeʔkepmxcín	Thompson, the closest relative of Secwepemctsín. Th in the tables
+§2.1	Ethan Pincott	language	St’át’imcets	Lillooet. Li
+§2.1	Ethan Pincott	note	Secwepemctsín (Shuswap) is a language of the Interior Salish branch of the Salish family, most closely related to nɬeʔkepmxcín (Thompson), and more distantly to St’át’imcets (Lillooet). It is spoken across a vast region of south -central British Columbia. The western border runs along the Fraser River, from just north of Pavillion up to Soda Creek. From there, the northern borde r cuts east through the Cariboo Plateau to the Rocky Mountains near Jasper, with the eastern border along the mountains to Invermere. The southern border includes Splatsin, the Shuswap Lakes area, and the Thompson River along Kamloops to Cache Creek.	page 2
+§2.1	Ethan Pincott	note	There are two main dialects of the language, Western and Eastern, with the border between them lying roughly between Kamloops and Chase. These differ from each other somewhat in phonology, grammar, and lexicon (Kuipers 1989:9). Within the Western dialect, there are minor phonetic and lexical differences between the northern and southern communities, as well as between Simpcw and the rest. The language probably has less than 50 fluent speakers remaining, although language revitalization efforts are underway, with a growing cohort of semi-speakers and learners.	page 2
+§2.1	Ethan Pincott	note	Secwepemctsín phonology is typical of a Salish language, with 38 consonants but only 6 vowels. The consonant inventory includes uvulars, labialized dorsals, and glottalized stops and resonants. Consonant clusters are common and relatively unconstrained in terms of which consonants can be in contact.	page 2
+§2.2	Ethan Pincott	heading	2.2 Father Le Jeune1	page 2
+§2.2	Ethan Pincott	name	Jean-Marie-Raphaël	Jean-Marie-Raphaël Le Jeune, the missionary who wrote Studies on Shuswap, 1925
+§2.2	Ethan Pincott	name	nɬeʔképmx	the Thompson people, Michel's and those of the Nicola Valley reserves
+§2.2	Ethan Pincott	note	Jean-Marie-Raphaël Le Jeune was a missionary of the Roman Catholic Oblates of Mary Immaculate. Born in Brittany in northwestern France, he travelled to British Columbia in 1879 to missionize to the Indigenous peoples there, alongside Bishop Durieu who had spent some time in the province already. On the voyage over, Durieu provided Le Jeune with an instruction manual in the Chinook Jargon, which he apparently took to immediately. He arrived in New Westminster and was soon assigned to begin missionary work among the people of the Fraser Canyon. At Yale, he befriended an nɬeʔképmx convert named Michel, and began learning the language, which he soon realized would be considerably more difficult than learning Chinook Jargon. He also studied with an elder named Mary Ta-hwi-nak at Spuzzum, with whom he spent much time learning words of the language and translating basic prayers and catechism. After spending the summer in the Fraser Canyon, Le Jeune was recalled to St. Mary’s Mission in Mission, where he spent two years, before being assigned to the St. Louis Mission in Kamloops, arriving on October 17, 1882. This would be his home for the remainder of his career.	page 2
+footnote 1	Ethan Pincott	note	1 The short biography of Le Jeune presented here is based on the 1948 thesis The Work of Reverend Father J.M.R. Le Jeune, O.M.I. by William Gurney (Gurney 1948). Despite his prominent role in the missionary history of this part of the province and the linguistic relevance of his work, it has been difficult to find sources on his life.	page 2, footnote
+§2.2	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+§2.2	Ethan Pincott	language	Halq’eméylem	one of Le Jeune's eight languages
+§2.2	Ethan Pincott	language	Sḵwx̱wú7mesh	Squamish, one of Le Jeune's eight languages. Sq
+§2.2	Ethan Pincott	language	sháshíshalh-em	Sechelt, one of Le Jeune's eight languages
+§2.2	Ethan Pincott	language	ʔayʔajuθəm	one of Le Jeune's eight languages, written with j in §2.2
+§2.2	Ethan Pincott	language	St’át’imcets	Lillooet. Li
+§2.2	Ethan Pincott	language	nɬeʔkepmxcín	Thompson, the closest relative of Secwepemctsín. Th in the tables
+§2.2	Ethan Pincott	name	Secwépemc	the people whose language is Secwepemctsín
+§2.2	Ethan Pincott	place	St̓uxwtéws	Bonaparte, a Secwépemc reserve Le Jeune visited
+§2.2	Ethan Pincott	note	Le Jeune continued his learning of Chinook Jargon and other Indigenous languages, believing that this was a necessary skill to fully understand and preach to the Indigenous peoples he was charged with. His linguistic ability was noted by his peers. Over his career, he compiled and edited prayers and catechism in at least eight languages: Secwepemctsín, Halq’eméylem, Sḵwx̱wú7mesh, sháshíshalh-em, ʔayʔajuθəm, St’át’imcets, nɬeʔkepmxcín, and nsyilxcn. He travelled widely on his missionary circuit, frequently visiting the Secwépemc reserves of Deadman’s Creek (Skeetchestn), Bonaparte (St̓uxwtéws), Chu Chua (Simpcw), and Adam’s Lake, as well as the nɬeʔképmx reserves of the Nicola Valley. In 1928, when he was over seventy years old, he travelled to thirty -two different missions. By all accounts, he was well respected by the Indigenous people he ministered to, as well as the growing settler population, and was known for his knowledge of Chinook Jargon, Secwepemctsín, and other Indigenous languages.	page 3
+§2.2	Ethan Pincott	note	Le Jeune began publishing the Kamloops Wawa newspaper in May 1891, a newspaper written in Chinook Jargon, Shorthand, and English. Its circulation varied from one hundred copies at the beginning to over three thousand at its height. He continued its publication largely single-handedly for fourteen ye ars. As a newspaper, it contained typical reporting and advertisements, but also religious materials and reminiscences by Le Jeune. Although it was a struggle to get financing for the paper, Le Jeune did not press Indigenous subscribers for payment and instead mostly relied on white subscribers to keep it afloat.	page 3
+§2.2	Ethan Pincott	note	Le Jeune retired in 1929 and left Kamloops before passing away at St. Mary’s Mission on November 21, 1930. Studies on Shuswap is an important linguistic legacy, but this legacy is marred by the cultural genocide and abuse of students that occurred at the Oblate-administered Kamloops Indian Residential School. Le Jeune himself was certainly not hostile to the use of Indigenous languages2, but it is difficult to separate the man from the system that inflicted so much harm on Indigenous peoples.	page 3
+§3	Ethan Pincott	heading	3 Overview of Studies on Shuswap	page 3
+§3.1	Ethan Pincott	heading	3.1 Structure of the Text	page 3
+§3.1	Ethan Pincott	name	Secwépemc	the people whose language is Secwepemctsín
+§3.1	Ethan Pincott	note	Studies on Shuswap is a difficult document to classify, as a grammatical sketch, wordlist, and religious text all in one. Issued in 1925, it was Le Jeune’s last publication, and represents a summation of his language studies among the Secwépemc.	page 3
+§3.1	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+footnote 2	Ethan Pincott	note	2 An interesting anecdote is that Le Jeune once addressed two Indigenous boys in a local language, which they did not understand. He admonished them, saying “[y]ou leave it to me, a stranger in your country, to speak your own language which you do not know” (Guerney 1948:160).	page 3, footnote
+§3.1	Ethan Pincott	note	The manuscript is thirty-two pages long, and begins with a guide to the Shorthand orthography, which is followed by a listing of articles and pronouns. Section I is a list of numerals, including reduplicated and suffixed forms for counting specific classes of objects. Section II is guide to verbs, broken down into conjugation patterns according to tense and aspect. Section III is labelled “A key to the most usual words of the Shuswap language, adapted from the key to the garden of the Greek roots”. This begins with thirteen paragraphs written only in shorthand. These are religious in nature, including a translation of Genesis:1. The remainder is difficult to parse, due to my own limitations in identifying some of the words used, but it includes basic Catholic theology, such as a description of the Trinity. This is followed by a translation/adaptation of Genesis:1 in Latin orthography, Shorthand, and an English translation, about three pages total. This is not a direct translation of Genesis:1, but instead serves as a wordlist of Secwepemctsín nouns according to the work of the six days. Following this are more classified wordlists of nouns, which total four pages. Section IV is a list of adjectives, totalling about a page and a half. Section V is a list of verbs, mostly given in 1st person singular form, totalling about three pages. Section VI is a list titled “Adverbs, etc.”, covering remaining lexical classes (adverbs, demon stratives, interrogatives, particles, etc.), about two and a half pages. Section VII is titled “Reproduction of a few lessons in Shuswap”; these are a combination of hymns, prayers, and grammatical forms, and basic sentences, often relating to Catholic teachings. At the end of this section, there is a supplementary wordlist, and more basic sentences. The book concludes with a declaration that similar studies on Thompson and Okanagan are in preparation, but these were apparently never completed before Le Jeune’s death. Figure 1: Typical three-column layout of Studies’ wordlists The majority of the material analyzed here is from the wordlists in the introduction and Sections I, III, IV, V, VI, and VII, totalling over 1100 words. For the most part, these are presented in three columns: the first containing Le Jeune’s representation of Secwepemctsín in Latin orthography, the second containing Secwepemctsín represented in Chinook Shorthand, and the third an English definition. However, some entries contain only Shorthand and an English translation, and some just a word in Shorthand.	page 3
+§3.2	Ethan Pincott	heading	3.2 Orthographies Used	page 4
+§3.2.1	Ethan Pincott	heading	3.2.1 Latin Orthography	page 4
+§3.2.1	Ethan Pincott	note	The Latin orthography used by Le Jeune is outlined in the Phonetic Alphabet section at the beginning of Studies, along with equivalent Shorthand. In practice however, he uses many spellings not covered in this section. A key to the Latin consonant sound to grapheme mappings is given in Table 1. Where multiple graphemes exist for the same sound, they are given in a (very) rough order of frequency.	page 4
+Table 1 line 1	Ethan Pincott	note	Le Jeune’s Latin orthography	page 5, the caption
+Table 1 line 2	Ethan Pincott	note	Sound Grapheme(s) Modern S. Orthography	page 5, heads the rows below
+Table 1 line 3	Secwepemctsín	phonemic	/p/	page 5, phonemic, in / /
+Table 1 line 3	Secwepemctsín	transcription	⟨p, b3⟩	page 5, in ⟨ ⟩
+Table 1 line 3	Secwepemctsín	transcription	p	page 5, the orthography
+Table 1 line 4	Secwepemctsín	phonemic	/m/	page 5, phonemic, in / /
+Table 1 line 4	Secwepemctsín	transcription	⟨m⟩	page 5, in ⟨ ⟩
+Table 1 line 4	Secwepemctsín	transcription	m	page 5, the orthography
+Table 1 line 5	Secwepemctsín	phonemic	/t/	page 5, phonemic, in / /
+Table 1 line 5	Secwepemctsín	transcription	⟨t⟩	page 5, in ⟨ ⟩
+Table 1 line 5	Secwepemctsín	transcription	t	page 5, the orthography
+Table 1 line 6	Secwepemctsín	phonemic	/t̓/	page 5, phonemic, in / /
+Table 1 line 6	Secwepemctsín	phonemic	[ƛ̓]	page 5, phonetic, in [ ]
+Table 1 line 6	Secwepemctsín	transcription	⟨tl, hl⟩	page 5, in ⟨ ⟩
+Table 1 line 6	Secwepemctsín	transcription	t̓	page 5, the orthography
+Table 1 line 7	Secwepemctsín	phonemic	/ɬ/	page 5, phonemic, in / /
+Table 1 line 7	Secwepemctsín	transcription	⟨lh, hl, l⟩	page 5, in ⟨ ⟩
+Table 1 line 7	Secwepemctsín	transcription	ll	page 5, the orthography
+Table 1 line 8	Secwepemctsín	phonemic	/l/	page 5, phonemic, in / /
+Table 1 line 8	Secwepemctsín	transcription	⟨l⟩	page 5, in ⟨ ⟩
+Table 1 line 8	Secwepemctsín	transcription	l	page 5, the orthography
+Table 1 line 9	Secwepemctsín	phonemic	/n/	page 5, phonemic, in / /
+Table 1 line 9	Secwepemctsín	transcription	⟨n⟩	page 5, in ⟨ ⟩
+Table 1 line 9	Secwepemctsín	transcription	n	page 5, the orthography
+Table 1 line 10	Secwepemctsín	phonemic	/c/	page 5, phonemic, in / /
+Table 1 line 10	Secwepemctsín	phonemic	[č]	page 5, phonetic, in [ ]
+Table 1 line 10	Secwepemctsín	transcription	⟨sh, j, tj, s, ts, z, ch, dj, tsh, tch⟩	page 5, in ⟨ ⟩
+Table 1 line 10	Secwepemctsín	transcription	ts	page 5, the orthography
+Table 1 line 11	Secwepemctsín	phonemic	/c̓/	page 5, phonemic, in / /
+Table 1 line 11	Secwepemctsín	phonemic	[c̓~č̓]	page 5, phonetic, in [ ]
+Table 1 line 11	Secwepemctsín	transcription	⟨z, ts, tz, s, j⟩	page 5, in ⟨ ⟩
+Table 1 line 11	Secwepemctsín	transcription	ts̓	page 5, the orthography
+Table 1 line 12	Secwepemctsín	phonemic	/s/	page 5, phonemic, in / /
+Table 1 line 12	Secwepemctsín	phonemic	[s~š]	page 5, phonetic, in [ ]
+Table 1 line 12	Secwepemctsín	transcription	⟨s, j, sh, z⟩	page 5, in ⟨ ⟩
+Table 1 line 12	Secwepemctsín	transcription	s	page 5, the orthography
+Table 1 line 13	Secwepemctsín	phonemic	/y/	page 5, phonemic, in / /
+Table 1 line 13	Secwepemctsín	transcription	⟨i⟩	page 5, in ⟨ ⟩
+Table 1 line 13	Secwepemctsín	transcription	y	page 5, the orthography
+Table 1 line 14	Secwepemctsín	phonemic	/k/	page 5, phonemic, in / /
+Table 1 line 14	Secwepemctsín	transcription	⟨k⟩	page 5, in ⟨ ⟩
+Table 1 line 14	Secwepemctsín	transcription	k	page 5, the orthography
+Table 1 line 15	Secwepemctsín	phonemic	/kʷ/	page 5, phonemic, in / /
+Table 1 line 15	Secwepemctsín	transcription	⟨kw, ko, wk, ok⟩	page 5, in ⟨ ⟩
+Table 1 line 15	Secwepemctsín	transcription	kw	page 5, the orthography
+Table 1 line 16	Secwepemctsín	phonemic	/x/	page 5, phonemic, in / /
+Table 1 line 16	Secwepemctsín	transcription	⟨h⟩	page 5, in ⟨ ⟩
+Table 1 line 16	Secwepemctsín	transcription	c	page 5, the orthography
+Table 1 line 17	Secwepemctsín	phonemic	/xʷ/	page 5, phonemic, in / /
+Table 1 line 17	Secwepemctsín	transcription	⟨hw, wh, h⟩	page 5, in ⟨ ⟩
+Table 1 line 17	Secwepemctsín	transcription	cw	page 5, the orthography
+Table 1 line 18	Secwepemctsín	phonemic	/ɣ/	page 5, phonemic, in / /
+Table 1 line 18	Secwepemctsín	transcription	⟨g, r⟩	page 5, in ⟨ ⟩
+Table 1 line 18	Secwepemctsín	transcription	r	page 5, the orthography
+Table 1 line 19	Secwepemctsín	phonemic	/w/	page 5, phonemic, in / /
+Table 1 line 19	Secwepemctsín	transcription	⟨w⟩	page 5, in ⟨ ⟩
+Table 1 line 19	Secwepemctsín	transcription	w	page 5, the orthography
+Table 1 line 20	Secwepemctsín	phonemic	/q/	page 5, phonemic, in / /
+Table 1 line 20	Secwepemctsín	transcription	⟨kr, k, k’⟩	page 5, in ⟨ ⟩
+Table 1 line 20	Secwepemctsín	transcription	q	page 5, the orthography
+Table 1 line 21	Secwepemctsín	phonemic	/qʷ/	page 5, phonemic, in / /
+Table 1 line 21	Secwepemctsín	transcription	⟨krw, kro, okr, wkr, kw, ko, ok, wk, k’o, ok’⟩	page 5, in ⟨ ⟩
+Table 1 line 21	Secwepemctsín	transcription	qw	page 5, the orthography
+Table 1 line 22	Secwepemctsín	phonemic	/x̌/	page 5, phonemic, in / /
+Table 1 line 22	Secwepemctsín	transcription	⟨h, hr⟩	page 5, in ⟨ ⟩
+Table 1 line 22	Secwepemctsín	transcription	x	page 5, the orthography
+Table 1 line 23	Secwepemctsín	phonemic	/x̌ʷ/	page 5, phonemic, in / /
+Table 1 line 23	Secwepemctsín	transcription	⟨hw, wh, ho, oh⟩	page 5, in ⟨ ⟩
+Table 1 line 23	Secwepemctsín	transcription	xw	page 5, the orthography
+Table 1 line 24	Secwepemctsín	phonemic	/ʕ/	page 5, phonemic, in / /
+Table 1 line 24	Secwepemctsín	transcription	⟨r, g⟩	page 5, in ⟨ ⟩
+Table 1 line 24	Secwepemctsín	transcription	g	page 5, the orthography
+Table 1 line 25	Secwepemctsín	phonemic	/ʕʷ/	page 5, phonemic, in / /
+Table 1 line 25	Secwepemctsín	transcription	⟨ro, or, r⟩	page 5, in ⟨ ⟩
+Table 1 line 25	Secwepemctsín	transcription	gw	page 5, the orthography
+Table 1 line 26	Secwepemctsín	phonemic	/h/	page 5, phonemic, in / /
+Table 1 line 26	Secwepemctsín	transcription	⟨h⟩	page 5, in ⟨ ⟩
+Table 1 line 26	Secwepemctsín	transcription	h	page 5, the orthography
+Table 1 line 27	Secwepemctsín	phonemic	/ʔ/	page 5, phonemic, in / /
+Table 1 line 27	Secwepemctsín	transcription	⟨h⟩	page 5, in ⟨ ⟩
+Table 1 line 27	Ethan Pincott	note	doubling of vowel 7	page 5, between the cells
+Table 1 line 28	Secwepemctsín	phonemic	/i/	page 5, phonemic, in / /
+Table 1 line 28	Secwepemctsín	transcription	⟨i, e⟩	page 5, in ⟨ ⟩
+Table 1 line 28	Secwepemctsín	transcription	i	page 5, the orthography
+Table 1 line 29	Secwepemctsín	phonemic	/e/	page 5, phonemic, in / /
+Table 1 line 29	Secwepemctsín	transcription	⟨a, e, o⟩	page 5, in ⟨ ⟩
+Table 1 line 29	Secwepemctsín	transcription	é	page 5, the orthography
+Table 1 line 30	Secwepemctsín	phonemic	/a/	page 5, phonemic, in / /
+Table 1 line 30	Secwepemctsín	transcription	⟨a, o⟩	page 5, in ⟨ ⟩
+Table 1 line 30	Secwepemctsín	transcription	a	page 5, the orthography
+Table 1 line 31	Secwepemctsín	phonemic	/o/	page 5, phonemic, in / /
+Table 1 line 31	Secwepemctsín	transcription	⟨o⟩	page 5, in ⟨ ⟩
+Table 1 line 31	Secwepemctsín	transcription	o	page 5, the orthography
+Table 1 line 32	Secwepemctsín	phonemic	/u/	page 5, phonemic, in / /
+Table 1 line 32	Secwepemctsín	transcription	⟨w, oo, o, u⟩	page 5, in ⟨ ⟩
+Table 1 line 32	Secwepemctsín	transcription	u	page 5, the orthography
+Table 1 line 33	Secwepemctsín	phonemic	/ə/	page 5, phonemic, in / /
+Table 1 line 33	Secwepemctsín	transcription	⟨i, e, a, o, w, u⟩	page 5, in ⟨ ⟩
+Table 1 line 33	Secwepemctsín	transcription	e	page 5, the orthography
+footnote 3	Ethan Pincott	note	3 The grapheme ⟨b⟩ is exactly used once, in ⟨sèben⟩ sépen /sépən/ ‘brother-in-law’.	page 5, footnote
+§3.2.1	Secwepemctsín	cited form	⟨sèben⟩	Le Jeune's spelling of sépen ‘brother-in-law’, the only use of ⟨b⟩, footnote 3
+§3.2.1	Secwepemctsín	cited form	sépen	‘brother-in-law’, footnote 3
+§3.2.1	Secwepemctsín	cited form	/sépən/	sépen ‘brother-in-law’, footnote 3
+§3.2.1	Secwepemctsín	cited form	/ɬ/	page 6
+§3.2.1	Ethan Pincott	note	The representation of consonants in Studies is surprisingly functional for its time. Le Jeune usually, though not totally reliably, distinguishes velar from uvular stops. The uvulars are mainly represented as ⟨kr⟩, and it seems likely that the choice of ⟨r⟩ in this digraph was influenced by the presence of a uvular rhotic in his native French. Similarly, the pharyngeal approximant is usually spelled ⟨r⟩. He is also largely accurate in distinguishing the voiceless lateral fricative ll /ɬ/, which he writes ⟨lh, hl⟩, from the approximant l /l/.	page 5
+§3.2.1	Ethan Pincott	note	/kʷəC/	a pattern, C any consonant, one reading of Le Jeune's ⟨kwC⟩
+§3.2.1	Ethan Pincott	note	/kʷuC/	a pattern, C any consonant, one reading of Le Jeune's ⟨kwC⟩
+§3.2.1	Ethan Pincott	note	Labialization of dorsals is also consistently written with a rounded vowel grapheme, usually ⟨w⟩ or ⟨o⟩, following the dorsal. In coda position, the rounded vowel may sometimes occur before the dorsal. In situations where schwa occurs adjacent to a rounded consonant, it is typically written ⟨w⟩, so for instance ⟨kwC⟩ can represent /kʷəC/ or /kʷuC/.	page 6
+§3.2.1	Secwepemctsín	cited form	t̓	page 6
+§3.2.1	Secwepemctsín	cited form	/t̓/	page 6
+§3.2.1	Ethan Pincott	note	Despite these features, there are some significant deficiencies of Le Jeune’s system. Glottalization of obstruents and resonants is not indicated, with the notable exception of ⟨tl⟩ for the glottalized lateral affricate t̓ /t̓/, distinct from the plain stop t /t/. Glottal stop is usually not written, but in some very rare instances it is indicated with ⟨h⟩ or doubling of the vowel preceding the glottal stop.	page 6
+§3.2.1	Secwepemctsín	cited form	ts̓	page 6
+§3.2.1	Secwepemctsín	cited form	c̓/	page 6
+§3.2.1	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+§3.2.1	Secwepemctsín	cited form	č	page 6
+§3.2.1	Ethan Pincott	note	The sibilants s ts ts̓ /s, c, c̓/ are the most difficult to interpret. In Secwepemctsín, they are subject to significant dialectal and idiolectal variation. The plain affricate ts /c/ is the most stable, being pronounced as postalveolar [č] across dialects and speakers. Despite this, it shows the most variation in terms of graphemes used to represent it. Those most commonly used by Le Jeune, ⟨sh j tj⟩, seem to reflect this postalveolar pronunciation, however some rarer graphemes, like ⟨s ts z⟩ instead suggest an alveolar pronunciation. Perhaps in Le Jeune’s time there was more variation in how this sound was pronounced, but this is highly speculative.	page 6
+§3.2.1	Secwepemctsín	cited form	/c̓/	page 6
+§3.2.1	Secwepemctsín	cited form	c̓	page 6
+§3.2.1	Secwepemctsín	cited form	č̓	page 6
+§3.2.1	Secwepemctsín	cited form	š	page 6
+§3.2.1	Ethan Pincott	note	The fricative s /s/ and ejective affricate ts̓ /c̓/ vary between alveolar and postalveolar. In Southern dialects, the ejective affricate is consistently alveolar [c̓], while in Northern dialects, it is postalveolar [č̓]. The fricative is usually [s] in Southern dialects, while in Northern dialects it seems to vary more between [s] and [š]. Le Jeune’s grapheme choices of ⟨s, j, sh, z⟩ for the fricative suggest variation in how it was pronounced. The graphemes ⟨z, ts, tz, j⟩ for the ejective affricate, by contrast, suggest a primarily alveolar articulation. Regardless, there is considerable overlap in graphemes used to represent the sibilants, so it is generally only possible to identify which phoneme Le Jeune intended if the word is recognizable in the modern language.	page 6
+§3.2.1	Secwepemctsín	cited form	/ə/	page 6
+§3.2.1	Secwepemctsín	cited form	é	page 6
+§3.2.1	Ethan Pincott	note	The vowel graphemes in Le Jeune’s romanization also overlap significantly with each other. Schwa e /ə/ is typically ⟨i⟩, but it may be ⟨w, u, o⟩ if adjacent to a rounded consonant. At the ends of words, it is usually ⟨a⟩. Likewise, é /e/ is typically ⟨a⟩, but may be ⟨o⟩ adjacent to a rounded consonant. The front vowel i /i/ is written ⟨i, e⟩. Interestingly, u /u/ is usually ⟨w⟩, although other graphemes like ⟨o, oo, u⟩ are also used. The back vowels a /a/, written ⟨a,o⟩, and o /o/, written ⟨o⟩, are rare. Stress is usually indicated with a grave accent over the vowel, but it is often omitted.	page 6
+§3.2.2	Ethan Pincott	heading	3.2.2 Chinook Shorthand	page 6
+§3.2.2	Ethan Pincott	name	Émile	Émile Duployé, whose French shorthand the Chinook Shorthand was developed from
+§3.2.2	Ethan Pincott	name	Duployé	Émile Duployé, whose French shorthand the Chinook Shorthand was developed from
+§3.2.2	Ethan Pincott	note	The Chinook Shorthand, or Chinuk Pipa as it was called in Chinook Jargon, is a writing system developed by Le Jeune in 1890 from the Duployan shorthand originally developed for French by Father Émile Duployé (Gurney 1948:110-112). Consonants are written in straight lines, which are distinguished by length and direction/alignment of stroke, and arcs, which are distinguished by direction. Both may be modified with diacritics like dots to indicate different sounds. The shapes are somewhat phonemic, so that f or instance horizontal arcs represent sibilant consonants , while vertical arcs represent nasals. Vowels are circular and written with dots and lines inside to indicate a specific vowel or diphthong. Adjoining graphemes connect cursively within roughly syllabic units, although the common character {h} is written as a dot that does not connect. Unfortunately, due to technical limitations, I have not been able to reproduce the Shorthand graphemes here. Instead, I invite interested readers to consult Le Jeune’s Chinook Rudiments or the text of Studies on Shuswap itself for a sense of what the script looks like and how it works. Instead, I have romanized the Shorthand according to the system used by David Robertson (Robertson 2025) and presented those here in curly braces. Any errors in transcription are my own.	page 6
+Table 2 line 1	Ethan Pincott	note	Le Jeune’s Shorthand orthography	page 7, the caption
+Table 2 line 2	Ethan Pincott	note	Sound Romanization Modern S. Orthography	page 7, heads the rows below
+Table 2 line 3	Secwepemctsín	phonemic	/p/	page 7, phonemic, in / /
+Table 2 line 3	Secwepemctsín	transcription	{p, b}	page 7, in { }
+Table 2 line 3	Secwepemctsín	transcription	p	page 7, the orthography
+Table 2 line 4	Secwepemctsín	phonemic	/m/	page 7, phonemic, in / /
+Table 2 line 4	Secwepemctsín	transcription	{m}	page 7, in { }
+Table 2 line 4	Secwepemctsín	transcription	m	page 7, the orthography
+Table 2 line 5	Secwepemctsín	phonemic	/t/	page 7, phonemic, in / /
+Table 2 line 5	Secwepemctsín	transcription	{t}	page 7, in { }
+Table 2 line 5	Secwepemctsín	transcription	t	page 7, the orthography
+Table 2 line 6	Secwepemctsín	phonemic	/t̓/	page 7, phonemic, in / /
+Table 2 line 6	Secwepemctsín	phonemic	[ƛ̓]	page 7, phonetic, in [ ]
+Table 2 line 6	Secwepemctsín	transcription	{tl, ɬ}	page 7, in { }
+Table 2 line 6	Secwepemctsín	transcription	t̓	page 7, the orthography
+Table 2 line 7	Secwepemctsín	phonemic	/ɬ/	page 7, phonemic, in / /
+Table 2 line 7	Secwepemctsín	transcription	{ɬ, l}	page 7, in { }
+Table 2 line 7	Secwepemctsín	transcription	ll	page 7, the orthography
+Table 2 line 8	Secwepemctsín	phonemic	/l/	page 7, phonemic, in / /
+Table 2 line 8	Secwepemctsín	transcription	{l}	page 7, in { }
+Table 2 line 8	Secwepemctsín	transcription	l	page 7, the orthography
+Table 2 line 9	Secwepemctsín	phonemic	/n/	page 7, phonemic, in / /
+Table 2 line 9	Secwepemctsín	transcription	{n}	page 7, in { }
+Table 2 line 9	Secwepemctsín	transcription	n	page 7, the orthography
+Table 2 line 10	Secwepemctsín	phonemic	/c/	page 7, phonemic, in / /
+Table 2 line 10	Secwepemctsín	phonemic	[č]	page 7, phonetic, in [ ]
+Table 2 line 10	Secwepemctsín	transcription	{sh, s, ch, c}	page 7, in { }
+Table 2 line 10	Secwepemctsín	transcription	ts	page 7, the orthography
+Table 2 line 11	Secwepemctsín	phonemic	/c̓/	page 7, phonemic, in / /
+Table 2 line 11	Secwepemctsín	phonemic	[c̓~č̓]	page 7, phonetic, in [ ]
+Table 2 line 11	Secwepemctsín	transcription	{sh, ch, c, s}	page 7, in { }
+Table 2 line 11	Secwepemctsín	transcription	ts̓	page 7, the orthography
+Table 2 line 12	Secwepemctsín	phonemic	/s/	page 7, phonemic, in / /
+Table 2 line 12	Secwepemctsín	phonemic	[s~š]	page 7, phonetic, in [ ]
+Table 2 line 12	Secwepemctsín	transcription	{sh, s, c, ch}	page 7, in { }
+Table 2 line 12	Secwepemctsín	transcription	s	page 7, the orthography
+Table 2 line 13	Secwepemctsín	phonemic	/y/	page 7, phonemic, in / /
+Table 2 line 13	Secwepemctsín	transcription	{i}	page 7, in { }
+Table 2 line 13	Secwepemctsín	transcription	y	page 7, the orthography
+Table 2 line 14	Secwepemctsín	phonemic	/k/	page 7, phonemic, in / /
+Table 2 line 14	Secwepemctsín	transcription	{k}	page 7, in { }
+Table 2 line 14	Secwepemctsín	transcription	k	page 7, the orthography
+Table 2 line 15	Secwepemctsín	phonemic	/kʷ/	page 7, phonemic, in / /
+Table 2 line 15	Secwepemctsín	transcription	{kwV, ku, Vwk}	page 7, in { }
+Table 2 line 15	Secwepemctsín	transcription	kw	page 7, the orthography
+Table 2 line 16	Secwepemctsín	phonemic	/x/	page 7, phonemic, in / /
+Table 2 line 16	Secwepemctsín	transcription	{h}	page 7, in { }
+Table 2 line 16	Secwepemctsín	transcription	c	page 7, the orthography
+Table 2 line 17	Secwepemctsín	phonemic	/xʷ/	page 7, phonemic, in / /
+Table 2 line 17	Secwepemctsín	transcription	{hwV, hu, Vwh}	page 7, in { }
+Table 2 line 17	Secwepemctsín	transcription	cw	page 7, the orthography
+Table 2 line 18	Secwepemctsín	phonemic	/ɣ/	page 7, phonemic, in / /
+Table 2 line 18	Secwepemctsín	transcription	{r, g}	page 7, in { }
+Table 2 line 18	Secwepemctsín	transcription	r	page 7, the orthography
+Table 2 line 19	Secwepemctsín	phonemic	/w/	page 7, phonemic, in / /
+Table 2 line 19	Secwepemctsín	transcription	{wV, Vw}	page 7, in { }
+Table 2 line 19	Secwepemctsín	transcription	w	page 7, the orthography
+Table 2 line 20	Secwepemctsín	phonemic	/q/	page 7, phonemic, in / /
+Table 2 line 20	Secwepemctsín	transcription	{q, k’, k}	page 7, in { }
+Table 2 line 20	Secwepemctsín	transcription	q	page 7, the orthography
+Table 2 line 21	Secwepemctsín	phonemic	/qʷ/	page 7, phonemic, in / /
+Table 2 line 21	Secwepemctsín	transcription	{qwV, qu, Vwq, k’wV, k’u, Vwk’, kwV, ku, Vwk}	page 7, in { }
+Table 2 line 21	Secwepemctsín	transcription	qw	page 7, the end of the row above, set on its own line
+Table 2 line 22	Secwepemctsín	phonemic	/x̌/	page 7, phonemic, in / /
+Table 2 line 22	Secwepemctsín	transcription	{h, hr}	page 7, in { }
+Table 2 line 22	Secwepemctsín	transcription	x	page 7, the orthography
+Table 2 line 23	Secwepemctsín	phonemic	/x̌ʷ/	page 7, phonemic, in / /
+Table 2 line 23	Secwepemctsín	transcription	{hwV, hu, Vwh}	page 7, in { }
+Table 2 line 23	Secwepemctsín	transcription	xw	page 7, the orthography
+Table 2 line 24	Secwepemctsín	phonemic	/ʕ/	page 7, phonemic, in / /
+Table 2 line 24	Secwepemctsín	transcription	{r, g}	page 7, in { }
+Table 2 line 24	Secwepemctsín	transcription	g	page 7, the orthography
+Table 2 line 25	Secwepemctsín	phonemic	/ʕʷ/	page 7, phonemic, in / /
+Table 2 line 25	Secwepemctsín	transcription	{ro, or, o}	page 7, in { }
+Table 2 line 25	Secwepemctsín	transcription	gw	page 7, the orthography
+Table 2 line 26	Secwepemctsín	phonemic	/h/	page 7, phonemic, in / /
+Table 2 line 26	Secwepemctsín	transcription	{h}	page 7, in { }
+Table 2 line 26	Secwepemctsín	transcription	h	page 7, the orthography
+Table 2 line 27	Secwepemctsín	phonemic	/ʔ/	page 7, phonemic, in / /
+Table 2 line 28	Secwepemctsín	phonemic	/i/	page 7, phonemic, in / /
+Table 2 line 28	Secwepemctsín	transcription	{i}	page 7, in { }
+Table 2 line 28	Secwepemctsín	transcription	i	page 7, the orthography
+Table 2 line 29	Secwepemctsín	phonemic	/e/	page 7, phonemic, in / /
+Table 2 line 29	Secwepemctsín	transcription	{a}	page 7, in { }
+Table 2 line 29	Secwepemctsín	transcription	é	page 7, the orthography
+Table 2 line 30	Secwepemctsín	phonemic	/a/	page 7, phonemic, in / /
+Table 2 line 30	Secwepemctsín	transcription	{a, o}	page 7, in { }
+Table 2 line 30	Secwepemctsín	transcription	a	page 7, the orthography
+Table 2 line 31	Secwepemctsín	phonemic	/o/	page 7, phonemic, in / /
+Table 2 line 31	Secwepemctsín	transcription	{o}	page 7, in { }
+Table 2 line 31	Secwepemctsín	transcription	o	page 7, the orthography
+Table 2 line 32	Secwepemctsín	phonemic	/u/	page 7, phonemic, in / /
+Table 2 line 32	Secwepemctsín	transcription	{u, o}	page 7, in { }
+Table 2 line 32	Secwepemctsín	transcription	u	page 7, the orthography
+Table 2 line 33	Secwepemctsín	phonemic	/ə/	page 7, phonemic, in / /
+Table 2 line 33	Secwepemctsín	transcription	{i, a, u, o}	page 7, in { }
+Table 2 line 33	Secwepemctsín	transcription	e	page 7, the orthography
+§3.2.2	Secwepemctsín	cited form	t̓	page 8
+§3.2.2	Secwepemctsín	cited form	/ƛ̓/	page 8
+§3.2.2	Ethan Pincott	note	The overall patterns of phonemic representation in Le Jeune’s Latin orthography hold for his Shorthand orthography. There are two dedicated symbols for uvular stops, distinct from velar stops, although again not always distinguished. There are two symbols for the lateral fricative. Two symbols are used somewhat interchangeably for both the velar approximants and uvular approximants. Uvular and velar fricatives are represented by the same symbol {h}, while glottalized stops and resonants are not distinguished, again with the exception of t̓ /ƛ̓/. Glottal stop is not represented.	page 7
+§3.2.2	Ethan Pincott	note	Rounding is somewhat more systematic in Shorthand than in Le Jeune’s Latin system. There are dedicated symbols for pseudo-diphthongs beginning and ending with {w} which are used when a labialized dorsal occurs before or after a vowel respectively. However, the more common representation of labialization in coda position is with one of the graphemes {u, o} following the dorsal.	page 8
+§3.2.2	Secwepemctsín	cited form	ts̓	page 8
+§3.2.2	Secwepemctsín	cited form	/c̓/	page 8
+§3.2.2	Ethan Pincott	note	In Shorthand, there are only four sibilant graphemes, romanized as {s, sh, c, ch}, resulting in less ambiguity. In general, the same patterns hold as in his Latin orthography: s /s/ is usually {sh} or {s}, ts /c/ is usually {sh} or {ch}, and ts̓ /c̓/ is usually {c} or {s}. Therefore, the Shorthand spelling is typically more useful for identifying the specific sibilant, and thus the word, that Le Jeune was writing.	page 8
+§3.2.2	Secwepemctsín	cited form	/ixʷ/	page 8
+§3.2.2	Secwepemctsín	cited form	/sxʷíxʷ/	page 8
+§3.2.2	Secwepemctsín	cited form	Tqeltkúkwpi7	/tqəltkúkʷpiʔ/ ‘Creator, God’, written {TK} in the Shorthand
+§3.2.2	Secwepemctsín	cited form	/tqəltkúkʷpiʔ/	Tqeltkúkwpi7 ‘Creator, God’
+§3.2.2	Ethan Pincott	note	Certain special graphemes/grapheme combinations occur for sound combinations. These include {yu} for iw /iw/ and yu /yu/, and {yuh} for icw /ixʷ/, as in {shhwiyuh} scwicw /sxʷíxʷ/ ‘yellow avalanche lily ’. Additionally, there is a character {x} of unclear phonetic nature (see Section 4 for discussion). Finally, there is also the very common initialism {TK}, representing the name Tqeltkúkwpi7 /tqəltkúkʷpiʔ/ ‘Creator, God’, which uses the graphemes for {t} and {k}, but crossed over each other rather than joined cursively.	page 8
+§3.3	Ethan Pincott	heading	3.3 Conclusions on the Orthographies	page 8
+§3.3	Ethan Pincott	note	Despite the defects mentioned, Le Jeune’s writing systems are practical and easy to interpret by anyone with some familiarity with the language and a bit of practice. The way the script breaks words up into syllabic units enables the rapid identification o f syllables and words, especially commonly used ones. For these reasons, it is easy to see how Indigenous peoples were able to quickly pick up the Shorthand and become literate in their languages in a short amount of time.	page 8
+§4	Ethan Pincott	heading	4 Phonological Features	page 8
+§4	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+§4	Ethan Pincott	language	nɬeʔkepmxcín	Thompson, the closest relative of Secwepemctsín. Th in the tables
+§4	Ethan Pincott	language	St’át’imcets	Lillooet. Li
+§4	Ethan Pincott	language	nsəlxcin	in the name of the nsəlxcin dictionary, Relational Lexicography 2023
+§4	Ethan Pincott	language	nsyilxcən	Okanagan. Ok
+§4	Ethan Pincott	language	Sḵwx̱wú7mesh	Squamish, one of Le Jeune's eight languages. Sq
+§4	Ethan Pincott	note	The remainder of the paper discusses phonological features that can be observed in the materials contained in Studies. I have preserved Le Jeune’s Latin orthography, here placed between angled brackets ⟨ ⟩. The romanization of Le Jeune’s Shorthand is within curly braces { }. Reconstructed pronunciation based on these orthographies, where different from modern Secwepemctsín, is placed within square brackets preceded by an asterisk [* ]. Modern Secwepemctsín in the community orthography is written in italics, with phonemic transcription between slashes / /, and phonetic transcription between square brackets [ ]. Phonemic transcriptions from other languages are written between slashes; any errors in reproduction of these forms are my own. Sources for words are: Kuipers (1974, 1989) for Secwepemctsín, Thompson and Thompson (1996) and Thompson, Thompson and Egesdal (1996) for nɬeʔkepmxcín, Van Eijk (1999) for St’át’imcets, the nsəlxcin dictionary ( Relational Lexicography 2023) for nsyilxcən, and Mattina (200 6) for Moses-Columbian. Abbreviations for language names, after Kuipers (2002), are Sh for Secwepemctsín, Th for nɬeʔkepmxcín, Li for St’át’imcets, Ok for nsyilxcən, Cb for Moses- Columbian, Ka for Kalispel, and Sq for Sḵwx̱wú7mesh.	page 8
+§4.1	Ethan Pincott	heading	4.1 Attested Secwepemctsín Sound Shifts	page 9
+§4.1.1	Ethan Pincott	heading	4.1.1 Deglottalization	page 9
+§4.1.1	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+§4.1.1	Ethan Pincott	language	nɬeʔkepmxcín	Thompson, the closest relative of Secwepemctsín. Th in the tables
+§4.1.1	Ethan Pincott	language	St’át’imcets	Lillooet. Li
+§4.1.1	Ethan Pincott	note	Secwepemctsín has a well-known sound law, where multiple ejectives are forbidden within a word (Kuipers 1974:23). This is a type of dissimilation, found in other Salish languages but most pervasive in Secwepemctsín, that has been called “Grassman’s law for Salish”, in reference to the famous Indo-European dissimilation of aspirates observed in languages like Greek and Sanskrit (Thompson and Thompson 1985). The sound law can be seen historically by comparing Secwepemctsín with its close relatives nɬeʔkepmxcín and St’át’imcets:	page 9
+(1) line 1	Ethan Pincott	note	Cognates showing Secwepemctsín deglottalization	page 9, the caption
+(1) line 2	Ethan Pincott	note	Secwepemctsín nɬeʔkepmxcín St’át’imcets	page 9, heads the rows below
+(1) line 3	Secwepemctsín	transcription	spéc̓en	page 9, the orthography
+(1) line 3	Secwepemctsín	phonemic	/spéc̓ən/	page 9, phonemic, in / /
+(1) line 3	nɬeʔkepmxcín	phonemic	/sp̓éc̓ən/	page 9, phonemic, in / /
+(1) line 3	St’át’imcets	phonemic	/sp̓ác̓ən/	page 9, phonemic, in / /
+(1) line 3	Ethan Pincott	translation	‘Indian hemp’	page 9
+(1) line 4	Secwepemctsín	transcription	qwíts̓em	page 9, the orthography
+(1) line 4	Secwepemctsín	phonemic	/qʷíc̓əm/	page 9, phonemic, in / /
+(1) line 4	nɬeʔkepmxcín	phonemic	/q̓ʷíc̓əm/	page 9, phonemic, in / /
+(1) line 4	St’át’imcets	phonemic	/q̓ʷíc̓əm/	page 9, phonemic, in / /
+(1) line 4	Ethan Pincott	translation	‘to do laundry’	page 9
+(1) line 5	Secwepemctsín	transcription	téq̓em	page 9, the orthography
+(1) line 5	Secwepemctsín	phonemic	/téq̓əm/	page 9, phonemic, in / /
+(1) line 5	nɬeʔkepmxcín	phonemic	/ƛ̓áq̓əm ~ ƛ̓éq̓əm/	page 9, phonemic, in / /
+(1) line 5	St’át’imcets	phonemic	/ƛ̓aq̓/	page 9, phonemic, in / /
+(1) line 5	Ethan Pincott	translation	‘to cross over’	page 9
+(1) line 6	Secwepemctsín	transcription	tsq̓ellp	page 9, the orthography
+(1) line 6	Secwepemctsín	phonemic	/cq̓eɬp/	page 9, phonemic, in / /
+(1) line 6	nɬeʔkepmxcín	phonemic	/c̓q̓aɬp/	page 9, phonemic, in / /
+(1) line 6	St’át’imcets	phonemic	/c̓q̓aɬp/	page 9, phonemic, in / /
+(1) line 6	Ethan Pincott	translation	‘Douglas fir’	page 9
+§4.1.1	Ethan Pincott	note	As shown by these cognates, the first of a sequence of ejectives within the stem, consisting of the root and any reduplicative morphemes 4, becomes deglottalized. This rule remains productive within the language today in reduplication patterns:	page 9
+(2) line 1	Ethan Pincott	note	Reduplication showing Secwepemctsín deglottalization	page 9, the caption
+(2) line 2	Ethan Pincott	note	Plain form Reduplicated form	page 9, heads the rows below
+(2) line 3	Secwepemctsín	transcription	t̓éne	page 9, the orthography
+(2) line 3	Secwepemctsín	phonemic	/ƛ̓énə/	page 9, phonemic, in / /
+(2) line 3	Ethan Pincott	translation	‘ear’	page 9
+(2) line 3	Secwepemctsín	transcription	tent̓éne	page 9, the orthography
+(2) line 3	Secwepemctsín	phonemic	/tənƛ̓énə/	page 9, phonemic, in / /
+(2) line 3	Ethan Pincott	translation	‘ears’	page 9
+(2) line 4	Secwepemctsín	transcription	ckwt̓ústen	page 9, the orthography
+(2) line 4	Secwepemctsín	phonemic	/xkʷƛ̓ústən/	page 9, phonemic, in / /
+(2) line 4	Ethan Pincott	translation	‘eye’	page 9
+(2) line 4	Secwepemctsín	transcription	ckwetkwt̓ústen	page 9, the orthography
+(2) line 4	Secwepemctsín	phonemic	/xkʷətkʷƛ̓ústən/	page 9, phonemic, in / /
+(2) line 4	Ethan Pincott	translation	‘eyes’	page 9
+(2) line 5	Secwepemctsín	transcription	p̓úsmen	page 9, the orthography
+(2) line 5	Secwepemctsín	phonemic	/p̓úsmən/	page 9, phonemic, in / /
+(2) line 5	Ethan Pincott	translation	‘heart’	page 9
+(2) line 5	Secwepemctsín	transcription	ren	page 9, the orthography
+(2) line 5	Secwepemctsín	transcription	púp̓smen	page 9, the orthography
+(2) line 5	Secwepemctsín	phonemic	/ɣə n-púp̓smən/	page 9, phonemic, in / /
+(2) line 5	Ethan Pincott	translation	‘my heart’	page 9
+(2) line 6	Secwepemctsín	transcription	k̓ist	page 9, the orthography
+(2) line 6	Secwepemctsín	phonemic	/k̓ist/	page 9, phonemic, in / /
+(2) line 6	Ethan Pincott	translation	‘bad’	page 9
+(2) line 6	Secwepemctsín	transcription	kik̓st-ken	page 9, the orthography
+(2) line 6	Secwepemctsín	phonemic	/kik̓st=kən/	page 9, phonemic, in / /
+(2) line 6	Ethan Pincott	translation	‘I am bad’	page 9
+§4.1.1	Secwepemctsín	cited form	t̓	page 9
+§4.1.1	Secwepemctsín	cited form	/ƛ̓/	page 9
+§4.1.1	Ethan Pincott	note	In Studies, there is clear evidence that this sound law was already in effect. However, it is only visible in cases where the alveolar lateral ejective affricate t̓ /ƛ̓/ is reduplicated. As shown in (2), lateral t̓ /ƛ̓/ becomes central t /t/ when deglottalization applies, and this difference in articulation is reflected in Le Jeune’s spellings of ⟨t⟩ {t} versus ⟨tl⟩ {tl}. Other ejective consonants are written indistinguishably from their plain counterparts by him. In the reduplicated plurals ‘eyes’ and ‘ears’, the stop in the reduplicant is written as ⟨t⟩ {t}, implying plain t /t/, while the stop in the root is written ⟨tl⟩ {tl}, implying ejective t̓ /ƛ̓/, exactly as expected:	page 9
+(3) line 1	Ethan Pincott	note	Deglottalization of /ƛ̓/ in Studies	page 9, the caption
+(3) line 2	Secwepemctsín	transcription	⟨hkotkotlwjtn⟩	page 9, in ⟨ ⟩
+(3) line 2	Secwepemctsín	transcription	{hkotkotlushtn}	page 9, in { }
+(3) line 2	Secwepemctsín	transcription	ckwetkwt̓ústen	page 9, the orthography
+(3) line 2	Secwepemctsín	phonemic	/xkʷətkʷƛ̓ústən/	page 9, phonemic, in / /
+(3) line 2	Ethan Pincott	translation	‘eyes’	page 9
+(3) line 3	Secwepemctsín	transcription	⟨tntlàna⟩	page 9, in ⟨ ⟩
+(3) line 3	Secwepemctsín	transcription	{tntlana}	page 9, in { }
+(3) line 3	Secwepemctsín	transcription	tent̓éne	page 9, the orthography
+(3) line 3	Secwepemctsín	phonemic	/tənƛ̓énə/	page 9, phonemic, in / /
+(3) line 3	Ethan Pincott	translation	‘ears’	page 9
+footnote 4	Ethan Pincott	note	4 Prefixes and suffixes with ejectives are outside of this domain and do not cause dissimilation.	page 9, footnote
+§4.1.1	Ethan Pincott	note	Despite only being apparent in words with t̓ /ƛ̓/, it can be reasonably inferred that the same deglottalization applied to other ejective consonants in Le Jeune’s time. This is perhaps not surprising, since Thompson and Thompson (1985) show that similar, but less extensive, dissimilation processes occur in various Interior Salish languages, suggesting that some of these patterns may be quite old within the branch.	page 9
+§4.1.2	Ethan Pincott	heading	4.1.2 Delabialization	page 10
+§4.1.2	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+§4.1.2	Secwepemctsín	cited affix	-éc	page 10
+§4.1.2	Secwepemctsín	cited form	/-éx	page 10
+§4.1.2	Ethan Pincott	note	Another characteristic Secwepemctsín sound change is the delabialization of velars in certain grammatical morphemes. This is a much more sporadic change, limited (as far as I know) to the 2SG transitive subject suffix -éc ~ -c /-éx ~ -x/, the 2SG intransitive subject clitic -k /=k/, and the locative prefix c- /x-/. Again, cognates in related languages show that Secwepemctsín has innovated these delabialized forms:	page 10
+(4) line 1	Ethan Pincott	note	Cognates showing Secwepemctsín delabialization	page 10, the caption
+(4) line 2	Ethan Pincott	note	Secwepemctsín Other Salish	page 10, heads the rows below
+(4) line 3	Secwepemctsín	transcription	-éc ~ -c	page 10, the orthography
+(4) line 3	Secwepemctsín	phonemic	/-éx ~ -x/	page 10, phonemic, in / /
+(4) line 3	nɬeʔkepmxcín	phonemic	/-éxʷ ~ -xʷ/	page 10, phonemic, in / /
+(4) line 3	Proto-Salish	phonemic	/*-axʷ/	page 10, phonemic, in / /, carries footnote 5, written here without its digit
+(4) line 3	Ethan Pincott	translation	‘2SG.SUB’	page 10
+(4) line 4	Secwepemctsín	transcription	-k	page 10, the orthography
+(4) line 4	Secwepemctsín	phonemic	/=k/	page 10, phonemic, in / /
+(4) line 4	nɬeʔkepmxcín	phonemic	/=kʷ/	page 10, phonemic, in / /
+(4) line 4	nsyilxcən	phonemic	/kʷ=/	page 10, phonemic, in / /
+(4) line 4	Kalispel	phonemic	/kʷ=/	page 10, phonemic, in / /, carries footnote 6, written here without its digit
+(4) line 4	Ethan Pincott	translation	‘2SG.SUB’	page 10
+(4) line 5	Secwepemctsín	transcription	c- ~ n-	page 10, the orthography
+(4) line 5	Secwepemctsín	phonemic	/x- ~ n-/	page 10, phonemic, in / /
+(4) line 5	Sḵwx̱wú7mesh	phonemic	/nəxʷ- ~ xʷ- ~ n-/	page 10, phonemic, in / /
+(4) line 5	Proto-Salish	phonemic	/*nəw- ~ nəxʷ/	page 10, phonemic, in / /, carries footnote 7, written here without its digit
+(4) line 5	Ethan Pincott	translation	‘LOC’	page 10
+§4.1.2	Ethan Pincott	note	This is attested in Studies, where Le Jeune consistently writes these morphemes without any trace of labialization:	page 10
+(5) line 1	Ethan Pincott	note	Delabialization in Studies	page 10, the caption
+(5) line 2	Secwepemctsín	transcription	⟨kolinh⟩	page 10, in ⟨ ⟩
+(5) line 2	Secwepemctsín	transcription	{kolinh}	page 10, in { }
+(5) line 2	Secwepemctsín	transcription	k̓úlenc	page 10, the orthography
+(5) line 2	Secwepemctsín	phonemic	/k̓úlənx/	page 10, phonemic, in / /
+(5) line 2	Ethan Pincott	translation	‘you make (it)’	page 10
+(5) line 3	Secwepemctsín	transcription	⟨lahanjoot-k⟩	page 10, in ⟨ ⟩
+(5) line 3	Secwepemctsín	transcription	{lahanchutk}	page 10, in { }
+(5) line 3	Secwepemctsín	transcription	lexentsút-k	page 10, the orthography
+(5) line 3	Secwepemctsín	phonemic	/ləx̌əncút-k/	page 10, phonemic, in / /
+(5) line 3	Ethan Pincott	translation	‘you confess’	page 10
+(5) line 4	Secwepemctsín	transcription	⟨hkemèmen⟩	page 10, in ⟨ ⟩
+(5) line 4	Secwepemctsín	transcription	{hkmimin}	page 10, in { }
+(5) line 4	Secwepemctsín	transcription	ck̓mím̓en	page 10, the orthography
+(5) line 4	Secwepemctsín	phonemic	/xk̓mím̓ən/	page 10, phonemic, in / /
+(5) line 4	Ethan Pincott	translation	‘jail’	page 10
+§4.1.2	Ethan Pincott	note	Again, it is not surprising to find evidence of this shift in the materials of Studies since Secwepemctsín must have diverged from its Northern Interior Salish neighbours well before 1925, but it does provide a baseline to compare the differences seen between the Secwepemctsín of the early 1900s and today.	page 10
+§4.2	Ethan Pincott	heading	4.2 Archaisms	page 10
+§4.2	Ethan Pincott	language	nɬeʔkepmxcín	Thompson, the closest relative of Secwepemctsín. Th in the tables
+§4.2	Ethan Pincott	language	St’át’imcets	Lillooet. Li
+§4.2	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+§4.2	Ethan Pincott	note	Certain phonological features found in Studies can be classified as archaisms, as they more closely resemble patterns in neighbouring nɬeʔkepmxcín and St’át’imcets, and likely their common ancestor Proto-Northern Interior Salish, than modern Secwepemctsín.	page 10
+footnote 5	Ethan Pincott	note	5 This Proto-Salish form comes from Newman (1979:216).	page 10, footnote
+footnote 6	Ethan Pincott	note	6 The Interior Salish /kʷ/ forms result from a fusion of *k in Proto-Salish pronominal stems with the suffix *-axʷ ‘2SG.SUB’ (Newman 1979:216). The Okanagan and Kalispel forms cite d here come from the same source. This morpheme is enclitic in Northern Interior, proclitic in Southern Interior.	page 10, footnote
+§4.2	Secwepemctsín	cited form	/kʷ/	page 10
+§4.2	Proto-Salish	cited affix	-axʷ	*-axʷ ‘2SG.SUB’, after Newman 1979:216, footnote 6
+footnote 7	Ethan Pincott	note	7 This Proto-Salish form comes from Kroeber (1999:11). I would favour the reconstruction *nəw- for Proto- Salish, which can easily account for developments like Nuxalk /nu -/; the forms with /xʷ/ can be accounted for by devoicing of *w, perhaps originally only before words beginning with a voiceless consonant before being generalized elsewhere. The overall sequence leading to Secwepemctsín would then be: *nəw- > *nəxʷ- > *xʷ- > /x-/.	page 10, footnote
+§4.2	Proto-Salish	cited affix	nəw-	*nəw-, the reconstruction of the locative prefix the author favors, footnote 7
+§4.2	Secwepemctsín	cited form	/xʷ/	page 10
+§4.2	Proto-Salish	cited affix	nəxʷ-	*nəxʷ-, a step from *nəw- to Secwepemctsín x-, footnote 7
+§4.2	Proto-Salish	cited affix	xʷ-	*xʷ-, a step from *nəw- to Secwepemctsín x-, footnote 7
+§4.2.1	Ethan Pincott	heading	4.2.1 Preservation of unstressed syllables	page 11
+§4.2.1	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+§4.2.1	Ethan Pincott	note	One archaism recorded in Studies is a tendency towards the preservation of phonetic features in unstressed syllables that have been lost in modern Secwepemctsín. The language as spoken today reduces all unstressed full vowels to schwa, and unstressed vowel -glide sequences to a vocalized glide. This interacts with the mobile stress system of the language, causing alternations between full vowels and schwa, and between vowel-glide sequences and vocalized glides.	page 11
+§4.2.1	Ethan Pincott	language	nɬeʔkepmxcín	Thompson, the closest relative of Secwepemctsín. Th in the tables
+§4.2.1	Ethan Pincott	note	The Secwepemctsín stress system is complex, and the full details are beyond the scope of this paper. Here I am applying the analysis of Hall et al. (2025) of stress in nɬeʔkepmxcín. Morphemes are classed into four categories: “strong”, which contain an underlying accented vowel, “ambivalent”, which contain an underlying full vowel that is unaccented, “weak”, which lack an underlying vowel 8, and “unstressable”, which are never stressed under any circumstances. Accompanying this is a hierarchy determining which morpheme hosts primary stress: strong suffix > strong root > ambivalent suffix > weak suffix > weak root > unstressable. Some example s can help illustrate these patterns (strong morphemes written with accent in underlying representation, ambivalent suffixes with no accent, weak morphemes with no vowel):	page 11
+(6) line 1	Ethan Pincott	note	Stress placement in Secwepemctsín	page 11, the caption
+(6a) line 1	Ethan Pincott	note	strong suffix > strong root	page 11, heads the rows below
+(6a) line 2	Secwepemctsín	phonemic	/x-píqʷ-éɬxʷ/	page 11, phonemic, in / /
+(6a) line 2	Secwepemctsín	phonemic	[xpəqʷéɬxʷ]	page 11, phonetic, in [ ]
+(6a) line 2	Ethan Pincott	translation	‘movie theatre’	page 11
+(6a) line 3	Secwepemctsín	gloss	LOC-look-house	page 11, the morphemes of the row above
+(6b) line 1	Ethan Pincott	note	strong root > ambivalent suffix	page 11, heads the rows below
+(6b) line 2	Secwepemctsín	phonemic	/wík-t-es/	page 11, phonemic, in / /
+(6b) line 2	Secwepemctsín	phonemic	[wíkts]	page 11, phonetic, in [ ], carries footnote 9, written here without its digit
+(6b) line 2	Ethan Pincott	translation	‘s/he sees it’	page 11
+(6b) line 3	Secwepemctsín	gloss	see-TR-3ERG	page 11, the morphemes of the row above
+(6c) line 1	Ethan Pincott	note	ambivalent suffix > weak suffix	page 11, heads the rows below
+(6c) line 2	Secwepemctsín	phonemic	/xʷt-p-st-es/	page 11, phonemic, in / /
+(6c) line 2	Secwepemctsín	phonemic	[xʷətpstés]	page 11, phonetic, in [ ]
+(6c) line 2	Ethan Pincott	translation	‘s/he finishes it’	page 11
+(6c) line 3	Secwepemctsín	gloss	end-INCH-CAUS-3ERG	page 11, the morphemes of the row above
+(6d) line 1	Ethan Pincott	note	weak suffix > weak root	page 11, heads the rows below
+(6d) line 2	Secwepemctsín	phonemic	/xʷt-p/	page 11, phonemic, in / /
+(6d) line 2	Secwepemctsín	phonemic	[xʷtép]	page 11, phonetic, in [ ]
+(6d) line 2	Ethan Pincott	translation	‘to reach the end’	page 11
+(6d) line 3	Secwepemctsín	gloss	end-INCH	page 11, the morphemes of the row above
+§4.2.1	Ethan Pincott	note	With this brief description of stress out of the way, we can turn to unstressed syllable reduction. Some examples follow in (7). A strong morpheme will have its vowel reduced to schwa if unstressed (6a, 7a), while an ambivalent suffix has its vowel deleted entirely (6b, 7c). In both cases, if the reduced syllable has a coda glide, that glide becomes vocalized (7c,d). A weak morpheme with coda glide also surfaces with a vocalized glide when unstressed (7b).	page 11
+footnote 8	Ethan Pincott	note	8 I previously argued (Pincott 2025) that weak morphemes in Secwepemctsín contain underlying schwa, to account for certain predictable patterns in surface vowel quality and correspondences with other Northern Interior languages. I now believe that an under lyingly vowelless representation could account for the same data, as in closely related nɬeʔkepmxcín (Hall et al. 2025), with some minor modifications to explain some Secwepemctsín-specific patterns.	page 11, footnote
+§4.2.1	Ethan Pincott	note	Secwepemctsín-specific	an English compound on the language name, footnote 8
+footnote 9	Ethan Pincott	note	9 For some speakers, the sequence t.s /ts/ [ts] contrasts with the affricate ts /c/ [č], while for others, both are merged as [č].	page 11, footnote
+§4.2.1	Secwepemctsín	cited form	č	page 11
+(7) line 1	Ethan Pincott	note	Unstressed syllable reduction	page 12, the caption
+(7a) line 1	Secwepemctsín	phonemic	/mút-əmíʔ/	page 12, phonemic, in / /
+(7a) line 1	Secwepemctsín	phonemic	[mətəmíʔ]	page 12, phonetic, in [ ]
+(7a) line 1	Ethan Pincott	translation	‘to remain seated’	page 12
+(7b) line 1	Secwepemctsín	phonemic	/q̓y̓-m-ekəʔ/	page 12, phonemic, in / /
+(7b) line 1	Secwepemctsín	phonemic	[q̓imékeʔ]	page 12, phonetic, in [ ]
+(7b) line 1	Ethan Pincott	translation	‘pen, pencil’	page 12
+(7c) line 1	Secwepemctsín	phonemic	/x-p̓éɬ-ew̓s/	page 12, phonemic, in / /
+(7c) line 1	Secwepemctsín	phonemic	[xp̓éɬuʔs]	page 12, phonetic, in [ ]
+(7c) line 1	Ethan Pincott	translation	‘exhausted’	page 12
+(7d) line 1	Secwepemctsín	phonemic	/x-téw-m-éɬxʷ/	page 12, phonemic, in / /
+(7d) line 1	Secwepemctsín	phonemic	[xtuméɬxʷ]	page 12, phonetic, in [ ]
+(7d) line 1	Ethan Pincott	translation	‘store’	page 12
+§4.2.1	Ethan Pincott	language	St’át’imcets	Lillooet. Li
+§4.2.1	Ethan Pincott	note	Cognates with nɬeʔkepmxcín and St’át’imcets can also demonstrate the reduction that Secwepemctsín unstressed syllables have undergone10:	page 12
+(8) line 1	Ethan Pincott	note	Cognates with vowel reduction in Secwepemctsín	page 12, the caption
+(8) line 2	Ethan Pincott	note	Secwepemctsín nɬeʔkepmxcín St’át’imcets	page 12, heads the rows below
+(8) line 3	Secwepemctsín	transcription	ptínesem	page 12, the orthography
+(8) line 3	Secwepemctsín	phonemic	/ptínəsəm/	page 12, phonemic, in / /
+(8) line 3	nɬeʔkepmxcín	phonemic	/ptínusəm/	page 12, phonemic, in / /
+(8) line 3	St’át’imcets	phonemic	/ptínusəm/	page 12, phonemic, in / /
+(8) line 3	Ethan Pincott	translation	‘to think’	page 12
+(8) line 4	Secwepemctsín	transcription	pésellkwe	page 12, the orthography
+(8) line 4	Secwepemctsín	phonemic	/pésəɬkʷə/	page 12, phonemic, in / /
+(8) line 4	nɬeʔkepmxcín	phonemic	/péɬuskʷu/	page 12, phonemic, in / /
+(8) line 4	Ethan Pincott	translation	‘lake’	page 12
+(8) line 5	Secwepemctsín	transcription	mesésq̓t	page 12, the orthography
+(8) line 5	Secwepemctsín	phonemic	/məsésq̓t/	page 12, phonemic, in / /
+(8) line 5	nɬeʔkepmxcín	phonemic	/smusésq̓t/	page 12, phonemic, in / /
+(8) line 5	Ethan Pincott	translation	‘Thursday’	page 12
+(8) line 6	Secwepemctsín	transcription	písell	page 12, the orthography
+(8) line 6	Secwepemctsín	phonemic	/písəɬ/	page 12, phonemic, in / /
+(8) line 6	nɬeʔkepmxcín	phonemic	/písuɬ/	page 12, phonemic, in / /
+(8) line 6	Ethan Pincott	translation	‘trout’	page 12
+§4.2.1	Secwepemctsín	cited form	/xtéwméɬxʷ/	page 12
+§4.2.1	Secwepemctsín	cited form	/xtewméɬxʷ/	page 12
+§4.2.1	Secwepemctsín	cited form	/xtəwméɬxʷ/	page 12
+§4.2.1	Secwepemctsín	cited form	xtuméɬxʷ	page 12
+§4.2.1	Secwepemctsín	cited form	/mút-emíʔ/	page 12
+§4.2.1	Secwepemctsín	cited form	mətəmíʔ	page 12
+§4.2.1	Secwepemctsín	cited form	/əy	page 12
+§4.2.1	Secwepemctsín	cited form	əw/	page 12
+§4.2.1	Secwepemctsín	cited form	əy	page 12
+§4.2.1	Secwepemctsín	cited form	əw	page 12
+§4.2.1	Ethan Pincott	note	C₁əC₂	Kuipers's notation for total reduplication, one form for obstruent and resonant C₂
+§4.2.1	Secwepemctsín	cited form	/əy/	page 12
+§4.2.1	Secwepemctsín	cited form	/əw/	page 12
+§4.2.1	Ethan Pincott	note	It is reasonable to assume that cases with a strong morpheme that undergo glide vocalization have an intermediate form with schwa (e.g., /xtéwméɬxʷ/ > /xtewméɬxʷ/ > /xtəwméɬxʷ/ > [xtuméɬxʷ]), which brings these forms in line with cases like /mút-emíʔ/ > [mətəmíʔ], rather than necessitating a special case of vowel deletion in unstressed vowel -glide sequences. This requires the assumption of a sound law /əy, əw/ > [i, u], which can be supported with two lines of argumentation. First, schwa -glide sequences [əy, əw] never surface in closed syllables in the language. Second, this simplifies the description of other morphophonological processes in the language. For instance, Kuipers uses two notations for “total reduplication”: C₁əC₂ if C₂ is an obstruent, and C₁C₂ if C₂ is a resonant, in order to account for the fact that C₂ glides surface as vocalized in reduplications. If we assume underlying /əy/ and /əw/ > [i] and [u], then both types can be analyzed simply as C₁əC₂.	page 12
+§4.2.1	Ethan Pincott	note	It turns out that the hypothesis of intermediate /əy, əw/ has some support from the materials in Studies, where morphemes with underlying vowel -glide sequences preserve this structure even when unstressed; in other words, they do not surface with a vocalized glide.	page 12
+(9) line 1	Ethan Pincott	note	Unstressed vowel-glide sequences in Studies	page 12, the caption
+(9) line 2	Secwepemctsín	transcription	⟨tawmàlwh⟩	page 12, in ⟨ ⟩
+(9) line 2	Secwepemctsín	transcription	{tawmaɬuh}	page 12, in { }
+(9) line 2	Secwepemctsín	transcription	ctuméllcw	page 12, the orthography
+(9) line 2	Secwepemctsín	phonemic	[xtuméɬxʷ]	page 12, phonetic, in [ ]
+(9) line 2	Ethan Pincott	translation	‘store’	page 12, carries footnote 11, written here without its digit
+(9) line 3	Secwepemctsín	transcription	⟨jkamawjàxt⟩	page 12, in ⟨ ⟩
+(9) line 3	Secwepemctsín	transcription	{shkamawshakst}	page 12, in { }
+(9) line 3	Secwepemctsín	transcription	sk̓mu7sékst	page 12, the orthography
+(9) line 3	Secwepemctsín	phonemic	[sk̓muʔsékst]	page 12, phonetic, in [ ]
+(9) line 3	Ethan Pincott	translation	‘middle finger’	page 12, carries footnote 12, written here without its digit
+(9) line 4	Secwepemctsín	transcription	⟨skalawòi⟩	page 12, in ⟨ ⟩
+(9) line 4	Secwepemctsín	transcription	{skalawoi}	page 12, in { }
+(9) line 4	Secwepemctsín	transcription	sqlu7úw̓i	page 12, the orthography
+(9) line 4	Secwepemctsín	phonemic	[sqluʔúw̓i]	page 12, phonetic, in [ ]
+(9) line 4	Ethan Pincott	translation	‘beaver’	page 12, carries footnote 13, written here without its digit
+(9) line 5	Secwepemctsín	transcription	⟨hjwaitwlh⟩	page 12, in ⟨ ⟩
+(9) line 5	Secwepemctsín	transcription	{shwaituɬ}	page 12, in { }
+(9) line 5	Secwepemctsín	transcription	cswitúll	page 12, the orthography
+(9) line 5	Secwepemctsín	phonemic	[xswitúɬ]	page 12, phonetic, in [ ]
+(9) line 5	Ethan Pincott	translation	‘lazy’	page 12, carries footnote 14, written here without its digit
+footnote 10	Ethan Pincott	note	10 St’át’imcets has a similar pattern of schwa -glide coalescence in closed syllables as Secwepemctsín (Van Eijk 1999:12).	page 12, footnote
+footnote 11	Ethan Pincott	note	11 Cf. téwem /téwəm/ ‘buy’.	page 12, footnote
+§4.2.1	Secwepemctsín	cited form	téwem	page 12
+§4.2.1	Secwepemctsín	cited form	/téwəm/	page 12, ‘buy’
+footnote 12	Ethan Pincott	note	12 Cf. sk̓mew̓s /sk̓mew̓s/ ‘in between’.	page 12, footnote
+§4.2.1	Secwepemctsín	cited form	sk̓mew̓s	page 12
+§4.2.1	Secwepemctsín	cited form	/sk̓mew̓s/	page 12, ‘in between’
+footnote 13	Ethan Pincott	note	13 Cf. sqlew̓ /sqlew̓/ ‘beaver’.	page 12, footnote
+§4.2.1	Secwepemctsín	cited form	sqlew̓	page 12
+§4.2.1	Secwepemctsín	cited form	/sqlew̓/	page 12, ‘beaver’
+footnote 14	Ethan Pincott	note	14 Cf. csweyt /xsweyt/ ‘lazy’.	page 12, footnote
+§4.2.1	Secwepemctsín	cited form	/ə/	page 13
+§4.2.1	Ethan Pincott	note	Le Jeune’s spelling of ⟨aw⟩ {aw} is ambiguous, and could plausibly represent either [*ew] or [*əw]. It seems plausible to reconstruct the pronunciation [*əw], since there is less of a jump from this pronunciation to the modern pronunciation of [u], and this has the advantage of matching the modern underlying representation suggested above. This would imply that the reduction of unstressed vowels to schwa had already taken place by 1925. However, we also see several examples in Studies of an unstressed full vowel [*u] where modern Secwepemctsín has /ə/. There may be cases of unstressed [*i, e], however, these would not be visible in Le Jeune’s writing system, since his spellings of these phonemes overlap heavily with his spelling of schwa.	page 12
+(10) line 1	Ethan Pincott	note	Unreduced [*u] in Studies	page 13, the caption
+(10) line 2	Secwepemctsín	transcription	⟨mwjeskret⟩	page 13, in ⟨ ⟩
+(10) line 2	Secwepemctsín	transcription	{mushisqt}	page 13, in { }
+(10) line 2	Secwepemctsín	phonemic	[*musésq̓t]	page 13, reconstructed, in [* ]
+(10) line 2	Secwepemctsín	transcription	mesésq̓t	page 13, the orthography
+(10) line 2	Secwepemctsín	phonemic	/məsésq̓t/	page 13, phonemic, in / /
+(10) line 2	Ethan Pincott	translation	‘Thursday’	page 13, carries footnote 15, written here without its digit
+(10) line 3	Secwepemctsín	transcription	⟨pwjmen-mén⟩	page 13, in ⟨ ⟩
+(10) line 3	Secwepemctsín	transcription	{pushminmin}	page 13, in { }
+(10) line 3	Secwepemctsín	phonemic	[*p̓usmənmín]	page 13, reconstructed, in [* ]
+(10) line 3	Secwepemctsín	transcription	p̓esmenmín	page 13, the orthography
+(10) line 3	Secwepemctsín	phonemic	/p̓əsmənmín/	page 13, phonemic, in / /
+(10) line 3	Ethan Pincott	translation	‘I want’	page 13, carries footnote 16, written here without its digit
+(10) line 4	Secwepemctsín	transcription	⟨pàjwlhkwa⟩	page 13, in ⟨ ⟩
+(10) line 4	Secwepemctsín	transcription	{pashuɬkwa}	page 13, in { }
+(10) line 4	Secwepemctsín	phonemic	[*pésuɬkʷə]	page 13, reconstructed, in [* ]
+(10) line 4	Secwepemctsín	transcription	pésellkwe	page 13, the orthography
+(10) line 4	Secwepemctsín	phonemic	/pésəɬkʷə/	page 13, phonemic, in / /
+(10) line 4	Ethan Pincott	translation	‘lake’	page 13, carries footnote 17, written here without its digit
+(10) line 5	Secwepemctsín	transcription	⟨jpenozem⟩	page 13, in ⟨ ⟩
+(10) line 5	Secwepemctsín	transcription	{shptinosim}	page 13, in { }
+(10) line 5	Secwepemctsín	phonemic	[*sptínusəm]	page 13, reconstructed, in [* ]
+(10) line 5	Secwepemctsín	transcription	sptínesem	page 13, the orthography
+(10) line 5	Secwepemctsín	phonemic	/sptínəsəm/	page 13, phonemic, in / /
+(10) line 5	Ethan Pincott	translation	‘thought’	page 13, carries footnote 18, written here without its digit
+§4.2.1	Ethan Pincott	note	These forms would seem to suggest that reduction of unstressed vowels to schwa had not taken place by 1925, implying a pronunciation [*ew] for Le Jeune’s unstressed ⟨aw⟩ {aw}. One final piece of evidence is that the change /əy, əw/ > [i u] seems to have already been in effect, demonstrated by C₁əC₂ total reduplication.	page 13
+(11) line 1	Ethan Pincott	note	Total reduplication in Studies	page 13, the caption
+(11) line 2	Secwepemctsín	transcription	{shucwai}	page 13, in { }
+(11) line 2	Secwepemctsín	transcription	tsuts̓wéy̓	page 13, the orthography
+(11) line 2	Secwepemctsín	phonemic	/cəw~c̓wéy̓/	page 13, phonemic, in / /
+(11) line 2	Secwepemctsín	phonemic	[cuc̓wéy̓]	page 13, phonetic, in [ ]
+(11) line 2	Ethan Pincott	translation	‘butterfly’	page 13
+(11) line 3	Secwepemctsín	transcription	{spipioia}	page 13, in { }
+(11) line 3	Secwepemctsín	transcription	spipyúy7e	page 13, the orthography
+(11) line 3	Secwepemctsín	phonemic	/s-pəy~pyú⟨y⟩ʔ/	page 13, phonemic, in / /
+(11) line 3	Secwepemctsín	phonemic	[spipyúyʔə]	page 13, phonetic, in [ ]
+(11) line 3	Ethan Pincott	translation	‘birds’	page 13
+(11) line 4	Secwepemctsín	transcription	{kikait}	page 13, in { }
+(11) line 4	Secwepemctsín	transcription	kikéyt	page 13, the orthography
+(11) line 4	Secwepemctsín	phonemic	/kəy~kéyt/	page 13, phonemic, in / /
+(11) line 4	Secwepemctsín	phonemic	[kikéyt]	page 13, phonetic, in [ ]
+(11) line 4	Ethan Pincott	translation	‘chicken hawk’	page 13
+(11) line 5	Secwepemctsín	transcription	{tqwiqwiyusha}	page 13, in { }
+(11) line 5	Secwepemctsín	transcription	tqwiq̓wiyúse7	page 13, the orthography
+(11) line 5	Secwepemctsín	phonemic	/t-qʷəy~qʷy-úsəʔ/	page 13, phonemic, in / /
+(11) line 5	Secwepemctsín	phonemic	[tqʷiqʷyúseʔ]	page 13, phonetic, in [ ]
+(11) line 5	Ethan Pincott	translation	‘blackcap’	page 13
+§4.2.1	Ethan Pincott	note	Tentatively, I suggest that the coalescence of /əy, əw/ > [i u] occurred first, continuing to operate as a surface filter in the phonology of the language up until today, eliminating schwa-glide sequences in closed syllables whenever they would occur. The complete reduction of unstressed vowels to schwa would have taken place after 1925. The fact that Kuipers, who began working on the language in 1953, though more thoroughly from 1968 on, records only schwa in unstressed syllables is surprising, since 28 ye ars is a short time for such an extensive change to occur in the phonology of a language. Perhaps the change was already in progress in Le Jeune’s time, and proceeded unevenly through different lexical items and phonological environments. Some examples hint at this, but unambiguous cases are hard to find.	page 13
+(12) line 1	Ethan Pincott	note	Reduced vowels in Studies	page 13, the caption
+(12) line 2	Secwepemctsín	transcription	{shpakamih}	page 13, in { }
+(12) line 2	Secwepemctsín	phonemic	[*spəqmíx]	page 13, reconstructed, in [* ]
+(12) line 2	Secwepemctsín	transcription	speqmíx	page 13, the orthography
+(12) line 2	Secwepemctsín	phonemic	[spəqmíx]	page 13, phonetic, in [ ]
+(12) line 2	Ethan Pincott	translation	‘swan’	page 13, carries footnote 19, written here without its digit
+(12) line 3	Secwepemctsín	transcription	{chok’k’in}	page 13, in { }
+(12) line 3	Secwepemctsín	phonemic	[*cəqʷqín̓]	page 13, reconstructed, in [* ]
+(12) line 3	Secwepemctsín	transcription	tseqwqín̓	page 13, the orthography
+(12) line 3	Secwepemctsín	phonemic	[cəqʷqín̓]	page 13, phonetic, in [ ]
+(12) line 3	Ethan Pincott	translation	‘red-headed woodpecker’	page 13, carries footnote 20, written here without its digit
+§4.2.1	Ethan Pincott	note	Despite these caveats, the overall picture from Studies is one of conservatism when it comes to unstressed syllables, with full vowels being preserved to a greater degree than in the modern language. The Secwepemctsín of Le Jeune’s day would have more resembled neighbouring and closely-related nɬeʔkepmxcín and St’át’imcets in this way, with complete vowel reduction being a later divergence.	page 13
+footnote 15	Ethan Pincott	note	15 Cf. mus /mus/ ‘four’.	page 13, footnote
+footnote 16	Ethan Pincott	note	16 Cf. p̓úsmen /p̓úsmən/ ‘heart’.	page 13, footnote
+§4.2.1	Secwepemctsín	cited form	p̓úsmen	page 13
+§4.2.1	Secwepemctsín	cited form	/p̓úsmən/	page 13, ‘heart’
+footnote 17	Ethan Pincott	note	17 Cf. nɬeʔkepmxcín /péɬuskʷu/ ‘id.’.	page 13, footnote
+§4.2.1	nɬeʔkepmxcín	cited form	/péɬuskʷu/	‘lake’, footnote 17
+footnote 18	Ethan Pincott	note	18 Cf. nɬeʔkepmxcín /ptínusəm/ ‘id.’.	page 13, footnote
+§4.2.1	nɬeʔkepmxcín	cited form	/ptínusəm/	‘thought’, footnote 18
+footnote 19	Ethan Pincott	note	19 Cf. piq /piq/ ‘white’.	page 13, footnote
+footnote 20	Ethan Pincott	note	20 Cf. tsiqw /ciqʷ/ ‘red’.	page 13, footnote
+§4.2.1	Secwepemctsín	cited form	/ciqʷ/	page 13, ‘red’
+§4.2.2	Ethan Pincott	heading	4.2.2 Voicing in determiners	page 14
+§4.2.2	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+§4.2.2	Secwepemctsín	cited form	/ɣ/	page 14
+§4.2.2	Secwepemctsín	cited form	/ɬ/	page 14
+§4.2.2	Ethan Pincott	note	A final archaism attested in the materials on Studies involves the voicing of fricatives in the determiner system. This Secwepemctsín sound shift has not been treated anywhere in the Salish literature, to my knowledge, but can be clearly seen by examining cognates. The initial phonemes /ɣ/ and /l/ in Secwepemctsín determiner bases regularly correspond to /x/ and /ɬ/ in other languages:	page 14
+(13) line 1	Ethan Pincott	note	Cognates showing voicing in Secwepemctsín determiners21	page 14, the caption
+(13) line 2	Ethan Pincott	note	Correspondence Secwepemctsín Other Salish	page 14, heads the rows below
+(13) line 3	Ethan Pincott	note	ɣ : x	the correspondence, Secwepemctsín ɣ where the other languages have x
+(13) line 3	Secwepemctsín	transcription	ri7	page 14, the orthography
+(13) line 3	Secwepemctsín	phonemic	/ɣiʔ/	page 14, phonemic, in / /
+(13) line 3	Secwepemctsín	transcription	rey	page 14, the orthography
+(13) line 3	Secwepemctsín	phonemic	/ɣey/	page 14, phonemic, in / /
+(13) line 3	Secwepemctsín	transcription	yerí7	page 14, the orthography
+(13) line 3	Secwepemctsín	phonemic	/yəɣíʔ/	page 14, phonemic, in / /
+(13) line 3	nɬeʔkepmxcín	phonemic	/xéʔ(e)/	page 14, phonemic, in / /
+(13) line 3	nɬeʔkepmxcín	phonemic	/xʔe/	page 14, phonemic, in / /
+(13) line 4	nsyilxcən	phonemic	/ʔixíʔ/	page 14, phonemic, in / /
+(13) line 5	Moses-Columbian	phonemic	/ʔaxáʔ/	page 14, phonemic, in / /
+(13) line 6	Correspondence	transcription	l :	page 14, the orthography
+(13) line 6	Correspondence	transcription	ɬ	page 14, the orthography
+(13) line 6	Secwepemctsín	transcription	le	page 14, the orthography
+(13) line 6	Secwepemctsín	phonemic	/lə/	page 14, phonemic, in / /
+(13) line 6	Secwepemctsín	transcription	lu7	page 14, the orthography
+(13) line 6	Secwepemctsín	phonemic	/luʔ/	page 14, phonemic, in / /
+(13) line 6	Secwepemctsín	transcription	lúne	page 14, the orthography
+(13) line 6	Secwepemctsín	phonemic	/lúnə/	page 14, phonemic, in / /
+(13) line 6	nɬeʔkepmxcín	phonemic	/ɬʔe/	page 14, phonemic, in / /
+(13) line 6	nɬeʔkepmxcín	phonemic	/ɬúʔe/	page 14, phonemic, in / /
+(13) line 6	nɬeʔkepmxcín	phonemic	/ɬə́n̓e/	page 14, phonemic, in / /
+(13) line 7	nsyilxcən	phonemic	/ɬəʔ/	page 14, phonemic, in / /
+(13) line 7	Moses-Columbian	phonemic	/ʔaɬúʔ/	page 14, phonemic, in / /
+§4.2.2	Secwepemctsín	cited affix	t̓ek-	page 14
+§4.2.2	Secwepemctsín	cited form	/ƛ̓ək-/	page 14
+§4.2.2	Ethan Pincott	note	This is still visible synchronically in the language. In Secwepemctsín, like in other Salish languages, determiner bases can combine with prefix elements to derive new determiners. One such prefix in Secwepemctsín is t̓ek- /ƛ̓ək-/. Leaving aside the function of this and other prefixes for now, we can see that when combined with bases beginning with the approximants r /ɣ/ and l /l/, the initial consonant of the base appears as a voiceless fricative, c /x/ and ll /ɬ/ respectively:	page 14
+(14) line 1	Ethan Pincott	note	Voiceless fricatives in combination with t̓ek- /ƛ̓ək-/	page 14, the caption
+(14a) line 1	Secwepemctsín	transcription	t̓ekxí7	page 14, the orthography
+(14a) line 1	Secwepemctsín	phonemic	/ƛ̓əkxíʔ/	page 14, phonemic, in / /
+(14a) line 1	Ethan Pincott	translation	‘here’	page 14, carries footnote 22, written here without its digit
+(14a) line 1	Ethan Pincott	note	(base ri7 /ɣiʔ/)	page 14
+(14b) line 1	Secwepemctsín	transcription	t̓ekxéy	page 14, the orthography
+(14b) line 1	Secwepemctsín	phonemic	/ƛ̓əkxéy/	page 14, phonemic, in / /
+(14b) line 1	Ethan Pincott	translation	‘there (near you)’	page 14
+(14b) line 1	Ethan Pincott	note	(base rey /ɣey/)	page 14
+(14c) line 1	Secwepemctsín	transcription	t̓ekllú7	page 14, the orthography
+(14c) line 1	Secwepemctsín	phonemic	/ƛ̓əkɬúʔ/	page 14, phonemic, in / /
+(14c) line 1	Ethan Pincott	translation	‘over there (invisible)’	page 14
+(14c) line 1	Ethan Pincott	note	(base lu7 /luʔ/)	page 14
+(14d) line 1	Secwepemctsín	transcription	t̓ekllúne	page 14, the orthography
+(14d) line 1	Secwepemctsín	phonemic	/ƛ̓əkɬúnə/	page 14, phonemic, in / /
+(14d) line 1	Ethan Pincott	translation	‘over there (far invisible)’	page 14
+(14d) line 1	Ethan Pincott	note	(base lúne /lúnə/)	page 14
+§4.2.2	Secwepemctsín	cited affix	t̓-	page 14
+§4.2.2	Secwepemctsín	cited form	/ƛ̓-/	page 14
+§4.2.2	Secwepemctsín	cited form	t̓ri7	page 14
+§4.2.2	Secwepemctsín	cited form	/ƛ̓ɣiʔ/	page 14
+§4.2.2	Secwepemctsín	cited form	t̓lu7	page 14
+§4.2.2	Secwepemctsín	cited form	/ƛ̓luʔ/	page 14
+§4.2.2	Ethan Pincott	note	Note that only the prefix t̓ek- /ƛ̓ək-/ displays this behaviour. It is not a general fact that the voiced approximant of the base regularly devoices after a voiceless prefix, since the similarly voiceless prefix t̓- /ƛ̓-/ appears with the regular voiced forms, e.g.: t̓ri7 /ƛ̓ɣiʔ/ “this one” (cf. (14a) above) and t̓lu7 /ƛ̓luʔ/ “over there (invisible)” (cf. (14c) above). Instead, it must be an idiosyncratic development where the voicing shift was blocked by the prefix t̓ek- /ƛ̓ək-/, for some currently unknown reason.	page 14
+§4.2.2	Secwepemctsín	cited form	/ɣə/	page 14
+§4.2.2	Secwepemctsín	cited form	/lə/	page 14
+§4.2.2	Secwepemctsín	cited form	ə	page 14
+footnote 21	Ethan Pincott	note	21 These forms should probably best be called “possible cognates”, since the exact relationships among them is unclear at the moment. Tentatively, determiners with *x seem to indicate proximit y while * ɬ signals remoteness, in both space and time.	page 14, footnote
+§4.2.2	Secwepemctsín	cited form	ɬ	page 14
+footnote 22	Ethan Pincott	note	22 The translations of these determiners come from Kuipers (1974:58), which are rough approximations of words that are difficult to translate into English.	page 14, footnote
+§4.2.2	Secwepemctsín	cited form	l̩	[l̩], the article le as the southern Western dialect says it
+§4.2.2	Ethan Pincott	note	The determiners in Studies show an interesting pattern compared to their forms in the modern language. Looking first at the articles re /ɣə/ and le /lə/, we see that they are consistently written in ways that imply a voiced pronunciation : ⟨i⟩ {i} for re /ɣə/, and ⟨l⟩ {l} for le /lə/. The spelling ⟨i⟩ {i} for re /ɣə/ is not unexpected, since this is one of the most common graphemes that Le Jeune uses for schwa. He may not have heard initial /ɣ/, which is again not surprising; in the southern part of the Western dialect, this article is reduced to [ə] except in the most careful speech. The spelling ⟨l⟩ {l} for le /lə/ is also expected; in the southern communities of the Western dialect, this article is consistently syllabic [l̩].	page 14
+§4.2.2	Ethan Pincott	note	So far, the forms of the articles in Studies align closely with their pronunciation in the modern language. However, the demonstratives are written in ways that imply a more conservative pronunciation:	page 15
+(15) line 1	Ethan Pincott	note	Voiceless demonstratives in Studies	page 15, the caption
+(15) line 2	Secwepemctsín	transcription	{tlihi}	page 15, in { }
+(15) line 2	Secwepemctsín	phonemic	[*t̓(ə)xíʔ]	page 15, reconstructed, in [* ]
+(15) line 2	Secwepemctsín	transcription	t̓ri7	page 15, the orthography
+(15) line 2	Secwepemctsín	phonemic	/t̓ɣiʔ/	page 15, phonemic, in / /
+(15) line 2	Ethan Pincott	translation	‘this’	page 15
+(15) line 3	Secwepemctsín	transcription	{nihi}	page 15, in { }
+(15) line 3	Secwepemctsín	phonemic	[*nəxíʔ]	page 15, reconstructed, in [* ]
+(15) line 3	Secwepemctsín	transcription	nerí7	page 15, the orthography
+(15) line 3	Secwepemctsín	phonemic	/nəɣíʔ/	page 15, phonemic, in / /
+(15) line 3	Ethan Pincott	translation	‘at this’	page 15
+§4.2.2	Secwepemctsín	cited form	/x̌/	page 15
+§4.2.2	Ethan Pincott	note	As discussed in section 3, the spelling {h} is consistently used for the voiceless dorsal fricatives /x/, /x̌/, and never for the voiced approximant /ɣ/, which is instead written {r} or {g}. The fact that the demonstratives in Studies are never written with either of these graphemes, but consistently have {h} strongly implies a voiceless fricative pronunciation at this time.	page 15
+§4.2.2	Secwepemctsín	cited form	nerí7	page 15
+§4.2.2	Secwepemctsín	cited form	/nəɣíʔ/	page 15
+§4.2.2	Secwepemctsín	cited form	/ʕ/	page 15
+§4.2.2	Ethan Pincott	note	However, there is a catch. In certain occurences of demonstratives in shorthand, Le Jeune uses a symbol resembling a vertical tilde that Robertson transcribes as {x} (Robertson 2025), which I have maintained, e.g.: {nixi} nerí7 /nəɣíʔ/ “at this”. This grapheme is limited to a handful of instances of demonstratives and occurs nowhere else in the materials of Studies. In the guide to the phonetic alphabet at the beginning of the document, Le Jeune describes the sound represented by this grapheme as “between h & r” (1925:2). Since his ⟨h⟩ represents the dorsal fricatives /x/ and /x̌/, while his ⟨r⟩ represents the dorsal approximants /ɣ/ and /ʕ/, it is unclear what a sound “between” these would mean. Two possibilities come to mind: it could be that he was hearing a true voiced fricative, rather than the typical soft approximant pronunciation the sound has today, or, perhaps more likely, that this was his way of representing words that varied in pronunciation between /x/ and /ɣ/ from speaker to speaker, or potentially even in free variation. Either possibility suggests that this change of voiceless fri cative to voiced approximant in the determiner system was still in progress at the time that Studies was written.	page 15
+§4.3	Ethan Pincott	heading	4.3 Other Phonological Differences	page 15
+§4.3.1	Ethan Pincott	heading	4.3.1 Preservation of Segments	page 15
+§4.3.1	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+§4.3.1	Ethan Pincott	note	The following words could be classed as archaisms, but I have chosen to describe them here, since they don’t show the same kind of systematic behaviour as the sound patterns above. We can see a handful of words in Studies that preserve a segment which, for some reason or other, has been lost in modern Secwepemctsín.	page 15
+(16) line 1	Ethan Pincott	note	Words preserving lost segments in Studies	page 15, the caption
+(16) line 2	Secwepemctsín	transcription	⟨jkàkeit⟩	page 15, in ⟨ ⟩
+(16) line 2	Secwepemctsín	transcription	{shkakiit}	page 15, in { }
+(16) line 2	Secwepemctsín	transcription	skék̓i7	page 15, the orthography
+(16) line 2	Secwepemctsín	phonemic	/skék̓iʔ/	page 15, phonemic, in / /
+(16) line 2	Ethan Pincott	translation	‘spider’	page 15, carries footnote 23, written here without its digit
+(16) line 3	Secwepemctsín	transcription	⟨zehshìnem⟩	page 15, in ⟨ ⟩
+(16) line 3	Secwepemctsín	transcription	{sihshinim}	page 15, in { }
+(16) line 3	Secwepemctsín	transcription	sextsíne	page 15, the orthography
+(16) line 3	Secwepemctsín	phonemic	/səx̌cínə/	page 15, phonemic, in / /
+(16) line 3	Ethan Pincott	translation	‘downstream area, riverbank’	page 15
+(16) line 4	Secwepemctsín	transcription	⟨àp-shem⟩	page 15, in ⟨ ⟩
+(16) line 4	Secwepemctsín	transcription	{apshim}	page 15, in { }
+(16) line 4	Secwepemctsín	transcription	ápse	page 15, the orthography
+(16) line 4	Secwepemctsín	phonemic	/ʔápsə/	page 15, phonemic, in / /
+(16) line 4	Ethan Pincott	translation	‘sneeze’	page 15
+footnote 23	Ethan Pincott	note	23 Cf. nɬeʔkepmxcín /sk̓ék̓ʔit/	page 15, footnote
+§4.3.1	Ethan Pincott	language	nɬeʔkepmxcín	Thompson, the closest relative of Secwepemctsín. Th in the tables
+§4.3.1	nɬeʔkepmxcín	cited form	/sk̓ék̓ʔit/	‘spider’, the cognate of skék̓i7, footnote 23
+§4.3.1	Ethan Pincott	note	The last two examples are notable, since we see other examples of the loss of syllabic nasals in the modern language. The Eastern dialect is well -known for the near total loss of nasals in this position, with different vowel qualities arising depending on the specific nasal lost and the place of articulation of the preceding consonant (Kuipers 1989:17; Schillo 2023). However, even in the Western dialect, we see nasals lost historically, or variation between words with or without a nasal.	page 15
+(17) line 1	Ethan Pincott	note	Nasal loss in (Western) Secwepemctsín	page 16, the caption
+(17) line 2	Secwepemctsín	transcription	-úl̓ecw	page 16, the orthography
+(17) line 2	Secwepemctsín	phonemic	/-úl̓əxʷ/	page 16, phonemic, in / /
+(17) line 2	Ethan Pincott	translation	‘land’	page 16
+(17) line 2	Ethan Pincott	note	(cf. Proto-Salish *-ul-mixʷ ‘earth, land, ground’ (Kuipers 2002:205))	page 16
+(17) line 3	Secwepemctsín	transcription	úpekst	page 16, the orthography
+(17) line 3	Secwepemctsín	phonemic	/ʔúpəkst/	page 16, phonemic, in / /
+(17) line 3	Ethan Pincott	translation	‘ten’	page 16
+(17) line 3	Ethan Pincott	note	(cf. Proto-Salish *ʔupan ‘ten’ (Kuipers 2002:18), -kst /-kst/ ‘hand’)	page 16
+(17) line 4	Secwepemctsín	transcription	selcwéycen ~ selcwéyce	page 16, the orthography
+(17) line 4	Secwepemctsín	phonemic	/səlxʷéyxən ~ səlxʷéyxə/	page 16, phonemic, in / /
+(17) line 4	Ethan Pincott	translation	‘caribou’	page 16
+(17) line 5	Secwepemctsín	transcription	kútwen ~ kútwe	page 16, the orthography
+(17) line 5	Secwepemctsín	phonemic	/kútwən ~ kútwə/	page 16, phonemic, in / /
+(17) line 5	Ethan Pincott	translation	‘eel’	page 16
+§4.3.1	Ethan Pincott	note	Clearly, the trend towards syllabic nasal loss has been prevalent in the language for some time, reaching its culmination in the modern Eastern dialect. The fact that certain words in Studies preserve syllabic nasals that have since been lost shows that this sporadic change has been in progress until very recently.	page 16
+§4.3.2	Ethan Pincott	heading	4.3.2 Miscellaneous	page 16
+§4.3.2	Ethan Pincott	note	There are a couple of examples of words in Studies that lack a segment found in the modern language.	page 16
+(18) line 1	Ethan Pincott	note	Words with missing segments in Studies	page 16, the caption
+(18) line 2	Secwepemctsín	transcription	⟨shoònmaten⟩	page 16, in ⟨ ⟩
+(18) line 2	Secwepemctsín	transcription	{shunmatn}	page 16, in { }
+(18) line 2	Secwepemctsín	transcription	tsún̓menten	page 16, the orthography
+(18) line 2	Secwepemctsín	phonemic	/cún̓məntən/	page 16, phonemic, in / /
+(18) line 2	Ethan Pincott	translation	‘index finger’	page 16
+(18) line 3	Secwepemctsín	transcription	⟨jwikemèjt⟩	page 16, in ⟨ ⟩
+(18) line 3	Secwepemctsín	transcription	{shwikimist}	page 16, in { }
+(18) line 3	Secwepemctsín	transcription	swékmen̓st	page 16, the orthography
+(18) line 3	Secwepemctsín	phonemic	/swékmən̓st/	page 16, phonemic, in / /
+(18) line 3	Ethan Pincott	translation	‘lightning’	page 16
+§4.3.2	Ethan Pincott	note	These two words are interesting in that they display nasal loss in 1925, whereas the modern forms preserve the nasal, which is further evidence of the general instability of syllabic nasals in unstressed syllables. In these two cases, perhaps there was variation in forms with and without /n/, with the nasal forms winning out in the end. Other words show differences in vowel quality, syllable structure, metathesis, or stress patterns.	page 16
+(19) line 1	Ethan Pincott	note	Other miscellaneous phonological differences	page 16, the caption
+(19) line 2	Secwepemctsín	transcription	⟨metjakw⟩	page 16, in ⟨ ⟩
+(19) line 2	Secwepemctsín	transcription	{mishaku}	page 16, in { }
+(19) line 2	Secwepemctsín	phonemic	[*məcékʷ]	page 16, reconstructed, in [* ]
+(19) line 2	Secwepemctsín	transcription	metsúkw	page 16, the orthography
+(19) line 2	Secwepemctsín	phonemic	/məcúkʷ/	page 16, phonemic, in / /
+(19) line 2	Ethan Pincott	translation	‘blackcaps’	page 16
+(19) line 3	Secwepemctsín	transcription	⟨nòhnoh⟩	page 16, in ⟨ ⟩
+(19) line 3	Secwepemctsín	transcription	{nohnoh}	page 16, in { }
+(19) line 3	Secwepemctsín	phonemic	[*núx̌ʷnəx̌ʷ]	page 16, reconstructed, in [* ]
+(19) line 3	Secwepemctsín	transcription	núxwenxw	page 16, the orthography
+(19) line 3	Secwepemctsín	phonemic	/núx̌ʷənx̌ʷ/	page 16, phonemic, in / /
+(19) line 3	Ethan Pincott	translation	‘woman’	page 16
+(19) line 4	Secwepemctsín	transcription	⟨jewkeka⟩	page 16, in ⟨ ⟩
+(19) line 4	Secwepemctsín	transcription	{shyukwika}	page 16, in { }
+(19) line 4	Secwepemctsín	phonemic	[*syúkʷkəʔ]	page 16, reconstructed, in [* ]
+(19) line 4	Secwepemctsín	transcription	skwyúke7	page 16, the orthography
+(19) line 4	Secwepemctsín	phonemic	/skʷyúkəʔ/	page 16, phonemic, in / /
+(19) line 4	Ethan Pincott	translation	“wart’	page 16, carries footnote 24, written here without its digit
+(19) line 5	Secwepemctsín	transcription	⟨pwh-wen-tàn⟩	page 16, in ⟨ ⟩
+(19) line 5	Secwepemctsín	transcription	{puhwintan}	page 16, in { }
+(19) line 5	Secwepemctsín	phonemic	[*pəxʷəntén]	page 16, reconstructed, in [* ]
+(19) line 5	Secwepemctsín	transcription	púcwen	page 16, the orthography
+(19) line 5	Secwepemctsín	phonemic	/púxʷən/	page 16, phonemic, in / /
+(19) line 5	Ethan Pincott	translation	‘I blow on…’	page 16
+§4.3.2	Secwepemctsín	cited form	púcwen	page 16
+§4.3.2	Secwepemctsín	cited form	/púxʷən/	page 16, ‘I blow on…’
+§4.3.2	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+§4.3.2	Secwepemctsín	cited form	pcwentém	page 16
+§4.3.2	Secwepemctsín	cited form	/pxʷəntém/	page 16
+§4.3.2	Secwepemctsín	cited form	tsecpcwéw̓s	page 16
+§4.3.2	Secwepemctsín	cited form	/cəxpxʷéw̓s/	page 16
+§4.3.2	Ethan Pincott	language	St’át’imcets	Lillooet. Li
+§4.3.2	Ethan Pincott	language	nɬeʔkepmxcín	Thompson, the closest relative of Secwepemctsín. Th in the tables
+§4.3.2	Ethan Pincott	note	These are one-off examples so it is difficult to say much more about them. The final example púcwen /púxʷən/ ‘I blow on…’ is interesting, as it is attested as a weak root in Studies, while it is strong today. However, certain words in modern Secwepemctsín appear to preserve a weak form of this root, e.g.: pcwentém /pxʷəntém/ “snow drift” and tsecpcwéw̓s /cəxpxʷéw̓s/ “to cover road (of snow drift)”. Likewise, St’át’imcets and nɬeʔkepmxcín have both weak and strong forms of this root.	page 16
+footnote 24	Ethan Pincott	note	24 Cf. Proto -Interior Salish *yukʷaʔ “wart” (Kuipers 2002:199) , with apparent metathesis in the modern Secwepemctsín form. /-kəʔ/ may be identifiable as the lexical suffix ‘hand, hand tool’.	page 16, footnote
+§4.3.2	Proto-Interior Salish	cited form	yukʷaʔ	*yukʷaʔ ‘wart’, Kuipers 2002:199, footnote 24
+§4.3.2	Secwepemctsín	cited form	/-kəʔ/	page 16
+§5	Ethan Pincott	heading	5 Conclusion and Outlook	page 17
+§5	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+§5	Ethan Pincott	note	Secwepemctsín-speaking	an English compound on the language name, §5
+§5	Ethan Pincott	name	Secwépemc	the people whose language is Secwepemctsín
+§5	Ethan Pincott	note	Father Le Jeune’s Studies on Shuswap is a fascinating document, as it is the only source that provides a comprehensive window into the language at such an early stage. In the grand picture of the history of Secwepemctsín, 1925 is not very long ago, but there is still much we can learn about the development of the language in studying the early texts we do have access to. Overall, the phon ological differences described above are rare: in the corpus of over 1100 words in Studies, I have labelled around 60 as having phonological differences from the modern language. Despite this, there is evidence of certain archaic features preserved in the language as recorded by Le Jeune that have been lost in the intervening hundred years . Perhaps more importantly, the language in Studies shows evi dence of phonological change in progress , particularly in the development of unstressed vowels, and fricatives in determiners. It may seem surprising that these changes spread so quickly throughout Secwepemctsín-speaking communities in the decade s before Kuipers began his work on the language, but in Le Jeune’s time, Secwepemctsín would have been the everyday language for thousands of Secwépemc. Living languages naturally change from one generation to the next, and it may be that one generation was all the time needed for these specific phonological changes to spread throughout the language. A useful direction for further research would be to compare th e materials of Studies to other early recordings of the language, many of which predate Le Jeune’s work by decades. This would help determine when some of these sound changes began to take effect, and how quickly they spread.	page 17
+§5	Ethan Pincott	note	For space and time, I focused in this paper only on what I could glean from Studies about the phonology of Secwepemctsín. There are many other interesting questions that could be asked about what evidence the materials contain about morphological, lexical, and syntactic change . I hope to explore these aspects in future ICSNL proceedings.	page 17
+references	Ethan Pincott	heading	References	page 17
+references	Ethan Pincott	reference	Dawson, George M. 1891. Notes on the Shuswap people of British Columbia.	
+references	Ethan Pincott	reference	Doak, Ivy. 1983. The 1908 Okanagan word lists of James Teit . Graduate Student Theses, Dissertations, & Professional Papers. University of Montana.	
+references	Ethan Pincott	reference	Gibbs, George. 1877. Vocabulary of the Shihwapmukh. Contributions to North American Ethnology, Vol I, 247-265.	
+references	Ethan Pincott	reference	Gurney, William H. 1948. The Work of Reverend Father JMR Le Jeune, OMI. Diss. University of British Columbia.	
+references	Ethan Pincott	language	nɬeʔkepmxcín	Thompson, the closest relative of Secwepemctsín. Th in the tables
+references	Ethan Pincott	reference	Hall, Brent, et. al. 2025. The Long Schwa Paper: Stressed Schwa Epenthesis in nɬeʔkepmxcín. Papers for ICSNL 60, 94-139.	
+references	Ethan Pincott	reference	Kroeber, Paul D. 1999. The Salish Language Family: Reconstructing Syntax. University of Nebraska Press.	
+references	Ethan Pincott	reference	Kuipers, Aert. 1974. The Shuswap Language. Mouton & Co. The Hague.	
+references	Ethan Pincott	name	Jean-Marie-Raphaël	Jean-Marie-Raphaël Le Jeune, the missionary who wrote Studies on Shuswap, 1925
+references	Ethan Pincott	reference	Kuipers, Aert. 1989. A Report on Shuswap with a Squamish Lexical Appendix. Peeters/SELAF.	
+references	Ethan Pincott	reference	Kuipers, Aert. 2002. Salish Etymological Dictionary. University of Montana Occasional Papers in Linguistics Le Jeune, Jean-Marie-Raphaël. 1925. Studies on Shuswap.	
+references	Ethan Pincott	reference	Mattina, Anthony and Allan Taylor. 1984. The Salish Vocabularies of David Thompson. IJAL, 50(1), 48-83.	
+references	Ethan Pincott	reference	Mattina, Nancy. 2006. Determiner phrases in Moses-Columbia Salish. IJAL, 72(1), 97-134.	
+references	Ethan Pincott	reference	Nater, Hank. 2019. Old Records of Three Contiguous Pacific Northwest Languages: Bella Coola (Nuxalk), Carrier (Dakelh), Shuswap (Secwepmc). Papers for ICSNL 54, 163-170.	
+references	Ethan Pincott	language	Secwepemctsín	the language of the paper, a.k.a. Shuswap, Interior Salish. Sh
+references	Ethan Pincott	reference	Newman, Stanley. 1979. A History of the Salish Possessive and Subject Forms. IJAL, 207-223.	
+references	Ethan Pincott	reference	Pincott, Ethan. 2025. Don’t stress about schwa: the Diachrony of Weak Roots in Secwepemctsín. Papers for ICSNL 60, 385-398.	
+references	Ethan Pincott	language	nsəlxcin	in the name of the nsəlxcin dictionary, Relational Lexicography 2023
+references	Ethan Pincott	reference	Relational Lexicography. 2023. nsəlxcin dictionary. https://knowledgebase.arts.ubc.ca/ns%c9%99lxcin-dictionary/	
+references	Ethan Pincott	reference	Reisinger, D. K. E. and Laura S. Griffin. 2022. Unearthing Long-Forgotten Treasures: The Early Comox-Sliammon Materials. Papers for ICSNL 57, 87-142.	
+references	Ethan Pincott	reference	Robertson, David. 2025. The earliest texts in 8 BC Salish languages: A cheet sheet of Chinook Writing for researchers. Manuscript in author’s possession.	
+references	Ethan Pincott	reference	Schillo, Julia. 2023. Detail on Eastern Secwepemctsín Nasal Shift: Syllabification and Lenition in Nasal Clusters. Papers for ICSNL 58, 384-400.	
+references	Ethan Pincott	reference	Teit, James. 1909. The Shuswap. Memoirs of the American Museum of Natural History (The Jesup North Pacific Expedition), Vol 2, Part 7, Franz Boas (ed.), 443-789.	
+references	Ethan Pincott	reference	Thompson, Laurence C. and M. Terry Thompson. 1985. A Grassman’s law for Salish. Oceanic Linguistics Special Publications 20, 134-147.	
+references	Ethan Pincott	reference	Thompson, Laurence C. and M. Terry Thompson. 1996. Thompson River Salish Dictionary. University of Montana Occasional Papers in Linguistics.	
+references	Ethan Pincott	reference	Thompson, Laurence C., Terry M. Thompson & Steven M. Egesdal. 1996. Sketch of Thompson, a Salish Language. Languages, 609-643. Washington, D.C.: Smithsonian Institution.	
+references	Ethan Pincott	reference	Tolmie, W. Fraser. 1877. Vocabulary of the Shooswaap. Contributions to North American Ethnology, Vol I, 247-265.	
+references	Ethan Pincott	reference	Van Eijk, Jan. 1999. The Lillooet Language: Phonology, Morphology, Syntax. University of British Columbia Press.	
+title	Ethan Pincott	title	Philology of Secwepemctsín: The Phonology of Studies on Shuswap	the paper's title, carrying the star of the acknowledgement footnote
+title	Ethan Pincott	name	Ethan Pincott	author, Simon Fraser University
+footnote *	Secwepemctsín	cited form	Xyum re skukwstsétselp!	the thanks that closes the acknowledgement
+footnote *	Ethan Pincott	name	David Robertson	thanked for help reading the Chinook Shorthand, and author of Robertson 2025, whose romanization the paper uses
+§2.1	Ethan Pincott	language	Shuswap	the English name of Secwepemctsín
+§2.1	Ethan Pincott	language	Thompson	the English name of nɬeʔkepmxcín
+§2.1	Ethan Pincott	language	Lillooet	the English name of St’át’imcets
+§2.1	Ethan Pincott	place	Fraser River	the western border of the language
+§2.1	Ethan Pincott	place	Pavillion	on the western border
+§2.1	Ethan Pincott	place	Soda Creek	on the western border
+§2.1	Ethan Pincott	place	Cariboo Plateau	on the northern border
+§2.1	Ethan Pincott	place	Rocky Mountains	the eastern border
+§2.1	Ethan Pincott	place	Jasper	where the northern border meets the Rocky Mountains
+§2.1	Ethan Pincott	place	Invermere	the southern end of the eastern border
+§2.1	Ethan Pincott	place	Splatsin	within the southern border
+§2.1	Ethan Pincott	place	Shuswap Lakes	within the southern border
+§2.1	Ethan Pincott	place	Kamloops	on the southern border, near the line between the Western and Eastern dialects, and Le Jeune's home from 1882
+§2.1	Ethan Pincott	place	Cache Creek	on the southern border
+§2.1	Ethan Pincott	place	Chase	near the line between the Western and Eastern dialects
+§2.1	Ethan Pincott	place	Simpcw	a Western community whose speech differs from the rest, and Chu Chua in §2.2
+§2.2	Ethan Pincott	name	Durieu	Bishop Durieu, who gave Le Jeune a manual of the Chinook Jargon
+§2.2	Ethan Pincott	name	Michel	an nɬeʔképmx convert at Yale who taught Le Jeune the language
+§2.2	Ethan Pincott	name	Mary Ta-hwi-nak	an elder at Spuzzum who taught Le Jeune words and prayers
+§2.2	Ethan Pincott	language	Chinook Jargon	the trade language Le Jeune learned first and wrote the Kamloops Wawa in
+§2.2	Ethan Pincott	language	nsyilxcn	one of Le Jeune's eight languages, written without ə in §2.2
+§2.2	Ethan Pincott	place	Skeetchestn	Deadman's Creek, a Secwépemc reserve Le Jeune visited
+§2.2	Ethan Pincott	place	Nicola Valley	where the nɬeʔképmx reserves Le Jeune visited are
+§4	Ethan Pincott	language	Moses-Columbian	Cb
+§4	Ethan Pincott	language	Kalispel	Ka
+all	Ethan Pincott	notation	⟨ ⟩	Le Jeune's Latin orthography, as Studies on Shuswap prints it, §4
+all	Ethan Pincott	notation	{ }	Le Jeune's Chinook Shorthand, romanized after Robertson 2025, §3.2.2. The Shorthand itself is not reproduced
+all	Ethan Pincott	notation	[* ]	the pronunciation the author reconstructs from Le Jeune's spellings, where it differs from modern Secwepemctsín
+all	Ethan Pincott	notation	/ /	phonemic transcription, of Secwepemctsín unless a label or a column names another language. A form after * inside the slashes is a reconstruction
+all	Ethan Pincott	notation	[ ]	phonetic transcription
+all	Ethan Pincott	notation	italics	modern Secwepemctsín in the community orthography. The text layer keeps no italics, and those forms are the transcription rows with no brackets
+all	Ethan Pincott	notation	(1) to (19), Table 1, Table 2	comparative tables. Each line is split into one row per cell, and the who of a cell is the language of its column or of the label before it

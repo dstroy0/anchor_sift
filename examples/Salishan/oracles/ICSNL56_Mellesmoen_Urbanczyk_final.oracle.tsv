@@ -1,0 +1,680 @@
+where	who	kind	form	gloss
+front	Gloria Mellesmoen and Suzanne Urbanczyk	title	Some Remarks on the Distribution and Representation of Glottalized Resonants in Salish*	page 1, over two lines, carries footnote *
+front	Gloria Mellesmoen and Suzanne Urbanczyk	byline	Gloria Mellesmoen Suzanne Urbanczyk University of British Columbia University of Victoria	page 1, the two authors side by side over their universities
+front	Gloria Mellesmoen and Suzanne Urbanczyk	name	Gloria Mellesmoen	author, University of British Columbia
+front	Gloria Mellesmoen and Suzanne Urbanczyk	name	Suzanne Urbanczyk	author, University of Victoria
+front	Gloria Mellesmoen and Suzanne Urbanczyk	note	Abstract: This paper compiles information across the Salish language family regarding the distribution and representation of glottalized resonants (GRs). It includes information about the positions, timing, realizations, and processes related to GRs, as well as discussion of how the distribution and phonological patterns involving GRs compare to ejectives. Implications for how to represent GRs are explored, and areas for further research are outlined.	page 1, the abstract
+front	Gloria Mellesmoen and Suzanne Urbanczyk	note	Keywords: glottalized resonants, reduplication, phonological representations, ejectives	page 1, the keywords
+front	Gloria Mellesmoen and Suzanne Urbanczyk	note	Papers for the International Conference on Salish and Neighboring Languages 56. D. K. E. Reisinger, Hannah Green, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2021.	page 1, the volume's header
+front	Gloria Mellesmoen and Suzanne Urbanczyk	language	Salish	the family, surveyed language by language; each form below carries its own language
+footnote *	Gloria Mellesmoen and Suzanne Urbanczyk	note	* We are grateful to members of the Salish Working Group for their helpful feedback on this project.	page 1, footnote
+§1	Gloria Mellesmoen and Suzanne Urbanczyk	heading	1 Introduction	page 1
+§1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Glottalized resonants (GRs) are rare cross-linguistically, but found in almost every Salish language — a notable exception is the Upriver dialect of Halkomelem. The goals of this paper are to: (i) compile information on the distribution and patterning of GRs, describe and build on observations in the literature, (ii) identify ways ejectives and glottalized resonants differ, (iii) discuss implications of this cross-linguistic survey for the representation of GRs in Salish, and (iv) discuss predictions and areas for further investigation. The bulk of the paper discusses the distribution of GRs and how they behave (Section 2), starting with a discussion of the realization (and how this connects to the articulation of GRs), followed by a brief history of the early documentation regarding how this is reflected in choices about GRs in transcription and orthography, and further outlining some key evidence that supports identifying GRs as a class of segments. As part of the discussion of the distribution, we compile information regarding where GRs are found in each language and the range of processes relevant to GRs. Included in our discussion of processes are the glottalization and deglottalization of resonants,1 including a detailed survey of how GRs pattern in reduplication. Also, as part of the discussion of phonological processes that affect GRs, we survey what has been documented about the timing of the perceived articulatory events (i.e., creakiness or production of a glottal stop relative to voicing) used in producing GRs. A final focus includes various ways we have found that GRs differ from ejectives. After outlining these patterns, we discuss what this implies for the phonological representation of GRs (Section 3). We note that this is quite an ambitious undertaking, and therefore a final section of the paper highlights some correlations, limitations, and gaps that warrant further study (Section 4).	page 1
+footnote 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	1 We use the term “resonant” in this paper to stay consistent with the literature on Salish and neighbouring languages, but it would also be appropriate (and accurate) to use the term “sonorant”.	page 1, footnote
+§2	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2 Distribution and patterns	page 1
+§2.1	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.1 Articulation	page 1
+§2.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Glottalized resonants are complex segments involving a supralaryngeal articulation (oral or nasal), plus constriction at the glottis. The usual vocal tract setting for resonants is open and aerodynamically conducive to spontaneous voicing: the air pressure above the glottis is lower than below the glottis which creates a physical condition leading to vocal fold vibration. This vocal fold vibration impedes simultaneously constricting the glottis when producing resonants. Hence, a lot of variation can be found in how these largely incompatible articulatory settings are phonetically realized in the production of GRs. Quite often GRs are pronounced as a sequence of a glottal stop plus resonant, the order of which can vary within and between languages and speakers (Bird et al. 2008). Some ways that these have been written are presented in (1). Notice that Comox-Sliammon allows both orders, depending on the lo cation of the GR in the word. 2 In (1a), the glottal stop is transcribed following the resonant, while it is transcribed before the resonant in (1b). The phonological input or underlying representation is given first, followed by a narrow surface transcription.	page 1
+footnote 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	2 We have chosen to use the more common English language names in this study, due to our goal of presenting a cross-Salish comparison and engaging with the existing literature and documentation. We respectfully acknowledge that communities have chosen to use names in their own language to identify their community’s language. However, general terms to refer to the entire language or dialect continuum are not known to us for every Salish language, as for example in referring to Halkomelem and Northern Straits. In some cases, where we want to refer to specific dialects, we use the community’s terms.	page 2, footnote
+(1) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Comox-Sliammon	page 2, the language of the example
+(1a) line 1	Comox-Sliammon	phonemic	/pal̓/	page 2, underlying, in / /
+(1a) line 2	Comox-Sliammon	phonetic	[pálʔ]	page 2, narrow, in [ ]
+(1a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘heron’	page 2
+(1a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Blake 2000:241)	page 2
+(1b) line 1	Comox-Sliammon	phonemic	/t̓in̓iqʷ/	page 2, underlying, in / /
+(1b) line 2	Comox-Sliammon	phonetic	[t̓éʔnɛqʷ]	page 2, narrow, in [ ]
+(1b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘salmonberry’	page 2
+(1b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Blake 2000:240)	page 2
+§2.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Another way that GRs can be produced is by creaky voicing during the articulation of the resonant. For example, in Comox-Sliammon, GRs are realized as creaky voice in the coda of unstressed syllables, transcribed with an apostrophe above the resonant. Syllable boundaries are indicated with a period below to show the coda position.	page 2
+(2) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Comox-Sliammon	page 2, the language of the example
+(2a) line 1	Comox-Sliammon	phonemic	/hiyum̓/	page 2, underlying, in / /
+(2a) line 2	Comox-Sliammon	phonetic	[hé.yum̓]	page 2, narrow, in [ ]
+(2a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘seagull’	page 2
+(2a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Blake 2000:241)	page 2
+(2b) line 1	Comox-Sliammon	phonemic	/səy-say̓ǰa/	page 2, underlying, in / /
+(2b) line 2	Comox-Sliammon	phonetic	[sí.say̓.ǰɛ]	page 2, narrow, in [ ]
+(2b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘leaves’	page 2
+(2b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Blake 2000:241)	page 2
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.2 Early documentation and evidence for GR as a class of segments	page 2
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Much of the early documentation of Salish languages did not recognize GRs as a class of segments, but would instead transcribe them as a sequence of a resonant and a glottal stop (Efrat 1969; Mitchell 1968). We posit the underlying representations (URs) in (3), based on phonemicization of a sequence of a resonant and a glottal stop in the original sources.	page 2
+(3) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Straits	page 2, the language of the example
+(3a) line 1	Straits	phonemic	/q̓éŋ̓əy̓/	page 2, underlying, in / /
+(3a) line 2	Straits	phonetic	[q̓ǽʔɨŋi>ʔ]	page 2, narrow, in [ ]
+(3a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘young woman’	page 2
+(3a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	T’Sou-ke	page 2, the dialect
+(3a) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1969:19)	page 2
+(3b) line 1	Straits	phonemic	/c̓əc̓ay̓əƛ̓/	page 2, underlying, in / /
+(3b) line 2	Straits	phonetic	[ch’ʌch’áyʔʌtl’]	page 2, narrow, in [ ]
+(3b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘short’	page 2
+(3b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Ləkʷéŋən	page 2, the dialect
+(3b) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Mitchell 1968:121)	page 2
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Subsequent to this early documentary work, a range of evidence has been compiled to establish that, what appeared to be a sequence of segments on the surface, is best analysed phonologically as a single segment in every Salish language. We outline the kind of evidence presented from reduplication and phonotactic patterns.	page 3
+§2.2	Salish	cited form	/y̓/	page 3
+§2.2	Salish	cited form	/l̓/	page 3
+§2.2	Salish	cited form	yʔ	page 3
+§2.2	Salish	cited form	lʔ	page 3
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	One of the most compelling types of evidence for a single segment analysis is found in examining what is copied in reduplication. Reduplication provides a diagnostic for segmenthood in circumstances where the surface form (or transcription choices) suggests that the glottalized resonant is treated as a sequence of resonant and glottal stop. If the resonant and a glottal stop occur in both the base and the reduplicant, this can be treated as a single segment in the input to the phonological grammar. Though Galloway (1984) treats GRs in Nooksack as sequences of resonant and glottal stop, this requires positing two types of reduplication: one that copies three consonants when a resonant and glottal stop sequence is present (4a–b), and one that just copies two consonants elsewhere (4c). It is more consistent to analyse each example in (4) as having a C1C2 reduplicant, where two consonants are copied. In (4a–b), the copied consonants are each a single GR (/y̓/ and /l̓/, respectively) where the realization of glottalization is a post -resonant glottal closure ([yʔ] and [lʔ], respectively).	page 3
+(4) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Nooksack	page 3, the language of the example
+(4a) line 1	Nooksack	transcription	sə́lʔsəlʔtən	page 3
+(4a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘hand spinner’	page 3
+(4a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Galloway 1984:84)	page 3
+(4b) line 1	Nooksack	transcription	síyʔsiyʔ	page 3
+(4b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘afraid’	page 3
+(4b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Galloway 1984:84)	page 3
+(4c) line 1	Nooksack	transcription	p̓əč̓p̓íč̓t	page 3
+(4c) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘lots of charcoal’	page 3
+(4c) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Galloway 1984:85)	page 3
+§2.2	Salish	cited form	ʔR	page 3
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	In terms of phonotactic patterns, Efrat (1978) provides evidence that a sequence transcribed as ʔR acts like a single segment in allomorph selection. A range of phonologically conditioned allomorphs are used to express the imperfective aspect in Straits.3 The two allomorphs that are relevant to establishing that GRs are a single segment are (i) metathesis and (ii) a glottal stop infix.	page 3
+footnote 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	3 Those familiar with the literature on Straits may be more familiar the label “actual”, but this is the same morpheme as the imperfective described here.	page 3, footnote
+§2.2	Salish	cited affix	C1C2V́t-	page 3
+§2.2	Salish	cited form	C1V́C2t	page 3
+§2.2	Salish	cited form	C1C2V́t	page 4
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Metathesis marks imperfective aspect with C1C2V́t- stems in (5), reordering the second consonant and vowel to have the stem shape C1V́C2t.	page 3
+(5) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Straits	page 3, the language of the example, carries footnote 4
+(5a) line 1	Straits	transcription	tqə́t sn cə sóɫ	page 3
+(5a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘I closed the door.’	page 3
+(5a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:252)	page 3
+(5a) line 4	Straits	transcription	tə́qt sn cə sóɫ	page 3
+(5a) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘I am closing the door.’	page 3
+(5a) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:252)	page 3
+(5b) line 1	Straits	transcription	x̣ʷčétŋ	page 3
+(5b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘They were killed off.’	page 3
+(5b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:252)	page 3
+(5b) line 4	Straits	transcription	x̣ʷéčt	page 3
+(5b) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘Wipe them out!’	page 3
+(5b) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:252)	page 3
+footnote 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	4 The examples here are of the T’Sou-ke dialect of Straits and are represented in the same format as in Efrat (1978), noting that it is likely that predictable schwas were not written. Please see Efrat (1969:33–35) for discussion of the contexts in which schwa is predictable.	page 3, footnote
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Efrat (1978:252) observes that the glottal stop is infixed (indicated in bold), “usually after the stressed vowel”, as illustrated by the examples in (6).	page 3
+(6) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Straits	page 4, the language of the example
+(6a) line 1	Straits	transcription	ʔíɫn tóŋəɫ	page 4
+(6a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘Let’s eat!’	page 4
+(6a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:252)	page 4
+(6a) line 4	Straits	transcription	ʔíʔɫnʔ sn	page 4
+(6a) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘I’m eating.’	page 4
+(6a) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:252)	page 4
+(6b) line 1	Straits	transcription	kʷɫ čóxʷŋ	page 4
+(6b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘It’s sour.’	page 4
+(6b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:252)	page 4
+(6b) line 4	Straits	transcription	hiʔ cóʔxʷŋ	page 4
+(6b) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘It’s getting sour.’	page 4
+(6b) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:252)	page 4
+§2.2	Salish	cited affix	C1əR-	page 4
+§2.2	Salish	cited form	/-ət/	page 4
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	When the second consonant of the root is a sonorant, the glottal infix allomorph is used, and the post-stressed vowel is deleted, as illustrated in (7). The glottal stop is infixed adjacent to a resonant, and this creates a GR. These roots are C1əR- shaped, and are combined with the control transitive suffix /-ət/.	page 4
+(7) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Straits	page 4, the language of the example
+(7a) line 1	Straits	transcription	čə́nət sn	page 4
+(7a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘I buried it.’	page 4
+(7a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:253)	page 4
+(7a) line 4	Straits	transcription	čə́nʔt sn	page 4
+(7a) line 5	Straits	transcription	čə́n̓t	page 4, the output, after →
+(7a) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘I’m burying it.’	page 4
+(7a) line 7	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:253)	page 4
+(7b) line 1	Straits	transcription	q̓ʷə́yət	page 4
+(7b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘Cook it!’	page 4
+(7b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:253)	page 4
+(7b) line 4	Straits	transcription	kʷɫ q̓ʷə́yʔt sn	page 4
+(7b) line 5	Straits	transcription	q̓ʷə́y̓t	page 4, the output, after →
+(7b) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘I’m cooking it.’	page 4
+(7b) line 7	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:253)	page 4
+§2.2	Salish	cited affix	C1əRəC3-	page 4
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	When the root shape is C1əRəC3-, the imperfective is formed the same way: a glottal stop infix is inserted and the following vowel is deleted (8).	page 4
+(8) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Straits	page 4, the language of the example
+(8a) line 1	Straits	transcription	čə́yəx̣	page 4
+(8a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘spear fish’	page 4
+(8a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:253)	page 4
+(8a) line 4	Straits	transcription	čə́yʔx̣	page 4
+(8a) line 5	Straits	transcription	čə́y̓x̣	page 4, the output, after →
+(8a) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘spearing fish’	page 4
+(8a) line 7	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:253)	page 4
+(8b) line 1	Straits	transcription	ɫə́məx̣ʷt	page 4
+(8b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘put dirt on it!’	page 4
+(8b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:253)	page 4
+(8b) line 4	Straits	transcription	ɫə́mʔx̣ʷt sn	page 4
+(8b) line 5	Straits	transcription	ɫə́m̓x̣ʷt	page 4, the output, after →
+(8b) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘I’m putting dirt on it’	page 4
+(8b) line 7	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:253)	page 4
+§2.2	Salish	cited affix	CəR̓əC-	page 4
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	The crucial surface forms for the present discussion are those with the shape CəR̓əC- in the non-actual. If the resonant and glottal stop are a single GR, this should pattern as a triconsonantal form, and Efrat (1978) analyses these as having a glottal stop infix (which is vacuous when infixed adjacent to a glottalized resonant) and deletion of the post stressed vowel in the imperfective form, which is illustrated in (9).	page 4
+(9) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Straits	page 4, the language of the example
+(9a) line 1	Straits	transcription	sə́y̓əqʷt	page 4
+(9a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘Dig them!’	page 4
+(9a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:254)	page 4
+(9a) line 4	Straits	transcription	sə́y̓qʷt	page 4
+(9a) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘digging them’	page 4
+(9a) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:254)	page 4
+(9b) line 1	Straits	transcription	ɫəy̓əqʷt	page 4
+(9b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘Smash it!’	page 4
+(9b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:255)	page 4
+(9b) line 4	Straits	transcription	ɫə́y̓qʷt sn	page 4
+(9b) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘I’m smashing it’	page 4
+(9b) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:255)	page 4
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	A final set of forms in (10) illustrates that what appears to be a sequence of glottal stop and resonant, pattern with those stems that have metathesis, the C1C2V́t shaped words, as in (5) above. Crucially, these stems do not pattern as triconsonantal roots, which would be expected if the glottal stop and resonant were two consonants. Instead, they pattern with the biconsonantal roots. In particular note the stress pattern is like those in (5), with non-initial stress. The initial schwa is required by syllabic constraints.	page 4
+(10) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Straits	page 5, the language of the example
+(10a) line 1	Straits	transcription	q̓əm̓ə́t	page 5
+(10a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘cut it!’	page 5
+(10a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:255)	page 5
+(10a) line 4	Straits	transcription	q̓ə́m̓t	page 5
+(10a) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘cutting it’	page 5
+(10a) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:255)	page 5
+(10b) line 1	Straits	transcription	t̓ən̓ə́t	page 5
+(10b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘Line them up!’	page 5
+(10b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:256)	page 5
+(10b) line 4	Straits	transcription	t̓ə́n̓t sn	page 5
+(10b) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘I’m lining them up.’	page 5
+(10b) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1978:256)	page 5
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Since reduplication and allomorph selection provide evidence that GRs pattern as a single segment, even when written as sequences of a glottal stop and a resonant, we treat GRs as single segments that are part of the phonemic inventories of Salish languages.	page 5
+§2.3	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.3 Distribution	page 5
+§2.3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Several factors have been found to account for the distribution and realization of GRs (Caldecott 1999; Caldecott & Mellesmoen 2018; Bird et al. 2008). This includes: position in the word, position in a syllable, location with respect to stress, and whether or not they are adjacent to another consonant or vowel.	page 5
+§2.3	Gloria Mellesmoen and Suzanne Urbanczyk	note	In surveying the information available, we located sources that reflect impressionistic description pertaining to articulation, based on fieldwork decisions regarding the timing and realization of glottalization, such as if a glottal stop is heard before or after the resonant or if creak is heard throughout the duration of the resonant. We note that there has been no specific study on articulation of GRs, aside from Esling’s laryngoscopic research (e.g., Carlson et al. 2004). All other information is either based on impressionistic transcriptions or assumptions about articulatory events, inferred from acoustic analysis. Other conditions we aimed to look for in the sources available include the location of stress, whether or not a range of positions (within syllable or relative to other segments) were listed, and if there was a narrow transcription of vowels.	page 5
+§2.3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Undertaking a thorough and complete examination of the distribution of GRs is a complex endeavor, as not all sources provide the kind of detailed information that we were seeking. Also, not all research identifies the class of GRs, even though now they are widely assumed to be present in every language. Another complication in compiling the information is that there is a great deal of variation. This variation is of two kinds: dialect variation and also speaker variation (see Bird 2008; Bird et al. 2008; Caldecott & Mellesmoen 2018 for discussion of this type of speaker variation in Lillooet, Thompson, and Comox-Sliammon). We set aside questions of variation in timing and realization at present and focus on the general distributional patterns described in the literature.	page 5
+§2.3	Gloria Mellesmoen and Suzanne Urbanczyk	note	We compiled the information into a spreadsheet and have created a table to summarize what has been documented. The table includes at least one row for each Salish language, with dialect noted when relevant. For some languages, we delved into further details. We have put ✓ to indicate that the GR is found in that position, and ✘ to indicate that GR is not found; we use (RED) to indicate that it is only found in reduplication. A blank cell means that we have not found the relevant information and therefore should not be interpreted as absence of GRs in that position. There are very few materials available on Pentlatch, primarily Boas’s field notes. As this was one of the first languages Boas documented when he came to the Pacific Northwest in 1886, his ears were not yet tuned to these sounds. Kinkade (1952–2004) has noted that Boas did not reliably transcribe glottal stops or GRs in Pentlatch. While we are assuming that Pentlatch would have had GRs, because all the neighbouring languages do, we do not include that information in our charts. Additionally, it is unclear what the distribution of GRs is in Sechelt as Beaumont (1985; 2011) describes them as not consistently used and omits them from transcription.	page 5
+Table 1 line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Table 1: Summary of GRs by position	page 6, the caption
+Table 1 line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Language #_ C_V V_V X_C _#	page 6, heads the columns: the language, then #_, C_V, V_V, X_C, _#
+Table 1 line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Bella Coola ✓	page 6, Bella Coola: ✓ in the order of the columns, a blank cell not kept
+Table 1 line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Comox-Sliammon ✘ ✓ ✓ ✓	page 6, Comox-Sliammon: ✘ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 1 line 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	Sechelt	page 6, Sechelt: no marks in the order of the columns, a blank cell not kept
+Table 1 line 6	Gloria Mellesmoen and Suzanne Urbanczyk	note	Pentlatch	page 6, Pentlatch: no marks in the order of the columns, a blank cell not kept
+Table 1 line 7	Gloria Mellesmoen and Suzanne Urbanczyk	note	Squamish ✘	page 6, Squamish: ✘ in the order of the columns, a blank cell not kept
+Table 1 line 8	Gloria Mellesmoen and Suzanne Urbanczyk	note	Halkomelem (Hul’q’umi’num’) ✘ ✓ ✓ ✓	page 6, Halkomelem (Hul’q’umi’num’): ✘ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 1 line 9	Gloria Mellesmoen and Suzanne Urbanczyk	note	Straits (Saanich/Sooke) ✘ ✘ ✓ ✓ ✓	page 6, Straits (Saanich/Sooke): ✘ ✘ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 1 line 10	Gloria Mellesmoen and Suzanne Urbanczyk	note	Klallam ✘ ✓	page 6, Klallam: ✘ ✓ in the order of the columns, a blank cell not kept
+Table 1 line 11	Gloria Mellesmoen and Suzanne Urbanczyk	note	Nooksack ✘	page 6, Nooksack: ✘ in the order of the columns, a blank cell not kept
+Table 1 line 12	Gloria Mellesmoen and Suzanne Urbanczyk	note	Lushootseed ✘	page 6, Lushootseed: ✘ in the order of the columns, a blank cell not kept
+Table 1 line 13	Gloria Mellesmoen and Suzanne Urbanczyk	note	Twana ✘	page 6, Twana: ✘ in the order of the columns, a blank cell not kept
+Table 1 line 14	Gloria Mellesmoen and Suzanne Urbanczyk	note	Tsamosan (Quinault, Lower Chehalis, Upper Chehalis, and Cowlitz) ✘	page 6, Tsamosan (Quinault, Lower Chehalis, Upper Chehalis, and Cowlitz): ✘ in the order of the columns, a blank cell not kept
+Table 1 line 15	Gloria Mellesmoen and Suzanne Urbanczyk	note	Tillamook	page 6, Tillamook: no marks in the order of the columns, a blank cell not kept
+Table 1 line 16	Gloria Mellesmoen and Suzanne Urbanczyk	note	Lillooet ✘(RED) ✓ ✓ ✓ ✓	page 6, Lillooet: ✘(RED) ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 1 line 17	Gloria Mellesmoen and Suzanne Urbanczyk	note	Shuswap ✘	page 6, Shuswap: ✘ in the order of the columns, a blank cell not kept
+Table 1 line 18	Gloria Mellesmoen and Suzanne Urbanczyk	note	Thompson ✓ ✓ ✓ ✓ ✓	page 6, Thompson: ✓ ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 1 line 19	Gloria Mellesmoen and Suzanne Urbanczyk	note	Colville-Okanagan ✓	page 6, Colville-Okanagan: ✓ in the order of the columns, a blank cell not kept
+Table 1 line 20	Gloria Mellesmoen and Suzanne Urbanczyk	note	Columbian/Nxa’amxcin ✓ ✓ ✓ ✓	page 6, Columbian/Nxa’amxcin: ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 1 line 21	Gloria Mellesmoen and Suzanne Urbanczyk	note	Spokane-Kalispel-Flathead (Montana) ✓ ✓ ✓	page 6, Spokane-Kalispel-Flathead (Montana): ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 1 line 22	Gloria Mellesmoen and Suzanne Urbanczyk	note	Couer d’Alene ✓	page 6, Couer d’Alene: ✓ in the order of the columns, a blank cell not kept
+§2.3	Salish	cited form	Nxa’amxcin	page 6
+§2.3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Even though there are many cells in which no information has been checked, there are some gaps and patterns that can be described across Salish based on Table 1. First, word-initial or root- initial GRs are only found in Interior languages, such as Nxa’amxcin and Thompson (11).	page 6
+(11) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Word-initial GRs	page 6, the example's title
+(11a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Nxa’amxcin	page 6, the language of the item
+(11a) line 2	Nxa’amxcin	transcription	m̓ə́ɬk̓ʷ	page 6
+(11a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘blood’	page 6
+(11a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Bird & Czaykowska-Higgins 2016:167)	page 6
+(11b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Thompson	page 6, the language of the item
+(11b) line 2	Thompson	transcription	y̓é	page 6
+(11b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘good’	page 6
+(11b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Thompson & Thompson 1992:8)	page 6
+§2.3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Second, GRs seem to be found in word-final position across all languages, as shown in (12) for Comox-Sliammon, Sooke, and Thompson.	page 7
+(12) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Word-final GRs	page 7, the example's title
+(12a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Comox-Sliammon	page 7, the language of the item
+(12a) line 2	Comox-Sliammon	transcription	čuy̓	page 7
+(12a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘child’	page 7
+(12a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Watanabe 2003:14)	page 7
+(12b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Sooke	page 7, the language of the item
+(12b) line 2	Sooke	phonetic	[cənʔ]	page 7, narrow, in [ ]
+(12b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘your (NON-FEM)’	page 7
+(12b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1969:19)	page 7
+(12c) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Thompson	page 7, the language of the item
+(12c) line 2	Thompson	phonemic	/ʔim̓nm̓/	page 7, underlying, in / /
+(12c) line 3	Thompson	phonetic	[ʔip͡ʔm̰nmʔə̥]	page 7, narrow, in [ ], the output, after →
+(12c) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘make a noise’	page 7
+(12c) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Carlson et al. 2004:61)	page 7
+§2.3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Some of these narrow transcriptions reflect the ordering of articulations, which we discuss below (Section 2.4.3). Another general trend that can be seen from the table regards intervocalic being a common position as well.	page 7
+§2.4	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.4 Processes	page 7
+§2.4	Gloria Mellesmoen and Suzanne Urbanczyk	note	In investigating the processes, we have found several patterns and conditioning factors. There are a number of purely phonological processes: resonant glottalization by assimilation, deglottalization by position and dissimilation, coalescence, and reordering. There are some morphophonological processes as well, related to infixing a glottal stop or glottal feature and how they pattern in reduplication. We begin by discussing the purely phonological conditions.	page 7
+§2.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.4.1 Phonological processes	page 7
+§2.4.1	Salish	cited form	T̓RV	page 7
+§2.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	The phonological processes involve glottalization and deglottalization, based purely on the phonological context. Nater (1984:19) observes for Bella Coola “sonants are automatically glottalized in the surrounding T’_V when no shwa intervenes”. Unfortunately, he doesn’t provide any examples to illustrate this and a review of several recordings on the Nuxalk FirstVoices™ archive of words with that context do not have any impressionistic glottalization on the following resonant. To verify this claim, acoustic study of the words with the sequence T̓RV would be warranted.	page 7
+§2.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Glottalized resonants can also arise by coalescence. As was illustrated above, for Straits, a glottal stop infix can coalesce with a resonant to create a GR (7–8). We consider this to be purely phonological, as it is simply a case of two segments that arise due to a morphological process, much like voicing assimilation in English plural affixation.	page 7
+§2.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Resonant deglottalization can arise in a few different ways. Flemming et al. (2008) observe that in Montana Salish, when two GRs are adjacent, there is a process of deglottalization, that varies from speaker to speaker (13). We analyse this as a case of dissimilation.	page 7
+(13) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Montana Salish dissimilatory deglottalization	page 7, the example's title
+(13) line 2	Montana Salish	phonemic	/ɬəm̓m̓oc/	page 7, underlying, in / /
+(13) line 3	Montana Salish	phonetic	[ɬəʔmʔmóts]	page 7, narrow, in [ ]
+(13) line 4	Montana Salish	phonetic	[ɬəmʔm:óts]	page 7, narrow, in [ ], a variant, after ~
+(13) line 5	Montana Salish	phonetic	[ɬəʔm:ʔmóts]	page 7, narrow, in [ ], a variant, after ~
+(13) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘soft’	page 7
+(13) line 7	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Flemming et al. 2008:476)	page 7, the source of the example
+§2.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Flemming et al. (2008:476) also cite the following: “Thompson and Thompson (1992) note a similar phenomenon in Thompson Salish (p.45), but state that the initial glottalized sonorant always retains glottalization”. It would be useful to know how glottalization is realized in these contexts as well.	page 7
+§2.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	There is also a process where GRs can deglottalize in certain positions, so would be cases of positional neutralization. Caldecott (2009:63) describes a process whereby underlying GRs are realized as plain in certain prosodic positions: “a resonant following a footed, unstressed vowel surfaces as glottalised and a non-glottalised resonant occurs elsewhere”.	page 8
+§2.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	We have a summary table of the purely phonological patterns we are aware of, providing an example of a language with this process. This is not an exhaustive list and we note that there is much more research to be done to compile information on phonological processes affecting GRs.	page 8
+Table 2 line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Table 2: Processes found related to GRs	page 8, the caption
+Table 2 line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Process Language	page 8, heads the columns, the process and a language with it
+Table 2 line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Assimilation e.g., in Nuxalk (according to Nater 1984)	page 8, Assimilation: e.g., in Nuxalk (according to Nater 1984)
+Table 2 line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Coalescence e.g., in Straits	page 8, Coalescence: e.g., in Straits
+Table 2 line 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	Dissimilation e.g., in Spokane-Kalispel-Flathead (Montana Salish)	page 8, Dissimilation: e.g., in Spokane-Kalispel-Flathead (Montana Salish)
+Table 2 line 6	Gloria Mellesmoen and Suzanne Urbanczyk	note	Deglottalization by Position e.g., in Lillooet	page 8, Deglottalization by Position: e.g., in Lillooet
+§2.4.2	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.4.2 Morphophonological processes	page 8
+§2.4.2	Salish	cited form	Hulq’umi’num’	page 8
+§2.4.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	We classify a resonant glottalization process as morphophonological when it is associated with meaning. This includes how imperfective is expressed in Hulq’umi’num’, the Island dialect of Halkomelem. Resonant glottalization accompanies other stem modifications, regardless of whether it is reduplication, a glottal infix, sonorant devoicing, or vowel deletion, as indicated in (14).	page 8
+(14) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Hul’q’umi’num’	page 8, the language of the example
+(14a) line 1	Hul’q’umi’num’	transcription	t̓íləm	page 8
+(14a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘sing’	page 8
+(14a) line 3	Hul’q’umi’num’	transcription	t̓ít̓ələm̓	page 8
+(14a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘singing’	page 8
+(14b) line 1	Hul’q’umi’num’	transcription	hésəm	page 8
+(14b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘sneeze’	page 8
+(14b) line 3	Hul’q’umi’num’	transcription	héʔsəm̓	page 8
+(14b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘sneezing’	page 8
+(14c) line 1	Hul’q’umi’num’	transcription	lə́c̓ət	page 8
+(14c) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘fill it’	page 8
+(14c) line 3	Hul’q’umi’num’	transcription	hə́l̓c̓t	page 8
+(14c) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘filling it’	page 8
+(14d) line 1	Hul’q’umi’num’	transcription	ɬát̓əq̓ʷəm	page 8
+(14d) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘snore’	page 8
+(14d) line 3	Hul’q’umi’num’	transcription	ɬát̓q̓ʷəm̓	page 8
+(14d) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘snoring’	page 8
+(14e) line 1	Hul’q’umi’num’	transcription	t̓kʷəwəɫ	page 8
+(14e) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘patch a canoe’	page 8
+(14e) line 3	Hul’q’umi’num’	transcription	t̓əkʷəw̓əɫ	page 8
+(14e) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘patching a canoe’	page 8
+(14e) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Hukari & Peter 1995)	page 8, the source of the items above
+§2.4.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	There are several meanings in which resonants are glottalized, such as diminutive, across the Salish language family. Undoubtedly, a thorough study of the conditions under which resonants get glottalized will lead to further understanding GRs as a class. Especially given what is known about the neutralization of glottalization in some languages, other aspects of their patterning could be learned by a thorough cross-linguistic study of the semantics associated with resonant glottalization. We leave that for future research, just noting that resonant glottalization can serve as an exponent of some meanings.	page 8
+§2.4.3	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.4.3 Timing	page 8
+§2.4.3	Salish	cited form	Hul’q’umi’num’	page 9
+§2.4.3	Gloria Mellesmoen and Suzanne Urbanczyk	note	As noted by many researchers, the timing of the laryngeal and supralaryngeal articulations can vary with GRs. In addition to the conditions identified by previous researchers, we also include vowel quality, as we have found that the order of articulations is dependent on whether or not the vowel is a schwa in some of the Central Salish languages we are familiar with. For example, in Hul’q’umi’num’, the spelling reflects the order of articulatory events, where an apostrophe indicates the glottal stop portion. The usual order is for the glottal articulation to follow the resonant articulation. However, when the GR is in the onset, following a full vowel, it is pre-glottalized (15d). Note that for (15c), the same intervocalic context has the reverse order when the preceding vowel is schwa.	page 8
+(15) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Hul’q’umi’num’	page 9, the language of the example
+(15a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	word-finally	page 9, the context
+(15a) line 2	Hul’q’umi’num’	transcription	lelum’	page 9
+(15a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘house’	page 9
+(15a) line 4	Hul’q’umi’num’	transcription	meen’	page 9
+(15a) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘weak’	page 9
+(15b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	pre-consonantal	page 9, the context
+(15b) line 2	Hul’q’umi’num’	transcription	t’em’xw	page 9
+(15b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘gooseberry’	page 9
+(15c) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	intervocalic, after schwa	page 9, the context
+(15c) line 2	Hul’q’umi’num’	transcription	mun’u	page 9
+(15c) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘child’	page 9
+(15c) line 4	Hul’q’umi’num’	transcription	sxun’u	page 9
+(15c) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘leg, foot’	page 9
+(15d) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	intervocalic after full vowel	page 9, the context
+(15d) line 2	Hul’q’umi’num’	transcription	sta’lus	page 9
+(15d) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘spouse’	page 9
+(15d) line 4	Hul’q’umi’num’	transcription	xwi’lum’	page 9
+(15d) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘rope’	page 9
+(15d) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Hukari & Peter 1995; Hul’q’umi’num’ Language Academy)	page 9, the source of the items above
+§2.4.3	Salish	cited form	ʔR	page 9
+§2.4.3	Salish	cited form	Rʔ	page 9
+§2.4.3	Salish	cited form	R̓	page 9
+§2.4.3	Gloria Mellesmoen and Suzanne Urbanczyk	note	The table below summarizes what has been found. The languages are listed along the side, and the conditions are indicated in the columns. We indicate the order of perceived articulatory events as follows: if it has been transcribed with a glottal stop, we indicate it either as ʔR or Rʔ, depending on whether the glottal stop precedes or follows the resonant. If it has creaky voice or a mid- realization (as defined in Bird et al. 2008), we indicate the GR as R̓, with an apostrophe above. The top row outlines positions according to syllable and stress, as well as the end of word. The final column includes the context of a GR following a schwa. We do not include syllable position here. We re-interpret some of the information for comparative purposes, but note that this interpretation depends on knowing precise information regarding syllable position. The second row indicates Galloway’s (1988) environments, to accurately convey his work, which did not include reference to syllable position. Once more, a blank does not indicate an absence in the language, but instead that we have not found relevant documentation that clearly indicates the order.	page 9
+Table 3 line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Table 3: Timing of laryngeal (ʔ) and supralaryngeal (R) articulations, and creak (R̓)	page 10, the caption
+Table 3 line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Post-stress: onset Post-stress: coda Unstress: coda Pre-stress: onset #_ ə_	page 10, heads the columns: post-stress onset, post-stress coda, unstressed coda, pre-stress onset, #_, ə_
+Table 3 line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Galloway (1988) V’_V V’__C, # V_# X_V’5	page 10, Galloway's (1988) environments under the same columns, the last carrying footnote 5
+Table 3 line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Bella Coola ✘	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	Comox-Sliammon ʔR Rʔ Rʔ, R̓ Rʔ ✘ ʔR	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 6	Gloria Mellesmoen and Suzanne Urbanczyk	note	Sechelt Rʔ Rʔ R R ✘	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 7	Gloria Mellesmoen and Suzanne Urbanczyk	note	Squamish Rʔ Rʔ Rʔ Rʔ ✘	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 8	Gloria Mellesmoen and Suzanne Urbanczyk	note	Halkomelem ʔR Rʔ Rʔ Rʔ ✘ Rʔ	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 9	Gloria Mellesmoen and Suzanne Urbanczyk	note	Straits Saanich, Songhees Rʔ Rʔ Rʔ Rʔ ✘ Rʔ	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 10	Gloria Mellesmoen and Suzanne Urbanczyk	note	Straits Lummi, Samish, Sooke ʔR Rʔ Rʔ Rʔ ✘ Rʔ	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 11	Gloria Mellesmoen and Suzanne Urbanczyk	note	Klallam ʔR Rʔ Rʔ Rʔ ✘	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 12	Gloria Mellesmoen and Suzanne Urbanczyk	note	Nooksack ʔS R, Rʔ R, Rʔ R, Rʔ ✘	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 13	Gloria Mellesmoen and Suzanne Urbanczyk	note	Lushootseed ʔR Rʔ, R Rʔ Rʔ ✘	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 14	Gloria Mellesmoen and Suzanne Urbanczyk	note	Twana ʔR ʔR R R ✘	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 15	Gloria Mellesmoen and Suzanne Urbanczyk	note	Tsamosan Languages ✘	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 16	Gloria Mellesmoen and Suzanne Urbanczyk	note	Tillamook ✘	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 17	Gloria Mellesmoen and Suzanne Urbanczyk	note	Lillooet Rʔ Rʔ Rʔ, ʔR, R̓: V_V ʔR, R̓: V_V ✘	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 18	Gloria Mellesmoen and Suzanne Urbanczyk	note	Thompson Rʔ Rʔ Rʔ Rʔ ✘	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 19	Gloria Mellesmoen and Suzanne Urbanczyk	note	Shuswap ✘	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 20	Gloria Mellesmoen and Suzanne Urbanczyk	note	Spokane-Kalispel-Flathead ʔR ʔR ʔR ʔR ʔR ʔR	page 10, the order of articulations by column, a blank cell not kept
+Table 3 line 21	Gloria Mellesmoen and Suzanne Urbanczyk	note	Sources: Comox-Sliammon: Blake (2000)	page 10, the sources of the table
+Table 3 line 22	Gloria Mellesmoen and Suzanne Urbanczyk	note	Other Central Salish languages: Galloway (1988)	page 10, the sources of the table
+Table 3 line 23	Gloria Mellesmoen and Suzanne Urbanczyk	note	Thompson, Lillooet: Bird et al. (2008)	page 10, the sources of the table
+Table 3 line 24	Gloria Mellesmoen and Suzanne Urbanczyk	note	Montana Salish: Flemming et al. (2008)	page 10, the sources of the table
+footnote 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	5 Galloway (1988) did not specify that this context include any segment preceding, but we have added an X to indicate that it cannot be considered word-initial, as GRs are not found word-initially in Central Salish, which was the focus of Galloway’s work.	page 10, footnote
+§2.4.3	Salish	cited form	əʔ]σ	page 10
+§2.4.3	Gloria Mellesmoen and Suzanne Urbanczyk	note	While we have primarily drawn on others’ research, in terms of identifying contexts related to prosodic structure, such as stress and syllable structure, we have also found that vowel quality can be a factor in the ordering of articulatory events. The order of articulations in some languages (mostly Central Salish) can be adjusted to avoid having a glottal stop in the coda following schwa (16a). In these languages, the constraint *əʔ]σ seems to also be obeyed by changing the vowel quality, by lowering as in (16b).6	page 10
+footnote 6	Gloria Mellesmoen and Suzanne Urbanczyk	note	6 Comox-Sliammon also lowers schwa before a glottal stop in the coda (Blake 2000).	page 10, footnote
+(16) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Straits	page 11, the language of the example
+(16a) line 1	Straits	phonetic	[c̓ə́ŋʔəɫ]	page 11, narrow, in [ ]
+(16a) line 2	Straits	phonetic	*[c̓ə́ʔŋəɫ]	page 11, narrow, in [ ], starred
+(16a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘chest’	page 11
+(16a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1969:19)	page 11
+(16b) line 1	Straits	phonemic	/t̓éqəʔ/	page 11, underlying, in / /
+(16b) line 2	Straits	phonetic	[t̓æqaʔ]	page 11, narrow, in [ ], the output, after →
+(16b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘salalberry’	page 11
+(16b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Efrat 1969:19)	page 11
+§2.4.3	Gloria Mellesmoen and Suzanne Urbanczyk	note	This effect of vowel lowering suggests that GRs act as two segments, in terms of conditioning factors for allophonic alternations.	page 11
+§2.4.3	Gloria Mellesmoen and Suzanne Urbanczyk	note	In terms of general findings, there are some languages which are quite flexible in the ordering of articulations, some languages which show a great deal of variability, even when controlling for certain contexts, such as pre-stress. There are also some languages with a fixed order. It is interesting to note that the languages that have a fixed order also seem to be those that allow GRs word-initially. We now turn to cases in which GRs pattern as single segments.	page 11
+§2.4.4	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.4.4 Reduplication patterns	page 11
+§2.4.4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Observing how glottalized resonants are treated in reduplication provides insight into their underlying structure. Cross-Salish reduplication patterns are relatively uniform in the number of segments that are doubled in reduplication — all languages make use of a C1C2 reduplication process to mark some kind of plurality, for example. Given that most Salish languages lack initial GRs, we find that looking at C1C2 reduplication to be the most illustrative for learning more about GRs.	page 11
+§2.4.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.4.4.1 Reduplication and glottalized resonants	page 11
+§2.4.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Many Salish languages allow a faithful copy of a glottalized resonant in reduplication (glottalized- glottalized). This is true of every Interior Salish language except Shuswap (e.g., 17–18). The existing data for Tsamosan languages and Bella Coola also fit with this pattern (e.g., 19–20).7	page 11
+footnote 7	Gloria Mellesmoen and Suzanne Urbanczyk	note	7 The languages where this is more unclear at present are Upper Chehalis and Cowlitz. Newman (1971:37) gives ʔin̓ʔin̓a- as the continuative of ‘give food’, but this is not a full word and the corresponding word in Nater (1984:117) does not have glottalization marked on either resonant.	page 11, footnote
+(17) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Lillooet	page 11, the language of the example
+(17a) line 1	Lillooet	transcription	p’ən’p’an’án	page 11
+(17a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘to fold something up’	page 11
+(17a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(van Eijk 2011:56)	page 11
+(17b) line 1	Lillooet	transcription	qʷəl’qʷal’ə́l’t	page 11
+(17b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘to have a conversation’	page 11
+(17b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(van Eijk 2011:57)	page 11
+(18) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Thompson	page 11, the language of the example
+(18a) line 1	Thompson	transcription	n-ɬəm’-ɬém’-tn	page 11
+(18a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘containers’	page 11
+(18a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Jimmie 1994:90)	page 11
+(18b) line 1	Thompson	transcription	ƛ’ən’-ƛén’i	page 11
+(18b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘ears’	page 11
+(18b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Jimmie 1994:66)	page 11
+(19) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Lower Chehalis	page 11, the language of the example
+(19) line 2	Lower Chehalis	transcription	qʷím n-s-yíl̓-yil̓-iʔ	page 11
+(19) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘I’m just walking around.’	page 11
+(19) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Robertson 2014:123)	page 11
+(20) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Quinault	page 11, the language of the example
+(20) line 2	Quinault	transcription	kəlt ǰáy’ǰay’əm	page 11
+(20) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘We told stories.’	page 11
+(20) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Rowicka 2006:463)	page 11
+§2.4.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	There appears to be a divide within Central Salish and the other branches of the family with respect to reduplication of glottalized resonants. This may be a result of the more tenuous status of glottalization on resonants in these languages: it has been lost completely in Upriver Halkomelem, for example, and is falling out of use in Sechelt (Beaumont 1985), and Comox-Sliammon (Watanabe 1994; Caldecott & Mellesmoen 2018).	page 12
+§2.4.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Some languages follow the glottalized-glottalized pattern where glottalized resonants may be copied faithfully (Lushootseed, Nooksack, Klallam), but many show a plain resonant as the copy of a glottalized resonant (glottalized-plain). Languages with the glottalized-plain pattern include Twana, Comox-Sliammon, and Squamish. Within Straits and Halkomelem, there are differences between dialects of the languages. Though Samish and Saanich have a glottalized-glottalized pattern in reduplication, Songish is glottalized-plain. In Halkomelem, the Island dialect is glottalized-glottalized and the Upriver dialect has no resonant glottalization and therefore is (superficially) plain-plain. Musqueam shows a more complicated pattern with variation between speakers where both patterns are attested. It is not possible from available data to draw any conclusions about Pentlatch and Sechelt.8	page 12
+footnote 8	Gloria Mellesmoen and Suzanne Urbanczyk	note	8 This is due to the decline in use of glottalized resonants among younger speakers of Sechelt (Beaumont 1985), which makes the interpretation of dictionary data more difficult without knowing which speakers produced which forms.	page 12, footnote
+(21) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Klallam	page 12, the language of the example
+(21a) line 1	Klallam	transcription	c̓əm̓c̓əm̓úʔəŋ̓	page 12
+(21a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘getting all wet’	page 12
+(21a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Montler 2014:313)	page 12
+(21b) line 1	Klallam	transcription	čəm̓čəm̓əsnə́kʷi	page 12
+(21b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘meeting’	page 12
+(21b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	(plural)	page 12
+(21b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Montler 2014:314)	page 12
+(21) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	language	Lushootseed	page 12, the language of the items below
+(21c) line 1	Lushootseed	transcription	dáy̓ay̓	page 12
+(21c) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘alone’	page 12
+(21c) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Hess 1967:66)	page 12
+(22) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Comox-Sliammon	page 12, the language of the example, carries footnote 9
+(22a) line 1	Comox-Sliammon	transcription	čəyčuy̓	page 12
+(22a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘children’	page 12
+(22a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Watanabe 2003:327)	page 12
+(22b) line 1	Comox-Sliammon	transcription	ƛəm̓ƛəm	page 12
+(22b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘wet’	page 12
+(22b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Watanabe 2003:398)	page 12
+footnote 9	Gloria Mellesmoen and Suzanne Urbanczyk	note	9 The difference in whether the first resonant or the second resonant is glottalized corresponds to a difference in function. The reduplication in (22a) is plural, while (22b) is characteristic.	page 12, footnote
+(23) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Dialects of Straits	page 12, the example's title
+(23) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	language	Samish	page 12, the language of the items below
+(23a) line 1	Samish	transcription	qénʔ	page 12
+(23a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘to steal’	page 12
+(23a) line 3	Samish	transcription	qénʔqenʔ	page 12
+(23a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘thief’	page 12
+(23a) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Galloway 1990:10)	page 12
+(23) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	language	Saanich	page 12, the language of the items below
+(23b) line 1	Saanich	transcription	qen̓-	page 12
+(23b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘steal’	page 12
+(23b) line 3	Saanich	transcription	š-qén̓qən̓	page 12
+(23b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘They are a thief.’	page 12
+(23b) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Montler 1986:97)	page 12
+(23) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	language	Songish	page 13, the language of the items below
+(23c) line 1	Songish	transcription	qénʔ	page 13
+(23c) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘to steal’	page 13
+(23c) line 3	Songish	transcription	qénʔqən	page 13
+(23c) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘thief’	page 13
+(23c) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Raffo 1972:14)	page 13
+(24) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Dialects of Halkomelem	page 13, the example's title
+(24) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	language	Island Halkomelem	page 13, the language of the item below
+(24a) line 1	Island Halkomelem	transcription	qen’	page 13, over the gloss ‘steal’
+(24a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘steal’	page 13, the next line, under qen’
+(24a) line 3	Island Halkomelem	transcription	qun’qun’ ~ qen’qun’	page 13, over the gloss ‘thief’
+(24a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘thief’	page 13, the next line, under qun’qun’
+(24a) line 5	Island Halkomelem	transcription	qelun’qun’	page 13, over the gloss ‘thieves’
+(24a) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘thieves’	page 13, the next line, under qelun’qun’
+(24a) line 7	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Hukari & Peter 1995:56)	page 13
+(24) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	language	Upriver Halkomelem	page 13, the language of the item below
+(24b) line 1	Upriver Halkomelem	transcription	qɛ́:l	page 13
+(24b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘steal’	page 13
+(24b) line 3	Upriver Halkomelem	transcription	qəlqəl	page 13
+(24b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘thief’	page 13
+(24b) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Galloway 1977:69)	page 13
+(24) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	language	Musqueam	page 13, the language of the item below
+(24c) line 1	Musqueam	transcription	qén̓	page 13, over the gloss ‘steal’
+(24c) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘steal’	page 13, the next line, under qén̓
+(24c) line 3	Musqueam	transcription	qə́n̓qən̓ ~ (wə-)qə́nqən	page 13, over the gloss ‘thief’
+(24c) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘thief’	page 13, the next line, under qə́n̓qən̓
+(24c) line 5	Musqueam	transcription	qélən̓qən̓ ~ (nəxʷs-)qələ́nqən̓	page 13, over the gloss ‘thieves’
+(24c) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘thieves’	page 13, the next line, under qélən̓qən̓
+(24c) line 7	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Suttles 2004:179,181)	page 13
+§2.4.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	The other insight provided by examining reduplication patterns is that it gives information about a second type of resonant glottalization: resonant glottalization that arises from a morphological process. This is observed quite productively in Halkomelem. Musqueam has a glottalized-plain pattern, but there are some forms where glottalization occurs on both resonants. The source of glottalization (either lexically specified or assigned in conjunction with reduplication as part of a morphophonological process) is relevant.	page 13
+(25) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Musqueam	page 13, the language of the example
+(25a) line 1	Musqueam	transcription	híləm	page 13
+(25a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘fall, roll’	page 13
+(25b) line 1	Musqueam	transcription	híl̓əm	page 13
+(25b) line 2	Musqueam	gloss	PROG	page 13
+(25c) line 1	Musqueam	transcription	həlhíləm	page 13
+(25c) line 2	Musqueam	gloss	PL PERF	page 13
+(25d) line 1	Musqueam	transcription	hilhíl̓əm	page 13
+(25d) line 2	Musqueam	gloss	PL PROG	page 13
+(25d) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Suttles 2004:168)	page 13
+(26) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Musqueam	page 13, the language of the example
+(26a) line 1	Musqueam	transcription	nəw̓əx	page 13
+(26a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘insert it’	page 13
+(26b) line 1	Musqueam	transcription	hən̓wəx	page 13
+(26b) line 2	Musqueam	gloss	PROG	page 13
+(26c) line 1	Musqueam	transcription	nəw̓nəw̓əx	page 13
+(26c) line 2	Musqueam	gloss	PL PERF	page 13
+(26d) line 1	Musqueam	transcription	hənhən̓wəx	page 13
+(26d) line 2	Musqueam	gloss	PL PROG	page 13
+(26d) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Suttles 2004:170)	page 13
+§2.4.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Taken together, the glottalized-glottalized pattern in reduplication supports treating glottalized resonants as a single segment in those dialects and languages. This diagnostic is inconclusive in languages with a plain-glottalized pattern, as the non-faithful (plain) copy could arise as an emergence of the unmarked pattern or as the result of other phonological constraints. This is certainly the case in Shuswap: a Grassmann’s Law pattern is observed in words with ejectives and, therefore, deglottalization of a resonant could be motivated as a process independent of reduplication (Thompson & Thompson 1985).	page 13
+Table 4 line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Table 4: Summary of GR patterns in reduplication	page 14, the caption
+Table 4 line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Glottalized + Glottalized Lillooet	page 14, Glottalized + Glottalized: Lillooet
+Table 4 line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Thompson	page 14, Glottalized + Glottalized: Thompson
+Table 4 line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Coeur d’Alene	page 14, Glottalized + Glottalized: Coeur d’Alene
+Table 4 line 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	Okanagan	page 14, Glottalized + Glottalized: Okanagan
+Table 4 line 6	Gloria Mellesmoen and Suzanne Urbanczyk	note	Spokane	page 14, Glottalized + Glottalized: Spokane
+Table 4 line 7	Gloria Mellesmoen and Suzanne Urbanczyk	note	Moses Columbia	page 14, Glottalized + Glottalized: Moses Columbia
+Table 4 line 8	Gloria Mellesmoen and Suzanne Urbanczyk	note	Nooksack	page 14, Glottalized + Glottalized: Nooksack
+Table 4 line 9	Gloria Mellesmoen and Suzanne Urbanczyk	note	Klallam	page 14, Glottalized + Glottalized: Klallam
+Table 4 line 10	Gloria Mellesmoen and Suzanne Urbanczyk	note	Samish/Saanich (Straits)	page 14, Glottalized + Glottalized: Samish/Saanich (Straits)
+Table 4 line 11	Gloria Mellesmoen and Suzanne Urbanczyk	note	Lushootseed	page 14, Glottalized + Glottalized: Lushootseed
+Table 4 line 12	Gloria Mellesmoen and Suzanne Urbanczyk	note	Musqueam*	page 14, Glottalized + Glottalized: Musqueam*
+Table 4 line 13	Gloria Mellesmoen and Suzanne Urbanczyk	note	Plain + Glottalized Shuswap	page 14, Plain + Glottalized: Shuswap
+Table 4 line 14	Gloria Mellesmoen and Suzanne Urbanczyk	note	Comox-Sliammon	page 14, Plain + Glottalized: Comox-Sliammon
+Table 4 line 15	Gloria Mellesmoen and Suzanne Urbanczyk	note	Island Halkomelem and Musqueam*	page 14, Plain + Glottalized: Island Halkomelem and Musqueam*
+Table 4 line 16	Gloria Mellesmoen and Suzanne Urbanczyk	note	Songish (Straits)	page 14, Plain + Glottalized: Songish (Straits)
+Table 4 line 17	Gloria Mellesmoen and Suzanne Urbanczyk	note	Squamish	page 14, Plain + Glottalized: Squamish
+Table 4 line 18	Gloria Mellesmoen and Suzanne Urbanczyk	note	Twana	page 14, Plain + Glottalized: Twana
+Table 4 line 19	Gloria Mellesmoen and Suzanne Urbanczyk	note	Plain + Plain	page 14, Plain + Plain, the category
+Table 4 line 20	Gloria Mellesmoen and Suzanne Urbanczyk	note	(no GRs)	page 14, the rest of the category Plain + Plain (no GRs)
+Table 4 line 21	Gloria Mellesmoen and Suzanne Urbanczyk	note	Upriver Halkomelem	page 14, Plain + Plain (no GRs): Upriver Halkomelem
+Table 4 line 22	Gloria Mellesmoen and Suzanne Urbanczyk	note	Unclear Pentlatch	page 14, Unclear: Pentlatch
+Table 4 line 23	Gloria Mellesmoen and Suzanne Urbanczyk	note	Sechelt	page 14, Unclear: Sechelt
+Table 4 line 24	Gloria Mellesmoen and Suzanne Urbanczyk	note	Upper Chehalis	page 14, Unclear: Upper Chehalis
+Table 4 line 25	Gloria Mellesmoen and Suzanne Urbanczyk	note	Cowlitz	page 14, Unclear: Cowlitz
+Table 4 line 26	Gloria Mellesmoen and Suzanne Urbanczyk	note	Bella Coola	page 14, Unclear: Bella Coola
+Table 4 line 27	Gloria Mellesmoen and Suzanne Urbanczyk	note	* both patterns occur	page 14, the note under the table
+§2.4.4.1	Salish	cited form	R̓-R̓	page 14
+§2.4.4.1	Salish	cited form	R̓-R	page 14
+§2.4.4.1	Salish	cited form	R-R̓	page 14
+§2.4.4.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Notice that the most common pattern is: R̓-R̓, then R-R̓, with some cases of R̓-R. In the latter case, second (plain) resonant is part of a reduplicative affix (as in Comox-Sliammon, for example). We now turn our attention to whether or not there are asymmetries with reduplication in ejectives. We find a similar asymmetry, where the most common pattern is identity, and some languages can neutralize the contrast in the copy/affix, but not the base/stem.	page 14
+§2.4.4.2	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.4.4.2 Reduplication and ejectives	page 14
+§2.4.4.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	We begin by making a few observations about how ejectives differ from GRs and how GRs fit into the larger consonant inventory; this will help to understand which phonological features may be present, and how GRs behave in phonological patterns. Van Eijk (2011) notes that (phonetically) ejectives are different than glottalized resonants because the oral closure and release are simultaneous for ejectives. This is different from glottalized resonants which show variation across and within a language with respect to the timing of the acoustic correlates of glottalization (see Bird et al. 2008).	page 14
+§2.4.4.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	In the Upriver dialect of Halkomelem, glottalization of resonants and glottal stops have been lost, but ejectives remain. There are two observations to make: (i) post-vocalic glottal stops and the glottalization on resonants have been lost in tandem, which may suggest a resonant-glottal stop sequence at some point in history and the loss of a single element (the glottal stop following any resonant or vowel) which resulted in the loss of GRs, or possibly, (ii) that ejectives have a different structure.	page 14
+(27a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Upriver Halkomelem	page 15, the language of the item
+(27a) line 2	Upriver Halkomelem	transcription	q̓áw	page 15
+(27a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘howl’	page 15
+(27a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Galloway 1977:514)	page 15
+(27b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Musqueam	page 15, the language of the item
+(27b) line 2	Musqueam	transcription	q̓éw̓əm	page 15
+(27b) line 3	Musqueam	transcription	q̓éw̓əm̓	page 15, a variant, after ~
+(27b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘be howling’	page 15
+(27b) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Suttles 2004:528)	page 15
+§2.4.4.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	In the previous section, it was established that reduplication of GRs in Shuswap fits into the plain-glottalized category. This is the same pattern found with ejectives in the language: there is maximally one ejective segment in a word following the Grassmann’s Law that Thompson and Thompson (1985) propose, which means reduplication of an obstruent results in one plain and one ejective consonant (plain-ejective), as indicated in (28a). However, Urbanczyk (1992) observes that words in Shuswap may have both a single ejective and a glottalized resonant (28b). This suggests that while a similar mechanism (barring multiple GRs or multiple ejectives) might be at play, the two classes of sounds are still distinct at some level.10	page 15
+footnote 10	Gloria Mellesmoen and Suzanne Urbanczyk	note	10 The glottal stop is also not part of the restriction on ejectives.	page 15, footnote
+(28) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Shuswap	page 15, the language of the example
+(28) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Root Reduplicated Word Reduplicated Word Meaning	page 15, heads the columns
+(28a) line 1	Shuswap	root	k̓il̓-	page 15, the root
+(28a) line 2	Shuswap	transcription	skik̓l	page 15, the reduplicated word
+(28a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘Rocky mountain pica’	page 15, the reduplicated word's meaning
+(28b) line 1	Shuswap	root	k̓ey̓-	page 15, the root
+(28b) line 2	Shuswap	transcription	skek̓y̓	page 15, the reduplicated word
+(28b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘spider’	page 15, the reduplicated word's meaning
+(28) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Urbanczyk 1992, from Kuipers 1974)	page 15, the source of the items above
+§2.4.4.2	Salish	cited form	ƛ̓/	page 15
+§2.4.4.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Most languages do not show as striking parallel dissimilatory behaviour between ejectives and glottalized resonants as what is found in Shuswap. For example, Comox-Sliammon has a plain- glottalized pattern for resonants in reduplication as well (29b), but reduplicated ejectives remain ejective in reduplication (29a). Other languages show deglottalization in reduplication, similar to Shuswap, but in a much more restricted manner. In Okanagan, / ƛ̓/ may be reduplicated as a plain obstruent when it is not root-initial (30a), though it remains glottalized when reduplicated and root- initial (30d). In contrast, any other root-initial ejective is reduplicated as a plain obstruent (30b–c).	page 15
+(29) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Comox-Sliammon	page 15, the language of the example
+(29a) line 1	Comox-Sliammon	transcription	gəq̓gəq̓	page 15
+(29a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘all of them opened’	page 15
+(29b) line 1	Comox-Sliammon	transcription	čəyčuy̓	page 15
+(29b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘children’	page 15
+(29b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Watanabe 2003:327,373)	page 15
+(30) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Okanagan	page 16, the language of the example
+(30a) line 1	Okanagan	transcription	skʷtkʷƛ̓ús	page 16
+(30a) line 2	Okanagan	segmentation	s-kʷƛ̓-kʷƛ̓-(ú)s	page 16
+(30a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘They are eyes.’	page 16
+(30b) line 1	Okanagan	transcription	tənt̓ínaʔ	page 16
+(30b) line 2	Okanagan	segmentation	t̓n-t̓ínaʔ	page 16
+(30b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘They are ears.’	page 16
+(30c) line 1	Okanagan	transcription	pənp̓ínaʔ	page 16
+(30c) line 2	Okanagan	segmentation	p̓n-p̓ínaʔ	page 16
+(30c) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘They are baskets.’	page 16
+(30d) line 1	Okanagan	transcription	ƛ̓əʔƛ̓aʔkʷílx	page 16
+(30d) line 2	Okanagan	segmentation	ƛ̓ʔ-ƛ̓aʔkʷílx	page 16
+(30d) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘They are medicine men.’	page 16
+(30d) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Mattina 1973:24)	page 16, the source of (30)
+§2.4.4.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	In contrast, Bella Coola shows a particular pattern when obstruents undergo reduplication: an ejective may be reduplicated as a glottal stop (note that initial glottal stops are not written in the orthography).	page 16
+(31) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	language	Bella Coola	page 16, the language of the example
+(31a) line 1	Bella Coola	transcription	p’wi	page 16
+(31a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘halibut’	page 16
+(31a) line 3	Bella Coola	transcription	up’wii	page 16
+(31a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘halibut, DIM.’	page 16
+(31b) line 1	Bella Coola	transcription	p’c	page 16
+(31b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘crabapple’	page 16
+(31b) line 3	Bella Coola	transcription	icp’iclhp	page 16
+(31b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘crabapple tree’	page 16
+(31b) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Nater 1990:89–90)	page 16, the source of the items above
+§2.4.4.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Having pointed out some differences between ejectives and GRs in reduplication, we now turn our attention to those differences in general.	page 16
+§2.5	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.5 Differences between GRs and ejectives	page 16
+§2.5	Gloria Mellesmoen and Suzanne Urbanczyk	note	In addition to patterning differently in reduplication, GRs differ from ejectives in a number of ways. This is likely due to the articulatory compatibility found for ejectives, of constricting the glottis, while there is an oral closure with stops and affricates (as in articulatory binding, for example, in which the glottal articulation is “bound” to the stop release, see Kingston 1985).	page 16
+§2.5.1	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.5.1 Consonant inventories	page 16
+§2.5.1	Salish	cited form	/p̓/	page 17
+§2.5.1	Salish	cited form	/kʷ/	page 17
+§2.5.1	Salish	cited form	/k̓ʷ/	page 17
+§2.5.1	Salish	cited form	/qʷ/	page 17
+§2.5.1	Salish	cited form	/q̓ʷ/	page 17
+§2.5.1	Salish	cited form	t̓/	page 17
+§2.5.1	Salish	cited form	/c̓/	page 17
+§2.5.1	Salish	cited form	c̓	page 17
+§2.5.1	Salish	cited form	/tᶿ/	page 17
+§2.5.1	Salish	cited form	tᶿ	page 17
+§2.5.1	Salish	cited form	/t̓ᶿ/	page 17
+§2.5.1	Salish	cited form	t̓ᶿ	page 17
+§2.5.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	One of the most striking differences between how glottalization patterns in obstruents and sonorants is that there are many more symmetrical patterns in GRs than with ejectives. With obstruents there can be gaps in the plain-ejective pairs, as well as differences in place and manner. However, with GRs there is more symmetry: if a language has a GR, it also has a plain counterpart. The following charts represent the glottal contrasts on obstruents that are unexpected, or not symmetrical. We have omitted uvulars in all languages, noting that uvular ejectives are the least marked, both in terms of distribution and articulation, and these are found in every language. Second, all languages except Tillamook have /p/, /p̓/, /kʷ/, /k̓ʷ/, /qʷ/, /q̓ʷ/ because Tillamook has lost all labial consonants, and these are also omitted from Table 5 and Table 6. Table 5 does not include /t/ and / t̓/, as these are found across the Central Salish languages, and Table 6 does not include /c/ and /c̓/ (found across the languages included in the table) or /tᶿ/ and /t̓ᶿ/, which are only found in Central Salish languages. Retracted and voiced consonants are also omitted.	page 16
+Table 5 line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Table 5: Central Salish languages	page 17, the caption
+Table 5 line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	c c̓ tᶿ t̓ᶿ ƛ ƛ̓ č č̓ k k̓	page 17, heads the columns, the plain and ejective of each pair
+Table 5 line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Comox-Sliammon (Watanabe 2003) ~ ✓ ~ ✓ ✓ ✓ ~ ~	page 17, Comox-Sliammon (Watanabe 2003): ~ ✓ ~ ✓ ✓ ✓ ~ ~ in the order of the columns, a blank cell not kept
+Table 5 line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Sechelt (Beaumont 1985) ✓ ✓ ✓ ✓ ✓ ✓ ✓	page 17, Sechelt (Beaumont 1985): ✓ ✓ ✓ ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 5 line 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	Pentlatch (Kinkade archival material)^ ✓ ✓ ✓ ✓ ~ ~	page 17, Pentlatch (Kinkade archival material): ✓ ✓ ✓ ✓ ~ ~ in the order of the columns, a blank cell not kept
+Table 5 line 6	Gloria Mellesmoen and Suzanne Urbanczyk	note	Upriver Halkomelem (Galloway 1977) ✓ ✓ ✓ ✓ ~ ~	page 17, Upriver Halkomelem (Galloway 1977): ✓ ✓ ✓ ✓ ~ ~ in the order of the columns, a blank cell not kept
+Table 5 line 7	Gloria Mellesmoen and Suzanne Urbanczyk	note	Musqueam (Suttles 2004) ✓ ✓ ~ ✓ ✓ ~ ~ ~	page 17, Musqueam (Suttles 2004): ✓ ✓ ~ ✓ ✓ ~ ~ ~ in the order of the columns, a blank cell not kept
+Table 5 line 8	Gloria Mellesmoen and Suzanne Urbanczyk	note	Lushootseed (Hess 1967) ✓ ✓ ✓ ✓ ✓ ✓ ✓	page 17, Lushootseed (Hess 1967): ✓ ✓ ✓ ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 5 line 9	Gloria Mellesmoen and Suzanne Urbanczyk	note	Twana (Drachman 1969) ✓ ✓ ✓ ✓ ✓ ✓ ✓	page 17, Twana (Drachman 1969): ✓ ✓ ✓ ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 5 line 10	Gloria Mellesmoen and Suzanne Urbanczyk	note	Nooksack (Galloway 1984) ✓ ✓ ✓ ✓ ✓ ~	page 17, Nooksack (Galloway 1984): ✓ ✓ ✓ ✓ ✓ ~ in the order of the columns, a blank cell not kept
+Table 5 line 11	Gloria Mellesmoen and Suzanne Urbanczyk	note	Straits – Saanich (Montler 1986) ✓ ✓ ✓ ✓ ~	page 17, Straits – Saanich (Montler 1986): ✓ ✓ ✓ ✓ ~ in the order of the columns, a blank cell not kept
+Table 5 line 12	Gloria Mellesmoen and Suzanne Urbanczyk	note	Klallam (Montler 2015) ✓ ✓ ✓ ✓ ✓ ~	page 17, Klallam (Montler 2015): ✓ ✓ ✓ ✓ ✓ ~ in the order of the columns, a blank cell not kept
+Table 5 line 13	Gloria Mellesmoen and Suzanne Urbanczyk	note	Squamish (Dyck 2004) ✓ ✓ ✓ ✓ ✓ ~ ~	page 17, Squamish (Dyck 2004): ✓ ✓ ✓ ✓ ✓ ~ ~ in the order of the columns, a blank cell not kept
+Table 6 line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Table 6: Interior and Tsamosan languages, plus Tillamook and Bella Coola	page 17, the caption
+Table 6 line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	t t̓ƛ ƛ̓ č č̓ k k̓	page 17, heads the columns, the plain and ejective of each pair
+Table 6 line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Tillamook (Edel 1939) ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓	page 17, Tillamook (Edel 1939): ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 6 line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Upper Chehalis (Kinkade 1963) ✓ ✓ ✓ ✓ ✓ ~ ~	page 17, Upper Chehalis (Kinkade 1963): ✓ ✓ ✓ ✓ ✓ ~ ~ in the order of the columns, a blank cell not kept
+Table 6 line 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	Lower Chehalis (Robertson 2014)^ ✓ ✓ ✓ ✓ ✓ ~/✓? ~/✓?	page 17, Lower Chehalis (Robertson 2014): ✓ ✓ ✓ ✓ ✓ ~/✓? ~/✓? in the order of the columns, a blank cell not kept
+Table 6 line 6	Gloria Mellesmoen and Suzanne Urbanczyk	note	Cowlitz (Kinkade 2004) ✓ ✓ ✓ ✓ ✓ ✓ ✓	page 17, Cowlitz (Kinkade 2004): ✓ ✓ ✓ ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 6 line 7	Gloria Mellesmoen and Suzanne Urbanczyk	note	Quinault (Rowicka 2006)^ ✓ ✓ ✓ ✓ ? ~ ?	page 17, Quinault (Rowicka 2006): ✓ ✓ ✓ ✓ ? ~ ? in the order of the columns, a blank cell not kept
+Table 6 line 8	Gloria Mellesmoen and Suzanne Urbanczyk	note	Spokane (Carlson 1972) ✓ ✓ ✓ ✓ ✓	page 17, Spokane (Carlson 1972): ✓ ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 6 line 9	Gloria Mellesmoen and Suzanne Urbanczyk	note	Okanagan (Mattina 1973) ✓ ✓ ✓ ✓ ✓	page 17, Okanagan (Mattina 1973): ✓ ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 6 line 10	Gloria Mellesmoen and Suzanne Urbanczyk	note	Moses Columbia (Willett 2003) ✓ ✓ ✓ ✓ ✓	page 17, Moses Columbia (Willett 2003): ✓ ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 6 line 11	Gloria Mellesmoen and Suzanne Urbanczyk	note	Coeur d’Alene (Reichard 1938) ✓ ✓ ✓ ✓	page 17, Coeur d’Alene (Reichard 1938): ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 6 line 12	Gloria Mellesmoen and Suzanne Urbanczyk	note	Thompson (Jimmie 1994) ✓ ~ ✓ ✓ ✓	page 17, Thompson (Jimmie 1994): ✓ ~ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 6 line 13	Gloria Mellesmoen and Suzanne Urbanczyk	note	Shuswap (Kuipers 1974) ✓ ✓ ✓ ✓ ✓	page 17, Shuswap (Kuipers 1974): ✓ ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 6 line 14	Gloria Mellesmoen and Suzanne Urbanczyk	note	Lillooet (van Eijk 2011) ✓* ✓* ✓ ✓	page 17, Lillooet (van Eijk 2011): ✓* ✓* ✓ ✓ in the order of the columns, a blank cell not kept
+Table 6 line 15	Gloria Mellesmoen and Suzanne Urbanczyk	note	Bella Coola (Nater 1984) ✓ ✓ ✓ ✓ ✓	page 17, Bella Coola (Nater 1984): ✓ ✓ ✓ ✓ ✓ in the order of the columns, a blank cell not kept
+Table 6 line 16	Gloria Mellesmoen and Suzanne Urbanczyk	note	Key: ✓ author gives as a phoneme	page 17, the key to the marks
+Table 6 line 17	Gloria Mellesmoen and Suzanne Urbanczyk	note	~ noted by author as marginal or rare	page 17, the key to the marks
+Table 6 line 18	Gloria Mellesmoen and Suzanne Urbanczyk	note	* these ejectives may be considered as a pair	page 17, the key to the marks
+Table 6 line 19	Gloria Mellesmoen and Suzanne Urbanczyk	note	^ from data	page 17, the key to the marks
+Table 6 line 20	Gloria Mellesmoen and Suzanne Urbanczyk	note	? unclear from source	page 17, the key to the marks
+Table 6 line 21	Gloria Mellesmoen and Suzanne Urbanczyk	note	Notes: Galloway notes some consultants that use [t̓ᶿ] for /c̓/ in Nooksack	page 17, a note under the table
+§2.5.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	A second general difference related to inventories is that GRs seem more additive. Because there are numerous morphological processes to create GRs, the addition of glottalization to a resonant seems to be consistently adding just glottalization, with no effect on place or manner. This is likely due to the relatively independent articulations involved in each (Bird 2011).	page 18
+§2.5.2	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.5.2 Processes	page 18
+§2.5.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Having established the asymmetries in phonemic inventories that exist for ejectives in comparison to GRs, it is also important to examine if there are differences between the how the ejectives and GRs behave in phonological processes. While a detailed and thorough examination of each Salish language is beyond the scope of this preliminary study, we note that glottalization on obstruents seems much more stable (such that it is rarely lost from, or added to a segment), and so is not affected the same as with resonants. On the other hand, GRs can arise through various sources in addition to being lexically specified. The following description about Thompson is illustrative:	page 18
+§2.5.2	Salish	cited form	ʔ	page 18
+§2.5.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	[GRs] are only superficially parallel to glottalized (ejective) stops. The stops are integral, with just a very few cases of apparent derivation from combination of a plain stop with a following [ʔ]. Glottalized resonants, on the other hand, are commonly derived, there being a fair number of morphological processes calling for glottalization of underlying plain resonants.	page 18, a block quote
+§2.5.2	Gloria Mellesmoen and Suzanne Urbanczyk	citation	(Thompson & Thompson 1992:5)	page 18, the source of the quote
+§2.5.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	In reviewing the differences between GRs and ejectives, we have found two striking differences. First, there is more symmetry between plain and glottalized resonants in the phonemic inventory than there is between plain and ejective obstruent pairs. For example, there are gaps in the obstruent contrasts. Also, in some languages, like Lillooet, the contrast in glottalization is accompanied by a difference in manner: an alveolar stop contrasts with an ejective lateral affricate. No such asymmetries for place or manner have been found for resonants. The second difference relates to articulatory stability, whereby ejectives are much less likely to alternate than GRs, as noted above for Thompson. The neutralization patterns found for ejectives are limited to a few cases of reduplication in some Interior Salish languages, such as Shuswap.	page 18
+§3	Gloria Mellesmoen and Suzanne Urbanczyk	heading	3 Implications for representing GRs	page 18
+§3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Having outlined some of the general patterns, we now discuss some of the implications these patterns have for the phonological representation of GRs. We propose that many of the enigmatic qualities of GRs follow from looking at how to reconcile incompatibility at different levels, as related to the phonology-phonetics interface and the phonology-morphology interface. GRs provide a window into the architecture of the grammar. The central enigmatic property of GRs is that they seem to pattern as two segments for the phonological component, but one segment for the morphological component.	page 18
+§3	Salish	cited form	əʔ]σ	page 18
+§3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Regarding patterning as two segments in the phonological component, there are several converging findings. The first relates to phonetic realization and variation. Parametric variation in glottal timing has been argued to be subject to language specific grammar, or the phonological component (Howe & Pulleyblank 2001; Bird et al. 2008). Phonetic or functional goals of maximizing perceptual differences have not been able to account for the language particular variation in timing. Second, evidence for GRs patterning as two segments in the phonology comes from looking at the role of vowel quality in the timing of laryngeal and supralaryngeal articulations. GRs seem to pattern as two segments. The phonological constraint *əʔ]σ, which bans having a glottal stop in the coda following a schwa, is obeyed in two different ways: by ordering the articulations to have the resonant first, or by changing the vowel.	page 18
+§3	Salish	cited form	T̓T̓	page 19
+§3	Salish	cited form	R̓R̓	page 19
+§3	Salish	cited form	T̓R̓	page 19
+§3	Gloria Mellesmoen and Suzanne Urbanczyk	note	In terms of the phonological representation of the class of segments, we observed several differences between GRs and ejectives, as well as some interesting cooccurrence restrictions. Recall that in Shuswap there is a cooccurrence restriction that no glottalized segments — from the same class — can occur in the same form. So, there are no cases of T̓T̓ or R̓R̓. However, we did find T̓R̓. This type of OCP restriction does not hold when glottalization is on different classes, so implies that ejectives and GRs are representationally different. Differences in phonological activity between GRs and ejectives also implies a representational difference between the two classes of segments. We explore some possible ways to capture these differences, classified into two broad approaches: (i) they are the same phonologically at the UR: perhaps both are specified with the feature [+c.g.], but the expression of [+c.g.] is realized differently at the surface, due to language- specific phonetic implementation; and (ii) GRs and ejectives could be different phonologically at the UR, which accounts for the patterns. We explore several scenarios below.	page 19
+§3	Gloria Mellesmoen and Suzanne Urbanczyk	note	In one situation, ejectives could be specified with [+c.g.], but GRs could be represented as a contour segment consisting of two articulatory components: a glottal stop plus resonant (as in Urbanczyk 1992).	page 19
+(32) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	ejectives GRs	page 19, heads the two trees
+(32) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	notation	[+cons, -son] [+cons]	page 19, a line of the trees, the text layer running the ejectives' tree and the GRs' tree together
+(32) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	notation	[-son] [+son]	page 19, a line of the trees, the text layer running the ejectives' tree and the GRs' tree together
+(32) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	notation	Laryngeal	page 19, a line of the trees, the text layer running the ejectives' tree and the GRs' tree together
+(32) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	notation	|	page 19, a line of the trees, the text layer running the ejectives' tree and the GRs' tree together
+(32) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	notation	[+c.g.] ʔ	page 19, a line of the trees, the text layer running the ejectives' tree and the GRs' tree together
+§3	Gloria Mellesmoen and Suzanne Urbanczyk	note	This proposal that GRs are contour segments can account for some of their enigmatic properties, such as acting like two segments articulatorily, but one for morphological purposes, like reduplication. It also accounts for how GRs pattern with glottal stops: they are literally composed of them. It would also account for differences between ejectives and GRs in terms of the coalescence of glottal stop and sonorants, as a type of economy of effort/representation effect. However, it crucially assumes that glottal stops are not sonorant — a not uncontroversial assumption in Salish. This doesn’t mean that this general approach is incorrect. It just involves possibly adjusting the featural specification of the glottal stop. If glottal stops are sonorant, then the following structures could represent their differences. The representation on the right could arise from a sequence of glottal stop + resonant, especially if sonorants are underspecified for laryngeal features. One way for them to acquire a Laryngeal feature would be to fuse with a glottal stop.	page 19
+(33) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	ejectives GRs	page 19, heads the two trees
+(33) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	notation	[+cons, -son] [+cons, +son]	page 19, a line of the trees, the text layer running the ejectives' tree and the GRs' tree together
+(33) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	notation	Laryngeal Supralaryngeal	page 19, a line of the trees, the text layer running the ejectives' tree and the GRs' tree together
+(33) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	notation	Laryngeal	page 19, a line of the trees, the text layer running the ejectives' tree and the GRs' tree together
+(33) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	notation	|	page 19, a line of the trees, the text layer running the ejectives' tree and the GRs' tree together
+(33) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	notation	[+c.g.] ʔ	page 19, a line of the trees, the text layer running the ejectives' tree and the GRs' tree together
+§3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Another way to represent resonants and obstruents differently could be to have different features, so adopting [SV] (Sonorant Voice) for resonants (Rice 1993) which is lacking for obstruents. It could be that both have the laryngeal feature [+c.g.], but that they are realized differently depending on what the major class feature is that distinguishes obstruents from resonants. The phonological grammar could thus treat these classes differently because they do not have the same feature associated with the glottalized resonants. In order to account for voiced obstruents that developed from Proto-Salish resonants and still pattern as resonants with respect to their phonological behaviour, Mellesmoen (2018) argues that [SV] feature is more appropriate. A feature like [c.g.] that sits beneath [SV] could account for these differences.	page 20
+§3	Salish	cited form	Bermúdez-Otero	page 20
+§3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Another approach to accounting for the activity of GRs is that different patterns could reflect different strata (Bermúdez-Otero 2012), as can be identified by different phonological patterns. For example, the differences in Halkomelem glottalization patterns that arise in multiple reduplication (see example 25 and 26 in Section 2.4.4.1) could be related to where and how GRs are formed at various points in the phonological derivation. Whether or not the glottalization is copied could follow from whether or not it is an underlying or lexical GR or whether glottalization arises due to a morphophonological process, in which case it is not copied. A GR could be one segment in input, and available to be copied, but a GR later in the phonological derivation could be treated as two segments.	page 20
+§3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Finally, we note that the reduplication patterns found fit in with a general pattern of phonological alternations, referred to as “the emergence of the unmarked” in reduplication (TETU, McCarthy & Prince 1999). It is frequently the case that the copied portion of a word eliminates marked structures that are permitted in the base. We found this for glottalization on both ejectives and GRs. Most languages maintain identity in the copied portion. However, there are some languages in which the copied portion is plain (Comox-Sliammon for GRs, and Okanagan for ejectives). The processes of glottalization and deglottalization are more common on resonants, which likely relates to why this TETU pattern is more common on resonants than obstruents.	page 20
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	heading	4 Discussion	page 20
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Finally, we summarize our findings and point out gaps and potential directions for future research as well as some limitations. How glottalization ([+c.g.]) is realized phonetically is dependent on position, including whether it is in a stressed or unstressed syllable. Examining the morpho- phonological patterns and phonetic realization of GRs allows us to examine the interfaces between morphology and phonology, and between phonology and phonetics. At the morphological level, GRs are a single segment, but later in the phonological derivation and phonetic implementation, they may act like two segments. As intriguing as these findings are, there are limitations to this preliminary study. For example, in undertaking this research, we have not been able to check for every possible position and pattern for every Salish language. Moving forward, the blanks in the charts can serve as a guide for further research to identify relevant patterns and types of variation.	page 20
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	A key limitation is also the scope and depth of what has been documented and recorded in the literature on Salish languages. We are indebted to all those previous researchers, but are also keenly aware that it would be helpful to learn more about other aspects of the realization of GRs, such as carefully controlling for stress, syllable structure, and vowel quality. Also, documenting creak and pitch changes, including how these vary between and within speakers, would be helpful as well in terms of understanding the pathway of language change. Additional, future work should explore how GRs and voiced obstruents compare with respect to the phonetics and phonology of glottalization and voicing, particularly as both voiced obstruents and resonants in Salish can be analysed as having a [SV] feature.	page 20
+§4	Salish	cited form	əʔ]σ	page 21
+§4	Salish	cited form	ʔR	page 21
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	A key area for future research is understanding the extent to which correlations in the distribution and acoustic realization of GRs follow from some underlying linguistic principles. For example, the Southern Salish languages are the only ones to have GRs in word-initial position and they are also the only languages to have a relatively fixed timing of articulatory events. Is this correlation due to some deeper principle, or is it simply that the two parameters coincide in these languages because they come from a common source? Another related question is to what extent GRs across the languages interact with a *əʔ]σ constraint. For example, do the Southern Interior Salish languages, which have the order ʔR, also change the vowel quality of schwa?	page 21
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Finally, we note that this research on GRs also has the potential to shed light onto the general debate in phonological theory about whether or not features have phonological substance or not, and if so, what is the nature of that substance? Vowel quality, aerodynamics and abstract combinations are all components of understanding the patterns and realization of GRs and therefore this is an area that deserves more systematic research across Salish, as well as cross-linguistically, in order to further develop phonological theory and typological predictions.	page 21
+references	Gloria Mellesmoen and Suzanne Urbanczyk	heading	References	page 21
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Beaumont, Ronald. 1985. She shashishalhem: The Sechelt language. Penticton, BC: Theytus Books.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Beaumont, Ronald. 2011. Sechelt dictionary. Sechelt, BC: Sechelt Indian Band.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Bermúdez-Otero, Ricardo. 2012. The architecture of the grammar and division of labor in exponence. In Jochen Trommer (ed.), The morphology and phonology of exponence. Oxford, UK: Oxford University Press, 8–83.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Bird, Sonya. 2008. An exemplar dynamic approach to language shift. Canadian Journal of Linguistics 53(2/3):387–398.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Bird, Sonya. 2011. The nature of laryngealization in St’at’imcets laryngealized resonants. International Journal of American Linguistics 77(2):159–184.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Bird, Sonya, Marion Caldecott, Fiona Campbell, Bryan Gick, & Patricia Shaw. 2008. Oral- laryngeal timing in glottalized resonants. Journal of Phonetics 36:492–507.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Bird, Sonya & Ewa Czaykowska-Higgins. 2016. Parsing Salish consonant clusters. In Martin J. Ball & Nicole Müller (eds.), Challenging sonority: Cross-linguistic evidence. Sheffield, UK: Equinox Publishing, 159–199.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Blake, Susan J. 2000. On the distribution and representation of schwa in Sliammon (Salish): Descriptive and theoretical perspectives. Doctoral dissertation, University of British Columbia.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Boas, Franz. 1886. Pentlatch materials. American Philosophical Society Library, Philadelphia, Pennsylvania.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Caldecott, Marion. 1999. A comparison of glottalized resonants in SENĆOŦEN and St’at’imcets. MA thesis, University of British Columbia.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Caldecott, Marion. 2009. Non-exhaustive parsing: Phonetic and phonological evidence from St’at’imcets. Doctoral dissertation, University of British Columbia.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Caldecott, Marion & Gloria Mellesmoen. 2018. A preliminary look at glottalized resonants in ʔayʔaǰuθəm: Not a piece of caique. In Lisa Matthewson, Erin Guntly & Michael Rochemont (eds.), Wa7 xweysás i nqwal’utteníha i ucwalmícwa: He loves the people’s languages: Essays in honour of Henry Davis. Vancouver, BC: University of British Columbia Occasional Papers in Linguistics. 693–710.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Carlson, Barry. 1972. A grammar of Spokane: A Salish language of Eastern Washington. Doctoral dissertation, University of Hawaii.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Carlson, Barry F., John H. Esling, & Jimmy G. Harris. 2004. A laryngoscopic phonetic study of Nlaka’pamux (Thompson) Salish glottal stop, glottalised resonants, and pharyngeals. In Donna Gerdts, & Lisa Matthewson (eds.), Occasional papers in linguistics no. 17: Studies in Salish linguistics in honor of M. Dale Kinkade. Missoula, MT: University of Montana Working Papers in Linguistics, 58–71.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Drachman, Gaberell. 1969. Twana phonology. Doctoral dissertation, Ohio State University.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Dyck, Ruth A. 2004. Prosodic and morphological factors in Squamish (Skwxwu7mesh) stress assignment. Doctoral dissertation, University of Victoria.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Edel, May M. 1939. The Tillamook language. International Journal of American Linguistics, 10(1):1–57.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Efrat, Barbara. 1969. A grammar of non-particles in Sooke, a dialect of Straits Coast Salish. Doctoral dissertation, University of Pennsylvania.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Efrat, Barbara. 1978. The interpretation of glottalized resonants in Straits Salish. Linguistic and literary studies in honor of Archibald A. Hill Vol. II. The Hague: Mouton, 251–257.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Flemming, Edward, Peter Ladefoged & Sarah Thomason. (2008). Phonetic structures of Montana Salish. Journal of Phonetics 36:465–491.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Galloway, Brent. 1977. A grammar of Chilliwack Halkomelem. Doctoral dissertation, University of California.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Galloway, Brent. 1984. Nooksack reduplication. Working Papers of the Linguistics Circle of the University of Victoria, 4(2):81–100.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Galloway, Brent. 1988. Some Proto-Central Salish sound correspondences. In William Shipley (ed.), In Honor of Mary Haas. Berlin: Mouton, 292–343.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Hess, Thomas. 1967. Snohomish grammatical structure. Doctoral dissertation, University of Washington.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Howe, Darin, & Douglas Pulleyblank. 2001. Patterns and timing of glottalization. Phonology 8:45– 80.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Hukari, Thomas, & Ruby Peter. 1995. Cowichan dictionary. Duncan, BC: Cowichan Tribes.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Jimmie, Mandie. 1994. A prosodic analysis of Nłek̉epmx reduplication. MA thesis, University of British Columbia.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Kingston, John. 1985. The phonetics and phonology of the timing of oral and glottal events. Doctoral dissertation, University of California, Berkeley.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Kinkade, M. Dale. 1963. Phonology and morphology of Upper Chehalis. Doctoral dissertation, University of Indiana.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Kinkade, M. Dale. 2004. Cowlitz dictionary and grammatical sketch. Missoula, MT: University of Montana Occasional Papers in Linguistics.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Kinkade, M. Dale. 1952–2004. Series 1: Research Files. M. Dale Kinkade papers, 1944–2004. (Accession No. 5108-005). University of Washington Libraries, Seattle, US.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Kuipers, Aert H. 1974. The Shuswap language: Grammar, texts, dictionary. Berlin: de Gruyter Mouton.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Mattina, Anthony. 1973. Colville grammatical structure. Doctoral dissertation, University of Hawaii.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	McCarthy, John, & Alan Prince. 1999. Faithfulness and Identity in prosodic morphology. In René Kager, Harry Van der Hulst & Wim Zonneveld (eds.), The prosody-morphology interface, Cambridge, UK: Cambridge University Press, 218–309.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Mellesmoen, Gloria. 2018. Sonorant voicing ([SV]) in Comox-Sliammon. Papers for ICSNL 53:143–160.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Mitchell, Marjorie R. 1968. A dictionary of Songish, a dialect of Straits Salish. MA thesis, University of Victoria.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Montler, Timothy. 1986. An outline of the morphology and phonology of Saanich. Missoula, MT: University of Montana Working Papers in Linguistics.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Montler, Timothy. 2015. Klallam grammar. Seattle, WA: University of Washington Press.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Montler, Timothy. 2018. SENĆOŦEN: A dictionary of the Saanich language. Seattle, WA: University of Washington Press.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Nater, Hank F. 1984. The Bella Coola language. Ottawa: National Museums of Canada.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Nater, Hank F. 1990. A concise Nuxalk-English dictionary. Ottawa: University of Ottawa Press.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Newman, Stanley. 1971. Bella Coola Reduplication. International Journal of American Linguistics, 37(1):34–38.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Raffo, Yolanda A. 1972. A phonology and morphology of Songish, a dialect of Straits Salish. Doctoral dissertation, University of Kansas.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Reichard, Gladys A. 1938. Coeur d’Alene. In Boas, Franz, & Harry Hoijer (eds.), Handbook of American Indian Languages, Part 3. New York: JJ Augustin, 515–707.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Rice, Keren D. 1993. A reexamination of the feature [sonorant]: the status of ‘sonorant obstruents’. Language, 308–344.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Robertson, Dave. 2014. ɬəw̓ál̓məš (Lower Chehalis) morphosyntax. Papers for ICSNL 49:89–153. Rowicka, Grażyna J. 2006. Pronominal markers in Quinault (Salish). International Journal of American Linguistics, 72(4):451–476.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Suttles, Wayne. 2004. Musqueam reference grammar. Vancouver, BC: UBC Press.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Thompson, Larry C., & M. Terry Thompson. 1985. A Grassmann's law for Salish. Oceanic Linguistics Special Publications 20:134–147.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Thompson, Larry C. & M. Terry Thompson. 1992. The Thompson Language. University of Montana Occasional Papers in Linguistics No. 8. Missoula, MT: University of Montana.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Urbanczyk, Suzanne. 1992. Representing glottalized sonorants. In C. P. Canakis & G. P. Chan (eds), Proceedings of the 28th Regional Meeting of the Chicago Linguistic Society, 530–542. van Eijk, Jan P. 2011. The Lillooet language: Phonology, morphology, syntax. Vancouver: University of British Columbia Press.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Watanabe, Honoré. 1994. A report on Sliammon (Mainland Comox) phonology and reduplication. MA thesis, University of Hokkaido.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Watanabe, Honoré. 2003. A morphological description of Sliammon, Mainland Comox Salish: With a sketch of syntax. Endangered Languages of the Pacific Rim, Faculty of Informatics, Osaka Gakuin University.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Willett, Marie Louise. 2003. A grammatical sketch of Nxa'amxcin (Moses-Columbia Salish). Doctoral dissertation, University of Victoria.	

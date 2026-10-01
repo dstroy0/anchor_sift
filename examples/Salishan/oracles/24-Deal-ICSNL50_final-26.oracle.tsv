@@ -1,0 +1,664 @@
+where	who	kind	form	gloss
+front	Amy Rose Deal	title	A note on Nez Perce verb agreement, with sample paradigms	page 1, carries footnote ∗
+front	Amy Rose Deal	name	Amy Rose Deal	author
+front	Amy Rose Deal	note	University of California, Berkeley	page 1, under Amy Rose Deal
+front	Amy Rose Deal	note	Abstract: The Nez Perce verb agrees with the subject and the object in person and number. This paper considers the full paradigm of verb agreement in transitive clauses, documenting a series of previously undescribed restrictions on the use of agreement affixes as well as extended uses of originally non-agreement morphol- ogy as part of the agreement system. Data is drawn from systematic elicitation of four transitive paradigms. Two full paradigms are presented in the appendix.	page 1, the abstract
+front	Amy Rose Deal	note	Keywords: Nez Perce, agreement, morphology, paradigm elicitation	page 1, the keywords
+front	Amy Rose Deal	note	In Papers for the International Conference on Salish and Neighbouring Languages 50, University of British Columbia Working Papers in Linguistics 40, Natalie Weber, Erin Guntly, Zoe Lam, and Sihwei Chen (eds.), 2015.	page 1, the volume's header
+front	Amy Rose Deal	language	Nez Perce	Sahaptian; Idaho
+footnote ∗	Amy Rose Deal	note	I am very grateful to my Nez Perce teachers Bessie Scott and Florene Davis, for their pa- tience and for sharing their language with me. This research was supported financially by a grant from the UCSC committee on research and by a Hellman Family Fellowship. Thanks as well to audience members at the ICSNL 49 meeting in Worley, ID, and to Matthew Tucker and Harold Crook. Contact info: ardeal@berkeley.edu	page 1, footnote ∗, on the title
+footnote ∗	Amy Rose Deal	name	Bessie Scott	Nez Perce teacher, thanked
+footnote ∗	Amy Rose Deal	name	Florene Davis	Nez Perce teacher, thanked
+footnote ∗	Amy Rose Deal	name	Matthew Tucker	thanked
+footnote ∗	Amy Rose Deal	name	Harold Crook	thanked; Crook (1999), Nez Perce stress
+§1	Amy Rose Deal	heading	1 Introduction	page 1
+§1	Amy Rose Deal	note	The Nez Perce verb shows agreement for both the subject and the object, as gram- matical work on the language has nearly invariably pointed out. In (1), for in- stance, the verb bears dedicated prefixes indexing the 3rd person and plural fea- tures of the subject, along with the plural feature of the object. (Here and below, subject-indexing prefixes are bolded in numbered examples, and object-indexing prefixes are italicized.)1	page 1
+footnote 1	Amy Rose Deal	note	The following abbreviations are used in glosses: 3/3 3rd person subject and 3rd per- son object portmanteau, 3SUBJ 3rd person subject, 3OBJ 3rd person object, ACC ac- cusative, C complementizer, CIS cislocative, ERG ergative, DEM demonstrative, FUT fu- ture, HAB.PRES present habitual aspect, IMPERF imperfective, INCL inclusive, LOC loca- tive, NOM nominative, O.PL plural object, P perfect/perfective aspect, PRO null pronoun, RECIP reciprocal, REM.PAST remote past tense, S.PL plural subject, SUF numeral suffix, TRANS translocative.	page 1, footnote 1
+(1) line 1	Nez Perce	segmentation	Matt kaa George-nim kiye	page 1
+(1) line 2	Nez Perce	gloss	Matt.NOM and George-ERG 1PL.INCL.CLITIC	page 1
+(1) line 3	Nez Perce	segmentation	hi-pa-náac-’yax̂-n-a cepéeletp’et-pe.	page 1
+(1) line 4	Nez Perce	gloss	3SUBJ-S.PL-O.PL-find-P-REM.PAST picture-LOC	page 1
+(1) line 5	Amy Rose Deal	translation	‘Matt and George found us (inclusive) in the picture.’	page 1
+§1	Amy Rose Deal	note	What has been less appreciated is a series of restrictions on agreement, of the general form in (2):	page 2
+(2) line 1	Amy Rose Deal	note	If the object has features X (and the subject has features Y), features Z from the {subject,object} cannot be indexed on the verb.	page 2, set as an example
+§1	Amy Rose Deal	note	An example of this type of restriction is seen in (3). When the subject is 1SG and the object is 3PL, as in (3a), the verb indexes the plural feature of the object via the prefix naac-. When the subject becomes 1PL, however, as in (3b), the plurality of the object may no longer be indexed on the verb. Only subject plurality is marked, via the prefix pa-.	page 2
+§1	Nez Perce	cited form	naac-	page 2, in italics
+§1	Nez Perce	cited form	pa-	page 2, in italics
+(3a) line 1	Nez Perce	segmentation	Pro ’a-náac-’yax̂-n-a Matt kaa Jim-ne	page 2
+(3a) line 2	Nez Perce	gloss	PRO.1SG 3OBJ-O.PL-find-P-REM.PAST Matt.NOM and Jim-ACC	page 2
+(3a) line 3	Nez Perce	segmentation	cepéeletp’et-pe.	page 2
+(3a) line 4	Nez Perce	gloss	picture-LOC	page 2
+(3a) line 5	Amy Rose Deal	translation	‘I found Matt and Jim in the picture.’	page 2
+(3b) line 1	Nez Perce	segmentation	Pro ’a-pa-’yáax̂-n-a Matt kaa Jim-ne	page 2
+(3b) line 2	Nez Perce	gloss	PRO.1PL 3OBJ-S.PL-find-P-REM.PAST Matt.NOM and Jim-ACC	page 2
+(3b) line 3	Nez Perce	segmentation	cepéeletp’et-pe.	page 2
+(3b) line 4	Nez Perce	gloss	picture-LOC	page 2
+(3b) line 5	Amy Rose Deal	translation	‘We found Matt and Jim in the picture.’	page 2
+§1	Amy Rose Deal	note	Note that the absence of naac- in (3b) cannot be simply attributed to a ban on the co-occurrence of naac- and pa-: these prefixes co-occur in examples like (1). Nor can it be attributed to a two-prefix templatic maximum, given that three pre- fixes co-occur in (1). Rather, the generalization may be preliminarily stated as in (4):	page 2
+(4) line 1	Amy Rose Deal	note	If the object has features [-PART(ICIPANT), PL], and the subject has features [+PART, PL], then [PL] from the object cannot be indexed on the verb.	page 2, set as an example
+§1	Amy Rose Deal	note	In (1), the object is [+PART, PL], the subject is [-PART, PL], and there is no agree- ment restriction. In (3b), the object is [-PART, PL] and the subject is [+PART, PL]; that is, the person features of the subject and object have been re- versed. In this situation, an agreement restriction is observed.	page 2
+§1	Amy Rose Deal	note	My primary goal in this paper is to document a series of restrictions of this type, based on data gained from systematic elicitation of paradigms. Such restric- tions, I submit, constitute a real and enduring part of the verbal agreement system of Nez Perce; they surface in slow and systematic elicitation, and are in evidence for earlier stages of the language in paradigms recorded during the missionary period (Morvillo 1891; Smith 1840). Nevertheless, they have largely escaped no- tice in the modern literature – an omission which is particularly noticable in the paradigms assembled in Deal (2010a,b). Here, I set the record straight regarding the paradigm of verbal agreement and the existence of restrictions like (4). In so doing, I aim to lay the descriptive groundwork for an explanation of why the restrictions come out as they do.	page 2
+§1	Amy Rose Deal	name	Morvillo	Anthony Morvillo, Grammatica linguae numipu (1891), the missionary period
+§1	Amy Rose Deal	name	Smith	A. B. Smith, the peculiarities of the Nez Percés language (1840), the missionary period
+§1	Amy Rose Deal	note	In the background of this investigation are certain methodological matters that deserve attention before we begin. Why have agreement restrictions like (4) not been noted in the modern literature (Aoki 1970, 1994; Crook 1999; Rude 1985; Velten 1943)? Why are they not in evidence in the paradigms presented in Deal (2010a,b)? One notable generalization about the modern descriptive literature on Nez Perce verbal agreement is the prevalence of what we might call ‘morpheme- based’ description, rather than ‘paradigm-based’ description. That is, rather than presenting a paradigm for (say) agreement with plural objects, modern descrip- tions have generally concentrated on properties of particular affixes, such as nees- (O.PL) (seen in the examples above as predictable variant naac-). This prefix been characterized as follows:	page 3
+§1	Nez Perce	cited form	nees-	page 3, in italics
+§1	Amy Rose Deal	name	Aoki	Haruo Aoki, Nez Perce grammar (1970), texts (1979) and dictionary (1994)
+§1	Amy Rose Deal	name	Rude	Noel Rude, Nez Perce grammar and discourse (1985)
+§1	Amy Rose Deal	name	Velten	H. Velten, the Nez Perce verb (1943)
+§1	Amy Rose Deal	note	• plurality of object, i.e., action affecting several people or things (Velten 1943:280).	page 3, a description of nees- quoted, set after a bullet
+§1	Amy Rose Deal	note	• indicating the plurality of the object (Aoki 1970:108).	page 3, a description of nees- quoted, set after a bullet
+§1	Amy Rose Deal	note	• (plural object prefix); used when the object is plural (Aoki 1994:478).	page 3, a description of nees- quoted, set after a bullet
+§1	Amy Rose Deal	note	• A plural direct object is regularly indicated by the prefix nees-. This plural marker is also neutral to person (Rude 1985:38).	page 3, a description of nees- quoted, set after a bullet
+§1	Amy Rose Deal	note	• Verbs indicate the number of neither a singular subject nor a singular object, but they do indicate the plurality of a direct object with the prefix nees-. [...] Nees is purely number agreement and not person agreement (Crook 1999:125).	page 3, a description of nees- quoted, set after a bullet
+§1	Amy Rose Deal	note	This style of presentation is no doubt motivated by the ease with which agreement affixes may be segmented.2 Yet it turns out that that the basic description of nees- as a plural object marker is not complete. Object plurality is a necessary but not sufficient condition for the use of nees-. In assembling full paradigms for the Nez Perce verb in Deal (2010a,b), I assumed not only the correctness, but also the completeness, of previous morpheme-based descriptions, and aimed to present those descriptions in paradigmatic form. But because the morpheme- based descriptions were incomplete, information was unintentionally added by moving from one style of description to another.	page 3
+footnote 2	Amy Rose Deal	note	For instance, Crook (1999:123) writes that “prefixal inflection involves much less supple- tion than is found in suffixal inflection. With one exception, we can treat the different categories of prefixal inflection separately without considering them as part of a morpho- logically interdependent complex”.	page 3, footnote 2
+§1	Amy Rose Deal	note	Further complicating the picture is the fact that consultants do sometimes ac- cept and produce forms which violate agreement restrictions. Examples (5), for instance, violate restriction (4). Examples of this type were taken into considera- tion in assembling the earlier paradigms.	page 3
+(5a) line 1	Nez Perce	segmentation	’Imee ’eetx ’e-pe-nees-hex-nu’ pro.	page 4
+(5a) line 2	Nez Perce	gloss	2PL.NOM 2PL.CLITIC 3OBJ-S.PL-O.PL-see-FUT PRO.3PL	page 4
+(5a) line 3	Amy Rose Deal	translation	‘You will see them.’	page 4
+(5a) line 4	Amy Rose Deal	citation	(Deal 2010b:97)	page 4, the tag or source at the right of the translation
+(5b) line 1	Nez Perce	segmentation	Pro ’e-pe-nees-hex-n-e pro.	page 4
+(5b) line 2	Nez Perce	gloss	PRO.1PL 3OBJ-S.PL-O.PL-see-P-REM.PAST PRO.3PL	page 4
+(5b) line 3	Amy Rose Deal	translation	‘We saw them.’	page 4
+(5b) line 4	Amy Rose Deal	citation	(Rude 1985:39)	page 4, the tag or source at the right of the translation
+§1	Amy Rose Deal	note	These data points contrast with the data point in (3b). What is the nature of this variability? Is it true grammatical optionality? Is it variation between dialects or idiolects, variation conditioned by the verb, or some other type of conditioned variation? Or does it simply reflect noise in fieldwork data, of the sort that may result from miscommunciations with consultants or simply performance errors (due, perhaps, to the cognitively taxing nature of certain elicitation sessions)? In the absence of evidence bearing on these questions, there is a clear attraction to treating (3b) as the exceptional case. It is (3b), rather than (5), that violates an oth- erwise simple generalization about the distribution of nees-: nees- appears if and only if the object is plural. But it turns out that once repeated, controlled elicitation is carried out, it is (5) whose status becomes clearly exceptional. Consultants who occasionally produce or accept forms like (5) stop producing and accepting those forms in tasks of systematic paradigm elicitation. Only forms like (3b) are pro- duced and accepted. That suggests that the status of (5) may be just be ‘noise’. To put it slightly differently, (3b) deserves explanation in terms of a theory of agree- ment; (5) deserves explanation by means of a theory of performance or, perhaps, simply a close study of the particulars of an elicitation session. This conclusion becomes clear only through systematic elicitation of multiple paradigms – a tech- nique which has not been discussed in the previous literature on Nez Perce.	page 4
+§1	Amy Rose Deal	note	In sum, the paradigms in Deal (2010a,b) were based on two assumptions that proved faulty: first, that the standard modern morpheme-by-morpheme descrip- tions have been not only correct, but also complete; and second, that examples like (5) represent the grammar of Nez Perce, whereas examples like (3b) do not. I hope these remarks make it clear why I take the paradigms presented in this paper to replace those I provided in earlier work, rather than to complement them.	page 4
+§1	Amy Rose Deal	note	In the rest of this paper, I present my case for an updated view of the verbal agreement system. The next section introduces the basics of the system, drawing on Aoki (1970, 1994); Crook (1999); Rude (1985); Velten (1943), as well as the results of systematic paradigm elicitation. Section 3 then presents the full agree- ment paradigm and discusses the elicitation methodology behind it. At this point it is possible to state a number of agreement restrictions. Section 4 concludes by discussing several analytical options for the agreement system. Finally, two full verbal paradigms are provided as an appendix.	page 4
+§2	Amy Rose Deal	heading	2 Basics of the agreement system	page 5
+§2	Amy Rose Deal	note	Nez Perce verb agreement involves three prefix positions and two suffix positions. These positions are bolded in the schematic structure in (6).	page 5
+(6) line 1	Amy Rose Deal	note	Schematic structure of the verb	page 5, set as an example
+(6) line 2	Amy Rose Deal	note	person – S # – O # – causative – root – applicatives – aspect/mood – S # – space – tense	page 5, set as an example
+§2	Amy Rose Deal	note	We begin with the person marking position. Observe that while there are sep- arate positions for subject and object number marking in (6), there is only one position for person marking. Three morphemes that index 3rd persons are possi- ble in this position: hi- for a 3rd person subject, ’e(w)- for a 3rd person object,3 and portmanteau pee- for a 3rd person subject along with a 3rd person object. (We will see that the distribution of pee- and ’e(w)- is subject to additional restrictions.)	page 5
+footnote 3	Amy Rose Deal	note	The ’ew- allomorph appears when a glottal segment follows.	page 5, footnote 3
+§2	Nez Perce	cited form	hi-	page 5, in italics
+§2	Nez Perce	cited form	’e(w)-	page 5, in italics
+§2	Nez Perce	cited form	pee-	page 5, in italics
+(7a) line 1	Nez Perce	segmentation	Angel-nim hi-cewcew-téetu pro.	page 5
+(7a) line 2	Nez Perce	gloss	Angel-ERG 3SUBJ-call-HAB.PRES PRO.1SG	page 5
+(7a) line 3	Amy Rose Deal	translation	‘Angel calls me.’	page 5
+(7b) line 1	Nez Perce	segmentation	Pro ’e-cewcew-téetu Angel-ne.	page 5
+(7b) line 2	Nez Perce	gloss	PRO.1SG 3OBJ-call-HAB.PRES Angel-ACC	page 5
+(7b) line 3	Amy Rose Deal	translation	‘I call Angel.’	page 5
+(7c) line 1	Nez Perce	segmentation	Angel-nim pee-cewcew-téetu Bessie-na.	page 5
+(7c) line 2	Nez Perce	gloss	Angel-ERG 3/3-call-HAB.PRES Bessie-ACC	page 5
+(7c) line 3	Amy Rose Deal	translation	‘Angel calls Bessie.’	page 5
+§2	Amy Rose Deal	note	Modern descriptions have generally held that there is no special (non-reflexive) person inflection for 1st and 2nd person.4 As Rude (1985:30) writes, “the seman- tic contrast is between 1st and 2nd person on one hand and 3rd person on the other in a participant versus non-participant deictic system.” All acknowledge, however, the existence of two other types of affixes which apparently occupy the same prefix position as hi-/’e(w)-/pee-. One is the reflexive, which contains specialized forms for all person-number combinations (with the exception of 2PL and 3PL, which are syncretic).5 The other, more crucial for our purposes here, is the reciprocal, which is an invariant prefix pii-. Contrast reciprocal (8a) with non-reciprocal (8b):	page 5
+footnote 4	Amy Rose Deal	note	The exception is Velten (1943), who mistakes the initial vowel of certain verb stems for a 1st/2nd person agreement prefix.	page 5, footnote 4
+footnote 5	Amy Rose Deal	note	See Rude (1985:40) for the paradigm of these affixes, and Deal (2010b) for discussion of their status as detransitivizing derivational morphemes.	page 5, footnote 5
+§2	Nez Perce	cited form	pii-	page 5, in italics
+(8a) line 1	Nez Perce	segmentation	Caan kaa Meeli pii-suk-n-e.	page 6
+(8a) line 2	Nez Perce	gloss	John.NOM and Mary.NOM RECIP-recognize-P-REM.PAST	page 6
+(8a) line 3	Amy Rose Deal	translation	‘John and Mary recognized each other.’	page 6
+(8b) line 1	Nez Perce	segmentation	Pro ’e-sukí-ce ko-nyá.	page 6
+(8b) line 2	Nez Perce	gloss	PRO.1SG 3OBJ-recognize-IMPERF DEM-ACC	page 6
+(8b) line 3	Amy Rose Deal	translation	‘I recognize that person.’	page 6
+§2	Amy Rose Deal	note	We will see that the pii- prefix has acquired a significant, non-reciprocal use as part of the person agreement system.	page 6
+§2	Amy Rose Deal	note	There are two positions in (6) associated with subject number. Only one of these positions may be used in a given word; the choice depends on aspect/mood. In the perfect/perfective6 and the future, prefix pe- is used to index a plural subject. The examples below demonstrate for perfect/perfective. (These examples include a verb root triggering vowel harmony; ’ew- and pe- accordingly surface as ’aw- and pa-.)	page 6
+footnote 6	Amy Rose Deal	note	This is the aspectual category described as ‘P aspect’ in Deal (2010b), and glossed as ‘P’ in examples.	page 6, footnote 6
+§2	Nez Perce	cited form	pe-	page 6, in italics
+§2	Nez Perce	cited form	’ew-	page 6, in italics
+(9a) line 1	Nez Perce	transcription	Pro ’aw’yáax̂na Matt-ne cepéeletp’et-pe.	page 6
+(9a) line 2	Nez Perce	cited form	(’ew-’yáax̂-n-e)	page 6, the verb of the line over it segmented
+(9a) line 3	Nez Perce	gloss	PRO.1SG 3OBJ-find-P-REM.PAST Matt-ACC picture-LOC	page 6
+(9a) line 4	Amy Rose Deal	translation	‘I found Matt in the picture.’	page 6
+(9b) line 1	Nez Perce	transcription	Pro ’apa’yáax̂na Matt-ne cepéeletp’et-pe.	page 6
+(9b) line 2	Nez Perce	cited form	(’e-pe-’yáax̂-n-e)	page 6, the verb of the line over it segmented
+(9b) line 3	Nez Perce	gloss	PRO.1PL 3OBJ-S.PL-find-P-REM.PAST Matt-ACC picture-LOC	page 6
+(9b) line 4	Amy Rose Deal	translation	‘We found Matt in the picture.’	page 6
+§2	Amy Rose Deal	note	The imperfective, habitual, and imperative each use a special suffix for subject plural, appearing immediately after the aspect/mood suffix. The examples below demonstrate this for the (present) habitual, (10), and the imperfective, (11).7	page 6
+footnote 7	Amy Rose Deal	note	See Deal (2010b) for discussion of the present habitual aspect versus past habitual aspect.	page 6, footnote 7
+(10a) line 1	Nez Perce	segmentation	Pro ’e-cewcew-téetu Angel-ne.	page 6
+(10a) line 2	Nez Perce	gloss	PRO.1SG 3OBJ-call-HAB.PRES Angel-ACC	page 6
+(10a) line 3	Amy Rose Deal	translation	‘I call Angel.’	page 6
+(10b) line 1	Nez Perce	segmentation	Pro ’e-cewcew-tée-’nix Angel-ne.	page 6
+(10b) line 2	Nez Perce	gloss	PRO.1PL 3OBJ-call-HAB.PRES-S.PL Angel-ACC	page 6
+(10b) line 3	Amy Rose Deal	translation	‘We call Angel.’	page 6
+(11a) line 1	Nez Perce	segmentation	Pro ’e-’pewi-se Angel-ne.	page 7
+(11a) line 2	Nez Perce	gloss	PRO.1SG 3OBJ-look.for-IMPERF Angel-ACC	page 7
+(11a) line 3	Amy Rose Deal	translation	‘I am looking for Angel.’	page 7
+(11b) line 1	Nez Perce	segmentation	Pro ’e-’pewi-s-iix Angel-ne.	page 7
+(11b) line 2	Nez Perce	gloss	PRO.1PL 3OBJ-look.for-IMPERF-S.PL Angel-ACC	page 7
+(11b) line 3	Amy Rose Deal	translation	‘We are looking for Angel.’	page 7
+§2	Amy Rose Deal	note	Only plural number is marked here. Evidence that singular number is not marked comes from animacy effects, as reported in Deal (2015b).8 Only [+ANIMATE] arguments may control plural agreement in Nez Perce. Inanimate plural arguments occur with the same verb forms as are used for singulars; these forms must therefore be neutral with respect to number. The examples below demonstrate this for the copula, though the effect appears to hold across all verbs. Observe that the animate subjects control the plural agreement suffix -iix in (12a– b), but that the inanimate subject in (12c) does not. The verb form for an inanimate plural subject in (12c) is the same as for an animate singular subject in (12d).	page 7
+footnote 8	Amy Rose Deal	note	See Deal (2015b) for a fuller discussion of gender/animacy effects in Nez Perce. These effects are not discussed in the prior literature.	page 7, footnote 8
+§2	Nez Perce	cited form	-iix	page 7, in italics
+(12a) line 1	Nez Perce	segmentation	’Émti hi-w-s-íix píilep-t há-ham.	page 7
+(12a) line 2	Nez Perce	gloss	outside 3SUBJ-be-PRES-S.PL four-SUF PL-man.NOM	page 7
+(12a) line 3	Amy Rose Deal	translation	‘Four men are outside.’	page 7
+(12b) line 1	Nez Perce	segmentation	Lep-ít pícpic hi-w-s-íix ’iníit-pe.	page 7
+(12b) line 2	Nez Perce	gloss	two-SUF cat.NOM 3SUBJ-be-PRES-S.PL house-LOC	page 7
+(12b) line 3	Amy Rose Deal	translation	‘Two cats are in the house.’	page 7
+(12c) line 1	Nez Perce	segmentation	Lep-ít cepéepy’ux̂tin’ híi-we-s ’iníit-pe.	page 7
+(12c) line 2	Nez Perce	gloss	two-SUF pie.NOM 3SUBJ-be-PRES house-LOC	page 7
+(12c) line 3	Amy Rose Deal	translation	‘Two pies are in the house.’	page 7
+(12d) line 1	Nez Perce	segmentation	Harold híi-we-s Clarkston-pa.	page 7
+(12d) line 2	Nez Perce	gloss	Harold.NOM 3SUBJ-be-PRES Clarkson-LOC	page 7
+(12d) line 3	Amy Rose Deal	translation	‘Harold is in Clarkston.’	page 7
+§2	Amy Rose Deal	note	Object number is marked by the prefix nees-/neec-; the latter allomorph ap- pears before a glottal segment. (With vowel harmony, these affixes become naas-/naac-.)	page 7
+§2	Nez Perce	cited form	neec-	page 7, in italics
+§2	Nez Perce	cited form	naas-	page 7, in italics
+(13a) line 1	Nez Perce	segmentation	Pro ’e-cewcew-téetu Angel-ne.	page 8
+(13a) line 2	Nez Perce	gloss	PRO.1SG 3OBJ-call-HAB.PRES Angel-ACC	page 8
+(13a) line 3	Amy Rose Deal	translation	‘I call Angel.’	page 8
+(13b) line 1	Nez Perce	segmentation	Pro ’e-nees-cewcew-téetu Angel kaa Tatlo-na.	page 8
+(13b) line 2	Nez Perce	gloss	PRO.1SG 3OBJ-call-HAB.PRES Angel.NOM and Tatlo-ACC	page 8
+(13b) line 3	Amy Rose Deal	translation	‘I call Angel and Tatlo.’	page 8
+§2	Amy Rose Deal	note	Once again, singular number is not marked. There is again an animacy effect on the arguments that may condition plural agreement; only animates may control this agreement. See Deal (2015b) for examples and discussion.	page 8
+§2	Amy Rose Deal	note	A final aspect of verb morphology which bears on the agreement system is space marking. Space markers -m ‘cislocative’ and -ki ‘translocative’ appear be- tween aspect/mood suffixes (followed by a subject number suffix, if applicable) and tense suffixes. These morphemes typically indicate location near or toward the speaker (cislocative) or away from the speaker (translocative), and are studied in this usage in Deal (2009).	page 8
+§2	Nez Perce	cited form	-m	page 8, in italics, ‘cislocative’
+§2	Nez Perce	cited form	-ki	page 8, in italics, ‘translocative’
+(14a) line 1	Nez Perce	segmentation	Héenek’u pro hi-kóo-qa-m-a.	page 8
+(14a) line 2	Nez Perce	gloss	again PRO.3SG 3SUBJ-go-HAB-CIS-REM.PAST	page 8
+(14a) line 3	Amy Rose Deal	translation	‘Again he would come.’	page 8
+(14a) line 4	Amy Rose Deal	citation	(Aoki 1979:68)	page 8, the tag or source at the right of the translation
+(14b) line 1	Nez Perce	segmentation	’Iskit hi-ku-séen-ki.	page 8
+(14b) line 2	Nez Perce	gloss	trail.NOM 3SUBJ-go-IMPERF-TRANS	page 8
+(14b) line 3	Amy Rose Deal	translation	‘The trail goes that way (away from the speaker).’	page 8
+(14b) line 4	Amy Rose Deal	citation	(Aoki 1994:243)	page 8, the tag or source at the right of the translation
+§2	Amy Rose Deal	note	Rude (1985:49) notes that “often the existence of a 1st person direct object is reinforced by the cislocative”. In keeping with this observation, we will see that the cislocative (in connection with the reciprocal) has acquired a role as part of the agreement system.	page 8
+§3	Amy Rose Deal	heading	3 Agreement restrictions in systematic paradigm elicitation	page 8
+§3	Amy Rose Deal	note	Elicitation of person-number paradigms for four transitive verbs was carried out in the summers of 2012 and 2013. Data was collected for all non-reflexive cells in a paradigm varying both number and person for both subject and object. Thus, 28 paradigm cells were collected per verb. The verbs were ’iyaaq ‘find’, hexte ‘go see, visit’9, ’ipewi ‘look for’, and cewcewi ‘call on the phone’.10 All arguments were definite and human-referring (generally, pronouns, proper names, or coor- dinations thereof). Four aspect/mood categories were used: perfect/perfective, future, imperfective and present habitual. (The first two of these categories take prefixal subject number agreement; the second two take suffixal subject number agreement.) Data was elicited from two native speakers, who worked together throughout the elicitation task. As each form was elicited, it was written on a whiteboard, and verbally confirmed with the speakers. Two of the paradigms (for ’iyaaq ‘find’, perfect/perfective aspect, and cewcewi ‘call’, present habitual as- pect) were then typed up and reviewed an additional time with the two speakers, to catch any remaining errors.	page 8
+footnote 9	Amy Rose Deal	note	The verb root here is heki ‘see’ plus suffix -te ‘go to V’.	page 8, footnote 9
+footnote 9	Nez Perce	cited form	-te	page 8, in italics, ‘go to V’
+footnote 10	Amy Rose Deal	note	This verb originally meant ‘whisper’.	page 8, footnote 10
+§3	Amy Rose Deal	note	I present the data in Tables 1 and 2 in schematic form; in the appendix, I present the full paradigms for ’iyaaq ‘find’ (perfect/perfective aspect) and cewcewi ‘call’ (present habitual aspect). To aid the discussion, I have assigned a number to each paradigm cell in Tables 1 and 2. The (a) form in each cell represents the findings for verb forms where subject number is expressed as a prefix (in this study, perfect/perfective and future). The (b) form represents the findings for verb forms where subject number is expressed as a suffix (in this study, imperfective and present habitual). In the (b) forms, I exemplify with imperfective except in lines 2b and 6b, for reasons to be discussed in the next paragraph. The suffix -se is the general form of the imperfective; -s-iix represents imperfective aspect plus plural subject number. In lines 2b and 6b, I show the present habitual, where the general form is -teetu, and -tee-’nix represents aspect plus plural subject number. (See (10).)	page 9
+§3	Nez Perce	cited form	-se	page 9, in italics
+§3	Nez Perce	cited form	-s-iix	page 9, in italics
+§3	Nez Perce	cited form	-teetu	page 9, in italics
+§3	Nez Perce	cited form	-tee-’nix	page 9, in italics
+§3	Amy Rose Deal	note	The data collected in this elicitation task was highly consistent. Of the 112 forms collected, only 3 (2.7%) departed from the schematic paradigm I present below. A first case concerned form 2b (2PL on 1SG). The consensus form given was expected for 2SG on 1SG; however, one of the two speakers also provided the expected (2PL on 1SG) form. A second case concerned form 6b (2PL on 1PL); the consensus form given was for 2PL on 1SG. This occurred immediately after the error just discussed; there may have been confusion about which cell was in question. The third and last case concerned form 28a, 3pl/3pl (3PL on 3PL); the consensus form given was for 3PL on 3SG, which had just been elicited. In each of these three cases, the form provided for one of the four paradigms contrasted with those found in the three other paradigms. I therefore assume that these were errors. (Notably, none of these errors were in the ‘find’ or ‘call’ paradigms submitted to speakers for a second round of review and correction. It is very possible that, had these forms been additionally reviewed in this way, they would have been corrected.) The errors concerning cells 2b and 6b were found in the paradigm using imperfective aspect. That is why, in Table 1, I exemplify these cells using present habitual aspect instead.11	page 9
+footnote 11	Amy Rose Deal	note	I do not switch entirely to present habitual due to a morphological interaction between this aspect and the cislocative, which partially obscures a relevant pattern. See the discussion around (19).	page 9, footnote 11
+Table 1 line 1	Amy Rose Deal	note	Table 1: Results of systematic paradigm elicitation, collapsed [morphemes]	page 10, the caption
+Table 1 line 2	Amy Rose Deal	note	1sg O 1pl O 2sg O 2pl O 3sg O 3pl O	page 10, the line heading the columns, the object
+Table 1, 1s S	Amy Rose Deal	note	1s S	page 10, the subject heading the row
+Table 1, 1s S on 1sg O and 1pl O	Amy Rose Deal	note	— —	page 10, no cell: the paradigm leaves out the reflexive
+Table 1 cell 9a	Nez Perce	cited affix	0-	page 10, 1s S on 2sg O, the affixes around the stem (•)
+Table 1 cell 13a	Nez Perce	cited affix	0-	page 10, 1s S on 2pl O, the affixes around the stem (•)
+Table 1 cell 17a	Nez Perce	cited affix	’e-	page 10, 1s S on 3sg O, the affixes around the stem (•)
+Table 1 cell 23a	Nez Perce	cited affix	’e-nees-	page 10, 1s S on 3pl O, the affixes around the stem (•)
+Table 1 cell 9b	Nez Perce	cited affix	0-•-se	page 10, 1s S on 2sg O, the affixes around the stem (•)
+Table 1 cell 13b	Nez Perce	cited affix	0-•-se	page 10, 1s S on 2pl O, the affixes around the stem (•)
+Table 1 cell 17b	Nez Perce	cited affix	’e-•-se	page 10, 1s S on 3sg O, the affixes around the stem (•)
+Table 1 cell 23b	Nez Perce	cited affix	’e-nees-•-se	page 10, 1s S on 3pl O, the affixes around the stem (•)
+Table 1, 1p S	Amy Rose Deal	note	1p S	page 10, the subject heading the row
+Table 1, 1p S on 1sg O and 1pl O	Amy Rose Deal	note	— —	page 10, no cell: the paradigm leaves out the reflexive
+Table 1 cell 10a	Nez Perce	cited affix	pe-	page 10, 1p S on 2sg O, the affixes around the stem (•)
+Table 1 cell 14a	Nez Perce	cited affix	pe-	page 10, 1p S on 2pl O, the affixes around the stem (•)
+Table 1 cell 18a	Nez Perce	cited affix	’e-pe-	page 10, 1p S on 3sg O, the affixes around the stem (•)
+Table 1 cell 24a	Nez Perce	cited affix	’e-pe-	page 10, 1p S on 3pl O, the affixes around the stem (•)
+Table 1 cell 10b	Nez Perce	cited affix	-s-iix	page 10, 1p S on 2sg O, the affixes around the stem (•)
+Table 1 cell 14b	Nez Perce	cited affix	-s-iix	page 10, 1p S on 2pl O, the affixes around the stem (•)
+Table 1 cell 18b	Nez Perce	cited affix	’e-•-s-iix	page 10, 1p S on 3sg O, the affixes around the stem (•)
+Table 1 cell 24b	Nez Perce	cited affix	’e-nees-•-s-iix	page 10, 1p S on 3pl O, the affixes around the stem (•)
+Table 1, 2s S	Amy Rose Deal	note	2s S	page 10, the subject heading the row
+Table 1, 2s S on 2sg O and 2pl O	Amy Rose Deal	note	— —	page 10, no cell: the paradigm leaves out the reflexive
+Table 1 cell 1a	Nez Perce	cited affix	(píi)-•-m	page 10, 2s S on 1sg O, the affixes around the stem (•)
+Table 1 cell 5a	Nez Perce	cited affix	nees-•-m	page 10, 2s S on 1pl O, the affixes around the stem (•)
+Table 1 cell 19a	Nez Perce	cited affix	’e-	page 10, 2s S on 3sg O, the affixes around the stem (•)
+Table 1 cell 25a	Nez Perce	cited affix	’e-nees-	page 10, 2s S on 3pl O, the affixes around the stem (•)
+Table 1 cell 1b	Nez Perce	cited affix	(píi)-•-se-m	page 10, 2s S on 1sg O, the affixes around the stem (•)
+Table 1 cell 5b	Nez Perce	cited affix	nees-•-se-m	page 10, 2s S on 1pl O, the affixes around the stem (•)
+Table 1 cell 19b	Nez Perce	cited affix	’e-•-se	page 10, 2s S on 3sg O, the affixes around the stem (•)
+Table 1 cell 25b	Nez Perce	cited affix	’e-nees-•-se	page 10, 2s S on 3pl O, the affixes around the stem (•)
+Table 1, 2p S	Amy Rose Deal	note	2p S	page 10, the subject heading the row
+Table 1, 2p S on 2sg O and 2pl O	Amy Rose Deal	note	— —	page 10, no cell: the paradigm leaves out the reflexive
+Table 1 cell 2a	Nez Perce	cited affix	pe-•-m	page 10, 2p S on 1sg O, the affixes around the stem (•)
+Table 1 cell 6a	Nez Perce	cited affix	pe-nees-•-m	page 10, 2p S on 1pl O, the affixes around the stem (•)
+Table 1 cell 20a	Nez Perce	cited affix	’e-pe-	page 10, 2p S on 3sg O, the affixes around the stem (•)
+Table 1 cell 26a	Nez Perce	cited affix	’e-pe-	page 10, 2p S on 3pl O, the affixes around the stem (•)
+Table 1 cell 2b	Nez Perce	cited affix	-tee-’nix	page 10, 2p S on 1sg O, the affixes around the stem (•)
+Table 1 cell 6b	Nez Perce	cited affix	nees-•-tee-’nix	page 10, 2p S on 1pl O, the affixes around the stem (•)
+Table 1 cell 20b	Nez Perce	cited affix	’e-•-s-iix	page 10, 2p S on 3sg O, the affixes around the stem (•)
+Table 1 cell 26b	Nez Perce	cited affix	’e-nees-•-s-iix	page 10, 2p S on 3pl O, the affixes around the stem (•)
+Table 1, 3s S	Amy Rose Deal	note	3s S	page 10, the subject heading the row
+Table 1 cell 3a	Nez Perce	cited affix	hi-	page 10, 3s S on 1sg O, the affixes around the stem (•)
+Table 1 cell 7a	Nez Perce	cited affix	hi-nees-	page 10, 3s S on 1pl O, the affixes around the stem (•)
+Table 1 cell 11a	Nez Perce	cited affix	hi-	page 10, 3s S on 2sg O, the affixes around the stem (•)
+Table 1 cell 15a	Nez Perce	cited affix	hi-	page 10, 3s S on 2pl O, the affixes around the stem (•)
+Table 1 cell 21a	Nez Perce	cited affix	pee-	page 10, 3s S on 3sg O, the affixes around the stem (•)
+Table 1 cell 27a	Nez Perce	cited affix	hi-nees-	page 10, 3s S on 3pl O, the affixes around the stem (•)
+Table 1 cell 3b	Nez Perce	cited affix	hi-•-se	page 10, 3s S on 1sg O, the affixes around the stem (•)
+Table 1 cell 7b	Nez Perce	cited affix	hi-nees-•-se	page 10, 3s S on 1pl O, the affixes around the stem (•)
+Table 1 cell 11b	Nez Perce	cited affix	hi-•-se	page 10, 3s S on 2sg O, the affixes around the stem (•)
+Table 1 cell 15b	Nez Perce	cited affix	hi-•-se	page 10, 3s S on 2pl O, the affixes around the stem (•)
+Table 1 cell 21b	Nez Perce	cited affix	pee-•-se	page 10, 3s S on 3sg O, the affixes around the stem (•)
+Table 1 cell 27b	Nez Perce	cited affix	hi-nees-•-se	page 10, 3s S on 3pl O, the affixes around the stem (•)
+Table 1, 3p S	Amy Rose Deal	note	3p S	page 10, the subject heading the row
+Table 1 cell 4a	Nez Perce	cited affix	hi-pe-	page 10, 3p S on 1sg O, the affixes around the stem (•)
+Table 1 cell 8a	Nez Perce	cited affix	hi-pe-nees-	page 10, 3p S on 1pl O, the affixes around the stem (•)
+Table 1 cell 12a	Nez Perce	cited affix	hi-pe-	page 10, 3p S on 2sg O, the affixes around the stem (•)
+Table 1 cell 16a	Nez Perce	cited affix	hi-pe-	page 10, 3p S on 2pl O, the affixes around the stem (•)
+Table 1 cell 22a	Amy Rose Deal	note	**	page 10, 3p S on 3sg O, no form: the combination is ineffable, (22)
+Table 1 cell 28a	Nez Perce	cited affix	hi-nees-	page 10, 3p S on 3pl O, the affixes around the stem (•)
+Table 1 cell 4b	Nez Perce	cited affix	hi-•-s-iix	page 10, 3p S on 1sg O, the affixes around the stem (•)
+Table 1 cell 8b	Nez Perce	cited affix	hi-nees-•-s-iix	page 10, 3p S on 1pl O, the affixes around the stem (•)
+Table 1 cell 12b	Nez Perce	cited affix	hi-•-s-iix	page 10, 3p S on 2sg O, the affixes around the stem (•)
+Table 1 cell 16b	Nez Perce	cited affix	hi-•-s-iix	page 10, 3p S on 2pl O, the affixes around the stem (•)
+Table 1 cell 22b	Nez Perce	cited affix	pee-•-s-iix	page 10, 3p S on 3sg O, the affixes around the stem (•)
+Table 1 cell 28b	Nez Perce	cited affix	hi-nees-•-se	page 10, 3p S on 3pl O, the affixes around the stem (•)
+Table 1 line 3	Amy Rose Deal	note	Notes on both tables: The position of the verb stem is indicated with a solid dot (•). Tense inflection is not shown. Cells with cislocative are green; cells with a plural object but no plural object agreement are red; cells with a plural subject but no plural subject agreement are blue.	page 10, the notes under both tables
+Table 2 line 1	Amy Rose Deal	note	Table 2: Results of systematic paradigm elicitation, collapsed [glosses]	page 11, the caption
+Table 2 line 2	Amy Rose Deal	note	1sg O 1pl O 2sg O 2pl O 3sg O 3pl O	page 11, the line heading the columns, the object
+Table 2, 1s S	Amy Rose Deal	note	1s S	page 11, the subject heading the row
+Table 2, 1s S on 1sg O and 1pl O	Amy Rose Deal	note	— —	page 11, no cell: the paradigm leaves out the reflexive
+Table 2 cell 9a	Amy Rose Deal	gloss	0-	page 11, 1s S on 2sg O, the glosses of the affixes
+Table 2 cell 13a	Amy Rose Deal	gloss	0-	page 11, 1s S on 2pl O, the glosses of the affixes
+Table 2 cell 17a	Amy Rose Deal	gloss	3O-	page 11, 1s S on 3sg O, the glosses of the affixes
+Table 2 cell 23a	Amy Rose Deal	gloss	3O-O.PL-	page 11, 1s S on 3pl O, the glosses of the affixes
+Table 2 cell 9b	Amy Rose Deal	gloss	0-•	page 11, 1s S on 2sg O, the glosses of the affixes
+Table 2 cell 13b	Amy Rose Deal	gloss	0-•	page 11, 1s S on 2pl O, the glosses of the affixes
+Table 2 cell 17b	Amy Rose Deal	gloss	3O-•	page 11, 1s S on 3sg O, the glosses of the affixes
+Table 2 cell 23b	Amy Rose Deal	gloss	3O-O.PL-•	page 11, 1s S on 3pl O, the glosses of the affixes
+Table 2, 1p S	Amy Rose Deal	note	1p S	page 11, the subject heading the row
+Table 2, 1p S on 1sg O and 1pl O	Amy Rose Deal	note	— —	page 11, no cell: the paradigm leaves out the reflexive
+Table 2 cell 10a	Amy Rose Deal	gloss	S.PL-	page 11, 1p S on 2sg O, the glosses of the affixes
+Table 2 cell 14a	Amy Rose Deal	gloss	S.PL-	page 11, 1p S on 2pl O, the glosses of the affixes
+Table 2 cell 18a	Amy Rose Deal	gloss	3O-S.PL-	page 11, 1p S on 3sg O, the glosses of the affixes
+Table 2 cell 24a	Amy Rose Deal	gloss	3O-S.PL-	page 11, 1p S on 3pl O, the glosses of the affixes
+Table 2 cell 10b	Amy Rose Deal	gloss	-S.PL	page 11, 1p S on 2sg O, the glosses of the affixes
+Table 2 cell 14b	Amy Rose Deal	gloss	-S.PL	page 11, 1p S on 2pl O, the glosses of the affixes
+Table 2 cell 18b	Amy Rose Deal	gloss	3O-•-S.PL	page 11, 1p S on 3sg O, the glosses of the affixes
+Table 2 cell 24b	Amy Rose Deal	gloss	3O-O.PL-•-S.PL	page 11, 1p S on 3pl O, the glosses of the affixes
+Table 2, 2s S	Amy Rose Deal	note	2s S	page 11, the subject heading the row
+Table 2, 2s S on 2sg O and 2pl O	Amy Rose Deal	note	— —	page 11, no cell: the paradigm leaves out the reflexive
+Table 2 cell 1a	Amy Rose Deal	gloss	(REC)-•-CIS	page 11, 2s S on 1sg O, the glosses of the affixes
+Table 2 cell 5a	Amy Rose Deal	gloss	O.PL-•-CIS	page 11, 2s S on 1pl O, the glosses of the affixes
+Table 2 cell 19a	Amy Rose Deal	gloss	3O-	page 11, 2s S on 3sg O, the glosses of the affixes
+Table 2 cell 25a	Amy Rose Deal	gloss	3O-O.PL-	page 11, 2s S on 3pl O, the glosses of the affixes
+Table 2 cell 1b	Amy Rose Deal	gloss	(REC)-•-CIS	page 11, 2s S on 1sg O, the glosses of the affixes
+Table 2 cell 5b	Amy Rose Deal	gloss	O.PL-•-CIS	page 11, 2s S on 1pl O, the glosses of the affixes
+Table 2 cell 19b	Amy Rose Deal	gloss	3O-•	page 11, 2s S on 3sg O, the glosses of the affixes
+Table 2 cell 25b	Amy Rose Deal	gloss	3O-O.PL-•	page 11, 2s S on 3pl O, the glosses of the affixes
+Table 2, 2p S	Amy Rose Deal	note	2p S	page 11, the subject heading the row
+Table 2, 2p S on 2sg O and 2pl O	Amy Rose Deal	note	— —	page 11, no cell: the paradigm leaves out the reflexive
+Table 2 cell 2a	Amy Rose Deal	gloss	S.PL-•-CIS	page 11, 2p S on 1sg O, the glosses of the affixes
+Table 2 cell 6a	Amy Rose Deal	gloss	S.PL-O.PL-•-CIS	page 11, 2p S on 1pl O, the glosses of the affixes
+Table 2 cell 20a	Amy Rose Deal	gloss	3O-S.PL-	page 11, 2p S on 3sg O, the glosses of the affixes
+Table 2 cell 26a	Amy Rose Deal	gloss	3O-S.PL-	page 11, 2p S on 3pl O, the glosses of the affixes
+Table 2 cell 2b	Amy Rose Deal	gloss	-S.PL	page 11, 2p S on 1sg O, the glosses of the affixes
+Table 2 cell 6b	Amy Rose Deal	gloss	O.PL-•-S.PL	page 11, 2p S on 1pl O, the glosses of the affixes
+Table 2 cell 20b	Amy Rose Deal	gloss	3O-•-S.PL	page 11, 2p S on 3sg O, the glosses of the affixes
+Table 2 cell 26b	Amy Rose Deal	gloss	3O-O.PL-•-S.PL	page 11, 2p S on 3pl O, the glosses of the affixes
+Table 2, 3s S	Amy Rose Deal	note	3s S	page 11, the subject heading the row
+Table 2 cell 3a	Amy Rose Deal	gloss	3S-	page 11, 3s S on 1sg O, the glosses of the affixes
+Table 2 cell 7a	Amy Rose Deal	gloss	3S-O.PL-	page 11, 3s S on 1pl O, the glosses of the affixes
+Table 2 cell 11a	Amy Rose Deal	gloss	3S-	page 11, 3s S on 2sg O, the glosses of the affixes
+Table 2 cell 15a	Amy Rose Deal	gloss	3S-	page 11, 3s S on 2pl O, the glosses of the affixes
+Table 2 cell 21a	Amy Rose Deal	gloss	3/3-	page 11, 3s S on 3sg O, the glosses of the affixes
+Table 2 cell 27a	Amy Rose Deal	gloss	3S-O.PL-	page 11, 3s S on 3pl O, the glosses of the affixes
+Table 2 cell 3b	Amy Rose Deal	gloss	3S-•	page 11, 3s S on 1sg O, the glosses of the affixes
+Table 2 cell 7b	Amy Rose Deal	gloss	3S-O.PL-•	page 11, 3s S on 1pl O, the glosses of the affixes
+Table 2 cell 11b	Amy Rose Deal	gloss	3S-•	page 11, 3s S on 2sg O, the glosses of the affixes
+Table 2 cell 15b	Amy Rose Deal	gloss	3S-•	page 11, 3s S on 2pl O, the glosses of the affixes
+Table 2 cell 21b	Amy Rose Deal	gloss	3/3-•	page 11, 3s S on 3sg O, the glosses of the affixes
+Table 2 cell 27b	Amy Rose Deal	gloss	3S-O.PL-•	page 11, 3s S on 3pl O, the glosses of the affixes
+Table 2, 3p S	Amy Rose Deal	note	3p S	page 11, the subject heading the row
+Table 2 cell 4a	Amy Rose Deal	gloss	3S-S.PL-	page 11, 3p S on 1sg O, the glosses of the affixes
+Table 2 cell 8a	Amy Rose Deal	gloss	3S-S.PL-O.PL-	page 11, 3p S on 1pl O, the glosses of the affixes
+Table 2 cell 12a	Amy Rose Deal	gloss	3S-S.PL-	page 11, 3p S on 2sg O, the glosses of the affixes
+Table 2 cell 16a	Amy Rose Deal	gloss	3S-S.PL-	page 11, 3p S on 2pl O, the glosses of the affixes
+Table 2 cell 22a	Amy Rose Deal	note	**	page 11, 3p S on 3sg O, no form: the combination is ineffable, (22)
+Table 2 cell 28a	Amy Rose Deal	gloss	3S-O.PL-	page 11, 3p S on 3pl O, the glosses of the affixes
+Table 2 cell 4b	Amy Rose Deal	gloss	3S-•-S.PL	page 11, 3p S on 1sg O, the glosses of the affixes
+Table 2 cell 8b	Amy Rose Deal	gloss	3S-O.PL-•-S.PL	page 11, 3p S on 1pl O, the glosses of the affixes
+Table 2 cell 12b	Amy Rose Deal	gloss	3S-•-S.PL	page 11, 3p S on 2sg O, the glosses of the affixes
+Table 2 cell 16b	Amy Rose Deal	gloss	3S-•-S.PL	page 11, 3p S on 2pl O, the glosses of the affixes
+Table 2 cell 22b	Amy Rose Deal	gloss	3/3-•-S.PL	page 11, 3p S on 3sg O, the glosses of the affixes
+Table 2 cell 28b	Amy Rose Deal	gloss	3S-O.PL-•	page 11, 3p S on 3pl O, the glosses of the affixes
+Table 2 line 3	Amy Rose Deal	note	Notes on Table 2: Morphemes are glossed here according to the following conventions:	page 11, the notes under the table
+Table 2, the conventions line 1	Amy Rose Deal	note	3/3 3rd person subject and 3rd person object portmanteau prefix	page 11, a gloss convention of Table 2
+Table 2, the conventions line 2	Amy Rose Deal	note	3O 3rd person object prefix	page 11, a gloss convention of Table 2
+Table 2, the conventions line 3	Amy Rose Deal	note	3S 3rd person subject prefix	page 11, a gloss convention of Table 2
+Table 2, the conventions line 4	Amy Rose Deal	note	CIS morpheme typically described as the cislocative	page 11, a gloss convention of Table 2
+Table 2, the conventions line 5	Amy Rose Deal	note	O.PL plural object prefix	page 11, a gloss convention of Table 2
+Table 2, the conventions line 6	Amy Rose Deal	note	REC morpheme typically described as the reciprocal	page 11, a gloss convention of Table 2
+Table 2, the conventions line 7	Amy Rose Deal	note	S.PL plural subject marker	page 11, a gloss convention of Table 2
+§3	Amy Rose Deal	note	Let us now consider the findings themselves. We see in Tables 1 and 2 that, as a baseline, all plural arguments agree in number and all 3rd persons agree in person. Four agreement restrictions can be picked out as departures from this baseline. (Those involving plural objects that do not agree in plural are marked in red; those involving plural subjects that do not agree in plural are marked in blue.)	page 12
+§3	Amy Rose Deal	note	First, there is never plural object agreement with a second person object, (15).	page 12
+(15) line 1	Amy Rose Deal	note	No plural agreement with a 2nd person object: If the object has features [ADDR, PL], [PL] from the object cannot be in- dexed on the verb. (Forms 13–16.)	page 12, set as an example
+§3	Amy Rose Deal	note	Second, as discussed above, there is a limitation on plural object agreement for plural 3rd person objects when the subject is a plural participant. Notably, this restriction is specific to aspectual/modal categories with prefixal subject agree- ment. Observe that nees- is absent in the (a) examples in cells 24 and 26, but not the (b) examples. The (b) examples have no agreement restriction: all plural arguments agree plural, whether via prefix nees- (for the object) or suffix -iix (for the subject). The restriction in (4) is accordingly refined as (16).	page 12
+(16) line 1	Amy Rose Deal	note	No plural agreement with a 3rd person object when the subject is 1pl or 2pl and the subject plural marker is a prefix: If the object has features [-PART, PL], and the subject has features [+PART, PL], and the aspect/mood is one that forces a subject number pre- fix, then [PL] from the object cannot be indexed on the verb. (Forms 24a, 26a.)	page 12, set as an example
+§3	Amy Rose Deal	note	Third, there is no person agreement with a 3rd person plural object when the subject is 3rd person, (17). This is one agreement restriction that has been noticed in the previous literature, namely in Rude (1985:39), and is represented correctly in the paradigms of Deal (2010a,b).	page 12
+(17) line 1	Amy Rose Deal	note	No person agreement with a 3rd person plural object when the subject is 3rd person: If the object has features [-PART, PL] and the subject has feature [-PART], [-PART] from the object cannot be indexed on the verb. (Forms 27–28.)	page 12, set as an example
+§3	Amy Rose Deal	note	Fourth and finally, there is no plural subject agreement of any kind when both the subject and the object are third person plural, (18). In form 28a, prefix pe- is absent, and in form 28b, imperfective aspect appears in the non-plural form.	page 12
+(18) line 1	Amy Rose Deal	note	No plural subject agreement when both the subject and the object are third person plural: If the object has features [-PART, PL] and the subject has feature [-PART, PL], [PL] from the subject cannot be indexed on the verb. (Forms 28.)	page 12, set as an example
+§3	Amy Rose Deal	note	To summarize, there are two circumstances when plural objects do not agree in number: when the object is second person (forms 13–16), and when the object is third person, the subject is a plural participant, and subject plural marking is a prefix (forms 24a, 26a). There is one circumstance when plural subjects do not agree in number: when both the object and the subject are 3rd person plural. And there is one circumstance when 3rd person arguments do not agree in person: when both the subject and the object are third person, and the object is plural.	page 13
+§3	Amy Rose Deal	note	One notable fact about these restrictions, excepting (15), is that they depend on features from both the subject and the object. Object features have a role to play in determining subject agreement; so do subject features in determining object agreement. Two further instances of this type of interaction are seen in cells 1–2 and 5–6 (that is, when the subject is 2nd person and the object is 1st person). First, the cislocative appears across these cells, excepting 2b and 6b. (Cells with cislocative are colored green.) The absence of the cislocative in 2b and 6b is predictable: the plural form of present habitual aspect, unlike imperfective and perfect/perfective, is simply not morphologically compatible with space marking affixes (Rude 1985:67).12 What we see overall is (19):	page 13
+footnote 12	Amy Rose Deal	note	The singular form of the present habitual does morphologically allow the cislocative, and the cislocative accordingly appears in 2SG/1SG and 2SG/1PL forms. See the paradigm in the appendix.	page 13, footnote 12
+(19) line 1	Amy Rose Deal	note	The cislocative appears wherever morphologically possible when the sub- ject is 2nd person and the object is 1st person. (Forms 1–2, 5–6.)	page 13, set as an example
+§3	Amy Rose Deal	note	It seems quite unlikely that this distribution follows from the spatial meaning of the cislocative – that is, that speakers interpret the action as being spatially lo- cated near the speaker, or directed toward the speaker, in all and only 2nd person on 1st person scenarios. More likely is that the cislocative has developed a use which is not a space marker but a 2-on-1 marker, a usage which may ultimately be understood as a type of inverse. Clearly, this role for the cislocative is not an agreement restriction, understood in general terms as a constraint on when the un- ambiguous agreement affixes may be used. Rather, it is an agreement extension: a morpheme with an additional, non-agreement-based use playing a role in the agreement system.	page 13
+§3	Amy Rose Deal	note	A second agreement extension concerns the reciprocal prefix pii-, which ap- pears in the agreement paradigm optionally when the subject is 2nd person singu- lar and the object is 1st person singular. In paradigm elicitations, this morpheme appeared in exactly 50% of the relevant forms. Of the four paradigms elicited, pii- was present in cell 1 in one case and absent in another case; in the remaining two cases, consultants provided both a form with pii- and a form without it. Con- sultants did not provide pii- in any other cell of the paradigm. This suggests that pii- appears in cell 1 not due to a reciprocal interpretation, but because this prefix has acquired a use as a 2SG on 1SG marker. It remains optional in this usage, however.13	page 13
+footnote 13	Amy Rose Deal	note	Rude observes that the reciprocal is optional in 2SG-on-1SG imperatives, and remarks that it “functions to take some of the abruptness out of the imperative” (Rude 1985:42–43). There was no evidence for such an effect in discussions with consultants in the present study; they simply provided forms both with and without the reciprocal.	page 13, footnote 13
+(20) line 1	Amy Rose Deal	note	The reciprocal appears purely optionally whenever the subject is 2nd person singular and the object is 1st person singular. (Forms 1)	page 14, set as an example
+§3	Amy Rose Deal	note	The restriction of 2-on-1 pii- to the singular contrasts with the reciprocal use of pii-. As a reciprocal marker, pii- may appear with a plural subject agreement suffix (though not a plural subject agreement prefix) (Rude 1985:41). This behavior is in contrast with cell 2b of the agreement paradigm, where 2-on-1 pii- does not appear.	page 14
+(21) line 1	Nez Perce	segmentation	Kiye pii-temeylek-s-ix.	page 14
+(21) line 2	Nez Perce	gloss	1PL.INCL.CLITIC RECIP-inhale-IMPERF-S.PL	page 14
+(21) line 3	Amy Rose Deal	translation	‘We are inhaling each other.’	page 14
+(21) line 4	Amy Rose Deal	citation	(Phinney 1934:4)	page 14, the tag or source at the right of the translation
+§3	Amy Rose Deal	note	Thus, while both agreement extensions arise in 2-on-1 contexts, they differ both in optionality and in the role of number features in conditioning the agreement extension.	page 14
+§3	Amy Rose Deal	note	A final observation about the paradigm concerns cell 22a: 3PL subject on 3SG object in an aspect/mood that uses prefixal subject number agreement. Recall that two of the four elicited paradigms featured aspect/mood categories that use sub- ject number agreement prefixes. In both of these elicitations, speakers switched for cell 22a to a form that includes imperfective aspect, allowing subject number to be expressed as a suffix. Speakers did not generally change aspect/mood over the course of a paradigm elicitation, making these instances of aspect/mood mod- ification quite notable. The forms provided for this cell are shown in (22).14, 15	page 14
+footnote 14	Amy Rose Deal	note	The plural subject prefix in this case is simply -i, not -iix; the latter appears only in word- final position. See the discussion of suffix allomorphy in Deal (2010b:ch 2).	page 14, footnote 14
+footnote 14	Nez Perce	cited form	-i	page 14, in italics
+footnote 15	Amy Rose Deal	note	In the ‘find’ paradigm from which (22b) is drawn, the name ‘Matt’ was always used as the 3SG object. See the appendix.	page 14, footnote 15
+(22a) line 1	Nez Perce	segmentation	ke kaa ha-’aayat-om pee-kte-c-i-nu’	page 14
+(22a) line 2	Nez Perce	gloss	C then PL-woman-ERG 3/3-see-go.to-IMPERF-S.PL-FUT	page 14
+(22a) line 3	Nez Perce	segmentation	qiiwn-e	page 14
+(22a) line 4	Nez Perce	gloss	old.man-ACC	page 14
+(22a) line 5	Amy Rose Deal	translation	‘when the ladies go to see the old man’	page 14
+(22b) line 1	Nez Perce	segmentation	Matt kaa George-nim páa-’yax̂-c-i-na	page 14
+(22b) line 2	Nez Perce	gloss	Matt.NOM and George-ERG 3/3-find-IMPERF-S.PL-REM.PAST	page 14
+(22b) line 3	Nez Perce	segmentation	Matt-ne cepéeletp’et-pe.	page 14
+(22b) line 4	Nez Perce	gloss	Matt-ACC picture-LOC	page 14
+(22b) line 5	Amy Rose Deal	translation	‘Matt and George found Matt in the picture.’	page 14
+§3	Amy Rose Deal	note	In example (22a), imperfective aspect appears in addition to future. This example was drawn from a paradigm otherwise in the simple future. In exam- ple (22b), imperfective aspect appears instead of the perfect/perfective aspect oth- erwise used in the paradigm. In both instances, subject number is expressed as would be expected for the imperfective aspect. The modification of aspect/mood marking allows all features to be expressed on the verb without the morpheme combination pee-pe- ‘3/3-S.pl’.	page 15
+§3	Nez Perce	cited form	pee-pe-	page 15, in italics, ‘3/3-S.pl’
+§3	Amy Rose Deal	note	An initially plausible way to think about these modifications is in terms of agreement extensions: the imperfective is recruited to express the 3PL/3SG feature combination, much as the reciprocal is recruited to express 2SG/1SG. The problem for this account is that imperfective aspect is not required in the 3pl/3sg feature combination per se; in the habitual paradigm, for instance, there is no modification of the aspect/mood value in the 3PL/3SG paradigm cell.	page 15
+(23) line 1	Nez Perce	segmentation	ke kaa pee-cewcew-tée-’nix Angel-ne	page 15
+(23) line 2	Nez Perce	gloss	C then 3/3-call-HAB.PRES-S.PL Angel-ACC	page 15
+(23) line 3	Amy Rose Deal	translation	‘when they call Angel’	page 15
+§3	Amy Rose Deal	note	Another potential approach for forms like (22b) would be to see the apparent imperfective as a special allomorph of perfect/perfective, in some way conditioned by the 3PL/3SG feature complex. But this approach struggles on (22a), where the future suffix remains but the imperfective suffix is added. What these failed views have in common is that they attempt to treat the forms in (22) as normal members of the paradigms in which they were elicited–as representing, that is, what is semantically the simple future or semantically the perfect/perfective. A remaining alternative is to reject this assumption: 3PL/3SG feature combinations are simply ineffable in the perfect/perfective and simple future. Speakers provide the forms in (22) as “next best” alternatives, expressing similar meanings. In reflection of this conclusion, I provide no form in cell 22a.	page 15
+§4	Amy Rose Deal	heading	4 Conclusions and analytical prospects	page 15
+§4	Amy Rose Deal	note	This paper has aimed to end where a theoretical project can begin. The theoretical questions should now be clear: Why is the Nez Perce verbal agreement paradigm as it is? Why are there agreement restrictions/extensions at all, and why in par- ticular these restrictions/extensions? What does this tell us about the syntax of agreement, on one hand, and its morphology, on the other? While I will not be able to properly answer these questions here, I will conclude by pointing to several of what I see as the most interesting prospects for future analysis.	page 15
+§4	Amy Rose Deal	note	One initial question to ask about agreement restrictions is whether they are syntactic or morphological in nature. Consider, for instance, the restriction we see in forms 28:	page 15
+(24) line 1	Amy Rose Deal	note	No plural subject agreement when both the subject and the object are third person plural: If the object has features [-PART, PL] and the subject has feature [-PART, PL], [PL] from the subject cannot be indexed on the verb.	page 16, set as an example
+§4	Amy Rose Deal	note	A syntactic account of this restriction would propose a straightforward mapping between the features realized by agreement morphemes and the features trans- ferred by the operation Agree. If [PL] from the subject cannot be indexed on the verb, then [PL] from the subject does not participate in Agree. What must be ex- plained is why Agree should be restricted in this way. A morphological account, on the other hand, would locate the restriction not in which features are trans- ferred by Agree, but in what happens to transferred features at the PF interface. If [PL] from the subject cannot be indexed on the verb, that suggests that this fea- ture might be deleted in the morphology (via an impoverishment rule) or might simply remain unexponed for some other morphological reason. The absence of exponence is what requires an explanation.	page 16
+§4	Amy Rose Deal	note	One type of factor suggestive of a syntactic account is the repeated restriction on plural agreement for argument A in the context of plural agreement for argu- ment B. A syntactic account can make sense of why it is the feature [PL] (rather than some other feature) that interferes with agreement in [PL] by reference to a context of intervention. The central constraint, on this type of view, is that a probe P may not agree with a lower [PL] feature across a higher one:	page 16
+(25) line 1	Amy Rose Deal	note	[P [I: [PL] [G: [PL] [. . .]]]]	page 16, set as an example
+(25) line 2	Amy Rose Deal	note	XXX	page 16, set as an example
+(26) line 1	Amy Rose Deal	note	Agree in feature bundle [F] is possible between probe P and goal G only if there is no I such that P c-commands I and I c-commands G and I bears any feature in [F].	page 16, set as an example
+§4	Amy Rose Deal	note	On an intervention approach to agreement restrictions, sometimes [PL] on the subject intervenes for [PL] on the object (e.g. (16)), but sometimes [PL] on the object intervenes for [PL] on the subject (e.g. (18)). The analytical challenge lies in ensuring that subjects and objects occupy appropriate structural positions for this type of variation in the setup for intervention.	page 16
+§4	Amy Rose Deal	note	A further, related implication of the restrictions and extensions described in this paper concerns the question of how many syntactic loci of agreement (i.e. agreeing functional heads) are involved in the Nez Perce clause. The basic facts of agreement, as in Section 2, might be taken to suggest the involvement of three distinct syntactic loci, each associated with one morphological prefix position (person agreement, subject number agreement, object number agreement). Such a view would be in line with proposals by Sigurðsson and Holmberg (2008) and Pre- minger (2011), according to which person and number agreement are associated with distinct probing heads in the syntax. Agreement restrictions and extensions constitute a challenge for this view because they require access to both person and number information, generally from both the subject and the object. By the same token, these facts also challenge more standard views of agreement, which take object and subject agreement to be associated with distinct syntactic loci (v and T, respectively; see e.g. Deal 2010a). If more than one syntactic locus is involved in the agreement system, some mechanism must ensure that the features available in any one locus are determined by the full φ-specification of both subject and object. Of course, the need for such a mechanism is obviated if a single syntactic head is implicated in verb agreement in Nez Perce. On this type of view, rules of fission are required to ensure that separate morphemes may be inserted.	page 16
+§4	Amy Rose Deal	name	Sigurðsson	H. Á. Sigurðsson, person and number as separate probes, with Holmberg (2008)
+§4	Amy Rose Deal	name	Holmberg	A. Holmberg, with Sigurðsson (2008)
+§A	Amy Rose Deal	heading	A Appendix: sample paradigms	page 17
+§A.1	Amy Rose Deal	heading	A.1 ’iyaaq ‘find’, perfect/perfective aspect, remote past tense	page 17
+§A.1	Amy Rose Deal	note	For this elicitation speakers were asked to imagine that they or others were looking at a portrait of a large group, searching for one or more individuals.	page 17
+§A.1	Amy Rose Deal	note	Linguistic notes: this paradigm features both singular and plural 2nd person clitic pronouns, both by themselves and as clitic-doubles of full pronouns or co- ordinated expressions (see (10a), (13a)). These are discussed in Deal (2015a) and Deal (To appear c). This paradigm also shows two options for case-marking in coordinations: case-markers may appear on both coordinates (‘balanced coordi- nation’), as in (14a), or just on the final one (‘unbalanced coordination’ – the term coming from Johannessen 1998), as in (13a). This pattern is discussed in Deal (To appear c); variation between the two options is apparently free. Argument omission (pro-drop) is very common in Nez Perce and may be seen in numerous examples of this paradigm (e.g. (1a), (3a)). Here, unlike in the text, I do not pro- vide pro arguments in the examples. Some arguments are explicitly marked as op- tional because speakers volunteered this information when the data was elicited. No conclusion about optionality should be drawn regarding those elements not explicitly marked as optional here.	page 17
+§A.1	Amy Rose Deal	name	Johannessen	J. B. Johannessen, coordination (1998), unbalanced coordination
+A.1 (1a) line 1	Nez Perce	segmentation	’Ee píi-’yax̂-ni-m-a cepéeletp’et-pe.	page 17
+A.1 (1a) line 2	Nez Perce	gloss	2SG.CLITIC RECIP-find-P-CIS-REM.PAST picture-LOC	page 17
+A.1 (1a) line 3	Amy Rose Deal	note	2sg/1sg:	page 17, the paradigm cell, subject on object
+A.1 (1a) line 4	Amy Rose Deal	translation	‘You found me in the picture.’	page 17
+A.1 (2a) line 1	Nez Perce	segmentation	’Eetx pa-’yáax̂-ni-m-a cepéeletp’et-pe.	page 17
+A.1 (2a) line 2	Nez Perce	gloss	2PL.CLITIC S.PL-find-P-CIS-REM.PAST picture-LOC	page 17
+A.1 (2a) line 3	Amy Rose Deal	note	2pl/1sg:	page 17, the paradigm cell, subject on object
+A.1 (2a) line 4	Amy Rose Deal	translation	‘You guys found me in the picture.’	page 17
+A.1 (3a) line 1	Nez Perce	segmentation	Jim-nim hi-’yáax̂-n-a cepéeletp’et-pe.	page 17
+A.1 (3a) line 2	Nez Perce	gloss	Jim-ERG 3SUBJ-find-P-REM.PAST picture-LOC	page 17
+A.1 (3a) line 3	Amy Rose Deal	note	3sg/1sg:	page 17, the paradigm cell, subject on object
+A.1 (3a) line 4	Amy Rose Deal	translation	‘Jim found me in the picture.’	page 17
+A.1 (4a) line 1	Nez Perce	segmentation	Matt kaa George-nim hi-pa-’yáax̂-n-a	page 18
+A.1 (4a) line 2	Nez Perce	gloss	Matt.NOM and George-ERG 3SUBJ-S.PL-find-P-REM.PAST	page 18
+A.1 (4a) line 3	Nez Perce	segmentation	(’iin-e) cepéeletp’et-pe.	page 18
+A.1 (4a) line 4	Nez Perce	gloss	(1SG-ACC) picture-LOC	page 18
+A.1 (4a) line 5	Amy Rose Deal	note	3pl/1sg:	page 18, the paradigm cell, subject on object
+A.1 (4a) line 6	Amy Rose Deal	translation	‘Matt and George found me in the picture.’	page 18
+A.1 (5a) line 1	Nez Perce	segmentation	’Ee náac-’yax̂-ni-m-a (’iin kaa Matt-ne)	page 18
+A.1 (5a) line 2	Nez Perce	gloss	2SG.CLITIC O.PL-find-P-CIS-REM.PAST (1SG.NOM and Matt-ACC)	page 18
+A.1 (5a) line 3	Nez Perce	segmentation	cepéeletp’et-pe.	page 18
+A.1 (5a) line 4	Nez Perce	gloss	picture-LOC	page 18
+A.1 (5a) line 5	Amy Rose Deal	note	2sg/1pl:	page 18, the paradigm cell, subject on object
+A.1 (5a) line 6	Amy Rose Deal	translation	‘You found us (me and Matt) in the picture.’	page 18
+A.1 (6a) line 1	Nez Perce	segmentation	’Eetx pa-náac-’yax̂-ni-m-a cepéeletp’et-pe.	page 18
+A.1 (6a) line 2	Nez Perce	gloss	2PL.CLITIC S.PL-O.PL-find-P-CIS-REM.PAST picture-LOC	page 18
+A.1 (6a) line 3	Amy Rose Deal	note	2pl/1pl:	page 18, the paradigm cell, subject on object
+A.1 (6a) line 4	Amy Rose Deal	translation	‘You guys found us in the picture.’	page 18
+A.1 (7a) line 1	Nez Perce	segmentation	Jim-nim hi-náac-’yax̂-n-a (’iin kaa Matt-ne)	page 18
+A.1 (7a) line 2	Nez Perce	gloss	Jim-ERG 3SUBJ-O.PL-find-P-REM.PAST (1SG.NOM and Matt-ACC)	page 18
+A.1 (7a) line 3	Nez Perce	segmentation	cepéeletp’et-pe.	page 18
+A.1 (7a) line 4	Nez Perce	gloss	picture-LOC	page 18
+A.1 (7a) line 5	Amy Rose Deal	note	3sg/1pl:	page 18, the paradigm cell, subject on object
+A.1 (7a) line 6	Amy Rose Deal	translation	‘Jim found us (me and Matt) in the picture.’	page 18
+A.1 (8a) line 1	Nez Perce	segmentation	Matt kaa George-nim (nuun-e)	page 18
+A.1 (8a) line 2	Nez Perce	gloss	Matt.NOM and George-ERG (1PL-ACC)	page 18
+A.1 (8a) line 3	Nez Perce	segmentation	hi-pa-náac-’yax̂-n-a cepéeletp’et-pe.	page 18
+A.1 (8a) line 4	Nez Perce	gloss	3SUBJ-S.PL-O.PL-find-P-REM.PAST picture-LOC	page 18
+A.1 (8a) line 5	Amy Rose Deal	note	3pl/1pl:	page 18, the paradigm cell, subject on object
+A.1 (8a) line 6	Amy Rose Deal	translation	‘Matt and George found us (me and someone else) in the picture.’	page 18
+A.1 (9a) line 1	Nez Perce	segmentation	’Ee ’iyáax̂-n-a cepéeletp’et-pe.	page 18
+A.1 (9a) line 2	Nez Perce	gloss	2SG.CLITIC find-P-REM.PAST picture-LOC	page 18
+A.1 (9a) line 3	Amy Rose Deal	note	1sg/2sg:	page 18, the paradigm cell, subject on object
+A.1 (9a) line 4	Amy Rose Deal	translation	‘I found you in the picture.’	page 18
+A.1 (10a) line 1	Nez Perce	segmentation	’Ee ’im-ené pa-’yáax̂-n-a cepéeletp’et-pe.	page 18
+A.1 (10a) line 2	Nez Perce	gloss	2SG.CLITIC 2SG-ACC S.PL-find-P-REM.PAST picture-LOC	page 18
+A.1 (10a) line 3	Amy Rose Deal	note	1pl/2sg:	page 18, the paradigm cell, subject on object
+A.1 (10a) line 4	Amy Rose Deal	translation	‘We found you in the picture.’	page 18
+A.1 (11a) line 1	Nez Perce	segmentation	Jim-nim ’ee hi-’yáax̂-n-a cepéeletp’et-pe.	page 18
+A.1 (11a) line 2	Nez Perce	gloss	Jim-ERG 2SG.CLITIC 3SUBJ-find-P-REM.PAST picture-LOC	page 18
+A.1 (11a) line 3	Amy Rose Deal	note	3sg/2sg:	page 18, the paradigm cell, subject on object
+A.1 (11a) line 4	Amy Rose Deal	translation	‘Jim found you in the picture.’	page 18
+A.1 (12a) line 1	Nez Perce	segmentation	Matt kaa George-nim ’ee	page 19
+A.1 (12a) line 2	Nez Perce	gloss	Matt.NOM and George-ERG 2SG.CLITIC	page 19
+A.1 (12a) line 3	Nez Perce	segmentation	hi-pa-’yáax̂-n-a cepéeletp’et-pe.	page 19
+A.1 (12a) line 4	Nez Perce	gloss	3SUBJ-S.PL-find-P-REM.PAST picture-LOC	page 19
+A.1 (12a) line 5	Amy Rose Deal	note	3pl/2sg:	page 19, the paradigm cell, subject on object
+A.1 (12a) line 6	Amy Rose Deal	translation	‘Matt and George found you in the picture.’	page 19
+A.1 (13a) line 1	Nez Perce	segmentation	’Eetx ’iyáax̂-n-a (’iim kaa Matt-ne)	page 19
+A.1 (13a) line 2	Nez Perce	gloss	2PL.CLITIC find-P-REM.PAST (2SG.NOM and Matt-ACC)	page 19
+A.1 (13a) line 3	Nez Perce	segmentation	cepéeletp’et-pe.	page 19
+A.1 (13a) line 4	Nez Perce	gloss	picture-LOC	page 19
+A.1 (13a) line 5	Amy Rose Deal	note	1sg/2pl:	page 19, the paradigm cell, subject on object
+A.1 (13a) line 6	Amy Rose Deal	translation	‘I found youpl (yousg and Matt) in the picture.’	page 19
+A.1 (14a) line 1	Nez Perce	segmentation	’Eetx pa-’yáax̂-n-a ’im-ené kaa Matt-ne	page 19
+A.1 (14a) line 2	Nez Perce	gloss	2PL.CLITIC S.PL-find-P-REM.PAST 2SG-ACC and Matt-ACC	page 19
+A.1 (14a) line 3	Nez Perce	segmentation	cepéeletp’et-pe.	page 19
+A.1 (14a) line 4	Nez Perce	gloss	picture-LOC	page 19
+A.1 (14a) line 5	Amy Rose Deal	note	1pl/2pl:	page 19, the paradigm cell, subject on object
+A.1 (14a) line 6	Amy Rose Deal	translation	‘We found you and Matt in the picture.’	page 19
+A.1 (15a) line 1	Nez Perce	segmentation	Jim-nim ’ee hi-’yáax̂-n-a (’iim kaa	page 19
+A.1 (15a) line 2	Nez Perce	gloss	Jim-ERG 2SG.CLITIC 3SUBJ-find-P-REM.PAST (2SG.NOM and	page 19
+A.1 (15a) line 3	Nez Perce	segmentation	Matt-ne) cepéeletp’et-pe.17	page 19
+footnote 17	Amy Rose Deal	note	I suspect that there is an error in this example: the clitic pronoun should be ’eetx ‘2PL.CLITIC’, as in (13a). However, this form was checked with speakers.	page 19, footnote 17
+A.1 (15a) line 4	Nez Perce	gloss	Matt-ACC) picture-LOC	page 19
+A.1 (15a) line 5	Amy Rose Deal	note	3sg/2pl:	page 19, the paradigm cell, subject on object
+A.1 (15a) line 6	Amy Rose Deal	translation	‘Jim found you (yousg and Matt) in the picture.’	page 19
+A.1 (16a) line 1	Nez Perce	segmentation	Matt kaa George-nim ’eetx	page 19
+A.1 (16a) line 2	Nez Perce	gloss	Matt.NOM and George-ERG 2PL.CLITIC	page 19
+A.1 (16a) line 3	Nez Perce	segmentation	hi-pa-’yáax̂-n-a cepéeletp’et-pe.	page 19
+A.1 (16a) line 4	Nez Perce	gloss	3SUBJ-S.PL-find-P-REM.PAST picture-LOC	page 19
+A.1 (16a) line 5	Amy Rose Deal	note	3pl/2pl:	page 19, the paradigm cell, subject on object
+A.1 (16a) line 6	Amy Rose Deal	translation	‘Matt and George found you guys in the picture.’	page 19
+A.1 (17a) line 1	Nez Perce	segmentation	’Aw-’yáax̂-n-a Matt-ne cepéeletp’et-pe.	page 19
+A.1 (17a) line 2	Nez Perce	gloss	3OBJ-find-P-REM.PAST Matt-ACC picture-LOC	page 19
+A.1 (17a) line 3	Amy Rose Deal	note	1sg/3sg:	page 19, the paradigm cell, subject on object
+A.1 (17a) line 4	Amy Rose Deal	translation	‘I found Matt in the picture.’	page 19
+A.1 (18a) line 1	Nez Perce	segmentation	’A-pa-’yáax̂-n-a Matt-ne cepéeletp’et-pe.	page 20
+A.1 (18a) line 2	Nez Perce	gloss	3OBJ-S.PL-find-P-REM.PAST Matt-ACC picture-LOC	page 20
+A.1 (18a) line 3	Amy Rose Deal	note	1pl/3sg:	page 20, the paradigm cell, subject on object
+A.1 (18a) line 4	Amy Rose Deal	translation	‘We found Matt in the picture.’	page 20
+A.1 (19a) line 1	Nez Perce	segmentation	’Ee ’aw-’yáax̂-n-a Matt-ne cepéeletp’et-pe.	page 20
+A.1 (19a) line 2	Nez Perce	gloss	2SG.CLITIC 3OBJ-find-P-REM.PAST Matt-ACC picture-LOC	page 20
+A.1 (19a) line 3	Amy Rose Deal	note	2sg/3sg:	page 20, the paradigm cell, subject on object
+A.1 (19a) line 4	Amy Rose Deal	translation	‘You found Matt in the picture.’	page 20
+A.1 (20a) line 1	Nez Perce	segmentation	’Eetx ’a-pa-’yáax̂-n-a Matt-ne cepéeletp’et-pe.	page 20
+A.1 (20a) line 2	Nez Perce	gloss	2PL.CLITIC 3OBJ-S.PL-find-P-REM.PAST Matt-ACC picture-LOC	page 20
+A.1 (20a) line 3	Amy Rose Deal	note	2pl/3sg:	page 20, the paradigm cell, subject on object
+A.1 (20a) line 4	Amy Rose Deal	translation	‘You guys found Matt in the picture.’	page 20
+A.1 (21a) line 1	Nez Perce	segmentation	Jim-nim páa-’yax̂-n-a Matt-ne cepéeletp’et-pe.	page 20
+A.1 (21a) line 2	Nez Perce	gloss	Jim-ERG 3/3-find-P-REM.PAST Matt-ACC picture-LOC	page 20
+A.1 (21a) line 3	Amy Rose Deal	note	3sg/3sg:	page 20, the paradigm cell, subject on object
+A.1 (21a) line 4	Amy Rose Deal	translation	‘Jim found Matt in the picture.’	page 20
+A.1 (22a) line 1	Nez Perce	segmentation	Matt kaa George-nim páa-’yax̂-c-i-na	page 20
+A.1 (22a) line 2	Nez Perce	gloss	Matt.NOM and George-ERG 3/3-find-IMPERF-S.PL-REM.PAST	page 20
+A.1 (22a) line 3	Nez Perce	segmentation	Matt-ne cepéeletp’et-pe.	page 20
+A.1 (22a) line 4	Nez Perce	gloss	Matt-ACC picture-LOC	page 20
+A.1 (22a) line 5	Amy Rose Deal	note	3pl/3sg:	page 20, the paradigm cell, subject on object
+A.1 (22a) line 6	Amy Rose Deal	translation	‘Matt and George found Matt in the picture.’	page 20
+A.1 (23a) line 1	Nez Perce	segmentation	’A-náac-’yax̂-n-a Matt kaa Jim-ne	page 20
+A.1 (23a) line 2	Nez Perce	gloss	3OBJ-O.PL-find-P-REM.PAST Matt.NOM and Jim-ACC	page 20
+A.1 (23a) line 3	Nez Perce	segmentation	cepéeletp’et-pe.	page 20
+A.1 (23a) line 4	Nez Perce	gloss	picture-LOC	page 20
+A.1 (23a) line 5	Amy Rose Deal	note	1sg/3pl:	page 20, the paradigm cell, subject on object
+A.1 (23a) line 6	Amy Rose Deal	translation	‘I found Matt and Jim in the picture.’	page 20
+A.1 (24a) line 1	Nez Perce	segmentation	’A-pa-’yáax̂-n-a Matt kaa Jim-ne	page 20
+A.1 (24a) line 2	Nez Perce	gloss	3OBJ-S.PL-find-P-REM.PAST Matt.NOM and Jim-ACC	page 20
+A.1 (24a) line 3	Nez Perce	segmentation	cepéeletp’et-pe.	page 20
+A.1 (24a) line 4	Nez Perce	gloss	picture-LOC	page 20
+A.1 (24a) line 5	Amy Rose Deal	note	1pl/3pl:	page 20, the paradigm cell, subject on object
+A.1 (24a) line 6	Amy Rose Deal	translation	‘We found Matt and Jim in the picture.’	page 20
+A.1 (25a) line 1	Nez Perce	segmentation	’Ee ’a-náac-’yax̂-n-a Matt kaa Jim-ne	page 20
+A.1 (25a) line 2	Nez Perce	gloss	2SG.CLITIC 3OBJ-O.PL-find-P-REM.PAST Matt.NOM and Jim-ACC	page 20
+A.1 (25a) line 3	Nez Perce	segmentation	cepéeletp’et-pe.	page 20
+A.1 (25a) line 4	Nez Perce	gloss	picture-LOC	page 20
+A.1 (25a) line 5	Amy Rose Deal	note	2sg/3pl:	page 20, the paradigm cell, subject on object
+A.1 (25a) line 6	Amy Rose Deal	translation	‘You found Matt and Jim in the picture.’	page 20
+A.1 (26a) line 1	Nez Perce	segmentation	’Eetx ’a-pa-’yáax̂-n-a Matt kaa Jim-ne	page 21
+A.1 (26a) line 2	Nez Perce	gloss	2PL.CLITIC 3OBJ-S.PL-find-P-REM.PAST Matt.NOM and Jim-ACC	page 21
+A.1 (26a) line 3	Nez Perce	segmentation	cepéeletp’et-pe.	page 21
+A.1 (26a) line 4	Nez Perce	gloss	picture-LOC	page 21
+A.1 (26a) line 5	Amy Rose Deal	note	2pl/3pl:	page 21, the paradigm cell, subject on object
+A.1 (26a) line 6	Amy Rose Deal	translation	‘You guys found Matt and Jim in the picture.’	page 21
+A.1 (27a) line 1	Nez Perce	segmentation	Jim-nim hi-náac-’yax̂-n-a Bill kaa Jill-ne	page 21
+A.1 (27a) line 2	Nez Perce	gloss	Jim-ERG 3SUBJ-O.PL-find-P-REM.PAST Bill.NOM and Jill-ACC	page 21
+A.1 (27a) line 3	Nez Perce	segmentation	cepéeletp’et-pe.	page 21
+A.1 (27a) line 4	Nez Perce	gloss	picture-LOC	page 21
+A.1 (27a) line 5	Amy Rose Deal	note	3sg/3pl:	page 21, the paradigm cell, subject on object
+A.1 (27a) line 6	Amy Rose Deal	translation	‘Jim found Bill and Jill in the picture.’	page 21
+A.1 (28a) line 1	Nez Perce	segmentation	Bill kaa Jill-nim hi-náac-’yax̂-n-a Jim	page 21
+A.1 (28a) line 2	Nez Perce	gloss	Bill.NOM and Jill-ERG 3SUBJ-O.PL-find-P-REM.PAST Jim.NOM	page 21
+A.1 (28a) line 3	Nez Perce	segmentation	kaa Beth-ne cepéeletp’et-pe.	page 21
+A.1 (28a) line 4	Nez Perce	gloss	and Beth-ACC picture-LOC	page 21
+A.1 (28a) line 5	Amy Rose Deal	note	3pl/3pl:	page 21, the paradigm cell, subject on object
+A.1 (28a) line 6	Amy Rose Deal	translation	‘Bill and Jill found Jim and Beth in the picture.’	page 21
+§A.2	Amy Rose Deal	heading	A.2 cewcewi ‘call’, present habitual aspect, present tense	page 21
+§A.2	Amy Rose Deal	note	Linguistic notes: This paradigm shows when-clauses, formed with temporal demon- strative kaa and agreeing A’ complementizer ke. (The status of this element as an A’ complementizer is discussed in Deal (To appear a); complementizer agreement is discussed in Deal (To appear b).) Therefore, this set of examples shows a full paradigm both for verb agreement and for complementizer agreement.	page 21
+§A.2	Amy Rose Deal	note	Like the previous paradigm, this paradigm features clitic pronouns, both bal- anced and unbalanced coordinations, and extensive argument omission and op- tionality. In (28b), the object is a deverbal agentive noun which does not inflect for plural, but which controls plural object agreement. On the absence of plural marking for deverbal agentive nouns, see Deal (2015b).	page 21
+A.2 (1b) line 1	Nez Perce	segmentation	ke-m kaa (pii)-cewcew-téetu-m (’iin-e)	page 21
+A.2 (1b) line 2	Nez Perce	gloss	C-2 then RECIP-call-HAB.PRES-CIS 1SG-ACC	page 21
+A.2 (1b) line 3	Amy Rose Deal	note	2sg/1sg:	page 21, the paradigm cell, subject on object
+A.2 (1b) line 4	Amy Rose Deal	translation	‘when you call me’	page 21
+A.2 (2b) line 1	Nez Perce	segmentation	ke-pe-m kaa (’iin-e) cewcew-tée-’nix	page 21
+A.2 (2b) line 2	Nez Perce	gloss	C-PL-2 then 1SG-ACC call-HAB.PRES-S.PL	page 21
+A.2 (2b) line 3	Amy Rose Deal	note	2pl/1sg:	page 21, the paradigm cell, subject on object
+A.2 (2b) line 4	Amy Rose Deal	translation	‘when you guys call me’	page 21
+A.2 (3b) line 1	Nez Perce	segmentation	ke-x kaa Angel-nim hi-cewcew-téetu	page 22
+A.2 (3b) line 2	Nez Perce	gloss	C-1 then Angel-ERG 3SUBJ-call-HAB.PRES	page 22
+A.2 (3b) line 3	Amy Rose Deal	note	3sg/1sg:	page 22, the paradigm cell, subject on object
+A.2 (3b) line 4	Amy Rose Deal	translation	‘when Angel calls me’	page 22
+A.2 (4b) line 1	Nez Perce	segmentation	ke-x kaa Angel-nim kaa Tatlo-nm hi-cewcew-tée-’nix	page 22
+A.2 (4b) line 2	Nez Perce	gloss	C-1 then Angel-ERG and Tatlo-ERG 3SUBJ-call-HAB.PRES-S.PL	page 22
+A.2 (4b) line 3	Amy Rose Deal	note	3pl/1sg:	page 22, the paradigm cell, subject on object
+A.2 (4b) line 4	Amy Rose Deal	translation	‘when Angel and Tatlo call me’	page 22
+A.2 (5b) line 1	Nez Perce	segmentation	ke-m kaa ’ee nees-cewcew-téetu-m	page 22
+A.2 (5b) line 2	Nez Perce	gloss	C-2 then 2SG.CLITIC O.PL-call-HAB.PRES-CIS	page 22
+A.2 (5b) line 3	Amy Rose Deal	note	2sg/1pl:	page 22, the paradigm cell, subject on object
+A.2 (5b) line 4	Amy Rose Deal	translation	‘when you call us’	page 22
+A.2 (6b) line 1	Nez Perce	segmentation	ke-pe-m kaa nees-cewcew-tée-’nix	page 22
+A.2 (6b) line 2	Nez Perce	gloss	C-PL-2 then O.PL-call-HAB.PRES-S.PL	page 22
+A.2 (6b) line 3	Amy Rose Deal	note	2pl/1pl:	page 22, the paradigm cell, subject on object
+A.2 (6b) line 4	Amy Rose Deal	translation	‘when you guys call us’	page 22
+A.2 (7b) line 1	Nez Perce	segmentation	ke-x kaa Angel-nim hi-nees-cewcew-téetu nuun-e	page 22
+A.2 (7b) line 2	Nez Perce	gloss	C-1 then Angel-ERG 3SUBJ-O.PL-call-HAB.PRES 1PL-ACC	page 22
+A.2 (7b) line 3	Amy Rose Deal	note	3sg/1pl:	page 22, the paradigm cell, subject on object
+A.2 (7b) line 4	Amy Rose Deal	translation	‘when Angel calls us’	page 22
+A.2 (8b) line 1	Nez Perce	segmentation	ke-x kaa hi-nees-cewcew-tée-’nix	page 22
+A.2 (8b) line 2	Nez Perce	gloss	C-1 then 3SUBJ-O.PL-call-HAB.PRES-S.PL	page 22
+A.2 (8b) line 3	Amy Rose Deal	note	3pl/1pl:	page 22, the paradigm cell, subject on object
+A.2 (8b) line 4	Amy Rose Deal	translation	‘when they call us’	page 22
+A.2 (9b) line 1	Nez Perce	segmentation	ke-m-ex kaa cewcew-téetu	page 22
+A.2 (9b) line 2	Nez Perce	gloss	C-2-1 then call-HAB.PRES	page 22
+A.2 (9b) line 3	Amy Rose Deal	note	1sg/2sg:	page 22, the paradigm cell, subject on object
+A.2 (9b) line 4	Amy Rose Deal	translation	‘when I call you’	page 22
+A.2 (10b) line 1	Nez Perce	segmentation	ke-pe-m-ex kaa cewcew-tée-’nix	page 22
+A.2 (10b) line 2	Nez Perce	gloss	C-PL-2-1 then call-HAB.PRES-S.PL	page 22
+A.2 (10b) line 3	Amy Rose Deal	note	1pl/2sg:	page 22, the paradigm cell, subject on object
+A.2 (10b) line 4	Amy Rose Deal	translation	‘when we call you (singular)’	page 22
+A.2 (11b) line 1	Nez Perce	segmentation	ke-m kaa Angel-nim hi-cewcew-téetu	page 22
+A.2 (11b) line 2	Nez Perce	gloss	C-2 then Angel-ERG 3SUBJ-call-HAB.PRES	page 22
+A.2 (11b) line 3	Amy Rose Deal	note	3sg/2sg:	page 22, the paradigm cell, subject on object
+A.2 (11b) line 4	Amy Rose Deal	translation	‘when Angel calls you (singular)’	page 22
+A.2 (12b) line 1	Nez Perce	segmentation	ke-pe-m kaa Angel-nim kaa Tatlo-nm	page 23
+A.2 (12b) line 2	Nez Perce	gloss	C-PL-2 then Angel-ERG and Tatlo-ERG	page 23
+A.2 (12b) line 3	Nez Perce	segmentation	hi-cewcew-tée-’nix	page 23
+A.2 (12b) line 4	Nez Perce	gloss	3SUBJ-call-HAB.PRES-S.PL	page 23
+A.2 (12b) line 5	Amy Rose Deal	note	3pl/2sg:	page 23, the paradigm cell, subject on object
+A.2 (12b) line 6	Amy Rose Deal	translation	‘when Angel and Tatlo call you (singular)’	page 23
+A.2 (13b) line 1	Nez Perce	segmentation	ke-pe-m-ex kaa cewcew-téetu	page 23
+A.2 (13b) line 2	Nez Perce	gloss	C-PL-2-1 then call-HAB.PRES	page 23
+A.2 (13b) line 3	Amy Rose Deal	note	1sg/2pl:	page 23, the paradigm cell, subject on object
+A.2 (13b) line 4	Amy Rose Deal	translation	‘when I call you guys’	page 23
+A.2 (14b) line 1	Nez Perce	segmentation	ke-pe-m-ex kaa (’eetx) cewcew-tée-’nix	page 23
+A.2 (14b) line 2	Nez Perce	gloss	C-PL-2-1 then 2PL.CLITIC call-HAB.PRES-S.PL	page 23
+A.2 (14b) line 3	Amy Rose Deal	note	1pl/2pl:	page 23, the paradigm cell, subject on object
+A.2 (14b) line 4	Amy Rose Deal	translation	‘when we call you guys’	page 23
+A.2 (15b) line 1	Nez Perce	segmentation	ke-pe-m kaa Angel-nim hi-cewcew-téetu	page 23
+A.2 (15b) line 2	Nez Perce	gloss	C-PL-2 then Angel-ERG 3SUBJ-call-HAB.PRES	page 23
+A.2 (15b) line 3	Amy Rose Deal	note	3sg/2pl:	page 23, the paradigm cell, subject on object
+A.2 (15b) line 4	Amy Rose Deal	translation	‘when Angel calls you guys’	page 23
+A.2 (16b) line 1	Nez Perce	segmentation	ke-pe-m kaa Angel kaa Tatlo-nm	page 23
+A.2 (16b) line 2	Nez Perce	gloss	C-PL-2 then Angel.NOM and Tatlo-ERG	page 23
+A.2 (16b) line 3	Nez Perce	segmentation	hi-cewcew-tée-’nix	page 23
+A.2 (16b) line 4	Nez Perce	gloss	3SUBJ-call-HAB.PRES-S.PL	page 23
+A.2 (16b) line 5	Amy Rose Deal	note	3pl/2pl:	page 23, the paradigm cell, subject on object
+A.2 (16b) line 6	Amy Rose Deal	translation	‘when Angel and Tatlo call you guys’	page 23
+A.2 (17b) line 1	Nez Perce	segmentation	ke-x kaa ’e-cewcew-téetu Angel-ne	page 23
+A.2 (17b) line 2	Nez Perce	gloss	C-1 then 3OBJ-call-HAB.PRES Angel-ACC	page 23
+A.2 (17b) line 3	Amy Rose Deal	note	1sg/3sg:	page 23, the paradigm cell, subject on object
+A.2 (17b) line 4	Amy Rose Deal	translation	‘when I call Angel’	page 23
+A.2 (18b) line 1	Nez Perce	segmentation	ke-x kaa ’e-cewcew-tée-’nix Angel-ne	page 23
+A.2 (18b) line 2	Nez Perce	gloss	C-1 then 3OBJ-call-HAB.PRES-S.PL Angel-ACC	page 23
+A.2 (18b) line 3	Amy Rose Deal	note	1pl/3sg:	page 23, the paradigm cell, subject on object
+A.2 (18b) line 4	Amy Rose Deal	translation	‘when we call Angel’	page 23
+A.2 (19b) line 1	Nez Perce	segmentation	ke-m kaa ’e-cewcew-téetu Angel-ne	page 23
+A.2 (19b) line 2	Nez Perce	gloss	C-2 then 3OBJ-call-HAB.PRES Angel-ACC	page 23
+A.2 (19b) line 3	Amy Rose Deal	note	2sg/3sg:	page 23, the paradigm cell, subject on object
+A.2 (19b) line 4	Amy Rose Deal	translation	‘when you call Angel’	page 23
+A.2 (20b) line 1	Nez Perce	segmentation	ke-pe-m kaa ’e-cewcew-tée-’nix Angel-ne	page 23
+A.2 (20b) line 2	Nez Perce	gloss	C-PL-2 then 3OBJ-call-HAB.PRES-S.PL Angel-ACC	page 23
+A.2 (20b) line 3	Amy Rose Deal	note	2pl/3sg:	page 23, the paradigm cell, subject on object
+A.2 (20b) line 4	Amy Rose Deal	translation	‘when you guys call Angel’	page 23
+A.2 (21b) line 1	Nez Perce	segmentation	ke kaa Angel-nim pee-cewcew-téetu Tatlo-na	page 24
+A.2 (21b) line 2	Nez Perce	gloss	C then Angel-ERG 3/3-call-HAB.PRES Tatlo-ACC	page 24
+A.2 (21b) line 3	Amy Rose Deal	note	3sg/3sg:	page 24, the paradigm cell, subject on object
+A.2 (21b) line 4	Amy Rose Deal	translation	‘when Angel calls Tatlo’	page 24
+A.2 (22b) line 1	Nez Perce	segmentation	ke kaa pee-cewcew-tée-’nix Angel-ne	page 24
+A.2 (22b) line 2	Nez Perce	gloss	C then 3/3-call-HAB.PRES-S.PL Angel-ACC	page 24
+A.2 (22b) line 3	Amy Rose Deal	note	3pl/3sg:	page 24, the paradigm cell, subject on object
+A.2 (22b) line 4	Amy Rose Deal	translation	‘when they call Angel’	page 24
+A.2 (23b) line 1	Nez Perce	segmentation	ke-x kaa ’e-nées-cewcew-tetu	page 24
+A.2 (23b) line 2	Nez Perce	gloss	C-1 then 3OBJ-O.PL-call-HAB.PRES	page 24
+A.2 (23b) line 3	Amy Rose Deal	note	1sg/3pl:	page 24, the paradigm cell, subject on object
+A.2 (23b) line 4	Amy Rose Deal	translation	‘when I call them’18	page 24
+A.2 (24b) line 1	Nez Perce	segmentation	ke-x kaa ’e-nees-cewcew-tée-’nix	page 24
+A.2 (24b) line 2	Nez Perce	gloss	C-1 then 3OBJ-O.PL-call-HAB.PRES-S.PL	page 24
+A.2 (24b) line 3	Amy Rose Deal	note	1pl/3pl:	page 24, the paradigm cell, subject on object
+A.2 (24b) line 4	Amy Rose Deal	translation	‘when we call them’	page 24
+A.2 (25b) line 1	Nez Perce	segmentation	ke-m kaa (’ee) ’e-nees-cewcew-téetu	page 24
+A.2 (25b) line 2	Nez Perce	gloss	C-2 then 2SG.CLITIC 3OBJ-O.PL-call-HAB.PRES	page 24
+A.2 (25b) line 3	Amy Rose Deal	note	2sg/3pl:	page 24, the paradigm cell, subject on object
+A.2 (25b) line 4	Amy Rose Deal	translation	‘when you call them’	page 24
+A.2 (26b) line 1	Nez Perce	segmentation	ke-pe-m kaa ’eetx ’e-nees-cewcew-tée-’nix	page 24
+A.2 (26b) line 2	Nez Perce	gloss	C-PL-2 then 2PL.CLITIC 3OBJ-O.PL-call-HAB.PRES-S.PL	page 24
+A.2 (26b) line 3	Amy Rose Deal	note	2pl/3pl:	page 24, the paradigm cell, subject on object
+A.2 (26b) line 4	Amy Rose Deal	translation	‘when you guys call them’	page 24
+A.2 (27b) line 1	Nez Perce	segmentation	ke kaa Angel-nim hi-nees-cewcew-téetu	page 24
+A.2 (27b) line 2	Nez Perce	gloss	C then Angel-ERG 3SUBJ-O.PL-call-HAB.PRES	page 24
+A.2 (27b) line 3	Amy Rose Deal	note	3sg/3pl:	page 24, the paradigm cell, subject on object
+A.2 (27b) line 4	Amy Rose Deal	translation	‘when Angel calls them’	page 24
+A.2 (28b) line 1	Nez Perce	segmentation	ke kaa Angel kaa Tatlo-nm hi-nees-cewcew-téetu	page 24
+A.2 (28b) line 2	Nez Perce	gloss	C then Angel.NOM and Tatlo-ERG 3SUBJ-O.PL-call-HAB.PRES	page 24
+A.2 (28b) line 3	Nez Perce	segmentation	cepelixnixewetúu-ne	page 24
+A.2 (28b) line 4	Nez Perce	gloss	worker-ACC	page 24
+A.2 (28b) line 5	Amy Rose Deal	note	3pl/3pl:	page 24, the paradigm cell, subject on object
+A.2 (28b) line 6	Amy Rose Deal	translation	‘when Angel and Tatlo call the workers’	page 24
+references	Amy Rose Deal	heading	References	page 24
+references	Amy Rose Deal	reference	Aoki, H. (1970). Nez Perce grammar. University of California Publications in Linguistics. University of California Press, Berkeley.	page 24
+references	Amy Rose Deal	reference	Aoki, H. (1979). Nez Perce texts. University of California Press, Berkeley.	page 24
+references	Amy Rose Deal	reference	Aoki, H. (1994). Nez Perce dictionary. University of California Press, Berkeley.	page 25
+references	Amy Rose Deal	reference	Crook, H. D. (1999). The phonology and morphology of Nez Perce stress. PhD thesis, University of California at Los Angeles.	page 25
+references	Amy Rose Deal	reference	Deal, A. R. (2009). Events in space. In Friedman, T. and Ito, S., editors, Proceed- ings of SALT 18, pages 230–247, Cornell. CLC Publications.	page 25
+references	Amy Rose Deal	reference	Deal, A. R. (2010a). Ergative case and the transitive subject: a view from Nez Perce. Natural Language and Linguistic Theory, 28(1):73–120.	page 25
+references	Amy Rose Deal	reference	Deal, A. R. (2010b). Topics in the Nez Perce verb. PhD thesis, University of Massachusetts Amherst.	page 25
+references	Amy Rose Deal	reference	Deal, A. R. (2015a). Interaction and satisfaction in φ-agreement. Paper presented at the University of Leipzig.	page 25
+references	Amy Rose Deal	reference	Deal, A. R. (2015b). Plural exponence in the Nez Perce DP: a DM analysis. Ms, UC Santa Cruz.	page 25
+references	Amy Rose Deal	reference	Deal, A. R. (To appear a). Cyclicity and connectivity in Nez Perce relative clauses. Linguistic Inquiry.	page 25
+references	Amy Rose Deal	reference	Deal, A. R. (To appear b). Interaction and satisfaction in φ-agreement. In Bui, T. and Ozyildiz, D., editors, Proceedings of NELS 45, Amherst, Mass. GLSA.	page 25
+references	Amy Rose Deal	reference	Deal, A. R. (To appear c). Person-based split ergativity in Nez Perce is syntactic. Journal of Linguistics.	page 25
+references	Amy Rose Deal	reference	Johannessen, J. B. (1998). Coordination. Oxford University Press.	page 25
+references	Amy Rose Deal	reference	Morvillo, A. (1891). Grammatica linguae numipu. Auctore presbytero mission- ario e Soc. Jesu in Montibus Saxosis. Typis Puerorum Indorum, Desmet, ID.	page 25
+references	Amy Rose Deal	reference	Phinney, A. (1934). Nez Percé texts. Columbia University Contributions to An- thropology. Columbia University Press.	page 25
+references	Amy Rose Deal	reference	Preminger, O. (2011). Agreement as a fallible operation. PhD thesis, MIT.	page 25
+references	Amy Rose Deal	reference	Rude, N. (1985). Studies in Nez Perce grammar and discourse. PhD thesis, University of Oregon.	page 25
+references	Amy Rose Deal	reference	Sigurðsson, H. Á. and Holmberg, A. (2008). Icelandic dative intervention: person and number are separate probes. In Agreement restrictions. Walter de Gruyter.	page 25
+references	Amy Rose Deal	reference	Smith, A. B. (1840). Peculiarities of the Nez Percés language. ABCFM archives. ABC: 18.5.3 vol 1, item 19. Houghton Library, Harvard University.	page 25
+references	Amy Rose Deal	reference	Velten, H. (1943). The Nez Perce verb. Pacific Northwest Quarterly, 34:271–292.	page 25

@@ -1,0 +1,468 @@
+where	who	kind	form	gloss
+front	Claire K. Turner	title	Aspectual properties of SENĆOŦEN reflexives	page 1, carries footnote ∗
+front	Claire K. Turner	name	Claire K. Turner	author
+front	Claire K. Turner	note	University of Surrey	page 1, under Claire K. Turner
+front	Claire K. Turner	note	This paper addresses the question of whether valence/control morphology affects situation type in a predictable way in Salish languages. It applies Kiyota’s (2008) situation type tests to SENĆOŦEN control and limited control reflexives (-sat and -naŋət), finding that valence/control does appear to affect situation type. The results show that core and “grammaticized” uses of reflexives are distinguished in SENĆOŦEN as they are in Halkomelem (Gerdts 2000). Another interesting finding is that core control reflexives pattern with achievements with respect to the culmination cancellation test (Bar-el et al. 2006, Kiyota 2008), but like accomplishments with respect to the ‘almost’ test (Kiyota 2008). I suggest this results from the two semantic roles held by their subject participant: it is both an affected patient, like the subject of unaccusative achievements; and an agent with a normal amount of control, like the subject of control transitive accomplishments.	page 1, the abstract
+front	Claire K. Turner	language	SENĆOŦEN	North Straits Salish, the dialect of the Saanich community
+footnote ∗	Claire K. Turner	note	HÍ SW̱ KE SIÁM to the two anonymous Saanich elders who provided and discussed the SENĆOŦEN examples. Thank you to Greville Corbett, Dunstan Brown, Leora Bar-el, Janet Leonard, and the participants of Chronos 2010 for feedback on this research topic; and to the Surrey Morphology Group, Jacobs Fund, Phillips Fund, and British Association for Canadian Studies for fieldwork funding. All errors are my responsibility.	page 1, footnote ∗, on the title
+footnote ∗	Claire K. Turner	name	Bar-el	Leora Bar-el (2005), Bar-el et al. (2006), culmination cancellation
+footnote ∗	Claire K. Turner	name	Jacobs	Peter Jacobs (2007, to appear), control in Skwxwú7mesh
+footnote ∗	Claire K. Turner	name	Greville Corbett	thanked for feedback
+footnote ∗	Claire K. Turner	name	Dunstan Brown	thanked for feedback
+footnote ∗	Claire K. Turner	name	Leora Bar-el	thanked for feedback
+footnote ∗	Claire K. Turner	name	Janet Leonard	thanked for feedback
+§1	Claire K. Turner	heading	1 Introduction	page 1
+§1	Claire K. Turner	note	SENĆOŦEN [sənčaθən], a dialect of North Straits Salish, is the language of the Saanich community of the Saanich Peninsula, Vancouver Island. It is currently spoken fluently by fewer than twenty elders, but language revitalisation is ongoing in the community and schools. Examples in this paper, unless otherwise cited, result from fieldwork with two elders 2008-2010.	page 1
+§1	Claire K. Turner	language	North Straits Salish	the language SENĆOŦEN is a dialect of
+§1	Claire K. Turner	note	Like other Salish languages, SENĆOŦEN has a large number of suffixes indicating valence changes and agent control, including control transitives (1) and limited control transitives (2).	page 1
+(1) line 1	SENĆOŦEN	transcription	SU, W̱ȻEḴETS1	page 2, the SENĆOŦEN orthography
+footnote 1	Claire K. Turner	note	Examples are given in Dave Elliott’s SENĆOŦEN orthography and in the North American phonetic alphabet. See the appendix for a key to glossing abbreviations.	page 2, footnote 1
+footnote 1	Claire K. Turner	name	Dave Elliott	the SENĆOŦEN orthography of the examples
+(1) line 2	SENĆOŦEN	segmentation	səw̓ xʷ-kʷəq-ət-s	page 2, NAPA
+(1) line 3	SENĆOŦEN	gloss	then LOCAT-unlock-C.TR-3POSS	page 2
+(1) line 4	Claire K. Turner	translation	‘Then she opened it (the door).’	page 2
+(2) line 1	SENĆOŦEN	transcription	SU, W̱ȻEḴNOW̱S TŦE SOȽ	page 2, the SENĆOŦEN orthography
+(2) line 2	SENĆOŦEN	segmentation	səw̓ xʷ-kʷəq-naxʷ-s tθə saɬ	page 2, NAPA
+(2) line 3	SENĆOŦEN	gloss	then LOCAT-unlock-LC.TR-3POSS DET door	page 2
+(2) line 4	Claire K. Turner	translation	‘Then she managed to unlock the door.’	page 2
+§1	Claire K. Turner	note	Recent work by Kiyota (2007, 2008: 66) shows that the valence/control distinction can affect SENĆOŦEN situation type: control transitives pattern as accomplishments and limited control transitives pattern as achievements. 2 One question arising from this observation is whether a verb’s situation type is always predictable on the basis of its valence/control morphology, i.e., whether all control transitives are accomplishments, and whether the existence of other valence/control suffixes on a verb guarantees it will pattern with a certain situation type. Situation type is affected by the number and type of a verb’s arguments (Verkuyl 1972, Krifka 1989, Tenny 1994, Smith 1997, etc.), and Salish valence/control morphology gives information about argument structure, so we might expect that it will play a role in determining a verb’s situation type. In addition, Jacobs (to appear) has found that control distinctions affect situation type in Skwxwú7mesh.	page 2
+footnote 2	Claire K. Turner	note	Kiyota (2008) follows Montler (1986) in calling this a non-control transitive. I follow Jacobs (2007: 272-3), in using the term limited control to refer to these suffixes, as opposed to the out of control distinctions made in Interior Salish languages. This is also consistent with the literature on Halkomelem (e.g., Suttles 2004).	page 2, footnote 2
+§1	Claire K. Turner	name	Kiyota	Masaru Kiyota (2007, 2008), the situation type tests of SENĆOŦEN
+§1	Claire K. Turner	language	Skwxwú7mesh	Jacobs's control distinctions
+§1	Claire K. Turner	note	Kiyota’s (2007, 2008) claims regard only control transitives, limited control transitives, and unaccusatives. This paper begins to address the general contribution of valence/control to situation type in SENĆOŦEN by looking at another set of verbs: reflexives. Gerdts (2000) has argued that each of the two reflexive suffixes in Halkomelem, -θat and -namət, has a “core” use and a “grammaticized” use, giving rise to four different verb types among the reflexives, with distinct morphological structures. This classification can be extended to SENĆOŦEN, as in (3-6). Core control reflexive3	page 2
+footnote 3	Claire K. Turner	note	Note that Gerdts (2000) does not call the Halkomelem cognates control reflexives, but simply reflexives, since they are neutral with respect to control. She also calls -ət a general transitivizer, as opposed to a control transitivizer. For now, I am following Montler (1986) in referring to control transitives, and by extension talk about the control reflexive.	page 3, footnote 3
+footnote 3	SENĆOŦEN	cited form	-ət	page 3, in italics
+§1	SENĆOŦEN	cited form	-θat	page 2, in italics
+§1	SENĆOŦEN	cited form	-namət	page 2, in italics
+§1	Claire K. Turner	name	Gerdts	Donna B. Gerdts (1989, 2000), the Halkomelem reflexives
+§1	Claire K. Turner	language	Halkomelem	Central Salish, Gerdts's reflexives
+(3) line 1	SENĆOŦEN	transcription	ḴEȻESET ȻNES NU,NOṈET	page 3, the SENĆOŦEN orthography
+(3) line 2	SENĆOŦEN	segmentation	qəkʷ-ə-sət kʷ=nə=s nəw̓-naŋət	page 3, NAPA
+(3) line 3	SENĆOŦEN	gloss	get.warmed-C.TR-REFL COMP=1SG.POSS=NMLZ go.in-LC.REFL	page 3
+(3) line 4	Claire K. Turner	translation	‘Warm yourself (by the fire) after coming in.’	page 3
+§1	Claire K. Turner	note	Core limited control reflexive	page 3
+(4) line 1	SENĆOŦEN	transcription	QENNOṈET ŦE METULIYE	page 3, the SENĆOŦEN orthography
+(4) line 2	SENĆOŦEN	segmentation	k̓ʷən-n-aŋət θə mətuliyə	page 3, NAPA
+(4) line 3	SENĆOŦEN	gloss	see-LC.TR-LC.REFL FEM.DET Victoria	page 3
+(4) line 4	SENĆOŦEN	transcription	LÁ,E TŦE ŚQENOSEṈ	page 3, the SENĆOŦEN orthography
+(4) line 5	SENĆOŦEN	segmentation	leʔə tθə šk̓ʷənasəŋ	page 3, NAPA
+(4) line 6	SENĆOŦEN	gloss	in GNRL.DET mirror	page 3
+(4) line 7	Claire K. Turner	translation	‘Victoria’s seeing herself in the mirror.’	page 3
+§1	Claire K. Turner	note	Inchoative control reflexive	page 3
+(5) line 1	SENĆOŦEN	transcription	QÁSSET TŦE SḰEḰEL, E ȻSI,Á ĆELAḴEȽ	page 3, the SENĆOŦEN orthography
+(5) line 2	SENĆOŦEN	segmentation	k̓ʷes-sət tθə sqʷəqʷəl̓ ʔə kʷsiʔe čəleqəɬ	page 3, NAPA
+(5) line 3	SENĆOŦEN	gloss	warm-REFL GNRL.DET sun OBL REM.DEM yesterday	page 3
+(5) line 4	Claire K. Turner	translation	‘The sun got hot yesterday.’	page 3
+§1	Claire K. Turner	note	Managed-to limited control reflexive	page 3
+(6) line 1	SENĆOŦEN	transcription	NEḰNOṈET	page 3, the SENĆOŦEN orthography
+(6) line 2	SENĆOŦEN	segmentation	nəqʷ-naŋət	page 3, NAPA
+(6) line 3	SENĆOŦEN	gloss	fall.asleep-LC.REFL	page 3
+(6) line 4	Claire K. Turner	translation	‘He/she finally fell asleep.’	page 3
+§1	Claire K. Turner	note	In this paper, I apply Kiyota’s (2008) situation type tests to the SENĆOŦEN reflexives and find that the reflexives can also be distinguished on aspectual grounds.	page 3
+§1	Claire K. Turner	note	Following Montler (1986) and Gerdts (2000), I assume that the control and limited control reflexive suffixes can be affixed to a transitive base, giving rise to a core reflexive (3-4) (the term is Gerdts’s). Both core reflexives (control and limited control) pattern with achievements with respect to Kiyota’s (2008) culmination cancellation test. Thus, they both pattern with unaccusatives, which are also achievements (Kiyota 2008, following Bar-el 2005, Bar-el et al. 2006). The observation that reflexives pattern with unaccusatives is suggested in §5 to result from the fact that they both take a syntactic subject which refers to an affected participant. In this they are both strongly telic, which is one defining property of SENĆOŦEN achievements, according to Kiyota (2008). However, the two types of core reflexive behave differently with respect to the ‘almost’ test: core control reflexives behave like accomplishments, while core limited control reflexives behave like achievements. This is not wholly surpising, since it mirrors the distinction between control and limited control transitives. Kiyota (2007: 291) suggests that it is the presence of a DO event, associated with agentivity, in the control transitive which allows for an event cancellation reading with ĆELÁL čəlel ‘almost’. Control reflexives also involve an agentive subject, so it is reasonable to propose that they also contain a DO event.	page 3
+§1	SENĆOŦEN	cited form	ĆELÁL čəlel	page 4, in italics, ‘almost’
+§1	Claire K. Turner	name	Montler	Timothy Montler (1986, 2003), SENĆOŦEN morphology
+§1	Claire K. Turner	note	As argued by Montler (1986) (and Gerdts (2000) for the Halkomelem cognate), when the control reflexive is attached directly to a root, as in (5), the verb has an inchoative meaning. This paper shows that these inchoative reflexives appear to be activities. When the limited control reflexive is attached directly to a root, as in (6), the verb has a “managed to” reading. These managed-to reflexives pattern with accomplishments.	page 4
+§1	Claire K. Turner	note	The remainder of the paper is organised as follows. Section 2 introduces the reflexives in more detail, comparing the evidence shown by Montler (1986), Gerdts (2000), and Kiyota (2008) for the different types. Section 3 provides background on situation type in Salish languages, and introduces four of Kiyota’s (2008) tests, which will be employed in this paper. Section 4 applies the tests to the four different reflexives. Section 5 provides a discussion of the results. Section 6 is a conclusion.	page 4
+§2	Claire K. Turner	heading	2 Background: Four SENĆOŦEN reflexives	page 4
+§2	Claire K. Turner	note	This section provides the necessary background for my assumption that the two reflexive suffixes -sat and -naŋət together realize four different verb types. Following Gerdts’s (2000) arguments for Halkomelem, I assume that each of these suffixes may attach to a transitivized verbal base, yielding a “core” reflexive; or may attach directly to a root, yielding a verb which does not have a core reflexive meaning. I will discuss -sat in §2.1 and -naŋət in §2.2.	page 4
+§2	SENĆOŦEN	cited form	-sat	page 4, in italics
+§2	SENĆOŦEN	cited form	-naŋət	page 4, in italics
+§2	Claire K. Turner	note	A further background assumption is that all verbs containing the reflexive suffixes are intransitive. This is claimed by Montler (1986: 184), and various arguments are provided for Halkomelem by Gerdts (2000: 139-141) which extend to SENĆOŦEN. One argument regards the use of the ergative agreement suffix -əs, which is found with all main clause transitives containing a third person subject (7).	page 4
+(7) line 1	SENĆOŦEN	transcription	QEN,TES ŦE WÁĆs	page 4, the SENĆOŦEN orthography
+(7) line 2	SENĆOŦEN	segmentation	k̓ʷən̓-t-əs θə weč-s	page 4, NAPA
+(7) line 3	SENĆOŦEN	gloss	see-C.TR\IPFV-3ERG FEM.DET watch-3POSS	page 4
+(7) line 4	Claire K. Turner	translation	‘She was looking at her watch.’	page 4
+§2	Claire K. Turner	note	This suffix is not used with reflexives that have third person subjects (8).	page 4
+(8) line 1	SENĆOŦEN	transcription	QEN,SET ŦE METULIYE LÁ,E TŦE SQENOSEṈ	page 5, the SENĆOŦEN orthography
+(8) line 2	SENĆOŦEN	segmentation	k̓ʷən̓-sət θə mətuliyə leʔə tθə šk̓ʷənasəŋ	page 5, NAPA
+(8) line 3	SENĆOŦEN	gloss	see-C.REFL\IPFV FEM.DET Victoria in GNRL.DET mirror	page 5
+(8) line 4	Claire K. Turner	translation	‘Victoria’s looking at herself in the mirror.’	page 5
+§2	Claire K. Turner	note	I will not provide further evidence here, as arguing for the intransitivity of reflexives is not the central focus of this paper, and instead refer the reader to Gerdts (2000). However, it is important to remember throughout the following section that, whatever their morphological structure, all reflexives are syntactically intransitive, and this point will be revisited in §5.	page 5
+§2.1	Claire K. Turner	heading	2.1 Control reflexive suffix -sat	page 5
+§2.1	Claire K. Turner	note	Both Gerdts (2000) and Montler (1986) argue on different grounds that there are two types of verb containing -sat (Halkomelem -θət). Although they have different reasons for distinguishing the two types, the distinctions they make are the same, and so the Halkomelem evidence and the SENĆOŦEN evidence complement each other to provide a strong argument for distinguishing these two types. In what follows, I will refer to core control reflexives, which have reflexive semantics, and inchoative reflexives, which have inchoative semantics.	page 5
+§2.1	SENĆOŦEN	cited form	-θət	page 5, in italics
+§2.1	Claire K. Turner	note	Gerdts (2000: 137-8) argues that core (control) reflexives are derived from control transitive bases by addition of a reflexive suffix -sat. In Halkomelem, the control transitive suffix /-t/ and the initial /s/ of the reflexive suffix fuse to yield [θ], as shown in (9). This is a regular pattern occurring at a morphological boundary, found also when the control transitive is followed by /s/-initial object suffixes (10). Halkomelem:	page 5
+(9a) line 1	Halkomelem	transcription	q̓ʷaqʷ	page 5, column a
+(9a) line 2	Halkomelem	gloss	club	page 5, column a
+(9a) line 3	Claire K. Turner	translation	‘get clubbed’	page 5, column a
+(9b) line 1	Halkomelem	transcription	q̓ʷaqʷ-ət	page 5, column b
+(9b) line 2	Halkomelem	gloss	club-TR	page 5, column b
+(9b) line 3	Claire K. Turner	translation	‘club it’	page 5, column b
+(9c) line 1	Halkomelem	transcription	q̓ʷaqʷ-əθət	page 5, column c
+(9c) line 2	Halkomelem	underlying	(>q̓ʷaqʷ-ət-sət)	page 5, column c, at the right, the form it comes from
+(9c) line 3	Halkomelem	gloss	club-TR:REFL	page 5, column c
+(9c) line 4	Halkomelem	gloss	(>club-TR-REFL)	page 5, column c, at the right, the form it comes from
+(9c) line 5	Claire K. Turner	translation	‘club self’	page 5, column c
+(9c) line 6	Claire K. Turner	citation	(Gerdts 2000: 137)	page 5, at the right, the source of (9)
+(10) line 1	Halkomelem	transcription	niʔ q̓ʷaqʷ-əθám̓š-əs ɬə sɬeniʔ	page 5, NAPA
+(10) line 2	Halkomelem	underlying	(>q̓ʷaqʷ-ət-sam̓š-əs)	page 5, at the right, the form it comes from
+(10) line 3	Halkomelem	gloss	AUX club-TR:1OBJ-3ERG DET woman	page 5
+(10) line 4	Halkomelem	gloss	(>club-TR-1OBJ-3ERG)	page 5, at the right, the form it comes from
+(10) line 5	Claire K. Turner	translation	‘The woman clubbed me (on purpose).’	page 5
+(10) line 6	Claire K. Turner	citation	(Gerdts 2000: 137)	page 5, at the right of the translation
+§2.1	Claire K. Turner	note	In SENĆOŦEN, the /t/ of the control transitive suffix and the /s/ of a following suffix also interact, but deletion rather than fusion occurs, as the /t/ does not surface. It is possible to detect the presence of the control transitive suffix by the presence of an extra schwa (Montler 1986: 185). Core control reflexives: [root + C.TR + REFL]	page 5
+(11) line 1	SENĆOŦEN	transcription	BȻESET TŦE MO,EḰ	page 6, the SENĆOŦEN orthography
+(11) line 2	SENĆOŦEN	segmentation	p̓kʷ-ə-sət tθə maʔəqʷ	page 6, NAPA
+(11) line 3	SENĆOŦEN	gloss	surface-C.TR-REFL GNRL.DET duck	page 6
+(11) line 4	Claire K. Turner	translation	‘The duck surfaced on its own.’	page 6
+(12) line 1	SENĆOŦEN	transcription	W̱EĆESET ŦE Katie	page 6, the SENĆOŦEN orthography
+(12) line 2	SENĆOŦEN	segmentation	xʷəč-ə-sət θə Katie	page 6, NAPA
+(12) line 3	SENĆOŦEN	gloss	wake.up-C.TR-REFL FEM.DET Katie	page 6
+(12) line 4	Claire K. Turner	translation	‘Katie woke herself up.’	page 6
+§2.1	Claire K. Turner	note	Core control reflexives are derived from control transitives, and their roots are unaccusative. Inchoative reflexives, in contrast, are based on homogeneous states (Kiyota 2008; states with no internal event structure).4 Inchoative reflexive: [root + reflexive]	page 6
+footnote 4	Claire K. Turner	note	Montler (2003) provides evidence that these are adjectives.	page 6, footnote 4
+(13) line 1	SENĆOŦEN	transcription	ȾȽOṈESET TŦE SȻÁĆEL	page 6, the SENĆOŦEN orthography
+(13) line 2	SENĆOŦEN	segmentation	t̓ᶿɬaŋə-sət tθə skʷečəl	page 6, NAPA
+(13) line 3	SENĆOŦEN	gloss	cold-REFL GNRL.DET day	page 6
+(13) line 4	Claire K. Turner	translation	‘The days are getting colder.’	page 6
+§2.1	Claire K. Turner	note	Gerdts (2000) argues that, unlike the core use of the reflexive suffix, this inchoative use does not derive an intransitive from a control transitive, since the roots with which it is found do not otherwise take the control transitive.	page 6
+§2.1	Claire K. Turner	note	However, as the inchoative reflexives are formally identical to the core control reflexives in Halkomelem, Gerdts is led to argue that there is a reanalysis of these forms, whereby -θət is taken to be a single suffix with an inchoative use (p. 152). Fortunately, SENĆOŦEN provides evidence to support Gerdts’s claim, since its control reflexives and inchoative reflexives are formally distinct, at least with respect to roots lacking a full vowel (Montler 1986: 185-6). Example (14) differs from the control reflexives in (11-12) above in that it lacks the extra schwa between the root and the reflexive, and in that stress is found on the reflexive suffix, which thus surfaces with a full vowel. Inchoative reflexive: [base + REFL]	page 6
+(14) line 1	SENĆOŦEN	transcription	ĆEḴSOT TŦE SḴELÁLṈEW̱	page 6, the SENĆOŦEN orthography
+(14) line 2	SENĆOŦEN	segmentation	čəq-sat tθə sqəlelnəxʷ	page 6, NAPA
+(14) line 3	SENĆOŦEN	gloss	big-REFL GNRL.DET tree	page 6
+(14) line 4	Claire K. Turner	translation	‘The tree’s getting big.’	page 6
+§2.1	Claire K. Turner	note	As shown in (15), a full vowel root can also take -sat directly, but only the semantics tells us that this is an inchoative relexive and not a core control reflexive (Montler 1986: 185).	page 7
+(15) line 1	SENĆOŦEN	transcription	QÁSSET TŦE SḰEḰEL, E ȻSI,Á ĆELAḴEȽ	page 7, the SENĆOŦEN orthography
+(15) line 2	SENĆOŦEN	segmentation	k̓ʷes-sət tθə sqʷəqʷəl̓ ʔə kʷsiʔe čəleqəɬ	page 7, NAPA
+(15) line 3	SENĆOŦEN	gloss	hot-REFL GNRL.DET sun OBL REM.DEM yesterday	page 7
+(15) line 4	Claire K. Turner	translation	‘The sun got hot yesterday.’	page 7
+§2.1	Claire K. Turner	note	Montler’s (1986) examples of the reflexive suffix attaching directly to a root coincide perfectly with Gerdts’s (2000) inchoative use of reflexives: their roots are states, not unaccusatives, and they have an inchoative meaning.	page 7
+§2.1	Claire K. Turner	note	Kiyota (2008: 43-44) also discusses inchoative reflexives, though not in contrast with core control reflexives. He shows that /-sat/ attaches to homogeneous states (Montler’s (2003) adjectives) to provide an inchoative meaning, and that these derived forms behave like non-states with respect to a few of his aspectual tests. For example, (16) shows that an inchoative reflexive can appear with a “punctual adverbial” modification, something its root k̓ʷamk̓ʷəm ‘strong’ cannot do.	page 7
+§2.1	SENĆOŦEN	cited form	k̓ʷamk̓ʷəm	page 7, in italics, ‘strong’
+(16) line 1	SENĆOŦEN	transcription	k̓ʷamk̓ʷəm-sat tθə Jack kʷ=s	page 7, NAPA
+(16) line 2	SENĆOŦEN	gloss	strong-REFL GNRL.DET Jack COMP=NMLZ	page 7
+(16) line 3	SENĆOŦEN	transcription	kʷɬ kʷən-ət-əŋ-s tθə stel̓ŋəxʷ-s	page 7, NAPA
+(16) line 4	SENĆOŦEN	gloss	PERF take-C.TR-PASS-3POSS GNRL.DET medicine-3POSS	page 7
+(16) line 5	Claire K. Turner	translation	‘Jack felt strong when he took the medicine.’	page 7
+(16) line 6	Claire K. Turner	citation	(Kiyota 2008: 44)	page 7, at the right of the translation
+§2.1	Claire K. Turner	note	The following table summarizes the differences between control reflexives and inchoative reflexives, and shows that Montler (1986), Gerdts (2000), and Kiyota (2008) all provide evidence for the same two-way distinction.	page 7
+Table 1	Claire K. Turner	note	Table 1 Core control reflexives vs. Inchoative reflexives	page 8, the table's caption
+Table 1	Claire K. Turner	note	Core control reflexive [base+C.TR+REFL]	page 8, a column head
+Table 1	Claire K. Turner	note	Inchoative reflexive [base+REFL]	page 8, a column head
+Table 1	Claire K. Turner	note	Montler (1986)	page 8, the row's head
+Table 1	Claire K. Turner	note	Contain control transitive suffix (schwa).	page 8, Montler (1986), Core control reflexive [base+C.TR+REFL], a bullet
+Table 1	Claire K. Turner	note	Have “control” meaning.	page 8, Montler (1986), Core control reflexive [base+C.TR+REFL], a bullet
+Table 1	Claire K. Turner	note	Do not contain control transitive suffix.	page 8, Montler (1986), Inchoative reflexive [base+REFL], a bullet
+Table 1	Claire K. Turner	note	Have “non-control” meaning.	page 8, Montler (1986), Inchoative reflexive [base+REFL], a bullet
+Table 1	Claire K. Turner	note	Gerdts (2000)	page 8, the row's head
+Table 1	Claire K. Turner	note	Contain control transitive suffix.	page 8, Gerdts (2000), Core control reflexive [base+C.TR+REFL], a bullet
+Table 1	Claire K. Turner	note	Have reflexive meaning.	page 8, Gerdts (2000), Core control reflexive [base+C.TR+REFL], a bullet
+Table 1	Claire K. Turner	note	Contain unaccusative roots.	page 8, Gerdts (2000), Core control reflexive [base+C.TR+REFL], a bullet
+Table 1	Claire K. Turner	note	Are reanalyzed without control transitive, though its formal presence is detectable.	page 8, Gerdts (2000), Inchoative reflexive [base+REFL], a bullet
+Table 1	Claire K. Turner	note	Contain stative/unergative roots.	page 8, Gerdts (2000), Inchoative reflexive [base+REFL], a bullet
+Table 1	Claire K. Turner	note	Kiyota (2008)	page 8, the row's head
+Table 1	Claire K. Turner	note	Not discussed.	page 8, Kiyota (2008), Core control reflexive [base+C.TR+REFL], a bullet
+Table 1	Claire K. Turner	note	Are derived from homogeneous states.	page 8, Kiyota (2008), Inchoative reflexive [base+REFL], a bullet
+Table 1	Claire K. Turner	note	Pattern with non-states.	page 8, Kiyota (2008), Inchoative reflexive [base+REFL], a bullet
+§2.1	Claire K. Turner	note	When taken together, the arguments provided by these authors provide strong evidence that there are two verb types containing -sat. In §4, we will see that the situation type tests support this distinction, since core control reflexives pattern with achievements, while inchoative reflexives pattern with activities.	page 8
+§2.2	Claire K. Turner	heading	2.2 Limited control reflexive -naŋət	page 8
+§2.2	Claire K. Turner	note	Verbs containing the suffix -naŋət express an event in which there is a single participant with a limited amount of control. Montler (1986: 178) calls it a non-control middle, presumably because of its “managed-to” readings described below. Here I follow Gerdts (2000: 153-155), who calls it a limited control reflexive, and argues that the reflexive use of the cognate Halkomelem suffix -namət is primary. When this suffix is used with unaccusative roots, the verb describes an event which occurs either accidentally (17) or suddenly (18), or it may describe a reflexive event which is carried out through difficulty (19).	page 8
+§2.2	SENĆOŦEN	cited form	-namət	page 8, in italics
+(17) line 1	SENĆOŦEN	transcription	MÁȻEȽNOṈET TŦE SPÁ,EŦ	page 8, the SENĆOŦEN orthography
+(17) line 2	SENĆOŦEN	segmentation	mekʷəɬ-n-aŋət tθə speʔəθ	page 8, NAPA
+(17) line 3	SENĆOŦEN	gloss	get.injured-LC.TR-LC.REFL GNRL.DET bear	page 8
+(17) line 4	Claire K. Turner	translation	‘The bear injured itself accidentally.’	page 8
+(18) line 1	SENĆOŦEN	transcription	W̱INOṈET ŦE Katie	page 8, the SENĆOŦEN orthography
+(18) line 2	SENĆOŦEN	segmentation	xʷəy-n-aŋət θə Katie	page 8, NAPA
+(18) line 3	SENĆOŦEN	gloss	wake.up-LC.TR-LC.REFL FEM.DET Katie	page 8
+(18) line 4	Claire K. Turner	translation	‘Katie woke up.’	page 8
+(18) line 5	Claire K. Turner	note	[context: phone suddenly wakes her up]	page 8, at the right of the translation
+(19) line 1	SENĆOŦEN	transcription	ĆAȽ SEḴNOṈET E TI,Á SḰÁL ȽTE	page 8, the SENĆOŦEN orthography
+(19) line 2	SENĆOŦEN	segmentation	čeɬ səq-n-aŋət ʔə tiʔe s-qʷel=ɬtə	page 8, NAPA
+(19) line 3	SENĆOŦEN	gloss	finally go.out-LC.TR-LC.REFL OBL PROX.DEM NMLZ-speak=1PL.POSS	page 8
+(19) line 4	Claire K. Turner	translation	‘Our words finally came out.’	page 8
+§2.2	Claire K. Turner	note	Both Montler (1986) and Gerdts (2000) suggest that the limited control reflexive suffix may contain the limited control transitive suffix -n(axʷ), and I have glossed examples of core limited control reflexives with the limited control transitive followed by a reflexive suffix.5	page 9
+footnote 5	Claire K. Turner	note	Gerdts (2000: 138-9) actually suggests that the form is -nem +sat, thereby containing the same -sat found in the reflexives described in §2.1. In my glosses, I have only glossed the [n] in the string [naŋət] as part of the limited control transitive, because this is the only phoneme which is shared between the limited control reflexive and the limited control transitive as it appears in non-reflexive contexts. This is an area for further analysis.	page 9, footnote 5
+§2.2	SENĆOŦEN	cited form	-n(axʷ)	page 9, in italics
+§2.2	Claire K. Turner	note	The limited control reflexive suffix can also be used with unergative roots, in which case the participant “manages to” do something, or “finally” achieves something. Since this use does not involve a causative semantics, where an agent acts on itself, Gerdts (2000: 153-155) argues that it reflects an extension of the reflexive suffix outside of its core reflexive use.	page 9
+§2.2	Claire K. Turner	note	Unlike the core and inchoative uses of the control reflexive described in the last section, there is no morphophonological evidence to distinguish the core and managed-to use of the limited control reflexive suffix. However, I follow Gerdts’s (2000) arguments for Halkomelem and assume that the core limited control reflexive contains a reflexive suffixed to a limited control transitive verb base, while the managed-to reflexive involves -naŋət suffixed directly to a root. This is reflected in the different glossing in (17-19) versus (20-21).	page 9
+§2.2	SENĆOŦEN	cited form	-naŋət	page 9, in italics
+(20) line 1	SENĆOŦEN	transcription	ŦIȽEṈNOṈET ŦE NE TÁN	page 9, the SENĆOŦEN orthography
+(20) line 2	SENĆOŦEN	segmentation	θiɬən-naŋət θə nə ten	page 9, NAPA
+(20) line 3	SENĆOŦEN	gloss	stand.up-LC.REFL FEM.DET 1SG.POSS mother	page 9
+(20) line 4	Claire K. Turner	translation	‘My mother finally stood up, my mother’s managed to stand.’	page 9
+(21) line 1	SENĆOŦEN	transcription	JÁN U, ĆESE SȻÁĆEL I, YÁ, SEN DOQNOṈET	page 9, the SENĆOŦEN orthography
+(21) line 2	SENĆOŦEN	segmentation	č̓en ʔəw̓ čəsə skʷečəl ʔiʔ yeʔ=sən t̓ak̓ʷ-naŋət	page 9, NAPA
+(21) line 3	SENĆOŦEN	gloss	really CONTR two day CONTIN go=1SG.SBJ go.home-LC.REFL	page 9
+(21) line 4	Claire K. Turner	translation	‘It took me two days before I finally got home.’	page 9
+§2.2	Claire K. Turner	note	Due to the absence of morphophonological evidence and the fact that both the core limited control reflexive and the managed-to reflexive can have a “managed to” reading (19 and 20), distinguishing the two uses of -naŋət is more problematic than distinguishing the two uses of -sat. It relies largely on knowing whether the suffix is attached to an unaccusative or an unergative root. However, we will see in §4 that the two types of verb described here, the core limited control reflexive and the managed-to reflexive, are distinguished by situation type.	page 9
+§3	Claire K. Turner	heading	3 Background: SENĆOŦEN situation type	page 10
+§3	Claire K. Turner	note	In this section, I will summarise four language internal tests developed by Kiyota (2008) to distinguish five situation types in SENĆOŦEN. The situation types are accomplishments, achievements, activities, inchoative states, and homogeneous states. Some of these tests are based on universal tests for situation type, some are based on tests developed by Bar-el (2005), and some are unique to SENĆOŦEN.	page 10
+§3	Claire K. Turner	note	Two of the four tests reproduced here distinguish telic or quasi-telic events (i.e., those with an entailment or implicature of an endpoint)6 from atelic events (those without an inherent endpoint): 1) out-of-the-blue translations and 2) translation with perfect ȻȽ kʷɬ. These are discussed in §3.1. Two of the tests distinguish accomplishments from achievements: 3) interpretation with ĆELÁL čəlel ‘almost’ and 4) culmination cancellation. These are discussed in §3.2.	page 10
+footnote 6	Claire K. Turner	note	Kiyota (2008: 33) is careful to point out that accomplishments differ from achievements in that they are not really telic in SENĆOŦEN, since they do not entail culmination. They do have an implicature of culmination, which yields the past tense interpretations of out of the blue accomplishments. See Matthewson (2004), Bar-el (2005), Bar-el et al. (2006), Kiyota (2008) for discussion of the difference between achievements and accomplishments in Salish languages.	page 10, footnote 6
+§3	SENĆOŦEN	cited form	ȻȽ kʷɬ	page 10, in italics
+§3.1	Claire K. Turner	heading	3.1 Tests distinguishing atelic from telic/quasi-telic	page 10
+§3.1	Claire K. Turner	note	Kiyota (2008: 26-33) found that predicates with an activity or state-like semantics were consistently translated with English present tense, when presented to a native speaker out of the blue, in the perfective aspect, and with no morphological tense.	page 10
+(22) line 1	SENĆOŦEN	transcription	x̣ʷəŋ θə Mary	page 10, NAPA
+(22) line 2	SENĆOŦEN	gloss	cry-MID FEM.DET Mary	page 10
+(22) line 3	Claire K. Turner	translation	‘Mary is crying.’	page 10
+(22) line 4	Claire K. Turner	citation	(Kiyota 2008: 248; my gloss)	page 10, at the right of the translation
+§3.1	Claire K. Turner	note	On the other hand, predicates with an accomplishment or achievement-like semantics were consistently translated with English past tense in out of the blue contexts.	page 10
+(23) line 1	SENĆOŦEN	transcription	x̣eč-ət=sən tsə sčeenəxʷ	page 10, NAPA
+(23) line 2	SENĆOŦEN	gloss	dry-C.TR=1SG.SBJ GNRL.DET salmon	page 10
+(23) line 3	Claire K. Turner	translation	‘I dried the salmon.’	page 10
+(23) line 4	Claire K. Turner	citation	(Kiyota 2008: 250; my gloss)	page 10, at the right of the translation
+§3.1	Claire K. Turner	note	As another test for telicity, Kiyota (2008: 34-36) used the translation of clauses containing ȻȽ kʷɬ, which he argues is a marker of PERFECT. Montler (1986) shows that this particle can sometimes be translated as ‘already’ and sometimes as ‘starting to’. Kiyota (2008) shows that clauses translated with ‘starting to’ contain activity or state predicates (24), while clauses translated with ‘already’ contain accomplishment or achievement predicates (25).	page 10
+(24) line 1	SENĆOŦEN	transcription	kʷɬ ɬčikʷəs tə Jack	page 11, NAPA
+(24) line 2	SENĆOŦEN	gloss	PERF get.tired GNRL.DET Jack	page 11
+(24) line 3	Claire K. Turner	translation	‘Jack has begun to feel tired.’	page 11
+(24) line 4	Claire K. Turner	citation	(Kiyota 2008: 34; my gloss)	page 11, at the right of the translation
+(25) line 1	SENĆOŦEN	transcription	kʷɬ tečəl=sən	page 11, NAPA
+(25) line 2	SENĆOŦEN	gloss	PERF arrive=1SG.SBJ	page 11
+(25) line 3	Claire K. Turner	translation	‘I have (already) arrived./I am here.’	page 11
+(25) line 4	Claire K. Turner	citation	(Kiyota 2008: 35; my gloss)	page 11, at the right of the translation
+§3.1	Claire K. Turner	note	Kiyota (2008) follows Bar-el (2005) in arguing that the results of these tests show that activities and inchoative states are atelic: they do not contain any inherent endpoint or culmination. Accomplishments and achievements, on the other hand, do include culmination in their semantics: accomplishments have a culmination implicature and achievements have a culmination entailment (Kiyota 2008: 80; see also Bar-el 2005, Bar-el et al. 2006). 3.2 Tests for accomplishment vs. achievement	page 11
+§3.1	Claire K. Turner	note	In the previous subsection, we saw that Kiyota’s (2008) tests for atelicity tested both control and limited control transitives as (quasi-)telic, or containing some culmination. In this subsection, two of his tests are given which distinguish between two different kinds of telic verbs. As they are relevant to this paper, I will use control and limited control transitives, which behave differently with respect to these two tests. First, Kiyota (2007, 2008: 61-63) found that clauses containing the word ĆELÁL čəlel ‘almost’ have two potential interpretations when they contain accomplishment-like predicates, including control transitives. They could be interpreted either as saying that an event started but was not completed (event non-completion), or that the event almost took place but did not actually begin (event cancellation).	page 11
+(26) line 1	SENĆOŦEN	transcription	čəlel=sən ʔiʔ le-t tsə latem	page 11, NAPA
+(26) line 2	SENĆOŦEN	gloss	almost=1SG.SBJ CONTIN get.fixed-C.TR GNRL.DET table	page 11
+(26) line 3	Claire K. Turner	translation	‘I almost started fixing my table/I almost finished fixing my table.’	page 11
+(26) line 4	Claire K. Turner	citation	(Kiyota 2008: 269; my gloss)	page 11, under the translation
+§3.1	Claire K. Turner	note	On the other hand, clauses containing ĆELÁL čəlel ‘almost’ with achievement-like predicates, including limited control transitives, can only have the event non-completion interpretation, as in (27).	page 11
+(27) line 1	SENĆOŦEN	transcription	čəlel=sən ʔiʔ le-nəxʷ tˢə nə snəxʷəɬ	page 11, NAPA
+(27) line 2	SENĆOŦEN	gloss	almost=1SG.SBJ CONTIN get.fixed-LC.TR GNRL.DET 1SG.POSS canoe	page 11
+(27) line 3	Claire K. Turner	translation	‘*I didn’t start fixing my canoe / √I started fixing my canoe, but didn’t finish it.’	page 11
+(27) line 4	Claire K. Turner	citation	(Kiyota 2008: 270; my gloss)	page 11, at the right of the translation
+§3.1	Claire K. Turner	note	Another test, adapted from Bar-el et al. (2006) and Bar-el (2005), is culmination cancellation. Kiyota (2007, 2008) shows that clauses containing accomplishment-like predicates, such as control transitives, have a culmination implicature, but can have this culmination cancelled.	page 12
+(28) line 1	SENĆOŦEN	transcription	xʷəč-ət=sən tə Jack ʔiʔ ʔawa kʷ=s xʷəy-s	page 12, NAPA
+(28) line 2	SENĆOŦEN	gloss	wake-C.TR=1SG.SBJ DET Jack CONTIN NEG COMP=NMLZ wake-3POSS	page 12
+(28) line 3	Claire K. Turner	translation	‘I woke up Jack but he did not wake up.’	page 12
+(28) line 4	Claire K. Turner	citation	(Kiyota 2008: 265; my gloss)	page 12, under the translation
+§3.1	Claire K. Turner	note	Clauses containing achievements, such as limited control transitives, cannot have their culminations cancelled.	page 12
+(29) line 1	SENĆOŦEN	transcription	# lət̓ᶿ-nəxʷ=sən kʷsiʔə pul ʔiʔ ʔawa kʷ=s lət̓ᶿ	page 12, NAPA
+(29) line 2	SENĆOŦEN	gloss	fill-LC.TR=1SG.SBJ REM.DEM pool CONTIN NEG COMP=NMLZ fill	page 12
+(29) line 3	Claire K. Turner	translation	‘I filled the pool but it did not get full.’	page 12
+(29) line 4	Claire K. Turner	citation	(Kiyota 2008: 266; my gloss)	page 12, under the translation
+§3.1	Claire K. Turner	note	These distinctions are used by Kiyota (2008: 67) to argue for two fundamental distinctions between accomplishments and achievements: first, achievements contain a BECOME (change of state) event, while accomplishments contain a DO (process) event; second, achievements entail culmination, while accomplishments only contain an implicature of culmination, which can be cancelled. The first property ties in with the ‘almost’ test. Since achievements contain no DO event, they do not involve agency (Kiyota 2007: 291). They contain only a BECOME event, so the ‘almost’ refers to the culmination of the change of state. The second distinction relates to the culmination cancellation test. Since accomplishments can have their culmination cancelled, they must not entail culmination.	page 12
+§3.1	Claire K. Turner	note	Kiyota (2008) found that both control and limited control transitive verbs tested as telic, but that control transitives tested as accomplishments, while limited control transitives tested as achievements. The behaviour of control transitives is consistent with Skwxwú7mesh control transitives and St’át’imcets directive transitives (Bar-el et al. 2006, Bar-el 2005). These sources do not claim explicitly that all control transitives are accomplishments and (for SENĆOŦEN) all limited control transitives are achievements, but I will take that as a hypothesis for the present paper. This sets the stage for testing one set of intransitive control and limited control predicates, namely reflexives. The next section shows the results of these tests.	page 12
+§4	Claire K. Turner	heading	4 Testing the situation type of SENĆOŦEN reflexives	page 12
+§4	Claire K. Turner	note	The previous two sections provided the necessary background for testing the situation type of reflexives in SENĆOŦEN. Section 2 showed that there is evidence from several sources of a two way distinction in verbs containing control reflexive -sat, and that there is some evidence for a two way distinction in verbs containing -naŋət. These four reflexive verb types will be the testing ground for the general question this paper begins to address: whether valence/control morphologically affects situation type in a predictable way. Section 3 provided examples of the four of Kiyota’s (2008) situation type tests that will be used in this section. It also exemplified Kiyota’s (2008) claim that control transitives are accomplishments while limited control transitives are achievements. We are ready now to move on to the situation type of intransitives which differ in control: §4.1 looks at core control reflexives, §4.2 at core limited control reflexives, §4.3 at inchoative reflexives, and §4.4 at managed-to reflexives.	page 12
+§4.1	Claire K. Turner	heading	4.1 Core control reflexives: Achievements	page 13
+§4.1	Claire K. Turner	note	This section considers core control reflexives. Recall that these are verbs with a reflexive suffix attached to a control transitive base, which are syntactically intransitive and have a co-referential agent and patient. These test as telic according to two of Kiyota’s (2008) tests: interpretation with the perfect (30-31) and translation of out of the blue sentences (32-33).	page 13
+(30) line 1	SENĆOŦEN	transcription	ȻȽ W̱EĆESET TŦE ḴAḴ	page 13, the SENĆOŦEN orthography
+(30) line 2	SENĆOŦEN	segmentation	kʷɬ xʷəč-ə-sət tθə qeq	page 13, NAPA
+(30) line 3	SENĆOŦEN	gloss	PERF wake.up-C.TR-REFL GNRL.DET baby	page 13
+(30) line 4	Claire K. Turner	translation	‘The baby woke himself/herself up.’	page 13
+(31) line 1	SENĆOŦEN	transcription	ȻȽ ȻEL,ESET TŦE TȺ,EȻEȽ	page 13, the SENĆOŦEN orthography
+(31) line 2	SENĆOŦEN	segmentation	kʷɬ kʷəl̓-ə-sət tθə tey̓əkʷəɬ	page 13, NAPA
+(31) line 3	SENĆOŦEN	gloss	PERF get.tipped-C.TR-REFL GNRL.DET race.canoe	page 13
+(31) line 4	Claire K. Turner	translation	‘The canoe tipped over.’	page 13
+(32) line 1	SENĆOŦEN	transcription	ȻEL,ESET TŦE TȺ,EȻEȽ	page 13, the SENĆOŦEN orthography
+(32) line 2	SENĆOŦEN	segmentation	kʷəl̓-ə-sət tθə tey̓əkʷəɬ	page 13, NAPA
+(32) line 3	SENĆOŦEN	gloss	get.tipped-C.TR-REFL GNRL.DET race.canoe	page 13
+(32) line 4	Claire K. Turner	translation	‘The canoe got tipped over, the canoe tipped over.’	page 13
+(33) line 1	SENĆOŦEN	transcription	ḴXESET LÁ,E TŦE SȾU,ÁĆEN	page 13, the SENĆOŦEN orthography
+(33) line 2	SENĆOŦEN	segmentation	qx̌-ə-sət leʔə tθə st̓ᶿəw̓ečən	page 13, NAPA
+(33) line 3	SENĆOŦEN	gloss	go.down-C.TR-REFL DEM GNRL.DEM chair	page 13
+(33) line 4	Claire K. Turner	translation	‘He hid behind a chair.’	page 13
+§4.1	Claire K. Turner	note	These two tests show that core control reflexives are either achievements or accomplishments.	page 13
+§4.1	Claire K. Turner	note	In tests designed to distinguish between accomplishments and achievements, core control reflexives appear to pattern with both. When it comes to the ‘almost’ test, core control reflexives can have an event cancellation reading or an event non-completion reading. Example (34) shows both.	page 13
+(34) line 1	SENĆOŦEN	transcription	ĆELÁL I, TSESET SEN E TŦE SOȽ	page 14, the SENĆOŦEN orthography
+(34) line 2	SENĆOŦEN	segmentation	čəlel ʔiʔ ts-ə-sət=sən ʔə tθə saɬ	page 14, NAPA
+(34) line 3	SENĆOŦEN	gloss	almost CONTIN get.near-C.TR-REFL=1SG.SBJ OBL GNRL.DET door	page 14
+(34) line 4	Claire K. Turner	translation	‘I almost got close to the door; I’m nearing the door.’	page 14
+§4.1	Claire K. Turner	note	I have noticed that some predicates get a reading with ĆELÁL čəlel ‘almost’ that is not event cancellation or event non-completion. This is a reading where the event is about to take place but has not started yet, as in (35-36).	page 14
+(35) line 1	SENĆOŦEN	transcription	ĆELÁL I, BȻESET TŦE MO,EḰ	page 14, the SENĆOŦEN orthography
+(35) line 2	SENĆOŦEN	segmentation	čəlel ʔiʔ p̓kʷ-ə-sət tθə maʔəqʷ	page 14, NAPA
+(35) line 3	SENĆOŦEN	gloss	almost CONTIN surface-C.TR-REFL GNRL.DET duck	page 14
+(35) line 4	Claire K. Turner	translation	‘The duck’s ready to surface (looking for food, getting ready).’	page 14
+(36) line 1	SENĆOŦEN	transcription	ĆELÁL I, ȾÁȻESET SEN	page 14, the SENĆOŦEN orthography
+(36) line 2	SENĆOŦEN	segmentation	čəlel ʔiʔ t̓ᶿekʷ-ə-sət=sən	page 14, NAPA
+(36) line 3	SENĆOŦEN	gloss	almost CONTIN wash-C.TR-REFL=1SG.SBJ	page 14
+(36) line 4	Claire K. Turner	translation	‘It’s almost time for me to wash up.’	page 14
+§4.1	Claire K. Turner	note	I take this reading to be similar to the event cancellation reading, which is only available with accomplishments, since it suggests some intention on the part of the agent to carry out the event.	page 14
+§4.1	Claire K. Turner	note	Although they behave like accomplishments with respect to the ‘almost’ test, it seems that core control reflexives behave like achievements with respect to the culmination cancellation test. Examples (37-38) show that control reflexives entail culmination, like other achievements.	page 14
+(37) line 1	SENĆOŦEN	transcription	#p̓kʷ-ə-sət=sən	page 14, NAPA
+(37) line 2	SENĆOŦEN	gloss	#surface-C.TR-REFL=1SG.SBJ	page 14
+(37) line 3	SENĆOŦEN	transcription	ʔiʔ ʔəwə kʷ-nə=s ʔəne p̓əkʷ	page 14, NAPA
+(37) line 4	SENĆOŦEN	gloss	CONTIN NEG COMP-1SG.POSS=NMLZ come surface	page 14
+(37) line 5	Claire K. Turner	translation	‘I’m surfacing but I can’t seem to reach the surface.’	page 14
+(38) line 1	SENĆOŦEN	transcription	#xʷəč-ə-sət θə Katie	page 14, NAPA
+(38) line 2	SENĆOŦEN	gloss	#wake.up-C.TR-REFL FEM.DET Katie	page 14
+(38) line 3	SENĆOŦEN	transcription	ʔiʔ ʔəwə kʷ=s xʷəy-s	page 14, NAPA
+(38) line 4	SENĆOŦEN	gloss	CONTIN NEG COMP=NMLZ wake.up-3POSS	page 14
+(38) line 5	Claire K. Turner	translation	‘Katie woke up but she’s not awake.’	page 14
+§4.1	Claire K. Turner	note	In addition, sometimes an imperfective control reflexive describes the stages leading up to the event, a typical property of achievements (Smith 1997: 172).	page 14
+(39) line 1	SENĆOŦEN	transcription	I, ȻEL,SET TŦE TȺ,EȻEȽ	page 15, the SENĆOŦEN orthography
+(39) line 2	SENĆOŦEN	segmentation	ʔiʔ kʷəl̓-sət tθə tey̓əkʷəɬ	page 15, NAPA
+(39) line 3	SENĆOŦEN	gloss	CONTIN get.tipped-[C.TR]REFL\IPFV GNRL.DET race.canoe	page 15
+(39) line 4	Claire K. Turner	translation	‘The canoe is on the verge of tipping over.’	page 15
+(39) line 5	Claire K. Turner	note	(not ‘in the process’)	page 15, at the right of the translation
+§4.1	Claire K. Turner	note	The results shown here suggest that core control transitive reflexives share some properties with achievements, and some with accomplishments. This duality will be discussed further in §5.	page 15
+§4.2	Claire K. Turner	heading	4.2 Core limited control reflexives: Achievements	page 15
+§4.2	Claire K. Turner	note	This section looks at core limited control reflexives. Recall that these are verbs with the suffix -naŋət, which I assumed in §2 include a limited control transitive suffix. The roots of core limited control reflexives are normally unaccusative, and they have a reflexive use involving limited agent control. They test as accomplishments or achievements ((quasi-)telic predicates) with respect to Kiyota’s (2008) perfect test and “out of the the blue” translation test. With both they have a past tense, completed translation.	page 15
+(40) line 1	SENĆOŦEN	transcription	ȻȽ ȻÁLNOṈET TŦE HOLES	page 15, the SENĆOŦEN orthography
+(40) line 2	SENĆOŦEN	segmentation	kʷɬ kʷel-n-aŋət tθə haləs	page 15, NAPA
+(40) line 3	SENĆOŦEN	gloss	PERF hide-LC.TR-LC.REFL GNRL.DET Horace	page 15
+(40) line 4	Claire K. Turner	translation	‘Horace managed to hide.’	page 15
+(41) line 1	SENĆOŦEN	transcription	ȻȽ MÁȻEȽNOṈET SEN	page 15, the SENĆOŦEN orthography
+(41) line 2	SENĆOŦEN	segmentation	kʷɬ mekʷəɬ-n-aŋət=sən	page 15, NAPA
+(41) line 3	SENĆOŦEN	gloss	PERF get.hurt-LC.TR-LC.REFL=1SG.SBJ	page 15
+(41) line 4	Claire K. Turner	translation	‘I hurt myself.’	page 15
+(42) line 1	SENĆOŦEN	transcription	TEȻNOṈET TŦE LETÁM	page 15, the SENĆOŦEN orthography
+(42) line 2	SENĆOŦEN	segmentation	təkʷ-n-aŋət tθə lətem	page 15, NAPA
+(42) line 3	SENĆOŦEN	gloss	break-LC.TR-LC.REFL GNRL.DET table	page 15
+(42) line 4	Claire K. Turner	translation	‘The table broke (i.e., under a heavy load).	page 15
+(43) line 1	SENĆOŦEN	transcription	QÁSNOṈET SEN	page 15, the SENĆOŦEN orthography
+(43) line 2	SENĆOŦEN	segmentation	k̓ʷes-n-aŋət=sən	page 15, NAPA
+(43) line 3	SENĆOŦEN	gloss	get.hot-LC.TR-LC.REFL	page 15
+(43) line 4	Claire K. Turner	translation	‘I burned myself.’	page 15
+§4.2	Claire K. Turner	note	Like limited control transitives, they pattern with achievements with respect to the ‘almost’ and culmination cancellation tests. With ĆELÁL čəlel ‘almost’, it seems that core limited control reflexives cannot have an event cancellation reading.	page 15
+(44) line 1	SENĆOŦEN	transcription	ĆELÁL I, QÁSNOṈET SEN	page 16, the SENĆOŦEN orthography
+(44) line 2	SENĆOŦEN	segmentation	čəlel ʔiʔ k̓ʷes-n-aŋət=sən	page 16, NAPA
+(44) line 3	SENĆOŦEN	gloss	almost CONTIN burn-LC.TR-LC.REFL=1SG.SBJ	page 16
+(44) line 4	Claire K. Turner	translation	‘I almost burned myself.’	page 16
+§4.2	Claire K. Turner	note	It appears that in some cases they cannot event take ĆELÁL čəlel ‘almost’:	page 16
+(45) line 1	SENĆOŦEN	transcription	#čəlel ʔiʔ x̣ʷil̓-n-aŋət tθə sƛ̓əliƛ̓qəɬ	page 16, NAPA
+(45) line 2	SENĆOŦEN	gloss	almost CONTIN get.lost-LC.TR-LC.REFL GNRL.DET child<PL>	page 16
+(45) line 3	Claire K. Turner	translation	attempt at: ‘The child almost got lost.’	page 16
+§4.2	Claire K. Turner	note	More testing is required of core limited control reflexives to confirm that they really do behave like achievements.	page 16
+§4.2	Claire K. Turner	note	When it comes to culmination cancellation, core limited control reflexives cannot have their culmination cancelled.	page 16
+(46) line 1	SENĆOŦEN	transcription	??mekʷəɬ-n-aŋət=sən ʔiʔ ʔəwə kʷ=s mekʷəɬ	page 16, NAPA
+(46) line 2	SENĆOŦEN	gloss	get.hurt-LC.TR-LC.REFL=1SG.SBJ CONTIN NEG COMP=NMLZ get.hurt	page 16
+(46) line 3	Claire K. Turner	translation	‘I got hurt but I didn’t get hurt.’	page 16
+(46) line 4	Claire K. Turner	speaker comment	Speaker’s comment: “He admits he hurt himself, but then says he’s not hurt!?”	page 16, under the example
+(47) line 1	SENĆOŦEN	transcription	X̱IL,NOṈET TŦE SṮIṮEṮḴEȽ	page 16, the SENĆOŦEN orthography
+(47) line 2	SENĆOŦEN	segmentation	x̣il̓-n-aŋət tθə sƛ̓iƛ̓əƛ̓qəɬ	page 16, NAPA
+(47) line 3	SENĆOŦEN	gloss	get.lost-LC.TR-LC.REFL GNRL.DET child	page 16
+(47) line 4	SENĆOŦEN	transcription	I, EWE ȻS X̱IL,S	page 16, the SENĆOŦEN orthography
+(47) line 5	SENĆOŦEN	segmentation	ʔiʔ ʔəwə kʷ=s x̣ʷil̓-s	page 16, NAPA
+(47) line 6	SENĆOŦEN	gloss	CONTIN NEG COMP=NMLZ get.lost-3POSS	page 16
+(47) line 7	Claire K. Turner	translation	‘The young boy got lost. He doesn’t usually get lost.’	page 16
+§4.2	Claire K. Turner	note	Note how in (47) the attempted culmination cancellation is interpreted as a separate phrase concerning the boy’s habits. He is still lost. It appears that core limited control reflexives, like limited control transitives, are achievements.	page 16
+§4.3	Claire K. Turner	heading	4.3 Inchoative reflexives: Activities	page 16
+§4.3	Claire K. Turner	note	This section considers the situation type of inchoative reflexives, verbs with an inchoative meaning that contain a reflexive suffix -sat attached directly to a stative root. These behave differently from core control reflexives with respect to Kiyota’s (2008) tests. They pattern as atelic with the perfect and in out of context translations. The translations of (48-51) are all inceptive and ongoing, as is the case with activities and inchoative states.	page 16
+(48) line 1	SENĆOŦEN	transcription	JÁN U, ȻȽ SĆUÁTSET ŦE SȽÁNI,	page 17, the SENĆOŦEN orthography
+(48) line 2	SENĆOŦEN	segmentation	č̓en ʔəw̓ kʷɬ sčuet-sət θə sɬenəy̓	page 17, NAPA
+(48) line 3	SENĆOŦEN	gloss	really CONTR PERF smart-REFL FEM.DET woman	page 17
+(48) line 4	Claire K. Turner	translation	‘The woman’s getting really smart/really good at it.’	page 17
+(49) line 1	SENĆOŦEN	transcription	kʷɬ x̌əm-sat tə qeq	page 17, NAPA
+(49) line 2	SENĆOŦEN	gloss	PERF heavy-REFL GNRL.DET baby	page 17
+(49) line 3	Claire K. Turner	translation	‘The baby is getting heavier.’	page 17
+(49) line 4	Claire K. Turner	citation	(Kiyota 2008: 254)	page 17, at the right of the translation
+(50) line 1	SENĆOŦEN	transcription	MIMENEḴENSET	page 17, the SENĆOŦEN orthography
+(50) line 2	SENĆOŦEN	segmentation	mimən-əqən-sət	page 17, NAPA
+(50) line 3	SENĆOŦEN	gloss	small-LSvoice-REFL	page 17
+(50) line 4	Claire K. Turner	translation	‘getting a small voice’	page 17
+(51) line 1	SENĆOŦEN	transcription	ĆEḴSOT TŦE SOȽ	page 17, the SENĆOŦEN orthography
+(51) line 2	SENĆOŦEN	segmentation	čəq-sat tθə saɬ	page 17, NAPA
+(51) line 3	SENĆOŦEN	gloss	big-REFL GNRL.DET road	page 17
+(51) line 4	Claire K. Turner	translation	‘The road is getting bigger.’	page 17
+§4.3	Claire K. Turner	note	These tests show that inchoative reflexives are atelic; this means they are either activities (homogeneous processes containing an inception into the process) or they are inchoative states (predicates describing a change into a state; term is due to Bar-el 2005). One way in which activities and inchoative states differ is in their interpretation in the imperfective. Imperfective activities have a progressive reading (52), while imperfective inchoative states have a result state reading (53).	page 17
+(52) line 1	SENĆOŦEN	transcription	I, ŚETEṈ, ŦE KÁ,ṈI,	page 17, the SENĆOŦEN orthography
+(52) line 2	SENĆOŦEN	segmentation	ʔiʔ šətəŋ̓ θə q̓eŋ̓əy̓	page 17, NAPA
+(52) line 3	SENĆOŦEN	gloss	CONTIN walk\IPFV FEM.DET young.woman	page 17
+(52) line 4	Claire K. Turner	translation	‘The young woman is walking.’	page 17
+(53) line 1	SENĆOŦEN	transcription	EWES U, SETKT ŦE Katie.	page 17, the SENĆOŦEN orthography
+(53) line 2	SENĆOŦEN	segmentation	ʔəwəs ʔəw̓ sətq̓-t θə Katie.	page 17, NAPA
+(53) line 3	SENĆOŦEN	gloss	NEG CONTIN get.disturbed\IPFV-C.TR FEM.DET Katie	page 17
+(53) line 4	SENĆOŦEN	transcription	DEDAY,EK.	page 17, the SENĆOŦEN orthography
+(53) line 5	SENĆOŦEN	segmentation	t̓ə~t̓ey̓əq̓	page 17, NAPA
+(53) line 6	SENĆOŦEN	gloss	IPFV~get.mad	page 17
+(53) line 7	Claire K. Turner	translation	‘Don’t disturb Katie. She’s mad.’	page 17
+(53) line 8	Claire K. Turner	note	(not ‘She’s getting mad’)	page 17, at the right of the translation
+§4.3	Claire K. Turner	note	Imperfective inchoative reflexives have an ongoing, rather than a result state reading.	page 17
+(54) line 1	SENĆOŦEN	transcription	QEQÁSSET TŦE SȻEȻEL,	page 18, the SENĆOŦEN orthography
+(54) line 2	SENĆOŦEN	segmentation	k̓ʷə~k̓es-sət tθə skʷəkʷəl̓	page 18, NAPA
+(54) line 3	SENĆOŦEN	gloss	IPFV~warm-REFL GNRL.DET sun	page 18
+(54) line 4	Claire K. Turner	translation	‘The sun’s getting warm.’	page 18
+(54) line 5	Claire K. Turner	note	(not ‘the sun is warm’)	page 18, at the right of the translation
+§4.3	Claire K. Turner	note	Therefore, inchoative reflexives appear to pattern as activities.	page 18
+§4.4	Claire K. Turner	heading	4.4 Managed-to reflexives: Accomplishments	page 18
+§4.4	Claire K. Turner	note	The last type of reflexive considered here is the managed-to reflexive. This is a verb containing -naŋət attached directly to an unergative root. Managed-to reflexives pattern as telic (accomplishments or achievements) with respect to Kiyota’s (2008) perfect test and out of the blue translation test. Both tests yield a past tense, completed translation.	page 18
+(55) line 1	SENĆOŦEN	transcription	ȻȽ NEḰNOṈET ŦE Katie	page 18, the SENĆOŦEN orthography
+(55) line 2	SENĆOŦEN	segmentation	kʷɬ nəqʷ-naŋət θə Katie	page 18, NAPA
+(55) line 3	SENĆOŦEN	gloss	PERF fall.asleep-LC.REFL FEM.DET Katie	page 18
+(55) line 4	Claire K. Turner	translation	‘Katie fell asleep.’	page 18
+(56) line 1	SENĆOŦEN	transcription	ȻȽ ŦIȽEṈNOṈET ŦE NE TÁN	page 18, the SENĆOŦEN orthography
+(56) line 2	SENĆOŦEN	segmentation	kʷɬ θiɬəŋ-naŋət θə nə ten	page 18, NAPA
+(56) line 3	SENĆOŦEN	gloss	PERF stand.up-LC.REFL GNRL.DET 1SG.POSS mother	page 18
+(56) line 4	Claire K. Turner	translation	‘My mother was able to stand up.’	page 18
+(57) line 1	SENĆOŦEN	transcription	DOQNOṈET SEN	page 18, the SENĆOŦEN orthography
+(57) line 2	SENĆOŦEN	segmentation	t̓ak̓ʷ-naŋət=sən	page 18, NAPA
+(57) line 3	SENĆOŦEN	gloss	go.home-LC.REFL=1SG.SBJ	page 18
+(57) line 4	Claire K. Turner	translation	‘I finally got home.’	page 18
+(58) line 1	SENĆOŦEN	transcription	SĆUÁTNOṈET TŦE SṮELIṮḴEȽ	page 18, the SENĆOŦEN orthography
+(58) line 2	SENĆOŦEN	segmentation	sčuet-naŋət tθə sƛ̓<əl>iʔƛ̓qəɬ	page 18, NAPA
+(58) line 3	SENĆOŦEN	gloss	be.smart-LC.REFL GNRL.DET children<PL>	page 18
+(58) line 4	Claire K. Turner	translation	‘The children got smarter.’	page 18
+§4.4	Claire K. Turner	note	With respect to the ‘almost’ test and the culmination cancellation test, managed-to reflexives appear to behave like accomplishments. With ĆELÁL čəlel ‘almost’, they can have either the event non-culmination reading, or the event cancellation reading only available to accomplishments.	page 18
+(59) line 1	SENĆOŦEN	transcription	ĆELÁL I, DÁJEKNOṈET ŦE Katie	page 18, the SENĆOŦEN orthography
+(59) line 2	SENĆOŦEN	segmentation	čəlel ʔiʔ t̓eč̓əq̓-naŋət θə Katie	page 18, NAPA
+(59) line 3	SENĆOŦEN	gloss	almost CONTIN get.angry-LC.REFL FEM.DET Katie	page 18
+(59) line 4	Claire K. Turner	translation	‘Katie almost got mad, Katie’s darn near getting mad/Katie’s losing her temper.’	page 18
+(60) line 1	SENĆOŦEN	transcription	ĆELÁL I, DOQNOṈET SEN	page 19, the SENĆOŦEN orthography
+(60) line 2	SENĆOŦEN	segmentation	čəlel ʔiʔ t̓ak̓ʷ-naŋət=sən	page 19, NAPA
+(60) line 3	SENĆOŦEN	gloss	almost CONTIN go.home-LC.REFL=1SG.SBJ	page 19
+(60) line 4	Claire K. Turner	translation	‘I almost made it home (I haven’t left yet OR I’m on the way).’	page 19
+§4.4	Claire K. Turner	note	Preliminary testing shows that managed-to reflexives can have their culmination cancelled, another property of accomplishments.	page 19
+(61) line 1	SENĆOŦEN	transcription	DOQNOṈET SEN I, W̱UÁ SEN SE, JÁṈ,	page 19, the SENĆOŦEN orthography
+(61) line 2	SENĆOŦEN	segmentation	t̓ak̓ʷ-naŋət=sən ʔiʔ xʷəw̓e=sən=səʔ č̓eŋ̓	page 19, NAPA
+(61) line 3	SENĆOŦEN	gloss	go.home-LC.REFL=1SG.SBJ CONTIN yet=1SG.SBJ=FUT be.home	page 19
+(61) line 4	Claire K. Turner	translation	‘I was going to go home, and I still haven’t made it home.’	page 19
+§4.4	Claire K. Turner	note	It thus appears that the managed-to reflexives differ from core limited reflexives in their situation type, as they are accomplishments. However, further testing is required to confirm the situation type of managed-to reflexives.	page 19
+§4.5	Claire K. Turner	heading	4.5 Reflexives compared	page 19
+§4.5	Claire K. Turner	note	Table 2 summarises the situation type tests applied to all four reflexive types. This table shows an interesting result: core control reflexives appear to pattern with control transitives as accomplishments when it comes to the ‘almost’ test. However, they pattern with core limited control reflexives as achievements with respect to the culmination cancellation test. The table also shows how the non-core uses of the reflexive suffixes yield different situation types from the core uses: the inchoative reflexives test as activities, while the managed-to reflexives seem to be accomplishments.	page 19
+Table 2	Claire K. Turner	note	Table 2 Summary of situation type tests applied to reflexives	page 20, the table's caption
+Table 2	Claire K. Turner	note	Perfect	page 20, a test's column head
+Table 2	Claire K. Turner	note	Out of the blue	page 20, a test's column head
+Table 2	Claire K. Turner	note	Almost	page 20, a test's column head
+Table 2	Claire K. Turner	note	Culmination cancellation	page 20, a test's column head
+Table 2	Claire K. Turner	note	Core control reflexives	page 20, the row's head
+Table 2	SENĆOŦEN	cited form	k̓ʷənsət	page 20, in italics, ‘look at self’, under Core control reflexives
+Table 2	Claire K. Turner	note	Telic	page 20, Core control reflexives, Perfect
+Table 2	Claire K. Turner	note	Telic	page 20, Core control reflexives, Out of the blue
+Table 2	Claire K. Turner	note	Accomplishment	page 20, Core control reflexives, Almost
+Table 2	Claire K. Turner	note	Achievement	page 20, Core control reflexives, Culmination cancellation
+Table 2	Claire K. Turner	note	Core limited control reflexives	page 20, the row's head
+Table 2	SENĆOŦEN	cited form	mekʷəɬnaŋət	page 20, in italics, ‘hurt self’, under Core limited control reflexives
+Table 2	Claire K. Turner	note	Telic	page 20, Core limited control reflexives, Perfect
+Table 2	Claire K. Turner	note	Telic	page 20, Core limited control reflexives, Out of the blue
+Table 2	Claire K. Turner	note	Achievement	page 20, Core limited control reflexives, Almost
+Table 2	Claire K. Turner	note	Achievement	page 20, Core limited control reflexives, Culmination cancellation
+Table 2	Claire K. Turner	note	Inchoative reflexives	page 20, the row's head
+Table 2	SENĆOŦEN	cited form	sčuetsət	page 20, in italics, ‘get smart’, under Inchoative reflexives
+Table 2	Claire K. Turner	note	Atelic	page 20, Inchoative reflexives, Perfect
+Table 2	Claire K. Turner	note	Atelic	page 20, Inchoative reflexives, Out of the blue
+Table 2	Claire K. Turner	notation	shaded	page 20, Inchoative reflexives, Almost, the cell shaded and empty
+Table 2	Claire K. Turner	notation	shaded	page 20, Inchoative reflexives, Culmination cancellation, the cell shaded and empty
+Table 2	Claire K. Turner	note	Managed-to reflexives	page 20, the row's head
+Table 2	SENĆOŦEN	cited form	nəqʷnanət	page 20, in italics, ‘fall asleep’, under Managed-to reflexives
+Table 2	Claire K. Turner	note	Telic	page 20, Managed-to reflexives, Perfect
+Table 2	Claire K. Turner	note	Telic	page 20, Managed-to reflexives, Out of the blue
+Table 2	Claire K. Turner	note	Accomplishment	page 20, Managed-to reflexives, Almost
+Table 2	Claire K. Turner	note	Accomplishment	page 20, Managed-to reflexives, Culmination cancellation
+§5	Claire K. Turner	heading	5 Discussion: core control reflexives	page 20
+§5	Claire K. Turner	note	This paper has begun to examine whether the effect of valence/morphology on situation type is systematic and predictable in SENĆOŦEN. Preliminary evidence was found on the basis of four of Kiyota’s (2008) tests suggesting that it is. It appears that the four types of reflexive behave differently with respect to the situation type tests. However, one interesting result is that the core control reflexives pattern with accomplishments and achievements. I suggest that this is because the two tests used to distinguish accomplishments and achievements here pick out different properties. The ‘almost’ test distinguishes accomplishments from achievements on the basis of the DO event, while the culmination cancellation test distinguishes accomplishments from a achievements on the basis of culmination entailments (Kiyota 2007, 2008).	page 20
+§5	Claire K. Turner	note	Before applying Kiyota’s (2008) tests to the reflexives, I had expected control reflexives to behave like control transitives as accomplishments, since both contain a subject representing a semantic agent with control over the event. In addition, Jacobs (to appear) has found that control verbs in Skwxú7mesh behave like accomplishments with respect to culmination cancellation. SENĆOŦEN core control reflexives do not behave like accomplishments with respect to culmination cancellation, but they do behave like accomplishments with respect to the ‘almost’ test. I suggest that this results from their containing a DO event, as discussed in Kiyota (2007) for control transitives. Since core control reflexives have an agent with a normal amount of control, some intention is possible. With an event cancellation reading, or the readings where the event has not started yet, ‘almost’ tells us that the agent is or was intending to carry out the event.	page 20
+§5	Claire K. Turner	note	In terms of culmination cancellation, core control reflexives pattern not with control transitives, but with unaccusatives. Within work on other Salish languages, both Gerdts (1989) and Davis & Demirdache (2000) discuss similarities between unaccusatives and reflexives. Both also refer to work on Romance languages, where parallels between the two are also found. Within Relational Grammar, Gerdts (1989: 267, 272) treats the Halkomelem -θət reflexives as referring to an initial object (in RG terms, the head of a 2-arc). She cites work by Rosen (1981/1988) on Italian, where reflexives take the same past tense auxiliary as unaccusatives, essere.	page 21
+§5	Claire K. Turner	note	Davis & Demirdache (2000) discuss Chierchia’s (1989/2004) proposal that unaccusatives are underlying causatives involving a type of reflexivization. They also show that St’át’imcets, like Italian, has unaccusative verbs with morphological/syntactic reflexive marking. Similar examples are found in SENĆOŦEN, as in (12), repeated as (62) here, where Katie is a semantic patient and the reflexive suggests that there was no external agent which caused the waking up.	page 21
+(62) line 1	SENĆOŦEN	transcription	W̱EĆESET ŦE Katie	page 21, the SENĆOŦEN orthography
+(62) line 2	SENĆOŦEN	segmentation	xʷəč-ə-sət θə Katie	page 21, NAPA
+(62) line 3	SENĆOŦEN	gloss	wake.up-C.TR-REFL FEM.DET Katie	page 21
+(62) line 4	Claire K. Turner	translation	‘Katie woke herself up.’	page 21
+§5	Claire K. Turner	note	Recall that the distinction between accomplishments and achievements in SENĆOŦEN which is picked out by the culmination cancellation test is related to telicity. Achievements are fully telic, since they entail culmination. In Kiyota’s (2008) formalization, they contain a BECOME subevent. It makes sense that core reflexives, both control and limited control, are fully telic, since they have a subject participant which is affected by the event; i.e., undergoes a change of state. This property they share with unaccusatives.	page 21
+§5	Claire K. Turner	note	Only a small number of verbs have been tested at the time of writing this paper. If the patterns observed so far turn out to hold, they may provide evidence that a finer grained classification of situation types is necessary for SENĆOŦEN. Since achievements differ from accomplishments in two respects (DO event and culmination entailment), it is logically possible for an event to behave like an accomplishment in one respect and like an achievement in the other. This seems to be the case with core control reflexives. The duality ultimately results from the fact that their subject is both an agent with control and an affected patient.	page 21
+§6	Claire K. Turner	heading	6 Conclusion	page 22
+§6	Claire K. Turner	note	This paper has provided evidence that the distinction among reflexive uses in Halkomelem discussed by Gerdts (2000) is found in SENĆOŦEN too. Both the control reflexive suffix -sat and the limited control reflexive suffix -naŋət are found on verbs that do not have a core reflexive meaning. The verbs derived from these non-core uses of the reflexive suffixes behave differently with respect to situation type from the core reflexives and from each other. Inchoative reflexives appear to be activities, while managed-to reflexives appear to be accomplishments.	page 22
+§6	Claire K. Turner	note	The tests used in this paper have also shown that core reflexives pattern with both accomplishments and achievements. I suggested in §5 that this results from dual nature of their subject, which is both an agent with control and an affected patient. The presence of an agent with control suggests that they contain a DO event, like accomplishments; however, the patient subject suggests that they share properties with unaccusatives, which also entail culmination.	page 22
+§6	Claire K. Turner	note	The investigation undertaken in this paper contributes to work on the nature of situation types in Salish languages, and to the interaction of morphology and semantics. The results are preliminary; many more verbs would need to be tested to draw stronger conclusions. However, they suggest that the presence of valence/control morphology in SENĆOŦEN, and perhaps in other Salish languages, can be used to predict the situation type of a verb. Further research includes testing other valence/control categories, such as control and limited control reciprocals; and determining whether the availability of grammatical aspects can also predict a predicate’s situation type. In addition, I have considered only some of Kiyota’s (2008) situation type tests. This research would benefit from looking at other tests. The current paper is intended as a starting point for investigating the relationship between valence/control morphology and situation type in SENĆOŦEN beyond control and limited control transitives. Appendix: Glossing abbreviations AUX=auxiliary; C=control; COMP=complementizer; CONTIN=continuing; CONTR=contrastive; DEM=demonstrative; DET=determiner; ERG=ergative; FEM=feminine; FUT=future; GNRL=general; IPFV=imperfective; LC=limited.control; LOCAT=locational; MID=middle; NEG=negative; NMLZ=nominalizer; OBJ=object; OBL=oblique; PERF=perfect; PL=plural; POSS=possessive; PROX=proximal; REFL=reflexive; REM=remote; SG=singular. Glossing follows the Leipzig Glossing Rules where possible. Please note that = in the glosses separates a clitic from its host, and -LS is used to indicate a lexical suffix.	page 22
+references	Claire K. Turner	heading	References	page 23
+references	Claire K. Turner	reference	Bar-el, Leora. 2005. Aspectual distinctions in Skwxwú7mesh. Vancouver: University of British Columbia. PhD Thesis.	page 23
+references	Claire K. Turner	reference	Bar-el, Leora, Henry Davis & Lisa Matthewson. 2006. On non-culminating accomplishments. In Proceedings of the 35th Annual Meeting of the North East Linguistics Society, ed. by Leah Bateman & Cherlon Ussery. Amherst, MA: GLSA.	page 23
+references	Claire K. Turner	reference	Chierchia, Gennaro. 1989. A semantics for unaccusatives and its syntactic consequences. ms. Published 2004 in The Unaccusativity Puzzle: Explorations of the Syntax-Lexicon Interface, ed. by Artemis Alexiadou, Elena Anagnostopoulou & Martin Everaert, 22-59. Oxford: Oxford University Press.	page 23
+references	Claire K. Turner	reference	Davis, Henry & Hamida Demirdache. 2000. On lexical verb meanings: Evidence from Salish. In Events as Grammatical Objects, ed. by Carol Tenny & James Pustejovsky, 97-141. Stanford: CSLI.	page 23
+references	Claire K. Turner	reference	Gerdts, Donna B. 1989. Relational parameters of reflexives: the Halkomelem evidence. In Theoretical Perspectives on Native American Languages, ed. by Donna B. Gerdts & Karin Michelson, 259-280. New York: State University of New York Press.	page 23
+references	Claire K. Turner	reference	Gerdts, Donna B. 2000. Combinatory restrictions on Halkomelem reflexives and reciprocals. In Reciprocals, ed. by Zygmunt Frajzyngier, 145-60. Philadelphia: John Benjamins.	page 23
+references	Claire K. Turner	reference	Jacobs, Peter. 2007. Txw as an out of control marker in Skwxwú7mesh. In Papers for the 42nd International Conference on Salish and Neighbouring Languages, ed. by Kristín M. Jóhannsdóttir & Martin A. Oberg, 256-284. Vancouver: University of British Columbia Working Papers in Linguistics.	page 23
+references	Claire K. Turner	reference	Jacobs, Peter. to appear. Control, aspect and event structure in Skwxwú7mesh. University of British Columbia. PhD Thesis.	page 23
+references	Claire K. Turner	reference	Kiyota, Masaru. 2007. Aspectual properties of unaccusatives and transitives in Sənčáθən. In Papers for the 42nd International Conference on Salish and Neighbouring Languages, ed. by Kristín M. Jóhannsdóttir & Martin A. Oberg, 285-292. Vancouver: University of British Columbia Working Papers in Linguistics.	page 23
+references	Claire K. Turner	reference	Kiyota, Masaru. 2008. Situation aspect and viewpoint aspect: From Salish to Japanese. University of British Columbia. PhD Thesis.	page 23
+references	Claire K. Turner	reference	Krifka, Manfred. 1989. Nominal reference, temporal constitution and quantification in event semantics. In Semantics and Contextual Expression, ed. by Renate Bartsch, Johan van Benthem & Peter van Emde Boas, 75-115. Dordrecht: Foris Publications.	page 23
+references	Claire K. Turner	reference	Montler, Timothy R. 1986. An outline of the morphology and phonology of Saanich, North Straits Salish. Missoula, MT: University of Montana Occasional Papers in Linguistics.	page 23
+references	Claire K. Turner	reference	Rosen, Carol. 1981. The Relational Structure of Reflexive Clauses: Evidence from Italian. Harvard University. PhD thesis. Published 1988. New York/London: Garland.	page 24
+references	Claire K. Turner	reference	Smith, Carlota S. 1997. The Parameter of Aspect. Dordrecht: Kluwer Academic Publishers.	page 24
+references	Claire K. Turner	reference	Suttles, Wayne. 2004. Musqueam Reference Grammar. Vancouver: UBC Press.	page 24
+references	Claire K. Turner	reference	Tenny, Carol. 1994. Aspectual Roles and the Syntax-Semantics Interface. Dordrecht: Kluwer.	page 24
+references	Claire K. Turner	reference	Verkuyl, Henk J. 1972. On the Compositional Nature of the Aspects. Dordrecht: Reidel.	page 24
+references	Claire K. Turner	note	Claire K. Turner c.turner@surrey.ac.uk	page 24, the author's name and address

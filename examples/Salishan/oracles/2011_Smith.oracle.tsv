@@ -1,0 +1,1434 @@
+where	who	kind	form	gloss
+front	Sarah Smith	title	Effects of articulatory training on English middle-school learners’ production and perception of SENĆOŦEN uvular stops	page 1
+front	Sarah Smith	name	Sarah Smith	author
+front	Sarah Smith	note	University of Victoria	page 1, under Sarah Smith
+front	Sarah Smith	note	This study examines the effects of linguistic training (explicit training on the nature of the target sounds) on the perception and production of difficult sound contrasts for middle-school learners of SENĆOŦEN, a Central Salish language. Also, the motivation and attitude towards learning is examined through a self-reporting survey. The participants completed a survey on language attitude and motivation, a production task and a perception task before and after a training session. The training focused on explicitly teaching the physical properties of the production of the target sound (e.g. where the tongue moves in a particular sound). The training did have a positive effect on the production and perception of the difficult sound in SENĆOŦEN in the posttest, but attitude and motivation towards learning language did not change as a result of explicit training in the language.	page 1, the abstract
+front	Sarah Smith	language	SENĆOŦEN	Northern Straits Salish (Central Salish), spoken around the southern tip of Vancouver Island
+§1	Sarah Smith	heading	1 Introduction1	page 1
+footnote 1	Sarah Smith	note	A special thanks to Dr. Sonya Bird for inspiring me to continue pursuing research in SENĆOŦEN and for continued support in writing and editing this paper. Also to Dr. Li-Shih Huang for offering continued encouragement and constructive feedback.	page 1, footnote 1
+footnote 1	Sarah Smith	name	Sonya Bird	thanked, footnote 1; Bird & Leonard (2009a)
+footnote 1	Sarah Smith	name	Li-Shih Huang	thanked, footnote 1
+§1	Sarah Smith	note	Although much effort has been expended on second language learning and training effects of certain languages, less attention has been paid to the effects of explicit linguistic training. That is, training which involves direct attention to how certain sounds are made in a language. This paper will examine the effects of linguistic training on middle-school learners’ perception and production of a First Nations language—SENĆOŦEN.	page 1
+§1	Sarah Smith	note	SENĆOŦEN is a Central Salish language spoken in the Northern Straits around the southern tip of Vancouver Island (Bird & Leonard, 2009a). The phonology of this Central Salish dialect is rich in its consonant inventory (35 consonants) with few vowels (only four) (Montler, 1986). The particular focus of this study will be on SENĆOŦEN velar and uvular stops, [k] and [q]. English does not have the uvular stop [q] in its phonetic inventory (Handbook of the IPA, 1999), making it confusable with the English voiceless velar stop [k].	page 1
+§1	Sarah Smith	name	Montler	Timothy Montler (1986), the outline of Saanich and the word list of the stimuli
+§1	Sarah Smith	language	Central Salish	SENĆOŦEN
+§1	Sarah Smith	language	Northern Straits	SENĆOŦEN, its dialect area
+§1	Sarah Smith	language	English	the learners' first language
+§1	Sarah Smith	note	First, a discussion of previous research in this area will reveal a gap in that research; this will be followed by the research questions and predictions. Next, the methodology will be discussed, including the participants, stimuli and procedure. The analysis will follow, describing how the data were summarized and presented in the results section. Finally, the discussion will interpret the findings which will be summarized in the conclusion.	page 2
+§2	Sarah Smith	heading	2 Previous findings	page 2
+§2.1	Sarah Smith	heading	2.1 Second language acquisition and difficult sounds	page 2
+§2.1	Sarah Smith	note	It is well established that adult speakers are perceptually biased to their first language sound contrasts. It is believed that infants are born with the perceptual ability to distinguish all sound contrasts, and limited exposure to these sounds (by influence of their first language) causes foreign sound distinctions to be lost (Werker, Gilbert, Humphrey & Tees, 1981). There are conflicting debates regarding this notion of a critical period where a child loses this ability to perceive all speech sounds at a certain point in development (Best & McRoberts, 2003). The Critical Period Hypothesis was developed in 1967 by Lennenberg, as an attempt to explain why humans lose the ability to distinguish all language’s sound contrasts. Lennenberg (1967) hypothesized that this loss of ability occurs around the age of five due to cerebral lateralization. Whether the Critical Period Hypothesis is true or false, adult speakers do have trouble perceiving and producing second language sound contrasts (Best & McRoberts, 2003). Due to this loss of perceptual ability, an interesting area of linguistic research involves looking for tools to improve speakers’ perception of a foreign language.	page 2
+§2.1	Sarah Smith	name	Werker	Janet Werker et al. (1981), cross-language speech perception
+§2.1	Sarah Smith	name	Best	Catherine Best and Gerald McRoberts (2003), non-native consonant contrasts
+§2.1	Sarah Smith	note	Another interesting topic relevant to this study is the influence of L1 on the perception of a second language. A study by Wang, Behne and Jiang (2009) discussed the influence of L1 experience on perception of speech. The authors studied Korean and Mandarin speakers producing English fricatives in three places of articulation: labiodental (nonexistent in Korean), interdental (nonexistent in Korean and Mandarin, and alveolar (occurring in both). They presented stimuli in three ways: auditory only (listening only), visual only (seeing the articulation of the sound only), or audio-visual (hearing and seeing articulation of sound). Their results yielded an effect of stimuli presentation, with the audio-visual presentation giving the highest correct perception of the L2 sounds. The speakers with different L1 backgrounds produced different results. For the labiodental fricatives, the Korean speakers had the lowest accuracy in the visual domain, but the same accuracy in the audio and audio- visual domain. For the interdentals, both the Korean and Mandarin L1 speakers had lower accuracy than the English L1 speakers in the visual domain, but had similar English L1 accuracy in the audio and audio-visual domains. They concluded that L1 experience does have an effect on L2 perception, and this relies on the weighting of visual cues used in the speakers’ L1. The current study is unique in using both visual and auditory presentations of sounds that are important in the perception and production of difficult L2 sounds.	page 2
+§2.1	Sarah Smith	name	Wang	Yue Wang, Dawn Behne and Haisheng Jiang (2009), L1 experience in audio-visual perception
+§2.1	Sarah Smith	language	Korean	Wang et al. (2009) and Hardison (2003)
+§2.1	Sarah Smith	language	Mandarin	Wang et al. (2009)
+§2.2	Sarah Smith	heading	2.2 Learning and teaching strategies	page 3
+§2.2	Sarah Smith	note	Wipf (1985) described how teaching pronunciation and spoken features of sounds is just as important as teaching lexical items to learners of a second language. This researcher found that many L2 learners were competent in their lexical knowledge of the language but showed poor pronunciation in their production abilities. Teaching features of sounds to aid in L2 learners’ production and perception of L2 sounds is the foundation for this paper. The exact tools for teaching these linguistic features are not well researched. Esling and Wong (1983) established voice quality settings as helpful tools for English as Additional Language (EAL) speakers to improve their English accent. These voice quality settings, influenced by the position of the tongue, larynx, pharynx, lips and velopharyngeal system, help reflect phonation types which influences the speech accent. For American English, Esling and Wong (1983) described seven voice quality settings which represent articulatory habits proven to be easily learned and observed by students. These were: “spread lips, open jaw, palatalized tongue body position, retroflex articulation, nasal voice, lowered larynx and creaky voice” (Esling & Wong, 1983, p. 91). The same study also recognizes pronunciation difficulties resulting from the “learner’s inability to grasp the generalization that a particular [voice quality] setting [will] represent” (Esling & Wong, 1983, p. 93). This study concluded that awareness of vocal tract settings does help to improve second language learners of English spoken language. This basic understanding leads to the main focus of this paper: training learners on the physical and linguistic aspects of sounds can help them produce them better.	page 3
+§2.2	Sarah Smith	name	Wipf	Joseph Wipf (1985), second-language pronunciation
+§2.2	Sarah Smith	name	Esling	John Esling and Rita Wong (1983), voice quality settings
+§2.2	Sarah Smith	note	Studies have shown that the more experience adults have in their L2 the better their pronunciation and perception of the sounds in that language will be (e.g. Flege, Bohn and Jang, 1997). They examined the effects of language experience on production and perception of the L2 language. The authors studied German, Spanish, Mandarin, and Korean speakers on English vowels. Research is needed to examine what type of training will be beneficial to learners in perceiving L2 sounds.	page 3
+§2.2	Sarah Smith	name	Flege	James Flege, Ocke-Schwen Bohn and Sunyoung Jang (1997), experience and English vowels
+§2.2	Sarah Smith	language	German	Flege et al. (1997)
+§2.2	Sarah Smith	language	Spanish	Flege et al. (1997)
+§2.2	Sarah Smith	note	An example of a study which used different training types on perception (not production) of foreign sounds is Hardison (2003), which studied Japanese and Korean speakers' perception of English. They used different training techniques for teaching Japanese and Korean speakers to perceive the English /r/ and /l/ distinction. A pretest and posttest design with three consecutive weeks of training found a significant effect of training type (training types varied on a continuum from audio-only to audio and articulatory gesture (talker’s face) video presentation of stimulus); more perceptual improvement was found as training included more articulatory gestures were presented. The bulk of the current study focuses on production and perception of L2 sounds.	page 3
+§2.2	Sarah Smith	name	Hardison	Debra Hardison (2003), training types for English /r/ and /l/
+§2.2	Sarah Smith	language	Japanese	Hardison (2003)
+§2.2	Sarah Smith	note	An important aspect of L2 language learning is the understanding of the best ways for learners to internalize new knowledge. Experiential learning theory was presented by Kolb (1984) and is the basis for a current way of teaching in which learning is considered to be a continuous, or cyclical, process where knowledge is formed “by transforming experience into existing cognitive frameworks, thus changing the way a person thinks and behaves” (Sewchuk, 2005, p. 1311). The basic ideas of the Experiential Learning Model are shown in Figure 1.	page 4
+§2.2	Sarah Smith	name	Kolb	David Kolb (1984), the Experiential Learning Model
+§2.2	Sarah Smith	name	Sewchuk	D. H. Sewchuk (2005), experiential learning, printed Sewshuk in the references
+Figure 1	Sarah Smith	note	Figure 1. Kolb’s Experiential Learning Model (Sewchuk, 2005, p. 1313)	page 4, the caption under the image
+§2.2	Sarah Smith	note	In this model of learning, experiences are understood through either apprehension (which results from participating in an actual experience) or comprehension (by either listening to an instructor or from reading text). The foundation of this theory is the idea that all learners can benefit from all different types of learning strategies, and the best learning experience comes from a variety of learning styles. The learning cycle, shown above, involves four major ideas: concrete experience, reflective observation, abstract conceptualization and active experimentation (Sewchuk, 2005). Each of these interacts while the learner experiences new knowledge and learning happens when the new knowledge is both grasped and transformed (Kolb, 1984). The training session (as described in the procedure) is based on this idea of experience-based learning.	page 4
+§2.3	Sarah Smith	heading	2.3 The current study, including research questions and predictions	page 4
+§2.3	Sarah Smith	note	The sociolinguistic aspects of language are also important factors in learning. Movements towards preserving indigenous languages through education build confidence in indigenous families and youth (Whitright-Falcon, 2004). This confidence is crucial in preventing loss of languages. According to Hinton (2003), only 20 of the 184 indigenous languages in Canada and the United States are still learned by children in their homes, and even those 20 languages are in danger of being lost. This is occurring even with much effort towards the revitalization of indigenous languages in these areas. Passing the languages on to younger generations is crucial to their survival.	page 4
+§2.3	Sarah Smith	name	Whitright-Falcon	L. Whitright-Falcon (2004), renewal of indigenous languages
+§2.3	Sarah Smith	name	Hinton	Leanne Hinton (2003), language revitalization
+§2.3	Sarah Smith	note	The current study is motivated by a need to get young generations learning SENĆOŦEN. It is also motivated by supporting evidence (as mentioned above) that foreign sound distinctions are difficult to learn; however, humans do have the capacity to learn how to pronounce and perceive them. Specifically, this study examines the effect of articulatory training on middle-school learners’ production and perception of six SENĆOŦEN velar and uvular stop consonants which vary by place and manner of articulation (see Table 1). The focus will be on the learner’s ability to produce and perceive each consonant in different sound environments.	page 5
+§2.3	Sarah Smith	note	First, this study examines if the process of participating in this experiment will increase the students’ motivation and interest in learning SENĆOŦEN. The research question also considers if training middle-school aged English speakers in the articulatory features of the consonants listed in Table 1, of which tongue position would be an example, will improve the production and perception of the sound.	page 5
+§2.3	Sarah Smith	note	Based on the literature review, the following predictions were made regarding this study: 1) on average, students who report having a higher motivation and better attitude towards learning will improve the most on all tasks, 2) on average, the students will improve their perception of the SENĆOŦEN stop consonants after the training, and 3) the students will more closely produce sounds similar to the presented sounds after the training than before it. Also, it was predicted that the type of sound environment (word initial, internal or final) will have an effect on their accuracy in production and perception of the sounds.	page 5
+§3	Sarah Smith	heading	3 Methods	page 5
+§3.1	Sarah Smith	heading	3.1 Participants	page 5
+§3.1	Sarah Smith	note	One group of middle-school students enrolled in a SENĆOŦEN language class (ages 13-15, 6 females and 9 males) participated in this study: 15 Canadian English speakers with varied previous experience with SENĆOŦEN. All had between 4 months and 1 year of the SENĆOŦEN language class. The curriculum for the class focused on building vocabulary and simple sentences in SENĆOŦEN. All were middle-school students attending a middle school on Vancouver Island (British Columbia) at the time of the study. These participants were recruited because they had previous experience with the language but had no direct training producing and perceiving uvular stops, and no previous linguistic training. However, there were no observable vision or hearing impairments and all were entered into the first phase of this experiment. The participants were not compensated for their participation.	page 5
+§3.2	Sarah Smith	heading	3.2 Stimuli	page 6
+§3.2	Sarah Smith	note	The stimuli consisted of 66 of words (36 for production + 18 for perception + 12 for training) based on various sound environments, each word containing only one of the sounds depicted below in Table 1. These consonants were the target sounds for the experiment. The stimuli consisted of words taken from Montler’s (1986) word list and recorded by a fluent SENĆOŦEN speaker.	page 6
+Table 1	Sarah Smith	note	Table 1. Phonetic features of stimuli presented to all participants in each condition.	page 6, the table's caption, over it
+Table 1	Sarah Smith	note	IPA	page 6, a column's head
+Table 1	Sarah Smith	note	Description	page 6, a column's head
+Table 1	Sarah Smith	note	SENĆOŦEN orthography	page 6, a column's head
+Table 1	SENĆOŦEN	transcription	[k]	page 6, under IPA
+Table 1	Sarah Smith	note	Voiceless unrounded velar plosive	page 6, [k], the description
+Table 1	SENĆOŦEN	transcription	C	page 6, [k], in the SENĆOŦEN orthography
+Table 1	SENĆOŦEN	transcription	[kʷ]	page 6, under IPA
+Table 1	Sarah Smith	note	Voiceless rounded velar plosive	page 6, [kʷ], the description
+Table 1	SENĆOŦEN	transcription	Ȼ	page 6, [kʷ], in the SENĆOŦEN orthography
+Table 1	SENĆOŦEN	transcription	[k’ʷ]	page 6, under IPA
+Table 1	Sarah Smith	note	Voiceless rounded velar ejective	page 6, [k’ʷ], the description
+Table 1	SENĆOŦEN	transcription	Q	page 6, [k’ʷ], in the SENĆOŦEN orthography
+Table 1	SENĆOŦEN	transcription	[q]	page 6, under IPA
+Table 1	Sarah Smith	note	Voiceless unrounded uvular plosive	page 6, [q], the description
+Table 1	SENĆOŦEN	transcription	Ḵ	page 6, [q], in the SENĆOŦEN orthography
+Table 1	SENĆOŦEN	transcription	[qʷ]	page 6, under IPA
+Table 1	Sarah Smith	note	Voiceless rounded uvular plosive	page 6, [qʷ], the description
+Table 1	SENĆOŦEN	transcription	Ḱ	page 6, [qʷ], in the SENĆOŦEN orthography
+Table 1	SENĆOŦEN	transcription	[q’ʷ]	page 6, under IPA
+Table 1	Sarah Smith	note	Voiceless rounded uvular ejective	page 6, [q’ʷ], the description
+Table 1	SENĆOŦEN	transcription	₭	page 6, [q’ʷ], in the SENĆOŦEN orthography
+§3.2	Sarah Smith	note	The speaker had produced three utterances of each of the 700 items (making 2100 utterances). After segmenting each utterance, the researcher selected the highest quality recording from each of the repeated stimuli. For example: any sound files with clips, unwanted background noise (coughing or laughing from the speaker) or low amplitude (from the participant producing quiet utterances with poor spectral recording) were not included in the analysis. Further, clear production of the target stop consonant (one of six from Table 1.) was a factor in choosing the best token. This reduced the number of utterances to 700.	page 6
+§3.2	Sarah Smith	note	The particular lexical items (see Appendix A for production word list, Appendix B for perception word list, and Appendix C for training word list) were chosen for the following reasons: (1) ease of pronunciation, the stop consonant was the only uvular or velar stop consonant in the word and (2) word availability: the word was available through existing SENĆOŦEN resources. In particular, the lexical items had one of the six sounds either in initial, intervocalic or final position.	page 6
+§3.3	Sarah Smith	heading	3.3 Procedure	page 6
+§3.3	Sarah Smith	note	After four months of observation of the language class, three times were arranged at the teacher’s convenience to complete the experiment. For the pretest and posttest, the researcher would need the students to be available to be pulled individually from class, and the whole class as a group was needed to participate in the training session. Each participant was first asked to carefully read and sign the consent form if they agreed to continue with their participation. The experimenter read aloud the consent form to the class. They were then reminded that ongoing consent was required to complete the study as there was a one-week training period. Further, due to the young age of the participants, the parent(s) or guardian of each participant was contacted by telephone. The parent(s)/guardian was read a verbal consent script and asked for consent for the ongoing participation of their child in the experiment. The researcher was responsible for conducting two testing sessions (one week apart) and one group training session in between.	page 6
+§3.3	Sarah Smith	note	A survey was used to understand the participants’ motivation and attitude towards their school, their learning, and their language and culture. The questions in the survey were modeled after a study on adolescents’ perspectives on motivation and achievement in academics using self-reported questionnaires by Schmakel (2008). This is known to be a reliable measure of motivation and attitude and is used in many studies of adolescent learning and motivation (Duncan & McKeachie, 2005; Murphy et al., 2007; Pintrich, Roeser & De Groot, 1994; Roeser, Strobel & Quihuis, 2002; Schmakel, 2008). The literature on self-reported surveys (cited above) and the questions created by Schmakel (2008) provided models used in creating the survey administered in this experiment (see Appendix D). The researcher administered one questionnaire immediately before the pretest and the same one immediately before the posttest. The survey consisted of 29 questions of which 12 tested motivation, 11 tested attitude, and 5 tested current learning perceptions. Each question was read aloud individually to each participant, each being instructed to ask questions as needed. Also, to ensure as truthful responses as possible, the participants were reminded that the survey was anonymous and their individual responses would not be reported to their teacher or affect their grade. Students completed the survey at their own pace, with the researcher guiding them through it. The questions and scale are presented in Appendix D.	page 7
+§3.3	Sarah Smith	name	Schmakel	P. O. Schmakel (2008), adolescents' motivation, the model of the survey
+§3.3	Sarah Smith	note	A pretest was generated using Microsoft Word PowerPoint (see Appendix E). This test consisted of an introduction to the experiment, including instructions on how to navigate through the test. Each of the 15 participants was seated in a quiet office or classroom at the middle school. Two students at a time were taken from their class to participate. They were separated into a different classroom or office space where a desk was set up. On each desk, a laptop was seated on the desk immediately in front of the participants, measured to be 20 centimeters from the edge of the desk. The participants wore Sony Dynamic Stereo Headphones, model MDR-7506 Professional. A Sony ECM MSP08C Electret microphone was placed to the left of the laptop, approximately 15 centimeters away from the edge of the desk. The participants were instructed to sit comfortably upright in the chair; their mouths being about 20 centimeters away from the microphone. The microphone was attached to an M-Audio MicroTrack II digital recorder device to record the sounds in WAV format in 16-bit depth, and at 44.1 kHz sample rate. The sensitivity of the microphone was adjusted to avoid clipping in the sound files.	page 7
+§3.3	Sarah Smith	note	Preceding the instructions, one slide played an arbitrary utterance of a SENĆOŦEN word not used in the main study. This utterance was to ensure the volume was set at a comfortable level for the participants, which they were free to adjust at this point in the experiment.	page 7
+§3.3	Sarah Smith	note	A practice slide with automated instructions was used to allow participants to become accustomed to pressing the sound button on the slide and repeating the sound. The actual test phase consisted of 54 stimuli presented through the headphones as WAV files. 36 stimuli were presented for production, and 18 for perception. The production phase was first, followed by a new set of instructions for the perception section. For production, each of the six stimuli (see Table 1. above) were presented six times, varying sound environments. The stimuli were presented in random order (the same random order was presented to each participant). The six stimuli presented randomly six times made 36 stimuli. The participants were instructed to click on the “hear” button on the left center of the slide, listen to the sound once and then repeat the sound once before clicking “next” in the bottom right-hand corner and moving on to the next sound. There was no time limit or set interval between each sound; this was to allow participants to work through the sounds at their own pace, making the production as comfortable and natural as possible. However, they were not able to move backwards through the slides.	page 8
+§3.3	Sarah Smith	note	After the 36 stimuli in the production stage, the perception stage began with a set of instructions. The participants were first introduced to six sound buttons which were labeled with the appropriate SENĆOŦEN orthographical letter to the target sound heard. They were informed through the slides that the velar sounds were produced with their tongue further forward compared to the uvular sounds. They were free to spend as much time on this slide, clicking on the different sounds and listening to the difference between the velar (“further forward”) and uvular (“further back”) sounds. They were then instructed to make a decision on the following slides as to whether the sound they heard contained a stop consonant which was further forward or further back. They had a sheet in front of them where they checked “forward” or “back.” Following the instructions, the participants clicked on the button labeled “sound,” made a perceptual decision about the stop consonant on the sheet (either forward or back) and then clicked “next” in the bottom right hand of the slide to proceed to the next slide. There were 18 stimuli for this stage of the experiment (3 sound environments x 6 sounds = 18 stimuli). The pretest concluded with a slide thanking the students for participating in the experiment.	page 8
+§3.3	Sarah Smith	note	Three days following the pretest, a group training session was scheduled. This training session was modeled after Kolb’s Experiential Learning Model (see page 4). Focusing on a balance between instruction, participation and group discussion, a presentation was generated using Microsoft Word PowerPoint (see Appendix F). It was focused on teaching linguistic techniques to help the participants improve their production and perception of the target sounds. First, an introduction of the vocal tract was shown, followed by an explanation of the major types of sounds: voiced versus voiceless and stop versus continuous sounds. An interactive website was used to show the vocal tract (more specifically tongue) movement in different sounds (taken from http://homes.chass.utoron to.ca/~danhall/phonetics/sammy.html). The students were asked throughout the training session to attempt to mimic the different types of sounds, saying them out loud to their peers and trying to correct themselves and others. The last major section of the training focused on the target sounds. This involved the difference between a rounded and unrounded sound, the difference in place of articulation between a uvular and velar sound and how to make an ejective sound. SENĆOŦEN words were presented (which were different from the words in the testing phase) containing different target sounds to compare each sound. Finally, the students participated in an activity where a sound was played and they decided if it was rounded or unrounded, velar or uvular, or ejective or non-ejective. This activity was done in small groups, with the researcher answering any questions and offering guidance.	page 8
+§3.3	Sarah Smith	note	The posttest, completed one week following the pretest and training phase, followed the same procedure used in the pretest: the researcher returned to the middle school and set up the experiment in the same classroom and office setting. The participants filled out the same questionnaire, wore the same headphones, used the same recorder and microphone, and the same testing procedure was used on all participants as was in the pretest. The participants were debriefed on the purpose of the experiment and thanked for their participation.	page 9
+§3.4	Sarah Smith	heading	3.4 Analysis	page 9
+§3.4.1	Sarah Smith	heading	3.4.1 Survey	page 9
+§3.4.1	Sarah Smith	note	The survey had two sections: one measuring level of agreement (from strongly agree to strongly disagree important to not important) and one measuring frequency (from always to never) (see Appendix D). Both sections had a “not sure” choice which was taken as a null response and left out of the average calculations. Each response was given a number (e.g. strongly agree = 1). The average and standard deviations were calculated for each participant on the pre- and post-training survey (to analyze each participants’ results), as well as the average and standard deviations for each question for pre- and post- training survey (to analyze results on each question) using Excel automatic functions.	page 9
+§3.4.2	Sarah Smith	heading	3.4.2 Perception	page 9
+§3.4.2	Sarah Smith	note	As stated in section 3.3, each participant was given a perceptual decision task on 18 stimuli. A table was created recording each participant’s response, and then given a value for “0” if it was incorrect and “1” if it was correct. A response was “correct” if it matched the label given for the SENĆOŦEN target sound. For example, a response of “Forward” was correct if the presented word contained a velar target sound. Percent correct was calculated overall for pretest and posttest scores for each participant. To see if there was a difference between scores on the velar and uvular sounds, average percent correct was calculated for each individual word. The words were separated into velar and uvular categories and then the average was calculated for each, as presented in the perception results section. The scores were also separated into target environment (initial or intervocalic). Average scores and standard deviation were measured using automatic functions in Excel and computed into tables and graphs, as shown below in the results section.	page 9
+§3.4.3	Sarah Smith	heading	3.4.3 Production	page 10
+§3.4.3	Sarah Smith	note	Following the pretest and posttest production phases, the sound files were transferred from the recorder to a file on the computer. Using Praat (Boersma & Weenink, 2008), the whole strings of words were segmented into individual words and saved as individual WAV files. The pretest and posttest files were kept in separate folders, and each file was labeled according to participant number, target sound and experimental phase (pre or post). The production experiment yielded 1080 utterances (15 participants x 36 stimuli x (1 pretest utterance + 1 posttest utterance)). First, each participant’s stream of utterances was segmented into individual WAV files, and sorted into either a pretest or posttest folder. A Praat script (see Appendix G) was used to open each of the sound files in the folder for production analysis. The researcher made three acoustic decisions on the target sound in each sound file. A Microsoft Excel file was created to track the responses. First, the place of articulation was analyzed using auditory judgments to tell if the target sound was a velar or uvular sound. “V” was recorded if it was a velar sound, and “U” if it was a uvular sound. Second, the rounding was analyzed also using auditory judgments. “Y” for “yes” was marked if the sound was rounded, and “N” for “no” if it was not. Third, the target sound was analyzed using auditory judgments for ejectives. “Y” for “yes” was marked if an ejective was produced, and “N” for “no” if an ejective was not produced. During the analysis, the auditory decision was based on a comparison of the SENĆOŦEN speaker’s production of the sound and the researcher’s knowledge of acoustic properties. This method was used for each participant’s utterance for both the pretest and posttest. Three auditory decisions were made: velar or uvular, rounded or unrounded, plain or ejective. These were noted into an Excel file.	page 10
+§3.4.3	Sarah Smith	name	Boersma	Paul Boersma and David Weenink (2008), Praat
+§3.4.3	Sarah Smith	note	Each raw data score (pretest and posttest) was matched to the correct production feature (velar/uvular, rounded/unrounded, ejective/non-ejective) of the SENĆOŦEN speaker. The percent correct was calculated and measured: overall scores for the pretest and posttest, individual participant performance overall and on each feature, and performance on each word. Average values and standards of deviation for all measurements were calculated automatically in Microsoft Excel. It was observed that the participants were producing ejectives and uvulars more often in the posttest than in the pretest, therefore the averages for producing ejectives were separated from the average of producing plain stops, and velars from uvulars. Average percent correct in each of the calculations was computed into graphs, as seen in the following results section.	page 10
+§4	Sarah Smith	heading	4 Results	page 11
+§4	Sarah Smith	note	A survey on motivation, attitude and current perceptions of school, learning, and specifically learning SENĆOŦEN was analyzed, followed by the production and perception of SENĆOŦEN uvular stops.	page 11
+§4.1	Sarah Smith	heading	4.1 Survey: motivation, attitude and current perceptions	page 11
+§4.1	Sarah Smith	note	The results for the survey are categorized into the type of question asked, shown below in Tables 2-4. The results are based on numerical values given to the scale of possible answers. Figure 2 below shows the two scales, the numerical value given to each possible answer, and the questions relevant to each type of scale.	page 11
+Figure 2	Sarah Smith	note	Figure 2. Survey scales with numerical values	page 11, the figure's caption, over it
+Figure 2, scale 1	Sarah Smith	note	Response	page 11, the head of the row of responses
+Figure 2, scale 1	Sarah Smith	note	Always	page 11, a response, set on its side
+Figure 2, scale 1	Sarah Smith	note	1	page 11, the numerical value of Always
+Figure 2, scale 1	Sarah Smith	note	Some of the Time	page 11, a response, set on its side
+Figure 2, scale 1	Sarah Smith	note	2	page 11, the numerical value of Some of the Time
+Figure 2, scale 1	Sarah Smith	note	Most of the Time	page 11, a response, set on its side
+Figure 2, scale 1	Sarah Smith	note	3	page 11, the numerical value of Most of the Time
+Figure 2, scale 1	Sarah Smith	note	Not Usually	page 11, a response, set on its side
+Figure 2, scale 1	Sarah Smith	note	4	page 11, the numerical value of Not Usually
+Figure 2, scale 1	Sarah Smith	note	Never	page 11, a response, set on its side
+Figure 2, scale 1	Sarah Smith	note	5	page 11, the numerical value of Never
+Figure 2, scale 1	Sarah Smith	note	Not Sure	page 11, a response, set on its side
+Figure 2, scale 1	Sarah Smith	note	0	page 11, the numerical value of Not Sure
+Figure 2, scale 1	Sarah Smith	note	Numerical Value:	page 11, the head of the row of values
+Figure 2, scale 1	Sarah Smith	note	Applies to Questions # 1-8	page 11, under the scale
+Figure 2, scale 2	Sarah Smith	note	Response	page 11, the head of the row of responses
+Figure 2, scale 2	Sarah Smith	note	Strongly Agree	page 11, a response, set on its side
+Figure 2, scale 2	Sarah Smith	note	1	page 11, the numerical value of Strongly Agree
+Figure 2, scale 2	Sarah Smith	note	Somewhat Agree	page 11, a response, set on its side
+Figure 2, scale 2	Sarah Smith	note	2	page 11, the numerical value of Somewhat Agree
+Figure 2, scale 2	Sarah Smith	note	Somewhat Disagree	page 11, a response, set on its side
+Figure 2, scale 2	Sarah Smith	note	3	page 11, the numerical value of Somewhat Disagree
+Figure 2, scale 2	Sarah Smith	note	Strongly Disagree	page 11, a response, set on its side
+Figure 2, scale 2	Sarah Smith	note	4	page 11, the numerical value of Strongly Disagree
+Figure 2, scale 2	Sarah Smith	note	Not Sure	page 11, a response, set on its side
+Figure 2, scale 2	Sarah Smith	note	5	page 11, the numerical value of Not Sure
+Figure 2, scale 2	Sarah Smith	note	Numerical Value:	page 11, the head of the row of values
+Figure 2, scale 2	Sarah Smith	note	Applies to Questions # 9-29	page 11, under the scale
+§4.1	Sarah Smith	note	Table 2 shows the overall results for pretest and posttest answers on motivation, Table 3 shows the overall results for pretest and posttest answers on attitude, and Table 4 shows the overall results for pretest and posttest answers on current learning perceptions.	page 11
+§4.1	Sarah Smith	note	Table 2 shows that on average, most participants “somewhat agreed” to questions about their motivation to learn. Also, they felt motivated to learn “some of the time” more often on average. Overall, the survey results for motivation were not different before and after the experiment.	page 11
+Table 2	Sarah Smith	note	Table 2. Pre- and post-survey average results for motivation	page 12, the table's caption
+Table 2	Sarah Smith	note	#	page 12, a column's head
+Table 2	Sarah Smith	note	Question	page 12, a column's head
+Table 2	Sarah Smith	note	Pretest	page 12, a column's head, set Pret over est
+Table 2	Sarah Smith	note	Survey Scale Label	page 12, a column's head
+Table 2	Sarah Smith	note	Posttest	page 12, a column's head, set Postt over est
+Table 2	Sarah Smith	note	Survey Scale Label	page 12, a column's head
+Table 2	Sarah Smith	note	1	page 12, the question's number
+Table 2	Sarah Smith	note	I want to come to school.	page 12, question 1, the question
+Table 2	Sarah Smith	note	AVG	page 12, question 1, the head of the row of averages
+Table 2	Sarah Smith	note	2.3	page 12, question 1, AVG, Pretest
+Table 2	Sarah Smith	note	Some of the Time	page 12, question 1, AVG, the pretest's Survey Scale Label
+Table 2	Sarah Smith	note	2.1	page 12, question 1, AVG, Posttest
+Table 2	Sarah Smith	note	Some of the Time	page 12, question 1, AVG, the posttest's Survey Scale Label
+Table 2	Sarah Smith	note	SD	page 12, question 1, the head of the row of standard deviations
+Table 2	Sarah Smith	note	1.1	page 12, question 1, SD, Pretest
+Table 2	Sarah Smith	note	1.2	page 12, question 1, SD, Posttest
+Table 2	Sarah Smith	note	2	page 12, the question's number
+Table 2	Sarah Smith	note	I like doing school work.	page 12, question 2, the question
+Table 2	Sarah Smith	note	AVG	page 12, question 2, the head of the row of averages
+Table 2	Sarah Smith	note	3.1	page 12, question 2, AVG, Pretest
+Table 2	Sarah Smith	note	Most of the Time	page 12, question 2, AVG, the pretest's Survey Scale Label
+Table 2	Sarah Smith	note	2.9	page 12, question 2, AVG, Posttest
+Table 2	Sarah Smith	note	Most of the Time	page 12, question 2, AVG, the posttest's Survey Scale Label
+Table 2	Sarah Smith	note	SD	page 12, question 2, the head of the row of standard deviations
+Table 2	Sarah Smith	note	1.1	page 12, question 2, SD, Pretest
+Table 2	Sarah Smith	note	1.3	page 12, question 2, SD, Posttest
+Table 2	Sarah Smith	note	6	page 12, the question's number
+Table 2	Sarah Smith	note	I like going to my SENĆOŦEN class.	page 12, question 6, the question
+Table 2	Sarah Smith	note	AVG	page 12, question 6, the head of the row of averages
+Table 2	Sarah Smith	note	1.3	page 12, question 6, AVG, Pretest
+Table 2	Sarah Smith	note	Always	page 12, question 6, AVG, the pretest's Survey Scale Label
+Table 2	Sarah Smith	note	1.7	page 12, question 6, AVG, Posttest
+Table 2	Sarah Smith	note	Some of the Time	page 12, question 6, AVG, the posttest's Survey Scale Label
+Table 2	Sarah Smith	note	SD	page 12, question 6, the head of the row of standard deviations
+Table 2	Sarah Smith	note	0.5	page 12, question 6, SD, Pretest
+Table 2	Sarah Smith	note	0.7	page 12, question 6, SD, Posttest
+Table 2	Sarah Smith	note	7	page 12, the question's number
+Table 2	Sarah Smith	note	I like learning SENĆOŦEN.	page 12, question 7, the question
+Table 2	Sarah Smith	note	AVG	page 12, question 7, the head of the row of averages
+Table 2	Sarah Smith	note	1.5	page 12, question 7, AVG, Pretest
+Table 2	Sarah Smith	note	Some of the Time	page 12, question 7, AVG, the pretest's Survey Scale Label
+Table 2	Sarah Smith	note	1.6	page 12, question 7, AVG, Posttest
+Table 2	Sarah Smith	note	Some of the Time	page 12, question 7, AVG, the posttest's Survey Scale Label
+Table 2	Sarah Smith	note	SD	page 12, question 7, the head of the row of standard deviations
+Table 2	Sarah Smith	note	0.9	page 12, question 7, SD, Pretest
+Table 2	Sarah Smith	note	0.7	page 12, question 7, SD, Posttest
+Table 2	Sarah Smith	note	8	page 12, the question's number
+Table 2	Sarah Smith	note	I like speaking SENĆOŦEN.	page 12, question 8, the question
+Table 2	Sarah Smith	note	AVG	page 12, question 8, the head of the row of averages
+Table 2	Sarah Smith	note	1.9	page 12, question 8, AVG, Pretest
+Table 2	Sarah Smith	note	Some of the Time	page 12, question 8, AVG, the pretest's Survey Scale Label
+Table 2	Sarah Smith	note	1.9	page 12, question 8, AVG, Posttest
+Table 2	Sarah Smith	note	Some of the Time	page 12, question 8, AVG, the posttest's Survey Scale Label
+Table 2	Sarah Smith	note	SD	page 12, question 8, the head of the row of standard deviations
+Table 2	Sarah Smith	note	1.2	page 12, question 8, SD, Pretest
+Table 2	Sarah Smith	note	0.7	page 12, question 8, SD, Posttest
+Table 2	Sarah Smith	note	9	page 12, the question's number
+Table 2	Sarah Smith	note	SENĆOŦEN is important to my community	page 12, question 9, the question
+Table 2	Sarah Smith	note	AVG	page 12, question 9, the head of the row of averages
+Table 2	Sarah Smith	note	1.4	page 12, question 9, AVG, Pretest
+Table 2	Sarah Smith	note	Strongly Agree	page 12, question 9, AVG, the pretest's Survey Scale Label
+Table 2	Sarah Smith	note	1.7	page 12, question 9, AVG, Posttest
+Table 2	Sarah Smith	note	Somewhat Agree	page 12, question 9, AVG, the posttest's Survey Scale Label
+Table 2	Sarah Smith	note	SD	page 12, question 9, the head of the row of standard deviations
+Table 2	Sarah Smith	note	0.6	page 12, question 9, SD, Pretest
+Table 2	Sarah Smith	note	0.9	page 12, question 9, SD, Posttest
+Table 2	Sarah Smith	note	10	page 12, the question's number
+Table 2	Sarah Smith	note	It is important that I learn SENĆOŦEN.	page 12, question 10, the question
+Table 2	Sarah Smith	note	AVG	page 12, question 10, the head of the row of averages
+Table 2	Sarah Smith	note	1.6	page 12, question 10, AVG, Pretest
+Table 2	Sarah Smith	note	Somewhat Agree	page 12, question 10, AVG, the pretest's Survey Scale Label
+Table 2	Sarah Smith	note	1.8	page 12, question 10, AVG, Posttest
+Table 2	Sarah Smith	note	Somewhat Agree	page 12, question 10, AVG, the posttest's Survey Scale Label
+Table 2	Sarah Smith	note	SD	page 12, question 10, the head of the row of standard deviations
+Table 2	Sarah Smith	note	1.0	page 12, question 10, SD, Pretest
+Table 2	Sarah Smith	note	1.1	page 12, question 10, SD, Posttest
+Table 2	Sarah Smith	note	11	page 12, the question's number
+Table 2	Sarah Smith	note	Learning SENĆOŦEN is important for my future.	page 12, question 11, the question
+Table 2	Sarah Smith	note	AVG	page 12, question 11, the head of the row of averages
+Table 2	Sarah Smith	note	2.0	page 12, question 11, AVG, Pretest
+Table 2	Sarah Smith	note	Somewhat Agree	page 12, question 11, AVG, the pretest's Survey Scale Label
+Table 2	Sarah Smith	note	2.1	page 12, question 11, AVG, Posttest
+Table 2	Sarah Smith	note	Somewhat Agree	page 12, question 11, AVG, the posttest's Survey Scale Label
+Table 2	Sarah Smith	note	SD	page 12, question 11, the head of the row of standard deviations
+Table 2	Sarah Smith	note	0.9	page 12, question 11, SD, Pretest
+Table 2	Sarah Smith	note	1.2	page 12, question 11, SD, Posttest
+Table 2	Sarah Smith	note	15	page 12, the question's number
+Table 2	Sarah Smith	note	I want to get good grades	page 12, question 15, the question
+Table 2	Sarah Smith	note	AVG	page 12, question 15, the head of the row of averages
+Table 2	Sarah Smith	note	1.8	page 12, question 15, AVG, Pretest
+Table 2	Sarah Smith	note	Somewhat Agree	page 12, question 15, AVG, the pretest's Survey Scale Label
+Table 2	Sarah Smith	note	1.7	page 12, question 15, AVG, Posttest
+Table 2	Sarah Smith	note	Somewhat Agree	page 12, question 15, AVG, the posttest's Survey Scale Label
+Table 2	Sarah Smith	note	SD	page 12, question 15, the head of the row of standard deviations
+Table 2	Sarah Smith	note	1.3	page 12, question 15, SD, Pretest
+Table 2	Sarah Smith	note	1.0	page 12, question 15, SD, Posttest
+Table 2	Sarah Smith	note	16	page 12, the question's number
+Table 2	Sarah Smith	note	I want to learn about my culture and others.	page 12, question 16, the question
+Table 2	Sarah Smith	note	AVG	page 12, question 16, the head of the row of averages
+Table 2	Sarah Smith	note	1.7	page 12, question 16, AVG, Pretest
+Table 2	Sarah Smith	note	Somewhat Agree	page 12, question 16, AVG, the pretest's Survey Scale Label
+Table 2	Sarah Smith	note	2.0	page 12, question 16, AVG, Posttest
+Table 2	Sarah Smith	note	Somewhat Agree	page 12, question 16, AVG, the posttest's Survey Scale Label
+Table 2	Sarah Smith	note	SD	page 12, question 16, the head of the row of standard deviations
+Table 2	Sarah Smith	note	1.1	page 12, question 16, SD, Pretest
+Table 2	Sarah Smith	note	1.2	page 12, question 16, SD, Posttest
+Table 2	Sarah Smith	note	27	page 12, the question's number
+Table 2	Sarah Smith	note	I like doing schoolwork on the computer.	page 12, question 27, the question
+Table 2	Sarah Smith	note	AVG	page 12, question 27, the head of the row of averages
+Table 2	Sarah Smith	note	2.7	page 12, question 27, AVG, Pretest
+Table 2	Sarah Smith	note	Somewhat Disagree	page 12, question 27, AVG, the pretest's Survey Scale Label
+Table 2	Sarah Smith	note	2.1	page 12, question 27, AVG, Posttest
+Table 2	Sarah Smith	note	Somewhat Agree	page 12, question 27, AVG, the posttest's Survey Scale Label
+Table 2	Sarah Smith	note	SD	page 12, question 27, the head of the row of standard deviations
+Table 2	Sarah Smith	note	1.6	page 12, question 27, SD, Pretest
+Table 2	Sarah Smith	note	1.1	page 12, question 27, SD, Posttest
+§4.1	Sarah Smith	note	Table 3 depicts survey results before and after the training for level of attitude. Similar results were shown for both the pretest and posttest as for motivation: on average, most students reported a positive attitude towards learning, reporting “some of the time” and “somewhat agree.”	page 12
+Table 3	Sarah Smith	note	Table 3. Pre- and post-survey average results for attitude	page 12, the table's caption
+Table 3	Sarah Smith	note	#	page 12, a column's head
+Table 3	Sarah Smith	note	Question	page 12, a column's head
+Table 3	Sarah Smith	note	Pretest	page 12, a column's head, set Pret over est
+Table 3	Sarah Smith	note	Survey Scale Label	page 12, a column's head
+Table 3	Sarah Smith	note	Posttest	page 12, a column's head, set Postt over est
+Table 3	Sarah Smith	note	Survey Scale Label	page 12, a column's head
+Table 3	Sarah Smith	note	4	page 13, the question's number
+Table 3	Sarah Smith	note	I feel a part of my school.	page 13, question 4, the question
+Table 3	Sarah Smith	note	AVG	page 13, question 4, the head of the row of averages
+Table 3	Sarah Smith	note	2.3	page 13, question 4, AVG, Pretest
+Table 3	Sarah Smith	note	Some of the Time	page 13, question 4, AVG, the pretest's Survey Scale Label
+Table 3	Sarah Smith	note	2.1	page 13, question 4, AVG, Posttest
+Table 3	Sarah Smith	note	Some of the Time	page 13, question 4, AVG, the posttest's Survey Scale Label
+Table 3	Sarah Smith	note	SD	page 13, question 4, the head of the row of standard deviations
+Table 3	Sarah Smith	note	1.2	page 13, question 4, SD, Pretest
+Table 3	Sarah Smith	note	1.2	page 13, question 4, SD, Posttest
+Table 3	Sarah Smith	note	12	page 13, the question's number
+Table 3	Sarah Smith	note	I feel the same about school now as I did in elementary school.	page 13, question 12, the question
+Table 3	Sarah Smith	note	AVG	page 13, question 12, the head of the row of averages
+Table 3	Sarah Smith	note	2.6	page 13, question 12, AVG, Pretest
+Table 3	Sarah Smith	note	Somewhat Disagree	page 13, question 12, AVG, the pretest's Survey Scale Label
+Table 3	Sarah Smith	note	2.7	page 13, question 12, AVG, Posttest
+Table 3	Sarah Smith	note	Somewhat Disagree	page 13, question 12, AVG, the posttest's Survey Scale Label
+Table 3	Sarah Smith	note	SD	page 13, question 12, the head of the row of standard deviations
+Table 3	Sarah Smith	note	1.2	page 13, question 12, SD, Pretest
+Table 3	Sarah Smith	note	1.3	page 13, question 12, SD, Posttest
+Table 3	Sarah Smith	note	13	page 13, the question's number
+Table 3	Sarah Smith	note	I care about my grades.	page 13, question 13, the question
+Table 3	Sarah Smith	note	AVG	page 13, question 13, the head of the row of averages
+Table 3	Sarah Smith	note	1.4	page 13, question 13, AVG, Pretest
+Table 3	Sarah Smith	note	Strongly Agree	page 13, question 13, AVG, the pretest's Survey Scale Label
+Table 3	Sarah Smith	note	1.9	page 13, question 13, AVG, Posttest
+Table 3	Sarah Smith	note	Somewhat Agree	page 13, question 13, AVG, the posttest's Survey Scale Label
+Table 3	Sarah Smith	note	SD	page 13, question 13, the head of the row of standard deviations
+Table 3	Sarah Smith	note	0.8	page 13, question 13, SD, Pretest
+Table 3	Sarah Smith	note	1.0	page 13, question 13, SD, Posttest
+Table 3	Sarah Smith	note	14	page 13, the question's number
+Table 3	Sarah Smith	note	My friends care about their grades.	page 13, question 14, the question
+Table 3	Sarah Smith	note	AVG	page 13, question 14, the head of the row of averages
+Table 3	Sarah Smith	note	1.9	page 13, question 14, AVG, Pretest
+Table 3	Sarah Smith	note	Somewhat Agree	page 13, question 14, AVG, the pretest's Survey Scale Label
+Table 3	Sarah Smith	note	2.4	page 13, question 14, AVG, Posttest
+Table 3	Sarah Smith	note	Somewhat Agree	page 13, question 14, AVG, the posttest's Survey Scale Label
+Table 3	Sarah Smith	note	SD	page 13, question 14, the head of the row of standard deviations
+Table 3	Sarah Smith	note	1.2	page 13, question 14, SD, Pretest
+Table 3	Sarah Smith	note	1.4	page 13, question 14, SD, Posttest
+Table 3	Sarah Smith	note	17	page 13, the question's number
+Table 3	Sarah Smith	note	I think learning my ancestor’s language is important.	page 13, question 17, the question
+Table 3	Sarah Smith	note	AVG	page 13, question 17, the head of the row of averages
+Table 3	Sarah Smith	note	1.5	page 13, question 17, AVG, Pretest
+Table 3	Sarah Smith	note	Somewhat Agree	page 13, question 17, AVG, the pretest's Survey Scale Label
+Table 3	Sarah Smith	note	1.7	page 13, question 17, AVG, Posttest
+Table 3	Sarah Smith	note	Somewhat Agree	page 13, question 17, AVG, the posttest's Survey Scale Label
+Table 3	Sarah Smith	note	SD	page 13, question 17, the head of the row of standard deviations
+Table 3	Sarah Smith	note	1.0	page 13, question 17, SD, Pretest
+Table 3	Sarah Smith	note	1.2	page 13, question 17, SD, Posttest
+Table 3	Sarah Smith	note	19	page 13, the question's number
+Table 3	Sarah Smith	note	My family values learning SENĆOŦEN.	page 13, question 19, the question
+Table 3	Sarah Smith	note	AVG	page 13, question 19, the head of the row of averages
+Table 3	Sarah Smith	note	2.3	page 13, question 19, AVG, Pretest
+Table 3	Sarah Smith	note	Somewhat Agree	page 13, question 19, AVG, the pretest's Survey Scale Label
+Table 3	Sarah Smith	note	2.5	page 13, question 19, AVG, Posttest
+Table 3	Sarah Smith	note	Somewhat Disagree	page 13, question 19, AVG, the posttest's Survey Scale Label
+Table 3	Sarah Smith	note	SD	page 13, question 19, the head of the row of standard deviations
+Table 3	Sarah Smith	note	1.5	page 13, question 19, SD, Pretest
+Table 3	Sarah Smith	note	1.6	page 13, question 19, SD, Posttest
+Table 3	Sarah Smith	note	20	page 13, the question's number
+Table 3	Sarah Smith	note	I value learning SENĆOŦEN..	page 13, question 20, the question
+Table 3	Sarah Smith	note	AVG	page 13, question 20, the head of the row of averages
+Table 3	Sarah Smith	note	1.9	page 13, question 20, AVG, Pretest
+Table 3	Sarah Smith	note	Somewhat Agree	page 13, question 20, AVG, the pretest's Survey Scale Label
+Table 3	Sarah Smith	note	2.4	page 13, question 20, AVG, Posttest
+Table 3	Sarah Smith	note	Somewhat Agree	page 13, question 20, AVG, the posttest's Survey Scale Label
+Table 3	Sarah Smith	note	SD	page 13, question 20, the head of the row of standard deviations
+Table 3	Sarah Smith	note	1.2	page 13, question 20, SD, Pretest
+Table 3	Sarah Smith	note	1.1	page 13, question 20, SD, Posttest
+Table 3	Sarah Smith	note	21	page 13, the question's number
+Table 3	Sarah Smith	note	I am worried about losing SENĆOŦEN as a spoken language.	page 13, question 21, the question
+Table 3	Sarah Smith	note	AVG	page 13, question 21, the head of the row of averages
+Table 3	Sarah Smith	note	2.5	page 13, question 21, AVG, Pretest
+Table 3	Sarah Smith	note	Somewhat Disagree	page 13, question 21, AVG, the pretest's Survey Scale Label
+Table 3	Sarah Smith	note	2.4	page 13, question 21, AVG, Posttest
+Table 3	Sarah Smith	note	Somewhat Agree	page 13, question 21, AVG, the posttest's Survey Scale Label
+Table 3	Sarah Smith	note	SD	page 13, question 21, the head of the row of standard deviations
+Table 3	Sarah Smith	note	1.5	page 13, question 21, SD, Pretest
+Table 3	Sarah Smith	note	1.5	page 13, question 21, SD, Posttest
+Table 3	Sarah Smith	note	24	page 13, the question's number
+Table 3	Sarah Smith	note	I feel like I should learn SENĆOŦEN.	page 13, question 24, the question
+Table 3	Sarah Smith	note	AVG	page 13, question 24, the head of the row of averages
+Table 3	Sarah Smith	note	1.6	page 13, question 24, AVG, Pretest
+Table 3	Sarah Smith	note	Somewhat Agree	page 13, question 24, AVG, the pretest's Survey Scale Label
+Table 3	Sarah Smith	note	2.1	page 13, question 24, AVG, Posttest
+Table 3	Sarah Smith	note	Somewhat Agree	page 13, question 24, AVG, the posttest's Survey Scale Label
+Table 3	Sarah Smith	note	SD	page 13, question 24, the head of the row of standard deviations
+Table 3	Sarah Smith	note	0.9	page 13, question 24, SD, Pretest
+Table 3	Sarah Smith	note	1.4	page 13, question 24, SD, Posttest
+Table 3	Sarah Smith	note	26	page 13, the question's number
+Table 3	Sarah Smith	note	I find learning SENĆOŦEN frustrating.	page 13, question 26, the question
+Table 3	Sarah Smith	note	AVG	page 13, question 26, the head of the row of averages
+Table 3	Sarah Smith	note	3.8	page 13, question 26, AVG, Pretest
+Table 3	Sarah Smith	note	Strongly Disagree	page 13, question 26, AVG, the pretest's Survey Scale Label
+Table 3	Sarah Smith	note	4.1	page 13, question 26, AVG, Posttest
+Table 3	Sarah Smith	note	Strongly Disagree	page 13, question 26, AVG, the posttest's Survey Scale Label
+Table 3	Sarah Smith	note	SD	page 13, question 26, the head of the row of standard deviations
+Table 3	Sarah Smith	note	1.0	page 13, question 26, SD, Pretest
+Table 3	Sarah Smith	note	1.2	page 13, question 26, SD, Posttest
+Table 3	Sarah Smith	note	28	page 13, the question's number
+Table 3	Sarah Smith	note	I feel comfortable saying SENĆOŦEN words out loud in class	page 13, question 28, the question
+Table 3	Sarah Smith	note	AVG	page 13, question 28, the head of the row of averages
+Table 3	Sarah Smith	note	3.2	page 13, question 28, AVG, Pretest
+Table 3	Sarah Smith	note	Somewhat Disagree	page 13, question 28, AVG, the pretest's Survey Scale Label
+Table 3	Sarah Smith	note	3.3	page 13, question 28, AVG, Posttest
+Table 3	Sarah Smith	note	Somewhat Disagree	page 13, question 28, AVG, the posttest's Survey Scale Label
+Table 3	Sarah Smith	note	SD	page 13, question 28, the head of the row of standard deviations
+Table 3	Sarah Smith	note	1.1	page 13, question 28, SD, Pretest
+Table 3	Sarah Smith	note	1.4	page 13, question 28, SD, Posttest
+Table 3	Sarah Smith	note	29	page 13, the question's number
+Table 3	Sarah Smith	note	I feel confident in my ability to say SENĆOŦEN words.	page 13, question 29, the question
+Table 3	Sarah Smith	note	AVG	page 13, question 29, the head of the row of averages
+Table 3	Sarah Smith	note	2.6	page 13, question 29, AVG, Pretest
+Table 3	Sarah Smith	note	Somewhat Disagree	page 13, question 29, AVG, the pretest's Survey Scale Label
+Table 3	Sarah Smith	note	2.3	page 13, question 29, AVG, Posttest
+Table 3	Sarah Smith	note	Somewhat Agree	page 13, question 29, AVG, the posttest's Survey Scale Label
+Table 3	Sarah Smith	note	SD	page 13, question 29, the head of the row of standard deviations
+Table 3	Sarah Smith	note	1.3	page 13, question 29, SD, Pretest
+Table 3	Sarah Smith	note	1.3	page 13, question 29, SD, Posttest
+§4.1	Sarah Smith	note	Table 4 depicts survey results before and after the training for current learning perceptions. Similar results were shown for both the pretest and posttest as for motivation and attitude: on average, most students reported a positive attitude towards learning, reporting “some of the time” and “somewhat agree.”	page 13
+Table 4	Sarah Smith	note	Table 4. Pre- and post-survey average results for current perceptions	page 13, the table's caption
+Table 4	Sarah Smith	note	#	page 13, a column's head
+Table 4	Sarah Smith	note	Question	page 13, a column's head
+Table 4	Sarah Smith	note	Pretest	page 13, a column's head, set Pret over est
+Table 4	Sarah Smith	note	Survey Scale Label	page 13, a column's head
+Table 4	Sarah Smith	note	Posttest	page 13, a column's head, set Postt over est
+Table 4	Sarah Smith	note	Survey Scale Label	page 13, a column's head
+Table 4	Sarah Smith	note	3	page 13, the question's number
+Table 4	Sarah Smith	note	I learn when I am at school.	page 13, question 3, the question
+Table 4	Sarah Smith	note	AVG	page 13, question 3, the head of the row of averages
+Table 4	Sarah Smith	note	2.1	page 13, question 3, AVG, Pretest
+Table 4	Sarah Smith	note	Most of the Time	page 13, question 3, AVG, the pretest's Survey Scale Label
+Table 4	Sarah Smith	note	2.1	page 13, question 3, AVG, Posttest
+Table 4	Sarah Smith	note	Most of the Time	page 13, question 3, AVG, the posttest's Survey Scale Label
+Table 4	Sarah Smith	note	SD	page 13, question 3, the head of the row of standard deviations
+Table 4	Sarah Smith	note	1.0	page 13, question 3, SD, Pretest
+Table 4	Sarah Smith	note	1.2	page 13, question 3, SD, Posttest
+Table 4	Sarah Smith	note	5	page 14, the question's number
+Table 4	Sarah Smith	note	My school appreciates everyone’s cultures.	page 14, question 5, the question
+Table 4	Sarah Smith	note	AVG	page 14, question 5, the head of the row of averages
+Table 4	Sarah Smith	note	1.5	page 14, question 5, AVG, Pretest
+Table 4	Sarah Smith	note	Most of the Time	page 14, question 5, AVG, the pretest's Survey Scale Label
+Table 4	Sarah Smith	note	1.7	page 14, question 5, AVG, Posttest
+Table 4	Sarah Smith	note	Most of the Time	page 14, question 5, AVG, the posttest's Survey Scale Label
+Table 4	Sarah Smith	note	SD	page 14, question 5, the head of the row of standard deviations
+Table 4	Sarah Smith	note	0.6	page 14, question 5, SD, Pretest
+Table 4	Sarah Smith	note	0.9	page 14, question 5, SD, Posttest
+Table 4	Sarah Smith	note	18	page 14, the question's number
+Table 4	Sarah Smith	note	Learning SENĆOŦEN is difficult.	page 14, question 18, the question
+Table 4	Sarah Smith	note	AVG	page 14, question 18, the head of the row of averages
+Table 4	Sarah Smith	note	3.0	page 14, question 18, AVG, Pretest
+Table 4	Sarah Smith	note	Somewhat Disagree	page 14, question 18, AVG, the pretest's Survey Scale Label
+Table 4	Sarah Smith	note	4.0	page 14, question 18, AVG, Posttest
+Table 4	Sarah Smith	note	Somewhat Disagree	page 14, question 18, AVG, the posttest's Survey Scale Label
+Table 4	Sarah Smith	note	SD	page 14, question 18, the head of the row of standard deviations
+Table 4	Sarah Smith	note	1.3	page 14, question 18, SD, Pretest
+Table 4	Sarah Smith	note	1.2	page 14, question 18, SD, Posttest
+Table 4	Sarah Smith	note	22	page 14, the question's number
+Table 4	Sarah Smith	note	I know more SENĆOŦEN words than I did in elementary school.	page 14, question 22, the question
+Table 4	Sarah Smith	note	AVG	page 14, question 22, the head of the row of averages
+Table 4	Sarah Smith	note	2.2	page 14, question 22, AVG, Pretest
+Table 4	Sarah Smith	note	Somewhat Agree	page 14, question 22, AVG, the pretest's Survey Scale Label
+Table 4	Sarah Smith	note	2.3	page 14, question 22, AVG, Posttest
+Table 4	Sarah Smith	note	Somewhat Agree	page 14, question 22, AVG, the posttest's Survey Scale Label
+Table 4	Sarah Smith	note	SD	page 14, question 22, the head of the row of standard deviations
+Table 4	Sarah Smith	note	1.6	page 14, question 22, SD, Pretest
+Table 4	Sarah Smith	note	1.4	page 14, question 22, SD, Posttest
+Table 4	Sarah Smith	note	24	page 14, the question's number
+Table 4	Sarah Smith	note	Other kids in the school think learning SENĆOŦEN is interesting.	page 14, question 24, the question
+Table 4	Sarah Smith	note	AVG	page 14, question 24, the head of the row of averages
+Table 4	Sarah Smith	note	1.9	page 14, question 24, AVG, Pretest
+Table 4	Sarah Smith	note	Somewhat Agree	page 14, question 24, AVG, the pretest's Survey Scale Label
+Table 4	Sarah Smith	note	2.1	page 14, question 24, AVG, Posttest
+Table 4	Sarah Smith	note	Somewhat Agree	page 14, question 24, AVG, the posttest's Survey Scale Label
+Table 4	Sarah Smith	note	SD	page 14, question 24, the head of the row of standard deviations
+Table 4	Sarah Smith	note	1.1	page 14, question 24, SD, Pretest
+Table 4	Sarah Smith	note	1.2	page 14, question 24, SD, Posttest
+§4.1	Sarah Smith	note	Overall there were no responses which differed greatly between the posttest and pretest. Students seemed positive towards their academics and towards learning SENĆOŦEN reporting “most of the time” and “somewhat agree” on most questions. Questions 21 and 29 provide for some interesting results. In question 21 which stated “I am worried about losing SENĆOŦEN as a spoken language” the students reported an average of “somewhat disagree” (SD = 1.5) in the pretest and “somewhat agree” (SD = 1.5) in the posttest. Also, in question 29 which stated “I feel confident in my ability to say SENĆOŦEN words” the same result was found as in question 29. Although not significant, the overall findings suggest that the students were relatively motivated and had a positive attitude towards their learning and their school.	page 14
+§4.2	Sarah Smith	heading	4.2 Perception	page 14
+§4.2	Sarah Smith	note	Average percent correct on the perceptual decision task is displayed in Table 5 below. Overall, the participants had the same percent correct for the pretest and the posttest. In the pretest, the participants correctly identified the target sound as velar or uvular 64 percent of the time (SD = 12.8%). The same average of 64 percent was found in the posttest (SD = 8.7%). Seven participants improved their percent correct, two stayed the same, and six scored lower on the posttest than in the pretest.	page 14
+Table 5	Sarah Smith	note	Table 5. Average percent correct for each participant	page 14, the table's caption
+Table 5	Sarah Smith	note	Participant #	page 14, a column's head
+Table 5	Sarah Smith	note	Pretest (%)	page 14, a column's head, the (%) under it
+Table 5	Sarah Smith	note	Posttest (%)	page 14, a column's head, the (%) under it
+Table 5	Sarah Smith	note	Improvement?	page 14, a column's head
+Table 5	Sarah Smith	note	Change (%)	page 14, a column's head, the (%) under it
+Table 5	Sarah Smith	note	1	page 14, the participant's number
+Table 5	Sarah Smith	note	80.0	page 14, participant 1, Pretest (%)
+Table 5	Sarah Smith	note	60.0	page 14, participant 1, Posttest (%)
+Table 5	Sarah Smith	note	No	page 14, participant 1, Improvement?
+Table 5	Sarah Smith	note	-20.0	page 14, participant 1, Change (%)
+Table 5	Sarah Smith	note	2	page 14, the participant's number
+Table 5	Sarah Smith	note	73.3	page 14, participant 2, Pretest (%)
+Table 5	Sarah Smith	note	80.0	page 14, participant 2, Posttest (%)
+Table 5	Sarah Smith	note	Yes	page 14, participant 2, Improvement?
+Table 5	Sarah Smith	note	+6.7	page 14, participant 2, Change (%)
+Table 5	Sarah Smith	note	3	page 14, the participant's number
+Table 5	Sarah Smith	note	60.0	page 14, participant 3, Pretest (%)
+Table 5	Sarah Smith	note	66.7	page 14, participant 3, Posttest (%)
+Table 5	Sarah Smith	note	Yes	page 14, participant 3, Improvement?
+Table 5	Sarah Smith	note	+6.67	page 14, participant 3, Change (%)
+Table 5	Sarah Smith	note	4	page 14, the participant's number
+Table 5	Sarah Smith	note	66.7	page 14, participant 4, Pretest (%)
+Table 5	Sarah Smith	note	60.0	page 14, participant 4, Posttest (%)
+Table 5	Sarah Smith	note	No	page 14, participant 4, Improvement?
+Table 5	Sarah Smith	note	-6.67	page 14, participant 4, Change (%)
+Table 5	Sarah Smith	note	5	page 14, the participant's number
+Table 5	Sarah Smith	note	73.3	page 14, participant 5, Pretest (%)
+Table 5	Sarah Smith	note	73.3	page 14, participant 5, Posttest (%)
+Table 5	Sarah Smith	note	Same	page 14, participant 5, Improvement?
+Table 5	Sarah Smith	note	0	page 14, participant 5, Change (%)
+Table 5	Sarah Smith	note	6	page 14, the participant's number
+Table 5	Sarah Smith	note	60.0	page 14, participant 6, Pretest (%)
+Table 5	Sarah Smith	note	53.3	page 14, participant 6, Posttest (%)
+Table 5	Sarah Smith	note	No	page 14, participant 6, Improvement?
+Table 5	Sarah Smith	note	-6.7	page 14, participant 6, Change (%)
+Table 5	Sarah Smith	note	7	page 14, the participant's number
+Table 5	Sarah Smith	note	46.7	page 14, participant 7, Pretest (%)
+Table 5	Sarah Smith	note	66.7	page 14, participant 7, Posttest (%)
+Table 5	Sarah Smith	note	Yes	page 14, participant 7, Improvement?
+Table 5	Sarah Smith	note	+20.0	page 14, participant 7, Change (%)
+Table 5	Sarah Smith	note	8	page 14, the participant's number
+Table 5	Sarah Smith	note	73.3	page 14, participant 8, Pretest (%)
+Table 5	Sarah Smith	note	60.0	page 14, participant 8, Posttest (%)
+Table 5	Sarah Smith	note	No	page 14, participant 8, Improvement?
+Table 5	Sarah Smith	note	-13.3	page 14, participant 8, Change (%)
+Table 5	Sarah Smith	note	9	page 14, the participant's number
+Table 5	Sarah Smith	note	66.7	page 14, participant 9, Pretest (%)
+Table 5	Sarah Smith	note	66.7	page 14, participant 9, Posttest (%)
+Table 5	Sarah Smith	note	Same	page 14, participant 9, Improvement?
+Table 5	Sarah Smith	note	0	page 14, participant 9, Change (%)
+Table 5	Sarah Smith	note	10	page 14, the participant's number
+Table 5	Sarah Smith	note	33.3	page 14, participant 10, Pretest (%)
+Table 5	Sarah Smith	note	46.7	page 14, participant 10, Posttest (%)
+Table 5	Sarah Smith	note	Yes	page 14, participant 10, Improvement?
+Table 5	Sarah Smith	note	+13.4	page 14, participant 10, Change (%)
+Table 5	Sarah Smith	note	11	page 14, the participant's number
+Table 5	Sarah Smith	note	73.3	page 14, participant 11, Pretest (%)
+Table 5	Sarah Smith	note	53.3	page 14, participant 11, Posttest (%)
+Table 5	Sarah Smith	note	No	page 14, participant 11, Improvement?
+Table 5	Sarah Smith	note	-20.0	page 14, participant 11, Change (%)
+Table 5	Sarah Smith	note	12	page 14, the participant's number
+Table 5	Sarah Smith	note	53.3	page 14, participant 12, Pretest (%)
+Table 5	Sarah Smith	note	66.7	page 14, participant 12, Posttest (%)
+Table 5	Sarah Smith	note	Yes	page 14, participant 12, Improvement?
+Table 5	Sarah Smith	note	+13.4	page 14, participant 12, Change (%)
+Table 5	Sarah Smith	note	13	page 14, the participant's number
+Table 5	Sarah Smith	note	80.0	page 14, participant 13, Pretest (%)
+Table 5	Sarah Smith	note	66.7	page 14, participant 13, Posttest (%)
+Table 5	Sarah Smith	note	No	page 14, participant 13, Improvement?
+Table 5	Sarah Smith	note	-13.3	page 14, participant 13, Change (%)
+Table 5	Sarah Smith	note	14	page 14, the participant's number
+Table 5	Sarah Smith	note	60.0	page 14, participant 14, Pretest (%)
+Table 5	Sarah Smith	note	73.3	page 14, participant 14, Posttest (%)
+Table 5	Sarah Smith	note	Yes	page 14, participant 14, Improvement?
+Table 5	Sarah Smith	note	+13.3	page 14, participant 14, Change (%)
+Table 5	Sarah Smith	note	15	page 14, the participant's number
+Table 5	Sarah Smith	note	60.0	page 14, participant 15, Pretest (%)
+Table 5	Sarah Smith	note	66.7	page 14, participant 15, Posttest (%)
+Table 5	Sarah Smith	note	Yes	page 14, participant 15, Improvement?
+Table 5	Sarah Smith	note	+6.67	page 14, participant 15, Change (%)
+Table 5	Sarah Smith	note	Average	page 14, the head of the row of averages
+Table 5	Sarah Smith	note	64.0	page 14, Average, Pretest (%)
+Table 5	Sarah Smith	note	64.0	page 14, Average, Posttest (%)
+Table 5	Sarah Smith	note	+0.2	page 14, Average, Change (%)
+Table 5	Sarah Smith	note	SD	page 14, the head of the row of standard deviations
+Table 5	Sarah Smith	note	12.8	page 14, SD, Pretest (%)
+Table 5	Sarah Smith	note	8.7	page 14, SD, Posttest (%)
+§4.2	Sarah Smith	note	Table 6 displays the percent correct of each individual word, separated by the place of articulation of the target sound (velar or uvular). There was no improvement on the perception of velars, (pretest M = 52.6%, SD = 14.2%, posttest M = 48.9%, SD = 11.3%); however, there was improvement on the perception of uvular sounds (pretest M = 54.1%, SD = 13.5%, posttest M = 59.3%, SD = 15.2%). On average, there was no change between the pretest and the posttest: some participants improved their percent correct in the posttest, some stayed the same and some decreased (percent change M = 0.2%).	page 15
+Table 6	Sarah Smith	note	Table 6. Average percent correct by word and place of articulation (velar/ uvular)	page 15, the table's caption
+Table 6	Sarah Smith	note	Velars	page 15, the head of the rows under it
+Table 6	Sarah Smith	note	Word (IPA)	page 15, Velars, a column's head
+Table 6	Sarah Smith	note	Pretest (% Correct)	page 15, Velars, a column's head
+Table 6	Sarah Smith	note	Posttest (% Correct)	page 15, Velars, a column's head
+Table 6	Sarah Smith	note	Improvement?	page 15, Velars, a column's head
+Table 6	SENĆOŦEN	transcription	k’ʷənət	page 15, Velars, the word in IPA
+Table 6	Sarah Smith	note	46.7	page 15, Velars, k’ʷənət, Pretest (% Correct)
+Table 6	Sarah Smith	note	53.3	page 15, Velars, k’ʷənət, Posttest (% Correct)
+Table 6	Sarah Smith	note	Y	page 15, Velars, k’ʷənət, Improvement?
+Table 6	SENĆOŦEN	transcription	kenti	page 15, Velars, the word in IPA
+Table 6	Sarah Smith	note	73.3	page 15, Velars, kenti, Pretest (% Correct)
+Table 6	Sarah Smith	note	46.7	page 15, Velars, kenti, Posttest (% Correct)
+Table 6	Sarah Smith	note	N	page 15, Velars, kenti, Improvement?
+Table 6	SENĆOŦEN	transcription	makʷət	page 15, Velars, the word in IPA
+Table 6	Sarah Smith	note	46.7	page 15, Velars, makʷət, Pretest (% Correct)
+Table 6	Sarah Smith	note	60	page 15, Velars, makʷət, Posttest (% Correct)
+Table 6	Sarah Smith	note	Y	page 15, Velars, makʷət, Improvement?
+Table 6	SENĆOŦEN	transcription	ləkli	page 15, Velars, the word in IPA
+Table 6	Sarah Smith	note	53.3	page 15, Velars, ləkli, Pretest (% Correct)
+Table 6	Sarah Smith	note	66.7	page 15, Velars, ləkli, Posttest (% Correct)
+Table 6	Sarah Smith	note	Y	page 15, Velars, ləkli, Improvement?
+Table 6	SENĆOŦEN	transcription	sak’ʷəŋ	page 15, Velars, the word in IPA
+Table 6	Sarah Smith	note	60	page 15, Velars, sak’ʷəŋ, Pretest (% Correct)
+Table 6	Sarah Smith	note	60	page 15, Velars, sak’ʷəŋ, Posttest (% Correct)
+Table 6	Sarah Smith	note	N	page 15, Velars, sak’ʷəŋ, Improvement?
+Table 6	SENĆOŦEN	transcription	kʷənət	page 15, Velars, the word in IPA
+Table 6	Sarah Smith	note	73.3	page 15, Velars, kʷənət, Pretest (% Correct)
+Table 6	Sarah Smith	note	46.7	page 15, Velars, kʷənət, Posttest (% Correct)
+Table 6	Sarah Smith	note	N	page 15, Velars, kʷənət, Improvement?
+Table 6	SENĆOŦEN	transcription	kʷələn	page 15, Velars, the word in IPA
+Table 6	Sarah Smith	note	26.7	page 15, Velars, kʷələn, Pretest (% Correct)
+Table 6	Sarah Smith	note	33.3	page 15, Velars, kʷələn, Posttest (% Correct)
+Table 6	Sarah Smith	note	Y	page 15, Velars, kʷələn, Improvement?
+Table 6	SENĆOŦEN	transcription	ləkʷin	page 15, Velars, the word in IPA
+Table 6	Sarah Smith	note	53.3	page 15, Velars, ləkʷin, Pretest (% Correct)
+Table 6	Sarah Smith	note	40	page 15, Velars, ləkʷin, Posttest (% Correct)
+Table 6	Sarah Smith	note	N	page 15, Velars, ləkʷin, Improvement?
+Table 6	SENĆOŦEN	transcription	k’ʷanət	page 15, Velars, the word in IPA
+Table 6	Sarah Smith	note	40	page 15, Velars, k’ʷanət, Pretest (% Correct)
+Table 6	Sarah Smith	note	33.3	page 15, Velars, k’ʷanət, Posttest (% Correct)
+Table 6	Sarah Smith	note	N	page 15, Velars, k’ʷanət, Improvement?
+Table 6	Sarah Smith	note	Average	page 15, Velars, the head of the row
+Table 6	Sarah Smith	note	52.6	page 15, Velars, Average, Pretest (% Correct)
+Table 6	Sarah Smith	note	48.9	page 15, Velars, Average, Posttest (% Correct)
+Table 6	Sarah Smith	note	No	page 15, Velars, Average, Improvement?
+Table 6	Sarah Smith	note	SD	page 15, Velars, the head of the row
+Table 6	Sarah Smith	note	14.2	page 15, Velars, SD, Pretest (% Correct)
+Table 6	Sarah Smith	note	11.3	page 15, Velars, SD, Posttest (% Correct)
+Table 6	Sarah Smith	note	Uvulars	page 16, the head of the rows under it
+Table 6	Sarah Smith	note	Word#	page 16, Uvulars, a column's head
+Table 6	Sarah Smith	note	Pretest (% Correct)	page 16, Uvulars, a column's head
+Table 6	Sarah Smith	note	Posttest (% Correct)	page 16, Uvulars, a column's head
+Table 6	Sarah Smith	note	Improvement?	page 16, Uvulars, a column's head
+Table 6	SENĆOŦEN	transcription	leq’wən	page 16, Uvulars, the word in IPA
+Table 6	Sarah Smith	note	40	page 16, Uvulars, leq’wən, Pretest (% Correct)
+Table 6	Sarah Smith	note	53.3	page 16, Uvulars, leq’wən, Posttest (% Correct)
+Table 6	Sarah Smith	note	Y	page 16, Uvulars, leq’wən, Improvement?
+Table 6	SENĆOŦEN	transcription	qələx	page 16, Uvulars, the word in IPA
+Table 6	Sarah Smith	note	40	page 16, Uvulars, qələx, Pretest (% Correct)
+Table 6	Sarah Smith	note	86.7	page 16, Uvulars, qələx, Posttest (% Correct)
+Table 6	Sarah Smith	note	Y	page 16, Uvulars, qələx, Improvement?
+Table 6	SENĆOŦEN	transcription	qwənəs	page 16, Uvulars, the word in IPA
+Table 6	Sarah Smith	note	46.7	page 16, Uvulars, qwənəs, Pretest (% Correct)
+Table 6	Sarah Smith	note	60	page 16, Uvulars, qwənəs, Posttest (% Correct)
+Table 6	Sarah Smith	note	Y	page 16, Uvulars, qwənəs, Improvement?
+Table 6	SENĆOŦEN	transcription	qəmət	page 16, Uvulars, the word in IPA
+Table 6	Sarah Smith	note	60	page 16, Uvulars, qəmət, Pretest (% Correct)
+Table 6	Sarah Smith	note	66.7	page 16, Uvulars, qəmət, Posttest (% Correct)
+Table 6	Sarah Smith	note	Y	page 16, Uvulars, qəmət, Improvement?
+Table 6	SENĆOŦEN	transcription	q’wələŋ	page 16, Uvulars, the word in IPA
+Table 6	Sarah Smith	note	73.3	page 16, Uvulars, q’wələŋ, Pretest (% Correct)
+Table 6	Sarah Smith	note	73.3	page 16, Uvulars, q’wələŋ, Posttest (% Correct)
+Table 6	Sarah Smith	note	N	page 16, Uvulars, q’wələŋ, Improvement?
+Table 6	SENĆOŦEN	transcription	qwəʔən	page 16, Uvulars, the word in IPA
+Table 6	Sarah Smith	note	33.3	page 16, Uvulars, qwəʔən, Pretest (% Correct)
+Table 6	Sarah Smith	note	40	page 16, Uvulars, qwəʔən, Posttest (% Correct)
+Table 6	Sarah Smith	note	Y	page 16, Uvulars, qwəʔən, Improvement?
+Table 6	SENĆOŦEN	transcription	mətaqwən	page 16, Uvulars, the word in IPA
+Table 6	Sarah Smith	note	60	page 16, Uvulars, mətaqwən, Pretest (% Correct)
+Table 6	Sarah Smith	note	60	page 16, Uvulars, mətaqwən, Posttest (% Correct)
+Table 6	Sarah Smith	note	N	page 16, Uvulars, mətaqwən, Improvement?
+Table 6	SENĆOŦEN	transcription	səqəən	page 16, Uvulars, the word in IPA
+Table 6	Sarah Smith	note	66.7	page 16, Uvulars, səqəən, Pretest (% Correct)
+Table 6	Sarah Smith	note	33.3	page 16, Uvulars, səqəən, Posttest (% Correct)
+Table 6	Sarah Smith	note	N	page 16, Uvulars, səqəən, Improvement?
+Table 6	SENĆOŦEN	transcription	q’wəŋət	page 16, Uvulars, the word in IPA
+Table 6	Sarah Smith	note	66.7	page 16, Uvulars, q’wəŋət, Pretest (% Correct)
+Table 6	Sarah Smith	note	60	page 16, Uvulars, q’wəŋət, Posttest (% Correct)
+Table 6	Sarah Smith	note	N	page 16, Uvulars, q’wəŋət, Improvement?
+Table 6	Sarah Smith	note	Average	page 16, Uvulars, the head of the row
+Table 6	Sarah Smith	note	54.1	page 16, Uvulars, Average, Pretest (% Correct)
+Table 6	Sarah Smith	note	59.3	page 16, Uvulars, Average, Posttest (% Correct)
+Table 6	Sarah Smith	note	Yes	page 16, Uvulars, Average, Improvement?
+Table 6	Sarah Smith	note	SD	page 16, Uvulars, the head of the row
+Table 6	Sarah Smith	note	13.5	page 16, Uvulars, SD, Pretest (% Correct)
+Table 6	Sarah Smith	note	15.2	page 16, Uvulars, SD, Posttest (% Correct)
+§4.2	Sarah Smith	note	Table 7 below displays the average percent correct for each word organized by the environment of the target sound (initial or intervocalic environment). The average only increased when the target sound was a uvular in the initial position (pretest M = 53.3%, SD = 15.8%, posttest M = 64.4%, SD = 15.6%) and in the velar intervocalic environment but not by a considerable amount (pretest M = 53.3%, SD = 4.7%, posttest M = 56.7%, SD = 10.0%).	page 16
+Table 7	Sarah Smith	note	Table 7. Average percent correct by environment of target sound	page 16, the table's caption
+Table 7, Initial	Sarah Smith	note	Initial	page 16, the head of the section
+Table 7, Initial	Sarah Smith	note	Velars	page 16, Initial, the head of the four columns under it
+Table 7, Initial	Sarah Smith	note	Word #	page 16, Initial, Velars, a column's head, set Word over # over two lines
+Table 7, Initial	Sarah Smith	note	Pretest (% Correct)	page 16, Initial, Velars, a column's head
+Table 7, Initial	Sarah Smith	note	Posttest (% Correct)	page 16, Initial, Velars, a column's head
+Table 7, Initial	Sarah Smith	note	Improvement?	page 16, Initial, Velars, a column's head, set Improve over -ment? over two lines
+Table 7, Initial	Sarah Smith	note	1	page 16, Initial, Velars, the word's number
+Table 7, Initial	Sarah Smith	note	46.7	page 16, Initial, Velars, 1, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	53.3	page 16, Initial, Velars, 1, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	Yes	page 16, Initial, Velars, 1, Improvement?
+Table 7, Initial	Sarah Smith	note	3	page 16, Initial, Velars, the word's number
+Table 7, Initial	Sarah Smith	note	73.3	page 16, Initial, Velars, 3, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	46.7	page 16, Initial, Velars, 3, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	No	page 16, Initial, Velars, 3, Improvement?
+Table 7, Initial	Sarah Smith	note	11	page 16, Initial, Velars, the word's number
+Table 7, Initial	Sarah Smith	note	73.3	page 16, Initial, Velars, 11, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	46.7	page 16, Initial, Velars, 11, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	No	page 16, Initial, Velars, 11, Improvement?
+Table 7, Initial	Sarah Smith	note	13	page 16, Initial, Velars, the word's number
+Table 7, Initial	Sarah Smith	note	26.7	page 16, Initial, Velars, 13, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	33.3	page 16, Initial, Velars, 13, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	Yes	page 16, Initial, Velars, 13, Improvement?
+Table 7, Initial	Sarah Smith	note	18	page 16, Initial, Velars, the word's number
+Table 7, Initial	Sarah Smith	note	40.0	page 16, Initial, Velars, 18, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	33.3	page 16, Initial, Velars, 18, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	No	page 16, Initial, Velars, 18, Improvement?
+Table 7, Initial	Sarah Smith	note	AVG	page 16, Initial, Velars, the head of the row
+Table 7, Initial	Sarah Smith	note	52.0	page 16, Initial, Velars, AVG, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	42.7	page 16, Initial, Velars, AVG, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	No	page 16, Initial, Velars, AVG, Improvement?
+Table 7, Initial	Sarah Smith	note	SD	page 16, Initial, Velars, the head of the row
+Table 7, Initial	Sarah Smith	note	20.8	page 16, Initial, Velars, SD, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	8.9	page 16, Initial, Velars, SD, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	Uvulars	page 16, Initial, the head of the four columns under it
+Table 7, Initial	Sarah Smith	note	Word #	page 16, Initial, Uvulars, a column's head, set Word over # over two lines
+Table 7, Initial	Sarah Smith	note	Pretest (% Correct)	page 16, Initial, Uvulars, a column's head
+Table 7, Initial	Sarah Smith	note	Posttest (% Correct)	page 16, Initial, Uvulars, a column's head
+Table 7, Initial	Sarah Smith	note	Improvement?	page 16, Initial, Uvulars, a column's head, set Improve- over ment? over two lines
+Table 7, Initial	Sarah Smith	note	4	page 16, Initial, Uvulars, the word's number
+Table 7, Initial	Sarah Smith	note	40.0	page 16, Initial, Uvulars, 4, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	86.7	page 16, Initial, Uvulars, 4, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	Yes	page 16, Initial, Uvulars, 4, Improvement?
+Table 7, Initial	Sarah Smith	note	5	page 16, Initial, Uvulars, the word's number
+Table 7, Initial	Sarah Smith	note	46.7	page 16, Initial, Uvulars, 5, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	60.0	page 16, Initial, Uvulars, 5, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	Yes	page 16, Initial, Uvulars, 5, Improvement?
+Table 7, Initial	Sarah Smith	note	7	page 16, Initial, Uvulars, the word's number
+Table 7, Initial	Sarah Smith	note	60.0	page 16, Initial, Uvulars, 7, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	66.7	page 16, Initial, Uvulars, 7, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	Yes	page 16, Initial, Uvulars, 7, Improvement?
+Table 7, Initial	Sarah Smith	note	9	page 16, Initial, Uvulars, the word's number
+Table 7, Initial	Sarah Smith	note	73.3	page 16, Initial, Uvulars, 9, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	73.3	page 16, Initial, Uvulars, 9, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	No	page 16, Initial, Uvulars, 9, Improvement?
+Table 7, Initial	Sarah Smith	note	12	page 16, Initial, Uvulars, the word's number
+Table 7, Initial	Sarah Smith	note	33.3	page 16, Initial, Uvulars, 12, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	40.0	page 16, Initial, Uvulars, 12, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	Yes	page 16, Initial, Uvulars, 12, Improvement?
+Table 7, Initial	Sarah Smith	note	17	page 16, Initial, Uvulars, the word's number
+Table 7, Initial	Sarah Smith	note	66.7	page 16, Initial, Uvulars, 17, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	60.0	page 16, Initial, Uvulars, 17, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	No	page 16, Initial, Uvulars, 17, Improvement?
+Table 7, Initial	Sarah Smith	note	AVG	page 16, Initial, Uvulars, the head of the row
+Table 7, Initial	Sarah Smith	note	53.3	page 16, Initial, Uvulars, AVG, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	64.4	page 16, Initial, Uvulars, AVG, Posttest (% Correct)
+Table 7, Initial	Sarah Smith	note	Yes	page 16, Initial, Uvulars, AVG, Improvement?
+Table 7, Initial	Sarah Smith	note	SD	page 16, Initial, Uvulars, the head of the row
+Table 7, Initial	Sarah Smith	note	15.8	page 16, Initial, Uvulars, SD, Pretest (% Correct)
+Table 7, Initial	Sarah Smith	note	15.6	page 16, Initial, Uvulars, SD, Posttest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	Intervocalic	page 16, the head of the section
+Table 7, Intervocalic	Sarah Smith	note	Velars	page 16, Intervocalic, the head of the four columns under it
+Table 7, Intervocalic	Sarah Smith	note	Word #	page 16, Intervocalic, Velars, a column's head, set Word over # over two lines
+Table 7, Intervocalic	Sarah Smith	note	Pretest (% Correct)	page 16, Intervocalic, Velars, a column's head
+Table 7, Intervocalic	Sarah Smith	note	Posttest (% Correct)	page 16, Intervocalic, Velars, a column's head
+Table 7, Intervocalic	Sarah Smith	note	Improvement?	page 16, Intervocalic, Velars, a column's head, set Improve over -ment? over two lines
+Table 7, Intervocalic	Sarah Smith	note	6	page 16, Intervocalic, Velars, the word's number
+Table 7, Intervocalic	Sarah Smith	note	46.7	page 16, Intervocalic, Velars, 6, Pretest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	60.0	page 16, Intervocalic, Velars, 6, Posttest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	Yes	page 16, Intervocalic, Velars, 6, Improvement?
+Table 7, Intervocalic	Sarah Smith	note	8	page 16, Intervocalic, Velars, the word's number
+Table 7, Intervocalic	Sarah Smith	note	53.3	page 16, Intervocalic, Velars, 8, Pretest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	66.7	page 16, Intervocalic, Velars, 8, Posttest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	Yes	page 16, Intervocalic, Velars, 8, Improvement?
+Table 7, Intervocalic	Sarah Smith	note	10	page 16, Intervocalic, Velars, the word's number
+Table 7, Intervocalic	Sarah Smith	note	60.0	page 16, Intervocalic, Velars, 10, Pretest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	60.0	page 16, Intervocalic, Velars, 10, Posttest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	No	page 16, Intervocalic, Velars, 10, Improvement?
+Table 7, Intervocalic	Sarah Smith	note	15	page 16, Intervocalic, Velars, the word's number
+Table 7, Intervocalic	Sarah Smith	note	53.3	page 16, Intervocalic, Velars, 15, Pretest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	40.0	page 16, Intervocalic, Velars, 15, Posttest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	No	page 16, Intervocalic, Velars, 15, Improvement?
+Table 7, Intervocalic	Sarah Smith	note	AVG	page 16, Intervocalic, Velars, the head of the row
+Table 7, Intervocalic	Sarah Smith	note	53.3	page 16, Intervocalic, Velars, AVG, Pretest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	56.7	page 16, Intervocalic, Velars, AVG, Posttest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	Yes	page 16, Intervocalic, Velars, AVG, Improvement?
+Table 7, Intervocalic	Sarah Smith	note	SD	page 16, Intervocalic, Velars, the head of the row
+Table 7, Intervocalic	Sarah Smith	note	4.7	page 16, Intervocalic, Velars, SD, Pretest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	10.0	page 16, Intervocalic, Velars, SD, Posttest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	Uvulars	page 16, Intervocalic, the head of the four columns under it
+Table 7, Intervocalic	Sarah Smith	note	Word #	page 16, Intervocalic, Uvulars, a column's head, set Word over # over two lines
+Table 7, Intervocalic	Sarah Smith	note	Pretest (% Correct)	page 16, Intervocalic, Uvulars, a column's head
+Table 7, Intervocalic	Sarah Smith	note	Posttest (% Correct)	page 16, Intervocalic, Uvulars, a column's head
+Table 7, Intervocalic	Sarah Smith	note	Improvement?	page 16, Intervocalic, Uvulars, a column's head, set Improve- over ment? over two lines
+Table 7, Intervocalic	Sarah Smith	note	2	page 16, Intervocalic, Uvulars, the word's number
+Table 7, Intervocalic	Sarah Smith	note	40.0	page 16, Intervocalic, Uvulars, 2, Pretest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	53.3	page 16, Intervocalic, Uvulars, 2, Posttest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	Yes	page 16, Intervocalic, Uvulars, 2, Improvement?
+Table 7, Intervocalic	Sarah Smith	note	14	page 16, Intervocalic, Uvulars, the word's number
+Table 7, Intervocalic	Sarah Smith	note	60.0	page 16, Intervocalic, Uvulars, 14, Pretest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	60.0	page 16, Intervocalic, Uvulars, 14, Posttest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	No	page 16, Intervocalic, Uvulars, 14, Improvement?
+Table 7, Intervocalic	Sarah Smith	note	16	page 16, Intervocalic, Uvulars, the word's number
+Table 7, Intervocalic	Sarah Smith	note	66.7	page 16, Intervocalic, Uvulars, 16, Pretest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	33.3	page 16, Intervocalic, Uvulars, 16, Posttest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	No	page 16, Intervocalic, Uvulars, 16, Improvement?
+Table 7, Intervocalic	Sarah Smith	note	AVG	page 16, Intervocalic, Uvulars, the head of the row
+Table 7, Intervocalic	Sarah Smith	note	55.6	page 16, Intervocalic, Uvulars, AVG, Pretest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	48.9	page 16, Intervocalic, Uvulars, AVG, Posttest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	No	page 16, Intervocalic, Uvulars, AVG, Improvement?
+Table 7, Intervocalic	Sarah Smith	note	SD	page 16, Intervocalic, Uvulars, the head of the row
+Table 7, Intervocalic	Sarah Smith	note	11.3	page 16, Intervocalic, Uvulars, SD, Pretest (% Correct)
+Table 7, Intervocalic	Sarah Smith	note	11.3	page 16, Intervocalic, Uvulars, SD, Posttest (% Correct)
+§4.2	Sarah Smith	note	Table 8 below displays the average percent correct for each word organized by the place of articulation (velar or uvular) and by the voicing (plain or ejective) of the target sound. The average only considerably increased when the target sound was a plain uvular (pretest M = 55.6%, SD = 13.9%, posttest M = 62.2%, SD = 27.0%).	page 17
+Table 8	Sarah Smith	note	Table 8. Average percent correct by voicing (plain or ejective)	page 17, the table's caption
+Table 8	Sarah Smith	note	Plain versus Ejectives	page 17, the head of the table
+Table 8, Plain	Sarah Smith	note	Plain	page 17, the head of the section
+Table 8, Plain	Sarah Smith	note	Velars	page 17, Plain, the head of the four columns under it
+Table 8, Plain	Sarah Smith	note	Word #	page 17, Plain, Velars, a column's head, set Word over # over two lines
+Table 8, Plain	Sarah Smith	note	Pretest (% Correct)	page 17, Plain, Velars, a column's head
+Table 8, Plain	Sarah Smith	note	Posttest (% Correct)	page 17, Plain, Velars, a column's head
+Table 8, Plain	Sarah Smith	note	Improvement?	page 17, Plain, Velars, a column's head, set Improve over -ment? over two lines
+Table 8, Plain	Sarah Smith	note	3	page 17, Plain, Velars, the word's number
+Table 8, Plain	Sarah Smith	note	73.3	page 17, Plain, Velars, 3, Pretest (% Correct)
+Table 8, Plain	Sarah Smith	note	46.7	page 17, Plain, Velars, 3, Posttest (% Correct)
+Table 8, Plain	Sarah Smith	note	No	page 17, Plain, Velars, 3, Improvement?
+Table 8, Plain	Sarah Smith	note	8	page 17, Plain, Velars, the word's number
+Table 8, Plain	Sarah Smith	note	53.3	page 17, Plain, Velars, 8, Pretest (% Correct)
+Table 8, Plain	Sarah Smith	note	66.7	page 17, Plain, Velars, 8, Posttest (% Correct)
+Table 8, Plain	Sarah Smith	note	Yes	page 17, Plain, Velars, 8, Improvement?
+Table 8, Plain	Sarah Smith	note	15	page 17, Plain, Velars, the word's number
+Table 8, Plain	Sarah Smith	note	53.3	page 17, Plain, Velars, 15, Pretest (% Correct)
+Table 8, Plain	Sarah Smith	note	40	page 17, Plain, Velars, 15, Posttest (% Correct)
+Table 8, Plain	Sarah Smith	note	No	page 17, Plain, Velars, 15, Improvement?
+Table 8, Plain	Sarah Smith	note	AVG	page 17, Plain, Velars, the head of the row
+Table 8, Plain	Sarah Smith	note	60.0	page 17, Plain, Velars, AVG, Pretest (% Correct)
+Table 8, Plain	Sarah Smith	note	51.1	page 17, Plain, Velars, AVG, Posttest (% Correct)
+Table 8, Plain	Sarah Smith	note	SD	page 17, Plain, Velars, the head of the row
+Table 8, Plain	Sarah Smith	note	11.5	page 17, Plain, Velars, SD, Pretest (% Correct)
+Table 8, Plain	Sarah Smith	note	13.9	page 17, Plain, Velars, SD, Posttest (% Correct)
+Table 8, Plain	Sarah Smith	note	Uvulars	page 17, Plain, the head of the four columns under it
+Table 8, Plain	Sarah Smith	note	Word #	page 17, Plain, Uvulars, a column's head, set Word over # over two lines
+Table 8, Plain	Sarah Smith	note	Pretest (% Correct)	page 17, Plain, Uvulars, a column's head
+Table 8, Plain	Sarah Smith	note	Posttest (% Correct)	page 17, Plain, Uvulars, a column's head
+Table 8, Plain	Sarah Smith	note	Improvement?	page 17, Plain, Uvulars, a column's head, set Improve- over ment? over two lines
+Table 8, Plain	Sarah Smith	note	4	page 17, Plain, Uvulars, the word's number
+Table 8, Plain	Sarah Smith	note	40	page 17, Plain, Uvulars, 4, Pretest (% Correct)
+Table 8, Plain	Sarah Smith	note	86.7	page 17, Plain, Uvulars, 4, Posttest (% Correct)
+Table 8, Plain	Sarah Smith	note	Yes	page 17, Plain, Uvulars, 4, Improvement?
+Table 8, Plain	Sarah Smith	note	7	page 17, Plain, Uvulars, the word's number
+Table 8, Plain	Sarah Smith	note	60	page 17, Plain, Uvulars, 7, Pretest (% Correct)
+Table 8, Plain	Sarah Smith	note	66.7	page 17, Plain, Uvulars, 7, Posttest (% Correct)
+Table 8, Plain	Sarah Smith	note	Yes	page 17, Plain, Uvulars, 7, Improvement?
+Table 8, Plain	Sarah Smith	note	16	page 17, Plain, Uvulars, the word's number
+Table 8, Plain	Sarah Smith	note	66.7	page 17, Plain, Uvulars, 16, Pretest (% Correct)
+Table 8, Plain	Sarah Smith	note	33.3	page 17, Plain, Uvulars, 16, Posttest (% Correct)
+Table 8, Plain	Sarah Smith	note	No	page 17, Plain, Uvulars, 16, Improvement?
+Table 8, Plain	Sarah Smith	note	AVG	page 17, Plain, Uvulars, the head of the row
+Table 8, Plain	Sarah Smith	note	55.6	page 17, Plain, Uvulars, AVG, Pretest (% Correct)
+Table 8, Plain	Sarah Smith	note	62.2	page 17, Plain, Uvulars, AVG, Posttest (% Correct)
+Table 8, Plain	Sarah Smith	note	SD	page 17, Plain, Uvulars, the head of the row
+Table 8, Plain	Sarah Smith	note	13.9	page 17, Plain, Uvulars, SD, Pretest (% Correct)
+Table 8, Plain	Sarah Smith	note	27.0	page 17, Plain, Uvulars, SD, Posttest (% Correct)
+Table 8, Ejective	Sarah Smith	note	Ejective	page 17, the head of the section
+Table 8, Ejective	Sarah Smith	note	Velars	page 17, Ejective, the head of the four columns under it
+Table 8, Ejective	Sarah Smith	note	Word #	page 17, Ejective, Velars, a column's head, set Word over # over two lines
+Table 8, Ejective	Sarah Smith	note	Pretest (% Correct)	page 17, Ejective, Velars, a column's head
+Table 8, Ejective	Sarah Smith	note	Posttest (% Correct)	page 17, Ejective, Velars, a column's head
+Table 8, Ejective	Sarah Smith	note	Improvement?	page 17, Ejective, Velars, a column's head, set Improve- over ment? over two lines
+Table 8, Ejective	Sarah Smith	note	1	page 17, Ejective, Velars, the word's number
+Table 8, Ejective	Sarah Smith	note	46.7	page 17, Ejective, Velars, 1, Pretest (% Correct)
+Table 8, Ejective	Sarah Smith	note	53.3	page 17, Ejective, Velars, 1, Posttest (% Correct)
+Table 8, Ejective	Sarah Smith	note	Yes	page 17, Ejective, Velars, 1, Improvement?
+Table 8, Ejective	Sarah Smith	note	10	page 17, Ejective, Velars, the word's number
+Table 8, Ejective	Sarah Smith	note	60	page 17, Ejective, Velars, 10, Pretest (% Correct)
+Table 8, Ejective	Sarah Smith	note	60	page 17, Ejective, Velars, 10, Posttest (% Correct)
+Table 8, Ejective	Sarah Smith	note	No	page 17, Ejective, Velars, 10, Improvement?
+Table 8, Ejective	Sarah Smith	note	18	page 17, Ejective, Velars, the word's number
+Table 8, Ejective	Sarah Smith	note	40	page 17, Ejective, Velars, 18, Pretest (% Correct)
+Table 8, Ejective	Sarah Smith	note	33.3	page 17, Ejective, Velars, 18, Posttest (% Correct)
+Table 8, Ejective	Sarah Smith	note	No	page 17, Ejective, Velars, 18, Improvement?
+Table 8, Ejective	Sarah Smith	note	AVG	page 17, Ejective, Velars, the head of the row
+Table 8, Ejective	Sarah Smith	note	48.9	page 17, Ejective, Velars, AVG, Pretest (% Correct)
+Table 8, Ejective	Sarah Smith	note	48.9	page 17, Ejective, Velars, AVG, Posttest (% Correct)
+Table 8, Ejective	Sarah Smith	note	SD	page 17, Ejective, Velars, the head of the row
+Table 8, Ejective	Sarah Smith	note	10.2	page 17, Ejective, Velars, SD, Pretest (% Correct)
+Table 8, Ejective	Sarah Smith	note	13.9	page 17, Ejective, Velars, SD, Posttest (% Correct)
+Table 8, Ejective	Sarah Smith	note	Uvulars	page 17, Ejective, the head of the four columns under it
+Table 8, Ejective	Sarah Smith	note	Word #	page 17, Ejective, Uvulars, a column's head, set Word over # over two lines
+Table 8, Ejective	Sarah Smith	note	Pretest (% Correct)	page 17, Ejective, Uvulars, a column's head
+Table 8, Ejective	Sarah Smith	note	Posttest (% Correct)	page 17, Ejective, Uvulars, a column's head
+Table 8, Ejective	Sarah Smith	note	Improvement?	page 17, Ejective, Uvulars, a column's head, set Improve- over ment? over two lines
+Table 8, Ejective	Sarah Smith	note	2	page 17, Ejective, Uvulars, the word's number
+Table 8, Ejective	Sarah Smith	note	40	page 17, Ejective, Uvulars, 2, Pretest (% Correct)
+Table 8, Ejective	Sarah Smith	note	53.3	page 17, Ejective, Uvulars, 2, Posttest (% Correct)
+Table 8, Ejective	Sarah Smith	note	Yes	page 17, Ejective, Uvulars, 2, Improvement?
+Table 8, Ejective	Sarah Smith	note	9	page 17, Ejective, Uvulars, the word's number
+Table 8, Ejective	Sarah Smith	note	73.3	page 17, Ejective, Uvulars, 9, Pretest (% Correct)
+Table 8, Ejective	Sarah Smith	note	73.3	page 17, Ejective, Uvulars, 9, Posttest (% Correct)
+Table 8, Ejective	Sarah Smith	note	No	page 17, Ejective, Uvulars, 9, Improvement?
+Table 8, Ejective	Sarah Smith	note	17	page 17, Ejective, Uvulars, the word's number
+Table 8, Ejective	Sarah Smith	note	66.7	page 17, Ejective, Uvulars, 17, Pretest (% Correct)
+Table 8, Ejective	Sarah Smith	note	60	page 17, Ejective, Uvulars, 17, Posttest (% Correct)
+Table 8, Ejective	Sarah Smith	note	No	page 17, Ejective, Uvulars, 17, Improvement?
+Table 8, Ejective	Sarah Smith	note	AVG	page 17, Ejective, Uvulars, the head of the row
+Table 8, Ejective	Sarah Smith	note	60	page 17, Ejective, Uvulars, AVG, Pretest (% Correct)
+Table 8, Ejective	Sarah Smith	note	62.2	page 17, Ejective, Uvulars, AVG, Posttest (% Correct)
+Table 8, Ejective	Sarah Smith	note	SD	page 17, Ejective, Uvulars, the head of the row
+Table 8, Ejective	Sarah Smith	note	17.6	page 17, Ejective, Uvulars, SD, Pretest (% Correct)
+Table 8, Ejective	Sarah Smith	note	10.2	page 17, Ejective, Uvulars, SD, Posttest (% Correct)
+§4.2	Sarah Smith	note	Table 9 below displays the average percent correct for each word organized by the place of articulation (velar or uvular) and by the roundedness (rounded or unrounded) of the target sound. The average considerably increased when the target sound was an unrounded uvular (pretest M = 55.6%, SD = 13.9%, posttest M = 62.2%, SD = 27.0%) and a rounded uvular (pretest M = 46.7%, SD = 13.4%, posttest M = 53.3%, SD = 11.5%).	page 18
+Table 9	Sarah Smith	note	Table 9. Average percent correct by roundedness (rounded or unrounded)	page 18, the table's caption
+Table 9	Sarah Smith	note	Rounded vs. Unrounded	page 18, the head of the table
+Table 9, Unrounded	Sarah Smith	note	Unrounded	page 18, the head of the section
+Table 9, Unrounded	Sarah Smith	note	Velars	page 18, Unrounded, the head of the four columns under it
+Table 9, Unrounded	Sarah Smith	note	Word #	page 18, Unrounded, Velars, a column's head, set Wor over d# over two lines
+Table 9, Unrounded	Sarah Smith	note	Pretest (% Correct)	page 18, Unrounded, Velars, a column's head
+Table 9, Unrounded	Sarah Smith	note	Posttest (% Correct)	page 18, Unrounded, Velars, a column's head
+Table 9, Unrounded	Sarah Smith	note	Improvement?	page 18, Unrounded, Velars, a column's head, set Improve- over ment? over two lines
+Table 9, Unrounded	Sarah Smith	note	3	page 18, Unrounded, Velars, the word's number
+Table 9, Unrounded	Sarah Smith	note	73.3	page 18, Unrounded, Velars, 3, Pretest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	46.7	page 18, Unrounded, Velars, 3, Posttest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	No	page 18, Unrounded, Velars, 3, Improvement?
+Table 9, Unrounded	Sarah Smith	note	8	page 18, Unrounded, Velars, the word's number
+Table 9, Unrounded	Sarah Smith	note	53.3	page 18, Unrounded, Velars, 8, Pretest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	66.7	page 18, Unrounded, Velars, 8, Posttest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	Yes	page 18, Unrounded, Velars, 8, Improvement?
+Table 9, Unrounded	Sarah Smith	note	15	page 18, Unrounded, Velars, the word's number
+Table 9, Unrounded	Sarah Smith	note	53.3	page 18, Unrounded, Velars, 15, Pretest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	40.0	page 18, Unrounded, Velars, 15, Posttest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	No	page 18, Unrounded, Velars, 15, Improvement?
+Table 9, Unrounded	Sarah Smith	note	AVG	page 18, Unrounded, Velars, the head of the row
+Table 9, Unrounded	Sarah Smith	note	60.0	page 18, Unrounded, Velars, AVG, Pretest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	51.1	page 18, Unrounded, Velars, AVG, Posttest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	SD	page 18, Unrounded, Velars, the head of the row
+Table 9, Unrounded	Sarah Smith	note	11.5	page 18, Unrounded, Velars, SD, Pretest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	13.9	page 18, Unrounded, Velars, SD, Posttest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	Uvulars	page 18, Unrounded, the head of the four columns under it
+Table 9, Unrounded	Sarah Smith	note	Word #	page 18, Unrounded, Uvulars, a column's head, set Word over # over two lines
+Table 9, Unrounded	Sarah Smith	note	Pretest (% Correct)	page 18, Unrounded, Uvulars, a column's head
+Table 9, Unrounded	Sarah Smith	note	Posttest (% Correct)	page 18, Unrounded, Uvulars, a column's head
+Table 9, Unrounded	Sarah Smith	note	Improvement?	page 18, Unrounded, Uvulars, a column's head, set Improve over -ment? over two lines
+Table 9, Unrounded	Sarah Smith	note	4	page 18, Unrounded, Uvulars, the word's number
+Table 9, Unrounded	Sarah Smith	note	40.0	page 18, Unrounded, Uvulars, 4, Pretest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	86.7	page 18, Unrounded, Uvulars, 4, Posttest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	Yes	page 18, Unrounded, Uvulars, 4, Improvement?
+Table 9, Unrounded	Sarah Smith	note	7	page 18, Unrounded, Uvulars, the word's number
+Table 9, Unrounded	Sarah Smith	note	60.0	page 18, Unrounded, Uvulars, 7, Pretest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	66.7	page 18, Unrounded, Uvulars, 7, Posttest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	Yes	page 18, Unrounded, Uvulars, 7, Improvement?
+Table 9, Unrounded	Sarah Smith	note	16	page 18, Unrounded, Uvulars, the word's number
+Table 9, Unrounded	Sarah Smith	note	66.7	page 18, Unrounded, Uvulars, 16, Pretest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	33.3	page 18, Unrounded, Uvulars, 16, Posttest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	No	page 18, Unrounded, Uvulars, 16, Improvement?
+Table 9, Unrounded	Sarah Smith	note	AVG	page 18, Unrounded, Uvulars, the head of the row
+Table 9, Unrounded	Sarah Smith	note	55.6	page 18, Unrounded, Uvulars, AVG, Pretest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	62.2	page 18, Unrounded, Uvulars, AVG, Posttest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	SD	page 18, Unrounded, Uvulars, the head of the row
+Table 9, Unrounded	Sarah Smith	note	13.9	page 18, Unrounded, Uvulars, SD, Pretest (% Correct)
+Table 9, Unrounded	Sarah Smith	note	27.0	page 18, Unrounded, Uvulars, SD, Posttest (% Correct)
+Table 9, Rounded	Sarah Smith	note	Rounded	page 18, the head of the section
+Table 9, Rounded	Sarah Smith	note	Velars	page 18, Rounded, the head of the four columns under it
+Table 9, Rounded	Sarah Smith	note	Word #	page 18, Rounded, Velars, a column's head, set Wor over d# over two lines
+Table 9, Rounded	Sarah Smith	note	Pretest (% Correct)	page 18, Rounded, Velars, a column's head
+Table 9, Rounded	Sarah Smith	note	Posttest (% Correct)	page 18, Rounded, Velars, a column's head
+Table 9, Rounded	Sarah Smith	note	Improvement?	page 18, Rounded, Velars, a column's head, set Improve- over ment? over two lines
+Table 9, Rounded	Sarah Smith	note	6	page 18, Rounded, Velars, the word's number
+Table 9, Rounded	Sarah Smith	note	46.7	page 18, Rounded, Velars, 6, Pretest (% Correct)
+Table 9, Rounded	Sarah Smith	note	60.0	page 18, Rounded, Velars, 6, Posttest (% Correct)
+Table 9, Rounded	Sarah Smith	note	Yes	page 18, Rounded, Velars, 6, Improvement?
+Table 9, Rounded	Sarah Smith	note	11	page 18, Rounded, Velars, the word's number
+Table 9, Rounded	Sarah Smith	note	73.3	page 18, Rounded, Velars, 11, Pretest (% Correct)
+Table 9, Rounded	Sarah Smith	note	46.7	page 18, Rounded, Velars, 11, Posttest (% Correct)
+Table 9, Rounded	Sarah Smith	note	No	page 18, Rounded, Velars, 11, Improvement?
+Table 9, Rounded	Sarah Smith	note	13	page 18, Rounded, Velars, the word's number
+Table 9, Rounded	Sarah Smith	note	26.7	page 18, Rounded, Velars, 13, Pretest (% Correct)
+Table 9, Rounded	Sarah Smith	note	33.3	page 18, Rounded, Velars, 13, Posttest (% Correct)
+Table 9, Rounded	Sarah Smith	note	Yes	page 18, Rounded, Velars, 13, Improvement?
+Table 9, Rounded	Sarah Smith	note	AVG	page 18, Rounded, Velars, the head of the row
+Table 9, Rounded	Sarah Smith	note	48.9	page 18, Rounded, Velars, AVG, Pretest (% Correct)
+Table 9, Rounded	Sarah Smith	note	46.7	page 18, Rounded, Velars, AVG, Posttest (% Correct)
+Table 9, Rounded	Sarah Smith	note	SD	page 18, Rounded, Velars, the head of the row
+Table 9, Rounded	Sarah Smith	note	23.4	page 18, Rounded, Velars, SD, Pretest (% Correct)
+Table 9, Rounded	Sarah Smith	note	13.4	page 18, Rounded, Velars, SD, Posttest (% Correct)
+Table 9, Rounded	Sarah Smith	note	Uvulars	page 18, Rounded, the head of the four columns under it
+Table 9, Rounded	Sarah Smith	note	Word #	page 18, Rounded, Uvulars, a column's head, set Word over # over two lines
+Table 9, Rounded	Sarah Smith	note	Pretest (% Correct)	page 18, Rounded, Uvulars, a column's head
+Table 9, Rounded	Sarah Smith	note	Posttest (% Correct)	page 18, Rounded, Uvulars, a column's head
+Table 9, Rounded	Sarah Smith	note	Improvement?	page 18, Rounded, Uvulars, a column's head, set Improve over -ment? over two lines
+Table 9, Rounded	Sarah Smith	note	5	page 18, Rounded, Uvulars, the word's number
+Table 9, Rounded	Sarah Smith	note	46.7	page 18, Rounded, Uvulars, 5, Pretest (% Correct)
+Table 9, Rounded	Sarah Smith	note	60.0	page 18, Rounded, Uvulars, 5, Posttest (% Correct)
+Table 9, Rounded	Sarah Smith	note	Yes	page 18, Rounded, Uvulars, 5, Improvement?
+Table 9, Rounded	Sarah Smith	note	12	page 18, Rounded, Uvulars, the word's number
+Table 9, Rounded	Sarah Smith	note	33.3	page 18, Rounded, Uvulars, 12, Pretest (% Correct)
+Table 9, Rounded	Sarah Smith	note	40.0	page 18, Rounded, Uvulars, 12, Posttest (% Correct)
+Table 9, Rounded	Sarah Smith	note	Yes	page 18, Rounded, Uvulars, 12, Improvement?
+Table 9, Rounded	Sarah Smith	note	14	page 18, Rounded, Uvulars, the word's number
+Table 9, Rounded	Sarah Smith	note	60.0	page 18, Rounded, Uvulars, 14, Pretest (% Correct)
+Table 9, Rounded	Sarah Smith	note	60.0	page 18, Rounded, Uvulars, 14, Posttest (% Correct)
+Table 9, Rounded	Sarah Smith	note	No	page 18, Rounded, Uvulars, 14, Improvement?
+Table 9, Rounded	Sarah Smith	note	AVG	page 18, Rounded, Uvulars, the head of the row
+Table 9, Rounded	Sarah Smith	note	46.7	page 18, Rounded, Uvulars, AVG, Pretest (% Correct)
+Table 9, Rounded	Sarah Smith	note	53.3	page 18, Rounded, Uvulars, AVG, Posttest (% Correct)
+Table 9, Rounded	Sarah Smith	note	SD	page 18, Rounded, Uvulars, the head of the row
+Table 9, Rounded	Sarah Smith	note	13.4	page 18, Rounded, Uvulars, SD, Pretest (% Correct)
+Table 9, Rounded	Sarah Smith	note	11.5	page 18, Rounded, Uvulars, SD, Posttest (% Correct)
+§4.2	Sarah Smith	note	Overall, no change was calculated between the pretest and posttest perception task for all sounds. However, when the results were separated into velar and uvular stops, a considerable change was noticed: on average, the perception of velars did not increase in the posttest, but perception of uvulars did increase.	page 18
+§4.3	Sarah Smith	heading	4.3 Production	page 18
+§4.3	Sarah Smith	note	Overall, the average production percent correct (with respect to all three conditions examined: place of articulation, roundedness, and ejective quality) increased slightly as displayed below in Table 10.	page 18
+Table 10	Sarah Smith	note	Table 10. Overall production percent correct	page 19, the table's caption
+Table 10	Sarah Smith	note	Overall (% correct)	page 19, the head over the two columns
+Table 10	Sarah Smith	note	Pretest	page 19, a column's head, under Overall (% correct)
+Table 10	Sarah Smith	note	Posttest	page 19, a column's head, under Overall (% correct)
+Table 10	Sarah Smith	note	AVERAGE	page 19, the row's head
+Table 10	Sarah Smith	note	75.4	page 19, AVERAGE, Pretest
+Table 10	Sarah Smith	note	76.4	page 19, AVERAGE, Posttest
+Table 10	Sarah Smith	note	SD	page 19, the row's head
+Table 10	Sarah Smith	note	6.3	page 19, SD, Pretest
+Table 10	Sarah Smith	note	7	page 19, SD, Posttest
+§4.3	Sarah Smith	note	Average percent correct for each participant is presented in the following figure. The posttest scores (shown in red) overall are higher than the pretest scores (11 participants had higher posttest scores, 5 had lower).	page 19
+Figure 3	Sarah Smith	note	Figure 3. Graph of overall production scores by participant on pretest and posttest	page 19, the figure's caption, over the chart
+Figure 3	Sarah Smith	note	Overall Production Scores	page 19, the chart's title
+Figure 3	Sarah Smith	note	Percent Correct (%)	page 19, the title of the y axis, set on its side
+Figure 3	Sarah Smith	note	100 80 60 40 20 0	page 19, the values up the y axis, from the top
+Figure 3	Sarah Smith	note	Pretest	page 19, the legend, beside a blue square
+Figure 3	Sarah Smith	note	Posttest	page 19, the legend, beside a red square
+Figure 3	Sarah Smith	note	1 2 3 4 5 6 7 8 9 10 11 12 13 14 15	page 19, the participants' numbers along the x axis, a pair of bars over each
+Figure 3	Sarah Smith	note	Participant #	page 19, the title of the x axis
+§4.3	Sarah Smith	note	Place of articulation (velar or uvular), roundedness, and ejective quality were also calculated separately from the overall scores. The results are presented in Figures 4-6. Figure 4 displays the pretest and posttest production results for place of articulation, to show if participants differentiated between velars and uvulars. On average, participants improved their performance on producing either a velar or uvular target sound (pretest M = 61.5%, SD = 8.6%, posttest M = 67.5%, SD = 11.1%). 10 out of 15 participants improved their production of velars and uvulars. One participant showed no improvement and four participants had a lower percent correct in the posttest.	page 19
+Figure 4	Sarah Smith	note	Figure 4. Graph of pretest and posttest production on place of articulation	page 20, the figure's caption, over the chart
+Figure 4	Sarah Smith	note	Place of Articulation (Velar or Uvular) Production Task	page 20, the chart's title
+Figure 4	Sarah Smith	note	Percent Correct (%)	page 20, the title of the y axis, set on its side
+Figure 4	Sarah Smith	note	100 80 60 40 20 0	page 20, the values up the y axis, from the top
+Figure 4	Sarah Smith	note	Pretest	page 20, the legend, beside a blue square
+Figure 4	Sarah Smith	note	Posttest	page 20, the legend, beside a red square
+Figure 4	Sarah Smith	note	1 2 3 4 5 6 7 8 9 10 11 12 13 14 15	page 20, the participants' numbers along the x axis, a pair of bars over each
+Figure 4	Sarah Smith	note	Participant #	page 20, the title of the x axis
+§4.3	Sarah Smith	note	Figure 5 below shows the average percent correct for production of roundedness on the target sound in the pretest and posttest. Overall, there was no effect for roundedness, and students scored high on both the pretest and posttest for producing rounded target sounds (pretest M = 88.89%, SD = 6.5%, posttest M = 88.6%, SD = 6.2%).	page 20
+Figure 5	Sarah Smith	note	Figure 5. Graph of percent correct for the production of roundedness of target sound	page 21, the figure's caption, over the chart
+Figure 5	Sarah Smith	note	Rounded or Unrounded Production Task	page 21, the chart's title
+Figure 5	Sarah Smith	note	Percent Correct (%)	page 21, the title of the y axis, set on its side
+Figure 5	Sarah Smith	note	120 100 80 60 40 20 0	page 21, the values up the y axis, from the top
+Figure 5	Sarah Smith	note	Pretest	page 21, the legend, beside a blue square
+Figure 5	Sarah Smith	note	Posttest	page 21, the legend, beside a red square
+Figure 5	Sarah Smith	note	1 2 3 4 5 6 7 8 9 10 11 12 13 14 15	page 21, the participants' numbers along the x axis, a pair of bars over each
+Figure 5	Sarah Smith	note	Participant #	page 21, the title of the x axis
+§4.3	Sarah Smith	note	Figure 6 displays the pretest and posttest production results for ejective quality, to show if participants differentiated between ejectives and non- ejectives. On average, participants did not improve their performance on producing either an ejective or non-ejective target sound (pretest M = 75.8%, SD = 7.2%, posttest M = 73.3%, SD = 10.3%).	page 21
+Figure 6	Sarah Smith	note	Figure 6. Graph of pretest and posttest production of ejectives	page 22, the figure's caption, over the chart
+Figure 6	Sarah Smith	note	Ejective or Non-Ejective Production Task	page 22, the chart's title
+Figure 6	Sarah Smith	note	Percent Correct	page 22, the title of the y axis, set on its side
+Figure 6	Sarah Smith	note	120 100 80 60 40 20 0	page 22, the values up the y axis, from the top
+Figure 6	Sarah Smith	note	Pretest	page 22, the legend, beside a blue square
+Figure 6	Sarah Smith	note	Posttest	page 22, the legend, beside a red square
+Figure 6	Sarah Smith	note	1 2 3 4 5 6 7 8 9 10 11 12 13 14 15	page 22, the participants' numbers along the x axis, a pair of bars over each
+Figure 6	Sarah Smith	note	Participant #	page 22, the title of the x axis
+§4.3	Sarah Smith	note	Percent correct of the production of ejectives when ejectives were presented to participants is displayed in Figure 7 below. It can easily be observed that there is a large amount of variation between participants. On average, the participants produced an ejective more often when an ejective was presented to them in the posttest (pretest M = 29.8%, SD = 22.3%, posttest M = 37.8%, SD = 31.9%). The production of non-ejective target sounds when non- ejective target sounds were presented is displayed in Figure 8. Participants, on average, did much better on the production of non-ejectives; however, there was a decline in performance between the pretest and posttest (pretest M = 94.0%, SD = 13.7%, posttest M = 84.0%, SD = 20.8%).	page 22
+Figure 7	Sarah Smith	note	Figure 7. Production of ejectives when ejectives were presented	page 23, the figure's caption, over the chart
+Figure 7	Sarah Smith	note	Production Task - Ejectives	page 23, the chart's title
+Figure 7	Sarah Smith	note	Percent Correct (%)	page 23, the title of the y axis, set on its side
+Figure 7	Sarah Smith	note	100 90 80 70 60 50 40 30 20 10 0	page 23, the values up the y axis, from the top
+Figure 7	Sarah Smith	note	Pretest	page 23, the legend, beside a blue square
+Figure 7	Sarah Smith	note	Posttest	page 23, the legend, beside a red square
+Figure 7	Sarah Smith	note	1 2 3 4 5 6 7 8 9 10 11 12 13 14 15	page 23, the participants' numbers along the x axis, a pair of bars over each
+Figure 7	Sarah Smith	note	Participant #	page 23, the title of the x axis
+Figure 8	Sarah Smith	note	Figure 8. Production of non-ejectives when a non-ejective was presented	page 23, the figure's caption, over the chart
+Figure 8	Sarah Smith	note	Production Task - Non-Ejectives	page 23, the chart's title
+Figure 8	Sarah Smith	note	Percent Correct (%)	page 23, the title of the y axis, set on its side
+Figure 8	Sarah Smith	note	120 100 80 60 40 20 0	page 23, the values up the y axis, from the top
+Figure 8	Sarah Smith	note	Pretest	page 23, the legend, beside a blue square
+Figure 8	Sarah Smith	note	Posttest	page 23, the legend, beside a red square
+Figure 8	Sarah Smith	note	1 2 3 4 5 6 7 8 9 10 11 12 13 14 15	page 23, the participants' numbers along the x axis, a pair of bars over each
+Figure 8	Sarah Smith	note	Participant #	page 23, the title of the x axis
+§4.3	Sarah Smith	note	Percent correct of the production of uvulars when uvulars were presented to participants is displayed in Figure 9 below. It can easily be observed that there is a large amount of variation between participants. On average, the participants produced a uvular more often when a uvular was presented to them in the posttest (pretest M = 23.9%, SD = 19.3%, posttest M = 38.9%, SD = 24.2%). The production of velar target sounds when velar target sounds were presented is displayed in Figure 10. Participants, on average, did much better on the production of velars compared to uvulars; however, there was a decline in performance between the pretest and posttest (pretest M = 98.8%, SD = 3.2%, posttest M = 90.3%, SD = 22.8%).	page 23
+Figure 9	Sarah Smith	note	Figure 9. Production of uvulars when uvulars were presented	page 24, the figure's caption, over the chart
+Figure 9	Sarah Smith	note	Production Task - Uvulars	page 24, the chart's title
+Figure 9	Sarah Smith	note	Percent Correct (%)	page 24, the title of the y axis, set on its side
+Figure 9	Sarah Smith	note	90 80 70 60 50 40 30 20 10 0	page 24, the values up the y axis, from the top
+Figure 9	Sarah Smith	note	Pretest	page 24, the legend, beside a blue square
+Figure 9	Sarah Smith	note	Posttest	page 24, the legend, beside a red square
+Figure 9	Sarah Smith	note	1 2 3 4 5 6 7 8 9 10 11 12 13 14 15	page 24, the participants' numbers along the x axis, a pair of bars over each
+Figure 9	Sarah Smith	note	Participant #	page 24, the title of the x axis
+Figure 10	Sarah Smith	note	Figure 10. Production of velars when velars were presented	page 24, the figure's caption, over the chart
+Figure 10	Sarah Smith	note	Production Task - Velars	page 24, the chart's title
+Figure 10	Sarah Smith	note	Percent Correct (%)	page 24, the title of the y axis, set on its side
+Figure 10	Sarah Smith	note	120 100 80 60 40 20 0	page 24, the values up the y axis, from the top
+Figure 10	Sarah Smith	note	Pretest	page 24, the legend, beside a blue square
+Figure 10	Sarah Smith	note	Posttest	page 24, the legend, beside a red square
+Figure 10	Sarah Smith	note	1 2 3 4 5 6 7 8 9 10 11 12 13 14 15	page 24, the participants' numbers along the x axis, a pair of bars over each
+Figure 10	Sarah Smith	note	Participant #	page 24, the title of the x axis
+§5	Sarah Smith	heading	5 Discussion	page 25
+§5	Sarah Smith	note	The predictions of the study, as mentioned earlier, were not fully supported by the results. It was hypothesized that 1) on average, students who report having a higher motivation and better attitude towards learning will improve the most on all tasks. This prediction was not upheld. The students self- reported the same overall motivation and attitude before and after the training. This is not surprising because, due to time constraints, there was only one training period and only one week in between the surveys. It would not be expected that students would greatly shift their attitude and motivation towards learning in that small amount of time.	page 25
+§5	Sarah Smith	note	Secondly, it was predicted that on average, the students would improve their perception of the SENĆOŦEN stop consonants after the training. An average calculation found that students did not improve their perception on velar and uvular sounds. However, Table 6 in the results section showed that some students did improve on the perception of uvulars. Since the participants were L1 English speakers, they were already able to perceive and produce the velar target sounds (as velar stops are part of the English sound inventory (IPA Handbook, 1999)). The interest lied in the perceptual differentiation of velars and uvulars. The students needed to be able to tell the difference between velars and uvulars to score well on the perception task. Because of this, the average scores on the perception of velars were separated from the average scores on the perception of uvulars. It was found that the students did increase their percent correct for uvulars on the posttest. Interestingly it was also found that the students decreased their performance on the velars. A similar pattern was shown in the production phase (discussed later), wherein students did worse in the posttest on velar sounds. This is surprising because they already know how to produce and perceive velar sounds. The students showing weaker scores on velars in the posttest means they were actually perceiving more velars as uvulars. It is possible that the training heightened their perceptual awareness of uvulars, and therefore they chose uvulars more often in the posttest. Further, the environment of the target sound was found to affect the outcome. Participants only increased their perception of uvulars considerably when the uvular was in word-initial position. This indicates that some positions are more perceptually salient than others.	page 25
+§5	Sarah Smith	note	Thirdly, it was predicted that the students would produce sounds more similar to the presented sounds after the training than before it. Also, it was predicted that the type of sound environment (word initial, internal or final) would have an effect on their accuracy in production of the sounds. There was no considerable difference between the pretest and posttest production task. However, when the production was analyzed only with respect to the place of articulation of the target sound (velar or uvular), the participants did have a higher percent correct in the posttest. No difference was found between the pretest and posttest percent correct on the roundedness quality of the target sound. The participants overall had high scores on the production of roundedness. This is expected because there are rounded sounds in English (Handbook of the IPA, 1999) so the participants should be able to produce them. The scores were also separated between ejective sounds and non-ejective sounds. It was found that on average the differentiation of ejectives and non ejectives did not improve in the posttest. During the analysis phase of the research, it was observed that the students seem to produce more uvulars and more ejectives in the posttest than in the pretest regardless of whether a uvular or ejective was presented. If the training led to increased awareness of these sounds in the posttest, this outcome would be expected. This led to the comparison between performance of ejectives produced when ejectives were presented, non-ejectives produced when non-ejectives were presented, uvulars produced when uvulars were presented, and velars produced when velars were presented (Figures 7-10).	page 25
+§5	Sarah Smith	note	The results for these comparisons were very interesting. There was very high variation calculated for the production of ejectives and uvulars, and lower variation for the production of non-ejectives and velars. This is expected because English speakers produce non-ejectives and velars. The participants who improved their production of ejectives in the posttest (when ejectives were presented to them) improved by a considerable amount (see Figure 7; participants 3, 4, 8, 9, 13, 14, 15).	page 26
+§5	Sarah Smith	note	Of those who did not improve, three stayed the same, and 5 decreased. A similar pattern was observed for the production of uvulars. On average, the students did notably better on the production of uvulars (when a uvular was presented to them) in the posttest. Nine participants improved by a considerable amount (see Figure 9; participants 1-6, 9, 13, 14), four improved slightly (participants 7, 10, 11, 15) and only two declined in performance. Interestingly, the production of velars and non-ejectives actually declined slightly between the pretest and posttest. This actually means that in the posttest, the students produced more ejectives and uvulars than they did in the pretest. This is implicational in itself. Even if the participants did not greatly improve their production and perception in the posttest, they were still producing more of the sounds which are difficult to produce and perceive after they received the training. It seems that the training raised awareness about the sound contrast, leading to some confusion in perception or production of the sounds. This can explain why their performance, in some cases, on velar perception and production actually went down. The participants were more aware that the uvular sounds existed and therefore they perceived them more often, or at least were listening for them more carefully.	page 26
+§5	Sarah Smith	note	This research was based on the idea that it is difficult to learn non-L1 sound contrasts (Werker et al., 1981), and linguistic training may help learners produce and perceive the sound contrasts. A study by Lord (2005) discusses the role linguistically-based teaching has on the pronunciation of an L2. The study found that explicit phonetic instruction with L2 sounds not present in the L1 benefitted the participants. Previous research has found that learning a second language after childhood (or after the Critical Period) can be especially difficult (Best & McRoberts, 2003). This is also greatly influenced by the type of teaching one receives and how motivated one is to learn (Gardner & Lambert, 1972). The language class researched for this paper focuses on vocabulary and small sentence structure. This research intended to provide evidence that it is important to teach the students explicitly how to make certain sounds, and make them aware of potential sound contrasts which may be difficult to perceive. Potentially, the students may have improved more if time allowed more of this type of training because practice is essential to second language learning (Flege et al., 1997). The training was based on a model of Experiential Learning (Kolb, 1984) where the participants were encouraged to listen to the researcher, participated in small group discussions and reflected on their learning experience. The training did have some effect on their perception and production of the difficult sound contrasts, and further research into extending the amount of training received could yield even better results.	page 26
+§5	Sarah Smith	name	Lord	Gillian Lord (2005), teaching foreign language pronunciation
+§5	Sarah Smith	name	Gardner	Robert Gardner and Wallace Lambert (1972), attitudes and motivation
+§5.1	Sarah Smith	heading	5.1 Limitations	page 27
+§5.1	Sarah Smith	note	It is important to note that there was an overall high occurrence of variation in the results. SENĆOŦEN as a language has different relevance for each student’s family. Even though all of the students attended the same language class, the amount of experience each one had with the language at home varies greatly. Some may have had no experience at home, and some may have had their parents and/or grandparents speaking to them in SENĆOŦEN on a consistent basis. Three major factors which cannot be controlled for in this type of classroom-based study are large individual variation in academic competence, level of attention during training and consistent class participation in all related activities.	page 27
+§5.1	Sarah Smith	note	These three factors have major implications on this study. The students also ranged from grades six to eight and were both female and male. The interest each student had in the experiment could have also had a major effect on their performance. Further, the students who showed little interest and little focus during the training session would have not received the same amount of knowledge and experience with training compared to a student who was completely engaged and interested in the topic. These factors could not be controlled for in this study.	page 27
+§5.1	Sarah Smith	note	Although the results seem encouraging, there are major limitations to this study. The biggest limitation is the lack of reliability of the production results. Due to time constraints, only one researcher made acoustic decisions on the participants’ production sound files. At least one other person with acoustic linguistic training should have completed the same analysis in order to check for inter-reader reliability. Further, with only 15 participants, small sample size is a limitation. This is especially crucial for this study due to the major variation of the participants’ background knowledge. Also, the participants were recorded in offices in their school, not sound proof booths. There is always lots of commotion happening in schools, so the recordings were not always high- quality and had background noise.	page 27
+§5.1	Sarah Smith	note	Another major limitation to the study is whether the production task actually tested for production and not perception. The participants listened to the words then repeated them. The participants must actually perceive the target sound before they produce it. Therefore the production task does not actually just test for production; it is also a perception task as well. For example, if a uvular was presented but the participant heard (perceived) a velar, then they would produce a velar and it would be a perception error not a production error. This is further reinforced through the results, as the results for the perception and production tasks were very similar. Although this is a concern from the perspective of the present research (specifically, the objective of testing for production of velars versus uvulars), giving more opportunity to the students to verbally practice words in their L2 language is beneficial to their L2 language learning.	page 27
+§5.2	Sarah Smith	heading	5.2 Pedagogical implications and future research	page 28
+§5.2	Sarah Smith	note	This small-scale research only examined six target sounds in SENĆOŦEN. However, the results suggest that linguistically based information can be helpful in the perception of L2 sounds. Also, it can be effective in helping L2 learners perceive and produce difficult sounds. The pedagogical implications of the results suggest that teaching physical linguistic features of sounds should be incorporated into middle-school second-language class curriculum. This is especially significant to First Nations languages which have sounds difficult to produce for English speakers. The importance of encouraging young people to learn endangered indigenous languages is tremendous. Any research which helps pass on indigenous languages to newer generations is vital. More research should focus on the best ways to pass on the languages to these younger generations.	page 28
+§5.2	Sarah Smith	note	If these findings are supported by future, larger-scale studies, efforts should be made to include this type of training into language classroom teachings. Future research should include more difficult sounds in the language and more valid tasks for testing production. Further, multiple linguistically trained researchers should observe the data to check for inter-reader reliability, and other forms of analysis should be completed (for example, acoustic analysis of the sounds).	page 28
+§6	Sarah Smith	heading	6 Conclusion	page 28
+§6	Sarah Smith	note	This paper studied the implications of linguistic training (explicit training on the nature of the target sounds) on the perception and production of difficult sound contrasts for middle-school learners of SENĆOŦEN. Also, a survey was given before and after the training to see if there was an effect of the training on the participants’ attitudes and motivations towards learning SENĆOŦEN. This paper contributes to the field of applied linguistics and more importantly to the field of second language teaching of First Nations languages. Any efforts in encouraging youth to learn a cultural language is beneficial to both the youth and the culture to which the language belongs. This research shows that it is important for the teacher to explicitly present difficult sounds and sound contrasts in the second language, so that learners become aware of them. Further, it is beneficial to use models of the vocal tract to help show learners how to physically produce sounds, if the sound is not in their first language inventory. Future research should focus on extending the training period of this experiment, and working with students to help increase their motivation and interest in learning the language.	page 28
+Appendix A	Sarah Smith	heading	Appendix A: Production word list	page 29
+Appendix A	Sarah Smith	note	Production Task #	page 29, a column's head
+Appendix A	Sarah Smith	note	APA	page 29, a column's head
+Appendix A	Sarah Smith	note	Orthography	page 29, a column's head
+Appendix A	Sarah Smith	note	English Gloss	page 29, a column's head
+Appendix A	Sarah Smith	note	1	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	hik̕ʷəŋ	page 29, word 1, under APA
+Appendix A	SENĆOŦEN	transcription	HIQEṈ	page 29, word 1, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	river rising from rain (not tide)	page 29, word 1, the English gloss
+Appendix A	Sarah Smith	note	2	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	pəkʷ̕əŋ	page 29, word 2, under APA
+Appendix A	SENĆOŦEN	transcription	PEQEṈ	page 29, word 2, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	spray	page 29, word 2, the English gloss
+Appendix A	Sarah Smith	note	3	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	sk̕ʷey	page 29, word 3, under APA
+Appendix A	SENĆOŦEN	transcription	SQȺ	page 29, word 3, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	taboo, forbidden	page 29, word 3, the English gloss
+Appendix A	Sarah Smith	note	4	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	sk̕ʷalwəs	page 29, word 4, under APA
+Appendix A	SENĆOŦEN	transcription	SQOLWES	page 29, word 4, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	parent of son/daughter-in-law	page 29, word 4, the English gloss
+Appendix A	Sarah Smith	note	5	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	mək̕ʷ	page 29, word 5, under APA
+Appendix A	SENĆOŦEN	transcription	MEQ	page 29, word 5, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	all (of them)	page 29, word 5, the English gloss
+Appendix A	Sarah Smith	note	6	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	k̕ʷes	page 29, word 6, under APA
+Appendix A	SENĆOŦEN	transcription	QÁS	page 29, word 6, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	to burn one's skin	page 29, word 6, the English gloss
+Appendix A	Sarah Smith	note	7	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	skʷaməʔ	page 29, word 7, under APA
+Appendix A	SENĆOŦEN	transcription	SȻOME	page 29, word 7, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	ratfish	page 29, word 7, the English gloss
+Appendix A	Sarah Smith	note	8	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	ləkʷəx̣	page 29, word 8, under APA
+Appendix A	SENĆOŦEN	transcription	LEȻE	page 29, word 8, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	rib	page 29, word 8, the English gloss
+Appendix A	Sarah Smith	note	9	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	šəmikʷəs	page 29, word 9, under APA
+Appendix A	SENĆOŦEN	transcription	ŚEMIȻES	page 29, word 9, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	smallpox, chicken pox, measles	page 29, word 9, the English gloss
+Appendix A	Sarah Smith	note	10	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	puyəkʷ	page 29, word 10, under APA
+Appendix A	SENĆOŦEN	transcription	BUYEȻ	page 29, word 10, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	gun	page 29, word 10, the English gloss
+Appendix A	Sarah Smith	note	11	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	kʷənət	page 29, word 11, under APA
+Appendix A	SENĆOŦEN	transcription	ȻENET	page 29, word 11, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	grab with hands	page 29, word 11, the English gloss
+Appendix A	Sarah Smith	note	12	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	skʷiwə̕l	page 29, word 12, under APA
+Appendix A	SENĆOŦEN	transcription	SȻIWEL	page 29, word 12, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	be visible	page 29, word 12, the English gloss
+Appendix A	Sarah Smith	note	13	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	ləkwin	page 29, word 13, under APA
+Appendix A	SENĆOŦEN	transcription	LECWIN	page 29, word 13, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	cross, crucifix	page 29, word 13, the English gloss
+Appendix A	Sarah Smith	note	14	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	lisék	page 29, word 14, under APA
+Appendix A	SENĆOŦEN	transcription	LISÁK	page 29, word 14, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	sack	page 29, word 14, the English gloss
+Appendix A	Sarah Smith	note	15	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	kəčən	page 29, word 15, under APA
+Appendix A	SENĆOŦEN	transcription	CEĆEN	page 29, word 15, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	kitchen	page 29, word 15, the English gloss
+Appendix A	Sarah Smith	note	16	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	kalə	page 29, word 16, under APA
+Appendix A	SENĆOŦEN	transcription	COLE	page 29, word 16, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	collar	page 29, word 16, the English gloss
+Appendix A	Sarah Smith	note	17	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	stakən	page 29, word 17, under APA
+Appendix A	SENĆOŦEN	transcription	STOCEN	page 29, word 17, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	stocking, sock	page 29, word 17, the English gloss
+Appendix A	Sarah Smith	note	18	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	kenti	page 29, word 18, under APA
+Appendix A	SENĆOŦEN	transcription	CANTI	page 29, word 18, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	candy	page 29, word 18, the English gloss
+Appendix A	Sarah Smith	note	19	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	čiq	page 29, word 19, under APA
+Appendix A	SENĆOŦEN	transcription	ĆIḴ	page 29, word 19, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	snow (coming down)	page 29, word 19, the English gloss
+Appendix A	Sarah Smith	note	20	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	sqam̕əs	page 29, word 20, under APA
+Appendix A	SENĆOŦEN	transcription	SḴOMES	page 29, word 20, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	bow heavy	page 29, word 20, the English gloss
+Appendix A	Sarah Smith	note	21	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	nəqəŋ	page 29, word 21, under APA
+Appendix A	SENĆOŦEN	transcription	NEḴEṈ	page 29, word 21, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	dive (a person)	page 29, word 21, the English gloss
+Appendix A	Sarah Smith	note	22	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	qəlet	page 29, word 22, under APA
+Appendix A	SENĆOŦEN	transcription	ḴELÁT	page 29, word 22, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	have some more	page 29, word 22, the English gloss
+Appendix A	Sarah Smith	note	23	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	hiqət	page 29, word 23, under APA
+Appendix A	SENĆOŦEN	transcription	HIḴET	page 29, word 23, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	put somthing into oven	page 29, word 23, the English gloss
+Appendix A	Sarah Smith	note	24	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	sqes	page 29, word 24, under APA
+Appendix A	SENĆOŦEN	transcription	SḴÁS	page 29, word 24, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	take out (of box)	page 29, word 24, the English gloss
+Appendix A	Sarah Smith	note	25	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	t̕əqʷəŋ	page 29, word 25, under APA
+Appendix A	SENĆOŦEN	transcription	DEḰEN	page 29, word 25, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	thimbleberry	page 29, word 25, the English gloss
+Appendix A	Sarah Smith	note	26	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	sqʷaθən	page 29, word 26, under APA
+Appendix A	SENĆOŦEN	transcription	SḰOŦEN	page 29, word 26, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	raphia	page 29, word 26, the English gloss
+Appendix A	Sarah Smith	note	27	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	qʷenəs	page 29, word 27, under APA
+Appendix A	SENĆOŦEN	transcription	ḰÁNES	page 29, word 27, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	call s.o. to you; invite	page 29, word 27, the English gloss
+Appendix A	Sarah Smith	note	28	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	liqʷət	page 29, word 28, under APA
+Appendix A	SENĆOŦEN	transcription	LIḰET	page 29, word 28, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	loosen (as belt, clothes)	page 29, word 28, the English gloss
+Appendix A	Sarah Smith	note	29	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	nəqʷ	page 29, word 29, under APA
+Appendix A	SENĆOŦEN	transcription	NEḰ	page 29, word 29, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	sleep	page 29, word 29, the English gloss
+Appendix A	Sarah Smith	note	30	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	sqʷəmin	page 29, word 30, under APA
+Appendix A	SENĆOŦEN	transcription	SḰEMIN	page 29, word 30, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	Arbutus Island	page 29, word 30, the English gloss
+Appendix A	Sarah Smith	note	31	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	saʔəq̕ʷ	page 29, word 31, under APA
+Appendix A	SENĆOŦEN	transcription	SOE₭	page 29, word 31, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	cow-parsnip; Indian rhubarb	page 29, word 31, the English gloss
+Appendix A	Sarah Smith	note	32	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	sq̕ʷəŋəs	page 29, word 32, under APA
+Appendix A	SENĆOŦEN	transcription	S₭EṈES	page 29, word 32, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	forehead	page 29, word 32, the English gloss
+Appendix A	Sarah Smith	note	33	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	sq̕ʷaʔ	page 29, word 33, under APA
+Appendix A	SENĆOŦEN	transcription	S₭O	page 29, word 33, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	companion	page 29, word 33, the English gloss
+Appendix A	Sarah Smith	note	34	page 29, the word's number
+Appendix A	SENĆOŦEN	transcription	pəq̕ʷəŋ	page 29, word 34, under APA
+Appendix A	SENĆOŦEN	transcription	PE₭EṈ	page 29, word 34, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	powder	page 29, word 34, the English gloss
+Appendix A	Sarah Smith	note	35	page 30, the word's number
+Appendix A	SENĆOŦEN	transcription	niq̕ʷəm	page 30, word 35, under APA
+Appendix A	SENĆOŦEN	transcription	NI₭EM	page 30, word 35, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	smooth	page 30, word 35, the English gloss
+Appendix A	Sarah Smith	note	36	page 30, the word's number
+Appendix A	SENĆOŦEN	transcription	q̕ʷəl	page 30, word 36, under APA
+Appendix A	SENĆOŦEN	transcription	₭EL	page 30, word 36, in the SENĆOŦEN orthography
+Appendix A	Sarah Smith	translation	ripe	page 30, word 36, the English gloss
+Appendix B	Sarah Smith	heading	Appendix B: Perception word list	page 30
+Appendix B	Sarah Smith	note	Perception Task #	page 30, a column's head
+Appendix B	Sarah Smith	note	APA	page 30, a column's head
+Appendix B	Sarah Smith	note	Orthography	page 30, a column's head
+Appendix B	Sarah Smith	note	English Gloss	page 30, a column's head
+Appendix B	Sarah Smith	note	1	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	k̕ʷələw̕	page 30, word 1, under APA
+Appendix B	SENĆOŦEN	transcription	QELEW	page 30, word 1, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	animal hide	page 30, word 1, the English gloss
+Appendix B	Sarah Smith	note	2	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	sak̕ʷəŋ	page 30, word 2, under APA
+Appendix B	SENĆOŦEN	transcription	SOQEN	page 30, word 2, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	bathe	page 30, word 2, the English gloss
+Appendix B	Sarah Smith	note	3	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	k̕ʷənət	page 30, word 3, under APA
+Appendix B	SENĆOŦEN	transcription	QENET	page 30, word 3, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	look at something	page 30, word 3, the English gloss
+Appendix B	Sarah Smith	note	4	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	kʷələŋ	page 30, word 4, under APA
+Appendix B	SENĆOŦEN	transcription	ȻELEṈ	page 30, word 4, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	airport	page 30, word 4, the English gloss
+Appendix B	Sarah Smith	note	5	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	kʷənət	page 30, word 5, under APA
+Appendix B	SENĆOŦEN	transcription	ȻENET	page 30, word 5, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	grab with hands	page 30, word 5, the English gloss
+Appendix B	Sarah Smith	note	6	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	makʷət	page 30, word 6, under APA
+Appendix B	SENĆOŦEN	transcription	MOȻET	page 30, word 6, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	put something into mouth	page 30, word 6, the English gloss
+Appendix B	Sarah Smith	note	7	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	ləkwin	page 30, word 7, under APA
+Appendix B	SENĆOŦEN	transcription	LECWIN	page 30, word 7, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	cross, crucifix	page 30, word 7, the English gloss
+Appendix B	Sarah Smith	note	8	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	ləkli	page 30, word 8, under APA
+Appendix B	SENĆOŦEN	transcription	LECLI	page 30, word 8, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	key; lock	page 30, word 8, the English gloss
+Appendix B	Sarah Smith	note	9	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	kenti	page 30, word 9, under APA
+Appendix B	SENĆOŦEN	transcription	CANTI	page 30, word 9, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	candy	page 30, word 9, the English gloss
+Appendix B	Sarah Smith	note	10	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	qəmət	page 30, word 10, under APA
+Appendix B	SENĆOŦEN	transcription	ḴEMET	page 30, word 10, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	merganser (river sawbill)	page 30, word 10, the English gloss
+Appendix B	Sarah Smith	note	11	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	səqeen	page 30, word 11, under APA
+Appendix B	SENĆOŦEN	transcription	SEḴÁÁN	page 30, word 11, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	bracken fern	page 30, word 11, the English gloss
+Appendix B	Sarah Smith	note	12	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	qələx̣	page 30, word 12, under APA
+Appendix B	SENĆOŦEN	transcription	ḴELEX	page 30, word 12, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	salmon eggs, roe	page 30, word 12, the English gloss
+Appendix B	Sarah Smith	note	13	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	mətaqʷəŋ	page 30, word 13, under APA
+Appendix B	SENĆOŦEN	transcription	METOḰEN	page 30, word 13, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	spring of water	page 30, word 13, the English gloss
+Appendix B	Sarah Smith	note	14	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	qʷaʔən	page 30, word 14, under APA
+Appendix B	SENĆOŦEN	transcription	ḰOEN	page 30, word 14, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	mosquito	page 30, word 14, the English gloss
+Appendix B	Sarah Smith	note	15	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	qʷənəs	page 30, word 15, under APA
+Appendix B	SENĆOŦEN	transcription	KENES	page 30, word 15, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	Hagan Creek	page 30, word 15, the English gloss
+Appendix B	Sarah Smith	note	16	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	leq̕ʷəŋ	page 30, word 16, under APA
+Appendix B	SENĆOŦEN	transcription	LÁ₭EṈ	page 30, word 16, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	raw fish	page 30, word 16, the English gloss
+Appendix B	Sarah Smith	note	17	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	q̕ʷələŋ	page 30, word 17, under APA
+Appendix B	SENĆOŦEN	transcription	₭ELEṈ	page 30, word 17, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	barbecue meat	page 30, word 17, the English gloss
+Appendix B	Sarah Smith	note	18	page 30, the word's number
+Appendix B	SENĆOŦEN	transcription	q̕ʷəŋət	page 30, word 18, under APA
+Appendix B	SENĆOŦEN	transcription	₭EṈET	page 30, word 18, in the SENĆOŦEN orthography
+Appendix B	Sarah Smith	translation	bring up (a child)	page 30, word 18, the English gloss
+Appendix C	Sarah Smith	heading	Appendix C: Training word list	page 30
+Appendix C	Sarah Smith	note	Training Sound #	page 30, a column's head
+Appendix C	Sarah Smith	note	APA	page 30, a column's head
+Appendix C	Sarah Smith	note	Orthography	page 30, a column's head
+Appendix C	Sarah Smith	note	English Gloss	page 30, a column's head
+Appendix C	Sarah Smith	note	1	page 30, the word's number
+Appendix C	SENĆOŦEN	transcription	lək’ʷiʔ	page 30, word 1, under APA
+Appendix C	SENĆOŦEN	transcription	LEQI,	page 30, word 1, in the SENĆOŦEN orthography
+Appendix C	Sarah Smith	translation	waterlilly; pondlilly	page 30, word 1, the English gloss
+Appendix C	Sarah Smith	note	2	page 30, the word's number
+Appendix C	SENĆOŦEN	transcription	pukʷ	page 30, word 2, under APA
+Appendix C	SENĆOŦEN	transcription	BUȻ	page 30, word 2, in the SENĆOŦEN orthography
+Appendix C	Sarah Smith	translation	book	page 30, word 2, the English gloss
+Appendix C	Sarah Smith	note	3	page 30, the word's number
+Appendix C	SENĆOŦEN	transcription	təqʷ	page 30, word 3, under APA
+Appendix C	SENĆOŦEN	transcription	TEḰ	page 30, word 3, in the SENĆOŦEN orthography
+Appendix C	Sarah Smith	translation	tight	page 30, word 3, the English gloss
+Appendix C	Sarah Smith	note	4	page 30, the word's number
+Appendix C	SENĆOŦEN	transcription	təq	page 30, word 4, under APA
+Appendix C	SENĆOŦEN	transcription	TEḴ	page 30, word 4, in the SENĆOŦEN orthography
+Appendix C	Sarah Smith	translation	raid	page 30, word 4, the English gloss
+Appendix C	Sarah Smith	note	5	page 30, the word's number
+Appendix C	SENĆOŦEN	transcription	leq’ʷəŋ	page 30, word 5, under APA
+Appendix C	SENĆOŦEN	transcription	LA₭EṈ	page 30, word 5, in the SENĆOŦEN orthography
+Appendix C	Sarah Smith	translation	raw fish	page 30, word 5, the English gloss
+Appendix C	Sarah Smith	note	6	page 30, the word's number
+Appendix C	SENĆOŦEN	transcription	kul	page 30, word 6, under APA
+Appendix C	SENĆOŦEN	transcription	CUL	page 30, word 6, in the SENĆOŦEN orthography
+Appendix C	Sarah Smith	translation	gold	page 30, word 6, the English gloss
+Appendix C	Sarah Smith	note	7	page 30, the word's number
+Appendix C	SENĆOŦEN	transcription	k’ʷsəŋ	page 30, word 7, under APA
+Appendix C	SENĆOŦEN	transcription	QSEṈ	page 30, word 7, in the SENĆOŦEN orthography
+Appendix C	Sarah Smith	translation	count	page 30, word 7, the English gloss
+Appendix C	Sarah Smith	note	8	page 30, the word's number
+Appendix C	SENĆOŦEN	transcription	qəs	page 30, word 8, under APA
+Appendix C	SENĆOŦEN	transcription	ḴES	page 30, word 8, in the SENĆOŦEN orthography
+Appendix C	Sarah Smith	translation	fall overboard	page 30, word 8, the English gloss
+Appendix C	Sarah Smith	note	9	page 30, the word's number
+Appendix C	SENĆOŦEN	transcription	t’ᶱaqʷət	page 30, word 9, under APA
+Appendix C	SENĆOŦEN	transcription	ȾOḰET	page 30, word 9, in the SENĆOŦEN orthography
+Appendix C	Sarah Smith	translation	suck on something	page 30, word 9, the English gloss
+Appendix C	Sarah Smith	note	10	page 31, the word's number
+Appendix C	SENĆOŦEN	transcription	q’ʷay	page 31, word 10, under APA
+Appendix C	SENĆOŦEN	transcription	₭Í	page 31, word 10, in the SENĆOŦEN orthography
+Appendix C	Sarah Smith	translation	die	page 31, word 10, the English gloss
+Appendix C	Sarah Smith	note	11	page 31, the word's number
+Appendix C	SENĆOŦEN	transcription	šukʷə	page 31, word 11, under APA
+Appendix C	SENĆOŦEN	transcription	ŚUȻE	page 31, word 11, in the SENĆOŦEN orthography
+Appendix C	Sarah Smith	translation	sugar	page 31, word 11, the English gloss
+Appendix C	Sarah Smith	note	12	page 31, the word's number
+Appendix C	SENĆOŦEN	transcription	šik	page 31, word 12, under APA
+Appendix C	SENĆOŦEN	transcription	ŚIC	page 31, word 12, in the SENĆOŦEN orthography
+Appendix C	Sarah Smith	translation	Shaker Church	page 31, word 12, the English gloss
+Appendix D	Sarah Smith	heading	Appendix D: Survey	page 31
+Appendix D	Sarah Smith	note	Always	page 31, a column's head, set on its side over the check boxes
+Appendix D	Sarah Smith	note	Most of the time	page 31, a column's head, set on its side over the check boxes
+Appendix D	Sarah Smith	note	Sometimes	page 31, a column's head, set on its side over the check boxes
+Appendix D	Sarah Smith	note	Not usually	page 31, a column's head, set on its side over the check boxes
+Appendix D	Sarah Smith	note	Never	page 31, a column's head, set on its side over the check boxes
+Appendix D	Sarah Smith	note	Not Sure	page 31, a column's head, set on its side over the check boxes
+Appendix D	Sarah Smith	note	1. I want to come to school.	page 31, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	2. I like doing school work.	page 31, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	3. I learn when I am at school.	page 31, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	4. I feel a part of my school.	page 31, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	5. My school appreciates everyone’s cultures.	page 31, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	6. I like going to my SENĆOŦEN class.	page 31, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	7. I like learning SENĆOŦEN.	page 31, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	8. I like speaking SENĆOŦEN.	page 31, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	Strongly Agree	page 31, a column's head, set on its side over the check boxes
+Appendix D	Sarah Smith	note	Somewhat agree	page 31, a column's head, set on its side over the check boxes
+Appendix D	Sarah Smith	note	Somewhat disagree	page 31, a column's head, set on its side over the check boxes
+Appendix D	Sarah Smith	note	Strongly disagree	page 31, a column's head, set on its side over the check boxes
+Appendix D	Sarah Smith	note	Not sure	page 31, a column's head, set on its side over the check boxes
+Appendix D	Sarah Smith	note	9. SENĆOŦEN is important to my community.	page 31, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	10. It is important that I learn SENĆOŦEN.	page 31, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	11. Learning SENĆOŦEN is important for my future.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	12. I feel the same about school now as I did in elementary school.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	13. I care about my grades.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	14. My friends care about their grades.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	15. I want to get good grades.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	16. I want to learn about my culture and others.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	17. I think learning my ancestors’ language is important.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	18. Learning SENĆOŦEN is difficult.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	19. My family values learning SENĆOŦEN.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	20. I value learning SENĆOŦEN.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	21. I am worried about losing SENĆOŦEN as a spoken language.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	22. I know more words in SENĆOŦEN than I did in elementary school.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	23. Other kids in the school think learning SENĆOŦEN is interesting.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	24. I feel like I should learn SENĆOŦEN.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	25. Some things in SENĆOŦEN are hard to say.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	26. I find learning SENĆOŦEN frustrating.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	27. I like doing schoolwork on the computer.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	28. I feel comfortable saying SENĆOŦEN words out loud in class.	page 32, a question, beside a check box under each response
+Appendix D	Sarah Smith	note	29. I feel confident in my ability to say SENĆOŦEN words.	page 32, a question, beside a check box under each response
+§6	Sarah Smith	note	Appendix E: Pretest and posttest experimental presentation Appendix F: Training presentation	page 33
+Appendix G	Sarah Smith	heading	Appendix G: Praat script for opening all sound files in a particular folder	page 37
+Appendix G line 1	Sarah Smith	note	## This script opens all the files in some directory.	page 37, a line of the script
+Appendix G line 2	Sarah Smith	note	## It makes a TextGrid for each of the sound files, then throws the sound file	page 37, a line of the script
+Appendix G line 3	Sarah Smith	note	and the	page 37, a line of the script
+Appendix G line 4	Sarah Smith	note	## TextGrid into the editor so you can make marks.	page 37, a line of the script
+Appendix G line 5	Sarah Smith	note	# First we will make a list of all the sound (.wav) files in the directory.	page 37, a line of the script
+Appendix G line 6	Sarah Smith	note	Create Strings as file list... file-list *.wav	page 37, a line of the script
+Appendix G line 7	Sarah Smith	note	# Now we will set up a "for" loop -- the loop will iterate once for every file in	page 37, a line of the script
+Appendix G line 8	Sarah Smith	note	the list we just made.	page 37, a line of the script
+Appendix G line 9	Sarah Smith	note	# First we will query our list to see how many filenames are in it, and store that	page 37, a line of the script
+Appendix G line 10	Sarah Smith	note	number using the	page 37, a line of the script
+Appendix G line 11	Sarah Smith	note	# variable "number_of_files". That variable will then be used in setting up the	page 37, a line of the script
+Appendix G line 12	Sarah Smith	note	for loop.	page 37, a line of the script
+Appendix G line 13	Sarah Smith	note	number_of_files = Get number of strings	page 37, a line of the script, its underscores set under it by the text layer and put back from the render
+Appendix G line 14	Sarah Smith	note	print number of files: 'number_of_files' 'newline$'	page 37, a line of the script, its underscores set under it by the text layer and put back from the render
+Appendix G line 15	Sarah Smith	note	for x from 1 to number_of_files	page 37, a line of the script, its underscores set under it by the text layer and put back from the render
+Appendix G line 16	Sarah Smith	note	# Now we will set up a string variable called "current_file$" and use it to store	page 37, a line of the script, its underscores set under it by the text layer and put back from the render
+Appendix G line 17	Sarah Smith	note	the first	page 37, a line of the script
+Appendix G line 18	Sarah Smith	note	# filename from the list.	page 37, a line of the script
+Appendix G line 19	Sarah Smith	note	select Strings file-list	page 37, a line of the script
+Appendix G line 20	Sarah Smith	note	current_file$ = Get string... x	page 37, a line of the script
+Appendix G line 21	Sarah Smith	note	printline DEBUG: 'current_file$'	page 37, a line of the script, its underscores set under it by the text layer and put back from the render
+Appendix G line 22	Sarah Smith	note	# Now that we have the filename, we read in that file:	page 37, a line of the script
+Appendix G line 23	Sarah Smith	note	Read from file... 'current_file$'	page 37, a line of the script
+Appendix G line 24	Sarah Smith	note	# Now I am setting up a variable called "object_name$" that will have the	page 37, a line of the script, its underscores set under it by the text layer and put back from the render
+Appendix G line 25	Sarah Smith	note	name of the	page 37, a line of the script
+Appendix G line 26	Sarah Smith	note	# sound object. This is basically equivalent to subtracting the ".wav" or ".aiff"	page 37, a line of the script
+Appendix G line 27	Sarah Smith	note	from	page 37, a line of the script
+Appendix G line 28	Sarah Smith	note	# the filename. This will be useful if I want to refer to the sound object later in	page 37, a line of the script
+Appendix G line 29	Sarah Smith	note	the script.	page 37, a line of the script
+Appendix G line 30	Sarah Smith	note	object_name$ = selected$ ("Sound")	page 37, a line of the script, its underscores set under it by the text layer and put back from the render
+Appendix G line 31	Sarah Smith	note	select Strings file-list	page 37, a line of the script
+Appendix G line 32	Sarah Smith	note	Remove	page 37, a line of the script
+Appendix G line 33	Sarah Smith	note	print All files processed -- woohoo! 'newline$'	page 37, a line of the script
+Appendix G line 34	Sarah Smith	note	## written by Katherine Crosswhite	page 37, a line of the script
+Appendix G line 35	Sarah Smith	note	## crosswhi@ling.rochester.edu	page 37, a line of the script
+Appendix G line 36	Sarah Smith	note	## edited by Marion, and Sonya, and Chris!	page 37, a line of the script
+references	Sarah Smith	heading	References	page 37
+references	Sarah Smith	reference	Best, C. C., McRoberts, G. W. (2003). Infant perception of non-native consonant contrasts that adults assimilate in different ways. Language and Speech, 46(2-3), 183-216.	page 37
+references	Sarah Smith	reference	Bird, S. & J. Leonard (2009a). The universality of articulatory conflict resolution: Evidence from Salish languages. Northwest Journal of Linguistics, 3(2): 1-29.	page 38
+references	Sarah Smith	reference	Boersma, P., & Weenink, D. (2008). Praat: doing phonetics by computer (Version 5.1.17) [Computer program]. http://www.praat.org	page 38
+references	Sarah Smith	reference	Duncan, T. G., & McKeachie, W. J. (2005). The making of the motivated strategies for learning questionnaire. Educational Psychologist, 40(2), 117-128.	page 38
+references	Sarah Smith	reference	Engin, A. O. 2009. Second language learning success and motivation. Social Behaviour and Personality, 37(8), 1035-1042.	page 38
+references	Sarah Smith	reference	Esling, J. H., & Wong, R. F. (1983). Voice quality settings and the teaching of pronunciation. TESOL Quarterly, 17(1), 89-95.	page 38
+references	Sarah Smith	reference	Flege, J. E., Bohn, O., & Jang, S. (1997). Effects of experience on non-native speakers' production and perception of English vowels. Journal of Phonetics, 25(4), 437-470.	page 38
+references	Sarah Smith	reference	Gardner, R. C., & Lambert, W. E. (1972). Attitudes and Motivation in Second-Language Learning. Massachusetts: Newbury House Publishers, Inc.	page 38
+references	Sarah Smith	reference	Hardison, D. M. (2003). Acquisition of second-language speech: Effects of visual cues, context, and talker variability. Applied Psycholinguistics, 24, 495-522.	page 38
+references	Sarah Smith	reference	Hinton, L. (2003). Language revitalization. Annual Review of Applied Linguistics, 23, 44-57. International Phonetic Association. (1999). Handbook of the International Phonetic Association: A Guide to the Use of the International Phonetic Alphabet. Cambridge: Cambridge University Press.	page 38
+references	Sarah Smith	reference	Kolb, D. A. (1984). Experiential Learning; Experience as the Source of Learning and Development. New Jersey: Prentice-Hall, Inc.	page 38
+references	Sarah Smith	reference	Lenneberg, E. H. (1967). Biological foundations of language. Oxford, England: Wiley.	page 38
+references	Sarah Smith	reference	Lord, G. (2005). (How) can we teach foreign language pronunciation? On the effects of a spanish phonetics course. Hispania, 88(3), 557-567.	page 38
+references	Sarah Smith	reference	Montler, T. (1986). An outline of the morphology and phonology of Saanich, North Straits Salish. University of Montana Working Papers in Linguistics.	page 38
+references	Sarah Smith	reference	Murphy, P. K., Long, J. F., Knoblauch, D., Harper, B., & Monoi, S. (2007). Academic motivation and achievement among urban adolescents. Urban Education, 42(3), 196-222.	page 38
+references	Sarah Smith	reference	Pintrich, P. R., Roeser, R. W., & de Groot, E. A. (1994). Classroom and individual differences in early adolescents’ motivation and self- regulated learning. The Journal of Early Adolescence, 14(2), 139-161.	page 38
+references	Sarah Smith	reference	Roeser, R. W., Strobel K. R., & Quihuis, G. (2002). Studying early adolescents’ academic motivation, socio-emotional functioning, and engagement in learning: variable- and person-centered approaches. Anxiety, Stress & Coping, 15(4), 345-368.	page 38
+references	Sarah Smith	reference	Schmakel, P. O. (2008). Early adolescents’ perspectives on motivation and achievement in academics. Urban Education, 43, 723-727.	page 38
+references	Sarah Smith	reference	Sewshuk, D. H. (2005). Experiential learning- a theoretical framework for preoperative edcuation. AORN Journal, 81(6), 1311-1318.	page 39
+references	Sarah Smith	reference	Shaikholeslami, R., & Khayyer, M. (2006). Intrinsic motivation, extrinsic motivation, and learning English as a foreign language. Psychological Reports, 99, 813-818.	page 39
+references	Sarah Smith	reference	Taguchi, K. (2006). Is motivation a predictor of foreign language learning? International Education Journal, 7(4), 560-569.	page 39
+references	Sarah Smith	reference	Wang, B. (2009). Motivation and language learning. Asian Social Science, 5(1), 98-100.	page 39
+references	Sarah Smith	reference	Wang, Y., Behne, D. M. & Jiang, H. (2009). Influence of native language phonetic system on audio-visual speech perception. Journal of Phonetics, 37(3), 344-356.	page 39
+references	Sarah Smith	reference	Werker, J. F., Gilbert, J. H. V., Humphrey, K., & Tees, R. C. (1981). Developmental aspects of cross-language speech perception. Child Development, 52(1), 349-355.	page 39
+references	Sarah Smith	reference	Whitright-Falcon, L. (2004). Renewal of indigenous languages. Tribal College Journal, 15(3), 24-27.	page 39
+references	Sarah Smith	reference	Wipf, J. A. (1985). Towards improving second-language pronunciation. Die Unterrichtspraxis / Teaching German, 18(1), 55-63.	page 39
+end	Sarah Smith	note	Sarah C. Smith	page 39, the author's name
+end	Sarah Smith	note	7320 Ridgedown Court	page 39, the street address
+end	Sarah Smith	note	Victoria, B.C.	page 39, the city
+end	Sarah Smith	note	V8M 2H7	page 39, the postal code
+end	Sarah Smith	note	scdsmith@uvic.ca	page 39, the e-mail address

@@ -1,0 +1,583 @@
+where	who	kind	form	gloss
+front	D. K. E. Reisinger	title	Modality in Comox-Sliammon	page 1, carries footnote *
+front	D. K. E. Reisinger	name	D. K. E. Reisinger	author
+front	D. K. E. Reisinger	note	University of British Columbia	page 1, under D. K. E. Reisinger
+front	D. K. E. Reisinger	note	Abstract: Despite substantial documentation efforts in recent years (e.g., Blake 2000; Watanabe 2003), not much is known about the modal system of Comox- Sliammon. This paper aims to fill this gap in documentation. Drawing on data elicited from 12 fluent speakers, I will not only show how epistemic and circumstantial modality can be encoded, but also how speakers of this language express modal-temporal interactions.	page 1, the abstract
+front	D. K. E. Reisinger	note	Keywords: Comox-Sliammon, modality, evidentiality, variable force modals, modal-temporal interactions	page 1, the keywords
+front	D. K. E. Reisinger	note	In Papers for the International Conference on Salish and Neighbouring Languages 53, University of British Columbia Working Papers in Linguistics 47, Marianne Huijsmans, Roger Lo, Daniel Reisinger, and Oksana Tkachman (eds.), 2018	page 1, the volume's header
+front	D. K. E. Reisinger	language	ʔayʔaǰuθəm	Comox-Sliammon, Central Salish, ISO 639-3 coo
+footnote *	D. K. E. Reisinger	note	My deepest gratitude goes to my ʔayʔaǰuθəm consultants. Thank you to Phyllis Dominic, Jerry Francis, Karen Galligos, Freddie Louie, Elsie Paul, Margaret Vivier, Betty Wilson, and Maggie Wilson from the Tla’amin community, to Bill Blainey, Joanne Francis, and Marion Harry from the Homalco community, and to Herman Francis from the Klahoose community. č̓ač̓ahatanapišt! Additional thanks for their helpful feedback and support go to Lisa Matthewson, Henry Davis, Neda Todorovic, and the UBC ʔayʔaǰuθəm Lab. This research was supported by a Jacobs Research Funds group grant. Contact info: reisinger.daniel@alumni.ubc.ca	page 1, footnote *, on the title
+footnote *	D. K. E. Reisinger	name	Phyllis Dominic	ʔayʔaǰuθəm consultant, Tla’amin
+footnote *	D. K. E. Reisinger	name	Jerry Francis	ʔayʔaǰuθəm consultant, Tla’amin
+footnote *	D. K. E. Reisinger	name	Karen Galligos	ʔayʔaǰuθəm consultant, Tla’amin
+footnote *	D. K. E. Reisinger	name	Freddie Louie	ʔayʔaǰuθəm consultant, Tla’amin
+footnote *	D. K. E. Reisinger	name	Elsie Paul	ʔayʔaǰuθəm consultant, Tla’amin
+footnote *	D. K. E. Reisinger	name	Margaret Vivier	ʔayʔaǰuθəm consultant, Tla’amin
+footnote *	D. K. E. Reisinger	name	Betty Wilson	ʔayʔaǰuθəm consultant, Tla’amin
+footnote *	D. K. E. Reisinger	name	Maggie Wilson	ʔayʔaǰuθəm consultant, Tla’amin
+footnote *	D. K. E. Reisinger	name	Bill Blainey	ʔayʔaǰuθəm consultant, Homalco
+footnote *	D. K. E. Reisinger	name	Joanne Francis	ʔayʔaǰuθəm consultant, Homalco
+footnote *	D. K. E. Reisinger	name	Marion Harry	ʔayʔaǰuθəm consultant, Homalco
+footnote *	D. K. E. Reisinger	name	Herman Francis	ʔayʔaǰuθəm consultant, Klahoose
+footnote *	D. K. E. Reisinger	language	Homalco	a ʔayʔaǰuθəm speech community
+footnote *	D. K. E. Reisinger	language	Klahoose	a ʔayʔaǰuθəm speech community
+footnote *	D. K. E. Reisinger	language	Tla’amin	a ʔayʔaǰuθəm speech community
+§1	D. K. E. Reisinger	heading	1 Introduction	page 1
+§1	D. K. E. Reisinger	note	This paper is the first description of the modal system of Comox-Sliammon (also known as ʔayʔaǰuθəm), a critically endangered Central Salish language traditionally spoken by four communities along the Northern Strait of Georgia in British Columbia. Despite substantial documentation efforts in recent years (cf. Andreotti 2018; Blake 2000; Caldecott & Mellesmoen 2018; J. Davis 2005, 2012, 2015, 2016, 2018; H. Davis & Huijsmans 2017; Huijsmans, Mellesmoen, & Urbanczyk 2018; Huijsmans, Reisinger, Lo, & Xu 2018; Lo 2017; Kroeber 1999; Mellesmoen 2017a, 2017b, 2018; Mellesmoen & Andreotti 2017; Reisinger & Lo 2017; Watanabe 2003), not much is known about the modal system of this language. This survey aims to fill this gap in documentation. The following four research questions will be addressed in this paper:	page 1
+§1	D. K. E. Reisinger	name	Watanabe	Honoré Watanabe, the grammar of Sliammon (2003)
+§1	D. K. E. Reisinger	language	Comox-Sliammon	ʔayʔaǰuθəm
+§1	D. K. E. Reisinger	language	Central Salish	the branch
+§1	D. K. E. Reisinger	language	Salish	the family
+(1a) line 1	D. K. E. Reisinger	note	What are the dedicated modals of Comox-Sliammon?	page 1, set as an example
+(1b) line 1	D. K. E. Reisinger	note	How do these modals carve up the semantic space?	page 1, set as an example
+(1c) line 1	D. K. E. Reisinger	note	How are modal-temporal interactions expressed?	page 1, set as an example
+(1d) line 1	D. K. E. Reisinger	note	How can we formalize their semantics?	page 1, set as an example
+§1	D. K. E. Reisinger	note	Drawing on data elicited from 12 fluent speakers, I will argue that the lexical inventory of Comox-Sliammon contains several modal markers. Epistemic readings emerge from the use of the inferential evidential č̓a, the reportative evidential k̓ʷa, and the complex clitic strings səm=kʷa, sem=kʷi, and sem=kʷu. The circumstantial domain contains the English borrowing have to and – potentially – also the auxiliary ǰaqaʔ. As will be shown, some of these markers act as variable force modals, while others appear to be lexically specified in terms of quantificational force and modal base. This non-uniform distribution suggests that Comox-Sliammon is best classified as a ‘mixed system’ in the emerging formal typology of modals (e.g., Nauze 2008).	page 1
+§1	ʔayʔaǰuθəm	cited form	č̓a	page 1, in italics
+§1	ʔayʔaǰuθəm	cited form	k̓ʷa	page 2, in italics
+§1	ʔayʔaǰuθəm	cited form	ǰaqaʔ	page 2, in italics
+§1	D. K. E. Reisinger	name	Nauze	Fabrice Nauze, modality in typological perspective
+§1	D. K. E. Reisinger	language	English	the translations and the borrowing have to
+§1	D. K. E. Reisinger	note	In Section 2, I will provide a brief introduction to Kratzer (1977, 1981, 1991)’s theory of modality as well as Condoravdi (2002)’s theory of modal- temporal interactions. Drawing on the cross-Salish literature on modality, I will introduce the concept of variable force modals. With the theoretical background in place, Section 3 will describe the modal inventory of Comox-Sliammon and illustrate how the dedicated modal markers carve up the modal space. Subsequently, Section 4 turns to the issue of modal-temporal interactions. Section 5 will explore how the semantics of the modals can be formalized, before Section 6 concludes this paper with a short summary.	page 2
+§1	D. K. E. Reisinger	name	Kratzer	Angelika Kratzer, the theory of modality
+§1	D. K. E. Reisinger	name	Condoravdi	Cleo Condoravdi, modal-temporal interactions
+§2	D. K. E. Reisinger	heading	2 Background	page 2
+§2.1	D. K. E. Reisinger	heading	2.1 The Kratzerian Theory of Modality	page 2
+§2.1	D. K. E. Reisinger	note	Before we take a closer look at the modal system of Comox-Sliammon, let us briefly revisit the framework of modality developed by Kratzer (1977, 1978, 1981, 1986, 1991), which has become the standard account of modality within formal semantics. 1 According to the Kratzerian framework, modals can be regarded as quantifiers over possible worlds. As noted by Kratzer (1981), we need three formal components to aptly capture the meaning of a modal expression: (i) a modal relation, (ii) a modal base, and (iii) an ordering source. The latter two are contextually determined by conversational backgrounds.	page 2
+footnote 1	D. K. E. Reisinger	note	An overview of alternative approaches – such as the force dynamics theory by Talmy (1988) – can be found in Portner (2009).	page 2, footnote 1
+§2.1	D. K. E. Reisinger	note	The modal relation (also known as modal force) describes the strength of a modal expression and can be conceptualized as quantification over possible worlds. Using this approach, we can easily explain the difference in force of the modals in example (2). While the necessity reading of must in (2a) emerges due to universal quantification (∀), the possibility reading of can in (2b) is the result of existential quantification (Ǝ) (cf. Kratzer 1977, among others).	page 2
+(2a) line 1	D. K. E. Reisinger	note	You must bring crampons. [NECESSITY]	page 2, set as an example
+(2b) line 1	D. K. E. Reisinger	note	You can bring crampons. [POSSIBILITY]	page 2, set as an example
+§2.1	D. K. E. Reisinger	note	The first conversational background is the modal base 𝐵. After it receives a value by the assignment function 𝑐, the modal base restricts the domain of quantification to a set of relevant worlds, i.e., the set of worlds in which all propositions of 𝐵(𝑤) are true. In general, the Kratzerian framework distinguishes between two types of modal base: epistemic and circumstantial. While epistemic modals are concerned with the speaker’s knowledge or evidence, circumstantial modals involve facts about the world. The examples in (3) illustrate this fundamental distinction.	page 2
+(3a) line 1	D. K. E. Reisinger	note	Saoirse must be home. Her car is in the driveway. [EPISTEMIC]	page 3, set as an example
+(3b) line 1	D. K. E. Reisinger	note	Saoirse must be home by midnight or she’ll be grounded by her parents. [CIRCUMST.]	page 3, set as an example
+§2.1	D. K. E. Reisinger	note	In addition to the modal base, Kratzer’s framework also requires a second conversational background, namely an ordering source 𝑔 . Using a set of propositions, the ordering source ranks the worlds in the modal base with regard to their relevance. Eventually, the best -ranked worlds in ∩ 𝐵(𝑤) will be accessible by the modal. As illustrated by example (4), these rankings can be motivated by a variety of reasons, such as the law (deontic), desires (bouletic), goals (teleological), beliefs (doxastic), or the normal course of events (stereotypical).	page 3
+(4a) line 1	D. K. E. Reisinger	note	According to the law, cyclists must wear a helmet. [DEONTIC]	page 3, set as an example
+(4b) line 1	D. K. E. Reisinger	note	I must try this cake! It looks delicious! [BOULETIC]	page 3, set as an example
+(4c) line 1	D. K. E. Reisinger	note	To go to Bowen Island, you must take the ferry. [TELEOLOG.]	page 3, set as an example
+(4d) line 1	D. K. E. Reisinger	note	That guy at the gas station must have been Elvis. [DOXASTIC]	page 3, set as an example
+(4e) line 1	D. K. E. Reisinger	note	It must be cold outside. It’s snowing like crazy! [STEREOTYP.]	page 3, set as an example
+§2.2	D. K. E. Reisinger	heading	2.2 Modal-Temporal Interactions	page 3
+§2.2	D. K. E. Reisinger	note	To capture modal-temporal interactions, we need to introduce two more concepts: temporal perspective and temporal orientation. Both of these terms emerge from Condoravdi (2002)’s seminal work on the temporal interpretation of English modals.	page 3
+§2.2.1	D. K. E. Reisinger	heading	2.2.1 Temporal Perspective	page 3
+§2.2.1	D. K. E. Reisinger	note	The term temporal perspective refers to the time when the worlds a modal quantifies over are assessed. For epistemic modals, this is the time when the relevant evidence or knowledge holds. Example (5), for instance, exhibits a present temporal perspective since the evidence – i.e., the puddles – is visible at the utterance time.	page 3
+(5) line 1	D. K. E. Reisinger	note	It must have rained. There are puddles on the ground.	page 3, set as an example
+§2.2.1	D. K. E. Reisinger	note	Similarly, it is the time when certain facts are true that determines the temporal perspective for circumstantial modals. In example (6), which represents a teleological context, the facts two centuries ago were such that a ship journey was necessary if you planned to go to Vancouver Island. Nowadays, however, you could also take a plane to get there. In other words, the circumstances which necessitated a ship journey 200 years ago no longer hold at the present. Thus, the sentence in (6) expresses a past temporal perspective.	page 3
+(6) line 1	D. K. E. Reisinger	note	200 years ago, you had to take a ship to get to Vancouver Island.	page 4, set as an example
+§2.2.1	D. K. E. Reisinger	note	Of course, it is also possible to think of contexts which require a future temporal perspective. That is, at some point in the future, the evidence or facts will be such that MODAL (𝑝). However, since such interpretations are very difficult to elicit, I will not explore future temporal perspectives in this investigation.	page 4
+§2.2.2	D. K. E. Reisinger	heading	2.2.2 Temporal Orientation	page 4
+§2.2.2	D. K. E. Reisinger	note	The term temporal orientation describes the relation between the temporal perspective and the time of the event that is embedded under the modal. To illustrate this, let us take a look at the examples in (7). While all of these sentences indicate a present temporal perspective (i.e., the speaker obtains the evidence at the utterance time), they differ in their temporal orientation. The sentence in (7a) exhibits a past temporal orientation since the raining event precedes the observation of the puddles. In (7b), the raining event and the pattering on the roof coincide, giving rise to a present temporal orientation. Lastly, in (7c), the speaker sees the dark clouds before the raining event, which means that the modal takes on a future temporal orientation.	page 4
+(7a) line 1	D. K. E. Reisinger	note	There are puddles on the ground. I guess it might have rained.	page 4, set as an example
+(7b) line 1	D. K. E. Reisinger	note	What’s that pattering on the roof? I guess it might be raining.	page 4, set as an example
+(7c) line 1	D. K. E. Reisinger	note	Just look at the dark clouds! I guess it might be raining soon.	page 4, set as an example
+§2.2.2	D. K. E. Reisinger	note	Since tense provides the temporal perspective for English modals, Condoravdi (2002) argues that the concept of temporal orientation can be regarded as aspectual – it essentially indicates the relation between the reference time and the event time. As will be shown in Section 4, this analysis also holds for most of the modals in Comox-Sliammon.	page 4
+§2.3	D. K. E. Reisinger	heading	2.3 Modality in Salish	page 4
+§2.3	D. K. E. Reisinger	note	Over the last couple of years, several researchers have noted striking typological differences between Salish modals and their English counterparts (cf. Rullmann et al. 2008, Menzies 2013, among others).	page 4
+§2.3	D. K. E. Reisinger	name	Rullmann	Hotze Rullmann, modals as distributive indefinites
+§2.3	D. K. E. Reisinger	name	Menzies	Stacey Menzies, Nsyilxcen modality
+§2.3	D. K. E. Reisinger	note	While English modals tend to be lexically specified with regard to their quantificational force, their conversational backgrounds can vary. 2 The modal must, for instance, acts as universal quantifier and, consequently, always evokes a necessity reading. While the modal force of must is fixed, its conversational backgrounds are not, so that must is compatible with different modal bases. To illustrate this, the instantiation of must in (8a) represents an epistemic modal base, while its equivalent in (8b) involves a circumstantial modal base.	page 4
+footnote 2	D. K. E. Reisinger	note	As noted by Rullmann et al. (2008) as well as Peterson (2010), this classification holds for isolated modals, but is often difficult to maintain for entire modal systems.	page 4, footnote 2
+(8a) line 1	D. K. E. Reisinger	note	Peter’s coat is wet. It must be raining outside.	page 5, set as an example
+(8a) line 2	D. K. E. Reisinger	note	[NECESSITY: EPISTEMIC]	page 5, the reading
+(8b) line 1	D. K. E. Reisinger	note	It must rain or the crops will spoil.	page 5, set as an example
+(8b) line 2	D. K. E. Reisinger	note	[NECESSITY: CIRCUMSTANTIAL]	page 5, the reading
+§2.3	D. K. E. Reisinger	note	In several varieties of Salish, modals tend to pattern quite differently. Rullmann et al. (2008) note that all modals in St’át’imcets have variable quantificational force, but are lexically specified with regard to their conversational backgrounds. The modal marker ka, for instance, is restricted to deontic or irrealis readings, but allows universal as well as existential interpretations. Strikingly, the cross-Salish literature suggests that such variable force modals are not limited to St’át’imcets, but can also be observed in other members of this language family, such as Nsyilxcen (Menzies 2013) and Skwxwú7mesh (Gillon & Jacobs 2017). Example (9) presents some sentences that support this claim.3	page 5
+footnote 3	D. K. E. Reisinger	note	Abbreviations used in this paper are: BOUL = bouletic; CAU = causative; CLF = cleft; CLT = clitic; CNJ = conjunctive; CONJ = conjunction; CTR = control transitivizer; CUST = customary; DEM = demonstrative; DEON = deontic; DET = determiner; DIR = directive transitivizer; EPIS = epistemic; ERG = ergative; EVD = evidential; EXCL = exclusive marker; FOC = focus; FUT = future; IMPF = imperfective; INCP = inceptive; INF = inferential; INT = intensifier; IRR = irrealis; LEX = lexical particle; MD = middle; NEG = negation; NMLZ = nominalizer; NTR = non-control transitivizer; OBJ = object; OBL = oblique; PASS = passive; PL = plural; POSS = possessive; PST = past; Q = question marker; REFL = reflexive; RPT = reportative; SBJ = subject; SG = singular; TELE = teleological; TR = transitivizer.	page 5, footnote 3
+§2.3	D. K. E. Reisinger	language	St’át’imcets	Northern Interior Salish, in (9a)
+§2.3	D. K. E. Reisinger	language	Nsyilxcen	Southern Interior Salish, in (9b) and (10)
+§2.3	D. K. E. Reisinger	language	Skwxwú7mesh	Central Salish, in (9c)
+(9a) line 1	D. K. E. Reisinger	note	St’át’imcets (Rullmann et al. 2008):	page 5, the language and the source
+(9a) line 2	St’át’imcets	segmentation	lán-lhkacw ka áts’x-en ti kwtámts-sw-a	page 5
+(9a) line 3	St’át’imcets	gloss	already-2SG.SBJ DEON see-DIR DET husband-2SG.POSS-DET	page 5
+(9a) line 4	D. K. E. Reisinger	translation	‘You must / can / may see your husband now.’	page 5
+(9b) line 1	D. K. E. Reisinger	note	Nsyilxcen (Menzies 2013):	page 5, the language and the source
+(9b) line 2	Nsyilxcen	segmentation	mat ks-c-pix̌-aɁx	page 5
+(9b) line 3	Nsyilxcen	gloss	EPIS IRR-CUST-hunt-INCP	page 5
+(9b) line 4	D. K. E. Reisinger	translation	‘He must / might be going hunting.’	page 5
+(9c) line 1	D. K. E. Reisinger	note	Skwxwú7mesh (Gillon & Jacobs 2017):	page 5, the language and the source
+(9c) line 2	Skwxwú7mesh	segmentation	Nilh=ch’ tiwa	page 5
+(9c) line 3	Skwxwú7mesh	gloss	FOC=EPIS DEM	page 5
+(9c) line 4	D. K. E. Reisinger	translation	‘It must / might be him.’	page 5
+§2.3	D. K. E. Reisinger	note	However, it should be noted that the modal system of Nsyilxcen is not as uniform as in St’át’imcets or Skwxwú7mesh. While all modals in the latter have a fixed conversational background and variable force, this is not the case for Nsyilxcen. As pointed out by Menzies (2013), the force of the modal mat may vary, while the modal cmay appears to be fixed with regard to both dimensions. In other words, it is restricted to an epistemic modal base as well as to possibility readings, as shown in example (10). This suggests that the modal system of Nsyilxcen is best described as a ‘mixed system’.	page 5
+(10) line 1	Nsyilxcen	segmentation	Mary cmay ac-qíc-lx	page 6
+(10) line 2	Nsyilxcen	gloss	Mary EPIS CUST-run-LEX	page 6
+(10) line 3	D. K. E. Reisinger	note	[POSSIBILITY: EPISTEMIC]	page 6, the reading at the right of the line
+(10) line 4	D. K. E. Reisinger	translation	‘Mary might be running.’	page 6
+§2.3	D. K. E. Reisinger	note	Taking these cross-linguistic observations into consideration, the formal typology of modals shown in Table 1 emerges. 4 One of the goals of this paper is to determine where Comox-Sliammon should be placed in this model.	page 6
+footnote 4	D. K. E. Reisinger	note	For a more comprehensive typology of modals, see Nauze (2008).	page 6, footnote 4
+Table 1	D. K. E. Reisinger	note	Table 1: A typology of modals	page 6, the caption
+Table 1 line 1	D. K. E. Reisinger	note	SPECIFIED	page 6, a line of the table as the text layer reads it
+Table 1 line 2	D. K. E. Reisinger	note	CONVERSATIONAL	page 6, a line of the table as the text layer reads it
+Table 1 line 3	D. K. E. Reisinger	note	BACKGROUND	page 6, a line of the table as the text layer reads it
+Table 1 line 4	D. K. E. Reisinger	note	VARIABLE	page 6, a line of the table as the text layer reads it
+Table 1 line 5	D. K. E. Reisinger	note	CONVERSATIONAL	page 6, a line of the table as the text layer reads it
+Table 1 line 6	D. K. E. Reisinger	note	BACKGROUND	page 6, a line of the table as the text layer reads it
+Table 1 line 7	D. K. E. Reisinger	note	SPECIFIED FORCE English (might)	page 6, a line of the table as the text layer reads it
+Table 1 line 8	D. K. E. Reisinger	note	Nsyilxcen (cmay)	page 6, a line of the table as the text layer reads it
+Table 1 line 9	D. K. E. Reisinger	note	English (must)	page 6, a line of the table as the text layer reads it
+Table 1 line 10	D. K. E. Reisinger	note	VARIABLE FORCE	page 6, a line of the table as the text layer reads it
+Table 1 line 11	D. K. E. Reisinger	note	St’át’imcets	page 6, a line of the table as the text layer reads it
+Table 1 line 12	D. K. E. Reisinger	note	Skwxwú7mesh	page 6, a line of the table as the text layer reads it
+Table 1 line 13	D. K. E. Reisinger	note	Nsyilxcen (mat)	page 6, a line of the table as the text layer reads it
+Table 1 line 14	D. K. E. Reisinger	note	?	page 6, a line of the table as the text layer reads it
+§3	D. K. E. Reisinger	heading	3 The Modal Inventory	page 6
+§3	D. K. E. Reisinger	note	With the theoretical background in place, we can now return to the four research questions presented at the beginning of this paper. In the following subsections, I will provide an overview of the modal markers of Comox-Sliammon and show how they carve up the modal space.	page 6
+§3	D. K. E. Reisinger	note	The data presented on the following pages were elicited from 12 fluent speakers of the language over a period of several months. The consultants (age range: 60–86 years) represent all three remaining speech communities of Comox- Sliammon, i.e., the Homalco, Klahoose, and Tla’amin. Of the Island dialect, traditionally spoken by the K’omoks, no native speakers remain.	page 6
+§3	D. K. E. Reisinger	note	As eliciting modals can be a challenging endeavour, a variety of elicitation methods were employed over the course of this investigation, including direct elicitation with contextual support, judgment tasks, storyboards, and other visual prompts (created with the web-service pixton.com).	page 6
+§3.1	D. K. E. Reisinger	heading	3.1 Epistemic Modals	page 7
+§3.1	D. K. E. Reisinger	note	First, let us take a look at the class of epistemic modals. As noted by Portner (2009), these modals require an epistemic modal base and usually involve a doxastic or a stereotypical ordering source. In English, the modals must and might are frequently used to encode this type of modality. Comox-Sliammon also seems to have dedicated markers that can be used to convey epistemic readings, namely the inferential evidential č̓a, the reportative evidential k̓ʷa, and the complex clitic strings səm=kʷa, sem=kʷi, and sem=kʷu. 5 The following subsections will examine these epistemic markers more closely.	page 7
+footnote 5	D. K. E. Reisinger	note	In addition to these dedicated modals, speakers of Comox-Sliammon can also use periphrastic constructions to express epistemic modality. In particular, the attitude verb qʷayigen (‘I think’) is often used for this purpose, as illustrated by the example in (i).	page 7, footnote 5
+footnote 5 (i) line 1	ʔayʔaǰuθəm	transcription	qʷayigan č̓ə~č̓ɬ ƛaʔamin	page 7
+footnote 5 (i) line 2	ʔayʔaǰuθəm	gloss	I think IMPF~rain Lund	page 7
+footnote 5	D. K. E. Reisinger	note	Prompt: ‘It must / might be raining in Lund.’ Literally: ‘I think it is raining in Lund.’	page 7, footnote 5
+§3.1	D. K. E. Reisinger	name	Portner	Paul Portner, Modality (2009)
+§3.1.1	D. K. E. Reisinger	heading	3.1.1 The Inferential Evidential č̓a	page 7
+§3.1.1	D. K. E. Reisinger	note	The inferential evidential č̓a is the most common marker of epistemic modality in Comox-Sliammon.6 Watanabe (2003:517) glosses it as a conjectural marker and states that speakers tend to use this second-position clitic with presumptions. This observation is supported by the example given in (12), where the speaker draws an inference about the weather based on the clothing choice of another person.7	page 7
+footnote 6	D. K. E. Reisinger	note	Although traditional analyses regard epistemic modals and evidentials as two distinct categories (e.g., de Haan 1999; Aikhenvald 2004), a growing body of research challenges this dichotomy. Among others, Kratzer (1991), Izvorski (1997), Matthewson et al. (2007), and Peterson (2010) have presented modal analyses for evidentials.	page 7, footnote 6
+footnote 7	D. K. E. Reisinger	note	Cognates of č̓a can also be found in other Salish languages. While the modal k’a in St’át’imcets has been linked to indirect inferential evidence (Rullmann et al. 2008), the Skwxwú7mesh modal ch’ has been classified as a marker for indirect sensory evidence (Gillon & Jacobs 2017).	page 7, footnote 7
+(12) line 1	D. K. E. Reisinger	note	CONTEXT: You spent the night in a chalet. The next morning, you walk down to the foyer. You haven’t looked outside yet, but someone walks by with winter clothes and a snow shovel. Therefore, you think it must have snowed last night.	page 7, the context
+(12) line 2	ʔayʔaǰuθəm	segmentation	ʔaxʷ-uɬ=č̓a s nat-uɬ	page 7
+(12) line 3	ʔayʔaǰuθəm	gloss	snow-PST=EVD.INF NMLZ night-PST	page 7
+(12) line 4	D. K. E. Reisinger	translation	‘It must have snowed last night.’	page 7
+(12) line 5	D. K. E. Reisinger	speaker comment	Comment (by E.P.): “You have to see it.” [i.e., the winter clothes and the snow shovel]	page 7, under the example, E.P.
+§3.1.1	D. K. E. Reisinger	note	The examples in (13) and (14) illustrate that this epistemic modal allows both necessity and possibility readings, suggesting that its quantificational force is variable. Considering that the cognates of č̓a in Skwxwú7mesh (Gillon and Jacobs 2017) and St’át’imcets (Rullmann et al. 2008) have also been described as variable force modals, this observation is not completely surprising.	page 8
+(13) line 1	ʔayʔaǰuθəm	segmentation	č̓ə~č̓ɬ=č̓a ƛaʔamin	page 8
+(13) line 2	ʔayʔaǰuθəm	gloss	IMPF~rain=EVD.INF Lund	page 8
+(13) line 3	D. K. E. Reisinger	translation	‘It must / might be raining in Lund.’	page 8
+(13) line 4	D. K. E. Reisinger	note	✓ CONTEXT 1 [NECESSITY]: You are in Sliammon. You look out of your window, and it is pouring outside. You start to think about Lund, the neighboring village just up the road, and you are absolutely convinced that it must be raining there, too.	page 8, the context
+(13) line 5	D. K. E. Reisinger	note	✓ CONTEXT 2 [POSSIBILITY]: You are in Campbell River (on Vancouver Island). You look out of your window, and it is pouring outside. You start to think about Lund, a small village on the mainland, and you think it is possible that it might be raining there, too.	page 8, the context
+(14) line 1	ʔayʔaǰuθəm	segmentation	niš=č̓a kʷ=qʷuwət tiɁi θay̓aɬ	page 8
+(14) line 2	ʔayʔaǰuθəm	gloss	be.here=EVD.INF DET=beaver DEM lake	page 8
+(14) line 3	D. K. E. Reisinger	translation	‘There might / must be beavers in this lake.’	page 8
+(14) line 4	D. K. E. Reisinger	note	✓ CONTEXT 1 [POSSIBILITY]: You are hiking through the backcountry to take some wildlife photographs. Suddenly, you stumble upon a big lake in the forest. You think it is possible that beavers might live in this lake.	page 8, the context
+(14) line 5	D. K. E. Reisinger	note	✓ CONTEXT 2 [NECESSITY]: As you continue your hike along the lake, you notice some bite marks on a pair of trees and, eventually, you even spot a beaver lodge in the lake. Now, you are absolutely convinced that there are beavers in the lake.	page 8, the context
+§3.1.2	D. K. E. Reisinger	heading	3.1.2 The Reportative Evidential k̓ʷa	page 8
+§3.1.2	D. K. E. Reisinger	note	Epistemic modality in Comox-Sliammon can also be expressed via the evidential marker k̓ʷa. Watanabe (2003:522) labels this second-position clitic as a quotative and explains that it indicates hearsay evidence. As expected, cognates of this evidential can also be found in other Salish languages. In Sechelt, hearsay evidence is marked by the clitic k̓ʷa (Beaumont 2011), while eka acts as the quotative in Skwxwú7mesh (Gillon & Jacobs 2017). The epistemic-reportative evidential ku7 in St’át’imcets as described by Rullmann et al. (2008) might also be related to these forms. The examples given in (15) and (16) illustrate the evidential nature of k̓ʷa in Comox-Sliammon.	page 8
+§3.1.2	D. K. E. Reisinger	language	Sechelt	Central Salish, the cognates k̓ʷa and yaka
+(15) line 1	ʔayʔaǰuθəm	segmentation	č̓ə~č̓ɬ=k̓ʷa Vancouver	page 9
+(15) line 2	ʔayʔaǰuθəm	gloss	IMPF~rain=EVD.RPT Vancouver	page 9
+(15) line 3	D. K. E. Reisinger	translation	‘It is raining in Vancouver.’	page 9
+(15) line 4	D. K. E. Reisinger	speaker comment	Comment (by E.P.): “Somebody had to tell you.”	page 9, under the example, E.P.
+(16) line 1	ʔayʔaǰuθəm	segmentation	niʔ=k̓ʷa ʔə~ʔimaš ʔə=tə=q̓ʷit	page 9
+(16) line 2	ʔayʔaǰuθəm	gloss	be.there=EVD.RPT IMPF~walk OBL=DET=beach	page 9
+(16) line 3	D. K. E. Reisinger	translation	‘She is walking on the beach.’	page 9
+(16) line 4	D. K. E. Reisinger	speaker comment	Comment (by E.P.): “You didn’t see it, but somebody said [it occurred].”	page 9, under the example, E.P.
+§3.1.2	D. K. E. Reisinger	note	Just like the inferential evidential č̓a, the reportative marker k̓ʷa allows both necessity and possibility readings, suggesting that we can classify it as a variable force modal as well. Evidence for its variable quantificational force is presented in the examples (17) and (18) below.	page 9
+(17) line 1	ʔayʔaǰuθəm	segmentation	ʔaxʷ-uɬ=k̓ʷa tawən	page 9
+(17) line 2	ʔayʔaǰuθəm	gloss	snow-PST=EVD.RPT town	page 9
+(17) line 3	D. K. E. Reisinger	translation	‘It must have snowed in the city.’	page 9
+(17) line 4	D. K. E. Reisinger	note	✓ CONTEXT [NECESSITY]: Your friend Peter, a weatherman who always seems to be correct, tells you that it snowed in Vancouver yesterday and you believe him. Now you want to tell me about it, and you say that you heard it must have snowed in Vancouver yesterday.	page 9, the context
+(18) line 1	ʔayʔaǰuθəm	segmentation	č̓əɬ-uɬ=k̓ʷa Vancouver	page 9
+(18) line 2	ʔayʔaǰuθəm	gloss	rain-PST=EVD.RPT Vancouver	page 9
+(18) line 3	D. K. E. Reisinger	translation	‘It might have rained in Vancouver.’	page 9
+(18) line 4	D. K. E. Reisinger	note	✓ CONTEXT [POSSIBILITY]: Your other friend John, who is usually not very reliable, tells you that it rained in Vancouver yesterday. You are not sure whether you should believe him. But you want to tell me about it anyway, and you say that you heard it might have rained in Vancouver yesterday.	page 9, the context
+§3.1.3	D. K. E. Reisinger	heading	3.1.3 The Clitic Strings səm=kʷa, sem=kʷi, and sem=kʷu	page 9
+§3.1.3	D. K. E. Reisinger	note	In addition to the use of evidentials, epistemic modality can also be expressed by the clitic strings səm=kʷi, səm=kʷa, and səm=kʷu. While səm is generally analyzed as a plain future marker (e.g., Watanabe 2003:527; Davis in this volume), my data suggest that this clitic does not always convey real futurity. Under certain circumstances, namely when səm is directly followed by a clausal demonstrative, usually of the form kʷi, kʷa, or kʷu, the future interpretation seems to be abandoned in lieu of an epistemic interpretation.8 This contrast is exemplified by the sentences in (19) and (20).	page 9
+footnote 8	D. K. E. Reisinger	note	While Watanabe (2003) treats some of these clitics as evidentials, Huijsmans and Reisinger (this volume) argue that these elements are best characterized as clausal demonstratives. According to their analysis, clausal demonstratives deictically link the event situation to the utterance situation. More specifically, the clausal kʷ-demonstratives (i.e., kʷa, kʷi, kʷu) indicate that the speaker is not directly observing the described proposition, while the t-demonstratives (i.e., ta, ti) indicate that the event is visible to the speaker. Considering this, it is not surprising that only the former set of clitics appears to combine with səm to express epistemic modality. Forms like *səm=ta and *səm=ti, on the other hand, remain unattested as they would violate the known truth test (cf. Peterson 2010:111, among others). That is, epistemic modals cannot be used if the speaker knows that the proposition is true.	page 10, footnote 8
+footnote 8	ʔayʔaǰuθəm	cited form	*səm=ta	page 10, in italics
+footnote 8	ʔayʔaǰuθəm	cited form	*səm=ti	page 10, in italics
+§3.1.3	ʔayʔaǰuθəm	cited form	səm	page 9, in italics
+§3.1.3	ʔayʔaǰuθəm	cited form	kʷi	page 9, in italics
+(19) line 1	ʔayʔaǰuθəm	segmentation	č̓əɬ=səm kʷəy̓səm	page 10
+(19) line 2	ʔayʔaǰuθəm	gloss	rain=FUT tomorrow	page 10
+(19) line 3	D. K. E. Reisinger	translation	‘It will rain tomorrow.’	page 10
+(20) line 1	ʔayʔaǰuθəm	segmentation	səm=kʷu=t č̓ə~č̓ɬ q̓ʷit ʔaǰu	page 10
+(20) line 2	ʔayʔaǰuθəm	gloss	FUT=DEM=CLT IMPF~rain beach too	page 10
+(20) line 3	D. K. E. Reisinger	translation	‘It must be raining in Campbell River [i.e., down by the beach], too.’	page 10
+§3.1.3	D. K. E. Reisinger	note	Cross-linguistically, it is not uncommon for future markers to exhibit this ambiguity. The English modal will, for instance, allows both of these readings as well, as exemplified by (21a) and (21b).	page 10
+(21a) line 1	D. K. E. Reisinger	note	Saoirse will be home in three hours. [ROOT]	page 10, set as an example
+(21b) line 1	D. K. E. Reisinger	note	Saoirse will be home by now. [EPISTEMIC]	page 10, set as an example
+§3.1.3	D. K. E. Reisinger	note	As highlighted by Sweetser (1991:51), the use of will in the root scenario primarily marks actual futurity, i.e., the futurity of the event. In (21a), for instance, the modal conveys that Saoirse’s arrival will take place in the future. In contrast, the use of will in (21b) is primarily epistemic and marks the futurity of knowledge. It is not the event itself, but its verification by the speaker that lies in the future. In other words, Saoirse may or may not already be home at the time of utterance, but the speaker cannot verify the occurrence of the event right now; the verification has to happen in the future. Thus, (21b) could also be paraphrased as “If we check, we will see whether Saoirse is home.”	page 10
+§3.1.3	D. K. E. Reisinger	name	Sweetser	Eve Sweetser (1991)
+§3.1.3	D. K. E. Reisinger	note	In contrast to English, Comox-Sliammon explicitly distinguishes both of these readings. The root interpretation only emerges when səm appears on its own, while the epistemic reading is only available when səm is followed by a clausal demonstrative. In addition, both readings also pattern differently from a syntactic perspective. While the plain future marker always has to follow the main predicate, the complex epistemic clitic strings are more flexible and can both precede or follow the main predicate, as shown in the examples given in (22) and (23).9	page 10
+footnote 9	D. K. E. Reisinger	note	Although both orders presented in (23) are acceptable, the complex epistemic clitic strings usually precede the main predicate.	page 11, footnote 9
+(22a) line 1	ʔayʔaǰuθəm	segmentation	č̓əɬ=səm kʷəy̓səm	page 11
+(22a) line 2	ʔayʔaǰuθəm	gloss	rain=FUT tomorrow	page 11
+(22a) line 3	D. K. E. Reisinger	translation	‘It will rain tomorrow.’	page 11
+(22b) line 1	ʔayʔaǰuθəm	segmentation	* səm=č̓əɬ kʷəy̓səm	page 11
+(22b) line 2	ʔayʔaǰuθəm	gloss	FUT=rain tomorrow	page 11
+(22b) line 3	D. K. E. Reisinger	translation	‘It will rain tomorrow.’	page 11
+(23a) line 1	ʔayʔaǰuθəm	segmentation	ƛ̓aq̓ʷ-uq̓ʷ səm=kʷi qaya	page 11
+(23a) line 2	ʔayʔaǰuθəm	gloss	tide.up-INCP FUT=DEM water	page 11
+(23a) line 3	D. K. E. Reisinger	translation	‘I guess the tide would be up now.’	page 11
+(23b) line 1	ʔayʔaǰuθəm	segmentation	səm=kʷi ƛ̓aq̓ʷ-uq̓ʷ qaya	page 11
+(23b) line 2	ʔayʔaǰuθəm	gloss	FUT=DEM tide.up-INCP water	page 11
+(23b) line 3	D. K. E. Reisinger	translation	‘I guess the tide would be up now.’	page 11
+§3.1.3	D. K. E. Reisinger	note	Parallel to the evidentials č̓a and k̓ʷa, the epistemic clitic strings səm=kʷa, səm=kʷi, and səm=kʷu seem also to allow both necessity and possibility readings, as highlighted by the example in (24). Thus, all epistemic modals pattern uniformly in this regard.	page 11
+(24) line 1	ʔayʔaǰuθəm	segmentation	səm=kʷu=t č̓ə~č̓ɬ ƛaʔamin	page 11
+(24) line 2	ʔayʔaǰuθəm	gloss	FUT=DEM=CLT IMPF~rain Lund	page 11
+(24) line 3	D. K. E. Reisinger	translation	‘It must / might be raining in Lund.’	page 11
+(24) line 4	D. K. E. Reisinger	note	✓ CONTEXT 1 [NECESSITY]: You are in Sliammon. You look out of your window, and it is pouring outside. You start to think about Lund, the neighboring village just up the road, and you are absolutely convinced that it must be raining there, too.	page 11, the context
+(24) line 5	D. K. E. Reisinger	note	✓ CONTEXT 2 [POSSIBILITY]: You are in Campbell River (on Vancouver Island). You look out of your window, and it is pouring outside. You start to think about Lund, a small village on the mainland, and you think it is possible that it might be raining there, too.	page 11, the context
+§3.2	D. K. E. Reisinger	heading	3.2 Circumstantial Modals	page 11
+§3.2	D. K. E. Reisinger	note	The following subsections will show that the inventory of circumstantial modals in Comox-Sliammon is not nearly as rich as its epistemic counterpart. More specifically, only one marker, namely the English borrowing have to, appears frequently in circumstantial contexts.10 Section 3.2.1 will examine this (semi)- modal in more detail. Subsequently, Section 3.2.2 will take a look at circumstantial contexts that appear to lack dedicate modal markers altogether.	page 11
+footnote 10	D. K. E. Reisinger	note	The modal marker ǰaqa, which will be examined more closely in Section 3.4, might also belong to the class of circumstantial modals. However, since its semantic contribution is currently not well-understood, I refrain from attributing it to a specific modal category for now and, instead, leave a more detailed analysis for another time.	page 12, footnote 10
+footnote 10	ʔayʔaǰuθəm	cited form	ǰaqa	page 12, in italics
+§3.2.1	D. K. E. Reisinger	heading	3.2.1 The English Borrowing have to	page 12
+§3.2.1	D. K. E. Reisinger	note	The (semi)-modal have to, which has been borrowed from English, exclusively encodes priority modality in Comox-Sliammon.11 According to Portner (2009)’s classification of modality, priority modals are concerned with reasons that prioritize one situation over another. In general, they require a circumstantial modal base and are compatible with deontic, teleological, or bouletic ordering sources – i.e., the worlds in the modal base can be ranked according to their relevance with regard to laws, goals, or desires. As will be shown, the modal have to can be used for all of these contexts in Comox-Sliammon.	page 12
+footnote 11	D. K. E. Reisinger	note	In Comox-Sliammon, have to does not show the English verbal agreement, but instead marks number and person with a possessive marker that introduces the predicate. As shown in (ii), have to can also be embedded.	page 12, footnote 11
+footnote 11 (ii) line 1	ʔayʔaǰuθəm	transcription	qʷayigan have to tᶿ=p̓ap̓i=m	page 12
+footnote 11 (ii) line 2	ʔayʔaǰuθəm	gloss	I think DEON 1SG.POSS=work=MD	page 12
+footnote 11 (ii) line 3	D. K. E. Reisinger	translation	‘I think I might have to work.’	page 12
+§3.2.1.1	D. K. E. Reisinger	heading	3.2.1.1 Deontic Uses	page 12
+§3.2.1.1	D. K. E. Reisinger	note	Deontic modals encode obligations and permissions with regard to some kind of ethical, moral, or legal norm (Portner 2009). In English, the modals must (necessity), should (weak necessity), and can (possibility) are usually associated with this category.	page 12
+§3.2.1.1	D. K. E. Reisinger	note	In Comox-Sliammon, speakers have borrowed the English (semi)-modal have to to express deontic necessity and weak necessity readings, as illustrated by examples (25a) and (25b). For possibility readings, as in (25c), the use of this modal marker is infelicitous, suggesting that it does not act as a variable force modal in the language.	page 12
+(25) line 1	D. K. E. Reisinger	note	CONTEXT: You are about to go through airport security and the officer in charge informs you of the regulations. According to the law...	page 12, the context
+(25a) line 1	D. K. E. Reisinger	note	you have to take off your shoes [DEONTIC NECESSITY]	page 12, set as an example
+(25b) line 1	D. K. E. Reisinger	note	you should take off your belt [DEONTIC WEAK NECESSITY]	page 12, set as an example
+(25c) line 1	D. K. E. Reisinger	note	you can take of your coat [DEONTIC POSSIBILITY]	page 12, set as an example
+(25a) line 2	ʔayʔaǰuθəm	segmentation	have to Ɵ=xʷaʔa-t qʷəɬay̓šən	page 13
+(25a) line 3	ʔayʔaǰuθəm	gloss	DEON 2SG.POSS=take.off-CTR shoes	page 13
+(25a) line 4	D. K. E. Reisinger	translation	Prompt: ‘You have to take off your shoes.’	page 13
+(25a) line 5	D. K. E. Reisinger	translation	Literally: ‘You have to take off your shoes.’	page 13
+(25b) line 2	ʔayʔaǰuθəm	segmentation	have to Ɵ=xʷaʔa-t təm̓	page 13
+(25b) line 3	ʔayʔaǰuθəm	gloss	DEON 2SG.POSS=take.off-CTR belt	page 13
+(25b) line 4	D. K. E. Reisinger	translation	Prompt: ‘You should to take off your belt.’	page 13
+(25b) line 5	D. K. E. Reisinger	translation	Literally: ‘You have to take off your belt.’	page 13
+(25c) line 2	ʔayʔaǰuθəm	segmentation	# have to Ɵ=xʷaʔa-t kapu	page 13
+(25c) line 3	ʔayʔaǰuθəm	gloss	DEON 2SG.POSS=take.off-CTR coat	page 13
+(25c) line 4	D. K. E. Reisinger	translation	Prompt: ‘You can take off your coat.’	page 13
+§3.2.1.1	D. K. E. Reisinger	note	While the use have to in deontic contexts is quite common among younger speakers of the language, older speakers resort to it less often or even completely reject it. 12 Those speakers who refrain from the use of have to often employ periphrastic constructions (such as imperatives) instead when prompted with deontic contexts. To illustrate this, the three example sentences given in (25) above can all be realized without the use of the English borrowing, as shown in (26).	page 13
+footnote 12	D. K. E. Reisinger	note	Watanabe (2003:533) mentions that even the most fluent speakers of Comox-Sliammon use English words like have to quite commonly in casual speech. However, in more formal contexts, the use of such borrowings is less common. This might explain why have to never showed up during my elicitations with older speakers.	page 13, footnote 12
+(26a) line 1	ʔayʔaǰuθəm	segmentation	xʷaʔa-t=čxʷ tə=Ɵ=qʷəɬ~qʷəɬay̓šən	page 13
+(26a) line 2	ʔayʔaǰuθəm	gloss	take.off-CTR=2SG.SBJ DET=2SG.POSS=PL~shoe	page 13
+(26a) line 3	D. K. E. Reisinger	translation	Prompt: ‘You have to take off your shoes.’	page 13
+(26a) line 4	D. K. E. Reisinger	translation	Literally: ‘Take off your shoes!’	page 13
+(26b) line 1	ʔayʔaǰuθəm	segmentation	xʷaʔa-t=čxʷ tə=Ɵ=təm̓	page 13
+(26b) line 2	ʔayʔaǰuθəm	gloss	take.off-CTR=2SG.SBJ DET=2SG.POSS=belt	page 13
+(26b) line 3	D. K. E. Reisinger	translation	Prompt: ‘You should take off your belt.’	page 13
+(26b) line 4	D. K. E. Reisinger	translation	Literally: ‘Take off your belt!’	page 13
+(26c) line 1	ʔayʔaǰuθəm	segmentation	ʔəy̓=ʔut xʷaʔa-t kapu	page 13
+(26c) line 2	ʔayʔaǰuθəm	gloss	good=EXCL take.off-CTR coat	page 13
+(26c) line 3	D. K. E. Reisinger	translation	Prompt: ‘You can take off your coat.’	page 13
+(26c) line 4	D. K. E. Reisinger	translation	Literally: ‘It is okay to take off the coat.’	page 13
+§3.2.1.1	D. K. E. Reisinger	note	The use of such periphrastic constructions is also observed in contexts where imperatives are not available, for instance in interrogatives. This is illustrated by the sentences in (27).	page 13
+(27) line 1	D. K. E. Reisinger	note	CONTEXT: You ask your friend whether...	page 14, the context
+(27a) line 1	D. K. E. Reisinger	note	you have to stay [DEONTIC NECESSITY]	page 14, set as an example
+(27b) line 1	D. K. E. Reisinger	note	you should stay [DEONTIC WEAK NECESSITY]	page 14, set as an example
+(27c) line 1	D. K. E. Reisinger	note	you can stay [DEONTIC POSSIBILITY]	page 14, set as an example
+(27a) line 2	ʔayʔaǰuθəm	segmentation	xʷaʔ χaƛ̓=as kʷə=tᶿ niš	page 14
+(27a) line 3	ʔayʔaǰuθəm	gloss	NEG want=3.CNJ DET=1SG.POSS be.here	page 14
+(27a) line 4	D. K. E. Reisinger	translation	Prompt: ‘Do I have to stay?’	page 14
+(27a) line 5	D. K. E. Reisinger	translation	Literally: ‘I don’t want to stay.’	page 14
+(27bc) line 1	ʔayʔaǰuθəm	segmentation	Ɂəǰ-a ga niš=an	page 14
+(27bc) line 2	ʔayʔaǰuθəm	gloss	good-Q if be.here=1SG.CNJ	page 14
+(27bc) line 3	D. K. E. Reisinger	translation	Prompt: ‘Should / Can I stay?’	page 14
+(27bc) line 4	D. K. E. Reisinger	translation	Literally: ‘Is it okay if I stay?’	page 14
+§3.2.1.1	D. K. E. Reisinger	note	To conclude, the data suggest that Comox-Sliammon lacked a dedicated marker for deontic modality at an earlier point, leading to the use of periphrastic constructions. The younger generations of speakers, however, have found another way to deal with this gap in the modal system by borrowing the English (semi)- modal have to for necessity and weak necessity readings.	page 14
+§3.2.1.2	D. K. E. Reisinger	heading	3.2.1.2 Teleological Uses	page 14
+§3.2.1.2	D. K. E. Reisinger	note	Teleological modals are concerned with goals (Portner 2009). Speakers of English usually use the modals must (necessity), should (weak necessity), and can (possibility) to convey teleological readings. Once again, Comox-Sliammon lacks dedicated modals for this purpose and, consequently, has borrowed the English (semi)-modal have to. As illustrated by example (28), this modal is compatible with teleological necessity and weak necessity readings, but infelicitous in possibility contexts.	page 14
+(28) line 1	ʔayʔaǰuθəm	segmentation	šəʔ-ət=səm təyta t̓aʔqt̓ have to yaʔq̓a-stxʷ χʷil̓əm	page 14
+(28) line 2	ʔayʔaǰuθəm	gloss	climb-CTR=FUT DEM mountain TELE use-CAU rope	page 14
+(28) line 3	D. K. E. Reisinger	translation	‘When he climbs this mountain, he must/should use a rope.’	page 14
+(28) line 4	D. K. E. Reisinger	note	CONTEXT: You ask your friend, who is a renowned mountaineer, what you have to do to climb three particular mountains. Your friend tells you: To climb these mountains, you...	page 14, the context
+(28a) line 1	D. K. E. Reisinger	note	✓ have to use a rope [TELEOLOGICAL NECESSITY]	page 14, set as an example
+(28b) line 1	D. K. E. Reisinger	note	✓ should use a rope [TELEOLOGICAL WEAK NECESSITY]	page 14, set as an example
+(28c) line 1	D. K. E. Reisinger	note	# can use a rope [TELEOLOGICAL POSSIBILITY]	page 14, set as an example
+§3.2.1.2	D. K. E. Reisinger	note	Once again, older speakers refrain from the use of have to and instead employ other constructions to convey teleological readings, as illustrated by the examples given in (29) and (30).	page 14
+(29) line 1	D. K. E. Reisinger	note	CONTEXT: The same contexts as in (28a, b).	page 15, the context
+(29) line 2	ʔayʔaǰuθəm	segmentation	Ɂut=čxʷ θu šəʔ-ət t̓aʔqt̓ yaʔq̓a-stxʷ=čxʷ tə=χʷil̓əm	page 15
+(29) line 3	ʔayʔaǰuθəm	gloss	if=2SG.SBJ go climb-CTR mountain use-CAU=2SG.SBJ DET=rope	page 15
+(29) line 4	D. K. E. Reisinger	translation	Prompt: ‘To climb this mountain, you have to / should use a rope.’	page 15
+(29) line 5	D. K. E. Reisinger	translation	Literally: ‘If you climb the mountain, you use a rope.’	page 15
+(30) line 1	D. K. E. Reisinger	note	CONTEXT: The same context as in (28c).	page 15, the context
+(30) line 2	ʔayʔaǰuθəm	segmentation	ʔəy̓=ʔut yaʔq̓a-stxʷ χʷil̓əm	page 15
+(30) line 3	ʔayʔaǰuθəm	gloss	good=EXCL use-CAU rope	page 15
+(30) line 4	D. K. E. Reisinger	translation	Prompt: ‘To climb this mountain, you can use a rope.’	page 15
+(30) line 5	D. K. E. Reisinger	translation	Literally: ‘It is okay to use a rope.’	page 15
+§3.2.1.2	D. K. E. Reisinger	note	To conclude, the teleological category seems to pattern exactly like the deontic one.	page 15
+§3.2.1.3	D. K. E. Reisinger	heading	3.2.1.3 Bouletic Uses	page 15
+§3.2.1.3	D. K. E. Reisinger	note	Bouletic modals form the third and last class of priority modals. They are usually concerned with wishes or desires (Portner 2009). In English, speakers use the modals must (necessity), should (weak necessity), and can (possibility) to express this type of modality. Comox-Sliammon, on the other hand, again lacks dedicated modals for this purpose. Instead, periphrastic constructions – often involving the verb χaƛ̓ (‘to want’) – tend to be used to convey bouletic necessity readings, as illustrated by example (31). For weak necessity readings (i.e., recommendations), the use of imperatives – as in (32) – seems to be a common strategy.	page 15
+§3.2.1.3	ʔayʔaǰuθəm	cited form	χaƛ̓	page 15, in italics
+(31) line 1	D. K. E. Reisinger	note	CONTEXT: You see a cake in a bakery and feel a strong desire to try it.	page 15, the context
+(31) line 2	ʔayʔaǰuθəm	segmentation	χaƛ̓ kʷə=tᶿ t̓aʔaʔ-t tin kiks	page 15
+(31) line 3	ʔayʔaǰuθəm	gloss	want DET=1SG.POSS taste-CTR DEM cake	page 15
+(31) line 4	D. K. E. Reisinger	translation	Prompt: ‘I have to try this cake!’	page 15
+(31) line 5	D. K. E. Reisinger	translation	Literally: ‘I want to try this cake!’	page 15
+(32) line 1	D. K. E. Reisinger	note	CONTEXT: Your grandmother baked a cake and tells you that you should try it.	page 15, the context
+(32) line 2	ʔayʔaǰuθəm	segmentation	t̓aʔaʔ-t ga	page 15
+(32) line 3	ʔayʔaǰuθəm	gloss	taste-CTR IMP	page 15
+(32) line 4	D. K. E. Reisinger	translation	Prompt: ‘You should try this cake.’	page 15
+(32) line 5	D. K. E. Reisinger	translation	Literally: ‘Taste it!’	page 15
+§3.2.1.3	D. K. E. Reisinger	note	However, analogous to the deontic and teleological categories, the English borrowing have to can also be used to express necessity and weak necessity readings. This is illustrated by the example in (33):	page 15
+(33) line 1	ʔayʔaǰuθəm	segmentation	have to Ɵ=qaǰi-t ǰanxʷ	page 16
+(33) line 2	ʔayʔaǰuθəm	gloss	BOUL 2SG.POSS=try-CTR fish	page 16
+(33) line 3	D. K. E. Reisinger	translation	Prompt: ‘You have to / should try the salmon!’	page 16
+(33) line 4	D. K. E. Reisinger	translation	Literally: ‘You have to try the salmon!’	page 16
+(33) line 5	D. K. E. Reisinger	note	CONTEXT: You are in a restaurant with your best friend. It’s your first time at this restaurant and you don’t know what you should order. Your friend...	page 16, the context
+(33a) line 1	D. K. E. Reisinger	note	✓ urges you to try the salmon [TELEOLOGICAL NECESSITY]	page 16, set as an example
+(33b) line 1	D. K. E. Reisinger	note	✓ recommends the salmon [TELEOLOGICAL WEAK NECESSITY]	page 16, set as an example
+§3.2.1.3	D. K. E. Reisinger	note	Once again, have to is mostly found in utterances by younger speakers, whereas older speakers tend to avoid using this English borrowing. In addition, just like in the deontic and teleological cases, have to seems to be specified both in terms of its modal base and quantificational force.	page 16
+§3.2.2	D. K. E. Reisinger	heading	3.2.2 The Absence of Dynamic Modals	page 16
+§3.2.2	D. K. E. Reisinger	note	For the sake of completeness, this section will outline how dynamic modality is expressed in Comox-Sliammon. As noted by Portner (2009), dynamic modals require a circumstantial modal base and an existential modal force. Traditionally, two types of dynamic modals can be distinguished: (i) volitional modals and (ii) quantificational modals. 13 While the former describe how the circumstances affect the actions available to a volitional subject, the latter force existential quantification over individuals. For this investigation, I will only focus on the concept of volitional modality, which encompasses the sub-flavours of ability and opportunity. As will be shown, Comox-Sliammon does not have any dedicated modals to express these readings.14	page 16
+footnote 13	D. K. E. Reisinger	note	The out-of-control cases described by Davis et al. (2007) in St’át’imcets would form a third sub-category of dynamic modality.	page 16, footnote 13
+footnote 14	D. K. E. Reisinger	note	Portner (2009) also attributes dispositional modals to the category of volitional modality.	page 16, footnote 14
+§3.2.2.1	D. K. E. Reisinger	heading	3.2.2.1 Ability Modals	page 16
+§3.2.2.1	D. K. E. Reisinger	note	As emphasized by Portner (2009), ability modals describe intrinsic abilities and skills of an individual. While English uses the modal can to encode ability readings, Comox-Sliammon does not employ an overt modal marker for this purpose, as illustrated by the examples below.	page 16
+(34) line 1	D. K. E. Reisinger	note	CONTEXT: While you are out on a hike in the forest with your 5-year-old nephew, you spot a beaver sitting on the bank of a small lake. Your nephew asks you whether beavers can swim. You tell him that they do.	page 17, the context
+(34) line 2	ʔayʔaǰuθəm	segmentation	(taʔat) nəšəm tə=qʷuwət	page 17
+(34) line 3	ʔayʔaǰuθəm	gloss	(use to) swim DET=beaver	page 17
+(34) line 4	D. K. E. Reisinger	translation	Prompt: ‘Beavers can swim.’	page 17
+(34) line 5	D. K. E. Reisinger	translation	Literally: ‘Beavers do swim.’	page 17
+(35) line 1	D. K. E. Reisinger	note	CONTEXT: There was a big event in the town hall. Your neighbor Drew sang a couple of traditional songs at this event. The next day, you tell your friend about Drew’s remarkable singing skills.	page 17, the context
+(35) line 2	ʔayʔaǰuθəm	segmentation	hiw ʔəy̓=mut tə=wuwuwum=s Drew	page 17
+(35) line 3	ʔayʔaǰuθəm	gloss	INT good=INT DET=sing=3.POSS Drew	page 17
+(35) line 4	D. K. E. Reisinger	translation	Prompt: ‘Drew can sing very well.’	page 17
+(35) line 5	D. K. E. Reisinger	translation	Literally: ‘Drew’s singing is really good.’	page 17
+§3.2.2.2	D. K. E. Reisinger	heading	3.2.2.2 Opportunity Modals	page 17
+§3.2.2.2	D. K. E. Reisinger	note	Opportunity modals link the actions available to an individual to the situation they are in (Portner 2009). In English, this kind of modality is usually encoded by can. Comox-Sliammon, on the other hand, does not have a dedicated modal to express this kind of modality. Instead, speakers employ periphrastic constructions for this particular purpose, as illustrated by the examples in (36) and (37).	page 17
+(36) line 1	D. K. E. Reisinger	note	CONTEXT: It is midnight and you are sitting in your living room. Suddenly, your friend Freddie comes in from outside and tells you that you can see the stars tonight.	page 17, the context
+(36) line 2	ʔayʔaǰuθəm	segmentation	k̓ʷən-əxʷ=čxʷəm tə=kʷusən tin nat	page 17
+(36) line 3	ʔayʔaǰuθəm	gloss	see-NTR=2SG.SBJ.FUT DET=stars DEM night	page 17
+(36) line 4	D. K. E. Reisinger	translation	Prompt: ‘You can see the stars tonight.’	page 17
+(36) line 5	D. K. E. Reisinger	translation	Literally: ‘You will see the stars tonight.’	page 17
+(37) line 1	D. K. E. Reisinger	note	CONTEXT: You and your friend are in a nice hotel room in Victoria. While you unpack your suitcase, your friend walks over to the window and takes a look outside. Then he tells you that you can see the ocean from your room.	page 17, the context
+(37) line 2	ʔayʔaǰuθəm	segmentation	tačəm tə=qay̓aʔ	page 17
+(37) line 3	ʔayʔaǰuθəm	gloss	be.visible DET=water	page 17
+(37) line 4	D. K. E. Reisinger	translation	Prompt: ‘You can see the ocean (from here).’	page 17
+(37) line 5	D. K. E. Reisinger	translation	Literally: ‘The water is visible.’	page 17
+§3.3	D. K. E. Reisinger	heading	3.3 Summary	page 18
+§3.3	D. K. E. Reisinger	note	Based on the data presented above, we can now start sketching the modal inventory for Comox-Sliammon. As highlighted in Table 2, the epistemic domain encompasses three modal markers, the evidential clitics č̓a and k̓ʷa as well as a set of complex clitic strings that consist of the future marker səm and a clausal demonstrative. The inventory of circumstantial modals, on the other hand, is considerably less populated. Apart from the English borrowing have to which is compatible with deontic, teleological, and bouletic readings, circumstantial modality does not seem to be explicitly marked in Comox-Sliammon.	page 18
+§3.3	D. K. E. Reisinger	note	In addition, Table 2 also illustrates that the three epistemic modals are all specified in terms of their modal base, but variable in terms of their quantificational force, i.e., they allow both necessity or possibility readings. In contrast, the circumstantial modal have to is specified with regard to its quantificational force as well, since it is only compatible with (weak) necessity readings. Considering that not all modal elements in Comox-Sliammon seem to encode force constraints, the modal system of the language can be described as a ‘mixed system’.	page 18
+Table 2	D. K. E. Reisinger	note	Table 2: The modal inventory of ʔayʔaǰuθəm	page 18, the caption
+Table 2 line 1	D. K. E. Reisinger	note	MODAL BASE ORDERING SOURCE NECESSITY POSSIBILITY	page 18, a line of the table as the text layer reads it
+Table 2 line 2	D. K. E. Reisinger	note	EPISTEMIC STEREOTYPICAL	page 18, a line of the table as the text layer reads it
+Table 2 line 3	D. K. E. Reisinger	note	č̓a	page 18, a line of the table as the text layer reads it
+Table 2 line 4	D. K. E. Reisinger	note	k̓ʷa	page 18, a line of the table as the text layer reads it
+Table 2 line 5	D. K. E. Reisinger	note	səm=DEM	page 18, a line of the table as the text layer reads it
+Table 2 line 6	D. K. E. Reisinger	note	č̓a	page 18, a line of the table as the text layer reads it
+Table 2 line 7	D. K. E. Reisinger	note	k̓ʷa	page 18, a line of the table as the text layer reads it
+Table 2 line 8	D. K. E. Reisinger	note	səm=DEM	page 18, a line of the table as the text layer reads it
+Table 2 line 9	D. K. E. Reisinger	note	CIRCUMSTANTIAL	page 18, a line of the table as the text layer reads it
+Table 2 line 10	D. K. E. Reisinger	note	DEONTIC have to *	page 18, a line of the table as the text layer reads it
+Table 2 line 11	D. K. E. Reisinger	note	TELEOLOGICAL have to *	page 18, a line of the table as the text layer reads it
+Table 2 line 12	D. K. E. Reisinger	note	BOULETIC have to *	page 18, a line of the table as the text layer reads it
+Table 2 line 13	D. K. E. Reisinger	note	ABILITY * *	page 18, a line of the table as the text layer reads it
+Table 2 line 14	D. K. E. Reisinger	note	OPPORTUNITY * *	page 18, a line of the table as the text layer reads it
+§3.4	D. K. E. Reisinger	heading	3.4 The Potential Modal ǰaqaʔ	page 18
+§3.4	D. K. E. Reisinger	note	In addition to the four modal markers presented above, Comox-Sliammon also contains another potential modal, namely the auxiliary ǰaqaʔ.15 However, since the contribution of this modal marker is currently not well-understood, I refrain from classifying it as either epistemic or circumstantial at this point. Instead, I will only provide some examples that illustrate its use and leave a detailed analysis of this item for another time.	page 18
+footnote 15	D. K. E. Reisinger	note	Cognates of ǰaqaʔ can be found in other Central Salish languages as well. Beaumont (2011) translates the Sechelt auxiliary yaka as ‘might (could), or (if not, otherwise)’, while the modal yeq in SENĆOŦEN has been associated with counterfactual and bouletic interpretations. In addition, ǰaqaʔ also seems to have more distant cognates. The deontic/irrealis modal ka as well as the out-of-control modal ka...a in St’át’imcets (Davis et al. 2007; Rullmann et al. 2008) appear to be diachronically related to ǰaqa.	page 18, footnote 15
+footnote 15	D. K. E. Reisinger	language	SENĆOŦEN	Central Salish, the modal yeq
+§3.4	D. K. E. Reisinger	note	One of the biggest challenges in providing an analysis for ǰaqaʔ is its versatile nature, since this auxiliary appears in a perplexing pandemonium of contexts. In particular, it has been encountered in (i) bouletic contexts, (ii) counterfactual contexts, and (iii) contexts where the event expressed by the proposition was not expected by the speaker.	page 18
+§3.4	D. K. E. Reisinger	note	The examples given in (38) to (40) represent bouletic contexts of use, since all of these sentences express some kind of wish, hope, or desire. More specifically, the first two sentences can be regarded as counterfactual wishes, while the proposition in (38) appears to be rather a direct statement of desire. Regardless, the data suggest that ǰaqaʔ could be a modal with a circumstantial modal base and a bouletic ordering source.	page 19
+(38) line 1	ʔayʔaǰuθəm	segmentation	ǰaqaʔ=č ʔə qəǰi čuy̓	page 19
+(38) line 2	ʔayʔaǰuθəm	gloss	J̌AQAʔ=1SG.SBJ CLF again young	page 19
+(38) line 3	D. K. E. Reisinger	translation	‘I wish I were a child again.’	page 19
+(39) line 1	ʔayʔaǰuθəm	segmentation	ǰaqaʔ=č ʔə xʷaʔ ʔaxʷ=as-uɬ	page 19
+(39) line 2	ʔayʔaǰuθəm	gloss	J̌AQAʔ=1SG.SBJ CLF NEG snow=3SG.CNJ-PST	page 19
+(39) line 3	D. K. E. Reisinger	translation	‘I wish it hadn’t snowed.’	page 19
+(40) line 1	ʔayʔaǰuθəm	segmentation	ǰaqaʔ=č xʷaʔ č̓əɬ=as kʷəy̓	page 19
+(40) line 2	ʔayʔaǰuθəm	gloss	J̌AQAʔ=1SG.SBJ NEG rain=3SG.CNJ tomorrow	page 19
+(40) line 3	D. K. E. Reisinger	translation	‘I hope it doesn’t rain tomorrow.’	page 19
+§3.4	D. K. E. Reisinger	note	Secondly, ǰaqaʔ can also be used to indicate hypothetical or counterfactual events, as exemplified by (41) to (43). Whether the auxiliary functions as a circumstantial or an epistemic modal in these cases remains to be tested.	page 19
+(41) line 1	ʔayʔaǰuθəm	segmentation	ǰaqaʔ=č niš taq̓us	page 19
+(41) line 2	ʔayʔaǰuθəm	gloss	J̌AQAʔ=1SG.SBJ be.here get.stranded	page 19
+(41) line 3	D. K. E. Reisinger	translation	‘I might get stranded here.’	page 19
+(42) line 1	ʔayʔaǰuθəm	segmentation	ǰaqaʔ ɬaχaw̓ tə=mijiθ	page 19
+(42) line 2	ʔayʔaǰuθəm	gloss	J̌AQAʔ spoil DET=meat	page 19
+(42) line 3	D. K. E. Reisinger	translation	‘The meat might spoil.’	page 19
+(43) line 1	ʔayʔaǰuθəm	segmentation	kʷən-ət=čxʷ tə=θ=kʷukʷ. ǰaqaʔ q̓at̓xʷ	page 19
+(43) line 2	ʔayʔaǰuθəm	gloss	see-CTR=2SG.SBJ DET=2SG.POSS=cooking J̌AQAʔ burn	page 19
+(43) line 3	D. K. E. Reisinger	translation	‘Watch your cooking! It might burn.’	page 19
+§3.4	D. K. E. Reisinger	note	Lastly, ǰaqaʔ also appears frequently in contexts where the speaker is surprised by the proposition. In these cases, ǰaqaʔ is often translated as ‘surprisingly’, ‘suddenly’, ‘unexpectedly’, or ‘accidentally’. Examples for this context of use are provided in (44) to (47).16, 17	page 19
+footnote 16	D. K. E. Reisinger	note	It should be noted that the examples in (45) and (46) resemble the out-of-control contexts described by Davis et al. (2007) for the St’át’imcets modal ka...a.	page 20, footnote 16
+footnote 17	D. K. E. Reisinger	note	Davis (2012), Van Eijk (2013), as well as Davis and Matthewson (2016) describe a particle in St’át’imcets (namely séna7) which could be glossed as ‘counter-to-expectation’. This label might be appropriate for some instantiations of ǰaqa as well.	page 20, footnote 17
+footnote 17	ʔayʔaǰuθəm	cited form	séna7	page 20, in italics
+(44) line 1	ʔayʔaǰuθəm	transcription	ǰaqaʔ hihiw titul ʔayaʔ	page 20
+(44) line 2	ʔayʔaǰuθəm	gloss	J̌AQAʔ INT small house	page 20
+(44) line 3	D. K. E. Reisinger	translation	‘The house was surprisingly small.’	page 20
+(45) line 1	ʔayʔaǰuθəm	segmentation	ǰaqaʔ q̓əč̓̓-θay̓-əm mimaw̓	page 20
+(45) line 2	ʔayʔaǰuθəm	gloss	J̌AQAʔ bite-1SG.OBJ-PASS cat	page 20
+(45) line 3	D. K. E. Reisinger	translation	‘All of a sudden, the cat bit me.’	page 20
+(46) line 1	ʔayʔaǰuθəm	segmentation	ǰaqaʔ=č pəč-əm-əxʷ Bruno	page 20
+(46) line 2	ʔayʔaǰuθəm	gloss	J̌AQAʔ =1SG.SBJ wake-MD-NTR Bruno	page 20
+(46) line 3	D. K. E. Reisinger	translation	‘I accidentally woke Bruno up.’	page 20
+(47) line 1	ʔayʔaǰuθəm	transcription	ǰaqaʔ ʔi qʷəl̓ təs	page 20
+(47) line 2	ʔayʔaǰuθəm	gloss	J̌AQAʔ=1SG.SBJ CONJ come arrive	page 20
+(47) line 3	D. K. E. Reisinger	translation	‘What a surprise! He arrived.’	page 20
+§3.4	D. K. E. Reisinger	note	As highlighted by the data in this section, the auxiliary ǰaqaʔ can fulfill a variety of functions. Although providing a unified modal analysis for all of its uses is not within the scope of this paper, it will be worthwhile to undertake such an endeavour at some point in the future.	page 20
+§4	D. K. E. Reisinger	heading	4 Modal-Temporal Interactions	page 20
+§4	D. K. E. Reisinger	note	Having explored the modal inventory of Comox-Sliammon, the following subsections take a closer look at the modal temporal-interactions for the three epistemic modals č̓a, k̓ʷa, and səm=DEM, and for the circumstantial modal have to.	page 20
+§4.1	D. K. E. Reisinger	heading	4.1 The Inferential Evidential č̓a	page 20
+§4.1	D. K. E. Reisinger	note	The inferential evidential č̓a is compatible with either present or past temporal perspectives. In example (48), the speaker hears the rain hitting the roof at the utterance time, which suggests that the evidence temporally coincides with the modal claim. Thus, this sentence is interpreted as having a present temporal perspective. In example (49), on the other hand, the evidence does no longer hold at the utterance time, but was only in effect at some point in the past. Consequently, this sentence unambiguously exhibits a past temporal perspective.	page 20
+(48) line 1	D. K. E. Reisinger	note	CONTEXT: You wake up and hear pattering on the roof.	page 21, the context
+(48) line 2	ʔayʔaǰuθəm	segmentation	č̓ə~č̓ɬ=č̓a	page 21
+(48) line 3	ʔayʔaǰuθəm	gloss	IMPF~rain=EVD.INF	page 21
+(48) line 4	D. K. E. Reisinger	translation	‘It might / must be raining.’	page 21
+(48) line 5	D. K. E. Reisinger	note	[PRES. PERSPECTIVE | PRES. ORIENTATION]	page 21, the reading
+(49) line 1	D. K. E. Reisinger	note	CONTEXT: This morning, you heard some pattering on the roof. It sounded like it might have been raining. Later you found out that your uncle was on the roof, fixing some holes.	page 21, the context
+(49) line 2	ʔayʔaǰuθəm	segmentation	č̓ə~č̓ɬ=č̓a	page 21
+(49) line 3	ʔayʔaǰuθəm	gloss	IMPF~rain=EVD.INF	page 21
+(49) line 4	D. K. E. Reisinger	translation	‘(It sounded like) it might have been raining.’	page 21
+(49) line 5	D. K. E. Reisinger	note	[PAST PERSPECTIVE | PRES. ORIENTATION]	page 21, the reading
+§4.1	D. K. E. Reisinger	note	With this in mind, let us now consider the notion of temporal orientation. In sentences with a present temporal orientation, such as (48) and (49) above, my consultants often produced the predicate with imperfective marking to highlight that the described event is or was ongoing when the evidence was obtained. However, the imperfective marking is neither sufficient nor obligatory for a present temporal orientation, as it can also be omitted without affecting the temporal orientation. Likewise, sentences with a past temporal orientation, such as (50) and (51), often involve the past tense morpheme -uɬ. While my consultants generally preferred to include this marker, they also implied that it is not necessary to derive a past temporal orientation.	page 21
+§4.1	ʔayʔaǰuθəm	cited form	-uɬ	page 21, in italics
+(50) line 1	D. K. E. Reisinger	note	CONTEXT: You see puddles on the ground and flowers looking fresh.	page 21, the context
+(50) line 2	ʔayʔaǰuθəm	segmentation	č̓əɬ-uɬ=č̓a	page 21
+(50) line 3	ʔayʔaǰuθəm	gloss	rain-PST=EVD.INF	page 21
+(50) line 4	D. K. E. Reisinger	translation	‘It might / must have rained.’	page 21
+(50) line 5	D. K. E. Reisinger	note	[PRES. PERSPECTIVE | PAST ORIENTATION]	page 21, the reading
+(51) line 1	D. K. E. Reisinger	note	CONTEXT: This morning you looked out your window and saw that the ground was wet. It looked like it might have rained. Later you found out the water was actually from your neighbors sprinklers.	page 21, the context
+(51) line 2	ʔayʔaǰuθəm	segmentation	č̓əɬ-uɬ=č̓a	page 21
+(51) line 3	ʔayʔaǰuθəm	gloss	rain-PST=EVD.INF	page 21
+(51) line 4	D. K. E. Reisinger	translation	‘I thought it might have rained earlier.’	page 21
+(51) line 5	D. K. E. Reisinger	note	[PAST PERSPECTIVE | PAST ORIENTATION]	page 21, the reading
+§4.1	D. K. E. Reisinger	note	While it is not necessary to mark present or past temporal orientations explicitly, sentences with a future orientation must be marked. In order to express that the temporal perspective precedes the described event, the future clitic səm is used. Two examples illustrating this requirement are given in (52) and (53) below.	page 21
+(52) line 1	D. K. E. Reisinger	note	CONTEXT: You hear thunder and see some dark clouds approaching.	page 22, the context
+(52) line 2	ʔayʔaǰuθəm	segmentation	č̓əɬ=č̓a=səm	page 22
+(52) line 3	ʔayʔaǰuθəm	gloss	rain=EVD.INF=FUT	page 22
+(52) line 4	D. K. E. Reisinger	translation	‘It might / must be raining soon.’	page 22
+(52) line 5	D. K. E. Reisinger	note	[PRES. PERSPECTIVE | FUT. ORIENTATION]	page 22, the reading
+(53) line 1	D. K. E. Reisinger	note	CONTEXT: This morning, you heard a loud noise that sounded like thunder. It seemed like it might have been going to rain soon. Later you found out that it was not the thunder you heard. It was your neighbor who had crashed his car into his mailbox.	page 22, the context
+(53) line 2	ʔayʔaǰuθəm	segmentation	č̓əɬ=č̓a=səm	page 22
+(53) line 3	ʔayʔaǰuθəm	gloss	rain=EVD.INF=FUT	page 22
+(53) line 4	D. K. E. Reisinger	translation	‘I thought it might have been about to rain.’	page 22
+(53) line 5	D. K. E. Reisinger	note	[PAST PERSPECTIVE | FUT. ORIENTATION]	page 22, the reading
+§4.2	D. K. E. Reisinger	heading	4.2 The Reportative Evidential k̓ʷa	page 22
+§4.2	D. K. E. Reisinger	note	In terms of modal-temporal interactions, the reportative evidential k̓ʷa patterns exactly like the inferential evidential č̓a – with one exception. While č̓a is compatible with both present and past temporal perspectives, k̓ʷa is always interpreted as having a past temporal perspective. This restriction is due to an evidential constraint. Intuitively, the report that serves as evidence and the modal claim cannot take place simultaneously. Instead, the hearsay evidence has to precede the speaker’s utterance, which explains why k̓ʷa only allows a past temporal perspective.	page 22
+§4.2	D. K. E. Reisinger	note	As far as temporal orientation is concerned, the reportative k̓ʷa patterns exactly like the inferential č̓a. That is, it allows both past and present temporal orientations in the absence of the future marker səm, as illustrated by (54) and (55). Marking the reportative with səm, however, forces a future temporal orientation. In other words, adding the clitic səm is necessary to ensure that the potential event follows the report that serves as evidence. An example for this is given in (56).	page 22
+(54) line 1	D. K. E. Reisinger	note	CONTEXT: Your friend told you that it rained in Lund yesterday. Later on the same day, you tell me about it.	page 22, the context
+(54) line 2	ʔayʔaǰuθəm	segmentation	č̓əɬ-uɬ=k̓ʷa ƛaʔamin	page 22
+(54) line 3	ʔayʔaǰuθəm	gloss	rain-PST=EVD.RPT Lund	page 22
+(54) line 4	D. K. E. Reisinger	translation	‘It was raining in Lund yesterday (I heard).’	page 22
+(54) line 5	D. K. E. Reisinger	note	[PAST PERSPECTIVE | PAST ORIENTATION]	page 22, the reading
+(55) line 1	D. K. E. Reisinger	note	CONTEXT: Your friend from Lund tells you over the phone that it is raining in Lund right now. Directly after the phone call is over, you tell me about it.	page 23, the context
+(55) line 2	ʔayʔaǰuθəm	segmentation	č̓ə~č̓ɬ=k̓ʷa ƛaʔamin	page 23
+(55) line 3	ʔayʔaǰuθəm	gloss	IMPF~rain=EVD.RPT Lund	page 23
+(55) line 4	D. K. E. Reisinger	translation	‘It is raining in Lund (I heard).’	page 23
+(55) line 5	D. K. E. Reisinger	note	[PAST PERSPECTIVE | PRESENT ORIENTATION]	page 23, the reading
+(56) line 1	D. K. E. Reisinger	note	CONTEXT: Your friend (a weatherman) told you that it is going to rain in Lund tomorrow. Later on the same the day, you tell me about it.	page 23, the context
+(56) line 2	ʔayʔaǰuθəm	segmentation	č̓ə~č̓ɬ=k̓ʷa=səm ƛaʔamin	page 23
+(56) line 3	ʔayʔaǰuθəm	gloss	IMPF~rain=EVD.RPT=FUT Lund	page 23
+(56) line 4	D. K. E. Reisinger	translation	‘It’s gonna be raining in Lund tomorrow (I heard).’	page 23
+(56) line 5	D. K. E. Reisinger	note	[PAST PERSPECTIVE | FUTURE ORIENTATION]	page 23, the reading
+§4.3	D. K. E. Reisinger	heading	4.3 The Clitic Strings səm=kʷa, sem=kʷi, and sem=kʷu	page 23
+§4.3	D. K. E. Reisinger	note	In Section 3.1.3, I argued that the clitic səm is associated with two different interpretations. While səm on its own generally acts as a future marker, it seems to encode epistemic modality when it is directly followed by a clausal demonstrative, like kʷa, kʷi, or kʷu. In this section, I will focus primarily on these complex epistemic clitic strings and explore the modal-temporal interactions associated with them.	page 23
+§4.3	D. K. E. Reisinger	note	In terms of temporal perspective, səm=kʷa, səm=kʷi, and səm=kʷu are compatible with a present temporal perspective, i.e., the modal claim is based on the speaker’s beliefs at the utterance time. Whether sentences involving these clitic strings also allow a past temporal perspective remains to be tested.	page 23
+§4.3	D. K. E. Reisinger	note	More intriguing, however, is the question of how the use of these clitic strings affects the temporal orientation of an utterance. As I have shown in the sections that dealt with the epistemic evidentials č̓a and k̓ʷa, the clitic səm on its own is necessary and sufficient to force a future temporal orientation. Strikingly, the opposite is true when səm is followed by a clausal demonstrative. As illustrated by the examples given in (57) to (59), these complex clitic strings are only compatible with past and present temporal orientations, and do not allow a future temporal orientation.	page 23
+(57) line 1	D. K. E. Reisinger	note	CONTEXT: You are in Sliammon. You look out of your window, and it is pouring outside. Then you begin to wonder what the weather in Vancouver is like.	page 23, the context
+(57) line 2	ʔayʔaǰuθəm	segmentation	səm=kʷa č̓əɬ Vancouver	page 23
+(57) line 3	ʔayʔaǰuθəm	gloss	FUT=DEM rain Vancouver	page 23
+(57) line 4	D. K. E. Reisinger	translation	‘Maybe it’s raining in Vancouver.’	page 23
+(57) line 5	D. K. E. Reisinger	note	[PRES. PERSPECTIVE | PRES. ORIENTATION]	page 23, the reading
+(58) line 1	D. K. E. Reisinger	note	CONTEXT: You are thinking about some visitors that came to the cultural lodge earlier, and you’re just guessing that they’ve already left again.	page 24, the context
+(58) line 2	ʔayʔaǰuθəm	segmentation	səm=kʷi θu ɬaw-n-um-uɬ-as	page 24
+(58) line 3	ʔayʔaǰuθəm	gloss	FUT=DEM go leave-NTR-1PL.OBJ-PST-3ERG	page 24
+(58) line 4	D. K. E. Reisinger	translation	‘I guess they’ve already left us.’	page 24
+(58) line 5	D. K. E. Reisinger	note	[PRES. PERSPECTIVE | PAST ORIENTATION]	page 24, the reading
+(59) line 1	ʔayʔaǰuθəm	segmentation	# səm=kʷi θu ɬaw-n-um-uɬ-as	page 24
+(59) line 2	ʔayʔaǰuθəm	gloss	FUT=DEM go leave-NTR-1PL.OBJ-PST-3ERG	page 24
+(59) line 3	D. K. E. Reisinger	translation	‘I guess they are going to leave us.’	page 24
+(59) line 4	D. K. E. Reisinger	note	[PRES. PERSPECTIVE | FUT. ORIENTATION]	page 24, the reading
+§4.3	D. K. E. Reisinger	note	Considering this, the clitic səm appears to be ambiguous indeed. While its root interpretation is purely aspectual, it adopts a modal interpretation in the company of a clausal demonstrative.	page 24
+§4.4	D. K. E. Reisinger	heading	4.4 The English Borrowing have to	page 24
+§4.4	D. K. E. Reisinger	note	To complete the analysis of modal temporal-interactions, the following paragraphs will take a closer look at the circumstantial modal have to.	page 24
+§4.4	D. K. E. Reisinger	note	In terms of temporal perspective, the English borrowing have to is compatible with both past or present temporal orientations. In (60), the speaker makes a modal claim based on a rule that was valid in the past, but which no longer holds at the utterance time, thus unambiguously exhibiting a past temporal perspective. In (61), on the other hand, a present temporal perspective is expressed, since the rule is still valid at the time of utterance.	page 24
+§4.4	D. K. E. Reisinger	note	While have to is variable in temporal perspective, it is fairly restricted in temporal orientation, i.e., it only allows future temporal orientations. The examples in (60) and (61) illustrate this phenomenon. Since have to acts as a circumstantial modal, this limitation is expected (Condoravdi 2002; Copley 2006; Werner 2006; Kratzer 2010; Matthewson 2013).	page 24
+§4.4	D. K. E. Reisinger	note	Interestingly, the future marker səm is not necessary to force a future orientation for this modal. One may speculate that this idiosyncrasy is linked to the fact that have to has been borrowed and does not belong to the set of traditional Comox-Sliammon modals.	page 24
+(60) line 1	D. K. E. Reisinger	note	CONTEXT: You tell a friend who visits you daily that the house rules have changed. Although they don’t have to take their shoes off today, they had to do so yesterday.	page 24, the context
+(60) line 2	ʔayʔaǰuθəm	segmentation	have to Ɵ=xʷaɁa-t-uɬ qʷəɬay̓šən sǰasuɬ	page 24
+(60) line 3	ʔayʔaǰuθəm	gloss	DEON 2SG.POSS=take.off-CTR-PST shoe yesterday	page 24
+(60) line 4	D. K. E. Reisinger	translation	‘Yesterday, you had to take off your shoes.’	page 24
+(60) line 5	D. K. E. Reisinger	note	[PAST PERSPECTIVE | FUT. ORIENTATION]	page 24, the reading
+(61) line 1	D. K. E. Reisinger	note	CONTEXT: You tell a friend who is visiting you that they have to take their shoes off before they come in.	page 25, the context
+(61) line 2	ʔayʔaǰuθəm	segmentation	have to Ɵ=xʷaɁa-t qʷəɬay̓šən	page 25
+(61) line 3	ʔayʔaǰuθəm	gloss	DEON 2SG.POSS=take.off-CTR shoes	page 25
+(61) line 4	D. K. E. Reisinger	translation	‘You have to take off your shoes.’	page 25
+(61) line 5	D. K. E. Reisinger	note	[PRES. PERSPECTIVE | FUT. ORIENTATION]	page 25, the reading
+§4.5	D. K. E. Reisinger	heading	4.5 Summary	page 25
+§4.5	D. K. E. Reisinger	note	To conclude, the modal-temporal interactions in Comox-Sliammon can be summarized as follows. In the epistemic domain, both the inferential evidential č̓a and the reportative k̓ʷa tend to pattern the same. Most importantly, they both allow past temporal perspectives and require the addition of səm to force a future orientation. In contrast to č̓a, however, the reportative k̓ʷa cannot express a present temporal perspective, as this would involve hearing the report that serves as evidence at the utterance time. With regard to the complex epistemic clitic strings səm=kʷa, səm=kʷi, and səm=kʷu, I showed that they can be oriented towards the past or the present, but not towards the future. This suggests that the clitic səm is ambiguous in nature and acts – depending on its environment –either as a modal marker or as an aspectual marker, but not both. A summary of the modal-temporal interactions in the epistemic domain is given in Table 3.	page 25
+Table 3	D. K. E. Reisinger	note	Table 3: Modal-temporal interactions for the three epistemic modals	page 25, the caption
+Table 3 line 1	D. K. E. Reisinger	note	PAST T. O. PRES. T. O. FUT. T. O.	page 25, a line of the table as the text layer reads it
+Table 3 line 2	D. K. E. Reisinger	note	č̓a PAST T. P. č̓a č̓a č̓a=səm	page 25, a line of the table as the text layer reads it
+Table 3 line 3	D. K. E. Reisinger	note	PRES. T. P. č̓a č̓a č̓a=səm	page 25, a line of the table as the text layer reads it
+Table 3 line 4	D. K. E. Reisinger	note	k̓ʷa	page 25, a line of the table as the text layer reads it
+Table 3 line 5	D. K. E. Reisinger	note	PAST T. P. k̓ʷa k̓ʷa k̓ʷa=səm	page 25, a line of the table as the text layer reads it
+Table 3 line 6	D. K. E. Reisinger	note	PRES. T. P. * * *	page 25, a line of the table as the text layer reads it
+Table 3 line 7	D. K. E. Reisinger	note	səm=DEM	page 25, a line of the table as the text layer reads it
+Table 3 line 8	D. K. E. Reisinger	note	PAST T. P. ? ? ?	page 25, a line of the table as the text layer reads it
+Table 3 line 9	D. K. E. Reisinger	note	PRES. T. P. səm=DEM səm=DEM *	page 25, a line of the table as the text layer reads it
+§4.5	D. K. E. Reisinger	note	In the circumstantial domain, modal-temporal interactions appear to be much more restricted, as highlighted by Table 4. While the English borrowing have to allows both past and present temporal perspectives, it is exclusively limited to temporal future orientations. Past or present temporal orientations, on the other hand, are not available. In addition, we saw that this circumstantial modal cannot carry the prospective marker səm.	page 25
+Table 4	D. K. E. Reisinger	note	Table 4: Modal-temporal interactions for the circumstantial modal have to	page 26, the caption
+Table 4 line 1	D. K. E. Reisinger	note	PAST T. O. PRES. T. O. FUT. T. O.	page 26, a line of the table as the text layer reads it
+Table 4 line 2	D. K. E. Reisinger	note	have to	page 26, a line of the table as the text layer reads it
+Table 4 line 3	D. K. E. Reisinger	note	PAST T. P. * * have to	page 26, a line of the table as the text layer reads it
+Table 4 line 4	D. K. E. Reisinger	note	PRES. T. P. * * have to	page 26, a line of the table as the text layer reads it
+§5	D. K. E. Reisinger	heading	5 Variable Force Modals	page 26
+§5	D. K. E. Reisinger	note	As highlighted in Section 3, none of the epistemic modals are specified with regard to their quantificational force. Consequently, we need a formal analysis that can account for this variability. Over the years, several researchers have presented approaches to solve similar challenges in other languages. The following paragraphs will focus on two of these approaches in particular, the choice function account by Rullmann et al. (2008) and the strengthening account by Peterson (2010).18	page 26
+footnote 18	D. K. E. Reisinger	note	A third account that tackles the issue of variable force effects can be found in Deal (2011).	page 26, footnote 18
+§5	D. K. E. Reisinger	name	Peterson	Tyler Peterson, the strengthening account
+§5	D. K. E. Reisinger	note	Rullmann et al. (2008) employ modal choice functions to account for the variable force effects in St’át’imcets.19 In this approach, the modal base 𝐵 – which is provided by the context of the utterance – determines a set of possible worlds that are accessible from 𝑤. The choice function 𝑓 then selects a subset of the worlds in 𝐵 and universally quantifies over them. Since the choice function can select a larger or smaller subset of accessible worlds, the notion of QUANTIFICATIONAL FORCE is best conceptualized as a continuum, i.e., the larger the subset of 𝐵(𝑤) selected by the c hoice function, the stronger the proposition will be. Accordingly, one particular scenario deserves to be mentioned: If the modal choice function matches the identity function, it will select the entire set of worlds provided by the modal base. As the subsequent universal quantification consequently applies to the entire set, a strong necessity reading will result. All things considered, the formalization presented in (62) emerges.	page 26
+footnote 19	D. K. E. Reisinger	note	Rullmann et al. (2008) note that the lexical restriction of modals in St’át’imcets is analyzed as a presupposition on the modal base and ordering source.	page 26, footnote 19
+(62) line 1	D. K. E. Reisinger	note	If defined, ...	page 26
+(62) line 2	D. K. E. Reisinger	formula	⟦ MODAL ⟧w,c = 𝜆𝑓. 𝜆𝜑. ∀𝑤’ [ 𝑤’ ∈ 𝑓(𝐵(𝑤)) → 𝜑(𝑤’) = 1 ]	page 26
+(62) line 3	D. K. E. Reisinger	note	... where 𝜑 is a proposition, 𝐵 the model base, 𝑐 a variable assignment function, 𝑤 a possible world, and 𝑓 the choice function.	page 26
+§5	D. K. E. Reisinger	note	While Rullmann et al. (2008) disregard ordering sources for the sake of simplicity, these conversational backgrounds play a major role in the strengthening analysis by Peterson (2010). To account for the distribution of modals in Gitksan, he relates variable force effects to the number of propositions in the ordering source. As noted earlier, the purpose of an ordering source is to restrict the domain of quantification over the set of worlds provided by the modal base B. An empty ordering source will not restrict the domain of quantification. However, as the number of propositions in the ordering source increases, the domain of quantification will be narrowed down, leading to a strengthening of the existential quantification. Eventually, it might even collapse with universal quantification over a singleton set. The formalization in (63) summarizes the strengthening account by Peterson (2010).	page 26
+§5	D. K. E. Reisinger	language	Gitksan	Tsimshianic, Peterson's modals
+(63) line 1	D. K. E. Reisinger	note	If defined, ...	page 27
+(63) line 2	D. K. E. Reisinger	formula	⟦ MODAL ⟧w,c = 𝜆𝑔. 𝜆𝜑. ∃𝑤’ [𝑤’ ∈ 𝑂𝑔(𝑤)(𝐵(𝑤)) ∧ ⟦𝜑⟧(𝑤’) = 1]	page 27
+(63) line 3	D. K. E. Reisinger	note	... where 𝜑 is a proposition, 𝐵 the model base, 𝑔 an ordering source, 𝑐 a variable assignment function, 𝑤 a possible world, and 𝑂 a selection function comparable to 𝑚𝑎𝑥 by Fintel and Heim (2007).	page 27
+§5	D. K. E. Reisinger	note	For this investigation, I choose Peterson (2010)’s account to formalize the semantics of the modal expressions in ʔayʔaǰuθəm. Drawing from his analysis, I propose the following lexical entries for the evidentials č̓a and k̓ʷa, the complex epistemic clitic strings səm=kʷa, səm=kʷi, and səm=kʷu, and the circumstantial modal have to:	page 27
+(64) line 1	D. K. E. Reisinger	note	The lexical entry for č̓a (inferential):	page 27
+(64) line 2	D. K. E. Reisinger	formula	⟦ č̓a ⟧w,c is only defined if 𝑐 provides an epistemic modal base 𝐵 such that for all worlds 𝑤′ ∈ 𝐵(𝑤), the inferential evidence in 𝑤 holds in 𝑤′.	page 27
+(64) line 3	D. K. E. Reisinger	formula	⟦ č̓a ⟧w,c = 𝜆𝑔. 𝜆𝜑. ∀𝑤’ [𝑤’ ∈ 𝑂𝑔(𝑤)(𝐵(𝑤)) → ⟦𝜑⟧(𝑤’) = 1]	page 27
+(65) line 1	D. K. E. Reisinger	note	The lexical entry for k̓ʷa (reportative):	page 27
+(65) line 2	D. K. E. Reisinger	formula	⟦ k̓ʷa ⟧w,c is only defined if 𝑐 provides an epistemic modal base 𝐵 such that for all worlds 𝑤′ ∈ 𝐵(𝑤), the relevant report made in 𝑤 is made in 𝑤′.	page 27
+(65) line 3	D. K. E. Reisinger	formula	⟦ k̓ʷa ⟧w,c = 𝜆𝑔. 𝜆𝜑. ∀𝑤’ [𝑤’ ∈ 𝑂𝑔(𝑤)(𝐵(𝑤)) → ⟦𝜑⟧(𝑤’) = 1]	page 27
+(66) line 1	D. K. E. Reisinger	note	The lexical entry for səm=DEM:	page 27
+(66) line 2	D. K. E. Reisinger	formula	⟦ səm=DEM ⟧w,c is only defined if 𝑐 provides an epistemic modal base 𝐵.	page 27
+(66) line 3	D. K. E. Reisinger	formula	⟦ səm=DEM ⟧w,c = 𝜆𝑔. 𝜆𝜑. ∀𝑤’ [𝑤’ ∈ 𝑂𝑔(𝑤)(𝐵(𝑤)) → ⟦𝜑⟧(𝑤’) = 1]	page 27
+(67) line 1	D. K. E. Reisinger	note	The lexical entry for have to:	page 27
+(67) line 2	D. K. E. Reisinger	formula	⟦ have to ⟧w,c is only defined if 𝑐 provides a circumstantial modal base 𝐵 and a bouletic, deontic, or teleological ordering source 𝑔.	page 27
+(67) line 3	D. K. E. Reisinger	formula	⟦ have to ⟧w,c = 𝜆𝑔. 𝜆𝜑. ∀𝑤’ [𝑤’ ∈ 𝑂𝑔(𝑤)(𝐵(𝑤)) → ⟦𝜑⟧(𝑤’) = 1]	page 27
+§5	D. K. E. Reisinger	note	It should be noted that in the lexical entries presented above, all modals are treated as universal quantifiers by default. Whether this assumption is accurate – or whether an existential quantifier would be a better choice for the default setting – has yet to be determined.	page 27
+§6	D. K. E. Reisinger	heading	6 Conclusion	page 28
+§6	D. K. E. Reisinger	note	To conclude, this paper provides a first description of the modal inventory of Comox-Sliammon. Based on data from 12 fluent speakers of the language, I have identified several markers which encode modality. The evidentials clitics č̓a and k̓ʷa are compatible with epistemic modal bases and allow both necessity and possibility readings. Thus, these markers pattern like the variable force modals found in other Salish languages. In addition to these evidentials, epistemic modality can also be expressed by the clitic strings səm=kʷa, səm=kʷi, and səm=kʷu. The circumstantial domain currently only includes the modal marker have to which is borrowed from English and encodes deontic, teleological, or bouletic modality. Its quantificational force is restricted to strong and weak necessity readings, suggesting that Comox-Sliammon is best classified as a ‘mixed system’ in the formal typology of modals.	page 28
+references	D. K. E. Reisinger	heading	References	page 28
+references	D. K. E. Reisinger	reference	Aikhenvald, A. Y. 2004. Evidentiality. Oxford: Oxford University Press.	page 28
+references	D. K. E. Reisinger	reference	Andreotti, B. 2018. Observations about ʔayʔaǰuθəm intransitive verb roots. In L.	page 28
+references	D. K. E. Reisinger	reference	Matthewson, E. Guntly, & M. Rochemont (eds.), 87–98.	page 28
+references	D. K. E. Reisinger	reference	Beaumont, Ronald. 2011. Sechelt dictionary. Sechelt, BC: Sechelt Indian Band.	page 28
+references	D. K. E. Reisinger	reference	Blake, S. J. 1996. Passives and Object Control in Mainland Comox (Salish): A Reanalysis of Raising-to-Object. Ph.D. Syntax Generals Paper, ms., University of British Columbia.	page 28
+references	D. K. E. Reisinger	reference	Blake, S. J. 2000. On the distribution and representation of schwa in Sliammon (Salish): descriptive and theoretical perspectives. Doctoral dissertation, University of British Columbia.	page 28
+references	D. K. E. Reisinger	reference	Caldecott, M., & Mellesmoen, G. 2018. “A preliminary look at glottalized resonants in ʔayʔaǰuθəm: Not a piece of caique.” In L. Matthewson, E. Guntly, & M. Rochemont (eds.), 691–707.	page 28
+references	D. K. E. Reisinger	reference	Condoravdi, C. 2002. “Temporal interpretation of modals: modals for the present and the past.” In: The Construction of Meaning. In D. Beaver, S. Kaufmann, B. Clark, & L. Casillas Martinez (eds.). Stanford: CSLI Publications, 59–88.	page 28
+references	D. K. E. Reisinger	reference	Copley, B. 2006. What should should Mean? Ms., CNRS.	page 28
+references	D. K. E. Reisinger	reference	Davis, H. Th. 2012. A teacher’s grammar of Upper St’át’imcets. Ms., University of British Columbia.	page 28
+references	D. K. E. Reisinger	reference	Davis, H., Th. & Huijsmans, M. 2017. “Changes in the alignment of arguments in transitive clauses in ʔayʔaǰuθəm (Comox-Sliammon).” ICSNL 52: 13–46.	page 28
+references	D. K. E. Reisinger	reference	Davis, H. Th., & Matthewson L. 2016. “Against all expectations: The meaning of St’át’imcets séna7.” ICSNL 51: 37–67.	page 29
+references	D. K. E. Reisinger	reference	Davis, H. Th., Matthewson L., and Rullmann, H. 2009. “Out of control marking as circumstantial modality in St’át’imcets.” In: Cross-Linguistic Semantics of Tense, Aspect and Modality. H. de Hoop Hogeweg, & A. Malchukov (eds.). Oxford: John Benjamins, 206–244.	page 29
+references	D. K. E. Reisinger	reference	Davis, J. H. 2005. “High consonants, articulatory transitions, and non-high vowels in Comox.” ICSNL 40: 89–97.	page 29
+references	D. K. E. Reisinger	reference	Davis, J. H. 2012. “The two particles ‘ga’ in Mainland Comox.” ICSNL 47: 34– 48.	page 29
+references	D. K. E. Reisinger	reference	Davis, J. H. 2015. “A trio of phonetic details in Homalco.” ICSNL 50: 37–46.	page 29
+references	D. K. E. Reisinger	reference	Davis, J. H. 2016. “Two explanations in Comox by Tommy Paul.” ICSNL 51: 69– 77.	page 29
+references	D. K. E. Reisinger	reference	Davis, J. H. 2018. “Expressing Future Certainty in Comox.” ICSNL 53:1–8. De Haan, F. 1999. “Evidentiality and epistemic modality: Setting the boundaries”. Southwest Journal of Linguistics 18:83–101.	page 29
+references	D. K. E. Reisinger	reference	Deal, A. R. 2011. “Modals without Scales.” Language 87:559‒585. von Fintel, K., and Heim, I. 2007. Intensional Semantics. Lecture Notes.	page 29
+references	D. K. E. Reisinger	reference	Gillon, C., and Jacobs, P. 2017. “Semantics and Pragmatics of Skwxwú7mesh Evidentials.” Talk presented at the Salish Working Group, Nov. 1, 2017.	page 29
+references	D. K. E. Reisinger	reference	Huijsmans, M., Mellesmoen, G., & Urbancyzk, S. 2018. “To copy or not to copy, that is the question: Regarding consonant-vowel interactions in ʔayʔaǰuθəm imperfective reduplication.” In L. Matthewson, E. Guntly, M. Rochemont, & M. Huijsmans (eds.), Wa7 xweysás i nqwal’úttensa i ucwalmícwa: He loves the people’s languages: Essays in honor of Henry Davis (p. 659–674). Vancouver: UBCOPL.	page 29
+references	D. K. E. Reisinger	reference	Huijsmans, M., & Reisinger, D. K. E. 2018. “Clausal Demonstratives in Comox-Sliammon.” ICSNL 53:9–16.	page 29
+references	D. K. E. Reisinger	reference	Huijsmans, M., Reisinger, D. K. E., Lo, R. & Xu, K. (2018). “A preliminary sketch of determiners in ʔayʔaǰuθəm.” In In L. Matthewson, E. Guntly, & M. Rochemont (eds.), 327–338.	page 29
+references	D. K. E. Reisinger	reference	Izvorski, R. 1997. “The present perfect as an epistemic modal.” Proceedings of SALT VII: 222–239.	page 29
+references	D. K. E. Reisinger	reference	Kratzer, A. 1977. “What ‘must’ and ‘can’ must and can mean.” Linguistics and Philosophy 1:337‒355.	page 29
+references	D. K. E. Reisinger	reference	Kratzer, A. 1978. Semantik der Rede. Königstein: Scriptor.	page 29
+references	D. K. E. Reisinger	reference	Kratzer, A. 1981. “The Notional Category of Modality.” In: Words, Worlds, and Contexts. H.-J. Eikemeyer & H. Rieser (eds.). Berlin: de Gruyter, 38‒74.	page 30
+references	D. K. E. Reisinger	reference	Kratzer, A. 1986. “Conditionals.” In: Papers from the Parasession on Pragmatics and Grammatical Theory. A. M. Farley, P. Farley, and K. E. Mc-Collough (eds.).Chicago: Chicago Linguistics Society, 115‒135.	page 30
+references	D. K. E. Reisinger	reference	Kratzer, A. 1991. “Modality.” In: Semantics: An International Handbook of Contemporary Research. D. Wunderlich & A. von Stechow (eds.). Berlin: de Gruyter, 639‒650	page 30
+references	D. K. E. Reisinger	reference	Kratzer, A. 2010. Collected Papers on Modals and Conditionals. In press, Oxford University Press.	page 30
+references	D. K. E. Reisinger	reference	Kroeber, P. D. 1999. The Salish Language Family: Reconstructing Syntax. Lincoln: University of Nebraska Press.	page 30
+references	D. K. E. Reisinger	reference	Lo, R. 2017. “Not all there: The interactions of negation and universal quantifier ʔuk̓ʷ in ʔayʔaǰuθəm.” ICSNL 52: 137–149.	page 30
+references	D. K. E. Reisinger	reference	Matthewson, L. 2013. “Gitksan modals”. International Journal of American Linguistics, 79(3).	page 30
+references	D. K. E. Reisinger	reference	Matthewson, L., Rullmann, H., and Davis, H. 2007. “Evidentials as Epistemic Modals: Evidence from St’at’imcets.” The Linguistic Variation Yearbook 7. Matthewson L., Guntly, E., & Rochemont, M. (eds.). 2018. Wa7 xweysás i nqwal’utteníha i ucwalmícwa: He loves the people’s languages: Essays in honour of Henry Davis. Vancouver, BC: UBC WPL.	page 30
+references	D. K. E. Reisinger	reference	Mellesmoen, G. 2017a. “All the small things: Diminutive reduplication as infixation in ʔayʔaǰuθəm.” ICSNL 52: 151–169.	page 30
+references	D. K. E. Reisinger	reference	Mellesmoen, G. 2017b. “Overt third person object agreement in ʔayʔaǰuθəm.” ICSNL 52: 171–194.	page 30
+references	D. K. E. Reisinger	reference	Mellesmoen, G. & Andreotti, B. 2017. “Result state holds! Stative aspect and non- control morphology in ʔayʔaǰuθəm.” ICSNL 52: 195–208.	page 30
+references	D. K. E. Reisinger	reference	Menzies, S. 2013. Nsyilxcen Modality: Semantic Analysis of Epistemic Modality. PhD Diss., University of British Columbia.	page 30
+references	D. K. E. Reisinger	reference	Nauze, F. 2008. “Modality in Typological Perspective.” Ph.D. dissertation, University of Amsterdam.	page 30
+references	D. K. E. Reisinger	reference	Peterson, T. 2010. Epistemic Modality and Evidentiality in Gitksan at the Semantics/Pragmatics Interface. PhD Diss., University of British Columbia.	page 30
+references	D. K. E. Reisinger	reference	Portner, P. 2009. Modality. Oxford/New York: Oxford University Press.	page 30
+references	D. K. E. Reisinger	reference	Reisinger, D. K. E., & Lo, R. 2017. “ʔayʔaǰuθəm: A degreeless language.” ICSNL 52: 225–243.	page 30
+references	D. K. E. Reisinger	reference	Rullmann, H., Matthewson, L., and Davis, H. 2008. “Modals as Distributive Indefinites.” Natural Language Semantics 16:317‒357.	page 30
+references	D. K. E. Reisinger	reference	Sweetser, E. 1991. From Etymology to Pragmatics: Metaphorical and Cultural Aspects of Semantic Structure. Cambridge: Cambridge University Press.	page 31
+references	D. K. E. Reisinger	reference	Talmy, L. 1988. “Force dynamics in language and cognition.” Cognitive Science 12:49‒100. Vander Klok, J. 2013. “Pure Possibility and Pure Necessity Modals in Paciran Javanese.” Oceanic Linguistics 52(2):341‒374. Van Eijk, J. 2013. Lillooet–English dictionary. Vancouver, BC: UBCOPL.	page 31
+references	D. K. E. Reisinger	reference	Watanabe, H. 2003. A Morphological Description of Sliammon, Mainland Comox Salish, with a Sketch of Syntax. ELPR Publications Series AZ-040. Osaka Gakuin University, Osaka.	page 31
+references	D. K. E. Reisinger	reference	Werner, T. 2006. “Future and non-future modal sentences.” Natural Language Semantics 14:235‒255.	page 31

@@ -1,0 +1,383 @@
+where	who	kind	form	gloss
+front	Frances Sobolak	title	Salish Denominals: ‘Full’ and Light Verb Interpretations of have	page 1, carries footnote *
+front	Frances Sobolak	name	Frances Sobolak	author, Cornell University
+front	Frances Sobolak	note	Cornell University	page 1, the author's affiliation
+front	Frances Sobolak	note	Cornell University Abstract: In this paper, I build upon Gerdts and Hukari (2008) to provide further generalizations about verbal prefixes across the Salish language family. I focus on outlining two different uses of verbal prefixes: denominals and light verb constructions. I present syntactic generalizations and diagnostics to distinguish the two constructions. I also consider the Halkomelem verbal element c- ‘have’ that can be used in both denominals and light verb constructions. I outline a relational understanding of have that attempts to capture its different interpretations with the help of syntactic restrictions of the verb’s semantics. I argue that verbs like have can occur as a light verb when its syntactic position forces the verb to lose its lexical semantics. This is preliminary work of an investigation into a verb’s different interpretations throughout the verbal spine.	page 1, the abstract
+front	Frances Sobolak	note	Keywords: denominal, light verb, syntax-semantics interface	page 1, the keywords
+front	Frances Sobolak	note	Papers of the International Conference on Salish and Neighbouring Languages 56 , D. K. E. Reisinger, Hannah Green, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen, & Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2021.	page 1, the volume's header, at the foot of the page
+front	Frances Sobolak	language	Halkomelem	Hul’q’umi’num’; the verbal prefix c- ‘have’
+front	Frances Sobolak	language	Montana Salish	Séliš; epɬ- ‘have’
+front	Frances Sobolak	language	Okanagan	Nsyílxcən, Upper Nicola dialect; (ʔa)kɬ- ‘have’
+front	Frances Sobolak	language	Shuswap	Secwepemctsín; pəl- ‘have’
+front	Frances Sobolak	language	Proto-Salish	*ʔapɬ- ‘have’
+front	Frances Sobolak	language	Lillooet	cited from Davis et al. 2020
+front	Frances Sobolak	language	ʔayʔaǰuθəm	cited from Davis et al. 2020
+front	Frances Sobolak	language	Squamish	cited from Bar-el 2005
+front	Frances Sobolak	language	English	the light verbs and denominals compared
+front	Frances Sobolak	language	Yiddish	in (32) and (33)
+front	Frances Sobolak	language	Jaminjung	in (34) and (35)
+front	Frances Sobolak	language	Urdu	in (60)
+footnote *	Halkomelem	cited form	Secwepemctsín	page 1
+footnote *	Halkomelem	cited form	Nsyílxcən	page 1, Okanagan
+footnote *	Halkomelem	cited form	Séliš	page 1
+footnote *	Frances Sobolak	note	* The Salish data in this paper come from a combination of published works, unpublished manuscripts, and personal correspondences — all of which would not be possible without those who share their knowledge of the languages they speak, including: Hul’q’umi’num’ (Halkomelem), Secwepemctsín (Shuswap), Nsyílxcən (Upper Nicola dialect of Okanagan), Séliš (Montana Salish).	page 1, footnote
+footnote *	Frances Sobolak	note	Contact info: fes56@cornell.edu	page 1, the author's contact, under the footnote
+§1	Frances Sobolak	heading	1 Introduction	page 1
+§1	Halkomelem	cited form	*ʔapɬ	page 1, Proto-Salish, ‘have’
+§1	Frances Sobolak	note	Salish verbal prefixes exist across the language family, though not robustly. Gerdts and Hukari (2008) provide an extensive description of verbal prefixes in Island Halkomelem, as well as an overview of verbal prefixes across the language family. The most common verbal prefix across the family goes back to Proto-Salish *ʔapɬ ‘have’ (Kroeber 1999). The reflexes of this verbal prefix across the family most often are used to denote possession, as shown in (1–4).1	page 1
+footnote 1	Halkomelem	cited form	ɬ	page 1, the lateral fricative
+footnote 1	Frances Sobolak	note	1 The lateral fricative ɬ in Montana Salish and Okanagan gets deleted when preceding s. Orthography in the examples are exactly as they are in the sourced material, and thus certain characters might not be standardized across the languages.	page 1, footnote
+footnote 1	Frances Sobolak	note	Glossing abbreviations are as follows: lnk= Linking particle, q= Question particle, neg= Negation, aux= Aux- iliary, tr= Transitive suffix, subj= Subject, obj= Object, erg= Ergative argument, abs= Absolutive argument, sg= Singular, pl= Plural, erg= Ergative, obl= Oblique argument, 1= First person, 2= Second person, 3= Third person, loc= Locative, det= Determiner, mid= Middle Voice, past= Past tense, redup= Reduplication, dem= Demonstrative, fem= feminine, masc= Masculine, nom= Nominative, perf= Perfective aspect.	page 1, footnote, the glossing abbreviations
+(1) line 1	Montana Salish	segmentation	čn ep-síc’m	page 1, each word over its gloss
+(1) line 2	Frances Sobolak	gloss	1sg.abs have-blanket	page 1
+(1) line 3	Frances Sobolak	translation	‘I have a blanket.’	page 1
+(1) line 4	Frances Sobolak	citation	(Montana Salish; Pete 2010)	page 1, the source
+(2) line 1	Okanagan	segmentation	kən kɬ-qʷácqən	page 1, each word over its gloss
+(2) line 2	Frances Sobolak	gloss	1sg.abs have-hat	page 1
+(2) line 3	Frances Sobolak	translation	‘I have a hat.’	page 1
+(2) line 4	Frances Sobolak	citation	(Okanagan; Mattina 1993:247)	page 1, the source
+(3) line 1	Shuswap	segmentation	pəl-cítxʷ	page 2, each word over its gloss
+(3) line 2	Frances Sobolak	gloss	have-house	page 2
+(3) line 3	Frances Sobolak	translation	‘have a house’	page 2
+(3) line 4	Frances Sobolak	citation	(Shuswap; Kuipers 1974:71)	page 2, the source
+(4) line 1	Halkomelem	segmentation	c-tiqiw	page 2, each word over its gloss
+(4) line 2	Frances Sobolak	gloss	have-horse	page 2
+(4) line 3	Frances Sobolak	translation	‘have a horse’	page 2
+(4) line 4	Frances Sobolak	citation	(Halkomelem; Gerdts and Hukari 2008:489)	page 2, the source
+§1	Frances Sobolak	note	In this paper, I aim to provide further generalizations about verbal prefixes. In Section 2, I focus on outlining two different uses of verbal prefixes: in denominals and in light verb constructions. In Section 3, I present syntactic generalizations and diagnostics to distinguish the two constructions.	page 2
+§1	Frances Sobolak	note	In Section 4, I consider the Halkomelem c- ‘have’ that can be used in both denominals and light verb constructions. I outline a relational understanding of have that attempts to capture the different interpretations of have in a way that recognizes restrictions the syntax puts on a verb’s semantics. I argue that verbs like have, which have a relational and lexical semantic component, can occur as a light verb when its syntactic position forces the verb to lose its lexical semantics when occurring with a verbal complement. This is preliminary work of an investigation into a verb’s different interpretations throughout the verbal spine.	page 2
+§1	Frances Sobolak	note	I conclude in Section 5.	page 2
+§2	Frances Sobolak	heading	2 Salish verbal prefixes	page 2
+§2	Halkomelem	cited form	ʔayʔaǰuθəm	page 2, a language name
+§2	Frances Sobolak	note	A theoretical survey of verbal prefixes in all Salish languages is beyond the scope of this paper, but see Gerdts and Hukari (2008) for a more robust overview of verbal prefixes across the language family. The term verbal prefix is used regularly in the Salish linguistics literature to refer to a verbal bound morpheme that must attach to a noun host (see Krober 1999, Gerdts and Hukari 2008 for Halkomelem; Lyon 2010; 2011; 2013 for Okanagan; Davis et al. 2020 for Lillooet and ʔayʔaǰuθəm). Verbal prefixes cannot stand alone as an independent root. The term verbal prefix is misleading in some contexts, as the verbal element in at least three Salish languages is a verbal clitic that attaches to the leftmost-edge of its complement. In the Halkomelem example (5), c- is attached to the left edge of p’əq’ swetə ‘white sweater’, not just the noun swetə. Also see the Montana Salish and Okanagan examples (6–8).	page 2
+(5) line 1	Halkomelem	segmentation	ʔi ʔə č ʔəw’ c-p’əq’ swetə?	page 2, each word over its gloss
+(5) line 2	Frances Sobolak	gloss	aux q 2subj lnk have-white sweater	page 2
+(5) line 3	Frances Sobolak	translation	‘Do you have a white sweater?’	page 2
+(5) line 4	Frances Sobolak	citation	(Halkomelem; Gerdts and Hukari 2008:496)	page 2, the source
+(6) line 1	Halkomelem	segmentation	ʔi ʔə č ʔəw’ c-pɬet p’əq’ swetə?	page 2, each word over its gloss
+(6) line 2	Frances Sobolak	gloss	aux q 2subj lnk have-thick white sweater	page 2
+(6) line 3	Frances Sobolak	translation	‘Do you have a thick, white sweater?’	page 2
+(6) line 4	Frances Sobolak	citation	(Halkomelem; Gerdts and Hukari 2008:496)	page 2, the source
+(7) line 1	Montana Salish	segmentation	čn epɬ-esxmíp t sp’iqáɬq	page 2, each word over its gloss
+(7) line 2	Frances Sobolak	gloss	1sg.abs have-dried obl berry	page 2
+(7) line 3	Frances Sobolak	translation	‘I have dried berries.’	page 2
+(7) line 4	Frances Sobolak	citation	(Montana Salish; Thomason 2018)	page 2, the source
+(8) line 1	Okanagan	segmentation	l qʷ’umqn-átkʷ k-sílxʷaʔ iʔ xƛ’ut ...	page 3, each word over its gloss
+(8) line 2	Frances Sobolak	gloss	loc head-water have-big det rock	page 3
+(8) line 3	Frances Sobolak	translation	‘At Chapperon Lake there is a big rock...’	page 3
+(8) line 4	Frances Sobolak	citation	(Okanagan; Lyon 2013:129)	page 3, the source
+§2	Frances Sobolak	note	In this paper, I will use the term verbal prefix when speaking more broadly about the language family or when a verbal element’s status as prefix or clitic is unclear, and I will use the term (verbal) clitic when referring to a specific verbal clitic in one of the above languages. Not all Salish languages have verbal prefixes; those that do typically only have one or two (the most common meaning ‘have’) (Kroeber 1999; Gerdts and Hukari 2008). In fact, some Salish languages do not have a verb root for ‘have’, leaving the verbal prefix the only way to denote simple possession predicates. The table below shows the forms for ‘have’ in the three languages that I focus on in this paper, and the Proto- Salish form (which, as a prefix itself, shows that the reflexes of it are not newly/synchronically reanalyzed from roots) (Kroeber 1999; Gerdts and Hukari 2008; Pete 2010; Lyon 2013).	page 3
+Table 1 line 1	Frances Sobolak	note	Table 1: Verbal prefix ‘have’ across Proto-Salish, Halkomelem, Okanagan, and Montana Salish.	page 3, the caption
+Table 1 line 2	Frances Sobolak	note	Prefix Meaning Corresponding root?	page 3, the column heads
+Table 1 line 3	Frances Sobolak	language	Proto-Salish	page 3, a row, its Corresponding root? column printing ×, none
+Table 1 line 3	Proto-Salish	cited affix	*ʔapɬ-	page 3, the prefix
+Table 1 line 3	Frances Sobolak	translation	‘have’	page 3, the meaning
+Table 1 line 4	Frances Sobolak	language	Halkomelem	page 3, a row, its Corresponding root? column printing ×, none
+Table 1 line 4	Halkomelem	cited affix	c-	page 3, the prefix
+Table 1 line 4	Frances Sobolak	translation	‘have’	page 3, the meaning
+Table 1 line 5	Frances Sobolak	language	Montana Salish	page 3, a row, its Corresponding root? column printing ×, none
+Table 1 line 5	Montana Salish	cited affix	epɬ-	page 3, the prefix
+Table 1 line 5	Frances Sobolak	translation	‘have’	page 3, the meaning
+Table 1 line 6	Frances Sobolak	language	Okanagan	page 3, a row, its Corresponding root? column printing ×, none
+Table 1 line 6	Okanagan	cited affix	(ʔa)kɬ-	page 3, the prefix
+Table 1 line 6	Frances Sobolak	translation	‘have’	page 3, the meaning
+§2.1	Frances Sobolak	heading	2.1 Denominals	page 3
+§2.1	Frances Sobolak	note	The most common Salish verbal prefix construction is a denominal construction. The above exam- ples (1–3) in Section 1 are denominal constructions. A Salish denominal construction is defined as an intransitive predicate comprised of, typically, a noun root and a verbal prefix. Before jumping into the Salish, I first want to consider ‘denominal’ more broadly — and the syntactic assump- tions/implications I’ll be making in this paper. This will help motivate my analysis in Section 4. Consider the English sentences below:	page 3
+(9a) line 1	English	note	Katherine gave a sigh.	page 3
+(9b) line 1	English	note	Katherine sighed.	page 3
+(10a) line 1	English	note	Manny took a drive.	page 3
+(10b) line 1	English	note	Manny drove.	page 3
+(11a) line 1	English	note	Lennon did a dance.	page 3
+(11b) line 1	English	note	Lennon danced.	page 3
+§2.1	Frances Sobolak	note	The (a) sentences have an overt verb and a nominal complement. The verbs in the (b) sentences are clearly (lexically) related to the nominal complements in the (a) sentences, and we want to capture that relationship. Following Hale and Keyser (1993; 2002), we assume that the noun form is the underlying lexical item, and the verbal forms are derived via syntactic incorporation. Hale and Keyser (1993) propose that an English denominal verb (like in the (b) sentences above) is formed when a nominal complement is incorporated into an abstract light verb (LV). The motivation for such is a combination of syntactic behavior and economy. Syntactically, denominal verbs are constrained by locality restrictions like the Head Movement Constraint (Travis 1984). If the process of creating a denominal verb was simply lexical, there’s not much explanation for why we can’t create denominal verbs with indirect objects or subjects. These constraints show that the process of creating an English denominal verb is indeed syntactic and not simply a lexical process.	page 3
+(12) line 1	Frances Sobolak	note	English light verb construction:	page 4, the heading
+(12) line 2	English	diagram	[v LV [DP NP]]	page 4, the structure
+(12) line 3	English	diagram	[v give [DP a sigh]]	page 4, the structure
+(13) line 1	Frances Sobolak	note	English denominal:	page 4, the heading
+(13) line 2	English	diagram	[v LV+NP [DP ]]	page 4, the structure
+(13) line 3	English	diagram	[v sighed[ DP ]]	page 4, the structure
+§2.1	Frances Sobolak	note	Interestingly, the English denominal doesn’t always have the same aspectual sense as its overt light verb counterpart construction (see Harley 2005 for a systematic look at how denominals get different aktionsart properties). Consider the difference between the light verb construction (14a) and the denominal construction (14b). Example (14a) isn’t compatible with the tag ‘for 15 minutes’ which means it is a bound, telic event. Example (14b) however is compatible with the tag, meaning the denominal is atelic. This generalization doesn’t hold across the examples in (15), where both the denominal and light verb construction is compatible with the tag.	page 4
+(14a) line 1	English	note	Katherine gave a sigh *for 15 minutes.	page 4
+(14b) line 1	English	note	Katherine sighed for 15 minutes.	page 4
+(15a) line 1	English	note	Manny took a drive for 15 minutes.	page 4
+(15b) line 1	English	note	Manny drove for 15 minutes.	page 4
+§2.1	Frances Sobolak	note	In comparison, Salish denominal constructions are formed with an overt verbal prefix that at- taches to a nominal complement. Compare (13) with (16–19). Unlike an English denominal, a Salish denominal does not have an abstract light verb.	page 4
+(16) line 1	Frances Sobolak	diagram	[v epɬ [DP NP]]	page 4, the structure, the prefix in v
+(16) line 2	Montana Salish	segmentation	čn ep-síc’m	page 4, each word over its gloss
+(16) line 3	Frances Sobolak	gloss	1sg.abs have-blanket	page 4
+(16) line 4	Frances Sobolak	translation	‘I have a blanket.’	page 4
+(16) line 5	Frances Sobolak	citation	(Montana Salish; Pete 2010)	page 4, the source
+(17) line 1	Frances Sobolak	diagram	[v kɬ [DP NP]]	page 4, the structure, the prefix in v
+(17) line 2	Okanagan	segmentation	kən kɬ-qʷácqən	page 4, each word over its gloss
+(17) line 3	Frances Sobolak	gloss	1sg.abs have-hat	page 4
+(17) line 4	Frances Sobolak	translation	‘I have a hat.’	page 4
+(17) line 5	Frances Sobolak	citation	(Okanagan; Mattina 1993:247)	page 4, the source
+(18) line 1	Frances Sobolak	diagram	[v pəl [DP NP]]	page 4, the structure, the prefix in v
+(18) line 2	Shuswap	segmentation	pəl-cítxʷ	page 4, each word over its gloss
+(18) line 3	Frances Sobolak	gloss	have-house	page 4
+(18) line 4	Frances Sobolak	translation	‘have a house’	page 4
+(18) line 5	Frances Sobolak	citation	(Shuswap; Kuipers 1974:71)	page 4, the source
+(19) line 1	Frances Sobolak	diagram	[v c [DP NP]]	page 5, the structure, the prefix in v
+(19) line 2	Halkomelem	segmentation	c-tiqiw	page 5, each word over its gloss
+(19) line 3	Frances Sobolak	gloss	have-horse	page 5
+(19) line 4	Frances Sobolak	translation	‘have a horse’	page 5
+(19) line 5	Frances Sobolak	citation	(Halkomelem; Gerdts and Hukari 2008:489)	page 5, the source
+§2.1	Frances Sobolak	note	Given these basic similarities and differences, let us now consider Salish denominals more closely. There has been some descriptive coverage of Salish denominals in the literature, but most extensively in Halkomelem (Gerdts and Hukari 2008). Other mentions of denominals include Okana- gan (Lyon 2010; 2011; 2013), Lillooet and ʔayʔaǰuθəm (Davis et al. 2020), and some comparative work in Kroeber (1999).	page 5
+§2.1	Halkomelem	cited form	ʔiləq	page 5, ‘buy’
+§2.1	Halkomelem	cited affix	txʷ-	page 5, ‘buy’
+§2.1	Frances Sobolak	note	The Halkomelem minimal pair below shows a contrast between a regular transitive construction in (20), where the verb root ʔiləq ‘buy’ has the required transitivity suffix and ergative agreement, and a denominal construction in (21) where the verb root ʔiləq is absent and instead a verbal prefix txʷ- ‘buy’ attaches to its nominal complement. Note that a denominal construction doesn’t have a transitivity suffix or ergative agreement. The denominal construction is an intransitive predicate. The subject of a denominal construction is an absolutive argument.2	page 5
+footnote 2	Frances Sobolak	note	2 Additional evidence in Halkomelem comes from ergative argument restrictions: Island Halkomelem doesn’t allow proper nouns to be subject of transitive clauses but does allow proper nouns to be subject of denominal constructions, showing that denominal constructions are syntactically intransitive (Gerdts and Hukari (2008)). Additionally, see Davis et al. (2020) for further evidence that subjects of denominals in Salish are not ergative, by exploring ergative extraction restrictions in Lillooet.	page 5, footnote
+(20) line 1	Halkomelem	segmentation	niʔ ʔiləqə-t-əs kʷθə swəy’qeʔ kʷθə ka:	page 5, each word over its gloss
+(20) line 2	Frances Sobolak	gloss	aux buy-tr-3erg det man det car	page 5
+(20) line 3	Frances Sobolak	translation	‘The man bought a car.’	page 5
+(20) line 4	Frances Sobolak	citation	(Gerdts and Hukari 2008:497)	page 5, the source
+(21) line 1	Halkomelem	segmentation	niʔ txʷ-ka: kʷθə swəy’qeʔ	page 5, each word over its gloss
+(21) line 2	Frances Sobolak	gloss	aux buy-car det man	page 5
+(21) line 3	Frances Sobolak	translation	‘The man bought a car.’	page 5
+(21) line 4	Frances Sobolak	citation	(Gerdts and Hukari 2008:497)	page 5, the source
+§2.1	Halkomelem	cited form	čn	page 5
+§2.1	Frances Sobolak	note	Denominal constructions, as intransitive predicates, don’t have transitive morphology (the tran- sitive suffix - nt or the transitive person marking). The intransitive subject pronominal must be used (čn in the below example).	page 5
+(22) line 1	Montana Salish	segmentation	čn epɬ-pus	page 5, each word over its gloss
+(22) line 2	Frances Sobolak	gloss	1sg.abs have-cat	page 5
+(22) line 3	Frances Sobolak	translation	‘I have a cat.’	page 5
+(22) line 4	Frances Sobolak	citation	(Montana Salish; Pete 2010)	page 5, the source
+(23) line 1	Montana Salish	segmentation	epɬ-pus-nt-n	page 5, each word over its gloss, judged ungrammatical, marked *
+(23) line 2	Frances Sobolak	gloss	have-cat-tr-1sg.subj	page 5
+(23) line 3	Frances Sobolak	translation	‘I have a cat.’	page 5
+§2.1	Frances Sobolak	note	However, even though denominals can’t occur with transitive morphology, they seem to be compatible with the Middle suffix - m.	page 5
+(24) line 1	Halkomelem	segmentation	c-məq’méq’-əm	page 6, each word over its gloss
+(24) line 2	Frances Sobolak	gloss	have-fill.oneself-mid	page 6
+(24) line 3	Frances Sobolak	translation	‘to fill oneself until bloated’	page 6
+(24) line 4	Frances Sobolak	citation	(Halkomelem; Gerdts and Hukari 2006:59)	page 6, the source
+(25) line 1	Montana Salish	segmentation	qe epɬ-ʔewtús-m	page 6, each word over its gloss
+(25) line 2	Frances Sobolak	gloss	1pl.subj have-oppose-mid	page 6
+(25) line 3	Frances Sobolak	translation	‘We have an enemy.’	page 6
+(25) line 4	Frances Sobolak	citation	(Montana Salish; Thomason 2018)	page 6, the source
+(26) line 1	Okanagan	segmentation	ʔaws-píx̌-əm	page 6, each word over its gloss
+(26) line 2	Frances Sobolak	gloss	go-hunt-mid	page 6
+(26) line 3	Frances Sobolak	translation	‘to go hunting’	page 6
+(26) line 4	Frances Sobolak	citation	(Okanagan; Lindley 2016:224)	page 6, the source
+§2.1	Frances Sobolak	note	This fact is important for two reasons: first, it will help distinguishing denominals from light verb constructions, and second, this shows that since the verbal clitic and Middle suffix (Voice suffix) can co-occur, they must be in different syntactic heads in denominals, unlike in light verb constructions (see Section 4).	page 6
+§2.1	Frances Sobolak	note	In summary, Salish verbal prefixes can attach to nominal complements to produce a denominal construction, which is an intransitive predicate with absolutive person marking. The denominal pred- icate does not host transitive or ergative morphology, but can host the Middle Voice suffix. Given these basic properties of Salish verbal prefixes and denominal constructions, in the next section I introduce another verbal prefix construction: the light verb construction.	page 6
+§3	Frances Sobolak	heading	3 Light verb constructions	page 6
+§3	Frances Sobolak	note	In the above section, we saw how verbal prefixes can attach to nominal complements to create denominals. In the beginning of the previous section, I noted similarities and differences between English and Salish denominal constructions — the main difference being that Salish denominals have an overt verbal element, while English denominals have an abstract verbal element. Traditionally, these abstract verbal elements in English denominals are referred to as light verbs. Light verbs are verbal elements that don’t fully predicate, meaning they don’t syntactically or semantically behave like their main verb counterparts. The English examples (27–29) all contain a light verb.	page 6
+(27) line 1	English	note	Katherine gave a sigh.	page 6
+(28) line 1	English	note	Manny took a drive.	page 6
+(29) line 1	English	note	Lennon had a laugh.	page 6
+§3	Halkomelem	cited form	glet	page 7, ‘pet’
+§3	Halkomelem	cited form	bul	page 7, ‘appear’
+§3	Frances Sobolak	note	Semantically, the subject in (27) is not giving a sigh. The light verb give is also not requir- ing its full/usual three theta-role arguments: actor, benefactor, theme (*Katherine gave a sigh to Frances). These English examples demonstrate how light verbs can act as a main verb with a nom- inal complement. Light verbs, cross-linguistically, often act as a modifier to the event argument, and the light verb’s function in those cases has more to do with the event structure. In fact, much of cross-linguistic research on light verbs has focused on the light verb’s effect on event structure (e.g. Butt 2010; Diesing 2000). These changes to the events, aspectual changes, appear with light verb constructions. Compare (30) to the clearly shortened event in (31). In (32), the event of petting the cat is a repeated action. Compare that to (33), where the light verb git ‘gives’ works with the main verb glet ‘pet’ to create an event of giving the cat a single pat. The light verb constructions in (34) and (35) show how different light verbs in Jaminjung can attach to the same main verb bul ‘appear’, creating different effects on the event. Depending on the event, light verbs can create inceptive readings, mirative readings, truncated readings, etc.	page 6
+(30) line 1	English	note	Fran looked at the painting.	page 7
+(30) line 2	English	note	(for an indefinitely long time)	page 7
+(31) line 1	English	note	Fran got a look at the painting.	page 7
+(31) line 2	English	note	(for a short moment glance)	page 7
+(32) line 1	Yiddish	segmentation	zi glet di kats	page 7, each word over its gloss
+(32) line 2	Frances Sobolak	gloss	she pets the cat	page 7
+(32) line 3	Frances Sobolak	translation	‘She pets the cat (repeatedly).’	page 7
+(32) line 4	Frances Sobolak	citation	(Yiddish; Diesing 1998:126)	page 7, the source
+(33) line 1	Yiddish	segmentation	Zi git a glet di kats	page 7, each word over its gloss
+(33) line 2	Frances Sobolak	gloss	she gives a pet the cats	page 7
+(33) line 3	Frances Sobolak	translation	‘She gives the cat a pat (once only).’	page 7
+(33) line 4	Frances Sobolak	citation	(Yiddish; Diesing 1998:126)	page 7, the source
+(34) line 1	Jaminjung	segmentation	bul ga-ruma-ny	page 7, each word over its gloss
+(34) line 2	Frances Sobolak	gloss	appear 3sg-come-past	page 7
+(34) line 3	Frances Sobolak	translation	‘appear’	page 7
+(34) line 4	Frances Sobolak	citation	(Jaminjung; Butt 2010:11)	page 7, the source
+(35) line 1	Jaminjung	segmentation	bul gani-ma	page 7, each word over its gloss
+(35) line 2	Frances Sobolak	gloss	appear 3sg-hit.past	page 7
+(35) line 3	Frances Sobolak	translation	‘appear (suddenly)’	page 7
+(35) line 4	Frances Sobolak	citation	(Jaminjung; Butt 2010:11)	page 7, the source
+§3	Halkomelem	cited form	haqʷ	page 7, ‘smell’
+§3	Frances Sobolak	note	Certain instances of the Halkomelem verbal clitic c- ‘have’ are light verbs. The below examples (36) and (38) show the ‘regular’ uses of the verb roots lem ‘look’ and haqʷ ‘smell’. Adding the verbal clitic c- ‘have’ turns the construction into a light verb construction — the verbal prefix c- clearly isn’t contributing possession and the construction’s interpretation takes on a diminutivized reading of the event. Example (37) is expressing a shortened event of looking and (39) is expressing a shortened event of smelling.	page 7
+(36) line 1	Halkomelem	segmentation	lem-ət	page 7, each word over its gloss
+(36) line 2	Frances Sobolak	gloss	look-tr	page 7
+(36) line 3	Frances Sobolak	translation	‘look at it’	page 7
+(36) line 4	Frances Sobolak	citation	(Gerdts and Hukari 2008:493)	page 7, the source
+(37) line 1	Halkomelem	segmentation	c-lem	page 7, each word over its gloss
+(37) line 2	Frances Sobolak	gloss	have-look	page 7
+(37) line 3	Frances Sobolak	translation	‘have a look’	page 7
+(37) line 4	Frances Sobolak	note	( catch a glimpse)	page 7, after the translation, the page printing ≈ where the text layer leaves a space
+(37) line 5	Frances Sobolak	citation	(Gerdts and Hukari 2008:493)	page 7, the source
+(38) line 1	Halkomelem	segmentation	haqʷ-əm	page 7, each word over its gloss
+(38) line 2	Frances Sobolak	gloss	smell-mid	page 7
+(38) line 3	Frances Sobolak	translation	‘smell (v.)’	page 7
+(38) line 4	Frances Sobolak	citation	(Gerdts and Hukari 2008:493)	page 7, the source
+(39) line 1	Halkomelem	segmentation	c-haqʷ	page 8, each word over its gloss
+(39) line 2	Frances Sobolak	gloss	have-smell	page 8
+(39) line 3	Frances Sobolak	translation	‘catch a whiff’	page 8
+(39) line 4	Frances Sobolak	citation	(Gerdts and Hukari 2008:493)	page 8, the source
+§3	Frances Sobolak	note	Just like denominals, light verb constructions are intransitive predicates with absolutive argu- ments. They do not occur with transitive morphology or ergative agreement. Also, as mentioned above, light verbs modify the event — often changing the aspectual class, or aktionsart, of the event. It’s worth noting that the Halkomelem light verb c- seems to change activities into achievements, though a more thorough investigation is needed. As of now, I don’t have evidence that light verb c- only attaches to activity roots like ‘smell’ and ‘look,’ and turn those activities into achievements — ‘get a whiff’ and ‘have a look’. A more systematic look at this is needed, though I suspect one might find different kinds of event modification depending on what kind of verb root the light verb attaches to (see Bar-el 2005 for systematic aspectual class behaviors and patterns in Squamish).3	page 8
+footnote 3	Frances Sobolak	note	3 Also see Diesing (2000) for an account of what kind of event modification systematically occurs depending on the verb’s aktionsart in Yiddish.	page 8, footnote
+§3	Frances Sobolak	note	I’ll touch on this more in the next section, but I haven’t found any light verb constructions in Okanagan or Montana Salish, and I haven’t investigated beyond these three languages. A more thorough investigation is needed, to see what other Salish languages have light verb constructions with a verbal prefix.	page 8
+§3.1	Frances Sobolak	heading	3.1 Generalizations	page 8
+§3.1	Frances Sobolak	note	As mentioned above, the Halkomelem light verb construction consists of the verbal clitic c- ‘have’ and a verb root. More specifically, these light verb interpretations appear when the verbal clitic is attaching to a dynamic, event-denoting verb root. Not all roots denote events, and so not all Halkomelem constructions with c- will have an event that can be modified. For example, a simple possessive construction with a noun root that doesn’t denote an event will not appear with any event modification, since there is not much to modify in a stative event.4	page 8
+footnote 4	Frances Sobolak	note	4 This isn’t true cross-linguistically. Some languages can get mirative readings of light verb constructions with stative events. See Diesing (1998; 2000) for mirative readings in Yiddish.	page 8, footnote
+(40) line 1	Halkomelem	segmentation	c-tiqiw	page 8, each word over its gloss
+(40) line 2	Frances Sobolak	gloss	have-horse	page 8
+(40) line 3	Frances Sobolak	translation	‘have a horse’	page 8
+(40) line 4	Frances Sobolak	citation	(Halkomelem; Gerdts and Hukari 2008:489)	page 8, the source
+(41) line 1	Halkomelem	segmentation	c-telə	page 8, each word over its gloss
+(41) line 2	Frances Sobolak	gloss	have-money	page 8
+(41) line 3	Frances Sobolak	translation	‘have money’	page 8
+(41) line 4	Frances Sobolak	citation	(Halkomelem; Gerdts and Hukari 2008:491)	page 8, the source
+§3.1	Frances Sobolak	note	This holds true in Montana Salish and Okanagan. In these languages, the verbal clitic meaning ‘have’ mostly attaches to nouns and expresses possession — which is a stative (non-dynamic) event. In fact, I have found no evidence of light verb interpretations — meaning, occurring with event modification — in either Montana Salish or Okanagan.5	page 8
+footnote 5	Frances Sobolak	note	5 There is always the possibility that light verb constructions exist in these languages, I just haven’t come across them.	page 8, footnote
+(42) line 1	Montana Salish	segmentation	čn epɬ-síc’m	page 9, each word over its gloss
+(42) line 2	Frances Sobolak	gloss	1sg.abs have-blanket	page 9
+(42) line 3	Frances Sobolak	translation	‘I have a blanket.’	page 9
+(42) line 4	Frances Sobolak	citation	(Montana Salish; Pete 2010)	page 9, the source
+(43) line 1	Okanagan	segmentation	kən kɬ-qʷácqən	page 9, each word over its gloss
+(43) line 2	Frances Sobolak	gloss	1sg.abs have-hat	page 9
+(43) line 3	Frances Sobolak	translation	‘I have a hat.’	page 9
+(43) line 4	Frances Sobolak	citation	(Okanagan; Mattina 1993:247)	page 9, the source
+§3.1	Halkomelem	cited affix	epɬ-	page 9
+§3.1	Frances Sobolak	note	This is not to say that in Montana Salish and Okanagan the verbal clitic have only attaches to nouns and denotes possession. Verbal clitics in these languages can attach to verbs, and result in existential predicates. Compare the simple predicate xʷúy in (44) with the existential predicate in (45), formed by adding the verbal clitic epɬ-. The same distinction exists between (46) and (47). Note that in (48), the existential reading exists with a noun complement. I leave the possibility of systematically distinguishing possessive from existentials with noun roots to future work. The examples in (49–50) show existential predicates in Okanagan can be formed with nouns, too.	page 9
+(44) line 1	Montana Salish	segmentation	xʷúy	page 9, each word over its gloss
+(44) line 2	Frances Sobolak	gloss	go	page 9
+(44) line 3	Frances Sobolak	translation	‘S/he/they went.’	page 9
+(44) line 4	Frances Sobolak	citation	(Montana Salish; Pete 2010)	page 9, the source
+(45) line 1	Montana Salish	segmentation	epɬ-xʷúy	page 9, each word over its gloss
+(45) line 2	Frances Sobolak	gloss	have-go	page 9
+(45) line 3	Frances Sobolak	translation	‘Some (people) went.’ / ‘There was going.’	page 9
+(45) line 4	Frances Sobolak	citation	(Montana Salish; Thomason 2018)	page 9, the source
+(46) line 1	Montana Salish	segmentation	χʷa-χʷʔéy	page 9, each word over its gloss
+(46) line 2	Frances Sobolak	gloss	redup-laugh.pl	page 9
+(46) line 3	Frances Sobolak	translation	‘They laughed.’	page 9
+(46) line 4	Frances Sobolak	citation	(Montana Salish; Pete 2010)	page 9, the source
+(47) line 1	Montana Salish	segmentation	hoy epɬ-χʷʔ-χʷʔéy	page 9, each word over its gloss
+(47) line 2	Frances Sobolak	gloss	finish/quit/then have-redup-laugh.pl	page 9
+(47) line 3	Frances Sobolak	translation	‘There was some laughter.’	page 9
+(47) line 4	Frances Sobolak	citation	(Montana Salish; Thomason 2018)	page 9, the source
+(48) line 1	Montana Salish	segmentation	ta epɬ-ʔék’wn	page 9, each word over its gloss
+(48) line 2	Frances Sobolak	gloss	neg have-fish.eggs	page 9
+(48) line 3	Frances Sobolak	translation	‘There are no fish eggs.’	page 9
+(48) line 4	Frances Sobolak	citation	(Montana Salish; Thomason 2018)	page 9, the source
+(49) line 1	Okanagan	segmentation	ik’líʔ kɬ-sƛ’aʔcínəm iʔ k’l wist	page 9, each word over its gloss
+(49) line 2	Frances Sobolak	gloss	dem have-deer det loc up.high	page 9
+(49) line 3	Frances Sobolak	translation	‘There’s deer up in the hills.’	page 9
+(49) line 4	Frances Sobolak	citation	(Okanagan; Lyon 2011:228)	page 9, the source
+(50) line 1	Okanagan	segmentation	kn nstils ik’líʔ kɬ-síyaʔ	page 9, each word over its gloss
+(50) line 2	Frances Sobolak	gloss	1sg.abs think dem have-saskatoon	page 9
+(50) line 3	Frances Sobolak	translation	‘I think there’s some berries over there.’	page 9
+(50) line 4	Frances Sobolak	citation	(Okanagan; Lyon 2011:238)	page 9, the source
+§3.1	Frances Sobolak	note	I leave further investigation of these to future work, as I haven’t found any diagnostic differ- ences between denominals and existential uses of have. But, crucially, while Montana Salish and Okanagan have can occur with verbs, the result is not a light verb construction. There is no aspectual modification to the event (like diminutivizing the event, inceptive reading, etc.). Table 2 highlights some distinguishing characteristics between denominals (consistent across Halkomelem, Okanagan, and Montana Salish) and Halkomelem light verb constructions. Salish denominals don’t appear with any aspectual modification, and they appear to contribute their main verb/regular semantics. In con- trast, Halkomelem light verb constructions occur with a verb root. The c- ‘have’ clitic is light, and the event is diminutivized. This raises a curious, but maybe circular, point: light verb interpretations only arise when the verbal prefix is attached to a verb root, so we can say that if the complement is a verb root, it must be a light verb interpretation. And likewise, we don’t get light verbs in Montana Salish or Okanagan because the clitic doesn’t attach to verbs. This doesn’t explain why the light verb requires a verbal complement, or if the verbal complement forces the verbal prefix to take on a light verb interpretation. I offer an explanation for this in the next section.	page 9
+Table 2 line 1	Frances Sobolak	note	Table 2: Summary of verbal prefix ‘have’ and interpretation diagnostics.	page 10, the caption
+Table 2 line 2	Frances Sobolak	note	Denominal Light verb construction Existential	page 10, the column heads
+Table 2 line 3	Frances Sobolak	note	Complement type noun verb noun/verb	page 10, a row, then its value under each head
+Table 2 line 4	Frances Sobolak	note	Complement aspectual class state dynamic state/dynamic	page 10, a row, then its value under each head
+Table 2 line 5	Frances Sobolak	note	Co-occur with Middle Voice suffix? yes no ?	page 10, a row, then its value under each head
+§4	Frances Sobolak	heading	4 Why have?	page 10
+§4	Frances Sobolak	note	In this section, I consider why light verb constructions aren’t possible with other verbal prefixes in Halkomelem. Given the generalizations and patterns observed so far, it’s important to address the fact that the only light verb constructions that I’ve found are (i) in Halkomelem, and (ii) are with the c- ‘have’ verbal clitic. Halkomelem has four verbal prefixes, and only c- seems to be compatible with a light verb interpretation. Consider these other verbal prefix constructions in Halkomelem:	page 10
+(51) line 1	Halkomelem	segmentation	ɬ-səplil	page 10, each word over its gloss
+(51) line 2	Frances Sobolak	gloss	ingest-bread	page 10
+(51) line 3	Frances Sobolak	translation	‘eat bread’	page 10
+(51) line 4	Frances Sobolak	citation	(Halkomelem; Gerdts and Hukari 2008:490)	page 10, the source
+(52) line 1	Halkomelem	segmentation	txʷ-leləm’	page 10, each word over its gloss
+(52) line 2	Frances Sobolak	gloss	buy-house	page 10
+(52) line 3	Frances Sobolak	translation	‘buy a house’	page 10
+(52) line 4	Frances Sobolak	citation	(Halkomelem; Gerdts and Hukari 2008:490)	page 10, the source
+§4	Frances Sobolak	note	I have found no evidence of the other verbal prefixes occurring with a verbal complement. As mentioned above, we can descriptively (and a bit circularly) say that these verbal prefixes cannot be used as light verbs because they don’t attach to a verbal complement — and a verbal complement is a necessity in a light verb construction. Consider the discussion in the beginning of this paper: why, in English, can some verbs be light verbs but other, semantically similar, verbs cannot? I had a laugh versus * I owned a laugh. In order to understand why have and not own, consider the function of have more closely. The verb have appears in quite a lot of contexts. The different uses and interpretations of have are well-explored (e.g. Harley 1998; Ritter and Rosen 1997; Beavers et al. 2008). A brief overview of some different interpretations of have is below.	page 10
+(53) line 1	English	note	Possessive:	page 11
+(53) line 2	English	note	Fran has a horse.	page 11
+(54) line 1	English	note	Locative:	page 11
+(54) line 2	English	note	The horse has a bird on its head.	page 11
+(55) line 1	English	note	Causative:	page 11
+(55) line 2	English	note	Fran has the horse walk around.	page 11
+(56) line 1	English	note	Auxiliary:	page 11
+(56) line 2	English	note	The horse has walked four miles.	page 11
+§4	Frances Sobolak	note	Additionally, others have noted a fairly robust connection in many languages between how the language forms possessive, locative, and existential constructions. Given these behaviors of have, some have argued for a partial or complete unification of the different interpretations of have, accom- plished with the use of an underspecified denotation of have. For example, Harley (1998) and Ritter and Rosen (1997) argue for a syntactically determined interpretation of have, heavily dependent on the nature of its complement. The crucial observation is that have is a relational element — have, no matter its ‘final’ interpretation, is expressing some relation between two or more arguments. In fact, Harley (1998) notes that have always requires a subject, across all interpretations. This could account for why no interpretation of have can be passivized.	page 11
+(57) line 1	English	note	Possessive:	page 11
+(57) line 2	English	note	Fran has a horse.	page 11
+(57) line 3	English	note	*A horse was had by Fran.	page 11
+(58) line 1	English	note	Locative:	page 11
+(58) line 2	English	note	The horse has a bird on its head.	page 11
+(58) line 3	English	note	*A bird on its head was had by the horse.	page 11
+§4	Halkomelem	cited form	Sæbø	page 11
+§4	Frances Sobolak	note	Syntactic attempts at capturing some interpretations of have all require have to have no lexi- cal semantic content — and its semantics are often not addressed. Some have proposed a formal semantics for have, which formalize this relational nature of have by utilizing the variable R (e.g. Partee 1997; Beavers et al. 2008; Sæbø 2009). Crucially, none of these analyses assume a rather transparent semantic denotation like:6	page 11
+footnote 6	Frances Sobolak	note	6 Semantic types (subscripted) are as follows: e=individuals, s=eventualities (not to be confused with the event argument e).	page 11, footnote
+(59) line 1	Frances Sobolak	formula	⟦have⟧ = λxₑλeₛ [have(x)(e)]	page 11, the denotation
+§4	Halkomelem	cited form	lıkʰ	page 12
+§4	Frances Sobolak	note	They, instead, formalize the (R)elational aspect of have. There is much more to a full overview and investigation into the formalization of have, but for the purposes of this paper, the relational nature of have is important because I here propose a denotation of possessive- have that is compatible with the light verb interpretations we see in Salish light verb constructions. I follow much of the previous literature in assuming that the denotation for have is underspecified. I differ slightly from much of the above literature in that I follow a Ramchand-esque understanding of the verbal spine, where the denotation of the verb changes as it moves higher in the VP. Butt (2003) and Butt and Ramchand (2005) outline this kind of proposal for light verbs in Urdu, where the light verb li ‘take’ contributes differently to the event’s interpretation based on its location on the verbal spine. In (60), the light verb li ‘take’ is situated, syntactically, above the main verb lıkʰ (V) ‘write’ and isn’t contributing any sense of ‘taking’, but instead is contributing the sense of ‘completely’.	page 11
+(60) line 1	Urdu	segmentation	nadya=ne xɑt lıkʰ li-ya	page 12, each word over its gloss
+(60) line 2	Frances Sobolak	gloss	Nadya.fem=erg letter.masc.nom write take-perf.m.sg	page 12
+(60) line 3	Frances Sobolak	translation	‘Nadya wrote a letter (completely).’	page 12
+(60) line 4	Frances Sobolak	citation	(Urdu; Butt and Ramchand 2005:19)	page 12, the source
+§4	Frances Sobolak	note	Given this understanding of the relationship between syntactic position and semantic contribu- tion to the event, I propose the following denotation for ‘full’ possessive- have:	page 12
+(61) line 1	Frances Sobolak	formula	⟦haveFULL⟧ = λyₑλxₑλeₛ[R(x)(e)&POSS(y)(e)]	page 12, the denotation
+(62) line 1	Frances Sobolak	diagram	vP	page 12, a node of the tree, top down
+(62) line 2	Frances Sobolak	diagram	v′	page 12, a node of the tree, top down
+(62) line 3	Frances Sobolak	diagram	v	page 12, a node of the tree, top down
+(62) line 4	Frances Sobolak	diagram	VP	page 12, a node of the tree, top down
+(62) line 5	Frances Sobolak	formula	⟦haveFULL⟧ = λyλxλe[R(x)(e)&POSS(y)(e)]	page 12, a node of the tree, top down
+§4	Frances Sobolak	note	The denotation in (61) reads: there is a relation between x and the event argument, and in that event, y is being possessed. The VP is traditionally associated with classical lexical semantics — the verb’s meaning — while the vP is traditionally associated less with the verb’s meaning and more with syntactic relationships (i.e. agreement). I propose the nature of these two heads (V and v) restrict what amount (or what kind) of semantics is allowed at those particular heads. Verbs, like have, that have both a clear lexical semantics part (in this case, possession) and a relational part (see Ritter and Rosen 1997; Beavers et al. 2008) are compatible with both heads, assuming the denotation is truncated to accommodate the syntactic heads’ requirements. I propose that, if have is situated higher in the VP (if, for example, another verb occupies the V head), the denotation of the verb is truncated to remove some of the lexical semantics content, see (63–64). The denotation in (63) reads: there is a relation between x and the event argument. The lexical semantics of possession is not present in this light verb.	page 12
+(63) line 1	Frances Sobolak	formula	⟦haveLIGHT⟧ = λxλe[R(x)(e)]	page 12, the denotation
+(64) line 1	Frances Sobolak	diagram	vP	page 13, a node of the tree, top down
+(64) line 2	Frances Sobolak	diagram	v′	page 13, a node of the tree, top down
+(64) line 3	Frances Sobolak	diagram	v	page 13, a node of the tree, top down
+(64) line 4	Frances Sobolak	formula	⟦haveLIGHT⟧ = λxλe[R(x)(e)]	page 13, a node of the tree, top down
+(64) line 5	Frances Sobolak	diagram	VP	page 13, a node of the tree, top down
+(64) line 6	Frances Sobolak	diagram	verb	page 13, a node of the tree, top down
+§4	Frances Sobolak	note	I take R in these denotations to be a variable for the subject’s role in the sentence. For Partee (1997) specifically, R is a predicate variable over two-place relations. In sum, we can think of have as a slightly unspecified lexical entry, where R is a variable for whatever role the external argument will have in relation to the predicate.7	page 13
+footnote 7	Frances Sobolak	note	7 See Sobolak (2021a) for an explanation of how R helps accomplish a compositionally-determined under- standing of the subject.	page 13, footnote
+§4	Frances Sobolak	note	Lastly, these proposed denotations of have that are sensitive to the syntactic position that they are occurring in raises questions about what kinds of verbs can be light verbs — I address this in the conclusion, as an area for future study.	page 13
+§4.1	Frances Sobolak	heading	4.1 Putting it all together	page 13
+§4.1	Frances Sobolak	note	Let’s start by considering the full interpretation cases of the verbal prefixes in denominals. We can start by assuming a basic syntactic structure, with the verbal clitic in V and its nominal complement base-generated as the VP’s complement, as shown in the Okanagan example in (65). I leave the question of how/if these two elements are syntactically incorporated in some way to future research.	page 13
+(65) line 1	Okanagan	segmentation	kən kɬ-qʷácqən	page 13, each word over its gloss
+(65) line 2	Frances Sobolak	gloss	1sg.abs have-hat	page 13
+(65) line 3	Frances Sobolak	translation	‘I have a hat.’	page 13
+(65) line 4	Frances Sobolak	citation	(Okanagan; Mattina 1993:247)	page 13, the source
+(66) line 1	Frances Sobolak	formula	⟦have⟧ = λyₑλxₑλeₛ[R(x)(e)&POSS(y)(e)]	page 13, the denotation
+(67) line 1	Frances Sobolak	diagram	vP	page 13, a node of the tree, top down
+(67) line 2	Frances Sobolak	diagram	kən v′	page 13, a node of the tree, top down
+(67) line 3	Frances Sobolak	diagram	VP	page 13, a node of the tree, top down
+(67) line 4	Frances Sobolak	diagram	kɬ	page 13, a node of the tree, top down
+(67) line 5	Frances Sobolak	diagram	DP	page 13, a node of the tree, top down
+(67) line 6	Frances Sobolak	diagram	qʷácqən	page 13, a node of the tree, top down
+§4.1	Frances Sobolak	note	The verbal clitic kɬ sits low in the VP, which is compatible with its fullest lexical semantics, resulting it its ‘regular’ possessive interpretation.	page 13
+§4.1	Frances Sobolak	note	For light verb constructions, since the base is a verb root, this verb root would naturally be in the V-head (69). This requires the verbal clitic to be situated elsewhere in the structure, presumably the next higher head, v. Following the above discussion, the denotation of have will be truncated (see (69)), since have is situated in v. This is also compatible with the Middle Voice suffix data — light verb constructions cannot co-occur with a Middle Voice suffix because the light verb is occupying that syntactic head.	page 14
+(68) line 1	Halkomelem	segmentation	kən c- lem	page 14, each word over its gloss
+(68) line 2	Frances Sobolak	gloss	1sg.abs have-look	page 14
+(68) line 3	Frances Sobolak	translation	‘I had a look.’	page 14
+(68) line 4	Frances Sobolak	citation	(Halkomelem; Gerdts and Hukari 2008)	page 14, the source
+(69) line 1	Frances Sobolak	formula	⟦haveLIGHT⟧ = λxₑλeₛ[R(x)(e)]	page 14, the denotation
+(70) line 1	Frances Sobolak	diagram	vP	page 14, a node of the tree, top down
+(70) line 2	Frances Sobolak	diagram	kən v’	page 14, a node of the tree, top down
+(70) line 3	Frances Sobolak	diagram	c- VP	page 14, a node of the tree, top down
+(70) line 4	Frances Sobolak	diagram	lem	page 14, a node of the tree, top down
+§4.1	Frances Sobolak	note	In sum, in denominal constructions, the verb is situated in V-head, where it contributes its lexical semantics (possession). When forced to sit higher in the VP, like v-head, the verb will lose some of its semantics, specifically the lexical semantics of possession. In doing so, we’ve now come away from the traditional understanding of ‘light verb’ in close relationship with aspectual modification of the event. The ‘lightness’ that we see in the verb have is a semantic lightening due to syntactic restrictions.8	page 14
+footnote 8	Frances Sobolak	note	8 See Sobolak (2021a) for an explanation of the aspectual changes to the event, separate from the light verb.	page 14, footnote
+§5	Frances Sobolak	heading	5 Conclusion	page 14
+§5	Frances Sobolak	note	The main goal of this paper was to outline the differences between two verbal prefix constructions: denominals and light verb constructions. I also considered why light verb interpretations seem to be reserved to only have (specifically in Halkomelem). I proposed a relational understanding of have that attempts to capture the different interpretations of have in a way that recognizes restrictions the syntax puts on a verb’s semantics. I argue that verbs like have have a relational and lexical semantic component to its semantic denotation — the latter of which gets truncated when occurring with a verbal complement (i.e. in light verb constructions). This is a preliminary investigation into understanding why some verbs can be light, while others with similar semantics cannot.	page 14
+§5	Frances Sobolak	note	More broadly, this investigation leaves open the possibility that other verbal prefixes across Salish can be used ‘lightly’, and hopefully makes predictions of their syntactic behavior. Lastly, I want to acknowledge the possibility of a blurred line between some light verb constructions (with compositional meaning) and idiomatic expressions. Consider the English expression:	page 14
+(71) line 1	English	note	Don’t have a cow!	page 15
+§5	Frances Sobolak	note	We might want to say that the have here is a light verb, since the meaning clearly isn’t a posses- sive, locative, or causative one. But there’s also this understanding of the sentence as an idiomatic expression, in which case the meaning is not compositional at all, even with a light verb understand- ing of the verb. As fluency of the endangered Salish languages decline, it’s possible that use of these light verb constructions become somewhat idiomatic. The more patterns and generalizations that we can observe and document, the more a compositional understanding can be posited and preserved.	page 15
+references	Frances Sobolak	heading	References	page 15
+references	Frances Sobolak	reference	Beavers, John, Elias Ponvert, & Stephen Wechsler. 2008. Possession of a controlled substantive: Light ‘have’ and over verbs of possession. Proceedings of SALT XVIII:108–-125.	page 15
+references	Frances Sobolak	reference	Butt, Miriam. 2003. The light verb jungle. Harvard Working Papers in Linguistics 9:1–49.	page 15
+references	Frances Sobolak	reference	Butt, Miriam. 2010. The light verb jungle: Still hacking away. In Mengistu Amberber, Brett Baker, & Mark Harvey (eds.), Complex predicates: Cross-linguistics perspectives on event structure. Cambridge: Cambridge University Press, 48-–78.	page 15
+references	Frances Sobolak	reference	Butt, Miriam & Gillian Ramchand. 2005. Complex aspectual structure in Hindi/Urdu. In Nomi Erteschik-Shir & Tova Rapoport (eds.), The Syntax of Aspect: Deriving Thematic and Aspectual Interpretation. Oxford: Oxford University Press, 117–-153. Davis, Henry, Laura Griffin, Marianne Huijsmans, & Gloria Mellesmoen. 2020. Extracting possessors in ʔayʔaǰuθəm (and beyond). Papers of ICSNL 55:87–-106.	page 15
+references	Frances Sobolak	reference	Diesing, Molly. 1998. Light verbs and the syntax of aspect in Yiddish. Journal of Comparative Germanic Linguistics 1(2):119–156.	page 15
+references	Frances Sobolak	reference	Diesing, Molly. 2000. Aspect in Yiddish: The semantics of an inflectional head. Natural Language Semantics 8(3):231–253.	page 15
+references	Frances Sobolak	reference	Gerdts, Donna & Hukari, Thomas. 2006. The Halkomelem Middle: A complex network of constructions. Anthropological Linguistics 48(1):44–81.	page 15
+references	Frances Sobolak	reference	Gerdts, Donna & Hukari, Thomas. 2008. Halkomelem denominal verb constructions. International Journal of American Linguistics 74(4):489–510.	page 15
+references	Frances Sobolak	reference	Hale, Kenneth & Keyser, Samuel Jay. 1993. In Kenneth Hale & Samuel J. Keyser (eds.), The view from Building 20: Essays in linguistics in honor of Sylvain Bromberger. Cambridge, MA: MIT Press, 53–-109.	page 15
+references	Frances Sobolak	reference	Hale, Kenneth & Keyser, Samuel Jay. 2002. Prolegomenon to a theory of argument structure. Cambridge, MA: MIT Press.	page 15
+references	Frances Sobolak	reference	Harley, Heidi. 1998. You’re having me on!: Aspects of have. In Jacqueline Guéron & Anne Zribi-Hertz (eds.), La grammaire de la possession. Paris: Université Paris, 195-–226.	page 16
+references	Frances Sobolak	reference	Harley, Heidi. 2005. How do verbs get their names? Denominal verbs, manner incorporation, and the ontology of verb roots in English. In Nomi Erteschik-Shir & Tova Rapoport (eds.), The Syntax of Aspect: Deriving Thematic and Aspectual Interpretation. Oxford: Oxford University Press, 42–-64.	page 16
+references	Frances Sobolak	reference	Kroeber, Paul. 1999. The Salish Language Family. Lincoln, NE: University of Nebraska Press.	page 16
+references	Frances Sobolak	reference	Kuipers, Aert. 1974. The Shuswap Language: Grammar, Texts, Dictionary. The Hague: Mouton.	page 16
+references	Frances Sobolak	reference	Kuipers, Aert. 2002. Salish Etymological Dictionary. Missoula, MT : Linguistics Laboratory, University of Montana.	page 16
+references	Frances Sobolak	reference	Lindley, Lottie. 2016. Okanagan Grouse Woman. Lincoln, NE: University of Nebraska Press.	page 16
+references	Frances Sobolak	reference	Lyon, John. 2010. Nominal modification in Upper Nicola Okanagan: A working paper. Papers of ICSNL 45:199-–233.	page 16
+references	Frances Sobolak	reference	Lyon, John. 2011. The semantics of determiner phrases in Okanagan. Papers of ICSNL 46:194-–266.	page 16
+references	Frances Sobolak	reference	Lyon, John. 2013. Predication and Equation in Okanagan Salish. PhD thesis. University of British Columbia, Vancouver, B.C.	page 16
+references	Frances Sobolak	reference	Mattina, Anthony. 1987. Colville-Okanagan Dictionary. Missoula, MT: Dept. of Anthropology, University of Montana.	page 16
+references	Frances Sobolak	reference	Mattina, Anthony. 1993. Okanagan aspect: A working paper. Papers of ICSNL 28:233–-263.	page 16
+references	Frances Sobolak	reference	Partee, Barbara. 1997. Genitives: A Case Study. In: Johan van Benthem & Alice ter Meulen (eds.), Handbook of Logic and Language. Amsterdam: Elsevier, 464-–470.	page 16
+references	Frances Sobolak	reference	Pete, Tachini. 2010. seliš nyoʔnuntn: Medicine for the Salish Language. Pablo, MT: SKC Press.	page 16
+references	Frances Sobolak	reference	Ramchand, Gillian. 2008. V erb meaning and the lexicon. Cambridge: Cambridge University Press.	page 16
+references	Frances Sobolak	reference	Ritter, Elizabeth & Rosen, Sara. 1997. The function of have. Lingua 101(3):295–321.	page 16
+references	Frances Sobolak	reference	Sæbø, Kjell Johan. 2009. Possession and pertinence: The meaning of have. Natural Language Semantics 17:369–397.	page 16
+references	Frances Sobolak	reference	Sobolak, Frances Ellie. 2021. Revisiting light verbs: Salish denominal constructions. [ms]. Cornell University.	page 16
+references	Frances Sobolak	reference	Thomason, Sarah Grey. 2018. Flathead language dictionary. [ms]. The University of Michigan.	page 17
+references	Frances Sobolak	reference	Travis, Lisa. 1984. Parameters and effects of word order variation. PhD thesis. MIT, Boston, MA.	page 17

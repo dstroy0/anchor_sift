@@ -1,0 +1,431 @@
+where	who	kind	form	gloss
+front	Karsten A. Koch	title	Phrase boundary effects in /t/ duration and aspiration in Nɬeʔkepmxcin (Thompson River Salish)	page 1, carries footnote *
+front	Karsten A. Koch	name	Karsten A. Koch	author
+front	Karsten A. Koch	note	University of Alberta	page 1, under Karsten A. Koch
+front	Karsten A. Koch	note	Abstract: Consonant inventories and substantial obstruent clusters in Salishan languages like Nɬeʔkepmxcin can obscure potential F0 cues to prosodic phrase boundaries, such as boundary tones, or declination reset. By using phonetic analysis, I test the hypothesis that consonant duration and aspiration behaviour differs phrase internally as opposed to in phrase final positions. I show that the final voiceless alveolar stop /t/ of the 1pl marker /kt/ is longer when phrase final than phrase internal. Additionally, /t/ is longer at an i-phrase boundary than at a p-phrase boundary. In terms of aspiration, phrase final /t/ tokens have aspiration that is greater in duration and with an earlier intensity peak, though this appears to be a property only of i-phrase and not p-phrase boundaries.	page 1, the abstract
+front	Karsten A. Koch	note	Keywords: prosody, phrasing, aspiration, Nɬeʔkepmxcin, Salishan	page 1, the keywords
+front	Karsten A. Koch	note	In Papers for the International Conference on Salish and Neighbouring Languages 50, University of British Columbia Working Papers in Linguistics 40, Natalie Weber, Erin Guntly, Zoe Lam, and Sihwei Chen (eds.), 2015.	page 1, the volume's header
+front	Karsten A. Koch	language	Nɬeʔkepmxcin	Thompson River Salish, Interior Salish
+footnote *	Karsten A. Koch	note	I am indebted to consultants Flora Ehrhardt and Patricia McKay, without whom this research would not be possible. This research has been supported by Jacobs and Kinkade Research Grants from the Whatcom Museum Foundation, Bellingham, WA; and by NSERC, SSHRC, and DAAD research fellowships. Contact info: karstenak@hotmail.com	page 1, footnote *, on the title
+footnote *	Karsten A. Koch	name	Flora Ehrhardt	consultant
+footnote *	Karsten A. Koch	name	Patricia McKay	consultant
+§1	Karsten A. Koch	heading	1 Introduction	page 1
+§1	Karsten A. Koch	note	The Salish languages of the Pacific Northwest of North America are well known for their rich consonantal inventories, widespread glottalization, and lengthy obstruent clusters (e.g. Bagemihl 1991; Kinkade 1992; Shaw 2002). Because obstruents are well known to affect the pitch of adjacent resonants (e.g. Brown and Thompson 2006 on Upriver Halkomelem Salish), it can be difficult to measure potential F0 cues to prosodic phrasing, such as boundary tones and declination reset, in Salish languages. In this paper, I explore an alternative phonetic cue to prosodic phrasing in Nɬeʔkepmxcin (Thompson River Salish), one that in fact takes advantage of the widespread distribution of obstruents. Koch (2010) proposed that the final /t/ of the 1st person plural marker /kt/ is aspirated in phrase-final position, but not phrase-internally. In this paper, I test this prediction by comparing /kt/ /in phrase-final versus phrase internal positions, on a range of phonetic measures, including consonant and aspiration duration, and aspiration intensity. The tests were done on intransitive clauses (since these use the subject agreement marker /kt/).	page 1
+§1	Karsten A. Koch	language	Thompson River Salish	Nɬeʔkepmxcin
+§1	Karsten A. Koch	language	Upriver Halkomelem	Brown and Thompson 2006
+§1	Karsten A. Koch	note	Results indicate that there is no difference on the morpheme internal /k/ of the 1pl /kt/ across different positions, but the final /t/ of the /kt/ 1pl is reliably longer in duration when phrase final (in both phonological phrases, or p-phrases, and intonational phrase, or i-phrases). In addition, i-phrase final /t/ has aspiration that is greater in duration and intensity than both p-phrase final and phrase internal /t/.	page 1
+§1	Karsten A. Koch	note	Results are discussed in terms of how phonological phrasing aligns with properties of syntax, and properties of information structure. While verbs and auxiliaries are phrased together, intransitive verbs and oblique arguments or adjunct phrases appear to be phrased in separate p-phrases. As for the transitive clauses with VSO order that were investigated, these appear to have verb, subject and object phrased in independent p-phrases.	page 2
+§2	Karsten A. Koch	heading	2 Background	page 2
+§2	Karsten A. Koch	note	I begin with some background on Nɬeʔkepmxcin, then move on to some general background on phrasing and consonant cues to phrase boundaries, reviewing some related prior research in Nɬeʔkepmxcin, other Salishan languages, and cross-linguistically.	page 2
+§2.1	Karsten A. Koch	heading	2.1 General properties of Nɬeʔkepmxcin	page 2
+§2.1	Karsten A. Koch	note	Nɬeʔkepmxcin (Kroeber 1997; Thompson and Thompson 1992, 1996) is one of 23 Salish languages (Czaykowska-Higgins and Kinkade 1998; Kinkade 1992; Kroeber 1999; for some general overviews of Salishan). It is spoken in the southwest of British Columbia, and is severely endangered, with no more than a few hundred elderly speakers remaining. The phonemic inventory is given in Table 1.	page 2
+§2.1	Karsten A. Koch	name	Thompson and Thompson	Laurence C. Thompson and M. Terry Thompson, the grammar (1992) and dictionary (1996)
+§2.1	Karsten A. Koch	name	Kroeber	Paul Kroeber (1997, 1999)
+Table 1	Karsten A. Koch	note	Table 1 Phonemic inventory (adapted from Thompson and Thompson 1992)	page 2, the table's caption
+Table 1	Karsten A. Koch	note	CONSONANTS labial alveolar alveo- palatal velar uvular pharyn- geal glottal	page 2, the column heads
+Table 1 line 1	Karsten A. Koch	note	Stops p t k kʷ q qʷ ʔ	page 2, Table 1
+Table 1 line 2	Karsten A. Koch	note	Ejectives p̓ t’ k̓ k̓ʷ q̓ q̓ʷ	page 2, Table 1
+Table 1 line 3	Karsten A. Koch	note	Lateral Eject. ƛ̓	page 2, Table 1
+Table 1 line 4	Karsten A. Koch	note	Nasal m n	page 2, Table 1
+Table 1 line 5	Karsten A. Koch	note	Glottalized m̓ n̓	page 2, Table 1
+Table 1 line 6	Karsten A. Koch	note	Affricates c̣ [ts] c [t∫]	page 2, Table 1
+Table 1 line 7	Karsten A. Koch	note	Ejective c̓ [ts’]	page 2, Table 1
+Table 1 line 8	Karsten A. Koch	note	Fricatives ṣ [s] s [∫] x xʷ x̣ x̣ʷ h	page 2, Table 1
+Table 1 line 9	Karsten A. Koch	note	Lateral ɬ	page 2, Table 1
+Table 1 line 10	Karsten A. Koch	note	Approximant (w) z y [j] w ʕ ʕʷ	page 2, Table 1
+Table 1 line 11	Karsten A. Koch	note	Lateral l	page 2, Table 1
+Table 1 line 12	Karsten A. Koch	note	Glottalized (w̓) z̓ y̓ w̓ ʕ’ ʕ’ʷ	page 2, Table 1
+Table 1 line 13	Karsten A. Koch	note	Glott. Lateral l’	page 2, Table 1
+Table 1 line 14	Karsten A. Koch	note	VOWELS front central back	page 3, Table 1
+Table 1 line 15	Karsten A. Koch	note	high i ị u	page 3, Table 1
+Table 1 line 16	Karsten A. Koch	note	mid e ə ə̣ o	page 3, Table 1
+Table 1 line 17	Karsten A. Koch	note	low a	page 3, Table 1
+§2.1	Karsten A. Koch	note	Like all Salish languages, Thompson Salish is predicate-initial. The typical order is Verb-Subject-Object-Adjunct, though post-predicative verb order is in practice quite flexible. Predicates are obligatorily inflected for transitivity and subject/object agreement markers (see Thompson and Thompson 1992). Second position clitics (2CL) follow the first prosodic word. DPs are obligatorily marked with determiners. A transitive sentence is shown in (1).1	page 3
+footnote 1	Karsten A. Koch	note	Abbreviations in the glosses are based on Thompson and Thompson 1992, 1996, Kroeber 1997: ‘-’ = affix, ‘=’ = clitic, CLEFT = cleft predicate, COMP = complementizer, CnCl = conjunctive subject clitic, DEM = demonstrative, DET = determiner, DRV = directive transitivizer, EMPH = emphatic (independent pronoun), EVID = evidential, FUT = future, IMPF = imperfective, INCL = indicative subject clitic, INTRANS = intransitive, LINK = link marker (predicate modification), LOC = locative, NOM = nominalizer, O, OBJ = object, OBL = oblique, PERS = ‘persistent’ marker, PL = plural, POSS = possessive (affix), POCL = possessive subject clitic, S, SUBJ = subject, SG = singular, SUBJ.GAP = subject gap suffix, TRANS, TR = transitivizer, TS = transitive subject.	page 3, footnote 1
+§2.1	Karsten A. Koch	language	Thompson Salish	Nɬeʔkepmxcin
+(1)	Karsten A. Koch	note	Verb 2CL Subject Object	page 3, the column heads over the example
+(1) line 1	Nɬeʔkepmxcin	segmentation	kən-t-Ø-és =xeʔ e=skíxzeʔ-kt e=sínciʔ-kt.	page 3
+(1) line 2	Nɬeʔkepmxcin	gloss	help-TR-3O-3S =DEM DET=mother-1PL.POSS DET=brother-1PL.POSS	page 3
+(1) line 3	Karsten A. Koch	translation	‘Our mother helped our brother.’	page 3
+§2.1	Karsten A. Koch	note	Example (1) also shows two cases of the 1pl marker /kt/, in this case as a possessive suffix; /kt/ will be the object of phonetic analysis in section 3. The 1pl marker /kt/ can appear in one of two guises: either as an affix, or as a clitic. Following Davis (2000) on the Clitic Mobility Criterion, the affix always attaches to the same syntactic word form, regardless of general word order. The clitic, on the other hand, is “mobile” relative to its host, and will attach as a second position clitic, whatever the syntactic status of the first prosodic word in its phrase.	page 3
+§2.1	Karsten A. Koch	note	The affix/clitic distinction in Nɬeʔkepmxcin correlates with different semantic/syntactic uses of the 1pl marker. To mark nominal possession, as in ‘our brother’ and ‘our mother’ in (1), /kt/ always attaches to the possessed noun, and is thus an affix, and not a second position clitic. For example, in (2), the nominal is preceded by an adjective, yet the possessive marker (here the 3rd person possessor -s) still affixes to the nominal ‘dog’. and not the preceding adjective. Thus, adding more structure to the nominal phrase, like a preceding adjective, has no effect on where the possessive affix surfaces: its position is fixed to the noun.	page 3
+§2.1	Nɬeʔkepmxcin	cited form	-s	page 3, in italics
+(2) line 1	Nɬeʔkepmxcin	segmentation	e=stíptept te=sqáqχaʔ-s	page 4
+(2) line 2	Nɬeʔkepmxcin	gloss	DET=black LINK=dog-3POSS	page 4
+(2) line 3	Karsten A. Koch	translation	‘his black dog’	page 4
+§2.1	Karsten A. Koch	note	The second use of /kt/ is as an intransitive subject agreement marker in indicative or nominalized clauses. Intransitive predicates may be followed by oblique arguments (3), and in cases of a 1pl subject, are inflected with the 1pl subject clitic (on subject marking, see Davis 1999, 2000; Hoard 1971; Koch 2009; Kroeber 1999; Newman 1979, 1980). In this case, /kt/ is a second position clitic, and attaches to whatever is the first prosodic word in its attachment domain, rather than to a fixed host. In example (3), the 1pl indicative subject clitic =kt follows the verb, while in (4) it follows the initial auxiliary. Thus, this /kt/ is “mobile” and is not fixed to the verb. In (5), we see the /kt/ possessive clitic attaching to the imperfective auxiliary, the first prosodic word in a nominalized clause, and not to the verb qʷac ‘(get) warm’.	page 4
+§2.1	Nɬeʔkepmxcin	cited form	qʷac	page 4, in italics, ‘(get) warm’
+(3)	Karsten A. Koch	note	Verb 2CL Oblique	page 4, the column heads over the example
+(3) line 1	Nɬeʔkepmxcin	segmentation	wʔxə́m =kt te=swíte.	page 4
+(3) line 2	Nɬeʔkepmxcin	gloss	have =1PL.INCL OBL=sweater	page 4
+(3) line 3	Karsten A. Koch	translation	‘We have sweaters.’	page 4
+(4)	Karsten A. Koch	note	Aux 2CL Aux Verb	page 4, the column heads over the example
+(4) line 1	Nɬeʔkepmxcin	segmentation	xʷúy̓ =kt nés téw-cn-me.	page 4
+(4) line 2	Nɬeʔkepmxcin	gloss	FUT =1PL.INCL go buy-mouth-INTRANS	page 4
+(4) line 3	Karsten A. Koch	translation	‘We’re going to go grocery shopping.’	page 4
+(5)	Karsten A. Koch	note	… Aux 2CL Verb	page 4, the column heads over the example
+(5) line 1	Nɬeʔkepmxcin	segmentation	…ʔé k=s=wʔéx =kt qʷác	page 4
+(5) line 2	Nɬeʔkepmxcin	gloss	…and COMP=NOM=IMPF =1PL.POCL warm	page 4
+(5) line 3	Karsten A. Koch	translation	‘…so we could stay warm.’	page 4
+(5) line 4	Karsten A. Koch	citation	[787d’’’]	page 4, the tag or source at the right of the translation
+§2.2	Karsten A. Koch	heading	2.2 Prosodic phrasing background	page 4
+§2.2	Karsten A. Koch	note	There has been little previous research on properties of prosodic phrasing in the language: the grammar mentions a few general pitch cues (Thompson and Thompson 1992:24), while Egesdal (1984) details some general rhythmic properties of narratives, again only impressionistically. Koch (2008, 2011) showed that intonational phrases were right-headed, as indicated by the prosodic prominence of vowels, and phrase-final vowels showed a significant final lengthening effect. In the present study, it is hypothesized that consonants at phrase final edges will also undergo a lengthening effect, similar to vowels. In this paper, I will be referring to phonological phrases (p-phrase) and intonational phrases (i-phrases) in the prosodic hierarchy of Nespor and Vogel (1986, also Hayes 1989). The labels p-phrase and i-phrase are not universally used (e.g. minor phrase and major phrase are other similar terms – Selkirk and Kratzer 2007); for the purposes of the present study, what is important is that I will provide evidence for two phrasal categories above and beyond words and clitic groups in Nɬeʔkepmxcin.	page 4
+§2.2	Karsten A. Koch	name	Egesdal	Steven M. Egesdal, narratives (1984)
+§2.2	Karsten A. Koch	name	Nespor and Vogel	the prosodic hierarchy (1986)
+§2.2	Karsten A. Koch	name	Selkirk and Kratzer	Elizabeth Selkirk and Angelika Kratzer (2007)
+§2.2	Karsten A. Koch	note	Looking across the Salish language family more generally, there again has been much work on prosodic categories below the level of phrases (e.g. Czaykowska-Higgins 1993, 1998; Shaw 2002; Thompson and Thompson 1992, etc.), but comparatively little at the phrasal level. A notable exception, Beck (1996, 1999) identifies the following indicators of p-phrase status in Lushootseed Salish (see also Beck and Bennett 2007):	page 5
+§2.2	Karsten A. Koch	name	Beck	David Beck, phrasing in Lushootseed (1996, 1999)
+§2.2	Karsten A. Koch	language	Lushootseed	Central Salish, Beck's p-phrases
+(6)	Karsten A. Koch	note	Characteristics of phonological phrases in Lushootseed Salish (Beck 1999)	page 5, the list's caption
+(6a)	Karsten A. Koch	note	a. set off by 50-100 ms pause in careful speech	page 5, an item of the list
+(6b)	Karsten A. Koch	note	b. lack phonological interaction (i.e. assimilation, etc.) across p-phrase boundaries	page 5, an item of the list
+(6c)	Karsten A. Koch	note	c. contain a single phonological word with an amplitude peak plus clitics and affixes	page 5, an item of the list
+§2.2	Karsten A. Koch	note	In the present study, I primarily focus on how (6c) plays out in Nɬeʔkepmxcin, and test whether p-phrases in Nɬeʔkepmxcin can extend beyond single words. In this regard, I show that the verbal complex (auxiliaries plus main verb) are parsed as a single p-phrase, even though auxiliaries are prosodic words since they attract second position clitics. Thus, auxiliary-verb sequences contain two prosodic words, but only one phrase. I also make some remarks about complex noun phrases, suggesting they may also be parsed as single phonological phrases.	page 5
+§2.2	Karsten A. Koch	note	In addition, Beck (1999) notes that intonational phrases in Lushootseed are characterized by a steady fall in F0, with a declination reset at the start of each i-phrase. In Okanagan Salish, prosodic boundaries are also marked by pauses, F0 fall, and reset or partial reset of declination across phrasal boundaries (Barthmaier 2004). Finally, recent work by Caldecott (2009) shows that prosodic phrases are right-headed in St’át’imcets Salish; Koch (2008) finds that Thompson Salish, too, has rightmost nuclear stress and right-headed phonological-phrases. The present study does not directly address declination effects in F0, since it looks at consonants.	page 5
+§2.2	Karsten A. Koch	name	Barthmaier	Paul Barthmeier in the references, intonation units in Okanagan (2004)
+§2.2	Karsten A. Koch	name	Caldecott	Marion Caldecott, prosodic phrases in St’át’imcets (2009)
+§2.2	Karsten A. Koch	language	Okanagan	Interior Salish, Barthmaier 2004
+§2.2	Karsten A. Koch	language	St’át’imcets	Lillooet, Interior Salish
+§2.3	Karsten A. Koch	heading	2.3 Consonant production background	page 5
+§2.3	Karsten A. Koch	note	In terms of prior related research on consonants in Nɬeʔkepmxcin, Thompson and Thompson (1992:4) note that stops are “somewhat aspirated before a spirant” and regularly aspirated “before another stop,” while in “syllable final position, [stops] are strongly aspirated.” These observations led Koch (2010) to examine stop aspiration as a possible cue for phrasal boundaries. Specifically, Koch (2010) looked at some cases of the voiceless alveolar stop /t/ in the 1pl marker /kt/, proposing that it was aspirated in phrase final but not phrase internal positions; however, the study used a small set of data, was limited to aspiration (presence or absence), and did not do a phonetic analysis across a larger data set.	page 5
+§2.3	Karsten A. Koch	note	Cross-linguistically, consonants have been shown to have phonetic properties that are plausibly the phonological realization of phrase edge boundaries. Butcher and Harrington (2003a, 2003b) showed that /p/ in onset position in Warlpiri focus phrases had increased duration. In Blackfoot, a laryngeal feature marks phrase final positions, including the devoicing of vowels, and aspiration of phrase final consonants (Frantz 2009, Windsor and Cobler 2013). Niebuhr (2008) showed that, in German, utterance final /t/ aspiration differed in duration and intensity depending on the accompanying tonal contour: in other words, while tonal contours are a type of phrasal property usually thought of as realized on vowels, the consonant aspiration also played a role in indicating phrasal type in German. Results of these studies motivate the hypothesis that aspiration duration and intensity may mark final phrase boundaries in Nɬeʔkepmxcin.	page 6
+§2.3	Karsten A. Koch	name	Butcher and Harrington	Andrew Butcher and Jonathan Harrington, Warlpiri (2003)
+§2.3	Karsten A. Koch	name	Niebuhr	Oliver Niebuhr, German /t/ aspiration (2008)
+§2.3	Karsten A. Koch	language	Warlpiri	Butcher and Harrington 2003
+§2.3	Karsten A. Koch	language	Blackfoot	Frantz 2009, Windsor and Cobler 2013
+§2.3	Karsten A. Koch	language	German	Niebuhr 2008
+§2.3	Karsten A. Koch	note	Considering Salishan consonant articulation more broadly, the present study will be of interest to other work that has examined various aspect of consonant production across other Salishan languages. Esling and colleagues laryngoscopically examined properties of glottal stops, glottalized resonants and pharyngeals, including in Nɬeʔkepmxcin (Carlson et al. 2004; Esling et al. 2002); the present study provides acoustic phonetic information on laryngeal properties (aspiration) of the voiceless stops /k/ and /t/. Bessell (1997, 1998) examined co-articulation effects of vowels on consonants in St’át’imcets, a related Interior Salish language. J.H. Davis (2005) showed that pre-vocalic glides in Comox often attract primary stress, usually thought of as a property of vowels, which are usually described as prosodic heads of syllables and phrases; in terms of the present study, this motivates looking at consonants for other phonetic markers of phrase position and phrase type (here, duration and aspiration). Looking at guttural glides in St’át’imcets, Shahin (2003) also showed a phonological conditioning on consonant production, in that pharyngeal occurrences happen with labialization, while uvular forms were found elsewhere; the present paper proposes that voiceless stop production in Nɬeʔkepmxcin is also phonologically conditioned, by phrasal boundaries.	page 6
+§2.3	Karsten A. Koch	name	Shahin	Kimary N. Shahin, St’át’imcets gutturals (2003)
+§2.3	Karsten A. Koch	name	Bessell	Nicola J. Bessell, St’át’imcets (1997, 1998)
+§2.3	Karsten A. Koch	name	J.H. Davis	John H. Davis, glides in Comox (2005)
+§2.3	Karsten A. Koch	name	Esling	John H. Esling, laryngoscopic studies
+§2.3	Karsten A. Koch	language	Comox	J.H. Davis 2005
+§2.3	Karsten A. Koch	note	Because the present study involves /kt/, a two-consonant form that additionally followed other root consonants, all forms occur in consonant clusters, and will be of interest to studies that have examined consonant cluster properties in other Salish languages (e.g. Hoard 1978, Bagemihl 1991 on Nuxalk; Bianco 1996 for Cowichan; Shaw 2002 for hən’q’əmin’əm’; Marinakis 2004 for Upriver Halq’eméylem). Finally, while phrasal distinctions have not received much attention, Van Eijk (2001) examined word, clitic and sentence distinctions in St’át’imcets (Lillooet Salish); here I look for phonetic evidence for phrasal groupings.	page 6
+§2.3	Karsten A. Koch	name	Van Eijk	Jan P. van Eijk, Lillooet (2001)
+§2.3	Karsten A. Koch	language	Lillooet	St’át’imcets
+§2.3	Karsten A. Koch	language	Nuxalk	Bella Coola
+§2.3	Karsten A. Koch	language	Cowichan	Bianco 1996
+§2.3	Karsten A. Koch	language	hən’q’əmin’əm’	Shaw 2002
+§2.3	Karsten A. Koch	language	Upriver Halq’eméylem	Marinakis 2004
+§2.4	Karsten A. Koch	heading	2.4 Predictions based on Koch (2010)	page 6
+§2.4	Karsten A. Koch	note	In Koch (2010), the following were proposed to constitute phrasal boundaries. Auxiliaries and verbs form a single phrase, while arguments and adjuncts are phrased separately from the verbal complex. Thus, /kt/ in (7)–(10) are proposed to be phrase internal. In (7) to (9), we have clitic instances of /kt/ (as per the Clitic Mobility Criterion discussed in 2.1). In (10), we find an instance of the possessor affix /kt/.	page 6
+(7)	Karsten A. Koch	note	[VP internal clitic /kt/]	page 7, the example's caption at the right of its phrasing
+(7)	Karsten A. Koch	note	( )i-phrase	page 7, the phrasing drawn over the line under it: i-phrase over xʷúy̓=kt nés téw-cn-me.
+(7)	Karsten A. Koch	note	( )p-phrase	page 7, the phrasing drawn over the line under it: p-phrase over xʷúy̓=kt nés téw-cn-me.
+(7) line 1	Nɬeʔkepmxcin	segmentation	xʷúy̓=kt nés téw-cn-me.	page 7
+(7) line 2	Nɬeʔkepmxcin	gloss	FUT=1PL.INCL go buy-mouth-INTRANS	page 7
+(7) line 3	Karsten A. Koch	translation	‘We’re going to go grocery shopping.’	page 7
+(8)	Karsten A. Koch	note	[Sentence final clitic /kt/ with additional clitic after it]	page 7, the example's caption at the right of its phrasing
+(8)	Karsten A. Koch	note	( )i-phrase	page 7, the phrasing drawn over the line under it: i-phrase over nan’ék’=kt=nukʷ.
+(8)	Karsten A. Koch	note	( )p-phrase	page 7, the phrasing drawn over the line under it: p-phrase over nan’ék’=kt=nukʷ.
+(8) line 1	Nɬeʔkepmxcin	segmentation	nan’ék’=kt=nukʷ.	page 7
+(8) line 2	Nɬeʔkepmxcin	gloss	get.nutrition=1PL.INCL=EVID	page 7
+(8) line 3	Karsten A. Koch	translation	‘We got nutrition.’	page 7
+(8) line 4	Karsten A. Koch	citation	[F_P599a-1]	page 7, the tag or source at the right of the translation
+(9)	Karsten A. Koch	note	[DP internal clitic /kt/, in prenominal relative clause]	page 7, the example's caption at the right of its phrasing
+(9)	Karsten A. Koch	note	( )i-ph	page 7, the phrasing drawn over the line under it: i-ph over … n=e=s=cúw=kt nmímɬ.
+(9)	Karsten A. Koch	note	( )p-phr	page 7, the phrasing drawn over the line under it: p-phr over … n=e=s=cúw=kt nmímɬ.
+(9) line 1	Nɬeʔkepmxcin	segmentation	… n=e=s=cúw=kt nmímɬ.	page 7
+(9) line 2	Nɬeʔkepmxcin	gloss	… in=DET=NOM=work=1PL.POCL 1PL.EMPH	page 7
+(9) line 3	Karsten A. Koch	translation	‘… for our work.’	page 7
+(9) line 4	Karsten A. Koch	citation	[F_P644a]	page 7, the tag or source at the right of the translation
+(10)	Karsten A. Koch	note	[DP internal affix /kt/]	page 7, the example's caption at the right of its phrasing
+(10)	Karsten A. Koch	note	( )i-phrase	page 7, the phrasing drawn over the line under it: i-phrase over … e=spzúʔ-kt nmímɬ.
+(10)	Karsten A. Koch	note	( )p-phrase	page 7, the phrasing drawn over the line under it: p-phrase over … e=spzúʔ-kt nmímɬ.
+(10) line 1	Nɬeʔkepmxcin	segmentation	… e=spzúʔ-kt nmímɬ.	page 7
+(10) line 2	Nɬeʔkepmxcin	gloss	… DET=animal-1PL.POSS 1PL.EMPH	page 7
+(10) line 3	Karsten A. Koch	translation	‘… our animal.’	page 7
+(10) line 4	Karsten A. Koch	citation	[F_P769a-2]	page 7, the tag or source at the right of the translation
+§2.4	Karsten A. Koch	note	On the other hand, /kt/ in (11)–(15) are proposed to be phrase final, and thus show greater duration and aspiration.	page 7
+(11)	Karsten A. Koch	note	[Sentence final clitic /kt/]	page 7, the example's caption at the right of its phrasing
+(11)	Karsten A. Koch	note	( )i-phrase	page 7, the phrasing drawn over the line under it: i-phrase over … t=e=s=máq’=kt.
+(11)	Karsten A. Koch	note	( )p-phrase	page 7, the phrasing drawn over the line under it: p-phrase over … t=e=s=máq’=kt.
+(11) line 1	Nɬeʔkepmxcin	segmentation	… t=e=s=máq’=kt.	page 7
+(11) line 2	Nɬeʔkepmxcin	gloss	… OBL=DET=NOM=full=1PL.POCL	page 7
+(11) line 3	Karsten A. Koch	translation	‘… because we’re full.’	page 7
+(11) line 4	Karsten A. Koch	citation	[F_P704v-3]	page 7, the tag or source at the right of the translation
+(12)	Karsten A. Koch	note	[Sentence and DP final affix /kt/]	page 7, the example's caption at the right of its phrasing
+(12)	Karsten A. Koch	note	( )i-phrase	page 7, the phrasing drawn over the line under it: i-phrase over … ʔeɬ ɬe=ʔímec-kt.
+(12)	Karsten A. Koch	note	( )p-phrase	page 7, the phrasing drawn over the line under it: p-phrase over … ʔeɬ ɬe=ʔímec-kt.
+(12) line 1	Nɬeʔkepmxcin	segmentation	… ʔeɬ ɬe=ʔímec-kt.	page 7
+(12) line 2	Nɬeʔkepmxcin	gloss	… and DET=grandchild-1PL.POSS	page 7
+(12) line 3	Karsten A. Koch	translation	‘… and our grandchildren.’	page 7
+(12) line 4	Karsten A. Koch	citation	[F_P375e-1]	page 7, the tag or source at the right of the translation
+(13)	Karsten A. Koch	note	[DP final affix /kt/]	page 8, the example's caption at the right of its phrasing
+(13)	Karsten A. Koch	note	( )i-phrase	page 8, the phrasing drawn over the line under it: i-phrase over cúkʷ=ƛ̓uʔ nmímɬ e=púṣ-kt e=ʔém’c-n-xʷ.
+(13)	Karsten A. Koch	note	( )p-phrase ( )p-phrase	page 8, the phrasing drawn over the line under it: p-phrase over cúkʷ=ƛ̓uʔ nmímɬ e=púṣ-kt; p-phrase over e=ʔém’c-n-xʷ.
+(13) line 1	Nɬeʔkepmxcin	segmentation	cúkʷ=ƛ̓uʔ nmímɬ e=púṣ-kt e=ʔém’c-n-xʷ.	page 8
+(13) line 2	Nɬeʔkepmxcin	gloss	finish=PERS 1PL.EMPH DET=cat-1PL.POSS COMP=feed-DRV-3O.2SG.TS	page 8
+(13) line 3	Karsten A. Koch	translation	‘Our cat was the only one you fed.’	page 8
+(13) line 4	Karsten A. Koch	citation	[F_P769b]	page 8, the tag or source at the right of the translation
+(14)	Karsten A. Koch	note	[VP final clitic /kt/ followed by adjunct]	page 8, the example's caption at the right of its phrasing
+(14)	Karsten A. Koch	note	( )i-phrase	page 8, the phrasing drawn over the line under it: i-phrase over yé’ e=s=n-ʕʷóy’t=kt ɬ=sítist.
+(14)	Karsten A. Koch	note	( )p-ph ( )p-phrase ( )p-phrase	page 8, the phrasing drawn over the line under it: p-ph over yé’; p-phrase over e=s=n-ʕʷóy’t=kt; p-phrase over ɬ=sítist.
+(14) line 1	Nɬeʔkepmxcin	segmentation	yé’ e=s=n-ʕʷóy’t=kt ɬ=sítist.	page 8
+(14) line 2	Nɬeʔkepmxcin	gloss	good COMP=NOM=LOC-sleep=1PL.POCL DET=night	page 8
+(14) line 3	Karsten A. Koch	translation	‘We slept good last night.’	page 8
+(14) line 4	Karsten A. Koch	citation	[F_P181f-1]	page 8, the tag or source at the right of the translation
+(15)	Karsten A. Koch	note	[VP final clitic /kt/ followed by oblique]	page 8, the example's caption at the right of its phrasing
+(15)	Karsten A. Koch	note	( )i-phrase	page 8, the phrasing drawn over the line under it: i-phrase over wʔxə́m=kt te=swíte.
+(15)	Karsten A. Koch	note	( )p-ph ( )p-phrase	page 8, the phrasing drawn over the line under it: p-ph over wʔxə́m=kt; p-phrase over te=swíte.
+(15) line 1	Nɬeʔkepmxcin	segmentation	wʔxə́m=kt te=swíte.	page 8
+(15) line 2	Nɬeʔkepmxcin	gloss	have=1PL.INCL OBL=sweater	page 8
+(15) line 3	Karsten A. Koch	translation	‘We have sweaters.’	page 8
+(15) line 4	Karsten A. Koch	citation	[F_P046]	page 8, the tag or source at the right of the translation
+§2.4	Karsten A. Koch	note	Note that the present study also allows us to test whether i-phrase final /kt/ has different phonetic properties than p-phrase final /kt/ that is not also i-phrase final at the end of a breath group). This would provide evidence for an intonational phrase (i-phrase), above the p-phrase level, thus resulting in the two levels of phrasing indicated in the above examples. For example, in (14), there are three p-phrases but only one i-phrase; =kt is in final position of the second p-phrase, but is not i-phrase final. In addition, the study looks at both the clitic /kt/ (=kt) and the affix /kt/ (-kt), allowing us to see whether this distinction has any effect on production of /k/ and /t/ in the two cases.	page 8
+§2.4	Nɬeʔkepmxcin	cited form	-kt	page 8, in italics
+§3	Karsten A. Koch	heading	3 Methodology	page 8
+§3	Karsten A. Koch	note	The 1pl marker /kt/ was chosen for analysis because, in addition to consisting of two voiceless stops, it was expected to occur relatively often. Moreover, as an enclitic or suffix, /kt/ would occupy right edge positions as well as internal positions. Instances of /kt/ were collected from the author’s corpus of recordings made over the course of three years of fieldwork. The data are from fieldwork with two speakers of the ƛ̓q̓emcín (Lytton) dialect of Nłeʔkepmxcin. Speakers were recorded on separate channels using a digital audio recorder and individual microphones. The forms examined in this paper all stem from a single breath group (where the breath group corresponds to the intonational phrase in the prosodic hierarchy). Examples come from both elicited examples, as well as spontaneous discourse generated via a range of methodologies (see Caldecott and Koch 2014).	page 8
+§3	Karsten A. Koch	language	Nłeʔkepmxcin	spelled with ł on page 8
+§3	Karsten A. Koch	language	ƛ̓q̓emcín	the Lytton dialect of Nɬeʔkepmxcin
+§3	Karsten A. Koch	note	Using Praat (Boersma and Weenink 2013), individual utterances were extracted from master recordings and saved as individual wav files. Using textgrids, consonant and aspiration lengths were marked for /k/ and /t/ in each example. In total, 580 tokens were analyzed. This included 290 tokens of complete consonant durations (phrase final /k/ = 72, phrase internal /k/ = 73, phrase final /t/ = 72, phrase internal /t/ = 73) and 290 tokens of aspiration (phrase final /k/ aspiration = 72, phrase internal /k/ aspiration = 73, phrase final /t/ aspiration = 72, phrase internal /t/ aspiration = 73). However, 5 tokens of phrase internal /t/ yielded no aspiration values because there was no noticeable consonant release and aspiration frication present.	page 9
+§3	Karsten A. Koch	note	Automated scripts were used to measure overall consonant duration (ms), and the following aspects of consonant aspiration: duration (ms), maximum intensity (dB), and the time point during the aspiration at which the maximum intensity occurred (both as an absolute value in ms, and as a percentage of the overall duration of aspiration). Where there was no aspiration at all, this was noted; if there was no complete /t/ closure (but continuous aspiration from the preceding /k/), this was also noted.	page 9
+(16)	Karsten A. Koch	note	Acoustic phonetic measurements made	page 9, the list's caption
+(16a)	Karsten A. Koch	note	a. entire /k/ and /t/ consonants:	page 9, an item of the list
+(16a)	Karsten A. Koch	note	duration (ms)	page 9, an item of the bulleted list
+(16b)	Karsten A. Koch	note	b. /k/ aspiration and /t/ aspiration:	page 9, an item of the list
+(16b)	Karsten A. Koch	note	duration (ms)	page 9, an item of the bulleted list
+(16b)	Karsten A. Koch	note	maximum intensity (dB)	page 9, an item of the bulleted list
+(16b)	Karsten A. Koch	note	time of maximum intensity (ms)	page 9, an item of the bulleted list
+(16b)	Karsten A. Koch	note	time of maximum intensity as percentage of overall aspiration duration (%)	page 9, an item of the bulleted list
+(16b)	Karsten A. Koch	note	absence of aspiration	page 9, an item of the bulleted list
+(16b)	Karsten A. Koch	note	absence of complete /t/ closure	page 9, an item of the bulleted list
+§3	Karsten A. Koch	note	In addition to descriptive statistics, independent samples t-tests were used to conduct the inferential statistical tests. Where necessary, the t-tests were conducted for unequal variances after inspection of F values in Levene’s Test for Equality of Variances, with degrees of freedom adjusted as needed. Because of the number of comparisons performed (20), the significant p-value was adjusted downward to 0.0025.	page 9
+§4	Karsten A. Koch	heading	4 Results	page 9
+§4	Karsten A. Koch	note	I begin by reporting results for overall consonant duration, and then move on to results for aspiration. I use the following abbreviations: sd = standard deviation, n = number of observations, df = degrees of freedom, t = t-value of the independent samples t-test, d = Cohen’s d (effect size measure)2. In the tables, significant results are marked with a *.	page 9
+footnote 2	Karsten A. Koch	note	The standard interpretation of the effect size for Cohen’s d is 0.2 for a small effect size, 0.5 for a medium effect size, and 0.8 and more for a large effect size (Cohen 1988).	page 10, footnote 2
+§4	Karsten A. Koch	name	Cohen	Jacob Cohen, effect sizes (1988)
+§4	Karsten A. Koch	note	Because /k/ values are always clitic or affix internal, being the first phoneme of the 1pl marker /kt/, they serve as a type of control: phrase edge effects are expected for /t/ but not for /k/ (or, at least, to be much stronger for /t/ than for /k/).	page 10
+§4.1	Karsten A. Koch	heading	4.1 Overall consonant duration	page 10
+§4.1	Karsten A. Koch	note	In terms of the overall duration of the consonants across all conditions, the duration of /k/ (mean=132.67ms, sd=30.69ms, n=145) and /t/ (mean=118.41ms, sd=74.87ms, n=145) did not differ significantly (t=2.121, df=288, p=0.035).	page 10
+§4.1	Karsten A. Koch	note	Turning to the two conditions of interest, /k/ duration when /kt/ was in phrase internal position (mean=127.28ms, sd=29.56ms, n=73) and phrase final position (mean=138.13ms, sd=31.04ms, n=72) did not differ significantly (t=2.156, df=143, p=0.033). Although phrase final /k/ trended in the expected direction and was slightly longer in duration, the effect size was also small (d=0.36). On the other hand, /t/ duration in phrase internal position was significantly shorter (mean=75.91ms, sd=33.16ms, n=73) than /t/ duration in phrase final position (mean=161.50ms, sd=80.71ms, n=72), as the t-test showed (t=8.330, df=94.036, p<0.001). These results are summarized in Table 2.	page 10
+Table 2	Karsten A. Koch	note	Table 2 /k/ and /t/ duration in phrase internal and phrase final positions	page 10, the table's caption
+Table 2	Karsten A. Koch	note	/k/ duration (ms) /t/ duration (ms)	page 10, the column heads
+Table 2 line 1	Karsten A. Koch	note	Phrase internal Mean 127.28 75.91	page 10, Table 2
+Table 2 line 2	Karsten A. Koch	note	sd 29.56 33.16	page 10, Table 2
+Table 2 line 3	Karsten A. Koch	note	Phrase final Mean 138.13 161.50	page 10, Table 2
+Table 2 line 4	Karsten A. Koch	note	sd 31.04 80.71	page 10, Table 2
+Table 2 line 5	Karsten A. Koch	note	F test F 0.001 65.289	page 10, Table 2
+Table 2 line 6	Karsten A. Koch	note	p 0.971 <0.001*	page 10, Table 2
+Table 2 line 7	Karsten A. Koch	note	t-test t 2.156 8.330	page 10, Table 2
+Table 2 line 8	Karsten A. Koch	note	df 143 94.036	page 10, Table 2
+Table 2 line 9	Karsten A. Koch	note	p 0.033 <0.001*	page 10, Table 2
+Table 2 line 10	Karsten A. Koch	note	Effect size d 0.36 1.72	page 10, Table 2
+§4.1	Karsten A. Koch	note	Because the phrase-final condition included phrase boundaries that were both i-phrase and p-phrase final, or only p-phrase final, it was hypothesized that these two phrase final positions may have different consonant productions. A difference here would be indicative of /t/ production being affected by being at a p-phrase versus i-phrase boundary. A /t/ produced at an i-phrase boundary was expected to be longest; /t/ at a p-phrase but not i-phrase boundary was expected to be medial in duration; while phrase-internal /t/ was expected to be shortest. Thus, the tokens in the phrase final condition were split into two groups.	page 10
+§4.1	Karsten A. Koch	note	Pairwise comparisons of the groups were consistent with this hypothesis. In the table below, i-phrase final tokens are numbered 1, tokens that are only p-phrase final are numbered 2, while the unaltered phrase internal group is labelled 3. The tokens of i-phrase final /t/ were longest in duration (mean=217.92ms, sd=59.77ms, n=39); /t/ at p-phrase final position were of medial duration (mean=94.82ms, sd=41.82ms; n=33); and phrase internal /t/ productions were of shortest duration (mean=75.91ms, sd=33.16ms, n=73). T- tests showed that i-phrase final /t/ was significantly longer than p-phrase final /t/ (t=7.081, df=69.377, p<0.001), but p-phrase final /t/ was approaching but did not reach significance in comparison to phrase internal /t/ (t=2.603, df=97, p=0.011), though the effect size was a medium one here (d=0.49). These results are summarized in the table below.	page 11
+Table 3	Karsten A. Koch	note	Table 3 /t/ duration in i-phrase final, p-phrase final and phrase internal positions	page 11, the table's caption
+Table 3	Karsten A. Koch	note	/t/ duration (ms)	page 11, the column heads
+Table 3 line 1	Karsten A. Koch	note	1 i-phrase final Mean 217.92	page 11, Table 3
+Table 3 line 2	Karsten A. Koch	note	sd 59.77	page 11, Table 3
+Table 3 line 3	Karsten A. Koch	note	2 p-phrase final Mean 94.82	page 11, Table 3
+Table 3 line 4	Karsten A. Koch	note	sd 41.82	page 11, Table 3
+Table 3 line 5	Karsten A. Koch	note	3 phrase internal Mean 75.91	page 11, Table 3
+Table 3 line 6	Karsten A. Koch	note	sd 33.16	page 11, Table 3
+Table 3 line 7	Karsten A. Koch	note	F test 1-2 F 8.761	page 11, Table 3
+Table 3 line 8	Karsten A. Koch	note	p 0.004	page 11, Table 3
+Table 3 line 9	Karsten A. Koch	note	t-test 1-2 t 10.237	page 11, Table 3
+Table 3 line 10	Karsten A. Koch	note	df 67.755	page 11, Table 3
+Table 3 line 11	Karsten A. Koch	note	p <0.001*	page 11, Table 3
+Table 3 line 12	Karsten A. Koch	note	Effect size 1-2 d 2.49	page 11, Table 3
+Table 3 line 13	Karsten A. Koch	note	F test 2-3 F 0.076	page 11, Table 3
+Table 3 line 14	Karsten A. Koch	note	p 0.783	page 11, Table 3
+Table 3 line 15	Karsten A. Koch	note	t-test 2-3 t 2.500	page 11, Table 3
+Table 3 line 16	Karsten A. Koch	note	df 104	page 11, Table 3
+Table 3 line 17	Karsten A. Koch	note	p 0.014	page 11, Table 3
+Table 3 line 18	Karsten A. Koch	note	Effect size 2-3 d 0.49	page 11, Table 3
+§4.1	Karsten A. Koch	note	Finally, I examined whether i-phrase final clitic =kt showed differing durations of /t/ than i-phrase final affix –kt. While the affixal /t/ was slightly shorter (mean=203.23ms, sd=58.57ms, n=9) than the clitic /t/ (mean=222.32ms, sd=60.40ms, n=30), the difference was not significant (p=0.408). This suggests that i-phrase final affix and clitic /kt/ are not pronounced differently, despite different morphosyntactic status.	page 11
+§4.2	Karsten A. Koch	heading	4.2 Aspiration duration and intensity	page 12
+§4.2	Karsten A. Koch	note	Aspiration of /k/ and /t/ were measured for duration, maximum intensity, time of maximum intensity, and percentage time of maximum intensity as a measure of the overall duration of intensity (this last measure was undertaken because duration of aspiration varied, so absolute time may not have been an accurate measure of the time of the intensity peak).	page 12
+§4.2	Karsten A. Koch	note	For /k/, there were no significant differences in the duration or maximum intensity for aspiration values. This suggests that the clitic or affix internal position of /k/ in the 1pl marker /kt/ meant that its production was not significantly affected by the position of /kt/ relative to a phrase boundary. However, the percentage time of the aspiration maximum did differ significantly in the two conditions, with phrase final /k/ aspiration occurring earlier (mean= 32% of the total aspiration duration) than phrase internal /k/ aspiration (mean=47.18%). This is a possible cue to phrase final status that is realized on the 1pl internal /k/ of /kt/, and was a mid to large effect size (d=-0.66).	page 12
+Table 4	Karsten A. Koch	note	Table 4 /k/ aspiration results in phrase final versus phrase internal /kt/	page 12, the table's caption
+Table 4	Karsten A. Koch	note	duration (ms) maximum intensity (dB) time (ms) of max. intensity % time of max. intensity	page 12, the column heads
+Table 4 line 1	Karsten A. Koch	note	Phrase internal Mean 73.10 56.47 32.46 47.18	page 12, Table 4
+Table 4 line 2	Karsten A. Koch	note	sd 25.83 5.43 21.74 28.03	page 12, Table 4
+Table 4 line 3	Karsten A. Koch	note	Phrase final Mean 78.91 55.54 25.52 32.00	page 12, Table 4
+Table 4 line 4	Karsten A. Koch	note	sd 22.87 3.82 20.23 20.02	page 12, Table 4
+Table 4 line 5	Karsten A. Koch	note	F test F 4.145 6.461 1.209 14.732	page 12, Table 4
+Table 4 line 6	Karsten A. Koch	note	p 0.044 0.012 0.273 <0.001	page 12, Table 4
+Table 4 line 7	Karsten A. Koch	note	t-test t 1.434 -1.187 -1.982 -3.740	page 12, Table 4
+Table 4 line 8	Karsten A. Koch	note	df 141.377 127.389 142 128.475	page 12, Table 4
+Table 4 line 9	Karsten A. Koch	note	p 0.154 0.237 0.049 <0.001*	page 12, Table 4
+Table 4 line 10	Karsten A. Koch	note	Effect size d 0.24 -0.21 -0.33 -0.66	page 12, Table 4
+§4.2	Karsten A. Koch	note	Turning to /t/ aspiration in Table 5, its duration was significantly shorter (t=7.816, df=78.754, p<0.0001) in phrase internal positions (mean=27.04, sd=15.51, n=68) than in phrase final positions (mean=89.34ms, sd=65.85ms, n=72). The difference in maximum intensity was also significant (t=-3.162, df=138, p=0.002); interestingly, phrase internal /t/ aspiration showed on average over 3dB greater maximum intensity (mean=59.81dB, sd=6.23dB) than phrase final aspiration (mean=56.74dB, sd=5.21dB), a point I will return to in the discussion. Finally, the percentage time of the maximum aspiration intensity was, as for /k/ aspiration, later in phrase internal positions (mean=65.73%, sd=23.95%, n=68) than in phrase final positions (mean=47.32%, sd=32.17%, n=72), a difference that was significant (t=-3.873, df=130.975, p<0.0001).	page 12
+Table 5	Karsten A. Koch	note	Table 5 /t/ aspiration in phrase final versus phrase internal positions	page 13, the table's caption
+Table 5	Karsten A. Koch	note	duration (ms) maximum intensity (dB) time (ms) of max. intensity % time of max. intensity	page 13, the column heads
+Table 5 line 1	Karsten A. Koch	note	Phrase internal Mean 27.04 59.81 18.24 65.73	page 13, Table 5
+Table 5 line 2	Karsten A. Koch	note	sd 15.51 6.23 10.69 23.95	page 13, Table 5
+Table 5 line 3	Karsten A. Koch	note	Phrase final Mean 89.34 56.74 31.46 47.23	page 13, Table 5
+Table 5 line 4	Karsten A. Koch	note	sd 65.85 5.21 40.28 32.17	page 13, Table 5
+Table 5 line 5	Karsten A. Koch	note	F test F 138.436 3.171 13.686 19.403	page 13, Table 5
+Table 5 line 6	Karsten A. Koch	note	p <0.001 0.077 <0.001 <0.001	page 13, Table 5
+Table 5 line 7	Karsten A. Koch	note	t-test t 7.816 -3.162 2.685 -3.873	page 13, Table 5
+Table 5 line 8	Karsten A. Koch	note	df 78.754 138 81.502 130.975	page 13, Table 5
+Table 5 line 9	Karsten A. Koch	note	p <0.001* 0.002* 0.009 <0.001*	page 13, Table 5
+Table 5 line 10	Karsten A. Koch	note	Effect size d 1.76 -0.54 0.59 -0.68	page 13, Table 5
+§4.2	Karsten A. Koch	note	In addition, there were 5 phrase internal tokens of /t/ for which there was no release or aspiration of any sort apparent in the waveform and spectrogram (hence the n of 68 rather than 73 for this analysis), while there were an additional 5 tokens where there was no complete closure for /t/, but rather continuous aspiration carrying over from the production of the preceding /k/. Thus, 10/73 tokens in phrase internal position /t/ (13.70%) lacked either aspiration or closure. No tokens in the phrase final data set lacked closure or aspiration. This suggests that lack of complete closure or lack of any aspiration may be a phrase internal but not phrase final consonant characteristic.	page 13
+§4.2	Karsten A. Koch	note	Finally, in terms of consonant duration, we saw that p-phrase final /t/ occupied a position between i-phrase final /t/ and phrase internal /t/. In terms of aspiration measures, as shown in Table 6, i-phrase final /t/ aspiration was significantly different from p-phrase final /t/ aspiration in terms of duration, maximum intensity and the percentage time of the maximum aspiration intensity. However, p-phrase final tokens patterned with the phrase internal /t/ tokens, and showed no significant differences from phrase internal /t/ in terms of aspiration measures: even though p-phrase final aspiration duration was slightly longer on average than phrase internal aspiration duration, the effect size was relatively small (d=0.29). This suggests that increased aspiration duration is primarily a marker of i-phrase boundaries. However, it should be again noted that phrase internal /t/ tokens did sometimes lack aspiration or closure altogether, something that was not observed in p-phrase final /t/ tokens.	page 13
+Table 6	Karsten A. Koch	note	Table 6 /t/ aspiration for i-phrase final, p-phrase final and phrase internal /t/	page 14, the table's caption
+Table 6	Karsten A. Koch	note	duration (ms) maximum intensity (dB) time (ms) of max. intensity % time of max. intensity	page 14, the column heads
+Table 6 line 1	Karsten A. Koch	note	1 i-phrase final Mean 136.86 54.52 40.75 28.88	page 14, Table 6
+Table 6 line 2	Karsten A. Koch	note	sd 49.61 3.32 52.51 28.22	page 14, Table 6
+Table 6 line 3	Karsten A. Koch	note	2 p-phrase final Mean 33.18 59.38 20.47 68.92	page 14, Table 6
+Table 6 line 4	Karsten A. Koch	note	sd 26.36 5.82 9.77 21.34	page 14, Table 6
+Table 6 line 5	Karsten A. Koch	note	3 phrase internal Mean 27.04 59.81 18.24 65.73	page 14, Table 6
+Table 6 line 6	Karsten A. Koch	note	sd 15.51 6.23 10.69 23.95	page 14, Table 6
+Table 6 line 7	Karsten A. Koch	note	F test 1-2 F 13.908 9.06 18.279 2.217	page 14, Table 6
+Table 6 line 8	Karsten A. Koch	note	p <0.001 0.004 <0.001 0.141	page 14, Table 6
+Table 6 line 9	Karsten A. Koch	note	t-test 1-2 t 11.300 -4.244 2.365 -6.688	page 14, Table 6
+Table 6 line 10	Karsten A. Koch	note	df 59.697 48.954 41.093 70	page 14, Table 6
+Table 6 line 11	Karsten A. Koch	note	p <0.001* <0.001* 0.023 <0.001*	page 14, Table 6
+Table 6 line 12	Karsten A. Koch	note	Effect size 1-2 d 2.93 -1.21 0.74 -1.60	page 14, Table 6
+Table 6 line 13	Karsten A. Koch	note	F test 2-3 F 0.449 0.432 0.027 0.753	page 14, Table 6
+Table 6 line 14	Karsten A. Koch	note	p 0.504 0.512 0.871 0.393	page 14, Table 6
+Table 6 line 15	Karsten A. Koch	note	t-test 2-3 t 1.501 -0.334 1.009 0.650	page 14, Table 6
+Table 6 line 16	Karsten A. Koch	note	df 104 99 99 99	page 14, Table 6
+Table 6 line 17	Karsten A. Koch	note	p 0.136 0.739 0.315 0.517	page 14, Table 6
+Table 6 line 18	Karsten A. Koch	note	Effect size 2-3 d 0.29 -0.07 0.20 0.13	page 14, Table 6
+§5	Karsten A. Koch	heading	5 Discussion	page 14
+§5	Karsten A. Koch	note	The phonetic analysis reported above tested whether there was any evidence for different consonant duration and aspiration measures depending on phrasal position. The consonants examined were /k/ and /t/ in the 1pl marker /kt/, and these were measured for overall duration; aspiration duration; and maximum aspiration intensity and timing. Tokens that were, based on Koch (2010), claimed to be phrase final and phrase internal were analysed. In addition, the present study conducted an additional post-hoc comparison, splitting the phrase final group into two: those tokens expected to be i-phrase final versus strictly p-phrase final.	page 14
+§5.1	Karsten A. Koch	heading	5.1 Consonant duration	page 14
+§5.1	Karsten A. Koch	note	The results showed that consonant duration was a reliable indicator of phrase final position, with longer duration of /t/ in phrase final than phrase internal positions. Moreover, /t/ at a final i-phrase boundary was longer than /t/ at a final p-phrase boundary, which in turn was longer than phrase internal /t/ (though the latter difference was not quite significant, this may have been because of smaller numbers of observations once the phrase-final group was split into two; the effect size was a medium one, d=0.49). This provides evidence for two categories of phrasal groupings (here labelled i-phrase and p-phrase), which are above the level of the clitic group. For example, repeating example (7) below as (17) but adding a level for the clitic group, we see that this differs from the p-phrase and i-phrase: tokens of /kt/ after initial auxiliaries had significantly shorter /t/, not being at a p-phrase boundary.	page 14
+(17)	Karsten A. Koch	note	[VP internal clitic /kt/]	page 15, the example's caption at the right of its phrasing
+(17)	Karsten A. Koch	note	( )i-phrase	page 15, the phrasing drawn over the line under it: i-phrase over xʷúy̓=kt nés téw-cn-me.
+(17)	Karsten A. Koch	note	( )p-phrase	page 15, the phrasing drawn over the line under it: p-phrase over xʷúy̓=kt nés téw-cn-me.
+(17)	Karsten A. Koch	note	( )cl-group	page 15, the phrasing drawn over the line under it: cl-group over xʷúy̓=kt
+(17) line 1	Nɬeʔkepmxcin	segmentation	xʷúy̓=kt nés téw-cn-me.	page 15
+(17) line 2	Nɬeʔkepmxcin	gloss	FUT=1PL.INCL go buy-mouth-INTRANS	page 15
+(17) line 3	Karsten A. Koch	translation	‘We’re going to go grocery shopping.’	page 15
+§5.1	Karsten A. Koch	note	In these cases of complex verbal predicates, with one or more auxiliaries in addition to the main verb, the first auxiliary attracts the second position clitics. This shows us that auxiliaries count as prosodic words. Yet, in Nɬeʔkepmxcin, the p-phrase is built around a larger unit that includes more than one prosodic word, unlike Lushootseed (Beck 1999). Entire verbal predicates appear to form a single p-phrase.	page 15
+§5.1	Karsten A. Koch	note	Similar results were found for affixal /kt/ in complex nominal predicates. For example, in (18), the 1pl emphatic pronoun is a separate prosodic word from puṣ ‘cat’, yet these /kt/ similarly showed acoustic properties different from the group hypothesized to be phrase final. This again suggests a single p-phrase mapping to the syntactic DP (Determiner Phrase) ‘our cat’.	page 15
+§5.1	Nɬeʔkepmxcin	cited form	puṣ	page 15, in italics, ‘cat’
+(18)	Karsten A. Koch	note	[DP internal affix /kt/]	page 15, the example's caption at the right of its phrasing
+(18)	Karsten A. Koch	note	( )i-phrase	page 15, the phrasing drawn over the line under it: i-phrase over … e=púṣ-kt nmímɬ.
+(18)	Karsten A. Koch	note	( )p-phrase	page 15, the phrasing drawn over the line under it: p-phrase over … e=púṣ-kt nmímɬ.
+(18) line 1	Nɬeʔkepmxcin	segmentation	… e=púṣ-kt nmímɬ.	page 15
+(18) line 2	Nɬeʔkepmxcin	gloss	… DET=cat-1PL.POSS 1PL.EMPH	page 15
+(18) line 3	Karsten A. Koch	translation	‘… our cat.’	page 15
+(18) line 4	Karsten A. Koch	citation	[F_P769a-4]	page 15, the tag or source at the right of the translation
+§5.1	Karsten A. Koch	note	The lengthening effects found for /t/ in phrase final positions are in line with previous findings (Koch 2008, 2011) that there is significant final lengthening of vowels in Nɬeʔkepmxcin, showing that phrasal lengthening also includes at least some consonants. Interestingly, /k/ duration was not significantly different when /kt/ was phrase-internal versus phrase-final (though the overall pattern was as expected, with phrase final /k/ tokens about 10ms longer, on average, than phrase internal tokens). This suggests that consonants not at clitic or affix boundaries are not affected here. Moreoever, /kt/ as a possessive affix and as an agreement clitic showed the same effects for duration increase at phrase-final positions, suggesting the surface phonological string was not sensitive to morphosyntactic status for this measure of pronunciation.	page 15
+§5.2	Karsten A. Koch	heading	5.2 Aspiration	page 16
+§5.2	Karsten A. Koch	note	Turning to aspiration, this measure also distinguished /kt/ production in different phrasal positions, though in a different way from overall consonant duration. The phrase final group /t/ had aspiration that was longer, and with an earlier intensity peak in terms of where the peak occurred as a percentage of overall aspiration duration. /k/ aspiration also showed an earlier intensity peak for phrase final tokens of /kt/. Overall, phonologically, this suggests phonological aspiration of /t/ in phrase final but not phrase internal positions. The /k/ of the 1pl /kt/ marker, on the other hand, was aspirated in all positions.	page 16
+§5.2	Karsten A. Koch	note	When the phrase final group was split into i-phrase and p-phrase final subgroups, it was shown that the aspiration measures were relevant for i-phrase final /t/ only, and not for p-phrase final /t/. This suggests that aspiration cues are greater at i-phrase but not p-phrase boundaries, while overall /t/ duration is the primary marker of a final p-phrase boundary. However, there are a few other indicators that suggest p-phrase and phrase internal /t/ tokens were differently marked even for aspiration measures: only /t/ tokens in the phrase internal group sometimes lacked aspiration or /t/ closure altogether, something that was not observed for p-phrase final group. Overall, then, aspiration measures were consistent with the proposal that both i-phrases and p-phrases are relevant for consonant production in Nɬeʔkepmxcin.	page 16
+§5.2	Karsten A. Koch	note	Interestingly, the maximum intensity of /t/ aspiration showed a higher mean in phrase internal positions. This is somewhat surprising if these tokens are meant to be phonologically unaspirated. When the sound files were coded, /t/ aspiration was marked when there was any indication of a release in the waveform or any indication of high frequency aspiration in the spectrogram. Even a phonologically unaspirated /t/ will create some release burst. The higher maximum intensity could well be a product of two factors. First, these release bursts were much shorter in duration, allowing for a higher absolute intensity (that is, if energy was measured over the entire release burst, it would be far higher in the phrase final position, something already reflected in the duration difference of aspiration). Secondly, the phrase internal /kt/ tokens occurred earlier in the breath group, so the absolute higher value of intensity could just be a factor of occurring earlier in the declination group.	page 16
+§5.3	Karsten A. Koch	heading	5.3 On some misalignment of phonological and syntactic phrases	page 16
+§5.3	Karsten A. Koch	note	An additional reason why the acoustic properties of p-phrase final /kt/ were not found to be as distinct from phrase internal /kt/ (as opposed to i-phrase final /kt/) is likely due to a misalignment of the syntax-prosody interface in some instances. At least some cases of p-phrase final /kt/ were followed by additional clitic material, but from a different syntactic phrase. It appears that principles of syllabification (preferably making the /t/ an onset with a following resonant clitic, for example) conspire to add additional phonological material after a /kt/ that is syntactic phrase final. This removes the /t/ by one segment from the p- phrase boundary, and also makes it an onset (which are less or perhaps phonologically unaspirated – Thompson and Thompson 1992:4), thus reducing the duration and aspiration values for some of the p-phrase internal /kt/ data.	page 16
+§5.3	Karsten A. Koch	note	For example, in (19), there are two adjuncts, a Preposition Phrase ne citxʷ ‘at our hours’ and a temporal clause e kriṣməṣ us ‘at Christmas’ (more literally: ‘when it was Christmas’). Syntactically, the first is a PP (Preposition Phrase) and the second a CP (Complementizer Phrase). The CP is introduced by the complementizer e, a morphosyntactic proclitic.	page 17
+§5.3	Nɬeʔkepmxcin	cited form	ne citxʷ	page 17, in italics, ‘at our hours’
+§5.3	Nɬeʔkepmxcin	cited form	e kriṣməṣ us	page 17, in italics, ‘at Christmas’
+(19)	Karsten A. Koch	note	[PP ] [CP ]	page 17, the syntactic brackets drawn over the line under it: PP over n=e=cítxʷ-kt; CP over e=kríṣməṣ=us.
+(19) line 1	Nɬeʔkepmxcin	segmentation	n=e=cítxʷ-kt e=kríṣməṣ=us.	page 17
+(19) line 2	Nɬeʔkepmxcin	gloss	in=DET=house-1PL.POSS COMP=Christmas=3CNCL	page 17
+(19) line 3	Karsten A. Koch	translation	‘… at our house at Christmas.’	page 17
+(19) line 4	Karsten A. Koch	citation	[F_P055a]	page 17, the tag or source at the right of the translation
+§5.3	Karsten A. Koch	note	However, in the actual phonological parse, this morphosyntactic proclitic seems to phonologically encliticize after the /kt/ in the preceding syntactic unit. This is shown in (20). The effect is to make the /t/ of /kt/ an onset, rather than a coda at the end of the p-phrase. The preference for onsets overrides the alignment of the syntactic and phonological units. The CP is thus split across two phonological phrases: the e encliticizes onto the initial p-phrase, while the remainder of the CP is in its own p-phrase.	page 17
+(20)	Karsten A. Koch	note	[PP ] [CP ]	page 17, the syntactic brackets drawn over the line under it: PP over n=e=cítxʷ-kt; CP over =e kríṣməṣ=us.
+(20)	Karsten A. Koch	note	( )i-phrase	page 17, the phrasing drawn over the line under it: i-phrase over n=e=cítxʷ-kt =e kríṣməṣ=us.
+(20)	Karsten A. Koch	note	( )p-phrase ( )p-phrase	page 17, the phrasing drawn over the line under it: p-phrase over n=e=cítxʷ-kt =e; p-phrase over kríṣməṣ=us.
+(20) line 1	Nɬeʔkepmxcin	segmentation	n=e=cítxʷ-kt =e kríṣməṣ=us.	page 17
+(20) line 2	Nɬeʔkepmxcin	gloss	in=DET=house-1PL.POSS =COMP Christmas=3CNCL	page 17
+(20) line 3	Karsten A. Koch	translation	‘… at our house at Christmas.’	page 17
+(20) line 4	Karsten A. Koch	citation	[F_P055a]	page 17, the tag or source at the right of the translation
+§5.3	Karsten A. Koch	note	Thus, unsurprisingly, phonological phrasing principles can override syntactic phrasing in at least some cases. Another instance like this is shown in (22) below.	page 17
+§5.4	Karsten A. Koch	heading	5.4 Corrective focus phrasing	page 17
+§5.4	Karsten A. Koch	note	It is worth mentioning some additional interesting cases of /kt/. In a language where some lexical items (such as /kt/ for ‘we’ or ‘our’) are expressed through a phonetic form consisting solely of consonants, we may wonder how they are emphasized, such as in corrective focus contexts. In many languages like English, focus marking is realized through additional prosodic prominence on the focused constituent, and this additional pitch, intensity and duration is most noticeable on vowels and other resonants. How would one mark emphasis on purely consonantal material (moreover: purely voiceless obstruents), like /kt/, or would one mark it at all? Example (21) shows a case in which the speaker marks meta-linguistic corrective focus on /kt/, after the preceding speaker uses a different person marker. She corrects the form to /kt/, and does so by emphasizing the aspiration on both consonants involved, and inserting a phrase boundary after /kt/.	page 17
+§5.4	Karsten A. Koch	language	English	voiceless stops aspirated as onsets
+(21)	Karsten A. Koch	note	( )i-phrase	page 18, the phrasing drawn over the line under it: i-phrase over … ʔé k=s=wʔéx=kt táns ….
+(21)	Karsten A. Koch	note	( )p-phrase ( )p-phrase	page 18, the phrasing drawn over the line under it: p-phrase over … ʔé k=s=wʔéx=kt; p-phrase over táns ….
+(21) line 1	Nɬeʔkepmxcin	segmentation	… ʔé k=s=wʔéx=kt táns ….	page 18
+(21) line 2	Nɬeʔkepmxcin	gloss	… and COMP=NOM=IMPF=1PL.PoCl dance ….	page 18
+(21) line 3	Karsten A. Koch	translation	‘… and [WE]FOCUS had to dance ….’	page 18
+(21) line 4	Karsten A. Koch	citation	[787d’’’-3]	page 18, the tag or source at the right of the translation
+§5.4	Karsten A. Koch	note	Both /k/ and /t/ in the /kt/ of (21) have longer duration than the averages reported in tables 2–3 (168.11ms for [k], 270.9ms for [t]). /t/ also has aspiration that is longer (163.61ms) and louder (60.73dB maximum intensity) than the phrase-final average, while the aspiration intensity peak also occurs earlier than average (at 8.66% of the aspiration duration). Finally, /t/ aspiration is followed by approximately 170ms of silence until the release of the /t/ of tans. This suggests that the speaker uses a p-phrase boundary after /kt/ to mark corrective focus on /kt/ here (normally, auxiliaries and verbs are parsed in the same phrase).	page 18
+§5.4	Karsten A. Koch	note	Interestingly, I have only documented cases of corrective focus that show this sort of marking; new information focus (as in answering a wh-question), selective focus or contrastive focus don’t seem to employ this strategy. Instead, the preferred strategy is to cleft the 1pl independent emphatic pronoun nmimɬ to mark focus (Koch 2008). In (22) and (23), nmimɬ occurs in the focus domain following the ‘only’ cleft predicate cukʷ, and the ‘persistent’ particle ƛ̓uʔ which gives an ‘only’ meaning (Koch and Zimmermann 2010). While the first example also contains a /kt/ in the initial focus domain, the second example has only the independent emphatic pronoun nmimɬ in the focus domain after the cleft predicate.	page 18
+§5.4	Nɬeʔkepmxcin	cited form	nmimɬ	page 18, in italics
+§5.4	Nɬeʔkepmxcin	cited form	cukʷ	page 18, in italics
+§5.4	Nɬeʔkepmxcin	cited form	ƛ̓uʔ	page 18, in italics
+(22)	Karsten A. Koch	note	( )i-phrase	page 18, the phrasing drawn over the line under it: i-phrase over cúkʷ=ƛ̓uʔ nmímɬ e=púṣ-kt =e ʔém’c-n-xʷ.
+(22)	Karsten A. Koch	note	( )p-phrase ( )p-phrase	page 18, the phrasing drawn over the line under it: p-phrase over cúkʷ=ƛ̓uʔ nmímɬ e=púṣ-kt =e; p-phrase over ʔém’c-n-xʷ.
+(22) line 1	Nɬeʔkepmxcin	segmentation	cúkʷ=ƛ̓uʔ nmímɬ e=púṣ-kt =e ʔém’c-n-xʷ.	page 18
+(22) line 2	Nɬeʔkepmxcin	gloss	CLEFT=PERS 1PL.EMPH DET=cat-1PL.POSS =COMP feed-DRV-3O.2SG.TS	page 18
+(22) line 3	Karsten A. Koch	translation	‘[Our]FOCUS cat was the only one you fed.’	page 18
+(22) line 4	Karsten A. Koch	citation	[F_P769b]	page 18, the tag or source at the right of the translation
+(22) line 5	Karsten A. Koch	note	(more literally: ‘It was only [our]FOCUS cat that you fed.’)	page 18, under the translation
+(23)	Karsten A. Koch	note	( )p-phrase ( )p-phrase	page 18, the phrasing drawn over the line under it: p-phrase over cúkʷ=ƛ̓uʔ nmímɬ; p-phrase over e=ʔéx kən-t-éy-s ʔéx
+(23)	Karsten A. Koch	note	( )p-phrase	page 18, the phrasing drawn over the line under it: p-phrase over e=skʷúzeʔ-kt te=ƛ̓uʔsqáyxʷ.
+(23) line 1	Nɬeʔkepmxcin	segmentation	cúkʷ=ƛ̓uʔ nmímɬ e=ʔéx kən-t-éy-s ʔéx	page 18
+(23) line 2	Nɬeʔkepmxcin	gloss	CLEFT=PERS 1PL.EMPH COMP=IMPF help-TR-1PL.O.-3TS	page 18
+(23) line 3	Nɬeʔkepmxcin	segmentation	e=skʷúzeʔ-kt te=ƛ̓uʔsqáyxʷ.	page 18
+(23) line 4	Nɬeʔkepmxcin	gloss	DET=offspring-1PL.POSS LINK=man	page 18
+(23) line 5	Karsten A. Koch	translation	‘[We]FOCUS are the only ones that get help from our son.’	page 18
+(23) line 6	Karsten A. Koch	citation	[F_P767d]	page 18, the tag or source at the right of the translation
+(23) line 7	Karsten A. Koch	note	(more literally: ‘It is only [us] that get help from our son.’ (other people don’t get help from their sons))	page 18, under the translation
+§5.4	Karsten A. Koch	note	Notice that example (22) is another instance of the sort of syntactic and phonological misalignment discussed in section 5.3. The initial e complementizer in the cleft clause e ʔem’cnxʷ ‘that you fed,’ generally understood as a morphosyntactic proclitic (e=) on the following clausal material, instead appears to be parsed as an enclitic (=e) in the preceding p-phrase. This is evident since it is lengthened, followed by a short pause, and has no declination reset. As an enclitic on /kt/, the =e enables the /t/ of /kt/ to become an onset, thus reducing the aspiration values of /t/ here.	page 19
+§5.4	Nɬeʔkepmxcin	cited form	e ʔem’cnxʷ	page 19, in italics, ‘that you fed,’
+§5.5	Karsten A. Koch	heading	5.5 Phonological parsing of verbs and arguments	page 19
+§5.5	Karsten A. Koch	note	The present study, because the /kt/ clitic is an intransitive verb agreement marker, was limited primarily to intransitive clauses. It was argued that intransitive verbs (plus any additional auxiliaries) form one p-phrase, while oblique arguments or adjuncts form another. Koch (2010), as well as the present study, looked at some cases of the possessive affix /kt/ at the end of arguments in transitive clauses, showing that these pattern with phrase final /kt/, and the phonetic results support this view. This suggests that verbs and arguments are parsed into separate p-phrases in Nɬeʔkepmxcin, in both transitive and intransitive clauses. Cross-linguistically, this parsing is claimed to be less typical; for example, in English and many other languages, verb and object are typically parsed into one phonological phrase, while the subject is realized in a separate p-phrase (Chomsky 1971; Gussenhoven 1983; Jackendoff 1972; Kahnemuyipour 2004; Selkirk 1995; Selkirk and Kratzer 2007). In a language with underlying transitive V-S-O-Adjunct order, verb and object are split by the subject (where it is expressed), so verb and object are not adjacent. In these cases, either the verb and all arguments must be parsed together, or, as seems to be the case in Nɬeʔkepmxcin, Lushootseed (Beck 1999), and Okanagan (Barthmaier 2004), the verb is parsed separately from all arguments. There are other languages where verbs and arguments are parsed into separate phonological phrases. Outside the Salish language family, Hayes and Lahiri (1991, on Bengali), Schafer and Jun (2002, on Korean), and Nespor and Sandler (1999, on Israeli Sign Language), also argue for parsing of verb and arguments into individual p-phrases (see also Ishihara 2007: 147–148, ex. 17b, for such parses of some Japanese sentences). This raises interesting questions as to which syntactic units in Nɬeʔkepmxcin correspond to the prosodic units p-phrase and i-phrase, which (apart from the comments on some syntax-phonology misalignments made above) I will for the moment leave to further research.	page 19
+§5.5	Karsten A. Koch	language	Bengali	Hayes and Lahiri 1991
+§5.5	Karsten A. Koch	language	Korean	Schafer and Jun 2002
+§5.5	Karsten A. Koch	language	Israeli Sign Language	Nespor and Sandler 1999
+§5.5	Karsten A. Koch	language	Japanese	Ishihara 2007
+§6	Karsten A. Koch	heading	6 Conclusion	page 19
+§6	Karsten A. Koch	note	This paper used a consonant-oriented test to probe phrasal boundary cues of Nɬeʔkepmxcin clauses. By examining the voiceless stops /k/ and /t/ in the 1pl marker /kt/, I showed that phrase final /t/ is greater in duration, and that this duration is greater at i-phrase boundaries that at p-phrase boundaries. The aspiration of /t/ phrase finally was longer, and both /k/ and /t/ aspiration had an earlier intensity peak (as measured as a percentage of the overall aspiration duration). On closer inspection, these aspiration cues appeared to be a property of only i-phrase final /t/. P-phrase final /t/ aspiration did still differ from phrase internal /t/, in that only that latter was sometimes completely unaspirated or lacked complete closure during its production.	page 19
+§6	Karsten A. Koch	note	The results show that consonants can be investigated for reliable cues to phrasal boundaries, good news for the consonant heavy Salish languages. A future investigation might investigate the production of the glottal stop, which frequently ends clitic groups in the demonstrative xeʔ.	page 20
+§6	Nɬeʔkepmxcin	cited form	xeʔ	page 20, in italics
+§6	Karsten A. Koch	note	On a final note, the results show a pattern of aspiration that is roughly opposite to that of English voiceless stops. While English voiceless stops are strongly aspirated as solitary onsets of stressed syllables, Nɬeʔkepmxcin stops are strongly aspirated phrase finally as codas (Thompson and Thompson 1992). This is a useful tip for second language learners: aspirate those final stops.	page 20
+references	Karsten A. Koch	heading	References	page 20
+references	Karsten A. Koch	reference	Bagemihl, Bruce. (1991). Syllable structure in Bella Coola. Linguistic Inquiry 22:589–646.	page 20
+references	Karsten A. Koch	reference	Barthmeier, Paul. (2004). Intonation units in Okanagan. In Donna B. Gerdts and Lisa Matthewson, eds. Studies in Salish linguistics in honor of M. Dale Kinkade. Missoula: University of Montana Occasional Papers in Linguistics 17. 30–42.	page 20
+references	Karsten A. Koch	reference	Beck, David. (1996). Some notes on phonological phrasing in Lushootseed. Toronto Working Papers in Linguistics 15(2):37–60.	page 20
+references	Karsten A. Koch	reference	Beck, David. (1999). Words and prosodic phrasing in Lushootseed. In T. Alan Hall and Ursula Kleinhenz, eds. Studies on the Phonological Word. Amsterdam: Benjamins. 23–46.	page 20
+references	Karsten A. Koch	reference	Beck, David, and David Bennett. (2007). Extending the prosodic hierarchy: evidence from Lushootseed narrative. Northwest Journal of Linguistics 1(1):1–34.	page 20
+references	Karsten A. Koch	reference	Bessell, Nicola J. (1997). St’át’imcets vowels and consonants: a phonetic study. ICSNL 32: 64–85, Port Angeles.	page 20
+references	Karsten A. Koch	reference	Bessell, Nicola J. (1998). Local and non-local consonant vowel interaction in Interior Salish. Phonology 15:1–40.	page 20
+references	Karsten A. Koch	reference	Bianco, Violet M. (1996). The Role of Sonority in the Prosody of Cowichan. M.A. thesis, University of Victoria.	page 20
+references	Karsten A. Koch	reference	Boersma, Paul, and David Weenink. (2013). Praat: Doing phonetics by computer. Computer Program. Version 5.3.53.	page 20
+references	Karsten A. Koch	reference	Butcher, Andrew, and Jonathan Harrington. (2003a). An instrumental analysis of focus and juncture in Warlpiri. In M. Sole, D. Recasens, and J. Romero, eds. Proceedings of the 15th International Congress of Phonetic Sciences. Barcelona. 321–324.	page 21
+references	Karsten A. Koch	reference	Butcher, Andrew, and Jonathan Harrington. (2003b). An acoustic and articulatory analysis of focus and the word/morpheme boundary distinction in Warlpiri. In S. Palethorpe and M. Tabain, eds. Proceedings of the 6th International Seminar on Speech Production. Sydney. 19–24.	page 21
+references	Karsten A. Koch	reference	Brown, Jason, and James Thompson. (2006). Criteria for tonality: The case of Upriver Halkomelem. In Shannon T. Bischoff, Lynnika Butler, Peter Norquest, and Daniel Siddiqi, eds. MIT Working Papers on Endangered and Lesser Known Languages: Studies in Salishan. 113–126.	page 21
+references	Karsten A. Koch	reference	Caldecott, Marion. (2009). Non-Exhaustive Parsing: Phonetic and Phonological Evidence from St’át’imcets. Ph.D. dissertation, University of British Columbia.	page 21
+references	Karsten A. Koch	reference	Caldecott, Marion, and Karsten A. Koch. (2014). Using mixed media tools for eliciting and mobilizing linguistic data in indigenous languages. Language Documentation and Conservation 8:209–240.	page 21
+references	Karsten A. Koch	reference	Carlson, Barry F., John H. Esling, and Jimmy G. Harris. (2004). A laryngoscopic phonetic study of Nlaka’pamux (Thompson) Salish glottal stop, glottalized resonants, and pharyngeals. In Donna B. Gerdts and Lisa Matthewson, eds. Studies in Salish linguistics in honor of M. Dale Kinkade. Missoula: University of Montana Occasional Papers in Linguistics 17. 58–71.	page 21
+references	Karsten A. Koch	reference	Chomsky, Noam. (1971). Deep structure, surface structure, and semantic interpretation. In D.D. Steinberg and L.A. Jakobovits, eds. Semantics: An Interdisciplinary Reader in Philosophy, Linguistics, and Psychology. Cambridge: Cambridge University Press. 183–216.	page 21
+references	Karsten A. Koch	reference	Cohen, Jacob. (1988). Statistical Power Analysis For the Behavioral Sciences. 2nd ed. Hillsdale, NJ: Lawrence Earlbaum Associates.	page 21
+references	Karsten A. Koch	reference	Czaykowska-Higgins, Ewa. (1993). Cyclicity and stress in Moses-Columbia Salish (Nxa’amxcín). Natural Language and Linguistic Theory 11:197–278.	page 21
+references	Karsten A. Koch	reference	Czaykowska-Higgins, Ewa. (1998). The morphological and phonological constituent structure of words in Moses-Columbia Salish (Nxa’amxcín). In E. Czaykowska-Higgins and M.D. Kinkade, eds. 1998. Salish Languages and Linguistics. Berlin: Mouton de Gruyter. 153–196.	page 21
+references	Karsten A. Koch	reference	Czaykowska-Higgins, Ewa, and M. Dale Kinkade, eds. (1998). Salish Languages and Linguistics: Theoretical and Descriptive Perspectives. Trends in Linguistics: Studies and Monographs 107. Berlin: Mouton de Gruyter.	page 21
+references	Karsten A. Koch	reference	Davis, Henry. (1999). Subject inflection in Salish. In Marion Caldecott, Suzanne Gessner, and E. Kim, eds. Current Research on Language and Linguistics. Vancouver: UBC Working Papers in Linguistics 1. 181–240.	page 22
+references	Karsten A. Koch	reference	Davis, Henry. (2000). Remarks on Proto-Salish subject inflection. International Journal of American Linguistics 66:499–520.	page 22
+references	Karsten A. Koch	reference	Davis, John H. (2005). High consonants, articulatory transitions, and nonhigh vowels in Comox.’ In Jason Brown, Masaru Kiyota, and Tyler Peterson, eds. Papers for ICSNL 40. Vancouver: UBCWPL 16. 89–97.	page 22
+references	Karsten A. Koch	reference	Egesdal, Steven M. (1984). Stylized Characters’ Speech in Thompson Salish Narrative. Ph.D. dissertation, University of Hawaii.	page 22
+references	Karsten A. Koch	reference	Esling, John H., Barry F. Carlson, and Jimmy G. Harris. (2002). A laryngoscopic phonetic study of Nootka and Salish glottal stop, glottalized resonants, and pharyngeals. SSILA/LSA annual meeting, San Francisco.	page 22
+references	Karsten A. Koch	reference	Frantz, Donald G. (2009). Blackfoot grammar. 2nd ed. Toronto: University of Toronto Press.	page 22
+references	Karsten A. Koch	reference	Gussenhoven, Carlos. (1983). Testing the reality of focus domains. Language and Speech 26:61–80.	page 22
+references	Karsten A. Koch	reference	Hayes, Bruce. (1989). The prosodic hierarchy in meter. In P. Kiparsky and G. Youmans, eds. Phonetics and Phonology, Vol 1: Rhythm and Meter. San Diego: Academic Press. 201–260.	page 22
+references	Karsten A. Koch	reference	Hayes, Bruce, and Aditi Lahiri. (1991). Bengali intonational phonology. Natural Language & Linguistic Theory 9: 47–96.	page 22
+references	Karsten A. Koch	reference	Hoard, James E. (1971). Problems in Proto-Salish pronoun reconstruction. Sacramento Anthropological Society Papers 11: 70–90.	page 22
+references	Karsten A. Koch	reference	Hoard, James E. (1978). Syllabication in Northwest Indian Languages, with remarks on the nature of syllabic stops and affricates.’ In Alan Bell and Joan Bybee, eds. Syllables and Segments Amsterdam: North Holland.	page 22
+references	Karsten A. Koch	reference	Ishihara, Shinichiro. (2007). Major phrase, focus intonation, multiple spell-out. The Linguistic Review (2–3):137–167.	page 22
+references	Karsten A. Koch	reference	Jackendoff, Ray. (1972). Semantic Interpretation in Generative Grammar. Cambridge, MA: MIT Press.	page 22
+references	Karsten A. Koch	reference	Kahnemuyipour, Arsalan. (2004). The Syntax of Sentential Stress. Ph.D. dissertation, University of Toronto.	page 22
+references	Karsten A. Koch	reference	Kinkade, M. Dale. (1992). Salishan languages. In William Bright, ed. International Encyclopedia of Linguistics. New York: Oxford University Press. 359–362.	page 22
+references	Karsten A. Koch	reference	Koch, Karsten A. (2008). Intonation and Focus in Nɬeʔkepmxcin (Thompson River Salish). Ph.D. dissertation, University of British Columbia.	page 22
+references	Karsten A. Koch	reference	Koch, Karsten A. (2009). Innovative double subject marking in Nɬeʔkepmxcin (Thompson River Salish). Northwest Journal of Linguistics 3(4):1–23.	page 23
+references	Karsten A. Koch	reference	Koch, Karsten A. (2010). Some properties of prosodic phrases in Thompson Salish. In Stefanie Jannedy and Melanie Weirich, eds. Papers from the Linguistics Laboratory (ZAS Papers in Linguistics 52). Berlin: ZASPiL. 141–158.	page 23
+references	Karsten A. Koch	reference	Koch, Karsten A. (2011). A phonetic study of intonation and focus in Nɬeʔkepmxcin. In Sonia Frota, Pilar Prieto, and Gorka Elordieta, eds. Prosodic Categories: Production, Perception and Comprehension. Dordrecht: Springer. 111–144.	page 23
+references	Karsten A. Koch	reference	Koch, Karsten A., and Malte Zimmermann. (2010). Focus sensitive operators in Nɬeʔkepmxcin (Thompson River Salish). In Martin Prinzhorn, Viola Schmitt and Sarah Zobel, eds. Proceedings of Sinn und Bedeutung 14. Vienna: Universität Wien Institut für Sprachwissenschaft. 237-255.	page 23
+references	Karsten A. Koch	reference	Kroeber, Paul. (1997). Relativization in Thompson Salish. Anthropological Linguistics 39(3):376–422.	page 23
+references	Karsten A. Koch	reference	Kroeber, Paul. (1999). The Salish Language Family: Reconstructing Syntax. Lincoln: University of Nebraska Press.	page 23
+references	Karsten A. Koch	reference	Marinakis, Aliki. (2004). A preliminary description of consonant clusters in Upriver Halq’eméylem.’ In Jason Brown and Tyler Peterson, eds. Papers for ICSNL 39. Vancouver: UBCWPL 14. 283–302.	page 23
+references	Karsten A. Koch	reference	Nespor, Marina, and Wendy Sandler. (1999). Prosody in Israeli Sign Language. Language and Speech 42:143–176.	page 23
+references	Karsten A. Koch	reference	Newman, Stanley. (1979). A history of the Salish possessive and subject forms. International Journal of American Linguistics 45:207–223.	page 23
+references	Karsten A. Koch	reference	Newman, Stanley. (1980). Functional changes in the Salish pronominal system. International Journal of American Linguistics 46:155–167.	page 23
+references	Karsten A. Koch	reference	Niebuhr, Oliver. (2008). Coding of intonational meanings beyond F0: Evidence from utterance-final /t/ aspiration in German. Journal of the Acoustical Society of America 124(2):1252–1263.	page 23
+references	Karsten A. Koch	reference	Schafer, A.J., and Sun-Ah Jun. (2002). Effects of accentual phrasing on adjective interpretation in Korean. In M. Nakayama, ed. East Asian Language Processing. Stanford: CSLI. 223–255.	page 23
+references	Karsten A. Koch	reference	Selkirk, Elizabeth. (1995). Sentence prosody: Intonation, stress and phrasing. In J. Goldsmith, ed. The Handbook of Phonological Theory. Cambridge, MA: Blackwell. 550–569.	page 23
+references	Karsten A. Koch	reference	Selkirk, Elizabeth, and Angelika Kratzer. (2007). Phase theory and prosodic spellout: The case of verbs. The Linguistic Review 24(2-3):93–135.	page 23
+references	Karsten A. Koch	reference	Shahin, Kimary N. (2003). The uvular/pharyngeal allophones of the St’át’imcets (Lillooet) gutturals: a phonetic study. In Jason Brown and Michelle Kalmar, eds. Papers for ICSNL 38. Vancouver: UBCWPL 11. 207–214.	page 24
+references	Karsten A. Koch	reference	Shaw, Patricia. (2002). On the edge: obstruent clusters in Salish. In Leora Bar-el, Linda Watt, and Ian Wilson, eds. Proceedings of WSCLA 7. Vancouver: UBCWPL 10. 119–136.	page 24
+references	Karsten A. Koch	reference	Thompson, Laurence C., and M. Terry Thompson. (1992). The Thompson Language. Missoula: University of Montana Occasional Papers in Linguistics 8.	page 24
+references	Karsten A. Koch	reference	Thompson, Laurence C., and M. Terry Thompson. (1996). Thompson River Salish Dictionary. Missoula: University of Montana Occasional Papers in Linguistics 12.	page 24
+references	Karsten A. Koch	reference	Van Eijk, Jan P. (2001). Word, clitic and sentence in Lillooet. In S. Gessner, S. Oh, and K. Shiobara, eds. Proceedings of WSCLA 5. Vancouver: UBCWPL 5. 119–122.	page 24
+references	Karsten A. Koch	reference	Windsor, Joseph, and Jessi Cobler. (2013). A unified analysis of three phrase- final phenomenon in Blackfoot. Poster presented at CLA 2013: Meeting of the Canadian Linguistics Association 2013, Special Session on Reclaiming Canada’s Indigenous Languages, Victoria.	page 24

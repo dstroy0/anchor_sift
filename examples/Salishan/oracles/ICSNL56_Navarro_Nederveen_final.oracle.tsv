@@ -1,0 +1,458 @@
+where	who	kind	form	gloss
+front	Michel Navarro and Sander Nederveen	title	Comparative Notes on the Determiner re in Secwepemctsín*	page 1, carries footnote *
+front	Michel Navarro and Sander Nederveen	byline	Michel Navarro Sander Nederveen University of British Columbia University of British Columbia	page 1, the two authors side by side over their university
+front	Michel Navarro and Sander Nederveen	name	Michel Navarro	author, University of British Columbia
+front	Michel Navarro and Sander Nederveen	name	Sander Nederveen	author, University of British Columbia
+front	Michel Navarro and Sander Nederveen	note	Abstract: This paper compares some semantic properties of the determiner re in Secwepemctsín (Shuswap Salish) with the corresponding determiners in St’át’imcets (Lillooet Salish). Employing original Secwepemctsín data, we first show that the so-called ‘proximal/visual/present determiner’ re can give rise to temporally free interpretations and individual concept readings of DPs, unlike its counterpart(s) in St’át’imcets (Demirdache 1996). Secondly, we demonstrate that DPs headed by re allow narrow scope readings with respect to operators such as negation, if-clauses, intensional verbs, modals, and quantificational phrases. This is contrary to St’át’imcets, in which a subset of indefinites takes obligatorily wide scope with respect to these operators (Matthewson 1996, 1998, 1999), whereas in Secwepemctsín re has optional scope. Based on these facts, we claim that re is an unmarked determiner, since it encodes neither deictic features nor assertion-of-existence. This is also contrary to its counterparts in St’át’imcets, which carry both properties, as shown by Matthewson. This is the first systematic semantic investigation of the determiner re in Secwepemctsín, with which we intend to contribute to our knowledge of semantic variations across determiner systems in Salish.	page 1, the abstract
+front	Michel Navarro and Sander Nederveen	note	Keywords: Secwepemctsín, Salishan, determiners, assertion-of-existence, scope	page 1, the keywords
+front	Michel Navarro and Sander Nederveen	note	Papers for the International Conference on Salish and Neighboring Languages 56. D. K. E. Reisinger, Hannah Green, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2021.	page 1, the volume's header
+front	Michel Navarro and Sander Nederveen	language	Secwepemctsín	Shuswap, Northern Interior Salish, the language of the new data
+front	Michel Navarro and Sander Nederveen	language	St’át’imcets	Lillooet, Northern Interior Salish, the language compared, its data from Matthewson and Demirdache
+footnote *	Michel Navarro and Sander Nederveen	note	* We would like to thank our consultants Garlene Bernadette Dodson, Ronald Ignace, and Louella Jules for sharing their language with us. Many thanks to Henry Davis, Lisa Matthewson, and members of the Shuswap Working Group and the Salish Working Group for feedback and comments on this work in progress. A special thanks to Dakota Anderberg for her involvement in the earlier stages of elicitation processes. Of course, all errors of fact are ours. Contact info: michel.assisnavarro@ubc.ca; sander.nederveen@ubc.ca	page 1, footnote, with the authors' contact
+footnote *	Michel Navarro and Sander Nederveen	note	We use the following abbreviations: 1/2/3 = 1st, 2nd, 3rd person; CTR = control; D = determiner; ERG = ergative; EXIS = existential; FUT = future; NCM = limited-control middle; NCT = limited-control transitive; NEG = negation; NMLZ = nominalizer; PL = plural; POSS = possessive; PRF = perfect; PROG = progressive; PST = past; RLT = relational; RM= remote; SBJV = subjunctive; SG = singular; STAT = stativizer.; SUBJ = subject; TR = transitive.	page 1, the abbreviations, under the footnote
+footnote *	Michel Navarro and Sander Nederveen	name	Garlene Bernadette Dodson	a consultant, GD in the comments
+footnote *	Michel Navarro and Sander Nederveen	name	Ronald Ignace	a consultant, RI in the comments
+footnote *	Michel Navarro and Sander Nederveen	name	Louella Jules	a consultant
+§1	Michel Navarro and Sander Nederveen	heading	1 Introduction	page 1
+§1	Secwepemctsín	cited form	Secwepemctsín	page 1
+§1	Secwepemctsín	cited form	St’át’imcets	page 1
+§1	Secwepemctsín	cited form	Secwepemctsín	page 2
+§1	Michel Navarro and Sander Nederveen	note	This paper demonstrates that the determiner re in Secwepemctsín exhibits a set of semantic properties that differ from its counterparts in St’át’imcets. It also presents data that have important consequences for our understanding of variation across determiner systems in Salish.	page 1
+§1	Secwepemctsín	cited form	Nsyilxcən	page 2
+§1	Secwepemctsín	cited form	Nsyilxcən	page 2
+§1	Michel Navarro and Sander Nederveen	note	Secwepemctsín and St’át’imcets are Interior Salish languages. Secwepemctsín is spoken in Central and Southern British Columbia and has fewer than 100 fluent speakers (Dunlop et al. 2018). St’át’imcets is spoken in Southern British Columbia and has fewer than 100 fluent speakers (Dunlop et al. 2018). We present original Secwepemctsín data showing that the ‘proximal/visual/present’ determiner re can be used in contexts that give rise to temporally free interpretations and individual concept readings of DPs, unlike the corresponding determiners in St’át’imcets (Demirdache 1996). Moreover, we demonstrate that DPs headed by re allow narrow scope readings with respect to operators such as negation, if-clauses, intensional verbs, modals, and quantificational phrases, contrary to wide scope indefinite DPs in St’át’imcets. In other words, whereas in St’át’imcets a subset of indefinites can only take wide scope with respect to these operators, in Secwepemctsín, the scope of re is variable. The findings laid out here have important consequences for variation across determiner systems in Salish. Matthewson (1996, 1998, 1999), who provides the first formal analysis of determiners in Salish, hypothesizes that determiner systems across Salish languages encode assertion-of-existence, rather than definiteness or specificity. She argues that assertion-of-existence determiners disallow individual concept interpretations, temporally free readings, and obligatorily take wide scope with respect to negation and intensional operators. However, our findings, along with Lyon (2011) on Nsyilxcən — a Southern Interior Salish language with just one determiner — show that one cannot classify all determiners in Salish as encoding either assertion or non-assertion of existence.1 Consequently, the converging results presented here and in Lyon (2011) are part of a growing body of research on variations across and within determiner systems in Salish.2	page 1
+footnote 1	Michel Navarro and Sander Nederveen	note	1 We do not discuss the data in Nsyilxcən: for details see Lyon (2011).	page 2, footnote
+footnote 2	Michel Navarro and Sander Nederveen	note	2 For an analysis of determiners in Skwxw7úmesh, see Gillon (2006). For a recent work on ʔayʔaǰuθəm, see Huijsmans et al. (2020).	page 2, footnote
+§1	Michel Navarro and Sander Nederveen	note	The paper proceeds as follows. In Section 2, we provide some basic facts about the distribution of determiners in Secwepemctsín and St’át’imcets. In Section 3, we offer a brief description of our fieldwork methodology. In Section 4, we show that DPs with re in Secwepemctsín allow temporally free interpretations (TFI) and individual concept readings (ICR). We contrast these findings with Demirdache (1996), who shows that these readings are disallowed by the subset of determiners that encode the present/absent distinction in St’át’imcets. In Section 5, we display data on the narrow scope interpretation of re with respect to negation, intensional verbs, modals, if-clauses, and quantificational DPs. We again contrast these findings with St’át’imcets, which has obligatorily wide-scope interpretations of (a subset of) indefinite determiners. In Section 6, we propose an analysis of re as an unmarked determiner. Based on our findings, we claim that it encodes neither deictic features nor assertion-of-existence. In addition, we also touch on issues raised by our findings, particularly in connection with broader questions about variation across determiner systems in Salish. In Section 7, the conclusion, we suggest directions for future research that will enrich our understanding of the determiner system in Secwepemctsín.	page 2
+§2	Michel Navarro and Sander Nederveen	heading	2 The distribution of determiners in Secwepemctsín and St’át’imcets	page 2
+§2.1	Michel Navarro and Sander Nederveen	heading	2.1 Secwepemctsín	page 2
+§2.1	Michel Navarro and Sander Nederveen	note	The Secwepemctsín determiners are schematized in Table 1, adapted from Kuipers (1974) and Gardiner (1993).	page 2
+Table 1 line 1	Michel Navarro and Sander Nederveen	note	Table 1: Secwepemctsín determiner inventory (Kuipers 1974)	page 2, the caption
+Table 1 line 2	Michel Navarro and Sander Nederveen	note	Present/Proximal Absent/Distal Hypothetical/Irrealis	page 2, heads the columns: Present/Proximal, Absent/Distal, Hypothetical/Irrealis
+Table 1 line 3	Michel Navarro and Sander Nederveen	note	Direct case re le k	page 2, direct case: present re, absent le, hypothetical k
+Table 1 line 4	Michel Navarro and Sander Nederveen	note	Oblique case te te tek	page 2, oblique case: present te, absent te, hypothetical tek
+§2.1	Michel Navarro and Sander Nederveen	note	Table 1 indicates that Secwepemctsín determiners encode case distinctions. The direct case determiners head subjects and objects of transitive verbs and subjects of intransitives. In contrast, oblique case determiners head oblique arguments, patients of middle constructions, and adjuncts. The determiner system also encodes spatial-temporal deictic features.	page 2
+§2.1	Michel Navarro and Sander Nederveen	note	Secwepemctsín determiners always precede their complements and are obligatory on nouns in argument positions, as illustrated in (1a–b) and (2a–b).	page 3
+(1a) line 1	Secwepemctsín	transcription	xexé7 [re kúkwpi7]	page 3
+(1a) line 2	Secwepemctsín	gloss	powerful D chief	page 3
+(1a) line 3	Michel Navarro and Sander Nederveen	translation	‘The chief is strong.’	page 3
+(1b) line 1	Secwepemctsín	transcription	* xexé7 [kúkwpi7]	page 3, judged *
+(1b) line 2	Secwepemctsín	gloss	powerful chief	page 3
+(2a) line 1	Secwepemctsín	transcription	[re xu7t̓ ] m-t̓axel-men-s [re cteq̓méwll]	page 3
+(2a) line 2	Secwepemctsín	gloss	D sturgeon PRF-attack- RLT-[TR]-3ERG D boat	page 3
+(2a) line 3	Michel Navarro and Sander Nederveen	translation	‘A sturgeon attacked a boat.’	page 3
+(2b) line 1	Secwepemctsín	transcription	* [xu7t̓] m-t̓axel-men-s [cteq̓méwll]	page 3, judged *, carries footnote 3
+(2b) line 2	Secwepemctsín	gloss	sturgeon PRF-attack-TR-3ERG boat	page 3
+footnote 3	Michel Navarro and Sander Nederveen	note	3 In (2b), the sentenc e-initial determiner might have been elided, and its absence need not yield ungrammaticality. The absence of a determiner on the object NP unambiguously yields ungrammaticality.	page 3, footnote
+§2.1	Michel Navarro and Sander Nederveen	note	Determiners are number-neutral in Secwepemctsín, as shown in the minimal pair in (3a–b), where the same determiner co-occurs with singular and plural nouns.	page 3
+(3a) line 1	Secwepemctsín	transcription	xexé7 [re kúkwpi7]	page 3
+(3a) line 2	Secwepemctsín	gloss	strong D chief.SG	page 3
+(3a) line 3	Michel Navarro and Sander Nederveen	translation	‘The chief is strong.’	page 3
+(3b) line 1	Secwepemctsín	transcription	xexé7 [re kukúkwpi7]	page 3, carries footnote 4
+(3b) line 2	Secwepemctsín	gloss	strong D chief.PL	page 3
+(3b) line 3	Michel Navarro and Sander Nederveen	translation	‘The chiefs are strong.’	page 3
+footnote 4	Michel Navarro and Sander Nederveen	note	4 Plurals are formed via reduplication of the root in Secwepemctsín.	page 3, footnote
+§2.1	Michel Navarro and Sander Nederveen	note	As for the hypothetical/irrealis determiners, they seem to be licensed by non-factual operators that c-command them, such as negation and intensional operators. Consider the instances below (based on Kuipers 1974).	page 3
+(4) line 1	Secwepemctsín	transcription	ta7 k s-kwen-[n]wélln̓-s re Sander [tek swewll]	page 3
+(4) line 2	Secwepemctsín	gloss	NEG D NMLZ-take-NCM-3POSS D Sander D+OBL fish	page 3
+(4) line 3	Michel Navarro and Sander Nederveen	translation	‘Sander did not catch a fish.’	page 3
+(5) line 1	Secwepemctsín	transcription	Sander héqen me7 meríye-n-s [k lleq̓emélten]	page 3
+(5) line 2	Secwepemctsín	gloss	Sander may/might FUT marry-CTR-[TR]-3ERG D teacher	page 3
+(5) line 3	Michel Navarro and Sander Nederveen	translation	‘Sander may/might marry a professor.’	page 3
+(6) line 1	Secwepemctsín	transcription	* qwetséts [k kúkwpi7]	page 3, judged *
+(6) line 2	Secwepemctsín	gloss	leave D chief	page 3
+(6) line 3	Michel Navarro and Sander Nederveen	translation	‘A chief left.’	page 3
+§2.1	Michel Navarro and Sander Nederveen	note	The information provided above on the determiner system in Secwepemctsín is by no means exhaustive but suffices for the purposes of this paper. This paper concentrates on the present/proximal determiner re. We present new data that support the hypothesis that, among other things, re does not encode the deictic features that the descriptive literature claims it does (Kuipers 1974; Gardiner 1993).	page 4
+§2.2	Michel Navarro and Sander Nederveen	heading	2.2 St’át’imcets	page 4
+§2.2	Secwepemctsín	cited form	St’át’imcets	page 4
+§2.2	Michel Navarro and Sander Nederveen	note	The inventory of determiners in St’át’imcets is schematized in Table 2, adapted from Matthewson (1996, 1998, 1999).	page 4
+Table 2 line 1	Michel Navarro and Sander Nederveen	note	Table 2: St’át’imcets determiner inventory (Matthewson 1996, 1998, 1999)	page 4, the caption
+Table 2 line 2	Michel Navarro and Sander Nederveen	note	Present Absent Remote Hypothetical/Irrealis	page 4, heads the columns: Present, Absent, Remote, Hypothetical/Irrealis
+Table 2 line 3	Michel Navarro and Sander Nederveen	note	Singular ti-…=a ni=…=a ku=…=a ku	page 4, singular: present ti-…=a, absent ni=…=a, remote ku=…=a, hypothetical ku
+Table 2 line 4	Michel Navarro and Sander Nederveen	note	Plural i=…a nelh=…=a kwelh=…=a ku	page 4, plural: present i=…a, absent nelh=…=a, remote kwelh=…=a, hypothetical ku
+§2.2	Michel Navarro and Sander Nederveen	note	St’át’imcets determiners are also obligatory on nouns. Most determiners come in two parts: one part precedes the noun as a proclitic, and the other part is attached to the noun as an enclitic. This is illustrated in (7).	page 4
+(7) line 1	St’át’imcets	transcription	wa7 ts’aqw-an’ítas [i=t’éc=a] [i =míxalh=a]	page 4
+(7) line 2	St’át’imcets	gloss	IPFV eat-TR-3PL.ERG D.PL=sweet=EXIS D.PL=bear=EXIS	page 4
+(7) line 3	Michel Navarro and Sander Nederveen	translation	‘Bears eat honey.’	page 4
+(7) line 4	Michel Navarro and Sander Nederveen	citation	(Matthewson 1996:76)	page 4, the source
+§2.2	Michel Navarro and Sander Nederveen	note	Determiners in St’át’imcets encode number, except for the hypothetical ku. This is exemplified by the minimal pair in (8a–b).	page 4
+(8a) line 1	St’át’imcets	transcription	á7xa7 [ti=kel7áqsten=a]	page 4
+(8a) line 2	St’át’imcets	gloss	powerful D.SG=leader=EXIS	page 4
+(8a) line 3	Michel Navarro and Sander Nederveen	translation	‘The chief is powerful.’	page 4
+(8b) line 1	St’át’imcets	transcription	á7xa7 [i=kel7áqsten=a]	page 4
+(8b) line 2	St’át’imcets	gloss	powerful D.PL=leader=EXIS	page 4
+(8b) line 3	Michel Navarro and Sander Nederveen	translation	‘The chiefs are powerful.’	page 4
+(8b) line 4	Michel Navarro and Sander Nederveen	citation	(Adapted from Demirdache 1996)	page 4, the source
+§2.2	Michel Navarro and Sander Nederveen	note	Matthewson (1996, 1998, 1999) shows that the hypothetical/irrealis determiner ku is licensed by non-factual operators c-commanding it, as illustrated in the examples below.	page 4
+(9) line 1	St’át’imcets	transcription	cw7aoz kw=s=7áts’x-en-as [ku=sqáycw]	page 4
+(9) line 2	St’át’imcets	gloss	NEG D=NMLZ=see-TR-3ERG D=man	page 4
+(9) line 3	Michel Navarro and Sander Nederveen	translation	‘S/he didn’t see any men.’	page 4
+(9) line 4	Michel Navarro and Sander Nederveen	citation	(Matthewson 1999:88)	page 4, the source
+(10) line 1	St’át’imcets	transcription	az’-en=lhkán=kelh [ku=káoh]	page 5
+(10) line 2	St’át’imcets	gloss	buy-TR=1SG.SUBJ=might [D=car]	page 5
+(10) line 3	Michel Navarro and Sander Nederveen	translation	‘I’m going to by a car.’	page 5
+(10) line 4	Michel Navarro and Sander Nederveen	citation	(Matthewson 1996:203)	page 5, the source
+(11) line 1	St’át’imcets	transcription	* áts’x-en-as [ku=sqáycw]	page 5, judged *
+(11) line 2	St’át’imcets	gloss	see-TR-3ERG [D=man]	page 5
+(11) line 3	Michel Navarro and Sander Nederveen	translation	‘S/he saw a man.’	page 5
+(11) line 4	Michel Navarro and Sander Nederveen	citation	(Matthewson 1999:88)	page 5, the source
+§2.2	Michel Navarro and Sander Nederveen	note	The facts offered above about the distribution of determiners in St’át’imcets suffice for the comparison pursued in this paper. For an exhaustive discussion of St’át’imcets determiners, see Matthewson (1996, 1998, 1999).	page 5
+§3	Michel Navarro and Sander Nederveen	heading	3 Fieldwork methodology	page 5
+§3	Secwepemctsín	cited form	Secwepemctsín	page 5
+§3	Michel Navarro and Sander Nederveen	note	The Secwepemctsín data presented in this paper result from fieldwork carried out over a one-year period. The data were obtained through direct elicitation with two different first-language speakers of the western dialect of Secwepemctsín. The elicitation sessions were conducted through Zoom. Our data points are accompanied by speaker codes C1 and/or C2 to differentiate between consultants who provided the data and judgments. Code C1/2 indicates that a data point has been agreed upon by both consultants.	page 5
+§3	Michel Navarro and Sander Nederveen	note	During these sessions, consultants were asked questions designed to prompt answers that rely on their linguistic knowledge. The data were elicited through grammaticality judgments, translation tasks, pairing sentences with discourse contexts, in the form of verbal descriptions, and through language-independent single images and storyboards (Bochnak & Matthewson 2020; Bohnemeyer 2015; Deal 2015; Krifka 2011; Matthewson 2004, 2012). The scenarios set up a discourse context, and the consultants were then asked whether a sentence was felicitous given the context. We also elicited truth-value judgments, asking consultants whether the sentence in the target language accurately represents the facts described in the context. That is, given the information provided by the context, whether the sentence in the target language is true. The verbal descriptions are original, as well as some of the images/storyboards we used. Storyboard scenarios that we did not create ourselves were selected from the Scope Fieldwork Project (Bruening 2008). 4 Temporally free interpretation and individual concept reading.	page 5
+§4.1	Michel Navarro and Sander Nederveen	heading	4.1 Temporally free interpretation	page 5
+§4.1	Secwepemctsín	cited form	St’át’imcets	page 5
+§4.1	Michel Navarro and Sander Nederveen	note	Demirdache (1996) shows that DPs in St’át’imcets “do not have the range of temporal interpretations” displayed by definite DPs in English (Demirdache 1996:17). For example, the English sentence (12a) can have a reading in which the temporal interpretation of the DP the president of the United States is independent of the temporal interpretation of the main predicate. That is, (12a) can be true if the current president of the United States was powerful at a time prior to becoming the president, as illustrated in the timeline (12b).5	page 5
+footnote 5	Michel Navarro and Sander Nederveen	note	5 The timeline representation is adapted from Demirdache (1996). ‘UTT’ stands for the utterance time.	page 5, footnote
+(12a) line 1	Michel Navarro and Sander Nederveen	note	The president of the United States was powerful.	page 6, the English sentence
+(12b) line 1	Michel Navarro and Sander Nederveen	notation	UTT	page 6, a line of the timeline, UTT the utterance time
+(12b) line 2	Michel Navarro and Sander Nederveen	notation	x being powerful x being president-of-the-US	page 6, a line of the timeline, UTT the utterance time
+§4.1	Michel Navarro and Sander Nederveen	note	This phenomenon is known as a temporally free interpretation (TFI). TFI readings are also available when the evaluation time of the main predicate is interpreted in the future. Sentence (13) can be interpreted as saying that the current president of the United States will be politically weak at a time in the future when he is not the president anymore.	page 6
+(13) line 1	Michel Navarro and Sander Nederveen	note	The president of the United States will be weak.	page 6, the English sentence
+§4.1	Michel Navarro and Sander Nederveen	note	According to Demirdache (1996) and Matthewson (1996, 1998), the temporal interpretation of the subject DP in St’át’imcets always overlaps with the temporal interpretation of the main predicate. This means that TFIs of subject DPs are not available in St’át’imcets. Sentence (14a), with the remote temporal deictic marker tu7, allows only two readings. If the DP is employed to refer to the current president, the temporal interpretation of the NP must stretch into the past so as to overlap with the past time evaluation of the VP. That is, it will mean that the current president was already the president when he was powerful, which is illustrated in (14b). A second available reading is one in which (14a) is true if the individual who was the president at a past time was powerful at that time interval, as shown in (14c). In this interpretation the individual is not a president anymore at the utterance time.	page 6
+(14a) line 1	St’át’imcets	transcription	á7xa7 tu7 [ti=kel7áqsten-s=a ti=US=a]	page 6
+(14a) line 2	St’át’imcets	gloss	powerful RM D=chief-3POSS=EXIS D=US=EXIS	page 6
+(14a) line 3	Michel Navarro and Sander Nederveen	translation	‘The president of the US was powerful.’	page 6
+(14a) line 4	Michel Navarro and Sander Nederveen	citation	(Demirdache 1996:7)	page 6, the source
+(14b) line 1	Michel Navarro and Sander Nederveen	notation	UTT	page 6, a line of the timeline, UTT the utterance time
+(14b) line 2	Michel Navarro and Sander Nederveen	notation	x is president-of-the-US	page 6, a line of the timeline, UTT the utterance time
+(14b) line 3	Michel Navarro and Sander Nederveen	notation	x is powerful	page 6, a line of the timeline, UTT the utterance time
+(14c) line 1	Michel Navarro and Sander Nederveen	notation	UTT	page 6, a line of the timeline, UTT the utterance time
+(14c) line 2	Michel Navarro and Sander Nederveen	notation	x is president-of-the-US	page 6, a line of the timeline, UTT the utterance time
+(14c) line 3	Michel Navarro and Sander Nederveen	notation	x is powerful	page 6, a line of the timeline, UTT the utterance time
+§4.1	Michel Navarro and Sander Nederveen	note	Demirdache (1996) attributes the availability of readings (14b–c) and the lack of (13b) in St’át’imcets to the fact that determiners in St’át’imcets encode deictic properties. To account for this, she adopts Carlson’s (1977) ontology, according to which the domain of individuals contains stages, in addition to objects and kinds. Stages are conceived as spatio-temporal instantiations of individuals. Since a subset of determiners in St’át’imcets encode deictic distinctions, Demirdache (1996:2) concludes that they “supply entities with spatio-temporal boundaries” and that by referring to “spatio-temporally bounded slices of individuals”, these DPs force main predicates to apply to the stages they single out.	page 6
+§4.1	Secwepemctsín	cited form	Secwepemctsín	page 7
+§4.1	Michel Navarro and Sander Nederveen	note	Secwepemctsín differs from St’át’imcets by allowing TFIs. Sentence (15b), which contains a subject DP headed by the determiner re, is true in the context (15a). In it, the time interval during which the individual x is the chief of Kamloops does not overlap with the past time at which x had the property of being weak.	page 7
+(15a) line 1	Michel Navarro and Sander Nederveen	note	Context: The new chief of Kamloops, before he took this important position, used to be a frail, weak guy. However, now that he is the chief, he turns out to be a strong and powerful leader. You find this a remarkable development and while thinking about how he used to be so weak, you say to yourself:	page 7, the context
+(15b) line 1	Secwepemctsín	transcription	m-tsqwnuxw [re kúkwpi7-s re Tk’emlúps]	page 7, speaker code C2
+(15b) line 2	Secwepemctsín	gloss	PRF-weak D chief-3POSS D Kamloops	page 7
+(15b) line 3	Michel Navarro and Sander Nederveen	translation	‘The chief of Kamloops was weak.’	page 7
+(15b) line 4	Michel Navarro and Sander Nederveen	speaker comment	Consultant’s comment: “Yeah, that’s a sentence! One time he was weak and pitiful but when his people stood him up as chief he was strong and powerful.”	page 7, a consultant's comment
+§4.1	Secwepemctsín	cited form	tsqwnuxw	page 7, ‘weak’
+§4.1	Michel Navarro and Sander Nederveen	note	Note that (15b) has the anteriority marker m- attached to the predicate tsqwnuxw ‘weak’, which shifts the evaluation time of the predicate to a time in the past, but it does not affect the temporal interpretation of the DP. The temporal interpretation of the DP overlaps with the utterance time. The same interpretation was attested when the sentence contains the anteriority marker lu7 in postverbal position, as illustrated in (16).	page 7
+(16) line 1	Secwepemctsín	transcription	tsqwnuxw lu7 [re kúkwpi7-s re Tk’mlups]	page 7, speaker code C2
+(16) line 2	Secwepemctsín	gloss	weak PST D chief-3SG.POSS D Kamloops	page 7
+(16) line 3	Michel Navarro and Sander Nederveen	translation	‘The chief of Kamloops was weak.’	page 7
+(16) line 4	Michel Navarro and Sander Nederveen	speaker comment	Consultant’s comment: “Okay. He was frail and weak. Lu7 also means it’s past tense. But since then he’s recovered.”	page 7, a consultant's comment
+§4.1	Michel Navarro and Sander Nederveen	note	TFI is also attested in future tense sentences. Sentence (17b) is true in the context (17a).	page 7
+(17a) line 1	Michel Navarro and Sander Nederveen	note	Context: The current mayor of Vancouver, because of his position, is a strong and powerful leader. In a month from now there will be a new election for mayor and he will not run for it. In fact, he decided to never run for it again. Thinking that the day after he passes over his position, he will become an ordinary frail, weak guy, you say to yourself:	page 7, the context
+(17b) line 1	Secwepemctsín	transcription	me7 tsqwnuxw [re kúkwpi7-s re penkúpa]	page 7
+(17b) line 2	Secwepemctsín	gloss	FUT weak D chief-3.POSS D Vancouver	page 7
+(17b) line 3	Michel Navarro and Sander Nederveen	translation	‘The mayor of Vancouver will be weak.’	page 7
+(17c) line 1	Michel Navarro and Sander Nederveen	notation	UTT	page 8, a line of the timeline, UTT the utterance time
+(17c) line 2	Michel Navarro and Sander Nederveen	notation	x is mayor-of-Vancouver x is weak	page 8, a line of the timeline, UTT the utterance time
+§4.1	Secwepemctsín	cited form	Secwepemctsín	page 8
+§4.1	Michel Navarro and Sander Nederveen	note	Given context (17a), sentence (17b) means that the current mayor of Vancouver will become weak at some point in the future when he is not a mayor anymore, as illustrated in the timeline (17c). Based on the acceptance of sentences (15a), (16), and (17b) in the contexts provided above, we can conclude that TFIs of DPs are available in Secwepemctsín. That is, the time intervals of DPs in Secwepemctsín need not overlap with the time intervals of the predicate.	page 8
+§4.2	Michel Navarro and Sander Nederveen	heading	4.2 Individual concept reading	page 8
+§4.2	Secwepemctsín	cited form	St’át’imcets	page 8
+§4.2	Michel Navarro and Sander Nederveen	note	Demirdache (1996) also demonstrates that DPs headed by deictic determiners in St’át’imcets lack individual concept readings (ICR). That is, DPs cannot be interpreted as denoting any past, present, or future individual to which the descriptive contents of the NPs apply. English sentence (18a) is illustrative for an ICR. The definite DP in (18a) can have an ICR, i.e., the president of the United States is interpreted as describing whoever was, is, or will be the president. One way of capturing these readings is by universally quantifying over a time interval variable, as illustrated in (18b).6	page 8
+footnote 6	Michel Navarro and Sander Nederveen	note	6 Depending on the theory/ontology you adopt, it can also be represented as quantifying over occasions, situations, etc.	page 8, footnote
+(18a) line 1	Michel Navarro and Sander Nederveen	note	The president of the United States is (always) powerful.	page 8, the English sentence
+(18b) line 1	Michel Navarro and Sander Nederveen	notation	∀t, whoever is president of the US at t is powerful at t.	page 8, a paraphrase in predicate logic
+§4.2	Michel Navarro and Sander Nederveen	note	Contrastingly, the counterpart DP in St’át’imcets, which is headed by the deictic determiner i=…=a, can only be used in (19) t o refer to a particular individual or whoever is the current president.7	page 8
+footnote 7	Michel Navarro and Sander Nederveen	note	7 In the absence of any aspectual or tense marker, root sentences with stative verbs are interpreted in the present (Demirdache 1996). The same seems to hold for Secwepemctsín.	page 8, footnote
+(19a) line 1	St’át’imcets	transcription	á7xa7 [ti=kel7áqsten-s-a ti=United-States-a]	page 8
+(19a) line 2	St’át’imcets	gloss	powerful D=leader-3POSS=EXIS D=United.States=EXIS	page 8
+(19a) line 3	Michel Navarro and Sander Nederveen	translation	‘The president of the United States is powerful.’	page 8
+(19a) line 4	Michel Navarro and Sander Nederveen	citation	(Demirdache 1996:5)	page 8, the source
+(19b) line 1	Michel Navarro and Sander Nederveen	notation	∀t, whoever is president of the US at t is powerful at t.	page 8, a paraphrase in predicate logic
+§4.2	Michel Navarro and Sander Nederveen	note	Moreover, quantificational phrases in St’át’imcets lack ICRs, as illustrated in (20).	page 8
+(20a) line 1	St’át’imcets	transcription	á7xa7 [tákem i=kel7áqsten=a]	page 8
+(20a) line 2	St’át’imcets	gloss	powerful all D.PL=leader=EXIS	page 8
+(20a) line 3	Michel Navarro and Sander Nederveen	translation	‘All the chiefs are powerful.’	page 8
+(20a) line 4	Michel Navarro and Sander Nederveen	citation	(Demirdache 1996:9)	page 8, the source
+(20b) line 1	Michel Navarro and Sander Nederveen	notation	∀x, if x is chief now, then x is powerful now.	page 8, a paraphrase in predicate logic, judged ✓
+(20c) line 1	Michel Navarro and Sander Nederveen	notation	∀x ∀t, if x is chief at t, then x is powerful at t.	page 8, a paraphrase in predicate logic, judged *
+§4.2	Michel Navarro and Sander Nederveen	note	The unavailability of reading (20c) is expected, given the distribution of quantifiers in St’át’imcets. In (20a), the quantifier word tákem ‘all’ takes as complement a DP headed by the deictic plural determiner i=…=a. Consequently, its domain of quantification is a sum of individuals who are chiefs at the utterance time.8	page 9
+footnote 8	Michel Navarro and Sander Nederveen	note	8 For a semantic/syntactic analysis of quantificational phrases in St’át’imcets, see Matthewson (1996, 1998, 2001). In her analysis, the restrictor of tákem is a plural individual selected by the choice function introduced by i=…=a. The quantifier, hence, quantifies over the parts of a plural individual. This entails that the restrictor of tákem is of type e, and not et, as standardly assumed by the generalized quantifier theory. In other words, Matthewson proposes that quantifiers can denote a relation between an individual and a set. For a different approach, which analyses tákem as a maximizing operator, along the lines proposed by Brisson (2003) for all, see Davis (2010, 2013).	page 9, footnote
+§4.2	Michel Navarro and Sander Nederveen	note	Once again Secwepemctsín departs from St’át’imcets. DPs headed by re allow ICRs, as attested by (21a–c).	page 9
+(21a) line 1	Michel Navarro and Sander Nederveen	note	Context: You’re watching a documentary with your wife about impactful decisions by presidents of the United States. You see how Lincoln abolished slavery, how Johnson signed the Civil Rights Act, but also how Trump pulled out the Paris Climate Accord. It ends foreshadowing how the next president will have to take a decision on climate change that impacts the whole world. Impressed by the documentary, you say to her:	page 9, the context, carries footnote 9
+(21b) line 1	Secwepemctsín	transcription	(tekemtús) xexé7 [re kúkwpi7-s re United-States]	page 9, speaker code C1/2
+(21b) line 2	Secwepemctsín	gloss	always powerful D chief-3SG.POSS D United.States	page 9
+(21b) line 3	Michel Navarro and Sander Nederveen	translation	‘The president of the United States is (always) powerful.’	page 9
+(21c) line 1	Michel Navarro and Sander Nederveen	notation	∀t, whoever is president of the US at t is powerful at t.	page 9, a paraphrase in predicate logic
+footnote 9	Michel Navarro and Sander Nederveen	note	9 This elicitation was carried out before the 2020 US presidential election.	page 9, footnote
+§4.2	Michel Navarro and Sander Nederveen	note	Context (21a) covers past, present, and future presidents. The fact that (21b) is accepted in this context shows that ICRs are available in Secwepemctsín. Based on this, we predict that ICRs are also available in quantificational phrases. This prediction is borne out, as shown in (22a–b).	page 9
+(22a) line 1	Michel Navarro and Sander Nederveen	note	Context: An elder tells you about the great deeds of the past (not alive anymore) and current chiefs. The elder finishes the conversation by saying that the future chiefs will also be leaders of great deeds. Agreeing with the elder, you say:	page 9, the context
+(22b) line 1	Secwepemctsín	transcription	(tekemtús) xexé7-s [xwexwéyt re kukúkwpi7]	page 9, speaker code C1
+(22b) line 2	Secwepemctsín	gloss	always strong-3POSS all D chief.PL	page 9
+(22b) line 3	Michel Navarro and Sander Nederveen	translation	‘All the chiefs are (always) powerful.’	page 9
+(22b) line 4	Michel Navarro and Sander Nederveen	speaker comment	Consultant’s comment: “That’s [22b] our agreement with the elder.”	page 9, a consultant's comment
+(22c) line 1	Michel Navarro and Sander Nederveen	notation	∀x ∀t [x is chief at t ➝ [x is powerful at t]]	page 9, a paraphrase in predicate logic
+§4.2	Michel Navarro and Sander Nederveen	note	Matthewson (1996, 1998) argues that the lack of ICRs in St’át’imcets constitutes further evidence against any eventual homophony/ambiguity analysis of determiners in Salish. Under a homophony/ambiguity analysis, Salish determiners would be ambiguous between definites and indefinites, since they don’t encode the familiar/novel distinction. However, such an approach cannot exclusively rely on this broadly documented fact about determiner systems in Salish. While it is a necessary condition for the ambiguity analysis that the Novelty/Familiarity Condition (Heim 1982) does not apply in Salish, it is not sufficient. To advocate for the ambiguity analysis, it is necessary to show that determiners in Salish share other properties common to definite descriptions. Matthewson exhaustively demonstrates that this is not the case in St’át’imcets. Among the pieces of evidence is the fact that DPs in St’át’imcets lack ICRs. On the assumption that ICR is a property common to definite/quantificational DPs, “we would expect the Individual Concept Reading […] to be possible” (Matthewson 1996:39).	page 9
+§4.2	Secwepemctsín	cited form	St’át’imcets.11	page 10
+§4.2	Michel Navarro and Sander Nederveen	note	Another essential property associated with definites that determiners in St’át’imcets lack is presupposition of existence. Matthewson (1996) points out that if they presupposed existence, then it should be possible to cancel it. A typical case of presupposition cancelling involves the explicit denial of a presupposed (existential) proposition.10 However, example (23) shows that this is not possible in St’át’imcets.11	page 10
+footnote 10	Michel Navarro and Sander Nederveen	note	10 For discussions and analyses of presupposition cancelling, see Karttunen (1974), Stalnaker (1974), Gazdar (1979), Soames (1989), Heim (1990, 1991), Chierchia and McConnell-Ginet (2000), Abbott (2006), Abrusán (2016). For analyses of presupposition cancellation under negation as a case of accommodation, see Heim (1982, 1990), and Chierchia and McConnell-Ginet 2000).	page 10, footnote
+footnote 11	Michel Navarro and Sander Nederveen	note	11 Note that the corresponding English version of (13) is accepted by English speakers: (i) A: I heard you guys have a good-looking chief. B: We don’t HAVE a chief, so the chief can’t be good-looking! (Matthewson 1996:120)	page 10, footnote
+(23) A: line 1	St’át’imcets	transcription	qan’ím=lhkan kw=s=emh-ál’qwem’ [ti=kukwpi7-láp=a]	page 10
+(23) A: line 2	St’át’imcets	gloss	Hear=1SG.SUBJ D=NMLZ =good-appear D=chief-2PL.POSS=EXIS	page 10
+(23) A: line 3	Michel Navarro and Sander Nederveen	translation	‘I heard you guys have a good-looking chief.’	page 10
+(23) B: line 1	St’át’imcets	transcription	wá7=lhkalh ícwa7 es-kúkwpi7	page 10
+(23) B: line 2	St’át’imcets	gloss	IPFV=1PL.SBJ without have-chief	page 10
+(23) B: line 3	Michel Navarro and Sander Nederveen	translation	‘We don’t have a chief.’	page 10
+(23) B: line 4	St’át’imcets	transcription	* Nilh s=cw7aoz kwa emh-ál’qwem’ [ti=kukwpi7=a]	page 10, judged *
+(23) B: line 5	St’át’imcets	gloss	FOC NMLZ=NEG D+IPFV good-appear D=chief=EXIS	page 10
+(23) B: line 6	Michel Navarro and Sander Nederveen	translation	‘So there isn’t a good-looking chief.’	page 10
+(23) B: line 7	Michel Navarro and Sander Nederveen	citation	(Matthewson 1996:120–121)	page 10, the source
+§4.2	Michel Navarro and Sander Nederveen	note	Presupposition cancelling in (23) would work as follows. On the assumption that the DP ti=kukwpi7=a presupposes the existence of a chief, once this presupposition is denied in B’s first sentence, the presupposition of B’s second sentence is neutralized. As a result, the sentence is accepted. But this does not hold in (23) and B’s second sentence is rejected. This is so because assertion-of-existence cannot be cancelled. Denying and asserting the existence of a chief in the same discourse yield a contradiction. An assertion-of-existence in a negative existential construction like B’s second sentence is even ungrammatical in St’át’imcets. So much so that “the determiner in B’s second sentence was corrected by the consultant to a non-assertion of existence determiner” (Matthewson 1996:121). That is, B’s second sentence is a case of both contradiction and ungrammaticality.12	page 10
+footnote 12	Michel Navarro and Sander Nederveen	note	12 We thank Henry Davis (p.c) for pointing out to us that B’s second sentence in (23) is a negative existential construction, and that assertion-of-existence Ds are always ungrammatical in these constructions. Although Matthewson (1996) translates B’s second sentence as ‘so the chief can’t be good-looking’, we opted for the more precise translation suggested by Henry Davis. However, based on Matthewson (1996, 1998, 1999), it is expected that a sentence in St’át’imcets of the type ‘so the chief can’t be good-looking’ containing an assertion-existence D would be infelicitous in the discourse (23), due to the contradiction that it would engender. To avoid this issue in Secwepemctsín, we opted for a sentence that is not a negative existential construction.	page 11, footnote
+§4.2	Michel Navarro and Sander Nederveen	note	Nonetheless, a DP with re was accepted in a similar type of presupposition cancelling environment, as illustrated below.	page 11
+(24) A: line 1	Secwepemctsín	transcription	qeqním-en re s-yegwyúgt-s [re-7 kúkwpi7]	page 11, speaker code C1
+(24) A: line 2	Secwepemctsín	gloss	hear-1ERG D NMLZ-powerful-3POSS D-2SG.POSS chief	page 11
+(24) A: line 3	Michel Navarro and Sander Nederveen	translation	‘I heard that your chief is powerful.’	page 11
+(24) B: line 1	Secwepemctsín	transcription	Ta7 pell-kúkwpi7-s kucw	page 11
+(24) B: line 2	Secwepemctsín	gloss	NEG [NMLZ-]have-chief-3POSS 1PL.EXCL	page 11
+(24) B: line 3	Michel Navarro and Sander Nederveen	translation	‘We don’t have a chief.’	page 11
+(24) B: line 4	Secwepemctsín	transcription	Yeri7 ul ta7 k s-yegwyúgwt-s [re kúkwpi7]	page 11, speaker code C1, carries footnote 13
+(24) B: line 5	Secwepemctsín	gloss	then ? NEG D NMLZ-strong-3POSS D chief	page 11
+(24) B: line 6	Michel Navarro and Sander Nederveen	translation	‘So the chief isn’t powerful.’	page 11
+(24) B: line 7	Michel Navarro and Sander Nederveen	note	We: “Does it make sense, as a whole?”	page 11, the elicitors' question
+(24) B: line 8	Michel Navarro and Sander Nederveen	speaker comment	Consultant’s reply: “Yes, it does!”	page 11, a consultant's comment
+footnote 13	Michel Navarro and Sander Nederveen	note	13 We don’t know the syntactic and semantic roles of the item ul in (24).	page 11, footnote
+§4.2	Secwepemctsín	cited form	kúkwpi7	page 11
+§4.2	Michel Navarro and Sander Nederveen	note	B’s second sentence in (24) is accepted, despite the denial of the existence of a chief in the preceding sentence. The felicitousness of dialogue (24) indicates that the DP re kúkwpi7 does not assert existence.	page 11
+§4.2	Secwepemctsín	cited form	St’át’imcets	page 12
+§4.2	Secwepemctsín	cited form	St’át’imcets	page 12
+§4.2	Michel Navarro and Sander Nederveen	note	The lack of TFIs, ICRs, and presuppositions in a subset of determiners in St’át’imcets partially informs Matthewson’s (1996, 1999) hypothesis that deictic determiners in Salish encode assertion- of-existence.14 The assertion-of-existence analysis accounts for the infelicity of dialogues like (23) in St’át’imcets, because assertion-of-existence is not cancellable in cases like (23). Assertion-of- existence also predicts the lack of ICRs in St’át’imcets, as assertion-of-existence/deictic DPs always locate their referents “in the discourse situation, and this prevents […] variation across situations” (Matthewson 2008:543).15	page 11
+footnote 14	Michel Navarro and Sander Nederveen	note	14 Other semantic facts about St’át’imcets are essential for the assertion-of-existence hypothesis. See sections 5 and 6.	page 11, footnote
+footnote 15	Michel Navarro and Sander Nederveen	note	15 However, assertion-of-existence and deictic features alone do not seem to entail the absence of TFIs observed in St’át’imcets. We are inclined to think that Demirdache’s claim that the entities picked out by St’át’imcets deictic DPs are stages provides the missing premise to derive the lack of TFIs.	page 11, footnote
+§4.2	Secwepemctsín	cited form	Secwepemctsín	page 12
+§4.2	Secwepemctsín	cited form	Secwepemctsín	page 12
+§4.2	Michel Navarro and Sander Nederveen	note	To sum up, in this section we have shown that in Secwepemctsín DPs headed by the determiner re do not behave like their counterpart DPs in St’át’imcets with respect to TFIs and ICRs. While St’át’imcets DPs with ti=…=a and i=…=a do not allow TFIs and ICRs (i.e., are temporally bound), Secwepemctsín DPs headed by re allow for these constructions. Moreover, a DP with re was accepted in a dialogue that gives rise to presupposition cancelling, which is unexpected if re encodes assertion-of-existence.	page 11
+§5	Michel Navarro and Sander Nederveen	heading	5 Narrow scope readings of re	page 12
+§5	Michel Navarro and Sander Nederveen	note	In this section, we turn to scope interactions of DPs containing re with respect to negation, modals, intensional verbs, if-clauses, and universally quantified phrases. We again adopt a comparative stance, highlighting the contrasts between Secwepemctsín and St’át’imcets.	page 12
+§5.1	Michel Navarro and Sander Nederveen	heading	5.1 Negation	page 12
+§5.1	Michel Navarro and Sander Nederveen	note	Matthewson (1999) shows that deictic determiners in St’át’imcets obligatorily take wide scope with respect to the sentential negation cw7oaz ‘not’, as illustrated below.	page 12
+(25a) line 1	St’át’imcets	transcription	cw7aoz kw=s=7áz’-en-as [ti=sts’úqwaz’=a] kw=s-Sophie	page 12
+(25a) line 2	St’át’imcets	gloss	NEG D=NMLZ=buy-TR-3ERG [D=fish-=EXIS] D=NMLZ-Sophie	page 12
+(25a) line 3	Michel Navarro and Sander Nederveen	translation	‘Sophie didn’t by a fish.’	page 12
+(25a) line 4	Michel Navarro and Sander Nederveen	note	(= ‘There is a fish which Sophie didn’t buy.’)	page 12, a paraphrase of the reading
+(25a) line 5	Michel Navarro and Sander Nederveen	citation	(Matthewson 1999:91)	page 12, the source
+(25b) line 1	Michel Navarro and Sander Nederveen	notation	∃x [fish (x) ∧ ¬ [buy (x) (Sophie)]] ∃ > ¬	page 12, a paraphrase in predicate logic, judged ✓
+(25c) line 1	Michel Navarro and Sander Nederveen	notation	¬ [∃x [fish (x) ∧ ¬ [buy (x) (Sophie)]] ¬ > ∃	page 12, a paraphrase in predicate logic, judged *
+§5.1	Michel Navarro and Sander Nederveen	note	The only available reading of the DP in (25a) is paraphrased in the predicate logic formula in (25b), i.e., the existential quantifier scopes over negation. The reading in (25c) is ruled out.16 Hence, (25a) will always be true in contexts where there is at least one fish that wasn’t bought.	page 12
+footnote 16	Michel Navarro and Sander Nederveen	note	16 Matthewson (1999) shows that narrow scope readings of DPs are only available in St’át’imcets with DPs headed by the irrealis determiner ku. That is to say, for every wide scope example displayed in this section, there is a narrow scope version accomplished by replacing the deictic determiner by ku.	page 12, footnote
+§5.1	Michel Navarro and Sander Nederveen	note	In contrast, a narrow scope reading of the determiner re in Secwepemctsín under negation is available. The availability of this reading was revealed through the storyboard scenario in Figure 1, in which there is no fish present in any of the pictures.17	page 12
+footnote 17	Michel Navarro and Sander Nederveen	note	17 Example (26a) is an adapted version of a storyboard available in the webpage of The Scope Fieldwork Project. We erased all the fish in the river, to eliminate a wide-scope interpretation of the determiner.	page 12, footnote
+Figure 1	Michel Navarro and Sander Nederveen	note	Figure 1: Storyboard “Peter goes fishing”	page 13, the caption over a figure the text layer does not hold
+(26a) line 1	Secwepemctsín	transcription	ta7 k s-kwen-wélln̓-s re Peter [re swewll]	page 13, speaker code C1/2
+(26a) line 2	Secwepemctsín	gloss	NEG D NMLZ-take-NCM-3POSS D Peter D fish	page 13
+(26a) line 3	Michel Navarro and Sander Nederveen	translation	‘Peter did not catch a fish.’	page 13
+(26a) line 4	Michel Navarro and Sander Nederveen	speaker comment	Consultant’s comment (GD): “This says Peter didn’t catch any fish.”	page 13, a consultant's comment
+(26a) line 5	Michel Navarro and Sander Nederveen	speaker comment	Consultant’s comment (RI): “My tongue was going to tek swewll [oblique irrealis], but you can also say it this way.”	page 13, a consultant's comment
+(26b) line 1	Michel Navarro and Sander Nederveen	notation	¬ [∃x [fish (x) ∧ [buy (x) (Peter)]] ¬ > ∃	page 13, a paraphrase in predicate logic, judged ✓
+§5.1	Michel Navarro and Sander Nederveen	note	The fact that (26a) can be used to describe Figure 1 unequivocally shows that the narrow scope of re in relation to negation is possible, as paraphrased in (26b). This conclusion is further strengthened by the scenario in which the consultants accepted (26a) when it is followed by a subsequent statement that explicitly denies the existence of any fish at all in the river. 18	page 13
+footnote 18	Michel Navarro and Sander Nederveen	note	18 We thank Lisa Matthewson for proposing this test.	page 13, footnote
+(27a) line 1	Secwepemctsín	transcription	ta7 k s-kwen-wélln-s re Peter [re swewll]	page 13, speaker code C1/2
+(27a) line 2	Secwepemctsín	gloss	NEG D NMLZ-take-NCM-3SG D Peter D fish	page 13
+(27a) line 3	Michel Navarro and Sander Nederveen	translation	‘Peter did not catch a fish.’	page 13
+(27b) line 1	Secwepemctsín	transcription	ta7 k s-ten-s [tek stem n setétkwe]	page 13, speaker code C1/2, carries footnote 19
+(27b) line 2	Secwepemctsín	gloss	NEG D NMLZ-exist-3POSS D+OBL what PREP river	page 13
+(27b) line 3	Michel Navarro and Sander Nederveen	translation	‘There is nothing in the river.’	page 13
+footnote 19	Michel Navarro and Sander Nederveen	note	19 Note that the NP stem ‘what, anything’ is the complement of an irrealis determiner.	page 13, footnote
+§5.2	Michel Navarro and Sander Nederveen	heading	5.2 Intensional operators	page 14
+§5.2	Secwepemctsín	cited form	Secwepemctsín	page 14
+§5.2	Secwepemctsín	cited form	St’át’imcets	page 14
+§5.2	St’át’imcets	cited form	kelh	page 14, ‘might’
+§5.2	Secwepemctsín	cited form	héqen	page 14, ‘might/may’
+§5.2	Michel Navarro and Sander Nederveen	note	The Secwepemctsín determiner re can also take narrow scope under modals. We tested this in a number of scenarios. Matthewson (1996) found that St’át’imcets DPs headed by determiner ti=…=a always take scope over the modal kelh ‘might’. Secwepemctsín DPs headed by re allow narrow scope under the corresponding modal héqen ‘might/may’. Example (28a) exemplifies the behavior of ti=…=a in St’át’imcets. Matthewson (1991:91) says about (28a) that it “commits the speaker to the claim that a priest exists”.	page 14
+(28a) line 1	St’át’imcets	transcription	kán=as=kelh qwal’út-s-as k=Mary [ti=naplít=a]	page 14
+(28a) line 2	St’át’imcets	gloss	WH-3CONJ=might talk-CAUS-3ERG D =Mary D =priest=EXIS	page 14
+(28a) line 3	Michel Navarro and Sander Nederveen	translation	‘Mary might talk to a priest.’	page 14
+(28a) line 4	Michel Navarro and Sander Nederveen	note	(= ‘There is a priest who Mary might talk to.’)	page 14, a paraphrase of the reading
+(28a) line 5	Michel Navarro and Sander Nederveen	citation	(Matthewson 1999:90)	page 14, the source
+(28b) line 1	Michel Navarro and Sander Nederveen	notation	∃x [x is a priest ∧ [Mary might talk to x]]	page 14, a paraphrase in predicate logic
+§5.2	Michel Navarro and Sander Nederveen	note	As for Secwepemctsín, the narrow scope reading is again an alternative. In addition to a wide scope reading induced by context (29a), sentence (29c) is also true in context (29b). Note that interpreted in the context (29b), sentence (29c) does not commit the speaker to the existence of any (particular) professor.	page 14
+(29a) line 1	Michel Navarro and Sander Nederveen	note	Context: Sander tells you that he would like to marry Johanna, who is a professor. He doesn’t know if Johanna will accept his proposal, so he is still unsure. You tell your friend:	page 14, the context
+(29b) line 1	Michel Navarro and Sander Nederveen	note	Context: Sander tells you that he is looking to find a partner and that, whoever they may be, he would like them to be a professor. You comment to your sister:	page 14, the context
+(29c) line 1	Secwepemctsín	transcription	Sander héqen me7 meríye-n-s [re lleq̓emélten]	page 14, speaker code C1
+(29c) line 2	Secwepemctsín	gloss	Sander may/might FUT marry-CTR[-TR]-3ERG D teacher	page 14
+(29c) line 3	Michel Navarro and Sander Nederveen	translation	‘Sander might marry a professor.’	page 14
+(29d) line 1	Michel Navarro and Sander Nederveen	notation	héqen > re lleq̓emélten	page 14, a paraphrase in predicate logic, judged ✓
+(29e) line 1	Michel Navarro and Sander Nederveen	notation	re lleq̓emélten > héqen	page 14, a paraphrase in predicate logic, judged ✓
+§5.2	Michel Navarro and Sander Nederveen	note	(29a–c) provide evidence that Secwepemctsín DPs headed by re can take wide and narrow scope with respect to an intensional operator like héqen ‘maybe’.	page 14
+§5.2	Michel Navarro and Sander Nederveen	note	Additionally, we found that DPs headed by re can also get narrow scope in if-clauses. This also contrasts with St’át’imcets ti=…=a. The St’át’imcets sentence (30a) can only be true in a scenario that enforces the wide scope with respect to ti=…=a, i.e., with the DP being interpreted outside the if-clause. That is, (30a) is rejected in context (30b) and accepted in context (30c).	page 14
+(30a) line 1	St’át’imcets	transcription	cuz’ tsa7cw kw=s-Mary lh-t’íq=as [ti=qelhmémen’=a]	page 14
+(30a) line 2	St’át’imcets	gloss	going.to happy D=NMLZ-Mary HYP-arrive=3SBJV D =old.person(DIM)=EXIS	page 14
+(30a) line 3	Michel Navarro and Sander Nederveen	translation	‘Mary will be happy if an elder comes.’	page 14
+(30b) line 1	Michel Navarro and Sander Nederveen	note	Context: There are a bunch of elders in this community. Mary dislikes most of these elders and doesn’t want them to come. There is just one elder who she wants to come.	page 15, the context
+(30c) line 1	Michel Navarro and Sander Nederveen	note	Context: Mary will be happy if any elders come, but that’s impossible, because there are no elders in this community.	page 15, the context
+(30c) line 2	Michel Navarro and Sander Nederveen	citation	(Matthewson 1999:90)	page 15, the source
+§5.2	Michel Navarro and Sander Nederveen	note	The obligatory wide scope reading of (30a) can be paraphrased as (31).	page 15
+(31) line 1	Michel Navarro and Sander Nederveen	notation	∃x [elder (x) ∧ [come(x) ➝ happy (Mary)]]	page 15, a paraphrase in predicate logic
+§5.2	Secwepemctsín	cited form	Secwepemctsín	page 16
+§5.2	Michel Navarro and Sander Nederveen	note	As for Secwepemctsín, both readings are available: re can have narrow and wide scope with respect to if-clauses. Sentence (32c) is true in both contexts (32a) and (32b).	page 15
+(32a) line 1	Michel Navarro and Sander Nederveen	note	Context: Sander likes intelligent people. Although he doesn’t have a particular professor in mind (he even has never met one), he believes that if he marries a professor, no matter who they turn out to be, he will be happy.	page 15, the context
+(32b) line 1	Michel Navarro and Sander Nederveen	note	Context: It’s Sander’s dream to marry Johanna, who is a professor. He would be so happy if she marries him. You tell your friend about this:	page 15, the context
+(32c) line 1	Secwepemctsín	transcription	Sander me7 tse7écw e meríye-n-es [re lleq̓émelten].	page 15, speaker code C1
+(32c) line 2	Secwepemctsín	gloss	Sander FUT happy IF marry-CTR[-TR]-3ERG D teacher	page 15
+(32c) line 3	Michel Navarro and Sander Nederveen	translation	‘Sander will be happy if he marries a professor.’	page 15
+(32d) line 1	Michel Navarro and Sander Nederveen	notation	[∃x [professor (x) ∧ marry (x)]] ➝ happy (Sander)	page 15, a paraphrase in predicate logic, judged ✓
+(32e) line 1	Michel Navarro and Sander Nederveen	notation	∃x [professor (x) ∧ [marry(x) ➝ happy (Sander)]]	page 15, a paraphrase in predicate logic, judged ✓
+§5.2	Michel Navarro and Sander Nederveen	note	The paraphrase (32d), by including the existential and its restrictor as part of the antecedent, captures the narrow scope interpretation of (32d), namely that Sander will be happy if he marries any professor, no matter who they are. The paraphrase (32e), in turn, captures the wide scope interpretation, since the existential and its restrictor are not part of the antecedent and scope over the if-clause.	page 15
+§5.2	Michel Navarro and Sander Nederveen	note	Furthermore, we also see that re can be interpreted under the scope of the intensional verb qwen ‘want’. Sentence (33b) is true in context (33a).	page 15
+(33a) line 1	Michel Navarro and Sander Nederveen	note	Context: Sander tells you that although he is still not interested in any professor in particular, no matter who will eventually be his partner, they have to be a professor. You tell your neighbour about this and say:	page 15, the context
+(33b) line 1	Secwepemctsín	transcription	Sander qwen-mín-s e s-meríye-n-s [re lleq̓emélten]	page 15, speaker code C1
+(33b) line 2	Secwepemctsín	gloss	Sander want-RLT-[TR-]3ERG if NMLZ-marry-TR-3SG D teacher	page 15
+(33b) line 3	Michel Navarro and Sander Nederveen	translation	‘Sander wants to marry a professor.’	page 15
+(33c) line 1	Michel Navarro and Sander Nederveen	notation	qwen > re lleq̓emélten	page 16, a paraphrase in predicate logic, judged ✓
+§5.2	Michel Navarro and Sander Nederveen	note	The scenario in (33a) enforces the narrow scope interpretation of the DP. Sander doesn’t have any preference for a partner, so long as they are in the extension of the predicate lleq̓emélten ‘teacher/professor’.	page 16
+§5.2	Secwepemctsín	cited form	St’át’imcets	page 16
+§5.2	Michel Navarro and Sander Nederveen	note	To sum up, Secwepemctsín DPs headed by re differ from their counterparts in St’át’imcets. The former allows narrow scope and wide scope under negation and intensional operators, while in the latter wide scope interpretations are obligatory. This shows that the reference of Secwepemctsín DPs with re can depend on c-commanding operators. That is, these DPs can vary across the possible worlds over which intensional operators quantify. In contrast, the wide-scope interpretation of deictic DPs in St’át’imcets forces them to be evaluated outside the intensional contexts created by modals and if-clauses. Essentially, this means the Secwepemctsín determiner re can be interpreted de dicto and de re, whereas St’át’imcets deictic determiners are always interpreted de re.	page 16
+§5.3	Michel Navarro and Sander Nederveen	heading	5.3 Quantificational phrases	page 16
+§5.3	Michel Navarro and Sander Nederveen	note	Since Secwepemctsín DPs headed by re can scope under negation and intensional operators, we predict transitive clauses to exhibit scope interactions between re-headed DPs and quantificational phrases. That is, distributive readings of DPs with re are expected to be possible.	page 16
+§5.3	St’át’imcets	cited form	tákem	page 16, ‘all’
+§5.3	Michel Navarro and Sander Nederveen	note	Matthewson (1999) demonstrates that distributive readings of deictic indefinite DPs are unavailable in St’át’imcets. Transitive sentences with a singular indefinite DP and a quantificational DP are never interpreted distributively.20 The St’át’imcets example in (34a) disallows a reading where a (potentially) different woman co-varies with each man in the extension of the DP modified by the quantifier tákem ‘all’. That is, (34a) is rejected in a context where each man loves a different woman.	page 16
+footnote 20	Michel Navarro and Sander Nederveen	note	20 There is an exception: constructions with a possessive pronoun in the DP. These can have a reading in which the pronoun is bound by the universal. That is, in these constructions, distributive readings are strictly related to the presence of pronouns. See Matthewson (1999) for a discussion of these special cases.	page 16, footnote
+(34a) line 1	St’át’imcets	transcription	wa7-xwey-s-twítas [ta=smúlhats=a] [tákem i=sqáyqeycw=a]	page 16
+(34a) line 2	St’át’imcets	gloss	IPFV-be.dear-CAUS-3PL.ERG D=woman=EXIS all D.PL=man(PL)=EXIS	page 16
+(34a) line 3	Michel Navarro and Sander Nederveen	translation	‘All (the) men love a woman.’	page 16
+(34b) line 1	Michel Navarro and Sander Nederveen	speaker comment	Consultant’s comment: “There’s just one lady. Can’t mean a different one each. It sounds like you’re talking about that one lady.”	page 16, a consultant's comment
+(34b) line 2	Michel Navarro and Sander Nederveen	citation	(Matthewson 1999:97)	page 16, the source
+§5.3	Michel Navarro and Sander Nederveen	note	Crucially, the wide-scope interpretation of the indefinite DP in St’át’imcets is independent of the surface word order. Sentence (35a), with the quantificational phrase in clause-initial position, also doesn’t exhibit a distributive interpretation.21	page 16
+footnote 21	Michel Navarro and Sander Nederveen	note	21 Even in constructions involving pragmatically odd non-distributive readings, distributive interpretations are rejected, as illustrated in (ia–b).	page 16, footnote
+footnote 21 (ia) line 1	St’át’imcets	transcription	# [tákem i=sqáyqeycw=a l-ti=tsítcw=a] melyíh-s-as	page 17, judged #
+footnote 21 (ia) line 2	St’át’imcets	gloss	all D.PL=man(PL)=EXIS in-D=house=D marry-CAUS-3ERG	page 17
+footnote 21 (ia) line 3	St’át’imcets	transcription	[ti=emh-ál’qwem’=a syáqtsa7]	page 17
+footnote 21 (ia) line 4	St’át’imcets	gloss	D=good-appear-EXIS woman	page 17
+footnote 21 (ia) line 5	Michel Navarro and Sander Nederveen	translation	‘All (the) men in our building married a beautiful woman.’	page 17
+footnote 21 (ib) line 1	Michel Navarro and Sander Nederveen	speaker comment	Consultant’s comment: “Doesn’t make sense. How can they all marry one woman?”	page 17, a consultant's comment
+footnote 21 (ib) line 2	Michel Navarro and Sander Nederveen	citation	(Matthewson 1999:97)	page 17, the source
+(35a) line 1	St’át’imcets	transcription	[tákem i=sqáyqeycw=a] wa7-xwey-s-twítas [ta=smúlhats=a]	page 17
+(35a) line 2	St’át’imcets	gloss	all D.PL =man(PL)=EXIS IPFV-be.dear-CAUS-3PL.ERG D=woman=EXIS	page 17
+(35a) line 3	Michel Navarro and Sander Nederveen	translation	‘All (the) men love a woman.’	page 17
+(35b) line 1	Michel Navarro and Sander Nederveen	speaker comment	Consultant’s comment: “Still means there’s just one lady.”	page 17, a consultant's comment
+(35b) line 2	Michel Navarro and Sander Nederveen	citation	(Matthewson 1999:97)	page 17, the source
+§5.3	Michel Navarro and Sander Nederveen	note	In Secwepemctsín, we predict that, contrary to St’át’imcets, constructions containing a quantificational subject DP and an object DP headed by re can receive a distributive interpretation. This prediction is borne out. Sentence (36a) is true in the context of Figure 2, where each of the four men is holding a different bottle. Paraphrase (36b) represents this reading in predicate logic.	page 17
+Figure 2	Michel Navarro and Sander Nederveen	note	Figure 2: Men holding bottles	page 17, the caption over a figure the text layer does not hold
+(36a) line 1	Secwepemctsín	transcription	[Xwexwéyt re sqelqélemcw] s-kwen-[n]t-és [re leputéy]	page 17, speaker code C1/2
+(36a) line 2	Secwepemctsín	gloss	all D man.PL NMLZ-hold[CT]-TR-3PL D bottle	page 17
+(36a) line 3	Michel Navarro and Sander Nederveen	translation	‘All the men were holding a bottle.’	page 17
+(36b) line 1	Michel Navarro and Sander Nederveen	notation	∀x [man (x) ➝ ∃y [bottle (y) ∧ hold (y) (x)]]	page 17, a paraphrase in predicate logic, judged ✓
+§5.3	Michel Navarro and Sander Nederveen	note	The same holds for sentence (37a). It can be used to describe the scene in Figure 3, in which each boat is attacked by a different fish.22	page 17
+footnote 22	Michel Navarro and Sander Nederveen	note	22 Figure 3 depicts sharks. The consultant said that Secwepemctsín lacks a word for sharks, therefore we opted for sturgeon.	page 17, footnote
+Figure 3	Michel Navarro and Sander Nederveen	note	Figure 3: Boats attacked by fish	page 18, the caption over a figure the text layer does not hold
+(37a) line 1	Secwepemctsín	transcription	[xwexwéyt re xu7t̓] m-t̓áxel-men-s [re cteq̓méwll]	page 18, speaker code C1/2
+(37a) line 2	Secwepemctsín	gloss	all D sturgeon PFV-attack-RLT[-TR].3ERG D boat	page 18
+(37a) line 3	Michel Navarro and Sander Nederveen	translation	‘Every sturgeon attacked a boat.’	page 18
+(37b) line 1	Michel Navarro and Sander Nederveen	notation	∀x [sturgeon (x) ➝ ∃y [boat (y) ∧ attack (y) (x)]]	page 18, a paraphrase in predicate logic, judged ✓
+§5.3	Secwepemctsín	cited form	xu7t̓	page 18
+§5.3	Secwepemctsín	cited form	xwexwéyt	page 18
+§5.3	Michel Navarro and Sander Nederveen	note	Note that in (37b) the noun xu7t̓ ‘sturgeon’ is not reduplicated, whereas the noun sqelqélemcw ‘men’ in (36b) is, which is the plural form of the noun. This shows that xwexwéyt ‘all’ can take either a singular (37b) or a plural DP (36b) as complement, and that both forms allow distributive readings.23 We opted to use every in the English translation of sentence (37b) to indicate this difference, since the English all can only co-occur with plural nouns, whereas every can only co- occur with singular nouns.	page 18
+footnote 23	Michel Navarro and Sander Nederveen	note	23 Hannah Green (p.c.) points out that there are words that cannot be reduplicated for number. We did not test this explicitly for xu7t̓. However, there are independent examples in which xwexwéyt ‘all’ takes a singular DP, so our point remains.	page 18, footnote
+§5.3	Secwepemctsín	cited form	kúkwpi7	page 18, ‘a chief’
+§5.3	Michel Navarro and Sander Nederveen	note	We also identified that DPs with re have scope interactions with a temporal adjunct modified by xwexwéyt ‘every’. The individual(s) picked out by the DP re kúkwpi7 ‘a chief’ in sentence (38b) can co-vary with each day of the week, as illustrated in the storyboard in Figure 4.	page 18
+Figure 4	Michel Navarro and Sander Nederveen	note	Figure 4: Sander visiting Secwépemc chiefs.	page 19, the caption over a figure the text layer does not hold
+(38a) line 1	Secwepemctsín	transcription	[Xwexwéyt te tsilkst te sítq̓t] Sander tégwen-men-s [re kúkwpi7]	page 19, speaker code C1
+(38a) line 2	Secwepemctsín	gloss	all D five D day Sander visit.-RLT[-CTR]-3ERG D chief	page 19
+(38a) line 3	Michel Navarro and Sander Nederveen	translation	‘All the five days Sander visited a chief.’	page 19
+(38a) line 4	Michel Navarro and Sander Nederveen	speaker comment	Consultant’s comment: “Yes, it does summarize the story.”	page 19, a consultant's comment
+(38b) line 1	Michel Navarro and Sander Nederveen	notation	∀x [day-of-the-week (x) ➝ ∃y [chief (y) ∧ visit (y) (Sander)]]	page 19, a paraphrase in predicate logic, judged ✓
+§5.3	Michel Navarro and Sander Nederveen	note	Moving on to inverse distributive readings, Matthewson (1999) shows that these readings are disallowed in St’át’imcets, which is illustrated in (39) and (40).	page 19
+(39) line 1	St’át’imcets	transcription	wa7-mitsaq-mín-as [ta=twíw’t=a] [i=n7án’was=a smelhmúlhats]|	page 19
+(39) line 2	St’át’imcets	gloss	IPFV-sit-RLT-3ERG D=child=EXIS D.PL=two(HUM)=EXIS woman(PL)	page 19
+(39) line 3	Michel Navarro and Sander Nederveen	translation	‘A child is sitting on two women.’	page 19
+(39i) line 1	Michel Navarro and Sander Nederveen	note	Accepted in context: There is one child, who is sitting on two women’s laps.	page 19, a judgment in context
+(39ii) line 1	Michel Navarro and Sander Nederveen	note	Rejected in context: A different child is sitting on each woman’s lap.	page 19, a judgment in context
+(39ii) line 2	Michel Navarro and Sander Nederveen	citation	(Matthewson 1999:98)	page 19, the source
+(40) line 1	St’át’imcets	transcription	paqw-al’ikst-min-ítas [i=nkekalhás=a sk’wemk’úk’wm’it]	page 20
+(40) line 2	St’át’imcets	gloss	look-leaf-RLT-3PL.ERG D.PL=three(HUM)=EXIS child(PL)	page 20
+(40) line 3	St’át’imcets	transcription	[tákem i=púkw=a]	page 20
+(40) line 4	St’át’imcets	gloss	D.PL =book=EXIS	page 20
+(40) line 5	Michel Navarro and Sander Nederveen	translation	‘Three children read all (the) books.’	page 20
+(40i) line 1	Michel Navarro and Sander Nederveen	note	Accepted in context: Three children together read all the books (e.g., “one could be reading it and the others could be listening, and they take turns”).	page 20, a judgment in context
+(40ii) line 1	Michel Navarro and Sander Nederveen	note	Accepted in context: Three children between them read all the books.	page 20, a judgment in context
+(40iii) line 1	Michel Navarro and Sander Nederveen	note	Rejected in context: Three different children read each book.	page 20, a judgment in context
+(40iii) line 2	Michel Navarro and Sander Nederveen	citation	(Matthewson 1999:99)	page 20, the source
+§5.3	Secwepemctsín	cited form	tsrep	page 20, ‘tree’
+§5.3	Michel Navarro and Sander Nederveen	note	Secwepemctsín DPs headed by re, on the other hand, can yield an inverse-distributive interpretation. Sentence (41a), containing a quantificational phrase whose noun tsrep ‘tree’ is singular, is true in a scenario in which a different bird is sitting in each tree, pictured in Figure 5.	page 20
+Figure 5	Michel Navarro and Sander Nederveen	note	Figure 5: Birds in trees	page 20, the caption over a figure the text layer does not hold
+(41a) line 1	Secwepemctsín	transcription	ts-e7mút [re spyu7] [n-xwexwéyt te tsrep]	page 20, speaker code C1/2
+(41a) line 2	Secwepemctsín	gloss	STAT-sit D bird PREP-all D tree	page 20
+(41a) line 3	Michel Navarro and Sander Nederveen	translation	‘A bird sits in every tree’	page 20
+(41b) line 1	Michel Navarro and Sander Nederveen	notation	∀x [tree (x) ➝ ∃y [bird (y) ∧ sitting-in (x) (y)]]	page 20, a paraphrase in predicate logic, judged ✓
+§5.3	Michel Navarro and Sander Nederveen	note	The same type of distributive reading is displayed by sentence (42a), which can also be employed to describe picture Figure 3, repeated here.	page 20
+Figure 3	Michel Navarro and Sander Nederveen	note	Figure 3: Boats attacked by fishes	page 21, the caption over a figure the text layer does not hold
+(42a) line 1	Secwepemctsín	transcription	[re xu7t̓] ts-clem-s [xwewéyt te cteq̓méwlls]	page 21, speaker code C1/2
+(42a) line 2	Secwepemctsín	gloss	D sturgeon STAT-bite-3ERG all D boat	page 21
+(42a) line 3	Michel Navarro and Sander Nederveen	translation	‘A sturgeon is biting every boat.’	page 21
+(42b) line 1	Michel Navarro and Sander Nederveen	notation	∀x [sturgeon (x) ➝ ∃y [boat (y) ∧ attack (y) (x)]]	page 21, a paraphrase in predicate logic, judged ✓
+§5.3	Secwepemctsín	cited form	xwewéyt	page 21
+§5.3	Secwepemctsín	cited form	cteq̓méwlls	page 21
+§5.3	Michel Navarro and Sander Nederveen	note	The DP re xu7t̓ ‘a sturgeon’ in (42a) is referentially dependent on the quantificational phrase xwewéyt te cteq̓méwlls ‘every boat’. That is, the former co-varies with each boat in the extension of the latter. The predicate logic paraphrases in (42b) captures this interpretation.24	page 21
+footnote 24	Michel Navarro and Sander Nederveen	note	24 Figures 1, 2, 3, and 5 are from The Scope Fieldwork Project (Bruening 2008).	page 21, footnote
+§5.3	Secwepemctsín	cited form	núxwenxw	page 21
+§5.3	Michel Navarro and Sander Nederveen	note	One final data point that provides evidence for inverse distributive readings of re-headed DPs comes from a sentence in which a DP with re is contained within a larger subject DP. In sentence (43b), this DP is formed by the conjunction of the proper name Alan and the DP re núxwenxw ‘a woman’. Sentence (43b) was accepted as a description of picture (43a), i.e., where a different woman helped Alan to carry each one of the tables.	page 21
+Figure 6	Michel Navarro and Sander Nederveen	note	Figure 6: Alan and a woman carry tables	page 21, the caption over a figure the text layer does not hold
+(43a) line 1	Secwepemctsín	transcription	[Alan ell re núxwenxw] úke-n[t]-s [xwexwéyt re letletép]	page 21, speaker code C1
+(43a) line 2	Secwepemctsín	gloss	Alan and D woman carry-CTR[-TR]-3ERG all D table.PL	page 21
+(43a) line 3	Michel Navarro and Sander Nederveen	translation	‘Alan and a woman carried all the tables.’	page 21
+(43b) line 1	Michel Navarro and Sander Nederveen	notation	∀x [table (x) ➝ ∃y [woman (y) ∧ carry (x) (Alan⊕y)]]	page 22, a paraphrase in predicate logic, judged ✓
+§5.3	Michel Navarro and Sander Nederveen	note	The DP re núxwenxw ‘a woman’ within the subject argument co-varies with each table in the extension of the quantificational phrase xwexwéyt re letletép ‘all the tables’ in object position.	page 22
+§5.3	Secwepemctsín	cited form	Secwepemctsín	page 22
+§5.3	Secwepemctsín	cited form	St’át’imcets	page 22
+§5.3	Michel Navarro and Sander Nederveen	note	To summarize, we have shown Secwepemctsín DPs headed by re allow non-inverse and inverse distributive readings. These facts show that DPs headed by the determiner re can be referentially dependent on quantificational phrases occurring in the same clause whether as arguments or as adjuncts. Such a dependency can hold of subject and object DP arguments. These findings are strikingly different from what has been reported about indefinite DPs in St’át’imcets by Matthewson (1996, 1998, 1999).	page 22
+§6	Michel Navarro and Sander Nederveen	heading	6 Variation between the two determiner systems and future research	page 22
+§6	Michel Navarro and Sander Nederveen	note	The comparison between the determiner re in Secwepemctsín and its counterparts in St’át’imcets reveals further variations between determiner systems in Salish. Matthewson (1996, 1998, 1999) shows that St’át’imcets encodes a clear division of semantic labour between the assertion-of- existence determiners on the one hand, and a determiner that does not assert existence on the other. Under Matthewson’s analysis, assertion-of-existence has a “speaker-orientated nature”. DPs headed by assertion-of-existence determiners are used when the speaker wishes to assert that the set denoted by the nominal expression complement of the determiner is not empty. Contrary to presupposed content, the asserted content need not be shared by the listener for a sentence to be felicitous. In other words, (existential) propositions asserted by any of these determiners do not need to be in the set of propositions commonly believed by the speaker and hearer (the common ground). Moreover, assertion-of-existence forces DPs to be interpreted outside the scope of negation and intensional operators. That is why predicate logic paraphrases of sentences in which an assertion-of-existence DP co-occurs with a semantic operator always have the form ∃x [P(x) ∧ … Op… (x) …]. Conversely, since the St’át’imcets determiner ku does not assert existence, it is always interpreted within the non-factual and intensional contexts created by these operators. In fact, Matthewson argues that ku is a polarity determiner licensed by negation, question words, modals, intensional verbs, and if-clauses. The general picture that emerges is of a determiner system that leaves no room for ambiguity: wide-scope interpretation is unique to assertion-of-existence determiners, while the narrow-scope reading is strictly reserved for ku.	page 22
+§6	Michel Navarro and Sander Nederveen	note	Overall, Matthewson claims that there are two types of determiners that do not access the common ground: assertion-of-existence determiners, namely the deictic ones in St’át’imcets, and one that neither asserts nor presupposes existence, i.e., the determiner ku. Based on her findings in St’át’imcets, Matthewson hypothesizes that all determiner systems in Salish encode the distinction between assertion-of-existence and non-assertion of existence and lack presuppositional determiners.	page 22
+§6	Michel Navarro and Sander Nederveen	note	Nevertheless, our findings so far about re show that this division of labour in Secwepemctsín is not as transparent as in St’át’imcets. The Secwepemctsín determiner re has the following set of semantic features that are not associated with assertion-of-existence determiners.	page 22
+§6	Michel Navarro and Sander Nederveen	note	(i) Allows temporally free interpretation (TFI) and individual concept reading (ICR).	page 22
+§6	Michel Navarro and Sander Nederveen	note	(ii) Can have wide and narrow scope with respect to non-factual/intensional operators.	page 22
+§6	Michel Navarro and Sander Nederveen	note	(iii) Is able to have narrow scope with respect to a quantificational phrase.	page 22
+§6	Michel Navarro and Sander Nederveen	note	(iv) Is accepted in contexts that require presupposition cancelling.	page 22
+§6	Michel Navarro and Sander Nederveen	note	Based on our findings in Secwepemctsín, we introduce some preliminary generalizations about the Secwepemctsín determiner system. We propose that re is an unmarked determiner. In the determiner system of Secwepemctsín this means that re does not encode deictic features, assertion, or non-assertion of existence. The unmarked nature of re explains its broad range of available uses and interpretations.	page 23
+§6	Michel Navarro and Sander Nederveen	note	We currently do not have evidence suggesting that the other Secwepemctsín determiners are also different from the St’át’imcets determiners with respect to assertion and non-assertion of existence — this is yet to be tested. Therefore, we preliminarily suggest that Secwepemctsín has the determiner inventory given in Table 3.	page 23
+Table 3 line 1	Michel Navarro and Sander Nederveen	note	Table 3: Revised determiner inventory of Secwepemctsín	page 23, the caption
+Table 3 line 2	Michel Navarro and Sander Nederveen	note	Unmarked Assertion-of- existence Non-assertion	page 23, heads the columns: Unmarked, Assertion-of-existence, Non-assertion, the middle head over two lines
+Table 3 line 3	Michel Navarro and Sander Nederveen	note	Absolutive re le k	page 23, absolutive: unmarked re, assertion-of-existence le, non-assertion k
+Table 3 line 4	Michel Navarro and Sander Nederveen	note	Relative/oblique te tek	page 23, relative/oblique: assertion-of-existence te, non-assertion tek, the unmarked cell empty
+§6	Michel Navarro and Sander Nederveen	note	We suggest that Secwepemctsín has one unmarked determiner (re), a set of assertion-of-existence determiners (le, te), and a set of non-assertion-of-existence determiners (k, tek).	page 23
+§6	Michel Navarro and Sander Nederveen	note	The variations across determiner systems in Salish discussed in this paper can indicate the existence of a continuum. On one extreme of the spectrum, we have St’át’imcets, which exhibits an exhaustive division of labor between assertion-of-existence and non-assertion-of-existence determiners. On the other end of the spectrum, we find Nsyilxcən, which has only one determiner. Lyon (2011) demonstrates that this single determiner does not encode deictic features and assertion- of-existence, and, consequently, allows narrow and wide scope with respect to non-factual operators. Then, in between, there is Secwepemctsín, which, up to now, seems to have a determiner inventory that encompasses properties exhibited by the systems of both languages. We believe that recent and future findings of the ongoing research agenda on semantic variations across determiner systems in Salish will lead to a better understanding of the range of the determiner continuum, and whether there is a prevalent determiner system in Salish.	page 23
+§7	Michel Navarro and Sander Nederveen	heading	7 Conclusion	page 23
+§7	Secwepemctsín	cited form	xwexwéyt	page 23
+§7	Secwepemctsín	cited form	Secwepemctsín	page 23
+§7	Michel Navarro and Sander Nederveen	note	In this conclusion we suggest a number of avenues that need to be explored in future research on Secwepemctsín determiners. Firstly, more research is needed on the available scope interactions of the determiner re. So far, we have sufficient evidence that shows that re can take wide and narrow scope with respect to negation, intensional operators, and quantificational phrases. However, it is yet unclear what are the available scope interpretations of re in sentences whose arguments are plural DPs without the universal xwexwéyt. It’s also crucial, in order to map all its scope abilities, to investigate if re can take intermediate scope.	page 23
+§7	Secwepemctsín	cited form	St’át’imcets	page 23
+§7	Michel Navarro and Sander Nederveen	note	Secondly, the division of labour between re and the hypothetical determiner k needs to be explored further. This paper has shown that re can occur in the environments of the hypothetical determiner k, which entails that k is not obligatory in these environments, contrary to the situation in St’át’imcets, where only ku can occur under the scope of intensional operators. Thus, although k and tek can be licensed by non-factual operators, this is not obligatory. In order to better understand the hypothetical determiners, and the division of labor between them and re, we need to investigate the syntactic environment(s) in which k and tek are obligatory, and those in which they are optional, and to explore what these facts tell us about their semantics.	page 23
+§7	Secwepemctsín	cited form	Enç	page 24
+§7	Michel Navarro and Sander Nederveen	note	Thirdly, more work is needed to investigate whether DPs with re, like corresponding DPs with deictic determiners in St’át’imcets, allow coreference with pronouns even when they are interpreted as non-specific. One crucial finding of Matthewson’s works is the fact that St’át’imcets assertion- of-existence determiners do not encode specificity. On the assumption that specific readings of indefinite DPs emerge when speakers have a particular individual(s) in mind, which they can identify if needed (Enç 1991; Ionin 2006; Ioup 1977; Ludlow & Neale 1991; Kamp & Reyle 1993, among others), Matthewson (1996:72) shows that non-specific interpretations of assertion-of- existence DPs “occur when the speaker believes in the existence of a unique individual, but may not be able to actually identify that individual”. More strikingly, a non-specific assertion-of- existence DP is able to co-refer with a pronoun introduced in the subsequent clause. That is, assertion-of-existence determiners can be interpreted as specific or non-specific indefinites, and in both uses, coreference with a pronoun is possible. This is not a distinguishing ability of specific indefinites, as was widely believed before the works of Matthewson. Therefore, since it is still not clear whether re-headed DPs allow non-specific wide scope readings with respect to intensional operators, doing further tests on re-headed DPs can inform us more about the semantics of coreference and scope interactions of re. Moreover, recall that re is felicitous in a case that induces presupposition cancelling, unlike assertion-of-existence determiners. This piece of evidence, if strengthened by other related facts — such as presupposition accommodation, obligatory specific readings of wide scope of re — can support a different analysis of re. It may end up that re, like the English indefinite a(n), is ambiguous between specific and non-specific indefinites (Fodor & Sag 1982; Ludlow & Neale 1991; Kratzer 1998). If this turns out to be the case, it can be argued that in its specific interpretation re triggers the presupposition that the set denoted by the NP is non- empty (Enç 1991; Ludlow & Neale 1991). This would have broad consequences for determiner variation across Salish languages, since re would be able to access the common ground.	page 24
+§7	Michel Navarro and Sander Nederveen	note	Fourth, it needs to be tested which determiners in Secwepemctsín encode deictic features and assert existence. We predict that the determiners encoding these properties disallow TFIs and ICRs and force wide-scope readings with regards to negation, intensional operators, and quantificational phrases. However, this prediction has not yet been tested, and further research is needed.	page 24
+references	Michel Navarro and Sander Nederveen	heading	References	page 24
+references	Michel Navarro and Sander Nederveen	reference	Abbott, Barbara. 2006. Where have some of the presuppositions gone? In Drawing the boundaries of meaning: Neo-Gricean studies in pragmatics and semantics in honor of Laurence R. Horn, ed. B.J. Birner and G. Ward, 1–20. Philadelphia: John Benjamins.	
+references	Michel Navarro and Sander Nederveen	reference	Abrusán, Marta. 2016. Presupposition cancellation: explaining the ‘soft–hard’ trigger distinction. In Natural Language Semantics 24:165–202.	
+references	Michel Navarro and Sander Nederveen	reference	Bohnemeyer, Juergen. 2015. A practical epistemology for semantic elicitation in the field and elsewhere. Methodologies in semantic fieldwork, 13-46.	
+references	Michel Navarro and Sander Nederveen	reference	Bochnak, M. Ryan & Lisa Matthewson. 2020. Techniques in complex semantic fieldwork. Annual Review of Linguistics 6: 261–283.	
+references	Michel Navarro and Sander Nederveen	reference	Brisson, C. (2003). Plurals, ‘all’, and the Nonuniformity of Collective Predication. Linguistics and philosophy, 26(2), 129-184.	
+references	Michel Navarro and Sander Nederveen	reference	Bruening, Benjamin. 2008. The scope fieldwork project. URL http://udel.Edu/~ bruening/scopeproject/, materials available online.	
+references	Michel Navarro and Sander Nederveen	reference	Carlson, Gregory N. 1977. Reference to kinds in English. Ph.D. thesis, University of Massachusetts Amherst.	
+references	Michel Navarro and Sander Nederveen	reference	Chierchia, Gennaro & Sally McConnell-Ginet. 2000. Meaning and grammar: An introduction to semantics. Cambridge, MA: MIT Press.	
+references	Michel Navarro and Sander Nederveen	reference	Davis, Henry. 2010. Salish lacks generalized quantifiers after all! Paper presented at Semantics and Linguistic Theory 20. Vancouver: University of British Columbia.	
+references	Michel Navarro and Sander Nederveen	reference	Davis, Henry. 2013. All about “all” in (some) Salish languages. Strategies of quantification, 214- 259.	
+references	Michel Navarro and Sander Nederveen	reference	Deal, Amy Rose. 2015. Reasoning about Equivalence in Semantic Fieldwork. In Methodologies in semantic fieldwork, eds. Ryan Bochnak and Lisa Matthewson. Oxford: Oxford University Press.	
+references	Michel Navarro and Sander Nederveen	reference	Demirdache, Hamida. 1996. ‘The chief of the United States’ sentences in Lillooet Salish. In International Conference on Salish and Neighbouring Languages 13: 79.	
+references	Michel Navarro and Sander Nederveen	reference	Dunlop, Britt, Suzanne Gessner, Tracey Herbert, and Aliana Parker. 2018. Report on the status of B.C. First Nations Languages . Retrieved from http://www.fpcc.ca/files/PDF/FPCC- LanguageReport-180716-WEB.pdf Fodor, Janet Dean & Ivan A. Sag. 1982. Referential and Quantificational Indefinites. Linguistics and Philosophy 5(3), 355–398.	
+references	Michel Navarro and Sander Nederveen	reference	Gardiner, Dwight. 1993. Structural asymmetries and preverbal positions in Shuswap. Ph.D. thesis, Simon Fraser University.	
+references	Michel Navarro and Sander Nederveen	reference	Gazdar, Gorald. 1979. Pragmatics: Implicature, presupposition and logical form. New York: Academic Press.	
+references	Michel Navarro and Sander Nederveen	reference	Gillon, Carrie. 2006. The semantics of determiners: Domain restriction in Skwxwú7mesh. Ph.D. thesis, University of British Columbia.	
+references	Michel Navarro and Sander Nederveen	reference	Heim, Irene. 1982. The semantics of definite and indefinite noun phrases. Ph.D. thesis, University of Massachusetts Amherst.	
+references	Michel Navarro and Sander Nederveen	reference	Heim, Irene. 1990. Presupposition projection. In Reader for the Nijmegen workshop on presupposition, lexical meaning, and discourse processes. Nijmegen: University of Nijmegen.	
+references	Michel Navarro and Sander Nederveen	reference	Heim, Irene. 1991. Articles and definiteness. Semantics: An international handbook of contemporary research, 487-535.	
+references	Michel Navarro and Sander Nederveen	reference	Huijsmans, Marianne, D. K. E. Reisinger, & Lisa Matthewson. 2020. Evidential Determiners in ʔayʔaǰuθəm. In: D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.): Papers for ICSNL 55:165–182. Vancouver, BC: UBCWPL, 2020.	
+references	Michel Navarro and Sander Nederveen	reference	Ionin, Tania. 2006. This is definitely specific: Specificity and definiteness in article systems. Natural Language Semantics. 175-234.	
+references	Michel Navarro and Sander Nederveen	reference	Ioup, Georgette. 1977. Specificity and the interpretation of quantifiers. Linguistics and Philosophy. 233-245.	
+references	Michel Navarro and Sander Nederveen	reference	Kamp Hans and Uwe Reyle. 1993. From Discourse to Logic: Introduction to Modeltheoretic Semantics of Natural Language, Formal Logic and Discourse Representation Theory. Dordrecht: Kluwer Academic Publishers Karttunen, Lauri. 1974. Presuppositions and linguistic context. Theoretical Linguistics 1: 181–194.	
+references	Michel Navarro and Sander Nederveen	reference	Kratzer, Angelika. 1998, Scope or Pseudo-Scope? Are There Wide-Scope Indefinites? In S Rothstein (ed.), Events in Grammar, pp. 163–196. Kluwer, Dordrecht.	
+references	Michel Navarro and Sander Nederveen	reference	Krifka, Manfred. 2011. Varieties of semantic evidence. In Handbooks of Linguistics and Communication Science. 242-268. De Gruyter Mouton.	
+references	Michel Navarro and Sander Nederveen	reference	Kuipers, Aert Hendrik. 1974. The Shuswap language: Grammar, texts, dictionary. The Hague: Mouton.	
+references	Michel Navarro and Sander Nederveen	reference	Lyon, John. 2011. The syntax of Okanagan determiner phrases. In 46th Annual International Conference on Salish and Neighboring Languages.	
+references	Michel Navarro and Sander Nederveen	reference	Matthewson, Lisa. 1996. Determiner Systems and Quantificational Strategies. Evidence from Salish. Ph.D. thesis, University of British Columbia Matthewson, Lisa. 1998. Determiner Systems and Quantificational Strategies. Evidence from Salish. Holland Academic Press, The Hague.	
+references	Michel Navarro and Sander Nederveen	reference	Matthewson, Lisa. 1999. On the interpretation of wide-scope indefinites. Natural language semantics, 7(1), 79-134.	
+references	Michel Navarro and Sander Nederveen	reference	Matthewson, Lisa. 2004. On the methodology of semantic fieldwork. International journal of American linguistics, 70(4), 369-415.	
+references	Michel Navarro and Sander Nederveen	reference	Matthewson, Lisa. 2008. Pronouns, presuppositions, and semantic variation. In T. Friedman and S. Ito (Eds). Proceedings of SALT XVIII, Ithaca, NY.	
+references	Michel Navarro and Sander Nederveen	reference	Matthewson, Lisa. 2012. Methods in cross-linguistic semantics.	
+references	Michel Navarro and Sander Nederveen	reference	Semantics-Foundations, History and Methods, 340.	
+references	Michel Navarro and Sander Nederveen	reference	Ludlow, Peter & Stephen Neale. 1991. Indefinite Descriptions: In Defense of Russell. Linguistics and Philosophy 14, 171–202.	
+references	Michel Navarro and Sander Nederveen	reference	Reinhart, Tanya. 1997. Quantifier scope: How labor is divided between QR and choice functions. Linguistics and philosophy, 335-397.	
+references	Michel Navarro and Sander Nederveen	reference	Soames, Scott. 1989. Presupposition. In Handbook of philosophical logic. 553-616. Springer, Dordrecht.	
+references	Michel Navarro and Sander Nederveen	reference	Stalnaker, R. Culp. 1974. Pragmatic presuppositions. In Semantics and philosophy: Essays, ed. M. Munitz and P. Unger, 197–214. New York: New York University Press.	

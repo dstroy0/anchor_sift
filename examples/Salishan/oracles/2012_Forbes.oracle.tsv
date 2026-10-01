@@ -1,0 +1,483 @@
+where	who	kind	form	gloss
+front	Clarissa Forbes	title	Gitxsan adjectives: evidence from nominal modification	page 1
+front	Clarissa Forbes	name	Clarissa Forbes	author
+front	Clarissa Forbes	note	University of British Columbia	page 1, under Clarissa Forbes
+front	Clarissa Forbes	note	This paper explores nominal modification in Gitxsan, bringing to light new information about word classes, attributive modification, and relative clause structure. While attributive modification is determined to be category-neutral, relative clause modification—specifically the position of the relativized predicate on either side of the noun—is determined to serve as a test for two different categories of intransitive predicate, namely verbs and adjectives. When the structures of these two relative clause types are explored further, it is determined that they are the results of two different relativization processes, one of which cannot truly be clausal. This discovery raises questions about the nature of extraction morphology in Gitxsan, and calls for further investigation into the newly identified class of adjectives.1	page 1, the abstract
+footnote 1	Clarissa Forbes	note	Endless thanks go to Barbara Sennott and Vincent Gogag (and more recently, Hector Hill) for sharing their language with us. Ha'miiyaa! The teamwork, support, and insights of the UBC Gitxsan research group were also major contributions to this paper; special thanks to Dr. Henry Davis for all of his help. This research was supported by a UBC Arts Undergraduate Research Award, SSHRCC grant 410-2008-2535, and a Jacobs Fund award.	page 1, footnote 1
+footnote 1	Clarissa Forbes	name	Barbara Sennott	Gitxsan consultant (BS), of an eastern dialect
+footnote 1	Clarissa Forbes	name	Vincent Gogag	Gitxsan consultant (VG)
+footnote 1	Clarissa Forbes	name	Hector Hill	Gitxsan consultant
+footnote 1	Clarissa Forbes	name	Henry Davis	thanked; Davis (2002, 2011), Davis and Brown (2011)
+front	Clarissa Forbes	language	Gitxsan	Tsimshianic, of the British Columbia northern interior
+§1	Clarissa Forbes	heading	1 Introduction2	page 1
+footnote 2	Clarissa Forbes	note	Examples are given in the Gitxsan orthography devised by Bruce Rigsby and Lonnie Hindle in use by speakers today; it is converted to APA in Appendix 1. The morphemic breakdown is given in the APA, with allophonic processes (such as phonological voicing, palatalization, vowel coloring, and 'echoed' vowels after glottal stops) removed. Glossing abbreviations are given in Appendix 2. All examples are from the author's own fieldwork.	page 1, footnote 2
+footnote 2	Clarissa Forbes	name	Bruce Rigsby	devised the orthography with Lonnie Hindle; Rigsby (1975, 1986)
+footnote 2	Clarissa Forbes	name	Lonnie Hindle	devised the orthography with Bruce Rigsby; Hindle and Rigsby (1973)
+§1	Clarissa Forbes	note	Gitxsan, a Tsimshianic language of the British Columbia northern interior, is a language that has received less attention than many others in the Pacific Northwest, especially by syntacticians. There has been little exploration of lexical categories in Gitxsan, and none of the syntactic literature on the language (e.g. Rigsby 1975, Hunt 1993, and Davis & Brown 2011) is devoted to the issue.	page 1
+§1	Clarissa Forbes	name	Rigsby	Bruce Rigsby, Nass-Gitxsan syntax (1975), Gitxsan Grammar (1986)
+§1	Clarissa Forbes	name	Hunt	Katharine D. Hunt, clause structure, agreement and case in Gitksan (1993)
+§1	Clarissa Forbes	name	Davis	Henry Davis, relative clauses in St'át'imcets (2002) and WH-relatives in Interior Tsimshianic (2011)
+§1	Clarissa Forbes	name	Brown	Jason Brown, with Davis (2011)
+§1	Clarissa Forbes	language	Tsimshianic	the family of Gitxsan
+§1	Clarissa Forbes	note	This work aims to discuss Gitxsan word classes; specifically, the possibility of a lexical adjective class distinct from intransitive verbs, within the larger class of non-nominal predicates. This will be done through examination of the behavior of nominal modifiers. Though Rigsby (1986: 91) states specifically that there is no lexical adjective class in Gitxsan, the evidence provided in this paper shows two distinct behaviors amongst intransitive predicative modifiers, one corresponding to an adjective class and one to a verbal class.	page 1
+§1	Clarissa Forbes	note	There are three possible nominal modification methods for intransitive predicate-class lexical items in Gitxsan. One is with the attributive marker -m, and takes place prenominally.	page 2
+§1	Gitxsan	cited form	-m	page 2, in italics
+(1) line 1	Gitxsan	transcription	Giigw'yhl [aguusm ixsdaam anaax]	page 2
+(1) line 2	Gitxsan	segmentation	ki:kʷ-y̔=ɬ akʷu:s-m ixsta:-m ana:x	page 2
+(1) line 3	Gitxsan	gloss	buy-1SG.II=CN stale-ATTR delicious-ATTR bread	page 2
+(1) line 4	Clarissa Forbes	translation	'I bought a stale cake (lit: sweet bread).'	page 2
+§1	Clarissa Forbes	note	The other two structures both involve relative clauses. Relative clauses can occur either prenominally or postnominally, and are marked by the intransitive extraction morphology /-ət/ placed on the relativized predicate3.	page 2
+footnote 3	Clarissa Forbes	note	Typically both the relative clause and the noun it modifies are marked by the connective =hl (Rigsby 1986: 282). In some of my examples this connective is missing, but this has no syntactic or semantic effect and is more likely a result of fast or casual speech. When prompted, consultants simply say that the version with the connective is more correct.	page 2, footnote 3
+footnote 3	Gitxsan	cited form	=hl	page 2, in italics
+(2) line 1	Gitxsan	transcription	Sga'wa'yhl [aamit gyat]	page 2
+(2) line 2	Gitxsan	segmentation	sqaw̔a-y̔=ɬ a:m-ət kat	page 2
+(2) line 3	Gitxsan	gloss	meet-1SG.II=CN good-SX man	page 2
+(2) line 4	Clarissa Forbes	translation	'I met a good man.'	page 2
+(3) line 1	Gitxsan	transcription	X̲sdaahl [hanak̲' limit] gi	page 2
+(3) line 2	Gitxsan	segmentation	χsta:=ɬ hanaqʼ limx-ət ki	page 2
+(3) line 3	Gitxsan	gloss	win=CN woman sing-SX DIST	page 2
+(3) line 4	Clarissa Forbes	translation	'The singing woman won.'	page 2
+§1	Clarissa Forbes	note	However, these positions are differentiated with respect to the syntactic category heading them. It will be shown that adjective-type predicates tend to relativize in the prenominal position, while verb-type predicates relativize in the postnominal position. This will be attributed to a difference in structure; postnominal relative clauses are CP modifiers of NPs, i.e. true relative clauses, while prenominal relative clauses are differently structured; they are non- clausal, and cannot use a WH-word as a relative pronoun, unlike true relatives (Davis & Brown 2011, Davis 2011).	page 2
+§1.1	Clarissa Forbes	heading	1.1 Distinguishing Gitxsan noun and verb	page 2
+§1.1	Clarissa Forbes	note	In many languages of the Pacific Northwest, items taking the major syntactic roles of predicate and argument are unrestricted by word class. Many, if not all, lexical word classes are capable of taking either a predicate or argument role, depending on their placement in the sentence and interaction with functional elements. This is the case in Tsimshianic as well, where nouns, verbs, adjectives, and numbers are all predicative categories (Tarpent 1987: 297, for Nisgha). The ability of items of different word classes in Salish and Wakashan to take the same syntactic positions and the same morphology without significant visible alteration was marked enough for prior analyses to posit no word class distinction amongst predicates at all (see Swadesh 1939, Kinkade 1983, Jelinek & Demers 1994, Renker 1987; though also see Van Eijk & Hess 1986, Matthewson & Demirdache 1995, and Wojdak 2000 for counterarguments that have been widely accepted in the literature on Pacific Northwestern languages).	page 2
+§1.1	Clarissa Forbes	name	Tarpent	Marie-Lucie Tarpent, a grammar of the Nisgha language (1987)
+§1.1	Clarissa Forbes	name	Swadesh	Morris Swadesh, Nootka internal syntax (1939)
+§1.1	Clarissa Forbes	name	Kinkade	M. Dale Kinkade, Salish evidence against noun and verb (1983)
+§1.1	Clarissa Forbes	name	Jelinek	Eloise Jelinek, with Demers (1994)
+§1.1	Clarissa Forbes	name	Demers	Richard A. Demers, with Jelinek (1994)
+§1.1	Clarissa Forbes	name	Renker	Anne M. Renker, noun and verb in Southern Wakashan (1987)
+§1.1	Clarissa Forbes	name	Van Eijk	Jan van Eijk, with Hess (1986)
+§1.1	Clarissa Forbes	name	Hess	Thom Hess, with Van Eijk (1986)
+§1.1	Clarissa Forbes	name	Matthewson	Lisa Matthewson, with Demirdache (1995)
+§1.1	Clarissa Forbes	name	Demirdache	Hamida Demirdache, with Matthewson (1995)
+§1.1	Clarissa Forbes	name	Wojdak	Rachel Wojdak, Nuuchahnulth modification (2000)
+§1.1	Clarissa Forbes	language	Nisgha	Tarpent (1987)
+§1.1	Clarissa Forbes	language	Salish	the word class literature
+§1.1	Clarissa Forbes	language	Wakashan	the word class literature
+§1.1	Clarissa Forbes	note	However, things are a bit different in Tsimshianic. Lexical items are more obviously demarcated into the categories of noun and verb than in the Salish languages—no analysis of Tsimshianic has posited a single class of predicates, with both nouns and verbs grouped together. Such an analysis could be easily countered by the presence of visible extraction morphology on relative clauses. All non-nominal predicate-class items must be relativized to appear in argument position, and must thus appear with this morphology (the suffix /-ət/ for intransitive predicates) as 'headless' relative clauses. Nouns in Tsimshianic are the only word class capable of taking argument position without relativization, and thus without such extraction morphology.	page 3
+(4a) line 1	Gitxsan	transcription	Gyuksin'yhl smax	page 3
+(4a) line 2	Gitxsan	segmentation	kuksin-y̔=ɬ smax	page 3
+(4a) line 3	Gitxsan	gloss	wake.up-1SG.II=CN bear	page 3
+(4a) line 4	Clarissa Forbes	translation	'I woke up the bear.'	page 3
+(4b) line 1	Gitxsan	transcription	*Gyuksin'yhl smayit	page 3
+(5a) line 1	Gitxsan	transcription	Gyuksin'yhl wogat	page 3
+(5a) line 2	Gitxsan	segmentation	kuksin-y̔=ɬ woq-ət	page 3
+(5a) line 3	Gitxsan	gloss	wake.up-1SG.II=CN sleep-SX	page 3
+(5a) line 4	Clarissa Forbes	translation	'I woke up the sleeping one.'	page 3
+(5b) line 1	Gitxsan	transcription	*Gyuksin'yhl wok̲	page 3
+§1.1	Clarissa Forbes	note	A distinction between classes of nouns and non-nominal predicates is therefore quite clear in Gitxsan; each were described extensively as separate classes by Rigsby (1986). In addition, nouns carry a value for the feature [+/- determinate]4, and have the potential to possess or be possessed (Tarpent 1987: 297). Non-nominal predicates do not have these properties, but instead can appear with marking for transitivity or aspect (Rigsby 1986: 320, 325). In addition, most pre-predicative locative modifiers have category-specific distributions, often appearing either only with nouns or only with verbs (Stebbins 2003: 397).	page 3
+footnote 4	Clarissa Forbes	note	Determinacy refers essentially to the proper/common noun distinction. In Gitxsan, most nouns are non-determinate (common), while proper names, demonstratives, and independent pronouns are determinate.	page 3, footnote 4
+§1.1	Clarissa Forbes	name	Stebbins	Tonya Stebbins, adjectives in Coast Tsimshian (1996, 2003)
+(6a) line 1	Gitxsan	transcription	Gilbilhl ts'uuts' luu wanit ts'im gan	page 4
+(6a) line 2	Gitxsan	segmentation	kilpil=ɬ cʼu:cʼ lu: wan-ət cʼim qan	page 4
+(6a) line 3	Gitxsan	gloss	two.animal=CN bird in sit.PL-SX in tree	page 4
+(6a) line 4	Clarissa Forbes	translation	'There are two birds in the tree.'	page 4
+(6b) line 1	Gitxsan	transcription	*Gilbilhl ts'uuts' luu gan	page 4
+(6c) line 1	Gitxsan	transcription	*Gilbilhl ts'uuts' ts'im wanit	page 4
+§1.1	Clarissa Forbes	note	The existence of distinct noun and verb classes in the Tsimshianic languages is undisputed, as opposed to Salish and Wakashan where the two categories have similar behavior in both predicate and argument position (though this similarity is now generally agreed to be superficial). Words in Gitxsan may be tested for category both through their selection of locative modifiers and through the presence/absence of relativization morphology when they take argument position.	page 4
+§1.2	Clarissa Forbes	heading	1.2 Previous work on Interior Tsimshianic adjectives	page 4
+§1.2	Clarissa Forbes	note	Though a noun/verb distinction in Tsimshianic is clear, more disputed is whether a third category can be identified, namely that of adjectives, as distinct from the class of verbs (both appearing under the broader category of non-nominal predicates). In the Salish literature, more recent analyses have stated that in addition to a noun/verb distinction, there exists a distinction between verbs and adjectives as well (Matthewson and Demirdache 1995, Davis 2002, Montler 2003, Koch 2006). Such analyses have arisen with the intent of proving the universality of the three-way lexical class distinction: N, V, and A.	page 4
+§1.2	Clarissa Forbes	name	Montler	Timothy Montler, auxiliaries in Straits Salishan (2003)
+§1.2	Clarissa Forbes	name	Koch	Karsten Koch, nominal modification in Nɬeʔkepmxcin (2006)
+§1.2	Clarissa Forbes	note	For Coast Tsimshian, it has been proposed that a small set of particles composes a closed class of adjectives (Stebbins 1996). Gitxsan shares this closed class of adjectival particles: with a distribution similar to that of the locative modifiers demonstrated in (7-9), though not with the same degree of category specificity, they appear almost solely as modifiers of predicative items (both nouns and verbs). These are items such as hlgu 'small'; sim 'real, true'; 'wii 'big'; and sii 'new, fresh'.	page 4
+§1.2	Gitxsan	cited form	hlgu	page 4, in italics, 'small'
+§1.2	Gitxsan	cited form	sim	page 4, in italics, 'real, true'
+§1.2	Gitxsan	cited form	'wii	page 4, in italics, 'big'
+§1.2	Gitxsan	cited form	sii	page 4, in italics, 'new, fresh'
+§1.2	Clarissa Forbes	language	Coast Tsimshian	a closed class of adjectival particles, Stebbins (1996)
+(7) line 1	Gitxsan	transcription	[Hlgu ts'uusx]hl [hlgu wilp] lax̲ sga'nist	page 4
+(7) line 2	Gitxsan	segmentation	ɬkʷu cʼu:sx=ɬ ɬkʷu wilp laχ sqan̔ist	page 4
+(7) line 3	Gitxsan	gloss	small small=CN small house on mountain	page 4
+(7) line 4	Clarissa Forbes	translation	'The house on the mountain is very small.'	page 4
+(8) line 1	Gitxsan	transcription	[Sim 'wii 'nakw] 'nii'y	page 4
+(8) line 2	Gitxsan	segmentation	səm w̔i: n̔akʷ n̔i:y̔	page 4
+(8) line 3	Gitxsan	gloss	real big long 1SG.III	page 4
+(8) line 4	Clarissa Forbes	translation	'I'm very tall.'	page 4
+(9) line 1	Gitxsan	transcription	Wil [sii sim'oogit] dim wat gi	page 5
+(9) line 2	Gitxsan	segmentation	wil si: səmʔo:kit təm wa-t ki	page 5
+(9) line 3	Gitxsan	gloss	do new chief PROS name-3SG.II DIST	page 5
+(9) line 4	Clarissa Forbes	translation	'He has a new chief name…'	page 5
+§1.2	Clarissa Forbes	note	However, are these non-predicative adjectival/adverbial particles the sole A-type word class for the Tsimshianic languages? This paper explores the possibility of an additional predicative adjective class, composed of items that in previous work have been classified as stative verbs.	page 5
+§1.2	Clarissa Forbes	note	In the previous literature on Interior Tsimshianic, two proposals have been made regarding the possibility of a distinct predicative adjective class. Rigsby (1986: 91) states for Gitxsan that there are no adjectives, only stative intransitive verbs. His use of the term 'adjective' throughout his grammar is semantic in nature only, to refer more easily to those lexical items that English speakers most often consider adjectival. Tarpent (1987: 305), on the other hand, describes adjectives as a distinct word class in Nisgha, similar in nature to but ultimately separate from both eventive and stative verbs.	page 5
+§1.2	Clarissa Forbes	language	Interior Tsimshianic	Gitxsan and Nisgha
+§1.2	Clarissa Forbes	language	English	adjectives as English speakers take them
+§1.2	Clarissa Forbes	note	She describes adjectives as having the following qualities:	page 5
+§1.2	Clarissa Forbes	note	1) the ability to function as the sentence predicate,	page 5
+§1.2	Clarissa Forbes	note	2) the ability to be 'downshifted' (positioned prenominally and non- predicatively) as either an attributive or relative clause modifier,	page 5
+§1.2	Clarissa Forbes	note	3) the possibility of appearing in comparative structures,	page 5
+§1.2	Clarissa Forbes	note	4) the ability to appear as a bare complement to an evaluative verb.	page 5
+§1.2	Clarissa Forbes	note	The latter two properties are constructions not explored in Rigsby's (1986) manuscript, and though Hunt (1993) briefly discusses comparatives her discussion is not targeted toward the types of predicates that appear in them. The first two properties, however, have been explored for non-nominal predicates. With only those two properties in mind, Rigsby concluded that verbs and adjectives were syntactically indistinguishable from one another; verbs and adjectives are both directly predicative, and capable of both attributive and relativized modification (Rigsby 1986). The following sections will investigate this second property in more detail, however.	page 5
+§1.2	Clarissa Forbes	note	In section 2, I examine attributive marking, determining that it is not capable of distinguishing verbs from adjectives. It will be shown that the attributive marker displays behavior largely unaffected by word class. In section 3, I will show that though attributive marking is not a category-specific process and cannot serve to distinguish V from A, the behavior of relativized modifiers can. Specifically, the prenominal or postnominal placement of a relativized intransitive predicate in relation to the noun it modifies serves as a diagnostic for a second distinct class of non-nominal predicate. This class, I suggest, is that of adjectives. Section 4 will analyze the structure of these adjectival relative clauses as opposed to that of verbal relative clauses, as analyzed by Davis and Brown (2011); I show that these two types of relative clause cannot be equivalent since adjectival relative clauses do not overtly express the WH- operator which serves as the relative clause gap, while verbal relative clauses can. The difference between prenominal and postnominal position cannot therefore be attributed to movement, but must be the result of two different types of relative clause construction.	page 5
+§2	Clarissa Forbes	heading	2 Properties of attributives	page 6
+§2	Clarissa Forbes	note	Attributive modifiers in Gitxsan are marked by the suffixes -m and -a (Rigsby 1986: 58). Tarpent (1987: 632) suggests that -a is actually a different suffix, and non-productive; from work with my consultants it is clear that -m is by far the most productive of the two, though one eastern dialect consultant (BS) regularly uses -a with color terms, some numbers, and a few other predicates. It is unclear whether these suffixes are allomorphs, but since they share the same behavior and distribution, and never appear together, I treat them as such for the purpose of this investigation.	page 6
+§2	Gitxsan	cited form	-a	page 6, in italics
+§2.1	Clarissa Forbes	heading	2.1 Category neutrality	page 6
+§2.1	Clarissa Forbes	note	The major thing to be noted about the attributive suffixes is that they cannot serve as a word class diagnostic of any kind. The attributive suffix is capable of attaching to any predicative item, regardless of category. It can attach to intransitive eventive and stative predicates, numbers, and nouns. The only predicates it cannot regularly attach to are transitives5.	page 6
+footnote 5	Clarissa Forbes	note	Though for one of my consultants (VG), I do have an example of a transitive predicate appearing in attributive position as well:	page 6, footnote 5
+footnote 5 (i) line 1	Gitxsan	transcription	Maaxwsxwhl [giigwm anaa'y]	page 6
+footnote 5 (i) line 2	Gitxsan	segmentation	ma:xʷsxʷ=ɬ ki:kʷ-m ana:x-y̔	page 6
+footnote 5 (i) line 3	Gitxsan	gloss	white=CN buy-ATTR bread-1SG.II	page 6
+footnote 5 (i) line 4	Clarissa Forbes	translation	'The bread I bought is white.'	page 6
+footnote 5 (i) line 5	Clarissa Forbes	note	(Literally: 'My bought-bread is white.')	page 6, at the right of the translation
+(10) line 1	Gitxsan	transcription	X̲sduutxwhl [liip'aygwm ts'uuts']	page 6
+(10) line 2	Gitxsan	segmentation	χstu:txʷ=ɬ li:pʼaykʷ-m cʼu:cʼ	page 6
+(10) line 3	Gitxsan	gloss	make.noise.PL=CN fly.PL-ATTR bird	page 6
+(10) line 4	Clarissa Forbes	translation	'The flying birds are noisy.'	page 6
+(11) line 1	Gitxsan	transcription	Gya'a'yhl [hilinm gyat]	page 6
+(11) line 2	Gitxsan	segmentation	kaʔ-y̔=ɬ hilin-m kat	page 6
+(11) line 3	Gitxsan	gloss	see-1SG.II=CN lonely-ATTR man	page 6
+(11) line 4	Clarissa Forbes	translation	'I saw a lonely man.'	page 6
+(12) line 1	Gitxsan	transcription	Am [k'yula gyat] 'nit goohl paatii	page 7
+(12) line 2	Gitxsan	segmentation	am kʼul-a kat n̔it qo:=hl pa:ti:	page 7
+(12) line 3	Gitxsan	gloss	only one.person-ATTR man 3SG.III LOC=CN party	page 7
+(12) line 4	Clarissa Forbes	translation	'He's the only man at the party.'6	page 7
+footnote 6	Clarissa Forbes	note	Numbers function syntactically like other intransitive non-nominal predicates. Whether numbers have their own distinct syntactic properties not shared by the larger class of non- nominal predicates has yet to be proven in Gitxsan. See section 3.4 for further discussion.	page 7, footnote 6
+(13) line 1	Gitxsan	transcription	[Sim'oogidim hanak̲']t Alice	page 7
+(13) line 2	Gitxsan	segmentation	səmʔo:kit-m hanaqʼ=t A	page 7
+(13) line 3	Gitxsan	gloss	chief-ATTR woman=DM A	page 7
+(13) line 4	Clarissa Forbes	translation	'Alice is a female chief.'	page 7
+§2.1	Clarissa Forbes	note	As shown in example (13), the syntactic role of the modified item as sentence predicate or sentence argument is irrelevant. Complex nouns modified by attributives are still capable of taking predicate position.	page 7
+§2.1	Clarissa Forbes	note	Attributive modifiers are, in addition, able to modify more than just nouns (Tarpent 1987: 631). They may modify other predicate-class items, both when serving a predicate function or while relativized and serving as an argument.	page 7
+(14) line 1	Gitxsan	transcription	[Ts'uusxm mihlatxw]hl ganaa'w.	page 7
+(14) line 2	Gitxsan	segmentation	cʼu:sx-m miɬatxʷ=hl qana:w̔	page 7
+(14) line 3	Gitxsan	gloss	small-ATTR green=CN frog	page 7
+(14) line 4	Clarissa Forbes	translation	'The frog is a little bit green.'	page 7
+(15) line 1	Gitxsan	transcription	Gya'a'yhl [a'lagam sowii bax̲at]	page 7
+(15) line 2	Gitxsan	segmentation	kaʔ-y̔=ɬ al̔aχ-m sowi: paχ-ət	page 7
+(15) line 3	Gitxsan	gloss	see=CN angry-ATTR away run-SX	page 7
+(15) line 4	Clarissa Forbes	translation	'I saw the angry running one.'	page 7
+§2.1	Clarissa Forbes	note	The constituent suffixed with the attributive modifier is strictly an adjunct, however, and cannot stand alone to serve as the head of a phrase. It requires that a predicate-class item follow it as the object of modification (16b). Attributive modifiers are also strictly prenominal (16c).	page 7
+(16a) line 1	Gitxsan	transcription	Giigw'yhl [maaxwsxwa isxdaam anaax]	page 7
+(16a) line 2	Gitxsan	segmentation	ki:kʷ-y̔=ɬ ma:xʷsxʷ-a ixsta:-m ana:x	page 7
+(16a) line 3	Gitxsan	gloss	buy-1SG.II=CN white-ATTR sweet-ATTR bread	page 7
+(16a) line 4	Clarissa Forbes	translation	'I bought a white cake (sweet bread).'	page 7
+(16b) line 1	Gitxsan	transcription	*Giigw'yhl [maaxwsxwa]	page 7
+(16b) line 2	Clarissa Forbes	translation	Intended: 'I bought the white one.'	page 7, the intended reading of the starred part
+(16c) line 1	Gitxsan	transcription	*Giigw'yhl [ixsdaam anaax maaxwsxwa]	page 7
+§2.1	Clarissa Forbes	note	With regard to category, however, attributive modification is almost entirely unrestricted; it requires only that one predicate-class item be used to modify another predicate-class item, regardless of that item's syntactic function as predicate or argument of the clause.	page 8
+§2.2	Clarissa Forbes	heading	2.2 Unrestricted order	page 8
+§2.2	Clarissa Forbes	note	Attributive modification is additionally unrestricted in terms of which predicative item should appear as the syntactic head of the phrase. In cases of intersective modification, the two predicative items are freely interchangeable:	page 8
+(17a) line 1	Gitxsan	transcription	[Sim'oogidim hanak̲']t Alice	page 8
+(17a) line 2	Gitxsan	segmentation	səmʔo:kit-m hanaqʼ=t A	page 8
+(17a) line 3	Gitxsan	gloss	chief-ATTR woman-DM A	page 8
+(17a) line 4	Clarissa Forbes	translation	'Alice is a female chief.'	page 8
+(17b) line 1	Gitxsan	transcription	[Hanak̲'m sim'oogit]t Alice	page 8
+(17b) line 2	Gitxsan	segmentation	hanaqʼ-m səmʔo:kit=t A	page 8
+(17b) line 3	Gitxsan	gloss	woman-ATTR chief-DM A	page 8
+(17b) line 4	Clarissa Forbes	translation	'Alice is a female chief.'	page 8
+§2.2	Clarissa Forbes	note	This is even the case when attributive modification involves two different word classes. Most attribution does occur with nouns as the phrasal head and object of modification, but it is not necessary that a noun appear as the phrasal head when there is a choice between two different word classes.	page 8
+(18a) line 1	Gitxsan	transcription	Gya'a'yhl [gi'paygwm ts'uuts']	page 8
+(18a) line 2	Gitxsan	segmentation	kaʔ-y̔=ɬ kipʼaykʷ-m cʼu:cʼ	page 8
+(18a) line 3	Gitxsan	gloss	see-1SG.II=CN fly-ATTR bird	page 8
+(18a) line 4	Clarissa Forbes	translation	'I saw a flying bird.'	page 8
+(18b) line 1	Gitxsan	transcription	Gya'a'yhl [ts'uuts'm gip'aygwit]	page 8
+(18b) line 2	Gitxsan	segmentation	kaʔ-y̔=ɬ cʼu:cʼ-m kipʼaykʷ-ət	page 8
+(18b) line 3	Gitxsan	gloss	see-1SG.II=CN bird-ATTR fly-SX	page 8
+(18b) line 4	Clarissa Forbes	translation	'I saw a flying bird.'	page 8
+§2.2	Clarissa Forbes	note	More surprisingly, order appears to be irrelevant even in cases of non- intersective modification. The noun in phrasal head position is not always the one describing the identity of the compound, and flipping the position of the constituents does not create an opposing meaning. Sometimes the flipped version of the phrase is ungrammatical or dispreferred, but the meaning is not impacted.	page 8
+(19a) line 1	Gitxsan	transcription	[g̲aydim ganaa'w]	page 9
+(19a) line 2	Gitxsan	segmentation	qayt-m qana:w̔	page 9
+(19a) line 3	Gitxsan	gloss	hat-ATTR frog	page 9
+(19a) line 4	Clarissa Forbes	translation	'frog hat (a hat resembling a frog)'	page 9
+(19b) line 1	Gitxsan	transcription	? [ganaa'wm g̲ayt]	page 9
+(19b) line 2	Gitxsan	segmentation	qana:w̔-m qayt	page 9
+(19b) line 3	Gitxsan	gloss	frog-ATTR hat	page 9
+(19b) line 4	Clarissa Forbes	translation	'frog hat (a hat resembling a frog)'	page 9
+(19b) line 5	Clarissa Forbes	speaker comment	BS: It's not as correct as the other one.	page 9, under the example, BS, Barbara Sennott
+(20a) line 1	Gitxsan	transcription	[ganm gyat]	page 9
+(20a) line 2	Gitxsan	segmentation	qan-m kat	page 9
+(20a) line 3	Gitxsan	gloss	tree-ATTR man	page 9
+(20a) line 4	Clarissa Forbes	translation	'a wooden person, person of wood'	page 9
+(20b) line 1	Gitxsan	transcription	[gyadim gan]	page 9
+(20b) line 2	Gitxsan	segmentation	kat-m qan	page 9
+(20b) line 3	Gitxsan	gloss	man-ATTR tree	page 9
+(20b) line 4	Clarissa Forbes	translation	'a wooden person, person of wood'	page 9
+(20b) line 5	Clarissa Forbes	speaker comment	VG: No, it can't be a kind of tree.	page 9, under the example, VG, Vincent Gogag
+(20b) line 6	Clarissa Forbes	note	(referring to both a. and b.)	page 9, at the right of the comment
+(21a) line 1	Gitxsan	transcription	maa'ym ii'esxw	page 9
+(21a) line 2	Gitxsan	segmentation	ma:y̔-m i:ʔsxʷ	page 9
+(21a) line 3	Gitxsan	gloss	berry-ATTR basket	page 9
+(21a) line 4	Clarissa Forbes	translation	'a berry basket'	page 9
+(21b) line 1	Gitxsan	transcription	ii'esxwm maa'y	page 9
+(21b) line 2	Gitxsan	segmentation	i:ʔsxʷ-m ma:y̔	page 9
+(21b) line 3	Gitxsan	gloss	basket-ATTR berry	page 9
+(21b) line 4	Clarissa Forbes	translation	'a berry basket'	page 9
+(21b) line 5	Clarissa Forbes	note	Note: both grammatical for VG, only a. for BS	page 9, under the example
+(22a) line 1	Gitxsan	transcription	laldim wis	page 9
+(22a) line 2	Gitxsan	segmentation	lalt-m wis	page 9
+(22a) line 3	Gitxsan	gloss	snake-ATTR rain	page 9
+(22a) line 4	Clarissa Forbes	translation	'earthworm'	page 9
+(22b) line 1	Gitxsan	transcription	wism lalt	page 9
+(22b) line 2	Gitxsan	segmentation	wis-m lalt	page 9
+(22b) line 3	Gitxsan	gloss	rain-ATTR snake	page 9
+(22b) line 4	Clarissa Forbes	translation	'earthworm'	page 9
+§2.2	Clarissa Forbes	note	This demonstrates apparent free word order between head and modifier in cases of non-intersective modification, at least in cases where there is a pragmatic bias about the interpretation. This raises the issue of how the head is selected in pairs without such pragmatic bias, given that only one interpretation is available for each of the pairs in (19-22). I leave this question for now, but hope to investigate it with additional examples in the future.	page 9
+§2.3	Clarissa Forbes	heading	2.3 Summary	page 10
+§2.3	Clarissa Forbes	note	The attributive suffix is a highly productive method of modification, allowing any predicative item to modify any other predicative item, in either predicate or argument position. As it allows any predicative item to take the typically adjectival/adverbial function of attributing a certain property to another item, it cannot serve as a specific test for a class of adjectives.	page 10
+§2.3	Clarissa Forbes	note	Whether the attributive suffix is truly neutral with regard to the categories it takes and modifies—specifically, whether there is no preference or limitation to which categories can modify one another—is a question that requires further, more systematic study with a large range of predicates. However, the curious fact that the order of nouns in a non-intersective pair is irrelevant to the meaning of the phrase as a whole would suggest that this is the case. Clearly, this is a topic for further investigation.	page 10
+§3	Clarissa Forbes	heading	3 Relative clauses	page 10
+§3	Clarissa Forbes	note	The second method by which a predicative item may modify a noun is through relativization. For the purposes of this paper, only cases of intransitive, non-nominal relative clauses will be explored in detail7.	page 10
+footnote 7	Clarissa Forbes	note	Nouns can also take extraction morphology. Note the following example:	page 10, footnote 7
+footnote 7 (ii) line 1	Gitxsan	transcription	Ligit naahl gay sim'oogidit dim luu yuxwit ayook̲xw	page 10
+footnote 7 (ii) line 2	Gitxsan	segmentation	liki=t na:=ɬ qay səmʔo:kit-ət təm lu: yuxʷ-ət ayo:qxʷ	page 10
+footnote 7 (ii) line 3	Gitxsan	gloss	INDEF=DM who=CN CNTR chief-SX PROS in follow-SX law	page 10
+footnote 7 (ii) line 4	Clarissa Forbes	translation	'Anyone who is a chief should follow the laws.'	page 10
+§3	Clarissa Forbes	note	Relative clauses are formed through the extraction of a nominal head or some kind of operator from the argument position of a clause, and the subsequent use of that clause as a modifier of either the extracted nominal head, or a noun sharing identity with the extracted operator. Davis's (2011) and Davis and Brown's (2011) analyses of Gitxsan relative clauses indicate that relative- clause movement must be indirect—that the extracted operator is a WH- pronoun, expressed overtly in headless relative clauses and optionally expressed in headed ones, and that the nominal head is identified with the WH-operator through matching (Sauerland 2003) rather than raising (Kayne 1994). I assume the same analysis.	page 10
+§3	Clarissa Forbes	name	Sauerland	Uli Sauerland, unpronounced heads in relative clauses (2003)
+§3	Clarissa Forbes	name	Kayne	Richard Kayne, The Antisymmetry of Syntax (1994)
+§3	Clarissa Forbes	note	Relativization of intransitive predicates is indicated via the presence of the subject extraction suffix /-ət/8 on the relativized predicate. The relativized predicate is then positioned either prenominally or postnominally (Rigsby 1986: 405).	page 10
+footnote 8	Clarissa Forbes	note	This is rendered in the orthography as -it or -at, depending on the way the preceding consonant colors the suffixal vowel.	page 10, footnote 8
+footnote 8	Gitxsan	cited form	-it	page 10, in italics
+footnote 8	Gitxsan	cited form	-at	page 10, in italics
+§3.1	Clarissa Forbes	heading	3.1 An asymmetry in the position of relativized predicates	page 11
+§3.1	Clarissa Forbes	note	The choice of position in which a relativized intransitive predicate appears is not free, however—nor does it correspond to a difference in meaning. Rather, I suggest that the pre- or post-nominal position of a relative clause is dependent on lexical properties of the relativized predicate.	page 11
+§3.1	Clarissa Forbes	note	Relative clauses utilizing eventive predicates tend to occur postnominally, and are almost always volunteered this way in unprompted elicitation contexts.	page 11
+(23) line 1	Gitxsan	transcription	Ts'eek̲xwhl [[ts'uuts'] gip'aygwit gosuust]	page 11
+(23) line 2	Gitxsan	segmentation	cʼe:qxʷ=ɬ cʼu:cʼ kipʼaykʷ-ət qo:su:st	page 11
+(23) line 3	Gitxsan	gloss	make.noise=CN bird fly-SX LOC.there	page 11
+(23) line 4	Clarissa Forbes	translation	'The bird that is flying around over there is noisy.'	page 11
+(24) line 1	Gitxsan	transcription	Hax̲olax̲hl [maaxwsxwm smax bax̲at].	page 11
+(24) line 2	Gitxsan	segmentation	haχolaχ=ɬ ma:xʷsxʷ-m smax paχ-ət	page 11
+(24) line 3	Gitxsan	gloss	fast=CN white-ATTR bear run-SX	page 11
+(24) line 4	Clarissa Forbes	translation	'The running white bear is fast.'	page 11
+§3.1	Clarissa Forbes	note	While prenominal placement of these eventive relative clauses is sometimes acceptable, more frequently it is rejected or considered awkward by speakers.	page 11
+(25a) line 1	Gitxsan	transcription	Ts'axwhl [hlgu mihlatxwm ganaa'w hajiksit]	page 11
+(25a) line 2	Gitxsan	segmentation	cʼaxʷ=ɬ ɬkʷu miɬatxʷ-m qana:w̔ haciks-ət	page 11
+(25a) line 3	Gitxsan	gloss	clever=CN small green-ATTR frog swim-SX	page 11
+(25a) line 4	Clarissa Forbes	translation	'The small swimming green frog is clever.'	page 11
+(25b) line 1	Gitxsan	transcription	*Ts'axwhl [hlgu mihlatxwm hajiksit ganaa'w]	page 11
+§3.1	Clarissa Forbes	note	Most stative intransitive predicates, on the other hand, are obligatorily positioned prenominally.	page 11
+(26a) line 1	Gitxsan	transcription	Wok̲hl ['wii t'uuts'xwit smax]	page 11
+(26a) line 2	Gitxsan	segmentation	woq=ɬ w̔i: tʼu:cʼxʷ-ət smax	page 11
+(26a) line 3	Gitxsan	gloss	sleep=CN big black-SX bear	page 11
+(26a) line 4	Clarissa Forbes	translation	'The big black bear is sleeping.'	page 11
+(26b) line 1	Gitxsan	transcription	*Wok̲hl ['wii smax t'uuts'xwit]	page 11
+(27a) line 1	Gitxsan	transcription	'Miin batsdi'yhl [sdinit x̲biist]	page 11
+(27a) line 2	Gitxsan	segmentation	m̔i:n pac-tə-y̔=ɬ stin-ət χpi:st	page 11
+(27a) line 3	Gitxsan	gloss	up lift-TR-1SG.II=CN heavy-SX box	page 11
+(27a) line 4	Clarissa Forbes	translation	'I lifted the heavy box.'	page 11
+(27b) line 1	Gitxsan	transcription	*'Miin batsdi'yhl [x̲biist sdinit]	page 12
+(28a) line 1	Gitxsan	transcription	Didalga'yhl [hlgu ts'awit t'ihlxw]	page 12
+(28a) line 2	Gitxsan	segmentation	titalq-ə-y̔=ɬ ɬkʷu cʼaxʷ-ət tʼiɬxʷ	page 12
+(28a) line 3	Gitxsan	gloss	talk-TR-1SG.II=CN small clever-SX child	page 12
+(28a) line 4	Clarissa Forbes	translation	'I talked with the clever child.'	page 12
+(28b) line 1	Gitxsan	transcription	*Didalga'yhl [hlgu t'ihlxw ts'awit]	page 12
+§3.1	Clarissa Forbes	note	The relative clauses of transitive predicates, in contrast, always position themselves following the noun.	page 12
+(29a) line 1	Gitxsan	transcription	Gya'a'mhl [[smax] ant guphl helda maa'y]	page 12
+(29a) line 2	Gitxsan	segmentation	kaʔ-m̔=ɬ smax an=t kʷup=ɬ helt-a ma:y̔	page 12
+(29a) line 3	Gitxsan	gloss	see-1PL.II=CN bear AX-3SG.I eat=CN many-ATTR berry	page 12
+(29a) line 4	Clarissa Forbes	translation	'We saw the bear who ate lots of berries.'	page 12
+(29b) line 1	Gitxsan	transcription	*Gya'a'mhl [ant guphl helda maa'y [smax]]	page 12
+(30a) line 1	Gitxsan	transcription	Mihlatxwhl [[g̲ayt] hooyin]	page 12
+(30a) line 2	Gitxsan	segmentation	miɬatxʷ=ɬ qayt ho:x-ə-n	page 12
+(30a) line 3	Gitxsan	gloss	green=CN hat use-TR-2SG.II	page 12
+(30a) line 4	Clarissa Forbes	translation	'The hat you're wearing is green.'	page 12
+(30b) line 1	Gitxsan	transcription	*Mihlatxwhl [hooyin [gayt]]	page 12
+§3.1	Clarissa Forbes	note	The relative clauses of transitive predicates therefore position themselves similarly to those of eventive intransitive predicates. Stative intransitive predicates, however, have an opposing distribution.	page 12
+§3.1	Clarissa Forbes	note	Transitive Intransitive Intransitive	page 12, the table's heads, a printed line
+§3.1	Clarissa Forbes	note	Predicates Eventive Stative	page 12, the table's heads, a printed line
+§3.1	Clarissa Forbes	note	Prenominal X ? ✓	page 12, a row of the table, X under Transitive Predicates, ? under Intransitive Eventive, ✓ under Intransitive Stative
+§3.1	Clarissa Forbes	note	Postnominal ✓ ✓ X	page 12, a row of the table, ✓ under Transitive Predicates, ✓ under Intransitive Eventive, X under Intransitive Stative
+§3.1	Clarissa Forbes	note	This table clearly shows the difference between these two sets of predicates.	page 12
+§3.2	Clarissa Forbes	heading	3.2 Not simply individual/stage-level properties	page 12
+§3.2	Clarissa Forbes	note	The division in the behavior of intransitive non-nominal predicates shown above is not simply a stage-level versus individual-level distinction. Prenominally positioned predicates come in both individual- and stage-level types.	page 12
+§3.2	Clarissa Forbes	note	Individual-level:	page 13
+(31a) line 1	Gitxsan	transcription	Giigw'yhl [masxwit kaa]	page 13
+(31a) line 2	Gitxsan	segmentation	ki:kʷ-y̔=ɬ masxʷ-ət kha:	page 13
+(31a) line 3	Gitxsan	gloss	buy-1SG.II=CN red-SX car	page 13
+(31a) line 4	Clarissa Forbes	translation	'I bought a red car.'	page 13
+(31b) line 1	Gitxsan	transcription	*Giigw'yhl [kaa masxwit]	page 13
+(32a) line 1	Gitxsan	transcription	'Miin batsdi'yhl [sdinit x̲biist]	page 13
+(32a) line 2	Gitxsan	segmentation	m̔i:n pac-tə-y̔=ɬ stin-ət χpi:st	page 13
+(32a) line 3	Gitxsan	gloss	up lift-TR-1SG.II=CN heavy-SX box	page 13
+(32a) line 4	Clarissa Forbes	translation	'I lifted the heavy box.'	page 13
+(32b) line 1	Gitxsan	transcription	*'Miin batsdi'yhl [x̲biist sdinit]	page 13
+§3.2	Clarissa Forbes	note	Stage-level:	page 13
+(33a) line 1	Gitxsan	transcription	'Nii yuksini'yhl [aksithl gwila]	page 13
+(33a) line 2	Gitxsan	segmentation	n̔i: yuksin-ə-y̔=ɬ aks-ət=ɬ kʷila	page 13
+(33a) line 3	Gitxsan	gloss	on hang.up-TR-1SG.II=CN water-SX=CN blanket	page 13
+(33a) line 4	Clarissa Forbes	translation	'I hung up the wet blanket.'	page 13
+(33b) line 1	Gitxsan	transcription	*'Nii yuksin'yhl [gwilahl aksit]	page 13
+(34a) line 1	Gitxsan	transcription	Gi'nami'yhl sip ahl [xwt'ayithl os]	page 13
+(34a) line 2	Gitxsan	segmentation	kin̔am-ə-y̔=ɬ sip a=ɬ xʷtʼax-ət=ɬ os	page 13
+(34a) line 3	Gitxsan	gloss	give-TR-1SG.II=CN bone OBL=CN hungry-SX=CN dog	page 13
+(34a) line 4	Clarissa Forbes	translation	'I gave a bone to the hungry dog.'	page 13
+(34b) line 1	Gitxsan	transcription	*Gi'nam'yhl sip ahl [oshl xwt'ayit]	page 13
+§3.2	Clarissa Forbes	note	Prenominal position can therefore not be attributed solely to individual- level predicates.	page 13
+§3.3	Clarissa Forbes	heading	3.3 Attested adjective classes	page 13
+§3.3	Clarissa Forbes	note	What sort of predicates make up the prenominally-patterning class, then? I propose that they compose a lexically-determined open class of predicative adjectives, in contrast to the closed class of adjectival and adverbial particles proposed by Stebbins (1996).	page 13
+§3.3	Clarissa Forbes	note	To examine this proposal, consider the standard set of adjective classes proposed by Dixon and Aikhenvald (2004: 3). These classes are those of dimension, age, value, color, physical property, human propensity, and speed. The class of predicates that take a prenominal relative clause position cross all seven of these adjective classes.	page 13
+§3.3	Clarissa Forbes	name	Dixon	R. M. W. Dixon, with Aikhenvald (2004)
+§3.3	Clarissa Forbes	name	Aikhenvald	Alexandra Aikhenvald, with Dixon (2004)
+(35a) line 1	Gitxsan	transcription	Giigw'yhl ['wii t'isithl ixsdaam anaax]	page 14
+(35a) line 2	Gitxsan	segmentation	ki:kʷ-y̔=ɬ w̔i: tʼis-ət=ɬ ixsta:-m ana:x	page 14
+(35a) line 3	Gitxsan	gloss	buy=1SG.II big big-SX=CN sweet-ATTR bread	page 14
+(35a) line 4	Clarissa Forbes	translation	'I bought a big cake (sweet bread).'	page 14
+(35b) line 1	Gitxsan	transcription	*Giigw'yhl ['wii ixsdaam anaaxhl t'isit]	page 14
+(36a) line 1	Gitxsan	transcription	Sim alaysthl [dogo'odit duus]	page 14
+(36a) line 2	Gitxsan	segmentation	səm alayst=ɬ toqoʔt-ət tu:s	page 14
+(36a) line 3	Gitxsan	gloss	real lazy=CN old-SX cat	page 14
+(36a) line 4	Clarissa Forbes	translation	'The old cat is very lazy.'	page 14
+(36b) line 1	Gitxsan	transcription	*Sim alaysthl [duus dogo'odit]	page 14
+(37a) line 1	Gitxsan	transcription	Sga'wa'yhl [aamit gyat]	page 14
+(37a) line 2	Gitxsan	segmentation	sqaw̔a-y̔=ɬ a:m-ət kat	page 14
+(37a) line 3	Gitxsan	gloss	meet-1SG.II=CN good-SX man	page 14
+(37a) line 4	Clarissa Forbes	translation	'I met a good man.'	page 14
+(37b) line 1	Gitxsan	transcription	*Sga'wa'yhl [gyat aamit]	page 14
+(38a) line 1	Gitxsan	transcription	Giigw'yhl [masxwit kaa]	page 14
+(38a) line 2	Gitxsan	segmentation	ki:kʷ-y̔=ɬ masxʷ-ət kha:	page 14
+(38a) line 3	Gitxsan	gloss	buy=1SG.II=CN red-SX car	page 14
+(38a) line 4	Clarissa Forbes	translation	'I bought a red car.'	page 14
+(38b) line 1	Gitxsan	transcription	*Giigw'yhl [kaa masxwit]	page 14
+(39a) line 1	Gitxsan	transcription	'Miin batsdi'yhl [sdinit x̲biist]	page 14
+(39a) line 2	Gitxsan	segmentation	m̔i:n pac-ti-ʼy=ɬ stin-ət χpi:st	page 14
+(39a) line 3	Gitxsan	gloss	up lift-TR-1SG.II=CN heavy-SX box	page 14
+(39a) line 4	Clarissa Forbes	translation	'I picked up the heavy box.'	page 14
+(39b) line 1	Gitxsan	transcription	*'Miin batsdi'yhl [x̲biist sdinit]	page 14
+(40a) line 1	Gitxsan	transcription	Didalga'yhl [hlgu ts'awit t'ihlxw]	page 14
+(40a) line 2	Gitxsan	segmentation	titalq-ə-y̔=ɬ ɬkʷu cʼaxʷ-ət tʼiɬxʷ	page 14
+(40a) line 3	Gitxsan	gloss	speak-TR-1SG.II small clever-SX child	page 14
+(40a) line 4	Clarissa Forbes	translation	'I spoke with the clever child.'	page 14
+(40b) line 1	Gitxsan	transcription	*Didalga'yhl [hlgu t'ihlxw ts'awit]	page 14
+(41a) line 1	Gitxsan	transcription	Needii x̲sdaahl [ayeethl gax̲]	page 14
+(41a) line 2	Gitxsan	segmentation	ne:=ti: χsta:=ɬ aye:-ət=ɬ qaχ	page 14
+(41a) line 3	Gitxsan	gloss	NEG=CNTR win=CN fast-SX=CN rabbit	page 14
+(41a) line 4	Clarissa Forbes	translation	'The fast rabbit lost.'	page 14
+(41a) line 5	Clarissa Forbes	note	(Lit: 'The fast rabbit didn't win.')	page 14, at the right of the translation
+(41b) line 1	Gitxsan	transcription	Needii x̲sdaahl [gax̲hl ayeet]	page 15
+§3.3	Clarissa Forbes	note	This class therefore spans the categories identified by Dixon and Aikhenvald (2004) to be cross-linguistically representative of languages with large, open adjective classes.	page 15
+§3.4	Clarissa Forbes	heading	3.4 On the position of numbers	page 15
+§3.4	Clarissa Forbes	note	Numbers are also predicative in Gitxsan, and when modifying a noun via a relative clause they occupy a prenominal position, just like the adjectival items listed above.	page 15
+(42) line 1	Gitxsan	transcription	Hasaga'y 'nim didalk̲hl [gwilunithl iiuxwt]	page 15
+(42) line 2	Gitxsan	segmentation	hasaq-y̔ n̔əm də-dalq=ɬ kʷilun-ət=ɬ i:uxʷt	page 15
+(42) line 3	Gitxsan	gloss	want-1SG.II want TR-talk=CN three.people-SX=CN man.PL	page 15
+(42) line 4	Clarissa Forbes	translation	'I want to talk to three people.'	page 15
+§3.4	Clarissa Forbes	note	No work in Gitxsan yet describes numbers as a class of their own, distinct from other pre-predicative modifiers. Tarpent (1987: 307) does so for Nisgha, describing a few nominal, rather than verbal, properties. However, unless those distinctions in Gitxsan can be confirmed for a separate numeral class and not reproduced for adjectival predicates, then numbers simply constitute an extension of the adjective class. They are both stative and intransitive.	page 15
+§4	Clarissa Forbes	heading	4 Structure of prenominal modifiers	page 15
+§4	Clarissa Forbes	note	This section will analyze the syntactic structure of the adjectival prenominal modifiers, suggesting that they cannot be relative clauses of the type discussed by Davis and Brown (2011), that status being reserved for postnominal modifiers alone. I propose that the adjectival modifiers marked by extraction morphology are not structurally comparable to the superficially identical verbal modifiers.	page 15
+§4.1	Clarissa Forbes	heading	4.1 Adjectives not headed by WH-phrase	page 15
+§4.1	Clarissa Forbes	note	Relative clauses in Gitxsan, as investigated by Davis and Brown (2011), involve movement of an optionally-expressed WH-operator to the specifier of a higher functional projection (presumably, CP). Adjectival modifiers in prenominal position, however, do not contain a WH-operator. This is illustrated below with the WH-word naa 'who'.	page 15
+§4.1	Gitxsan	cited form	naa	page 15, in italics, 'who'
+(43a) line 1	Gitxsan	transcription	Gi'nam'yhl sip ahl [os t'aat] gi	page 16
+(43a) line 2	Gitxsan	segmentation	kin̔am-ə-y̔=ɬ sip a=ɬ os tʼa:-ət ki	page 16
+(43a) line 3	Gitxsan	gloss	give-TR-1SG.II=CN bone OBL=CN dog sit-SX DIST	page 16
+(43a) line 4	Clarissa Forbes	translation	'I gave a bone to the sitting dog.'	page 16
+(43b) line 1	Gitxsan	transcription	Gi'nam'yhl sip ahl [os naahl t'aat]	page 16
+(43b) line 2	Gitxsan	segmentation	kin̔am-ə-y̔=ɬ sip a=ɬ os na:=ɬ tʼa:-ət	page 16
+(43b) line 3	Gitxsan	gloss	give-TR-1SG.II=CN bone OBL=CN dog who=CN sit-SX	page 16
+(43b) line 4	Clarissa Forbes	translation	'I gave a bone to the sitting dog.'	page 16
+(44a) line 1	Gitxsan	transcription	Gi'nam'yhl sip ahl [t'uuts'xwithl os]	page 16
+(44a) line 2	Gitxsan	segmentation	kin̔am-ə-y̔=ɬ sip a=ɬ tʼu:cʼxʷ-ət os	page 16
+(44a) line 3	Gitxsan	gloss	give-TR-1SG.II=CN bone OBL=CN black-SX dog	page 16
+(44a) line 4	Clarissa Forbes	translation	'I gave a bone to the black dog.'	page 16
+(44b) line 1	Gitxsan	transcription	*Gi'nam'yhl sip ahl [naahl t'uuts'xwithl os]	page 16
+(44c) line 1	Gitxsan	transcription	*Gi'nam'yhl sip ahl [os t'uuts'xwit]	page 16
+(44d) line 1	Gitxsan	transcription	*Gi'nam'yhl sip ahl [os naahl t'uuts'xwit]	page 16
+§4.1	Clarissa Forbes	note	While the verbal relative clause t'aat is perfectly capable of appearing with or without a WH-word, the adjectival relative clause t'uuts'xwit is not— either in prenominal or postnominal position. That the WH-word cannot surface in an adjectival relative even when it shows identical word order to a verbal relative indicates that these two types of relative clauses are not derived in the same way.	page 16
+§4.1	Gitxsan	cited form	t'aat	page 16, in italics
+§4.1	Gitxsan	cited form	t'uuts'xwit	page 16, in italics
+§4.1	Clarissa Forbes	note	Also compare the inability of an adjectival modifier to take a WH-word as compared to the same modifier when it undergoes negation. Once negated, not only is the WH-word able to appear, but the construction appears postnominally, in structure identical to that of a negated verbal modifier—this is presumably because negation is clausal.	page 16
+(45) line 1	Gitxsan	transcription	Gi'nam'yhl sip ahl [os naahl	page 16
+(45) line 2	Gitxsan	segmentation	kin̔am-ə-y̔=ɬ sip a=ɬ os na:=ɬ	page 16
+(45) line 3	Gitxsan	gloss	give-TR-1SG.II=CN bone OBL=CN dog who=CN	page 16
+(45) line 4	Gitxsan	transcription	needii t'uuts'xwit]	page 16
+(45) line 5	Gitxsan	segmentation	ne:=ti: tʼu:cʼxʷ-ət	page 16
+(45) line 6	Gitxsan	gloss	NEG=CNTR black-SX	page 16
+(45) line 7	Clarissa Forbes	translation	'I gave a bone to the dog that wasn't black.'	page 16
+(46) line 1	Gitxsan	transcription	Gi'nam'yhl sip ahl [os naahl	page 16
+(46) line 2	Gitxsan	segmentation	kin̔am-ə-y̔=ɬ sip a=ɬ os na:=ɬ	page 16
+(46) line 3	Gitxsan	gloss	give-TR-1SG.II=CN bone OBL=CN dog who=CN	page 16
+(46) line 4	Gitxsan	transcription	needii woat]	page 16
+(46) line 5	Gitxsan	segmentation	ne:=ti: woχ-ət	page 16
+(46) line 6	Gitxsan	gloss	NEG=CNTR bark-SX	page 16
+(46) line 7	Clarissa Forbes	translation	'I gave a bone to the dog that wasn't barking.'	page 16
+§4.1	Clarissa Forbes	note	Verbs and negated predicates (both verbal and adjectival) are capable of appearing postnominally and with a WH-word heading the constituent. Each of these things are indications of a full (CP) relative clause. Conversely, bare adjectives are capable of neither, and so cannot be considered as the same breed of relative clause.	page 17
+§4.2	Clarissa Forbes	heading	4.2 Consequences for adjectival modifier structure	page 17
+§4.2	Clarissa Forbes	note	The fronted WH-word at the left edge of a full (CP) relative clause is linked to a gap in the clause itself. If it is unavailable in 'adjectival relatives', as claimed here, then we can draw one of two conclusions. Either the adjectival constituent has no gap in it for the WH-word to originate from, or there is a gap, but no spec-CP landing site for WH-movement.	page 17
+§4.2	Clarissa Forbes	note	There are problems with each approach. Extraction morphology is generally agreed to signal some degree of movement. If there were no WH-word gap in the adjectival constituent, why would it be necessary for the modifying predicate to be marked with extraction morphology? And if there were a WH- operator but no spec-CP for it to move to, there would again be no movement and therefore no reason for extraction morphology—assuming that the only possible operators are WH-pronouns.	page 17
+§4.2	Clarissa Forbes	note	One possible explanation is that there is a gap in the adjectival constituent, but that it is not identifiable with a WH-operator, as would be the case in a relative clause containing a verbal predicate. To prove such a hypothesis or identify the nature of what might exist in the gap instead of a WH- word operator is a topic I leave to future research, but see Koch (2006) and Thompson (2012) for analyses in the Salish literature employing 'small' (non- CP) relatives.	page 17
+§4.2	Clarissa Forbes	name	Thompson	James Thompson, syntactic nominalization in Halkomelem (2012)
+§5	Clarissa Forbes	heading	5 Conclusions	page 17
+§5	Clarissa Forbes	note	This paper has suggested the existence of an open class of predicative adjectives in Gitxsan, through examination of the behavior of modifiers. In section 1, the more basic noun/verb distinction was confirmed, and the results of other researchers' hunt for an adjective class in the Tsimshianic languages summarized. Section 2 examined the attributive markers -m and -a, determining that they are unable to serve as tests for an adjective class, but display interesting properties of category neutrality and raise questions about non- intersective modification. Specifically, when dealing with a non-intersective noun-noun pair, there does not seem to be a way of syntactically marking which noun fulfills the role of modifier and which the fulfills the role of head, given that the two nouns can switch places without impacting the phrase's meaning.	page 17
+§5	Clarissa Forbes	note	Section 3 looked at relative clauses, and it was there that a diagnostic for an adjective class was found: adjectives relativize prenominally, while verbs relativize postnominally. Section 4 examined the structure of these adjectival 'relative clauses' further, and it was determined that, due to their inability to host WH-words, which occur overtly in relative clauses with verbal nuclei, adjectival relatives are not standard CP relatives, despite their extraction morphology.	page 17
+§5	Clarissa Forbes	note	Finally, while the examination of an adjective class through the lens of nominal modification has been quite illuminating, more evidence for such a class ought to be sought in areas such as degree modification and comparative structures, as examined by Tarpent (1987) for Nisgha. I leave it to future research to determine whether such study will support the conclusion of a distinct adjective class in Gitxsan drawn from this analysis of nominal modifiers.	page 18
+appendix 1	Clarissa Forbes	heading	Appendix 1: Gitxsan orthography	page 18
+appendix 1	Clarissa Forbes	note	Orth. APA Orth. APA Orth. APA Orth. APA Orth. APA	page 18, the table's heads, Orth. and APA five times
+appendix 1	Clarissa Forbes	note	a a, ə hl ɬ l l s s x x	page 18, a printed row, orthography and APA, five pairs side by side
+appendix 1	Clarissa Forbes	note	aa a: i i, ɪ, ə 'l l̔ t t xw xʷ	page 18, a printed row, orthography and APA, five pairs side by side
+appendix 1	Clarissa Forbes	note	b b ii i: m m t' tʼ x̲ χ	page 18, a printed row, orthography and APA, five pairs side by side
+appendix 1	Clarissa Forbes	note	d d j dz 'm m̔ tl' ƛʼ y y	page 18, a printed row, orthography and APA, five pairs side by side
+appendix 1	Clarissa Forbes	note	e e k k n n ts c 'y y̔	page 18, a printed row, orthography and APA, five pairs side by side
+appendix 1	Clarissa Forbes	note	ee e: k' kʼ 'n n̔ ts' cʼ ' ʔ	page 18, a printed row, orthography and APA, five pairs side by side
+appendix 1	Clarissa Forbes	note	g g kw kʷ o o u u, ʌ	page 18, a printed row, orthography and APA, five pairs side by side
+appendix 1	Clarissa Forbes	note	gw gʷ kw' kʼʷ oo o: uu u:	page 18, a printed row, orthography and APA, five pairs side by side
+appendix 1	Clarissa Forbes	note	g̲ ɢ k̲ q p p w w	page 18, a printed row, orthography and APA, five pairs side by side
+appendix 1	Clarissa Forbes	note	h h k̲' qʼ p' pʼ 'w w̔	page 18, a printed row, orthography and APA, five pairs side by side
+appendix 2	Clarissa Forbes	heading	Appendix 2: Abbreviations	page 18
+appendix 2	Clarissa Forbes	note	ATTR attributive LOC locative	page 18, a printed row of the abbreviations, two columns side by side
+appendix 2	Clarissa Forbes	note	AX transitive subject (agent) NEG negation	page 18, a printed row of the abbreviations, two columns side by side
+appendix 2	Clarissa Forbes	note	extraction marker OBL oblique	page 18, a printed row of the abbreviations, two columns side by side, extraction marker the rest of AX's gloss
+appendix 2	Clarissa Forbes	note	CN common noun connective PL plural	page 18, a printed row of the abbreviations, two columns side by side
+appendix 2	Clarissa Forbes	note	CNTR contrastive PROSP prospective	page 18, a printed row of the abbreviations, two columns side by side
+appendix 2	Clarissa Forbes	note	DIST distal SX intransitive subject	page 18, a printed row of the abbreviations, two columns side by side
+appendix 2	Clarissa Forbes	note	DM determinate marker extraction marker	page 18, a printed row of the abbreviations, two columns side by side, extraction marker the rest of SX's gloss
+appendix 2	Clarissa Forbes	note	INDEF indefinite TR transitive marker	page 18, a printed row of the abbreviations, two columns side by side
+appendix 2	Clarissa Forbes	note	Pronouns:	page 18, over the tables of pronouns
+appendix 2	Clarissa Forbes	note	Series I: pre-predicative clitics	page 18, a table's caption
+appendix 2	Clarissa Forbes	note	Singular Plural	page 18, Series I, the table's heads
+appendix 2	Clarissa Forbes	note	1st person	page 18, Series I, a row of the table
+appendix 2	Gitxsan	cited form	=n, na=, ni=	page 18, Series I, 1st person singular
+appendix 2	Gitxsan	cited form	dip	page 18, Series I, 1st person plural
+appendix 2	Clarissa Forbes	note	2nd person	page 18, Series I, a row of the table
+appendix 2	Gitxsan	cited form	=m, ma=, mi=	page 18, Series I, 2nd person singular
+appendix 2	Gitxsan	cited form	=m … =si'm	page 18, Series I, 2nd person plural
+appendix 2	Clarissa Forbes	note	3rd person	page 18, Series I, a row of the table
+appendix 2	Gitxsan	cited form	=t	page 18, Series I, 3rd person singular
+appendix 2	Gitxsan	cited form	=t … =diit	page 18, Series I, 3rd person plural
+appendix 2	Clarissa Forbes	note	Series II: predicate suffixes	page 19, a table's caption
+appendix 2	Clarissa Forbes	note	Singular Plural	page 19, Series II, the table's heads
+appendix 2	Clarissa Forbes	note	1st person	page 19, Series II, a row of the table
+appendix 2	Gitxsan	cited form	-'y	page 19, Series II, 1st person singular
+appendix 2	Gitxsan	cited form	-'m	page 19, Series II, 1st person plural
+appendix 2	Clarissa Forbes	note	2nd person	page 19, Series II, a row of the table
+appendix 2	Gitxsan	cited form	-n	page 19, Series II, 2nd person singular
+appendix 2	Gitxsan	cited form	-si'm	page 19, Series II, 2nd person plural
+appendix 2	Clarissa Forbes	note	3rd person	page 19, Series II, a row of the table
+appendix 2	Gitxsan	cited form	-t	page 19, Series II, 3rd person singular
+appendix 2	Gitxsan	cited form	-diit	page 19, Series II, 3rd person plural
+appendix 2	Clarissa Forbes	note	Series III: independent words	page 19, a table's caption
+appendix 2	Clarissa Forbes	note	Singular Plural	page 19, Series III, the table's heads
+appendix 2	Clarissa Forbes	note	1st person	page 19, Series III, a row of the table
+appendix 2	Gitxsan	cited form	'nii'y	page 19, Series III, 1st person singular
+appendix 2	Gitxsan	cited form	'nuu'm	page 19, Series III, 1st person plural
+appendix 2	Clarissa Forbes	note	2nd person	page 19, Series III, a row of the table
+appendix 2	Gitxsan	cited form	'niin	page 19, Series III, 2nd person singular
+appendix 2	Gitxsan	cited form	'nisi'm	page 19, Series III, 2nd person plural
+appendix 2	Clarissa Forbes	note	3rd person	page 19, Series III, a row of the table
+appendix 2	Gitxsan	cited form	'nit	page 19, Series III, 3rd person singular
+appendix 2	Gitxsan	cited form	'nidiit	page 19, Series III, 3rd person plural
+references	Clarissa Forbes	heading	References	page 19
+references	Clarissa Forbes	reference	Davis, Henry. 2002. Categorial restrictions in St'át'imcets (Lillooet) relative clauses. Proceedings for the 37th International Conference for Salish and Neighboring Languages, 61-76. UBCWPL.	page 19
+references	Clarissa Forbes	reference	Davis, Henry. 2011. WH-relatives in Interior Tsimshianic. University of Victoria Workshop on Relative Clauses, handout. June 2011.	page 19
+references	Clarissa Forbes	reference	Davis, Henry and Jason Brown. 2011. On A'-dependencies in Gitksan. Proceedings for the 46th International Conference for Salish and Neighbouring Languages, 43-80. UBCWPL.	page 19
+references	Clarissa Forbes	reference	Dixon, R. M. W. and Alexandra Aikhenvald. 2004. Adjective Classes: A Cross-Linguistic Typology. New York: Oxford University Press.	page 19
+references	Clarissa Forbes	reference	Hindle, Lonnie and Bruce Rigsby. 1973. A Short Practical Dictionary of the Gitksan Language. Moscow.	page 19
+references	Clarissa Forbes	reference	Hunt, Katharine D. 1993. Clause Structure, Agreement and Case in Gitksan. Ph.D. dissertation, University of British Columbia.	page 19
+references	Clarissa Forbes	reference	Jelinek, Eloise and Richard A. Demers. 1994. Predicates and pronominal arguments in Straits Salish. Language 70, 697-736.	page 19
+references	Clarissa Forbes	reference	Kayne, Richard. 1994. The Antisymmetry of Syntax. Cambridge, MA: MIT Press.	page 19
+references	Clarissa Forbes	reference	Kinkade, M. Dale. 1983. Salish evidence against the universality of 'noun' and 'verb'. Lingua 60, 25-39.	page 19
+references	Clarissa Forbes	reference	Koch, Karsten. 2006. Nominal modification in Nɬeʔkepmxcin (Thompson River Salish). In S.T. Bischoff, L. Butler, P. Norquest, and D. Siddiqi (eds). MIT Working Papers on Endangered and Lesser Known Languages: Studies in Salishan, 113-126.	page 19
+references	Clarissa Forbes	reference	Matthewson, Lisa and Hamida Demirdache. 1995. Syntactic categories in St'át'imcets (Lillooet Salish). Proceedings for the 30th International Conference for Salish and Neighbouring Languages, 69-75. University of Victoria, British Columbia.	page 19
+references	Clarissa Forbes	reference	Montler, Timothy. 2003. Auxiliaries and other categories in Straits Salishan. International Journal of American Linguistics 69, 103-134.	page 19
+references	Clarissa Forbes	reference	Renker, Anne M. 1987. Rethinking noun and verb: An investigation of AUX in a Southern Wakashan language. Ph.D. dissertation, The American University.	page 20
+references	Clarissa Forbes	reference	Rigsby, Bruce. 1975. Nass-Gitxsan: an analytic ergative syntax. International Journal of American Linguistics 41, 346-354.	page 20
+references	Clarissa Forbes	reference	Rigsby, Bruce. 1986. Gitxsan Grammar. Ms., University of Queensland, Australia.	page 20
+references	Clarissa Forbes	reference	Sauerland, Uli. 2003. Unpronounced heads in relative clauses. In K. Schwabe and S. Winkler (eds.), The Interfaces: Deriving and Interpreting Omitted Structures, 205-226. Amsterdam: John Benjamins.	page 20
+references	Clarissa Forbes	reference	Stebbins, Tonya. 1996. On the class of adjectives in Coast Tsimshian. Proceedings for the 31st International Conference for Salish and Neighbouring Languages, 275-282.	page 20
+references	Clarissa Forbes	reference	Stebbins, Tonya. 2003. On the status of intermediate form classes: words, clitics, and affixes in Sm'algyax (Coast Tsimshian). Linguistic Typology 7, 383-415.	page 20
+references	Clarissa Forbes	reference	Swadesh, Morris. 1939. Nootka internal syntax. International Journal of American Linguistics 9, 77-102.	page 20
+references	Clarissa Forbes	reference	Tarpent, Marie-Lucie. 1987. A Grammar of the Nisgha Language. Ph.D. dissertation, University of Victoria.	page 20
+references	Clarissa Forbes	reference	Thompson, James. 2012. Syntactic nominalization in Halkomelem Salish. Ph.D. dissertation, University of British Columbia. Van Eijk, Jan and Thom Hess. 1986. Noun and verb in Salish. Lingua 69, 319-331.	page 20
+references	Clarissa Forbes	reference	Wojdak, Rachel. 2000. Nuuchahnulth modification: evidence against category neutrality. Proceedings for the 35th International Conference for Salish and Neighboring Languages, 269-281. UBCWPL.	page 20
+end	Clarissa Forbes	name	Clarissa Forbes	page 20, the author, after the references
+end	Clarissa Forbes	note	for.c.forbes@gmail.com	page 20, the author's e-mail

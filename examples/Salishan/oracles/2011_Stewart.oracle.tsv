@@ -1,0 +1,410 @@
+where	who	kind	form	gloss
+front	Catherine Stewart	title	Demonstrative predicates and clefting in Kwak’wala1	page 1
+front	Catherine Stewart	name	Catherine Stewart	author
+front	Catherine Stewart	note	University of British Columbia	page 1, under Catherine Stewart
+front	Catherine Stewart	note	My research broaches the topic of Kwak'wala demonstrative predicates and clefts, eliciting material from a native speaker of the Gwa'yi (Kingcome Inlet) dialect. The demonstrative stems of Kwak’wala follow a three-way distinction based on the visibility relationship between the speaker and the subject of the demonstrative2, as discussed by Nicholson and Werle (2009). The basic stem forms are yu-, he- and gʸe-, meaning that the subject of the demonstrative is visible, invisible and in contact with the speaker respectively. However, complexities such as possession, negation and sensory perception can interfere with stem choice. This paper will also discuss the similarities found between the use of clefts in focus constructions of Nɬeʔkepmxcin and Kwak’wala, based on the analyses of Koch (2008). Kwak’wala sentences use clefts or nominal predicate constructions when employing narrow focus, and remain in standard VSO word order for wide focus.	page 1, the abstract
+footnote 2	Catherine Stewart	note	These findings were in contrast to Boas’ 1947 approach that classified them as having a person-based distinction: ga- (near 1st Person), yu- (near 2nd Person), and he- (near 3rd Person).	page 1, footnote 2
+footnote 2	Kwak'wala	cited form	ga-	page 1, in italics
+front	Catherine Stewart	language	Kwak'wala	Northern Wakashan, the language studied
+footnote 1	Catherine Stewart	note	The Kwak'wala data in this paper comes from my own research funded by the “Explorations in the Grammar of Kwak’wala” grant from the Jacobs Research Funds. Special thanks to my consultant Ruby Dawson Cranmer for all her hard work, my co- investigators, and to Henry Davis, Patrick Littell and Michael Rochement for their guidance and comments.	page 1, footnote 1, on the title
+footnote 1	Catherine Stewart	name	Henry Davis	lectures for Ling 447A (2010), thanked
+footnote 1	Catherine Stewart	name	Patrick Littell	notes on Kwak'wala focus constructions (2010), the source of (17), thanked
+footnote 1	Catherine Stewart	name	Michael Rochement	lectures for Ling 447B (2011), thanked
+footnote 1	Catherine Stewart	name	Ruby Dawson Cranmer	the author's consultant, thanked
+§1	Catherine Stewart	heading	1 Introduction	page 1
+§1	Catherine Stewart	note	This paper discusses the results of an investigation into the demon- strative predicates and clefting structures of Kwak’wala, with a focus on the visibility distinction between demonstrative stem forms and their use in forming clefts. I will also discuss the use of clefts in creating focus constructions. My data comes from a native speaker of the Gway’i (Kingcome Inlet) dialect of Kwak’wala.	page 1
+§1	Catherine Stewart	note	My exploration of the language has focused on the use of a number of demonstrative stem forms in clefting sentences, where a predicative form of this/that or it is used to designate a specific item being picked out in a given context. As part of this investigation I have examined the relevant sections of Boas’ (1947) grammar on Kwak'wala and found notable differences between his analyses and my own findings (Section 2.2 and 3). The findings of this in- vestigation coincide with those of Nicholson and Werle (2009) on the same dialect (Section 2.3 and 3).	page 1
+§1	Catherine Stewart	name	Boas	Franz Boas, the Kwakiutl Grammar (1947) and its person-based analysis of the stems
+§1	Catherine Stewart	name	Nicholson	Marianne Nicolson and Adam Werle, modern Kwak'wala determiner systems (2009)
+§1	Catherine Stewart	note	In researching the use of clefting in focus structures of Kwak’wala, I examined chapter three of Karsten Koch’s 2008 dissertation on Intonation and Focus in Nɬeʔkepmxcin (Thompson River Salish), regarding the syntactic rep- resentation of focus in different focus types. I conducted tests on Kwak’wala based on Koch’s research and found similarities between Koch’s analyses and my own findings. My results are discussed in section 4.	page 2
+§1	Catherine Stewart	name	Koch	Karsten Koch, intonation and focus in Nɬeʔkepmxcin (2008) and its clefts (2009)
+§1	Catherine Stewart	language	Nɬeʔkepmxcin	Thompson River Salish, Koch's language of focus and clefts
+§1	Catherine Stewart	note	Section 2 of this paper provides an introduction to the basic syntax of demonstratives and clefts as well as previous literature and theories on these topics. In section 3 I present my analyses of demonstrative stems and personal pronouns in Kwak'wala, and section 4 will delve into my investigation on the use of clefts in focus contexts.	page 2
+§1.1	Catherine Stewart	heading	1.1 Basic Kwak’wala	page 2
+§1.1	Catherine Stewart	note	Kwak'wala is a Wakashan language, spoken by a number of different groups located on northern Vancouver Island as well as on the adjacent main- land. It belongs to the northern subgroup of Wakashan languages, which also includes Oowekyala, Heiltsuk and Haisla. The Southern Wakashan subgroup includes Nitinat, Nootka and Makah, and extends down through the west coast of Vancouver Island and as far south as the Olympic Peninsula of Washington (Lincoln & Rath, 1980).	page 2
+§1.1	Catherine Stewart	name	Lincoln & Rath	Neville Lincoln and John Rath, the North Wakashan comparative root list (1980)
+§1.1	Catherine Stewart	language	Wakashan	the family of Kwak'wala
+§1.1	Catherine Stewart	language	Oowekyala	Northern Wakashan
+§1.1	Catherine Stewart	language	Heiltsuk	Northern Wakashan
+§1.1	Catherine Stewart	language	Haisla	Northern Wakashan
+§1.1	Catherine Stewart	language	Nitinat	Southern Wakashan
+§1.1	Catherine Stewart	language	Nootka	Southern Wakashan
+§1.1	Catherine Stewart	language	Makah	Southern Wakashan
+§1.1	Catherine Stewart	note	Kwak'wala is an exclusively suffixing language in which clitics, such as determiners, attach to root words. Also attaching to word roots are lexical suffixes, which are suffixes with their own lexical meaning, e.g. the suffix - (g)əm 'face' as in ʔmə’lgəm ‘white-faced’ (Boas, 1947, p. 239).	page 2
+§2	Catherine Stewart	heading	2 Background	page 2
+§2.1	Catherine Stewart	heading	2.1 Background on demonstratives and deictic systems	page 2
+§2.1	Catherine Stewart	note	Demonstratives are deictics, which means they point to extra-linguistic aspects within the context of the utterance. They are used within an utterance to specify what the speaker is referring to. In English, this is usually designated by the demonstrative pronouns this or that. A demonstrative anchors a referent within a context, based on its spatial or temporal relationship to the utterance in which it is used. The sentence: 'This man is tall' uses the demonstrative this to specify which man is the one that the speaker believes is tall. These specifi- cational demonstratives are often used in the context of a set of similar items in which the speaker is attempting to clarify the reference of the noun.	page 2
+§2.1	Catherine Stewart	language	English	its demonstratives this and that and its clefts
+§2.1	Catherine Stewart	note	Kwak'wala uses demonstrative predicates in these situations, using a demonstrative stem form to which possessive pronouns and other determiners are encliticized. The demonstrative stem occurs in the initial position of the sent- ence and determiners are suffixed to it. The determiner system of Kwak'wala is exclusively suffixing and is used to encode visibility, possession, case, location and temporal relationships. Kwak'wala shows the following encliticization pattern, using both pre- and post- nominal clitics. The pre-nominals attach to the predicate that precedes the noun:	page 2
+§2.1	Catherine Stewart	note	CASE-LOC-DET NOUN-(TEMP.)-VIS	page 3, the order of the clitics, set as a display
+§2.1	Catherine Stewart	note	The deictic system of a language uses an anchor or point of reference to specify where the referent is in relation to the point of reference. English uses a single-anchor system, wherein the referent is referred to in relation to a single point (typically the speaker). Boas' analysis of Kwak'wala uses a three-anchor system, which is based on what 'person' the referent was closest to (1st Person, 2nd Person or 3rd Person), and then encodes various spatial and temporal differ- ences (Davis 2010). In contrast, I have found in modern Kwak’wala a single- anchor system similar to the English system, in which the referent is discussed as having three degrees of distance in relation to the speaker. This is also the analysis of Nicholson & Werle (2009), which we will see in section 2.3.	page 3
+§2.2	Catherine Stewart	heading	2.2 Franz Boas: A person-based distinction	page 3
+§2.2	Catherine Stewart	note	Boas’ 1947 Kwakiutl Grammar gives the usage of Kwak’wala stems as having a person-based distinction where the three demonstrative stems are ga- (near 1st person), yu- (near 2nd person) and he- (near 3rd person). Example (1) uses a 2nd Person demonstrative, therefore the speaker is referring to a house that is owned by the listener of this conversation.	page 3
+(1) line 1	Kwak'wala	transcription	yuʔems gʸukʷox̣	page 3
+(1) line 2	Kwak'wala	segmentation	yu=ʔem=s gʸukʷ=ox̣	page 3
+(1) line 3	Kwak'wala	gloss	DEM=DISC=POSS house=2P.VIS	page 3
+(1) line 4	Catherine Stewart	translation	'That is your house'	page 3
+(1) line 5	Catherine Stewart	citation	(Boas 1947, p. 259)	page 3
+§2.2	Catherine Stewart	note	The usage pattern of modern Kwak'wala demonstratives can be better described by Nicholson & Werle's work as discussed in section 2.3.	page 3
+§2.3	Catherine Stewart	heading	2.3 Nicholson & Werle: A visibility/distance-based distinction	page 3
+§2.3	Catherine Stewart	note	Nicholson & Werle, in their 2009 work on Kwak’wala determiners, classify these same demonstrative stems as having a visibility or distance-based distinction, rather than the person-based system discussed by Boas above.	page 3
+§2.3	Catherine Stewart	note	Nicholson & Werle discuss a three-degree scale of distance, referring to the distance determiner affixes of –ga, -uxʷ & -i, as D1, D2, & D3 respectively, indicating an increasing distance away from the referent (the speaker). D3 refer- ents do not necessarily need to refer to something near a third person, in fact, these determiner markers may be used to refer to something not known to exist, or simply invisible to the speaker, as in (2).	page 3
+§2.3	Kwak'wala	cited form	-i	page 3, in italics
+(2) line 1	Kwak'wala	segmentation	əx̣’ex̣sdamasi-x̣ di –‘e’	page 4
+(2) line 2	Kwak'wala	gloss	Do you want –D3 tea-D3 + Invisible	page 4
+(2) line 3	Catherine Stewart	translation	‘Do you want some tea?’	page 4
+(2) line 4	Catherine Stewart	citation	(Nicholson & Werle 2009, p. 12)	page 4
+§3	Catherine Stewart	heading	3 Demonstrative predicate usage in Kwak'wala	page 4
+§3	Catherine Stewart	note	Boas’ demonstrative stems (ga-, yu-, he-) are still in use, but instead of the person-based system he discusses, I find them to be better represented by the visibility/distance distinction presented by Nicholson & Werle, which is the analysis on which I have based my findings.	page 4
+§3.1	Catherine Stewart	heading	3.1 Basic stem forms	page 4
+§3.1	Catherine Stewart	note	The basic demonstrative stem forms as used in demonstrative pred- icates can be realized as yu-, he- and gʸe-, meaning that the subject of the demonstrative is visible, invisible and in contact with the speaker respectively3.	page 4
+footnote 3	Catherine Stewart	note	Please ignore the variability in the so-called "discourse" markers; they will be discussed further in section 4	page 4, footnote 3
+(3) line 1	Kwak'wala	transcription	yuʔəm t'isəm nəpʔidsu lɑx̣ɑ bəgʷanəm	page 4
+(3) line 2	Kwak'wala	segmentation	yu=ʔəm t'isəm nəp=ʔid=su lɑ=x̣=ɑ bəgʷanəm	page 4
+(3) line 3	Kwak'wala	gloss	DEM=DISC rock throw=PAST=PASS at=ACC=DET man	page 4
+(3) line 4	Catherine Stewart	translation	'This is the rock that was thrown at the man’	page 4
+(4) line 1	Kwak'wala	transcription	heʔmida c'edaq nəpʔidsəwa	page 4
+(4) line 2	Kwak'wala	segmentation	he=ʔm=i=da c'edaq nəp=ʔid=səw=a	page 4
+(4) line 3	Kwak'wala	gloss	DEM=DISC=3P.VIS=DET woman throw=PAST=PASS=3P.VIS	page 4
+(4) line 4	Catherine Stewart	translation	‘That woman was hit’	page 4
+(4) line 4	Catherine Stewart	note	(not in the room)	page 4, at the right of the translation
+(5) line 1	Kwak'wala	transcription	nəpʔiden x̣as gʸeda lɑx̣ɑ bəgʷanəm	page 4
+(5) line 2	Kwak'wala	segmentation	nəp=ʔid=en x̣=as gʸe=da lɑ=x̣=ɑ bəgʷanəm	page 4
+(5) line 3	Kwak'wala	gloss	Throw=PAST=1P OBJ= OBL DEM=DET at=ACC=DET man	page 4
+(5) line 4	Catherine Stewart	translation	'I threw this at the man’	page 4
+(5) line 4	Catherine Stewart	note	(this rock in my hands)	page 4, at the right of the translation
+(6) line 1	Catherine Stewart	note	Context: We are looking out the window and you see a car outside:	page 4, the context the example answers
+(6a) line 1	Kwak'wala	transcription	yuʔəm kɑs (Henry)	page 4
+(6a) line 2	Kwak'wala	segmentation	yu=ʔəm kɑ=s (Henry)	page 4
+(6a) line 3	Kwak'wala	gloss	DEM=DISC car=POSS (Henry)	page 4
+(6a) line 4	Catherine Stewart	translation	'that is Henry's car'	page 4
+(6b) line 1	Kwak'wala	transcription	heʔəm kɑs (Henry)	page 5
+(6b) line 2	Kwak'wala	segmentation	he=ʔəm kɑ=s (Henry)	page 5
+(6b) line 3	Kwak'wala	gloss	DEM=DISC car=POSS (Henry)	page 5
+(6b) line 4	Catherine Stewart	translation	'that is Henry's car'	page 5
+(6b) line 5	Catherine Stewart	note	(Speaker note: utterance a is used in cases where the car is visible, utterance b is used when the car is invisible)	page 5, under the example
+§3.1	Catherine Stewart	note	Example (6) refutes Boas' 1947 analysis. Boas' analysis used a person- based distinction where the demonstrative yu- would indicate that the referent is near the 2nd person and he- would indicate the referent was near 3rd person. Even though the car is far away from us in the parking lot, and outside the building in which we are standing, the speaker distinctly clarified that if the car is visible to us the form yu- is used and if the car is not visible she would use the form he-.	page 5
+§3.1	Kwak'wala	cited form	yu-	page 5, in italics
+§3.1	Catherine Stewart	note	Unfortunately, the use of these stems is not as simple as that. These stem forms are used as described above only in the most basic cases. To complicate matters, their usage may change based on possession, negation or sensory perception.	page 5
+§3.2	Catherine Stewart	heading	3.2 Negation	page 5
+§3.2	Catherine Stewart	note	When a sentence that normally follows this demonstrative stem pattern is negated, the demonstrative stem is displaced by the negative stem k'is-. This negation acts as a base for the other clitics (such as possession marker or det- erminers) to attach to. The demonstrative stem (ie. yu-, he-) is then added after the negation statement, and the rest of the sentence follows as usual. In (9), the negation is acting as a pre-predicative auxiliary, allowing the demonstrative stem to remain the same.	page 5
+(7) line 1	Kwak'wala	transcription	k'i k'isen yu kɑr	page 5
+(7) line 2	Kwak'wala	segmentation	k'i k'is=en yu kɑr	page 5
+(7) line 3	Kwak'wala	gloss	no NEG=1P.POSS DEM car	page 5
+(7) line 4	Catherine Stewart	translation	‘No, that's not my car’	page 5
+(8) line 1	Kwak'wala	transcription	k'i k'isen yu gʸukʷ=ox	page 5
+(8) line 2	Kwak'wala	segmentation	k'i k'is=en yu gʸukʷ=ox̣	page 5
+(8) line 3	Kwak'wala	gloss	no NEG=1P.POSS DEM house=2P.VIS	page 5
+(8) line 4	Catherine Stewart	translation	'no, thats not my house'	page 5
+(9) line 1	Kwak'wala	transcription	k'i, hedidɑ musmus, k'is hedidɑ	page 5
+(9) line 2	Kwak'wala	segmentation	k'i, he=d=i=dɑ musmus, k'is he=d=i=dɑ	page 5
+(9) line 3	Kwak'wala	gloss	NEG DEM=DISC=3P.VIS=DET cow NEG DEM=DISC=3P.VIS=DET	page 5
+(9) line 4	Kwak'wala	transcription	g'usu	page 5
+(9) line 5	Kwak'wala	segmentation	g'usu	page 5
+(9) line 6	Kwak'wala	gloss	pig	page 5
+(9) line 7	Catherine Stewart	translation	'no it is cow, not pig'	page 5
+§3.3	Catherine Stewart	heading	3.3 Possession	page 6
+§3.3	Catherine Stewart	note	When the referent is possessed by the speaker (1st person possession), yet it is not in view, the form yu- is still used, because it indicates a closeness relationship based on ownership. The possessive suffix based on the person and number of the referent is then attached to the stem, as in (10 & 11). This is in contrast to (12), which follows the anticipated visibility pattern. If the speaker owns something, but is also in contact with it, she uses the typical contact-based stem gʸe-, as in (13) vs. (14):	page 6
+(10) line 1	Kwak'wala	transcription	um, yuʔmən busiox̣	page 6
+(10) line 2	Kwak'wala	segmentation	um, yu=ʔm=ən busi=ox̣	page 6
+(10) line 3	Kwak'wala	gloss	yes DEM=DISC=1P.POSS cat=LOC.2P	page 6
+(10) line 4	Catherine Stewart	translation	‘Yes, that is my cat’	page 6
+(10) line 4	Catherine Stewart	note	(outside the room)	page 6, at the right of the translation
+(11) line 1	Kwak'wala	transcription	yuʔmen watsiʸox	page 6
+(11) line 2	Kwak'wala	segmentation	yu=ʔm=en watsiʸ=ox̣	page 6
+(11) line 3	Kwak'wala	gloss	DEM=DISC=1P.POSS dog=2P.VIS	page 6
+(11) line 4	Catherine Stewart	translation	'That's my dog'	page 6
+(11) line 4	Catherine Stewart	note	(that you saw outside)	page 6, at the right of the translation
+(12) line 1	Kwak'wala	transcription	heʔəms gʸukʷi	page 6
+(12) line 2	Kwak'wala	segmentation	he=ʔəm=s gʸukʷ=i	page 6
+(12) line 3	Kwak'wala	gloss	DEM=DISC=POSS house=3P.VIS	page 6
+(12) line 4	Catherine Stewart	translation	'that's your house'	page 6
+(12) line 4	Catherine Stewart	note	(invisible)	page 6, at the right of the translation
+(13) line 1	Kwak'wala	transcription	gʸeden ciʸɑ gʸedɑ	page 6
+(13) line 2	Kwak'wala	segmentation	gʸe=d=en ciʸɑ gʸe=dɑ	page 6
+(13) line 3	Kwak'wala	gloss	DEM=DISC=1P.POSS. chair DEM=DET	page 6
+(13) line 4	Catherine Stewart	translation	'this is my chair'	page 6
+(13) line 4	Catherine Stewart	note	(while sitting in it)	page 6, at the right of the translation
+(14) line 1	Kwak'wala	transcription	yuʔmen ciʸɑ	page 6
+(14) line 2	Kwak'wala	segmentation	yu=ʔm=en ciʸɑ	page 6
+(14) line 3	Kwak'wala	gloss	DEM=DISC=1P.POSS chair	page 6
+(14) line 4	Catherine Stewart	translation	'this is my chair'	page 6
+(14) line 4	Catherine Stewart	note	(chair across room: not sitting in chair, but owns it)	page 6, at the right of the translation
+§3.4	Catherine Stewart	heading	3.4 Sensory Perception	page 6
+§3.4	Catherine Stewart	note	Another complication is that when the referent of the sentence (the referent of the demonstrative) is perceivable by a speaker's senses (e.g. smell, sound, even extrasensory perception), the speaker will use the demonstrative stem that typically designates visibility, yu-. This occurs even if the dem- onstrative subject is invisible to those involved in the utterance, as in examples (15) through (17).	page 6
+(15) line 1	Kwak'wala	transcription	yudox̣ dɑ fridge yɑk'bɑlɑ	page 7
+(15) line 2	Kwak'wala	segmentation	yu=d=ox̣ dɑ fridge yɑk'bɑlɑ	page 7
+(15) line 3	Kwak'wala	gloss	DEM=DISC=2P.LOC DET fridge smelling	page 7
+(15) line 4	Catherine Stewart	translation	‘It’s the fridge that smells’	page 7
+(15) line 4	Catherine Stewart	note	(out of sight)	page 7, at the right of the translation
+(16) line 1	Kwak'wala	transcription	yuʔəmen gʸukʷalutox̣	page 7
+(16) line 2	Kwak'wala	segmentation	yu=ʔəm=en gʸukʷalut=ox̣	page 7
+(16) line 3	Kwak'wala	gloss	DEM=DISC=1P.POSS neighbour=2P.LOC	page 7
+(16) line 4	Catherine Stewart	translation	‘that’s my neighbour’	page 7
+(16) line 4	Catherine Stewart	note	(whom we can hear through the wall)	page 7, at the right of the translation
+(17) line 1	Kwak'wala	transcription	oh, yuʔmen wayasox̣	page 7
+(17) line 2	Kwak'wala	segmentation	oh, yu=ʔm=en waya=s=ox̣	page 7
+(17) line 3	Kwak'wala	gloss	oh, DEM=DISC=1P. POSS sweetheart=POSS=2P.LOC	page 7
+(17) line 4	Catherine Stewart	translation	‘Oh! It’s my girlfriend’	page 7
+(17) line 4	Catherine Stewart	note	(cannot see or hear her, but has a feeling she is there)	page 7, at the right of the translation
+(17) line 5	Catherine Stewart	citation	(Patrick Littell)	page 7
+§3.4	Catherine Stewart	note	Chung (2006) states: "Consider two people in conversation talking about the late father of the speaker, while referring to a photograph of the late father. Even though the 'late father' does not exist in the real world, he is visible to the speaker in the photo and there- fore his visibility is encoded and anchored to the 'post- nominal' demonstrative as in (5a)."	page 7
+§3.4	Catherine Stewart	name	Chung	Yunhee Chung, the Kwak'wala nominal domain (2007), cited as 2006
+Chung (2006) (5a) line 1	Kwak'wala	transcription	heʔmən ʔumpwəɬi David	page 7
+Chung (2006) (5a) line 2	Kwak'wala	segmentation	he=ʔm=ən ʔump=wəɬ=i David	page 7
+Chung (2006) (5a) line 3	Kwak'wala	gloss	DEM=DISC=1P.POSS father=PAST=3P.VIS David	page 7
+Chung (2006) (5a) line 4	Catherine Stewart	translation	'that is my late father'	page 7
+Chung (2006) (5a) line 5	Catherine Stewart	citation	(Chung 2006, p. 105)	page 7
+§3.4	Catherine Stewart	note	In my own experiments, similarly constructed contexts yielded the visibility form of yu-, with the corresponding determiner -ox̣, indicating that in all contexts in which the subject of the demonstrative can be sensed, the markers indicating saliency to those encoded within the conversation will be used.	page 7
+(18) line 1	Catherine Stewart	note	Context: You were in the park yesterday and there were a bunch of dogs playing and you took pictures of them. Today you are showing me those pictures and I ask you which dog you like the best:	page 7, the context the example answers
+(18a) line 1	Kwak'wala	transcription	yuʔmox̣ dɑ wɑtsi iyɑʔgeyɑ	page 7
+(18a) line 2	Kwak'wala	segmentation	yu=ʔm=ox̣ dɑ wɑtsi iyɑʔgeyɑ	page 7
+(18a) line 3	Kwak'wala	gloss	DEM=DISC=2P.LOC DET dog to like	page 7
+(18a) line 4	Catherine Stewart	translation	'that is the dog I like'	page 7
+(18b) line 1	Kwak'wala	transcription	yudox̣ dɑ wɑtsi iyɑgeyɑ	page 8
+(18b) line 2	Kwak'wala	segmentation	yu=d=ox̣ dɑ wɑtsi iyɑgeyɑ	page 8
+(18b) line 3	Kwak'wala	gloss	DEM=DISC=2P.LOC DET dog to like	page 8
+(18b) line 4	Catherine Stewart	translation	'that is the dog I like'	page 8
+(18b) line 5	Catherine Stewart	note	(Speaker note: second utterance is used if she pointed at the picture)	page 8, under the example
+(19) line 1	Catherine Stewart	note	Context: Fig. 1 - Red fish & green fish drawn on board, Fig 2. – Picture of man eating red fish:	page 8, the context the example answers
+(19) line 2	Kwak'wala	transcription	yuʔəm hɑmxʔidsuwox̣ da k'utəlɑ	page 8
+(19) line 3	Kwak'wala	segmentation	yu=ʔəm hɑm=xʔid=suw=ox̣ da k'utəlɑ	page 8
+(19) line 4	Kwak'wala	gloss	DEM=DISC eat=PAST=PASS=2P.LOC DET fish	page 8
+(19) line 5	Catherine Stewart	translation	'This is the fish that was eaten'	page 8
+(19) line 6	Catherine Stewart	note	(speaker pointing to red fish)	page 8, under the example
+§3.4	Catherine Stewart	note	It is possible that in Chung's example, the father was referred to as invisible because he is passed on, therefore not present to the real world, but in (19), the fish is also no more because it has been eaten. Further study of these structures is necessary in order to get a more precise answer.	page 8
+§3.5	Catherine Stewart	heading	3.5 Prepositional Phrases	page 8
+§3.5	Catherine Stewart	note	In prepositional phrases in which the speaker is specifying the location of the referent and not the referent itself, the stem form follows the predictable patterning of visibility, but the construction changes. As in (20), the stem form he- is used because the referent is not visible to the speaker, followed by the discourse marker and then an encliticized determiner indicating visibility. Next is the word la which means 'to go' and encliticized to that is a determiner indicating location.	page 8
+(20) line 1	Catherine Stewart	note	Context: I live in Coquitlam and I left my car there today when I came out to visit you. Iforget that I didn't bring my car today and so I ask, "Where's my car?":	page 8, the context the example answers
+(20) line 2	Kwak'wala	transcription	hedi lai koqʷɪtlm̩	page 8
+(20) line 3	Kwak'wala	segmentation	he=d=i la=i koqʷɪtlm̩	page 8
+(20) line 4	Kwak'wala	gloss	DEM=DISC=3P.VIS LOC=3P.VIS Coquitlam	page 8
+(20) line 5	Catherine Stewart	translation	'it is in Coquitlam'	page 8
+§3.6	Catherine Stewart	heading	3.6 Demonstrative Predicates vs. Personal Pronouns	page 8
+§3.6	Catherine Stewart	note	Functionally parallel to the demonstrative stem, but used in different contexts, is the use of a personal pronoun. This could be considered as an emphatic possessive stem, which is used when the speaker is attempting to emphasize the owner of the referent, rather than the referent itself.	page 8
+§3.6	Catherine Stewart	note	In English, the deictic expressions this or that are used when the speaker wants to pick a certain item out of a set of items, as in (21):	page 8
+(21) line 1	Catherine Stewart	note	Answers: 'Is that your dog?'	page 9, the context the example answers
+(21) line 2	Kwak'wala	transcription	yuʔmen watsijox	page 9
+(21) line 3	Kwak'wala	segmentation	yu=ʔm=en watsij=ox̣	page 9
+(21) line 4	Kwak'wala	gloss	DEM=DISC=1P.POSS dog=2P.VIS	page 9
+(21) line 5	Catherine Stewart	translation	'That’s my dog'	page 9
+§3.6	Catherine Stewart	note	But in contrast, these personal pronouns are used when you want to emphasize whom it is that owns the referent, as in (22):	page 9
+(22) line 1	Catherine Stewart	note	Answers: 'whose dog is that?’	page 9, the context the example answers
+(22) line 2	Kwak'wala	transcription	nusox̣ dɑ wɑtsi	page 9
+(22) line 3	Kwak'wala	segmentation	nu=s=ox̣ dɑ wɑtsi	page 9
+(22) line 4	Kwak'wala	gloss	1P=POSS=2P.VIS DET dog	page 9
+(22) line 5	Catherine Stewart	translation	'that's my dog'	page 9
+§3.6	Catherine Stewart	note	These personal pronouns are used in simple identification sentences as well:	page 9
+(23) line 1	Catherine Stewart	note	Answers: ‘Who is it?’	page 9, the context the example answers
+(23) line 2	Kwak'wala	transcription	nugʷɑ um rubi	page 9
+(23) line 3	Kwak'wala	segmentation	nu=gʷɑ um rubi	page 9
+(23) line 4	Kwak'wala	gloss	1P=DET yes Ruby	page 9
+(23) line 5	Catherine Stewart	translation	'it's me, Ruby'	page 9
+§3.6	Catherine Stewart	note	These possessional stems change depending on the number and gender of the possessor. Added to the stem are the usual suffixes denoting possession, gender, and location, as well as the pronominal determiner. The full paradigm of these constructions can be found in table 1:	page 9
+Table 1	Catherine Stewart	note	Table 1:	page 9, the table's caption
+Table 1	Catherine Stewart	note	Person Stem Form Example	page 9, the table's header
+Table 1	Catherine Stewart	note	1st Person Singular	page 9, a row's person
+Table 1	Kwak'wala	cited form	nu-	page 9, the stem form of the 1st Person Singular
+(24) line 1	Kwak'wala	transcription	nusox̣dɑ lak'u	page 9
+(24) line 2	Kwak'wala	segmentation	nu=s=ox̣=dɑ lak'u	page 9
+(24) line 3	Kwak'wala	gloss	1P=POSS=2P.LOC=DET strawberries	page 9
+(24) line 4	Catherine Stewart	translation	‘That’s my strawberries’	page 9
+Table 1	Catherine Stewart	note	2nd Person Singular	page 9, a row's person
+Table 1	Kwak'wala	cited form	k'u-	page 9, the stem form of the 2nd Person Singular
+(25) line 1	Kwak'wala	transcription	k'usox̣ busijɑ	page 9
+(25) line 2	Kwak'wala	segmentation	k'u=s=ox̣ busi=jɑ	page 9
+(25) line 3	Kwak'wala	gloss	2P=POSS=2P.LOC cat	page 9
+(25) line 4	Catherine Stewart	translation	‘That is your cat’	page 9
+Table 1	Catherine Stewart	note	3rd Person Singular (m/f)	page 9, a row's person
+Table 1	Kwak'wala	cited form	k'ɑ-	page 9, the stem form of the 3rd Person Singular (m/f)
+(26) line 1	Kwak'wala	transcription	k'ɑsox̣ɑ gelɑ	page 9
+(26) line 2	Kwak'wala	segmentation	k'ɑ=s=ox̣=ɑ gelɑ	page 9
+(26) line 3	Kwak'wala	gloss	3P=POSS=2P.LOC=DET bear	page 9
+(26) line 4	Catherine Stewart	translation	‘That is his bear’	page 9
+Table 1	Catherine Stewart	note	1st Person Plural	page 10, a row's person
+Table 1	Kwak'wala	cited form	nu-…- ənox̣	page 10, the stem form of the 1st Person Plural, wrapped in its cell after nu-…-
+(27) line 1	Kwak'wala	transcription	nusənox̣a busi	page 10
+(27) line 2	Kwak'wala	segmentation	nu=s=ənox̣=a busi	page 10
+(27) line 3	Kwak'wala	gloss	1PL=POSS=1PL.POSS=DET cat	page 10
+(27) line 4	Catherine Stewart	translation	‘That is our cat’	page 10
+Table 1	Catherine Stewart	note	2nd Person Plural	page 10, a row's person
+Table 1	Kwak'wala	cited form	k'u-	page 10, the stem form of the 2nd Person Plural
+(28) line 1	Kwak'wala	transcription	k'usox̣ k'ɑ:	page 10
+(28) line 2	Kwak'wala	segmentation	k'u=s=ox̣ k'ɑ:	page 10
+(28) line 3	Kwak'wala	gloss	2PL=POSS=2P.LOC car	page 10
+(28) line 4	Catherine Stewart	translation	‘This is your (pl.) car’	page 10
+§4	Catherine Stewart	heading	4 Clefting in Focus Contexts	page 10
+§4.1	Catherine Stewart	heading	4.1 An introduction to clefts in Kwak'wala	page 10
+§4.1	Catherine Stewart	note	In my examinations of the uses of demonstrative predicates, I have also been looking at the structure of focus sentences, most specifically sentences that employ clefting. Clefting is a particular way of constructing a sentence in order to put focus on a particular constituent. This is shown in English with sentences such as ‘it was Mark that stole my purse’, where the focus is placed on the subject, Mark. In English, such sentences usually utilize a particular intonation, where the focused constituent is accented.	page 10
+§4.1	Catherine Stewart	note	In creating cleft constructions, Kwak'wala uses demonstrative pred- icates to identify the referent of the utterance. A standard cleft construction, such as (30) is formed by using these following pieces of morphology:	page 10
+§4.1	Catherine Stewart	note	1. Demonstrative stem: yu-, he- or gʸe-	page 10
+§4.1	Catherine Stewart	note	2. A so-called discourse enclitic: =ʔəm (sometimes seen simply as =m or =d)	page 10
+§4.1	Catherine Stewart	note	3. Followed by a DP, which is the focused constituent	page 10
+§4.1	Catherine Stewart	note	4. A clause containing the remnant of the sentence	page 10
+(29) line 1	Kwak'wala	transcription	yuʔəm t’isəm nəpʔidsu lɑx̣ɑ bəgʷanəm	page 10
+(29) line 2	Kwak'wala	segmentation	yu=ʔəm t’isəm nəp=ʔid=su lɑ=x̣=ɑ bəgʷanəm	page 10
+(29) line 3	Kwak'wala	gloss	DEM=DISC rock throw=PAST=PASS at=ACC=DET man	page 10
+(29) line 4	Catherine Stewart	note	DEM DISC DP [REMNANT ]	page 10, under the example
+(29) line 5	Catherine Stewart	translation	‘This is the rock that was thrown at the man’	page 10
+§4.1	Catherine Stewart	note	The distinction between the two second position ‘discourse’ enclitics =ʔəm or =d is as of yet unknown, but has been discussed in Boas (1947) as "referring to a previous subject of conversation or narrative", and in Levine as referring to "old information". Patrick Littell suggests that the distinction could refer to picking a subject from either discourse-new or discourse-old sets, where =d could mark new subjects and ʔəm old information (p.c. 2010).	page 10
+§4.1	Catherine Stewart	name	Levine	cited on the discourse enclitics as referring to old information
+(30a) line 1	Kwak'wala	transcription	yuʔəmox̣ pate məx̣hix̣ʷa wɑtsi	page 11
+(30a) line 2	Kwak'wala	segmentation	yu=ʔəm=ox̣ pat=e məx̣=hi=x̣ʷ=a wɑtsi	page 11
+(30a) line 3	Kwak'wala	gloss	DEM=DISC=2P.LOC Pat hit=PAST=ACC=DET dog	page 11
+(30a) line 4	Catherine Stewart	translation	‘it was Pat that hit the dog’	page 11
+(30b) line 1	Kwak'wala	transcription	yudox̣ pate məx̣hix̣ʷa wɑtsi	page 11
+(30b) line 2	Kwak'wala	segmentation	yu=d=ox̣ pat=e məx̣=hi=x̣ʷ=a wɑtsi	page 11
+(30b) line 3	Kwak'wala	gloss	DEM=DISC=2P.LOC Pat hit=PAST=ACC=DET dog	page 11
+(30b) line 4	Catherine Stewart	translation	‘it was Pat that hit the dog’	page 11
+§4.1	Catherine Stewart	note	In (30), the speaker gave the same sentence with both examples of discourse enclitics and could not describe the distinction between the two. More complex contexts must be constructed in order to pinpoint this distinction.	page 11
+§4.2	Catherine Stewart	heading	4.2 The use of clefts in focus constructions	page 11
+§4.2	Catherine Stewart	note	In studying the use of clefts in Kwak’wala, I wished to identify the contexts in which Kwak'wala uses clefting to exemplify focus. I based my theories and research questions on chapter three of Karsten Koch's 2008 diss- ertation on Intonation and Focus in Nɬeʔkepmxcin (Thompson River Salish), regarding the syntactic representation of focus in different focus types. Kwak'wala is canonically a VSO word order and uses demonstrative predicates in its cleft formation, with demonstrative stems chosen by the visibility distinction of the referent.	page 11
+§4.3	Catherine Stewart	heading	4.3 Karsten Koch on Nɬeʔkepmxcin	page 11
+§4.3	Catherine Stewart	note	Karsten Koch argues in his dissertation on Nɬeʔkepmxcin that while focus is marked structurally, this structure has a prosodic motivation in that the clause is restructured so that the focus is leftmost in the intonational phrase (ii). In chapter three Koch examines a "cleft-focus" observation made by Kroeber (1997, 1999) in which “narrow focus is marked by restructuring the focus to the left edge of the clause by employing clefts or nominal predicate constructions (NPCs)” (Koch 2008, p. 60). Using a corpus of 338 sentences, Koch examined wide CP and VP focus as well as the surface structures of narrow verb focus, subject focus, object focus, and number quantifier focus. Kroeber's claim was supported by Koch's study, in that narrow object, subject and number quantifier focus is represented by structuring the focused constituent at the left-edge of the clause, or in Nominal Predicate Constructions. Wide-CP, wide-VP, and narrow verb focus remains in the default auxiliary- or verb-initial word order (Koch 2008, p. 79). In his 2009 paper on clefting in Nɬeʔkepmxcin, Koch argues that clefts have rigid post-predicative word order, where the standard VSO order as in regular transitive sentences is no longer grammatical. Cleft sentences must be VOS (p. 6).	page 11
+§4.3	Catherine Stewart	name	Kroeber	the cleft-focus observation (1997, 1999)
+§4.3	Catherine Stewart	note	The findings in his 2008 dissertation support Kroeber's observation that left edge clefts and NPCs are used to mark narrow focus (p. 79). However, under a "stress-focus" account, the focus would pattern with the nuclear stress, which is rightmost. Koch generalizes that therefore it cannot be a prosodic condition aligning the focus with the nuclear stress rule that is driving the "cleft- focus" generalization. Since narrow verb focus also does not show any move- ment of the verb to the nuclear stress position, but remains in the default left- most position (though not clefted), Koch generalizes that focus is closely associated with the predicate, and the left edge of the clause is relevant for focus marking. Koch (2008, p. 80) therefore postulates constraints (31) & (32):	page 11
+(31) line 1	Catherine Stewart	note	PREDICATE-LEFT: Align the matrix predicate with the left edge of an intonational phrase	page 12, a constraint Koch postulates
+(32) line 1	Catherine Stewart	note	FOCUS-LEFT: The focus is leftmost in an intonational phrase	page 12, a constraint Koch postulates
+§4.3	Catherine Stewart	note	Koch generalizes that for both focus marking and focus projection, the left edge of the clause is important (2008, p. 60). Koch's (2008, p. 63) pred- ictions for focus projection were:	page 12
+(33) line 1	Catherine Stewart	note	Wide focus (VP or CP) would be marked using the default verb-initial word order	page 12, a prediction of Koch's for focus projection
+(34) line 1	Catherine Stewart	note	Wide focus (VP or CP) employs the same word order as narrow object focus	page 12, a prediction of Koch's for focus projection
+§4.3	Catherine Stewart	note	Prediction 1 was confirmed in the results of Koch's study, but pred- iction 2 was unfounded, due to narrow object focus employing left edge clefts or NPCs (2008, p. 81). Narrow subject focus is expressed syntactically and cannot be projected from right-most nuclear pitch accent in clefts (2008, p. 82). Therefore Koch summarizes that horizontal focus projection is not operative in Nɬeʔkepmxcin, disassociating focus from the nuclear stress position (2008, p. 83). The focus always and only projects from the matrix predicate, which aligns the focus projections with the left edge. Koch restricts the possible focus set to {Predicate, PredP, TP, CP} (2008, p. 84).	page 12
+§4.4	Catherine Stewart	heading	4.4 Kwak'wala	page 12
+§4.4	Catherine Stewart	note	I predict that I will find a similar distinction between focus types in Kwak'wala, based on previous elicitations where clefting was commonly found when focusing subjects and objects. I elicited single sentences using constructed contexts based on pictures.	page 12
+§4.4.1	Catherine Stewart	heading	4.4.1 Results: Wide CP focus	page 12
+§4.4.1	Catherine Stewart	note	Wide CP focus answers a question where the entire CP phrase is new, such as "What's happening?". In Kwak'wala, Wide CP focus is constructed using the default verb-initial word order, as in (35 & 36).	page 12
+(35) line 1	Catherine Stewart	note	Answers: What's happening in this picture?	page 13, the context the example answers
+(35) line 2	Kwak'wala	transcription	nəp'ox̣ x̣ɑ sɑ t'isəm lɑx̣ɑ gʲukʷ	page 13
+(35) line 3	Kwak'wala	segmentation	nəp'=ox̣ x̣=ɑ s=ɑ t'isəm lɑ=x̣=ɑ gʲukʷ	page 13
+(35) line 4	Kwak'wala	gloss	throw=2P.LOC OBJ=DET OBL=DET rock PREP=OBJ=DET house	page 13
+(35) line 5	Catherine Stewart	translation	‘He's throwing a rock at the house’	page 13
+(36) line 1	Catherine Stewart	note	Answers: What is happening?	page 13, the context the example answers
+(36) line 2	Kwak'wala	segmentation	kepaɬ=a Matt ax̣ox̣ Sarah	page 13
+(36) line 3	Kwak'wala	gloss	hug=DET Matt on Sarah	page 13
+(36) line 4	Catherine Stewart	translation	‘Matt is hugging Sarah’	page 13
+§4.4.2	Catherine Stewart	heading	4.4.2 Results: Wide VP focus	page 13
+§4.4.2	Catherine Stewart	note	Wide VP focus answers a question where the agent is known to the discourse, but the action denoted by the verb and object is unknown and therefore focused. In Kwak'wala, as in Nɬeʔkepmxcin, this results in verb-initial sentence construction, as in (37-39).	page 13
+(37) line 1	Catherine Stewart	note	Answers: What is Mary doing?	page 13, the context the example answers
+(37) line 2	Kwak'wala	transcription	həʔmiksɪlɑ meri	page 13
+(37) line 3	Kwak'wala	segmentation	həʔmiksɪl=ɑ meri	page 13
+(37) line 4	Kwak'wala	gloss	cooking=DET Mary	page 13
+(37) line 5	Catherine Stewart	translation	‘Mary is cooking’	page 13
+(38) line 1	Catherine Stewart	note	Answers: What did you just do?	page 13, the context the example answers
+(38) line 2	Kwak'wala	transcription	ɑɬenx̣ɑ sɑ tɬɑtəmɬ lɑx̣ʷɑ busi	page 13
+(38) line 3	Kwak'wala	segmentation	ɑɬ=en=x̣=ɑ s=ɑ tɬɑtəmɬ lɑ=x̣ʷ=ɑ busi	page 13
+(38) line 4	Kwak'wala	gloss	on=1P=OBJ=DET OBL=DET hat PREP=OBJ=DET cat	page 13
+(38) line 5	Catherine Stewart	translation	‘I put the hat on the cat’	page 13
+(39) line 1	Catherine Stewart	note	Answers: What is the boy doing?	page 13, the context the example answers
+(39) line 2	Kwak'wala	transcription	nəpox̣ x̣a sa t'isem lax̣a	page 13
+(39) line 3	Kwak'wala	segmentation	nəp=ox̣ x̣=a s=a t'isem la=x̣=a	page 13
+(39) line 4	Kwak'wala	gloss	throw=2P.LOC ACC=DET OBL=DET rock PREP=ACC=DET	page 13
+(39) line 5	Kwak'wala	transcription	window asa t'sat'sadakəm	page 13
+(39) line 6	Kwak'wala	segmentation	window a=s=a t'sat'sadakəm	page 13
+(39) line 7	Kwak'wala	gloss	window PREP =POSS=DET young girl	page 13
+(39) line 8	Catherine Stewart	translation	‘He's throwing a rock at the window of the young girl’	page 13
+§4.4.3	Catherine Stewart	heading	4.4.3 Results: Narrow Verb Focus	page 13
+§4.4.3	Catherine Stewart	note	Narrow verb focus also follows the pattern found in Nɬeʔkepmxcin, using a verb-initial word order. Narrow verb focus occurs when the subject and object are known to the discourse, and the verb is the new information as in (40- 42). As Koch found in Nɬeʔkepmx̣cin, ellipsis of subject and object are also possible in narrow verb focus constructions in Kwak'wala, as in (42):	page 13
+(40) line 1	Catherine Stewart	note	Answers: What is John doing to the rock?	page 14, the context the example answers
+(40) line 2	Kwak'wala	transcription	nəp'ox̣ɑ sɑ t'isem lɑx̣ʷɑ bedi	page 14
+(40) line 3	Kwak'wala	segmentation	nəp'o=x̣=ɑ s=ɑ t'isem lɑ=x̣ʷ=ɑ bedi	page 14
+(40) line 4	Kwak'wala	gloss	throw=OBJ=DET OBL=DET rock PREP=OBJ=DET cougar	page 14
+(40) line 5	Catherine Stewart	translation	‘He's throwing the rock at the cougar’	page 14
+(41) line 1	Catherine Stewart	note	Answers: What is Mary doing to the fish?	page 14, the context the example answers
+(41) line 2	Kwak'wala	transcription	həʔmisɪlox̣ meri ɑx̣ɑ k'utəlɑ	page 14
+(41) line 3	Kwak'wala	segmentation	həʔmisɪlox̣ meri ɑx̣=ɑ k'utəlɑ	page 14
+(41) line 4	Kwak'wala	gloss	cooking mary OBJ=DET fish	page 14
+(41) line 5	Catherine Stewart	translation	‘Mary is cooking the fish’	page 14
+(42) line 1	Catherine Stewart	note	Answers: What is Mary doing to the fish?	page 14, the context the example answers
+(42) line 2	Kwak'wala	transcription	həʔmisɪlɑ	page 14
+(42) line 3	Kwak'wala	segmentation	həʔmisɪl=ɑ	page 14
+(42) line 4	Kwak'wala	gloss	cook=DET	page 14
+(42) line 5	Catherine Stewart	translation	‘Cooking it’	page 14
+§4.4.4	Catherine Stewart	heading	4.4.4 Results: Narrow subject focus	page 14
+§4.4.4	Catherine Stewart	note	Narrow subject focus uses a typical cleft construction, as described in section 4.1. This is as I predicted, in that narrow subject focus follows the same pattern as Nɬeʔkepmx̣cin, as demonstrated by examples (43 -45). Narrow subject focus picks out the subject of a sentence where the verb and object are already known to the discourse.	page 14
+(43) line 1	Catherine Stewart	note	Answers: Who is wearing the hat?	page 14, the context the example answers
+(43) line 2	Kwak'wala	transcription	hedi John ɑx̣ʔɑtɬɑ sɑ tɬɑtəmɬ	page 14
+(43) line 3	Kwak'wala	segmentation	hed=i John ɑx̣ʔɑtɬɑ s=ɑ tɬɑtəmɬ	page 14
+(43) line 4	Kwak'wala	gloss	DEM=3P.VIS John put OBL=DET hat	page 14
+(43) line 5	Catherine Stewart	translation	‘It’s John that is wearing the hat’	page 14
+(44) line 1	Catherine Stewart	note	Answers: Is it the pig or the cow that is in the house?	page 14, the context the example answers
+(44) line 2	Kwak'wala	transcription	hedidɑ gusu lɑx̣ɑ ɑwitɑlɑ	page 14
+(44) line 3	Kwak'wala	segmentation	hed=i=dɑ gusu lɑ=x̣=ɑ ɑwitɑlɑ	page 14
+(44) line 4	Kwak'wala	gloss	DEM=3P.VIS=DEM pig PREP=OBJ=DET inside	page 14
+(44) line 5	Catherine Stewart	translation	‘It is the pig that is inside’	page 14
+(45) line 1	Catherine Stewart	note	Answers: Is the cat wearing the hat?	page 14, the context the example answers
+(45) line 2	Kwak'wala	transcription	yudox da watsi axalas a ɬeɬemps	page 14
+(45) line 3	Kwak'wala	segmentation	yud=ox da watsi axalas a ɬeɬemps	page 14
+(45) line 4	Kwak'wala	gloss	DEM=OBJ DET dog wear DET hat	page 14
+(45) line 5	Catherine Stewart	translation	‘It is the dog that is wearing the hat’	page 14
+§4.4.5	Catherine Stewart	heading	4.4.5 Results: Narrow object focus	page 15
+§4.4.5	Catherine Stewart	note	In my initial findings, I have received conflicting evidence for narrow object Focus therefore I feel more research is needed. As shown in (46) and (47), narrow object focus for these sentences results in an in-situ word order.	page 15
+(46) line 1	Catherine Stewart	note	Answers: What is John throwing?	page 15, the context the example answers
+(46) line 2	Kwak'wala	transcription	nəpox̣ɑ sɑ t'isem	page 15
+(46) line 3	Kwak'wala	segmentation	nəpo=x̣=ɑ s=ɑ t'isem	page 15
+(46) line 4	Kwak'wala	gloss	throw=OBJ=DET OBL=DET rock	page 15
+(46) line 5	Catherine Stewart	translation	‘He is throwing the rock’	page 15
+(47) line 1	Catherine Stewart	note	Answers: Is the cat wearing a coat?	page 15, the context the example answers
+(47) line 2	Kwak'wala	transcription	k'i, ɑx̣ʔɑtɬox̣ɑ sɑ tɬɑtəmɬ	page 15
+(47) line 3	Kwak'wala	segmentation	k'i, ɑx̣ʔɑtɬo=x̣=ɑ s=ɑ tɬɑtəmɬ	page 15
+(47) line 4	Kwak'wala	gloss	NEG put=OBJ=DET OBL=DET hat	page 15
+(47) line 5	Catherine Stewart	translation	‘No, it is wearing a hat’	page 15
+§4.4.5	Catherine Stewart	note	In all the sentences I elicited which had narrow object focus, the initial response of my speaker was to use an in-situ word order, as in (46) & (47). However, my consultant also acknowledged that (49) was possible:	page 15
+(48) line 1	Kwak'wala	transcription	k'i, yudox̣ dɑ tɬɑtəmɬ ɑx̣ʔɑlɑx̣tus	page 15
+(48) line 2	Kwak'wala	segmentation	k'i, yud=ox̣ dɑ tɬɑtəmɬ ɑx̣ʔɑlɑx̣tu=s	page 15
+(48) line 3	Kwak'wala	gloss	NEG DEM= OBJ DET hat put=3P.	page 15
+(48) line 4	Catherine Stewart	translation	‘No, its is a hat he is wearing’	page 15
+§4.4.5	Catherine Stewart	note	Sentence (48) appears in the same VOS structure that Koch talked about in his 2009 article, where the standard VSO order cannot be applicable in cleft residue (p. 6). In Koch's study of sentences with narrow object focus, 20.4% of the tested sentences had the object in-situ, in a verb-initial word order. It appears for both languages that both clefting and verb-initial word orders are possible for representing narrow object focus, but more research is needed on this topic.	page 15
+§4.4.6	Catherine Stewart	heading	4.4.6 Results: Number quantifier focus	page 15
+§4.4.6	Catherine Stewart	note	Example (49) is demonstrative of number quantifier focus in Kwak'wala, where the quantifier relating to the DP is focused. This sentence follows a similar pattern to one construction of number quantifier focus in Nɬeʔkepmx̣cin, where the quantified DP is focused at the left edge of the clause as part of a nominal predicate construction. This follows Kroeber's analysis of left-edge restructuring, but does not use a cleft construction.	page 15
+(49) line 1	Catherine Stewart	note	Answers: Does John have two chickens?	page 16, the context the example answers
+(49) line 2	Kwak'wala	transcription	k'i, yudoxox̣ gɑʔgəʔo x̣ɑs John	page 16
+(49) line 3	Kwak'wala	segmentation	k'i, yudox=ox̣ gɑʔgəʔo x̣=ɑ=s John	page 16
+(49) line 4	Kwak'wala	gloss	NEG three=OBJ chickens OBJ=DET=POSS John	page 16
+(49) line 5	Catherine Stewart	translation	‘No, John has three chickens’	page 16
+§4.4.6	Catherine Stewart	note	Koch also discusses another formation of focus in number quantifier focus, where a nominal predicate is still created, but the clause is separated in the sentence. The number quantifier remains at the left-edge of the clause, but the DP is extraposed to the right edge. This is also possible in Kwak'wala, where in example (50), the numeral (two) remains at the left-edge of the clause, but the DP (pen) has been moved to the right edge.	page 16
+(50) line 1	Catherine Stewart	note	Answers: Did I buy one pen at the stationary store last week?	page 16, the context the example answers
+(50) line 2	Kwak'wala	transcription	ki, mətɬus kɪlʷanɪmus k'edaʸu	page 16
+(50) line 3	Kwak'wala	segmentation	ki, mətɬ=us kɪlʷa=nɪmus k'edaʸu	page 16
+(50) line 4	Kwak'wala	gloss	NEG two=2P. buy pen	page 16
+(50) line 5	Catherine Stewart	translation	‘No, you bought two pens’	page 16
+§5	Catherine Stewart	heading	5 Conclusions	page 16
+§5.1	Catherine Stewart	heading	5.1 Demonstrative predicates	page 16
+§5.1	Catherine Stewart	note	The conclusions that can be drawn from the analyses I have presented are that Kwak'wala uses a single anchor system in its demonstrative predicates, using various stem forms to describe the visibility distinction between the refer- ent and the speaker. While these stems are primarily based on this visibility relationship, their usage may be affected by possession, sensory perception, negation or a change in the type of referent (as in the prepositional phrases).	page 16
+§5.1	Catherine Stewart	note	Personal pronouns are used in contrasting situations to the demons- trative predicates. Demonstrative predicates are used to pick out a referent from a set of other possibilities, whereas the personal pronoun forms are used when differentiating between possessors.	page 16
+§5.2	Catherine Stewart	heading	5.2 Focus constructions using clefts	page 16
+§5.2	Catherine Stewart	note	The basic structure of clefting sentences has been identified, using specifically the demonstrative predicates as discussed earlier, but more work is needed to decipher the confusion that is the 'discourse marker'.	page 16
+§5.2	Catherine Stewart	note	As stated in section 3, Kroeber claimed that "narrow focus is marked by restructuring the focus to the left edge of the clause by employing clefts or nominal predicate constructions (NPCs)”. Koch found that this was true for Nɬeʔkepmx̣cin, as narrow subject, object and number quantifier focus was marked using left-edge constructions. Wide CP & VP and narrow verb focus remained in-situ, verb initial word order. As per my original prediction, I pred- icted that Kwak'wala would use the same formations as Nɬeʔkepmx̣cin in creating focus structures for Wide CP & VP, narrow verb, subject and object focus and number quantifier focus. I predicted that wide CP, VP and narrow verb focus would use a verb- or auxiliary- initial word order, and that narrow subject, object and number quantifier focus would use left-edge constructions such as clefts or NPCs.	page 16
+§5.2	Catherine Stewart	note	The results of my research into the focus structures of Kwak'wala showed:	page 17
+§5.2	Catherine Stewart	note	1. Narrow subject focus and nominal quantifier focus always appear at the left -edge of the clause, with narrow subject focus employing a cleft and nominal quantifier focus creating a nominal predicate construction.	page 17
+§5.2	Catherine Stewart	note	2. Wide CP and VP focus use a verb-initial word order and narrow verb focus remains in-situ in a verb-initial word order. Auxiliary initial sentences have not been found yet and therefore further examination of these structures must be done in order to determine if an auxiliary-initial order is possible.	page 17
+§5.2	Catherine Stewart	note	3. Narrow object focus in Kwak'wala was found to be either in-situ or marked with a cleft, which appeared to also be a result of Koch's testing of narrow object focus in Nɬeʔkepmx̣cin, as in 20.4% of the sentences analyzed the object remained in-situ.	page 17
+§5.2	Catherine Stewart	note	I would like to conduct further tests on narrow subject and object focus, because it is confusing as to why objects can appear in-situ or as part of clefts, but subjects only have the clefting option.	page 17
+appendix A	Catherine Stewart	heading	A. Abbreviations used in this paper:	page 17
+appendix A	Catherine Stewart	note	PAST – Past Tense	page 17, an abbreviation
+appendix A	Catherine Stewart	note	PASS – Passive	page 17, an abbreviation
+appendix A	Catherine Stewart	note	ACC – Accusative	page 17, an abbreviation
+appendix A	Catherine Stewart	note	OBJ – Object	page 17, an abbreviation
+appendix A	Catherine Stewart	note	OBL – Oblative	page 17, an abbreviation
+appendix A	Catherine Stewart	note	POSS – Possessive	page 17, an abbreviation
+appendix A	Catherine Stewart	note	DEM – Demonstrative	page 17, an abbreviation
+appendix A	Catherine Stewart	note	DET – Determiner	page 17, an abbreviation
+appendix A	Catherine Stewart	note	DISC – Discourse	page 17, an abbreviation
+appendix A	Catherine Stewart	note	PREP – Preposition	page 17, an abbreviation
+appendix A	Catherine Stewart	note	VIS – Visibility	page 17, an abbreviation
+appendix A	Catherine Stewart	note	NEG – Negation	page 17, an abbreviation
+appendix A	Catherine Stewart	note	LOC – Locative	page 17, an abbreviation
+appendix A	Catherine Stewart	note	P – Person	page 17, an abbreviation
+references	Catherine Stewart	heading	References:	page 18
+references	Catherine Stewart	reference	Bach, Emmon. 2006. "Paradigm Regained: Deixis in Northern Wakashan". SOAS Working Papers in Linguistics 14: 267-281	page 18
+references	Catherine Stewart	reference	Boas, Franz, Helene Boas Yampolsky, and Zellig S. Harris. (1947). Kwakiutl Grammar with a Glossary of the Suffixes. Transactions of the American Philosophical Society 37(3): 202-377.	page 18
+references	Catherine Stewart	reference	Boas, Franz, Helene Boas Yampolsky. (1948). Kwakiutl Dictionary. Philadelphia, PA: American Philosophical Society ms.	page 18
+references	Catherine Stewart	reference	Chung, Yunhee. (2007). The Internal Structure of Kwak'wala Nominal Domain. Papers for the 42nd International Conference on Salish and Neighbouring Languages. University of British Columbia Working Papers in Linguistics, vol. 20. 101-118.	page 18
+references	Catherine Stewart	reference	Davis, Henry. (2010). Lectures for Ling 447A. University of British Columbia	page 18
+references	Catherine Stewart	reference	Grubb, David McC. (1977). A Practical Writing System and Short Dictionary of Kwakw'ala (Kwakiutl). Canadian Ethnology Service Paper no.34. National Museum of Man, Mercury Series. Ottawa: National Museums of Canada.	page 18
+references	Catherine Stewart	reference	Koch, Karsten. (2008). Intonation and Focus in Nɬeʔkepmxcin (Thompson River Salish). (Doctoral Dissertation). University of British Columbia, Vancouver.	page 18
+references	Catherine Stewart	reference	Koch, Karsten. (2009). Some Issues in the Structure and Interpretation of Clefts in Nɬeʔkepmxcin (Thompson River Salish). University of British Columbia.	page 18
+references	Catherine Stewart	reference	Littell, Patrick. (2010). Notes on Kwak'wala Focus Constructions.	page 18
+references	Catherine Stewart	reference	Lincoln, Neville J. & John C. Rath. (1980). North Wakashan Comparative Root List. Ottawa: National Museums of Canada.	page 18
+references	Catherine Stewart	reference	Nicolson, Marianne and Adam Werle. DRAFT (2009). An investigation of modern Kwak'wala determiner systems. University of Victoria ms.	page 18
+references	Catherine Stewart	reference	Rochement, Michael. 2011. Lectures for Ling 447B. University of British Columbia.	page 18
+end	Catherine Stewart	note	Catherine Stewart c.stewart13@hotmail.com	page 18, the author's name and e-mail

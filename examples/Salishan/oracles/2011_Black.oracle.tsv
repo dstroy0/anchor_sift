@@ -1,0 +1,632 @@
+where	who	kind	form	gloss
+front	Alexis Black	title	Ostension and definiteness in the Kwak’wala noun phrase1	page 1
+front	Alexis Black	name	Alexis Black	author
+front	Alexis Black	note	University of British Columbia	page 1, under Alexis Black
+front	Alexis Black	note	Recent work has examined the pragmatics of the Kwak’wala noun-phrase morphemes termed ‘locative’ and ‘visibility’ markers (Nicolson and Werle 2009). The current paper investigates yet another of the noun-phrase morphemes: the so-called ‘definite’ marker. Through a combined semantic and syntactic analysis, I conclude that the Kwak’wala morpheme –da does not encode definiteness, nor does it semantically or syntactically demonstrate those features typically associated with D-head status. Rather, it is proposed that –da encodes ostension – the linguistic equivalent of a physical pointing gesture and that it is fundamentally modificational (as opposed to functional).	page 1, the abstract
+front	Alexis Black	language	Kwak’wala	Northern Wakashan
+footnote 1	Alexis Black	note	I am deeply grateful to my consultant RCD for sharing her language with me, with great humour and patience. I am indebted to Henry Davis, Lisa Matthewson, and Molly Babel for their valuable feedback and comments on previous drafts of this work. Support for this research has come from the Jacobs Research Fund.	page 1, footnote 1, on the title
+footnote 1	Alexis Black	name	RCD	the author's consultant, thanked in the note on the title
+footnote 1	Alexis Black	name	Henry Davis	thanked for feedback, and cited by personal communication
+footnote 1	Alexis Black	name	Lisa Matthewson	thanked for feedback
+footnote 1	Alexis Black	name	Molly Babel	thanked for feedback
+footnote 1	Alexis Black	name	Matthewson	Lisa Matthewson (1998), assertion of existence in Salish determiners
+§1	Alexis Black	heading	1 Introduction	page 1
+§1	Alexis Black	note	One of the best-known features of Kwak’wala, a Northern Wakashan language spoken in Northern-eastern Vancouver Island and along the BC coast, is its complex nominal phrase morphology. The maximal set of morphologically distinct features that may characterize an argument phrase includes case, location, definiteness, number, tense, and visibility. These categories were identified and defined by Boas (1911, 1947). Some elements of the nominal string have been discussed previously (Anderson 1984, 2005; Bach 2006; Chung 2007; Nicolson and Werle 2009; Black 2010; Littell 2010). No prior analysis, however, has been devoted to the so-called definite determiner, –da. As a result, most analyses have assumed – following Boas – that –da bears the syntactic and semantic features correlated cross-linguistically with definite determiners. It is the goal of this article to challenge this assumption.	page 1
+§1	Alexis Black	name	Boas	Franz Boas (1900, 1903, 1911, 1947), the grammars and texts the paper compares with
+§1	Alexis Black	name	Nicolson	Marianne Nicolson (2009, with Adam Werle), the modern determiner systems
+§1	Alexis Black	name	Werle	Adam Werle (2009, with Marianne Nicolson), the modern determiner systems
+§1	Alexis Black	name	Anderson	Stephen R. Anderson (1984, 2003, 2005), Kwakwala syntax and clitics
+§1	Alexis Black	name	Bach	Emmon Bach (2006), deixis in Northern Wakashan
+§1	Alexis Black	name	Chung	Yunhee Chung (2007), the Kwak’wala nominal domain
+§1	Alexis Black	name	Littell	Patrick Littell (2010), the equative predicate structure
+§1	Alexis Black	language	Wakashan	the family
+§1	Alexis Black	note	At first glance, -da appears to be the simplest element of the Kwak’wala noun phrase. It was described by Boas (1911, 1947) as encliticizing to the preceding word in an utterance and as alternating with zero morphology, which contrastively denotes “indefinite.” Indeed, in translations from Kwak’wala to English it is quite common that noun phrases characterized by -da in Kwak’wala are translated as “the” in English, and vice versa:	page 1
+§1	Alexis Black	language	English	the translations
+(1) line 1	Kwak’wala	phonetic	[tɛnxalóχda tsɪdáq]2	page 2
+footnote 2	Alexis Black	note	Data are from the investigator’s field work unless otherwise noted. Phonetic transcriptions in IPA are provided on the first line of every example; morphemic representations are given on the second line in the Kwak’wala orthography (c.f. U’mista Cultural Society).	page 2, footnote 2
+(1) line 2	Kwak’wala	transcription	denxala=ox̱=da tsedaḵ	page 2
+(1) line 3	Kwak’wala	gloss	sing=2.LOC=DEF woman3	page 2
+footnote 3	Alexis Black	note	The following abbreviations are used: AUX = Auxiliary; DISC = Discourse marker; REP=Reportative; INCH = Inchoative; PERF = Perfective; CONT=Continuative; PRO = Pronoun; 1.sg = 1st person singular pronoun (2.sg; etc); COMP = Completive; FV = Fill Vowel; ACC = Accusative; OBL = Oblique; PREP = Prepositional; LOC = Loctive Determiner; DEF = Definite Determiner; IND=Indefinite Determiner; RED=Reduplication; VIS = Visibility Determiner; POSS = Possessive; Dem=Demonstrative; NEG=Negation	page 2, footnote 3
+(1) line 4	Alexis Black	translation	‘The woman is singing’	page 2
+§1	Alexis Black	note	Furthermore, Kwak’wala –da displays paradigmatic asymmetries that parallel the distribution of the English definite determiner. For example, though the English determiner “the” marks an entity as definite, it does not co-occur with possessive morphology or proper names. The identical distributional pattern is found in Kwak’wala:	page 2
+(2) line 1	Alexis Black	note	Proper names	page 2, over the example
+(2) line 2	Kwak’wala	phonetic	[tɛ́nxalóχ(*da) rubi]	page 2
+(2) line 3	Kwak’wala	transcription	denxala=ox̱=(*da) Ruby	page 2
+(2) line 4	Kwak’wala	gloss	sing=2.LOC=(DEF) Ruby	page 2
+(2) line 5	Alexis Black	translation	‘(*The) Ruby is singing’	page 2
+(3) line 1	Alexis Black	note	Possessives	page 2, over the example
+(3a) line 1	Kwak’wala	phonetic	[gʲúkwilòχda bəgwánəmʔɛ́χìs(*da) gʲúkʷ]	page 2
+(3a) line 2	Kwak’wala	transcription	gukwila=ox̱=da ba̱gwana̱m-a=x̱=is=(*da) gukw	page 2
+(3a) line 3	Kwak’wala	gloss	build.house=2.LOC=DEF man-COMP=ACC=3.POSS=(*DEF) house	page 2
+(3a) line 4	Alexis Black	translation	‘The man built his (*the) house’	page 2
+(3b) line 1	Kwak’wala	phonetic	[aχʔɛ́χstoχ ájako χə́n(*da) ájɛndʒisɛχ]	page 2
+(3b) line 2	Kwak’wala	transcription	ax̱a̱x̱sd=ox̱ ajako x̱=a̱n=(*da) ayandzis=a̱x̱	page 2
+(3b) line 3	Kwak’wala	gloss	want=2.LOC Ayako ACC=1.POSS=(*DEF) orange=2.VIS	page 2
+(3b) line 4	Alexis Black	translation	‘Ayako wants my (*the) orange’	page 2
+§1	Alexis Black	note	This distributional parallel between English and Kwak’wala is suggestive of a parallel structure.	page 2
+§1	Alexis Black	note	Despite these distributional similarities, however, the mapping between English and Kwak’wala determiner phrases is not exact. For example, Kwak’wala arguments are obligatorily marked by locative clitics. There is, of course, no direct parallel in English – which raises the question: what is the semantic/pragmatic contribution and syntactic position of the LOC morphemes, and how do they relate to the semantics and syntax of -da? Secondly, and perhaps more directly, the semantic correspondence between the and –da frequently fails to hold. For example, in the following two sentences we find ‘indefinite’ Kwak’wala morphology that is translated as a definite English DP (4), and ‘definite’ morphology that corresponds to an indefinite English DP (5):	page 2
+(4) line 1	Kwak’wala	phonetic	[aχʔɛ́χsdən χa kúki]	page 3
+(4) line 2	Kwak’wala	transcription	a̱x̱'ex̱sd-a̱n=x̱-a=∅ kuki	page 3
+(4) line 3	Kwak’wala	gloss	want-1.PRO=ACC-4.LOC=IND cookie	page 3
+(4) line 4	Alexis Black	translation	‘I want the cookie’	page 3
+(5) line 1	Kwak’wala	phonetic	[aχʔɛ́χsdən χada kúki]	page 3
+(5) line 2	Kwak’wala	transcription	a̱x̱'ex̱sd-a̱n=x̱-a=da kuki	page 3
+(5) line 3	Kwak’wala	gloss	want-1.PRO=ACC-4.LOC=DEF cookie	page 3
+(5) line 4	Alexis Black	translation	‘I want a cookie’	page 3
+§1	Alexis Black	note	These examples indicate that the semantic content of -da is unlikely to involve the same concept of definiteness as that which characterizes English determiners. Irrespective of the apparent syntactic parallelism, this semantic mismatch is not unexpected. Recent work has demonstrated the non-uniformity of determiner semantics cross-linguistically, despite their syntactic similarities (Enç 1991, Matthewson 1998, Gillon 2006).	page 3
+§1	Alexis Black	name	Gillon	Carrie Gillon (2006, 2009), domain restriction and maximality
+§1	Alexis Black	name	Enç	Murvet Enç (1991), specificity
+§1	Alexis Black	note	Thus, to recapitulate: (1) the Kwak’wala clitic –da is correlated, but not perfectly matched, with definite English translations; (2) like the English definite article, -da does not co-occur with possessives, nor does it mark proper names; and (3) unlike the English determiner system, Kwak’wala noun phrases are marked by obligatory deictic (and case) clitics as well. Given these facts, it may therefore be reasonable to hypothesize that –da is a determiner that syntactically represents the D-head, but that semantically does not denote the exact combination of features that are associated with the English determiner.	page 3
+§1	Alexis Black	note	To determine the role of –da in Kwak’wala grammar, we will assume as a null hypothesis that –da syntactically represents the D-head. In order to more precisely characterize the semantic properties of -da, I report the results of a series of tests developed in the cross-linguistic literature to probe determiner semantics. I follow up this analysis with a brief exploration of a number of syntactic diagnostics designed to test for D-head determiner status. The results of these tests lead to the following conclusions: 1) –da does not encode any feature typically associated with definite, and 2) it is not a D-head determiner. Instead, I propose that -da is the linguistic equivalent to a “pointing gesture” (Diessel 1997) and is a modificational, as opposed to functional, element of the Kwak’wala grammar. An additional contribution of this paper is the introduction of a fourth locative morpheme, which is hypothesized to encode ‘assertion of existence.’ It is furthermore hypothesized that all the remaining LOC markers encode ‘assertion of existence’ in addition to their respective deictic features.	page 3
+§1	Alexis Black	name	Diessel	Holger Diessel, demonstratives, the pointing gesture
+§1	Alexis Black	note	The paper is organized as follows. Section 2 provides a description of the Kwak’wala nominal phrase in more detail to aid in the analysis that follows. Section 3 tests –da against the semantic features familiarity, uniqueness, specificity, assertion of existence, and domain restriction. The fourth section presents evidence for the proposal that –da encodes ostension. In section 5 I discuss some of the syntactic properties that characterize Kwak’wala noun phrases. Section 6 concludes.	page 3
+§2	Alexis Black	heading	2 Language Background	page 4
+§2	Alexis Black	note	Kwak’wala belongs to the Northern branch of the Wakashan language family and is spoken by an estimated 200 people. The long-term viability of the language is in doubt; however, significant revitalization efforts have been initiated in the last several years (Anonby 1999; Jamieson-McLarnon 2005). The bulk of linguistic knowledge about Kwak’wala derives from the works of Franz Boas (1911, 1947), who spent decades documenting and analyzing the language with the assistance of George Hunt, a half Tlingit, half-British ethnologist who was connected through childhood and marriage to the Kwak’wakawakw people (Berman 1994). The volumes Boas published are primarily based on Hunt’s adopted dialect (Kwakiutl), though at least 5 dialects exhibiting non-trivial distinctions have been claimed to exist in the modern era (Anonby, 1999). The data presented in this paper are from the author’s fieldwork, and reflect the judgments of a speaker of the Gwaỷi (Kingcome Inlet) community.	page 4
+§2	Alexis Black	name	George Hunt	Boas's collaborator, whose dialect the grammars record
+§2	Alexis Black	name	Anonby	Stan J. Anonby (1999), the dialects and language shift
+§2	Alexis Black	name	Berman	Judith Berman (1982, 1983, 1994), Hunt and the Kwak’wala texts
+§2	Alexis Black	name	Jamieson-McLarnon	Susan Jamieson-McLarnon (2005), revitalization
+§2	Alexis Black	language	Kwakiutl	the dialect of Boas's grammars
+§2	Alexis Black	language	Gwaỷi	the Kingcome Inlet dialect of Kwak’wala, the author's data
+§2	Alexis Black	note	Kwak’wala is usually characterized as a VSO language. Main clauses, however, are frequently headed by auxiliaries, the first of which is always inflected for subject agreement. DP subjects generally surface in second position; however, they may also appear following any of the stacked auxiliaries or the main verb. Direct objects, obliques, and prepositional phrases are realized in that order4 following the main predicate and the subject. Auxiliaries are always marked by "agreement" morphology when the subject follows the main (Anderson 1984). This is demonstrated in (6).	page 4
+footnote 4	Alexis Black	note	Typically; some exceptions, however, can be found (Anderson 1984)	page 4, footnote 4
+(6) line 1	Alexis Black	note	Kwak’wala word order and Subject-agreement morphology	page 4, over the example
+(6a) line 1	Alexis Black	note	Subject-2nd (bare verb stem)	page 4, over the part
+(6a) line 2	Kwak’wala	phonetic	[q’ínəmoχda gilá mɪ́χa]	page 4
+(6a) line 3	Kwak’wala	transcription	ḵina̱m=ox̱=da ga̱la mix̱a	page 4
+(6a) line 4	Kwak’wala	gloss	many=2.Loc=Def bear sleep	page 4
+(6a) line 5	Alexis Black	translation	‘Many bears are sleeping’	page 4
+(6b) line 1	Alexis Black	note	Post-verbal Subject (agreement on auxiliary)	page 4, over the part
+(6b) line 2	Kwak’wala	phonetic	[lɪ̰móχ miχʷoχda q’inəm gíʔgila]	page 4
+(6b) line 3	Kwak’wala	transcription	la-m=ox̱ mix̱a=ox̱=da ḵ’ina̱m ga̱-ga̱la	page 4
+(6b) line 4	Kwak’wala	gloss	Aux-Disc=2.Loc sleep=2.Loc=Def many red-bear	page 4
+(6b) line 5	Alexis Black	translation	‘Many bears are sleeping’	page 4
+§2	Alexis Black	note	As mentioned above, argument phrases in Kwak’wala can be marked by case, up to three deictic features (location, visibility, and tense), number, and ‘definiteness’ (Boas 1911, 1947; Anderson 1984, 2003; Bach 2006; Chung 2007; Nicolson and Werle 2009). This determiner complex has previously garnered attention due to its curious phono-syntactic properties (Anderson 1984, 2003; Chung 2007). The case, deictic, and determiner clitics are split between prenominal and postnominal positions. Kwak’wala is an entirely suffixing/encliticizing language5; therefore, the prenominal clitics encliticize to a preceding word in the utterance. This creates a mismatch between syntactic and prosodic constituency6. A schematic and example are provided in (7):	page 5
+footnote 5	Alexis Black	note	With the exception of number marking, which is marked through initial CV reduplication of the stem.	page 5, footnote 5
+footnote 6	Alexis Black	note	This statement follows previous Kwak’wala scholarship; however, the data are a bit more complex. In addition to encliticizing to the previous prosodic word, it is quite common for all the prenominal clitics to solidify into a single unit (i.e. to form a distinct prosodic word).	page 5, footnote 6
+(7) line 1	Alexis Black	note	Preceding Word =[DP Case = LOC = DEF #-Noun =Temp=VIS]	page 5, the schema of the noun phrase, the DP a subscript, set on the line as the text layer has it
+(7) line 2	Alexis Black	note	Prenominal	page 5, the label under the brace over Case = LOC = DEF
+(7) line 3	Alexis Black	note	Postnominal	page 5, the label under the brace over =Temp=VIS
+(7) line 4	Kwak’wala	transcription	duqʷ-xʔid=as = [DP x̱ = ox̱ = da gukʷ =ix̱]?	page 5, the DP a subscript, set on the line as the text layer has it
+(7) line 5	Kwak’wala	gloss	see-PERF=2.sg = [DP ACC = LOC = DEF house =VIS]?	page 5, the DP a subscript, set on the line as the text layer has it
+(7) line 6	Alexis Black	translation	‘Do you see this house (near addressee, visible)?’	page 5
+§2	Alexis Black	note	The clitic morphemes are provided in two charts in (8).	page 5
+(8)	Alexis Black	note	Kwak’wala determiners	page 5, over the charts
+(8a)	Alexis Black	note	Kwakiutl dialect (Boas 1947)	page 5, the chart's title
+(8a)	Alexis Black	note	Prenominal	page 5, a head spanning Anchor, LOC and DEF
+(8a)	Alexis Black	note	Postnominal	page 5, a head spanning VIS
+(8a)	Alexis Black	note	Anchor	page 5, a column's head
+(8a)	Alexis Black	note	LOC	page 5, a column's head
+(8a)	Alexis Black	note	DEF	page 5, a column's head
+(8a)	Alexis Black	note	VIS	page 5, a column's head
+(8a)	Alexis Black	note	1-vis	page 5, the row's head
+(8a)	Kwak’wala	transcription	-k	page 5, 1-vis, under VIS
+(8a)	Alexis Black	note	1-inv	page 5, the row's head
+(8a)	Kwak’wala	transcription	-gaʔ	page 5, 1-inv, under VIS
+(8a)	Alexis Black	note	2-vis	page 5, the row's head
+(8a)	Kwak’wala	transcription	-iχ	page 5, 2-vis, under VIS
+(8a)	Alexis Black	note	2-inv	page 5, the row's head
+(8a)	Kwak’wala	transcription	-aq’/aχ	page 5, 2-inv, under VIS
+(8a)	Alexis Black	note	3-vis	page 5, the row's head
+(8a)	Kwak’wala	transcription	-∅/-i	page 5, 3-vis, under VIS
+(8a)	Alexis Black	note	3-inv	page 5, the row's head
+(8a)	Kwak’wala	transcription	-a/-i	page 5, 3-inv, under VIS
+(8a)	Kwak’wala	transcription	-gʲa	page 5, under LOC, the cell 1-vis and 1-inv share
+(8a)	Kwak’wala	transcription	-oχ	page 5, under LOC, the cell 2-vis and 2-inv share
+(8a)	Kwak’wala	transcription	-i	page 5, under LOC, the cell 3-vis and 3-inv share
+(8a)	Alexis Black	note	(+Subj)	page 5, under LOC, the cell 3-vis and 3-inv share, beside -i
+(8a)	Kwak’wala	transcription	-∅	page 5, under LOC, the cell 3-vis and 3-inv share
+(8a)	Alexis Black	note	(-Subj)	page 5, under LOC, the cell 3-vis and 3-inv share, beside -∅
+(8a)	Kwak’wala	transcription	-(d)a	page 5, under DEF, the cell every row share
+(8a)	Alexis Black	note	(Def)	page 5, under DEF, the cell every row share, beside -(d)a
+(8a)	Kwak’wala	transcription	-∅	page 5, under DEF, the cell every row share
+(8a)	Alexis Black	note	(Indef)	page 5, under DEF, the cell every row share, beside -∅
+(8b)	Alexis Black	note	Gwaỷi dialect (2010)	page 6, the chart's title
+(8b)	Alexis Black	note	Prenominal	page 6, a head spanning Distance, LOC and DEM
+(8b)	Alexis Black	note	Postnominal	page 6, a head spanning VIS
+(8b)	Alexis Black	note	Distance	page 6, a column's head
+(8b)	Alexis Black	note	LOC	page 6, a column's head
+(8b)	Alexis Black	note	DEM	page 6, a column's head
+(8b)	Alexis Black	note	VIS	page 6, a column's head
+(8b)	Alexis Black	note	1-vis	page 6, the row's head
+(8b)	Kwak’wala	transcription	-x	page 6, 1-vis, under VIS
+(8b)	Alexis Black	note	1-inv	page 6, the row's head
+(8b)	Alexis Black	note	2-vis	page 6, the row's head
+(8b)	Kwak’wala	transcription	-iχ	page 6, 2-vis, under VIS, one of the forms set together, -iχ, -ɛχ, -χ
+(8b)	Kwak’wala	transcription	-ɛχ	page 6, 2-vis, under VIS, one of the forms set together, -iχ, -ɛχ, -χ
+(8b)	Kwak’wala	transcription	-χ	page 6, 2-vis, under VIS, one of the forms set together, -iχ, -ɛχ, -χ
+(8b)	Alexis Black	note	2-inv	page 6, the row's head
+(8b)	Alexis Black	note	3-vis	page 6, the row's head
+(8b)	Alexis Black	note	3-inv	page 6, the row's head
+(8b)	Kwak’wala	transcription	-a/-ɛʔ	page 6, 3-inv, under VIS
+(8b)	Alexis Black	note	4-	page 6, the row's head
+(8b)	Kwak’wala	transcription	-a	page 6, 4-, under LOC
+(8b)	Alexis Black	note	(‘-Subj’)	page 6, 4-, under LOC, beside -a
+(8b)	Kwak’wala	transcription	-gʲa	page 6, under LOC, the cell 1-vis and 1-inv share
+(8b)	Kwak’wala	transcription	-oχ	page 6, under LOC, the cell 2-vis and 2-inv share
+(8b)	Kwak’wala	transcription	-i	page 6, under LOC, the cell 3-vis and 3-inv share
+(8b)	Kwak’wala	transcription	-da	page 6, under DEM, the cell every row share
+(8b)	Alexis Black	note	(+Dem)	page 6, under DEM, the cell every row share, beside -da
+§2	Alexis Black	note	The first chart (8a) represents the system as it was described by Boas in 1947, which has been assumed by many as the canonical representation of Kwak’wala DP morphology (Berman 1982, 1983;Anderson 1984; Bach 2006; Chung 2007). The second (8b) employs the paradigmatic organization defined by Boas, but lists those morphemes that have been attested in current field work on the Gwaỷi dialect (Black 2010; Nicolson and Werle 2009).	page 6
+§2	Alexis Black	note	There are two substantive differences between these charts that merit brief mention. It should first be noted that the label corresponding to the numbers (1)-(4) has been altered from Anchor to Distance. Anchor is a concept adopted from the literature on deixis (c.f. Fillmore 1966, Gerner 2009). It signifies the discourse participant’s perspective from which deictic features derive. For example, English deictic terms (e.g. this, that) are generally considered to reflect the speaker’s point of view, and hence instantiate a speaker-anchor. Other languages display shifting anchors, or compound anchors (e.g. Miao, see Gerner 2009 for a detailed cross-linguistic survey). Boas’ description of Kwak’wala suggests a deictic anchor that shifts between speaker, addressee, and a third person – the numbers one through three signify these referents, respectively. This three-way split has also been reported for Haisla (Bach 2006). Recent work has demonstrated that at least one contemporary dialect does not employ this shifting-anchor system; rather, it appears that all LOC and VIS markers denote distance (physical or metaphorical) between the associated referent/topic and the speaker (Nicolson and Werle 2009, Black 2010). The numbers (1)-(3), therefore, more closely signify the concepts proximal, medial, and distal.	page 6
+§2	Alexis Black	name	Gerner	Matthias Gerner (2009), the deictic features of demonstratives
+§2	Alexis Black	name	Fillmore	Charles J. Fillmore (1966), deixis
+§2	Alexis Black	language	Haisla	Northern Wakashan
+§2	Alexis Black	language	Miao	a language with compound anchors
+§2	Alexis Black	note	The second substantive difference between the two determiner charts is the introduction of a fourth LOC category. I hypothesize that this morpheme has no deictic features, but that it occupies the same syntactic position as the deictically inflected LOC markers (see Appendix for details). I propose that the proximal, medial, and distal locative markers are composed of two semantic feature sets: they assert the existence of the modified NP, and contribute the relevant deictic features. The 4.LOC marker, on the other hand, simply denotes ‘assertion of existence’ (Matthewson 1998). Justification for this analysis will be discussed in section 3.4.	page 6
+§2	Alexis Black	note	To begin to decode the nature of –da, it is necessary to first examine Boas’ original description of the morpheme and the evidence that led to his label of ‘definite.’ In his Kwakiutl Grammar (1947), Boas described two contrastive sets of prenominal demonstratives: the vocalic and consonantic series. The vocalic series corresponds to ‘definite’ interpretations. These morphemes are termed vocalic because each word of the series shares word-final ‘-da,’ which is sometimes realized as ‘-a’ alone; therefore all members of the set are unified by a vocalic ending (i.e. Subject set: –ida, -ox̱da, -gada; Accusative set: -x̱a, - x̱ox̱da/x̱wa, -x̱gada; Oblique set: -sa, -sox̱da, -sgada). The consonantic forms, on the other hand, are not characterized by this terminal ‘-a’7, and are found preceding indefinite nouns. The term ‘indefinite’ is characterized as “when a noun is used in a general sense” (see example (9)) or “when the existence of an object is unknown” (example (10)) (1947: 259). Boas notes that “the use of the indefinite is . . . much more restricted than that of the corresponding forms in English” (1900: 715). Unfortunately, he gives no further explication of these restricted contexts.	page 7
+footnote 7	Alexis Black	note	Though note that the 1.LOC (i.e. proximal loctive) marker ’-ga’ is considered a consonantic form, whereas ‘-gada’ is termed vocalic.	page 7, footnote 7
+(9) line 1	Alexis Black	note	General:	page 7, over the example
+(9a) line 1	Kwak’wala	transcription	He-7a̱m=∅=∅ walhda̱m-s=∅ ba̱gwana̱m	page 7
+(9a) line 2	Kwak’wala	gloss	3.DEM-DISC=LOC=IND word-OBL.=IND man	page 7
+(9a) line 3	Alexis Black	translation	‘That is the word of mankind’	page 7
+(9b) line 1	Kwak’wala	transcription	la-m’-a̱n wa̱tla=x̱=ga=∅ ba̱gwana̱m-k.	page 7
+(9b) line 2	Kwak’wala	gloss	AUX-DISC-1.sg ask-ACC-1.LOC=IND man=1.VIS	page 7
+(9b) line 3	Alexis Black	translation	‘I ask the men in present existence’	page 7
+(10) line 1	Alexis Black	note	Existence doubtful:	page 7, over the example
+(10a) line 1	Kwak’wala	transcription	ʔalasa̱w’=i=∅ laisa=s=a ts’idaḵ	page 7
+(10a) line 2	Kwak’wala	gloss	search=3.LOC=IND mussel-OBL=DEF8 woman	page 7
+footnote 8	Alexis Black	note	This morphological breakdown reflects a Boasian analysis. Under the current hypotheses, however, ‘-a’ is the 4.LOC clitic, not the definite determiner	page 7, footnote 8
+(10a) line 3	Alexis Black	translation	‘Mussels are searched for by the women’	page 7
+§2	Alexis Black	note	Much of this description has been confirmed in contemporary speech. The concatenations of LOC and DEF morphology listed in the vocalic and consonantic series above are all attested. An important point of difference between Boas’ description and the analysis that follows, however, is that the so- called definite series, described as ending in word-final ‘-a’ or ‘-da’ by Boas, is always characterized by –da in the present work (see the Appendix for more details). Finally, though Boas notes a paradigmatic contrast between –da- marked and unmarked determiner strings, we observe a three-way contrast. Argument phrases in Kwak’wala can be marked with LOC clitics + da, LOC clitics alone, or with no LOC or DEF morphology at all. This morphological split does not appear straightforwardly amenable to a definite/indefinite distinction. Furthermore, it should be noted that a fourth logical possibility – argument phrases marked with –da but not LOC – is ungrammatical. This indicates that - da is only licensed when a LOC morpheme is present.	page 7
+(11) line 1	Alexis Black	note	Three-way contrast	page 8, over the example
+(11a) line 1	Kwak’wala	transcription	ax̱ex̱sd=en x̱=a=da kuki	page 8
+(11a) line 2	Kwak’wala	gloss	want-1.sg ACC=4.LOC=DEF cookie	page 8
+(11a) line 3	Alexis Black	translation	‘I want a/the cookie’	page 8
+(11b) line 1	Kwak’wala	transcription	ax̱ex̱sd=en x̱=a kuki	page 8
+(11b) line 2	Kwak’wala	gloss	want-1.sg ACC=4.LOC cookie	page 8
+(11b) line 3	Alexis Black	translation	‘I want a/the cookie’	page 8
+(11c) line 1	Kwak’wala	transcription	k’is=en ax̱ex̱sda=x̱ kuki	page 8
+(11c) line 2	Kwak’wala	gloss	Neg-1.sg want=ACC cookie	page 8
+(11c) line 3	Alexis Black	translation	‘I don’t want a cookie’	page 8
+§2	Alexis Black	note	In this section I have laid out the morphological structure of Kwak’wala noun phrases. It was noted that a contemporary dialect employs a single-anchor deictic system, as opposed to a shifting-anchor. A fourth LOC category is proposed under the current analysis; this morpheme is not deictic, but shares the semantics of ‘assertion of existence’ with its deictic counterparts. According to the historical documents, the definite/indefinite distinction is instantiated by a contrast between LOC morphology + da versus LOC morphology by itself. When the concatenation of case, LOC, and ‘definiteness’ morphemes are considered, however, we observe a three-way contrast in noun phrases that is not as easily applied to the definite/indefinite English distinction originally proposed. With this information in hand, we now turn to the semantic analysis of –da.	page 8
+§3	Alexis Black	heading	3 The semantics of Definiteness	page 8
+§3	Alexis Black	note	The semantic properties associated with determiners have been a subject of great debate over the past thirty years (Russell 1905, Heim 1982, Kadmon 1992, Matthewson 1998, Gillon 2006, and many others). For the purposes of this paper, I examine those features claimed to be associated with definiteness and/or the syntactic position D0 by Heim (1982), Ludlow and Neale (1991), Matthewson (1998), and Gillon (2006). In the following sections I will describe these features and demonstrate their applicability (or lack thereof) to - da.	page 8
+§3	Alexis Black	name	Ludlow and Neale	Peter Ludlow and Stephen Neale (1991), specificity
+§3	Alexis Black	name	Russell	Bertrand Russell (1905), uniqueness asserted
+§3	Alexis Black	name	Kadmon	Nirit Kadmon (1992, 2001), unique reference
+§3.1	Alexis Black	heading	3.1 Familiarity	page 8
+§3.1	Alexis Black	note	In her doctoral thesis (1982), Irene Heim proposed that definiteness fundamentally hinges on a familiarity/novelty contrast in discourse. This conceptualization relies on the notion of the common ground, which is defined as the propositions shared by every participant in discourse in a given context (Stalnaker 1979, p. 321 [Heim 1982, p285-286]). According to this depiction of definiteness, a definite NP is one that is familiar to the common ground (CG). Indefinite NPs, on the other hand, are novel. This can easily be demonstrated in English (from Matthewson, 1998):	page 8
+§3.1	Alexis Black	name	Irene Heim	Heim (1982, 1991), definiteness as familiarity
+§3.1	Alexis Black	name	Stalnaker	Robert C. Stalnaker, the common ground
+(12) line 1	Alexis Black	note	Context: out of the blue	page 9, the context over the example
+(12a) line 1	Alexis Black	note	I met a man today	page 9, an English sentence
+(12b) line 1	Alexis Black	note	*I met the man today	page 9, an English sentence, * marking it ill-formed
+(13) line 1	Alexis Black	note	Context: Conversation b/w two interlocutors	page 9, the context over the example
+(13) line 2	Alexis Black	note	Interlocutor1: I met a man today.	page 9, an English sentence
+(13) line 3	Alexis Black	note	Interlocutor2:	page 9, the speaker's label over the parts under it
+(13a) line 1	Alexis Black	note	What did the man look like?	page 9, an English sentence
+(13b) line 1	Alexis Black	note	*What did a man look like?	page 9, an English sentence, * marking it ill-formed
+§3.1	Alexis Black	note	It is, of course, possible to introduce novel NPs with definite morphology in English (e.g. “Beware of the dog!”). These “exceptions” are argued to be felicitous due to accommodation (Lewis 1979); there are real-world restrictions, however, on the availability of this option. For example, a novel, out-of-the- blue utterance such as “Beware of the dog” relies on discourse participants’ awareness that people in their community commonly keep dogs as pets. In other words, a hearer must have some reason to believe that the novel referent exists, and that this knowledge is/can be shared between the discourse participants without previous mention.	page 9
+§3.1	Alexis Black	name	Lewis	David Lewis (1979), accommodation
+§3.1	Alexis Black	note	Assuming this definition of definiteness, we must first ask, then, whether Kwak’wala DPs reflect a simple distinction between novel and familiar references. As was stated in the introduction, it is often the case that -da morphology corresponds with English definite usage. This is most evident in the context of story-telling. For example, in the following story a novel referent (the squirrel) is introduced with an accusative case and distal LOC marker, but without the –da morpheme. In the next sentence, the referent is now marked by -da:	page 9
+(14a) line 1	Kwak’wala	phonetic	[níkijɛ̀qələn dúqʷalaχa gígiȷ̉atsáɢa dzə́lxʷi láχa ʔəwíʔnaɢʷìł sáda kafé. gígiȷ̉atsáɢa]	page 9
+(14a) line 2	Alexis Black	citation	(VF)	page 9, the tag at the right of the IPA
+(14a) line 3	Kwak’wala	transcription	nikiyeḵala-a̱n duḵwala=[x̱=a=∅ giga̱'yatsag̱a] dza̱lxwa=i	page 9
+(14a) line 4	Kwak’wala	gloss	think-1.sg see=[ACC-4.LOC=IND mouse] run=3.LOC	page 9
+(14a) line 5	Kwak’wala	transcription	lax̱-a=∅ a̱wiˈnag̱wił s=a=da kafe.	page 9
+(14a) line 6	Kwak’wala	gloss	PREP-4.LOC=Ind floor OBL=4.LOC=DEF café	page 9
+(14a) line 7	Kwak’wala	transcription	giga̱'yatsag̱a='a̱m!	page 9
+(14a) line 8	Kwak’wala	gloss	mouse-DISC!	page 9
+(14a) line 9	Alexis Black	translation	‘I thought I saw a mouse run across the floor of the cafe. It was a mouse!’	page 9
+(14b) line 1	Kwak’wala	phonetic	[ləmida gígiȷ̉atsáɢa dzə́lxʷi láχa ʔəwíʔnaɢʷìł]	page 10
+(14b) line 2	Alexis Black	citation	(VF)	page 10, the tag at the right of the IPA
+(14b) line 3	Kwak’wala	transcription	la̱-ˈm-[i-da giga̱ˈjatsag̱a] dzulxw-i lax̱-a	page 10
+(14b) line 4	Kwak’wala	gloss	AUX-DISC-[3.LOC-DEF mouse] run-3.LOC PREP-4.LOC	page 10
+(14b) line 5	Kwak’wala	transcription	awiˈnag̱wił	page 10
+(14b) line 6	Kwak’wala	gloss	floor	page 10
+(14b) line 7	Alexis Black	translation	‘The mouse ran across the floor’	page 10
+§3.1	Alexis Black	note	If the story ended here, we might conclude that –da does indeed reflect the familiar/novel contrast. In the very next sentence of the story, however, we observe that the definite marker disappears:	page 10
+(14c) line 1	Kwak’wala	phonetic	[dúχʷaλɛn χá gígiȷ̉atsáɢa dzə́lxʷi láχìs qʷəbíł]	page 10
+(14c) line 2	Alexis Black	citation	(VF)	page 10, the tag at the right of the IPA
+(14c) line 3	Kwak’wala	transcription	duḵwatła-a̱n [x̱=a=∅ giga̱ˈjatsag̱a] dzulxw-i	page 10
+(14c) line 4	Kwak’wala	gloss	see-1.sg [ACC-4.LOC=IND mouse] run-3.LOC	page 10
+(14c) line 5	Kwak’wala	transcription	lax̱-is ḵwa̱bił	page 10
+(14c) line 6	Kwak’wala	gloss	PREP-3.POSS hole	page 10
+(14c) line 7	Alexis Black	translation	‘I saw the mouse run into his hole.’	page 10
+§3.1	Alexis Black	note	This appears to be an alternation by syntactic position rather than a pragmatic/semantic distinction. In other words, when the NP is mentioned in the accusative, it is marked by the indefinite (i.e. null morpheme). When it is in subject position, it surfaces with definite morphology. This positional alternation is evidenced in the historical texts as well, and in ways that also indicate a non-English usage of ‘definiteness.’ For example, in the following passage the definite article is used to mark the first mention of the man.	page 10
+(15) line 1	Kwak’wala	transcription	la-ˈa̱m-ˈl-(a)-i walas gukw-i-da gax̱-i	page 10
+(15) line 2	Kwak’wala	gloss	AUX-DISC-REP-3.LOC big house-3.LOC-DEF come-3.LOC	page 10
+(15) line 3	Kwak’wala	transcription	ax̱’a̱ls lax̱ k’wał-as-as wakas-i, ji-x̱	page 10
+(15) line 4	Kwak’wala	gloss	put PREP sit-place-POSS Wakas-3.VIS 3.DEM-ACC	page 10
+(15) line 5	Kwak’wala	transcription	gukw-as Quˈmasila. we la-ˈm-i	page 10
+(15) line 6	Kwak’wala	gloss	house-POSS Quˈmasila So AUX-DISC-3.LOC	page 10
+(15) line 7	Kwak’wala	transcription	nił’id-[i-da xwał-xwap-a̱la-g̱a̱m-i	page 10
+(15) line 8	Kwak’wala	gloss	appear-[3.LOC-DEF RED-hole-CONT-face-3.VIS	page 10
+(15) line 9	Kwak’wala	transcription	ba̱gwana̱m] …	page 10
+(15) line 10	Kwak’wala	gloss	man] …	page 10
+(15) line 11	Alexis Black	translation	‘A large house came to be on the ground at the place where Great-River (Wakas) was sitting. It was the house of Wealth-Maker (Qumasila). Then a man with holes all over his face appeared (in the rear of the house)’	page 10
+(15) line 12	Alexis Black	citation	(Boas 1903:427).	page 10, the tag at the right of the translation
+§3.1	Alexis Black	note	The use of –da on the first occurrence of a nominal in discourse is also found in contemporary speech. For example, the sentence in (16) was offered as the translation for “A boy is painting a house.” An out-of-the-blue novel NP (boy) is modified by da. It was subsequently confirmed, moreover, that this structure can be translated with either an indefinite or definite English determiner.	page 10
+(16) line 1	Kwak’wala	phonetic	[ɢə́lsoχda bábagwəmɛχá gʲúkw]	page 11
+(16) line 2	Alexis Black	citation	(VF)	page 11, the tag at the right of the IPA
+(16) line 3	Kwak’wala	transcription	g̱a̱ls=ox̱=da babagwam-a̱ x̱-a gukw	page 11
+(16) line 4	Kwak’wala	gloss	paint=2.LOC=DEF boy-FV Acc-4.LOC house	page 11
+(16) line 5	Alexis Black	translation	‘A boy is painting a house’	page 11
+§3.1	Alexis Black	note	The preceding examples have examined discourse-new and discourse- old contexts, and have indicated that there is no alternation of –da on the basis of these contexts. It is also possible to draw a distinction between hearer-new and hearer-old (Prince 1992). We continue to see the identical asymmetry by syntactic position in these contexts. For example, mention of “the sun” or “the moon” is considered hearer-old. In (17) and (18) we observe reference to these entities in subject position marked by –da, while those in non-subject position are marked by LOC alone.	page 11
+§3.1	Alexis Black	name	Prince	Ellen F. Prince (1992), hearer-old and hearer-new
+(17) line 1	Alexis Black	note	Subject position (discourse-new, hearer-old)	page 11, over the example
+(17a) line 1	Kwak’wala	phonetic	[náχwaloχda t’lísalaχ]	page 11
+(17a) line 2	Alexis Black	citation	(VF)	page 11, the tag at the right of the IPA
+(17a) line 3	Kwak’wala	transcription	naḵwala=ox̱=da t’łisa̱la=x̱	page 11
+(17a) line 4	Kwak’wala	gloss	bright=2.LOC=DEF sun=VIS	page 11
+(17a) line 5	Alexis Black	translation	‘The sun is bright (today)’	page 11
+(17b) line 1	Kwak’wala	phonetic	[naqwaloχda m̉ə̱kwalá χwa ɢánutlɛ]	page 11
+(17b) line 2	Alexis Black	citation	(VF)	page 11, the tag at the right of the IPA
+(17b) line 3	Kwak’wala	transcription	naḵwala=ox̱=da m̉a̱kwala x̱=ox̱ g̱anutłe	page 11
+(17b) line 4	Kwak’wala	gloss	bright=2.LOC=DEF moon Acc=2.LOC night	page 11
+(17b) line 5	Alexis Black	translation	‘The moon is bright tonight’	page 11
+(18) line 1	Alexis Black	note	Object position (discourse-new, hearer-old)	page 11, over the example
+(18a) line 1	Kwak’wala	phonetic	[nəp'idi giɢamejəsa t’łisala laχwa ik’i]	page 11
+(18a) line 2	Alexis Black	citation	(VF)	page 11, the tag at the right of the IPA
+(18a) line 3	Kwak’wala	transcription	na̱p'-x’id=i gig̱a̱mej=s=a=∅ t’łisala	page 11
+(18a) line 4	Kwak’wala	gloss	throw-INCH=3.LOC chief=OBL=4.LOC=IND sun	page 11
+(18a) line 5	Kwak’wala	transcription	lax̱=ox̱ ik’i	page 11
+(18a) line 6	Kwak’wala	gloss	PREP=2.LOC sky	page 11
+(18a) line 7	Alexis Black	translation	‘God threw the sun at the sky’	page 11
+(18b) line 1	Kwak’wala	phonetic	[nəp'idəns giɢamejəsa m̉ə̱kwalaχ laχwa t’it’ut’u]	page 11
+(18b) line 2	Alexis Black	citation	(VF)	page 11, the tag at the right of the IPA
+(18b) line 3	Kwak’wala	transcription	na̱p'-x’id=a̱ns gig̱a̱mej=s=a=∅ ma̱kwala=x̱	page 11
+(18b) line 4	Kwak’wala	gloss	throw-INCH=1.pl.POSS chief=OBL=4.LOC= IND moon=VIS	page 11
+(18b) line 5	Kwak’wala	transcription	lax̱=ox̱ t’i-t’ut’u	page 11
+(18b) line 6	Kwak’wala	gloss	PREP=2.LOC RED=star	page 11
+(18b) line 7	Alexis Black	translation	‘(Our) God threw the moon at the stars’	page 11
+§3.1	Alexis Black	note	These data have clearly illustrated the non-applicability of the familiar/novel distinction with regards to –da. The alternation between –da-marked NPs in subject position as opposed to object and oblique positions, however, is telling. While –da is licit in non-subject positions (as can be seen in (11a), for example), a preliminary examination of the texts compiled by Hunt and Boas and stories elicited in current fieldwork indicates a higher propensity for –da to occur with subjects. I will return to this asymmetry in section 4.	page 11
+§3.2	Alexis Black	heading	3.2 Uniqueness	page 12
+§3.2	Alexis Black	note	Many theorists have proposed that uniqueness, rather than familiarity, plays an essential role in the denotation of the English definite determiner (Russell 1905; Hawkins 1978, 1999; Kadmon 1992, 2001; Heim 1991; Abbott 1999; Lyons 1999; Gillon 2006). Differences emerge primarily in whether uniqueness is presupposed (c.f. Frege 1892) or asserted (c.f. Russell 1905)9. Regardless, the crucial observation is the following: the requires the existence of a single referent, while a implies the existence of alternatives. This is demonstrated in the examples in (19).	page 12
+footnote 9	Alexis Black	note	This division was noted by Gillon (2006)	page 12, footnote 9
+§3.2	Alexis Black	name	Hawkins	John A. Hawkins (1978, 1991), definiteness and indefiniteness
+§3.2	Alexis Black	name	Abbott	Barbara Abbott (1999), a unique theory of definiteness
+§3.2	Alexis Black	name	Lyons	Christopher Lyons (1999), definiteness
+§3.2	Alexis Black	name	Frege	Gottlob Frege (1892), uniqueness presupposed
+(19a) line 1	Alexis Black	note	The king is on holiday.	page 12, an English sentence
+(19a) line 2	Alexis Black	note	Only one king in context	page 12, the sentence's reading, right of an arrow
+(19b) line 1	Alexis Black	note	A king is on holiday.	page 12, an English sentence
+(19b) line 2	Alexis Black	note	Implies “one, out of many”	page 12, the sentence's reading, right of an arrow
+§3.2	Alexis Black	note	The extension of this concept to plurals and mass nouns poses some complications; for the remainder of this paper I assume the formal definition of maximality as presented in Gillon (2006). Her analysis relies on the notion of the supremum (Link 1983), the maximal individual sum of the members in a predicate. If a single atom is a member of the predicate, it is the maximal sum. In Gillon’s definition of the (see (21)), uniqueness is derived through the intersection of the supremum operation with domain restriction.	page 12
+§3.2	Alexis Black	name	Link	Godehard Link (1983), the supremum
+§3.2	Alexis Black	note	For example, in the following exchange in English, the breakdown in (20a) can be traced back to a violation of uniqueness:	page 12
+(20) line 1	Alexis Black	note	Context: Two interlocutors sit across from each other. Two pencils lie on the table in front of one of the interlocutors.	page 12, the context over the example
+(20a) line 1	Alexis Black	note	Interlocuter1: *Give me the pencil	page 12, an English sentence, * marking it ill-formed
+(20b) line 1	Alexis Black	note	Interlocuter1: Give me a pencil	page 12, an English sentence
+§3.2	Alexis Black	note	Adopting Gillon’s formalism of the (given in (21)), the violation occurs due to a mismatch between the need for a maximal individual and the maximal sum given by the domain (which yields a supremum that is not an atom).	page 12
+(21) line 1	Alexis Black	note	[[the]] = max(λx[P(x) ∧ C(x)]); where C = domain restriction	page 12, the denotation of the, a formula
+(21a) line 1	Alexis Black	note	*Give me the pencil	page 12, an English sentence, * marking it ill-formed
+(21a) line 2	Alexis Black	note	Cthe pencil = {pencili, pencilii}	page 12, the domain right of the sentence, its subscripts set on the line as the text layer has them
+(21a) line 3	Alexis Black	note	[[the pencil]] = max(λx[pencil’(x) ∧ C(x)]) = undefined	page 12, the denotation the sentence yields, a formula
+§3.2	Alexis Black	note	The same situation in Kwak’wala, however, is entirely licit:	page 12
+(22) line 1	Kwak’wala	phonetic	[tsólasɛn χáda k’jádaju]	page 12
+(22) line 2	Kwak’wala	transcription	tso-la-as=s=ən x̱=a=da k’adayu	page 12
+(22) line 3	Kwak’wala	gloss	give-Imp-2.sg=Obl=1.sg Acc=4.LOC=DEF pencil	page 12
+(22) line 4	Alexis Black	translation	‘Give me the pencil’	page 12
+§3.2	Alexis Black	note	We might thus conclude that –da does not encode uniqueness. The data, however, require a bit more contemplation. Kwak’wala plural morphology crucially differs from English in that it is generally considered to be optional. Under a uniqueness/maximality analysis of –da, therefore, we do not simply predict the same failure as in English for “Give me the pencil,” when two pencils are in the domain. Rather, since Kwak’wala bare nouns may be interpreted as referring to more than one entity10, we would predict that the Kwak’wala equivalent of “Give me the pencil” could target the set of pencils in the domain. This, however, is not the case; rather, the consultant demonstrates sharp judgments that the interlocutor’s command targets a single pencil. This uniqueness effect is not amenable to a definite analysis of –da, which would predict infelicity in the given context. Furthermore, the effect is not restricted to the use of –da, for the consultant responds similarly to the same context when bare LOC morphology modifies the noun phrase.	page 13
+footnote 10	Alexis Black	note	At least, hypothetically. The constraints on non-singular interpretations, however, have not yet been investigated.	page 13, footnote 10
+§3.2	Alexis Black	note	Gillon employs a number of maximality tests with plural and mass nouns in her analysis of Sḵwx̱wú7mesh. These include contexts similar to (23).	page 13
+§3.2	Alexis Black	language	Sḵwx̱wú7mesh	Central Salish, Gillon's data
+(23)	Alexis Black	note	I went hunting yesterday. I saw four bears. I killed the bears, but one of them escaped.	page 13, an English passage, the test context
+§3.2	Alexis Black	note	Native speaker judgments of this and similar English contexts should, according to the given denotation of the, reject this sequence of utterances; however, I have found that judgments vary (my own, for example, is that this sequence is perfectly acceptable). This may suggest the need for a more flexible plural denotation (i.e. that the does not always denote a supremum) than previously assumed (c.f. Brisson 1998). For example, it may indicate that maximality is an implicature of English, rather than a presupposition. To the extent that there are stronger ungrammaticality judgments associated with these contexts in English than in Sḵwx̱wu7mesh, however, such an analysis would still fail to account for the gradient differences between the two languages. Interestingly, this issue is similarly raised by the Kwak’wala data. As shown in (24), the use of the “definite” determiner in a test context is marginal:	page 13
+§3.2	Alexis Black	name	Brisson	Christine Brisson (1998), maximality
+(24) line 1	Kwak’wala	phonetic	[muwida bibibəgwanəm laχ pa:tiʔɛs steisi. mitsi steisiʔɛχa(#da) bibibəgwanəm. k’is mitsaχa nəmukw bəgwanəma]	page 13
+(24) line 2	Kwak’wala	transcription	mu=i=da bi-bi-ba̱gwana̱m lax̱= pati=s	page 13
+(24) line 3	Kwak’wala	gloss	four=3.LOC=DEF RED-RED-man PREP=LOC/DEF party=OBL	page 13
+(24) line 4	Kwak’wala	transcription	Stacey. mitsa=i Stacey=x̱=a=(#da)	page 13
+(24) line 5	Kwak’wala	gloss	Stacey kiss=3.LOC Stacey=ACC=4.LOC=(DEF)	page 13
+(24) line 6	Kwak’wala	transcription	bi-bi-ba̱gwana̱m. k'is mitsa=x̱=a	page 13
+(24) line 7	Kwak’wala	gloss	RED-RED-man. NEG kiss=ACC=3.LOC	page 13
+(24) line 8	Kwak’wala	transcription	nimukw ba̱gwana̱m=a	page 13
+(24) line 9	Kwak’wala	gloss	one man=VIS	page 13
+(24) line 10	Alexis Black	translation	‘Four men came to Stacey’s party. Stacey kissed the men. Stacey didn’t kiss one of the men.’	page 14
+§3.2	Alexis Black	note	We have thus far determined that familiarity cannot account for –da’s function in Kwak’wala; however, our tests have yielded inconclusive results regarding uniqueness. A related concept that has been shown to interact with the definite/indefinite distinction is specificity. Perhaps the gradient readings associated with the preceding examples derive from this conceptually similar designation.	page 14
+§3.3	Alexis Black	heading	3.3 Specificity	page 14
+§3.3	Alexis Black	note	It has long been noted that specificity is logically separable from definiteness. For example, it is possible to use the definite English determiner in a non-specific context (e.g. The murderer of Smith is insane) (Donnellan 1966), and it is equally possible to use specific indefinites (e.g. John will marry a girl his parents don’t approve of) (Partee 1972). Some languages are known to morphologically encode specificity in their determiner system (e.g. Turkish, Enç 1991). It is therefore possible that –da is restricted to a specific/non-specific function. Ludlow and Neale (1991) define specificity as a feature that arises from the conflict between a speaker’s knowledge underlying the expressed proposition and the proposition that the speaker intends to communicate. In other words, if the speaker has some reason to communicate a proposition as indefinite (for example, if the speaker has some reason to believe the hearer is unfamiliar with the given entity), but has a unique referent in mind, the resulting proposition represents a specific indefinite.	page 14
+§3.3	Alexis Black	name	Donnellan	Keith Donnellan (1966), definite descriptions
+§3.3	Alexis Black	name	Partee	Barbara Partee (1972), specific indefinites
+§3.3	Alexis Black	language	Turkish	a language that marks specificity on its determiners
+(25)	Alexis Black	note	Specificity:	page 14, over the example
+(25a) line 1	Alexis Black	note	Speaker’s Grounds:	page 14, the term defined
+(25a) line 2	Alexis Black	note	the proposition that is the object of the most relevant belief furnishing the grounds for an utterance	page 14, the term's definition
+(25b) line 1	Alexis Black	note	Proposition meant:	page 14, the term defined
+(25b) line 2	Alexis Black	note	the proposition(s) a speaker intends to communicate	page 14, the term's definition
+(25c) line 1	Alexis Black	note	Proposition expressed:	page 14, the term defined
+(25c) line 2	Alexis Black	note	the proposition expressed by the utterance	page 14, the term's definition
+(25)	Alexis Black	citation	(Ludlow and Neale 1991:176)	page 14, the source under the definitions
+§3.3	Alexis Black	note	In Kwak’wala, these mismatches are irrelevant to determiner usage. For example, the same sentence is used to express “A doctor is coming over today,” irrespective of the various represented permutations of speaker vs addressee knowledge:	page 14
+(26) line 1	Kwak’wala	phonetic	[gʲaχƛida dagʷəda χʷaʔnalax]	page 14
+(26) line 2	Kwak’wala	transcription	gax̱-tł=i=da dagwada x̱=ox̱=da nala=x	page 14
+(26) line 3	Kwak’wala	gloss	come-FUT=3.LOC=DEF doctor ACC=2.LOC=DEF day=VIS	page 14
+(26) line 4	Alexis Black	translation	‘A/The doctor is coming over today’	page 14
+(26)	Alexis Black	note	Test contexts:	page 15, over the test contexts
+(26a) line 1	Alexis Black	note	Speaker grounds (familiar & specific); Addressee (novel)	page 15, the test context's heading
+(26a) line 2	Alexis Black	note	I’ve been sick, and have had a lot of doctors coming to see me b/c it’s an interesting disease. I get a phone call, and it’s one of the doctors telling me that he’s coming over later. I hang up, and turn to you and tell you . . .	page 15, the test context, an English passage
+(26b) line 1	Alexis Black	note	Speaker grounds (familiar & specific); Addressee (familiar & specific)	page 15, the test context's heading
+(26b) line 2	Alexis Black	note	Let’s say my cousin is a doctor – and you know that my cousin is a doctor. I’ve been hoping that he’s going to visit for some time (b/c I think that he’ll be a good match for our mutual friend). I get a phone call, and it’s him, telling me that he’s coming over later. I hang up, and turn to you and tell you . . .	page 15, the test context, an English passage
+(26c) line 1	Alexis Black	note	Speaker grounds (familiar, non-specific); Addressee (novel)11	page 15, the test context's heading
+footnote 11	Alexis Black	note	This context is not generally used in tests of specificity	page 15, footnote 11
+(26c) line 2	Alexis Black	note	I’ve been sick, and have had lots of doctors coming to see me. The secretary calls me and tells me that one of them is coming over to visit this afternoon. I hang up, and turn to you and tell you . . .	page 15, the test context, an English passage
+(26d) line 1	Alexis Black	note	Speaker grounds (novel); Addressee (novel)	page 15, the test context's heading
+(26d) line 2	Alexis Black	note	Let’s say we’re in a class, and I’ve been getting visits from all different professionals. A lawyer one day, an astronaut another day – I know that the theme of the day is “medical professionals.” You ask me: Who’s coming today? I answer . . .	page 15, the test context, an English passage
+§3.3	Alexis Black	note	These examples demonstrate the target NP in subject position; despite the fact that this is an unfamiliar topic introduced to the discourse, the subject NP is marked by –da. The Kwak’wala translation for these contexts further contrasts with the English counterpart of the specific and non-specific indefinites above. When the sentence is changed to control for syntactic position, the previously observed asymmetry again emerges. Given the same contexts as in (26), the sentence “I’m going to see a doctor today” is consistently given without –da, as in (27):	page 15
+(27) line 1	Kwak’wala	phonetic	[dùχʷaƛáƛɛn χa dágʷəda χʷanalax]	page 15
+(27) line 2	Alexis Black	citation	(VF)	page 15, the tag at the right of the IPA
+(27) line 3	Kwak’wala	transcription	duḵwatła-tł-a̱n x̱=a=∅ dagwada x̱=ox̱=nala=x̱	page 15
+(27) line 4	Kwak’wala	gloss	see-Fut-1.sg. Acc=4.LOC=Ind doctor Acc=2.LOC=day=VIS	page 15
+(27) line 5	Alexis Black	translation	‘I’m going to see a doctor today.’	page 15
+§3.3	Alexis Black	note	We have now conclusively determined that –da does not denote familiarity, nor does it interact with specificity. It does not appear to encode uniqueness, but may be sensitive to maximality. We will finally consider two other features that have been hypothesized to characterize determiner heads: assertion of existence (Matthewson 1998) and domain restriction (Gillon 2006).	page 15
+§3.4	Alexis Black	heading	3.4 Assertion of existence	page 16
+§3.4	Alexis Black	note	Matthewson (1998) describes Salishan determiners as operating on an ‘assertion of existence’ contrast. Assertion of existence differs from the existential force of definiteness in that it informs the discourse participants of the truth/existence of a given entity. Definites presuppose this information, and are thus subject to accommodation. Assertion of existence determiners, on the other hand, will not be subject to accommodation. Matthewson argues that all assertion of existence determiners will move outside the scope of a non–factual operator (a category whose members can be language-dependent), whereas non- assertion of existence determiners will be licensed only in the scope of non- factual operators.	page 16
+§3.4	Alexis Black	language	Salishan	the determiners Matthewson describes
+§3.4	Alexis Black	note	The morpheme –da is an unlikely candidate for the “assertion of existence” parameter. An important distributional fact about –da, as mentioned above, is that it is only licensed in conjunction with LOC markers. The locative markers are deictic – in other words, their interpretation is contingent on the context of the discourse, and their use is to locate the referent in the space of discourse. This function is not compatible with entities whose existence is in doubt; in fact, their usage would appear to assert/presuppose existence. As –da cannot occur without the use of one of these spatially anchored locative morphemes, we can therefore reject the idea that –da itself encodes assertion of existence. There is evidence, however, that “assertion of existence” is directly encoded in the Kwak’wala grammar. Three of the four locative markers denote deictic spaces. The proximal marker (1.LOC) references an entity within an intimate/immediate relationship to the speaker; the medial (2.LOC) indicates that the NP is within the common ground, or visible; the distal marker (3.LOC) appears to denote a referent that is not present, or is novel to the discourse. This same function is not shared, however, by the non-subjective –a (4.LOC). The fourth locative marker appears to be used, rather, as a default – it makes no claim about the deictic space of the referent. I hypothesize that the 4.LOC marker is therefore the non-deictic version of the LOC markers – and that this non-deictic form boils down to assertion of existence.	page 16
+§3.4	Alexis Black	note	Evidence to support these hypotheses comes in the form of negated sentences. First, I have hypothesized that locative markings entail the existence of the noun they refer to. Negative existential sentences do not display any locative marking, as exemplified in (28a). When locative morphology is inserted into the same structure, the negative existential reading no longer obtains; rather, the sentence is a standard case of sentential negation (28b).	page 16
+(28) line 1	Alexis Black	note	Negated sentences	page 16, over the example
+(28a) line 1	Kwak’wala	phonetic	[k’ijós bəgwánəm]	page 16
+(28a) line 2	Kwak’wala	transcription	k'ios ba̱gwana̱m	page 16
+(28a) line 3	Kwak’wala	gloss	NEG man	page 16
+(28a) line 4	Alexis Black	translation	‘There is no man’	page 16
+(28a) line 5	Alexis Black	translation	‘*He is not a man’	page 16
+(28b) line 1	Kwak’wala	phonetic	[k’isóχ bəgwánəm]	page 17
+(28b) line 2	Kwak’wala	transcription	k’is=ox̱ ba̱gwana̱m	page 17
+(28b) line 3	Kwak’wala	gloss	NEG=2.LOC man	page 17
+(28b) line 4	Alexis Black	translation	‘This/He is not a man’	page 17
+(28b) line 5	Alexis Black	translation	‘*There is no man’	page 17
+§3.4	Alexis Black	note	Negation also provides evidence for the hypothesis that the 4.LOC marker similarly entails assertion of existence, despite its lack of spatial deictic features. This is demonstrated in (29a) and (b), where a contrast between a dog asserted to exist vs. one not asserted to exist is reflected in an alternation between locative marking and a bare case marker (see also example (11c)).	page 17
+(29) line 1	Alexis Black	note	Negated sentences, ctd.	page 17, over the example
+(29a) line 1	Kwak’wala	transcription	k'is=en duḵwa̱la x̱=a w’at’si	page 17
+(29a) line 2	Kwak’wala	gloss	NEG=1.sg see ACC=4.LOC dog	page 17
+(29a) line 3	Alexis Black	translation	‘I don’t see the dog’	page 17
+(29b) line 1	Kwak’wala	transcription	k’ios=en duḵwa̱la=x̱ w’at’si	page 17
+(29b) line 2	Kwak’wala	gloss	NEG=1.sg see=Acc dog	page 17
+(29b) line 3	Alexis Black	translation	‘I don’t see any dog’	page 17
+§3.4	Alexis Black	note	More generally, this hypothesis predicts a difference in scopal behavior between the arguments marked by locative morphology versus arguments that are unmarked for locative: unmarked arguments should be restricted to narrow scope contexts, while locative-marked arguments will force wide scope interpretations. Preliminary tests have yielded some support for this hypothesis. For example, in the following examples with the strong quantifier wi’la ‘all,’ we observe that both the deictically-anchored and the ‘assertion of existence’ marked arguments are restricted to specific interpretations. Furthermore, it is important to note that –da is not responsible for forcing these wide-scope interpretations.	page 17
+(30) line 1	Kwak’wala	phonetic	[wíʔlaʔmoχda tsitsítsedaχə mítsaχwoχ(da) ginánem]	page 17
+(30) line 2	Alexis Black	citation	(VF)	page 17, the tag at the right of the IPA
+(30) line 3	Kwak’wala	transcription	wíl'a-m’=ox̱=da tsi-tsí-tsidaḵ mítsa=χ=oχ(=da)	page 17
+(30) line 4	Kwak’wala	gloss	all-DISC=2.LOC=DEF RED-RED-woman kiss=ACC=2.LOC=DEF	page 17
+(30) line 5	Kwak’wala	transcription	ginánem	page 17
+(30) line 6	Kwak’wala	gloss	child	page 17
+(30) line 7	Alexis Black	translation	‘Every woman kissed a child’	page 17
+(30) line 8	Alexis Black	speaker comment	Consultant’s comment: There’s only one child; it can’t be different children, unless you make it (child) plural.	page 17, the consultant's comment
+(31) line 1	Kwak’wala	phonetic	[wíʔlaʔmida tsidaḵ yáḵa̱ntamaχa bəgwánəm laχa bijáʔilas]	page 17
+(31) line 2	Alexis Black	citation	(VF)	page 17, the tag at the right of the IPA
+(31) line 3	Kwak’wala	transcription	wíl'a-m’=i=da tsi-tsidaḵ jaqentama=x̱=a	page 17
+(31) line 4	Kwak’wala	gloss	all-DISC=3.LOC=DEF RED-woman talk=ACC=4.LOC	page 17
+(31) line 5	Kwak’wala	transcription	ba̱gwana̱m lax̱=a biya’ilas	page 17
+(31) line 6	Kwak’wala	gloss	man PREP=4.LOC bar	page 17
+(31) line 7	Alexis Black	translation	‘Every woman talked to a man at the bar’	page 17
+(31) line 8	Alexis Black	speaker comment	Consultant’s comment: There’s only one man.	page 18, the consultant's comment
+§3.4	Alexis Black	note	The current analysis predicts that arguments without locative marking will be licensed by other non-factual operators (e.g. modals, questions, imperatives, and intensional verbs). A full exploration of these contexts is unfortunately beyond the scope of this paper. In the meantime, therefore, I tentatively hypothesize that ‘assertion of existence’ is a relevant concept for Kwak’wala DPs, but only within the LOC determiner category. While the evidence presented here is not sufficient to conclude the exact relationship between ‘assertion of existence’ and the LOC clitics, it is sufficient for us to conclude that –da is not responsible for the wide-scope behavior of locative- marked DPs.	page 18
+§3.5	Alexis Black	heading	3.5 Domain Restriction	page 18
+§3.5	Alexis Black	note	Gillon (2006, 2009) proposes that the universal property of determiners cross-linguistically is domain restriction. Formally, this property derives from an unpronounced variable C, which represents the characteristic function of the set of individuals provided by the discourse context (Gillon 2009:189). Some languages have determiners that consist of only this property (e.g. kwi in Sḵwx̱ú7mesh), while other determiners denote domain restriction as well as other semantic properties (e.g. uniqueness, as in English the). As was noted in the previous section, Kwak’wala non-negated argument phrases are obligatorily marked by the locative clitics, which bear deictic features that actively situate the referent within the discourse space. The ‘definite’ determiner, however, is not obligatory, and never occurs without accompanying locative morphology. This suggests that domain restriction, when conceived of at the level proposed by Gillon, takes place via the denotation of the locative clitics – but not via -da.	page 18
+§3.5	Alexis Black	note	We have now determined that –da does not encode familiarity, specificity, or assertion of existence. There is very little evidence, furthermore, that –da is sensitive to uniqueness/maximality. If this ‘determiner’ does not encode any of these properties, what is its function in the DP?	page 18
+§4	Alexis Black	heading	4 The proposal: ostension	page 18
+§4	Alexis Black	note	The -da morpheme is not limited to nominal phrases; rather, it is also found in 3rd person pronominal and demonstrative adverbial constructions. In the following section, I will briefly visit the properties of Kwak’wala pronouns. As will be shown, -da is an optional component of pronominal forms. The pragmatic contexts that accompany the use of pronominal –da are hypothesized to parallel those that characterize full NP uses of –da; therefore, it is useful to examine these contexts for determining –da’s denotation. The 3rd person pronoun enclitics described by Boas (1947) as well as those observed in contemporary speech can be found in the charts in (32). The third person pronoun is homophonous with the case marker (i.e. Nominative = null; Accusative = x̱; Oblique = s); however, these forms can be additionally modified by the locative and visibility deictic morphology. Boas terms these the “demonstrative pronominals.” The label “visibile/invisible” is kept for simplicity; however, it should be noted that this is neither a sufficient nor required feature for use of the so-called “visible/invisible” forms.	page 18
+(32)	Alexis Black	note	The enclitic pronoun series of Kwak’wala	page 19, over the tables
+(32a)	Alexis Black	note	Kwakiutl (1947)	page 19, on the left, the table's title
+(32a)	Alexis Black	note	Demonstrative 3rd person Pronominal	page 19, on the left, the head over the cases
+(32a)	Alexis Black	note	NOM	page 19, on the left, a column's head
+(32a)	Kwak’wala	transcription	-∅+	page 19, on the left, under NOM, a brace from it down to the forms under LOC+VIS
+(32a)	Alexis Black	note	ACC	page 19, on the left, a column's head
+(32a)	Kwak’wala	transcription	-χ+	page 19, on the left, under ACC, a brace from it down to the forms under LOC+VIS
+(32a)	Alexis Black	note	OBL	page 19, on the left, a column's head
+(32a)	Kwak’wala	transcription	-s+	page 19, on the left, under OBL, a brace from it down to the forms under LOC+VIS
+(32a)	Alexis Black	note	Anchor	page 19, on the left, a column's head
+(32a)	Alexis Black	note	LOC+VIS	page 19, on the left, a column's head
+(32a)	Alexis Black	note	1-vis	page 19, on the left, the row's head
+(32a)	Kwak’wala	transcription	-kʲ	page 19, on the left, 1-vis, under LOC+VIS
+(32a)	Alexis Black	note	1-inv	page 19, on the left, the row's head
+(32a)	Kwak’wala	transcription	-gʲaʔ	page 19, on the left, 1-inv, under LOC+VIS
+(32a)	Alexis Black	note	2-vis	page 19, on the left, the row's head
+(32a)	Kwak’wala	transcription	-oχ	page 19, on the left, 2-vis, under LOC+VIS
+(32a)	Alexis Black	note	2-inv	page 19, on the left, the row's head
+(32a)	Kwak’wala	transcription	-oʔ	page 19, on the left, 2-inv, under LOC+VIS
+(32a)	Alexis Black	note	3-vis	page 19, on the left, the row's head
+(32a)	Kwak’wala	transcription	-iq	page 19, on the left, 3-vis, under LOC+VIS
+(32a)	Alexis Black	note	3-inv	page 19, on the left, the row's head
+(32a)	Kwak’wala	transcription	-iʔ	page 19, on the left, 3-inv, under LOC+VIS
+(32b)	Alexis Black	note	Gway’i (2010)	page 19, on the right, the table's title
+(32b)	Alexis Black	note	Demonstrative 3rd person Pronominal	page 19, on the right, the head over the cases
+(32b)	Alexis Black	note	NOM	page 19, on the right, a column's head
+(32b)	Kwak’wala	transcription	-∅+	page 19, on the right, under NOM, a brace from it down to the forms under LOC+VIS
+(32b)	Alexis Black	note	ACC	page 19, on the right, a column's head
+(32b)	Kwak’wala	transcription	-χ+	page 19, on the right, under ACC, a brace from it down to the forms under LOC+VIS
+(32b)	Alexis Black	note	OBL	page 19, on the right, a column's head
+(32b)	Kwak’wala	transcription	-s+	page 19, on the right, under OBL, a brace from it down to the forms under LOC+VIS
+(32b)	Alexis Black	note	Distance	page 19, on the right, a column's head
+(32b)	Alexis Black	note	LOC+VIS	page 19, on the right, a column's head
+(32b)	Alexis Black	note	1	page 19, on the right, the row's head
+(32b)	Kwak’wala	transcription	-gʲa	page 19, on the right, 1, under LOC+VIS
+(32b)	Alexis Black	note	2-vis	page 19, on the right, the row's head
+(32b)	Kwak’wala	transcription	-oχ	page 19, on the right, 2-vis, under LOC+VIS
+(32b)	Alexis Black	note	2-inv	page 19, on the right, the row's head
+(32b)	Kwak’wala	transcription	-oʔ	page 19, on the right, 2-inv, under LOC+VIS
+(32b)	Alexis Black	note	3-vis	page 19, on the right, the row's head
+(32b)	Kwak’wala	transcription	-i	page 19, on the right, 3-vis, under LOC+VIS
+(32b)	Alexis Black	note	3-inv	page 19, on the right, the row's head
+(32b)	Kwak’wala	transcription	-ɛʔ	page 19, on the right, 3-inv, under LOC+VIS
+§4	Alexis Black	note	There is no mention in the Boas data of pronominal forms that combine with –da. However, pronominal forms with –da are common in the current dialect (and other Wakashan languages, e.g. Haisla (Bach, et al, see http://www.people.umass.edu/ebach/xles-3.htm)):	page 19
+(33a) line 1	Alexis Black	note	Context: A toy frog had been thrown to the floor	page 19, the context over the part
+(33a) line 2	Kwak’wala	phonetic	[lɪmóχ jáʔxidoχda]	page 19
+(33a) line 3	Alexis Black	citation	(VF)	page 19, the tag at the right of the IPA
+(33a) line 4	Kwak’wala	transcription	la̱-m=ox̱ jax7id=ox̱=da	page 19
+(33a) line 5	Kwak’wala	gloss	Aux-Disc=2.Loc die=2.Loc=Def	page 19
+(33a) line 6	Alexis Black	translation	‘He died’	page 19
+(33a) line 7	Alexis Black	speaker comment	Consultant’s comment: ‘He died, that slimy frog’	page 19, the consultant's comment
+(33a) line 8	Alexis Black	citation	(VG)	page 19, the tag at the right of the comment
+(33b) line 1	Alexis Black	note	Context: One of the men at a party didn’t get kissed, but all the other men did	page 19, the context over the part
+(33b) line 2	Kwak’wala	phonetic	[jiχoχda k’is mitsatsu]	page 19
+(33b) line 3	Alexis Black	citation	(VF)	page 19, the tag at the right of the IPA
+(33b) line 4	Kwak’wala	transcription	ju=x̱=ox̱=da k’is mitsa-su	page 19
+(33b) line 5	Kwak’wala	gloss	2.Dem-Acc=2.Loc= Def. Neg kiss-Pass	page 19
+(33b) line 6	Alexis Black	translation	‘That one didn’t get kissed’	page 19
+(33b) line 7	Alexis Black	citation	(VG)	page 19, the tag at the right of the translation
+(33c) line 1	Kwak’wala	phonetic	[t’saʔja nukwoχda]	page 19
+(33c) line 2	Kwak’wala	transcription	tsaya=nukw=ox̱=da	page 19
+(33c) line 3	Kwak’wala	gloss	youger.sibling=have=2.Loc=Def	page 19
+(33c) line 4	Alexis Black	translation	‘That person has a young person or sibling’	page 19
+(33c) line 5	Alexis Black	citation	(VG)	page 19, the tag at the right of the translation
+§4	Alexis Black	note	As the translations indicate – the insertion of –da gives a demonstrative flavor to the constructions. Even more direct evidence of the nature of –da’s contribution is the fact that pronominal demonstratives with –da are often judged infelicitous if not accompanied by a pointing-gesture.	page 20
+§4	Alexis Black	note	This may be somewhat unexpected. Demonstratives are frequently conceived of in English as the combination of locational deixis and definiteness. In Kwak’wala, the Locative markers are, at least partially, locational deictic elements – it would therefore seem reasonable, upon noting this demonstrative flavor in translation and use, to assume that –da contributes the definite portion of the demonstrative complex12. I have already shown that this position is untenable – -da is simply not a definite marker. Deixis, on the other hand, is itself composed of many features (Gerner 2009). We might hypothesize, then, that while the LOC markers denote spatial deixis, -da represents a separate deictic feature. One such feature that appears particularly appropriate is OSTENSIVE (Gerner 2009). Ostensive demonstratives contrast with non- ostensive demonstratives in that they often require a physical gesture, and are typically used when “confusion with other potential referents exists (Gerner 2009:62).” For example, in Lisu, a Tibeto-Burman language that contrasts demonstratives on an ostensive dimension, the non-ostensive demonstrative is used when referring to a mountain which is easily distinguishable from other referents in the context. The ostensive demonstrative, on the other hand, is used when the referenced mountain is a part of a range – and therefore potentially confusable with respect to the other mountains in context.	page 20
+footnote 12	Alexis Black	note	This assumes a referential English-type demonstrative; it should be noted that other languages (e.g. Salishan) employ demonstratives that lack this presuppositional component (Henry Davis, p.c.)	page 20, footnote 12
+§4	Alexis Black	language	Lisu	a Tibeto-Burman language with ostensive demonstratives
+§4	Alexis Black	note	This characterization of –da based on pronominal contextsis also supported by the deictic contrasts employed in noun phrases. For example, in the following situations, the speaker does not use –da when referring to a pencil that she is holding (and hence cannot easily point to, nor has any need to disambiguate by pointing to). When the pencil is lying on the table, it is typically marked by a medial LOC marker; however, it can still be marked by the proximal locative deictic, but only if this marker is accompanied by –da and a pointing gesture. The medial distal marker in this context does not have to be accompanied by –da. If it is spoken with –da, a pointing gesture is again preferred.	page 20
+(34) line 1	Alexis Black	note	Context: Speaker is holding a pen	page 20, the context over the example
+(34) line 2	Kwak’wala	transcription	ax̱ex̱sd=en x̱-a=x̱=ga k’adayu.	page 20
+(34) line 3	Kwak’wala	gloss	want=1.sg ACC-4.LOC=ACC=1.LOC pencil	page 20
+(34) line 4	Alexis Black	translation	‘I want this pen.’	page 20
+(34) line 5	Alexis Black	citation	(VF, VG)	page 20, the tag at the right of the translation
+(34) line 6	Alexis Black	speaker comment	Consultant’s comment: “It’s mine.”	page 20, the consultant's comment
+(35) line 1	Alexis Black	note	Context: The pencil is on the table – i.e., the speaker is not holding the pencil	page 21, the context over the example
+(35a) line 1	Kwak’wala	transcription	*ax̱ex̱sd=a̱n x̱=a=x̱=ga k’adayu.	page 21
+(35a) line 2	Kwak’wala	gloss	want=1.sg ACC-4.LOC=ACC=1.LOC pencil	page 21
+(35b) line 1	Kwak’wala	transcription	ax̱ex̱sd=a̱n x̱=ox̱=da k’adayu.	page 21
+(35b) line 2	Kwak’wala	gloss	want=1.sg ACC-2.LOC= DEF pencil	page 21
+(35c) line 1	Kwak’wala	transcription	ax̱ex̱sd=a̱n x̱=a=x̱=ga=da k’adayu.	page 21
+(35c) line 2	Kwak’wala	gloss	want=1.sg ACC-4.LOC=ACC=1.LOC=DEF pencil	page 21
+§4	Alexis Black	note	It isn’t necessary for the speaker to be holding the item, or for the item to be visible, in order to use the proximal marker. However, as the following examples show, it is necessary for the item to be visible – and thus reference- able by a pointing gesture – if the speaker wishes to combine the proximal locative marker with –da.	page 21
+(36) line 1	Alexis Black	note	Context: There’s a special cookie that you know I really like, and I’ve been thinking about eating it – but it’s in my bag, because I’ve been saving it for later. I say, “I want that/my/the cookie”	page 21, the context over the example
+(36a) line 1	Kwak’wala	transcription	#ax̱ex̱sd=a̱n x=ga=da kuki	page 21
+(36a) line 2	Kwak’wala	gloss	want-1.sg ACC=1.LOC=DEF cookie	page 21
+(36a) line 3	Alexis Black	translation	‘I want the cookie’	page 21
+(36a) line 4	Alexis Black	speaker comment	Consultant’s comment: This is okay if it’s right in front of you (but not if it’s in your bag)	page 21, the consultant's comment
+(36b) line 1	Kwak’wala	transcription	ax̱ex̱sd=a̱n x=a=x̱=ga kuki	page 21
+(36b) line 2	Kwak’wala	gloss	want=1.sg ACC=4.LOC=3.PRO=1.LOC cookie	page 21
+(36b) line 3	Alexis Black	speaker comment	Consultant’s comment: You can say this if I all know where it is, I’ve been talking about it (but it’s in the bag at the time of utterance)	page 21, the consultant's comment
+§4	Alexis Black	note	These examples support the general hypothesis that –da signifies ostension. However, ‘ostension’ is merely a descriptive term. How can we formalize this concept? As discussed above, one function of ostension is to restrict the range of referents when there is a potential for confusion (Gerner 2009). This might lead us to hypothesize that –da operates as a contrastive-topic marker. However, disambiguating between multiple possible referents need not be ostension’s sole function. For example, English demonstratives are frequently used to achieve “mutually-recognized salience” for a referent/topic between discourse participants (Mount 2008). This might lead us to predict that –da will serve to mark focus. But are all demonstrations necessarily focus- sensitive? In English, at least, the answer is no. For example, consider the following context: Three friends have found a cookie lying on the ground, and are discussing who will eat the cookie. Two of the friends are known to really love sweets, and aren’t particularly fastidious. The third friend is much pickier, but suddenly says that he’s going to eat the cookie. In this context, it would be perfectly reasonable for one of his friends to exclaim, “YOU wanna eat that cookie?!” while pointing at the cookie. In this context, “that cookie” is not in focus, yet is accompanied by a demonstrative and a demonstration. The focused second person pronoun, on the other hand, cannot co-occur with a demonstrative (similarly to the distributional facts of Kwak’wala), and need not co-occur with a demonstration. These facts illustrate that demonstratives and demonstrations are not synonymous with focus. It is also worth noting that demonstrations and demonstratives in English are not synonymous with each other. In other words, it is possible to use demonstrations in English without an accompanying demonstrative (e.g. “Give me the pencil” while pointing at the pencil).	page 21
+§4	Alexis Black	name	Mount	Mount (2008), mutually-recognized salience
+§4	Alexis Black	note	As far as I am aware, there is as yet no comprehensive analysis that can account for these factors with regards to demonstration/demonstratives, nor are there studies that provide formal analyses of pure ostensive markers (e.g. as in Lisu). This makes the next step of our analysis difficult. Though I will not be able to solve this complex issue within this paper, I offer a few additional observations that may help lead us to a more concrete understanding of -da.	page 22
+§4	Alexis Black	note	The Kwak’wala examples addressed thus far give rise to the following question: if –da is equivalent to a pointing gesture, does this predict that it can only be used in contexts for which there is a visual referent? The answer, of course, is no – we already know that –da combines freely with the Distal (3.LOC) marker. As was noted in Section 2, the distal marker denotes that the associated NP is either not present, or is novel to the domain of discourse. I have proposed that the –i LOC marker, like all the LOC markers, functions to ‘assert the existence’ of the following NP in addition to its particular deictic meaning (i.e. ‘not-present’). It then follows that the –da is an abstract pointing gesture to an entity that we are asserting to exist, but that we cannot see. What is the function of this abstract gesture?	page 22
+§4	Alexis Black	note	I propose that –da serves both the pragmatic functions previously mentioned: disambiguation and promoting the salience of a referent. These functions, furthermore, interact with the LOC denotations. When -da combines with the distal LOC morpheme it serves both to restrict the domain (from the domain of entities) as well as mark the NP as salient to the discourse. This is the nature of the ‘abstract’ pointing gesture, and is functionally parallel to the ‘domain restriction’ feature proposed by Gillon for Sḵwx̱wú7mesh determiners. When –da combines with either a proximal or medial LOC morpheme, on the other hand, it will primarily function to mark salience (because objects that are already located in the space of the discourse are inherently less likely to be ambiguous). This proposal may explain the propensity for –da to occur in subject position: as subjects are often the topic of the given discourse context, - da naturally co-occurs with this position as it promotes the noun to salience. -da is not, however, limited to this syntactic position (as non-subjects may be salient, or may require disambiguation), nor are subjects required to be marked as salient.	page 22
+§5	Alexis Black	heading	5 The syntax of -da	page 23
+§5	Alexis Black	note	The semantic features familiarity, uniqueness, specificity, assertion of existence, and domain restriction have been claimed to characterize the D-head position of determiner phrases in English, Turkish, Sḵwx̱wu7mesh, Lillooet, and many other languages. We have established that –da does not fundamentally denote any of these features. This does not necessarily mean, however, that –da is not a D-head. Several syntactic features have been claimed to characterize D-heads cross-linguistically. In the following section, we will discuss the distribution of –da with respect to arguments and D-level noun phrases (e.g. possessives).	page 23
+§5	Alexis Black	language	Lillooet	Interior Salish
+§5.1	Alexis Black	heading	5.1 Argumenthood	page 23
+§5.1	Alexis Black	note	One of the most common diagnostics for determinerhood is the obligatory nature of the D-determiner for marking arguments (Longobardi 2001). As was noted in Section 2, -da as a nominal modifier is evidenced in all argument positions (i.e. subject position, accusative, oblique, and prepositional); however, it is not obligatory in any of these positions. The LOC morphemes in Kwak’wala are arguably obligatory for arguments (except in certain negated contexts; see section 3.4). This is demonstrated in (37a-c).	page 23
+§5.1	Kwak’wala	cited form	-da	page 23, in italics
+§5.1	Alexis Black	name	Longobardi	Longobardi (2001), the diagnostics for determinerhood
+(37) line 1	Alexis Black	note	LOC, not –da, is obligatory for argument DPs:	page 23, over the example
+(37a) line 1	Kwak’wala	phonetic	[tɛnxalida ʦɪdaq]	page 23
+(37a) line 2	Kwak’wala	transcription	denxala=i=(da) tsidaḵ	page 23
+(37a) line 3	Kwak’wala	gloss	sing=3.LOC=(DEF) woman	page 23
+(37a) line 4	Alexis Black	translation	‘The woman is singing’	page 23
+(37b) line 1	Kwak’wala	transcription	*denxala tsidaḵ	page 23
+(37b) line 2	Kwak’wala	gloss	sing woman	page 23
+(37c) line 1	Kwak’wala	transcription	*denxala=da tsidaḵ	page 23
+(37c) line 2	Kwak’wala	gloss	sing==DEF woman	page 23
+§5.1	Alexis Black	note	The non-obligatory nature of –da, of course, does not prove that the morpheme is not a D0. It is possible, for example, that –da alternates with a null morpheme. Indeed, Boas’ description of –da-marked noun phrases as ‘definite,’ and unmarked phrases as ‘indefinite’ is suggestive of this kind of paradigm. A full exploration of this possibility is beyond the scope of this paper. I will leave the issue, however, with two observations derived from my fieldwork experience: 1) restrictions on the occurrence of –da are not easy to come by, and 2) differences in interpretation of a noun phrase depending on the presence or absence of –da have not been particularly transparent. This lack of a specific interpretation for unmarked NPs stands in stark contrast to the alternation of locative morphemes. Consider the following examples, repeated from (28) above. In (38a) and (b), we observe that a negated sentence with no locative morphology is interpreted as a negated predicational. A negated sentence where the argument is marked by locative morphology, on the other hand, is interpreted as a negative existential.	page 23
+(38) line 1	Alexis Black	note	Locative as an inherent feature	page 24, over the example
+(38a) line 1	Kwak’wala	transcription	k'ios begwanam	page 24
+(38a) line 2	Kwak’wala	gloss	NEG man	page 24
+(38a) line 3	Alexis Black	translation	‘There is no man’	page 24
+(38b) line 1	Kwak’wala	transcription	kis=ox̱ begwanam	page 24
+(38b) line 2	Kwak’wala	gloss	NEG=2.LOC man	page 24
+(38b) line 3	Alexis Black	translation	‘This/He is not a man’	page 24
+§5.1	Alexis Black	note	This kind of interpretational contrast does not characterize the absence of –da. As has been demonstrated throughout the paper – arguments not marked with –da can be translated/interpreted as definite or indefinite, depending on other contextual factors. They can also be unique, specific, familiar – or not. These facts lead me to believe that –da does not alternate with a null morpheme; rather, it serves a modificational (as opposed to functional) role in the NP.	page 24
+§5.2	Alexis Black	heading	5.2 Distributional restrictions: DPs vs NPs	page 24
+§5.2	Alexis Black	note	I mentioned in the preceding section that I have found few restrictions on the occurrence of –da. This is not to say, however, that -da is entirely unrestricted. It has already been mentioned, for example, that -da does not co- occur with possessives or proper names. This is distributionally parallel to the English definite determiner. This alternation in English has been taken as evidence for both the semantic type and syntactic position of proper nouns and possessives (i.e. that whereas bare nouns sit at the N level of the DP, proper nouns and possessed phrases sit in the specifier position of the DP). In order to interpret the Kwak’wala pattern as truly reflecting the same English structure, we must believe that bare nouns and proper nouns are syntactically distinct in a similar way. Is there any independent reason for believing that proper nouns in Kwak’wala belong to the same category as they do in English?	page 24
+§5.2	Alexis Black	note	Interestingly, there is – while most bare nouns can be realized as predicates in Kwak’wala, proper nouns are barred from this position. Take the examples in (39a-d) below. Whereas either the noun chief or woman can operate as a predicate, the proper name Bill cannot. In fact, attempts to render this sentence were judged nearly uninterpretable.	page 24
+(39) line 1	Alexis Black	note	X is the chief vs The chief is X	page 24, over the example
+(39a) line 1	Kwak’wala	phonetic	[gíɢamejʊ̀χ bɪl]	page 24
+(39a) line 2	Kwak’wala	transcription	gig̱amey=ux̱ Bill	page 24
+(39a) line 3	Kwak’wala	gloss	chief=2.LOC Bill	page 24
+(39a) line 4	Alexis Black	translation	‘Bill is the chief’	page 24
+(39b) line 1	Kwak’wala	phonetic	[ʨɪpʰamej:ʊ̀χda ʦɪdáq]	page 25
+(39b) line 2	Kwak’wala	transcription	tsipamey=ux̱=da tsidaḵ	page 25
+(39b) line 3	Kwak’wala	gloss	woman.chief=2.LOC=DEF woman	page 25
+(39b) line 4	Alexis Black	translation	‘That woman is the chief’	page 25
+(39c) line 1	Kwak’wala	transcription	*Bill-ux̱ gig̱amey	page 25
+(39c) line 2	Kwak’wala	gloss	Bill-2.LOC chief	page 25
+(39d) line 1	Kwak’wala	transcription	*Bill-ux̱=da gig̱amey	page 25
+(39d) line 2	Kwak’wala	gloss	Bill-2.LOC=DEF chief	page 25
+§5.2	Alexis Black	note	This contrast is further exemplified by the equative predicate structure (Littell 2010). Littell proposes that the ‘independent pronoun’ series described by Boas are actually inflected predicates. He notes an asymmetry in their application: while certain equative sentences (e.g. “Pat is an owl” (40)) cannot be interpreted with an equative structure, others (e.g. “John is the winner” (41)) must be.	page 25
+(40) line 1	Kwak’wala	transcription	da̱xda̱xa̱liłx=ux̱ Pat	page 25
+(40) line 2	Kwak’wala	gloss	owl=2.LOC Pat	page 25
+(40) line 3	Alexis Black	translation	‘Pat is an owl’	page 25
+(40) line 4	Alexis Black	citation	(Littell, pg. 7)	page 25, the tag at the right of the translation
+(41) line 1	Kwak’wala	transcription	he=da dulo=i John	page 25
+(41) line 2	Kwak’wala	gloss	3.DEM=DEF winner=3.LOC John	page 25
+(41) line 3	Alexis Black	translation	‘John is the winner’	page 25
+(41) line 4	Alexis Black	citation	(Littell, pg. 9)	page 25, the tag at the right of the translation
+§5.2	Alexis Black	note	Littell proposes that what necessitates the equative structure in examples like (40) is the fact that “the winner” is no longer a predicate NP, but a full DP. In other words, much as “Bill” cannot serve as a predicate (presumably due to its status as an entity, example (39c)), “the winner” has also been encoded as an entity, and so cannot serve as a predicate. The question then arises – is the DP status of “the winner” related to the presence/absence of –da? An examination of Littell’s data suggests no; the majority of equative predicate structures are marked by neither LOC morphology nor –da; however, as shown in (41), -da is not blocked from occurrence. These data therefore suggest that the distinction between bare nouns and proper nouns is paralleled between Kwak’wala and English. It does not appear to be the case, however, that –da is instrumental to this distinction.	page 25
+§5.3	Alexis Black	heading	5.3 Distributional restrictions: agreement	page 25
+§5.3	Alexis Black	note	As was described in section 2, agreement in Kwak’wala occurs when a verb is preceded by auxiliaries. When the subject surfaces after the verb, the locative marking associated with this NP will also obligatorily appear in second position after the auxiliary (42a). Crucially, -da is blocked from occurring in this position, even if it is present in the subject DP (42b). It is furthermore illicit to move –da to 2nd position, and leave the predicate marked only by locative morphology (42c).	page 25
+(42a) line 1	Kwak’wala	phonetic	[lɪmóχ miχʷóχda gíʔgilà]	page 26
+(42a) line 2	Kwak’wala	transcription	la=m=ox̱ mix̱=ox̱=da ga̱=gala	page 26
+(42a) line 3	Kwak’wala	gloss	Aux-Disc=2.LOC sleep=2.LOC=DEF RED=bear	page 26
+(42a) line 4	Alexis Black	translation	‘The bears are sleeping (Ruby)’	page 26
+(42b) line 1	Kwak’wala	transcription	*la=m=ox̱=da mix̱=ox̱=da ga̱=gala	page 26
+(42b) line 2	Kwak’wala	gloss	*Aux-Disc=2.LOC= DEF sleep=2.LOC=DEF RED=bear	page 26
+(42c) line 1	Kwak’wala	transcription	*la=m=ox̱=da mix̱=ox̱ ga̱=gala	page 26
+(42c) line 2	Kwak’wala	gloss	*Aux-Disc=2.LOC= DEF sleep=2.LOC RED=bear	page 26
+§5.3	Alexis Black	note	In contrast, when the subject raises to second position after the auxiliary, the full LOC and DEF morphology associated with it also raise (43).	page 26
+(43) line 1	Kwak’wala	phonetic	[lɪmóχda waq’ɛsiχ dəxwa]	page 26
+(43) line 2	Kwak’wala	transcription	la=m=ox̱=da waḵ’es=ix̱ da̱xwa	page 26
+(43) line 3	Kwak’wala	gloss	Aux-Disc=2.LOC= DEF frog=2.VIS jump	page 26
+(43) line 4	Alexis Black	translation	‘The frog is jumping’	page 26
+§5.3	Alexis Black	note	These data indicate that –da is in some way bound (morphologically/positionally) to the noun with which it occurs. LOC, on the other hand, is not.	page 26
+§5.3	Alexis Black	note	In this section, we have established that –da does not transparently display the properties that are expected to characterize D0 determiners. The most common diagnostic for determinerhood – obligatory co-occurrence with arguments – is not upheld by –da. While it is possible that –da alternates with a null morpheme (which would allow –da to pass the argumenthood-diagnostic), I have presented evidence suggesting its absence is not associated with a specific meaning – which is incompatible with a null morpheme hypothesis. A second diagnostic for determinerhood involved parallels between the distributional asymmetries of –da and English determiners. For example, in both English and Kwak’wala possessive morphology and proper names (D-heads by hypothesis) are in complementary distribution with the definite determiner -da. Unlike the definite determiner in English, however, -da does not appear to create DPs, as evidenced by their non-obligatory nature in equative predicate structures (Littell 2010).	page 26
+§5.3	Alexis Black	note	On the other hand, we have determined that the LOC markers do evidence some properties expected of D0 determiners. For example, LOC markers obligatorily co-occur with arguments, except in non-veridical contexts. The 4.LOC marker, furthermore, appears to be used as a kind of default. Finally, the LOC markers are used to indicate agreement (while –da cannot be), which suggests that they must be a “part of the syntactic machinery of the clause” (Henry Davis, pc). When the syntactic facts of both the LOC morphemes and – da are considered together, we can reasonably hypothesize that the underlying structure of the Kwak’wala DP involves a LOC D-head with –da as a D- modifier:	page 26
+(44)	Alexis Black	note	[KP=Case[DP[DP=LOC]=da]]	page 27, the structure of the noun phrase, KP and DP subscripts set on the line as the text layer has them
+§6	Alexis Black	heading	6 Conclusions	page 27
+§6	Alexis Black	note	This exploration of Kwak’wala noun phrase morphology has led to the following conclusion: -da is not a definite determiner; rather, it is the equivalent of a ‘pointing gesture,’ or ostension in deictic terms. It bears no other deictic or referential features, and is thus different from English demonstratives both in terms of a) not being definite and b) not indicating location. As predicted by the definition of "ostension" it serves two functions: to help disambiguate when there are multiple references in the domain, and to promote the referent to salience in the discourse. When combined with the distal LOC marker, -da is equivalent to ‘domain restriction’ in the sense of Gillon (2006). In combination with the medial, proximal, and assertion-of-existence LOC markers, -da primarily serves to mark salience. Finally, its distributional asymmetry with regards to subjects vs. objects (i.e. higher propensity to occur in subject position) supports the hypothesis that –da interacts with topicality, as opposed to focus.	page 27
+§6	Alexis Black	note	I have also given evidence suggesting that the LOC markers serve two semantic functions: 1) locational deixis and 2) assertion of existence. A fourth LOC marker has been introduced to the LOC paradigm, and it has been shown to contrast with the other three markers by lacking locational deixis features, instead denoting assertion-of-existence alone.	page 27
+§6	Alexis Black	note	Finally, I have suggested that LOC serves as the D-head determiner in Kwak’wala. The ostensive marker -da, on the other hand, is a D-level adjunct. This conclusion is supported by the fact that 1) LOC, not –da, appears to obligatorily co-occur with arguments (except in non-veridical contexts); 2) the ostensive marker is licensed only in co-occurrence with LOC, and 3) LOC marks agreement, whereas –da is blocked from agreement positions.	page 27
+§Appendix	Alexis Black	heading	Appendix	page 27
+§Appendix	Alexis Black	note	Boas’ description of the prenominal determiners is called into question by three additional forms that are attested in the current dialect (-x̱ada, -sada, - x̱wada). In Boas’ description, the vocalic series (associated with definite) are characterized by the morpheme –da. In the accusative and oblique forms, however, the ‘-d’ is absent when the argument is not marked by the proximal or medial LOC marker. Boas claims that these forms derive from older, more transparent forms (e.g. –sida) (1911: 531). According to his description, the three additional forms found in this dialect would represent adjacent occurrences of the da morpheme (i.e. x̱+i+da+da). This does not occur in the historical data; furthermore, there are no other instances of da doubling with the other Locative morphemes (e.g. *x̱+ga+da+da). On the other hand, the –a ending of these accusative and oblique forms occurs in complementary distribution with 1st and 2nd LOC morphemes:	page 27
+§Appendix	Alexis Black	note	LOC Category	page 28, a column's head of the table
+§Appendix	Alexis Black	note	Nominative	page 28, a column's head of the table
+§Appendix	Alexis Black	note	Accusative	page 28, a column's head of the table
+§Appendix	Alexis Black	note	Oblique	page 28, a column's head of the table
+§Appendix	Alexis Black	note	1st	page 28, the row's head
+§Appendix	Alexis Black	note	Word]-[DP∅=ga . . .	page 28, 1st, under Nominative, DP a subscript set on the line as the text layer has it
+§Appendix	Alexis Black	note	Word]-[DPχ=ga . . .	page 28, 1st, under Accusative, DP a subscript set on the line as the text layer has it
+§Appendix	Alexis Black	note	Word]-[DPs=ga . . .	page 28, 1st, under Oblique, DP a subscript set on the line as the text layer has it
+§Appendix	Alexis Black	note	2nd	page 28, the row's head
+§Appendix	Alexis Black	note	Word]-[DP∅=oχ . . .	page 28, 2nd, under Nominative, DP a subscript set on the line as the text layer has it
+§Appendix	Alexis Black	note	Word]-[DPχ=oχ . . .	page 28, 2nd, under Accusative, DP a subscript set on the line as the text layer has it
+§Appendix	Alexis Black	note	Word]-[DPs=oχ . . .	page 28, 2nd, under Oblique, DP a subscript set on the line as the text layer has it
+§Appendix	Alexis Black	note	3rd/(4th)	page 28, the row's head
+§Appendix	Alexis Black	note	Word]-[DP∅=i . . .	page 28, 3rd/(4th), under Nominative, DP a subscript set on the line as the text layer has it
+§Appendix	Alexis Black	note	Word]-[DPχ=a . . .	page 28, 3rd/(4th), under Accusative, DP a subscript set on the line as the text layer has it
+§Appendix	Alexis Black	note	Word]-[DPs=a . . .	page 28, 3rd/(4th), under Oblique, DP a subscript set on the line as the text layer has it
+§Appendix	Alexis Black	note	This parallelism suggests that the –a suffix functions similarly to the –i clitic found in the Nominative 3.LOC environment. Indeed, Boas’ himself provides data supporting this conclusion: “in the Newettee and Koskimo dialects -x̱a and -sa are replaced by -x̱i and -si (1947: 254).” Furthermore, the 3.LOC marker is not exclusively restricted to nominative contexts, though the parameters that permit its occurrence in other syntactic positions (e.g. prepositional) are as yet unclear. The forms –x̱ada and –sada are much less common than their nominative counterparts; I believe that this distributional fact, coupled with the availability of definite readings on the unmarked 4.LOC forms, may have misled Boas. Regardless, it does not appear tenable to claim that –x̱a and –sa represent coalescence of LOC and DEF morphology in the current dialect. I will therefore treat the –a of these forms as a separate morpheme belonging to the LOC clitic category.	page 28
+references	Alexis Black	heading	References	page 28
+references	Alexis Black	reference	Abbott, Barbara. 1999. Support for a Unique Theory of Definiteness. Proceedings from Semantics and Linguistic Theory 9:1-15.	page 28
+references	Alexis Black	reference	Anderson, Stephen R. 2005. Aspects of the Theory of Clitics. Oxford: Oxford University Press.	page 28
+references	Alexis Black	reference	Anderson, Stephen R. 2003. How to put your Clitics in their Place or Why the Best Account of Second Position May be Something Like the Optimal One.	page 28
+references	Alexis Black	reference	Anderson, Stephen R. 1984. Kwakwala Syntax and the Government-Binding Theory. Eung-Do Cook and Donna B. Gerdts, eds. The Syntax of Native American Languages. Syntax and Semantics, vol. 16. Orlando: Academic Press. 21-75.	page 28
+references	Alexis Black	reference	Anonby, Stan J. 1999. Reversing Language Shift: Can Kwak’wala be Revived? Chapter 4 of Revitalizing Indigenous Languages, edited by Jon Reyhner, Gina Cantoni, Robert N. St. Clair, and Evangeline Parsons Yazzie (pp.33-52). Flagstaff, AZ: Northern Arizona University. Copyright 1999 by Northern Arizona University Bach, Emmon. 2006. Paradigm Regained: Deixis in Northern Wakashan. SOAS Working Papers in Linguistics 14. 267-281.	page 28
+references	Alexis Black	reference	Bach, Emmon, Dora Robinson, and Rose Robinson. Haisla Lessons. Lesson 3. http://www.people.umass.edu/ebach/xles-3.htm; DOA 5/18/2011.	page 29
+references	Alexis Black	reference	Berman, Judith. 1982. Deictic Auxiliaries and Discourse Marking in Kwak’wala narrative. Papers for the 17th International Conference on Salish Languages, pgs. 305-408. November.	page 29
+references	Alexis Black	reference	Berman, Judith. 1983. Three discourse elements in Boas’ Kwak’wala texts. Papers for the 18th International Conference on Salish and Neighbouring Languages, 1-52, November.	page 29
+references	Alexis Black	reference	Berman, Judith. 1994. “George Hunt and the Kwak’wala texts.” Anthropological Linguistics. Vol. 36, No. 4 (Winter 1994): 483-514.	page 29
+references	Alexis Black	reference	Black, Alexis 2010. Seeing is not believing: A reanalysis of the Kwak’wala Determiners. Conference Presentation, Linguistics Society of America Annual Conference Winter 2010.	page 29
+references	Alexis Black	reference	Boas, Franz. 1947. Kwakiutl Grammar with a Glossary of the Suffixes. Helene Boas Yampolsky, ed. Transactions of the American Philosophical Society, New Series 37:3.	page 29
+references	Alexis Black	reference	Boas, Franz. 1911. Kwakiutl. Extract from Handbook of American Indian Languages (Bulletin 40), Part 1: Bureau of American Ethnology. Washington, Government Printing Office. 425-557.	page 29
+references	Alexis Black	reference	Brisson, Christine. 1998. Distributivity, Maximality, and Floating Quantifiers. Ph.D. Thesis, Rutgers University.	page 29
+references	Alexis Black	reference	Chung, Yunhee. 2007. The internal structure of the Kwak̓wala nominal domain. Papers for the 42nd International Conference on Salish and Neighbouring Languages. University of British Columbia Working Papers in Linguistics, vol. 20. 101-118.	page 29
+references	Alexis Black	reference	Diessel, Holger. 1998. Demonstratives in Crosslinguistic and Diachronic Perspective. Ph.D. Dissertation. University of New York at Buffalo.	page 29
+references	Alexis Black	reference	Donnellan, Keith. 1966. Reference and definite descriptions. Philosophical Review. 75:281-304.	page 29
+references	Alexis Black	reference	Enç, Murvet. 1991. The Semantics of Specificity. Linguistic Inquiry 22: 1-25.	page 29
+references	Alexis Black	reference	Fillmore, Charles J. 1966. Deictic categories in the semantics of ‘come’. Foundations of Language, 2, 219–227.	page 29
+references	Alexis Black	reference	Frege, Gottlob. 1977 [1892]. On Sense and Reference. Readings in the Philosophy of Language. ed. Peter Ludlow, 563-583. Cambridge: MIT Press.	page 29
+references	Alexis Black	reference	Gerner, Matthias. 2009. Deictic Features of Demonstratives: A Typological Survey with Special Reference to the Miao Group. Canadian Journal of Linguistics/Revue canadienne de linguistique 54(1): 43–90.	page 29
+references	Alexis Black	reference	Gillon, Carrie. 2006. The semantics of determiners: domain restriction in Sḵwx̱wu7mesh. Doctoral Thesis, The University of British Columbia. Faculty of Linguistics.	page 29
+references	Alexis Black	reference	Gillon, Carrie. 2009. The Semantic Core of Determiners: Evidence from Sḵwx̱wú7mesh. Determiners: Universals and Variation, eds. Jila Ghomeshi, Ileana Paul, and Martina Wiltschko, 177-214. Philadelphia: John Benjamins Publishing Company.	page 29
+references	Alexis Black	reference	Hawkins, John A. 1978. Definiteness and Indefiniteness: A study in reference and grammaticality prediction. London: Croom Helm.	page 30
+references	Alexis Black	reference	Hawkins, John A. 1991. On (In)definite Articles: Implicatures and (Un)grammaticality Prediction. Journal of Linguistics 27, 405-422.	page 30
+references	Alexis Black	reference	Heim, Irene. 1982. The Semantics of Definite and Indefinite Noun Phrases. Ph.D. Dissertation, University of Massachusetts, Amherst: Graduate Linguistics Students’ Association. 1988.	page 30
+references	Alexis Black	reference	Heim, Irene. 1991. Articles and Definiteness. Published in German as “Artikel und Definitheit.” Semantics: An International Handbook of Contemporary Research, eds Arnim von Stechow and Dieter Wunderlich, 487-535. Berlin: de Gruyter.	page 30
+references	Alexis Black	reference	Jamieson-McLarnon, Susan. “Native Language centre planned.” SFU News online Simon Fraser University, 33(6) (July 7, 2005). DOA: 5/17/2011.	page 30
+references	Alexis Black	reference	Kadmon, Nirit. 1992. On Unique and Non- Unique Reference and Asymmetric Quantification. New York: Garland.	page 30
+references	Alexis Black	reference	Kadmon, Nirit. 2001. Formal Pragmatics: Semantics, Pragmatics, Presupposition, and Focus. Oxford: Blackwell Publishers.	page 30
+references	Alexis Black	reference	Lewis, David. 1979. Scorekeeping in a Language Game. Journal of Philosophical Logic 8, 339-359.	page 30
+references	Alexis Black	reference	Link, Godehard. 1983. The Logical Analysis of Plural and Mass Terms: A Lattice-Theoretical Approach. Meaning, Use, and Interpretation of Language, eds. Rainer Bauerle, Christoph Schwarze and Arnim von Stechow, 302-323. Berlin: de Gruyter.	page 30
+references	Alexis Black	reference	Littell, Patrick. 2010. Mistaken Identity: Boas’s Dilemma and the missing Kwak’wala copula. Qualifying Paper, Winter 2010.	page 30
+references	Alexis Black	reference	Ludlow, Peter and Stephen Neale. 1991. Indefinite descriptions: in defense of Russell. Linguistics and Philosophy, 14(2): 171-202.	page 30
+references	Alexis Black	reference	Lyons, Christopher. 1999. Definiteness. Cambridge: Cambridge University Press.	page 30
+references	Alexis Black	reference	Matthewson, Lisa. 1998. Determiner Systems and quantificational strategies: evidence from Salish. The Hague: Holland Academic Graphics.	page 30
+references	Alexis Black	reference	Nicolson, Marianne and Adam Werle. 2010. An Investigation of modern Kwak’wala determiner systems. University of Victoria.	page 30
+references	Alexis Black	reference	Partee, Barbara. 1991. Adverbial Quantification and Event Structures. Proceedings of the 17th Annual Meeting of the Berkley Linguistic Society. University of California, Berkley.	page 30
+references	Alexis Black	reference	Postal, P. 1966. On So-called Pronouns in English, in D. Reibel and S. Schane (eds.), Modern Studies in English, Prentice-Hall, Englewood Cliffs, New Jersey, 201–223.	page 30
+references	Alexis Black	reference	Prince, Ellen F. 1992. The ZPG Letter: Subjects Definiteness, and Information-Status. Discourse Description: Diverse Linguistic Analyses of a Fund- raising text, eds. William C. Mann and Sandra A. Thompson, 295-325. Amsterdam: Benjamins.	page 30
+references	Alexis Black	reference	Russell, Bertrand. 1998 [1905]. On Denoting Definite Descriptions: a reader, ed. Gary Ostertag, 35-49. Cambridge, MA: MIT Press.	page 30
+references	Alexis Black	reference	Stalnaker, Robert C. 1974. Pragmatic Presuppositions. Semantics and Philosophy. eds. Milton K. Munitz and Peter K. Unger, 197-213. New York; New York University Press.	page 31

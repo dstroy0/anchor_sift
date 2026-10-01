@@ -1,0 +1,378 @@
+where	who	kind	form	gloss
+front	ʔayʔaǰuθəm	cited form	ʔayʔaǰuθəm	page 1
+front	Gloria Mellesmoen and Bailey Trotter	note	The Long and Short of Subject Clitics in ʔayʔaǰuθəm* Gloria Mellesmoen University of Victoria Bailey Trotter University of British Columbia Abstract: There are long and short forms of indicative subject clitics in ʔayʔaǰuθəm. The choice between allomorphs is sensitive to: (i) whether there is a vowel in the phonological string to the left of the clitic, (ii) whether the future morpheme is to the right of the clitic, and (iii) if the clitic is part of a proclitic or enclitic string. We adopt a two-step approach to lexical insertion, showing that: (i) Insert must happen morpheme-by-morpheme, (ii) insertion rules can refer to phonological content in one direction and morphological features in the other direction, (iii) affixes and clitics must be part of the same spell-out domain in ʔayʔaǰuθəm, and (iv) allomorph selection within a spell-out domain must happen prior to building prosodic structure (i.e., before a cycle of phonology). Keywords: ʔayʔaǰuθəm, clitics, subject morphology, allomorphy, lexical insertion	page 1
+§1	Gloria Mellesmoen and Bailey Trotter	heading	1 Introduction	page 1
+§1	Gloria Mellesmoen and Bailey Trotter	note	Allomorph selection may be sensitive to both phonological and morphological information (see, e.g., Gouskova and Bobaljik 2019 and references therein). The types of phonological and morphological conditions that can affect the form of a single morpheme provide insight into the grammar and interfaces between its different components. For example, how much morphosyntactic information and phonological structure can be present at the same point in the derivation?	page 1
+§1	ʔayʔaǰuθəm	cited form	ʔayʔaǰuθəm	page 1
+§1	Gloria Mellesmoen and Bailey Trotter	name	Tla’amin	one of the four communities that traditionally speak ʔayʔaǰuθəm, with Homalco, Klahoose and K’ómoks
+§1	Gloria Mellesmoen and Bailey Trotter	place	K’ómoks	one of the four communities that traditionally speak ʔayʔaǰuθəm
+footnote *	Gloria Mellesmoen and Bailey Trotter	note	* We are grateful to the speakers who have shared their language with us, especially to Elsie Paul and the late Freddie Louie. Thank you to Marianne Huijsmans and the other members of the Salish Working Group for their helpful discussion and feedback when we shared the beginnings of this analysis. We would also like to thank Henry Davis for encouraging us to ask the questions about the architecture of the grammar which became this paper. Contact info: gloriamellesmoen@uvic.ca, baileyt@student.ubc.ca	page 1, footnote
+§1	Gloria Mellesmoen and Bailey Trotter	note	In this paper, we present an analysis of subject clitic allomorphy in ʔayʔaǰuθəm (a.k.a. Comox- Sliammon), showing that lexical insertion must proceed one morpheme at a time to allow for simultaneous morphosyntactic and phonological conditioning. ʔayʔaǰuθəm is a Central Salish language, traditionally spoken by the Tla’amin, Homalco, Klahoose, and K’ómoks communities along the Northern Georgia Strait in British Columbia. We build on the description of subject clitic allomorphy presented in Huijsmans (2023), who finds that both morphological and phono- logical factors condition allomorph choice. While she proposes the prosodic structure conditions the choice of allomorph, we argue that allomorph selection must happen before any prosodic structure is built. More generally, we predict that: (i) it is only possible to access phonological information from one direction and morphological information from the other, and (ii) allomorph selection during lexical insertion cannot be conditioned by derived prosodic structure. Empirical facts concerning short and long forms of indicative subject clitics in ʔayʔaǰuθəm are previewed in Section 2. Section 3 provides a summary of the analysis proposed in Huijsmans (2023), including the predictions that it makes (and which of these predictions are not borne out). We build on the insights from previous work and present an analysis in Section 4 that has implications related to spell-out, allomorph selection, and lexical insertion; the implications of our analysis are explored in Section 5. Section 6 concludes the paper.	page 1
+§2	Gloria Mellesmoen and Bailey Trotter	heading	2 Subject Clitics in ʔayʔaǰuθəm	page 2
+§2	ʔayʔaǰuθəm	cited form	ʔayʔaǰuθəm	page 2
+§2	Gloria Mellesmoen and Bailey Trotter	note	Indicative subject clitics in ʔayʔaǰuθəm are second position clitics; they occur second in the clause following the predicate, as shown in (1), or the pre-predicative auxiliary if one is present, as shown in (2).1	page 2
+(1) line 1	ʔayʔaǰuθəm	transcription	ƛ̓ʊxʷegən č.	page 2, engine language
+(1) line 2	ʔayʔaǰuθəm	segmentation	ƛ̓əxʷigan=č	page 2, engine language
+(1) line 3	ʔayʔaǰuθəm	gloss	envious=1SG.SBJ	page 2, engine english
+(1) line 4	Huijsmans 2023:2	translation	‘I’m envious.’	page 2, engine english, cited Huijsmans 2023:2
+(1) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Huijsmans 2023:2)	the tag or source at the right of the translation
+(2) line 1	ʔayʔaǰuθəm	transcription	hɛhɛw č	page 2, engine language
+(2) line 2	ʔayʔaǰuθəm	segmentation	hihiw=č	page 2, engine language
+(2) line 3	ʔayʔaǰuθəm	gloss	really=1SG.SBJ	page 2, engine english
+(2) line 4	ʔayʔaǰuθəm	transcription	ƛ̓ʊxʷegən.	page 2, engine language
+(2) line 5	ʔayʔaǰuθəm	segmentation	ƛ̓əxʷigan	page 2, engine language
+(2) line 6	ʔayʔaǰuθəm	gloss	envious	page 2, engine english
+(2) line 7	Huijsmans 2023:2	translation	‘I’m really envious.’	page 2, engine english, cited Huijsmans 2023:2
+(2) line 7	Gloria Mellesmoen and Bailey Trotter	citation	(Huijsmans 2023:2)	the tag or source at the right of the translation
+§2	ʔayʔaǰuθəm	cited affix	ʔayʔa-	page 2
+§2	ʔayʔaǰuθəm	cited form	ǰuθəm	page 2
+§2	Gloria Mellesmoen and Bailey Trotter	note	Indicative subject clitics are used in main clauses with both transitive and instransitive pred- icates. In addition to the subject clitics, there are sixteen other second position clitics in ʔayʔa- ǰuθəm. These clitics form a morphological unit — the clitic string — and occur in a fixed order with respect to each other. Clitic allomorphy is conditioned both by properties of hosts (comprised of a root and any affixes) and neighbouring clitics. The 1SG.SBJ, 1PL.SBJ, and 2SG.SBJ clitics have both long and short allomorphs. These allomorphs are labeled as “full” and “reduced” forms in Huijsmans (2023); however, we use the terms long and short in this paper to avoid the implication that the short forms arise from a synchronic process of phonological reduction.2 The short allomorph of the first person singular subject is shown in (3), and the long allomorph is shown in (4).	page 2
+(3) line 1	ʔayʔaǰuθəm	transcription	hoy č.	page 2, engine english
+(3) line 2	ʔayʔaǰuθəm	segmentation	huǰ=č	page 2, engine language
+(3) line 3	ʔayʔaǰuθəm	gloss	finish=1SG.SBJ	page 2, engine english
+(3) line 4	Huijsmans 2023:82	translation	‘I’m done.’	page 2, engine english, cited Huijsmans 2023:82
+(3) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Huijsmans 2023:82)	the tag or source at the right of the translation
+(4) line 1	ʔayʔaǰuθəm	transcription	məq̓čɛn.	page 2, engine language
+(4) line 2	ʔayʔaǰuθəm	segmentation	məq̓=čan	page 2, engine language
+(4) line 3	ʔayʔaǰuθəm	gloss	full=1SG.SBJ	page 2, engine english
+(4) line 4	Huijsmans 2023:82	translation	‘I’m full.’	page 2, engine english, cited Huijsmans 2023:82
+(4) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Huijsmans 2023:82)	the tag or source at the right of the translation
+footnote 1	Gloria Mellesmoen and Bailey Trotter	note	1 Data in this paper comes from published sources and fieldwork. We mark fieldwork data with speaker initials. The first line is an orthographic representation, the second is in the North American Phonetic Alphabet. Glossing abbreviations used in this paper include:	page 2, footnote
+footnote 2	Gloria Mellesmoen and Bailey Trotter	note	2 However, the present-day short forms may have developed from a diachronic process of phonological reduction: see Section 5.3.	page 2, footnote
+§2	Gloria Mellesmoen and Bailey Trotter	note	Table 1 summarises the long and short forms of the indicative subject clitics. There is no short form of the second person plural clitic; there is no overt marker for a third person indicative subject.	page 3
+§2	ʔayʔaǰuθəm	cited form	čan	page 3
+§2	ʔayʔaǰuθəm	cited form	č	page 3
+§2	ʔayʔaǰuθəm	cited form	čaxʷ	page 3
+§2	ʔayʔaǰuθəm	cited form	čxʷ	page 3
+§2	ʔayʔaǰuθəm	cited form	čat	page 3
+§2	ʔayʔaǰuθəm	cited form	št	page 3
+§2	ʔayʔaǰuθəm	cited form	čap	page 3
+§2	Gloria Mellesmoen and Bailey Trotter	note	Table 1: Indicative Subject Clitics (Huijsmans 2023) Long Short 1SG čan č 2SG čaxʷ čxʷ 1PL čat št 2PL čap 3 ∅ The long form occurs following weak roots, which surface with a schwa, while the short form occurs with strong roots, which have an underlying (non-schwa) vowel. Subject clitic allomorphs are also sensitive to the form of preceding suffixes and clitics. For example, if the question clitic and a subject clitic co-occur in the clitic string, then the short form of the subject clitic is used, even if the word is built from a weak root. Compare the short form following the question clitic in (5a) with the long form where the question clitic is absent in (5b). The presence of the question clitic or an affix with a non-schwa vowel causes a word built from a weak root to pattern with words built from strong roots.	page 3
+(5a) line 1	ʔayʔaǰuθəm	transcription	qəhta čxʷʊm	page 3, engine language
+(5a) line 2	ʔayʔaǰuθəm	segmentation	qəh-t=a=čxʷ=əm	page 3, engine language
+(5a) line 3	ʔayʔaǰuθəm	gloss	lift-CTR=Q=2SG.SBJ=FUT	page 3, engine english
+(5a) line 4	ʔayʔaǰuθəm	transcription	tə θɛwθɛtən.	page 3, engine language
+(5a) line 5	ʔayʔaǰuθəm	segmentation	tə=θiwθitən	page 3, engine language
+(5a) line 6	ʔayʔaǰuθəm	gloss	DET=table	page 3, engine english
+(5a) line 7	Huijsmans 2023:87	translation	‘Are you going to lift the table?’	page 3, engine english, cited Huijsmans 2023:87
+(5a) line 7	Gloria Mellesmoen and Bailey Trotter	citation	(Huijsmans 2023:87)	the tag or source at the right of the translation
+(5b) line 1	ʔayʔaǰuθəm	transcription	qəht čɛnsəm	page 3, engine language
+(5b) line 2	ʔayʔaǰuθəm	segmentation	qəh-t=čan=səm	page 3, engine language
+(5b) line 3	ʔayʔaǰuθəm	gloss	lift-CTR=1SG.SBJ=FUT	page 3, engine english
+(5b) line 4	ʔayʔaǰuθəm	transcription	θʊkʷnačtən.	page 3, engine language
+(5b) line 5	ʔayʔaǰuθəm	segmentation	θəkʷnačtən	page 3, engine language
+(5b) line 6	ʔayʔaǰuθəm	gloss	chair	page 3, engine english
+(5b) line 7	Huijsmans 2023:87	translation	‘I’m going to lift the chair.’	page 3, engine english, cited Huijsmans 2023:87
+(5b) line 7	Gloria Mellesmoen and Bailey Trotter	citation	(Huijsmans 2023:87)	the tag or source at the right of the translation
+§2	ʔayʔaǰuθəm	cited form	=tᶿ	page 3
+§2	Gloria Mellesmoen and Bailey Trotter	note	The first person singular subject may also be realized as =tᶿ, as shown in (6). This 1SG.SBJ allomorph occurs only when: (i) it follows a host with a strong root (or one with affixes/clitic that cause a host to pattern with strong roots), and (ii) the subject marker is followed by the future clitic. Both conditions must be met for this allomorph to be used.	page 3
+(6) line 1	ʔayʔaǰuθəm	transcription	wutot tᶿəm.	page 3, engine residue
+(6) line 2	ʔayʔaǰuθəm	segmentation	wut-ut=tᶿ=əm	page 3, engine language
+(6) line 3	ʔayʔaǰuθəm	gloss	bend-CTR=1SG.SBJ=FUT	page 3, engine english
+(6) line 4	Huijsmans 2023:89	translation	‘I’ll bend it.’	page 3, engine english, cited Huijsmans 2023:89
+(6) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Huijsmans 2023:89)	the tag or source at the right of the translation
+§2	Gloria Mellesmoen and Bailey Trotter	note	Finally, a subject clitic may be linearised as a proclitic when it co-occurs with a clausal demonstrative; the clitic string comes before the host predicate or pre-predicative auxiliary in these forms, as shown in (7).	page 3
+(7) line 1	ʔayʔaǰuθəm	transcription	čkʷi qʷol̓	page 4, engine language
+(7) line 2	ʔayʔaǰuθəm	segmentation	č=kʷi=qʷəl̓	page 4, engine language
+(7) line 3	ʔayʔaǰuθəm	gloss	1SG.SBJ=CLD=come	page 4, engine english
+(7) line 4	ʔayʔaǰuθəm	transcription	ʔɛǰɩm.	page 4, engine language
+(7) line 5	ʔayʔaǰuθəm	segmentation	ʔiǰ-im	page 4, engine language
+(7) line 6	ʔayʔaǰuθəm	gloss	get.better-MID	page 4, engine english
+(7) line 7	Huijsmans 2023:81	translation	‘I’m feeling better.’	page 4, engine english, cited Huijsmans 2023:81
+(7) line 7	Gloria Mellesmoen and Bailey Trotter	citation	(Huijsmans 2023:81)	the tag or source at the right of the translation
+(8) line 1	ʔayʔaǰuθəm	transcription	ʔɛǰɩm čkʷi.	page 4, engine language
+(8) line 2	ʔayʔaǰuθəm	segmentation	ʔiǰ-im=č=kʷi	page 4, engine language
+(8) line 3	ʔayʔaǰuθəm	gloss	get.better-MID=1SG.SBJ=CLD	page 4, engine english
+(8) line 4	Huijsmans 2023:81	translation	‘I’m feeling better.’	page 4, engine english, cited Huijsmans 2023:81
+(8) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Huijsmans 2023:81)	the tag or source at the right of the translation
+§2	Gloria Mellesmoen and Bailey Trotter	note	Proclisis is only possible when a clausal demonstrative is present (see Huijsmans 2023:254). However, proclisis is always optional; it is always possible to get the enclitic counterpart of a proclitic string.3 Further, not all clitics may be part of a proclitic string. For example, the question marker =a is never permitted in a proclitic string. If the question clitic is present, then the entire clitic string surfaces following the host (i.e., in an enclitic position).	page 4
+§2	Gloria Mellesmoen and Bailey Trotter	note	Only the short forms of the indicative subject clitics occur in proclitic strings. The only “long” form that occurs in the proclitic string is 2PL.SBJ, which does not have short counterpart. An example of 2PL.SBJ in a proclitic string is given in (9).	page 4
+(9) line 1	ʔayʔaǰuθəm	transcription	čɛpkʷi hoy.	page 4, engine language
+(9) line 2	ʔayʔaǰuθəm	segmentation	čap=kʷi=huǰ	page 4, engine language
+(9) line 3	ʔayʔaǰuθəm	gloss	2PL.SBJ=CLD=finish	page 4, engine english
+(9) line 4	Watanabe 2003:54	translation	‘You are finished.’	page 4, engine english, cited Watanabe 2003:54
+(9) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Watanabe 2003:54)	the tag or source at the right of the translation
+§3	Gloria Mellesmoen and Bailey Trotter	heading	3 Previous Analysis: Conditioned by Prosodic Structure	page 4
+§3.1	Gloria Mellesmoen and Bailey Trotter	heading	3.1 Allomorph Selection and Prosodic Structure	page 4
+§3.1	Gloria Mellesmoen and Bailey Trotter	note	Huijsmans (2023) adopts a two-step approach to lexical insertion (Svenonius and Bye 2012). Syntactic heads are first matched to morphological features at L-match; the phonological form then replaces these features at Insert.4 Clitics are linearised prior to allomorph selection. She proposes that the V, v, and Voice heads are spelled out as part of an earlier phase than the clitics. If the predicate undergoes a cycle of phonology without (and crucially before) the clitics are spelled out, then Huijsmans (2023) reasons that derived prosodic structure from this earlier cycle is available to condition allomorph selection. She argues that subject clitic allomorphy is sensitive to the prosodic weight of the clitic’s host; the long form is selected when the clitic is attached to a host that is otherwise too light to meet the minimal requirements for a well-formed prosodic word, while the short forms are used elsewhere.	page 4
+footnote 3	Gloria Mellesmoen and Bailey Trotter	note	3 Certain clitics in Nxaʔamxčín (Moses-Columbian) are flexible with respect to whether they precede or follow their host (Lyon and Czaykowska-Higgins 2020); these flexible clitics include subject markers. Unlike ʔayʔaǰuθəm, sequences of Nxaʔamxčín clitics show a mirrored order with respect to their host in proclitic sequences, i.e., subject clitics are always closest to the host. ʔayʔaǰuθəm clitics maintain the same linear ordering with respect to other clitics in both proclitic and enclitic strings.	page 4, footnote
+§3.1	Gloria Mellesmoen and Bailey Trotter	language	Nxaʔamxčín	Moses-Columbian, whose clitics can precede or follow their host, footnote 3
+§3.1	ʔayʔaǰuθəm	cited form	ʔayʔaǰuθəm	page 4
+footnote 4	Gloria Mellesmoen and Bailey Trotter	note	4 We also adopt (and elaborate on) this model in our analysis (see Sections 4 and 5).	page 4, footnote
+§3.1	Gloria Mellesmoen and Bailey Trotter	note	CəC	a root template
+§3.1	ʔayʔaǰuθəm	cited form	məq̓	page 5, ‘full’
+§3.1	ʔayʔaǰuθəm	cited form	/mq̓/	page 5
+§3.1	ʔayʔaǰuθəm	cited affix	huǰ-	page 5
+§3.1	Gloria Mellesmoen and Bailey Trotter	note	A well-formed prosodic word must have at least one foot; feet in ʔayʔaǰuθəm are “optimally bimoraic” (Blake 2000:155). Schwas are epenthetic and non-moraic. In other words, schwas do not contribute phonological weight and are not present in the underlying form; their distribution is predictable based on the phonological grammar of the language (Blake 2000). All other vowels in the language are moraic and are typically present in the underlying form. Consonants are assigned weight by position (Hayes 1989): they are moraic when part of a coda, but non-moraic when part of an onset. The examples in (10) exemplify the relationship between underlying and surface forms with respect to which segments are moraic. A weak root that surfaces as CəC, e.g., [məq̓] ‘full’ in (10a), has no underlying vowels (e.g., /mq̓/). Schwa epenthesis provides a nucleus. However, these forms are monomoraic because only the coda consonant is assigned a mora. In contrast, the vowel in a strong root, such as huǰ- 'finish' in (10b), is underlying and is assigned a mora; CVC roots are bimoraic because the vowel and coda consonant are each assigned a mora.5	page 5
+(10) line 1	Gloria Mellesmoen and Bailey Trotter	rule	a. /mq̓/ → məq̓µ	page 5, engine residue
+(10) line 2	Gloria Mellesmoen and Bailey Trotter	rule	b. /huǰ/ → huµyµ	page 5, engine english
+§3.1	Gloria Mellesmoen and Bailey Trotter	note	Huijsmans (2023) proposes that a single monomoraic foot does not meet the phonological requirements for a minimal prosodic word. Accordingly, the monomoraic word from (10a) cannot be parsed into a well-formed prosodic word, while the bimoraic word from (10b) can be.6 This difference is summarised in (11).	page 5
+(11) line 1	Gloria Mellesmoen and Bailey Trotter	rule	a. /mq̓/ → məq̓µ	page 5, engine residue
+(11) line 2	Gloria Mellesmoen and Bailey Trotter	rule	b. /huǰ/ → (huµyµ)ω	page 5, engine residue
+§3.1	ʔayʔaǰuθəm	cited form	/tᶿ/	page 5
+§3.1	Gloria Mellesmoen and Bailey Trotter	note	A prosodic word is therefore optionally built following spell-out of the phase containing the clitic’s host and a subsequent cycle of phonology. Huijsmans (2023) argues that the short form of a subject clitic is selected when it attaches to a prosodic word (if one was built during the previous cycle of phonology); the long form is inserted elsewhere. The choice of allomorph depends on whether the predicate met the criteria for a well-formed prosodic word prior to the addition of the clitics. A weak root like [məq̓] must take the long form of the subject clitic because it is too light to be parsed into a well-formed foot (and therefore does not meet the minimal requirements for a prosodic word). In contrast, [huy] is bimoraic, which means it can be parsed into a well-formed binary foot and word; the short form is inserted. Huijsmans (2023) extends this analysis to the /tᶿ/ form of the first person singular subject: this form is chosen if the clitic meets the phonological criteria for the short form but is followed by the future clitic. Her lexical entry for 1SG.SBJ is summarised in (12).	page 5
+(12) line 1	Gloria Mellesmoen and Bailey Trotter	rule	[ 1SG.SBJ] ⇔ /čan/	page 5, engine residue
+(12) line 2	Gloria Mellesmoen and Bailey Trotter	rule	/č/ / ]ω	page 5, engine residue
+(12) line 3	Gloria Mellesmoen and Bailey Trotter	rule	/tᶿ/ / ]ω FUT	page 5, engine english
+footnote 5	Gloria Mellesmoen and Bailey Trotter	note	5 There is a phonologically regular alternation between [ ǰ] and [y] (seeBlake 2000 for further discussion of this process).	page 5, footnote
+§3.1	ʔayʔaǰuθəm	cited form	ǰ	page 5
+footnote 6	Gloria Mellesmoen and Bailey Trotter	note	6 Huijsmans (2023) crucially differs from Blake (2000) because constraints on prosodic structure in Blake	page 5, footnote
+§3.1	Gloria Mellesmoen and Bailey Trotter	note	(2000) require building at least one foot, even if it is suboptimal.	page 5
+§3.1	Gloria Mellesmoen and Bailey Trotter	note	Huijsmans (2023) finds that only clitics that originate higher than the clausal demonstratives can appear as proclitics. The presence of a proclitic clausal demonstrative conditions the selection of proclitic allomorph of a subject clitic. She proposes that: (i) proclisis is associated with specific allomorphs, and (ii) only clitics with a proclitic allomorph may occur as part of a proclitic string.	page 6
+§3.2	Gloria Mellesmoen and Bailey Trotter	heading	3.2 Conditioned by Prosodic Structure: Predictions	page 6
+§3.2	Gloria Mellesmoen and Bailey Trotter	note	The analysis proposed in Huijsmans (2023) accounts for the general pattern of subject clitic allomorphy: the long form is typically attested with weak roots (and no/few suffixes), while the short form is found whenever a word has a strong root. Further, it accounts for the fact that allomorphy is conditioned by both phonological and morphological factors. However, the specific implementation of the analysis and reference to prosodic structure makes a number of predictions that are not borne out.	page 6
+§3.2	Gloria Mellesmoen and Bailey Trotter	note	CəCµCµ	a root template with its moras
+§3.2	Gloria Mellesmoen and Bailey Trotter	note	CVµCµ	a syllable template with its moras
+§3.2	ʔayʔaǰuθəm	cited form	/q̓txʷ/	page 6, ‘burn’
+§3.2	Gloria Mellesmoen and Bailey Trotter	note	First, Huijsmans (2023) assumes that coda consonants in the language are moraic, which means that a syllable CəCµCµ weighs the same as CVµCµ. Her analysis predicts that the short form of the subject clitic would be used with triconsonantal weak roots, such as /q̓txʷ/ ‘burn’, because any syllable with a complex coda should meet the minimal requirements for a well- formed prosodic word. Instead, the long form is attested with /q̓txʷ/, as shown in (13).	page 6
+(13) line 1	ʔayʔaǰuθəm	transcription	q̓ətxʷ čɛn.	page 6, engine language
+(13) line 2	ʔayʔaǰuθəm	segmentation	q̓ətxʷ=čan	page 6, engine language
+(13) line 3	ʔayʔaǰuθəm	gloss	burn=1SG.SBJ	page 6, engine english
+(13) line 4	Watanabe 2003:187	translation	‘I got burnt.’	page 6, engine english, cited Watanabe 2003:187
+(13) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Watanabe 2003:187)	the tag or source at the right of the translation
+§3.2	ʔayʔaǰuθəm	cited affix	-sxʷ	page 6
+§3.2	Gloria Mellesmoen and Bailey Trotter	note	Second, the addition of affixes like the control transitivizer -t and the causative transitivizer -sxʷ creates a complex coda that should allow for a well-formed minimal word (and therefore provide the prerequisite conditions to select the short form of a clitic). However, the long form is attested following the combination of a weak root and CTR or CAUS. An example is provided in (14).	page 6
+(14) line 1	ʔayʔaǰuθəm	transcription	ʔo...	page 6, engine residue
+(14) line 2	ʔayʔaǰuθəm	segmentation	ʔu	page 6, engine residue
+(14) line 3	ʔayʔaǰuθəm	gloss	oh	page 6, engine residue
+(14) line 4	ʔayʔaǰuθəm	transcription	ƛ̓oqʷtčɛnsəm,	page 6, engine language
+(14) line 5	ʔayʔaǰuθəm	segmentation	ƛ̓əqʷ-t=čan=səm	page 6, engine language
+(14) line 6	ʔayʔaǰuθəm	gloss	slap-CTR=1SG.SBJ=FUT	page 6, engine english
+(14) line 7	ʔayʔaǰuθəm	transcription	ƛ̓oqʷtčɛnsəm.	page 6, engine language
+(14) line 8	ʔayʔaǰuθəm	segmentation	ƛ̓əqʷ-t=čan=səm	page 6, engine language
+(14) line 9	ʔayʔaǰuθəm	gloss	slap-CTR=1SG.SBJ=FUT	page 6, engine english
+(14) line 10	Gloria Mellesmoen and Bailey Trotter	translation	‘Oh, I’ll beat him, I’ll beat him.’ (Paul, in press)	page 6, engine english
+§3.2	Gloria Mellesmoen and Bailey Trotter	note	σµµµ	a trimoraic syllable
+§3.2	Gloria Mellesmoen and Bailey Trotter	note	Huijsmans (2023) must assume that complex codas are always monomoraic, regardless of whether they arise from affixation or their size (i.e., number of segments). This means that complex codas are equally as heavy as simplex ones, which is a departure from previous work on the phonology of the language. For example, Blake (2000:159--162) argues that CV- form of diminutive reduplication occurs with CVC words because the typical -C- form would create a superheavy syllable (σµµµ). If only a single mora was associated with multiple coda consonants, then there would be no difference between CVC and CVCC syllables.	page 6
+§3.2	ʔayʔaǰuθəm	cited form	məq̓	page 6, ‘full’
+§3.2	Gloria Mellesmoen and Bailey Trotter	note	In addition to predictions about complex codas, the prosodic word approach makes predic- tions about open CV syllables. The word ho ‘go’ is a monomoraic word because it has a moraic vowel and no coda; it has the same weight as a closed syllable with a schwa (e.g., məq̓ ‘full’). While the long form is predicted for monomoraic words, the example in (15) shows that ho takes the short form.	page 6
+(15) line 1	ʔayʔaǰuθəm	transcription	ho č	page 7, engine residue
+(15) line 2	ʔayʔaǰuθəm	segmentation	hu=č	page 7, engine language
+(15) line 3	ʔayʔaǰuθəm	gloss	go=1SG.SBJ	page 7, engine english
+(15) line 4	ʔayʔaǰuθəm	transcription	č̓ɛgatoɬ.	page 7, engine language
+(15) line 5	ʔayʔaǰuθəm	segmentation	č̓ag-at-uɬ	page 7, engine language
+(15) line 6	ʔayʔaǰuθəm	gloss	help-CTR-PST	page 7, engine english
+(15) line 7	Watanabe 2003:48	translation	‘I went and helped him’	page 7, engine english, cited Watanabe 2003:48
+(15) line 7	Gloria Mellesmoen and Bailey Trotter	citation	(Watanabe 2003:48)	the tag or source at the right of the translation
+§3.2	Gloria Mellesmoen and Bailey Trotter	note	Finally, if subject allomorphy is conditioned prosodic structure, then the short form of a clitic should surface on any word with C1C2 reduplication. Plural C1C2 reduplication always adds a monomoraic closed syllable to a word (Mellesmoen 2025:172). If allomorph selection is based on whether a bimoraic foot can be built, then applying C1C2 reduplication will always yield a well- formed prosodic word. However, the long form is found when C1C2 reduplication is combined with a weak root, as shown in (16). Reduplication does not influence the choice of allomorph, despite providing the perfect phonological repair (i.e., doubling a monomoraic syllable).	page 7
+(16) line 1	ʔayʔaǰuθəm	transcription	t̓ᶿʊkʷt̓ᶿʊkʷt čɛnsəm.	page 7, engine language
+(16) line 2	ʔayʔaǰuθəm	segmentation	t̓ᶿəkʷ∼t̓ᶿəkʷ-t=čan=səm	page 7, engine language
+(16) line 3	ʔayʔaǰuθəm	gloss	PL∼wipe-CTR=1SG.SBJ=FUT	page 7, engine english
+(16) line 4	Huijsmans 2023:83	translation	‘I will wipe things down.’	page 7, engine english, cited Huijsmans 2023:83
+(16) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Huijsmans 2023:83)	the tag or source at the right of the translation
+§3.2	Gloria Mellesmoen and Bailey Trotter	note	The patterns with complex codas (resulting from triconsonantal weak roots and words with consonant affixes), open monomoraic syllables, and reduplication pose problems for the analysis in Huijsmans (2023). However, the fact that her description and generalizations hold for a large portion of the data indicates that the problem is likely with the specific implementation, rather than the overall inspiration behind the analysis. The examples in this section suggest that the subject clitics cannot be sensitive to derived prosodic structure (including moraic codas and prosodic words); however, the example with the question clitic =a in (5a) provides an example where the presence of a moraic vowel does trigger the short form.7 The timing of spell-out, lexical insertion, and cycles through the phonological grammar pose challenges for the analysis in Huijsmans (2023). These challenges suggest that allomorph selection for clitics must happen before any prosodic structure is built; our analysis in the following section builds on the insights from Huijsmans (2023) with modifications to the theoretical model and assumptions.	page 7
+§4	Gloria Mellesmoen and Bailey Trotter	heading	4 Analysis	page 7
+§4	ʔayʔaǰuθəm	cited form	ʔayʔaǰuθəm	page 7
+§4	Gloria Mellesmoen and Bailey Trotter	note	We adopt a span-based approach to spell-out (Svenonius 2016). In order to derive the correct position and form of clitics in ʔayʔaǰuθəm, the spell-out domain must include the span of heads from V up to the highest head in the clitic string: root, affixes, auxiliaries, and clitics must be part of the same spell-out domain. This assumption is a departure from Huijsmans (2023), as well as other previous work on ʔayʔaǰuθəm (see Section 5.1 for arguments against the vP as a phase in Huijsmans 2023 and the w-span as a spell-out domain in Mellesmoen 2025).	page 7
+footnote 7	Gloria Mellesmoen and Bailey Trotter	note	7 Huijsmans (2023) must stipulate that a cycle of phonology is triggered each time a clitic is inserted, otherwise the question clitic could not be parsed into a prosodic word; it can only affect the form of the subject clitic if it has already undergone a cycle of phonology with the host.	page 7, footnote
+§4	Gloria Mellesmoen and Bailey Trotter	note	Indicative subject marking is introduced in InflP; the tree in (17) shows the syntactic position of InflP relative to the clitics that affect its shape (i.e., the question and future markers).8	page 8
+(17) line 1	Gloria Mellesmoen and Bailey Trotter	rule	ForceP	page 8, engine english
+(17) line 2	Gloria Mellesmoen and Bailey Trotter	rule	Force	page 8, engine english
+(17) line 3	Gloria Mellesmoen and Bailey Trotter	rule	Q	page 8, engine residue
+(17) line 4	Gloria Mellesmoen and Bailey Trotter	rule	InflP	page 8, engine english
+(17) line 5	Gloria Mellesmoen and Bailey Trotter	rule	Infl	page 8, engine english
+(17) line 6	Gloria Mellesmoen and Bailey Trotter	rule	subject	page 8, engine english
+(17) line 7	Gloria Mellesmoen and Bailey Trotter	rule	FutP	page 8, engine english
+(17) line 8	Gloria Mellesmoen and Bailey Trotter	rule	Future	page 8, engine english
+(17) line 9	Gloria Mellesmoen and Bailey Trotter	rule	FUT	page 8, engine english
+(17) line 10	Gloria Mellesmoen and Bailey Trotter	rule	AuxP	page 8, engine language
+(17) line 11	Gloria Mellesmoen and Bailey Trotter	rule	Aux	page 8, engine residue
+(17) line 12	Gloria Mellesmoen and Bailey Trotter	rule	auxiliary	page 8, engine english
+(17) line 13	Gloria Mellesmoen and Bailey Trotter	rule	VoiceP	page 8, engine english
+(17) line 14	Gloria Mellesmoen and Bailey Trotter	rule	Voice+v+V	page 8, engine residue
+§4	Gloria Mellesmoen and Bailey Trotter	note	We adopt a two-step model of lexical insertion (Svenonius and Bye 2012), paired with an feature-driven approach to linearisation (Huijsmans 2023; Davis and Huijsmans 2024). The first step of lexical insertion is L-match: terminal elements in the syntax are matched with lexical entries by their features. Lexical entries include features (e.g., [suffix]) that provide instructions for linearisation. Linearisation happens prior to the insertion of phonological content. Linearisa- tion starts at the lowest head in the span and moves upward. Heads with the [suffix] feature are linearised to the right of the head (or string of heads) beneath them in the span; heads that bear the [enclitic] feature are linearised to the right of the head above them, forming a clitic string. The highest head with the [enclitic] feature will attach downward to the closest head (or string of heads) because there is no head above it. The head or string of heads directly beneath the clitic string will invariably correspond to the predicate or the predicate auxiliary.	page 8
+§4	Gloria Mellesmoen and Bailey Trotter	note	Linearisation for the sentence in (18) is shown in (19). Glosses (e.g., 2SG.SBJ) are used as a placeholder for the relevant morphological features matched during the first step of lexical insertion. Linearisation starts from V, which the lowest head in the span. The next highest head is v, which is linearised to the right of V because it bears the [suffix] feature. In other words, v is linearised relative to V (= V-v). The subject marker has an [enclitic] feature, which means it is linearised to the right of the head above it (= Force-Infl), forming a clitic string. There is no head above the question marker, so it must be linearised relative to the string of heads beneath it (= [V-v]-[Force-Infl]).	page 8
+(18) line 1	ʔayʔaǰuθəm	transcription	tiwšɛma čxʷ?	page 8, engine language
+(18) line 2	ʔayʔaǰuθəm	segmentation	tiwš-am=a=čxʷ	page 8, engine language
+(18) line 3	ʔayʔaǰuθəm	gloss	learn-MID=Q=2SG.SBJ	page 8, engine english
+(18) line 4	Gloria Mellesmoen and Bailey Trotter	translation	‘Are you learning?’	page 8, engine english
+(18) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(vf, EP/FL)	the tag or source at the right of the translation
+footnote 8	Gloria Mellesmoen and Bailey Trotter	note	8 See Huijsmans (2023:47) for the full syntactic representation of second position clitics in ʔayʔaǰuθəm.	page 8, footnote
+(19) line 1	Gloria Mellesmoen and Bailey Trotter	rule	ForceP	page 9, engine english
+(19) line 2	Gloria Mellesmoen and Bailey Trotter	rule	Q[enclitic] InflP	page 9, engine english
+(19) line 3	Gloria Mellesmoen and Bailey Trotter	rule	2SG.SBJ[enclitic] vP	page 9, engine english
+(19) line 4	Gloria Mellesmoen and Bailey Trotter	rule	MID[suffix] VP	page 9, engine english
+(19) line 5	Gloria Mellesmoen and Bailey Trotter	rule	√	page 9, engine residue
+(19) line 6	Gloria Mellesmoen and Bailey Trotter	rule	learn	page 9, engine english
+(19) line 7	Gloria Mellesmoen and Bailey Trotter	rule	→ [[	page 9, engine residue
+(19) line 8	Gloria Mellesmoen and Bailey Trotter	rule	√	page 9, engine residue
+(19) line 9	Gloria Mellesmoen and Bailey Trotter	rule	learn-MID]-[Q-2SG.SBJ]]	page 9, engine english
+§4	Gloria Mellesmoen and Bailey Trotter	note	Insert, the second step of lexical insertion, occurs following linearisation. Phonological content replaces the morphological features at Insert. Subject clitics in ʔayʔaǰuθəm are sen- sitive to both phonological and morphological information. We propose that Insert proceeds one morpheme at a time, such that allomorphy can be sensitive to the phonological shape of morphemes already inserted and the morphological features of morphemes not yet inserted. This is exemplified in (20), the feature bundles in the linearised string in (20a) are replaced with phonological content, one at time.	page 9
+(20a) line 1	Gloria Mellesmoen and Bailey Trotter	rule	√	page 9, engine residue
+(20a) line 2	Gloria Mellesmoen and Bailey Trotter	rule	learn-MID-Q-2SG.SBJ	page 9, engine english
+(20a) line 3	Gloria Mellesmoen and Bailey Trotter	rule	b. (tiwš)- MID-Q-2SG.SBJ	page 9, engine english
+(20a) line 4	Gloria Mellesmoen and Bailey Trotter	rule	c. (tiwš)(am)- Q-2SG.SBJ	page 9, engine english
+(20a) line 5	Gloria Mellesmoen and Bailey Trotter	rule	d. (tiwš)(am)(a)- 2SG.SBJ	page 9, engine english
+(20a) line 6	Gloria Mellesmoen and Bailey Trotter	rule	e. (tiwš)(am)(a)(čxʷ)	page 9, engine language
+§4	ʔayʔaǰuθəm	cited form	/tᶿ/	page 9
+§4	ʔayʔaǰuθəm	cited form	/č/	page 9
+§4	ʔayʔaǰuθəm	cited form	/čan/	page 9
+§4	Gloria Mellesmoen and Bailey Trotter	note	In ʔayʔaǰuθəm, phonological content must be inserted from left to right because allomorphy is conditioned by phonological form to the left of the clitic and morphological features to the right. The relevant phonological material is a linear string (prior to building prosodic structure). Schwa is epenthetic in ʔayʔaǰuθəm; it is not present in the underlying form. Therefore, we propose that /tᶿ/ is inserted if there is a vowel in the phonological string (to the left) and the future morpheme follows (to the right), /č/ is inserted if there is a vowel in the string (and no future morpheme), and /čan/ is inserted elsewhere.	page 9
+§4	Gloria Mellesmoen and Bailey Trotter	note	The lexical entry for 1SG.SBJ is provided in (21). The Elsewhere Principle, proposed by Halle and Marantz (1993), applies at Insert (Huijsmans 2023:41). The most specified form is selected over all others if its conditions are met. /tᶿ/ allomorph is inserted when there is a vowel somewhere in the phonological string to the left and the future morpheme is directly to the right; /č/ allomorph is inserted when the phonological condition is met but the future morpheme does not follow the subject marker. /čan/ is inserted everywhere else.	page 9
+(21) line 1	Gloria Mellesmoen and Bailey Trotter	rule	[ 1SG.SBJ] ⇔ /čan/	page 9, engine residue
+(21) line 2	Gloria Mellesmoen and Bailey Trotter	rule	/č/ / ...V...	page 9, engine residue
+(21) line 3	Gloria Mellesmoen and Bailey Trotter	rule	/tᶿ/ / ...V... [FUT]	page 9, engine residue
+§4	Gloria Mellesmoen and Bailey Trotter	note	When the subject markers are in a proclitic string, they are always in the short form. Huijs- mans (2023:80) highlights that specific allomorphs must be selected when a morpheme surfaces as a proclitic. Linearisation features are morphological features; they are present until phonological content is inserted. Proclitic and enclitic forms of the subject clitics can therefore be distinguished by linearisation features ([proclitic] vs. [enclitic]). Given that the default position of subject clitics in ʔayʔaǰuθəm is enclitic, only [proclitic] needs to be specified in the vocabulary insertion rules. There is only one possible allomorph that corresponds to [1SG.SBJ, proclitic], as shown in (22). We discuss markedness, default allomorphs, and the subject clitics further in Section 5.3.	page 10
+(22) line 1	Gloria Mellesmoen and Bailey Trotter	rule	[ 1SG.SBJ, proclitic] ⇔ /č/	page 10, engine english
+§4	Gloria Mellesmoen and Bailey Trotter	note	If linearisation features were not available at Insert, the long form of a subject clitic should always be selected in a proclitic string, given that it will be the leftmost morpheme in the string; there will not be a vowel in the phonological string to meet the conditions for the short form. This provides further evidence for the utility of morphological linearisation features: they also play a role in allomorph selection.	page 10
+§4	Gloria Mellesmoen and Bailey Trotter	note	In conclusion, subject clitic allomorphy is determined by a combination of factors: position, preceding segments, and following morpheme. Allomorph choice at Insert is summarized in Figure 1.	page 10
+§4	Gloria Mellesmoen and Bailey Trotter	note	Figure 1: Allomorph Selection at Insert for 1SG.SBJ Our analysis does not account for the “invisibility” of the past tense morpheme (i.e., that past tense suffix is ignored for the purposes of subject clitic allomorphy selection). Further discussion of this pattern and possible analyses can be found in Huijsmans (2023) and Trotter (2025). An analysis of this pattern is beyond the scope of this paper.	page 10
+§5	Gloria Mellesmoen and Bailey Trotter	heading	5 Implications for the Grammar	page 10
+§5	ʔayʔaǰuθəm	cited form	ʔayʔaǰuθəm	page 10
+§5	Gloria Mellesmoen and Bailey Trotter	note	Clitics in ʔayʔaǰuθəm provide insight into the process of allomorph selection and lexical insertion, as well as the relationship between different components of the grammar. The analysis presented in Section 4 has implications for when spell-out and phonological processes apply (Section 5.1), when different types of allomorphy are possible (Section 5.2), what assumptions must be made about markedness and default allomorphy (Section 5.3), and which types of information are available at the second step of lexical insertion (Section 5.4).	page 10
+§5.1	Gloria Mellesmoen and Bailey Trotter	heading	5.1 Spell-Out, Words, and Prosodic Structure	page 11
+§5.1	ʔayʔaǰuθəm	cited form	ʔayʔaǰuθəm	page 11
+§5.1	Gloria Mellesmoen and Bailey Trotter	note	The short form of a subject clitic is inserted if a vowel is present in the string of segments to its left. Our analysis predicts that schwas should not influence subject clitic allomorphy because they are epenthetic; they are not present in the underlying form, but they are inserted during the phonological derivation to ensure well-formed syllables, feet, and words (see Blake 2000). The data presented in Section 3.2 shows that only underlying (i.e., non-schwa) vowels affect clitic allomorphy, such as the vowels in strong roots or the question clitic. Our approach correctly predicts that subject clitic allomorphy is therefore crucially dependent on the phonological shape of underlying forms, which means that clitics must be part of the same spell-out domain as affixes in ʔayʔaǰuθəm.	page 11
+§5.1	Gloria Mellesmoen and Bailey Trotter	note	CəC	a root template
+§5.1	ʔayʔaǰuθəm	cited form	pəɬtsxʷ	page 11, ‘make thick’
+§5.1	Gloria Mellesmoen and Bailey Trotter	note	If clitics were part of a separate spell-out domain from affixes, then we would expect the choice of allomorph to be based on surface form phonology (as in Huijsmans 2023), rather than underlying forms. If the root and affixes are spelled out separately from the clitics, then they undergo a cycle of phonology before the clitics are added. Huijsmans (2023) proposes that a prosodic word is built during this cycle of phonology if there are at least two moras, which means that well-formed prosodic words cannot be built for roots that surface as CəC. The choice between the long and short from of a subject clitic is then determined by whether or not it is attaching to a prosodic word. However, this analysis makes the wrong predictions for a word like ho ‘go’ (23), which takes the short form despite having a single mora, and a word like pəɬtsxʷ ‘make thick’ (24), which takes the long form despite having multiple coda consonants (which would meet the minimum for a bimoraic word).	page 11
+(23) line 1	ʔayʔaǰuθəm	transcription	ho č	page 11, engine residue
+(23) line 2	ʔayʔaǰuθəm	segmentation	hu=č	page 11, engine language
+(23) line 3	ʔayʔaǰuθəm	gloss	go=1SG.SBJ	page 11, engine english
+(23) line 4	ʔayʔaǰuθəm	transcription	ʔəmʔɛmaš.	page 11, engine language
+(23) line 5	ʔayʔaǰuθəm	segmentation	ʔəm∼ʔim-aš	page 11, engine language
+(23) line 6	ʔayʔaǰuθəm	gloss	PL∼walk-INTR	page 11, engine residue
+(23) line 7	Gloria Mellesmoen and Bailey Trotter	translation	‘I’m going to go walk around.’	page 11, engine english
+(23) line 7	Gloria Mellesmoen and Bailey Trotter	citation	(vf, FL)	the tag or source at the right of the translation
+(24) line 1	ʔayʔaǰuθəm	transcription	pəɬtsxʷ čʊxʷ.	page 11, engine language
+(24) line 2	ʔayʔaǰuθəm	segmentation	pəɬt-sxʷ=čaxʷ	page 11, engine language
+(24) line 3	ʔayʔaǰuθəm	gloss	thick-CAUS=2SG.SBJ	page 11, engine english
+(24) line 4	Watanabe 2003:453	translation	‘Make it thick.’	page 11, engine english, cited Watanabe 2003:453
+(24) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Watanabe 2003:453)	the tag or source at the right of the translation
+§5.1	Gloria Mellesmoen and Bailey Trotter	note	CəCC	a root template
+footnote 9	Gloria Mellesmoen and Bailey Trotter	note	9 Huijsmans (2023) assumes that only the outermost head in a phase is still visible at the next stage of the derivation. Even if the underlying form of one morpheme was still accessible, the subject clitic needs to see underlying forms for every morpheme to its left.	page 11, footnote
+§5.1	Gloria Mellesmoen and Bailey Trotter	note	Following a cycle of phonology, it is no longer possible to refer to the underlying form. If the definition refers to vowels (or nuclei), then schwa cannot be distinguished from other vowels. If the definition refers to moras and prosodic structure, then CəCC and CVC words should both take the short form; CəC and CV words should both take the long form. It is only possible to group CəCC with CəC and CVC with CV if allomorph selection happens prior to phonology.9 The fact that allomorph selection for clitics must happen before word-level phonology also poses problems for models that separate affixes and clitics into separate domains (e.g., word vs. phrase; lexical vs. post-lexical). Mellesmoen (2025) proposes that word (defined as a w-span in the sense of Svenonius 2016) is a spell-out domain. Under her analysis, all word-level phonology, including reduplication, happens before the clitics are present. This approach makes the wrong predictions for the subject clitics: the long form would therefore be expected in any word where reduplication adds a vowel; however, reduplication does not affect the choice of allomorph.	page 11
+(25) line 1	ʔayʔaǰuθəm	transcription	t̓ᶿʊkʷt čɛn.	page 12, engine language
+(25) line 2	ʔayʔaǰuθəm	segmentation	t̓ᶿəkʷ-t=čan	page 12, engine language
+(25) line 3	ʔayʔaǰuθəm	gloss	wipe-CTR=1SG.SBJ	page 12, engine english
+(25) line 4	Gloria Mellesmoen and Bailey Trotter	translation	‘I wiped it.’	page 12, engine english
+(25) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(vf, EP)	the tag or source at the right of the translation
+(26) line 1	ʔayʔaǰuθəm	transcription	t̓ᶿʊkʷt̓ᶿʊkʷt čɛnsəm.	page 12, engine language
+(26) line 2	ʔayʔaǰuθəm	segmentation	t̓ᶿəkʷ∼t̓ᶿəkʷ-t=čan=səm	page 12, engine language
+(26) line 3	ʔayʔaǰuθəm	gloss	PL∼wipe-CTR=1SG.SBJ=FUT	page 12, engine english
+(26) line 4	Huijsmans 2023:83	translation	‘I will wipe things down.’	page 12, engine english, cited Huijsmans 2023:83
+(26) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Huijsmans 2023:83)	the tag or source at the right of the translation
+§5.1	Gloria Mellesmoen and Bailey Trotter	note	Clitics must be part of the same spell-out domain as affixes in ʔayʔaǰuθəm because allomorph selection must happen before any cycle of phonological evaluation, otherwise the phonology will introduce additional vowels and moras that would meet the conditions for short form where the long form is attested.	page 12
+§5.2	Gloria Mellesmoen and Bailey Trotter	heading	5.2 Allomorphy, Allomorphs, and Allomorph Selection	page 12
+§5.2	Gloria Mellesmoen and Bailey Trotter	note	The amount and type of syntactic, morphological, and phonological information available varies across different components of the grammar. The available information constrains the types of allomorphy possible at different points in the derivation.	page 12
+§5.2	Gloria Mellesmoen and Bailey Trotter	note	Working within similar theoretical frameworks to the present paper, Mellesmoen (2025) and Davis (in press) each differentiate between allomorph selection at Insert and during the phonological derivation. Both analyses propose a strong restriction on the type of allomorphy possible during the phonological derivation: morphological information cannot play a role in allomorph selection during the phonological derivation. This restriction follows from the fact that morphological features are replaced at Insert with phonological content; they are not accessible when applying phonological rules or considering phonological constraints. The only possible allomorphy during the phonological derivation is phonologically conditioned.	page 12
+§5.2	Gloria Mellesmoen and Bailey Trotter	note	Mellesmoen (2025) and Davis (in press) make different predictions about the type of allo- morphy that is possible at Insert. Davis (in press) proposes a strong restriction on allomorphy at Insert: allomorph selection sensitive to morphosyntactic features must happen at Insert, while phonological conditioning can only happen at the point where the clitic is parsed into prosodic structure. Under this analysis, all phonologically conditioned allomorphy must happen during the phonological derivation. In contrast, Mellesmoen (2025) proposes a weak restrictions on allomorphy at Insert. She argues that morphological conditioning is only possible at Insert, while certain types of phonological conditioning (i.e., those that do not refer to derived prosodic structure) are also possible at Insert.	page 12
+§5.2	ʔayʔaǰuθəm	cited form	tᶿ	page 12
+§5.2	ʔayʔaǰuθəm	cited form	čan	page 12
+§5.2	ʔayʔaǰuθəm	cited form	č	page 12
+§5.2	Gloria Mellesmoen and Bailey Trotter	name	Mascaró	Joan Mascaró, cited for allomorph selection
+§5.2	Gloria Mellesmoen and Bailey Trotter	note	CəC	a root template
+§5.2	Gloria Mellesmoen and Bailey Trotter	note	CəCC	a root template
+§5.2	Gloria Mellesmoen and Bailey Trotter	note	The subject clitics show both phonological and morphological conditioning. Under the strong restrictions proposed by Davis (in press), a set of listed allomorphs {tᶿ, čan} must be selected at Insert if followed by the future marker, while the set {č, čan} is selected otherwise. The phonological grammar must then select between the long and the short form (see Mascaró 2007 for discussion of listed allomorphs). However, this approach faces the same challenges as in Huijsmans (2023) because choice of allomorph must depend on the underlying form. The choice between the long and short form cannot be determined during the phonological derivation because it will not be possible to distinguish between CV and CəC and CVC and CəCC.	page 12
+§5.2	ʔayʔaǰuθəm	cited affix	-ʔəm	page 13
+§5.2	ʔayʔaǰuθəm	cited affix	-aʔam	page 13
+§5.2	Gloria Mellesmoen and Bailey Trotter	note	The choice between the three allomorphs must happen at Insert, which means that some phonological information must be available, which is consistent with the weak restrictions pro- posed by Mellesmoen (2025). Allomorphy sensitive to prosodic structure must therefore involve either: (i) late allomorph selection in the phonology (i.e., listed allomorphs) or (ii) reference to prosodic structure in the underlying form (e.g., a foot in the UR for lexical stress). There are still a number of questions that must be explored if phonologically-conditioned allomorphy is possible both at Insert and during the phonological derivation. For example, how are phonological conditions evaluated when a set of listed allomorphs is provided at Insert? For example, the form of the active intransitive is -ʔəm or -aʔam: -aʔam is used following sequences of two or more consonants. The active intransitive must involve late allomorph selection (i.e., listed allomorphs) because the choice of allomorph is influenced by reduplication, as shown in (27) and (28). Reduplication does not happen until the phonological derivation.	page 13
+(27) line 1	ʔayʔaǰuθəm	transcription	k̓ʷəqʔəm	page 13, engine language
+(27) line 2	ʔayʔaǰuθəm	segmentation	k̓ʷəq-ʔəm	page 13, engine language
+(27) line 3	ʔayʔaǰuθəm	gloss	split-ACT.INTR	page 13, engine english
+(27) line 4	Watanabe 2003:392	translation	‘Split (s.t.).’	page 13, engine residue, cited Watanabe 2003:392
+(27) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Watanabe 2003:392)	the tag or source at the right of the translation
+(28) line 1	ʔayʔaǰuθəm	transcription	k̓ʷək̓ʷqaʔam	page 13, engine language
+(28) line 2	ʔayʔaǰuθəm	segmentation	k̓ʷə∼k̓ʷəq-aʔam	page 13, engine language
+(28) line 3	ʔayʔaǰuθəm	gloss	PROG∼split-ACT.INTR	page 13, engine english
+(28) line 4	Watanabe 2003:392	translation	‘Be splitting.’	page 13, engine english, cited Watanabe 2003:392
+(28) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Watanabe 2003:392)	the tag or source at the right of the translation
+§5.2	Gloria Mellesmoen and Bailey Trotter	note	The example in (27) above has no underlying vowels; we expect that it should take the long form of a subject clitic. However, we have recorded some variation between the long and the short form in our elicitation. While this might represent a reanalysis or uncertainty regarding a possible underlying vowel in the -ʔəm form of the active intransitive, it may also provide insight into phonologically-conditioned allomorph selection if two options (one with a vowel and one without) are visible at Insert. If variation emerges because multiple options are available, this would have significant implications for our understanding of allomorphy, as well as the theoretical framework outlined in the paper. We leave this as a question for future elicitation and research.	page 13
+§5.3	Gloria Mellesmoen and Bailey Trotter	heading	5.3 Markedness and Default Allomorphs	page 13
+§5.3	Gloria Mellesmoen and Bailey Trotter	note	Our analysis also proposes that the long forms of subject enclitics are inserted as the default (i.e., least specified) form; this conclusion is consistent with Huijsmans (2023). Designating the long form as the “elsewhere” form follows from the fact that insertion rules are written based on the presence of phonological or morphological content, rather than the absence (i.e., having no vowel to its left).	page 13
+§5.3	Gloria Mellesmoen and Bailey Trotter	note	At first glance, positing the long forms as the elsewhere condition may appear counterintuitive with respect to markedness. The short forms are more common than the long ones; they appear with a greater number of roots and combinations of morphemes. Further, a root that would take the long form on its own will often take the short form when affixes with underlying (i.e., non- schwa) vowels are present. Examples of the same root taking both allomorphs are given in (29) and (30), respectively.	page 13
+(29) line 1	ʔayʔaǰuθəm	transcription	k̓ʷʊt čɛnsəm	page 14, engine language
+(29) line 2	ʔayʔaǰuθəm	segmentation	k̓ʷə[n]-t=čan=səm	page 14, engine language
+(29) line 3	ʔayʔaǰuθəm	gloss	see-CTR=1SG.SBJ=FUT	page 14, engine english
+(29) line 4	Huijsmans 2023:90	translation	‘I’ll look at it.’	page 14, engine english, cited Huijsmans 2023:90
+(29) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Huijsmans 2023:90)	the tag or source at the right of the translation
+(30) line 1	ʔayʔaǰuθəm	transcription	k̓ʷʊnɛtanapɛhoɬ č...	page 14, engine language
+(30) line 2	ʔayʔaǰuθəm	segmentation	kʷən-i-t-anapi-h-uɬ=č	page 14, engine language
+(30) line 3	ʔayʔaǰuθəm	gloss	see-STAT-CTR-2PL.OBJ-EPEN-PST=1SG.SBJ	page 14, engine english
+(30) line 4	Watanabe 2003:120	translation	‘I saw you (pl.)...’	page 14, engine residue, cited Watanabe 2003:120
+(30) line 4	Gloria Mellesmoen and Bailey Trotter	citation	(Watanabe 2003:120)	the tag or source at the right of the translation
+§5.3	Gloria Mellesmoen and Bailey Trotter	note	The short form is also less restricted with respect to position because it can occur as both a proclitic or an enclitic, while the long form is restricted to the enclitic string. The default allomorph is more limited in distribution and frequency than allomorphs that are specified for particular phonological and morphological environments.	page 14
+§5.3	Gloria Mellesmoen and Bailey Trotter	note	When morphosyntactic and phonological factors are considered separately, there is additional support for our analysis. First, different types (and amounts) of allomorphy are expected for unmarked terms when compared to marked ones in morphology. Specifically, marked terms are expected to have simpler allomorphy patterns than unmarked ones (Waugh and Lafford 2008). Only one of the linearisation features ([proclitic] or [enclitic]) needed to be specified in Section 4 to predict the correct forms. If we treat [proclitic] as the marked case, which is consistent with the fact that all clitics may be enclitics but only certain ones (and in certain combinations) may be proclitics, then we get the vocabulary insertion rules in (31). As the marked term, there is a single choice at Insert for a proclitic; the enclitic represents the unmarked condition, which is consistent with the fact that it tolerates increased complexity with respect to phonologically-conditioned and morphologically-conditioned allomorphy.	page 14
+(31) line 1	Gloria Mellesmoen and Bailey Trotter	rule	[ 1SG.SBJ] ⇔ /čan/	page 14, engine residue
+(31) line 2	Gloria Mellesmoen and Bailey Trotter	rule	/č/ / ...V...	page 14, engine residue
+(31) line 3	Gloria Mellesmoen and Bailey Trotter	rule	/tᶿ/ / ...V... [FUT]	page 14, engine residue
+(31) line 4	Gloria Mellesmoen and Bailey Trotter	rule	[1SG.SBJ, proclitic] ⇔ /č/	page 14, engine english
+§5.3	ʔayʔaǰuθəm	cited form	/čan/	page 14
+§5.3	ʔayʔaǰuθəm	cited form	/tᶿ/	page 14
+§5.3	Gloria Mellesmoen and Bailey Trotter	note	Second, the morphological environment (presence of the future marker) is only relevant if the word meets the phonological criteria for the short form of the clitic. The long form of the subject clitic is attested across future and non-future contexts. If the short form were the default, then two separate vocabulary insertion rules would be needed to account for words that would otherwise meet the phonological conditions for /čan/, but the morphological conditions for /tᶿ/, as shown in (32). Therefore, with respect to morphological conditioning, the long form is truly unmarked.	page 14
+(32) line 1	Gloria Mellesmoen and Bailey Trotter	rule	[ 1SG.SBJ] ⇔ /č/	page 15, engine residue
+(32) line 2	Gloria Mellesmoen and Bailey Trotter	rule	/tᶿ/ [FUT]	page 15, engine english
+(32) line 3	Gloria Mellesmoen and Bailey Trotter	rule	/čan/ no V	page 15, engine english
+(32) line 4	Gloria Mellesmoen and Bailey Trotter	rule	/čan/ no V [FUT]	page 15, engine english
+(32) line 5	Gloria Mellesmoen and Bailey Trotter	rule	[1SG.SBJ, proclitic] ⇔ /č/	page 15, engine english
+§5.3	ʔayʔaǰuθəm	cited form	=čan	page 15
+§5.3	Sechelt	cited affix	=čən	the 1SG subject marker, cognate with =čan, after Beaumont 1985
+§5.3	St'át'imcets	cited affix	=(ɬ)kan	the 1SG subject marker, cognate with =čan, after Van Eijk 1997
+§5.3	Gloria Mellesmoen and Bailey Trotter	language	St'át'imcets	with the cognate subject marker =(ɬ)kan, after Van Eijk 1997. The apostrophes are straight
+§5.3	ʔayʔaǰuθəm	cited form	ʔayʔaǰuθəm	page 15
+§5.3	ʔayʔaǰuθəm	cited form	čaxʷ	page 15
+§5.3	ʔayʔaǰuθəm	cited form	čxʷ	page 15
+§5.3	Gloria Mellesmoen and Bailey Trotter	note	Finally, we note that the long forms of the subject clitics are older than the short ones. For example, the long form of the first person enclitic =čan is cognate with subject markers across the family, such as =čən in Sechelt (Beaumont 1985) and =(ɬ)kan in St'át'imcets (Van Eijk 1997). The short form in ʔayʔaǰuθəm is conditioned by phonological shape; therefore it may have emerged first through phonological reduction (e.g., deletion of a vowel: čaxʷ → čxʷ). If this allomorphy first emerged as an innovation in the phonological grammar, then this process has since undergone lexicalization (Ramsammy 2015): the lexical entry for the morpheme has since been restructured to reflect the output of the original phonological process.	page 15
+§5.3	ʔayʔaǰuθəm	cited form	=č	page 15
+§5.3	ʔayʔaǰuθəm	cited form	=tᶿ	page 15
+§5.3	ʔayʔaǰuθəm	cited form	/čs/	page 15
+§5.3	ʔayʔaǰuθəm	cited form	/č/	page 15
+§5.3	ʔayʔaǰuθəm	cited form	=səm	page 15
+§5.3	Gloria Mellesmoen and Bailey Trotter	note	The innovation of the short form =č must predate the development of the morphologically- conditioned form =tᶿ. Davis (1978:227) proposes that /tᶿ/ comes from an earlier sequence of /čs/; the /č/ comes from the short form of the subject clitic and /s/ comes from the future clitic =səm. The short form therefore represents an earlier change, which then created the /čs/ sequence that lead to the development of =tᶿ for the future.10 If this historical trajectory is correct, then the default form represents the oldest form in the language, while the other allomorphs are the product of reanalysis based on the output of previous phonological processes. It is therefore unsurprising that the long forms are the least marked case, even if they appear to be more marked on the basis of synchronic distribution.	page 15
+§5.3	Gloria Mellesmoen and Bailey Trotter	note	There is some variation with respect to the choice of allomorph that deserves further study. It is unclear how much of this variation should be characterized as free variation or non-linguistic sources (i.e., uncertainty or error), as we note variation across sources, speaker, and lexical items. Impressionistically, we note that the long form is often supplied with words where the short form is expected; there are fewer cases where a short form is used on a word where a long form is required. This would be consistent with the long form being the elsewhere case, as it shows the fewest phonological and morphological restrictions. However, we leave this variation as a topic for future research.	page 15
+§5.4	Gloria Mellesmoen and Bailey Trotter	heading	5.4 Lexical Insertion	page 15
+§5.4	ʔayʔaǰuθəm	cited form	ʔayʔaǰuθəm	page 15
+§5.4	Gloria Mellesmoen and Bailey Trotter	note	The correct allomorph of subject clitics in ʔayʔaǰuθəm requires information about the phonological form of one morpheme and about the morphological identity of another. Phonological form is only accessible once it has been inserted; morphological features are not present following Insert. The subject clitics therefore provide evidence that the second step of lexical insertion must proceed one morpheme at time, such that the Insert is able to see phonological content in one direction (in the linear string) and morphological information in the other. In other words, Insert cannot apply to all morphemes in the string in a single parallel step; Insert must proceed morpheme-by- morpheme.	page 15
+footnote 10	Gloria Mellesmoen and Bailey Trotter	note	10 We give this allomorph as =tᶿ for consistency with Huijsmans (2023), though we assume that the relevant allomorph is =tᶿəm, which represents either a portmanteau of the subject and the future or is followed by a null future marker.	page 15, footnote
+§5.4	ʔayʔaǰuθəm	cited form	=tᶿ	page 15
+§5.4	ʔayʔaǰuθəm	cited form	=tᶿəm	page 15
+§5.4	Gloria Mellesmoen and Bailey Trotter	note	Our analysis is similar to Huijsmans (2023) in that Insert can refer to either phonological or morphological information. However, her analysis assumes that a cycle of phonology is triggered following Insert for each morpheme. We assume that both stages of lexical insertion precede any cycle of word-level phonology. This limits the type of phonological information that may factor into allomorph selection at Insert since it is restricted to the string of segments available in the underlying form. Prosodic structure that would be built up over the prosodic word is therefore not available at the point of allomorph selection. Any allomorphy that is sensitive to syllable or foot structure must happen later (i.e., with listed allomorphs or prosodic affixes that trigger non-concatenative morphology).	page 16
+§5.4	Gloria Mellesmoen and Bailey Trotter	note	Insert in ʔayʔaǰuθəm proceeds one morpheme at a time from left to right. It is plausible that there are languages where this process moves in the opposite direction (i.e., right to left), or where Insert starts at the root and moves outward. Brown and Davis (2024) describe an interrogative clitic =du in Sm'algyax, a Coast Tsimshian language, with morphological conditioning on the left side: there is a =yu allomorph that is only possible following a wh-word. This suggests that Insert in Sm'algyax does not follow the same path or direction as in ʔayʔaǰuθəm. In fact, there is also evidence of phonological conditioning from the right side. The forms =du and =yu only appear if phonological material follows; if they are final in the phonological string, then =da or =ya are used instead. Davis (p.c.) notes that =da or =ya are also used where a null pronoun follows the clitic, which means this allomorphy cannot be not morphologically conditioned. Morphemes to the right of the interrogative clitic must be inserted first in order for a null morpheme (i.e., absence of phonological structure) to be indistinguishable from being the final morpheme in the linearised string.	page 16
+§5.4	Gloria Mellesmoen and Bailey Trotter	note	Regardless of whether Insert proceeds left-to-right or right-to-left, the predictions about allo- morph selection are the same. By hypothesis, Insert can only be sensitive to phonological form on one side and morphological features on the other; this sensitivity should be consistent with a systematic order of application of Insert across morphemes in a linearised string within a given language. We leave this as an area for further research.	page 16
+§6	Gloria Mellesmoen and Bailey Trotter	heading	6 Conclusion	page 16
+§6	ʔayʔaǰuθəm	cited form	ʔayʔaǰuθəm	page 16
+§6	Gloria Mellesmoen and Bailey Trotter	note	Subject clitic allomorphy in ʔayʔaǰuθəm provides insight into theories of allomorph selection, as well as the architecture of the grammar. We build on the analysis in Huijsmans (2023), but ultimately argue against her proposal that clitic allomorphy is sensitive to the prosodic structure of the clitic’s host. An analysis of subject clitic allomorphy based on prosodic structure: (i) makes incorrect predictions about the distribution of short and long subject markers, and (ii) requires prosodic information to be accessible to the derivation at lexical insertion. The choice of allomorph must be based on the underlying vowel, which means that clitics must be spelled out within the same phase as affixes in ʔayʔaǰuθəm. Further, the combination of phonological and morphological conditions at Insert provides evidence that insertion happens one morpheme at time; in ʔayʔaǰuθəm this is from left to right. Future work is needed to explore variation in allomorph choice, as well as the larger theoretical and typological implications raised by this study.	page 16
+references	Gloria Mellesmoen and Bailey Trotter	heading	References	page 17
+references	Gloria Mellesmoen and Bailey Trotter	reference	Beaumont, Ronald. 1985. She shashishalhem: The Sechelt language . Penticton, BC: Theytus Books.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Blake, Susan J. 2000. On the distribution and representation of schwa in Sliammon (Salish): Descriptive and theoretical perspectives. Doctoral Dissertation, University of British Columbia.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Brown, Colin, and Henry Davis. 2024. A second-last position clitic in Sm’algyax (Coast Tsimshian). In Proceedings of the North East Linguistic Society 54 , ed. C. Spellerberg S. Phadnis and B. Wilkinsony, 89--102. Amherst, MA: GLSA.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Davis, Henry. in press. Minimal morphology: Evidence from clitic systems. In Proceedings of the West Coast Conference on Formal Linguistics 43 (invited paper) . Somerville, MD: Cascadilla Press.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Davis, Henry, and Marianne Huijsmans. 2024. Clitics and coordination in two Salish languages. In Proceedings of the West Coast Conference on Formal Linguistics (WCCFL) 39 , ed. R. Autry, G. de la Cruz Sanchez, L.A. Irizzary Figueroa, K. Mijhailovic, T. Ni, R. Smith, and H. Harley, 504--511. Somerville, MD: Cascadilla Press.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Davis, J. 1978. Pronominal paradigms in Sliammon. Papers for the 13th International Conference on Salish Languages (ICSL 13) 208--236.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Van Eijk, Jan. 1997. The Lillooet language: Phonology, morphology, syntax . Vancouver: University of British Columbia Press.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Gouskova, Maria, and Jonathan D. Bobaljik. 2019. Allomorphy and vocabulary insertion. Manuscript, Ms. New York University and Harvard University.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Halle, Morris, and Alec Marantz. 1993. Distributed morphology and the pieces of inflection. In The view from building 20: Essays in linguistics in honor of sylvain bromberger , ed. K. Hale and S. J. Keyser. MIT Press.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Hayes, Bruce. 1989. Compensatory lengthening in moraic phonology. In Linguistic Inquiry 20(2), 253--305. MIT Press.	
+references	ʔayʔaǰuθəm	cited form	ʔayʔaǰuθəm	page 17
+references	Gloria Mellesmoen and Bailey Trotter	reference	Huijsmans, Marianne. 2023. Second-position clitics, from morphosyntax to semantics: The ʔayʔaǰuθəm (Comox-Sliammon) perspective. Doctoral Dissertation, University of British Columbia.	
+references	Gloria Mellesmoen and Bailey Trotter	language	Nxaʔamxčín	Moses-Columbian, whose clitics can precede or follow their host, footnote 3
+references	Gloria Mellesmoen and Bailey Trotter	name	Mascaró	Joan Mascaró, cited for allomorph selection
+references	Gloria Mellesmoen and Bailey Trotter	reference	Lyon, John, and Ewa Czaykowska-Higgins. 2020. Orbital clitics in Nxaʔamxčín. In Papers for the 55th International Conference on Salish and Neighbouring Languages (ICSNL 55) . Mascaró, Joan. 2007. External allomorphy and lexical representation. In Linguistic Inquiry 38(4), 715--735. MIT Press.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Mellesmoen, Gloria. 2025. The grammar of Salish reduplication. Doctoral Dissertation, University of British Columbia.	
+references	ʔayʔaǰuθəm	cited form	χʷaχʷaǰɩm	page 17
+references	ʔayʔaǰuθəm	cited form	niniǰɛ	page 17
+references	ʔayʔaǰuθəm	cited form	qayχ	in the title of Paul in press, χʷaχʷaǰɩm niniǰɛ qayχ
+references	Gloria Mellesmoen and Bailey Trotter	name	Qayχ	in the title of Paul in press, Stories about Qayχ
+references	Gloria Mellesmoen and Bailey Trotter	reference	Paul, Elsie. In press. χʷaχʷaǰɩm niniǰɛ qayχ: Stories about Qayχ . ed. M. Huijsmans, H. Davis, L. Griffin, G. Mellesmoen, D.K.E. Reisinger, & B. Trotter. PNWLL Press.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Ramsammy, Michael. 2015. The life cycle of phonological processes: Accounting for dialectal microtypologies. Language and Linguistics Compass 9:33--54.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Svenonius, Peter. 2016. Spans and words. In Morphological metatheory, ed. Daniel Siddiqi and Heidi Harley, 201--222. John Benjamins Publishing Company.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Svenonius, Peter, and Patrik Bye. 2012. Non-concatenative morphology as epiphenomenon. In The morphology and phonology of exponence , ed. Jochen Trommer, 427--495. Oxford: Oxford University Press.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Trotter, Bailey. 2025. The past tense suffix and 2PCs in ʔayʔaǰuθəm (Comox-Sliammon). In Papers for the 60th International Conference on Salish and Neighbouring Languages (ICSNL 60), ed. Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter, 457--471. UBCWPL.	
+references	Gloria Mellesmoen and Bailey Trotter	name	Honoré	Honoré Watanabe, author of Watanabe 2003, the source of many examples
+references	Gloria Mellesmoen and Bailey Trotter	reference	Watanabe, Honoré. 2003. A morphological description of Sliammon, Mainland Comox Salish: With a sketch of syntax . Endangered Languages of the Pacific Rim, Faculty of Informatics, Osaka Gakuin University.	
+references	Gloria Mellesmoen and Bailey Trotter	reference	Waugh, Linda R., and Barbara A. Lafford. 2008. Markedness. In Morphologie / morphology., ed. G. E. Booijs, J Lehmann, and C. Mugdan. Walter de Gruyter.	
+title	Gloria Mellesmoen and Bailey Trotter	title	The Long and Short of Subject Clitics in ʔayʔaǰuθəm	the paper's title, set in bold, carrying the star of the acknowledgement footnote
+title	Gloria Mellesmoen and Bailey Trotter	name	Gloria Mellesmoen	author, University of Victoria
+title	Gloria Mellesmoen and Bailey Trotter	name	Bailey Trotter	author, University of British Columbia
+footnote *	Gloria Mellesmoen and Bailey Trotter	name	Elsie Paul	thanked first among the speakers. EP in the tags of (18) and (25), and the teller of Paul in press, the source of (14)
+footnote *	Gloria Mellesmoen and Bailey Trotter	name	Freddie Louie	the late Freddie Louie, thanked in footnote *. FL in the tags of (18) and (23)
+footnote *	Gloria Mellesmoen and Bailey Trotter	name	Marianne Huijsmans	thanked with the Salish Working Group, and author of Huijsmans 2023, the source of most examples
+footnote *	Gloria Mellesmoen and Bailey Trotter	name	Henry Davis	thanked for encouraging the questions this paper asks
+§1	Gloria Mellesmoen and Bailey Trotter	language	ʔayʔaǰuθəm	a.k.a. Comox-Sliammon, Central Salish, spoken by the Tla’amin, Homalco, Klahoose and K’ómoks communities
+§1	Gloria Mellesmoen and Bailey Trotter	language	Comox-Sliammon	another name for ʔayʔaǰuθəm
+§1	Gloria Mellesmoen and Bailey Trotter	place	Tla’amin	one of the four communities
+§1	Gloria Mellesmoen and Bailey Trotter	place	Homalco	one of the four communities
+§1	Gloria Mellesmoen and Bailey Trotter	place	Klahoose	one of the four communities
+§5	Gloria Mellesmoen and Bailey Trotter	language	Sechelt	with the cognate subject marker =čən, after Beaumont 1985
+all	Gloria Mellesmoen and Bailey Trotter	notation	(10) to (12), (17), (19) to (22), (31), (32)	numbered displays of rules, derivations and trees. Their lines are rule rows
+all	Gloria Mellesmoen and Bailey Trotter	symbol note	text layer	the text layer runs the words of 106 lines together, betweenallomorphsissensitiveto:, and drops the column gaps of the examples. Each line is read from whichever of the text layer and the glyph positions keeps more of the page's spaces

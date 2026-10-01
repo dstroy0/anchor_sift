@@ -1,0 +1,573 @@
+where	who	kind	form	gloss
+front	Henry Davis	title	On Proper Names in St’át’imcets	page 1, carries footnote ∗
+front	Henry Davis	name	Henry Davis	author
+front	Henry Davis	note	University of British Columbia	page 1, under Henry Davis
+front	Henry Davis	note	Abstract: This paper investigates the syntax and semantics of proper names in St’át’imcets (Lillooet Salish). It argues for a dual representation of proper nouns. On the one hand, bare (non-nominalized) proper nouns resemble common nouns in being lexically predicative: they take the full range of common noun determiners and may be pluralized, modified, and act as the restrictions of quantifiers. On the other hand, when prefixed with the “nominalizer” s-, which occurs on proper nouns in both predicate and argument positions, proper nouns behave semantically as directly referring expressions: they take a special proprial determiner and cannot be pluralized, modified, nor act as the restriction of a quantifier. It is argued that proper nouns are lexically represented both as predicates of type ⟨e,t⟩, in which case they function like common nouns, or as arguments of type e, in which case they must be shifted into a predicative type in order to enter the composition, while maintaining their “referential” character: this is the function of “nominalizing” s-.	page 1, the abstract
+front	Henry Davis	note	Keywords: St’át’imcets, Salish, proper names, determiners, nominalization	page 1, the keywords
+front	Henry Davis	note	Papers for the International Conference on Salish and Neighbouring Languages 54. D. K. E. Reisinger and Gloria Mellesmoen (eds.). Vancouver, BC: UBCWPL, 2019.	page 1, the volume's header
+front	Henry Davis	language	St’át’imcets	Northern Interior Salish (Lillooet), ISO-363 lil
+footnote ∗	Henry Davis	note	As ever, my deepest debt is to the St’át’imcets speakers, past and present, whose insights and wisdom pervade this work. For this paper, I am particularly grateful to Carl Alexander (Qway7án’ak) for his years of dedication to the documentation of his first language. I would also like to thank the members of the Salish Working Group, Lisa Matthewson, Ora Matushansky, Malte Zimmermann, the organizers and audience of the 2018 GLOW Syntax Workshop on Predication, and the audience at the 53rd ICSNL at the Whatcom County Museum in Bellingham, WA. This work has been supported by SSHRC Insight grant #435-2015-1694 to the author. Author’s e-mail: henry.davis@ubc.ca.	page 1, footnote ∗, on the title
+footnote ∗	Henry Davis	name	Carl Alexander	Qway7án’ak, a St’át’imcets speaker; Alexander (2016), Sptakwlh múta7 Sqwéqwqel’
+footnote ∗	Henry Davis	name	Lisa Matthewson	thanked; Matthewson (2005), Iwan Kwikws
+footnote ∗	Henry Davis	name	Ora Matushansky	thanked; Matushansky (2008), the linguistic complexity of proper names
+footnote ∗	Henry Davis	name	Malte Zimmermann	thanked
+footnote ∗	Henry Davis	language	Salish	the family
+§1	Henry Davis	heading	1 Introduction	page 1
+§1	Henry Davis	note	One of the most notorious dangers of working on languages as superficially “exotic” as those of the Salish family is to get intoxicated by their strangeness, and as a consequence misinterpret properties that turn out on closer inspection to be not so exotic after all. But there is a complementary affliction that mostly affects those who have been working on Salish for a long time: that is, to ignore phenomena that are genuinely strange, precisely because they have become so familiar that we fail to recognize how exotic they actually are.	page 1
+§1	Henry Davis	note	This paper is about one of these phenomena: the grammar of proper nouns in St’át’imcets (a.k.a. Lillooet, ISO-363 lil; Northern Interior Salish), which turns out to be not only different from that of more familiar European languages, but also, to the best of my knowledge, from that of any other Salish language. Of particular interest in this respect is the presence of the nominalizing prefix s- on proper nouns in both predicate and argument positions, though never on proper names when used in isolation; as far as I can see, no other Salish language ever nominalizes proper nouns. In accounting for this and other properties of proper nouns in St’át’imcets, I will make the following key empirical claims:	page 1
+§1	St’át’imcets	cited form	s-	page 1, in italics
+§1	Henry Davis	language	Lillooet	St’át’imcets
+§1	Henry Davis	language	Northern Interior Salish	the branch
+(i) line 1	Henry Davis	note	When not nominalized, proper nouns in St’át’imcets act just like common nouns. They take	page 2, a claim of the paper
+(i) line 2	Henry Davis	note	the full range of common noun determiners, and may be pluralized, modified, or act as the	page 2, a claim of the paper
+(i) line 3	Henry Davis	note	restriction of a quantifier.	page 2, a claim of the paper
+(ii) line 1	Henry Davis	note	However, when nominalized, proper nouns act like directly referential expressions: in	page 2, a claim of the paper
+(ii) line 2	Henry Davis	note	argument positions, they occur with a special proprial determiner rather than common noun	page 2, a claim of the paper
+(ii) line 3	Henry Davis	note	determiners; they may only be pluralized via an associative marker, and they may neither be	page 2, a claim of the paper
+(ii) line 4	Henry Davis	note	modified nor act as the restriction of a quantifier.	page 2, a claim of the paper
+§1	Henry Davis	note	I consider two accounts for (i) and (ii). The first attributes the referential status of nominalized proper nouns to the lexical entry of the nominalizer itself, which restricts the denotation of proper noun predicates to unique individuals. I reject this account on the basis that it fails to generalize to nominalization on common nouns, which is very frequent in St’át’imcets (as in the rest of Salish), but carries no uniqueness presupposition.	page 2
+§1	Henry Davis	note	Instead, I propose that proper nouns in St’át’imcets are lexically ambiguous. In their common noun guise, they enter the derivation as ordinary nominal predicates roughly meaning ‘bearing the name X’. In their nominalized guise, however, they start off as referential expressions of type e (or its intensional equivalent), and are then converted to predicates by a semantic operation whose morphological reflex is the nominalizer s-. This allows for a general account of nominalization as predicativization, which extends to common nouns under a neo-Carlsonian account where they begin life as kinds of type e but in order to enter the derivation must be converted to nominal predicates of type ⟨e,t⟩ (or its intensional equivalent).	page 2
+§1	Henry Davis	note	The paper is organized as follows. In Section 2, I give an elementary introduction to the treatment of proper nouns in the philosophical and linguistic literature, focusing on the distinction between predicativist and direct reference theories. In Section 3, I examine the cultural context of naming in St’át’imcets, with a view to assessing its potential relevance to the grammar of proper names in the language. Sections 4 to 5 contain the empirical core of the paper: Section 4 deals with non-nominalized and Section 5 with nominalized proper names. Section 6 provides an analysis of the two types, and Section 7 concludes.	page 2
+§2	Henry Davis	heading	2 A very brief introduction to the semantics and syntax of proper nouns	page 2
+§2	Henry Davis	note	The grammar of proper nouns has been a central concern of linguistically inclined philosophers and linguists for centuries, and has accumulated an immense literature, which it is impossible to adequately characterize here. Instead, I will pick out some central themes which bear directly on the empirical arguments detailed in sections 4 and 5 of the current paper.	page 2
+§2.1	Henry Davis	heading	2.1 How different are proper names?	page 2
+§2.1	Henry Davis	note	One way of looking at the controversy surrounding proper names is to ask how different they are from common nouns (or NPs). The latter are standardly represented as predicates (sets or their characteristic functions, of semantic type ⟨e,t⟩), and we will provisionally assume that representation here.1 As such, in order to form an argument, they must combine with a determiner, which may either yield a referential expression (of type e) or a generalized quantifier (of type ⟨⟨e,t⟩,t⟩).	page 2
+footnote 1	Henry Davis	note	Throughout this paper, I will abstract away from intensions for the purposes of exposition. This is certainly an over-simplification, and also empirically inadequate when dealing with, e.g., the stage-level nature of proper name predicates in St’át’imcets.	page 2, footnote 1
+§2.1	Henry Davis	note	One hypothesis holds that proper nouns are essentially identical to common nouns. Such a view, known as the predicative theory of proper names, has antecedents in the descriptivist tradition of Frege and Russell, and is sometimes also called metalinguistic descriptivism (Cumming 2016). It holds that proper names are predicates, just like common nouns: more specifically, they are predicates of naming (Burge 1973, Geurts 1997, Matushansky 2008, Fara 2015). So for example, the meaning of the predicate ‘John’ can be viewed as the property of bearing the name “John”, as in (1):	page 3
+§2.1	Henry Davis	name	Frege	the descriptivist tradition
+§2.1	Henry Davis	name	Russell	the descriptivist tradition
+§2.1	Henry Davis	name	Cumming	Sam Cumming, Names (2016)
+§2.1	Henry Davis	name	Burge	Tyler Burge, reference and proper names (1973)
+§2.1	Henry Davis	name	Geurts	Bart Geurts, the description theory of names (1997)
+§2.1	Henry Davis	name	Fara	Delia Graff Fara, names are predicates (2015)
+(1) line 1	Henry Davis	formula	[[John]] = λx. x bears the name /ǰɑn/	page 3, a formula, its subscripts set inline
+§2.1	Henry Davis	note	Linguistic proponents of the predicative theory naturally point to parallels between common and proper nouns. These include the following:	page 3
+(i) line 1	Henry Davis	note	Proper nouns can be modified.	page 3, a property proper nouns share with common nouns
+(ii) line 1	Henry Davis	note	Proper nouns may act as the restrictions of quantifiers.	page 3, a property proper nouns share with common nouns
+(iii) line 1	Henry Davis	note	In many languages (including English) all or some proper nouns take determiners.	page 3, a property proper nouns share with common nouns
+(iv) line 1	Henry Davis	note	Proper nouns are the predicates of small clauses in naming constructions.	page 3, a property proper nouns share with common nouns
+§2.1	Henry Davis	note	These properties are illustrated in (2)–(5).	page 3
+(2) line 1	Henry Davis	note	[The tall John and the short one] both rode into town.	page 3, an English example
+(3) line 1	Henry Davis	note	[Every John I know] is taller than me.	page 3, an English example
+(4) line 1	Henry Davis	note	[The Smiths] are here.	page 3, an English example
+(5) line 1	Henry Davis	note	They named [their son John].	page 3, an English example
+§2.1	Henry Davis	note	In answer to the counter-argument that (3) and (4) involve “special” uses of proper nouns as common nouns, predicativists point to the fact (first laid out systematically in Sloat 1969) that there is only one environment where proper nouns do not show the distributional properties of common nouns. In singular definite contexts, a common noun must be preceded by ‘the’ (6a) but a proper noun cannot be (6b):	page 3
+§2.1	Henry Davis	name	Sloat	Clarence Sloat, proper nouns in English (1969)
+(6) line 1	Henry Davis	note	a. *(The) man left.	page 3, an English example
+(6) line 2	Henry Davis	note	b. (*The) John left.	page 3, an English example
+§2.1	Henry Davis	note	In other words, the unusual case is actually (6), where the distribution of proper nouns differs from that of common nouns, rather than (3) and (4), where they behave identically.	page 3
+§2.1	Henry Davis	note	In opposition to predicativism is the hypothesis that proper nouns involve direct reference. Under this view (sometimes termed Millianism after J. S. Mill, one of its most famous proponents), proper names simply refer to their bearers, and are therefore underived referential expressions of type e, as in (7).	page 3
+§2.1	Henry Davis	name	J. S. Mill	Millianism
+(7) line 1	Henry Davis	formula	[[John]] = John	page 3, a formula, its subscripts set inline
+§2.1	Henry Davis	note	This makes proper nouns very different from common nouns of type ⟨e,t⟩. Proponents of direct reference accordingly emphasize differences between proper and common nouns, often drawing a parallel between proper nouns and the two other classes of element which have been claimed to be directly referential: indexicals (‘I’, ‘you’, etc.) and demonstratives (‘this’, ‘that’, etc.) (Kaplan 1989). In particular, they point out that these classes are rigid designators (Kripke 1980): that is, they pick out the same individual across worlds, as exemplified particularly clearly by their behavior in modal contexts, where they appear to always take obligatory wide scope.2 However, though they are often lumped together, rigid designation does not entail direct reference: definite descriptions such as ‘the successor of three’ are rigid designators, even though they do not refer directly (LaPorte 2018).	page 4
+footnote 2	Henry Davis	note	Though Kripke (1980) argues that rigidity cannot be reduced to “wide scopism”.	page 4, footnote 2
+§2.1	Henry Davis	name	Kaplan	David Kaplan, demonstratives (1989)
+§2.1	Henry Davis	name	Kripke	Saul Kripke, Naming and Necessity (1980)
+§2.1	Henry Davis	name	LaPorte	Joseph LaPorte, rigid designators (2018), Laporte in the references
+§2.1	Henry Davis	note	Nevertheless, it is certainly the case cross-linguistically that proper nouns often group with demonstratives and personal pronouns, in opposition to common nouns. For example, the Tsimshianic languages of northern British Columbia have two sets of determiners, one for common nouns, and one for proper nouns, demonstratives, and independent pronouns (Davis 2018). More broadly, the existence of a special set of proprial (proper noun) determiners distinct from definite determiners is not predicted by any theory that treats proper nouns as ordinary predicates and DPs based on them as definite descriptions, but is in fact common cross- linguistically: to name just a few well-known examples, Catalan, Icelandic, Tagalog and Maori all have distinct proprial articles (Muñoz to appear).	page 4
+§2.1	Henry Davis	name	Muñoz	Patrick Muñoz, the proprial article (to appear)
+§2.1	Henry Davis	name	Davis	Henry Davis, the author (2011, 2018a, 2018b)
+§2.1	Henry Davis	language	Tsimshianic	two sets of determiners, one for proper nouns
+§2.1	Henry Davis	language	Catalan	a proprial article
+§2.1	Henry Davis	language	Icelandic	a proprial article
+§2.1	Henry Davis	language	Tagalog	a proprial article
+§2.1	Henry Davis	language	Maori	a proprial article
+§2.1	Henry Davis	note	It should be clear even from this brief description that there is something procrustean about the debate between the predicativist and referential camps. The very fact that proper nouns can be used predicatively argues that a purely referential account must be supplemented by some provision for cases where they do not directly refer, while the cluster of properties that led to the direct reference theory (e.g., scopelessness, rigidity) pose a challenge for any account that treats proper nouns the same way as ordinary common nouns. We clearly need an account that shares characteristics of both camps; and as we shall see, the behaviour of proper nouns in St’át’imcets provides quite striking support for this contention.	page 4
+§3	Henry Davis	heading	3 Proper names and naming in the St’át’imc cultural context	page 4
+§3	Henry Davis	note	Because names and naming in traditional St’át’imc society differ from those in the English- speaking world, it is possible that these differences might be reflected in their respective grammars. Accordingly, in this section I give a brief introduction to naming practices amongst the St’át’imc. Though due to a century and a half of European domination it is hard to reconstruct the exact details of St’át’imc naming practices in precolonial times, it is certainly possible to give a broad outline, particularly since traditional names and naming practices persist to this day alongside those imposed by the colonial government and church.3	page 4
+footnote 3	Henry Davis	note	See Montler (2012) for remarks on traditional names in Klallam.	page 4, footnote 3
+footnote 3	Henry Davis	name	Montler	Timothy Montler, traditional personal names in Klallam (2012)
+footnote 3	Henry Davis	language	Klallam	traditional names (Montler 2012)
+§3	Henry Davis	language	English	proper nouns with and without determiners
+§3	Henry Davis	note	There appear to have been two types of names in traditional St’át’imc society. The first were informal, interchangeable, and in some ways more like epithets (pet names) than proper names. For example, Francis “Bill” Edwards, who was from Ts’k’wáylacw (Pavilion), reports that he didn’t have a regular St’át’imcets name at all before being sent to residential school:4	page 4
+footnote 4	Henry Davis	note	Examples are given in the modified version of the van Eijk orthography employed in Alexander (2016) and Edwards et al. (2017). All unattributed examples are from original fieldwork by the author. Unless explicitly mentioned, all examples are from the Upper (Northern) dialect of the language. Glossing abbreviations are as follows: ABSN = absent, ACT = active intransitive marker, AUT = autonomous (lexical reflexive), CAUS = causative transitivizer, CNTR = counter-to-expectation, COMP = complementizer, COP = (equational) copula, CRED = consonant (CV́) reduplication, DEM = demonstrative, DET = determiner, DIR = directive transitivizer, EPIS = epistemic modal, ERG = ergative (transitive subject suffix), EXCL = exclusive, EXIS = existential enclitic, FRED = final (V́C) reduplication, INCH = inchoative, IMP = imperative, INDP = independent (strong) pronoun, INS = instrument, INTS = intensifier, INVS = invisible, IPFV = imperfective, LOC = locative, MID = middle, NEG = Negation, NMLZ = nominalizer, NTS = non-topical subject marker, OBJ = object suffix, PASS = passive, PL = plural, PN = proper name, POSS = possessive, Q = yes-no question, QUOT = quotative, RDR = redirective (applicative) transitivizer, REM = remote in time, RLT = relational (applicative) transitivizer, SJV = subjunctive (“conjunctive”) subject clitic, SUBJ = indicative subject clitic, TRED = total (CVC) reduplication, VIS = visible. An affix is marked with a hyphen (-), a clitic with an equals sign (=), a reduplicant with a bullet (•), and unsegmentable morpheme combinations with a plus sign (+).	page 4, footnote 4
+§3	Henry Davis	name	Francis “Bill” Edwards	from Ts’k’wáylacw (Pavilion); Edwards et al. (2017)
+(8a) line 1	St’át’imcets	segmentation	na=s-kela7-s=á=cwilh láti7	page 5
+(8a) line 2	St’át’imcets	gloss	ABS.DET=NMLZ-first-3POSS=EXIS=after.all at+there.VIS	page 5
+(8a) line 3	St’át’imcets	segmentation	kw=n=s=[s]qwál’-en, sqwál’-min’-an izá-wna,	page 5
+(8a) line 4	St’át’imcets	gloss	DET=1SG.POSS=NMLZ=report-DIR report-RLT-1SG.ERG these-precisely	page 5
+(8a) line 5	St’át’imcets	segmentation	s-kela7-s kw=n=s=tsicw skul…	page 5
+(8a) line 6	St’át’imcets	gloss	NMLZ-first-3POSS DET=1SG.POSS=NMLZ=get.there school	page 5
+(8a) line 7	Henry Davis	translation	‘Before the time I am talking about here, before I left for school...’	page 5
+(8b) line 1	St’át’imcets	segmentation	tákem i=swín’acws=a skwátsits wa7	page 5
+(8b) line 2	St’át’imcets	gloss	all PL.DET=different.kinds=EXIS name IPFV	page 5
+(8b) line 3	St’át’imcets	segmentation	nah-en-tsálem, ucwalmícw=t’u7 skwátsits.	page 5
+(8b) line 4	St’át’imcets	gloss	name-DIR-1SG.PASS Indian=EXCL name	page 5
+(8b) line 5	Henry Davis	translation	‘...I was called by all kinds of different names, just Indian names.’	page 5
+(8c) line 1	St’át’imcets	segmentation	pála7 papt wa7 qwez-en-ítas: Ápa7.	page 5
+(8c) line 2	St’át’imcets	gloss	one always IPFV use-DIR-3PL.ERG Ápa7	page 5
+(8c) line 3	Henry Davis	translation	‘One they always used was Ápa7.’	page 5
+(8d) line 1	St’át’imcets	segmentation	nílh=ti7 wa7 twéww’et, nílh=iz’ wa7 s-nah-en-ém	page 5
+(8d) line 2	St’át’imcets	gloss	COP=that.VIS IPFV boy COP=those.VIS IPFVNMLZ-name-DIR-PASS	page 5
+(8d) line 3	St’át’imcets	segmentation	i=tew•tweww’et=á=t’u7 káti7: Ápa7.	page 5
+(8d) line 4	St’át’imcets	gloss	PL.DET=TRE•boy=EXIS=EXCL around+there.VIS Ápa7	page 5
+(8d) line 5	Henry Davis	translation	‘That’s a boy’s name, that’s what all the boys were called around there: Ápa7.’	page 5
+(8e) line 1	St’át’imcets	segmentation	nilh múta7 kwa Tsucwínem, Petsklhánk, Pexwpánk, o tákem	page 5
+(8e) line 2	St’át’imcets	gloss	COP and DET+IPFV Tsucwínem Petsklhánk Pexwpánk oh all	page 5
+(8e) line 3	St’át’imcets	segmentation	swín’acws i=s-kwátsits=a wa7	page 5
+(8e) line 4	St’át’imcets	gloss	different.kinds PL.DET=NMLZ-name=EXIS IPFV	page 5
+(8e) line 5	St’át’imcets	segmentation	s-nah-en-tsal-ítas, ao kwenswá	page 5
+(8e) line 6	St’át’imcets	gloss	NMLZ-name-DIR-1SG.OBJ-3PL.ERG NEG DET+1SG.POSS+NMLZ+IPFV	page 5
+(8e) line 7	St’át’imcets	segmentation	lex•láx-s i=núkw=a.	page 5
+(8e) line 8	St’át’imcets	gloss	TRED•remember-CAUS PL.DET=other=EXIS	page 5
+(8e) line 9	Henry Davis	translation	‘Then there was also Tsucwínem, Petsklhánk, Pexwpánk, oh, I was called all kinds of different names, but I don’t remember the others.’	page 5
+(8e) line 10	Henry Davis	citation	(Edwards et al. 2017:18–19)	page 5, the tag or source at the right of the translation
+§3	Henry Davis	note	Of the last three names mentioned, Petsklhánk means literally ‘Leaf Belly’, from √petskelh ‘leaf’ and the lexical suffix -ank ‘belly’, while Pexwpánk means ‘Squirting Belly’ from √pexw ‘spray, squirt’, -p ‘inchoative’, and -ank ‘belly’. Tsucwínem does not have an obvious literal meaning.	page 6
+§3	St’át’imcets	cited form	Petsklhánk	page 6, in italics
+§3	St’át’imcets	cited form	√petskelh	page 6, in italics, ‘leaf’
+§3	St’át’imcets	cited form	Pexwpánk	page 6, in italics
+§3	St’át’imcets	cited form	√pexw	page 6, in italics, ‘spray, squirt’
+§3	St’át’imcets	cited form	-p	page 6, in italics, ‘inchoative’
+§3	St’át’imcets	cited form	-ank	page 6, in italics, ‘belly’
+§3	St’át’imcets	cited form	Tsucwínem	page 6, in italics
+§3	Henry Davis	note	Nicknames were not just given to children: adults also bore them (and still do), and in this case they often refer to physical or personality quirks, and may become permanently associated with the bearer. Contemporary or recent examples include Qwátsaxwats ‘Hairy Chest’, from √qwats ‘hair, fur, feathers’ and -axwats ‘chest’, Amhálhts’a7 ‘Good-Natured’ from √áma ‘good’ and -alhts’a7 ‘flesh, inside of body’, Ntíhten ‘Teapot’, from √tih ‘tea’ (English), and n-...-ten ‘container’ (so named because the bearer had a habit of putting her hands on her hips in a shape that resembled a teapot). The “old” word for a nickname is kwastáy’, but these days skwatsitssút, (meaning ‘any old name’, with the nominalizer s-, the root √kwátsits ‘name’, and the ‘out-of- control’ suffix -sút) is often used instead.	page 6
+§3	St’át’imcets	cited form	Qwátsaxwats	page 6, in italics, ‘Hairy Chest’
+§3	St’át’imcets	cited form	√qwats	page 6, in italics, ‘hair, fur, feathers’
+§3	St’át’imcets	cited form	-axwats	page 6, in italics, ‘chest’
+§3	St’át’imcets	cited form	Amhálhts’a7	page 6, in italics, ‘Good-Natured’
+§3	St’át’imcets	cited form	√áma	page 6, in italics, ‘good’
+§3	St’át’imcets	cited form	-alhts’a7	page 6, in italics, ‘flesh, inside of body’
+§3	St’át’imcets	cited form	Ntíhten	page 6, in italics, ‘Teapot’
+§3	St’át’imcets	cited form	√tih	page 6, in italics, ‘tea’
+§3	St’át’imcets	cited form	kwastáy’	page 6, in italics
+§3	St’át’imcets	cited form	skwatsitssút	page 6, in italics
+§3	St’át’imcets	cited form	√kwátsits	page 6, in italics, ‘name’
+§3	St’át’imcets	cited form	-sút	page 6, in italics
+§3	St’át’imcets	cited form	n-	page 6, in italics
+§3	Henry Davis	note	The second class of traditional St’át’imc names are more formal, and are handed down from generation to generation (usually but not necessarily within the same family) via a special “name- raising” ceremony, which usually takes place at gatherings. (The verb cátan’ ‘to raise something’ is used to describe the act of passing a name from one bearer to another.) Names may acquire prestige from particularly powerful forebearers: it is both an honour and a responsibility to bear such names, and if no one is deemed worthy to assume it, a name may pass out of use. It is possible to bear more than one ancestral name, or to have none at all. Many but not all ancestral names bear a recognizable relation to a noun with descriptive content, some transparently so, such as Nk’yap ‘coyote’, Qatsk ‘elder brother’, others partially so, such as Ntsáqwemlha7, which contains the root √tsáqwem ‘saskatoon berry’, along with the locative prefix n- and the suffix ‑lha7, whose meaning is obscure but which occurs on some animal names. Lexical suffixes are common in traditional names, with -asq’et ‘day’ characteristic of male names (e.g., Gitásq’et, a famous chief) and -in’ak ‘gun’ characteristic of female names (e.g., Huysín’ak), for reasons which are obscure.	page 6
+§3	St’át’imcets	cited form	cátan’	page 6, in italics, ‘to raise something’
+§3	St’át’imcets	cited form	Ntsáqwemlha7	page 6, in italics
+§3	St’át’imcets	cited form	√tsáqwem	page 6, in italics, ‘saskatoon berry’
+§3	St’át’imcets	cited form	‑lha7	page 6, in italics
+§3	St’át’imcets	cited form	-asq’et	page 6, in italics, ‘day’
+§3	St’át’imcets	cited form	Gitásq’et	page 6, in italics
+§3	St’át’imcets	cited form	-in’ak	page 6, in italics, ‘gun’
+§3	St’át’imcets	cited form	Huysín’ak	page 6, in italics
+§3	Henry Davis	note	The relation between nicknames and ancestral names is not fixed: nicknames can be passed down and thus become ancestral names. The ancestral name Xíts’ken’ ‘back’, for example, was originally the nickname of a man with a broken back. A particularly interesting example comes from Carl Alexander, whose inherited the name Qwa7yán’ak ‘blue belly’ from his father via his older brother. Carl tells the story of how the name originated in Alexander (2016:179–194). It began as a nickname given to his father when he accidentally used qwa7yán’ak to refer to a stomach ache caused by eating too many berries, instead of the correct form qwa7ez’álhmec. Both words come from √qwaz~qway ‘blue’, the inchoative infix -7-, and lexical suffixes for stomach (-an’ak and -alhmec), and both mean literally ‘belly becomes blue’; however, only qwa7ez’álhmec has the idiomatic meaning of an upset stomach, so Carl’s father was saying that he literally had a blue belly. The nickname stuck, and was then passed down the family as an ancestral name.	page 6
+§3	St’át’imcets	cited form	Xíts’ken’	page 6, in italics, ‘back’
+§3	St’át’imcets	cited form	Qwa7yán’ak	page 6, in italics, ‘blue belly’
+§3	St’át’imcets	cited form	qwa7yán’ak	page 6, in italics
+§3	St’át’imcets	cited form	qwa7ez’álhmec	page 6, in italics
+§3	St’át’imcets	cited form	√qwaz~qway	page 6, in italics, ‘blue’
+§3	St’át’imcets	cited form	-7-	page 6, in italics
+§3	St’át’imcets	cited form	-an’ak	page 6, in italics
+§3	St’át’imcets	cited form	-alhmec	page 6, in italics
+§3	Henry Davis	note	Of course, in addition to nicknames and ancestral names, since colonial times the St’át’imc have also had white people’s names, termed (n)sem7ásk’a7 in St’át’imcets, from √sáma7 ‘white person’ and the lexical suffix (n-)...-ask’a7 ‘song, name’. Particularly in early colonial times, these names were often phonologically adapted into St’át’imcets: for example, ‘Patrick’ became Páotlek, ‘Pierre’ became Pyal, and Josephine became Sáopin. The hypocoristic English kin terms ‘mama’, ‘ma’, and ‘pa’ were also adapted into St’át’imcets as the nicknames Mama, Mah, and Pah, alongside the original St’át’imcets Táta ‘auntie’. These adapted names could then be elaborated further with the addition of lexical suffixes, as in Máhyeqs and Páhyeqs, which contain the suffix -yeqs ‘nose’. An interesting property of both borrowed and indigenous proper names is the extensive use of vowel retraction as a hypocoristic device: the proper name Sóspao7, for example, is a retracted version of súspa7 ‘tail’, and English Joseph was adapted into St’át’imcets both as Tsusp and its retracted counterpart Tsosp.	page 6
+§3	St’át’imcets	cited form	(n)sem7ásk’a7	page 6, in italics
+§3	St’át’imcets	cited form	√sáma7	page 6, in italics, ‘white person’
+§3	St’át’imcets	cited form	Páotlek	page 6, in italics
+§3	St’át’imcets	cited form	Sáopin	page 6, in italics
+§3	St’át’imcets	cited form	Táta	page 6, in italics, ‘auntie’
+§3	St’át’imcets	cited form	Máhyeqs	page 6, in italics
+§3	St’át’imcets	cited form	Páhyeqs	page 6, in italics
+§3	St’át’imcets	cited form	-yeqs	page 6, in italics, ‘nose’
+§3	St’át’imcets	cited form	Sóspao7	page 6, in italics
+§3	St’át’imcets	cited form	súspa7	page 7, in italics, ‘tail’
+§3	Henry Davis	note	Obviously, there is more to be said about the roles of names and naming in St’át’imc society. This brief introduction is simply by way of establishing two points. First, names were clearly more transferable in traditional St’át’imc society than in Western culture: rather than being unique “lifetime properties” they were treated as possessions which could be given or received, often multiple times during a lifetime. Second, there was a high degree of integration between traditional St’át’imc names and adopted western names, at least during the period up until the second world war when St’át’imcets and English coexisted on more or less equal terms.	page 7
+§3	Henry Davis	note	With this background in place, we now move to a closer examination of the grammatical distribution of proper names in St’át’imcets, beginning in Section 4 with non-nominalized names and then turning in Section 5 to nominalized ones.	page 7
+§4	Henry Davis	heading	4 Bare (non-nominalized) proper names	page 7
+§4	Henry Davis	note	Bare (non-nominalized) proper nouns in St’át’imcets act semantically as set-denoting predicates, and syntactically as ordinary common nouns. They may occur either in argument positions or in predicate position.	page 7
+§4	Henry Davis	note	In argument positions, bare proper nouns occur with the full range of common noun determiners to yield DPs which behave syntactically exactly like DPs based on common nouns. They may be pluralized (9), modified (10), quantified, (11), clefted (12), and possessed (13), and may occur in low scope indefinite positions, including under negation (14), in there-insertion contexts (15), in the scope of conditionals (16), and in sluicing environments (17). Note that in all these contexts the nominalizer s- is not only systematically absent but ungrammatical on the proper noun, as shown explicitly in (11).	page 7
+(9) line 1	St’át’imcets	segmentation	n7án’was ken-ts7á i=John=a.	page 7
+(9) line 2	St’át’imcets	gloss	two.human around-here PL.DET=John=EXIS	page 7
+(9) line 3	Henry Davis	translation	‘There are two Johns around here.’5	page 7
+footnote 5	Henry Davis	note	‘John’ is a common last name as well as a first name amongst the St’át’imc.	page 7, footnote 5
+(10) line 1	St’át’imcets	segmentation	wá7=lhkacw=ha zewát-en [na=zác-al’qwem’=a John]?	page 7
+(10) line 2	St’át’imcets	gloss	IPFV=2SG.SUBJ=Q know-DIR [ABSN.DET=long-looking=EXIS John]	page 7
+(10) line 3	Henry Davis	translation	‘Do you know the tall John?’	page 7
+(11) line 1	St’át’imcets	segmentation	wa7 láti7 gaw’-p=wít tákem nelh=(*s-)Johns=a	page 7
+(11) line 2	St’át’imcets	gloss	IPFV there.VIS gather-INCH=3PL all PL.ABSN.DET=(*NMLZ-)Johns=EXIS	page 7
+(11) line 3	St’át’imcets	segmentation	inátcwas.	page 7
+(11) line 4	St’át’imcets	gloss	yesterday	page 7
+(11) line 5	Henry Davis	translation	‘All the Johns gathered there yesterday.’	page 7
+(11) line 6	Henry Davis	speaker comment	Consultant’s comment: ‘That s- doesn’t belong there — sounds funny if it’s there.’	page 7, under the example, the consultant not named
+(12) line 1	St’át’imcets	segmentation	nilh [ta=lheq’íq’-al’qwem’=a John] wa7 zewát-en-an.	page 7
+(12) line 2	St’át’imcets	gloss	COP [DET=short-looking=EXIS John] IPFV know-DIR-1SG.ERG	page 7
+(12) line 3	Henry Davis	translation	‘It’s the short John I know.’	page 7
+(13) line 1	St’át’imcets	segmentation	sawlhen-mín-as láta7 ta=Johnny-s=a.	page 8
+(13) line 2	St’át’imcets	gloss	ask-RLT-3ERG there DET=Johnny-3POSS=EXIS	page 8
+(13) line 3	Henry Davis	translation	‘She asked about her Johnny.’	page 8
+(13) line 4	Henry Davis	citation	(Edwards et al. 2017:281)	page 8, the tag or source at the right of the translation
+(14) line 1	St’át’imcets	segmentation	cw7áoy=t’u7 káti7 ku=Johnny.	page 8
+(14) line 2	St’át’imcets	gloss	NEG=EXCL around.there DET=Johnny	page 8
+(14) line 3	Henry Davis	translation	‘There was no Johnny around there.’	page 8
+(14) line 4	Henry Davis	citation	(Edwards et al. 2017:282)	page 8, the tag or source at the right of the translation
+(15) line 1	St’át’imcets	segmentation	wá7=k’a ta=John=a lt7u n-lep’-cál-ten-sw=a.	page 8
+(15) line 2	St’át’imcets	gloss	be=EPIS DET=John=EXIS at=over.there.VIS LOC-bury-ACT-INS-2SG.POSS=EXIS	page 8
+(15) line 3	Henry Davis	translation	‘There’s apparently a John over there in your garden.’	page 8
+(16) line 1	St’át’imcets	segmentation	lh=7áts’x-en-acw ku=John, síma7 sqwál’-en-ts!	page 8
+(16) line 2	St’át’imcets	gloss	COMP=see-DIR-2SG.ERG DET=John come.IMP inform-DET-1SG.OBJ	page 8
+(16) line 3	Henry Davis	translation	‘If you see a John, come and tell me.’	page 8
+(17) line 1	St’át’imcets	segmentation	áts’x-en=lhkan séna7 ta=John=a, t’u7 cw7áoy=t’u7 kwenswá	page 8
+(17) line 2	St’át’imcets	gloss	see-DIR-1SG.SU CNTR DET=John=EXIS but NEG=EXCL DET+1SG.POSS +NMLZ+IPFV	page 8
+(17) line 3	St’át’imcets	segmentation	lex•láx-s lh=swát=as.	page 8
+(17) line 4	St’át’imcets	gloss	TRED•remember-CAUS COMP=who=3SJV	page 8
+(17) line 5	Henry Davis	translation	‘I saw a John, but I don’t remember which.’	page 8
+§4	Henry Davis	note	In (18)–(20), we see the predicative use of bare proper nouns: they occur in canonical (initial) position unless preceded by auxiliaries, as in (20), and do not (and cannot) take a determiner.	page 8
+(18) line 1	St’át’imcets	segmentation	John=ha=t’u7 ta=kúkwpi7=a láku7 tsal’álh=a?	page 8
+(18) line 2	St’át’imcets	gloss	John=Q=EXCL DET=John=EXIS INV.there Shalalth=EXIS	page 8
+(18) line 3	Henry Davis	translation	‘Is the chief over in Shalalth still a John?’	page 8
+(19) line 1	St’át’imcets	segmentation	aoz káti7! Peters ti7 ta=wá7 kúkwpi7 láku7 lhkúnsa.	page 8
+(19) line 2	St’át’imcets	gloss	NEG VIS.around.there Peters DEM DET=IPFV chief INV.there now	page 8
+(19) line 3	Henry Davis	translation	‘Certainly not! The chief there is a Peters at the moment.’	page 8
+(20) line 1	St’át’imcets	segmentation	o! tsut-ánwas=kan kwas papt wa7 John	page 8
+(20) line 2	St’át’imcets	gloss	oh say-inside=1SG.SU DET+NMLZ+IPFV+3POSS always IPFV John	page 8
+(20) line 3	St’át’imcets	segmentation	iz’ i=wá7 kúkwpi7 l=kw7ú-na.	page 8
+(20) line 4	St’át’imcets	gloss	PL.DEM PL.DET=IPFV chief at=INVS.there-precisely	page 8
+(20) line 5	Henry Davis	translation	‘Oh! I thought the chiefs over there were always Johns.’	page 8
+§4	Henry Davis	note	Just as with argument positions, bare proper nouns in predicate position cannot be nominalized. If we attempt to nominalize the proper name predicate in (18), for example, we get a different interpretation, shown in (21), where ‘John’ refers to a unique individual rather than one of the set of Johns:6	page 8
+footnote 6	Henry Davis	note	However, it is important to be aware that because the nominalizer s- is frequently dropped from nominalized proper nouns in predicate position (see 5.2 below), an individual-referring interpretation identical to that in (21) holds for (18) in addition to the non-nominalized (set-referring) interpretation.	page 8, footnote 6
+(21) line 1	St’át’imcets	segmentation	s-John=ha=t’u7 ta=kúkwpi7=a láku7 tsal’álh=a?	page 9
+footnote 7	Henry Davis	note	As far as I know, St’át’imcets is the only Salish language with a proprial determiner.	page 9, footnote 7
+(21) line 2	St’át’imcets	gloss	NMLZ-John=Q=EXCL DET=John=EXIS INV.there Shalalth=EXIS	page 9
+(21) line 3	Henry Davis	translation	‘Is the chief over in Shalalth still John?’	page 9
+§4	Henry Davis	note	Another contrast between bare and nominalized proper names emerges with plurality. In contrast to bare names, which can be freely pluralized (see (9) above), if we attempt to give a plural interpretation to a nominalized predicative proper name, the result is infelicitous, as shown in the contrast between (20) above and (22) below:	page 9
+(22) line 1	St’át’imcets	segmentation	# O! tsut-ánwas=kan kwas papt wa7 s-John	page 9
+(22) line 2	St’át’imcets	gloss	oh say-inside=1SG.SU DET+NMLZ+IPFV+3POSS always IPFV NMLZ-John	page 9
+(22) line 3	St’át’imcets	segmentation	iz’ i=wá7 kúkwpi7 l=kw7ú-na.	page 9
+(22) line 4	St’át’imcets	gloss	PL.DEM PL.DET=IPFV chief at=INV.there-precisely	page 9
+(22) line 5	Henry Davis	translation	# ‘Oh! I thought the chiefs over there were always John.’	page 9
+(22) line 6	Henry Davis	speaker comment	Consultant’s comment: ‘That s- in front of the John isn’t right, ‘cause that sJohn is a first name and a single person, and that iz’ is more than one.’	page 9, under the example, the consultant not named
+§4	Henry Davis	note	Finally, only bare proper nouns may be used as vocatives; nominalized proper names are categorically rejected in this context, as first observed by van Eijk (1997:179).	page 9
+§4	Henry Davis	name	van Eijk	Jan van Eijk, The Lillooet Language (1997), and his orthography
+(23) line 1	St’át’imcets	segmentation	Cultus Jack, síma7 tálh-lec, sqwal̕ku=s-záyten-su.	page 9
+(23) line 2	St’át’imcets	gloss	Cultus Jack come.here stand-AUT report PN.DET=NMLZ-business-2SG.POSS	page 9
+(23) line 3	Henry Davis	translation	‘Cultus Jack, come stand up here and report on your business.’	page 9
+(23) line 4	Henry Davis	citation	(Edwards et al. 2017:154)	page 9, the tag or source at the right of the translation
+(24) line 1	St’át’imcets	segmentation	síma7 e=ts7á, (*s-)John!	page 9
+(24) line 2	St’át’imcets	gloss	come to=here (*NMLZ-)John	page 9
+(24) line 3	Henry Davis	translation	‘Come here, John!’	page 9
+§4	Henry Davis	note	To summarize: in their non-nominalized (bare) guise, proper names simply behave like any other common noun. This is very different from their behaviour when nominalized, as we will see further in the next section.	page 9
+§5	Henry Davis	heading	5 Nominalized proper names	page 9
+§5	Henry Davis	note	Proper names nominalized with s- occur much more frequently in St’át’imcets than bare proper names. Like bare proper names, they occur in both argument and predicate positions: these are discussed in 5.1 and 5.2, respectively.	page 9
+§5.1	Henry Davis	heading	5.1 Nominalized proper names in argument positions	page 9
+§5.1	Henry Davis	note	Unlike bare proper nouns, nominalized proper nouns in argument positions may be introduced by a special proprial (proper noun) determiner kw=.7 The proprial determiner occurs in all core argument positions, as shown in (25)–(27), with an intransitive subject, an object, and a transitive subject, respectively:	page 9
+(25) line 1	St’át’imcets	segmentation	án’was=t’u7 lhláti7 sxetspásq’et, nílh=t’u7 s=xan’=s	page 10
+(25) line 2	St’át’imcets	gloss	two=EXCL from.there week COP=EXCL NMLZ=hurt=3POSS	page 10
+(25) line 3	St’át’imcets	segmentation	kw=s-August Peter tsa wa7 láku7 q’w7-um.	page 10
+(25) line 4	St’át’imcets	gloss	PN.DET=NMLZ-August Peter DET+NMLZ+IPFV+3POSS IPFV there trap-MID	page 10
+(25) line 5	Henry Davis	translation	‘Just two weeks later, August Peter got injured over where he was trapping.’	page 10
+(25) line 6	Henry Davis	citation	(Edwards et al. 2017:92)	page 10, under the translation
+(26) line 1	St’át’imcets	segmentation	ts7as cwíl’-en-as kw=s-Laura.	page 10
+(26) line 2	St’át’imcets	gloss	come seek-DIR-3ERG PN.DET=NMLZ-Laura	page 10
+(26) line 3	Henry Davis	translation	‘He came looking for Laura.’	page 10
+(26) line 4	Henry Davis	citation	(Matthewson 2005:137)	page 10, the tag or source at the right of the translation
+(27) line 1	St’át’imcets	segmentation	wa7 kens-tsáq-an’-as ta=q’wem•émw’es=a kw=s-Cathy.	page 10
+(27) line 2	St’át’imcets	gloss	IPFV try-tame-DIR-3ERG DET=wild•CRED=EXIS PN.DET=NMLZ-Cathy	page 10
+(27) line 3	Henry Davis	translation	‘Cathy is trying to tame a wild colt.’	page 10
+§5.1	Henry Davis	note	However, outside of these canonical argument positions, the proprial determiner is generally judged ungrammatical, as can be seen in the examples in (28)–(30), which feature proper nouns as the focus of a cleft, as a possessor, and as the object of a preposition, respectively.	page 10
+(28) line 1	St’át’imcets	segmentation	nilh (*kw=)s-Skalúla7 ts’áomiqw-s n-spápez7=a.	page 10
+(28) line 2	St’át’imcets	gloss	COP (*PN.DET=)NMLZ-Skalúla7 great.grandparent-3POSS 1SG.POSS-grandfather=EXIS	page 10
+(28) line 3	Henry Davis	translation	‘It was Skalúla7 who was my grandfather’s great-grandfather.’	page 10
+(29) line 1	St’át’imcets	segmentation	cik-aka7-mín-itas [ta=káoh-s=a (*kw=)s-Bill].	page 10
+(29) line 2	St’át’imcets	gloss	push-hand-RLT-3PL.ERG [DET=car-3POSS=EXIS (*PN.DET=)NMLZ-Bill]	page 10
+(29) line 3	Henry Davis	translation	‘They pushed Bill’s car.’	page 10
+(30) line 1	St’át’imcets	segmentation	kwám•em=lhkan ta=s-mets-al’íkst=a [lhel=(*kw=)s-Bill].	page 10
+(30) line 2	St’át’imcets	gloss	get•FRED=1SG.SUBJ DET=NMLZ-write-page=EXIS [from=(*PN.DET=)NMLZ-Bill]	page 10
+(30) line 3	Henry Davis	translation	‘I got a letter from Bill.’	page 10
+§5.1	Henry Davis	note	Furthermore, even in canonical argument positions, the proprial determiner is never obligatory, as can be seen from the examples in (31)–(33), which are directly comparable to (25)–(27) above.	page 10
+(31) line 1	St’át’imcets	segmentation	áoz=t’u7 kw=s=zewát-en-an i=zúqw=as=k’a s-Joe Link.	page 10
+(31) line 2	St’át’imcets	gloss	NEG=EXCL DET=NMLZ=know-DIR-1SG.ERG when.PST=die=3SJV=EPIS NMLZ-Joe Link	page 10
+(31) line 3	Henry Davis	translation	‘I don’t know when Joe Link must have died.’	page 10
+(31) line 4	Henry Davis	citation	(Alexander 2016:118)	page 10, the tag or source at the right of the translation
+(32) line 1	St’át’imcets	segmentation	lh=7áts’x-en-acw s-Laura, tsun xwem=ás kw=s=nas=ts	page 10
+(32) line 2	St’át’imcets	gloss	COMP=DIR-2SG.ERG NMLZ-Laura say+DIR quick=3SJV DET=NMLZ=go=3POSS	page 10
+(32) line 3	St’át’imcets	segmentation	úxwal’.	page 10
+(32) line 4	St’át’imcets	gloss	go.home	page 10
+(32) line 5	Henry Davis	translation	‘If you see Laura, tell her to go home quick.’	page 10
+(32) line 6	Henry Davis	citation	(Matthewson 2005:139)	page 10, the tag or source at the right of the translation
+(33) line 1	St’át’imcets	segmentation	kwán-as láti7 ta=sílhts’7=a s-P’xus.	page 10
+(33) line 2	St’át’imcets	gloss	take+DIR-3ERG there.VIS DET=shoe=EXIS NMLZ-P’xus	page 10
+(33) line 3	Henry Davis	translation	‘Then P’xus took a shoe.’	page 10
+(33) line 4	Henry Davis	citation	(Alexander 2016:144)	page 10, the tag or source at the right of the translation
+§5.1	Henry Davis	note	Crucially, however, in all these environments the nominalizer is still obligatorily present, whether or not the proprial determiner is missing.8	page 11
+footnote 8	Henry Davis	note	There is one apparent exception to this generalization: in the Lower (Mount Currie) dialect of St’át’imcets, the proprial determiner (usually reduced from kw= to k=) may appear on its own in argument positions:	page 11, footnote 8
+footnote 8 (i) line 1	St’át’imcets	segmentation	qwál’-en-tumulh-as k=Máomao kwat xíl-em.	page 11
+footnote 8 (i) line 2	St’át’imcets	gloss	tell-DIR-1PL.OBJ-3ERG PN.DET=Máomao DET+NMLZ+IPFV+1PL.SJV do-MID	page 11
+footnote 8 (i) line 3	Henry Davis	translation	‘Máomao told us what to do.’	page 11
+footnote 8 (i) line 4	Henry Davis	citation	(Matthewson 2005:302)	page 11, the tag or source at the right of the translation
+footnote 8	Henry Davis	note	However, the proprial determiner is optional in Lower St’át’imcets, as in the Upper dialect, and when it is missing, nominalization is always present, just as in the Upper dialect:	page 11, footnote 8
+footnote 8 (ii) line 1	St’át’imcets	segmentation	qwámqwmet-s-as s-Máomao tsáta xíl-em.	page 11
+footnote 8 (ii) line 2	St’át’imcets	gloss	funny-CAUS-3ERG NMLZ-Máomao DET+NMLZ+IPFV+1PL.SJV+EXIS do-MID	page 11
+footnote 8 (ii) line 3	Henry Davis	translation	‘Máomao found it funny what we had done.’	page 11
+footnote 8 (ii) line 4	Henry Davis	citation	(Matthewson 2005:310)	page 11, the tag or source at the right of the translation
+footnote 8	Henry Davis	note	I take this to indicate that even in (i), the nominalizer is present, but unpronounced, presumably due to a rule of contraction that coalesces it with the proprial determiner. Contractions involving the nominalizer and determiners are common in St’át’imcets, as can be seen in both the examples above: in (i), the clausal nominalizer s= in kwat is unpronounced following the determiner kw, while in (ii) it fuses with the preceding determiner t(a)= to yield ts.	page 11, footnote 8
+§5.1	Henry Davis	note	The behavior of nominalized proper nouns in coordinate structures is also distinctive. As a rule, only the first of a sequence of conjoined proper nouns in argument position may take the proprial determiner, and even then only marginally.	page 11
+(34) line 1	St’át’imcets	segmentation	wá7=wit alkst [(??kw=)s-Bill múta7 (*kw=)s-John].	page 11
+(34) line 2	St’át’imcets	gloss	IPFV=3PL work [(??PN.DET=)NMLZ-Bill and (*PN.DET=)NMLZ-John]	page 11
+(34) line 3	Henry Davis	translation	‘Bill and John are working.’	page 11
+§5.1	Henry Davis	note	Speakers prefer to introduce coordinated proper names with the plural proclitic wi= ‘plus’, as in (35):	page 11
+(35) line 1	St’át’imcets	segmentation	wá7=wit alkst [wi=s-Bill múta7 s-John].	page 11
+(35) line 2	St’át’imcets	gloss	IPFV=3PL work [PL=NMLZ-Bill and NMLZ-John]	page 11
+(35) line 3	Henry Davis	translation	‘Bill and John are working.’	page 11
+§5.1	Henry Davis	note	Plural wi= may also occur with a singular (non-conjoined) nominalized proper noun, in which case the resulting meaning is that of an associative plural (36)–(37).	page 11
+(36) line 1	St’át’imcets	segmentation	gaw’-p=wít [wi=s-Teresa].	page 11
+(36) line 2	St’át’imcets	gloss	gather-INCH=3PL [PL=NMLZ-Teresa]	page 11
+(36) line 3	Henry Davis	translation	‘Teresa and her family met.’	page 11
+(37) line 1	St’át’imcets	segmentation	nilh [wi=s-Laura] tsicw áts’x-en-an.	page 11
+(37) line 2	St’át’imcets	gloss	COP [PL=NMLZ-Laura] get.there see-DIR-1SG.ERG	page 11
+(37) line 3	Henry Davis	translation	‘It was Laura and her family I went to see.’	page 11
+§5.1	Henry Davis	note	These cases are significant, in that they indicate that unlike bare proper nouns, nominalized proper nouns cannot undergo regular pluralization (since they are not set-denoting); instead, they undergo an associative (additive) plural operation.	page 12
+§5.1	Henry Davis	note	Table 1 summarizes the differences between determiners on bare and nominalized proper nouns: Table 1: The distribution of proprial and non-proprial determiners on proper nouns Proprial D Non-proprial Ds Proper noun in canonical argument position optional obligatory Proper noun in non-canonical argument position * obligatory Plural proper noun * (associative only) obligatory Nominalizer s- obligatory *	page 12
+§5.2	Henry Davis	heading	5.2 Nominalized proper names in predicate positions	page 12
+§5.2	Henry Davis	note	Aside from argument positions, nominalized proper names occur in a number of different predicative and quasi-predicative environments. While in all of these cases, a determiner is ungrammatical, the presence of the nominalizer itself is more variable, since it is frequently dropped, particularly in initial position. Even when it is missing, however, nominalized proper name predicates differ systematically in interpretation from bare proper noun predicates: while the latter refer to a set of individuals, the former either denote a unique individual or the name of a unique individual. In the following subsections, I describe nominalized proper names in main predicate position (5.2.1), embedded predicate positions (5.2.2), explicit naming contexts (5.2.3), and in apposition (5.2.4).	page 12
+§5.2.1	Henry Davis	heading	5.2.1 Nominalized proper nouns as main predicates	page 12
+§5.2.1	Henry Davis	note	Nominalized proper nouns may occur in clause-initial predicate positions followed by a DP argument. Unlike in argument positions, however, the nominalizer is frequently dropped in main predicate position, as can be seen by comparing (38) with (39) and (40) with (41), which are from the same texts, as well as the two instances of a proper name in the same sentence in (42).9	page 12
+footnote 9	Henry Davis	note	See also Van Eijk (1997:179), who comments: “Proper nouns are extended with the nominalizer s - when they are used as predicates or complements, although s- is occasionally dropped in less careful speech...”. Dropping of the nominalizer in initial predicate position is not confined to proper names, and is particularly frequent in the Lower (Mount Currie) dialect.	page 12, footnote 9
+(38) line 1	St’át’imcets	segmentation	s-Lúsi ta=wá7 l=ta=s-q’út-kalh=a.	page 12
+(38) line 2	St’át’imcets	gloss	NMLZ-Lúsi DET=IPFV on=DET=NMLZ-side-1PL.POSS=EXIS	page 12
+(38) line 3	Henry Davis	translation	‘Lúsi lived beside us.’	page 12
+(38) line 4	Henry Davis	citation	(Matthewson 2005:360)	page 12, the tag or source at the right of the translation
+(39) line 1	St’át’imcets	segmentation	Q’eselcá7a ni7 ku=qelhm•émen’.	page 12
+(39) line 2	St’át’imcets	gloss	Q’eselcá7a ABSN.DEM DET=old.person•CRED	page 12
+(39) line 3	Henry Davis	translation	‘That old woman was Q’eselcá7a.’	page 12
+(39) line 4	Henry Davis	citation	(Matthewson 2005:358)	page 12, the tag or source at the right of the translation
+(40) line 1	St’át’imcets	segmentation	wá7=lhkan lexláx-s ni=kela7-(7)úl=a wa7	page 13
+(40) line 2	St’át’imcets	gloss	IPFV=1SG.SU remember-CAUS ABSN.DET=first-INTS=EXIS IPFV	page 13
+(40) line 3	St’át’imcets	segmentation	tsunám’-en-ts-as: s-Mrs. Alcock ta=skwátsits-s=a.	page 13
+(40) line 4	St’át’imcets	gloss	teach-DIR-1SG.OBJ-3ERG NMLZ-Mrs. Alcock DET=name-3POSS=EXIS	page 13
+(40) line 5	Henry Davis	translation	‘I remember the very first teacher I had: her name was Mrs. Alcock.’	page 13
+(40) line 6	Henry Davis	citation	(Matthewson 2005:126)	page 13, under the translation
+(41) line 1	St’át’imcets	segmentation	Beverly Frank n-skwátsits=a.	page 13
+(41) line 2	St’át’imcets	gloss	Beverly Frank 1SG.POSS-name=EXIS	page 13
+(41) line 3	Henry Davis	translation	‘My name is Beverley Frank.’	page 13
+(41) line 4	Henry Davis	citation	(Matthewson 2005:50)	page 13, the tag or source at the right of the translation
+(42) line 1	St’át’imcets	segmentation	s-Tsíxwcen ta=núkw=a n-skwátsits, Naxwít ta=núkw=a	page 13
+(42) line 2	St’át’imcets	gloss	NMLZ-Tsíxwcen DET=other=EXIS 1SG.POSS-name Naxwít DET=other=EXIS	page 13
+(42) line 3	St’át’imcets	segmentation	n-skwátsits.	page 13
+(42) line 4	St’át’imcets	gloss	1SG.POSS-name	page 13
+(42) line 5	Henry Davis	translation	‘Another of my names is Tsíxwcen (“Waterfall”), and another is Naxwít (“Snake”).’	page 13
+(42) line 6	Henry Davis	citation	(Alexander 2016:193)	page 13, under the translation
+§5.2.1	Henry Davis	note	Note that there is no distinction in predicate position between nominalized proper names which refer to individuals, as in (39)–(40), and those which refer to their names, as in (40)–(42). As far as I can see, nominalized proper noun predicates are systematically ambiguous between these two uses.	page 13
+§5.2.1	Henry Davis	note	Though examples such as (38), (40), and (42) with an overt nominalizer appear to constitute strong evidence that nominalized proper nouns can occur as predicates, there is a potential alternative source for these structures as reduced clefts, with the initial equational copula nilh elided. Proper nouns occur very frequently in clefts, as shown below, and when they do so, they always lack an introductory determiner (see also (28) above).	page 13
+(43) line 1	St’át’imcets	segmentation	nilh s-Mao na=sem7ám-s=a na=kúkwpi7=a	page 13
+(43) line 2	St’át’imcets	gloss	COP NMLZ-Mao ABSN.DET=wife-3POSS=EXIS ABSN.DET=chief=EXIS	page 13
+(43) line 3	St’át’imcets	segmentation	s-Thomas Adolph.	page 13
+(43) line 4	St’át’imcets	gloss	NMLZ-Thomas Adolph	page 13
+(43) line 5	Henry Davis	translation	‘Mao was the wife of chief Thomas Adolph.’	page 13
+(43) line 6	Henry Davis	citation	(Matthewson 2005:357)	page 13, the tag or source at the right of the translation
+(44) line 1	St’át’imcets	segmentation	nilh s-Harold Oleman pináni7 wa7 s-tqalk’-s-táli	page 13
+(44) line 2	St’át’imcets	gloss	COP NMLZ-Harold Oleman around.then IPFV STAT-drive-CAUS-NTS	page 13
+(44) line 3	St’át’imcets	segmentation	káti7 i=kwíkws=a ké•kaoh qwez-en-ítas	page 13
+(44) line 4	St’át’imcets	gloss	around.there PL.DET=little=EXIS CRED•car use-DIR-3PL.ERG	page 13
+(44) line 5	St’át’imcets	segmentation	l=ki=section=a.	page 13
+(44) line 6	St’át’imcets	gloss	on=PL.DET=section=EXIS	page 13
+(44) line 7	Henry Davis	translation	‘It was Harold Oleman who drove the little cars (“speeders”) they used on the sections in those days.’	page 13
+(44) line 8	Henry Davis	citation	(Alexander 2016:309)	page 13, the tag or source at the right of the translation
+§5.2.1	Henry Davis	note	However, nominalized proper names also occur as predicates with clitic subject pronouns:	page 13
+(45) line 1	St’át’imcets	segmentation	s-Belinda=lhkan.	page 13
+(45) line 2	St’át’imcets	gloss	NMLZ-Belinda=1SG.SUBJ	page 13
+(45) line 3	Henry Davis	translation	‘I’m Belinda.’	page 13
+(45) line 4	Henry Davis	citation	(Van Eijk 1997:179)	page 13, the tag or source at the right of the translation
+(46) line 1	St’át’imcets	segmentation	tsún=lhkan, “s-Aggie=lhkan.”	page 14
+(46) line 2	St’át’imcets	gloss	say+DIR=1SG.SUBJ NMLZ-Aggie=1SG.SUBJ	page 14
+(46) line 3	Henry Davis	translation	‘I told him, “I’m Aggie.”’	page 14
+(46) line 4	Henry Davis	citation	(Matthewson 2005:420)	page 14, the tag or source at the right of the translation
+§5.2.1	Henry Davis	note	The significance of these examples is that though first and second person clitic pronouns are grammatical with proper noun predicates (47a), they are ungrammatical in clefts (47b, 47c), even though there is nothing semantically anomalous about such structures, as shown in (47d) where a first person singular independent pronoun is optionally preceded by nilh.10	page 14
+footnote 10	Henry Davis	note	Thoma (2007) argues that apparent predicative uses of independent pronouns are always reduced clefts in St’át’imcets.	page 14, footnote 10
+footnote 10	Henry Davis	name	Thoma	Sonja Thoma, independent pronouns (2007)
+(47a) line 1	St’át’imcets	segmentation	Laura=lhkan.	page 14
+(47a) line 2	St’át’imcets	gloss	Laura=1SG.SUBJ	page 14
+(47a) line 3	Henry Davis	translation	‘I’m Laura.’	page 14
+(47b) line 1	St’át’imcets	segmentation	* nílh s-Laura=kan.	page 14
+(47b) line 2	St’át’imcets	gloss	COP NMLZ-Laura=1SG.SUBJ	page 14
+(47c) line 1	St’át’imcets	segmentation	* nílh=kan s-Laura.	page 14
+(47c) line 2	St’át’imcets	gloss	COP=1SG.SUBJ NMLZ-Laura	page 14
+(47d) line 1	St’át’imcets	segmentation	(nilh) s-7éntsa s-Laura.	page 14
+(47d) line 2	St’át’imcets	gloss	(COP) NMLZ-1SG.INDP NMLZ-Laura	page 14
+(47d) line 3	Henry Davis	translation	‘I’m Laura.’	page 14
+§5.2.1	Henry Davis	note	Since there is no cleft source for a proper name predicate with a subject clitic, these cases show that nominalized proper names in initial position must be treated as genuinely predicative. We will make the further assumption — based on interpretation, as well as the general possibility of restoring the nominalizer when it is missing in cases like (39), (41), and (47a) above — that the nominalizer is underlyingly present on all nominalized proper noun predicates, but may be phonologically elided.	page 14
+§5.2.2	Henry Davis	heading	5.2.2 Nominalized proper names as embedded predicates	page 14
+§5.2.2	Henry Davis	note	When we turn to nominalized proper nouns in embedded clauses, we find additional evidence that they may act as predicates. This is because in certain types of subordinate clause they frequently appear following the imperfective auxiliary wa7.11 Normally, wa7 is confined to stage -level predicates (Davis 2011 argues that it selects for an event argument), and is uncommon with nouns, which are typically treated in St’át’imcets as individual-level (permanent) properties.	page 14
+footnote 11	Henry Davis	note	The wa7 in these cases is clearly the imperfective auxiliary rather than the related main predicate meaning ‘be (there)’; the latter selects a subject and a locative complement (typically a PP or locative adverbial) rather than a predicative complement.	page 14, footnote 11
+§5.2.2	Henry Davis	note	Sequences of wa7 plus proper noun predicate occur in two types of embedded clause. The first is in relative clauses (most frequently with a demonstrative head, as in (48) and (49) below):	page 14
+(48) line 1	St’át’imcets	segmentation	nílh=t’u7 s=t’ák=s=t’u7=ti7 kel’q	page 15
+(48) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=go.along=3POSS=EXCL=DEM back.away	page 15
+(48) line 3	St’át’imcets	segmentation	[ti7 ta=wá7 s-Paul Spintlum]...	page 15
+(48) line 4	St’át’imcets	gloss	[DEM DET=IPFV NMLZ-Paul Spintlum]	page 15
+(48) line 5	Henry Davis	translation	‘So then he continued to back away, Paul Spintlum...’	page 15
+(48) line 6	Henry Davis	note	(Literally; ‘...that one who was Paul Spintlum’)	page 15, at the right of the translation
+(48) line 7	Henry Davis	citation	(Lyon and Davis 2018:79)	page 15, under the translation
+(49) line 1	St’át’imcets	segmentation	s7ents [ti=wá7 s-Jack McMillan], ti7 ta=wá7 zús-cal.	page 15
+(49) line 2	St’át’imcets	gloss	1SG.INDEP [DET=IPFV NMLZ-Jack McMillan] DEM DET=IPFV tie-ACT	page 15
+(49) line 3	Henry Davis	translation	‘I’m Jack MacMillan, the policeman.’	page 15
+(49) line 4	Henry Davis	note	(Literally: ‘...the one that is Jack McMillan’)	page 15, at the right of the translation
+(49) line 5	Henry Davis	citation	(Edwards et al. 2017:177)	page 15, under the translation
+(50) line 1	St’át’imcets	segmentation	zúqw=tu7=ni7 nilh s=melyíh-s-as [ku=wá7	page 15
+(50) line 2	St’át’imcets	gloss	die=REM=ABSN.DEM COP NMLZ=CAUS-3ERG [INV.DET=IPFV	page 15
+(50) line 3	St’át’imcets	segmentation	s-John Whimpkins].	page 15
+(50) line 4	St’át’imcets	gloss	NMLZ-John Whimpkins]	page 15
+(50) line 5	Henry Davis	translation	‘He died, and then she married John Whimpkins.’	page 15
+(50) line 6	Henry Davis	note	(literally: ‘the one who was John Whimpkins’)12	page 15, at the right of the translation
+footnote 12	Henry Davis	note	The determiner here cannot be non-referential ku=, which would not be licensed in this environment; instead, I assume it is referential (invisible) ku=...=a, with the existential enclitic =a contracted with the following auxiliary wa7, as is standard in this environment.	page 15, footnote 12
+(50) line 7	Henry Davis	citation	(Matthewson 2005:386)	page 15, under the translation
+(51) line 1	St’át’imcets	segmentation	téxw=t’u7 áma [ni7 ni=wá7 Cecilia]	page 15
+(51) line 2	St’át’imcets	gloss	really=EXCL good [ABSN.DEM ABSN.DET=IPFV Cecilia]	page 15
+(51) line 3	St’át’imcets	segmentation	múta7 na=kwtámts-s=a s-Charlie Harry.	page 15
+(51) line 4	St’át’imcets	gloss	and ABSN.DET=husband-3POSS=EXIS NMLZ-Charlie Harry	page 15
+(51) line 5	Henry Davis	translation	‘Cecilia and her husband Charlie Harry were really good people.’	page 15
+(51) line 6	Henry Davis	note	(Literally: ‘that one who was Cecilia’)	page 15, at the right of the translation
+(51) line 7	Henry Davis	citation	(Matthewson 2005:373)	page 15, under the translation
+§5.2.2	Henry Davis	note	The second is in identificational clauses. Though these superficially resemble clefts, they have a distinct structure, with initial copula nilh plus a subject and an embedded clause which lacks an introductory determiner. The subject is most usually an encliticized demonstrative pronoun (52), but it may be null, as seen by comparing the otherwise near-identical sentences (53) and (54), and it may also be a full DP, in which case it follows the predicate, as shown in (55).	page 15
+(52) line 1	St’át’imcets	segmentation	nílh=ti7 [wa7 s-Frank Gott].	page 15
+(52) line 2	St’át’imcets	gloss	COP=DEM [IPFV NMLZ-Frank Gott]	page 15
+(52) line 3	Henry Davis	translation	‘That was Frank Gott.’	page 15
+(52) line 4	Henry Davis	citation	(Edwards et al. 2017:301)	page 15, the tag or source at the right of the translation
+(53) line 1	St’át’imcets	segmentation	nílh=ku7=ni7 [wa7 s-Qatsk].	page 15
+(53) line 2	St’át’imcets	gloss	COP=QUOT=ABSN.DEM [IPFV NMLZ-Qatsk]	page 15
+(53) line 3	Henry Davis	translation	‘That was Qatsk.’	page 15
+(53) line 4	Henry Davis	citation	(Matthewson 2005:386)	page 15, the tag or source at the right of the translation
+(54) line 1	St’át’imcets	segmentation	nilh [wa7 s-Qatsk].	page 15
+(54) line 2	St’át’imcets	gloss	COP [IPFV NMLZ-Qatsk]	page 15
+(54) line 3	Henry Davis	translation	‘That was Qatsk.’	page 15
+(54) line 4	Henry Davis	citation	(Matthewson 2005:386)	page 15, the tag or source at the right of the translation
+(55) line 1	St’át’imcets	segmentation	nilh [wa7 s-Sun Keys] ta=tsánmen=a láti7 wa7 e[s]-stów.	page 16
+(55) line 2	St’át’imcets	gloss	COP [IPFV NMLZ-Sun Keys] DET=chinese.person=EXIS there IPFV have-store	page 16
+(55) line 3	Henry Davis	translation	‘The Chinese person who had a store there was Sun Keys.’	page 16
+(55) line 4	Henry Davis	note	(Mitchell to appear)	page 16, at the right of the translation
+§5.2.2	Henry Davis	note	In both relative and identificational clauses, auxiliary wa7 unambiguously picks out a nominalized proper name as predicative. However, the presence of wa7 also raises some further questions. In particular, why does it occur with proper names, given that it is normally only felicitous with stage-level predicates? And why is it only normally found with proper names in certain subordinate contexts, rather than more generally?	page 16
+§5.2.2	Henry Davis	note	The obvious answer to the first question is that at least in this context, proper names count as stage-level properties. More precisely, they refer to the relation which holds between an individual and a name at a given time: for example, a relative clause like [ti=wá7 s-Jack McMillan] (as in (49)) means ‘the unique individual who holds/held the name Jack McMillan at the time of evaluation’. The stage-level status of proper names in St’át’imcets is possibly related to the cultural context of name-bearing in traditional St’át’imc society, where names are treated as alienable rather than inalienable possessions of their bearers (see Section 3 above).	page 16
+§5.2.2	St’át’imcets	cited form	ti=wá7 s-Jack McMillan	page 16, in italics
+§5.2.2	Henry Davis	note	This does not, however, answer the second question of why the imperfective auxiliary is limited to proper name predicates in relative and identificational clauses. Wa7 is usually rejected with main clause proper name predicates, as shown in (56a); compare (56b), with an independent pronoun in main predicate position and the name in a relative clause, and (56c), which features the same structure without a relative clause:	page 16
+(56a) line 1	St’át’imcets	segmentation	* wá7=lhkan s-Qwa7yán’ak	page 16
+(56a) line 2	St’át’imcets	gloss	IPFV=1SG.SUBJ NMLZ-Qwa7yán’ak	page 16
+(56a) line 3	Henry Davis	speaker comment	Consultant’s comment: “Not quite: that’s saying you’ve got a blue stomach.” (i.e., the consultant only recognizes the literal meaning qwa<7>y-án’ak blue<INCH>-stomach here: see Section 3 above).	page 16, where the translation stands, the consultant not named
+(56b) line 1	St’át’imcets	segmentation	s7éntsa [ta=wá7 s-Qwa7yán’ak].	page 16
+(56b) line 2	St’át’imcets	gloss	1SG.INDP [DET=IPFV NMLZ-Qwa7yán’ak]	page 16
+(56b) line 3	Henry Davis	translation	‘I’m Qwa7yán’ak.’	page 16
+(56b) line 4	Henry Davis	note	(i.e., my name is Qwa7yán’ak)	page 16, at the right of the translation
+(56c) line 1	St’át’imcets	segmentation	s7éntsa s-Qwa7yán’ak.	page 16
+(56c) line 2	St’át’imcets	gloss	1SG.INDP NMLZ-Qwa7yán’ak	page 16
+(56c) line 3	Henry Davis	translation	‘I’m Qwa7yán’ak.’	page 16
+(56c) line 4	Henry Davis	note	(i.e., my name is Qwa7yán’ak)13	page 16, at the right of the translation
+footnote 13	Henry Davis	note	The structure in (56c) is generally preferred to a predicative proper name with a first or second person subject, as in (45)–(46). This is possibly to avoid ambiguity: the nominalizer is frequently dropped, and without an overt nominalizer (as in (47a)), a nominalized proper name looks exactly like a bare (non- nominalized) proper name, though their interpretations are still different (the latter referring to a set rather than an individual). One of our consultants, for example produced the following sentences when asked specifically to differentiate the two interpretations:	page 16, footnote 13
+footnote 13 (i) line 1	St’át’imcets	segmentation	Alexander=lhkan.	page 16
+footnote 13 (i) line 2	St’át’imcets	gloss	Alexander=1SG.SUBJ	page 16
+footnote 13 (i) line 3	Henry Davis	translation	‘I’m an Alexander.’	page 16
+footnote 13 (i) line 4	Henry Davis	note	(i.e., I’m one of the Alexander family)	page 16, at the right of the translation
+footnote 13 (ii) line 1	St’át’imcets	segmentation	s7éntsa s-Alexander.	page 16
+footnote 13 (ii) line 2	St’át’imcets	gloss	1SG.INDP NMLZ-Alexander	page 16
+footnote 13 (ii) line 3	Henry Davis	translation	‘I’m Alexander.’	page 16
+footnote 13 (ii) line 4	Henry Davis	note	(i.e., my name is Alexander)	page 16, at the right of the translation
+§5.2.2	Henry Davis	note	There appears to be no semantic difference between (56b) and (56c), which begs the question of whether wa7 in cases like (56b) is really marking a stage-level name-bearing property after all. And even if it is, there doesn’t appear to be any reason why it should do so only in certain types of subordinate clause. I have no useful answer to these questions at the moment: structures like (56b) clearly deserve further investigation.	page 17
+§5.3	Henry Davis	heading	5.3 Nominalized proper names in naming relations	page 17
+§5.3	Henry Davis	note	Another set of cases in the literature which have been used (in particular by Matushansky 2008) to argue that proper nouns are underlyingly predicative involves explicit naming contexts. In many languages, including English, proper names occupy the predicate position of small clause complements to naming and nomination verbs, as shown in (57).14	page 17
+footnote 14	Henry Davis	note	Matushansky (2008:596) uses these facts to argue that the lexical entry of proper names includes an extra covert argument position for the naming relation R, as in (i):	page 17, footnote 14
+footnote 14 (i) line 1	Henry Davis	formula	λx ∈ De. λR⟨e,⟨n,t⟩⟩. R (x) /ælɩs/	page 17, a formula, its subscripts set inline
+footnote 14 (i) line 2	Henry Davis	note	where n is a sort of the type e (a phonological string)	page 17, under the formula
+footnote 14	Henry Davis	note	The basic idea here is that R can be any type of naming relation (baptism, coronation, investiture, etc.), which takes as its first argument a name and its second argument the individual who is so named. This means that [[Alice]], for example, is an individual who bears some contextually defined naming relation to the name (the phonological string) /ælɩs/. For purposes of exposition, I will ignore this more complex characterization of proper names here.	page 17, footnote 14
+(57) line 1	Henry Davis	note	In 1877 they named/ proclaimed/entitled [the queen Victoria, Empress of India].	page 17, an English example
+§5.3	Henry Davis	note	It is unlikely, however, that naming constructions involve a small clause complement in St’át’imcets, because the language seems to lack small clause complements altogether: the clausal complements of causative verbs (‘let’, ‘make’), perception verbs (‘see’, ‘hear’), and verbs of judgment (‘consider, find’) are all full (finite) clauses.	page 17
+§5.3	Henry Davis	note	Instead, naming predicates in St’át’imcets are probably better analyzed as ditransitive verbs meaning approximately ‘give y the name x’, which are also attested cross-linguistically (Matushansky 2008:577 fn. 4). As is typical of ditransitives in St’át’imcets and elsewhere in Salish, the goal (the recipient of the name) acts as the direct object of the verb, and is registered on the predicate by object agreement, while the theme (the name) acts as an unregistered secondary object.	page 17
+§5.3	Henry Davis	note	Since they are not core arguments, proper names in naming constructions are never introduced by a determiner (see 5.1 above). However, unlike other non-core arguments (e.g., possessors, objects of prepositions), they also often occur without the nominalizer, as in (58)– (59).	page 17
+(58) line 1	St’át’imcets	segmentation	nilh kw=s=nah-en-tsál-itas Cazíl nelh	page 17
+(58) line 2	St’át’imcets	gloss	COP DET=NMLZ=name-DIR-1SG.OBJ-3PL.ERG Cazíl PL.ABSN.DEM	page 17
+(58) line 3	St’át’imcets	segmentation	ku=n-snek’w•núk’wa7.	page 17
+(58) line 4	St’át’imcets	gloss	DET=1SG.POSS-TRED•relative	page 17
+(58) line 5	Henry Davis	translation	‘So those relatives of mine named me “Cazíl”.’	page 17
+(58) line 6	Henry Davis	citation	(Matthewson 2005:52)	page 17, the tag or source at the right of the translation
+(59) line 1	St’át’imcets	segmentation	nilh ti=wá7 tsún-itas Flight of the Bumblebees cúcwl-am-s	page 18
+(59) line 2	St’át’imcets	gloss	COP DET=IPFV call+DIR-3PL.ERG Flight of the Bumblebees music-MID-3POSS	page 18
+(59) line 3	St’át’imcets	segmentation	ni=sqáycw=a wa7 nah-en-itas Rimsky-Korsakov	page 18
+(59) line 4	St’át’imcets	gloss	ABSN.DET=man=EXIS IPFV name-DIR-3PL.ERG Rimsky-Korsakov	page 18
+(59) line 5	St’át’imcets	segmentation	n-scwákwekw.	page 18
+(59) line 6	St’át’imcets	gloss	1SG.POSS-heart	page 18
+(59) line 7	Henry Davis	translation	‘It was what they call “Flight of the Bumblebees”, composed by the man named Rimsky- Korsakov, I think.’	page 18
+(59) line 8	Henry Davis	citation	(Matthewson 2005:132)	page 18, the tag or source at the right of the translation
+§5.3	Henry Davis	note	On the other hand, the nominalizer is not ungrammatical in naming contexts, as shown in (60)– (61); note that the sequence in (61) shows both nominalized and non-nominalized versions of the same name, with the same naming predicate, in two adjacent sentences of the same text.	page 18
+(60) line 1	St’át’imcets	segmentation	spukáni7 na=n-ts’qáx7=a wa7 tsún-em s-Q’ayápa7.	page 18
+(60) line 2	St’át’imcets	gloss	mouse-coloured ABS.DET=1SG.POSS-horse=EXIS IPFV call+DIR-PASS NMLZ-Q’ayápa7	page 18
+(60) line 3	Henry Davis	translation	‘My horse which was called Q’áyapa7 (“wild horse”) was mouse-coloured.’	page 18
+(61a) line 1	St’át’imcets	segmentation	s-Sáopin wa7 tsún-itas.	page 18
+(61a) line 2	St’át’imcets	gloss	NMLZ-Sáopin IPFV call+DIR-3PL.ERG	page 18
+(61a) line 3	Henry Davis	translation	‘She was called Sáopin.’	page 18
+(61b) line 1	St’át’imcets	segmentation	nilh=wi7 s-Josephine ta=sám7=a skwatsits-s	page 18
+(61b) line 2	St’át’imcets	gloss	COP=EMPH NMLZ-Josephine DET=white.person=EXIS name-3POSS	page 18
+(61b) line 3	St’át’imcets	segmentation	nilh s=wa7 tsún-itas Sáopin.	page 18
+(61b) line 4	St’át’imcets	gloss	COP NMLZ=IPFV call+DIR-3PL.ERG Sáopin	page 18
+(61b) line 5	Henry Davis	translation	‘Josephine was her white person’s name, that’s why she was called Sáopin.’	page 18
+(61b) line 6	Henry Davis	citation	(Matthewson 2005:388)	page 18, under the translation
+§5.3	Henry Davis	note	In short, though names in explicit naming contexts are probably best treated as secondary objects of naming predicates rather than the predicates of small clause complements, their ability to occur without the nominalizer is exceptional, and groups them with predicative rather than argumental uses of nominalized proper names.	page 18
+§5.4	Henry Davis	heading	5.4 Nominalized proper names in apposition	page 18
+§5.4	Henry Davis	note	As in English, proper names can be used freely in apposition to arguments in St’át’imcets. When they occur in apposition, they never take determiners, but do optionally occur with the nominalizer, as seen in (62) versus (63), from the same speaker in the same text.	page 18
+(62) line 1	St’át’imcets	segmentation	nilh ta=n-sésq’wez’=a Gordy múta7 s7í7ents wa7	page 18
+(62) line 2	St’át’imcets	gloss	COP DET=1SG.POSS-younger.sibling=EXIS Gordy and 1SG.INDP IPFV	page 18
+(62) line 3	St’át’imcets	segmentation	s-mítsa7q l=ta=k’ém’-qs[-ts]=a ta=xzúm=a tíipvl.	page 18
+(62) line 4	St’át’imcets	gloss	STAT-sit at=DET=edge-end[-3POSS]=EXIS DET=big=EXIS table	page 18
+(62) line 5	Henry Davis	translation	‘My brother Gordy and I were seated at the end of a big table.’	page 18
+(62) line 6	Henry Davis	citation	(Matthewson 2005:180)	page 18, the tag or source at the right of the translation
+(63) line 1	St’át’imcets	segmentation	wá7=lhkalh=tu7 í7wa7 múta7 ta=n-sésq’wez’=a	page 19
+(63) line 2	St’át’imcets	gloss	IPFV=1PL.SUBJ=REM go.along and DET=1SG.POSS-younger.sibling=EXIS	page 19
+(63) line 3	St’át’imcets	segmentation	s-Gordy.	page 19
+(63) line 4	St’át’imcets	gloss	NMLZ-Gordy	page 19
+(63) line 5	Henry Davis	translation	‘We used to go along, me and my brother Gordy.’	page 19
+(63) line 6	Henry Davis	citation	(Matthewson 2005:188)	page 19, the tag or source at the right of the translation
+§5.4	Henry Davis	note	This pattern looks very similar to predicative contexts with nominalized proper names. The generalization seems to be that in all these cases, the nominalizer is present, but may be optionally dropped.	page 19
+§6	Henry Davis	heading	6 Analysis	page 19
+§6	Henry Davis	note	In Table 2, I summarize the distributional patterns which have been laid out in previous sections. (The two question marks are contexts which I have not elicited).	page 19
+§6	Henry Davis	note	Table 2: Distribution of determiners and the nominalizer on proper nouns in St’át’imcets BARE (NON-NOMINALIZED) NOMINALIZED Nominalizer Determiner Nominalizer Determiner	page 19
+§6	Henry Davis	note	core argument * common obligatory proprial (optional) focus of cleft * common obligatory * object of P * common obligatory * possessor * common obligatory *	page 19
+§6	Henry Davis	note	main predicate * * optional *	page 19
+§6	Henry Davis	note	embedded predicate * * obligatory *	page 19
+§6	Henry Davis	note	naming context * ? possible * appositive * ? optional * vocative * * * * Some clear generalizations emerge from Table 2. First of all, there is an obvious split between non-nominalized and nominalized proper nouns. The former behave to all intents and purposes like common nouns, suggesting that they should be treated as predicates of type ⟨e,t⟩. On the other hand, the latter show the hallmarks of direct reference: as shown in 5.1, they cannot be modified or act as the restrictions of quantifiers, cannot be pluralized except via an associative marker, and take the proprial determiner kw=.	page 19
+§6	Henry Davis	note	In terms of the predicativist versus direct reference theories of proper names, what is striking about the St’át’imcets facts is that both positions appear to be supported, but via different derivational routes. On the one hand, the predicativist view is strongly supported by non- nominalized names, which behave just like common nouns; on the other hand, when nominalized, proper names show the diagnostic properties of direct reference both in predicate and in argument positions.	page 19
+§6	Henry Davis	note	Note further that these findings argue against reducing the referential status of (nominalized) proper nouns to the proprial determiner, as argued by Muñoz (to appear). This is because in argument positions the proprial determiner only appears on a subset of nominalized proper nouns, and is optional even there, whereas nominalization itself is in strict complementary distribution with common noun determiners, and is obligatory.	page 19
+§6	Henry Davis	note	The most obvious way to model this behavior is to treat all proper nouns as underlyingly predicative, and give the nominalizer the job of picking out a unique individual. Determiners will then do their usual job of converting the resulting predicates into arguments, with the proprial determiner restricted to predicates which denote unique individuals.	page 19
+§6	Henry Davis	note	Employing a predicativist lexical entry for a proper name such as ‘John’ as in (64), repeated from (1), we might then give the nominalizer a lexical entry such as that in (65).	page 20
+(64) line 1	Henry Davis	formula	[[John]] = λx. x bears the name /ǰɑn/	page 20, a formula, its subscripts set inline
+(65) line 1	Henry Davis	formula	[[s-]] = λP⟨e,t⟩. λxe : ∃!x [P(x) =1] . P	page 20, a formula, its subscripts set inline
+(65) line 2	Henry Davis	formula	Only defined if P is a proper name	page 20, a formula, its subscripts set inline
+§6	Henry Davis	note	However, this line of analysis has a serious shortcoming: it fails to generalize from proper nouns to other cases of lexical nominalization. Nominalization in St’át’imcets, as in other Salish languages, is pervasive: even setting aside cases of phrasal (predicate) and clausal (propositional) nominalization, lexical nominalization applies to a large subset (approximately a third) of common nouns. This suggests that it is fulfilling a broader function than that defined in (65), particularly since on common nouns, it clearly does not have a uniqueness function — with or without the nominalizer, nominal predicates based on common nouns denote sets:	page 20
+(66) line 1	St’át’imcets	segmentation	s-qaycw ta=wá7 tsunám’-cal láni7 ku=time.	page 20
+(66) line 2	St’át’imcets	gloss	NMLZ-man DET=IPFV teach-ACT ABSN.DEM DET=time	page 20
+(66) line 3	Henry Davis	translation	‘The teacher was a man at that time.’	page 20
+§6	Henry Davis	note	Accordingly, I’d like to pursue a different line, maintaining a more general role for nominalization, and locating the difference between proper nouns and common nouns (the latter including bare proper nouns construed as sets rather than individuals) in the lexicon. More specifically, I propose that in St’át’imcets proper names are lexically ambiguous. On the one hand, a non-nominalized name like ‘John’ can be given a predicativist lexical entry of type ⟨e,t⟩ such as (64); on the other hand, the same name can also be lexically represented as a referential expression of type e, as in (7), repeated below as (67):15	page 20
+footnote 15	Henry Davis	note	This is of course the crudest possible direct reference representation of a proper noun. A more sophisticated approach such as that of e.g. Muñoz (to appear) models direct reference via a set of “rigid” assignments of indices to worlds.	page 20, footnote 15
+(67) line 1	Henry Davis	formula	[[John]] = John	page 20, a formula, its subscripts set inline
+§6	Henry Davis	note	This, however, leaves the function of nominalization on proper nouns unexplained. In order to provide an explanation, I will make one more assumption, motivated by the extreme “predicative” behavior of all nouns in St’át’imcets, which in terms of the nominal typology of Chierchia (1998) must be classed as a pure [+pred, -arg] system. This is embodied in the claim in (68):	page 20
+§6	Henry Davis	name	Chierchia	Gennaro Chierchia, reference to kinds (1998)
+(68) line 1	Henry Davis	formula	All nouns in St’át’imcets must enter the syntax as predicates	page 20, a formula, its subscripts set inline
+§6	Henry Davis	note	Now, this allows non-nominalized predicative proper nouns with the representation in (66) to enter the derivation freely, but causes a problem for the alternative representation in (67) where a proper noun is of type e rather than ⟨e,t⟩, necessitating a further operation which shifts it into a predicative type in order to allow it to enter the syntax. It is this operation which I’d like to claim is the semantic reflex of “nominalization” on a proper noun.16	page 20
+footnote 16	Henry Davis	note	In fact, more generally, I’d like to claim that the nominalizer is a general-purpose predicativizer, which appears whenever it is necessary to abstract over an argument to create a derived predicate. Of course, it is well beyond the scope of this paper to explore this hypothesis in any detail.	page 21, footnote 16
+§6	Henry Davis	note	It is important to remember that even when acting as a predicate, a nominalized proper noun retains its referential character, in contrast to a regular (non-nominalized) proper noun. The nominalizer, in other words, needs to create an identity predicate which retains the character of the original entity-referring proper noun. (69) — essentially Partee’s (1986) operation Ident — is one way to do so.	page 21
+§6	Henry Davis	name	Partee	Barbara Partee, type-shifting principles (1986)
+(69) line 1	Henry Davis	formula	[[ s- ]] = λxe. λye. [x = y]	page 21, a formula, its subscripts set inline
+(69) line 2	Henry Davis	formula	Only defined if x is a proper name	page 21, a formula, its subscripts set inline
+§6	Henry Davis	note	Applied to a proper name like ‘John’ under its referential guise, the result will be as in (72).	page 21
+(70) line 1	Henry Davis	formula	[[ s- ]] ([[John]]) = λye. [John = y]	page 21, a formula, its subscripts set inline
+§6	Henry Davis	note	The nominalized proper noun predicate will then either combine with a subject to yield a proposition, or alternatively may combine with the proprial determiner to yield an argument. Under this view, the proprial determiner itself contributes little semantically: its job is simply to type-shift a nominalized predicate back into an argument of type e.17	page 21
+footnote 17	Henry Davis	note	There remain a number of open questions about the proprial determiner. One of them concerns its restricted distribution, which includes only “canonical” argument positions, and excludes, e.g., possessors and objects of prepositions. In addition, unlike other determiners, the proprial determiner is optional. It seems likely to me that both of these facts are linked to its very limited semantic contribution: under the account given here, the referential properties of proper names with the proprial determiner are not attributed to the determiner itself, but to the lexical entry of the proper name under its “direct reference” guise in (69).	page 21, footnote 17
+§6	Henry Davis	note	But what about the nominalizer on common nouns? To put it bluntly, if the nominalizer really is a general purpose predicativizer, and common nouns are lexically predicative, there should be no reason why they should ever take the nominalizer.	page 21
+§6	Henry Davis	note	One possible solution to this problem, outlined in (Davis 2018a), is to take a neo-Carlsonian view of common nouns as names of kinds of type e, with the nominalizer then corresponding to Chierchia’s (1998) ∪ “up” operator, whose job is to convert a kind to a predicate of type ⟨e,t⟩. In that case, the nominalizer would maintain its core function as a predicativizer, but apply differently to the two sortal domains of individuals (proper nouns) and kinds (common nouns), with correspondingly different results.18	page 21
+footnote 18	Henry Davis	note	Chierchia (1998) distinguishes proper nouns from common nouns, specifically rejecting a neo-Carlsonian analysis for proper nouns on the grounds that they refer to individuals rather than kinds, and therefore cannot map to predicates via the ∪ “up” operator. However, this raises a problem for my analysis of proper nouns in their bare (predicativist) guise. On the one hand, if they were just like common nouns (and were therefore derived from kinds), we’d expect them to be nominalized, contrary to fact. On the other hand, there is no way to derive them from the domain of individuals (names) without using the nominalizer, either, and in any case, that would give us the wrong meaning (a referential one). The only solution I can think of currently is to appeal to a parallel Ident operation to (71), but which yields a predicate true of the set of individuals who bear a proper name, and crucially is not realized as the nominalizer (i).	page 21, footnote 18
+footnote 18 (i) line 1	Henry Davis	note	If PN is the domain of proper names of type e, then	page 21, over the formula
+footnote 18 (i) line 2	Henry Davis	formula	PN <=> λxPN. λye. [y bears the name x]	page 21, a formula, its subscripts set inline
+footnote 18 (i) line 3	Henry Davis	note	I leave a more satisfying solution for future work.	page 21, closing the note
+§7	Henry Davis	heading	7 Conclusion	page 22
+§7	Henry Davis	note	This paper brings together two apparently very different kinds of research: the centuries-old philosophical debate concerning the proper semantic treatment of proper names; and the much less antique tradition of semantic fieldwork on American indigenous languages (more specifically on Salish, and more specifically still on St’át’imcets). I hope to have shown they have things to say to each other. On the one hand, cross-linguistic data — particularly from culturally and linguistically diverse languages — should help to frame the philosophical debate by showing us the empirical range of possible structures and interpretations for proper names in natural language. On the other hand, the theoretical sophistication of the semantic tradition should sharpen our analytical tools as fieldworkers, demanding answers to questions that we never thought to ask.	page 22
+§7	Henry Davis	note	The analysis here leaves much to be desired, both theoretically and empirically: I hope, however, it is a step in the right direction.	page 22
+references	Henry Davis	heading	References	page 22
+references	Henry Davis	reference	Bach, Kent. 2015. The predicate view of proper names. Philosophy Compass 10/11:772–784.	page 22
+references	Henry Davis	reference	Burge. Tyler. 1973. Reference and proper names. Journal of Philosophy, 70(14):425–439.	page 22
+references	Henry Davis	reference	Alexander, Carl. 2016. Sptakwlh múta7 Sqwéqwqel’ (‘Stories and Legends’): St’át’imcets Narratives by Qwa7yán’ak (Carl Alexander), edited, transcribed and translated by Elliot, Callahan, Henry Davis, John Lyon and Lisa Matthewson. University of British Columbia Occasional Papers in Linguistics 3.	page 22
+references	Henry Davis	reference	Chierchia, Gennaro. 1998. Reference to kinds across languages. Natural Language Semantics 6:339–405.	page 22
+references	Henry Davis	reference	Cumming, Sam. 2016. Names. In The Stanford Encyclopedia of Philosophy, edited by Edward N. Zalta (Fall 2016 edition). Accessed online at https://plato.stanford.edu/entries/names/, July 2019.	page 22
+references	Henry Davis	reference	Davis, Henry. 2011. Stalking the adjective in St’át’imcets. Northwest Journal of Linguistics 5:1– 60.	page 22
+references	Henry Davis	reference	Davis, Henry. 2018a. “Nominalization” as predicativization in St’át’imcets (Lilooet Salish) and the Nominal Mapping Parameter. Paper given at the Workshop on Predication, GLOW, Budapest.	page 22
+references	Henry Davis	reference	Davis, Henry. 2018b. Only connect: A unified analysis of the Tsimshianic connective system. International Journal of American Linguistics 84(4):471–511.	page 22
+references	Henry Davis	reference	Edwards, Bill, Sam Mitchell, and Martina LaRochelle. 2017. Sqwéqwel’s nelh Skelkekla7lhálha (‘Tales of our Elders’), edited, transcribed, and translated by Henry Davis John Lyon, Jan van Eijk, and Rose Whitley. University of British Columbia Occasional Papers in Linguistics 4.	page 22
+references	Henry Davis	reference	Fara, Delia Graff. 2015. Names are predicates. Philosophical Review, 124(1):59–127.	page 22
+references	Henry Davis	reference	Geurts, Bart. 1997. Good news about the description theory of names. Journal of Semantics 14: 319–348.	page 22
+references	Henry Davis	reference	Kaplan, David. 1989. Demonstratives: An essay on the semantics, logic, metaphysics, and epistemology of demonstratives and other indexicals. In Themes from Kaplan, edited by J. Almog, J. Perry, and H. K. Wettstein. Oxford: Oxford University Press, 481–563.	page 23
+references	Henry Davis	reference	Kripke, Saul. 1980. Naming and Necessity. Cambridge, MA: Harvard University Press.	page 23
+references	Henry Davis	reference	Kroeber, P. 1999. The Salish Language Family: Reconstructing Syntax. Lincoln, NE: University of Nebraska Press.	page 23
+references	Henry Davis	reference	Laporte, Joseph. 2018. Rigid designators. In The Stanford Encyclopedia of Philosophy, edited by Edward N. Zalta (Spring 2018 edition). Accessed at https://plato.stanford.edu/entries/rigid- designators/, July 2019.	page 23
+references	Henry Davis	reference	Lyon, John and Henry Davis. 2018. The Outlaws: An Upper St’át’imcets tale. Papers for the 53rd ICSNL, edited by M. Huijsmans, R. Lo, O. Tkachman, and D. Reisinger: 61–109. Vancouver: UBCWPL 47.	page 23
+references	Henry Davis	reference	Matthewson, Lisa. 2005. Iwan Kwikws (‘When I was Small’). Vancouver: University of British Columbia Press.	page 23
+references	Henry Davis	reference	Matushansky, Ora. 2008. On the linguistic complexity of proper names. Linguistics and Philosophy, 21: 573–627.	page 23
+references	Henry Davis	reference	Mitchell, Sam. To appear. St’át’imcets Stories from Sam Mitchell. Recorded by Randy Bouchard, transcribed, translated, and edited by John Lyon and Henry Davis. Vancouver: UBCOPL.	page 23
+references	Henry Davis	reference	Montler, Timothy. 2012. Traditional personal names in Klallam, Handout for the organized session: American Indian Personal Names: A Neglected Lexical Genre, SSILA, Portland. Retrieved from http://montler.net/KlallamNames-Montler-SSILA2012.pdf, July 2019.	page 23
+references	Henry Davis	reference	Muñoz, Patrick. To appear. The proprial article and the semantics of names. Semantics and Pragmatics.	page 23
+references	Henry Davis	reference	Partee, Barbara. 1986. Noun phrase interpretation and type-shifting principles. In Studies in Discourse Representation Theory and the Theory of Generalized Quantifiers, edited by J. Groenendijk, D. de Jong, and M. Stokhof. Dordrecht: Foris, 115–143.	page 23
+references	Henry Davis	reference	Sloat, Clarence. 1969. Proper nouns in English. Language 45:26–30.	page 23
+references	Henry Davis	reference	Thoma, Sonja. 2007. St’át’imcets independent pronouns – the invisible cleft. Proceedings of the 23rd Northwest Linguistics Conference. Victoria, BC: Working Papers of the Linguistics Circle of Victoria, 109–123. Van Eijk, Jan. 1997. The Lillooet Language: Phonology, Morphology, Syntax. Vancouver: University of British Columbia Press.	page 23

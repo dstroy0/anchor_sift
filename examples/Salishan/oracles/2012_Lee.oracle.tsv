@@ -1,0 +1,561 @@
+where	who	kind	form	gloss
+front	JeongEun Lee	title	Body part noun incorporation in Blackfoot: Allomorphy analysis	page 1, carries footnote *
+front	JeongEun Lee	name	JeongEun Lee	author
+front	JeongEun Lee	note	University of Calgary	page 1, under JeongEun Lee
+front	JeongEun Lee	note	This paper investigates body part Noun Incorporation (NI) in Blackfoot to examine the motivation for using Blackfoot medials instead of the corresponding nouns in NI. I will claim that medials are used with intransitive verb stems while independent nouns with transitive verb stems in Blackfoot body part NI. This claim explicates theta roles of an intransitive verb (e.g., an intransitive verb ssiikaawaatsi means ‘wash one’s own feet’ which needs ‘washer’ and ‘washee’). The discrepancy in intransitive verbs will be explained with using a medial ika ‘foot’, a reduced form of the corresponding noun mohkát ‘foot’ under an allomorphy analysis. To support this claim, I will compare three previous accounts for NI in general based on the Rosen’s (1989) NI classification; my claim is grounded on the hypothesis that transitivity is the defining factor of Blackfoot verbs (Armoskaite 2011; Frantz 2009).	page 1, the abstract
+front	JeongEun Lee	language	Blackfoot	Algonquian, spoken in Alberta and Montana, the language of the paper
+footnote *	JeongEun Lee	note	I owe many thanks for the patience and teaching of language consultant Chief Sandra Crazy Bull of the Kainaa (Blood) Tribe. All errors are, of course, my own.	page 1, footnote *, on the title
+footnote *	JeongEun Lee	name	Sandra Crazy Bull	Chief Sandra Crazy Bull of the Kainaa (Blood) Tribe, the language consultant
+§1	JeongEun Lee	heading	1 Introduction	page 1
+§1	JeongEun Lee	note	Here are two similar sentences that have two distinct forms meaning ‘foot’ in Blackfoot1.	page 1
+footnote 1	JeongEun Lee	note	Unless otherwise specified, all examples are from my own fieldwork. If I use other sources of data from existing papers, I follow their original glosses unless otherwise noted. Abbreviations are as follows: 1, 2, 3, 4 = 1st, 2nd, 3rd, 4th person; 3N = third person neuter; 3O: third person object; 3sS = third person subject agreement; ADJ = adjectival suffixes; AI = Animate Intransitive; AN(imate); COLL(ective); DEM(onstrative); DET(erminer); DIR = direct theme suffix; DIST(ributive); DUR(ative); FIN(al); II = Inanimate Intransitive; IMP(erative); IMPF = imperfective; IN(animate); IND = indicative mood; INT(ransitive); INTS = intensifier; INV(erse); M= masculine; NEG(ative); NOMZ = nominalizer; OBV(iative); PL(ural); POSS(essive); PRO(noun); PROG(ressive); PROX(imate); S = subject; SG = singular; TA = Transitive Animate; TI = Transitive Inanimate; TRANS(itive).	page 1, footnote 1
+(1a) line 1	Blackfoot	transcription	anná Conrad áíssiikawatsii	page 2
+(1a) line 2	Blackfoot	segmentation	ann-wa Conrad á-ssi-ika-atsi	page 2
+(1a) line 3	Blackfoot	gloss	DEM-PROX.SG Conrad DUR-wipe-foot-FIN	page 2
+(1a) line 4	JeongEun Lee	translation	‘Conrad is washing his feet.’	page 2
+(1b) line 1	Blackfoot	transcription	anná Conrad áíssiiststóm ómi	page 2
+(1b) line 2	Blackfoot	segmentation	ann-wa Conrad a-ssi-iststo-m om-yi	page 2
+(1b) line 3	Blackfoot	gloss	DEM-PROX.SG Conrad DUR-wipe-FIN-DIR DEM-IN.SG	page 2
+(1b) line 4	Blackfoot	transcription	mohkátsi	page 2
+(1b) line 5	Blackfoot	segmentation	mohkát-yi	page 2
+(1b) line 6	Blackfoot	gloss	foot-IN.SG	page 2
+(1b) line 7	JeongEun Lee	translation	‘Conrad is washing that foot.’	page 2
+(1b) line 8	JeongEun Lee	citation	(Dunham 2009: 5)	page 2, the tag or source at the right of the translation
+§1	JeongEun Lee	note	In (1a), ika (‘foot’) is an incorporated noun which combines with a verb root2 ssi (‘wipe’) to form a complex verb; (1b) is semantically similar to (1a); however, an independent noun mohkát (‘foot’) is used (Dunham 2009). The sentence in (1a) shows a linguistic phenomenon called Noun Incorporation (NI), which creates complex predicates by incorporating ‘noun like’ elements into verbs. Now, is the sentence in (1b) derived from the sentence in (1a) in syntax or is the complex verb composed in a compounding process? This is the question that linguists have explored for over a century (Rosen 1989; Sapir 1911). There have been two approaches to answering this question: a syntactic approach involving movement, and a lexical approach. By examining previous accounts for Aboriginal languages including Blackfoot, I can shed light on the characteristics of the Blackfoot NI process. In this paper, I will claim that body part medials (e.g., ika in (1a)) are allomorphs of the corresponding independent nouns (e.g., mohkát in (1b)); this means that their meanings are the same, while their phonological forms are different from each other depending on linguistic environment.	page 2
+footnote 2	JeongEun Lee	note	Here, I follow the traditional definition of root; “a root is a morpheme which forms the core of a word. It is the unit to which other morphemes may be added… All roots belong to one of the LEXICAL CATEGORIES, i.e. they belong to the word classes of noun, adjective, verb or adverb” (Katamba 2005: 50).	page 2, footnote 2
+footnote 2	JeongEun Lee	name	Katamba	Francis Katamba, English words (2005)
+§1	Blackfoot	cited form	mohkát	page 2, in italics
+§1	JeongEun Lee	name	Dunham	Joel Dunham, noun incorporation in Blackfoot (2009)
+§1	JeongEun Lee	name	Rosen	Sara Thomas Rosen, two types of noun incorporation (1989)
+§1	JeongEun Lee	name	Sapir	Edward Sapir, the problem of noun incorporation (1911)
+§1	JeongEun Lee	note	Interestingly, this phenomenon reveals a fundamental question about the morpho-syntax interface; why the medial (e.g., ika in (1a)) is used instead of the corresponding independent noun has not been well discussed (e.g., mohkát in (1b)) in existing literature. I endeavor to answer this question (i.e., what conditions the use of medials versus independent nouns in NI constructions?) by comparing previous accounts for NI: Baker (1988, 2009) claims that Mohwak NI involves head-to-head movement; while Dunham (2009) argues that there is no movement in Blackfoot and both medials and corresponding nouns are the same underlyingly; following Rosen’s classification (1989), Wiltschko (2009) analyzes Halkomelem Salish NI as (syntactic) category-less root-root compounding3. Since Blackfoot NI was not used productively during my fieldwork, I concentrate on body part NI that clearly shows the combination of medials and corresponding independent nouns. For body part NI in Blackfoot, I will partly follow Dunham’s (2009) analysis; additionally, I will fill the gap, namely, the conditions of using medials or the corresponding nouns in NI.	page 2
+footnote 3	JeongEun Lee	note	Here, the term ‘root’ means that it has only sound-meaning information and lacks categorial information such as noun (N) and verb (V), which is added later in syntax (Dunham 2009; Wiltschko 2009).	page 3, footnote 3
+§1	JeongEun Lee	name	Baker	Mark Baker, incorporation (1988), the polysynthesis parameter (1996) and head movement (2009)
+§1	JeongEun Lee	name	Wiltschko	Martina Wiltschko, root incorporation in Halkomelem Salish (2009)
+§1	JeongEun Lee	language	Halkomelem Salish	Central Salish, whose lexical suffixes Wiltschko analyzes as roots
+§1.1	JeongEun Lee	heading	1.1 Indentifying the problem in body part NI	page 3
+(2a) line 1	Blackfoot	transcription	nitssiiyaki’p nohtóóki	page 3
+(2a) line 2	Blackfoot	segmentation	nit-ssiiyaki-hp n-mohtóóki	page 3
+(2a) line 3	Blackfoot	gloss	1SG-cleanse-THEME 1POSS-ear	page 3
+(2a) line 4	JeongEun Lee	translation	‘I wash my ear.’	page 3
+(2a) line 5	JeongEun Lee	citation	[SCB-JEL 008f]	page 3, the tag or source at the right of the translation
+(2b) line 1	Blackfoot	transcription	nitaissiikawatsima	page 3
+(2b) line 2	Blackfoot	segmentation	nit-a-ssi-ika-attsi-imma	page 3
+(2b) line 3	Blackfoot	gloss	1SG-DUR-wash-foot-cause-FIN(AI)	page 3
+(2b) line 4	JeongEun Lee	translation	‘I’m washing his feet.’	page 3
+(2b) line 5	JeongEun Lee	citation	[SCB-JEL 010j]	page 3, the tag or source at the right of the translation
+§1.1	JeongEun Lee	note	Here, the sentences (2a) and (2b) 4 raise three interesting points; first of all, the verb ssiiyaki (‘cleanse’) in (2a) is a transitive verb while (2b) ssiikaawaatsi5 (‘wash one’s own feet’) is an intransitive verb. However, the meaning of ssiikaawaatsi in (2b) shows that it needs the direct object ‘one’s own feet’. Secondly, the final imma in (2b) is an intransitive concrete final (Frantz 2009; Armoskaite 2011). Such finals change the transitivity of the verb stems. Thirdly, in (2b), there is a seemingly reduced body part form, which is called ‘medial’, ika (‘foot’) instead of a corresponding independent noun mohkat (‘foot’); in (2a), the independent body part noun nohtóóki (‘ear’) is used while there is a corresponding medial (sstooki ‘ear’) in Blackfoot.	page 3
+footnote 4	JeongEun Lee	note	My consultant’s older brother provided this sentence during the elicitation session with my consultant. My consultant used an independent noun ‘ohkatsistsi (‘his feet’)’ instead of the corresponding medial ika to describe the activity.	page 3, footnote 4
+footnote 5	JeongEun Lee	note	I try to split ssiikaawaatsi into morphemes. Originally, it is listed as one word in the Blackfoot dictionary (Frantz and Russell 1995).	page 3, footnote 5
+§1.1	Blackfoot	cited form	nohtóóki	page 3, in italics
+§1.1	JeongEun Lee	name	Armoskaite	Solveiga Armoskaite, the destiny of roots in Blackfoot and Lithuanian (2011)
+§1.1	JeongEun Lee	name	Frantz	Donald G. Frantz, a generative grammar of Blackfoot (1971) and Blackfoot grammar (2009)
+(3) line 1	Blackfoot	transcription	nitaissii’p o’tsís	page 4
+(3) line 2	Blackfoot	segmentation	nit-a-ssi-i-hp ot-mo’tsís	page 4
+(3) line 3	Blackfoot	gloss	1SG-DUR-wash-FIN(TI)-THEME 3POSS6-hand	page 4
+footnote 6	JeongEun Lee	note	Frantz (2009) noted that initial m of body part nouns “will be present only if no prefix precedes these stems” (Frantz 2009: 73). Following patterns in itán ‘daughter’ as in (i), I posit that there is a 3rd person prefix in this word.	page 4, footnote 6
+footnote 6	Blackfoot	cited form	itán	page 4, in italics, ‘daughter’
+footnote 6 (ia)	Blackfoot	transcription	nitána	page 4
+footnote 6 (ia)	JeongEun Lee	translation	‘my daughter’	page 4
+footnote 6 (ib)	Blackfoot	transcription	kitána	page 4
+footnote 6 (ib)	JeongEun Lee	translation	‘your daughter’	page 4
+footnote 6 (ic)	Blackfoot	transcription	otáni	page 4
+footnote 6 (ic)	JeongEun Lee	translation	‘his3 daughter’	page 4
+footnote 6 (id)	Blackfoot	transcription	otánayi	page 4
+footnote 6 (id)	JeongEun Lee	translation	‘his4 daughter’	page 4
+footnote 6 (id)	JeongEun Lee	citation	(Frantz 2009: 75)	page 4, at the right of the translation
+(3) line 4	JeongEun Lee	translation	‘I’m washing his hand.’	page 4
+(3) line 5	JeongEun Lee	citation	[SCB-JEL 006l]	page 4, the tag or source at the right of the translation
+§1.1	JeongEun Lee	note	Along with these three interesting points, here is another puzzle found. The difference between (2b) and (3) is related to the object that ‘I am currently washing’; both ika and mo’tsís are inanimate nouns. Even though the objects of the sentences are different from each other, the meanings of the two sentences in (2b) and (3) are very similar. How can this be accounted for? Moreover, an independent body part noun can be incorporated as in (4)	page 4
+§1.1	Blackfoot	cited form	mo’tsís	page 4, in italics
+(4) line 1	Blackfoot	transcription	nitssiko’kakinaw oma ninaawa	page 4
+(4) line 2	Blackfoot	segmentation	nit-siik-o-mo’kakin-aa-wa om-a ninaa-wa	page 4
+(4) line 3	Blackfoot	gloss	1SG-break-3POSS-back-FIN-3SG DEM-SG.AN man-3SG	page 4
+(4) line 4	JeongEun Lee	translation	‘I broke the man’s back.’	page 4
+(4) line 5	JeongEun Lee	citation	(Frantz 1971:72, gloss is mine)	page 4, the tag or source at the right of the translation
+§1.1	JeongEun Lee	note	The sentence in (4) shows that the independent noun can be incorporated into a verb siik (‘break’), which is a transitive verb. It should be noted that my consultant rarely uses medials and prefers independent nouns when she describes activities including a body part; if there is a lexicalized verb such as ssiikaawaatsi ‘wash one’s own feet’ (which is independently documented in the Blackfoot dictionary), then she uses it. Otherwise, I ask her about other translated NI forms, which include independent nouns by consulting with existing papers.	page 4
+§1.1	JeongEun Lee	note	I raise two puzzles in this section. First, what motivates the use of incorporated medials as opposed to their corresponding independent nouns? Second, is the transitivity of the verb or the animacy of the noun a factor? As I proceed, I will give a preview of the results so that I can reveal part of the Blackfoot NI process and the morphology-syntax interface in Blackfoot. The structure of the paper is as follows. In section 2, I illustrate a verb template, the patterns of body part nouns in Blackfoot and the fieldwork methodology. In section 3, I introduce Rosen’s (1989) two types of NI to understand previous accounts: Classifier NI and Compound NI. Following this analysis, I investigate three different accounts of NI namely those of Baker (2009), Dunham (2009) and Wiltschko (2009). In section 4, I provide my own analysis to explain why body part medials are selected instead of the corresponding full nouns; I claim that it is based on the transitivity of verbs and concrete finals. By adopting Armoskaite’s (2011) analysis of finals in Blackfoot, I argue that Blackfoot verbs inherently have their own syntactic categories. Consequently, this reveals that body part medials are allomorphs of corresponding nouns. In section 5, I discuss two residual issues, which need further research: word order and inverse forms. Finally, section 6 concludes.	page 4
+§2	JeongEun Lee	heading	2 Background	page 5
+§2	JeongEun Lee	note	In this section, I introduce a Blackfoot verb stem template, four types of verb stems, body part nouns and medials, and fieldwork methodologies. Specifically, I will discuss intrinsic properties of verb roots as background for my analysis of Blackfoot body part NI.	page 5
+§2.1	JeongEun Lee	heading	2.1 Blackfoot verb stem template	page 5
+§2.1	JeongEun Lee	note	The order of morpheme in Blackfoot is as follows (Mühlbauer 2005):	page 5
+§2.1	JeongEun Lee	name	Mühlbauer	Jeff Mühlbauer, Blackfoot morphology key (2005) and intentionality in Plains Cree (2008)
+(5)	JeongEun Lee	note	[Prefixes person pre-verb] [Stem root (medial) final] [Suffixes theme mode person num]	page 5, set as an example
+§2.1	JeongEun Lee	note	Traditionally, a Blackfoot verb stem template is [verb root + (medial) + final]; medials are optional while verb roots and finals are obligatory (Armoskaite 2011). Here are the definitions of root, medial and final from the Blackfoot dictionary (Frantz & Russell 1995): ●Verb root (vrt): roots which require a final to make up a verb stem. ●Medial (med): noun roots, such as –sski ‘face’, which must be	page 5
+§2.1	JeongEun Lee	name	Russell	Norma Jean Russell, with Frantz the Blackfoot dictionary (1995)
+§2.1	JeongEun Lee	note	incorporated into a verb or noun as a suffix. ●Final (fin): suffixes, such as –attsi ‘cause’, which must attach to other	page 5
+§2.1	JeongEun Lee	note	verb roots or stems, and which determine the category of the resultant	page 5
+§2.1	JeongEun Lee	note	stems.	page 5
+§2.1	JeongEun Lee	note	The definition of final (Frantz & Russell 1995) indicates that final is a determining factor for the category of verb stems which is transitivity. Armoskaite (2011) provides two types of finals: agreeing finals and derivational finals (abstract and concrete finals7 in Frantz (2009), respectively); derivational finals change verb roots’ transitivity while agreeing finals simply agree with verb roots’ transitivity. Armoskaite (2011) lays out patterns of transitivity in terms of roots and final relations, and I adopt her analysis. Since this analysis is closely related to the notion of ‘root’ in terms of category, I will detail relevant analyses in sections 3.3 and 4.2.1.	page 5
+footnote 7	JeongEun Lee	note	Abstract finals minimally affect the meaning of verb stem while concrete finals significantly affect it; abstract finals are not productive, which means that it is hard to predict when they attach to verb stems (Frantz 2009). However, I follow Armoskaite’s (2011) analysis for finals in this paper.	page 5, footnote 7
+§2.2	JeongEun Lee	heading	2.2 Transitivity of verbs	page 6
+§2.2	JeongEun Lee	note	Blackfoot verb roots cannot occur on their own as in (6b).	page 6
+(6a)	Blackfoot	transcription	nitssínaaki	page 6
+(6a)	Blackfoot	segmentation	nit-sina-aki	page 6
+(6a)	Blackfoot	gloss	1SG-write / draw-INT	page 6
+(6a)	JeongEun Lee	translation	‘I drew/wrote.’	page 6
+(6b)	Blackfoot	transcription	*sina	page 6, in the right column
+(6b)	Blackfoot	gloss	write/draw	page 6, in the right column
+(6b)	JeongEun Lee	translation	‘I drew/wrote.’	page 6, in the right column
+(6b)	JeongEun Lee	citation	(Frantz & Russell 1995: 164)	page 6, the source at the right of (6a)'s translation
+§2.2	JeongEun Lee	note	The final aki (a pseudo intransitivizer, Frantz 1971) indicates that the verb is morphologically intransitive while syntactically pseudo-intransitive (Armoskaite 2011). The term pseudo-intransitive refers to a verb that can take a direct object optionally (Frantz 1971). The differences between transitive and pseudo-intransitive are that 1) a pseudo-intransitive may not take a DP, as in (7b), while a transitive requires a DP when an object is overt, and 2) finals are different from each other (a pseudo-intransitive verb takes an intransitive final while a transitive verb takes a transitive final).	page 6
+(7) line 1	JeongEun Lee	note	Pseudo-intransitive	page 6, the example's heading
+(7a) line 1	Blackfoot	transcription	nitssínaaki (sináákia’tsis)8	page 6
+footnote 8	JeongEun Lee	note	Parentheses mean that the direct object is optional.	page 6, footnote 8
+(7a) line 2	Blackfoot	segmentation	nit-sina-aki (sina-aki-a’tsis)	page 6
+(7a) line 3	Blackfoot	gloss	1SG-write/draw-INT (write/draw-INT–NOMZ)	page 6
+(7a) line 4	JeongEun Lee	translation	‘I drew/wrote (a book).’	page 6
+(7b) line 1	Blackfoot	transcription	*nitssínaaki omi sináákia’tsis	page 6
+(7b) line 2	Blackfoot	segmentation	nit-sina-aki omi sina-aki-a’tsis	page 6
+(7b) line 3	Blackfoot	gloss	1SG-write/draw- INT DET write/draw-INT -NOMZ	page 6
+(7b) line 4	JeongEun Lee	translation	Intended: ‘I drew/wrote the book.’	page 6
+(7b) line 5	JeongEun Lee	citation	(Armoskaite 2011: 20)	page 6, the tag or source at the right of the translation
+(8)	JeongEun Lee	note	True intransitive	page 6, the example's heading
+(8a)	Blackfoot	transcription	nitaopasoo	page 6
+(8a)	JeongEun Lee	translation	‘I’m yawning.’	page 6
+(8b)	Blackfoot	transcription	*nitaopasooatawa	page 6
+(8b)	JeongEun Lee	translation	‘I’m yawning at him.’	page 6
+(8b)	JeongEun Lee	citation	(Frantz 1971: 46)	page 6, under both translations
+§2.2	JeongEun Lee	note	As (8b) shows, a true intransitive verb cannot take an object, unlike pseudo- intransitive verbs.	page 6
+§2.2	JeongEun Lee	note	Traditionally, it is claimed that Blackfoot has four types of verb stems, as follows (Frantz & Russell 1995; Frantz 2009).	page 6
+(9)	JeongEun Lee	note	Four types of verb stems in Blackfoot	page 6, the example's heading
+(9)	JeongEun Lee	note	● Transitive Animate (TA): Transitive verb which takes animate gender objects	page 6, an item of the list
+(9)	JeongEun Lee	note	● Transitive Inanimate (TI): Transitive verb which takes inanimate gender objects	page 7, an item of the list
+(9)	JeongEun Lee	note	● Animate Intransitive (AI): Intransitive verb which takes animate gender subject	page 7, an item of the list
+(9)	JeongEun Lee	note	● Inanimate Intransitive (II): Intransitive verb which takes inanimate gender subject	page 7, an item of the list
+§2.2	JeongEun Lee	note	However, I adopt Armoskaite’s (2011) classification system (with minor changes), which reveals that verb roots have their own syntactic categories, and finals can agree with verb roots (i.e. agreeing finals) or change the verb root’s transitivity (i.e. derivational finals). Therefore, an inherently transitive verb root cannot take a deriving transitive final since the verb root is already ‘transitive’.	page 7
+(10)	JeongEun Lee	note	The classification of verbal roots in Blackfoot (Armoskaite 2011: 27)	page 7, the example's heading
+(10)	JeongEun Lee	note	(Preverb) [verb root TRANS (Medial) Final]	page 7, set as an example
+(10)	JeongEun Lee	note	(Preverb) [verb root INTRANS (Medial) Final]	page 7, set as an example
+(10)	JeongEun Lee	note	(Preverb) [verb root PSEUDO-INTRANS (Medial) Final]	page 7, set as an example
+§2.2	JeongEun Lee	note	I follow Frantz’s (1971) original classification so that I change the final classification of Armoskaite (2011) from PSEUDO-TRANS to PSEUDO- INTRANS. According to her, a verb root ihkiit ‘bake’ is an intrinsically pseudo transitive verb since it takes the agreeing intransitive suffix ‘aa’. However, since it takes deriving transitive suffixes as in (12) but not agreeing transitive suffixes, I assume that the verb root ihkiit ‘bake’ is an intransitive root and it can take objects since it is a semantically transitive verb. Therefore, I will call it a pseudo-intransitive verb.	page 7
+(11)	JeongEun Lee	note	Agreeing final with ihkiit ‘bake’	page 7, the example's heading
+(11)	Blackfoot	transcription	ihkiitaa	page 7
+(11)	Blackfoot	segmentation	ihkiitINT-aa	page 7
+(11)	Blackfoot	gloss	bakeINT-INT	page 7
+(11)	JeongEun Lee	translation	‘bake’	page 7
+(11)	JeongEun Lee	citation	(Armoskaite 2011: 43)	page 7, at the right of the translation
+(12)	JeongEun Lee	note	Deriving finals with ihkiit ‘bake’	page 7, the example's heading
+(12a)	Blackfoot	transcription	ihkiitatoo	page 7
+(12b)	Blackfoot	transcription	ihkiitat	page 7
+(12a)	Blackfoot	segmentation	ihkiitINT-atoo	page 7
+(12b)	Blackfoot	segmentation	ihkiitINT-at	page 7
+(12a)	Blackfoot	gloss	bakeINT-TI	page 7
+(12b)	Blackfoot	gloss	bakeINT-TA	page 7
+(12)	JeongEun Lee	translation	‘bake’	page 7, under both forms, the translation of each
+(12)	JeongEun Lee	citation	(Armoskaite 2011: 43)	page 7, at the right of the translation
+§2.2	JeongEun Lee	note	I will adopt the definition of ‘root’ of Armoskaite (2011), which claims that the property what makes verb roots ‘verbs’ (as a syntactic category) is the transitivity of verbs. This definition of verb root, having the inherent category, will be useful in section 4.	page 7
+§2.3	JeongEun Lee	heading	2.3 Body part	page 8
+§2.3	JeongEun Lee	note	Since I will investigate why a certain morpheme is used as an incorporated element, I here present words that I have used in my fieldwork.	page 8
+(13)	JeongEun Lee	note	Blackfoot body part medials and corresponding independent nouns	page 8, the example's heading
+(13)	JeongEun Lee	note	Body part Animacy Medial Independent nouns	page 8, the column heads
+(13)	JeongEun Lee	note	Eye Animate aapini moápssp	page 8, a row of the table
+(13)	Blackfoot	cited form	aapini	page 8, the medial, ‘eye’, animate
+(13)	Blackfoot	cited form	moápssp	page 8, the independent noun, ‘eye’, animate
+(13)	JeongEun Lee	note	Finger/toe Animate N/A mookítsis	page 8, a row of the table
+(13)	Blackfoot	cited form	mookítsis	page 8, the independent noun, ‘finger/toe’, animate
+(13)	JeongEun Lee	note	Nose Inanimate hksis mohksisís	page 8, a row of the table
+(13)	Blackfoot	cited form	hksis	page 8, the medial, ‘nose’, inanimate
+(13)	Blackfoot	cited form	mohksisís	page 8, the independent noun, ‘nose’, inanimate
+(13)	JeongEun Lee	note	Ear Inanimate sstooki mohtóókis	page 8, a row of the table
+(13)	Blackfoot	cited form	sstooki	page 8, the medial, ‘ear’, inanimate
+(13)	Blackfoot	cited form	mohtóókis	page 8, the independent noun, ‘ear’, inanimate
+(13)	JeongEun Lee	note	Head/hair Inanimate ihkin mo’tokáán	page 8, a row of the table
+(13)	Blackfoot	cited form	ihkin	page 8, the medial, ‘head/hair’, inanimate
+(13)	Blackfoot	cited form	mo’tokáán	page 8, the independent noun, ‘head/hair’, inanimate
+(13)	JeongEun Lee	note	Face Inanimate sski mosstoksís	page 8, a row of the table
+(13)	Blackfoot	cited form	sski	page 8, the medial, ‘face’, inanimate
+(13)	Blackfoot	cited form	mosstoksís	page 8, the independent noun, ‘face’, inanimate
+(13)	JeongEun Lee	note	Foot/leg9 Inanimate ika mohkát	page 8, a row of the table
+footnote 9	JeongEun Lee	note	Body part which is related to lower body, my language consultant uses mohkát for thigh, lap and foot even though there are specific words indicating the particular body parts. It is applicable to moápssp ‘eye’. She uses moápssp for eyelash and eyebrow as well.	page 8, footnote 9
+(13)	Blackfoot	cited form	ika	page 8, the medial, ‘foot/leg’, inanimate
+(13)	Blackfoot	cited form	mohkát	page 8, the independent noun, ‘foot/leg’, inanimate
+(13)	JeongEun Lee	note	Hand Inanimate ikinsst mo’tsís	page 8, a row of the table
+(13)	Blackfoot	cited form	ikinsst	page 8, the medial, ‘hand’, inanimate
+(13)	Blackfoot	cited form	mo’tsís	page 8, the independent noun, ‘hand’, inanimate
+(13)	JeongEun Lee	note	Back Inanimate N/A mo’kakín	page 8, a row of the table
+(13)	Blackfoot	cited form	mo’kakín	page 8, the independent noun, ‘back’, inanimate
+(13)	JeongEun Lee	note	Eyelids Inanimate N/A ootokiáápinihpis	page 8, a row of the table
+(13)	Blackfoot	cited form	ootokiáápinihpis	page 8, the independent noun, ‘eyelids’, inanimate
+(13)	JeongEun Lee	note	Elbow Inanimate N/A mohkínsstsis	page 8, a row of the table
+(13)	Blackfoot	cited form	mohkínsstsis	page 8, the independent noun, ‘elbow’, inanimate
+§2.3	JeongEun Lee	note	By investigating those words, I explore why medials cannot stand alone, while independent nouns can. In my fieldwork, I tried to examine that whether animacy of nouns plays a role in NI or not; it seems that there is no effect of animacy. Then, what would be a reason to use medials? Another possibility is phonological weight; medials could be used instead of corresponding nouns since they are shorter and easy to incorporate into a verb to form a complex verb due to their lightness. Except for the word mo’tsís (‘hand’) and moápssp (‘eye’), it seems that medials tend to be shorter forms of the corresponding nouns. However, the initial question of when medials or independent nouns are used remains unanswered. The question of when medials can be used in Blackfoot instead of independent nouns or vice versa will be discussed in section 3 and section 4 as well.	page 8
+§2.3	Blackfoot	cited form	moápssp	page 8, in italics
+§2.4	JeongEun Lee	heading	2.4 Fieldwork methodology	page 9
+§2.4	JeongEun Lee	note	Before I introduce previous accounts of NI, here I briefly illustrate methodologies that I have used in my fieldwork.	page 9
+§2.4.1	JeongEun Lee	heading	2.4.1 Texual data	page 9
+§2.4.1	JeongEun Lee	note	I use existing papers and published books on Blackfoot to understand Blackfoot NI. Frantz & Russell’s (1995) dictionary and Frantz’s (2009) Blackfoot grammar book are primary resources in this paper.	page 9
+§2.4.2	JeongEun Lee	heading	2.4.2 Elicitation	page 9
+§2.4.2	JeongEun Lee	note	I usually use two methodologies in my fieldwork: translation tasks, and judgement tasks including a bit of utterance-in-context tasks in the sense of Mühlbauer’s (2008) classification. Lack of Blackfoot knowledge causes me to use mainly two methodologies. ‘How would you translate this sentence?’ and ‘What does it mean?’ are questions generally used in translation tasks. This method might bias my language consultant since I use English sentences, which are different from Blackfoot’s word order and syntactic structures. For judgement tasks, I generally ask her grammaticality judgements on sentences I create or borrow from other sources. Finally, I provide some specific contexts to investigate whether there is any discourse effect in the use of body part NI.	page 9
+§2.4.2	JeongEun Lee	language	English	whose sentences the translation tasks use
+§2.4.3	JeongEun Lee	heading	2.4.3 Technology	page 9
+§2.4.3	JeongEun Lee	note	The sessions were recorded as part of lab sessions with the language consultant, Chief Sandra Crazy Bull. They resulted in twelve recordings. The sessions were recorded on a Zoom H4n digital stereo recorder in a small classroom. The windsock was on the microphones.	page 9
+§3	JeongEun Lee	heading	3 Previous analyses	page 9
+§3	JeongEun Lee	note	As Rosen’s (1989) classification shows, NI in languages is not a uniform phenomenon. I will present three other accounts of NI and assess the extent to which these analyses can explain the Blackfoot body part NI data: Baker’s (1988; 2009) head-to-head movement in Mohawk and Mapudungun, Wiltschko’s (2009) root-root compounding in Halkomelem Salish, and Dunham’s (2009) verb-noun incorporation, which does not posit syntactic movement or category-less roots in Blackfoot. Since all of them mention Rosen’s (1989) classification of NI, I illustrate two types of NI in that classification first.	page 9
+§3	JeongEun Lee	language	Mohawk	Iroquoian, a Classifier NI language in Baker's and Rosen's accounts
+§3	JeongEun Lee	language	Mapudungun	Araucanian, with Mohawk in Baker's account
+§3.1	JeongEun Lee	heading	3.1 Rosen’s classification	page 10
+§3.1	JeongEun Lee	note	According to Rosen (1989), there are two types of NI in the world’s languages: Classifier NI and Compound NI. Rosen puts forward three criteria to help in the classification of NI: modifier stranding, doubling and transitivity of verbs. Here are instances of the three criteria. If modifier stranding and doubling are permissible, and NI does not affect verbs’ transitivity, then a language is classified as a Classifier NI language. Classifier languages “all freely allow pro- drop in all positions” (Rosen 1989: 298).	page 10
+(14) line 1	JeongEun Lee	note	Modifier stranding (Mohawk)	page 10, the example's heading
+(14) line 2	Mohawk	transcription	kanekwarúnyu wa’-k-akya 'tawi’tsher-ú:ni	page 10
+(14) line 3	Mohawk	gloss	it.dotted.DIST PAST-I-dress-make	page 10
+(14) line 4	JeongEun Lee	translation	‘I made a polka-dotted dress.’	page 10
+(14) line 5	JeongEun Lee	citation	(Mithun 1984: 870)	page 10, the tag or source at the right of the translation
+(15) line 1	JeongEun Lee	note	Modifier stranding (Halkomelem Salish)	page 10, the example's heading
+(15a) line 1	Halkomelem Salish	transcription	th’exw-xál-t-es te Strang te hikw	page 10
+(15a) line 2	Halkomelem Salish	gloss	wash-foot-TRANS-3s DET Strang DET big	page 10
+(15a) line 3	JeongEun Lee	translation	‘Strang washed his big foot/feet.’	page 10
+(15b) line 1	Halkomelem Salish	transcription	th’ éxw-wı´l-t-es te isale	page 10
+(15b) line 2	Halkomelem Salish	gloss	wash-dish-TRANS-3s DET two	page 10
+(15b) line 3	JeongEun Lee	translation	‘He washed two dishes.’	page 10
+(15b) line 4	JeongEun Lee	citation	(Wiltschko 2009: 213)	page 10, the tag or source at the right of the translation
+§3.1	JeongEun Lee	note	In Classifier NI, incorporated elements can be associated with determiners, modifiers, and possessors, but no head noun. This is called ‘stranding’ (Rosen 1989). In the sentence in (14), the adjective kanekwarúnyu ‘dotted’ is stranded. This stranding is also found in Halkomelem Salish as well. This stranded modifier modifies the null head of the direct object; stranding of determiners and modifiers are not allowed in Compound NI as in (16).	page 10
+§3.1	Blackfoot	cited form	kanekwarúnyu	page 10, in italics, ‘dotted’
+(16) line 1	JeongEun Lee	note	Compound NI: Kusaiean	page 10, the example's heading
+(16a) line 1	Kusaiean	transcription	el twem-lah mitmit sahfiht sac	page 10
+(16a) line 2	Kusaiean	gloss	He sharpen-PAST knife dull the	page 10
+(16a) line 3	JeongEun Lee	translation	‘He has sharpened the dull knife.’	page 10
+(16b) line 1	Kusaiean	transcription	*nga twetwe mitmit sahfiht sac	page 10
+(16b) line 2	Kusaiean	gloss	I sharpen knife dull the	page 10
+(16b) line 3	JeongEun Lee	translation	‘I knife-sharpen the dull ø.’	page 10
+(16b) line 4	JeongEun Lee	citation	(Lee 1975: 271)	page 10, the tag or source at the right of the translation
+§3.1	JeongEun Lee	note	Here is the schematized concept of doubling (Rosen 1989: 298):	page 10
+(17)	JeongEun Lee	note	Doubling	page 11, the example's heading
+(17)	JeongEun Lee	note	VP	page 11, a line of the tree as the text layer reads it
+(17)	JeongEun Lee	note	V NP	page 11, a line of the tree as the text layer reads it
+(17)	JeongEun Lee	note	[N+V] Spec N´	page 11, a line of the tree as the text layer reads it
+(17)	JeongEun Lee	note	N {PP/CP}	page 11, a line of the tree as the text layer reads it
+§3.1	JeongEun Lee	note	Simply put, doubling means that a full DP can co-occur with an incorporated noun. This concept is closely related to transitivity of verbs. “In other words, incorporated elements can be doubled by a full DP” (Wiltschko 2009: 210). In (18), “rabahbot ‘bullhead’ is a type of tsy ‘fish’ in Mohawk and the independent NP is more specific than the incorporated noun” (Rosen 1989: 303); Mohawk allows doubling as well.	page 11
+(18) line 1	JeongEun Lee	note	Doubling: Mohawk	page 11, the example's heading
+(18) line 2	Mohawk	transcription	Tohka niyohserá:ke tsi nahe’ sha’te.:ku nikú:ti	page 11
+(18) line 3	Mohawk	gloss	several so.it.year.numbers so it.goes eight of.them	page 11
+(18) line 4	Mohawk	transcription	rabahbót wahu-tsy-ahní:nu ki rake’níha	page 11
+(18) line 5	Mohawk	gloss	bullhead 3M.3N-fish-bought this my.father	page 11
+(18) line 6	JeongEun Lee	translation	‘Several years ago, my father bought eight bullheads.’	page 11
+(18) line 7	JeongEun Lee	citation	(Mithun 1984: 870)	page 11, under the translation
+§3.1	JeongEun Lee	note	The final criterion of the type of NI is related to verbs’ argument structures. Lexical suffixes, which are similar to Blackfoot medials, do not affect the transitivity of verbs in Halkomelem Salish (e.g. they are compatible with both INT (19a) and TRANS (19b) suffixes).	page 11
+(19) line 1	JeongEun Lee	note	Transitivity: Halkomelem Salish	page 11, the example's heading
+(19a) line 1	Halkomelem Salish	transcription	th’exw-xál-em te Strang	page 11
+(19a) line 2	Halkomelem Salish	gloss	wash-foot-INT DET Strang	page 11
+(19a) line 3	JeongEun Lee	translation	‘Strang washed his feet.’	page 11
+(19b) line 1	Halkomelem Salish	transcription	th’éxw-xál-t-es te Strang te Konrad	page 11
+(19b) line 2	Halkomelem Salish	gloss	wash-foot-TRANS-3s DET Strang DET Konrad	page 11
+(19b) line 3	JeongEun Lee	translation	‘Strang washed Konrad’s feet.’	page 11
+(19b) line 4	JeongEun Lee	citation	(Wiltschko 2009: 213)	page 11, the tag or source at the right of the translation
+§3.1	JeongEun Lee	note	Mohawk is a Classifier NI language and it is clear that Halkomelem Salish is also a Classifier NI language. According to Dunham (2009), Blackfoot is a language that has characteristics of both Classifier NI and Compound NI. Regardless of this classification, Blackfoot shows different phenomena from both Mohawk and Halkomelem Salish; this implies that analyses of Mohawk and Halkomelem Salish might not fit into Blackfoot NI. Let’s see how the analyses work.	page 11
+§3.2	JeongEun Lee	heading	3.2 Baker’s analysis: head-to-head movement	page 12
+§3.2	JeongEun Lee	note	Contrary to Mithun (1984) and Rosen (1989), Baker (1988; 2009) proposes a syntactic approach, head-to-head movement in Mohawk and Mapudungun NI, in the Minimalist Program (Chomsky 1995) which tries to eliminate head movement in syntax. I schematize Baker's approach in (20). (I simply apply this analysis to the Blackfoot sentence in (2b).)	page 12
+§3.2	JeongEun Lee	name	Mithun	Marianne Mithun, the evolution of noun incorporation (1984)
+§3.2	JeongEun Lee	name	Chomsky	Noam Chomsky, the Minimalist Program (1995)
+(20)	JeongEun Lee	note	Syntactic head-to-head movement (Baker 2009)	page 12, the example's heading
+(20)	JeongEun Lee	note	S	page 12, a line of the tree as the text layer reads it
+(20)	JeongEun Lee	note	NP VP	page 12, a line of the tree as the text layer reads it
+(20)	JeongEun Lee	note	V NP	page 12, a line of the tree as the text layer reads it
+(20)	JeongEun Lee	note	V N N	page 12, a line of the tree as the text layer reads it
+(20)	JeongEun Lee	note	i	page 12, a line of the tree as the text layer reads it
+(20)	JeongEun Lee	note	wash foot ti	page 12, a line of the tree as the text layer reads it
+§3.2	JeongEun Lee	note	According to Baker (2009), the lexical approach, which posits that a noun root and verb root combine to form a complex predicate in the lexicon, is schematized for the sentence in (2b) as follows:	page 12
+(21)	JeongEun Lee	note	Lexical approach (Baker 2009)	page 12, the example's heading
+(21)	JeongEun Lee	note	S	page 12, a line of the tree as the text layer reads it
+(21)	JeongEun Lee	note	NP VP	page 12, a line of the tree as the text layer reads it
+(21)	JeongEun Lee	note	V	page 12, a line of the tree as the text layer reads it
+(21)	JeongEun Lee	note	wash-foot	page 12, a line of the tree as the text layer reads it
+§3.2	JeongEun Lee	note	His favoring of the head movement analysis is based on three phenomena in Mohawk and Mapudungun. His first argument is that modifiers cannot appear with incorporated noun roots in both languages while PP-like phrases and infinitival relatives can modify incorporated nouns in Niuean contrary to Mohawk and Mapudungun. For example, in Mohawk, ‘I bed-like new’ (Baker 1996: 308, cited in Baker 2009) is acceptable while ‘*I new-bed-like’ is not. The same phenomenon can be observed in Mapudungun, as shown in (22). Therefore, he argues that NI in both languages does not support a phrase movement analysis.	page 12
+§3.2	JeongEun Lee	language	Niuean	Polynesian, whose incorporated nouns take modifiers in Baker's account
+(22a) line 1	Blackfoot	transcription	Pedro ngilla-fi-y küme pulku	page 12
+(22a) line 2	Blackfoot	gloss	Pedro buy-3O-IND.3sS good wine	page 12
+(22a) line 3	JeongEun Lee	translation	‘Pedro bought good wine.’	page 12
+(22b) line 1	Blackfoot	transcription	Pedro ngilla-(*küme)-pulku-pe-y	page 13
+(22b) line 2	Blackfoot	gloss	Pedro buy-good-wine-PAST-IND.3sS	page 13
+(22b) line 3	JeongEun Lee	translation	‘Pedro bought (*good) wine.’	page 13
+(22b) line 4	JeongEun Lee	citation	(Baker 2009: 153)	page 13, the tag or source at the right of the translation
+§3.2	JeongEun Lee	note	In Blackfoot, it seems that incorporated nouns can be modified by adjuncts (sáp).	page 13
+§3.2	Blackfoot	cited form	sáp	page 13, in italics
+(23) line 1	Blackfoot	transcription	Na Jack nit’sáapino’tok	page 13
+(23) line 2	Blackfoot	segmentation	anna Jack nit-sáp-aapin-o’t-o-ok	page 13
+(23) line 3	Blackfoot	gloss	DEM.SG Jack 1SG-in-eye-grasp(vrt)-TA-INV	page 13
+(23) line 4	JeongEun Lee	translation	‘Jack poked me in the eye.’	page 13
+(23) line 5	JeongEun Lee	citation	[SCB-JEL 006e]	page 13, the tag or source at the right of the translation
+§3.2	JeongEun Lee	note	Secondly, Baker (2009) argues that the UTAH and Head Movement Constraint explain why only theme and direct objects are incorporated in the two languages since only the theme position (theme/direct object) is allowed to adjoin to the immediately higher X0. However, if the sentence in (23) is an instance of NI, then, lexical items other than the heads of themes and direct objects can be incorporated in Blackfoot, similar to Halkomelem Salish (Wiltschko 2009).	page 13
+§3.2	JeongEun Lee	note	Finally, possessor raising (or “elevation”, in Frantz 1971) can be easily captured in a head movement analysis according to Baker (2009). A form like ‘I car-bought John’ (meaning ‘I bought John’s car’) is analyzed as ‘[I car-bought [John <car>]]’. Since it strands other NP-internal elements, head movement successfully captures this fact. In fact, Blackfoot possesses a similar possessor raising construction, as exemplified in (4). However, this analysis is related to the ‘Left Branch Condition’10 violation (Ross 1986); therefore, further research is needed in Blackfoot to see whether Blackfoot allows the Left Branch Condition violation as Latin and Russian do (Hornstein et al. 2005). Regardless of the question of whether Blackfoot allows possessee extraction out of DP islands (or simply DPs), in a head movement analysis, it is hard to capture why only sometimes direct objects are incorporated as in (2b), repeated here as (24). Sentence (25) has the same meaning as (24), while the sentence structure is different.	page 13
+footnote 10	JeongEun Lee	note	The Left Branch Condition, LBC (Ross 1986): No NP which is the leftmost constituent of a larger NP can be reordered out of this NP by a transformational rule.	page 13, footnote 10
+§3.2	JeongEun Lee	name	Ross	John Robert Ross, Infinite Syntax (1986)
+§3.2	JeongEun Lee	name	Hornstein	Norbert Hornstein, Jairo Nunes and Kleanthes K. Grohmann, Understanding Minimalism (2005)
+§3.2	JeongEun Lee	language	Latin	which allows Left Branch Condition violations
+§3.2	JeongEun Lee	language	Russian	which allows Left Branch Condition violations
+(24) line 1	Blackfoot	transcription	nitaissiikawatsima	page 13
+(24) line 2	Blackfoot	segmentation	nit-a-ssi-ika-attsi-imma	page 13
+(24) line 3	Blackfoot	gloss	1SG-DUR-wash(vrt)-foot-cause-FIN(AI)	page 13
+(24) line 4	JeongEun Lee	translation	‘I’m washing his feet.’	page 13
+(24) line 5	JeongEun Lee	citation	[SCB-JEL 010j]	page 13, the tag or source at the right of the translation
+(25) line 1	Blackfoot	transcription	ohkatsists nitaissii’p	page 14
+(25) line 2	Blackfoot	segmentation	ot-mohkat-sistsi nit-a-sii-i-hp	page 14
+(25) line 3	Blackfoot	gloss	3POSS-foot-PL 1SG-DUR-wash(vrt)-FIN(TI)-THEME	page 14
+(25) line 4	JeongEun Lee	translation	‘I’m washing his feet.’	page 14
+(25) line 5	JeongEun Lee	citation	[SCB-JEL 010k]	page 14, the tag or source at the right of the translation
+§3.2	JeongEun Lee	note	In Baker’s analysis, suffixes (or endings) of verb stems are the same in incorporated sentences and their counterpart non-incorporated sentences as in the Mapudungun sentences in (26), contrary to Blackfoot. Since all forms and morphemes are the same except for the presence of an incorporated element, which is the same word waka ‘cow’, as in (26b), it is plausible to posit that (26b) is derived from (26a) in Mapudungun.	page 14
+(26a) line 1	Blackfoot	transcription	Ñi chao kintu-le-y ta-chi pu waka	page 14
+(26a) line 2	Blackfoot	gloss	my father seek-PROG-IND.3sS the-ADJ COLL cow	page 14
+(26a) line 3	JeongEun Lee	translation	‘My father is looking for the cows.’	page 14
+(26b) line 1	Blackfoot	transcription	Ñi chao kintu-waka-le-y	page 14
+(26b) line 2	Blackfoot	gloss	my father seek-cow-PROG-IND.3sS	page 14
+(26b) line 3	JeongEun Lee	translation	‘My father is looking for the cows.’	page 14
+(26b) line 4	JeongEun Lee	citation	(Salas 1992: 195)	page 14, the tag or source at the right of the translation
+§3.2	JeongEun Lee	note	On the other hand, Blackfoot medials, like ika, cannot stand alone, as shown in (27). In other words, ungrammaticality of (27a) comes from ika extraction from the main verb ssikaawaatsi. Therefore, Baker’s analysis cannot capture the full range of Blackfoot body part NI phenomena.	page 14
+(27a) line 1	Blackfoot	transcription	*?nitaissiwatsimaika11	page 14
+footnote 11	JeongEun Lee	note	I produce the sentence, which is adopted from Dunham’s (2009) paper as an ungrammatical sentence. My language consultant says that I cannot extract ika ‘foot’ since it is part of the sentence; however, she does not know that ika means foot.	page 14, footnote 11
+(27a) line 2	Blackfoot	segmentation	nit-a-ssi-atsi-imma-ika	page 14
+(27a) line 3	Blackfoot	gloss	1SG-DUR-wipe-cause-FIN-foot	page 14
+(27a) line 4	JeongEun Lee	translation	‘I’m washing his feet.’	page 14
+(27a) line 5	JeongEun Lee	citation	[SCB JEL-004a]	page 14, the tag or source at the right of the translation
+(27b) line 1	Blackfoot	transcription	*nítohkoonii’pa omi ika	page 14
+(27b) line 2	Blackfoot	segmentation	nit-ohkoon-i-hp-wa om-yi ika	page 14
+(27b) line 3	Blackfoot	gloss	1SG-find-TI-DIR-3SG DEM-IN.SG foot	page 14
+(27b) line 4	JeongEun Lee	translation	‘I found that foot.’	page 14
+(27b) line 5	JeongEun Lee	citation	(Dunham 2009: 3)	page 14, the tag or source at the right of the translation
+§3.2	JeongEun Lee	note	Now, how about the root-root compounding account?	page 14
+§3.3	JeongEun Lee	heading	3.3 Wiltschko’s analysis of Halkomelem Salish	page 15
+§3.3	JeongEun Lee	note	In Wiltschko’s (2009) analysis, NI in Halkomelem Salish is considered as ‘root-root compounding’. The main claim of her root analysis is that incorporated lexical suffixes are not distributed like nouns: they have no possessive or plural morphology, determiners nor do they co-occur with lexical suffixes of Halkomelem Salish. For Wiltschko, this means that lexical suffixes lack the grammatical category N, due to their different distribution. Moreover, lexical suffixes do not saturate arguments. That is, they do not affect a verb’s transitivity; an object NP co-occurs with incorporated elements to satisfy a verb’s argument structure. Therefore, she claims that lexical suffixes as incorporee do not have categorial information. Here is the corresponding Blackfoot data (Dunham 2009) from (28) to (30).	page 15
+(28) line 1	JeongEun Lee	note	No possessive morphology	page 15, the example's heading
+(28a) line 1	Blackfoot	transcription	anna Sam áíssiikaawaatsimii	page 15
+(28a) line 2	Blackfoot	segmentation	ann-wa Sam á-ssi-ika-atsi-m-yi	page 15
+(28a) line 3	Blackfoot	gloss	DEM-PROX.SG Sam DUR-wash-foot-FIN-TA-DIR	page 15
+(28a) line 4	Blackfoot	transcription	anní Jane	page 15
+(28a) line 5	Blackfoot	segmentation	ann-yi Jane	page 15
+(28a) line 6	Blackfoot	gloss	DEM-OBV.SG Jane	page 15
+(28a) line 7	JeongEun Lee	translation	‘Sam washed Jane’s feet.’	page 15
+(28b) line 1	Blackfoot	transcription	*anna Sam áíssiotikaawaatsimii	page 15
+(28b) line 2	Blackfoot	segmentation	ann-wa Sam á-ssi-ot-ika-atsi-m-yi	page 15
+(28b) line 3	Blackfoot	gloss	DEM-PROX.SG Sam DUR-wash-3-foot-FIN-TA-DIR	page 15
+(28b) line 4	Blackfoot	transcription	anní Jane	page 15
+(28b) line 5	Blackfoot	segmentation	ann-yi Jane	page 15
+(28b) line 6	Blackfoot	gloss	DEM-OBV.SG Jane	page 15
+(28b) line 7	JeongEun Lee	translation	‘Same washed Jane’s feet.’	page 15
+(28b) line 8	JeongEun Lee	citation	(Dunham 2009: 8)	page 15, the tag or source at the right of the translation
+(29) line 1	JeongEun Lee	note	No plural	page 15, the example's heading
+(29) line 2	Blackfoot	transcription	*áíssiikaistsawaatsimii	page 15
+(29) line 3	Blackfoot	segmentation	á -ssi-ika-istsi-atsi-m-yii	page 15
+(29) line 4	Blackfoot	gloss	IMPF-wipe-foot-IN.PL-FIN-TA-DIR	page 15
+(29) line 5	JeongEun Lee	translation	‘She is washing his feet.’	page 15
+(29) line 6	JeongEun Lee	citation	(Dunham 2009: 9)	page 15, the tag or source at the right of the translation
+(30) line 1	JeongEun Lee	note	No demonstrative	page 15, the example's heading
+(30) line 2	Blackfoot	transcription	*áíssomiikaawaatsimii	page 15
+(30) line 3	Blackfoot	segmentation	á -ssi-om-yi-ika-atsi-m-yii	page 15
+(30) line 4	Blackfoot	gloss	IMPF-wipe-DEM-IN/OBV.SG-foot-FIN-TA-DIR	page 15
+(30) line 5	JeongEun Lee	translation	‘She is washing his foot.’	page 15
+(30) line 6	JeongEun Lee	citation	(Dunham 2009: 10)	page 15, the tag or source at the right of the translation
+§3.3	JeongEun Lee	note	As sentences in (28) to (30) show, Blackfoot also reveals that medials do not act like nouns. According to Wiltschko (2009), NI in Halkomelem Salish is [root + root] compounding. However, as I discussed earlier, I follow Armoskaite’s (2011) definition of verb roots rather than Wiltschko’s (2009) category-less verb roots. This means that verb roots are inherently of category V, contrary to Wiltschko’s (2009) definition of root. Therefore, I argue that Blackfoot NI is not root-root compounding, at least for verb roots. The question of the category of medials will be revisited in section 4.	page 16
+§3.4	JeongEun Lee	heading	3.4 Dunham’s analysis for Blackfoot	page 16
+§3.4	JeongEun Lee	note	Dunham (2009) shows that Blackfoot medials and lexical suffixes of Halkomelem Salish have many things in common. However, he does not adopt the bare root analysis of medials, and proposes that medials (e.g. ika ‘foot’) and corresponding independent nouns (e.g., mohkát ‘foot’) are the same underlying lexical item (i.e., /foot/) since there is no difference found when we treat medials as nouns or as roots. If both are nouns, then the conditions of incorporation should be explained (Dunham 2009). Dunham provides an answer for that question as follows; any instances of /foot/ suffixed to a verb root will become ika, and all others will become mohkát; if nouns (such as pokón ‘ball’) do not have medial counterparts, they cannot suffix onto verb roots. However, the medial ika in the complex verb is suffixed to the verb root in (28a). Moreover, there is a case that independent nouns can be incorporated into the right of a complex verb as in (4), which is repeated here as (31).	page 16
+§3.4	Blackfoot	cited form	pokón	page 16, in italics, ‘ball’
+(31) line 1	Blackfoot	transcription	nitssiko’kakinaw oma ninaawa	page 16
+(31) line 2	Blackfoot	segmentation	nit-siik-mo’kakin-a-wa om-a ninaa-wa	page 16
+(31) line 3	Blackfoot	gloss	1SG-break(TI)-back-FIN-3SG DEM-SG.AN man-3SG	page 16
+(31) line 4	JeongEun Lee	translation	‘I broke the man’s back.’	page 16
+(31) line 5	JeongEun Lee	citation	(Frantz 1971: 72, gloss is mine12)	page 16, the tag or source at the right of the translation
+footnote 12	JeongEun Lee	note	Original gloss is ‘I-break-back-3 that-3 man-3’ with a translation for this sentence.	page 16, footnote 12
+§3.4	JeongEun Lee	note	In (32), the word pokón ‘ball’ is suffixed to the verb root. If the verb stem template is correct, it is more natural to see [(preverb) + verb root + (medial (or any incorporated elements)) + final]. The presence of the adjunct ohpo’ki ‘with’ might affect the order as in (32); the morpheme order in (31) follows the general verb stem template.	page 16
+(32) line 1	Blackfoot	transcription	nitohpokonsskoawa noko 'sa	page 16
+(32) line 2	Blackfoot	segmentation	nit-ohpo’ki-pokón-inaanssko(TA)-a-wa n-oko’s-wa	page 16
+(32) line 3	Blackfoot	gloss	1SG-with-ball-provide-FIN(TA)-3SG 1POSS-offspring-3SG	page 16
+(32) line 4	JeongEun Lee	translation	‘I provide my child with a ball.’	page 16
+(32) line 5	JeongEun Lee	citation	(Frantz 1971: 74, gloss is mine13)	page 16, the tag or source at the right of the translation
+footnote 13	JeongEun Lee	note	Original gloss is ‘I-ball-provide-3 my-child-3’ with a translation for this sentence.	page 16, footnote 13
+§3.4	JeongEun Lee	note	The other thing Dunham might miss is that incorporated sentences are hard to elicit. As I indicated earlier, my language consultant is reluctant to use NI unless complex verbs are already in the dictionary. Here are examples of lexicalized complex verbs.	page 17
+(33)	JeongEun Lee	note	AI complex verbs (Frantz & Russell 1995)	page 17, the example's heading
+(33)	JeongEun Lee	note	● Wash one’s own hair: ssiihkinááwaatsi	page 17, an item of the list
+(33)	JeongEun Lee	note	● Wash one’s own foot: ssiikaawaatsi	page 17, an item of the list
+(33)	JeongEun Lee	note	● Wash one’s own face: ssisskiitsi	page 17, an item of the list
+(33)	JeongEun Lee	note	● Comb one’s own hair: yáakihkiniiyi	page 17, an item of the list
+(33)	Blackfoot	cited form	ssiihkinááwaatsi	page 17, ‘wash one’s own hair’
+(33)	Blackfoot	cited form	ssiikaawaatsi	page 17, ‘wash one’s own foot’
+(33)	Blackfoot	cited form	ssisskiitsi	page 17, ‘wash one’s own face’
+(33)	Blackfoot	cited form	yáakihkiniiyi	page 17, ‘comb one’s own hair’
+§3.4	JeongEun Lee	note	If ‘m’ in a verb áíssiikaawaatsimii (‘wash one’s own foot’) is a transitive animate suffix as Dunham glosses in (28a), then, it does not agree with the verb’s transitivity, as it is an AI verb, which generally cannot co-occur with an object. Interestingly, all complex verbs, which incorporate body part medials, are AI verbs. However, Dunham (2009) claims that medials cannot saturate an argument, which means that it does not affect a verb’s transitivity. If that is the case, the difference between (24) and (25) is hard to explain, where the medial is used with AI while the noun is used with TI; I repeat them here for convenience. (24) nitaissiikawatsima	page 17
+§3.4	Blackfoot	cited form	áíssiikaawaatsimii	page 17, in italics
+§3.4	JeongEun Lee	note	nit-a-ssi-ika-attsi-imma14	page 17
+footnote 14	JeongEun Lee	note	Imma is a deriving suffix according to Armoskaite (2011). Based on her classification of finals, I claim that the verb root ‘wash’ is a semantically transitive verb and the final imma changes the morphological transitivity of the verb ssiikaawaatsi ‘wash one’s own foot’ to the intransitive verb following Frantz & Russell (1995).	page 17, footnote 14
+§3.4	JeongEun Lee	note	1SG-DUR-wash(vrt)-foot-cause-FIN(AI)	page 17
+§3.4	JeongEun Lee	note	‘I’m washing his feet.’ [SCB-JEL 010j] (25) ohkatsists nitaissii’p	page 17
+§3.4	JeongEun Lee	note	ot-mohkat-sistsi nit-a-sii-i-hp	page 17
+§3.4	JeongEun Lee	note	3POSS-foot-PL 1SG-DUR-wash(vrt)-FIN(TI)-THEME	page 17
+§3.4	JeongEun Lee	note	‘I’m washing his feet.’ [SCB-JEL 010k]	page 17
+§3.5	JeongEun Lee	heading	3.5 Summary of previous accounts	page 17
+§3.5	JeongEun Lee	note	Firstly, Baker’s (1988, 2009) head-to-head movement successfully captures NI in Mohawk and Mapudungun. However, if a NI sentence is derived from a non-NI sentence in Blackfoot, it is hard to capture why morphemes in a verb stem have a different form. Secondly, Wiltschko’s (2009) root-root compounding is a very attractive analysis for Blackfoot NI as well; however, since the Blackfoot verb root has its own category in the first place it cannot be bare root-root compounding in Blackfoot. Even though Dunham (2009) argues that medials and corresponding nouns are the same lexical item (which I also argue), some data from Frantz suggests both forms can incorporate, thus weakening Dunham’s distribution-based argument.	page 17
+§4	JeongEun Lee	heading	4 My proposal	page 18
+§4	JeongEun Lee	note	I claim that medials are allomorphs of corresponding independent nouns and their distribution is different from each other due to verb roots’ transitivity. First, I will provide my arguments for the conditions of medials in section 4.1. Then the category of medials will be discussed in section 4.2.	page 18
+§4.1	JeongEun Lee	heading	4.1 Motivations for medials	page 18
+§4.1	JeongEun Lee	note	In this section, I will investigate what properties of NI condition the incorporation of medials (versus nouns).	page 18
+§4.1.1	JeongEun Lee	heading	4.1.1 Animacy of medials	page 18
+§4.1.1	JeongEun Lee	note	The easiest way to explain the motivation for NI is to find a reason for its trigger. Not all body part medials are animate, since Blackfoot animacy is a grammatical notion. A typical animate medial/noun is appini/moápssp ‘eye’.	page 18
+(34) line 1	Blackfoot	transcription	Nitsaapstsaaki nimáátsstaa’ptahksinis	page 18
+(34) line 2	Blackfoot	segmentation	nit-yaapstsaaki nit-máát-sstaa-hp-ááhk-ini	page 18
+(34) line 3	Blackfoot	gloss	1SG-close eyes(AI) 1SG-NEG-want-THEME-might-see	page 18
+(34) line 4	JeongEun Lee	translation	‘I closed my eyes because I didn’t want to see that.’	page 18
+(34) line 5	JeongEun Lee	citation	[SCB-JEL 007h]	page 18, the tag or source at the right of the translation
+(35) line 1	Blackfoot	transcription	kaksi’náksinim noápssp	page 18
+(35) line 2	Blackfoot	segmentation	káák-i’nák-iksin-m n-moápssp	page 18
+(35) line 3	Blackfoot	gloss	merely-small-touch(TA)-TA 1POSS-eye	page 18
+(35) line 4	JeongEun Lee	translation	‘He lightly touched my eye.’	page 18
+(35) line 5	JeongEun Lee	citation	[SCB-JEL 006a]	page 18, the tag or source at the right of the translation
+§4.1.1	JeongEun Lee	note	As the sentences in (34) and (35) show, the medial ‘eye’ occurs with the AI verb while the corresponding noun is with the TA verb, resulting in the non-NI sentence. If only animate medials can be incorporated, inanimate medials should not be used in NI, which is not the case in Blackfoot. As the sentences in (31) and (36), and expressions in (33) show, inanimate nouns can be incorporated into complex verbs.15 Therefore, animacy of nouns does not affect the use of medials or nouns in body part NI.	page 18
+footnote 15	JeongEun Lee	note	For animacy of nouns, refer to the table (13).	page 18, footnote 15
+(36a) line 1	Blackfoot	transcription	niistó nitsikomahkskin kiistoó kitopohkskin	page 18
+(36a) line 2	Blackfoot	segmentation	I nit-iik-omahk-ihkin you kit-opohk-ihkin	page 18
+(36a) line 3	Blackfoot	gloss	PRO 1SG-INTS-big-head PRO 2SG-small-head	page 18
+(36a) line 4	JeongEun Lee	translation	‘My head is big and your head is small.’	page 18
+(36a) line 5	JeongEun Lee	citation	[SCB-JEL 006k]	page 18, the tag or source at the right of the translation
+(36b) line 1	Blackfoot	transcription	nitássótsi’p kó’tsis	page 19
+(36b) line 2	Blackfoot	segmentation	nit-a-ssó’tsi-hp k-mo’tsis	page 19
+(36b) line 3	Blackfoot	gloss	1SG-DUR-feel-THEME 2POSS-hand	page 19
+(36b) line 4	JeongEun Lee	translation	‘I’m feeling your hand.’	page 19
+(36b) line 5	JeongEun Lee	citation	[SCB-JEL 004d]	page 19, the tag or source at the right of the translation
+§4.1.2	JeongEun Lee	heading	4.1.2 Transitivity of verbs	page 19
+§4.1.2	JeongEun Lee	note	Another possible motivation for NI is a characteristic of verb roots. I have shown that verb roots’ transitivity might play a role in body part NI. Let’s take a close look here. The initial puzzles are that 1) there are two different sentences which express the same meaning as in (2a) and (24), repeated here as (37) and (38) respectively; how do we account for this difference? Secondly, 2) there is a similar sentence to (37) as in (3), repeated here as (39). The sentence in (39) shows that only the direct object is changed to ‘hand’ from the sentence (38).	page 19
+(37) line 1	Blackfoot	transcription	nitaissiikawatsima	page 19
+(37) line 2	Blackfoot	segmentation	nit-a-ssi-ika-attsi-imma	page 19
+(37) line 3	Blackfoot	gloss	1SG-DUR-wash-foot-cause-FIN(AI)	page 19
+(37) line 4	JeongEun Lee	translation	‘I’m washing his feet.’	page 19
+(37) line 5	JeongEun Lee	citation	[SCB-JEL 010j]	page 19, the tag or source at the right of the translation
+(38) line 1	Blackfoot	transcription	ohkatsists nitaissii’p	page 19
+(38) line 2	Blackfoot	segmentation	ot-mohkat-sistsi nit-a-sii-i-hp	page 19
+(38) line 3	Blackfoot	gloss	3POSS-foot-PL 1SG-DUR-wash-FIN(TI)-THEME	page 19
+(38) line 4	JeongEun Lee	translation	‘I’m washing his feet.’	page 19
+(38) line 5	JeongEun Lee	citation	[SCB-JEL 010k]	page 19, the tag or source at the right of the translation
+(39) line 1	Blackfoot	transcription	nitaissii’p o’tsis	page 19
+(39) line 2	Blackfoot	segmentation	nit-a-ssi-i-hp ot-motsis	page 19
+(39) line 3	Blackfoot	gloss	1SG-DUR-wash-FIN(TI)-THEME 3POSS-hand	page 19
+(39) line 4	JeongEun Lee	translation	‘I’m washing his hand.’	page 19
+(39) line 5	JeongEun Lee	citation	[SCB-JEL 006l]	page 19, the tag or source at the right of the translation
+§4.1.2	JeongEun Lee	note	The difference among these three sentences seems to be related to the transitivity of verb, seen by its taking different finals. By examining similar or the same structure sentences with different body part nominals, the role of verb roots’ transitivity becomes clearer. As expressions in (33) show, there are ‘wash’ expressions which are lexicalized as AI verbs. Here are elicited data with ssi ‘wash’ sentences with lexicalized verbs on the one hand, and non-lexicalized expressions on the other hand.	page 19
+(40) line 1	JeongEun Lee	note	Lexicalized NI AI verbs (containing medials)	page 19, the example's heading
+(40a) line 1	Blackfoot	transcription	nitssisskiits	page 19
+(40a) line 2	Blackfoot	segmentation	nit-ssi-sski-itsi	page 19
+(40a) line 3	Blackfoot	gloss	1SG-wash-face-FIN	page 19
+(40a) line 4	JeongEun Lee	translation	‘I wash my face.’	page 19
+(40a) line 5	JeongEun Lee	citation	[SCB-JEL 008h]	page 19, the tag or source at the right of the translation
+(40b) line 1	Blackfoot	transcription	nitayáakihkin	page 20
+(40b) line 2	Blackfoot	segmentation	nit-a-yaak-ihkin	page 20
+(40b) line 3	Blackfoot	gloss	1SG-DUR-comb-hair	page 20
+(40b) line 4	JeongEun Lee	translation	‘I combed my hair’	page 20
+(40b) line 5	JeongEun Lee	citation	[SCB-JEL 005a]	page 20, the tag or source at the right of the translation
+(40c) line 1	Blackfoot	transcription	nitaikssihkinawats	page 20
+(40c) line 2	Blackfoot	segmentation	nit-a-ssi-ihkin-watsi	page 20
+(40c) line 3	Blackfoot	gloss	1SG-DUR-wash-hair-FIN	page 20
+(40c) line 4	JeongEun Lee	translation	‘I wash my hair.’	page 20
+(40c) line 5	JeongEun Lee	citation	[SCB-JEL 007f]	page 20, the tag or source at the right of the translation
+(40d) line 1	Blackfoot	transcription	nitssiihkinaatsimok	page 20
+(40d) line 2	Blackfoot	segmentation	nit-ssi-ihkin-attsi-imm-ok	page 20
+(40d) line 3	Blackfoot	gloss	1SG-wash-hair-cause-FIN-INV	page 20
+(40d) line 4	JeongEun Lee	translation	‘He washed my hair.’	page 20
+(40d) line 5	JeongEun Lee	citation	[SCB-JEL 007e]	page 20, the tag or source at the right of the translation
+(41a) line 1	Blackfoot	transcription	nitssiyahki’p nostoksís16	page 20
+footnote 16	JeongEun Lee	note	The verb ssiiyaki ‘cleanse (purify before a religious ceremony)’ is a TA verb which takes an animate object, which is not the case in this sentence (Frantz & Russell 1995). I assume that ‘ahki’ could be an agreeing TI final.	page 20, footnote 16
+(41a) line 2	Blackfoot	segmentation	nit-ssi-ahki-hp n-mohksisís	page 20
+(41a) line 3	Blackfoot	gloss	1SG-wash-FIN-THEME 1POSS-nose	page 20
+(41a) line 4	JeongEun Lee	translation	‘I wash my nose.’	page 20
+(41a) line 5	JeongEun Lee	citation	[SCB-JEL 008b]	page 20, the tag or source at the right of the translation
+(41b) line 1	Blackfoot	transcription	nitssiyahki’p noápssp	page 20
+(41b) line 2	Blackfoot	segmentation	nit-ssi-ahki-hp n-moápssp	page 20
+(41b) line 3	Blackfoot	gloss	1SG-wash-FIN-THEME 1POSS-eye	page 20
+(41b) line 4	JeongEun Lee	translation	‘I wash my eye.’	page 20
+(41b) line 5	JeongEun Lee	citation	[SCB-JEL 008g]	page 20, the tag or source at the right of the translation
+(41c) line 1	Blackfoot	transcription	nitssiyahki’p notokiáápinihspis	page 20
+(41c) line 2	Blackfoot	segmentation	nit-ssi-ahki-hp n-otokiáápinihspis	page 20
+(41c) line 3	Blackfoot	gloss	1SG-wash-FIN-THEME 1POSS-eyelid	page 20
+(41c) line 4	JeongEun Lee	translation	‘I wash my eyelid.’	page 20
+(41c) line 5	JeongEun Lee	citation	[SCB-JEL 008i]	page 20, the tag or source at the right of the translation
+(41d) line 1	Blackfoot	transcription	kiakohkssi’p ainni kohkínssts	page 20
+(41d) line 2	Blackfoot	segmentation	kit-a-ohkatt-ssi-hp ann-i k-ohkínssts	page 20
+(41d) line 3	Blackfoot	gloss	2SG-DUR-also-wash-THEME DEM-SG.IN 2POSS-elbow	page 20
+(41d) line 4	JeongEun Lee	translation	‘You should wash your elbow.’	page 20
+(41d) line 5	JeongEun Lee	citation	[SCB-JEL 008k]	page 20, the tag or source at the right of the translation
+§4.1.2	JeongEun Lee	note	Sentences in (41) have direct objects, contrary to those in (40). Since the verb root ssi ‘wash’ inherently needs two arguments (external and internal arguments), I claim that if medials are incorporated, the verb root takes intransitive deriving suffixes; while if the verb combines with an independent noun, it must take agreeing transitive suffixes. This means that once inherently transitive verbs combine with medials, the verb root can only take an external argument (it becomes an AI verb); therefore, it should be a pre-syntactic process. This analysis is also supported when we see other examples with transitive verbs found in the dictionary; transitive verbs like yiistsini ‘cut’, ssó’to ‘feel’, and iksiin ‘touch’ always take independent nouns instead of their corresponding medials.	page 20
+§4.1.2	Blackfoot	cited form	ssó’to	page 21, in italics, ‘feel’
+§4.1.2	JeongEun Lee	note	Finals are known to be lexically defined (Ritter and Rosen 2010); if there is no medial, a lexically determined verb root and final (i.e., a verb stem) enter into syntax. This means that a phonetically reduced medial is incorporated into AI verbs, while full nouns could be incorporated when the verb maintains its transitivity. Now we can solve the question of why only lexicalized AI verbs are used in Blackfoot medial NI. However, there is one exception found in the literature and in my elicitation session; ‘somebody poked someone in the eye’ sentences.	page 21
+§4.1.2	JeongEun Lee	name	Ritter	Elizabeth Ritter, with Rosen possessors as external arguments (2010)
+(42) line 1	Blackfoot	transcription	nit’sáapino’tok	page 21
+(42) line 2	Blackfoot	segmentation	nit-sáp-aapin-o’t-o-ok	page 21
+(42) line 3	Blackfoot	gloss	1SG-in-eye-grasp(vrt)-FIN(TA)-INV	page 21
+(42) line 4	JeongEun Lee	translation	‘He poked my eyes.’	page 21
+(42) line 5	JeongEun Lee	citation	[SCB-JEL 004i]	page 21, the tag or source at the right of the translation
+§4.1.2	JeongEun Lee	note	However, the difference here is that there is an adjunct sap ‘in’ in the sentence; the morpheme order in the Blackfoot verb stem template is not matched either. Furthermore, it takes the TA final ‘o’; and the word noápssp ‘eye’ can co-occur with the medial as in (43).	page 21
+§4.1.2	Blackfoot	cited form	noápssp	page 21, in italics, ‘eye’
+(43) line 1	Blackfoot	transcription	nit’sáapino’tok noápssp	page 21
+(43) line 2	Blackfoot	segmentation	nit-sáp-aapin-o’t-o-ok n-moápssp	page 21
+(43) line 3	Blackfoot	gloss	1SG-in-eye-grasp(vrt)-FIN(TA)-INV 1POSS-eye	page 21
+(43) line 4	JeongEun Lee	translation	‘He poked my eyes.’	page 21
+(43) line 5	JeongEun Lee	note	(Sandra Crazy Bull, p.c.)	page 21, at the right of the translation
+§4.1.2	JeongEun Lee	note	Therefore, I will set such data aside for now and discuss them in section 5; by adopting the hypothesis which claims that only intransitive verbs take medials in the NI process, now we can have a unified account for the motivation of NI verbs versus verbs plus independent nouns. More interestingly, if there are no medial counterparts, as in (31) and (32), the independent nouns can be incorporated; however, in these cases the verb is a transitive verb, rather than an intransitive verb.	page 21
+§4.2	JeongEun Lee	heading	4.2 Category of incorporated nominals	page 21
+§4.2	JeongEun Lee	note	The remaining question is whether incorporated medials or independent nouns are bare roots in the sense of Wiltschko (2009) or not. Dunham (2009) prefers the noun analysis for incorporated elements but does not fully reject the bare root analysis.	page 21
+§4.2.1	JeongEun Lee	heading	4.2.1 Root	page 22
+§4.2.1	JeongEun Lee	note	Armoskaite (2011) provides clear definitions of roots. According to her, there are two types of roots in languages.	page 22
+(44)	JeongEun Lee	note	Definitions of root (Armoskaite 2011: 2)	page 22, the example's heading
+(44)	JeongEun Lee	note	● root def = non-decomposable conceptual part of a word with categorial information	page 22, an item of the list
+(44)	JeongEun Lee	note	● ROOT def = simplex correspondence between sound and conceptual content, devoid of any grammatical information (including categorial information)	page 22, an item of the list
+§4.2.1	JeongEun Lee	note	If we posit that verb roots are inherently of the lexical category V, and medials of category N, it is easy to explain Blackfoot body part NI: the transitive verb root ssi ‘wash’ should take an internal argument. Therefore, when it takes a medial, this satisfies the verb’s syntactic requirements (‘wash one’s own something’). After that, it takes a deriving intransitive final to be an AI verb. When it combines with a corresponding independent noun, its argument structure will be satisfied since it will take an agreeing transitive final. Consequently, I claim that Blackfoot verb roots are roots not ROOTs. However, for incorporated elements, it is hard to decide whether they are roots or ROOTs.	page 22
+§4.2.2	JeongEun Lee	heading	4.2.2 Allomorphy	page 22
+§4.2.2	JeongEun Lee	note	I claim that, generally, medials go with intransitive verbs while independent nouns are found with transitive verbs; I established the conditions of the complementary distribution for medials and corresponding nouns in NI in terms of the verb’s transitivity and its final. If medials are allomorphs of corresponding nouns, then both have the same grammatical information in the lexicon. Then the question is whether incorporated elements are category-less ROOTs or roots. If incorporated elements are roots, the animacy of nouns (Armoskaite 2011) should affect the lexical NI process; however, medials are absorbed into a verb root so there is no way to test their animacy. NI with independent nouns as direct objects can be found in (30) and (31), and these data show that their animacy is matched. I claim that Blackfoot body part NI is V root-N root compounding which have its own lexical categories.	page 22
+§5	JeongEun Lee	heading	5 Residual issues	page 22
+§5	JeongEun Lee	note	My hypothesis depends on relations in verb roots and finals with relevant morpheme orders in a verb stem. However, it might not cover all verb roots and expressions. The first issue is the order of morphemes. There is a lexicalized AI verb sstsimiiyi ‘wash one’s own hands’, which has a different morpheme order as shown in (45). Why some sentences or words do not follow the morpheme order in (10) is unanswered. If (45) is already lexicalized, it may be hard to break it down; I need more data to compare why morpheme orders are changed in (45), or to determine whether there is any other factor that I missed.	page 22
+(45) line 1	Blackfoot	transcription	sstsimiiyi	page 23
+(45) line 2	Blackfoot	segmentation	sst-ssi-miiyi	page 23
+(45) line 3	Blackfoot	gloss	hand-wash(vrt)-FIN	page 23
+(45) line 4	JeongEun Lee	translation	‘wash one’s own hands’	page 23
+(45) line 5	JeongEun Lee	citation	(Frantz & Russell 1995)	page 23, the tag or source at the right of the translation
+§5	JeongEun Lee	note	Another issue related to the morpheme order is found, as I indicated earlier, in the sentence ‘somebody poked someone in the eye’ as in (42) and (46). Why does the medial incorporate into a verb root with the reverse order preceding the verb root? There might be two possibilities: it could be due to the inverse form or the adjunct17 sáp ‘in’.	page 23
+footnote 17	JeongEun Lee	note	There is a word ikaaw ‘on foot’ consists of ika (‘foot’) and aw (probably ‘on’). This might indicate a possibility that the sentence in (46) shows the reversed order of morphemes.	page 23, footnote 17
+(46) line 1	Blackfoot	transcription	kitsáapino’tok	page 23
+(46) line 2	Blackfoot	segmentation	kit-sáp-aapin-o’t-o-ok	page 23
+(46) line 3	Blackfoot	gloss	2SG-in-eye-grasp-TA-INV	page 23
+(46) line 4	JeongEun Lee	translation	‘He/She poked your eye.’	page 23
+(46) line 5	JeongEun Lee	citation	[SCB-JEL 004j]	page 23, the tag or source at the right of the translation
+§5	JeongEun Lee	note	However, (47) has no incorporated medial in the inverse sentence with the adjunct sáp. Since a sentence like (46) expresses severe danger to the expriencer, there might be a sort of pragmatic effect, intensifying the injured someone’s eye. To conclude this, however, we need further research on this expression.	page 23
+(47) line 1	Blackfoot	transcription	kipitsápssammokit’ noapsspiks	page 23
+(47) line 2	Blackfoot	segmentation	kippit-sap-ssamm-ok-t n-moápssp-iksi	page 23
+(47) line 3	Blackfoot	gloss	please-in-look(TA)-INV-IMP 1POSS-eye-AN.PL	page 23
+(47) line 4	JeongEun Lee	translation	‘Look me in the eyes.’	page 23
+(47) line 5	JeongEun Lee	citation	[SCB-JEL 011a]	page 23, the tag or source at the right of the translation
+§5	JeongEun Lee	note	Sentence (48) suggests that pragmatic emphasis might play a role in NI sentences with doubling in Blackfoot. The verb yáakihkiniiyi ‘comb one’s own hair’ is an AI verb in the dictionary. However, in the context, the speaker emphasizes the fact that “I combed my son’s hair, not my daughter’s hair”; possiably due to this discourse effect18, the full DP object is realized overtly with the overt agreeing TI suffix i.	page 23
+footnote 18	JeongEun Lee	note	According to my consultant, there is no raising pitch in emphasized or contrastive elements in Blackfoot. I assume that changing the verb’s transitivity might be related to the fact that Blackfoot has no phonetic focus prominence.	page 24, footnote 18
+§5	Blackfoot	cited form	yáakihkiniiyi	page 23, in italics, ‘comb one’s own hair’
+(48) line 1	Blackfoot	transcription	anná nohkó oo’tokáán	page 24
+(48) line 2	Blackfoot	segmentation	ann-wa n-ohkó o-mo’tokáán	page 24
+(48) line 3	Blackfoot	gloss	DEM-PROX.SG 1POSS-son 3POSS-hair	page 24
+(48) line 4	Blackfoot	transcription	nitsiyaakhkinii’p	page 24
+(48) line 5	Blackfoot	segmentation	nit-yaak-ihkin-i-hp	page 24
+(48) line 6	Blackfoot	gloss	1SG-comb-hair-FIN(TI)-THEME	page 24
+(48) line 7	JeongEun Lee	translation	‘I combed my son’s hair.’	page 24
+(48) line 8	JeongEun Lee	citation	[SCB020l]	page 24, the tag or source at the right of the translation
+§5	JeongEun Lee	note	Since finals are not predictable, how finals interact with verbs is unclear in the sentences in (46-48). If finals are not lexically determined, then we could posit that NI is pseudo-incorporation, which uses the Merge operation (Chomsky 1995). On the one hand, processes in (49) show cases of a medial selected in the process of NI. On the other hand, (50) shows a case when an independent noun is selected in NI. Since there is only one simple Merge operation, the difference between selecting medials or selecting independent nouns does not matter in this hypothesis. The numeration simply selects medials or corresponding nouns according to the speaker’s intention if there is any. In these cases, we need to closely examine whether native speakers can predict or productively use these kinds of structures with knowledge of restrictions of use of relevant finals. How do speakers select finals to change verb roots’ transitivity, or why they do so, should be investigated. Or, as I assume for the sentence in (48), when speakers need discourse effects such as emphasis, specific finals could be used systematically. To investiagate this hypothesis, more research on Blackfoot finals is needed, since finals are generally not predictable.	page 24
+(49a)	JeongEun Lee	note	[Verb RootTRANS +19 Medial] → [[Verb RootTRANS + Medial] + FinalINT] → [Verb stem] PseudoINT	page 24, set as an example
+footnote 19	JeongEun Lee	note	Here the sign ‘+’ indicates that it is syntactic Merge rather than lexical compounding.	page 24, footnote 19
+(49b)	JeongEun Lee	note	[Verb RootTRANS + Medial] → [[Verb RootTRANS + Medial] + FinalTRANS] → [Verb stem] TRANS	page 24, set as an example
+(50)	JeongEun Lee	note	[Verb RootTRANS + Corresponding Noun] → [[Verb RootTRANS + C. Noun] + FinalTRANS] → [Verb stem] TRANS	page 24, set as an example
+§5	JeongEun Lee	note	Therefore, in this paper, I claim that Blackfoot body part NI is a compounding process with lexically defined finals before syntactic operations. I assume that, due to lesser phonological weight, medials are used to satisfy verb roots’ inherent meaning while corresponding independent nouns cannot be incorporated; when corresponding nouns are incorporated into verb roots, the verb stems must be a transitive verb.	page 24
+§6	JeongEun Lee	heading	6 Conclusion	page 25
+§6	JeongEun Lee	note	In this paper, I investigated Blackfoot body part NI. In short, medials generally are used with intransitive verbs along with lexically determined finals; corresponding independent nouns are used with transitive verbs; these forms also co-occur with TRANS verbs when they incorporate into complex verbs. Since the transitivity of verbs reveals the complementary distribution of medials and corresponding nouns, I argue that medials are phonetically reduced allomorphs of corresponding nouns. The question of whether Blackfoot NI is a lexical compounding process as per Rosen’s (1989) classification,20 or a syntactic process with Merge needs more research; however, I claim that the explanation for the complementary distribution of medials and corresponding nouns in my lexical hypothesis is more explanatory than the syntactic approach for Blackfoot body part NI.	page 25
+footnote 20	JeongEun Lee	note	Blackfoot could be a Compound NI language according to Rosen’s classification, however, it seems that Blackfoot also has some Classifier NI characteristics.	page 25, footnote 20
+references	JeongEun Lee	heading	References	page 25
+references	JeongEun Lee	reference	Armoskaite, Solveiga. 2011. The destiny of roots in Blackfoot and Lithuanian. Doctoral dissertation, University of British Columbia.	page 25
+references	JeongEun Lee	reference	Baker, Mark. 1988. Incorporation. Chicago: University of Chicago Press.	page 25
+references	JeongEun Lee	reference	Baker, Mark. 1996. The Polysynthesis Parameter. Oxford: Oxford University Press.	page 25
+references	JeongEun Lee	reference	Baker, Mark. 2009. Is head movement still needed for noun incorporation? Lingua 119:148-165.	page 25
+references	JeongEun Lee	reference	Chomsky, Noam. 1995. The Minimalist Program. Cambridge, MA.: MIT Press.	page 25
+references	JeongEun Lee	reference	Dunham, Joel. 2009. Noun incorporation in Blackfoot. Ms., University of British Columbia.	page 25
+references	JeongEun Lee	reference	Frantz, Donald G. 1971. Toward a Generative Grammar of Blackfoot. Norman: Summer Institute of Linguistics of the University of Oklahoma.	page 25
+references	JeongEun Lee	reference	Frantz, Donald G. 2009. Blackfoot Grammar. 2nd ed. Toronto: University of Toronto Press.	page 25
+references	JeongEun Lee	reference	Frantz, Donald G. and Norma Jean Russell. 1995. Blackfoot Dictionary of Stems, Roots, and Affixes. 2nd ed. Toronto: University of Toronto Press.	page 25
+references	JeongEun Lee	reference	Hornstein, Nobert, Jairo Nunes and Klaenthes K. Grohmann. 2005. Understanding Minimalism. Cambridge: Cambridge University Press.	page 25
+references	JeongEun Lee	reference	Katamba, Francis. 2005. English Words: Structure, History, Usage: Second Edition. NY: Routledge.	page 26
+references	JeongEun Lee	reference	Lee, Kee-Dong. 1975. Kusaiean Reference Grammar. Honolulu: University Press of Hawaii.	page 26
+references	JeongEun Lee	reference	Mithun, Marianne. 1984. The evolution of noun incorporation. Language 60(4):847-894.	page 26
+references	JeongEun Lee	reference	Mühlbauer, Jeff. 2005. Blackfoot morphology key. Ms., University of British Columbia.	page 26
+references	JeongEun Lee	reference	Mühlbauer, Jeff. 2008. The representation of intentionality in Plains Cree. Doctoral dissertation, University of British Columbia.	page 26
+references	JeongEun Lee	reference	Ritter, Elizabeth and Sara Thomas Rosen. 2010. Possessors as external arguments: Evidence from Blackfoot. Paper presented at 42nd Algonquian Conference, St. John's, NL.	page 26
+references	JeongEun Lee	reference	Rosen, Sara Thomas. 1989. Two types of noun incorporation: A lexical analysis. Language 65(2):294-317.	page 26
+references	JeongEun Lee	reference	Ross, John Robert. 1986. Infinite Syntax. Norwood, NJ: Ablex Publishing.	page 26
+references	JeongEun Lee	reference	Salas, Adalberto. 1992. El mapuche o araucano. Madrid: Editorial Mapfre.	page 26
+references	JeongEun Lee	reference	Sapir, Edward. 1911. The problem of noun incorporation in American languages. American Anthropologist 13:250-282.	page 26
+references	JeongEun Lee	reference	Wiltschko, Martina. 2009. Root incorporation: Evidence from lexical suffixes in Halkomelem Salish. Lingua 119:199-223.	page 26

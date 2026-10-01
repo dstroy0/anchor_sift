@@ -1,0 +1,638 @@
+where	who	kind	form	gloss
+front	Henry Davis and Sander Nederveen	note	In Proceedings of the International Conference on Salish and Neighbouring Languages 60, Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2025.	page 1
+front	Henry Davis and Sander Nederveen	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, one of the four languages compared
+front	Henry Davis and Sander Nederveen	language	Secwepemctsín	a.k.a. Shuswap, ISO 639-3 shs, Northern Interior Salish, one of the four languages compared
+front	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+front	Henry Davis and Sander Nederveen	note	Abstract: This paper has two parts. In the first, we undertake a cross-Salishan survey of the distribution of intransitive -t (usually referred to in the Salish descriptive literature as ‘stative’ or ‘immediate’). We identify two separate instantiations of the morpheme: the first, widespread across the family though only found in relic form in coastal languages, marks adjectives (or ‘property concepts’). The second, attested only in Interior Salish, and even then only robustly so in the Northern Interior languages nɬeʔkepmxcín (Thompson River Salish) and Secwepemctsín (Shuswap), marks a change of state (COS) with an entailment of culmination. In the second part of the paper, we investigate COS -t in detail in the Northen Interior, focusing in particular on a comparison between bare root COS verbs in St’át’imcets (Lillooet) and their t-marked equivalents in nɬeʔkepmxcín and Secwepemctsín. We argue that the degree-based account of COS roots proposed by Nederveen (2024, in prep.) is better equipped to handle the close semantic parallels between t-marked and bare COS roots in the Northern Interior than the alternative predicative account of Bar-el et al, (2005) and Davis (2024), and propose that apparent bare root COS verbs in St’át’imcets are derived by affixation of a zero-marked version of -t. We conclude by drawing the two halves of the paper together, arguing for a diachronic trajectory in which -t was originally more widespread in Interior Salish, and was replaced by zero-marking in St’át’imcets and by inchoative marking in the Southern Interior.	page 1
+front	Henry Davis and Sander Nederveen	note	Keywords: comparative Salish, Interior Salish, change-of-state, aspect, telicity, inchoative marking	page 1
+§1	Henry Davis and Sander Nederveen	heading	1 Introduction	page 1
+§1	Henry Davis and Sander Nederveen	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, one of the four languages compared
+§1	Henry Davis and Sander Nederveen	language	Secwepemctsín	a.k.a. Shuswap, ISO 639-3 shs, Northern Interior Salish, one of the four languages compared
+§1	Henry Davis and Sander Nederveen	note	Almost every Salish language has a suffix -t which – unlike its better-known homophone, the transitivizer -t – attaches to roots to yield intransitive predicates. In most of the family, intransitive -t occurs only sporadically and unproductively, and is largely found on roots which can be characterized pretheoretically as adjectival. However, in Interior Salish – and more particularly, in the Northern Interior languages nɬeʔkepmxcín (Thompson River Salish) and especially Secwepemctsín (Shuswap) – intransitive -t is used on verbal roots to derive change of state (COS) verbs with an entailment of culmination.	page 1
+footnote *	Henry Davis and Sander Nederveen	note	* We owe a great debt to the speakers of the Northern Interior languages whom we work with. These include Carl Alexander (Qwa7yán’ak) for St’át’imcets; Bridget Dan, Julie Antoine, and Garlene Dodson for Secwepemctsín; Bernice Garcia (kʷaɬɬtèzetkʷuʔ), Marty Aspinall (c̓úʔsinek), Gene Moses, and Bev Phillips for nɬeʔkepmxcín. Bernice wishes it to be acknowledged that she is a Kamloops Indian Residential School speaker, who is re-learning her language. She introduces herself as follows: ʔes ʔúməcms kʷəɬtèzétkʷuʔ təw ɬe c̓əɬétkʷu wéʔe ncitxʷ. ƛ̓uʔ wéʔec ʔex netíyxs scwew̓ xmx, ƛ̓uʔ tékm xéʔe ne nɬeʔképmx e tmixʷs. This translates as “My traditional name is kʷəɬtèzetkʷuʔ, my home is in Coldwater of ‘Nicola’ of Nlaka’pamux lands.” All unattributed examples are from fieldwork by the authors with one or more of these fluent speakers. Davis’s work is supported by SSHRC Insight grant #435-2015-1694. Nederveen’s work is supported by Kinkade Grant Agent Control and Aspect in Secwepemctsín and nɬeʔkepmxcín, and by the Phillips Fund for Native American Research grant Agent Control, Aspect, and Transitivity in Secwepemctsín and nɬɬeʔkepmxcín. Contact information: henry.davis@ubc.ca, sander.nederveen@ubc.ca.	page 1, footnote
+footnote *	Bernice Garcia	transcription	ʔes ʔúməcms kʷəɬtèzétkʷuʔ təw ɬe c̓əɬétkʷu wéʔe ncitxʷ. ƛ̓uʔ wéʔec ʔex netíyxs scwew̓ xmx, ƛ̓uʔ tékm xéʔe ne nɬeʔképmx e tmixʷs.	page 1, footnote *, how Bernice Garcia introduces herself in nɬeʔkepmxcín
+footnote *	Bernice Garcia	translation	My traditional name is kʷəɬtèzetkʷuʔ, my home is in Coldwater of ‘Nicola’ of Nlaka’pamux lands.	page 1, footnote *, the English of her introduction
+§1	Henry Davis and Sander Nederveen	name	Qwa7yán’ak	the St’át’imcets name of Carl Alexander, footnote *
+§1	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+§1	Henry Davis and Sander Nederveen	name	kʷaɬɬtèzetkʷuʔ	the nɬeʔkepmxcín name of Bernice Garcia, footnote *
+§1	Henry Davis and Sander Nederveen	name	c̓úʔsinek	the nɬeʔkepmxcín name of Marty Aspinall, footnote *
+§1	Henry Davis and Sander Nederveen	language	nɬɬeʔkepmxcín	nɬeʔkepmxcín, printed with its ɬ doubled in the grant title of footnote *
+§1	Henry Davis and Sander Nederveen	cited affix	<ʔ>	the inchoative infix of strong roots
+§1	Henry Davis and Sander Nederveen	note	In this paper, we take a closer look at intransitive -t. We begin in Section 2 with a cross-Salishan survey of its occurrence, which shows that adjectival -t is both very widespread and largely lexicalized, while COS -t is confined to Interior Salish, where it is found more commonly (though with varying productivity). In Section 3 we then turn to a more detailed consideration of COS -t in light of the emerging evidence for an important parametric difference in the morphological realization of COS verbs across Salish. Whereas in Central Salish as well as the Northern Interior language St’át’imcets (Lillooet), COS verbs are typically realized as bare roots, in the other Interior languages COS verbs must be suffixed with an overt intransitivizing morpheme. This morpheme differs between languages: whereas in the Southern Interior language nsyilxcn (Okanagan) it is usually either the inchoative marker -p ~ <ʔ> (Lyon 2023) or C2 (COS) reduplication, in nɬeʔkepmxcín and Secwepemctsín, it is most often realized as -t.	page 2
+§1	Henry Davis and Sander Nederveen	note	In Section 3 we then consider the implications of this morphological distribution for the semantic representation of COS verbs, focusing particularly on the comparison between bare root COS verbs in St’át’imcets and their t-marked counterparts in nɬeʔkepmxcín and Secwepemctsín, which we show pattern identically as telic unaccusatives. We contrast two views of bare root COS verbs: the first treats them as underived achievements, lexically encoding a COS without internal structure (Davis 1997, Bar-el et al. 2005, Kiyota 2008, Davis and Matthewson 2009, Davis 2024); the second, based on a measure-of-change analysis of t-marked COS verbs in nɬeʔkepmxcín and Secwepemctsín (Nederveen 2024, in prep.), treats them as derived from predicates of degrees via a null intransitivizing morpheme parallel to intransitive -t. We conclude on the basis of the close semantic parallels between bare root and t-marked COS verbs in favour of the second option, and adduce additional arguments for the measure-of-change approach to St’át’imcets based on its ability to account for the differences between punctual and durative COS verbs in imperfective contexts, as well as for cases of degree-based event modification.	page 2
+§1	Henry Davis and Sander Nederveen	note	Finally, in Section 4, we consider the diachronic implications of our synchronic analysis of COS verbs. We argue for a historical trajectory whereby COS -t was originally more widespread in Interior Salish than its current limited distribution in nɬeʔkepmxcín and Secwepemctsín suggests, and that it was replaced by inchoative marking in the Southern Interior languages and by zero- marking in St’át’imcets. We then consider the historical relationship between adjectival -t, which has reflexes all over Coast Salish and COS -t, which t is confined to the Interior. We compare two possible scenarios, one in which COS -t developed after Proto-Interior Salish split off from the rest of the family, and the other where it was originally present prior to the split, but was completely lost in Coast Salish.	page 2
+§2	Henry Davis and Sander Nederveen	heading	2 Intransitive -t across Salish	page 2
+§2	Henry Davis and Sander Nederveen	note	In this section, we review what is known about the distribution of intransitive -t across the Salish family. We are indebted here to the comparative morphological work of the late M. Dale Kinkade (1996, n.d.).	page 2
+§2	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+§2	Henry Davis and Sander Nederveen	note	According to Kinkade (n.d.), intransitive -t is found in every Salish language except Tillamook. However, there is a clear division between Interior Salish, where it is widely distributed, often quite common, and at least sometimes compositionally active, and the rest of the family, where it is infrequent, semantically opaque, and often overlooked. Furthermore, adjectival and COS -t can be clearly distinguished in the Northern Interior (even in St’át’imcets, where COS -t has fallen into disuse), whereas in most of the rest of the family only adjectival -t can readily be detected.1 We begin here in 2.1 by examining adjectival -t, since it is the more widespread – though less semantically transparent – of the two main types. In 2.2 we then introduce COS -t, whose distribution is mainly limited to Northern Interior Salish, before discussing cases in 2.3 which fall into neither of these groups, and which we refer to as “anomalous -t”. 2.4 summarizes our findings.	page 2
+§2.1	Henry Davis and Sander Nederveen	heading	2.1 Adjectival -t	page 3
+footnote 1	Henry Davis and Sander Nederveen	note	1 In previous descriptive work on Interior Salish languages, adjectival and COS -t have been conflated, as reflected in the fact that they are invariably given a single gloss, which typically assimilates COS cases to adjectival ones by treating them as stative (presumably via the entailment between a culminating COS and a result state, though this connection is not made explicitly). Thus Mattina (1996:93) for nsyilxcn, Willet (2003:85) for nxa’amxcín/Moses Columbia, and Pete (2011:516) for Seliš/Montana Salish all label -t as ‘stative’, while van Eijk (1997:72) labels it ’continuing state’ in St’át’imcets, and Kuipers (1974:54) simply chooses ‘state’ for Secwepemctsín. ‘State’ is also adopted for by Kinkade (1996:193) in his cross-Salishan survey of aspectual marking, specifically in order to differentiate -t from the prefix *ʔac-, glossed ‘stative’, which is found across the family and typically marks a resulting (or target) state. The only exception to the convention of treating -t as some kind of stative marker is the label ‘immediate’ used by Thompson and Thompson (1992:92) for nɬeʔkepmxcín. While the Thompsons also (implicitly) aim to provide a unified description for the adjectival and COS uses of -t, they take a different angle, claiming it “refers to states and actions which have just gone into effect”, a description which may be appropriate for COS -t, but is evidently not true of its adjectival counterpart. In order to cover the latter, they extend their definition by going on to say that “an immediate form can indicate some state of affairs in the past” (i.e., it is not necessarily “immediate”), before acknowledging that it doesn’t even necessarily entail that an event has taken place, since it “can also refer to impending and generalized states or actions”, and finally conceding that “immediate forms sometimes refer to more general characteristics of things” (i.e., they are adjectives). The result, unfortunately, is that the label ‘immediate’ becomes devoid of any content at all: we therefore suggest it should be abandoned. Our own label of ‘intransitive -t’ is meant to be general enough to capture both adjectival and COS uses of -t.	page 3, footnote
+§2.1	Henry Davis and Sander Nederveen	language	nxa’amxcín/Moses	nxa’amxcín/Moses Columbia, as footnote 1 names the language of Willet 2003
+§2.1	Henry Davis and Sander Nederveen	language	Seliš/Montana	Seliš/Montana Salish, a Southern Interior language
+§2.1	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+§2.1	Henry Davis and Sander Nederveen	language	Secwepemctsín	a.k.a. Shuswap, ISO 639-3 shs, Northern Interior Salish, one of the four languages compared
+§2.1	Henry Davis and Sander Nederveen	cited affix	ʔac-	the stative prefix, reconstructed *ʔac-, found across the family
+§2.1	Henry Davis and Sander Nederveen	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, one of the four languages compared
+§2.1	Henry Davis and Sander Nederveen	note	While widespread and quite common in Interior Salish, adjectival -t is only found on a very few roots and is largely lexicalized in the rest of the family. It is not easy under these circumstances to identify it conclusively, particularly in less-well described languages. The problem is compounded by the fact that, as Kinkade (1996:193) points out, t is an extremely common element in suffixes more generally, so that stem-final t often has more than one potential diachronic source. Strikingly, however, adjectival t tends to occur consistently on a small set of roots across the family: these most often denote dimensions, including ‘long/tall’, ‘wide’ and ‘thick’. In Table 1 we give reflexes of these three adjectives across the family.2	page 3
+footnote 2	Henry Davis and Sander Nederveen	note	2 Here and in the rest of the paper we use the Salish version of the North American Phonetic Alphabet (NAPA) for ease of comparison between languages; for the sake of uniformity, we also occasionally compromise between different transcription and glossing conventions, for example by representing stress only in polysyllabic words (as in St’át’imcets), rather than also marking it on monosyllabic words (as in nɬeʔkepmxcín). In addition, in Table 2 we employ traditional (English) language names, as is customary in work on Salish historical linguistics. Forms in parentheses are non-cognates to the most common -t forms; a dash indicates that a root is synchronically separable from suffixal -t (we have erred on the side of caution here: in many cases, it is not possible to tell the synchronic status of t from available data).Lower Chehalis and Tillamook are omitted in the table due to lack of data; in addition, Quinault data (from Modrow 1971) are unreliable, so our reconstructions are provisional.	page 3, footnote, carried over to the foot of page 4
+Table 1	Henry Davis and Sander Nederveen	note	Table 1: Cross-Salishan reflexes of dimensional adjectives with final t	page 4, the caption
+Table 1	Henry Davis and Sander Nederveen	note	Language ‘long/tall’ ‘wide’ ‘thick’	page 4, the column heads
+Table 1 line 1	Henry Davis and Sander Nederveen	note	Bella Coola	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 1	Bella Coola	cited form	(cakʷ)	page 4, Table 1, ‘long/tall’ in Bella Coola, in parentheses, not cognate with the common -t forms (footnote 2)
+Table 1 line 1	Bella Coola	cited form	(p̓iq̓-iik)-t	page 4, Table 1, ‘wide’ in Bella Coola, in parentheses, not cognate with the common -t forms (footnote 2)
+Table 1 line 1	Bella Coola	cited form	pɬt	page 4, Table 1, ‘thick’ in Bella Coola
+Table 1 line 2	Henry Davis and Sander Nederveen	note	Comox-Sliammon	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 2	Comox-Sliammon	cited form	ƛ̓aqt	page 4, Table 1, ‘long/tall’ in Comox-Sliammon
+Table 1 line 2	Comox-Sliammon	cited form	(p̓iq̓)	page 4, Table 1, ‘wide’ in Comox-Sliammon, in parentheses, not cognate with the common -t forms (footnote 2)
+Table 1 line 2	Comox-Sliammon	cited form	pəɬt	page 4, Table 1, ‘thick’ in Comox-Sliammon
+Table 1 line 3	Henry Davis and Sander Nederveen	note	Pentlatch	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 3	Pentlatch	cited form	ƛ̓aqt	page 4, Table 1, ‘long/tall’ in Pentlatch
+Table 1 line 3	Pentlatch	cited form	pəɬt	page 4, Table 1, ‘thick’ in Pentlatch
+Table 1 line 4	Henry Davis and Sander Nederveen	note	Sechelt	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 4	Sechelt	cited form	ƛ̓aqt	page 4, Table 1, ‘long/tall’ in Sechelt
+Table 1 line 4	Sechelt	cited form	(p̓iq̓)	page 4, Table 1, ‘wide’ in Sechelt, in parentheses, not cognate with the common -t forms (footnote 2)
+Table 1 line 4	Sechelt	cited form	pəɬt	page 4, Table 1, ‘thick’ in Sechelt
+Table 1 line 5	Henry Davis and Sander Nederveen	note	Halkomelem	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 5	Halkomelem	cited form	ƛ̓eqt	page 4, Table 1, ‘long/tall’ in Halkomelem
+Table 1 line 5	Halkomelem	cited form	ɬq̓et	page 4, Table 1, ‘wide’ in Halkomelem
+Table 1 line 5	Halkomelem	cited form	pɬet	page 4, Table 1, ‘thick’ in Halkomelem
+Table 1 line 6	Henry Davis and Sander Nederveen	note	Northern Straits	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 6	Northern Straits	cited form	ƛ̓eqt	page 4, Table 1, ‘long/tall’ in Northern Straits
+Table 1 line 6	Northern Straits	cited form	ɬq̓et	page 4, Table 1, ‘wide’ in Northern Straits
+Table 1 line 6	Northern Straits	cited form	čɬət	page 4, Table 1, ‘thick’ in Northern Straits
+Table 1 line 7	Henry Davis and Sander Nederveen	note	Klallam	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 7	Klallam	cited form	ƛ̓aqt	page 4, Table 1, ‘long/tall’ in Klallam
+Table 1 line 7	Klallam	cited form	ɬq̓ət	page 4, Table 1, ‘wide’ in Klallam
+Table 1 line 7	Klallam	cited form	čɬət	page 4, Table 1, ‘thick’ in Klallam
+Table 1 line 8	Henry Davis and Sander Nederveen	note	Nooksack	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 8	Nooksack	cited form	ƛ̓aqt	page 4, Table 1, ‘long/tall’ in Nooksack
+Table 1 line 8	Nooksack	cited form	ɬəq̓á(ʔ)t, ɬáq̓ət	page 4, Table 1, ‘wide’ in Nooksack
+Table 1 line 9	Henry Davis and Sander Nederveen	note	Squamish	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 9	Squamish	cited form	ƛ̓aqt	page 4, Table 1, ‘long/tall’ in Squamish
+Table 1 line 9	Squamish	cited form	ɬəq̓	page 4, Table 1, ‘wide’ in Squamish
+Table 1 line 9	Squamish	cited form	pɬuɬ	page 4, Table 1, ‘thick’ in Squamish
+Table 1 line 10	Henry Davis and Sander Nederveen	note	Lushootseed	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 10	Lushootseed	cited form	(ha:c)	page 4, Table 1, ‘long/tall’ in Lushootseed, in parentheses, not cognate with the common -t forms (footnote 2)
+Table 1 line 10	Lushootseed	cited form	ɬəq̓t	page 4, Table 1, ‘wide’ in Lushootseed
+Table 1 line 10	Lushootseed	cited form	pɬət	page 4, Table 1, ‘thick’ in Lushootseed
+Table 1 line 11	Henry Davis and Sander Nederveen	note	Twana	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 11	Twana	cited form	(ɬaxʷ)	page 4, Table 1, ‘long/tall’ in Twana, in parentheses, not cognate with the common -t forms (footnote 2)
+Table 1 line 11	Twana	cited form	ɬəq̓	page 4, Table 1, ‘wide’ in Twana
+Table 1 line 11	Twana	cited form	pəɬ	page 4, Table 1, ‘thick’ in Twana
+Table 1 line 12	Henry Davis and Sander Nederveen	note	Quinault	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 12	Quinault	cited form	ƛ̓aq	page 4, Table 1, ‘long/tall’ in Quinault
+Table 1 line 12	Quinault	cited form	ɬəq̓-	page 4, Table 1, ‘wide’ in Quinault
+Table 1 line 12	Quinault	cited form	pət(-ɬ)	page 4, Table 1, ‘thick’ in Quinault
+Table 1 line 13	Henry Davis and Sander Nederveen	note	Upper Chehalis	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 13	Upper Chehalis	cited form	ƛ̓aq(-ɬ)	page 4, Table 1, ‘long/tall’ in Upper Chehalis
+Table 1 line 13	Upper Chehalis	cited form	ɬəq(-ɬ)	page 4, Table 1, ‘wide’ in Upper Chehalis
+Table 1 line 13	Upper Chehalis	cited form	pəɬ(-ɬ)	page 4, Table 1, ‘thick’ in Upper Chehalis
+Table 1 line 14	Henry Davis and Sander Nederveen	note	Cowlitz	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 14	Cowlitz	cited form	ƛ̓aq(-ɬ)	page 4, Table 1, ‘long/tall’ in Cowlitz
+Table 1 line 14	Cowlitz	cited form	ɬəq-(ɬ)	page 4, Table 1, ‘wide’ in Cowlitz
+Table 1 line 14	Cowlitz	cited form	pəɬ	page 4, Table 1, ‘thick’ in Cowlitz
+Table 1 line 15	Henry Davis and Sander Nederveen	note	Lillooet	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 15	Lillooet	cited form	(zax)-t	page 4, Table 1, ‘long/tall’ in Lillooet, in parentheses, not cognate with the common -t forms (footnote 2)
+Table 1 line 15	Lillooet	cited form	ɬəq̓	page 4, Table 1, ‘wide’ in Lillooet
+Table 1 line 15	Lillooet	cited form	pɬuɬ	page 4, Table 1, ‘thick’ in Lillooet
+Table 1 line 16	Henry Davis and Sander Nederveen	note	Thompson (River)	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 16	Thompson (River)	cited form	ƛ̓ax̌t / (zex)-t / (wis)-t	page 4, Table 1, ‘long/tall’ in Thompson (River)
+Table 1 line 16	Thompson (River)	cited form	ɬaq̓t	page 4, Table 1, ‘wide’ in Thompson (River)
+Table 1 line 16	Thompson (River)	cited form	pɬəɬ-t	page 4, Table 1, ‘thick’ in Thompson (River)
+Table 1 line 17	Henry Davis and Sander Nederveen	note	Shuswap	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 17	Shuswap	cited form	ƛ̓ex̌t / (yex)-t	page 4, Table 1, ‘long/tall’ in Shuswap
+Table 1 line 17	Shuswap	cited form	ɬeq̓-t	page 4, Table 1, ‘wide’ in Shuswap
+Table 1 line 17	Shuswap	cited form	pɬeɬ-t	page 4, Table 1, ‘thick’ in Shuswap
+Table 1 line 18	Henry Davis and Sander Nederveen	note	Okanagan	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 18	Okanagan	cited form	(wis-xn̓)	page 4, Table 1, ‘long/tall’ in Okanagan, in parentheses, not cognate with the common -t forms (footnote 2)
+Table 1 line 18	Okanagan	cited form	ɬaq̓t	page 4, Table 1, ‘wide’ in Okanagan
+Table 1 line 18	Okanagan	cited form	pɬaɬt	page 4, Table 1, ‘thick’ in Okanagan
+Table 1 line 19	Henry Davis and Sander Nederveen	note	Moses-Columbia	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 19	Moses-Columbia	cited form	(wis-xn)	page 4, Table 1, ‘long/tall’ in Moses-Columbia, in parentheses, not cognate with the common -t forms (footnote 2)
+Table 1 line 19	Moses-Columbia	cited form	ɬəq̓t	page 4, Table 1, ‘wide’ in Moses-Columbia
+Table 1 line 19	Moses-Columbia	cited form	pə́ɬəɬt	page 4, Table 1, ‘thick’ in Moses-Columbia
+Table 1 line 20	Henry Davis and Sander Nederveen	note	Spokane-Kalispel-Montana Salish	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 20	Spokane-Kalispel-Montana Salish	cited form	(wis-šn)	page 4, Table 1, ‘long/tall’ in Spokane-Kalispel-Montana Salish, in parentheses, not cognate with the common -t forms (footnote 2)
+Table 1 line 20	Spokane-Kalispel-Montana Salish	cited form	ɬaq̓t	page 4, Table 1, ‘wide’ in Spokane-Kalispel-Montana Salish
+Table 1 line 20	Spokane-Kalispel-Montana Salish	cited form	pɬiɬt	page 4, Table 1, ‘thick’ in Spokane-Kalispel-Montana Salish
+Table 1 line 21	Henry Davis and Sander Nederveen	note	Coeur D’Alene	page 4, the language of the row, its traditional English name (footnote 2)
+Table 1 line 21	Coeur D’Alene	cited form	(ciš)-t	page 4, Table 1, ‘long/tall’ in Coeur D’Alene, in parentheses, not cognate with the common -t forms (footnote 2)
+Table 1 line 21	Coeur D’Alene	cited form	ɬaq̓-t	page 4, Table 1, ‘wide’ in Coeur D’Alene
+Table 1 line 21	Coeur D’Alene	cited form	peɬɬt	page 4, Table 1, ‘thick’ in Coeur D’Alene
+§2.1	Henry Davis and Sander Nederveen	note	The most striking thing about Table 1 is the systematic correspondence for the three adjectives represented here between the two major branches of the family, Central and Interior Salish: most or all of the languages in these two branches have cognates ending in -t, though it is unclear whether it still constitutes a separate suffix in any of the Central Salish languages.	page 4
+§2.1	Henry Davis and Sander Nederveen	cited affix	-ɬ	the suffix that replaced adjectival -t on dimensional adjectives in Tsamosan
+§2.1	Henry Davis and Sander Nederveen	note	The picture is less clear with the other branches (partly but not entirely because data is less easy to come by). In Tsamosan, it appears that adjectival -t has been uniformly replaced by -ɬ on dimensional adjectives. However, Nuxalk/Bella Coola, the most divergent of all Salish languages, has t-final reflexes of the adjectives ‘wide’ and ‘thick’. This is telling, in that due to the distance in time and space between Nuxalk and the other divisions of the family, these forms are less likely than forms in e.g., Central Salish to have been borrowed as fully lexicalized, and are therefore more likely to be relics from an earlier period when adjectival -t was more common and possibly productive.	page 4
+§2.1	Henry Davis and Sander Nederveen	language	nxaʔamxcín	a.k.a. Moses-Columbia Salish, ISO 639-3 col, Southern Interior Salish, one of the four languages compared
+§2.1	Henry Davis and Sander Nederveen	language	Secwepmctsín	Secwepemctsín, printed without its second e on page 5
+§2.1	Henry Davis and Sander Nederveen	note	In Interior languages, adjectival -t is particularly associated with what is traditionally termed ‘characteristic’ reduplication.3 Characteristic reduplication is a (typically infixed) subcase of C1C2 reduplication which – depending on the language – may or may not be formally distinct from the (typically prefixal) plural and pluractional meanings associated with C1C2 on nouns and verbs, respectively: see Mellesmoen (2025:72-75) and references therein for discussion. Examples are given below from nxaʔamxcín, Secwepmctsín, nɬeʔkepmxcín, and St’át’imcets:	page 5
+(1a) line 1	Henry Davis and Sander Nederveen	note	nxaʔamxcín (Willet 2003:243-245)	page 5, the language of the words below
+(1a) line 2	nxaʔamxcín	cited form	c̓ál̓<c̓al̓>-t	page 5, ‘shady’, from √c̓al̓
+(1a) line 2	nxaʔamxcín	root	√c̓al̓	page 5, the root of c̓ál̓<c̓al̓>-t
+(1a) line 3	nxaʔamxcín	cited form	xʷúk̓ʷ<xʷuk̓ʷ>-t	page 5, ‘clean’, from √xʷuk̓ʷ
+(1a) line 3	nxaʔamxcín	root	√xʷuk̓ʷ	page 5, the root of xʷúk̓ʷ<xʷuk̓ʷ>-t
+(1a) line 4	nxaʔamxcín	cited form	k̓ín<k̓in>-t	page 5, ‘dangerous, not trustworthy’, from √k̓in
+(1a) line 4	nxaʔamxcín	root	√k̓in	page 5, the root of k̓ín<k̓in>-t
+(1a) line 5	nxaʔamxcín	cited form	sə̣́n<sə̣n>-t	page 5, ‘tame, gentle’, from √sə̣n
+(1a) line 5	nxaʔamxcín	root	√sə̣n	page 5, the root of sə̣́n<sə̣n>-t
+(1a) line 6	nxaʔamxcín	cited form	yə́ʕ̓ʷ<yəʕ̓ʷ>-t	page 5, ‘strong, intense’, from √yəʕ̓ʷ
+(1a) line 6	nxaʔamxcín	root	√yəʕ̓ʷ	page 5, the root of yə́ʕ̓ʷ<yəʕ̓ʷ>-t
+(1b) line 1	Henry Davis and Sander Nederveen	note	Secwepemctsín (Kuipers 1974:54-55)	page 5, the language of the words below
+(1b) line 2	Secwepemctsín	cited form	páḷ<pəḷ>-t	page 5, ‘stubborn’, from √paḷ
+(1b) line 2	Secwepemctsín	root	√paḷ	page 5, the root of páḷ<pəḷ>-t
+(1b) line 3	Secwepemctsín	cited form	qʷəy~qʷíy-t	page 5, ‘blue’, from √qʷiy
+(1b) line 3	Secwepemctsín	root	√qʷiy	page 5, the root of qʷəy~qʷíy-t
+(1b) line 4	Secwepemctsín	cited form	ɣəl~ɣál-t	page 5, ‘strong’, from √ɣal
+(1b) line 4	Secwepemctsín	root	√ɣal	page 5, the root of ɣəl~ɣál-t
+(1b) line 5	Secwepemctsín	cited form	xʷús<xʷəs>-t	page 5, ‘numerous’, from √xʷus
+(1b) line 5	Secwepemctsín	root	√xʷus	page 5, the root of xʷús<xʷəs>-t
+(1b) line 6	Secwepemctsín	cited form	səx~séx-t	page 5, ‘pure’, from √sex
+(1b) line 6	Secwepemctsín	root	√sex	page 5, the root of səx~séx-t
+(1c) line 1	Henry Davis and Sander Nederveen	note	nɬeʔkepmxcín (Thompson and Thompson 1992:89)	page 5, the language of the words below
+(1c) line 2	nɬeʔkepmxcín	cited form	zéw̓<zəw̓>-t	page 5, ‘tiresome’, from √zew̓
+(1c) line 2	nɬeʔkepmxcín	root	√zew̓	page 5, the root of zéw̓<zəw̓>-t
+(1c) line 3	nɬeʔkepmxcín	cited form	ƛ̓aq̓<ƛ̓əq̓>-t	page 5, ‘full of thorns, thorny’, from √ƛ̓aq̓
+(1c) line 3	nɬeʔkepmxcín	root	√ƛ̓aq̓	page 5, the root of ƛ̓aq̓<ƛ̓əq̓>-t
+(1c) line 4	nɬeʔkepmxcín	cited form	n-wén<wn>-t	page 5, ‘early in the morning’, from √wen
+(1c) line 4	nɬeʔkepmxcín	root	√wen	page 5, the root of n-wén<wn>-t
+(1c) line 5	nɬeʔkepmxcín	cited form	míʔ<miʔ>-t	page 5, ‘contagious’, from √miʔ
+(1c) line 5	nɬeʔkepmxcín	root	√miʔ	page 5, the root of míʔ<miʔ>-t
+(1c) line 6	nɬeʔkepmxcín	cited form	ʔəs-t-páʕ<paʕ>-t	page 5, ‘faded’, from √paʕ
+(1c) line 6	nɬeʔkepmxcín	root	√paʕ	page 5, the root of ʔəs-t-páʕ<paʕ>-t
+(1d) line 1	Henry Davis and Sander Nederveen	note	St’át’imcets	page 5, the language of the words below
+(1d) line 2	St’át’imcets	cited form	qíl̓<qəl̓>-t	page 5, ‘fun’, from √qil̕
+(1d) line 2	St’át’imcets	root	√qil̕	page 5, the root of qíl̓<qəl̓>-t
+(1d) line 3	St’át’imcets	cited form	k̓ín<k̓n>-ət	page 5, ‘dangerous’, from √k̓in
+(1d) line 3	St’át’imcets	root	√k̓in	page 5, the root of k̓ín<k̓n>-ət
+(1d) line 4	St’át’imcets	cited form	c̓ə́z<c̓əz>k̓-ət	page 5, ‘scary’, from √c̓zk̓
+(1d) line 4	St’át’imcets	root	√c̓zk̓	page 5, the root of c̓ə́z<c̓əz>k̓-ət
+(1d) line 5	St’át’imcets	cited form	záw̓<əzw̓>-ət	page 5, ‘annoying’, from √zaw̓
+(1d) line 5	St’át’imcets	root	√zaw̓	page 5, the root of záw̓<əzw̓>-ət
+(1d) line 6	St’át’imcets	cited form	kʷíw<kʷw>-ət	page 5, ‘slippery’, from √kʷiw
+(1d) line 6	St’át’imcets	root	√kʷiw	page 5, the root of kʷíw<kʷw>-ət
+§2.1	Henry Davis and Sander Nederveen	note	The frequent co-occurrence of adjectival -t with adjective-forming C1C2 reduplication is something of a puzzle, particularly since both can form adjectives independently, and adjectives are also found without either of them, as seen in the Secwepemctsín examples in (2):	page 5
+footnote 3	Henry Davis and Sander Nederveen	note	3 ‘Characteristic’ seems to be an attempt to refer to the syntactic category adjective without actually making a commitment to its existence, as is the designation ‘property-denoting’ in Mellesmoen (2025) and elsewhere. Willet (2003:242) is an exception: she explicitly claims this type of reduplication is adjective-forming in nxaʔamxcín. See also Davis (2011) for the same claim with respect to St’át’imcets.	page 5
+(2a) line 1	Henry Davis and Sander Nederveen	note	Secwepemctsín adjectives formed with -t but without C1C2 reduplication	page 6, the language of the words below
+(2a) line 2	Secwepemctsín	cited form	ƛ̓əx-t	page 6, ‘sweet’
+(2a) line 3	Secwepemctsín	cited form	q̓ʷuc-t	page 6, ‘fat’
+(2a) line 4	Secwepemctsín	cited form	x̌ʷən-t	page 6, ‘fast’
+(2a) line 5	Secwepemctsín	cited form	c̓eɬ-t	page 6, ‘cold’
+(2a) line 6	Secwepemctsín	cited form	k̓’is-t	page 6, ‘bad’
+(2b) line 1	Henry Davis and Sander Nederveen	note	Secwepemctsín adjectives formed with C1C2 reduplication but without -t	page 6, the language of the words below
+(2b) line 2	Secwepemctsín	cited form	məkʷ~mékʷ	page 6, ‘blunt’
+(2b) line 3	Secwepemctsín	cited form	mət~mát	page 6, ‘soft (as butter)’
+(2b) line 4	Secwepemctsín	cited form	ləx̌~léx̌	page 6, ‘smart, intelligent’
+(2b) line 5	Secwepemctsín	cited form	təp~ƛ̓ép	page 6, ‘dark colour’, carries footnote 4, written here without its digit
+(2b) line 6	Secwepemctsín	cited form	x-təqʷ~tíq̓ʷ	page 6, ‘dirty, muddy (of water)’
+(2c) line 1	Henry Davis and Sander Nederveen	note	Secwepemctsín adjectives formed with neither C1C2 reduplication nor -t	page 6, the language of the words below
+(2c) line 2	Secwepemctsín	cited form	x̌mank	page 6, ‘heavy’
+(2c) line 3	Secwepemctsín	cited form	x̌yum	page 6, ‘big’
+(2c) line 4	Secwepemctsín	cited form	qʷec	page 6, ‘warm’
+(2c) line 5	Secwepemctsín	cited form	piq	page 6, ‘white’
+(2c) line 6	Secwepemctsín	cited form	qyex̌	page 6, ‘drunk’
+§2.1	Henry Davis and Sander Nederveen	note	Clearly, if there was originally a systematic set of alternations relating -t and C1C2, it has been obscured by lexicalization, even in Secwepemctsín, where -t is very common and occurs on a great many adjectives.	page 6
+§2.1	Henry Davis and Sander Nederveen	language	St’at’imcets	St’át’imcets, printed without its accent
+§2.1	Henry Davis and Sander Nederveen	note	Occasionally, we also find semantic contrasts between reduplicated and non-reduplicated instances of predicates suffixed with -t. One such case, from St’at’imcets, is given in (3) below:	page 6
+(3) line 1	St’át’imcets	root	√zaw̓	page 6, ‘annoyed, irritated’, the root of (3a) and (3b)
+(3a) line 1	St’át’imcets	segmentation	tə́x̌ʷ=Ø=ƛ̓uʔ waʔ zaw̓-t ta=kʷúkʷpiʔ-s=a ʔi=waʔ	page 6, engine language, a St’át’imcets example
+(3a) line 2	St’át’imcets	gloss	really=3SBJ=EXCL IPFV annoy-INTR DET=chief-3POSS=EXIS PL.DET=IPFV	page 6, engine english, a St’át’imcets example
+(3a) line 3	St’át’imcets	segmentation	k̓ə́xʷaʔ ɬ=xʷʔạ́z=as kʷas	page 6, engine language, a St’át’imcets example
+(3a) line 4	St’át’imcets	gloss	play.hockey COMP=NEG=3SJV D/C+NMLZ+IPFV+3POSS	page 6, engine english, a St’át’imcets example
+(3a) line 5	St’át’imcets	segmentation	ka-n-ɬam̓-xal=wít-a	page 6, engine language, a St’át’imcets example
+(3a) line 6	St’át’imcets	gloss	CIRC-LOC-get.put.in-ACT=3PL-CIRC	page 6, engine english, a St’át’imcets example
+(3a) line 7	Henry Davis and Sander Nederveen	translation	‘The hockey coach gets really annoyed when they can’t score.’	page 6, carries footnote 5, written here without its digit
+footnote 4	Henry Davis and Sander Nederveen	note	4 In this and the following example, the initial ejective has deglottalized , due to a general constraint in Secwepemctsín against having more than one ejective in a word (Kuipers 1974:23).	page 6, footnote
+footnote 5	Henry Davis and Sander Nederveen	note	5 Glossing abbreviations are as follows: ABSN = absent, ACT = active intransitive, CHA = characteristic (C1C2) reduplication, CIRC = circumstantial modal, COMP = complementizer, COP = (equational) copula, COS = change-of-state (C2) reduplication, D/C = determiner-complementizer, DEM = demonstrative, DET = determiner, DIM = diminutive (C) reduplication, DIR = directive (full control) transitivizer, ERG = ergative (transitive subject suffix), EXCL = exclusive, EXIS = existential enclitic, INCH = inchoative, INTR = intransitive -t, IPFV = imperfective, LOC = locative, MID = middle, NEG = negation, NMLZ = nominalizer, OBJ = object suffix, PASS = passive, PAST = past, PL = plural inflection, PLU = plural/pluractional (C or C1C2) reduplication, POSS = possessive, PROSP = prospective aspect, PROG = progressive aspect, Q = yes-no question, QUOT = quotative, REM = remote in time, transitivizer, SJV = subjunctive (“conjunctive”) subject clitic, SBJ = indicative subject clitic. An affix is marked with a dash (-), a clitic with an equals sign (=), a prefixal reduplicant with a tilde (~), an infix (including reduplicated infixes) with angled brackets (<…>), unsegmentable morpheme combinations with a plus sign (+), and segments deleted by regular phonological processes with curly brackets ({..}).	page 6, footnote
+(3b) line 1	St’át’imcets	segmentation	záw̓<əzw̓>-ət=ɬkan kákʷuʔ kʷu=sk̓ʷúk̓ʷmiʔt	page 7, engine language, a St’át’imcets example
+(3b) line 2	St’át’imcets	gloss	annoy<CHAR>-INTR=1SG.SBJ around.there DET=child	page 7, engine english, a St’át’imcets example
+(3b) line 3	St’át’imcets	segmentation	ʔi=wán kʷikʷs	page 7, engine language, a St’át’imcets example
+(3b) line 4	St’át’imcets	gloss	when.PAST=IPFV+3SJV small	page 7, engine english, a St’át’imcets example
+(3b) line 5	Henry Davis and Sander Nederveen	translation	‘I was an annoying child to be around when I was small.’	page 7, engine english
+§2.1	St’át’imcets	cited form	ʕə́n̓<ʕən̓>ət	page 7, ‘short-tempered’, a St’át’imcets adjective
+§2.1	nɬeʔkepmxcín	root	√ʕn̓	page 7
+§2.1	Henry Davis and Sander Nederveen	note	Here, the non-reduplicated version denotes the state of being annoyed, while the reduplicated version describes the property of causing annoyance. More generally, as noted in Davis (2011), the combination of characteristic reduplication with adjectival -t often seems to yield adjectives of the latter type (as in all the cases in 1d. above), though there are also exceptions: ʕə́n̓<ʕən̓>ət (< √ʕn̓) means ‘short-tempered’, not ‘causing anger’, for example.6	page 7
+§2.2	Henry Davis and Sander Nederveen	heading	2.2 Change-of-State -t	page 7
+§2.2	Henry Davis and Sander Nederveen	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, one of the four languages compared
+§2.2	Henry Davis and Sander Nederveen	language	Secwepemctsín	a.k.a. Shuswap, ISO 639-3 shs, Northern Interior Salish, one of the four languages compared
+§2.2	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+§2.2	Henry Davis and Sander Nederveen	note	We now turn to COS -t, whose distribution appears to be confined to the Interior. Even here, it varies in frequency. In the Northern Interior, COS -t is common in nɬeʔkepmxcín and particularly Secwepemctsín, but only present in a few relic forms in St’át’imcets.	page 7
+§2.2	Henry Davis and Sander Nederveen	language	nxaʔamxcín	a.k.a. Moses-Columbia Salish, ISO 639-3 col, Southern Interior Salish, one of the four languages compared
+§2.2	Henry Davis and Sander Nederveen	language	D’Alene	Coeur D’Alene, a Southern Interior language
+§2.2	Henry Davis and Sander Nederveen	language	Seliš/Montana	Seliš/Montana Salish, a Southern Interior language
+§2.2	Henry Davis and Sander Nederveen	note	In the Southern Interior, COS -t is attested in nxaʔamxcín but not in nsyilxcn, where Lyon (2023:233) claims that only adjectival -t is present, and even then only in lexicalized form. Data are not clear for the other two Southern Interior languages: for Coeur D’Alene, Reichard (1938:578) describes -t as deriving predicates that “have a characteristic innately” (i.e., show the profile of adjectives), but also gives examples with -t on clearly eventive predicates; for Seliš/Montana Salish, Pete (2011:516) characterizes -t as deriving “a class of verbs that express a state or condition”, a description which combines features of both adjectival and COS -t.	page 7
+§2.2	Henry Davis and Sander Nederveen	note	Examples of COS -t are given below from the three Northern Interior languages, plus nxaʔamxcín as representative of the Southern Interior.	page 7
+(4a) line 1	Henry Davis and Sander Nederveen	note	nxaʔamxcín	page 7, the language of the words below
+(4a) line 2	nxaʔamxcín	cited form	maʕ̓ʷ-t	page 7, ‘break’
+(4a) line 3	nxaʔamxcín	cited form	x̣̌əs-t	page 7, ‘get lost’
+(4a) line 4	nxaʔamxcín	cited form	na-suk̓ʷ-t	page 7, ‘float’
+footnote 6	Henry Davis and Sander Nederveen	note	6 The same generalization is also noted for Coeur D’Alene by Reichard (1938:578), who characterizes the combination of characteristic reduplication and -t as “…having the quality of affecting”; evidently, this semantic propensity goes back a long way in Interior Salish.	page 7, footnote
+(4a) line 5	nxaʔamxcín	cited form	kʷax̌ʷ-t	page 8, ‘wake’
+(4a) line 6	nxaʔamxcín	cited form	ʔuxʷ-t	page 8, ‘get frostbitten’
+(4b) line 1	Henry Davis and Sander Nederveen	note	Secwepemctsín	page 8, the language of the words below
+(4b) line 2	Secwepemctsín	cited form	x-sul-t	page 8, ‘freeze over’
+(4b) line 3	Secwepemctsín	cited form	qiɬ-t	page 8, ‘wake up’
+(4b) line 4	Secwepemctsín	cited form	q̓iw-t	page 8, ‘break’
+(4b) line 5	Secwepemctsín	cited form	nik̓-t	page 8, ‘get cut’
+(4b) line 6	Secwepemctsín	cited form	k̓ʷul̕-t	page 8, ‘get made, be born’
+(4c) line 1	Henry Davis and Sander Nederveen	note	nɬeʔkepmxcín	page 8, the language of the words below
+(4c) line 2	nɬeʔkepmxcín	cited form	qem̓-t	page 8, ‘get shot’
+(4c) line 3	nɬeʔkepmxcín	cited form	sek-t	page 8, ‘get hit’
+(4c) line 4	nɬeʔkepmxcín	cited form	n-kʷew-t	page 8, ‘fall in the water’
+(4c) line 5	nɬeʔkepmxcín	cited form	cek-t	page 8, ‘get cool’
+(4c) line 6	nɬeʔkepmxcín	cited form	yuqʷ-t	page 8, ‘get pulled up’
+(4d) line 1	Henry Davis and Sander Nederveen	note	St’át’imcets	page 8, the language of the words below, carries footnote 7, written here without its digit
+(4d) line 2	St’át’imcets	cited form	zik-t	page 8, ‘fall, topple (of e.g., a tree)’
+(4d) line 3	St’át’imcets	cited form	ɬap-t	page 8, ‘go out, get extinguished (of e.g., a fire or light)’
+(4d) line 4	St’át’imcets	cited form	ƛ̓iqʷ-t	page 8, ‘crackle (of e.g., a fire)’
+§2.2	Henry Davis and Sander Nederveen	note	As mentioned above, while the distinction between adjectival and COS -t is (relatively) clear in the three Northern Interior languages, it is much less so in the Southern Interior, including in nxaʔamxcín. In fact, following Kinkade (1989), Willet (2003:186) makes the claim that -t invariably marks a state in nxaʔamxcín: she therefore treats putative COS forms such as those listed in (4a) as denoting states rather than changes of state. Since COS -t entails culmination, and will therefore always indirectly yield a resulting state interpretation, it is virtually impossible to tell the difference between COS and stative -t without targeted elicitation; unfortunately, since no tests that might distinguish eventive from stative predicates have been carried out in nxaʔamxcín (at least to our knowledge) there is no direct empirical evidence to choose between the COS and the resulting state analysis for -t.	page 8
+§2.2	Henry Davis and Sander Nederveen	cited affix	ʔac-	the stative prefix, reconstructed *ʔac-, found across the family
+footnote 7	Henry Davis and Sander Nederveen	note	7 Though t-suffixed COS forms have a relic distribution in St’át’imcets, in the cases listed here, -t still alternates systematically with other aspect/transitivity-related morphology, including the directive (full control) transitiver, as in zík-in̓ ‘fell something (e.g., a tree)’, ɬáp-an̓ ‘extinguish something’, and ƛ̓íqʷ-in̓ ‘crack something (e.g., a whip)’. However, on other historically t-marked verbs, such as qam̓t ‘get hit’ (cognate with synchronically t-marked forms in the other two Northern Interior languages), t has become reanalyzed as part of the root, and remains present when the verb is transitivized, as in qam̓t-s ‘hit something’ with the causative transitivizer -s.	page 8, footnote
+§2.2	St’át’imcets	cited form	zík-in̓	page 8, ‘fell something (e.g., a tree)’, St’át’imcets, footnote 7
+§2.2	St’át’imcets	cited form	ɬáp-an̓	page 8, ‘extinguish something’, St’át’imcets, footnote 7
+§2.2	St’át’imcets	cited form	ƛ̓íqʷ-in̓	page 8, ‘crack something (e.g., a whip)’, St’át’imcets, footnote 7
+§2.2	St’át’imcets	cited form	qam̓t	page 8, ‘get hit’, St’át’imcets, footnote 7
+§2.2	St’át’imcets	cited form	qam̓t-s	page 8, ‘hit something’, St’át’imcets, footnote 7
+§2.2	Henry Davis and Sander Nederveen	note	However, an indirect morphological argument for COS -t can still possibly be constructed on the basis of the contrast between eventive predicates marked with -t and those marked with stative *ʔac-. Lyon (2023:248) argues convincingly that c-, the reflex of *ʔac-, is productively used in neighbouring nsyilxcn to derive result (target) state predicates, independently of its use in imperfectives, where it forms part of a general reanalysis of stative and nominalizing morphology to mark viewpoint aspect. If the same holds of ʔac- in nxaʔamxcín, where -t is more prevalent on eventive predicates than in nsyilxcn, the contrast between t-marked and ʔac-marked predicates furnishes a potential argument that -t marks (or marked) a COS, as opposed to the resulting state interpretation of ʔac-.	page 8
+§2.2	nxaʔamxcín	cited affix	-míx	the imperfective suffix, -míx ~ -mx
+§2.2	nxaʔamxcín	cited form	ʔac-ʔitx	page 9, ‘sleep’, a stative form of nxaʔamxcín from Willet 2003
+§2.2	nxaʔamxcín	cited form	ʔac-xa<q̓>q̓	page 9, ‘get paid’, broken after ʔac- at the line end, a stative form of nxaʔamxcín from Willet 2003
+§2.2	nxaʔamxcín	cited form	ʔac-pə<n̓>n̓	page 9, ‘it bends’, a stative form of nxaʔamxcín from Willet 2003
+§2.2	nxaʔamxcín	cited form	ʔac-t̕uc	page 9, ‘it’s lying down’, a stative form of nxaʔamxcín from Kinkade 1989
+§2.2	nxaʔamxcín	cited form	ʔac-wiʔ	page 9, ‘it’s finished’, a stative form of nxaʔamxcín from Kinkade 1989
+§2.2	nxaʔamxcín	cited form	ʔac-yaʕ̓	page 9, ‘they’re gathered, bunched up’, a stative form of nxaʔamxcín from Kinkade 1989
+§2.2	Henry Davis and Sander Nederveen	note	Though detailed argumentation parallel to that provided by Lyon is lacking elsewhere, as far as we can tell, his conclusion that stative *ʔac- must be distinguished from its use in imperfectives holds more generally in the Southern Interior.8 This includes in nxaʔamxcín, where it is in fact easy to distinguish (intransitive) imperfective from stative forms: the former are prefixed with sac- ~ sc- (historically, a combination of the nominalizer and *ʔac-) and suffixed with -míx ~ -mx, while the latter are simply prefixed with ʔac- ~ c-. Though Willet (2003) does not discuss stative ʔac- ~ c-, there are actually quite a number of examples in her dissertation, including ʔac-ʔitx ‘sleep’, ʔac- xa<q̓>q̓ ‘get paid’, and ʔac-pə<n̓>n̓ ‘it bends’.9 Kinkade (1989) also provides a number of relevant forms, including ʔac-t̕uc ‘it’s lying down’, ʔac-wiʔ ‘it’s finished’, and ʔac-yaʕ̓ ‘they’re gathered, bunched up’. It thus seems likely that the stative prefix is or was at least partially productive in nxaʔamxcín, which raises the question of its relation to (potential) COS -t forms such as those listed in (4a) above. Unfortunately, we have not found any examples of the stative prefix alternating with -t, and therefore can draw no further conclusions at this point; further investigation might shed more light on the question.	page 9
+§2.2	Henry Davis and Sander Nederveen	cited affix	<ʔ>	the inchoative infix of strong roots
+§2.2	Henry Davis and Sander Nederveen	cited affix	-wíl̓x	the ‘developmental’ suffix, reconstructed *-wíl̓x
+§2.2	Henry Davis and Sander Nederveen	note	A further potential morphological diagnostic for COS -t involves its interaction with other COS morphemes in Interior Salish. These include: the inchoative marker, which has two allomorphs, -p on weak roots and <ʔ> on strong roots (Kinkade 1996, van Eijk 1997); C2 reduplication (referred to frequently in the Salish literature as ‘out of control’, following Carlson and Thompson 1982 on nɬeʔkepmxcín and Spokane, Kinkade 1982 on nxaʔamxcín; see also van Eijk 1990 for a cross- Salishan survey); and the ‘developmental’ suffix *-wíl̓x (see Kinkade 1989 on nxaʔamxcín, Kinkade and Kiyota 2004 for a cross-Salishan survey).	page 9
+§2.2	Henry Davis and Sander Nederveen	note	The developmental suffix occupies an outer level of derivational morphology, as evidenced by its ability to add freely to stems containing other COS morphemes, including -t: for example, Kinkade (1989) points out that unlike other aspectual morphemes, it occurs freely with -t in nxaʔamxcín.10 For this reason, we set it aside.	page 9
+§2.2	Henry Davis and Sander Nederveen	note	In contrast, inchoative markers and C2 reduplication are largely in complementary distribution with each other and with COS -t, suggesting that they are closely related. 11 One important difference between them has been alluded to already, and will be explored further in following sections: -t appears to invariably derive a telic predicate, whereas other COS markers vary cross- linguistically in their effect on telicity: for example, inchoative marking entails culmination on verbal (but not adjectival) roots in nsyilxcn (Lyon 2023:261-270); in St’át’imcets and nɬeʔkepmxcín, on the other hand, inchoative marking only has a weaker culmination implicature, as discussed in 3.3 below.	page 9
+footnote 8	Henry Davis and Sander Nederveen	note	8 Reichard (1938:578) indicates that resulting state predicates in Coeur D’Alene are also derived by prefixation of stative ʔac-, which is distinct from its use in imperfectives (‘customary’ in Reichard’s terminology). Coeur D’Alene thus resembles nsyilxcn in this respect.	page 9, footnote
+footnote 9	Henry Davis and Sander Nederveen	note	9 The last two of these also have C2 reduplication, showing that the stative prefix (unlike -t) is not in complementary distribution with inchoative marking in nxaʔamxcín.	page 9, footnote
+footnote 10	Henry Davis and Sander Nederveen	note	10 Its phonology is also distinctive: unlike other COS markers, it is a strong (inherently stressed) suffix.	page 9, footnote
+footnote 11	Henry Davis and Sander Nederveen	note	11 This is not true in nsyilxcn, where the inchoative marker attaches to stems ending in (adjectival) -t, according to Lyon (2023:239). This may be another indication that -t is fully lexicalized in nsyilxcn.	page 9, footnote
+§2.2	Henry Davis and Sander Nederveen	note	There is one other class of predicates in Interior Salish that shares a rigid entailment of telicity with COS -t: bare root COS verbs in St’át’imcets (Davis 2024). One of the most important findings in recent work on COS predicates in the Interior has been that – contrary to the situation in Central Salish – bare roots COS predicates are the exception rather than the rule. In fact, St’át’imcets appears to be the only language in the Interior with an extensive set of bare root COS verbs. This, together with the notable absence of COS -t, raises the possibility (which we explore further below) that bare root COS predicates are in fact affixed with a zero-marked equivalent of -t. We conclude that -t certainly has (or had, in the case of St’át’imcets) a COS function in the Northern Interior. Available evidence is too fragmentary to draw a definitive conclusion for the Southern Interior, though on balance it appears likely that -t had a COS function there, too, at least historically.	page 9
+§2.3	Henry Davis and Sander Nederveen	heading	2.3 Anomalous -t	page 10
+§2.3	Henry Davis and Sander Nederveen	language	nxaʔamxcín	a.k.a. Moses-Columbia Salish, ISO 639-3 col, Southern Interior Salish, one of the four languages compared
+§2.3	Henry Davis and Sander Nederveen	note	Our discussion so far leads to the conclusion that -t derives two relatively well-defined predicate classes, ‘property denoting’ adjectives and COS verbs. However, there is a small class of t-suffixed predicates in Interior Salish which do not fit this profile. Cases are given below from the four languages we have been comparing so far (nxaʔamxcín and the three Northern Interior languages):	page 10
+(5a) line 1	Henry Davis and Sander Nederveen	note	nxaʔamxcín	page 10, the language of the words below, carries footnote 12, written here without its digit
+(5a) line 2	nxaʔamxcín	cited form	mux̌ʷt	page 10, ‘laugh’
+(5a) line 3	nxaʔamxcín	cited form	c̓əl-út	page 10, ‘stand up’, carries footnote 13, written here without its digit
+(5a) line 4	nxaʔamxcín	cited form	cnanept	page 10, ‘come in (pl.)
+(5b) line 1	Henry Davis and Sander Nederveen	note	Secwepemctsín	page 10, the language of the words below
+(5b) line 2	Secwepemctsín	cited form	c̓niqʷ-t	page 10, ‘fighting’
+(5b) line 3	Secwepemctsín	cited form	cu-t	page 10, ‘say’
+(5b) line 4	Secwepemctsín	cited form	xʷəs-ét	page 10, ‘go about, travel a short distance’
+(5c) line 1	Henry Davis and Sander Nederveen	note	nɬeʔkepmxcín	page 10, the language of the words below
+(5c) line 2	nɬeʔkepmxcín	cited form	xʷəs-t	page 10, ‘go home’
+(5c) line 3	nɬeʔkepmxcín	cited form	cu-t	page 10, ‘say’
+(5c) line 4	nɬeʔkepmxcín	cited form	məy-t	page 10, ‘perform a healing ritual’
+(5d) line 1	Henry Davis and Sander Nederveen	note	St’át’imcets	page 10, the language of the words below
+(5d) line 2	St’át’imcets	cited form	c̓niqʷ-t	page 10, ‘fight, quarrel’
+(5d) line 3	St’át’imcets	cited form	qʷal̕-út	page 10, ‘say’
+(5d) line 4	St’át’imcets	cited form	may-t	page 10, ‘fix up (particularly of Indian doctor)’
+footnote 12	Henry Davis and Sander Nederveen	note	12 We are not as confident about the segmentation of -t in nxaʔamxcín as in the Northern Interior languages, so we have erred on the side of caution and only marked -t as a separate suffix where we are sure there are other derivations of the same root without -t.	page 10, footnote
+footnote 13	Henry Davis and Sander Nederveen	note	13 There are two forms in this list with -út and one with -ét. These are likely descended from stressed variants of -t, which would have occurred with weak roots; forms with bare -t would then have occurred with neutral or strong roots.	page 10, footnote
+§2.3	Henry Davis and Sander Nederveen	cited affix	-út	a stressed variant of -t, footnote 13
+§2.3	Henry Davis and Sander Nederveen	cited affix	-ét	a stressed variant of -t, footnote 13
+§2.3	St’át’imcets	cited form	c̓níqʷ-ən	page 11, ‘fight somebody’, a transitive St’át’imcets form
+§2.3	St’át’imcets	cited form	cu-n	page 11, ‘tell somebody’, a transitive St’át’imcets form
+§2.3	St’át’imcets	cited form	máy-s-ən	page 11, ‘fix something’, a transitive St’át’imcets form
+§2.3	Henry Davis and Sander Nederveen	note	Most of these are not simply cases of fossilized -t, as evidenced by other derivations with the same roots (e.g., transitive c̓níqʷ-ən ‘fight somebody’, cu-n ‘tell somebody’, máy-s-ən ‘fix something’ in St’át’imcets).14 This means they were not simply borrowed as unanalyzed forms; it is likely that they are holdovers from a much earlier stage of Salish, where -t had a more general intransitivizing function.	page 11
+§2.4	Henry Davis and Sander Nederveen	heading	2.4 Interim Summary	page 11
+§2.4	Henry Davis and Sander Nederveen	note	Our cross-Salishan survey of intransitive -t, though in many cases suffering from a lack of crucial data (particularly and not surprisingly with respect to its semantics), has revealed a number of significant generalizations:	page 11
+§2.4	Henry Davis and Sander Nederveen	note	1. As originally observed by Kinkade (n.d., 1996), intransitive -t is old: it occurs in all major branches of the family, as well as Nuxalk/Bella Coola, indicating that it can be traced back to Proto-Salish.	page 11
+§2.4	Henry Davis and Sander Nederveen	note	2. Throughout the family, it is used to mark adjectives (a.k.a. ‘property concepts’), though in Central Salish (including Nuxalk) it is almost completely lexicalized, and persists only in relic forms.	page 11
+§2.4	Henry Davis and Sander Nederveen	note	3. In Northern Interior Salish (and more debatably in the Southern Interior) -t has or had a distinct function as a COS marker.	page 11
+§2.4	Henry Davis and Sander Nederveen	note	4. A small set of anomalous forms indicates that -t may have once had a more general function as a marker of intransitivity, though data here are too scanty to do more than speculate.	page 11
+§2.4	Henry Davis and Sander Nederveen	note	One question which arises from these observations is particularly pertinent to the COS function of -t, our principal pre-occupation in the rest of the paper: namely, is the COS interpretation an innovation in the Northern Interior, or does it represent an archaism which has been lost in the rest of the family?	page 11
+§2.4	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+§2.4	Henry Davis and Sander Nederveen	note	The reason this question is important is that it impacts our analysis of bare COS predicates, not only in St’át’imcets but also further afield in Central Salish. Both St’át’imcets and Central Salish languages have lost COS -t (as part of a more general loss of intransitive -t), and both have bare COS predicates. This distinguishes them quite sharply from the other Northern Interior languages, which have retained COS -t and do not allow bare COS predicates (Southern Interior languages show a third pattern: they have largely lost COS -t, but have replaced it with other COS markers such as inchoative marking and C2 reduplication).	page 11
+§2.4	Henry Davis and Sander Nederveen	note	We will not try to answer this question for the whole family: that project is both too ambitious and too empirically difficult, given the time depth of the relevant changes. However, we will attempt to provide an answer for St’át’imcets, which has the advantage that we can undertake a more detailed look at the semantics of its COS predicates, particularly in comparison to its t- suffixed Northern Interior counterparts.	page 11
+§3	Henry Davis and Sander Nederveen	heading	3 COS roots in the Northern Interior	page 11
+footnote 14	Henry Davis and Sander Nederveen	note	14 That having been said, two out of the three alternations between intransitive -t forms and transitive -n forms shown here are themselves irregular, indicating a fairly high degree of lexicalization.	page 11, footnote
+§3	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+§3	Henry Davis and Sander Nederveen	language	Secwepemctsín	a.k.a. Shuswap, ISO 639-3 shs, Northern Interior Salish, one of the four languages compared
+§3	Henry Davis and Sander Nederveen	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, one of the four languages compared
+§3	Henry Davis and Sander Nederveen	note	In this section, we conduct a more detailed investigation into the properties of COS verbs in the three Northern Interior languages. In 3.1 we show that in spite of the morphological difference between bare root COS verbs in St’át’imcets and t-marked verbs in the other two languages, they behave identically in two important respects: they are unaccusative and they entail event culmination. In 3.2, we present the two main semantic hypotheses proposed for bare COS verbs in St’át’imcets and t-marked COS verbs in Secwepemctsín and nɬeʔkepmxcín, respectively. We then compare and contrast them in 3.3, paying particular attention to which of them is best able to produce a unified analysis of the two morphological patterns.	page 12
+§3.1	Henry Davis and Sander Nederveen	heading	3.1 Bare root versus t-marked COS verbs	page 12
+§3.1	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+§3.1	Henry Davis and Sander Nederveen	note	We begin by illustrating the two morphological strategies for forming COS verbs in Northern Interior Salish: bare root unaccusatives in St’át’imcets versus t-marked forms in the other two languages. We show that aside from this morphological difference, COS verbs behave identically across the three languages: they license a single internal argument (i.e., they are unaccusative); and they entail culmination (i.e., they are telic).	page 12
+§3.1	Henry Davis and Sander Nederveen	language	St’á’timcets	St’át’imcets, printed with its accent and apostrophe swapped on page 12
+§3.1	Henry Davis and Sander Nederveen	note	COS verbs in St’á’timcets frequently surface as bare roots (Davis 2024). Illustrative textual examples are given in (6)-(8):	page 12
+(6) line 1	St’át’imcets	segmentation	cúkʷ=Ø=kʷuʔ látiʔ na=kʷə́kʷaʔ-s=a waʔ,	page 12, engine language, a St’át’imcets example
+(6) line 2	St’át’imcets	gloss	finish=3SBJ=QUOT there ABSN.DET=grandmother-3POSS=EXIS be	page 12, engine english, a St’át’imcets example
+(6) line 3	St’át’imcets	segmentation	ɬwál=Ø=tiʔ ƛ̓it, plán=Ø=tiʔ ʔạʔ kʷas	page 12, engine language, a St’át’imcets example
+(6) line 4	St’át’imcets	gloss	get.abandoned=3SBJ=DEM also already=3SBJ=DEM NEG D/C+NMLZ+IPFV+3POSS	page 12, engine english, a St’át’imcets example
+(6) line 5	St’át’imcets	segmentation	ka-mátq-a kʷu=ʔáma	page 12, engine language, a St’át’imcets example
+(6) line 6	St’át’imcets	gloss	CIRC-walk-CIRCDET=good	page 12, engine english, a St’át’imcets example
+(6) line 7	Edwards et al. 2017:118	translation	‘Only his grandmother was there, she had been left behind as well, because she couldn’t walk that well anymore.’	page 12, cited Edwards et al. 2017:118
+(6) line 7	Henry Davis and Sander Nederveen	citation	(Edwards et al. 2017:118)	the tag or source at the right of the translation
+(7) line 1	St’át’imcets	segmentation	kʷán=Ø=kʷuʔ látiʔ, sə́k~sk-əqʷ=Ø=kʷuʔ	page 12, engine language, a St’át’imcets example
+(7) line 2	St’át’imcets	gloss	get.taken=3SBJ=QUOT there PLU~get.beaten-head=3SBJ=QUOT	page 12, engine english, a St’át’imcets example
+(7) line 3	St’át’imcets	segmentation	na=tw<ə́w>w̓ət=a	page 12, engine language, a St’át’imcets example
+(7) line 4	St’át’imcets	gloss	ABSN.DET=boy<DIM>=EXIS	page 12, engine english, a St’át’imcets example
+(7) line 5	Edwards et al. in prep.	translation	‘The boy was taken and beaten about the head.’	page 12, engine english, cited Edwards et al. in prep.
+(7) line 5	Henry Davis and Sander Nederveen	citation	(Edwards et al. in prep.)	the tag or source at the right of the translation
+(8) line 1	St’át’imcets	segmentation	kəɬ=Ø ʔi=sc̓ám̓-s=a, ʔəɬ k̓ax=Ø,	page 12, engine language, a St’át’imcets example
+(8) line 2	St’át’imcets	gloss	get.removed=3SBJ PL.DET=fish.bone-3POSS=EXIS and.then get.dried=3SBJ	page 12, engine english, a St’át’imcets example
+(8) line 3	St’át’imcets	segmentation	ʔəɬ c̓əq̓=Ø	page 12, engine language, a St’át’imcets example
+(8) line 4	St’át’imcets	gloss	and.then get.pounded=3SBJ	page 12, engine english, a St’át’imcets example
+(8) line 5	Mitchell 2022:396	translation	‘The (fish) bones were removed, and then it was dried and pounded.’	page 12, engine english, cited Mitchell 2022:396
+(8) line 5	Henry Davis and Sander Nederveen	citation	(Mitchell 2022:396)	the tag or source at the right of the translation
+§3.1	Henry Davis and Sander Nederveen	note	Notice the typical “patient-oriented” meaning of the bolded COS forms: even when the meaning of the root semantically entails agentivity, only an internal argument (patient or theme) may be expressed syntactically. In other words, bare COS verbs are unaccusative.	page 12
+§3.1	Henry Davis and Sander Nederveen	note	The second important property of bare root COS verbs in St’át’imcets is that they test as telic (Bar-el et al. 2005, Davis 2024). They have a non-cancelable culmination entailment (9a), unlike control transitives derived from the same roots, which only have a cancelable culmination implicature, shown for comparison in (9b).	page 12
+(9a) line 1	St’át’imcets	segmentation	*mays=Ø ti=q̓láx̌an=a ƛ̓uʔ ʔạ́y=Ø=ƛ̓uʔ	page 13, engine language, a St’át’imcets example
+(9a) line 2	St’át’imcets	gloss	get.fixed=3SBJ DET=fence=EXIS but NEG=3SBJ=EXCL	page 13, engine english, a St’át’imcets example
+(9a) line 3	St’át’imcets	segmentation	kʷ=s=ka-máys=c=a	page 13, engine language, a St’át’imcets example
+(9a) line 4	St’át’imcets	gloss	D/C=NMLZ-CIRC-get.fixed=3POSS=CIRC	page 13, engine english, a St’át’imcets example
+(9a) line 5	Davis 2024:310	translation	Intended: ‘The fence got fixed but it couldn't get fixed.’	page 13, engine english, cited St’át’imcets; Davis 2024:310
+(9a) line 5	Henry Davis and Sander Nederveen	citation	(St’át’imcets; Davis 2024:310)	the tag or source at the right of the translation
+(9b) line 1	St’át’imcets	segmentation	máys-ən-Ø=ɬkan ti=q̓láx̌an=a ƛ̓uʔ ʔạ́y=Ø=ƛ̓uʔ	page 13, engine language, a St’át’imcets example
+(9b) line 2	St’át’imcets	gloss	get.fixed-DIR-3OBJ-1SG.SBJ DET=fence=EXIS but NEG=3SBJ=EXCL	page 13, engine english, a St’át’imcets example
+(9b) line 3	St’át’imcets	segmentation	kʷ=s=ka-máys=c=a	page 13, engine language, a St’át’imcets example
+(9b) line 4	St’át’imcets	gloss	D/C=NMLZ-CIRC-get.fixed=3POSS=CIRC	page 13, engine english, a St’át’imcets example
+(9b) line 5	Davis 2024:310	translation	‘I fixed the fence but it couldn’t get fixed.’	page 13, engine english, cited St’át’imcets; Davis 2024:310
+(9b) line 5	Henry Davis and Sander Nederveen	citation	(St’át’imcets; Davis 2024:310)	the tag or source at the right of the translation
+§3.1	Henry Davis and Sander Nederveen	note	In contrast to St’át’imcets, COS verbs in the other two Northern Interior Salish languages are derived by t-suffixation, as seen in (4) above. Bare root COS verbs are ungrammatical in both languages, as shown below in (10)-(11):	page 13
+(10) line 1	Henry Davis and Sander Nederveen	note	Secwepemctsín: bare root COS is ungrammatical	page 13, engine english
+(10a) line 1	Secwepemctsín	segmentation	*sul=Ø ɣə=c̓iʔ	page 13, engine language
+(10a) line 2	Secwepemctsín	gloss	get.frozen=3SBJ DET=deer	page 13, engine english
+(10a) line 3	Henry Davis and Sander Nederveen	translation	Intended: ‘The meat froze/got frozen.’	page 13, engine english
+(10b) line 1	Secwepemctsín	segmentation	*xʷík̓=∅ ɣe=sqlélten	page 13, engine language
+(10b) line 2	Secwepemctsín	gloss	get.dried=3SBJ DET=salmon	page 13, engine english
+(10b) line 3	Henry Davis and Sander Nederveen	translation	Intended: ‘The salmon dried/got dried.’	page 13, engine english
+(11) line 1	Henry Davis and Sander Nederveen	note	nɬeʔkepmxcín: bare root COS is ungrammatical	page 13, engine english
+(11a) line 1	nɬeʔkepmxcín	segmentation	*k̓ip̓=∅ ʔə=sméyx	page 13, engine language
+(11a) line 2	nɬeʔkepmxcín	gloss	get.trampled=3SBJ DET=snake	page 13, engine english
+(11a) line 3	Nederveen 2024:426	translation	Intended: ‘The snake got trampled.’	page 13, engine english, cited Nederveen 2024:426
+(11a) line 3	Henry Davis and Sander Nederveen	citation	(Nederveen 2024:426)	the tag or source at the right of the translation
+(11b) line 1	nɬeʔkepmxcín	segmentation	*nik̓=∅ ʔə=keyxm-ékeʔ	page 13, engine language
+(11b) line 2	nɬeʔkepmxcín	gloss	get.cut=3SBJ DET=limb-hand	page 13, engine english
+(11b) line 3	Nederveen 2024:427	translation	Intended: ‘The branch got cut.’	page 13, engine english, cited Nederveen 2024:427
+(11b) line 3	Henry Davis and Sander Nederveen	citation	(Nederveen 2024:427)	the tag or source at the right of the translation
+§3.1	Henry Davis and Sander Nederveen	note	In other ways, however, t-marked COS verbs are parallel to bare root COS verbs in St’át’imcets. Firstly, they license a single theme or patient argument: in other words, they are unaccusative, as shown in (12)-(13) below (with a parallel bare COS verb from St’át’imcets given for comparison in (14)).15	page 13
+(12) line 1	Henry Davis and Sander Nederveen	note	Secwepemctsín: t-marked COS verbs are unaccusative	page 13, engine english
+footnote 15	Henry Davis and Sander Nederveen	note	15 It is important to set aside here “control roots” – that is, the class of zero-marked unergative (agentive intransitive) predicates which are found consistently across the family. See Davis (1997) for arguments that these predicates are zero-derived middles.	page 13, footnote, set between the heading of (12) and its tiers
+(12) line 2	Secwepemctsín	segmentation	sul-t=∅ ɣe=c̓íʔ	page 14, engine language
+(12) line 3	Secwepemctsín	gloss	get.frozen-INTR=3SBJ DET=deer	page 14, engine english
+(12) line 4	Henry Davis and Sander Nederveen	translation	‘The meat froze/got frozen.’ (≠ ‘Someone froze the meat.’)	page 14, engine english
+(13) line 1	Henry Davis and Sander Nederveen	note	nɬeʔkempxcín: t-marked COS verbs are unaccusative	page 14, the heading, which spells the language nɬeʔkempxcín
+(13) line 2	nɬeʔkepmxcín	segmentation	q̓ʷey-t=∅ ʔə=sqyéytn	page 14, engine language
+(13) line 3	nɬeʔkepmxcín	gloss	get.roasted-INTR=3SBJ DET=salmon	page 14, engine english
+(13) line 4	Henry Davis and Sander Nederveen	translation	‘The salmon got roasted.’ (≠ ‘Someone roasted the salmon.’)	page 14, engine english
+(14) line 1	Henry Davis and Sander Nederveen	note	St’át’imcets: bare COS verbs are unaccusative	page 14, engine english
+(14) line 2	St’át’imcets	segmentation	q̓ʷəl=∅ ta=c̓íʔ=a	page 14, engine language
+(14) line 3	St’át’imcets	gloss	get.cooked=3SBJ DET=meat=EXIS	page 14, engine english
+(14) line 4	Henry Davis and Sander Nederveen	translation	‘The meat got cooked.’ (≠ ‘Someone cooked the meat.’)	page 14, engine english
+§3.1	Henry Davis and Sander Nederveen	language	Secwepemctsín	a.k.a. Shuswap, ISO 639-3 shs, Northern Interior Salish, one of the four languages compared
+§3.1	Henry Davis and Sander Nederveen	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, one of the four languages compared
+§3.1	Henry Davis and Sander Nederveen	note	Also like bare COS verbs in St’át’imcets, t-marked COS verbs in Secwepemctsín and nɬeʔkepmxcín test as telic, as shown in (15)-(16) (again with a bare COS verb from St’át’imcets given for comparison in (17)):	page 14
+(15) line 1	Henry Davis and Sander Nederveen	note	Secwepemctsín: t-marked COS verbs are telic	page 14, engine english
+(15) line 2	Secwepemctsín	segmentation	sul-t=∅ ɣə=c̓íʔ (*ʔeɬ ʔex ʔey ɣə=súl-t=əs)	page 14, engine language
+(15) line 3	Secwepemctsín	gloss	get.frozen-INTR=3SBJ DET=deer (*and PROG still D/C=get.frozen-INTR=3SJV)	page 14, engine english
+(15) line 4	Henry Davis and Sander Nederveen	translation	‘The meat froze/got frozen (*and it’s still freezing).’	page 14, engine english
+(16) line 1	Henry Davis and Sander Nederveen	note	nɬeʔkepmxcín: t-marked COS verbs are telic	page 14, engine english
+(16) line 2	nɬeʔkepmxcín	segmentation	ník̓-t=∅ ʔə=sɣép (*ƛ̓uʔ tə=Ø=téʔe k=s=tékm=s)	page 14, engine language
+(16) line 3	nɬeʔkepmxcín	gloss	get.cut-INTR=3SBJ DET=tree (*but NEG=3SBJ=NEG D/C=NMLZ=all=3POSS)	page 14, engine english
+(16) line 4	Henry Davis and Sander Nederveen	translation	‘The tree got cut (*but not all of it).’	page 14, engine english
+(17) line 1	Henry Davis and Sander Nederveen	note	St’át’imcets: bare COS verbs are telic	page 14, engine english
+(17) line 2	St’át’imcets	segmentation	q̓ʷəl=∅ ta=c̓íʔ=a, (*ƛ̓uʔ waʔ=Ø=ƛ̓uʔ ʔəs-x̌íw̓)	page 14, engine language
+(17) line 3	St’át’imcets	gloss	get.cooked=3SBJ DET=meat=EXIS (*but IPFV=3SBJ=EXCL STAT-raw	page 14, engine english
+(17) line 4	Henry Davis and Sander Nederveen	translation	‘The meat got cooked (*but it’s still raw).’	page 14, engine english
+(17) line 5	Carl Alexander	speaker comment	Consultant’s comment: “Going against itself.’	page 14, engine english
+§3.1	Henry Davis and Sander Nederveen	note	It is also worth pointing out that relic t-marked forms in St’át’imcets show the same behaviour: they are unaccusative (18) and telic (19):	page 14
+(18) line 1	Henry Davis and Sander Nederveen	note	Relic t-marked COS verbs in St’át’imcets are unaccusative:	page 14, engine english
+(18a) line 1	St’át’imcets	segmentation	zik-t=∅ ta=ʔuxʷalmíxʷ=a	page 14, engine language, a St’át’imcets example
+(18a) line 2	St’át’imcets	gloss	fall-INTR=3SBJ DET=Indigenous.person=EXIS	page 15, engine english, a St’át’imcets example
+(18a) line 3	Henry Davis and Sander Nederveen	translation	‘The person toppled/fell (like a tree).’ (≠ The person felled something (like a tree).’)	page 15, engine english
+(18a) line 4	Carl Alexander	speaker comment	Consultant: “I’ll allow that.”	page 15, engine english
+(18b) line 1	St’át’imcets	segmentation	ɬap-t=∅ ta=smúɬac=a	page 15, engine language, a St’át’imcets example
+(18b) line 2	St’át’imcets	gloss	get.extinguished-INTR=3SBJ DET=woman=EXIS	page 15, engine english, a St’át’imcets example
+(18b) line 3	Henry Davis and Sander Nederveen	translation	# ‘The woman went out (like a light).’ (≠ The woman extinguished something (like a light).’)	page 15
+(19) line 1	Henry Davis and Sander Nederveen	note	Relic t-marked COS verbs in St’át’imcets are telic:	page 15, engine english
+(19a) line 1	St’át’imcets	segmentation	zik-t=∅ ta=sɣáp=a, (*ƛ̓uʔ wáʔ=∅=ƛ̓uʔ ʔəs-ɣə́p)	page 15, engine language, a St’át’imcets example
+(19a) line 2	St’át’imcets	gloss	fall-INTR=3SBJ DET=tree=EXIS (*but IPFV=3SBJ=EXCL STAT-upright)	page 15, engine english, a St’át’imcets example
+(19a) line 3	Henry Davis and Sander Nederveen	translation	‘The tree fell (*but it’s still standing).’	page 15, engine english
+(19b) line 1	St’át’imcets	segmentation	ɬap-t=∅ ta=sc̓ák̓ʷa=a (*ƛ̓uʔ wáʔ=∅=ƛ̓uʔ ʔəs-ʕʷə́l)	page 15, engine language, a St’át’imcets example
+(19b) line 2	St’át’imcets	gloss	go.out-INTR=3SBJ DET=light=EXIS (*but IPFV=3SBJ=EXCL STAT-lit)	page 15, engine english, a St’át’imcets example
+(19b) line 3	Henry Davis and Sander Nederveen	translation	‘The light went out (*but it’s still lit).’	page 15, engine english
+§3.1	Henry Davis and Sander Nederveen	note	In other words, bare root COS verbs in St’át’imcets show the same syntactic and semantic profile as t-marked COS verbs, strongly suggesting that, in spite of their superficial morphological differences, they should be given the same analysis.	page 15
+§3.2	Henry Davis and Sander Nederveen	heading	3.2 Two analyses of COS verbs in the Northern Interior	page 15
+§3.2	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+§3.2	Henry Davis and Sander Nederveen	language	Secwepemctsín	a.k.a. Shuswap, ISO 639-3 shs, Northern Interior Salish, one of the four languages compared
+§3.2	Henry Davis and Sander Nederveen	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, one of the four languages compared
+§3.2	Henry Davis and Sander Nederveen	note	The next question, of course, is what should that analysis be? In the following two sections, we will present two alternatives, the first proposed by Davis (2024) for bare root COS verbs, following Bar-el et al. (2005) for St’át’imcets and Skwxwu7mesh, the other by Nederveen (2024, in prep.) for t-affixed COS verbs in Secwepemctsín and nɬeʔkepmxcín. We will then compare their suitability for a unified analysis of both patterns.	page 15
+§3.2.1	Henry Davis and Sander Nederveen	heading	3.2.1 Predicative COS roots: Bar-el et al. (2005), Kiyota (2008), Davis (2024)	page 15
+§3.2.1	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+§3.2.1	Henry Davis and Sander Nederveen	note	Because bare root COS verbs in St’át’imcets are unaccusative and entail telicity, Davis (2024) proposes that the root selects for an entity (the internal argument) and an event. He adopts the following denotation for St’át’imcets roots, from Bar-el et al. (2005):	page 15
+(20a) line 1	Henry Davis and Sander Nederveen	notation	λx λe λw. P(x)(e)(w) (type <e,<v,<s,t>>>)	page 15, engine residue, the denotation of a St’át’imcets root, Bar-el et al. (2005), which Davis (2024) adopts
+(20b) line 1	Henry Davis and Sander Nederveen	notation	[[mays]]w = λxλe[x gets fixed in w (e)]	page 15, engine english, the denotation of a St’át’imcets root, Bar-el et al. (2005), which Davis (2024) adopts
+footnote 16	Henry Davis and Sander Nederveen	note	16 Kiyota (2008:80) employs a similarly impoverished formula for bare root COS verbs in SENĆOTEN (Northern Straits Salish), given in (i) below.	page 15, footnote
+§3.2.1	Henry Davis and Sander Nederveen	language	SENĆOTEN	Northern Straits Salish, the language of Kiyota 2008
+§3.2.1	Henry Davis and Sander Nederveen	note	Under this “bare bones” analysis, the event e argument lacks internal structure: by convention, it is interpreted as a simple transition, which means it culminates and therefore counts as an achievement in terms of aspectual class.16 Two aspects of the bare bones approach are important to note here. First, the formula in (20) is radically underspecified: it says nothing about the internal temporal constituency of the event denoted by the predicate, beyond the fact that it culminates (and even then only by convention). This is not by accident: it embodies the claim that the duration of an event, crucial in distinguishing achievements from accomplishments in English, is irrelevant to COS roots in Salish, which only care about culmination. As Kiyota (2008:78) puts it with respect to the Central Salish language SENĆOTEN (Northern Straits Salish), “…instantaneousness is not a defining property of achievements. Instead, what distinguishes achievements from accomplishments (as well as the other aspectual classes) is the culmination, but not the durativity/instantaneousness…”. The prediction here is that no grammatical test will distinguish between COS verbs that denote (near-) instantaneous events and those which unfold over a measurable interval of time.	page 15
+§3.2.1	Henry Davis and Sander Nederveen	note	Second, COS roots under this denotation are self-contained predicates: they describe a transition undergone by an entity, and can surface in bare form as long as the root composes with an appropriate individual which can saturate its internal argument. Again, this is not accidental: it is specifically designed to handle the fact that bare roots surface as COS verbs without any further morphological modification.	page 16
+§3.2.2	Henry Davis and Sander Nederveen	heading	3.2.2 Non-predicative COS roots: Nederveen (2024, in prep.)	page 16
+§3.2.2	Henry Davis and Sander Nederveen	language	Secwepemctsín	a.k.a. Shuswap, ISO 639-3 shs, Northern Interior Salish, one of the four languages compared
+§3.2.2	Henry Davis and Sander Nederveen	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, one of the four languages compared
+§3.2.2	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+§3.2.2	Henry Davis and Sander Nederveen	note	An alternative analysis of COS roots in Secwepemctsín and nɬeʔkepmxcín is proposed by Nederveen (in prep.), building on Nederveen (2024). This analysis is designed to account for the fact that in these languages, COS roots do not surface in bare form, while also accounting for the fact that once suffixed with -t, they show the same semantic profile as bare COS roots in St’át’imcets.	page 16
+§3.2.2	Henry Davis and Sander Nederveen	note	Nederveen’s analysis is couched in the framework of degree semantics: more specifically, it treats COS roots as a kind of degree achievement (Hay, Kennedy & Levin 1999; Kennedy & Levin 2008; Kennedy 2012). Under this conception, events are equipped with a degree-semantic component that measures change. More specifically, COS roots are treated as functions which measure a difference between two points on a scale of event completion: it is this difference which corresponds to the change of state.17 The relevant measure function is formalized as a kind of difference function, originally devised by Kennedy and McNally (2005) to handle comparatives:	page 16
+footnote 16 (i) line 1	Henry Davis and Sander Nederveen	notation	λe.BECOME(P(e))	page 16, engine english, Kiyota (2008:80)’s formula for bare root COS verbs in SENĆOTEN
+footnote 17	Henry Davis and Sander Nederveen	note	17 Nederveen adopts the definition of scales in Kennedy & McNally (2005), according to which scales are triplets ⟨D, R, ∆⟩, where D is a set of totally ordered points, R is the direction of the ordering on a scale S, and ∆ is a value that represents the dimension of measurement. Degrees (d) are intervals on a scale whose dimension is defined by the lexical content of adjectives (taken to be simple measure functions) and COS verbs (taken to measure-of-change functions).	page 16, footnote
+footnote 16	Henry Davis and Sander Nederveen	note	This version differs in two respects from that in (20) above. First, it explicitly rather than implicitly encodes event culmination via (a particular interpretation of) the BECOME operator. And, second, it assumes a Davidsonian approach to the relation between individual arguments and the COS verb, so that all arguments are introduced separately by thematic predicates of events, and the verb itself only takes an event argument.	page 16, the end of footnote 16, carried over from page 15
+(21) line 1	Henry Davis and Sander Nederveen	note	Difference functions	page 17, the heading of the definition
+(21) line 1	Henry Davis and Sander Nederveen	citation	(Kennedy & Levin 2008: 17)	the source of the definition
+(21) line 2	Kennedy & Levin 2008: 17	notation	For any measure function m from objects x and times t to degrees d on a scale S, and for any d ∈ S, m↑ is a function just like m, except that:	page 17, the definition, quoted
+(21) line 3	Kennedy & Levin 2008: 17	notation	a) its range is {d’ ∈ S | d ⪯ d’}, and	page 17
+(21) line 4	Kennedy & Levin 2008: 17	notation	b) for any x, t in the domain of m, if m(x)(t) ⪯ d then m↑(x)(t) = d	page 17
+§3.2.2	Henry Davis and Sander Nederveen	note	The definition in (21) states that a difference function m↑ is a measure function which has a “derived zero” corresponding to the comparative standard of an adjective (the arbitrary degree d in the formula above). As a consequence a difference function is always defined relative to a lower closed scale (a scale with a minimum threshold, defined by d).	page 17
+§3.2.2	Henry Davis and Sander Nederveen	note	For two objects at a single point in time, the following difference function applies:	page 17
+(22) line 1	Henry Davis and Sander Nederveen	notation	λx [m↑(x) = d] (type <e,d>)	page 17, engine residue, a difference function for two objects at a single point in time
+§3.2.2	Henry Davis and Sander Nederveen	note	In (22), m↑(x) is the formal notation for a difference function, which takes an individual x and returns a degree d that represents the difference in the degree of x and some other, contextually generated degree d’.	page 17
+§3.2.2	Henry Davis and Sander Nederveen	note	For COS roots, a measure of change function applies. This is a function that measures change between two degrees over time. That is, the initial degree is generated at the beginning of the event, and the final degree is generated at the end of the event: the difference between these two degrees amounts to the degree of change. The value of the degree of change establishes the extent of the change of state, i.e., partial or complete. The underlying semantics of COS roots for Nederveen (in prep.) is as follows.	page 17
+(23) line 1	Henry Davis and Sander Nederveen	notation	[[√CoS]] = λxλe[m↑m(x)(init(e))(x)(fin(e))] (type <e,<v,d>>)	page 17, the denotation of a COS root, Nederveen (in prep.)
+(23) line 2	Kennedy & Levin 2008:18	note	COS roots yield the degree of difference between the degree of x at the beginning and the degree measured by m at the end of e.	page 17, what (23) says, quoted
+(23) line 2	Henry Davis and Sander Nederveen	citation	(Kennedy & Levin 2008:18)	the source of the paraphrase
+§3.2.2	Henry Davis and Sander Nederveen	notation	√CoS	a change-of-state root, in the formulas of (23) and (25)
+§3.2.2	Henry Davis and Sander Nederveen	note	In other words, a COS root takes an entity x and an event e and returns the degree that represents the amount that x changes in the property measured by m as a result of participating in e (Kennedy and Levin 2008). The degree of change is measured by mapping an argument x onto a scale whose minimal value is the degree of x that is measured by m at the initiation of e. The output is the difference between the degree of x at the beginning and the degree measured by m at the end of e. There are two important consequences of the measure of change analysis of COS roots. Firstly, roots are predicted not to appear in bare form. Under a measure of change analysis, roots are non- predicative functions of type <e,<v,d>>: they take an entity and an event and output a degree. In order to yield a predicate, a root therefore needs to undergo further derivation. Secondly, COS roots do not entail telicity by themselves. The scale structure of a COS root is not specified beyond the constraint imposed by the nature of being a measure of change function itself, namely that the scale is closed at its lower end due to the existence of an initial degree (corresponding to the beginning of an event). Without any further scale structure specification, the scale defaults to being open at its upper end (i.e., with no inherent endpoint). Without a natural endpoint, a predicate cannot be telic (Kennedy & Levin 2008, Koontz-Garboden 2010). These two consequences are dealt with by t-suffixation, which derives well-formed predicates with an entailment of culmination. The denotation of intransitive -t is as follows:	page 17
+(24) line 1	Henry Davis and Sander Nederveen	notation	[[ -t ]] = λg ∈ <e,<v,d>> λxλe ∃ d [g(x)(e) = d ∧ d = maxS] (type <<e,<v,d>><e,<v,t>>>)	page 18, the denotation of intransitive -t
+§3.2.2	Henry Davis and Sander Nederveen	note	In other words, intransitive -t takes a gradable predicate with the type of a measure function (g), as well as an individual (x) and an event (e), to which the gradable predicate applies. It existentially quantifies over the degree of change (d) and sets the output of the COS root to the maximal point on its scale (maxS). By introducing a maximal element on the scale of the degree of change and equating the degree of change to this maximum element, culmination is entailed.	page 18
+§3.2.2	Henry Davis and Sander Nederveen	note	Compositionally, intransitive -t derives an ordinary predicate which takes an individual and an event to yield a truth value. The full composition of intransitive -t applied to a change of state root is shown in (25).	page 18
+(25) line 1	Henry Davis and Sander Nederveen	notation	[[ -t ]]([[√CoS]]) = λg ∈ <e,<v,d>> λxλe ∃ d [g(x)(e) = d ∧ d = maxS]	page 18, intransitive -t applied to a COS root
+(25) line 2	Henry Davis and Sander Nederveen	notation	(λxλe[m↑m(x)(init(e))(x)(fin(e))])	page 18
+(25) line 3	Henry Davis and Sander Nederveen	notation	= λxλe ∃ d [m↑m(x)(init(e))(x)(fin(e)) = d ∧ d = maxS]	page 18
+§3.2.2	Henry Davis and Sander Nederveen	note	COS roots suffixed with intransitive -t thus show the same profile as bare COS roots in St’át’imcets: they are unaccusative predicates which entail telicity.	page 18
+§3.3	Henry Davis and Sander Nederveen	heading	3.3 Comparing the analyses	page 18
+§3.3	Henry Davis and Sander Nederveen	language	St’at’imcets	St’át’imcets, printed without its accent
+§3.3	Henry Davis and Sander Nederveen	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, one of the four languages compared
+§3.3	Henry Davis and Sander Nederveen	note	We have now reviewed two semantic analyses, designed to account for the two different morphological realizations of COS verbs in Northern Interior Salish (bare roots in St’at’imcets, t- affixed forms in nɬeʔkepmxcín and Secwepemctsín).18 The next question is: can either of them be naturally extended to cover the empirical domain of the other?	page 18
+§3.3	Henry Davis and Sander Nederveen	language	Secwepemctsín	a.k.a. Shuswap, ISO 639-3 shs, Northern Interior Salish, one of the four languages compared
+§3.3	Henry Davis and Sander Nederveen	note	We’ll begin with the bare bones analyses of Bar-el et al, Kiyota, and Davis, where bare roots are simple predicates of events with a built in culmination entailment, which compose with an individual and an event to yield a truth value. On this analysis, it is not at all obvious how to account for obligatory t-suffixation in nɬeʔkepmxcín and Secwepemctsín (or obligatory inchoative marking in nsyilxcn); since the bare root is already a fully-fledged predicate, there is no role for -t or inchoative marking in the compositional semantics, and its appearance is consequently anomalous. On the other hand, only one relatively innocuous extra assumption is needed to extend the degree-based approach advocated by Nederveen and Lyon from obligatorily suffixing COS languages to bare root COS languages: the availability of a zero-marked counterpart of -t (or inchoative marking, in the case of nsyilxcn).19 This constitutes a straightforward morphological argument in favour of the degree-based approach over the bare bones approach.	page 18
+§3.3	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+footnote 18	Henry Davis and Sander Nederveen	note	18 Inchoatives in nsyilxcn (Lyon 2023) can be grouped here with t-marked forms in the Northern Interior languages.	page 18, footnote
+footnote 19	Henry Davis and Sander Nederveen	note	19 Davis and Matthewson (2009:1107) (see also Davis 2024:308-9) argue against the zero-marking option for bare root unaccusatives precisely on the basis that “…there are no overt intransitive suffixes which yield derived unaccusatives” (as opposed to overt marking for unergatives, which is pervasive across the Salish family). The existence of t-marked unaccusatives in nɬeʔkepmxcín and Secwepemctsín, together with parallel evidence for obligatory inchoative marking on unaccusatives in nsyilxcn, provides straightforward empirical evidence against this claim in Interior Salish.	page 18, footnote
+§3.3	Henry Davis and Sander Nederveen	note	A related argument can be made based on inchoative marking in St’át’imcets. Unlike in nsyilxcn (Lyon 2023), inchoative marking (which consists of an infixed glottal stop in strong roots and a suffixed -p on weak roots) crucially does not entail culmination in St’át’imcets, but only has a weaker culmination implicature, which like that associated with control transitives (Bar-el et al. 2005) can be easily cancelled. This is shown in (26)-(28) below: (26) involves event cancellation, while (27)-(28) involve event continuation.20	page 18
+(26) heading	Henry Davis and Sander Nederveen	note	St’át’imcets inchoative marking does not entail culmination	page 19, the heading over (26) to (28)
+(26) line 1	St’át’imcets	segmentation	ʕʷəl-p=Ø ta=lam-xal-áɬxʷ=a, ƛ̓uʔ ɬáp-an̓-Ø-əm	page 19, engine language, a St’át’imcets example
+(26) line 2	St’át’imcets	gloss	burn-INCH=3SBJ DET=pray-ACT-place=EXIS but extinguish-DIR-3OBJ-PASS	page 19, engine english, a St’át’imcets example
+(26) line 3	St’át’imcets	segmentation	ʔə=ki=wáʔ=Ø ɬáp-xal, níɬ=Ø=ƛ̓uʔ s=xʷʔạy=s	page 19, engine language, a St’át’imcets example
+(26) line 4	St’át’imcets	gloss	by=PL.DET=IPFV=3SBJ extinguish-ACT COP=3SBJ=EXCL NMLZ=NEG=3POSS	page 19, engine english, a St’át’imcets example
+(26) line 5	St’át’imcets	segmentation	kʷ=s=ʕʷəl-p=s	page 19, engine language, a St’át’imcets example
+(26) line 6	St’át’imcets	gloss	D/C=NMLZ=burn-INCH=3POSS	page 19, engine english, a St’át’imcets example
+(26) line 7	Carl Alexander	translation	'The church got on fire, but the firefighters put it out so the church didn’t burn.’ (consultant’s translation)	page 19, the consultant’s translation, as the page says; the page opens it with a straight quote
+(27a) line 1	St’át’imcets	segmentation	ɣi<ʔ>p=Ø ʔi=sq̓ʷlap-áz̓-ɬkaɬ=a	page 19, engine language, a St’át’imcets example
+(27a) line 2	St’át’imcets	gloss	grow<INCH>=3SBJ PL.DET=strawberry-plant-1PL.POSS=EXIS	page 19, engine english, a St’át’imcets example
+(27a) line 3	Henry Davis and Sander Nederveen	translation	‘Our strawberry plants are growing!’	page 19, engine english
+(27b) line 1	St’át’imcets	segmentation	xʷúz̓=Ø=ƛ̓uʔ ɣi<ʔ>p ƛ̓u x̌zúm-usaʔ=Ø ʔi=sq̓ʷláp=a	page 19, engine language, a St’át’imcets example
+(27b) line 2	St’át’imcets	gloss	PROSP=3SBJ=EXCL grow<INCH> until big-berry=3SBJ PL.DET=strawberry=EXIS	page 19, engine english, a St’át’imcets example
+(27b) line 3	Henry Davis and Sander Nederveen	translation	‘They’ll keep growing till the strawberries are big.’	page 19, engine english
+(28a) line 1	St’át’imcets	segmentation	ʕi<ʔ>s=Ø ʔi=susuzíl=a l=ki=sqʷə́m<qʷəm>=a	page 19, engine residue, a St’át’imcets example
+(28a) line 2	St’át’imcets	gloss	shrink<INCH>=3SBJ PL.DET=glacier=EXIS in=PL.DET=mountain<PLU>=EXIS	page 19, engine english, a St’át’imcets example
+(28a) line 3	Henry Davis and Sander Nederveen	translation	‘The glaciers are shrinking in the mountains.’	page 19, engine english
+(28b) line 1	St’át’imcets	segmentation	xʷúz̓=Ø ƛ̓aƛ̓áka ʕi<ʔ>s ƛ̓u ka-xʷạ́z=a=Ø	page 19, engine language, a St’át’imcets example
+footnote 20	Henry Davis and Sander Nederveen	note	20 These findings raise the question of whether inchoative-marked COS verbs in nɬeʔkepmxcín and Secwepemctsín have an entailment of culmination (like in nsyilxcn) or only an implicature of culmination (like in St’át’imcets). In Secwepemctsín, inchoative marking is unproductive and lexicalized: it is thus hard to test systematically. In nɬeʔkepmxcín, preliminary evidence suggests that inchoatives pattern with those in St’át’imcets (i.e., they only have a culmination implicature), as shown in the cancellation scenarios in (i)-(ii) below:	page 19, footnote
+footnote 20 (i) line 1	nɬeʔkepmxcín	segmentation	k̓<ʔ>éx=Ø=ƛ̓uʔ e=n-ɬɬeɬɬúxʷ k̓̓ém̓eɬɬ	page 19, engine language, a nɬeʔkepmxcín example, footnote 20
+footnote 20 (i) line 2	nɬeʔkepmxcín	gloss	dry<INCH>=3SBJ=EXCL DET=1SG.POSS-dress but	page 19, engine english, a nɬeʔkepmxcín example, footnote 20
+footnote 20 (i) line 3	nɬeʔkepmxcín	segmentation	tə=Ø=téʔe k=s=k̓<ʔ>ex=s ʔiy	page 19, engine language, a nɬeʔkepmxcín example, footnote 20
+footnote 20 (i) line 4	nɬeʔkepmxcín	gloss	NEG=3SBJ=NEG D/C=NMLZ=dry<INCH>=3POSS yet	page 19, engine english, a nɬeʔkepmxcín example, footnote 20
+footnote 20 (i) line 5	Henry Davis and Sander Nederveen	translation	‘My dress dried, but it isn't entirely dried.’ or:	page 19, engine english
+footnote 20 (i) line 6	Henry Davis and Sander Nederveen	translation	‘My dress is coming along dry but it isn't entirely dried.’	page 19, engine english
+footnote 20 (ii) line 1	nɬeʔkepmxcín	segmentation	c<ʔ>ék=Ø=ƛ̓uʔ e=n-séysik̓ʷ, k̓̓ém̓eɬ tə=Ø=téʔe k=s=c<ʔ>ek=s	page 19, engine language, a nɬeʔkepmxcín example, footnote 20
+footnote 20 (ii) line 2	nɬeʔkepmxcín	gloss	cool<INCH>=3SBJ=EXCL DET=1SG.POSS-soup but NEG=3SBJ=NEG D/C=NMLZ=cool<INCH>=3POSS	page 19, engine english, a nɬeʔkepmxcín example, footnote 20
+footnote 20 (ii) line 3	Henry Davis and Sander Nederveen	translation	‘The soup cooled but it isn't cool.’	page 19, engine english
+(28b) line 2	St’át’imcets	gloss	PROSP=3SBJ continuously shrink<INCH> until CIRC-NEG-CIRC=3SBJ	page 20, engine english, a St’át’imcets example
+(28b) line 3	Henry Davis and Sander Nederveen	translation	‘They’ll continuously shrink till they’re gone.’	page 20, engine english
+§3.3	Henry Davis and Sander Nederveen	note	On the bare bones analysis of bare COS verbs, it is unclear how inchoative marking will undo the entailment of culmination which is built into the COS root in the form of an (implicit or explicit) BECOME operator.21 However, on the degree-based analysis, culminating COS verbs are built from underlying predicates of degrees without a culmination entailment: all that is then needed to derive a non-culminating inchoative predicate is to alter the maximality specification associated with -t, as in (29) (compare (25) above):	page 20
+(29) line 1	Henry Davis and Sander Nederveen	note	St’át’imcets inchoative	page 20, the heading
+(29) line 2	Henry Davis and Sander Nederveen	notation	[[INCH]] = λg ∈ <e,<v,d>> λxλe ∃ d [g(x)(e) = d ∧ Sd = closed]	page 20, engine english, the denotation of the St’át’imcets inchoative
+(29) line 3	Henry Davis and Sander Nederveen	notation	(type <<e,<v,d>><e,<v,t>>>)	page 20, engine residue, the denotation of the St’át’imcets inchoative
+§3.3	Henry Davis and Sander Nederveen	note	Here, the initial point of the event is provided by the “derived zero” of the measure of change function, but the max specification of d which ensured a culmination of entailment for t-marked predicates has been replaced by a weaker condition which says that the degree d forms part of an upper closed scale. The upper closed scale, as required, results in an implicature rather than an entailment of culmination, through Interpretive Economy (Kennedy 2007):	page 20
+(30) line 1	Henry Davis and Sander Nederveen	note	Interpretive Economy	page 20, the heading of the principle
+(30) line 2	Kennedy 2007:36	note	Maximize the contribution of the conventional meanings of the elements of a sentence to the computations of tis truth conditions	page 20, the principle, quoted, printed with tis for its
+(30) line 2	Henry Davis and Sander Nederveen	citation	(Kennedy 2007:36)	the source of the principle
+§3.3	Henry Davis and Sander Nederveen	note	Interpretive Economy maximizes the information provided by the scale structure that is associated with the relevant predicate. The inchoative specifies an upper closed scale, which generates the default inference of culmination. Interpretive Economy can be overridden, and therefore allows for non-culminating cases as in (26)-(28).	page 20
+§3.3	Henry Davis and Sander Nederveen	note	A more indirect argument for the degree-based analysis can potentially be made on the basis of the interaction of COS predicates with imperfective (viewpoint) aspect. For present purposes, we treat imperfective in a standard fashion as placing the reference time i inside the running time of an event e (Kratzer 1998):	page 20
+(31) line 1	Henry Davis and Sander Nederveen	notation	[[Imperfective]] = λQ.λi.∃e.[ i ⊆ τ(e) & Q(e)]	page 20, engine english, the denotation of the imperfective, after Kratzer (1998)
+§3.3	Henry Davis and Sander Nederveen	note	Now, let us consider how imperfective might interacts with COS predicates on the two analyses under consideration. Recall first of all that the bare bones approach makes no predictions about temporal constituency beyond the entailment of culmination. This means (as explicitly claimed by Bar-el et al. 2005 and Kiyota 2008) that under this approach duration is irrelevant to the specification of bare root COS verbs: the transition which they denote can be instantaneous or can take place over an indeterminate temporal interval, as long as it culminates.	page 20
+footnote 21	Henry Davis and Sander Nederveen	note	21 One way to do so would be to extend to inchoatives the modal (branching worlds) analysis proposed by Bar-el et al. (2005) for control transitives in St’át’imcets and Skwxwu7mesh. Under this analysis, the event denoted by inchoative-marked verbs would culminate under the normal course of events, but there would be less expected worlds where it did not; canceling the implicature of culmination would amount to eliminating the most expected worlds in favour of a less expected outcome.	page 20, footnote
+§3.3	Henry Davis and Sander Nederveen	note	In contrast, the degree-based approach specifies initial and final points of events on a scale via a measure-of-change function (the initial point is given by the function itself, and the final point is supplied by -t or some other morphological marker of maximality). A process component can then be identified as the interval between initial and final points on the scale. Because of the extra temporal machinery employed in the degree-based analysis, it permits a more fine-grained analysis of temporal constituency, including, for example, the ability to distinguish traditional achievements (with little or no duration) from accomplishments (with a non-instantaneous process component). This extra machinery may be advantageous. In all three Northern Interior languages, COS verbs may combine with imperfective/progressive aspect in a broadly parallel fashion, as shown in (32)- (34):22	page 21
+(32) line 1	Henry Davis and Sander Nederveen	note	Secwepemctsín: combination of t-marked COS verbs with the progressive predicate (w)ʔex	page 21, engine english
+(32) line 3	Secwepemctsín	segmentation	(wʔ)ex=∅ ʔey ɣe=súl-t=əs ɣe=c̓íʔ	page 21, engine language
+(32) line 4	Secwepemctsín	gloss	PROG=3SBJ still D/C=get.frozen-INTR=3SJV DET=deer	page 21, engine english
+(32) line 5	Henry Davis and Sander Nederveen	translation	‘The meat is still freezing.’	page 21, engine english
+(33) line 1	Henry Davis and Sander Nederveen	note	nɬeʔkepmxcín: combination of t-marked COS verbs with the imperfective auxiliary (w)ʔex	page 21, engine english
+(33a) line 1	nɬeʔkepmxcín	segmentation	ʔex=∅ pew-t ʔə=sx̣án̓i	page 21, engine language
+(33a) line 2	nɬeʔkepmxcín	gloss	IPFV=3SBJ get.swollen-INTR DET=wound	page 21, engine english
+(33a) line 3	Henry Davis and Sander Nederveen	translation	‘The wound is swelling.’	page 21, engine english
+(33b) line 1	nɬeʔkepmxcín	segmentation	ʔex=∅ zik-t ʔə=sɣép	page 21, engine language
+(33b) line 2	nɬeʔkepmxcín	gloss	IPFV=3SBJ get.felled-INTR DET=tree	page 21, engine english
+(33b) line 3	Henry Davis and Sander Nederveen	translation	‘The tree is getting felled/is falling over.’	page 21, engine english
+(33c) line 1	nɬeʔkepmxcín	segmentation	ʔex=kn qiɬ-t	page 21, engine language
+(33c) line 2	nɬeʔkepmxcín	gloss	IPFV=1SBJ get.woken.up-INTR	page 21, engine english
+(33c) line 3	Henry Davis and Sander Nederveen	translation	‘I am waking up/I am awakening/I am getting woken up.’	page 21, engine english
+(34) line 1	Henry Davis and Sander Nederveen	note	St’át’imcets: combination of bare root COS verbs with the imperfective auxiliary waʔ	page 21, engine english
+(34a) line 1	St’át’imcets	segmentation	waʔ=∅ mays ta=n-kạ́h=a	page 21, engine language
+(34a) line 2	St’át’imcets	gloss	IPFV=3SBJ get.fixed DET=1SG.POSS-car=DET	page 21, engine english
+(34a) line 3	Henry Davis and Sander Nederveen	translation	‘My car is getting fixed.’	page 21, engine english
+footnote 22	Henry Davis and Sander Nederveen	note	22 This is only partially true for Secwepemctsín, which differs semantically from the other two languages in having a progressive rather than a general imperfective marker (and also syntactically, because its progressive marker is a main predicate taking a subordinate clause rather than an auxiliary). Because progressives do not have habitual readings, only in-progress readings like that in (32) should be possible with COS predicates in Secwepemctsín, which means that punctual (i.e., instantaneous) COS verbs should be incompatible with progressive marking. We do not currently have data bearing on this prediction, but intend to elicit it in the near future.	page 21, footnote
+(34b) line 1	St’át’imcets	segmentation	waʔ=∅ qʷəz	page 22, engine language
+(34b) line 2	St’át’imcets	gloss	IPFV=3SBJ get.used	page 22, engine english
+(34b) line 3	Henry Davis and Sander Nederveen	translation	‘It is getting used.’	page 22, engine english
+§3.3	Henry Davis and Sander Nederveen	note	Since the bare-bones approach makes no claims about the internal temporal constituency of events, there is nothing to stop the imperfective from applying to COS verbs, as long as the transition itself (the single subevent of the COS) is indeterminate in duration; therefore, the fact that the imperfective successfully composes with bare root COS verbs is not in and of itself necessarily problematic. However, the imperfective yields different interpretations with instantaneous and non-instantaneous COS verbs in St’át’imcets: compare the durative COS verbs in (33) above with the punctual COS verbs in (35)-(36) below:	page 22
+(35) heading	Henry Davis and Sander Nederveen	note	St’át’imcets: imperfective with punctual COS verbs	page 22, the heading over (35) and (36)
+(35a) line 1	St’át’imcets	segmentation	pun=Ø ta=n-sqáx̌ʔ=a	page 22, engine language, a St’át’imcets example
+(35a) line 2	St’át’imcets	gloss	get.found=3SBJDET=1SG.POSS-dog=EXIS	page 22, engine english, a St’át’imcets example
+(35a) line 3	Henry Davis and Sander Nederveen	translation	‘My dog got found.’	page 22, engine english
+(35b) line 1	St’át’imcets	segmentation	? waʔ=Ø pun ta=n-sqáx̌ʔ=a	page 22, engine language, a St’át’imcets example
+(35b) line 2	St’át’imcets	gloss	IPFV=3SBJ get.found DET=1SG.POSS-dog=EXIS	page 22, engine english, a St’át’imcets example
+(35b) line 3	Henry Davis and Sander Nederveen	translation	‘My dog gets found (habitually).’ (≠ My dog is in the process of getting found)	page 22, engine english
+(36a) line 1	St’át’imcets	segmentation	qʷus=Ø ta=míx̌aɬ=a	page 22, engine language, a St’át’imcets example
+(36a) line 2	St’át’imcets	gloss	get.shot=3SBJ DET=bear=EXIS	page 22, engine english, a St’át’imcets example
+(36a) line 3	Henry Davis and Sander Nederveen	translation	‘A/the bear got shot.’	page 22, engine english
+(36b) line 1	St’át’imcets	segmentation	?? waʔ=Ø qʷus ta=míx̌aɬ=a	page 22, engine language, a St’át’imcets example
+(36b) line 2	St’át’imcets	gloss	IPFV=3SBJ get.shot DET=bear=EXIS	page 22, engine english, a St’át’imcets example
+(36b) line 3	Henry Davis and Sander Nederveen	translation	‘A/the bear gets shot (habitually).’ (≠ A/the bear is in the process of getting shot)	page 22, engine english
+§3.3	Henry Davis and Sander Nederveen	note	To the extent that the distinction between punctual and durative COS should be encoded in the grammar (and more specifically, in the lexical entries of particular COS verbs), the degree-based approach is better equipped in principle to handle the contrast between the durative verbs in (32)- (34) and the punctual verbs in (35)-(36), since it treats events as scalar, and different verbs can therefore specify longer or shorter process components. On the other hand, the bare bones approach has nothing to say about this contrast: it must attribute the effects of imperfective marking on COS verbs to real-world knowledge, rather than the grammar.	page 22
+§3.3	Henry Davis and Sander Nederveen	language	St’átimcets	St’át’imcets, printed without its second apostrophe
+§3.3	Henry Davis and Sander Nederveen	note	A similar though more robust argument can be constructed from degree modifiers which apply to events.23 Consider the St’átimcets examples in (37)-(38):	page 22
+(37) line 1	St’át’imcets	segmentation	sáq̓ʷuɬ=Ø kʷ=s=paw=s na=waʔ ʔəs-páw	page 22, engine language, a St’át’imcets example
+(37) line 2	St’át’imcets	gloss	half=3SBJ D/C=NMLZ=get.inflated=3POSS ABSN.DET=IPFV STAT-get.inflated	page 22, engine english, a St’át’imcets example
+(37) line 3	St’át’imcets	segmentation	n-kʷup	page 22, engine language, a St’át’imcets example
+footnote 23	Henry Davis and Sander Nederveen	note	23 It is actually not that easy to find degree modifiers in Salish which readily apply to events: there is no equivalent of ‘completely’ in St’át’imcets, and entity-related quantifiers such as tákem ‘all’ cannot be used to quantify over events. The quantifier sáq̓ʷuɬ ‘half’ is exceptional in this respect.	page 22, footnote
+§3.3	St’át’imcets	cited form	tákem	page 22, ‘all’, a St’át’imcets quantifier, footnote 23
+§3.3	St’át’imcets	cited form	sáq̓ʷuɬ	page 22, ‘half’, a St’át’imcets quantifier, footnote 23
+(37) line 4	St’át’imcets	gloss	LOC-mattress	page 23, engine english, a St’át’imcets example
+(37) line 5	Henry Davis and Sander Nederveen	translation	‘The air mattress got half-inflated.’	page 23, engine english
+(38) line 1	St’át’imcets	segmentation	tákəm ʔi=pə̣tạ́k=a sáq̓ʷuɬ=Ø kʷ=s=q̓ʷəl=s,	page 23, engine language, a St’át’imcets example
+(38) line 2	St’át’imcets	gloss	all PL.DET=potato=EXIS half=3SBJ D/C=NMLZ=get.cooked=3POSS	page 23, engine english, a St’át’imcets example
+(38) line 3	St’át’imcets	segmentation	ʔạz kʷas ka-c̓áqʷ-a	page 23, engine language, a St’át’imcets example
+(38) line 4	St’át’imcets	gloss	NEG D/C+NMLZ+IPFV+3POSS CIRC-get.eaten-CIRC	page 23, engine english, a St’át’imcets example
+(38) line 5	Henry Davis and Sander Nederveen	translation	‘All the potatoes are half-cooked: they can’t be eaten.’	page 23, engine english
+§3.3	Henry Davis and Sander Nederveen	note	These cases are designed specifically to exclude entity-related readings: if an air mattress is half- inflated, it doesn’t mean that half of it is inflated, and, if all the potatoes are half-cooked, it doesn’t mean that half of each potato is cooked.	page 23
+§3.3	St’át’imcets	cited form	saq̓ʷuɬ	page 23, ‘half’, a St’át’imcets quantifier, footnote 23
+§3.3	Henry Davis and Sander Nederveen	note	Since the bare bones account says nothing about the internal structure of the COS event, it runs into trouble with the event degree modifier saq̓ʷuɬ ‘half’ in (36)-(37), which has literally nothing to apply to. On the other hand, the degree-based account fares well in these cases, since it is easy to calibrate degrees on a scale to model a half-completed event.	page 23
+§3.3	Henry Davis and Sander Nederveen	note	We conclude that the added complexity of the degree-based version of COS is justified by its better empirical coverage, and particularly by the fact that it can be extended easily from t-marked COS verbs in Secwepemctsín and nɬeʔkepmxcín to bare root COS in St’át’imcets, whereas it is difficult to see how the bare bones account can be extended in the other direction.	page 23
+§4	Henry Davis and Sander Nederveen	heading	4 Diachronic Implications	page 23
+§4	Henry Davis and Sander Nederveen	language	Secwepemctsín	a.k.a. Shuswap, ISO 639-3 shs, Northern Interior Salish, one of the four languages compared
+§4	Henry Davis and Sander Nederveen	language	nɬeʔkepmxcín	a.k.a. Thompson River Salish, ISO 639-3 thp, Northern Interior Salish, one of the four languages compared
+§4	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+§4	Henry Davis and Sander Nederveen	note	It is now time to bring together the two halves of the paper. In Section 2, we surveyed the cross- Salishan distribution of intransitive -t, concluding that it is of great antiquity, since it is found (albeit in relic form) in both major branches of the family as well as the outlier Nuxalk. However, in Central Salish and Nuxalk it is confined to adjectival (‘property concept’) roots, whereas in the Interior it is also found on COS roots, robustly so in the Northern Interior languages Secwepemctsín and nɬeʔkepmxcín but only in a few relic forms in St’át’imcets, where t-marked COS forms have been replaced by bare root COS verbs, and variably in the Southern Interior, where t-marking on COS verbs has been largely replaced by inchoative morphology, as in nysilxcn (Lyon 2023). This distribution led us to consider the question of whether t-marking on COS verbs was originally widespread, but has been retained in something like its original form only in Secwepemctsín and nɬeʔkepmxcín, or alternatively whether it has been innovated in the two Northern Interior languages and borrowed sporadically by other Interior languages (though evidently not by coastal languages, which unlike St’át’imcets lack any trace of COS -t). Rather than try to answer this question for the whole family (particularly given the lack of evidence for COS -t on the coast), we then focused in Section 3 on the relationship between COS markers in the three Northern Interior languages. Our primary goal was to elucidate synchronically whether the root-based analysis of Bar-el et al. (2005), Kiyota (2008), and Davis (2024), devised for St’át’imcets and other bare root COS languages, could be extended to t-suffixed COS verbs in Secwepemctsín and nɬeʔkepmxcín (and their inchoative-affixed counterparts elsewhere in the Interior), or whether alternatively, the degree-based approach of Nederveen (2024, in prep.), designed specifically to account for t-suffixation, could be fruitfully extended to bare root COS verbs in St’át’imcets and Central Salish. We concluded in favour of the second option. Our answer to this synchronic question has clear diachronic implications. Just as it is easy to extend the t-suffixation analysis to bare root COS forms by proposing a zero-marked counterpart to -t, so it is easy to see how the historical loss of an overt marker such as -t could lead to zero- marking in apparent cases of bare root COS verbs in St’át’imcets (and to its replacement by inchoative marking in the Southern Interior). But the opposite diachronic trajectory is problematic: why would Secwepemctsín and nɬeʔkepmxcín innovate a t-suffix to do the job that bare root COS verbs already did elsewhere without the need for any additional derivational process? Why would remnants of this suffix appear both in St’át’imcets and the Southern Interior? And why would the Southern Interior languages also replace bare root COS verbs, but use inchoative marking to supplant them instead of -t? Notice also that it is does not appear that bare root COS verbs are inherently unstable; their widespread distribution throughout Central Salish (with no sign there that they are being replaced by overt COS morphology) argues to the contrary that they represent a relatively steady state.	page 23
+§4	Henry Davis and Sander Nederveen	language	St’át'imcets	St’át’imcets, printed with a straight second apostrophe on page 24
+§4	Henry Davis and Sander Nederveen	note	In other words, the evidence seems to support a trajectory of either loss or replacement of an originally widespread COS suffix -t, whose distribution is now limited to the Northern Interior languages Secwepemctsín and nɬeʔkepmxcín, with remnants elsewhere in the Interior. Finally, note that although this story plausibly accounts for the distribution of COS -t in the Interior, it leaves Central Salish (which shows no trace of COS -t and only has remnants of adjectival -t) more of a mystery. One possibility is that COS -t only diverged from adjectival -t after Interior and Central Salish separated. This, however, would mean that bare COS roots in Central Salish (which are widely attested and well-documented) cannot have arisen via the same diachronic path (loss of -t) as in St’át’imcets, which leaves the latter in an anomalous position not as the only Interior language with bare root COS verbs but also as the only language to have innovated a zero- marked version of COS -t. One possible explanation for this is that loss of -t in St’át’imcets was triggered by contact with neighbouring Central Salish languages such as Skwxwu7mesh/Squamish, which have bare root COS verbs, as documented in Bar-el et al. (2005); it is known that in other ways (e.g., its pronominal system), St’át'imcets has hybridized quite extensively with Skwxwu7mesh.	page 24
+§4	Henry Davis and Sander Nederveen	note	The provenance of bare root COS verbs in Central Salish, however, remains unexplained on that account. The alternative is that COS -t was originally present in the family at a stage prior to the separation of Interior from Coast Salish (perhaps as a descendant of an even earlier stage where -t was a general marker of intransitivity, as attested by the ‘anomalous -t’ cases discussed in 3.2 above.) It was then lost completely on the coast, but retained until comparatively recently in the Interior. On this account, St’át’imcets is not so much an anomaly as a clue to what happened in Coast Salish, where relic forms of COS -t are missing and the diachronic path from derived to bare root COS verbs has been obscured.	page 24
+references	Henry Davis and Sander Nederveen	heading	References	page 24
+references	Henry Davis and Sander Nederveen	reference	Bar-el, Leora, Henry Davis and Lisa Matthewson. 2005. On non-culminating accomplishments. In L. Bateman and C. Ussery (eds.), Proceedings of the 35th North East Linguistic Society Conference. Amherst, MA: GLSA, 87-102.	
+references	Henry Davis and Sander Nederveen	reference	Carlson, Barry and Laurence. C. Thompson. 1982. Out of control in two (maybe more) Salish languages. Anthropological Linguistics 24: 51-65.	
+references	Henry Davis and Sander Nederveen	language	St’át’imcets	a.k.a. Lillooet, ISO 639-3 lil, Northern Interior Salish, one of the four languages compared
+references	Henry Davis and Sander Nederveen	reference	Davis, Henry. 1997. Deep Unaccusativity and zero syntax in St’át’imcets. In Theoretical Issues at the Morphology-Syntax Interface, ed. Amelia Mendikoetxea and Miriam Uribe-Etxebarria. Bilbao: Supplements of the International Journal of Basque Linguistics and Philology, 55-96.	
+references	Henry Davis and Sander Nederveen	reference	Davis, Henry. 2011. Stalking the adjective in St’át’imcets. Northwest Journal of Linguistics 5.2: 1-60.	
+references	St’át’imcets	cited form	Sqwéqwel	‘stories’, Sqwéqwel’ in the title of Davis 2022 and Mitchell 2022
+references	Henry Davis and Sander Nederveen	name	St’át’imc	the Upper St’át’imc Language, Culture and Education Society, a publisher in Davis 2022
+references	Henry Davis and Sander Nederveen	reference	Davis, Henry. 2022. Introduction. In Mitchell (2022), Wa7 Sqwéqwel’ sSam: St’át’imcets stories from Sam Mitchell, transcribed, translated and edited by Henry Davis and John Lyon, 27-65. Lillooet and Vancouver, BC: The Upper St’át’imc Language, Culture and Education Society and PNWLL Press.	
+references	Henry Davis and Sander Nederveen	reference	Davis, Henry. 2024. Going radical in Salish. In Proceedings of West Coast Conference on Formal Linguistics 39, ed. Robert Autry, Gabriela de la Cruz, Luis A. Irizarry Figueroa, Kristina Mihajlovic, Tianyi Ni, Ryan Smith, and Heidi Harley, 303–312. Cascadilla Proceedings Project, Somerville, MA, USA.	
+references	Henry Davis and Sander Nederveen	reference	Davis, Henry and Lisa Matthewson. 2009. Issues in Salish syntax and semantics. Language and Linguistics Compass 3:1097–1166.	
+references	St’át’imcets	cited form	múta7	‘and’, in the title of Edwards et al. in preparation
+references	St’át’imcets	cited form	Skelkela7llkálha	‘Legends and Stories of our Ancestors’, in the title of Edwards et al. in preparation
+references	Henry Davis and Sander Nederveen	reference	Edwards, Annie, Francis Edwards, Paul Hickson and Ray C. Tom. In preparation. Sptakwlh múta7 Sqweqwel’s Nelh Skelkela7llkálha (‘Legends and Stories of our Ancestors’). Volume II of the Bouchard tapes, transcribed, translated and edited by Henry Davis and John Lyon. To be published by The Upper St’át’imc Language, Culture and Education Society and The Upper St’át’imc Language, Culture and Education Society and PNWLL Press.	
+references	St’át’imcets	cited form	Sqwéqwel’s	in the title of Edwards et al. 2017
+references	St’át’imcets	cited form	Skelkekla7lhkálha	‘Tales of our Elders’, in the title of Edwards et al. 2017
+references	Henry Davis and Sander Nederveen	reference	Edwards, Bill, Sam Mitchell, and Martina LaRochelle. 2017. Sqwéqwel’s nelh Skelkekla7lhkálha (‘Tales of our Elders’), edited, transcribed and translated by Henry Davis John Lyon, Jan van Eijk and Rose Whitley. Lillooet and Vancouver, BC: The Upper St’át’imc Language, Culture and Education Society and UBCOPL.	
+references	Henry Davis and Sander Nederveen	reference	Hay, Jennifer, Christopher Kennedy, and Beth Levin. 1999. Scalar structure underlies telicity in “degree achievements”. Semantics and Linguistic Theory 9:127–144.	
+references	Henry Davis and Sander Nederveen	reference	Kennedy, Christopher, and Louise McNally. 2005. Scale structure, degree modification, and the semantics of gradable predicates. Language 81:345–381.	
+references	Henry Davis and Sander Nederveen	reference	Kennedy, Christopher, and Beth Levin. 2008. Measure of change: the adjectival core of degree achievements. In Adjectives and adverbs: Syntax, semantics and discourse, ed. Louise McNally and Christopher Kennedy, 156–182. Oxford University Press.	
+references	Henry Davis and Sander Nederveen	reference	Kennedy, Christopher. 2007. Vagueness and grammar: the semantics of relative and absolute gradable adjectives. Linguistics and Philosophy 30:1-45.	
+references	Henry Davis and Sander Nederveen	reference	Kennedy, Christopher. 2012. The composition of incremental change. In Telicity, change, state: A cross-categorical view of event structure, ed. Violeta Demonte and Louise McNally, 103–121. Oxford: Oxford University Press.	
+references	Henry Davis and Sander Nederveen	reference	Kinkade, M. Dale. 1982. Columbian (Salish) C₂-Reduplication. Anthropological Linguistics 24: 66-72.	
+references	Henry Davis and Sander Nederveen	reference	Kinkade, M. Dale. 1989. Inchoatives in Columbia Salish. In Papers for the International Conference on Salish and Neighbouring Languages XXIV, 114-119. Steilacoom, WA. Accessed via the Kinkade Collection, hosted by UBCWPL at https://lingpapers.sites.olt.ubc.ca/files/2018/03/1989_Kinkade_2.pdf.	
+references	Henry Davis and Sander Nederveen	reference	Kinkade, M. Dale. 1996. Reconstructing aspect in Salish languages. In Papers for the International Conference on Salish and Neighbouring Languages XXX1, 185-195. Vancouver, B.C.: University of British Columbia. Accessed via the Kinkade Collection, hosted by UBCWPL at https://lingpapers.sites.olt.ubc.ca/files/2018/03/1996_Kinkade.pdf Kinkade, M. Dale. n.d. Suffixes. Unpublished notes on comparative and historical Salish morphology, University of British Columbia.	
+references	Henry Davis and Sander Nederveen	reference	Kinkade, M. Dale and Masaru Kiyota. 2004. Changing state in Salish languages. Papers for the International Conference on Salish and Neighbouring Languages XXXIX, ed. Jason Brown and Tyler Peterson, 231-240.Vancouver, BC: UBCWPL 014.	
+references	Henry Davis and Sander Nederveen	reference	Kiyota, Masaru. 2008. Situation aspect and viewpoint aspect: from Salish to Japanese. Ph.D. dissertation, University of British Columbia.	
+references	Henry Davis and Sander Nederveen	reference	Kratzer, Angelika. 1998. More structural analogies between pronouns and tenses. Proceedings of the 8th Semantics and Linguistic Theory Conference. https://doi.org/10.3765/salt.v8i0.2808.	
+references	Henry Davis and Sander Nederveen	reference	Kuipers, Aert H. 1974. The Shuswap Language: Grammar, Texts, Dictionary. The Hague, Netherlands: Mouton.	
+references	Henry Davis and Sander Nederveen	reference	Lyon, John. 2023. The stative-inchoative alternation in Nsyilxcn. In Papers for the International Conference on Salish and Neighbouring Languages 59, 230-290, ed. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Julia Schillo, and Bailey Trotter. Vancouver, BC: UBCWPL.	
+references	Henry Davis and Sander Nederveen	reference	Mattina, Nancy. 1996. Aspect and category in Okanagan word formation. Ph.D. dissertation, Simon Fraser University.	
+references	Henry Davis and Sander Nederveen	reference	Mellesmoen, Gloria. 2025. The grammar of Salish reduplication. Ph.D. dissertation, University of British Columbia.	
+references	Henry Davis and Sander Nederveen	reference	Mitchell, Sam. 2022. Wa7 Sqwéqwel’ sSam: St’át’imcets stories from Sam Mitchell, transcribed, translated and edited by Henry Davis and John Lyon. Lillooet and Vancouver, BC: The Upper St’át’imc Language, Culture and Education Society and PNWLL Press.	
+references	Henry Davis and Sander Nederveen	reference	Modrow, Ruth. 1971. Quinault dictionary. Unpublished manuscript in the Kinkade collection, Department of Linguistics, UBC.	
+references	Henry Davis and Sander Nederveen	name	Calderón-Corona	Mariana Calderón-Corona, an editor in Nederveen 2024
+references	Henry Davis and Sander Nederveen	reference	Nederveen, Sander. 2024. Maximal and non-minimal change of state in Salish event structure. In Mariana Calderón-Corona, Polina Kasyanova, and Eva Neu (eds). Proceedings of Semantics of Under-Represented Languages in the Americas 12: 83-8. Amherst, MA: GLSA Publications.	
+references	Henry Davis and Sander Nederveen	language	Seliš	in the title of Pete 2011
+references	Montana Salish	cited form	Nyoʔnuntn	in the title of Pete 2011, Seliš Nyoʔnuntn (Medicine for the Salish Language)
+references	Henry Davis and Sander Nederveen	reference	Nederveen, Sander. In preparation. Agent control, (in)transitivity, and the composition of lexical aspect in Northern Interior Salish. Ph.D. dissertation. University of British Columbia.	
+references	Henry Davis and Sander Nederveen	reference	Pete, Tachini. 2011. Seliš Nyoʔnuntn (Medicine for the Salish Language): English to Salish Translation Dictionary, 2nd Edition. Missoula, MT: Salish-Kootenai College Press.	
+references	Henry Davis and Sander Nederveen	reference	Reichard, Gladys. 1938. Coeur D’Alene. In Franz Boas (ed.), Handbook of American Indian Languages Volume 3. New York: Columbia University Press, 515-707.	
+references	Henry Davis and Sander Nederveen	reference	Thompson, Laurence C. and M. Terry Thompson. 1992. The Thompson Language. Missoula, MT: UMOPL 8.	
+references	Henry Davis and Sander Nederveen	reference	Van Eijk, Jan. 1990. VC reduplication in Salish. Anthropological Linguistics 32: 228-262. Van Eijk, Jan. 1997. The Lillooet Language: Phonology, Morphology, Syntax. Vancouver, BC: University of British Columbia Press.	
+references	Henry Davis and Sander Nederveen	reference	Vendler, Zeno. 1957. Verbs and time. The Philosophical Review 2:143-160.	
+references	Henry Davis and Sander Nederveen	language	Nxa’amxcín	in the title of Willet 2003
+references	Henry Davis and Sander Nederveen	reference	Willet, Marie-Louise. 2003. A grammatical sketch of Nxa’amxcín (Moses-Columbia Salish). Ph.D. dissertation, University of Victoria.	
+title	Henry Davis and Sander Nederveen	title	Intransitive -t in Salish	the paper's title, which carries footnote *
+title	Henry Davis and Sander Nederveen	name	Henry Davis	an author, University of British Columbia
+title	Henry Davis and Sander Nederveen	name	Sander Nederveen	an author, University of British Columbia
+footnote *	Henry Davis and Sander Nederveen	name	Carl Alexander	Qwa7yán’ak, a speaker of St’át’imcets, the consultant of the St’át’imcets examples
+footnote *	Henry Davis and Sander Nederveen	name	Bridget Dan	a speaker of Secwepemctsín
+footnote *	Henry Davis and Sander Nederveen	name	Julie Antoine	a speaker of Secwepemctsín
+footnote *	Henry Davis and Sander Nederveen	name	Garlene Dodson	a speaker of Secwepemctsín
+footnote *	Henry Davis and Sander Nederveen	name	Bernice Garcia	kʷaɬɬtèzetkʷuʔ, a speaker of nɬeʔkepmxcín who is re-learning her language
+footnote *	Henry Davis and Sander Nederveen	name	Marty Aspinall	c̓úʔsinek, a speaker of nɬeʔkepmxcín
+footnote *	Henry Davis and Sander Nederveen	name	Gene Moses	a speaker of nɬeʔkepmxcín
+footnote *	Henry Davis and Sander Nederveen	name	Bev Phillips	a speaker of nɬeʔkepmxcín

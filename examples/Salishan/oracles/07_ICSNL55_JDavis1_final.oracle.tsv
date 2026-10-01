@@ -1,0 +1,512 @@
+where	who	kind	form	gloss
+front	John Hamilton Davis	title	Disambiguating {-Vm} Suffixes in Mainland Comox	page 1
+front	John Hamilton Davis	name	John Hamilton Davis	author
+front	John Hamilton Davis	note	Bellingham, Washington	page 1, under John Hamilton Davis
+front	John Hamilton Davis	note	Abstract: In Mainland Comox, there are several suffixes with the shape /-əm/ or /-am/. These suffixes are difficult for a marginal or non-speaker to distinguish, but when pronounced carefully are heard to be acoustically distinct. In rapid discourse, they are distinguished by syntactic or pragmatic context.	page 1, the abstract
+front	John Hamilton Davis	note	Keywords: middle voice, indefinite object, spatial relations, Mainland Comox.	page 1, the keywords
+front	John Hamilton Davis	note	Papers for the International Conference on Salish and Neighboring Languages 55. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2020.	page 1, the volume's header
+front	John Hamilton Davis	language	Mainland Comox	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish, ISO 639-3 coo
+§1	John Hamilton Davis	heading	1 Introduction	page 1
+§1	John Hamilton Davis	note	Bill Galligos (born 1908) was careful to point out the difference between two seemingly homophonous suffixes. He volunteered that the word for ‘become sick’ kwetem [kʷʊtəm] ends with “t-u-m” and is different from the word for “go over, like go over a fence” kwetam [kʷʊtᴧm] ~ [kʷʊtam] which ends with “t-a-m”. Since his explanation, the difference between these two suffixes has shown up in tales told by Noel George Harry (whose Indian name was Mowheyalas [moçʷiyalᴧs], Tommy Paul (known as Swinney [swɪniɪ] and whose Indian name was Yapawtwh [yεpᴧʊtçʷ]), and Ambrose Wilson. The speakers whose speech most clearly illustrated this difference were Sliammon speakers Mary George and Elsie Paul and Homalco speakers Ambrose Wilson, his sister Adeline Francis, and Noel Harry (known as Nuwa [nuwᴧ]), who was considered to be ’i’ayten [ʔεʔaɪtən] ‘good natured; a cheerful person who cheers others’.	page 1
+§1	John Hamilton Davis	name	Bill Galligos	Mainland Comox speaker, born 1908
+§1	John Hamilton Davis	name	Noel George Harry	Mowheyalas, Homalco speaker and storyteller
+§1	John Hamilton Davis	name	Noel Harry	Nuwa
+§1	John Hamilton Davis	name	Tommy Paul	Swinney, Yapawtwh, storyteller
+§1	John Hamilton Davis	name	Ambrose Wilson	Homalco speaker
+§1	John Hamilton Davis	name	Mary George	Sliammon speaker
+§1	John Hamilton Davis	name	Elsie Paul	Sliammon speaker
+§1	John Hamilton Davis	name	Adeline Francis	Homalco speaker, Ambrose Wilson's sister
+§1	John Hamilton Davis	language	Sliammon	a dialect of Mainland Comox
+§1	John Hamilton Davis	language	Homalco	a dialect of Mainland Comox
+§2	John Hamilton Davis	heading	2 A list of seemingly homophonous suffixes	page 1
+§2	John Hamilton Davis	note	The following sections present examples of /-əm/ as a place name, /-əm/ as the ending on an intransitive verb, /-əm/ as reflexive, /-ʔəm/ marking a transitive verb with an indefinite patient, /‑am/ as an indicator of what is predicted to happen, and /-am/ as an indicator of location. This latter use is contrasted with the ending /-igan/ which also shows location and /-am/ which refers to the interior of a container.	page 1
+§3	John Hamilton Davis	heading	3 Place names	page 1
+§3	John Hamilton Davis	note	One way that places are named is with the suffix /-əm/. Examples include the following:	page 1
+(1a) line 1	Mainland Comox	transcription	peqws	page 1, in columns
+(1b) line 1	Mainland Comox	transcription	peqwsem	page 1, in columns
+(1a) line 2	Mainland Comox	phonetic	[pɔqʷs]	page 1, in columns
+(1b) line 2	Mainland Comox	phonetic	[pɔqʷsəm]	page 1, in columns
+(1a) line 3	Mainland Comox	phonemic	/pəqʷs/	page 1, in columns
+(1b) line 3	Mainland Comox	phonemic	/pəqʷsəm/	page 1, in columns
+(1a) line 4	John Hamilton Davis	translation	‘fall into the water’	page 1, in columns
+(1b) line 4	John Hamilton Davis	translation	‘place of falling overboard’	page 1, in columns
+(1b) line 5	John Hamilton Davis	note	(a site in Bute Inlet)	page 1, in columns
+(2a) line 1	Mainland Comox	transcription	thathxays	page 1, in columns
+(2b) line 1	Mainland Comox	transcription	thathxaysem	page 1, in columns
+(2a) line 2	Mainland Comox	phonetic	[θaθχaɪs]	page 1, in columns
+(2b) line 2	Mainland Comox	phonetic	[θaθχaɪsəm]	page 1, in columns
+(2a) line 3	John Hamilton Davis	translation	‘gravel’	page 1, in columns
+(2b) line 3	John Hamilton Davis	translation	‘gravel beach/place’	page 1, in columns
+(2b) line 4	John Hamilton Davis	note	(one name for Westview)	page 1, in columns
+§3	John Hamilton Davis	note	Jimmy Wilson (son of Ambrose Wilson) gave the following analysis for the name of the beach in front of Sliammon village:	page 2
+§3	John Hamilton Davis	name	Jimmy Wilson	son of Ambrose Wilson
+(3a) line 1	Mainland Comox	transcription	t’eshem	page 2, in columns
+(3b) line 1	Mainland Comox	transcription	t’eshius	page 2, in columns
+(3a) line 2	Mainland Comox	phonetic	[t̉ɪšɪm]	page 2, in columns
+(3b) line 2	Mainland Comox	phonetic	[t̉ɪšʸus]	page 2, in columns
+(3a) line 3	Mainland Comox	phonemic	/t̉əšəm/	page 2, in columns
+(3b) line 3	Mainland Comox	phonemic	/t̉əšʸus/	page 2, in columns
+(3a) line 4	John Hamilton Davis	translation	‘(water) milky/cloudy’	page 2, in columns
+(3b) line 4	John Hamilton Davis	translation	‘appear milky/cloudy’ (herring spawn)	page 2, in columns
+(3c) line 1	Mainland Comox	transcription	t’eshiusem	page 2, in columns
+(3c) line 2	Mainland Comox	phonetic	[t̉ɪšʸusəm]	page 2, in columns
+(3c) line 3	Mainland Comox	phonemic	/t̉əšʸusəm/	page 2, in columns
+(3c) line 4	John Hamilton Davis	translation	‘place of herring spawning’	page 2, in columns
+§3	John Hamilton Davis	note	The story of this name was given in Tommy Paul’s commentary on twins (Davis 2016:75–76). When Marion Harry heard the audio of this story, she remarked that Marshall Dominic once had a twin and the two of them brought the herrings to the beach in front of Sliammon so they would continue to spawn there.	page 2
+§3	John Hamilton Davis	name	Marion Harry	remarked on the twins story
+§3	John Hamilton Davis	name	Marshall Dominic	brought the herrings, in Marion Harry's account
+§3	John Hamilton Davis	note	Possibly related:	page 2
+(4a) line 1	Mainland Comox	transcription	tihsk’wat	page 2, in columns
+(4b) line 1	Mainland Comox	transcription	k’watem	page 2, in columns
+(4a) line 2	Mainland Comox	phonetic	[tihsk̉ʷat]	page 2, in columns
+(4b) line 2	Mainland Comox	phonetic	[k̉ʷatəm]	page 2, in columns
+(4a) line 3	John Hamilton Davis	translation	‘Powell River’	page 2, in columns
+(4b) line 3	John Hamilton Davis	translation	‘river’	page 2, in columns
+(4a) line 4	John Hamilton Davis	note	The place name retains the archaic /s/.	page 2, in columns
+(4b) line 4	John Hamilton Davis	note	This is not a specific place name.	page 2, in columns
+§3	John Hamilton Davis	heading	3 /-əm/ as a marker of intransitive	page 2
+(5) line 1	Mainland Comox	transcription	hasem	page 2, in columns
+(6) line 1	Mainland Comox	transcription	kwetem	page 2, in columns
+(7) line 1	Mainland Comox	transcription	sechem	page 2, in columns
+(8) line 1	Mainland Comox	transcription	k’wez’em	page 2, in columns
+(5) line 2	Mainland Comox	phonetic	[hasəm]	page 2, in columns
+(6) line 2	Mainland Comox	phonetic	[kʷʊtəm]	page 2, in columns
+(7) line 2	Mainland Comox	phonetic	[sɪčɪm]	page 2, in columns
+(8) line 2	Mainland Comox	phonetic	[k̉ʷʊt̉ᶿəm]	page 2, in columns
+(5) line 3	Mainland Comox	phonemic	/hasəm/	page 2, in columns
+(6) line 3	Mainland Comox	phonemic	/kʷətəm/	page 2, in columns
+(7) line 3	Mainland Comox	phonemic	/səčəm/	page 2, in columns
+(8) line 3	Mainland Comox	phonemic	/k̉ʷət̉ᶿəm/	page 2, in columns
+(5) line 4	John Hamilton Davis	translation	‘sneeze’	page 2, in columns
+(6) line 4	John Hamilton Davis	translation	‘become sick’	page 2, in columns
+(7) line 4	John Hamilton Davis	translation	‘itch’	page 2, in columns
+(8) line 4	John Hamilton Davis	translation	‘jump’	page 2, in columns
+§4	John Hamilton Davis	heading	4 /-əm/ as probable intransitive, possible reflexive	page 2
+(9a) line 1	Mainland Comox	transcription	shiasem	page 2, in columns
+(9b) line 1	Mainland Comox	transcription	shiaset	page 2, in columns
+(9a) line 2	Mainland Comox	phonetic	[šʸæsəm]	page 2, in columns
+(9b) line 2	Mainland Comox	phonetic	[šʸæsət]	page 2, in columns
+(9a) line 3	John Hamilton Davis	translation	‘to sneak’	page 2, in columns
+(9b) line 3	John Hamilton Davis	translation	‘sneak up on him/her’	page 2, in columns
+(10a) line 1	Mainland Comox	transcription	tlemlhalh	page 2, in columns
+(10b) line 1	Mainland Comox	transcription	tlemlhayem 1	page 2, in columns
+footnote 1	John Hamilton Davis	note	‘to wet his/her throat’ has not been recorded.	page 2, footnote 1
+(10a) line 2	Mainland Comox	phonetic	[ƛᴧmɬaɬ]	page 2, in columns
+(10b) line 2	Mainland Comox	phonetic	[ƛᴧmɬayɪm]	page 2, in columns
+(10a) line 3	John Hamilton Davis	translation	‘wet throat’	page 2, in columns
+(10b) line 3	John Hamilton Davis	translation	‘to wet one’s throat’ (have a drink)	page 2, in columns
+§5	John Hamilton Davis	heading	5 /-əm/ as reflexive	page 3
+(11a) line 1	Mainland Comox	transcription	lhilhichem	page 3, in columns
+(11b) line 1	Mainland Comox	transcription	lhilhicht	page 3, in columns
+(11a) line 2	Mainland Comox	phonetic	[ɬiɬičɪm]	page 3, in columns
+(11b) line 2	Mainland Comox	phonetic	[ɬiɬičt]	page 3, in columns
+(11a) line 3	Mainland Comox	underlying	{C1V1-ɬič-əm}	page 3, in columns
+(11b) line 3	Mainland Comox	underlying	{C1V1-ɬič-t}	page 3, in columns
+(11a) line 4	Mainland Comox	gloss	IMPF-comb-əm	page 3, in columns
+(11b) line 4	Mainland Comox	gloss	IMPF-comb-TRANS	page 3, in columns
+(11a) line 5	John Hamilton Davis	translation	‘combing one’s hair’	page 3, in columns
+(11b) line 5	John Hamilton Davis	translation	‘combing his/her hair’	page 3, in columns
+(12a) line 1	Mainland Comox	transcription	thejiaqop	page 3, in columns
+(12b) line 1	Mainland Comox	transcription	thejiaqopem	page 3, in columns
+(12c) line 1	Mainland Comox	transcription	thejiaqopt	page 3, in columns
+(12a) line 2	Mainland Comox	phonetic	[θɪǰʸæqʷop]	page 3, in columns
+(12b) line 2	Mainland Comox	phonetic	[θɪǰʸæqʷopəm]	page 3, in columns
+(12c) line 2	Mainland Comox	phonetic	[θɪǰʸæqʷopt]	page 3, in columns
+(12a) line 3	John Hamilton Davis	translation	‘hat’	page 3, in columns
+(12b) line 3	John Hamilton Davis	translation	‘don a hat’	page 3, in columns
+(12c) line 3	John Hamilton Davis	translation	‘put a hat on him/her’	page 3, in columns
+(13a) line 1	Mainland Comox	transcription	sasaxosem	page 3, in columns
+(13b) line 1	Mainland Comox	transcription	sasaxost	page 3, in columns
+(13c) line 1	Mainland Comox	transcription	saxwat	page 3, in columns
+(13a) line 2	Mainland Comox	phonetic	[sasaχʷosəm]	page 3, in columns
+(13b) line 2	Mainland Comox	phonetic	[sasaχʷost]	page 3, in columns
+(13c) line 2	Mainland Comox	phonetic	[saχʷat]	page 3, in columns
+(13a) line 3	Mainland Comox	underlying	{C1V1-saχʷ-os-əm}	page 3, in columns
+(13b) line 3	Mainland Comox	underlying	{C1V1-saχʷ-os-t}	page 3, in columns
+(13c) line 3	Mainland Comox	phonemic	/saχʷa-t/	page 3, in columns
+(13a) line 4	Mainland Comox	gloss	IMPF-scrape-face-əm	page 3, in columns
+(13b) line 4	Mainland Comox	gloss	IMPF-scrape-face-TRANS	page 3, in columns
+(13c) line 4	Mainland Comox	gloss	scrape- TRANS	page 3, in columns
+(13a) line 5	John Hamilton Davis	translation	‘shaving oneself’	page 3, in columns
+(13b) line 5	John Hamilton Davis	translation	‘shaving him/her’	page 3, in columns
+(13c) line 5	John Hamilton Davis	translation	‘scrape it’	page 3, in columns
+(14a) line 1	Mainland Comox	transcription	k’wenosem	page 3, in columns
+(14b) line 1	Mainland Comox	transcription	k’wenost	page 3, in columns
+(14c) line 1	Mainland Comox	transcription	k’wenos.’em	page 3, in columns
+(14a) line 2	Mainland Comox	phonetic	[k̉ʷʊnosəm]	page 3, in columns
+(14b) line 2	Mainland Comox	phonetic	[k̉ʷʊnost]	page 3, in columns
+(14c) line 2	Mainland Comox	phonetic	[k̉ʷʊnosʔəm]	page 3, in columns
+(14a) line 3	John Hamilton Davis	translation	‘look at one’s face’	page 3, in columns
+(14b) line 3	John Hamilton Davis	translation	‘look at his/her face’	page 3, in columns
+(14c) line 3	John Hamilton Davis	translation	‘look at another’s face’	page 3, in columns
+(14a) line 4	John Hamilton Davis	note	(in the mirror)	page 3, in columns
+§6	John Hamilton Davis	heading	6 /-ʔəm/ as transitive	page 3
+§6	John Hamilton Davis	note	After a transitive predicate ending in /-t/ (intent with or without result) or /-(n)əçʷ/ (result with or without intent), a single direct complement refers to a patient.2 However, when a predicate has the suffix /-ʔəm/ the single direct complement refers to the agent. When a patient is added, it is marked as oblique by the preposition /ʔə/. The word order is VSO.	page 3
+footnote 2	John Hamilton Davis	note	A second direct complement after a predicate marked with intent /-t/ or result /-(n)əçʷ/ occurs, although not common in the corpus, to indicate the agent. For example, a sequence “bit the dog the man” may pragmatically indicate that the dog bit the man, but grammatically means ‘the man bit the dog’ — Mary George finally corrected me in 1980. In other words, regular transitive word order is VOS even though word order after a predicate marked for passive is VSO.	page 3, footnote 2
+(15a) line 1	Mainland Comox	transcription	t’oz’otas kw qigath	page 3, in columns
+(15b) line 1	Mainland Comox	transcription	ho zem t’oz’.’em ’e kw qigath	page 3, in columns
+(15a) line 2	Mainland Comox	phonetic	[t̉ot̉ᶿotəs kʷ qεgᴧθ]	page 3, in columns
+(15b) line 2	Mainland Comox	phonetic	[ho tᶿəm t̉ot̉ᶿʔəm ʔə kʷ qεgᴧθ]	page 3, in columns
+(15a) line 3	Mainland Comox	phonemic	/t̉ut̉ᶿ-u-t-as kʷ qigaθ/	page 3, in columns
+(15b) line 3	Mainland Comox	phonemic	/hu tᶿəm t̉ut̉ᶿ-ʔəm ʔə kʷ qigaθ/	page 3, in columns
+(15a) line 4	Mainland Comox	gloss	shoot-(V)-TRANS-AGENT ART deer	page 3, in columns
+(15b) line 4	Mainland Comox	gloss	go 1SG.FUT shoot-TRANS OBL ART deer	page 3, in columns
+(15a) line 5	John Hamilton Davis	translation	‘(S)he shot (at) a deer.’	page 3, in columns
+(15b) line 5	John Hamilton Davis	translation	‘I’m going to go shoot (at) a deer.’	page 3, in columns
+(15c) line 1	Mainland Comox	transcription	t’oz’.’em Joe ’e kw qigath	page 3, in columns
+(15c) line 2	Mainland Comox	phonetic	[t̉ot̉ᶿʔəm Joe ʔə kʷ qεgᴧθ]	page 3, in columns
+(15c) line 3	Mainland Comox	phonemic	/t̉ut̉ᶿ-ʔəm Joe ʔə kʷ qigaθ/	page 3, in columns
+(15c) line 4	Mainland Comox	gloss	shoot-TRANS Joe OBL ART deer	page 3, in columns
+(15c) line 5	John Hamilton Davis	translation	‘Joe shot/shoots (at) a deer.’	page 3, in columns
+(16) line 1	Mainland Comox	transcription	hiy’amolh Chichila’ ’e she mos z’ok’wshten	page 4, in columns
+(16) line 2	Mainland Comox	phonetic	[hεɪʔamoɬ čičilaʔ ʔə šɪ mos t́ᶿoḱʷštən]3	page 4, in columns
+footnote 3	John Hamilton Davis	note	/ʔəm/ ⇒ [ʔam] before /uɬ/.	page 4, footnote 3
+(16) line 3	Mainland Comox	phonemic	/hiy-ʔəm-uɬ čičilaʔ ʔə šə mos t̉ᶿuk̉ʷštən/	page 4, in columns
+(16) line 4	Mainland Comox	gloss	make-TRANS- PAST name OBL ART four rug/mat	page 4, in columns
+(16) line 5	John Hamilton Davis	translation	‘Chichila’ made four mats/rugs.’	page 4, in columns, carries footnote 4
+footnote 4	John Hamilton Davis	note	In this example, Mary George used the name of her great-grandmother, Chichila, who was her father’s father’s mother.	page 4, footnote 4
+footnote 4	John Hamilton Davis	name	Chichila	Mary George's great-grandmother
+§6	John Hamilton Davis	note	This is parallel with the VSO order in a passive sentence, marked by the addition of /-əm/, where the agent is marked as oblique and the patient is unmarked:	page 4
+(17) line 1	Mainland Comox	transcription	hiytem ’e Mary te ninpos	page 4, in columns
+(17) line 2	Mainland Comox	phonetic	[hεɪtəm ʔə Mary tə nεnpos]	page 4, in columns
+(17) line 3	Mainland Comox	phonemic	/hiy-t-əm ʔə Mary tə ninpus/	page 4, in columns
+(17) line 4	Mainland Comox	gloss	make-TRANS-PASS OBL Mary ART sweater	page 4, in columns
+(17) line 5	John Hamilton Davis	translation	’Mary made the sweater.’	page 4, in columns
+§6	John Hamilton Davis	note	When a verb ending in /-ʔəm/ is imperfective, this suffix changes to /-aʔam/.	page 4
+§6	Mainland Comox	cited form	-aʔam	page 4, in italics
+§6	Mainland Comox	cited form	-ʔəm	page 4, in italics
+(18) line 1	Mainland Comox	transcription	lhelhna’amolh Chichila’ ’e she z’okwshten	page 4, in columns
+(18) line 2	Mainland Comox	phonetic	[ɬɪɬnaʔamoɬ čičilaʔ ʔə šɪ t̉ᶿok̉ʷštən]	page 4, in columns
+(18) line 3	Mainland Comox	underlying	{C1V1-ɬ(ə)n-aʔam-uɬ ʔə šə t̉ᶿok̉ʷštən}5	page 4, in columns
+footnote 5	John Hamilton Davis	note	{C1V1-C1ə-} the root schwa is elided.	page 4, footnote 5
+(18) line 4	Mainland Comox	gloss	IMPF-weave-aʔam-PAST OBL ART rug/mat	page 4, in columns
+(18) line 5	John Hamilton Davis	translation	‘Chichila’ was weaving a rug/mat.’	page 4, in columns
+(19a) line 1	Mainland Comox	transcription	hiy.’em ’e kw ninpos	page 4, in columns
+(19b) line 1	Mainland Comox	transcription	hahajia’am ’e kw ninpos	page 4, in columns
+(19a) line 2	Mainland Comox	phonetic	[hεɪʔəm ʔə kʷ nεnpos]	page 4, in columns
+(19b) line 2	Mainland Comox	phonetic	[hahaǰʸεʔεm ʔə kʷ nεnpos]	page 4, in columns
+(19a) line 3	Mainland Comox	phonemic	/hiy-ʔəm ʔə kʷ nεnpos/	page 4, in columns
+(19b) line 3	Mainland Comox	underlying	{C1V1-hiy-aʔam ʔə kʷ nεnpos}	page 4, in columns
+(19a) line 4	Mainland Comox	gloss	make-ʔəm OBL ART sweater	page 4, in columns
+(19b) line 4	Mainland Comox	gloss	IMPF-make-aʔam OBL ART sweater	page 4, in columns
+(19a) line 5	John Hamilton Davis	translation	‘make (knit) a sweater’	page 4, in columns
+(19b) line 5	John Hamilton Davis	translation	‘making (knitting) a sweater’	page 4, in columns
+(20a) line 1	Mainland Comox	transcription	z’eq’t	page 4, in columns
+(20b) line 1	Mainland Comox	transcription	z’eq’.’em	page 4, in columns
+(20a) line 2	Mainland Comox	phonetic	[t̉ᶿᴧq̉t]	page 4, in columns
+(20b) line 2	Mainland Comox	phonetic	[t̉ᶿᴧq̉ʔəm]	page 4, in columns
+(20a) line 3	Mainland Comox	phonemic	/t̉ᶿəq̉-t/	page 4, in columns
+(20b) line 3	Mainland Comox	phonemic	/t̉ᶿəq̉-ʔəm/	page 4, in columns
+(20a) line 4	Mainland Comox	gloss	throw-TRANS	page 4, in columns
+(20b) line 4	Mainland Comox	gloss	throw-TRANS	page 4, in columns
+(20a) line 5	John Hamilton Davis	translation	‘to throw it overhand’	page 4, in columns
+(20b) line 5	John Hamilton Davis	translation	‘throw something overhand’	page 4, in columns
+(20c) line 1	Mainland Comox	transcription	z’ez’q’a’am	page 4, in columns
+(20c) line 2	Mainland Comox	phonetic	[t̉ᶿɪt̉ᶿq̉aʔam]	page 4, in columns
+(20c) line 3	Mainland Comox	underlying	{C1V1-t̉ᶿ(ə)q̉-aʔam}	page 4, in columns
+(20c) line 4	Mainland Comox	gloss	IMPF-throw-TRANS	page 4, in columns
+(20c) line 5	John Hamilton Davis	translation	‘be pitching (baseball)’	page 4, in columns
+(21a) line 1	Mainland Comox	transcription	sep’t	page 5, in columns
+(21b) line 1	Mainland Comox	transcription	sep’.’em	page 5, in columns
+(21a) line 2	Mainland Comox	phonetic	[sʌ́p̉t]	page 5, in columns
+(21b) line 2	Mainland Comox	phonetic	[sʌ́p̉ʔəm]	page 5, in columns
+(21a) line 3	Mainland Comox	phonemic	/səp̉-t/	page 5, in columns
+(21b) line 3	Mainland Comox	phonemic	/səp̉-ʔəm/	page 5, in columns
+(21a) line 4	Mainland Comox	gloss	club-TRANS	page 5, in columns
+(21b) line 4	Mainland Comox	gloss	club-TRANS	page 5, in columns
+(21a) line 5	John Hamilton Davis	translation	‘to club it’	page 5, in columns
+(21b) line 5	John Hamilton Davis	translation	‘to club something’	page 5, in columns
+(21c) line 1	Mainland Comox	transcription	sesp’a’am	page 5, in columns
+(21d) line 1	Mainland Comox	transcription	sep’amin	page 5, in columns
+(21c) line 2	Mainland Comox	phonetic	[sɪsp̉aʔam]	page 5, in columns
+(21d) line 2	Mainland Comox	phonetic	[sᴧp̉amɪn]	page 5, in columns
+(21c) line 3	Mainland Comox	underlying	{C1V1-səp̉-aʔam}	page 5, in columns
+(21d) line 3	Mainland Comox	phonemic	/səp̉-amin/	page 5, in columns
+(21c) line 4	Mainland Comox	gloss	IMPF-club-aʔam	page 5, in columns
+(21d) line 4	Mainland Comox	gloss	club-INSTRUMENT	page 5, in columns
+(21c) line 5	John Hamilton Davis	translation	‘be batting (in baseball)’	page 5, in columns
+(21d) line 5	John Hamilton Davis	translation	‘baseball bat’	page 5, in columns
+(22a) line 1	Mainland Comox	transcription	yem.’em	page 5, in columns
+(22b) line 1	Mainland Comox	transcription	yeyma’am	page 5, in columns
+(22a) line 2	Mainland Comox	phonetic	[yɪmʔəm]	page 5, in columns
+(22b) line 2	Mainland Comox	phonetic	[yiɪmaʔam]	page 5, in columns
+(22a) line 3	Mainland Comox	phonemic	/yəm-ʔəm/	page 5, in columns
+(22b) line 3	Mainland Comox	underlying	{C1V1-y(ə)m-aʔam}	page 5, in columns
+(22a) line 4	John Hamilton Davis	translation	‘kick unspecified object’	page 5, in columns
+(22b) line 4	John Hamilton Davis	translation	‘kicking unspecified object(s)’	page 5, in columns
+(22c) line 1	Mainland Comox	transcription	ye’eyma’am	page 5, in columns
+(22c) line 2	Mainland Comox	phonetic	[yɪʔiɪmaʔam]	page 5, in columns
+(22c) line 3	John Hamilton Davis	translation	‘several people kicking unspecified object(s); playing soccer’	page 5, in columns
+(23) line 1	Mainland Comox	transcription	yeyq’a’am ti’i tumesh ’e kw xa’a	page 5, in columns
+(23) line 2	Mainland Comox	phonetic	[yiɪq̉aʔam tεʔε tumiš ʔə kʷ χaʔa]	page 5, in columns
+(23) line 3	Mainland Comox	underlying	{C1V1-y(ə)q̉-aʔam tεʔε tuməš ʔə kʷ χaʔa}	page 5, in columns
+(23) line 4	Mainland Comox	gloss	IMPF-buy- aʔam that man OBL ART clam	page 5, in columns
+(23) line 5	John Hamilton Davis	translation	‘That man is buying some clams.’	page 5, in columns
+§7	John Hamilton Davis	heading	7 /ʔam/ as impending	page 5
+(24a) line 1	Mainland Comox	transcription	saxwa	page 5, in columns
+(24b) line 1	Mainland Comox	transcription	saxw.’am	page 5, in columns
+(24a) line 2	Mainland Comox	phonetic	[saχʷa]	page 5, in columns
+(24b) line 2	Mainland Comox	phonetic	[saχʷʔam]	page 5, in columns
+(24a) line 3	John Hamilton Davis	translation	‘urinate’	page 5, in columns, carries footnote 6
+footnote 6	John Hamilton Davis	note	In Puget Salish, there are separate words for a woman to urinate and for a man to urinate. This distinction may have been throughout the Coast Salish area, but is undocumented in Comox.	page 5, footnote 6
+footnote 6	John Hamilton Davis	language	Puget Salish	Central Salish
+footnote 6	John Hamilton Davis	language	Comox	Mainland Comox
+(24b) line 3	John Hamilton Davis	translation	‘need to urinate’	page 5, in columns
+(25a) line 1	Mainland Comox	transcription	qoqo	page 5, in columns
+(25b) line 1	Mainland Comox	transcription	qoqo’am	page 5, in columns
+(25a) line 2	Mainland Comox	phonetic	[qʷoqʷo]	page 5, in columns
+(25b) line 2	Mainland Comox	phonetic	[qʷoqʷoʔam]	page 5, in columns
+(25a) line 3	John Hamilton Davis	translation	‘drink’	page 5, in columns
+(25b) line 3	John Hamilton Davis	translation	‘thirsty’	page 5, in columns
+(25c) line 1	Mainland Comox	transcription	qoqo’amstomayem	page 5, in columns
+(25c) line 2	Mainland Comox	phonetic	[qʷoqʷoʔamstomayɪm]	page 5, in columns
+(25c) line 3	Mainland Comox	phonemic	/qʷuqʷu-ʔam-stu-may-əm/	page 5, in columns
+(25c) line 4	Mainland Comox	gloss	drink-ʔam-CAUSATIVE-1SG.OBJ-PASS	page 5, in columns
+(25c) line 5	John Hamilton Davis	translation	‘I was made thirsty.’	page 5, in columns
+(26a) line 1	Mainland Comox	transcription	joxwat	page 6, in columns
+(26b) line 1	Mainland Comox	transcription	joxwat.’am	page 6, in columns
+(26a) line 2	Mainland Comox	phonetic	[ǰoχʷat]	page 6, in columns
+(26b) line 2	Mainland Comox	phonetic	[ǰoχʷatʔam]	page 6, in columns
+(26a) line 3	Mainland Comox	phonemic	/ǰuχʷat/	page 6, in columns
+(26b) line 3	Mainland Comox	phonemic	/ǰuχʷatʔam/	page 6, in columns
+(26a) line 4	John Hamilton Davis	translation	‘to vomit’	page 6, in columns
+(26b) line 4	John Hamilton Davis	translation	‘nauseous’	page 6, in columns
+§7	John Hamilton Davis	note	These examples make this suffix appear to be desiderative. However:	page 6
+(27a) line 1	Mainland Comox	transcription	kwekwtem	page 6, in columns
+(27b) line 1	Mainland Comox	transcription	kwekwtem’am	page 6, in columns
+(27a) line 2	Mainland Comox	phonetic	[kʷʊkʷtəm]	page 6, in columns
+(27b) line 2	Mainland Comox	phonetic	[kʷʊkʷtəmʔam]	page 6, in columns
+(27a) line 3	John Hamilton Davis	translation	‘be sick’	page 6, in columns
+(27b) line 3	John Hamilton Davis	translation	‘starting to feel sick’	page 6, in columns
+(27b) line 4	John Hamilton Davis	note	(unlike example 6 above)	page 6, in columns
+(28a) line 1	Mainland Comox	transcription	q’aq’a	page 6, in columns
+(28b) line 1	Mainland Comox	transcription	q’aq’a’am	page 6, in columns
+(28a) line 2	Mainland Comox	phonetic	[q̉aq̉a]	page 6, in columns
+(28b) line 2	Mainland Comox	phonetic	[q̉aq̉aʔam]	page 6, in columns
+(28a) line 3	John Hamilton Davis	translation	‘hungry’	page 6, in columns
+(28b) line 3	John Hamilton Davis	translation	‘starting to feel hungry’	page 6, in columns
+(29a) line 1	Mainland Comox	transcription	ch’elh	page 6, in columns
+(29b) line 1	Mainland Comox	transcription	ch’elh’amos	page 6, in columns
+(29a) line 2	Mainland Comox	phonetic	[č̉ɪɬ]	page 6, in columns
+(29b) line 2	Mainland Comox	phonetic	[č̉ɪɬʔamos]	page 6, in columns
+(29a) line 3	Mainland Comox	phonemic	/č̉əɬ/	page 6, in columns
+(29b) line 3	Mainland Comox	phonemic	/č̉əɬ-ʔam-us/	page 6, in columns
+(29a) line 4	John Hamilton Davis	translation	‘rain’	page 6, in columns
+(29b) line 4	Mainland Comox	gloss	rain-ʔam-appearance	page 6, in columns, carries footnote 7
+footnote 7	John Hamilton Davis	note	/-us/ as in example (3b) above.	page 6, footnote 7
+(29b) line 5	John Hamilton Davis	translation	‘It looks like it’s about to rain.’	page 6, in columns
+§7	John Hamilton Davis	note	In the Sechelt dictionary, the description of the cognate suffix reads as follows (Beaumont 2011:533): -am3 This ending, which is usually stressed, indicates that someone or something is approaching, or just at, the point of change from one state to another. It often translates into English as ‘want to …’, ‘need to …’, ‘have to …’, or ‘feel like …’	page 6
+§7	John Hamilton Davis	name	Beaumont	Ronald C. Beaumont, the Sechelt dictionary
+§7	John Hamilton Davis	language	Sechelt	Central Salish, Beaumont's dictionary
+§8	John Hamilton Davis	heading	8 /-am/ as relative position	page 6
+(30a) line 1	Mainland Comox	transcription	qwel’	page 6, in columns
+(30b) line 1	Mainland Comox	transcription	qwel’am	page 6, in columns
+(30c) line 1	Mainland Comox	transcription	qwel’ams	page 6, in columns
+(30a) line 2	Mainland Comox	phonetic	[qʷɔlʔ]	page 6, in columns
+(30b) line 2	Mainland Comox	phonetic	[qʷɔlʔam]	page 6, in columns
+(30c) line 2	Mainland Comox	phonetic	[qʷɔlʔams]	page 6, in columns
+(30a) line 3	Mainland Comox	phonemic	/qʷəlʔ/	page 6, in columns
+(30b) line 3	Mainland Comox	phonemic	/qʷəlʔ-am/	page 6, in columns
+(30c) line 3	Mainland Comox	phonemic	/qʷəlʔ-am-s/	page 6, in columns
+(30a) line 4	John Hamilton Davis	translation	‘come’	page 6, in columns
+(30b) line 4	Mainland Comox	gloss	come-am	page 6, in columns
+(30c) line 4	Mainland Comox	gloss	come-am-of.it	page 6, in columns
+(30b) line 5	John Hamilton Davis	translation	‘on the near side’	page 6, in columns
+(30c) line 5	John Hamilton Davis	translation	‘on this side of it’	page 6, in columns
+(31a) line 1	Mainland Comox	transcription	tho	page 6, in columns
+(31b) line 1	Mainland Comox	transcription	thaham	page 6, in columns
+(31c) line 1	Mainland Comox	transcription	thahams	page 6, in columns
+(31a) line 2	Mainland Comox	phonetic	[θo]	page 6, in columns
+(31b) line 2	Mainland Comox	phonetic	[θaham]	page 6, in columns
+(31c) line 2	Mainland Comox	phonetic	[θahams]	page 6, in columns
+(31a) line 3	Mainland Comox	phonemic	/θu/	page 6, in columns
+(31b) line 3	Mainland Comox	phonemic	/θah-am/	page 6, in columns
+(31c) line 3	Mainland Comox	phonemic	/θah-am-s/	page 6, in columns
+(31a) line 4	John Hamilton Davis	translation	‘go’	page 6, in columns
+(31b) line 4	John Hamilton Davis	translation	‘on the other side’	page 6, in columns
+(31c) line 4	John Hamilton Davis	translation	‘on the other side of it’	page 6, in columns
+(32a) line 1	Mainland Comox	transcription	peyesh	page 6, in columns
+(32b) line 1	Mainland Comox	transcription	peyt	page 6, in columns
+(32c) line 1	Mainland Comox	transcription	peytam	page 6, in columns
+(32d) line 1	Mainland Comox	transcription	peytams	page 6, in columns
+(32a) line 2	Mainland Comox	phonetic	[piyiš]	page 6, in columns
+(32b) line 2	Mainland Comox	phonetic	[piɪt]	page 6, in columns
+(32c) line 2	Mainland Comox	phonetic	[piɪtam]	page 6, in columns
+(32d) line 2	Mainland Comox	phonetic	[piɪtams]	page 6, in columns
+(32a) line 3	Mainland Comox	phonemic	/pəy-əš/	page 6, in columns
+(32b) line 3	Mainland Comox	phonemic	/pəyt/	page 6, in columns
+(32c) line 3	Mainland Comox	phonemic	/pəyt-am/	page 6, in columns
+(32d) line 3	Mainland Comox	phonemic	/pəyt-am-s/	page 6, in columns
+(32a) line 4	John Hamilton Davis	translation	‘descend’	page 6, in columns
+(32b) line 4	John Hamilton Davis	translation	‘low’	page 6, in columns
+(32c) line 4	John Hamilton Davis	translation	‘lower, below’	page 6, in columns
+(32d) line 4	John Hamilton Davis	translation	‘below it’	page 6, in columns
+§8	John Hamilton Davis	note	When I was looking for a coffee mug in Ambrose Wilson’s cupboard, he said “shia’tam”:	page 7
+(33a) line 1	Mainland Comox	transcription	shia’	page 7, in columns
+(33b) line 1	Mainland Comox	transcription	shia’t	page 7, in columns
+(33c) line 1	Mainland Comox	transcription	shia’tam	page 7, in columns
+(33d) line 1	Mainland Comox	transcription	shia’tams	page 7, in columns
+(33a) line 2	Mainland Comox	phonetic	[šʸεʔ]	page 7, in columns
+(33b) line 2	Mainland Comox	phonetic	[šʸεʔt]	page 7, in columns
+(33c) line 2	Mainland Comox	phonetic	[šʸεʔtam]	page 7, in columns
+(33d) line 2	Mainland Comox	phonetic	[šʸεʔtams]8	page 7, in columns
+footnote 8	John Hamilton Davis	note	Compare this with example (42b).	page 7, footnote 8
+(33a) line 3	Mainland Comox	phonemic	/šʸaʔ/	page 7, in columns
+(33b) line 3	Mainland Comox	phonemic	/šʸaʔt/	page 7, in columns
+(33c) line 3	Mainland Comox	phonemic	/šʸaʔt-am/	page 7, in columns
+(33d) line 3	Mainland Comox	phonemic	/šʸaʔt-am-s/	page 7, in columns
+(33a) line 4	John Hamilton Davis	translation	‘ascend’	page 7, in columns
+(33b) line 4	John Hamilton Davis	translation	‘high’	page 7, in columns
+(33c) line 4	John Hamilton Davis	translation	‘above/higher’	page 7, in columns
+(33d) line 4	John Hamilton Davis	translation	‘above it’	page 7, in columns
+§8	John Hamilton Davis	note	From the story of Pileated Woodpecker and Raven traveling to the underworld, when Raven is under the octopus:	page 7
+(34a) line 1	Mainland Comox	transcription	tl’ep	page 7, in columns
+(34b) line 1	Mainland Comox	transcription	tl’ipam	page 7, in columns
+(34c) line 1	Mainland Comox	transcription	tl’ipams	page 7, in columns
+(34a) line 2	Mainland Comox	phonetic	[ƛ̉ᴧp]	page 7, in columns
+(34b) line 2	Mainland Comox	phonetic	[ƛ̉εpam]	page 7, in columns
+(34c) line 2	Mainland Comox	phonetic	[ƛ̉εpams]	page 7, in columns
+(34a) line 3	Mainland Comox	phonemic	/ƛ̉əp/	page 7, in columns
+(34b) line 3	Mainland Comox	phonemic	/ƛ̉ip-am/	page 7, in columns
+(34c) line 3	Mainland Comox	phonemic	/ƛ̉ip-am-s/	page 7, in columns
+(34a) line 4	John Hamilton Davis	translation	‘deep’	page 7, in columns
+(34b) line 4	John Hamilton Davis	translation	‘underneath’	page 7, in columns
+(34c) line 4	John Hamilton Davis	translation	‘under it/him/her’	page 7, in columns
+§8	John Hamilton Davis	note	The ending /-am/ is also used for time as well as for physical space:	page 7
+(35a) line 1	Mainland Comox	transcription	hiwtam	page 7, in columns
+(35b) line 1	Mainland Comox	transcription	hiwtam kweth ’ilhten	page 7, in columns
+(35a) line 2	Mainland Comox	phonetic	[hεʊtam]	page 7, in columns
+(35b) line 2	Mainland Comox	phonetic	[hεʊtam kʷɪθ ʔεɬtən]	page 7, in columns
+(35a) line 3	Mainland Comox	phonemic	/hiwt-am/	page 7, in columns
+(35b) line 3	Mainland Comox	phonemic	/hiwtam kʷ-ə-θ ʔiɬtən/	page 7, in columns
+(35a) line 4	Mainland Comox	gloss	in.front-am	page 7, in columns
+(35b) line 4	Mainland Comox	gloss	before ART-(ə)-your eat	page 7, in columns
+(35a) line 5	John Hamilton Davis	translation	‘before’	page 7, in columns
+(35b) line 5	John Hamilton Davis	translation	‘before you eat’	page 7, in columns
+§8	John Hamilton Davis	note	Bill Galligos used the root /kʷət/ with the suffix /-am/ in his example for “go over like over a fence”. The word /kʷətam/ also means ‘after in time’ and the root can be used with a variety of lexical suffixes. See Section 12 below.	page 7
+(36a) line 1	Mainland Comox	transcription	kwetam ch’iaham	page 7, in columns
+(36b) line 1	Mainland Comox	transcription	kwekwtam tegiwh	page 7, in columns
+(36a) line 2	Mainland Comox	phonetic	[kʷʊtam č̉ʸεham]	page 7, in columns
+(36b) line 2	Mainland Comox	phonetic	[kʷʊkʷtam tɪgiçʷ]	page 7, in columns
+(36a) line 3	Mainland Comox	phonemic	/kʷət-am č̉ʸaham/	page 7, in columns
+(36b) line 3	Mainland Comox	underlying	{C1V1-kʷ(ə)t-am təgiçʷ}	page 7, in columns
+(36a) line 4	Mainland Comox	gloss	change-am church	page 7, in columns
+(36b) line 4	Mainland Comox	gloss	IMPF-change-am nine	page 7, in columns
+(36a) line 5	John Hamilton Davis	translation	‘after church’	page 7, in columns
+(36b) line 5	John Hamilton Davis	translation	‘a little after nine o’clock’	page 7, in columns
+§9	John Hamilton Davis	heading	9 The homophonous lexical suffix /-am/	page 7
+§9	John Hamilton Davis	note	Compare these examples with (34a):	page 7
+(37a) line 1	Mainland Comox	transcription	tl’epam	page 7, in columns
+(37b) line 1	Mainland Comox	transcription	tl’epam k’walht	page 7, in columns
+(37c) line 1	Mainland Comox	transcription	k’walht	page 7, in columns
+(37a) line 2	Mainland Comox	phonetic	[ƛ̉ᴧpam]	page 7, in columns
+(37b) line 2	Mainland Comox	phonetic	[ƛ̉ᴧpam k̉ʷaɬt]	page 7, in columns
+(37c) line 2	Mainland Comox	phonetic	[k̉ʷaɬt]	page 7, in columns
+(37a) line 3	Mainland Comox	phonemic	/ƛ̉əpam/	page 7, in columns
+(37b) line 3	Mainland Comox	phonemic	/ƛ̉əpam k̉ʷaɬt/	page 7, in columns
+(37c) line 3	Mainland Comox	phonemic	/k̉ʷaɬt/	page 7, in columns
+(37a) line 4	John Hamilton Davis	translation	‘a deep inside’	page 7, in columns
+(37b) line 4	John Hamilton Davis	translation	‘bowl’	page 7, in columns
+(37c) line 4	John Hamilton Davis	translation	‘dish, plate’	page 7, in columns
+§9	John Hamilton Davis	note	In the Sechelt dictionary, the description of the cognate suffix reads as follows (Beaumont 2011:553): -am2 container (inside of), dish, hole in the ground, hollow surface, vessel (hull).	page 8
+§10	John Hamilton Davis	heading	10 The plural suffix /-am/	page 8
+(38a) line 1	Mainland Comox	transcription	ch’îano	page 8, in columns
+(38b) line 1	Mainland Comox	transcription	ch’en’am ~ ch’ian’am	page 8, in columns
+(38a) line 2	Mainland Comox	phonetic	[č̉éᴧno]	page 8, in columns
+(38b) line 2	Mainland Comox	phonetic	[č̉ɪnʔam] [č̉ʸεnʔam]	page 8, in columns
+(38a) line 3	Mainland Comox	phonemic	/č̉ʸanu/	page 8, in columns
+(38b) line 3	Mainland Comox	phonemic	/č̉ənʔam/ /č̉ʸanʔam/	page 8, in columns
+(38a) line 4	John Hamilton Davis	translation	‘dog’	page 8, in columns
+(38b) line 4	John Hamilton Davis	translation	‘dogs’	page 8, in columns
+(39a) line 1	Mainland Comox	transcription	jiajia	page 8, in columns
+(39b) line 1	Mainland Comox	transcription	jiajia’am	page 8, in columns
+(39a) line 2	Mainland Comox	phonetic	[ǰʸεǰʸε]	page 8, in columns
+(39b) line 2	Mainland Comox	phonetic	[ǰʸεǰʸεʔam]	page 8, in columns
+(39a) line 3	Mainland Comox	phonemic	/ǰʸaǰʸa/	page 8, in columns
+(39b) line 3	Mainland Comox	phonemic	/ǰʸaǰʸaʔam/	page 8, in columns
+(39a) line 4	John Hamilton Davis	translation	‘tree, log’	page 8, in columns
+(39b) line 4	John Hamilton Davis	translation	‘trees, logs’	page 8, in columns
+§10	John Hamilton Davis	note	In the Sechelt dictionary, the description of the cognate suffix reads as follows (Beaumont 2011:554): -am7 This ending is recorded only on a few words indicating a number of dogs, trees and perhaps leaves. Noel George Harry said that the homophonous jiajia means “friends and cousins” — those you grew up with. The plural ends in /-tən/, the suffix for plural relatives.	page 8
+(40a) line 1	Mainland Comox	transcription	jiajia	page 8, in columns
+(40b) line 1	Mainland Comox	transcription	jiajiaten	page 8, in columns
+(40a) line 2	Mainland Comox	phonetic	[ǰʸεǰʸε]	page 8, in columns
+(40b) line 2	Mainland Comox	phonetic	[ǰʸεǰʸεtən]	page 8, in columns
+(40a) line 3	Mainland Comox	phonemic	/ǰʸaǰʸa/	page 8, in columns
+(40b) line 3	Mainland Comox	phonemic	/ǰʸaǰʸatən/	page 8, in columns
+(40a) line 4	John Hamilton Davis	translation	‘friend, cousin’	page 8, in columns
+(40b) line 4	John Hamilton Davis	translation	‘friends, cousins’	page 8, in columns
+§11	John Hamilton Davis	heading	11 /-igan/ as one more lexical suffix showing relative position	page 8
+(41) line 1	Mainland Comox	transcription	z peytigan	page 8, in columns
+(42) line 1	Mainland Comox	transcription	shia’tigans	page 8, in columns
+(41) line 2	Mainland Comox	phonetic	[tᶿ piɪtεgᴧn]	page 8, in columns
+(42) line 2	Mainland Comox	phonetic	[šʸεʔtεgᴧns]	page 8, in columns
+(41) line 3	Mainland Comox	phonemic	/tᶿ pəy-t-igan/	page 8, in columns
+(42) line 3	Mainland Comox	phonemic	/šʸaʔ-t-igan-s/	page 8, in columns
+(41) line 4	Mainland Comox	gloss	my down-STATIVE-side	page 8, in columns
+(42) line 4	Mainland Comox	gloss	upward-STATIVE-side-of.it/him	page 8, in columns
+(41) line 5	John Hamilton Davis	translation	‘below me’	page 8, in columns
+(42) line 5	John Hamilton Davis	translation	‘above him’	page 8, in columns
+(41) line 6	John Hamilton Davis	note	(compare 32d above)	page 8, in columns
+(42) line 6	John Hamilton Davis	note	(compare (33d) above)	page 8, in columns
+§11	John Hamilton Davis	note	When the killers of T’ichewaxanam [t̉εčuwaχanᴧm] were kicking his head about on the beach, the power of the thunder came above them:	page 8
+(43a) line 1	Mainland Comox	transcription	qwel’ testhot xwat’q’wem	page 8, in columns
+(43b) line 1	Mainland Comox	transcription	shia’tiganit	page 8, in columns
+(43a) line 2	Mainland Comox	phonetic	[qʷɔlʔ tᴧsθot χʷat̉q̉ʷɔm]	page 8, in columns
+(43b) line 2	Mainland Comox	phonetic	[šʸεʔtεgᴧnit]	page 8, in columns
+(43a) line 3	Mainland Comox	phonemic	/qʷəlʔ tᴧsθot χʷat̉q̉ʷəm/	page 8, in columns
+(43b) line 3	Mainland Comox	phonemic	/šʸaʔ-t-igan-it/	page 8, in columns
+(43a) line 4	Mainland Comox	gloss	come approach thunder	page 8, in columns
+(43b) line 4	Mainland Comox	gloss	upward-STATIVE-side-their	page 8, in columns
+(43a) line 5	John Hamilton Davis	translation	‘The thunder came close.’	page 8, in columns
+(43b) line 5	John Hamilton Davis	translation	‘it was above them’	page 8, in columns
+(43c) line 1	Mainland Comox	transcription	hi tl’alhsems T’ichewaxanam	page 9, in columns
+(43c) line 2	Mainland Comox	phonetic	[hε ƛ̉aɬsəms t̉εčuwaχanam]	page 9, in columns
+(43c) line 3	Mainland Comox	phonemic	/hi ƛ̉aɬsəm-s t̉ičəwaχanam/	page 9, in columns
+(43c) line 4	Mainland Comox	gloss	DEICTIC strong/strength-his t̉ičəwaχanam	page 9, in columns
+(43c) line 5	John Hamilton Davis	translation	‘That was T’ichewaxanam’s power.’	page 9, in columns
+(44) line 1	Mainland Comox	transcription	ga thathat kwekwtigathi	page 9, in columns
+(44) line 2	Mainland Comox	phonetic	[gᴧ θahat kʷʊkʷtεgaθε]	page 9, in columns
+(44) line 3	Mainland Comox	underlying	{ga θa-(h)-at C1V1-kʷ(ə)t-iga(n)-t-Si}9	page 9, in columns
+footnote 9	John Hamilton Davis	note	Note: /-t-/ + historical */-Si/ ⇒ [θε].	page 9, footnote 9
+(44) line 4	Mainland Comox	gloss	if go-we IMPF-change-side-TRANS-you	page 9, in columns
+(44) line 5	John Hamilton Davis	translation	‘if we’re passing you by’	page 9, in columns
+(45) line 1	Mainland Comox	transcription	kwekwtigatawlh	page 9, in columns
+(45) line 2	Mainland Comox	phonetic	[kʷʊkʷtεgᴧtᴧʊɬ]	page 9, in columns
+(45) line 3	Mainland Comox	underlying	{C1V1-kʷ(ə)t-iga(n)-t-awɬ}	page 9, in columns
+(45) line 4	Mainland Comox	gloss	IMPF-change-side-TRANS-RECIPROCAL	page 9, in columns
+(45) line 5	John Hamilton Davis	translation	‘passing each other’	page 9, in columns
+§12	John Hamilton Davis	heading	12 A sampling of other lexical suffixes with the root /kʷət/	page 9
+§12	John Hamilton Davis	note	Following are just a couple of the lexical suffixes which can be used to show motion and relative position.	page 9
+(46) line 1	Mainland Comox	transcription	kwetshiawlh	page 9, in columns
+(47) line 1	Mainland Comox	transcription	kwetshen	page 9, in columns
+(46) line 2	Mainland Comox	phonetic	[kʷʊtšʸᴧʊɬ]	page 9, in columns
+(47) line 2	Mainland Comox	phonetic	[kʷʊtšin]	page 9, in columns
+(46) line 3	Mainland Comox	phonemic	/kʷət-šʸawɬ/	page 9, in columns
+(47) line 3	Mainland Comox	phonemic	/kʷət-šən/	page 9, in columns
+(46) line 4	Mainland Comox	gloss	change-road	page 9, in columns
+(47) line 4	Mainland Comox	gloss	change-foot	page 9, in columns
+(46) line 5	John Hamilton Davis	translation	‘cross the road (or hall)’	page 9, in columns
+(47) line 5	John Hamilton Davis	translation	‘change direction (while going)’	page 9, in columns
+(48) line 1	Mainland Comox	transcription	kwetosem	page 9, in columns
+(49) line 1	Mainland Comox	transcription	qwel’osem	page 9, in columns
+(48) line 2	Mainland Comox	phonetic	[kʷʊtosəm]	page 9, in columns
+(49) line 2	Mainland Comox	phonetic	[qʷɔlʔosəm] ~ [qʷɔʔlosəm]	page 9, in columns
+(48) line 3	Mainland Comox	phonemic	/kʷət-us-əm/	page 9, in columns
+(49) line 3	Mainland Comox	phonemic	/qʷəl̉-us-əm/	page 9, in columns
+(48) line 4	Mainland Comox	gloss	change-face-VERB	page 9, in columns
+(49) line 4	Mainland Comox	gloss	come-face-VERB	page 9, in columns
+(48) line 5	John Hamilton Davis	translation	‘turn to face away’	page 9, in columns
+(49) line 5	John Hamilton Davis	translation	‘turn to face toward’	page 9, in columns
+(48) line 6	John Hamilton Davis	note	(e.g. away from the fire at a funeral burning)	page 9, in columns
+(49) line 6	John Hamilton Davis	note	(compare with 30 above)	page 9, in columns
+§12	John Hamilton Davis	note	For a full discussion and more examples, see Hinkson (1999).	page 9
+§12	John Hamilton Davis	name	Hinkson	Mercedes Quesney Hinkson, Salishan lexical suffixes
+references	John Hamilton Davis	heading	Sources consulted	page 10
+references	John Hamilton Davis	reference	Beaumont, Ronald C. 2011. Sechelt Dictionary. Sechelt Indian Band, Sechelt, BC.	page 10
+references	John Hamilton Davis	reference	Davis, John Hamilton. 1969–1980. Field notes on Mainland Comox. [MS]	page 10
+references	John Hamilton Davis	reference	Davis, John Hamilton. 1969–1980. Field recordings of Mainland Comox. http://cla.berkeley.edu/collection/10048	page 10
+references	John Hamilton Davis	reference	Davis, John H. 1980. The Passive in Sliammon. Berkeley Linguistics Society (6:278-86).	page 10
+references	John Hamilton Davis	reference	Davis, John H. 2016. Two explanations in Comox by Tommy Paul. In: Marianne Huijsmans, Thomas J. Heins, Oksana Tkachman, and Natalie Weber (eds.), Papers for ICSNL 51.	page 10
+references	John Hamilton Davis	reference	Vancouver, BC: UBCWPL, 69–77.	page 10
+references	John Hamilton Davis	reference	Hess, Thomas M. 1976. Dictionary of Puget Salish. Seattle, WA: University of Washington.	page 10
+references	John Hamilton Davis	reference	Hinkson, Mercedes Quesney. 1999. Salishan Lexical Suffixes: A Study in the Conceptualization of Space. Doctoral dissertation, Simon Fraser University.	page 10

@@ -1,0 +1,254 @@
+where	who	kind	form	gloss
+title	Jonathan Janzen	title	The ’Wuikala Stress System	the paper's title, set in bold, carrying a footnote marked with a star. The apostrophe is the curly U+2019
+title	Jonathan Janzen	name	Jonathan Janzen	Independent Researcher. The only author
+footer	Jonathan Janzen	citation	In Proceedings of Northwest Linguistics Conference 61, University of British Columbia Working Papers in Linguistics, Ella Hannon (ed.). Vancouver, BC: UBCWPL, 2025.	the proceedings line at the foot of page 1, with Proceedings of Northwest Linguistics Conference 61 in italics. The text layer holds it ahead of the title. The other ICSNL 61 papers carry In Proceedings of ICSNL 61 with nine editors
+footnote *	Jonathan Janzen	note	Many thanks are due to the tireless work of the ‘Wuìkinux̌v Language Department, including all those elders and fluent speakers who gave their time and energy to this work, and David Stevenson who made it all available to us learners.	the footnote on the title
+footnote *	Jonathan Janzen	name	‘Wuìkinux̌v Language Department	thanked in footnote *, with its elders and fluent speakers, whom the page does not name. §2 cites it for the local dictionary. The opening mark is ‘, U+2018, and the i carries a grave
+footnote *	Jonathan Janzen	name	David Stevenson	thanked in footnote *, and the author of Stevenson 2025, the source of (2)
+abstract	Jonathan Janzen	note	Abstract: ’Wuikala is a stress language, placing stress on the heaviest leftmost moraic syllable within a prosodic word. The phonemic system displays contrastive vowel and resonant length, which are considered heavy, or bi-moraic syllables. The leftmost heavy syllable will always surface with stress. If there are no heavy syllables, the leftmost moraic syllable will host stress. ’Wuikala does not show lexically stressed suffixes, as in Haisla, or lexical tone, as in Heiltsuk-Xai’xais. If there are no moraic syllables within a word, no syllable surfaces with stress.	the abstract
+abstract	Jonathan Janzen	note	Keywords: stress systems, Wakashan, ’Wuikala, Oowekyala, Rivers Inlet, prosody	the keyword line under the abstract
+abstract	Jonathan Janzen	language	’Wuikala	the language of the paper, North Wakashan, with the ISO 639-3 code wui as §1 gives it. The apostrophe is the curly U+2019
+abstract	Jonathan Janzen	language	Oowekyala	another name for ’Wuikala, in the keywords and in the titles of the Howe entries
+abstract	Jonathan Janzen	place	Rivers Inlet	in the keywords, and in the reference list as the place of the ’Wuikala Language Project
+abstract	Jonathan Janzen	language	Haisla	a sister language within Upper North Wakashan, with lexically stressed suffixes
+abstract	Jonathan Janzen	language	Heiltsuk-Xai’xais	a sister language within Upper North Wakashan, with lexical tone. §4 writes Heiltsuk-Xai'xais with a straight apostrophe
+§1	Jonathan Janzen	heading	1 Introduction
+§1	Jonathan Janzen	note	’Wuikala (ISO 639-3 wui) is the most under-researched language within the North Wakashan language family. It has historically been categorized as Northern Kwakiutl (Boas 1911), or as Heiltsuk (Eberhard et al. 2025, in Ethnologue; Yinka Déné Language Institute 2006), both of which are neighbouring and related languages, but distinct in all important respects, including communal identity, and are all properly considered as separate languages (Hilton & Rath 1982:7). One of these linguistic distinctions is the prosodic system, in which ’Wuikala differs from its neighbours, by not being tonal as Heiltsuk is (Kortlandt 1978), but showing a more complex prosodic system than Kwak̓wala (Bach 1975, Janzen 2015).	the first paragraph of §1
+§1	Jonathan Janzen	language	Northern Kwakiutl	how Boas 1911 categorized ’Wuikala
+§1	Jonathan Janzen	language	Heiltsuk	how Ethnologue and the Yinka Déné Language Institute categorize ’Wuikala. Tonal, as §1 gives it
+§1	Jonathan Janzen	language	Kwak̓wala	a neighboring language with a less complex prosodic system. The comma above the k is U+0313, and the text layer sets a space after it
+§1	Jonathan Janzen	citation	(Boas 1911)	for Northern Kwakiutl
+§1	Jonathan Janzen	citation	(Eberhard et al. 2025, in Ethnologue; Yinka Déné Language Institute 2006)	for Heiltsuk
+§1	Jonathan Janzen	citation	(Hilton & Rath 1982:7)	for separate languages
+§1	Jonathan Janzen	citation	(Kortlandt 1978)	for Heiltsuk as tonal. The reference list has Kortlandt 1975, and §2 cites Kortlandt 1975
+§1	Jonathan Janzen	citation	(Bach 1975, Janzen 2015)	for the prosodic system of Kwak̓wala
+§1	Jonathan Janzen	note	This paper is structured as follows: Section 2 provides some background on moraicity as the basis of the stress system in ’Wuikala. Section 3 investigates the stress system of ’Wuikala, using examples of language data to show that standard North Wakashan Stress (SNWS) applies, is disrupted by long vowels and long resonants, does not have a default-to-opposite system like Kwak̓wala or Haisla, or lexically tonal suffixes like Haisla or Heiltsuk-Xai’xais. Section 4 concludes.	the second paragraph of §1
+§2	Jonathan Janzen	heading	2 moraicity in ’Wuikala	moraicity in lowercase as printed
+§2	Jonathan Janzen	note	’Wuikala stress has been reported to conform to what I refer to as Standard North Wakashan Stress (SNWS), stating that word stress falls broadly on the first vocalic plain resonant (Hilton & Rath 1982:22, Nater 1987:4). However, until now this claim has never been investigated fully. The most detailed research into ’Wuikala was conducted by Flynn (Howe 2000a), which is a study on segmental phonology of the language and has little to say directly about the prosodic system of ’Wuikala. Nevertheless, this resource is primary for my understanding of ’Wuikala phonology, along with available audio content from the ’Wuikala First Voices page, and text data from the local dictionary (‘Wuìkinux̌v Language Department 2004).	the first paragraph of §2. First Voices carries footnote 1, written here without its digit
+§2	Jonathan Janzen	citation	(Hilton & Rath 1982:22, Nater 1987:4)	for SNWS as reported
+§2	Jonathan Janzen	name	Flynn	the author of Howe 2000a, 2000b, 2001 and 2005. The reference list names the author Howe, Darin M. [Flynn], and the prose calls the author Flynn
+§2	Jonathan Janzen	citation	(Howe 2000a)	for the segmental phonology of ’Wuikala
+§2	Jonathan Janzen	citation	(‘Wuìkinux̌v Language Department 2004)	for the local dictionary. The reference list writes ’Wùikinux̌v, with U+2019 and the grave on the u
+footnote 1	Jonathan Janzen	note	https://www.firstvoices.com/wuikala	the footnote on First Voices, the source of the audio the paper checked stress against
+§2	Jonathan Janzen	note	The sister languages within the Upper North Wakashan group, Heiltsuk-Xai’xais and Haisla, both display levels of lexical stress. Heiltsuk-Xai’xais is a tonal system (Kortlandt 1975), with many morphemes displaying associated lexical tone, as well as a SNWS system (Janzen 2025). Haisla has a limited number of suffixes displaying lexical stress, which disrupt an otherwise predictable SNWS system (Lincoln & Rath 1986, Howe 2005, Janzen 2023). In the next section, I show that these prosodic traits do not exist in ’Wuikala.	a paragraph of §2, running from page 1 onto page 2 after (Kortlandt 1975), with. The text layer sets footnote * and footnote 1 and the page number 170 inside it. Joined here
+§2	Jonathan Janzen	citation	(Kortlandt 1975)	for Heiltsuk-Xai’xais as tonal
+§2	Jonathan Janzen	citation	(Janzen 2025)	for SNWS in Heiltsuk-Xai’xais
+§2	Jonathan Janzen	citation	(Lincoln & Rath 1986, Howe 2005, Janzen 2023)	for lexically stressed suffixes in Haisla
+§2	Jonathan Janzen	note	Flynn’s phoneme inventory of ’Wuikala is shown in Table 1, with some minor adjustments, and is presented in the Wakashan Meta Alphabet (WMA) (Wakashan Language Circle 2025).	a paragraph of §2, carrying footnote 2, written here without its digit
+§2	Jonathan Janzen	citation	(Wakashan Language Circle 2025)	for the Wakashan Meta Alphabet
+footnote 2	Jonathan Janzen	note	The WMA (Wakashan Meta Alphabet) is an attempt to unify transcription across all Wakashan languages for comparative purposes. The WMA uses /λ ƛ ʣ c y/ where the International Phonetic Alphabet (IPA) uses /dl tɬ dz ts j/, and represents glottalization as /◌̓/ on both obstruents and resonants, but is otherwise identical to the IPA.	THE WMA: the alphabet of the second line of every example. ◌̓ is U+25CC DOTTED CIRCLE with U+0313 COMBINING COMMA ABOVE, and the text layer sets a space after it
+table 1	Jonathan Janzen	heading	Table 1: ’Wuikala consonant phonemes	the caption, with Table 1: in bold. It carries footnote 3, written here without its digit
+table 1	Jonathan Janzen	note	1 2 3 4 5 6 7 8 9	the column numbers of Table 1. Footnote 3 describes ten columns
+table 1	Jonathan Janzen	note	plain plosive p t c ƛ k kʷ q qʷ ʔ	a row of Table 1, in the WMA
+table 1	Jonathan Janzen	note	voiced plosive b d ʣ λ ɡ ɡʷ ɢ ɢʷ	a row of Table 1. ɡ is U+0261, the IPA g, and ɢ is U+0262
+table 1	Jonathan Janzen	note	ejective plosive p̓ t̓ c̓ ƛ̓ k̓ k̓ʷ q̓ q̓ʷ	a row of Table 1. The text layer sets a space after each U+0313. The commas of k̓ and k̓ʷ are drawn under the ɡ and ɡʷ of the row above
+table 1	Jonathan Janzen	note	fricative s ɬ x xʷ χ χʷ h	a row of Table 1. χ is the Greek chi, U+03C7
+table 1	Jonathan Janzen	note	plain resonant m n l y w	a row of Table 1
+table 1	Jonathan Janzen	note	long resonant mː nː lː	a row of Table 1. The length mark is ː, U+02D0
+table 1	Jonathan Janzen	note	glottalized resonant m̓ n̓ l̓ y̓ w̓	a row of Table 1. The text layer sets a space after each U+0313
+footnote 3	Jonathan Janzen	note	Each column represents as follows: 1 – bilabials; 2 – alveolar stops; 3 – alveolar affricates; 4 – lateral alveolars; 5 – palatals; 6 – unrounded velars; 7 – rounded velars; 8 – unrounded uvulars; 9 – rounded uvulars; 10 – glottals. My thanks to Chuck Murphey for this inventory, and his comments.	the footnote on Table 1. The dashes are en dashes, U+2013
+footnote 3	Jonathan Janzen	name	Chuck Murphey	thanked in footnote 3 for the inventory of Table 1
+table 2	Jonathan Janzen	heading	Table 2: ’Wuikala vowel phonemes (Howe 2000a:21)	the caption, with Table 2: in bold
+table 2	Jonathan Janzen	note	front central back	the header row of Table 2
+table 2	Jonathan Janzen	note	high i iː u uː	a row of Table 2: front i iː, back u uː
+table 2	Jonathan Janzen	note	mid ɛː [ə] ɔː	a row of Table 2: ɛː between front and central, [ə] central, ɔː between central and back
+table 2	Jonathan Janzen	note	low a aː	a row of Table 2: central a aː
+§2	Jonathan Janzen	note	A significant departure from Flynn’s phonemic inventory in Howe (2000a:21) in the inclusion of the long mid vowels [ɛː, ɔː] and the removal of the so-called glottalized vowels i̓, u̓, a̓. I treat the latter as schwa glottal pairings: əy̓, əw̓, əʔ respectively. These would not be considered moraic. Moraic segments are full vowels [i, u, a] and schwa non-glottalized-resonant pairings within the same syllable [əl., ən., əm.], including the long resonants [mː, nː, lː] which I assume to be syllabic. Notably for the stress system, long vowels and resonants are considered bi-moraic and attract stress over other non-heavy syllables.	the last paragraph of §2
+§2	Jonathan Janzen	damage	in the inclusion	in, for is, in the first sentence of the paragraph after Table 2, which has no verb without it. Transcribed as printed
+§3	Jonathan Janzen	heading	3 The ’Wuikala stress system
+§3	Jonathan Janzen	note	Word stress is defined here as an increase in pitch, duration, and intensity of one syllable nucleus over all other syllables within the prosodic word. Stress in the community orthography is marked with a grave accent “ ` ”, and should appear on all multisyllabic words. Long vowels and resonants are marked orthographically with a doubling of the segment and the grave accent on the second of the repeated segments (e.g. iì, uù, aù, aì). This serves to unify the long segment as one phonological unit (aù [ɔ́ː]). However, the application of the stress mark in ’Wuikala is inconsistent throughout the various learning resources available. I have mitigated these inconsistencies as best I could by relying on those audio resources available on the ’Wuikala First Voices page. I have only included examples that I could independently verify the stress placement of, through the audio given from this website, unless otherwise noted.	THE ORTHOGRAPHY MARKS STRESS WITH A GRAVE: the first paragraph of §3. The grave between the double quotes is the spacing grave `, U+0060
+§3	’Wuikala	cited form	iì, uù, aù, aì	the orthography's long vowels, a doubled vowel with the grave on the second
+§3	’Wuikala	cited form	aù [ɔ́ː]	a long vowel in the orthography and in the WMA, with the acute on ɔ
+§3	Jonathan Janzen	note	As stated, what I describe as standard North Wakashan stress largely accounts for the stress placement in ’Wuikala. This is as far as the literature goes into investigating this system, most concisely put here:	the sentence introducing the quotation from Lincoln & Rath 1980
+§3	Neville J. Lincoln and John C. Rath	note	“In [’Wuikala], the first vocalic plain resonant of the word automatically bears stress when it is not followed by another vocalic plain resonant... When the first plain resonant of a word is immediately followed by a second, the stress falls on the latter... However, phonetically, the second resonant need not necessarily be pronounced with noticeably greater loudness than the first. As long as its phonetic actualization is not less loud than that of the first, the stress is phonologically on the second.”	a block quotation. [’Wuikala] is the paper's insertion, and the three periods mark omissions
+§3	Jonathan Janzen	citation	(Lincoln & Rath 1980:12)	for the block quotation, set right-aligned on a line of its own
+§3	Jonathan Janzen	note	Lincoln & Rath are essentially stating that SNWS is the default, with the exception of an initial vowel series. Lincoln & Rath use the term ‘resonant’ to refer to both consonants and vowels, but I use the term here only for consonants [n, m, l]. They give the examples dəná ‘pull’, dənə́m ‘buoy line’, ciá ‘get water’. In each case, there is a seemingly moraic segment after an onset consonant, with an immediately following equally moraic segment a, em, a respectively. Following the approach by Inman & Werle (2025), I describe the relative moraicity of adjacent vowels as a repair strategy in Upper North Wakashan languages. All syllables in every North Wakashan language must have an onset. Stated simply, when a moraic segment appears following another moraic segment, the first is reduced to a schwa-resonant pair (u → əw), in effect, removing its moraic projection to provide an onset to the following vowel through syllabification /Cə.wV́/. The adjoining vowel then often becomes the leftmost moraic segment in the word and receives stress.	a paragraph of §3
+§3	’Wuikala	cited form	dəná	pull, an example Lincoln & Rath 1980 give. Set in italics
+§3	’Wuikala	cited form	dənə́m	buoy line, an example Lincoln & Rath 1980 give. Set in italics, with the acute on the second schwa
+§3	’Wuikala	cited form	ciá	get water, an example Lincoln & Rath 1980 give. Set in italics
+§3	Jonathan Janzen	citation	Inman & Werle (2025)	for the repair strategy
+§3	Jonathan Janzen	note	CV́-V → CəRV́	the rule set as a bullet point, with the arrow →, U+2192. V́ is V with U+0301 COMBINING ACUTE ACCENT
+§3	Jonathan Janzen	note	Here is an example using the root p̓u ‘to float’. I present all data in first the local orthography, followed by the WMA, with the English translation third:	HOW EVERY EXAMPLE IS SET: the local orthography first, the WMA second, the English third
+§3	’Wuikala	root	p̓u	to float, and float in the paragraph after (1). Set in italics
+(1) line 1	’Wuikala	transcription	p̓ùn̓akvəla	float along, in the local orthography. The orthography writes kʷ as kv
+(1) line 1	’Wuikala	phonemic	p̓ún̓akʷəla	float along, in the WMA, with p̓ú set in bold
+(1) line 1	Howe 2000b	translation	float along	the English of the first line of (1), which cites (Howe 2000b) at the right
+(1) line 2	’Wuikala	transcription	p̓uáy̓u	fishing buoy, in the local orthography
+(1) line 2	’Wuikala	phonemic	p̓ewáy̓u	fishing buoy, in the WMA, with p̓e set in bold. The paragraph after (1) writes the syllables as [p̓ə.wá.y̓u], with ə where this has e
+(1) line 2	Jonathan Janzen	translation	fishing buoy	the English of the second line of (1)
+§3	Jonathan Janzen	note	In the above example, the root p̓u ‘float’ shows stress as the leftmost moraic segment in p̓ún̓akʷəla ‘float along’, but does not in the second instance p̓uáy̓u ‘fishing buoy’. The WMA transcription in the example shows my analysis of this repair strategy. The initial vowel u is reduced to əw, removing its moraic projection. The leftmost moraic syllable would then be the second one wa, in [p̓ə.wá.y̓u]. This can be seen in the following sentence as well.	the paragraph after (1). p̓ún̓akʷəla is set in bold italics
+§3	’Wuikala	phonemic	[p̓ə.wá.y̓u]	fishing buoy, syllabified, with the dots between syllables
+(2) line 1	’Wuikala	transcription	‘aàx̌əll̓ut pgvànəmax̌i w̓àc̓iax̌i laə̀mmnthənthənc	the local orthography. The glottal stop that opens it is ‘, U+2018. ci of w̓àc̓iax̌i and la of laə̀mmnthənthənc are set in bold
+(2) line 2	’Wuikala	phonemic	ʔáːꭓəlud pgʷánəmaꭓi w̓ác̓əyaꭓi ləʔəmnƛənƛənc	the WMA, with c̓əy set in bold. The uvular is ꭓ, U+AB53 LATIN SMALL LETTER CHI. ləʔəmnƛənƛənc carries no accent here, where the paragraph after (2) writes ləʔə́mnƛənƛənc
+(2) line 3	Stevenson 2025	translation	The person brought the dog down to us.	the English of (2), which cites (Stevenson 2025:63) at the right
+(2)	Jonathan Janzen	citation	(Stevenson 2025:63)	for (2)
+§3	Jonathan Janzen	note	In this example sentence, two words have reduced vowels, the second of which has an impact on word stress. The first is the alternation between w̓ác̓i ‘dog’ and w̓ác̓əyaꭓi ‘the dog there’, where the [i] vowel is reduced to [əy] when followed by the deictic clitic [aꭓi]. The second instance of vowel reduction as a syllable repair strategy is in ləʔə́mnƛənƛənc ‘down to us’. Here, the root la ‘AUX’ is assumed to reduce to [ləʔ] when followed by the next syllable [əm], which is a closed syllable and therefore moraic. The stress therefore falls on the leftmost moraic segment of the word, which is [ə́m] ləʔə́mnƛənƛənc ‘down to us’.	the paragraph after (2). AUX is set in small capitals
+§3	’Wuikala	cited form	w̓ác̓i	dog. Set in italics
+§3	’Wuikala	cited form	w̓ác̓əyaꭓi	the dog there. Set in italics
+§3	’Wuikala	cited form	[aꭓi]	the deictic clitic, with ꭓ, U+AB53. §3.3 writes the third distal deictic as [=aχi], with the Greek χ
+§3	’Wuikala	cited form	ləʔə́mnƛənƛənc	down to us, printed twice in the paragraph, with the acute on the second schwa, set in bold italics the second time
+§3	’Wuikala	root	la	AUX, reduced to [ləʔ]. Set in italics
+§3.1	Jonathan Janzen	heading	3.1 Standard North Wakashan Stress
+§3.1	Jonathan Janzen	note	The following example set displays SNWS, which accounts for the stress placement of the vast majority of ’Wuikala words.	the sentence introducing (3)
+(3)	Jonathan Janzen	note	’Wuikala WMA English	the header row of (3)
+(3) line 1	’Wuikala	transcription	k̓vàxdəm̓a	chair
+(3) line 1	’Wuikala	phonemic	k̓ʷáxdem̓a	chair, with k̓ʷáx set in bold. The WMA has e where the orthography has ə
+(3) line 1	Jonathan Janzen	translation	chair	the English of (3) line 1
+(3) line 2	’Wuikala	transcription	k̓vəlà	sea otter
+(3) line 2	’Wuikala	phonemic	k̓ʷəlá	sea otter, with lá set in bold
+(3) line 2	Jonathan Janzen	translation	sea otter	the English of (3) line 2
+(3) line 3	’Wuikala	transcription	k̓vənàwənx̌v	plank
+(3) line 3	’Wuikala	phonemic	k̓ʷənáwənꭓʷ	plank, with ná set in bold. The uvular is ꭓ, U+AB53
+(3) line 3	Jonathan Janzen	translation	plank	the English of (3) line 3
+(3) line 4	’Wuikala	transcription	k̓və̀msp̓a	taste of burnt food
+(3) line 4	’Wuikala	phonemic	k̓ʷə́msp̓a	taste of burnt food, with k̓ʷə́ms set in bold
+(3) line 4	Jonathan Janzen	translation	taste of burnt food	the English of (3) line 4
+(3) line 5	’Wuikala	transcription	kvə̀lx’it	go to bed. The glottal stop is ’, U+2019
+(3) line 5	’Wuikala	phonemic	kʷə́lxʔid	go to bed, with kʷə́l set in bold
+(3) line 5	Jonathan Janzen	translation	go to bed	the English of (3) line 5
+§3.1	Jonathan Janzen	note	In the first instance, the leftmost vowel is moraic [á] and hosts stress k̓ʷáxdem̓a ‘chair’. In the second instance, the leftmost vowel is non-moraic schwa [ə] and cannot host stress, which then falls to the leftmost moraic vowel [á] in k̓ʷəlá ‘sea otter’. The next example again shows that schwa is ignored when assigning stress, but also that the leftmost moraic element, in this case [á], hosts stress over an equally moraic candidate in the following syllable [wənꭓʷ]: k̓ʷənáwənꭓʷ ‘plank’. The next example shows that a schwa resonant pairing, within the same syllable, is indeed an equally suitable candidate for stress. It receives stress over a following full vowel [a] because it appears first, or leftmost: k̓ʷə́msp̓a ‘taste of burnt food’. Finally, the same leftmost constraint is reinforced, this time with the [ə́l] pairing, over the following full vowel [i]: kʷə́lxʔid ‘go to bed’.	the paragraph after (3). Each WMA form is set in italics with its stressed syllable in bold
+§3.1	Jonathan Janzen	note	As stated, the vast majority of words conform to SNWS, and are easily identified when moraicity is controlled for. This is not, however, the only criterion for assigning stress in ’Wuikala, as bi-moraicity offers a slight complication.	the last paragraph of §3.1
+§3.2	Jonathan Janzen	heading	3.2 Long segments
+§3.2	Jonathan Janzen	note	Like sister language Haisla, ’Wuikala has contrastive vowel length. Unlike Haisla, ’Wuikala also shows contrastive resonant length: (e.g. y̕ak̓ ‘bad’ vs. t̓aːx ‘gun powder’; ƛ̓mq̓ ‘yew tree’ vs. smːs ‘mouth’) (Howe 2000a:5). I describe these long segments as bi-moraic, meaning they have two morae and are therefore prosodically heavy. The local orthography often confuses the distribution of long vowels by spelling out predictable high vowel lowering (Howe 2000a:153) following non-rounded uvulars, i.e. gàx̌ax̌ailh [gáꭓaꭓiɬ] “coming down inside”. These are orthographically identical to long vowels, but are not, in fact, phonologically long. When finding examples I carefully avoided instances of orthographic ‘ai’ or ‘au’ sequences when following any uvular phoneme.	the first paragraph of §3.2. non-rounded breaks across a line at its hyphen
+§3.2	’Wuikala	cited form	y̕ak̓	bad. The comma on y is U+0315 COMBINING COMMA ABOVE RIGHT, drawn over the a, where every other glottalized letter in the paper has U+0313
+§3.2	’Wuikala	cited form	t̓aːx	gun powder, with the long vowel aː
+§3.2	’Wuikala	cited form	ƛ̓mq̓	yew tree
+§3.2	’Wuikala	cited form	smːs	mouth, with the long resonant mː. (6) has səmːs lips
+§3.2	Jonathan Janzen	citation	(Howe 2000a:5)	for contrastive length
+§3.2	Jonathan Janzen	citation	(Howe 2000a:153)	for high vowel lowering
+§3.2	’Wuikala	transcription	gàx̌ax̌ailh	coming down inside, in the local orthography, with ai set in bold. The English is in double quotes
+§3.2	’Wuikala	phonemic	[gáꭓaꭓiɬ]	coming down inside, in the WMA, with iɬ set in bold. The uvular is ꭓ, U+AB53
+§3.2	Jonathan Janzen	note	Despite this orthographic quirk, long vowels and resonants can be accounted for, and predictably attract stress, even when they are not the leftmost moraic element.	the sentence introducing (4)
+(4) line 1	’Wuikala	transcription	puw̓aìs	deep
+(4) line 1	’Wuikala	phonemic	puw̓ɛ́ːs	deep, with w̓ɛ́ːs set in bold
+(4) line 1	Jonathan Janzen	translation	deep	the English of (4) line 1
+(4) line 2	’Wuikala	transcription	q̓əlstaùt	anchor
+(4) line 2	’Wuikala	phonemic	q̓əlstɔ́ːt	anchor, with tɔ́ːt set in bold
+(4) line 2	Jonathan Janzen	translation	anchor	the English of (4) line 2
+§3.2	Jonathan Janzen	note	In example (4), the vowels [ɛ́ː] in puw̓ɛ́ːs ‘deep’, and [ɔ́ː] in q̓əlstɔ́ːt ‘anchor’ are not the leftmost moraic elements. They are, however, prosodically heavier than [u] and [əl] respectively, and so predictably host stress. Likewise, long vowels [aː, uː, iː] exist as phonemes, but no examples with audio were available which would disrupt word stress placement not already predicted by SNWS. There is, however, no phonologically motivated reason to believe that such a word might not exist, and indeed likely does.	the paragraph after (4)
+(5) line 1	’Wuikala	transcription	p̓aàla	work
+(5) line 1	’Wuikala	phonemic	p̓áːla	work, with p̓á set in bold
+(5) line 1	Jonathan Janzen	translation	work	the English of (5) line 1
+(5) line 2	’Wuikala	transcription	diìǧilac̓i	tea pot. ǧ is U+01E7
+(5) line 2	’Wuikala	phonemic	díːɢilaći	tea pot, with dí set in bold. The WMA has ć, U+0107, c with an acute, where the orthography has c̓ with U+0313
+(5) line 2	Jonathan Janzen	translation	tea pot	the English of (5) line 2
+§3.2	Jonathan Janzen	note	Aside from the examples in (5), Flynn (Howe 2000b) offers these words containing long vowels, but without audio: ni̓snaːq ‘mallard duck [reduplicated form]’, hayuːgʷa (proper name), ʣuwiːna (proper name). Long resonants exist as phonemes as well, but again no examples show a disruption to SNWS. I assume they would act just as long vowels and attract stress regardless of their syllabic position within a stress domain.	the paragraph after (5)
+§3.2	Jonathan Janzen	citation	(Howe 2000b)	for the words without audio after (5), and again for those after (6) and for (1)
+§3.2	’Wuikala	cited form	ni̓snaːq	mallard duck, a reduplicated form, with naːq set in bold italics. The comma on i is U+0313
+§3.2	’Wuikala	name	hayuːgʷa	a proper name, as the page gives it, with uː set in bold
+§3.2	’Wuikala	name	ʣuwiːna	a proper name, as the page gives it, with wiː set in bold
+(6) line 1	’Wuikala	transcription	lhə̀nnx̌	wild crab apple
+(6) line 1	’Wuikala	phonemic	ɬənːχ	wild crab apple, with ɬən set in bold. The uvular is the Greek χ, U+03C7
+(6) line 1	Jonathan Janzen	translation	wild crab apple	the English of (6) line 1
+(6) line 2	’Wuikala	transcription	səmms	lips
+(6) line 2	’Wuikala	phonemic	səmːs	lips, with səm set in bold
+(6) line 2	Jonathan Janzen	translation	lips	the English of (6) line 2
+§3.2	Jonathan Janzen	note	It is likely that long resonant segments in non-initial syllable positions exist, but such examples may be obscured by the orthography. Other long resonant examples without audio verification are: sismms ‘mouths’, q̓ʷmm ‘middle finger’, dnnc̓sa ‘pull down to beach’, hannwaƛi ‘float beside island’, gʷwllalas ‘golden’, pniklls ‘warming the back outdoors’ (Howe 2000b).	the last paragraph of §3.2
+§3.2	’Wuikala	cited form	sismms	mouths. Set in italics
+§3.2	’Wuikala	cited form	q̓ʷmm	middle finger. Set in italics
+§3.2	’Wuikala	cited form	dnnc̓sa	pull down to beach. Set in italics
+§3.2	’Wuikala	cited form	hannwaƛi	float beside island. Set in italics
+§3.2	’Wuikala	cited form	gʷwllalas	golden. Set in italics
+§3.2	’Wuikala	cited form	pniklls	warming the back outdoors. Set in italics
+§3.3	Jonathan Janzen	heading	3.3 Non-moraic words
+§3.3	Jonathan Janzen	note	’Wuikala can have words without morae or schwa (Howe 2000a, 2001), meaning there is nothing vocalic enough to show a rise in pitch. This is in contrast with Kwak̓wala and Haisla, where schwas are more commonly epenthesized, the right-most of which receives word stress when all syllables have schwa as their nucleus (Janzen 2023). Below is an example set where each word has no schwa, resonant, or mora. They are considered here as stressless words.	the first paragraph of §3.3
+§3.3	Jonathan Janzen	citation	(Howe 2000a, 2001)	for words without morae or schwa
+§3.3	Jonathan Janzen	citation	(Janzen 2023)	for epenthetic schwa in Kwak̓wala and Haisla, and again in §3.4 and on (8) line 4
+(7) line 1	’Wuikala	transcription	c̓k̓vxt̓	short person
+(7) line 1	’Wuikala	phonemic	c̓k̓ʷxt̓	short person. No syllable is set in bold, as no syllable of (7) carries stress
+(7) line 1	Jonathan Janzen	translation	short person	the English of (7) line 1
+(7) line 2	’Wuikala	transcription	q̓kkv	dried salmon eggs
+(7) line 2	’Wuikala	phonemic	q̓kkʷ	dried salmon eggs
+(7) line 2	Jonathan Janzen	translation	dried salmon eggs	the English of (7) line 2
+(7) line 3	’Wuikala	transcription	pq̓vc̓	drowsy/sleepy
+(7) line 3	’Wuikala	phonemic	pq̓ʷc̓	drowsy/sleepy
+(7) line 3	Jonathan Janzen	translation	drowsy/sleepy	the English of (7) line 3
+(7) line 4	’Wuikala	transcription	t̓hxt̓hxk̓s	strawberry. The orthography writes ƛ̓ as t̓h
+(7) line 4	’Wuikala	phonemic	ƛ̓xƛ̓xk̓s	strawberry
+(7) line 4	Jonathan Janzen	translation	strawberry	the English of (7) line 4
+§3.3	Jonathan Janzen	note	I assume that stress would indeed appear on an adjoining suffix or clitic if that morpheme had vocalic material. If the third distal deictic [=aχi] where to be added, for example, I would assume the word to surface as q̓kkʷáχi ‘dried salmon eggs there’. This would have to be tested with a fluent speaker.	the paragraph after (7)
+§3.3	Jonathan Janzen	damage	where to be added	where, for were. Transcribed as printed
+§3.3	’Wuikala	cited affix	[=aχi]	the third distal deictic, with the Greek χ, U+03C7. §3 writes the deictic clitic [aꭓi] with ꭓ, U+AB53
+§3.3	’Wuikala	cited form	q̓kkʷáχi	dried salmon eggs there, the form the paper assumes and says would have to be tested with a fluent speaker. kkʷá set in bold italics
+§3.4	Jonathan Janzen	heading	3.4 Lexically stressed suffixes
+§3.4	Jonathan Janzen	note	Unlike Haisla or Heiltsuk-Xai’xais, ’Wuikala is not a mixed-stress-tone language, and I take some space in this section to prove it. The most likely candidates for lexically tonal morphemes are those cognates with Haisla which consistently surface with disruptive stress, regardless of the prosodic makeup of the stem (Janzen 2023). Below is a near comprehensive list of lexically stressed affixes in Haisla, as identified by Flynn (Howe 2005) and me (Janzen 2023):	the paragraph introducing (8)
+§3.4	Jonathan Janzen	citation	(Howe 2005)	for the lexically stressed affixes of Haisla, and at the right of (8) line 1
+(8)	Jonathan Janzen	note	Haisla cognate ’Wuikala WMA English	the header row of (8). Each row gives a Haisla suffix with its gloss, then a ’Wuikala word in the orthography and the WMA, then the English
+(8) line 1	Haisla	cited affix	-igá	back
+(8) line 1	’Wuikala	transcription	w̓ùsǧəmiga	back
+(8) line 1	’Wuikala	phonemic	w̓úsɢemiga	back, with w̓ús set in bold. The WMA has e where the orthography has ə
+(8) line 1	Jonathan Janzen	translation	back	the English of (8) line 1, which cites (Howe 2005) at the right
+(8) line 2	Haisla	cited affix	-záqʷ	speak
+(8) line 2	’Wuikala	transcription	dhùw̓əlʣaqv	make sound again. The orthography writes λ as dh
+(8) line 2	’Wuikala	phonemic	λúw̓əlzaqʷ	make sound again, with λú set in bold. The WMA has z where the orthography has ʣ
+(8) line 2	Jonathan Janzen	translation	make sound again	the English of (8) line 2
+(8) line 3	Haisla	cited affix	-bá	end
+(8) line 3	’Wuikala	transcription	q̓və̀lba	end of life
+(8) line 3	’Wuikala	phonemic	q̓ʷə́lba	end of life, with q̓ʷə́l set in bold
+(8) line 3	Jonathan Janzen	translation	end of life	the English of (8) line 3
+(8) line 4	Haisla	cited affix	*-áp̓	each other. The star is printed, and §3.4 says the suffix may not be cognate
+(8) line 4	’Wuikala	transcription	q̓ác̓ukvmt̓a	love each other
+(8) line 4	’Wuikala	phonemic	q̓ác̓ukʷmt̓a	love each other, with q̓á set in bold
+(8) line 4	Jonathan Janzen	translation	love each other	the English of (8) line 4, which cites (Janzen 2023) at the right
+(8) line 5	Haisla	cited affix	-ás	place
+(8) line 5	’Wuikala	transcription	x̌və́ldilas	fireplace. The schwa carries an acute, U+0301, where every other orthography line of the paper marks stress with a grave
+(8) line 5	’Wuikala	phonemic	χʷə́ldilas	fireplace, with χʷə́l set in bold. The uvular is the Greek χ, U+03C7
+(8) line 5	Jonathan Janzen	translation	fireplace	the English of (8) line 5
+(8) line 6	Haisla	cited affix	-áyu	tool
+(8) line 6	’Wuikala	transcription	haə̀mʣayu	utensil
+(8) line 6	’Wuikala	phonemic	hə́mzayu	utensil, with hə́m set in bold. The WMA has z where the orthography has ʣ
+(8) line 6	Jonathan Janzen	translation	utensil	the English of (8) line 6
+(8) line 7	Haisla	cited affix	-xíd	INCH, in small capitals
+(8) line 7	’Wuikala	transcription	y̓a’aìdax̌’it	back up. Both glottal stops are ’, U+2019
+(8) line 7	’Wuikala	phonemic	y̓əʔɛ́ːdaχʔid	back up, with ʔɛ́ː set in bold. The uvular is the Greek χ, U+03C7
+(8) line 7	Jonathan Janzen	translation	back up	the English of (8) line 7
+§3.4	Jonathan Janzen	note	These examples show that the cognate lexically stressed suffixes in Haisla do not have any effect on the realization of stress in ’Wuikala. In each example, the stress appears on the leftmost moraic segment, and not the target cognate suffix. To note, the reciprocal suffix -áp̓ in Haisla has a somewhat different equivalent in ’Wuikala -mt̓a, and may not in fact be cognate.	the paragraph after (8)
+§3.4	’Wuikala	cited affix	-mt̓a	the reciprocal, set in italics, the ’Wuikala equivalent of Haisla -áp̓
+§3.4	Jonathan Janzen	note	’Wuikala does not display the lexically stressed suffixes Haisla does, or any stressed morpheme that cannot be predicted by moraicity and syllable makeup.	the last paragraph of §3.4
+§4	Jonathan Janzen	heading	4 Conclusion
+§4	Jonathan Janzen	note	This paper has investigated the stress system of ’Wuikala, showing that Standard North Wakashan Stress (SNWS) is the primary mechanism governing stress assignment: the leftmost moraic syllable within the prosodic word bears stress. Moraicity in ’Wuikala is determined by full vowels [i, u, a] and schwa-resonant pairings [əl., ən., əm.] within the same syllable. Schwa alone, and schwa-glottalized resonant pairings (əl̓, əm̓, ən̓), are non-moraic and are ignored in stress assignment. A small set of words contain no moraic material whatsoever and surface as stressless.	the first paragraph of §4. schwa-glottalized breaks across a line at its hyphen
+§4	Jonathan Janzen	note	I identify two disruptions to SNWS. First, long vowels and long resonants are bi-moraic and prosodically heavy. They attract stress even when they are not the leftmost moraic element in the word. Second, when two moraic segments are adjacent, a syllable repair strategy reduces the first to a schwa-resonant pair, effectively removing its moraic projection and allowing the following segment to host stress.	a paragraph of §4, running from page 6 onto page 7 after reduces the first. The text layer sets the page number 175 inside it. Joined here
+§4	Jonathan Janzen	note	Crucially, ’Wuikala patterns differently from its Upper North Wakashan sister language in two respects. Unlike Heiltsuk-Xai'xais, it does not employ lexical tone. Unlike Haisla, it has no lexically stressed suffixes capable of disrupting predictable SNWS assignment. The cognate suffixes shared with Haisla surface in ’Wuikala with stress determined entirely by the moraicity and syllable structure of the stem, not by any lexical property of the suffix itself. ’Wuikala's stress system is, therefore, fully predictable from prosodic structure alone.	a paragraph of §4. Heiltsuk-Xai'xais and ’Wuikala's carry the straight apostrophe, U+0027, where the rest of the paper has ’
+§4	Jonathan Janzen	note	Broader comparative work within the North Wakashan family, particularly as documentation efforts for ’Wuikala continue, will be essential for refining the picture presented here.	the last paragraph of §4
+references	Jonathan Janzen	heading	References	twenty entries, on pages 7 and 8
+references	Jonathan Janzen	reference	Bach, Emmon. 1975. Long vowels and stress in Kwakiutl. Texas Linguistic Forum 2. 9–19.
+references	Jonathan Janzen	reference	Boas, Franz. 1911. Kwakiutl. In Franz Boas (ed.), Handbook of American Indian languages, Part 1, 423–557. (Bureau of American Ethnology Bulletin, 40.) Washington: Government Printing Office.
+references	Jonathan Janzen	reference	Eberhard, David M., Gary F. Simons & Charles D. Fennig (eds.). 2025. Ethnologue: Languages of the world. 28th edn. Dallas, TX: SIL International.
+references	Jonathan Janzen	reference	Hilton, Susanne & John C. Rath (eds.). 1982. Oowekeeno oral traditions as told by the late Chief Simon Walkus, Sr. Translated by Evelyn Walker Windsor. (Mercury Series, Canadian Ethnology Service Paper, 84.) Ottawa: National Museum of Man.
+references	Jonathan Janzen	name	Chief Simon Walkus, Sr.	the teller of the oral traditions of Hilton & Rath 1982, named in the title
+references	Jonathan Janzen	name	Evelyn Walker Windsor	the translator of Hilton & Rath 1982
+references	Jonathan Janzen	language	Oowekeeno	in the title of Hilton & Rath 1982
+references	Jonathan Janzen	reference	Howe, Darin M. [Flynn]. 2000a. Oowekyala segmental phonology. PhD dissertation, University of British Columbia.	the prose calls the author Flynn
+references	Jonathan Janzen	reference	Howe, Darin M. [Flynn]. 2000b. Oowekyala dictionary. Unpublished manuscript.
+references	Jonathan Janzen	reference	Howe, Darin M. [Flynn]. 2001. On syllabic obstruents in Oowekyala. Paper presented at the Society for the Study of the Indigenous Languages of the Americas / Workshop on American Indian Languages, University of California, Santa Barbara, 6–8 July.
+references	Jonathan Janzen	reference	Howe, Darin M. [Flynn]. 2005. Tonogenesis in Wakashan. Handout presented in the University of Alberta Colloquia Series, 4 November.
+references	Jonathan Janzen	reference	Inman, Daniel & Adam Werle. 2025. The Wakashan glossing rules. Wakashan Papers 1. (forthcoming)
+references	Jonathan Janzen	reference	Janzen, Jonathan. 2015. Wałda̱mas? An exploration into the phonological word in Kwak̓wala. MA thesis, Trinity Western University.	Wałda̱mas? carries ł, U+0142, and a with U+0331 COMBINING MACRON BELOW, in the spelling of the title
+references	Kwak̓wala	cited form	Wałda̱mas?	the question that opens the title of Janzen 2015, in Kwak̓wala, with no English on the page
+references	Jonathan Janzen	reference	Janzen, Jonathan. 2023. The predictability of word-stress in Haisla. In D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Julia Schillo & Bailey Trotter (eds.), Papers for the 58th International Conference on Salish and Neighbouring Languages, 188–198. Vancouver: UBCWPL.
+references	Jonathan Janzen	reference	Janzen, Jonathan. 2025. Tone in Heiltsuk-Xai’xais. Wakashan Papers 1. (forthcoming)
+references	Jonathan Janzen	reference	Kortlandt, Frederik H. H. 1975. Tones in Wakashan. Linguistics 13(146). 31–34.	§1 cites it as Kortlandt 1978 and §2 as Kortlandt 1975
+references	Jonathan Janzen	reference	Lincoln, Neville J. & John C. Rath. 1980. North Wakashan comparative root list. (Mercury Series, Canadian Ethnology Service Paper, 68.) Ottawa: National Museums of Canada.
+references	Jonathan Janzen	reference	Lincoln, Neville J. & John C. Rath. 1986. Phonology, dictionary and listing of roots and lexical derivates of the Haisla language of Kitlope and Kitimaat, B.C. 2 vols. (Mercury Series, Canadian Ethnology Service Paper, 103.) Ottawa: National Museums of Canada.
+references	Jonathan Janzen	place	Kitlope	in the title of Lincoln & Rath 1986
+references	Jonathan Janzen	place	Kitimaat	in the title of Lincoln & Rath 1986
+references	Jonathan Janzen	reference	Nater, Hank F. 1987. An areal investigation: Nuxalk and Upper North Wakash. Papers for the 22nd International Conference on Salish and Neighbouring Languages, 193–218.	the entry opening page 8
+references	Jonathan Janzen	language	Nuxalk	in the title of Nater 1987
+references	Jonathan Janzen	reference	Stevenson, David. 2025. Waìxsiənc ‘Qàq̓utha ’Wuikala: Wuikala grammar lessons. Rivers Inlet, BC: ’Wuikala Language Project.	the source of (2)
+references	’Wuikala	cited form	Waìxsiənc ‘Qàq̓utha ’Wuikala	the ’Wuikala title of Stevenson 2025, with the English title Wuikala grammar lessons after the colon. The opening mark of ‘Qàq̓utha is ‘, U+2018
+references	Jonathan Janzen	reference	Wakashan Language Circle. 2025. The Wakashan meta-alphabet. Wakashan Papers 1.
+references	Jonathan Janzen	reference	’Wùikinux̌v Language Department. 2004. A brief ’Wuikala–English dictionary. 2nd edn. Rivers Inlet, BC: ’Wuikala Language Project.	the local dictionary of §2. The entry writes ’Wùikinux̌v, with U+2019 and the grave on the u, where §2 and footnote * write ‘Wuìkinux̌v, with U+2018 and the grave on the i. ’Wuikala–English has an en dash, U+2013
+references	Jonathan Janzen	reference	Yinka Déné Language Institute. 2006. The Heiltsuk-Oweek’ala language. Vanderhoof, BC: Yinka Déné Language Institute.
+references	Jonathan Janzen	language	Heiltsuk-Oweek’ala	in the title of the Yinka Déné Language Institute entry
+references	Jonathan Janzen	notation	Kortlandt 1978 against 1975	§1 cites Kortlandt 1978, and §2 and the reference list have Kortlandt 1975. Both recorded as printed
+references	Jonathan Janzen	notation	Flynn and Howe	the prose names the author of the ’Wuikala phonology and dictionary Flynn, and cites the works as Howe. The reference list gives Howe, Darin M. [Flynn]
+all	Jonathan Janzen	notation	the footer	page 1 prints In Proceedings of Northwest Linguistics Conference 61 with one editor, Ella Hannon, and the year 2025. The paper's pages are numbered 170 to 176 in the run of the ICSNL 61 proceedings. Recorded as printed
+all	Jonathan Janzen	notation	ten columns against nine	footnote 3 describes ten columns, the tenth glottals, and Table 1 has nine, with ʔ and h in the ninth. Recorded as printed
+all	Jonathan Janzen	notation	e in the WMA against ə in the orthography	the WMA of (1) line 2, (3) line 1 and (8) line 1 writes e, in p̓ewáy̓u, k̓ʷáxdem̓a and w̓úsɢemiga, where the orthography writes u or ə and the paragraph after (1) writes [p̓ə.wá.y̓u]. Each recorded as printed
+all	Jonathan Janzen	notation	stress in bold	the WMA line of each example sets its stressed syllable in bold, and the forms in the prose after (1), (3), (4) and §3.3 are set in bold italics on the stressed syllable. (2) sets bold in both lines, and (7) has no bold. The form column carries no bold
+all	Jonathan Janzen	notation	orthography against WMA	the local orthography writes kʷ as kv, qʷ as qv, χ as x̌, ƛ̓ as t̓h, λ as dh, ɬ as lh, ɢ as ǧ and the glottal stop as ’ or ‘, and marks stress with a grave. The WMA writes the IPA-like letters and marks stress with an acute. Each line is recorded as printed
+all	Jonathan Janzen	symbol note	two chis	the text layer writes the uvular fricative two ways. ꭓ, U+AB53 LATIN SMALL LETTER CHI, is in the WMA of (2) and (3) line 3 and in [aꭓi], [wənꭓʷ] and [gáꭓaꭓiɬ]. χ, U+03C7 GREEK SMALL LETTER CHI, is in Table 1, (6), (8) and [=aχi] and q̓kkʷáχi of §3.3. The page draws them alike, and the table follows the text layer
+all	Jonathan Janzen	symbol note	the glottalization mark	the text layer writes glottalization as U+0313 COMBINING COMMA ABOVE and sets a space after it in most places, as in p̓ ùn̓ akvəla and Kwak̓ wala. The form column joins each word. The y of y̕ak̓ in §3.2 alone carries U+0315 COMBINING COMMA ABOVE RIGHT
+all	Jonathan Janzen	symbol note	commas drawn high and stray marks	in Table 1 the commas of k̓ and k̓ʷ in the ejective row are drawn under the ɡ and ɡʷ of the voiced row above. Between the rows of (1), (3), (4), (7) and (8) short dashes, dots and commas sit on no letter. Read at 600 dpi. The text layer holds U+0313 on the letters the table gives and nothing for the stray marks, and the table follows the text layer
+all	Jonathan Janzen	symbol note	apostrophes	the name ’Wuikala opens with ’, U+2019. The orthography writes the glottal stop as ’, U+2019, in kvə̀lx’it and y̓a’aìdax̌’it, and as ‘, U+2018, at the start of (2) line 1. ‘Wuìkinux̌v in §2 and footnote * opens with U+2018. §4 has the straight U+0027 in Heiltsuk-Xai'xais and ’Wuikala's
+all	Jonathan Janzen	notation	page numbers	pages 2 to 8 carry the proceedings page numbers 170 to 176. The text layer has no number on page 1, and the page prints none

@@ -1,0 +1,377 @@
+where	who	kind	form	gloss
+front	John Hamilton Davis	title	Reflexes of Proto-Salish *ʔas- Stative and *ʔis- Durative in Today’s Comox	page 1
+front	John Hamilton Davis	name	John Hamilton Davis	author
+front	John Hamilton Davis	note	Bellingham, Washington	page 1, under John Hamilton Davis
+front	John Hamilton Davis	note	Abstract: Two Proto-Salish prefixes identified by Stanley Newman (1976) are preserved in a limited number of vocabulary items in the language of the Homalco, Klahoose, and Sliammon speakers. In previous publications, their language has been known collectively as Mainland Comox.	page 1, the abstract
+front	John Hamilton Davis	note	Keywords: Mainland Comox, historical phonology, stative, durative, grammatical tone	page 1, the keywords
+front	John Hamilton Davis	note	Papers for the International Conference on Salish and Neighbouring Languages 54. D. K. E. Reisinger and Gloria Mellesmoen (eds.). Vancouver, BC: UBCWPL, 2019.	page 1, the volume's header
+front	John Hamilton Davis	language	Mainland Comox	ʔayʔaǰuθəm, the language of the Homalco, Klahoose and Sliammon
+§1	John Hamilton Davis	heading	1 Introduction	page 1
+§1	John Hamilton Davis	note	Stanley Newman (1976:231) distinguishes between Proto-Salish */ʔas/ stative and Proto-Salish */ʔis/ continuative or durative. This paper presents the homophonous phonetic residues as they appear in Mainland Comox and distinguishes them from the proclitic /s/ nominalizer. Section 2 presents the nominalizing proclitic with its requirement that the subject of the nominalized phrase be indicated by a pronominal marker from the possessive paradigm. Section 3 presents the imperfective, which overlaps semantically with the durative. Sections 4 and 5 present the most frequent formation of the durative and stative. Sections 6 and 7 present additional data. Section 8 presents the */s-/ prefix of the durative and stative. Section 9 presents time expressions with the Proto-Salish */s-/ prefix. The examples in sections 8 and 9 do not require a pronominal marker. Section 10 is a note on how the Proto-Salish /s/ nominalizer has been absorbed into the first person singular possessive pronoun and Section 11 is a history of the names for this language.	page 1
+§1	John Hamilton Davis	name	Stanley Newman	reconstructs the Proto-Salish prefixes, Salish and Bella Coola prefixes (1976)
+§1	John Hamilton Davis	name	Newman	Stanley Newman, Salish and Bella Coola prefixes (1976)
+§1	John Hamilton Davis	language	Proto-Salish	the prefixes *ʔas- stative and *ʔis- durative
+§1	John Hamilton Davis	language	Comox	Mainland and Island Comox
+§2	John Hamilton Davis	heading	2 The /s/ nominalizing proclitic	page 1
+§2	John Hamilton Davis	note	Mainland Comox lacks the prefixes prominent in other Coast Salish languages. Even the pan- Salish *s nominalizer remains only as a proclitic, not as a prefix. The following examples of the proclitic /s/ nominalizer show that the nominalized phrase requires that a third person subject be marked by the the possessive suffix /-s/ ‘his/her/its/their’ or /-ap/ ‘your (plural)’ or by a preposed possessive pronoun.	page 1
+(1) line 1	Mainland Comox	transcription	texwnîwhas s whes qwel’. (1′) ... s whe-s ...	page 1, in columns
+(1) line 2	Mainland Comox	phonetic	[tɔχʷnεçʷᴧs s çʷʊs qʷɔlʔ] [... s çʷʊs ...]	page 1, in columns
+(1) line 3	John Hamilton Davis	translation	‘She knows that he didn’t come.’ ‘... that not his/he ...’	page 1, in columns
+(1) line 4	Mainland Comox	gloss	texw ‘know’ + (n)ewh ‘result transitive’ + -î- ‘stative’ + -as ‘(s)he’	page 1, in columns
+(2) line 1	Mainland Comox	transcription	pakwewh sht s whekwts. (2′) ... s whekwt-s	page 1, in columns
+(2) line 2	Mainland Comox	phonetic	[pakʷʊçʷ št s çʷʊkʷts] [... s çʷʊkʷts]	page 1, in columns
+(2) line 3	John Hamilton Davis	translation	‘We noticed that she wasn’t there.’ ‘... that (was) absent hers/she’	page 1, in columns
+(2) line 4	Mainland Comox	gloss	pakw ‘observe’ + ewh ‘result transitive’ + sht ‘we’	page 1, in columns
+(3) line 1	Mainland Comox	transcription	xaxayastîwh sht s whekwts.	page 1, in columns
+(3) line 2	Mainland Comox	phonetic	[χaχayεstεçʷ št s çʷʊkʷts]	page 1, in columns
+(3) line 3	John Hamilton Davis	translation	‘We found it strange that she wasn’t there.’	page 1, in columns
+(3) line 4	John Hamilton Davis	note	(from the story “Christine Falls Down”)	page 1, in columns, at the right of the translation
+(3) line 5	Mainland Comox	gloss	xaxaya ‘strange’ + s(t)wh ‘causative’ + -î- ‘stative’ + sht ‘we’	page 1, in columns
+(4) line 1	Mainland Comox	transcription	lhaxmot s wha’agewhs she pukws. (4′) ... s wha’ag-ewh-s ...	page 2, in columns
+(4) line 2	Mainland Comox	phonetic	[ɬaχmot s çwaʔagʊçʷs šι pukʷs] [... s çwaʔagʊçʷs ...]	page 2, in columns
+(4) line 3	John Hamilton Davis	translation	‘It’s bad that he lost his book.’ ‘... that lost result-transitive his/he ...’	page 2, in columns
+(4) line 4	Mainland Comox	gloss	lhex ‘bad’ (with rhetorical vowel ablaut) + mot ‘really’ + wha’ag- ‘lose’	page 2, in columns
+(5) line 1	Mainland Comox	transcription	’ey’mot s qwel’ap.	page 2, in columns
+(6) line 1	Mainland Comox	transcription	’ey’mot teth qwel’.	page 2, in columns
+(5) line 2	Mainland Comox	phonetic	[ʔi:ʔmot s qʷɔlʔᴧp]	page 2, in columns
+(6) line 2	Mainland Comox	phonetic	[ʔi:ʔmot təθ qʷɔlʔ]	page 2, in columns
+(5) line 3	John Hamilton Davis	translation	‘It’s good that you guys came (welcome).’	page 2, in columns
+(6) line 3	John Hamilton Davis	translation	‘It’s good that you came (welcome).’	page 2, in columns, carries footnote 1
+footnote 1	John Hamilton Davis	note	This is the greeting that Mary Paul gave to visitors to her house in the 1960s and 1970s.	page 2, footnote 1
+(5) line 4	Mainland Comox	gloss	’ey’ ‘good’ + mot ‘really’ + s ‘that’ + qwel’ ‘come’ + -ap ‘you (plural)’	page 2, in columns
+§2	John Hamilton Davis	note	In example (6), the second person singular possessive pronoun /θ/ occupies the same syntactic slot as the /s/ nominalizing proclitic, with the result that the proclitic is hidden. The pronoun /θ/ is here phonetically attached to the preceding article /tə/. See also the comment after example (87).	page 2
+§3	John Hamilton Davis	heading	3 The imperfective	page 2
+§3	John Hamilton Davis	note	Many predicates in Comox use CV- reduplication to show ongoing action or ongoing state.	page 2
+(7) line 1	Mainland Comox	transcription	’axeth	page 2, in columns
+(8) line 1	Mainland Comox	transcription	’a’axeth	page 2, in columns
+(7) line 2	Mainland Comox	phonetic	[ʔaχəθ]	page 2, in columns
+(8) line 2	Mainland Comox	phonetic	[ʔaʔaχəθ] (compare with (46) below)	page 2, in columns
+(7) line 3	John Hamilton Davis	translation	‘lie down’	page 2, in columns
+(8) line 3	John Hamilton Davis	translation	‘moving to lie down’	page 2, in columns
+(9) line 1	Mainland Comox	transcription	lhuk’w	page 2, in columns
+(10) line 1	Mainland Comox	transcription	lhulhuk’w	page 2, in columns
+(9) line 2	Mainland Comox	phonetic	[ɬuk̉ʷ]	page 2, in columns
+(10) line 2	Mainland Comox	phonetic	[ɬuɬuk̉ʷ]	page 2, in columns
+(9) line 3	John Hamilton Davis	translation	‘fly’	page 2, in columns
+(10) line 3	John Hamilton Davis	translation	‘be flying’	page 2, in columns
+(11) line 1	Mainland Comox	transcription	qwel’	page 2, in columns
+(12) line 1	Mainland Comox	transcription	qweqwel’	page 2, in columns
+(11) line 2	Mainland Comox	phonetic	[qʷɔlʔ]	page 2, in columns
+(12) line 2	Mainland Comox	phonetic	[qʷɔqʷɔlʔ]	page 2, in columns
+(11) line 3	John Hamilton Davis	translation	‘come’	page 2, in columns
+(12) line 3	John Hamilton Davis	translation	‘be coming’	page 2, in columns
+(13) line 1	Mainland Comox	transcription	seyawus (lexical suffix -awus)	page 2, in columns
+(14) line 1	Mainland Comox	transcription	seseyawus	page 2, in columns
+(13) line 2	Mainland Comox	phonetic	[siyawus]	page 2, in columns
+(14) line 2	Mainland Comox	phonetic	[sιsiyawus]	page 2, in columns
+(13) line 3	John Hamilton Davis	translation	‘get drunk’	page 2, in columns
+(14) line 3	John Hamilton Davis	translation	‘be drunk’	page 2, in columns
+(15) line 1	Mainland Comox	transcription	qay’	page 2, in columns
+(16) line 1	Mainland Comox	transcription	qaqay’	page 2, in columns
+(15) line 2	Mainland Comox	phonetic	[qayʔ]	page 2, in columns
+(16) line 2	Mainland Comox	phonetic	[qaqᴧyʔ]	page 2, in columns
+(15) line 3	John Hamilton Davis	translation	‘die’ = become dead	page 2, in columns
+(16) line 3	John Hamilton Davis	translation	‘be dead’	page 2, in columns
+§3	John Hamilton Davis	note	The following predicate has to date been recorded only in the imperfective and is thus semantically parallel with example (22).	page 2
+(17) line 1	Mainland Comox	transcription	’o’omat (intent transitive)	page 2, in columns
+(17) line 2	Mainland Comox	phonetic	[ʔoʔomᴧt]	page 2, in columns
+(17) line 3	John Hamilton Davis	translation	‘lazy’ (discinclined to do a specific task)2	page 2, in columns
+footnote 2	John Hamilton Davis	note	If you search for the term “lazy” in the Sliammon app and listen to the audio , you will hear that all recorded speakers are pronouncing this in the imperfective with initial CV- reduplication, including even the imperative example. The written transcription is partially inaccurate. The word ’o’omat is best expressed by the Spanish expression no tener ganas.	page 2, footnote 2
+footnote 2	John Hamilton Davis	language	Spanish	no tener ganas and mañana
+§4	John Hamilton Davis	heading	4 The durative	page 3
+§4	John Hamilton Davis	note	But some predicates “can’t be doubled” (as Bill Galligos, born 1908, said). Ongoing action or state is expressed by the durative, as in examples (1) and (3) above.	page 3
+§4	John Hamilton Davis	name	Bill Galligos	Mainland Comox speaker, born 1908
+(18) line 1	Mainland Comox	transcription	texwnewh	page 3, in columns
+(19) line 1	Mainland Comox	transcription	texwnîwh (durative -î- infix)	page 3, in columns
+(18) line 2	Mainland Comox	phonetic	[tɔχʷnʊçʷ]	page 3, in columns
+(19) line 2	Mainland Comox	phonetic	[tɔχʷnɛçʷ]	page 3, in columns
+(18) line 3	John Hamilton Davis	translation	‘realize something, get to know about it’	page 3, in columns
+(19) line 3	John Hamilton Davis	translation	‘know it’	page 3, in columns
+(20) line 1	Mainland Comox	transcription	k’wenewh (result transitive)	page 3, in columns
+(21) line 1	Mainland Comox	transcription	k’wenît (durative -î- infix)	page 3, in columns
+(20) line 2	Mainland Comox	phonetic	[kʷɔnʊçʷ]	page 3, in columns
+(21) line 2	Mainland Comox	phonetic	[tɔχʷnɛçʷ] (compare with (26) below)	page 3, in columns
+(20) line 3	John Hamilton Davis	translation	‘see it’	page 3, in columns
+(21) line 3	John Hamilton Davis	translation	‘be seeing or looking at it|	page 3, in columns
+§4	John Hamilton Davis	note	Contrast this with:	page 3
+(22) line 1	Mainland Comox	transcription	k’wet (intent transitive)	page 3, in columns
+(22) line 2	Mainland Comox	phonetic	[k̉ʷʊt] (here the underlying {N} is deleted before {T})	page 3, in columns
+(22) line 3	John Hamilton Davis	translation	‘look (at it)’	page 3, in columns
+§4	John Hamilton Davis	note	This predicate has to date been recorded only in the durative and is thus semantically parallel with example (17):	page 3
+(23) line 1	Mainland Comox	transcription	p’a’p’îm	page 3, in columns
+(23) line 2	Mainland Comox	phonetic	[p̉aᵃp̉εm] (compare phonetics with (38) and (40) below)	page 3, in columns
+(23) line 3	John Hamilton Davis	translation	‘work; be working’	page 3, in columns
+§5	John Hamilton Davis	heading	5 The stative	page 3
+§5	John Hamilton Davis	note	The stative is formed in the same way as the durative. It must be noted that here and above there is a higher tone on the vowel marked with a circumflex; the tone serves as a grammatical marker.3	page 3
+footnote 3	John Hamilton Davis	note	“Grammatical tone is the distinctive pitch which marks contrasts in grammatical features…” (SIL Glossary of Linguistic Terms); “In Mainland Comox, stress and pitch operate either partially or totally independently of one another; the strongest stress and the highest pitch do not usually occur on the same syllable either at the sentence level or at the word level.” (Davis 1970:21–22)	page 3, footnote 3
+footnote 3	John Hamilton Davis	name	Davis	John Hamilton Davis, the author's earlier work
+(25) line 1	Mainland Comox	transcription	tew’ (here /ə/ ~ /a/)	page 3, in columns
+(26) line 1	Mainland Comox	transcription	ta’gît (stative -ît suffix)	page 3, in columns
+(25) line 2	Mainland Comox	phonetic	[tu:ʔ] (and {W} + vowel → /g/)	page 3, in columns
+(26) line 2	Mainland Comox	phonetic	[taᵃgit] (compare with (20) above)	page 3, in columns
+(25) line 3	John Hamilton Davis	translation	‘freeze’	page 3, in columns
+(26) line 3	John Hamilton Davis	translation	‘frozen’	page 3, in columns
+(27) line 1	Mainland Comox	transcription	t’elk’et (intent transitive)	page 3, in columns
+(28) line 1	Mainland Comox	transcription	t’elîk’ (stative -î- infix)	page 3, in columns
+(27) line 2	Mainland Comox	phonetic	[t̉ᴧlk̉ιt]	page 3, in columns
+(28) line 2	Mainland Comox	phonetic	[t̉ᴧlik̉]	page 3, in columns
+(27) line 3	John Hamilton Davis	translation	‘make a hole in something’	page 3, in columns
+(28) line 3	John Hamilton Davis	translation	‘something with a hole in it’	page 3, in columns
+(29) line 1	Mainland Comox	transcription	tlepwh (intransitive)	page 3, in columns
+(30) line 1	Mainland Comox	transcription	tlepîwh (stative -î- infix)	page 3, in columns
+(29) line 2	Mainland Comox	phonetic	[ƛᴧpçʷ]	page 3, in columns
+(30) line 2	Mainland Comox	phonetic	[ƛᴧpiçʷ]	page 3, in columns
+(29) line 3	John Hamilton Davis	translation	‘(a long object) to break (in the middle)’	page 3, in columns
+(30) line 3	John Hamilton Davis	translation	‘(a long object) broken (in the middle)’	page 3, in columns
+(31) line 1	Mainland Comox	transcription	tlexwt (intent transitive)	page 4, in columns
+(32) line 1	Mainland Comox	transcription	tlexwît (stative -ît suffix)	page 4, in columns
+(31) line 2	Mainland Comox	phonetic	[ƛɔχʷt]	page 4, in columns
+(32) line 2	Mainland Comox	phonetic	[ƛɔχʷεt]	page 4, in columns
+(31) line 3	John Hamilton Davis	translation	‘spit’	page 4, in columns
+(32) line 3	John Hamilton Davis	translation	‘spittle’	page 4, in columns
+(31) line 4	John Hamilton Davis	note	(cp. Sechelt lhexwt ‘to spit it out’)	page 4, in columns
+(33) line 1	Mainland Comox	transcription	peyesh	page 4, in columns
+(34) line 1	Mainland Comox	transcription	peyt (stative -t suffix)	page 4, in columns
+(33) line 2	Mainland Comox	phonetic	[piyiš]	page 4, in columns
+(34) line 2	Mainland Comox	phonetic	[pi:t]	page 4, in columns
+(33) line 3	John Hamilton Davis	translation	‘descend’	page 4, in columns
+(34) line 3	John Hamilton Davis	translation	‘low; down’	page 4, in columns
+(35) line 1	Mainland Comox	transcription	shia’	page 4, in columns
+(36) line 1	Mainland Comox	transcription	shia’t (stative -t suffix)	page 4, in columns
+(35) line 2	Mainland Comox	phonetic	[šʸæʔ]	page 4, in columns
+(36) line 2	Mainland Comox	phonetic	[šʸæʔt]	page 4, in columns
+(35) line 3	John Hamilton Davis	translation	‘ascend’	page 4, in columns
+(36) line 3	John Hamilton Davis	translation	‘high’	page 4, in columns
+(37) line 1	Mainland Comox	transcription	p’eq’ (here /ə/ ~ /a/)	page 4, in columns
+(38) line 1	Mainland Comox	transcription	p’a’q’îm	page 4, in columns
+(37) line 2	Mainland Comox	phonetic	[p̉ᴧq̉]	page 4, in columns
+(38) line 2	Mainland Comox	phonetic	[p̉aᵃq̉εm]	page 4, in columns, carries footnote 4
+footnote 4	John Hamilton Davis	note	Here the notation for a long or rearticulated vowel is borrowed from Sapir (1915). Hagège (1981) noted this feature of pronunciation, although he did not transcribe it.	page 4, footnote 4
+footnote 4	John Hamilton Davis	name	Hagège	Claude Hagège, le comox lhaamen (1981)
+(37) line 3	John Hamilton Davis	translation	‘smoke’	page 4, in columns
+(38) line 3	John Hamilton Davis	translation	‘emitting smoke’	page 4, in columns
+(39) line 1	Mainland Comox	transcription	metl’	page 4, in columns
+(40) line 1	Mainland Comox	transcription	ma’tl’îm	page 4, in columns
+(39) line 2	Mainland Comox	phonetic	[mᴧƛ̉]	page 4, in columns
+(40) line 2	Mainland Comox	phonetic	[maᵃƛ̉εm]	page 4, in columns
+(39) line 3	John Hamilton Davis	translation	‘calm’	page 4, in columns
+(40) line 3	John Hamilton Davis	translation	‘a calm area of water’	page 4, in columns
+(41) line 1	Mainland Comox	transcription	sechem (intransitive)	page 4, in columns
+(42) line 1	Mainland Comox	transcription	sechîm	page 4, in columns
+(41) line 2	Mainland Comox	phonetic	[sιčιm]	page 4, in columns
+(42) line 2	Mainland Comox	phonetic	[sιčim]	page 4, in columns
+(41) line 3	John Hamilton Davis	translation	‘itch’	page 4, in columns
+(42) line 3	John Hamilton Davis	translation	‘itchy’	page 4, in columns
+(43) line 1	Mainland Comox	transcription	qayiws (lexical suffix -iws)	page 4, in columns
+(44) line 1	Mainland Comox	transcription	qayigîs (here {W} + vowel → /g/)	page 4, in columns
+(43) line 2	Mainland Comox	phonetic	[qayiʊs]	page 4, in columns
+(44) line 2	Mainland Comox	phonetic	[qayigis]	page 4, in columns
+(43) line 3	John Hamilton Davis	translation	‘tired’	page 4, in columns
+(44) line 3	John Hamilton Davis	translation	‘totally exhausted’	page 4, in columns
+(45) line 1	Mainland Comox	transcription	’axeth	page 4, in columns
+(46) line 1	Mainland Comox	transcription	’axîth (stative -î- infix)	page 4, in columns
+(45) line 2	Mainland Comox	phonetic	[ʔaχəθ]	page 4, in columns
+(46) line 2	Mainland Comox	phonetic	[ʔaχεθ] (compare with (8) above)	page 4, in columns
+(45) line 3	John Hamilton Davis	translation	‘lie down’	page 4, in columns
+(46) line 3	John Hamilton Davis	translation	‘be lying down’	page 4, in columns
+(47) line 1	Mainland Comox	transcription	jianwh	page 4, in columns
+(48) line 1	Mainland Comox	transcription	jianîwh (stative -î- infix)	page 4, in columns
+(47) line 2	Mainland Comox	phonetic	[ǰʸεnçʷ]	page 4, in columns
+(48) line 2	Mainland Comox	phonetic	[ǰʸεniçʷ]	page 4, in columns
+(47) line 3	John Hamilton Davis	translation	‘fish’	page 4, in columns
+(48) line 3	John Hamilton Davis	note	characterized by knowing about fish or being good at fishing (from the expla- nation about twins told by Tommy Paul)	page 4, in columns, the translation, unquoted on the page
+(49) line 1	Mainland Comox	transcription	tl’ems	page 4, in columns
+(50) line 1	Mainland Comox	transcription	tl’emîs kw qayiwmiwh	page 4, in columns
+(49) line 2	Mainland Comox	phonetic	[ƛ̉ᴧms]	page 4, in columns
+(50) line 2	Mainland Comox	phonetic	[ƛ̉ᴧmεs kw qayiʊmiçʷ]	page 4, in columns
+(49) line 3	John Hamilton Davis	translation	‘house’	page 4, in columns
+(50) line 3	John Hamilton Davis	translation	“the people had houses”	page 4, in columns, carries footnote 5
+footnote 5	John Hamilton Davis	note	This is a direct quote from Noel George Harry in the introductory lines of the story “Killing the Wind”; these are his words, not the linguist’s, as shown by the double quotation marks.	page 4, footnote 5
+§6	John Hamilton Davis	heading	6 Another morphological process	page 5
+§6	John Hamilton Davis	note	Here is an additional way to derive attributions, insertion of [h] in V2 as in the following. This method of derivation yields the same meaning as in Section 5, but is morphologically different.	page 5
+(51) line 1	Mainland Comox	transcription	gaqath	page 5, in columns
+(52) line 1	Mainland Comox	transcription	gaqahâth	page 5, in columns
+(51) line 2	Mainland Comox	phonetic	[gaqaθ]	page 5, in columns
+(52) line 2	Mainland Comox	phonetic	[gaqahaθ]	page 5, in columns
+(51) line 3	John Hamilton Davis	translation	‘husband’	page 5, in columns
+(52) line 3	John Hamilton Davis	translation	‘has a husband’ = ‘married (woman)’	page 5, in columns
+(53) line 1	Mainland Comox	transcription	salhtiw	page 5, in columns
+(54) line 1	Mainland Comox	transcription	salhtihîw	page 5, in columns
+(53) line 2	Mainland Comox	phonetic	[saɬtιʊ]	page 5, in columns
+(54) line 2	Mainland Comox	phonetic	[saɬtεhεʊ]	page 5, in columns
+(53) line 3	John Hamilton Davis	translation	‘wife’	page 5, in columns
+(54) line 3	John Hamilton Davis	translation	‘has a wife’ = ‘married (man)’	page 5, in columns
+(55) line 1	Mainland Comox	transcription	t’eshiqw (lexical suffix -iqw)	page 5, in columns
+(56) line 1	Mainland Comox	transcription	t’eshihîqw	page 5, in columns
+(55) line 2	Mainland Comox	phonetic	[t̉ιšεᵋqʷ]	page 5, in columns
+(56) line 2	Mainland Comox	phonetic	[t̉ιšεhεᵋqʷ]	page 5, in columns
+(55) line 3	John Hamilton Davis	translation	‘snot, nasal mucous’	page 5, in columns
+(56) line 3	John Hamilton Davis	translation	‘snotty (has nasal mucous smeared)’	page 5, in columns
+(57) line 1	Mainland Comox	transcription	ch’iaq’	page 5, in columns
+(58) line 1	Mainland Comox	transcription	ch’iahâq’	page 5, in columns
+(57) line 2	Mainland Comox	phonetic	[č̉ʸεq̉]	page 5, in columns
+(58) line 2	Mainland Comox	phonetic	[č̉ʸεhεq̉]	page 5, in columns
+(57) line 3	John Hamilton Davis	translation	‘fence’	page 5, in columns
+(58) line 3	John Hamilton Davis	translation	‘fenced (e.g. a fenced garden)’	page 5, in columns
+(59) line 1	Mainland Comox	transcription	q’aga	page 5, in columns
+(60) line 1	Mainland Comox	transcription	’i’imash q’agahâ	page 5, in columns
+(59) line 2	Mainland Comox	phonetic	[q̉aga]	page 5, in columns
+(60) line 2	Mainland Comox	phonetic	[ʔεʔεmᴧš q̉agaha]	page 5, in columns
+(59) line 3	John Hamilton Davis	translation	‘cane, waling stick’	page 5, in columns
+(60) line 3	John Hamilton Davis	translation	‘walking with a cane’	page 5, in columns
+§7	John Hamilton Davis	heading	7 A periphrastic way to indicate possessive	page 5
+§7	John Hamilton Davis	note	The predicate na’ [naʔ] indicates possession.	page 5
+(61) line 1	Mainland Comox	transcription	z na’ ~ ’ez na’	page 5, in columns
+(62) line 1	Mainland Comox	transcription	’ems na’	page 5, in columns
+(61) line 2	Mainland Comox	phonetic	[ʔətᶿ naʔ]	page 5, in columns
+(62) line 2	Mainland Comox	phonetic	[ʔəms naʔ]	page 5, in columns
+(61) line 3	John Hamilton Davis	translation	‘my, mine’	page 5, in columns
+(62) line 3	John Hamilton Davis	translation	‘our, ours’	page 5, in columns
+§7	John Hamilton Davis	note	As in a sentence volunteered by Bill Galligos:	page 5
+(63) line 1	Mainland Comox	transcription	’ez na’ ti’i ch’îano.	page 5, in columns
+(63) line 2	Mainland Comox	phonetic	[ʔətᶿ naʔ tεʔε č̉éᴧno]	page 5, in columns, carries footnote 6
+footnote 6	John Hamilton Davis	note	Bill Galligos said that ‘dog’ has “two and a half” syllables. This observation exemplifies that the Coast Salish languages are not syllable-timed, like European languages, but are mora-timed; see also Davis (2005) and Davis (2015). Hoard (1978) describes the situation without using the word “mora”.	page 5, footnote 6
+footnote 6	John Hamilton Davis	name	Hoard	James E. Hoard, syllabication in Northwest Indian languages (1978)
+(63) line 3	John Hamilton Davis	translation	“That’s my dog.” = ‘That dog is mine.’	page 5, in columns, carries footnote 7
+footnote 7	John Hamilton Davis	note	This is a direct quote from Bill Galligos; these are his words, not the linguist’s, as shown by the double quotation marks.	page 5, footnote 7
+(64) line 1	Mainland Comox	transcription	th na’ ~ ’eth na’	page 5, in columns
+(65) line 1	Mainland Comox	transcription	na’ap	page 5, in columns
+(64) line 2	Mainland Comox	phonetic	[ʔəθ naʔ]	page 5, in columns
+(65) line 2	Mainland Comox	phonetic	[naʔap]	page 5, in columns
+(64) line 3	John Hamilton Davis	translation	‘your, yours (singular)’	page 5, in columns
+(65) line 3	John Hamilton Davis	translation	‘your, yours (plural)’	page 5, in columns
+(66) line 1	Mainland Comox	transcription	na’s	page 6, in columns
+(67) line 1	Mainland Comox	transcription	na’it	page 6, in columns
+(66) line 2	Mainland Comox	phonetic	[naʔs]	page 6, in columns
+(67) line 2	Mainland Comox	phonetic	[nεʔεt] ~ [naʔat]	page 6, in columns, carries footnote 8
+footnote 8	John Hamilton Davis	note	The plural possessive suffix is -it, but these are the only two pronunciations of this item recorded. Bill Galligos volunteered the minimal pair na’it newhilh [nεʔεt nʊçʷιɬ] ‘their (own) boat’ versus ni’ît te newhilh [nε:ʔεt tə nʊçʷιɬ] ‘the boat’s in the way’ with a longer root vowel and higher tone on the second vowel. Hagège (1981:136) gives the form te na’at [tə naʔat] ‘theirs’ (retranscribed here to fit the rest of this paper). These two pronunciations seem to be instances of VʔV assimilation. Even in the 1970s the suffix -s was commonly being used for ‘theirs’ and the suffix -it was rare.	page 6, footnote 8
+footnote 8	Mainland Comox	cited form	-it	page 6, in italics
+footnote 8	Mainland Comox	cited form	ni’ît te newhilh	page 6, in italics
+footnote 8	Mainland Comox	cited form	-s	page 6, in italics
+(66) line 3	John Hamilton Davis	translation	‘his, her, hers, its, their, theirs’	page 6, in columns
+(67) line 3	John Hamilton Davis	translation	‘their, theirs’	page 6, in columns
+§7	John Hamilton Davis	note	The next examples present ‘whose?’ which requires the prefix /s-/, a reflex from Proto-Salish.	page 6
+§8	John Hamilton Davis	heading	8 Reflexes of the Proto-Salish durative and stative prefixes	page 6
+§8	John Hamilton Davis	note	Stanley Newman reconstructs the Proto-Salish stative prefix as */ʔas-/ and the prefix for continuative/durative as */ʔis-/. Their reflexes in Comox are not distinguishable.	page 6
+(68) line 1	Mainland Comox	transcription	gat sna’ (gat = ‘who?’)	page 6, in columns
+(68) line 2	Mainland Comox	phonetic	[gᴧt snaʔ]	page 6, in columns
+(68) line 3	John Hamilton Davis	translation	‘whose?’	page 6, in columns
+§8	John Hamilton Davis	note	This has the Proto-Salish /s-/ prefix. More frequent is the following, which is doubly marked for attribution by both the /s-/ prefix and the additional /-h-/:	page 6
+(69) line 1	Mainland Comox	transcription	gat snaha	page 6, in columns
+(69) line 2	Mainland Comox	phonetic	[gᴧt snaha]	page 6, in columns
+(69) line 3	John Hamilton Davis	translation	‘whose?’	page 6, in columns
+§8	John Hamilton Davis	note	Note that these words do not have the possessive suffix required by the /s/ nominalizer.	page 6
+(70) line 1	Mainland Comox	transcription	k’wik’wichiy	page 6, in columns
+(71) line 1	Mainland Comox	transcription	sk’wichiy	page 6, in columns, carries footnote 9
+footnote 9	John Hamilton Davis	note	Compare Sechelt k’wichil ‘be a bother’ and sk’wichil ‘a mischief maker/nuisance’ with final /-l/.	page 6, footnote 9
+(70) line 2	Mainland Comox	phonetic	[k̉ʷik̉ʷiči:]	page 6, in columns
+(71) line 2	Mainland Comox	phonetic	[sk̉ʷiči:]	page 6, in columns
+(70) line 3	John Hamilton Davis	translation	‘bothering’	page 6, in columns
+(71) line 3	John Hamilton Davis	translation	‘habitually bothersome’	page 6, in columns
+(72) line 1	Mainland Comox	transcription	tl’eq	page 6, in columns
+(73) line 1	Mainland Comox	transcription	’astl’q	page 6, in columns
+(72) line 2	Mainland Comox	phonetic	[ƛ̉ᴧq]	page 6, in columns
+(73) line 2	Mainland Comox	phonetic	[ʔasƛ̉q]	page 6, in columns, carries footnote 10
+footnote 10	John Hamilton Davis	note	Mary George (born 1924) kept the [ƛ̉] in her pronunciation of three morae, illustrated by the transcription [ʔas.ƛ̉.q] using the notation in Hoard (1978). Compare Sechelt ’astl’q ‘be outside’ where the [ƛ̉] is also preserved.	page 6, footnote 10
+footnote 10	John Hamilton Davis	name	Mary George	Sliammon speaker, born 1924
+(72) line 3	John Hamilton Davis	translation	‘go outside’	page 6, in columns
+(73) line 3	John Hamilton Davis	translation	‘be outside’	page 6, in columns
+(74) line 1	Mainland Comox	transcription	sqwajem	page 6, in columns
+(74) line 2	Mainland Comox	phonetic	[sqʷaǰιm]	page 6, in columns
+(74) line 3	John Hamilton Davis	translation	‘poor (an ongoing condition)’	page 6, in columns
+§9	John Hamilton Davis	heading	9 Time expressions	page 7
+§9	John Hamilton Davis	note	Expressions of time do not have the third person /-s/ suffix; the /s-/ is not a nominalizer. They are the most common expression of the Proto-Salish */s-/ stative prefix.	page 7
+(75) line 1	Mainland Comox	transcription	sjiasolh (overt past tense -olh)	page 7, in columns
+(75) line 2	Mainland Comox	phonetic	[sǰʸεsoɬ]	page 7, in columns
+(75) line 3	John Hamilton Davis	translation	‘yesterday’	page 7, in columns
+§9	John Hamilton Davis	note	The word for ‘yesterday’ has not been recorded without the /s-/ prefix. Indeed, Marion Harry (born 1937) corrected me when I wrote it that way once.	page 7
+§9	John Hamilton Davis	name	Marion Harry	born 1937
+(76) line 1	Mainland Comox	transcription	z’ok’w	page 7, in columns
+(77) line 1	Mainland Comox	transcription	’esz’ok’w ~ sz’ok’w	page 7, in columns
+(76) line 2	Mainland Comox	phonetic	[t̉ᶿok̉ʷ]	page 7, in columns
+(77) line 2	Mainland Comox	phonetic	[ʔᴧst̉ᶿok̉ʷ]	page 7, in columns
+(76) line 3	John Hamilton Davis	translation	‘day; bright’	page 7, in columns
+(77) line 3	John Hamilton Davis	translation	‘today’	page 7, in columns
+(78) line 1	Mainland Comox	transcription	nanat	page 7, in columns
+(79) line 1	Mainland Comox	transcription	snanat	page 7, in columns
+(78) line 2	Mainland Comox	phonetic	[nanat]	page 7, in columns
+(79) line 2	Mainland Comox	phonetic	[snanat]	page 7, in columns
+(78) line 3	John Hamilton Davis	translation	‘evening’	page 7, in columns
+(79) line 3	John Hamilton Davis	translation	‘this evening’	page 7, in columns
+(80) line 1	Mainland Comox	transcription	kwiy’ (here {Y} + vowel → /ǰ/)	page 7, in columns
+(81) line 1	Mainland Comox	transcription	skwiǰolh (overt past tense -olh)	page 7, in columns
+(80) line 2	Mainland Comox	phonetic	[kʷi:ʔ]	page 7, in columns
+(81) line 2	Mainland Comox	phonetic	[skʷiǰoɬ]	page 7, in columns
+(80) line 3	John Hamilton Davis	translation	‘morning; also morrow’	page 7, in columns, carries footnote 11
+footnote 11	John Hamilton Davis	note	Tommy Paul used the phrase “z’ok’w kwiy’” [t̉ᶿok̉ʷ kʷi:ʔ] to mean ‘the next day’ in the context of telling a story. Thus [kʷi:ʔ] has a similar range of meanings as Spanish mañana.	page 7, footnote 11
+footnote 11	Mainland Comox	cited form	mañana	page 7, in italics
+footnote 11	John Hamilton Davis	name	Tommy Paul	storyteller, the explanation about twins
+(81) line 3	John Hamilton Davis	translation	‘this morning (past)’	page 7, in columns
+(82) line 1	Mainland Comox	transcription	chia’at	page 7, in columns
+(83) line 1	Mainland Comox	transcription	schia’at ~ ’eschia’at	page 7, in columns
+(82) line 2	Mainland Comox	phonetic	[čʸεʔεt]	page 7, in columns
+(83) line 2	Mainland Comox	phonetic	[ʔᴧsčʸεʔεt]	page 7, in columns
+(82) line 3	John Hamilton Davis	translation	‘short period of time’	page 7, in columns
+(83) line 3	John Hamilton Davis	translation	‘now’	page 7, in columns
+(84) line 1	Mainland Comox	transcription	xoxw	page 7, in columns
+(85) line 1	Mainland Comox	transcription	whe xoxwas	page 7, in columns
+(84) line 2	Mainland Comox	phonetic	[χʷoχʷ]	page 7, in columns
+(85) line 2	Mainland Comox	phonetic	[çʷʊ χʷoχʷas]	page 7, in columns
+(84) line 3	John Hamilton Davis	translation	‘long period of time‘	page 7, in columns
+(85) line 3	John Hamilton Davis	translation	‘not long (until/before ...)’	page 7, in columns
+(86) line 1	Mainland Comox	transcription	sxoxolh (overt past tense -olh)	page 7, in columns
+(86) line 2	Mainland Comox	phonetic	[sχʷoχʷoɬ]	page 7, in columns
+(86) line 3	John Hamilton Davis	translation	‘long ago’	page 7, in columns
+§9	John Hamilton Davis	note	This prefix can also act like a proclitic and be attached to a preceeding article:	page 7
+(87) line 1	Mainland Comox	transcription	kwes xoxolh	page 7, in columns
+(87) line 2	Mainland Comox	phonetic	[kʷəs χʷoχʷoɬ]	page 7, in columns
+(87) line 3	John Hamilton Davis	translation	‘long ago’	page 7, in columns
+§9	John Hamilton Davis	note	Neither the /s/ nominalizer nor the /s-/ stative has been noted attaching to any preceding article other than /kʷ/. If it cannot attach to the article /tə/, that may be because the sequence [t əs] is too phonetically similar to [təθ], as in examples (5) and (6) above. The same phonetic restrictions may apply to both /s/ nominalizer and /s-/ stative.	page 7
+§10	John Hamilton Davis	heading	10 A final note on Newman	page 8
+§10	John Hamilton Davis	note	“The possessive pronominal prefixes of Salish have been lost in ... Com[ox], a language of the northernmost branch of the Coast Salish groups.” (Newman 1976:229)	page 8
+§10	John Hamilton Davis	note	In 1978, Wayne Suttles (personal communication) pointed out that Proto-Salish first person singular /n/ combines with the nominalizer /s/ to yield the lamino-alveolar affricate /tᶿ/ in Comox, as in Musqueam synchronically. In other words, the /n/ has not really been lost, but has become disguised. This is the only instance of the phoneme /tᶿ/ in Comox. The lamino-alveolar affricate /t̉ᶿ/ corresponds to /t̉ˢ/ and the lamino-alveolar fricative /θ/ corresponds to /tˢ/ in Sechelt , being pronounced at the same point of articulation but shifting the manner of articulation from a groove affricate to a slit fricative. Thus /θ/ comes from historical */tˢ/, and /t̉ᶿ/ comes from historical */t̉ˢ/, but /tᶿ/ comes from historical */n+s/ while remaining lamino-alveolar.	page 8
+§10	John Hamilton Davis	name	Wayne Suttles	personal communication, 1978
+§10	John Hamilton Davis	language	Sechelt	Central Salish, compared
+§10	John Hamilton Davis	language	Musqueam	Central Salish, /tᶿ/ synchronically
+§10	John Hamilton Davis	note	This latter change can be expressed as [ns]→[dˢ]→[tᶿ], with the first person singular [n] combining with the [s] of the future enclitic [səm] or historical [s] nominalizer. It also combines with [saᵃ ga] ‘in that case’ or ‘as a consequence’ to yield [tᶿaᵃ ga].	page 8
+§10	John Hamilton Davis	note	The shift [n] to [d] reflects the areal variation of nasal and stop. Noel George Harry (born circa 1890; father-in-law of Bill Galligos) sometimes pronounced /m/ as [b] and /n/ as [d] for rhetorical emphasis.	page 8
+§10	John Hamilton Davis	name	Noel George Harry	storyteller, born circa 1890, father-in-law of Bill Galligos
+§11	John Hamilton Davis	heading	11 A note on the name(s) of this language	page 8
+§11	John Hamilton Davis	note	The earliest mention of this language was written by George Gibbs in 1857 and published in 1877. In his introduction, Gibbs (1877) notes that “Their own name is S’tlaht-tolht-hu; that of S’komook is the one given them by the Uguultas.” Here Gibbs (or the typesetter) gives a second spelling for the name. The word list is recognizable as a vocabulary of Thalholhtwh [θaɬoɬtçʷ] — Island Comox.	page 8
+§11	John Hamilton Davis	name	George Gibbs	the earliest word list, 1857, published 1877
+§11	John Hamilton Davis	name	Gibbs	George Gibbs, vocabulary of the Ko-mookhs (1877)
+§11	John Hamilton Davis	language	Island Comox	Thalholhtwh, the island dialect
+§11	John Hamilton Davis	note	In 1886, Franz Boas recorded the name of Island Comox as Çal‘oltq, where the q stood for several fricatives including the rounded ich-laut [çʷ]. In 1915 Sapir used the name Comox. Thalholhtwh [θaɬoɬtçʷ] was the name that Noel George Harry (born circa 1890) volunteered in 1969 for the island dialect. The last speaker of Island Comox substituted [s] for [θ] (Harris 1977), but one last speaker is not more authoritative than the hundreds of speakers who came before.	page 8
+§11	John Hamilton Davis	name	Franz Boas	recorded Çal‘oltq in 1886
+§11	John Hamilton Davis	name	Boas	Franz Boas
+§11	John Hamilton Davis	name	Sapir	Edward Sapir, noun reduplication in Comox (1915)
+§11	John Hamilton Davis	name	Harris	Herbert R. Harris, a grammatical sketch of Comox (1977)
+§11	John Hamilton Davis	note	The spelling Ko-mookhs may be Gibbs’ attempt to write /qayməçʷs/ [qaymʊçʷs] which would mean ‘person of’ = /qayməçʷ/ [qaymʊçʷ] plus ‘of’ /s/. This would be the first word of a two-word phrase which remains incomplete. Probably the speaker said the two syllables of this word slowly and separately as Gibbs wrote them down. Gibbs was an English-dominant speaker, so the spelling “ko” would be how he wrote the sound of [qa] as in Montler (2018) and the spelling “mookhs” would be how he wrote [mʊçʷs] with the [y] being lost while the speaker was attempting to pronounce in a way that would satisfy this unfamiliar white man.	page 8
+§11	John Hamilton Davis	name	Montler	Timothy Montler, the SENĆOTEN dictionary (2018)
+§11	John Hamilton Davis	language	English	the difficult language
+§11	John Hamilton Davis	note	Although Homalco, Klahoose, and Sliammon have been known collectively as Mainland Comox, many speakers today call it /ʔayʔajuθəm/ [ʔayʔajuθəm] ~ [ʔayʔajoθəm], which means ‘speaking properly’. However, in the past this term was not used to refer to these three speech communities exclusively. In the 1960s Mary Paul and her niece overheard other First Nations people speaking and the niece asked what these strangers were speaking. Mary Paul responded that they were speaking /ʔayʔajuθəm/. Bill Galligos contrasted this term with /χaƛ̉uθqin/ [χaƛ̉oθqεn] which he said means ‘the difficult language’ referring to the English language.	page 8
+§11	John Hamilton Davis	name	Mary Paul	gave the greeting of (6) to visitors in the 1960s and 1970s
+§11	John Hamilton Davis	language	Homalco	a Mainland Comox community
+§11	John Hamilton Davis	language	Klahoose	a Mainland Comox community
+§11	John Hamilton Davis	language	Sliammon	a Mainland Comox community
+references	John Hamilton Davis	heading	References	page 9
+references	John Hamilton Davis	reference	Beaumont, Ronald C. 1973. Sechelt Statives. Canadian Journal of Linguistics 18:2, 102–112.	page 9
+references	John Hamilton Davis	reference	Beaumont, Ronald C. 1985. She Shashishalhem, the Sechelt Language: Language, Stories and Sayings of the Sechelt Indian People of British Columbia. Penticton, B.C.: Theytus Books.	page 9
+references	John Hamilton Davis	reference	Beaumont, Ronald C. 2011. Sechelt Dictionary. © Sechelt Indian Band. Printed and bound in Canada by Ray Hignell Services Inc., Winnipeg.	page 9
+references	John Hamilton Davis	reference	Boas, Franz. [1887?]. Çal‘oltq vocabulary slips. Smithsonian document 711b.	page 9
+references	John Hamilton Davis	reference	Boas, Franz. 1888. Myths and Legend^ s of the Çatloltq of Vancouver Island. American Antiquarian and Oriental Journal 10:201–211; 366–373.	page 9
+references	John Hamilton Davis	reference	Davis, John Hamilton. 1969–1980. Field notes on Mainland Comox. [MS]	page 9
+references	John Hamilton Davis	reference	Davis, John Hamilton. 1969–1980. Field recordings of Mainland Comox. http://cla.berkeley.edu/collection/10048	page 9
+references	John Hamilton Davis	reference	Davis, John Hamilton. 1970. Some Phonological Rules in Mainland Comox. [M.A. thesis, University of Victoria.]	page 9
+references	John Hamilton Davis	reference	Davis, John Hamilton. 2005. High Consonants, Articulatory Transitions, and Nonhigh Vowels in Comox. Paper presented at the 40th ICSNL.	page 9
+references	John Hamilton Davis	reference	Davis, John Hamilton. 2015. A Trio of Phonetic Details in Homalco. Paper presented at the 50th ICSNL.	page 9
+references	John Hamilton Davis	reference	Davis, John Hamilton. 2016. Two Explanations by Tommy Paul. Papers for ICSNL 51, Vancouver: UBC Working Papers in Linguistics, 69–77. First Peoples’ Heritage Language and Culture Council. (2017). Sliammon (2.0) [Mobile application software]. https://itunes.apple.com/us/app/sliammon/id500541180?mt=8	page 9
+references	John Hamilton Davis	reference	Gibbs, George. 1877. Vocabulary of the Ko-mookhs. Contributions to North American Ethnology, Vol. 1. Washington: Dept. of the Interior, 269–283.	page 9
+references	John Hamilton Davis	reference	Hagège, Claude 1981. Le Comox Lhaamen de Colombie Brittanique: Preésentation d’une Langue Amérindienne. Amérindia. Revue d’Ethnolinguistique Amérindienne, numéro special 2. Paris.	page 9
+references	John Hamilton Davis	reference	Harris, Herbert R. 1977. A Grammatical Sketch of Comox. Ph.D. dissertation, University of Kansas, Lawrence.	page 9
+references	John Hamilton Davis	reference	Hoard, James E. 1978. Syllabication in Northwest Indian Languages, with Remarks on the Nature of Syllabic Stops and Affricates. In Syllables and Segments (Bell, Alan, and Joan Bybee Hooper, eds.) Amsterdam: North Holland.	page 9
+references	John Hamilton Davis	reference	Hyman, Larry M. 2016. Lexical vs. Grammatical Tone: Sorting out the Differences. Tonal Aspects of Languages 2016, 24–27 May 2016, Buffalo, New York.	page 9
+references	John Hamilton Davis	reference	Montler, Timothy. 2018. SENĆOTEN, A Dictionary of the Saanich Language. Seattle: University of Washington Press.	page 9
+references	John Hamilton Davis	reference	Newman, Stanley. 1976. Salish and Bella Coola Prefixes. International Journal of American Linguistics, Vol. 42, No. 3 (July 1976), 228–242.	page 9
+references	John Hamilton Davis	reference	Paul, Tommy. 1972. Explanation of why it’s good to be a twin. http://cla.berkeley.edu/item/15581.	page 10
+references	John Hamilton Davis	reference	Sapir, Edward. 1915. Noun Reduplication in Comox, a Salish Language of Vancouver Island. Canada Department of Mines, Geological Survey Memoir 63, Anthropological Series No. 6. (Ottawa: Government Printing Bureau). SIL Glossary of Linguistic Terms. https://glossary.sil.org/term/grammatical-tone	page 10

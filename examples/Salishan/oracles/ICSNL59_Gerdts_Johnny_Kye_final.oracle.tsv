@@ -1,0 +1,638 @@
+where	who	kind	form	gloss
+front	Donna Gerdts, Thomas Johnny and Ted Kye	note	Papers for the International Conference on Salish and Neighbouring Languages 59. D. K. E. Reisinger, Laura Griffin, Ella Hannon, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, Julia Schillo, Lauren Schneider, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2024.	page 1
+front	Donna Gerdts, Thomas Johnny and Ted Kye	language	Hul’q’umi’num’	Hul’q’umi’num’, the Island dialect of Halkomelem, the language of the stories
+title	Donna Gerdts, Thomas Johnny and Ted Kye	title	Rhetorical Lengthening in Hul’q’umi’num’ Story Performance*	page 1, the title, its star the acknowledgement footnote's
+title	Donna Gerdts, Thomas Johnny and Ted Kye	note	Donna Gerdts Thomas Johnny Simon Fraser University Simon Fraser University Ted Kye Simon Fraser University	page 1, the authors and their affiliations
+title	Donna Gerdts, Thomas Johnny and Ted Kye	name	Donna Gerdts	author, Simon Fraser University
+title	Donna Gerdts, Thomas Johnny and Ted Kye	name	Thomas Johnny	author, Simon Fraser University
+title	Donna Gerdts, Thomas Johnny and Ted Kye	name	Ted Kye	author, Simon Fraser University
+front	Donna Gerdts, Thomas Johnny and Ted Kye	note	Abstract: Hul’q’umi’num’ storytellers often use rhetorical lengthening, characterized by a high, steady pitch, to direct attention to certain words or to move the listeners’ attention along in the story. In this study, based on 91 tokens of rhetorical lengthening from six stories told by Mrs. Jimmy Joe, we highlight the prosodic features of rhetorical lengthening and also discuss the meanings it conveys and its use in narrative structure.	page 1, the abstract
+front	Donna Gerdts, Thomas Johnny and Ted Kye	note	Keywords: rhetorical lengthening, duration, pitch, intensity, semantics, narrative structure	page 1
+§1	Donna Gerdts, Thomas Johnny and Ted Kye	heading	1 Introduction	page 1
+§1	Donna Gerdts, Thomas Johnny and Ted Kye	language	Hul’q’umi’num’	Hul’q’umi’num’, the Island dialect of Halkomelem, the language of the stories
+§1	Hul’q’umi’num’	cited form	ʔiməš	page 1, ‘walk’
+§1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Coast Salish culture is centered on performance and storytelling, and Hul’q’umi’num’ storytellers are virtuosos in holding the attention of the audience with various narrative devices. This paper studies rhetorical lengthening — the stretching out of the pronunciation of a word to add meaning or convey a narrative effect and to enliven the performance.1 Here is a typical example of rhetorical lengthening on the verb ʔiməš ‘walk’, indicated by repeating the vowel (V.V.V) in the data and labelling it as RL in the gloss.	page 1
+(1) line 1	Hul’q’umi’num’	transcription	sisuw’ ’i.i.imush.	page 1, engine residue
+(1) line 2	Hul’q’umi’num’	segmentation	sisəw̓ ʔi.i.iməš	page 1, engine english
+(1) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS.CN walk<RL>	page 1, engine english
+(1) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘They walked and walked.’	page 1, engine english
+(1) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 89)	the tag or source at the right of the translation
+§1	Donna Gerdts, Thomas Johnny and Ted Kye	note	You can see the effect of rhetorical lengthening in Figure 1, where the word ʔiməš ‘walk’ is considerably lengthened, especially by comparing it to the non-rhetorically lengthened version of the verb in Figure 2.	page 1
+footnote *	Donna Gerdts, Thomas Johnny and Ted Kye	note	* We would like to thank the Hul’q’umi’num’ speakers who have shared their knowledge of the language with us. Mrs. Jimmy Joe’s stories were recorded on March 30, 1962, by Wayne Suttles in Nanaimo, BC. The stories were transcribed, translated, and edited by Ruby Peter and Donna Gerdts with assistance from Zachary Gilkison, Sarah Kell, Kaoru Kiyosawa, Zoey Peterson, and others. The work on texts and analysis was funded by Social Sciences and Humanities Research Council. We thank Lauren Schneider, Charles Ulrich, and the UBCWPL team for editorial assistance with this paper.	page 1, footnote
+footnote 1	Donna Gerdts, Thomas Johnny and Ted Kye	note	1 Abbreviations: APPL = Applicative, AUX = auxiliary, CN = connective element, CNJ = conjunction, CS = causative, DEM = demonstrative, DIM = diminutive, DT = determiner, DUB = dubiative, DUR = durative, HS = hearsay, IMP = imperative, INCH = inchoative, INQU = inquisitive, IPFV = imperfective, INTJ = interjection, LC= limited control, MID = middle, MIR = mirative, N = nominalizer, NEG = negation, OBL = oblique, OBN = oblique nominalizer, PAS = passive, PL = plural, POS = possessive, PERF = perfect, PRO = pronoun, REFL = reflexive, RES = resultative, RL = rhetorical lengthening, SB = subordinate, ST = stative, SUB = subject, TR = transitive, VBL = verbalizer, < > = non-concatenative morphology	page 1, footnote
+Figure 1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 1: Spectrogram, waveform, and pitch track of the verb ʔiməš ‘walk’ rhetorically lengthened	page 2, the caption
+Figure 2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 2: Spectrogram, waveform, and pitch track of the verb ʔiməš ‘walk’ not rhetorically lengthened	page 2, the caption
+§1	Donna Gerdts, Thomas Johnny and Ted Kye	note	These are the research questions that we address in this study:	page 2
+§1	Donna Gerdts, Thomas Johnny and Ted Kye	note	• How do the phonetic structures of words with rhetorical lengthening differ from their non- rhetorically lengthened counterparts?	page 2
+§1	Donna Gerdts, Thomas Johnny and Ted Kye	note	• What word classes can be rhetorically lengthened in Hul’q’umi’num’?	page 2
+§1	Donna Gerdts, Thomas Johnny and Ted Kye	note	• Where do rhetorically lengthened words appear in the clause?	page 2
+§1	Donna Gerdts, Thomas Johnny and Ted Kye	note	• What kinds of meaning are speakers conveying when using rhetorical lengthening? • How often and where in the narration is rhetorical lengthening used?	page 2
+§1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Hul’q’umi’num’ speakers and learners are very aware of the use of rhetorical lengthening by fluent storytellers, and we hope by providing some answers to these questions we will gain some appreciation of this narrative device and help foster its use among new speakers.	page 2
+§2	Donna Gerdts, Thomas Johnny and Ted Kye	heading	2 Background	page 3
+§2	Donna Gerdts, Thomas Johnny and Ted Kye	language	Hul’q’umi’num’	Hul’q’umi’num’, the Island dialect of Halkomelem, the language of the stories
+§2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Halkomelem is one of twenty-three Salish languages currently or historically spoken in what is now known as British Columbia, Idaho, Montana, Oregon, and Washington. Hul’q’umi’num’, the Vancouver Island dialect of Halkomelem (ISO 639-3: hur), is the focus of this study. The territory of the Hul’q’umi’num’ people extends along the Salish Sea from Nanoose to Malahat on Vancouver Island and on neighboring islands in British Columbia, Canada. Today around thirty fluent first-language speakers remain, mostly over the age of seventy, and thus Hul’q’umi’num’ is considered an endangered language. However, amongst the population of over six thousand Hul’q’umi’num’, there are many people who desire to learn the language or to improve their fluency. This research on rhetorical lengthening is part of a project that seeks to inform language instructors and students about storytelling skills, to help unlock their Hul’q’umi’num’ fluency. Our sound archive of legacy stories gives us an opportunity to enjoy story performances and study them for their linguistic features. This study draws on recordings by speaker Mrs. Jimmy Joe (née Ellen Rice), Tixulwut. Mrs. Joe, who was from Penelakut and married and lived at Snuneymuxw First Nation for her adult life, was particularly well-known for her storytelling skills, and many elders have fond memories of hearing her speak in the language.	page 3
+§2	Donna Gerdts, Thomas Johnny and Ted Kye	name	Mrs. Jimmy Joe	page 3, the storyteller of the six stories, née Ellen Rice
+§2	Hul’q’umi’num’	cited form	Tixulwut	page 3, Mrs. Jimmy Joe's Hul’q’umi’num’ name
+§2	Donna Gerdts, Thomas Johnny and Ted Kye	place	Penelakut	page 3, where Mrs. Jimmy Joe was from
+§2	Donna Gerdts, Thomas Johnny and Ted Kye	place	Snuneymuxw First Nation	page 3, where Mrs. Jimmy Joe lived her adult life
+§2	Donna Gerdts, Thomas Johnny and Ted Kye	note	These six stories from Mrs. Joe were examined:	page 3
+§2	Donna Gerdts, Thomas Johnny and Ted Kye	note	• Deserted Boy (DB) — 08:05 minutes, 66 lines • The Sea Hunters and the Dwarves (SHD) — 12:00 minutes, 90 lines • Snake Island (SI) — 3:40 minutes, 47 lines • Pitchy Log Man (Pitch) — 11:32 minutes, 122 lines • Ghost Lover (GL) — 7:00 minutes, 56 lines • The Origin of Sockeye (Sockeye) — 04:23 minutes, 32 lines Our corpus is thus 47:42 minutes and 366 lines. Mrs. Joe uses rhetorical lengthening 91 times in this corpus, so on an average of once every half minute or four lines. Nevertheless, we are left with the impression that many words that could be lengthened are not, and so we see that she uses rhetorical lengthening for special circumstances, and we try to discern what they are by studying the text and the translation. In ascribing reasons for use of rhetorical lengthening, we are not trying so much to make claims about Mrs. Joe’s conscious manipulation of rhetorical lengthening so much as the net effect on the listener, in an aim to understand the strategies that underly rhetorical lengthening usage.	page 3
+§2	Donna Gerdts, Thomas Johnny and Ted Kye	note	We assembled a database that coded phonetics (Section 3), semantics (Section 4), and narrative (Section 5) information for each occurrence of rhetorical lengthening. Based on our analysis, we found that words of all parts-of-speech categories (i.e., open-class words and closed-class clitics) can be rhetorically lengthened. In terms of their semantic or narrative effect, we found that there are two uses of RL. In Section 4, we discuss cases where rhetorical lengthening is placed on the stressed syllable of a particular word that is being enhanced for semantic effect to convey concepts such as a passage of time, intensity of a quality, or a large quantity. In Section 5, we discuss rhetorical lengthening used to enhance the narrative structure, appearing at the edge of the utterance, either at the beginning of the sentence, where it serves to provide (dis-)continuity to the previous section, or at the end of the sentence, where it serves to highlight a particularly salient word.	page 3
+§2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Overall, we find that Mrs. Jimmy Joe uses rhetorical lengthening to add meaning to certain words and this makes the performance of the story more dramatic at crucial points in the story.	page 4
+§3	Donna Gerdts, Thomas Johnny and Ted Kye	heading	3 Phonetics analysis of rhetorical lengthening	page 4
+§3	Donna Gerdts, Thomas Johnny and Ted Kye	language	Hul’q’umi’num’	Hul’q’umi’num’, the Island dialect of Halkomelem, the language of the stories
+§3	Donna Gerdts, Thomas Johnny and Ted Kye	notation	/ə/	schwa, a phoneme of the vowel inventory
+§3	Donna Gerdts, Thomas Johnny and Ted Kye	note	The Hul’q’umi’num’ vowel inventory consists of six short vowels /i/, /e/, /ə/, /u/, /o/, /a/, and four long vowels /i:/, /e:/, /u:/, /a:/ (Gerdts & Hukari to appear). In terms of prosodics, the acoustic effect of rhetorical lengthening is usually centered on the stressed vowel of the targeted word, and the lengthened vowel is noticeably longer than its non-lengthened counterpart.	page 4
+§3	Donna Gerdts, Thomas Johnny and Ted Kye	note	We measured duration, fundamental frequency f0 (which is an approximation of pitch), and intensity (loudness) in the 91 samples in order to characterize the acoustic properties of rhetorically lengthened (RL) vowels and how they compare with non-rhetorically lengthened (non-RL) vowels (cf. Boersma & Weenink 2024). The results reveal that RL vowels are approximately 1.2 seconds long and can be observed in both long and short vowels. The f0 of RL vowels is relatively higher than non-RL vowels and is mostly flat throughout its entire duration. The maximum f0 is approximately the same for both the RL and non-RL vowels in the beginning and middle of a sentence. However, the maximum f0 is lower at the end of a sentence for both non-RL and RL vowels.2	page 4
+§3.1	Donna Gerdts, Thomas Johnny and Ted Kye	heading	3.1 Methods	page 4
+§3.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	To examine the phonetics of rhetorical lengthening, we compared vowels that are RL with vowels that are non-RL. Approximately 91 RL and 90 non-RL vowels were examined. Three measurements (commonly used in prosody) were obtained to analyze the phonetics of rhetorical lengthening: duration (in seconds), pitch (measured as the maximum f0 of the vowel), and intensity (measured as the maximum intensity of the vowel, in decibels (dB) Sound Pressure Level (SPL)), where the latter two measures were used to examine the maximum pitch and intensity displacement of vowels under the two conditions. Vowels that are underlyingly long vs. vowels that are underlyingly short in RL vs. non-RL conditions were compared.	page 4
+footnote 2	Donna Gerdts, Thomas Johnny and Ted Kye	note	2 The positions “beginning”, “middle”, and “end” are defined by Wickmann (2000).	page 4, footnote
+§3.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	We also examined the prosodic position of the word within an Intonational Phrase (IP), where IPs are identified here as prosodic domains that are separated by pauses (Nespor & Vogel 1986; Pierrehumbert & Hirschberg 1990). Three IP positions were identified: The beginning (i.e., the first stressed syllable), middle, and end (i.e., the last stressed syllable) of an IP (cf. Wickmann 2000). The software that was used to obtain acoustic measurements is Praat (Boersma & Weenenk 2024). Each recording was examined through a waveform, spectrogram, and a pitch tracker. A narrowband spectrogram was used by setting the window length in the spectrogram setting to 30ms. The pitch range was set from 100Hz (minimum) to 400Hz (maximum). The advanced pitch settings in Praat were also adjusted to capture the pitch contour of RL vowels (where the octave cost, which is a pitch parameter that tracks higher frequency candidates, was increased to capture pitch contours of RL vowels). The analysis method that was used in the pitch setting was autocorrelation.	page 4
+§3.2	Donna Gerdts, Thomas Johnny and Ted Kye	heading	3.2 Phonetic findings	page 5
+§3.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	In this section, we outline our findings with respect to the duration, pitch, and intensity of rhetorical lengthening, comparing words with rhetorical lengthening with the same or similar words pronounced without rhetorical lengthening.3	page 5
+§3.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	heading	3.2.1 Duration	page 5
+§3.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Table 1 summarizes the mean duration (in seconds) for non-RL and RL conditions with respect to their prosodic position (i.e., beginning, middle, and end of an IP).	page 5
+Table 1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Table 1: Mean and standard deviation (in parentheses) of duration (in seconds) for non-RL and RL conditions for each prosodic position	page 5, the caption
+Table 1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Position non-RL RL beginning 0.184s (SD = 0.093) 1.191s (SD = 0.257) middle 0.163s (SD = 0.098) 1.212s (SD = 0.197) end 0.200s (SD = 0.092) 1.289s (SD = 0.353)	page 5, the cells in reading order
+§3.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 3 is a box plot illustrating the duration of non-RL and RL vowels (in seconds) with respect to their position in an IP. Regardless of their position in an IP, RL vowels are approximately 1 second longer than non-RL vowels.	page 5
+footnote 3	Donna Gerdts, Thomas Johnny and Ted Kye	note	3 Note that because of the way that speakers tend to repeat the same word within an oral paragraph (Gerdts 2018), we often found the two variants very close by. See, for example (31), (53), and (54).	page 5, footnote
+Figure 3	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 3: Duration (in seconds) of RL and non-RL at the beginning, middle, and end of IPs	page 5, the caption
+§3.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Table 2 summarizes the mean duration (in seconds) for non-RL vs. RL conditions with respect to their underlying vowel length (i.e., short vs. long). As Table 2 summarizes, the difference between long vs. short vowels in the non-RL condition (which is approximately 169ms) was much greater than the difference between short vs. long vowels in the RL condition (which is approximately 61ms).	page 5
+Table 2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Table 2: Mean and standard deviation (in parentheses) of duration (in seconds) for non-RL vs. RL conditions for the vowels underlying length (short vs. long)	page 6, the caption
+Table 2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Length non-RL RL short 0.147s (SD = 0.066) 1.209s (SD = 0.244) long 0.316s (SD = 0.070) 1.270s (SD = 0.393)	page 6, the cells in reading order
+§3.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 4 illustrates the duration of non-RL vs. RL conditions for vowels that are underlyingly short vs. vowels that are underlying long (e.g., /i/ vs. /i:/). As Figure 4 illustrates, although underlyingly long vowels have a longer duration than underlyingly short vowels in the non-RL condition, underlyingly short and long vowels have approximately the same duration in the RL condition, which suggests that regardless of the vowels underlying length (whether it is long vs. short), vowels will be lengthened by the same amount when they are rhetorically lengthened.	page 6
+Figure 4	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 4: Duration (in seconds) of RL vs. non-RL vowels for underlyingly long vs. underlyingly short vowels	page 6, the caption
+§3.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	heading	3.2.2 Pitch	page 7
+§3.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Table 3 summarizes the mean pitch (in Hz) for non-RL vs. RL vowels with respect to their prosodic position.	page 7
+§3.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	language	Hul’q’umi’num’	Hul’q’umi’num’, the Island dialect of Halkomelem, the language of the stories
+Table 3	Donna Gerdts, Thomas Johnny and Ted Kye	note	Table 3: Mean and standard deviation (in parentheses) of maximum f0 (in Hz) for non-RL vs. RL conditions for each prosodic position (beginning, middle, end)	page 7, the caption
+Table 3	Donna Gerdts, Thomas Johnny and Ted Kye	note	Position non-RL RL beginning 218Hz (SD = 50.20) 254Hz (SD = 25.05) middle 200Hz (SD = 31.59) 259Hz (SD = 73.48) end 183Hz (SD = 44.62) 222Hz (SD = 34.29)	page 7, the cells in reading order
+§3.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 5 is a box plot illustrating the distribution of the vowel’s maximum f0 in non-RL vs. RL conditions with respect to their position in an IP. In both non-RL and RL conditions, the maximum f0 at the end of an IP is always lower than the maximum f0 at the beginning or middle of an IP, illustrating a declination contour that is often observed within IP domains in Hul’q’umi’num’ storytelling speech. However, when comparing non-RL vs. RL conditions, the maximum f0 in the RL condition is relatively greater than the non-RL condition, which suggests that the speaker tends to raise her pitch when producing RL vowels.	page 7
+§3.2.2	Hul’q’umi’num’	cited form	x̌e:m	page 8, ‘to cry’
+Figure 5	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 5: Maximum f0 (in Hz) for vowels in non-RL vs. RL condition	page 7, the caption
+§3.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	The pitch contour of RL vowels is characterized by a long, sustained pitch contour across the vowel duration (where there is a rapid rise at the onset of the vowel). This can be observed in Figure 6 and Figure 7, where the pitch contour of the verb x̌e:m ‘to cry’ illustrates a rapid rise in pitch at the onset, followed by a relatively long, sustained pitch contour throughout the rest of the vowel duration. This pattern contrasts with non-RL vowels, which do not necessarily have the same sustained pitch pattern that is often observed in RL vowels (see Figure 7 for comparisons) (note: in both figures, x̌e:m occurs in the middle of an IP).	page 7
+Figure 6	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 6: Spectrogram, waveform, and pitch track illustrating the pitch contour of the RL vowel in the verb x̌e:m ‘cry’	page 8, the caption
+Figure 7	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 7: Spectrogram, wave form, and pitch track illustrating the pitch contour of the non-RL vowel in the verb x̌e:m ‘to cry’	page 8, the caption
+§3.2.3	Donna Gerdts, Thomas Johnny and Ted Kye	heading	3.2.3 Intensity	page 8
+§3.2.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	Table 4 summarizes the mean intensity for non-RL and RL vowels at the beginning, middle, and end of an IP.	page 8
+Table 4	Donna Gerdts, Thomas Johnny and Ted Kye	note	Table 4: Mean and standard deviation of maximum intensity (in dB SPL) for non-RL and RL vowels with respect to their position (beginning, middle, end) in an IP	page 9, the caption
+Table 4	Donna Gerdts, Thomas Johnny and Ted Kye	note	Position non-RL RL beginning 81.40 dB (SD = 5.54) 81.50 dB (SD = 4.59) middle 78.67 dB (SD = 6.05) 77.82 dB (SD = 5.26) end 79.66 dB (SD = 5.82) 72.14 dB (SD = 7.00)	page 9, the cells in reading order
+§3.2.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 8 illustrates the maximum intensity (in dB) for vowels in non-RL vs. RL conditions with respect to their position in an IP. Interestingly, the maximum intensity (in dB) in the RL condition was the lowest at the end of an IP. This is not observed in the non-RL condition, where the maximum intensity of vowels at the end of an IP was approximately the same as in the beginning or middle of an IP. This suggests that there was a strong tendency to produce a “quieter” RL vowel at the end of IPs rather than at the beginning or middle of IPs. This might be due to prosodic reasons: A quieter RL vowel can be used as a distinctive cue to mark the end of an IP (or to indicate that it “ends a sentence”); whereas in the non-RL condition, the primary cue may be declination (or falling) f0 contour at the end of IPs.	page 9
+Figure 8	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 8: Maximum intensity (in dB) for each vowel in non-RL vs. RL conditions with respect to their position in an IP	page 9, the caption
+§3.2.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	It should be noted that most RL vowels that occurred at the end of an IP were echo repetitions (see Section 5.2 for more detail), which tend to be quieter than the main word that they repeat. This may suggest that the intensity of the RL vowel can be affected by the type of rhetorical device (such as echo repetition) used by the speaker.	page 9
+§3.3	Donna Gerdts, Thomas Johnny and Ted Kye	heading	3.3 Summary	page 10
+§3.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	Rhetorical lengthening is phonetically characterized by a long duration with a high and sustained pitch contour that is quite noticeable to the human ear, and is quite apparent in the spectrogram, waveform, and pitch track evidence. Regardless of the underlying length of the vowels (i.e., short vs. long), vowels are lengthened to the same amount when rhetorically lengthened. There was also a strong tendency for Mrs. Jimmy Joe to produce RL vowels at a relatively higher pitch range than non-RL vowels across an IP. The current findings reveal that the intensity of RL vowels can differ based on their prosodic position — RL vowels at the beginning of an IP were the loudest and those at the end of an IP were the quietest.	page 10
+§3.3	Donna Gerdts, Thomas Johnny and Ted Kye	notation	/ə/	schwa, a phoneme of the vowel inventory
+§3.3	Donna Gerdts, Thomas Johnny and Ted Kye	notation	/ʌ/	page 10, the lower quality schwa takes under rhetorical lengthening
+§3.3	Hul’q’umi’num’	cited form	kʷənətəm	page 10, ‘take<PAS>’
+§3.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	One impressionistic observation that is worth noting is the effect of rhetorical lengthening on vowel quality. For example, for the schwa /ə/, the vowel quality sounds lower, as in /ʌ/, when rhetorically lengthened. Another future study may require conducting an acoustic analysis on the vowel formants that compares non-RL with RL vowels. Another noteworthy observation is the variation in the length of the RL vowel for certain words. For example, the longest case of RL vowels was from the word cam ‘go up from shore’, which was 2.03 seconds, while the shortest case was from the word kʷənətəm ‘take<PAS>’, which was 0.78 seconds. The variation in duration may be due to different nuances of usage of rhetorical lengthening, a topic we hope to address in a future study.	page 10
+§4	Donna Gerdts, Thomas Johnny and Ted Kye	heading	4 Semantic correlates of rhetorical lengthening	page 10
+§4	Donna Gerdts, Thomas Johnny and Ted Kye	note	Having studied the general phonetic correlates of rhetorical lengthening, we turn in this section to a discussion of its semantic effect. As mentioned above, rhetorical lengthening can appear on a variety of word classes and in its most canonical usages, rhetorical lengthening is iconic in that it straightforwardly serves to enhance and amplify the basic meaning of the form. For example, rhetorical lengthening can convey the meaning of a long distance or passage of time on verbs, intensity of a quality on verbs and adjectives, or a large quantity or amount on quantifiers and nouns.	page 10
+§4.1	Donna Gerdts, Thomas Johnny and Ted Kye	heading	4.1 Rhetorical lengthening on verbs	page 10
+§4.1	Donna Gerdts, Thomas Johnny and Ted Kye	language	Hul’q’umi’num’	Hul’q’umi’num’, the Island dialect of Halkomelem, the language of the stories
+§4.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Of the different word classes that are rhetorically lengthened in Hul’q’umi’num’, verbs are the most common: 39 of 91 examples (42.8%) of rhetorical lengthening in Mrs. Jimmy Joe’s stories occur in verbs.	page 10
+§4.1.1	Donna Gerdts, Thomas Johnny and Ted Kye	heading	4.1.1 On verbs of motion, rhetorical lengthening indicates a long distance	page 10
+§4.1.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Mrs. Jimmy Joe uses rhetorical lengthening on verbs of motion to indicate a long distance:	page 10
+(2) line 1	Hul’q’umi’num’	transcription	suw’ hun’lhultnamut-s tsum’ut-s tthuw’ hay luxwtuns suw’ tsa.a.am.	page 11, engine language
+(2) line 2	Hul’q’umi’num’	segmentation	səw̓ hən̓-łəlt-namət-s cəm̓-ət-s tᶿəw̓ hay ləx̌ʷtən-s	page 11, engine residue
+(2) line 3	Hul’q’umi’num’	gloss	N.CN go.to-go.ashore-LC.REFL-3POS pack-TR-3POS DT.CN only blanket-3POS	page 11, engine english
+(2) line 4	Hul’q’umi’num’	segmentation	səw̓ ca.a.am	page 11, engine language
+(2) line 5	Hul’q’umi’num’	gloss	N.CN go.up.from.shore<RL>	page 11, engine english
+(2) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘She managed to reach the shore, and she packed up all the blankets she had.’	page 11, engine english
+(2) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ: GL 22)	the tag or source at the right of the translation
+(3) line 1	Hul’q’umi’num’	transcription	“’i ch wulh taa.aa.aal.”	page 11, engine language
+(3) line 2	Hul’q’umi’num’	segmentation	ʔi č wəł ta:.a:.a:l	page 11, engine language
+(3) line 3	Hul’q’umi’num’	gloss	AUX 2.SUB PERF go.away.from.shore<RL>	page 11, engine english
+(3) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘“You are away out on the ocean.”’	page 11, engine english
+(3) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ: SHD 54)	the tag or source at the right of the translation
+§4.1.1	Hul’q’umi’num’	cited form	həyeʔ	page 11
+§4.1.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	In the following example, rhetorical lengthening appears on the first of a pair of serialized motion verbs (cf. Schneider to appear) həyeʔ “depart, leave”, see Figure 9, and the translation provided by Dr. Ruby Peter shows that this adds the meaning “far, far away”, which is otherwise not lexicalized in the example.	page 11
+(4) line 1	Hul’q’umi’num’	transcription	susuw’ huye.e.e’ … (cough) xwte’ ’u tnanu xwte’ ’u tthu sqelukwshun.	page 11, engine residue
+(4) line 2	Hul’q’umi’num’	segmentation	səsəw̓ həye.e.eʔ (cough) x̌ʷteʔ ʔə tnanə x̌ʷteʔ	page 11, engine residue
+(4) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS.CN depart<RL> (cough) go.toward OBL DEM go.toward	page 11, engine english
+(4) line 4	Hul’q’umi’num’	segmentation	ʔə tᶿə sqeləkʷšən	page 11, engine language
+(4) line 5	Hul’q’umi’num’	gloss	OBL DT place.name	page 11, engine english
+(4) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘And they departed far, far away, toward Sqelukwshun.’	page 11, engine english
+(4) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ: SHD 36)	the tag or source at the right of the translation
+Figure 9	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 9: Spectrogram, waveform, and pitch track of həyeʔ ‘leave’ rhetorically lengthened	page 11, the caption
+§4.1.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	The second syllable of the verb is pronounced with a high flat pitch, but it is noticeable even to the ear that the intensity diminishes, presumably representing the subject retreating in the distance. Here is another example of rhetorical lengthening on the verb həyeʔ.	page 11
+(5) line 1	Hul’q’umi’num’	transcription	wuqw’ilum susuw’ huye.e.e’ nem’ ’ushul nem’ ’u kw’i shni’s tthu thuqi’ tthu stseelhtun ’u	page 12, engine language
+(5) line 2	Hul’q’umi’num’	transcription	kw’i tuywut.	page 12, engine language
+(5) line 3	Hul’q’umi’num’	segmentation	wəq̓ʷiləm səsəw̓ həye.e.eʔ nem̓ ʔəšəl nem̓ ʔə k̓ʷi	page 12, engine language
+(5) line 4	Hul’q’umi’num’	gloss	go.downstream N.AUX.3POS.CN depart<RL> go paddle go OBL DEM	page 12, engine english
+(5) line 5	Hul’q’umi’num’	segmentation	šniʔ-s tᶿə θəqiʔ tᶿə sce:łtən ʔə k̓ʷi təywət	page 12, engine language
+(5) line 6	Hul’q’umi’num’	gloss	place-3POS DT sockeye DT salmon OBL DEM north	page 12, engine english
+(5) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘They paddled a canoe downstream to the place of the sockeye salmon up toward the north.’	page 12, engine english
+(5) line 8	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Sockeye 4)	page 12, engine english
+(6) line 1	Hul’q’umi’num’	transcription	sisuw’ huye.e.e’ qux skweyul kws ’i’shul’s, suw’ tus ’u kwthey’.	page 12, engine language
+(6) line 2	Hul’q’umi’num’	segmentation	sisəw̓ həye.e.eʔ qəx̌ skʷeyəl kʷs ʔiʔšəl̓-s	page 12, engine language
+(6) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS.CN depart<RL> many day DT.N paddle-3POS<IPFV>	page 12, engine english
+(6) line 4	Hul’q’umi’num’	segmentation	səw̓ təs ʔə kʷθey̓	page 12, engine language
+(6) line 5	Hul’q’umi’num’	gloss	N.CN arrive OBL DEM	page 12, engine english
+(6) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘They continued paddling for many days, and they made it to their destination.’	page 12, engine english
+(6) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Sockeye 5)	page 12, engine english
+§4.1.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	In another example we see a derivative, the causative form həyaʔstəm:4	page 12
+(7) line 1	Hul’q’umi’num’	transcription	sis m’i ’uw’ huya.a.a’stum tthu qeq.	page 12, engine language
+(7) line 2	Hul’q’umi’num’	segmentation	sis m̓i ʔəw̓ həya.a.aʔ-stəm tᶿə qeq	page 12, engine english
+(7) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS come CN depart-CS.PAS<RL> DT baby	page 12, engine english
+(7) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘He’s taking the baby far, far away.’	page 12, engine english
+(7) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Sockeye 26)	the tag or source at the right of the translation
+§4.1.1	Hul’q’umi’num’	cited form	həyaʔstəm	page 12
+§4.1.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 10 is a spectrogram, waveform, and pitch track of həyaʔstəm in (7), illustrating the high and sustained pitch throughout the utterance.	page 12
+§4.1.1	Hul’q’umi’num’	cited form	šaqʷəl	page 12
+Figure 10	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 10: Spectrogram, waveform, and pitch track of həyaʔstəm rhetorically lengthened	page 12, the caption
+§4.1.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	We also find examples where a word next to həyeʔ is lengthened. In (8), the serialized verb šaqʷəl ‘to cross over to the other side’ is lengthened.	page 12
+footnote 4	Donna Gerdts, Thomas Johnny and Ted Kye	note	4 The passive of the causative suffix =stəm triggers vowel harmony of e > a (Gerdts & Hukari to appear).	page 12, footnote
+§4.1.1	Hul’q’umi’num’	cited affix	=stəm	page 12, the passive of the causative suffix, in footnote 4
+(8) line 1	Hul’q’umi’num’	transcription	sisuw’ huye’ sha.a.aqwul.	page 13, engine language
+(8) line 2	Hul’q’umi’num’	segmentation	sisəw̓ həyeʔ ša.a.aqʷəl	page 13, engine english
+(8) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS.CN depart go.across<RL>	page 13, engine english
+(8) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘Then she left to cross over.’	page 13, engine english
+(8) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SI 27)	the tag or source at the right of the translation
+§4.1.1	Hul’q’umi’num’	cited form	m̓i	page 13, ‘come’
+§4.1.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	The preceding word, the auxiliary verb m̓i ‘come’, has rhetorical lengthening in (9); compare with (7).	page 13
+(9) line 1	Hul’q’umi’num’	transcription	susuw’ m’i.i.i huya’stum.	page 13, engine language
+(9) line 2	Hul’q’umi’num’	segmentation	səsəw̓ m̓i.i.i həyaʔ-stəm	page 13, engine english
+(9) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS.CN come<RL> depart-CS.PAS	page 13, engine english
+(9) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘And they brought her away.’	page 13, engine english
+(9) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SI 38)	the tag or source at the right of the translation
+§4.1.1	Hul’q’umi’num’	cited form	nem̓	page 13
+§4.1.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	We also find several examples of the auxiliary verb nem̓ with rhetorical lengthening, for example:	page 13
+(10) line 1	Hul’q’umi’num’	transcription	suw’ st’e ’u tthey’ suw’ nem’ ’imush tthu mens ne.e.em’ suw’q’tum.	page 13, engine residue
+(10) line 2	Hul’q’umi’num’	segmentation	səw̓ st̓e ʔə tᶿey̓ səw̓ nem̓ ʔiməš tᶿə men-s ne.e.em̓ səw̓q̓-t-əm	page 13, engine language
+(10) line 3	Hul’q’umi’num’	gloss	N.CN be.like OBL DEM N.CN go walk DT father-3POS go<RL> seek-TR-PAS	page 13, engine english
+(10) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘Finally, his father decided to go and find him.’	page 13, engine english
+(10) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 10)	the tag or source at the right of the translation
+(11) line 1	Hul’q’umi’num’	transcription	sisuw’ ne.e.m’ tl’pil.	page 13, engine residue
+(11) line 2	Hul’q’umi’num’	segmentation	sisəw̓ ne.e.m̓ ƛ̓pil	page 13, engine residue
+(11) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS.CN go<RL> go.down	page 13, engine english
+(11) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘He went toward the place where he had seen the smoke.’	page 13, engine english
+(11) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:GL 36)	the tag or source at the right of the translation
+(12) line 1	Hul’q’umi’num’	transcription	sis ’uw’ ne.e.em’ suwq’tus tthu hwu shnuni’s kws lhaq’uthut-s.	page 13, engine residue
+(12) line 2	Hul’q’umi’num’	segmentation	sisəw̓ ne.e.em̓ səwq̓-t-əs tᶿə xʷə=š-nəniʔ-s	page 13, engine residue
+(12) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS.CN go<RL> look.for-TR-3SUB DT INCH=N.OBL-be.there-3POS<PL>	page 13, engine english
+(12) line 4	Hul’q’umi’num’	segmentation	kʷs łaq̓-əθət-s	page 13, engine language
+(12) line 5	Hul’q’umi’num’	gloss	DT.N lie.down-REFL-3POS	page 13, engine english
+(12) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘They looked around for a place where they could lie down to sleep.’	page 13, engine english
+(12) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 6)	the tag or source at the right of the translation
+§4.1.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Of the 91 examples of rhetorical lengthening in Mrs. Jimmy Joe’s stories, 39 (42.8%) were on verbs and 17 (18.6%) were on auxiliaries, for a total of 56 (61.4%). We did not find any examples where neighboring auxiliaries and verbs were both rhetorically lengthened (with the exception of repetition, discussed in Section 5.1.2 below). We also could not discern why one was chosen over the other. Perhaps the best way to analyze these data is that the semantic feature of rhetorical lengthening holds for the entire event (verb complex) and the choice is free as to which word will host the phonetic feature of rhetorical lengthening — whether the auxiliary or main verb, or which of the verbs in a multi-verb clause.	page 13
+§4.1.2	Donna Gerdts, Thomas Johnny and Ted Kye	heading	4.1.2 Continuation or duration	page 13
+§4.1.2	Hul’q’umi’num’	cited form	ʔəłtən	page 13, ‘eat’
+§4.1.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Another similar use of rhetorical lengthening is to express the continuation or duration of an action. Of course, all of the examples of distance in the previous section would also involve a longer amount of time. So the clearest way to illustrate this use of rhetorical lengthening is on verbs that do not involve motion, e.g., the verb ʔəłtən ‘eat’, in the following (see Figure 11 for an illustration of ʔəłtən ‘eat’ in the waveform and pitch track):	page 13
+(13) line 1	Hul’q’umi’num’	transcription	suw’ ’i.i.i’lhtun’s ’u thu se’uq.	page 14, engine language
+(13) line 2	Hul’q’umi’num’	segmentation	səw̓ ʔi.i.iʔłtən̓-s ʔə θə seʔəq	page 14, engine residue
+(13) line 3	Hul’q’umi’num’	gloss	N.CN eat-3POS<IPFV><RL> OBL DT bracken.roots	page 14, engine english
+(13) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘And she was always eating bracken-fern roots.’	page 14, engine english
+(13) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SI 9)	the tag or source at the right of the translation
+§4.1.2	Hul’q’umi’num’	cited form	ʔiʔɬtən̓s	page 14, ‘eating’
+Figure 11	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 11: Spectrogram, waveform, and pitch track of the verb ʔiʔɬtən̓s ‘eating’ rhetorically lengthened	page 14, the caption
+§4.1.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	In the following segment from Pitchy Log Man (14–16), rhetorical lengthening on the auxiliary in (16) reflects the passage of time.	page 14
+(14) line 1	Hul’q’umi’num’	transcription	wulh hum’i yu p’alhthut tthu me’mun’us ’uw’ yath, xwum yu ts’its’usum’.	page 14, engine language
+(14) line 2	Hul’q’umi’num’	segmentation	wəł həm̓i yə=p̓ał-θət tᶿə mem̓ən̓əs ʔəw̓	page 14, engine language
+(14) line 3	Hul’q’umi’num’	gloss	PERF come<IPFV> DYN=come.to.senses-REFL DT child<PL> CN	page 14, engine english
+(14) line 4	Hul’q’umi’num’	segmentation	yaθ x̌ʷəm yə=c̓ic̓əsəm̓	page 14, engine language
+(14) line 5	Hul’q’umi’num’	gloss	always fast DYN=grow<IPFV>	page 14, engine english
+(14) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘The children were maturing, always growing too fast.’	page 14, engine english
+(14) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 51)	the tag or source at the right of the translation
+(15) line 1	Hul’q’umi’num’	transcription	nilh thu lhqe’lts’s ni’ sil’anums, nilh ni’ sil’anums.	page 14, engine language
+(15) line 2	Hul’q’umi’num’	segmentation	nił θə łqel̓c̓-s niʔ sil̓anəm-s nił niʔ sil̓anəm-s	page 14, engine language
+(15) line 3	Hul’q’umi’num’	gloss	3FOC DT month-3POS AUX year-3POS 3FOC AUX year-3POS	page 14, engine english
+(15) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘Their months were their years; they were years to them.’	page 14, engine english
+(15) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 52)	the tag or source at the right of the translation
+(16) line 1	Hul’q’umi’num’	transcription	suw’ m’i.i.i ts’isum tthuw’ne’ullh.	page 14, engine language
+(16) line 2	Hul’q’umi’num’	segmentation	səw̓ m̓i.i.i c̓isəm tᶿəw̓neʔəlł	page 14, engine language
+(16) line 3	Hul’q’umi’num’	gloss	N.CN AUX<RL> grow PRO.DT	page 14, engine english
+(16) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘And they grew older.’	page 14, engine english
+(16) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 53)	the tag or source at the right of the translation
+§4.1.2	Hul’q’umi’num’	cited form	xʷəniʔ	page 14
+§4.1.2	Hul’q’umi’num’	cited form	niʔ	page 14, ‘be there’
+§4.1.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	We found three examples of rhetorical lengthening on the locational verb xʷəniʔ ‘get there, come to be there’, composed of the inchoative clitic and the verb niʔ ‘be there’. With RL, it was translated as ‘stay’.	page 14
+(17) line 1	Hul’q’umi’num’	transcription	nilh sisuw’ hwuni.i.i’.	page 15, engine residue
+(17) line 2	Hul’q’umi’num’	segmentation	nił sisəw̓ xʷəni.i.iʔ	page 15, engine english
+(17) line 3	Hul’q’umi’num’	gloss	3FOC N.AUX.3POS.CN get.here<RL>	page 15, engine english
+(17) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘They stayed there for days, months, years.’	page 15, engine english
+(17) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SHD 84)	the tag or source at the right of the translation
+§4.1.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	There were no examples of xʷəniʔ without rhetorical lengthening in the story corpus. This raises the issue that some lexical items might be consistently good hosts for expressing rhetorical lengthening, and so it might become a habit for a speaker to tend to lengthen them. Gerdts (2018) notes repetition of verbs as a way of denoting duration of an action. In the following example, both verbs are rhetorically lengthened.5	page 15
+(18) line 1	Hul’q’umi’num’	transcription	sisuw’ ts’e.e.ey’hwem’ ts’e.e.ey’hwem’ ’u tthu stsa’tx.	page 15, engine language
+(18) line 2	Hul’q’umi’num’	segmentation	sisəw̓ c̓e.e.ey̓xʷem̓ c̓e.e.ey̓xʷem̓ ʔə tᶿə scaʔtx̌	page 15, engine language
+(18) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS.CN dry<IPFV><RL> dry<IPFV><RL> OBL DT halibut	page 15, engine english
+(18) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘They kept on drying and drying the halibut.’	page 15, engine english
+(18) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 33)	the tag or source at the right of the translation
+§4.2	Donna Gerdts, Thomas Johnny and Ted Kye	heading	4.2 RL used for intensification	page 15
+§4.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Besides expressing distance and length of time, rhetorical lengthening also serves to intensify the verb or adjective.	page 15
+§4.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	heading	4.2.1 Intensification of a verb	page 15
+§4.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	For example, rhetorical lengthening on the verb xe:m ‘cry’ denotes intensity of the action; in English this would be expressed as “bawl” or “cry one’s eyes out” (see (19) and Figure 12).	page 15
+(19) line 1	Hul’q’umi’num’	transcription	suw’ xee.ee.eems thuw’nilh, xeem.	page 15, engine residue
+(19) line 2	Hul’q’umi’num’	segmentation	səw̓ x̌e:.e:.e:m-s θəw̓nił x̌e:m	page 15, engine language
+(19) line 3	Hul’q’umi’num’	gloss	N.CN cry-3POS<RL> PRO.DT cry	page 15, engine english
+(19) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘Then, she cried, cried.’	page 15, engine english
+(19) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SI 18)	the tag or source at the right of the translation
+§4.2.1	Hul’q’umi’num’	cited form	x̌e:m	page 15, ‘cry’
+footnote 5	Donna Gerdts, Thomas Johnny and Ted Kye	note	5 As discussed above, we otherwise do not see examples with RL on two verbs in a row.	page 15, footnote
+§4.2.1	Hul’q’umi’num’	cited form	t̓ᶿat̓ᶿəsətəs	page 16, ‘he’s mashing them’
+Figure 12	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 12: Spectrogram, waveform, and pitch track of the word x̌e:m ‘cry’ rhetorically lengthened	page 15, the caption
+§4.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	The intensity of pounding the food in the following example is represented by ‘mash, pounding to mush’ in the translation (see Figure 13 for an illustration of t̓ᶿat̓ᶿəsətəs ‘he’s mashing them’ rhetorically lengthened).	page 15
+(20) line 1	Hul’q’umi’num’	transcription	tth’a.a.atth’usutus ’i’lhtun’ ’u tthu qux.	page 16, engine residue
+(20) line 2	Hul’q’umi’num’	segmentation	t̓ᶿa.a.at̓ᶿəs-ət-əs ʔiʔłtən̓ ʔə tᶿə qəx̌	page 16, engine language
+(20) line 3	Hul’q’umi’num’	gloss	pound-TR-3SUB<RL> eat<IPFV> OBL DT many	page 16, engine english
+(20) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘He mashed them first, pounding them to mush, then ate a bunch of them.’	page 16, engine english
+(20) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 13)	the tag or source at the right of the translation
+Figure 13	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 13: Spectrogram, waveform, and pitch track of the verb t̓ᶿat̓ᶿəsətəs ‘mash, pounding’ rhetorically lengthened	page 16, the caption
+§4.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	In the following example, the deserted boy is force-feeding the crow as many herrings as possible for her to transport this generous gift to his relative.	page 16
+(21) line 1	Hul’q’umi’num’	transcription	suw’ muq’ ’a.a.amustewut thu q’uleeq’e’ ’u thu slhewut’.	page 16, engine language
+(21) line 2	Hul’q’umi’num’	segmentation	səw̓ məq̓ ʔa.a.am-əstewət θə q̓əle:q̓eʔ ʔə θə słewət̓	page 16, engine language
+(21) line 3	Hul’q’umi’num’	gloss	N.CN be.full give-CS.3SB.PAS<RL> DT crow OBL DT herring	page 16, engine english
+(21) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘So, he decided to feed the crow all the herring she could eat.’	page 16, engine english
+(21) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJ:DB 49)	the tag or source at the right of the translation
+§4.2.1	Hul’q’umi’num’	cited form	ʔaməstewət	page 16, ‘feed’
+§4.2.1	Hul’q’umi’num’	cited form	kʷintəl	page 17, ‘fight’
+Figure 14	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 14: Spectrogram, waveform, and pitch track of the verb ʔaməstewət ‘feed’ rhetorically lengthened	page 16, the caption
+§4.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Sometimes RL verbs are associated with violence, as in the following example, where kʷintəl ‘fight’ is referring to an intense physical altercation.	page 16
+(22) line 1	Hul’q’umi’num’	transcription	wulh kwi.i.intul tthuw’nilh, niis yu s-hiy’aast-hwus hiy’aatus.	page 17, engine residue
+(22) line 2	Hul’q’umi’num’	segmentation	wəł kʷi.i.intəl tᶿəw̓nił niis yə=siy̓a:-stxʷ-əs	page 17, engine language
+(22) line 3	Hul’q’umi’num’	gloss	PERF fight<RL> PRO.DT AUX.3SUB DYN=ST.warn<RES>-CS-3SUB	page 17, engine english
+(22) line 4	Hul’q’umi’num’	segmentation	hiy̓a:-t-əs	page 17, engine language
+(22) line 5	Hul’q’umi’num’	gloss	warn-TR-3SUB<IPFV>	page 17, engine english
+(22) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘Now, they are fighting, just like they warned her.’	page 17, engine english
+(22) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Sockeye 16)	the tag or source at the right of the translation
+§4.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Rhetorical lengthening seems to intensify the force of the violent act. Another violent example involves mass murder.6	page 17
+(23) line 1	Hul’q’umi’num’	transcription	suw’ ’ulh m’insum tthuw’ne’ullh sus ’uw’ xwa.a.aytum.	page 17, engine language
+(23) line 2	Hul’q’umi’num’	segmentation	səw̓ ʔəł m̓i-nsəm tᶿəw̓neʔəlł səsəw̓ x̌ʷa.a.ay-t-əm	page 17, engine language
+(23) line 3	Hul’q’umi’num’	gloss	N.CN PST come-APPL.PAS PRO.DT N.AUX.3POS.CN kill.group-TR-PAS	page 17, engine english
+(23) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘And they came to them and killed them.’	page 17, engine english
+(23) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SHD 81)	the tag or source at the right of the translation
+§4.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	In the following example, the young girl was forcibly held down in the canoe, as she was being abducted.	page 17
+(24) line 1	Hul’q’umi’num’	transcription	’i’ stl’i’s kws ’umut-s thuw’nilh lemutus, ’i’ kwun’e.e.etum’.	page 17, engine language
+(24) line 2	Hul’q’umi’num’	segmentation	ʔiʔ sƛ̓iʔ-s kʷs ʔəmət-s θəw̓nił lem-ət-əs ʔiʔ kʷən̓e.e.e-t-əm̓	page 17, engine language
+(24) line 3	Hul’q’umi’num’	gloss	CNJ want-3POS DT.N sit-3POS PRO.DT see-TR-3SUB CNJ take-TR-PAS<DUR><RL>	page 17, engine english
+(24) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘The young girl tried to sit up to look, but she was held down.’	page 17, engine english
+(24) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:GL 6)	the tag or source at the right of the translation
+§4.2.1	Hul’q’umi’num’	cited form	θəytəs	page 17, ‘he made it’
+§4.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	In one passage of Deserted Boy, the verb θəytəs ‘he made it’ is used twice: in the first use (25), Mrs. Joe is describing making bows and arrows, which is a normal activity, but in the second use (26) she is describing killing birds and sewing their skins together to make his clothes, and this is an arduous activity, and is marked with RL.	page 17
+(25) line 1	Hul’q’umi’num’	transcription	suw’ thuytus tthu tuxwa’ts, suw’ q’aq’i’ut-s thun’a sqw’ulesh.	page 17, engine language
+(25) line 2	Hul’q’umi’num’	segmentation	səw̓ θəy-t-əs tᶿə təx̌ʷaʔc səw̓ q̓aq̓iʔ-ət-s θən̓a sq̓ʷəleš	page 17, engine language
+(25) line 3	Hul’q’umi’num’	gloss	N.CN make-TR-3SUB DT bow N.CN kill-TR-3POS<IMFPL> DT bird	page 17, engine english
+(25) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘He made himself a bow and arrow and used it to kill birds.’	page 17, engine english
+(25) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 28)	the tag or source at the right of the translation
+(26) line 1	Hul’q’umi’num’	transcription	suw’ thu.u.uyt-s p’etth’utus hwu s’itth’ums—’uwu te’ s’itth’ums.	page 17, engine language
+(26) line 2	Hul’q’umi’num’	segmentation	səw̓ θə.ə.əy-t-s p̓et̓ᶿ-ət-əs xʷə=sʔit̓ᶿəm-s ʔəwə teʔ sʔit̓ᶿəm-s	page 17, engine language
+(26) line 3	Hul’q’umi’num’	gloss	N.CN make-TR-3POS sew-TR-3SUB INCH=clothes-3POS NEG DT clothes-3POS	page 17, engine english
+(26) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘He had no clothes, so he made some by sewing — as he had no clothes.’	page 17, engine english
+(26) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 29)	the tag or source at the right of the translation
+(27) line 1	Hul’q’umi’num’	transcription	sus ’uw’ tl’am hwu ’i’tth’um’ tthuw’nilh.	page 17, engine language
+(27) line 2	Hul’q’umi’num’	segmentation	səsəw̓ ƛ̓am xʷə=ʔiʔt̓ᶿəm̓ tᶿəw̓nił	page 17, engine language
+(27) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS.CN enough INCH=dress PRO.DT	page 17, engine english
+(27) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘Now he had enough clothes.’	page 17, engine english
+(27) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 30)	the tag or source at the right of the translation
+footnote 6	Donna Gerdts, Thomas Johnny and Ted Kye	note	6 There are two ways of expressing ‘kill’ in Hul’q’umi’num’, q̓ayt refers to killing in general, and is indeterminate for number compared to x̌ʷayt, which refers in particular to genocide.	page 17, footnote
+§4.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	language	Hul’q’umi’num’	Hul’q’umi’num’, the Island dialect of Halkomelem, the language of the stories
+§4.2.1	Hul’q’umi’num’	cited form	q̓ayt	page 17
+§4.2.1	Hul’q’umi’num’	cited form	x̌ʷayt	page 17
+§4.2.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Our impression thus is that Mrs. Jimmy Joe is using rhetorical lengthening to convey that an action was done in an intense fashion.	page 18
+§4.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	heading	4.2.2 Intensification of an adjective	page 18
+§4.2.2	Hul’q’umi’num’	cited form	sliqʷəl	page 18, ‘calm’
+§4.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Another common use of rhetorical lengthening is to intensify adjectives. For example, in the following, the adjective sliqʷəl ‘calm’ means ‘very calm’ when it is expressed with rhetorical lengthening.	page 18
+(28) line 1	Hul’q’umi’num’	transcription	sli.i.iqwul tthu skweyul yath ’uw’ ’uy’.	page 18, engine language
+(28) line 2	Hul’q’umi’num’	segmentation	sli.i.iqʷəl tᶿə skʷeyəl yaθ ʔəw̓ ʔəy̓	page 18, engine language
+(28) line 3	Hul’q’umi’num’	gloss	calm<RL> DT day always CN good	page 18, engine english
+(28) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘The day was very calm, always good.’	page 18, engine english
+(28) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 22)	the tag or source at the right of the translation
+§4.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	As seen in Figure 15, the stressed syllable in sliqʷəl is pronounced with a high, flat pitch enduring 1.35 seconds.	page 18
+Figure 15	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 15: Spectrogram, waveform, and pitch track of the word sliqʷəl ‘calm’ rhetorically lengthened	page 18, the caption
+§4.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	In the above example, sliqʷəl is a predicate adjective, and another example of this use is the following line from Pitchy Log Man:	page 18
+(29) line 1	Hul’q’umi’num’	transcription	’u.u.uy’ tthuw’nilh chumux.	page 18, engine language
+(29) line 2	Hul’q’umi’num’	segmentation	ʔə.ə.əy̓ tᶿəw̓nił čəməx̌	page 18, engine language
+(29) line 3	Hul’q’umi’num’	gloss	good<RL> PRO.DT pitch	page 18, engine english
+(29) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘It was very nice and had pitch on it.’	page 18, engine english
+(29) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 2)	the tag or source at the right of the translation
+§4.2.2	Hul’q’umi’num’	cited form	ʔəy̓	page 18
+§4.2.2	Hul’q’umi’num’	cited form	słeniʔ	page 18, ‘good lady’
+§4.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	However, it is also possible to use rhetorical lengthening on an adjective modifying an N, as in the phrase ʔəy̓ słeniʔ ‘good lady’ in the following example from Deserted Boy:	page 18
+(30) line 1	Hul’q’umi’num’	transcription	suw’ ’iputewut thu sqwiqwmi’, sus ’uw’ hwu ’u.u.uy’ slheni’ hwu q’e’mi’ nilh	page 19, engine language
+(30) line 2	Hul’q’umi’num’	transcription	ststa’lustewut, sus ’uw’ hwu q’e’mi’ they’ hwu slheni’, ’uy’ slheni’, susuw’ ststa’lusth.	page 19, engine language
+(30) line 3	Hul’q’umi’num’	segmentation	səw̓ ʔip-ətewət θə sqʷiqʷmiʔ səsəw̓ xʷə=ʔə.ə.əy̓	page 19, engine residue
+(30) line 4	Hul’q’umi’num’	gloss	N.CN wipe.eyes-TR.3SB.PAS DT dog<DIM> N.AUX.3POS.CN INCH=good<RL>	page 19, engine english
+(30) line 5	Hul’q’umi’num’	segmentation	słeniʔ xʷə=q̓em̓iʔ nił s-c-tal̓əs-tewət səsəw̓	page 19, engine language
+(30) line 6	Hul’q’umi’num’	gloss	woman INCH=girl 3FOC N-VBL-spouse-TR.3SB.PAS N.AUX.3POS.CN	page 19, engine english
+(30) line 7	Hul’q’umi’num’	segmentation	xʷə=q̓em̓iʔ θey̓ xʷə=słeniʔ ʔəy̓ słeniʔ səsəw̓	page 19, engine language
+(30) line 8	Hul’q’umi’num’	gloss	INCH=girl DT INCH=woman good woman N.AUX.3POS.CN	page 19, engine english
+(30) line 9	Hul’q’umi’num’	segmentation	s-c-tal̓əs-θ	page 19, engine language
+(30) line 10	Hul’q’umi’num’	gloss	N-VBL-spouse-3POS	page 19, engine english
+(30) line 11	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘The visitor then patted the dog, and the dog transformed into a beautiful young lady who became his wife; and the young lady became a beautiful woman and she was his wife.’	page 19, engine english
+(30) line 12	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 40)	page 19, engine english
+§4.2.2	Hul’q’umi’num’	cited form	sɬeniʔ	page 19, ‘good lady’
+§4.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	The following figures compare rhetorical lengthening of the word ʔəy̓ ‘good’ in the phrase ʔəy̓ sɬeniʔ ‘good lady’ and the non-rhetorical lengthening of that word in example (30). As Figure 16 shows, rhetorically lengthened ʔəy̓ ‘good’ has a high, flat pitch throughout its utterance. The non- RL form (the repetition) of ʔəy̓ ‘good’ in Figure 17 also has a relatively high pitch even though it is not lengthened.	page 19
+§4.2.2	Hul’q’umi’num’	cited form	sʔeləxʷ	page 20, ‘old’
+Figure 16	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 16: Spectrogram, waveform, and pitch track of the word ʔəy̓ ‘good’ rhetorically lengthened	page 19, the caption
+Figure 17	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 17: Spectrogram, waveform, and pitch track of the word ʔəy̓ ‘good’ not rhetorically lengthened	page 19, the caption
+§4.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	In another line from the Pitchy Log Man, Mrs. Jimmy Joe uses the adjective sʔeləxʷ ‘old’ twice, once without rhetorical lengthening, and once with, to mean ‘really old’:	page 19
+(31) line 1	Hul’q’umi’num’	transcription	suw’ qwal, qwulmut-s tu’i s’eluhw, mens tthuw’ne’ullh, wulh s’e.e.eluhw.	page 20, engine language
+(31) line 2	Hul’q’umi’num’	segmentation	səw̓ qʷal qʷəl-mət-s təʔi sʔeləxʷ men-s tᶿəw̓neʔəlł wəł	page 20, engine language
+(31) line 3	Hul’q’umi’num’	gloss	N.CN speak speak-APPL-3POS DEM old father-3POS DT.PRO<PL> PERF	page 20, engine english
+(31) line 4	Hul’q’umi’num’	segmentation	sʔe.e.eləxʷ	page 20, engine language
+(31) line 5	Hul’q’umi’num’	gloss	old<RL>	page 20, engine english
+(31) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘So, one of the people spoke to the old man, their father, who was really old.’	page 20, engine english
+(31) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SHD 11)	page 20, engine english
+§4.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 18 illustrates the two occurrences of sʔeləxʷ ‘old’ from (31), illustrating how the first sʔeləxʷ ‘old’ (Figure 18a) has a relatively lower pitch and shorter duration than the repeated sʔeləxʷ ‘old’ (Figure 18b), which is rhetorically lengthened.	page 20
+§4.2.2	Hul’q’umi’num’	cited form	kʷel̓əs	page 20, ‘hot’
+§4.2.2	Hul’q’umi’num’	cited form	cpxʷas	page 20, ‘blonde’
+Figure 18	Donna Gerdts, Thomas Johnny and Ted Kye	note	(a) sʔeləxʷ ‘old, elder’ with no rhetorical lengthening (b) sʔeləxʷ ‘old, elder’ with rhetorical lengthening	page 20, the labels of its two panels
+Figure 18	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 18: Spectrogram, waveform, and pitch track of the word sʔeləxʷ ‘old, elder’ (a) not rhetorically lengthened, and (b) rhetorically lengthened, cf. (31)	page 20, the caption
+§4.2.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	In the corpus, we found a total of 11 examples of rhetorical lengthening on adjectives, comprising 12% of the examples with rhetorical lengthening. The adjectives lengthened were: sliqʷəl ‘calm’, kʷel̓əs ‘hot’ (50), cpxʷas ‘blonde’, ʔəy̓ ‘good’ (twice), and sʔeləxʷ ‘old’ (three times). In each instance, the function of rhetorical lengthening on the adjective is to denote intensity. Moreover, the adjectives that are expressed with rhetorical lengthening are especially important to the plot of the text, as discussed in Section 5.1 below.	page 20
+§4.3	Donna Gerdts, Thomas Johnny and Ted Kye	heading	4.3 Emphasizing quantity	page 20
+§4.3	Hul’q’umi’num’	cited form	qəx̌	page 20, ‘many’
+§4.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	Another usage of rhetorical lengthening is to emphasize the large quantity of a nominal or multiple kinds. In fact, there are four examples in the corpus where rhetorical lengthening appears on the quantifier qəx̌ ‘many’ (as compared to 18 times qəx̌ is used without rhetorical lengthening). See for example, the following line from Deserted Boy:	page 20
+(32) line 1	Hul’q’umi’num’	transcription	qu.u.ux tthuw’ne’ullh, qux ’uw’ sq’uq’i.i.ip tthu hwulmuhw ’uw’ hay tthu se’uq	page 21, engine language
+(32) line 2	Hul’q’umi’num’	transcription	s’ulh’ilhtun’s.	page 21, engine language
+(32) line 3	Hul’q’umi’num’	segmentation	qə.ə.əx̌ tᶿəw̓neʔəlł qəx̌ ʔəw̓ s-q̓əq̓i.i.ip tᶿə	page 21, engine language
+(32) line 4	Hul’q’umi’num’	gloss	many<RL> PRO.DT many CN ST-onlygather<RES><RL> DT	page 21, engine english
+(32) line 5	Hul’q’umi’num’	segmentation	xʷəlməxʷ ʔəw̓ hay tᶿə seʔəq sʔəłʔiłtən̓-s	page 21, engine language
+(32) line 6	Hul’q’umi’num’	gloss	F.N.people<RL> CN only DT bracket.fern.root food-3POS<PL>	page 21, engine english
+(32) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘There were a lot of them — many First Nations people gathered the only food they had, which was the bracken fern root.’	page 21, engine english
+(32) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 1)	the tag or source at the right of the translation
+§4.3	Hul’q’umi’num’	cited form	sq̓əq̓ip	page 21, ‘being gathered up’
+§4.3	Hul’q’umi’num’	cited form	mək̓ʷ	page 21, ‘all’
+Figure 19	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 19: Spectrogram, waveform, and pitch track illustrating (32) for the word qəx̌ ‘many’ rhetorically lengthened and not rhetorically lengthened	page 21, the caption
+§4.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	Notice that rhetorical lengthening also appears on the stative verb sq̓əq̓ip ‘being gathered up’ in this example, and this conveys a meaning that a lot of fern roots were being gathered. Also, rhetorical lengthening appears on mək̓ʷ ‘all’ four times (as compared to four times without). See the following line for example:	page 21
+(33) line 1	Hul’q’umi’num’	transcription	t’e’tewut tun’a ’uw’ mu.u.ukw’ ma’uqw, mukw’ stem, qwuni.i.i.	page 21, engine language
+(33) line 2	Hul’q’umi’num’	segmentation	t̓eʔ-tewət tən̓a ʔəw̓ mə.ə.ək̓ʷ maʔəqʷ mək̓ʷ stem qʷəni.i.i	page 21, engine language
+(33) line 3	Hul’q’umi’num’	gloss	try-TR.3SB.PAS DEM CN all<RL> water.fowl all what seagull<RL>	page 21, engine english
+(33) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘He tried to ask the different birds, seagulls.’	page 21, engine english
+(33) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 45)	the tag or source at the right of the translation
+Figure 20	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 20: Spectrogram, waveform, and pitch track of the word mək̓ʷ ‘all’ rhetorically lengthened	page 21, the caption
+§4.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	The quantifier mək̓ʷ is also used to form the expression mək̓ʷ stem ‘everything’ (mək̓ʷ ‘all’ + stem ‘what’), which appears twice with rhetorical lengthening in the corpus (as compared to five times without rhetorical lengthening) and when these are rhetorically lengthened, rhetorical lengthening appears on the second element:	page 21
+(34) line 1	Hul’q’umi’num’	transcription	mukw’ ste.e.em mustimuhw ni’ ’u kw’i tsitsulh—tthu tsq’ix, tthu p’uq’.	page 22, engine language
+(34) line 2	Hul’q’umi’num’	segmentation	mək̓ʷ ste.e.em məstiməxʷ niʔ ʔə k̓ʷi cicəł tᶿə cq̓ix̌ tᶿə p̓əq̓	page 22, engine language
+(34) line 3	Hul’q’umi’num’	gloss	all what<RL> people AUX OBL DT high DT black DT white	page 22, engine english
+(34) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘There were all sorts of people up in the sky — blacks, white.’	page 22, engine english
+(34) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 113)	the tag or source at the right of the translation
+Figure 21	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 21: Spectrogram, waveform, and pitch track of the word stem ‘thing’ rhetorically lengthened	page 22, the caption
+§4.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	The story goes on with a repetition in the next line.7	page 22
+(35) line 1	Hul’q’umi’num’	transcription	wulh nilh yuhw ts’ ’a’lu thulh tun’a hwunitum’ kw’uni’ ’u kw’i tsitsulh— mukw’ ste.e.m—	page 22, engine language
+(35) line 2	Hul’q’umi’num’	transcription	[tthu] p’uq’, tthu tsq’ix, kwthuw’ mukw’ stem.	page 22, engine language
+(35) line 3	Hul’q’umi’num’	segmentation	wəł nił yəxʷ c̓ ʔal̓ə θəł tən̓a xʷənitəm̓ k̓ʷə niʔ ʔə k̓ʷi	page 22, engine language
+(35) line 4	Hul’q’umi’num’	gloss	PERF 3POS DUB 2SUB INQU really DEM white.people DT be.there OBL DT	page 22, engine english
+(35) line 5	Hul’q’umi’num’	segmentation	cicəł mək̓ʷ ste.e.em [tᶿə] p̓əq̓ tᶿə cq̓ix̌ kʷθəw̓ mək̓ʷ stem	page 22, engine language
+(35) line 6	Hul’q’umi’num’	gloss	high all what<RL> DT white DT black DT.CN all what	page 22, engine english
+(35) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘There must have been various nationalities up in the sky—all kinds—whites, blacks, etc.’	page 22, engine english
+(35) line 8	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 114)	page 22, engine english
+§4.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	Rhetorical lengthening appears on mək̓ʷ stem ‘everything’ three times and on mək̓ʷ wet ‘everyone’ once in the corpus. Notably there are no instances where rhetorical lengthening appears on the first element mək̓ʷ, and this suggests that these forms should be treated as compounds.8 The contrasts with the use of mək̓ʷ within a noun phrase, where in our examples with rhetorical lengthening, the length appears on mək̓ʷ rather than the noun:	page 22
+footnote 7	Donna Gerdts, Thomas Johnny and Ted Kye	note	7 As Gerdts and Gilkison (2018) note, lists are often preceding and also followed by the phrase mək̓ʷ stem ‘everything’.	page 22, footnote
+footnote 8	Donna Gerdts, Thomas Johnny and Ted Kye	note	8 Evidence for separate wordhood comes from the placement of the past tense clitic (Gerdts & Werle 2014) in mək̓ʷ=əɫ stem.	page 22, footnote
+§4.3	Hul’q’umi’num’	cited form	mək̓ʷ=əɫ	page 22
+(36) line 1	Hul’q’umi’num’	transcription	suw’ t’e’t-s ….t’e’t-s tthuw’ne’ullh tun’a mu.u.ukw’ thqet—tthu t’a’hw, tthu thq’iinlhp—	page 23, engine language
+(36) line 2	Hul’q’umi’num’	transcription	tthuw’ mukw’ stem thqet.	page 23, engine language
+(36) line 3	Hul’q’umi’num’	segmentation	səw̓ t̓eʔ-t-s t̓eʔ-t-s tᶿəw̓neʔəlł tən̓a mə.ə.ək̓ʷ θqet	page 23, engine language
+(36) line 4	Hul’q’umi’num’	gloss	N.CN try-TR-3POS try-TR-3POS PRO.DT<PL> DEM all<RL> tree	page 23, engine english
+(36) line 5	Hul’q’umi’num’	segmentation	tᶿə t̓aʔxʷ tᶿə θq̓i:nłp tᶿəw̓ mək̓ʷ stem θqet	page 23, engine language
+(36) line 6	Hul’q’umi’num’	gloss	DT balsam DT hemlock DT.CN all what tree	page 23, engine english
+(36) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘They tried all the trees — the balsam, the hemlock — and all of the different trees.’	page 23, engine english
+(36) line 8	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SHD 14)	page 23, engine english
+§4.3	Hul’q’umi’num’	cited form	št̓e	page 23
+§4.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	Stretching the stative verb št̓e in the following example, also implies many different kinds:	page 23
+(37) line 1	Hul’q’umi’num’	transcription	susuw’ wulh hum’i.i.i tthu stseelhtun tseelqum tthuw’ sht’es tun’a ’i stseelhtun nem’ ’u	page 23, engine residue
+(37) line 2	Hul’q’umi’num’	transcription	tthu sta’luw’ ’ush ’is kwu’elh wulh ’i tthu thuqi’, tthu kw’a’luhw, tun’a ’uw’ sht’e.e.es	page 23, engine language
+(37) line 3	Hul’q’umi’num’	transcription	tun’a stseelhtun ni’ wulh ni’ ’u tthu sta’luw’.	page 23, engine language
+(37) line 4	Hul’q’umi’num’	segmentation	səsəw̓ wəł həm̓i.i.i tᶿə sce:łtən ce:lqəm	page 23, engine residue
+(37) line 5	Hul’q’umi’num’	gloss	N.AUX.3POS.CN PERF come<IPFV><RL> DT salmon follow	page 23, engine english
+(37) line 6	Hul’q’umi’num’	segmentation	tᶿəw̓ š-t̓e-s tən̓a ʔi sce:łtən nem̓ ʔə tᶿə stal̓əw̓	page 23, engine residue
+(37) line 7	Hul’q’umi’num’	gloss	DT.CN OBN-be.like-3POS DEM AUX salmon go OBL DT river	page 23, engine english
+(37) line 8	Hul’q’umi’num’	segmentation	ʔə-š ʔi-s kʷəʔeł wəł ʔi tᶿə θəqiʔ	page 23, engine language
+(37) line 9	Hul’q’umi’num’	gloss	OBL-OBN AUX-3POS thus PERF AUX DT sockeye	page 23, engine english
+(37) line 10	Hul’q’umi’num’	segmentation	tᶿə k̓ʷal̓əxʷ tən̓a ʔəw̓ š-t̓e.e.e-s tən̓a	page 23, engine language
+(37) line 11	Hul’q’umi’num’	gloss	DT dog.salmon DEM CN OBN.be.like-3POS<RL> DEM	page 23, engine english
+(37) line 12	Hul’q’umi’num’	segmentation	sce:łtən niʔ wəł niʔ ʔə tᶿə stal̓əw̓	page 23, engine language
+(37) line 13	Hul’q’umi’num’	gloss	salmon AUX PERF AUX OBL DT spouse	page 23, engine english
+(37) line 14	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘All the fishes followed — many, many different kinds of salmon went to the river, and that’s how they came to be here, the sockeye, the dog salmon; that is how the different kinds of fish first came to the river.’	page 23, engine english
+(37) line 14	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Sockeye 29)	the tag or source at the right of the translation
+§4.3	Hul’q’umi’num’	cited form	qwuni	page 23, ‘seagull’
+§4.3	Hul’q’umi’num’	cited form	θqet	page 23, ‘tree’
+§4.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	However, rhetorical lengthening can be used on a noun that is not quantified to imply plurality; see qwuni ‘seagull’ in example (33) above, as well as θqet ‘tree’ in the following.9	page 23
+(38) line 1	Hul’q’umi’num’	transcription	suw’ xwche.e.enums tun’a thqe.e.et, nuw’ sht’es tun’a thqet.	page 23, engine residue
+(38) line 2	Hul’q’umi’num’	segmentation	səw̓ x̌ʷče.e.enəm-s tən̓a θqe.e.et nəw̓ š-t̓e-s tən̓a θqet	page 23, engine residue
+(38) line 3	Hul’q’umi’num’	gloss	N.CN run-3POS<RL> DEM tree<RL> AUX.CN OBN-be.like-3POS DEM tree	page 23, engine english
+(38) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘Then all the trees, all the kinds of trees, ran towards him.’	page 23, engine english
+(38) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 44)	the tag or source at the right of the translation
+§4.3	Hul’q’umi’num’	cited form	θəw̓nił	page 23
+§4.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	We also found an unusual example of rhetorical lengthening on the pro-determiner θəw̓nił.	page 23
+(39) line 1	Hul’q’umi’num’	transcription	hwun’ xut’u ’i’ wulh m’i nasthut thuw’ni.i.ilh.	page 23, engine language
+(39) line 2	Hul’q’umi’num’	segmentation	xʷən̓=x̌ət̓ə ʔiʔ wəł m̓i nas-θət θəw̓ni.i.ił	page 23, engine language
+(39) line 3	Hul’q’umi’num’	gloss	INCH=do<IPFV> CNJ PERF AUX fat-REFL PRO.DT<RL>	page 23, engine english
+(39) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘Suddenly, she began to get fat.’	page 23, engine english
+(39) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SI 13)	the tag or source at the right of the translation
+footnote 9	Donna Gerdts, Thomas Johnny and Ted Kye	note	9 Note the use of θqet here, rather than the plural θəθiqet ‘trees’. Gerdts (2012) analysis θqet as a “Class B” noun, where number inflection is optional.	page 23, footnote
+§4.3	Hul’q’umi’num’	cited form	θəθiqet	page 23, ‘trees’
+§4.3	Hul’q’umi’num’	cited form	θə	page 24
+§4.3	Hul’q’umi’num’	cited form	ʔəw̓	page 24
+§4.3	Hul’q’umi’num’	cited form	niɫ	page 24
+§4.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	As discussed in Gerdts and Hukari (2004), the pro-determiners, consisting of a determiner (in this case the feminine θə, a linking element ʔəw̓ and the 3rd-person independent pronoun form niɫ), are used to track protagonists in stories. RL on the pro-determiner dramatizes the protagonist growing fatter.	page 24
+§4.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	Overall, we found eight examples of rhetorical lengthening (8.8% of our sample) that emphasize a large quantity on quantifiers, stative verbs, nouns, and even pro-determiners.	page 24
+§5	Donna Gerdts, Thomas Johnny and Ted Kye	heading	5 Narrative structure and rhetorical lengthening	page 24
+§5	Donna Gerdts, Thomas Johnny and Ted Kye	note	In the preceding section, we illustrated the iconic rhetorical lengthening style where the semantics of a word with rhetorical lengthening is augmented in some way (continuation, duration, intensification, or larger quantity of a verb or adjective). We also see uses of rhetorical lengthening that enhance the narrative structure of the story — rhetorical lengthening is placed on a word to give it special focus or rhetorical lengthening is used at the beginning of a passage to initiate a new section.	page 24
+§5.1	Donna Gerdts, Thomas Johnny and Ted Kye	heading	5.1 Emphasis and contrast	page 24
+§5.1	Hul’q’umi’num’	cited form	sey̓	page 24, ‘mountain goat wool’
+§5.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Mrs. Jimmy Joe also uses rhetorical lengthening to single out or contrast certain words. In the following example, she uses rhetorical lengthening to convey that sey̓ ‘mountain goat wool’ is a notable object. Finding this prized material was taken as a sign by the protagonist to build a home at that location.	page 24
+(40) line 1	Hul’q’umi’num’	transcription	suw’ lumnuhwus tu’i sum’qw’uyi’yus se.e.ey’—nilh shni’s tthu p’q’ul’qun’ kws ni’s	page 24, engine language
+(40) line 2	Hul’q’umi’num’	transcription	’a’kw’thut— ’i’ tthu qux stth’oom.	page 24, engine language
+(40) line 3	Hul’q’umi’num’	segmentation	səw̓ ləm-nəxʷ-əs təʔi səm̓q̓ʷəyiy̓əs se.e.ey̓ nił š-niʔ-s	page 24, engine language
+(40) line 4	Hul’q’umi’num’	gloss	N.CN see-LC-3SUB DEM piled.up<ST> wool<RL> 3FOC OBN-be.there-3POS	page 24, engine english
+(40) line 5	Hul’q’umi’num’	segmentation	tᶿə p̓q̓əl̓qən̓ kʷs niʔ-s ʔaʔk̓ʷ-θət ʔiʔ tᶿə qəx̌ st̓ᶿu:m	page 24, engine language
+(40) line 6	Hul’q’umi’num’	gloss	DT goat.wool DT.N AUX-3POS hook-REFL<IPFV> CNJ DT many berry	page 24, engine english
+(40) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘She saw a pile of goat wool — this was where the goats rubbed themselves—and plenty of berries.’	page 24, engine english
+(40) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:GL 26)	the tag or source at the right of the translation
+§5.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	In the following example, she uses rhetorical lengthening to contrast the younger and the older siblings:	page 24
+(41) line 1	Hul’q’umi’num’	transcription	’uw’kw’ tthu sa’suqwt ’i’ hwi’ nilh tthu sun’tl’e’, ni’ suw’ tl’am.	page 24, engine language
+(41) line 2	Hul’q’umi’num’	segmentation	ʔəw̓k̓ʷ tᶿə saʔsəqʷt ʔiʔ xʷiʔ nił tᶿə sən̓ƛ̓e.e.eʔ niʔ səw̓ ƛ̓am	page 24, engine language
+(41) line 3	Hul’q’umi’num’	gloss	use.up DT youngest CNJ MIR 3PRO DT eldest<RL> AUX N.CN enough	page 24, engine english
+(41) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘When the youngest brother used up (his arrows), next it was the eldest brother’s turn to shoot over and over again), until it was enough.’	page 24, engine english
+(41) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 75)	the tag or source at the right of the translation
+§5.1	Hul’q’umi’num’	cited form	ʔəwə	page 24
+§5.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	In one example, the negative ʔəwə emphasizes how the daughter refused to do what she was told.	page 24
+(42) line 1	Hul’q’umi’num’	transcription	’uw’ yath ‘ul’ tssetum ’u tthu shhwuw’weli’s, “tuw’ ’ulhtun lhe ’u tu’i ’uw’ tth’etth’ulh.”	page 25, engine language
+(42) line 2	Hul’q’umi’num’	transcription	’i’ ’u.u.uwu.	page 25, engine language
+(42) line 3	Hul’q’umi’num’	segmentation	ʔəw̓ yaθ ʔəl̓ cse-t-əm ʔə tᶿə šxʷəw̓weliʔ-s	page 25, engine language
+(42) line 4	Hul’q’umi’num’	gloss	CN always just tell-TR-PAS OBL DT parent-3POS<PL>	page 25, engine english
+(42) line 5	Hul’q’umi’num’	segmentation	təw̓ ʔəłtən łe ʔə təʔi ʔəw̓ t̓ᶿeʔt̓ᶿəł ʔiʔ ʔə.ə.əwə	page 25, engine language
+(42) line 6	Hul’q’umi’num’	gloss	DT.CN eat IMP OBL DEM CN be.nourishing CNJ NEG<RL>	page 25, engine english
+(42) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘Her parents were always telling her, “Eat a little of this nourishing food.” But she wouldn’t.’	page 25, engine english
+(42) line 8	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SI 10–11)	page 25, engine residue
+§5.1	Hul’q’umi’num’	cited form	nem̓	page 25, ‘go’
+§5.1	Hul’q’umi’num’	cited form	m̓i	page 25, ‘come’
+§5.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Sometimes rhetorical lengthening is used to organize an entire passage of narration. For example, in the story Deserted Boy, Mrs. Joe uses rhetorical lengthening on the verb nem̓ ‘go’ in the first line of the passage (43), and RL on the verb m̓i ‘come’ in the last line of the section (45), and this has the effect of temporarily moving the setting of the story from the home of the deserted boy to his grandmother’s location and then back, and the lengthening of the motion verbs also helps convey that the crow had a long and challenging journey to reach the grandmother.	page 25
+(43) line 1	Hul’q’umi’num’	transcription	suw’ ne.e.em’ thu q’uleeq’e’ ’i’ ’uw’ thu’it hay nuw’ tus, tsetsuw’ thu s’eluhw xee.ee.eem’,	page 25, engine residue
+(43) line 2	Hul’q’umi’num’	transcription	m’i ’uhas, nem’s thu q’uleeq’e’ suw’ ’imushs yu hwakw’thut.	page 25, engine language
+(43) line 3	Hul’q’umi’num’	segmentation	səw̓ ne.e.em̓ θə q̓əle:q̓eʔ ʔiʔ ʔəw̓ θəʔit hay	page 25, engine language
+(43) line 4	Hul’q’umi’num’	gloss	N.CN go<RL> DT crow CNJ CN truly finish	page 25, engine english
+(43) line 5	Hul’q’umi’num’	segmentation	nəw̓ təs cecəw̓ θə sʔeləxʷ x̌e:.e:.e:m̓ m̓i ʔəhas	page 25, engine language
+(43) line 6	Hul’q’umi’num’	gloss	AUX.CN get.here beach DT elder cry<IPFV><RL> come be.here.face	page 25, engine english
+(43) line 7	Hul’q’umi’num’	segmentation	nem̓-s θə q̓əle:q̓eʔ səw̓ ʔiməš-s yə=xʷak̓ʷ-θət	page 25, engine language
+(43) line 8	Hul’q’umi’num’	gloss	go-3POS DT crow N.CN walk-3POS DYN=drag-REFL<IPFV>	page 25, engine english
+(43) line 9	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘The crow actually did arrive there and found his grandmother crying at the beach, and the crow dragged herself over to face her.’	page 25, engine english
+(43) line 9	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 53)	the tag or source at the right of the translation
+(44) line 1	Hul’q’umi’num’	transcription	suw’ ye’ut-s thu q’uleeq’e’ suw’ qwals, thut ’u kwthey’: “qw’ulaam, qw’ulaam tthun’	page 25, engine language
+(44) line 2	Hul’q’umi’num’	transcription	s’ukw’ukw’uli ’un’ ’imuth, qw’ulaam.”	page 25, engine language
+(44) line 3	Hul’q’umi’num’	segmentation	səw̓ yeʔət-s θə q̓əle:q̓eʔ səw̓ qʷal-s θət ʔə kʷθey̓	page 25, engine language
+(44) line 4	Hul’q’umi’num’	gloss	N.CN vomit-3POS DT crow N.CN speak-3POS say OBL DEM	page 25, engine english
+(44) line 5	Hul’q’umi’num’	segmentation	q̓ʷəla:m q̓ʷəla:m tᶿən̓ s-ʔək̓ʷək̓ʷəli ʔən̓=ʔiməθ q̓ʷəla:m	page 25, engine language
+(44) line 6	Hul’q’umi’num’	gloss	barbecue barbecue DT.2POS N-be.gone<PL> 2POS=grandchild barbecue	page 25, engine english
+(44) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘And then the crow vomited, and relayed this message: “Barbecue, barbecue, from your cast away, your grandson.”’	page 25, engine english
+(44) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 54)	the tag or source at the right of the translation
+(45) line 1	Hul’q’umi’num’	transcription	suw’ ye’ut-s sis m’i.i.i tl’uw’ huye’ thu q’uleeq’e’.	page 25, engine language
+(45) line 2	Hul’q’umi’num’	segmentation	səw̓ yeʔət-s sis m̓i.i.i ƛ̓əw̓ həyeʔ θə q̓əle:q̓eʔ	page 25, engine language
+(45) line 3	Hul’q’umi’num’	gloss	N.CN vomit-3POS N.AUX.3POS AUX<RL> also.CN depart DT crow	page 25, engine english
+(45) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘And so the crow vomited up the herring and then flew away.’	page 25, engine english
+(45) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 55)	the tag or source at the right of the translation
+(46) line 1	Hul’q’umi’num’	transcription	suw’ hun’umut tthuw’nilh, hun’tsew ’u tthu hwune’unt, ’uwu te’ we.e.et tl’e’ ’i.	page 26, engine residue
+(46) line 2	Hul’q’umi’num’	segmentation	səw̓ hən̓əmət tᶿəw̓nił hən̓cew ʔə tᶿə xʷəneʔənt	page 26, engine language
+(46) line 3	Hul’q’umi’num’	gloss	N.CN return.home PRO.DT arrive.from.above OBL DT evening	page 26, engine english
+(46) line 4	Hul’q’umi’num’	segmentation	ʔəwə=teʔ we.e.et ƛ̓eʔ ʔi	page 26, engine language
+(46) line 5	Hul’q’umi’num’	gloss	NEG=DT who<RL> also AUX	page 26, engine english
+(46) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘When the son returned home that evening, he discovered that there was still nobody there.’	page 26, engine english
+(46) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 24)	page 26, engine english
+§5.2	Donna Gerdts, Thomas Johnny and Ted Kye	heading	5.2 Rhetorical lengthening and echo repetition	page 26
+§5.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	One device used to focus on a key element is echo repetition (Gerdts 2018). Generally, an echo involves the repetition of a single word at the end of an oral paragraph that serves to sum up the main information of the paragraph before moving on to the next. An example of an echo repetition with rhetorical lengthening is given in (47):	page 26
+(47) line 1	Hul’q’umi’num’	transcription	suw’ q’ay, q’ay.	page 26, engine language
+(47) line 2	Hul’q’umi’num’	segmentation	səw̓ q̓ay q̓ay	page 26, engine language
+(47) line 3	Hul’q’umi’num’	gloss	N.CN die die	page 26, engine english
+(47) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘So he died, he died.’	page 26, engine english
+(47) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 49)	the tag or source at the right of the translation
+§5.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Echo repetitions often have a special performative style: for example, in example (47), Gerdts (2016, 2018) labels the style as “cas ‘pitiful’”, as the performance conveys sadness for the outcome of the protagonist.	page 26
+§5.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Often the targeted word is rhetorically lengthened while the echo is short.	page 26
+(48) line 1	Hul’q’umi’num’	transcription	suw’ xee.ee.eems thuw’nilh, xeem.	page 26, engine residue
+(48) line 2	Hul’q’umi’num’	segmentation	səw̓ x̌e:.e:.e:ms θəw̓nił x̌e:m	page 26, engine language
+(48) line 3	Hul’q’umi’num’	gloss	N.CN cry<RL> PRO.DT cry	page 26, engine english
+(48) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘Then, she cried, cried.’	page 26, engine english
+(48) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SI 18)	the tag or source at the right of the translation
+§5.2	Hul’q’umi’num’	cited form	cpxʷas	page 26, ‘blonde’
+§5.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 22 illustrates the rhetorical lengthening of the target word cpxʷas ‘blonde’ (i.e., the word that is being echoed) in line (49), which is characterized by a higher pitch and greater intensity at the onset of the vowel. This can be compared with the echo in Figure 22, which is characterized by the falling pitch contour that typically marks the end of an IP.	page 26
+(49) line 1	Hul’q’umi’num’	transcription	’uw’ thu’it tsphwa.a.a.s tthuw’nilh, tsphwaas.	page 26, engine residue
+(49) line 2	Hul’q’umi’num’	segmentation	ʔəw̓ θəʔit cpxʷa.a.a.s tᶿəw̓nił cpxʷas	page 26, engine language
+(49) line 3	Hul’q’umi’num’	gloss	CN truly blonde<RL> PRO.DT blonde	page 26, engine english
+(49) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘He was really blonde, blonde.’	page 26, engine english
+(49) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 12)	the tag or source at the right of the translation
+Figure 22	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 22: Spectrogram, waveform, and pitch track of the word cpxʷas ‘blonde’ rhetorically lengthened	page 27, the caption
+§5.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	The echo is often not adjacent to the word it is copying, and it can even be at the end of a separate clause. The role of the echo repetition is to provide summation for the paragraph.	page 27
+(50) line 1	Hul’q’umi’num’	transcription	suw’ kw’e.e.e’lus tun’a sum’shathut.	page 27, engine residue
+(50) line 2	Hul’q’umi’num’	segmentation	səw̓ k̓ʷe.e.el̓əs tən̓a səm̓šaθət	page 27, engine language
+(50) line 3	Hul’q’umi’num’	gloss	N.CN hot<RL> DEM sun	page 27, engine english
+(50) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘The sun was so hot.’	page 27, engine english
+(50) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 61)	the tag or source at the right of the translation
+(51) line 1	Hul’q’umi’num’	transcription	’uw’ lheq’ut ch ’ul’ kwthun’ s’ulhtun ’u tthu smeent ’i’ qw’ul, kw’e’lus.	page 27, engine language
+(51) line 2	Hul’q’umi’num’	segmentation	ʔəw̓ łeq̓-ət č ʔəl̓ kʷθən̓ sʔəłtən ʔə tᶿə sme:nt ʔiʔ q̓ʷəl k̓ʷel̓əs	page 27, engine language
+(51) line 3	Hul’q’umi’num’	gloss	CN lay.down-TR 2SUB just DT.POS food OBL DT rock CNJ cook hot	page 27, engine english
+(51) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘If you put food on a rock, it would cook, it was hot.’	page 27, engine english
+(51) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 62)	the tag or source at the right of the translation
+§5.2	Hul’q’umi’num’	cited form	k̓ʷel̓əs	page 27, ‘hot, burn’
+Figure 23	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 23: Spectrogram, waveform, and pitch track of the word k̓ʷel̓əs ‘hot, burn’ rhetorically lengthened	page 27, the caption
+§5.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Sometimes both the targeted word and the echo are rhetorically lengthened.10	page 27
+(52) line 1	Hul’q’umi’num’	transcription	’i’ s’e.e.luhw thu tens thu slheni’ shhwuw’wes s’e.e.eluhw.	page 28, engine residue
+(52) line 2	Hul’q’umi’num’	segmentation	ʔiʔ sʔe.e.ləxʷ θə ten-s θə słeniʔ šxʷəw̓we-s sʔe.e.eləxʷ	page 28, engine residue
+(52) line 3	Hul’q’umi’num’	gloss	CNJ elder<RL> DT mother-3POS DT woman parent-3POS<PL> elder<RL>	page 28, engine english
+(52) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘His mother was a very old parent.’	page 28, engine english
+(52) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 18)	the tag or source at the right of the translation
+§5.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	And rarely the echo but not the target is rhetorically lengthened.	page 28
+(53) line 1	Hul’q’umi’num’	transcription	wulh nilh kwu’elh tthu xpey’, thuytus, thu.u.u.uytus.	page 28, engine residue
+(53) line 2	Hul’q’umi’num’	segmentation	wəł nił kʷəʔeł tᶿə x̌pey̓ θəy-t-əs θə.ə.ə.əy-t-əs	page 28, engine language
+(53) line 3	Hul’q’umi’num’	gloss	PERF 3FOC thus DT cedar prepare-TR-3SUB prepare-TR-3SUB	page 28, engine english
+(53) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘He prepared a cedar, prepared it.’	page 28, engine english
+(53) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SHD 17)	the tag or source at the right of the translation
+§5.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	However, when the echo is being rhetorically lengthened, the intensity (loudness) of the RL vowel is much quieter. This can be observed in Figure 24 (for (53)), where the amplitude of the RL vowel in the waveform is much lower compared to the other vowels.	page 28
+§5.2	Hul’q’umi’num’	cited form	θəytəs	page 28, ‘prepare it’
+Figure 24	Donna Gerdts, Thomas Johnny and Ted Kye	note	Figure 24: Spectrogram, waveform, and pitch track of the word θəytəs ‘prepare it’ rhetorically lengthened	page 28, the caption
+§5.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Based on impressionistic observation, the RL vowels that occurred on echo repetitions sounded like they were produced with a “falsetto” and/or “whispery” voice. A research question that stems from this observation is what particular voice quality is being used by the speaker for the production of RL vowels with respect to their position in an IP. One limitation to this study is the lack of obtaining acoustic measurements that can be used to characterize differences in voice quality of RL vowels. Moreover, it is possible that the lower f0 at the end of an IP in the RL condition was due not to marking the end of an IP (which is characterized by a declination contour) but to a change in the voice quality. In general, whispery or breathy voice tends to lower f0 (Laver 1980; Gordon & Ladefoged 2001; Childers & Lee 1991). A future study may require conducting an acoustic analysis that uses these measurements to distinguish the voice qualities of RL vowels with respect to their position in an IP.	page 28
+footnote 10	Donna Gerdts, Thomas Johnny and Ted Kye	note	10 This example also shows something we noticed: the syllable following the RL one (in this case ləxʷ) has a higher pitch than the same syllable in a non-RL word.	page 28, footnote
+§5.2	Hul’q’umi’num’	cited form	ləxʷ	page 28
+§5.3	Donna Gerdts, Thomas Johnny and Ted Kye	heading	5.3 Sectioning and rhetorical lengthening	page 29
+§5.3	Donna Gerdts, Thomas Johnny and Ted Kye	note	We have seen in examples above that sometimes rhetorical lengthening appears at the end of the utterance to create special effects. We also find that rhetorical lengthening can be used at the beginning of an oral paragraph or a section.	page 29
+§5.3.1	Donna Gerdts, Thomas Johnny and Ted Kye	heading	5.3.1 Start of the story	page 29
+§5.3.1	Hul’q’umi’num’	cited form	qəx̌	page 29, ‘many’
+§5.3.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	It is noticeable that of the six stories in our corpus, three of them start with rhetorical lengthening on the first word. In Deserted Boy, the quantifier qəx̌ ‘many’ starts the story.11	page 29
+(54) line 1	Hul’q’umi’num’	transcription	qu.u.ux tthuw’ne’ullh, qux ’uw’ sq’uq’i.i.ip tthu hwulmuhw ’uw’ hay tthu se’uq	page 29, engine language
+(54) line 2	Hul’q’umi’num’	transcription	s’ulh’ilhtun’s.	page 29, engine language
+(54) line 3	Hul’q’umi’num’	segmentation	qə.ə.əx̌ tᶿəw̓neʔəlł qəx̌ ʔəw̓ s-q̓əq̓i.i.ip tᶿə	page 29, engine language
+(54) line 4	Hul’q’umi’num’	gloss	many<RL> PRO.DT many CN ST-gather<RES><RL> DT	page 29, engine english
+(54) line 5	Hul’q’umi’num’	segmentation	xʷəlməxʷ ʔəw̓ hay tᶿə seʔəq sʔəłʔiłtən̓-s	page 29, engine language
+(54) line 6	Hul’q’umi’num’	gloss	F.N.people CN only DT bracken.root food-3POS<PL>	page 29, engine english
+(54) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘There were a lot of them — many First Nations people gathered the only food they had, which was the bracken fern root.’	page 29, engine english
+(54) line 7	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 1)	the tag or source at the right of the translation
+§5.3.1	Hul’q’umi’num’	cited form	niʔ	page 29
+§5.3.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	In Snake Island (55) and Origin of the Sockeye (56), the first word is the (auxiliary) verb niʔ ‘be there/then’, which has no semantic reason to be lengthened other than being the first word in the story.	page 29
+(55) line 1	Hul’q’umi’num’	transcription	ni.i.i’ ’u kw’i stl’iilnup tthuw’ne’ullh, qu.u.ux hwulmuhw.	page 29, engine language
+(55) line 2	Hul’q’umi’num’	segmentation	ni.i.iʔ ʔə k̓ʷi sƛ̓i:lnəp tᶿəw̓neʔəlł qə.ə.əx̌ xʷəlməxʷ	page 29, engine language
+(55) line 3	Hul’q’umi’num’	gloss	AUX<RL> OBL DT placename PRO.DT<PL> many<RL> people	page 29, engine english
+(55) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘Many First Nations people were at Stl’iilnup (Departure Bay).’	page 29, engine english
+(55) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SI 1)	the tag or source at the right of the translation
+(56) line 1	Hul’q’umi’num’	transcription	ni.i.i’ xtsuthut thu squl’ew’.	page 29, engine residue
+(56) line 2	Hul’q’umi’num’	segmentation	ni.i.iʔ x̌cə-θət θə sqəl̓ew̓	page 29, engine language
+(56) line 3	Hul’q’umi’num’	gloss	AUX<RL> think-REF<IPFV> DT beaver	page 29, engine english
+(56) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘Beaver was wondering what to do.’	page 29, engine english
+(56) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Sockeye 1)	the tag or source at the right of the translation
+§5.3.1	Donna Gerdts, Thomas Johnny and Ted Kye	note	Starting the story with rhetorical lengthening kicks it off to a very dramatic start. In some of the tapes you could hear the speaker conversing with the audience or with the recordist Wayne Suttles about a story she might tell. Rhetorical lengthening serves to indicate a shift into the story per se.	page 29
+§5.3.2	Donna Gerdts, Thomas Johnny and Ted Kye	heading	5.3.2 Start of a new section	page 29
+§5.3.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Besides on the first word of the story, rhetorical lengthening also appears on the first word of a new section. For example, in the story Snake Island, example (57) ends a section and (58) starts a new one.	page 29
+footnote 11	Donna Gerdts, Thomas Johnny and Ted Kye	note	11 In Pitchy Log Man, the first word of the second line is rhetorically lengthened. See example (29).	page 29, footnote
+(57) line 1	Donna Gerdts, Thomas Johnny and Ted Kye	note	[suw’] hulun’umut-s [’i’] ’uwu kws tl’a’thut-s.	page 30, the caption
+(57) line 2	Hul’q’umi’num’	phonemic	[səw̓]	page 30, phonetic, in [ ]
+(57) line 2	Hul’q’umi’num’	segmentation	hələn̓əm-ət-s	page 30, the orthography
+(57) line 2	Hul’q’umi’num’	phonemic	[ʔiʔ]	page 30, phonetic, in [ ]
+(57) line 2	Hul’q’umi’num’	segmentation	ʔəwə	page 30, the orthography
+(57) line 2	Hul’q’umi’num’	segmentation	kʷs	page 30, the orthography
+(57) line 2	Hul’q’umi’num’	segmentation	ƛ̓aʔ-θət-s	page 30, the orthography
+(57) line 3	Hul’q’umi’num’	gloss	N.CN get.home-TR-3POS<PL> CNJ NEG DT.N stop.from.crying-REFL-3POS	page 30, engine english
+(57) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘They got back home, but they couldn’t comfort her.’	page 30
+(57) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	note	(MJJ:SI 24)	page 30
+(58) line 1	Hul’q’umi’num’	transcription	ni.i.i.i’ kw’in skweyul ’i’ tl’qw’uthut thuw’nilh, tens.	page 30, engine language
+(58) line 2	Hul’q’umi’num’	segmentation	ni.i.i.iʔ k̓ʷin skʷeyəl ʔiʔ ƛ̓q̓ʷə-θət θəw̓nił ten-s	page 30, engine language
+(58) line 3	Hul’q’umi’num’	gloss	AUX<RL> how.many day CNJ dress-REFL PRO.DT mother-3POS	page 30, engine english
+(58) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘After some days, her mother got ready.’	page 30, engine english
+(58) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:SI 25)	the tag or source at the right of the translation
+§5.3.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	Rhetorical lengthening at the start of a section is often associated with a passage of time, as also seen in (59) and (60).	page 30
+(59) line 1	Hul’q’umi’num’	transcription	ni.i.i’ wulh m’i kweyul.	page 30, engine language
+(59) line 2	Hul’q’umi’num’	segmentation	ni.i.iʔ wəł m̓i kʷeyəl	page 30, engine language
+(59) line 3	Hul’q’umi’num’	gloss	AUX<RL> PERF come be.day	page 30, engine english
+(59) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘And dawn came.’	page 30, engine english
+(59) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:GL 8)	the tag or source at the right of the translation
+(60) line 1	Hul’q’umi’num’	transcription	si.i.isuw’ net tthuw’nilh, ’uw’ ’i’lhtun’ ’u tthu se’uq, ’uw’ nilh ’uw’ stl’i’s.	page 30, engine language
+(60) line 2	Hul’q’umi’num’	segmentation	si.i.isəw̓ net tᶿəw̓nił ʔəw̓ ʔiʔɫtən̓ ʔə tᶿə seʔəq	page 30, engine residue
+(60) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS.CN be.night PRO.DT CN eat<IPFV> OBL DT bracken.root	page 30, engine english
+(60) line 4	Hul’q’umi’num’	segmentation	ʔəw̓ nił ʔəw̓ s-ƛ̓iʔ-s	page 30, engine language
+(60) line 5	Hul’q’umi’num’	gloss	CN 3FOC CN N-want-3POS	page 30, engine english
+(60) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘He remained there until nightime and ate the bracken fern root, as that was what he enjoyed eating.’	page 30, engine english
+(60) line 6	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:DB 27)	the tag or source at the right of the translation
+§5.3.2	Hul’q’umi’num’	cited form	ʔa	page 30
+§5.3.2	Donna Gerdts, Thomas Johnny and Ted Kye	note	The association of rhetorical lengthening with the passing of time can be expressed without a temporal phrase; in the following example, rhetorical lengthening appears on the vocable ʔa (Gerdts 2016; Gilkison 2020), which is frequently lengthened:	page 30
+(61) line 1	Hul’q’umi’num’	transcription	’aaaa, sisuw’ huye’ tthuw’ne’ullh.	page 30, engine language
+(61) line 2	Hul’q’umi’num’	segmentation	ʔa:a: sisəw̓ həyeʔ tᶿəw̓neʔəlł	page 30, engine language
+(61) line 3	Hul’q’umi’num’	gloss	INTJ<RL> N.AUX.3POS.CN depart PRO.DT<PL>	page 30, engine english
+(61) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	translation	‘After this, they continued on their journey.’	page 30, engine english
+(61) line 4	Donna Gerdts, Thomas Johnny and Ted Kye	citation	(MJJ:Pitch 102)	the tag or source at the right of the translation
+§6	Donna Gerdts, Thomas Johnny and Ted Kye	heading	6 Conclusion	page 30
+§6	Donna Gerdts, Thomas Johnny and Ted Kye	language	Hul’q’umi’num’	Hul’q’umi’num’, the Island dialect of Halkomelem, the language of the stories
+footnote 12	Donna Gerdts, Thomas Johnny and Ted Kye	note	12 Working from a video corpus, Webb (2024) has noticed that RL is sometimes accompanied with gestures. For example, an extended hand motion accompanies a verb of motion to indicate distance and hands spread wide apart accompanies a quantifier.	page 30, footnote
+§6	Donna Gerdts, Thomas Johnny and Ted Kye	note	In this study, based on 91 tokens of rhetorical lengthening from six Hul’q’umi’num’ stories told by Mrs. Jimmy Joe, we observed that rhetorical lengthening is used to direct attention to certain words or to move a listener’s attention along in the story. rhetorical lengthening is produced with a long duration and is characterized by a higher f0 (pitch) on the vowel, which is sustained throughout its total duration.12 We found that all parts of speech (both lexical and functional categories) can be rhetorically lengthened. As summarized in Table 5, verbs were most common, and we only had one example of a pro-determiner with RL.	page 30
+Table 5	Donna Gerdts, Thomas Johnny and Ted Kye	note	Table 5: Parts of speech and RL	page 31, the caption
+Table 5	Donna Gerdts, Thomas Johnny and Ted Kye	note	POS # % verbs 39 42.8% auxiliaries 17 18.6% adjectives 11 12.0% quantifiers 8 8.8% nouns 7 7.6% wh-word 4 4.4% connectors 3 3.3% negative 1 1.1% pro-determiner 1 1.1% Total 91 100%	page 31, the cells in reading order
+§6	Donna Gerdts, Thomas Johnny and Ted Kye	note	One interesting aspect about the placement of rhetorical lengthening is that it can appear at the beginning, middle, or end of a sentence. A more accurate way of studying it is to see if rhetorical lengthening is placed on a particular word to augment or focus it in some way. In contrast, we also see rhetorical lengthening appearing on the first element of a story or section, even if it is a small, semantically unsalient word such as a connective or auxiliary verb. In this usage, it draws the listener’s attention to the start of a new section, for example after a passage of time in the storyline. Another way to convey this would be by using a long pause between sections, but a preliminary look at this suggests that sometimes there is no pause at all between sections, and rhetorical lengthening might in fact be a better indicator of section boundaries.	page 31
+§6	Donna Gerdts, Thomas Johnny and Ted Kye	note	Our research on rhetorical lengthening is part of a project to study the kinds of structures that one needs to master in order to be able to tell a Hul’q’umi’num’ story that sounds truly authentic and engages the audience. Rhetorical lengthening is one device that all speakers and listeners are aware of and we hope that this study aids in the appreciation of the virtuosity of the use of rhetorical lengthening by Hul’q’umi’num’ storytellers. Overall, we find that Mrs. Jimmy Joe’s use of rhetorical lengthening makes the performance of the story more dramatic at crucial points in the storyline. By studying performances by first language speakers, we hope to become more dramatic storytellers ourselves.	page 31
+§6	Donna Gerdts, Thomas Johnny and Ted Kye	note	One question that arises is whether or not rhetorical lengthening also shows up in conversations or other genres besides storytelling, and the preliminary answer is that we have in fact heard it used in conversations, especially for augmenting the semantics of a word (Section 3). We look forward to researching this further in our corpus of conversations.	page 31
+§6	Donna Gerdts, Thomas Johnny and Ted Kye	note	To our knowledge, this study is the first in-depth treatment of rhetorical lengthening in a Salish language. We have observed speakers of other Salish languages using rhetorical lengthening in a similar way, and it will be interesting to compare their acoustic and semantic properties. A final observation is that second language speakers are aware that first language speakers of Hul’q’umi’num’ also use rhetorical lengthening with similar pitch and function when they speak English. It will be interesting to compare rhetorical lengthening as used by speakers of different levels of fluency.	page 31
+§6	Donna Gerdts, Thomas Johnny and Ted Kye	note	Also left for future research is comparing our analysis of Hul’q’umi’num’ with rhetorical lengthening in other languages of the world. This seems to be a popular narrative device in many languages and many aspects of it might prove to be fairly universal as the voice is used iconically to convey meanings such as distance, duration, and intensity. We hope that this study contributes to a typology of rhetorical lengthening and other narrative devices.	page 32
+references	Donna Gerdts, Thomas Johnny and Ted Kye	heading	References	page 32
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Boersma, Paul & David Weenink. 2024. Praat: doing phonetics by computer [Computer program]. Version 6.4.05, URL: http://www.praat.org/	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Childers, Donald G. & Chih K. Lee. 1991. Vocal quality factors: Analysis, synthesis, and perception. Journal of the Acoustical Society of America 90(5):2394–2410.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Gerdts, Donna B. 2012. What agreement mismatches in Halkomelem tell us about NP architecture. Paper presented at the 86th Annual Meeting of the Linguistics Society of America, Portland, OR.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Gerdts, Donna B. 2016. Ebb and flow: Syntax in Coast Salish narratives. Keynote address at Syntax of the World’s Languages, Mexico City, Mexico.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Gerdts, Donna B. 2018. Classifying rhetorical repetitions in Hul’q’umi’num’ narratives. Paper presented at the Workshop on Structure and Constituency in Languages of the Americas 23, University of Ottawa, Ottawa, ONT.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Gerdts, Donna B. & Zachary Gilkison. 2018. NP coordination, lists, etc. in Hul’q’umi’num’ Salish. Paper presented at the Society for the Study of the Indigenous Languages of the Americas, Salt Lake City, UT.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Gerdts, Donna B. & Thomas E. Hukari. 2004. Determiners and transitivity in Halkomelem texts. In Donna Gerdts and Lisa Matthewson (eds.), Studies in Salish Linguistics in Honor of M. Dale Kinkade. Missoula, MT: University of Montana Occasional Papers in Linguistics, 151–171.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Gerdts, Donna B. & Thomas E. Hukari. to appear. Halkomelem. Munich, Germany: Lincom Europa.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Gerdts, Donna B. & Lauren Schneider. 2023. Word classes in Salish languages. In Eva van Lier (ed.), Handbook of Word Classes. Oxford, UK: Oxford University Press 613-650.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Gerdts, Donna B. & Adam Werle. 2014. Halkomelem clitic types. Morphology 24:245–281.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Gilkison, Zachary. 2020. How what was said was said: Quotation in Hul’q’umi’num’ narrative performance. MA Thesis. Simon Fraser University, Burnaby, BC.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Gordon, Matthew & Peter Ladefoged. 2001. Phonation types: A cross-linguistic overview. Journal of Phonetics 29(4):383–406.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Laver, John. 1980. The Phonetic Description of Voice Quality. Cambridge, UK: Cambridge University Press.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Nespor, Marina & Irene Vogel. 1986. Prosodic Phonology. Dordrecht, Netherlands: Foris.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Pierrehumbert, Janet & Julia Hirschberg. 1990. The meaning of intonational contours in the interpretation of discourse. In Phillip R. Cohen, Jerry Morgan, and Martha E. Pollack (eds.), Intentions in Communication. Cambridge, MA: MIT Press, 271–311.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Schneider, Lauren. to appear. Serial verb constructions in Hul’q’umi’num’ Salish. Ph.D. thesis. Simon Fraser University, Burnaby, BC.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Webb, Rosemary. 2024. (Mis)matches between speech and gesture in Hul’q’umi’num’ storytelling. Paper presented at the 27th Workshop on Structure and Constituency in Languages of the Americas, University of Toronto, Toronto, ONT.	
+references	Donna Gerdts, Thomas Johnny and Ted Kye	reference	Wickmann, Anne. 2000. Intonation and Discourse: Beginnings, Middles and Ends. London, UK: Longman.	
