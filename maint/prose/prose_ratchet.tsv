@@ -3,19 +3,6 @@
 # lowers one writes the lower number here. Regenerate by hand with --ratchet-write only when a
 # file moves, since a moved file starts again at zero under its new name.
 docs/ENGINE_DIRECTIONS.md	1
-examples/0_experimental/invariant_consensus_rejects_outliers.py	1
-examples/chemistry/4_measure/a_histogram_cannot_see_structure.py	1
-examples/crystallography/4_measure/doping_from_shared_sites.py	1
-examples/game_theory/1_represent/four_games_one_protocol.py	1
-examples/game_theory/2_partition/board_width.py	1
-examples/game_theory/3_reference/position_null.py	1
-examples/game_theory/3_reference/what_random_play_reaches.py	1
-examples/game_theory/4_measure/rules_and_play.py	1
-examples/game_theory/6_oracle/bouton_and_wythoff.py	1
-examples/language/2_partition/minimum_alphabet.py	1
-examples/language/4_measure/byte_signature.py	1
-examples/proteins/derive_family_rules.py	1
-examples/sound/3_reference/period_background_and_its_null.py	1
 maint/audit/comb_arms.py	1
 maint/audit/grammar.py	1
 maint/audit/handedness.py	1
