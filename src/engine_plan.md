@@ -144,7 +144,8 @@ at the coarser of the two floors it is symmetric and still not transitive, and `
 shows three members where the first agrees with the second, the second with the third, and the first with
 neither. Pairwise agreement therefore names no set, and which members share a stem has no answer that does not
 depend on which was asked first. A group needs one of two things written: a representative every member is
-compared against, or a rule that builds the group and says which member it is anchored on.
+compared against, or a rule that builds the group and says which member it is anchored on. The rule is
+written, with its anchor as the representative (Open 12).
 
 **`.kdm` grows to whatever specificity a part needs.** It holds as many answers as it has: a general answer
 block, and under it a map specific enough to be optimal on one device and nowhere else. A driver written by
@@ -287,10 +288,16 @@ works there.
     reads the part's clock around them, put through the channel in Open 1, with the censored-sample mark and the
     reference ask alongside. Its answer carries one bit a check, 128 an ask, and never one bit over a set (Q15).
 
-12. **Stem membership has no written rule.** Two members sharing a stem is the whole basis of a set, and
-    pairwise agreement inside a floor cannot decide it. Either a representative per group or an anchored group
-    rule settles it, and neither is written. Until one is, a generic block covering a class has no membership
-    test and a specific block is the only kind that can be trusted.
+12. **Stem membership has a written rule and nothing reads it.** Two members sharing a stem is the whole basis
+    of a set, and pairwise agreement inside a floor cannot decide it. `compiler/bootstrap/stem_group.{h,c}` holds
+    an anchored group rule: the members in an order fixed by what they are, the finest floor first, the first
+    member with no group anchoring one, and every member with no group that agrees with that anchor joining it.
+    Agreement is a conjunction over rows at the coarser floor, and a row one member refused and the other
+    measured separates them. `stem_group_check.c` (run by `maint/engine/chain_check.sh`) holds it: the three
+    members `order_check.py` breaks pairwise agreement with group the same way in all six orders, and over 400
+    drawn sets every member agrees with its anchor, no two anchors agree, and every set groups alike under 24
+    shuffles. A group is a function of the whole set, and a block written for one is written again when the set
+    changes. The open part is the general block in `.kdm` keyed to a group, which nothing writes yet.
 
 ## Pending Doug
 - Move cell_tracking into `examples/` and theory into anchor_sift. Don't start without direction.
