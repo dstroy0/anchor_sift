@@ -650,10 +650,13 @@ unsigned int sass_cubin_loops(SassProbe *probe, const SassMachine *machine, unsi
     // by what else the host is doing; and each walked as the instruction that takes a loop back, which the part's
     // answer checks. The cheapest is the part's loop_back
     double cheapest = 0.0;
+    double second = 0.0;
+    double spread = 0.0;
     unsigned int chosen = SASS_LOOP_KEPT;
     for (unsigned int index = 0u; index < kept; index += 1u)
     {
         double least = 0.0;
+        double most = 0.0;
         for (unsigned int take = 0u; take < SASS_PREFER_TAKES; take += 1u)
         {
             char repeats[32];
@@ -665,7 +668,9 @@ unsigned int sass_cubin_loops(SassProbe *probe, const SassMachine *machine, unsi
             const double taken = ran ? sass_cubin_nanoseconds() : 0.0;
             sass_environment("PROBE_REPEATS", "0");
             least = ((taken != 0.0) && ((least == 0.0) || (taken < least))) ? taken : least;
+            most = (taken > most) ? taken : most;
         }
+        spread = ((most - least) > spread) ? (most - least) : spread;
         unsigned long long low = 0ull;
         unsigned long long high = 0ull;
         const SassLoopWalk walk = {SASS_LOOP_AT, SASS_LOOP_TARGET, SASS_LOOP_FLAG, s_loop_live,
@@ -674,17 +679,33 @@ unsigned int sass_cubin_loops(SassProbe *probe, const SassMachine *machine, unsi
         const int walked = sass_assemble(machine, s_kept[index], SASS_LOOP_AT, SASS_LOOP_TARGET, SASS_CONTROL_BASE,
                                          &low, &high) &&
                            sass_loop_walk(machine, &walk, low, high, &step);
-        printf("  loop back %-52s %.4f ns a turn, the walk %s at step %u\n", s_kept[index],
-               least / (double)SASS_LOOP_TIMED, walked ? "agrees" : "differs", step);
-        if ((least != 0.0) && ((chosen == SASS_LOOP_KEPT) || (least < cheapest)))
+        printf("  loop back %-52s %.4f ns a turn over a spread of %.4f, the walk %s at step %u\n", s_kept[index],
+               least / (double)SASS_LOOP_TIMED, (most - least) / (double)SASS_LOOP_TIMED,
+               walked ? "agrees" : "differs", step);
+        if (least == 0.0)
         {
+            continue;
+        }
+        if ((chosen == SASS_LOOP_KEPT) || (least < cheapest))
+        {
+            second = cheapest;
             cheapest = least;
             chosen = index;
+            continue;
         }
+        second = ((second == 0.0) || (least < second)) ? least : second;
     }
-    if (chosen != SASS_LOOP_KEPT)
+    // The cheapest is the part's loop_back where it stands apart from the next by more than any form's own runs stood
+    // apart from each other. A difference under that spread is no reading, and the forms are then one cost
+    if ((chosen != SASS_LOOP_KEPT) && ((second == 0.0) || ((second - cheapest) > spread)))
     {
         printf("cell sass loop back: %s, %.4f ns a turn\n", s_kept[chosen], cheapest / (double)SASS_LOOP_TIMED);
+    }
+    if ((chosen != SASS_LOOP_KEPT) && (second != 0.0) && ((second - cheapest) <= spread))
+    {
+        printf("cell sass loop back: no form cheaper above the floor, the next %.4f ns a turn above %s against a "
+               "spread of %.4f\n",
+               (second - cheapest) / (double)SASS_LOOP_TIMED, s_kept[chosen], spread / (double)SASS_LOOP_TIMED);
     }
     return kept;
 }
