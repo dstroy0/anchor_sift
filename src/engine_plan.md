@@ -61,21 +61,22 @@ the expensive link is named instead of inferred.
 
 How the asks are ordered decides whether that works at all, and the arithmetic is measured in
 `maint/engine/measure_check.py`. Subtracting neighboring cuts puts the noise of two measurements on a quantity
-the size of one link, and one link is the quantity sitting under the floor: the recovered cost carries 1.43
-floors of noise against a signal of 1.00, which orders 56% of link pairs correctly where a coin orders 50%.
-Repetition fixes it at 1600 repeats of every cut, and the order of asking fixes it for far less than that.
+the size of one link, and one link is the quantity sitting under the floor: the recovered cost carries
+1 + 12543/12800 floors squared of noise against a signal of 1, which orders 56 + 9692/41993% of link pairs
+correctly where a coin orders 50%. Repetition, descended level by level, still orders more pairs at 6400
+repeats of every cut, 97 + 143/181%, and the order of asking fixes it for far less than that.
 
 **The emission order is not a shuffle, it is a carrier.** A shuffle throws away what it scrambled. This order
 is known to the asker and tells the part nothing: the part has no way to separate a measurement from work, and
 every answer is still decodable, because the order is in the record. Build it so every ask covers half the
 links and any two asks overlap on a quarter, and the answers come apart exactly. One ask then informs every
-link at once in place of one link. The gain over asking a link at a time is the square root of (links + 1)
-over two: nothing at 3 links, 2.1 times at 15, 8.2 times at 255, and growing with the chain. Nothing beats the
-bound on what one answer can carry. A known order reaches that bound and asking one at a time does not, and
+link at once in place of one link. The squared gain over asking a link at a time is (links + 1) over four:
+1 + 15541/35219 at 3 links, 4 + 31188/189499 at 15, 60.2291 + r/d at 255, and growing with the chain. Nothing
+beats the bound on what one answer can carry. A known order reaches that bound and asking one at a time does not, and
 the whole gain is that difference.
 
-A known order also beats a drawn one, and by more the further out the reading is: 5.5 times at the median
-worst-link error, 34 times at the 95th, 125 times at the worst of 400. 17 of 400 drawn orders did not come
+A known order also beats a drawn one, and by more the further out the reading is: 4 + 883/1053 times at the
+median worst-link error, 31 + 37/135 at the 95th, 145 + 5/6 at the worst of 400. 18 of 400 drawn orders do not come
 apart at all and cost their whole pass. An engine answering every time is held to its worst case, and a known
 order has the same worst case every pass by construction.
 
