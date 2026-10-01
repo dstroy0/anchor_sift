@@ -63,6 +63,7 @@ import out_path
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 TEMPLATE = os.path.join(HERE, "clock_view_template.html")
+BAR_SOURCE = os.path.join(HERE, "control_bar.js")
 
 # The render package lives in the engine tree, not beside this tool. It is reached by path and not
 # copied. The page draws what the shipped renderer produces and never a transcription of it.
@@ -292,6 +293,17 @@ def main():
         sys.stderr.write("the template has no place to put the data\n")
         return 1
     page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
+
+    # The shared control bar is injected whole, keeping the page one self-contained file with one
+    # source for the bar across every unit that carries it.
+    with io.open(BAR_SOURCE, encoding="utf-8") as handle:
+        bar = handle.read()
+    slot = re.search(r"/\*CONTROL_BAR\*/", page)
+    if slot is None:
+        sys.stderr.write("the template has no place for the control bar\n")
+        return 1
+    page = page[:slot.start()] + bar + page[slot.end():]
+
     if page.count("</script>") < page.count("<script"):
         sys.stderr.write("the template left a script open. The page would not run\n")
         return 1

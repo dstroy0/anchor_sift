@@ -29,6 +29,13 @@
             border-radius: 8px; padding: 16px; }
   .digest { color: #7f8798; font-size: 13px; margin-top: 18px; word-break: break-all; }
   .arm { color: #86c08a; }
+  .bar { margin: 18px 0 0; border: 1px solid #1d2230; border-radius: 8px; padding: 12px 14px; }
+  .bar h2 { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #7f8798; margin: 0 0 10px; }
+  .bar-strip { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .bar-row { display: flex; align-items: center; gap: 8px; color: #9aa2b2; }
+  .bar-name { color: #7f8798; }
+  .bar-value { color: #e8edf6; min-width: 2.5em; text-align: right; }
+  .bar-status { margin-top: 10px; color: #86c08a; min-height: 1.2em; }
 </style>
 </head>
 <body>
@@ -38,8 +45,10 @@
     byte channel. The page draws the engine's bytes; it computes none of them.</p>
 
   <div id="clockUI"></div>
+  <div id="bar" class="bar" hidden><h2>appearance</h2></div>
 </main>
 
+<script>/*CONTROL_BAR*/</script>
 <script>
   var DATA = /*CLOCK_DATA*/ null;
 
@@ -174,6 +183,23 @@
 
     slider.addEventListener("input", function () { draw(parseInt(slider.value, 10)); });
     draw(0);
+
+    // The shared control bar over this page's appearance. It carries only what the clock view honors
+    // without re-deriving the engine's bytes: the backdrop behind the page and how present the panels
+    // are. Every byte cell keeps the gray value the engine rendered; the bar never touches the canvas.
+    var barHost = document.getElementById("bar");
+    var SCHEMA = {
+      background: { kind: "color", fallback: "#0b0d12" },
+      opacity: { kind: "int", low: 15, high: 100, fallback: 100 }
+    };
+    var opening = DATA && DATA.settings ? DATA.settings : {};
+    function appearance(appView) {
+      document.body.style.background = appView.background;
+      var chrome = document.querySelectorAll(".panel, .clock, .digest, .readout");
+      for (var i = 0; i < chrome.length; i++) { chrome[i].style.opacity = appView.opacity / 100; }
+    }
+    barHost.hidden = false;
+    BAR.mount(barHost, SCHEMA, opening, appearance);
   })();
 </script>
 </body>
