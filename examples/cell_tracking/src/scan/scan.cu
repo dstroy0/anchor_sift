@@ -393,11 +393,11 @@ static void scan_contrast_map(const ScanContrast *contrast, const unsigned short
 static int scan_frames(const ScanRequest *request, const char *sample, const ScanVolume *volume, ScanContrast *contrast,
                        ScanPoints *points, ScanResults *results)
 {
-    // every extent is held at or below 2^32 - 1 by scan_load, so each narrows to unsigned int exactly
+    // every extent is held at or below 2^32 - 1 by scan_load. Each narrows to unsigned int exactly
     const unsigned int header[SCAN_HEADER_WORDS] = {(unsigned int)volume->extent[0], (unsigned int)volume->extent[1],
                                                     (unsigned int)volume->extent[2], (unsigned int)volume->extent[3],
                                                     contrast->residual_limbs,        contrast->bits};
-    // the residual's limbs are below 2^30 for any orders of 32 bits, so one more limb does not wrap
+    // the residual's limbs are below 2^30 for any orders of 32 bits. One more limb does not wrap
     const unsigned int hessian_header[SCAN_HEADER_WORDS] = {
         header[0], header[1], header[2], header[3], contrast->residual_limbs, contrast->residual_limbs + 1u};
     const unsigned int drift_header[SCAN_DRIFT_HEADER_WORDS] = {
@@ -455,7 +455,7 @@ static int scan_frames(const ScanRequest *request, const char *sample, const Sca
         // a count past the capacity is not negative. It re-signs to unsigned long long exactly
         if ((found != PEAKS_ERROR) && ((unsigned long long)found > points->capacity))
         {
-            // the count is at most the frame's voxels, below 2^31, so it narrows to unsigned int exactly
+            // the count is at most the frame's voxels, below 2^31. It narrows to unsigned int exactly
             ok = scan_points_reserve(points, (unsigned int)found, limbs);
             peaks.capacity = points->capacity;
             peaks.voxels = points->voxels;
@@ -500,7 +500,7 @@ static int scan_frames(const ScanRequest *request, const char *sample, const Sca
         mark = engine_clock_microseconds();
         const DriftPositiveRequest positive = {device_residual, header[1], header[2], header[3], limbs, points->after};
         const long positives = ok ? drift_positive(&positive) : DRIFT_ERROR;
-        // a count that is not an error is not negative and is below 2^31, so it narrows to unsigned int exactly
+        // a count that is not an error is not negative and is below 2^31. It narrows to unsigned int exactly
         const unsigned int positive_count = (positives >= 0L) ? (unsigned int)positives : 0u;
         ok = ok && (positives >= 0L) && scan_write(drift_file, &positive_count, sizeof(positive_count));
         if (ok && (frame != 0u))

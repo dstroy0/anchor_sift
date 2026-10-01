@@ -8,10 +8,10 @@
 #
 #   Usage:  python evidence/proofs/posits/proof_corpus_audit.py
 #
-# Nine problems in this work were found by reading output and none by a statistic going out of range. Six
-# were a format read as language, being line wrapping, publisher markup, a ruled separator, verse
-# numbering, HTML fragments and line width moving an entropy constant. Three were a corpus holding
-# something other than its label, German under Hungarian, English under Latin and Ethereum contracts
+# Problems in this work are found by reading output, not by a statistic going out of range, and they
+# are of two kinds. A format read as language: line wrapping, publisher markup, a ruled separator,
+# verse numbering, HTML fragments and line width moving an entropy constant. A corpus holding
+# something other than its label: German under Hungarian, English under Latin and Ethereum contracts
 # under a fabrication format.
 #
 # The posit is a process rule. The testable form is whether a check written once would have caught

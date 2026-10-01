@@ -114,7 +114,7 @@ def main():
         batches.append(one / two)
     out.write("\nfloor, six disjoint batches of %d games: %s\n"
               % (games, [round(value, 4) for value in batches]))
-    out.write("  spread %.4f, so the departure above is %.0f floors and the control is inside one\n"
+    out.write("  spread %.4f; the departure above is %.0f floors and the control is inside one\n"
               % (max(batches) - min(batches),
                  (statistics.fmean(batches) - 1.0) / (max(batches) - min(batches))))
 

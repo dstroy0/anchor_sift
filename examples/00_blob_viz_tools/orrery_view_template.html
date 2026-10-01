@@ -386,8 +386,8 @@
       return total;
     }
 
-    // Through-going. The probe crosses the ball and the boundary without much caring about either,
-    // so what it carries out is the column of matter it passed through: the length of its chord that
+    // Through-going. The probe crosses the ball and the boundary without much caring about either.
+    // What it carries out is the column of matter it passed through: the length of its chord that
     // lay inside a body, summed over the bodies. Any surface is opaque to a neutron most of the time
     // and to a neutrino almost never, and it is that almost that makes this readable. The attenuation
     // is small. The deficit is close to proportional to the column, and a column is a line integral
@@ -418,7 +418,7 @@
     }
 
     // Ballistic. A point on the far side is lit unless a body sits on the line the beam took to
-    // reach it. Nothing here is smoothed. That is the whole difference from the branch above.
+    // reach it. Nothing here is smoothed. Nothing else differs from the branch above.
     // The shadow falls on the side the beam leaves by, never the side it arrives at. Lighting the
     // arrival side puts every body downstream of the surface being drawn. No body is ever between
     // the source and the point and the ball renders evenly lit with the shadow mode switched on.
@@ -477,8 +477,8 @@
     // The scale is carried between frames, a transit reads as the surface going dark. Rescaling to
     // the frame's own range every frame renormalizes the dip away and the boundary looks unchanged
     // through the very event the page exists to show.
-    // A guard, because the failure above cost an hour and left nothing on screen to read. NaN is the
-    // one value that survives every arithmetic here and still paints, and what it paints is a clean
+    // A guard, because the failure above leaves nothing on screen to read. NaN survives every
+    // arithmetic here and still paints, and what it paints is a clean
     // black ball that looks like an answer. Saying so once is cheaper than finding it twice.
     if (!(low === low) || !(high === high)) {
       if (!paint.warned) {

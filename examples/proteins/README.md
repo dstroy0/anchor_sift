@@ -204,4 +204,3 @@ laboratory at <https://github.com/rlabduke/reference_data> under CC BY 4.0, and 
 contours MolProbity and wwPDB validation score against.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16

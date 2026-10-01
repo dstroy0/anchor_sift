@@ -8,11 +8,11 @@
 #
 #   Usage:  python examples/any_corpus/4_measure/point_volume.py
 #
-# The earlier attempt at a single instrument gave each domain a dimension: a line for text, a plane for a
-# picture, a space for a structure. That was the defect. Choosing a picture's width means choosing a
-# geometry and then measuring the choice, and it showed: reshaping at a wrong width shears the rows into
-# diagonals, an orientation tensor scores a shear highest, and the sweep returned the height every time
-# while the shift detector returned the width correctly on all three pictures.
+# Assigning each domain a dimension -- a line for text, a plane for a picture, a space for a
+# structure -- is the defect. Choosing a picture's width means choosing a geometry and then measuring
+# the choice, and it shows: reshaping at a wrong width shears the rows into diagonals, an orientation
+# tensor scores a shear highest, and the sweep returns the height every time while the shift detector
+# returns the width correctly on all three pictures.
 #
 # A cloud of points carries no dimension to assign. What every corpus already is, without anything being
 # chosen for it, is bits. So the volume is built in bit space and the same construction runs over text,

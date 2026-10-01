@@ -44,7 +44,7 @@
 #define SORT_TEST_POINTS_MAX 6031u
 
 // a component of at most 25 gate pairs is enumerated whole; a drawn frame of at most 5 points against 5 has at most
-// 25, so every drawn component is
+// 25. Every drawn component is
 #define SORT_TEST_ENUMERATED_MAX 25u
 
 #define SORT_TEST_DRAWN_MAX 5ull
@@ -158,7 +158,7 @@ static unsigned long long sort_test_length(const int *one, const int *other, con
     for (unsigned int axis = 0u; axis < ENGINE_AXES; axis += 1u)
     {
         const long long difference = (long long)one[axis] - (long long)other[axis];
-        // a difference of two 32-bit places is below 2^32 in size, so it re-signs to unsigned long long exactly
+        // a difference of two 32-bit places is below 2^32 in size. It re-signs to unsigned long long exactly
         const unsigned long long size = (unsigned long long)((difference < 0ll) ? -difference : difference);
         length += (unsigned long long)weights[axis] * size * size;
     }
@@ -427,7 +427,7 @@ static int sort_test_prove(const SortTestPair *pair, SortLinks *links, SortTestS
         target_used[links->target[pair_at]] = 1u;
         counted += 1u;
     }
-    // a chosen count that is not an error is below 2^30, so it re-signs to unsigned long long exactly
+    // a chosen count that is not an error is below 2^30. It re-signs to unsigned long long exactly
     ok = ok && (counted == links->chosen) && ((unsigned long long)chosen == counted) &&
          (sort_test_max_links(links, sources, targets) == counted);
     // each component's gate pairs and chosen links, grouped by the host's labels
@@ -711,7 +711,7 @@ static void sort_test_pile(SimResults *results, SortLinks *links)
         const int place[3] = {4, 6, 10};
         memcpy(&pair.target_places[ENGINE_AXES * target], place, sizeof(place));
     }
-    // the pool is given back first, so the pile holds it for its own 50 points
+    // the pool is given back first. The pile holds it for its own 50 points
     sort_release();
     ok = ok && sort_test_prove(&pair, links, &sums);
     ok = ok && (links->pairs == (SORT_TEST_PILE_SOURCES * SORT_TEST_PILE_TARGETS)) &&
@@ -1277,7 +1277,7 @@ static void sort_test_walk(SimResults *results, const char *set)
 // the distances' levels as the host works them, apart from the pooling: a distance's pooled share is the least, over
 // every start at or before it, of the most, over every end at or after it, of the summed firsts over the summed pairs
 // from start to end (the min-max form of the regression that never rises), and its level is the number of distinct
-// shares above its own. The sums are below 2^32, so every cross product fits 64 bits
+// shares above its own. The sums are below 2^32. Every cross product fits 64 bits
 static void sort_test_levels(const SortFirstCount *counts, unsigned int count, unsigned long long *levels)
 {
     unsigned long long firsts[SORT_TEST_DISTANCES_MAX];

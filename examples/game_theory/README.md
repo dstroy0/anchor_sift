@@ -208,4 +208,3 @@ insufficient material are not modeled in chess, because each turns a long game i
 subject reports a game the budget did not finish as unresolved and not as a draw.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16

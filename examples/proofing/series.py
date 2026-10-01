@@ -7,19 +7,19 @@ declaration is needed anywhere.
 
 WHY THE MULTIPLY IS PASSED IN INSTEAD OF BOUND GLOBALLY
 
-This replaces two earlier arrangements, and both failed the same way.
+Two other arrangements each fail the same way, and neither may be used.
 
-The first was a module-level `product` rebound by a `use_device()` call. Any tool that called it
-changed the arithmetic of every other tool in the process, from anywhere, at any time, and a run
-could not be described without knowing the call order. That is a monkeypatch whatever it is named.
+One is a module-level `product` rebound by a `use_device()` call. Any tool that calls it
+changes the arithmetic of every other tool in the process, from anywhere, at any time, and a run
+cannot be described without knowing the call order. That is a monkeypatch whatever it is named.
 
-The second was two engines each carrying their own copy of the recurrences. That removes the
+The other is two engines each carrying their own copy of the recurrences. That removes the
 rebinding and buys a worse problem: two copies of a Newton iteration are one edit away from
 disagreeing, and nothing reports it when they do - the results simply differ and both look fine.
 
 Passing the multiply in has neither failure. There is one copy of each recurrence, the caller's
 import line picks the machine, and the choice is visible at the call instead of hidden in the
-history of the process.
+call order of the process.
 
     import digit_engine    then digit_engine.chudnovsky(n)    every multiply on the host
     import device_engine   then device_engine.chudnovsky(n)   every multiply on the card
@@ -60,9 +60,9 @@ def reciprocal(product, value, bits):
     the largest value whose product with the divisor does not exceed the numerator. The return is
     the true floor and not a value within a tolerance of it.
 
-    THE SQUARING GOES THROUGH THE ENGINE TOO. An earlier device copy of this wrote `lifted * lifted`
-    here, which is a host multiply sitting in the middle of a routine advertised as device only, and
-    at the sizes this is used at it was the largest multiply in the call.
+    THE SQUARING GOES THROUGH THE ENGINE TOO. Writing `lifted * lifted` here is a host multiply
+    sitting in the middle of a routine advertised as device only, and at the sizes this is used at it
+    is the largest multiply in the call.
     """
     if value <= 0:
         raise ValueError("reciprocal of a non-positive value")

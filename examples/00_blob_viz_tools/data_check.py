@@ -51,8 +51,8 @@ underneath `clock`, and that spares this tool from counting braces to find the e
 
 WHAT `--check` GRADES
 
-Eight guard shapes, one at a time, because the first version of this file marked every one of them
-guarded and would have passed anything. The prefix rule, both ways: a guard on the parent covers the
+Eight guard shapes, one at a time. Marking every one of them guarded would pass anything. The
+prefix rule, both ways: a guard on the parent covers the
 child, and covers nothing else. The brace counter, against a literal with braces inside its strings.
 The walk, which has to leave the dictionaries at `sources.length` and stay inside them at
 `clock.hold`.
@@ -90,9 +90,9 @@ DENIED = re.compile(r"(!|typeof\s+)$")
 LEADS = re.compile(r"^\s*(&&|\|\||\?)")
 FOLLOWS = re.compile(r"(\?|&&|\|\|)\s*$")
 
-# THE PROXIMITY TEST THIS REPLACED WAS USELESS AND PASSED EVERYTHING. It looked for any of `&&`,
-# `||`, `?`, `if (` or `typeof` within 120 characters either side. JavaScript carries those
-# everywhere. `var CLOCK = DATA.clock;` came back guarded because an unrelated `if` sat thirty
+# A proximity test is useless here. It looks for any of `&&`, `||`, `?`, `if (` or `typeof`
+# within 120 characters either side, and JavaScript carries those everywhere.
+# `var CLOCK = DATA.clock;` comes back guarded when an unrelated `if` sits thirty
 # characters earlier. A guard has to be a syntactic relationship with this read and never a token
 # sitting nearby.
 
@@ -328,8 +328,8 @@ def _check():
     if not literal or json.loads(literal).get("b") != {"c": 1}:
         failed += 1
 
-    # The apostrophe, both places it appears, because the first version of the blanker treated it as
-    # a delimiter and lost the data's braces to it. step_view.html has 25 in its values.
+    # The apostrophe, both places it appears. Treating it as a delimiter loses the data's braces
+    # to it. step_view.html has 25 in its values.
     quoted = "// the page's own comment\nvar DATA = {\"who\": \"Douglas's\", \"n\": {\"k\": 2}}\nvar X = 1;"
     literal, why = data_literal(quoted)
     got = json.loads(literal) if literal else {}
@@ -352,8 +352,8 @@ def _check():
     if ok or depth != 1:
         failed += 1
 
-    # Each guard shape has to read as a guard, and a bare assignment has to not. This is the test the
-    # first version of this file failed: a 120 character window called every one of them guarded.
+    # Each guard shape has to read as a guard, and a bare assignment has to not. A 120 character
+    # window calls every one of them guarded.
     shapes = (
         ("if (DATA.a) { go(); }", ("a",), True),
         ("var x = !DATA.b;", ("b",), True),

@@ -33,24 +33,17 @@
 # tool for the thing it finds, and a reading that only wants to know whether a mineral dopes still
 # should not pay for it.
 #
-# THE COUNT IS 2 AS OF A MOMENT, AND THE MOMENT IS PART OF THE CLAIM
+# THE COUNT IS 2, AND THE CORPUS SIZE IS PART OF THE CLAIM
 #
-# 2 of 2853 entries, measured 2026-09-16 13:12 UTC, corpus still filling. Not 2 as a settled fact.
-# The same measurement has read three values tonight and only the last is true:
+# 2 of 2853 entries, with the corpus still filling. Not 2 as a settled fact: the count holds for the
+# corpus at that size. The measurement is sensitive to two things: corpus size finds the real cases,
+# and a parser defect invents others. Anyone quoting this number should quote the corpus with it.
 #
-#   1228 entries   0   the two real cases were not in the corpus yet
-#   2801 entries   5   three of the five were a parser artifact
-#   2853 entries   2   artifact removed, two real cases remain
-#
-# Each was correct for its corpus and its parser. The sequence says more than the value does,
-# because it says what the measurement is sensitive to: corpus size found the real cases and a
-# parser defect invented three others. Anyone quoting this number should quote the corpus with it.
-#
-# The artifact was the dum sentinel described in crystal.py: an undetermined position written as -1,
-# reducing into the cell at the origin, landing on whatever real atom sits there. It surfaced as Mo
-# and O sharing a site, which is chemically impossible, and that impossibility was the only thing
-# that announced it. crystal.site_table drops those rows now, and re-reading both published figures
-# with them kept and dropped moved no period and flipped no agreement.
+# The artifact is the dum sentinel described in crystal.py: an undetermined position written as -1,
+# reducing into the cell at the origin, landing on whatever real atom sits there. It surfaces as Mo
+# and O sharing a site, which is chemically impossible, and that impossibility is the only thing
+# that announces it. crystal.site_table drops the dum rows, and re-reading both published figures
+# with them kept and dropped moves no period and flips no agreement.
 #
 # A THIRD HAS NO DECIMAL,  THIS NEEDED A NEW SCALE
 #

@@ -24,7 +24,7 @@ static ScoreSlidePresence score_slide_results(const unsigned int *partition, uns
         presence.alone += alone;
         if (ever_alone != NULL)
         {
-            // alone is 0 or 1, so it narrows to unsigned char exactly
+            // alone is 0 or 1. It narrows to unsigned char exactly
             ever_alone[key] |= (unsigned char)alone;
         }
     }
@@ -194,7 +194,7 @@ static int score_code_descending(const void *left, const void *right)
 static int score_peak_levels(const EngineBuffers *buffers, const TreeFrame *frame, ScoreSlideLevels *kept)
 {
     kept->count = 0u;
-    // leaf_count widens from unsigned int to size_t, so leaf_count + 1 cannot wrap before malloc sees it
+    // leaf_count widens from unsigned int to size_t; leaf_count + 1 cannot wrap before malloc sees it
     kept->levels = (unsigned int *)malloc(((size_t)frame->leaf_count + 1u) * sizeof(unsigned int));
     MaxTreeSlideStep no_step;
     unsigned int step_count = 0u;
@@ -242,7 +242,7 @@ typedef struct
 static unsigned int score_key_voxel(const ScoreKeyDivisions *divisions, unsigned int node)
 {
     const int *const place = &divisions->key->node_coordinates[(size_t)node * 4u];
-    // the key holds every place on the grid, so each coordinate is non-negative and re-signs to unsigned int exactly
+    // the key holds every place on the grid. Each coordinate is non-negative and re-signs to unsigned int exactly
     return ((((unsigned int)place[1] * divisions->height) + (unsigned int)place[2]) * divisions->width) +
            (unsigned int)place[3];
 }
@@ -251,7 +251,7 @@ static unsigned int *score_key_division_voxels(const ScoreKeyDivisions *division
                                                unsigned int later_time, unsigned int *count)
 {
     const AnswerKey *const key = divisions->key;
-    // node_count widens from unsigned int to size_t, so (node_count + 1) * 3 cannot wrap before malloc sees it
+    // node_count widens from unsigned int to size_t; (node_count + 1) * 3 cannot wrap before malloc sees it
     unsigned int *const voxels = (unsigned int *)malloc(((size_t)key->node_count + 1u) * 3u * sizeof(unsigned int));
     *count = 0u;
     for (unsigned int node = 0u; (voxels != NULL) && (node < key->node_count); node += 1u)
@@ -278,7 +278,7 @@ static unsigned int *score_key_division_voxels(const ScoreKeyDivisions *division
 static unsigned int *score_key_cell_voxels(const ScoreKeyDivisions *divisions, unsigned int time, unsigned int *count)
 {
     const AnswerKey *const key = divisions->key;
-    // node_count widens from unsigned int to size_t, so node_count + 1 cannot wrap before malloc sees it
+    // node_count widens from unsigned int to size_t; node_count + 1 cannot wrap before malloc sees it
     unsigned int *const voxels = (unsigned int *)malloc(((size_t)key->node_count + 1u) * sizeof(unsigned int));
     *count = 0u;
     for (unsigned int node = 0u; (voxels != NULL) && (node < key->node_count); node += 1u)

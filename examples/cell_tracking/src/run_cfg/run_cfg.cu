@@ -102,7 +102,7 @@ char *cfg_copy(const char *piece)
 }
 
 // names an output at parse: its path is held, and the rules take the export, object and vis directories. Nothing is
-// made or opened, so a run errored at parse changes no file. 0 when the path could not be held
+// made or opened. A run errored at parse changes no file. 0 when the path could not be held
 bool name_output(TreeRules *rules, RunInputs *inputs, unsigned int output, const char *path)
 {
     free(inputs->outputs[output]);
@@ -116,7 +116,7 @@ bool name_output(TreeRules *rules, RunInputs *inputs, unsigned int output, const
 }
 
 // the file a named output writes: its own path, or index.html in the vis directory. The export and the object are
-// directories and write no file here, so they give NULL, as does an index path longer than a path may be (said)
+// directories and write no file here. They give NULL, as does an index path longer than a path may be (said)
 static const char *output_file(const char *kept, unsigned int output, char *index_path, size_t capacity)
 {
     if ((output == 2u) || (output == 3u))
@@ -207,7 +207,7 @@ bool open_output(TreeRules *rules, const RunInputs *inputs, unsigned int output)
     {
         return false;
     }
-    // the nodes and the submission open binary, so their lines end in LF and their bytes are the same on every platform
+    // the nodes and the submission open binary. Their lines end in LF and their bytes are the same on every platform
     FILE *const file = fopen(name, (output >= 6u) ? "wb" : "w");
     *files[output] = file;
     if (!file)

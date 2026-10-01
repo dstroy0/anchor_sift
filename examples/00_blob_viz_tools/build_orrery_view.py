@@ -236,9 +236,9 @@ def recover(curve, span, frames, bodies):
     #
     # The floor is the median of the whole spectrum and never of a window around the peak. Padding
     # eight times over makes neighboring bins copies of one another, and a window of a dozen bins
-    # covers less than two real ones and its median is the peak itself. Written that way the test
-    # compared every peak against a slightly smaller copy of itself and passed nothing, which reads
-    # as a system too faint to recover and was a window measured in the wrong units.
+    # covers less than two real ones and its median is the peak itself. A windowed median compares
+    # every peak against a slightly smaller copy of itself and passes nothing, which reads as a
+    # system too faint to recover: a window measured in the wrong units.
     ranked = sorted(magnitudes)
     floor = ranked[len(ranked) // 2]
     oversample = max(1, padded // len(centered))

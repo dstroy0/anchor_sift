@@ -78,8 +78,8 @@ def main():
         out.flush()
         return 0
 
-    out.write("  distances shrink as symbols are folded together. What matters is whether\n")
-    out.write("  the close pair is still closer than the far pair at each level\n\n")
+    out.write("  distances shrink as symbols are folded together. Is the close pair still\n")
+    out.write("  closer than the far pair at each level?\n\n")
     out.write("  %-8s %-15s %-15s %-15s %-15s %s\n"
               % ("symbols", "zulu, xhosa", "zulu, somali", "spanish, french",
                  "spanish, finnish", "both still hold"))

@@ -65,7 +65,7 @@
     height: 100%;
   }
 
-  /* No heading band and no footer: the object gets the whole page, and everything those used to
+  /* No heading band and no footer: the object gets the whole page, and everything those would
      say is behind the question mark in the corner. */
   html,
   body {
@@ -850,12 +850,12 @@
       }
     }
 
-    // There is no heading band and no footer. Everything they used to hold - what this is, what it
-    // is drawn from, and how to read it - lives behind the question mark in the corner, because the
-    // object is what the page is for and prose beside it is prose competing with it.
+    // There is no heading band and no footer. What this is, what it is drawn from, and how to read
+    // it lives behind the question mark in the corner, because the object is what the page is for
+    // and prose beside it is prose competing with it.
     say("depth-name", DATA.depthLabel);
     say("value-name", DATA.valueLabel);
-    // The tile carries what the removed heading and footer used to say, in one place, folded away.
+    // The tile carries what a heading and footer would say, in one place, folded away.
     document.getElementById("info-title").textContent = DATA.title || "Parametric field";
     document.getElementById("info-body").textContent = [
       DATA.blurb,
@@ -870,7 +870,7 @@
 
     // The tile opens on hover, which is CSS. Nothing to wire.
 
-    // Each shape is an embedding of the same measured grid, and the choice is a test and not a
+    // Each shape is an embedding of the same measured grid, and the choice is a test. It is not a
     // decoration. Residue is genuinely periodic mod 32. The cylinder is the honest map for it;
     // the torus imposes a periodicity on the round axis that does not exist. Structure that shows
     // under one embedding and not another belongs to the map, not to the field. Agreement across
@@ -883,7 +883,7 @@
     // Order is one control shared by every shape that has a countable feature: sides for the
     // polygonal solids, petals for the superformula ones, winding for the knots, curvature for the
     // bends. It goes to 4096, where a polygon is a circle to within a pixel and the interesting
-    // reading is the approach and not the limit.
+    // reading is the approach. It is not the limit.
     var orderAt = 6;
     function order() {
       return orderAt;
@@ -952,7 +952,7 @@
     }
 
     /** Morton's order, the cheap alternative: interleave the bits. Kept beside Hilbert because the
-      difference between them on the same data is exactly the value of locality. */
+      difference between them on the same data is the value of locality. */
     function mortonAt(index) {
       var x = 0,
         y = 0,
@@ -1596,7 +1596,7 @@
 
     /** Writes the instance colors for one moment: the gradient underneath, a mark's own color over
       it, and for a moving mark a mix between the two that depends on the clock. Separated from
-      build, an animating mark repaints colors alone rather than rebuilding the geometry sixty
+      build, an animating mark repaints colors alone and does not rebuild the geometry sixty
       times a second, which would be the difference between a page that turns and one that does
       not. */
     function paintColors(now) {
@@ -1798,7 +1798,7 @@
         // The raw value is kept per instance and not the mark it matched. Which mark claims a
         // cell then costs nothing to change: adding a mark, editing its range, or dragging a
         // selection across the histogram repaints colors from these numbers instead of rebuilding
-        // the geometry, which is what makes a drag over 32,000 cells keep up with the pointer.
+        // the geometry. That keeps a drag over 32,000 cells up with the pointer.
         rawOf[i] = tint ? tint[row][col] : rows[row][col];
       }
       drawn = kept.length;
@@ -1815,7 +1815,7 @@
       document.getElementById("shape-note").textContent = shape.note;
     }
 
-    // -- a small orbit controller, written rather than loaded ------------------------------------
+    // -- a small orbit controller, written, not loaded ------------------------------------
     //
     // The camera is an offset from the target and an up vector, not a pair of angles. Angles are what
     // made the drag wrong: yaw and pitch are measured against the world. What "left" means on the
@@ -1884,7 +1884,7 @@
         target.addScaledVector(upVec, dy * reach);
       } else {
         // Horizontal about the camera's own up, vertical about the camera's own right. Rotating the
-        // up vector along with the offset on the vertical turn is what keeps the two perpendicular
+        // up vector along with the offset on the vertical turn keeps the two perpendicular
         // and the roll free of any accumulated tilt.
         offset.applyAxisAngle(upVec, -dx * 0.006);
         offset.applyAxisAngle(side, -dy * 0.006);
@@ -2044,9 +2044,8 @@
 
     // -- readouts: which of them show is the user's ------------------------------------------------
     //
-    // The corner used to carry three fixed axis labels. Which numbers are worth having on screen
-    // depends on what is being looked at. The list is a set of checkboxes and the corner shows
-    // whatever is ticked.
+    // Which numbers are worth having on screen depends on what is being looked at. The list is a
+    // set of checkboxes and the corner shows whatever is ticked.
 
     var METRICS = [
       {
@@ -2418,8 +2417,8 @@
       document.getElementById("ramp-strip").style.background =
         "linear-gradient(to right, " + lowPick.value + ", " + midPick.value + ", " + highPick.value + ")";
       // The end labels start as the numbers the data happens to hold and are then the reader's to
-      // write. What a color means is asserted by whoever is reading, not carried in by the values,
-      // so once one has been typed over it is left alone.
+      // write. What a color means is asserted by whoever is reading, not carried in by the values.
+      // Once one has been typed over it is left alone.
       if (bins) {
         if (!rampNames.low) {
           document.getElementById("ramp-low").textContent = binFrom.toPrecision(3);
@@ -2461,7 +2460,7 @@
     });
 
     // Contrast is the exponent the value is raised to before it is mixed into the ramp. Below one it
-    // lifts the quiet cells toward full color, which is what makes a faint structure visible against
+    // lifts the quiet cells toward full color and makes a faint structure visible against
     // a plateau; above one it does the reverse and leaves only the loudest cells colored.
     document.getElementById("contrast").addEventListener("input", function () {
       contrastAt = parseInt(this.value, 10) / 100;
@@ -2812,7 +2811,7 @@
         }
       }
       // Named and not found is worth saying, because the page otherwise opens in the default state
-      // and looks like the setting was ignored on purpose.
+      // and looks like the setting was ignored.
       document.getElementById("hist-out").innerHTML = '<span class="none">no such setting value: ' + key + "</span>";
     }
 
@@ -2937,13 +2936,13 @@
 
     // Dragging the stage's corner changes its height but fires no window resize. The renderer
     // would keep drawing at the old size and the picture would stretch. Watching the element itself
-    // catches the drag, and writing the height back out as a custom property is what keeps the
+    // catches the drag, and writing the height back out as a custom property keeps the
     // sidecar's cap tied to whatever the view window has become.
     if (window.ResizeObserver) {
       var stage = document.querySelector(".stage");
       var wasHigh = 0;
       new ResizeObserver(function () {
-        // offsetHeight, not clientHeight. clientHeight leaves out the stage's 1px borders, and with
+        // Read offsetHeight here. clientHeight leaves out the stage's 1px borders, and with
         // box-sizing: border-box writing it back as the height makes the box two pixels shorter,
         // which fires this observer again, which takes off another two. The stage walks down to its
         // minimum on its own while nobody is touching it. offsetHeight is the same number the height

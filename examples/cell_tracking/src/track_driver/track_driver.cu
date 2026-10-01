@@ -129,7 +129,7 @@ static unsigned long long run_job_declared(const RunInputs *inputs, const char *
 {
     // the largest sample's holdings; the daemon measures the rest and keeps the peak under the signum. A part that
     // drifts (`drift`) also holds what shift_agreement keeps for a sample's frame, its extents in the order the drift
-    // passes them; those bytes step with the padded lengths and not the voxels, so the most over the samples is taken.
+    // passes them; those bytes step with the padded lengths and not the voxels. The most over the samples is taken.
     // A part that gates (`gate`) holds the gate's pool for the most points a frame over the samples' .points
     unsigned long long maximum = 0ull;
     unsigned long long kept = 0ull;
@@ -1583,7 +1583,7 @@ int main(int argc, char **argv)
     {
         inputs.floor_entropy = true;
     }
-    // the floor is not among the parts named here, and they are distinct, so with it they are at most RUN_PARTS
+    // the floor is not among the parts named here, and they are distinct. With it they are at most RUN_PARTS
     if ((s_ingest == 0u) && inputs.floor_entropy && (run_part_named_already(RUN_FLOOR) == 0))
     {
         memmove(&s_parts[1], &s_parts[0], (size_t)s_part_count * sizeof(s_parts[0]));

@@ -122,7 +122,7 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 const MAGIC = 0x31525443;
 const CELL = 12, FRAME = 12, LINK = 3, CONTACT = 3, NODE = 7, EDGE_RECORD = 9;
 const STATUS = ["correct", "branched", "wrong", "nolink", "missed"];
-// A solid ellipsoid of semi-axis a has variance a^2/5: its edge lies at sqrt(5) standard deviations, so the drawn
+// A solid ellipsoid of semi-axis a has variance a^2/5: its edge lies at sqrt(5) standard deviations. The drawn
 // edge is the body's own edge, and the lipid wall sits inside it by the coat's share of the radius.
 const EDGE = Math.sqrt(5);
 const STRIDE = 44;

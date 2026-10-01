@@ -325,7 +325,7 @@ def main():
             sys.stdout.write("  FAIL the working state lost a word the round only copies\n")
             failed += 1
         if read == "digest" and hits != 0:
-            sys.stdout.write("  FAIL the digest kept a copied word, so the feed-forward is absent\n")
+            sys.stdout.write("  FAIL the digest kept a copied word. The feed-forward is absent\n")
             failed += 1
 
         # On the working state the delta starts above independence and ends below it. Two earlier

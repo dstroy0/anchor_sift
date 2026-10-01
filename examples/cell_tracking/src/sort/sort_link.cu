@@ -64,7 +64,7 @@ typedef struct
 
 static SortResident s_sort_resident;
 
-// the weighted squared length between two places. Each difference is at most its axis's span, so once the span check
+// the weighted squared length between two places. Each difference is at most its axis's span. Once the span check
 // has passed every term and their sum are at most 2^63 - 1
 __host__ __device__ static unsigned long long sort_length(const int *one, const int *other, SortWeights weights)
 {
@@ -72,7 +72,7 @@ __host__ __device__ static unsigned long long sort_length(const int *one, const 
     for (unsigned int axis = 0u; axis < ENGINE_AXES; axis += 1u)
     {
         const long long difference = (long long)one[axis] - (long long)other[axis];
-        // two 32-bit places differ by below 2^32, so the size re-signs to unsigned long long exactly
+        // two 32-bit places differ by below 2^32. The size re-signs to unsigned long long exactly
         const unsigned long long size = (unsigned long long)((difference < 0ll) ? -difference : difference);
         length += (unsigned long long)weights.w[axis] * size * size;
     }
@@ -340,7 +340,7 @@ static int sort_span_fits(const SortPairRequest *request)
             least = (place < least) ? place : least;
             maximum = (place > maximum) ? place : maximum;
         }
-        // two 32-bit places differ by below 2^32, so the span re-signs exactly and squares below 2^64
+        // two 32-bit places differ by below 2^32. The span re-signs exactly and squares below 2^64
         const unsigned long long span = (unsigned long long)(maximum - least);
         const unsigned long long square = span * span;
         fits = (square == 0ull) || (request->weights[axis] <= (remaining / square));
@@ -366,7 +366,7 @@ static int sort_gate_still(const SortPairRequest *request, SortWeights weights, 
                          cudaMemcpyHostToDevice) == cudaSuccess);
     if (ok != 0)
     {
-        // the sources are at most 2^30, so the blocks fit unsigned int
+        // the sources are at most 2^30. The blocks fit unsigned int
         const unsigned int blocks = (sources + SORT_THREADS - 1u) / SORT_THREADS;
         sort_least_kernel<<<blocks, SORT_THREADS>>>(resident->places[0], sources, resident->places[1], targets, weights,
                                                     resident->least[0], resident->ties[0]);
@@ -437,7 +437,7 @@ static int sort_gate(const SortPairRequest *request, SortLinks *links, SortScrat
     for (unsigned int direction = 0u; (ok != 0) && (direction < SORT_DIRECTIONS); direction += 1u)
     {
         const unsigned int other = 1u - direction;
-        // the counts are at most 2^30, so the blocks fit unsigned int
+        // the counts are at most 2^30. The blocks fit unsigned int
         const unsigned int blocks = (counts[direction] + SORT_THREADS - 1u) / SORT_THREADS;
         sort_least_kernel<<<blocks, SORT_THREADS>>>(resident->places[direction], counts[direction],
                                                     resident->places[other], counts[other], weights,
@@ -562,7 +562,7 @@ static int sort_gate(const SortPairRequest *request, SortLinks *links, SortScrat
         unsigned int at_still = 0u;
         while ((at_ahead < ahead_count) || (at_back < back_count) || (at_still < still_count))
         {
-            // each list ascends, so the pair's target is the least at their heads, and each list whose head it is
+            // each list ascends. The pair's target is the least at their heads, and each list whose head it is
             // names a direction
             unsigned int target = SORT_NONE;
             target = ((at_ahead < ahead_count) && (ahead[at_ahead] < target)) ? ahead[at_ahead] : target;
@@ -601,7 +601,7 @@ static int sort_gate(const SortPairRequest *request, SortLinks *links, SortScrat
 static int sort_weigh(const SortPairRequest *request, SortLinks *links, SortScratch *scratch)
 {
     const unsigned int sources = request->sources;
-    // the sources and targets are at most 2^30 each, so their nodes fit unsigned int
+    // the sources and targets are at most 2^30 each. Their nodes fit unsigned int
     const unsigned int nodes = sources + request->targets;
     scratch->parent = (unsigned int *)malloc(((size_t)nodes + 1u) * sizeof(unsigned int));
     scratch->label = (unsigned int *)malloc(((size_t)nodes + 1u) * sizeof(unsigned int));
@@ -667,7 +667,7 @@ static int sort_weigh(const SortPairRequest *request, SortLinks *links, SortScra
     }
     for (unsigned int pair = 0u; pair < links->pairs; pair += 1u)
     {
-        // K is at most 2^32 - 1 and past every cost in its component, so K - cost is 1 or more and fits unsigned int
+        // K is at most 2^32 - 1 and past every cost in its component. K - cost is 1 or more and fits unsigned int
         links->weight[pair] = (unsigned int)(scratch->need[links->component[pair]] - links->cost[pair]);
     }
     return 1;
@@ -693,14 +693,14 @@ static int sort_match(const SortPairRequest *request, SortLinks *links, SortScra
     {
         links->flags[pair] |= (scratch->chosen[pair] != 0u) ? SORT_GATE_CHOSEN : 0u;
     }
-    // the chosen links are at most the gate's pairs, below 2^30, so they narrow to unsigned int exactly
+    // the chosen links are at most the gate's pairs, below 2^30. They narrow to unsigned int exactly
     links->chosen = (unsigned int)picked;
     return 1;
 }
 
 // every two chosen links A -> A' and B -> B' in one component: their sources' difference dotted with their targets',
 // each axis weighted. Positive keeps their order, zero is level, negative crosses. Each difference is at most its
-// axis's span, so every term and the dot are at most 2^63 - 1 in size
+// axis's span. Every term and the dot are at most 2^63 - 1 in size
 static int sort_cross(const SortPairRequest *request, SortLinks *links, SortScratch *scratch)
 {
     scratch->group_start = (unsigned int *)calloc((size_t)links->components + 2u, sizeof(unsigned int));
@@ -807,7 +807,7 @@ extern "C" long sort_link_pair(const SortPairRequest *request, SortLinks *links)
          sort_cross(request, links, &scratch);
     links->match_microseconds = engine_clock_microseconds() - mark;
     sort_scratch_free(&scratch);
-    // the chosen links are below 2^30, so they widen to long exactly
+    // the chosen links are below 2^30. They widen to long exactly
     return ok ? (long)links->chosen : SORT_ERROR;
 }
 
@@ -828,7 +828,7 @@ static long sort_link_again(const SortPairRequest *request, SortLinks *links)
                    sort_cross(request, links, &scratch);
     links->match_microseconds = engine_clock_microseconds() - mark;
     sort_scratch_free(&scratch);
-    // the chosen links are below 2^30, so they widen to long exactly
+    // the chosen links are below 2^30. They widen to long exactly
     return ok ? (long)links->chosen : SORT_ERROR;
 }
 
@@ -845,7 +845,7 @@ static void sort_product(unsigned long long a, unsigned long long b, unsigned lo
     const unsigned long long high_low = a_high * b_low;
     const unsigned long long middle = (low_low >> 32u) + (low_high & 0xFFFFFFFFull) + (high_low & 0xFFFFFFFFull);
     *low = (middle << 32u) | (low_low & 0xFFFFFFFFull);
-    // the whole product is below 2^128, so its high word fits
+    // the whole product is below 2^128. Its high word fits
     *high = (a_high * b_high) + (low_high >> 32u) + (high_low >> 32u) + (middle >> 32u);
 }
 
@@ -1097,7 +1097,7 @@ static int sort_words_reserve(SortWalk *walk, size_t words)
 }
 
 // O7: the pair's gate kept for the sample's count, each pair as its distance doubled, plus 1 when it is first-rank.
-// Every distance is at most 2^63 - 1, so doubled it fits 64 bits
+// Every distance is at most 2^63 - 1. Doubled it fits 64 bits
 static int sort_first_keep(SortWalk *walk)
 {
     const SortLinks *const links = &walk->links;

@@ -419,7 +419,7 @@ static int faces_frames(const char *sample, FILE *points, FILE *drift, FILE *hes
     const int agree = (memcmp(head, drift_head, 4u * sizeof(unsigned int)) == 0) &&
                       (memcmp(head, hessian_head, 4u * sizeof(unsigned int)) == 0) &&
                       (memcmp(head, links_head, 4u * sizeof(unsigned int)) == 0);
-    // the residual's limbs are below 2^30 for any orders of 32 bits, so one more does not wrap
+    // the residual's limbs are below 2^30 for any orders of 32 bits. One more does not wrap
     const int limbed = (hessian_head[4] == head[4]) && (hessian_head[5] == (head[4] + 1u));
     const unsigned long long plane = (unsigned long long)head[2] * head[3];
     const int sized = (head[1] != 0u) && (plane != 0ull) && (plane <= (0x7FFFFFFFull / head[1]));

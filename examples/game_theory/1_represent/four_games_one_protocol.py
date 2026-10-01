@@ -60,7 +60,7 @@ def show(title, game, state, note):
 
 def main():
     print(
-        "Four games, one protocol. Every backend answers the same six calls and nothing else:"
+        "Four games, one protocol. Every backend answers the same six calls:"
     )
     print("  initial, to_move, moves, weights, apply, verdict")
 

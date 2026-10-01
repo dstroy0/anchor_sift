@@ -8,15 +8,15 @@
 #
 #   Usage:  python examples/language/4_measure/byte_signature.py
 #
-# The corpus was held up on a question that turned out not to matter. Repairing the spaces the PDF put
+# A question about the corpus does not matter. Repairing the spaces the PDF put
 # after each combining mark welds hén̓ us into hén̓us wherever a glottalized resonant ends a word, and both
 # renderings of the story weld it identically. No comparison between them can see it. That is a word
-# boundary error. A signature reads sequence and does not read word boundaries, and the inventory was
+# boundary error. A signature reads sequence and does not read word boundaries, and the inventory is
 # already checked. The measurement can run on text whose word divisions are still uncertain.
 #
 # Bytes instead of characters for two reasons. Nothing has to be classified: whether a mark belongs to the
-# consonant before it is a decision at the character level and is simply a byte pair at this one. The
-# error that stalled the corpus cannot be made here. And the encoding carries structure for free, since
+# consonant before it is a decision at the character level and is simply a byte pair at this one. That
+# error cannot be made here. And the encoding carries structure for free, since
 # these consonants live in blocks that share a leading byte, which sorts them into rough classes without
 # anyone choosing the classes.
 #
@@ -159,7 +159,7 @@ def main():
     out.write(
         "\n  those distances carry the writing as well as the language. nɬeʔkepmxcín is\n"
     )
-    out.write("  written in NAPA and shares almost no bytes with Cyrillic. That is why\n")
+    out.write("  written in NAPA and shares almost no bytes with Cyrillic:\n")
     out.write(
         "  Russian sits at 1.0000. Cutting a language in half compares it with itself\n"
     )

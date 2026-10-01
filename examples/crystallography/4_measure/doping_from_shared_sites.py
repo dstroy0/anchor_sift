@@ -32,12 +32,10 @@
 #
 # NO CELL IS READ, AND THAT IS NOT AN OPTIMIZATION
 #
-# This measure does not go through crystal.exact_points, and the first version of it did. That
-# version inherited a dependency it had no use for and paid for it immediately: exact_points
-# errors on any cell that is not right angled, and 498 of 697 entries came back unreadable, because
-# the minerals that carry doping are overwhelmingly monoclinic and triclinic. The measure looked
-# like it was failing on three quarters of the corpus. It was not; it was being handed three
-# quarters less corpus.
+# This measure does not go through crystal.exact_points, a dependency it has no use for. That path
+# errors on any cell that is not right angled, and the minerals that carry doping are overwhelmingly
+# monoclinic and triclinic: going through it reads three quarters less corpus and looks like a
+# measure failing on three quarters of it.
 #
 # Two sites share a position when the deposit wrote the same three fractional coordinates twice.
 # That is a fact about the atom site loop alone. It needs no cell edge, no angle, no tiling and no
@@ -259,7 +257,7 @@ def main():
     for how_many, count in sorted(order.items()):
         out.write("     %-3d elements   %d positions\n" % (how_many, count))
     out.write(
-        "     two is the ordinary case. The tail is not noise: a rare earth site takes\n"
+        "     two is ordinary. The tail is not noise: a rare earth site takes\n"
     )
     out.write(
         "     whichever lanthanides were available when the crystal grew, and a spinel\n"

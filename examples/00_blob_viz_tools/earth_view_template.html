@@ -162,7 +162,7 @@ const ivMean = (() => {
 function value(h) {
   if (state.reading === "interval") {
     const v = DATA.intervals[h];
-    // Invert: a long interval is LOW hashrate, so the dial always draws hashrate.
+    // Invert: a long interval is LOW hashrate. The dial always draws hashrate.
     return v === null ? 0 : (ivMean - v) / ivMean;
   }
   return (DATA.hours[h] - mean) / mean;

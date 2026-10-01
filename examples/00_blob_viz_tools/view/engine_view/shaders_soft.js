@@ -2,16 +2,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // Smooth cells. The blur: each run is an ellipsoid drawn as the ellipse it projects to, bright at its center and
-// falling smoothly to nothing, so the runs of one cell merge into one translucent blob from every angle. The wall: each
+// falling smoothly to nothing. The runs of one cell merge into one translucent blob from every angle. The wall: each
 // cell's solid ellipsoid of equal second moments, less the membrane, drawn into a texture of cell numbers; the
 // composite traces a line wherever that number changes, in a lighter tone of the cell's color, over the blur. The
-// wall is one smooth surface per cell, so no layer of the volume shows in it.
+// wall is one smooth surface per cell. No layer of the volume shows in it.
 //
 // Positions are integers up to the clip boundary, as everywhere; past it the ellipses and the blend are display
 // arithmetic in f32 and feed no count. The blend is weighted, blended order-independent transparency (McGuire and
 // Bavoil, 2013): every splat adds its weighted color to one target and multiplies its transparency into another, and
 // the composite divides the first by its weight and lays the result over the page by the second. No sort is needed.
-// Splats and walls take the same palette, the same step and a dissolve grain like the run's box, so the smooth cells
+// Splats and walls take the same palette, the same step and a dissolve grain like the run's box. The smooth cells
 // move and shimmer as the voxel cells do.
 
 EV.SOFT = EV.PRELUDE + EV.RENDER_BINDINGS + `
@@ -47,8 +47,8 @@ fn farness(clip_z: f32) -> f32 {
 
 // One run as an ellipsoid in the volume, drawn as the exact ellipse it projects to. Its three semi-axes lie along x, y
 // and z: along x half the run's length plus a reach of soft_radius halves of a voxel, along y that reach, and along z
-// that reach in layers plus half a layer, so neighboring rows and layers overlap from every angle and the density does
-// not band by layer. The reach grows with distance, by 35% at the far side, so far cells soften a little while near
+// that reach in layers plus half a layer. Neighboring rows and layers overlap from every angle and the density does
+// not band by layer. The reach grows with distance, by 35% at the far side. Far cells soften a little while near
 // ones keep their shape.
 //
 // An ellipsoid with semi-axis vectors a, b, c projects orthographically to the ellipse of points p with
@@ -73,7 +73,7 @@ fn soft(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u
   let across_x = (project(x + 64, y, z, frame).xy * half - center) / 32.0;
   let across_y = (project(x, y + 64, z, frame).xy * half - center) / 32.0;
   let across_z = (project(x, y, z + 32 * lay.z_scale, frame).xy * half - center) / 32.0;
-  // The distance is the cell's, taken at its centroid: every run of a cell carries one weight, so where two cells
+  // The distance is the cell's, taken at its centroid: every run of a cell carries one weight. Where two cells
   // overlap on the screen the nearer one wins throughout, never row by row.
   let own_center = centroid(cell) + step;
   let far = farness(project(own_center.x, own_center.y, own_center.z, frame).z);
@@ -99,7 +99,7 @@ fn soft(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u
   out.inverse = vec3<f32>(m11, -m01, m00) / determinant;
   out.cell = cell + 1u;
   out.far = far;
-  // The cell's own lift or dim, as its body and wall take it, so the blur of neighbors of one lineage differs too.
+  // The cell's own lift or dim, as its body and wall take it. The blur of neighbors of one lineage differs too.
   let own = 0.84 + 0.32 * f32((cell * 2246822519u) >> 24u) / 255.0;
   let tone = min(lit(cell, frame, 256u).rgb * own, vec3<f32>(1.0));
   out.color = vec4<f32>(tone, f32(lay.soft_alpha) / 255.0);
@@ -112,10 +112,10 @@ fn falloff_of(input: SoftOut) -> f32 {
   return clamp(1.0 - q, 0.0, 1.0);
 }
 
-// A Gaussian: the ellipse's edge lies at two and a half standard deviations, so with the reach of one and a half rows
+// A Gaussian: the ellipse's edge lies at two and a half standard deviations. With the reach of one and a half rows
 // and two layers the deviation is 0.6 of a row and 0.8 of a layer, and Gaussians laid at that spacing sum to a density
 // that ripples by under 1%: no row or layer shows as a band from any angle. The blend's weight falls as the fourth
-// power of the distance into the volume, a thousand to one from the near side to the far, so a near cell holds its own
+// power of the distance into the volume, a thousand to one from the near side to the far. A near cell holds its own
 // pixels against everything behind it; a far splat is also drawn at 70% of its opacity.
 @fragment
 fn soft_fragment(input: SoftOut) -> SoftDrawn {
@@ -130,7 +130,7 @@ fn soft_fragment(input: SoftOut) -> SoftDrawn {
 @group(0) @binding(6) var<storage, read> shape: array<i32>;
 
 // A cell's ellipsoid: the solid ellipsoid with the cell's own second moments, drawn as the ellipse it projects to. A
-// solid ellipsoid's second moment along a semi-axis of length r is r^2 / 5, so with the moments C in voxels squared the
+// solid ellipsoid's second moment along a semi-axis of length r is r^2 / 5. With the moments C in voxels squared the
 // projected ellipse is M = 5 P C P', P taking a voxel along x and y and a layer along z to the screen. The wall is
 // shrunk by the membrane; the body is not. Both ride the cell's step and dissolve by the cell's grain across a
 // transition.
@@ -195,7 +195,7 @@ fn cell_ellipse(vertex: u32, cell: u32, wall: bool) -> SoftOut {
   // lineage still read as separate cells.
   let own = 0.84 + 0.32 * f32((cell * 2246822519u) >> 24u) / 255.0;
   let tone = min(lit(cell, frame, 256u).rgb * own, vec3<f32>(1.0));
-  // A wall's tone is lifted toward white and its alpha carries its nearness and solidity, so the composite fades walls
+  // A wall's tone is lifted toward white and its alpha carries its nearness and solidity. The composite fades walls
   // with distance and sprawl; a body's tone is the cell's own at the body's opacity times its solidity.
   let typical = f32(max(lay.typical_voxels, 1u));
   let solid = smoothstep(0.1, 0.4, compact) * (1.0 - smoothstep(8.0 * typical, 32.0 * typical, f32(size)));
@@ -209,13 +209,13 @@ fn cell_ellipse(vertex: u32, cell: u32, wall: bool) -> SoftOut {
 // units, fills the square texture of cell numbers. Nothing of zoom, pan or spread applies. The composite fills each
 // cell's ellipse with its color and outlines it; the nearest cell is in front.
 // The plane stays overhead and never turns: a place on it is where the cell stands seen from straight above, laid
-// on the same still image the map draws under it, so the map holds while the view moves. Row zero is at the top,
+// on the same still image the map draws under it. The map holds while the view moves. Row zero is at the top,
 // as the image has it, and the clip space counts the other way.
 fn map_place(x: i32, y: i32, z: i32) -> vec3<f32> {
   let across = f32(x * lay.slice_scale) / f32(256 * max(lay.slice_w, 1));
   let down = f32(y * lay.slice_scale) / f32(256 * max(lay.slice_h, 1));
   let reach = f32(lay.map_reach);
-  // Overhead, the nearest cell is the highest one, so its own height is the depth it is written at.
+  // Overhead, the nearest cell is the highest one. Its own height is the depth it is written at.
   return vec3<f32>(across, -down, (f32(z) + reach) / (2.0 * reach));
 }
 
@@ -296,8 +296,7 @@ fn map_cell_fragment(input: SoftOut) -> MapDrawn {
 
 // The plane holds the whole volume and not its near face: every cell adds its own color where its ellipse
 // covers, nothing tested against depth and nothing hidden behind anything else. The weight added beside the
-// color is what the composite divides by, so a place many cells reach reads as all of their colors together
-// rather than as whichever of them happened to lie nearest the camera.
+// color is what the composite divides by. A place many cells reach reads as all of their colors together.
 @fragment
 fn map_paint_fragment(input: SoftOut) -> @location(0) vec4<f32> {
   let falloff = falloff_of(input);
@@ -352,8 +351,8 @@ fn body_fragment(input: SoftOut) -> SoftDrawn {
 
 // The wall's cell at a pixel is the nearest cell there, and between cells at one depth the one whose ellipse is most
 // central: the depth written is the view depth plus the distance from the ellipse's center, scaled to about two voxels
-// of depth, so the depth test keeps cells in front and settles touching cells by their rounded shapes. Outside an
-// ellipse the depth is 1, which never passes the cleared depth, so the region outside every cell keeps cell 0 and the
+// of depth. The depth test keeps cells in front and settles touching cells by their rounded shapes. Outside an
+// ellipse the depth is 1, which never passes the cleared depth. The region outside every cell keeps cell 0 and the
 // wall between a cell and the outside follows the ellipses' rounded union.
 @fragment
 fn wall_soft_fragment(input: SoftOut) -> WallDrawn {
@@ -369,8 +368,8 @@ EV.SOFT_COMPOSITE = EV.PRELUDE + `
 @group(0) @binding(4) var<uniform> lay: Layout;
 @group(0) @binding(5) var raw: texture_3d<u32>;
 
-// The slide under the cells: the microscope's own voxels, gathered along the very ray the view is looking down,
-// so the image and what the engine made of it stand in the same place at the same turn. The pixel is carried back
+// The slide under the cells: the microscope's own voxels, gathered along the very ray the view is looking down.
+// The image and what the engine made of it stand in the same place at the same turn. The pixel is carried back
 // through the turn, the brightest voxel along it stands, and the slider says how much of it is seen against the
 // representation. Nothing of the two is drawn twice: one fades in as the other fades out.
 fn slide_gray(pixel: vec2<i32>) -> vec2<f32> {
@@ -417,7 +416,7 @@ fn wall_at(pixel: vec2<i32>) -> u32 {
 fn compose(@builtin(position) at: vec4<f32>) -> @location(0) vec4<f32> {
   let pixel = vec2<i32>(at.xy);
   // Alpha smoothing: both blend targets are read through a 3 by 3 tent, weights 1 2 1 by 1 2 1 over 16, before the
-  // color is resolved, so the edges of blobs and the grain of the dissolve soften by a pixel.
+  // color is resolved. The edges of blobs and the grain of the dissolve soften by a pixel.
   let limit = vec2<i32>(textureDimensions(accumulated)) - vec2<i32>(1);
   var sum = vec4<f32>(0.0);
   var clear = 0.0;

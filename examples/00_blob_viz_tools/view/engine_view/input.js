@@ -296,7 +296,7 @@ EV.openSource = async (app, sources, sample, fromFile) => {
   app.progress = 0;
   app.heading = 0;
   app.playing = false;
-  // The resolve reads the sections' offsets from the layout, so the layout is written for this object first.
+  // The resolve reads the sections' offsets from the layout. The layout is written for this object first.
   EV.fit(gpu);
   EV.writeLayout(gpu, EV.layoutValues(app, EV.frameRange(app), EV.regions(app)));
   app.resolveMs = await EV.resolveRuns(gpu);

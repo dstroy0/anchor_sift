@@ -81,18 +81,18 @@ stage.appendChild(renderer.domElement);
 
 var R = 12;
 
-// Colors for the four ordered states of a pair. Cyan and magenta are opposite hues on purpose:
-// flipping which end is set flips the color, which is the reading asked for. Yellow for both set,
-// a dim slate for both clear so a cold line is present without shouting.
+// Colors for the four ordered states of a pair. Cyan and magenta are opposite hues:
+// flipping which end is set flips the color, the reading asked for. Yellow for both set,
+// a dim slate for both clear, a cold line present without shouting.
 var HOT = new THREE.Color(0xffe14d);
 var TOP = new THREE.Color(0xff3d81);
 var BOT = new THREE.Color(0x3dd6ff);
 var COLD = new THREE.Color(0x2b3550);
 
 // One cylinder per pair, because a WebGL line is one pixel wide on most drivers and reads as a
-// thread. A cylinder is real geometry with a real radius, so "not too thin" is a number the reader
+// thread. A cylinder is real geometry with a real radius, and "not too thin" is a number the reader
 // can turn. Vertex colors down its length carry the gradient: a mixed pair runs hot at the set end
-// to cold at the clear end, so the line shows which bit is which and not only that they differ.
+// to cold at the clear end. The line shows which bit is which and not only that they differ.
 var pairs = DATA.pairs;
 var lines = [];
 var group = new THREE.Group();
@@ -100,7 +100,7 @@ scene.add(group);
 
 var baseGeometry = new THREE.CylinderGeometry(1, 1, 1, 10, 1);
 // The cylinder is built along Y from -0.5 to +0.5. Tag each vertex with how far along it is, 0 at
-// the bottom end and 1 at the top, so the two ends can be colored independently per frame.
+// the bottom end and 1 at the top. The two ends can be colored independently per frame.
 var along = [];
 var pos = baseGeometry.attributes.position;
 for (var v = 0; v < pos.count; v++) { along.push(pos.getY(v) + 0.5); }
@@ -111,8 +111,8 @@ function makeLine(dir) {
   var mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ vertexColors: true }));
 
   // Orient the cylinder's Y axis onto the pair's diameter and stretch it end to end. The endpoints
-  // are +dir*R and -dir*R, so the center of the cylinder is the origin: the line passes through the
-  // center exactly, which is the whole point of the construction.
+  // are +dir*R and -dir*R. The center of the cylinder is the origin: the line passes through the
+  // center exactly, the point of the construction.
   var axis = new THREE.Vector3(dir[0], dir[1], dir[2]).normalize();
   var quat = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), axis);
   mesh.quaternion.copy(quat);
@@ -126,7 +126,7 @@ for (var p = 0; p < pairs.length; p++) {
   lines.push(line);
 }
 
-// Small markers at the 256 endpoints, so the bits are visible as bits and not only as line ends.
+// Small markers at the 256 endpoints. The bits are visible as bits and not only as line ends.
 var dotGeometry = new THREE.SphereGeometry(0.13, 8, 6);
 var dotMesh = new THREE.InstancedMesh(dotGeometry,
   new THREE.MeshBasicMaterial({ color: 0x8a93a3 }), pairs.length * 2);
@@ -141,7 +141,7 @@ for (var d = 0; d < pairs.length; d++) {
 scene.add(dotMesh);
 
 // The envelope. For each pair direction the radius is how much the pair carries: a set end reaches
-// out, a clear end pulls in, so the surface bulges where the state is set and dents where it is not.
+// out, a clear end pulls in. The surface bulges where the state is set and dents where it is not.
 // It is lumpy for that reason, and it repeats as the rounds do because the state does. Drawn as a
 // second, faint skin over a subdivided icosahedron whose vertices are pushed along their own
 // direction by the nearest pair's fill.
@@ -187,7 +187,7 @@ function paint(roundIndex) {
     // geometric top depends on how the axis was oriented, tracked at build time.
     var aColor = a ? HOT : COLD;
     var bColor = b ? HOT : COLD;
-    // Mixed pairs get the order hue rather than two grays, so a flip of which bit is set is a change
+    // Mixed pairs get the order hue, not two grays. A flip of which bit is set is a change
     // of color and not only of which end glows.
     if (a !== b) {
       aColor = a ? TOP : COLD;
@@ -241,7 +241,7 @@ function shapeEnvelope() {
 }
 
 // ---------------------------------------------------------------------------------------------
-// Observer, dragged. Offset plus up vector, axes re-derived, so nothing inverts over the pole.
+// Observer, dragged. Offset plus up vector, axes re-derived. Nothing inverts over the pole.
 // ---------------------------------------------------------------------------------------------
 
 var target = new THREE.Vector3(0, 0, 0);
@@ -340,23 +340,23 @@ function turn() {
 // Does the loop turn twice?
 // ---------------------------------------------------------------------------------------------
 //
-// A page whose loop throws on its first turn has already had one frame drawn by setup, so it
+// A page whose loop throws on its first turn has already had one frame drawn by setup. It
 // renders a complete, correct, still picture. The build succeeds, the parse check passes, and every
-// feature after the throw does nothing -- which is every feature. That failure has happened in this
-// tree once and nothing outside the page can catch it cheaply, since it is a runtime fault in a file
-// that parses. So the page reports on itself.
+// feature after the throw does nothing -- which is every feature. Nothing outside the page can catch
+// that failure cheaply, since it is a runtime fault in a file that parses. So the page reports on
+// itself.
 //
-// Two turns and not one, because one is exactly what a dead loop produces.
+// Two turns and not one, because a dead loop produces exactly one.
 var LOOP_WATCH_MS = 1500;
 var loopTurns = 0;
 //
 // TWO WAYS THE LOOP CAN STOP, AND THEY ARE NOT THE SAME EVENT. A throw is fatal, because the next
 // turn throws the same way. Slowness is a report and stops nothing.
 //
-// The first version treated them alike and set one flag on either, which the guard then errored rather than
-// run under. `setTimeout` runs in a background tab and `requestAnimationFrame` does not, so a page
-// opened in a tab that is not visible completed one turn, was declared dead on schedule, and never
-// ran again even once brought to the front. The watchdog was the thing that killed the loop.
+// One flag for both does not work: the guard errors under it and does not run. `setTimeout` runs
+// in a background tab and `requestAnimationFrame` does not. A page opened in a tab that is not visible
+// completes one turn, is declared dead on schedule, and never runs again even once brought to the
+// front. One shared flag makes the watchdog kill the loop.
 var loopThrew = null;    // fatal, and the only thing that stops scheduling
 var loopWarned = false;  // reported once, stops nothing
 window.__loopHealth = { ok: null, turns: 0, why: "not checked yet" };
@@ -395,7 +395,7 @@ requestAnimationFrame = function (fn) { return loopScheduled(fn === turn ? guard
 
 function loopWatch() {
   if (loopThrew || loopWarned) { return; }
-  // Hidden is not slow. The frame clock is stopped by the browser, so there is nothing to judge and
+  // Hidden is not slow. The frame clock is stopped by the browser. There is nothing to judge and
   // the question is asked again later instead of answered wrongly now.
   if (loopOutOfSight()) { setTimeout(loopWatch, LOOP_WATCH_MS); return; }
   if (loopTurns < 2) {

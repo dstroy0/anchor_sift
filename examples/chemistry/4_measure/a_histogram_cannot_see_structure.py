@@ -106,7 +106,7 @@ def main():
         % (ethanol, ether, abs(ethanol - ether))
     )
     out.write(
-        "  So the histogram reads the formula and no more. Arrangement is the sift's to read, and\n"
+        "  So the histogram reads the formula. Arrangement is the sift's to read, and\n"
     )
     out.write(
         "  which isomer a formula becomes is a geometry question the bond-length oracle answers.\n"

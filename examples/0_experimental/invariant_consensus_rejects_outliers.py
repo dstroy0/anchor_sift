@@ -186,7 +186,7 @@ def main():
         "  necessary condition never splits them out; an outlier is kept only by an accidental\n"
     )
     out.write("  distance match, a false survivor and not a lost inlier. the floor is a large accident:\n")
-    out.write("  a conspiracy bigger than the truth is the only thing a necessary condition cannot error.\n")
+    out.write("  the only thing a necessary condition cannot error is a conspiracy bigger than the truth.\n")
     out.flush()
     ok = (
         (inliers <= clique)

@@ -74,4 +74,3 @@ python examples/crystallography/6_oracle/proof_positive_control.py
 Most need corpora under `build/`, which comes to about 1.9 GB and is not in git. `maint/data/fetch/` fetches them. `python maint/deps/get_deps.py` clones what the C side needs.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-08

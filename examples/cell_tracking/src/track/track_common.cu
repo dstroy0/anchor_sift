@@ -8,13 +8,13 @@
 void track_error_report(const char *what, const EngineError *error)
 {
     static const char *const KINDS[4] = {"none", "request", "resource", "logic"};
-    // the kind is one of the four enumerated values, so it re-signs to unsigned int and indexes KINDS exactly
+    // the kind is one of the four enumerated values. It re-signs to unsigned int and indexes KINDS exactly
     const unsigned int kind = ((unsigned int)error->kind < 4u) ? (unsigned int)error->kind : 0u;
     // an address converts to uintptr_t exactly, and the image base is at or below every address inside the image
     const uintptr_t base = (uintptr_t)error->imagebase;
     // an address converts to uintptr_t exactly
     const uintptr_t execaddr = (uintptr_t)error->execaddr;
-    // the module is one of the enumerated values, so it re-signs to unsigned int exactly
+    // the module is one of the enumerated values. It re-signs to unsigned int exactly
     fprintf(stderr, "  %s: %s error, module %u, site %u, status %d, execaddr +0x%llx, evacaddr %p, frames", what,
             KINDS[kind], (unsigned int)error->module, error->site, error->status, (unsigned long long)(execaddr - base),
             error->evacaddr);

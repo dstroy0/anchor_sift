@@ -137,7 +137,7 @@ def main():
     if margin > span:
         print("    found, residual 2^-%d against a span of %d bits. The sweep works." % (margin, span))
     else:
-        print("    found a relation but the screen rejects it, so the screen is mis-set here.")
+        print("    found a relation but the screen rejects it. The screen is mis-set here.")
         return 1
 
     # Powers two and three, which are far less swept than the degree-one region that is closed.

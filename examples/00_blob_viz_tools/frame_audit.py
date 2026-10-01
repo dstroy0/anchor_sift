@@ -5,10 +5,10 @@
 
 THE DEFECT THIS EXISTS FOR
 
-Two faults of this kind were found in one afternoon and neither was found by looking for it. One was
-a fresh array built once per frame in the bar painter, the same fault the surface sum had already
-been fixed for. The other was worse: a source teardown called dispose() on a geometry and a material
-that every source shares. Removing one source freed the buffers out from under all of them.
+Two faults of this kind fail silently and neither is found by looking for it. One is a fresh array
+built once per frame, the same fault a surface sum can carry. The other is worse: a source teardown
+that calls dispose() on a geometry and a material every source shares, freeing the buffers out from
+under all of them when one source is removed.
 
 Both faults fail alike, and this exists for that reason. A per-frame allocation raises no error and
 drops no frame until a collection lands. A freed shared buffer raises no error either -- the picture

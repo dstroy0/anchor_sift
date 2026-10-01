@@ -17,10 +17,10 @@
 # check against a fact, and where the two disagree nothing here can say which is wrong. Published
 # cell edges are the other kind. Those are an oracle. This is a strong prior.
 #
-# The alphabet is removed as a second arm, since a milder version of that test once moved fourteen
-# of twenty languages to a different nearest neighbor and was read as the family signal being
-# definition. Stripping the alphabet entirely gives the same family rate. The alphabet is worth
-# nothing to the families and the earlier reading was an overclaim.
+# The alphabet is removed as a second arm. A milder version of that test moves fourteen of twenty
+# languages to a different nearest neighbor and reads as the family signal being definition.
+# Stripping the alphabet entirely gives the same family rate: the alphabet is worth nothing to the
+# families.
 
 import io
 import os

@@ -58,4 +58,3 @@ The stage three script above is a null for a **byte-valued signal at sample scal
 The recordings are fetched by `maint/data/fetch/vocalization_domain.py` and `maint/data/fetch/infrasound_domain.py`.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16
