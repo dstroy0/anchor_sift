@@ -1413,7 +1413,7 @@ is cast from one angle. Until now nothing here had looked from a second one.
 
 The object is three-dimensional - 512 input bits by 256 output bits by 64 rounds, 8.4 million cells
 - so `bench_sac ... shadow` dumps it as four projections instead of whole, and
-`tools/view/build_shadow_view.py` renders them.
+`examples/00_blob_viz_tools/build_shadow_view.py` renders them.
 
 **The projection-slice theorem is why this is not just a picture.** The Fourier transform of a
 projection equals a slice through the transform of the object, taken perpendicular to the direction

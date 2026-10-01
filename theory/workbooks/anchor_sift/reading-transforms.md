@@ -4,8 +4,8 @@
 the pixel, with its action on the coefficients, whether it is diagonal in degree, what it leaves
 invariant, and what it costs. Keep the pieces in one table, and a transform already priced is not
 priced again while a transform never tried stays visible.
-**Scope:** `tools/view/sphere_field.py`, `tools/view/boundary_read.py`, `tools/view/reading_rank.py`,
-`tools/view/grid_error.py`, `examples/proofing/natural_constants.py`, `tools/view/room_view_template.html`
+**Scope:** `examples/00_blob_viz_tools/sphere_field.py`, `examples/00_blob_viz_tools/boundary_read.py`, `examples/00_blob_viz_tools/reading_rank.py`,
+`examples/00_blob_viz_tools/grid_error.py`, `examples/proofing/natural_constants.py`, `examples/00_blob_viz_tools/room_view_template.html`
 **Owner:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-10
 

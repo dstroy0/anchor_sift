@@ -97,7 +97,7 @@ shift register accounts for all of it. That control has not been run.
 
 ## Reproducing the sequence
 
-    python tools/view/build_sha_clock_view.py
+    python examples/00_blob_viz_tools/build_sha_clock_view.py
     python -m http.server 8731        # from build/view
 
 Open `sha_clock_view.html`, set `speedBox` to 0, set `opBox` to `(round - 1) * 8 + 1`, and read

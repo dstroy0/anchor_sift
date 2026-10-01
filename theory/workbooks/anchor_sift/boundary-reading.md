@@ -1,12 +1,12 @@
 # Reading a lit set on a boundary
 
-`tools/view/boundary_read.py` takes a set of lit points on a sphere and returns three readings of
+`examples/00_blob_viz_tools/boundary_read.py` takes a set of lit points on a sphere and returns three readings of
 where those points sit, how they push the boundary, and how they twist it. Nothing in the module
 knows what a lit point means, and the same code serves a hash state, a solar system or a file of
 bytes without changing. The caller supplies the meaning.
 
 This page is written for someone lifting the module into another tree. Every number below came from
-`python tools/view/boundary_read.py --check` and can be produced again by running it.
+`python examples/00_blob_viz_tools/boundary_read.py --check` and can be produced again by running it.
 
 ## What has to come with it
 
@@ -155,7 +155,7 @@ pays for that saving in precision afterwards.
 ## The floors these readings sit on
 
 Every reading here has a move that cannot change it, and running that move gives the reading's own
-grain in the units it reports. `tools/view/null_harness.py` ships one such move per reading and
+grain in the units it reports. `examples/00_blob_viz_tools/null_harness.py` ships one such move per reading and
 reports the residual. A threshold is then measured and never picked.
 
 | reading | the move that cannot change it | residual |
@@ -170,7 +170,7 @@ reports the residual. A threshold is then measured and never picked.
 
 The last row is a null over the reader instead of over the object. An arm is identified by its
 topology together with its weight, and a shape is one realization of that. Drawing the arms
-differently while holding the weight cannot move a letter. `tools/view/arm_draw.py` draws one set
+differently while holding the weight cannot move a letter. `examples/00_blob_viz_tools/arm_draw.py` draws one set
 four ways, including as a line with a dwell particle on it, and no placement point changed arm under
 any of them. `docs/arm-records.md` reports it in full.
 
@@ -188,9 +188,9 @@ holds still when nothing did. A reading wants both answers and they are differen
 ## Running the check
 
 ```
-python tools/view/boundary_read.py --check
-python tools/view/null_harness.py --check
-python tools/view/arm_draw.py --check
+python examples/00_blob_viz_tools/boundary_read.py --check
+python examples/00_blob_viz_tools/null_harness.py --check
+python examples/00_blob_viz_tools/arm_draw.py --check
 ```
 
 The first holds the placement to the screw it should be, holds deflection and torsion to their

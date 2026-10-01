@@ -15,7 +15,7 @@ stating because `tools/` also holds miner tooling that has nothing to do with th
 | what                                      | where                                                                                            |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | measurement engine, ten arms              | `src/bench/bench_sac.cu`                                                                         |
-| analysis and viewers                      | `tools/check/`, `tools/radar/`, `tools/view/build_*_view.py`, `tools/view/make_shadow_figure.py` |
+| analysis and viewers                      | `tools/check/`, `tools/radar/`, `examples/00_blob_viz_tools/build_*_view.py`, `examples/00_blob_viz_tools/make_shadow_figure.py` |
 | the research paper                                  | `theory/cryptography/sha256/`, built by `maint/texbuild/build_theory.sh`                             |
 | the working ledger, with every refutation | `docs/sha256-topology.md`                                                                        |
 | **not part of this work**                 | `tools/audit/`, `tools/chain/`, `tools/check/language_of_nature.py`                              |
@@ -84,10 +84,10 @@ use 20 or 22. With no arm it runs the strict-avalanche sweep between `first_roun
 
 | figure                                                | how to regenerate                         |
 | ----------------------------------------------------- | ----------------------------------------- |
-| the two residue character maps in the shadows chapter | `python tools/view/make_shadow_figure.py` |
-| the flat shadow viewer                                | `python tools/view/build_shadow_view.py`  |
-| the turnable voxel field                              | `python tools/view/build_voxel_view.py`   |
-| SHA-256 beside a pseudorandom field                   | `python tools/view/build_sources_view.py` |
+| the two residue character maps in the shadows chapter | `python examples/00_blob_viz_tools/make_shadow_figure.py` |
+| the flat shadow viewer                                | `python examples/00_blob_viz_tools/build_shadow_view.py`  |
+| the turnable voxel field                              | `python examples/00_blob_viz_tools/build_voxel_view.py`   |
+| SHA-256 beside a pseudorandom field                   | `python examples/00_blob_viz_tools/build_sources_view.py` |
 
 The three viewers are self-contained HTML with the data embedded, because they are published as
 artifacts and an artifact cannot fetch anything at run time.

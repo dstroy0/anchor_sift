@@ -4,8 +4,8 @@
 
 \usepackage{fontspec}
 
-\setmainfont{CharisSIL}[
-  Extension=.ttf,
+\setmainfont{LibertinusSerif}[
+  Extension=.otf,
   UprightFont=*-Regular,
   BoldFont=*-Bold,
   ItalicFont=*-Italic,
@@ -34,8 +34,8 @@
 \usepackage[eulerchapternumbers, listings, style=linedheaders,
 pdfspacing]{classicthesis}
 
-\setmainfont{CharisSIL}[
-  Extension=.ttf,
+\setmainfont{LibertinusSerif}[
+  Extension=.otf,
   UprightFont=*-Regular,
   BoldFont=*-Bold,
   ItalicFont=*-Italic,
@@ -82,6 +82,7 @@ pdfspacing]{classicthesis}
 \newXeTeXintercharclass\theory@serifclass
 \newXeTeXintercharclass\theory@sansclass
 \newXeTeXintercharclass\theory@monoclass
+\newXeTeXintercharclass\theory@fallbackclass
 
 \newcount\theory@point
 \newcommand*\theory@span[3]{%
@@ -100,6 +101,10 @@ pdfspacing]{classicthesis}
 \newcommand*\theory@classes[2]{%
   \@for\theory@item:=#2\do{\expandafter\theory@split\theory@item--\relax{#1}}}
 
+\theory@classes\theory@fallbackclass{%
+2070-209F,2100-218F,2190-21FF,2200-22FF,2300-23FF,2460-24FF,2500-259F,25A0-25FF,%
+2600-26FF,2700-27BF,27C0-27EF,27F0-27FF,2900-297F,2980-29FF,2A00-2AFF,2B00-2BFF,%
+1D00-1D7F,FB00-FB06}
 \theory@classes\theory@serifclass{%
 0370-0377,037A-037E,0384-0386,0388-038A,038C,038E-0392,0395-0397,0399-039D,039F,03A1,%
 03A3-03A7,03AA-03B0,03B5-03B7,03B9-03BA,03BD-03BF,03C2,03C4-03C5,03C8,03CA-03D0,03D2-03E1,%
@@ -139,6 +144,7 @@ pdfspacing]{classicthesis}
 \def\theory@toserif{\theory@unlessdejavu\theoryserifface}
 \def\theory@tosans{\theory@unlessdejavu\theorysansface}
 \def\theory@tocharis{\theory@onlymono\theorycharisface}
+\def\theory@tofallback{\theory@unlessdejavu\theorycharisface}
 
 \newcommand*\theory@switch[2]{%
   \XeTeXinterchartoks 0 #1 = {#2}%
@@ -154,6 +160,13 @@ pdfspacing]{classicthesis}
 \XeTeXinterchartoks\theory@monoclass\theory@serifclass = {\theory@leave\theory@toserif}
 \XeTeXinterchartoks\theory@sansclass\theory@monoclass = {\theory@leave\theory@tocharis}
 \XeTeXinterchartoks\theory@monoclass\theory@sansclass = {\theory@leave\theory@tosans}
+\theory@switch\theory@fallbackclass\theory@tofallback
+\XeTeXinterchartoks\theory@serifclass\theory@fallbackclass = {\theory@leave\theory@tofallback}
+\XeTeXinterchartoks\theory@fallbackclass\theory@serifclass = {\theory@leave\theory@toserif}
+\XeTeXinterchartoks\theory@sansclass\theory@fallbackclass = {\theory@leave\theory@tofallback}
+\XeTeXinterchartoks\theory@fallbackclass\theory@sansclass = {\theory@leave\theory@tosans}
+\XeTeXinterchartoks\theory@monoclass\theory@fallbackclass = {\theory@leave\theory@tofallback}
+\XeTeXinterchartoks\theory@fallbackclass\theory@monoclass = {\theory@leave\theory@tocharis}
 \XeTeXinterchartokenstate=1
 \makeatother
 
@@ -164,7 +177,7 @@ pdfspacing]{classicthesis}
 \let\eth\relax
 \usepackage{amsmath,amsthm}
 \usepackage{unicode-math}
-\setmathfont{texgyretermes-math.otf}
+\setmathfont{LibertinusMath-Regular.otf}
 \usepackage{array,booktabs,longtable}
 \usepackage{ragged2e}
 \microtypesetup{protrusion=true,final=true}
