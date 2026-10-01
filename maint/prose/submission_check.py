@@ -69,7 +69,7 @@ from docs_check import (
     BANNED,
     CHECKED,
     HUMAN_RATE,
-    SKIP_DIRS,  # noqa: E402
+    kept_dirs,  # noqa: E402
     banned_hits,
     prose_only,
     quieted,
@@ -281,7 +281,7 @@ def walk(roots):
             found.append(root)
             continue
         for here, dirs, names in os.walk(root):
-            dirs[:] = [one for one in dirs if one not in SKIP_DIRS]
+            dirs[:] = kept_dirs(here, dirs)
             found.extend(os.path.join(here, name) for name in sorted(names))
     return sorted(found)
 

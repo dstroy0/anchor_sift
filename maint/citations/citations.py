@@ -368,8 +368,8 @@ NOT_A_NAME = frozenset(
 def main_checkout():
     """The main working tree, the one the private repositories sit beside.
 
-    A linked worktree lives at <repo>/.claude/worktrees/<name>. A sibling path computed from it
-    lands inside .claude/ and finds nothing. Git knows the difference: --git-common-dir names the
+    A linked worktree can live inside the main checkout, and a sibling path computed from it
+    lands inside that checkout and finds nothing. Git knows the difference: --git-common-dir names the
     shared .git directory for the main tree and for every linked worktree alike, and its parent is
     the main checkout.
 

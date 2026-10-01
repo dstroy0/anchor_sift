@@ -68,7 +68,7 @@ from .human_rate import HUMAN_RATE, stage_of  # noqa: F401
 from .tier import AUTHORITY, COMMENT_ONLY, _ORPHANS, tier_of  # noqa: F401
 from .quoting import EM_DASH, NAMED_IN_MARKDOWN, NAMED_SPAN, QUIET_CLOSE, QUIET_OPEN, QUOTED, quieted  # noqa: F401
 from .ledger import Ledger  # noqa: F401
-from .files import BUILD_NAMES, BUILD_SUFFIXES, CHECKED, HOOK_NAMES, SKIP_DIRS, build_file, checked_file, generated_chapter, walk_markdown  # noqa: F401
+from .files import BUILD_NAMES, BUILD_SUFFIXES, CHECKED, HOOK_NAMES, SKIP_DIRS, build_file, checked_file, generated_chapter, kept_dirs, walk_markdown  # noqa: F401
 from .verbatim import VERBATIM_MARKER, VERBATIM_ROOTS, _VERBATIM_CACHE, _VERBATIM_CEILING, verbatim_root  # noqa: F401
 from .manifest import MANIFEST_NAMES, SIGNATURE_SUFFIX, _MANIFEST_CEILING, _MANIFEST_DIRS, _MANIFEST_INDEX, manifest_home, manifest_index, manifest_listed, reconcile_command  # noqa: F401
 from .legal import COMMENT_FORMS, LEGAL, comment_blocks, comment_form, form_closes, legal_blank  # noqa: F401

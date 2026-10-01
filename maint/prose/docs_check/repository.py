@@ -95,8 +95,8 @@ def git_say(where, args):
 def main_checkout():
     """The main working tree, the one the closed repositories sit beside.
 
-    A linked worktree lives at <repo>/.claude/worktrees/<name>. A sibling path computed from
-    REPOSITORY lands inside .claude/ and finds nothing. --git-common-dir names the shared .git for
+    A linked worktree can live inside the main checkout, and a sibling path computed from
+    REPOSITORY lands inside that checkout and finds nothing. --git-common-dir names the shared .git for
     the main tree and every linked worktree alike, and its parent is the main checkout. Falls back
     to REPOSITORY where git cannot answer, which is an exported tree with no history.
     """
