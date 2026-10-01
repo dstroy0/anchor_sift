@@ -283,8 +283,13 @@ works there.
     read takes out a constant and the count before the square, because every ask pays an overhead the solve
     spreads over every link. The order is put to the host through the protocol: `query_order_put`
     (`compiler/bootstrap/query_order.{h,c}`) puts every link an ask covers between two reads of a clock found by
-    asking, and `query_order_check.c` solves seven links whose reads differ by 64 each and gets them back in order,
-    the sweep reading that they add. The device half is open: a container that runs a chain's covered links and
+    asking. The clock turns over now and then and is read finely by counting reads of it between turns: a
+    run's cost is an exact rational, and every pass is solved on its own in exact integers: nothing is rounded,
+    summed across passes or cut to a least. The run size is the part's to name, the one whose weakest neighbor
+    pair leans hardest, since short runs drown in the counting's spread and long ones gather interference.
+    `query_order_check.c` solves seven links whose reads differ by 64 each, and every neighbor pair reads dearer
+    in more passes than not past twice the spread. The contention read takes integer costs and is not yet put
+    over exact rationals. The device half is open: a container that runs a chain's covered links and
     reads the part's clock around them, put through the channel in Open 1, with the censored-sample mark and the
     reference ask alongside. Its answer carries one bit a check, 128 an ask, and never one bit over a set (Q15).
 
