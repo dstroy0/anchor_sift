@@ -202,7 +202,15 @@ def avalanche(rounds, samples, seed=1):
     """
     stream = draw(seed)
     flips = [0] * 256
-    for _ in range(samples):
+    # The samples are batched so each bit's flip rate can be read more than once. Collapsing
+    # straight to a single rate throws the distribution away at the moment of measurement, and a
+    # spot sitting exactly at the mean can still swing far more than a fair bit does - which a heat
+    # map cannot show, because heat is only the first moment.
+    batches = max(8, min(40, samples // 40))
+    per_batch = max(1, samples // batches)
+    batch_flips = [[0] * 256 for _ in range(batches)]
+
+    for index in range(samples):
         block = [next(stream) & MASK for _ in range(16)]
         which = next(stream) % 512
         twin = list(block)
@@ -210,12 +218,26 @@ def avalanche(rounds, samples, seed=1):
 
         before = digest_bits(compress(block, rounds))
         after = digest_bits(compress(twin, rounds))
+        slot = min(batches - 1, index // per_batch)
         for at in range(256):
             if before[at] != after[at]:
                 flips[at] += 1
+                batch_flips[slot][at] += 1
 
     leak = [abs(flips[at] / float(samples) - 0.5) for at in range(256)]
-    return leak
+
+    # Swing: how far a bit's rate wanders between batches, against what a fair bit must wander.
+    # A fair rate over n draws has a standard error of one over twice the root of n, so that is the
+    # denominator and the result is a multiple of the floor and not a raw number. A bit at one
+    # is behaving; a bit well above it has more potential in it than its heat reports.
+    expected = 0.5 / math.sqrt(per_batch)
+    swing = []
+    for at in range(256):
+        rates = [batch_flips[b][at] / float(per_batch) for b in range(batches)]
+        middle = sum(rates) / batches
+        spread = math.sqrt(sum((r - middle) ** 2 for r in rates) / batches)
+        swing.append(spread / expected if expected > 0 else 0.0)
+    return leak, swing
 
 
 def place(kind, seed=0x5EED):
@@ -250,7 +272,7 @@ def random_place(seed):
 
 def summary(rounds, samples):
     """One line: the leak at this round count, and how far it stands above sampling noise."""
-    leak = avalanche(rounds, samples)
+    leak, swing = avalanche(rounds, samples)
     floor = 0.5 / math.sqrt(samples)
     strongest = max(leak)
     mean = sum(leak) / len(leak)
@@ -258,6 +280,7 @@ def summary(rounds, samples):
     return {
         "rounds": rounds,
         "max": strongest,
+        "swing": max(swing),
         "mean": mean,
         "floor": floor,
         "above": above,
@@ -265,7 +288,7 @@ def summary(rounds, samples):
 
 
 def build(rounds, samples, args):
-    leak = avalanche(rounds, samples)
+    leak, swing = avalanche(rounds, samples)
     hottest = max(leak) or 1.0
     floor = 0.5 / math.sqrt(samples)
 
@@ -277,6 +300,7 @@ def build(rounds, samples, args):
     catalog = []
     for bit in range(256):
         heat = leak[bit]
+        potential = swing[bit]
         # A bit that remembers rides near the shell; a fair bit sits deep. Scaled to the strongest
         # bit in this run, and a round count with any structure fills the depth range while a round
         # count with none collapses to the middle.
@@ -291,6 +315,7 @@ def build(rounds, samples, args):
                 "count": 1,
                 "bits": round(heat, 5),
                 "heat": round(heat, 5),
+                "swing": round(potential, 4),
                 "depth": round(deep, 4),
                 "spot": round(sphere_field.spot_radians(deep), 4),
                 "colatitude": round(colatitude, 5),

@@ -6,7 +6,7 @@ nothing until the same code is pointed at an event everyone already knows the an
 
 2021 supplies one. Mining was banned in China across May to July, global hashrate fell by roughly
 half, and it recovered over the following months as fleets moved, principally to North America. The
-event is dated, documented, enormous, and independent of anything being fitted here.
+event is dated, documented, large, and independent of anything being fitted here.
 
     if hashrate-from-intervals is an instrument, it must show the collapse and the recovery
 
@@ -16,14 +16,14 @@ Hashrate is not one over the interval. Difficulty retargets every 2016 blocks an
 changes intervals BY DESIGN, a reading that ignores difficulty reports the protocol's own
 corrections as though they were events. The ban forced the largest downward retargets in the
 chain's history, which means the naive reading would find its biggest signal in exactly the wrong
-place. Hashrate is difficulty over interval, and that is what is computed here.
+place. Hashrate is difficulty over interval, and this computes it.
 
 THE SECOND TEST, WHICH IS HARDER
 
 The migration moved hashrate from about 105 degrees east to about 100 west, most of the way around
 the planet. If the daily cycle measures where miners are, its phase has to move by most of twelve
 hours across 2021. A cycle that stays put while the miners demonstrably moved is not measuring
-miners, and that would retire the longitude reading rather than support it.
+miners, and that would retire the longitude reading and not support it.
 
     python tools/chain/check_2021.py
     python tools/chain/check_2021.py --corpus tools/chain/blocks_2021.json
@@ -37,7 +37,7 @@ import os
 import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT = os.path.join(HERE, "blocks_2021.json")
+DEFAULT = os.path.normpath(os.path.join(HERE, "..", "..", "..", "utils", "maint", "chain", "blocks_2021.json"))
 
 RETARGET = 2016
 WINDOW = 504   # a quarter of a retarget period, so no window straddles two of them
@@ -76,7 +76,7 @@ def main():
     # tree's own list: a quantity that structurally cannot show the effect, with the resulting null
     # reported as a finding. It is worse than no test, because it convicts a working instrument.
     #
-    # The ban ran May to July 2021 and the recovery through that autumn, so the window has to open
+    # The ban ran May to July 2021 and the recovery through that autumn. The window has to open
     # before the collapse and close after the return. Those are heights near 675,000 and 715,000.
     BAN_BEGAN = 1619827200      # 2021-05-01
     BAN_ENDED = 1627776000      # 2021-08-01
@@ -125,7 +125,7 @@ def main():
 
     print()
     print("=" * 76)
-    print("  2. HASHRATE  -  difficulty over interval, which is the quantity that means it")
+    print("  2. HASHRATE  -  difficulty over interval, the quantity that means it")
     print("=" * 76)
     print()
     series = []
@@ -169,8 +169,8 @@ def main():
     if fall >= 35.0 and trough_at < peak_at + 200 * 86400:
         print("    The collapse is visible: %.1f%% off the peak, bottoming %s."
               % (fall, stamp_text(trough_at)))
-        print("    The instrument detects an event it was never tuned for, so its silence over the")
-        print("    recent corpus now means something it did not mean before.")
+        print("    The instrument detects an event it was never tuned for. Its silence over the")
+        print("    recent corpus therefore means something.")
     else:
         print("    The collapse is NOT visible at the expected size: %.1f%% off peak." % fall)
         print("    The instrument fails its known answer. Nothing it reported about small dips")

@@ -1,7 +1,7 @@
 """Fetch a deep header corpus, for the integration the shallow one cannot support.
 
 A thousand blocks is seven days. Header statistics - pool conventions, clock offsets - are
-stationary over far longer than that, so they are exactly the case where integrating longer pays:
+stationary over far longer than that. They are the case where integrating longer pays:
 the estimate sharpens as the square root of the count for as long as the thing being measured holds
 still, and firmware conventions hold still for months.
 
@@ -11,7 +11,7 @@ Two leads came out of the thousand-block corpus below the bar and neither can be
     the shape of the clock-offset population                        31 reversals is too few
 
 Twenty thousand blocks is twenty times the count, a real effect grows by the square root of
-twenty, about 4.5, and a spurious one does not. That is the whole design: the same statistic, more
+twenty, about 4.5, and a spurious one does not. The design is the same statistic, more
 of it, and the two outcomes are not alike.
 
 Read only, and self-verifying: every header field is kept a block can be rebuilt and hashed
@@ -32,7 +32,7 @@ import urllib.request
 
 API = "https://blockstream.info/api"
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "blocks_deep.json")
+OUT = os.path.normpath(os.path.join(HERE, "..", "..", "..", "utils", "maint", "chain", "blocks_deep.json"))
 
 KEEP = ("height", "id", "version", "previousblockhash", "merkle_root",
         "timestamp", "bits", "nonce", "difficulty", "mediantime")
@@ -110,7 +110,7 @@ def main():
 
         lowest = min(block["height"] for block in batch)
         height = lowest - 1
-        # The first run had no pause here at all, which is what earned the rate limit at 6980.
+        # Without a pause here the explorer rate-limits the walk.
         time.sleep(given.pause)
         if len(collected) % 2000 < 10:
             rate = len(collected) / max(time.time() - started, 1e-9)

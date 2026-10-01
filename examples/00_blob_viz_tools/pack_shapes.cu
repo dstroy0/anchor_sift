@@ -354,6 +354,7 @@ int main(int argc, char **argv)
     int count = 0;
     int tried = 0;
     int quiet = 0;
+    int capped = 0;
     int rounds = (candidates + batch - 1) / batch;
 
     for (int round = 0; round < rounds; round++)
@@ -405,6 +406,7 @@ int main(int argc, char **argv)
             }
             if (count >= capacity)
             {
+                capped = 1;
                 break;
             }
             mine.insert(mine.end(), candidate, candidate + dims);
@@ -419,6 +421,7 @@ int main(int argc, char **argv)
         }
         if (count >= capacity)
         {
+            capped = 1;
             break;
         }
 
@@ -432,9 +435,13 @@ int main(int argc, char **argv)
         }
     }
 
+    /* Three states and never two. Filling the kept buffer breaks the loop before the quiet
+     * counter can reach twelve, and a capped run is not one that ran out of candidates: raising the
+     * candidate count cannot help, because the wall is compiled in at `capacity`. */
     const char *name = shape == SPHERE ? "sphere" : (shape == CUBE ? "cube" : "orthoplex");
+    const char *state = capped ? "capped" : (quiet >= 12 ? "saturated" : "ranout");
     printf("%s %d %.8f %.8f %d %d %s %s\n", name, dims, gap, typical, count, tried,
-           quiet >= 12 ? "saturated" : "ranout", wide_math ? "double" : "single");
+           state, wide_math ? "double" : "single");
 
     cudaFree(scratch);
     cudaFree(kept);

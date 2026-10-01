@@ -222,25 +222,82 @@ def _check():
         lines.append("    FAIL the pole is not at the top and on the axis")
         failed += 1
 
-    # Equal area, checked instead of asserted. A Mollweide cell's area on the page has to track its
-    # solid angle. Two bands of equal solid angle must project to equal page area.
-    def band_area(low, high, steps=240):
-        run = 0.0
-        for k in range(steps):
-            c0 = low + (high - low) * k / steps
-            c1 = low + (high - low) * (k + 1) / steps
-            x0, y0 = mollweide(c0, 0.0)
-            x1, y1 = mollweide(c1, 0.0)
-            run += abs(y1 - y0)
-        return run
+    # EQUAL AREA, CHECKED INSTEAD OF ASSERTED. Height along one meridian is the test for a
+    # CYLINDRICAL equal-area projection, where width is constant. Mollweide is an ellipse: it
+    # preserves area by trading height against width, and a polar band is horizontally compressed
+    # and stretches vertically.
+    #
+    # The property the page relies on is that a patch's size on the page IS its solid angle,
+    # everywhere on the disc and not along one line. So the sphere is cut into cells of EQUAL SOLID
+    # ANGLE, by sampling uniformly in cos(colatitude) and in longitude, and every cell's projected
+    # area must come out the same. Area, not height, and the whole disc, not a meridian.
+    #
+    # A CONVERGENCE TEST AND NOT A TOLERANCE. Summing quadrilaterals is a discretization, and a fixed
+    # bound on the spread would be a number picked by hand. The spread is measured at two
+    # resolutions and must SHRINK when the grid is refined: a real projection error does not go away
+    # with resolution, and a discretization error does.
+    #
+    # THE DENOMINATOR IS EACH ROW'S TRUE AREA, NOT THE MEAN OF THE ROWS. The mean is dragged by the
+    # polar rows and by the straight-edge under-count, drifts with resolution, and leaves the
+    # quotient no limit to converge to. Every row holds solid angle 4 pi / steps and the whole disc
+    # is pi. Each row's true projected area is exactly pi / steps, which is fixed.
+    def row_areas(steps):
+        out = []
+        for row in range(steps):
+            # Uniform in cos(colatitude). Every row holds the same solid angle by construction.
+            hi = math.acos(1.0 - 2.0 * row / steps)
+            lo = math.acos(1.0 - 2.0 * (row + 1) / steps)
+            run = 0.0
+            for column in range(steps):
+                left = -math.pi + 2.0 * math.pi * column / steps
+                right = -math.pi + 2.0 * math.pi * (column + 1) / steps
+                corners = [mollweide(hi, left), mollweide(hi, right),
+                           mollweide(lo, right), mollweide(lo, left)]
+                cell = 0.0
+                for at in range(4):
+                    x0, y0 = corners[at]
+                    x1, y1 = corners[(at + 1) % 4]
+                    cell += x0 * y1 - x1 * y0
+                run += abs(cell) / 2.0
+            out.append(run / (math.pi / steps))
+        return out
 
-    # Equal solid angle bands: cos(colatitude) split evenly.
-    first = band_area(math.acos(1.0), math.acos(0.5))
-    second = band_area(math.acos(0.5), math.acos(0.0))
-    ratio = first / second if second else float("inf")
-    lines.append("  two bands of equal solid angle project to heights in ratio %.4f" % ratio)
-    if abs(ratio - 1.0) > 0.02:
-        lines.append("    FAIL the projection is not equal area along the meridian")
+    coarse = row_areas(12)
+    fine = row_areas(24)
+
+    # THE INTERIOR IS THE EQUAL-AREA CLAIM and it must converge to 1 at every latitude away from
+    # the coordinate singularity. Refining the grid has to move it closer, or the unevenness belongs to
+    # the projection and not to the discretization.
+    coarse_worst = max(abs(one - 1.0) for one in coarse[1:-1])
+    fine_worst = max(abs(one - 1.0) for one in fine[1:-1])
+    lines.append("  interior rows against their true area pi/steps: worst error %.2e at 12, "
+                 "%.2e at 24" % (coarse_worst, fine_worst))
+    if not fine_worst < coarse_worst:
+        lines.append("    FAIL refining the grid did not reduce the interior error, so the map is")
+        lines.append("         not equal area and the page's patch sizes do not mean solid angle")
+        failed += 1
+
+    # THE POLAR ROW IS A PREDICTED CONSTANT AND NOT AN EXCUSE. At the pole the cell degenerates: its
+    # top edge collapses to a point and its sides are ellipse arcs that are locally parabolic. A
+    # straight-chord triangle inscribes a parabolic segment and Archimedes gives the ratio as
+    # exactly 3/4. The test is that the polar row APPROACHES three quarters from below.
+    polar_coarse, polar_fine = coarse[0], fine[0]
+    lines.append("  the degenerate polar row against Archimedes' 3/4: %.4f at 12, %.4f at 24"
+                 % (polar_coarse, polar_fine))
+    if not polar_coarse < polar_fine < 0.75:
+        lines.append("    FAIL the polar cell does not rise toward three quarters, so the chord")
+        lines.append("         triangle story is wrong and the deficit is unexplained")
+        failed += 1
+
+    # AND THE TOTAL MUST APPROACH THE WHOLE ELLIPSE, which catches a map that is evenly wrong. A
+    # per-row convergence test alone would pass a projection that shrank every cell by one factor.
+    coarse_total = sum(coarse) * math.pi / 12.0
+    fine_total = sum(fine) * math.pi / 24.0
+    lines.append("  total projected area %.4f at 12, %.4f at 24, the unit ellipse is %.4f"
+                 % (coarse_total, fine_total, math.pi))
+    if abs(fine_total - math.pi) > abs(coarse_total - math.pi):
+        lines.append("    FAIL the summed area moves AWAY from the unit ellipse as the grid is")
+        lines.append("         refined, so the cells are not tiling the disc")
         failed += 1
 
     # The finding itself. A direction past the rank must produce a boundary answer at the floor, and

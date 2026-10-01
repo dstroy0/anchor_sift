@@ -194,13 +194,20 @@ def _check():
                   (shape, dims, got["kept"], got["gap"], got["tried"],
                    measure(shape, dims), here, got["state"]))
 
-        loose = [one for one in rows if one[2]["state"] != "saturated"]
+        loose = [one for one in rows if one[2]["state"] == "ranout"]
+        walled = [one for one in rows if one[2]["state"] == "capped"]
         wide = [one for one in rows if one[2]["gap"] > SPAN]
         thin = [one for one in rows if one[2]["kept"] < FLOOR]
 
         if wide:
             print("  %-10s %5d out of regime, gap past %.2f of the shape itself: %s" %
                   ("", dims, SPAN, ", ".join(one[0] for one in wide)))
+            print("  %-10s %5d not decided here" % ("", dims))
+            print("")
+            continue
+        if walled:
+            print("  %-10s %5d hit the compiled-in ceiling. The count is the buffer: %s" %
+                  ("", dims, ", ".join(one[0] for one in walled)))
             print("  %-10s %5d not decided here" % ("", dims))
             print("")
             continue

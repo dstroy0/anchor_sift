@@ -196,3 +196,393 @@ examples/00_blob_viz_tools/room_view_template.html	rs on it, which is the same r
 examples/00_blob_viz_tools/room_view_template.html	The one place	The single place
 examples/00_blob_viz_tools/room_view_template.html	ng moves, which is the differe	ng moves, the differe
 examples/00_blob_viz_tools/room_view_template.html	t value rather than from it	t value and not from it
+examples/00_blob_viz_tools/aimed_arms.py	indness rather than sprinkl	indness and not sprinkl
+examples/00_blob_viz_tools/aimed_arms.py	hecking rather than celebra	hecking and not celebra
+examples/00_blob_viz_tools/aimed_arms.py	closing rather than as a bo	closing and not as a bo
+examples/00_blob_viz_tools/aimed_arms.py	xpected rather than a defec	xpected and not a defec
+examples/00_blob_viz_tools/arm_rank.py	rather than to the 	and not to the 
+examples/00_blob_viz_tools/arm_rank.py	, which is what	, as
+examples/00_blob_viz_tools/arm_rank.py	unction rather than an indi	unction and not an indi
+examples/00_blob_viz_tools/arm_rank.py	ed here rather than assumed	ed here and not assumed
+examples/00_blob_viz_tools/beam_illuminate.py	rather than a scali	and not a scali
+examples/00_blob_viz_tools/beam_illuminate.py	l source, which is the upper b	l source, the upper b
+examples/00_blob_viz_tools/beam_illuminate.py	 is run rather than assumed	 is run and not assumed
+examples/00_blob_viz_tools/beam_illuminate.py	 output rather than the cha	 output and not the cha
+examples/00_blob_viz_tools/beam_illuminate.py	they are, which is the only wa	they are, the only wa
+examples/00_blob_viz_tools/beam_illuminate.py	 source rather than as a se	 source and not as a se
+examples/00_blob_viz_tools/beam_illuminate.py	That is the reason	That is the ground on which
+examples/00_blob_viz_tools/beam_illuminate.py	uniform rather than the ang	uniform and not the ang
+examples/00_blob_viz_tools/beam_illuminate.py	ctions` rather than from a 	ctions` and not from a 
+examples/00_blob_viz_tools/beam_illuminate.py	 object rather than grazing	 object instead of grazing
+examples/00_blob_viz_tools/beam_illuminate.py	derived rather than chosen.	derived and not chosen.
+examples/00_blob_viz_tools/beam_illuminate.py	L SOURCE, which is the actual 	L SOURCE, the actual 
+examples/00_blob_viz_tools/beam_illuminate.py	ntested rather than confirm	ntested and not confirm
+examples/00_blob_viz_tools/beam_read.py	surement, which is the sense i	surement, the sense i
+examples/00_blob_viz_tools/beam_read.py	rather than a null 	and not a null 
+examples/00_blob_viz_tools/beam_read.py	rather than apparat	and not apparat
+examples/00_blob_viz_tools/beam_read.py	on purpose	deliberately
+examples/00_blob_viz_tools/beam_read.py	shuffles, which is the wrong e	shuffles, the wrong e
+examples/00_blob_viz_tools/beam_read.py	xcluded rather than produci	xcluded instead of produci
+examples/00_blob_viz_tools/beam_read.py	his way rather than	his way and not
+examples/00_blob_viz_tools/beam_read.py	r round rather than one per	r round and not one per
+examples/00_blob_viz_tools/beam_read.py	irement rather than an opti	irement and not an opti
+examples/00_blob_viz_tools/beam_read.py	hat bug rather than a prope	hat bug and not a prope
+examples/00_blob_viz_tools/beam_read.py	ED EARLY, which is the outcome	ED EARLY, the outcome
+examples/00_blob_viz_tools/beam_read.py	hat gap rather than repeati	hat gap instead of repeati
+examples/00_blob_viz_tools/beam_read.py	ot blind, which is the failure	ot blind, the failure
+examples/00_blob_viz_tools/beam_rows.py	algebra rather than about m	algebra and not about m
+examples/00_blob_viz_tools/beam_rows.py	ally do rather than asserti	ally do instead of asserti
+examples/00_blob_viz_tools/beam_rows.py	 the ray, which is the	 the ray, the
+examples/00_blob_viz_tools/beam_rows.py	outside rather than on the 	outside and not on the 
+examples/00_blob_viz_tools/beam_rows.py	 object rather than a beam 	 object and not a beam 
+examples/00_blob_viz_tools/beam_rows.py	 sources, which is the engine 	 sources, the engine 
+examples/00_blob_viz_tools/beam_rows.py	ntensity, which is the part of	ntensity, the part of
+examples/00_blob_viz_tools/beam_rows.py	 a sign rather than an inte	 a sign and not an inte
+examples/00_blob_viz_tools/beam_rows.py	, which is what	, as
+examples/00_blob_viz_tools/beam_rows.py	ribution, which is the testabl	ribution, the testabl
+examples/00_blob_viz_tools/beam_rows.py	sources rather than picking	sources instead of picking
+examples/00_blob_viz_tools/beam_rows.py	ds LESS rather than more. W	ds LESS and not more. W
+examples/00_blob_viz_tools/beam_rows.py	es chord, which is why the")	es chord, and so the")
+examples/00_blob_viz_tools/bend_view_template.html	 and nothing else	, alone
+examples/00_blob_viz_tools/bloch_cost.py	er qubit, which is the Bloch f	er qubit, the Bloch f
+examples/00_blob_viz_tools/bloch_cost.py	  others, which is the standar	  others, the standar
+examples/00_blob_viz_tools/bloch_cost.py	one axis, which is the third f	one axis, the third f
+examples/00_blob_viz_tools/bloch_cost.py	E ENOUGH, which is the sharpes	E ENOUGH, the sharpes
+examples/00_blob_viz_tools/bloch_cost.py	ther way, which is the useful 	ther way, the useful 
+examples/00_blob_viz_tools/bloch_cost.py	it count, which is the")	it count, the")
+examples/00_blob_viz_tools/bloch_cost.py	in total, which is the amplitu	in total, the amplitu
+examples/00_blob_viz_tools/bloch_cost.py	 compare, which is the claim.	 compare, the claim.
+examples/00_blob_viz_tools/bloch_reach.py	sampled rather than	sampled and not
+examples/00_blob_viz_tools/bloch_reach.py	     # T, which is the one tha	     # T, the one tha
+examples/00_blob_viz_tools/bloch_reach.py	uniform rather than the ang	uniform and not the ang
+examples/00_blob_viz_tools/bloch_reach.py	ruction rather than a table	ruction and not a table
+examples/00_blob_viz_tools/bloch_reach.py	ERYTHING, which is the negativ	ERYTHING, the negativ
+examples/00_blob_viz_tools/bloch_reach.py	h other rather than measuri	h other instead of measuri
+examples/00_blob_viz_tools/build_beam_view.py	ten SVG rather than a chart	ten SVG and not a chart
+examples/00_blob_viz_tools/build_beam_view.py	 rounds rather than being o	 rounds instead of being o
+examples/00_blob_viz_tools/build_beam_view.py	 and nothing else	, alone
+examples/00_blob_viz_tools/build_beam_view.py	ow type rather than a claim	ow type and not a claim
+examples/00_blob_viz_tools/build_beam_view.py	he null rather than compute	he null and not compute
+examples/00_blob_viz_tools/build_bend_view.py	 kernel rather than of memo	 kernel and not of memo
+examples/00_blob_viz_tools/build_bend_view.py	, which is why	, and so
+examples/00_blob_viz_tools/build_bend_view.py	 stated rather than left to	 stated and not left to
+examples/00_blob_viz_tools/build_bend_view.py	   None rather than zero or	   None and not zero or
+examples/00_blob_viz_tools/build_bend_view.py	ree zero, which is the shape; 	ree zero, the shape; 
+examples/00_blob_viz_tools/build_bend_view.py	ir draw rather than drawing	ir draw instead of drawing
+examples/00_blob_viz_tools/build_bend_view.py	# chance, which is the point p	# chance, the point p
+examples/00_blob_viz_tools/build_bend_view.py	says so rather than inventi	says so instead of inventi
+examples/00_blob_viz_tools/build_bend_view.py	, which is what	, as
+examples/00_blob_viz_tools/build_illuminate_view.py	rather than	and not
+examples/00_blob_viz_tools/build_illuminate_view.py	, which is the	, the
+examples/00_blob_viz_tools/build_pool_view.py	corpus rather than quoted.	corpus and not quoted.
+examples/00_blob_viz_tools/build_pool_view.py	shown as absent rather than filled with a p	shown as absent and not filled with a p
+examples/00_blob_viz_tools/build_pool_view.py	ecorded rather than recompu	ecorded and not recompu
+examples/00_blob_viz_tools/build_pool_view.py	escaped rather than trusted	escaped and not trusted
+examples/00_blob_viz_tools/build_pool_view.py	glance, rather than a raw s	glance, and not a raw s
+examples/00_blob_viz_tools/build_pool_view.py	he page rather than in the 	he page and not in the 
+examples/00_blob_viz_tools/build_pool_view.py	derived rather than picked.	derived and not picked.
+examples/00_blob_viz_tools/build_pool_view.py	rfacing rather than	rfacing and not
+examples/00_blob_viz_tools/build_pool_view.py	t's log rather than inferre	t's log and not inferre
+examples/00_blob_viz_tools/build_pool_view.py	finding rather than an erro	finding and not an erro
+examples/00_blob_viz_tools/build_pool_view.py	. Drawn rather than charted	. Drawn and not charted
+examples/00_blob_viz_tools/build_pool_view.py	 groups rather than one int	 groups and not one int
+examples/00_blob_viz_tools/build_pool_view.py	shown as absent rather than filled in.	shown as absent and not filled in.
+examples/00_blob_viz_tools/build_pool_view.py	 silent rather than claim e	 silent and not claim e
+examples/00_blob_viz_tools/build_pool_view.py	T cells rather than	T cells and not
+examples/00_blob_viz_tools/build_pool_view.py	 request, which is the propert	 request, the propert
+examples/00_blob_viz_tools/build_sha_sphere_view.py	rather than	and not
+examples/00_blob_viz_tools/chain_kat.py	f words rather than a real	f words and not a real
+examples/00_blob_viz_tools/chain_kat.py	e label rather than a corre	e label and not a corre
+examples/00_blob_viz_tools/chain_kat.py	, which is why	, and so
+examples/00_blob_viz_tools/chain_kat.py	e class rather than a heade	e class and not a heade
+examples/00_blob_viz_tools/chain_kat.py	, which is what makes	, and that leaves
+examples/00_blob_viz_tools/chain_kat.py	, which is the	, the
+examples/00_blob_viz_tools/conserved.py	, the monopole, rather than conserving	, the monopole, instead of conserving
+examples/00_blob_viz_tools/conserved.py	reading rather than informa	reading and not informa
+examples/00_blob_viz_tools/conserved.py	on purpose	deliberately
+examples/00_blob_viz_tools/conserved.py	 format rather than chosen.	 format and not chosen.
+examples/00_blob_viz_tools/conserved.py	same map, which is the most fa	same map, the most fa
+examples/00_blob_viz_tools/conserved.py	 reading, which is the most fa	 reading, the most fa
+examples/00_blob_viz_tools/conserved.py	easured rather than quoted.	easured and not quoted.
+examples/00_blob_viz_tools/conserved.py	sserted rather than display	sserted and not display
+examples/00_blob_viz_tools/conserved.py	, which is the whole of	, all of
+examples/00_blob_viz_tools/deform_rate.py	e does, rather than against	e does, and not against
+examples/00_blob_viz_tools/deform_rate.py	 seeds, rather than at the 	 seeds, and not at the 
+examples/00_blob_viz_tools/deform_rate.py	as zero rather than as a di	as zero and not as a di
+examples/00_blob_viz_tools/deform_rate.py	 spiral rather than interle	 spiral and not interle
+examples/00_blob_viz_tools/deform_rate.py	n seeds rather than at the 	n seeds and not at the 
+examples/00_blob_viz_tools/deform_rate.py	 in them, which is the structu	 in them, the structu
+examples/00_blob_viz_tools/deform_rate.py	oundary rather than a yes o	oundary and not a yes o
+examples/00_blob_viz_tools/deform_rate.py	, which is what	, as
+examples/00_blob_viz_tools/deform_rate.py	omputed rather than relabel	omputed and not relabel
+examples/00_blob_viz_tools/deform_rate.py	CIPROCAL, which is the quantit	CIPROCAL, the quantit
+examples/00_blob_viz_tools/deform_rate.py	eneracy rather than anythin	eneracy instead of anythin
+examples/00_blob_viz_tools/deform_rate.py	t not be, which is the propert	t not be, the propert
+examples/00_blob_viz_tools/deform_rate.py	ruments rather than restate	ruments and not restate
+examples/00_blob_viz_tools/deform_rate.py	 nothing, which is the	 nothing, the
+examples/00_blob_viz_tools/exact_qubits.py	d below rather than asserte	d below and not asserte
+examples/00_blob_viz_tools/exact_qubits.py	t lists rather than a list 	t lists and not a list 
+examples/00_blob_viz_tools/exact_qubits.py	t place rather than by anyt	t place and not by anyt
+examples/00_blob_viz_tools/exact_qubits.py	HE ERROR, which is the structu	HE ERROR, the structu
+examples/00_blob_viz_tools/exact_qubits.py	 a list rather than computi	 a list instead of computi
+examples/00_blob_viz_tools/exact_qubits.py	pair up rather than on how 	pair up and not on how 
+examples/00_blob_viz_tools/exact_qubits.py	finding rather than arithme	finding and not arithme
+examples/00_blob_viz_tools/exact_qubits.py	erance, rather than against	erance, and not against
+examples/00_blob_viz_tools/fractal_spike.py	1 and 2 rather than	1 and 2 and not
+examples/00_blob_viz_tools/fractal_spike.py	de ones rather than along t	de ones and not along t
+examples/00_blob_viz_tools/fractal_spike.py	a RANGE rather than a point	a RANGE and not a point
+examples/00_blob_viz_tools/fractal_spike.py	    rather than derived	    and not derived
+examples/00_blob_viz_tools/fractal_spike.py	    them, which is the literal	    them, the literal
+examples/00_blob_viz_tools/fractal_spike.py	    which is the only th	    the only th
+examples/00_blob_viz_tools/fractal_spike.py	d so far, which is the determi	d so far, the determi
+examples/00_blob_viz_tools/fractal_spike.py	request rather than being a	request instead of being a
+examples/00_blob_viz_tools/fractal_spike.py	edundant, which is the most li	edundant, the most li
+examples/00_blob_viz_tools/fractal_spike.py	 caller rather than picked 	 caller and not picked 
+examples/00_blob_viz_tools/fractal_spike.py	e origin, which is the	e origin, the
+examples/00_blob_viz_tools/fractal_spike.py	with it rather than stay	with it and not stay
+examples/00_blob_viz_tools/fractal_spike.py	 broken rather than informa	 broken and not informa
+examples/00_blob_viz_tools/fractal_spike.py	AK THERE, which is the contras	AK THERE, the contras
+examples/00_blob_viz_tools/fractal_spike.py	0 * side, which is the origin,	0 * side, the origin,
+examples/00_blob_viz_tools/fractal_spike.py	ruments rather than two aim	ruments and not two aim
+examples/00_blob_viz_tools/fractal_spike.py	ce count, which is the dimensi	ce count, the dimensi
+examples/00_blob_viz_tools/fractal_spike.py	is free rather than circula	is free and not circula
+examples/00_blob_viz_tools/graph_machine.py	tangled rather than a fixed	tangled and not a fixed
+examples/00_blob_viz_tools/graph_machine.py	s there rather than being a	s there instead of being a
+examples/00_blob_viz_tools/graph_machine.py	, which is why	, and so
+examples/00_blob_viz_tools/graph_machine.py	t count rather than exponen	t count and not exponen
+examples/00_blob_viz_tools/graph_machine.py	, which is what	, as
+examples/00_blob_viz_tools/graph_machine.py	er state, which is the univers	er state, the univers
+examples/00_blob_viz_tools/graph_machine.py	pattern rather than a	pattern and not a
+examples/00_blob_viz_tools/graph_machine.py	om graph, which is the control	om graph, the control
+examples/00_blob_viz_tools/graph_machine.py	ne fact rather than three."	ne fact and not three."
+examples/00_blob_viz_tools/graph_machine.py	h shapes, which is the field-s	h shapes, the field-s
+examples/00_blob_viz_tools/graph_machine.py	ordered rather than smooth.	ordered and not smooth.
+examples/00_blob_viz_tools/graph_machine.py	onential, which is the claim o	onential, the claim o
+examples/00_blob_viz_tools/graph_machine.py	st fire rather than attempt	st fire instead of attempt
+examples/00_blob_viz_tools/hhl_nested.py	, which is why	, and so
+examples/00_blob_viz_tools/hhl_nested.py	E width rather than in the 	E width and not in the 
+examples/00_blob_viz_tools/hhl_nested.py	 any row, which is the s in bo	 any row, the s in bo
+examples/00_blob_viz_tools/hhl_nested.py	    rather than rewarde	    and not rewarde
+examples/00_blob_viz_tools/hhl_nested.py	easured rather than argued.	easured and not argued.
+examples/00_blob_viz_tools/hhl_nested.py	orm case, which is the fuzzbal	orm case, the fuzzbal
+examples/00_blob_viz_tools/hhl_nested.py	on purpose	deliberately
+examples/00_blob_viz_tools/hhl_nested.py	TH GROWS, which is what makes the	TH GROWS, and that leaves the
+examples/00_blob_viz_tools/hhl_nested.py	E 2d + 1, which is the s both 	E 2d + 1, the s both 
+examples/00_blob_viz_tools/hhl_nested.py	 [0, 4d], which is what makes the shi	 [0, 4d], and that leaves the shi
+examples/00_blob_viz_tools/hhl_nested.py	E WITH N, which is the claim t	E WITH N, the claim t
+examples/00_blob_viz_tools/layering.py	 method rather than being a	 method instead of being a
+examples/00_blob_viz_tools/layering.py	control rather than hidden.	control and not hidden.
+examples/00_blob_viz_tools/layering.py	, which is what	, as
+examples/00_blob_viz_tools/layering.py	N DEGREE, which is the quantit	N DEGREE, the quantit
+examples/00_blob_viz_tools/layering.py	 method rather than discove	 method instead of discove
+examples/00_blob_viz_tools/magic_conserves.py	rather than one for	and not one for
+examples/00_blob_viz_tools/magic_conserves.py	, which is what makes	, and that leaves
+examples/00_blob_viz_tools/magic_conserves.py	rather than in the 	and not in the 
+examples/00_blob_viz_tools/magic_conserves.py	against rather than a numbe	against and not a numbe
+examples/00_blob_viz_tools/magic_conserves.py	 search rather than by asse	 search and not by asse
+examples/00_blob_viz_tools/magic_conserves.py	, which is the	, the
+examples/00_blob_viz_tools/magic_conserves.py	e pairs rather than from th	e pairs and not from th
+examples/00_blob_viz_tools/magic_conserves.py	ounting rather than on hard	ounting and not on hard
+examples/00_blob_viz_tools/magic_conserves.py	 created, which is what 'the fi	 created, as 'the fi
+examples/00_blob_viz_tools/magic_conserves.py	 to one rather than one to 	 to one and not one to 
+examples/00_blob_viz_tools/magic_conserves.py	quences rather than by one 	quences and not by one 
+examples/00_blob_viz_tools/magic_conserves.py	thmetic rather than against	thmetic and not against
+examples/00_blob_viz_tools/miner_return.py	gnitude rather than a model	gnitude and not a model
+examples/00_blob_viz_tools/miner_return.py	at zero rather than at the 	at zero and not at the 
+examples/00_blob_viz_tools/miner_return.py	, which is the	, the
+examples/00_blob_viz_tools/miner_return.py	says so rather than drawing	says so instead of drawing
+examples/00_blob_viz_tools/miner_return.py	, which is what	, as
+examples/00_blob_viz_tools/nonce_conditional.py	, which is the	, the
+examples/00_blob_viz_tools/nonce_conditional.py	rather than	and not
+examples/00_blob_viz_tools/nonce_cost.py	er test rather than a	er test and not a
+examples/00_blob_viz_tools/nonce_cost.py	 and nothing else	, alone
+examples/00_blob_viz_tools/nonce_cost.py	omputed rather than approxi	omputed and not approxi
+examples/00_blob_viz_tools/nonce_cost.py	, which is what	, as
+examples/00_blob_viz_tools/nonce_cost.py	ch time rather than patched	ch time and not patched
+examples/00_blob_viz_tools/nonce_cost.py	arately rather than	arately and not
+examples/00_blob_viz_tools/nonce_cost.py	rint("  rather than on a le	rint("  and not on a le
+examples/00_blob_viz_tools/nonce_cost.py	gregate rather than 1e9.")	gregate and not 1e9.")
+examples/00_blob_viz_tools/nonce_cost.py	, which is the	, the
+examples/00_blob_viz_tools/nonce_morphic.py	IFFERENT headers, which is the real claim.	IFFERENT headers, the real claim.
+examples/00_blob_viz_tools/nonce_morphic.py	ifferent headers, which is the real claim.")	ifferent headers, the real claim.")
+examples/00_blob_viz_tools/nonce_period.py	settled rather than assumed	settled and not assumed
+examples/00_blob_viz_tools/nonce_period.py	rgument rather than on a me	rgument and not on a me
+examples/00_blob_viz_tools/nonce_period.py	ives 1/M, which is the rate")	ives 1/M, the rate")
+examples/00_blob_viz_tools/nonce_period.py	f tests rather than applied	f tests and not applied
+examples/00_blob_viz_tools/nonce_period.py	easured rather than argued.	easured and not argued.
+examples/00_blob_viz_tools/nonce_period.py	, which is what makes	, and that leaves
+examples/00_blob_viz_tools/nonce_period.py	weak one, which is the thing t	weak one, the thing t
+examples/00_blob_viz_tools/nonce_period.py	s exact rather than an esti	s exact and not an esti
+examples/00_blob_viz_tools/nonce_period.py	ASH RATE, which is the only co	ASH RATE, the only co
+examples/00_blob_viz_tools/nonce_period.py	 would buy, and the one thing it needs.	 would buy, and the single thing it needs.
+examples/00_blob_viz_tools/nonce_period.py	, which is why	, and so
+examples/00_blob_viz_tools/nonce_period.py	listing rather than summari	listing and not summari
+examples/00_blob_viz_tools/nonce_period.py	3e times, which is the measure	3e times, the measure
+examples/00_blob_viz_tools/nonce_period.py	 modulus, which is the measure	 modulus, the measure
+examples/00_blob_viz_tools/nonce_read.py	s shape rather than a made-	s shape and not a made-
+examples/00_blob_viz_tools/nonce_read.py	, drawn rather than derived	, drawn and not derived
+examples/00_blob_viz_tools/nonce_read.py	S ANYWAY, which is the part th	S ANYWAY, the part th
+examples/00_blob_viz_tools/nonce_read.py	tles it rather than the p-v	tles it and not the p-v
+examples/00_blob_viz_tools/nonce_read.py	d limit rather than by asse	d limit and not by asse
+examples/00_blob_viz_tools/nonce_read.py	onstant rather than a	onstant and not a
+examples/00_blob_viz_tools/nonce_ring_factor.py	rather than	and not
+examples/00_blob_viz_tools/nonce_support.py	a result, which is the trap ev	a result, the trap ev
+examples/00_blob_viz_tools/nonce_support.py	y elided, which is the positiv	y elided, the positiv
+examples/00_blob_viz_tools/nonce_support.py	rather than	and not
+examples/00_blob_viz_tools/nonce_support.py	es a win, which is the honest 	es a win, the honest 
+examples/00_blob_viz_tools/nonce_validset.py	 and nothing else	, alone
+examples/00_blob_viz_tools/nonce_web.py	, which is the	, the
+examples/00_blob_viz_tools/normalized_harmonics.py	re wrong, which is the failure	re wrong, the failure
+examples/00_blob_viz_tools/normalized_harmonics.py	recision, which is the only st	recision, the only st
+examples/00_blob_viz_tools/normalized_harmonics.py	er index, which is the same st	er index, the same st
+examples/00_blob_viz_tools/normalized_harmonics.py	, which is what	, as
+examples/00_blob_viz_tools/normalized_harmonics.py	 from x rather than from th	 from x and not from th
+examples/00_blob_viz_tools/normalized_harmonics.py	urrence rather than a trigo	urrence and not a trigo
+examples/00_blob_viz_tools/null_first.py	 and nothing else	, alone
+examples/00_blob_viz_tools/null_first.py	ruction rather than below a	ruction and not below a
+examples/00_blob_viz_tools/null_first.py	al work rather than replaci	al work instead of replaci
+examples/00_blob_viz_tools/null_first.py	 kernel rather than from th	 kernel and not from th
+examples/00_blob_viz_tools/null_first.py	UST HOLD, which is the arithme	UST HOLD, the arithme
+examples/00_blob_viz_tools/o2_boundary.py	rather than	and not
+examples/00_blob_viz_tools/o2_nonce.py	, named rather than a bare 	, named and not a bare 
+examples/00_blob_viz_tools/o2_ntt_boundary.py	uct back, which is the cyclic 	uct back, the cyclic 
+examples/00_blob_viz_tools/o2_ntt_boundary.py	ro shift, which is the cyclic 	ro shift, the cyclic 
+examples/00_blob_viz_tools/o2_ntt_boundary.py	rather than	and not
+examples/00_blob_viz_tools/o2_ntt_boundary.py	constant, which is the statist	constant, the statist
+examples/00_blob_viz_tools/perturb_inertia.py	 content, which is the relabel	 content, the relabel
+examples/00_blob_viz_tools/perturb_inertia.py	inition rather than an anal	inition and not an anal
+examples/00_blob_viz_tools/perturb_inertia.py	, which is what	, as
+examples/00_blob_viz_tools/perturb_inertia.py	pe is %s, which is the invaria	pe is %s, the invaria
+examples/00_blob_viz_tools/perturb_inertia.py	acement rather than a failu	acement and not a failu
+examples/00_blob_viz_tools/product_machine.py	, which is why	, and so
+examples/00_blob_viz_tools/product_machine.py	t bytes rather than by an e	t bytes and not by an e
+examples/00_blob_viz_tools/product_machine.py	 and nothing else	, alone
+examples/00_blob_viz_tools/product_machine.py	surable rather than arguabl	surable and not arguabl
+examples/00_blob_viz_tools/product_machine.py	ntation rather than to an")	ntation and not to an")
+examples/00_blob_viz_tools/product_machine.py	, which is the	, the
+examples/00_blob_viz_tools/product_machine.py	t raise rather than attempt	t raise and not attempt
+examples/00_blob_viz_tools/quantum_recursion.py	, which is the	, the
+examples/00_blob_viz_tools/quantum_recursion.py	rather than	and not
+examples/00_blob_viz_tools/qubit_trace.py	ong tool, which is the reverse	ong tool, the reverse
+examples/00_blob_viz_tools/qubit_trace.py	AL PHASE, which is the right i	AL PHASE, the right i
+examples/00_blob_viz_tools/qubit_trace.py	e answer, which is the thing b	e answer, the thing b
+examples/00_blob_viz_tools/qubit_trace.py	on work and that is why it was 	on work , and for that reason it was 
+examples/00_blob_viz_tools/qubit_trace.py	, which is what	, as
+examples/00_blob_viz_tools/qubit_trace.py	as that rather than as a ma	as that and not as a ma
+examples/00_blob_viz_tools/qubit_trace.py	L phase rather than a spati	L phase and not a spati
+examples/00_blob_viz_tools/qubit_trace.py	 a time rather than one qub	 a time and not one qub
+examples/00_blob_viz_tools/qubit_trace.py	against rather than demonst	against and not demonst
+examples/00_blob_viz_tools/qubit_trace.py	 and nothing else	, alone
+examples/00_blob_viz_tools/qubit_trace.py	o act on, which is the	o act on, the
+examples/00_blob_viz_tools/qubit_trace.py	firming rather than asserti	firming and not asserti
+examples/00_blob_viz_tools/qubit_trace.py	ructure rather than from a 	ructure and not from a 
+examples/00_blob_viz_tools/qubit_trace.py	 EXACTLY, which is the non-vac	 EXACTLY, the non-vac
+examples/00_blob_viz_tools/qubit_trace.py	ve risk rather than a parti	ve risk and not a parti
+examples/00_blob_viz_tools/qubit_trace.py	 applied, which is the")	 applied, the")
+examples/00_blob_viz_tools/qubit_trace.py	ning one, which is the more us	ning one, the more us
+examples/00_blob_viz_tools/qubit_trace.py	bability, which is the cleanes	bability, the cleanes
+examples/00_blob_viz_tools/qubit_trace.py	 unread rather than destroy	 unread and not destroy
+examples/00_blob_viz_tools/qubit_trace.py	aced out, which is the narrow 	aced out, the narrow 
+examples/00_blob_viz_tools/qubit_trace.py	ISTURBED, which is the next cl	ISTURBED, the next cl
+examples/00_blob_viz_tools/qubit_trace.py	ariation, which is the scale-f	ariation, the scale-f
+examples/00_blob_viz_tools/qubit_trace.py	AGNITUDE, which is the column 	AGNITUDE, the column 
+examples/00_blob_viz_tools/qubit_trace.py	parable rather than quoted 	parable and not quoted 
+examples/00_blob_viz_tools/qubit_trace.py	gnitude rather than")	gnitude and not")
+examples/00_blob_viz_tools/qubit_trace.py	R-rotate, which is the signatu	R-rotate, the signatu
+examples/00_blob_viz_tools/qubit_trace.py	ate size, which is the claim i	ate size, the claim i
+examples/00_blob_viz_tools/shor_trace.py	rather than a plaus	and not a plaus
+examples/00_blob_viz_tools/shor_trace.py	d below rather than assumed	d below and not assumed
+examples/00_blob_viz_tools/shor_trace.py	ft alone, which is the	ft alone, the
+examples/00_blob_viz_tools/shor_trace.py	egister rather than a parti	egister and not a parti
+examples/00_blob_viz_tools/shor_trace.py	ecision rather than a doubl	ecision and not a doubl
+examples/00_blob_viz_tools/shor_trace.py	er first, which is the convent	er first, the convent
+examples/00_blob_viz_tools/shor_trace.py	RANSFORM, which is the answer"	RANSFORM, the answer"
+examples/00_blob_viz_tools/shor_trace.py	ransform, which is the only st	ransform, the only st
+examples/00_blob_viz_tools/shor_trace.py	, which is what makes	, and that leaves
+examples/00_blob_viz_tools/shor_trace.py	R AT ALL, which is the structu	R AT ALL, the structu
+examples/00_blob_viz_tools/shor_trace.py	ACTOR 15, which is the only en	ACTOR 15, the only en
+examples/00_blob_viz_tools/snap_release.py	cy block, which is the bits an	cy block, the bits an
+examples/00_blob_viz_tools/snap_release.py	he qubit and nothing else. The ne	he qubit, alone. The ne
+examples/00_blob_viz_tools/snap_release.py	oducible, which is the only pr	oducible, the only pr
+examples/00_blob_viz_tools/snap_release.py	s at all, which is the freedom	s at all, the freedom
+examples/00_blob_viz_tools/snap_release.py	    has rather than the cor	    has and not the cor
+examples/00_blob_viz_tools/snap_release.py	vention rather than content	vention and not content
+examples/00_blob_viz_tools/snap_release.py	  shape rather than of any 	  shape and not of any 
+examples/00_blob_viz_tools/snap_release.py	easured rather than	easured and not
+examples/00_blob_viz_tools/snap_release.py	unction rather than deleted	unction and not deleted
+examples/00_blob_viz_tools/snap_release.py	response, which is the inertia	response, the inertia
+examples/00_blob_viz_tools/snap_release.py	here is rather than where i	here is and not where i
+examples/00_blob_viz_tools/snap_release.py	ducible rather than dependi	ducible instead of dependi
+examples/00_blob_viz_tools/snap_release.py	ttached rather than a descr	ttached and not a descr
+examples/00_blob_viz_tools/snap_release.py	parison rather than as a co	parison and not as a co
+examples/00_blob_viz_tools/snap_release.py	plainly rather than being s	plainly instead of being s
+examples/00_blob_viz_tools/snap_release.py	t others, which is the interes	t others, the interes
+examples/00_blob_viz_tools/snap_release.py	variance, which is the exact n	variance, the exact n
+examples/00_blob_viz_tools/snap_release.py	id here rather than left fo	id here and not left fo
+examples/00_blob_viz_tools/snap_release.py	  decay rather than dissipa	  decay and not dissipa
+examples/00_blob_viz_tools/snap_release.py	s drawn rather than assumed	s drawn and not assumed
+examples/00_blob_viz_tools/snap_release.py	t claims and nothing else in the 	t claims, alone in the 
+examples/00_blob_viz_tools/snap_release.py	n spread, which is the")	n spread, the")
+examples/00_blob_viz_tools/snap_release.py	axation rather than relabel	axation instead of relabel
+examples/00_blob_viz_tools/snap_release.py	urement rather than a claim	urement and not a claim
+examples/00_blob_viz_tools/snap_release.py	LL AGREE, which is the part th	LL AGREE, the part th
+examples/00_blob_viz_tools/snap_release.py	omputed rather than remembe	omputed and not remembe
+examples/00_blob_viz_tools/snap_release.py	vacuous rather than informa	vacuous and not informa
+examples/00_blob_viz_tools/snap_release.py	at %.4f rather than empty" 	at %.4f and not empty" 
+examples/00_blob_viz_tools/sphere_view_template.html	turning rather than from a 	turning and not from a 
+examples/00_blob_viz_tools/sphere_view_template.html	, which is the	, the
+examples/00_blob_viz_tools/sphere_view_template.html	ntirely rather than dimmed.	ntirely and not dimmed.
+examples/00_blob_viz_tools/stabilizer_rank.py	number rather than as a wo	number and not as a wo
+examples/00_blob_viz_tools/stabilizer_rank.py	quality rather than by a di	quality and not by a di
+examples/00_blob_viz_tools/stabilizer_rank.py	formula rather than trusted	formula and not trusted
+examples/00_blob_viz_tools/stabilizer_rank.py	 as one rather than as an a	 as one and not as an a
+examples/00_blob_viz_tools/stabilizer_rank.py	from it rather than argued.	from it and not argued.
+examples/00_blob_viz_tools/stabilizer_rank.py	ft open rather than guessed	ft open and not guessed
+examples/00_blob_viz_tools/stabilizer_rank.py	wrongly rather than finding	wrongly instead of finding
+examples/00_blob_viz_tools/tail_bit.py	number, which is why the rou	number, and so the rou
+examples/00_blob_viz_tools/tail_bit.py	ry root rather than naming 	ry root instead of naming 
+examples/00_blob_viz_tools/tail_bit.py	 message, which is the longest	 message, the longest
+examples/00_blob_viz_tools/tail_bit.py	 and nothing else	, alone
+examples/00_blob_viz_tools/tail_bit.py	) TUPLES, which is the convent	) TUPLES, the convent
+examples/00_blob_viz_tools/tail_bit.py	the two rather than in eith	the two and not in eith
+examples/00_blob_viz_tools/tail_bit.py	 flipped, which is the last"	 flipped, the last"
+examples/00_blob_viz_tools/tail_bit.py	ROUGH %d, which is the predict	ROUGH %d, the predict
+examples/00_blob_viz_tools/tail_bit.py	, which is what	, as
+examples/00_blob_viz_tools/tail_bit.py	e number, which is why the bit	e number, and so the bit
+examples/00_blob_viz_tools/tail_bit.py	 length rather than a tail 	 length and not a tail 
+examples/00_blob_viz_tools/tail_bit.py	jection rather than by the 	jection and not by the 
+examples/00_blob_viz_tools/tgate_free.py	That is why	For that reason
+examples/00_blob_viz_tools/tgate_free.py	thmetic rather than clever.	thmetic and not clever.
+examples/00_blob_viz_tools/tgate_free.py	/ 2) = i, which is the S gate,	/ 2) = i, the S gate,
+examples/00_blob_viz_tools/tgate_free.py	        rather than against	        and not against
+examples/00_blob_viz_tools/tgate_free.py	/sqrt(2), which is the conjuga	/sqrt(2), the conjuga
+examples/00_blob_viz_tools/tgate_free.py	digits` rather than chosen.	digits` and not chosen.
+examples/00_blob_viz_tools/unmodeled.py	derived rather than fitted.	derived and not fitted.
+examples/00_blob_viz_tools/unmodeled.py	e model rather than a model	e model and not a model
+examples/00_blob_viz_tools/unmodeled.py	 spiral rather than at a fi	 spiral and not at a fi
+examples/00_blob_viz_tools/unmodeled.py	 and nothing else	, alone
+examples/00_blob_viz_tools/unmodeled.py	# rather than fitted 	# and not fitted 
+examples/00_blob_viz_tools/unmodeled.py	urement rather than a demon	urement and not a demon
+examples/00_blob_viz_tools/unmodeled.py	Schmidt rather than normal 	Schmidt and not normal 
+examples/00_blob_viz_tools/unmodeled.py	 method rather than to the 	 method and not to the 
+examples/00_blob_viz_tools/unmodeled.py	 format rather than by the 	 format and not by the 
+examples/00_blob_viz_tools/unmodeled.py	on both rather than a")	on both and not a")
+examples/00_blob_viz_tools/unmodeled.py	"  here rather than quoted:	"  here and not quoted:
+examples/00_blob_viz_tools/unmodeled.py	 to 2l+1, which is the count	 to 2l+1, the count
+examples/00_blob_viz_tools/unmodeled.py	formula rather than a	formula and not a
+examples/00_blob_viz_tools/unmodeled.py	, which is what	, as
+examples/00_blob_viz_tools/unmodeled.py	MENSIONS, which is the count e	MENSIONS, the count e
+examples/00_blob_viz_tools/unmodeled.py	ok right, which is the quiet f	ok right, the quiet f
+examples/00_blob_viz_tools/unmodeled.py	rade it rather than restate	rade it and not restate
+examples/00_blob_viz_tools/unmodeled.py	 is gone, which is the other h	 is gone, the other h
+examples/00_blob_viz_tools/unmodeled.py	defined rather than zero. R	defined and not zero. R
+examples/00_blob_viz_tools/unmodeled.py	distance, which is the opposit	distance, the opposit
+examples/00_blob_viz_tools/wire_compute.py	rnation rather than by 1 ea	rnation and not by 1 ea
+examples/00_blob_viz_tools/wire_compute.py	o pieces, which is why it is e	o pieces, and so it is e
+examples/00_blob_viz_tools/wire_compute.py	gates rather than in qubi	gates and not in qubi
+examples/00_blob_viz_tools/wire_compute.py	 through, which is the formali	 through, the formali
+examples/00_blob_viz_tools/wire_compute.py	on purpose	deliberately
+examples/00_blob_viz_tools/wire_compute.py	surement, which is the wire.")	surement, the wire.")
+examples/00_blob_viz_tools/wire_compute.py	 vector rather than asserte	 vector and not asserte
+examples/00_blob_viz_tools/wire_compute.py	HE GRAPH, which is the formali	HE GRAPH, the formali
+examples/00_blob_viz_tools/wire_compute.py	 GRADED rather than	 GRADED and not
