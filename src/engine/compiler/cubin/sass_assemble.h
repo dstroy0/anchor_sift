@@ -16,6 +16,8 @@
 
 #include "sass_machine.h"
 
+#include <stddef.h>
+
 // what the assembler does with the scheduler's bits, which no listing prints and no probe read
 enum SassControl
 {
@@ -37,5 +39,35 @@ int sass_assemble(const SassMachine *machine, const char *text, unsigned long lo
 // `room` bytes
 unsigned int sass_assemble_lines(const SassMachine *machine, const char *text, unsigned int control,
                                  unsigned char *code, unsigned long long room);
+
+// The read back, the assembler run the other way through the same forms and fields. An encoding is held by the
+// form whose bits, outside its operands' fields, its guard and the scheduler's bits, are its own; of several, the
+// one with the fewest bits left to its operands. Its text is the guard, the operation and each operand read from the
+// field the assembler writes it to, a label as the address it lands on: `address` is where the encoding lies. 1, or 0
+// where no form holds it. Nothing here changes an encoding: an emitted instruction is read back, never rewritten and
+// never optimized: code written to run in constant time runs as it was written.
+int sass_encoding_read(const SassMachine *machine, unsigned long long low, unsigned long long high,
+                       unsigned long long address, char *text, size_t room);
+
+// A loop is an address added to until it comes back where it began. The walk evaluates one encoding as the
+// instruction that takes a loop back: its guard is the flag the loop is steered on alone, and it is taken
+// only where the flag is true; one of its label or immediate operands, added to the address after it and kept to the
+// field's own width, lands on `target`; and its first operand writes neither a register the loop keeps nor the flag.
+// The walk is a bumper a caller turns on or off and stops at any step of: it never changes the encoding, and with it
+// off whatever was emitted is what runs.
+typedef struct
+{
+    unsigned long long address;
+    unsigned long long target;
+    unsigned int flag;
+    const unsigned int *live;
+    unsigned int lives;
+} SassLoopWalk;
+
+// 1 where the encoding comes back to the target on the flag alone and writes nothing the loop keeps. The step it
+// stopped at through `step`: 0 no form holds it, 1 its guard, 2 where it lands, 3 what it writes, and 4 where it
+// came through every step
+int sass_loop_walk(const SassMachine *machine, const SassLoopWalk *walk, unsigned long long low, unsigned long long high,
+                   unsigned int *step);
 
 #endif

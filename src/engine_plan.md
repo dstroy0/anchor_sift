@@ -202,26 +202,54 @@ parts agree and some do not, and no reading taken on one part says which. So eve
 the size beside it, and a reader outside either has nothing and has to ask. The general block in `.kdm` is the
 fallback for a member with nothing measured, and never a result borrowed from a member that has.
 
-## The cell
+## Functions on every part
 
-**The engine is a native accessor at the boundary of information space.** It asks the part and builds its own
-ribosomes to answer what is asked. No `.g`, no `.gsm` and no gnascor stands between a function and the part
-that runs it.
+**The engine asks the part and builds the code that answers.** No `.g`, no `.gsm` and no gnascor stands between a
+function and the part that runs it.
 
-**Tessera is the membrane.** Host to device is native across it, membrane protein to protein membrane. Every
-process that crosses is identified at the membrane by its Merkle DAG ID, the seal over its contents: the
-membrane knows all processes. Device code never calls the operating system: a file, a socket, a process or a
-clock is asked for across the membrane and answered on its host side.
+**Tessera is the boundary between host and device.** Every process that crosses it is identified there by its
+Merkle DAG ID, the seal over its contents: tessera knows every process. Device code never calls the operating
+system. A file, a socket, a process or a clock is asked for through tessera and answered on the host.
 
-**The transpiler is the nucleus, and it pumps out ribosomes.** A ribosome is built from any form `L*` has learned
-for a part: it supports every function that part is capable of, branches and loops included wherever the part
-has the forms. The record machine's straight-line program is one kind of ribosome and not the bound on them.
+**The transpiler emits the device code.** A program it emits is built from any form `L*` has learned for a part,
+and it can do anything that part can do, branches and loops included wherever the part has the forms. The record
+machine's straight-line program is one kind of emitted program and not the limit on them.
 
-**Mitosis is the nucleus copying itself into a new cell.** The tree is that cell: `c/`, `cu/` and `python/`, one
-container per host entry point, every function in all three under one name (`TREE_LAYOUT_PLAN.md`). A function
-a container lacks is not ported by hand. It is a ribosome the engine builds for that container's part, held 1:1
-against the original: the same inputs, the same answers. A function that calls the operating system is in every
-container through the membrane. Its computing part is the ribosome, and the call crosses at tessera.
+**Every function is in every container.** `c/`, `cu/` and `python/` are one container per host entry point, and
+every function is in all three under one name (`TREE_LAYOUT_PLAN.md`). A function a container lacks is not ported
+by hand: the engine emits it for that container's part and holds it 1:1 against the original, the same inputs and
+the same answers. A function that calls the operating system reaches every container through tessera. The part of
+it that computes is emitted, and the call crosses at tessera.
+
+**A loop is learned by asking, like any other operator.** A loop is an address added to until it comes back where
+it began. Every ruleset writes it with the same two forms on our side, `loop_label loop` and `loop_back loop
+where`: a label to come back to, and the flag that takes the way back. Only the right side, the part's instructions,
+differs per target, and in every `.krs` it is written by hand. It is derived by asking:
+
+- The candidates are every form the part's machine file holds, each put in `loop_back`'s place with its operands
+  filled by their kinds. Nothing decides beforehand which forms jump.
+- The question is a body that counts N down with `add_alone` and sets the flag with `test_nonzero`. A form in
+  `loop_back`'s place that comes back to the label on the flag answers N, and a form that falls through answers 1.
+  N = 2 is asked first, since it prunes the most, and the forms that answer it are asked every other N.
+- The forms that answer every N are timed, and the cheapest is that part's `loop_back`.
+
+**A check between emitting and running, on or off.** The transpiler reads an emitted instruction back through the
+machine file's own forms, with no disassembler (`sass_encoding_read`, `compiler/cubin/sass_assemble.h`), and walks
+it (`sass_loop_walk`): its guard is the flag alone, one of its label or number operands added to the
+address after it lands on the label, and its first operand writes nothing the loop keeps. A caller turns the check
+on or off and can stop at any step of it. It never changes an emitted instruction and nothing is optimized: with
+the check off, what was emitted is what runs, as code written to run in constant time needs.
+
+**Every step is checked by hand against what is known to be true of the device.** Of the 2927 forms in sm_86's
+machine file, 2383 read back as they were listed. The rest are known limits: two names the disassembler prints for
+one encoding (`IMAD.MOV`), addresses with a uniform register, absolute 64-bit `CALL.ABS` and `JMP` targets, and 380
+forms whose operands the assembler cannot place either. The walk gives the expected step on ten known cases out of
+ten. The check found that a branch's distance starts at bit 34 in four-byte steps, not at bit 32: bits 32 and 33 are
+the operation's own, as `BRA`, `BRA.U` and `BRA.DIV` show the same distance with 0, 1 and 2 there. Written from bit
+32, a `BRA.U` assembled as a `BRA`.
+
+**When an ask fails, the ask is the problem.** The ruleset defines itself, and an ask that cannot find the answer
+bounded the question somewhere. The same small problem is asked again with that bound found and taken out.
 
 ## How this is worked
 
@@ -328,16 +356,20 @@ works there.
     shuffles. A group is a function of the whole set, and a block written for one is written again when the set
     changes. The open part is the general block in `.kdm` keyed to a group, which nothing writes yet.
 
-13. **The cell has one ribosome of 132.** `src/cu/types/integerfloats/double_fields/double_fields.cu` holds
+13. **One function of 132 runs on the device.** `src/cu/types/integerfloats/double_fields/double_fields.cu` holds
     `double_fields.c`'s four functions as one record program, encoded, laid out and loaded by the calls
     `engine_record_encode` makes, swept on the device and run on the host. `double_fields_test.cu` holds it 1:1
     against the C on 4110 lanes, the edges of a double and 4096 drawn words, with merges past every mask: the
     device equals the host word for word, both equal the C on every lane, and a mask one short fails 2049 lanes
-    of the exponent and 2056 of the merge. The program is written from the C by hand; reading a function into
-    its program is the nucleus's part and is not built. The record program reaches the part through NVRTC and
-    nvJitLink, scaffolding until the channel in Open 1 carries it. The other 131 functions that compute and the
-    47 that cross the membrane are rows in `TREE_LAYOUT_PLAN.tsv`, listed by
+    of the exponent and 2056 of the merge. The program is written from the C by hand, and deriving a function's
+    program from the function is not built. The record program reaches the part through NVRTC and nvJitLink,
+    scaffolding until the channel in Open 1 carries it. The other 131 functions that compute and the 47 that call
+    the operating system are rows in `TREE_LAYOUT_PLAN.tsv`, listed by
     `utils/maint/engine/tree_layout_check.py --write`.
+
+14. **The part has not been asked how it loops.** `sass_encoding_read` and `sass_loop_walk` are built and checked
+    (Functions on every part, above). The ask that puts each candidate in `loop_back`'s place to the part and reads
+    back the count is not written, and until it is, `loop_back` in every `.krs` is written by hand.
 
 ## Pending Doug
 - Move cell_tracking into `examples/` and theory into anchor_sift. Don't start without direction.
