@@ -25,7 +25,7 @@ extern "C"
         int ex;
         int neg;
         AnchorExactInteger *candidate;
-        DecimalDoubleResult *resident;
+        DecimalDoubleResult *result;
         EngineError *error;
     } DecimalDoubleRequest;
 

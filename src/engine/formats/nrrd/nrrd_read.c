@@ -328,18 +328,18 @@ static unsigned int nrrd_layout(const char *path, const char *member, const Engi
         built = nrrd_empty_layout;
         parsed = nrrd_fetch(tools, path, 0ull, header_bytes, (unsigned char *)header) &&
                  nrrd_fields(header, header_bytes, (header_bytes == file_bytes) ? 1u : 0u, &fields) &&
-                 nrrd_extent(&fields, &built.sizes) && ((fields.data_file.length != 0ull) || (fields.ended != 0u));
+                 nrrd_extent(&fields, &built.extent) && ((fields.data_file.length != 0ull) || (fields.ended != 0u));
         if (parsed || (header_bytes == file_bytes))
         {
             break;
         }
         header_bytes *= 2ull;
     }
-    built.data_bytes = built.sizes.element_bytes;
+    built.data_bytes = built.extent.element_bytes;
     int ok = parsed;
-    for (unsigned int axis = 0u; ok && (axis < built.sizes.rank); axis += 1u)
+    for (unsigned int axis = 0u; ok && (axis < built.extent.rank); axis += 1u)
     {
-        ok = nrrd_multiply(built.data_bytes, built.sizes.sizes[axis], &built.data_bytes);
+        ok = nrrd_multiply(built.data_bytes, built.extent.sizes[axis], &built.data_bytes);
     }
     if (ok && (fields.data_file.length != 0ull))
     {

@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // cycle_record_launch.cu: the resident program, the launch, the check against the interpreter, the latch
+#include <chrono>
 #include "cycle_record_internal.h"
 
 // The compiled program run resident. Its block is laid out for this run and sent to the device, and the program is
@@ -109,16 +110,13 @@ static int cycle_record_resident(const CycleRecord *record, CycleCompiledLaunch 
 }
 
 // one launch of a record program, compiled or on the interpreter, run to its end: a compiled program runs resident,
-// launched again until it is done. With `milliseconds` it is timed by events on either side of it, the device's own
-// time between them
+// launched again until it is done. With `nanoseconds` it is timed in whole nanoseconds on the host's steady clock,
+// from before the launch to the device's synchronizing after it
 static int cycle_record_launch(const CycleRecord *record, const CycleRecordLaunch &launch, unsigned int blocks,
-                               int compiled, float *milliseconds, EngineError *error)
+                               int compiled, unsigned long long *nanoseconds, EngineError *error)
 {
-    cudaEvent_t began = NULL;
-    cudaEvent_t ended = NULL;
-    int ok = (milliseconds == NULL) || (CYCLE_STATUS_CHECK(cudaEventCreate(&began), &began, error) &&
-                                        CYCLE_STATUS_CHECK(cudaEventCreate(&ended), &ended, error) &&
-                                        CYCLE_STATUS_CHECK(cudaEventRecord(began, 0), began, error));
+    int ok = 1;
+    const auto began = std::chrono::steady_clock::now();
     if ((ok != 0) && (compiled != 0))
     {
         CycleCompiledLaunch program;
@@ -155,17 +153,13 @@ static int cycle_record_launch(const CycleRecord *record, const CycleRecordLaunc
     // the launch's own error is read and reset whichever way it launched
     const cudaError_t launched = cudaGetLastError();
     ok = ok && CYCLE_STATUS_CHECK(launched, launch.out, error);
-    ok = ok && ((milliseconds == NULL) || CYCLE_STATUS_CHECK(cudaEventRecord(ended, 0), ended, error));
     ok = ok && CYCLE_STATUS_CHECK(cudaDeviceSynchronize(), launch.out, error);
-    ok = ok && ((milliseconds == NULL) ||
-                CYCLE_STATUS_CHECK(cudaEventElapsedTime(milliseconds, began, ended), milliseconds, error));
-    if (began != NULL)
+    if ((ok != 0) && (nanoseconds != NULL))
     {
-        cudaEventDestroy(began);
-    }
-    if (ended != NULL)
-    {
-        cudaEventDestroy(ended);
+        // a steady clock's span is never negative
+        *nanoseconds = (unsigned long long)std::chrono::duration_cast<std::chrono::nanoseconds>(
+                           std::chrono::steady_clock::now() - began)
+                           .count();
     }
     return ok;
 }
@@ -174,7 +168,7 @@ static int cycle_record_launch(const CycleRecord *record, const CycleRecordLaunc
 // into records of its own, and both runs' records and errors must be the same word for word. The compiled run's
 // errors are put back for the run to read
 static int cycle_record_check(const CycleRecord *record, CycleRecordLaunch launch, unsigned int blocks,
-                              float compiled_milliseconds, int report, EngineError *error)
+                              unsigned long long compiled_nanoseconds, int report, EngineError *error)
 {
     const size_t words = (size_t)launch.count * record->out_limbs;
     std::vector<unsigned int> compiled_records(words);
@@ -182,7 +176,7 @@ static int cycle_record_check(const CycleRecord *record, CycleRecordLaunch launc
     unsigned int compiled_error = 0u;
     unsigned int interpreted_error = 0u;
     unsigned int *interpreted = NULL;
-    float interpreted_milliseconds = 0.0f;
+    unsigned long long interpreted_nanoseconds = 0ull;
     int ok = CYCLE_STATUS_CHECK(
                  cudaMemcpy(&compiled_error, record->device_error, sizeof(unsigned int), cudaMemcpyDeviceToHost),
                  record->device_error, error) &&
@@ -192,7 +186,7 @@ static int cycle_record_check(const CycleRecord *record, CycleRecordLaunch launc
              CYCLE_STATUS_CHECK(cudaMalloc((void **)&interpreted, words * sizeof(unsigned int)), &interpreted, error) &&
              CYCLE_STATUS_CHECK(cudaMemset(record->device_error, 0, sizeof(unsigned int)), record->device_error, error);
     launch.out = interpreted;
-    ok = ok && cycle_record_launch(record, launch, blocks, 0, (report != 0) ? &interpreted_milliseconds : NULL, error);
+    ok = ok && cycle_record_launch(record, launch, blocks, 0, (report != 0) ? &interpreted_nanoseconds : NULL, error);
     ok = ok &&
          CYCLE_STATUS_CHECK(
              cudaMemcpy(&interpreted_error, record->device_error, sizeof(unsigned int), cudaMemcpyDeviceToHost),
@@ -212,8 +206,8 @@ static int cycle_record_check(const CycleRecord *record, CycleRecordLaunch launc
     const int same = (differs == words) && (compiled_error == interpreted_error);
     if ((ok != 0) && (report != 0))
     {
-        fprintf(stderr, "  cycle: %llu lanes, compiled %.3f ms, interpreted %.3f ms, errored %u and %u, %s\n",
-                launch.count, compiled_milliseconds, interpreted_milliseconds, compiled_error, interpreted_error,
+        fprintf(stderr, "  cycle: %llu lanes, compiled %llu ns, interpreted %llu ns, errored %u and %u, %s\n",
+                launch.count, compiled_nanoseconds, interpreted_nanoseconds, compiled_error, interpreted_error,
                 (same != 0) ? "the same records" : "records differ");
     }
     if ((ok != 0) && (same == 0) && (differs != words))
@@ -272,20 +266,20 @@ extern "C" long cycle_record_run(const CycleRecordRunRequest *request)
     const int check = (compiled != 0) && (cycle_environment_set("CYCLE_RECORD_CHECK") != 0);
     unsigned int error_count = 1u;
     size_t stack = 0u;
-    float milliseconds = 0.0f;
+    unsigned long long nanoseconds = 0ull;
     int ok = CYCLE_STATUS_CHECK(cudaDeviceGetLimit(&stack, cudaLimitStackSize), &stack, error) &&
              CYCLE_STATUS_CHECK(cudaMemset(record->device_error, 0, sizeof(unsigned int)), record->device_error, error);
-    ok = ok && cycle_record_launch(record, launch, blocks, compiled, (report != 0) ? &milliseconds : NULL, error);
-    ok = ok && ((check == 0) || cycle_record_check(record, launch, blocks, milliseconds, report, error));
+    ok = ok && cycle_record_launch(record, launch, blocks, compiled, (report != 0) ? &nanoseconds : NULL, error);
+    ok = ok && ((check == 0) || cycle_record_check(record, launch, blocks, nanoseconds, report, error));
     if ((ok != 0) && (report != 0) && (check == 0))
     {
-        fprintf(stderr, "  cycle: %llu lanes %s in %.3f ms\n", request->count,
-                (compiled != 0) ? "compiled" : "interpreted", milliseconds);
+        fprintf(stderr, "  cycle: %llu lanes %s in %llu ns\n", request->count,
+                (compiled != 0) ? "compiled" : "interpreted", nanoseconds);
     }
     if ((ok != 0) && (report != 0) && (compiled != 0))
     {
-        fprintf(stderr, "  cycle: the program ran %llu launches, %llu check-ins, %.3f ms on the device, %llu threads\n",
-                record->block->launches, record->block->checkin, (double)record->block->runtime / 1e6,
+        fprintf(stderr, "  cycle: the program ran %llu launches, %llu check-ins, %llu ns on the device, %llu threads\n",
+                record->block->launches, record->block->checkin, record->block->runtime,
                 record->block->grant_threads);
     }
     // the frame's reservation is given back whether or not the sweep held

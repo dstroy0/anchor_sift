@@ -7,10 +7,10 @@ static std::vector<CycleCompiledProgram> s_cycle_programs;
 
 // the program found in this process by its text, else in the cache, else built and kept in both, then loaded as a
 // library: PTX where `ptx`, which nvJitLink assembles as it links it alone, else C source that
-// NVRTC compiles first. `written` is the milliseconds the text took to write, for the report. 0 where the build or the
+// NVRTC compiles first. `written` is the whole nanoseconds the text took to write, for the report. 0 where the build or the
 // load failed
 static int cycle_program_load(const EngineRecordLayout *layout, CycleRecord *record, const CycleTarget *lane_target,
-                              const std::string &text, int ptx, int lto, double written, int report)
+                              const std::string &text, int ptx, int lto, unsigned long long written, int report)
 {
     const char *const kind = (ptx != 0) ? "PTX" : ((lto != 0) ? "LTO-IR" : "relocatable cubin");
     for (size_t at = 0u; at < s_cycle_programs.size(); at += 1u)
@@ -32,8 +32,8 @@ static int cycle_program_load(const EngineRecordLayout *layout, CycleRecord *rec
     std::vector<char> cubin = path.empty() ? std::vector<char>() : cycle_cache_read(path, text);
     const int found = !cubin.empty();
     size_t object_bytes = 0u;
-    double compile_milliseconds = 0.0;
-    double link_milliseconds = 0.0;
+    unsigned long long compile_nanoseconds = 0ull;
+    unsigned long long link_nanoseconds = 0ull;
     if (!found)
     {
         const auto began = std::chrono::steady_clock::now();
@@ -46,8 +46,9 @@ static int cycle_program_load(const EngineRecordLayout *layout, CycleRecord *rec
         cubin = object.empty() ? std::vector<char>() : cycle_program_link(lane_target, object, lto, ptx, report);
         const auto linked = std::chrono::steady_clock::now();
         object_bytes = object.size();
-        compile_milliseconds = std::chrono::duration<double, std::milli>(compiled - began).count();
-        link_milliseconds = std::chrono::duration<double, std::milli>(linked - compiled).count();
+        // a steady clock's spans are never negative
+        compile_nanoseconds = (unsigned long long)std::chrono::duration_cast<std::chrono::nanoseconds>(compiled - began).count();
+        link_nanoseconds = (unsigned long long)std::chrono::duration_cast<std::chrono::nanoseconds>(linked - compiled).count();
         if (!cubin.empty() && !path.empty())
         {
             cycle_cache_write(folder, path, text, cubin);
@@ -87,18 +88,18 @@ static int cycle_program_load(const EngineRecordLayout *layout, CycleRecord *rec
     else if ((report != 0) && (ptx != 0))
     {
         fprintf(stderr,
-                "  cycle: a program of %u steps for sm_%d%d as PTX: written in %.1f ms to %zu bytes, "
-                "assembled and linked in %.1f ms to %zu bytes of cubin\n",
-                layout->steps, lane_target->major, lane_target->minor, written, object_bytes, link_milliseconds,
+                "  cycle: a program of %u steps for sm_%d%d as PTX: written in %llu ns to %zu bytes, "
+                "assembled and linked in %llu ns to %zu bytes of cubin\n",
+                layout->steps, lane_target->major, lane_target->minor, written, object_bytes, link_nanoseconds,
                 cubin.size());
     }
     else if (report != 0)
     {
         fprintf(stderr,
-                "  cycle: a program of %u steps for sm_%d%d as %s: written in %.1f ms, compiled in %.1f ms to "
-                "%zu bytes, linked in %.1f ms to %zu bytes of cubin\n",
-                layout->steps, lane_target->major, lane_target->minor, kind, written, compile_milliseconds,
-                object_bytes, link_milliseconds, cubin.size());
+                "  cycle: a program of %u steps for sm_%d%d as %s: written in %llu ns, compiled in %llu ns to "
+                "%zu bytes, linked in %llu ns to %zu bytes of cubin\n",
+                layout->steps, lane_target->major, lane_target->minor, kind, written, compile_nanoseconds,
+                object_bytes, link_nanoseconds, cubin.size());
     }
     return 1;
 }
@@ -160,7 +161,9 @@ static void cycle_record_route(const EngineRecordLayout *layout, CycleRecord *re
     const std::string source =
         (rules != NULL) ? generator.program(layout, &target, std::string(target.prelude), &source_places, &source_live)
                         : std::string();
-    const double written = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
+    // a steady clock's span is never negative
+    const unsigned long long written =
+        (unsigned long long)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::steady_clock::now() - began).count();
     const int built =
         !source.empty() && cycle_program_load(layout, record, lane_target, source, 0, lto, written, report);
     const int read = built && (cudaFuncGetAttributes(&attributes, (const void *)record->kernel) == cudaSuccess);
@@ -378,8 +381,9 @@ int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record, 
         std::string ptx = ((rules == NULL) || header.empty())
                               ? std::string()
                               : generator.program(layout, &target, header, &places, &live);
-        const double written =
-            std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
+        // a steady clock's span is never negative
+        const unsigned long long written =
+            (unsigned long long)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::steady_clock::now() - began).count();
         if (!ptx.empty() &&
             !CYCLE_CHECK(cycle_codegen_on_device(generator, rules, &target, header, layout, places, report, ptx),
                          layout, error, ENGINE_ERROR_LOGIC))
@@ -417,7 +421,9 @@ int cycle_record_compile(const EngineRecordLayout *layout, CycleRecord *record, 
     std::string source = (source_rules != NULL) ? source_generator.program(layout, &target, std::string(target.prelude),
                                                                            &source_places, &source_live)
                                                 : std::string();
-    const double written = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
+    // a steady clock's span is never negative
+    const unsigned long long written =
+        (unsigned long long)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::steady_clock::now() - began).count();
     if (!source.empty() &&
         !CYCLE_CHECK(cycle_codegen_on_device(source_generator, source_rules, &target, std::string(target.prelude),
                                              layout, source_places, report, source),
