@@ -106,18 +106,16 @@ def doped_sites(text):
     tiling. Returns None where nothing parsed, which keeps an entry that cannot be read distinct
     from one that is clean.
 
-    THE TRIGGER FOR THAT None MOVED, AND IT MOVES A REPORTED NUMBER
+    WHERE THAT None COMES FROM, AND WHY IT MOVES A REPORTED NUMBER
 
-    It used to be "the deposit has no atom site rows". It is now "no site parsed", because the
-    reading is crystal.exact_sites and an entry whose coordinates all fail to parse comes back with
-    an empty list and not with rows. A deposit that has rows and no usable coordinate used to be
-    counted readable with nothing shared, and is now counted unreadable.
+    None is "no site parsed": the reading is crystal.exact_sites and an entry whose coordinates all
+    fail to parse comes back with an empty list and not with rows. A deposit that has rows and no
+    usable coordinate is counted unreadable, not readable with nothing shared.
 
-    The new behavior is the more correct one, an entry nothing could be read from is not an entry
-    that was read and found clean, but it feeds the "entries read" figure directly, and nothing in
-    the change announces itself at the call site. It is the reason this measure and the stage six
-    oracle report slightly different counts of shared positions from one corpus: the oracle has no
-    equivalent early return.
+    An entry nothing could be read from is not an entry that was read and found clean, but it feeds
+    the "entries read" figure directly, and the early return does not announce itself at the call
+    site. It is the reason this measure and the stage six oracle report slightly different counts of
+    shared positions from one corpus: the oracle has no equivalent early return.
 
     Raises nothing on a malformed coordinate: the site is skipped and counted by the caller. A
     deposit that writes ? for a coordinate is declining to give one, and a site with no position

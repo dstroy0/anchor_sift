@@ -12,17 +12,16 @@ WHY THE SPLIT AND NOT A DISPATCH
 A multiply that chooses its own arm by operand size is convenient and it destroys the property that
 matters: a tool built on it is half host and half device, the halves move with the input, and no run
 can be described without knowing every operand that passed through it. Worse, a tool written against
-the dispatch runs ENTIRELY on the host at small widths while reading as a device tool, the fault
-happened to the BBP sweep in this tree and cost a night. The crossover sits at 1,024 limbs - 32,768
-bits - and the sweep was running at 900.
+the dispatch runs ENTIRELY on the host at small widths while reading as a device tool. The crossover
+sits at 1,024 limbs - 32,768 bits. A run below it is all host and still reads as the device.
 
 WHY NEITHER HALF CARRIES ITS OWN RECURRENCES
 
 Both bind `series`, which holds one copy of the Newton reciprocal, the inverse root, the division
-and Chudnovsky's splitting, each taking the multiply as an argument. An earlier version of this file
-carried its own copies. That is the other way to be wrong: two copies of an iteration are one edit
-from disagreeing, nothing reports it when they do, and the first symptom is two engines returning
-different answers with no way to tell which is broken.
+and Chudnovsky's splitting, each taking the multiply as an argument. Carrying its own copies in each
+half is the other way to be wrong: two copies of an iteration are one edit from disagreeing, nothing
+reports it when they do, and the first symptom is two engines returning different answers with no way
+to tell which is broken.
 
 So the split is in the MULTIPLY, the single thing that actually differs between the two
 machines, and nowhere else. Everything above the multiply is shared, and `gate()` checks that the

@@ -176,13 +176,11 @@ def octant_share(points, live):
     A point exactly on an octant face is placed by the sign convention, and the eight shares add to
     one because the convention sends every point to exactly one octant.
 
-    An earlier version of this note said a face is measure zero on a placement of this kind. That is
-    false for `golden_place` and was refuted by measurement in `arm_draw`. Index 0 has longitude
+    A face is not measure zero on `golden_place`, and `arm_draw` measures it. Index 0 has longitude
     `0 * GOLDEN`, which is exactly zero, and the sine of exactly zero is exactly zero. Its third
-    coordinate is exactly zero at every placement size: 64, 128, 256, 512, 1024 and 4096 were
-    checked and all of them put index 0 on the face. One point of the placement is decided by the
-    convention and not by its position, and a caller comparing two conventions gets two answers
-    for it.
+    coordinate is exactly zero at every placement size: 64, 128, 256, 512, 1024 and 4096 all put
+    index 0 on the face. One point of the placement is decided by the convention and not by its
+    position, and a caller comparing two conventions gets two answers for it.
     """
     counts = [0] * 8
     for at in live:

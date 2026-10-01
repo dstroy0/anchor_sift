@@ -102,17 +102,16 @@ def strip_strings(text, start=0):
 
     A brace inside a string value must not be counted, and JSON has exactly one string delimiter.
 
-    THE JAVASCRIPT RULE WAS USED HERE FIRST AND IT WAS WRONG. Blanking on any of the quote, the
-    apostrophe and the backtick is right for JavaScript source and wrong for a JSON literal, because
-    an apostrophe there is an ordinary character inside a value. Worse, the scan used to start at the
-    top of the file, where an apostrophe in a comment above the data opened a string that never
-    closed: the blanking then ran to the end of the page and took the data's own braces with it, the
-    depth counter never left zero, and the tool reported DATA DOES NOT PARSE AS JSON for a page whose
-    data was perfectly well formed. step_view.html carries 25 apostrophes in its data and
-    voxel_view.html carries one, and one is enough.
+    Blanking on any of the quote, the apostrophe and the backtick is right for JavaScript source and
+    wrong for a JSON literal, because an apostrophe there is an ordinary character inside a value.
+    Worse is to start the scan at the top of the file: an apostrophe in a comment above the data
+    opens a string that never closes, the blanking runs to the end of the page and takes the data's
+    own braces with it, the depth counter never leaves zero, and the tool reports DATA DOES NOT PARSE
+    AS JSON for a page whose data is perfectly well formed. step_view.html carries 25 apostrophes in
+    its data and voxel_view.html carries one, and one is enough.
 
     So the scan begins at the literal and admits one delimiter. A tool that blames the thing it is
-    reading for a defect in its own reading sends the next person to fix a file that was fine.
+    reading for a defect in its own reading sends the next person to fix a file that is fine.
     """
     out = []
     inside = False

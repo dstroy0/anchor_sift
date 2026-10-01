@@ -167,7 +167,7 @@ because the whole script died on the first token that did not fit. Every edit to
 template was one typo away from that, discoverable only by opening the page, and nobody opens it
 once the builder has said it succeeded.
 
-**Closed:** `tools/view/script_check.py`. Nine templates, every one parses, the largest 3,546 lines.
+**Closed:** `examples/00_blob_viz_tools/script_check.py`. Nine templates, every one parses, the largest 3,546 lines.
 A missing `node` is reported and never treated as a pass, because a check that cannot run is not a
 check that passed.
 
@@ -175,7 +175,7 @@ check that passed.
 
 Two faults of that class were found in one afternoon and **neither was found by looking for it.**
 
-**Closed:** `tools/view/frame_audit.py`. It walks the call graph from the frame loop outward, and a
+**Closed:** `examples/00_blob_viz_tools/frame_audit.py`. It walks the call graph from the frame loop outward, and a
 helper three calls deep is reported at the depth it sits at, and it fails on a disposal of anything
 built once at the top level. It reports allocations without failing on them, because a site's cost
 depends on how often it runs, and a reader decides that where a pattern cannot.
@@ -353,7 +353,7 @@ Prediction 2 is the discriminator: whether the pattern belongs to the light or t
 down before running any of it, because a cause named from reading the source is a guess until the
 suspect is switched off and something disappears.
 
-**The null calibration.** Closed. `tools/view/null_harness.py` ships a known-null move per reading
+**The null calibration.** Closed. `examples/00_blob_viz_tools/null_harness.py` ships a known-null move per reading
 and reports its residual, and it proves itself on a deliberately broken null before it will report
 any floor at all. Three of the six nulls come back exactly zero. The one worth carrying forward is
 the power reading under rotation at 4.005e-16, since `sphere_field.power` has claimed independence

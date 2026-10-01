@@ -26,14 +26,9 @@
 # Everything fetched is cached under build/cod. The archive is a public service run by people. A
 # second run costs it nothing, and the pause between requests is not negotiable.
 #
-# The reading is exact and the comparison is equality. An earlier version of this put the sites on a
-# grid of 0.25 angstroms first, and every number it reported carried that grid: 453 axes recovered
-# inside one voxel at a mean absolute error of 0.0124 angstroms and a worst of 0.0554. None of that
-# error was in the deposit or in the detector. It was the grid, and the grid was chosen here.
-#
-# The points are now carried as exact integers at 1e-1024 of an angstrom. A recovered period either
-# is the published edge or is not. There is no tolerance to set and no error to average, and the
-# grid's cap on cell size went with it, leaving more axes readable than before.
+# The reading is exact and the comparison is equality. The points are carried as exact integers at
+# 1e-1024 of an angstrom. A recovered period either is the published edge or is not. There is no
+# tolerance to set and no error to average, and nothing caps the cell size.
 #
 # What a failure would look like, stated before the numbers: any axis where the recovered period is
 # not equal to the published edge. A near miss counts as a miss, since nothing here rounds.
@@ -192,15 +187,15 @@ def cached(name, url, out):
             socket.timeout,
             OSError,
         ) as trouble:
-            # This caught bare Exception until now, which retried a NameError or a bad format
-            # string three times and then reported it as the archive erroring. A programming error
-            # presented as a network failure, and the run still printed a denominator.
+            # Catching bare Exception here would retry a NameError or a bad format string three
+            # times and then report it as the archive erroring: a programming error presented as a
+            # network failure, with the run still printing a denominator.
             #
             # HTTPException is named although it is not an OSError subclass: an IncompleteRead
-            # arrives from there and from nowhere else, and it is what ended a sibling sweep at
-            # 1836 entries through a handler that looked complete. The sibling client in
-            # maint/data/fetch/fetch_cod_doped.py:156 now carries the same tuple, one decision
-            # written in two places because neither file may depend on the other.
+            # arrives from there and from nowhere else, and it can end a sweep through a handler
+            # that looks complete. The sibling client in maint/data/fetch/fetch_cod_doped.py:156
+            # carries the same tuple, one decision written in two places because neither file may
+            # depend on the other.
             if attempt == (TRIES - 1):
                 out.write("      gave up on %s: %s\n" % (name, str(trouble)[:60]))
                 return None, True

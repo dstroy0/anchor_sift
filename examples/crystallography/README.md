@@ -102,14 +102,8 @@ position over a full site, 72 to 73. The count is not tracking the corpus. These
 old depositions and not a rate at which deposits are written wrong, and the earlier rows were
 climbing because the corpus had not yet reached the end of them.
 
-This section previously read "the result did not soften as the corpus grew ... tripling the
-detections moved nothing", written at 1200. **It softened.** Perfect consistency held to 1200 entries
-and stopped holding somewhere before 3744, and the honest statement is not that the earlier claim was
-wrong but that it was a true measurement of a range, quoted as though the range were the world.
-
-That is a stronger result than the original. A detector that holds across
-1200 deposits and then meets 66 deposit defects at 6730 is an instrument meeting a real corpus. The
-original framing was wrong because it had no room for that outcome.
+A detector that holds across 1200 deposits and then meets 66 deposit defects at 6730 is an instrument
+meeting a real corpus: perfect consistency holds to 1200 entries and stops holding somewhere before 3744.
 
 ### What the inconsistent positions are
 
