@@ -6,20 +6,20 @@
 #
 #   Usage:  python maint/prose/prosody_rate.py PATH [PATH ...]
 #
-# docs_check.py answers a different question. It reports every banned token it finds. A file with
+# docs_check answers a different question. It reports every banned token it finds. A file with
 # no findings passes, and passing a ban list is not the same as reading human: a writer who avoids
 # eight named phrases and keeps the rhythm that produced them still reads wrong, and the ban list
 # only ever names the shapes somebody already noticed.
 #
 # This counts the same patterns as a RATE per hundred thousand words and puts it beside the three
-# rates already measured in this tree, quoted in docs_check.py's own header:
+# rates already measured in this tree, quoted in docs_check's own header:
 #
-#     643.4   assistant prose, 38,702 gated words of session transcript
+#     643.4   machine prose, 38,702 gated words of session transcript
 #     387.9   human prose, 759,815 words of the research papers
 #     112.8   this tree, after a day of repair
 #
 # Those are the bar, and they were drawn and not derived, the rule this tree applies to
-# every other threshold. A file scoring near 643 reads like an assistant however clean its findings
+# every other threshold. A file scoring near 643 reads like a machine however clean its findings
 # list is. A file near 112 reads like this tree.
 #
 # THE PATTERNS ARE IMPORTED AND NEVER COPIED. A second ban list is the same defect one level up, and
@@ -27,14 +27,14 @@
 #
 # WHAT THIS DOES NOT REPLACE
 #
-# anchor_sift/maint/prose/claudese_distance.py is the better instrument for the register question and
+# anchor_sift/maint/prose/machine_distance.py is the better instrument for the register question and
 # it existed before this file did. It has two poles, a human corpus and a page written deliberately
-# in the assistant register, and it places a file by which it sits nearer, with the margin reported
+# in the machine register, and it places a file by which it sits nearer, with the margin reported
 # against a band measured at that file's own word count. That is a positive control, and this file
 # has none: a rate against three quoted numbers cannot say what a file resembles, only how often it
 # uses named phrases.
 #
-# Run claudese_distance.py first. It states it does not measure arrangement, since
+# Run machine_distance.py first. It states it does not measure arrangement, since
 # its file-level distances are taken on a bag of words and it says so at the foot of its own output.
 # The RHYTHM section below is that missing half and is the only reason to run this.
 
@@ -130,7 +130,7 @@ def main(argv):
         print("  no files were read. Nothing was checked, so nothing passed.")
         return 2
 
-    print("  drawn bars, from docs_check.py: assistant %.1f   human %.1f   this tree %.1f"
+    print("  drawn bars, from docs_check: assistant %.1f   human %.1f   this tree %.1f"
           % (ASSISTANT_RATE, HUMAN_RATE, TREE_RATE))
     print("  %-58s %7s %8s  %s" % ("file", "words", "per100k", "verdict"))
 

@@ -33,7 +33,7 @@
 # preamble, an error, or a stray line of chat. That is the cheap surface and it catches the
 # careless case only.
 #
-# A register. This surface carries the measurement. maint/prose/docs_check.py holds 285 patterns and,
+# A register. This surface carries the measurement. maint/prose/docs_check holds 285 patterns and,
 # for 121 of them, the rate a human research writer uses them at, counted over 759,815 words of
 # the papers under build/papers. Those rates are imported from that file and never restated here.
 # Their sum is the rate a human carries for the whole list. The baseline this compares against

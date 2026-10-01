@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Take the assistant's own prose out of a session transcript, as a pole with known provenance.
+# Take the machine's own prose out of a session transcript, as a pole with known provenance.
 #
 #   Usage:  python maint/prose/session_prose.py <transcript.jsonl> [--out <file>]
 #
@@ -10,7 +10,7 @@
 #
 # Every dataset on a public host carries a model name that nobody outside can verify, and the one
 # time that was tested here it failed: a corpus labeled as an earlier model generation, two years
-# older, fired the eight phrases this repository had confirmed as the assistant signature at 1.3
+# older, fired the eight phrases this repository had confirmed as the machine signature at 1.3
 # per hundred thousand words against this tree at 26.4, and that reading said the phrases were
 # local to the tree. It was wrong.
 # A transcript needs no label. The assistant turns in it were written by the model that wrote them.

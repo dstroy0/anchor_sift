@@ -102,7 +102,7 @@ The hand extractions are not fetchable. They are transcribed out of published pa
 ## Checks
 
 ```sh
-python maint/prose/docs_check.py      the register check over every document and comment
+python maint/prose/docs_check      the register check over every document and comment
 python maint/catalog/catalog.py --check       every example carries its catalog number
 python maint/catalog/catalog_verify.py        where an example's description and its code disagree
 python maint/tree/write_survey.py          every file write in the tree, and where it lands

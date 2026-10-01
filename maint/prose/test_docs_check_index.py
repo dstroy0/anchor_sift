@@ -2,14 +2,14 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Tests for the literal index in docs_check.py, which decides which BANNED patterns scan a run.
+# Tests for the literal index in docs_check, which decides which BANNED patterns scan a run.
 #
 #   Usage:  python maint/prose/test_docs_check_index.py
 #
 # The index is a prefilter and it is allowed one property: it never changes a finding. Every test
-# here holds it to the scan it replaced, where every pattern ran over every run, and compares the
+# here holds it to the unfiltered scan, where every pattern runs over every run, and compares the
 # two hit for hit and in order. The tree test reads every file under the checker's own roots and
-# takes as long as the old scan did, about half a minute here, because the old scan is half of it.
+# takes about half a minute here, because the unfiltered scan is half of what it runs.
 
 import os
 import sys

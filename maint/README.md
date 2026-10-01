@@ -49,7 +49,7 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "
     ROOT = os.path.dirname(ROOT)
 ```
 
-Thirty nine scripts counted parent directories instead, and counting fixes a script's distance from the root. Sorting `maint/` into these categories moved every one of them and would have broken all thirty nine at once. `docs_check.py` had the same defect twice over: it counted its own depth, and it listed prose roots that had moved, which made it read 188 files instead of 317 and still exit 0. A root that no longer exists now raises instead of reading as zero findings.
+Thirty nine scripts counted parent directories instead, and counting fixes a script's distance from the root. Sorting `maint/` into these categories moved every one of them and would have broken all thirty nine at once. `docs_check` had the same defect twice over: it counted its own depth, and it listed prose roots that had moved, which made it read 188 files instead of 317 and still exit 0. A root that no longer exists now raises instead of reading as zero findings.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 **Date:** 2026-09-09

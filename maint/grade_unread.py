@@ -28,7 +28,7 @@ import sys
 import tempfile
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CHECK = os.path.join(HERE, "maint", "prose", "docs_check.py")
+CHECK = os.path.join(HERE, "maint", "prose", "docs_check")
 
 # Kinds the gate does not read, and the checked kind each is staged as. C++ and CUDA are staged as
 # .c because their comment syntax is identical; nothing about the code is being compiled here.
@@ -78,7 +78,7 @@ def main():
         return 0
 
     if not os.path.exists(CHECK):
-        sys.stderr.write("no docs_check.py at %s\n" % CHECK)
+        sys.stderr.write("no docs_check at %s\n" % CHECK)
         return 1
 
     room = tempfile.mkdtemp(prefix="grade_unread_")

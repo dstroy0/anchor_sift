@@ -32,8 +32,8 @@ The corpora, page renders and audio under `build/` are also absent and run to ab
 **Prose.** The writing standard is checked instead of remembered:
 
 ```sh
-python maint/prose/docs_check.py docs
-python maint/prose/docs_check.py docs --strict
+python maint/prose/docs_check docs
+python maint/prose/docs_check docs --strict
 ```
 
 Breaking findings are an empty table, an em dash, and a link to a file that is not there. Those stop a commit. Prose findings are printed and let through, because the prose backlog predates the check.
@@ -50,7 +50,7 @@ git config core.hooksPath .githooks
 python maint/prose/submission_check.py <path to the contribution>
 ```
 
-It reads the prose of a submission and reports two things. Any model vendor named in it, which catches only the careless case. And how often it reaches for the 285 phrases `docs_check.py` bans, as a rate per hundred thousand words, against the rate a human research writer carries for the same list. That baseline is 387.9, counted over 759,815 words of the papers under `build/papers`, and it is summed from the same table the findings come from so the two cannot disagree.
+It reads the prose of a submission and reports two things. Any model vendor named in it, which catches only the careless case. And how often it reaches for the 285 phrases `docs_check` bans, as a rate per hundred thousand words, against the rate a human research writer carries for the same list. That baseline is 387.9, counted over 759,815 words of the papers under `build/papers`, and it is summed from the same table the findings come from so the two cannot disagree.
 
 Two poles calibrate it. A page written deliberately in the machine register measures 12.5 times the human rate. Three Salishan papers measure 0.5, 0.6 and 0.9.
 

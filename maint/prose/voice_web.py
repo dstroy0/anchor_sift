@@ -16,7 +16,7 @@
 #                              is measure/web.py's web() over the same text with the shares left
 #                              as counts: a cell's share is its count over the table's total.
 #   voice_word_web.tsv         which voice word follows which, as counts. The pairs are the ones
-#                              claudese_distance.web_profile counts, over voice.tsv's words only.
+#                              machine_distance.web_profile counts, over voice.tsv's words only.
 #
 # All three read the text voice.tsv is counted from, normalized by voice_count.normalized(). Every
 # run of whitespace is then read as one space. pdftotext breaks lines where the page did, and a line break is

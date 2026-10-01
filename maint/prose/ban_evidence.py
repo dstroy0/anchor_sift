@@ -6,9 +6,9 @@
 #
 #   Usage:  python maint/prose/ban_evidence.py [--worst N]
 #
-# docs_check.py carries 242 patterns and every one of them got there because somebody noticed it.
+# docs_check carries 242 patterns and every one of them got there because somebody noticed it.
 # That makes the list a record of what was noticed. This asks what the list is claiming: that these
-# phrases are the assistant's and not a person's.
+# phrases are the machine's and not a person's.
 #
 # prose_distance.py asked the same question with a distribution and could not answer it. The gap
 # between the arms was the same sign at all four symbol widths and cleared no floor at any of them,
@@ -33,7 +33,7 @@
 # Rates are per hundred thousand words, because most of these phrases are rare enough that per
 # thousand rounds everything to zero. A pattern that fires in the papers is a pattern describing
 # ordinary technical English, and banning it costs a writer a phrase they are entitled to. A pattern
-# that never fires in 154 papers and fires in the assistant arm is doing the job the list claims.
+# that never fires in 154 papers and fires in the machine arm is doing the job the list claims.
 #
 # This does not decide anything on its own. A pattern can be absent from the papers because the
 # papers are linguistics and the phrase belongs to systems programming. The output is evidence for

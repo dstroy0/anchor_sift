@@ -8,7 +8,7 @@
 #
 # WHAT THIS ANSWERS
 #
-# docs_check.py bans 242 phrases and every one got there because somebody noticed it, which makes
+# docs_check bans 242 phrases and every one got there because somebody noticed it, which makes
 # the list a record of noticing. The question underneath it is whether this tree's prose reads like
 # English somebody wrote. That question already has a bench: english_sift.english_reference builds
 # a byte pair reference from four megabytes of ordinary English plus the in-domain English nine
@@ -103,9 +103,9 @@ def prose_of(path):
     return " ".join(one.strip() for one in kept if one.strip())
 
 
-# The roots read where the caller names none. `tools` sat in this tuple long after that directory
-# was split into data, analysis and maint. The walk skipped a directory that no longer existed
-# and read fewer files than it reported, silently.
+# The roots read where the caller names none. Every name here has to be a directory that exists: a
+# name no directory answers is skipped in silence, and the walk then reads fewer files than it
+# reports.
 DEFAULT_ROOTS = ("docs", "src", "examples", "maint", "theory")
 
 
@@ -116,11 +116,10 @@ def repository_files(where=None, roots=None):
     this tool measures the distance of a body of writing from a human pole, and the body of writing
     is not always this tree.
 
-    It used to take neither. A caller naming a path had it ignored, and the tool measured
-    anchor_sift and reported the number as though it were theirs. A session working in another
-    repository believed it had a reading for that repository until the word count at the foot said
-    186862, which was this tree. Silently measuring the wrong subject is the failure that looks most
-    like success.
+    Both have to be taken. A tool that ignores a named path measures anchor_sift and reports the
+    number as though it belonged to whatever the caller asked about, and the only sign of it is the
+    word count at the foot. Silently measuring the wrong subject is the failure that looks most like
+    success.
     """
     where = where or ROOT
     found = []

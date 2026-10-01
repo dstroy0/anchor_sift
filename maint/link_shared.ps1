@@ -68,7 +68,7 @@ if (-not (Test-Path $repotools))
 
 # Where the file lives here, the name to find it by, and WHICH TREE to find it in.
 #
-# THE TOOLS COME FROM repo_tools, NOT FROM ANOTHER CAPTAIN'S REPOSITORY. docs_check.py pointed into
+# THE TOOLS COME FROM repo_tools, NOT FROM ANOTHER CAPTAIN'S REPOSITORY. docs_check pointed into
 # anchor_sift. This tree's prose gate was whatever that repository last saved - and on 2026-09-11
 # eight patterns arrived here without anyone on this side asking for them or knowing. That is not a
 # shared file, it is one repository silently setting another's standard. Doug's rule is that every
@@ -79,7 +79,7 @@ $shared = @(
     @{ mine = "theory\macros.tex";              name = "macros.tex";      root = $anchor; under = "theory" },
     @{ mine = "theory\cryptography\macros.tex"; name = "macros.tex";      root = $anchor; under = "cryptography" },
     @{ mine = "tools\research_paper\build_theory.sh"; name = "build_theory.sh"; root = $anchor },
-    @{ mine = "tools\prose\docs_check.py";      name = "docs_check.py";   root = $repotools }
+    @{ mine = "tools\prose\docs_check";      name = "docs_check";   root = $repotools }
 )
 
 foreach ($one in $shared)

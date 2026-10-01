@@ -140,7 +140,7 @@ def gate_docs_check(cfg, settings, strict):
         cfg,
         "docs_check",
         settings,
-        ("no_replicate_/prose_detection/docs_check.py",),
+        ("no_replicate_/prose_detection/docs_check",),
     )
     roots = _roots_for(cfg, settings, cfg.docs_roots() + cfg.source_roots())
     argv = [sys.executable, tool] + list(roots) + (["--strict"] if strict else [])

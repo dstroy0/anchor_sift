@@ -2,9 +2,9 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Find the assistant register in this tree by measuring against a written sample of it.
+# Find the machine register in this tree by measuring against a written sample of it.
 #
-#   Usage:  python maint/prose/claudese_distance.py [<root> ...] [--worst N]
+#   Usage:  python maint/prose/machine_distance.py [<root> ...] [--worst N]
 #
 # WHY A POSITIVE CONTROL CHANGES THE QUESTION
 #
@@ -14,8 +14,8 @@
 # sits near instead, and a detector with one pole is a detector that can only ever report a
 # distance from normal.
 #
-# maint/prose/fixtures/claudese_reference.md is the other pole. It is a page written deliberately
-# in the assistant register, at full strength, by the assistant, about the work being done in this
+# maint/prose/fixtures/machine_reference.md is the other pole. It is a page written deliberately
+# in the machine register, at full strength, by the machine, about the work being done in this
 # repository. Matching the subject makes it usable, because it is not a distance to a 1667 epic or
 # to a linguistics paper. Genre, locale and era are all held fixed and the only thing left free
 # to vary is the register.
@@ -47,7 +47,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 WORDS = os.path.join(HERE, "voice.tsv")
 WORD_WEB = os.path.join(HERE, "voice_word_web.tsv")
-FIXTURE = os.path.join(HERE, "fixtures", "claudese_reference.md")
+FIXTURE = os.path.join(HERE, "fixtures", "machine_reference.md")
 
 sys.path.insert(0, HERE)
 
@@ -56,14 +56,14 @@ from english_gate import english_only, english_words  # noqa: E402
 
 # The poles, best provenance first.
 #
-# session_prose.txt is the assistant's own messages, taken out of a transcript by session_prose.py.
+# session_prose.txt is the machine's own messages, taken out of a transcript by session_prose.py.
 # Nobody has to trust a label for it: the turns were written by the model that wrote them. It is
 # also the largest assistant sample available here, 38,702 gated English words against the 5,188 a
 # search of every published Opus 5 dataset could supply.
 SESSION = os.path.join(ROOT, "build", "corpora", "session_prose.txt")
 
 # The published fallback, whose label nobody outside can verify.
-FETCHED = os.path.join(ROOT, "build", "corpora", "claude_prose.txt")
+FETCHED = os.path.join(ROOT, "build", "corpora", "machine_prose.txt")
 
 # A file carries this much prose before it is placed. Under it one sentence decides the verdict.
 LEAST = 500
@@ -84,11 +84,11 @@ icsnl ubcwpl proceedings conference gloss glosses glossing morpheme morphemes af
 
 # The medium, which is not the register.
 #
-# The assistant pole is a chat transcript and the files under test are documents. A transcript says
+# The machine pole is a chat transcript and the files under test are documents. A transcript says
 # you and your and I'll and that's because somebody is being spoken to; a README never does. Left
 # in, those words dominate the comparison and it measures which medium a text is in. The explain
 # mode showed it plainly: you, it's, that's, your, me and i'll were the strongest single pulls away
-# from the assistant pole, in a file that could not have used them.
+# from the machine pole, in a file that could not have used them.
 # docs-check: quoting
 MEDIUM = set("""
 i i'm i'll i've me my mine myself we we're we'll we've our ours us
@@ -131,7 +131,7 @@ def words_of(text):
 #
 # The first arrangement compared full word distributions and placed nothing. The positive pole is
 # one page of about 1200 words and the human pole is 982,000, and a total variation over every word
-# either of them uses is then almost entirely sampling noise: the claudese pole's own halves sat
+# either of them uses is then almost entirely sampling noise: the machine pole's own halves sat
 # 0.5942 apart while the largest margin any file reached was 0.0675. Nothing could clear that.
 #
 # Restricting to the commonest words of each pole is the same move web() makes with its 64 ranks. A
@@ -235,21 +235,21 @@ def prose_of_path(path, where=None):
     return prose_distance.prose_of(os.path.join(where or prose_distance.ROOT, path))
 
 
-def pulls(mine, claudese, human, ranks=24):
-    """Which words carry one file toward the assistant pole, and which carry it away.
+def pulls(mine, machine, human, ranks=24):
+    """Which words carry one file toward the machine pole, and which carry it away.
 
     A total variation distance is a sum over words. It comes apart again into the words that
     made it. For one word the contribution to the margin is how far the file sits from the human
-    rate less how far it sits from the assistant rate. Positive means that word is pulling the file
-    toward the assistant pole.
+    rate less how far it sits from the machine rate. Positive means that word is pulling the file
+    toward the machine pole.
 
     This is the part a phrase list cannot do. It names the words doing the work in this file,
     including the ones nobody thought to write down, and it names them in the order they matter.
     """
     scored = []
-    for word in set(mine) | set(claudese) | set(human):
+    for word in set(mine) | set(machine) | set(human):
         here = mine.get(word, 0.0)
-        there = claudese.get(word, 0.0)
+        there = machine.get(word, 0.0)
         theirs = human.get(word, 0.0)
         scored.append(
             (abs(here - theirs) - abs(here - there), word, here, there, theirs)
@@ -282,7 +282,7 @@ def halves(text):
 # Measured instead. Half the papers held out as the reference pole, the other half cut into disjoint
 # blocks, each block scored the way a repository file is scored. Every block is human. The spread
 # is what the instrument does to a text of that length. Reference pole 372,922 words, probe pool
-# 366,833 words, claudese pole 35,303 words, the two poles 0.3356 apart.
+# 366,833 words, machine pole 35,303 words, the two poles 0.3356 apart.
 #
 #   words  blocks   median      p95      p99    worst
 #     250    1467  -0.1000  -0.0199   0.0099   0.0356
@@ -338,7 +338,7 @@ def band_at(count):
     return HUMAN_BAND[-1][1], HUMAN_BAND[-1][2]
 
 
-def measure_band(out, claudese_text, human_text):
+def measure_band(out, machine_text, human_text):
     """Measure HUMAN_BAND again, for when either pole changes.
 
     The reference pole has to be held out of the blocks it scores. Sentences alternate into a
@@ -352,18 +352,18 @@ def measure_band(out, claudese_text, human_text):
         out.write("  not enough human text to measure a band\n")
         return 1
 
-    claudese_full, claudese_words = profile(words_of(claudese_text))
+    machine_full, machine_words = profile(words_of(machine_text))
     reference_full, reference_words = profile(words_of(reference_text))
     probe_all = words_of(probe_text)
 
-    vocabulary = top_words((claudese_full, reference_full))
-    claudese = restricted(claudese_full, vocabulary)
+    vocabulary = top_words((machine_full, reference_full))
+    machine = restricted(machine_full, vocabulary)
     reference = restricted(reference_full, vocabulary)
 
     out.write("\n  reference pole  %7d words, half the papers\n" % reference_words)
     out.write("  probe pool      %7d words, the other half\n" % len(probe_all))
-    out.write("  claudese pole   %7d words\n" % claudese_words)
-    out.write("  the two poles sit %.4f apart\n" % distance(claudese, reference))
+    out.write("  machine pole   %7d words\n" % machine_words)
+    out.write("  the two poles sit %.4f apart\n" % distance(machine, reference))
     out.write("\n  margin of a known human block, by block size\n")
     out.write("  %7s %7s %9s %9s %9s\n" % ("words", "blocks", "median", "p95", "worst"))
 
@@ -372,7 +372,7 @@ def measure_band(out, claudese_text, human_text):
         for start in range(0, len(probe_all) - size + 1, size):
             block_full, _ = profile(probe_all[start : start + size])
             block = restricted(block_full, vocabulary)
-            margins.append(distance(block, reference) - distance(block, claudese))
+            margins.append(distance(block, reference) - distance(block, machine))
         if not margins:
             continue
         margins.sort()
@@ -401,8 +401,8 @@ def main():
     if "--worst" in sys.argv:
         worst = int(sys.argv[sys.argv.index("--worst") + 1])
 
-    # The tree under measurement, which is not always this one. A path used to be accepted and
-    # ignored. A caller measuring another repository got this one's number and no indication of
+    # The tree under measurement, which is not always this one. A path accepted and then ignored
+    # hands a caller measuring another repository this one's number with no indication of
     # it. The path is echoed for the same reason the file count is: a number with no subject named
     # beside it is a number somebody will attach to the wrong thing.
     where, roots = prose_distance.named_roots(sys.argv)
@@ -419,24 +419,24 @@ def main():
 
     if os.path.isfile(SESSION):
         with open(SESSION, encoding="utf-8", errors="replace") as handle:
-            claudese_text = handle.read()
+            machine_text = handle.read()
         pole_name = (
             os.path.relpath(SESSION, ROOT).replace("\\", "/") + "  (own transcript)"
         )
     elif os.path.isfile(FETCHED):
         with open(FETCHED, encoding="utf-8", errors="replace") as handle:
-            claudese_text = handle.read()
+            machine_text = handle.read()
         pole_name = (
             os.path.relpath(FETCHED, ROOT).replace("\\", "/") + "  (label unverified)"
         )
     elif fixture_text:
-        claudese_text = fixture_text
+        machine_text = fixture_text
         pole_name = (
             os.path.relpath(FIXTURE, ROOT).replace("\\", "/")
             + "  (hand written, small)"
         )
     else:
-        out.write("  no assistant pole. Run maint/data/fetch/fetch_claude_prose.py\n")
+        out.write("  no machine pole. Run maint/data/fetch/fetch_machine_prose.py\n")
         out.flush()
         return 1
 
@@ -449,18 +449,18 @@ def main():
     # voice.tsv is that, counted once by voice_count.py over the corpus
     human_text = ""
 
-    claudese_all = words_of(claudese_text)
-    claudese_full, claudese_words = profile(claudese_all)
+    machine_all = words_of(machine_text)
+    machine_full, machine_words = profile(machine_all)
 
-    vocabulary = top_words((claudese_full, human_full))
-    claudese = restricted(claudese_full, vocabulary)
+    vocabulary = top_words((machine_full, human_full))
+    machine = restricted(machine_full, vocabulary)
     human = restricted(human_full, vocabulary)
 
     out.write("\n  the two poles\n")
-    out.write("    %-10s %7d words  %s\n" % ("claudese", claudese_words, pole_name))
+    out.write("    %-10s %7d words  %s\n" % ("machine", machine_words, pole_name))
     out.write("    %-10s %7d words  maint/prose/voice.tsv\n" % ("human", human_words))
     out.write("    compared over the %d commonest words of the two\n" % len(vocabulary))
-    out.write("    they sit %.4f apart\n" % distance(claudese, human))
+    out.write("    they sit %.4f apart\n" % distance(machine, human))
 
     # The floor. Each pole split by alternating sentences and its two halves measured against each
     # other. A file whose margin is under this is not placed by the instrument.
@@ -469,7 +469,7 @@ def main():
     # pole used. A margin of 0.03 was then asked to clear a floor of 0.59 that belonged to a
     # different instrument. A floor has to be the resolution of the measurement actually made.
     floors = []
-    for name, text in (("claudese", claudese_text), ("human", human_text[:400000])):
+    for name, text in (("machine", machine_text), ("human", human_text[:400000])):
         first, second = halves(text)
         if not first:
             continue
@@ -489,7 +489,7 @@ def main():
     )
 
     if "--band" in sys.argv:
-        code = measure_band(out, claudese_text, human_text)
+        code = measure_band(out, machine_text, human_text)
         out.flush()
         return code
 
@@ -506,9 +506,9 @@ def main():
         mine = restricted(mine_full, vocabulary)
         if not mine:
             continue
-        to_claudese = distance(mine, claudese)
+        to_machine = distance(mine, machine)
         to_human = distance(mine, human)
-        margin = to_human - to_claudese
+        margin = to_human - to_machine
         human_median, human_worst = band_at(count)
         rows.append((margin - human_worst, margin, human_median, count, path))
     rows.sort(reverse=True)
@@ -542,7 +542,7 @@ def main():
     )
     out.write("  human is where the median human block of that length sits.\n")
 
-    # One file explained. Which words in it carry it toward the assistant pole, named in order.
+    # One file explained. Which words in it carry it toward the machine pole, named in order.
     if "--explain" in sys.argv:
         wanted = sys.argv[sys.argv.index("--explain") + 1].replace("\\", "/")
         text = prose_of_path(wanted, where)
@@ -551,10 +551,10 @@ def main():
         else:
             mine_full, count = profile(words_of(text))
             mine = restricted(mine_full, vocabulary)
-            toward, away = pulls(mine, claudese, human)
+            toward, away = pulls(mine, machine, human)
             out.write("\n  %s, %d words\n" % (wanted, count))
             out.write(
-                "  what pulls it toward the assistant pole, per thousand words in each\n"
+                "  what pulls it toward the machine pole, per thousand words in each\n"
             )
             out.write(
                 "    %-18s %8s %8s %8s\n" % ("word", "file", "assistant", "human")
@@ -583,7 +583,7 @@ def main():
     # The margin is a difference of two total variation distances and total variation is a sum over
     # words. The margin is a sum over words and every term is one word's share of the verdict:
     #
-    #     margin = sum over w of 0.5 * ( |file(w) - human(w)| - |file(w) - claudese(w)| )
+    #     margin = sum over w of 0.5 * ( |file(w) - human(w)| - |file(w) - machine(w)| )
     #
     # An editor needs this to know whether a file can be repaired. The explain mode above names the
     # words; this one says how much of the reading each is worth, and the answer decided a repair
@@ -603,7 +603,7 @@ def main():
         for word in vocabulary:
             here = mine.get(word, 0.0)
             theirs = human.get(word, 0.0)
-            ours = claudese.get(word, 0.0)
+            ours = machine.get(word, 0.0)
             terms.append(
                 (
                     0.5 * (abs(here - theirs) - abs(here - ours)),
@@ -633,7 +633,7 @@ def main():
             )
         out.write(
             "\n  %-14s %9s %8s %9s %9s %9s\n"
-            % ("word", "carries", "cumul", "file/1k", "claude/1k", "human/1k")
+            % ("word", "carries", "cumul", "file/1k", "machine/1k", "human/1k")
         )
         running = 0.0
         for value, word, here, ours, theirs in terms[:22]:
@@ -683,9 +683,9 @@ def main():
         )
 
     out.write(
-        "\n  margin is human distance minus claudese distance. Positive means the file reads\n"
+        "\n  margin is human distance minus machine distance. Positive means the file reads\n"
     )
-    out.write("  more like the assistant sample than like the papers.\n")
+    out.write("  more like the machine sample than like the papers.\n")
 
     # The null permutation, run against each pole itself. This is the check that says whether the
     # measure above can see anything at all.
@@ -694,7 +694,7 @@ def main():
     )
     out.write("    %-12s %-16s %s\n" % ("pole", "bag of words", "word web"))
     webs = {}
-    for name, words in (("claudese", claudese_all),):
+    for name, words in (("machine", machine_all),):
         turned = shuffled(words, 0x5EED)
         bag_real, _ = profile(words)
         bag_null, _ = profile(turned)
@@ -727,10 +727,10 @@ def main():
     )
     out.write("    them reads composition and none of them reads arrangement.\n")
 
-    if ("claudese" in webs) and ("human" in webs):
+    if ("machine" in webs) and ("human" in webs):
         out.write(
             "\n  the two poles as word webs sit %.4f apart\n"
-            % distance(webs["claudese"], webs["human"])
+            % distance(webs["machine"], webs["human"])
         )
 
     # The whole tree as one web. A single file holds a few hundred words and its web is nearly all
@@ -747,24 +747,24 @@ def main():
                 )
             )
         )
-    if whole and ("claudese" in webs):
+    if whole and ("machine" in webs):
         ours, count = web_profile(whole)
         null, _ = web_profile(shuffled(whole, 0x5EED))
         own = distance(ours, null)
-        to_claudese = distance(ours, webs["claudese"])
+        to_machine = distance(ours, webs["machine"])
         to_human = distance(ours, webs["human"])
         out.write("\n  the whole tree as one web, %d words\n" % len(whole))
         out.write("    against its own shuffle   %.4f\n" % own)
-        out.write("    to the assistant pole     %.4f\n" % to_claudese)
+        out.write("    to the machine pole     %.4f\n" % to_machine)
         out.write("    to the human pole         %.4f\n" % to_human)
         out.write(
             "    margin %+.4f toward %s\n"
             % (
-                to_human - to_claudese,
-                "the assistant" if to_claudese < to_human else "the humans",
+                to_human - to_machine,
+                "the machine" if to_machine < to_human else "the humans",
             )
         )
-        nearer = [one for one in (to_claudese, to_human) if one < own]
+        nearer = [one for one in (to_machine, to_human) if one < own]
         out.write(
             "    a web distance is only worth reading against how far a shuffle already\n"
         )

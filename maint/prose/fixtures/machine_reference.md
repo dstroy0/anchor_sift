@@ -2,13 +2,13 @@
 
 > **THIS FILE IS A POSITIVE CONTROL AND MUST NEVER BE REPAIRED.**
 >
-> It is written deliberately in the assistant register, at full strength, by the assistant, about
+> It is written deliberately in the machine register, at full strength, by the machine, about
 > the work it was actually doing in this repository. It exists so that the detector has something
 > to be _near_. Every other reference in this tree is a negative one: human papers, human corpora,
 > human English. A detector with only a negative pole can say a text is unlike a human. It cannot
 > say what the text is like instead. This file is the other pole.
 >
-> `maint/prose/claudese_distance.py` reads it. `docs_check.py` skips the directory it sits in.
+> `maint/prose/machine_distance.py` reads it. `docs_check` skips the directory it sits in.
 > If you "fix" this file you destroy the instrument.
 
 Let's dive into what we're really doing here.

@@ -191,7 +191,7 @@ def cmd_prose(argv):
     from_env = os.environ.get("REPOTOOLS_DOCS_CHECK")
     if from_env:
         tried.append(from_env)
-    tried.append(os.path.join(boot.toolkit_root(), "no_replicate_", "prose_detection", "docs_check.py"))
+    tried.append(os.path.join(boot.toolkit_root(), "no_replicate_", "prose_detection", "docs_check"))
 
     for candidate in tried:
         if os.path.isfile(candidate):

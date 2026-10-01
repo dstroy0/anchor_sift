@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Tests for the register stages of docs_check.py: the two tiers, what stands behind each one, and
+# Tests for the register stages of docs_check: the two tiers, what stands behind each one, and
 # the reporting text.
 #
 #   Usage:  python maint/prose/test_docs_check_tiers.py
@@ -31,10 +31,13 @@ sys.path.insert(0, HERE)
 
 import docs_check
 
-SKILLS = os.path.join(os.path.expanduser("~"), ".claude", "skills")
+# Where the two writing standards are installed, named by the environment and not by a path built
+# here. They live outside this repository and every test that reads them skips when they are
+# absent, so a clone with no copy of them still runs the suite.
+STANDARDS_DIR = os.environ.get("PROSE_STANDARDS_DIR", "")
 STANDARDS = {
-    "code-documentation": os.path.join(SKILLS, "code-documentation", "SKILL.md"),
-    "code-comments": os.path.join(SKILLS, "code-comments", "SKILL.md"),
+    "code-documentation": os.path.join(STANDARDS_DIR, "code-documentation", "SKILL.md"),
+    "code-comments": os.path.join(STANDARDS_DIR, "code-comments", "SKILL.md"),
 }
 
 
@@ -61,8 +64,8 @@ def findings(path):
 def sibling_repository(name):
     """A repository checked out beside this one, or None.
 
-    Resolved through main_checkout() and not __file__. A linked worktree computing sibling paths from
-    __file__ lands inside .claude/ and finds nothing. Commit 915b3a9 landed that fix and this inherits it.
+    Resolved through main_checkout() and not __file__. A linked worktree computing sibling paths
+    from __file__ lands inside the worktree directory and finds nothing.
     """
     named = os.environ.get(name.upper() + "_TREE")
     if named:
@@ -124,9 +127,11 @@ class StandardsPassTheCheckerTheyAuthorize(unittest.TestCase):
     """
 
     def setUp(self):
+        if not STANDARDS_DIR:
+            self.skipTest("set PROSE_STANDARDS_DIR to the directory holding the standards")
         for path in STANDARDS.values():
             if not os.path.isfile(path):
-                self.skipTest("the standards are not installed at %s" % SKILLS)
+                self.skipTest("the standards are not installed at %s" % STANDARDS_DIR)
 
     def test_no_tier_b_vocabulary_finding_on_either_standard(self):
         for name, path in STANDARDS.items():
@@ -430,9 +435,9 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
 class TierBIsBoundedToConstructions(unittest.TestCase):
     """Section 143: a word that reads as a tic in one construction is bounded to that construction.
 
-    The thirteen bare word bans that used to sit in BANNED are the reason this class exists. Each
-    of them fired on the standards' own prose, and eleven of the thirteen are used by one or both
-    standards as ordinary technical English in the documents that authorize this tool.
+    Thirteen bare word bans are the reason this class exists. Every one of them fires on the
+    standards' own prose, and eleven of the thirteen are words one or both standards use as
+    ordinary technical English in the documents that authorize this tool.
     """
 
     # The sentence in the standard that each withdrawn word appears in. Quoted and not cited,
@@ -582,8 +587,7 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
     """
 
     def test_the_1_1m_claim_is_gone_from_the_source(self):
-        with open(docs_check.__file__, encoding="utf-8") as handle:
-            source = handle.read()
+        source = docs_check.source()
         emitted = re.findall(r'"[^"\n]*1\.1M[^"\n]*"', source)
         self.assertEqual(
             emitted, [], "a report string still claims 1.1M human words: %s" % emitted
@@ -631,7 +635,7 @@ class ProseNeverFailsABuild(unittest.TestCase):
 
     def run_tool(self, *where):
         done = subprocess.run(
-            [sys.executable, os.path.join(HERE, "docs_check.py")] + list(where),
+            [sys.executable, os.path.join(HERE, "docs_check")] + list(where),
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
         )
@@ -681,7 +685,7 @@ class ProseNeverFailsABuild(unittest.TestCase):
         # the checker and gets no stricter a setting than any repository it is pointed at.
         tier_a = [one for one in docs_check.BANNED if docs_check.tier_of(one) == "A"]
         self.assertTrue(tier_a)
-        source = open(docs_check.__file__, encoding="utf-8").read()
+        source = docs_check.source()
         self.assertIn(
             "if breaking or (strict and prose):",
             source,
@@ -705,12 +709,11 @@ class TheStructuralStageIsUntouched(unittest.TestCase):
         )
         self.assertTrue(docs_check.path_candidate("docs/README.md"))
 
-    def test_locale_and_checked_were_not_this_pass_and_have_since_been_done(self):
-        # This test used to assert ten patterns and five extensions, because both were known gaps
-        # and both belonged to the coverage pass and not to this one. That pass has landed.
-        # The assertion is kept and inverted instead of deleted: it still says the two are not this
-        # pass's to define, and it now fails if a rebuild of the token table takes the coverage work
-        # back out with it. test_docs_check_coverage.py holds what those two are for.
+    def test_locale_and_checked_are_not_this_tier_to_define(self):
+        # Neither the locale table nor the extension list belongs to TIER B, and this says so by
+        # asserting both are populated rather than by asserting their contents. It fails if a
+        # rebuild of the token table carries either of them back out.
+        # test_docs_check_coverage.py holds what those two are for.
         self.assertGreater(len(docs_check.LOCALE), 10)
         for one in (".md", ".py", ".c", ".h", ".tex"):
             self.assertIn(one, docs_check.CHECKED)
@@ -741,7 +744,7 @@ class OneAuthor(unittest.TestCase):
     def test_a_session_that_credits_nobody_stands(self):
         # Transcripts, a PowerShell session, a recording session and this repository's own runs.
         for sentence in (
-            "Take the assistant's own prose out of a session transcript.",
+            "Take the machine's own prose out of a session transcript.",
             "Its variables are carried into this session before nvcc is called.",
             "The story, the session, the microphone and the speaker vary together.",
             "These device runs shared the device with anchor_sift's 54-bit run.",

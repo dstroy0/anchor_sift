@@ -3,6 +3,12 @@
 **objective**: compile a program written in gnascor to any language, including one nobody has met, and prove it is
 the same program everywhere. Where the language is unknown, derive it by asking.
 
+**information is coherence**: the principle the k-files are named for. A description at its Kolmogorov
+complexity holds no redundancy, every bit of it carries, and no part predicts another. A system at coherence
+has that property from the other side: its parts agree and the friction between them is at its floor. Noise
+costs and carries nothing. Compression and coherence are one measurement from two directions, and friction is
+the direction a foreign host will hold still to be measured on.
+
 **what is known before meeting anything**: relations. `1,1 -> 2` is a relation and is not an addition, because
 addition is a spelling. Every system that computes agrees about the relation and each spells it its own way.
 Arithmetic is the shared ground and the spelling is what differs.
@@ -21,6 +27,76 @@ and keeps whichever spelling produced the relation.
 All three may be partly known. A known entry is information and is never thrown away; derivation fills the rest,
 and the three agreeing is the coherence picture.
 
+**the query protocol** is the form every ask takes, and it is what derivation is made of. A question put to a
+target is an address, a qualifier and a cost bound:
+
+    [ ADDRESS ] -> ( QUALIFIER ) -> [ MEASURED COST ] -> BINARY RESULT (1 or 0)
+
+The address names the target: a memory address, a URI, an API endpoint, an LLM context key, a register. The
+qualifier is a binary question asked at it, phrased to demand a state validation and never a data payload. One
+loop can therefore ask a part and a service the same question. The cost bound is the most the target may spend
+to answer, and no hand writes that field.
+
+**The bound is unbound first.** An ask carrying no bound returns the cost instead of a bit: a measurement,
+never a verdict. The spread of those costs is the baseline, and the baseline is `.knf`. Every bound after that
+is expressed against it. No absolute figure is ever written into the machine. Binding a query to `$10ms` by
+hand is a scale written into the machine, which the engine is optimized against at every other point; the
+unbound pass derives the figure in place of choosing it.
+
+So the protocol is two passes of one ask. The unbound pass returns a cost and tells us where to go: a cheap
+address is worth expanding and an expensive one is worth chaining or pruning. The bound pass returns the bit,
+and the bit is what a branch consumes. A missing address, a false qualifier, a timeout, an error and too many
+cycles all read 0 at that point, and the distinction between them survives in the baseline instead of in the
+bit.
+
+Two things the unbound pass has to record. A watchdog stop is not a cost reading, it is a censored sample, and a
+baseline built without marking them reads low. And a baseline taken once goes stale the moment the host's load
+changes. The reference ask is therefore put alongside the real one and measured in the same conditions, the
+same way the emission order is shuffled to leave nothing to tell measurement from work by.
+
+**What the baseline buys is chain slicing.** A chain carries a cost and one number for a whole chain names no
+part of it. Put the unbound ask at many cuts of the chain and the per-link costs come out of the readings
+together, each one measured in the same conditions as the rest. A chain is then a profile and not a total, and
+the expensive link is named instead of inferred.
+
+How the asks are ordered decides whether that works at all, and the arithmetic is measured in
+`maint/engine/measure_check.py`. Subtracting neighboring cuts puts the noise of two measurements on a quantity
+the size of one link, and one link is the quantity sitting under the floor: the recovered cost carries 1.43
+floors of noise against a signal of 1.00, which orders 56% of link pairs correctly where a coin orders 50%.
+Repetition fixes it at 1600 repeats of every cut, and the order of asking fixes it for far less than that.
+
+**The emission order is not a shuffle, it is a carrier.** A shuffle throws away what it scrambled. This order
+is known to the asker and tells the part nothing: the part has no way to separate a measurement from work, and
+every answer is still decodable, because the order is in the record. Build it so every ask covers half the
+links and any two asks overlap on a quarter, and the answers come apart exactly. One ask then informs every
+link at once in place of one link. The gain over asking a link at a time is the square root of (links + 1)
+over two: nothing at 3 links, 2.1 times at 15, 8.2 times at 255, and growing with the chain. Nothing beats the
+bound on what one answer can carry. A known order reaches that bound and asking one at a time does not, and
+the whole gain is that difference.
+
+A known order also beats a drawn one, and by more the further out the reading is: 5.5 times at the median
+worst-link error, 34 times at the 95th, 125 times at the worst of 400. 17 of 400 drawn orders did not come
+apart at all and cost their whole pass. An engine answering every time is held to its worst case, and a known
+order has the same worst case every pass by construction.
+
+**Where links contend the costs stop adding, and the solve does not say so.** It returns plausible per-link
+numbers with the contention folded into them, and what the fit could not account for stays flat while the
+answers go wrong by a factor of two. What catches it is a term for contention's own shape. Contention grows as
+the square of how many links an ask covers and the links themselves grow as the count. An order sweeping
+that count therefore separates the two, and an order holding it at half gives the difference nowhere to
+appear. The term
+notices at 88% where the leftover notices none of it, and the same solve then takes the damage back out. It
+costs one more unknown and not one more ask.
+
+Cross-branch comparison follows from that, and it is the reason the arrangements are all kept. Every
+arrangement that produces an operator is a branch, each branch slices into the same relation, and comparing
+them link by link gives the winning path for a given problem instead of one arrangement that suits nothing in
+particular. A chain reading worse as a total can hold the cheapest link for the job, and only a sliced reading
+can see it.
+
+The rest of the protocol, the pair states and the mnemonics the bits resolve to, is in
+[engine/compiler/gnascor.md](engine/compiler/gnascor.md).
+
 Cost is measured by chaining, never alone: one operation sits under the noise floor and a chain clears it by
 fifteen times. Chaining is also what takes the bias out. A primitive that reads worse by itself and is right for a
 job is then chosen for that job.
@@ -36,12 +112,72 @@ Finished work lives in the engine table, `theory/workbooks/engine/engine_table.m
 
     .kcr   Kolmogorov information crystal
     .krs   Kolmogorov information ruleset: one language's forms
-    .kcs   Kolmogorov information crystal reconstruction set
+    .kcs   Kolmogorov information construction set: what reconstructs information
     .knf   Kolmogorov noise floor
     .kdm   Kolmogorov device map
     .ksc   Kolmogorov system classification
 
 Doug names these. Do not add one.
+
+**The stem is the join and the suffix is the face.** Files sharing a stem are one member's set, whatever the
+stem happens to be. `pair.kdm` and `pair.knf` are a pair's map and that map's floor. `set.kcr`, `set.kcs` and
+`set.knf` are one set's crystal, the set that reconstructs it, and its floor. Nothing outside the filename
+binds them, and no member is required to carry every face: a member holds as many as it has answers for.
+
+A floor is conceptual and not a fixed quantity, which leaves its definition open to `L*` and lets each member
+carry the floor its own set needs. Two members' floors are therefore not comparable by default. That is
+correct for fingerprinting one member and is the thing to check before a number is quoted across two.
+
+What follows from that is a rule about membership. Asked from one member's own floor, agreement is not even
+symmetric: a fine-floored member reads a neighbor as different while the neighbor reads it as the same. Taken
+at the coarser of the two floors it is symmetric and still not transitive, and `maint/engine/order_check.py`
+shows three members where the first agrees with the second, the second with the third, and the first with
+neither. Pairwise agreement therefore names no set, and which members share a stem has no answer that does not
+depend on which was asked first. A group needs one of two things written: a representative every member is
+compared against, or a rule that builds the group and says which member it is anchored on.
+
+**`.kdm` grows to whatever specificity a part needs.** It holds as many answers as it has: a general answer
+block, and under it a map specific enough to be optimal on one device and nowhere else. A driver written by
+hand is general worst case because a person writes it once and cannot write one per device. Nobody writes
+these. A specific map therefore costs nothing to keep, and the general block stays as the fallback for a part
+with no map yet.
+
+## The method
+
+Ask, and remember the answer. It does not get more complicated than that at any layer. The baseline is
+remembered asks. A chain profile is remembered asks at every cut. The winning path is a comparison of two sets
+of remembered asks. Nothing is modeled, nothing is predicted, and a known entry is never thrown away.
+
+**Gate, then rank. Never one score.** A relation holds or it does not, and that answer carries no noise. A
+cost is measured and every cost carries noise. The two do different jobs and are never added together.
+Precepts filter the candidates down to the admissible ones, and cost orders whatever survives. Put both in one
+number and a cheap wrong arrangement outranks a correct slow one, with nothing in the result saying which kind
+of agreement won. Kept apart, measurement noise can cost speed and can never cost correctness, because wrong
+was excluded before anything was ranked.
+
+How many arrangements survive the gate is itself a reading and is kept. One survivor means the precepts decide
+that operator. Many means they do not, and the answer to that is another relation, never more measurement.
+
+**A precept is a question to put, never an answer to write.** Asking a target whether `1,1 -> 2` holds in its
+spelling is the loop working. Reading what the answer should be and writing it into the `.krs` is the loop
+lying to itself, and both look like using the precepts. `precepts.h` and `word_web.h` are answer keys. They
+may be read to form a question, and to check a derivation after it has run. Nothing that derives may read them
+to fill a form in.
+
+A count of precepts held is not a score either, and the reason is separate from the one above. Put five cases
+to the ladder's candidate set and one of them decides it on its own; the other four are surplus, and every one
+of the five is then implied by the rest. A count over a set like that weights one fact several times, at
+weights nobody set. Check the set down to its deciding subset before any count is taken off it.
+`maint/engine/order_check.py` does that mechanically and wants running whenever a case is added.
+
+**An answer holds only under what it was asked at.** A reading is an answer for the part it was taken on and
+the size it was taken at, and for nothing else by default. A foundation that carried three stories is no
+foundation for a tower, and it is not a floor of some other building either. Both transplants are priced in
+`order_check.py`: the arrangement winning at one size costs 79 times the best at a larger one, a winner spliced
+onto another part costs 3 times that part's own best, and across both at once the penalties multiply. Some
+parts agree and some do not, and no reading taken on one part says which. So every answer carries the part and
+the size beside it, and a reader outside either has nothing and has to ask. The general block in `.kdm` is the
+fallback for a member with nothing measured, and never a result borrowed from a member that has.
 
 ## How this is worked
 
@@ -53,6 +189,9 @@ works there.
 
 1. **Nothing searches for a writing.** No file of relations is emitted, run and read back, which leaves every
    writing unconfirmed by any target. `L*` is written by hand for want of this. It is the loop and it is the work.
+   The query protocol above gives the loop its shape and nothing emits one yet. The cost bound is the open part
+   of it: static, written into the query as `$10ms`, or dynamic, measured against a running average. The chain
+   clock already reads a cost in the part's own time, and that reading is what a bound would be set from.
 
 2. **`.kdm` holds no cost.** `maint/engine/chain_check.sh` writes one: 3068 arrangements over 27.6M tried, add
    1202, take 1047, up 411, down 408, and nothing for same, places or product at three nodes. Every cost reads `-`.
@@ -83,6 +222,29 @@ works there.
    151 of down, 36 of take, 25 of add, and all 8 of same. The chain builder gets past it by putting 512 more words
    of its own, which a target cannot be asked in the same breath. Until the cases decide, a target's answer to the
    ladder as written does not say it holds the relation.
+
+10. **One face of a set has no suffix.** Its content is settled and Doug names it. It holds the asks put to a
+    member and the paths read off them, in that order: every probe and what came back, with costs, refusals
+    and censored samples each marked, then the winning path per problem over those same asks. It takes the
+    stem the rest of the set takes. That face, `.kdm` and `.knf` under one stem are a member's coherence map
+    and fingerprint it exactly. It carries the general and specific split `.kdm` carries: a generic block good
+    for any member of a class, and a specific block holding the best combination available for one section of
+    one member. Keeping the asks beside the paths leaves the fingerprint independent of `.kdm` in place of a
+    cache of it. A refused or censored probe appears nowhere in a table of chain costs, and it separates two
+    parts that cost the same.
+
+11. **The order of asks for slicing is specified and nothing emits it.** `maint/engine/measure_check.py`
+    prices every part of it. Three things go in together: each ask covers half the links and any two overlap
+    on a quarter, the count covered sweeps so contention has somewhere to show, and the solve carries a term
+    for contention. The order is kept in the record, and that record is the whole difference between a
+    carrier and a shuffle. The
+    censored-sample mark and the reference ask alongside the real one are part of this and not additions to
+    it.
+
+12. **Stem membership has no written rule.** Two members sharing a stem is the whole basis of a set, and
+    pairwise agreement inside a floor cannot decide it. Either a representative per group or an anchored group
+    rule settles it, and neither is written. Until one is, a generic block covering a class has no membership
+    test and a specific block is the only kind that can be trusted.
 
 ## Pending Doug
 - Move cell_tracking into `examples/` and theory into anchor_sift. Don't start without direction.

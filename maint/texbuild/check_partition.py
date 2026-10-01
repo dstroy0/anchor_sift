@@ -250,7 +250,7 @@ def main(argv):
             print("          %s" % path)
         findings += len(unlisted)
 
-    # A check that reads nothing has not passed. docs_check.py learned this the expensive way, and
+    # A check that reads nothing has not passed. docs_check learned this the expensive way, and
     # the lesson transfers without modification.
     if checked == 0:
         print("  no research paper was read. Nothing was checked, so nothing passed.")

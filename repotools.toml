@@ -52,7 +52,7 @@ gates = ["docs_check", "fetch_check"]
 # Named, because the prose checker lives in the toolkit's no_replicate_ set, which is local only and
 # never fetched. Every repository asking for this gate has to point at its own copy or the gate
 # errors, and erroring is correct: it is a check nothing can supply for you.
-tool = "maint/prose/docs_check.py"
+tool = "maint/prose/docs_check"
 roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "maint"]
 
 [fetch]

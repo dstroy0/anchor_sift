@@ -56,7 +56,7 @@ def sigma_bucket(deviation, samples):
 def main():
     parser = argparse.ArgumentParser(description="Build the survey view.")
     parser.add_argument("--dump", default=os.path.join(
-        os.path.expanduser("~"), ".claude", "jobs", "52b29cc3", "tmp", "survey_dump.json"))
+        os.path.dirname(os.path.dirname(HERE)), "build", "audit", "survey_dump.json"))
     parser.add_argument("--out", default=os.path.join(HERE, "survey_view.html"))
     given = parser.parse_args()
 

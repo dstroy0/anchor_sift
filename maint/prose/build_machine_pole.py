@@ -2,14 +2,14 @@
 # BTC - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Build the assistant pole from every session transcript on this machine, split by whether the
+# Build the machine pole from every session transcript on this machine, split by whether the
 # writing was under suppression.
 #
-#   Usage:  python maint/prose/build_assistant_pole.py [--out-dir DIR] [--limit N]
+#   Usage:  python maint/prose/build_machine_pole.py [--out-dir DIR] [--limit N]
 #
 # WHY THIS EXISTS
 #
-# dependence_decay.py cannot separate the poles because the assistant corpus is 39,516 words and the
+# dependence_decay.py cannot separate the poles because the machine corpus is 39,516 words and the
 # human band at that length is 0.129 wide, wider than any separation on offer. Every comparison has
 # to be made at the shorter corpus's length. The assistant side is the binding constraint and more
 # assistant text is worth more than a better statistic.
@@ -17,11 +17,11 @@
 # THE SPLIT THIS ADDS, WHICH IS NOT JUST MORE WORDS
 #
 # session_prose.py names its own confound and calls it a large one: the transcript it drew from was
-# written while the assistant was enforcing a banned phrase list across the tree and avoiding those
+# written while the machine was enforcing a banned phrase list across the tree and avoiding those
 # phrases in its own messages. A rate measured there is a rate under suppression. It is a floor on
 # the register, not an estimate of it.
 #
-# Most transcripts on this machine were not written under that constraint. docs_check.py runs in
+# Most transcripts on this machine were not written under that constraint. docs_check runs in
 # anchor_sift, BTC and the MMgr tree; it does not run in ProtoCore, embedded_types, idemIP,
 # repo_tools or the rest. Prose written in those sessions is the unconstrained register, and it is
 # the pole the original could not be.
@@ -32,7 +32,7 @@
 #
 # THE EXTRACTION IS IMPORTED AND NEVER COPIED
 #
-# session_prose.py owns what counts as assistant prose: text blocks of assistant messages only, no
+# session_prose.py owns what counts as machine prose: text blocks of assistant messages only, no
 # user turns, no tool calls, no tool results, no thinking blocks, with code, inline spans and tables
 # removed. A second copy of that rule would drift from the first and the two poles would stop being
 # comparable. It is imported.
@@ -48,7 +48,7 @@ import session_prose  # noqa: E402
 
 PROJECTS = os.path.join(os.path.expanduser("~"), ".claude", "projects")
 
-# The trees where docs_check.py runs. Prose written about them was written under the ban list.
+# The trees where docs_check runs. Prose written about them was written under the ban list.
 # Matched against the project directory name, which encodes the working directory path.
 SUPPRESSED = ("anchor-sift", "BTC", "mmgrwork", "making-money")
 
@@ -68,7 +68,7 @@ def main(argv):
 
     # Scope. Without it this walks every session on the machine, which reaches projects that have
     # nothing to do with this work. That is an aggregation of the operator's whole history and it is
-    # theirs to authorise, not this tool's to assume: default to the trees this research owns and
+    # theirs to authorize, not this tool's to assume: default to the trees this research owns and
     # take anything wider as an explicit argument.
     only = None
     if "--projects" in argv:
@@ -144,7 +144,7 @@ def main(argv):
 
     total = sum(len(one.split()) for one in held[True] + held[False])
     print("")
-    print("  %d words of assistant prose against the 39,516 the decay test was bounded by" % total)
+    print("  %d words of machine prose against the 39,516 the decay test was bounded by" % total)
     print("")
     print("  The two files are NOT interchangeable and must not be concatenated. One was written")
     print("  while the phrases being counted were under active suppression and the other was not.")

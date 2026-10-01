@@ -34,9 +34,8 @@ import docs_check as dc  # noqa: E402
 def sibling_repository(name):
     """A repository beside this one, or None.
 
-    Resolved through docs_check.main_checkout() and not through __file__. This suite inherits
-    the worktree repair instead of reintroducing the bug it fixed: from a linked worktree a sibling
-    computed from this file's path lands inside .claude/worktrees/.
+    Resolved through docs_check.main_checkout() and not through __file__. From a linked worktree a
+    sibling computed from this file's path lands inside the worktree directory and finds nothing.
     """
     named = os.environ.get("%s_TREE" % name.upper())
     if named:
@@ -207,7 +206,7 @@ class VerbatimThirdPartyIsANamedConcept(unittest.TestCase):
             )
 
     def test_a_path_outside_every_root_is_read(self):
-        self.assertIsNone(dc.verbatim_root(os.path.join(HERE, "docs_check.py")))
+        self.assertIsNone(dc.verbatim_root(os.path.join(HERE, "docs_check")))
 
     def test_the_ietf_corpus_is_declined(self):
         if not IDEMIP:
@@ -628,7 +627,7 @@ class GeneratedRegionsAreAttributedAndNeverSuppressed(unittest.TestCase):
         if not os.path.isdir(docs):
             self.skipTest("ProtoCore docs/ is not in this checkout")
         answer = subprocess.run(
-            [sys.executable, os.path.join(HERE, "docs_check.py"), docs],
+            [sys.executable, os.path.join(HERE, "docs_check"), docs],
             capture_output=True,
             text=True,
             env=dc.git_env(),
@@ -870,7 +869,7 @@ class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
         This one reads as an unimplemented feature and is a permanent limit. The reasoning has to
         sit at the constant a person would edit.
         """
-        with open(os.path.join(HERE, "docs_check.py"), encoding="utf-8") as handle:
+        with open(os.path.join(HERE, "docs_check", "fixes.py"), encoding="utf-8") as handle:
             body = handle.read()
         head = body[: body.index("FIX_TIERS = ")]
         note = head[head.index("WHAT A REWRITE MAY TOUCH") :]
@@ -892,7 +891,7 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
 
     def run_on(self, *args):
         answer = subprocess.run(
-            [sys.executable, os.path.join(HERE, "docs_check.py")] + list(args),
+            [sys.executable, os.path.join(HERE, "docs_check")] + list(args),
             capture_output=True,
             text=True,
             env=dc.git_env(),
@@ -900,7 +899,7 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
         return answer.stdout
 
     def test_the_roots_are_printed_before_any_finding(self):
-        said = self.run_on(os.path.join(HERE, "docs_check.py"))
+        said = self.run_on(os.path.join(HERE, "docs_check"))
         lines = [one.strip() for one in said.splitlines() if one.strip()]
         self.assertTrue(
             lines[0].startswith("roots configured:"),
@@ -916,7 +915,7 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
         )
 
     def test_the_revision_is_printed_with_its_reachability(self):
-        said = self.run_on(os.path.join(HERE, "docs_check.py"))
+        said = self.run_on(os.path.join(HERE, "docs_check"))
         measured = [one for one in said.splitlines() if "measured at" in one]
         print("\n  %s" % "\n  ".join(one.strip() for one in measured))
         self.assertEqual(len(measured), 1)
@@ -927,11 +926,11 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
 
     def test_the_excluded_count_prints_even_when_it_is_zero(self):
         """ "excluded: 0" and a silence have to print differently."""
-        said = self.run_on(os.path.join(HERE, "docs_check.py"))
+        said = self.run_on(os.path.join(HERE, "docs_check"))
         self.assertIn("excluded:", said)
 
     def test_the_scope_sentence_names_the_axes_this_tool_does_not_answer_for(self):
-        said = self.run_on(os.path.join(HERE, "docs_check.py"))
+        said = self.run_on(os.path.join(HERE, "docs_check"))
         self.assertIn("installed nowhere", said)
         self.assertIn("root(s) and nothing outside them", said)
 
@@ -976,7 +975,7 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
             with open(fixture, "w", encoding="utf-8") as handle:
                 handle.write("# A fixture\n\nThe cache is small, which is what makes it fast.\n")
             answer = subprocess.run(
-                [sys.executable, os.path.join(HERE, "docs_check.py"), fixture],
+                [sys.executable, os.path.join(HERE, "docs_check"), fixture],
                 capture_output=True,
                 text=True,
                 env=dc.git_env(),

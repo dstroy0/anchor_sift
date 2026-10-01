@@ -10,7 +10,7 @@ TOP="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 OUT="$TOP/build/prose_mine"
 mkdir -p "$OUT"
 
-python "$TOP/maint/prose/docs_check.py" --staged --ratchet="$TOP/maint/prose/prose_ratchet.tsv" \
+python "$TOP/maint/prose/docs_check" --staged --ratchet="$TOP/maint/prose/prose_ratchet.tsv" \
     >"$OUT/all.txt" 2>&1
 
 # each file the run named RISEN, which is a file whose findings a hand just added

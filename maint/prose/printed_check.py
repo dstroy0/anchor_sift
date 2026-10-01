@@ -4,7 +4,7 @@
 
 WHY THIS EXISTS
 
-`docs_check.py` reads the comments and docstrings of a source file and blanks the code. For a
+`docs_check` reads the comments and docstrings of a source file and blanks the code. For a
 library, blanking the code is correct. The checkers in `examples/00_blob_viz_tools` are not shaped like libraries
 when they run: each one prints several paragraphs of argument about what it measured, and a person
 reads those paragraphs the way they read a page. None of that text sits in a comment. None of it

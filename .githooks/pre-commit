@@ -18,21 +18,32 @@
 # shrinks. Only staged files are held to it: the rest of the working tree is somebody else's work in
 # progress.
 #
-# The markdown case was added after three of them were found by reading rendered pages instead. A
-# --- typesets as an em dash. The check that had been looking for the character missed the one
-# definition a converter produces; asterisks and escaped underscores reach the page as themselves.
-# None of the three is a LaTeX error. The research paper builds clean and carries them to the archive.
+# The markdown case is read off the rendered page and not off the source. A --- typesets as an em
+# dash. A check looking for the character alone misses the one definition a converter produces, and
+# asterisks and escaped underscores reach the page as themselves. None of them is a LaTeX error:
+# the research paper builds clean and carries them to the archive.
 #
-# To see everything and fail on all of it:  python maint/prose/docs_check.py --strict
-# To rewrite the ratchet after a file moves: python maint/prose/docs_check.py --ratchet-write=maint/prose/prose_ratchet.tsv
+# To see everything and fail on all of it:  python maint/prose/docs_check --strict
+# To rewrite the ratchet after a file moves: python maint/prose/docs_check --ratchet-write=maint/prose/prose_ratchet.tsv
 # To commit past it once:                   git commit --no-verify
+#
+# WHAT TO ASK IT WHILE REPAIRING. The checker answers more than pass or fail, and these are the
+# readings a repair wants. No hook calls these and nothing on disk is written.
+#
+#   python maint/prose/docs_check --pick=after <word>        what this writing puts after a word
+#   python maint/prose/docs_check --pick=between <one> <two> what it puts between two
+#   python maint/prose/docs_check --pick=rank <word> ...     each word's count, 0 where unused
+#   python maint/prose/docs_check --offlist                  words voice.tsv does not approve
+#   python maint/prose/docs_check --show=<regex>             the lines those findings sit on
+#   python maint/prose/docs_check --slack                    ratchet ceilings nothing reaches
+#   python maint/prose/docs_check --holes=<diff>             sentences a repair may have broken
 #
 # WHY THIS RESOLVES ITS OWN PATHS
 #
-# Every path here is built from the hook's own location. The first version tested for a docs
-# directory in the working directory and exited 0 when it did not find one, and it named the checker
-# by a path that later moved. Both faults pass silently: a hook that cannot find the tool and a hook
-# that cannot find the files both let the commit through while looking like they ran.
+# Every path here is built from the hook's own location. Testing for a docs directory in the working
+# directory and exiting 0 where there is none, or naming the checker by a literal path, are the two
+# faults this avoids, and both pass silently: a hook that cannot find the tool and a hook that
+# cannot find the files both let the commit through while looking like they ran.
 
 set -u
 
@@ -64,7 +75,7 @@ if [ -z "$TOOLS" ]; then
     exit 1
 fi
 
-CHECK="$REPO/$TOOLS/prose/docs_check.py"
+CHECK="$REPO/$TOOLS/prose/docs_check"
 
 if [ ! -f "$CHECK" ]; then
     echo "  commit stopped: no docs check at $CHECK"

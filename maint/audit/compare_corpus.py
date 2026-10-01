@@ -39,7 +39,9 @@ import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-ARM_DIR = os.path.join(os.path.expanduser("~"), ".claude", "jobs", "52b29cc3", "tmp")
+# Where the survey arms are written. Under build/, because they are intermediate data and not
+# authored files. Held against the repository so the default means the same thing from anywhere.
+ARM_DIR = os.path.join(ROOT, "build", "audit")
 
 
 def target_of(bits):

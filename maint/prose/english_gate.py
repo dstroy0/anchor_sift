@@ -19,7 +19,7 @@
 #
 #   prose_distance      reported this repository as closer to English than the papers, and the
 #                       reason was that the papers are not English.
-#   claudese_distance   put the Salishan extraction scripts furthest from the assistant pole. They
+#   machine_distance   put the Salishan extraction scripts furthest from the machine pole. They
 #                       were matching the papers on Salishan, not on register.
 #   ban_evidence        divided phrase counts by a word total padded with non-English tokens.
 #                       Every per-100k rate it reported was low.
@@ -178,10 +178,10 @@ def main():
                 ) as one:
                     held.append(one.read())
         targets.append(("research papers", "\n".join(held)))
-    claude = os.path.join(corpora, "claude_prose.txt")
-    if os.path.isfile(claude):
-        with open(claude, encoding="utf-8", errors="replace") as one:
-            targets.append(("fetched assistant prose", one.read()))
+    machine = os.path.join(corpora, "machine_prose.txt")
+    if os.path.isfile(machine):
+        with open(machine, encoding="utf-8", errors="replace") as one:
+            targets.append(("fetched machine prose", one.read()))
 
     out.write(
         "\n  %-26s %12s %12s %12s %s\n"

@@ -2,7 +2,7 @@
 
 THE QUESTION, AND WHY THE AFTERNOON'S INSTRUMENTS COULD NOT ANSWER IT
 
-`claudese_distance` places a file between a human pole and an assistant pole and prints its own
+`machine_distance` places a file between a human pole and an machine pole and prints its own
 limit at the foot: every file-level distance is a bag of words, and so it reads COMPOSITION and
 never ARRANGEMENT. A bag of words is invariant under permutation - shuffle the corpus and every
 count is identical - and so it cannot separate a text from its own shuffle, and it cannot say WHICH
@@ -46,8 +46,8 @@ floor. A decay to zero means decay to where this corpus at this size can no long
 THE POSITIVE CONTROL IS THE POINT, NOT AN EXTRA
 
 Both poles already exist in the tree, and their existing is what this builds on in place of renting.
-Human research papers are one, the assistant's own transcript is the other. If the human corpus does
-not show a heavier tail than the assistant corpus, the instrument is not measuring what it claims
+Human research papers are one, the machine's own transcript is the other. If the human corpus does
+not show a heavier tail than the machine corpus, the instrument is not measuring what it claims
 and no reading from it means anything. That check runs first and its verdict gates the rest, the
 same way pi in the compressor gates a compression claim.
 
@@ -68,7 +68,7 @@ have been quoted if the next check had not been run.
     decay shape, -0.619 against -0.576                    the right direction, and inside the noise
 
 The last of them needed the null, and drawing it settled the question. Twenty-four
-DISJOINT human chunks cut to the assistant corpus's exact length give slopes from -0.857 to -0.234,
+DISJOINT human chunks cut to the machine corpus's exact length give slopes from -0.857 to -0.234,
 mean -0.483, sd 0.129. The assistant sits at -0.587, which is 0.80 sd from the human mean, with FOUR
 OF TWENTY-FOUR human chunks decaying at least as fast. That is an ordinary value for a human text of
 this size.
@@ -79,7 +79,7 @@ WHAT THAT DOES AND DOES NOT SETTLE
 
 It does not refute the hypothesis. Long-range dependence is real in natural language and the decay
 law is the right discriminator. What it settles is that THIS test at THIS size has no power to see
-it, and the binding constraint is named: the assistant corpus is 39,516 words, and so every
+it, and the binding constraint is named: the machine corpus is 39,516 words, and so every
 comparison has to be made at that length, and the human band at that length is 0.129 wide - far
 wider than any separation on offer.
 
@@ -88,13 +88,13 @@ band narrows by about root ten and the same gap would be worth testing again.
 
 THE RE-RUN WITH THIRTY-FOUR TIMES THE ASSISTANT TEXT. STILL NO.
 
-1,313,144 words of assistant prose later, both poles cut into disjoint 200,000-token chunks so each
-side carries a measured spread instead of the assistant being a single point:
+1,313,144 words of machine prose later, both poles cut into disjoint 200,000-token chunks so each
+side carries a measured spread instead of the machine being a single point:
 
     human       slope -0.4595   sd 0.1286   n 36   top-256 mass share 0.5279
     assistant   slope -0.4834   sd 0.1761   n  6   top-256 mass share 0.6122
     gap -0.0239, standard error 0.0750, 0.32 sd apart
-    17 of 36 human chunks decay at least as fast as the assistant mean
+    17 of 36 human chunks decay at least as fast as the machine mean
 
 Three things make this a stronger null than a small p-value usually is.
 
@@ -144,7 +144,7 @@ at lag 256 cannot survive it. Drift is unaffected by it. Measured, --scramble:
 Every large lag survives, and the tail was drift the whole way.
 
 WHAT THIS DOES AND DOES NOT TOUCH. The two-band null stands unchanged: the decay SHAPE does not
-distinguish the poles at 200,000 tokens, and the assistant spread is the wider of the two. Those were
+distinguish the poles at 200,000 tokens, and the machine spread is the wider of the two. Those were
 computed on chunks and never rested on the tail. What falls is the tail itself and the support it
 was lending.
 
@@ -349,7 +349,7 @@ def load_papers(limit_words=400000):
 
 def main():
     parser = argparse.ArgumentParser(description="Dependence decay against lag.")
-    parser.add_argument("--control", action="store_true", help="human pole against assistant pole")
+    parser.add_argument("--control", action="store_true", help="human pole against machine pole")
     parser.add_argument("--band", action="store_true",
                         help="draw the human slope band from disjoint equal-size chunks")
     parser.add_argument("--scramble", action="store_true",
@@ -427,11 +427,11 @@ def main():
     if given.twoband:
         # BOTH POLES GET A BAND, WHICH IS A DIFFERENT TEST FROM THE ONE BEFORE.
         #
-        # At 39,516 words the assistant side was ONE number against a human distribution. A point
+        # At 39,516 words the machine side was ONE number against a human distribution. A point
         # cannot say whether it is a typical value for its own population or a draw from a wide one,
-        # so that test could never have distinguished "the assistant decays faster" from "the
+        # so that test could never have distinguished "the machine decays faster" from "the
         # assistant sample happened to". With both bands measured the question becomes the one worth
-        # asking, and it can also come back saying the assistant spread is as wide as the human one,
+        # asking, and it can also come back saying the machine spread is as wide as the human one,
         # which would sink the hypothesis whatever the means do.
         #
         # WHY NOT SIMPLY USE EVERY WORD. The band narrows as 1/sqrt(L) and the number of DISJOINT
@@ -525,15 +525,15 @@ def main():
               % (gap, se, abs(gap) / se if se > 0 else 0.0))
         print()
         overlap = sum(1 for v, _ in human_rows2 if v <= am)
-        print("    %d of %d human chunks decay at least as fast as the assistant MEAN"
+        print("    %d of %d human chunks decay at least as fast as the machine MEAN"
               % (overlap, hn))
         print()
         if se > 0 and abs(gap) / se >= 3.0 and gap < 0 and abs(r) < 0.3:
-            print("    The assistant pole decays faster, the separation is %.1f sd on two measured"
+            print("    The machine pole decays faster, the separation is %.1f sd on two measured"
                   % (abs(gap) / se))
             print("    bands, and the nuisance does not track the statistic. That is a result.")
             print()
-            print("    And it is CONSERVATIVE: every word of the assistant corpus was written under")
+            print("    And it is CONSERVATIVE: every word of the machine corpus was written under")
             print("    the ban list, so the register is suppressed in the direction that works")
             print("    against this separation. The unsuppressed pole would only widen it.")
         elif gap < 0 and se > 0 and abs(gap) / se >= 2.0:
@@ -553,7 +553,7 @@ def main():
         # (-0.576 against -0.619) means nothing without knowing how much a human slope varies from
         # one sample to the next. So the human corpus is cut into DISJOINT chunks of exactly the
         # assistant corpus's length and a slope is taken from each. That is the band a human text of
-        # this size produces, drawn and not argued, and the assistant's slope either sits inside
+        # this size produces, drawn and not argued, and the machine's slope either sits inside
         # it or it does not.
         session_text = io.open(SESSION, encoding="utf-8", errors="replace").read()
         session, size = tokens_of(session_text, given.vocabulary)
@@ -586,7 +586,7 @@ def main():
         print("    assistant slope %.3f" % session_slope)
         print()
         z = (session_slope - middle) / spread if spread > 0 else 0.0
-        print("    the assistant sits %.2f sd from the human mean, and %d of %d human chunks"
+        print("    the machine sits %.2f sd from the human mean, and %d of %d human chunks"
               % (z, below, len(slopes)))
         print("    fall at or below it")
         print()
@@ -629,12 +629,12 @@ def main():
         # empties. A comparison across that gap would report the LENGTH of the two corpora and call
         # it register, the fault this tree has caught more than once.
         #
-        # So the human pole is cut to the assistant pole's exact token count and the comparison is
+        # So the human pole is cut to the machine pole's exact token count and the comparison is
         # made there. The full-length human curve above is kept only to show what the instrument can
         # see when it is not starved; it is not what the verdict rests on.
         matched = human[:session.size]
         matched_rows = curve(matched, size)
-        show("HUMAN POLE, cut to the assistant pole's length", matched_rows, matched.size)
+        show("HUMAN POLE, cut to the machine pole's length", matched_rows, matched.size)
 
         human_reach = reach(matched_rows)
         session_reach = reach(session_rows)
@@ -653,9 +653,9 @@ def main():
 
         # ERROR, AND DO NOT PRINT THE WARNING AND CARRY ON.
         #
-        # An earlier version of this file stated the floor-match requirement and then reported a
-        # verdict regardless, which is a gate that advises instead of stopping - the same fail-open
-        # shape as a linker that reports "created" without checking the link resolves.
+        # Stating the floor-match requirement and then reporting a verdict regardless is a gate
+        # that advises instead of stopping - the same fail-open shape as a linker that reports
+        # "created" without checking the link resolves.
         #
         # The floors are the estimator's bias at each corpus, and equal length does NOT equalize
         # them: bias depends on how the joint table fills, which is set by the unigram distribution.
@@ -698,14 +698,14 @@ def main():
                     print("    The instrument has nothing to say about these two corpora yet.")
             print()
             print("    Length is matched and this persists, so length was not the whole nuisance")
-            print("    parameter. The remaining one is the unigram distribution: the assistant")
+            print("    parameter. The remaining one is the unigram distribution: the machine")
             print("    corpus concentrates more mass in its commonest words, which fills the joint")
             print("    table differently and moves the bias. Matching that - by sampling both to a")
             print("    common unigram distribution, or by using an estimator whose bias does not")
             print("    depend on it - is the work this instrument still needs.")
             print()
             print("    WHAT THE FULL-LENGTH RUN ABOVE IS AND IS NOT. Human dependence reaching lag")
-            print("    1024 against the assistant's lag 2 is almost entirely the size difference,")
+            print("    1024 against the machine's lag 2 is almost entirely the size difference,")
             print("    eleven times, and it is not evidence of anything about register. It is")
             print("    reported here so nobody quotes it later as though it were.")
             return 1

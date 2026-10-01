@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Tests for the structural stage of docs_check.py. That stage fails a commit.
+# Tests for the structural stage of docs_check. That stage fails a commit.
 #
 #   Usage:  python maint/prose/test_docs_check_structural.py
 #
@@ -186,7 +186,7 @@ class LinksStillChecked(unittest.TestCase):
 
     def test_a_target_that_is_there_is_not_reported(self):
         found = docs_check.dead_links(
-            self.here, ["see [the checker](docs_check.py) for it"]
+            self.here, ["see [the checker](docs_check) for it"]
         )
         self.assertEqual(found, [])
 
@@ -224,7 +224,9 @@ class StandardsPassTheirOwnStructuralStage(unittest.TestCase):
     """
 
     def skill_files(self):
-        base = os.path.join(os.path.expanduser("~"), ".claude", "skills")
+        base = os.environ.get("PROSE_STANDARDS_DIR", "")
+        if not base:
+            return []
         found = [
             os.path.join(base, one, "SKILL.md")
             for one in ("code-documentation", "code-comments")
@@ -234,7 +236,7 @@ class StandardsPassTheirOwnStructuralStage(unittest.TestCase):
     def test_no_dead_link_findings_in_either_standard(self):
         files = self.skill_files()
         if not files:
-            self.skipTest("the two standards are not installed under ~/.claude/skills")
+            self.skipTest("PROSE_STANDARDS_DIR does not name the two standards")
         for path in files:
             with open(path, encoding="utf-8", errors="replace") as handle:
                 lines = handle.read().splitlines()
@@ -261,7 +263,7 @@ class ProtoCoreStructuralStage(unittest.TestCase):
             return
         cls.ref = describe_ref(cls.tree)
         answer = subprocess.run(
-            [sys.executable, os.path.join(HERE, "docs_check.py"), cls.docs],
+            [sys.executable, os.path.join(HERE, "docs_check"), cls.docs],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
         )

@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Tests for what docs_check.py can open and what its alphabet stage can see.
+# Tests for what docs_check can open and what its alphabet stage can see.
 #
 #   Usage:  python maint/prose/test_docs_check_coverage.py
 #
@@ -54,9 +54,8 @@ AFTER_REF = "242ec74"
 def sibling_repository(name):
     """A repository checked out beside this one, or None.
 
-    Resolved through main_checkout() for the reason commit 915b3a9 records. A linked worktree lives
-    under .claude/worktrees/, and a sibling computed from __file__ lands inside .claude and finds
-    nothing there.
+    Resolved through main_checkout() and not __file__. A linked worktree lives under its own
+    directory, and a sibling computed from __file__ lands inside that and finds nothing there.
     """
     named = os.environ.get(name.upper() + "_TREE")
     if named:
@@ -575,7 +574,7 @@ class TheCMakeListsFixture(unittest.TestCase):
         # Prose never fails a build, in any repository, and a new extension does not get to be the
         # exception. Both standards say it in the sentence that names this tool.
         run = subprocess.run(
-            [sys.executable, os.path.join(HERE, "docs_check.py"), self.path],
+            [sys.executable, os.path.join(HERE, "docs_check"), self.path],
             capture_output=True,
             text=True,
         )
@@ -932,9 +931,9 @@ class PrecisionOverRecall(unittest.TestCase):
         # authorize it is wrong by construction, and a new pattern arm is the most likely way to
         # break that. The standards write `initialise` and `behaviour` by name at :149 and :157,
         # inside backticks. The document is naming a form there, and a name is not a use.
-        skills = os.path.join(os.path.expanduser("~"), ".claude", "skills")
+        skills = os.environ.get("PROSE_STANDARDS_DIR", "")
         checked = 0
-        for name in ("code-documentation", "code-comments"):
+        for name in ("code-documentation", "code-comments") if skills else ():
             path = os.path.join(skills, name, "SKILL.md")
             if not os.path.isfile(path):
                 continue
@@ -944,14 +943,14 @@ class PrecisionOverRecall(unittest.TestCase):
                 got, [], "%s/SKILL.md reported on definition: %s" % (name, got)
             )
         if not checked:
-            self.skipTest("neither SKILL.md is installed under ~/.claude/skills")
+            self.skipTest("PROSE_STANDARDS_DIR does not name the two standards")
 
 
 class TheStageAgainstAPushedRef(unittest.TestCase):
     """Two independent enumerations of one tree, at a revision anybody can fetch.
 
     The ground-truth list above is plain literals and shares no code with the patterns. The
-    assertion is that the two enumerations agree, plus the count the old list reached, plus the size
+    assertion is that the two enumerations agree, plus the count the literal list reaches, plus the size
     of the correction between two refs derived as a difference and never as a total.
     """
 

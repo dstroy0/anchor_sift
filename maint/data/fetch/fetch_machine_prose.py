@@ -2,19 +2,19 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Fetch published Opus 5 prose, for the positive pole of claudese_distance.
+# Fetch published Opus 5 prose, for the positive pole of machine_distance.
 #
-#   Usage:  python maint/data/fetch/fetch_claude_prose.py [--words N]
+#   Usage:  python maint/data/fetch/fetch_machine_prose.py [--words N]
 #
 # WHY THIS EXISTS, AND HOW MUCH IT ACTUALLY GETS
 #
-# claudese_distance.py needs two poles. The human pole is 154 research papers, 759,815 words after
-# gating. The assistant pole was one page written by hand, 996 gated words, and a pole that small
+# machine_distance.py needs two poles. The human pole is 154 research papers, 759,815 words after
+# gating. The machine pole was one page written by hand, 996 gated words, and a pole that small
 # cannot carry a distribution: its own halves sat 0.3647 apart where the human pole's sat 0.0834.
 #
 # This does not fix that, and the number is worth stating plainly. A search of every Opus 5 dataset
 # published finds ten, and most are image captions, token ledgers, or a single example wrapped in
-# metadata. Two carry usable assistant prose and one of those answers 401. What lands is about
+# metadata. Two carry usable machine prose and one of those answers 401. What lands is about
 # fifteen thousand words, not the million this file was first written to fetch.
 #
 # The reason is visible in the schema and not in the prose. The largest of them is four megabytes
@@ -25,31 +25,26 @@
 #
 # AND THE FIFTEEN THOUSAND IS RAW. THE GATED COUNT IS SMALLER AND UNEVEN
 #
-# Measured 2026-09-09 on a 60,000 word fetch, per upload, before and after words_of:
+# The gated count is a fraction of the raw one and the fraction is uneven across uploads. A coding
+# upload gates at around nine tenths. An agent-trace upload gates at under one tenth, because the
+# trace is tool, call, function, get, parameter written out, and the English gate throws the rest
+# away for not being English writing. The larger upload by raw count is the smaller by nearly five
+# to one once the gate has run.
 #
-#   Ironwood-LLM-Team/Claude-Opus-5-Coding            4,477 raw    4,079 gated    91 percent
-#   beyoru/...-xhigh-workload-agent-preview          10,668 raw      854 gated     8 percent
-#
-# The second one is not prose. Its gate leaves tool, call, function, get, parameter,
-# parameter, which is an agent trace with the tool calls written out, and the English gate throws
-# away the rest because the rest is not English writing. It is the larger upload by raw count and
-# the smaller by nearly five to one once the gate has run.
-#
-# So the merged pole is mostly one upload. The label on all three says Opus 5 and they are not the
-# same kind of text, which is a defect in the pole and not in the gate. maint/prose/
-# oracle_agreement.py is the check for it, and at this size it errors instead of placing them at all.
+# So the merged pole is mostly one upload. The three carry the same label and are not the same kind
+# of text, which is a defect in the pole and not in the gate. maint/prose/oracle_agreement.py is
+# the check for it, and at this size it errors instead of placing them at all.
 #
 # WHAT IS FETCHED, AND WHAT THAT IS NOT
 #
-# Three published datasets of Claude output, all ungated, all plain JSON or JSONL. Only the
-# assistant turns are kept: the human turns in them were written by people and belong to the other
+# Three published datasets of generated output, all ungated, all plain JSON or JSONL. Only the
+# generated turns are kept: the human turns in them were written by people and belong to the other
 # pole. Fenced code blocks come out, because the thing being measured is prose and a file full of
 # Python would otherwise match on its Python.
 #
-# These are published as Claude Opus 5 output. That is the model doing this work. The pole and
-# the thing under test are the same version, which the earlier Claude 3 corpus could not offer.
-# The era measurement in prose_era.py showed vocabulary moves enough across time to date a text,
-# and a version gap is the same kind of gap. Matching the version removes it.
+# THE POLE AND THE THING UNDER TEST HAVE TO BE THE SAME GENERATION. prose_era.py shows vocabulary
+# moves enough across time to date a text. A corpus from an older generation therefore carries a
+# gap that is not the gap being measured. Match the generation and the gap goes.
 #
 # THIS CORPUS IS DATA AND IS NEVER READ
 #
@@ -131,22 +126,21 @@ def _repository_root():
 
 ROOT = _repository_root()
 CORPORA = os.path.join(ROOT, "build", "corpora")
-TARGET = os.path.join(CORPORA, "claude_prose.txt")
+TARGET = os.path.join(CORPORA, "machine_prose.txt")
 
 # Each upload also lands on its own, because the agreement check compares them against each other
 # and a merged file cannot be compared with itself. The merged one stays: it is what the pole is
 # built from once the label has been checked.
-APART = os.path.join(CORPORA, "claude_prose_by_source")
+APART = os.path.join(CORPORA, "machine_prose_by_source")
 
 BLOB = "https://huggingface.co/datasets/%s/resolve/main/%s"
 
 # Dataset, file, and the shape its records take. Ordered so the largest lands first.
 #
-# Opus 5 only. An earlier version of this list fetched Claude 3 Opus and Claude 3.5 Sonnet, both
-# published in 2024, and that corpus was wrong for the question and has been deleted. What it
-# measured is worth keeping in mind: the eight phrases this repository had confirmed as the
-# assistant signature fired 26.4 times per hundred thousand words here and 1.3 times in that older
-# corpus. They were never the register, they were this tree's own idiolect.
+# ONE GENERATION ONLY, and it has to be the generation under test. A corpus from an older one
+# answers a different question. The trap in mixing them: phrases this tree takes for the machine
+# signature fire at an order of magnitude more here than in an older corpus, which says they are
+# this tree's own idiolect.
 #
 # THE LABEL IS A CLAIM AND NOT EVIDENCE
 #
@@ -172,7 +166,7 @@ SOURCES = (
     ),
 )
 
-# Which speaker in a ShareGPT record is the assistant. The human turns are somebody else's prose.
+# Which speaker in a ShareGPT record is the machine. The human turns are somebody else's prose.
 ASSISTANT = ("gpt", "assistant", "claude", "model")
 
 FENCED = re.compile(r"```.*?```", re.DOTALL)
@@ -305,7 +299,7 @@ def main():
     )
     for dataset, name, turns, words in used:
         out.write("    %-56s %6d turns %8d words\n" % (dataset[:56], turns, words))
-    out.write("\n  Published as Claude Opus 5. The label is a claim, not evidence.\n")
+    out.write("\n  The published label is a claim, not evidence.\n")
     out.flush()
     return 0
 

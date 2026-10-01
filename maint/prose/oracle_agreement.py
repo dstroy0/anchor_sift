@@ -9,10 +9,9 @@
 #
 # WHAT THE QUESTION IS
 #
-# fetch_claude_prose.py takes three community uploads that all say Claude Opus 5. Nobody outside
-# those uploads can verify that from the outside: a label on a public dataset is a claim by whoever
-# uploaded it, and a corpus of some other model's output under that name would look the same from
-# here.
+# fetch_machine_prose.py takes three community uploads that all claim one model generation. Nobody
+# can verify that from the outside: a label on a public dataset is a claim by whoever uploaded it,
+# and a corpus of some other model's output under that name would look the same from here.
 #
 # Three independent uploads make the claim checkable without trusting any of them. If corpora that
 # all claim one model resemble each other more than any of them resembles a corpus known to be
@@ -31,7 +30,7 @@
 #
 # The control matters for the same reason. Against a control too close to the subject the
 # separation vanishes and nothing is shown. The control here is the human pole, the furthest
-# thing in this tree from assistant prose and the pole the distance instrument already
+# thing in this tree from machine prose and the pole the distance instrument already
 # measures against.
 #
 # THE CORPORA ARE DATA AND ARE NEVER READ
@@ -101,7 +100,7 @@ ROOT = _repository_root()
 
 sys.path.insert(0, HERE)
 
-from claudese_distance import (
+from machine_distance import (
     distance,
     halves,
     profile,  # noqa: E402
@@ -110,7 +109,7 @@ from claudese_distance import (
     words_of,
 )
 
-APART = os.path.join(ROOT, "build", "corpora", "claude_prose_by_source")
+APART = os.path.join(ROOT, "build", "corpora", "machine_prose_by_source")
 HUMAN = os.path.join(ROOT, "build", "papers")
 
 # A corpus smaller than this cannot carry a distribution and its distances are sampling noise.
@@ -145,7 +144,7 @@ def main():
     out.write("\n  %s\n" % APART.replace("\\", "/"))
     if not os.path.isdir(APART):
         out.write(
-            "  no per source corpora. Run maint/data/fetch/fetch_claude_prose.py first.\n\n"
+            "  no per source corpora. Run maint/data/fetch/fetch_machine_prose.py first.\n\n"
         )
         out.flush()
         return 2

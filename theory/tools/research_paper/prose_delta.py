@@ -3,7 +3,7 @@
 
     python tools/research_paper/prose_delta.py before.txt after.txt
 
-The prose gate is anchor_sift's maint/prose/docs_check.py. A research paper carries findings older than any one change,
+The prose gate is anchor_sift's maint/prose/docs_check. A research paper carries findings older than any one change,
 and a change is therefore graded on the difference: run the gate over copies of the changed files at the base commit
 and in the working tree, save both outputs, and hand them here. Run the gate with PYTHONIOENCODING=utf-8:
 under a cp1252 console it can crash on a finding's text and exit 1, which reads like a breaking finding.
@@ -65,7 +65,7 @@ def main():
     print("before: %s" % before_summary)
     print("after:  %s" % after_summary)
     if before_summary is None or after_summary is None:
-        print("prose_delta: an input is not a docs_check.py run. Refusing to compare.")
+        print("prose_delta: an input is not a docs_check run. Refusing to compare.")
         return 3
     added = after - before
     removed = before - after

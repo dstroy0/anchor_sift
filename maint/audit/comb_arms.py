@@ -27,7 +27,10 @@ import io
 import json
 import os
 
-DEFAULT_DIR = os.path.join(os.path.expanduser("~"), ".claude", "jobs", "52b29cc3", "tmp")
+# Where the survey arms are written. Under build/, because they are intermediate data and not
+# authored files. Held against the repository so the default means the same thing from anywhere.
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DEFAULT_DIR = os.path.join(ROOT, "build", "audit")
 
 
 def reach_of(deviation, samples):

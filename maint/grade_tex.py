@@ -1,6 +1,6 @@
 """Runs the prose gate over LaTeX, which the gate itself does not read.
 
-docs_check.py checks .md, .py, .c and .h. Pointed at this tree's theory/ it reports six files and
+docs_check checks .md, .py, .c and .h. Pointed at this tree's theory/ it reports six files and
 exits clean while skipping fifteen .tex files carrying 11,409 words, which is most of the prose in
 the repository. That is not the checker being wrong; it is the checker being pointed at a format it
 never claimed. The count at the foot of the run is the only signal, and a number that looks like an
@@ -37,7 +37,7 @@ import sys
 import tempfile
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CHECK = os.path.join(HERE, "maint", "prose", "docs_check.py")
+CHECK = os.path.join(HERE, "maint", "prose", "docs_check")
 THEORY = os.path.join(HERE, "theory")
 
 # Commands whose braced argument is prose and belongs in the graded text.
@@ -143,7 +143,7 @@ def main():
         return 1
 
     if not os.path.exists(CHECK):
-        sys.stderr.write("no docs_check.py at %s\n" % CHECK)
+        sys.stderr.write("no docs_check at %s\n" % CHECK)
         return 1
 
     room = tempfile.mkdtemp(prefix="grade_tex_")

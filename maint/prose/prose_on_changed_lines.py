@@ -7,11 +7,11 @@
     python maint/prose/prose_on_changed_lines.py --staged         the index against HEAD
     python maint/prose/prose_on_changed_lines.py --base <rev>     working tree against <rev>
 
-docs_check.py reports every finding in a file, and a file carrying a hundred older findings buries
-the three a change just wrote. This runs docs_check.py over exactly the files the diff touches and
+docs_check reports every finding in a file, and a file carrying a hundred older findings buries
+the three a change just wrote. This runs docs_check over exactly the files the diff touches and
 keeps the findings whose line the diff added. A file new to the tree counts every line as added.
 
-A finding never fails the run, the same as in docs_check.py, because a person decides each site.
+A finding never fails the run, the same as in docs_check, because a person decides each site.
 It exits nonzero only where it could not run: git failing, or the checker printing no file count.
 Zero changed files prints its own line, which no count of findings can be mistaken for.
 """
@@ -22,12 +22,12 @@ import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CHECKER = os.path.join(HERE, "docs_check.py")
+CHECKER = os.path.join(HERE, "docs_check")
 
 # A hunk header in unified diff output: the new file's first line and how many lines follow.
 HUNK = re.compile(r"^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@")
 
-# One finding line from docs_check.py: "  prose <path>:<line>: ..." or "  BREAK <path>:<line>: ...".
+# One finding line from docs_check: "  prose <path>:<line>: ..." or "  BREAK <path>:<line>: ...".
 FINDING = re.compile(r"^\s+(prose|BREAK)\s+(.+?):(\d+):\s")
 
 
@@ -99,7 +99,7 @@ def main():
                          cwd=root, capture_output=True, text=True, encoding="utf-8",
                          errors="replace")
     if "file(s) checked" not in run.stdout:
-        print("  docs_check.py did not report a count. Its findings cannot be trusted")
+        print("  docs_check did not report a count. Its findings cannot be trusted")
         print(run.stdout[-2000:])
         print(run.stderr[-2000:])
         return 2

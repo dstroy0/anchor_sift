@@ -74,7 +74,7 @@ This is the claim that meets the most doubt on sight. Here it is exactly, with t
 
 ## 5. key : transform → product, in one cycle
 
-This is the first standing rule of the project, and the first line of `cell_tracking/CLAUDE.md` at d5f6a06: **key:transform->product, 1 cycle.**
+This is the first standing rule of the project, and the first line of the cell_tracking standing rules: **key:transform->product, 1 cycle.**
 
 A check or a filter is a key too, and it does not need a pass of its own. Fold it into the pass that already touches the data. The tower's widen reads every voxel once, and the CRC is taken there. The narrow writes every rebuilt voxel once, and the rebuilt sample's CRC is taken there. The product comes out of the same pass.
 
@@ -110,7 +110,7 @@ The residue left after the bodies are subtracted is the sample's own field noise
 
 ## 9. Transitivity across modules: no module reaches another
 
-§1 carried transitivity down a chain of arithmetic steps. The same property has to hold one scale up, between the modules that hold those steps, or the chain breaks at the first module boundary. The engine's second standing rule (`cell_tracking/CLAUDE.md` at d5f6a06) states it:
+§1 carried transitivity down a chain of arithmetic steps. The same property has to hold one scale up, between the modules that hold those steps, or the chain breaks at the first module boundary. The engine's second standing rule states it:
 
 > **No module reaches another.** A module includes `engine_config.h` and its own header, nothing else. The one exception is `crc/`, a root directory callable by anything. Stages hand each other plain structs from `engine_config.h`, and they are composed only in the entry.
 
@@ -154,7 +154,7 @@ None of these stages knows another exists. The tower does not know its coefficie
 
 | claim | status |
 |---|---|
-| no module reaches another; hand-offs are plain structs in `engine_config.h`, composed only in the entry | the rule and the target (`cell_tracking/CLAUDE.md` at d5f6a06) |
+| no module reaches another; hand-offs are plain structs in `engine_config.h`, composed only in the entry | the rule and the target (the cell_tracking standing rules at d5f6a06) |
 | the key chain (`keymath`, `key_schedule`, `cycle`) reaches nothing | proved: `audit_reaching.py` at d5f6a06 |
 | the codec (`tower`, `compression`, `apxrep`, `entropy_history`) reaches nothing but `crc` | proved: `audit_reaching.py` at d5f6a06; `iapx` is gone, composed in the entry |
 | a split that regroups the chain in the entry changes no output | proved for three splits: compression from the tower (.kcr byte identical, set CRC 091daa41e1aceb7e), keymath and key_schedule from the cycle (edges identical), the driver split (edges and score rows identical) |

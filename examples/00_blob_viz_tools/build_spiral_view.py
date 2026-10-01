@@ -37,7 +37,9 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "spiral_view_template.html")
-DEFAULT_DIR = os.path.join(os.path.expanduser("~"), ".claude", "jobs", "52b29cc3", "tmp")
+# Where the dumps this reads are written. Under build/, because they are intermediate data.
+ROOT = os.path.dirname(os.path.dirname(HERE))
+DEFAULT_DIR = os.path.join(ROOT, "build", "audit")
 
 sys.path.insert(0, HERE)
 import boundary_read
