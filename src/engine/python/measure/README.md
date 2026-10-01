@@ -81,4 +81,3 @@ The C bench measures that failing in the open. On a corpus of period sixteen the
 **A rate is not a value until its sample size is fixed.** The frequent half's apparent signal tracked corpus size almost monotonically, from 1.01 at 106 KB to 0.72 at 2.4 MB, until every corpus was cut to one length.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-08

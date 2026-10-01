@@ -36,4 +36,3 @@ That failure is the result. A universal has to look exactly like that: carrying 
 The R port of the null permutation identity is not here. It sits with the reference it is checked against, at `evidence/sims/r/departure.R`, and the agreement figures are in the root `README.md`.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-08
