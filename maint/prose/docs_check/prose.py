@@ -101,6 +101,11 @@ def tex_prose(lines):
         held = re.sub(r"\\\[.*?\\\]", " ", held)
         held = re.sub(r"\\\(.*?\\\)", " ", held)
 
+        # A quotation in TeX's own markup, ``like this'', is a sentence somebody else wrote, and it
+        # goes the way a string literal goes in source. TeX marks the quotation itself, and no
+        # comment in the file has to.
+        held = re.sub(r"``.*?''", " ", held)
+
         # Commands whose braces hold an identifier and never a sentence. The argument goes with the
         # command. \allowbreak{} appears mid-path in this tree's citations and would otherwise leave
         # its fragments behind as words.
