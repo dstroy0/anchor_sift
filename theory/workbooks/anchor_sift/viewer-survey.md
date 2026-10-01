@@ -29,10 +29,9 @@ comments: the boundaries, the engine arms, the beam and what it scatters from, t
 the boundary reconstruction, the panels, the callouts, the redraw. Whoever wrote those wrote the
 module list.
 
-**A number in an earlier version of this page was wrong.** It read 750 top-level declarations and
-144 duplicate names. The pattern allowed six spaces of indentation and was counting declarations
-inside functions, and the duplicates were nested scopes doing their job. Counting at column zero
-inside the script body gives 355 and zero. The corrected figures are the ones above.
+**The count is taken at column zero of the script body.** A pattern that allows six spaces of
+indentation counts declarations inside functions and reads nested scopes as duplicate names;
+counting at column zero gives the room viewer's 355 declarations and no duplicates.
 
 ## What has to exist before the split
 
@@ -111,6 +110,6 @@ this tree reads a picture.
 
 ## Ownership
 
-The survey and the correction to its own declaration count are this document's. The failing page,
+The survey and its own declaration count are this document's. The failing page,
 the frame-loop checker and the second checker are the engine's. The request to modularize and
 vectorize is Douglas's.
