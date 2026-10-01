@@ -464,9 +464,10 @@ def check_tables_agree(say):
         say("     table %d: %s to %s is %s, and %s to %s is %s"
             % (number + 1, pair[0], pair[1], name, mirror[0], mirror[1], other))
     say("")
-    say("   A pair named apart in the two tables has two answers and the document holds no rule")
-    say("   for which one a branch gets. A transition and its mirror named apart is a direction the")
-    say("   document either means, as it says of the handoff between LEAD and RITE, or does not.")
+    say("   A pair named apart in the two tables is two candidates, and the asks that read the")
+    say("   transition decide between them in that situation: a bit excludes, a magnitude ranks.")
+    say("   A transition and its mirror named apart is a direction, which the part is asked for:")
+    say("   test/engine/compiler/bootstrap/branch_side_check.c reads whether a side leaves a mark.")
     return len(contradicted), len(mirrored)
 
 def main():
