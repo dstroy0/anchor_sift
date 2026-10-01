@@ -113,8 +113,9 @@ Each option reads the view section of the page's `.cfg` under its own name.
 ## Each builder: its options, its template, its payload
 
 The command options a builder exposes, the template it writes, and the top-level keys its payload
-carries. Keys read by `ast` from the literal the builder hands `json.dumps`; the two sphere builders
-assemble theirs in a helper, and those keys are read from its returned dict.
+carries. Keys read statically from the payload the builder hands `json.dumps`, the literal and any
+key added to it; the two sphere builders assemble theirs in a helper, and those keys are read from
+its returned dict.
 
 | builder | template | command options | payload top-level keys |
 |---|---|---|---|
@@ -134,7 +135,7 @@ assemble theirs in a helper, and those keys are read from its returned dict.
 | build_sha_sphere_view | sphere | --samples --rounds --place --tau --degrees --out | title, place, tau, bytes_read, symbols, grid, spectrum, null_spectrum, profiles, sources, read, settings, floor |
 | build_shadow_view | shadow | none | rounds, residue, inbit, outbit, word |
 | build_sound_view | voxel | none | depth, depthLabel, valueLabel, eyebrow, title, blurb, noteTitle, note, settings, fields |
-| build_sources_view | sources | none | rounds, sources |
+| build_sources_view | sources | none | rounds, sources, order |
 | build_sphere_view | sphere | --place --heat --depth --radius --degrees --tau --title --bytes --offset --out | title, place, heat, degrees, tau, bytes_read, symbols, grid, spectrum, null_spectrum, profiles, sources, read, settings |
 | build_spiral_view | spiral | --dir --out | arms, perArm, total, points, words, agreement, unanimousByChance |
 | build_step_view | step | none | flipped, flippedWord, flippedBit, keys, message, schedule, rounds |
@@ -170,16 +171,15 @@ to fail. The analysis is `data_check`'s own, and a key reads the same here and a
 
 Cross the two tables above: a guarded template key that a builder's payload omits is a control that
 is present and dead once that builder's page builds. Most pages carry `null`, and every control is
-dead; these are the ones that stay dead after the marker fix.
+dead; this control stays dead after the marker fix.
 
 | builder and template | guarded key omitted | the control it leaves inert |
 |---|---|---|
 | build_field_view into voxel | noteTitle | the note's own heading |
-| build_sources_view into sources | order | the ordered-reads control |
 
 Every other builder carries each guarded key its template reads, the two sphere builders among them:
-both supply the sphere template's `settings`. The two rows above are the only guarded keys any builder
-omits.
+both supply the sphere template's `settings`, and `build_sources_view` supplies the sources template's
+`order`. The row above is the only guarded key any builder omits.
 
 ## Next
 
