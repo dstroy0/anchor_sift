@@ -7,7 +7,7 @@ MODULE="$(cd "$TEST/../../../../src/engine/runtime/obsignatio" && pwd)"
 TOP="$(cd "$MODULE/../../.." && pwd)"
 SCRIPTURA="$TOP/engine/runtime/scriptura"
 # maint/ is at the repository's root, one above src/
-source "$(cd "$TOP/.." && pwd)/maint/build_stamp.sh"
+source "$(cd "$TOP/.." && pwd)/maint/engine/build_stamp.sh"
 build_stamp obsignatio_test
 
 HOST_FLAGS=()

@@ -19,7 +19,7 @@ tessera_run, which admits it on the device's daemon, and the daemon decides what
 logs go to build/harness/at_<commit>/.
 
 Every suite's nvcc goes through one compile cache, build/compile_cache beside the repository
-(maint/engine/compile_cache.py, set up by maint/build_stamp.sh): each source is compiled once a tree and
+(maint/engine/compile_cache.py, set up by maint/engine/build_stamp.sh): each source is compiled once a tree and
 set of flags, by the first suite that needs it, and the rest link its object. A tree is keyed by
 its committed files, uncommitted changes and untracked files, or by its commit where pinned.
 

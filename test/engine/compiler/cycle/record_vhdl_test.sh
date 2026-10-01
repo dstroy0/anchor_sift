@@ -15,7 +15,7 @@ KEY_SCHEDULE="$TOP/src/engine/compiler/key_schedule"
 KREP="$TOP/src/engine/formats/krep"
 NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
 SCRIPTURA="$TOP/src/engine/runtime/scriptura"
-source "$TOP/maint/build_stamp.sh"
+source "$TOP/maint/engine/build_stamp.sh"
 build_stamp record_vhdl_test
 
 command -v ghdl > /dev/null 2>&1 || { echo "  not run: GHDL is not on the path"; exit 0; }

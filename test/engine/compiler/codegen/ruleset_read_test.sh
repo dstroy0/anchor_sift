@@ -8,7 +8,7 @@ set -u
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../../../.." && pwd)"
 CODEGEN="$TOP/src/engine/compiler/codegen"
-source "$TOP/maint/build_stamp.sh"
+source "$TOP/maint/engine/build_stamp.sh"
 build_stamp ruleset_read_test
 
 INCLUDES=(-I "$TOP/src/engine" -I "$CODEGEN")

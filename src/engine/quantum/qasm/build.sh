@@ -80,7 +80,7 @@ qasm_cu_object()
 
 qasm_build()
 {
-    source "$TOP/maint/build_stamp.sh"
+    source "$TOP/maint/engine/build_stamp.sh"
     build_stamp "$1"
     qasm_host_setup || return 1
     OBJECTS=()
