@@ -10,7 +10,7 @@ Nothing is moved by this file. It is the tally a move reads from, and every coun
 - `src/` holds one container per host entry point: `c/`, `cu/` and `python/`. Every other language waits.
 - `src/sims/` holds the sims, one container per language, `c/`, `cu/` and `python/`, each mirroring its language's container: a sim sits at the path of what it exercises. The R and the MATLAB/Octave sims are `evidence/`'s, in `evidence/sims/r/` and `evidence/sims/matlab/`.
 - Inside a container the categories are the skeleton's. `types/` holds what a value or a file is. `includes/` holds what the rest builds on and does not own: arithmetic, codecs, external file formats, and the answers that come from outside the sample. `apxrep/` becomes `kcmplx/`, the crystal's reader and writer. `engine/` holds analysis, render, runtime, prg_sch and nbody, with `cycle/`, `keymath/` and `key_schedule/` in `engine/analysis/`. `transpiler/` holds the rest of what `compiler/` holds now, and the qasm reader, which reads OpenQASM into programs on the record machine.
-- `types/file_defs/` has one directory per file suffix `gnascor.md` names: `ksc/` and `krs/` for coherence, `kcr/`, `knf/` and `kcs/` for data, `kdm/` for the host ruleset, and `g/` and `gsm/` for the compiler's two faces. `krep/` beside them holds the reader and writer every k-file shares. A device's ruleset is its `.kdm`.
+- `types/file_defs/` defines the file types, one directory per suffix `gnascor.md` names: `ksc/` and `krs/` for coherence, `kcr/`, `knf/` and `kcs/` for data, `kdm/` for the host ruleset, and `g/` and `gsm/` for the compiler's two faces. A directory holds the code that defines its type, the format and the reader and writer, and never the files of that type: a ruleset, a device map or a classification sits beside the code that reads it. `krep/` holds the head and the words every k-file shares, and `KCR`, `KNF` and `KCS` are its kinds.
 - A file's container is its language. A `.c` file is `c`, a `.cu` file is `cu`, a `.py` file is `python`. A `.h` file is `cu` where it uses `__device__`, `__global__`, `__host__`, `template`, `std::`, `class` or `<<<`, and `c` otherwise, since a C header builds under both.
 - The Python engine's parts take the category of what they do: `measure/`, `reference/` and `partition/` are analysis, `sift/` and `instrument/` are anchor_sift's, `render/` is the renderer, `oracle/` is an answer from outside, `representation/` is ingest, and its `exact.py` and `constants/` are the exact integers.
 - The test tree mirrors `src/` the same way, under `utils/test/src/`. `evidence/` and `examples/` carry a sims tree and a test tree of their own in the same shape.
@@ -21,10 +21,13 @@ Each directory carries the count of code files in it and below it.
 
 ```text
 src/
-├── c/                                                        273
-│   ├── types/                                                 24
-│   │   ├── file_defs/                                          2
-│   │   │   └── krep/                                           2
+├── c/                                                        275
+│   ├── types/                                                 31
+│   │   ├── file_defs/                                          9
+│   │   │   ├── kdm/                                            1
+│   │   │   ├── krep/                                           2
+│   │   │   ├── krs/                                            5
+│   │   │   └── ksc/                                            1
 │   │   ├── integers/                                          18
 │   │   └── integerfloats/                                      4
 │   │       ├── decimal_double/                                 2
@@ -96,17 +99,18 @@ src/
 │   │       ├── radix_keys/                                     1
 │   │       ├── schedule/                                       1
 │   │       └── scriptura/                                      8
-│   └── transpiler/                                            73
+│   └── transpiler/                                            68
 │       ├── bootstrap/                                         16
 │       ├── cell/                                               3
-│       ├── codegen/                                           19
-│       ├── cubin/                                              5
+│       ├── codegen/                                           16
+│       ├── cubin/                                              3
 │       ├── emit/                                               4
 │       └── qasm/                                              26
 ├── cu/                                                       158
-│   ├── types/                                                  3
-│   │   ├── file_defs/                                          2
-│   │   │   └── krep/                                           2
+│   ├── types/                                                  6
+│   │   ├── file_defs/                                          5
+│   │   │   ├── krep/                                           2
+│   │   │   └── krs/                                            3
 │   │   └── integers/                                           1
 │   ├── includes/                                               2
 │   │   ├── codecs/                                             1
@@ -157,8 +161,8 @@ src/
 │   │       ├── device_pool/                                    1
 │   │       ├── obsignatio/                                     3
 │   │       └── schedule/                                       1
-│   └── transpiler/                                            42
-│       ├── codegen/                                           33
+│   └── transpiler/                                            39
+│       ├── codegen/                                           30
 │       ├── cubin/                                              1
 │       └── qasm/                                               8
 ├── python/                                                    89
@@ -249,11 +253,10 @@ Each sits in the directory named, and the files at `src/` itself serve every con
 | `python/types/integers/constants` | `README.md` |
 | `sims` | `run.sh` |
 | `transpiler` | `gnascor.md` |
-| `transpiler/emit` | `elf64_nvidia.tsv` |
+| `transpiler/codegen/rulesets` | 5: `c.krs` and the rest |
+| `transpiler/cubin/machines` | `sm_86.kdm`, `sm_86.krs`, `sm_86.ksc` |
+| `transpiler/emit/layouts` | `elf64_nvidia.tsv` |
 | `transpiler/qasm` | `build.sh`, `run.sh` |
-| `types/file_defs/kdm` | `sm_86`, `sm_86.kdm` |
-| `types/file_defs/krs` | 5: `c.krs` and the rest |
-| `types/file_defs/ksc` | `sm_86.ksc` |
 
 ### Leaving `src/`
 
@@ -335,8 +338,8 @@ utils/test/src/
 | `engine/runtime/obsignatio` | `run.sh`, `test_vectors.json` |
 | `transpiler/cell` | `cell_ptx_test.sh`, `cell_sass_test.sh`, `cell_test.sh` |
 | `transpiler/codegen` | `codegen_device_test.sh`, `ruleset_read_test.sh`, `vhdl_construction_set.sh`, `web_check.sh` |
+| `transpiler/codegen/rulesets/flagless` | `c.krs`, `ptx.krs` |
 | `transpiler/qasm` | 11: `MANIFEST.json` and the rest |
-| `types/file_defs/krs` | `c.krs`, `ptx.krs` |
 | `types/integers` | `exact_divide_test.sh`, `exact_transform_test.sh` |
 
 `utils/test/maint/` is the test mirror of `utils/maint/`, and `harness.py`, `__init__.py` and `test_matrix.json` run every test from the root of `utils/test/`; all of them stay where they are.
@@ -358,8 +361,14 @@ utils/test/examples/
 
 `examples/language/4_measure/*_test.py` are measures, `LNG-4-001` and its siblings for Section 4.13, and stay in `4_measure/`.
 
-## Open
+## What defines each file type
 
-| file | what it needs |
-|---|---|
-| `types/file_defs/kdm/sm_86` | the suffix: it is sm_86's device ruleset, the forms its probes found, and `gnascor.md` names the device ruleset's suffix `.kdm`, which `sm_86.kdm` already carries for the derived arrangements |
+| suffix | defined by | files of the type, beside the code that reads them |
+|---|---|---|
+| `.krs` | `ruleset_core.h`, `ruleset_core_read.h`, `ruleset_core_scratch.h`, `ruleset_core_words.h`: the reader the host and the device both run; `ruleset_flat.{h,cu}`: that reader laid out for the host, and the file read; `sass_machine.{c,h}`: the machine file's format, reader and writer | `transpiler/codegen/rulesets/{c,ptx,sass,vhdl,yosys}.krs`; `transpiler/cubin/machines/sm_86.krs`, the file now named `sm_86` |
+| `.kdm` | `kdm_write.c`, which reads and writes a part's `.kdm`, from `utils/maint/engine/` | `transpiler/cubin/machines/sm_86.kdm` |
+| `.ksc` | `cell_sass_probe_class.c`, which writes `<part>.ksc`, from `utils/test/engine/compiler/cell/` | `transpiler/cubin/machines/sm_86.ksc` |
+| `.kcr`, `.knf`, `.kcs` | `krep/`: the head every k-file opens with, and the kinds `KCR`, `KNF` and `KCS` | written by the engine at run time |
+| `.g`, `.gsm` | nothing yet | none yet |
+
+`kdm_write.c` and `cell_sass_probe_class.c` come into `c/types/file_defs/kdm/` and `c/types/file_defs/ksc/` from `utils/`, since they are the definitions. `sm_86` takes its suffix, `.krs`, where it stands.
