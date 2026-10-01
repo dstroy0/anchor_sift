@@ -15,7 +15,6 @@
 
 import os
 import re
-import subprocess
 import sys
 
 # The tokens the writing standard bans outright, and the British spellings it bans by pattern.
@@ -719,8 +718,7 @@ BANNED = (
 # ====================================================================
 #
 # Recorded rather than deleted, because each of these was added for a reason somebody had and a
-# later reader who only sees the absence will add it back. The table is the same device
-# repo_tools/docs/docs_maint/ai_words.py used for its own six withdrawals.
+# later reader who only sees the absence will add it back.
 #
 # THE RULE THAT REMOVED THEM. code-documentation section 143: "a word that reads as a tic in one
 # construction only is bounded to that construction: paradigm shift is banned where paradigm is
@@ -754,18 +752,13 @@ BANNED = (
 # What IS bounded, and what these went into, is the is-what-VERB construction near the head of this
 # tuple, which both standards name.
 #
-# WHAT IT COST IN RECALL, measured at the refs named. Against idemIP/src at 29a808c these thirteen
-# produced 1,727 of 2,669 prose findings, 64.7 percent of the whole run, and none of them is an AI
-# tell. Against the two SKILL.md files they produced 63 of 102 running-prose findings.
-#
 # Each entry is the word, what it was after, and the sentence that removed it.
 WITHDRAWN = {
     "carry": "the verb in every inflection, banned a digest would be said to be listed in a "
              "manifest instead. Both standards use it and code-documentation:145 uses it about "
-             "this file. 449 hits in idemIP/src at 29a808c.",
+             "this file.",
     "hold": "added when the repair pass for carry wrote hold everywhere instead. Chasing a "
-            "synonym is the sign that the rule is on a word and not on a shape. 658 hits in "
-            "idemIP/src at 29a808c, the single largest pattern in the table.",
+            "synonym is the sign that the rule is on a word and not on a shape.",
     "read": "a fold does not read and a person does, which is true and is not what \\breads\\b "
             "tests. code-comments:208 writes \"reads .c and .h comments\". 337 hits.",
     "slot": "nothing in the theory books has slots, which is a house naming rule about one "
@@ -1217,13 +1210,9 @@ while (REPOSITORY != os.path.dirname(REPOSITORY)) \
 #
 # A root that no longer exists is not an error this could see. The guard below is what turns that
 # into one, and the count at the foot is still the thing to watch after a move.
-#
-# theory_bucket is the third instance. Seven books moved out of theory/ into a subtree at
-# theory_bucket/, theory/ still existed because the workbook stayed in it, so the guard below stayed
-# quiet and eighty files of prose went unread. The guard catches a root that vanished and never a
-# root that emptied, and the count at the foot is the only thing that shows the difference.
+
 DEFAULT_ROOTS = tuple(os.path.join(REPOSITORY, one)
-                      for one in ("docs", "src", "examples", "maint", "theory", "theory_bucket"))
+                      for one in ("docs", "src", "examples", "maint", "theory"))
 
 for one in DEFAULT_ROOTS:
     if not os.path.isdir(one):
@@ -1231,89 +1220,6 @@ for one in DEFAULT_ROOTS:
                          "root reads as zero findings and exits 0, which passes every commit."
                          % one)
 
-
-PRIVATE_NAMES = ("salishan_corpus", "anchor_sift_citations")
-
-# The variable that names each closed repository for a checkout keeping it somewhere of its own.
-# Spelled the same as in citations.py, because a person who has met one of them should not have to
-# learn a second name for the same thing.
-PRIVATE_OVERRIDES = {
-    "salishan_corpus": "ORIOR_PRIVATE",
-    "anchor_sift_citations": "ANCHOR_SIFT_CITATIONS",
-}
-
-
-def main_checkout():
-    """The main working tree, which is the one the closed repositories sit beside.
-
-    A linked worktree lives at <repo>/.claude/worktrees/<name>, a sibling path computed from
-    REPOSITORY lands inside .claude/ and finds nothing. --git-common-dir names the shared .git for
-    the main tree and every linked worktree alike, and its parent is the main checkout. Falls back
-    to REPOSITORY where git cannot answer, which is an exported tree with no history.
-    """
-    try:
-        answer = subprocess.check_output(
-            ["git", "rev-parse", "--git-common-dir"], cwd=REPOSITORY, stderr=subprocess.PIPE
-        )
-    except (OSError, subprocess.CalledProcessError):
-        return REPOSITORY
-
-    common = answer.decode("utf-8", "replace").strip()
-    if not common:
-        return REPOSITORY
-    if not os.path.isabs(common):
-        common = os.path.join(REPOSITORY, common)
-    base = os.path.dirname(os.path.abspath(common))
-    return base if os.path.isdir(base) else REPOSITORY
-
-
-def private_survey():
-    """Every closed repository looked for, split into the ones held and the ones absent.
-
-    Returns (held, absent). Both halves are reported by the caller, and that is the whole point of
-    returning the second one.
-
-    THIS FUNCTION'S OWN REGRESSION, recorded because it is the reason the split exists.
-
-    It used to compute one base, os.path.dirname(REPOSITORY) + "/private_repos". After the move into
-    repos/owned/{public,private} that resolves to repos/owned/public/private_repos, which does not
-    exist, so both closed repositories came back absent and the scan quietly covered the public tree
-    alone. It had been doing that since the move. Nothing could see it, because a run that scans no
-    private roots and a run where there are none to scan printed the same thing: nothing.
-
-    That is the failure this function was written to prevent in the first place -- its docstring
-    already said two banned forms sat in the corpus licence for a day because the scan stopped at
-    the public tree -- and the repair regressed into the same shape one directory move later. So the
-    fix is not only the corrected path. It is that "scanned none" and "there are none" must never
-    again be the same output.
-    """
-    base = main_checkout()
-    owned = os.path.dirname(os.path.dirname(base))
-
-    held = []
-    absent = []
-    for one in PRIVATE_NAMES:
-        named = os.environ.get(PRIVATE_OVERRIDES[one])
-
-        tried = [named] if named else [
-            # Where they live after the move into owned/{public,private}.
-            os.path.join(owned, "private", one),
-            # The layout before it, kept an unreorganized checkout still works.
-            os.path.join(os.path.dirname(base), "private_repos", one),
-        ]
-
-        found = next((where for where in tried if where and os.path.isdir(where)), None)
-        if found:
-            held.append(found)
-        else:
-            absent.append((one, tuple(where for where in tried if where)))
-
-    return tuple(held), tuple(absent)
-
-
-def private_roots():
-    """The closed repositories that are present, for adding to the roots being scanned."""
-    return private_survey()[0]
 
 # Fetched or generated, so nothing in them was written here.
 # fixtures holds the positive control for claudese_distance.py, written deliberately in the
@@ -1496,27 +1402,16 @@ def path_candidate(target):
     returns True about has to be something the filesystem can actually answer for. Two shapes wear
     markdown link syntax without being paths. Both were measured against a Doxygen C repository.
 
-    Measured at ProtoCore f3e96f68, `python maint/prose/docs_check.py <protocore>/docs` reported 251
-    breaking findings where 4 were real. 244 were Doxygen references and 3 were C declarators. The
-    gate is correct in orior, a tree of Python and markdown that uses no Doxygen. Pointed at a
-    repository that does use it, the gate would have refused every commit ProtoCore could make. That
-    is why this test sits in front of os.path.exists instead of in an exemption list somewhere.
+    This test sits in front of os.path.exists instead of in an exemption list somewhere.
 
-    Doxygen references, 244 of them. [`HTTP_10`](@ref HTTP_10) resolves against documented symbols.
-    HTTP_10, HttpVersion, HttpReq::version, send_chunked, WS_FRAME_SIZE, MAX_HEADERS and
-    PROTOCORE_ENABLE_KEEPALIVE were each confirmed as live symbols in ProtoCore's source, so every
-    one of those findings reported a working cross-reference as a broken link.
+    Doxygen references. [`HTTP_10`](@ref HTTP_10) resolves against documented symbols, and a
+    finding on one reports a working cross-reference as a broken link.
 
-    C declarators, 3 of them, at SECURITY.md:903, SSH.md:91 and SSH.md:94. A lambda in a fenced
-    example writes `[](const char *user, const char *pass)`, and a parenthesized group following a
-    bracketed one is what LINK looks for.
+    C declarators. A lambda in a fenced example writes `[](const char *user, const char *pass)`,
+    and a parenthesized group following a bracketed one is what LINK looks for.
 
-    Which signal earns its place. Across orior, ProtoCore, idemIP, MMgr and embedded_types,
-    646 targets are skipped here and not one of them names a path that is on disk, so nothing that
-    was a real finding has been silenced. 496 of the 646 are Doxygen commands and the other 150 hold
-    a pointer star. Of the three declarator signals only the star fired. The type-keyword head and
-    the comma-separated list caught nothing in those five trees and are kept for the parameter list
-    that has neither star nor keyword, as in `(uint8_t slot, size_t len)`. The comma rule is the
+    No target skipped here names a path that is on disk. The type-keyword head and the
+    comma-separated list are kept for the parameter list that has neither star nor keyword, as in `(uint8_t slot, size_t len)`. The comma rule is the
     loosest of the three and is bounded to items of two words each, so `docs/a.md, docs/b.md` stays
     a pair of paths.
     """
@@ -1764,7 +1659,7 @@ def main():
     # A named root is taken as given, then tried against the repository. A hook runs from wherever
     # git puts it, and `docs` meaning nothing from there is how this came to check zero files.
     roots = []
-    for one in (where_given or (DEFAULT_ROOTS + private_roots())):
+    for one in (where_given or DEFAULT_ROOTS):
         if os.path.exists(one):
             roots.append(one)
             continue
@@ -1803,21 +1698,6 @@ def main():
         prose += len(wording)
 
     print("  %d file(s) checked, %d breaking, %d prose" % (checked, breaking, prose))
-
-    # Saying which closed repositories were covered and which were looked for and not found.
-    # Before this, a run that covered none and a checkout that has none printed the same nothing,
-    # and that is exactly how this scan stopped covering the private tree for the whole of the
-    # migration without anybody noticing. A count of zero has to be distinguishable from a count
-    # that was never taken, so both halves are printed even when there is nothing to report.
-    if not where_given:
-        held, absent = private_survey()
-        print("  private roots scanned: %d of %d" % (len(held), len(PRIVATE_NAMES)))
-        for one in held:
-            print("    %s" % one.replace("\\", "/"))
-        for name, tried in absent:
-            print("    %s NOT FOUND, looked at:" % name)
-            for where in tried:
-                print("      %s" % where.replace("\\", "/"))
 
     # Checking nothing is not passing. A run that reads no files and reports success is the failure
     # a commit hook cannot see, and it is how a wrong path goes unnoticed for as long as it takes

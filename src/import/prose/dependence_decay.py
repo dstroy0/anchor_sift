@@ -184,7 +184,7 @@ def _trees(start):
 
     A fixed number of dirname calls encodes how deep this file happens to sit, and this tree has
     already lost a day to a path that was written down and then moved. Searching upward for the
-    sibling is the same move link_shared.ps1 makes for the same reason.
+    sibling finds it wherever this file sits.
     """
     at = start
     while at != os.path.dirname(at):

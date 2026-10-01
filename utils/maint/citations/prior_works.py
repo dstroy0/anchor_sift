@@ -9,13 +9,10 @@
 #   python utils/maint/citations/prior_works.py --quotations    quoted passages only
 #   python utils/maint/citations/prior_works.py <path> ...      named files or directories
 #
-# WHAT THIS ASKS THAT citations.py NEXT DOOR DOES NOT
+# WHAT THIS ASKS
 #
-# citations.py registers the mathematics this work rests on and errors on a commit while a name is
-# used without an author, a year, a title and an identifier. It answers whether a source that IS
-# named has been written down properly.
-#
-# This asks the two questions that survive a clean registry.
+# Whether a source that IS named has been written down properly is one question. This asks the two
+# that survive it.
 #
 #   1. A PRIORITY CLAIM WITH NOTHING BEHIND IT. A sentence saying something here is new, first,
 #      unprecedented, or absent from the literature is a claim about everybody else's work. This
@@ -168,7 +165,7 @@ DISCLAIMERS = (
 )
 
 # What a reference looks like in these research papers: a LaTeX citation, a bracketed key, or a surname
-# standing against a year, the shape citations.py's second pass reads.
+# standing against a year.
 REFERENCES = (
     r"\\(cite|citep|citet|footcite|autocite)\w*\s*[\[{]",
     r"\\ref\s*\{",

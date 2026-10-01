@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-# repotools-stamp: docs/docs_maint/math_hazards.py 815d3b4fdd9a2b6c
-# repo_tools - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Find the characters and commands inside a document's math that break before the math is rendered.

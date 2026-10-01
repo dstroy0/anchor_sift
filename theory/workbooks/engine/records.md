@@ -1,7 +1,7 @@
 # Records
 
 **Purpose:** The commit and pull request texts written for the engine, dated, as they were written. The reasons for each change travel with the workbook.
-**Scope:** 24 and 25 September: commits to dstroy0/cell_tracking main, each with its hash and its time (UTC−4), and the three pull requests carried into dstroy0/orior with their commits. A commit's subject is its heading and its message follows. A pull request's own headings sit one level under its record. The other commits of those days keep their messages in the repository's history. The cell program's texts are in the cell workbook's records.md. Each text sits between quote markers that hold it verbatim for the prose gate, and only its spelling is corrected.
+**Scope:** 24 and 25 September: commits to cell_tracking main, each with its hash and its time (UTC−4), and the three pull requests carried into dstroy0/orior with their commits. A commit's subject is its heading and its message follows. A pull request's own headings sit one level under its record. The other commits of those days keep their messages in the repository's history. The cell program's texts are in the cell workbook's records.md. Each text sits between quote markers that hold it verbatim for the prose gate, and only its spelling is corrected.
 
 ## 24 September
 
@@ -11,7 +11,7 @@
 
 The pull request's text:
 
-This PR follows #5. It brings the record machine's width fix and the heap/ring/lens theory from dstroy0/cell_tracking main (a5ec78f and 79c259f) into orior.
+This PR follows #5. It brings the record machine's width fix and the heap/ring/lens theory from cell_tracking main (a5ec78f and 79c259f) into orior.
 
 #### Engine
 
@@ -67,7 +67,7 @@ Where the two trees had diverged, the conflicts were resolved by hand, keeping t
 The commit's text:
 
 ```text
-Carried from dstroy0/cell_tracking main (a5ec78f, 79c259f) into this
+Carried from cell_tracking main (a5ec78f, 79c259f) into this
 tree's layout. Conflicts in engine_table.md and its chapter were resolved
 by hand, keeping this tree's wording and its test/engine/ and src/engine/
 paths.
@@ -156,7 +156,7 @@ regenerated.
 
 The pull request's text:
 
-Carried from dstroy0/cell_tracking main (1e39052, 46b8018, de5bdff, 9df40f9).
+Carried from cell_tracking main (1e39052, 46b8018, de5bdff, 9df40f9).
 
 #### Tests (new, both run in this tree)
 
@@ -186,15 +186,15 @@ Carried from dstroy0/cell_tracking main (1e39052, 46b8018, de5bdff, 9df40f9).
 
 #### Theory
 
-`theory_bucket/cell_tracking/two_crystals.md` and its chapter, the README row, and the A13 pointer. Its citations point to `test/engine/`.
+`theory/workbooks/cell_tracking/two_crystals.md` and its chapter, the README row, and the A13 pointer. Its citations point to `test/engine/`.
 
 The commit's text:
 
 ```text
-Carried from dstroy0/cell_tracking main (1e39052, 46b8018, de5bdff,
+Carried from cell_tracking main (1e39052, 46b8018, de5bdff,
 9df40f9) into this tree's layout: the tests under test/engine/ with
 TOP two levels up and src/engine/, and the theory under
-theory_bucket/cell_tracking/ with test/engine/ in its citations.
+theory/workbooks/cell_tracking/ with test/engine/ in its citations.
 
 test/engine/record_coherence_test (new, 14 checks, 0 failed):
 - sum, difference, product, xor and and commute with every wrap:
@@ -322,7 +322,7 @@ and the vertical time compression Open item.
 
 The pull request's text:
 
-From cell_tracking main 24b2785 (test), e4eae72 (sim) and ad5d085 (theory), placed at `test/engine`, `src/engine` and `theory_bucket/cell_tracking`.
+From cell_tracking main 24b2785 (test), e4eae72 (sim) and ad5d085 (theory), placed at `test/engine`, `src/engine` and `theory/workbooks/cell_tracking`.
 
 #### Test: the crystal's identity
 
@@ -360,7 +360,7 @@ The commit's text:
 
 ```text
 From cell_tracking main 24b2785, e4eae72 and ad5d085, placed at
-test/engine, src/engine and theory_bucket/cell_tracking.
+test/engine, src/engine and theory/workbooks/cell_tracking.
 
 - test/engine/record_boundary_test (48 checks, 0 failed): the crystal's
   identity against 8 null shuffles a lane, and every single flipped bit

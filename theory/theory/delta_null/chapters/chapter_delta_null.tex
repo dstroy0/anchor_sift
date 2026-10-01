@@ -2065,7 +2065,7 @@ Where an order on positions exists, that order is most of the available structur
 The bench rows in this chapter were taken on four self contained programs and one cost profile, built with the line below. The line is kept as it was recorded. Its paths under \texttt{test/\allowbreak{}} and \texttt{src/\allowbreak{}impensa\_\allowbreak{}ancorae\_\allowbreak{}acus/\allowbreak{}} are not in orior's history, and the four programs are at \texttt{bench/\allowbreak{}driver/\allowbreak{}} at commit \texttt{d65d219} (Section 1):
 
 \begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
-gcc -O2 -std=c11 -Itest/bench -Isrc -Iinclude -Ideps/embedded_types/include -Itest/support \
+gcc -O2 -std=c11 -Itest/bench -Isrc -Iinclude -Itest/support \
     test/bench/bench_ancorae_sift.c test/support/mmgr_sha256.c \
     src/impensa_ancorae_acus/impensa_ancorae_acus_english.c -lm -o sift
 \end{lstlisting}

@@ -556,7 +556,7 @@ The CUDA arm generates real SASS for ten architectures, Turing through every Bla
 | `utils/bench/bench_sift.c`                                                | candidates, skip distance and anchor independence over byte strings. Not wired up |
 | `utils/bench/bench_entropy.c`, `bench_ab.c`, `bench_cycles.c`             | not wired up                                                                      |
 
-Nothing under `src/` comes from anywhere else, and nothing under `deps/` is a copy any more. `mmgr_sha256.{c,h}` is MMgr's test support, at `deps/mmgr/test/support/`. Run `python utils/maint/deps/get_deps.py` to clone what this tree depends on. The three unwired drivers that include it get that directory on their include path when somebody wires them up. Nothing built here needs it, since `bench_corpora` fills every corpus with splitmix64.
+Nothing under `src/` comes from anywhere else. Nothing built here needs a corpus from outside, since `bench_corpora` fills every corpus with splitmix64.
 
 `bench_corpora` is shared so the scaling bench and the dispatch bench cannot disagree about what skewed means. One measures a rate against a prediction and the other scores a rule with a clock, and a rule scored on corpora the prediction never saw is a rule scored against nothing.
 

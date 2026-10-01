@@ -40,8 +40,8 @@
 #
 # The control is the hand extraction in build/oracles/Mellesmoen_Kye_ICSNL61.oracle.tsv, which was
 # read off the paper by a person and verified against it in both directions. That file is not in
-# this repository. The hand extractions are the papers' own text and live in the closed corpus,
-# reaching a checkout under build/oracles. Nothing under maint/ holds one. This file is graded
+# this repository. The hand extractions are the papers' own text and are read under build/oracles.
+# Nothing under maint/ holds one. This file is graded
 # against it by reader_check.py. coverage_check.py separately asks the easier question, which
 # is whether every token got out of the paper at all.
 

@@ -25,10 +25,10 @@ The constants come from the engine's `no_rounding` module and from the private p
 - Bignum, Python side: `src/engine/python/representation/exact.py`. `SCALE_DIGITS = 1024` (line 74),
   arbitrary precision, the scale the C form is cross-checked against. The two forms must agree on the
   same values or a cross check between them means nothing (`exact_integer.h` line 45).
-- NTT precision constants: pinned upstream in the `theory_bucket` subtree, not in `src/`. The proof is
+- NTT precision constants: pinned in `theory/`, not in `src/`. The proof is
   `theory/theory/precision/chapters/chapter_twiddle_proof.tex`; the standalone paper, also on the
   Cryptology ePrint Archive, is `theory/theory/twiddle_constants_article.tex`. No NTT is implemented in
-  `src/` (a grep of the five moduli hits only `theory_bucket`). No code-level prime table exists to
+  `src/` (a grep of the five moduli hits only `theory/`). No code-level prime table exists to
   cite. A prime table in `src/` that nothing calls would be a knob with no reader.
 
 ### The NTT moduli, re-derived here

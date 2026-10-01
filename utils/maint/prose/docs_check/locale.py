@@ -171,8 +171,7 @@ LOCALE = LOCALE_NAMED + (
     # A `licence` inside an SPDX or copyright block is a legal artifact and a different question
     # from a house convention. That distinction belongs to the exclusions pass and is not made here:
     # this arm reports the site and a person decides it. A prose finding exists for that.
-    # The four sites in idemIP at tools/dev_env/readclean.py:12 and :36 and strip_comments.py:4 and
-    # :12 are prose ABOUT a license block, sitting beside real SPDX headers that are not.
+    # Prose ABOUT a license block, sitting beside a real SPDX header, is reported like any prose.
     r"\b(?:defence|offence|pretence|licence)s?\b",
     # -ogue for the two the standard names, `catalog` and `analog`. `dialogue`, `monologue`,
     # `epilogue` and `prologue` are standard American and are deliberately absent.

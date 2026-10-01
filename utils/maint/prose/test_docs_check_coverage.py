@@ -6,104 +6,22 @@
 #
 #   Usage:  python utils/maint/prose/test_docs_check_coverage.py
 #
-# Two gaps, one pass, and they are one pass because either one alone hides the other. A build file
-# was outside every extension list, and the alphabet stage was ten literals where the standard
-# states a pattern. idemIP's CMakeLists.txt is the fixture that shows why: `behaviour` at :123 was
-# hidden by the extension alone and would have fired the moment the extension landed, and the three
-# `optimisation` sites at :305, :311 and :321 were hidden twice. Fixing half of this is how an
-# author reads a file as covered while three quarters of it stays invisible.
+# Two gaps, one pass, and they are one pass because either one alone hides the other: a build file
+# such as CMakeLists.txt is opened by the extension list, and the alphabet stage reads the pattern
+# the standard states and not a list of literals.
 #
-# Every count here is measured when the test runs, against a named revision, with whether that
-# revision is reachable from a remote printed beside it. A hand-carried number in this tree has been
-# wrong every time somebody carried one.
-#
-# WHAT THIS PASS IS NOT, stated because a green run of it must not be read as more than it is.
-# Four independent reasons idemIP's British spellings survived, each sufficient on its own:
-#   1. INSTALL. idemIP/.git/hooks holds fourteen files and every one ends in .sample. The gate is
-#      declared in that repository's config and has never executed.
-#   2. SCOPE. idemIP's repotools.toml declares roots = ["README.md", "test"] for both [prose] and
-#      [hooks.docs_check]. src/ is not a prose root and neither is CMakeLists.txt.
-#   3. TOOL. The alphabet stage had no arm for `optimis`, `initialis`, `signall` or the -ce nouns.
-#   4. TOOL. The extension list could not open a CMakeLists.txt.
-# This pass is 3 and 4. Axes 1 and 2 change what every committer in that repository has to satisfy,
-# they are its captain's and Douglas's to decide, and its captain has correctly not decided
-# them alone. A gate that is correct, installed nowhere, and scoped to two paths still catches
-# nothing, and these tests passing does not say otherwise.
+# A green run says the tool opens these files and sees these spellings. It does not say a hook runs
+# it anywhere, or that a repository's roots reach a given file.
 
-import io
 import os
 import re
-import subprocess
 import sys
-import tarfile
-import tempfile
 import unittest
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
 import docs_check
-
-# The two refs this file pins a fixture to, both in idemIP and both PUSHED. The test asserts the
-# reachability; a comment claiming it is not a check. A revision is authority only while somebody
-# else can fetch it, and a fixture pinned to a local-only commit is a fixture of one machine.
-BEFORE_REF = "82dc143"
-AFTER_REF = "242ec74"
-
-
-def sibling_repository(name):
-    """A repository checked out beside this one, or None.
-
-    Resolved through main_checkout() and not __file__. A linked worktree lives under its own
-    directory, and a sibling computed from __file__ lands inside that and finds nothing there.
-    """
-    named = os.environ.get(name.upper() + "_TREE")
-    if named:
-        return named if os.path.isdir(named) else None
-    beside = os.path.join(os.path.dirname(docs_check.main_checkout()), name)
-    return beside if os.path.isdir(beside) else None
-
-
-def git(tree, *args):
-    """One git query against a tree, or None where git cannot answer."""
-    try:
-        answer = subprocess.check_output(
-            ("git",) + args, cwd=tree, stderr=subprocess.PIPE
-        )
-    except (OSError, subprocess.CalledProcessError):
-        return None
-    return answer.decode("utf-8", "replace").strip()
-
-
-def reachability(tree, ref):
-    """Where a revision is reachable from, or the words that say it is not.
-
-    Printed with every count this file reports. Two sessions read 58 British hits in idemIP and 15,
-    and the difference between them was two unnamed revisions.
-    """
-    remote = git(tree, "branch", "-r", "--contains", ref)
-    if remote is None:
-        return "no git history"
-    return remote.splitlines()[0].strip() if remote else "NOT PUSHED"
-
-
-def tree_at(repository, ref, into):
-    """One revision of a repository unpacked into a directory, or None.
-
-    git archive is used instead of a worktree. A worktree writes into the repository being read and
-    has to be removed afterward, and a test that leaves one behind changes the thing it measured.
-    """
-    try:
-        blob = subprocess.check_output(
-            ["git", "archive", "--format=tar", ref],
-            cwd=repository,
-            stderr=subprocess.PIPE,
-        )
-    except (OSError, subprocess.CalledProcessError):
-        return None
-    with tarfile.open(fileobj=io.BytesIO(blob)) as bundle:
-        bundle.extractall(into, filter="data")
-    return into
 
 
 # ============================================================================
@@ -454,11 +372,10 @@ def spelling_findings(path):
 
 
 class BuildFilesAreReadAtAll(unittest.TestCase):
-    """The extension list could not open a build file, and said as success.
+    """A build file is opened, and reading nothing is never reported as success.
 
-    Pointed at idemIP's CMakeLists.txt the tool printed "0 file(s) checked, 0 breaking, 0 prose"
-    and "no files were read". The exit status was 2. That sentinel for reading nothing was the only
-    part of the output telling that run apart from a clean one.
+    A run that reads no file prints "0 file(s) checked" and exits 2, and that sentinel is the only
+    part of the output telling it apart from a clean run.
     """
 
     def test_a_cmakelists_is_selected_by_its_name(self):
@@ -505,82 +422,6 @@ class BuildFilesAreReadAtAll(unittest.TestCase):
         )
         self.assertIn("CMakeLists.txt", kinds)
         self.assertIn("pre-commit", kinds)
-
-
-class TheCMakeListsFixture(unittest.TestCase):
-    """idemIP's CMakeLists.txt, the best fixture in the tree for this pair of gaps.
-
-    Skipped where idemIP is not checked out beside this repository. Set IDEMIP_TREE to point at it
-    somewhere else.
-    """
-
-    @classmethod
-    def setUpClass(cls):
-        tree = sibling_repository("idemIP")
-        if not tree:
-            raise unittest.SkipTest("idemIP is not checked out beside this repository")
-        cls.tree = tree
-        cls.path = os.path.join(tree, "CMakeLists.txt")
-        if not os.path.isfile(cls.path):
-            raise unittest.SkipTest("idemIP has no CMakeLists.txt at its root")
-        cls.ref = git(tree, "rev-parse", "--short", "HEAD")
-        cls.where = reachability(tree, "HEAD")
-
-    def test_the_four_british_sites_are_reported_by_line(self):
-        # BY SITE and never by count. A count falling to the right number for the wrong reason
-        # reads exactly like a repair. The three `optimisation` sites are 182 lines below the
-        # `behaviour` one. An author watching :123 fire has seen one quarter of this file's British
-        # variants and none of the class that was hidden twice.
-        got = spelling_findings(self.path)
-        print(
-            "\n  idemIP CMakeLists.txt at %s (%s): %d definition finding(s) %s"
-            % (self.ref, self.where, len(got), got)
-        )
-        self.assertEqual([one for one, _ in got], [123, 305, 311, 321])
-        self.assertEqual(
-            [two for _, two in got],
-            ["behaviour", "optimisation", "optimisation", "optimisation"],
-        )
-
-    def test_three_of_the_four_need_the_pattern_and_not_only_the_extension(self):
-        # The half of this pass that a reader is most likely to undo. Held as an assertion so the
-        # claim in the header is checked and not only written down.
-        was_ten = (
-            r"\blabelled\b",
-            r"\bmodelled\b",
-            r"\bneighbour",
-            r"\bbehaviour",
-            r"\bcolour",
-            r"\bcentre\b",
-            r"\bwhilst\b",
-            r"\bamongst\b",
-            r"\borganis(e|es|ed|ing|ation|ations)\b",
-            r"\banalyse(s|d)?\b",
-        )
-        reached = [
-            word
-            for _, word in spelling_findings(self.path)
-            if any(re.search(one, word, re.IGNORECASE) for one in was_ten)
-        ]
-        self.assertEqual(reached, ["behaviour"])
-
-    def test_the_file_reads_and_does_not_report_reading_nothing(self):
-        checked = docs_check.walk_markdown([self.path])
-        self.assertEqual(
-            [os.path.abspath(one) for one in checked], [os.path.abspath(self.path)]
-        )
-
-    def test_a_build_file_of_prose_findings_still_exits_zero(self):
-        # Prose never fails a build, in any repository, and a new extension does not get to be the
-        # exception. Both standards say it in the sentence that names this tool.
-        run = subprocess.run(
-            [sys.executable, os.path.join(HERE, "docs_check"), self.path],
-            capture_output=True,
-            text=True,
-        )
-        self.assertIn("0 breaking", run.stdout)
-        self.assertIn("prose", run.stdout)
-        self.assertEqual(run.returncode, 0, run.stdout)
 
 
 class TheCommentExtractorForTheHashForm(unittest.TestCase):
@@ -900,31 +741,6 @@ class PrecisionOverRecall(unittest.TestCase):
         ):
             self.assertFalse(stage_reaches(word), "reported as British: %r" % word)
 
-    def test_the_two_tier_line_in_idemip_is_reported_as_two_findings(self):
-        # idemIP tools/dev_env/strip_comments.py:12 is the best demonstration in any tree here of
-        # where an autofix may and may not go. One line carries a `licence` and a `rather`. The
-        # first is token for token: `licence` becomes `license` and the sentence is unchanged. The
-        # second is a construction, and code-documentation:110 bans it while :146 bans its obvious
-        # repair forty lines later. No machine can make that edit. The alphabet stage is the only
-        # class an autofix could ever own, and this test marks where its edge falls.
-        tree = sibling_repository("idemIP")
-        if not tree:
-            self.skipTest("idemIP is not checked out beside this repository")
-        path = os.path.join(tree, "tools", "dev_env", "strip_comments.py")
-        if not os.path.isfile(path):
-            self.skipTest("idemIP has no tools/dev_env/strip_comments.py")
-        with open(path, encoding="utf-8", errors="replace") as handle:
-            lines = handle.read().splitlines()
-        said = docs_check.prose_only(path, lines)
-        tiers = sorted(
-            set(
-                docs_check.tier_of(pattern)
-                for at, pattern, _ in docs_check.banned_hits(said, comments=True)
-                if at == 12
-            )
-        )
-        print("\n  idemIP strip_comments.py:12 reports tiers %s" % tiers)
-        self.assertEqual(tiers, ["A", "alphabet"])
 
     def test_the_stage_reports_nothing_in_either_standard(self):
         # The governing test, in the slice this pass owns. A gate that flags the documents that
@@ -944,148 +760,6 @@ class PrecisionOverRecall(unittest.TestCase):
             )
         if not checked:
             self.skipTest("PROSE_STANDARDS_DIR does not name the two standards")
-
-
-class TheStageAgainstAPushedRef(unittest.TestCase):
-    """Two independent enumerations of one tree, at a revision anybody can fetch.
-
-    The ground-truth list above is plain literals and shares no code with the patterns. The
-    assertion is that the two enumerations agree, plus the count the literal list reaches, plus the size
-    of the correction between two refs derived as a difference and never as a total.
-    """
-
-    @classmethod
-    def setUpClass(cls):
-        tree = sibling_repository("idemIP")
-        if not tree:
-            raise unittest.SkipTest("idemIP is not checked out beside this repository")
-        if git(tree, "rev-parse", "--verify", AFTER_REF + "^{commit}") is None:
-            raise unittest.SkipTest("idemIP does not hold %s" % AFTER_REF)
-        cls.repository = tree
-        cls.holding = tempfile.TemporaryDirectory(prefix="docs_check_refs_")
-        cls.at = {}
-        for ref in (BEFORE_REF, AFTER_REF):
-            into = os.path.join(cls.holding.name, ref)
-            os.makedirs(into, exist_ok=True)
-            cls.at[ref] = tree_at(tree, ref, into)
-        if not all(cls.at.values()):
-            cls.holding.cleanup()
-            raise unittest.SkipTest("git archive could not unpack one of the refs")
-
-    @classmethod
-    def tearDownClass(cls):
-        if hasattr(cls, "holding"):
-            cls.holding.cleanup()
-
-    def test_both_refs_are_reachable_from_a_remote(self):
-        # A revision is authority only while somebody else can fetch it. The 43-hit fixture was
-        # briefly reachable only through a worktree that dies with the session that made it.
-        for ref in (BEFORE_REF, AFTER_REF):
-            where = reachability(self.repository, ref)
-            print("\n  idemIP %s: %s" % (ref, where))
-            self.assertNotEqual(
-                where, "NOT PUSHED", "%s is a fixture nobody else can fetch" % ref
-            )
-
-    def test_the_stage_reaches_every_british_form_in_the_tree(self):
-        # N OF N, DERIVED. The denominator is the ground-truth list intersected with the tree at
-        # run time. It moves when the tree moves and no constant can rot here.
-        tree = self.at[AFTER_REF]
-        present = forms_present(tree)
-        missed = sorted(one for one in present if not stage_reaches(one))
-        was_ten = (
-            r"\blabelled\b",
-            r"\bmodelled\b",
-            r"\bneighbour",
-            r"\bbehaviour",
-            r"\bcolour",
-            r"\bcentre\b",
-            r"\bwhilst\b",
-            r"\bamongst\b",
-            r"\borganis(e|es|ed|ing|ation|ations)\b",
-            r"\banalyse(s|d)?\b",
-        )
-        before = sorted(
-            one
-            for one in present
-            if any(re.search(two, one, re.IGNORECASE) for two in was_ten)
-        )
-        print(
-            "\n  idemIP %s (%s): %d distinct British form(s) present over %d site(s)"
-            % (
-                AFTER_REF,
-                reachability(self.repository, AFTER_REF),
-                len(present),
-                sum(present.values()),
-            )
-        )
-        print("    the ten literals reached %d of %d" % (len(before), len(present)))
-        print(
-            "    the pattern arms reach   %d of %d"
-            % (len(present) - len(missed), len(present))
-        )
-        print(
-            "    forms: %s"
-            % ", ".join("%s(%d)" % (one, present[one]) for one in sorted(present))
-        )
-        self.assertGreater(
-            len(present), 0, "the ground truth found nothing. It proves nothing"
-        )
-        self.assertEqual(missed, [], "the stage misses: %s" % missed)
-        self.assertLess(
-            len(before),
-            len(present),
-            "the ten literals already reached everything. This pass bought nothing",
-        )
-
-    def test_the_correction_between_the_two_refs_is_derived_as_a_difference(self):
-        # A difference and never a total. Two sessions read 58 and 15 for this repository and both
-        # numbers were about an unnamed tree. The difference between two named refs is the thing
-        # that survives a pattern set changing under it.
-        counted = {}
-        for ref, tree in self.at.items():
-            found = 0
-            for path in docs_check.walk_markdown([tree]):
-                found += len(spelling_findings(path))
-            counted[ref] = found
-        moved = counted[BEFORE_REF] - counted[AFTER_REF]
-        print(
-            "\n  idemIP definition findings: %s at %s, %s at %s, corrected by hand: %d"
-            % (counted[BEFORE_REF], BEFORE_REF, counted[AFTER_REF], AFTER_REF, moved)
-        )
-        self.assertGreater(
-            moved, 0, "the later ref is not cleaner. This is not the fixture it was"
-        )
-        self.assertEqual(counted[AFTER_REF] + moved, counted[BEFORE_REF])
-
-    def test_the_build_file_sites_are_the_same_at_both_refs(self):
-        # The direct proof of what this pass is for. A person corrected British spellings by hand
-        # between these two refs, in files the tool could open. The build files were not touched,
-        # because nothing could show them, and a commit gate would not have shown them either.
-        at_both = {}
-        for ref, tree in self.at.items():
-            sites = []
-            for path in docs_check.walk_markdown([tree]):
-                if not docs_check.build_file(path):
-                    continue
-                rel = os.path.relpath(path, tree).replace("\\", "/")
-                sites.extend((rel, at, word) for at, word in spelling_findings(path))
-            at_both[ref] = sorted(sites)
-        print(
-            "\n  build-file definition sites: %d at %s, %d at %s"
-            % (len(at_both[BEFORE_REF]), BEFORE_REF, len(at_both[AFTER_REF]), AFTER_REF)
-        )
-        self.assertGreater(
-            len(at_both[AFTER_REF]),
-            0,
-            "no build-file site at either ref. This proves nothing",
-        )
-        self.assertEqual(
-            at_both[BEFORE_REF],
-            at_both[AFTER_REF],
-            "a build-file site moved between the refs. The fixture has changed "
-            "and the claim above it needs re-deriving",
-        )
 
 
 class TheWorkBesideThisOneIsUntouched(unittest.TestCase):

@@ -18,8 +18,7 @@
 # Files are taken in the order given and truncated at a paragraph boundary when the budget runs out,
 # , a sample is a set of whole paragraphs and never a sentence cut in half.
 #
-# The closed corpus and the private repositories never go in. A pasted sample is published the
-# moment it is pasted, and the hand extractions are the papers' text and the speakers' words.
+# A path under no_replicate_ never goes in. A pasted sample is published the moment it is pasted.
 
 import os
 import sys
@@ -31,16 +30,11 @@ from .scan import runs
 
 OUT = os.path.join(REPOSITORY, "build", "gate", "sample.txt")
 
-CLOSED = (
-    "/private_repos/",
-    "/salishan_corpus/",
-    "/anchor_sift_citations/",
-    "/no_replicate_/",
-)
+CLOSED = ("/no_replicate_/",)
 
 
 def closed(path):
-    """Whether a path belongs to the closed corpus or a private repository beside this one."""
+    """Whether a path is held back from a sample."""
     walk = os.path.abspath(path).replace("\\", "/")
     return any(one in walk for one in CLOSED)
 
@@ -110,7 +104,7 @@ def show_sample():
     for name, took in manifest:
         print("  %6d words  %s" % (took, name))
     if error:
-        print("  %d file(s) held back, closed corpus" % error)
+        print("  %d file(s) held back" % error)
     print("\n  %d words, %d characters, %d file(s)" % (words, len(body), len(manifest)))
     print("  %s" % os.path.relpath(OUT, REPOSITORY).replace("\\", "/"))
     return 0

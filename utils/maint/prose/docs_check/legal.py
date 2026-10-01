@@ -21,8 +21,7 @@ from .scan import MARKER
 #
 # BLANKED PER BLOCK AND NEVER PER LINE. A GPL grant runs fifteen lines and two of them hold anything
 # a regex can find. Blanking the two that matched would leave thirteen lines of legal text standing
-# in front of the register scan. Carried from repo_tools/docs/docs_maint/ai_words.py, which this
-# pass supersedes.
+# in front of the register scan.
 #
 # WHERE A BLOCK ENDS IS THE WHOLE RULE, and getting it wrong in either direction is expensive.
 # Splitting blocks on blank source lines is wrong: a `#` alone on a line is not blank, so a whole

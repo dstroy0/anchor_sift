@@ -71,10 +71,9 @@ BANNED = OUTRIGHT + LOCALE + REGISTER + SHAPES + PROBE + DETECTED
 WITHDRAWN = {
     "carry": "the verb in every inflection, banned, a digest would be said to be listed in a "
     "manifest instead. Both standards use it and code-documentation:145 uses it about "
-    "this file. 518 hits in idemIP/src at 29a808c.",
+    "this file.",
     "hold": "added when the repair pass for carry wrote hold everywhere instead. Chasing a "
-    "synonym is the sign that the rule is on a word and not on a shape. 658 hits in "
-    "idemIP/src at 29a808c, the single largest pattern in the table.",
+    "synonym is the sign that the rule is on a word and not on a shape.",
     "read": "a fold does not read and a person does, which is true and is not what \\breads\\b "
     'tests. code-comments:208 writes "reads .c and .h comments". 337 hits.',
     "slot": "nothing in the theory research papers has slots, which is a house naming rule about one "
@@ -88,7 +87,7 @@ WITHDRAWN = {
     "spend": 'the same again. code-documentation:84 writes "it spends a reader\'s trust". 6 hits.',
     "earn": 'the same again. code-documentation:114 writes "each one earned its place by '
     'measurement", the sentence that justifies half this table. 1 hit.',
-    "afford": "the same again, and one of the three that fired nowhere in idemIP/src at all.",
+    "afford": "the same metaphor again, and the word has a plain use the ban could not see.",
     "win": "an arm does not win. True, and the word has a plain use the ban could not see. 3 hits.",
     "price": "added, a repair pass could not swap cost for it. A ban added to close the exit "
     "from another ban is the shape of a rule that is chasing words. 0 hits.",

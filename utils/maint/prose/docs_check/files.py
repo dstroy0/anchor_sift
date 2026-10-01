@@ -28,14 +28,12 @@ from .verbatim import verbatim_root
 BUILD_SUFFIXES = (".sh", ".ps1", ".cmake", ".yml", ".yaml")
 
 # Named, not suffixed. A build file is as likely to be named as it is to be extended, and an
-# extension list cannot express `CMakeLists.txt`. Carried from
-# repo_tools/docs/docs_maint/ai_words.py, which this pass supersedes.
+# extension list cannot express `CMakeLists.txt`.
 BUILD_NAMES = ("CMakeLists.txt", "Makefile", "GNUmakefile", "Dockerfile")
 
-# A git hook has no extension at all, and no extension list can ever select it.
-# Also from ai_words.py, and it is the sharpest thing in that file: a four-extension sweep
-# dropped a hook and took the gate with it. orior keeps its own hooks in .githooks/ and every
-# one of them is a shell script full of comments.
+# A git hook has no extension at all, and no extension list can ever select it. A sweep by
+# extension drops a hook and takes the gate with it. orior keeps its own hooks in .githooks/ and
+# every one of them is a shell script full of comments.
 HOOK_NAMES = (
     "pre-commit",
     "commit-msg",

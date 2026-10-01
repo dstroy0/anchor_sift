@@ -16,18 +16,10 @@ import os
 # Somebody else's words, reproduced byte for byte. A register finding inside one is a finding
 # against its author, and a rewrite inside one corrupts a document this project does not own.
 #
-# THREE INSTANCES, FOUND SEPARATELY, AND THAT MAKES THIS A CONCEPT:
-#
-#   idemIP docs/learn/RFC             IETF documents as the RFC Editor published them. RFC 2119
-#                                     MUST and SHOULD are normative keywords in that corpus, and
-#                                     "Robustness Variable" at src/idemip_config.h:580 is the
-#                                     literal name of an RFC 2236 section 8.1 field, quoted in a
-#                                     Doxygen brief with its published default.
-#   ProtoCore docs/learn/rfc          the same corpus again, lowercased, in a second repository.
-#   ProtoCore docs/learn/datasheets   vendor datasheets and the .txt extracted from them.
-#   salishan_corpus/oracles           tables transcribed by hand from other people's published
-#                                     papers. Their numbers are the published numbers, and a
-#                                     transcription that disagrees with its source is worthless.
+#   docs/learn/RFC                    IETF documents as the RFC Editor published them. RFC 2119
+#                                     MUST and SHOULD are normative keywords in that corpus.
+#   docs/learn/rfc                    the same corpus, lowercased.
+#   docs/learn/datasheets             vendor datasheets and the .txt extracted from them.
 #
 # NAMED AS A CONCEPT AND NOT AS A PATH LIST, and that difference is the whole reason this is written
 # as a rule. A path list is a chore somebody has to remember to extend, and the way a chore fails is
@@ -37,11 +29,8 @@ import os
 # exists so the default list is not the only way to answer, and a tree vendoring a corpus this tool
 # has never heard of can say so without editing this tool.
 #
-# WHAT IT COSTS, named here.
-# Two files of this project's own prose go quiet with the corpora they index: idemIP
-# docs/learn/RFC/README.md and ProtoCore docs/learn/datasheets/README.md. The alternative is an
-# allowlist inside each verbatim root, which is a second list to maintain for two files, and the
-# ledger names both of them on every run that reads past them.
+# WHAT IT COSTS, named here. An index page of this project's own prose inside a verbatim root goes
+# quiet with the corpus it indexes, and the ledger names it on every run that reads past it.
 #
 # THE RFC .txt FILES ARE NOT READ TODAY ANYWAY, because .txt is not in CHECKED. That is true and it
 # is not the reason this rule exists: the rule has to hold when somebody adds .txt, and a rule whose
@@ -51,12 +40,12 @@ VERBATIM_MARKER = ".verbatim"
 VERBATIM_ROOTS = (
     (
         "docs/learn/RFC",
-        "IETF documents as the RFC Editor published them. idemIP repotools.toml:40-43 says the same",
+        "IETF documents as the RFC Editor published them",
     ),
-    ("docs/learn/rfc", "the same IETF corpus, lowercased, in ProtoCore"),
+    ("docs/learn/rfc", "the same IETF corpus, lowercased, as published"),
     ("docs/learn/datasheets", "vendor datasheets and the .txt extracted from them"),
     (
-        "salishan_corpus/oracles",
+        "Salishan/oracles",
         "tables transcribed by hand from other people's published papers",
     ),
 )

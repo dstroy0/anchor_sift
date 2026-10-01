@@ -217,11 +217,10 @@ def standard_header():
 
     Read and not spelled here, because a second copy of the SPDX string is a second place to
     change it and nothing compares the two. repotools.toml already holds the project name, the
-    copyright line and the SPDX expression, and it is the file the rest of the toolkit asks.
+    copyright line and the SPDX expression.
 
-    tomllib is the standard library's parser. citations.py hand-scans the same file for its own
-    [layout] table, which predates this and works, but a hand-scanner reads what its author expected
-    the file to look like and not what TOML says it is.
+    tomllib is the standard library's parser. A hand-scanner reads what its author expected the file
+    to look like and not what TOML says it is.
     """
     path = os.path.join(ROOT, "repotools.toml")
     if not os.path.isfile(path):

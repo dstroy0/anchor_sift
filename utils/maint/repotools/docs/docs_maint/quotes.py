@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-# repotools-stamp: docs/docs_maint/quotes.py 8bbad6f8c384125a
-# repo_tools - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 """Every quotation in src/, checked against the RFC text it says it came from.
 

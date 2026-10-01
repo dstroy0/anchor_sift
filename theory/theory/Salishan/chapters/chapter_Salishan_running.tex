@@ -57,7 +57,7 @@ maint/data/salishan/hand_extraction/                      the control
 src/engine/python/instrument/                             the algorithm
 maint/data/salishan/corpus_script_extraction/             the eleven readers
 maint/data/salishan/orior_algorithmic_extraction/   the sift applied
-salishan_corpus/analysis/sound/          the recordings as bits, in the closed corpus
+maint/analysis/sound/                    the recordings as bits
 \end{lstlisting}
 
 Each script finds the repository by walking up to the tree holding \texttt{build/\allowbreak{}}.
@@ -168,14 +168,14 @@ The first reads which language each paper is about out of its own title and abst
 
 \subsection{The sound representation}
 
-Located in the closed corpus repository and run from there. Its SHA-256 is listed in that repository's \texttt{MANIFEST.\allowbreak{}tsv}, next to the recordings'.
+Located at \texttt{utils/\allowbreak{}maint/\allowbreak{}analysis/\allowbreak{}sound/\allowbreak{}binary\_\allowbreak{}sound.\allowbreak{}py}.
 
 \begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
-python analysis/sound/binary_sound.py
-python analysis/sound/binary_sound.py <stem>
+python utils/maint/analysis/sound/binary_sound.py
+python utils/maint/analysis/sound/binary_sound.py <stem>
 \end{lstlisting}
 
-Writes \texttt{build/\allowbreak{}sound/\allowbreak{}<stem>.\allowbreak{}bits.\allowbreak{}tsv} in this tree, one row per 10 ms frame: the time, a 24 bit segment field, and a 4 bit prosody field. With no argument it does every recording in the corpus repository's \texttt{speech/\allowbreak{}}; a stem is a filename there without its extension. The output lands here and not in the closed repository. That repository's bytes hold still between runs. A signature over an inventory that moves on every run says nothing.
+Writes \texttt{build/\allowbreak{}sound/\allowbreak{}<stem>.\allowbreak{}bits.\allowbreak{}tsv} in this tree, one row per 10 ms frame: the time, a 24 bit segment field, and a 4 bit prosody field. With no argument it does every recording in \texttt{build/\allowbreak{}audio}; a stem is a filename there without its extension. That repository's bytes hold still between runs. A signature over an inventory that moves on every run says nothing.
 
 What it prints is the delta from a flat distribution over each field, at 6, 8, 10, 12, 14 and 24 bits, with how many states each width reached. Read the narrow widths. A 24 bit field has 16.8 million states and the longest recording has 135 thousand frames. The wide figure is about the frame count. \texttt{refs.\allowbreak{}md} has the measured numbers and the four facts about hearing the method is built on.
 
