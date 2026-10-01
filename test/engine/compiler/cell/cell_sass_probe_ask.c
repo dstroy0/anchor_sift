@@ -176,10 +176,6 @@ unsigned int sass_cubin_prefers(SassProbe *probe, const SassMachine *machine, un
         // A move has two codings on this part, and no listing says which to write: the compiler alternates them,
         // which is a hint that they go to different pipes and neither is free. R0 holds the case's first word
         {"a move", "MOV R7, R0", "IMAD.MOV.U32 R7, RZ, RZ, R0", 0x0000000bu},
-        // A long operation, which is where this is going: the high word of a 64-bit add, the pair being the case's
-        // two words (0x7 and 0xb) added to itself. sass.krs writes wide_add as IADD3 then IADD3.X; the other coding
-        // takes the carry with IMAD.X and adds the high word after. Two instructions against three, and 11 + 11
-        // carries nothing: both answer 7 + 7
         // A long operation, which is where this is going: the high word of a 64-bit add. sass.krs writes wide_add
         // as IADD3 then IADD3.X; the other coding takes the carry with IMAD.X and adds the high word after, three
         // instructions against two. Both read R0, which the loop never writes. A turn leaves the next one what

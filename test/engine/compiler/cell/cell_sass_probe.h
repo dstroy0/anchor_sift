@@ -198,7 +198,7 @@ void sass_machine_listing(SassMachine *machine, const SassListing *listing);
 unsigned int sass_machine_widen(SassMachine *machine, const char *architecture, const char *folder);
 
 // Every operation the part has a coding for, asked of its disassembler without starting from anything a compiler
-// wrote (Doug: "we can unbound the search entirely to find new words we didn't know existed").
+// wrote.
 //
 // Widening asks what lies one bit from a form some compiler emitted, which bounds the search by what a compiler
 // happens to write. The encoding's own structure lifts that bound. The low 12 bits of the low word key the
