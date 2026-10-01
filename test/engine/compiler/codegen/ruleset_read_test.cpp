@@ -192,7 +192,7 @@ static void check_sass_lane(const Ruleset *rules)
     // The lane's entry, which no listing gave because nothing has ever called our lane: the resident hands it the
     // launch in R4 and R5 and the lane's number in R6 and R7, and both sides of that call are ours to write. One
     // 64-bit load reads a parameter, since a ruleset does no arithmetic and cannot write {offset}+4 for the second
-    // half; the part answered LDG.E.64.CONSTANT on 29 Sep, R8 reading 0xb and R9 reading 0x7
+    // half; the part answers LDG.E.64.CONSTANT, R8 reading 0xb and R9 reading 0x7
     check_form(rules, "open_launch", {},
                "\tMOV \tR238, R4;\n"
                "\tMOV \tR239, R5;\n"
@@ -213,8 +213,8 @@ static void check_sass_lane(const Ruleset *rules)
     check_refused(rules, "word_divide", {"R8", "R0", "R1"});
     check_refused(rules, "wide_divide", {"R14", "R12", "R16"});
     // The compiler wrote a word product as one IMAD.WIDE.U32 into an aligned pair, which the core cannot promise
-    // because it names the two halves apart. Each half is written on its own instead, and the part was asked both
-    // (29 Sep): 0xffffffff squared plus 0xffffffff is 0 carrying 1 in the low word and 0xffffffff in the high
+    // because it names the two halves apart. Each half is written on its own instead, and the part was asked both:
+    // 0xffffffff squared plus 0xffffffff is 0 carrying 1 in the low word and 0xffffffff in the high
     check_form(rules, "product_low", {"R8", "R0", "R1", "R2"},
                "\tIMAD \tR8, R0, R1, RZ;\n"
                "\tIADD3 \tR8, P6, R8, R2, RZ;\n");

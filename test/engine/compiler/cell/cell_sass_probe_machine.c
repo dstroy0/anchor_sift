@@ -157,9 +157,9 @@ unsigned int sass_machine_widen(SassMachine *machine, const char *architecture, 
     // constant and a number in the third. A register to a number is two bits either way, through the constant that
     // lies between. One round reaches the constant and the round after reaches the number.
     //
-    // SASS_WIDEN_ROUNDS is that reach. Letting the walk run to its own end was measured on 29 Sep: from 118 listed
-    // forms it processed 3128 in 19 minutes at a flat 177 a minute and was still finding more, because the component
-    // reachable a bit at a time is most of what the part decodes. Two things are wrong with taking all of it. It
+    // SASS_WIDEN_ROUNDS is that reach. Letting the walk run to its own end does not close: it keeps finding more,
+    // because the component reachable a bit at a time is most of what the part decodes. Two things are wrong with
+    // taking all of it. It
     // does not close anywhere near the 16384 a machine holds: the run ends in `refused` and reports nothing. And a
     // form reached far out carries the operand bits of a chain of forms it has nothing to do with, the PLOP3.LUT
     // reading written down below -- a form that decodes and that no operation can be written from. The bound is the

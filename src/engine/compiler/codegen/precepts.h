@@ -3,8 +3,8 @@
 #ifndef PRECEPTS_H
 #define PRECEPTS_H
 
-// The alphabet (Doug, 29 Sep): "storing ops as a binary tree of primitives is the most lightweight you can make a
-// language". His floor of universal operations, and what every math function is built out of, are quoted whole in
+// The alphabet. Storing ops as a binary tree of primitives is the most lightweight you can make a language. The floor
+// of universal operations, and what every math function is built out of, are quoted whole in
 // src/engine_plan.md under The precepts; this file is that floor written down.
 //
 // Every operation the compiler decides is a binary tree whose leaves are operands and whose nodes are the precepts

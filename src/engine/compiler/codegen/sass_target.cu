@@ -19,8 +19,8 @@ unsigned int SassTarget::register_file_holds(void) const
 
 // The resident reaches SASS already built. ptx.krs holds it as 110 instructions of PTX that run, the part's own
 // compiler turns those into 248 SASS instructions that run, and a program is put together by writing the lane into
-// that cubin's cycle_lane, leaving cycle_program as the compiler wrote it (asked of the part 29 Sep: 247 of the
-// resident's 248 instructions came through a lane going in, the one that did not being the empty lane's own).
+// that cubin's cycle_lane, leaving cycle_program as the compiler wrote it (asked of the part: 247 of the
+// resident's 248 instructions come through a lane going in, the one that did not being the empty lane's own).
 // sass.krs gives program_unit as an error for that reason, and the form is left out here in place of being asked
 // for
 int SassTarget::program_unit_written(void) const

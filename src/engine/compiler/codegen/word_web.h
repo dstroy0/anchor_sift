@@ -5,8 +5,8 @@
 
 #include "precepts.h"
 
-// The word web, the layer above precepts.h (Doug, 29 Sep: "the languages alphabet web, then the word web, and then
-// we have coherence that we can measure with clock").
+// The word web, the layer above precepts.h. The language's alphabet web comes first, then the word web, and then the
+// coherence the clock measures.
 //
 // A word is an operation the compiler decides in, written as the tree it is over the alphabet. The schema names 99
 // of them and a ruleset gives each a line of the target's text. What neither one says is what the operation *is*,

@@ -5,8 +5,8 @@
 
 #include "precepts.h"
 
-// A tree over the alphabet is a number, and needs no table (Doug, 29 Sep: "most of our code is unfurling and binary
-// trees in the compiler, that is easily represented with math").
+// A tree over the alphabet is a number, and needs no table. Most of the code is unfurling and binary
+// trees in the compiler, and that is easily represented with math.
 //
 // The alphabet gives every symbol a fixed arity, and a tree written in prefix order with fixed arities needs no
 // parentheses and no child pointers: reading the symbols left to right, each one takes exactly as many subtrees as
@@ -27,8 +27,7 @@
 // Past 13 places the number outgrows an unsigned long long, and the container changes where the encoding does not.
 // The engine already holds an exact integer of any width - AnchorExactInteger in
 // src/engine/arithmetic/no_rounding/exact_integer_api.h, limbs least significant first with the sign held apart -
-// and a tree's number in base TREE_SYMBOLS is written into one the same way it is written into a word here. Doug,
-// 29 Sep: "you can use our arbitrary mpint to rep them if you want."
+// and a tree's number in base TREE_SYMBOLS is written into one the same way it is written into a word here.
 //
 // Nothing reaches for it yet, and this is the size where that stops being true: a fixed-arity tree never passes 5
 // nodes, and an unfurled one passes 13 at once. A ripple adder is a rank of gates per bit, putting a 32-bit add

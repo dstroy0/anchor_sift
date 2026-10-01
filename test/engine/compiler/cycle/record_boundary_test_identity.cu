@@ -232,8 +232,8 @@ unsigned int boundary_heap(long long value)
     return (bits == 0u) ? 0u : (bits + 1u);
 }
 
-// The identity of a lane's structure, taken with T and null permutations of T's input (Doug, 24 September: "an
-// identity of T using T:null permutation of T"). Each lane is drawn with BOUNDARY_TEST_IDENTITY_DRAWS keyed shuffles
+// The identity of a lane's structure, taken with T and null permutations of T's input. Each lane is drawn with
+// BOUNDARY_TEST_IDENTITY_DRAWS keyed shuffles
 // of its own samples. A shuffle keeps every value. The samples' heap is the same on every draw, and T keeps the
 // count exactly (det M = 1, Haar measure). Whatever the crystal's heap tells apart is the arrangement alone. A
 // lane is identified when its crystal's heap stands below every draw's. With no arrangement to find, the lane and its
