@@ -71,26 +71,6 @@ to do and how. An item that is done comes out of this file.
 
    The c stage and the python stage of the move follow the same steps as the cu stage.
 
-## Theory
-
-8. **Theory paths the cu move changed.** Thirteen lines in eight files:
-
-   | line | names | now |
-   |---|---|---|
-   | `theory/workbooks/anchor_sift/rendering.md:4` | `src/engine/render/raster_cuda_entry.cu` | `src/cu/engine/render/raster_entry.cu` |
-   | `theory/workbooks/anchor_sift/rendering.md:4` | `src/engine/render/raster_cuda_kernels.cu` | `src/cu/engine/render/raster.cu` |
-   | `theory/workbooks/anchor_sift/rendering.md:164` | `src/engine/render/raster_cuda_internal.h` | `src/cu/engine/render/raster_cuda_internal.h` |
-   | `theory/workbooks/engine/build_plan.md:187` | `engine/sims/run.sh` | `src/sims/run.sh` |
-   | `theory/workbooks/engine/engine_table.md:323` | `engine/sims/sim_job.cu` | `src/sims/cu/sim_job.cu` |
-   | `theory/workbooks/engine/engine_table.md:328` | `engine/sims/run.sh` | `src/sims/run.sh` |
-   | `theory/workbooks/engine/engine_table.md:331` | `src/engine/quantum/qasm/qasm_self_program.cu` | `src/cu/transpiler/qasm/qasm_self_program.cu` |
-   | `theory/workbooks/engine/engine_table.md:802` | `src/engine/compiler/cycle/cycle_compile_route.cu` | `src/cu/engine/analysis/cycle/cycle_compile_route.cu` |
-   | `theory/workbooks/engine/kolmogorov_arnold.md:88` | `engine/sims/run.sh` | `src/sims/run.sh` |
-   | `theory/workbooks/engine/ledger.md:100` | `engine/sims/run.sh` | `src/sims/run.sh` |
-   | `theory/workbooks/engine/noise_vector_integration_table.md:38` | `engine/sims/run.sh` | `src/sims/run.sh` |
-   | `theory/workbooks/engine/records.md:333` | `src/engine/sims/run.sh` | `src/sims/run.sh` |
-   | `theory/workbooks/engine/tessera_scheduler.md:128` | `engine/sims/sim_job.cu` | `src/sims/cu/sim_job.cu` |
-
 ## Upkeep
 
 9. **Comments in `src/`:** the pass that rewrites comments against the voice oracle and takes history out of them,

@@ -97,7 +97,7 @@ Read from the code at d5f6a06 and the files in `cache/iapx`; the claims are in [
 
 ### The sims
 
-The first five sims of `engine/sims/` (M19 of [engine_table.md](engine_table.md); the sixth, `root_universal`, is under "The root universal" below, the seventh, `ask_state`, under "The ask and the state", and the eighth, `ka_psi`, under "Kolmogorov's inner function"), each an exact-integer GPU program run by `bash engine/sims/run.sh <sim>`, all under the one camera law of `sim_camera.h`. Every count below is the sim's own output; the ratios are measured, and a lane-for-lane equality is proved.
+The first five sims of `engine/sims/` (M19 of [engine_table.md](engine_table.md); the sixth, `root_universal`, is under "The root universal" below, the seventh, `ask_state`, under "The ask and the state", and the eighth, `ka_psi`, under "Kolmogorov's inner function"), each an exact-integer GPU program run by `bash src/sims/run.sh <sim>`, all under the one camera law of `sim_camera.h`. Every count below is the sim's own output; the ratios are measured, and a lane-for-lane equality is proved.
 
 | sim | samples | result | settles |
 |---|---|---|---|

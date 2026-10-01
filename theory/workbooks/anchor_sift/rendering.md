@@ -1,7 +1,7 @@
 # Rendering the object under examination
 
 **Purpose:** Render a corpus and what the engine saw of it, as a sheet or as a volume, on whichever arm the machine has and preferring the device, and know which parts are graded and which are not.
-**Scope:** `src/engine/render/anchor_raster.h`, `src/engine/render/anchor_raster_host.c`, `src/engine/render/anchor_raster_output.c`, `src/engine/render/raster_cuda_entry.cu`, `src/engine/render/raster_cuda_kernels.cu`, `bench/bench_raster.c`, `maint/engine/build_gpu_raster.ps1`
+**Scope:** `src/engine/render/anchor_raster.h`, `src/engine/render/anchor_raster_host.c`, `src/engine/render/anchor_raster_output.c`, `src/cu/engine/render/raster_entry.cu`, `src/cu/engine/render/raster.cu`, `utils/bench/bench_raster.c`, `utils/maint/engine/build_gpu_raster.ps1`
 
 A search produces one outcome per alignment: some probe rejected it, or every probe agreed and a full compare decided it. That sequence is already an image. This renders it, with no export step between the engine state and the pixels, in two and in three dimensions.
 
@@ -161,7 +161,7 @@ The sheet: twenty combinations, four layouts by five channels, each written as a
 
 The volume: twenty combinations into a 32 by 32 by 32 block. Measured on the same machine and corpus: twenty of twenty host and device identical, every combination filling all 32768 voxels with zero collisions, which confirms each layout is a bijection onto the block.
 
-The device arms carry their own copy of the transform and the channel, because the two arms are built by different compilers that cannot link, the same split `maint/engine/build_gpu_arm.sh` documents for the exact arm. Where a device is present, the grader compares outputs on every configuration, and a divergence between the copies fails a row. A `@warning` states this at `src/engine/render/raster_cuda_internal.h:34`.
+The device arms carry their own copy of the transform and the channel, because the two arms are built by different compilers that cannot link, the same split `utils/maint/engine/build_gpu_arm.sh` documents for the exact arm. Where a device is present, the grader compares outputs on every configuration, and a divergence between the copies fails a row. A `@warning` states this at `src/cu/engine/render/raster_cuda_internal.h:34`.
 
 ## Frame rate, and what the number is
 

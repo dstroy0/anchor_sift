@@ -330,7 +330,7 @@ From cell_tracking main 24b2785 (test), e4eae72 (sim) and ad5d085 (theory), plac
 
 #### Sim: the knf's identity by spatial null permutation
 
-`bash src/engine/sims/run.sh knf_identity`: 23 checks, 0 failed.
+`bash src/sims/run.sh knf_identity`: 23 checks, 0 failed.
 
 - **Setup.** The nbody lattice's law in a 64³ cube over 177 frames, which gives 16 whole entropy windows.
 - **The statistic.** A spatial permutation keeps every section and the cloud. E reads the arrangement alone: each voxel's centered window densities against its torus neighbors.

@@ -125,7 +125,7 @@ Two findings, both measured:
 
 ## The sims submit (24 September)
 
-Every sim that uses the device is one job (`engine/sims/sim_job.cu`).
+Every sim that uses the device is one job (`src/sims/cu/sim_job.cu`).
 
 - **The signum** is the BLAKE3 hash of the sim's name and each argument, each ended by a NUL.
 - **The declaration** is the bytes of the sim's first allocation, declared before it makes it.
