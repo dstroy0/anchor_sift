@@ -1,4 +1,4 @@
-// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // Smooth cells. The blur: each run is an ellipsoid drawn as the ellipse it projects to, bright at its center and

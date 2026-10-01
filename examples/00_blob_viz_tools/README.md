@@ -18,7 +18,9 @@ not tools:
 | `build_plot_view.py`              | an expression you type                      |
 | `build_sound_view.py`             | a wav you name, or its own generated signal |
 | `build_sweep_view.py`             | the same, swept across analysis settings    |
+| `build_shapes_view.py`            | nothing; the page samples every shape       |
 | `dsp.py` `exact.py` `settings.py` | shared, no inputs of their own              |
+| `generate_template.py` `toolbox/` | shared, no inputs of their own              |
 
 | stays here                                                           | why                                          |
 | -------------------------------------------------------------------- | -------------------------------------------- |
@@ -76,6 +78,40 @@ python build_step_view.py --bit 96
 ```
 
 Two SHA-256 traces, a message and the same message with one bit flipped, every intermediate kept.
+
+## One generator, one toolbox
+
+```
+python generate_template.py foo_view_template.html --data foo.json --out foo_view.html
+python generate_template.py --verify foo_view.html
+python generate_template.py --check
+```
+
+A page is a template plus the tools it names. `generate_template.py` reads `<!--TOOL name-->` lines from the
+template, resolves what each tool requires from `toolbox/manifest.tsv`, and inlines every piece into one file under
+a label naming its toolbox path. `--verify` holds each labeled piece in a built page to its toolbox file byte for
+byte. The generator and the toolbox import nothing else from this tree.
+
+| toolbox          | holds                                                                                  |
+| ---------------- | -------------------------------------------------------------------------------------- |
+| `theme.css`      | the dark and light themes and the one set of controls: buttons, fields, sliders, switches, folding sections |
+| `ui/toolbar`     | the floating toolbar: a menu button that grows into folding sections of controls       |
+| `core/`          | the device, bind groups and streaming, the sine table and angles, the settings scheme, the clock with vsync, 4 by 4 matrices |
+| `volume/`        | the `.vbo`/`.ibo` object, its compaction kernels and the shared drawing code           |
+| `shapes/`        | run boxes, lines, the 2D map, smooth blobs, every parametric surface and transform, the Hilbert and Morton curves, a harmonic field, a float mesh |
+| `copyright.html` | the line every built page carries, stamped by `generate_template.stamp`                |
+
+The engine view and the shapes gallery are built this way:
+
+```
+python ../cell_tracking/maint/build_engine_view.py
+python build_shapes_view.py --set shape=klein --set transform=twist
+```
+
+The gallery draws every shape the toolbox makes on the shared core: every surface under every transform, the
+curves as the paths they trace, and the field painted on any of them or raised from it. Both pages need WebGPU,
+Chrome 113 or later. Each has a vsync switch, on by default; off, it draws as fast as the card finishes and reports
+the frames it drew per second.
 
 ## On representations
 

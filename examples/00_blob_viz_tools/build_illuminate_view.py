@@ -29,6 +29,7 @@ if HERE not in sys.path:
 import beam_illuminate
 import beam_rows
 import out_path
+from generate_template import stamp
 
 SOURCES = beam_illuminate.SOURCES
 
@@ -338,7 +339,7 @@ def main():
     page = render(rows, entropy, zeros)
     target = out_path.resolve("illuminate_view.html", args.out)
     with io.open(target, "w", encoding="utf-8") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
     sys.stdout.write("  wrote %s, %d bytes\n" % (target, len(page)))
     return 0
 

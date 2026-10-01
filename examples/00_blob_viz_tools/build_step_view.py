@@ -30,6 +30,7 @@ import json
 import os
 import re
 import sys
+from generate_template import stamp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "step_view_template.html")
@@ -147,7 +148,7 @@ def main():
     page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
 
     with io.open(TARGET, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     weights = [bin(base_rounds[at]["a"] ^ flip_rounds[at]["a"]).count("1") for at in range(64)]
     first = next((at for at in range(64) if weights[at]), None)

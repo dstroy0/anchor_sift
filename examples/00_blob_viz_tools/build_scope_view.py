@@ -55,6 +55,7 @@ sys.path.insert(0, os.path.join(ROOT, "examples", "proofing"))
 
 import boundary_read
 import state_deflection
+from generate_template import stamp
 
 RINGS = 8
 WIDTH = 32
@@ -164,7 +165,7 @@ def main():
     page = page.replace("/*DATA*/", json.dumps(payload, separators=(",", ":")))
 
     with io.open(given.out, "w", encoding="utf-8") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     print("wrote %s" % given.out)
     print("  block  %d, nonce %d" % (block["height"], int(block["nonce"])))

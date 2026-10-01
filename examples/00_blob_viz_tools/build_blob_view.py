@@ -45,6 +45,7 @@ import re
 import sys
 
 import settings
+from generate_template import stamp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "voxel_view_template.html")
@@ -225,7 +226,7 @@ def main():
         target = os.path.join(os.path.dirname(os.path.abspath(source)),
                               os.path.splitext(os.path.basename(source))[0] + "_view.html")
     with io.open(target, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     written = os.path.getsize(target)
     print("wrote %s (%.1f KB)" % (target, written / 1024.0))

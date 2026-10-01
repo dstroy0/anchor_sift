@@ -1,0 +1,20 @@
+<div id="copyright">Copyright &copy; 2026 Douglas Quigg (dstroy0) &lt;dquigg123@gmail.com&gt; <a href="https://github.com/dstroy0" target="_blank" rel="noopener noreferrer">github.com/dstroy0</a></div>
+<style>
+  #copyright { position: fixed; top: 2px; left: 50%; transform: translateX(-50%); z-index: 50; font: 10px/1.3 system-ui, "Segoe UI", Roboto, sans-serif; color: rgba(128, 128, 128, 0.72); white-space: nowrap; pointer-events: none; }
+  #copyright a { color: inherit; text-decoration: none; pointer-events: auto; }
+  #copyright a:hover, #copyright a:focus-visible { text-decoration: underline; }
+  @media print { #copyright { position: static; transform: none; text-align: center; } }
+</style>
+<script>
+  (function () {
+    var line = document.getElementById("copyright");
+    var place = function () {
+      var bar = document.querySelector("#menu, #controls, #bar, [data-bar]");
+      var box = bar && bar.getBoundingClientRect();
+      line.style.top = box && box.height && box.top < 80 ? Math.round(box.bottom + 3) + "px" : "2px";
+    };
+    window.addEventListener("resize", place);
+    window.addEventListener("load", place);
+    place();
+  })();
+</script>

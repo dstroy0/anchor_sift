@@ -65,6 +65,7 @@ import sys
 
 import out_path
 import settings
+from generate_template import stamp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
@@ -318,7 +319,7 @@ def main():
 
     out = out_path.resolve("sha_room_view.html", option("--out", None))
     with io.open(out, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     # The round the shadows stop at, read off the same numbers the page was built from and printed
     # so what it drew is printed. A caller who never opens the page still gets the reading.

@@ -43,6 +43,7 @@ import time
 
 import dsp
 import settings
+from generate_template import stamp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "voxel_view_template.html")
@@ -234,7 +235,7 @@ def main():
 
     target = text("--out") or os.path.join(HERE, "sound_view.html")
     with io.open(target, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     print("wrote %s (%.1f KB)" % (target, os.path.getsize(target) / 1024.0))
     print(

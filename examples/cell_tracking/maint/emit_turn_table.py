@@ -7,7 +7,7 @@ from fractions import Fraction
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 DEFAULT_LIBRARY = "D:/git_project/repos/owned/public/orior/src/engine/python"
-OUT = os.path.join(ROOT, "view", "engine_view", "turn_table.js")
+OUT = os.path.join(os.path.dirname(ROOT), "00_blob_viz_tools", "toolbox", "core", "turn_table.js")
 PLACES = 60
 SCALE = 1 << 14
 TAIL = Fraction(1, 1 << 80)

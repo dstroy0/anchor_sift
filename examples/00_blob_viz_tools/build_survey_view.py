@@ -35,6 +35,7 @@ import argparse
 import io
 import json
 import os
+from generate_template import stamp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "survey_view_template.html")
@@ -158,7 +159,7 @@ def main():
     page = page.replace("/*DATA*/", json.dumps(payload, separators=(",", ":")))
 
     with io.open(given.out, "w", encoding="utf-8") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     print("wrote %s" % given.out)
     print("  %s nonces surveyed" % format(samples, ","))

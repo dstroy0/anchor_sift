@@ -50,6 +50,7 @@ if HERE not in sys.path:
     sys.path.insert(0, HERE)
 
 import out_path
+from generate_template import stamp
 
 TOTALS = os.path.join(ROOT, "miner_totals.txt")
 LOG = os.path.join(ROOT, "miner.log")
@@ -736,7 +737,7 @@ def build_once(out):
                   read_liveness())
     target = out_path.resolve("pool_view.html", out)
     with io.open(target, "w", encoding="utf-8") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
     return target, len(page)
 
 

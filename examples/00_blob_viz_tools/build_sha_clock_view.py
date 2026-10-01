@@ -82,6 +82,7 @@ import sys
 import settings
 import out_path
 import sphere_field
+from generate_template import stamp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "room_view_template.html")
@@ -445,7 +446,7 @@ def main():
 
     out = out_path.resolve("sha_clock_view.html", option("--out", None))
     with io.open(out, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     # The digest, printed so the trace can be checked against any other implementation and not
     # taken on trust. At the full sixty-four rounds on the empty message this is the published one.

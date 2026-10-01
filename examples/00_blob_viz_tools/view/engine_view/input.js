@@ -17,7 +17,7 @@ EV.CONTROLS = [
   ["status2", "wrong", "switch"], ["status3", "no_link", "switch"], ["slice", "slice", "switch"], ["sliceZ", "slice_z", "integer"],
   ["windowLow", "window_low", "integer"], ["windowHigh", "window_high", "integer"], ["sheer", "sheer", "integer"],
   ["textSize", "text_size", "integer"], ["theme", "theme", "word"], ["rateBox", "rate", "integer"], ["stepBox", "step", "integer"],
-  ["loop", "loop", "switch"],
+  ["loop", "loop", "switch"], ["vsync", "vsync", "switch"],
 ];
 
 EV.BODY_WORDS = ["smooth", "voxels", "centroids"];
@@ -52,7 +52,7 @@ EV.showView = (app) => {
   root.dataset.theme = view.theme;
   root.style.setProperty("--sheer", String(view.sheer / 100));
   root.style.setProperty("--text", `${Math.floor((12 * view.text_size) / 100)}px`);
-  EV.$("faceClinical").classList.toggle("on", view.face === "clinical");
+  EV.$("faceHuman").classList.toggle("on", view.face === "human");
   EV.$("faceMachine").classList.toggle("on", view.face === "machine");
   for (const button of document.querySelectorAll("#menu [data-show]")) {
     const name = button.dataset.show;
@@ -229,7 +229,7 @@ EV.fetchRaw = async (app) => {
 
 EV.remember = (app) => {
   try {
-    localStorage.setItem("engine_view", JSON.stringify({ face: app.view.face, theme: app.view.theme, text_size: app.view.text_size, sheer: app.view.sheer, pinned: EV.$("panel").classList.contains("pinned") }));
+    localStorage.setItem("engine_view", JSON.stringify({ face: app.view.face, theme: app.view.theme, text_size: app.view.text_size, sheer: app.view.sheer, pinned: EV.controlBar.isOpen() }));
   } catch (error) {
     // Storage can error; the page works without it.
   }
@@ -239,7 +239,7 @@ EV.recall = (app) => {
   try {
     const kept = JSON.parse(localStorage.getItem("engine_view") || "{}");
     EV.applyView(app.view, { face: kept.face, theme: kept.theme, text_size: kept.text_size, sheer: kept.sheer });
-    EV.$("panel").classList.toggle("pinned", !!kept.pinned);
+    EV.controlBar.setOpen(!!kept.pinned);
   } catch (error) {
     // Nothing remembered.
   }
@@ -360,9 +360,9 @@ EV.bindControls = (app) => {
       EV.paintReview(app);
     });
   }
-  EV.$("faceClinical").addEventListener("click", () => { app.view.face = "clinical"; EV.showView(app); EV.paintReview(app); });
+  EV.$("faceHuman").addEventListener("click", () => { app.view.face = "human"; EV.showView(app); EV.paintReview(app); });
   EV.$("faceMachine").addEventListener("click", () => { app.view.face = "machine"; EV.showView(app); EV.paintReview(app); });
-  EV.$("grip").addEventListener("click", () => { EV.$("panel").classList.toggle("pinned"); EV.remember(app); });
+  EV.controlBar.button.addEventListener("click", () => EV.remember(app));
   EV.$("openFile").addEventListener("click", () => EV.$("fileInput").click());
   EV.$("fileInput").addEventListener("change", async (event) => EV.openFiles(app, event.target.files));
   EV.$("snapshot").addEventListener("click", async () => EV.download(`engine_view_frame_${app.frame + 1}.png`, await EV.snapshot(app)));
@@ -370,7 +370,7 @@ EV.bindControls = (app) => {
   EV.$("play").addEventListener("click", () => { app.playing = !app.playing; app.heading = app.playing ? 1 : app.heading; });
   EV.$("forth").addEventListener("click", () => EV.stepFrames(app, app.view.step));
   EV.$("back").addEventListener("click", () => EV.stepFrames(app, -app.view.step));
-  EV.$("frameBox").addEventListener("change", (event) => EV.goTo(app, Number(event.target.value) - (EV.clinical() ? 1 : 0)));
+  EV.$("frameBox").addEventListener("change", (event) => EV.goTo(app, Number(event.target.value) - (EV.human() ? 1 : 0)));
   EV.$("clock").addEventListener("input", (event) => {
     const value = Number(event.target.value);
     app.playing = false;
@@ -506,7 +506,7 @@ EV.bindPointer = (app) => {
     box.hidden = false;
     box.style.left = `${event.clientX + 14}px`;
     box.style.top = `${event.clientY + 14}px`;
-    box.textContent = EV.clinical()
+    box.textContent = EV.human()
       ? `Cell #${cell}\n${EV.grouped(object.cells[4 * cell])} voxels · frame ${object.cellFrame[cell] + 1}`
       : `cell ${cell} f${object.cellFrame[cell]} n=${object.cells[4 * cell]}\ncentroid ${EV.centroidText(object, cell, 3)}`;
   });
@@ -577,7 +577,7 @@ EV.bindKeys = (app) => {
       b: () => { const words = EV.VIEW_SCHEME.body.words; view.body = words[(words.indexOf(view.body) + 1) % words.length]; },
       c: () => { const words = EV.VIEW_SCHEME.palette.words; view.palette = words[(words.indexOf(view.palette) + 1) % words.length]; },
       g: () => { view.glow = !view.glow; },
-      m: () => { view.face = view.face === "clinical" ? "machine" : "clinical"; EV.paintReview(app); },
+      m: () => { view.face = view.face === "human" ? "machine" : "human"; EV.paintReview(app); },
       s: async () => EV.download(`engine_view_frame_${app.frame + 1}.png`, await EV.snapshot(app)),
       Escape: () => EV.choose(app, [], "set"),
       "?": () => { EV.$("tile").hidden = !EV.$("tile").hidden; },

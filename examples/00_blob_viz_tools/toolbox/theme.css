@@ -1,0 +1,213 @@
+/* orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+   SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+
+   The look every page shares, and the one set of controls: buttons, number fields, selects, sliders, switches,
+   rows, sections, tables and notes. A page sets data-theme and data-face on its root and adds rules for its own
+   elements after these. Color is soft electric light on a cold dark ground: a blue that runs into violet and fades
+   to nothing marks an edge, a filled slider and a chosen button. The status colors are the Okabe-Ito set and stay
+   apart from it, because they carry data. Every size sits on a 4 px grid. */
+  :root {
+    --void: #04060c;
+    --page: var(--void);
+    --ink: #e4eaff;
+    --ink-hi: #f6f8ff;
+    --thumb: #8eaee0;
+    --thumb-hi: #d6e4ff;
+    --thumb-ring: color-mix(in oklab, var(--blue) 16%, transparent);
+    --thumb-glow: color-mix(in oklab, var(--blue) 35%, transparent);
+    --dim: #8c96b6;
+    --faint: #59627e;
+    --blue: #5ccbff;
+    --mint: #5effb4;
+    --violet: #a68cff;
+    --good: #009e73; --warn: #e69f00; --bad: #d55e00;
+    --accent: var(--blue); --on-accent: var(--ink-hi);
+    --hair: rgba(150, 175, 255, 0.13);
+    --hair-hi: rgba(150, 175, 255, 0.24);
+    --control: rgba(70, 140, 255, 0.045);
+    --control-hi: rgba(80, 160, 255, 0.085);
+    --control-edge: rgba(92, 170, 255, 0.16);
+    --control-ink: #bccbef;
+    --track: rgba(150, 175, 255, 0.14);
+    --glass-top: rgba(18, 23, 40, var(--sheer, 0.9));
+    --glass-low: rgba(9, 12, 22, var(--sheer, 0.9));
+    --panel: var(--glass-low);
+    --edge: var(--hair-hi);
+    --shadow: 0 1px 0 0 rgba(255, 255, 255, 0.035) inset, 0 20px 44px -20px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.35);
+    --glow: 0 0 14px -3px color-mix(in oklab, var(--blue) 60%, transparent);
+    --seam: linear-gradient(90deg, transparent 0, color-mix(in oklab, var(--blue) 75%, transparent) 18%, color-mix(in oklab, var(--violet) 55%, transparent) 52%, transparent 100%);
+    --text: 12px; --panel-w: 296px; --side-w: 300px;
+    --font: ui-sans-serif, system-ui, "Segoe UI Variable Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    --mono: ui-monospace, "Cascadia Mono", "SF Mono", Consolas, monospace;
+    --ease: cubic-bezier(0.2, 0.75, 0.25, 1);
+    color-scheme: dark;
+    accent-color: var(--blue);
+  }
+  :root[data-theme="light"] {
+    --void: #eef2fa;
+    --ink: #121a30; --ink-hi: #060a18; --dim: #56607c; --faint: #8a93ad;
+    --thumb: #ffffff;
+    --thumb-hi: #ffffff;
+    --thumb-ring: color-mix(in oklab, var(--blue) 30%, transparent);
+    --thumb-glow: color-mix(in oklab, var(--blue) 22%, transparent);
+    --blue: #0a86d8; --mint: #0aa66a; --violet: #6a4ee6;
+    --hair: rgba(40, 60, 120, 0.12); --hair-hi: rgba(40, 60, 120, 0.22);
+    --control: rgba(20, 110, 220, 0.05); --control-hi: rgba(20, 110, 220, 0.09); --track: rgba(40, 60, 120, 0.14);
+    --control-edge: rgba(20, 110, 220, 0.2); --control-ink: #24345a;
+    --glass-top: rgba(255, 255, 255, var(--sheer, 0.92)); --glass-low: rgba(244, 247, 253, var(--sheer, 0.92));
+    --shadow: 0 1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 18px 40px -22px rgba(20, 30, 70, 0.35), 0 0 0 1px rgba(20, 30, 70, 0.06);
+    --glow: 0 0 12px -4px color-mix(in oklab, var(--blue) 45%, transparent);
+    color-scheme: light;
+  }
+  :root[data-face="machine"] { --font: var(--mono); }
+
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--page); color: var(--ink); font: var(--text)/1.5 var(--font); -webkit-font-smoothing: antialiased; }
+  ::selection { background: color-mix(in oklab, var(--blue) 35%, transparent); }
+
+  /* The glass every floating surface is made of, with the fading seam along its top edge. */
+  .box, .glass {
+    position: fixed; box-sizing: border-box; padding: 10px 12px; border-radius: 12px;
+    background: var(--seam) top / 100% 1px no-repeat, linear-gradient(180deg, var(--glass-top), var(--glass-low));
+    border: 1px solid var(--hair); box-shadow: var(--shadow);
+    backdrop-filter: blur(16px) saturate(150%); -webkit-backdrop-filter: blur(16px) saturate(150%);
+    max-height: calc(100vh - 120px); overflow: auto;
+    scrollbar-width: thin; scrollbar-color: color-mix(in oklab, var(--blue) 28%, transparent) transparent;
+  }
+  .box:not(:hover):not(:focus-within), .glass:not(:hover):not(:focus-within) { scrollbar-color: transparent transparent; }
+  .box h4 { margin: 0 0 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.01em; color: var(--ink); cursor: move; user-select: none; }
+
+  /* A row: its label, its control, and the value the control holds, on the same three columns everywhere. */
+  .row { display: grid; grid-template-columns: 92px minmax(0, 1fr) 48px; align-items: center; column-gap: 8px; min-height: 24px; }
+  .row > label, .row > .label { color: var(--dim); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row > :nth-child(2):last-child { grid-column: 2 / 4; }
+  .row .val, .row output { text-align: right; font-size: 11.5px; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .row .inline { display: flex; align-items: center; gap: 4px; min-width: 0; }
+  .row .inline > select { flex: 1; min-width: 0; }
+  .switches { display: grid; grid-template-columns: 1fr 1fr; column-gap: 8px; row-gap: 2px; padding: 2px 0; }
+  .switches > :only-child { grid-column: 1 / -1; }
+  .check { display: inline-flex; align-items: center; gap: 8px; min-height: 24px; color: var(--ink); font-size: 11.5px; cursor: pointer; user-select: none; }
+
+  /* Buttons. */
+  button {
+    height: 26px; padding: 0 10px; border-radius: 7px; border: 1px solid var(--control-edge); background: var(--control);
+    color: var(--control-ink); font: 500 11.5px/1 var(--font); letter-spacing: 0.005em; cursor: pointer;
+    transition: border-color 120ms var(--ease), background-color 120ms var(--ease), box-shadow 160ms var(--ease), color 120ms var(--ease);
+  }
+  button:hover { border-color: color-mix(in oklab, var(--blue) 38%, transparent); background: var(--control-hi); color: var(--ink); }
+  button:active { transform: translateY(0.5px); }
+  button:disabled { opacity: 0.4; cursor: default; border-color: var(--hair); background: var(--control); }
+  button.on {
+    color: var(--ink); border-color: color-mix(in oklab, var(--blue) 42%, transparent);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--blue) 16%, transparent), color-mix(in oklab, var(--violet) 8%, transparent));
+    box-shadow: 0 0 12px -5px color-mix(in oklab, var(--blue) 55%, transparent), 0 0 0 1px color-mix(in oklab, var(--blue) 10%, transparent) inset;
+  }
+  button.icon { width: 26px; padding: 0; display: inline-grid; place-items: center; font-size: 12px; }
+
+  /* Fields and selects. */
+  select, input[type=number], input[type=text], textarea {
+    box-sizing: border-box; height: 26px; padding: 0 8px; border-radius: 7px; border: 1px solid var(--hair);
+    background-color: var(--control); color: var(--ink); font: 11.5px/1 var(--font); font-variant-numeric: tabular-nums;
+    transition: border-color 120ms var(--ease), background-color 120ms var(--ease);
+  }
+  textarea { height: auto; padding: 8px; line-height: 1.45; font-family: var(--mono); }
+  select {
+    appearance: none; -webkit-appearance: none; padding-right: 24px; min-width: 0; cursor: pointer;
+    background-image: linear-gradient(45deg, transparent 50%, var(--dim) 50%), linear-gradient(135deg, var(--dim) 50%, transparent 50%);
+    background-position: right 12px center, right 8px center; background-size: 4px 4px, 4px 4px; background-repeat: no-repeat;
+  }
+  select option { background: var(--void); color: var(--ink); }
+  select:hover, input[type=number]:hover, input[type=text]:hover, textarea:hover { border-color: color-mix(in oklab, var(--blue) 40%, transparent); background-color: var(--control-hi); }
+
+  /* Sliders: the track is a stroke that fades to nothing at both ends, the fill rises out of nothing and is
+     brightest under the thumb, and the thumb carries its own light. */
+  input[type=range] {
+    --fill: 0%; appearance: none; -webkit-appearance: none; width: 100%; min-width: 0; height: 20px; margin: 0;
+    background: transparent; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    height: 4px; border-radius: 2px;
+    background:
+      linear-gradient(90deg, transparent 0, color-mix(in oklab, var(--blue) 45%, transparent) calc(var(--fill) * 0.55), var(--blue) var(--fill), transparent var(--fill)),
+      radial-gradient(ellipse 50% 100% at 50% 50%, var(--track) 0, var(--track) 55%, transparent 100%);
+  }
+  input[type=range]::-moz-range-track { height: 4px; border-radius: 2px; background: radial-gradient(ellipse 50% 100% at 50% 50%, var(--track) 0, var(--track) 55%, transparent 100%); }
+  input[type=range]::-moz-range-progress { height: 4px; border-radius: 2px; background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--blue) 45%, transparent) 55%, var(--blue)); }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 12px; height: 12px; margin-top: -4px; border-radius: 50%; border: 0;
+    background: var(--thumb); box-shadow: 0 0 0 2px var(--thumb-ring), 0 0 8px var(--thumb-glow);
+    transition: box-shadow 140ms var(--ease), transform 140ms var(--ease), background-color 140ms var(--ease);
+  }
+  input[type=range]:hover::-moz-range-thumb, input[type=range]:active::-moz-range-thumb { background: var(--thumb-hi); }
+  input[type=range]::-moz-range-thumb {
+    width: 12px; height: 12px; border-radius: 50%; border: 0; background: var(--thumb);
+    box-shadow: 0 0 0 2px var(--thumb-ring), 0 0 8px var(--thumb-glow);
+  }
+  input[type=range]:hover::-webkit-slider-thumb, input[type=range]:active::-webkit-slider-thumb { transform: scale(1.12); background: var(--thumb-hi); box-shadow: 0 0 0 3px var(--thumb-ring), 0 0 12px color-mix(in oklab, var(--blue) 55%, transparent); }
+  input[type=range]:disabled { opacity: 0.35; cursor: default; }
+
+  /* Switches: a checkbox drawn as a track and a knob. A checked switch lights from blue into mint. */
+  input[type=checkbox] {
+    appearance: none; -webkit-appearance: none; flex: 0 0 auto; position: relative; width: 26px; height: 14px; margin: 0;
+    border-radius: 7px; border: 1px solid var(--hair-hi); background: var(--track); cursor: pointer;
+    transition: background-color 160ms var(--ease), border-color 160ms var(--ease), box-shadow 160ms var(--ease);
+  }
+  input[type=checkbox]::before {
+    content: ""; position: absolute; top: 1px; left: 1px; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--dim); transition: transform 180ms var(--ease), background-color 160ms var(--ease);
+  }
+  input[type=checkbox]:checked {
+    border-color: color-mix(in oklab, var(--mint) 50%, transparent);
+    background: linear-gradient(90deg, color-mix(in oklab, var(--blue) 45%, transparent), color-mix(in oklab, var(--mint) 55%, transparent));
+    box-shadow: 0 0 10px -3px color-mix(in oklab, var(--mint) 70%, transparent);
+  }
+  input[type=checkbox]:checked::before { transform: translateX(12px); background: var(--thumb); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); }
+  input[type=checkbox][data-tone]:checked { background: color-mix(in oklab, var(--tone) 55%, transparent); border-color: color-mix(in oklab, var(--tone) 70%, transparent); box-shadow: 0 0 10px -3px var(--tone); }
+  input[data-tone="good"] { --tone: var(--good); } input[data-tone="warn"] { --tone: var(--warn); } input[data-tone="bad"] { --tone: var(--bad); }
+  input[data-tone="none"] { --tone: var(--dim); }
+
+  :focus-visible { outline: 2px solid color-mix(in oklab, var(--blue) 80%, transparent); outline-offset: 2px; }
+  input[type=range]:focus-visible { outline-offset: 0; border-radius: 4px; }
+
+  /* Sections that fold, each under its own title. */
+  details.section { border-top: 1px solid var(--hair); }
+  details.section:first-of-type { border-top: 0; }
+  details.section > summary {
+    list-style: none; display: flex; align-items: center; gap: 8px; height: 30px; cursor: pointer; user-select: none;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.01em; color: var(--ink);
+  }
+  details.section > summary::-webkit-details-marker { display: none; }
+  details.section > summary::after {
+    content: ""; margin-left: auto; width: 5px; height: 5px; border-right: 1.5px solid var(--dim); border-bottom: 1.5px solid var(--dim);
+    transform: rotate(-45deg); transition: transform 180ms var(--ease);
+  }
+  details.section[open] > summary::after { transform: translateY(-2px) rotate(45deg); }
+  details.section > summary:hover { color: var(--ink-hi); }
+  details.section > .rows { display: grid; row-gap: 4px; padding: 0 0 10px; }
+
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; font-size: 11.5px; }
+  td { padding: 3px 4px; vertical-align: top; border-top: 1px solid color-mix(in oklab, var(--hair) 60%, transparent); }
+  tr:first-child td { border-top: 0; }
+  td:first-child { color: var(--dim); white-space: nowrap; padding-left: 0; }
+  td:last-child { padding-right: 0; }
+  td.num { text-align: right; }
+  .note { color: var(--dim); margin: 4px 0; font-size: 11px; line-height: 1.5; }
+  .bad { color: var(--bad); }
+  .good { color: var(--good); }
+  .warn { color: var(--warn); }
+  :root[data-face="human"] .machine-only { display: none !important; }
+  :root[data-face="machine"] .human-only { display: none !important; }
+  [hidden] { display: none !important; }
+
+  @media (pointer: coarse) {
+    button, select, input[type=number] { height: 32px; }
+    button.icon { width: 32px; }
+    .row { min-height: 32px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
+  }
+  @media (forced-colors: active) {
+    .box, .glass { border-color: CanvasText; }
+    button.on { outline: 2px solid Highlight; }
+    input[type=checkbox] { appearance: auto; }
+  }

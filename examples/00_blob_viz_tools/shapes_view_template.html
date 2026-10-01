@@ -1,0 +1,402 @@
+<!doctype html>
+<!--
+orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+
+The shapes gallery: every shape the toolbox makes, drawn on the shared core under the shared controls. Every
+surface under every transform, the Hilbert and Morton curves as the paths they trace, and a harmonic field painted
+on any of them or raised from it. generate_template.py builds it through build_shapes_view.py.
+-->
+<!--NAMESPACE EV-->
+<!--TOOL theme-->
+<!--TOOL ui/toolbar-->
+<!--TOOL core/clock-->
+<!--TOOL core/scheme-->
+<!--TOOL core/gpu-->
+<!--TOOL core/mat4-->
+<!--TOOL shapes/surface-->
+<!--TOOL shapes/field-->
+<!--TOOL shapes/mesh-->
+<html lang="en" data-theme="dark" data-face="human">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Shapes</title>
+<style>
+/*STYLE*/
+  canvas#view { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; touch-action: none; cursor: grab; }
+  canvas#view:active { cursor: grabbing; }
+  #readout { left: 12px; bottom: 12px; width: min(420px, calc(100vw - 24px)); max-height: none; overflow: visible; z-index: 4; }
+  #readout h4 { cursor: default; margin-bottom: 2px; font-size: 13px; }
+  #readout .note { margin: 0 0 6px; }
+  #readout .stats { display: flex; gap: 14px; color: var(--dim); font-size: 11px; font-variant-numeric: tabular-nums; }
+  #loopAlarm { position: fixed; left: 50%; top: 24px; transform: translateX(-50%); background: var(--bad); color: #fff; padding: 6px 12px; border-radius: 6px; z-index: 9; }
+  #refused { color: var(--bad); }
+</style>
+</head>
+<body>
+<canvas id="view"></canvas>
+<div class="glass" id="readout">
+  <h4 id="shapeLabel"></h4>
+  <p class="note" id="shapeNote"></p>
+  <p class="note" id="refused" hidden></p>
+  <div class="stats"><span id="samples"></span><span id="rate"></span></div>
+</div>
+<div id="loopAlarm" hidden></div>
+<script type="module">
+/*SCRIPT*/
+const OPENING = /*DATA*/ null;
+
+// Every shape the gallery offers: the surfaces, the curves as paths, and the field on the sphere.
+EV.CURVES = [
+  { key: "hilbert_path", label: "Hilbert curve", note: "the path itself, index running from mint to violet: neighbors in the line stay neighbors in the square", at: EV.hilbertAt },
+  { key: "morton_path", label: "Morton order", note: "the path itself, index running from mint to violet: the jumps across each quadrant are the seams", at: (side, index) => EV.mortonAt(index) },
+];
+EV.FIELD = { key: "field", label: "Harmonic field", note: "a sum of real spherical harmonics on the sphere, each degree's power falling as one over its degree plus one" };
+EV.SHAPE_KEYS = [...EV.SURFACES.map((one) => one.key), ...EV.CURVES.map((one) => one.key), EV.FIELD.key];
+
+EV.VIEW_SCHEME = {
+  shape: { kind: "word", words: EV.SHAPE_KEYS, fallback: "torus" },
+  transform: { kind: "word", words: EV.SURFACE_TRANSFORMS.map((one) => one.key), fallback: "none" },
+  order: { kind: "integer", low: 3, high: 256, fallback: 12 },
+  detail: { kind: "integer", low: 16, high: 400, fallback: 160 },
+  color: { kind: "word", words: ["field", "height", "normal", "index"], fallback: "field" },
+  degree: { kind: "integer", low: 1, high: 12, fallback: 6 },
+  seed: { kind: "integer", low: 1, high: 65535, fallback: 7 },
+  lift: { kind: "integer", low: 0, high: 60, fallback: 0 },
+  turn: { kind: "integer", low: 0, high: 359, fallback: 30 },
+  tilt: { kind: "integer", low: -89, high: 89, fallback: 24 },
+  zoom: { kind: "integer", low: 40, high: 400, fallback: 100 },
+  spin: { kind: "switch", fallback: true },
+  grid: { kind: "switch", fallback: true },
+  theme: { kind: "word", words: ["dark", "light"], fallback: "dark" },
+  vsync: { kind: "switch", fallback: true },
+};
+
+// Each control by element id: the setting it writes, and how its value reads.
+EV.CONTROLS = [
+  ["shape", "shape", "word"], ["transform", "transform", "word"], ["order", "order", "integer"], ["detail", "detail", "integer"],
+  ["color", "color", "word"], ["degree", "degree", "integer"], ["seed", "seed", "integer"], ["lift", "lift", "integer"],
+  ["turn", "turn", "integer"], ["tilt", "tilt", "integer"], ["zoom", "zoom", "integer"], ["spin", "spin", "switch"],
+  ["grid", "grid", "switch"], ["theme", "theme", "word"], ["vsync", "vsync", "switch"],
+];
+
+EV.controlBar = EV.toolbar({
+  id: "panel",
+  title: "controls",
+  corner: "top-left",
+  open: true,
+  sections: [
+    { title: "shape", rows: [
+      { select: "shape", label: "represent as", options: [
+        { group: "surfaces", options: EV.SURFACES.map((one) => [one.key, one.label]) },
+        { group: "curves", options: EV.CURVES.map((one) => [one.key, one.label]) },
+        { group: "field", options: [[EV.FIELD.key, EV.FIELD.label]] },
+      ] },
+      { select: "transform", label: "transform", options: EV.SURFACE_TRANSFORMS.map((one) => [one.key, one.label]) },
+      { range: "order", label: "order", min: 3, max: 256, value: 12 },
+      { range: "detail", label: "detail", min: 16, max: 400, step: 4, value: 160 },
+    ] },
+    { title: "field", rows: [
+      { select: "color", label: "color", options: [["field", "field"], ["height", "height"], ["normal", "normal"], ["index", "index"]] },
+      { range: "degree", label: "degree", min: 1, max: 12, value: 6 },
+      { number: "seed", label: "seed", min: 1, max: 65535, value: 7 },
+      { range: "lift", label: "lift", min: 0, max: 60, value: 0 },
+    ] },
+    { title: "view", rows: [
+      { range: "turn", label: "turn", min: 0, max: 359, value: 30 },
+      { range: "tilt", label: "tilt", min: -89, max: 89, value: 24 },
+      { range: "zoom", label: "zoom", min: 40, max: 400, value: 100 },
+      { switches: [{ id: "spin", label: "spin", checked: true }, { id: "grid", label: "grid", checked: true }] },
+    ] },
+    { title: "page", open: false, rows: [
+      { select: "theme", label: "theme", options: [["dark", "dark"], ["light", "light"]] },
+      { switches: [{ id: "vsync", label: "vsync", checked: true, title: "draw once per display refresh; off, draw as fast as the card finishes" }] },
+    ] },
+  ],
+});
+
+EV.$ = (id) => document.getElementById(id);
+
+EV.app = { view: EV.defaultView(), renderer: null, built: "", spun: 0, lastTick: 0, dirty: true, turns: 0, fps: 0,
+           fit: { center: [0, 0, 0], radius: 100 }, samples: 0 };
+
+EV.shapeOf = (key) => EV.SURFACES.find((one) => one.key === key) || EV.CURVES.find((one) => one.key === key) || EV.FIELD;
+
+// The theme's colors as the renderer reads them, 0 to 1.
+EV.themeColors = () => {
+  const style = getComputedStyle(document.documentElement);
+  const rgb = (name) => {
+    const probe = document.createElement("i");
+    probe.style.color = style.getPropertyValue(name).trim();
+    document.body.appendChild(probe);
+    const parts = getComputedStyle(probe).color.match(/[\d.]+/g).map(Number);
+    probe.remove();
+    return [parts[0] / 255, parts[1] / 255, parts[2] / 255];
+  };
+  const ground = rgb("--void");
+  return { low: rgb("--mint"), middle: rgb("--blue"), high: rgb("--violet"), rim: rgb("--blue"),
+           background: { r: ground[0], g: ground[1], b: ground[2], a: 1 }, light: document.documentElement.dataset.theme === "light" };
+};
+
+// The samples for the current settings: a surface mesh, or a curve's points.
+EV.build = (app) => {
+  const view = app.view;
+  const shape = EV.shapeOf(view.shape);
+  const ctx = EV.shapeContext(view.order, view.detail + 1, view.detail + 1);
+  const coefficients = EV.fieldCoefficients(view.degree, view.seed);
+  const field = (p) => {
+    const r = Math.hypot(p[0], p[1], p[2]) || 1;
+    return EV.fieldAt(coefficients, view.degree, Math.acos(Math.max(-1, Math.min(1, p[1] / r))), Math.atan2(p[2], p[0]));
+  };
+  if (EV.CURVES.includes(shape)) {
+    let side = 2;
+    while (side < view.order && side < 256) {
+      side *= 2;
+    }
+    const count = side * side;
+    const points = new Float32Array(count * 4);
+    const step = 150 / side;
+    for (let index = 0; index < count; index++) {
+      const [x, z] = shape.at(side, index);
+      const p = [x * step - 75 + step / 2, 0, z * step - 75 + step / 2];
+      p[1] = view.lift ? field([p[0], 40, p[2]]) * view.lift * 2 : 0;
+      points.set([p[0], p[1], p[2], index / (count - 1)], index * 4);
+    }
+    return { curve: points, samples: count, bounds: EV.boundsOf(points, 4) };
+  }
+  const base = shape === EV.FIELD ? EV.SURFACES.find((one) => one.key === "sphere") : shape;
+  const transform = shape === EV.FIELD ? EV.SURFACE_TRANSFORMS[0] : EV.SURFACE_TRANSFORMS.find((one) => one.key === view.transform);
+  // A lift raises every point along its normal by the field there, and the normal is taken again from the raised
+  // surface.
+  const raised = view.lift ? { at: EV.surface((u, v, c) => {
+    const s = base.at(u, v, c);
+    const t = transform.go(s.p, s.n, c);
+    const by = field(t.p) * view.lift * 2;
+    return [t.p[0] + t.n[0] * by, t.p[1] + t.n[1] * by, t.p[2] + t.n[2] * by];
+  }) } : base;
+  const after = view.lift ? EV.SURFACE_TRANSFORMS[0] : transform;
+  const color = shape === EV.FIELD ? "field" : view.color;
+  const valueOf = (u, v, p, n) => (color === "field" ? field(p) : color === "height" ? p[1] : color === "normal" ? n[1] : v * view.detail + u);
+  const mesh = EV.sampleSurface(raised, after, ctx, view.detail, valueOf);
+  return { mesh, samples: (view.detail + 1) * (view.detail + 1), bounds: EV.boundsOf(mesh.vertices, 9) };
+};
+
+EV.boundsOf = (data, stride) => {
+  const low = [Infinity, Infinity, Infinity];
+  const high = [-Infinity, -Infinity, -Infinity];
+  for (let at = 0; at < data.length; at += stride) {
+    for (let axis = 0; axis < 3; axis++) {
+      if (Number.isFinite(data[at + axis])) {
+        low[axis] = Math.min(low[axis], data[at + axis]);
+        high[axis] = Math.max(high[axis], data[at + axis]);
+      }
+    }
+  }
+  const center = [0, 1, 2].map((axis) => (low[axis] + high[axis]) / 2);
+  const radius = Math.max(1, Math.hypot(high[0] - low[0], high[1] - low[1], high[2] - low[2]) / 2);
+  return { center, radius };
+};
+
+EV.buildKey = (view) => [view.shape, view.transform, view.order, view.detail, view.color, view.degree, view.seed, view.lift].join("|");
+
+EV.rebuild = (app) => {
+  const key = EV.buildKey(app.view);
+  if (key === app.built) {
+    return;
+  }
+  const began = performance.now();
+  const made = EV.build(app);
+  EV.uploadMesh(app.renderer, made.mesh || null, made.curve || null);
+  app.fit = made.bounds;
+  app.samples = made.samples;
+  app.buildMs = Math.round(performance.now() - began);
+  app.built = key;
+  app.dirty = true;
+};
+
+EV.showView = (app) => {
+  const view = app.view;
+  for (const [id, name, kind] of EV.CONTROLS) {
+    const element = EV.$(id);
+    if (kind === "switch") {
+      element.checked = !!view[name];
+    } else {
+      element.value = String(view[name]);
+    }
+    const out = EV.$(`${id}Out`);
+    if (out) {
+      out.textContent = String(view[name]);
+    }
+  }
+  const shape = EV.shapeOf(view.shape);
+  const surface = EV.SURFACES.includes(shape);
+  EV.$("transform").disabled = !surface;
+  EV.$("color").disabled = !surface;
+  EV.$("shapeLabel").textContent = shape.label;
+  const transform = EV.SURFACE_TRANSFORMS.find((one) => one.key === view.transform);
+  EV.$("shapeNote").textContent = shape.note + (surface && transform.key !== "none" ? `. ${transform.label}: ${transform.note}` : "");
+  document.documentElement.dataset.theme = view.theme;
+  app.colors = EV.themeColors();
+  app.dirty = true;
+};
+
+EV.apply = (app, section) => {
+  const report = EV.applyView(app.view, section);
+  EV.showView(app);
+  return report;
+};
+
+EV.bindControls = (app) => {
+  for (const [id, name, kind] of EV.CONTROLS) {
+    const element = EV.$(id);
+    element.addEventListener(element.type === "range" ? "input" : "change", () => {
+      const value = kind === "switch" ? element.checked : kind === "integer" ? Math.trunc(Number(element.value)) : element.value;
+      if (!EV.errorValue(EV.VIEW_SCHEME[name], value)) {
+        app.view[name] = value;
+        if (name === "turn") {
+          app.spun = 0;
+        }
+      }
+      EV.showView(app);
+    });
+  }
+  const canvas = app.renderer.canvas;
+  canvas.addEventListener("pointerdown", (event) => {
+    canvas.setPointerCapture(event.pointerId);
+    let last = [event.clientX, event.clientY];
+    canvas.onpointermove = (move) => {
+      const view = app.view;
+      view.turn = ((Math.round(view.turn + app.spun - (move.clientX - last[0]) / 2) % 360) + 360) % 360;
+      app.spun = 0;
+      view.tilt = Math.max(-89, Math.min(89, Math.round(view.tilt + (move.clientY - last[1]) / 2)));
+      last = [move.clientX, move.clientY];
+      EV.showView(app);
+    };
+    canvas.onpointerup = () => { canvas.onpointermove = null; };
+  });
+  canvas.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    app.view.zoom = Math.max(40, Math.min(400, Math.round(app.view.zoom * (event.deltaY < 0 ? 1.1 : 1 / 1.1))));
+    EV.showView(app);
+  }, { passive: false });
+  window.addEventListener("resize", () => { app.dirty = true; });
+};
+
+EV.frameLoop = (app, now) => {
+  const gap = Math.min(100, Math.max(0, now - (app.lastTick || now)));
+  app.lastTick = now;
+  EV.rebuild(app);
+  const view = app.view;
+  if (view.spin) {
+    app.spun = (app.spun + gap * 0.012) % 360;
+    app.dirty = true;
+  }
+  if (!app.dirty) {
+    return false;
+  }
+  const canvas = app.renderer.canvas;
+  const turn = ((view.turn + app.spun) * Math.PI) / 180;
+  const tilt = (view.tilt * Math.PI) / 180;
+  const fit = app.fit;
+  const distance = (fit.radius * 2.6 * 100) / view.zoom;
+  const eye = [fit.center[0] + distance * Math.cos(tilt) * Math.sin(turn), fit.center[1] + distance * Math.sin(tilt),
+               fit.center[2] + distance * Math.cos(tilt) * Math.cos(turn)];
+  const aspect = Math.max(1, canvas.clientWidth) / Math.max(1, canvas.clientHeight);
+  const projection = EV.perspective(Math.PI / 4, aspect, distance / 50, distance + fit.radius * 4);
+  const look = EV.lookAt(eye, fit.center, [0, 1, 0]);
+  const toward = [eye[0] - fit.center[0], eye[1] - fit.center[1], eye[2] - fit.center[2]];
+  const colors = app.colors;
+  EV.drawMesh(app.renderer, {
+    viewProjection: EV.multiply(projection, look), eye,
+    light: [toward[0] - toward[2] * 0.6, toward[1] + distance * 0.8, toward[2] + toward[0] * 0.6],
+    low: colors.low, middle: colors.middle, high: colors.high, rim: colors.rim, rimStrength: colors.light ? 0.25 : 0.45,
+    grid: view.grid && !!app.renderer.mesh, gridCount: Math.min(48, Math.max(8, Math.round(view.detail / 8))),
+    background: colors.background,
+  });
+  app.dirty = false;
+  return true;
+};
+
+EV.paintReadout = (app) => {
+  EV.$("samples").textContent = `${app.samples.toLocaleString("en-US")} samples · built in ${app.buildMs} ms`;
+  EV.$("rate").textContent = `${app.fps} frames/s, vsync ${app.view.vsync ? "on" : "off"}`;
+};
+
+// The frame loop runs inside a guard: a throw stops it and says so on the page, on the console and on
+// window.__loopHealth, and a loop that has not turned twice a second and a half after start is reported the same way.
+// Without vsync every turn draws, and the next turn waits for the card to finish the last one.
+EV.startLoop = (app) => {
+  window.__loopHealth = { ok: true, turns: 0, why: "", detail: "" };
+  const alarm = EV.$("loopAlarm");
+  const meter = EV.rateMeter();
+  let paintedAt = 0;
+  const turn = (now) => {
+    try {
+      const vsync = app.view.vsync;
+      if (!vsync) {
+        app.dirty = true;
+      }
+      if (EV.frameLoop(app, now)) {
+        app.fps = meter.tick(now);
+      }
+      app.turns += 1;
+      window.__loopHealth.turns = app.turns;
+      if (now - paintedAt > 250) {
+        paintedAt = now;
+        EV.paintReadout(app);
+      }
+      if (vsync) {
+        EV.nextTurn(true, turn);
+      } else {
+        app.renderer.device.queue.onSubmittedWorkDone().then(() => EV.nextTurn(app.view.vsync, turn));
+      }
+    } catch (error) {
+      window.__loopHealth = { ok: false, turns: app.turns, why: "threw", detail: String(error && error.stack || error) };
+      alarm.textContent = `frame loop stopped: ${error.message}`;
+      alarm.hidden = false;
+      console.error("[shapes view] frame loop stopped", error);
+    }
+  };
+  EV.nextTurn(true, turn);
+  setTimeout(() => {
+    if (window.__loopHealth.ok && app.turns < 2 && document.visibilityState === "visible") {
+      window.__loopHealth.why = "slow start";
+      alarm.textContent = `the frame loop turned ${app.turns} times in its first 1.5 s`;
+      alarm.hidden = false;
+    }
+  }, 1500);
+};
+
+EV.start = async () => {
+  const app = EV.app;
+  try {
+    app.renderer = await EV.startMesh(EV.$("view"), "[shapes view]");
+  } catch (error) {
+    EV.$("shapeLabel").textContent = "This page draws with WebGPU.";
+    EV.$("shapeNote").textContent = `${error.message}.`;
+    window.__loopHealth = { ok: false, turns: 0, why: "no device", detail: error.message };
+    return;
+  }
+  if (OPENING && OPENING.view) {
+    const report = EV.applyView(app.view, OPENING.view);
+    if (report.error.length) {
+      EV.$("refused").textContent = `Not applied: ${report.error.join("; ")}`;
+      EV.$("refused").hidden = false;
+    }
+  }
+  EV.showView(app);
+  EV.bindControls(app);
+  EV.startLoop(app);
+  window.shapesView = {
+    apply: (section) => EV.apply(app, section),
+    view: () => JSON.parse(JSON.stringify(app.view)),
+    internals: EV,
+  };
+};
+
+EV.start();
+</script>
+</body>
+</html>

@@ -1,30 +1,29 @@
+"""Builds the engine view: its template and parts in 00_blob_viz_tools/view/engine_view/, its shared tools from the
+lib's toolbox, through the lib's one generator.
+
+    python examples/cell_tracking/maint/build_engine_view.py
+"""
+
 import io
 import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-VIEW = os.path.join(os.path.dirname(os.path.dirname(HERE)), "00_blob_viz_tools", "view")
-PARTS = os.path.join(VIEW, "engine_view")
-ORDER = ["turn_table.js", "shaders.js", "shaders_render.js", "shaders_slice.js", "shaders_soft.js", "object.js", "gpu.js", "cfg.js",
-         "app.js", "panels.js", "input.js"]
+LIB = os.path.join(os.path.dirname(os.path.dirname(HERE)), "00_blob_viz_tools")
+VIEW = os.path.join(LIB, "view")
+TEMPLATE = os.path.join(VIEW, "engine_view", "page.html")
 OUTPUTS = [os.path.join(VIEW, "engine_view.html"), "D:/kaggle/biohub_cell_tracking/SUBMISSION/engine_view.html"]
-MARK = "/*ENGINE_VIEW_SCRIPT*/"
+
+sys.path.insert(0, LIB)
+import generate_template  # noqa: E402
 
 
 def main():
-    page = io.open(os.path.join(PARTS, "page.html"), encoding="utf-8").read()
-    if MARK not in page:
-        sys.stderr.write("  page.html has no %s\n" % MARK)
+    try:
+        built = generate_template.assemble(TEMPLATE)
+    except generate_template.Refused as why:
+        sys.stderr.write("  %s\n" % why)
         return 1
-    script = ["const EV = {};"]
-    for name in ORDER:
-        path = os.path.join(PARTS, name)
-        if not os.path.isfile(path):
-            sys.stderr.write("  missing part %s\n" % path)
-            return 1
-        script.append("// ---- %s ----" % name)
-        script.append(io.open(path, encoding="utf-8").read())
-    built = page.replace(MARK, "\n".join(script))
     for out in OUTPUTS:
         out_dir = os.path.dirname(out)
         if not os.path.isdir(out_dir):
