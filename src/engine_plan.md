@@ -246,15 +246,17 @@ works there.
     cache of it. A refused or censored probe appears nowhere in a table of chain costs, and it separates two
     parts that cost the same.
 
-11. **The order of asks for slicing is specified and nothing emits it.** `maint/engine/measure_check.py`
-    prices every part of it. Three things go in together: each ask covers half the links and any two overlap
-    on a quarter, the count covered sweeps so contention has somewhere to show, and the solve carries a term
-    for contention. The order is kept in the record, and that record is the whole difference between a
-    carrier and a shuffle. The censored-sample mark and the reference ask alongside the real one are part of
-    this and not additions to it. The per-link solve stays inside the engine's rule that no floating point value
-    is held anywhere: for the half-covering order, `(n + 1)·x = 4·Sᵀb - 2·(Σb)·1`, a division by a power of two.
-    The solve lands in C with a test of that closed form at every supported size (Q5 in the query protocol
-    table).
+11. **The order of asks is built on the host and nothing emits it to a target.**
+    `src/engine/compiler/bootstrap/ask_order.{h,c}` holds the known order, its solve and the contention read, with
+    no floating point value anywhere: the order follows from the link count, the solve is
+    `(n + 1)·x = 4·Sᵀb - 2·(Σb)·1`, and the read is exact integers. `ask_order_check.c` proves the order and the
+    solve at every size a known order covers and measures the read (Q5 and Q7 in the query protocol table). Two
+    things the measuring settled. A known order exists only for a link count one short of a power of two, and the
+    engine composes chains to those lengths. The sweep asks sit at one link, half plus one and every link, and the
+    read takes out a constant and the count before the square, because every ask pays an overhead the solve
+    spreads over every link. The device half is open: a container that runs a chain's covered links and
+    reads the part's clock around them, put through the channel in Open 1, with the censored-sample mark and the
+    reference ask alongside. Its answer carries one bit a check, 128 an ask, and never one bit over a set (Q15).
 
 12. **Stem membership has no written rule.** Two members sharing a stem is the whole basis of a set, and
     pairwise agreement inside a floor cannot decide it. Either a representative per group or an anchored group

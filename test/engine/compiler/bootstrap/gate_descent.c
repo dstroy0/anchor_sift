@@ -13,11 +13,13 @@
 //   depth       a descent with the destroy rule off leaves the same count as one with it on. Stopping where the best
 //               case prunes nothing gives up nothing, and this holds the descent to that claim
 //   cases       the cases the descent places, which are the ones that decide the relation
+//   asks        how many asks a target takes for every arrangement against those cases, by what one answer carries
 //
 // The planning reads every case against every survivor at each level. That is the price of choosing well, and it is
 // paid on this host against arithmetic every system that computes agrees about. A target is asked only the cases
 // the descent placed.
 #include "../../../../src/engine/compiler/bootstrap/chain_build.h"
+#include "../../../../src/engine/compiler/bootstrap/run_channel.h"
 #include "../../../../src/engine/nbody/anchor_sift/anchor_sift.h"
 
 #include <stdio.h>
@@ -117,6 +119,62 @@ static void gate_cases(unsigned int anchor)
     s_gate.cases = s_gate.ladder_cases + CHAIN_SWEEP;
 }
 
+// asks a set of checks takes when one bit answers whether every check in it holds and a 0 halves the set
+static unsigned long long gate_split_asks(const unsigned char *checks, unsigned int first, unsigned int count)
+{
+    unsigned int every = 1u;
+    for (unsigned int at = first; at < (first + count); at += 1u)
+    {
+        every &= checks[at];
+    }
+    if ((every != 0u) || (count == 1u))
+    {
+        return 1ull;
+    }
+    const unsigned int half = count / 2u;
+    return 1ull + gate_split_asks(checks, first, half) + gate_split_asks(checks, first + half, count - half);
+}
+
+// How many asks a target takes for every arrangement against every case placed, by what one answer carries. One check
+// an ask; one bit a check, as many as the channel's answer words hold; and one bit over a set, 1 where every check in
+// it holds, halved on a 0. The last is also counted with the checks in an order drawn from a seed, because how the
+// failing checks sit together changes what halving costs
+static void gate_asks(unsigned int anchor, unsigned int alignments, const size_t *chosen, unsigned int placed)
+{
+    static unsigned char s_checks[CHAIN_MOST * GATE_DESCENTS_MOST * ANCHOR_STEER_ANCHORS];
+    unsigned int checks = 0u;
+    unsigned int failing = 0u;
+    for (unsigned int arrangement = 0u; arrangement < alignments; arrangement += 1u)
+    {
+        for (unsigned int at = 0u; at < placed; at += 1u)
+        {
+            const size_t needle_at = chosen[at];
+            // the oracle takes the arrangement as corpus_at - needle_at, and its answer is 0 or 1
+            s_checks[checks] = (unsigned char)gate_same_at(&s_gate, (size_t)arrangement + needle_at, needle_at);
+            failing += (s_checks[checks] == 0u) ? 1u : 0u;
+            checks += 1u;
+        }
+    }
+    if (checks == 0u)
+    {
+        return;
+    }
+    const unsigned int bits = RUN_OUT_WORDS * 32u;
+    const unsigned long long halved = gate_split_asks(s_checks, 0u, checks);
+    unsigned int state = 0x51a7u;
+    for (unsigned int at = checks; at > 1u; at -= 1u)
+    {
+        const unsigned int with = ladder_swept(&state) % at;
+        const unsigned char held = s_checks[at - 1u];
+        s_checks[at - 1u] = s_checks[with];
+        s_checks[with] = held;
+    }
+    const unsigned long long drawn = gate_split_asks(s_checks, 0u, checks);
+    printf("  %-8s %4u checks, %u failing: %4u asks at one a check, %u at one bit a check (%u bits an answer), %llu "
+           "at one bit a set halved on a 0, %llu with the checks in a drawn order\n",
+           s_anchor_text[anchor], checks, failing, checks, (checks + bits - 1u) / bits, bits, halved, drawn);
+}
+
 // one relation measured; 1 where every reading agrees with its ground truth
 static unsigned int gate_relation(unsigned int anchor, const LadderQuestion *cases, unsigned int found)
 {
@@ -138,6 +196,7 @@ static unsigned int gate_relation(unsigned int anchor, const LadderQuestion *cas
 
     const AnchorField field = {gate_same_at, &s_gate, alignments, s_gate.cases};
     size_t offsets[ANCHOR_STEER_ANCHORS];
+    size_t chosen[GATE_DESCENTS_MOST * ANCHOR_STEER_ANCHORS];
     unsigned int placed = 0u;
     int resume = 0;
     s_gate.asked = 0ull;
@@ -150,6 +209,7 @@ static unsigned int gate_relation(unsigned int anchor, const LadderQuestion *cas
         for (size_t slot = 0u; slot < depth; slot += 1u)
         {
             const size_t at = offsets[slot];
+            chosen[placed + slot] = at;
             printf("  %-8s places case %3zu, %s: 0x%08x 0x%08x -> 0x%08x\n", s_anchor_text[anchor], at,
                    (at < s_gate.ladder_cases) ? "a ladder case" : "a sweep word ", s_gate.given[at].operand[0],
                    s_gate.given[at].operand[1], s_gate.expected[at]);
@@ -188,6 +248,7 @@ static unsigned int gate_relation(unsigned int anchor, const LadderQuestion *cas
            "%4u verified, %u lost; stopped %u and full depth %u; %llu questions planned on this host; %s\n",
            s_anchor_text[anchor], alignments, truth, kept, placed, gate_standing(s_survivors, alignments), verified,
            lost, stopped, continued, planned, (agreed != 0u) ? "agrees" : "DISAGREES");
+    gate_asks(anchor, alignments, chosen, placed);
     return agreed;
 }
 
