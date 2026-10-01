@@ -12,12 +12,15 @@ src/engine/compiler/bootstrap/query_ask.h names them.
 
     HELD 412 NOT_HELD 380 900
 
+A side that was not asked is written as - for its kind and - for its cost.
+
 The tables are read out of src/engine/compiler/gnascor.md each run and are never copied here.
 
 A side reads 1 where its ask held inside the bound, and 0 where it did not hold, ended its asker or
 came in past the bound. A cycle's state follows from the two sides and from how they read:
 
     BLOK  a side ended its asker: a hard refusal
+    GRAY  a side was not asked: every state at once, until an ask is put
     WAIT  one side held and the other answered past the bound: it lags
     BUSY  both held, each costing more than any held ask of the baseline cycles
     DUAL  both held
@@ -46,6 +49,8 @@ sys.path.insert(0, HERE)
 from order_check import MATRIX_DOC, read_matrices, table_cells  # noqa: E402
 
 KINDS = ("HELD", "NOT_HELD", "PAST_BOUND", "ENDED")
+# the kind a side carries where it was not asked
+UNASKED = "-"
 
 # how many leading cycles of a trace are its baseline
 BASELINE_CYCLES = 4
@@ -65,9 +70,14 @@ def candidates_of(path=MATRIX_DOC):
 def read_cycle(line):
     """One trace line as ((left kind, left cost), (right kind, right cost), bound)."""
     words = line.split()
-    if len(words) != 5 or words[0] not in KINDS or words[2] not in KINDS:
+    known = KINDS + (UNASKED,)
+    if len(words) != 5 or words[0] not in known or words[2] not in known:
         raise ValueError("a trace line is: <kind> <cost> <kind> <cost> <bound>, read: %r" % line)
-    return (words[0], int(words[1])), (words[2], int(words[3])), int(words[4])
+
+    def side(kind, cost):
+        return (kind, 0) if kind == UNASKED else (kind, int(cost))
+
+    return side(words[0], words[1]), side(words[2], words[3]), int(words[4])
 
 
 def baseline_of(cycles):
@@ -82,6 +92,8 @@ def state_of(left, right, edge):
     kinds = (left[0], right[0])
     if "ENDED" in kinds:
         return "BLOK"
+    if UNASKED in kinds:
+        return "GRAY"
     if "HELD" in kinds and "PAST_BOUND" in kinds:
         return "WAIT"
     if kinds == ("HELD", "HELD"):
@@ -193,6 +205,19 @@ def check():
         if got != want:
             failed += 1
             print("  FAILED: %s: wanted %s, read %s" % (what, want, got))
+
+    # GRAY: a side not asked leaves the pair every state at once, whatever the other side read, and a refusal is
+    # an answer and still reads BLOK. Nothing names a transition into or out of GRAY yet, and none is labeled
+    unasked = (UNASKED, 0)
+    gray_held = all(state_of(unasked, other, 120) == "GRAY" for other in
+                    (("HELD", 100), ("NOT_HELD", 0), ("PAST_BOUND", 1050), unasked))
+    gray_held = gray_held and state_of(("HELD", 100), unasked, 120) == "GRAY"
+    gray_held = gray_held and state_of(unasked, ("ENDED", 0), 120) == "BLOK"
+    states, labels = run([(unasked, unasked, 1000), dual, (("HELD", 100), unasked, 1000)])
+    gray_held = gray_held and states[-3:] == ["GRAY", "DUAL", "GRAY"] and labels[-2:] == [None, None]
+    if not gray_held:
+        failed += 1
+        print("  FAILED: an unasked side reads GRAY, a refusal BLOK, and GRAY's transitions carry no label")
 
     # every pair the tables name is decided in every situation a side can be in
     situations = [(kind, cost) for kind in KINDS for cost in (0, 100, 1050, 5000)]
