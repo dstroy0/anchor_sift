@@ -22,8 +22,7 @@
 # moving, and the grammar says so on every verb, which is not a reading anyone imposed on it.
 #
 # The abbreviation key lists every one of these tags once, in a footnote, and counting it would put a tally
-# of one against each value and call that a distribution. The earlier harvest made exactly this mistake and
-# reported an abbreviation key as the richest example in a volume. The key is found and skipped here.
+# of one against each value and call that a distribution. The key is found and skipped here.
 #
 # What this cannot see: one story by one speaker. It says what this text does. It does not say what
 # nɬeʔkepmxcín does, and a second text could come out the other way.

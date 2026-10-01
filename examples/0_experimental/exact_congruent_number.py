@@ -244,7 +244,7 @@ def tunnell(target):
 
 
 # the status known independently, as (is congruent, note); the run is read against the truth.
-# 15 is congruent by the triangle (15/2, 4, 17/2), area 15; the earlier label of not congruent was wrong.
+# 15 is congruent by the triangle (15/2, 4, 17/2), area 15.
 KNOWN = {1: (False, "Fermat"), 3: (False, "n = 3"), 5: (True, "Fibonacci"),
          7: (True, "n = 7"), 13: (True, "n = 13"), 15: (True, "legs 15/2, 4")}
 

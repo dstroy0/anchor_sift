@@ -15,7 +15,7 @@
 #
 # Everything here works on characters and not on bytes. A Chinese novel carries thousands of distinct
 # characters, which no byte seating holds, and character width is also where its symbols are morphemes
-# instead of pieces of one. The earlier tools assumed eight bits throughout and could not have included it.
+# instead of pieces of one. A byte seating assumes eight bits throughout and cannot include it.
 #
 # Chinese is the case that decides this. If the tightest spread is set by how many symbols an alphabet
 # has, it must sit far outside every alphabetic language. If it is set only by how the weight falls across

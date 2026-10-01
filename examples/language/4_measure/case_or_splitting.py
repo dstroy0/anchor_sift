@@ -8,8 +8,8 @@
 #
 #   Usage:  python examples/language/4_measure/case_or_splitting.py
 #
-# Keeping letter case lowered the readings per word in all eight languages, and the earlier run read that
-# as eight languages using capitals grammatically. It is not evidence of that. Giving a word two keys
+# Keeping letter case lowers the readings per word in all eight languages. That looks like eight
+# languages using capitals grammatically, and it is not evidence of that. Giving a word two keys
 # instead of one divides its readings between them whatever decides the division, and the count falls for
 # arithmetic reasons that have nothing to do with what the language marks.
 #
@@ -19,7 +19,7 @@
 # only thing destroyed is the correspondence between the capital and the reading. A drop that survives
 # against this null is the language marking something. A drop that matches it was the split alone.
 #
-# The treatment also fixes what the earlier run got wrong at the first word. Two different things wear a
+# The treatment also fixes the first word. Two different things wear a
 # capital letter in these languages: German marks a noun mid-sentence, and every language capitalizes the
 # first word of a sentence whether it is a noun or not. Folding both throws away the grammar. Keeping both
 # starves the first place, because a form seen only at the start of a sentence gets a key of its own and

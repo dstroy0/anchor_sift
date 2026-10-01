@@ -107,7 +107,7 @@ def main():
     out.write("\n  One number and every amount both rebuild the roughness and none of the picture.\n")
     out.write("  Positions carry it, and the question left is at what precision.\n\n")
 
-    # An angle is knowable and the earlier claim that positions cost as much as the whole set assumed
+    # An angle is knowable, and the claim that positions cost as much as the whole set assumes
     # every angle at full precision. Rounding each to a few steps around the circle is the cheaper claim
     # and it is measurable: the cost is bits for each coefficient, not one number for the set.
     out.write("  positions rounded to a few steps around the circle, amounts kept flat\n")
