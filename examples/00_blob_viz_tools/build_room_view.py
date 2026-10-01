@@ -47,6 +47,7 @@ import sys
 
 import out_path
 import settings
+from generate_template import stamp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "room_view_template.html")
@@ -227,7 +228,7 @@ def main():
 
     out = out_path.resolve("room_view.html", option("--out", None))
     with io.open(out, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     stoppers = sum(1 for one in things if one["stops"] > 0.5)
     print("%s" % out)

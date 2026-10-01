@@ -1,7 +1,7 @@
 // cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
-// The panels, the labels and their leader lines, and the lines of text along the edges of the view. The clinical face
+// The panels, the labels and their leader lines, and the lines of text along the edges of the view. The human face
 // names things in words; the machine face shows the integers the file holds.
 
 EV.ease = (progress) => {
@@ -64,7 +64,7 @@ EV.table = (element, rows) => {
   }));
 };
 
-EV.clinical = () => document.documentElement.dataset.face === "clinical";
+EV.human = () => document.documentElement.dataset.face === "human";
 
 EV.paintCounts = (app) => {
   const object = app.object;
@@ -81,7 +81,7 @@ EV.paintCounts = (app) => {
   }
   const control = header.aberrant_leaves + header.aberrant_voxels + header.wide_sums;
   const cells = table[10 * frame + 6];
-  if (EV.clinical()) {
+  if (EV.human()) {
     EV.table(EV.$("countTable"), [
       ["frame", `${frame + 1} of ${header.frames}`],
       ["time point", EV.grouped(table[10 * frame])],
@@ -120,15 +120,15 @@ EV.focusCell = (app) => (app.hover ? app.hover - 1 : app.chosen.size ? [...app.c
 EV.paintDims = (app) => {
   const object = app.object;
   const cell = EV.focusCell(app);
-  const clinical = EV.clinical();
+  const human = EV.human();
   if (cell < 0) {
-    EV.table(EV.$("dimTable"), [["cell", clinical ? "point at or click a cell" : "none"]]);
+    EV.table(EV.$("dimTable"), [["cell", human ? "point at or click a cell" : "none"]]);
   } else {
     const size = object.cells[4 * cell];
     const parents = EV.parentsOf(object, cell);
     const children = EV.childrenOf(object, cell);
     const frame = object.cellFrame[cell];
-    EV.table(EV.$("dimTable"), clinical ? [
+    EV.table(EV.$("dimTable"), human ? [
       ["cell", `#${cell}`],
       ["frame", `${frame + 1}`],
       ["volume, voxels", EV.grouped(size)],
@@ -171,7 +171,7 @@ EV.paintDims = (app) => {
   context.font = "10px sans-serif";
   context.fillText("1", 1, canvas.height - 1);
   context.fillText("2^23 voxels", canvas.width - 64, canvas.height - 1);
-  EV.$("barNote").textContent = clinical
+  EV.$("barNote").textContent = human
     ? `How many cells in this frame have each size. The tallest bar holds ${tallest} cells.`
     : `bins by floor(log2 n), 24 bins, tallest ${tallest}`;
 };
@@ -179,11 +179,11 @@ EV.paintDims = (app) => {
 EV.paintLineage = (app) => {
   const object = app.object;
   const cell = app.chosen.size ? [...app.chosen][0] : -1;
-  const clinical = EV.clinical();
+  const human = EV.human();
   const note = EV.$("lineageNote");
   if (cell < 0) {
     EV.table(EV.$("lineageTable"), []);
-    note.textContent = clinical ? "Click a cell to see where it came from and what it became." : "choose a cell";
+    note.textContent = human ? "Click a cell to see where it came from and what it became." : "choose a cell";
     return;
   }
   const family = EV.lineage(object, [cell]);
@@ -198,20 +198,20 @@ EV.paintLineage = (app) => {
     const words = members.slice(0, shownPerFrame).map((one) => {
       const children = object.forward.start[one + 1] - object.forward.start[one];
       const onward = object.frames[10 * frame + 8] > 0;
-      const mark = children >= 2 ? (clinical ? " divides" : " /2+") : onward && children === 0 ? (clinical ? " ends" : " end") : "";
-      return clinical ? `#${one} (${EV.grouped(object.cells[4 * one])})${mark}` : `${one}:${object.cells[4 * one]}${mark}`;
+      const mark = children >= 2 ? (human ? " divides" : " /2+") : onward && children === 0 ? (human ? " ends" : " end") : "";
+      return human ? `#${one} (${EV.grouped(object.cells[4 * one])})${mark}` : `${one}:${object.cells[4 * one]}${mark}`;
     });
-    const rest = more > 0 ? (clinical ? `, and ${more} more` : `, +${more}`) : "";
-    return [clinical ? `frame ${frame + 1}` : `f${frame}`, words.join(", ") + rest];
+    const rest = more > 0 ? (human ? `, and ${more} more` : `, +${more}`) : "";
+    return [human ? `frame ${frame + 1}` : `f${frame}`, words.join(", ") + rest];
   });
   EV.table(EV.$("lineageTable"), rows);
-  note.textContent = clinical
+  note.textContent = human
     ? `${family.length} cells in this lineage across ${byFrame.size} frames. Numbers in brackets are volumes in voxels.`
     : `${family.length} cells, ${byFrame.size} frames, cell:n`;
 };
 
 EV.paintLegend = (app) => {
-  const clinical = EV.clinical();
+  const human = EV.human();
   const swatch = (color, text) => `<div class="row"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:${color}"></span><span>${text}</span></div>`;
   const palette = {
     lineage: "Each lineage has its own color, kept from frame to frame.",
@@ -221,11 +221,11 @@ EV.paintLegend = (app) => {
   }[app.view.palette];
   EV.$("legendBody").innerHTML = [
     `<p class="note">${palette}</p>`,
-    swatch("#009E73", clinical ? "answer key link the tracker got right" : "edge status 0 correct"),
-    swatch("#E69F00", clinical ? "the right cell, among several the tracker kept" : "edge status 1 branched"),
-    swatch("#D55E00", clinical ? "answer key link the tracker got wrong" : "edge status 2 wrong"),
-    swatch("#CC79A7", clinical ? "answer key link the tracker did not make" : "edge status 3 no link"),
-    `<p class="note">${clinical
+    swatch("#009E73", human ? "answer key link the tracker got right" : "edge status 0 correct"),
+    swatch("#E69F00", human ? "the right cell, among several the tracker kept" : "edge status 1 branched"),
+    swatch("#D55E00", human ? "answer key link the tracker got wrong" : "edge status 2 wrong"),
+    swatch("#CC79A7", human ? "answer key link the tracker did not make" : "edge status 3 no link"),
+    `<p class="note">${human
       ? "Between frames each cell slides toward what it becomes while the next frame fades in. A cell that divides slides toward the middle of its two daughters."
       : "transition: runs of frame t move by the step to their children's joint centroid and dissolve by a run hash against the eased progress; frame t+1 enters the same way from its parents"}</p>`,
   ].join("");
@@ -233,19 +233,19 @@ EV.paintLegend = (app) => {
 
 EV.paintReview = (app) => {
   const object = app.object;
-  const clinical = EV.clinical();
+  const human = EV.human();
   const list = EV.$("reviewList");
-  EV.$("reviewNote").textContent = clinical
+  EV.$("reviewNote").textContent = human
     ? "Links the answer key marks wrong or missing, then the most linked and the largest cells, which can be several cells counted as one. Click an item to go to it."
     : "status 2 and 3 edges, then top 12 by degree and by n";
   list.replaceChildren(...object.review.slice(0, 80).map((item) => {
     const entry = document.createElement("li");
     const cells = item.cells.map((one) => `#${one}`).join(" to ");
     entry.textContent = item.text || (item.kind === "most linked"
-      ? `${cells}, ${item.degree} links, frame ${item.frame + (clinical ? 1 : 0)}`
+      ? `${cells}, ${item.degree} links, frame ${item.frame + (human ? 1 : 0)}`
       : item.kind === "largest"
-        ? `${cells}, ${EV.grouped(item.voxels)} voxels, frame ${item.frame + (clinical ? 1 : 0)}`
-        : `${item.kind}: ${cells}, frame ${item.frame + (clinical ? 1 : 0)}`);
+        ? `${cells}, ${EV.grouped(item.voxels)} voxels, frame ${item.frame + (human ? 1 : 0)}`
+        : `${item.kind}: ${cells}, frame ${item.frame + (human ? 1 : 0)}`);
     entry.className = item.kind === "wrong" || item.kind === "no link" || item.kind === "control" ? "bad" : "";
     entry.addEventListener("click", () => {
       EV.goTo(app, item.frame);
@@ -272,12 +272,12 @@ EV.paintMachine = (app) => {
   EV.$("engine-state").textContent = text;
 };
 
-EV.helpText = () => EV.clinical()
+EV.helpText = () => EV.human()
   ? `<b>Reading the view</b><p class="note">Each colored shape is one cell as the tracker found it, built from the microscope's voxels. Press play or the arrow keys to move through time; cells slide to where they go next. The square at the lower right is one slice through the volume, like a single microscope image, with each cell outlined.</p>
      <p class="note">Drag with either mouse button to move the camera around the volume, scroll to zoom, hold Shift and drag (or drag with the middle button) to slide the picture. Click a cell to choose it; Shift-click adds more. Press L to choose its whole lineage.</p>
      <p class="note">Keys: arrows frame, Space play, [ ] slice depth, R quarter turn, 0 fit, L lineage, W answer-key problems, F only chosen, B smooth, voxels or centroids, C colors, M machine face, Esc clear.</p>`
   : `<b>engine view, machine face</b><p class="note">window.engineView: state(), cfg(), apply(view or .cfg text), load(sample), open(file), frame(n), play(on), choose(cells, mode), cells(frame), cell(id), lineage(id), review(), pick(x, y), snapshot(), csv(), sections(). The page's state is also JSON in script#engine-state and window.__loopHealth reports the frame loop.</p>
-     <p class="note">keys: arrows frame, shift+arrows ghosts, space play, [ ] slice z, r turn 90, t tilt, 0 fit, + - zoom, l lineage, w failing, f only chosen, k links, e edges, b body, c palette, g glow, m clinical face, s snapshot, esc clear</p>`;
+     <p class="note">keys: arrows frame, shift+arrows ghosts, space play, [ ] slice z, r turn 90, t tilt, 0 fit, + - zoom, l lineage, w failing, f only chosen, k links, e edges, b body, c palette, g glow, m human face, s snapshot, esc clear</p>`;
 
 EV.paintPanels = (app) => {
   if (!app.object) {
@@ -293,7 +293,7 @@ EV.paintPanels = (app) => {
   if (!EV.$("legend").hidden) {
     EV.paintLegend(app);
   }
-  if (!EV.$("machine").hidden || !EV.clinical()) {
+  if (!EV.$("machine").hidden || !EV.human()) {
     EV.paintMachine(app);
   }
 };
@@ -315,14 +315,14 @@ EV.paintTags = (app) => {
     const frame = object.cellFrame[cell];
     return frame === app.frame || (frame === app.frame + 1 && app.progress >= 2048);
   }).slice(0, 24);
-  const clinical = EV.clinical();
+  const human = EV.human();
   const targets = shown.map((cell) => ({ cell, at: EV.screenOf(app, cell) })).sort((left, right) => left.at[0] - right.at[0]);
   const panel = EV.$("panel").getBoundingClientRect();
   let x = Math.max(panel.right + 12, 12);
   const width = window.innerWidth;
   let y = 64;
   for (const target of targets) {
-    const text = clinical ? `#${target.cell} · ${EV.grouped(object.cells[4 * target.cell])} voxels` : `${target.cell} n=${object.cells[4 * target.cell]}`;
+    const text = human ? `#${target.cell} · ${EV.grouped(object.cells[4 * target.cell])} voxels` : `${target.cell} n=${object.cells[4 * target.cell]}`;
     target.text = text;
     const guess = text.length * 7 + 14;
     if (app.view.ride) {
@@ -391,19 +391,19 @@ EV.paintTags = (app) => {
 
 EV.paintLines = (app) => {
   const header = app.object.header;
-  const clinical = EV.clinical();
+  const human = EV.human();
   const sliceZ = app.view.slice_z < 0 ? header.depth >> 1 : Math.min(app.view.slice_z, header.depth - 1);
-  EV.$("where").textContent = clinical
+  EV.$("where").textContent = human
     ? `frame ${app.frame + 1} of ${header.frames}`
       + (app.view.slice ? (app.view.map === "projection" ? " · map: the whole volume from above" : ` · map: layer ${sliceZ + 1} of ${header.depth}`) : "")
-      + ` · ${app.chosen.size} chosen`
+      + ` · ${app.chosen.size} chosen` + (app.view.vsync ? "" : ` · ${app.fps || 0} frames/s`)
     : `F=${app.frame} p=${app.progress} turn=${app.live.turn >> 4} tilt=${app.live.tilt >> 4} zoom=${app.live.zoom} spread=${app.live.spread} z=${sliceZ} drawn=${app.drawn}`;
   const work = app.workMs.length ? app.workMs.reduce((sum, one) => sum + one, 0) / app.workMs.length : 0;
-  EV.$("rate").textContent = `work ${work.toFixed(1)} ms mean of ${app.workMs.length} · compact ${app.compactMs} ms · resolve ${app.resolveMs.join("/")} ms\nstream ${app.object.streamMs} ms · compile ${app.gpu.compileMs} ms · drawn ${EV.grouped(app.drawn)}`;
-  EV.$("transportOf").textContent = clinical ? `of ${header.frames}` : `of ${header.frames} (0-based)`;
+  EV.$("rate").textContent = `work ${work.toFixed(1)} ms mean of ${app.workMs.length} · compact ${app.compactMs} ms · resolve ${app.resolveMs.join("/")} ms\nstream ${app.object.streamMs} ms · compile ${app.gpu.compileMs} ms · drawn ${EV.grouped(app.drawn)} · ${app.fps || 0} frames/s, vsync ${app.view.vsync ? "on" : "off"}`;
+  EV.$("transportOf").textContent = human ? `of ${header.frames}` : `of ${header.frames} (0-based)`;
   const frameBox = EV.$("frameBox");
   if (document.activeElement !== frameBox) {
-    frameBox.value = clinical ? app.frame + 1 : app.frame;
+    frameBox.value = human ? app.frame + 1 : app.frame;
   }
   const clock = EV.$("clock");
   clock.max = String((header.frames - 1) * 64);
@@ -418,7 +418,7 @@ EV.afterRender = (app, regions) => {
   const ratio = window.devicePixelRatio || 1;
   const right = EV.$("right");
   const bottom = regions && regions.slice ? Math.floor(regions.slice[1] / ratio) - 12 : window.innerHeight - 80;
-  right.style.maxHeight = `${Math.max(120, bottom - 60)}px`;
+  right.style.maxHeight = `${Math.max(120, bottom - 12)}px`;
   EV.paintTags(app);
   EV.paintLightHandles(app);
   const now = performance.now();

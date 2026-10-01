@@ -44,6 +44,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
 import out_path
+from generate_template import stamp
 
 TEMPLATE = os.path.join(HERE, "pairs_view_template.html")
 
@@ -175,7 +176,7 @@ def main():
 
     out = out_path.resolve("sha_pairs_view.html", option("--out", None))
     with io.open(out, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     print("%s (%.1f KB)" % (out, os.path.getsize(out) / 1024.0))
     print("  256 bits as 128 antipodal pairs, each a diameter through the center")

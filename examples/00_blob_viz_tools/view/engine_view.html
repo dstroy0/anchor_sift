@@ -3,112 +3,334 @@
 cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 
-The engine view. Built by maint/build_engine_view.py from view/engine_view/; edit the parts there, never this page.
+The engine view. generate_template.py builds it from this template, the toolbox tools named below and the parts
+beside it; edit those, never the built page.
 -->
-<html lang="en" data-theme="dark" data-face="clinical">
+<html lang="en" data-theme="dark" data-face="human">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
 <title>Engine View</title>
 <style>
+/* ---- toolbox/theme.css ---- */
+/* orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+   SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+
+   The look every page shares, and the one set of controls: buttons, number fields, selects, sliders, switches,
+   rows, sections, tables and notes. A page sets data-theme and data-face on its root and adds rules for its own
+   elements after these. Color is soft electric light on a cold dark ground: a blue that runs into violet and fades
+   to nothing marks an edge, a filled slider and a chosen button. The status colors are the Okabe-Ito set and stay
+   apart from it, because they carry data. Every size sits on a 4 px grid. */
   :root {
-    --page: #07080a; --panel: rgba(13, 15, 19, var(--sheer, 0.9)); --edge: #2a2f38; --ink: #dde3ec; --dim: #8a93a3;
-    --accent: #56b4e9; --good: #009e73; --warn: #e69f00; --bad: #d55e00; --text: 12px; --panel-w: 290px; --side-w: 300px;
-    --font: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    --void: #04060c;
+    --page: var(--void);
+    --ink: #e4eaff;
+    --ink-hi: #f6f8ff;
+    --thumb: #8eaee0;
+    --thumb-hi: #d6e4ff;
+    --thumb-ring: color-mix(in oklab, var(--blue) 16%, transparent);
+    --thumb-glow: color-mix(in oklab, var(--blue) 35%, transparent);
+    --dim: #8c96b6;
+    --faint: #59627e;
+    --blue: #5ccbff;
+    --mint: #5effb4;
+    --violet: #a68cff;
+    --good: #009e73; --warn: #e69f00; --bad: #d55e00;
+    --accent: var(--blue); --on-accent: var(--ink-hi);
+    --hair: rgba(150, 175, 255, 0.13);
+    --hair-hi: rgba(150, 175, 255, 0.24);
+    --control: rgba(70, 140, 255, 0.045);
+    --control-hi: rgba(80, 160, 255, 0.085);
+    --control-edge: rgba(92, 170, 255, 0.16);
+    --control-ink: #bccbef;
+    --track: rgba(150, 175, 255, 0.14);
+    --glass-top: rgba(18, 23, 40, var(--sheer, 0.9));
+    --glass-low: rgba(9, 12, 22, var(--sheer, 0.9));
+    --panel: var(--glass-low);
+    --edge: var(--hair-hi);
+    --shadow: 0 1px 0 0 rgba(255, 255, 255, 0.035) inset, 0 20px 44px -20px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.35);
+    --glow: 0 0 14px -3px color-mix(in oklab, var(--blue) 60%, transparent);
+    --seam: linear-gradient(90deg, transparent 0, color-mix(in oklab, var(--blue) 75%, transparent) 18%, color-mix(in oklab, var(--violet) 55%, transparent) 52%, transparent 100%);
+    --text: 12px; --panel-w: 296px; --side-w: 300px;
+    --font: ui-sans-serif, system-ui, "Segoe UI Variable Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    --mono: ui-monospace, "Cascadia Mono", "SF Mono", Consolas, monospace;
+    --ease: cubic-bezier(0.2, 0.75, 0.25, 1);
+    color-scheme: dark;
+    accent-color: var(--blue);
   }
   :root[data-theme="light"] {
-    --page: #eef1f5; --panel: rgba(255, 255, 255, var(--sheer, 0.92)); --edge: #c5ccd6; --ink: #1b2330; --dim: #5a6576;
+    --void: #eef2fa;
+    --ink: #121a30; --ink-hi: #060a18; --dim: #56607c; --faint: #8a93ad;
+    --thumb: #ffffff;
+    --thumb-hi: #ffffff;
+    --thumb-ring: color-mix(in oklab, var(--blue) 30%, transparent);
+    --thumb-glow: color-mix(in oklab, var(--blue) 22%, transparent);
+    --blue: #0a86d8; --mint: #0aa66a; --violet: #6a4ee6;
+    --hair: rgba(40, 60, 120, 0.12); --hair-hi: rgba(40, 60, 120, 0.22);
+    --control: rgba(20, 110, 220, 0.05); --control-hi: rgba(20, 110, 220, 0.09); --track: rgba(40, 60, 120, 0.14);
+    --control-edge: rgba(20, 110, 220, 0.2); --control-ink: #24345a;
+    --glass-top: rgba(255, 255, 255, var(--sheer, 0.92)); --glass-low: rgba(244, 247, 253, var(--sheer, 0.92));
+    --shadow: 0 1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 18px 40px -22px rgba(20, 30, 70, 0.35), 0 0 0 1px rgba(20, 30, 70, 0.06);
+    --glow: 0 0 12px -4px color-mix(in oklab, var(--blue) 45%, transparent);
+    color-scheme: light;
   }
-  :root[data-face="clinical"] { --font: system-ui, "Segoe UI", Roboto, sans-serif; }
-  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--page); color: var(--ink); font: var(--text)/1.45 var(--font); }
-  canvas#view { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; touch-action: none; cursor: crosshair; }
-  .box { position: fixed; background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; padding: 8px 10px; box-sizing: border-box; max-height: calc(100vh - 120px); overflow: auto; }
-  .box h4 { margin: -2px 0 6px; font-size: 1em; letter-spacing: 0.04em; cursor: move; user-select: none; color: var(--dim); text-transform: uppercase; }
-  .row { display: flex; align-items: center; gap: 6px; margin: 3px 0; }
-  .row label { flex: 0 0 96px; color: var(--dim); }
-  .row input[type=range] { flex: 1; min-width: 60px; }
-  .row .val { flex: 0 0 64px; text-align: right; font-variant-numeric: tabular-nums; }
-  .check { display: inline-flex; align-items: center; gap: 4px; margin: 2px 10px 2px 0; }
-  button, select, input[type=number], textarea { background: transparent; color: var(--ink); border: 1px solid var(--edge); border-radius: 5px; font: inherit; padding: 2px 6px; }
-  button:hover { border-color: var(--accent); }
-  button.on { background: var(--accent); color: #051018; border-color: var(--accent); }
-  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-  td { padding: 1px 4px; vertical-align: top; }
-  td:first-child { color: var(--dim); white-space: nowrap; }
+  :root[data-face="machine"] { --font: var(--mono); }
+
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--page); color: var(--ink); font: var(--text)/1.5 var(--font); -webkit-font-smoothing: antialiased; }
+  ::selection { background: color-mix(in oklab, var(--blue) 35%, transparent); }
+
+  /* The glass every floating surface is made of, with the fading seam along its top edge. */
+  .box, .glass {
+    position: fixed; box-sizing: border-box; padding: 10px 12px; border-radius: 12px;
+    background: var(--seam) top / 100% 1px no-repeat, linear-gradient(180deg, var(--glass-top), var(--glass-low));
+    border: 1px solid var(--hair); box-shadow: var(--shadow);
+    backdrop-filter: blur(16px) saturate(150%); -webkit-backdrop-filter: blur(16px) saturate(150%);
+    max-height: calc(100vh - 120px); overflow: auto;
+    scrollbar-width: thin; scrollbar-color: color-mix(in oklab, var(--blue) 28%, transparent) transparent;
+  }
+  .box:not(:hover):not(:focus-within), .glass:not(:hover):not(:focus-within) { scrollbar-color: transparent transparent; }
+  .box h4 { margin: 0 0 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.01em; color: var(--ink); cursor: move; user-select: none; }
+
+  /* A row: its label, its control, and the value the control holds, on the same three columns everywhere. */
+  .row { display: grid; grid-template-columns: 92px minmax(0, 1fr) 48px; align-items: center; column-gap: 8px; min-height: 24px; }
+  .row > label, .row > .label { color: var(--dim); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row > :nth-child(2):last-child { grid-column: 2 / 4; }
+  .row .val, .row output { text-align: right; font-size: 11.5px; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .row .inline { display: flex; align-items: center; gap: 4px; min-width: 0; }
+  .row .inline > select { flex: 1; min-width: 0; }
+  .switches { display: grid; grid-template-columns: 1fr 1fr; column-gap: 8px; row-gap: 2px; padding: 2px 0; }
+  .switches > :only-child { grid-column: 1 / -1; }
+  .check { display: inline-flex; align-items: center; gap: 8px; min-height: 24px; color: var(--ink); font-size: 11.5px; cursor: pointer; user-select: none; }
+
+  /* Buttons. */
+  button {
+    height: 26px; padding: 0 10px; border-radius: 7px; border: 1px solid var(--control-edge); background: var(--control);
+    color: var(--control-ink); font: 500 11.5px/1 var(--font); letter-spacing: 0.005em; cursor: pointer;
+    transition: border-color 120ms var(--ease), background-color 120ms var(--ease), box-shadow 160ms var(--ease), color 120ms var(--ease);
+  }
+  button:hover { border-color: color-mix(in oklab, var(--blue) 38%, transparent); background: var(--control-hi); color: var(--ink); }
+  button:active { transform: translateY(0.5px); }
+  button:disabled { opacity: 0.4; cursor: default; border-color: var(--hair); background: var(--control); }
+  button.on {
+    color: var(--ink); border-color: color-mix(in oklab, var(--blue) 42%, transparent);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--blue) 16%, transparent), color-mix(in oklab, var(--violet) 8%, transparent));
+    box-shadow: 0 0 12px -5px color-mix(in oklab, var(--blue) 55%, transparent), 0 0 0 1px color-mix(in oklab, var(--blue) 10%, transparent) inset;
+  }
+  button.icon { width: 26px; padding: 0; display: inline-grid; place-items: center; font-size: 12px; }
+
+  /* Fields and selects. */
+  select, input[type=number], input[type=text], textarea {
+    box-sizing: border-box; height: 26px; padding: 0 8px; border-radius: 7px; border: 1px solid var(--hair);
+    background-color: var(--control); color: var(--ink); font: 11.5px/1 var(--font); font-variant-numeric: tabular-nums;
+    transition: border-color 120ms var(--ease), background-color 120ms var(--ease);
+  }
+  textarea { height: auto; padding: 8px; line-height: 1.45; font-family: var(--mono); }
+  select {
+    appearance: none; -webkit-appearance: none; padding-right: 24px; min-width: 0; cursor: pointer;
+    background-image: linear-gradient(45deg, transparent 50%, var(--dim) 50%), linear-gradient(135deg, var(--dim) 50%, transparent 50%);
+    background-position: right 12px center, right 8px center; background-size: 4px 4px, 4px 4px; background-repeat: no-repeat;
+  }
+  select option { background: var(--void); color: var(--ink); }
+  select:hover, input[type=number]:hover, input[type=text]:hover, textarea:hover { border-color: color-mix(in oklab, var(--blue) 40%, transparent); background-color: var(--control-hi); }
+
+  /* Sliders: the track is a stroke that fades to nothing at both ends, the fill rises out of nothing and is
+     brightest under the thumb, and the thumb carries its own light. */
+  input[type=range] {
+    --fill: 0%; appearance: none; -webkit-appearance: none; width: 100%; min-width: 0; height: 20px; margin: 0;
+    background: transparent; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    height: 4px; border-radius: 2px;
+    background:
+      linear-gradient(90deg, transparent 0, color-mix(in oklab, var(--blue) 45%, transparent) calc(var(--fill) * 0.55), var(--blue) var(--fill), transparent var(--fill)),
+      radial-gradient(ellipse 50% 100% at 50% 50%, var(--track) 0, var(--track) 55%, transparent 100%);
+  }
+  input[type=range]::-moz-range-track { height: 4px; border-radius: 2px; background: radial-gradient(ellipse 50% 100% at 50% 50%, var(--track) 0, var(--track) 55%, transparent 100%); }
+  input[type=range]::-moz-range-progress { height: 4px; border-radius: 2px; background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--blue) 45%, transparent) 55%, var(--blue)); }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 12px; height: 12px; margin-top: -4px; border-radius: 50%; border: 0;
+    background: var(--thumb); box-shadow: 0 0 0 2px var(--thumb-ring), 0 0 8px var(--thumb-glow);
+    transition: box-shadow 140ms var(--ease), transform 140ms var(--ease), background-color 140ms var(--ease);
+  }
+  input[type=range]:hover::-moz-range-thumb, input[type=range]:active::-moz-range-thumb { background: var(--thumb-hi); }
+  input[type=range]::-moz-range-thumb {
+    width: 12px; height: 12px; border-radius: 50%; border: 0; background: var(--thumb);
+    box-shadow: 0 0 0 2px var(--thumb-ring), 0 0 8px var(--thumb-glow);
+  }
+  input[type=range]:hover::-webkit-slider-thumb, input[type=range]:active::-webkit-slider-thumb { transform: scale(1.12); background: var(--thumb-hi); box-shadow: 0 0 0 3px var(--thumb-ring), 0 0 12px color-mix(in oklab, var(--blue) 55%, transparent); }
+  input[type=range]:disabled { opacity: 0.35; cursor: default; }
+
+  /* Switches: a checkbox drawn as a track and a knob. A checked switch lights from blue into mint. */
+  input[type=checkbox] {
+    appearance: none; -webkit-appearance: none; flex: 0 0 auto; position: relative; width: 26px; height: 14px; margin: 0;
+    border-radius: 7px; border: 1px solid var(--hair-hi); background: var(--track); cursor: pointer;
+    transition: background-color 160ms var(--ease), border-color 160ms var(--ease), box-shadow 160ms var(--ease);
+  }
+  input[type=checkbox]::before {
+    content: ""; position: absolute; top: 1px; left: 1px; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--dim); transition: transform 180ms var(--ease), background-color 160ms var(--ease);
+  }
+  input[type=checkbox]:checked {
+    border-color: color-mix(in oklab, var(--mint) 50%, transparent);
+    background: linear-gradient(90deg, color-mix(in oklab, var(--blue) 45%, transparent), color-mix(in oklab, var(--mint) 55%, transparent));
+    box-shadow: 0 0 10px -3px color-mix(in oklab, var(--mint) 70%, transparent);
+  }
+  input[type=checkbox]:checked::before { transform: translateX(12px); background: var(--thumb); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); }
+  input[type=checkbox][data-tone]:checked { background: color-mix(in oklab, var(--tone) 55%, transparent); border-color: color-mix(in oklab, var(--tone) 70%, transparent); box-shadow: 0 0 10px -3px var(--tone); }
+  input[data-tone="good"] { --tone: var(--good); } input[data-tone="warn"] { --tone: var(--warn); } input[data-tone="bad"] { --tone: var(--bad); }
+  input[data-tone="none"] { --tone: var(--dim); }
+
+  :focus-visible { outline: 2px solid color-mix(in oklab, var(--blue) 80%, transparent); outline-offset: 2px; }
+  input[type=range]:focus-visible { outline-offset: 0; border-radius: 4px; }
+
+  /* Sections that fold, each under its own title. */
+  details.section { border-top: 1px solid var(--hair); }
+  details.section:first-of-type { border-top: 0; }
+  details.section > summary {
+    list-style: none; display: flex; align-items: center; gap: 8px; height: 30px; cursor: pointer; user-select: none;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.01em; color: var(--ink);
+  }
+  details.section > summary::-webkit-details-marker { display: none; }
+  details.section > summary::after {
+    content: ""; margin-left: auto; width: 5px; height: 5px; border-right: 1.5px solid var(--dim); border-bottom: 1.5px solid var(--dim);
+    transform: rotate(-45deg); transition: transform 180ms var(--ease);
+  }
+  details.section[open] > summary::after { transform: translateY(-2px) rotate(45deg); }
+  details.section > summary:hover { color: var(--ink-hi); }
+  details.section > .rows { display: grid; row-gap: 4px; padding: 0 0 10px; }
+
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; font-size: 11.5px; }
+  td { padding: 3px 4px; vertical-align: top; border-top: 1px solid color-mix(in oklab, var(--hair) 60%, transparent); }
+  tr:first-child td { border-top: 0; }
+  td:first-child { color: var(--dim); white-space: nowrap; padding-left: 0; }
+  td:last-child { padding-right: 0; }
   td.num { text-align: right; }
-  .note { color: var(--dim); margin: 4px 0; }
+  .note { color: var(--dim); margin: 4px 0; font-size: 11px; line-height: 1.5; }
   .bad { color: var(--bad); }
   .good { color: var(--good); }
   .warn { color: var(--warn); }
-  #menu { position: fixed; top: 10px; left: 50%; transform: translateX(-50%); display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; max-width: calc(100vw - 32px); background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; padding: 4px 6px; z-index: 5; }
-  #menu .gap { width: 10px; }
-  /* Whose engine this is, over the cells it draws, out of the way of everything that is read. */
-  #credit { position: fixed; top: 46px; left: 50%; transform: translateX(-50%); z-index: 5; color: var(--dim); font-size: 12px; letter-spacing: 0.04em; white-space: nowrap; pointer-events: auto; }
-  #credit a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--edge); }
-  #credit a:hover { border-bottom-color: var(--ink); }
-  #panel { left: 12px; top: 60px; width: var(--panel-w); transition: transform 0.25s ease; z-index: 4; }
-  #panel.tucked:not(.pinned):not(:hover) { transform: translateX(calc(-100% + 26px)); }
-  #grip { position: absolute; right: 4px; top: 4px; cursor: pointer; color: var(--dim); }
-  #panel section { border-top: 1px solid var(--edge); padding-top: 4px; margin-top: 6px; }
-  #panel section > b { display: block; color: var(--dim); font-weight: 600; margin-bottom: 2px; }
-  #right { position: fixed; right: 12px; top: 60px; width: var(--side-w); display: flex; flex-direction: column; gap: 8px; max-height: calc(100vh - 140px); overflow: auto; z-index: 4; }
+  :root[data-face="human"] .machine-only { display: none !important; }
+  :root[data-face="machine"] .human-only { display: none !important; }
+  [hidden] { display: none !important; }
+
+  @media (pointer: coarse) {
+    button, select, input[type=number] { height: 32px; }
+    button.icon { width: 32px; }
+    .row { min-height: 32px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
+  }
+  @media (forced-colors: active) {
+    .box, .glass { border-color: CanvasText; }
+    button.on { outline: 2px solid Highlight; }
+    input[type=checkbox] { appearance: auto; }
+  }
+
+/* ---- toolbox/ui/toolbar.css ---- */
+/* orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+   SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+
+   The floating toolbar EV.toolbar emits. Closed, it is its menu button alone. Open, its glass grows out of that
+   button, across and down, to the toolbar's full size; closing runs the same way back. Nothing inside it scrolls
+   or shows a scrollbar while it is closed. */
+  .toolbar {
+    --button: 34px;
+    position: fixed; top: 12px; z-index: 6; box-sizing: border-box; width: var(--panel-w);
+    max-height: calc(100vh - 24px); display: flex; flex-direction: column; border-radius: 12px;
+    border: 1px solid transparent; background: transparent; box-shadow: none;
+    clip-path: inset(0 calc(100% - var(--button)) calc(100% - var(--button)) 0 round 10px);
+    transition: clip-path 300ms var(--ease), background-color 200ms var(--ease), border-color 200ms var(--ease), box-shadow 200ms var(--ease);
+  }
+  .toolbar[data-corner="top-left"] { left: 12px; }
+  .toolbar[data-corner="top-right"] { right: 12px; clip-path: inset(0 0 calc(100% - var(--button)) calc(100% - var(--button)) round 10px); }
+  .toolbar[data-corner="top-right"] .toolbar-head { flex-direction: row-reverse; }
+  .toolbar.open {
+    clip-path: inset(0 0 0 0 round 12px);
+    background: var(--seam) top / 100% 1px no-repeat, linear-gradient(180deg, var(--glass-top), var(--glass-low));
+    border-color: var(--hair); box-shadow: var(--shadow);
+    backdrop-filter: blur(16px) saturate(150%); -webkit-backdrop-filter: blur(16px) saturate(150%);
+  }
+
+  .toolbar-head { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; height: var(--button); }
+  .toolbar-title { font-size: 11px; font-weight: 600; letter-spacing: 0.01em; color: var(--ink); opacity: 0; transition: opacity 160ms var(--ease); }
+  .toolbar.open .toolbar-title { opacity: 1; transition-delay: 120ms; }
+
+  /* The menu button keeps its own glass: closed, it reads as a whole button. Its three lines turn into a cross. */
+  .toolbar-button {
+    position: relative; flex: 0 0 auto; width: var(--button); height: var(--button); margin: -1px; padding: 0; border-radius: 10px;
+    border: 1px solid var(--hair); background: linear-gradient(180deg, var(--glass-top), var(--glass-low)); box-shadow: var(--shadow);
+    backdrop-filter: blur(16px) saturate(150%); -webkit-backdrop-filter: blur(16px) saturate(150%);
+  }
+  .toolbar.open .toolbar-button { background: transparent; box-shadow: none; border-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .toolbar-button:hover { border-color: color-mix(in oklab, var(--blue) 45%, transparent); box-shadow: var(--shadow), var(--glow); }
+  .toolbar-button span {
+    position: absolute; left: 10px; right: 10px; height: 1.5px; border-radius: 1px; background: var(--ink);
+    transition: transform 260ms var(--ease), opacity 160ms var(--ease), background-color 160ms var(--ease);
+  }
+  .toolbar-button span:nth-child(1) { top: 11px; }
+  .toolbar-button span:nth-child(2) { top: 16px; background: linear-gradient(90deg, var(--blue), var(--violet)); }
+  .toolbar-button span:nth-child(3) { top: 21px; }
+  .toolbar.open .toolbar-button span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+  .toolbar.open .toolbar-button span:nth-child(2) { opacity: 0; transform: scaleX(0.2); }
+  .toolbar.open .toolbar-button span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+  .toolbar-body {
+    flex: 1 1 auto; min-height: 0; overflow: hidden; padding: 4px 12px 2px; opacity: 0;
+    transition: opacity 180ms var(--ease);
+    scrollbar-width: thin; scrollbar-color: color-mix(in oklab, var(--blue) 28%, transparent) transparent;
+  }
+  .toolbar.open .toolbar-body { overflow-y: auto; opacity: 1; transition-delay: 90ms; scrollbar-color: transparent transparent; }
+  .toolbar.open:hover .toolbar-body, .toolbar.open:focus-within .toolbar-body { scrollbar-color: color-mix(in oklab, var(--blue) 30%, transparent) transparent; }
+  .toolbar:not(.open) .toolbar-body { visibility: hidden; transition: opacity 120ms var(--ease), visibility 0s linear 300ms; }
+
+  @media (max-width: 760px) {
+    .toolbar { width: calc(100vw - 24px); }
+  }
+
+/* ---- end ---- */
+  canvas#view { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; touch-action: none; cursor: crosshair; }
+  #menu { top: 12px; left: 50%; transform: translateX(-50%); display: flex; flex-wrap: wrap; align-items: center; gap: 4px; justify-content: center; max-width: calc(100vw - 32px); padding: 4px; border-radius: 11px; overflow: visible; z-index: 5; }
+  #menu .gap { width: 1px; height: 16px; margin: 0 4px; background: var(--hair-hi); }
+  #right { position: fixed; right: 12px; top: 12px; width: var(--side-w); display: flex; flex-direction: column; gap: 8px; max-height: calc(100vh - 120px); overflow: auto; scrollbar-width: none; z-index: 4; }
   #right .box { position: static; max-height: 40vh; flex: 0 0 auto; }
-  #transport { left: 50%; bottom: 12px; transform: translateX(-50%); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; max-width: calc(100vw - 32px); z-index: 5; }
-  /* What this is and what it is not, at the top under whose engine it is, with the cells set below both. */
-  #standing { position: fixed; left: 50%; top: 64px; transform: translateX(-50%); z-index: 5; max-width: min(980px, calc(100vw - 32px)); text-align: center; color: var(--dim); font-size: 11px; line-height: 1.5; }
-  #standing b { color: var(--warn); }
-  #standing i { color: var(--ink); font-style: normal; }
+  #transport { left: 50%; bottom: 12px; transform: translateX(-50%); display: flex; flex-wrap: wrap; gap: 8px; align-items: center; max-width: calc(100vw - 32px); padding: 6px 10px; overflow: visible; z-index: 5; }
+  #transport label { display: inline-flex; align-items: center; gap: 6px; color: var(--dim); font-size: 11.5px; }
   #transport input[type=number] { width: 58px; }
   #clock { width: min(420px, 60vw); }
   /* What the render cost and where the view is, side by side over the transport: the cost to the left of it. */
   #ticker { position: fixed; left: 50%; bottom: 58px; transform: translateX(-50%); display: flex; gap: 18px; align-items: flex-end; max-width: calc(100vw - 32px); pointer-events: none; }
   #where { color: var(--dim); white-space: nowrap; }
-  #rate { color: var(--dim); font-family: ui-monospace, Consolas, monospace; font-size: 11px; white-space: pre; text-align: right; }
-  #loopAlarm { position: fixed; left: 50%; top: 56px; transform: translateX(-50%); background: var(--bad); color: #fff; padding: 6px 12px; border-radius: 6px; z-index: 9; }
-  #ask { position: fixed; right: 12px; bottom: 12px; width: 26px; height: 26px; border-radius: 13px; border: 1px solid var(--edge); background: var(--panel); text-align: center; line-height: 26px; cursor: help; z-index: 6; }
+  #rate { color: var(--dim); font-family: var(--mono); font-size: 11px; white-space: pre; text-align: right; }
+  #loopAlarm { position: fixed; left: 50%; top: 64px; transform: translateX(-50%); background: var(--bad); color: #fff; padding: 6px 12px; border-radius: 6px; z-index: 9; }
+  #ask { right: 12px; bottom: 12px; width: 28px; height: 28px; padding: 0; border-radius: 14px; display: grid; place-items: center; color: var(--dim); cursor: help; overflow: visible; z-index: 6; }
+  #ask:hover { color: var(--ink-hi); border-color: color-mix(in oklab, var(--blue) 45%, transparent); box-shadow: var(--shadow), var(--glow); }
   #tile { position: fixed; right: 12px; bottom: 46px; width: min(380px, calc(100vw - 24px)); z-index: 7; }
-  #hover { position: fixed; pointer-events: none; background: var(--panel); border: 1px solid var(--edge); border-radius: 6px; padding: 4px 8px; white-space: pre; z-index: 8; }
+  #hover { pointer-events: none; padding: 6px 10px; border-radius: 8px; white-space: pre; font-variant-numeric: tabular-nums; z-index: 8; }
   #tags { position: fixed; inset: 0; pointer-events: none; z-index: 3; }
-  #tags .tag { position: absolute; pointer-events: auto; background: var(--panel); border: 1px solid var(--accent); border-radius: 5px; padding: 1px 6px; white-space: nowrap; cursor: grab; }
+  #tags .tag { position: absolute; pointer-events: auto; padding: 2px 8px; border-radius: 6px; white-space: nowrap; cursor: grab; font-size: 11px; font-variant-numeric: tabular-nums; color: var(--ink-hi); background: var(--glass-low); border: 1px solid color-mix(in oklab, var(--blue) 55%, transparent); box-shadow: var(--glow); }
   #leads { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 3; }
   #lightHandles { position: fixed; inset: 0; pointer-events: none; z-index: 3; }
   #lightHandles .light { position: absolute; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 11px; pointer-events: auto; cursor: grab; background: radial-gradient(circle, #fff7d6 0 30%, #ffcf6b 45%, rgba(255, 207, 107, 0) 72%); display: flex; align-items: center; justify-content: center; font-size: 10px; color: #3a2a00; font-weight: 700; }
   #lightHandles .light.picked { outline: 1px solid var(--accent); }
   #configBox { left: 50%; top: 80px; transform: translateX(-50%); width: min(620px, calc(100vw - 24px)); z-index: 8; }
-  #configText { width: 100%; box-sizing: border-box; min-height: 260px; resize: vertical; font-family: ui-monospace, Consolas, monospace; font-size: 11px; }
-  #drop { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 20px; background: rgba(0, 0, 0, 0.6); color: #fff; z-index: 10; }
-  #machine pre { margin: 0; white-space: pre-wrap; word-break: break-all; font-family: ui-monospace, Consolas, monospace; font-size: 11px; }
+  #configText { width: 100%; box-sizing: border-box; min-height: 260px; resize: vertical; font-family: var(--mono); font-size: 11px; }
+  #drop { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 16px; background: color-mix(in oklab, var(--void) 70%, transparent); color: var(--ink-hi); backdrop-filter: blur(6px); box-shadow: inset 0 0 0 2px color-mix(in oklab, var(--blue) 55%, transparent); z-index: 10; }
+  #machine pre { margin: 0; white-space: pre-wrap; word-break: break-all; font-family: var(--mono); font-size: 11px; }
   #review li { cursor: pointer; margin: 2px 0; }
   #review ol { margin: 0; padding-left: 20px; }
-  :root[data-face="clinical"] .machine-only { display: none !important; }
-  :root[data-face="machine"] .clinical-only { display: none !important; }
-  [hidden] { display: none !important; }
   @media (max-width: 760px) {
     #right { display: none; }
-    #panel { width: calc(100vw - 24px); }
   }
 </style>
 </head>
 <body>
 <canvas id="view"></canvas>
-<div id="credit">DEMO courtesy of Douglas Quigg (dstroy0) &mdash; <a href="https://github.com/dstroy0" target="_blank" rel="noopener noreferrer">github.com/dstroy0</a></div>
-<div id="standing">
-  Prepared for the Kaggle <i>Biohub &mdash; Cell Tracking During Development</i> competition. A pure algebraic
-  reasoning engine: branchless, memoryless, exact limb arithmetic. No neural net, no model, nothing learned and
-  nothing held. It needs no internet connection and reads no dataset but the one handed to it. Any data prepared
-  like the input set can be passed through by altering the .cfg &mdash; see README.md in the competition notebook.
-  <b>Non-clinical demonstration only.</b>
-  The engine renders this directly from what it sees. Move <i>slide</i> across the gradient between the sample and
-  the engine's reasoning to verify the acceptance and rejection of that sample in real time, at any clock or
-  perspective you need. That tunes the acceptance rate alongside the null permutation error curve written in the
-  .tsv. The two terms are one integral, and it is the probability distribution for a given species and tissue
-  composition. A fully working engine can be pointed at itself to floor the error within like tissue samples,
-  which greatly improves candidate acceptance and rejection throughput.
-</div>
 <svg id="leads"></svg>
 <div id="tags"></div>
 <div id="lightHandles"></div>
-<div id="menu">
+<div class="glass" id="menu">
   <button data-show="counts" class="on">counts</button>
   <button data-show="dims">dimensions</button>
   <button data-show="lineage">lineage</button>
@@ -117,7 +339,7 @@ The engine view. Built by maint/build_engine_view.py from view/engine_view/; edi
   <button data-show="machine" class="machine-only">state</button>
   <button data-show="all">all</button>
   <span class="gap"></span>
-  <button id="faceClinical" title="plain labels, the slice, the review list">clinical</button>
+  <button id="faceHuman" title="plain labels, the slice, the review list">human</button>
   <button id="faceMachine" title="exact integers, offsets, timings, the page as JSON">machine</button>
   <span class="gap"></span>
   <button id="configOpen" title="read or write the whole view as a .cfg">config</button>
@@ -125,79 +347,6 @@ The engine view. Built by maint/build_engine_view.py from view/engine_view/; edi
   <button id="snapshot" title="save the view as a PNG">snapshot</button>
   <button id="exportCsv" title="save the chosen cells, or every cell, as CSV">CSV</button>
   <input type="file" id="fileInput" accept=".vbo,.ibo" multiple hidden>
-</div>
-
-<div class="box tucked" id="panel">
-  <span id="grip" title="pin the controls open, or let them tuck away">&#9776;</span>
-  <h4>controls</h4>
-  <section>
-    <b>object</b>
-    <div class="row"><label for="sample">sample</label><select id="sample" style="flex:1"></select></div>
-  </section>
-  <section>
-    <b>view</b>
-    <div class="row"><label for="yaw">turn</label><input type="range" id="yaw" min="0" max="359" value="30"><span class="val" id="yawOut"></span></div>
-    <div class="row"><label for="pitch">tilt</label><input type="range" id="pitch" min="-89" max="89" value="35"><span class="val" id="pitchOut"></span></div>
-    <div class="row"><label for="zoom">zoom</label><input type="range" id="zoom" min="1" max="1024" value="64"><span class="val" id="zoomOut"></span></div>
-    <div class="row"><label for="zScale">z scale</label><input type="range" id="zScale" min="2" max="16" step="2" value="8"><span class="val" id="zScaleOut"></span></div>
-    <div class="row"><label for="spread">spread</label><input type="range" id="spread" min="0" max="2048" step="16" value="0"><span class="val" id="spreadOut"></span></div>
-  </section>
-  <section>
-    <b>cells</b>
-    <div class="row"><label for="body">draw as</label><select id="body"><option value="0">smooth</option><option value="1">voxels</option><option value="2">centroids</option></select></div>
-    <div class="row"><label for="smoothRadius">smooth reach</label><input type="range" id="smoothRadius" min="1" max="8" value="3"><span class="val" id="smoothRadiusOut"></span></div>
-    <div class="row"><label for="smoothOpacity">smooth opacity</label><input type="range" id="smoothOpacity" min="1" max="255" value="16"><span class="val" id="smoothOpacityOut"></span></div>
-    <label class="check"><input type="checkbox" id="walls" checked>cell walls</label>
-    <div class="row"><label for="wallTone">wall lightness</label><input type="range" id="wallTone" min="0" max="255" value="110"><span class="val" id="wallToneOut"></span></div>
-    <div class="row"><label for="wallOpacity">wall opacity</label><input type="range" id="wallOpacity" min="1" max="255" value="220"><span class="val" id="wallOpacityOut"></span></div>
-    <div class="row"><label for="palette">color</label><select id="palette"><option value="1">by lineage</option><option value="3">lineage, color-blind safe</option><option value="0">by cell</option><option value="2">by volume</option></select></div>
-    <div class="row"><label for="ghosts">earlier frames</label><input type="range" id="ghosts" min="0" max="8" value="0"><span class="val" id="ghostsOut"></span></div>
-    <div class="row"><label for="ghostFade">their fade</label><input type="range" id="ghostFade" min="0" max="224" value="48"><span class="val" id="ghostFadeOut"></span></div>
-    <div class="row"><label for="minVoxels">smallest</label><input type="range" id="minVoxels" min="0" max="16" value="0"><span class="val" id="minVoxelsOut"></span></div>
-    <label class="check"><input type="checkbox" id="shadeOn" checked>light</label>
-    <div class="row"><label for="bodyOpacity">body opacity</label><input type="range" id="bodyOpacity" min="0" max="255" value="160"><span class="val" id="bodyOpacityOut"></span></div>
-    <div class="row" title="fade between the microscope's own voxels and what the engine made of them"><label for="slide">slide</label><input type="range" id="slide" min="0" max="255" value="0"><span class="val" id="slideOut"></span></div>
-  </section>
-  <section>
-    <b>lights</b>
-    <div class="row"><label>sources</label><button id="lightFewer" title="one fewer light">&minus;</button><b id="lightCount">2</b><button id="lightMore" title="one more light">+</button><select id="lightPick" style="flex:1"></select></div>
-    <div class="row"><label for="lightTurnBox">turn</label><input type="range" id="lightTurnBox" min="0" max="359" value="300"><span class="val" id="lightTurnBoxOut"></span></div>
-    <div class="row"><label for="lightTiltBox">tilt</label><input type="range" id="lightTiltBox" min="-89" max="89" value="50"><span class="val" id="lightTiltBoxOut"></span></div>
-    <div class="row"><label for="lightStrength">strength</label><input type="range" id="lightStrength" min="0" max="255" value="210"><span class="val" id="lightStrengthOut"></span></div>
-    <div class="note">Drag a light's marker on the view to move it.</div>
-  </section>
-  <section>
-    <b>show</b>
-    <label class="check"><input type="checkbox" id="links" checked>links</label>
-    <label class="check"><input type="checkbox" id="tracks">whole tracks</label>
-    <label class="check"><input type="checkbox" id="edges" checked>answer key</label>
-    <label class="check"><input type="checkbox" id="onlyChosen">only chosen</label>
-    <label class="check"><input type="checkbox" id="glow" checked>glow chosen</label>
-    <label class="check"><input type="checkbox" id="ride">labels ride</label>
-    <label class="check"><input type="checkbox" id="labels" checked>labels</label>
-    <div class="row" style="flex-wrap:wrap">
-      <label class="check"><input type="checkbox" id="status0" checked><span class="good">correct</span></label>
-      <label class="check"><input type="checkbox" id="status1" checked><span class="warn">branched</span></label>
-      <label class="check"><input type="checkbox" id="status2" checked><span class="bad">wrong</span></label>
-      <label class="check"><input type="checkbox" id="status3" checked>no link</label>
-    </div>
-  </section>
-  <section>
-    <b>map</b>
-    <label class="check"><input type="checkbox" id="slice" checked>show the map</label>
-    <div class="row"><label for="mapMode">shows</label><select id="mapMode"><option value="projection">the whole volume from above</option><option value="slice">one layer</option></select></div>
-    <label class="check"><input type="checkbox" id="sliceFollow" checked>cells turn with the camera</label>
-    <div class="row"><label for="sliceZ">depth z</label><input type="range" id="sliceZ" min="0" max="63" value="32"><span class="val" id="sliceZOut"></span></div>
-    <div class="row"><label for="windowLow">black at</label><input type="range" id="windowLow" min="0" max="65535" value="0"><span class="val" id="windowLowOut"></span></div>
-    <div class="row"><label for="windowHigh">white at</label><input type="range" id="windowHigh" min="1" max="65535" value="1024"><span class="val" id="windowHighOut"></span></div>
-    <div class="note" id="rawNote"></div>
-  </section>
-  <section>
-    <b>page</b>
-    <div class="row"><label for="sheer">panel opacity</label><input type="range" id="sheer" min="20" max="100" value="90"><span class="val" id="sheerOut"></span></div>
-    <div class="row"><label for="textSize">text size</label><input type="range" id="textSize" min="80" max="200" step="10" value="100"><span class="val" id="textSizeOut"></span></div>
-    <div class="row"><label for="theme">theme</label><select id="theme"><option value="dark">dark</option><option value="light">light</option></select></div>
-  </section>
 </div>
 
 <div id="right">
@@ -226,8 +375,8 @@ The engine view. Built by maint/build_engine_view.py from view/engine_view/; edi
   <div id="where"></div>
 </div>
 <div id="loopAlarm" hidden></div>
-<div id="hover" hidden></div>
-<div id="ask">?</div>
+<div class="glass" id="hover" hidden></div>
+<div class="glass" id="ask">?</div>
 <div class="box" id="tile" hidden></div>
 <div id="drop" hidden>drop a sample's .vbo and .ibo</div>
 
@@ -249,13 +398,391 @@ The engine view. Built by maint/build_engine_view.py from view/engine_view/; edi
 <script type="application/json" id="engine-state">{}</script>
 <script type="module">
 const EV = {};
-// ---- turn_table.js ----
+// ---- toolbox/ui/toolbar.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The floating toolbar emitter. A page hands EV.toolbar a spec and gets back one toolbar in a corner: a menu button
+// that opens it, and folding sections of rows. Every control is emitted with the id the spec gives it, and the page
+// binds its controls by id as it would hand-written markup. A slider's value shows in an output whose id is the
+// slider's id followed by "Out".
+//
+//   EV.toolbar({ id, title, corner: "top-left" | "top-right", open, onToggle(open), sections: [
+//     { title, open, rows: [
+//       { range: id, label, min, max, step, value, title },
+//       { select: id, label, options: [[value, text], { group, options: [[value, text], ...] }, ...], value, title },
+//       { number: id, label, min, max, step, value },
+//       { switches: [{ id, label, checked, tone, title }, ...] },
+//       { buttons: [{ id, text, title, icon }, ...], label },
+//       { note: id, text },
+//       { node: element, label },
+//     ] },
+//   ] })
+//
+// The toolbar returned carries root, isOpen() and setOpen(open). Escape inside it closes it and gives the focus back
+// to its button.
+
+EV.element = (tag, properties, children) => {
+  const made = Object.assign(document.createElement(tag), properties || {});
+  for (const child of children || []) {
+    made.append(child);
+  }
+  return made;
+};
+
+// A slider's fill follows its value, however the value is set: by the pointer, by the keys, or by a program.
+EV.fillSlider = (slider) => {
+  const own = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value");
+  const paint = () => {
+    const low = Number(slider.min || 0);
+    const high = Number(slider.max || 100);
+    const at = high > low ? ((Number(own.get.call(slider)) - low) * 100) / (high - low) : 0;
+    slider.style.setProperty("--fill", `${Math.max(0, Math.min(100, at))}%`);
+  };
+  Object.defineProperty(slider, "value", {
+    configurable: true,
+    get: () => own.get.call(slider),
+    set: (value) => { own.set.call(slider, value); paint(); },
+  });
+  for (const name of ["min", "max"]) {
+    const bound = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, name);
+    Object.defineProperty(slider, name, {
+      configurable: true,
+      get: () => bound.get.call(slider),
+      set: (value) => { bound.set.call(slider, value); paint(); },
+    });
+  }
+  slider.addEventListener("input", paint);
+  paint();
+  return slider;
+};
+
+EV.toolbarRow = (row) => {
+  const label = (text, target) => EV.element("label", { textContent: text, htmlFor: target || "" });
+  if (row.range) {
+    const slider = EV.element("input", { type: "range", id: row.range, min: String(row.min), max: String(row.max),
+                                         step: String(row.step || 1), value: String(row.value), title: row.title || "" });
+    return EV.element("div", { className: "row", title: row.title || "" },
+                      [label(row.label, row.range), EV.fillSlider(slider), EV.element("output", { id: `${row.range}Out`, htmlFor: row.range })]);
+  }
+  if (row.select) {
+    const option = ([value, text]) => EV.element("option", { value: String(value), textContent: text });
+    const select = EV.element("select", { id: row.select, title: row.title || "" },
+                              (row.options || []).map((one) => (Array.isArray(one) ? option(one)
+                                : EV.element("optgroup", { label: one.group }, one.options.map(option)))));
+    if (row.value !== undefined) {
+      select.value = String(row.value);
+    }
+    return EV.element("div", { className: "row" }, [label(row.label, row.select), select]);
+  }
+  if (row.number) {
+    const field = EV.element("input", { type: "number", id: row.number, min: String(row.min), max: String(row.max),
+                                        step: String(row.step || 1), value: String(row.value) });
+    return EV.element("div", { className: "row" }, [label(row.label, row.number), field]);
+  }
+  if (row.switches) {
+    return EV.element("div", { className: "switches" }, row.switches.map((one) => {
+      const box = EV.element("input", { type: "checkbox", id: one.id, checked: !!one.checked });
+      if (one.tone) {
+        box.dataset.tone = one.tone;
+      }
+      return EV.element("label", { className: "check", title: one.title || "" }, [box, one.label]);
+    }));
+  }
+  if (row.buttons) {
+    const strip = EV.element("div", { className: "inline" }, row.buttons.map((one) => EV.element("button", {
+      type: "button", id: one.id, textContent: one.text, title: one.title || "", className: one.icon ? "icon" : "",
+    })));
+    return row.label === undefined ? strip : EV.element("div", { className: "row" }, [EV.element("span", { className: "label", textContent: row.label }), strip]);
+  }
+  if (row.note !== undefined) {
+    return EV.element("div", { className: "note", id: row.note || "", textContent: row.text || "" });
+  }
+  if (row.node) {
+    return row.label === undefined ? row.node : EV.element("div", { className: "row" }, [EV.element("span", { className: "label", textContent: row.label }), row.node]);
+  }
+  throw new Error("a toolbar row is a range, select, number, switches, buttons, note or node");
+};
+
+EV.toolbar = (spec) => {
+  const button = EV.element("button", { type: "button", className: "toolbar-button", title: spec.title || "" },
+                            [EV.element("span"), EV.element("span"), EV.element("span")]);
+  const body = EV.element("div", { className: "toolbar-body", id: `${spec.id}Body` },
+                          spec.sections.map((section) => EV.element("details", { className: "section", open: section.open !== false },
+                            [EV.element("summary", { textContent: section.title }),
+                             EV.element("div", { className: "rows" }, section.rows.map(EV.toolbarRow))])));
+  const root = EV.element("nav", { id: spec.id, className: "toolbar" },
+                          [EV.element("div", { className: "toolbar-head" }, [button, EV.element("span", { className: "toolbar-title", textContent: spec.title || "" })]), body]);
+  root.dataset.corner = spec.corner || "top-left";
+  root.setAttribute("aria-label", spec.title || spec.id);
+  button.setAttribute("aria-controls", body.id);
+  const setOpen = (open) => {
+    root.classList.toggle("open", !!open);
+    button.setAttribute("aria-expanded", open ? "true" : "false");
+    body.inert = !open;
+    if (spec.onToggle) {
+      spec.onToggle(!!open);
+    }
+  };
+  button.addEventListener("click", () => setOpen(!root.classList.contains("open")));
+  root.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && root.classList.contains("open")) {
+      setOpen(false);
+      button.focus();
+    }
+  });
+  document.body.appendChild(root);
+  setOpen(!!spec.open);
+  return { root, button, body, isOpen: () => root.classList.contains("open"), setOpen };
+};
+
+// ---- toolbox/core/turn_table.js ----
 // Generated by maint/emit_turn_table.py from orior representation.constants.naturals.pi(60); do not edit.
 // sin(d degrees) * 2^14, rounded half up, for d = 0 to 90.
 EV.SINE_DEGREES = [0, 286, 572, 857, 1143, 1428, 1713, 1997, 2280, 2563, 2845, 3126, 3406, 3686, 3964, 4240, 4516, 4790, 5063, 5334, 5604, 5872, 6138, 6402, 6664, 6924, 7182, 7438, 7692, 7943, 8192, 8438, 8682, 8923, 9162, 9397, 9630, 9860, 10087, 10311, 10531, 10749, 10963, 11174, 11381, 11585, 11786, 11982, 12176, 12365, 12551, 12733, 12911, 13085, 13255, 13421, 13583, 13741, 13894, 14044, 14189, 14330, 14466, 14598, 14726, 14849, 14968, 15082, 15191, 15296, 15396, 15491, 15582, 15668, 15749, 15826, 15897, 15964, 16026, 16083, 16135, 16182, 16225, 16262, 16294, 16322, 16344, 16362, 16374, 16382, 16384];
 
-// ---- shaders.js ----
-// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// ---- toolbox/core/angle.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// Angles are held in sixteenths of a degree and turned through the integer sine table.
+
+// sin of an angle in sixteenths of a degree, scaled by 2^14, interpolated between whole-degree table entries.
+EV.sine16 = (angle) => {
+  const whole = ((angle % 5760) + 5760) % 5760;
+  const at = (degree) => {
+    const d = ((degree % 360) + 360) % 360;
+    const table = EV.SINE_DEGREES;
+    return d <= 90 ? table[d] : d <= 180 ? table[180 - d] : d <= 270 ? -table[d - 180] : -table[360 - d];
+  };
+  const degree = whole >> 4;
+  const low = at(degree);
+  return low + (((at(degree + 1) - low) * (whole & 15)) >> 4);
+};
+EV.cosine16 = (angle) => EV.sine16(angle + 1440);
+
+// One ease step of an integer toward its target: a quarter of the way, at least one unit.
+EV.approach = (value, target) => {
+  const gap = target - value;
+  const step = gap >> 2;
+  return value + (step !== 0 ? step : Math.sign(gap));
+};
+
+// ---- toolbox/core/clock.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// When the next turn of a frame loop runs. With vsync, once per display refresh. Without it, as soon as the turn
+// before has left the main thread, through a message port that the browser does not hold to the refresh. A hidden
+// page always waits for the refresh: an uncapped loop never runs in a tab no one sees. The meter counts the turns
+// that actually ran, per second, over half-second windows.
+
+EV.uncapped = (() => {
+  const channel = new MessageChannel();
+  let queued = null;
+  channel.port1.onmessage = () => {
+    const turn = queued;
+    queued = null;
+    if (turn) {
+      turn(performance.now());
+    }
+  };
+  return (turn) => {
+    queued = turn;
+    channel.port2.postMessage(0);
+  };
+})();
+
+EV.nextTurn = (vsync, turn) => (vsync || document.hidden ? requestAnimationFrame(turn) : EV.uncapped(turn));
+
+EV.rateMeter = () => {
+  let count = 0;
+  let since = performance.now();
+  let rate = 0;
+  return {
+    tick: (now) => {
+      count += 1;
+      if (now - since >= 500) {
+        rate = Math.round((count * 1000) / (now - since));
+        count = 0;
+        since = now;
+      }
+      return rate;
+    },
+    rate: () => rate,
+  };
+};
+
+// ---- toolbox/core/scheme.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// Every setting has a kind and a range, held in EV.VIEW_SCHEME by name. Applying a view is partial: names
+// it does not carry keep their values. A name the scheme does not have, a fraction, a value of the wrong kind
+// or one outside its range is reported by name and not applied.
+
+EV.defaultView = () => {
+  const view = {};
+  for (const [name, rule] of Object.entries(EV.VIEW_SCHEME)) {
+    view[name] = Array.isArray(rule.fallback) ? rule.fallback.map((one) => (one && typeof one === "object" ? { ...one } : one)) : rule.fallback;
+  }
+  return view;
+};
+
+// Checks one value against its rule; returns the reason it errors, or null.
+EV.errorValue = (rule, value) => {
+  const integer = (one) => Number.isInteger(one) && one >= rule.low && one <= rule.high;
+  if (rule.kind === "integer") {
+    return integer(value) ? null : `an integer from ${rule.low} to ${rule.high}`;
+  }
+  if (rule.kind === "switch") {
+    return typeof value === "boolean" ? null : "true or false";
+  }
+  if (rule.kind === "word") {
+    return rule.words.includes(value) ? null : `one of ${rule.words.join(", ")}`;
+  }
+  if (rule.kind === "words") {
+    return Array.isArray(value) && value.every((one) => rule.words.includes(one)) ? null : `a list of ${rule.words.join(", ")}`;
+  }
+  if (rule.kind === "lights") {
+    const light = (one) => one && typeof one === "object" && Object.keys(one).every((key) => ["turn", "tilt", "strength"].includes(key))
+      && Number.isInteger(one.turn) && one.turn >= 0 && one.turn <= 359
+      && Number.isInteger(one.tilt) && one.tilt >= -89 && one.tilt <= 89
+      && Number.isInteger(one.strength) && one.strength >= 0 && one.strength <= 255;
+    return Array.isArray(value) && value.length <= 4 && value.every(light)
+      ? null : "up to four lights, each turn 0 to 359, tilt -89 to 89 and strength 0 to 255, in degrees and 255ths";
+  }
+  return Array.isArray(value) && value.every(integer) ? null : "a list of cell numbers";
+};
+
+// Applies a view section over a view. Returns what was applied and what errored, by name.
+EV.applyView = (view, section) => {
+  const applied = [];
+  const error = [];
+  if (!section || typeof section !== "object" || Array.isArray(section)) {
+    return { applied, error: ["view: an object of name to value"] };
+  }
+  for (const [name, value] of Object.entries(section)) {
+    const rule = EV.VIEW_SCHEME[name];
+    if (!rule) {
+      error.push(`${name}: the view has no such setting`);
+      continue;
+    }
+    const reason = EV.errorValue(rule, value);
+    if (reason) {
+      error.push(`${name}: ${reason}`);
+      continue;
+    }
+    view[name] = Array.isArray(value) ? value.map((one) => (one && typeof one === "object" ? { ...one } : one)) : value;
+    applied.push(name);
+  }
+  return { applied, error };
+};
+
+// ---- toolbox/core/gpu.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The device, bind groups, a stream read straight into one mapped storage buffer, and the one-pixel pick.
+
+EV.words = (count) => Math.max(4, (count + 1) * 4);
+
+EV.workgroups = (count) => {
+  const groups = Math.max(1, Math.ceil(count / 256));
+  return [Math.min(groups, 65535), Math.ceil(groups / 65535)];
+};
+
+EV.nextPower = (count) => {
+  let power = 1;
+  while (power < count) {
+    power *= 2;
+  }
+  return power;
+};
+
+// The adapter, the device and the canvas context, or a throw that says which is missing. Device errors go to the
+// console under the label.
+EV.openDevice = async (canvas, label) => {
+  if (!navigator.gpu) {
+    throw new Error("this browser has no WebGPU; Chrome 113 or later has it");
+  }
+  const adapter = await navigator.gpu.requestAdapter({ powerPreference: "high-performance" });
+  if (!adapter) {
+    throw new Error("WebGPU found no adapter");
+  }
+  const device = await adapter.requestDevice({
+    requiredLimits: {
+      maxStorageBufferBindingSize: adapter.limits.maxStorageBufferBindingSize,
+      maxBufferSize: adapter.limits.maxBufferSize,
+      maxStorageBuffersPerShaderStage: Math.min(8, adapter.limits.maxStorageBuffersPerShaderStage),
+    },
+  });
+  device.addEventListener("uncapturederror", (event) => console.error(label, event.error.message));
+  const context = canvas.getContext("webgpu");
+  const format = navigator.gpu.getPreferredCanvasFormat();
+  context.configure({ device, format, alphaMode: "opaque" });
+  return { adapter, device, context, format };
+};
+
+// A bind group from resources in binding order: a buffer is bound whole, a view or sampler as it is.
+EV.bindGroup = (device, pipeline, entries) => device.createBindGroup({
+  layout: pipeline.getBindGroupLayout(0),
+  entries: entries.map((resource, binding) => ({ binding, resource: resource instanceof GPUBuffer ? { buffer: resource } : resource })),
+});
+
+// A bind group by binding number, for a pipeline whose shader reads only some of the module's bindings.
+EV.bindNumbered = (device, pipeline, pairs) => device.createBindGroup({
+  layout: pipeline.getBindGroupLayout(0),
+  entries: pairs.map(([binding, resource]) => ({ binding, resource: { buffer: resource } })),
+});
+
+// The first bytes of a stream, at least the count asked for unless the stream ends first.
+EV.readHead = async (reader, count) => {
+  let pending = new Uint8Array(0);
+  while (pending.length < count) {
+    const { value, done } = await reader.read();
+    if (done) {
+      break;
+    }
+    const joined = new Uint8Array(pending.length + value.length);
+    joined.set(pending, 0);
+    joined.set(value, pending.length);
+    pending = joined;
+  }
+  return pending;
+};
+
+// The rest of a stream, its head already read, laid into the landing from a byte place; nothing lands past the limit.
+// Returns the stream's whole length.
+EV.streamInto = async (reader, landing, at, limit, head) => {
+  let written = 0;
+  let value = head;
+  for (let done = false; !done;) {
+    const place = at + written;
+    if (place < limit) {
+      landing.set(value.subarray(0, Math.min(value.length, limit - place)), place);
+    }
+    written += value.length;
+    ({ value, done } = await reader.read());
+  }
+  return written;
+};
+
+// The cell under one device pixel, plus one, or 0 for none.
+EV.pickAt = async (gpu, x, y) => {
+  const encoder = gpu.device.createCommandEncoder();
+  const clampedX = Math.max(0, Math.min(gpu.canvas.width - 1, x));
+  const clampedY = Math.max(0, Math.min(gpu.canvas.height - 1, y));
+  encoder.copyTextureToBuffer({ texture: gpu.pick, origin: { x: clampedX, y: clampedY } }, { buffer: gpu.pickRead, bytesPerRow: 256 }, { width: 1, height: 1 });
+  gpu.device.queue.submit([encoder.finish()]);
+  await gpu.pickRead.mapAsync(GPUMapMode.READ);
+  const picked = new Uint32Array(gpu.pickRead.getMappedRange().slice(0, 4))[0];
+  gpu.pickRead.unmap();
+  return picked;
+};
+
+// ---- toolbox/volume/kernels.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // The engine view's shaders. Every position is integer arithmetic in doubled voxel units until the clip boundary,
@@ -386,8 +913,8 @@ fn main() {
   drawn[7] = 0u;
 }`;
 
-// ---- shaders_render.js ----
-// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// ---- toolbox/volume/render_common.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // The drawing shaders: boxes warped out of runs, cells as blobs, links and edges as lines, and the slice.
@@ -505,6 +1032,12 @@ fn lit(cell: u32, frame: u32, shade: u32) -> vec4<f32> {
 }
 `;
 
+// ---- toolbox/shapes/cube.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// Boxes warped out of runs, and cells as blobs.
+
 EV.RENDER = EV.PRELUDE + EV.RENDER_BINDINGS + `
 @group(0) @binding(4) var<storage, read> run_leaf: array<u32>;
 @group(0) @binding(5) var<storage, read> compact: array<u32>;
@@ -589,6 +1122,12 @@ fn paint_fragment(input: Out) -> Drawn {
   return Drawn(input.color, input.pick);
 }`;
 
+// ---- toolbox/shapes/lines.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// Links and edges as lines.
+
 EV.LINES = EV.PRELUDE + EV.RENDER_BINDINGS + EV.RENDER_COMMON + `
 @vertex
 fn link(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u32) -> Out {
@@ -630,8 +1169,8 @@ fn paint_fragment(input: Out) -> Drawn {
   return Drawn(input.color, input.pick);
 }`;
 
-// ---- shaders_slice.js ----
-// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// ---- toolbox/shapes/map.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // The map. The image holds still: the frame seen from above, as the brightest voxel of each column, or one layer's
@@ -715,8 +1254,8 @@ fn slice_paint(@builtin(position) at: vec4<f32>) -> Drawn {
                select(0u, id, inside));
 }`;
 
-// ---- shaders_soft.js ----
-// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// ---- toolbox/shapes/blob.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // Smooth cells. The blur: each run is an ellipsoid drawn as the ellipse it projects to, bright at its center and
@@ -1175,8 +1714,8 @@ fn compose(@builtin(position) at: vec4<f32>) -> @location(0) vec4<f32> {
   return vec4<f32>(shown, together);
 }`;
 
-// ---- object.js ----
-// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// ---- toolbox/volume/object.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // The object as the host holds it: the header, the small sections copied out of the mapped buffer, and what the
@@ -1460,40 +1999,8 @@ EV.frameEvents = (object, frame) => {
 // The card's side: the device, every pipeline compiled before anything is timed, the object streamed from the wire
 // or a file straight into one mapped storage buffer, the compaction, the passes and the one-pixel pick.
 
-EV.words = (count) => Math.max(4, (count + 1) * 4);
-
-EV.workgroups = (count) => {
-  const groups = Math.max(1, Math.ceil(count / 256));
-  return [Math.min(groups, 65535), Math.ceil(groups / 65535)];
-};
-
-EV.nextPower = (count) => {
-  let power = 1;
-  while (power < count) {
-    power *= 2;
-  }
-  return power;
-};
-
 EV.startGpu = async (canvas) => {
-  if (!navigator.gpu) {
-    throw new Error("this browser has no WebGPU; Chrome 113 or later has it");
-  }
-  const adapter = await navigator.gpu.requestAdapter({ powerPreference: "high-performance" });
-  if (!adapter) {
-    throw new Error("WebGPU found no adapter");
-  }
-  const device = await adapter.requestDevice({
-    requiredLimits: {
-      maxStorageBufferBindingSize: adapter.limits.maxStorageBufferBindingSize,
-      maxBufferSize: adapter.limits.maxBufferSize,
-      maxStorageBuffersPerShaderStage: Math.min(8, adapter.limits.maxStorageBuffersPerShaderStage),
-    },
-  });
-  device.addEventListener("uncapturederror", (event) => console.error("[engine view]", event.error.message));
-  const context = canvas.getContext("webgpu");
-  const format = navigator.gpu.getPreferredCanvasFormat();
-  context.configure({ device, format, alphaMode: "opaque" });
+  const { device, context, format, adapter } = await EV.openDevice(canvas, "[engine view]");
 
   const began = performance.now();
   const compute = (code) => device.createComputePipelineAsync({
@@ -1654,38 +2161,6 @@ EV.writeLayout = (gpu, values) => {
   gpu.device.queue.writeBuffer(gpu.layoutBuffer, 0, gpu.layoutBytes);
 };
 
-// The first bytes of a stream, at least the count asked for unless the stream ends first.
-EV.readHead = async (reader, count) => {
-  let pending = new Uint8Array(0);
-  while (pending.length < count) {
-    const { value, done } = await reader.read();
-    if (done) {
-      break;
-    }
-    const joined = new Uint8Array(pending.length + value.length);
-    joined.set(pending, 0);
-    joined.set(value, pending.length);
-    pending = joined;
-  }
-  return pending;
-};
-
-// The rest of a stream, its head already read, laid into the landing from a byte place; nothing lands past the limit.
-// Returns the stream's whole length.
-EV.streamInto = async (reader, landing, at, limit, head) => {
-  let written = 0;
-  let value = head;
-  for (let done = false; !done;) {
-    const place = at + written;
-    if (place < limit) {
-      landing.set(value.subarray(0, Math.min(value.length, limit - place)), place);
-    }
-    written += value.length;
-    ({ value, done } = await reader.read());
-  }
-  return written;
-};
-
 // Streams an object's .vbo and .ibo, from fetch responses or files, end to end into one mapped storage buffer, then
 // indexes its small sections.
 EV.loadObject = async (gpu, sources) => {
@@ -1730,15 +2205,8 @@ EV.loadObject = async (gpu, sources) => {
   };
   device.queue.writeBuffer(held.motion, 0, object.motion);
   device.queue.writeBuffer(held.shape, 0, object.shape);
-  const group = (pipeline, entries) => device.createBindGroup({
-    layout: pipeline.getBindGroupLayout(0),
-    entries: entries.map((resource, binding) => ({ binding, resource: resource instanceof GPUBuffer ? { buffer: resource } : resource })),
-  });
-  // A bind group by binding number, for a pipeline whose shader reads only some of the module's bindings.
-  const numbered = (pipeline, pairs) => device.createBindGroup({
-    layout: pipeline.getBindGroupLayout(0),
-    entries: pairs.map(([binding, resource]) => ({ binding, resource: { buffer: resource } })),
-  });
+  const group = (pipeline, entries) => EV.bindGroup(device, pipeline, entries);
+  const numbered = (pipeline, pairs) => EV.bindNumbered(device, pipeline, pairs);
   const p = gpu.pipelines;
   const lay = gpu.layoutBuffer;
   held.groups = {
@@ -1952,19 +2420,6 @@ EV.render = (gpu, plan) => {
   device.queue.submit([encoder.finish()]);
 };
 
-// The cell under one device pixel, plus one, or 0 for none.
-EV.pickAt = async (gpu, x, y) => {
-  const encoder = gpu.device.createCommandEncoder();
-  const clampedX = Math.max(0, Math.min(gpu.canvas.width - 1, x));
-  const clampedY = Math.max(0, Math.min(gpu.canvas.height - 1, y));
-  encoder.copyTextureToBuffer({ texture: gpu.pick, origin: { x: clampedX, y: clampedY } }, { buffer: gpu.pickRead, bytesPerRow: 256 }, { width: 1, height: 1 });
-  gpu.device.queue.submit([encoder.finish()]);
-  await gpu.pickRead.mapAsync(GPUMapMode.READ);
-  const picked = new Uint32Array(gpu.pickRead.getMappedRange().slice(0, 4))[0];
-  gpu.pickRead.unmap();
-  return picked;
-};
-
 // ---- cfg.js ----
 // cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
@@ -1975,7 +2430,7 @@ EV.pickAt = async (gpu, x, y) => {
 // or one outside its range is reported by name and not applied.
 
 EV.VIEW_SCHEME = {
-  face: { kind: "word", words: ["clinical", "machine"], fallback: "clinical" },
+  face: { kind: "word", words: ["human", "machine"], fallback: "human" },
   frame: { kind: "integer", low: 0, high: 65535, fallback: 0 },
   ghosts: { kind: "integer", low: 0, high: 8, fallback: 0 },
   ghost_fade: { kind: "integer", low: 0, high: 224, fallback: 48 },
@@ -2022,66 +2477,9 @@ EV.VIEW_SCHEME = {
   sheer: { kind: "integer", low: 20, high: 100, fallback: 90 },
   text_size: { kind: "integer", low: 80, high: 200, fallback: 100 },
   theme: { kind: "word", words: ["dark", "light"], fallback: "dark" },
+  vsync: { kind: "switch", fallback: true },
   panels: { kind: "words", words: ["counts", "dims", "lineage", "legend", "review", "machine"], fallback: ["counts"] },
   chosen: { kind: "integers", low: 0, high: 4294967294, fallback: [] },
-};
-
-EV.defaultView = () => {
-  const view = {};
-  for (const [name, rule] of Object.entries(EV.VIEW_SCHEME)) {
-    view[name] = Array.isArray(rule.fallback) ? rule.fallback.map((one) => (one && typeof one === "object" ? { ...one } : one)) : rule.fallback;
-  }
-  return view;
-};
-
-// Checks one value against its rule; returns the reason it errors, or null.
-EV.errorValue = (rule, value) => {
-  const integer = (one) => Number.isInteger(one) && one >= rule.low && one <= rule.high;
-  if (rule.kind === "integer") {
-    return integer(value) ? null : `an integer from ${rule.low} to ${rule.high}`;
-  }
-  if (rule.kind === "switch") {
-    return typeof value === "boolean" ? null : "true or false";
-  }
-  if (rule.kind === "word") {
-    return rule.words.includes(value) ? null : `one of ${rule.words.join(", ")}`;
-  }
-  if (rule.kind === "words") {
-    return Array.isArray(value) && value.every((one) => rule.words.includes(one)) ? null : `a list of ${rule.words.join(", ")}`;
-  }
-  if (rule.kind === "lights") {
-    const light = (one) => one && typeof one === "object" && Object.keys(one).every((key) => ["turn", "tilt", "strength"].includes(key))
-      && Number.isInteger(one.turn) && one.turn >= 0 && one.turn <= 359
-      && Number.isInteger(one.tilt) && one.tilt >= -89 && one.tilt <= 89
-      && Number.isInteger(one.strength) && one.strength >= 0 && one.strength <= 255;
-    return Array.isArray(value) && value.length <= 4 && value.every(light)
-      ? null : "up to four lights, each turn 0 to 359, tilt -89 to 89 and strength 0 to 255, in degrees and 255ths";
-  }
-  return Array.isArray(value) && value.every(integer) ? null : "a list of cell numbers";
-};
-
-// Applies a view section over a view. Returns what was applied and what errored, by name.
-EV.applyView = (view, section) => {
-  const applied = [];
-  const error = [];
-  if (!section || typeof section !== "object" || Array.isArray(section)) {
-    return { applied, error: ["view: an object of name to value"] };
-  }
-  for (const [name, value] of Object.entries(section)) {
-    const rule = EV.VIEW_SCHEME[name];
-    if (!rule) {
-      error.push(`${name}: the view has no such setting`);
-      continue;
-    }
-    const reason = EV.errorValue(rule, value);
-    if (reason) {
-      error.push(`${name}: ${reason}`);
-      continue;
-    }
-    view[name] = Array.isArray(value) ? value.map((one) => (one && typeof one === "object" ? { ...one } : one)) : value;
-    applied.push(name);
-  }
-  return { applied, error };
 };
 
 // The whole .cfg: the object's own sections as the tracker wrote them, with the page's view in place of its view.
@@ -2160,20 +2558,6 @@ EV.app = {
   dirty: true, workMs: [], resolveMs: [], lastTick: 0, turns: 0,
 };
 
-// sin of an angle in sixteenths of a degree, scaled by 2^14, interpolated between whole-degree table entries.
-EV.sine16 = (angle) => {
-  const whole = ((angle % 5760) + 5760) % 5760;
-  const at = (degree) => {
-    const d = ((degree % 360) + 360) % 360;
-    const table = EV.SINE_DEGREES;
-    return d <= 90 ? table[d] : d <= 180 ? table[180 - d] : d <= 270 ? -table[d - 180] : -table[360 - d];
-  };
-  const degree = whole >> 4;
-  const low = at(degree);
-  return low + (((at(degree + 1) - low) * (whole & 15)) >> 4);
-};
-EV.cosine16 = (angle) => EV.sine16(angle + 1440);
-
 EV.frameRange = (app) => {
   const header = app.object.header;
   const table = app.object.frames;
@@ -2202,8 +2586,8 @@ EV.regions = (app) => {
   const margin = Math.floor(12 * ratio);
   const sliceX = canvas.width - sliceWidth - margin;
   const sliceY = canvas.height - sliceHeight - Math.floor(70 * ratio);
-  // The cells sit below what is written over them: the menu, whose engine this is, and what it is and is not.
-  const under = Math.floor(126 * ratio);
+  // The cells sit below what is written over them: the menu and the copyright line under it.
+  const under = Math.floor(64 * ratio);
   return { view: [0, under, canvas.width, Math.max(1, canvas.height - under)],
            slice: showSlice ? [sliceX, sliceY, sliceWidth, sliceHeight] : null, scale };
 };
@@ -2278,13 +2662,6 @@ EV.fitZoom = (app) => {
   const canvas = app.gpu.canvas;
   const reach = Math.max(header.width, header.height, (header.depth * app.view.z_scale) >> 1) * 2;
   return Math.max(1, Math.floor((Math.min(canvas.width, canvas.height) * 256 * 5) / (12 * reach)));
-};
-
-// One ease step of an integer toward its target: a quarter of the way, at least one unit.
-EV.approach = (value, target) => {
-  const gap = target - value;
-  const step = gap >> 2;
-  return value + (step !== 0 ? step : Math.sign(gap));
 };
 
 EV.tick = (app, now) => {
@@ -2423,14 +2800,31 @@ EV.frameLoop = (app, now) => {
 
 // The frame loop runs inside a guard: a throw stops it and says so on the page, on the console and on
 // window.__loopHealth, and a loop that has not turned twice a second and a half after start is reported the same way.
+// With vsync the view is drawn at most once per display refresh, and only when something changed. Without it every
+// turn draws, and the next turn waits for the card to finish the last one. The rate is the card's own and the
+// queue never grows.
 EV.startLoop = (app) => {
   window.__loopHealth = { ok: true, turns: 0, why: "", detail: "" };
   const alarm = EV.$("loopAlarm");
+  app.meter = EV.rateMeter();
   const turn = (now) => {
     try {
+      const vsync = app.view.vsync;
+      if (!vsync) {
+        app.dirty = true;
+      }
+      const asked = app.dirty;
       EV.frameLoop(app, now);
+      // The meter counts the turns that drew.
+      if (asked && !app.dirty) {
+        app.fps = app.meter.tick(now);
+      }
       window.__loopHealth.turns = app.turns;
-      requestAnimationFrame(turn);
+      if (vsync || !app.gpu) {
+        EV.nextTurn(true, turn);
+      } else {
+        app.gpu.device.queue.onSubmittedWorkDone().then(() => EV.nextTurn(app.view.vsync, turn));
+      }
     } catch (error) {
       window.__loopHealth = { ok: false, turns: app.turns, why: "threw", detail: String(error && error.stack || error) };
       alarm.textContent = `frame loop stopped: ${error.message}`;
@@ -2452,7 +2846,7 @@ EV.startLoop = (app) => {
 // cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
-// The panels, the labels and their leader lines, and the lines of text along the edges of the view. The clinical face
+// The panels, the labels and their leader lines, and the lines of text along the edges of the view. The human face
 // names things in words; the machine face shows the integers the file holds.
 
 EV.ease = (progress) => {
@@ -2515,7 +2909,7 @@ EV.table = (element, rows) => {
   }));
 };
 
-EV.clinical = () => document.documentElement.dataset.face === "clinical";
+EV.human = () => document.documentElement.dataset.face === "human";
 
 EV.paintCounts = (app) => {
   const object = app.object;
@@ -2532,7 +2926,7 @@ EV.paintCounts = (app) => {
   }
   const control = header.aberrant_leaves + header.aberrant_voxels + header.wide_sums;
   const cells = table[10 * frame + 6];
-  if (EV.clinical()) {
+  if (EV.human()) {
     EV.table(EV.$("countTable"), [
       ["frame", `${frame + 1} of ${header.frames}`],
       ["time point", EV.grouped(table[10 * frame])],
@@ -2571,15 +2965,15 @@ EV.focusCell = (app) => (app.hover ? app.hover - 1 : app.chosen.size ? [...app.c
 EV.paintDims = (app) => {
   const object = app.object;
   const cell = EV.focusCell(app);
-  const clinical = EV.clinical();
+  const human = EV.human();
   if (cell < 0) {
-    EV.table(EV.$("dimTable"), [["cell", clinical ? "point at or click a cell" : "none"]]);
+    EV.table(EV.$("dimTable"), [["cell", human ? "point at or click a cell" : "none"]]);
   } else {
     const size = object.cells[4 * cell];
     const parents = EV.parentsOf(object, cell);
     const children = EV.childrenOf(object, cell);
     const frame = object.cellFrame[cell];
-    EV.table(EV.$("dimTable"), clinical ? [
+    EV.table(EV.$("dimTable"), human ? [
       ["cell", `#${cell}`],
       ["frame", `${frame + 1}`],
       ["volume, voxels", EV.grouped(size)],
@@ -2622,7 +3016,7 @@ EV.paintDims = (app) => {
   context.font = "10px sans-serif";
   context.fillText("1", 1, canvas.height - 1);
   context.fillText("2^23 voxels", canvas.width - 64, canvas.height - 1);
-  EV.$("barNote").textContent = clinical
+  EV.$("barNote").textContent = human
     ? `How many cells in this frame have each size. The tallest bar holds ${tallest} cells.`
     : `bins by floor(log2 n), 24 bins, tallest ${tallest}`;
 };
@@ -2630,11 +3024,11 @@ EV.paintDims = (app) => {
 EV.paintLineage = (app) => {
   const object = app.object;
   const cell = app.chosen.size ? [...app.chosen][0] : -1;
-  const clinical = EV.clinical();
+  const human = EV.human();
   const note = EV.$("lineageNote");
   if (cell < 0) {
     EV.table(EV.$("lineageTable"), []);
-    note.textContent = clinical ? "Click a cell to see where it came from and what it became." : "choose a cell";
+    note.textContent = human ? "Click a cell to see where it came from and what it became." : "choose a cell";
     return;
   }
   const family = EV.lineage(object, [cell]);
@@ -2649,20 +3043,20 @@ EV.paintLineage = (app) => {
     const words = members.slice(0, shownPerFrame).map((one) => {
       const children = object.forward.start[one + 1] - object.forward.start[one];
       const onward = object.frames[10 * frame + 8] > 0;
-      const mark = children >= 2 ? (clinical ? " divides" : " /2+") : onward && children === 0 ? (clinical ? " ends" : " end") : "";
-      return clinical ? `#${one} (${EV.grouped(object.cells[4 * one])})${mark}` : `${one}:${object.cells[4 * one]}${mark}`;
+      const mark = children >= 2 ? (human ? " divides" : " /2+") : onward && children === 0 ? (human ? " ends" : " end") : "";
+      return human ? `#${one} (${EV.grouped(object.cells[4 * one])})${mark}` : `${one}:${object.cells[4 * one]}${mark}`;
     });
-    const rest = more > 0 ? (clinical ? `, and ${more} more` : `, +${more}`) : "";
-    return [clinical ? `frame ${frame + 1}` : `f${frame}`, words.join(", ") + rest];
+    const rest = more > 0 ? (human ? `, and ${more} more` : `, +${more}`) : "";
+    return [human ? `frame ${frame + 1}` : `f${frame}`, words.join(", ") + rest];
   });
   EV.table(EV.$("lineageTable"), rows);
-  note.textContent = clinical
+  note.textContent = human
     ? `${family.length} cells in this lineage across ${byFrame.size} frames. Numbers in brackets are volumes in voxels.`
     : `${family.length} cells, ${byFrame.size} frames, cell:n`;
 };
 
 EV.paintLegend = (app) => {
-  const clinical = EV.clinical();
+  const human = EV.human();
   const swatch = (color, text) => `<div class="row"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:${color}"></span><span>${text}</span></div>`;
   const palette = {
     lineage: "Each lineage has its own color, kept from frame to frame.",
@@ -2672,11 +3066,11 @@ EV.paintLegend = (app) => {
   }[app.view.palette];
   EV.$("legendBody").innerHTML = [
     `<p class="note">${palette}</p>`,
-    swatch("#009E73", clinical ? "answer key link the tracker got right" : "edge status 0 correct"),
-    swatch("#E69F00", clinical ? "the right cell, among several the tracker kept" : "edge status 1 branched"),
-    swatch("#D55E00", clinical ? "answer key link the tracker got wrong" : "edge status 2 wrong"),
-    swatch("#CC79A7", clinical ? "answer key link the tracker did not make" : "edge status 3 no link"),
-    `<p class="note">${clinical
+    swatch("#009E73", human ? "answer key link the tracker got right" : "edge status 0 correct"),
+    swatch("#E69F00", human ? "the right cell, among several the tracker kept" : "edge status 1 branched"),
+    swatch("#D55E00", human ? "answer key link the tracker got wrong" : "edge status 2 wrong"),
+    swatch("#CC79A7", human ? "answer key link the tracker did not make" : "edge status 3 no link"),
+    `<p class="note">${human
       ? "Between frames each cell slides toward what it becomes while the next frame fades in. A cell that divides slides toward the middle of its two daughters."
       : "transition: runs of frame t move by the step to their children's joint centroid and dissolve by a run hash against the eased progress; frame t+1 enters the same way from its parents"}</p>`,
   ].join("");
@@ -2684,19 +3078,19 @@ EV.paintLegend = (app) => {
 
 EV.paintReview = (app) => {
   const object = app.object;
-  const clinical = EV.clinical();
+  const human = EV.human();
   const list = EV.$("reviewList");
-  EV.$("reviewNote").textContent = clinical
+  EV.$("reviewNote").textContent = human
     ? "Links the answer key marks wrong or missing, then the most linked and the largest cells, which can be several cells counted as one. Click an item to go to it."
     : "status 2 and 3 edges, then top 12 by degree and by n";
   list.replaceChildren(...object.review.slice(0, 80).map((item) => {
     const entry = document.createElement("li");
     const cells = item.cells.map((one) => `#${one}`).join(" to ");
     entry.textContent = item.text || (item.kind === "most linked"
-      ? `${cells}, ${item.degree} links, frame ${item.frame + (clinical ? 1 : 0)}`
+      ? `${cells}, ${item.degree} links, frame ${item.frame + (human ? 1 : 0)}`
       : item.kind === "largest"
-        ? `${cells}, ${EV.grouped(item.voxels)} voxels, frame ${item.frame + (clinical ? 1 : 0)}`
-        : `${item.kind}: ${cells}, frame ${item.frame + (clinical ? 1 : 0)}`);
+        ? `${cells}, ${EV.grouped(item.voxels)} voxels, frame ${item.frame + (human ? 1 : 0)}`
+        : `${item.kind}: ${cells}, frame ${item.frame + (human ? 1 : 0)}`);
     entry.className = item.kind === "wrong" || item.kind === "no link" || item.kind === "control" ? "bad" : "";
     entry.addEventListener("click", () => {
       EV.goTo(app, item.frame);
@@ -2723,12 +3117,12 @@ EV.paintMachine = (app) => {
   EV.$("engine-state").textContent = text;
 };
 
-EV.helpText = () => EV.clinical()
+EV.helpText = () => EV.human()
   ? `<b>Reading the view</b><p class="note">Each colored shape is one cell as the tracker found it, built from the microscope's voxels. Press play or the arrow keys to move through time; cells slide to where they go next. The square at the lower right is one slice through the volume, like a single microscope image, with each cell outlined.</p>
      <p class="note">Drag with either mouse button to move the camera around the volume, scroll to zoom, hold Shift and drag (or drag with the middle button) to slide the picture. Click a cell to choose it; Shift-click adds more. Press L to choose its whole lineage.</p>
      <p class="note">Keys: arrows frame, Space play, [ ] slice depth, R quarter turn, 0 fit, L lineage, W answer-key problems, F only chosen, B smooth, voxels or centroids, C colors, M machine face, Esc clear.</p>`
   : `<b>engine view, machine face</b><p class="note">window.engineView: state(), cfg(), apply(view or .cfg text), load(sample), open(file), frame(n), play(on), choose(cells, mode), cells(frame), cell(id), lineage(id), review(), pick(x, y), snapshot(), csv(), sections(). The page's state is also JSON in script#engine-state and window.__loopHealth reports the frame loop.</p>
-     <p class="note">keys: arrows frame, shift+arrows ghosts, space play, [ ] slice z, r turn 90, t tilt, 0 fit, + - zoom, l lineage, w failing, f only chosen, k links, e edges, b body, c palette, g glow, m clinical face, s snapshot, esc clear</p>`;
+     <p class="note">keys: arrows frame, shift+arrows ghosts, space play, [ ] slice z, r turn 90, t tilt, 0 fit, + - zoom, l lineage, w failing, f only chosen, k links, e edges, b body, c palette, g glow, m human face, s snapshot, esc clear</p>`;
 
 EV.paintPanels = (app) => {
   if (!app.object) {
@@ -2744,7 +3138,7 @@ EV.paintPanels = (app) => {
   if (!EV.$("legend").hidden) {
     EV.paintLegend(app);
   }
-  if (!EV.$("machine").hidden || !EV.clinical()) {
+  if (!EV.$("machine").hidden || !EV.human()) {
     EV.paintMachine(app);
   }
 };
@@ -2766,14 +3160,14 @@ EV.paintTags = (app) => {
     const frame = object.cellFrame[cell];
     return frame === app.frame || (frame === app.frame + 1 && app.progress >= 2048);
   }).slice(0, 24);
-  const clinical = EV.clinical();
+  const human = EV.human();
   const targets = shown.map((cell) => ({ cell, at: EV.screenOf(app, cell) })).sort((left, right) => left.at[0] - right.at[0]);
   const panel = EV.$("panel").getBoundingClientRect();
   let x = Math.max(panel.right + 12, 12);
   const width = window.innerWidth;
   let y = 64;
   for (const target of targets) {
-    const text = clinical ? `#${target.cell} · ${EV.grouped(object.cells[4 * target.cell])} voxels` : `${target.cell} n=${object.cells[4 * target.cell]}`;
+    const text = human ? `#${target.cell} · ${EV.grouped(object.cells[4 * target.cell])} voxels` : `${target.cell} n=${object.cells[4 * target.cell]}`;
     target.text = text;
     const guess = text.length * 7 + 14;
     if (app.view.ride) {
@@ -2842,19 +3236,19 @@ EV.paintTags = (app) => {
 
 EV.paintLines = (app) => {
   const header = app.object.header;
-  const clinical = EV.clinical();
+  const human = EV.human();
   const sliceZ = app.view.slice_z < 0 ? header.depth >> 1 : Math.min(app.view.slice_z, header.depth - 1);
-  EV.$("where").textContent = clinical
+  EV.$("where").textContent = human
     ? `frame ${app.frame + 1} of ${header.frames}`
       + (app.view.slice ? (app.view.map === "projection" ? " · map: the whole volume from above" : ` · map: layer ${sliceZ + 1} of ${header.depth}`) : "")
-      + ` · ${app.chosen.size} chosen`
+      + ` · ${app.chosen.size} chosen` + (app.view.vsync ? "" : ` · ${app.fps || 0} frames/s`)
     : `F=${app.frame} p=${app.progress} turn=${app.live.turn >> 4} tilt=${app.live.tilt >> 4} zoom=${app.live.zoom} spread=${app.live.spread} z=${sliceZ} drawn=${app.drawn}`;
   const work = app.workMs.length ? app.workMs.reduce((sum, one) => sum + one, 0) / app.workMs.length : 0;
-  EV.$("rate").textContent = `work ${work.toFixed(1)} ms mean of ${app.workMs.length} · compact ${app.compactMs} ms · resolve ${app.resolveMs.join("/")} ms\nstream ${app.object.streamMs} ms · compile ${app.gpu.compileMs} ms · drawn ${EV.grouped(app.drawn)}`;
-  EV.$("transportOf").textContent = clinical ? `of ${header.frames}` : `of ${header.frames} (0-based)`;
+  EV.$("rate").textContent = `work ${work.toFixed(1)} ms mean of ${app.workMs.length} · compact ${app.compactMs} ms · resolve ${app.resolveMs.join("/")} ms\nstream ${app.object.streamMs} ms · compile ${app.gpu.compileMs} ms · drawn ${EV.grouped(app.drawn)} · ${app.fps || 0} frames/s, vsync ${app.view.vsync ? "on" : "off"}`;
+  EV.$("transportOf").textContent = human ? `of ${header.frames}` : `of ${header.frames} (0-based)`;
   const frameBox = EV.$("frameBox");
   if (document.activeElement !== frameBox) {
-    frameBox.value = clinical ? app.frame + 1 : app.frame;
+    frameBox.value = human ? app.frame + 1 : app.frame;
   }
   const clock = EV.$("clock");
   clock.max = String((header.frames - 1) * 64);
@@ -2869,7 +3263,7 @@ EV.afterRender = (app, regions) => {
   const ratio = window.devicePixelRatio || 1;
   const right = EV.$("right");
   const bottom = regions && regions.slice ? Math.floor(regions.slice[1] / ratio) - 12 : window.innerHeight - 80;
-  right.style.maxHeight = `${Math.max(120, bottom - 60)}px`;
+  right.style.maxHeight = `${Math.max(120, bottom - 12)}px`;
   EV.paintTags(app);
   EV.paintLightHandles(app);
   const now = performance.now();
@@ -2880,6 +3274,85 @@ EV.afterRender = (app, regions) => {
     EV.paintPanels(app);
   }
 };
+
+// ---- controls.js ----
+// cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The controls, emitted as one toolbar in the top left corner. Each id matches EV.CONTROLS, and each range and
+// fallback matches the scheme.
+
+EV.lightsRow = () => EV.element("div", { className: "inline" }, [
+  EV.element("button", { type: "button", id: "lightFewer", className: "icon", title: "one fewer light", textContent: "−" }),
+  EV.element("output", { id: "lightCount", textContent: "2", style: "min-width: 14px; text-align: center; font-variant-numeric: tabular-nums;" }),
+  EV.element("button", { type: "button", id: "lightMore", className: "icon", title: "one more light", textContent: "+" }),
+  EV.element("select", { id: "lightPick" }),
+]);
+
+EV.controlBar = EV.toolbar({
+  id: "panel",
+  title: "controls",
+  corner: "top-left",
+  sections: [
+    { title: "object", rows: [{ select: "sample", label: "sample" }] },
+    { title: "view", rows: [
+      { range: "yaw", label: "turn", min: 0, max: 359, value: 30 },
+      { range: "pitch", label: "tilt", min: -89, max: 89, value: 35 },
+      { range: "zoom", label: "zoom", min: 1, max: 1024, value: 64 },
+      { range: "zScale", label: "z scale", min: 2, max: 16, step: 2, value: 8 },
+      { range: "spread", label: "spread", min: 0, max: 2048, step: 16, value: 0 },
+    ] },
+    { title: "cells", rows: [
+      { select: "body", label: "draw as", options: [[0, "smooth"], [1, "voxels"], [2, "centroids"]] },
+      { range: "smoothRadius", label: "smooth reach", min: 1, max: 8, value: 3 },
+      { range: "smoothOpacity", label: "smooth opacity", min: 1, max: 255, value: 16 },
+      { switches: [{ id: "walls", label: "cell walls", checked: true }] },
+      { range: "wallTone", label: "wall lightness", min: 0, max: 255, value: 110 },
+      { range: "wallOpacity", label: "wall opacity", min: 1, max: 255, value: 220 },
+      { select: "palette", label: "color", options: [[1, "by lineage"], [3, "lineage, color-blind safe"], [0, "by cell"], [2, "by volume"]] },
+      { range: "ghosts", label: "earlier frames", min: 0, max: 8, value: 0 },
+      { range: "ghostFade", label: "their fade", min: 0, max: 224, value: 48 },
+      { range: "minVoxels", label: "smallest", min: 0, max: 16, value: 0 },
+      { switches: [{ id: "shadeOn", label: "light", checked: true }] },
+      { range: "bodyOpacity", label: "body opacity", min: 0, max: 255, value: 160 },
+      { range: "slide", label: "slide", min: 0, max: 255, value: 0, title: "fade between the microscope's own voxels and what the engine made of them" },
+    ] },
+    { title: "lights", rows: [
+      { node: EV.lightsRow(), label: "sources" },
+      { range: "lightTurnBox", label: "turn", min: 0, max: 359, value: 300 },
+      { range: "lightTiltBox", label: "tilt", min: -89, max: 89, value: 50 },
+      { range: "lightStrength", label: "strength", min: 0, max: 255, value: 210 },
+      { note: "", text: "Drag a light's marker on the view to move it." },
+    ] },
+    { title: "show", rows: [
+      { switches: [
+        { id: "links", label: "links", checked: true }, { id: "tracks", label: "whole tracks" },
+        { id: "edges", label: "answer key", checked: true }, { id: "onlyChosen", label: "only chosen" },
+        { id: "glow", label: "glow chosen", checked: true }, { id: "ride", label: "labels ride" },
+        { id: "labels", label: "labels", checked: true },
+      ] },
+      { switches: [
+        { id: "status0", label: "correct", checked: true, tone: "good" }, { id: "status1", label: "branched", checked: true, tone: "warn" },
+        { id: "status2", label: "wrong", checked: true, tone: "bad" }, { id: "status3", label: "no link", checked: true, tone: "none" },
+      ] },
+    ] },
+    { title: "map", rows: [
+      { switches: [{ id: "slice", label: "show the map", checked: true }] },
+      { select: "mapMode", label: "shows", options: [["projection", "the whole volume from above"], ["slice", "one layer"]] },
+      { switches: [{ id: "sliceFollow", label: "cells turn with the camera", checked: true }] },
+      { range: "sliceZ", label: "depth z", min: 0, max: 63, value: 32 },
+      { range: "windowLow", label: "black at", min: 0, max: 65535, value: 0 },
+      { range: "windowHigh", label: "white at", min: 1, max: 65535, value: 1024 },
+      { note: "rawNote" },
+    ] },
+    { title: "page", open: false, rows: [
+      { range: "sheer", label: "panel opacity", min: 20, max: 100, value: 90 },
+      { range: "textSize", label: "text size", min: 80, max: 200, step: 10, value: 100 },
+      { select: "theme", label: "theme", options: [["dark", "dark"], ["light", "light"]] },
+      { switches: [{ id: "vsync", label: "vsync", checked: true, title: "draw once per display refresh; off, draw as fast as the card finishes" }] },
+    ] },
+  ],
+});
 
 // ---- input.js ----
 // cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
@@ -2901,7 +3374,7 @@ EV.CONTROLS = [
   ["status2", "wrong", "switch"], ["status3", "no_link", "switch"], ["slice", "slice", "switch"], ["sliceZ", "slice_z", "integer"],
   ["windowLow", "window_low", "integer"], ["windowHigh", "window_high", "integer"], ["sheer", "sheer", "integer"],
   ["textSize", "text_size", "integer"], ["theme", "theme", "word"], ["rateBox", "rate", "integer"], ["stepBox", "step", "integer"],
-  ["loop", "loop", "switch"],
+  ["loop", "loop", "switch"], ["vsync", "vsync", "switch"],
 ];
 
 EV.BODY_WORDS = ["smooth", "voxels", "centroids"];
@@ -2936,7 +3409,7 @@ EV.showView = (app) => {
   root.dataset.theme = view.theme;
   root.style.setProperty("--sheer", String(view.sheer / 100));
   root.style.setProperty("--text", `${Math.floor((12 * view.text_size) / 100)}px`);
-  EV.$("faceClinical").classList.toggle("on", view.face === "clinical");
+  EV.$("faceHuman").classList.toggle("on", view.face === "human");
   EV.$("faceMachine").classList.toggle("on", view.face === "machine");
   for (const button of document.querySelectorAll("#menu [data-show]")) {
     const name = button.dataset.show;
@@ -3113,7 +3586,7 @@ EV.fetchRaw = async (app) => {
 
 EV.remember = (app) => {
   try {
-    localStorage.setItem("engine_view", JSON.stringify({ face: app.view.face, theme: app.view.theme, text_size: app.view.text_size, sheer: app.view.sheer, pinned: EV.$("panel").classList.contains("pinned") }));
+    localStorage.setItem("engine_view", JSON.stringify({ face: app.view.face, theme: app.view.theme, text_size: app.view.text_size, sheer: app.view.sheer, pinned: EV.controlBar.isOpen() }));
   } catch (error) {
     // Storage can error; the page works without it.
   }
@@ -3123,7 +3596,7 @@ EV.recall = (app) => {
   try {
     const kept = JSON.parse(localStorage.getItem("engine_view") || "{}");
     EV.applyView(app.view, { face: kept.face, theme: kept.theme, text_size: kept.text_size, sheer: kept.sheer });
-    EV.$("panel").classList.toggle("pinned", !!kept.pinned);
+    EV.controlBar.setOpen(!!kept.pinned);
   } catch (error) {
     // Nothing remembered.
   }
@@ -3244,9 +3717,9 @@ EV.bindControls = (app) => {
       EV.paintReview(app);
     });
   }
-  EV.$("faceClinical").addEventListener("click", () => { app.view.face = "clinical"; EV.showView(app); EV.paintReview(app); });
+  EV.$("faceHuman").addEventListener("click", () => { app.view.face = "human"; EV.showView(app); EV.paintReview(app); });
   EV.$("faceMachine").addEventListener("click", () => { app.view.face = "machine"; EV.showView(app); EV.paintReview(app); });
-  EV.$("grip").addEventListener("click", () => { EV.$("panel").classList.toggle("pinned"); EV.remember(app); });
+  EV.controlBar.button.addEventListener("click", () => EV.remember(app));
   EV.$("openFile").addEventListener("click", () => EV.$("fileInput").click());
   EV.$("fileInput").addEventListener("change", async (event) => EV.openFiles(app, event.target.files));
   EV.$("snapshot").addEventListener("click", async () => EV.download(`engine_view_frame_${app.frame + 1}.png`, await EV.snapshot(app)));
@@ -3254,7 +3727,7 @@ EV.bindControls = (app) => {
   EV.$("play").addEventListener("click", () => { app.playing = !app.playing; app.heading = app.playing ? 1 : app.heading; });
   EV.$("forth").addEventListener("click", () => EV.stepFrames(app, app.view.step));
   EV.$("back").addEventListener("click", () => EV.stepFrames(app, -app.view.step));
-  EV.$("frameBox").addEventListener("change", (event) => EV.goTo(app, Number(event.target.value) - (EV.clinical() ? 1 : 0)));
+  EV.$("frameBox").addEventListener("change", (event) => EV.goTo(app, Number(event.target.value) - (EV.human() ? 1 : 0)));
   EV.$("clock").addEventListener("input", (event) => {
     const value = Number(event.target.value);
     app.playing = false;
@@ -3390,7 +3863,7 @@ EV.bindPointer = (app) => {
     box.hidden = false;
     box.style.left = `${event.clientX + 14}px`;
     box.style.top = `${event.clientY + 14}px`;
-    box.textContent = EV.clinical()
+    box.textContent = EV.human()
       ? `Cell #${cell}\n${EV.grouped(object.cells[4 * cell])} voxels · frame ${object.cellFrame[cell] + 1}`
       : `cell ${cell} f${object.cellFrame[cell]} n=${object.cells[4 * cell]}\ncentroid ${EV.centroidText(object, cell, 3)}`;
   });
@@ -3461,7 +3934,7 @@ EV.bindKeys = (app) => {
       b: () => { const words = EV.VIEW_SCHEME.body.words; view.body = words[(words.indexOf(view.body) + 1) % words.length]; },
       c: () => { const words = EV.VIEW_SCHEME.palette.words; view.palette = words[(words.indexOf(view.palette) + 1) % words.length]; },
       g: () => { view.glow = !view.glow; },
-      m: () => { view.face = view.face === "clinical" ? "machine" : "clinical"; EV.paintReview(app); },
+      m: () => { view.face = view.face === "human" ? "machine" : "human"; EV.paintReview(app); },
       s: async () => EV.download(`engine_view_frame_${app.frame + 1}.png`, await EV.snapshot(app)),
       Escape: () => EV.choose(app, [], "set"),
       "?": () => { EV.$("tile").hidden = !EV.$("tile").hidden; },
@@ -3573,6 +4046,27 @@ EV.start = async () => {
 
 EV.start();
 
+// ---- end ----
+</script>
+<div id="copyright">Copyright &copy; 2026 Douglas Quigg (dstroy0) &lt;dquigg123@gmail.com&gt; <a href="https://github.com/dstroy0" target="_blank" rel="noopener noreferrer">github.com/dstroy0</a></div>
+<style>
+  #copyright { position: fixed; top: 2px; left: 50%; transform: translateX(-50%); z-index: 50; font: 10px/1.3 system-ui, "Segoe UI", Roboto, sans-serif; color: rgba(128, 128, 128, 0.72); white-space: nowrap; pointer-events: none; }
+  #copyright a { color: inherit; text-decoration: none; pointer-events: auto; }
+  #copyright a:hover, #copyright a:focus-visible { text-decoration: underline; }
+  @media print { #copyright { position: static; transform: none; text-align: center; } }
+</style>
+<script>
+  (function () {
+    var line = document.getElementById("copyright");
+    var place = function () {
+      var bar = document.querySelector("#menu, #controls, #bar, [data-bar]");
+      var box = bar && bar.getBoundingClientRect();
+      line.style.top = box && box.height && box.top < 80 ? Math.round(box.bottom + 3) + "px" : "2px";
+    };
+    window.addEventListener("resize", place);
+    window.addEventListener("load", place);
+    place();
+  })();
 </script>
 </body>
 </html>

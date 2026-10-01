@@ -1,0 +1,59 @@
+/* orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+   SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+
+   The floating toolbar EV.toolbar emits. Closed, it is its menu button alone. Open, its glass grows out of that
+   button, across and down, to the toolbar's full size; closing runs the same way back. Nothing inside it scrolls
+   or shows a scrollbar while it is closed. */
+  .toolbar {
+    --button: 34px;
+    position: fixed; top: 12px; z-index: 6; box-sizing: border-box; width: var(--panel-w);
+    max-height: calc(100vh - 24px); display: flex; flex-direction: column; border-radius: 12px;
+    border: 1px solid transparent; background: transparent; box-shadow: none;
+    clip-path: inset(0 calc(100% - var(--button)) calc(100% - var(--button)) 0 round 10px);
+    transition: clip-path 300ms var(--ease), background-color 200ms var(--ease), border-color 200ms var(--ease), box-shadow 200ms var(--ease);
+  }
+  .toolbar[data-corner="top-left"] { left: 12px; }
+  .toolbar[data-corner="top-right"] { right: 12px; clip-path: inset(0 0 calc(100% - var(--button)) calc(100% - var(--button)) round 10px); }
+  .toolbar[data-corner="top-right"] .toolbar-head { flex-direction: row-reverse; }
+  .toolbar.open {
+    clip-path: inset(0 0 0 0 round 12px);
+    background: var(--seam) top / 100% 1px no-repeat, linear-gradient(180deg, var(--glass-top), var(--glass-low));
+    border-color: var(--hair); box-shadow: var(--shadow);
+    backdrop-filter: blur(16px) saturate(150%); -webkit-backdrop-filter: blur(16px) saturate(150%);
+  }
+
+  .toolbar-head { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; height: var(--button); }
+  .toolbar-title { font-size: 11px; font-weight: 600; letter-spacing: 0.01em; color: var(--ink); opacity: 0; transition: opacity 160ms var(--ease); }
+  .toolbar.open .toolbar-title { opacity: 1; transition-delay: 120ms; }
+
+  /* The menu button keeps its own glass: closed, it reads as a whole button. Its three lines turn into a cross. */
+  .toolbar-button {
+    position: relative; flex: 0 0 auto; width: var(--button); height: var(--button); margin: -1px; padding: 0; border-radius: 10px;
+    border: 1px solid var(--hair); background: linear-gradient(180deg, var(--glass-top), var(--glass-low)); box-shadow: var(--shadow);
+    backdrop-filter: blur(16px) saturate(150%); -webkit-backdrop-filter: blur(16px) saturate(150%);
+  }
+  .toolbar.open .toolbar-button { background: transparent; box-shadow: none; border-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .toolbar-button:hover { border-color: color-mix(in oklab, var(--blue) 45%, transparent); box-shadow: var(--shadow), var(--glow); }
+  .toolbar-button span {
+    position: absolute; left: 10px; right: 10px; height: 1.5px; border-radius: 1px; background: var(--ink);
+    transition: transform 260ms var(--ease), opacity 160ms var(--ease), background-color 160ms var(--ease);
+  }
+  .toolbar-button span:nth-child(1) { top: 11px; }
+  .toolbar-button span:nth-child(2) { top: 16px; background: linear-gradient(90deg, var(--blue), var(--violet)); }
+  .toolbar-button span:nth-child(3) { top: 21px; }
+  .toolbar.open .toolbar-button span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+  .toolbar.open .toolbar-button span:nth-child(2) { opacity: 0; transform: scaleX(0.2); }
+  .toolbar.open .toolbar-button span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+  .toolbar-body {
+    flex: 1 1 auto; min-height: 0; overflow: hidden; padding: 4px 12px 2px; opacity: 0;
+    transition: opacity 180ms var(--ease);
+    scrollbar-width: thin; scrollbar-color: color-mix(in oklab, var(--blue) 28%, transparent) transparent;
+  }
+  .toolbar.open .toolbar-body { overflow-y: auto; opacity: 1; transition-delay: 90ms; scrollbar-color: transparent transparent; }
+  .toolbar.open:hover .toolbar-body, .toolbar.open:focus-within .toolbar-body { scrollbar-color: color-mix(in oklab, var(--blue) 30%, transparent) transparent; }
+  .toolbar:not(.open) .toolbar-body { visibility: hidden; transition: opacity 120ms var(--ease), visibility 0s linear 300ms; }
+
+  @media (max-width: 760px) {
+    .toolbar { width: calc(100vw - 24px); }
+  }

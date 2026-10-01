@@ -37,6 +37,7 @@ import numpy
 
 import beam_read
 import out_path
+from generate_template import stamp
 
 INSTRUMENTS = ("beam", "harmonic")
 
@@ -406,7 +407,7 @@ def main():
     page = render(rows, facts)
     target = out_path.resolve("beam_read.html", args.out)
     with io.open(target, "w", encoding="utf-8") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
     sys.stdout.write("  wrote %s, %d bytes\n" % (target, len(page)))
     return 0
 

@@ -35,6 +35,7 @@ import json
 import math
 import os
 import random
+import generate_template
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
@@ -123,7 +124,7 @@ def main():
     page = page.replace("/*DATA*/", json.dumps(payload, separators=(",", ":")))
 
     with io.open(given.out, "w", encoding="utf-8") as handle:
-        handle.write(page)
+        handle.write(generate_template.stamp(page))
 
     print("wrote %s" % given.out)
     print("  %d blocks over %.1f days" % (total, payload["days"]))

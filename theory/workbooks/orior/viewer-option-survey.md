@@ -45,7 +45,7 @@ Each option reads the view section of the page's `.cfg` under its own name.
 
 | option | kind | range or words | fallback |
 |---|---|---|---|
-| face | word | clinical, machine | clinical |
+| face | word | human, machine | human |
 | frame | integer | 0 to 65535 | 0 |
 | turn | integer | 0 to 359 | 30 |
 | tilt | integer | -89 to 89 | 35 |

@@ -17,6 +17,7 @@ import json
 import os
 import re
 import sys
+from generate_template import stamp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
@@ -80,7 +81,7 @@ def main():
     page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
 
     with open(TARGET, "w", encoding="utf-8") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     print("wrote %s (%.1f KB) with %d sources"
           % (TARGET, os.path.getsize(TARGET) / 1024.0, len(payload["order"])))

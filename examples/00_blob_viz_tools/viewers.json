@@ -2,7 +2,7 @@
   "viewers": [
     {
       "builder": "build_beam_view.py",
-      "builder_digest": "29740c509758da34e6bb4324b129962ba2f8996d0c96d913f22449a271b9e0a6",
+      "builder_digest": "1c3dea63911ae15a1aa6b6131427a397db4eb5b0fffe52ab406194c0e03f31a3",
       "inline": true,
       "optional": [],
       "requires": [],
@@ -12,7 +12,7 @@
     },
     {
       "builder": "build_bend_view.py",
-      "builder_digest": "ac20cc2908242064f258e8e4cf14c9f113a97ae064ebcdb696d0ecc12373da81",
+      "builder_digest": "952d5a3686b7cc2727fecca836f1f858008f2b853a757a01a0d5346f11648ba8",
       "inline": false,
       "optional": [
         "fields_second",
@@ -32,12 +32,12 @@
         "samples"
       ],
       "template": "bend_view_template.html",
-      "template_digest": "588da0a3d266d5defb0ba7f718113016ca87560c31b824c30552111cd3561dec",
+      "template_digest": "88160c446b7dffaae003e414f9b2c7088f196d6fea1c96cf13288c2e412cd668",
       "writes": "bend_view.html"
     },
     {
       "builder": "build_blind_view.py",
-      "builder_digest": "0f218dc74448232a8d4e91cf5db501f95af47ba2fb92e74501629c109fefe6eb",
+      "builder_digest": "f6d35e4d10f5d196cf0c77efaf1ab27d7065da0bfd0ee22df9d17650903762ad",
       "inline": false,
       "optional": [],
       "requires": [],
@@ -47,7 +47,7 @@
     },
     {
       "builder": "build_blob_view.py",
-      "builder_digest": "8889ab84ba0d68415e4a25b53d9015e578b2f01c5cfa6d86c2212d1dfe4c18f4",
+      "builder_digest": "9acec0971d343bf5af5a75b16626933f11e3af5c8435e292d83adae7ec64f949",
       "inline": false,
       "optional": [
         "depthLabel",
@@ -64,12 +64,12 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "33ba2bcea1c238cd4fef75f00e2490c0a305cc5c6dba39eff09b740b71dae840",
+      "template_digest": "e8b6f29122c13862723ab40b04a4b6a3b99e62fedc9656e45a32487558525dac",
       "writes": null
     },
     {
       "builder": "build_block_view.py",
-      "builder_digest": "b1defac7e870322ad1a562e6c89590a25c2e5a33dd948b6f1401208165c6eb1a",
+      "builder_digest": "56fc74f1607166ba7e2b66c2ed83bafdc734796fa7afc63fceac11084891e741",
       "inline": false,
       "optional": [],
       "requires": [
@@ -86,7 +86,7 @@
     },
     {
       "builder": "build_chart_view.py",
-      "builder_digest": "349c42018d8d8c5771f6bf3181074163046585940dd52976cfc332098501a0ef",
+      "builder_digest": "67e32ba929a2b17f90ed27b29ec472a35052187c2d0960adfd4680dfb5bdd145",
       "inline": false,
       "optional": [
         "blurb",
@@ -98,12 +98,12 @@
         "xLabel"
       ],
       "template": "chart_view_template.html",
-      "template_digest": "eafbdea57b2eae4e203352aeea22d1475adab8ff3e19045f8dd992402a33b72d",
+      "template_digest": "2550b5f54f27ee0d1d3907136bc2d05e95e8b42284069d3620393444e52d831d",
       "writes": null
     },
     {
       "builder": "build_earth_view.py",
-      "builder_digest": "b3bdb19afba8ff600754b0ae6b3a2460240b4aca8fe0ede1eabc091e6808c4ce",
+      "builder_digest": "418cc2753e0915ee98e544944fb9eee62a9f0af4db0b1b6692ca53bb50575c53",
       "inline": false,
       "optional": [],
       "requires": [
@@ -122,7 +122,7 @@
     },
     {
       "builder": "build_field_view.py",
-      "builder_digest": "0db8635e6939e3269ec2e7fd379653890e87d1dc4d93c865243fe9a64d3ad326",
+      "builder_digest": "73b96ebbe4c2876a04d8c5fbdeea9f7160f9c4a93aa0c6a8a41a12107ae3ef96",
       "inline": false,
       "optional": [
         "depthLabel",
@@ -139,12 +139,12 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "33ba2bcea1c238cd4fef75f00e2490c0a305cc5c6dba39eff09b740b71dae840",
+      "template_digest": "e8b6f29122c13862723ab40b04a4b6a3b99e62fedc9656e45a32487558525dac",
       "writes": null
     },
     {
       "builder": "build_illuminate_view.py",
-      "builder_digest": "e77faf600acc024a46fd69eb2a7d4b3bb09db2eb3611bb5348c3bef2064ce990",
+      "builder_digest": "8fd77b5b4d336293d208a4b8409e324230866c55ca96fd884e3374c17e1b6737",
       "inline": true,
       "optional": [],
       "requires": [],
@@ -154,7 +154,7 @@
     },
     {
       "builder": "build_orrery_view.py",
-      "builder_digest": "75a2d5864d2d880a0466ca14ac8ac2aa2e832e6f93ac2b1c8c757ad2aa35407f",
+      "builder_digest": "ab9eb90a516afb2a6afc59d5f187372512b6d39d78d7064074ac1fb801f79d7e",
       "inline": false,
       "optional": [
         "settings"
@@ -174,7 +174,7 @@
     },
     {
       "builder": "build_plot_view.py",
-      "builder_digest": "78c5149b95df3263470dd2e91837c86c4f20e86b7113541505602b211dbea7a1",
+      "builder_digest": "ee54e9280e5586b145501400e70a62c4ae4cbe9c24bc94b3c1ba6684bddef358",
       "inline": false,
       "optional": [
         "depthLabel",
@@ -191,12 +191,12 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "33ba2bcea1c238cd4fef75f00e2490c0a305cc5c6dba39eff09b740b71dae840",
+      "template_digest": "e8b6f29122c13862723ab40b04a4b6a3b99e62fedc9656e45a32487558525dac",
       "writes": null
     },
     {
       "builder": "build_pool_view.py",
-      "builder_digest": "4ba5ae3e6202d32feb759c474da4386462cbc5f6509eea28655661c8311a19ac",
+      "builder_digest": "667fff557683103f6fd6708994f8828af56b77435af1468e60242011e68df868",
       "inline": true,
       "optional": [],
       "requires": [],
@@ -206,7 +206,7 @@
     },
     {
       "builder": "build_room_view.py",
-      "builder_digest": "c2eb410f01494f76d3dc44751243a643b2939cf533255f4e6d4cfb5969416a65",
+      "builder_digest": "db71c72eccb70b9d60a715dfa8fe48e25b10e32e3bf287ae0cea8d86647c1548",
       "inline": false,
       "optional": [
         "clock",
@@ -221,12 +221,12 @@
         "things"
       ],
       "template": "room_view_template.html",
-      "template_digest": "d3a4da4916aa04ec33dc750e524e10a48b374ff7d1c3738dee9c71f32c5ccf5a",
+      "template_digest": "58aed4cfd22557a1c810d9ec99bcc7f0c8e643b73549cf78e60cde336eb9a834",
       "writes": "room_view.html"
     },
     {
       "builder": "build_scope_view.py",
-      "builder_digest": "3675ce3a429667d54a78507da9cf946c36ac928b30b46aecf1825b39697ebc1a",
+      "builder_digest": "471c5f395d0f7a1f53a698df383ce0bec58b63f95f85fbc867ee4d077357e3eb",
       "inline": false,
       "optional": [],
       "requires": [
@@ -246,7 +246,7 @@
     },
     {
       "builder": "build_sha_clock_view.py",
-      "builder_digest": "9c6515d31aff0610710fc548b2d873f41c441d880835d7c229eb29095235147a",
+      "builder_digest": "aee2d27fe0624fe6e24f310452918ac3c20742b58eded9e8c7f4754429684bf7",
       "inline": false,
       "optional": [
         "clock",
@@ -261,12 +261,12 @@
         "things"
       ],
       "template": "room_view_template.html",
-      "template_digest": "d3a4da4916aa04ec33dc750e524e10a48b374ff7d1c3738dee9c71f32c5ccf5a",
+      "template_digest": "58aed4cfd22557a1c810d9ec99bcc7f0c8e643b73549cf78e60cde336eb9a834",
       "writes": "sha_clock_view.html"
     },
     {
       "builder": "build_sha_pairs_view.py",
-      "builder_digest": "d4e4197ada70059d082116a7506d62c08a3ecfcd4567171ba267d7c14dd25426",
+      "builder_digest": "53dd2520513e6edda6c85a077f17da429445ec4725fa31aa925bb4de6ba953e3",
       "inline": false,
       "optional": [],
       "requires": [
@@ -280,7 +280,7 @@
     },
     {
       "builder": "build_sha_room_view.py",
-      "builder_digest": "1e6b5b0e7de5bc466c2ba48a1fb3186fed9d8e5feff367f68d9acdd51029833c",
+      "builder_digest": "6e183a0e782ca47878e55fa03bb0df582491814aa3113946498a24388063c3e4",
       "inline": false,
       "optional": [
         "clock",
@@ -295,12 +295,12 @@
         "things"
       ],
       "template": "room_view_template.html",
-      "template_digest": "d3a4da4916aa04ec33dc750e524e10a48b374ff7d1c3738dee9c71f32c5ccf5a",
+      "template_digest": "58aed4cfd22557a1c810d9ec99bcc7f0c8e643b73549cf78e60cde336eb9a834",
       "writes": "sha_room_view.html"
     },
     {
       "builder": "build_sha_sphere_view.py",
-      "builder_digest": "d96f46378380d728b9b354798b8f03ada7da20929c7544350672824ae7585a88",
+      "builder_digest": "5324261af814df7b935f717b4f97a9d79d781555e47d8ded1b52b8a6e17d85fa",
       "inline": false,
       "optional": [
         "schema",
@@ -319,12 +319,12 @@
         "title"
       ],
       "template": "sphere_view_template.html",
-      "template_digest": "bd87ab9eac93d38c25d3d990f7a30f0f557419e3fb9e92bd70c2006c38383d16",
+      "template_digest": "09a6719dc964349db106d3723ff96ae9ebeacda0b052e654fe41a61af5845881",
       "writes": null
     },
     {
       "builder": "build_shadow_view.py",
-      "builder_digest": "41fabd390353fe8dc3743c239fee85fe5aabb38bd4aadbf235728049510afc22",
+      "builder_digest": "76aba181b71ffdbbdc1b195bb9de2d78425bd2a17fbb4c6b641c9b2cb71110ef",
       "inline": false,
       "optional": [],
       "requires": [
@@ -336,8 +336,18 @@
       "writes": null
     },
     {
+      "builder": "build_shapes_view.py",
+      "builder_digest": "be72ed4927048a687ae1c612267536fec388cd3b4734c6ddb25e12c7786bec48",
+      "inline": false,
+      "optional": [],
+      "requires": [],
+      "template": "shapes_view_template.html",
+      "template_digest": "0ef15a55ce4ea16ef22f340eba4af34f2bd9e79a924ec7d151383608c607644e",
+      "writes": null
+    },
+    {
       "builder": "build_sound_view.py",
-      "builder_digest": "102d3345ada6cfb20242cb7aa34597f3433e5b86335a9613605345bc9321b206",
+      "builder_digest": "ee3f0f50ddf7c3557ee1bc8a3ea926253b232b9441294088abdf940c74a7df69",
       "inline": false,
       "optional": [
         "depthLabel",
@@ -354,12 +364,12 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "33ba2bcea1c238cd4fef75f00e2490c0a305cc5c6dba39eff09b740b71dae840",
+      "template_digest": "e8b6f29122c13862723ab40b04a4b6a3b99e62fedc9656e45a32487558525dac",
       "writes": null
     },
     {
       "builder": "build_sources_view.py",
-      "builder_digest": "887c6a560435a71a3d6201a6ece387b54f8e7c89416e1ea2d57b73e67f549f41",
+      "builder_digest": "35121aea8b7b861b5b7000bd5c20b96d08f598736816255c1da1b245855c758e",
       "inline": false,
       "optional": [
         "order"
@@ -374,7 +384,7 @@
     },
     {
       "builder": "build_sphere_view.py",
-      "builder_digest": "dc3a7db5cb07670239c07d9a91d97d492aca55ad1a558488749f59e2cb5b78dc",
+      "builder_digest": "6d061f6e561c58aa700bda6d1e5f54f935275501d74b840ecc46683b8b5dac18",
       "inline": false,
       "optional": [
         "schema",
@@ -393,12 +403,12 @@
         "title"
       ],
       "template": "sphere_view_template.html",
-      "template_digest": "bd87ab9eac93d38c25d3d990f7a30f0f557419e3fb9e92bd70c2006c38383d16",
+      "template_digest": "09a6719dc964349db106d3723ff96ae9ebeacda0b052e654fe41a61af5845881",
       "writes": null
     },
     {
       "builder": "build_spiral_view.py",
-      "builder_digest": "f236f1875d9f662d3e7b67def70829e89913c62fb26a2e4c8900e946f6887922",
+      "builder_digest": "af257b568409a75211f5d3cf5afb0ca4c79c25c1527d9bdd8971bcb0d8cdddd9",
       "inline": false,
       "optional": [
         "arms"
@@ -415,7 +425,7 @@
     },
     {
       "builder": "build_step_view.py",
-      "builder_digest": "71be9655d38a0a1ae45f7aa70758d5801ec062eec0ca9d29653ab0a8bd097f4e",
+      "builder_digest": "4cdec5e70b92a797c6c4ba449d199a927d944e60d7d3332859eba31c17287305",
       "inline": false,
       "optional": [
         "keys"
@@ -429,7 +439,7 @@
     },
     {
       "builder": "build_survey_view.py",
-      "builder_digest": "cc6da9db59759e725346dde5842941fc7626d2e3cb555a1f7850d0ab481d9997",
+      "builder_digest": "d9bad760e091e16bab3cbd77c03d2a82308511d5f572203555a028ed03161c95",
       "inline": false,
       "optional": [
         "histogram"
@@ -449,7 +459,7 @@
     },
     {
       "builder": "build_sweep_view.py",
-      "builder_digest": "c2879971a89589a90d413bee5e458ee22b504799d7c6e7613f5b508c5e189b4f",
+      "builder_digest": "9b30f09aef05e2ec8324c455736a2bb46efdaa4ad1771340f97b14d994d02ff2",
       "inline": false,
       "optional": [
         "depthLabel",
@@ -466,12 +476,12 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "33ba2bcea1c238cd4fef75f00e2490c0a305cc5c6dba39eff09b740b71dae840",
+      "template_digest": "e8b6f29122c13862723ab40b04a4b6a3b99e62fedc9656e45a32487558525dac",
       "writes": null
     },
     {
       "builder": "build_voxel_view.py",
-      "builder_digest": "603f0477a3d6121a6ae5a0cbfe4c9b0dd89fe02b8d2d554ed65ac18f76344be0",
+      "builder_digest": "d3e4fdbfb22b2d7e851c3ad81ecd7ade69fcd95dbbc5d1cd991e05f891502937",
       "inline": false,
       "optional": [
         "depthLabel",
@@ -488,7 +498,7 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "33ba2bcea1c238cd4fef75f00e2490c0a305cc5c6dba39eff09b740b71dae840",
+      "template_digest": "e8b6f29122c13862723ab40b04a4b6a3b99e62fedc9656e45a32487558525dac",
       "writes": null
     }
   ]

@@ -88,7 +88,7 @@
 <text x="106" y="1527" font-size="15" fill="#98a2b3" font-weight="400" text-anchor="start">9,927,668 bytes as runs, 27 times smaller</text>
 <text x="64" y="1572" font-size="15" fill="#e6ebf2" font-weight="400" text-anchor="start">All 25 objects together are 528,664,080 bytes. The viewer page streams one into a single buffer on the graphics card and</text>
 <text x="64" y="1596" font-size="15" fill="#e6ebf2" font-weight="400" text-anchor="start">draws every cell from it: voxels, or smooth translucent cells lit by lights the reader moves, each with a wall at the</text>
-<text x="64" y="1620" font-size="15" fill="#e6ebf2" font-weight="400" text-anchor="start">membrane&#x27;s thickness, beside a map the camera turns. A clinical face names things in words; a machine face exposes every</text>
+<text x="64" y="1620" font-size="15" fill="#e6ebf2" font-weight="400" text-anchor="start">membrane&#x27;s thickness, beside a map the camera turns. A human face names things in words; a machine face exposes every</text>
 <text x="64" y="1644" font-size="15" fill="#e6ebf2" font-weight="400" text-anchor="start">integer to a program.</text>
 <rect x="40" y="1706" width="1120" height="300" rx="14" fill="#141821" stroke="#2a3140"/>
 <text x="64" y="1744" font-size="22" fill="#e6ebf2" font-weight="600" text-anchor="start">What every run checks, and what it still gets wrong</text>

@@ -43,6 +43,7 @@ DEFAULT_DIR = os.path.join(ROOT, "build", "audit")
 
 sys.path.insert(0, HERE)
 import boundary_read
+from generate_template import stamp
 
 WORD_NAME = ("a", "b", "c", "d", "e", "f", "g", "h")
 
@@ -127,7 +128,7 @@ def main():
         raise SystemExit("template has no /*DATA*/ placeholder: %s" % TEMPLATE)
     page = page.replace("/*DATA*/", json.dumps(payload, separators=(",", ":")))
     with io.open(given.out, "w", encoding="utf-8") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     loudest = max(points, key=lambda p: abs(p["deviation"]))
     print("wrote %s" % given.out)

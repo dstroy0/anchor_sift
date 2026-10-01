@@ -49,6 +49,7 @@ import numpy
 import boundary_read
 import reading_rank
 import sphere_field
+from generate_template import stamp
 
 try:
     import out_path
@@ -191,7 +192,7 @@ def build(top=8, count=256, into=None):
                                 "build", "view", "blind_view.html")
     os.makedirs(os.path.dirname(into), exist_ok=True)
     with io.open(into, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     print("%s (%.1f KB)" % (into, len(page) / 1024.0))
     print("  degree %d, %d coefficients, %d sources" % (top, data["width"], count))

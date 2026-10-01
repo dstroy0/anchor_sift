@@ -46,6 +46,7 @@ import sys
 
 import settings
 import sphere_field
+from generate_template import stamp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "sphere_view_template.html")
@@ -451,7 +452,7 @@ def main():
 
     out = option("--out", os.path.join(HERE, "sha_sphere.html"))
     with io.open(out, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     print("%s" % out)
     print(

@@ -17,20 +17,6 @@ EV.app = {
   dirty: true, workMs: [], resolveMs: [], lastTick: 0, turns: 0,
 };
 
-// sin of an angle in sixteenths of a degree, scaled by 2^14, interpolated between whole-degree table entries.
-EV.sine16 = (angle) => {
-  const whole = ((angle % 5760) + 5760) % 5760;
-  const at = (degree) => {
-    const d = ((degree % 360) + 360) % 360;
-    const table = EV.SINE_DEGREES;
-    return d <= 90 ? table[d] : d <= 180 ? table[180 - d] : d <= 270 ? -table[d - 180] : -table[360 - d];
-  };
-  const degree = whole >> 4;
-  const low = at(degree);
-  return low + (((at(degree + 1) - low) * (whole & 15)) >> 4);
-};
-EV.cosine16 = (angle) => EV.sine16(angle + 1440);
-
 EV.frameRange = (app) => {
   const header = app.object.header;
   const table = app.object.frames;
@@ -59,8 +45,8 @@ EV.regions = (app) => {
   const margin = Math.floor(12 * ratio);
   const sliceX = canvas.width - sliceWidth - margin;
   const sliceY = canvas.height - sliceHeight - Math.floor(70 * ratio);
-  // The cells sit below what is written over them: the menu, whose engine this is, and what it is and is not.
-  const under = Math.floor(126 * ratio);
+  // The cells sit below what is written over them: the menu and the copyright line under it.
+  const under = Math.floor(64 * ratio);
   return { view: [0, under, canvas.width, Math.max(1, canvas.height - under)],
            slice: showSlice ? [sliceX, sliceY, sliceWidth, sliceHeight] : null, scale };
 };
@@ -135,13 +121,6 @@ EV.fitZoom = (app) => {
   const canvas = app.gpu.canvas;
   const reach = Math.max(header.width, header.height, (header.depth * app.view.z_scale) >> 1) * 2;
   return Math.max(1, Math.floor((Math.min(canvas.width, canvas.height) * 256 * 5) / (12 * reach)));
-};
-
-// One ease step of an integer toward its target: a quarter of the way, at least one unit.
-EV.approach = (value, target) => {
-  const gap = target - value;
-  const step = gap >> 2;
-  return value + (step !== 0 ? step : Math.sign(gap));
 };
 
 EV.tick = (app, now) => {
@@ -280,14 +259,31 @@ EV.frameLoop = (app, now) => {
 
 // The frame loop runs inside a guard: a throw stops it and says so on the page, on the console and on
 // window.__loopHealth, and a loop that has not turned twice a second and a half after start is reported the same way.
+// With vsync the view is drawn at most once per display refresh, and only when something changed. Without it every
+// turn draws, and the next turn waits for the card to finish the last one. The rate is the card's own and the
+// queue never grows.
 EV.startLoop = (app) => {
   window.__loopHealth = { ok: true, turns: 0, why: "", detail: "" };
   const alarm = EV.$("loopAlarm");
+  app.meter = EV.rateMeter();
   const turn = (now) => {
     try {
+      const vsync = app.view.vsync;
+      if (!vsync) {
+        app.dirty = true;
+      }
+      const asked = app.dirty;
       EV.frameLoop(app, now);
+      // The meter counts the turns that drew.
+      if (asked && !app.dirty) {
+        app.fps = app.meter.tick(now);
+      }
       window.__loopHealth.turns = app.turns;
-      requestAnimationFrame(turn);
+      if (vsync || !app.gpu) {
+        EV.nextTurn(true, turn);
+      } else {
+        app.gpu.device.queue.onSubmittedWorkDone().then(() => EV.nextTurn(app.view.vsync, turn));
+      }
     } catch (error) {
       window.__loopHealth = { ok: false, turns: app.turns, why: "threw", detail: String(error && error.stack || error) };
       alarm.textContent = `frame loop stopped: ${error.message}`;

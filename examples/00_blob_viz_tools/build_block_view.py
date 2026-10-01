@@ -27,6 +27,7 @@ import io
 import json
 import os
 import struct
+from generate_template import stamp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
@@ -176,7 +177,7 @@ def main():
     page = page.replace("/*DATA*/", json.dumps(payload, separators=(",", ":")))
 
     with io.open(given.out, "w", encoding="utf-8") as handle:
-        handle.write(page)
+        handle.write(stamp(page))
 
     tally = {}
     for entry in payload["constants"]:

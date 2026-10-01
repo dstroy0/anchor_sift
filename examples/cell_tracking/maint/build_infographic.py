@@ -215,7 +215,7 @@ def main():
                        "All %d objects together are %s bytes. The viewer page streams one into a single buffer on the"
                        " graphics card and draws every cell from it: voxels, or smooth translucent cells lit by lights"
                        " the reader moves, each with a wall at the membrane's thickness, beside a map the camera turns."
-                       " A clinical face names things in words; a machine face exposes every integer to a program."
+                       " A human face names things in words; a machine face exposes every integer to a program."
                        % (len(objects), grouped(all_object_bytes)), width - 200, 15, INK, 24)
     parts.extend(lines)
     y += 330
