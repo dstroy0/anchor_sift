@@ -5,7 +5,7 @@
 
     python maint/engine/order_check.py
 
-The noiseless half of the query protocol. Six checks, each one isolating a claim the method rests
+The noiseless half of the query protocol. Seven checks, each one isolating a claim the method rests
 on. Every number below is produced by the run and none is quoted from anywhere.
 
     7  gate-then-rank against one combined score
@@ -14,6 +14,7 @@ on. Every number below is produced by the run and none is quoted from anywhere.
     10  whether agreement inside a floor defines a set at all
     11  what an answer costs when it is read outside what it was derived on
     12  whether two transitions in the document ever carry one name
+    13  whether the two transition tables agree, and whether each reads alike from both sides
 
 Nothing here is a measurement and nothing here carries noise. `maint/engine/measure_check.py` holds
 the noisy half as checks 1 through 6, and the separation between the two files is the separation the
@@ -401,6 +402,73 @@ def check_mnemonics(say):
     say("   distinction is kept. The largest here covers %d." % worst)
     return worst
 
+
+def table_cells(names, rows):
+    """A table as {(past, now): name}, every state and every name read as its first word."""
+    cells = {}
+    for past, row in rows:
+        for at, said in enumerate(row):
+            if said and said != "-":
+                cells[(past.split()[0], names[at].split()[0])] = said.split()[0]
+    return cells
+
+
+# The two addresses of a branch, which trade places when the branch is read from its other side.
+SIDES = {"LEAD": "RITE", "RITE": "LEAD"}
+
+
+def check_tables_agree(say):
+    """13. Whether the two tables agree where they overlap, and whether either reads alike from both sides."""
+    say("13. WHETHER THE TABLES AGREE WITH EACH OTHER AND WITH THEIR OWN MIRROR")
+    say("")
+    say("   A transition is its pair, the state it left and the state it reached, and a name is a")
+    say("   label read off the pair. Kept that way, a name over many transitions loses none of them.")
+    say("   What a label can still get wrong is checked here, from the tables alone.")
+    say("")
+    tables = [table_cells(names, rows) for _where, names, rows in read_matrices(MATRIX_DOC)]
+    first, second = tables[0], tables[1]
+    refined = []
+    contradicted = []
+    for pair in sorted(set(first) & set(second)):
+        if first[pair] == second[pair]:
+            continue
+        if first[pair] == "SYNC":
+            refined.append(pair)
+        else:
+            contradicted.append(pair)
+    say("   where both tables name a transition:")
+    say("     %d agree, %d the second names where the first says SYNC, %d named apart"
+        % (len(set(first) & set(second)) - len(refined) - len(contradicted), len(refined),
+           len(contradicted)))
+    for pair in contradicted:
+        say("       %s to %s: %s in the first, %s in the second"
+            % (pair[0], pair[1], first[pair], second[pair]))
+    say("")
+
+    mirrored = []
+    for number, cells in enumerate(tables):
+        seen = set()
+        for (past, now), name in sorted(cells.items()):
+            mirror = (SIDES.get(past, past), SIDES.get(now, now))
+            both = frozenset(((past, now), mirror))
+            if mirror == (past, now) or mirror not in cells or both in seen:
+                continue
+            seen.add(both)
+            other = cells[mirror]
+            if other != SIDES.get(name, name):
+                mirrored.append(((past, now), mirror, number, name, other))
+    say("   read from the other side of the branch, LEAD and RITE trading places:")
+    if not mirrored:
+        say("     every transition reads alike")
+    for pair, mirror, number, name, other in mirrored:
+        say("     table %d: %s to %s is %s, and %s to %s is %s"
+            % (number + 1, pair[0], pair[1], name, mirror[0], mirror[1], other))
+    say("")
+    say("   A pair named apart in the two tables has two answers and the document holds no rule")
+    say("   for which one a branch gets. A transition and its mirror named apart is a direction the")
+    say("   document either means, as it says of the handoff between LEAD and RITE, or does not.")
+    return len(contradicted), len(mirrored)
+
 def main():
     out = sys.stdout
     out.reconfigure(encoding="utf-8", errors="replace")
@@ -426,6 +494,8 @@ def main():
     say()
     shared = check_mnemonics(say)
     say()
+    apart, unmirrored = check_tables_agree(say)
+    say()
 
     say("=" * 76)
     say("WHAT THIS RUN SAYS")
@@ -444,6 +514,9 @@ def main():
     say("12  one name in the document covers %d separate transitions. Each name covering more"
         % shared)
     say("   than one owes an answer to where the distinction is kept.")
+    say("13  the two tables name %d transitions apart, and %d transitions read otherwise from the"
+        % (apart, unmirrored))
+    say("   other side of the branch.")
     say()
     say("Every finding above holds whatever a cost reading says. Keeping the two files apart is")
     say("worth it for that property alone.")
