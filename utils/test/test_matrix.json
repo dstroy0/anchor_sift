@@ -120,6 +120,28 @@
         "src/cu/engine/runtime/device_pool"
       ]
     },
+    "double_fields": {
+      "desc": "double_fields' ribosome, its four functions as one record program swept on the device and run on the host, held 1:1 against double_fields.c on the edges of a double and 4096 drawn words.",
+      "script": "utils/test/src/cu/types/integerfloats/double_fields/double_fields_test.sh",
+      "src": [
+        "+<engine/arithmetic/double_fields/*>",
+        "+<cu/types/integerfloats/double_fields/*>",
+        "+<engine/arithmetic/no_rounding/*>",
+        "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
+        "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
+        "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
+        "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
+        "+<engine/runtime/scriptura/*>"
+      ],
+      "tests": [
+        "src/cu/types/integerfloats/double_fields"
+      ]
+    },
     "engine_c": {
       "desc": "The C engine through its CMake, then its graders (test_steer, test_adversarial, test_arm_agreement and the benches), then test/python's host graders (exact_test, render_test, sift_test, shift_agreement_test) on what it built.",
       "script": "utils/maint/engine/build_engine.sh",

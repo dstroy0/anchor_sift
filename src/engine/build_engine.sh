@@ -82,7 +82,7 @@ MODULES=(engine/formats/stack cu/includes/formats/stack engine/formats/apxrep cu
          cu/engine/nbody/print_pair engine/nbody/velocity cu/engine/nbody/velocity engine/nbody/division
          cu/engine/nbody/division engine/nbody/marginal cu/engine/nbody/marginal engine/nbody/contact_side
          cu/engine/nbody/contact_side engine/nbody/box_history cu/engine/nbody/box_history
-         engine/nbody/heaviest_matching engine/arithmetic/double_fields engine/arithmetic/decimal_double
+         engine/nbody/heaviest_matching engine/arithmetic/double_fields cu/types/integerfloats/double_fields engine/arithmetic/decimal_double
          engine/runtime/scriptura engine/analysis/period cu/engine/analysis/period)
 INGEST=(engine/formats/cfg_json engine/formats/zarr engine/codecs/zstd engine/codecs/inflate engine/codecs/deflate
         engine/codecs/lz4 engine/codecs/snappy engine/codecs/blosc engine/formats/tiff engine/formats/hdf5

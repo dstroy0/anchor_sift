@@ -2,7 +2,11 @@
 #ifndef DOUBLE_FIELDS_H
 #define DOUBLE_FIELDS_H
 
+#include "engine.h"
 #include "engine_config.h"
+
+// the outputs of double_fields_record's program: sign, exponent and mantissa of member 0, and the merge of member 1
+#define DOUBLE_FIELDS_RECORD_OUTPUTS 4u
 
 #ifdef __cplusplus
 extern "C"
@@ -31,6 +35,9 @@ extern "C"
     double double_fields_from_bits(const DoubleFieldsRequest *request);
 
     unsigned long long double_fields_to_bits(const DoubleFieldsRequest *request);
+
+    // the four functions above as one record program, filled into `request` for engine_record_encode
+    long double_fields_record(EngineRecordRequest *request);
 
 #ifdef __cplusplus
 }
