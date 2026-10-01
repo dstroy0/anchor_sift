@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: SRC-4-002
 #
 # Measure the two channels a programming language does not need, across languages, for the symbol width
-# discussion in Section 4.10 of theory/workbooks/anchor_sift.
+# discussion in Section 4.10 of theory/workbooks/orior.
 #
 #   Usage:  python examples/source/4_measure/formal_layer.py corpus.txt [more.txt ...]
 #

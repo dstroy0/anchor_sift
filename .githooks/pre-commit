@@ -1,5 +1,5 @@
 #!/bin/sh
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Runs the docs check before a commit is written.
@@ -107,7 +107,7 @@ fi
 #
 # It errors on two ways. A name with no row exits 1. The closed citations repository being absent
 # exits 2, because the question cannot be asked at all without it, and a check that reads nothing
-# is never a pass. The second one catches everybody outside this work. ANCHOR_SIFT_BYPASS=1
+# is never a pass. The second one catches everybody outside this work. ORIOR_BYPASS=1
 # carries the tool's own --bypass in and the commit goes through with the bypass printed.
 CITATIONS="$REPO/$TOOLS/citations/citations.py"
 

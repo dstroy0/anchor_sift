@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Compile every vectorized arm for its target and read the instructions the assembler emitted.
@@ -112,12 +112,12 @@ check "sve neoverse" aarch64-linux-gnu-gcc \
     whilelo cmpne ptest ld1w
 
 echo
-echo "  The steering scan arms, nbody/anchor_sift/. Same grade and the same two words: emits, never agrees."
+echo "  The steering scan arms, nbody/orior/. Same grade and the same two words: emits, never agrees."
 echo
 
-ENGINE="$ROOT/src/engine/nbody/anchor_sift"
+ENGINE="$ROOT/src/engine/nbody/orior"
 
-# A scan arm includes anchor_sift.h, which includes exact_integer.h. Both directories are on the
+# A scan arm includes orior.h, which includes exact_integer.h. Both directories are on the
 # include path even though a scan arm reads no exact arithmetic.
 SCAN_INC="-I$ENGINE -I$ARMS"
 

@@ -24,7 +24,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 TARGET = os.path.join(ROOT, "theory", "cryptography", "sha256", "chapters", "chapter_sources.tex")
 
-# Only rows the SHA-256 work actually cites. The registry also serves anchor sift, and a
+# Only rows the SHA-256 work actually cites. The registry also serves orior, and a
 # bibliography listing sources this book never mentions would be padding.
 # A selector matched against the rows of the shared registry, and never a path to open, so it has
 # to read the same as whatever the rows were tagged with. Derived from the directory this tree

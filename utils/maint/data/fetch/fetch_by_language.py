@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Fetch several texts in each of several languages, to test whether a language carries a constant, for
-# Section 4.13 of theory/workbooks/anchor_sift.
+# Section 4.13 of theory/workbooks/orior.
 #
 #   Usage:  python maint/data/fetch/fetch_by_language.py [texts per language]
 #
@@ -31,7 +31,7 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "
     ROOT = os.path.dirname(ROOT)
 OUT = os.path.join(ROOT, "build", "corpora")
 INDEX = "https://www.gutenberg.org/browse/languages/%s"
-AGENT = {"User-Agent": "anchor-sift-research/1.0 (https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"}
+AGENT = {"User-Agent": "orior-research/1.0 (https://github.com/dstroy0/orior; dquigg123@gmail.com)"}
 
 # Code, name, and the script family, which puts a logographic case beside the alphabetic ones
 LANGUAGES = (

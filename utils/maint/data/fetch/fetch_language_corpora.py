@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Fetch public domain texts for the linguistic universals test in theory/workbooks/anchor_sift.
+# Fetch public domain texts for the linguistic universals test in theory/workbooks/orior.
 #
 # The claim under test is that every natural language carries the same regularities whatever its
 # culture or century. A sample of one modern English author says nothing about it. These are
@@ -112,7 +112,7 @@ def fetch(book_id):
     ):
         try:
             request = urllib.request.Request(
-                url, headers={"User-Agent": "anchor-sift-research/1.0"}
+                url, headers={"User-Agent": "orior-research/1.0"}
             )
             with urllib.request.urlopen(request, timeout=60) as response:
                 return response.read().decode("utf-8", "replace"), url

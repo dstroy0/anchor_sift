@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # List every volume of the Salish and neighboring languages proceedings that can be downloaded, for
-# Section 4.13 of theory/workbooks/anchor_sift.
+# Section 4.13 of theory/workbooks/orior.
 #
 #   Usage:  python maint/data/salishan/corpus_script_extraction/icsnl_index.py [page url]
 #
@@ -32,7 +32,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 PAPERS = os.path.join(ROOT, "build", "papers")
-AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
+AGENT = {"User-Agent": "orior-research/1.0 (linguistic invariance study)"}
 
 VOLUMES = "https://lingpapers.sites.olt.ubc.ca/icsnl-volumes/"
 

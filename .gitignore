@@ -42,7 +42,7 @@ __pycache__/
 #
 # utils/maint/texbuild/build_theory.sh compiles with -output-directory and leaves none of this. TeXworks
 # and TeXShop compile IN PLACE. A research paper opened in one of those to look at it comes back with a
-# .pdf, a .log, a .toc, a .aux per included chapter and a synctex index. theory/workbooks/anchor_sift picked
+# .pdf, a .log, a .toc, a .aux per included chapter and a synctex index. theory/workbooks/orior picked
 # up twelve such files that way, 705,688 bytes of it one synctex, and the arXiv packager copied
 # every one of them into a submission before it learned to skip them.
 #

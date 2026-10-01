@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-4-002
 #
 # Test whether nɬeʔkepmxcín carries a signature the way every other language measured here does, reading
-# the text as bytes, for Section 4.13 of theory/workbooks/anchor_sift.
+# the text as bytes, for Section 4.13 of theory/workbooks/orior.
 #
 #   Usage:  python examples/language/4_measure/byte_signature.py
 #

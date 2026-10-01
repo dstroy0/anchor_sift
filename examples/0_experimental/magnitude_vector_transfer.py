@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: EXP-x-020
 #
@@ -292,7 +292,7 @@ def main():
 
     out.write("  positive control and density, reported with numerator and denominator\n")
     passed = True
-    passed = _roundtrip(out, "repetitive", b"anchor_sift " * 100000) and passed
+    passed = _roundtrip(out, "repetitive", b"orior " * 100000) and passed
     passed = _roundtrip(out, "mixed", b"HEADER" + b"\x00\x01\x02" * 40000 + b"TAIL") and passed
     passed = _roundtrip(out, "structureless", _pseudo_random(8192)) and passed
     passed = _roundtrip(out, "empty", b"") and passed
@@ -316,7 +316,7 @@ def main():
               % (bytes([sampled]), bytes([expected]), sampled == expected))
 
     out.write("\n  drawn null: one flipped byte in a tape decodes to a different payload\n")
-    payload = b"anchor_sift " * 1000
+    payload = b"orior " * 1000
     good = encode(payload)
     broken = bytearray(good)
     broken[-2] ^= 0x01                     # perturb a byte inside the last magnitude

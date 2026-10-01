@@ -3,10 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "anchor_sift.h"
+#include "orior.h"
 #include "bench_corpora.h"
 
-#if ANCHOR_SIFT_COUNT_READS
+#if ORIOR_COUNT_READS
 #error "bench_dispatch measures cycles and must link the uncounted kernel"
 #endif
 
@@ -143,7 +143,7 @@ static double cycles_given_up(const Row *rows, size_t count, double flat_share, 
     return lost;
 }
 
-static uint64_t time_arm(AnchorSiftEngine arm, const uint8_t *corpus, size_t corpus_len,
+static uint64_t time_arm(OriorEngine arm, const uint8_t *corpus, size_t corpus_len,
                          const uint8_t *needles, size_t needle_len, unsigned present, size_t *found)
 {
     uint64_t best = UINT64_MAX;
@@ -196,9 +196,9 @@ static size_t measure_rows(Row *rows, uint8_t *corpus, uint8_t *absent)
                 size_t found_inorder = 0u;
                 size_t found_free = 0u;
 
-                const uint64_t inorder = time_arm(anchor_sift_inorder, corpus, CORPUS_BYTES, absent,
+                const uint64_t inorder = time_arm(orior_inorder, corpus, CORPUS_BYTES, absent,
                                                   needle_len, present, &found_inorder);
-                const uint64_t freed = time_arm(anchor_sift_free, corpus, CORPUS_BYTES, absent,
+                const uint64_t freed = time_arm(orior_free, corpus, CORPUS_BYTES, absent,
                                                 needle_len, present, &found_free);
 
                 if (found_inorder != found_free)
@@ -435,9 +435,9 @@ static void score_named(const Row *rows, size_t count)
 
     for (size_t slot = 0u; slot < count; slot += 1u)
     {
-        const AnchorSiftPlan plan = {&rows[slot].census, rows[slot].needle_len, 0u};
-        const AnchorSiftEngine chosen = anchor_sift_choose(&plan);
-        const uint64_t paid = (chosen == anchor_sift_free) ? rows[slot].freed : rows[slot].inorder;
+        const OriorPlan plan = {&rows[slot].census, rows[slot].needle_len, 0u};
+        const OriorEngine chosen = orior_choose(&plan);
+        const uint64_t paid = (chosen == orior_free) ? rows[slot].freed : rows[slot].inorder;
 
         if (paid == quickest(&rows[slot]))
         {

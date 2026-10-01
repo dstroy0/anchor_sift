@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Draw Fefferman's Navier-Stokes sets, and the horizon the engine measured on them, as one PDF figure
@@ -430,7 +430,7 @@ def main():
     document = build_pdf(
         canvas,
         "Their sets, and the measured horizon",
-        "anchor_sift %s, drawing %s" % (GENERATOR, SOURCE),
+        "orior %s, drawing %s" % (GENERATOR, SOURCE),
     )
 
     os.makedirs(os.path.dirname(target), exist_ok=True)

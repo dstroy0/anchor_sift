@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Estimate how wrong the pure corpus could be, and write the estimate as a document.
@@ -57,7 +57,7 @@ import markdown_to_latex  # noqa: E402
 import coverage_check as coverage  # noqa: E402
 import oracle_check as oracle  # noqa: E402
 import reader_check as reader  # noqa: E402
-from anchor_sift import distance, self_distance, squash  # noqa: E402
+from orior import distance, self_distance, squash  # noqa: E402
 from language_check import BY_CORPUS  # noqa: E402
 from papers import EVERY, NOT_FAITHFUL, ORTHOGRAPHY_ABSENT, PAGE_TEXT  # noqa: E402
 from salish_unsorted import is_language_token  # noqa: E402
@@ -1126,7 +1126,7 @@ def main():
         handle.write(
             "That makes it something a test of this algorithm almost never has: an "
             "answer that did not come from the algorithm. "
-            "`maint/data/salishan/anchor_sift_algorithmic_extraction/boundary_check.py` "
+            "`maint/data/salishan/orior_algorithmic_extraction/boundary_check.py` "
             "loads the labels, sets them aside, and only compares at the end.\n\n"
         )
         handle.write(

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # The run itself: the roots, the walk, the report and the exit status.
@@ -58,7 +58,7 @@ def main():
     # this check and a hook nobody can satisfy is a hook somebody turns off. Pass --strict to fail
     # on everything, the setting a cleanup pass wants.
     #
-    # PROSE NEVER FAILS A BUILD, IN EITHER TIER, IN ANY REPOSITORY, ANCHOR_SIFT INCLUDED. Both
+    # PROSE NEVER FAILS A BUILD, IN EITHER TIER, IN ANY REPOSITORY, ORIOR INCLUDED. Both
     # standards state it in the same sentence that names this tool, verbatim and word for word:
     # "A hit is a prose finding. It never fails a build, because a person has to decide each site: a
     # proper name, a quoted title, or a term of art is left standing and reported as a false

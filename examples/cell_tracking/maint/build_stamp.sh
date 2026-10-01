@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 
-# The engine is anchor_sift's, a git submodule at anchor_sift/: every build reads it at src/engine there, and a clone
+# The engine is orior's, a git submodule at orior/: every build reads it at src/engine there, and a clone
 # without it fails here, before anything compiles
-ENGINE="$TOP/anchor_sift/src/engine"
+ENGINE="$TOP/orior/src/engine"
 if [ ! -f "$ENGINE/engine_config.h" ]; then
-    echo "  build failed: no engine at $ENGINE (git submodule update --init anchor_sift)"
+    echo "  build failed: no engine at $ENGINE (git submodule update --init orior)"
     exit 1
 fi
 
-# a build's path: engine/... is the engine's, in anchor_sift, and anything else the project's
+# a build's path: engine/... is the engine's, in orior, and anything else the project's
 build_path()
 {
     case "$1" in

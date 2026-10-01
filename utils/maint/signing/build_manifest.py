@@ -42,7 +42,7 @@ import sys
 #
 # "audit" WAS IN THIS SET AND IT SHOULD NOT HAVE BEEN. It excluded tools/audit, which is twenty-five
 # authored Python instruments - the compressibility control that proved the compressor blind, the
-# complete Walsh sweep, the sniffer, the anisotropy detector - and anchor_sift/audit alongside it.
+# complete Walsh sweep, the sniffer, the anisotropy detector - and orior/audit alongside it.
 # None of that is build output. The manifest had 342 rows and zero of them were from tools/audit.
 #
 # This is the failure mode the skip list has to be audited FOR: a file wrongly skipped is undated

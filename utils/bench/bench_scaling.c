@@ -4,10 +4,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "anchor_sift.h"
+#include "orior.h"
 #include "bench_corpora.h"
 
-#if !ANCHOR_SIFT_COUNT_READS
+#if !ORIOR_COUNT_READS
 #if defined(__x86_64__) || defined(__i386__)
 #include <x86intrin.h>
 #define CYCLES_ARE_REAL 1
@@ -33,7 +33,7 @@ static const size_t NEEDLE_LENGTHS[] = {4u, 8u, 16u, 32u, 64u, 128u, 256u};
 
 #define ABSENT_SEED 0x9E3779B97F4A7C15ULL
 
-#if !ANCHOR_SIFT_COUNT_READS
+#if !ORIOR_COUNT_READS
 static uint64_t cycles_now(void)
 {
 #if CYCLES_ARE_REAL
@@ -60,15 +60,15 @@ static uint64_t cycles_now(void)
 typedef struct
 {
     const char *name;
-    AnchorSiftEngine run;
+    OriorEngine run;
 } Arm;
 
 int main(void)
 {
     static const Arm ARMS[] = {
-        {"exact_compare", anchor_sift_naive},
-        {"anchor_inorder", anchor_sift_inorder},
-        {"anchor_free", anchor_sift_free},
+        {"exact_compare", orior_naive},
+        {"anchor_inorder", orior_inorder},
+        {"anchor_free", orior_free},
     };
     static const CorpusKind KINDS[] = {CORPUS_UNIFORM, CORPUS_SKEWED, CORPUS_PERIODIC};
 
@@ -92,7 +92,7 @@ int main(void)
     }
     const size_t absent_bytes = NEEDLE_LENGTHS[needle_count - 1u] * NEEDLES_PER_ROW;
 
-#if ANCHOR_SIFT_COUNT_READS
+#if ORIOR_COUNT_READS
     printf("bench,corpus,corpus_bytes,needle_len,present,arm,h2,distinct,"
            "probes_per_alignment,verifications_per_alignment,predicted_rate,found\n");
 #else
@@ -111,7 +111,7 @@ int main(void)
 
             size_t distinct = 0u;
             const double entropy = bench_collision_entropy(corpus, corpus_len, &distinct);
-            const double rate = bench_predicted_rate(entropy, (double)ANCHOR_SIFT_ANCHORS);
+            const double rate = bench_predicted_rate(entropy, (double)ORIOR_ANCHORS);
 
             for (size_t pick = 0u; pick < needle_count; pick += 1u)
             {
@@ -136,15 +136,15 @@ int main(void)
                                                           ? (corpus + ((draw * 977u) % (corpus_len - needle_len)))
                                                           : (absent + (draw * needle_len));
 
-                        reference += anchor_sift_naive(corpus, corpus_len, needle, needle_len);
+                        reference += orior_naive(corpus, corpus_len, needle, needle_len);
                     }
 
                     for (size_t slot = 0u; slot < arm_count; slot += 1u)
                     {
                         size_t found = 0u;
 
-#if ANCHOR_SIFT_COUNT_READS
-                        anchor_sift_counters_reset();
+#if ORIOR_COUNT_READS
+                        orior_counters_reset();
                         for (size_t draw = 0u; draw < needles; draw += 1u)
                         {
                             const uint8_t *const needle = (present != 0u)
@@ -159,8 +159,8 @@ int main(void)
                                bench_corpus_name(KINDS[which]), (unsigned long long)corpus_len,
                                (unsigned long long)needle_len, present, ARMS[slot].name, entropy,
                                (unsigned long long)distinct,
-                               (double)anchor_sift_probes / spread,
-                               (double)anchor_sift_verifications / spread, rate,
+                               (double)orior_probes / spread,
+                               (double)orior_verifications / spread, rate,
                                (unsigned long long)found);
 #else
                         uint64_t best = UINT64_MAX;

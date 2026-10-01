@@ -108,7 +108,7 @@ src/                                                             now   write
 │   │   │   ├── tower/                                             1      +3
 │   │   │   └── unit_sweep/                                        1      +1
 │   │   ├── nbody/                                                37     +32
-│   │   │   ├── anchor_sift/                                      16      +7
+│   │   │   ├── orior/                                      16      +7
 │   │   │   │   ├── instrument/                                    0      +3
 │   │   │   │   └── sift/                                          0      +4
 │   │   │   ├── body_overlap/                                      2        
@@ -205,7 +205,7 @@ src/                                                             now   write
 │   │   │   ├── tower/                                             4        
 │   │   │   └── unit_sweep/                                        1        
 │   │   ├── nbody/                                                30     +16
-│   │   │   ├── anchor_sift/                                       1     +12
+│   │   │   ├── orior/                                       1     +12
 │   │   │   │   ├── instrument/                                    0      +3
 │   │   │   │   └── sift/                                          0      +4
 │   │   │   ├── body_overlap/                                      1        
@@ -297,7 +297,7 @@ src/                                                             now   write
     │   │   ├── tower/                                             0      +3
     │   │   └── unit_sweep/                                        0      +1
     │   ├── nbody/                                                 9     +37
-    │   │   ├── anchor_sift/                                       9      +6
+    │   │   ├── orior/                                       9      +6
     │   │   │   ├── instrument/                                    3        
     │   │   │   └── sift/                                          6        
     │   │   ├── body_overlap/                                      0      +1
@@ -472,7 +472,7 @@ utils/test/src/                                                  now   write
 │   │   │   ├── tower/                                             0      +1
 │   │   │   └── unit_sweep/                                        0      +1
 │   │   ├── nbody/                                                15     +15
-│   │   │   ├── anchor_sift/                                      11      +3
+│   │   │   ├── orior/                                      11      +3
 │   │   │   │   ├── instrument/                                    0      +1
 │   │   │   │   └── sift/                                          0      +1
 │   │   │   ├── body_overlap/                                      0      +1
@@ -563,7 +563,7 @@ utils/test/src/                                                  now   write
 │   │   │   ├── tower/                                             2        
 │   │   │   └── unit_sweep/                                        2        
 │   │   ├── nbody/                                                 0     +25
-│   │   │   ├── anchor_sift/                                       0     +11
+│   │   │   ├── orior/                                       0     +11
 │   │   │   │   ├── instrument/                                    0      +1
 │   │   │   │   └── sift/                                          0      +1
 │   │   │   ├── body_overlap/                                      0      +1
@@ -657,7 +657,7 @@ utils/test/src/                                                  now   write
     │   │   ├── tower/                                             0      +1
     │   │   └── unit_sweep/                                        0      +1
     │   ├── nbody/                                                 1     +24
-    │   │   ├── anchor_sift/                                       1     +10
+    │   │   ├── orior/                                       1     +10
     │   │   │   ├── instrument/                                    0      +1
     │   │   │   └── sift/                                          0      +1
     │   │   ├── body_overlap/                                      0      +1
@@ -763,8 +763,8 @@ Nothing builds these. `examples/cell_tracking/build_driver.sh` builds the tracke
 | `src/engine/compiler/codegen/codegen_device_rules.cu` | `src/cu/transpiler/codegen/codegen_rules.cu` |
 | `src/engine/compiler/cycle/cycle_compile_host.cu` | `src/cu/engine/analysis/cycle/cycle_compile.cu` |
 | `src/engine/compiler/cycle/cycle_record_kernel.cu` | `src/cu/engine/analysis/cycle/cycle_record.cu` |
-| `src/engine/nbody/anchor_sift/scan_cuda.cu` | `src/cu/engine/nbody/anchor_sift/scan.cu` |
-| `src/engine/nbody/anchor_sift/scan_portable.c` | `src/c/engine/nbody/anchor_sift/scan.c` |
+| `src/engine/nbody/orior/scan_cuda.cu` | `src/cu/engine/nbody/orior/scan.cu` |
+| `src/engine/nbody/orior/scan_portable.c` | `src/c/engine/nbody/orior/scan.c` |
 | `src/engine/nbody/max_tree/max_tree_device_code.cu` | `src/cu/engine/nbody/max_tree/max_tree_code.cu` |
 | `src/engine/nbody/max_tree/max_tree_device_contract.cu` | `src/cu/engine/nbody/max_tree/max_tree_contract.cu` |
 | `src/engine/nbody/max_tree/max_tree_device_grade.cu` | `src/cu/engine/nbody/max_tree/max_tree_grade.cu` |
@@ -812,7 +812,7 @@ names are one.
 | `utils/test/src/*/engine/analysis/cycle` | c: `record_test`; cu: `record_bitwise_test_lifting`, `record_bitwise_test_oracle`, `record_bitwise_test_prove`, `record_boundary_test_codes`, `record_boundary_test_floors`, `record_boundary_test_identity`, `record_boundary_test_main`, `record_boundary_test_run`, `record_boundary_test_transform`, `record_c_test`, `record_coherence_test_inverse`, `record_coherence_test_programs`, `record_coherence_test_residue`, `record_divide_test_main`, `record_divide_test_run`, `record_gaussian_test_inverse`, `record_gaussian_test_main`, `record_guide_test`, `record_lane_test_enumerate`, `record_lane_test_run`, `record_order_test_floors`, `record_order_test_omega`, `record_speed_test`, `record_table_test_compose`, `record_table_test_run`, `record_tower_test_oracle`, `record_tower_test_ruleset`, `record_vhdl_test` |
 | `utils/test/src/*/engine/analysis/period` | cu: `period_probe`, `period_test_main`, `period_test_reference`; python: `period_test` |
 | `utils/test/src/*/engine/analysis/shift_agreement` | cu: `shift_agreement_hold_test`; python: `shift_agreement_test` |
-| `utils/test/src/*/engine/nbody/anchor_sift` | c: `test_adversarial_cases`, `test_adversarial_joint`, `test_adversarial_plans`, `test_adversarial_projection`, `test_o2_spawn`, `test_steer_checks`, `test_steer_grading`, `test_steer_projection`; python: `sift_test` |
+| `utils/test/src/*/engine/nbody/orior` | c: `test_adversarial_cases`, `test_adversarial_joint`, `test_adversarial_plans`, `test_adversarial_projection`, `test_o2_spawn`, `test_steer_checks`, `test_steer_grading`, `test_steer_projection`; python: `sift_test` |
 | `utils/test/src/*/engine/runtime/daemon` | c: `tessera_burn`, `tessera_frame_test`, `tessera_ledger_test_heap`, `tessera_ledger_test_scenarios`, `tessera_socket_probe`; cu: `tessera_job_test`, `tessera_measure_test`, `tessera_test` |
 | `utils/test/src/*/transpiler/cell` | c: `cell_probe`, `cell_ptx_test`, `cell_sass_probe_ask`, `cell_sass_probe_check`, `cell_sass_probe_cubin`, `cell_sass_probe_machine`, `cell_sass_probe_main`, `cell_sass_probe_read`, `cell_test`; cu: `cell_ptx_probe_main`, `cell_ptx_probe_questions` |
 | `utils/test/src/*/transpiler/codegen` | c: `web_check`; cu: `codegen_test`, `ruleset_read_test`, `vhdl_construction_set` |

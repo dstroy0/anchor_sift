@@ -281,7 +281,7 @@ Doug's framing (24 September, paraphrased): domain and range are complete and de
 - **Two fixes.**
   - The constant-divisor narrowing (built and proved, above).
   - The wrap at the mirror (derived, built). The inverse floor k holds the forward floor k's values, each within its forward register's width b. WRAP(v, b + 1) on each rebuilt register passes its value through unchanged, and WRAP(v, 16) on the rebuilt samples is exact on 16-bit input. The bound comes from the mirror and holds whatever the values are. It needs T⁻¹ ∘ T = id: with an operation between the towers the mirror breaks, and a wrap placed by it is silently wrong.
-    - **Note, 26 September.** Built at anchor_sift d45794d, inside the pin ddeccb3. `boundary_mirror` (`test/engine/record_boundary_test.cu:232-240`) emits WRAP(v, b + 1) on every rebuilt register, b its forward twin's width, after the forward tower is imprinted alone for those widths (:1125-1139). The rebuilt samples take the same wrap. Their twins are the 24-bit signed fields (`BOUNDARY_TEST_FIELD_BITS`, :43), and the wrap there is WRAP(v, 25). The checks are at :1155, :1293 and :1296. WRAP(v, 16) at the samples' own width on 16-bit input is not exercised.
+    - **Note, 26 September.** Built at orior d45794d, inside the pin ddeccb3. `boundary_mirror` (`test/engine/record_boundary_test.cu:232-240`) emits WRAP(v, b + 1) on every rebuilt register, b its forward twin's width, after the forward tower is imprinted alone for those widths (:1125-1139). The rebuilt samples take the same wrap. Their twins are the 24-bit signed fields (`BOUNDARY_TEST_FIELD_BITS`, :43), and the wrap there is WRAP(v, 25). The checks are at :1155, :1293 and :1296. WRAP(v, 16) at the samples' own width on 16-bit input is not exercised.
 - **The ring under the three rules.** Derived (replica). The first column reproduces the scratch run's ring exactly.
 
   | floor | before the narrowing | narrowed | narrowed, wrapped at the mirror |
@@ -350,8 +350,8 @@ Derived.
 
 ## The lane index and the latch
 
-- **The lane index.** Derived from `cycle.cu`: the kernel holds each lane's number as a 64-bit loop variable, and no step reads it. A step that writes it into a register is open on main, and built off main, in PR 15 at anchor_sift `1fbc0c5` (`ENGINE_RECORD_LANE`).
-- **The latch.** Derived. The first lane that meets a condition is the minimum over lanes of ℓ where the condition holds, with ∞ where it does not. The minimum is associative, commutative and idempotent. Any grouping returns the same lane as a serial scan from lane 0: a tree of depth ⌈log2 lanes⌉, or a device-wide atomic minimum. The latch is not built on main, and built off main, in PR 15 at anchor_sift `1fbc0c5`.
+- **The lane index.** Derived from `cycle.cu`: the kernel holds each lane's number as a 64-bit loop variable, and no step reads it. A step that writes it into a register is open on main, and built off main, in PR 15 at orior `1fbc0c5` (`ENGINE_RECORD_LANE`).
+- **The latch.** Derived. The first lane that meets a condition is the minimum over lanes of ℓ where the condition holds, with ∞ where it does not. The minimum is associative, commutative and idempotent. Any grouping returns the same lane as a serial scan from lane 0: a tree of depth ⌈log2 lanes⌉, or a device-wide atomic minimum. The latch is not built on main, and built off main, in PR 15 at orior `1fbc0c5`.
 
 ## Tables
 

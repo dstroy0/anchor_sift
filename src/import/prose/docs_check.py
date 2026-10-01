@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # What the prose standard says, checked instead of remembered.
@@ -1024,7 +1024,7 @@ def stage_of(pattern):
 # TIER B is FREQUENCY-SCORED VOCABULARY: a word or an idiom, reported with what it costs a human
 # writer where that has been measured. Most of it is the machine-prose vocabulary code-documentation
 # section 135 through 141 lists by word. The rest is this file's own house style, calibrated on
-# anchor_sift's theory books and named as such in the report.
+# orior's theory books and named as such in the report.
 #
 # THE TIER IS DECIDED BY THE SENTENCE IN THE STANDARD, NEVER BY THE REGEX. This is the correction
 # that matters and it runs both ways:
@@ -1238,7 +1238,7 @@ PRIVATE_NAMES = ("salishan_corpus", "anchor_sift_citations")
 # Spelled the same as in citations.py, because a person who has met one of them should not have to
 # learn a second name for the same thing.
 PRIVATE_OVERRIDES = {
-    "salishan_corpus": "ANCHOR_SIFT_PRIVATE",
+    "salishan_corpus": "ORIOR_PRIVATE",
     "anchor_sift_citations": "ANCHOR_SIFT_CITATIONS",
 }
 
@@ -1498,7 +1498,7 @@ def path_candidate(target):
 
     Measured at ProtoCore f3e96f68, `python maint/prose/docs_check.py <protocore>/docs` reported 251
     breaking findings where 4 were real. 244 were Doxygen references and 3 were C declarators. The
-    gate is correct in anchor_sift, a tree of Python and markdown that uses no Doxygen. Pointed at a
+    gate is correct in orior, a tree of Python and markdown that uses no Doxygen. Pointed at a
     repository that does use it, the gate would have refused every commit ProtoCore could make. That
     is why this test sits in front of os.path.exists instead of in an exemption list somewhere.
 
@@ -1511,7 +1511,7 @@ def path_candidate(target):
     example writes `[](const char *user, const char *pass)`, and a parenthesized group following a
     bracketed one is what LINK looks for.
 
-    Which signal earns its place. Across anchor_sift, ProtoCore, idemIP, MMgr and embedded_types,
+    Which signal earns its place. Across orior, ProtoCore, idemIP, MMgr and embedded_types,
     646 targets are skipped here and not one of them names a path that is on disk, so nothing that
     was a real finding has been silenced. 496 of the 646 are Doxygen commands and the other 150 hold
     a pointer star. Of the three declarator signals only the star fired. The type-keyword head and

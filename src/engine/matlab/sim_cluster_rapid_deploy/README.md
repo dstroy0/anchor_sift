@@ -1,7 +1,7 @@
 # Simulation deployment tools
 
     Meant for assisting data scientists, teachers, students, researchers, the general public, anyone interested.
-    This will aid in learning more about the anchor_sift algorithm, from a stricter standard than I can apply alone,
+    This will aid in learning more about the orior algorithm, from a stricter standard than I can apply alone,
     for research or a genuine interest in the language. This toolset is aimed at linguists, statisticians,
     mathematicians, theorists, and any category I haven't named that belongs here, this document can be amended,
     I don't use your tools and am not trained in them, I am strictly a polymath and am untrained formally in any of your given subjects

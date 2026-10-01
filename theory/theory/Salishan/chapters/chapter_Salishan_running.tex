@@ -56,7 +56,7 @@ maint/data/salishan/draft_page_text.py                    the page as a first dr
 maint/data/salishan/hand_extraction/                      the control
 src/engine/python/instrument/                             the algorithm
 maint/data/salishan/corpus_script_extraction/             the eleven readers
-maint/data/salishan/anchor_sift_algorithmic_extraction/   the sift applied
+maint/data/salishan/orior_algorithmic_extraction/   the sift applied
 salishan_corpus/analysis/sound/          the recordings as bits, in the closed corpus
 \end{lstlisting}
 
@@ -139,9 +139,9 @@ Matches the sifted output case-sensitively against the pure corpus. A form that 
 
 \subsection{The sift}
 
-Written \texttt{A/\allowbreak{}} for \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}instrument/\allowbreak{}} and \texttt{X/\allowbreak{}} for \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}anchor\_\allowbreak{}sift\_\allowbreak{}algorithmic\_\allowbreak{}extraction/\allowbreak{}}.
+Written \texttt{A/\allowbreak{}} for \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}instrument/\allowbreak{}} and \texttt{X/\allowbreak{}} for \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}orior\_\allowbreak{}algorithmic\_\allowbreak{}extraction/\allowbreak{}}.
 
-\textbf{Note, 26 September.} Commit \texttt{74601c1} deleted \texttt{src/\allowbreak{}engine/\allowbreak{}python/} on 26 September. At anchor\_sift \texttt{1948ae1} there is no \texttt{A/\allowbreak{}} directory, and the commands below that run a script from it have no file to run. \texttt{corpus\_\allowbreak{}derivation.\allowbreak{}py}, \texttt{X/\allowbreak{}boundary\_\allowbreak{}check.\allowbreak{}py} and \texttt{binary\_\allowbreak{}sound.\allowbreak{}py} are at the pin and import \texttt{anchor\_sift} from \texttt{A/\allowbreak{}}. \texttt{perceived\_\allowbreak{}sound.\allowbreak{}py}, in the table below, was deleted with the rest. Every result in this research paper was produced before the deletion. \textbf{Later, 26 September.} Commit \texttt{d09b489} (anchor\_sift PR 12) put back the 126 files \texttt{74601c1} deleted, each byte-identical to its state before the deletion, and biohub pins anchor\_sift at \texttt{d09b489}. Every file named here that \texttt{74601c1} deleted, \texttt{A/\allowbreak{}} included, is at the pin again; nothing here was rerun against them.
+\textbf{Note, 26 September.} Commit \texttt{74601c1} deleted \texttt{src/\allowbreak{}engine/\allowbreak{}python/} on 26 September. At orior \texttt{1948ae1} there is no \texttt{A/\allowbreak{}} directory, and the commands below that run a script from it have no file to run. \texttt{corpus\_\allowbreak{}derivation.\allowbreak{}py}, \texttt{X/\allowbreak{}boundary\_\allowbreak{}check.\allowbreak{}py} and \texttt{binary\_\allowbreak{}sound.\allowbreak{}py} are at the pin and import \texttt{orior} from \texttt{A/\allowbreak{}}. \texttt{perceived\_\allowbreak{}sound.\allowbreak{}py}, in the table below, was deleted with the rest. Every result in this research paper was produced before the deletion. \textbf{Later, 26 September.} Commit \texttt{d09b489} (orior PR 12) put back the 126 files \texttt{74601c1} deleted, each byte-identical to its state before the deletion, and biohub pins orior at \texttt{d09b489}. Every file named here that \texttt{74601c1} deleted, \texttt{A/\allowbreak{}} included, is at the pin again; nothing here was rerun against them.
 
 \begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
 python A/english_sift.py --check
@@ -189,7 +189,7 @@ These modules are libraries: other code imports them.
 \toprule
 Module & Holds \\
 \midrule
-\texttt{A/\allowbreak{}anchor\_\allowbreak{}sift.\allowbreak{}py} & the method itself: squash, total variation, split-half, support, entropy \\
+\texttt{A/\allowbreak{}orior.\allowbreak{}py} & the method itself: squash, total variation, split-half, support, entropy \\
 \texttt{A/\allowbreak{}english\_\allowbreak{}sift.\allowbreak{}py} & the English anchor and the per-line screen built on it \\
 \texttt{S/\allowbreak{}salish\_\allowbreak{}marking.\allowbreak{}py} & the T and N marking convention, \texttt{tagged\_\allowbreak{}spans}, \texttt{TEXT\_\allowbreak{}SPACE}, \texttt{CAPS\_\allowbreak{}RUN}, ligatures \\
 \texttt{S/\allowbreak{}page\_\allowbreak{}text.\allowbreak{}py} & what a reader needs where its source is the drafted page text: every repair a pass-through, and the language test asked on the orthography \\

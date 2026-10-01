@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Choosing which of a pattern's points to test first, and what that choice is allowed to affect.
@@ -30,10 +30,10 @@
 #
 # WHICH OF THESE THE ENGINE HOLDS IN C
 #
-# The kernel is src/engine/nbody/anchor_sift/anchor_sift_*.c. Its placement is choose_offsets, one
+# The kernel is src/engine/nbody/orior/orior_*.c. Its placement is choose_offsets, one
 # offset in each evenly sized cell at (slot * 7) mod the cell, and its order is
 # anchor_steer_probe_order, a stable sort of the placed offsets by rarity in the corpus. The
-# functions below the rules, under the kernel's names, are its Python route at anchor_sift 1789287:
+# functions below the rules, under the kernel's names, are its Python route at orior 1789287:
 # choose_offsets, field_census, steer_magnitude, steer_probe_order, steer_prefers_free,
 # sift_anchors_for, sift_choose, sift_count (the naive, in order and free order engines, with the
 # reads a counted build tallies), sift_run, steer_count, steer_probe_fits and
@@ -130,7 +130,7 @@ def positions_by_symbol(seats):
     return places
 
 
-# The kernel's form, src/engine/nbody/anchor_sift/anchor_sift_*.c.
+# The kernel's form, src/engine/nbody/orior/orior_*.c.
 
 SIFT_ANCHORS = 4
 SYMBOLS = 256

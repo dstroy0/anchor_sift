@@ -192,7 +192,7 @@ The full set lives one per file under `src/engine/python/` and in the C renderer
 
 ## The sift
 
-`src/engine/nbody/anchor_sift/anchor_sift_*.c` holds the search and the steering that places its probes. With the portable scan beside it and the exact integer arithmetic under `src/engine/arithmetic/no_rounding/`, it builds and runs with a C11 compiler alone, four sources and no build system (`docs/setup.md`). The Python in `src/engine/python/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
+`src/engine/nbody/orior/orior_*.c` holds the search and the steering that places its probes. With the portable scan beside it and the exact integer arithmetic under `src/engine/arithmetic/no_rounding/`, it builds and runs with a C11 compiler alone, four sources and no build system (`docs/setup.md`). The Python in `src/engine/python/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
 
 **It is a sound filter.** A subset of a pattern's points is a necessary condition. No arrangement of anchors can lose a true occurrence. That is a proof, using no order, no dimension and no alphabet. The measurement beside it: across 35 rows of corpora, needle lengths and strides, no search ever reported fewer occurrences than exist. Errors are one directional. A discrepancy is always an over-count and is detectable without knowing the answer.
 
@@ -200,13 +200,13 @@ The full set lives one per file under `src/engine/python/` and in the C renderer
 
 **It searches with no pattern at all.** Given only bytes it recovered a multiple of a record period from 512 reads, at 92 shifts against 0 on a shuffle of the same bytes.
 
-**The kernel dispatches, and grades itself.** `anchor_sift_choose` picks an engine from the field's own census, which one histogram pass already produced. The comparison is exact integer arithmetic and the engine holds no floating point value anywhere: the effective alphabet `2^H2` is `total^2 / sum(count^2)`. Asking whether it reaches 85 percent of the symbols the field uses clears its denominators into `100*total^2 >= 85*distinct*sum(count^2)`. `bench_dispatch` times every engine, prints what the dispatcher chose beside what was fastest, and scores six candidate rules against each other. Over 42 rows the rule the kernel carries names the faster engine 39 times on x64 MSVC 19.44 at Release, giving up 9131790 cycles or 0.035 of the worst rule, and 41 times under gcc on the same machine, giving up 86511 cycles or 0.000. That is a hundredfold gap in the cycles figure and it is not rounding. Both are real runs, and each number belongs to the toolchain that produced it. That is why the bench exists, and why its output is a recommendation to act on and not a figure to quote. It sweeps its threshold instead of assuming it: the interval 0.34 to 0.96 all score identically and the 0.85 the kernel carries sits inside it.
+**The kernel dispatches, and grades itself.** `orior_choose` picks an engine from the field's own census, which one histogram pass already produced. The comparison is exact integer arithmetic and the engine holds no floating point value anywhere: the effective alphabet `2^H2` is `total^2 / sum(count^2)`. Asking whether it reaches 85 percent of the symbols the field uses clears its denominators into `100*total^2 >= 85*distinct*sum(count^2)`. `bench_dispatch` times every engine, prints what the dispatcher chose beside what was fastest, and scores six candidate rules against each other. Over 42 rows the rule the kernel carries names the faster engine 39 times on x64 MSVC 19.44 at Release, giving up 9131790 cycles or 0.035 of the worst rule, and 41 times under gcc on the same machine, giving up 86511 cycles or 0.000. That is a hundredfold gap in the cycles figure and it is not rounding. Both are real runs, and each number belongs to the toolchain that produced it. That is why the bench exists, and why its output is a recommendation to act on and not a figure to quote. It sweeps its threshold instead of assuming it: the interval 0.34 to 0.96 all score identically and the 0.85 the kernel carries sits inside it.
 
 **The needle length term in the shipped rule does nothing on this data.** Scoring flatness alone ties the kernel exactly, same rows and same cycles. The length term changes no answer on any of the 42. The rule as documented, flatness then length, scores strictly worse than the flatness it contains, and the rule as originally shipped, length alone, is worse than both. A tunable with no reader is an integration point and is neither removed nor described as unimplemented. It is named here and kept until a row is found where it pays.
 
 Cycles given up is the score that matters, and it inverts the row count. Always taking the free order engine is right on 17 rows of 42, the fewest of any rule on the board, and it still gives up fewer cycles than always taking the short circuiting one, which is right on 25. Counting rows treats a row where the engines differ by one percent the same as one where they differ threefold. A rule can be wrong more often and cost less.
 
-The dispatcher is still blind in one direction, and the blindness is a property of the statistic. A period-16 counter uses sixteen symbols evenly. Its collision entropy reads 4.0 and a perfectly structured corpus looks memoryless. Collision entropy is permutation invariant and cannot see an arrangement, and the dispatcher inherits that exactly. Going exact removed the rounding, not the blindness. Reading arrangement needs a different quantity, and `anchor_sift_anchors_for` is where one entered: it takes the period the corpus repeats at and drops to a single anchor, because at a known period every anchor after the first tests the same congruence and refutes nothing new.
+The dispatcher is still blind in one direction, and the blindness is a property of the statistic. A period-16 counter uses sixteen symbols evenly. Its collision entropy reads 4.0 and a perfectly structured corpus looks memoryless. Collision entropy is permutation invariant and cannot see an arrangement, and the dispatcher inherits that exactly. Going exact removed the rounding, not the blindness. Reading arrangement needs a different quantity, and `orior_anchors_for` is where one entered: it takes the period the corpus repeats at and drops to a single anchor, because at a known period every anchor after the first tests the same congruence and refutes nothing new.
 
 ### Building it, and what each tool answers
 
@@ -243,13 +243,13 @@ The graders the scripts run after a build are `test_steer`, `test_adversarial`, 
 | `bench_exact`, `bench_exact_arms` | the fixed width limb arithmetic, and every vectorized limb engine against the portable one.                                                                                                                                                                                                                |
 | `bench_lattice`                   | soundness in one to eight dimensions, over a rotated point set and a scatter no rectangle covers. It holds its own core, because what is under test is the construction and not the byte specialization.                                                                                                   |
 
-**The counted build and the timed build are different binaries and cannot be mixed.** `bench_scaling_reads` links the kernel compiled with `ANCHOR_SIFT_COUNT_READS=1`; `bench_scaling_cycles` links the kernel compiled without it. Counting perturbs the timing it would otherwise be reported beside. A driver calling `anchor_sift_counters_reset` therefore fails to link against the timed kernel, and that failure is deliberate.
+**The counted build and the timed build are different binaries and cannot be mixed.** `bench_scaling_reads` links the kernel compiled with `ORIOR_COUNT_READS=1`; `bench_scaling_cycles` links the kernel compiled without it. Counting perturbs the timing it would otherwise be reported beside. A driver calling `orior_counters_reset` therefore fails to link against the timed kernel, and that failure is deliberate.
 
 **Known gap:** `bench_lattice` needs C99 `_Complex` arithmetic and does not build under MSVC, which supplies the types without the operators. Build it with GCC or Clang. Every other target in the table was built and run on MSVC 19.44 x64 at Release. The GCC and Clang paths are exercised by the same CMake file and were not re-run for this note.
 
 ### Rendering the object, flat and solid
 
-The renderer draws the object under examination straight from engine state. What it shows is what the search saw. Two surfaces, and they are separate because a sheet and a block are different maps and not the same one at two sizes. `theory/workbooks/anchor_sift/rendering.md` covers both.
+The renderer draws the object under examination straight from engine state. What it shows is what the search saw. Two surfaces, and they are separate because a sheet and a block are different maps and not the same one at two sizes. `theory/workbooks/orior/rendering.md` covers both.
 
 `AnchorRasterConfig` renders a sheet: `width` by `height`, one of four layouts, one of five channels, a reduce rule for cells several alignments land on, and a gain. `AnchorVolumeConfig` renders a block: `width` by `height` by `depth`, one of four volume layouts, and the same five channels, the same two reduce rules and the same gain, named by reference to the same enums, because a channel means one thing in this tree.
 
@@ -274,7 +274,7 @@ The permutation null measure on its own is the part a statistician or corpus lin
 | ----------------- | ---------------------------------------------- | ---------------------------------------------------------------------------- |
 | Python            | `src/engine/python/`                           | the reference every figure came out of                                       |
 | R                 | `evidence/sims/r/departure.R`                  | runs, checked against the reference                                          |
-| MATLAB and Octave | `evidence/sims/matlab/anchor_sift_departure.m` | run on Octave 11.3.0, inside the reference floor; MATLAB proper not run here |
+| MATLAB and Octave | `evidence/sims/matlab/orior_departure.m` | run on Octave 11.3.0, inside the reference floor; MATLAB proper not run here |
 
 A port is correct when it lands inside the reseeding floor of the Python, since each language draws its null from a different generator and none can agree to the last digit. Checked on 200000 symbols over twelve seeds: a clustered sequence reads 0.4228 in Python and 0.4282 in R against a floor of 0.0092, and a memoryless one reads 0.9953 and 0.9933 against a floor of 0.0044. Both gaps sit at about half a floor.
 
@@ -339,7 +339,7 @@ sh utils/maint/texbuild/build_theory.sh
 
 | you want                                                                          | research paper                           |
 | --------------------------------------------------------------------------------- | ---------------------------------------- |
-| the construction, the method, and what is settled, open or withdrawn              | `theory/workbooks/anchor_sift`            |
+| the construction, the method, and what is settled, open or withdrawn              | `theory/workbooks/orior`            |
 | valence read as a necessary condition, and where the oracle enters                | `theory/theory/chemistry`                       |
 | a domain that supplies its own answers, and the reading it corrected              | `theory/theory/game_theory`                     |
 | the image transform program, exact, and which of the transforms is built          | `theory/theory/image_transforms`                |
@@ -348,7 +348,7 @@ sh utils/maint/texbuild/build_theory.sh
 | a lit set on a sphere read as a boundary, and how deep into the rounds it reaches | `theory/theory/boundary`                   |
 | what the instruments cannot see, how they failed, and how to aim them             | `theory/theory/instruments`                |
 | whose words the corpus holds, and how wrong it could be                           | `theory/theory/Salishan`                        |
-| the posits whose experiment cannot be built                                       | `theory/thought_experiments/anchor_sift`             |
+| the posits whose experiment cannot be built                                       | `theory/thought_experiments/orior`             |
 | a published cell edge read back off a voxel grid, and whose result that is        | `theory/theory/crystallography`                 |
 | where the structure in SHA-256 is, where it stops, and how each null was measured | `theory/theory/cryptography/sha256`             |
 | exact arithmetic, the natural constants and the residue codes                     | `theory/theory/precision`                       |

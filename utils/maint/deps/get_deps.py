@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Clone what this repository depends on, instead of carrying copies of it.
@@ -33,7 +33,7 @@
 # anchor_sift_citations holds the published mathematics the measurements are built on. Its reason
 # is ordinary copyright.
 #
-# Both addresses are read from a variable, ANCHOR_SIFT_PRIVATE_REPO and ANCHOR_SIFT_CITATIONS_REPO,
+# Both addresses are read from a variable, ORIOR_PRIVATE_REPO and ANCHOR_SIFT_CITATIONS_REPO,
 # and neither is written down here, because the address of a closed repository does not belong in a
 # public one.
 #
@@ -53,7 +53,7 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "
     ROOT = os.path.dirname(ROOT)
 DEPS = os.path.join(ROOT, "deps")
 
-PRIVATE_ENV = "ANCHOR_SIFT_PRIVATE_REPO"
+PRIVATE_ENV = "ORIOR_PRIVATE_REPO"
 CITATIONS_ENV = "ANCHOR_SIFT_CITATIONS_REPO"
 
 # Name, repository, and what this tree wants it for.

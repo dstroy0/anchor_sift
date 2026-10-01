@@ -1,4 +1,4 @@
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Builds the direct renderer with BOTH arms and grades them against each other.
@@ -25,7 +25,7 @@ $src = Join-Path $root "src\engine"
 $render = Join-Path $src "render"
 $render_cu = Join-Path $root "src\cu\engine\render"
 $exact = Join-Path $src "arithmetic\no_rounding"
-$sift = Join-Path $src "nbody\anchor_sift"
+$sift = Join-Path $src "nbody\orior"
 $bench = Join-Path $root "utils\bench"
 $out = Join-Path $root "build\engine_gpu"
 
@@ -100,11 +100,11 @@ try
         (Join-Path $exact "exact_integer_gcd.c"),
         (Join-Path $exact "exact_integer_decimal.c"),
         (Join-Path $exact "exact_integer_hash.c"),
-        (Join-Path $sift "anchor_sift_core.c"),
-        (Join-Path $sift "anchor_sift_steer.c"),
-        (Join-Path $sift "anchor_sift_field.c"),
-        (Join-Path $sift "anchor_sift_steer_plan.c"),
-        (Join-Path $sift "anchor_sift_steer_count.c"),
+        (Join-Path $sift "orior_core.c"),
+        (Join-Path $sift "orior_steer.c"),
+        (Join-Path $sift "orior_field.c"),
+        (Join-Path $sift "orior_steer_plan.c"),
+        (Join-Path $sift "orior_steer_count.c"),
         (Join-Path $sift "scan_portable.c"),
         (Join-Path $bench "bench_raster.c")
     )

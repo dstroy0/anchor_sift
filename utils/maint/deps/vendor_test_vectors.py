@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Vendor the published SHA-256 test vectors into utils/test/src/cu/transpiler/qasm/vectors, with a manifest recording where each
@@ -118,7 +118,7 @@ def fetch(url, name):
         # csrc.nist.gov answers 403 to a request with no User-Agent, which urllib omits by default.
         # Measured: the identical URL fetches fine under curl, which sends one.
         request = urllib.request.Request(
-            url, headers={"User-Agent": "anchor-sift-vendor-test-vectors/1.0"}
+            url, headers={"User-Agent": "orior-vendor-test-vectors/1.0"}
         )
         with urllib.request.urlopen(request) as response, open(path, "wb") as handle:
             handle.write(response.read())

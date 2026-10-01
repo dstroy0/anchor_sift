@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-4-004
 #
 # Separate the grammar a capital letter carries from the arithmetic of splitting a vocabulary, for
-# Section 4.13 of theory/workbooks/anchor_sift.
+# Section 4.13 of theory/workbooks/orior.
 #
 #   Usage:  python examples/language/4_measure/case_or_splitting.py
 #

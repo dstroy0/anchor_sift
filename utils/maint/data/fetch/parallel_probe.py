@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Find out whether one text in many languages can be had, for Section 4.13 of theory/workbooks/anchor_sift.
+# Find out whether one text in many languages can be had, for Section 4.13 of theory/workbooks/orior.
 #
 #   Usage:  python maint/data/fetch/parallel_probe.py
 #
@@ -24,7 +24,7 @@ import sys
 import urllib.error
 import urllib.request
 
-AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
+AGENT = {"User-Agent": "orior-research/1.0 (linguistic invariance study)"}
 
 TRIES = (
     ("ebible catalog", "https://ebible.org/Scriptures/translations.csv"),

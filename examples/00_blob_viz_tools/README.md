@@ -155,7 +155,7 @@ so the map from sources to coefficients is **linear** and a field of many source
 never needs solving. Both factors of the kernel are diagonal in the degree: depth reweights degree
 by degree, conduction does the same, and neither moves power between degrees. That diagonality is
 Laplace's, and it reduces all of the physics between a source and the boundary to one number per
-degree. `theory/workbooks/anchor_sift/reading-transforms.md` tabulates every transform with this property and the one that
+degree. `theory/workbooks/orior/reading-transforms.md` tabulates every transform with this property and the one that
 lacks it.
 
 Power per degree is `P_l = sum over m of a_lm^2`, invariant under all of `SO(3)` because the

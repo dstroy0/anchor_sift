@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Find the language in a paper by knowing English and taking what is left.
@@ -17,7 +17,7 @@
 # line that English does not account for is the language, a page number, or a gloss label, and
 # those three are told apart by shape, never by vocabulary.
 #
-# The measure is the same one anchor-sift-method.md describes, in its cheapest form. A line is squashed
+# The measure is the same one orior-method.md describes, in its cheapest form. A line is squashed
 # to the byte pairs it contains, k = 256*b_i + b_(i+1), which is a flat index over 2^16 and takes
 # no decision about characters at all. That helps here: half the trouble in this directory came
 # from fonts that wrote ə as @ and ʔ as P, and a byte pair does not care what a glyph was meant to

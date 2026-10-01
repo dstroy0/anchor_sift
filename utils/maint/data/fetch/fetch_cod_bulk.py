@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Copy the whole Crystallography Open Database into build/, by its rsync mirror.
@@ -11,7 +11,7 @@
 #
 #           --source rsync://www.crystallography.net/cif/
 #
-#   The source can also come from ANCHOR_SIFT_COD_RSYNC. There is no default. A fetch tool that
+#   The source can also come from ORIOR_COD_RSYNC. There is no default. A fetch tool that
 #   falls back to an address when nobody named one is the case the root rules forbid by name.
 #
 # WHY RSYNC AND NOT THE HTTP ROUTE
@@ -78,7 +78,7 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "
 
 MIRROR = os.path.join(ROOT, "build", "cod_mirror")
 FLAT = os.path.join(ROOT, "build", "cod")
-SOURCE_VARIABLE = "ANCHOR_SIFT_COD_RSYNC"
+SOURCE_VARIABLE = "ORIOR_COD_RSYNC"
 
 
 def cif_files(tree):

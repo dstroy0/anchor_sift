@@ -1,7 +1,7 @@
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #
-# Joins anchor_sift to repo_tools. Everything not stated here takes the default in
+# Joins orior to repo_tools. Everything not stated here takes the default in
 # lib/repotools/defaults.toml.
 #
 #   repotools config     what this file resolves to
@@ -9,11 +9,11 @@
 #   repotools check      report a fetched tool edited here, or one the toolkit moved past
 
 [project]
-name = "anchor_sift"
+name = "orior"
 version = "0.1.0"
 spdx = "AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational"
 copyright = "Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>"
-prefix = "ANCHOR_SIFT"
+prefix = "ORIOR"
 
 [layout]
 # This repository keeps its tools under utils/maint/ and not tools/, the only line that
@@ -39,7 +39,7 @@ roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "u
 # Left empty on purpose. private_roots used to guess the two closed repositories as siblings of
 # whatever tree was under check, and a public AGPL library that adopted the toolkit then emitted
 # Salishan researcher surnames and paper identifiers into output whose whole purpose is to be pasted
-# into a commit message. It is opt in now. anchor_sift is the public repository and the corpus is
+# into a commit message. It is opt in now. orior is the public repository and the corpus is
 # checked from inside the corpus. This stays empty.
 extra_roots = []
 
@@ -56,7 +56,7 @@ tool = "utils/maint/prose/docs_check"
 roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "utils/maint"]
 
 [fetch]
-# What anchor_sift pulls, and why each one.
+# What orior pulls, and why each one.
 #
 #   lib/repotools            comes with every fetch regardless; named, a reader sees what lands
 #   media_tools/source_render  src2png.py, which renders a file to PNG pages. This is the tool the

@@ -1,4 +1,4 @@
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # The permutation null measure, in R.
@@ -10,7 +10,7 @@
 # reference, because every figure in the ledger came out of it.
 #
 #   source("evidence/sims/r/departure.R")
-#   anchor_sift_file("corpus.sym")
+#   orior_file("corpus.sym")
 #
 # A symbol is a byte, because the reference reads its corpus with open(path, "rb"). Do not hand this
 # the output of utf8ToInt: that is one symbol per codepoint where the reference takes one per UTF-8
@@ -22,10 +22,10 @@
 # is more dispersed than its own shuffle, which is clustering.
 
 # Symbols occurring fewer times than this carry no usable gap statistic and are dropped.
-ANCHOR_SIFT_MIN_OCCURRENCES <- 32L
+ORIOR_MIN_OCCURRENCES <- 32L
 
-# How many reseeds anchor_sift_floor averages over when measuring the null's own spread.
-ANCHOR_SIFT_SEEDS <- 12L
+# How many reseeds orior_floor averages over when measuring the null's own spread.
+ORIOR_SEEDS <- 12L
 
 #' Population standard deviation, which is what the reference implementation uses.
 #'
@@ -33,7 +33,7 @@ ANCHOR_SIFT_SEEDS <- 12L
 #' reference's only with it. The departure would not show the wrong one: the live sequence and its
 #' shuffle hold the same count of each symbol, so the same number of gaps, and the factor cancels in
 #' every ratio. The floor's sd over seeds is where it would not cancel.
-anchor_sift_pstdev <- function(values) {
+orior_pstdev <- function(values) {
   count <- length(values)
   if (count < 1L) {
     return(NA_real_)
@@ -47,7 +47,7 @@ anchor_sift_pstdev <- function(values) {
 #' @param seats integer vector of symbols.
 #' @param min_occurrences symbols seen fewer times than this are dropped.
 #' @return named numeric vector, names being the symbols as characters.
-anchor_sift_dispersion <- function(seats, min_occurrences = ANCHOR_SIFT_MIN_OCCURRENCES) {
+orior_dispersion <- function(seats, min_occurrences = ORIOR_MIN_OCCURRENCES) {
   spots <- split(seq_along(seats), seats)
   out <- numeric(0)
   for (value in names(spots)) {
@@ -55,7 +55,7 @@ anchor_sift_dispersion <- function(seats, min_occurrences = ANCHOR_SIFT_MIN_OCCU
     if (length(where) < min_occurrences) next
     gaps <- diff(where)
     middle <- mean(gaps)
-    if (middle > 0) out[value] <- anchor_sift_pstdev(gaps) / middle
+    if (middle > 0) out[value] <- orior_pstdev(gaps) / middle
   }
   out
 }
@@ -70,16 +70,16 @@ anchor_sift_dispersion <- function(seats, min_occurrences = ANCHOR_SIFT_MIN_OCCU
 #' @param seed integer seed for the shuffle that builds the null.
 #' @param min_occurrences symbols seen fewer times than this are dropped.
 #' @return one number, or NA where fewer than four symbols qualify.
-anchor_sift_departure <- function(seats, seed = 0L,
-                                  min_occurrences = ANCHOR_SIFT_MIN_OCCURRENCES) {
+orior_departure <- function(seats, seed = 0L,
+                                  min_occurrences = ORIOR_MIN_OCCURRENCES) {
   counts <- table(seats)
-  live <- anchor_sift_dispersion(seats, min_occurrences)
+  live <- orior_dispersion(seats, min_occurrences)
   if (length(live) < 1L) {
     return(NA_real_)
   }
 
   set.seed(seed)
-  dead <- anchor_sift_dispersion(sample(seats), min_occurrences)
+  dead <- orior_dispersion(sample(seats), min_occurrences)
 
   shared <- intersect(names(live), names(dead))
   shared <- shared[live[shared] > 0]
@@ -106,23 +106,23 @@ anchor_sift_departure <- function(seats, seed = 0L,
 #' @param seats integer vector of symbols.
 #' @param seeds how many reseeds to average over.
 #' @return list with mean and sd of the departure across seeds.
-anchor_sift_floor <- function(seats, seeds = ANCHOR_SIFT_SEEDS) {
+orior_floor <- function(seats, seeds = ORIOR_SEEDS) {
   taken <- vapply(
     seq_len(seeds) - 1L,
-    function(one) anchor_sift_departure(seats, seed = one),
+    function(one) orior_departure(seats, seed = one),
     numeric(1)
   )
   taken <- taken[!is.na(taken)]
   # Population sd, matching the reference's statistics.pstdev. stats::sd divides by n-1 and
   # inflates the floor by sqrt(n/(n-1)), and the floor is what every other number is read against.
-  list(mean = mean(taken), sd = anchor_sift_pstdev(taken), n = length(taken))
+  list(mean = mean(taken), sd = orior_pstdev(taken), n = length(taken))
 }
 
 #' Convenience: read a text file as bytes and measure it.
 #'
 #' @param path file to read.
 #' @return the departure for that file's bytes.
-anchor_sift_file <- function(path) {
+orior_file <- function(path) {
   raw_bytes <- readBin(path, what = "raw", n = file.info(path)$size)
-  anchor_sift_departure(as.integer(raw_bytes))
+  orior_departure(as.integer(raw_bytes))
 }

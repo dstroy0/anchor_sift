@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Write the binary sound representation of every held recording.
@@ -35,7 +35,7 @@
 # entropy it can carry, with every state reachable. A recording that then used all of those states
 # evenly would be noise. The gap between that reference and what the recording actually does is the
 # structure in it, and it is measured with the same total variation and entropy the corpus work
-# uses, out of anchor_sift.py.
+# uses, out of orior.py.
 #
 # The support figure keeps the delta honest. A 24 bit field has 16.8 million states and a
 # twenty minute recording has 135 thousand frames. Most states are unreachable at this sample
@@ -121,7 +121,7 @@ sys.path.insert(
 )
 sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python", "instrument"))
 
-from anchor_sift import entropy, support  # noqa: E402
+from orior import entropy, support  # noqa: E402
 
 from perceived_sound import (
     PROSODY_BITS,
@@ -165,7 +165,7 @@ def recordings():
 def from_uniform(profile, width):
     """Total variation between an observed code distribution and the flat one over 2^width states.
 
-    Written out instead of handed to anchor_sift.distance, because the reference has 2^width cells
+    Written out instead of handed to orior.distance, because the reference has 2^width cells
     and building a dictionary that size to compare against costs more than the answer. The states
     nothing landed on each contribute their whole share of the flat distribution, the second term.
     """

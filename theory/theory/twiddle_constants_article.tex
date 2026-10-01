@@ -192,7 +192,7 @@ A modulus outside Proth's range, where \(k\) is not below \(2^n\), since the con
 
 \section{Reproduction}
 
-The certificate, both rejections and the half-order floor are reproduced by \texttt{examples/0\_experimental/ntt\_twiddle\_certificate.py} in the public \texttt{anchor\_sift} repository (\texttt{github.com/dstroy0/anchor\_sift}). It re-derives every modulus named here from the factorization of \(p-1\), refuses a composite of Proth shape and a false primitive-root claim by the same checks that pass the real constants, and exhibits a root of half the order passing every \(O(n)\) invariant while the order test alone separates it. It reads no corpus and runs on unbounded Python integers, and every verdict is an exact equality with the witness recorded beside it.
+The certificate, both rejections and the half-order floor are reproduced by \texttt{examples/0\_experimental/ntt\_twiddle\_certificate.py} in the public \texttt{orior} repository (\texttt{github.com/dstroy0/orior}). It re-derives every modulus named here from the factorization of \(p-1\), refuses a composite of Proth shape and a false primitive-root claim by the same checks that pass the real constants, and exhibits a root of half the order passing every \(O(n)\) invariant while the order test alone separates it. It reads no corpus and runs on unbounded Python integers, and every verdict is an exact equality with the witness recorded beside it.
 
 \begin{thebibliography}{9}
 

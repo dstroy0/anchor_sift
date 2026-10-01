@@ -27,7 +27,7 @@
 #
 # WHAT THIS DOES NOT REPLACE
 #
-# anchor_sift/maint/prose/claudese_distance.py is the better instrument for the register question and
+# orior/maint/prose/claudese_distance.py is the better instrument for the register question and
 # it existed before this file did. It has two poles, a human corpus and a page written deliberately
 # in the assistant register, and it places a file by which it sits nearer, with the margin reported
 # against a band measured at that file's own word count. That is a positive control, and this file

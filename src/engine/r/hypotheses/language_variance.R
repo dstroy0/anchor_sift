@@ -1,7 +1,7 @@
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Decide whether a language carries a constant, for Section 4.13 of theory/anchor_sift.
+# Decide whether a language carries a constant, for Section 4.13 of theory/orior.
 #
 #   Usage:  Rscript src/engine/r/hypotheses/language_variance.R [build/language_constant.csv]
 #

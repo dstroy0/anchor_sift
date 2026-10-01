@@ -1,11 +1,11 @@
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # The C implementation of the engine. It needs a C11 compiler: no ESP-IDF, no
 # device toolchain, no Python, and nothing from the vendored library.
 
 cmake_minimum_required(VERSION 3.16)
-project(anchor_sift_engine_c C)
+project(orior_engine_c C)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -13,8 +13,8 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(SIFT_WARNINGS $<$<C_COMPILER_ID:GNU,Clang>:-O2 -Wall -Wextra>)
 
 # the repository's root, two above this file: utils/bench/, utils/test/engine/ and LICENSES/ lie there
-if(NOT DEFINED ANCHOR_SIFT_ROOT)
-    get_filename_component(ANCHOR_SIFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../.." ABSOLUTE)
+if(NOT DEFINED ORIOR_ROOT)
+    get_filename_component(ORIOR_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../.." ABSOLUTE)
 endif()
 
 
@@ -37,20 +37,20 @@ if(ANCHOR_EXACT_DIGITS)
     target_compile_definitions(anchor_exact_portable PUBLIC ANCHOR_EXACT_DIGITS=${ANCHOR_EXACT_DIGITS}u)
 endif()
 
-set(ANCHOR_SIFT_SOURCES nbody/anchor_sift/anchor_sift_core.c nbody/anchor_sift/anchor_sift_steer.c
-    nbody/anchor_sift/anchor_sift_field.c nbody/anchor_sift/anchor_sift_steer_plan.c
-    nbody/anchor_sift/anchor_sift_steer_count.c nbody/anchor_sift/scan_portable.c)
-set(ANCHOR_SIFT_DEFINES "")
+set(ORIOR_SOURCES nbody/orior/orior_core.c nbody/orior/orior_steer.c
+    nbody/orior/orior_field.c nbody/orior/orior_steer_plan.c
+    nbody/orior/orior_steer_count.c nbody/orior/scan_portable.c)
+set(ORIOR_DEFINES "")
 
 
 include(CheckCCompilerFlag)
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
-    list(APPEND ANCHOR_SIFT_SOURCES nbody/anchor_sift/scan_avx2.c)
-    list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_AVX2=1)
+    list(APPEND ORIOR_SOURCES nbody/orior/scan_avx2.c)
+    list(APPEND ORIOR_DEFINES ANCHOR_STEER_HAVE_AVX2=1)
     if(MSVC)
-        set_source_files_properties(nbody/anchor_sift/scan_avx2.c PROPERTIES COMPILE_OPTIONS "/arch:AVX2")
+        set_source_files_properties(nbody/orior/scan_avx2.c PROPERTIES COMPILE_OPTIONS "/arch:AVX2")
     else()
-        set_source_files_properties(nbody/anchor_sift/scan_avx2.c PROPERTIES COMPILE_OPTIONS "-mavx2")
+        set_source_files_properties(nbody/orior/scan_avx2.c PROPERTIES COMPILE_OPTIONS "-mavx2")
     endif()
 
     # AVX-512 on the GCC and Clang builds that accept the flags. MSVC's AVX-512 handling differs and
@@ -59,19 +59,19 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
     if(NOT MSVC)
         check_c_compiler_flag("-mavx512f -mavx512bw" ANCHOR_STEER_CC_TAKES_AVX512)
         if(ANCHOR_STEER_CC_TAKES_AVX512)
-            list(APPEND ANCHOR_SIFT_SOURCES nbody/anchor_sift/scan_avx512.c)
-            list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_AVX512=1)
-            set_source_files_properties(nbody/anchor_sift/scan_avx512.c
+            list(APPEND ORIOR_SOURCES nbody/orior/scan_avx512.c)
+            list(APPEND ORIOR_DEFINES ANCHOR_STEER_HAVE_AVX512=1)
+            set_source_files_properties(nbody/orior/scan_avx512.c
                 PROPERTIES COMPILE_OPTIONS "-mavx512f;-mavx512bw")
         endif()
     endif()
 elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|armv[78].*)$")
-    list(APPEND ANCHOR_SIFT_SOURCES nbody/anchor_sift/scan_neon.c)
-    list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_NEON=1)
+    list(APPEND ORIOR_SOURCES nbody/orior/scan_neon.c)
+    list(APPEND ORIOR_DEFINES ANCHOR_STEER_HAVE_NEON=1)
     # NEON is part of the base aarch64 architecture and needs no flag there. A 32 bit ARM build does
     # need one, and asks for the softfp ABI's NEON.
     if(NOT CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
-        set_source_files_properties(nbody/anchor_sift/scan_neon.c PROPERTIES COMPILE_OPTIONS "-mfpu=neon")
+        set_source_files_properties(nbody/orior/scan_neon.c PROPERTIES COMPILE_OPTIONS "-mfpu=neon")
     endif()
 
     # SVE on the aarch64 compilers that accept it. No part here has SVE. This is an unrun arm the
@@ -79,43 +79,43 @@ elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64|armv[78].*)$")
     if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
         check_c_compiler_flag("-march=armv8.2-a+sve" ANCHOR_STEER_CC_TAKES_SVE)
         if(ANCHOR_STEER_CC_TAKES_SVE)
-            list(APPEND ANCHOR_SIFT_SOURCES nbody/anchor_sift/scan_sve.c)
-            list(APPEND ANCHOR_SIFT_DEFINES ANCHOR_STEER_HAVE_SVE=1)
-            set_source_files_properties(nbody/anchor_sift/scan_sve.c
+            list(APPEND ORIOR_SOURCES nbody/orior/scan_sve.c)
+            list(APPEND ORIOR_DEFINES ANCHOR_STEER_HAVE_SVE=1)
+            set_source_files_properties(nbody/orior/scan_sve.c
                 PROPERTIES COMPILE_OPTIONS "-march=armv8.2-a+sve")
         endif()
     endif()
 endif()
 
 
-add_library(anchor_sift_kernel STATIC ${ANCHOR_SIFT_SOURCES})
-target_include_directories(anchor_sift_kernel PUBLIC nbody/anchor_sift arithmetic/no_rounding)
-target_compile_definitions(anchor_sift_kernel PUBLIC ${ANCHOR_SIFT_DEFINES})
-target_link_libraries(anchor_sift_kernel PUBLIC anchor_exact_portable)
-target_compile_options(anchor_sift_kernel PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
+add_library(orior_kernel STATIC ${ORIOR_SOURCES})
+target_include_directories(orior_kernel PUBLIC nbody/orior arithmetic/no_rounding)
+target_compile_definitions(orior_kernel PUBLIC ${ORIOR_DEFINES})
+target_link_libraries(orior_kernel PUBLIC anchor_exact_portable)
+target_compile_options(orior_kernel PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
 
-add_library(anchor_sift_kernel_counted STATIC ${ANCHOR_SIFT_SOURCES})
-target_include_directories(anchor_sift_kernel_counted PUBLIC nbody/anchor_sift arithmetic/no_rounding)
-target_compile_definitions(anchor_sift_kernel_counted PUBLIC ${ANCHOR_SIFT_DEFINES}
-    ANCHOR_SIFT_COUNT_READS=1)
-target_link_libraries(anchor_sift_kernel_counted PUBLIC anchor_exact_portable)
-target_compile_options(anchor_sift_kernel_counted PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
+add_library(orior_kernel_counted STATIC ${ORIOR_SOURCES})
+target_include_directories(orior_kernel_counted PUBLIC nbody/orior arithmetic/no_rounding)
+target_compile_definitions(orior_kernel_counted PUBLIC ${ORIOR_DEFINES}
+    ORIOR_COUNT_READS=1)
+target_link_libraries(orior_kernel_counted PUBLIC anchor_exact_portable)
+target_compile_options(orior_kernel_counted PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
 
-# The shared libraries utils/test/python's graders load through ctypes. anchor_sift_host is the kernel's host arms with the
+# The shared libraries utils/test/python's graders load through ctypes. orior_host is the kernel's host arms with the
 # read counters, and the exact integer sources compiled into it. No static library has to be position independent;
-# on Windows utils/test/python/anchor_sift_probe.def names its exports. shift_agreement_host is shift_agreement.c alone.
-add_library(anchor_sift_host SHARED ${ANCHOR_SIFT_SOURCES} ${ANCHOR_EXACT_PORTABLE_SOURCES})
-target_include_directories(anchor_sift_host PRIVATE nbody/anchor_sift arithmetic/no_rounding)
-target_compile_definitions(anchor_sift_host PRIVATE ${ANCHOR_SIFT_DEFINES} ANCHOR_SIFT_COUNT_READS=1)
+# on Windows utils/test/python/orior_probe.def names its exports. shift_agreement_host is shift_agreement.c alone.
+add_library(orior_host SHARED ${ORIOR_SOURCES} ${ANCHOR_EXACT_PORTABLE_SOURCES})
+target_include_directories(orior_host PRIVATE nbody/orior arithmetic/no_rounding)
+target_compile_definitions(orior_host PRIVATE ${ORIOR_DEFINES} ORIOR_COUNT_READS=1)
 if(ANCHOR_EXACT_LIMBS)
-    target_compile_definitions(anchor_sift_host PRIVATE ANCHOR_EXACT_LIMBS=${ANCHOR_EXACT_LIMBS}u)
+    target_compile_definitions(orior_host PRIVATE ANCHOR_EXACT_LIMBS=${ANCHOR_EXACT_LIMBS}u)
 endif()
 if(ANCHOR_EXACT_DIGITS)
-    target_compile_definitions(anchor_sift_host PRIVATE ANCHOR_EXACT_DIGITS=${ANCHOR_EXACT_DIGITS}u)
+    target_compile_definitions(orior_host PRIVATE ANCHOR_EXACT_DIGITS=${ANCHOR_EXACT_DIGITS}u)
 endif()
-target_compile_options(anchor_sift_host PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
+target_compile_options(orior_host PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
 if(WIN32)
-    target_sources(anchor_sift_host PRIVATE ${ANCHOR_SIFT_ROOT}/utils/test/python/anchor_sift_probe.def)
+    target_sources(orior_host PRIVATE ${ORIOR_ROOT}/utils/test/python/orior_probe.def)
 endif()
 
 add_library(shift_agreement_host SHARED analysis/shift_agreement/shift_agreement.c)
@@ -176,8 +176,8 @@ target_compile_options(anchor_render PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARN
 set_target_properties(anchor_render PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 if(CMAKE_CUDA_COMPILER)
-    foreach(kernel anchor_sift_kernel anchor_sift_kernel_counted)
-        target_sources(${kernel} PRIVATE src/cu/engine/nbody/anchor_sift/scan.cu)
+    foreach(kernel orior_kernel orior_kernel_counted)
+        target_sources(${kernel} PRIVATE src/cu/engine/nbody/orior/scan.cu)
         target_compile_definitions(${kernel} PUBLIC ANCHOR_STEER_HAVE_CUDA=1)
     endforeach()
 endif()
@@ -250,68 +250,68 @@ else()
     target_link_libraries(anchor_exact_arms INTERFACE anchor_exact_portable)
 endif()
 
-add_executable(bench_exact_arms ${ANCHOR_SIFT_ROOT}/utils/bench/bench_exact_arms.c)
+add_executable(bench_exact_arms ${ORIOR_ROOT}/utils/bench/bench_exact_arms.c)
 target_link_libraries(bench_exact_arms PRIVATE anchor_exact_arms anchor_exact_portable)
 target_compile_options(bench_exact_arms PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_exact ${ANCHOR_SIFT_ROOT}/utils/bench/bench_exact.c)
+add_executable(bench_exact ${ORIOR_ROOT}/utils/bench/bench_exact.c)
 target_link_libraries(bench_exact PRIVATE anchor_exact_portable)
 target_compile_options(bench_exact PRIVATE ${SIFT_WARNINGS})
 
-add_library(bench_corpora STATIC ${ANCHOR_SIFT_ROOT}/utils/bench/bench_corpora.c)
-target_include_directories(bench_corpora PUBLIC ${ANCHOR_SIFT_ROOT}/bench)
+add_library(bench_corpora STATIC ${ORIOR_ROOT}/utils/bench/bench_corpora.c)
+target_include_directories(bench_corpora PUBLIC ${ORIOR_ROOT}/utils/bench)
 target_compile_options(bench_corpora PRIVATE ${SIFT_WARNINGS})
 
 # Reads, which travel between machines and are what an asymptotic claim is made of.
-add_executable(bench_scaling_reads ${ANCHOR_SIFT_ROOT}/utils/bench/bench_scaling.c)
-target_link_libraries(bench_scaling_reads PRIVATE anchor_sift_kernel_counted bench_corpora)
+add_executable(bench_scaling_reads ${ORIOR_ROOT}/utils/bench/bench_scaling.c)
+target_link_libraries(bench_scaling_reads PRIVATE orior_kernel_counted bench_corpora)
 target_compile_options(bench_scaling_reads PRIVATE ${SIFT_WARNINGS})
 
 # Cycles, which belong to the machine that produced them and are for the dispatch decision alone.
-add_executable(bench_scaling_cycles ${ANCHOR_SIFT_ROOT}/utils/bench/bench_scaling.c)
-target_link_libraries(bench_scaling_cycles PRIVATE anchor_sift_kernel bench_corpora)
+add_executable(bench_scaling_cycles ${ORIOR_ROOT}/utils/bench/bench_scaling.c)
+target_link_libraries(bench_scaling_cycles PRIVATE orior_kernel bench_corpora)
 target_compile_options(bench_scaling_cycles PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_dispatch ${ANCHOR_SIFT_ROOT}/utils/bench/bench_dispatch.c)
-target_link_libraries(bench_dispatch PRIVATE anchor_sift_kernel bench_corpora)
+add_executable(bench_dispatch ${ORIOR_ROOT}/utils/bench/bench_dispatch.c)
+target_link_libraries(bench_dispatch PRIVATE orior_kernel bench_corpora)
 target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
 
-# The engine's tests live in the anchor_sift tree this was forked from; a fork without them builds without them.
-set(ANCHOR_SIFT_TESTS "${ANCHOR_SIFT_ROOT}/utils/test/engine/nbody/anchor_sift")
-if(EXISTS "${ANCHOR_SIFT_TESTS}/test_steer_checks.c")
-    add_executable(test_steer ${ANCHOR_SIFT_TESTS}/test_steer_checks.c ${ANCHOR_SIFT_TESTS}/test_steer_grading.c
-        ${ANCHOR_SIFT_TESTS}/test_steer_projection.c)
-    target_link_libraries(test_steer PRIVATE anchor_sift_kernel bench_corpora)
-    target_compile_definitions(test_steer PRIVATE ANCHOR_SIFT_SOURCE_ROOT="${ANCHOR_SIFT_ROOT}")
-    add_executable(test_adversarial ${ANCHOR_SIFT_TESTS}/test_adversarial_cases.c
-        ${ANCHOR_SIFT_TESTS}/test_adversarial_plans.c ${ANCHOR_SIFT_TESTS}/test_adversarial_joint.c
-        ${ANCHOR_SIFT_TESTS}/test_adversarial_projection.c)
-    target_link_libraries(test_adversarial PRIVATE anchor_sift_kernel)
+# The engine's tests live in the orior tree this was forked from; a fork without them builds without them.
+set(ORIOR_TESTS "${ORIOR_ROOT}/utils/test/engine/nbody/orior")
+if(EXISTS "${ORIOR_TESTS}/test_steer_checks.c")
+    add_executable(test_steer ${ORIOR_TESTS}/test_steer_checks.c ${ORIOR_TESTS}/test_steer_grading.c
+        ${ORIOR_TESTS}/test_steer_projection.c)
+    target_link_libraries(test_steer PRIVATE orior_kernel bench_corpora)
+    target_compile_definitions(test_steer PRIVATE ORIOR_SOURCE_ROOT="${ORIOR_ROOT}")
+    add_executable(test_adversarial ${ORIOR_TESTS}/test_adversarial_cases.c
+        ${ORIOR_TESTS}/test_adversarial_plans.c ${ORIOR_TESTS}/test_adversarial_joint.c
+        ${ORIOR_TESTS}/test_adversarial_projection.c)
+    target_link_libraries(test_adversarial PRIVATE orior_kernel)
 endif()
 
-add_executable(bench_raster ${ANCHOR_SIFT_ROOT}/utils/bench/bench_raster.c)
-target_link_libraries(bench_raster PRIVATE anchor_raster anchor_sift_kernel)
+add_executable(bench_raster ${ORIOR_ROOT}/utils/bench/bench_raster.c)
+target_link_libraries(bench_raster PRIVATE anchor_raster orior_kernel)
 target_compile_options(bench_raster PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_steer_arms ${ANCHOR_SIFT_ROOT}/utils/bench/bench_steer_arms.c)
-target_link_libraries(bench_steer_arms PRIVATE anchor_sift_kernel)
+add_executable(bench_steer_arms ${ORIOR_ROOT}/utils/bench/bench_steer_arms.c)
+target_link_libraries(bench_steer_arms PRIVATE orior_kernel)
 target_compile_options(bench_steer_arms PRIVATE ${SIFT_WARNINGS})
 
 
-add_executable(bench_sigma ${ANCHOR_SIFT_ROOT}/utils/bench/bench_sigma.c)
-target_link_libraries(bench_sigma PRIVATE anchor_sift_kernel)
+add_executable(bench_sigma ${ORIOR_ROOT}/utils/bench/bench_sigma.c)
+target_link_libraries(bench_sigma PRIVATE orior_kernel)
 target_compile_options(bench_sigma PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_coherence ${ANCHOR_SIFT_ROOT}/utils/bench/bench_coherence.c)
-target_link_libraries(bench_coherence PRIVATE anchor_sift_kernel_counted bench_corpora)
+add_executable(bench_coherence ${ORIOR_ROOT}/utils/bench/bench_coherence.c)
+target_link_libraries(bench_coherence PRIVATE orior_kernel_counted bench_corpora)
 target_compile_options(bench_coherence PRIVATE ${SIFT_WARNINGS})
 
-if(EXISTS "${ANCHOR_SIFT_ROOT}/utils/test/engine/arithmetic/no_rounding/test_arm_agreement.c")
-    add_executable(test_arm_agreement "${ANCHOR_SIFT_ROOT}/utils/test/engine/arithmetic/no_rounding/test_arm_agreement.c")
-    target_link_libraries(test_arm_agreement PRIVATE anchor_sift_kernel)
+if(EXISTS "${ORIOR_ROOT}/utils/test/engine/arithmetic/no_rounding/test_arm_agreement.c")
+    add_executable(test_arm_agreement "${ORIOR_ROOT}/utils/test/engine/arithmetic/no_rounding/test_arm_agreement.c")
+    target_link_libraries(test_arm_agreement PRIVATE orior_kernel)
     target_compile_options(test_arm_agreement PRIVATE ${SIFT_WARNINGS})
-    add_executable(test_o2_spawn "${ANCHOR_SIFT_ROOT}/utils/test/engine/nbody/anchor_sift/test_o2_spawn.c")
-    target_link_libraries(test_o2_spawn PRIVATE anchor_sift_kernel)
+    add_executable(test_o2_spawn "${ORIOR_ROOT}/utils/test/engine/nbody/orior/test_o2_spawn.c")
+    target_link_libraries(test_o2_spawn PRIVATE orior_kernel)
     target_compile_options(test_o2_spawn PRIVATE ${SIFT_WARNINGS})
 endif()
 
@@ -322,7 +322,7 @@ int main(void) { double _Complex held = 1.0 + (2.0 * I); return (int)creal(held 
     ANCHOR_CC_HAS_COMPLEX)
 set(ANCHOR_UNTIMED_BENCHES bench_scaling_reads bench_scaling_cycles)
 if(ANCHOR_CC_HAS_COMPLEX)
-    add_executable(bench_lattice ${ANCHOR_SIFT_ROOT}/utils/bench/bench_lattice.c)
+    add_executable(bench_lattice ${ORIOR_ROOT}/utils/bench/bench_lattice.c)
     target_compile_options(bench_lattice PRIVATE ${SIFT_WARNINGS})
     if(NOT WIN32)
         target_link_libraries(bench_lattice PRIVATE m)

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 r"""Print every line citation a research paper change added beside the lines it names, at the commit it is pinned to.
 
-    python tools/research_paper/check_citations.py --since 5ce1632 --source ../anchor_sift --pin 1044ca6 \
+    python tools/research_paper/check_citations.py --since 5ce1632 --source ../orior --pin 1044ca6 \
         --pin-prefix bench/driver/=d65d219 \
-        --alias anchor_sift.h=src/engine/c/engine/anchor_sift.h \
-        --alias anchor_sift.c=src/engine/c/engine/anchor_sift.c \
-        --alias .c=src/engine/c/engine/anchor_sift.c \
-        --alias chapter_anchor_sift_workbook.tex=theory/workbook/chapters/chapter_anchor_sift_workbook.tex \
+        --alias orior.h=src/engine/c/engine/orior.h \
+        --alias orior.c=src/engine/c/engine/orior.c \
+        --alias .c=src/engine/c/engine/orior.c \
+        --alias chapter_orior_workbook.tex=theory/workbook/chapters/chapter_orior_workbook.tex \
         --local README.md PUBLIC/delta_null
 
 A research paper cites another repository by line, as \texttt{path:N} or \texttt{path:N-M}, and a bare \texttt{:N} on the

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 """
-harness.py - the one entry point for anchor_sift's test suites.
+harness.py - the one entry point for orior's test suites.
 
 utils/test/test_matrix.json is the source of truth: one env per suite, each naming the script that
 builds and runs it. Every build and run is a tessera job: `run` hands each suite's script to
@@ -11,7 +11,7 @@ tessera_run, which admits it on the device's daemon, and the daemon decides what
     harness.py run                        every suite in the matrix
     harness.py run codegen_device cell    those suites alone
     harness.py run --report-out PATH      and write the run's summary as a Markdown table
-    harness.py run --at HASH              the suites of anchor_sift as it was at a commit
+    harness.py run --at HASH              the suites of orior as it was at a commit
     harness.py run --idle SECONDS         a suite silent this long once admitted is hung (1800; 0 never)
 
 --at exports the commit once, with git archive, to build/trees/<commit> beside the repository
@@ -454,7 +454,7 @@ def wsl_path(path):
 
 
 def pinned_root(commit):
-    """anchor_sift as it was at a commit, exported once to build/trees/<commit> (fetched from origin where this clone
+    """orior as it was at a commit, exported once to build/trees/<commit> (fetched from origin where this clone
     does not hold it), with a .pinned file naming the commit, the compile cache's key for it. None where git
     cannot name the commit."""
     found = subprocess.run(["git", "-C", ROOT, "rev-parse", "--verify", "--quiet", commit + "^{commit}"],
@@ -749,7 +749,7 @@ def build_parser():
     p.add_argument("-j", "--jobs", type=int, default=os.cpu_count() or 4, help="how many suites wait on the daemon at once")
     p.add_argument("-v", "--verbose", action="store_true", help="print every suite's log path, not only the ones that did not pass")
     p.add_argument("--report-out", metavar="PATH", help="write the run's summary here")
-    p.add_argument("--at", metavar="HASH", help="run the suites of anchor_sift as it was at this commit (fetched from origin if need be)")
+    p.add_argument("--at", metavar="HASH", help="run the suites of orior as it was at this commit (fetched from origin if need be)")
     p.add_argument("--idle", type=int, default=IDLE_SECONDS, metavar="SECONDS", help="end a suite whose log has not grown this long once admitted (0: never)")
     p.set_defaults(fn=cmd_run)
     return ap

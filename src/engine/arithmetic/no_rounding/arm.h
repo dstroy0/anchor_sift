@@ -1,4 +1,4 @@
-/* anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+/* orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
  * SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
  *
  * Every use falls under AGPL-3.0-or-later unless you hold explicit permission, which is either a
@@ -10,7 +10,7 @@
  * @author dstroy0 (Douglas Quigg (dstroy0) <dquigg123@gmail.com>
  *
  * @note Every engine returns the same counts. Where two disagree one of them has a defect, and
- *       nothing about the difference is a tradeoff. This is the same contract AnchorSiftEngine
+ *       nothing about the difference is a tradeoff. This is the same contract OriorEngine
  *       carries for the search kernel and it is kept for the same reason.
  * @note The portable arm is the reference. It is always present, uses no intrinsic and no compiler
  *       extension, and every other arm is graded against it on the same data.

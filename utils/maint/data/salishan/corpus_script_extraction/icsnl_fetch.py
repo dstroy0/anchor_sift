@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Take the papers from the Salish proceedings that bear on what this work found, for Section 4.13 of
-# theory/workbooks/anchor_sift.
+# theory/workbooks/orior.
 #
 #   Usage:  python maint/data/salishan/corpus_script_extraction/icsnl_fetch.py [word] [word] ...
 #
@@ -43,7 +43,7 @@ from icsnl_probe import extract  # noqa: E402
 from oracle.language.glosses import harvest  # noqa: E402
 
 PAPERS = os.path.join(ROOT, "build", "papers")
-AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
+AGENT = {"User-Agent": "orior-research/1.0 (linguistic invariance study)"}
 
 INDEX = os.path.join(PAPERS, "icsnl_index.tsv")
 PAUSE = 0.4

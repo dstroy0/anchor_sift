@@ -21,7 +21,7 @@ picked the subset, whatever the alphabet is, and whether or not positions are or
 each probe compares symbols, or ranks taken in one population with the pattern's. The converse fails for every proper subset. The exact compare is irreducible and every
 arm has to verify what its anchors admitted. Soundness is free; the reading is not.
 
-The search half is implemented in anchor\_sift at commit \texttt{1044ca6}, and Section 2.7 of the
+The search half is implemented in orior at commit \texttt{1044ca6}, and Section 2.7 of the
 first chapter states its guarantees with lines and conditions: exact counts for any legal probe set
 on byte fields, and on rank fields of 256 classes or fewer under a transitive oracle; greedy
 placement within \(1 - 1/e\) of the best on alignments rejected when every alignment is scored
@@ -50,8 +50,8 @@ most disordered version of itself are the same cohesive coherent object and shar
 identity. No bound built from a histogram can separate a structured domain from a rearrangement of
 the same symbols.
 
-What follows is the most basic form of the algorithm. See the anchor\_sift engine workbook,
-\texttt{theory/\allowbreak{}workbook/\allowbreak{}chapters/\allowbreak{}chapter\_\allowbreak{}anchor\_\allowbreak{}sift\_\allowbreak{}workbook.\allowbreak{}tex}
+What follows is the most basic form of the algorithm. See the orior engine workbook,
+\texttt{theory/\allowbreak{}workbook/\allowbreak{}chapters/\allowbreak{}chapter\_\allowbreak{}orior\_\allowbreak{}workbook.\allowbreak{}tex}
 at commit \texttt{1044ca6}, and \texttt{docs/\allowbreak{}steering.md} in the same tree, for other
 arrangements. We will work through the method as it runs, and talk through its
 vocabulary, including new or nonstandard terms.

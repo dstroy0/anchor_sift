@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Fetch the molecular formulae of the first several thousand PubChem compounds, one wide set.
@@ -54,7 +54,7 @@ def gather(out):
     for start in range(1, TOP_CID + 1, CHUNK):
         identifiers = ",".join(str(cid) for cid in range(start, min(start + CHUNK, TOP_CID + 1)))
         address = ENDPOINT % identifiers
-        request = urllib.request.Request(address, headers={"User-Agent": "anchor_sift/molecules"})
+        request = urllib.request.Request(address, headers={"User-Agent": "orior/molecules"})
         try:
             with urllib.request.urlopen(request, timeout=60) as response:
                 text = response.read().decode("utf-8", errors="replace")

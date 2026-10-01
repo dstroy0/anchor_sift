@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # A deposited protein model read three ways, because two of the three threw away what they measured.
@@ -26,7 +26,7 @@ import numpy
 from representation.levels import to_levels
 
 # Sent with the download, since a public archive is entitled to know who is asking.
-AGENT = {"User-Agent": "anchor-sift-research/1.0"}
+AGENT = {"User-Agent": "orior-research/1.0"}
 
 # The three backbone atoms of a residue, in the order the chain is assembled.
 BACKBONE = ("N", "CA", "C")

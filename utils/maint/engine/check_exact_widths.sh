@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Grade the exact integer at every width a build may select, 1 limb to 32768, which is 32 bits to
@@ -22,7 +22,7 @@
 #   steer   test_steer, the engine's consumer of the exact integer
 #
 # The engine itself needs 8 limbs. Its dispatch rule reaches 143 bits on a 64 bit census, and
-# src/engine/nbody/anchor_sift/anchor_sift_internal.h errors on a narrower width at compile time. Below 8 limbs the
+# src/engine/nbody/orior/orior_internal.h errors on a narrower width at compile time. Below 8 limbs the
 # steer column reads "-", since there is no engine at that width to grade. The exact integer is graded at
 # every width regardless.
 #

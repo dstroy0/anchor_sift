@@ -131,7 +131,7 @@ def built_control(kind, length=2_000_000, period=8):
 
 def main():
     root = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(
-        "C:/Users/Douglas/Desktop/git_project/anchor_sift/build/corpora")
+        "C:/Users/Douglas/Desktop/git_project/orior/build/corpora")
 
     print("=" * 96)
     print("  Which linear language has grip on natural data")

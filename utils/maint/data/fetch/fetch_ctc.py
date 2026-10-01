@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Fetch the Cell Tracking Challenge datasets for theory/workbooks/cell_tracking.
@@ -20,7 +20,7 @@
 # not carried here. What the repository keeps is this manifest.
 #
 # WHY THESE DATASETS AND NOT A LEADERBOARD. The permutation null measure carries most of the
-# findings in this work and has no positive control from outside it, which theory/workbooks/anchor_sift calls the
+# findings in this work and has no positive control from outside it, which theory/workbooks/orior calls the
 # largest single gap in the work. The shift agreement detector has three, all from published crystal
 # cell edges. These datasets ship published ground truth tracking annotations, a
 # positive control: an answer that existed before the measurement and was not supplied by it.
@@ -45,7 +45,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 
-# repos/external/datasets, which is three levels above this repository: anchor_sift sits in
+# repos/external/datasets, which is three levels above this repository: orior sits in
 # public/, public/ in owned/, owned/ in repos/, and external/ is owned/'s sibling. Douglas created
 # it on 2026-09-15 and FIRST_OBJECTIVES item 19 calls it "external datasets/".
 #
@@ -60,7 +60,7 @@ OUT = os.path.join(OUT, "external", "datasets")
 
 BASE = "https://data.celltrackingchallenge.net"
 
-AGENT = {"User-Agent": "anchor-sift-research/1.0"}
+AGENT = {"User-Agent": "orior-research/1.0"}
 
 # name, dimensions, megabytes training, megabytes test, segmentation reference, what it holds.
 # Sizes are the ones the challenge prints beside each link, read from the live pages on 2026-09-15.

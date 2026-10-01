@@ -341,7 +341,7 @@ The Rice coder's own numbers are scale debts in the engine table's audit: `COMPR
 
 ## Built in the engine, not yet in the crystal path
 
-Each part is in `anchor_sift/src/engine` at 1948ae1, with its proof in [the engine ledger](../engine/ledger.md) or [engine_table.md](../engine/engine_table.md). Today a crystal's size owes nothing to any of them.
+Each part is in `orior/src/engine` at 1948ae1, with its proof in [the engine ledger](../engine/ledger.md) or [engine_table.md](../engine/engine_table.md). Today a crystal's size owes nothing to any of them.
 
 | part | what it does toward the floor | proof | status |
 |---|---|---|---|

@@ -264,7 +264,7 @@ its two tessera checks:
 | chaitin_omega (L 16, on the engine) | 30,256 | 286,425,088 | 16, 0 failed |
 
 Nothing in the repository loads the engine DLL (`build_engine.sh` builds it and nothing calls it), and there is no
-other caller to submit. `cell_tracking/src/cell_shift.c` runs on anchor_sift's engine, not this one.
+other caller to submit. `cell_tracking/src/cell_shift.c` runs on orior's engine, not this one.
 
 ## Host jobs: the host's processors
 

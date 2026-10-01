@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Verify that what build/ reaches is the corpus the signature covers.
@@ -108,17 +108,17 @@ WANTED = (
 # recording as uninventoried.
 MANIFESTS = ("MANIFEST.tsv", "AUDIO_MANIFEST.tsv")
 
-BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
+BYPASS_ENV = "ORIOR_BYPASS"
 
 
 def private_root():
     """The closed corpus, taken from the first of three places that has it.
 
-    ANCHOR_SIFT_PRIVATE wins, for a checkout that keeps it somewhere of its own. Then the clone
+    ORIOR_PRIVATE wins, for a checkout that keeps it somewhere of its own. Then the clone
     get_deps leaves under deps/, the route onto a machine that only consumes it. Then the authoring
     copy beside this checkout, which is where it is edited and signed before being pushed anywhere.
     """
-    named = os.environ.get("ANCHOR_SIFT_PRIVATE")
+    named = os.environ.get("ORIOR_PRIVATE")
     if named:
         return os.path.abspath(named)
     for candidate in (
@@ -182,7 +182,7 @@ def main():
 
     out.write("\n  %s\n" % source.replace("\\", "/"))
     if not os.path.isdir(source):
-        out.write("  not there. Clone the closed corpus, or set ANCHOR_SIFT_PRIVATE.\n")
+        out.write("  not there. Clone the closed corpus, or set ORIOR_PRIVATE.\n")
         out.write(
             "  Everything here that does not read a paper or a table still runs.\n\n"
         )

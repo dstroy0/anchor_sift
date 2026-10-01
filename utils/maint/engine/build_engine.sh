@@ -159,10 +159,10 @@ fi
 # definition and the driver builds and runs here.
 #
 # anchor_steer and anchor_steer_arms USED TO BE ON THIS LIST and no longer exist. Both folded into
-# anchor_sift_kernel, the whole engine in one translation unit.
+# orior_kernel, the whole engine in one translation unit.
 echo "[*] building"
-for target in anchor_sift_kernel anchor_sift_kernel_counted anchor_raster anchor_render \
-              anchor_exact_portable anchor_sift_host shift_agreement_host \
+for target in orior_kernel orior_kernel_counted anchor_raster anchor_render \
+              anchor_exact_portable orior_host shift_agreement_host \
               test_steer test_adversarial test_arm_agreement bench_steer_arms bench_raster \
               bench_exact_arms bench_exact bench_dispatch bench_coherence \
               bench_scaling_reads bench_scaling_cycles; do
@@ -241,8 +241,8 @@ python_grader()
 python_grader exact_test.py ANCHOR_BENCH_EXACT bench_exact.exe bench_exact
 python_grader render_test.py ANCHOR_RENDER_LIB anchor_render.dll libanchor_render.dll libanchor_render.so \
     libanchor_render.dylib
-python_grader sift_test.py ANCHOR_SIFT_LIB anchor_sift_host.dll libanchor_sift_host.dll libanchor_sift_host.so \
-    libanchor_sift_host.dylib
+python_grader sift_test.py ORIOR_LIB orior_host.dll liborior_host.dll liborior_host.so \
+    liborior_host.dylib
 python_grader shift_agreement_test.py ANCHOR_SHIFT_LIB shift_agreement_host.dll libshift_agreement_host.dll \
     libshift_agreement_host.so libshift_agreement_host.dylib
 

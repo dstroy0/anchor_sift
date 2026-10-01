@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Pull down a volume of the Salish and neighboring languages proceedings and find what it documents
-# about morphology, for Section 4.13 of theory/workbooks/anchor_sift.
+# about morphology, for Section 4.13 of theory/workbooks/orior.
 #
 #   Usage:  python maint/data/salishan/corpus_script_extraction/icsnl_probe.py [url] [name]
 #
@@ -35,7 +35,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 PAPERS = os.path.join(ROOT, "build", "papers")
-AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
+AGENT = {"User-Agent": "orior-research/1.0 (linguistic invariance study)"}
 
 VOLUME = ("https://static1.squarespace.com/static/5e0ee192d258d6433fe709b4/t/"
           "5e12c1f508c15a57c8655ca2/1578287642070/ICSNL2016-fullonline.pdf")

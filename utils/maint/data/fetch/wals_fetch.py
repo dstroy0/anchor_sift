@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Fetch the World Atlas of Language Structures, which lets a claim about many languages be checked
-# against many languages, for Section 4.13 of theory/workbooks/anchor_sift.
+# against many languages, for Section 4.13 of theory/workbooks/orior.
 #
 #   Usage:  python maint/data/fetch/wals_fetch.py
 #
@@ -37,7 +37,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 WALS = os.path.join(ROOT, "build", "wals")
-AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic typology study)"}
+AGENT = {"User-Agent": "orior-research/1.0 (linguistic typology study)"}
 
 BASE = "https://raw.githubusercontent.com/cldf-datasets/wals/master/cldf"
 TABLES = ("languages.csv", "parameters.csv", "codes.csv", "values.csv")

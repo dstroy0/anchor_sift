@@ -1,4 +1,4 @@
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Builds the site from docs/ and publishes it to GitHub Pages.
@@ -7,7 +7,7 @@
 # Until that is set the build succeeds and the deploy step fails, the failure mode to
 # expect on the first run.
 #
-# The site then lands at https://dstroy0.github.io/anchor_sift/
+# The site then lands at https://dstroy0.github.io/orior/
 
 name: docs
 

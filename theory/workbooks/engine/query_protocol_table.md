@@ -5,7 +5,7 @@
 
 ## The rule the protocol is held to
 
-**Gate, then rank. Never one score.** A relation holds or it does not, and that answer carries no noise. A cost is measured and every cost carries noise. The gate decides which candidates are admissible and the rank orders whatever survives, and the two are never added together. Kept apart, a noisy cost can cost speed and can never cost correctness. The engine already holds this rule in its own descent: survival is a conjunction, order cannot change a conjunction, and a planner that steers badly costs speed and never a wrong survivor (`src/engine/nbody/anchor_sift/anchor_sift_descent.h`).
+**Gate, then rank. Never one score.** A relation holds or it does not, and that answer carries no noise. A cost is measured and every cost carries noise. The gate decides which candidates are admissible and the rank orders whatever survives, and the two are never added together. Kept apart, a noisy cost can cost speed and can never cost correctness. The engine already holds this rule in its own descent: survival is a conjunction, order cannot change a conjunction, and a planner that steers badly costs speed and never a wrong survivor (`src/engine/nbody/orior/orior_descent.h`).
 
 **Steer on what is known to be true.** Every relation the ladder holds is arithmetic every system that computes agrees about, and the host computes it. The gate is planned against that ground truth on the host, and a target is asked only the cases the plan placed.
 

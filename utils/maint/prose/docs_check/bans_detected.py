@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # The tiers a detector found after the ones a person found, read back out of marked passages.
@@ -184,7 +184,7 @@ DETECTED = (
     #
     # ONE AUTHOR. There are no other contributors to this tree or to theory/, only the author and
     # the prior art. Prose that credits an observation to a session, a peer session, the theorist,
-    # a specialist, the project architect or anchor_sift as a person presents one author's work as
+    # a specialist, the project architect or orior as a person presents one author's work as
     # a team's. code-documentation:141 bans that register in a file a person wrote about their own
     # work, and naming the run or the tool that produced a sentence is the same register. State the
     # observation as the author's and drop the carrier.
@@ -194,8 +194,8 @@ DETECTED = (
     # pattern here needs a second word that turns the session into an agent: `a later session`,
     # `in one session`, `this session found`, `reported by the crystallography session`.
     #
-    # The same holds for anchor_sift. `anchor_sift's run` and `anchor_sift's 54-bit run` name this
-    # repository's own measurement and stay. `anchor_sift's reading` credits a reader and goes.
+    # The same holds for orior. `orior's run` and `orior's 54-bit run` name this
+    # repository's own measurement and stay. `orior's reading` credits a reader and goes.
     #
     # FOUR SHAPES MUST NOT BE ADDED: `handoff`, `handed off`, `a peer's` and `the specialist`, and
     # neither may bare `this session`. Each of them reaches sentences that credit nobody.
@@ -212,10 +212,10 @@ DETECTED = (
     r"\blead of the private\b",
     r"\b(relayed|reported|flagged|found|caught|reproduced) by (the |a )?(\w+ )?(session|peer"
     r"|theorist|writer|specialist|architect)\b",
-    r"\b(relayed|reported|flagged|found|caught|written) by anchor_sift\b",
-    r"\banchor_sift['’]s (reading|framing|bounds?|why|formalization|hand conversion)\b",
-    r"\b(agreed with|per) anchor_sift\b",
-    r"\banchor_sift (confirmed|checked|changed|gave|framed)\b",
+    r"\b(relayed|reported|flagged|found|caught|written) by orior\b",
+    r"\borior['’]s (reading|framing|bounds?|why|formalization|hand conversion)\b",
+    r"\b(agreed with|per) orior\b",
+    r"\borior (confirmed|checked|changed|gave|framed)\b",
     r"\bbiohub-cell-tracking-\d+\b",
     r"\bleaderboard disruptor\b",
 )

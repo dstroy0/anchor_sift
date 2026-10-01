@@ -12,7 +12,7 @@ Each block is a WORD, the nonce followed by its hash. The ALPHABET is the sub-pa
 built from, the length-L windows that appear across the corpus. A word web joins two words that share
 a RARE sub-pattern, one carried by only a few words, because a common one joins everybody and says
 nothing. The web is a graph, and its algebraic topology begins with H0, the connected components: the
-same object anchor_sift builds when it takes the transitive closure of a relation into classes.
+same object orior builds when it takes the transitive closure of a relation into classes.
 
 THE MEASURE
 

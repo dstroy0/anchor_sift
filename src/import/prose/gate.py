@@ -20,7 +20,7 @@ word, so three paths in gives two files checked.
 `prose_only` needs no change to handle them. It names `.md`, `.tex` and `.py` and falls through to
 the C comment branch for everything else, which is already correct for CUDA. Only the tuple stands
 in the way, so this extends the tuple in memory for the length of the run and touches nothing on
-disk. The finding belongs upstream in `anchor_sift/maint/prose/docs_check.py`, where one line adds
+disk. The finding belongs upstream in `orior/maint/prose/docs_check.py`, where one line adds
 `.cu` for every tree at once, and it is recorded as owed there. This is the local stand-in and it
 should be deleted when that lands.
 

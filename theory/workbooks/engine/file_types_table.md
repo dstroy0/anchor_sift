@@ -1,7 +1,7 @@
 # Engine file types
 
 Every file extension the engine and its projects write or read. A new extension is Doug's to name. Before one is
-proposed, it is checked against this table and against the whole biohub tree, anchor_sift_python included.
+proposed, it is checked against this table and against the whole biohub tree, orior_python included.
 
 ## In use
 

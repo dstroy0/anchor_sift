@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # The registry of the mathematics this work rests on, and what is used here without a reference.
@@ -13,7 +13,7 @@
 #
 # --check errors on a commit two ways: a name used here with no row, and the closed repository absent
 # so the question cannot be asked at all. The second one catches everybody outside this work, and
-# the flag is there for them. ANCHOR_SIFT_BYPASS=1 carries it into a commit hook, where nobody is
+# the flag is there for them. ORIOR_BYPASS=1 carries it into a commit hook, where nobody is
 # typing arguments. A bypass says so in the output every time and never changes the registry.
 #
 # WHY A REGISTRY AND NOT A COMMENT
@@ -134,7 +134,7 @@ NAME = "SOURCES.tsv"
 
 # The one way past the gate. A flag reaches the tool when a person runs it, and the variable is how
 # the same flag reaches it from inside a commit hook, where nobody is typing arguments.
-BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
+BYPASS_ENV = "ORIOR_BYPASS"
 FIELDS = (
     "key",
     "bucket",
@@ -526,9 +526,9 @@ def write_registry(root, rows, out):
         one for one in rows.values() if not (one["author"] or one["identifier"])
     ]
     with io.open(target, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write("# The sources the anchor sift measurements are built on.\n")
+        handle.write("# The sources the orior measurements are built on.\n")
         handle.write(
-            "# Entered by utils/maint/citations/citations.py --seed in anchor_sift, which writes\n"
+            "# Entered by utils/maint/citations/citations.py --seed in orior, which writes\n"
         )
         handle.write(
             "# the key and the use counts and never writes a bibliographic field.\n"

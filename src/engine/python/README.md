@@ -57,11 +57,11 @@ The one boundary that does not bend is `oracle`. Supervision is the only one of 
 
 ## The instrument
 
-`instrument/` is not one of the six either. It holds the language reading of theory/anchor_sift written once: `anchor_sift.py` carries its sections 1 to 4 (`squash`, `distance`, `self_distance`, `reading`), `corpus_gate.py` reads every corpus, with the purity check of its section 4.13, and `english_sift.py` finds the language in a paper by knowing English and taking what is left.
+`instrument/` is not one of the six either. It holds the language reading of theory/orior written once: `orior.py` carries its sections 1 to 4 (`squash`, `distance`, `self_distance`, `reading`), `corpus_gate.py` reads every corpus, with the purity check of its section 4.13, and `english_sift.py` finds the language in a paper by knowing English and taking what is left.
 
 ## Routes to the engine in C and CUDA
 
-Six routes here mirror the engine at anchor_sift 1789287. Each shares no code with the engine and is not a binding for it. A grader under `utils/test/python/` runs both sides on the same inputs and prints each side's numbers, and where they disagree one of them has a defect. A grader that needs the device builds a probe under `utils/test/python/` that calls the engine's own entry points.
+Six routes here mirror the engine at orior 1789287. Each shares no code with the engine and is not a binding for it. A grader under `utils/test/python/` runs both sides on the same inputs and prints each side's numbers, and where they disagree one of them has a defect. A grader that needs the device builds a probe under `utils/test/python/` that calls the engine's own entry points.
 
 | Python route                                              | the engine it mirrors                                                                                      | grader                                                                         |
 | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
@@ -70,7 +70,7 @@ Six routes here mirror the engine at anchor_sift 1789287. Each shares no code wi
 | `measure/shift_agreement.py`, `frame_shift`               | `shift_agreement_host` in `src/engine/analysis/shift_agreement/shift_agreement.c`                              | `shift_agreement_test.py`, count for count                                     |
 | `measure/period.py`                                       | `period_read` and `period_draw` in `src/cu/engine/analysis/period/period_select.cu`                                      | `period_test.py` with `period_probe.cu`, line for line                         |
 | `measure/periodic_energy.py`, the `energy_` functions     | `src/sims/cu/engine/analysis/art/periodic_energy.h`                                                                    | `periodic_energy_test.py` with `periodic_energy_probe.cu`, line for line       |
-| `sift/anchors.py`, the functions under the kernel's names | `src/engine/nbody/anchor_sift/anchor_sift_*.c`, with its bench under `utils/bench/`                                | `sift_test.py` with `anchor_sift_probe.def`, count for count and read for read |
+| `sift/anchors.py`, the functions under the kernel's names | `src/engine/nbody/orior/orior_*.c`, with its bench under `utils/bench/`                                | `sift_test.py` with `orior_probe.def`, count for count and read for read |
 
 The rest of this tree is not graded against the engine.
 

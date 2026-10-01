@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: ART-1-001
 #
-# Report the true dimensions of the stored pictures, for Section 4.11 of theory/workbooks/anchor_sift.
+# Report the true dimensions of the stored pictures, for Section 4.11 of theory/workbooks/orior.
 #
 #   Usage:  python examples/art/1_represent/picture_true_size.py
 #
@@ -27,7 +27,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 CORPORA = os.path.join(ROOT, "build", "corpora")
-AGENT = {"User-Agent": "anchor-sift-research/1.0"}
+AGENT = {"User-Agent": "orior-research/1.0"}
 
 WANTED = (
     ("art_hokusai", "The Great Wave off Kanagawa.jpg"),

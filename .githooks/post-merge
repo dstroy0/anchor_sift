@@ -1,5 +1,5 @@
 #!/bin/sh
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Brings theory/ to the commit this tree records for it, after a pull.
@@ -23,11 +23,11 @@
 # lost or stop the checkout halfway, and a local commit there that the recorded one does not hold
 # would be left behind on no branch. In either case the hook says what it found and does nothing.
 #
-# ANCHOR_SIFT_NO_THEORY_UPDATE=1 turns it off.
+# ORIOR_NO_THEORY_UPDATE=1 turns it off.
 
 set -u
 
-if [ "${ANCHOR_SIFT_NO_THEORY_UPDATE:-0}" = "1" ]; then
+if [ "${ORIOR_NO_THEORY_UPDATE:-0}" = "1" ]; then
     exit 0
 fi
 

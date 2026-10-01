@@ -14,7 +14,7 @@ Two facts about the vector before any operator touches it.
 
 \textbf{Degree 15 dips and then recovers.} At full depth the least live singular value is \(3.47 \times 10^{-3}\) at degree \(15\) against \(1.75\) at degree \(14\). The exactly-complete degree is about \(500\) times worse conditioned than the incomplete degree beneath it, recovery arrives by \(17\), and saturation follows. Completeness of count and health of conditioning are separate properties.
 
-\textbf{Note, 26 September.} The three values are in \texttt{docs/\allowbreak{}arm-records.md} at anchor\_sift \texttt{ddeccb3}: \(1.75\) at degree \(14\) (:269), \(3.474 \times 10^{-3}\) at degree \(15\) (:270) and \(2.52\) at degree \(17\) (:272). The ratio of about \(500\) is \(1.75 / 3.474 \times 10^{-3} = 504\), a ratio of least singular values. A condition number also divides by the largest singular value, which the table does not give.
+\textbf{Note, 26 September.} The three values are in \texttt{docs/\allowbreak{}arm-records.md} at orior \texttt{ddeccb3}: \(1.75\) at degree \(14\) (:269), \(3.474 \times 10^{-3}\) at degree \(15\) (:270) and \(2.52\) at degree \(17\) (:272). The ratio of about \(500\) is \(1.75 / 3.474 \times 10^{-3} = 504\), a ratio of least singular values. A condition number also divides by the largest singular value, which the table does not give.
 
 \section{The transform table}
 
@@ -216,7 +216,7 @@ The golden angle is \(\pi(3 - \sqrt{5})\), the index step of T8. The harmonic un
 
 \textbf{The verification carries no trusted digit string.} SHA-256's \(64\) round constants are defined as the first \(32\) bits of the fractional parts of the cube roots of the first \(64\) primes, and its \(8\) starting words the same for the square roots of the first \(8\) primes. Recomputing them from the primes and comparing against FIPS 180-4~\cite[Section~4.2.2]{src:FIPS-180-4} checks \(2{,}048\) independently published bits. All \(2{,}048\) agree. The tool also grades every copy of the table in this tree against the definition: fifteen copies found, one of them the tool's own reference, and all fifteen match.
 
-\textbf{Derived, 26 September.} The check covers the \(64\) round constants and the \(8\) starting words, \(72 \times 32 = 2{,}304\) bits (\texttt{examples/\allowbreak{}proofing/\allowbreak{}natural\_constants.py:338-350} at anchor\_sift \texttt{ddeccb3}). The print at :273 says \(2{,}048\), the round constants' \(64 \times 32\) alone.
+\textbf{Derived, 26 September.} The check covers the \(64\) round constants and the \(8\) starting words, \(72 \times 32 = 2{,}304\) bits (\texttt{examples/\allowbreak{}proofing/\allowbreak{}natural\_constants.py:338-350} at orior \texttt{ddeccb3}). The print at :273 says \(2{,}048\), the round constants' \(64 \times 32\) alone.
 
 Pi is checked twice more, against a 50-digit prefix and against a second computation from Euler's arctangent identity. Machin's and Euler's identities share no term. Agreement between them is not two copies of one mistake.
 

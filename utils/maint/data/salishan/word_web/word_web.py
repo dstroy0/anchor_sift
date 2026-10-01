@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # The word web: every form the hand extractions hold, joined to the forms it is related to.
@@ -7,7 +7,7 @@
 #   Usage:  python maint/data/salishan/word_web/word_web.py
 #           from word_web import web, concept_profile
 #
-# The anchor sift squashes text to a distribution over byte pairs and asks how far two of those
+# The orior squashes text to a distribution over byte pairs and asks how far two of those
 # distributions are apart. That works and it needs no per-language term, but it is the page as
 # bytes: it cannot see that cítxʷ and citxw are the same word written twice, and it cannot see that
 # a Nuxalk word and a Lushootseed word mean the same thing.

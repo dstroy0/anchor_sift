@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Writes the ledger's table of contents into the ledger.
@@ -11,7 +11,7 @@
 # it is on, and the day its lead first appeared.
 #
 # The day comes from ledger_days.tsv, which was computed once from the MMgr history the ledger was
-# written in. anchor_sift cannot recompute it, because its own history begins at a single commit.
+# written in. orior cannot recompute it, because its own history begins at a single commit.
 # That file is the record and not a cache. An entry the file does not know is new and reports as the
 # date this runs.
 #
@@ -164,7 +164,7 @@ def main():
     path = (
         sys.argv[1]
         if len(sys.argv) > 1
-        else os.path.join(HERE, "..", "..", "..", "docs", "research", "anchor-sift-ledger.md")
+        else os.path.join(HERE, "..", "..", "..", "docs", "research", "orior-ledger.md")
     )
 
     with open(path, encoding="utf-8") as handle:

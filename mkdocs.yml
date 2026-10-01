@@ -1,4 +1,4 @@
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Site configuration. The markdown under docs/ is the source and nothing here rewrites it, which
@@ -10,11 +10,11 @@
 #
 # Deployment is the GitHub Action in .github/workflows/docs.yml. Nothing needs running by hand.
 
-site_name: anchor sift
+site_name: orior
 site_description: Measuring how far something sits from the most disordered arrangement of its own parts.
-site_url: https://dstroy0.github.io/anchor_sift/
-repo_url: https://github.com/dstroy0/anchor_sift
-repo_name: dstroy0/anchor_sift
+site_url: https://dstroy0.github.io/orior/
+repo_url: https://github.com/dstroy0/orior
+repo_name: dstroy0/orior
 copyright: Copyright &copy; 2026 Douglas Quigg (dstroy0). AGPL-3.0-or-later, commercial, or educator license.
 
 theme:

@@ -1,4 +1,4 @@
-anchor_sift Commercial License
+orior Commercial License
 SPDX license identifier: LicenseRef-Commercial
 Version 1.0
 
@@ -8,7 +8,7 @@ THIS DOCUMENT DOES NOT GRANT ANYTHING BY BEING READ.
 
 It states the terms of a commercial license that exists only when the Licensor and a licensee have
 both signed an Order Form that incorporates these terms. Absent a signed Order Form, every use of
-anchor_sift falls under AGPL-3.0-or-later, and this document has no effect on that use. Nothing here
+orior falls under AGPL-3.0-or-later, and this document has no effect on that use. Nothing here
 is an offer that anyone can accept by clicking, downloading, installing, paying or using. The SPDX
 expression "AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational" in a source file
 records that these terms are one of three alternatives. It does not apply them to anyone who has
@@ -88,18 +88,18 @@ R.6  Where a term of this license can be read more than one way, the reading tha
      his death the Successor Licensor under Section 21.
 
 1.2  "Software" means the following, in source code, object code or any other form, in each
-     version of anchor_sift the Order Form covers, to the extent the Licensor holds the copyright in
+     version of orior the Order Form covers, to the extent the Licensor holds the copyright in
      it or has the right to license it under these terms, and subject to Section 1.37:
 
-       (a)  each file of anchor_sift that is in this license under Section 1.36;
+       (a)  each file of orior that is in this license under Section 1.36;
 
-       (b)  the code in each Dependency, at the commit that version of anchor_sift pins or fetches;
+       (b)  the code in each Dependency, at the commit that version of orior pins or fetches;
             and
 
        (c)  each modification of the material in (a) or (b), and each work derived from it, to
             the extent that modification or work contains that material.
 
-     A "Dependency" is a repository or source tree that anchor_sift pins by a git submodule entry
+     A "Dependency" is a repository or source tree that orior pins by a git submodule entry
      (a gitlink) or fetches by a CMake FetchContent declaration, and each Dependency of it.
 
 1.3  "Third-Party Material" means any work distributed with the Software, read by it, or used to
@@ -245,7 +245,7 @@ R.6  Where a term of this license can be read more than one way, the reading tha
        (a)  Community Language Material or Third-Party Material, whatever file or directory holds
             it and whatever identifier or license statement names this license;
 
-       (b)  a file, in anchor_sift or in a Dependency, whose own SPDX license identifier, or the
+       (b)  a file, in orior or in a Dependency, whose own SPDX license identifier, or the
             license statement of the nearest directory above it that has one, states that no
             license is granted for it; or
 
@@ -256,7 +256,7 @@ R.6  Where a term of this license can be read more than one way, the reading tha
      Contributors signs.
 
 1.38 "Code Contributor" means a person, other than the Licensor, who holds copyright in any part
-     of a file of anchor_sift or of a Dependency. "Contributor Agreement" means a written agreement,
+     of a file of orior or of a Dependency. "Contributor Agreement" means a written agreement,
      signed by a Code Contributor, under which that Code Contributor keeps its copyright and its
      credit and permits the Licensor to license its contributions under LicenseRef-Commercial and
      LicenseRef-Educational.
@@ -1286,7 +1286,7 @@ Required. Where one of these is blank, Section 2.3 applies.
 
   A.1  The Licensee's full legal name, legal form, jurisdiction of organization and registered
        address, and whether it is a State, a public body, or an institution of either.
-  A.2  The versions of anchor_sift the Contract covers, and the files of any Non-Public Software the
+  A.2  The versions of orior the Contract covers, and the files of any Non-Public Software the
        Licensor delivers under Section 2.7.
   A.3  Each Licensed Product, the Field and the Territory.
   A.4  The rights in Section 4.1 granted for each Licensed Product.

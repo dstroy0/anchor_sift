@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Pull text from Common Corpus into build/corpora, for the language measurements in
-# theory/workbooks/anchor_sift.
+# theory/workbooks/orior.
 #
 #   Usage:  python maint/data/fetch/fetch_modern_corpora.py [documents per language]
 #
@@ -31,7 +31,7 @@ OUT = os.path.join(ROOT, "build", "corpora")
 
 TREE = "https://huggingface.co/api/datasets/PleIAs/common_corpus/tree/main/common_corpus_1"
 BLOB = "https://huggingface.co/datasets/PleIAs/common_corpus/resolve/main/%s"
-AGENT = {"User-Agent": "anchor-sift-research/1.0"}
+AGENT = {"User-Agent": "orior-research/1.0"}
 
 # Enough symbols for the halving ladder, which needs eight windows of 4096
 FLOOR = 8 * 4096

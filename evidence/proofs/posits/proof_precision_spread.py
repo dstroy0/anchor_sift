@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: PRF-x-005
 #
-# Proof of the precision-spread posit, stated in theory/workbooks/anchor_sift/precision_spread_theory.md: an exact
+# Proof of the precision-spread posit, stated in theory/workbooks/orior/precision_spread_theory.md: an exact
 # identity carries full precision from a DEFINED input to its output, and a seed of defined constants
 # then generates unboundedly many at the same precision; a MEASURED input keeps its upstream floor and no
 # identity raises it, except that a RATIO in which the measured value cancels is exact.

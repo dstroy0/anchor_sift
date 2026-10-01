@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: PRO-x-003
 # Catalog: PRO-FAMILY
@@ -246,7 +246,7 @@ def main():
 def write_module(deposits, usable, kstar, families):
     lines = []
     lines.append("#!/usr/bin/env python3")
-    lines.append("# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>")
+    lines.append("# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>")
     lines.append("# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR "
                  "LicenseRef-Educational")
     lines.append("# Catalog: PRO-RULES-FAMILY")

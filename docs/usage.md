@@ -1,7 +1,7 @@
 # Using it
 
 **Purpose:** Run the measure on something of your own, and know which of the six parts you are calling.
-**Scope:** `src/engine/python/`, `src/engine/nbody/anchor_sift/anchor_sift.h`, `examples/`.
+**Scope:** `src/engine/python/`, `src/engine/nbody/orior/orior.h`, `examples/`.
 
 ## The shortest thing that works
 
@@ -73,14 +73,14 @@ Every example carries a catalog number in its header, `LNG-4-012` and so on. A c
 
 ## The search kernel
 
-`anchor_steer_count` counts the occurrences of a needle in a corpus. Its last argument is 1 to order the probes by rarity and 0 to leave them in spatial order, and the count is the same either way (`src/engine/nbody/anchor_sift/anchor_sift.h:952-978`). Both buffers are [BORROWS] for the call.
+`anchor_steer_count` counts the occurrences of a needle in a corpus. Its last argument is 1 to order the probes by rarity and 0 to leave them in spatial order, and the count is the same either way (`src/engine/nbody/orior/orior.h:952-978`). Both buffers are [BORROWS] for the call.
 
 ```c
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 
-#include "anchor_sift.h"
+#include "orior.h"
 
 int main(void)
 {
@@ -108,12 +108,12 @@ The Python in `src/engine/python/sift/` implements the same construction and sha
 | language | file | status |
 |---|---|---|
 | R | `evidence/sims/r/departure.R` | runs, checked against the reference |
-| MATLAB and Octave | `evidence/sims/matlab/anchor_sift_departure.m` | run on Octave 11.3.0, inside the reference floor; MATLAB proper not run here |
+| MATLAB and Octave | `evidence/sims/matlab/orior_departure.m` | run on Octave 11.3.0, inside the reference floor; MATLAB proper not run here |
 
 A port is correct when it lands inside the reseeding floor of the Python, since each language draws its null from a different generator and none agree to the last digit.
 
 ## If you are working on a language
 
-Read [the condition of use](https://github.com/dstroy0/anchor_sift#the-condition-of-use) first. These tools regenerate language, and output near the edge of a source distribution can be coherent and already not be the language. Nothing here marks which side of that a result fell on, and a human review of the output is a condition of use.
+Read [the condition of use](https://github.com/dstroy0/orior#the-condition-of-use) first. These tools regenerate language, and output near the edge of a source distribution can be coherent and already not be the language. Nothing here marks which side of that a result fell on, and a human review of the output is a condition of use.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>

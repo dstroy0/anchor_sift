@@ -3,12 +3,24 @@
 # lowers one writes the lower number here. Regenerate by hand with --ratchet-write only when a
 # file moves, since a moved file starts again at zero under its new name.
 docs/ENGINE_DIRECTIONS.md	1
+src/cu/engine/engine_seal.cu	1
+src/cu/types/integers/arm.cu	1
+src/import/audit/conserve_headers.py	6
+src/import/audit/sweep_phase.ps1	3
+src/import/book/build_bibliography.py	1
+src/import/check/language_of_nature.py	5
+src/import/prose/build_assistant_pole.py	4
+src/import/prose/dependence_decay.py	53
+src/import/prose/docs_check.py	105
+src/import/prose/gate.py	3
+src/import/prose/prosody_rate.py	6
+src/sims/cu/types/integers/chaitin_omega/chaitin_omega_main.cu	2
+theory/theory/Salishan/chapters/chapter_Salishan_refs.tex	1
 utils/maint/audit/comb_arms.py	1
 utils/maint/audit/grammar.py	1
 utils/maint/audit/handedness.py	1
 utils/maint/chain/leak_series.py	2
 utils/maint/corpus/speech_order.py	1
-utils/maint/data/salishan/anchor_sift_algorithmic_extraction/symbol_sift.py	1
 utils/maint/data/salishan/corpus_script_extraction/coverage_check.py	1
 utils/maint/data/salishan/corpus_script_extraction/extract_garcia.py	1
 utils/maint/data/salishan/corpus_script_extraction/extract_lindley_lyon.py	1
@@ -21,19 +33,14 @@ utils/maint/data/salishan/get_papers.py	1
 utils/maint/data/salishan/hand_extraction/oracle_check.py	3
 utils/maint/data/salishan/hand_extraction/papers.py	1
 utils/maint/data/salishan/lyon_encoding.py	12
+utils/maint/data/salishan/orior_algorithmic_extraction/symbol_sift.py	1
 utils/maint/engine/sass_lane_needs.cpp	2
 utils/maint/prose/check_fixes.py	3
 utils/maint/prose/dependence_decay.py	2
 utils/maint/prose/submission_check.py	2
 utils/maint/repotools/lib/repotools/findings.py	1
 utils/maint/repotools/lib/repotools/shape.py	1
-src/cu/types/integers/arm.cu	1
-src/cu/engine/engine_seal.cu	1
-src/sims/cu/types/integers/chaitin_omega/chaitin_omega_main.cu	2
-utils/test/src/cu/transpiler/cell/cell_ptx_probe_main.cu	1
 utils/test/engine/compiler/cell/cell_sass_probe_ask.c	1
 utils/test/engine/runtime/daemon/run.sh	1
 utils/test/harness.py	1
-theory/theory/Salishan/chapters/chapter_Salishan_refs.tex	1
-theory/theory/boundary/chapters/chapter_boundary_reading.tex	1
-theory/theory/boundary/chapters/chapter_octant_lexicon.tex	1
+utils/test/src/cu/transpiler/cell/cell_ptx_probe_main.cu	1

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: PRF-x-006
 #
-# Proof of the boundary posit, stated in theory/workbooks/anchor_sift/precision_spread_theory.md section 10: every
+# Proof of the boundary posit, stated in theory/workbooks/orior/precision_spread_theory.md section 10: every
 # exact representation has a boundary of one of three kinds, a FORMAT boundary that a larger format
 # raises, a MEASUREMENT boundary fixed upstream, and a COMPLETENESS boundary that only more computation
 # crosses. Arithmetic precision moves the first and never the other two.

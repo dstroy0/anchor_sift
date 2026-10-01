@@ -1,6 +1,6 @@
 # Chemistry
 
-**Purpose:** Read the building block and the rule the anchor_sift way, valence as a necessary
+**Purpose:** Read the building block and the rule the orior way, valence as a necessary
 condition and the bond length as an oracle, using the primitives already in the tree.
 **Scope:** `examples/chemistry/`
 

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-4-016
 #
 # Test whether languages that mark where a claim came from are found where the surroundings are hardest,
-# for Section 4.13 of theory/workbooks/anchor_sift.
+# for Section 4.13 of theory/workbooks/orior.
 #
 #   Usage:  python utils/maint/data/fetch/wals_fetch.py        (once, to get the tables)
 #           python examples/language/4_measure/evidential_pressure.py

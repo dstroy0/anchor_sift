@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: GAM-6-002
 #
@@ -37,7 +37,7 @@
 # is NOT delivered here is the exact windicator of a full king-and-pawn or king-and-rook ending: that
 # is a retrograde solve over the coalesced position graph -- a tablebase -- because forward search
 # explodes and a plain negamax memo is unsound once repetition makes a value depend on the path that
-# reached it. That solve is named as the open work in theory/workbooks/anchor_sift, not folded into a number here.
+# reached it. That solve is named as the open work in theory/workbooks/orior, not folded into a number here.
 
 import os
 import sys

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: PRF-x-013
 #
 # Proof of the posit that the exact boundary is read without touching it: pi clears the term-tower and is
-# never held, from the posits section of theory/workbooks/anchor_sift (exact_inspection_and_the_cloud_clock).
+# never held, from the posits section of theory/workbooks/orior (exact_inspection_and_the_cloud_clock).
 #
 #   Usage:  python evidence/proofs/posits/proof_pi_clears_the_term.py
 #

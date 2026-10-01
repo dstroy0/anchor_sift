@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: PRO-5-001
 #
 # Run the anchor cascade on a protein structure in three dimensions, for Section 4.2 of
-# theory/workbooks/anchor_sift.
+# theory/workbooks/orior.
 #
 #   Usage:  python examples/proteins/5_sift/protein_domain.py
 #
@@ -35,7 +35,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 BASE = "https://files.rcsb.org/download/%s.pdb"
-AGENT = {"User-Agent": "anchor-sift-research/1.0 (https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"}
+AGENT = {"User-Agent": "orior-research/1.0 (https://github.com/dstroy0/orior; dquigg123@gmail.com)"}
 
 WANTED = ("1AON",)
 

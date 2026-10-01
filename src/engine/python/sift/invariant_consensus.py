@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Reject outliers by the invariant the inliers share: the largest mutually-compatible set is the sift
@@ -23,7 +23,7 @@
 #
 # This is ROBIN's construction (Shi, Yang, Carlone, "ROBIN: a Graph-Theoretic Approach to Reject
 # Outliers in Robust Estimation using Invariants", arXiv:2011.03659), reached from this tree's side:
-# there it rejects outlier correspondences before a pose solve, here it is the anchor sift's
+# there it rejects outlier correspondences before a pose solve, here it is the orior's
 # necessary-condition-consensus with the pattern's positions generalized to any measurements and the
 # anchor generalized to any pairwise invariant. Nothing is ported; the two are the same object.
 #

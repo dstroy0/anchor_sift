@@ -36,7 +36,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 # This file used to spell the label itself, as os.path.basename of the root. build_manifest.py then
 # learned to read the name from repotools.toml instead, because a directory basename is where
 # somebody put a tree and not what the project calls itself. The two spellings stopped agreeing, and
-# this file compared the directory's own name against 1,417 rows tagged "BTC" and "anchor_sift",
+# this file compared the directory's own name against 1,417 rows tagged "BTC" and "orior",
 # and printed "0 checked, 0 changed, 0 missing".
 #
 # That reads as a pass. A verifier that checks nothing and reports no failures leaves a tree less

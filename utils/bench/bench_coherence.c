@@ -3,10 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "anchor_sift.h"
+#include "orior.h"
 #include "bench_corpora.h"
 
-#if !ANCHOR_SIFT_COUNT_READS
+#if !ORIOR_COUNT_READS
 #error "bench_coherence counts probes and must link the counted kernel"
 #endif
 
@@ -94,7 +94,7 @@ int main(void)
         size_t distinct = 0u;
         const double entropy = bench_collision_entropy(corpus, CORPUS_BYTES, &distinct);
         const BenchPeriod found = bench_recover_period(corpus, CORPUS_BYTES);
-        const double placed = (double)ANCHOR_SIFT_ANCHORS;
+        const double placed = (double)ORIOR_ANCHORS;
 
         held[which] = found;
         independent[which] = independent_anchors(&found, placed);
@@ -115,7 +115,7 @@ int main(void)
 
         printf("  %-12s %-7.3f %-8s %-9.4f %-9.4f %-8.4f %llu\n", bench_corpus_name(KINDS[which]),
                entropy, period_text, found.agreement, found.at_chance, found.margin,
-               (unsigned long long)spacing_for(&found, NEEDLE_BYTES, ANCHOR_SIFT_ANCHORS));
+               (unsigned long long)spacing_for(&found, NEEDLE_BYTES, ORIOR_ANCHORS));
     }
 
     printf("\n  %-12s %-9s %-15s %-15s %-15s %s\n", "corpus", "anchors", "histogram says",
@@ -128,7 +128,7 @@ int main(void)
         bench_build_bytes(corpus, CORPUS_BYTES, KINDS[which], CORPUS_SEED);
         bench_build_bytes(absent, NEEDLE_BYTES * NEEDLES_PER_ROW, KINDS[which], ABSENT_SEED);
 
-        anchor_sift_counters_reset();
+        orior_counters_reset();
 
         size_t found_total = 0u;
         size_t reference = 0u;
@@ -137,16 +137,16 @@ int main(void)
         {
             const uint8_t *const needle = absent + (draw * NEEDLE_BYTES);
 
-            found_total += anchor_sift_inorder(corpus, CORPUS_BYTES, needle, NEEDLE_BYTES);
+            found_total += orior_inorder(corpus, CORPUS_BYTES, needle, NEEDLE_BYTES);
         }
 
-        const uint64_t survivors = anchor_sift_verifications;
+        const uint64_t survivors = orior_verifications;
 
         for (size_t draw = 0u; draw < NEEDLES_PER_ROW; draw += 1u)
         {
             const uint8_t *const needle = absent + (draw * NEEDLE_BYTES);
 
-            reference += anchor_sift_naive(corpus, CORPUS_BYTES, needle, NEEDLE_BYTES);
+            reference += orior_naive(corpus, CORPUS_BYTES, needle, NEEDLE_BYTES);
         }
         if (found_total != reference)
         {
@@ -185,31 +185,31 @@ int main(void)
 
         AnchorFieldCensus census;
         anchor_field_census(corpus, CORPUS_BYTES, &census);
-        const AnchorSiftPlan plan = {&census, NEEDLE_BYTES, held[which].period};
-        const AnchorSiftPlan flat_plan = {&census, NEEDLE_BYTES, 0u};
+        const OriorPlan plan = {&census, NEEDLE_BYTES, held[which].period};
+        const OriorPlan flat_plan = {&census, NEEDLE_BYTES, 0u};
         const double alignments = (double)(CORPUS_BYTES - NEEDLE_BYTES + 1u)
                                   * (double)NEEDLES_PER_ROW;
 
-        anchor_sift_counters_reset();
+        orior_counters_reset();
         for (size_t draw = 0u; draw < NEEDLES_PER_ROW; draw += 1u)
         {
-            (void)anchor_sift_run(&flat_plan, corpus, CORPUS_BYTES, absent + (draw * NEEDLE_BYTES),
+            (void)orior_run(&flat_plan, corpus, CORPUS_BYTES, absent + (draw * NEEDLE_BYTES),
                                   NEEDLE_BYTES);
         }
-        const double probes_four = (double)anchor_sift_probes / alignments;
-        const double survivors_four = (double)anchor_sift_verifications / alignments;
+        const double probes_four = (double)orior_probes / alignments;
+        const double survivors_four = (double)orior_verifications / alignments;
 
-        anchor_sift_counters_reset();
+        orior_counters_reset();
         for (size_t draw = 0u; draw < NEEDLES_PER_ROW; draw += 1u)
         {
-            (void)anchor_sift_run(&plan, corpus, CORPUS_BYTES, absent + (draw * NEEDLE_BYTES),
+            (void)orior_run(&plan, corpus, CORPUS_BYTES, absent + (draw * NEEDLE_BYTES),
                                   NEEDLE_BYTES);
         }
-        const double probes_chosen = (double)anchor_sift_probes / alignments;
-        const double survivors_chosen = (double)anchor_sift_verifications / alignments;
+        const double probes_chosen = (double)orior_probes / alignments;
+        const double survivors_chosen = (double)orior_verifications / alignments;
 
         printf("  %-12s %-9llu %-15.6f %-15.6f %-9.1f%% %s\n", bench_corpus_name(KINDS[which]),
-               (unsigned long long)anchor_sift_anchors_for(&plan), probes_four, probes_chosen,
+               (unsigned long long)orior_anchors_for(&plan), probes_four, probes_chosen,
                (probes_four > 0.0) ? (100.0 * (probes_four - probes_chosen) / probes_four) : 0.0,
                (survivors_four == survivors_chosen) ? "not at all" : "they moved");
     }

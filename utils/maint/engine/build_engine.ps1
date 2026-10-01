@@ -1,4 +1,4 @@
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Builds the engine on Windows and runs the graders. One command, no arguments.
@@ -140,8 +140,8 @@ if ($haveCuda) {
 # clock_gettime that MSVC does not ship. The gate now carries the MSVC definition.
 #
 # anchor_steer and anchor_steer_arms used to be on this list and no longer exist. Both folded into
-# anchor_sift_kernel, the whole engine in one translation unit.
-$targets = @("anchor_sift_kernel", "anchor_sift_kernel_counted", "anchor_raster", "anchor_render",
+# orior_kernel, the whole engine in one translation unit.
+$targets = @("orior_kernel", "orior_kernel_counted", "anchor_raster", "anchor_render",
     "anchor_exact_portable", "test_steer", "test_adversarial", "test_arm_agreement",
     "test_o2_spawn",
     "bench_steer_arms", "bench_raster", "bench_exact_arms", "bench_exact",

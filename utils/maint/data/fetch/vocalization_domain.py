@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Fetch animal and human vocalizations as symbol sequences, as controls for Section 4.13 of
-# theory/workbooks/anchor_sift.
+# theory/workbooks/orior.
 #
 #   Usage:  python maint/data/fetch/vocalization_domain.py
 #
@@ -36,7 +36,7 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
     ROOT = os.path.dirname(ROOT)
 OUT = os.path.join(ROOT, "build", "corpora")
 AGENT = {
-    "User-Agent": "anchor-sift-research/1.0 (https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"
+    "User-Agent": "orior-research/1.0 (https://github.com/dstroy0/orior; dquigg123@gmail.com)"
 }
 
 WANTED = (

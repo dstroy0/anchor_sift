@@ -14,7 +14,7 @@
 #
 # WHAT THIS CATCHES
 #
-# theory/theory/cryptography/sha256/main.tex includes eleven chapters. Six were published from anchor_sift.
+# theory/theory/cryptography/sha256/main.tex includes eleven chapters. Six were published from orior.
 # Five postdate them and are held. Nothing in the build errors on that combination, and `build_theory.sh`
 # produces one PDF carrying both halves and looking finished. That is the defect this exists for.
 #
@@ -41,7 +41,7 @@ MANIFEST = os.path.join("theory", "PARTITION.tsv")
 # relation detection. Douglas ruled it fair on 2026-09-11 - "precision fair" - because a
 # general-purpose multiply does not reveal what it is aimed at, and the advantage is the aiming.
 #
-# It ranks with PUBLIC and not below it. PUBLIC means already published in anchor_sift and therefore
+# It ranks with PUBLIC and not below it. PUBLIC means already published in orior and therefore
 # settled; EXTERNAL means cleared for publication and not yet out. Neither constrains a research paper, and they
 # carry the same strictness. Keeping them distinct leaves "cleared but unpublished" to be
 # counted in place of assumed.

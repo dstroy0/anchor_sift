@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Widen build/cod toward a corpus that actually contains doping, and record which family each
@@ -68,8 +68,8 @@ CACHE = os.path.join(ROOT, "build", "cod")
 FAMILIES_FILE = os.path.join(CACHE, "families.tsv")
 
 AGENT = {
-    "User-Agent": "anchor-sift-research/1.0 "
-    "(https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"
+    "User-Agent": "orior-research/1.0 "
+    "(https://github.com/dstroy0/orior; dquigg123@gmail.com)"
 }
 SEARCH = "https://www.crystallography.net/cod/result?format=json&text=%s&count=%d"
 CIF = "https://www.crystallography.net/cod/%s.cif"

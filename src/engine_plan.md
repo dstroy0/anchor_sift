@@ -102,7 +102,7 @@ status is in the query protocol's own table,
 changes status there and nowhere else.
 
 **The gate is the engine's own descent.** Each candidate arrangement is an alignment and a relation's cases are
-the needle, and anchor_sift's descent places the case that prunes the most, stops where the best case prunes
+the needle, and orior's descent places the case that prunes the most, stops where the best case prunes
 nothing, and leaves the survivors as its answer. The descent is planned on the host against arithmetic every
 system that computes agrees about, and a target is asked only the cases it placed. That is steering on what is
 known to be true. Survival is a conjunction, and order cannot change a conjunction. A plan that steers badly
@@ -373,7 +373,7 @@ works there.
     `utils/maint/engine/tree_layout_check.py --write`.
 
 ## Pending Doug
-- Move cell_tracking into `examples/` and theory into anchor_sift. Don't start without direction.
+- Move cell_tracking into `examples/` and theory into orior. Don't start without direction.
 
 ## Roles
 - Theorist writes the engine table and posits. Send it every hash and measured number.

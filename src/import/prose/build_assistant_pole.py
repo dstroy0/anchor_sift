@@ -22,7 +22,7 @@
 # the register, not an estimate of it.
 #
 # Most transcripts on this machine were not written under that constraint. docs_check.py runs in
-# anchor_sift, BTC and the MMgr tree; it does not run in ProtoCore, embedded_types, idemIP,
+# orior, BTC and the MMgr tree; it does not run in ProtoCore, embedded_types, idemIP,
 # repo_tools or the rest. Prose written in those sessions is the unconstrained register, and it is
 # the pole the original could not be.
 #
@@ -41,8 +41,8 @@ import io
 import os
 import sys
 
-ANCHOR_SIFT = r"C:\Users\Douglas\Desktop\git_project\anchor_sift\maint\prose"
-sys.path.insert(0, ANCHOR_SIFT)
+ORIOR = r"C:\Users\Douglas\Desktop\git_project\orior\maint\prose"
+sys.path.insert(0, ORIOR)
 
 import session_prose  # noqa: E402
 
@@ -50,7 +50,7 @@ PROJECTS = os.path.join(os.path.expanduser("~"), ".claude", "projects")
 
 # The trees where docs_check.py runs, so prose written about them was written under the ban list.
 # Matched against the project directory name, which encodes the working directory path.
-SUPPRESSED = ("anchor-sift", "BTC", "mmgrwork", "making-money")
+SUPPRESSED = ("orior", "BTC", "mmgrwork", "making-money")
 
 # A message shorter than this is an acknowledgement and not prose. session_prose uses the same bar.
 FLOOR = 40
