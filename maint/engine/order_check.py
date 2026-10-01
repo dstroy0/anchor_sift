@@ -29,6 +29,15 @@ import itertools
 import os
 import re
 import sys
+from fractions import Fraction
+
+
+def show(value):
+    """An exact rational as it is: an integer, or numerator/denominator. Never a rounded decimal."""
+    value = Fraction(value)
+    if value.denominator == 1:
+        return str(value.numerator)
+    return "%d/%d" % (value.numerator, value.denominator)
 
 
 
@@ -36,10 +45,10 @@ import sys
 # PRECEPTS_HELD is the count of relations it satisfies out of PRECEPT_COUNT.
 PRECEPT_COUNT = 3
 ARRANGEMENTS = (
-    ("arr_slow_right", 3, 100.0),
-    ("arr_fast_wrong", 2, 10.0),
-    ("arr_mid_right", 3, 140.0),
-    ("arr_cheap_wrong", 1, 4.0),
+    ("arr_slow_right", 3, Fraction(100)),
+    ("arr_fast_wrong", 2, Fraction(10)),
+    ("arr_mid_right", 3, Fraction(140)),
+    ("arr_cheap_wrong", 1, Fraction(4)),
 )
 
 
@@ -49,24 +58,24 @@ def check_two_stage(say):
     say("")
     say("   arrangement        precepts held    cost")
     for name, held, cost in ARRANGEMENTS:
-        say("   %-18s %7d of %d    %6.1f" % (name, held, PRECEPT_COUNT, cost))
+        say("   %-18s %7d of %d    %6s" % (name, held, PRECEPT_COUNT, show(cost)))
     say("")
 
     # One score: trade a held precept against cost on any exchange rate at all.
     say("   one score, over every exchange rate between a precept and a cost:")
     shipped = set()
-    for weight in (1.0, 10.0, 50.0, 100.0, 200.0):
+    for weight in (Fraction(1), Fraction(10), Fraction(50), Fraction(100), Fraction(200)):
         best = max(ARRANGEMENTS, key=lambda one: weight * one[1] - one[2])
         shipped.add(best[0])
         mark = "   WRONG" if best[1] < PRECEPT_COUNT else ""
-        say("     a precept is worth %6.1f cost    picks %-18s%s" % (weight, best[0], mark))
+        say("     a precept is worth %6s cost    picks %-18s%s" % (show(weight), best[0], mark))
     say("")
 
     admissible = [one for one in ARRANGEMENTS if one[1] == PRECEPT_COUNT]
     chosen = min(admissible, key=lambda one: one[2])
     say("   two stages:")
     say("     gate    %d of %d arrangements hold every precept" % (len(admissible), len(ARRANGEMENTS)))
-    say("     rank    %s at %.1f" % (chosen[0], chosen[2]))
+    say("     rank    %s at %s" % (chosen[0], show(chosen[2])))
     say("")
     wrong = sorted(one for one in shipped if dict((a, b) for a, b, _ in ARRANGEMENTS)[one] < PRECEPT_COUNT)
     say("   one score ships a wrong program at %d of the 5 rates tried: %s"
@@ -190,7 +199,8 @@ def check_independence(say):
 
 
 # Three members, their fingerprints, and the floor each one carries.
-MEMBERS = (("sm_86", 100.0, 3.0), ("sm_87", 104.0, 5.0), ("sm_89", 108.0, 5.0))
+MEMBERS = (("sm_86", Fraction(100), Fraction(3)), ("sm_87", Fraction(104), Fraction(5)),
+           ("sm_89", Fraction(108), Fraction(5)))
 
 
 def check_floor_sets(say):
@@ -198,7 +208,7 @@ def check_floor_sets(say):
     say("10. WHETHER AGREEMENT INSIDE A FLOOR DEFINES A SET")
     say("")
     for name, mark, floor in MEMBERS:
-        say("   %-8s fingerprint %6.1f   floor %4.1f" % (name, mark, floor))
+        say("   %-8s fingerprint %6s   floor %4s" % (name, show(mark), show(floor)))
     say("")
 
     def agree_asked(one, two):
@@ -262,14 +272,15 @@ def check_floor_sets(say):
 # Three arrangements producing one operator, each costed as a setup term plus a per-item term.
 # None is wrong and none dominates: that is the normal case.
 SHAPES = (
-    ("arr_flat", 40.0, 1.0, 0.0),
-    ("arr_step", 6.0, 4.0, 0.0),
-    ("arr_fold", 2.0, 0.0, 0.30),
+    ("arr_flat", Fraction(40), Fraction(1), Fraction(0)),
+    ("arr_step", Fraction(6), Fraction(4), Fraction(0)),
+    ("arr_fold", Fraction(2), Fraction(0), Fraction(3, 10)),
 )
 
 # Members, each scaling the setup and the per-item terms its own way. A part with cheap setup and
 # slow throughput and a part with the reverse are both normal.
-PARTS = (("one", 1.0, 1.0), ("two", 0.05, 6.0), ("three", 5.0, 0.4))
+PARTS = (("one", Fraction(1), Fraction(1)), ("two", Fraction(1, 20), Fraction(6)),
+         ("three", Fraction(5), Fraction(2, 5)))
 
 
 def shape_cost(shape, part, size):
@@ -289,17 +300,17 @@ def check_transplant(say):
     say("   ACROSS SIZE, on part one:")
     say("   size      best        cost    the size-3 answer costs    penalty")
     small = min(SHAPES, key=lambda one: shape_cost(one, PARTS[0], 3))
-    worst = 1.0
+    worst = Fraction(1)
     for size in (3, 8, 24, 80, 300):
         best = min(SHAPES, key=lambda one: shape_cost(one, PARTS[0], size))
         here = shape_cost(best, PARTS[0], size)
         held = shape_cost(small, PARTS[0], size)
         worst = max(worst, held / here)
-        say("   %4d  %-10s %9.1f %22.1f %9.2fx"
-            % (size, best[0], here, held, held / here))
+        say("   %4d  %-10s %12s %22s %16sx"
+            % (size, best[0], show(here), show(held), show(held / here)))
     say("")
-    say("   %s wins at size 3 and costs %.1f times the best at size 300. The answer did not go"
-        % (small[0], worst))
+    say("   %s wins at size 3 and costs %s times the best at size 300. The answer did not go"
+        % (small[0], show(worst)))
     say("   stale and nothing drifted: it was only ever an answer at the size it was asked at.")
     say("")
 
@@ -308,21 +319,21 @@ def check_transplant(say):
     for part in PARTS:
         best = min(SHAPES, key=lambda one: shape_cost(one, part, 24))
         native[part[0]] = best
-        say("   part %-6s best %-10s %9.1f" % (part[0], best[0], shape_cost(best, part, 24)))
+        say("   part %-6s best %-10s %12s" % (part[0], best[0], show(shape_cost(best, part, 24))))
     say("")
     held = native[PARTS[0][0]]
-    spread = 1.0
+    spread = Fraction(1)
     for part in PARTS[1:]:
         here = shape_cost(native[part[0]], part, 24)
         there = shape_cost(held, part, 24)
         spread = max(spread, there / here)
         mark = "agrees" if native[part[0]][0] == held[0] else "DISAGREES"
-        say("   part one's answer on part %-6s %9.1f against %9.1f   %9.2fx   %s"
-            % (part[0], there, here, there / here, mark))
+        say("   part one's answer on part %-6s %12s against %12s   %12sx   %s"
+            % (part[0], show(there), show(here), show(there / here), mark))
     say("")
     say("   Some parts agree and some do not, and no reading on one part says which. Splicing the")
-    say("   winner across costs up to %.2f times here, and across both axes at once the two" % spread)
-    say("   penalties multiply to %.1fx." % (worst * spread))
+    say("   winner across costs up to %s times here, and across both axes at once the two" % show(spread))
+    say("   penalties multiply to %sx." % show(worst * spread))
     say("")
     say("   An answer therefore carries the part and the size it was asked at, and a reader")
     say("   outside either one has nothing and has to ask. A generic block is the fallback for a")
@@ -509,8 +520,8 @@ def main():
     say("   not a count of independent facts.")
     say("10  agreement inside a floor is %s, and a set needs more than pairwise agreement."
         % ("not transitive" if chains else "transitive here"))
-    say("11  an answer read at the wrong size costs %.1fx and on the wrong part %.2fx. It carries"
-        % (stale, spliced))
+    say("11  an answer read at the wrong size costs %sx and on the wrong part %sx. It carries"
+        % (show(stale), show(spliced)))
     say("   both, or it answers nothing.")
     say("12  one name in the document covers %d separate transitions. Each name covering more"
         % shared)

@@ -23,15 +23,46 @@
 static const char *const s_anchor_text[] = {LADDER_ANCHORS(LADDER_TEXT)};
 #undef LADDER_TEXT
 
-// one row as it stood in the file the last time: the arrangement, what it has cost, and over how many runs
+// the longest cost a row carries: an exact rational, numerator/denominator, each a run of decimal digits
+#define KDM_COST_LONGEST 128u
+
+// One row as it stood in the file the last time: the arrangement, what it has cost, and over how many runs. A cost
+// is an exact rational and is carried as the text it was written as. Nothing here computes with one, and a cost read
+// into a number to be written back out would be rounded on the way
 typedef struct
 {
     char text[KDM_TEXT_LONGEST];
-    double cost;
+    char cost[KDM_COST_LONGEST];
     unsigned int runs;
 } KdmRow;
 
 static KdmRow s_held[KDM_ROWS];
+
+// Whether `text` is an exact rational written in decimal: digits, an optional leading minus, and at most one /
+// with digits after it
+static int kdm_exact_text(const char *text)
+{
+    unsigned int at = (text[0] == '-') ? 1u : 0u;
+    unsigned int digits = 0u;
+    unsigned int slashes = 0u;
+    for (; text[at] != '\0'; at += 1u)
+    {
+        if ((text[at] >= '0') && (text[at] <= '9'))
+        {
+            digits += 1u;
+        }
+        else if ((text[at] == '/') && (digits != 0u) && (slashes == 0u))
+        {
+            slashes = 1u;
+            digits = 0u;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return (digits != 0u) ? 1 : 0;
+}
 static unsigned int s_held_rows;
 
 // the rows of `path` into s_held. A path that holds nothing is a first run and not a failure
@@ -65,28 +96,41 @@ static void kdm_read(const char *path)
         *at = '\0';
         KdmRow *const row = &s_held[s_held_rows];
         snprintf(row->text, sizeof(row->text), "%s", chain);
-        row->cost = strtod(at + 1, NULL);
-        const char *const runs = strchr(at + 1, '\t');
-        row->runs = (runs != NULL) ? (unsigned int)strtoul(runs + 1, NULL, 10) : 0u;
+        char *const cost = at + 1;
+        char *const runs = strchr(cost, '\t');
+        if (runs == NULL)
+        {
+            continue;
+        }
+        *runs = '\0';
+        row->runs = (unsigned int)strtoul(runs + 1, NULL, 10);
+        // a cost that is not an exact rational of decimal digits is not carried: it is refused, and the row reads
+        // as never timed
+        if ((kdm_exact_text(cost) == 0) || (strlen(cost) >= sizeof(row->cost)))
+        {
+            row->runs = 0u;
+            row->cost[0] = '\0';
+        }
+        else
+        {
+            snprintf(row->cost, sizeof(row->cost), "%s", cost);
+        }
         s_held_rows += 1u;
     }
     fclose(file);
 }
 
-// what `text` has cost and over how many runs, through `cost` and `runs`; zeroes where nothing has timed it
-static void kdm_cost(const char *text, double *cost, unsigned int *runs)
+// the row `text` stood in the last time, or NULL where nothing has timed it
+static const KdmRow *kdm_cost(const char *text)
 {
-    *cost = 0.0;
-    *runs = 0u;
     for (unsigned int at = 0u; at < s_held_rows; at += 1u)
     {
-        if (strcmp(s_held[at].text, text) == 0)
+        if ((strcmp(s_held[at].text, text) == 0) && (s_held[at].runs != 0u))
         {
-            *cost = s_held[at].cost;
-            *runs = s_held[at].runs;
-            return;
+            return &s_held[at];
         }
     }
+    return NULL;
 }
 
 // the cases of `anchor`, into `held`; the count found
@@ -139,7 +183,8 @@ int main(int count, char **word)
     fprintf(file, "kdm %s\n", part);
     fprintf(file, "# Every arrangement of primitives that produces an operator, and what each costs this part.\n");
     fprintf(file, "# Found from the relations alone. No ruleset, no machine file and no naming went into a row\n");
-    fprintf(file, "# here. A cost of - over 0 runs has not been timed on anything.\n");
+    fprintf(file, "# here. A cost is an exact rational, numerator/denominator in the part's clock count, and a cost\n");
+    fprintf(file, "# of - over 0 runs has not been timed on anything.\n");
     fprintf(file, "#\n");
     fprintf(file, "# The rows of an operator are in no order. Timed in the order they were found, a chain's\n");
     fprintf(file, "# reading carries where it sat and not what it costs; shuffled, that washes out over runs and\n");
@@ -165,17 +210,16 @@ int main(int count, char **word)
         printf("%s\n", (set.over != 0u) ? "  and more than the set holds" : "");
         for (unsigned int at = 0u; at < chains; at += 1u)
         {
-            double cost = 0.0;
-            unsigned int runs = 0u;
             chain_text(&set.chain[at], text, sizeof(text));
-            kdm_cost(text, &cost, &runs);
-            if (runs == 0u)
+            const KdmRow *const held = kdm_cost(text);
+            if (held == NULL)
             {
                 fprintf(file, "%s\t%u\t%s\t-\t0\n", s_anchor_text[anchor], set.chain[at].nodes, text);
             }
             else
             {
-                fprintf(file, "%s\t%u\t%s\t%.4f\t%u\n", s_anchor_text[anchor], set.chain[at].nodes, text, cost, runs);
+                fprintf(file, "%s\t%u\t%s\t%s\t%u\n", s_anchor_text[anchor], set.chain[at].nodes, text, held->cost,
+                        held->runs);
                 timed += 1u;
             }
             written += 1u;
