@@ -214,9 +214,14 @@ works there.
    of it: static, written into the query as `$10ms`, or dynamic, measured against a running average. The chain
    clock already reads a cost in the part's own time, and that reading is what a bound would be set from. That
    clock runs inside the SASS probe, through the toolkit, and is scaffolding (the method, above): the loop's
-   clock is read by an ask put through `host_entry.h` like every other answer. The next piece is that ask
-   itself, an address and a qualifier returning a cost unbound and a bit bound, with the run channel made of
-   asks of that form and the known order, its solve and the gate's descent running over them.
+   clock is read by an ask put through `host_entry.h` like every other answer. That ask is `query_ask`
+   (`compiler/bootstrap/query_ask.{h,c}`): an address and a qualifier, held, equal or advancing, returning a cost
+   unbound and a bit bound, the cost read off a clock that is itself an address. `query_ask_check.c` holds it to
+   memory the test owns and to the host's interrupt time at a fixed address, found advancing by the ask itself.
+   That counter steps once a clock interrupt, half a millisecond to a millisecond, and an ask is far shorter: a
+   cost read from it is a step or nothing. A bound set from it judges a run of asks and never one. The next
+   piece is the run channel made of asks of that form, with the known order, its solve and the gate's descent
+   running over them.
 
 2. **`.kdm` holds no cost.** `maint/engine/chain_check.sh` writes one: 3068 arrangements over 27.6M tried, add
    1202, take 1047, up 411, down 408, and nothing for same, places or product at three nodes. Every cost reads `-`.
