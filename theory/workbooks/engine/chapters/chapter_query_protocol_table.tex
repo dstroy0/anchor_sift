@@ -162,3 +162,124 @@
 \item[{status}] \textbf{measured}
 \item[{next}] The answer carries a bit a check, and Q1's container is built to write one.
 \end{description}
+
+\tablerecord{\textbf{Q16. A form asked of the part}}
+\begin{description}
+\item[{the algebra it holds to}] A slot of a ruleset is asked the way an operator is (P7). Every form the part's machine file holds is put in the slot with its operands filled by their kinds, the cases of the slot are put, and the forms that answer every case are timed and walked. The ruleset's form for the slot is the part's answer.
+\item[{does today}] \texttt{loop\_\allowbreak{}back} is asked so: \texttt{cell\_\allowbreak{}sass\_\allowbreak{}probe} given \texttt{loop} and a machine file (\texttt{utils/\allowbreak{}test/\allowbreak{}engine/\allowbreak{}compiler/\allowbreak{}cell/\allowbreak{}cell\_\allowbreak{}sass\_\allowbreak{}probe\_\allowbreak{}ask.\allowbreak{}c}), run alone against the cubins of an earlier run through \texttt{SASS\_\allowbreak{}PATTERN} in \texttt{cell\_\allowbreak{}sass\_\allowbreak{}test.\allowbreak{}sh}. \textbf{Measured} on the RTX 3070, sm\_\allowbreak{}86, in two runs: 2533 of the 2927 forms assemble, 1715 fall through and 8 come back on every count, every one a \texttt{BRA}. No form answers 2 without answering every count. \texttt{sass\_\allowbreak{}loop\_\allowbreak{}walk} agrees with all 8. The 8 cost 33.7 to 34.7 ns a turn, and the next costs 0.0525 ns a turn more than the least against a spread of 0.9260: no form costs less (P6), and \texttt{sass.\allowbreak{}krs} keeps its \texttt{BRA}.
+\item[{wants}] Every other slot a \texttt{.\allowbreak{}krs} writes by hand asked the same way, each with its own relation's cases, on every part with a machine file.
+\item[{tried, and what it gave}] The least cost read alone from one run: \texttt{BRA.\allowbreak{}CONV} in one run and \texttt{BRA} with a number in the next. Inside the spread the order is noise, and P6 reads it.
+\item[{status}] \textbf{proved} (the 8 forms, the walk), \textbf{measured} (their cost on sm\_\allowbreak{}86)
+\item[{next}] Q17 says which slots to ask next.
+\end{description}
+
+\tablerecord{\textbf{Q17. Held against NVIDIA's compiler}}
+\begin{description}
+\item[{the algebra it holds to}] A program written as C source and as the part's own code answers the same on every lane and costs no more than what NVIDIA's compiler writes for the C (P8). Where it costs more, the forms NVIDIA's compiler wrote over that run are the next slots Q16 asks. Its listing is a reading of what the part can do and never a rule: a form enters a ruleset once the part answers for it.
+\item[{does today}] \texttt{utils/\allowbreak{}maint/\allowbreak{}engine/\allowbreak{}sass\_\allowbreak{}lane\_\allowbreak{}needs.\allowbreak{}sh} decides the 8 record programs the host oracle runs for SASS, each laid with every register fresh and again reused: 16 lane programs written, 84 of the schema's 99 forms asked, and every instruction assembles against sm\_\allowbreak{}86's machine file (936 for arithmetic, 1110 for division, 0 refused). No lane has run on the part. The same programs run as C source on the record tests (\hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}, item 11).
+\item[{wants}] Each lane assembled into a cubin and run where its C route runs; both read word for word against the host; both timed (P6) and their instructions counted; every program where ours costs more read form by form against NVIDIA's listing.
+\item[{tried, and what it gave}] Nothing has run.
+\item[{status}] \textbf{built} (the 16 lanes, written and assembled), \textbf{theory} (the comparison)
+\item[{next}] Run each of the 16 beside the cubin of its C route.
+\end{description}
+
+\section{\texorpdfstring{The algebra of the protocol}{The algebra of the protocol}}
+
+Every line is exact. A cost is a reading and carries a spread; a relation is arithmetic and carries none.
+
+\subsection{\texorpdfstring{P1. The ask and its bound (Q1, Q2, Q3)}{P1. The ask and its bound (Q1, Q2, Q3)}}
+
+An ask a = (address, qualifier) returns, unbound, its cost t(a). Bound by β it returns one bit:
+
+bit(a) = [qualifier holds] · [t(a) ≤ β]
+
+A missing address, a false qualifier, a timeout, an error and too many cycles all read 0. What tells them apart is the baseline, the spread of unbound costs, and the bound is read off it (Q2) and never written by hand.
+
+\subsection{\texorpdfstring{P2. The gate (Q4)}{P2. The gate (Q4)}}
+
+A relation r is held on cases K = \{k\_\allowbreak{}1, …, k\_\allowbreak{}m\}. A candidate c survives when
+
+c(k) = r(k) for every k ∈ K
+
+\begin{itemize}
+\item \textbf{The survivors are a conjunction.} S = \{c : c(k) = r(k) for every k ∈ K\} does not depend on the order of K, and no order of the cases changes which candidates survive.
+\item \textbf{The order is the price.} Putting K in order π costs Σ\_\allowbreak{}c f\_\allowbreak{}π(c) evaluations, f\_\allowbreak{}π(c) the place of the first case c fails (m for a survivor). The descent puts first the case the most remaining candidates fail.
+\item \textbf{No cost enters S.} A candidate that fails a case is wrong on every part, and no part is asked about it.
+\item \textbf{Proved} (Q4): the descent's survivors equal \texttt{chain\_\allowbreak{}build}'s on every relation the ladder holds.
+\end{itemize}
+
+\subsection{\texorpdfstring{P3. The order of asks (Q5)}{P3. The order of asks (Q5)}}
+
+For a chain of n links, n + 1 a power of two, ask r covers link c where (r + 1) \& (c + 1) has an odd count of ones: the rows of a Hadamard matrix of order n + 1 with its first row and column dropped, read as 0 and 1. With b\_\allowbreak{}r the cost ask r returns and x the per-link costs:
+
+(n + 1)·x = 4·Sᵀb − 2·(Σb)·1
+
+\begin{itemize}
+\item Every link is covered by (n + 1)/2 asks and any two links share (n + 1)/4, and that is the identity 4·SᵀS − (n + 1)·J = (n + 1)·I, with Σb = ((n + 1)/2)·Σx (\textbf{proved} here for n = 3, 7, 15, 31 and 63). The solve is integer adds and one division by a power of two (\textbf{proved}, Q5).
+\item Against one ask a link, the gain is √(n + 1)/2 (derived; \textbf{measured} 1.09, 2.07 and 8.16 at 3, 15 and 255 links against 1.00, 2.00 and 8.00, Q5).
+\end{itemize}
+
+\subsection{\texorpdfstring{P4. Contention (Q7)}{P4. Contention (Q7)}}
+
+Each of N sweep asks covers a count u of links, and y is what is left of its cost once the known order's links are taken out. The model is y = α + γ·u + δ·u² + noise, and contention is δ > 0. With every sum centered and scaled by N,
+
+C\_\allowbreak{}pq = N·Σpq − Σp·Σq
+
+and the count taken out of the square s = u² and of the leftover y,
+
+P\_\allowbreak{}ss = C\_\allowbreak{}uu·C\_\allowbreak{}ss − C\_\allowbreak{}us²,  P\_\allowbreak{}sy = C\_\allowbreak{}uu·C\_\allowbreak{}sy − C\_\allowbreak{}us·C\_\allowbreak{}uy,  P\_\allowbreak{}yy = C\_\allowbreak{}uu·C\_\allowbreak{}yy − C\_\allowbreak{}uy²
+
+the square's slope P\_\allowbreak{}sy/P\_\allowbreak{}ss has squared spread (P\_\allowbreak{}yy − P\_\allowbreak{}sy²/P\_\allowbreak{}ss)/((N − 3)·P\_\allowbreak{}ss), with N − 3 left over past the three unknowns. The slope stands above twice its spread exactly when
+
+P\_\allowbreak{}sy²·(N + 1) > 4·P\_\allowbreak{}yy·P\_\allowbreak{}ss
+
+which is every term an exact integer and no division (\texttt{ask\_\allowbreak{}links\_\allowbreak{}read}, \texttt{src/\allowbreak{}engine/\allowbreak{}compiler/\allowbreak{}bootstrap/\allowbreak{}ask\_\allowbreak{}order.\allowbreak{}c}). Fewer than three counts covered leaves P\_\allowbreak{}ss = 0 and nothing to read; P\_\allowbreak{}sy ≤ 0 reads as adding.
+
+\subsection{\texorpdfstring{P5. One ask, many answers (Q15)}{P5. One ask, many answers (Q15)}}
+
+A set of checks each failing with share p is asked as one bit, 1 where every check holds and the set halved on a 0. Past p = (3 − √5)/2, about 0.382, asking one check at a time costs no more than any scheme that asks a set as one bit (cited from knowledge: P. Ungar, “The cutoff point for group testing”, Comm. Pure Appl. Math. 13 (1960) 49–54). The channel's answer of 128 bits carries one bit a check, which pays on every relation (\textbf{measured}, Q15).
+
+\subsection{\texorpdfstring{P6. The rank, read against its own spread (Q16, Q17)}{P6. The rank, read against its own spread (Q16, Q17)}}
+
+Each survivor c is run T times and its runs t\_\allowbreak{}c,1, …, t\_\allowbreak{}c,T taken. A run is lengthened by whatever else the host does and never shortened by it:
+
+m\_\allowbreak{}c = min\_\allowbreak{}j t\_\allowbreak{}c,j,  s\_\allowbreak{}c = max\_\allowbreak{}j t\_\allowbreak{}c,j − m\_\allowbreak{}c,  s = max\_\allowbreak{}c s\_\allowbreak{}c
+
+With the survivors ordered by m, c\_\allowbreak{}1 the least and c\_\allowbreak{}2 the next, c\_\allowbreak{}1 is the part's choice where
+
+m\_\allowbreak{}c2 − m\_\allowbreak{}c1 > s
+
+and otherwise the survivors are one cost and the ruleset keeps its form. The gate (P2) decides which candidates hold and this rule orders the survivors, and the two are never added together.
+
+\begin{itemize}
+\item \textbf{Measured} (Q16): 8 survivors in \texttt{loop\_\allowbreak{}back}'s place on sm\_\allowbreak{}86, m\_\allowbreak{}c2 − m\_\allowbreak{}c1 = 0.0525 ns a turn against s = 0.9260. The least of one run, \texttt{BRA.\allowbreak{}CONV}, is not the least of the next, \texttt{BRA} with a number, as a difference inside the spread gives.
+\end{itemize}
+
+\subsection{\texorpdfstring{P7. A form asked of the part (Q16)}{P7. A form asked of the part (Q16)}}
+
+The slot is \texttt{loop\_\allowbreak{}back loop where}. The question is a body the slot closes:
+
+R7 ← 0, R0 ← N;  turn: R7 ← R7 + 1, R0 ← R0 − 1, P0 ← [R0 ≠ 0];  then the candidate, guarded by P0
+
+\begin{itemize}
+\item A candidate that takes the way back on P0 runs N turns and answers R7 = N.
+\item A candidate that falls through runs one turn and answers 1.
+\item N = 2 separates the two, 2 against 1. The counts after it, 1, 3, 5 and 64, hold the answer to N: a form that came back a fixed number of times answers that number and not N.
+\item The candidates are every form in the part's machine file, with every register made R8 and every uniform one UR8, which the body does not keep, a predicate made P0 (PT, RZ and URZ kept), a label the body's and a number the distance back to it, 0x40 bytes over four instructions. Nothing decides beforehand which forms jump.
+\item A survivor is walked: \texttt{sass\_\allowbreak{}loop\_\allowbreak{}walk} reads its encoding back through the forms of the machine file and checks it as a loop's way back, the flag, the distance, and every register the body keeps left as it was.
+\item \textbf{Proved} (Q16): 8 of the 2927 forms answer every count, every one a \texttt{BRA}, and the walk agrees with all 8. No form answers N = 2 without answering every count.
+\end{itemize}
+
+\subsection{\texorpdfstring{P8. Held against NVIDIA's compiler (Q17)}{P8. Held against NVIDIA's compiler (Q17)}}
+
+For a program p, C(p) is its text through \texttt{c.\allowbreak{}krs} and E(p) its lane through \texttt{sass.\allowbreak{}krs}. V(p) is what NVIDIA's compiler writes for C(p) and h(p) what the host oracle answers.
+
+E(p)(k) = V(p)(k) = h(p)(k) on every lane k
+
+is the gate, and the rank is P6 between E(p) and V(p), with |E(p)| and |V(p)| their instruction counts as a second reading. E(p) holds NVIDIA's line where m\_\allowbreak{}E(p) − m\_\allowbreak{}V(p) ≤ s.
+
+\begin{itemize}
+\item Where E(p) costs more, V(p)'s instructions over that part name forms, each in a slot. Each slot is a question for Q16: the forms of the machine file in that slot, the cases of the slot, and the survivors ranked by P6. NVIDIA's listing names the question and the part answers it.
+\item The loop closes when E(p) holds NVIDIA's line on every program p, and every form in every ruleset was answered by the part.
+\item \textbf{Built:} E(p) for the 8 record programs the host oracle runs, 16 lane programs, every instruction assembled against sm\_\allowbreak{}86's machine file (Q17). \textbf{Theory:} the rest.
+\end{itemize}
