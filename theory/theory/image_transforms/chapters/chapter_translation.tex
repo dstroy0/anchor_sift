@@ -12,27 +12,27 @@ transform of each view, one pointwise product, and one inverse transform, for ev
 
 \section{Phase correlation}
 
-Phase correlation rests on the Fourier shift theorem. If two images differ by a displacement
+Phase correlation rests on the Fourier shift theorem~\cite{src:Wikipedia-Phase-correlation}. If two images differ by a displacement
 \((\Delta x, \Delta y)\), their Fourier transforms are related by
 \[
 I_2(\omega_x, \omega_y) \;=\; I_1(\omega_x, \omega_y)\, e^{-j(\omega_x \Delta x + \omega_y \Delta y)},
 \]
 so the normalized cross power spectrum is a pure phase whose inverse transform is a delta at the
-displacement. The method extends to \(N\) dimensions directly. Under translation the motion model
+displacement. The method extends to \(N\) dimensions directly~\cite{src:doi-10-1109-tip-2005-849327}. Under translation the motion model
 for \(N\) dimensional data is a rank one tensor, and a higher order singular value decomposition of
 the phase correlation separates the displacement along each dimension independently.
 
 Sub-pixel precision is recovered from the shape of the peak. The peak of phase correlation is a
 Dirichlet kernel, closely approximated by a sinc, and fitting a sinc, a Gaussian or a triangle to it
-recovers the fraction of a pixel. Foroosh, Zerubia and Berthod derive the sub-pixel extension in
+recovers the fraction of a pixel. Foroosh, Zerubia and Berthod~\cite{src:Foroosh-Zerubia-and-Berthod} derive the sub-pixel extension in
 closed form. An upsampled matrix multiplication of the discrete Fourier transform gives arbitrary
 sub-pixel precision without transforming a larger grid, and is how the widely used
-\texttt{register\_translation} of scikit-image works.
+\texttt{register\_translation} of scikit-image~\cite{src:scikit-image} works.
 
 \section{Drift correction}
 
 Time-lapse imaging uses exactly this to remove the drift of a subject in its view. In published
-microscopy protocols phase correlation registers each time point of a four dimensional recording
+microscopy protocols phase correlation registers each time point of a four dimensional recording~\cite{src:PMC4166950}
 while keeping the movements of the objects inside it measurable, and in long recordings the global
 movement of the subject is estimated during acquisition and fed back to the stage so the subject
 stays in the field of view. Video stabilization does the same for a hand held camera. In every case

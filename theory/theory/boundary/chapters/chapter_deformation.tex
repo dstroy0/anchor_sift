@@ -16,7 +16,7 @@ The compression agrees with the published digest of the empty string before any 
 
 A shape read this way has two anisotropies, and they answer to a rotation of the observer differently. This is standard representation theory of the rotation group, stated here because it is the null the measurement rests on, and not because it is new.
 
-\textbf{Deflection}, the power per degree \(P_l = \sum_m |a_{lm}|^2\), is invariant under every rotation in \(\mathrm{SO}(3)\): the degree-\(l\) subspace carries a unitary irreducible representation of the group, and a magnitude built from it cannot record how the object was turned. Measured null under a whole-step rotation: \(\mathbf{2.539 \times 10^{-14}}\), the arithmetic and not the object.
+\textbf{Deflection}, the power per degree \(P_l = \sum_m |a_{lm}|^2\), is invariant under every rotation in \(\mathrm{SO}(3)\): the degree-\(l\) subspace carries a unitary irreducible representation of the group~\cite{src:Edmonds-1957}, and a magnitude built from it cannot record how the object was turned~\cite{src:Kazhdan-Funkhouser-and-Rusinkiewicz-2003}. Measured null under a whole-step rotation: \(\mathbf{2.539 \times 10^{-14}}\), the arithmetic and not the object.
 
 \textbf{Torsion}, the phase \(\arg a_{lm}\) of the same coefficients, moves by exactly \(-m\alpha\) under a rotation by \(\alpha\). It records the turn, sign included. Measured recovery of a known angle: \(\mathbf{1.803 \times 10^{-13}}\) radians.
 
@@ -82,11 +82,11 @@ Six of the eight words at round \(r\) are round \(r-1\)'s words in a new positio
 
 \textbf{Derived, 26 September.} Six of the eight words carried over is three quarters of the state. Five-sixths does not follow from the table.
 
-\textbf{Derived, 26 September.} The run count follows from the shift with a number. The dipole is zonal (\texttt{zonal\_dipole}, \texttt{state\_deflection.py:274} at anchor\_sift \texttt{ddeccb3}), and word \(s\) sits on ring \(s\) at colatitude \(\pi(s + 1/2)/8\) (the note under the object). A fresh word enters at \(a\) or at \(e\) and rides four rings over four rounds. With \(A_r\) and \(E_r\) the popcounts of the two fresh words at round \(r\), and \(c_j = \cos\theta_j = 0.981, 0.831, 0.556, 0.195\) for \(j = 0, \dots, 3\), the dipole is \(d(r) = \sum_j c_j A_{r-j} - \sum_j c_{3-j} E_{r-j}\). Taking the fresh popcounts independent with equal variance, its correlations at lags \(1\), \(2\) and \(3\) are \(0.693\), \(0.354\) and \(0.096\), and zero beyond. By Sheppard's rule a sign change between neighbors has probability \(\arccos(\rho_1)/\pi = 0.256\), about \(17\) runs in \(64\), against \(20\) measured and \(30.5\) for independent signs. The \(z = -2.87\) reproduces from \(41\) and \(23\) signs of \(64\): the expected run count is \(30.47\) and its standard deviation \(3.65\) (Wald and Wolfowitz).
+\textbf{Derived, 26 September.} The run count follows from the shift with a number. The dipole is zonal (\texttt{zonal\_dipole}, \texttt{state\_deflection.py:274} at anchor\_sift \texttt{ddeccb3}), and word \(s\) sits on ring \(s\) at colatitude \(\pi(s + 1/2)/8\) (the note under the object). A fresh word enters at \(a\) or at \(e\) and rides four rings over four rounds. With \(A_r\) and \(E_r\) the popcounts of the two fresh words at round \(r\), and \(c_j = \cos\theta_j = 0.981, 0.831, 0.556, 0.195\) for \(j = 0, \dots, 3\), the dipole is \(d(r) = \sum_j c_j A_{r-j} - \sum_j c_{3-j} E_{r-j}\). Taking the fresh popcounts independent with equal variance, its correlations at lags \(1\), \(2\) and \(3\) are \(0.693\), \(0.354\) and \(0.096\), and zero beyond. By Sheppard's rule~\cite{src:Sheppard-1899} a sign change between neighbors has probability \(\arccos(\rho_1)/\pi = 0.256\), about \(17\) runs in \(64\), against \(20\) measured and \(30.5\) for independent signs. The \(z = -2.87\) reproduces from \(41\) and \(23\) signs of \(64\): the expected run count is \(30.47\) and its standard deviation \(3.65\) (Wald and Wolfowitz~\cite{src:Wald-and-Wolfowitz-1940}).
 
 \textbf{That is the claim entire, and it is worth stating without deflation.} The reading was built to show a field. Nobody built it to expose the Merkle-Damgard shift register, and the register turned up in it anyway: legible to the eye as a lemon whose cone walks and inverts, and holding at three standard deviations when the drift is measured against a control. The result is not a new property of SHA-256. It is a demonstration that a harmonic boundary reading makes a known structural property of the compression function visible and measurable, with the observer divided out and the cause established by intervention.
 
-\textbf{Note, 26 September.} Merkle--Damg\aa{}rd names the chaining of compression calls across message blocks (Merkle 1990 and Damg\aa{}rd 1990, in the references). One block's compression holds none of it. The word shift in the table above is SHA-256's step function (FIPS 180-4, section 6.2.2).
+\textbf{Note, 26 September.} Merkle--Damg\aa{}rd names the chaining of compression calls across message blocks~\cite{src:Merkle-1990,src:Damgard-1990}. One block's compression holds none of it. The word shift in the table above is SHA-256's step function~\cite[Section~6.2.2]{src:FIPS-180-4}.
 
 \section{Scope, stated plainly}
 
@@ -98,7 +98,7 @@ Six of the eight words at round \(r\) are round \(r-1\)'s words in a new positio
 
 \textbf{No claim is made} about a weakness in SHA-256, about its output, or about anything a cryptographic reduction would touch. The reading is taken on the intermediate compression state, which carries the shift structure by design. The digest, being the feed-forward of all sixty four rounds, is a different object and is not read here.
 
-\textbf{Note, 26 September.} The digest is the state after round \(64\) with the block's chaining input added word by word (FIPS 180-4, section 6.2.2, step 4). The feed-forward is that one addition, made once after the last round.
+\textbf{Note, 26 September.} The digest is the state after round \(64\) with the block's chaining input added word by word \cite[Section~6.2.2, step~4]{src:FIPS-180-4}. The feed-forward is that one addition, made once after the last round.
 
 \section{Reproducing it}
 
@@ -115,17 +115,3 @@ command & what it returns \\
 \end{center}
 
 The figures, and the intervention table, are in \texttt{figures/\allowbreak{}state-deformation/}.
-
-\section{References}
-
-\textbf{Added 26 September.} Prior art for the object, the calibration and the run test in this chapter. Cited from knowledge; volumes and pages are not yet checked against the originals.
-
-\begin{enumerate}
-  \item National Institute of Standards and Technology (2015). \emph{Secure Hash Standard}, FIPS 180-4. For SHA-256's step function, the table above.
-  \item Merkle, R. C. (1990). \emph{One way hash functions and DES}. Advances in Cryptology, CRYPTO '89, Lecture Notes in Computer Science 435, 428--446. For chaining a compression function across blocks.
-  \item Damg\aa{}rd, I. B. (1990). \emph{A design principle for hash functions}. Advances in Cryptology, CRYPTO '89, Lecture Notes in Computer Science 435, 416--427. For the same construction.
-  \item Edmonds, A. R. (1957). \emph{Angular Momentum in Quantum Mechanics}. Princeton University Press. For the rotation matrices of each degree.
-  \item Kazhdan, M., Funkhouser, T. and Rusinkiewicz, S. (2003). \emph{Rotation invariant spherical harmonic representation of 3D shape descriptors}. Symposium on Geometry Processing, 156--164. For power per degree as a rotation invariant.
-  \item Wald, A. and Wolfowitz, J. (1940). \emph{On a test whether two samples are from the same population}. Annals of Mathematical Statistics 11, 147--162. For the runs test.
-  \item Sheppard, W. F. (1899). \emph{On the application of the theory of error to cases of normal distribution and normal correlation}. Philosophical Transactions of the Royal Society of London A 192, 101--167. For the chance that two correlated normal values differ in sign.
-\end{enumerate}

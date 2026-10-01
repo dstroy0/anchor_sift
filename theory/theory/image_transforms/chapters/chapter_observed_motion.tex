@@ -25,7 +25,7 @@ surface velocity is fixed by a choice of parametrization.
 
 \section{Plane plus parallax}
 
-For a camera moving through a three dimensional scene the stratification is published and precise.
+For a camera moving through a three dimensional scene the stratification is published and precise~\cite{src:arXiv-2001-05238}.
 Register the images by the homography of one dominant plane. That single projective transform
 removes every effect of camera rotation, zoom and calibration without computing any of them
 explicitly. What remains has two sources only: parallax, which the camera's translation produces
@@ -33,9 +33,9 @@ at points off the plane, and objects that moved on their own. The residual paral
 epipolar, radial about the epipole. A residual that is not radial about that point is independent
 motion.
 
-Irani and Anandan used this to stratify moving object detection from two dimensional scenes up to
+Irani and Anandan~\cite{src:Irani-and-Anandan} used this to stratify moving object detection from two dimensional scenes up to
 full three dimensional ones, and extended the recovery of planar parallax to many frames at once.
-Triggs related the plane plus parallax representation to the tensors of multiple view geometry.
+Triggs~\cite{src:Triggs-2000} related the plane plus parallax representation to the tensors of multiple view geometry.
 
 \section{The order transforms are removed in}
 

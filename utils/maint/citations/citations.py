@@ -558,11 +558,32 @@ def write_registry(root, rows, out):
     out.write("    %d sources, %d unattributed\n" % (len(rows), len(unattributed)))
 
 
+def label(key):
+    """The TeX label a research paper cites a key by, as \\cite{src:<label>}."""
+    return "src:" + re.sub(r"[^A-Za-z0-9]+", "-", key).strip("-")
+
+
+def key_pattern(key):
+    """A key as the tree writes it, or its label inside a \\cite or \\nocite.
+
+    A key ending in a year also matches the year after a comma or in parentheses: the key
+    Chaitin 1987 is found in "Chaitin 1987", "Chaitin, 1987" and "Chaitin (1987)". A label
+    matches only as a whole entry of the list: src:Bailey is not found in src:Bailey-2023.
+    """
+    dated = re.match(r"^(.*\S) ((?:1[5-9]|20)[0-9]{2})$", key)
+    if dated:
+        written = r"\b%s,? \(?%s\b" % (re.escape(dated.group(1)), dated.group(2))
+    else:
+        written = r"\b%s\b" % re.escape(key)
+    cited = r"\\(?:no)?cite(?:\[[^\]]*\])?\{(?:[^}]*,)?\s*%s\s*(?=[,}])" % re.escape(label(key))
+    return re.compile("%s|%s" % (written, cited))
+
+
 def used(keys):
     """Where each key is written in the tree, and every citation shape that no key covers."""
     where = {}
     shaped = {}
-    patterns = [(key, re.compile(r"\b%s\b" % re.escape(key))) for key in keys]
+    patterns = [(key, key_pattern(key)) for key in keys]
     for path in tree_files():
         shown = os.path.relpath(path, ROOT).replace("\\", "/")
         with io.open(path, encoding="utf-8", errors="replace") as handle:
@@ -574,7 +595,7 @@ def used(keys):
                     name = found.group(1)
                     if name.split()[0] in NOT_A_NAME:
                         continue
-                    if any(key in name for key in keys):
+                    if any(key in "%s %s" % (name, found.group(2)) for key in keys):
                         continue
                     shaped.setdefault("%s %s" % (name, found.group(2)), []).append(
                         "%s:%d" % (shown, at)

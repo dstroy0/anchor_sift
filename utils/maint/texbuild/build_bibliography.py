@@ -85,6 +85,16 @@ def research_papers():
     return sorted(os.path.dirname(one) for one in found)
 
 
+BROUGHT_IN = re.compile(r"\\(?:input|include)\{([^}]+)\}")
+
+
+def research_paper_text(research_paper):
+    """Every .tex the research paper is built from, this file's own output excluded.
+
+    That is every .tex under its directory, and every file an \\input or \\include in one of them
+    names, resolved against the directory main.tex is built in, wherever it sits.
+    """
+    files = []
 def research_paper_text(research_paper):
     """Every .tex the research paper is built from, this file's own output excluded."""
     text = []
@@ -94,6 +104,24 @@ def research_paper_text(research_paper):
                 continue
             if base == research_paper and name == TARGET:
                 continue
+            files.append(os.path.normpath(os.path.join(base, name)))
+    seen = set(files)
+    text = []
+    while files:
+        path = files.pop(0)
+        with io.open(path, encoding="utf-8", errors="replace") as handle:
+            body = handle.read()
+        text.append(body)
+        for named in BROUGHT_IN.findall(body):
+            found = os.path.normpath(os.path.join(research_paper, named.strip()))
+            if not found.endswith(".tex"):
+                found += ".tex"
+            if found not in seen and os.path.isfile(found):
+                seen.add(found)
+                files.append(found)
+    return "\n".join(text)
+
+
             with io.open(os.path.join(base, name), encoding="utf-8", errors="replace") as handle:
                 text.append(handle.read())
     return "\n".join(text)
@@ -120,6 +148,7 @@ def entry(s, held):
         if digest:
             text += ", SHA-256 \\texttt{%s}" % escape(digest)
         text += ".}"
+    return "\\bibitem{%s}\n%s" % (citations.label(s["key"]), text)
     return "\\bibitem{%s}\n%s" % (label(s["key"]), text)
 
 
@@ -199,6 +228,7 @@ def main():
 
     for research_paper in research_papers():
         text = research_paper_text(research_paper)
+        used = [s for s in sources if citations.key_pattern(s["key"]).search(text)]
         used = [s for s in sources if re.search(r"\b%s\b" % re.escape(s["key"]), text)]
         target = os.path.join(research_paper, TARGET)
         shown = os.path.relpath(target, ROOT).replace("\\", "/")

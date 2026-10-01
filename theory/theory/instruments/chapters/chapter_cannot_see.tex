@@ -26,7 +26,7 @@ Five, all in the same direction, every one producing an apparent finding, every 
 
 Every one of those is a bound with a domain, and not an absolute. A finite observation of an unbounded input space can bound an effect and can never establish absence.
 
-\textbf{On the block header, a real and large signal.} The sixteen bits BIP320 reserves for version rolling give away \(1.82\) bits of collision entropy, \(588\) times the floor chance produces at that width and depth, and \(45.7\) percent of what the field could carry. Per-bit shares run from \(-5\) to \(-51\) standard errors against a swept counter's prediction, and the whole distribution is bimodal with spikes on exact powers of two: conventions, and not a sweep. The leak also moves, at \(p = 0.010\) against a shuffle null, which reads as software being deployed and retired inside a forty eight day window.
+\textbf{On the block header, a real and large signal.} The sixteen bits BIP320~\cite{src:BIP320} reserves for version rolling give away \(1.82\) bits of collision entropy, \(588\) times the floor chance produces at that width and depth, and \(45.7\) percent of what the field could carry. Per-bit shares run from \(-5\) to \(-51\) standard errors against a swept counter's prediction, and the whole distribution is bimodal with spikes on exact powers of two: conventions, and not a sweep. The leak also moves, at \(p = 0.010\) against a shuffle null, which reads as software being deployed and retired inside a forty eight day window.
 
 \textbf{On the clocks, a physical effect cleanly separated.} Timestamps in \(2.98\) percent of blocks precede their own parent's, by up to \(395\) seconds. The clocks tick correctly: low-bit shares reach \(3.10\) against a calibrated null of \(3.35\), and residues mod ten give chi-square \(9.9\) on nine degrees of freedom. The mining process is a clean Poisson at \(\mathrm{sd}/\mathrm{mean} = 0.9879\). The effect is therefore offset, and neither drift nor granularity, and the magnitudes are four orders past anything NTP produces.
 
@@ -127,20 +127,8 @@ Of the first sixteen, \texttt{collision\_entropy.py} is in \texttt{maint/\allowb
 
 Everything above returns a bound or a null. The relation search returns a statement: a closed form either holds or it does not, and anyone can check it in an afternoon without repeating the work.
 
-Its control is the 1996 BBP formula for pi. Pointed at base sixteen, power one, stride eight, the pipeline returns an exact relation, and the known formula holds on the same values to \(895\) bits of \(900\), the remainder being the series truncation. The relation is not unique: Bailey's compendium notes in its Section 11 that the auxiliary sums satisfy zero relations among themselves. The exact relations form a lattice, and the known formula is one member. Demanding a particular member was the wrong control and reported a correct answer as a failure.
+Its control is the 1996 BBP formula for pi~\cite{src:Bailey-Borwein-and-Plouffe-1997}. Pointed at base sixteen, power one, stride eight, the pipeline returns an exact relation, and the known formula holds on the same values to \(895\) bits of \(900\), the remainder being the series truncation. The relation is not unique: Bailey's compendium~\cite{src:Bailey-2023} notes in its Section 11 that the auxiliary sums satisfy zero relations among themselves. The exact relations form a lattice, and the known formula is one member. Demanding a particular member was the wrong control and reported a correct answer as a failure.
 
-Two regions are closed and should not be searched. Borwein, Galway and Borwein proved in 2004 that pi has no degree-one BBP formulas in a power-of-two base beyond the three already known.
+Two regions are closed and should not be searched. Borwein, Galway and Borwein~\cite{src:Borwein} proved in 2004 that pi has no degree-one BBP formulas in a power-of-two base beyond the three already known.
 
-\section{References}
-
-\begin{enumerate}
-  \item Bailey, D. H. (2023). \emph{A Compendium of BBP-Type Formulas for Mathematical Constants.}
-  \item Bailey, D. H., Borwein, P. B. and Plouffe, S. (1997). On the Rapid Computation of Various Polylogarithmic Constants. \emph{Mathematics of Computation} 66(218), pp. 903--913.
-  \item Borwein, J. M., Galway, W. F. and Borwein, D. (2004), on the exhaustion of degree-one BBP formulas for pi in power-of-two bases.
-  \item Matsui, M. (1993). Linear Cryptanalysis Method for DES Cipher. \emph{EUROCRYPT '93.}
-  \item Webster, A. F. and Tavares, S. E. (1986). On the Design of S-Boxes. \emph{CRYPTO '85}, pp. 523--534.
-  \item Vaughn, R. and Borowczak, M. (2026). Relaxation of Strict Avalanche Criterion on All SHA-256 Sub-Function Combinations. \emph{Cryptography} 10(3), 32.
-  \item Rohling, H. (1983). Radar CFAR Thresholding in Clutter and Multiple Target Situations. \emph{IEEE Transactions on Aerospace and Electronic Systems} 19, pp. 608--621.
-  \item BIP320, \emph{nVersion bits for general purpose use}; BIP310, Moravec and Capek, \emph{Stratum protocol extensions}.
-  \item National Institute of Standards and Technology (2015). \emph{FIPS PUB 180-4: Secure Hash Standard.}
-\end{enumerate}
+\nocite{src:Matsui-1994,src:Webster-and-Tavares-1986,src:Vaughn-and-Borowczak-2026,src:Rohling-1983,src:BIP310,src:FIPS-180-4}

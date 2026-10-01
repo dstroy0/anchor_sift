@@ -23,7 +23,7 @@ A placement decides where index \(k\) sits on the sphere. The choice shapes what
 \toprule
 placement & where index \(k\) goes & what it is good for \\
 \midrule
-\texttt{golden\_place(count)} & height \(1 - 2(k+0.5)/\mathit{count}\), longitude \(k\gamma\) & even coverage with no seam and no pole pile \\
+\texttt{golden\_place(count)} & height \(1 - 2(k+0.5)/\mathit{count}\), longitude \(k\gamma\)~\cite[Corollary~2]{src:Swierczkowski-1958} & even coverage with no seam and no pole pile~\cite{src:Gonzalez-2010} \\
 \texttt{ring\_place(rings, width)} & \(\mathit{rings}\) latitudes of equal width, \(\mathit{width}\) longitudes on each & a shift along a ring is a pure rotation \\
 \bottomrule
 \end{tabular}
@@ -31,7 +31,7 @@ placement & where index \(k\) goes & what it is good for \\
 
 \texttt{golden\_place} carries the property the screw below depends on: one step in the index is one fixed rigid move, the same move everywhere along the spiral. \texttt{ring\_place} puts its latitudes at the interiors of the bands. No ring lands on a pole where every point of it would pile into one place. Pick the ring placement when the operation under test is a rotation, and the golden placement when the operation is a shift of the index.
 
-\textbf{Derived, 26 September.} The index shift \(n\) turns by \(n\gamma\) about the axis and slides the height by \(-2n/N\). That is rigid in height and longitude, the coordinates the check tests, and it keeps area by Archimedes' hat-box theorem. It is not an isometry of the sphere, because the axial radius \(\sqrt{1 - y^2}\) changes under the slide.
+\textbf{Derived, 26 September.} The index shift \(n\) turns by \(n\gamma\) about the axis and slides the height by \(-2n/N\). That is rigid in height and longitude, the coordinates the check tests, and it keeps area by Archimedes' hat-box theorem~\cite[\emph{On the Sphere and Cylinder} I, Propositions 33, 42 and 43]{src:Heath-1897}. It is not an isometry of the sphere, because the axial radius \(\sqrt{1 - y^2}\) changes under the slide.
 
 \texttt{as\_angles(points)} converts either one into the colatitude and longitude pairs the readings want.
 
@@ -55,9 +55,9 @@ Moving every longitude by \(\alpha\) multiplies the entry at order \(m\) by \(e^
 
 \section{Choosing between deflection and torsion}
 
-Deflection is blind to a rotation by construction. Power per degree is a magnitude, and a magnitude does not record how the object was turned. Torsion measures the turn, and its sign gives the handedness.
+Deflection is blind to a rotation by construction~\cite{src:Kazhdan-Funkhouser-and-Rusinkiewicz-2003}. Power per degree is a magnitude, and a magnitude does not record how the object was turned. Torsion measures the turn, and its sign gives the handedness.
 
-\textbf{Derived, 26 September.} Deflection is invariant under every rotation, because a rotation acts on each degree by a unitary block. Torsion recovers only rotations about the polar axis, and those are the only ones the check tests.
+\textbf{Derived, 26 September.} Deflection is invariant under every rotation, because a rotation acts on each degree by a unitary block~\cite[Section~2, eq.~(15); Section~3, eq.~(52)]{src:Gumerov-and-Duraiswami-2014}. Torsion recovers only rotations about the polar axis, and those are the only ones the check tests.
 
 The check moves a lit set along its rings by seven different amounts and reads both:
 
@@ -78,11 +78,11 @@ The split is exact in both directions. The choice is not a matter of taste. A ca
 
 \section{The octant reading}
 
-\texttt{octant\_share(points, live)} splits space into eight regions by the sign of each coordinate. Every region has a trilateral right-angle corner at the origin, all eight corners meet at that one point, and on the boundary the same split cuts eight congruent spherical triangles of area \(\pi/2\) each, by Girard, totaling \(4\pi\). The measured shares sum to \(1.000000000000000\).
+\texttt{octant\_share(points, live)} splits space into eight regions by the sign of each coordinate. Every region has a trilateral right-angle corner at the origin, all eight corners meet at that one point, and on the boundary the same split cuts eight congruent spherical triangles of area \(\pi/2\) each, by Girard~\cite[images f58 to f62]{src:Girard-1629}, totaling \(4\pi\). The measured shares sum to \(1.000000000000000\).
 
 The eight sign frames are not all the same kind of move. Their determinants split four at \(+1\) and four at \(-1\). Half are rotations of the first octant and half carry a mirror. A caller reading handedness off this split should know it is there before relying on it.
 
-\texttt{octant\_delta(before, after)} reports how much of the reading moved between two shares, as a percentage of the whole. It is halved, because a share leaving one octant arrives in another and the two ends of a single move would otherwise be counted twice.
+\texttt{octant\_delta(before, after)} reports how much of the reading moved between two shares, as a percentage of the whole~\cite[Section~4.1, Proposition~4.2]{src:Levin-and-Peres-2017}. It is halved, because a share leaving one octant arrives in another and the two ends of a single move would otherwise be counted twice.
 
 Eight regions is a small alphabet, and how small is a counting fact and not a judgment. The reading is rank \(8\), seven free numbers once the weight is fixed, and against a source with \(256\) degrees of freedom it moves in \(8\) directions and is blind in \(248\). A caller should know that number before building on this call, and should know that distinctness under such a reading is close to free: seven reals separate any few dozen arbitrary states whether or not the seven carry anything.
 
@@ -102,13 +102,13 @@ On \(256\) points the pitch is \(-0.003255258\) whatever the amount is. Across t
 
 \texttt{complex\_coefficients} is the expensive call. It walks the lit set once per order and computes a Legendre column per point. The work grows as the lit count times \texttt{top} squared. Degree eight over a few hundred lit points is immediate. A caller wanting a much higher degree should form the table once and hand it to both readings, the shape the module is already written in.
 
-\texttt{legendre\_column} climbs the diagonal and then recurs in degree, keeping every intermediate at unit scale. Computing the same values from factorials overflows above degree about \(150\) and loses digits well before that, and it fails quietly: the low degrees stay right while the fine structure goes wrong. The recurrence is there to prevent a picture that looks plausible and is not.
+\texttt{legendre\_column} climbs the diagonal and then recurs in degree, keeping every intermediate at unit scale~\cite{src:Holmes-and-Featherstone-2002}. Computing the same values from factorials overflows above degree about \(150\) and loses digits well before that, and it fails quietly: the low degrees stay right while the fine structure goes wrong. The recurrence is there to prevent a picture that looks plausible and is not.
 
 \textbf{Derived, 26 September.} The two routes overflow at different degrees. The double's largest value is \(1.797 \times 10^{308}\). The normalization's \((l+m)!\) passes it at \(l + m = 171\), degree \(86\) at \(m = l\) and degree \(171\) at \(m = 0\). The unnormalized diagonal \((2l-1)!!\) passes it at \(l = 151\), since \(\log_{10} 299!! \approx 306.6\). The figure of about \(150\) matches the second route, and the docstring (\texttt{sphere\_field.py:93} at anchor\_sift \texttt{ddeccb3}) names factorials, the first.
 
 \section{Choosing the degree}
 
-The degree is a choice about how much a reading carries, and not a limit the arithmetic imposes. The basis measures orthonormal to \(2.2 \times 10^{-14}\) at degree fifteen under exact quadrature, and to \(1.8 \times 10^{-14}\) at degree eight. Precision is not what holds a reading at any degree a caller is likely to want. The overflow above is a real ceiling and it sits an order of magnitude beyond that.
+The degree is a choice about how much a reading carries, and not a limit the arithmetic imposes. The basis measures orthonormal to \(2.2 \times 10^{-14}\) at degree fifteen under exact quadrature~\cite{src:Delsarte-Goethals-and-Seidel-1977}, and to \(1.8 \times 10^{-14}\) at degree eight. Precision is not what holds a reading at any degree a caller is likely to want. The overflow above is a real ceiling and it sits an order of magnitude beyond that.
 
 What does bound the reading is counting. A reading to degree \(L\) carries exactly \((L+1)^2\) real numbers about its source, and against a source with \(N\) degrees of freedom it is blind in \(N - (L+1)^2\) directions at any precision whatsoever.
 
@@ -127,7 +127,7 @@ degree & coefficients & rank against 256 & blind & least singular value \\
 \end{tabular}
 \end{center}
 
-Pick the degree against the last column and never against the second. The smallest complete basis is degree fifteen, where \((L+1)^2\) first reaches \(256\), and it is the worst-conditioned usable one: the least singular value collapses to \(3.5 \times 10^{-3}\) there and recovers to \(1.5 \times 10^{-1}\) one degree higher, putting the worth of a single degree of headroom at \(44\) times in conditioning. A caller picking the cheapest complete basis pays for that saving in precision afterwards.
+Pick the degree against the last column and never against the second. The smallest complete basis is degree fifteen, where \((L+1)^2\) first reaches \(256\), and it is the worst-conditioned usable one: the least singular value collapses to \(3.5 \times 10^{-3}\) there and recovers to \(1.5 \times 10^{-1}\) one degree higher, putting the worth of a single degree of headroom at \(44\) times in conditioning~\cite{src:Womersley-and-Sloan-2001}. A caller picking the cheapest complete basis pays for that saving in precision afterwards.
 
 \section{The floors these readings sit on}
 
@@ -176,21 +176,3 @@ The second measures the floors above, and before it reports any of them it hands
 The third reports the redraw row at each of its three levels and holds four drawings that are not redraws against itself first. The second calls it. Running it separately is for reading the detail and not for coverage.
 
 Exit status is zero when all of them pass. Running any of the modules without \texttt{--check} prints its own documentation, since all of them are libraries and have no work of their own to do.
-
-\section{References}
-
-\textbf{Checked 26 September.} Every entry below was read in the copy named, at the section, proposition or equation given. Four entries listed before this date had no open copy. Vogel (1979) and Swinbank and Purser (2006), for the golden placement, are dropped, and Gonz\'alez carries that fact. S\'os (1958) is dropped, and \'Swierczkowski carries the three-distance theorem and credits S\'os and Erd\H{o}s. Edmonds (1957), for the rotation matrices of each degree, is replaced by Gumerov and Duraiswami. \'Swierczkowski's year was 1959 and is corrected to 1958. The Levin, Peres and Wilmer entry is replaced by the second edition.
-
-\begin{enumerate}
-  \item Heath, T. L. (1897). \emph{The Works of Archimedes}. Cambridge University Press. Read, \emph{On the Sphere and Cylinder} I, Proposition 33: the surface of a sphere is four times its great circle. Propositions 42 and 43: the surface of a segment equals the circle whose radius is the line from the segment's vertex to the circumference of its base, which gives a zone the area of the circumscribed cylinder's band.
-  \item Girard, A. (1629). \emph{Invention nouvelle en l'alg\`ebre}. Amsterdam. Read in the Biblioth\`eque nationale de France copy on Gallica (\texttt{ark:/12148/bpt6k5822034w}), images f58 to f62: a spherical polygon's area is its angle sum's excess over that of the plane polygon with as many sides, the whole sphere counting \(720\) degrees of area. The worked equilateral triangle with \(120^\circ\) angles has \(180\) of the \(720\), a quarter of the sphere. An octant's three right angles give \(90\) of \(720\), \(\pi/2\) of \(4\pi\).
-  \item Gonz\'alez, \'A. (2010). \emph{Measurement of areas on a sphere using Fibonacci and latitude-longitude lattices}. Mathematical Geosciences 42, 49--64. Read: the Fibonacci lattice, points at equal steps in height and at longitude steps of the golden turn, estimates areas with a smaller error than a latitude-longitude lattice of as many points. For the golden placement set against rings of latitude.
-  \item \'Swierczkowski, S. (1958). \emph{On successive settings of an arc on the circumference of a circle}. Fundamenta Mathematicae 46, 187--189, doi 10.4064/fm-46-2-187-189. Read: the successive settings of one arc cut the circle into gaps of at most three lengths, Steinhaus's conjecture, proved independently by Erd\H{o}s and S\'os. Corollary 2: for the golden fraction the gaps are three consecutive powers of it. For the longitudes \(k\gamma \bmod 2\pi\).
-  \item Delsarte, P., Goethals, J. M. and Seidel, J. J. (1977). \emph{Spherical codes and designs}. Geometriae Dedicata 6, 363--388. Read: a spherical \(t\)-design averages every polynomial of degree at most \(t\) exactly. For point sets that integrate harmonics exactly up to a degree.
-  \item Womersley, R. S. and Sloan, I. H. (2001). \emph{How good can polynomial interpolation on the sphere be?} Advances in Computational Mathematics 14, 195--226. Read: the Lebesgue constant of interpolation at a point set, computed for extremal systems. For the conditioning of harmonic interpolation at a point set.
-  \item Holmes, S. A. and Featherstone, W. E. (2002). \emph{A unified approach to the Clenshaw summation and the recursive computation of very high degree and order normalised associated Legendre functions}. Journal of Geodesy 76, 279--299.
-  Read: computed values below the double's range underflow to zero and values above it overflow, and the standard forward recursions underflow at high degree near the poles. For the normalized Legendre recursion and the double's range.
-  \item Gumerov, N. A. and Duraiswami, R. (2014). \emph{Recursive computation of spherical harmonic rotation coefficients of large degree}. arXiv:1403.7698. Read, Section 2, eq. (15): a rotation acts on each degree's coefficients separately. Section 3, eq. (52): the degree-\(n\) matrix of the elementary rotation is real and squares to the identity. For the rotation matrices of each degree and their unitarity.
-  \item Kazhdan, M., Funkhouser, T. and Rusinkiewicz, S. (2003). \emph{Rotation invariant spherical harmonic representation of 3D shape descriptors}. Symposium on Geometry Processing, 156--165, doi 10.2312/SGP/SGP03/156-165. Read: the norm of each degree's component is unchanged by rotation. For power per degree as a rotation invariant.
-  \item Levin, D. A. and Peres, Y. (2017). \emph{Markov Chains and Mixing Times}, second edition, with contributions by E. L. Wilmer. American Mathematical Society. Read, Section 4.1, Proposition 4.2: total variation distance is half the sum of the absolute differences over the states. For the quantity \texttt{octant\_delta} computes.
-\end{enumerate}

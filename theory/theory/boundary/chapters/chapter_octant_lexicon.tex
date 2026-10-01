@@ -18,7 +18,7 @@ Two properties do follow from choices, and they are worth keeping apart from the
 
 \section{The instance this chapter uses}
 
-Eight regions cut by the sign of each coordinate. Every one has a trilateral right-angle corner at the origin, all eight corners meet at that single point, and they tile space with no gap and no overlap. On the boundary the same split cuts eight congruent spherical triangles, each with three right angles and each of area \(\pi/2\), and the measured shares sum to \(1.000000000000000\).
+Eight regions cut by the sign of each coordinate. Every one has a trilateral right-angle corner at the origin, all eight corners meet at that single point, and they tile space with no gap and no overlap. On the boundary the same split cuts eight congruent spherical triangles, each with three right angles and each of area \(\pi/2\)~\cite{src:Girard-1629}, and the measured shares sum to \(1.000000000000000\).
 
 This is the convenient case and not the general one. It was picked because it is easy to state, easy to draw and cheap to compute, and every number below inherits the eight and the tiling from that choice.
 
@@ -58,13 +58,13 @@ The check counts which object it has instead of trusting the caller. A round onl
 
 \section{The placement under it}
 
-The \(256\) state bits go onto a golden placement. One index of shift on that placement is a rigid screw: turn \(2.399963\) radians, axial slide \(-0.007812\), pitch \(-0.003255258\). The pitch holds for every amount. One helix carries them all, and where a shifted bit lands is fixed once the amount is known.
+The \(256\) state bits go onto a golden placement~\cite{src:Vogel-1979,src:Swinbank-and-Purser-2006}. One index of shift on that placement is a rigid screw: turn \(2.399963\) radians, axial slide \(-0.007812\), pitch \(-0.003255258\). The pitch holds for every amount. One helix carries them all, and where a shifted bit lands is fixed once the amount is known.
 
 \textbf{Derived, 26 September.} The shift is rigid in height and longitude, the coordinates the pitch is read in, and it keeps area by Archimedes' hat-box theorem. It is not an isometry of the sphere, because the axial radius \(\sqrt{1 - y^2}\) changes under the slide. The boundary reading chapter carries the same note.
 
 \section{The word}
 
-Compressing the empty message, read to degree eight. The delta is the share of the reading that moved since the round before.
+Compressing the empty message, read to degree eight. The delta~\cite{src:Levin-Peres-and-Wilmer-2009} is the share of the reading that moved since the round before.
 
 \begin{center}
 \begin{tabular}{@{}rrrrrrrrrr@{}}
@@ -85,7 +85,7 @@ round & oct0 & oct1 & oct2 & oct3 & oct4 & oct5 & oct6 & oct7 & delta \\
 \end{tabular}
 \end{center}
 
-The digest at the end is \texttt{e3b0c442...7852b855}, the published value for the empty message. That check confirms the trace is the hash and not something shaped like one.
+The digest at the end is \texttt{e3b0c442...7852b855}, the published value for the empty message~\cite{src:FIPS-180-4}. That check confirms the trace is the hash and not something shaped like one.
 
 \section{The delta against its floor}
 
@@ -119,7 +119,7 @@ Naming the move is not part of the measurement. A move carrying mass from octant
 
 The delta says the reading moved. It does not say how much of the change the reading was able to move for, and those are different questions. A reading is a linear map, two states give the same letters exactly when their difference lies in its kernel, and the part of a change lying there is invisible however large it is.
 
-The visible fraction answers the second question: the share of a difference lying in the row space of the reading, which for eight indicator arms holds the per-octant totals of the change and discards the rest.
+The visible fraction answers the second question: the share of a difference lying in the row space~\cite{src:Golub-and-Van-Loan-2013} of the reading, which for eight indicator arms holds the per-octant totals of the change and discards the rest.
 
 \begin{center}
 \begin{tabular}{@{}lrr@{}}
@@ -157,7 +157,7 @@ Sixty-four rounds wrote sixty-four distinct signatures, a coherence of \(100\%\)
 
 The rank says why in one line. Seven free numbers separate sixty-four arbitrary states nearly always, whether or not the seven carry anything about the source. Distinctness here reports the resolution of a float and not a property of SHA-256, and any count of distinct signatures quoted without the rank beside it is quoting the float.
 
-\textbf{Derived, 26 September.} A signature is eight counts over one weight, and distinctness follows from the counts with no float involved. At half weight each octant's count of about \(32\) points is hypergeometric with variance about \(7.0\), \(32 \cdot \tfrac14 \cdot 224/255\). Two independent counts agree with probability about \(0.106\), seven free letters agree with probability about \(1.5 \times 10^{-7}\), and the \(2{,}016\) pairs among \(64\) signatures expect about \(3 \times 10^{-4}\) collisions (Feller, in the references). The same count derives the boundary reading chapter's sentence on seven reals separating a few dozen states.
+\textbf{Derived, 26 September.} A signature is eight counts over one weight, and distinctness follows from the counts with no float involved. At half weight each octant's count of about \(32\) points is hypergeometric with variance about \(7.0\), \(32 \cdot \tfrac14 \cdot 224/255\). Two independent counts agree with probability about \(0.106\), seven free letters agree with probability about \(1.5 \times 10^{-7}\), and the \(2{,}016\) pairs among \(64\) signatures expect about \(3 \times 10^{-4}\) collisions~\cite{src:Feller-1968}. The same count derives the boundary reading chapter's sentence on seven reals separating a few dozen states.
 
 It is computed because the complement would have been informative. A collision is a null permutation, a move this reading cannot see. None occurred, which rules that out and establishes nothing beyond it.
 
@@ -195,17 +195,3 @@ command \\
 \end{center}
 
 \texttt{--check} holds the trace to the published digest, holds the eight letters to a sum of one, counts the carried words to confirm which object it is reading, and holds the delta to clearing the floor early and falling across the run. \texttt{--read digest} reproduces the withdrawn reading, and its own check asserts that no carried word survives there.
-
-\section{References}
-
-\textbf{Added 26 September.} Prior art for the instance, the placement and the statistics in this chapter. Cited from knowledge; volumes and pages are not yet checked against the originals.
-
-\begin{enumerate}
-  \item National Institute of Standards and Technology (2015). \emph{Secure Hash Standard}, FIPS 180-4. For SHA-256, its round and the digest of the empty message.
-  \item Girard, A. (1629). \emph{Invention nouvelle en l'alg\`ebre}. Amsterdam. For the area \(\pi/2\) of each octant's triangle, from its angle excess.
-  \item Vogel, H. (1979). \emph{A better way to construct the sunflower head}. Mathematical Biosciences 44, 179--189. For the golden-angle placement.
-  \item Swinbank, R. and Purser, R. J. (2006). \emph{Fibonacci grids: a novel approach to global modelling}. Quarterly Journal of the Royal Meteorological Society 132, 1769--1793. For the golden placement on a sphere.
-  \item Levin, D. A., Peres, Y. and Wilmer, E. L. (2009). \emph{Markov Chains and Mixing Times}. American Mathematical Society. For total variation distance, the delta.
-  \item Feller, W. (1968). \emph{An Introduction to Probability Theory and Its Applications}, Volume I, third edition. Wiley. For the hypergeometric counts behind the redraw level, and for coincidences among many draws.
-  \item Golub, G. H. and Van Loan, C. F. (2013). \emph{Matrix Computations}, fourth edition. Johns Hopkins University Press. For rank, row space, projection and singular values.
-\end{enumerate}

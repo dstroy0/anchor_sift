@@ -12,11 +12,11 @@ The boundary work measured information reaching a surface as a function of depth
 
 \section{Why this is the right question and breaking it is the wrong one}
 
-A break needs a boundary observable departing from flat by more than sample noise, at full rounds. The tree's own instruments say there is none: \(H(\text{digest} \mid \text{input}) = 0\), which leaves the bias bound limited by sample size alone with no floor beneath it, and the keyhole, SAC and Renyi benches read flat at full rounds. Twenty years of linear and differential cryptanalysis reach about \(31\) of \(64\) rounds and no further. Hunting the full-round hole is hunting a thing the detector already says is not there.
+A break needs a boundary observable departing from flat by more than sample noise, at full rounds. The tree's own instruments say there is none: \(H(\text{digest} \mid \text{input}) = 0\), which leaves the bias bound limited by sample size alone with no floor beneath it, and the keyhole, SAC~\cite{src:Webster-and-Tavares-1986} and Renyi~\cite{src:Renyi} benches read flat at full rounds. Twenty years of linear~\cite{src:Matsui-1994} and differential~\cite{src:Biham-and-Shamir-1991} cryptanalysis reach about \(31\) of \(64\) rounds and no further. Hunting the full-round hole is hunting a thing the detector already says is not there.
 
 \textbf{Derived, 26 September.} Every deterministic function has \(H(\text{output} \mid \text{input}) = 0\), biased ones included. The equality holds for a biased function as much as for a flat one, and it bounds no bias.
 
-\textbf{Note, 26 September.} Thirty-one steps is the collision record: Mendel, Nad and Schl\"affer (2013), with a colliding pair found in practice by Li, Liu, Wang, Dong and Sun (2024). Other attacks reach further. Semi-free-start collisions reach \(39\) steps (Li, Liu and Wang, 2024), and the biclique attacks of Khovratovich, Rechberger and Savelieva (2012) reach \(45\) steps for preimages and \(52\) for pseudo-preimages. The two biclique step counts are cited from knowledge.
+\textbf{Note, 26 September.} Thirty-one steps is the collision record: Mendel, Nad and Schl\"affer (2013)~\cite{src:Mendel-Nad-and-Schlaffer-2015}, with a colliding pair found in practice by Li, Liu, Wang, Dong and Sun (2024)~\cite{src:Li-Liu-Wang-Dong-and-Sun-2024}. Other attacks reach further. Semi-free-start collisions reach \(39\) steps (Li, Liu and Wang, 2024~\cite{src:Li-Liu-and-Wang-2024}), and the biclique attacks of Khovratovich, Rechberger and Savelieva (2012)~\cite{src:Khovratovich-Rechberger-and-Savelieva-2012} reach \(45\) steps for preimages and \(52\) for pseudo-preimages. The two biclique step counts are cited from knowledge.
 
 Measuring the decay is different. Reduced rounds leak, everyone knows they leak, and nobody has written down the leak as a curve in the depth variable with a detection floor drawn on the same axes. That curve is a real result. It quantifies the difficulty instead of asserting it, and it makes a falsifiable claim: the leak at round \(k\) is this size, and here is where it falls under what this many samples can see.
 
@@ -64,19 +64,4 @@ The benches are in \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}s
 
 \textbf{Note, 26 September.} The Scope and this section contradict the note under the design statement. At anchor\_sift \texttt{d09b489}, as at \texttt{1948ae1}, \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}sha256/} holds no file and no \texttt{sha256\_core.c} is in the tree. The benches, the early-exit path and the truncation this section names are not built.
 
-\section{References}
-
-\textbf{Added 26 September.} Prior art for the observables and for reduced-round SHA-256. Entries 7 to 9 were checked against the publishers' pages on 26 September; the rest are cited from knowledge, with volumes and pages not yet checked against the originals.
-
-\begin{enumerate}
-  \item National Institute of Standards and Technology (2015). \emph{Secure Hash Standard}, FIPS 180-4. For SHA-256 and its sixty-four rounds.
-  \item Webster, A. F. and Tavares, S. E. (1986). \emph{On the design of S-boxes}. Advances in Cryptology, CRYPTO '85, Lecture Notes in Computer Science 218, 523--534. For the strict avalanche criterion.
-  \item R\'enyi, A. (1961). \emph{On measures of entropy and information}. Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and Probability 1, 547--561. For collision entropy.
-  \item Biham, E. and Shamir, A. (1991). \emph{Differential cryptanalysis of DES-like cryptosystems}. Journal of Cryptology 4, 3--72. For differential cryptanalysis.
-  \item Matsui, M. (1994). \emph{Linear cryptanalysis method for DES cipher}. Advances in Cryptology, EUROCRYPT '93, Lecture Notes in Computer Science 765, 386--397. For linear cryptanalysis.
-  \item Mendel, F., Nad, T. and Schl\"affer, M. (2013). \emph{Improving local collisions: new attacks on reduced SHA-256}. Advances in Cryptology, EUROCRYPT 2013, Lecture Notes in Computer Science 7881, 262--278. For collisions on 31 steps of SHA-256.
-  \item Khovratovich, D., Rechberger, C. and Savelieva, A. (2012). \emph{Bicliques for preimages: attacks on Skein-512 and the SHA-2 family}. Fast Software Encryption 2012, Lecture Notes in Computer Science 7549, 244--263. For preimage attacks on reduced SHA-256.
-  \item Li, Y., Liu, F. and Wang, G. (2024). \emph{New records in collision attacks on SHA-2}. Advances in Cryptology, EUROCRYPT 2024; IACR ePrint 2024/349. For the 39-step semi-free-start collision of SHA-256.
-  \item Li, Y., Liu, F., Wang, G., Dong, X. and Sun, S. (2024). \emph{The first practical collision for 31-step SHA-256}. Advances in Cryptology, ASIACRYPT 2024, doi 10.1007/978-981-96-0941-3\_8. For a colliding pair on 31 steps, found in practice.
-  \item Biryukov, A., Lamberger, M., Mendel, F. and Nikoli\'c, I. (2011). \emph{Second-order differential collisions for reduced SHA-256}. Advances in Cryptology, ASIACRYPT 2011, Lecture Notes in Computer Science 7073, 270--287. For distinguishers on reduced SHA-256.
-\end{enumerate}
+\nocite{src:FIPS-180-4,src:Biryukov-Lamberger-Mendel-and-Nikolic-2011}
