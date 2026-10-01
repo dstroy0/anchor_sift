@@ -195,7 +195,7 @@ def main():
     print("=" * 78)
     print()
     if parity_p > 0.25:
-        print("    The interleaved halves put the trough %d hours apart, which is what chance does"
+        print("    The interleaved halves put the trough %d hours apart — what chance does"
               % parity_apart)
         print("    (p = %.3f). Two halves of the SAME population, over the SAME epochs, do not" % parity_p)
         print("    agree on where the trough is.")
@@ -203,7 +203,7 @@ def main():
         print("    So the trough hour is not a stable property of this corpus, and the geography")
         print("    reading built on it is not supported. The AMPLITUDE result stands - it was drawn")
         print("    against a proper null and correctly called marginal - but a chi-square is")
-        print("    invariant to relabeling the bins, so it never spoke to the phase at all.")
+        print("    invariant to relabeling the bins: it never spoke to the phase at all.")
         print()
         print("    This is the same shape as the retracted per-pool phase claim, caught earlier.")
     else:
@@ -214,11 +214,11 @@ def main():
         if time_p > 0.25:
             print("    The time-split halves do NOT agree (p = %.3f). Since the interleaved split" % time_p)
             print("    rules out noise, a real phase that MOVED between the halves is the reading")
-            print("    that survives - which is what the migration claim predicts, and it is now")
-            print("    evidence for it rather than an interpretation laid over it.")
+            print("    that survives - what the migration claim predicts, and it is now")
+            print("    evidence for it, not an interpretation laid over it.")
         else:
             span_days = (blocks[-1]["timestamp"] - blocks[0]["timestamp"]) / 86400.0
-            print("    The time-split halves agree too (p = %.3f), so the phase is stable across"
+            print("    The time-split halves agree too (p = %.3f): the phase is stable across"
                   % time_p)
             print("    the corpus. That supports a real, steady daily cycle.")
             print()
@@ -231,7 +231,7 @@ def main():
             print("    this agreement as evidence against it would be reading absence of power as")
             print("    absence of effect.")
     print()
-    print("    Either way the phase now has a test, which is the thing it was missing.")
+    print("    Either way the phase now has a test, the thing it was missing.")
     return 0
 
 

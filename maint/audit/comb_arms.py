@@ -70,10 +70,10 @@ def main():
     else:
         print("  %d arms of mixed depth, %s to %s nonces, %s in total"
               % (width, format(min(depths), ","), format(max(depths), ","), format(total, ",")))
-        print("  mixed depths pool exactly: every arm is referenced to 2c - N, so deviations add")
+        print("  mixed depths pool exactly: every arm is referenced to 2c - N: deviations add")
         print("  and variances add with them. Nothing is fitted and nothing is normalized.")
-    print("  each arm is a DIFFERENT header, so the arms are independent observations of the")
-    print("  construction rather than deeper observations of one instance")
+    print("  each arm is a DIFFERENT header: the arms are independent observations of the")
+    print("  construction, not deeper observations of one instance")
     print()
 
     # Per position: each arm's deviation, the pooled deviation, and how many arms agree on sign.
@@ -99,7 +99,7 @@ def main():
     print()
     over = [row for row in pooled if reach_of(row[1], total) >= 4]
     print("    positions reaching 4 sd or more: %d" % len(over))
-    print("    chance alone over 256 positions delivers about 0.02, so any is worth a look")
+    print("    chance alone over 256 positions delivers about 0.02: any is worth a look")
 
     print()
     print("=" * 78)
@@ -141,11 +141,11 @@ def main():
     real = [u for u in unanimous if reach_of(u[1], total) >= 4]
     if not real:
         print("    No position is both unanimous across arms and past four standard errors pooled.")
-        print("    A structural bias would have to be both, so there is none at this depth: the")
+        print("    A structural bias would have to be both. There is none at this depth: the")
         print("    construction is flat to one part in %s." % format(int(total ** 0.5), ","))
     else:
         print("    %d position(s) are unanimous AND past four sd. Those are the only candidates" % len(real))
-        print("    for structure rather than noise, and each wants its own arm to confirm.")
+        print("    for structure, not noise, and each wants its own arm to confirm.")
 
     print()
     print("=" * 78)
@@ -179,11 +179,11 @@ def main():
     print("=" * 78)
     print()
     print("  An arm costs nothing to keep. The counters are 256 numbers and 33 bins whatever the")
-    print("  depth, and the device buffers are allocated once, so memory is flat in the arm count.")
+    print("  depth, and the device buffers are allocated once: memory is flat in the arm count.")
     print("  What the arms buy is not flat, and the two things they buy do not scale alike:")
     print()
-    print("    pooled depth   improves as the square root of the arm count, which is what more of")
-    print("                   anything buys and is why it saturates")
+    print("    pooled depth   improves as the square root of the arm count. More of anything buys")
+    print("                   that, and so it saturates")
     print("    agreement      improves as two to the arm count, because every additional arm halves")
     print("                   the chance that a run of agreeing signs is coincidence")
     print()
@@ -199,7 +199,7 @@ def main():
         print("    %4d   %14.2fx      %s%s" % (k, by, shown, mark))
     print()
     print("  So depth answers how large a bias is, and arms answer whether it is a bias at all.")
-    print("  Past about thirty two arms any unanimous position is a finding rather than a")
+    print("  Past about thirty two arms any unanimous position is a finding, not a")
     print("  coincidence, and that is a threshold depth alone never reaches.")
     return 0
 

@@ -134,7 +134,7 @@ def main():
             if (value >> (255 - position)) & 1:
                 chain_counts[position] += 1
 
-    print("    digests whose own run beats their target's, so their lower bits are free: %d of %d"
+    print("    digests whose own run beats their target's — their lower bits are free: %d of %d"
           % (freed, len(digests)))
 
     print()
@@ -184,8 +184,8 @@ def main():
     else:
         print("    Position %d clears the loudest-of-%d bar. That would mean selection reaches"
               % (worst_at, tested))
-        print("    past the zero run, which the theory says it cannot, so the first suspect is")
-        print("    the corpus rather than the construction.")
+        print("    past the zero run, which the theory says it cannot: the first suspect is")
+        print("    the corpus, not the construction.")
     return 0
 
 

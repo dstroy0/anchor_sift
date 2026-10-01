@@ -236,7 +236,7 @@ def main():
                     else "under: the receiver finds nothing past the collapse either."))
     print("\n  The window 6-16 above is the positive control for this table. A chain that reads")
     print("  19.16 where structure is known and nothing here has measured its own sensitivity")
-    print("  rather than assumed it, and the null below is worth what that control is worth.")
+    print("  not assumed it, and the null below is worth what that control is worth.")
     return 0
 
 

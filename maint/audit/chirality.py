@@ -117,7 +117,7 @@ def main():
     print("    random bits, deflection difference   %.3e of its own scale" % (gap_d / scale_d))
     print("    random bits, phase residual from exact negation  %.3e" % gap_t)
     print()
-    print("    Deflection is a magnitude and is mirror-blind, so its difference is the floor the")
+    print("    Deflection is a magnitude and is mirror-blind: its difference is the floor the")
     print("    format imposes. Torsion has a sign and need not match even here.")
 
     print()
@@ -155,7 +155,7 @@ def main():
     print("  READING")
     print("=" * 76)
     print()
-    print("    SHA-256 uses six rightward rotations and no leftward one, so the transport is")
+    print("    SHA-256 uses six rightward rotations and no leftward one: the transport is")
     print("    chiral by design. Whether that reaches the boundary is what the torsion column")
     print("    answers, and the deflection column is the control that says the two arms are")
     print("    otherwise identical.")

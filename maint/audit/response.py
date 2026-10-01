@@ -199,7 +199,7 @@ def main():
     print()
     print("    A linear response would put the live arm near zero: both-flipped would equal the")
     print("    exclusive-or of the singles exactly. It does not, and that excess IS the")
-    print("    nonlinearity, which is the thing a single-bit measurement cannot see at all.")
+    print("    nonlinearity — the thing a single-bit measurement cannot see at all.")
 
     print()
     print("=" * 78)
@@ -210,7 +210,7 @@ def main():
     for rounds, middle, spread, seen in decay(max(2000, samples // 8), random.Random(0xDECA)):
         print("    %6d   %15.2f   %24.3f   %7d" % (rounds, middle, spread, seen))
     print()
-    print("    The spread column is the one that matters. A bit whose influence arrives faster or")
+    print("    The spread column: a bit whose influence arrives faster or")
     print("    slower than the rest is a channel; a spread that is just the sampling noise of the")
     print("    per-source means is not.")
     return 0

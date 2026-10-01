@@ -157,7 +157,7 @@ def main():
         print("  %-8s %10d %10d" % (topology, levels, up))
 
     print("\nInvariant bits across a batch, by topology and by what the state carries.")
-    print("Sigma needs a resolved value, so 'redundant' is an upper bound no design can reach.\n")
+    print("Sigma needs a resolved value: 'redundant' is an upper bound no design can reach.\n")
 
     print("  %-10s %-10s %12s %12s %10s"
           % ("state", "topology", "sched bits", "state bits", "of 4096"))
@@ -174,10 +174,10 @@ def main():
             print("  %-10s %-10s %12d %12d %9.1f%%"
                   % (label, topology, sched, comp, 100.0 * (sched + comp) / ceiling))
 
-    print("\n  A resolved state settles a and e every round, so the topology stops mattering to")
+    print("\n  A resolved state settles a and e every round: the topology stops mattering to")
     print("  this total even though it changes the climb. Redundant state keeps the climb small")
     print("  and cannot be built as written: Sigma is a xor of rotations, rotation does not")
-    print("  distribute over addition, so a and e must be settled before Sigma reads them.")
+    print("  distribute over addition: a and e must be settled before Sigma reads them.")
 
     # -- which bits vary, not only how many ------------------------------------------------------
     #

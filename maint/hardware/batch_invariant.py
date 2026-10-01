@@ -163,7 +163,7 @@ def main():
         print("  %3d %10s %12d %12d %10d %9.1f%%"
               % (b, "2^%d" % b, sched_fixed, state_fixed, total, 100.0 * total / ceiling))
 
-    print("\n  A bit counted here cannot differ anywhere in the batch, so the gate that would")
+    print("\n  A bit counted here cannot differ anywhere in the batch: the gate that would")
     print("  compute it can be shared across all 2^b lanes. The count falls as b grows because a")
     print("  wider varying field reaches more of the word through the sigma rotations and the")
     print("  carry.")

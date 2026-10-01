@@ -117,7 +117,7 @@ def main():
 
     n = float(given.samples)
     print("  %d excitations, %d rounds, every interior value read" % (given.samples, rounds))
-    print("  a word is 32 bits, so 16 is saturated and carries nothing further")
+    print("  a word is 32 bits: 16 is saturated and carries nothing further")
     print()
 
     print("=" * 78)
@@ -146,7 +146,7 @@ def main():
             if (inside_diff[step][slot] / n) > 0.5:
                 first_touch[slot] = step
                 break
-    print("    first round each intermediate is touched at all:")
+    print("    first round each intermediate is touched:")
     print("      " + "   ".join("%s:%s" % (names[slot], first_touch[slot]) for slot in range(6)))
 
     print()

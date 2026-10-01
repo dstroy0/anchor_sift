@@ -124,7 +124,7 @@ def main():
     print("    transition either occurred or it did not. That is what a rule is, and it is a")
     print("    different kind of statement from any frequency in this tree.")
     print()
-    print("    The number that matters is how FAST it closes. A round function whose grammar")
+    print("    How FAST it closes is the number. A round function whose grammar")
     print("    survived deep would be one whose trajectories could be pruned; one that closes")
     print("    in a handful of rounds has bought exactly that and nothing is left to prune.")
     return 0

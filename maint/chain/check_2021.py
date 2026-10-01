@@ -87,7 +87,7 @@ def main():
         print()
         print("    The ban ran 2021-05-01 to 2021-07-31 and this corpus is %s .. %s."
               % (stamp_text(first["timestamp"]), stamp_text(last["timestamp"])))
-        print("    There is no collapse inside this window to detect, so an instrument that")
+        print("    There is no collapse inside this window to detect: an instrument that")
         print("    reports none here has been told nothing, and a verdict against it would be")
         print("    a statement about the corpus.")
         print()
@@ -125,7 +125,7 @@ def main():
 
     print()
     print("=" * 76)
-    print("  2. HASHRATE  -  difficulty over interval, which is the quantity that means it")
+    print("  2. HASHRATE  -  difficulty over interval, the quantity that means it")
     print("=" * 76)
     print()
     series = []
@@ -169,7 +169,7 @@ def main():
     if fall >= 35.0 and trough_at < peak_at + 200 * 86400:
         print("    The collapse is visible: %.1f%% off the peak, bottoming %s."
               % (fall, stamp_text(trough_at)))
-        print("    The instrument detects an event it was never tuned for, so its silence over the")
+        print("    The instrument detects an event it was never tuned for: its silence over the")
         print("    recent corpus now means something it did not mean before.")
     else:
         print("    The collapse is NOT visible at the expected size: %.1f%% off peak." % fall)
@@ -181,7 +181,7 @@ def main():
     print("  3. DID THE DAILY CYCLE'S PHASE MOVE WITH THE MINERS?")
     print("=" * 76)
     print()
-    print("  Hashrate moved from roughly 105 east to roughly 100 west, so a cycle that measures")
+    print("  Hashrate moved from roughly 105 east to roughly 100 west: a cycle that measures")
     print("  where miners are must shift its trough by most of twelve hours. A cycle that does not")
     print("  move retires the longitude reading.")
     print()

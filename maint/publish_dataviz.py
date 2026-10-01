@@ -130,10 +130,9 @@ def published(text, name, runnable):
     # The rewrite is checked, not trusted. A module named here exists only in the source tree, and
     # a published file naming one would raise on import somewhere the author never runs it.
     for line in text.split("\n"):
-        # The first version of this guard compared the whole statement.
-        # `import exact as extended` did not match the entry `import exact` and the check passed on
-        # a file that raised at run time. A guard that only catches the form you thought of is
-        # not a guard.
+        # The guard matches each LEFTOVERS entry as a prefix, not the whole statement:
+        # `import exact as extended` is caught, not only `import exact`. A guard that
+        # catches only the form you thought of is not a guard.
         if any(line.strip().startswith(one) for one in LEFTOVERS):
             raise SystemExit(
                 "publish errored: %s still says %r after the rewrite.\n"

@@ -216,7 +216,7 @@ def validate(trials=300, weight=110):
           % ("yes, as the bake-off showed" if not alg_s else "no"))
     print()
     if ok:
-        print("    VALIDATED. Both stages detect their own class and the floor stays quiet, so a")
+        print("    VALIDATED. Both stages detect their own class and the floor stays quiet: a")
         print("    null from this sniffer now means something it would not have meant before.")
         return 0
     print("    NOT VALIDATED. Do not believe a null from it until this passes.")

@@ -130,7 +130,7 @@ def main():
         header = build_header(block)
         rebuilt = block_id_of(header)
         if rebuilt != block["id"]:
-            print("  [!] height %d does not reproduce its own block id, so it is not used."
+            print("  [!] height %d does not reproduce its own block id: it is not used."
                   % block["height"])
             print("      built %s" % rebuilt)
             print("      published %s" % block["id"])

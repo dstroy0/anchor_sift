@@ -104,7 +104,7 @@ def main():
     print("=" * 78)
     print()
     if len(passed) < 3:
-        print("    Fewer than three pools carry a phase at all, so there is nothing to compare.")
+        print("    Fewer than three pools carry a phase at all: there is nothing to compare.")
         print("    The geography claim is not supported and is not refuted; this corpus cannot")
         print("    address it. A deeper labeled corpus is what the question needs.")
         return 0

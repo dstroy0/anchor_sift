@@ -17,7 +17,7 @@
 // The forms and their parameters are read from the ruleset's own lines, since the schema keeps only how many
 // parameters a form takes. A form the ruleset leaves empty, and a form whose text is a label or a note and carries
 // no instruction, are each counted apart: neither is a failure here.
-// the cubin writer is C and its headers carry no guard of their own, so the linkage is named here
+// the cubin writer is C and its headers carry no guard of their own: the linkage is named here
 extern "C"
 {
 #include "sass_assemble.h"
@@ -154,8 +154,8 @@ static int krs_has_instruction(const std::string &text)
 
 // Every label the ruleset's forms define, as one preamble. A branch names a label another form writes
 // (open_error_unless branches to the one label_error_open writes), and the assembler resolves a label from the lines
-// of the text it is given, so a form written alone has none. Each form that carries no instruction is written with
-// every number a branch here is given, so whatever a branch names stands in front of it
+// of the text it is given: a form written alone has none. Each form that carries no instruction is written with
+// every number a branch here is given: whatever a branch names stands in front of it
 static std::string krs_labels(const Ruleset *rules, const std::vector<KrsForm> &forms)
 {
     std::string preamble;
@@ -223,7 +223,7 @@ static unsigned int krs_form_assembles(const Ruleset *rules, const SassMachine *
         }
         outcome = KRS_REFUSED;
         static unsigned char code[4096];
-        // the labels stand in front, each at the address the instructions begin at, so a branch to one resolves
+        // the labels stand in front, each at the address the instructions begin at: a branch to one resolves
         const std::string whole = labels + text;
         if (sass_assemble_lines(machine, whole.c_str(), SASS_CONTROL_SAFE, code, sizeof(code)) != 0u)
         {

@@ -96,7 +96,7 @@ def main(argv):
 
     rows = read_manifest(manifest)
     if not rows:
-        print("  %s lists no files. Nothing was checked, so nothing passed." % manifest)
+        print("  %s lists no files. Nothing was checked: nothing passed." % manifest)
         return 2
 
     here = build_manifest.label_for(os.path.abspath(root))
@@ -143,7 +143,7 @@ def main(argv):
     else:
         ok, output = run(["gpg", "--verify", signature, manifest])
         if ok is None:
-            print("    gpg is not installed, so the signature could not be checked")
+            print("    gpg is not installed: the signature could not be checked")
             findings += 1
         elif ok:
             print("    GOOD signature over the manifest")
@@ -159,9 +159,7 @@ def main(argv):
     # TWO PLACES A PROOF CAN SIT, AND BOTH COUNT.
     #
     # Stamping the signature dates who-and-when together. Stamping the manifest dates the bytes alone
-    # and needs no key. It can be done while the signature waits for whoever holds it. An earlier
-    # version of this looked only at the signature's proof and therefore reported PRIORITY ABSENT on a
-    # tree that had an anchored manifest sitting beside it.
+    # and needs no key. It can be done while the signature waits for whoever holds it.
     anchors = [
         (manifest + ".ots", manifest, "the manifest's bytes"),
         (signature + ".ots", signature, "the signature"),
@@ -178,7 +176,7 @@ def main(argv):
         # file afterwards and the proof still verifies against the chain while describing something
         # that is no longer on disk. That shape reads as coverage without being it.
         if os.path.isfile(target) and os.path.getmtime(proof) < os.path.getmtime(target):
-            print("      STALE. %s was written after this proof was taken, so the proof names" % what)
+            print("      STALE. %s was written after this proof was taken: the proof names" % what)
             print("      bytes that are no longer there. It is still a valid anchor for the old")
             print("      bytes and it covers nothing currently on disk. Stamp again.")
             findings += 1
@@ -186,7 +184,7 @@ def main(argv):
 
         ok, output = run(["ots", "verify", proof])
         if ok is None:
-            print("      ots is not installed, so it could not be checked here. The proof stands;")
+            print("      ots is not installed: it could not be checked here. The proof stands;")
             print("      it verifies against any full node and does not depend on this machine.")
         elif ok:
             print("      VERIFIED against the chain")

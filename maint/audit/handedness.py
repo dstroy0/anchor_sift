@@ -185,7 +185,7 @@ def main():
     print()
     if abs(gap) < 3.0 and half_right == half_left:
         print("    The two are statistically the same. Handedness is cosmetic: the rotation")
-        print("    AMOUNTS carry the diffusion and their direction does not, so the design could")
+        print("    AMOUNTS carry the diffusion and their direction does not: the design could")
         print("    have turned either way and a mirror-blind reading discards nothing.")
     else:
         print("    The two differ. Rotation direction is load-bearing, and any reading that is")

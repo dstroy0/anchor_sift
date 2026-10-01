@@ -121,9 +121,9 @@ def main():
     if ratio < 3.0:
         print("\n  The scatter is not clearly above what this statistic does when nothing is")
         print("  happening. There is no modulation to identify, and the correlations below are")
-        print("  being computed on noise. Reported anyway rather than dropped.")
+        print("  being computed on noise. Reported anyway, not dropped.")
     else:
-        print("\n  The scatter stands above the quiet rounds, so there is something to explain.")
+        print("\n  The scatter stands above the quiet rounds: there is something to explain.")
 
     # -- does it track anything about K_t? -------------------------------------------------------
     print("\nAgainst properties of the round constant. The decrement from round r to r+1 is")
@@ -155,7 +155,7 @@ def main():
 
     print("\n  With %d points, |r| must exceed about %.2f for two-sided significance at 0.05."
           % (len(steps), 2.31 / math.sqrt(len(steps))))
-    print("  Five features were tried, so the threshold to clear is higher still.")
+    print("  Five features were tried: the threshold to clear is higher still.")
     return 0
 
 

@@ -38,7 +38,7 @@ def main():
                     int(row["round"])] = float(row["value"])
 
     print("Word-pair values aligned to each input word's own wavefront, averaged over the")
-    print("sixteen input words. Word w enters at round w+1, so offset 0 is that round.\n")
+    print("sixteen input words. Word w enters at round w+1: offset 0 is that round.\n")
 
     print("  %6s" % "out", end="")
     for k in range(6):
@@ -77,9 +77,9 @@ def main():
         ratio = (right / left) if left != 0 else 0.0
         print("  %10d %14.0f %14.0f %10.4f" % (delay, left, right, ratio))
 
-    print("\n  Equal delay means equal position in the chain, so a ratio away from one is the")
-    print("  asymmetry of the two halves rather than anything the cone imposes. At round one both")
-    print("  a and e are T1 plus a constant, but different constants, so the difference is carry")
+    print("\n  Equal delay means equal position in the chain: a ratio away from one is the")
+    print("  asymmetry of the two halves, not anything the cone imposes. At round one both")
+    print("  a and e are T1 plus a constant, but different constants: the difference is carry")
     print("  geometry.")
     return 0
 

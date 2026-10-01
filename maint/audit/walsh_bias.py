@@ -92,7 +92,7 @@ def main():
 
     bits = given.bits
     span = 1 << bits
-    print("  nonce range 2^%d = %s, so the transform covers all %s input masks"
+    print("  nonce range 2^%d = %s: the transform covers all %s input masks"
           % (bits, format(span, ","), format(span, ",")))
     print("  a bias of one standard error here is %.1f counts" % math.sqrt(span))
     print()
@@ -123,7 +123,7 @@ def main():
     print("    bar for the loudest of %s masks under the null: %.2f sd"
           % (format(span, ","), bar))
     print()
-    print("    The found column is the maximum over every mask, so it is large by construction and")
+    print("    The found column is the maximum over every mask: it is large by construction and")
     print("    carries no information on its own. The held-out column is the whole test: a real")
     print("    approximation predicts nonces it never saw, and a selection artifact does not.")
     return 0

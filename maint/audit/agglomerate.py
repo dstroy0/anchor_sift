@@ -148,7 +148,7 @@ def main():
     if arms < 12:
         raise SystemExit("need at least twelve arms for a correlation to mean anything, found %d"
                          % arms)
-    print("  %d arms, %d positions, so each position carries a vector of %d"
+    print("  %d arms, %d positions: each position carries a vector of %d"
           % (arms, POSITIONS, arms))
     print("  a correlation on %d points has a standard error near %.4f"
           % (arms, 1.0 / math.sqrt(arms)))
@@ -161,7 +161,7 @@ def main():
     print("  THE TIGHTEST CLUSTER IN THE REAL ARMS")
     print("=" * 76)
     print()
-    print("    mean internal distance   %.5f   (1 - |correlation|, so lower is tighter)" % observed)
+    print("    mean internal distance   %.5f   (1 - |correlation|: lower is tighter)" % observed)
     if group:
         print("    size                     %d positions" % len(group))
         print("    members                  %s%s"
@@ -206,7 +206,7 @@ def main():
         print("       per-position test in this tree could have seen it.")
     else:
         print("    -> no co-variation. The tightest real cluster is what independent positions")
-        print("       produce, so the output bits are not merely unbiased one at a time, they are")
+        print("       produce: the output bits are not merely unbiased one at a time, they are")
         print("       unrelated to each other. That is the stronger statement and it needed the")
         print("       arms to make it.")
     return 0

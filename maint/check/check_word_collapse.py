@@ -85,7 +85,7 @@ def main():
                  (sum((s - (sum(spans) / len(spans))) ** 2 for s in spans) / max(1, len(spans) - 1))
                  ** 0.5, min(spans), max(spans)))
         print("\n  offset is how long after waking a word leaves the plateau. The schedule predicts")
-        print("  the same value for every word, so a departure is not accounted for by it.")
+        print("  the same value for every word: a departure is not accounted for by it.")
         print("  values: %s" % (", ".join(str(o) for o in offsets)))
         same = len(set(offsets)) == 1
         print("  %s" % ("all equal: strict schedule order, nothing out of turn." if same
