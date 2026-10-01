@@ -165,7 +165,7 @@ def _check():
         failed += 1
         sys.stdout.write("\n".join(lines) + "\n\n%d check(s) failed\n" % failed)
         return failed
-    say("    the control holds, so the measured arm below is worth reading")
+    say("    the control holds. The measured arm below is worth reading")
     say("")
 
     say("  the rounds, on the working state")

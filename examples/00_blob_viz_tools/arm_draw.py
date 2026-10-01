@@ -544,7 +544,7 @@ def _check():
                                     shown(gaps["letter"], "%12.3e")))
 
     say("  nine arms, eight indicator and one graded, over a %d point golden placement" % count)
-    say("  lit weight %d, so one point changing arm moves a letter by %.3e" % (len(live), step))
+    say("  lit weight %d. One point changing arm moves a letter by %.3e" % (len(live), step))
     say("")
 
     # The engine's pre-check. Whether a point can cross a face is decided by the placement and the
@@ -558,7 +558,7 @@ def _check():
     say("    points sitting exactly on a face            %d of %d   %s" % (
         len(on_face), count, on_face if len(on_face) < 8 else "..."))
     if nearest > 1000.0 * rounding:
-        say("    the clearance beats the rounding by %.0f decades, so no point can cross a face"
+        say("    the clearance beats the rounding by %.0f decades. No point can cross a face"
             % math.log10(nearest / rounding))
         say("    and a clean residual below is arithmetic, established without running it")
     else:
@@ -671,7 +671,7 @@ def _check():
     say("    points, and the orientation field is holding a requirement of the derivation.")
     if on_face:
         say("")
-        say("    One point of %d is outside that. Index %d sits exactly on a face, so its arm is"
+        say("    One point of %d is outside that. Index %d sits exactly on a face. Its arm is"
             % (count, on_face[0]))
         say("    settled by the sign convention and not by any clearance, and it came back in the")
         say("    same arm under every drawing without that being established beforehand. The")

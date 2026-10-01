@@ -334,7 +334,7 @@ def _check():
         return failed
 
     if quiet == 0.0:
-        say("    the null returned exactly zero, so the two are separated absolutely")
+        say("    the null returned exactly zero. The two are separated absolutely")
     else:
         say("    the two are separated by %.1e" % (caught / quiet))
 
@@ -383,13 +383,13 @@ def _check():
         # and stopping that mistake is why this harness exists. The octant reading has no continuum of
         # small moves: a share is a count over a weight and both are integers. The smallest move
         # it can register is one point changing octant.
-        say("    the octant grain is exactly zero, so there is no small residual to allow for")
+        say("    the octant grain is exactly zero. There is no small residual to allow for")
         say("    its smallest registrable move is one point crossing, or %.3e of a share"
             % (1.0 / weight))
         say("    coherence rounds at 1.0e-06, far under a move this reading can make at all")
     else:
         say("    a share moving by less than %.3e is a null permutation" % grain)
-    say("    live_modes takes its floor as an argument, so hand it the spectrum figure above")
+    say("    live_modes takes its floor as an argument. Hand it the spectrum figure above")
 
     sys.stdout.write("\n".join(lines) + "\n\n%d check(s) failed\n" % failed)
     return failed

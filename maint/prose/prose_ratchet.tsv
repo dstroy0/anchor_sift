@@ -3,25 +3,8 @@
 # lowers one writes the lower number here. Regenerate by hand with --ratchet-write only when a
 # file moves, since a moved file starts again at zero under its new name.
 docs/ENGINE_DIRECTIONS.md	1
-examples/00_blob_viz_tools/arm_draw.py	3
-examples/00_blob_viz_tools/boundary_read.py	1
-examples/00_blob_viz_tools/build_sha_clock_view.py	1
-examples/00_blob_viz_tools/build_sha_pairs_view.py	1
-examples/00_blob_viz_tools/build_sha_room_view.py	1
-examples/00_blob_viz_tools/earth_view_template.html	1
-examples/00_blob_viz_tools/null_harness.py	3
-examples/00_blob_viz_tools/octant_lex.py	1
-examples/00_blob_viz_tools/orrery_view_template.html	3
-examples/00_blob_viz_tools/pack_shapes.cu	3
-examples/00_blob_viz_tools/pairs_view_template.html	22
-examples/00_blob_viz_tools/quotient_coherence.py	1
-examples/00_blob_viz_tools/reading_rank.py	4
-examples/00_blob_viz_tools/room_view_template.html	3
-examples/00_blob_viz_tools/scope_view_template.html	2
-examples/00_blob_viz_tools/sphere_view_template.html	1
 examples/00_blob_viz_tools/view/engine_view.html	38
 examples/00_blob_viz_tools/view/track_room.html	1
-examples/00_blob_viz_tools/voxel_view_template.html	14
 examples/0_experimental/invariant_consensus_rejects_outliers.py	1
 examples/cell_tracking/maint/score_metric.py	1
 examples/cell_tracking/src/faces/faces_find.cu	1

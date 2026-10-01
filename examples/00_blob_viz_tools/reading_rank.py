@@ -215,7 +215,7 @@ def _check():
         off = gram_residual(top)
         say("    degree %-2d  worst cell off orthonormal by %.3e" % (top, off))
         if off > 1e-11:
-            say("    FAIL the basis is not orthonormal, so no rank below can be trusted")
+            say("    FAIL the basis is not orthonormal. No rank below can be trusted")
             failed += 1
     say("    precision is not the limit at any degree this reading needs")
     say("")
@@ -233,7 +233,7 @@ def _check():
     say("")
 
     need = int(math.ceil(math.sqrt(COUNT))) - 1
-    say("    (L+1)^2 first reaches %d at degree %d, so degree %d is the floor for a reading"
+    say("    (L+1)^2 first reaches %d at degree %d. Degree %d is the floor for a reading"
         % (COUNT, need, need))
     say("    that could separate all %d sources at all. Below it the blindness is forced." % COUNT)
     if width(need) < COUNT or width(need - 1) >= COUNT:
@@ -247,14 +247,14 @@ def _check():
     if kept != 8:
         say("    FAIL the eight octants did not give eight independent counts")
         failed += 1
-    say("    at fixed weight the eight shares carry one constraint, so %d free numbers" % (kept - 1))
+    say("    at fixed weight the eight shares carry one constraint, %d free numbers" % (kept - 1))
     say("    %d of %d directions of the source space do not move any letter" % (blind, COUNT))
     say("    64 distinct signatures out of 64 rounds is therefore not evidence: distinctness")
     say("    is cheap in 7 dimensions and says nothing about the %d that are invisible" % blind)
     say("")
 
     say("  what this bounds")
-    say("    a reading to degree 8 recovers at most %d of %d numbers about its source, so no" %
+    say("    a reading to degree 8 recovers at most %d of %d numbers about its source. No" %
         (width(8), COUNT))
     say("    sampling, precision or beam count completes it. Raising the degree does, and the")
     say("    cost is coefficients and not accuracy: the basis above is clean at degree 15.")

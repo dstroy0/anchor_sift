@@ -4,13 +4,13 @@
 
 THE FAILURE THIS EXISTS FOR
 
-A room page was served to answer a question about the operation clock. The page had no clock. It
-parsed, its frame loop ran, the server returned 200, and every gate in this tree passed it, because
-none of that was wrong: `build_sha_room_view.py` supplies no `clock` key, every read of that key in
-the template is guarded, and a room without a clock is a supported mode. The guards did their work,
-the defaults applied, and what shipped was a live page whose clock controls did nothing.
+A room page built to answer a question about the operation clock can have no clock. It parses, its
+frame loop runs, the server returns 200, and every gate in this tree passes it, because none of that
+is wrong: `build_sha_room_view.py` supplies no `clock` key, every read of that key in the template
+is guarded, and a room without a clock is a supported mode. The guards do their work, the defaults
+apply, and what ships is a live page whose clock controls do nothing.
 
-So the defect was never in the page. It was that nobody was told which half of the page was asleep.
+The defect is not in the page. It is that nobody is told which half of the page is asleep.
 
 WHY THIS IS NOT A GATE
 
@@ -30,24 +30,6 @@ WHAT IT READS
 The built page, not the builder, because the built page is the artifact somebody opens and the only
 place the data and the template are both present. The guard analysis is `data_check`'s, imported
 instead of restated, and a page therefore cannot be graded one way by the gate and another way here.
-
-ONE APOSTROPHE, AND THE DATA STOPS BEING READABLE
-
-Two of the built pages report their data as unreadable here, and `data_check` reports the same on
-the same two. That agreement is the shared import working as intended. The cause sits in
-`strip_strings`, which blanks JavaScript string literals to keep a brace inside one from being
-counted, and treats `'` as a delimiter because in JavaScript it is one. Inside a JSON value it is
-not: a lone apostrophe opens a string that never closes, the blanking runs to the end of the
-literal, and the structural braces go with it. The counter then never leaves depth zero and stops at
-the first `{ ... }` in the code under the data.
-
-Measured over the built pages: `step_view.html` carries 25 apostrophes in its data and
-`voxel_view.html` carries one, and both fail. `sha_room_view.html` carries none and parses. One is
-enough.
-
-The repair is in `data_check.strip_strings`, which is not this file's, and both tools recover when
-it lands. Nothing here works around it. A workaround would grade a page twice by two rules, and the
-guard analysis is imported to prevent that.
 """
 
 import io

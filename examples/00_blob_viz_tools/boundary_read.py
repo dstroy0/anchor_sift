@@ -303,7 +303,7 @@ def _check():
     say("    deflection moved by %.3e, which is nothing" % worst_defl)
     say("    torsion recovered the angle to %.3e radians" % worst_err)
     if worst_defl > 1e-9:
-        say("  FAIL deflection moved, so it is not rotation blind")
+        say("  FAIL deflection moved. It is not rotation blind")
         failed += 1
     if worst_err > 1e-9:
         say("  FAIL torsion did not recover the rotation")

@@ -10,8 +10,8 @@
  * clears every point already kept. So the device answers that for a batch at a time and the host
  * walks the batch in order, settling the few candidates that clear the kept set against each other.
  *
- * The answer is the same answer a purely sequential pass would give, and that is checked rather
- * than asserted: the driver runs this and the host version over the same shapes at low dimensions
+ * The answer is the same answer a purely sequential pass would give, and that is checked, not
+ * asserted: the driver runs this and the host version over the same shapes at low dimensions
  * where both can reach, and the counts have to agree.
  *
  * WHY THE GAP IS NOT PASSED IN
@@ -379,7 +379,7 @@ int main(int argc, char **argv)
 
         /* The device said which candidates clear everything kept before this batch began. What it
          * cannot say is which of them clear each other, because that depends on decisions being
-         * made now. So they are settled here, in the order they arrived, which is what makes this
+         * made now. So they are settled here, in the order they arrived. That order gives
          * the same answer a sequential pass would reach. */
         int added = 0;
         int was = count;

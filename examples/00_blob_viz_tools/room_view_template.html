@@ -350,7 +350,7 @@
   // ---------------------------------------------------------------------------------------------
   // The inner boundary. It is a window to whoever is outside it and a wall to everything inside, and
   // both of those are drawn here: the reader sees straight through it, and the lights turn around at
-  // it. Nothing about a boundary requires it to stop light in order to stop matter.
+  // it. Stopping matter does not require a boundary to stop light.
   // ---------------------------------------------------------------------------------------------
 
   var veilStuff = new THREE.MeshBasicMaterial({
@@ -443,7 +443,7 @@
 
   // Two instanced meshes and never one. Casting a shadow is a property of a whole mesh. The lights
   // that stop the beam and the lights that pass it have to be different objects. The alternative is a
-  // mesh per light, which is what this replaced.
+  // mesh per light.
   var ballGeometry = new THREE.SphereGeometry(1, 8, 6);
   var ballStuff = new THREE.MeshBasicMaterial({ vertexColors: false });
 
@@ -1142,7 +1142,7 @@
   // as anything inside is concerned. Every one of them is closed, and that is the part that matters.
   //
   // The normal is the shape's own and never the direction back to the middle. Those agree on a
-  // sphere and on nothing else, and a light bouncing off a cube by its radial direction slides along
+  // sphere and no other shape, and a light bouncing off a cube by its radial direction slides along
   // the faces toward the corners and piles up there. It looks like physics and it is a wrong normal.
   // ---------------------------------------------------------------------------------------------
 

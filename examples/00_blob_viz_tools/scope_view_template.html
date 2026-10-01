@@ -323,7 +323,7 @@ function flipsAt(r) {
 }
 
 /* SHA-256's shift register: only words a and e are computed each round. The other six are
-   carried through unchanged, which is the structural fact the backward recovery proved. */
+   carried through unchanged. The backward recovery proved this structural fact. */
 const WORD_NAME = ["a", "b", "c", "d", "e", "f", "g", "h"];
 const COMPUTED = new Set([0, 4]);
 const wordOf = (i) => (i / 32) | 0;
@@ -449,7 +449,7 @@ function drawBall() {
       bctx.beginPath(); bctx.arc(b[0], b[1], 2.0, 0, 6.2832); bctx.fill();
     }
 
-    /* Tracers on the instantaneous moves. Thin open rings, so they read at a glance and still
+    /* Tracers on the instantaneous moves. Thin open rings. They read at a glance and still
        leave the state underneath visible. */
     const amp = state.tracerAmp / 100;
     const ignited = onSet.has(it.i), quenched = offSet.has(it.i);

@@ -170,7 +170,7 @@ def main():
         return 1
     page = page.replace("/*PAIRS_DATA*/null", json.dumps(payload, separators=(",", ":")))
     if page.count("</script>") < page.count("<script"):
-        sys.stderr.write("the template left a script open, so the page would not run\n")
+        sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
 
     out = out_path.resolve("sha_pairs_view.html", option("--out", None))
