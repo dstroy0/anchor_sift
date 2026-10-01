@@ -30,21 +30,25 @@ Where a subject has no script for a stage, the directory is absent. That means n
 
 ## Subjects
 
-| subject           | corpus                                                                | stages present   |
-| ----------------- | --------------------------------------------------------------------- | ---------------- |
-| `any_corpus`      | anything. These read a corpus without knowing what it is              | 1, 2, 3, 4, 5    |
-| `language`        | written text: books, encyclopedia articles, two parallel translations | 1, 2, 3, 4, 6    |
-| `art`             | paintings, stored as bytes that are really a plane                    | 1, 2, 4          |
-| `proteins`        | structures from the Protein Data Bank                                 | 1, 2, 5          |
-| `crystallography` | published cells from the Crystallography Open Database                | 1, 2, 3, 4, 5, 6 |
-| `sound`           | animal and human vocalizations                                        | 1                |
-| `source`          | programming languages, assembly, board layouts                        | 1, 4             |
-| `game_theory`     | games with their own answer key, played boards and impartial games    | 1, 2, 3, 4, 5, 6 |
-| `proofs`          | proofs of the posits the ledger cites                                 | `posits`         |
+| subject            | corpus                                                                 | stages present   |
+| ------------------ | ---------------------------------------------------------------------- | ---------------- |
+| `any_corpus`       | anything. These read a corpus without knowing what it is               | 1, 2, 3, 4, 5    |
+| `language`         | written text: books, encyclopedia articles, two parallel translations  | 1, 2, 3, 4, 6    |
+| `art`              | paintings, stored as bytes that are really a plane                     | 1, 2, 4          |
+| `proteins`         | structures from the Protein Data Bank                                  | 1, 2, 5          |
+| `crystallography`  | published cells from the Crystallography Open Database                 | 1, 2, 3, 4, 5, 6 |
+| `chemistry`        | molecules as atoms and bonds, valence as a necessary condition         | 1, 3, 4, 5       |
+| `molecules`        | atoms and formulae, read for the valence structure they can carry      | 1, 6             |
+| `particle_physics` | atoms as electron shells, Standard Model particles as quantum numbers  | 1, 2, 3, 4, 5, 6 |
+| `sound`            | animal and human vocalizations                                         | 1                |
+| `source`           | programming languages, assembly, board layouts                         | 1, 4             |
+| `game_theory`      | games with their own answer key, played boards and impartial games     | 1, 2, 3, 4, 5, 6 |
 
 Start with `any_corpus`. Those scripts do not know what they are reading, and the rest of the work rests on that claim. Each other subject runs the same steps with domain knowledge added at stage one, and some of them can check the answer at stage six.
 
-`0_experimental` holds work that does not yet fit a subject or a stage.
+Four directories sit outside the subject and stage layout. `0_experimental` holds work that does not yet fit a subject or a stage. `00_blob_viz_tools` is the viewers, a Python generator plus an HTML template each, documented in its own README. `proofing` is the precision work the ledger rests on, the pi-digit reading and the device and host arithmetic engines. `cell_tracking` is a full implementation with its own build scripts, configs, source and tests, not a walk through a corpus.
+
+The proofs of the posits the ledger cites are not under `examples/`. They are in `evidence/proofs/posits/`.
 
 ## Failures are kept
 
