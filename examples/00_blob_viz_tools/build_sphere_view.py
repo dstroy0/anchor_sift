@@ -52,6 +52,7 @@ import sphere_field
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "sphere_view_template.html")
+BAR_SOURCE = os.path.join(HERE, "control_bar.js")
 
 GOLDEN = math.pi * (3.0 - math.sqrt(5.0))
 
@@ -189,6 +190,9 @@ def build(data, args):
             "total_bits": round(sum(bits[value] * counts[value] for value in values), 2),
         },
         "settings": args["opening"],
+        "schema": settings.schema(
+            ["theme", "background", "opacity", "distance"], narrow="sphere"
+        ),
     }
 
 
@@ -268,6 +272,15 @@ def main():
         sys.stderr.write("the template has no place to put the data\n")
         return 1
     page = page[:place.start()] + body + page[place.end():]
+
+    with io.open(BAR_SOURCE, encoding="utf-8") as handle:
+        bar = handle.read()
+    slot = re.search(r"/\*CONTROL_BAR\*/", page)
+    if slot is None:
+        sys.stderr.write("the template has no place for the control bar\n")
+        return 1
+    page = page[:slot.start()] + bar + page[slot.end():]
+
     if page.count("</script>") < page.count("<script"):
         sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
