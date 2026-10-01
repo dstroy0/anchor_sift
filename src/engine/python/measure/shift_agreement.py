@@ -45,7 +45,7 @@
 # onto the next, over up to eight axes, graded against it count for count by
 # utils/test/python/shift_agreement_test.py. The C is a transform over a prime and this counts pairs, and
 # the two share no code. The engine form of recover_lattice_period, a candidate scored with its
-# double against the lags outside its family, is period_read in src/engine/analysis/period/period_select.cu.
+# double against the lags outside its family, is period_read in src/cu/engine/analysis/period/period_select.cu.
 # It reads a device volume, holds its margin as an exact ratio, and adds a band drawn from
 # shuffles, and its Python route is measure/period.py, graded against it by utils/test/python/period_test.py.
 # agreement, strongest_lags, recover_period, lattice_agreement, exact_agreement,

@@ -8,6 +8,7 @@ build_stamp cell_shift
 rm -f "$OUT/cell_shift.exe"
 NO_ROUNDING="$ENGINE/arithmetic/no_rounding"
 
+NO_ROUNDING_CU="$ENGINE/../cu/types/integers"
 MSVC_BIN="$(ls -d "/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC"/*/bin/Hostx64/x64 2>/dev/null | tail -1)"
 CAP="$(nvidia-smi --query-gpu=compute_cap --format=csv,noheader 2>/dev/null | head -1 | tr -d ' .')"
 ARCH="${1:-sm_${CAP:-86}}"
@@ -19,7 +20,7 @@ if command -v nvcc >/dev/null 2>&1 && [ -n "$MSVC_BIN" ] && [ -n "$CAP" ]; then
         -DANCHOR_EXACT_HAVE_CUDA=1 \
         -o "$OUT/cell_shift.exe" \
         "$ROOT/src/cell_shift.c" \
-        "$NO_ROUNDING/arm_cuda.cu" \
+        "$NO_ROUNDING_CU/arm.cu" \
         "$NO_ROUNDING"/exact_integer_{add,limbs,multiply,divide,gcd,decimal,hash}.c \
         "$NO_ROUNDING/arm_portable.c"
     STATUS=$?

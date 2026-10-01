@@ -6,7 +6,7 @@
 
 // tessera's ledger decisions as one source the host and the device both compile. There are two tesseras: the host's
 // daemon (tessera_daemon_*.c) runs them through tessera_ledger.c over arrays it grows, with no CUDA context of its own,
-// and the device's tessera (tessera_device.cu) runs them in one thread over arrays it laid out in the device's memory.
+// and the device's tessera (tessera.cu) runs them in one thread over arrays it laid out in the device's memory.
 // The core never grows an array. Each decision errors where an array it needs is full, as the host's errored where a
 // an array did not grow, and tessera_core_call errors on a call before it changes anything where the ledger lacks room
 // for the most the call could add: the caller grows the arrays and makes the call again, which decides the same

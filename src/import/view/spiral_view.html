@@ -1,0 +1,264 @@
+<title>Combed Spiral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground:#0E1319; --panel:#141B23; --panel-2:#1A232C; --edge:#26323E;
+    --ink:#C8D4DE; --ink-strong:#E8F0F6; --dim:#6B7C8C;
+    --high:#F2A03D; --low:#4A9DAD; --mark:#E8613C; --grid:#1F2A35;
+    --sans-c:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+    --sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  }
+  :root[data-theme="light"]{
+    --ground:#EFF3F7; --panel:#FFFFFF; --panel-2:#F6F9FB; --edge:#D6DFE8;
+    --ink:#37424E; --ink-strong:#10171E; --dim:#78848F;
+    --high:#B96608; --low:#1F6576; --mark:#BC3C18; --grid:#E5ECF1;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --ground:#EFF3F7; --panel:#FFFFFF; --panel-2:#F6F9FB; --edge:#D6DFE8;
+      --ink:#37424E; --ink-strong:#10171E; --dim:#78848F;
+      --high:#B96608; --low:#1F6576; --mark:#BC3C18; --grid:#E5ECF1;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+       font-size:14px;line-height:1.5}
+  .wrap{max-width:1180px;margin:0 auto;padding-inline:18px;padding-block:26px 40px;
+        display:flex;flex-direction:column;gap:14px}
+  h1{font-family:var(--sans-c);font-weight:700;font-size:clamp(26px,4.2vw,40px);
+     letter-spacing:-0.015em;line-height:1.05;margin:0;color:var(--ink-strong);text-wrap:balance}
+  .sub{max-width:68ch;margin:0;color:var(--dim)} .sub b{color:var(--ink);font-weight:500}
+  .tallies{display:flex;flex-wrap:wrap;gap:8px}
+  .tally{border:1px solid var(--edge);padding:6px 11px;font-family:var(--mono);font-size:11.5px;
+         display:flex;align-items:baseline;gap:7px;font-variant-numeric:tabular-nums}
+  .tally b{font-size:15px;font-weight:600;color:var(--ink-strong)}
+  .stage{display:grid;grid-template-columns:1.2fr 1fr;gap:12px}
+  @media (max-width:880px){.stage{grid-template-columns:1fr}}
+  .box{background:var(--panel);border:1px solid var(--edge);display:flex;flex-direction:column;
+       min-width:0}
+  .box-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:8px 12px;
+            border-bottom:1px solid var(--edge);background:var(--panel-2);flex-wrap:wrap}
+  .box-title{font-family:var(--sans-c);font-weight:600;font-size:11.5px;letter-spacing:0.1em;
+             text-transform:uppercase;color:var(--ink-strong)}
+  .box-note{font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+  canvas{display:block;width:100%;height:auto;max-width:100%;touch-action:none}
+  table{width:100%;border-collapse:collapse}
+  th,td{text-align:right;padding:5px 10px;border-bottom:1px solid var(--edge);
+        font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums}
+  th{font-family:var(--sans-c);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
+     color:var(--dim);font-weight:600;white-space:nowrap}
+  td.left,th.left{text-align:left}
+  .bar{display:inline-block;height:9px;background:var(--low);vertical-align:-1px}
+  .bar.seen{background:var(--high)}
+  .bar-wrap{display:flex;flex-direction:column;gap:2px;align-items:flex-end}
+  .levers{background:var(--panel);border:1px solid var(--edge);padding:12px;display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px}
+  .lever{display:flex;flex-direction:column;gap:4px}
+  .lever>span{font-family:var(--sans-c);font-size:10px;letter-spacing:0.11em;text-transform:uppercase;
+              color:var(--dim);display:flex;justify-content:space-between;gap:8px}
+  .lever>span var{font-style:normal;font-family:var(--mono);color:var(--ink);letter-spacing:0}
+  input[type=range]{width:100%;accent-color:var(--high);height:20px}
+  .seg{display:flex;border:1px solid var(--edge)}
+  .seg button{flex:1;background:transparent;border:0;border-right:1px solid var(--edge);
+              color:var(--dim);font-family:var(--mono);font-size:11px;padding:5px 2px;cursor:pointer}
+  .seg button:last-child{border-right:0}
+  .seg button[aria-pressed=true]{background:var(--panel-2);color:var(--high)}
+  .seg button:focus-visible{outline:2px solid var(--high);outline-offset:-2px}
+  footer{border-top:1px solid var(--edge);padding-top:13px;color:var(--dim);font-size:12.5px;
+         max-width:78ch}
+  footer b{color:var(--ink);font-weight:500}
+  code{font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+</style>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:11px">
+    <h1>Combed Spiral</h1>
+    <p class="sub">SHA-256's 256 output bit positions, placed on the golden spiral — index <i>k</i>
+      at height 1−2(k+0.5)/256, longitude <i>k</i>γ — so there is no seam and no pole pile, and a
+      cluster on the surface is a cluster in the data. <b>Size is pooled deviation, colour is how
+      many arms agree on the sign.</b> Those answer different questions: depth says how large,
+      arms say whether it is anything at all.</p>
+    <div class="tallies" id="tallies"></div>
+  </header>
+
+  <div class="stage">
+    <section class="box">
+      <div class="box-head">
+        <span class="box-title">The surface</span>
+        <span class="box-note" id="note">drag to turn</span>
+      </div>
+      <canvas id="ball" width="760" height="640" aria-label="Output bit positions on the golden spiral"></canvas>
+    </section>
+
+    <section class="box">
+      <div class="box-head">
+        <span class="box-title">Agreement against the binomial</span>
+        <span class="box-note">amber seen, teal expected</span>
+      </div>
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th class="left">agree</th><th>seen</th><th>expected</th><th></th></tr></thead>
+          <tbody id="agree"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <div class="levers">
+    <div class="lever"><span>Colour by</span>
+      <div class="seg" role="group" id="segColour">
+        <button data-v="agree" aria-pressed="true">agreement</button>
+        <button data-v="sign" aria-pressed="false">sign</button>
+        <button data-v="word" aria-pressed="false">word</button>
+      </div>
+    </div>
+    <div class="lever"><span>Spiral thread</span>
+      <div class="seg" role="group" id="segThread">
+        <button data-v="1" aria-pressed="true">show</button>
+        <button data-v="0" aria-pressed="false">hide</button>
+      </div>
+    </div>
+    <div class="lever"><span>Spin</span>
+      <div class="seg" role="group" id="segSpin">
+        <button data-v="1" aria-pressed="true">on</button>
+        <button data-v="0" aria-pressed="false">off</button>
+      </div>
+    </div>
+    <div class="lever"><span>Point scale <var id="vScale">100</var></span>
+      <input type="range" id="scale" min="20" max="260" value="100" step="5">
+    </div>
+  </div>
+
+  <footer>
+    <p>Arms cost nothing to keep — the counters are 256 numbers whatever the depth — but the two
+      things they buy scale differently. <b>Pooled depth improves as √k; agreement improves as 2ᵏ</b>,
+      because each further arm halves the chance a run of agreeing signs is coincidence. At this arm
+      count a position agreeing unanimously would happen by chance
+      <code id="chance">—</code> times over 256 positions, so the exponential axis has already
+      saturated: past here, more arms buy depth only. No position is both unanimous and past four
+      standard errors, which is what a flat construction looks like when you can finally see it
+      clearly enough to say so.</p>
+  </footer>
+</div>
+
+<script>
+const DATA = {"arms":32,"perArm":2147483648,"total":68719476736,"points":[{"at":0,"word":0,"bit":0,"xyz":[0.0883,0.99609,0.0],"deviation":504356,"reach":1,"agree":18,"high":true},{"at":1,"word":0,"bit":1,"xyz":[-0.11255,0.98828,0.10311],"deviation":-356804,"reach":1,"agree":19,"high":false},{"at":2,"word":0,"bit":2,"xyz":[0.01719,0.98047,-0.19592],"deviation":-209326,"reach":0,"agree":18,"high":false},{"at":3,"word":0,"bit":3,"xyz":[0.14131,0.97266,0.18431],"deviation":-134024,"reach":0,"agree":18,"high":false},{"at":4,"word":0,"bit":4,"xyz":[-0.25881,0.96484,-0.04578],"deviation":-68104,"reach":0,"agree":16,"high":false},{"at":5,"word":0,"bit":5,"xyz":[0.24468,0.95703,-0.15564],"deviation":264686,"reach":1,"agree":16,"high":true},{"at":6,"word":0,"bit":6,"xyz":[-0.08168,0.94922,0.30383],"deviation":-32946,"reach":0,"agree":18,"high":false},{"at":7,"word":0,"bit":7,"xyz":[-0.15545,0.94141,-0.29931],"deviation":-73722,"reach":0,"agree":17,"high":false},{"at":8,"word":0,"bit":8,"xyz":[0.33659,0.93359,0.12292],"deviation":-85868,"reach":0,"agree":17,"high":false},{"at":9,"word":0,"bit":9,"xyz":[-0.34946,0.92578,0.14425],"deviation":-113732,"reach":0,"agree":18,"high":false},{"at":10,"word":0,"bit":10,"xyz":[0.16812,0.91797,-0.35926],"deviation":-321590,"reach":1,"agree":17,"high":false},{"at":11,"word":0,"bit":11,"xyz":[0.12398,0.91016,0.39528],"deviation":281246,"reach":1,"agree":20,"high":true},{"at":12,"word":0,"bit":12,"xyz":[-0.37292,0.90234,-0.21612],"deviation":-110772,"reach":0,"agree":18,"high":false},{"at":13,"word":0,"bit":13,"xyz":[0.43658,0.89453,-0.09598],"deviation":-171702,"reach":0,"agree":17,"high":false},{"at":14,"word":0,"bit":14,"xyz":[-0.26589,0.88672,0.3782],"deviation":11636,"reach":0,"agree":17,"high":true},{"at":15,"word":0,"bit":15,"xyz":[-0.0613,0.87891,-0.47304],"deviation":227532,"reach":0,"agree":18,"high":true},{"at":16,"word":0,"bit":16,"xyz":[0.37553,0.87109,0.3165],"deviation":-267512,"reach":1,"agree":23,"high":false},{"at":17,"word":0,"bit":17,"xyz":[-0.50429,0.86328,0.02085],"deviation":592572,"reach":2,"agree":20,"high":true},{"at":18,"word":0,"bit":18,"xyz":[0.36707,0.85547,-0.36528],"deviation":-401300,"reach":1,"agree":17,"high":false},{"at":19,"word":0,"bit":19,"xyz":[-0.02451,0.84766,0.52998],"deviation":-556284,"reach":2,"agree":18,"high":false},{"at":20,"word":0,"bit":20,"xyz":[-0.3478,0.83984,-0.41677],"deviation":-138916,"reach":0,"agree":17,"high":false},{"at":21,"word":0,"bit":21,"xyz":[0.54977,0.83203,0.07397],"deviation":297438,"reach":1,"agree":17,"high":true},{"at":22,"word":0,"bit":22,"xyz":[-0.46483,0.82422,0.32342],"deviation":-38450,"reach":0,"agree":16,"high":false},{"at":23,"word":0,"bit":23,"xyz":[0.12675,0.81641,-0.5634],"deviation":-490454,"reach":1,"agree":19,"high":false},{"at":24,"word":0,"bit":24,"xyz":[0.29252,0.80859,0.5105],"deviation":-74924,"reach":0,"agree":17,"high":false},{"at":25,"word":0,"bit":25,"xyz":[-0.57062,0.80078,-0.18204],"deviation":99992,"reach":0,"agree":17,"high":true},{"at":26,"word":0,"bit":26,"xyz":[0.55308,0.79297,-0.25554],"deviation":-166056,"reach":0,"agree":16,"high":false},{"at":27,"word":0,"bit":27,"xyz":[-0.23909,0.78516,0.57129],"deviation":316228,"reach":1,"agree":19,"high":true},{"at":28,"word":0,"bit":28,"xyz":[-0.21291,0.77734,-0.59195],"deviation":65956,"reach":0,"agree":19,"high":true},{"at":29,"word":0,"bit":29,"xyz":[0.56529,0.76953,0.2971],"deviation":-317564,"reach":1,"agree":20,"high":false},{"at":30,"word":0,"bit":30,"xyz":[-0.62651,0.76172,0.16515],"deviation":90474,"reach":0,"agree":20,"high":true},{"at":31,"word":0,"bit":31,"xyz":[0.35532,0.75391,-0.55261],"deviation":240938,"reach":0,"agree":17,"high":true},{"at":32,"word":1,"bit":0,"xyz":[0.11278,0.74609,0.65622],"deviation":-236414,"reach":0,"agree":20,"high":false},{"at":33,"word":1,"bit":1,"xyz":[-0.53327,0.73828,-0.41299],"deviation":-274750,"reach":1,"agree":21,"high":false},{"at":34,"word":1,"bit":2,"xyz":[0.68061,0.73047,-0.05639],"deviation":-310864,"reach":1,"agree":22,"high":false},{"at":35,"word":1,"bit":3,"xyz":[-0.46938,0.72266,0.50739],"deviation":145416,"reach":0,"agree":20,"high":true},{"at":36,"word":1,"bit":4,"xyz":[0.00341,0.71484,-0.69928],"deviation":114950,"reach":0,"agree":17,"high":true},{"at":37,"word":1,"bit":5,"xyz":[0.47515,0.70703,0.52378],"deviation":-40914,"reach":0,"agree":16,"high":false},{"at":38,"word":1,"bit":6,"xyz":[-0.71186,0.69922,-0.06597],"deviation":301084,"reach":1,"agree":18,"high":true},{"at":39,"word":1,"bit":7,"xyz":[0.57549,0.69141,-0.43677],"deviation":-115338,"reach":0,"agree":17,"high":false},{"at":40,"word":1,"bit":8,"xyz":[-0.13063,0.68359,0.71808],"deviation":317360,"reach":1,"agree":20,"high":true},{"at":41,"word":1,"bit":9,"xyz":[-0.39258,0.67578,-0.62386],"deviation":-18598,"reach":0,"agree":16,"high":false},{"at":42,"word":1,"bit":10,"xyz":[0.71772,0.66797,0.1967],"deviation":-11692,"reach":0,"agree":17,"high":false},{"at":43,"word":1,"bit":11,"xyz":[-0.66827,0.66016,0.34294],"deviation":179446,"reach":0,"agree":19,"high":true},{"at":44,"word":1,"bit":12,"xyz":[0.26347,0.65234,-0.71066],"deviation":-235916,"reach":0,"agree":16,"high":false},{"at":45,"word":1,"bit":13,"xyz":[0.28828,0.64453,0.70815],"deviation":111696,"reach":0,"agree":18,"high":true},{"at":46,"word":1,"bit":14,"xyz":[-0.69681,0.63672,-0.33023],"deviation":-120244,"reach":0,"agree":16,"high":false},{"at":47,"word":1,"bit":15,"xyz":[0.74297,0.62891,-0.22907],"deviation":-77762,"reach":0,"agree":21,"high":false},{"at":48,"word":1,"bit":16,"xyz":[-0.39627,0.62109,0.67617],"deviation":265538,"reach":1,"agree":18,"high":true},{"at":49,"word":1,"bit":17,"xyz":[-0.16583,0.61328,-0.77226],"deviation":196504,"reach":0,"agree":16,"high":true},{"at":50,"word":1,"bit":18,"xyz":[0.64883,0.60547,0.4609],"deviation":258434,"reach":0,"agree":19,"high":true},{"at":51,"word":1,"bit":19,"xyz":[-0.7956,0.59766,0.09915],"deviation":433512,"reach":1,"agree":22,"high":true},{"at":52,"word":1,"bit":20,"xyz":[0.52341,0.58984,-0.61492],"deviation":350882,"reach":1,"agree":19,"high":true},{"at":53,"word":1,"bit":21,"xyz":[0.02963,0.58203,0.81263],"deviation":-211068,"reach":0,"agree":19,"high":false},{"at":54,"word":1,"bit":22,"xyz":[-0.57466,0.57422,-0.58313],"deviation":-254604,"reach":0,"agree":16,"high":false},{"at":55,"word":1,"bit":23,"xyz":[0.82305,0.56641,0.04208],"deviation":341318,"reach":1,"agree":18,"high":true},{"at":56,"word":1,"bit":24,"xyz":[-0.63942,0.55859,0.52832],"deviation":179848,"reach":0,"agree":20,"high":true},{"at":57,"word":1,"bit":25,"xyz":[0.11533,0.55078,-0.82664],"deviation":-286614,"reach":1,"agree":21,"high":false},{"at":58,"word":1,"bit":26,"xyz":[0.47624,0.54297,0.69165],"deviation":322124,"reach":1,"agree":19,"high":true},{"at":59,"word":1,"bit":27,"xyz":[-0.82324,0.53516,-0.18943],"deviation":-250324,"reach":0,"agree":19,"high":false},{"at":60,"word":1,"bit":28,"xyz":[0.73925,0.52734,-0.41883],"deviation":438342,"reach":1,"agree":18,"high":true},{"at":61,"word":1,"bit":29,"xyz":[-0.26367,0.51953,0.81275],"deviation":-380910,"reach":1,"agree":20,"high":false},{"at":62,"word":1,"bit":30,"xyz":[-0.35654,0.51172,-0.78168],"deviation":85282,"reach":0,"agree":19,"high":true},{"at":63,"word":1,"bit":31,"xyz":[0.79516,0.50391,0.33735],"deviation":-379368,"reach":1,"agree":19,"high":false},{"at":64,"word":2,"bit":0,"xyz":[-0.81845,0.49609,0.28988],"deviation":-243644,"reach":0,"agree":17,"high":false},{"at":65,"word":2,"bit":1,"xyz":[0.40976,0.48828,-0.7705],"deviation":-278070,"reach":1,"agree":21,"high":false},{"at":66,"word":2,"bit":2,"xyz":[0.2194,0.48047,0.84912],"deviation":-35362,"reach":0,"agree":17,"high":false},{"at":67,"word":2,"bit":3,"xyz":[-0.73891,0.47266,-0.48022],"deviation":190398,"reach":0,"agree":18,"high":true},{"at":68,"word":2,"bit":4,"xyz":[0.87332,0.46484,-0.14571],"deviation":-27198,"reach":0,"agree":16,"high":false},{"at":69,"word":2,"bit":5,"xyz":[-0.54804,0.45703,0.70056],"deviation":-53384,"reach":0,"agree":17,"high":false},{"at":70,"word":2,"bit":6,"xyz":[-0.06942,0.44922,-0.89072],"deviation":-150664,"reach":0,"agree":18,"high":false},{"at":71,"word":2,"bit":7,"xyz":[0.6557,0.44141,0.61255],"deviation":-473788,"reach":1,"agree":19,"high":false},{"at":72,"word":2,"bit":8,"xyz":[-0.90107,0.43359,-0.00879],"deviation":71596,"reach":0,"agree":19,"high":true},{"at":73,"word":2,"bit":9,"xyz":[0.67312,0.42578,-0.60466],"deviation":263378,"reach":1,"agree":18,"high":true},{"at":74,"word":2,"bit":10,"xyz":[-0.08825,0.41797,0.90416],"deviation":41518,"reach":0,"agree":17,"high":true},{"at":75,"word":2,"bit":11,"xyz":[-0.54782,0.41016,-0.72916],"deviation":-166828,"reach":0,"agree":20,"high":false},{"at":76,"word":2,"bit":12,"xyz":[0.8999,0.40234,0.16825],"deviation":3674,"reach":0,"agree":16,"high":true},{"at":77,"word":2,"bit":13,"xyz":[-0.78009,0.39453,0.4856],"deviation":236334,"reach":0,"agree":17,"high":true},{"at":78,"word":2,"bit":14,"xyz":[0.24808,0.38672,-0.8882],"deviation":175716,"reach":0,"agree":17,"high":true},{"at":79,"word":2,"bit":15,"xyz":[0.41851,0.37891,0.8254],"deviation":46708,"reach":0,"agree":16,"high":true},{"at":80,"word":2,"bit":16,"xyz":[-0.8691,0.37109,-0.32704],"deviation":381090,"reach":1,"agree":17,"high":true},{"at":81,"word":2,"bit":17,"xyz":[0.86462,0.36328,-0.34707],"deviation":-33224,"reach":0,"agree":16,"high":false},{"at":82,"word":2,"bit":18,"xyz":[-0.4044,0.35547,0.84267],"deviation":-270416,"reach":1,"agree":17,"high":false},{"at":83,"word":2,"bit":19,"xyz":[-0.27187,0.34766,-0.89734],"deviation":99692,"reach":0,"agree":19,"high":true},{"at":84,"word":2,"bit":20,"xyz":[0.80908,0.33984,0.47948],"deviation":224896,"reach":0,"agree":19,"high":true},{"at":85,"word":2,"bit":21,"xyz":[-0.9232,0.33203,0.19354],"deviation":-43644,"reach":0,"agree":16,"high":false},{"at":86,"word":2,"bit":22,"xyz":[0.55159,0.32422,-0.76853],"deviation":-205458,"reach":0,"agree":17,"high":false},{"at":87,"word":2,"bit":23,"xyz":[0.11272,0.31641,0.9419],"deviation":502582,"reach":1,"agree":21,"high":true},{"at":88,"word":2,"bit":24,"xyz":[-0.72131,0.30859,-0.62006],"deviation":-35436,"reach":0,"agree":17,"high":false},{"at":89,"word":2,"bit":25,"xyz":[0.95322,0.30078,-0.03011],"deviation":-155616,"reach":0,"agree":18,"high":false},{"at":90,"word":2,"bit":26,"xyz":[-0.68428,0.29297,0.66778],"deviation":691584,"reach":2,"agree":20,"high":true},{"at":91,"word":2,"bit":27,"xyz":[0.05361,0.28516,-0.95698],"deviation":-110134,"reach":0,"agree":17,"high":false},{"at":92,"word":2,"bit":28,"xyz":[0.60835,0.27734,0.74363],"deviation":-406100,"reach":1,"agree":19,"high":false},{"at":93,"word":2,"bit":29,"xyz":[-0.95309,0.26953,-0.13772],"deviation":35234,"reach":0,"agree":18,"high":true},{"at":94,"word":2,"bit":30,"xyz":[0.79759,0.26172,-0.54347],"deviation":69052,"reach":0,"agree":19,"high":true},{"at":95,"word":2,"bit":31,"xyz":[-0.22149,0.25391,0.94153],"deviation":74892,"reach":0,"agree":19,"high":true},{"at":96,"word":3,"bit":0,"xyz":[-0.47366,0.24609,-0.84562],"deviation":-59770,"reach":0,"agree":16,"high":false},{"at":97,"word":3,"bit":1,"xyz":[0.92233,0.23828,0.30419],"deviation":33246,"reach":0,"agree":18,"high":true},{"at":98,"word":3,"bit":2,"xyz":[-0.88729,0.23047,0.39949],"deviation":-250102,"reach":0,"agree":18,"high":false},{"at":99,"word":3,"bit":3,"xyz":[0.38513,0.22266,-0.8956],"deviation":15964,"reach":0,"agree":18,"high":true},{"at":100,"word":3,"bit":4,"xyz":[0.32157,0.21484,0.92219],"deviation":116690,"reach":0,"agree":19,"high":true},{"at":101,"word":3,"bit":5,"xyz":[-0.86153,0.20703,-0.46358],"deviation":246926,"reach":0,"agree":17,"high":true},{"at":102,"word":3,"bit":6,"xyz":[0.94998,0.19922,-0.24052],"deviation":157306,"reach":0,"agree":18,"high":true},{"at":103,"word":3,"bit":7,"xyz":[-0.53887,0.19141,0.82036],"deviation":368250,"reach":1,"agree":18,"high":true},{"at":104,"word":3,"bit":8,"xyz":[-0.15704,0.18359,-0.97038],"deviation":88486,"reach":0,"agree":18,"high":true},{"at":105,"word":3,"bit":9,"xyz":[0.77239,0.17578,0.61033],"deviation":98138,"reach":0,"agree":20,"high":true},{"at":106,"word":3,"bit":10,"xyz":[-0.98317,0.16797,0.0718],"deviation":-555964,"reach":2,"agree":21,"high":false},{"at":107,"word":3,"bit":11,"xyz":[0.67735,0.16016,-0.71801],"deviation":49902,"reach":0,"agree":18,"high":true},{"at":108,"word":3,"bit":12,"xyz":[-0.01446,0.15234,0.98822],"deviation":-83334,"reach":0,"agree":18,"high":false},{"at":109,"word":3,"bit":13,"xyz":[-0.65765,0.14453,-0.73933],"deviation":-221664,"reach":0,"agree":19,"high":false},{"at":110,"word":3,"bit":14,"xyz":[0.98544,0.13672,0.10104],"deviation":98,"reach":0,"agree":17,"high":true},{"at":111,"word":3,"bit":15,"xyz":[-0.79573,0.12891,0.59178],"deviation":514080,"reach":1,"agree":19,"high":true},{"at":112,"word":3,"bit":16,"xyz":[0.18719,0.12109,-0.97483],"deviation":-66774,"reach":0,"agree":16,"high":false},{"at":113,"word":3,"bit":17,"xyz":[0.52095,0.11328,0.84604],"deviation":287188,"reach":1,"agree":20,"high":true},{"at":114,"word":3,"bit":18,"xyz":[-0.95645,0.10547,-0.27218],"deviation":70262,"reach":0,"agree":17,"high":true},{"at":115,"word":3,"bit":19,"xyz":[0.88982,0.09766,-0.44573],"deviation":151238,"reach":0,"agree":19,"high":true},{"at":116,"word":3,"bit":20,"xyz":[-0.35531,0.08984,0.93042],"deviation":-212702,"reach":0,"agree":17,"high":false},{"at":117,"word":3,"bit":21,"xyz":[-0.36675,0.08203,-0.9267],"deviation":288528,"reach":1,"agree":20,"high":true},{"at":118,"word":3,"bit":22,"xyz":[0.89695,0.07422,0.43585],"deviation":164634,"reach":0,"agree":19,"high":true},{"at":119,"word":3,"bit":23,"xyz":[-0.95633,0.06641,0.28466],"deviation":-412366,"reach":1,"agree":19,"high":false},{"at":120,"word":3,"bit":24,"xyz":[0.51313,0.05859,-0.85631],"deviation":-100066,"reach":0,"agree":17,"high":false},{"at":121,"word":3,"bit":25,"xyz":[0.20014,0.05078,0.97845],"deviation":178332,"reach":0,"agree":16,"high":true},{"at":122,"word":3,"bit":26,"xyz":[-0.80881,0.04297,-0.5865],"deviation":-160242,"reach":0,"agree":19,"high":false},{"at":123,"word":3,"bit":27,"xyz":[0.99287,0.03516,-0.11391],"deviation":-52376,"reach":0,"agree":16,"high":false},{"at":124,"word":3,"bit":28,"xyz":[-0.65532,0.02734,0.75485],"deviation":-171658,"reach":0,"agree":17,"high":false},{"at":125,"word":3,"bit":29,"xyz":[-0.02669,0.01953,-0.99945],"deviation":-252590,"reach":0,"agree":18,"high":false},{"at":126,"word":3,"bit":30,"xyz":[0.69488,0.01172,0.71903],"deviation":-124180,"reach":0,"agree":17,"high":false},{"at":127,"word":3,"bit":31,"xyz":[-0.99814,0.00391,-0.0608],"deviation":291148,"reach":1,"agree":17,"high":true},{"at":128,"word":4,"bit":0,"xyz":[0.77707,-0.00391,-0.6294],"deviation":130326,"reach":0,"agree":17,"high":true},{"at":129,"word":4,"bit":1,"xyz":[-0.14783,-0.01172,0.98894],"deviation":-162988,"reach":0,"agree":18,"high":false},{"at":130,"word":4,"bit":2,"xyz":[-0.55895,-0.01953,-0.82897],"deviation":-163968,"reach":0,"agree":19,"high":false},{"at":131,"word":4,"bit":3,"xyz":[0.97194,-0.02734,0.23365],"deviation":-150016,"reach":0,"agree":17,"high":false},{"at":132,"word":4,"bit":4,"xyz":[-0.87429,-0.03516,0.48413],"deviation":115058,"reach":0,"agree":19,"high":true},{"at":133,"word":4,"bit":5,"xyz":[0.31755,-0.04297,-0.94727],"deviation":-174370,"reach":0,"agree":17,"high":false},{"at":134,"word":4,"bit":6,"xyz":[0.40557,-0.05078,0.91265],"deviation":-188848,"reach":0,"agree":19,"high":false},{"at":135,"word":4,"bit":7,"xyz":[-0.91515,-0.05859,-0.39883],"deviation":115970,"reach":0,"agree":16,"high":true},{"at":136,"word":4,"bit":8,"xyz":[0.94375,-0.06641,-0.32393],"deviation":-139588,"reach":0,"agree":18,"high":false},{"at":137,"word":4,"bit":9,"xyz":[-0.47682,-0.07422,0.87586],"deviation":275468,"reach":1,"agree":17,"high":true},{"at":138,"word":4,"bit":10,"xyz":[-0.2399,-0.08203,-0.96733],"deviation":531188,"reach":2,"agree":23,"high":true},{"at":139,"word":4,"bit":11,"xyz":[0.82975,-0.08984,0.55085],"deviation":305774,"reach":1,"agree":21,"high":true},{"at":140,"word":4,"bit":12,"xyz":[-0.9832,-0.09766,0.15419],"deviation":-149726,"reach":0,"agree":17,"high":false},{"at":141,"word":4,"bit":13,"xyz":[0.62033,-0.10547,-0.77722],"deviation":-288118,"reach":1,"agree":19,"high":false},{"at":142,"word":4,"bit":14,"xyz":[0.06753,-0.11328,0.99127],"deviation":252084,"reach":0,"agree":20,"high":true},{"at":143,"word":4,"bit":15,"xyz":[-0.71872,-0.12109,-0.68467],"deviation":-100804,"reach":0,"agree":19,"high":false},{"at":144,"word":4,"bit":16,"xyz":[0.99147,-0.12891,0.01935],"deviation":-531326,"reach":2,"agree":20,"high":false},{"at":145,"word":4,"bit":17,"xyz":[-0.74336,-0.13672,0.65477],"deviation":272712,"reach":1,"agree":18,"high":true},{"at":146,"word":4,"bit":18,"xyz":[0.10572,-0.14453,-0.98384],"deviation":-64928,"reach":0,"agree":17,"high":false},{"at":147,"word":4,"bit":19,"xyz":[0.58592,-0.15234,0.79592],"deviation":6826,"reach":0,"agree":16,"high":true},{"at":148,"word":4,"bit":20,"xyz":[-0.96846,-0.16016,-0.19087],"deviation":-117736,"reach":0,"agree":17,"high":false},{"at":149,"word":4,"bit":21,"xyz":[0.84193,-0.16797,-0.51277],"deviation":-89934,"reach":0,"agree":17,"high":false},{"at":150,"word":4,"bit":22,"xyz":[-0.27406,-0.17578,0.94551],"deviation":-254236,"reach":0,"agree":19,"high":false},{"at":151,"word":4,"bit":23,"xyz":[-0.43596,-0.18359,-0.88104],"deviation":-415714,"reach":1,"agree":21,"high":false},{"at":152,"word":4,"bit":24,"xyz":[0.91521,-0.19141,0.35462],"deviation":132706,"reach":0,"agree":20,"high":true},{"at":153,"word":4,"bit":25,"xyz":[-0.91294,-0.19922,0.35616],"deviation":467794,"reach":1,"agree":19,"high":true},{"at":154,"word":4,"bit":26,"xyz":[0.43187,-0.20703,-0.87785],"deviation":153898,"reach":0,"agree":17,"high":true},{"at":155,"word":4,"bit":27,"xyz":[0.27406,-0.21484,0.93741],"deviation":110696,"reach":0,"agree":16,"high":true},{"at":156,"word":4,"bit":28,"xyz":[-0.83379,-0.22266,-0.50519],"deviation":114846,"reach":0,"agree":16,"high":true},{"at":157,"word":4,"bit":29,"xyz":[0.95428,-0.23047,-0.19036],"deviation":133020,"reach":0,"agree":19,"high":true},{"at":158,"word":4,"bit":30,"xyz":[-0.57396,-0.23828,0.78345],"deviation":-115572,"reach":0,"agree":16,"high":false},{"at":159,"word":4,"bit":31,"xyz":[-0.10578,-0.24609,-0.96346],"deviation":-209242,"reach":0,"agree":19,"high":false},{"at":160,"word":5,"bit":0,"xyz":[0.72729,-0.25391,0.63764],"deviation":-37580,"reach":0,"agree":18,"high":false},{"at":161,"word":5,"bit":1,"xyz":[-0.96491,-0.26172,0.02105],"deviation":43334,"reach":0,"agree":18,"high":true},{"at":162,"word":5,"bit":2,"xyz":[0.69572,-0.26953,-0.66583],"deviation":200832,"reach":0,"agree":18,"high":true},{"at":163,"word":5,"bit":3,"xyz":[-0.0631,-0.27734,0.9587],"deviation":407464,"reach":1,"agree":20,"high":true},{"at":164,"word":5,"bit":4,"xyz":[-0.59963,-0.28516,-0.74775],"deviation":358094,"reach":1,"agree":21,"high":true},{"at":165,"word":5,"bit":5,"xyz":[0.94492,-0.29297,0.14596],"deviation":246272,"reach":0,"agree":17,"high":true},{"at":166,"word":5,"bit":6,"xyz":[-0.79333,-0.30078,0.52931],"deviation":-190838,"reach":0,"agree":19,"high":false},{"at":167,"word":5,"bit":7,"xyz":[0.22684,-0.30859,-0.92375],"deviation":-324934,"reach":1,"agree":20,"high":false},{"at":168,"word":5,"bit":8,"xyz":[0.45549,-0.31641,0.83212],"deviation":-220306,"reach":0,"agree":16,"high":false},{"at":169,"word":5,"bit":9,"xyz":[-0.89545,-0.32422,-0.30505],"deviation":-186140,"reach":0,"agree":19,"high":false},{"at":170,"word":5,"bit":10,"xyz":[0.86385,-0.33203,-0.37884],"deviation":35056,"reach":0,"agree":17,"high":true},{"at":171,"word":5,"bit":11,"xyz":[-0.37994,-0.33984,0.86032],"deviation":118988,"reach":0,"agree":17,"high":true},{"at":172,"word":5,"bit":12,"xyz":[-0.30006,-0.34766,-0.88831],"deviation":245156,"reach":0,"agree":20,"high":true},{"at":173,"word":5,"bit":13,"xyz":[0.81873,-0.35547,0.45091],"deviation":33650,"reach":0,"agree":17,"high":true},{"at":174,"word":5,"bit":14,"xyz":[-0.90537,-0.36328,0.21985],"deviation":121784,"reach":0,"agree":18,"high":true},{"at":175,"word":5,"bit":15,"xyz":[0.51736,-0.37109,-0.77112],"deviation":191064,"reach":0,"agree":20,"high":true},{"at":176,"word":5,"bit":16,"xyz":[0.13892,-0.37891,0.91495],"deviation":-95550,"reach":0,"agree":17,"high":false},{"at":177,"word":5,"bit":17,"xyz":[-0.71795,-0.38672,-0.57878],"deviation":440756,"reach":1,"agree":18,"high":true},{"at":178,"word":5,"bit":18,"xyz":[0.91705,-0.39453,-0.05799],"deviation":163886,"reach":0,"agree":17,"high":true},{"at":179,"word":5,"bit":19,"xyz":[-0.63468,-0.40234,0.65977],"deviation":-4924,"reach":0,"agree":16,"high":false},{"at":180,"word":5,"bit":20,"xyz":[0.02224,-0.41016,-0.91174],"deviation":-151802,"reach":0,"agree":17,"high":false},{"at":181,"word":5,"bit":21,"xyz":[0.59714,-0.41797,0.68464],"deviation":-426884,"reach":1,"agree":20,"high":false},{"at":182,"word":5,"bit":22,"xyz":[-0.89916,-0.42578,-0.10106],"deviation":-426316,"reach":1,"agree":21,"high":false},{"at":183,"word":5,"bit":23,"xyz":[0.72828,-0.43359,-0.53067],"deviation":-5676,"reach":0,"agree":17,"high":false},{"at":184,"word":5,"bit":24,"xyz":[-0.1778,-0.44141,0.87952],"deviation":568336,"reach":2,"agree":20,"high":true},{"at":185,"word":5,"bit":25,"xyz":[-0.461,-0.44922,-0.7653],"deviation":167490,"reach":0,"agree":16,"high":true},{"at":186,"word":5,"bit":26,"xyz":[0.85307,-0.45703,0.25179],"deviation":-121612,"reach":0,"agree":17,"high":false},{"at":187,"word":5,"bit":27,"xyz":[-0.79546,-0.46484,0.3888],"deviation":-125882,"reach":0,"agree":18,"high":false},{"at":188,"word":5,"bit":28,"xyz":[0.3224,-0.47266,-0.82015],"deviation":157988,"reach":0,"agree":19,"high":true},{"at":189,"word":5,"bit":29,"xyz":[0.31476,-0.48047,0.81858],"deviation":-160888,"reach":0,"agree":18,"high":false},{"at":190,"word":5,"bit":30,"xyz":[-0.78117,-0.48828,-0.38905],"deviation":-420808,"reach":1,"agree":20,"high":false},{"at":191,"word":5,"bit":31,"xyz":[0.83456,-0.49609,-0.23958],"deviation":181800,"reach":0,"agree":17,"high":true},{"at":192,"word":6,"bit":0,"xyz":[-0.45119,-0.50391,0.73655],"deviation":213904,"reach":0,"agree":19,"high":true},{"at":193,"word":6,"bit":1,"xyz":[-0.16396,-0.51172,-0.84336],"deviation":-227016,"reach":0,"agree":19,"high":false},{"at":194,"word":6,"bit":2,"xyz":[0.6868,-0.51953,0.50832],"deviation":124428,"reach":0,"agree":17,"high":true},{"at":195,"word":6,"bit":3,"xyz":[-0.84502,-0.52734,0.08861],"deviation":376874,"reach":1,"agree":19,"high":true},{"at":196,"word":6,"bit":4,"xyz":[0.55999,-0.53516,-0.63247],"deviation":421122,"reach":1,"agree":20,"high":true},{"at":197,"word":6,"bit":5,"xyz":[0.01422,-0.54297,0.83963],"deviation":507042,"reach":1,"agree":22,"high":true},{"at":198,"word":6,"bit":6,"xyz":[-0.57414,-0.55078,-0.60581],"deviation":26378,"reach":0,"agree":17,"high":true},{"at":199,"word":6,"bit":7,"xyz":[0.82738,-0.55859,0.05851],"deviation":-261756,"reach":0,"agree":17,"high":false},{"at":200,"word":6,"bit":8,"xyz":[-0.64544,-0.56641,0.51244],"deviation":310920,"reach":1,"agree":19,"high":true},{"at":201,"word":6,"bit":9,"xyz":[0.12893,-0.57422,-0.80849],"deviation":35412,"reach":0,"agree":17,"high":true},{"at":202,"word":6,"bit":10,"xyz":[0.44801,-0.58203,0.67862],"deviation":-76960,"reach":0,"agree":17,"high":false},{"at":203,"word":6,"bit":11,"xyz":[-0.78327,-0.58984,-0.1964],"deviation":72474,"reach":0,"agree":16,"high":true},{"at":204,"word":6,"bit":12,"xyz":[0.70515,-0.59766,-0.38153],"deviation":-110684,"reach":0,"agree":18,"high":false},{"at":205,"word":6,"bit":13,"xyz":[-0.26031,-0.60547,0.75209],"deviation":441000,"reach":1,"agree":19,"high":true},{"at":206,"word":6,"bit":14,"xyz":[-0.3137,-0.61328,-0.7249],"deviation":153796,"reach":0,"agree":18,"high":true},{"at":207,"word":6,"bit":15,"xyz":[0.71538,-0.62109,0.32011],"deviation":-226602,"reach":0,"agree":18,"high":false},{"at":208,"word":6,"bit":16,"xyz":[-0.7378,-0.62891,0.24522],"deviation":-373838,"reach":1,"agree":18,"high":false},{"at":209,"word":6,"bit":17,"xyz":[0.37528,-0.63672,-0.67361],"deviation":185604,"reach":0,"agree":20,"high":true},{"at":210,"word":6,"bit":18,"xyz":[0.17679,-0.64453,0.74386],"deviation":358176,"reach":1,"agree":22,"high":true},{"at":211,"word":6,"bit":19,"xyz":[-0.62732,-0.65234,-0.42534],"deviation":-140242,"reach":0,"agree":18,"high":false},{"at":212,"word":6,"bit":20,"xyz":[0.74316,-0.66016,-0.10913],"deviation":88046,"reach":0,"agree":19,"high":true},{"at":213,"word":6,"bit":21,"xyz":[-0.46988,-0.66797,0.57708],"deviation":212854,"reach":0,"agree":18,"high":true},{"at":214,"word":6,"bit":22,"xyz":[-0.04292,-0.67578,-0.73585],"deviation":-397114,"reach":1,"agree":22,"high":false},{"at":215,"word":6,"bit":23,"xyz":[0.52352,-0.68359,0.50855],"deviation":-263382,"reach":1,"agree":17,"high":false},{"at":216,"word":6,"bit":24,"xyz":[-0.72216,-0.69141,-0.02114],"deviation":168350,"reach":0,"agree":18,"high":true},{"at":217,"word":6,"bit":25,"xyz":[0.54106,-0.69922,-0.46728],"deviation":303386,"reach":1,"agree":17,"high":true},{"at":218,"word":6,"bit":26,"xyz":[-0.08242,-0.70703,0.70236],"deviation":-276380,"reach":1,"agree":19,"high":false},{"at":219,"word":6,"bit":27,"xyz":[-0.40905,-0.71484,-0.56717],"deviation":387642,"reach":1,"agree":20,"high":true},{"at":220,"word":6,"bit":28,"xyz":[0.67683,-0.72266,0.14026],"deviation":218810,"reach":0,"agree":16,"high":true},{"at":221,"word":6,"bit":29,"xyz":[-0.58672,-0.73047,0.34954],"deviation":296026,"reach":1,"agree":16,"high":true},{"at":222,"word":6,"bit":30,"xyz":[0.19409,-0.73828,-0.64596],"deviation":369394,"reach":1,"agree":18,"high":true},{"at":223,"word":6,"bit":31,"xyz":[0.28947,-0.74609,0.59963],"deviation":4924,"reach":0,"agree":16,"high":true},{"at":224,"word":7,"bit":0,"xyz":[-0.61026,-0.75391,-0.24333],"deviation":-310878,"reach":1,"agree":17,"high":false},{"at":225,"word":7,"bit":1,"xyz":[0.60587,-0.76172,-0.22958],"deviation":149812,"reach":0,"agree":16,"high":true},{"at":226,"word":7,"bit":2,"xyz":[-0.28748,-0.76953,0.57024],"deviation":268846,"reach":1,"agree":21,"high":true},{"at":227,"word":7,"bit":3,"xyz":[-0.17063,-0.77734,-0.60549],"deviation":-242558,"reach":0,"agree":17,"high":false},{"at":228,"word":7,"bit":4,"xyz":[0.52651,-0.78516,0.32607],"deviation":180558,"reach":0,"agree":17,"high":true},{"at":229,"word":7,"bit":5,"xyz":[-0.59863,-0.79297,0.11335],"deviation":98608,"reach":0,"agree":17,"high":true},{"at":230,"word":7,"bit":6,"xyz":[0.35867,-0.80078,-0.47969],"deviation":40330,"reach":0,"agree":16,"high":true},{"at":231,"word":7,"bit":7,"xyz":[0.0585,-0.80859,0.58545],"deviation":-50190,"reach":0,"agree":18,"high":false},{"at":232,"word":7,"bit":8,"xyz":[-0.43049,-0.81641,-0.38492],"deviation":-201734,"reach":0,"agree":17,"high":false},{"at":233,"word":7,"bit":9,"xyz":[0.56623,-0.82422,-0.00683],"deviation":460992,"reach":1,"agree":19,"high":true},{"at":234,"word":7,"bit":10,"xyz":[-0.40449,-0.83203,0.37962],"deviation":-252272,"reach":0,"agree":18,"high":false},{"at":235,"word":7,"bit":11,"xyz":[0.04093,-0.83984,-0.54128],"deviation":180972,"reach":0,"agree":19,"high":true},{"at":236,"word":7,"bit":12,"xyz":[0.32786,-0.84766,0.41712],"deviation":-490416,"reach":1,"agree":24,"high":false},{"at":237,"word":7,"bit":13,"xyz":[-0.51099,-0.85547,-0.08404],"deviation":44610,"reach":0,"agree":18,"high":true},{"at":238,"word":7,"bit":14,"xyz":[0.42256,-0.86328,-0.27602],"deviation":585364,"reach":2,"agree":18,"high":true},{"at":239,"word":7,"bit":15,"xyz":[-0.12177,-0.87109,0.47578],"deviation":117256,"reach":0,"agree":18,"high":true},{"at":240,"word":7,"bit":16,"xyz":[-0.22494,-0.87891,-0.42063],"deviation":12390,"reach":0,"agree":17,"high":true},{"at":241,"word":7,"bit":17,"xyz":[0.43614,-0.88672,0.15334],"deviation":235724,"reach":0,"agree":16,"high":true},{"at":242,"word":7,"bit":18,"xyz":[-0.4111,-0.89453,0.17553],"deviation":94258,"reach":0,"agree":17,"high":true},{"at":243,"word":7,"bit":19,"xyz":[0.17796,-0.90234,-0.39256],"deviation":45800,"reach":0,"agree":17,"high":true},{"at":244,"word":7,"bit":20,"xyz":[0.12874,-0.91016,0.39375],"deviation":-91518,"reach":0,"agree":16,"high":false},{"at":245,"word":7,"bit":21,"xyz":[-0.34556,-0.91797,-0.19473],"deviation":42074,"reach":0,"agree":17,"high":true},{"at":246,"word":7,"bit":22,"xyz":[0.36824,-0.92578,-0.08562],"deviation":38798,"reach":0,"agree":16,"high":true},{"at":247,"word":7,"bit":23,"xyz":[-0.20254,-0.93359,0.2956],"deviation":17694,"reach":0,"agree":17,"high":true},{"at":248,"word":7,"bit":24,"xyz":[-0.04737,-0.94141,-0.33393],"deviation":-306372,"reach":1,"agree":17,"high":false},{"at":249,"word":7,"bit":25,"xyz":[0.243,-0.94922,0.19984],"deviation":-38716,"reach":0,"agree":17,"high":false},{"at":250,"word":7,"bit":26,"xyz":[-0.28957,-0.95703,0.01547],"deviation":-403008,"reach":1,"agree":18,"high":false},{"at":251,"word":7,"bit":27,"xyz":[0.18405,-0.96484,-0.18762],"deviation":-23232,"reach":0,"agree":17,"high":false},{"at":252,"word":7,"bit":28,"xyz":[-0.00793,-0.97266,0.23211],"deviation":-160840,"reach":0,"agree":17,"high":false},{"at":253,"word":7,"bit":29,"xyz":[-0.12782,-0.98047,-0.14947],"deviation":330582,"reach":1,"agree":21,"high":true},{"at":254,"word":7,"bit":30,"xyz":[0.15152,-0.98828,0.01853],"deviation":84998,"reach":0,"agree":18,"high":true},{"at":255,"word":7,"bit":31,"xyz":[-0.07187,-0.99609,0.0513],"deviation":624478,"reach":2,"agree":23,"high":true}],"words":["a","b","c","d","e","f","g","h"],"agreement":[{"agree":32,"seen":0,"expected":0.0},{"agree":31,"seen":0,"expected":0.0},{"agree":30,"seen":0,"expected":0.0},{"agree":29,"seen":0,"expected":0.001},{"agree":28,"seen":0,"expected":0.004},{"agree":27,"seen":0,"expected":0.024},{"agree":26,"seen":0,"expected":0.108},{"agree":25,"seen":0,"expected":0.401},{"agree":24,"seen":1,"expected":1.254},{"agree":23,"seen":3,"expected":3.344},{"agree":22,"seen":5,"expected":7.69},{"agree":21,"seen":12,"expected":15.381},{"agree":20,"seen":27,"expected":26.917},{"agree":19,"seen":47,"expected":41.41},{"agree":18,"seen":52,"expected":56.2},{"agree":17,"seen":73,"expected":67.439},{"agree":16,"seen":36,"expected":35.827}],"unanimousByChance":1.1920928955078125e-07};
+const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const state = { colour:"agree", thread:true, spin:!reduce, scale:100, yaw:0.5, pitch:-0.3 };
+
+const half = DATA.arms / 2;
+const maxDev = Math.max(...DATA.points.map(p => Math.abs(p.deviation))) || 1;
+
+document.getElementById("tallies").innerHTML =
+  "<div class='tally'><b>" + DATA.arms + "</b> arms</div>" +
+  "<div class='tally'><b>" + DATA.total.toLocaleString() + "</b> hashes pooled</div>" +
+  "<div class='tally'><b>256</b> positions on the spiral</div>" +
+  "<div class='tally'><b>" + (DATA.agreement.find(a=>a.agree===DATA.arms)?.seen ?? 0) +
+  "</b> unanimous, " + DATA.unanimousByChance.toExponential(1) + " expected</div>";
+document.getElementById("chance").textContent = DATA.unanimousByChance.toExponential(1);
+
+const wordHue = (w) => "hsl(" + Math.round(18 + w*42) + ",58%," +
+  (matchMedia("(prefers-color-scheme: light)").matches &&
+   document.documentElement.dataset.theme !== "dark" ? "38%" : "60%") + ")";
+
+function tint(p){
+  if (state.colour === "word") return wordHue(p.word);
+  if (state.colour === "sign") return p.high ? css("--high") : css("--low");
+  const lean = (p.agree - half) / (DATA.arms - half);   // 0 at chance, 1 at unanimous
+  return lean > 0.55 ? css("--mark") : (p.high ? css("--high") : css("--low"));
+}
+function strength(p){
+  const lean = (p.agree - half) / (DATA.arms - half);
+  return 0.22 + 0.78 * Math.max(0, Math.min(1, lean));
+}
+
+const ball = document.getElementById("ball"), ctx = ball.getContext("2d");
+function draw(){
+  const W = ball.width, H = ball.height, cx = W/2, cy = H/2, R = Math.min(W,H)*0.36;
+  ctx.fillStyle = css("--panel"); ctx.fillRect(0,0,W,H);
+  const cyy=Math.cos(state.yaw), syy=Math.sin(state.yaw);
+  const cp=Math.cos(state.pitch), sp=Math.sin(state.pitch);
+  const rot = (v) => { const x=v[0]*cyy+v[2]*syy, z=-v[0]*syy+v[2]*cyy;
+                       return [x, v[1]*cp - z*sp, v[1]*sp + z*cp]; };
+  const proj = (p) => { const d=3.4, f=d/(d - p[2]*0.5);
+                        return [cx + p[0]*R*f, cy - p[1]*R*f]; };
+
+  ctx.strokeStyle = css("--grid"); ctx.lineWidth = 1;
+  for (let li=1; li<7; li++){
+    const t=(li/7)*Math.PI, sr=Math.sin(t), yy=Math.cos(t);
+    ctx.beginPath();
+    for (let a=0;a<=48;a++){ const ang=(a/48)*6.2832;
+      const q=proj(rot([sr*Math.cos(ang),yy,sr*Math.sin(ang)]));
+      a?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]); }
+    ctx.stroke();
+  }
+
+  const placed = DATA.points.map(p => ({ p, v: rot(p.xyz) }));
+
+  if (state.thread){
+    ctx.strokeStyle = css("--grid"); ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    placed.forEach((it,i)=>{ const q=proj(it.v); i?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]); });
+    ctx.stroke();
+  }
+
+  placed.sort((a,b)=>a.v[2]-b.v[2]);
+  for (const it of placed){
+    const q = proj(it.v);
+    const depth = (it.v[2]+1)/2;
+    const size = 1.6 + (Math.abs(it.p.deviation)/maxDev) * 7.5 * (state.scale/100);
+    ctx.globalAlpha = (0.30 + depth*0.62) * strength(it.p);
+    ctx.fillStyle = tint(it.p);
+    ctx.beginPath(); ctx.arc(q[0], q[1], size, 0, 6.2832); ctx.fill();
+    if (it.p.agree >= DATA.arms - 1){
+      ctx.globalAlpha = 0.85; ctx.strokeStyle = css("--ink-strong"); ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(q[0], q[1], size+3.5, 0, 6.2832); ctx.stroke();
+    }
+  }
+  ctx.globalAlpha = 1;
+  document.getElementById("note").textContent =
+    "drag to turn · " + DATA.arms + " arms · largest deviation " + maxDev.toLocaleString();
+}
+
+const agree = document.getElementById("agree");
+const widest = Math.max(...DATA.agreement.map(a=>Math.max(a.seen,a.expected))) || 1;
+for (const row of DATA.agreement){
+  const tr = document.createElement("tr");
+  const ws = Math.round(row.seen/widest*70), we = Math.round(row.expected/widest*70);
+  tr.innerHTML = "<td class='left'>" + row.agree + " of " + DATA.arms + "</td>" +
+    "<td>" + row.seen + "</td><td>" + row.expected.toFixed(1) + "</td>" +
+    "<td><div class='bar-wrap'><span class='bar seen' style='width:" + ws + "px'></span>" +
+    "<span class='bar' style='width:" + we + "px'></span></div></td>";
+  agree.appendChild(tr);
+}
+
+function seg(id,key,cast){ const g=document.getElementById(id);
+  g.addEventListener("click",(e)=>{ const b=e.target.closest("button"); if(!b) return;
+    [...g.querySelectorAll("button")].forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
+    state[key]=cast(b.dataset.v); draw(); }); }
+seg("segColour","colour",String);
+seg("segThread","thread",(v)=>v==="1");
+seg("segSpin","spin",(v)=>v==="1");
+document.getElementById("scale").addEventListener("input",(e)=>{
+  state.scale=+e.target.value; document.getElementById("vScale").textContent=e.target.value; draw(); });
+
+let drag=null;
+ball.addEventListener("pointerdown",(e)=>{drag={x:e.clientX,y:e.clientY};ball.setPointerCapture(e.pointerId);});
+ball.addEventListener("pointermove",(e)=>{ if(!drag) return;
+  state.yaw += (e.clientX-drag.x)*0.009;
+  state.pitch = Math.max(-1.4,Math.min(1.4,state.pitch+(e.clientY-drag.y)*0.007));
+  drag={x:e.clientX,y:e.clientY}; draw(); });
+ball.addEventListener("pointerup",()=>{drag=null;});
+ball.addEventListener("pointercancel",()=>{drag=null;});
+
+let last=0;
+function tick(t){ const dt=last?t-last:16; last=t;
+  if(state.spin && !drag){ state.yaw += dt*0.00014; draw(); }
+  requestAnimationFrame(tick); }
+draw(); requestAnimationFrame(tick);
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",draw);
+</script>

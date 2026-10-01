@@ -56,7 +56,7 @@ nvcc -ccbin "$MSVC_BIN" -O2 $GENCODE \
     -I "$ROOT/src/engine/arithmetic/no_rounding" \
     -DANCHOR_STEER_HAVE_CUDA=1 \
     -o "$OUT/bench_steer_gpu.exe" \
-    "$ROOT/src/engine/nbody/anchor_sift/scan_cuda.cu" \
+    "$ROOT/src/cu/engine/nbody/anchor_sift/scan.cu" \
     "$ROOT/src/engine/nbody/anchor_sift/scan_portable.c" \
     "$ROOT/src/engine/nbody/anchor_sift"/anchor_sift_{core,steer,field,steer_plan,steer_count}.c \
     "$ROOT/src/engine/arithmetic/no_rounding"/exact_integer_{add,limbs,multiply,divide,gcd,decimal,hash}.c \

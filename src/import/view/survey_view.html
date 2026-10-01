@@ -1,0 +1,244 @@
+<title>Device Survey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground: #0E1319; --panel: #141B23; --panel-2: #1A232C; --edge: #26323E;
+    --ink: #C8D4DE; --ink-strong: #E8F0F6; --dim: #6B7C8C;
+    --high: #F2A03D; --low: #4A9DAD; --mark: #E8613C; --grid: #1F2A35; --flat: #232E3A;
+    --sans-c: "IBM Plex Sans Condensed", "Helvetica Neue", Arial, sans-serif;
+    --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  }
+  :root[data-theme="light"] {
+    --ground: #EFF3F7; --panel: #FFFFFF; --panel-2: #F6F9FB; --edge: #D6DFE8;
+    --ink: #37424E; --ink-strong: #10171E; --dim: #78848F;
+    --high: #B96608; --low: #1F6576; --mark: #BC3C18; --grid: #E5ECF1; --flat: #E8EEF3;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --ground: #EFF3F7; --panel: #FFFFFF; --panel-2: #F6F9FB; --edge: #D6DFE8;
+      --ink: #37424E; --ink-strong: #10171E; --dim: #78848F;
+      --high: #B96608; --low: #1F6576; --mark: #BC3C18; --grid: #E5ECF1; --flat: #E8EEF3;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink);
+         font-family: var(--sans); font-size: 14px; line-height: 1.5; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding-inline: 18px;
+          padding-block: 26px 40px; display: flex; flex-direction: column; gap: 14px; }
+  h1 { font-family: var(--sans-c); font-weight: 700; font-size: clamp(26px, 4.2vw, 40px);
+       letter-spacing: -0.015em; line-height: 1.05; margin: 0; color: var(--ink-strong);
+       text-wrap: balance; }
+  .sub { max-width: 68ch; margin: 0; color: var(--dim); }
+  .sub b { color: var(--ink); font-weight: 500; }
+  .tallies { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tally { border: 1px solid var(--edge); padding: 6px 11px; font-family: var(--mono);
+           font-size: 11.5px; display: flex; align-items: baseline; gap: 7px;
+           font-variant-numeric: tabular-nums; }
+  .tally b { font-size: 15px; font-weight: 600; color: var(--ink-strong); }
+  .box { background: var(--panel); border: 1px solid var(--edge); }
+  .box-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+              padding: 8px 12px; border-bottom: 1px solid var(--edge); background: var(--panel-2);
+              flex-wrap: wrap; }
+  .box-title { font-family: var(--sans-c); font-weight: 600; font-size: 11.5px;
+               letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-strong); }
+  .box-note { font-family: var(--mono); font-size: 10.5px; color: var(--dim); }
+  .body { padding: 12px; }
+
+  .map { display: grid; grid-template-columns: 22px repeat(32, minmax(0, 1fr)); gap: 2px;
+         align-items: center; }
+  .rowlab { font-family: var(--mono); font-size: 11px; color: var(--dim); text-align: right;
+            padding-right: 4px; }
+  .cell { aspect-ratio: 1; background: var(--flat); }
+  .cell[data-reach="1"] { background: color-mix(in srgb, var(--tint) 30%, var(--flat)); }
+  .cell[data-reach="2"] { background: color-mix(in srgb, var(--tint) 62%, var(--flat)); }
+  .cell[data-reach="3"] { background: var(--tint); }
+  .cell[data-reach="4"] { background: var(--tint); outline: 1px solid var(--ink-strong); }
+  .axis { display: grid; grid-template-columns: 22px repeat(32, minmax(0, 1fr)); gap: 2px;
+          margin-top: 5px; font-family: var(--mono); font-size: 8.5px; color: var(--dim); }
+  .axis span { text-align: center; }
+
+  .scroller { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: right; padding: 5px 10px; border-bottom: 1px solid var(--edge);
+           font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; }
+  th { font-family: var(--sans-c); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+       color: var(--dim); font-weight: 600; white-space: nowrap; }
+  td.left, th.left { text-align: left; }
+  .bar { display: inline-block; height: 9px; background: var(--high); vertical-align: -1px; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 820px) { .split { grid-template-columns: 1fr; } }
+  .before { border: 1px solid var(--mark); padding: 11px; }
+  .after { border: 1px solid var(--edge); padding: 11px; }
+  .before h3, .after h3 { font-family: var(--sans-c); font-size: 11px; letter-spacing: 0.1em;
+                          text-transform: uppercase; margin: 0 0 8px; }
+  .before h3 { color: var(--mark); } .after h3 { color: var(--ink-strong); }
+  .kv { display: flex; justify-content: space-between; gap: 10px; font-family: var(--mono);
+        font-size: 12px; padding: 3px 0; border-bottom: 1px solid var(--edge);
+        font-variant-numeric: tabular-nums; }
+  .kv:last-child { border-bottom: 0; }
+  .kv b { color: var(--ink-strong); font-weight: 500; }
+  footer { border-top: 1px solid var(--edge); padding-top: 13px; color: var(--dim);
+           font-size: 12.5px; max-width: 78ch; }
+  footer b { color: var(--ink); font-weight: 500; }
+  code { font-family: var(--mono); font-size: 11.5px; color: var(--ink); }
+</style>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:11px">
+    <h1>Device Survey</h1>
+    <p class="sub">Every nonce in the 32-bit space, hashed on the card, with two things the miner
+      never reads: how often each of the 256 output positions was set, and how many digests carried
+      at least <i>k</i> leading zeros. <b>Every comparison here is integer.</b> A position set
+      <i>c</i> times out of <i>N</i> deviates by exactly <code>2c − N</code>, and testing it against
+      <i>k</i> sigma is <code>(2c − N)² vs k²N</code> — no division, no square root, nothing that
+      needs a format wide enough to hold it.</p>
+    <div class="tallies" id="tallies"></div>
+  </header>
+
+  <section class="box">
+    <div class="box-head">
+      <span class="box-title">Output bit map</span>
+      <span class="box-note" id="mapNote">—</span>
+    </div>
+    <div class="body">
+      <div class="map" id="map"></div>
+      <div class="axis" id="axis"></div>
+    </div>
+  </section>
+
+  <div class="split">
+    <section class="box">
+      <div class="box-head">
+        <span class="box-title">Power-of-two diffusion</span>
+        <span class="box-note">bin k expects N / 2^k</span>
+      </div>
+      <div class="scroller">
+        <table>
+          <thead><tr><th class="left">k</th><th>observed</th><th>expected</th><th>ratio</th></tr></thead>
+          <tbody id="hist"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="box">
+      <div class="box-head">
+        <span class="box-title">What width buys</span>
+        <span class="box-note">time to settle a 3.4% deficit at 2.4 GH/s</span>
+      </div>
+      <div class="scroller">
+        <table>
+          <thead><tr><th class="left">anchor width</th><th>events/sec</th><th>time to resolve</th></tr></thead>
+          <tbody id="sens"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <section class="box">
+    <div class="box-head"><span class="box-title">What the fix looks like</span></div>
+    <div class="body split">
+      <div class="before">
+        <h3>Before — silent zero</h3>
+        <div class="kv"><span>nonces requested</span><b>4,294,967,295</b></div>
+        <div class="kv"><span>host credited</span><b>4,294,967,295</b></div>
+        <div class="kv"><span>kernel iterations</span><b>0</b></div>
+        <div class="kv"><span>bit counters</span><b>all zero</b></div>
+        <div class="kv"><span>loudest position</span><b>−65536 sd</b></div>
+        <div class="kv"><span>exit status</span><b>success</b></div>
+      </div>
+      <div class="after">
+        <h3>After — sixty-four bit trip count</h3>
+        <div class="kv"><span>nonces requested</span><b>4,294,967,295</b></div>
+        <div class="kv"><span>host credited</span><b>4,294,967,295</b></div>
+        <div class="kv"><span>kernel iterations</span><b id="iters">correct</b></div>
+        <div class="kv"><span>bit counters</span><b>populated</b></div>
+        <div class="kv"><span>loudest position</span><b id="worst">—</b></div>
+        <div class="kv"><span>exit status</span><b>success</b></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>The rounding-up in a grid-stride loop was done in thirty-two bits, so
+      <code>nonce_count + stride − 1</code> wrapped at the top of the range and the trip count came
+      out zero. Every lane exited before doing anything while the host added the full nonce count,
+      so the run returned all-zero counters and reported success. <b>Both columns above are the same
+      code path on the same input</b> — the only difference is the width the addition is done in.
+      A silent zero that reports success is the failure worth being able to recognise, which is why
+      it is drawn rather than described.</p>
+  </footer>
+</div>
+
+<script>
+const DATA = {"samples":4294967295,"positions":[{"at":0,"word":0,"bit":0,"deviation":17389,"reach":0,"high":true},{"at":1,"word":0,"bit":1,"deviation":-44925,"reach":0,"high":false},{"at":2,"word":0,"bit":2,"deviation":-73419,"reach":1,"high":false},{"at":3,"word":0,"bit":3,"deviation":-105009,"reach":1,"high":false},{"at":4,"word":0,"bit":4,"deviation":37061,"reach":0,"high":true},{"at":5,"word":0,"bit":5,"deviation":34221,"reach":0,"high":true},{"at":6,"word":0,"bit":6,"deviation":-44835,"reach":0,"high":false},{"at":7,"word":0,"bit":7,"deviation":-7399,"reach":0,"high":false},{"at":8,"word":0,"bit":8,"deviation":23435,"reach":0,"high":true},{"at":9,"word":0,"bit":9,"deviation":43639,"reach":0,"high":true},{"at":10,"word":0,"bit":10,"deviation":93697,"reach":1,"high":true},{"at":11,"word":0,"bit":11,"deviation":44325,"reach":0,"high":true},{"at":12,"word":0,"bit":12,"deviation":-11919,"reach":0,"high":false},{"at":13,"word":0,"bit":13,"deviation":-18395,"reach":0,"high":false},{"at":14,"word":0,"bit":14,"deviation":-70175,"reach":1,"high":false},{"at":15,"word":0,"bit":15,"deviation":27673,"reach":0,"high":true},{"at":16,"word":0,"bit":16,"deviation":48447,"reach":0,"high":true},{"at":17,"word":0,"bit":17,"deviation":61237,"reach":0,"high":true},{"at":18,"word":0,"bit":18,"deviation":-32985,"reach":0,"high":false},{"at":19,"word":0,"bit":19,"deviation":3261,"reach":0,"high":true},{"at":20,"word":0,"bit":20,"deviation":-34935,"reach":0,"high":false},{"at":21,"word":0,"bit":21,"deviation":-84147,"reach":1,"high":false},{"at":22,"word":0,"bit":22,"deviation":-37617,"reach":0,"high":false},{"at":23,"word":0,"bit":23,"deviation":-83621,"reach":1,"high":false},{"at":24,"word":0,"bit":24,"deviation":-62339,"reach":0,"high":false},{"at":25,"word":0,"bit":25,"deviation":-86339,"reach":1,"high":false},{"at":26,"word":0,"bit":26,"deviation":64365,"reach":0,"high":true},{"at":27,"word":0,"bit":27,"deviation":-22277,"reach":0,"high":false},{"at":28,"word":0,"bit":28,"deviation":92935,"reach":1,"high":true},{"at":29,"word":0,"bit":29,"deviation":24099,"reach":0,"high":true},{"at":30,"word":0,"bit":30,"deviation":22969,"reach":0,"high":true},{"at":31,"word":0,"bit":31,"deviation":39219,"reach":0,"high":true},{"at":32,"word":1,"bit":0,"deviation":46557,"reach":0,"high":true},{"at":33,"word":1,"bit":1,"deviation":69583,"reach":1,"high":true},{"at":34,"word":1,"bit":2,"deviation":97863,"reach":1,"high":true},{"at":35,"word":1,"bit":3,"deviation":-44255,"reach":0,"high":false},{"at":36,"word":1,"bit":4,"deviation":-22429,"reach":0,"high":false},{"at":37,"word":1,"bit":5,"deviation":-19219,"reach":0,"high":false},{"at":38,"word":1,"bit":6,"deviation":-60709,"reach":0,"high":false},{"at":39,"word":1,"bit":7,"deviation":-161121,"reach":2,"high":false},{"at":40,"word":1,"bit":8,"deviation":-22955,"reach":0,"high":false},{"at":41,"word":1,"bit":9,"deviation":-39475,"reach":0,"high":false},{"at":42,"word":1,"bit":10,"deviation":3311,"reach":0,"high":true},{"at":43,"word":1,"bit":11,"deviation":41883,"reach":0,"high":true},{"at":44,"word":1,"bit":12,"deviation":-34435,"reach":0,"high":false},{"at":45,"word":1,"bit":13,"deviation":18607,"reach":0,"high":true},{"at":46,"word":1,"bit":14,"deviation":-4485,"reach":0,"high":false},{"at":47,"word":1,"bit":15,"deviation":48679,"reach":0,"high":true},{"at":48,"word":1,"bit":16,"deviation":52135,"reach":0,"high":true},{"at":49,"word":1,"bit":17,"deviation":118605,"reach":1,"high":true},{"at":50,"word":1,"bit":18,"deviation":57271,"reach":0,"high":true},{"at":51,"word":1,"bit":19,"deviation":144473,"reach":2,"high":true},{"at":52,"word":1,"bit":20,"deviation":41385,"reach":0,"high":true},{"at":53,"word":1,"bit":21,"deviation":3767,"reach":0,"high":true},{"at":54,"word":1,"bit":22,"deviation":-74281,"reach":1,"high":false},{"at":55,"word":1,"bit":23,"deviation":40203,"reach":0,"high":true},{"at":56,"word":1,"bit":24,"deviation":34563,"reach":0,"high":true},{"at":57,"word":1,"bit":25,"deviation":20901,"reach":0,"high":true},{"at":58,"word":1,"bit":26,"deviation":-17411,"reach":0,"high":false},{"at":59,"word":1,"bit":27,"deviation":-55069,"reach":0,"high":false},{"at":60,"word":1,"bit":28,"deviation":-54265,"reach":0,"high":false},{"at":61,"word":1,"bit":29,"deviation":56649,"reach":0,"high":true},{"at":62,"word":1,"bit":30,"deviation":11081,"reach":0,"high":true},{"at":63,"word":1,"bit":31,"deviation":-79361,"reach":1,"high":false},{"at":64,"word":2,"bit":0,"deviation":-86543,"reach":1,"high":false},{"at":65,"word":2,"bit":1,"deviation":-34957,"reach":0,"high":false},{"at":66,"word":2,"bit":2,"deviation":53641,"reach":0,"high":true},{"at":67,"word":2,"bit":3,"deviation":69199,"reach":1,"high":true},{"at":68,"word":2,"bit":4,"deviation":-141657,"reach":2,"high":false},{"at":69,"word":2,"bit":5,"deviation":7757,"reach":0,"high":true},{"at":70,"word":2,"bit":6,"deviation":11679,"reach":0,"high":true},{"at":71,"word":2,"bit":7,"deviation":-68061,"reach":1,"high":false},{"at":72,"word":2,"bit":8,"deviation":58329,"reach":0,"high":true},{"at":73,"word":2,"bit":9,"deviation":56585,"reach":0,"high":true},{"at":74,"word":2,"bit":10,"deviation":59929,"reach":0,"high":true},{"at":75,"word":2,"bit":11,"deviation":-3271,"reach":0,"high":false},{"at":76,"word":2,"bit":12,"deviation":-43361,"reach":0,"high":false},{"at":77,"word":2,"bit":13,"deviation":-27525,"reach":0,"high":false},{"at":78,"word":2,"bit":14,"deviation":49937,"reach":0,"high":true},{"at":79,"word":2,"bit":15,"deviation":105327,"reach":1,"high":true},{"at":80,"word":2,"bit":16,"deviation":-13409,"reach":0,"high":false},{"at":81,"word":2,"bit":17,"deviation":40337,"reach":0,"high":true},{"at":82,"word":2,"bit":18,"deviation":47231,"reach":0,"high":true},{"at":83,"word":2,"bit":19,"deviation":-121315,"reach":1,"high":false},{"at":84,"word":2,"bit":20,"deviation":32831,"reach":0,"high":true},{"at":85,"word":2,"bit":21,"deviation":-30383,"reach":0,"high":false},{"at":86,"word":2,"bit":22,"deviation":-4611,"reach":0,"high":false},{"at":87,"word":2,"bit":23,"deviation":91677,"reach":1,"high":true},{"at":88,"word":2,"bit":24,"deviation":-172325,"reach":2,"high":false},{"at":89,"word":2,"bit":25,"deviation":-194603,"reach":2,"high":false},{"at":90,"word":2,"bit":26,"deviation":150077,"reach":2,"high":true},{"at":91,"word":2,"bit":27,"deviation":20573,"reach":0,"high":true},{"at":92,"word":2,"bit":28,"deviation":18749,"reach":0,"high":true},{"at":93,"word":2,"bit":29,"deviation":-55241,"reach":0,"high":false},{"at":94,"word":2,"bit":30,"deviation":-167829,"reach":2,"high":false},{"at":95,"word":2,"bit":31,"deviation":-36691,"reach":0,"high":false},{"at":96,"word":3,"bit":0,"deviation":-87037,"reach":1,"high":false},{"at":97,"word":3,"bit":1,"deviation":3945,"reach":0,"high":true},{"at":98,"word":3,"bit":2,"deviation":117459,"reach":1,"high":true},{"at":99,"word":3,"bit":3,"deviation":-8431,"reach":0,"high":false},{"at":100,"word":3,"bit":4,"deviation":-30407,"reach":0,"high":false},{"at":101,"word":3,"bit":5,"deviation":-32141,"reach":0,"high":false},{"at":102,"word":3,"bit":6,"deviation":-30777,"reach":0,"high":false},{"at":103,"word":3,"bit":7,"deviation":-100869,"reach":1,"high":false},{"at":104,"word":3,"bit":8,"deviation":-40269,"reach":0,"high":false},{"at":105,"word":3,"bit":9,"deviation":-61599,"reach":0,"high":false},{"at":106,"word":3,"bit":10,"deviation":99033,"reach":1,"high":true},{"at":107,"word":3,"bit":11,"deviation":-126433,"reach":1,"high":false},{"at":108,"word":3,"bit":12,"deviation":31421,"reach":0,"high":true},{"at":109,"word":3,"bit":13,"deviation":49241,"reach":0,"high":true},{"at":110,"word":3,"bit":14,"deviation":53823,"reach":0,"high":true},{"at":111,"word":3,"bit":15,"deviation":-70197,"reach":1,"high":false},{"at":112,"word":3,"bit":16,"deviation":7605,"reach":0,"high":true},{"at":113,"word":3,"bit":17,"deviation":-8995,"reach":0,"high":false},{"at":114,"word":3,"bit":18,"deviation":80169,"reach":1,"high":true},{"at":115,"word":3,"bit":19,"deviation":-45159,"reach":0,"high":false},{"at":116,"word":3,"bit":20,"deviation":-110819,"reach":1,"high":false},{"at":117,"word":3,"bit":21,"deviation":43021,"reach":0,"high":true},{"at":118,"word":3,"bit":22,"deviation":-112563,"reach":1,"high":false},{"at":119,"word":3,"bit":23,"deviation":16393,"reach":0,"high":true},{"at":120,"word":3,"bit":24,"deviation":-26245,"reach":0,"high":false},{"at":121,"word":3,"bit":25,"deviation":-75451,"reach":1,"high":false},{"at":122,"word":3,"bit":26,"deviation":54845,"reach":0,"high":true},{"at":123,"word":3,"bit":27,"deviation":-37421,"reach":0,"high":false},{"at":124,"word":3,"bit":28,"deviation":52011,"reach":0,"high":true},{"at":125,"word":3,"bit":29,"deviation":-69109,"reach":1,"high":false},{"at":126,"word":3,"bit":30,"deviation":53857,"reach":0,"high":true},{"at":127,"word":3,"bit":31,"deviation":93989,"reach":1,"high":true},{"at":128,"word":4,"bit":0,"deviation":6411,"reach":0,"high":true},{"at":129,"word":4,"bit":1,"deviation":-82071,"reach":1,"high":false},{"at":130,"word":4,"bit":2,"deviation":118277,"reach":1,"high":true},{"at":131,"word":4,"bit":3,"deviation":-43599,"reach":0,"high":false},{"at":132,"word":4,"bit":4,"deviation":69509,"reach":1,"high":true},{"at":133,"word":4,"bit":5,"deviation":-96691,"reach":1,"high":false},{"at":134,"word":4,"bit":6,"deviation":-107601,"reach":1,"high":false},{"at":135,"word":4,"bit":7,"deviation":1349,"reach":0,"high":true},{"at":136,"word":4,"bit":8,"deviation":-38939,"reach":0,"high":false},{"at":137,"word":4,"bit":9,"deviation":-20407,"reach":0,"high":false},{"at":138,"word":4,"bit":10,"deviation":36323,"reach":0,"high":true},{"at":139,"word":4,"bit":11,"deviation":-29027,"reach":0,"high":false},{"at":140,"word":4,"bit":12,"deviation":7815,"reach":0,"high":true},{"at":141,"word":4,"bit":13,"deviation":65577,"reach":1,"high":true},{"at":142,"word":4,"bit":14,"deviation":16931,"reach":0,"high":true},{"at":143,"word":4,"bit":15,"deviation":42705,"reach":0,"high":true},{"at":144,"word":4,"bit":16,"deviation":64215,"reach":0,"high":true},{"at":145,"word":4,"bit":17,"deviation":48107,"reach":0,"high":true},{"at":146,"word":4,"bit":18,"deviation":361,"reach":0,"high":true},{"at":147,"word":4,"bit":19,"deviation":-57307,"reach":0,"high":false},{"at":148,"word":4,"bit":20,"deviation":-4831,"reach":0,"high":false},{"at":149,"word":4,"bit":21,"deviation":116405,"reach":1,"high":true},{"at":150,"word":4,"bit":22,"deviation":-10409,"reach":0,"high":false},{"at":151,"word":4,"bit":23,"deviation":179191,"reach":2,"high":true},{"at":152,"word":4,"bit":24,"deviation":-40221,"reach":0,"high":false},{"at":153,"word":4,"bit":25,"deviation":-103807,"reach":1,"high":false},{"at":154,"word":4,"bit":26,"deviation":50215,"reach":0,"high":true},{"at":155,"word":4,"bit":27,"deviation":-58401,"reach":0,"high":false},{"at":156,"word":4,"bit":28,"deviation":-91251,"reach":1,"high":false},{"at":157,"word":4,"bit":29,"deviation":46759,"reach":0,"high":true},{"at":158,"word":4,"bit":30,"deviation":33659,"reach":0,"high":true},{"at":159,"word":4,"bit":31,"deviation":-48515,"reach":0,"high":false},{"at":160,"word":5,"bit":0,"deviation":81011,"reach":1,"high":true},{"at":161,"word":5,"bit":1,"deviation":-46939,"reach":0,"high":false},{"at":162,"word":5,"bit":2,"deviation":-19913,"reach":0,"high":false},{"at":163,"word":5,"bit":3,"deviation":1315,"reach":0,"high":true},{"at":164,"word":5,"bit":4,"deviation":-27445,"reach":0,"high":false},{"at":165,"word":5,"bit":5,"deviation":1343,"reach":0,"high":true},{"at":166,"word":5,"bit":6,"deviation":-94423,"reach":1,"high":false},{"at":167,"word":5,"bit":7,"deviation":-18595,"reach":0,"high":false},{"at":168,"word":5,"bit":8,"deviation":34969,"reach":0,"high":true},{"at":169,"word":5,"bit":9,"deviation":-31151,"reach":0,"high":false},{"at":170,"word":5,"bit":10,"deviation":74949,"reach":1,"high":true},{"at":171,"word":5,"bit":11,"deviation":-7389,"reach":0,"high":false},{"at":172,"word":5,"bit":12,"deviation":27675,"reach":0,"high":true},{"at":173,"word":5,"bit":13,"deviation":-64115,"reach":0,"high":false},{"at":174,"word":5,"bit":14,"deviation":74487,"reach":1,"high":true},{"at":175,"word":5,"bit":15,"deviation":-55003,"reach":0,"high":false},{"at":176,"word":5,"bit":16,"deviation":-45539,"reach":0,"high":false},{"at":177,"word":5,"bit":17,"deviation":32051,"reach":0,"high":true},{"at":178,"word":5,"bit":18,"deviation":10017,"reach":0,"high":true},{"at":179,"word":5,"bit":19,"deviation":-27391,"reach":0,"high":false},{"at":180,"word":5,"bit":20,"deviation":-56451,"reach":0,"high":false},{"at":181,"word":5,"bit":21,"deviation":17887,"reach":0,"high":true},{"at":182,"word":5,"bit":22,"deviation":-90025,"reach":1,"high":false},{"at":183,"word":5,"bit":23,"deviation":-6499,"reach":0,"high":false},{"at":184,"word":5,"bit":24,"deviation":-129219,"reach":1,"high":false},{"at":185,"word":5,"bit":25,"deviation":43273,"reach":0,"high":true},{"at":186,"word":5,"bit":26,"deviation":-53493,"reach":0,"high":false},{"at":187,"word":5,"bit":27,"deviation":20297,"reach":0,"high":true},{"at":188,"word":5,"bit":28,"deviation":101343,"reach":1,"high":true},{"at":189,"word":5,"bit":29,"deviation":-63943,"reach":0,"high":false},{"at":190,"word":5,"bit":30,"deviation":-109215,"reach":1,"high":false},{"at":191,"word":5,"bit":31,"deviation":-21095,"reach":0,"high":false},{"at":192,"word":6,"bit":0,"deviation":-26937,"reach":0,"high":false},{"at":193,"word":6,"bit":1,"deviation":-59379,"reach":0,"high":false},{"at":194,"word":6,"bit":2,"deviation":-83921,"reach":1,"high":false},{"at":195,"word":6,"bit":3,"deviation":39721,"reach":0,"high":true},{"at":196,"word":6,"bit":4,"deviation":113393,"reach":1,"high":true},{"at":197,"word":6,"bit":5,"deviation":73695,"reach":1,"high":true},{"at":198,"word":6,"bit":6,"deviation":-17091,"reach":0,"high":false},{"at":199,"word":6,"bit":7,"deviation":54793,"reach":0,"high":true},{"at":200,"word":6,"bit":8,"deviation":19751,"reach":0,"high":true},{"at":201,"word":6,"bit":9,"deviation":-53975,"reach":0,"high":false},{"at":202,"word":6,"bit":10,"deviation":-74169,"reach":1,"high":false},{"at":203,"word":6,"bit":11,"deviation":6331,"reach":0,"high":true},{"at":204,"word":6,"bit":12,"deviation":-45573,"reach":0,"high":false},{"at":205,"word":6,"bit":13,"deviation":-54503,"reach":0,"high":false},{"at":206,"word":6,"bit":14,"deviation":54569,"reach":0,"high":true},{"at":207,"word":6,"bit":15,"deviation":50031,"reach":0,"high":true},{"at":208,"word":6,"bit":16,"deviation":16217,"reach":0,"high":true},{"at":209,"word":6,"bit":17,"deviation":155905,"reach":2,"high":true},{"at":210,"word":6,"bit":18,"deviation":32859,"reach":0,"high":true},{"at":211,"word":6,"bit":19,"deviation":-4027,"reach":0,"high":false},{"at":212,"word":6,"bit":20,"deviation":79683,"reach":1,"high":true},{"at":213,"word":6,"bit":21,"deviation":-2763,"reach":0,"high":false},{"at":214,"word":6,"bit":22,"deviation":-11645,"reach":0,"high":false},{"at":215,"word":6,"bit":23,"deviation":-69603,"reach":1,"high":false},{"at":216,"word":6,"bit":24,"deviation":-35955,"reach":0,"high":false},{"at":217,"word":6,"bit":25,"deviation":25883,"reach":0,"high":true},{"at":218,"word":6,"bit":26,"deviation":-65275,"reach":0,"high":false},{"at":219,"word":6,"bit":27,"deviation":65889,"reach":1,"high":true},{"at":220,"word":6,"bit":28,"deviation":48897,"reach":0,"high":true},{"at":221,"word":6,"bit":29,"deviation":-4069,"reach":0,"high":false},{"at":222,"word":6,"bit":30,"deviation":-20891,"reach":0,"high":false},{"at":223,"word":6,"bit":31,"deviation":7613,"reach":0,"high":true},{"at":224,"word":7,"bit":0,"deviation":11767,"reach":0,"high":true},{"at":225,"word":7,"bit":1,"deviation":-15617,"reach":0,"high":false},{"at":226,"word":7,"bit":2,"deviation":-74821,"reach":1,"high":false},{"at":227,"word":7,"bit":3,"deviation":68725,"reach":1,"high":true},{"at":228,"word":7,"bit":4,"deviation":-30255,"reach":0,"high":false},{"at":229,"word":7,"bit":5,"deviation":74797,"reach":1,"high":true},{"at":230,"word":7,"bit":6,"deviation":1127,"reach":0,"high":true},{"at":231,"word":7,"bit":7,"deviation":-79881,"reach":1,"high":false},{"at":232,"word":7,"bit":8,"deviation":155157,"reach":2,"high":true},{"at":233,"word":7,"bit":9,"deviation":-47605,"reach":0,"high":false},{"at":234,"word":7,"bit":10,"deviation":-33435,"reach":0,"high":false},{"at":235,"word":7,"bit":11,"deviation":-42119,"reach":0,"high":false},{"at":236,"word":7,"bit":12,"deviation":71319,"reach":1,"high":true},{"at":237,"word":7,"bit":13,"deviation":68215,"reach":1,"high":true},{"at":238,"word":7,"bit":14,"deviation":15349,"reach":0,"high":true},{"at":239,"word":7,"bit":15,"deviation":-37801,"reach":0,"high":false},{"at":240,"word":7,"bit":16,"deviation":-22455,"reach":0,"high":false},{"at":241,"word":7,"bit":17,"deviation":-41683,"reach":0,"high":false},{"at":242,"word":7,"bit":18,"deviation":-6379,"reach":0,"high":false},{"at":243,"word":7,"bit":19,"deviation":-28897,"reach":0,"high":false},{"at":244,"word":7,"bit":20,"deviation":23353,"reach":0,"high":true},{"at":245,"word":7,"bit":21,"deviation":-48585,"reach":0,"high":false},{"at":246,"word":7,"bit":22,"deviation":-35089,"reach":0,"high":false},{"at":247,"word":7,"bit":23,"deviation":16875,"reach":0,"high":true},{"at":248,"word":7,"bit":24,"deviation":55909,"reach":0,"high":true},{"at":249,"word":7,"bit":25,"deviation":33719,"reach":0,"high":true},{"at":250,"word":7,"bit":26,"deviation":-129811,"reach":1,"high":false},{"at":251,"word":7,"bit":27,"deviation":28041,"reach":0,"high":true},{"at":252,"word":7,"bit":28,"deviation":53791,"reach":0,"high":true},{"at":253,"word":7,"bit":29,"deviation":-65849,"reach":1,"high":false},{"at":254,"word":7,"bit":30,"deviation":-35647,"reach":0,"high":false},{"at":255,"word":7,"bit":31,"deviation":94813,"reach":1,"high":true}],"worstAt":89,"worstReach":2,"sumZMillionths":976032464,"histogram":[{"k":0,"observed":4294967295,"expected":4294967295,"ratio_millionths":1000000},{"k":1,"observed":2147474953,"expected":2147483647,"ratio_millionths":999995},{"k":2,"observed":1073730818,"expected":1073741823,"ratio_millionths":999989},{"k":3,"observed":536856207,"expected":536870911,"ratio_millionths":999972},{"k":4,"observed":268410546,"expected":268435455,"ratio_millionths":999907},{"k":5,"observed":134211306,"expected":134217727,"ratio_millionths":999952},{"k":6,"observed":67095921,"expected":67108863,"ratio_millionths":999807},{"k":7,"observed":33552414,"expected":33554431,"ratio_millionths":999939},{"k":8,"observed":16777754,"expected":16777215,"ratio_millionths":1000032},{"k":9,"observed":8389444,"expected":8388607,"ratio_millionths":1000099},{"k":10,"observed":4193289,"expected":4194303,"ratio_millionths":999758},{"k":11,"observed":2097648,"expected":2097151,"ratio_millionths":1000236},{"k":12,"observed":1047901,"expected":1048575,"ratio_millionths":999356},{"k":13,"observed":524020,"expected":524287,"ratio_millionths":999488},{"k":14,"observed":261149,"expected":262143,"ratio_millionths":996204},{"k":15,"observed":130633,"expected":131071,"ratio_millionths":996650},{"k":16,"observed":65123,"expected":65535,"ratio_millionths":993698},{"k":17,"observed":32400,"expected":32767,"ratio_millionths":988769},{"k":18,"observed":16133,"expected":16383,"ratio_millionths":984680},{"k":19,"observed":8040,"expected":8191,"ratio_millionths":981445},{"k":20,"observed":4068,"expected":4095,"ratio_millionths":993164},{"k":21,"observed":2009,"expected":2047,"ratio_millionths":980957},{"k":22,"observed":987,"expected":1023,"ratio_millionths":963867},{"k":23,"observed":487,"expected":511,"ratio_millionths":951171},{"k":24,"observed":231,"expected":255,"ratio_millionths":902343},{"k":25,"observed":111,"expected":127,"ratio_millionths":867187},{"k":26,"observed":48,"expected":63,"ratio_millionths":750000},{"k":27,"observed":21,"expected":31,"ratio_millionths":656250},{"k":28,"observed":6,"expected":15,"ratio_millionths":375000}],"sensitivity":[{"width":16,"per_second":36621,"seconds":0},{"width":20,"per_second":2288,"seconds":3},{"width":24,"per_second":143,"seconds":52},{"width":28,"per_second":8,"seconds":946},{"width":32,"per_second":0,"seconds":-1}],"words":["a","b","c","d","e","f","g","h"]};
+
+/* Formatting is the only place a number leaves integer form, and nothing is decided here. */
+const comma = (v) => v.toLocaleString();
+const sixths = (v) => (v / 1000000).toFixed(6);
+
+const tallies = document.getElementById("tallies");
+tallies.innerHTML =
+  "<div class='tally'><b>" + comma(DATA.samples) + "</b> nonces</div>" +
+  "<div class='tally'><b>256</b> positions</div>" +
+  "<div class='tally'><b>" + DATA.worstReach + "</b> sd, loudest (position " + DATA.worstAt + ")</div>" +
+  "<div class='tally'><b>" + sixths(DATA.sumZMillionths) + "</b> sum of squared z, expectation 256</div>";
+
+const map = document.getElementById("map");
+for (let w = 0; w < 8; w++) {
+  const lab = document.createElement("div");
+  lab.className = "rowlab";
+  lab.textContent = DATA.words[w];
+  map.appendChild(lab);
+  for (let b = 0; b < 32; b++) {
+    const p = DATA.positions[w * 32 + b];
+    const cell = document.createElement("div");
+    cell.className = "cell";
+    cell.dataset.reach = String(Math.min(p.reach, 4));
+    cell.style.setProperty("--tint", p.high ? "var(--high)" : "var(--low)");
+    cell.title = "word " + DATA.words[w] + " bit " + b +
+                 "  deviation " + comma(p.deviation) + "  reaches " + p.reach + " sd";
+    map.appendChild(cell);
+  }
+}
+const axis = document.getElementById("axis");
+axis.appendChild(document.createElement("span"));
+for (let b = 0; b < 32; b++) {
+  const s = document.createElement("span");
+  s.textContent = (b % 4 === 0) ? String(b) : "";
+  axis.appendChild(s);
+}
+document.getElementById("mapNote").textContent =
+  "8 words of 32 bits; shade is whole standard errors, amber high and teal low";
+
+const hist = document.getElementById("hist");
+const widest = DATA.histogram.length ? DATA.histogram[0].observed : 1;
+for (const row of DATA.histogram) {
+  const tr = document.createElement("tr");
+  const width = Math.max(1, Math.round(Math.log2(row.observed + 1) / Math.log2(widest + 1) * 60));
+  tr.innerHTML =
+    "<td class='left'>" + row.k + "</td>" +
+    "<td>" + comma(row.observed) + "</td>" +
+    "<td>" + comma(row.expected) + "</td>" +
+    "<td>" + sixths(row.ratio_millionths) +
+    " <span class='bar' style='width:" + width + "px'></span></td>";
+  hist.appendChild(tr);
+}
+
+const sens = document.getElementById("sens");
+for (const row of DATA.sensitivity) {
+  const t = row.seconds < 0 ? "—"
+    : row.seconds >= 3600 ? (row.seconds / 3600).toFixed(1) + " h"
+    : row.seconds >= 60 ? (row.seconds / 60).toFixed(1) + " min"
+    : row.seconds + " s";
+  const tr = document.createElement("tr");
+  tr.innerHTML = "<td class='left'>" + row.width + " bits</td>" +
+                 "<td>" + comma(row.per_second) + "</td><td>" + t + "</td>";
+  sens.appendChild(tr);
+}
+
+document.getElementById("worst").textContent = DATA.worstReach + " sd (position " + DATA.worstAt + ")";
+</script>

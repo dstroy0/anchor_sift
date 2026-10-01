@@ -2,12 +2,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 
 # A program that uses the device is a job on the device's tessera daemon (engine/runtime/daemon, submitted through
-# engine/sims/sim_job.cu). TESSERA_INCLUDES are the headers the program and sim_job.cu read. tessera_build compiles the
+# sims/cu/sim_job.cu). TESSERA_INCLUDES are the headers the program and sim_job.cu read. tessera_build compiles the
 # client objects the program links and the seal its job's signum is taken with, and builds the daemon beside the
 # program, where the program starts it when none answers. It reads TOP, OUT, EXTENSION, HOST_FLAGS, GENCODE and
 # INCLUDES, takes a suffix for its objects and then the scriptura objects the daemon links, and sets the arrays
 # TESSERA_OBJECTS and TESSERA_SEAL. tessera_run_build, after it, builds tessera_run beside the daemon.
-TESSERA_INCLUDES=(-I "$ENGINE/sims" -I "$ENGINE/runtime/daemon" -I "$ENGINE/runtime/obsignatio")
+TESSERA_INCLUDES=(-I "$ENGINE/../sims/cu" -I "$ENGINE/runtime/daemon" -I "$ENGINE/runtime/obsignatio"
+                  -I "$ENGINE/../cu/engine/runtime/obsignatio")
 
 tessera_build()
 {
@@ -22,7 +23,7 @@ tessera_build()
     local daemon_libraries=()
     case "$(uname -s)" in
         MINGW*|MSYS*|CYGWIN*)
-            long_paths=(-Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$ENGINE/long_paths.manifest")")
+            long_paths=(-Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$ENGINE/../cu/long_paths.manifest")")
             daemon="$OUT/tessera_daemon.exe"
             daemon_libraries=(-lpdh)
             ;;
@@ -56,7 +57,7 @@ tessera_build()
     for name in obsignatio_{hash,seal}; do
         object="$OUT/${name}_${suffix}.$EXTENSION"
         rm -f "$object"
-        nvcc "${HOST_FLAGS[@]}" -O2 "${GENCODE[@]}" "${includes[@]}" -c "$ENGINE/runtime/obsignatio/$name.cu" \
+        nvcc "${HOST_FLAGS[@]}" -O2 "${GENCODE[@]}" "${includes[@]}" -c "$ENGINE/../cu/engine/runtime/obsignatio/$name.cu" \
             -o "$object"
         [ -f "$object" ] || { echo "  build failed: $name.cu did not compile"; return 1; }
         TESSERA_SEAL+=("$object")
@@ -83,7 +84,7 @@ tessera_run_build()
     local run_libraries=()
     case "$(uname -s)" in
         MINGW*|MSYS*|CYGWIN*)
-            long_paths=(-Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$ENGINE/long_paths.manifest")")
+            long_paths=(-Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$ENGINE/../cu/long_paths.manifest")")
             run="$OUT/tessera_run.exe"
             ;;
         *)

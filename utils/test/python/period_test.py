@@ -9,7 +9,7 @@
 # period_read (src/engine/analysis/period/) reads a volume of 16 bit lanes on the device and returns, for each
 # axis, the agreement at every lag, the null band its line shuffles draw, and the period chosen against that band.
 # measure/period.py computes the same measurement on the host in exact integers. The two share no code. This writes
-# every case to one requests file, runs utils/test/python/period_probe.cu on it (the engine's entry points, printing each
+# every case to one requests file, runs utils/test/src/cu/engine/analysis/period/period_probe.cu on it (the engine's entry points, printing each
 # measurement in full with every ratio as its exact numerator and denominator), writes the Python measurement in the
 # probe's lines, and counts the lines that differ. It prints for each case, for each side, the period and candidate of
 # each axis, the margins, and the CRC-32 of the full measurement. The errors are graded too: the engine returns -1

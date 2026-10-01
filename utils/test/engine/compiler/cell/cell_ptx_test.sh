@@ -6,9 +6,12 @@
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TEST_CU="$TEST/../../../src/cu/transpiler/cell"
 TOP="$(cd "$TEST/../../../../.." && pwd)"
 CELL="$TOP/src/engine/compiler/cell"
 CODEGEN="$TOP/src/engine/compiler/codegen"
+CODEGEN_CU="$TOP/src/cu/transpiler/codegen"
+CODEGEN_CU_2="$TOP/src/cu/types/file_defs/krs"
 source "$TOP/utils/maint/engine/build_stamp.sh"
 build_stamp cell_ptx_test
 
@@ -46,7 +49,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/engine" -I "$CELL")
+INCLUDES=(-I "$TOP/src/engine" -I "$TOP/src/cu/engine" -I "$CELL")
 rm -f "$BINARY" "$PROBE"
 OBJECTS=()
 for source in "$CELL/cell.c" "$CELL/cell_names.c" "$TEST/cell_ptx_test.c"; do
@@ -64,16 +67,16 @@ done
 nvcc "${HOST_FLAGS[@]}" -o "$BINARY" "${OBJECTS[@]}"
 [ -f "$BINARY" ] || { echo "  build failed: the cell's PTX test did not link"; exit 1; }
 # the probe reads rulesets and writes forms; the code generator's assembly printer (asm_printer_*.cu) and the code
-# generator on the device (codegen_device_*.cu) run on the record machine, which the probe does not link
+# generator on the device (codegen*.cu) run on the record machine, which the probe does not link
 CODEGEN_SOURCES=()
-for source in "$CODEGEN"/*.cu; do
+for source in "$CODEGEN_CU"/*.cu "$CODEGEN_CU_2"/*.cu; do
     case "$(basename "$source")" in
-        asm_printer_*.cu|codegen_device_*.cu) ;;
+        asm_printer_*.cu|codegen*.cu) ;;
         *) CODEGEN_SOURCES+=("$source") ;;
     esac
 done
-nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" -I "$TOP/src/engine" -o "$PROBE" \
-    "$TEST"/cell_ptx_probe_{questions,main}.cu \
+nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" -I "$TOP/src/engine" -I "$TOP/src/cu/engine" -o "$PROBE" \
+    "$TEST_CU"/cell_ptx_probe_{questions,main}.cu \
     "${CODEGEN_SOURCES[@]}" -lnvrtc -lnvJitLink
 [ -f "$PROBE" ] || { echo "  build failed: the PTX probe did not build"; exit 1; }
 
@@ -83,8 +86,8 @@ STATUS=$?
 echo "  cell ptx test exit $STATUS"
 
 # again in a ruleset whose carry chains and product are constructs of more basic forms, with no instruction that
-# sets or reads the condition code (utils/test/engine/compiler/codegen/rulesets/flagless)
-FLAGLESS="$TEST/../codegen/rulesets/flagless"
+# sets or reads the condition code (utils/test/src/cu/transpiler/codegen/rulesets/flagless)
+FLAGLESS="$TEST/../../../src/cu/transpiler/codegen/rulesets/flagless"
 case "$(uname -s)" in
     MINGW*|MSYS*|CYGWIN*) FLAGLESS="$(cygpath -m "$FLAGLESS")" ;;
 esac

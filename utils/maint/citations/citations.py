@@ -175,7 +175,7 @@ SKIP = ("__pycache__", ".git", "build", "deps", "site")
 #
 # The six added here were each hiding a real registry question. .tsv hid utils/maint/texbuild/
 # ledger_days.tsv, which carries the fullest bibliographic strings in the repository. .json hid
-# utils/test/vectors/MANIFEST.json, which holds the NIST CAVP and Wycheproof provenance with archive
+# utils/test/src/cu/transpiler/qasm/vectors/MANIFEST.json, which holds the NIST CAVP and Wycheproof provenance with archive
 # SHA-256s -- a provenance record the citation gate could not see is the exact case this tool
 # exists for. .html hid two citations inside a built view, .rsp is the CAVP response format, and
 # .cff is the repository's own citation file, which it would be absurd for a citation gate to skip.

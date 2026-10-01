@@ -13,6 +13,7 @@
 #   stem_group_check holds the stem membership rule: groups on anchors, the same in every order
 #   branch_side_check asks the host whether the side a branch is read from leaves a mark
 #   gnascor_trace    puts gnascor_scenario.txt's sides to the host as real asks, and gnascor_read.py reads the states
+#   emit_qasm_pi     holds qasm_pi.h to what it writes from naturals.pi at QASM_GUARD_BITS
 #
 #     utils/maint/engine/chain_check.sh
 #     utils/maint/engine/chain_check.sh sm_86 src/engine/compiler/cubin/machines/sm_86.kdm
@@ -47,7 +48,7 @@ cc -std=c11 -O2 -Wall -Wextra -o "$OUT/query_ask_check" "$TOP/utils/test/engine/
 BOOT="$TOP/src/engine/compiler/bootstrap"
 CELL="$TOP/src/engine/compiler/cell"
 cc -std=c11 -O2 -Wall -Wextra -o "$OUT/query_walk" "$BOOT/query_walk.c" "$BOOT/query_ask.c" || exit 1
-cc -std=c11 -O2 -Wall -Wextra -I"$TOP/src/engine" -o "$OUT/query_cell_check" \
+cc -std=c11 -O2 -Wall -Wextra -I"$TOP/src/engine" -I "$TOP/src/cu/engine" -o "$OUT/query_cell_check" \
     "$TOP/utils/test/engine/compiler/bootstrap/query_cell_check.c" "$BOOT/query_cell.c" "$CELL/cell.c" \
     "$CELL/cell_names.c" || exit 1
 cc -std=c11 -O2 -Wall -Wextra -o "$OUT/query_order_check" "$TOP/utils/test/engine/compiler/bootstrap/query_order_check.c" \
@@ -69,6 +70,7 @@ if [ "$#" -gt 0 ]; then
     "$OUT/kdm_write" "$@"
     exit "$?"
 fi
+python "$TOP/utils/maint/engine/emit_qasm_pi.py" --check || exit 1
 "$OUT/chain_check" || exit 1
 "$OUT/gate_descent" || exit 1
 "$OUT/ask_order_check" || exit 1

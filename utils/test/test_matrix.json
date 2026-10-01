@@ -8,7 +8,8 @@
         "+<engine/compiler/cell/*>"
       ],
       "tests": [
-        "engine/compiler/cell"
+        "engine/compiler/cell",
+        "src/cu/transpiler/cell"
       ]
     },
     "cell_ptx": {
@@ -16,10 +17,13 @@
       "script": "utils/test/engine/compiler/cell/cell_ptx_test.sh",
       "src": [
         "+<engine/compiler/cell/*>",
-        "+<engine/compiler/codegen/*>"
+        "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>"
       ],
       "tests": [
-        "engine/compiler/cell"
+        "engine/compiler/cell",
+        "src/cu/transpiler/cell"
       ]
     },
     "cell_sass": {
@@ -28,46 +32,63 @@
       "src": [
         "+<engine/compiler/cell/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cubin/*>"
       ],
       "tests": [
-        "engine/compiler/cell"
+        "engine/compiler/cell",
+        "src/cu/transpiler/cell"
       ]
     },
     "codegen_device": {
       "desc": "The compiler on the device held to the compiler on the host: layout, each language's instructions as the lane runs and scheduled into states, and the text, byte for byte; then the bootstrap in PTX, C and VHDL.",
-      "script": "utils/test/engine/compiler/codegen/codegen_device_test.sh",
+      "script": "utils/test/src/cu/transpiler/codegen/codegen_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/codecs/crc/*>",
+        "+<cu/includes/codecs/crc/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/codegen"
+        "engine/compiler/codegen",
+        "src/cu/transpiler/codegen"
       ]
     },
     "web_check": {
       "desc": "The alphabet web and the word web read once each and held to what a tree is: a node reaches only nodes below it, a node's children are as many as its precept takes, and a leaf is an operand the word reads.",
       "script": "utils/test/engine/compiler/codegen/web_check.sh",
       "src": [
-        "+<engine/compiler/codegen/*>"
+        "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>"
       ],
       "tests": [
-        "engine/compiler/codegen"
+        "engine/compiler/codegen",
+        "src/cu/transpiler/codegen"
       ]
     },
     "ruleset_read": {
       "desc": "Every ruleset read against its code generator's schema, and sass.krs's forms held to the machine code the cell's probes read back.",
-      "script": "utils/test/engine/compiler/codegen/ruleset_read_test.sh",
+      "script": "utils/test/src/cu/transpiler/codegen/ruleset_read_test.sh",
       "src": [
-        "+<engine/compiler/codegen/*>"
+        "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>"
       ],
       "tests": [
-        "engine/compiler/codegen"
+        "engine/compiler/codegen",
+        "src/cu/transpiler/codegen"
       ]
     },
     "daemon": {
@@ -75,23 +96,28 @@
       "script": "utils/test/engine/runtime/daemon/run.sh",
       "src": [
         "+<engine/runtime/obsignatio/*>",
+        "+<cu/engine/runtime/obsignatio/*>",
         "+<engine/runtime/scriptura/*>",
-        "+<engine/runtime/daemon/*>"
+        "+<engine/runtime/daemon/*>",
+        "+<cu/engine/runtime/daemon/*>"
       ],
       "tests": [
-        "engine/runtime/daemon"
+        "engine/runtime/daemon",
+        "src/cu/engine/runtime/daemon"
       ]
     },
     "device_pool": {
       "desc": "The device pool.",
-      "script": "utils/test/engine/runtime/device_pool/device_pool_test.sh",
+      "script": "utils/test/src/cu/engine/runtime/device_pool/device_pool_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/runtime/device_pool/*>",
+        "+<cu/engine/runtime/device_pool/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/runtime/device_pool"
+        "src/cu/engine/runtime/device_pool"
       ]
     },
     "engine_c": {
@@ -100,27 +126,31 @@
       "src": [],
       "tests": [
         "maint/engine",
-        "python"
+        "python",
+        "src/cu/engine/analysis/period",
+        "src/cu/engine/analysis"
       ]
     },
     "exact_divide": {
       "desc": "Exact division on the device.",
-      "script": "utils/test/engine/arithmetic/no_rounding/exact_divide_test.sh",
+      "script": "utils/test/src/cu/types/integers/exact_divide_test.sh",
       "src": [
         "+<engine/arithmetic/*>"
       ],
       "tests": [
-        "engine/arithmetic/no_rounding"
+        "engine/arithmetic/no_rounding",
+        "src/cu/types/integers"
       ]
     },
     "exact_transform": {
       "desc": "The exact transform product.",
-      "script": "utils/test/engine/arithmetic/no_rounding/exact_transform_test.sh",
+      "script": "utils/test/src/cu/types/integers/exact_transform_test.sh",
       "src": [
         "+<engine/arithmetic/*>"
       ],
       "tests": [
-        "engine/arithmetic/no_rounding"
+        "engine/arithmetic/no_rounding",
+        "src/cu/types/integers"
       ]
     },
     "max_tree": {
@@ -128,7 +158,9 @@
       "script": "utils/test/engine/nbody/max_tree/run.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
-        "+<engine/nbody/max_tree/*>"
+        "+<cu/types/integers/*>",
+        "+<engine/nbody/max_tree/*>",
+        "+<cu/engine/nbody/max_tree/*>"
       ],
       "tests": [
         "engine/nbody/max_tree"
@@ -136,26 +168,31 @@
     },
     "obsignatio": {
       "desc": "obsignatio, host and device.",
-      "script": "utils/test/engine/runtime/obsignatio/run.sh",
+      "script": "utils/test/src/cu/engine/runtime/obsignatio/run.sh",
       "src": [
         "+<engine/runtime/scriptura/*>",
-        "+<engine/runtime/obsignatio/*>"
+        "+<engine/runtime/obsignatio/*>",
+        "+<cu/engine/runtime/obsignatio/*>"
       ],
       "tests": [
-        "engine/runtime/obsignatio"
+        "engine/runtime/obsignatio",
+        "src/cu/engine/runtime/obsignatio"
       ]
     },
     "period": {
       "desc": "The period module.",
-      "script": "utils/test/engine/analysis/period/period_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/period/period_test.sh",
       "src": [
         "+<engine/analysis/period/*>",
+        "+<cu/engine/analysis/period/*>",
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/runtime/device_pool/*>",
+        "+<cu/engine/runtime/device_pool/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/analysis/period"
+        "src/cu/engine/analysis/period"
       ]
     },
     
@@ -164,51 +201,71 @@
       "script": "utils/test/python/period_test.sh",
       "src": [
         "+<engine/analysis/period/*>",
+        "+<cu/engine/analysis/period/*>",
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/python/*>",
         "+<engine/runtime/device_pool/*>",
+        "+<cu/engine/runtime/device_pool/*>",
         "+<engine/runtime/scriptura/*>",
-        "+<engine/sims/*>"
+        "+<engine/sims/*>",
+        "+<sims/cu/*>",
+        "+<sims/*>"
       ],
       "tests": [
-        "python"
+        "python",
+        "src/cu/engine/analysis/period",
+        "src/cu/engine/analysis"
       ]
     },
     
     "python_periodic_energy": {
-      "desc": "measure.periodic_energy graded against sims/art/periodic_energy.h, line for line: test/python/periodic_energy_test.py over periodic_energy_probe, a tessera job.",
+      "desc": "measure.periodic_energy graded against src/sims/cu/engine/analysis/art/periodic_energy.h, line for line: test/python/periodic_energy_test.py over periodic_energy_probe, a tessera job.",
       "script": "utils/test/python/periodic_energy_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/python/*>",
         "+<engine/runtime/scriptura/*>",
-        "+<engine/sims/*>"
+        "+<engine/sims/*>",
+        "+<sims/cu/*>",
+        "+<sims/*>"
       ],
       "tests": [
-        "python"
+        "python",
+        "src/cu/engine/analysis/period",
+        "src/cu/engine/analysis"
       ]
     },
     "qasm": {
       "desc": "The QASM reader, exact field and runs.",
-      "script": "utils/test/engine/quantum/qasm/run.sh",
+      "script": "utils/test/src/cu/transpiler/qasm/run.sh",
       "src": [],
       "tests": [
-        "engine/quantum/qasm"
+        "engine/quantum/qasm",
+        "src/cu/transpiler/qasm"
       ]
     },
     "record_bitwise": {
       "desc": "The record bitwise test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_bitwise_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_bitwise_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -217,17 +274,24 @@
     },
     "record_bitwise_c": {
       "desc": "The record bitwise test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_bitwise_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_bitwise_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -237,17 +301,24 @@
     },
     "record_boundary": {
       "desc": "The record boundary test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_boundary_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_boundary_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -256,17 +327,24 @@
     },
     "record_boundary_c": {
       "desc": "The record boundary test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_boundary_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_boundary_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -276,34 +354,49 @@
     },
     "record_c": {
       "desc": "Each record program's lane as C source, compiled by the host compiler and held to the host oracle. Runs under WSL: Strawberry MinGW cannot link it.",
-      "script": "utils/test/engine/compiler/cycle/record_c_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_c_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/codecs/crc/*>",
+        "+<cu/includes/codecs/crc/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "wsl": true
     },
     "record_coherence": {
       "desc": "The record coherence test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_coherence_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_coherence_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -312,17 +405,24 @@
     },
     "record_coherence_c": {
       "desc": "The record coherence test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_coherence_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_coherence_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -332,17 +432,24 @@
     },
     "record_divide": {
       "desc": "The record divide test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_divide_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_divide_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -351,17 +458,24 @@
     },
     "record_divide_c": {
       "desc": "The record divide test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_divide_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_divide_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -371,17 +485,24 @@
     },
     "record_gaussian": {
       "desc": "The record gaussian test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_gaussian_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_gaussian_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -390,17 +511,24 @@
     },
     "record_gaussian_c": {
       "desc": "The record gaussian test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_gaussian_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_gaussian_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -410,17 +538,24 @@
     },
     "record_guide": {
       "desc": "The record guide test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_guide_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_guide_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -429,17 +564,24 @@
     },
     "record_guide_c": {
       "desc": "The record guide test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_guide_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_guide_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -452,28 +594,40 @@
       "script": "utils/test/engine/compiler/cycle/record_host_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ]
     },
     "record_lane": {
       "desc": "The record lane test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_lane_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_lane_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -482,17 +636,24 @@
     },
     "record_lane_c": {
       "desc": "The record lane test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_lane_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_lane_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -502,17 +663,24 @@
     },
     "record_order": {
       "desc": "The record order test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_order_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_order_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -521,17 +689,24 @@
     },
     "record_order_c": {
       "desc": "The record order test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_order_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_order_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -541,17 +716,24 @@
     },
     "record_speed": {
       "desc": "The record speed test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_speed_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_speed_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -560,17 +742,24 @@
     },
     "record_speed_c": {
       "desc": "The record speed test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_speed_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_speed_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -580,17 +769,24 @@
     },
     "record_table": {
       "desc": "The record table test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_table_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_table_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -599,17 +795,24 @@
     },
     "record_table_c": {
       "desc": "The record table test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_table_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_table_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -619,19 +822,28 @@
     },
     "record_tower": {
       "desc": "The record tower test, its lanes compiled as PTX and kept as PTX (rule (i) off); every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_tower_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_tower_test.sh",
       "src": [
         "+<engine/analysis/tower/*>",
+        "+<cu/engine/analysis/tower/*>",
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/device_pool/*>",
+        "+<cu/engine/runtime/device_pool/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -641,19 +853,28 @@
     },
     "record_tower_c": {
       "desc": "The record tower test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
-      "script": "utils/test/engine/compiler/cycle/record_tower_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_tower_test.sh",
       "src": [
         "+<engine/analysis/tower/*>",
+        "+<cu/engine/analysis/tower/*>",
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/device_pool/*>",
+        "+<cu/engine/runtime/device_pool/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "env": {
         "CYCLE_RECORD_CHECK": "1",
@@ -663,100 +884,135 @@
     },
     "record_vhdl": {
       "desc": "Each record program's lane as VHDL under GHDL, held to the host oracle; not run where GHDL is not on the path.",
-      "script": "utils/test/engine/compiler/cycle/record_vhdl_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_vhdl_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/codecs/crc/*>",
+        "+<cu/includes/codecs/crc/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/formats/krep/*>",
+        "+<cu/types/file_defs/krep/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/cycle"
+        "engine/compiler/cycle",
+        "src/cu/engine/analysis/cycle"
       ],
       "wsl": true
     },
     "residual_odd": {
       "desc": "Odd residuals.",
-      "script": "utils/test/engine/analysis/residual/residual_odd_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/residual/residual_odd_test.sh",
       "src": [
         "+<engine/analysis/residual/*>",
+        "+<cu/engine/analysis/residual/*>",
         "+<engine/analysis/unit_sweep/*>",
+        "+<cu/engine/analysis/unit_sweep/*>",
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/analysis/residual"
+        "src/cu/engine/analysis/residual"
       ]
     },
     "shift_agreement_hold": {
       "desc": "Shift agreement held.",
-      "script": "utils/test/engine/analysis/shift_agreement/shift_agreement_hold_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/shift_agreement/shift_agreement_hold_test.sh",
       "src": [
         "+<engine/analysis/shift_agreement/*>",
-        "+<engine/runtime/device_pool/*>"
+        "+<cu/engine/analysis/shift_agreement/*>",
+        "+<engine/runtime/device_pool/*>",
+        "+<cu/engine/runtime/device_pool/*>"
       ],
       "tests": [
-        "engine/analysis/shift_agreement"
+        "src/cu/engine/analysis/shift_agreement"
       ]
     },
     "tessera_device": {
       "desc": "The device's tessera held to the host daemon's ledger, answer for answer.",
-      "script": "utils/test/engine/runtime/daemon/tessera_device_test.sh",
+      "script": "utils/test/src/cu/engine/runtime/daemon/tessera_test.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/runtime/daemon/*>",
+        "+<cu/engine/runtime/daemon/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/runtime/daemon"
+        "engine/runtime/daemon",
+        "src/cu/engine/runtime/daemon"
       ]
     },
     "tower_edge": {
       "desc": "The tower's lookup edges.",
-      "script": "utils/test/engine/analysis/tower/tower_edge_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/tower/tower_edge_test.sh",
       "src": [
         "+<engine/analysis/tower/*>",
-        "+<engine/runtime/device_pool/*>"
+        "+<cu/engine/analysis/tower/*>",
+        "+<engine/runtime/device_pool/*>",
+        "+<cu/engine/runtime/device_pool/*>"
       ],
       "tests": [
-        "engine/analysis/tower"
+        "src/cu/engine/analysis/tower"
       ]
     },
     "unit_sweep_planes": {
       "desc": "The unit sweep over planes.",
-      "script": "utils/test/engine/analysis/unit_sweep/unit_sweep_planes_test.sh",
+      "script": "utils/test/src/cu/engine/analysis/unit_sweep/unit_sweep_planes_test.sh",
       "src": [
         "+<engine/analysis/unit_sweep/*>",
+        "+<cu/engine/analysis/unit_sweep/*>",
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/analysis/unit_sweep"
+        "src/cu/engine/analysis/unit_sweep"
       ]
     },
     "vhdl_construction_set": {
       "desc": "The VHDL construction set measured.",
-      "script": "utils/test/engine/compiler/codegen/vhdl_construction_set.sh",
+      "script": "utils/test/src/cu/transpiler/codegen/vhdl_construction_set.sh",
       "src": [
         "+<engine/arithmetic/no_rounding/*>",
+        "+<cu/types/integers/*>",
         "+<engine/codecs/crc/*>",
+        "+<cu/includes/codecs/crc/*>",
         "+<engine/compiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
         "+<engine/compiler/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
         "+<engine/compiler/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
         "+<engine/compiler/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
         "+<engine/formats/krep/*>",
+        "+<cu/types/file_defs/krep/*>",
         "+<engine/runtime/scriptura/*>"
       ],
       "tests": [
-        "engine/compiler/codegen"
+        "engine/compiler/codegen",
+        "src/cu/transpiler/codegen"
       ],
       "wsl": true
     }

@@ -4,6 +4,7 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MODULE="$(cd "$TEST/../../../../../src/engine/nbody/max_tree" && pwd)"
+MODULE_CU="$(cd "$TEST/../../../../../src/cu/engine/nbody/max_tree" && pwd)"
 TOP="$(cd "$MODULE/../../../.." && pwd)"
 source "$TOP/utils/maint/engine/build_stamp.sh"
 build_stamp max_tree_test
@@ -20,7 +21,7 @@ EXACT_DIGITS=$(( (EXACT_LIMBS * 32 * 1000 - 1) / 3322 ))
 if [ "$EXACT_DIGITS" -gt 1024 ]; then
     EXACT_DIGITS=1024
 fi
-INCLUDES=(-I "$TOP/src/engine" -I "$MODULE" -I "$EXACT_ROOT"
+INCLUDES=(-I "$TOP/src/engine" -I "$TOP/src/cu/engine" -I "$MODULE" -I "$MODULE_CU" -I "$EXACT_ROOT"
           "-DANCHOR_EXACT_LIMBS=${EXACT_LIMBS}u" "-DANCHOR_EXACT_DIGITS=${EXACT_DIGITS}u")
 
 case "$(uname -s)" in

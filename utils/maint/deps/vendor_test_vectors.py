@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Vendor the published SHA-256 test vectors into utils/test/vectors, with a manifest recording where each
+# Vendor the published SHA-256 test vectors into utils/test/src/cu/transpiler/qasm/vectors, with a manifest recording where each
 # one came from and what it hashes to.
 #
 # Run this only to fetch or refresh. The committed files are consumed offline by `harness.py
@@ -42,7 +42,7 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
     os.path.join(ROOT, "src", "engine")
 ):
     ROOT = os.path.dirname(ROOT)
-OUT = os.path.join(ROOT, "utils", "test", "vectors")
+OUT = os.path.join(ROOT, "utils", "test", "src", "cu", "transpiler", "qasm", "vectors")
 CACHE = os.path.join(ROOT, "build", "vectors-cache")
 
 NIST = "https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Algorithm-Validation-Program/documents"
@@ -274,7 +274,7 @@ def main():
         shutil.rmtree(CACHE, ignore_errors=True)
 
     print(
-        "\n%d file(s) vendored, manifest at utils/test/vectors/MANIFEST.json"
+        "\n%d file(s) vendored, manifest at utils/test/src/cu/transpiler/qasm/vectors/MANIFEST.json"
         % len(manifest["files"])
     )
     return 0

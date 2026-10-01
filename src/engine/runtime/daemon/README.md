@@ -55,11 +55,11 @@ There are two tesseras, and they make the same decisions. The ledger's decisions
 the deadlines, the kept peaks) are one source, `tessera_ledger_core.h`, which C11 compiles for the host and nvcc for
 both the host and the device. The daemon's ledger (`tessera_ledger.c`) grows its rooms and then runs the core. The
 daemon stays as it is: it builds with no CUDA toolchain and makes no CUDA context. The device's tessera
-(`tessera_device.h`, `tessera_device.cu`) lays a ledger in the device's memory, and one thread makes a list of calls
+(`tessera_device.h`, `tessera.cu`) lays a ledger in the device's memory, and one thread makes a list of calls
 (`TesseraCall`) in order, each answered (`TesseraAnswer`). A call that could add more than the ledger's rooms hold errors before it changes anything; the host grows the rooms on the device, and the run goes on from that call.
 The device's tessera builds only where `nvcc` is.
 
-`utils/test/engine/runtime/daemon/tessera_device_test.sh` holds the two to each other. It makes one seeded stream of calls of each
+`utils/test/src/cu/engine/runtime/daemon/tessera_test.sh` holds the two to each other. It makes one seeded stream of calls of each
 tessera, round by round: every answer must be the host's field for field, and the ledger each is left with must be
 the host's. The device's ledger starts with rooms of one, which makes it grow. The test is a job on the device's
 tessera daemon. It is written and has not been built or run.
@@ -174,7 +174,7 @@ and a pid reused by a new process is never taken for the old one.
 
 ## What the job test shows
 
-`utils/test/engine/runtime/daemon/tessera_job_test.cu` runs every path above against the real daemon, starting it through `daemon_path`:
+`utils/test/src/cu/engine/runtime/daemon/tessera_job_test.cu` runs every path above against the real daemon, starting it through `daemon_path`:
 
 1. A new signum declaring 64 MiB is admitted with 64 MiB granted over its standing, which was 24,576 bytes: the test
    makes no context before it asks. It then takes 256 MiB of device memory, and its release reports that it grew to
@@ -241,13 +241,13 @@ is held.
 
 ### The sims
 
-Every sim that uses the device is one job too (`engine/sims/sim_job.cu`). It calls `sim_job_submit` before its first
+Every sim that uses the device is one job too (`sims/cu/sim_job.cu`). It calls `sim_job_submit` before its first
 device allocation, and `sim_close` releases the job:
 
 - **Signum:** the sim's name and its arguments.
 - **Declaration:** the buffers the sim names for itself, on top of its standing: `sim_job_submit` makes the context
   before it asks, and prints the standing when admitted.
-- **Daemon:** `$TESSERA_DAEMON`, else the `tessera_daemon` beside the sim, which `engine/sims/run.sh` builds there.
+- **Daemon:** `$TESSERA_DAEMON`, else the `tessera_daemon` beside the sim, which `../../../sims/run.sh` builds there.
 - **When held:** `TESSERA_OVERRIDE=1` admits a declaration over the kept peak.
 
 `ask_state` and `ka_psi` never touch the device and submit nothing. Each sim's count includes

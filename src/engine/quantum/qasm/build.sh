@@ -1,20 +1,28 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-# Sourced by run.sh and utils/test/engine/quantum/qasm/run.sh with TOP set. qasm_build <label> builds the qasm objects, the
+# Sourced by run.sh and utils/test/src/cu/transpiler/qasm/run.sh with TOP set. qasm_build <label> builds the qasm objects, the
 # record machine's modules and the tessera daemon into $OUT; qasm_link <name> <source>... then links one program there
 # as $BINARY.
 
 QASM="$TOP/src/engine/quantum/qasm"
+
+QASM_CU="$TOP/src/cu/transpiler/qasm"
 SCRIPTURA="$TOP/src/engine/runtime/scriptura"
 NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
 CYCLE="$TOP/src/engine/compiler/cycle"
+CYCLE_CU="$TOP/src/cu/engine/analysis/cycle"
 CODEGEN="$TOP/src/engine/compiler/codegen"
+CODEGEN_CU="$TOP/src/cu/transpiler/codegen"
+CODEGEN_CU_2="$TOP/src/cu/types/file_defs/krs"
 KEYMATH="$TOP/src/engine/compiler/keymath"
+KEYMATH_CU="$TOP/src/cu/engine/analysis/keymath"
 KEY_SCHEDULE="$TOP/src/engine/compiler/key_schedule"
+KEY_SCHEDULE_CU="$TOP/src/cu/engine/analysis/key_schedule"
 OBSIGNATIO="$TOP/src/engine/runtime/obsignatio"
+OBSIGNATIO_CU="$TOP/src/cu/engine/runtime/obsignatio"
 DAEMON_DIRECTORY="$TOP/src/engine/runtime/daemon"
-INCLUDES=(-I "$TOP/src/engine" -I "$QASM" -I "$SCRIPTURA" -I "$NO_ROUNDING" -I "$CYCLE" -I "$KEYMATH"
-          -I "$KEY_SCHEDULE" -I "$OBSIGNATIO" -I "$DAEMON_DIRECTORY")
+INCLUDES=(-I "$TOP/src/engine" -I "$QASM" -I "$QASM_CU" -I "$SCRIPTURA" -I "$NO_ROUNDING" -I "$CYCLE" -I "$CYCLE_CU" -I "$KEYMATH" -I "$KEYMATH_CU"
+          -I "$KEY_SCHEDULE" -I "$KEY_SCHEDULE_CU" -I "$OBSIGNATIO" -I "$OBSIGNATIO_CU" -I "$DAEMON_DIRECTORY")
 
 qasm_host_setup()
 {
@@ -33,7 +41,7 @@ qasm_host_setup()
                 return 1
             fi
             HOST_FLAGS=(-ccbin "$MSVC_BIN" -Xcompiler /Zc:preprocessor)
-            LONG_PATHS=(-Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$TOP/src/engine/long_paths.manifest")")
+            LONG_PATHS=(-Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$TOP/src/cu/long_paths.manifest")")
             DAEMON_LIBRARIES=(-lpdh)
             ;;
         *)
@@ -98,8 +106,8 @@ qasm_build()
             scriptura*) SCRIPTURA_OBJECTS+=("$object") ;;
         esac
     done
-    for source in "$QASM"/qasm_device_{program,kernels,run}.cu "$QASM"/qasm_self_{program,run}.cu "$CYCLE"/cycle*.cu \
-                  "$CODEGEN"/*.cu "$KEYMATH/keymath.cu" "$KEY_SCHEDULE/key_schedule.cu"; do
+    for source in "$QASM_CU/qasm.cu" "$QASM_CU/qasm_program.cu" "$QASM_CU/qasm_run.cu" "$QASM_CU"/qasm_self_{program,run}.cu "$CYCLE_CU"/cycle*.cu \
+                  "$CODEGEN_CU"/*.cu "$CODEGEN_CU_2"/*.cu "$KEYMATH_CU/keymath.cu" "$KEY_SCHEDULE_CU/key_schedule.cu"; do
         object="$OUT/$(basename "$source" .cu)_cu.$EXTENSION"
         qasm_cu_object "$source" "$object" || return 1
         OBJECTS+=("$object")

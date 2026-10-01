@@ -120,7 +120,7 @@ try
 
     Write-Host "[*] nvcc -> bench_raster.exe"
     & nvcc -O3 "-arch=$Arch" -DANCHOR_RASTER_HAVE_CUDA=1 ("-I" + $render) `
-        (Join-Path $render "raster_cuda_kernels.cu") (Join-Path $render "raster_cuda_entry.cu") `
+        (Join-Path $render "raster.cu") (Join-Path $render "raster_entry.cu") `
         $objects -o bench_raster.exe
     if ($LASTEXITCODE -ne 0)
     {
