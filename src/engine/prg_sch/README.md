@@ -5,7 +5,7 @@ machine's files carry it today.
 
 **Scope:** the record machine behind `engine_record_encode`, `engine_record_sweep` and `engine_record_host`
 (`engine/engine.h`), built from `compiler/keymath` (the imprint), `compiler/key_schedule` (the layout) and `compiler/cycle`
-(the run). Every rule below is read from that code, and the worked example is `test/record_guide_test.cu`, which
+(the run). Every rule below is read from that code, and the worked example is `utils/test/engine/compiler/cycle/record_guide_test.cu`, which
 builds and runs it as written here.
 
 ## What a program is
@@ -65,7 +65,7 @@ The imprint also carries every register as a **linear form**: integer coefficien
 The form bounds the value: |x| ≤ |c| + Σ |c_i| · (2^(b_i) − 1), over the atoms' widths b_i. Where that bound needs
 fewer bits than the operation's own rule, the register takes the fewer. (a − b) + b, with the same b, is a's width,
 and a Gaussian floor (a − b, a + b) grows half a bit a floor, as its values do, not a whole bit
-(`test/record_gaussian_test`).
+(`utils/test/engine/compiler/cycle/record_gaussian_test.sh`).
 
 The imprint knows some registers are **never negative**:
 - a field read unsigned;
@@ -236,7 +236,7 @@ engine_record_host(&request, &sweep);  // the same program on the host, from the
 A program has no loop. An iteration of known length is unrolled into the program as **floors**: each floor is a
 round of steps reading the floor below it, and its last steps, often wraps, leave the state the next floor reads.
 There is no step limit. With `reuse` set, the register file holds only a floor's live state and the round
-in flight. One sweep then runs the whole stack in one launch. `test/record_bitwise_test` stacks 700 floors, 4,204
+in flight. One sweep then runs the whole stack in one launch. `utils/test/engine/compiler/cycle/record_bitwise_test.sh` stacks 700 floors, 4,204
 steps, in an 8-limb file. An iteration whose length depends on the data sweeps again, with this sweep's outputs
 as the next sweep's members.
 
@@ -255,7 +255,7 @@ returns the lane a serial scan from lane 0 returns. `cycle_record_latch_host` is
 The latch is a call on `compiler/cycle`. `engine_record_sweep` copies every record back to the host, and a latch through
 the engine's own entry is not built.
 
-`test/record_lane_test` enumerates x = base + ℓ over 65,536 lanes of one shared record and latches the first lane
+`utils/test/engine/compiler/cycle/record_lane_test.sh` enumerates x = base + ℓ over 65,536 lanes of one shared record and latches the first lane
 whose hash of x falls under T, with base and T in that record. At six thresholds, from every lane to none, the device
 latch over the interpreter's records and over the compiled program's, the host's scan and the host's own arithmetic
 return the same lane. The host, the interpreter and the compiled program agree word for word. Over 2^24 lanes on the
@@ -266,7 +266,7 @@ device alone, the latch returns lane 428,243, which the host's arithmetic finds 
 `ENGINE_RECORD_TABLE` is a one-variable function stored as values. It is how a nonlinear step with no closed form
 enters a program. A table gives `index_bits` (1 to 32) and `out_bits`, and holds `2^index_bits` entries of
 `(out_bits + 31) / 32` limbs each. `index_bits` must not exceed its source register's width. A table can be filled
-by running another program over every index (`test/record_table_test.cu`).
+by running another program over every index (`utils/test/engine/compiler/cycle/record_table_test.sh`).
 
 ## A worked example
 
@@ -295,7 +295,7 @@ The imprint derives 32 bits for step 3, 33 for step 4 and 1 for step 6. The outp
 and sign(x') in bits 34 to 35, a 2-limb record. The index pairs every body with the one time-step record:
 `index[2i] = i`, `index[2i + 1] = 0`.
 
-`test/record_guide_test` runs this program over 1,000 bodies with dt = 37. The device's records equal the host's
+`utils/test/engine/compiler/cycle/record_guide_test.sh` runs this program over 1,000 bodies with dt = 37. The device's records equal the host's
 word for word, and every x' and sign decode to the arithmetic done directly. A version whose step 6 read itself
 errors at imprint, and an index past its member errors at the sweep. 12 checks, 0 failed.
 
