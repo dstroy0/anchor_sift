@@ -285,10 +285,12 @@ works there.
     (`compiler/bootstrap/query_order.{h,c}`) puts every link an ask covers between two reads of a clock found by
     asking. The clock turns over now and then and is read finely by counting reads of it between turns: a
     run's cost is an exact rational, and every pass is solved on its own in exact integers: nothing is rounded,
-    summed across passes or cut to a least. The run size is the part's to name, the one whose weakest neighbor
-    pair leans hardest, since short runs drown in the counting's spread and long ones gather interference.
-    `query_order_check.c` solves seven links whose reads differ by 64 each, and every neighbor pair reads dearer
-    in more passes than not past twice the spread. The contention read takes integer costs and is not yet put
+    summed across passes or cut to a least. Neither the run size nor the count of passes is set: both are
+    steered the way the engine's descent steers its probes (`test/engine/compiler/bootstrap/query_descent.h`).
+    Passes are put until every neighbor pair's count leans past twice its spread, and every size is read and
+    the one leaving the fewest pairs standing for the fewest puts is kept, since short runs drown in the
+    counting's spread and long ones gather interference. `query_order_check.c` solves seven links whose reads
+    differ by 64 each, and every neighbor pair leans dearer on one same pass at the size the part names. The contention read takes integer costs and is not yet put
     over exact rationals. The device half is open: a container that runs a chain's covered links and
     reads the part's clock around them, put through the channel in Open 1, with the censored-sample mark and the
     reference ask alongside. Its answer carries one bit a check, 128 an ask, and never one bit over a set (Q15).
