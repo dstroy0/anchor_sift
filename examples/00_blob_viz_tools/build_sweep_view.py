@@ -47,6 +47,7 @@ import settings
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "voxel_view_template.html")
+BAR_SOURCE = os.path.join(HERE, "control_bar.js")
 
 FFT_SIZES = (64, 128, 256, 512, 1024, 2048, 4096)
 PAD_FACTORS = (1, 2, 4, 8, 16, 32, 64)
@@ -228,8 +229,8 @@ def main():
         at_bin = max(1, size // 8)
         began_exact = time.time()
         tone = [extended.turn(at_bin * i, size, prec, pi)[0] for i in range(size)]
-        re, im = extended.transform(tone, prec)
-        mags = extended.magnitudes(re, im, prec)
+        real, imag = extended.transform(tone, prec)
+        mags = extended.magnitudes(real, imag, prec)
         top = max(mags)
         others = [
             one
@@ -268,6 +269,7 @@ def main():
             "zero where they agree and shows only the disagreement." + exact_note
         ),
         "settings": settings.collect(sys.argv[1:]),
+        "schema": settings.schema(sorted(settings.KNOWN)),
         "fields": fields,
         "swept": [label_of(one) for one in swept],
     }
@@ -281,6 +283,14 @@ def main():
         sys.stderr.write("the template has no place to put the data\n")
         return 1
     page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
+
+    with io.open(BAR_SOURCE, encoding="utf-8") as handle:
+        bar = handle.read()
+    slot = re.search(r"/\*CONTROL_BAR\*/", page)
+    if slot is None:
+        sys.stderr.write("the template has no place for the control bar\n")
+        return 1
+    page = page[:slot.start()] + bar + page[slot.end():]
 
     target = text("--out") or os.path.join(HERE, "sweep_view.html")
     with io.open(target, "w", encoding="utf-8", newline="\n") as handle:

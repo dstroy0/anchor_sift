@@ -260,6 +260,16 @@
     line-height: 1.5;
     color: var(--muted);
   }
+  .open-report {
+    margin: 2px 0 0;
+    font-size: 6.25px;
+    line-height: 1.5;
+    color: var(--muted);
+    min-height: 1.5em;
+  }
+  .open-report.refused {
+    color: var(--warm);
+  }
   .credit {
     display: block;
     margin-top: 4px;
@@ -816,6 +826,7 @@
             <div id="metrics"></div>
           </details>
 
+          <p id="open-report" class="open-report"></p>
           <p id="shape-note" class="tip"></p>
           <a class="credit" href="https://github.com/dstroy0/" target="_blank" rel="noopener">&copy; dstroy0</a>
         </div>
@@ -825,6 +836,7 @@
   </div>
 </div>
 
+<script>/*CONTROL_BAR*/</script>
 <script>
   (function () {
     "use strict";
@@ -2794,99 +2806,126 @@
     // -- opening state, as parameters ---------------------------------------------------------------
     //
     // A caller that wants a particular view asks for it here instead of publishing a page and
-    // telling the reader which controls to move. Everything is optional; anything not named keeps the
-    // default the page already had.
+    // telling the reader which controls to move. The shared control bar's model reads these: every
+    // value in DATA.settings is checked against the one schema the build injected, a value of the
+    // wrong kind or out of range is named and refused and never clamped, and a key the build leaves
+    // out keeps the control's own default. The report line below names what was refused. Each
+    // bespoke control stays and is seeded from the model.
 
+    var SCHEMA = DATA.schema || {};
     var SET = DATA.settings || {};
+    var wanted = BAR.defaultView(SCHEMA);
+    var report = BAR.applyView(wanted, SET, SCHEMA);
+    var refused = report.error.slice();
 
+    function given(key) {
+      return report.applied.indexOf(key) >= 0;
+    }
+
+    // A word setting names a value in one of the page's own lists. The schema takes it as free text
+    // and the match against the list is the page's to make. A name that matches nothing joins the
+    // same refusal report the schema's own refusals use.
     function chooseBy(select, list, key, apply) {
-      if (!key) {
+      if (!given(key)) {
         return;
       }
       for (var i = 0; i < list.length; i += 1) {
-        if (list[i].key === key || list[i].label === key) {
+        if (list[i].key === wanted[key] || list[i].label === wanted[key]) {
           select.value = String(i);
           apply(list[i]);
           return;
         }
       }
-      // Named and not found is worth saying, because the page otherwise opens in the default state
-      // and looks like the setting was ignored.
-      document.getElementById("hist-out").innerHTML = '<span class="none">no such setting value: ' + key + "</span>";
+      refused.push(key + ": no such value " + wanted[key]);
     }
 
-    function slide(id, value, apply) {
-      if (value === undefined || value === null || value === 0) {
+    // A slider setting seeds its control and its readout, then applies. The value is in range
+    // already: an out-of-range one was refused by the schema and given() is false.
+    function slide(id, key, apply) {
+      if (!given(key)) {
         return;
       }
       var control = document.getElementById(id);
-      control.value = String(value);
+      control.value = String(wanted[key]);
       var out = document.getElementById(id + "-out");
       if (out) {
-        out.textContent = value;
+        out.textContent = wanted[key];
       }
-      apply(value);
+      apply(wanted[key]);
     }
 
-    if (SET.theme === "light" || SET.theme === "dark") {
-      document.documentElement.setAttribute("data-theme", SET.theme);
+    if (given("theme")) {
+      document.documentElement.setAttribute("data-theme", wanted.theme);
     }
-    if (SET.background) {
-      document.documentElement.style.setProperty("--sky", SET.background);
+    if (given("background")) {
+      document.documentElement.style.setProperty("--sky", wanted.background);
+      bgPick.value = wanted.background;
     }
-    if (SET.low) {
-      ramp.low = toRgb(SET.low);
+    if (given("low")) {
+      ramp.low = toRgb(wanted.low);
+      lowPick.value = wanted.low;
     }
-    if (SET.mid) {
-      ramp.mid = toRgb(SET.mid);
+    if (given("mid")) {
+      ramp.mid = toRgb(wanted.mid);
+      midPick.value = wanted.mid;
     }
-    if (SET.high) {
-      ramp.high = toRgb(SET.high);
+    if (given("high")) {
+      ramp.high = toRgb(wanted.high);
+      highPick.value = wanted.high;
     }
-    if (SET.opacity) {
-      panel.style.opacity = String(SET.opacity / 100);
-      colorPanel.style.opacity = String(SET.opacity / 100);
+    if (given("opacity")) {
+      panel.style.opacity = String(wanted.opacity / 100);
+      colorPanel.style.opacity = String(wanted.opacity / 100);
+      ["op-panel", "op-color"].forEach(function (id) {
+        document.getElementById(id).value = String(wanted.opacity);
+        document.getElementById(id + "-out").textContent = wanted.opacity;
+      });
     }
 
-    chooseBy(shapePick, SHAPES, SET.shape, function (one) {
+    chooseBy(shapePick, SHAPES, "shape", function (one) {
       shape = one;
       document.getElementById("shape-note").textContent = one.note;
     });
-    chooseBy(transformPick, TRANSFORMS, SET.transform, function (one) {
+    chooseBy(transformPick, TRANSFORMS, "transform", function (one) {
       transform = one;
     });
-    if (SET.overlay) {
+    if (given("overlay")) {
+      var foundOverlay = false;
       for (var oi = 0; oi < VIEWS.length; oi += 1) {
-        if (VIEWS[oi].key === SET.overlay || VIEWS[oi].label === SET.overlay) {
+        if (VIEWS[oi].key === wanted.overlay || VIEWS[oi].label === wanted.overlay) {
           overlay = VIEWS[oi];
           overlayPick.value = String(oi + 1);
+          foundOverlay = true;
         }
+      }
+      if (!foundOverlay) {
+        refused.push("overlay: no such value " + wanted.overlay);
       }
     }
 
-    slide("wrap", SET.wrap, function (one) {
+    slide("wrap", "wrap", function (one) {
       wrapAt = one;
     });
-    slide("height", SET.height, function (one) {
+    slide("height", "height", function (one) {
       lift = one;
     });
-    slide("floor", SET.floor, function (one) {
+    slide("floor", "floor", function (one) {
       floorAt = one;
     });
-    if (SET.contrast) {
-      contrastAt = SET.contrast;
-      document.getElementById("contrast").value = String(Math.round(SET.contrast * 100));
-      document.getElementById("contrast-out").textContent = SET.contrast.toFixed(2);
+    if (given("contrast")) {
+      contrastAt = wanted.contrast;
+      document.getElementById("contrast").value = String(Math.round(wanted.contrast * 100));
+      document.getElementById("contrast-out").textContent = wanted.contrast.toFixed(2);
     }
-    if (SET.order) {
-      orderAt = SET.order;
-      orderSlider.value = String(Math.round((1000 * Math.log(Math.max(3, SET.order) / 3)) / Math.log(4096 / 3)));
+    if (given("order")) {
+      orderAt = wanted.order;
+      orderSlider.value = String(Math.round((1000 * Math.log(wanted.order / 3)) / Math.log(4096 / 3)));
       document.getElementById("order-out").textContent = orderAt;
     }
-    if (SET.select_from !== undefined && SET.select_to !== undefined && (SET.select_from || SET.select_to)) {
+    if (given("select_from") && given("select_to")) {
       brush = {
-        from: Math.min(SET.select_from, SET.select_to),
-        to: Math.max(SET.select_from, SET.select_to),
+        from: Math.min(wanted.select_from, wanted.select_to),
+        to: Math.max(wanted.select_from, wanted.select_to),
         rgb: toRgb(token("--signal")),
         effect: "solid",
         period: 900,
@@ -2894,30 +2933,31 @@
     }
 
     // The observer. Given as angles because they are what a person means by "from above and to the
-    // left", then turned into the offset the trackball actually carries.
-    if (SET.yaw || SET.pitch || SET.distance) {
-      var reach = SET.distance || offset.length();
-      var upAngle = SET.pitch || 0;
-      var roundAngle = SET.yaw || 0;
+    // left", then turned into the offset the trackball carries. The distance is in range already,
+    // bounded by the schema, and needs no clamp here.
+    if (given("yaw") || given("pitch") || given("distance")) {
+      var reach = given("distance") ? wanted.distance : offset.length();
+      var upAngle = given("pitch") ? wanted.pitch : 0;
+      var roundAngle = given("yaw") ? wanted.yaw : 0;
       offset.set(Math.sin(roundAngle) * Math.cos(upAngle), Math.sin(upAngle), Math.cos(roundAngle) * Math.cos(upAngle));
-      offset.multiplyScalar(Math.max(60, Math.min(1400, reach)));
+      offset.multiplyScalar(reach);
       upVec.set(0, 1, 0);
       var side = screenRight();
       upVec.crossVectors(offset, side).normalize();
       place();
     }
 
-    if (SET.step) {
-      showStep(SET.step);
+    if (given("step")) {
+      showStep(wanted.step);
     } else {
       redraw();
     }
 
     // Motion. Turns per minute about the observer's own up or right, which keeps turning about the
     // axis the reader sees and not a world axis that drifts as the object is dragged.
-    if (SET.spin) {
-      var perFrame = (SET.spin * TAU) / (60 * 60);
-      var about = SET.spinaxis === "right" ? "right" : "up";
+    if (given("spin")) {
+      var perFrame = (wanted.spin * TAU) / (60 * 60);
+      var about = given("spinaxis") && wanted.spinaxis === "right" ? "right" : "up";
       var turning = function () {
         if (!dragging) {
           offset.applyAxisAngle(about === "up" ? upVec : screenRight(), perFrame);
@@ -2930,6 +2970,22 @@
         requestAnimationFrame(turning);
       };
       requestAnimationFrame(turning);
+    }
+
+    // The report line. A refusal is named; otherwise the keys the build set are listed, and an empty
+    // settings object opens at the page defaults and says that. A control whose value was refused
+    // keeps its own default and stays visible.
+    var reportEl = document.getElementById("open-report");
+    if (reportEl) {
+      reportEl.classList.remove("refused");
+      if (refused.length) {
+        reportEl.textContent = "refused " + refused.join("; ");
+        reportEl.classList.add("refused");
+      } else if (report.applied.length) {
+        reportEl.textContent = "opened with " + report.applied.join(", ");
+      } else {
+        reportEl.textContent = "opened at the page defaults";
+      }
     }
 
     window.addEventListener("resize", resize);
