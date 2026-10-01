@@ -1,0 +1,1201 @@
+{
+  "what": "the reproduction set for dn_constants.csv",
+  "how_to_reproduce": [
+    "python tools/dn_precision/calc/dn_constants.py",
+    "python tools/dn_precision/calc/coherence_check.py",
+    "python tools/dn_precision/calc/reproduce.py --verify"
+  ],
+  "the_rule": "two routes or it does not ship, and the gap between them must be zero",
+  "constants": 81,
+  "widths": [
+    1000
+  ],
+  "gaps_present": [
+    0
+  ],
+  "rows": [
+    {
+      "name": "pi",
+      "symbol": "pi",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "digit_engine.chudnovsky, binary splitting",
+      "route_b": "Machin, 16 arctan(1/5) - 4 arctan(1/239)",
+      "used_for": "every harmonic, every solid angle, the placement angle",
+      "value_sha256": "823a2e34f63c5d5f30a27733976df5a1ab57feaab505f40d95d3dd3fefa425cc",
+      "value_length": 1002,
+      "graded_against": {
+        "prefix": "3.14159265358979323846264338327950288419716939937510",
+        "places": 50,
+        "source": "standard",
+        "note": "taken on authority, used only to grade, never to compute",
+        "agrees": true
+      },
+      "guard": {
+        "used": 30,
+        "settles_at": 3,
+        "note": "measured by sweeping the guard until the output stops changing"
+      }
+    },
+    {
+      "name": "two_pi",
+      "symbol": "2 pi",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "2 x chudnovsky",
+      "route_b": "2 x Machin",
+      "used_for": "a full sweep in longitude",
+      "value_sha256": "67b4d07227a2a93c528bce606a93ecb25fde866a298539f110f7bd80edc7f408",
+      "value_length": 1002
+    },
+    {
+      "name": "half_pi",
+      "symbol": "pi/2",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "chudnovsky / 2",
+      "route_b": "Machin / 2",
+      "used_for": "Girard: one octant's spherical triangle has area exactly pi/2",
+      "value_sha256": "1c7dce74a172ea831974f339618f0c753ffb33ea877814fee2dad36b11ca30a5",
+      "value_length": 1002
+    },
+    {
+      "name": "four_pi",
+      "symbol": "4 pi",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "4 x chudnovsky",
+      "route_b": "4 x Machin",
+      "used_for": "the sphere's area, and the degree-zero normalisation",
+      "value_sha256": "6aee285f3fd6e9854710240861ea1b0700aacab4855685c51c01f85900ec35f1",
+      "value_length": 1003
+    },
+    {
+      "name": "pi_squared",
+      "symbol": "pi^2",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "chudnovsky squared",
+      "route_b": "Machin squared",
+      "used_for": "zeta(2), and the Laplacian's eigenvalue scale on a flat torus",
+      "value_sha256": "fb2ca21adaf0bc1098d2190ecd46712a60f375ead3fa1fc35bccd7c6fba88774",
+      "value_length": 1002
+    },
+    {
+      "name": "zeta_two",
+      "symbol": "zeta(2)",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "pi^2 / 6 from chudnovsky",
+      "route_b": "pi^2 / 6 from Machin",
+      "used_for": "mode counting on a torus in two dimensions",
+      "value_sha256": "ed94b652613e786b99bff0a40b52b5edb4af7e36e93538d1b967aef14075b63d",
+      "value_length": 1002
+    },
+    {
+      "name": "root_two",
+      "symbol": "sqrt 2",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer root of 2 x 10^(2d), exact",
+      "route_b": "squared back: root^2 <= 2 x 10^(2d) < (root+1)^2",
+      "used_for": "the real harmonic basis carries sqrt2 on every order above zero",
+      "value_sha256": "92fa8c84b033aaf1a67722abccd41dab07aa693b6d64398b6baaafa47636b63c",
+      "value_length": 1002,
+      "graded_against": {
+        "prefix": "1.41421356237309504880168872420969807856967187537694",
+        "places": 50,
+        "source": "standard",
+        "note": "taken on authority, used only to grade, never to compute",
+        "agrees": true
+      }
+    },
+    {
+      "name": "root_three",
+      "symbol": "sqrt 3",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer root of 3 x 10^(2d), exact",
+      "route_b": "squared back: root^2 <= 3 x 10^(2d) < (root+1)^2",
+      "used_for": "hexagonal and octahedral boundary geometry",
+      "value_sha256": "c80ecee6d62c33f368e0c1c5ae0f0cb1fa55b357bd4726c388ff5a60e2e404ef",
+      "value_length": 1002
+    },
+    {
+      "name": "root_five",
+      "symbol": "sqrt 5",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer root of 5 x 10^(2d), exact",
+      "route_b": "squared back: root^2 <= 5 x 10^(2d) < (root+1)^2",
+      "used_for": "the golden ratio and the golden placement angle",
+      "value_sha256": "6dacca032b0e5aa6e1eccf9a1cc51bd31cf3f7ca71009940a5bf83b8329bfe54",
+      "value_length": 1002
+    },
+    {
+      "name": "golden_ratio",
+      "symbol": "phi",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "(1 + sqrt 5) / 2",
+      "route_b": "the same, with the root verified as a floor",
+      "used_for": "the placement's spiral",
+      "value_sha256": "7a5a7cd4d8d0228c5af5e7de3c343621c9ca33073f4734be16256766a0574ed0",
+      "value_length": 1002
+    },
+    {
+      "name": "golden_angle",
+      "symbol": "pi(3 - sqrt5)",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "digit_engine.golden_angle",
+      "route_b": "Machin pi times (3 - graded root)",
+      "used_for": "one index step of the golden placement; the screw's pitch is -2/(N gamma)",
+      "value_sha256": "bddfb0229b21211d998dd172a02a45ca58002cac374afbf762728d71ab82683d",
+      "value_length": 1002
+    },
+    {
+      "name": "harmonic_unit",
+      "symbol": "1/(2 sqrt pi)",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "digit_engine.harmonic_unit",
+      "route_b": "integer root of 10^2d over 4 pi",
+      "used_for": "the degree-zero harmonic, and the scale every other one is built on",
+      "value_sha256": "cb46f13c28141a3ef68536f3fa7f3650ede1abc83431a71514d3b292ead2e64a",
+      "value_length": 1002
+    },
+    {
+      "name": "e",
+      "symbol": "e",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "sum of 1/k!",
+      "route_b": "the same series folded in pairs",
+      "used_for": "the heat kernel exp(-l(l+1) tau), depth, and the pixel prefilter",
+      "value_sha256": "2862a9c452908162a24873990536b133e2939975686ec86516fdd68dc3079c68",
+      "value_length": 1002,
+      "graded_against": {
+        "prefix": "2.71828182845904523536028747135266249775724709369995",
+        "places": 50,
+        "source": "standard",
+        "note": "taken on authority, used only to grade, never to compute",
+        "agrees": true
+      }
+    },
+    {
+      "name": "ln_two",
+      "symbol": "ln 2",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "bbp_sweep.log_two, sum 1/(k 2^k), binary scaled",
+      "route_b": "2 artanh(1/3)",
+      "used_for": "every entropy in bits rather than nats",
+      "value_sha256": "d1580c6ed914166d94d8b20bb2f462d0308592a867aff69c5363902309983f3e",
+      "value_length": 1002,
+      "graded_against": {
+        "prefix": "0.69314718055994530941723212145817656807550013436025",
+        "places": 50,
+        "source": "standard",
+        "note": "taken on authority, used only to grade, never to compute",
+        "agrees": true
+      },
+      "guard": {
+        "used": 30,
+        "settles_at": 5,
+        "note": "measured by sweeping the guard until the output stops changing"
+      }
+    },
+    {
+      "name": "ln_ten",
+      "symbol": "ln 10",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "3 ln2 + 2 artanh(1/9)",
+      "route_b": "ln 2 + ln 5, ln 5 by 2 artanh(1/9) + ln 2",
+      "used_for": "decimal digits against bits, which is the precision line's own axis",
+      "value_sha256": "796f1b49d2dc3c99801f5dd9c8489fe27f293e34749f02f7cc836c14bb093c6c",
+      "value_length": 1002
+    },
+    {
+      "name": "log2_ten",
+      "symbol": "log2 10",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "ln10 / ln2",
+      "route_b": "the second ln10 over the same ln2",
+      "used_for": "24 and 53 mantissa bits become 7.2247 and 15.9546 decimal digits",
+      "value_sha256": "d1b5615bc854b1291ad0d4d5d08a043a735d80807ae85db0b8deb2277a5518d7",
+      "value_length": 1002
+    },
+    {
+      "name": "zeta_four",
+      "symbol": "zeta(4)",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "pi^4 / 90 from chudnovsky",
+      "route_b": "CRVZ acceleration of eta(4), 1347 terms, no pi anywhere",
+      "used_for": "mode counting on a torus in four dimensions",
+      "value_sha256": "c5ad1f5a18a25e005425e4fb45bcbc265c0756f1961d423cf2787cd34360f103",
+      "value_length": 1002
+    },
+    {
+      "name": "zeta_six",
+      "symbol": "zeta(6)",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "pi^6 / 945 from chudnovsky",
+      "route_b": "CRVZ acceleration of eta(6), 1347 terms, no pi anywhere",
+      "used_for": "the same in six, and the first denominator not guessable",
+      "value_sha256": "ccb773a482380a35336f24979b214c80936982d31416bb5fc13b39cbb0af6827",
+      "value_length": 1002
+    },
+    {
+      "name": "zeta_eight",
+      "symbol": "zeta(8)",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "pi^8 / 9450 from chudnovsky",
+      "route_b": "CRVZ acceleration of eta(8), 1347 terms, no pi anywhere",
+      "used_for": "the eighth moment, and 9450 verified rather than trusted",
+      "value_sha256": "a24f1adb307df40f779210d88b06bcf5781a0170b8bd0fad0539f7e39b1520d9",
+      "value_length": 1002
+    },
+    {
+      "name": "zeta_ten",
+      "symbol": "zeta(10)",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "pi^10 / 93555 from chudnovsky",
+      "route_b": "CRVZ acceleration of eta(10), 1347 terms, no pi anywhere",
+      "used_for": "the tenth, where the denominator is past all checking",
+      "value_sha256": "96cec008bbec423e39bec230b16dc5196bfd9f8fa2a4c8d28a17d64adac25743",
+      "value_length": 1002
+    },
+    {
+      "name": "zeta_five",
+      "symbol": "zeta(5)",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "Euler-Maclaurin, head 8192, 201 tail terms, first omitted 6.98e-04 ulp",
+      "route_b": "CRVZ acceleration of eta(5), 1347 terms",
+      "used_for": "the fifth moment; the first odd zeta with no Apery-style proof",
+      "value_sha256": "7d0e71f2d545735c6fd431b27f0aa7e5e1016834bc095b7516b0f2aeba07f357",
+      "value_length": 1002
+    },
+    {
+      "name": "zeta_seven",
+      "symbol": "zeta(7)",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "Euler-Maclaurin, head 8192, 200 tail terms, first omitted 9.19e-04 ulp",
+      "route_b": "CRVZ acceleration of eta(7), 1347 terms",
+      "used_for": "the seventh, and the first place the two routes were made to agree",
+      "value_sha256": "901146c9d822b23cea2c7408788b4014ba4d39ce2b58b844db7d5b68618a67c0",
+      "value_length": 1002
+    },
+    {
+      "name": "zeta_nine",
+      "symbol": "zeta(9)",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "Euler-Maclaurin, head 8192, 199 tail terms, first omitted 6.48e-04 ulp",
+      "route_b": "CRVZ acceleration of eta(9), 1347 terms",
+      "used_for": "the ninth; at least one of 5, 7, 9, 11 is irrational and none is known",
+      "value_sha256": "2f1fbaea2946f675a768b525ab368ba2abcfb1ec70a0e402da8665a53434e25f",
+      "value_length": 1002
+    },
+    {
+      "name": "zeta_three",
+      "symbol": "zeta(3)",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "bbp_sweep.apery, binary scaled",
+      "route_b": "(5/2) sum (-1)^(k+1) / (k^3 C(2k,k))",
+      "used_for": "Apery's constant; the conduction kernel's third moment",
+      "value_sha256": "b4d09990a611670d27fed9ffbc7a7842e2f0e2960f943e1c5b3223f3dd229ec7",
+      "value_length": 1002
+    },
+    {
+      "name": "ln_five",
+      "symbol": "ln five",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "2 artanh(1/9) + 2 ln2, ln2 = 2 artanh(1/3)",
+      "route_b": "2 artanh(1/4) + 2 artanh(1/2)",
+      "used_for": "a natural's logarithm, and the change of base between any two",
+      "value_sha256": "57162c65bf66123e13f099211e7854d8951bd986b20d31f2f41c7a7b5215da67",
+      "value_length": 1002
+    },
+    {
+      "name": "ln_seven",
+      "symbol": "ln seven",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "6 artanh(1/3) - 2 artanh(1/15)",
+      "route_b": "2 artanh(1/6) + 2 artanh(1/4) + 2 artanh(1/2)",
+      "used_for": "a natural's logarithm, and the change of base between any two",
+      "value_sha256": "d80ffe30d18961de78063b3f8e384943df07d5c9d9936c4bf792ed89f0794da8",
+      "value_length": 1002
+    },
+    {
+      "name": "ln_three",
+      "symbol": "ln three",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "2 artanh(1/2)",
+      "route_b": "4 artanh(1/5) + 2 artanh(1/7)",
+      "used_for": "a natural's logarithm, and the change of base between any two",
+      "value_sha256": "1a6cd8d2d405d5d69c3b5d5819b485967f43370a379f2473bd62e56e92d8d4f8",
+      "value_length": 1002
+    },
+    {
+      "name": "euler_mascheroni",
+      "symbol": "gamma",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "Brent-McMillan, A(n)/B(n) - ln n, n a power of two above 0.576 x places",
+      "route_b": "Sweeney via E1, x a power of two above 2.303 x places, cancellation carried",
+      "used_for": "the harmonic series against the logarithm, and every Euler-Maclaurin tail",
+      "value_sha256": "449fb149524927ffc3251e54fb861e1d23a2b2f030b8847446bfb3b0551229b4",
+      "value_length": 1002,
+      "graded_against": {
+        "prefix": "0.5772156649015328606065120900824024310421593359399235988057672348848677267776646709369470632917467495",
+        "places": 100,
+        "source": "standard",
+        "note": "taken on authority, used only to grade, never to compute",
+        "agrees": true
+      },
+      "derived_parameters": [
+        {
+          "route": "route_a",
+          "parameter": "n",
+          "expression": "smallest power of two strictly above 0.5757 * (digits + guard)",
+          "value": 1024
+        },
+        {
+          "route": "route_b",
+          "parameter": "x",
+          "expression": "smallest power of two strictly above 2.303 * (digits + guard)",
+          "value": 4096
+        },
+        {
+          "route": "route_b",
+          "parameter": "cancellation digits",
+          "expression": "int(0.4343 * x) + 60, the digits lost to cancellation",
+          "value": 1838
+        }
+      ],
+      "guard": {
+        "used": 30,
+        "settles_at": 2,
+        "note": "measured by sweeping the guard until the output stops changing"
+      }
+    },
+    {
+      "name": "catalan",
+      "symbol": "G",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "Ramanujan 1915, (pi/8) ln(2+sqrt3) + (3/8) sum 1/((2n+1)^2 binom(2n,n))",
+      "route_b": "Lima 2012 Theorem 1, arXiv:1207.3139, alternating with binom(2n,n)^3",
+      "used_for": "the Dirichlet beta at 2, and every lattice sum that reduces to it",
+      "value_sha256": "f7fc6e45e5c7a14d825c019ec4373e7a3eb9ce814dc3b2a287814ae776c89c43",
+      "value_length": 1002,
+      "graded_against": {
+        "prefix": "0.91596559417721901505460351493238411077414937428167213426649811962176301977625476947935651292611510624857442261919619",
+        "places": 116,
+        "source": "standard",
+        "note": "taken on authority, used only to grade, never to compute",
+        "agrees": true
+      },
+      "guard": {
+        "used": 30,
+        "settles_at": 3,
+        "note": "measured by sweeping the guard until the output stops changing"
+      }
+    },
+    {
+      "name": "root_2",
+      "symbol": "sqrt 2",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 2 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 2 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "92fa8c84b033aaf1a67722abccd41dab07aa693b6d64398b6baaafa47636b63c",
+      "value_length": 1002
+    },
+    {
+      "name": "root_3",
+      "symbol": "sqrt 3",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 3 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 3 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "c80ecee6d62c33f368e0c1c5ae0f0cb1fa55b357bd4726c388ff5a60e2e404ef",
+      "value_length": 1002
+    },
+    {
+      "name": "root_5",
+      "symbol": "sqrt 5",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 5 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 5 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "6dacca032b0e5aa6e1eccf9a1cc51bd31cf3f7ca71009940a5bf83b8329bfe54",
+      "value_length": 1002
+    },
+    {
+      "name": "root_6",
+      "symbol": "sqrt 6",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 6 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 6 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "3eb07fea7f66bbc5fb523ade249124d31f85ebe80bcec931080454a4f3586dc4",
+      "value_length": 1002
+    },
+    {
+      "name": "root_7",
+      "symbol": "sqrt 7",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 7 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 7 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "d8d508080344fa8549155693865993f2b447ffe152cf7be700d67e505529ce55",
+      "value_length": 1002
+    },
+    {
+      "name": "root_8",
+      "symbol": "sqrt 8",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 8 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 8 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "9402ac589b3251fdb8664cdce519357f882b58612497ac1d276ec2073a37e840",
+      "value_length": 1002
+    },
+    {
+      "name": "root_10",
+      "symbol": "sqrt 10",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 10 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 10 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "a459ecf733eec21bc52e6a970699e203ae3dc94d4240e4c423d69831645d3f5e",
+      "value_length": 1002
+    },
+    {
+      "name": "root_11",
+      "symbol": "sqrt 11",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 11 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 11 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "6348aeaad1cc07887adfcef2ee04c6b1c8e55cb80be0e8b005c146e328f540bd",
+      "value_length": 1002
+    },
+    {
+      "name": "root_12",
+      "symbol": "sqrt 12",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 12 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 12 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "ed8d77d81bf0f79c4fd57997d86ee21d7711c2fdf75553cf968218337067a4a9",
+      "value_length": 1002
+    },
+    {
+      "name": "root_13",
+      "symbol": "sqrt 13",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 13 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 13 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "deb3e9d83ef077c3749b289e3410a5f3c02f1f2bea00de51698f56bd218fa3d1",
+      "value_length": 1002
+    },
+    {
+      "name": "root_14",
+      "symbol": "sqrt 14",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 14 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 14 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "1b0420b2ced8356fef945c489f5c412e8407a4ba191902e8a3bfce521626b505",
+      "value_length": 1002
+    },
+    {
+      "name": "root_15",
+      "symbol": "sqrt 15",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 15 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 15 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "311a0bf2211cdd71e2377d8df037290bc3daa9774d7e8378f0eab71bf89bafca",
+      "value_length": 1002
+    },
+    {
+      "name": "root_17",
+      "symbol": "sqrt 17",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 17 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 17 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "97da11d796856578cb48b45145f6ae0202f8bb853992dc397e6662796d9fffe4",
+      "value_length": 1002
+    },
+    {
+      "name": "root_18",
+      "symbol": "sqrt 18",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 18 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 18 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "49a1e3ee81b37d2e6de00bfade796e99d5e99edabb740808afd20ea60d40ff33",
+      "value_length": 1002
+    },
+    {
+      "name": "root_19",
+      "symbol": "sqrt 19",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 19 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 19 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "5c4e8cbc68da41ef49c381c92ab8d9e05fdb7f980bcae36d43c10f30b021862c",
+      "value_length": 1002
+    },
+    {
+      "name": "root_20",
+      "symbol": "sqrt 20",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 20 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 20 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "0d1b43619e3c5dd11df4c993108a9992b142fad2188e0b81aef70ab5bfbfb0cb",
+      "value_length": 1002
+    },
+    {
+      "name": "root_21",
+      "symbol": "sqrt 21",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 21 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 21 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "baac6d57cdfe0ccefe55740933619b1364bc44cf2449bac0279f9c518bdc45c0",
+      "value_length": 1002
+    },
+    {
+      "name": "root_22",
+      "symbol": "sqrt 22",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 22 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 22 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "855ec50de6228ecbf7d8e935f45b3d458bb05f3a5620c32f8ef285bd75834a01",
+      "value_length": 1002
+    },
+    {
+      "name": "root_23",
+      "symbol": "sqrt 23",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 23 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 23 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "c7c24fe11fe537957bd27c3eb0011cec8e469d6c60d81c779405f98d29a37090",
+      "value_length": 1002
+    },
+    {
+      "name": "root_24",
+      "symbol": "sqrt 24",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 24 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 24 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "75229e8b468dce7168c08bdfebfc706a823579f7c15a9817f0a173ac12cc8ceb",
+      "value_length": 1002
+    },
+    {
+      "name": "root_26",
+      "symbol": "sqrt 26",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 26 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 26 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "e18ae52d39803e33ef0a34854122e9edc0c2059f9e9a8644c9b2bb57f7bd8d05",
+      "value_length": 1002
+    },
+    {
+      "name": "root_27",
+      "symbol": "sqrt 27",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 27 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 27 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "6db67ebb7cfc200b27b0c4e0673f6fde76ccc1a7a574dd64ae3a6344e8a6152c",
+      "value_length": 1002
+    },
+    {
+      "name": "root_28",
+      "symbol": "sqrt 28",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 28 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 28 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "a78644b6b5db16920ba3a59efd18fa4857aae298e3f5f20bbb16490c8db1aa7f",
+      "value_length": 1002
+    },
+    {
+      "name": "root_29",
+      "symbol": "sqrt 29",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 29 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 29 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "7dbf822b0f228f83a8fe6054da1532f651a565bc639be62421d60ebb4def731e",
+      "value_length": 1002
+    },
+    {
+      "name": "root_30",
+      "symbol": "sqrt 30",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 30 x 10^(2d), exact",
+      "route_b": "raised back: root^2 <= 30 x 10^(2d) < (root+1)^2",
+      "used_for": "a natural's square root, verified by squaring back",
+      "value_sha256": "9f04b154b935c3046f59fe32b747dfca1bfc2a99a1f881f0cf5228bd3298666c",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_2",
+      "symbol": "cbrt 2",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 2 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 2 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "a1e92b5589ebea022b8371ae5d071696128d013f85b88ee281d0269d4e281e24",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_3",
+      "symbol": "cbrt 3",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 3 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 3 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "850e407a60ae4707e066c6deffa837c962713b0b548988d7dc47611cf04e4e34",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_4",
+      "symbol": "cbrt 4",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 4 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 4 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "ef74c5e372e7e55f4f949e5ce649d71165b531fe41b0f462a307b67246acd520",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_5",
+      "symbol": "cbrt 5",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 5 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 5 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "9f928153f9d1171d03d3c323f1385c89bfe5a733401dad2ce565e58d62d63354",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_6",
+      "symbol": "cbrt 6",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 6 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 6 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "78fa49407ff54ccf7d36cb353bda0e8880f2a70e9c4cd316689e9a35d28d35c6",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_7",
+      "symbol": "cbrt 7",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 7 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 7 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "4d61f6f785b4a9ef791c7cbf5a4245734058b42563b5469e98c699de7a5c5c6d",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_9",
+      "symbol": "cbrt 9",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 9 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 9 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "a154a8e1acd4a6db030bc26fa8acba48805b1d2c9734c28391549c3203e2d5e6",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_10",
+      "symbol": "cbrt 10",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 10 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 10 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "c3dd35fe075a3bdff04139c544ba1381f62f5fe7b0d3e0568e9921f144d1080a",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_11",
+      "symbol": "cbrt 11",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 11 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 11 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "ead22d0ea62b7fa4083951856e299f2edcf7674ef2d7d79613a349428ae538c3",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_12",
+      "symbol": "cbrt 12",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 12 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 12 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "6f698132f1afa69153744b699625676cbbfac409b8b9e1c8d65e60529a734729",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_13",
+      "symbol": "cbrt 13",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 13 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 13 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "54a8c1ddf72e67c47d102fbf4f13c8a0ef105e2ee72a2165af799fed228575bd",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_14",
+      "symbol": "cbrt 14",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 14 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 14 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "41860c7c210ff8e00e47a1865666de082195c42149a3899ec74f7b9fc3ab8aca",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_15",
+      "symbol": "cbrt 15",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 15 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 15 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "38b6a04d5578880e257ce71f445abfb5dec808831ccd88d77e244d907305ee6e",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_16",
+      "symbol": "cbrt 16",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 16 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 16 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "95bb3dac639186f5c5278ba5d0a2f1eb5c3f76499ab530fe110b7a0e06b69ca5",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_17",
+      "symbol": "cbrt 17",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 17 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 17 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "43598a7256c95d4cb2f5a52d73d66b78d88d44568b11ff0c208ac2c84106f8ad",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_18",
+      "symbol": "cbrt 18",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 18 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 18 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "ed5cbc4e68ab0b09b6f18d4ca465ed858b0ebcd8b60c2cfc7e6d5372c7f78e6f",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_19",
+      "symbol": "cbrt 19",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 19 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 19 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "908636184714e1f339e6e88e1ee7a4bca968a58e03c5a35a9ed4eebf7d208798",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_20",
+      "symbol": "cbrt 20",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 20 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 20 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "7d808622a54a245ba9abf0e964cc2ac1f3030e3f3d7c5b8e750820295e94ed9d",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_21",
+      "symbol": "cbrt 21",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 21 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 21 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "c21bb1744dc910ed0ea8dc5855d23e11ec1963cd548ae0c16edffaefb525f74f",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_22",
+      "symbol": "cbrt 22",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 22 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 22 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "154a6c559257d4df265ddec5a1076ca8c4e80337cabd5081b4503b8b17acdc45",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_23",
+      "symbol": "cbrt 23",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 23 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 23 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "01a0c622c50321abbfa4f943f1281704369251739c2a70968a379d798addf257",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_24",
+      "symbol": "cbrt 24",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 24 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 24 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "59aa4f712214d53caeffe7567839200f63e2e89c92ebc74a0e2dbda84247d3a5",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_25",
+      "symbol": "cbrt 25",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 25 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 25 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "1695e6e8019d4bc0cc103c4b7b11b93fe64998931602eba674b657567f7551a0",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_26",
+      "symbol": "cbrt 26",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 26 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 26 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "00b4f29d4e423a8618a5015adfb6b76b79c6348f49f09b8c36029db576aab79b",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_28",
+      "symbol": "cbrt 28",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 28 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 28 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "5aa5dc62d033017e1c6629a81525baa4ecf71bbe17cf3a45ce775baabe0c55d8",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_29",
+      "symbol": "cbrt 29",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 29 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 29 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "244d084efb3cde66da53f1cc38d8be7a8097d32fdf3d77ac59b402629739a99d",
+      "value_length": 1002
+    },
+    {
+      "name": "cbrt_30",
+      "symbol": "cbrt 30",
+      "digits": 1000,
+      "agreed_digits": 1000,
+      "last_digit_gap": 0,
+      "route_a": "integer Newton nth root of 30 x 10^(3d), exact",
+      "route_b": "raised back: root^3 <= 30 x 10^(3d) < (root+1)^3",
+      "used_for": "a natural's cube root; the SHA-256 round constants are these",
+      "value_sha256": "560fb95d9f06f23cc15adec1ef3649a931ff85356d84c3f6c6ff4b0c2255a0c6",
+      "value_length": 1002
+    }
+  ],
+  "identities": [
+    {
+      "identity": "two_pi = 2 pi",
+      "residual": 0,
+      "bound": 2,
+      "why": "one floor times an exact 2"
+    },
+    {
+      "identity": "2 half_pi = pi",
+      "residual": 1,
+      "bound": 2,
+      "why": "one floor times an exact 2"
+    },
+    {
+      "identity": "four_pi = 4 pi",
+      "residual": 0,
+      "bound": 4,
+      "why": "one floor times an exact 4"
+    },
+    {
+      "identity": "pi_squared = pi * pi",
+      "residual": 0,
+      "bound": 8,
+      "why": "two floors multiplied, each contributing its operand's magnitude"
+    },
+    {
+      "identity": "6 zeta_two = pi^2",
+      "residual": 2,
+      "bound": 16,
+      "why": "a floor times 6 against a product of two floors"
+    },
+    {
+      "identity": "root_6 = root_2 * root_3",
+      "residual": 1,
+      "bound": 8,
+      "why": "two floors multiplied"
+    },
+    {
+      "identity": "root_10 = root_2 * root_5",
+      "residual": 1,
+      "bound": 8,
+      "why": "two floors multiplied"
+    },
+    {
+      "identity": "root_14 = root_2 * root_7",
+      "residual": 1,
+      "bound": 8,
+      "why": "two floors multiplied"
+    },
+    {
+      "identity": "root_15 = root_3 * root_5",
+      "residual": 1,
+      "bound": 8,
+      "why": "two floors multiplied"
+    },
+    {
+      "identity": "root_22 = root_2 * root_11",
+      "residual": 1,
+      "bound": 8,
+      "why": "two floors multiplied"
+    },
+    {
+      "identity": "root_21 = root_3 * root_7",
+      "residual": 2,
+      "bound": 8,
+      "why": "two floors multiplied"
+    },
+    {
+      "identity": "cbrt_6 = cbrt_2 * cbrt_3",
+      "residual": 2,
+      "bound": 8,
+      "why": "two floors multiplied"
+    },
+    {
+      "identity": "cbrt_10 = cbrt_2 * cbrt_5",
+      "residual": 2,
+      "bound": 8,
+      "why": "two floors multiplied"
+    },
+    {
+      "identity": "cbrt_15 = cbrt_3 * cbrt_5",
+      "residual": 3,
+      "bound": 8,
+      "why": "two floors multiplied"
+    },
+    {
+      "identity": "cbrt_14 = cbrt_2 * cbrt_7",
+      "residual": 3,
+      "bound": 8,
+      "why": "two floors multiplied"
+    },
+    {
+      "identity": "phi^2 = phi + 1",
+      "residual": 1,
+      "bound": 8,
+      "why": "a product of two floors against a floor plus an exact 1"
+    },
+    {
+      "identity": "ln_ten = ln_two + ln_five",
+      "residual": 0,
+      "bound": 3,
+      "why": "three floors summed"
+    },
+    {
+      "identity": "log2_ten * ln_two = ln_ten",
+      "residual": 1,
+      "bound": 8,
+      "why": "two floors multiplied against one"
+    },
+    {
+      "identity": "root_two = root_2, same number two rows",
+      "residual": 0,
+      "bound": 1,
+      "why": "two floors of one quantity"
+    },
+    {
+      "identity": "root_five = root_5, same number two rows",
+      "residual": 0,
+      "bound": 1,
+      "why": "two floors of one quantity"
+    },
+    {
+      "identity": "root_three = root_3, same number two rows",
+      "residual": 0,
+      "bound": 1,
+      "why": "two floors of one quantity"
+    }
+  ],
+  "identities_note": "cross-row relations. These catch the one failure a per-row two-route gap cannot see: two routes sharing a wrong input move together and their gap stays zero."
+}

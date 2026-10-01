@@ -1,0 +1,12 @@
+{
+ "runs": 3,
+ "rate_samples": 1928,
+ "rate_p01": 2193,
+ "rate_p50": 2396,
+ "rate_p99": 2446,
+ "job_gap_p50": 30,
+ "job_gap_p95": 41,
+ "job_gap_p99": 42,
+ "anchor_ratio_mean": 0.9651873998544905,
+ "anchor_runs": 3
+}

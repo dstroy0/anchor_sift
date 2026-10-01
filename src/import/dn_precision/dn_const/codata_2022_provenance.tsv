@@ -1,0 +1,7 @@
+source	https://physics.nist.gov/cuu/Constants/Table/allascii.txt
+adjustment	2022 CODATA
+fetched	2026-09-11
+bytes	41165
+sha256	bd3abf6912f8824da0274cb2b8af5bf4aeeedbdb45a0b02bcc548968c4b36324
+note	Measured values with published uncertainties. Fixed-width: quantity 1-60, value 61-85, uncertainty 86-110, unit 111+. Uncertainty "(exact)" means defined by the SI and carrying no uncertainty at all.
+placement	The table is DATA and lives with the toolkit. It arrived in theory/precision/ as consts_nist.txt and was moved here on Douglas's word, because theory/precision/ holds the writeups and the numbers are repo toolkit. Content was confirmed identical to an independently fetched copy before the move, apart from a leading blank line and a trailing newline.

@@ -1,11 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // qasm_exact.c: exact fractions, angles and fixed point
 #include "qasm_internal.h"
+#include "qasm_pi.h"
 
-// pi to 110 places; its error, below 10^-110, is far under one unit at QASM_GUARD_BITS
-static const char QASM_PI_TEXT[] =
-    "3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862"
-    "803482534211706798214808651";
+_Static_assert(QASM_PI_BITS >= QASM_GUARD_BITS,
+               "qasm_pi.h holds pi for fewer guard bits than QASM_GUARD_BITS: run utils/maint/engine/emit_qasm_pi.py");
 
 void qasm_error(QasmParser *parser, const QasmToken *token, const char *format, ...)
 {
@@ -210,14 +209,14 @@ int qasm_fixed_rational(QasmParser *parser, const QasmFraction *value, const Anc
 
 int qasm_fixed_constants(QasmParser *parser)
 {
-    // pi * 10^110 exactly as text says, then times 2^G over 10^110: floor within one unit of pi 2^G
-    const unsigned int places = 110u;
+    // pi * 10^places exactly as qasm_pi.h says, then times 2^G over 10^places: floor within one unit of pi 2^G
+    const unsigned int places = QASM_PI_PLACES;
     AnchorExactInteger pi_text;
     AnchorExactInteger scale;
     AnchorExactInteger ten_power;
     AnchorExactInteger product;
     AnchorExactInteger remainder;
-    if (!qasm_exact_ok(parser, anchor_exact_from_decimal(QASM_PI_TEXT, strlen(QASM_PI_TEXT), places, &pi_text)))
+    if (!qasm_exact_ok(parser, anchor_exact_from_decimal(QASM_PI_TEXT, sizeof(QASM_PI_TEXT) - 1u, places, &pi_text)))
     {
         return 0;
     }

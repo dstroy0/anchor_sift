@@ -13,6 +13,7 @@
 #   stem_group_check holds the stem membership rule: groups on anchors, the same in every order
 #   branch_side_check asks the host whether the side a branch is read from leaves a mark
 #   gnascor_trace    puts gnascor_scenario.txt's sides to the host as real asks, and gnascor_read.py reads the states
+#   emit_qasm_pi     holds qasm_pi.h to what it writes from naturals.pi at QASM_GUARD_BITS
 #
 #     utils/maint/engine/chain_check.sh
 #     utils/maint/engine/chain_check.sh sm_86 src/engine/compiler/cubin/machines/sm_86.kdm
@@ -69,6 +70,7 @@ if [ "$#" -gt 0 ]; then
     "$OUT/kdm_write" "$@"
     exit "$?"
 fi
+python "$TOP/utils/maint/engine/emit_qasm_pi.py" --check || exit 1
 "$OUT/chain_check" || exit 1
 "$OUT/gate_descent" || exit 1
 "$OUT/ask_order_check" || exit 1
