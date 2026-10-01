@@ -97,7 +97,7 @@ work. Free arms extend it, because the reader can now be varied as well as the p
 
 ## The redraw, measured
 
-`tools/view/arm_draw.py` draws one arm set four ways and reads the same lit set with each. The set
+`examples/00_blob_viz_tools/arm_draw.py` draws one arm set four ways and reads the same lit set with each. The set
 is the eight sign octants and one graded arm carrying the height coordinate, over the 256-point
 golden placement at a lit weight of 153, where one point changing arm moves a letter by 6.536e-3.
 The floor it produces is reported by `null_harness` beside the other six.

@@ -3,7 +3,7 @@
 Eight regions, one letter each, and a word that a computation spells as it runs. The alphabet is
 general. It reads a lit set on a boundary and knows nothing about what lit it, and the same eight
 letters serve any object that can be placed on a sphere. The instance it was tested on is SHA-256,
-and `tools/view/octant_lex.py` lexes that hash round by round and prints the word.
+and `examples/00_blob_viz_tools/octant_lex.py` lexes that hash round by round and prints the word.
 
 This page records what the reading does and, at greater length, what it cannot do.
 
@@ -69,7 +69,7 @@ usable reading: the least singular value collapses to 3.5e-3 there and recovers 
 sixteen: one degree of headroom is worth 44 times in conditioning. A reading degree picked by
 counting coefficients alone lands on fifteen and reports success.
 
-Measured at full depth and no conduction, the most favorable case, in `tools/view/frame_findings.md`.
+Measured at full depth and no conduction, the most favorable case, in `examples/00_blob_viz_tools/frame_findings.md`.
 
 ## The instance it was tested on
 
@@ -185,7 +185,7 @@ return the fraction the row space predicts, and for differences that hold the we
 7 of 255 and not 8 of 256: such a difference sums to zero, the all-ones direction lies inside the
 row space since the eight indicators add to it, and the difference lives in the hyperplane
 orthogonal to all-ones. Measured over 200 draws the control returns 0.0267 against a predicted
-0.0275. `tools/view/quotient_coherence.py` refuses to report the measurement at all when the control
+0.0275. `examples/00_blob_viz_tools/quotient_coherence.py` refuses to report the measurement at all when the control
 misses.
 
 ## The reading that was corrected
@@ -248,10 +248,10 @@ symbols, and one that reaches the rank floor has bought a reading whose conditio
 ## Running it
 
 ```
-python tools/view/octant_lex.py --check
-python tools/view/octant_lex.py --message "abc"
-python tools/view/octant_lex.py --read digest
-python tools/view/octant_lex.py --top 12
+python examples/00_blob_viz_tools/octant_lex.py --check
+python examples/00_blob_viz_tools/octant_lex.py --message "abc"
+python examples/00_blob_viz_tools/octant_lex.py --read digest
+python examples/00_blob_viz_tools/octant_lex.py --top 12
 ```
 
 `--check` holds the trace to the published digest, holds the eight letters to a sum of one, counts

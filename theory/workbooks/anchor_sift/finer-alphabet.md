@@ -41,7 +41,7 @@ first reaches 256, and the least singular value collapses to 3.5e-3 there before
 count past the source, and it makes the inversion worse on the way through the floor.
 
 A finer alphabet is therefore bounded twice, once by how many cells the placement can fill and once
-by how many numbers the degree can carry, and neither bound is statistical. `tools/view/frame_findings.md`
+by how many numbers the degree can carry, and neither bound is statistical. `examples/00_blob_viz_tools/frame_findings.md`
 holds the rank measurement.
 
 ## The scaling expectation

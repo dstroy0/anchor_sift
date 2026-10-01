@@ -1,7 +1,7 @@
 # What a boundary holds, and how much of that is established
 
 A record of what was tested, what came back, and where the testing stops being able to decide.
-Every number here was produced by a tool in `tools/view` and can be produced again by running it.
+Every number here was produced by a tool in `examples/00_blob_viz_tools` and can be produced again by running it.
 
 ## The claim
 
@@ -250,7 +250,7 @@ was assumed and never measured.
 
 The counting above says how many separable readings a boundary holds. This section is about reading
 one lit set placed on it: where the points sit, how they push the boundary, and how they twist it.
-`tools/view/boundary_read.py` holds the geometry and `docs/boundary-reading.md` is its guide. Every
+`examples/00_blob_viz_tools/boundary_read.py` holds the geometry and `docs/boundary-reading.md` is its guide. Every
 number below came from `boundary_read.py --check` and `octant_lex.py --check`.
 
 ### A shift is one rigid screw
@@ -371,7 +371,7 @@ and not producing it.
 
 A control arm runs first and licenses the rest. Unstructured differences must return the fraction
 the row space predicts, 7 of 255 for differences holding the weight, and they return 0.0267 against
-0.0275 over 200 draws. `tools/view/quotient_coherence.py` refuses to report the measurement when the
+0.0275 over 200 draws. `examples/00_blob_viz_tools/quotient_coherence.py` refuses to report the measurement when the
 control misses.
 
 ### The relocation rate holds near independence
@@ -447,14 +447,14 @@ answerable question instead of a matter of opinion.
 ## Running any of it
 
 ```
-python tools/view/sphere_field.py --check      depth, conduction, direction
-python tools/view/boundary_count.py --check    the area law on a sphere, exactly
-python tools/view/torus_count.py --check       the area law on a flat torus, exactly
-python tools/view/cut_project.py --check       a lattice dimension read off one line
-powershell tools/view/build_pack.ps1           builds the device packer
-python tools/view/gpu_pack.py --check          shape against shape, on the card
+python examples/00_blob_viz_tools/sphere_field.py --check      depth, conduction, direction
+python examples/00_blob_viz_tools/boundary_count.py --check    the area law on a sphere, exactly
+python examples/00_blob_viz_tools/torus_count.py --check       the area law on a flat torus, exactly
+python examples/00_blob_viz_tools/cut_project.py --check       a lattice dimension read off one line
+powershell examples/00_blob_viz_tools/build_pack.ps1           builds the device packer
+python examples/00_blob_viz_tools/gpu_pack.py --check          shape against shape, on the card
 
-python tools/view/build_sphere_view.py FILE    a blob on the inside of a scattering ball
-python tools/view/build_orrery_view.py         a known interior, derived back from its boundary
-python tools/view/build_room_view.py           the dimensional viewer
+python examples/00_blob_viz_tools/build_sphere_view.py FILE    a blob on the inside of a scattering ball
+python examples/00_blob_viz_tools/build_orrery_view.py         a known interior, derived back from its boundary
+python examples/00_blob_viz_tools/build_room_view.py           the dimensional viewer
 ```

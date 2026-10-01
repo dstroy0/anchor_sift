@@ -3,7 +3,7 @@
 The case for modularizing the room viewer, as counts instead of impressions, together with the
 argument for what has to exist before the split and the measurement that changed my own answer.
 
-Everything below is from `tools/view/room_view_template.html` and the builders that share it.
+Everything below is from `examples/00_blob_viz_tools/room_view_template.html` and the builders that share it.
 
 ## What the file is
 
