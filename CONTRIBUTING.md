@@ -81,4 +81,3 @@ Prose here is plain. One fact per sentence, subject and verb and object, no em d
 Contributions fall under the same terms the repository carries: AGPL-3.0-or-later, or a negotiated commercial license, or an educator's license issued to a person. The root `README.md` states the scheme in full.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-04

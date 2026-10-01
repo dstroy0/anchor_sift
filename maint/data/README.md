@@ -29,4 +29,3 @@ One subject's pipeline, from the archive to a checked corpus. This is the larges
 The papers and the hand extractions are not here. They are somebody else's copyright and somebody else's language, they live in a closed repository, and `build/papers` and `build/oracles` reach them. `maint/corpus/verify_private_sync.py` checks that what `build/` reaches is what the signature covers.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-09

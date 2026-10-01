@@ -275,4 +275,3 @@ Further reading used for the determinantal material:
 <https://arxiv.org/pdf/2204.02570>, <https://arxiv.org/html/math/0204325v1>
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16

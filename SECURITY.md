@@ -44,4 +44,3 @@ For a defect in the kernel, include the compiler, the corpus and needle that sho
 This is research maintained by one person. There is no patch schedule. Fixes land on `main`.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-04

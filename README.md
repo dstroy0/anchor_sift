@@ -343,4 +343,3 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
    - Citation is ongoing, any corrections are appreciated and welcome, and attribution is critical.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-22

@@ -423,4 +423,3 @@ paper read in full for this document. Bibliographic fields were checked against 
 and the theorem numbers deliberately are not given, because those were not verified against a copy.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16
