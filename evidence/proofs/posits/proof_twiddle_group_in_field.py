@@ -39,7 +39,7 @@
 # Floor: the figure renders one prime and one transform length. It verifies the honesty of this case, that
 # the residues spread across the field and the order is invisible to the eye, and it does not prove
 # equidistribution of a primitive root's powers in general. The render's own two arms, host and device,
-# are graded byte-identical elsewhere (test/engine/render/test_render_python.py, src/engine/c/bench/bench_raster.c),
+# are graded byte-identical elsewhere (test/python/render_test.py, bench/bench_raster.c),
 # and this posit uses the reference host arm so it runs from a fresh clone with no build.
 #
 # Prior art, named with respect: the roots of unity and their cyclic group are classical; the near-uniform
