@@ -12,7 +12,7 @@ KEYMATH="$TOP/src/engine/compiler/keymath"
 KEY_SCHEDULE="$TOP/src/engine/compiler/key_schedule"
 NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
 SCRIPTURA="$TOP/src/engine/runtime/scriptura"
-source "$TOP/maint/build_stamp.sh"
+source "$TOP/maint/engine/build_stamp.sh"
 build_stamp record_host_test
 
 INCLUDES=(-I "$TOP/src/engine" -I "$CYCLE" -I "$KEYMATH" -I "$KEY_SCHEDULE" -I "$NO_ROUNDING" -I "$SCRIPTURA")

@@ -10,8 +10,8 @@ KEYMATH="$TOP/src/engine/compiler/keymath"
 KEY_SCHEDULE="$TOP/src/engine/compiler/key_schedule"
 NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
 SCRIPTURA="$TOP/src/engine/runtime/scriptura"
-source "$TOP/maint/build_stamp.sh"
-source "$TOP/maint/tessera_build.sh"
+source "$TOP/maint/engine/build_stamp.sh"
+source "$TOP/maint/engine/tessera_build.sh"
 build_stamp record_gaussian_test
 
 HOST_FLAGS=()

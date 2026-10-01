@@ -10,7 +10,7 @@ TOP="$(cd "$TEST/../../../.." && pwd)"
 CELL="$TOP/src/engine/compiler/cell"
 CODEGEN="$TOP/src/engine/compiler/codegen"
 CUBIN="$TOP/src/engine/compiler/cubin"
-source "$TOP/maint/build_stamp.sh"
+source "$TOP/maint/engine/build_stamp.sh"
 build_stamp cell_sass_test
 
 type -P nvdisasm > /dev/null || { echo "  no nvdisasm on the PATH: the CUDA toolkit's disassembler is the oracle"; exit 1; }

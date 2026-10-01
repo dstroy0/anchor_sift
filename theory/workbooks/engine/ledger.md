@@ -341,7 +341,7 @@ The Gaussian step is BBP's ×16 taken as eight floors of (a, b) ↦ (a − b, a 
 ### keymath's widths by linear forms, and the record tests on tessera
 
 keymath now carries every register as a linear form over atoms and takes the fewer of the operation's own width and the form's bound (A16 of [engine_table.md](engine_table.md); 25 September: "do the keymath rule"). The eight record tests were moved onto tessera (25 September: the tests go through the scheduler).
-- Each test is one job, submitted before its first device work and released at the end, its daemon built beside it by `maint/tessera_build.sh`.
+- Each test is one job, submitted before its first device work and released at the end, its daemon built beside it by `maint/engine/tessera_build.sh`.
 - The eight were built and run one at a time at below-normal priority, from the working tree, uncommitted.
 - An earlier run the same morning, under a narrower rule for a SUM and a DIFFERENCE over the same two registers, gave the Gaussian test the same widths.
 

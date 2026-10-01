@@ -32,7 +32,7 @@ KEY_SCHEDULE="$TOP/engine/compiler/key_schedule"
 ENTROPY_HISTORY="$TOP/engine/analysis/entropy_history"
 NOISE_DETECTOR="$TOP/engine/analysis/noise_detector"
 # maint/ is at the repository's root, one above src/
-source "$(cd "$TOP/.." && pwd)/maint/build_stamp.sh"
+source "$(cd "$TOP/.." && pwd)/maint/engine/build_stamp.sh"
 build_stamp "sim_$SIM"
 
 case "$SIM" in

@@ -8,7 +8,7 @@ POLYNOMIAL = 0xC96C5795D7870F42
 MASK = (1 << 64) - 1
 CHECK = 0x995DC9BBDF1939FA
 POWERS = 48
-HERE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src", "engine", "codecs", "crc")
+HERE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "src", "engine", "codecs", "crc")
 SPDX = "// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational"
 
 table = []

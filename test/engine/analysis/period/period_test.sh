@@ -8,8 +8,8 @@ MODULE="$TOP/src/engine/analysis/period"
 DEVICE_POOL="$TOP/src/engine/runtime/device_pool"
 NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
 SCRIPTURA="$TOP/src/engine/runtime/scriptura"
-source "$TOP/maint/build_stamp.sh"
-source "$TOP/maint/tessera_build.sh"
+source "$TOP/maint/engine/build_stamp.sh"
+source "$TOP/maint/engine/tessera_build.sh"
 build_stamp period_test
 
 HOST_FLAGS=()

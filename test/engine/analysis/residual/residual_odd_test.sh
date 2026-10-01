@@ -12,8 +12,8 @@ RESIDUAL="$TOP/src/engine/analysis/residual"
 UNIT_SWEEP="$TOP/src/engine/analysis/unit_sweep"
 NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
 SCRIPTURA="$TOP/src/engine/runtime/scriptura"
-source "$TOP/maint/build_stamp.sh"
-source "$TOP/maint/tessera_build.sh"
+source "$TOP/maint/engine/build_stamp.sh"
+source "$TOP/maint/engine/tessera_build.sh"
 build_stamp residual_odd_test
 
 HOST_FLAGS=()
