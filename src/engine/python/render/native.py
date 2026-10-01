@@ -4,7 +4,7 @@
 #
 # The C renderer reached from Python through ctypes, the route Python takes to render on the device.
 #
-#   Usage:  from render.native import load, raster_render, volume_render, raster_host
+#   Usage:  from render.native import load, raster_host, raster_device, volume_host, volume_device
 #
 # Python cannot own a device path here: numpy, cupy and the rest are banned tree wide. A pure
 # Python renderer runs on the CPU alone. The device preference lives in C, where anchor_raster_render
@@ -65,12 +65,12 @@ def _bind(lib):
     probe = ctypes.POINTER(_Probe)
     size = ctypes.c_size_t
 
-    for name in ("anchor_raster_host", "anchor_raster_render"):
+    for name in ("anchor_raster_host", "anchor_raster_device", "anchor_raster_render"):
         fn = getattr(lib, name)
         fn.restype = ctypes.c_int
         fn.argtypes = [u8, ctypes.POINTER(_RasterConfig), u8, size, u8, size, probe, size]
 
-    for name in ("anchor_volume_render_host", "anchor_volume_render"):
+    for name in ("anchor_volume_render_host", "anchor_volume_device", "anchor_volume_render"):
         fn = getattr(lib, name)
         fn.restype = ctypes.c_int
         fn.argtypes = [u8, ctypes.POINTER(_VolumeConfig), u8, size, u8, size, probe, size,
@@ -156,6 +156,11 @@ def raster_host(lib, config, corpus, needle, probes):
     return _call_raster(lib, "anchor_raster_host", config, corpus, needle, probes)
 
 
+def raster_device(lib, config, corpus, needle, probes):
+    """The C device raster arm. Returns bytes, or None where no device answered or an argument errored."""
+    return _call_raster(lib, "anchor_raster_device", config, corpus, needle, probes)
+
+
 def raster_render(lib, config, corpus, needle, probes):
     """The C dispatch, preferring the device. Returns bytes or None."""
     return _call_raster(lib, "anchor_raster_render", config, corpus, needle, probes)
@@ -164,6 +169,11 @@ def raster_render(lib, config, corpus, needle, probes):
 def volume_host(lib, config, corpus, needle, probes):
     """The C host volume arm, for grading against render.host. Returns bytes or None."""
     return _call_volume(lib, "anchor_volume_render_host", config, corpus, needle, probes)
+
+
+def volume_device(lib, config, corpus, needle, probes):
+    """The C device volume arm. Returns bytes, or None where no device answered or an argument errored."""
+    return _call_volume(lib, "anchor_volume_device", config, corpus, needle, probes)
 
 
 def volume_render(lib, config, corpus, needle, probes):

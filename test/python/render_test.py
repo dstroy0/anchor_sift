@@ -12,8 +12,10 @@
 # volume, through both arms and compares the bytes. It also renders through render.render_raster and
 # render.render_volume, the dispatch that prefers the device, and checks that output against the C
 # host: where a device is present that grades the device arm too, and where none is it grades the
-# fall back to the C host. Each row prints the CRC-32 of each side's bytes and the count of bytes
-# that differ, and the verdict reads those.
+# fall back to the C host. The dispatch also names the arm it ran on, and a row checks that name
+# against this machine's path: the device where one is present, the host where none is. Each row
+# prints the CRC-32 of each side's bytes, the count of bytes that differ, and the reported arm, and
+# the verdict reads those.
 #
 # It needs the anchor_render shared library (src/engine/CMakeLists.txt). The harness env engine_c
 # runs it from maint/engine/build_engine.sh, which builds the library and names it in
@@ -83,13 +85,18 @@ def differing(a, b):
     return sum(1 for x, y in zip(a, b) if x != y)
 
 
-def row(kind, layout, channel, py, c, dispatched):
-    """Prints one graded row with both sides' numbers, and returns 1 when it fails."""
-    wrong = differing(py, c) + differing(dispatched, c)
-    ok = py is not None and wrong == 0
-    print("  %6s %13s %11s %6d %6d %9s %9s %9s %5d %6s" % (
+def row(kind, layout, channel, py, c, rendered, expected_arm):
+    """Prints one graded row with both sides' numbers, and returns 1 when it fails.
+
+    The dispatch has to agree with the C host byte for byte and name the arm that ran. A row fails
+    where the bytes differ or where the reported arm is not the one this machine's path takes.
+    """
+    wrong = differing(py, c) + differing(rendered.bytes, c)
+    arm_ok = rendered.arm == expected_arm
+    ok = py is not None and wrong == 0 and arm_ok
+    print("  %6s %13s %11s %6d %6d %9s %9s %9s %5d %7s %6s" % (
         kind, layout, channel, 0 if py is None else len(py), 0 if c is None else len(c),
-        crc(py), crc(c), crc(dispatched), wrong, "ok" if ok else "FAILS"))
+        crc(py), crc(c), crc(rendered.bytes), wrong, rendered.arm, "ok" if ok else "FAILS"))
     return 0 if ok else 1
 
 
@@ -108,10 +115,12 @@ def main():
     probes = [host.Probe(0, 1, 1), host.Probe(5, 1, 1), host.Probe(11, 1, 1)]
 
     on_device = render.device_available(lib)
-    print("\n  PYTHON RENDERER AGAINST C, byte for byte. library: %s\n  device: %s\n"
-          % (lib_path, "present" if on_device else "absent, host only"))
-    print("  %6s %13s %11s %6s %6s %9s %9s %9s %5s %6s" % (
-        "kind", "layout", "channel", "py", "c", "py crc", "c crc", "disp crc", "diff", "verdict"))
+    expected_arm = render.ARM_DEVICE if on_device else render.ARM_HOST
+    print("\n  PYTHON RENDERER AGAINST C, byte for byte. library: %s\n  device: %s, arm expected: %s\n"
+          % (lib_path, "present" if on_device else "absent, host only", expected_arm))
+    print("  %6s %13s %11s %6s %6s %9s %9s %9s %5s %7s %6s" % (
+        "kind", "layout", "channel", "py", "c", "py crc", "c crc", "disp crc", "diff", "arm",
+        "verdict"))
 
     failed = 0
 
@@ -133,16 +142,18 @@ def main():
             config = host.RasterConfig(32, 32, layout, channel, host.REDUCE_MIN, 1)
             py = host.raster(config, corpus, needle, probes)
             c = native.raster_host(lib, config, corpus, needle, probes)
-            dispatched = render.render_raster(config, corpus, needle, probes, lib=lib)
-            failed += row("sheet", raster_names[layout], channel_names[channel], py, c, dispatched)
+            rendered = render.render_raster(config, corpus, needle, probes, lib=lib)
+            failed += row("sheet", raster_names[layout], channel_names[channel], py, c, rendered,
+                          expected_arm)
 
     for layout in volume_layouts:
         for channel in channels:
             config = host.VolumeConfig(8, 8, 8, layout, channel, host.REDUCE_MAX, 1)
             py = host.volume(config, corpus, needle, probes)
             c = native.volume_host(lib, config, corpus, needle, probes)
-            dispatched = render.render_volume(config, corpus, needle, probes, lib=lib)
-            failed += row("volume", volume_names[layout], channel_names[channel], py, c, dispatched)
+            rendered = render.render_volume(config, corpus, needle, probes, lib=lib)
+            failed += row("volume", volume_names[layout], channel_names[channel], py, c, rendered,
+                          expected_arm)
 
     print("\n  %d checks, %d failed\n" % (len(raster_layouts + volume_layouts) * len(channels), failed))
     return 0 if failed == 0 else 1

@@ -11,7 +11,8 @@
 # This renders every layout and channel, as a sheet and as a volume, through both arms and compares
 # the bytes. It also renders through render.render_raster and render.render_volume, the dispatch that
 # prefers the device, and checks that output against the C host: where a device is present that grades
-# the device arm too, and where none is it grades the fall back to the C host.
+# the device arm too, and where none is it grades the fall back to the C host. The dispatch also names
+# the arm it ran on, and each row checks that name against this machine's path.
 #
 # It needs the shared library the build produces. Run maint/engine/build_engine.ps1 or build_engine.sh
 # first. A missing library is a failure here and not a skip, because the grade cannot run without it,
@@ -81,9 +82,10 @@ def main():
     probes = [host.Probe(0, 1, 1), host.Probe(5, 1, 1), host.Probe(11, 1, 1)]
 
     on_device = render.device_available(lib)
-    print("\n  PYTHON RENDERER AGAINST C, byte for byte. device: %s\n"
-          % ("present" if on_device else "absent, host only"))
-    print("  %8s %16s %14s %14s %10s" % ("kind", "layout", "channel", "bytes", "verdict"))
+    expected_arm = render.ARM_DEVICE if on_device else render.ARM_HOST
+    print("\n  PYTHON RENDERER AGAINST C, byte for byte. device: %s, arm expected: %s\n"
+          % ("present" if on_device else "absent, host only", expected_arm))
+    print("  %8s %16s %14s %14s %8s %10s" % ("kind", "layout", "channel", "bytes", "arm", "verdict"))
 
     failed = 0
 
@@ -105,22 +107,26 @@ def main():
             config = host.RasterConfig(32, 32, layout, channel, host.REDUCE_MIN, 1)
             py = host.raster(config, corpus, needle, probes)
             c = native.raster_host(lib, config, corpus, needle, probes)
-            dispatched = render.render_raster(config, corpus, needle, probes, lib=lib)
-            ok = (py is not None) and (py == c) and (dispatched == c)
+            rendered = render.render_raster(config, corpus, needle, probes, lib=lib)
+            ok = (py is not None) and (py == c) and (rendered.bytes == c) \
+                and (rendered.arm == expected_arm)
             failed += 0 if ok else 1
-            print("  %8s %16s %14s %14d %10s" % ("sheet", raster_names[layout],
-                  channel_names[channel], 0 if py is None else len(py), "ok" if ok else "FAILS"))
+            print("  %8s %16s %14s %14d %8s %10s" % ("sheet", raster_names[layout],
+                  channel_names[channel], 0 if py is None else len(py), rendered.arm,
+                  "ok" if ok else "FAILS"))
 
     for layout in volume_layouts:
         for channel in channels:
             config = host.VolumeConfig(8, 8, 8, layout, channel, host.REDUCE_MAX, 1)
             py = host.volume(config, corpus, needle, probes)
             c = native.volume_host(lib, config, corpus, needle, probes)
-            dispatched = render.render_volume(config, corpus, needle, probes, lib=lib)
-            ok = (py is not None) and (py == c) and (dispatched == c)
+            rendered = render.render_volume(config, corpus, needle, probes, lib=lib)
+            ok = (py is not None) and (py == c) and (rendered.bytes == c) \
+                and (rendered.arm == expected_arm)
             failed += 0 if ok else 1
-            print("  %8s %16s %14s %14d %10s" % ("volume", volume_names[layout],
-                  channel_names[channel], 0 if py is None else len(py), "ok" if ok else "FAILS"))
+            print("  %8s %16s %14s %14d %8s %10s" % ("volume", volume_names[layout],
+                  channel_names[channel], 0 if py is None else len(py), rendered.arm,
+                  "ok" if ok else "FAILS"))
 
     print("\n  %d check(s) failed\n" % failed)
     return 0 if failed == 0 else 1
