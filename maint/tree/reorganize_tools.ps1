@@ -1,6 +1,6 @@
 # Sorts tools into subdirectories by what each file does.
 #
-#   pwsh -File tools\maint\reorganize_tools.ps1 [-DryRun]
+#   pwsh -File maint\tree\reorganize_tools.ps1 [-DryRun]
 #
 # The same job reorganize_src.ps1 did for src, and for the same reason: forty loose files in one
 # directory is a list to read, not a structure to navigate.
@@ -24,7 +24,7 @@ param([switch]$DryRun)
 
 $ErrorActionPreference = "Stop"
 
-$root = Split-Path -Parent $PSScriptRoot
+$root = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $tools = Join-Path $root "tools"
 
 # What each file is. That is the only thing that decides where it goes.

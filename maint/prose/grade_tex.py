@@ -8,9 +8,9 @@ answer is the failure this whole class shares.
 
 So the LaTeX is reduced to plain text here and the gate is run on that.
 
-    python maint/grade_tex.py                 # every .tex under theory/
-    python maint/grade_tex.py path.tex ...    # named files
-    python maint/grade_tex.py --strict        # every note becomes breaking
+    python maint/prose/grade_tex.py                 # every .tex under theory/
+    python maint/prose/grade_tex.py path.tex ...    # named files
+    python maint/prose/grade_tex.py --strict        # every note becomes breaking
 
 WHY ONE OUTPUT LINE PER INPUT LINE
 
@@ -36,7 +36,7 @@ import subprocess
 import sys
 import tempfile
 
-HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HERE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 CHECK = os.path.join(HERE, "maint", "prose", "docs_check")
 THEORY = os.path.join(HERE, "theory")
 

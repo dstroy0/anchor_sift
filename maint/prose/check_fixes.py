@@ -29,7 +29,7 @@ So deletions are not banned here - sometimes dropping a word IS the correct repa
 REPORTED, every one, for a human to read the resulting sentence. The check is that someone looked,
 not that the rule is forbidden.
 
-    python maint/check_fixes.py
+    python maint/prose/check_fixes.py
 """
 
 import io
@@ -38,7 +38,7 @@ import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
+ROOT = os.path.dirname(os.path.dirname(HERE))
 TABLE = os.path.join(HERE, "prose_fixes.tsv")
 
 sys.path.insert(0, os.path.join(ROOT, "maint", "prose"))

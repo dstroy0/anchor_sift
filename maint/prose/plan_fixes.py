@@ -4,9 +4,9 @@ The gate names a token, not a phrase: it reports the bare contrast word where th
 has to act on the phrase. Each site is widened to the construction actually present and then a
 rule is applied to that construction.
 
-    python maint/plan_fixes.py src hooks > plan.tsv
-    python maint/build_fixes.py plan.tsv --write
-    python maint/fix_prose.py --write
+    python maint/prose/plan_fixes.py src hooks > plan.tsv
+    python maint/prose/build_fixes.py plan.tsv --write
+    python maint/prose/fix_prose.py --write
 
 Sites with no rule are printed to stderr and left for a person. That is the intended split: the
 mechanical majority is one substitution with the sentence otherwise untouched, and everything else
@@ -26,7 +26,7 @@ import re
 import subprocess
 import sys
 
-HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HERE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SHOW = os.path.join(os.path.dirname(os.path.abspath(__file__)), "show_findings.py")
 
 # Widen a reported token to the construction it belongs to, longest first.

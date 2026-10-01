@@ -8,9 +8,9 @@ CUDA and C++ carry C comment syntax. Nothing has to be transformed. A file is co
 checked extension, the gate is run on the copy, and the findings are relabeled with the real path.
 Line numbers are already right because nothing is rewritten.
 
-    python maint/grade_unread.py                 # every unread kind under src/
-    python maint/grade_unread.py path ...        # named files or directories
-    python maint/grade_unread.py --strict        # every note becomes breaking
+    python maint/prose/grade_unread.py                 # every unread kind under src/
+    python maint/prose/grade_unread.py path ...        # named files or directories
+    python maint/prose/grade_unread.py --strict        # every note becomes breaking
 
 WHAT THIS IS NOT
 
@@ -27,7 +27,7 @@ import subprocess
 import sys
 import tempfile
 
-HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HERE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 CHECK = os.path.join(HERE, "maint", "prose", "docs_check")
 
 # Kinds the gate does not read, and the checked kind each is staged as. C++ and CUDA are staged as

@@ -4,9 +4,9 @@ Fixing a finding needs the sentence, not the token. The gate prints a file, a li
 which is enough to locate but not enough to rewrite, and rewriting from the phrase alone is how a
 replacement ends up saying less than the original did.
 
-    python maint/show_findings.py src hooks          # checked kinds
-    python maint/show_findings.py --unread src       # kinds the gate does not read
-    python maint/show_findings.py --tsv src          # tab separated, for building a fix table
+    python maint/prose/show_findings.py src hooks          # checked kinds
+    python maint/prose/show_findings.py --unread src       # kinds the gate does not read
+    python maint/prose/show_findings.py --tsv src          # tab separated, for building a fix table
 
 One line of output per finding. Two findings on one source line appear twice and both get
 rewritten in the same pass instead of one being cleared and the other left standing.
@@ -18,7 +18,7 @@ import re
 import subprocess
 import sys
 
-HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HERE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 CHECK = os.path.join(HERE, "maint", "prose", "docs_check")
 UNREAD = os.path.join(os.path.dirname(os.path.abspath(__file__)), "grade_unread.py")
 

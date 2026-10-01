@@ -7,7 +7,6 @@ maint/audit/comb_arms.py	1
 maint/audit/grammar.py	1
 maint/audit/handedness.py	1
 maint/chain/leak_series.py	2
-maint/check_fixes.py	3
 maint/corpus/speech_order.py	1
 maint/data/salishan/anchor_sift_algorithmic_extraction/symbol_sift.py	1
 maint/data/salishan/corpus_script_extraction/coverage_check.py	1
@@ -23,6 +22,7 @@ maint/data/salishan/hand_extraction/oracle_check.py	3
 maint/data/salishan/hand_extraction/papers.py	1
 maint/data/salishan/lyon_encoding.py	12
 maint/engine/sass_lane_needs.cpp	2
+maint/prose/check_fixes.py	3
 maint/prose/dependence_decay.py	2
 maint/prose/submission_check.py	2
 maint/repotools/lib/repotools/findings.py	1

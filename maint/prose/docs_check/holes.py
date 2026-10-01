@@ -13,7 +13,7 @@
 # So this takes a unified diff and reads the added lines only. The deletions are what the pass meant
 # to remove and the context is what it did not touch; neither can carry a hole the pass made.
 #
-# IT IS A SUSPICION AND NEVER A FINDING. Nothing here fails anything. maint/check_fixes.py names
+# IT IS A SUSPICION AND NEVER A FINDING. Nothing here fails anything. maint/prose/check_fixes.py names
 # this fault, and the output is a list of lines to read.
 
 import re

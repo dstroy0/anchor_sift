@@ -29,7 +29,7 @@
 $ErrorActionPreference = "Stop"
 
 $broken = 0
-$here = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$here = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path))
 
 # ELEVATION IS CHECKED BEFORE ANYTHING IS REMOVED, NOT WHEN THE FIRST LINK IS WRITTEN.
 #
@@ -47,7 +47,7 @@ if (-not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administra
     Write-Host "  This script creates symlinks, which Windows allows only to an elevated process." -ForegroundColor Red
     Write-Host "  Nothing has been changed. Re-run it as:" -ForegroundColor Red
     Write-Host ""
-    Write-Host '    Start-Process pwsh -Verb RunAs -ArgumentList "-File","maint\link_shared.ps1"'
+    Write-Host '    Start-Process pwsh -Verb RunAs -ArgumentList "-File","maint\tree\link_shared.ps1"'
     Write-Host ""
     exit 1
 }

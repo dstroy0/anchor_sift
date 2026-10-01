@@ -5,9 +5,9 @@ it is mechanical: a rewrite that matches nothing leaves the finding standing whi
 successful, and a rewrite that matches twice edits a site nobody read. Both are the failure this
 whole day has been about. Both are errors here.
 
-    python maint/fix_prose.py                    # report what would change
-    python maint/fix_prose.py --write            # change it
-    python maint/fix_prose.py --table other.tsv  # a different table
+    python maint/prose/fix_prose.py                    # report what would change
+    python maint/prose/fix_prose.py --write            # change it
+    python maint/prose/fix_prose.py --table other.tsv  # a different table
 
 Each row of the table is a file, the exact text to find, and what it becomes, tab separated, with
 \\n for a line break inside a field. The text must appear once in that file. Not zero times, which
@@ -35,7 +35,7 @@ import subprocess
 import sys
 import tempfile
 
-HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HERE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 CHECK = os.path.join(HERE, "maint", "prose", "docs_check")
 TABLE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "prose_fixes.tsv")
 
