@@ -14,8 +14,9 @@ import shutil
 import subprocess
 import sys
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
+ROOT = os.path.dirname(os.path.abspath(__file__))
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+    ROOT = os.path.dirname(ROOT)
 TREES = ("src", "test", "bench", "examples")
 SKIPPED = {"python", "build", "node_modules", ".git"}
 INCLUDE = re.compile(r'^[ \t]*#[ \t]*include[ \t]*"([^"]+)"', re.MULTILINE)
