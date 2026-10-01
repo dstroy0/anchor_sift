@@ -30,6 +30,7 @@ import os
 import re
 import subprocess
 import sys
+import unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
@@ -38,6 +39,16 @@ sys.path.insert(0, os.path.join(ROOT, "utils", "maint", "citations"))
 import citations  # noqa: E402
 
 TARGET = "bibliography.tex"
+
+# Letters NFKD leaves whole, with the Latin letters a reference list files them under.
+WHOLE = str.maketrans({"Ł": "L", "ł": "l", "Ø": "O", "ø": "o", "Đ": "D", "đ": "d", "Æ": "AE",
+                       "æ": "ae", "Œ": "OE", "œ": "oe", "ß": "ss", "Þ": "Th", "þ": "th", "ı": "i"})
+
+
+def filed(key):
+    """The key as a reference list files it, marks dropped and case folded: Łoś under L, Gouvêa under G."""
+    parts = unicodedata.normalize("NFKD", key.translate(WHOLE))
+    return "".join(c for c in parts if not unicodedata.combining(c)).casefold()
 
 
 def git(repo, *args):
@@ -212,7 +223,7 @@ def main():
     for row in read_table(os.path.join(registry, citations.NAME)):
         row += [""] * (len(columns) - len(row))
         sources.append(dict(zip(columns, row)))
-    sources.sort(key=lambda s: s["key"].lower())
+    sources.sort(key=lambda s: filed(s["key"]))
 
     for research_paper in research_papers():
         text = research_paper_text(research_paper)

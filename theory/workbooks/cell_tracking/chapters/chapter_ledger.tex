@@ -39,7 +39,7 @@ the driver from the new layout, run from the root, against the driver before the
 
 \subsection{\texorpdfstring{The competition metric}{The competition metric}}
 
-The metric (\texttt{maint/\allowbreak{}score\_\allowbreak{}submission.\allowbreak{}py}): nodes matched to key nodes within 7 µm, an edge a hit only where both ends match nodes the key joins, the edge Jaccard micro averaged over the split, times 1 − 0.1 × the node count's excess over the organizers' estimate, plus 0.1 × the division Jaccard. It is not the internal count the tracker prints under POOLED, which takes a key node as the object that holds its voxel.
+The metric (\texttt{cell\_\allowbreak{}tracking/\allowbreak{}maint/\allowbreak{}score\_\allowbreak{}submission.\allowbreak{}py}): nodes matched to key nodes within 7 µm, an edge a hit only where both ends match nodes the key joins, the edge Jaccard micro averaged over the split, times 1 − 0.1 × the node count's excess over the organizers' estimate, plus 0.1 × the division Jaccard. It is not the internal count the tracker prints under POOLED, which takes a key node as the object that holds its voxel.
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
@@ -60,13 +60,13 @@ The training set is 71 samples of 44b6 and 128 of 6bba; the test set holds both.
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2076\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2498\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2639\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2786\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2073\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2496\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2651\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2781\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
 the current engine, internal count & 6bba\_\allowbreak{}05b6850b, 05db0fb1, 062c8d37, 07477033, 07e24132 & 3,756 of 3,873 edges correct, 97.0\%; 115 wrong; 2 endpoints undetected & the engine runs on 6bba as it is \\
-the same run under the metric's matching, every node & the same five & 78.5\% of key edges hit; 1.2\% source unmatched; 19.6\% land elsewhere, a median 6.7 µm from the target's match & on 6bba the loss is a link landing on a neighboring node: the node set is far finer than the cells, and bodies, not finer pieces, are what should be linked \\
+the same run under the metric's matching, every node & the same five & 78.5\% of key edges hit; 1.2\% source with no match; 19.6\% land elsewhere, a median 6.7 µm from the target's match & on 6bba the loss is a link landing on a neighboring node: the node set is far finer than the cells, and bodies, not finer pieces, are what should be linked \\
 \bottomrule
 \end{longtable}
 }
@@ -75,13 +75,13 @@ the same run under the metric's matching, every node & the same five & 78.5\% of
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2269\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1508\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3228\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2995\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2261\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1504\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3232\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3003\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
 internal count & the 25 & 6,254 of 6,358 edges correct, 98.4\%; 104 wrong &  \\
-the metric's matching, every node & the 25 & 87.1\% of key edges hit; 1.1\% source unmatched; 10.9\% land elsewhere, a median 5.75 µm off & the older components dump's 60\% unmatched was that dump, not the engine \\
+the metric's matching, every node & the 25 & 87.1\% of key edges hit; 1.1\% source with no match; 10.9\% land elsewhere, a median 5.75 µm off & the older components dump's 60\% with no match was that dump, not the engine \\
 SCORE, the 400 largest nodes a frame & the 25 & 0.661: edge Jaccard 0.670, node count factor 0.986 (1,000,000 nodes against 880,906 estimated) & the node count is the lever: every node gives Jaccard 0.635 but 5.8 million nodes, and the score falls to 0.279 \\
 \bottomrule
 \end{longtable}

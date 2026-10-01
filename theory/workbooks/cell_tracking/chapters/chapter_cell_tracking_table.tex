@@ -170,7 +170,7 @@ The organism physics each stage answers to is the thought experiments' (the harm
 
 \tablerecord{\textbf{S11. Output}}
 \begin{description}
-\item[{what it does}] the kept chains' points as nodes, consecutive points as edges, and every division's parent link; the graph's invariants checked first, with the unexplained ends and starts counted per frame (O20, H4); written for \texttt{maint/\allowbreak{}score\_\allowbreak{}submission.\allowbreak{}py} and as the submission CSV
+\item[{what it does}] the kept chains' points as nodes, consecutive points as edges, and every division's parent link; the graph's invariants checked first, with the unexplained ends and starts counted per frame (O20, H4); written for \texttt{cell\_\allowbreak{}tracking/\allowbreak{}maint/\allowbreak{}score\_\allowbreak{}submission.\allowbreak{}py} and as the submission CSV
 \item[{organism physics (row)}] the score (7 µm, edges, divisions)
 \item[{over}] each sample
 \item[{reads}] S6 to S9
@@ -278,7 +278,7 @@ Each technique is listed with its chosen numbers, then our form of it: exact, no
 
 \tablerecord{\textbf{O10. The global solve}}
 \begin{description}
-\item[{OrganoidTracker (where)}] \texttt{dpct\_\allowbreak{}linker} (Haubold, Ales, Wolf, Hamprecht, ECCV 2016: generalized successive shortest paths; or Magnusson)
+\item[{OrganoidTracker (where)}] \texttt{dpct\_\allowbreak{}linker} (Haubold, Ales, Wolf, Hamprecht, ECCV 2016~\cite{src:Haubold-2016}: generalized successive shortest paths; or Magnusson)
 \item[{what it does there}] One min-cost flow over every frame at once. A node costs 2 if left unused and 0 if used. Appearance and disappearance cost their penalties, and are free at the first and last frames. A node may send two units (a division) where three things hold: its division penalty is under 2, it has more than one future, and its second-best out-link beats its disappearance. Five weights (link, detection, division, appearance, disappearance), all 1. A link is offered only within 4 of the best in and out penalties, and under 4.
 \item[{ours: exact, nothing chosen}] S6 is this solve: once over the whole sample, after the scan. Every cost is an exact integer on one footing: a link from O7; a point's “no link” from its null draw (S4: the nearest it finds in a frame where no correspondence exists), as the marginal already weighs “none” (row 7). Appearance is free where the back-prediction leaves Ω (S9) and at the first frame. A division costs by O9's evidence. No weights and no cut-offs: O6's gate is the pruning. The machine's \texttt{heaviest\_\allowbreak{}matching} (M7) solves one frame pair, one to one. The flow over the sample, with two-unit sources, is the tracker's own, in \texttt{cell\_\allowbreak{}tracking/\allowbreak{}src/\allowbreak{}}. Whether a generic min-cost flow belongs in the engine is Doug's call.
 \item[{stage}] S6
@@ -510,8 +510,8 @@ What it gives the tracker is physics, with none of its numbers written in:
 \begin{description}
 \item[{the physics we hold it to}] A null is the field-noise reading, not an empty return: the same body climbed toward a frame where no correspondence can exist. A body is real where it stands above that reading. The arm is fired where the observer's cloud is densest, not swept.
 \item[{does today}] Null draws (\texttt{-\allowbreak{}-\allowbreak{}null}), held against each body's own climb in the edge and node rows. With a floor laid down, there is one draw per floor on the identity line (frame \texttt{g·11 + f mod 11}), ordered by the window-overlap cloud (M8), least overlap first. \texttt{-\allowbreak{}-\allowbreak{}marginal} weighs each body's “no link” by its best null draw.
-\item[{wants}] Nodes kept only where they stand above their null (\texttt{above\_\allowbreak{}null} in \texttt{maint/\allowbreak{}score\_\allowbreak{}submission.\allowbreak{}py}).
-\item[{tried, and what it gave}] Aimed against swept, same samples and same count: to be measured. \texttt{above\_\allowbreak{}null} on the current engine, \textbf{measured} 23 September on the two samples with a floor (\texttt{-\allowbreak{}-\allowbreak{}null 1 -\allowbreak{}-\allowbreak{}run floor}, \texttt{maint/\allowbreak{}score\_\allowbreak{}submission.\allowbreak{}py}'s scorer: nodes matched by position within 7 µm, the score's node-count factor). 44b6\_\allowbreak{}0113de3b: all 81,807 nodes 0.027942 (edge jaccard 0.036, 2 of 50 key edges), \texttt{stands} 277 nodes 0, \texttt{above\_\allowbreak{}null} 7,890 nodes 0.039606 (jaccard 0.037). 6bba\_\allowbreak{}48816121: all 62,650 nodes 0.002323, \texttt{stands} 123 nodes 0, \texttt{above\_\allowbreak{}null} 1,012 nodes 0.001149. The tracker's own tally, by leaf identity, calls 38 of 44b6\_\allowbreak{}0113de3b's 50 key edges correct, where the position-matched scorer finds 2. The two measures disagree, and the submission is graded by position. Edge by edge on 44b6\_\allowbreak{}0113de3b: 11 of the 100 key-node ends have a centroid within 7 µm. The rest are 7 to 15 µm from the nearest one, because the key cell's leaf is a multi-cell blob (up to 24,481 voxels, about 3,000 for one cell) or a piece (3 to 357 voxels). The loss lies in the cut (row 1), and the link is sound.
+\item[{wants}] Nodes kept only where they stand above their null (\texttt{above\_\allowbreak{}null} in \texttt{cell\_\allowbreak{}tracking/\allowbreak{}maint/\allowbreak{}score\_\allowbreak{}submission.\allowbreak{}py}).
+\item[{tried, and what it gave}] Aimed against swept, same samples and same count: to be measured. \texttt{above\_\allowbreak{}null} on the current engine, \textbf{measured} 23 September on the two samples with a floor (\texttt{-\allowbreak{}-\allowbreak{}null 1 -\allowbreak{}-\allowbreak{}run floor}, \texttt{cell\_\allowbreak{}tracking/\allowbreak{}maint/\allowbreak{}score\_\allowbreak{}submission.\allowbreak{}py}'s scorer: nodes matched by position within 7 µm, the score's node-count factor). 44b6\_\allowbreak{}0113de3b: all 81,807 nodes 0.027942 (edge jaccard 0.036, 2 of 50 key edges), \texttt{stands} 277 nodes 0, \texttt{above\_\allowbreak{}null} 7,890 nodes 0.039606 (jaccard 0.037). 6bba\_\allowbreak{}48816121: all 62,650 nodes 0.002323, \texttt{stands} 123 nodes 0, \texttt{above\_\allowbreak{}null} 1,012 nodes 0.001149. The tracker's own tally, by leaf identity, calls 38 of 44b6\_\allowbreak{}0113de3b's 50 key edges correct, where the position-matched scorer finds 2. The two measures disagree, and the submission is graded by position. Edge by edge on 44b6\_\allowbreak{}0113de3b: 11 of the 100 key-node ends have a centroid within 7 µm. The rest are 7 to 15 µm from the nearest one, because the key cell's leaf is a multi-cell blob (up to 24,481 voxels, about 3,000 for one cell) or a piece (3 to 357 voxels). The loss lies in the cut (row 1), and the link is sound.
 \item[{status}] built
 \item[{next}] Run both on the 25: it is a node-count lever with no chosen number.
 \end{description}
@@ -523,7 +523,7 @@ What it gives the tracker is physics, with none of its numbers written in:
 \item[{wants}] Two linked children confirmed by mass conservation, the parent's ℓ = 2 axis, and an entropy bump that settles.
 \item[{tried, and what it gave}] Divisions matched: \textbf{measured}, 0 on the older dump. The division term earns 0 today. \texttt{-\allowbreak{}-\allowbreak{}division} on 44b6\_\allowbreak{}0113de3b: \textbf{measured}, 142,649 triples in 13.8 ms, mass conserved on 3,356, split along the long axis on 99,155, both on 2,452, 0 differ from the host. That sample's key holds no division. Of the 199 keys, 87 hold any, at most 5 (6bba\_\allowbreak{}48816121). On 6bba\_\allowbreak{}48816121, 6bba\_\allowbreak{}09961292 and 6bba\_\allowbreak{}cdcfe533: \textbf{measured}, 326,836, 85,146 and 99,724 triples, each in 1 to 3 ms, 0 differ from the host. The keys hold 13 divisions. Only 3 put the parent and both children on three separate leaves, and 2 of those are among the triples. Mass holds on 1 of the 2, the axis on 2, both on 1. Why the rest are lost, \textbf{measured}: 10 of the 13 have both children on one leaf. One frame after the split, the cut at ℓ* has not separated the daughters. On 6bba\_\allowbreak{}48816121 (\texttt{-\allowbreak{}-\allowbreak{}box-\allowbreak{}history}), the parent and daughters of all 5 of its divisions are on leaves of 0.65 to 1.0 M voxels whose box is the whole view (row 1). None has a node off every leaf, and none falls outside consecutive tracked frames. On the 3 with three separate leaves, 4 of the 6 children climb back to their parent. So the loss lies in the cut (row 1), and the climb holds.
 \item[{status}] fate built; mass and axis verdicts built and measured
-\item[{next}] The daughters inside one leaf are likely separate components higher in the same component tree. One cut level for the whole frame cannot hold both a just-divided pair and everything else. That is row 1's selection (Ultrack's one node per nested chain; build plan, Waiting on Doug 5). The census's 1→2 class (M3) equals the set of sources a division arrangement would add to the marginal (row 7). Then build plan C2 (the entropy bump).
+\item[{next}] The daughters inside one leaf are likely separate components higher in the same component tree. One cut level for the whole frame cannot hold both a just-divided pair and everything else. That is row 1's selection (Ultrack's~\cite{src:Ultrack} one node per nested chain; build plan, Waiting on Doug 5). The census's 1→2 class (M3) equals the set of sources a division arrangement would add to the marginal (row 7). Then build plan C2 (the entropy bump).
 \end{description}
 
 \tablerecord{\textbf{10. Death: lysis}}
@@ -727,7 +727,7 @@ Almost every stage above is the machine's correlation C (A4) followed by a diffe
 
 {\small
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3560\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.6440\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3557\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.6443\linewidth-2\tabcolsep\relax}}
 \toprule
 stage & the read of C \\
 \midrule
@@ -805,7 +805,7 @@ The interface through which the two tables optimize against each other.
 
 {\small
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3866\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1663\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.4471\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3788\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1648\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.4564\linewidth-2\tabcolsep\relax}}
 \toprule
 the program asks & the engine's row & state \\
 \midrule

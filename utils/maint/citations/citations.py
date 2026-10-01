@@ -301,7 +301,7 @@ SEARCHED = searched_names()
 # only the starting point, kept, an empty registry can be rebuilt from nothing.
 STARTING = (
     "Bloom",
-    "Boyer",
+    "Boyer and Moore 1977",
     "Crystallography Open Database",
     "Fisher",
     "Heaps",
@@ -310,7 +310,7 @@ STARTING = (
     "Kac",
     "Kolmogorov",
     "Montemurro",
-    "Moore",
+    "Moore 1910",
     "NIST SP 800-90B",
     "RFC 6234",
     "Renyi",
@@ -564,11 +564,13 @@ def label(key):
 
 
 def key_pattern(key):
-    """A key as the tree writes it, or its label inside a \\cite or \\nocite.
+    """A key as the tree writes it, or its label inside a \\cite or \\nocite or a markdown link.
 
     A key ending in a year also matches the year after a comma or in parentheses: the key
     Chaitin 1987 is found in "Chaitin 1987", "Chaitin, 1987" and "Chaitin (1987)". A label
-    matches only as a whole entry of the list: src:Bailey is not found in src:Bailey-2023.
+    matches only as a whole entry of the list: src:Bailey is not found in src:Bailey-2023. The
+    markdown form is a link to the label, [Chang 1959](#src:Chang-1959), which theory_tex.py
+    turns into a \\cite.
     """
     dated = re.match(r"^(.*\S) ((?:1[5-9]|20)[0-9]{2})$", key)
     if dated:
@@ -576,7 +578,8 @@ def key_pattern(key):
     else:
         written = r"\b%s\b" % re.escape(key)
     cited = r"\\(?:no)?cite(?:\[[^\]]*\])?\{(?:[^}]*,)?\s*%s\s*(?=[,}])" % re.escape(label(key))
-    return re.compile("%s|%s" % (written, cited))
+    linked = r"\]\(#%s\)" % re.escape(label(key))
+    return re.compile("%s|%s|%s" % (written, cited, linked))
 
 
 def used(keys):

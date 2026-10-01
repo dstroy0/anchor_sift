@@ -154,7 +154,7 @@ Doug's nine posits of 24 September on the wire and the witness are kept verbatim
 
 \begin{itemize}
 \item Erasure: a CRC of degree r with g(0) = 1 recovers any burst of at most r bits whose positions are known. The burst e at offset i leaves the syndrome x\textasciicircum{}i·e(x) mod g. g(0) = 1 makes x a unit mod g, and no nonzero e of degree below r is a multiple of g: the syndrome names e. At r = 64, a burst of up to 64 bits.
-\item The seal locates to a row or a chunk, not to bits. Inside the segment the burst's place is unknown, and that is burst correction: a linear code that corrects every burst of length b needs r ≥ 2b check bits (Reiger 1960). A CRC-64 corrects bursts of at most 32 bits, and only with a generator chosen for it.
+\item The seal locates to a row or a chunk, not to bits. Inside the segment the burst's place is unknown, and that is burst correction: a linear code that corrects every burst of length b needs r ≥ 2b check bits (Reiger 1960~\cite{src:Reiger-1960}; Peterson and Weldon 1972~\cite{src:Peterson-and-Weldon-1972}). A CRC-64 corrects bursts of at most 32 bits, and only with a generator chosen for it.
 \item “We have the crc” (point 2) holds outside the \texttt{.\allowbreak{}kcr}: the \texttt{.\allowbreak{}bapx} body table carries a CRC-64, and the entropy history carries \texttt{payload\_\allowbreak{}crc} and \texttt{cloud\_\allowbreak{}crc}. The \texttt{.\allowbreak{}kcr}'s CRC words were replaced by the seal (“What it costs”). Adding one back is a format change, Doug's call.
 \end{itemize}
 \item \textbf{(d) The set root is a joint function of every crystal's root.} It changes on any change, except with probability 2\textasciicircum{}−256 per node. This is classical binding, and it involves no quantum entanglement (points 3 and 4). Θ over a set is built. The universal root is ruled and still unbuilt (below).
@@ -165,7 +165,7 @@ Doug's nine posits of 24 September on the wire and the witness are kept verbatim
 \item The knf as phase is untested, and it is carried in posits\_\allowbreak{}24\_\allowbreak{}september.md.
 \item An exact classical register holds a qubit's state vector exactly. \texttt{ask\_\allowbreak{}state} (M21) carries a qubit exactly now. n qubits cost 2ⁿ amplitudes, and exact classical registers give no Bell violation between separated parts. “Classic qubit” fits the reading of an exact simulation with no rounding.
 \end{itemize}
-\item \textbf{(f) Witnessing the wire} (point 8). A hash reads the value it seals. An unknown quantum state cannot be copied (Wootters and Zurek 1982), and reading one disturbs it. A Merkle-witnessed wire is classical by construction.
+\item \textbf{(f) Witnessing the wire} (point 8). A hash reads the value it seals. An unknown quantum state cannot be copied (Wootters and Zurek 1982~\cite{src:Wootters-and-Zurek-1982}), and reading one disturbs it. A Merkle-witnessed wire is classical by construction.
 \item \textbf{(g) “Knows all noise from non noise”} (point 9). Exact equality catches any departure from a sealed state. The second, independent read of “The witness” guards the value before sealing. Past that, the seal cannot say whether the sealed value was the true signal: shot noise in the source is sealed as the truth.
 \item \textbf{The words of point 2.}
 
@@ -189,11 +189,3 @@ Doug's nine posits of 24 September on the wire and the witness are kept verbatim
 \end{itemize}
 
 The engine is deterministic. Rerunning the same input on the same engine must give the same universal root: the seal doubles as a reproducibility proof, and a user who runs their own data seals it themselves.
-
-\section{\texorpdfstring{References}{References}}
-
-\begin{itemize}
-\item E. H. Reiger, “Codes for the correction of 'clustered' errors”, IRE Trans. Inform. Theory 6, 1960.
-\item W. W. Peterson and E. J. Weldon, “Error-Correcting Codes”, 2nd ed., MIT Press, 1972 (cyclic codes and their bursts).
-\item W. K. Wootters and W. H. Zurek, “A single quantum cannot be cloned”, Nature 299, 1982.
-\end{itemize}

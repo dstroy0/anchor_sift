@@ -117,14 +117,14 @@ Doug's nine posits of 24 September on the wire and the witness are kept verbatim
 - **(b) Every crystal is legal, and T carries no redundancy** ("Redundancy" in [two_crystals.md](two_crystals.md)). Rebuilding needs the source or the whole crystal, and it fails closed: every tampered case in the table above was stopped and named.
 - **(c) A CRC with the seal as a locator.**
   - Erasure: a CRC of degree r with g(0) = 1 recovers any burst of at most r bits whose positions are known. The burst e at offset i leaves the syndrome x^i·e(x) mod g. g(0) = 1 makes x a unit mod g, and no nonzero e of degree below r is a multiple of g: the syndrome names e. At r = 64, a burst of up to 64 bits.
-  - The seal locates to a row or a chunk, not to bits. Inside the segment the burst's place is unknown, and that is burst correction: a linear code that corrects every burst of length b needs r ≥ 2b check bits (Reiger 1960). A CRC-64 corrects bursts of at most 32 bits, and only with a generator chosen for it.
+  - The seal locates to a row or a chunk, not to bits. Inside the segment the burst's place is unknown, and that is burst correction: a linear code that corrects every burst of length b needs r ≥ 2b check bits ([Reiger 1960](#src:Reiger-1960); [Peterson and Weldon 1972](#src:Peterson-and-Weldon-1972)). A CRC-64 corrects bursts of at most 32 bits, and only with a generator chosen for it.
   - "We have the crc" (point 2) holds outside the `.kcr`: the `.bapx` body table carries a CRC-64, and the entropy history carries `payload_crc` and `cloud_crc`. The `.kcr`'s CRC words were replaced by the seal ("What it costs"). Adding one back is a format change, Doug's call.
 - **(d) The set root is a joint function of every crystal's root.** It changes on any change, except with probability 2^−256 per node. This is classical binding, and it involves no quantum entanglement (points 3 and 4). Θ over a set is built. The universal root is ruled and still unbuilt (below).
 - **(e) The floor as amplitude and the knf as phase** (points 6 and 7).
   - An exact pair is an exact complex amplitude when the pair is (re, im), as Gaussian rationals. A (magnitude, phase) pair is exact only with the phase an index k of a root of unity, ζ_N^k in ℤ[ζ_N].
   - The knf as phase is untested, and it is carried in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md).
   - An exact classical register holds a qubit's state vector exactly. `ask_state` (M21) carries a qubit exactly now. n qubits cost 2ⁿ amplitudes, and exact classical registers give no Bell violation between separated parts. "Classic qubit" fits the reading of an exact simulation with no rounding.
-- **(f) Witnessing the wire** (point 8). A hash reads the value it seals. An unknown quantum state cannot be copied (Wootters and Zurek 1982), and reading one disturbs it. A Merkle-witnessed wire is classical by construction.
+- **(f) Witnessing the wire** (point 8). A hash reads the value it seals. An unknown quantum state cannot be copied ([Wootters and Zurek 1982](#src:Wootters-and-Zurek-1982)), and reading one disturbs it. A Merkle-witnessed wire is classical by construction.
 - **(g) "Knows all noise from non noise"** (point 9). Exact equality catches any departure from a sealed state. The second, independent read of "The witness" guards the value before sealing. Past that, the seal cannot say whether the sealed value was the true signal: shot noise in the source is sealed as the truth.
 - **The words of point 2.**
   - The elevator clock: "The clock is the elevator", [noise_sieve_tower.md](noise_sieve_tower.md) §9 and §17. Every floor of the tower sits at a known offset.
@@ -142,8 +142,3 @@ Doug's nine posits of 24 September on the wire and the witness are kept verbatim
 
 The engine is deterministic. Rerunning the same input on the same engine must give the same universal root: the seal doubles as a reproducibility proof, and a user who runs their own data seals it themselves.
 
-## References
-
-- E. H. Reiger, "Codes for the correction of 'clustered' errors", IRE Trans. Inform. Theory 6, 1960.
-- W. W. Peterson and E. J. Weldon, "Error-Correcting Codes", 2nd ed., MIT Press, 1972 (cyclic codes and their bursts).
-- W. K. Wootters and W. H. Zurek, "A single quantum cannot be cloned", Nature 299, 1982.
