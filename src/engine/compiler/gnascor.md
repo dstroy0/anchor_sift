@@ -306,4 +306,6 @@ A heavy data operation then reads as a lifecycle:
 
    SYNC passes the same way: FUZZ+in into the SYNC superstate and FIZZ+out of it, the pair locked into the two labels. The reader prints every SYNC transition as that passage, and `--check` reads back the exact pair of all 3,035 SYNC passages in its 500 drawn traces from the labels alone.
 
+   The loop runs on real asks. `maint/engine/gnascor_trace.c` puts a scenario's sides to the host through `query_ask`, each side a run of asks between two reads of the clock the protocol finds by asking: held, not held, late, or not asked. The bound is derived from sixteen unbound held runs, the largest plus their spread plus one step of the clock, and a late side is put until its run passes it. `gnascor_read.py --scenario` then holds every state read off the trace to the one its sides imply. `maint/engine/gnascor_scenario.txt` runs DROP, PASS, JOIN, a SYNC passage into WAIT, LOSS, FUZZ and FIZZ through GRAY, FUSE and SPRK on the host, every state as implied (`maint/engine/chain_check.sh`).
+
    The syntax for writing a query loop is not started.
