@@ -16,8 +16,8 @@ You have no choice but to comply with the licensing terms or be left in the dust
 From the repository root:
 
 ```sh
-sh maint/texbuild/build_theory.sh                      # every research paper
-sh maint/texbuild/build_theory.sh workbooks/engine     # one of them
+sh utils/maint/texbuild/build_theory.sh                      # every research paper
+sh utils/maint/texbuild/build_theory.sh workbooks/engine     # one of them
 ```
 
 It compiles with xelatex. A research paper is named by its path below `theory/`, as in `theory/delta_null`, `workbooks/engine` or `theory/cryptography/sha256`.
@@ -26,9 +26,11 @@ Output goes to `build/theory/<research_paper>/` and nothing is written beside th
 
 ## Layout
 
-- `theory/theory/` holds the research papers. Some are complete; most are at preprint status.
-- `theory/workbooks/` holds the workbooks, one per program.
-- `theory/thought_experiments/` holds the thought experiments, kept apart from what was measured.
+- `theory/theory/` holds the research papers, one directory per subject: `theory/theory/<subject>/`. Some are complete; most are at preprint status.
+- `theory/workbooks/` holds the workbooks, one per program. It mirrors `theory/theory/`.
+- `theory/thought_experiments/` holds the thought experiments, kept apart from what was measured. It mirrors `theory/theory/` where applicable.
+- `theory/figures/` holds the figures. It mirrors `theory/theory/`, `theory/workbooks/` and `theory/thought_experiments/` in layout when applicable: a figure the boundary research paper reads sits under `theory/figures/theory/boundary/`.
+- `theory/LICENSES/` holds the license texts.
 
 A thought experiment may be wacky. It is classified as wacky and stays wacky until it is measured.
 

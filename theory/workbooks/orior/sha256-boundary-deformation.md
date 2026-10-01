@@ -129,4 +129,4 @@ established by intervention.
     python examples/proofing/state_deflection.py --shape     dipole and quadrupole per round
     python examples/proofing/state_deflection.py --runs      the autocorrelation against a control
 
-The figures, and the intervention table, are in `docs/figures/state-deformation/`.
+The figures, and the intervention table, are in `theory/figures/theory/boundary/state-deformation/`.
