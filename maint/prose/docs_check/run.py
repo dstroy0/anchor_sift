@@ -25,6 +25,7 @@ from .ratchet import (
     ratchet_slack,
     ratchet_write,
     staged_paths,
+    staged_under,
 )
 from .readings import reading, show_lines, show_slack
 from .refs import manifests_covering, refs_for
@@ -159,7 +160,12 @@ def main():
     on_new_breaking = 0
     on_new_prose = 0
 
-    for path in sorted(walk_markdown(roots, ledger)):
+    # Under --staged the read is scoped to the staged files, since a pre-commit hook holds what the
+    # commit carries and reading the rest of the tree is the whole cost it adds to a commit. The
+    # ratchet already held only the staged files; now the walk reads only them too. --changed sets
+    # its own roots from the diff and keeps them.
+    scan_roots = staged_under(roots) if (staged and added is None) else roots
+    for path in sorted(walk_markdown(scan_roots, ledger)):
         with open(path, encoding="utf-8", errors="replace") as handle:
             lines = handle.read().splitlines()
         checked += 1
@@ -334,6 +340,12 @@ def main():
     # a commit hook cannot see, and it is how a wrong path goes unnoticed for as long as it takes
     # somebody to wonder why the count never moves.
     if checked == 0:
+        # Under --staged, no file read means the commit stages nothing under the roots this gate
+        # governs. There is nothing to hold, and that is a pass. Outside --staged the roots are the
+        # whole scope, and reading nothing is the misconfiguration the next line names.
+        if staged and added is None:
+            print("  no staged file falls under the checked roots. Nothing to hold.")
+            return 0
         print("  no files were read. Nothing was checked. Nothing passed.")
         for one in roots:
             print(
