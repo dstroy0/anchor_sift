@@ -350,16 +350,16 @@ def _runs(messages, draws):
     spread_control = statistics.pstdev(scores) if len(scores) > 1 else 0.0
     sys.stdout.write("  %-34s %6s %9s %8.2f\n"
                      % ("independent states, %d draws" % draws, "-", "-", middle_control))
-    sys.stdout.write("      control spread %.2f, so the real z sits %.1f control deviations out\n"
+    sys.stdout.write("      control spread %.2f. The real z sits %.1f control deviations out\n"
                      % (spread_control,
                         0.0 if spread_control == 0.0 else (score - middle_control) / spread_control))
     sys.stdout.write("\n")
 
     if score < -2.0 and abs(middle_control) < 1.0:
-        sys.stdout.write("  The real sequence drifts and the control does not, so the carryover\n")
+        sys.stdout.write("  The real sequence drifts and the control does not. The carryover\n")
         sys.stdout.write("  accounts for it. That is the shift register, seen in the reading.\n")
     else:
-        sys.stdout.write("  The two do not separate, so this reading does not show the carryover.\n")
+        sys.stdout.write("  The two do not separate. This reading does not show the carryover.\n")
     return 0
 
 
@@ -441,7 +441,7 @@ def _coherence(messages, draws):
         sys.stdout.flush()
 
     sys.stdout.write("\n  Concentration near one is a flat spectrum. The control is sets of the\n")
-    sys.stdout.write("  same weight with no structure, so z is how far the state sits from a\n")
+    sys.stdout.write("  same weight with no structure. z is how far the state sits from a\n")
     sys.stdout.write("  shuffle of itself and not from an assumption about what random means.\n")
     return 0
 

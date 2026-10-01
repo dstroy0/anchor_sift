@@ -151,10 +151,10 @@ def _check():
 
     print()
     if failures:
-        print("    FAILED: the error does not fall with the width, so something is not exact.")
+        print("    FAILED: the error does not fall with the width. Something is not exact.")
         return 1
-    print("    The error falls with the width, which is what fixed point is for and what a float")
-    print("    cannot do. A reading built on this has the floor it is given, not one at 1e-16.")
+    print("    The error falls with the width. Fixed point is for that fall; a float")
+    print("    cannot make it. A reading built on this has the floor it is given, not one at 1e-16.")
     return 0
 
 

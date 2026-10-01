@@ -142,7 +142,7 @@ def _check(product):
     print()
     if found_ok and known_ok:
         print("  CONTROL PASSES. The search returns an exact relation, and the known formula is")
-        print("  exact on the same values, so the lattice being searched does contain")
+        print("  exact on the same values. The lattice being searched does contain")
         print("  the answer. The screen has now been shown passing a true relation as well as")
         print("  rejecting false ones, the last thing it needed before being pointed anywhere new.")
         return 0

@@ -48,11 +48,6 @@ examples/game_theory/4_measure/rules_and_play.py	1
 examples/game_theory/6_oracle/bouton_and_wythoff.py	1
 examples/language/2_partition/minimum_alphabet.py	1
 examples/language/4_measure/byte_signature.py	1
-examples/proofing/bbp_scaling.py	2
-examples/proofing/bbp_search.py	1
-examples/proofing/bbp_sweep.py	1
-examples/proofing/exact_harmonics.py	2
-examples/proofing/state_deflection.py	4
 examples/proteins/derive_family_rules.py	1
 examples/sound/3_reference/period_background_and_its_null.py	1
 maint/audit/comb_arms.py	1
